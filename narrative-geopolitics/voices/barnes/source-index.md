@@ -4,7 +4,7 @@ This index routes the unified local Barnes corpus for `barnes` to the central Na
 
 Source basis: `strategy-codex/statecraft/voices/barnes/barnes-index.md` plus already-local matching archive rows.
 
-Corpus: 30 local route rows across 30 central archive source files.
+Corpus: 31 local route rows across 31 central archive source files.
 
 Status: `imported-corpus`
 
@@ -49,6 +49,7 @@ Status: `imported-corpus`
 | `2026-07-18` | Do the Iranian People Want Regime Change? | `authored` | `barnes` | [source](../../archive/sources/2026-07-18/source-do-the-iranian-people-want-regime-change-2026-07-18.md) |
 | `2026-07-20` | Iran War Escalation w/Robert Barnes | `host-pressure test` | `daniel-davis` | [source](../../archive/sources/2026-07-20/source-iran-war-escalation-w-robert-barnes-2026-07-20.md) |
 | `2026-07-22` | Robert Barnes: Breaking: Trump Threatens to Bomb Iran's Critical Infrastructure Over Hormuz Attacks | `host-pressure test` | `dialogue-works` | [source](../../archive/sources/2026-07-22/source-robert-barnes-breaking-trump-threatens-to-bomb-iran-s-critical-infrastructure-over-hormuz-attacks-2026-07-22.md) |
+| `2026-07-23` | BREAKING: TRUMP CONSIDERING MASSIVE ATTACK - w/ Robert Barnes | `host-pressure test` | `mario-nawfal` | [source](../../archive/sources/2026-07-23/source-breaking-trump-considering-massive-attack-w-robert-barnes-2026-07-23.md) |
 
 ## Import Boundary
 

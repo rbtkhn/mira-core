@@ -4,7 +4,7 @@ This index routes the transcript-bearing upstream-parity corpus for `mercouris` 
 
 Source basis: `strategy-codex/statecraft/voices/mercouris/mercouris-index.md`, `strategy-codex/statecraft/channels/alexander-mercouris/alexander-mercouris-channel-index.md`, and subsequent local intake.
 
-Corpus: 358 local route rows across 358 central archive source files.
+Corpus: 359 local route rows across 359 central archive source files.
 
 Status: `transcript-bearing-upstream-parity`
 
@@ -382,6 +382,7 @@ Status: `transcript-bearing-upstream-parity`
 | `2026-07-20` | Russia Cuts Off Odessa; Zelensky Discusses Syrsky Sacking; EU States Split On Sanctions Russia Talks | `provisional-route` | `alexander-mercouris` | [source](../../archive/sources/2026-07-20/source-russia-cuts-off-odessa-zelensky-discusses-syrsky-sacking-eu-states-split-on-sanctions-russia-talks-2026-07-20.md) |
 | `2026-07-21` | Russia Destroys Odessa Ships Brushes Off Protests; Russia Fuel Situation Stabilises; Syrsky Survives | `provisional-route` | `alexander-mercouris` | [source](../../archive/sources/2026-07-21/source-russia-destroys-odessa-ships-brushes-off-protests-russia-fuel-situation-stabilises-syrsky-survives-2026-07-21.md) |
 | `2026-07-22` | Russia Strikes Odessa 24/7 Reaches Kramatorsk; Zelensky Panics Sacks Syrsky; EU Short Of Winter Gas | `provisional-route` | `alexander-mercouris` | [source](../../archive/sources/2026-07-22/source-russia-strikes-odessa-24-7-reaches-kramatorsk-zelensky-panics-sacks-syrsky-eu-short-of-winter-gas-2026-07-22.md) |
+| `2026-07-23` | Lavrov Defies Rubio; West Ships Avoid Odessa Belitskoye Falls Dobropilia Collapse; EU Sanctions Bust | `provisional-route` | `alexander-mercouris` | [source](../../archive/sources/2026-07-23/source-lavrov-defies-rubio-west-ships-avoid-odessa-belitskoye-falls-dobropilia-collapse-eu-sanctions-bust-2026-07-23.md) |
 
 ## State Continuity
 

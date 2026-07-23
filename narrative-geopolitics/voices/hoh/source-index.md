@@ -4,7 +4,7 @@ This index routes the unified local Hoh corpus for `hoh` to the central Narrativ
 
 Source basis: `strategy-codex/statecraft/voices/hoh/hoh-index.md` plus already-local matching archive rows.
 
-Corpus: 18 local route rows across 18 central archive source files.
+Corpus: 19 local route rows across 19 central archive source files.
 
 Status: `imported-corpus`
 
@@ -37,6 +37,7 @@ Status: `imported-corpus`
 | `2026-07-15` | Matthew Hoh: Power Grids Under Fire: Iran and U.S. Escalate as Gulf Erupts | `host-pressure test` | `dialogue-works` | [source](../../archive/sources/2026-07-15/source-matthew-hoh-power-grids-under-fire-iran-and-u-s-escalate-as-gulf-erupts-2026-07-15.md) |
 | `2026-07-21` | Matt Hoh : US is Unprepared for Iran War 3.0 | `host-pressure test` | `judging-freedom` | [source](../../archive/sources/2026-07-21/source-matt-hoh-us-is-unprepared-for-iran-war-3-0-2026-07-21.md) |
 | `2026-07-22` | Matthew Hoh: Iran's Untouchable Mountain - Hegseth Says the U.S. Can Reach Anything | `host-pressure test` | `dialogue-works` | [source](../../archive/sources/2026-07-22/source-matthew-hoh-iran-s-untouchable-mountain-hegseth-says-the-u-s-can-reach-anything-2026-07-22.md) |
+| `2026-07-23` | Legalized Bribery in U.S. Congress Destroying America /Matt Hoh & Lt Col Daniel Davis | `host-pressure test` | `daniel-davis` | [source](../../archive/sources/2026-07-23/source-legalized-bribery-in-u-s-congress-destroying-america-matt-hoh-lt-col-daniel-davis-2026-07-23.md) |
 
 ## Import Boundary
 

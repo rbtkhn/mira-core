@@ -4,7 +4,7 @@ This index routes the imported seeded corpus for `krapivnik` to the central Narr
 
 Source basis: `strategy-codex/source-archive/statecraft` plus local July 2026 intake.
 
-Corpus: 18 local route rows across 18 central archive source files.
+Corpus: 19 local route rows across 19 central archive source files.
 
 Status: `seeded`
 
@@ -37,6 +37,7 @@ Status: `seeded`
 | `2026-07-05` | Stanislav Krapivnik: Geran-4 Obliterates Ukraine Fuel Storage in SECONDS | `guest interview pressure test` | `dialogue-works` | [source](../../archive/sources/2026-07-05/source-stanislav-krapivnik-geran-4-obliterates-ukraine-fuel-storage-in-seconds-2026-07-05.md) |
 | `2026-07-08` | LIVE From Russia Stanislav Krapivnik - Latest on the War w/Ukraine | `guest interview pressure test` | `daniel-davis` | [source](../../archive/sources/2026-07-08/source-live-from-russia-stanislav-krapivnik-latest-on-the-war-w-ukraine-2026-07-08.md) |
 | `2026-07-19` | Stanislav Krapivnik: Russia's Anger Boils Over - EU-Russia War Coming? | `host-pressure test` | `glenn-diesen` | [source](../../archive/sources/2026-07-19/source-stanislav-krapivnik-russia-s-anger-boils-over-eu-russia-war-coming-2026-07-19.md) |
+| `2026-07-23` | TRUMP PLANS EVEN BIGGER STRIKES ON IRAN, RUSSIA HELPING IRAN WITH THE WAR w/ STANISLAV KRAPIVNIK | `host-pressure test` | `moral-resistance` | [source](../../archive/sources/2026-07-23/source-trump-plans-even-bigger-strikes-on-iran-russia-helping-iran-with-the-war-w-stanislav-krapivnik-2026-07-23.md) |
 
 ## Import Boundary
 

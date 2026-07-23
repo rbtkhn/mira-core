@@ -4,7 +4,7 @@ This index routes the imported first-slice parity corpus for `marandi` to the ce
 
 Source basis: `strategy-codex/statecraft/voices/marandi/marandi-index.md`.
 
-Corpus: 75 local route rows across 75 central archive source files.
+Corpus: 77 local route rows across 77 central archive source files.
 
 Status: `first-slice-parity`
 
@@ -99,6 +99,8 @@ Status: `first-slice-parity`
 | `2026-07-18` | BREAKING: IRAN THREATENS TO BOMB DUBAI AIRPORT - w/ Prof. Seyed Marandi | `host-pressure test` | `mario-nawfal` | [source](../../archive/sources/2026-07-18/source-breaking-iran-threatens-to-bomb-dubai-airport-w-prof-seyed-marandi-2026-07-18.md) |
 | `2026-07-19` | PROFESSOR MARANDI: GROUND INVASION COMING, 16 U.S SOLDIERS DEAD, F-15 FIGHTER JETS DESTROYED | `host-pressure test` | `moral-resistance` | [source](../../archive/sources/2026-07-19/source-professor-marandi-ground-invasion-coming-16-u-s-soldiers-dead-f-15-fighter-jets-destroyed-2026-07-19.md) |
 | `2026-07-21` | Seyed M. Marandi: Iran's Biggest Strike Yet - Major Blow to U.S. Bases as Yemen Imposes BLOCKADE | `host-pressure test` | `dialogue-works` | [source](../../archive/sources/2026-07-21/source-seyed-m-marandi-iran-s-biggest-strike-yet-major-blow-to-u-s-bases-as-yemen-imposes-blockade-2026-07-21.md) |
+| `2026-07-23` | 'NO NEGOTIATIONS': Professor Marandi Says Iran Is Done Talking | `host-pressure test` | `breaking-points` | [source](../../archive/sources/2026-07-23/source-no-negotiations-professor-marandi-says-iran-is-done-talking-2026-07-23.md) |
+| `2026-07-23` | Prof. Mohammad Marandi: Trump Threatens War Crimes; Iran Ready for Him | `host-pressure test` | `judging-freedom` | [source](../../archive/sources/2026-07-23/source-prof-mohammad-marandi-trump-threatens-war-crimes-iran-ready-for-him-2026-07-23.md) |
 
 ## Import Boundary
 

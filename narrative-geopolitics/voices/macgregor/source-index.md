@@ -4,7 +4,7 @@ This index routes the transcript-bearing upstream-parity corpus for `macgregor` 
 
 Source basis: `narrative-geopolitics/archive/source-manifest.json`.
 
-Corpus: 82 local route rows across 82 central archive source files.
+Corpus: 84 local route rows across 84 central archive source files.
 
 Status: `transcript-bearing-upstream-parity`
 
@@ -106,6 +106,8 @@ Status: `transcript-bearing-upstream-parity`
 | `2026-07-15` | Col Doug Macgregor: Iran Wil Never Give Up | `host-pressure test` | `daniel-davis` | [source](../../archive/sources/2026-07-15/source-col-doug-macgregor-iran-wil-never-give-up-2026-07-15.md) |
 | `2026-07-22` | Bloomberg: Gulf Allies Push Trump to Invade Iran & Seize Kharg Island - w/ Col. Macgregor | `host-pressure test` | `mario-nawfal` | [source](../../archive/sources/2026-07-22/source-bloomberg-gulf-allies-push-trump-to-invade-iran-seize-kharg-island-w-col-macgregor-2026-07-22.md) |
 | `2026-07-22` | Colonel Douglas MacGregor: Breaking - Trump Threatens Bridges & Power Plants Destruction in Tehran | `host-pressure test` | `moral-resistance` | [source](../../archive/sources/2026-07-22/source-colonel-douglas-macgregor-breaking-trump-threatens-bridges-power-plants-destruction-in-tehran-2026-07-22.md) |
+| `2026-07-23` | Col Douglas Macgregor: Iran May Seize Kuwait ON THE GROUND | `host-pressure test` | `daniel-davis` | [source](../../archive/sources/2026-07-23/source-col-douglas-macgregor-iran-may-seize-kuwait-on-the-ground-2026-07-23.md) |
+| `2026-07-23` | COL. Douglas Macgregor: US Abandons Its Gulf Allies | `host-pressure test` | `judging-freedom` | [source](../../archive/sources/2026-07-23/source-col-douglas-macgregor-us-abandons-its-gulf-allies-2026-07-23.md) |
 
 ## Import Boundary
 

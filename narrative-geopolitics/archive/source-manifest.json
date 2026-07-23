@@ -2,7 +2,7 @@
   "manifest_id": "narrative-geopolitics-source-manifest-v1",
   "source_basis": "central archive with completed historical strategy-codex imports",
   "imported_at": "2026-07-09",
-  "source_count": 1873,
+  "source_count": 1889,
   "boundary": {
     "archive": "source truth",
     "voices": "voice continuity and routing",
@@ -27021,6 +27021,293 @@
         "mate"
       ],
       "host_slug": "glenn-diesen",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-07-23",
+      "title": "Lavrov Defies Rubio; West Ships Avoid Odessa Belitskoye Falls Dobropilia Collapse; EU Sanctions Bust",
+      "local_path": "narrative-geopolitics/archive/sources/2026-07-23/source-lavrov-defies-rubio-west-ships-avoid-odessa-belitskoye-falls-dobropilia-collapse-eu-sanctions-bust-2026-07-23.md",
+      "voice_index_path": "../../archive/sources/2026-07-23/source-lavrov-defies-rubio-west-ships-avoid-odessa-belitskoye-falls-dobropilia-collapse-eu-sanctions-bust-2026-07-23.md",
+      "upstream_path": "operator-paste://2026-07-23/lavrov-defies-rubio-west-ships-avoid-odessa-belitskoye-falls-dobropilia-collapse-eu-sanctions-bust",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "alexander-mercouris",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-07-23",
+      "title": "Col Douglas Macgregor: Iran May Seize Kuwait ON THE GROUND",
+      "local_path": "narrative-geopolitics/archive/sources/2026-07-23/source-col-douglas-macgregor-iran-may-seize-kuwait-on-the-ground-2026-07-23.md",
+      "voice_index_path": "../../archive/sources/2026-07-23/source-col-douglas-macgregor-iran-may-seize-kuwait-on-the-ground-2026-07-23.md",
+      "upstream_path": "operator-paste://2026-07-23/col-douglas-macgregor-iran-may-seize-kuwait-on-the-ground",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "macgregor"
+      ],
+      "host_slug": "daniel-davis",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-07-23",
+      "title": "Lawrence Wilkerson: Iran War Escalates Toward Global Crisis",
+      "local_path": "narrative-geopolitics/archive/sources/2026-07-23/source-lawrence-wilkerson-iran-war-escalates-toward-global-crisis-2026-07-23.md",
+      "voice_index_path": "../../archive/sources/2026-07-23/source-lawrence-wilkerson-iran-war-escalates-toward-global-crisis-2026-07-23.md",
+      "upstream_path": "operator-paste://2026-07-23/lawrence-wilkerson-iran-war-escalates-toward-global-crisis",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "wilkerson"
+      ],
+      "host_slug": "glenn-diesen",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-07-23",
+      "title": "Alex Krainer: A Major Military Comeback Is Reshaping the Map—Right Now",
+      "local_path": "narrative-geopolitics/archive/sources/2026-07-23/source-alex-krainer-a-major-military-comeback-is-reshaping-the-map-right-now-2026-07-23.md",
+      "voice_index_path": "../../archive/sources/2026-07-23/source-alex-krainer-a-major-military-comeback-is-reshaping-the-map-right-now-2026-07-23.md",
+      "upstream_path": "operator-paste://2026-07-23/alex-krainer-a-major-military-comeback-is-reshaping-the-map-right-now",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "krainer"
+      ],
+      "host_slug": "dialogue-works",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-07-23",
+      "title": "Prof. Mohammad Marandi: Trump Threatens War Crimes; Iran Ready for Him",
+      "local_path": "narrative-geopolitics/archive/sources/2026-07-23/source-prof-mohammad-marandi-trump-threatens-war-crimes-iran-ready-for-him-2026-07-23.md",
+      "voice_index_path": "../../archive/sources/2026-07-23/source-prof-mohammad-marandi-trump-threatens-war-crimes-iran-ready-for-him-2026-07-23.md",
+      "upstream_path": "operator-paste://2026-07-23/prof-mohammad-marandi-trump-threatens-war-crimes-iran-ready-for-him",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "marandi"
+      ],
+      "host_slug": "judging-freedom",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-07-23",
+      "title": "Prof. Glenn Diesen: Will Putin Attack His NATO Tormentors?",
+      "local_path": "narrative-geopolitics/archive/sources/2026-07-23/source-prof-glenn-diesen-will-putin-attack-his-nato-tormentors-2026-07-23.md",
+      "voice_index_path": "../../archive/sources/2026-07-23/source-prof-glenn-diesen-will-putin-attack-his-nato-tormentors-2026-07-23.md",
+      "upstream_path": "operator-paste://2026-07-23/prof-glenn-diesen-will-putin-attack-his-nato-tormentors",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "diesen"
+      ],
+      "host_slug": "judging-freedom",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-07-23",
+      "title": "'NO NEGOTIATIONS': Professor Marandi Says Iran Is Done Talking",
+      "local_path": "narrative-geopolitics/archive/sources/2026-07-23/source-no-negotiations-professor-marandi-says-iran-is-done-talking-2026-07-23.md",
+      "voice_index_path": "../../archive/sources/2026-07-23/source-no-negotiations-professor-marandi-says-iran-is-done-talking-2026-07-23.md",
+      "upstream_path": "operator-paste://2026-07-23/no-negotiations-professor-marandi-says-iran-is-done-talking",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "marandi"
+      ],
+      "host_slug": "breaking-points",
+      "inference_basis": [
+        "wrapper-normalized"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-07-23",
+      "title": "Prof John Mearsheimer: NOTHING LEFT TO HIT IN IRAN THAT MATTERS, More Damage is Meaningless",
+      "local_path": "narrative-geopolitics/archive/sources/2026-07-23/source-prof-john-mearsheimer-nothing-left-to-hit-in-iran-that-matters-more-damage-is-meaningless-2026-07-23.md",
+      "voice_index_path": "../../archive/sources/2026-07-23/source-prof-john-mearsheimer-nothing-left-to-hit-in-iran-that-matters-more-damage-is-meaningless-2026-07-23.md",
+      "upstream_path": "operator-paste://2026-07-23/prof-john-mearsheimer-nothing-left-to-hit-in-iran-that-matters-more-damage-is-meaningless",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mearsheimer"
+      ],
+      "host_slug": "daniel-davis",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-07-23",
+      "title": "Patrick Henningsen: Naval Siege: Houthis Force 10+ Saudi Tankers to Turn Back After Ballistic Strikes",
+      "local_path": "narrative-geopolitics/archive/sources/2026-07-23/source-patrick-henningsen-naval-siege-houthis-force-10-saudi-tankers-to-turn-back-after-ballistic-strikes-2026-07-23.md",
+      "voice_index_path": "../../archive/sources/2026-07-23/source-patrick-henningsen-naval-siege-houthis-force-10-saudi-tankers-to-turn-back-after-ballistic-strikes-2026-07-23.md",
+      "upstream_path": "operator-paste://2026-07-23/patrick-henningsen-naval-siege-houthis-force-10-saudi-tankers-to-turn-back-after-ballistic-strikes",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "henningsen"
+      ],
+      "host_slug": "dialogue-works",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-07-23",
+      "title": "TRUMP THREATENS TEHRAN'S POWER PLANTS, IRAN THREATENS U.S. ENERGY ASSETS - w/ Trita Parsi",
+      "local_path": "narrative-geopolitics/archive/sources/2026-07-23/source-trump-threatens-tehran-s-power-plants-iran-threatens-u-s-energy-assets-w-trita-parsi-2026-07-23.md",
+      "voice_index_path": "../../archive/sources/2026-07-23/source-trump-threatens-tehran-s-power-plants-iran-threatens-u-s-energy-assets-w-trita-parsi-2026-07-23.md",
+      "upstream_path": "operator-paste://2026-07-23/trump-threatens-tehran-s-power-plants-iran-threatens-u-s-energy-assets-w-trita-parsi",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "parsi"
+      ],
+      "host_slug": "mario-nawfal",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-07-23",
+      "title": "COL. Lawrence Wilkerson: Iran Has the Upper Hand",
+      "local_path": "narrative-geopolitics/archive/sources/2026-07-23/source-col-lawrence-wilkerson-iran-has-the-upper-hand-2026-07-23.md",
+      "voice_index_path": "../../archive/sources/2026-07-23/source-col-lawrence-wilkerson-iran-has-the-upper-hand-2026-07-23.md",
+      "upstream_path": "operator-paste://2026-07-23/col-lawrence-wilkerson-iran-has-the-upper-hand",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "wilkerson"
+      ],
+      "host_slug": "judging-freedom",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-07-23",
+      "title": "COL. Douglas Macgregor: US Abandons Its Gulf Allies",
+      "local_path": "narrative-geopolitics/archive/sources/2026-07-23/source-col-douglas-macgregor-us-abandons-its-gulf-allies-2026-07-23.md",
+      "voice_index_path": "../../archive/sources/2026-07-23/source-col-douglas-macgregor-us-abandons-its-gulf-allies-2026-07-23.md",
+      "upstream_path": "operator-paste://2026-07-23/col-douglas-macgregor-us-abandons-its-gulf-allies",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "macgregor"
+      ],
+      "host_slug": "judging-freedom",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-07-23",
+      "title": "TRUMP PLANS EVEN BIGGER STRIKES ON IRAN, RUSSIA HELPING IRAN WITH THE WAR w/ STANISLAV KRAPIVNIK",
+      "local_path": "narrative-geopolitics/archive/sources/2026-07-23/source-trump-plans-even-bigger-strikes-on-iran-russia-helping-iran-with-the-war-w-stanislav-krapivnik-2026-07-23.md",
+      "voice_index_path": "../../archive/sources/2026-07-23/source-trump-plans-even-bigger-strikes-on-iran-russia-helping-iran-with-the-war-w-stanislav-krapivnik-2026-07-23.md",
+      "upstream_path": "operator-paste://2026-07-23/trump-plans-even-bigger-strikes-on-iran-russia-helping-iran-with-the-war-w-stanislav-krapivnik",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "krapivnik"
+      ],
+      "host_slug": "moral-resistance",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-07-23",
+      "title": "Legalized Bribery in U.S. Congress Destroying America /Matt Hoh & Lt Col Daniel Davis",
+      "local_path": "narrative-geopolitics/archive/sources/2026-07-23/source-legalized-bribery-in-u-s-congress-destroying-america-matt-hoh-lt-col-daniel-davis-2026-07-23.md",
+      "voice_index_path": "../../archive/sources/2026-07-23/source-legalized-bribery-in-u-s-congress-destroying-america-matt-hoh-lt-col-daniel-davis-2026-07-23.md",
+      "upstream_path": "operator-paste://2026-07-23/legalized-bribery-in-u-s-congress-destroying-america-matt-hoh-lt-col-daniel-davis",
+      "source_class": "host monologue",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "hoh"
+      ],
+      "host_slug": "daniel-davis",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-07-23",
+      "title": "BREAKING: TRUMP CONSIDERING MASSIVE ATTACK - w/ Robert Barnes",
+      "local_path": "narrative-geopolitics/archive/sources/2026-07-23/source-breaking-trump-considering-massive-attack-w-robert-barnes-2026-07-23.md",
+      "voice_index_path": "../../archive/sources/2026-07-23/source-breaking-trump-considering-massive-attack-w-robert-barnes-2026-07-23.md",
+      "upstream_path": "operator-paste://2026-07-23/breaking-trump-considering-massive-attack-w-robert-barnes",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "barnes"
+      ],
+      "host_slug": "mario-nawfal",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-07-23",
+      "title": "Larry Johnson: BREAKING: Iran Rejects U.S. Offer as Trump Weighs Massive Military Strike",
+      "local_path": "narrative-geopolitics/archive/sources/2026-07-23/source-larry-johnson-breaking-iran-rejects-u-s-offer-as-trump-weighs-massive-military-strike-2026-07-23.md",
+      "voice_index_path": "../../archive/sources/2026-07-23/source-larry-johnson-breaking-iran-rejects-u-s-offer-as-trump-weighs-massive-military-strike-2026-07-23.md",
+      "upstream_path": "operator-paste://2026-07-23/larry-johnson-breaking-iran-rejects-u-s-offer-as-trump-weighs-massive-military-strike",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "johnson"
+      ],
+      "host_slug": "dialogue-works",
       "inference_basis": [
         "wrapper-normalized",
         "explicit-host"

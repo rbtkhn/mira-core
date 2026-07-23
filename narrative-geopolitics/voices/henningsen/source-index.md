@@ -6,7 +6,7 @@ This index routes the unified local Henningsen corpus for `henningsen` to the ce
 
 Source basis: `narrative-geopolitics/archive/source-manifest.json`.
 
-Corpus: 15 local route rows across 15 central archive source files.
+Corpus: 16 local route rows across 16 central archive source files.
 
 Status: `imported-corpus`
 
@@ -36,6 +36,7 @@ Status: `imported-corpus`
 | `2026-06-23` | Patrick Henningsen: Israel's Losses Continue to Get Worse – New Numbers Just Dropped | `host-pressure test` | `dialogue-works` | [source](../../archive/sources/2026-06-23/source-dialogue-works-henningsen-israels-losses-lebanon-hezbollah-iran-geneva-talks-2026-06-23.md) |
 | `2026-06-30` | Patrick Henningsen: Greater Israel Lies in Ruins: The Inside Story of a Total Collapse | `host-pressure test` | `dialogue-works` | [source](../../archive/sources/2026-06-30/source-patrick-henningsen-greater-israel-lies-in-ruins-the-inside-story-of-a-total-collapse-2026-06-30.md) |
 | `2026-07-16` | The WEAK POSITION US HAS w/IRAN Patrick Henningsen Just Back From Tehran | `host-pressure test` | `daniel-davis` | [source](../../archive/sources/2026-07-16/source-the-weak-position-us-has-w-iran-patrick-henningsen-just-back-from-tehran-2026-07-16.md) |
+| `2026-07-23` | Patrick Henningsen: Naval Siege: Houthis Force 10+ Saudi Tankers to Turn Back After Ballistic Strikes | `host-pressure test` | `dialogue-works` | [source](../../archive/sources/2026-07-23/source-patrick-henningsen-naval-siege-houthis-force-10-saudi-tankers-to-turn-back-after-ballistic-strikes-2026-07-23.md) |
 
 ## Import Boundary
 

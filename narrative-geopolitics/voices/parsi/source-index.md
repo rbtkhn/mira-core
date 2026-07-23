@@ -4,7 +4,7 @@ This index routes the unified local Parsi corpus for `parsi` to the central Narr
 
 Source basis: `strategy-codex/statecraft/voices/parsi/parsi-index.md` plus already-local matching archive rows.
 
-Corpus: 60 local route rows across 60 central archive source files.
+Corpus: 61 local route rows across 61 central archive source files.
 
 Status: `imported-corpus`
 
@@ -79,6 +79,7 @@ Status: `imported-corpus`
 | `2026-07-16` | REUTERS: IRAN PREPARING TO CLOSE RED SEA IF TRUMP HITS POWER GRID - w/ Trita Parsi | `host-pressure test` | `mario-nawfal` | [source](../../archive/sources/2026-07-16/source-reuters-iran-preparing-to-close-red-sea-if-trump-hits-power-grid-w-trita-parsi-2026-07-16.md) |
 | `2026-07-18` | Yesterday's US-Iran escalation is a mere prelude to what is likely to come | `authored` | `parsi` | [source](../../archive/sources/2026-07-18/source-yesterday-s-us-iran-escalation-is-a-mere-prelude-to-what-is-likely-to-come-2026-07-18.md) |
 | `2026-07-22` | The US-Saudi nuclear deal makes no sense | `authored` | `parsi` | [source](../../archive/sources/2026-07-22/source-the-us-saudi-nuclear-deal-makes-no-sense-2026-07-22.md) |
+| `2026-07-23` | TRUMP THREATENS TEHRAN'S POWER PLANTS, IRAN THREATENS U.S. ENERGY ASSETS - w/ Trita Parsi | `host-pressure test` | `mario-nawfal` | [source](../../archive/sources/2026-07-23/source-trump-threatens-tehran-s-power-plants-iran-threatens-u-s-energy-assets-w-trita-parsi-2026-07-23.md) |
 
 ## Import Boundary
 

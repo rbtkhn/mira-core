@@ -4,7 +4,7 @@ This index routes the imported first-slice parity corpus for `mearsheimer` to th
 
 Source basis: `strategy-codex/statecraft/voices/mearsheimer/mearsheimer-index.md`.
 
-Corpus: 66 local route rows across 66 central archive source files.
+Corpus: 67 local route rows across 67 central archive source files.
 
 Status: `first-slice-parity`
 
@@ -91,6 +91,7 @@ Status: `first-slice-parity`
 | `2026-07-20` | John Mearsheimer DIRE WARNING Of Global Economic Calamity | `host-pressure test` | `breaking-points` | [source](../../archive/sources/2026-07-20/source-john-mearsheimer-dire-warning-of-global-economic-calamity-2026-07-20.md) |
 | `2026-07-20` | Prof. John Mearsheimer: Pentagon Prepares for a Wider War as Military Build-Up Accelerates | `host-pressure test` | `dialogue-works` | [source](../../archive/sources/2026-07-20/source-prof-john-mearsheimer-pentagon-prepares-for-a-wider-war-as-military-build-up-accelerates-2026-07-20.md) |
 | `2026-07-21` | Prof. John Mearsheimer : More War and America’s Collapse | `host-pressure test` | `judging-freedom` | [source](../../archive/sources/2026-07-21/source-prof-john-mearsheimer-more-war-and-america-s-collapse-2026-07-21.md) |
+| `2026-07-23` | Prof John Mearsheimer: NOTHING LEFT TO HIT IN IRAN THAT MATTERS, More Damage is Meaningless | `host-pressure test` | `daniel-davis` | [source](../../archive/sources/2026-07-23/source-prof-john-mearsheimer-nothing-left-to-hit-in-iran-that-matters-more-damage-is-meaningless-2026-07-23.md) |
 
 ## State Continuity
 

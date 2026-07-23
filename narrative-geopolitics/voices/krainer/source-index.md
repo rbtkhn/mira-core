@@ -4,7 +4,7 @@ This index routes the unified local Krainer corpus for `krainer` to the central 
 
 Source basis: `strategy-codex/statecraft/voices/krainer/krainer-index.md` plus already-local matching archive rows.
 
-Corpus: 15 local route rows across 15 central archive source files.
+Corpus: 16 local route rows across 16 central archive source files.
 
 Status: `imported-corpus`
 
@@ -34,6 +34,7 @@ Status: `imported-corpus`
 | `2026-06-18` | Alex Krainer: Trump SCOLDS Netanyahu as Iran Oil Sanctions LIFTED | `host-pressure test` | `dialogue-works` | [source](../../archive/sources/2026-06-18/source-dialogue-works-alex-krainer-trump-scolds-netanyahu-iran-oil-sanctions-lifted-2026-06-18.md) |
 | `2026-06-19` | Alex Krainer: The Decline of the West & War Against Russia | `host-pressure test` | `glenn-diesen` | [source](../../archive/sources/2026-06-19/source-glenn-diesen-alex-krainer-decline-of-the-west-war-against-russia-2026-06-19.md) |
 | `2026-07-16` | Alex Krainer: Trump Weighs Massive Offensive Against Iran - Tehran Has a Plan to Trap Him | `host-pressure test` | `dialogue-works` | [source](../../archive/sources/2026-07-16/source-alex-krainer-trump-weighs-massive-offensive-against-iran-tehran-has-a-plan-to-trap-him-2026-07-16.md) |
+| `2026-07-23` | Alex Krainer: A Major Military Comeback Is Reshaping the Map—Right Now | `host-pressure test` | `dialogue-works` | [source](../../archive/sources/2026-07-23/source-alex-krainer-a-major-military-comeback-is-reshaping-the-map-right-now-2026-07-23.md) |
 
 ## Import Boundary
 

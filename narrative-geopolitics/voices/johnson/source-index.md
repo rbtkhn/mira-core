@@ -4,7 +4,7 @@ This index routes the imported first-slice parity corpus for `johnson` to the ce
 
 Source basis: `narrative-geopolitics/archive/source-manifest.json`.
 
-Corpus: 101 local route rows across 101 central archive source files.
+Corpus: 102 local route rows across 102 central archive source files.
 
 Status: `first-slice-parity`
 
@@ -125,6 +125,7 @@ Status: `first-slice-parity`
 | `2026-07-19` | U.S TO EXPAND THE WAR, ISRAEL TO JOIN THE IRAN WAR, GROUND INVASION COMING? w/ CIA Larry Johnson | `host-pressure test` | `moral-resistance` | [source](../../archive/sources/2026-07-19/source-u-s-to-expand-the-war-israel-to-join-the-iran-war-ground-invasion-coming-w-cia-larry-johnson-2026-07-19.md) |
 | `2026-07-20` | Larry Johnson: US Running Out of Ammo | `host-pressure test` | `judging-freedom` | [source](../../archive/sources/2026-07-20/source-larry-johnson-us-running-out-of-ammo-2026-07-20.md) |
 | `2026-07-21` | BREAKING: TRUMP TO BOMB IRAN'S NUCLEAR CENTRIFUGES - w/ Fmr. CIA Larry Johnson | `host-pressure test` | `mario-nawfal` | [source](../../archive/sources/2026-07-21/source-breaking-trump-to-bomb-iran-s-nuclear-centrifuges-w-fmr-cia-larry-johnson-2026-07-21.md) |
+| `2026-07-23` | Larry Johnson: BREAKING: Iran Rejects U.S. Offer as Trump Weighs Massive Military Strike | `host-pressure test` | `dialogue-works` | [source](../../archive/sources/2026-07-23/source-larry-johnson-breaking-iran-rejects-u-s-offer-as-trump-weighs-massive-military-strike-2026-07-23.md) |
 
 ## State Continuity
 

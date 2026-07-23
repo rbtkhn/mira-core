@@ -4,7 +4,7 @@ This index routes the imported first-slice parity corpus for `diesen` to the cen
 
 Source basis: `strategy-codex/statecraft/voices/diesen/diesen-index.md`.
 
-Corpus: 7 local route rows across 7 central archive source files.
+Corpus: 8 local route rows across 8 central archive source files.
 
 Status: `first-slice-parity`
 
@@ -31,6 +31,7 @@ Status: `first-slice-parity`
 | `2026-04-18` | Diesen | `host-pressure test` | `upstream-unresolved` | [source](../../archive/sources/2026-04-18/source-diesen-2026-04-18.md) |
 | `2026-05-31` | BREAKING: IRAN COLLECTS TOLLS FROM 28 SHIPS IN PAST 24 HOURS - w/ Analyst Glenn Diesen | `multipolar-order spine` | `mario-nawfal` | [source](../../archive/sources/2026-05-31/source-mario-nawfal-diesen-breaking-iran-collects-tolls-from-28-ships-in-past-24-hours-2026-05-31.md) |
 | `2026-06-24` | Prof. Glenn Diesen : Is Europe Preparing for War? | `multipolar-order spine` | `judging-freedom` | [source](../../archive/sources/2026-06-24/source-judging-freedom-diesen-europe-preparing-war-2026-06-24.md) |
+| `2026-07-23` | Prof. Glenn Diesen: Will Putin Attack His NATO Tormentors? | `host-pressure test` | `judging-freedom` | [source](../../archive/sources/2026-07-23/source-prof-glenn-diesen-will-putin-attack-his-nato-tormentors-2026-07-23.md) |
 
 ## Import Boundary
 
