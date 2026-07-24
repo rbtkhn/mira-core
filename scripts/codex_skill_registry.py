@@ -10,6 +10,7 @@ CODEX_SKILLS_ROOT = Path.home() / ".codex" / "skills"
 DEPLOYABLE_SKILL_NAMES = (
     "best-intake",
     "smart-intake",
+    "voice-comparison",
     "geopolitical-synthesis",
     "reality-check",
     "voice-accountability",

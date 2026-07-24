@@ -1252,6 +1252,9 @@ def create_scaffold(args: argparse.Namespace) -> Path:
             raise RealityError("new investigation requires --id VER-YYYYMMDD-NN")
         record = base_record(record_id, "investigation", as_of, status="requested", creator="operator")
         record.update({"claim_ids": args.claim, "observable_ids": args.observable, "research_boundary": args.text, "affected_forecast_hooks": [], "affected_artifacts": []})
+    failures = validate_record(record, load_records())
+    if failures:
+        raise RealityError("refusing to write invalid record: " + "; ".join(failures))
     return write_record(record)
 
 
@@ -1272,7 +1275,21 @@ def add_scaffold(args: argparse.Namespace) -> Path:
         record_id = args.id or next_id("relation", as_of)
         record = base_record(record_id, "relation", as_of, status="active", creator="operator")
         record.update({"from_id": args.from_id, "to_id": args.to_id, "relation_type": args.type, "scope": args.scope})
+    failures = validate_record(record, load_records())
+    if failures:
+        raise RealityError("refusing to write invalid record: " + "; ".join(failures))
     return write_record(record)
+
+
+def land_evidence(args: argparse.Namespace) -> Path:
+    """Add one evidence record, then render and validate the lattice."""
+    args.record_kind = "evidence"
+    path = add_scaffold(args)
+    write_views()
+    failures = validate_all()
+    if failures:
+        raise RealityError("evidence landed but validation failed: " + "; ".join(failures))
+    return path
 
 
 def scaffold_assessment(claim_id: str, root: Path = REALITY_ROOT) -> Path:
@@ -1369,6 +1386,9 @@ def parse_args() -> argparse.Namespace:
     relation = add_sub.add_parser("relation")
     relation.add_argument("--date", required=True); relation.add_argument("--id"); relation.add_argument("--from-id", required=True); relation.add_argument("--to-id", required=True); relation.add_argument("--type", choices=sorted(RELATION_TYPES), required=True); relation.add_argument("--scope", required=True)
 
+    land = sub.add_parser("land-evidence", help="add evidence, render views, and validate all records")
+    land.add_argument("--date", required=True); land.add_argument("--id"); land.add_argument("--source", required=True); land.add_argument("--url", required=True); land.add_argument("--retrieved-at"); land.add_argument("--event-time", required=True); land.add_argument("--observation", required=True); land.add_argument("--origin-language", required=True); land.add_argument("--access-language", required=True); land.add_argument("--translation-provenance", choices=sorted(TRANSLATION_PROVENANCE), required=True); land.add_argument("--chain", required=True); land.add_argument("--environment", required=True); land.add_argument("--limitation", required=True); land.add_argument("--role", choices=sorted(EVIDENCE_ROLES), required=True)
+
     assess = sub.add_parser("assess"); assess.add_argument("claim_id")
     sign = sub.add_parser("sign"); sign.add_argument("assessment_id"); sign.add_argument("--reviewer", required=True)
     waive = sub.add_parser("waive-language"); waive.add_argument("assessment_id"); waive.add_argument("--reviewer", required=True); waive.add_argument("--reason", required=True)
@@ -1388,6 +1408,8 @@ def main() -> None:
             print(create_scaffold(args).relative_to(REPO_ROOT).as_posix())
         elif args.command == "add":
             print(add_scaffold(args).relative_to(REPO_ROOT).as_posix())
+        elif args.command == "land-evidence":
+            print(land_evidence(args).relative_to(REPO_ROOT).as_posix())
         elif args.command == "assess":
             print(scaffold_assessment(args.claim_id).relative_to(REPO_ROOT).as_posix())
         elif args.command == "sign":

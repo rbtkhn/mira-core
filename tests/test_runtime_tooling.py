@@ -45,7 +45,7 @@ EXPECTED_SURFACES = {
     "forecast-sync": "sync_forecast_ledger.py",
     "forecast-triage": "triage_forecast_ledger.py",
     "harness": "audit_ai_harness.py",
-    "intake-land": "land_best_intake.py",
+    "intake-land": "smart_intake.py",
     "intake-stats": "report_trim_stats.py",
     "issue-render": "render_daily_issue.py",
     "narrative-reuse": "report_narrative_reuse.py",
@@ -57,6 +57,7 @@ EXPECTED_SURFACES = {
     "voice-accountability": "voice_accountability.py",
     "voice-canonicalize": "canonicalize_voice_metadata.py",
     "voice-sync": "sync_voice_indexes.py",
+    "voice-comparison": "voice_comparison.py",
 }
 
 

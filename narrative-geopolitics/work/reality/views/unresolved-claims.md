@@ -1,4 +1,4 @@
-<!-- reality-lattice-v1 records-sha256: 2c934e35a1e1ee1e46d873a18ba1aad2268688e8eeba8539dffc0b93f75dc10a -->
+<!-- reality-lattice-v1 records-sha256: 024dbef733a5964a004587b221bb259743198d50c61dfc8915bf649b9732e547 -->
 <!-- Generated from structured reality records. Do not edit directly. -->
 
 # Unresolved Reality Claims
@@ -11,6 +11,8 @@
 | `CLM-20260710-004` | `operational_factual` | `high` | `supported` | 3 language environment(s); 3 chain(s) |
 | `CLM-20260710-005` | `causal` | `high` | `contested` | 3 language environment(s); 3 chain(s) |
 | `CLM-20260714-001` | `interpretive` | `medium` | `unassessed` | 2 language environment(s); 2 chain(s) |
+| `CLM-20260723-001` | `operational_factual` | `high` | `unassessed` | 3 language environment(s); 3 chain(s) |
+| `CLM-20260723-002` | `causal` | `high` | `unassessed` | 3 language environment(s); 3 chain(s) |
 | `NG-20260708-F01` | `forecast` | `high` | `unassessed` | 3 language environment(s); 3 chain(s) |
 | `NG-20260708-F02` | `forecast` | `high` | `unassessed` | 3 language environment(s); 3 chain(s) |
 | `OPC-20260710-02` | `operational_factual` | `high` | `contested` | 3 language environment(s); 3 chain(s) |

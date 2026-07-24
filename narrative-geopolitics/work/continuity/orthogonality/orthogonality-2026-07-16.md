@@ -11,8 +11,8 @@
 ## Audit Metadata
 
 - **Date:** `2026-07-16`
-- **Generated:** `2026-07-21T18:01:24.518880+00:00`
-- **Content hash:** `017a78864e118a45`
+- **Generated:** `2026-07-23T05:31:06.943944+00:00`
+- **Content hash:** `63f88740a1dea9af`
 - **Sources:** 10
 - **Voices:** 10 (5 mapped, 5 unmapped)
 
@@ -23,7 +23,7 @@
 | Voice | Canonical axis | Daily contribution | Risk | Sources | Hosts | Status |
 | --- | --- | --- | --- | --- | --- | --- |
 | `escobar` | regional legitimacy / siege-for-siege | Regional escalation lane: Connects Bab el-Mandeb, Yanbu, Saudi ambiguity, and mediation failure into a wider pressure ladder. | Attributed legitimacy claims can be mistaken for operational fact. | SRC-05 | dialogue-works | distinct contribution |
-| `helmer` | unmapped | Daily source set centers on What Will It Take For Russia To End The NATO Proxy War? w/ John Helmer. | Temporary daily identity requires human review. | SRC-10 | reason-to-resist | human review required |
+| `helmer` | unmapped | Daily source set centers on What Will It Take For Russia To End The NATO Proxy War? w/ John Helmer. | Temporary daily identity requires human review. | SRC-10 | reason-resist | human review required |
 | `henningsen` | unmapped | Daily source set centers on The WEAK POSITION US HAS w/IRAN Patrick Henningsen Just Back From Tehran. | Temporary daily identity requires human review. | SRC-09 | daniel-davis | human review required |
 | `johnson` | material capacity / sustainability | Practical constraint: Argues the U.S. cannot force Hormuz open and links chokepoints to oil, diesel, and SPR pressure. | Unverified stockpile and depletion claims. | SRC-03 | daniel-davis | distinct contribution |
 | `krainer` | unmapped | Daily source set centers on Alex Krainer: Trump Weighs Massive Offensive Against Iran - Tehran Has a Plan to Trap Him. | Temporary daily identity requires human review. | SRC-01 | dialogue-works | human review required |

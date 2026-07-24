@@ -1,0 +1,14 @@
+{
+  "as_of": "2026-07-23",
+  "created_at": "2026-07-23T00:00:00Z",
+  "created_by": "operator",
+  "from_id": "EVD-20260723-005",
+  "id": "REL-20260723-005",
+  "kind": "relation",
+  "relation_type": "challenges",
+  "revision_of": null,
+  "scope": "Challenges the broad claim that Iranian attacks generally overwhelmed regional air defenses because Jordan reported successful interception of three missiles; scope is limited to the reported salvo.",
+  "status": "active",
+  "to_id": "OPC-20260714-01",
+  "schema_version": 1
+}

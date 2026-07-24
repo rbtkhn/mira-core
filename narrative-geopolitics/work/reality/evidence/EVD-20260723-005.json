@@ -1,0 +1,23 @@
+{
+  "access_language": "en",
+  "as_of": "2026-07-23",
+  "created_at": "2026-07-23T00:00:00Z",
+  "created_by": "operator",
+  "event_time": "2026-07-17",
+  "evidence_role": "official_position",
+  "geopolitical_environment": "regional_independent",
+  "id": "EVD-20260723-005",
+  "kind": "evidence",
+  "limitation": "The Jordanian statement confirms interception of three missiles but does not identify all weapons involved in the wider attack or quantify damage at the base.",
+  "observation": "Jordan's official Petra news agency reported that Jordanian air-defense systems intercepted and destroyed three Iranian missiles entering Jordanian airspace on July 17 and said they targeted Jordanian territory.",
+  "origin_language": "en",
+  "originating_chain": "CHAIN-PETRA-20260717-JORDAN-INTERCEPTIONS",
+  "representation_sha256": "60303c4d64b8b59122fde214dc9a70e6d73ebec941a854b9618927aafb3aa283",
+  "retrieved_at": "2026-07-23",
+  "revision_of": null,
+  "schema_version": 1,
+  "source_id": "VSRC-RPT-AP",
+  "status": "active",
+  "translation_provenance": "not_required",
+  "url": "https://org.petra.gov.jo/Include/InnerPage.jsp?ID=87107&lang=en&name=en_news"
+}

@@ -2,7 +2,7 @@
 
 ## Decision Summary
 
-- Sources: 7; distinct voices: 7; mapped: 4; unmapped: 3
+- Sources: 8; distinct voices: 8; mapped: 5; unmapped: 3
 - Strongest convergence: johnson and marandi converge on gulf, pressure; classification: convergent with distinct mechanisms.
 - Highest collapse risk: none
 - Top counter-pressure gap: No vessel-level or official-maritime counter-pressure is represented in the daily source ledger; maritime threat convergence must not be treated as closure evidence.
@@ -11,10 +11,10 @@
 ## Audit Metadata
 
 - **Date:** `2026-07-18`
-- **Generated:** `2026-07-21T17:21:01.004919+00:00`
-- **Content hash:** `c0123623f553ccd6`
-- **Sources:** 7
-- **Voices:** 7 (4 mapped, 3 unmapped)
+- **Generated:** `2026-07-23T05:31:07.031975+00:00`
+- **Content hash:** `a65e0cf8a2fa4881`
+- **Sources:** 8
+- **Voices:** 8 (5 mapped, 3 unmapped)
 
 > Same conclusion plus different mechanism can be orthogonal; same conclusion plus shared lineage is not independent corroboration.
 
@@ -22,6 +22,7 @@
 
 | Voice | Canonical axis | Daily contribution | Risk | Sources | Hosts | Status |
 | --- | --- | --- | --- | --- | --- | --- |
+| `barnes` | legal-strategic / force feasibility | Daily source set centers on Do the Iranian People Want Regime Change?. | Compressing legal, strategic, and operational claims into one frame. | none | barnes | distinct contribution |
 | `davis` | practical room / military feasibility | Practical force-room pressure test: Keeps the central question on whether force can compel Iran or mainly widen the battlefield. | Over-practical skepticism or underweighting structure and legitimacy. | SRC-03 | daniel-davis | distinct contribution |
 | `johnson` | material capacity / sustainability | Military capacity pressure test: Tests whether U.S. and Gulf air defense, base posture, and naval options can sustain expansion. | Unverified stockpile and depletion claims. | SRC-06 | dialogue-works | distinct contribution |
 | `marandi` | regional red line / legitimacy | Iran-facing red-line pressure: Gives the clearest statement of deterrent logic behind threats to Gulf airports, ports, electricity, and water systems. | Regime-adjacent signaling may be mistaken for independently verified fact. | SRC-02 | mario-nawfal | distinct contribution |
@@ -32,6 +33,7 @@
 
 ## Analytical Axis Coverage
 
+- `legal-strategic / force feasibility`: barnes
 - `practical room / military feasibility`: davis
 - `material capacity / sustainability`: johnson
 - `regional red line / legitimacy`: marandi

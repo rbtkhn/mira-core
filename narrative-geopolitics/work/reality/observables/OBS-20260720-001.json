@@ -1,0 +1,31 @@
+{
+  "as_of": "2026-07-20",
+  "claim_ids": [
+    "OPC-20260720-01"
+  ],
+  "created_at": "2026-07-20T00:00:00Z",
+  "created_by": "operator",
+  "domain_profile": "DOMAIN-MARITIME-TRACKING",
+  "id": "OBS-20260720-001",
+  "kind": "observable",
+  "possible_results": [
+    "observed",
+    "not_observed",
+    "contested",
+    "unavailable"
+  ],
+  "question": "Did Saudi-linked crude flows through Bab al-Mandab fall materially after the July 20 Houthi embargo announcement, and was the change caused by rerouting, warnings, attacks, or physical closure?",
+  "required_language_environments": [
+    "ar",
+    "en",
+    "fa"
+  ],
+  "resolution_rule": "Resolve only with time-bounded vessel-tracking or flow data plus regional and external reporting; distinguish declared embargo, rerouting, measurable flow reduction, and physical closure.",
+  "revision_of": null,
+  "schema_version": 1,
+  "status": "open",
+  "window": {
+    "end": "2026-08-15",
+    "start": "2026-07-20"
+  }
+}

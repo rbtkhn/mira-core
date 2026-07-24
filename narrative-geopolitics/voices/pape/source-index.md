@@ -4,7 +4,7 @@ This index routes Robert Pape voice work to the central Narrative Geopolitics so
 
 Source basis: `strategy-codex/statecraft/voices/pape/pape-index.md`.
 
-Corpus: 67 authored sources, 23 guest appearances, 90 total imported sources.
+Corpus: 68 authored sources, 24 guest appearances, 92 total imported sources.
 
 ## Reading Rule
 
@@ -126,3 +126,5 @@ Corpus: 67 authored sources, 23 guest appearances, 90 total imported sources.
 - [2026-07-21 — BREAKING: TRUMP REJECTS IRAN CEASEFIRE, VOWS "DEVASTATING BLOWS" - w/ Robert Pape](../../archive/sources/2026-07-21/source-breaking-trump-rejects-iran-ceasefire-vows-devastating-blows-w-robert-pape-2026-07-21.md) — **guest** · cleaned-transcript · host: `mario-nawfal`
 - [2026-07-21 — Breaking Analysis #7: New Intel on Pick Axe Mountain -- Has Iran Already Won the Nuclear Race?](../../archive/sources/2026-07-21/source-breaking-analysis-7-new-intel-on-pick-axe-mountain-has-iran-already-won-the-nuclear-race-2026-07-21.md) — **authored** · substack-post
 - [2026-07-22 — Iran With Major Strikes on Israel Coming Within 3-4 Days, Ground Invasion Coming](../../archive/sources/2026-07-22/source-iran-with-major-strikes-on-israel-coming-within-3-4-days-ground-invasion-coming-2026-07-22.md) — **guest** · transcript · host: `moral-resistance`
+- [2026-07-23 — The Impossible Drone Hunt: Why Reopening the Strait of Hormuz Could Be Far Harder Than Most People Realize](../../archive/sources/2026-07-23/source-the-impossible-drone-hunt-why-reopening-the-strait-of-hormuz-could-be-far-harder-than-most-people-realize-2026-07-23.md) — **authored** · substack-post
+- [2026-07-23 — The Impossible Drone Hunt](../../archive/sources/2026-07-23/source-the-impossible-drone-hunt-2026-07-23.md) — **guest** · cleaned-transcript · host: `escalation-trap`

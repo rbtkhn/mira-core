@@ -1,4 +1,4 @@
-<!-- reality-lattice-v1 records-sha256: 2c934e35a1e1ee1e46d873a18ba1aad2268688e8eeba8539dffc0b93f75dc10a -->
+<!-- reality-lattice-v1 records-sha256: 024dbef733a5964a004587b221bb259743198d50c61dfc8915bf649b9732e547 -->
 <!-- Generated from structured reality records. Do not edit directly. -->
 
 # Multilingual Coverage
@@ -11,6 +11,8 @@
 | `CLM-20260710-004` | 3 | none | 3 | 0 | `False` | `False` |
 | `CLM-20260710-005` | 3 | none | 3 | 0 | `False` | `True` |
 | `CLM-20260714-001` | 2 | none | 2 | 0 | `False` | `False` |
+| `CLM-20260723-001` | 3 | none | 3 | 0 | `False` | `False` |
+| `CLM-20260723-002` | 3 | none | 3 | 0 | `False` | `False` |
 | `NG-20260708-F01` | 3 | none | 3 | 0 | `False` | `False` |
 | `NG-20260708-F02` | 3 | none | 3 | 0 | `False` | `False` |
 | `OPC-20260710-02` | 3 | none | 3 | 0 | `False` | `True` |

@@ -1,0 +1,23 @@
+{
+  "access_language": "en",
+  "as_of": "2026-07-23",
+  "created_at": "2026-07-23T00:00:00Z",
+  "created_by": "operator",
+  "event_time": "2026-07-20",
+  "evidence_role": "professional_reporting",
+  "geopolitical_environment": "regional_independent",
+  "id": "EVD-20260723-003",
+  "kind": "evidence",
+  "limitation": "Commercial-flow reporting is a strong observable for movement but the article is secondary reporting and the time window overlaps the threat announcement; it does not establish physical closure.",
+  "observation": "The National reported Kpler data showing Saudi crude loadings through Bab al-Mandab fell 36 percent over two weeks, while noting that some volumes reflected rerouting through Saudi Red Sea terminals.",
+  "origin_language": "en",
+  "originating_chain": "CHAIN-KPLER-NATIONAL-20260720-SAUDI-FLOWS",
+  "representation_sha256": "27e62b5d6dbadfd894fc2e39bc35fe7f561f9d467a5cfbf5a96730892b73a719",
+  "retrieved_at": "2026-07-23",
+  "revision_of": null,
+  "schema_version": 1,
+  "source_id": "VSRC-TRK-KPLER",
+  "status": "active",
+  "translation_provenance": "not_required",
+  "url": "https://www.thenationalnews.com/business/energy/2026/07/20/saudi-oil-loadings-drop-by-36-as-houthi-threats-disrupt-bab-al-mandeb-passage/"
+}

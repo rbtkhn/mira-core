@@ -1,0 +1,14 @@
+{
+  "as_of": "2026-07-23",
+  "created_at": "2026-07-23T00:00:00Z",
+  "created_by": "operator",
+  "from_id": "EVD-20260723-004",
+  "id": "REL-20260723-004",
+  "kind": "relation",
+  "relation_type": "supports",
+  "revision_of": null,
+  "scope": "Supports the occurrence of an Iranian attack on a U.S.-used base in Jordan and resulting U.S. casualties; does not by itself support a broad air-defense-failure conclusion.",
+  "status": "active",
+  "to_id": "OPC-20260714-01",
+  "schema_version": 1
+}

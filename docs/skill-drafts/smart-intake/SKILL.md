@@ -47,14 +47,14 @@ when clear, and a manifest row.
 ## Routine command
 
 ```powershell
-python scripts/smart_intake.py --date YYYY-MM-DD --url URL --body-file PATH --dry-run
-python scripts/smart_intake.py --date YYYY-MM-DD --url URL --body-file PATH
+.\tools\run.ps1 intake-land --date YYYY-MM-DD --url URL --body-file PATH --dry-run
+.\tools\run.ps1 intake-land --date YYYY-MM-DD --url URL --body-file PATH
 ```
 
 Use explicit overrides when inference is ambiguous:
 
 ```powershell
-python scripts/smart_intake.py --pub-date YYYY-MM-DD --ingest-date YYYY-MM-DD \
+.\tools\run.ps1 intake-land --pub-date YYYY-MM-DD --ingest-date YYYY-MM-DD \
   --url URL --body-file PATH --voice-slug SLUG --host-slug HOST \
   --source-form interview --dry-run
 ```

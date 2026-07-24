@@ -1,4 +1,4 @@
-<!-- reality-lattice-v1 records-sha256: 2c934e35a1e1ee1e46d873a18ba1aad2268688e8eeba8539dffc0b93f75dc10a -->
+<!-- reality-lattice-v1 records-sha256: 024dbef733a5964a004587b221bb259743198d50c61dfc8915bf649b9732e547 -->
 <!-- Generated from structured reality records. Do not edit directly. -->
 
 # Reality Investigations
@@ -9,4 +9,5 @@
 | `VER-20260714-01` | `requested` | `OPC-20260714-01` | `OBS-20260714-001` | Require three independent original-language environments, including affected-region and external perspectives, plus the closest available physical or registry evidence. |
 | `VER-20260714-02` | `requested` | `OPC-20260714-02` | `OBS-20260714-002` | Require three independent original-language environments, including affected-region and external perspectives, plus the closest available physical or registry evidence. |
 | `VER-20260714-03` | `requested` | `OPC-20260714-03` | `OBS-20260714-003` | Require three independent original-language environments, including affected-region and external perspectives, plus the closest available physical or registry evidence. |
+| `VER-20260720-01` | `requested` | `OPC-20260720-01` | `OBS-20260720-001` | Bounded investigation of Saudi-linked crude-flow changes and Bab al-Mandab transit effects after the July 20, 2026 Houthi maritime embargo announcement. |
 | `VER-20260722-01` | `requested` | `OPC-20260720-01` | `OBS-20260722-001` | Test whether the July 20 Houthi Saudi-shipping embargo produced a material Saudi-linked flow reduction while Bab el-Mandeb remained physically traversable. Search period July 20-22, 2026; require independent maritime observation and distinguish tanker rerouting from total closure. |

@@ -2,7 +2,7 @@
 
 ## Decision Summary
 
-- Sources: 13; distinct voices: 12; mapped: 12; unmapped: 0
+- Sources: 14; distinct voices: 13; mapped: 12; unmapped: 1
 - Strongest convergence: davis and weichert converge on houthis, mandab, test; classification: convergent with distinct mechanisms.
 - Highest collapse risk: escobar × weichert
 - Top counter-pressure gap: No vessel-level or official-maritime counter-pressure is represented in the daily source ledger; maritime threat convergence must not be treated as closure evidence.
@@ -11,10 +11,10 @@
 ## Audit Metadata
 
 - **Date:** `2026-07-20`
-- **Generated:** `2026-07-21T18:01:24.633167+00:00`
-- **Content hash:** `855c59d3adfffb22`
-- **Sources:** 13
-- **Voices:** 12 (12 mapped, 0 unmapped)
+- **Generated:** `2026-07-23T05:31:07.125447+00:00`
+- **Content hash:** `b7d3b066516a5aa0`
+- **Sources:** 14
+- **Voices:** 13 (12 mapped, 1 unmapped)
 
 > Same conclusion plus different mechanism can be orthogonal; same conclusion plus shared lineage is not independent corroboration.
 
@@ -32,6 +32,7 @@
 | `johnson` | material capacity / sustainability | Daily source set centers on Larry Johnson: US Running Out of Ammo. | Unverified stockpile and depletion claims. | SRC-07 | judging-freedom | distinct contribution |
 | `mearsheimer` | structure / security dilemma | structural pressure test: links escalation to energy shock, alliance incentives, and lack of a clean U.S. exit | Over-structuring and underweighting agency or local dynamics. | SRC-06,SRC-09 | breaking-points, dialogue-works | distinct contribution |
 | `mercouris` | room / sequence / legitimacy | Daily source set centers on Russia Cuts Off Odessa; Zelensky Discusses Syrsky Sacking; EU States Split On Sanctions Russia Talks. | Narrative over-coherence or source-frame smoothing. | SRC-10 | alexander-mercouris | distinct contribution |
+| `pape` | unmapped | Daily source set centers on Can America Open Hormuz by the Midterms?. | Temporary daily identity requires human review. | none | escalation-trap | human review required |
 | `ritter` | historical precedent / strategic judgment | Daily source set centers on SCOTT RITTER: Graham's Legacy; Zelenskyy's Blunder; Trump's Stupidity. | Historical analogy may be overextended. | SRC-11 | judging-freedom | distinct contribution |
 | `weichert` | access sequence / capacity pressure | escalation-sequence / capacity pressure test: connects reported Red Sea pressure to Saudi access, U.S. logistics, and escalation ladders | Interview claims about oil, submarines, proxies, and nuclear options require verification. | SRC-13 | moral-resistance | distinct contribution |
 
@@ -47,6 +48,7 @@
 - `material capacity / sustainability`: johnson
 - `structure / security dilemma`: mearsheimer
 - `room / sequence / legitimacy`: mercouris
+- `unmapped`: pape
 - `historical precedent / strategic judgment`: ritter
 - `access sequence / capacity pressure`: weichert
 
@@ -71,12 +73,14 @@
 ## Prioritized Human-Review Queue
 
 1. **P1** — escobar × weichert: shared named object with shared host/lineage Action: recover independent lineage or confirm distinct mechanisms
+2. **P2** — pape: voice has no canonical descriptor Action: assign or review a stable voice identity
 
 ## Missing Counter-Pressure
 
 - No vessel-level or official-maritime counter-pressure is represented in the daily source ledger; maritime threat convergence must not be treated as closure evidence.
 - No independently verified basing, casualty, strike-effect, or infrastructure observations are represented; keep those reports source-attributed.
 - No independently verified force-posture or diplomatic-threshold observation is represented for the Russia/NATO secondary theater.
+- Unmapped voices require human review before their temporary daily contribution is treated as a stable analytical identity: pape.
 
 ## Recommended Orthogonal Test
 

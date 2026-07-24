@@ -2,7 +2,7 @@
 
 ## Decision Summary
 
-- Sources: 10; distinct voices: 10; mapped: 7; unmapped: 3
+- Sources: 11; distinct voices: 10; mapped: 7; unmapped: 3
 - Strongest convergence: davis and jermy converge on daniel, davis, russia; classification: convergent with distinct mechanisms.
 - Highest collapse risk: none
 - Top counter-pressure gap: No vessel-level or official-maritime counter-pressure is represented in the daily source ledger; maritime threat convergence must not be treated as closure evidence.
@@ -11,9 +11,9 @@
 ## Audit Metadata
 
 - **Date:** `2026-07-09`
-- **Generated:** `2026-07-21T18:01:24.324260+00:00`
-- **Content hash:** `bdddf5b9ee076613`
-- **Sources:** 10
+- **Generated:** `2026-07-23T05:31:06.672714+00:00`
+- **Content hash:** `d77ddb7d297c7a4a`
+- **Sources:** 11
 - **Voices:** 10 (7 mapped, 3 unmapped)
 
 > Same conclusion plus different mechanism can be orthogonal; same conclusion plus shared lineage is not independent corroboration.
@@ -27,7 +27,7 @@
 | `davis` | practical room / military feasibility | Practical-room check: Tests whether force and logistics can recover a usable settlement | Over-practical skepticism or underweighting structure and legitimacy. | SRC-04 | glenn-diesen | distinct contribution |
 | `jermy` | comparative capacity / readiness | Daily source set centers on Navy Combat Vet: The Coming European War w/Russia Steve Jermy & Lt Col Daniel Davis. | Theater transfer may be analytically invalid. | SRC-06 | daniel-davis | distinct contribution |
 | `macgregor` | unmapped | Daily source set centers on BREAKING: BAHRAIN & KUWAIT JUST STRUCK IRAN - w/ Col. Macgregor. | Temporary daily identity requires human review. | SRC-03 | mario-nawfal | human review required |
-| `marandi` | regional red line / legitimacy | Iran-facing red-line signal: Recurring linkage between selective passage, negotiation credibility, and Lebanon | Regime-adjacent signaling may be mistaken for independently verified fact. | SRC-07 | dialogue-works | distinct contribution |
+| `marandi` | regional red line / legitimacy | Iran-facing red-line signal: Recurring linkage between selective passage, negotiation credibility, and Lebanon | Regime-adjacent signaling may be mistaken for independently verified fact. | SRC-07 | dialogue-works, india-global-left | distinct contribution |
 | `martyanov` | unmapped | Daily source set centers on Andrei Martyanov: IRAN BOMBSHELL: Hypersonic Missile Hit U.S. Targets in 6 Minutes - Trump WARNED!. | Temporary daily identity requires human review. | SRC-02 | dialogue-works | human review required |
 | `mercouris` | room / sequence / legitimacy | Daily source set centers on Alexander Mercouris: US Iran War Resumes Full Force; MoU Collapses; NATO Absurd Summit; Zaluzhny Ukraine Losing Attrition. | Narrative over-coherence or source-frame smoothing. | SRC-01 | alexander-mercouris | distinct contribution |
 | `ritter` | historical precedent / strategic judgment | Daily source set centers on The Patriot Trap. | Historical analogy may be overextended. | SRC-10 | scott-ritter | distinct contribution |
@@ -52,6 +52,7 @@
 
 ## Independence and Lineage Limits
 
+- Repeated appearances were collapsed to one voice identity but retain source multiplicity: marandi.
 - Shared hosts limit evidentiary independence for: davis × sachs.
 
 ## Pairwise Collapse-Risk Candidates

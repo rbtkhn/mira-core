@@ -1,0 +1,19 @@
+{
+  "affected_artifacts": [],
+  "affected_forecast_hooks": [],
+  "as_of": "2026-07-20",
+  "claim_ids": [
+    "OPC-20260720-01"
+  ],
+  "created_at": "2026-07-20T00:00:00Z",
+  "created_by": "operator",
+  "id": "VER-20260720-01",
+  "kind": "investigation",
+  "observable_ids": [
+    "OBS-20260720-001"
+  ],
+  "research_boundary": "Bounded investigation of Saudi-linked crude-flow changes and Bab al-Mandab transit effects after the July 20, 2026 Houthi maritime embargo announcement.",
+  "revision_of": null,
+  "schema_version": 1,
+  "status": "requested"
+}

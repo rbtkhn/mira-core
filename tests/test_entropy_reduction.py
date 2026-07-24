@@ -276,12 +276,16 @@ def test_analytical_interface_templates_preserve_required_prompts() -> None:
 def test_only_portable_skills_are_deployable() -> None:
     assert set(skill_registry.DEPLOYABLE_SKILL_NAMES) == {
         "best-intake",
+        "smart-intake",
+        "voice-comparison",
         "geopolitical-synthesis",
         "reality-check",
         "voice-accountability",
     }
     assert set(skill_registry.build_registry()) == {
         "best-intake",
+        "smart-intake",
+        "voice-comparison",
         "geopolitical-synthesis",
         "reality-check",
         "voice-accountability",

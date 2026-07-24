@@ -2,7 +2,7 @@
 
 ## Decision Summary
 
-- Sources: 1; distinct voices: 1; mapped: 0; unmapped: 1
+- Sources: 2; distinct voices: 2; mapped: 0; unmapped: 2
 - Strongest convergence: No material same-day convergence cluster was identified from available titles and synthesis text.
 - Highest collapse risk: none
 - Top counter-pressure gap: No named counter-pressure observable was identified; define one before treating convergence as decision-relevant.
@@ -11,10 +11,10 @@
 ## Audit Metadata
 
 - **Date:** `2026-07-17`
-- **Generated:** `2026-07-21T18:01:24.545454+00:00`
-- **Content hash:** `7daa19102eeeef3f`
-- **Sources:** 1
-- **Voices:** 1 (0 mapped, 1 unmapped)
+- **Generated:** `2026-07-23T05:31:06.984178+00:00`
+- **Content hash:** `113c5d97c86df668`
+- **Sources:** 2
+- **Voices:** 2 (0 mapped, 2 unmapped)
 
 > Same conclusion plus different mechanism can be orthogonal; same conclusion plus shared lineage is not independent corroboration.
 
@@ -23,10 +23,11 @@
 | Voice | Canonical axis | Daily contribution | Risk | Sources | Hosts | Status |
 | --- | --- | --- | --- | --- | --- | --- |
 | `pape` | unmapped | Daily source set centers on Breaking Analysis #4: The Point of No Return? How Last Night's U.S. Strikes Deepened the Escalation Trap. | Temporary daily identity requires human review. | none | escalation-trap | human review required |
+| `wilkerson` | unmapped | Daily source set centers on BREAKING: IRGC CLAIMS AMERICANS KILLED AT AL-TANF SYRIA - Col. Larry Wilkerson. | Temporary daily identity requires human review. | none | mario-nawfal | human review required |
 
 ## Analytical Axis Coverage
 
-- `unmapped`: pape
+- `unmapped`: pape, wilkerson
 
 ## Convergence Clusters
 
@@ -45,11 +46,12 @@
 ## Prioritized Human-Review Queue
 
 1. **P2** — pape: voice has no canonical descriptor Action: assign or review a stable voice identity
+2. **P2** — wilkerson: voice has no canonical descriptor Action: assign or review a stable voice identity
 
 ## Missing Counter-Pressure
 
 - No named counter-pressure observable was identified; define one before treating convergence as decision-relevant.
-- Unmapped voices require human review before their temporary daily contribution is treated as a stable analytical identity: pape.
+- Unmapped voices require human review before their temporary daily contribution is treated as a stable analytical identity: pape, wilkerson.
 
 ## Recommended Orthogonal Test
 

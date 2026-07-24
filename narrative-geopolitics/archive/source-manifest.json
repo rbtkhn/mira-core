@@ -2,7 +2,7 @@
   "manifest_id": "narrative-geopolitics-source-manifest-v1",
   "source_basis": "central archive with completed historical strategy-codex imports",
   "imported_at": "2026-07-09",
-  "source_count": 1889,
+  "source_count": 1895,
   "boundary": {
     "archive": "source truth",
     "voices": "voice continuity and routing",
@@ -27313,6 +27313,106 @@
         "explicit-host"
       ],
       "import_status": "imported"
-    }
+    },
+    {
+      "date": "2026-02-17",
+      "title": "Capt. Matt Hoh: A US War With Iran Is Unwinnable",
+      "local_path": "narrative-geopolitics/archive/sources/2026-02-17/source-capt-matt-hoh-a-us-war-with-iran-is-unwinnable-2026-02-17.md",
+      "voice_index_path": "../../archive/sources/2026-02-17/source-capt-matt-hoh-a-us-war-with-iran-is-unwinnable-2026-02-17.md",
+      "upstream_path": "operator-paste://2026-07-23/capt-matt-hoh-a-us-war-with-iran-is-unwinnable",
+      "source_class": "cross-host pressure test",
+      "modality": "transcript",
+      "voice_slugs": [
+        "hoh"
+      ],
+      "host_slug": "judging-freedom",
+      "inference_basis": [
+        "explicit-host"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-03-26",
+      "title": "Cpt. Matt Hoh: Will US Troops Fight for a Foreign Country?",
+      "local_path": "narrative-geopolitics/archive/sources/2026-03-26/source-cpt-matt-hoh-will-us-troops-fight-for-a-foreign-country-2026-03-26.md",
+      "voice_index_path": "../../archive/sources/2026-03-26/source-cpt-matt-hoh-will-us-troops-fight-for-a-foreign-country-2026-03-26.md",
+      "upstream_path": "operator-paste://2026-07-23/cpt-matt-hoh-will-us-troops-fight-for-a-foreign-country",
+      "source_class": "cross-host pressure test",
+      "modality": "transcript",
+      "voice_slugs": [
+        "hoh"
+      ],
+      "host_slug": "judging-freedom",
+      "inference_basis": [
+        "explicit-host"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-02-03",
+      "title": "Capt. Matt Hoh: Is America Slipping Into Authoritarianism?",
+      "local_path": "narrative-geopolitics/archive/sources/2026-02-03/source-capt-matt-hoh-is-america-slipping-into-authoritarianism-2026-02-03.md",
+      "voice_index_path": "../../archive/sources/2026-02-03/source-capt-matt-hoh-is-america-slipping-into-authoritarianism-2026-02-03.md",
+      "upstream_path": "operator-paste://2026-07-23/capt-matt-hoh-is-america-slipping-into-authoritarianism",
+      "source_class": "cross-host pressure test",
+      "modality": "transcript",
+      "voice_slugs": [
+        "hoh"
+      ],
+      "host_slug": "judging-freedom",
+      "inference_basis": [
+        "explicit-host"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-04-28",
+      "title": "Cpt. Matt Hoh: Will US Troops Kill Innocents?",
+      "local_path": "narrative-geopolitics/archive/sources/2026-04-28/source-cpt-matt-hoh-will-us-troops-kill-innocents-2026-04-28.md",
+      "voice_index_path": "../../archive/sources/2026-04-28/source-cpt-matt-hoh-will-us-troops-kill-innocents-2026-04-28.md",
+      "upstream_path": "operator-paste://2026-07-23/cpt-matt-hoh-will-us-troops-kill-innocents",
+      "source_class": "cross-host pressure test",
+      "modality": "transcript",
+      "voice_slugs": [
+        "hoh"
+      ],
+      "host_slug": "judging-freedom",
+      "inference_basis": [
+        "explicit-host"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-01-06",
+      "title": "Matt Hoh: Trump and Military Adventurism",
+      "local_path": "narrative-geopolitics/archive/sources/2026-01-06/source-matt-hoh-trump-and-military-adventurism-2026-01-06.md",
+      "voice_index_path": "../../archive/sources/2026-01-06/source-matt-hoh-trump-and-military-adventurism-2026-01-06.md",
+      "upstream_path": "operator-paste://2026-07-23/matt-hoh-trump-and-military-adventurism",
+      "source_class": "cross-host pressure test",
+      "modality": "transcript",
+      "voice_slugs": [
+        "hoh"
+      ],
+      "host_slug": "judging-freedom",
+      "inference_basis": [
+        "explicit-host"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-07-23",
+      "title": "The Impossible Drone Hunt: Why Reopening the Strait of Hormuz Could Be Far Harder Than Most People Realize",
+      "local_path": "narrative-geopolitics/archive/sources/2026-07-23/source-the-impossible-drone-hunt-why-reopening-the-strait-of-hormuz-could-be-far-harder-than-most-people-realize-2026-07-23.md",
+      "voice_index_path": "../../archive/sources/2026-07-23/source-the-impossible-drone-hunt-why-reopening-the-strait-of-hormuz-could-be-far-harder-than-most-people-realize-2026-07-23.md",
+      "upstream_path": "operator-paste://2026-07-23/the-impossible-drone-hunt-why-reopening-the-strait-of-hormuz-could-be-far-harder-than-most-people-realize",
+      "source_class": "authored operational analysis",
+      "modality": "substack-post",
+      "voice_slugs": [
+        "pape"
+      ],
+      "host_slug": "escalation-trap",
+      "inference_basis": [],
+      "import_status": "imported"
+    },
   ]
 }

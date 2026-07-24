@@ -597,6 +597,17 @@ def load_manifest() -> dict:
         return json.load(handle)
 
 
+def archived_source_urls() -> dict[str, str]:
+    """Read URL provenance from landed source front matter for deduplication."""
+    urls: dict[str, str] = {}
+    pattern = re.compile(r'^source_url:\s*["\']?(https?://[^"\'\s]+)', re.MULTILINE)
+    for path in ARCHIVE_SOURCES_ROOT.rglob("source-*.md"):
+        match = pattern.search(path.read_text(encoding="utf-8", errors="replace")[:12000])
+        if match:
+            urls[match.group(1)] = path.relative_to(REPO_ROOT).as_posix()
+    return urls
+
+
 def write_manifest(manifest: dict) -> None:
     payload = manifest_bytes(manifest)
     descriptor, temporary_name = tempfile.mkstemp(
@@ -1746,10 +1757,17 @@ def prepare_batch(source_args: list[SimpleNamespace], manifest: dict) -> tuple[l
     if len(existing_path_list) != len(set(existing_path_list)):
         raise ValueError("Manifest contains duplicate source paths")
     existing_paths = set(existing_path_list)
+    existing_urls = {
+        str(item.get("url") or item.get("source_url") or "").strip()
+        for item in manifest_sources
+        if isinstance(item, dict) and (item.get("url") or item.get("source_url"))
+    }
     plans: list[LandingPlan] = []
     planned_paths: set[str] = set()
     for args in source_args:
         plan = prepare_landing(args)
+        if args.url and args.url in existing_urls:
+            raise ValueError(f"Source URL already exists in manifest: {args.url}")
         relative_path = plan.source_path.relative_to(REPO_ROOT).as_posix()
         if relative_path in existing_paths:
             raise ValueError(f"Manifest already contains source path: {relative_path}")
@@ -2025,6 +2043,11 @@ def main() -> int:
             return 0
         source_args = gather_sources(cli_args)
         manifest = load_manifest()
+        existing_urls = archived_source_urls()
+        if len(source_args) == 1 and source_args[0].url and source_args[0].url in existing_urls:
+            print("ALREADY LANDED")
+            print(f"Archive: {existing_urls[source_args[0].url]}")
+            return 0
         plans, proposed_manifest = prepare_batch(source_args, manifest)
         if cli_args.dry_run:
             messages = dry_run_messages(plans)

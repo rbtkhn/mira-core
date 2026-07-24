@@ -1,0 +1,23 @@
+{
+  "access_language": "en",
+  "as_of": "2026-07-23",
+  "created_at": "2026-07-23T00:00:00Z",
+  "created_by": "operator",
+  "event_time": "2026-07-21",
+  "evidence_role": "official_position",
+  "geopolitical_environment": "gulf_state",
+  "id": "EVD-20260723-002",
+  "kind": "evidence",
+  "limitation": "Claimant-side official position; establishes Saudi response and denial, not independent measurement of crude-flow reduction.",
+  "observation": "Saudi coalition forces said they would protect commercial vessels transiting Bab al-Mandab and rejected Houthi blockade framing, while citing more than 300 commercial vessels entering Yemen-linked ports during the first half of 2026.",
+  "origin_language": "ar",
+  "originating_chain": "CHAIN-SPA-ARABIC-20260721-BAB-AL-MANDEB",
+  "representation_sha256": "efa529e41184fdfcfa331338ff03638e8729c234b1b235917ef717a5b65adb84",
+  "retrieved_at": "2026-07-23",
+  "revision_of": null,
+  "schema_version": 1,
+  "source_id": "VSRC-OFF-OMMSC",
+  "status": "active",
+  "translation_provenance": "official_edition",
+  "url": "https://www.spa.gov.sa/N2638138"
+}

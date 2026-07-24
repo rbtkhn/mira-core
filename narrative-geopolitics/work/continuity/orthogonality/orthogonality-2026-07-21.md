@@ -2,7 +2,7 @@
 
 ## Decision Summary
 
-- Sources: 10; distinct voices: 10; mapped: 5; unmapped: 5
+- Sources: 11; distinct voices: 10; mapped: 5; unmapped: 5
 - Strongest convergence: No material same-day convergence cluster was identified from available titles and synthesis text.
 - Highest collapse risk: none
 - Top counter-pressure gap: No vessel-level or official-maritime counter-pressure is represented in the daily source ledger; maritime threat convergence must not be treated as closure evidence.
@@ -11,9 +11,9 @@
 ## Audit Metadata
 
 - **Date:** `2026-07-21`
-- **Generated:** `2026-07-22T17:20:51.316263+00:00`
-- **Content hash:** `ded354779496da42`
-- **Sources:** 10
+- **Generated:** `2026-07-23T05:31:07.171729+00:00`
+- **Content hash:** `07282ebbf05010f9`
+- **Sources:** 11
 - **Voices:** 10 (5 mapped, 5 unmapped)
 
 > Same conclusion plus different mechanism can be orthogonal; same conclusion plus shared lineage is not independent corroboration.
@@ -31,7 +31,7 @@
 | `mate` | unmapped | Daily source set centers on Aaron Maté : Lindsey Graham: The Uniparty’s War Hawk. | Temporary daily identity requires human review. | SRC-01 | judging-freedom | human review required |
 | `mearsheimer` | structure / security dilemma | Daily source set centers on Prof. John Mearsheimer : More War and America’s Collapse. | Over-structuring and underweighting agency or local dynamics. | SRC-07 | judging-freedom | distinct contribution |
 | `mercouris` | room / sequence / legitimacy | Daily source set centers on Russia Destroys Odessa Ships Brushes Off Protests; Russia Fuel Situation Stabilises; Syrsky Survives. | Narrative over-coherence or source-frame smoothing. | SRC-08 | alexander-mercouris | distinct contribution |
-| `pape` | unmapped | Daily source set centers on BREAKING: TRUMP REJECTS IRAN CEASEFIRE, VOWS "DEVASTATING BLOWS" - w/ Robert Pape. | Temporary daily identity requires human review. | SRC-02 | mario-nawfal | human review required |
+| `pape` | unmapped | Daily source set centers on BREAKING: TRUMP REJECTS IRAN CEASEFIRE, VOWS "DEVASTATING BLOWS" - w/ Robert Pape Breaking Analysis #7: New Intel on Pick Axe Mountain -- Has Iran Already Won the Nuclear Race?. | Temporary daily identity requires human review. | SRC-02 | escalation-trap, mario-nawfal | human review required |
 
 ## Analytical Axis Coverage
 
@@ -48,7 +48,7 @@
 
 ## Independence and Lineage Limits
 
-- No additional lineage limits detected.
+- Repeated appearances were collapsed to one voice identity but retain source multiplicity: pape.
 
 ## Pairwise Collapse-Risk Candidates
 

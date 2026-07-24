@@ -4,7 +4,7 @@ This index routes the unified local Hoh corpus for `hoh` to the central Narrativ
 
 Source basis: `strategy-codex/statecraft/voices/hoh/hoh-index.md` plus already-local matching archive rows.
 
-Corpus: 19 local route rows across 19 central archive source files.
+Corpus: 24 local route rows across 24 central archive source files.
 
 Status: `imported-corpus`
 
@@ -20,7 +20,12 @@ Status: `imported-corpus`
 | Date | Source | Role | Host slug | Archive link |
 | --- | --- | --- | --- | --- |
 | `2025-10-10` | Pressure on Putin to Finish Ukraine War /Lt Col Daniel Davis & Matt Hoh | `host-pressure test` | `daniel-davis` | [source](../../archive/sources/2025-10-10/source-daniel-davis-pressure-on-putin-to-finish-ukraine-war-lt-col-daniel-davis-matt-hoh-2025-10-10.md) |
+| `2026-01-06` | Matt Hoh: Trump and Military Adventurism | `host-pressure test` | `judging-freedom` | [source](../../archive/sources/2026-01-06/source-matt-hoh-trump-and-military-adventurism-2026-01-06.md) |
+| `2026-02-03` | Capt. Matt Hoh: Is America Slipping Into Authoritarianism? | `host-pressure test` | `judging-freedom` | [source](../../archive/sources/2026-02-03/source-capt-matt-hoh-is-america-slipping-into-authoritarianism-2026-02-03.md) |
+| `2026-02-17` | Capt. Matt Hoh: A US War With Iran Is Unwinnable | `host-pressure test` | `judging-freedom` | [source](../../archive/sources/2026-02-17/source-capt-matt-hoh-a-us-war-with-iran-is-unwinnable-2026-02-17.md) |
 | `2026-03-17` | CPT. Matt Hoh : Trump Believes His Own Propaganda! | `host-pressure test` | `judging-freedom` | [source](../../archive/sources/2026-03-17/source-judging-freedom-hoh-trump-believes-his-own-propaganda-2026-03-17.md) |
+| `2026-03-26` | Cpt. Matt Hoh: Will US Troops Fight for a Foreign Country? | `host-pressure test` | `judging-freedom` | [source](../../archive/sources/2026-03-26/source-cpt-matt-hoh-will-us-troops-fight-for-a-foreign-country-2026-03-26.md) |
+| `2026-04-28` | Cpt. Matt Hoh: Will US Troops Kill Innocents? | `host-pressure test` | `judging-freedom` | [source](../../archive/sources/2026-04-28/source-cpt-matt-hoh-will-us-troops-kill-innocents-2026-04-28.md) |
 | `2026-05-20` | Matthew Hoh: The Pentagon's Biggest Lie About Iran | `host-pressure test` | `dialogue-works` | [source](../../archive/sources/2026-05-20/source-hoh-dialogue-works-the-pentagon-s-biggest-lie-about-iran-2026-05-20.md) |
 | `2026-05-26` | Matt Hoh: Why the Pentagon Lies | `host-pressure test` | `judging-freedom` | [source](../../archive/sources/2026-05-26/source-judging-freedom-hoh-why-the-pentagon-lies-2026-05-26.md) |
 | `2026-05-27` | Matthew Hoh: The US Just Ran Out of Cruise Missiles - What Happens Next? | `host-pressure test` | `dialogue-works` | [source](../../archive/sources/2026-05-27/source-hoh-dialogue-works-the-us-just-ran-out-of-cruise-missiles-what-happens-next-2026-05-27.md) |
