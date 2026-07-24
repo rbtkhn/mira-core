@@ -82,6 +82,13 @@ Record only concrete operating facts that control planned public factual use, wa
 | --- | --- | --- | --- | --- | --- |
 | `OPC-YYYYMMDD-01` | Bounded claim controlling planned public use | `source_assertion` | `high` | `yes` | `request` |
 
+## Accountable Judgment Handoff
+
+Complete `judgment.md` after synthesis and forecast triage. It is the concise
+internal handoff, not a replacement for this synthesis. Include 3–5 load-bearing
+judgments, a confidence boundary, counterevidence, observable signals, review
+date, and only valid existing claim or forecast references.
+
 ## Issue Story Desk
 
 Declare the reader-facing lineup only after the synthesis, forecast, and operational-claim triage are stable. Use one `lead`, no more than four `brief` rows, and `hold` for candidates excluded from the issue. Three to five selected stories is a target, not a quota.

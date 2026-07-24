@@ -88,7 +88,7 @@ def run_bootstrap(args: argparse.Namespace) -> dict[str, Any]:
             args.dry_run,
         )
     ]
-    for name in ("synthesis.md", "forecast.md", "daily-brief.md"):
+    for name in ("synthesis.md", "forecast.md", "judgment.md", "daily-brief.md"):
         actions.append(
             BOOTSTRAP.write_text(
                 run_dir / name,

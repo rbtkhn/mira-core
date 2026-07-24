@@ -373,7 +373,7 @@ def test_synthesis_state_is_date_scoped_and_reports_daily_contract(
         ),
         encoding="utf-8",
     )
-    for name in ("sources.md", "synthesis.md", "forecast.md", "daily-brief.md"):
+    for name in ("sources.md", "synthesis.md", "forecast.md", "judgment.md", "daily-brief.md"):
         (daily / name).write_text(name, encoding="utf-8")
     state = cadence.synthesis_state(
         "2026-07-13",

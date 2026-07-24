@@ -53,6 +53,7 @@ best-intake through the day
 -> work/daily/YYYY-MM-DD/synthesis.md
 -> work/daily/YYYY-MM-DD/daily-brief.md
 -> work/daily/YYYY-MM-DD/forecast.md
+-> work/daily/YYYY-MM-DD/judgment.md
 -> work/daily/YYYY-MM-DD/issue.md (generated internal reader edition)
 -> work/reality/ (claim, evidence, outcome, and transition graph where migrated)
 -> work/forecasts/forecast-ledger.md

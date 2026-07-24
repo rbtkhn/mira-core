@@ -6,11 +6,13 @@ Status: `active method contract`
 
 `issue.md` is the internal reader-facing edition of a substantive Narrative Geopolitics archive day. It gives the day a durable publication shape without changing the evidence hierarchy or constituting public distribution.
 
-The four daily files remain canonical:
+The five daily files remain canonical:
 
 - `sources.md` owns manifest-backed source accounting and source IDs;
 - `synthesis.md` owns judgment, story selection, voice roles, uncertainty, and operational-claim triage;
 - `forecast.md` owns causal wagers and review posture;
+- `judgment.md` owns the concise internal accountable-judgment handoff and is
+  not a public authorization surface.
 - `daily-brief.md` owns issue copy and the append-only revision log.
 
 `issue.md` is generated from those inputs. Edit a canonical file and regenerate; never repair drift directly in the issue.

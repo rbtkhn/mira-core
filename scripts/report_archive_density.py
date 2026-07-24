@@ -182,7 +182,7 @@ def classifications(
 
 def validation_counts(run_date: str, daily_root: Path = DAILY_ROOT) -> tuple[int, int]:
     run_dir = daily_root / run_date
-    required = ("sources.md", "synthesis.md", "forecast.md", "daily-brief.md")
+    required = ("sources.md", "synthesis.md", "forecast.md", "judgment.md", "daily-brief.md")
     if not all((run_dir / name).exists() for name in required):
         return (0, 0)
     result = validate_daily_run.validate_run(run_date, "issue" if (run_dir / "issue.md").exists() else "synthesis")

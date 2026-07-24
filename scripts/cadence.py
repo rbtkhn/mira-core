@@ -67,6 +67,7 @@ GEOPOLITICAL_SYNTHESIS_AUTHORITY = {
         "narrative-geopolitics/work/daily/{date}/sources.md",
         "narrative-geopolitics/work/daily/{date}/synthesis.md",
         "narrative-geopolitics/work/daily/{date}/forecast.md",
+        "narrative-geopolitics/work/daily/{date}/judgment.md",
         "narrative-geopolitics/work/daily/{date}/daily-brief.md",
         "new forecast hooks in narrative-geopolitics/work/forecasts/forecast-ledger.md",
     ],
@@ -256,7 +257,7 @@ def synthesis_state(
         if not (repo_root / row.get("local_path", "")).is_file()
     )
     run_dir = daily_root / run_date
-    required = ("sources.md", "synthesis.md", "forecast.md", "daily-brief.md")
+    required = ("sources.md", "synthesis.md", "forecast.md", "judgment.md", "daily-brief.md")
     files = {name: (run_dir / name).is_file() for name in required}
     present = sum(files.values())
     if present == 0:

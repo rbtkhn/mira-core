@@ -332,7 +332,7 @@ def main() -> None:
             args.dry_run,
         )
     )
-    for name in ("synthesis.md", "forecast.md", "daily-brief.md"):
+    for name in ("synthesis.md", "forecast.md", "judgment.md", "daily-brief.md"):
         actions.append(
             write_text(
                 run_dir / name,

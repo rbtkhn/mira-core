@@ -35,6 +35,16 @@ DELTA_PLACEHOLDERS = (
     "[name the new mechanism, evidence, contradiction, or judgment change; do not restate recurring crisis context]",
     "[daily-packet or archive-only]",
 )
+JUDGMENT_PLACEHOLDER_RE = re.compile(r"\[.*?\]")
+JUDGMENT_REQUIRED_SECTIONS = (
+    "## Load-Bearing Judgments",
+    "## Confidence Boundary",
+    "## Support and Dissent",
+    "## Claim and Forecast Dependencies",
+    "## Next Observable Signals",
+    "## Decision / Public-use Implication",
+)
+JUDGMENT_REF_RE = re.compile(r"`((?:OPC|CLM|NG)-[A-Z0-9-]+)`")
 
 
 def parse_args() -> argparse.Namespace:
@@ -72,8 +82,52 @@ def expected_files(run_date: str) -> list[Path]:
         base / "sources.md",
         base / "synthesis.md",
         base / "forecast.md",
+        base / "judgment.md",
         base / "daily-brief.md",
     ]
+
+
+def judgment_failures(run_date: str, rows: list[dict[str, Any]], stage: str) -> list[str]:
+    """Validate the accountable handoff without making it a claim authority."""
+    path = daily_dir(run_date) / "judgment.md"
+    if not rows or not path.exists() or stage == "intake":
+        return []
+    text = read_text(path)
+    if "Status: `template`" in text or JUDGMENT_PLACEHOLDER_RE.search(text):
+        return ["judgment.md is still a template or contains unresolved placeholders"]
+    failures: list[str] = []
+    for section in JUDGMENT_REQUIRED_SECTIONS:
+        if section not in text:
+            failures.append(f"judgment.md missing required section: {section}")
+    if not re.search(r"As-of:\s*`\d{4}-\d{2}-\d{2}`", text):
+        failures.append("judgment.md requires a bounded As-of date")
+    if not re.search(r"Review date:\s*`\d{4}-\d{2}-\d{2}`", text):
+        failures.append("judgment.md requires a review date")
+    if not re.search(r"Confidence:\s*`(?:low|medium|high)`", text):
+        failures.append("judgment.md requires a confidence level")
+    if not re.search(r"Strongest counterevidence or dissent:\s*[^`\n]+", text):
+        failures.append("judgment.md requires counterevidence or dissent")
+    if not re.search(r"-\s+[^\n]+", text.split("## Next Observable Signals", 1)[-1]):
+        failures.append("judgment.md requires at least one next observable signal")
+
+    records_root = NG_ROOT / "work" / "reality"
+    known_ids = set()
+    if records_root.exists():
+        for record_path in records_root.rglob("*.json"):
+            try:
+                record = json.loads(record_path.read_text(encoding="utf-8"))
+            except (OSError, ValueError):
+                continue
+            if record.get("id"):
+                known_ids.add(str(record["id"]))
+    ledger_ids = set(HOOK_RE.findall(read_text(LEDGER_PATH)))
+    for ref in JUDGMENT_REF_RE.findall(text):
+        if ref.startswith("NG-"):
+            if ref not in known_ids and ref not in ledger_ids:
+                failures.append(f"judgment.md reference does not resolve: {ref}")
+        elif ref not in known_ids:
+            failures.append(f"judgment.md reference does not resolve: {ref}")
+    return failures
 
 
 def manifest_rows_for_date(manifest: dict[str, Any], run_date: str) -> list[dict[str, Any]]:
@@ -216,6 +270,7 @@ def validate_run(run_date: str, stage: str = "intake") -> dict[str, Any]:
                 warnings.append(f"forecast hook missing from ledger: {hook_id}")
 
     if downstream and rows:
+        failures.extend(judgment_failures(run_date, rows, stage))
         failures.extend(voice_metadata.metadata_failures(manifest, REPO_ROOT, run_date))
         voice_report = voice_indexes.reconcile(
             manifest,

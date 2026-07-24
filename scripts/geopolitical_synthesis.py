@@ -79,7 +79,7 @@ def gather_context(run_date: str) -> dict[str, object]:
     rows = [row for row in manifest.get("sources", []) if row.get("date") == run_date]
     rows.sort(key=lambda row: row.get("local_path", ""))
     run_dir = stack.BOOTSTRAP.DAILY_ROOT / run_date
-    required = ("sources.md", "synthesis.md", "forecast.md", "daily-brief.md")
+    required = ("sources.md", "synthesis.md", "forecast.md", "judgment.md", "daily-brief.md")
     run_exists = bool(rows) and all((run_dir / name).exists() for name in required)
     validation: dict[str, object] = {"failures": [], "warnings": []}
     if run_exists:

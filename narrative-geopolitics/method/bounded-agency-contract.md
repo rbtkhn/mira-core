@@ -56,7 +56,7 @@ factual adoption, forecast resolution, publication, or Git/external state.
 | `best-intake` | New archive source and its manifest row. | Source body, private workflow, downstream judgment surfaces. | The supplied source is truthfully archived and manifest-backed. |
 | identity canonicalization | Declared alias-valued person metadata. | Paths, filenames, hosts, bodies, unrelated rows. | Selected metadata is canonical and idempotent. |
 | continuity reconciliation | Existing voice shelves derived from the manifest. | Archive evidence and manually assigned roles. | Existing shelves match manifest membership. |
-| geopolitical synthesis | Selected-date person-alias metadata, existing voice routes, the four-file canonical daily contract, its generated `issue.md`, and new forecast hooks. | Private intake, source bodies beyond declared aliases, channel shelves, verification packets, forecast resolutions, public products, and unresolved uncertainty. | A manifest-backed day has a bounded internal judgment, synchronized open hooks, and an optional current reader-facing issue. |
+| geopolitical synthesis | Selected-date person-alias metadata, existing voice routes, the five-file canonical daily contract, its generated `issue.md`, and new forecast hooks. | Private intake, source bodies beyond declared aliases, channel shelves, verification packets, forecast resolutions, public products, and unresolved uncertainty. | A manifest-backed day has a bounded internal judgment, synchronized open hooks, and an optional current reader-facing issue. |
 | `reality-check` | Nothing during the default audit; explicitly named lattice records only after the operator requests investigation or assessment. | Archive evidence, source admission, human identity, publication, forecast scoring, and downstream prose. | The claim has a validated decision brief and one bounded next action. |
 | operational verification | Explicit `VER-*` packets. | Archive evidence and human assessment authority. | The selected claim is assessed or honestly unresolved. |
 | forecast review | Ledger resolution metadata with packet support when required. | Authorship timing and excluded retrospective entries. | A due accountable hook is reviewed without forced certainty. |
@@ -98,8 +98,8 @@ state. Within the guided workflow it may write only:
 
 - declared alias-valued person metadata for the selected date;
 - routes in already-existing `voices/*/source-index.md` shelves;
-- the selected date's `sources.md`, `synthesis.md`, `forecast.md`, and
-  `daily-brief.md`;
+- the selected date's `sources.md`, `synthesis.md`, `forecast.md`,
+  `judgment.md`, and `daily-brief.md`;
 - the selected date's generated `issue.md` after the canonical files declare a complete issue lineup;
 - new open forecast hooks in the forecast ledger.
 
@@ -121,13 +121,14 @@ The dynamic preflight is:
 ```
 
 The command is read-only. A date with no manifest rows, or with missing
-manifest-backed archive sources, is blocking. An absent or partial four-file
+manifest-backed archive sources, is blocking. An absent or partial five-file
 daily contract routes the operator to guided Choice `A`; reconciliation or
 validation debt routes to Choice `B`; a clean complete contract routes to
 operational-claim triage at Choice `C`. These recommendations describe the
 next authorized phase action; they do not execute it.
 
-The four daily files remain canonical. `issue.md` is a deterministic internal
+The five daily files remain canonical. `judgment.md` is the concise internal
+accountability handoff after synthesis and forecast triage. `issue.md` is a deterministic internal
 reader-facing rendering governed by [the daily-issue method](daily-issue.md);
 creating it is not public promotion.
 

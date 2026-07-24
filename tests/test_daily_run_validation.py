@@ -42,6 +42,48 @@ def configure_fixture(monkeypatch, tmp_path: Path, sources_text: str) -> None:
     (run_dir / "sources.md").write_text(sources_text, encoding="utf-8")
     for name in ("synthesis.md", "forecast.md", "daily-brief.md"):
         (run_dir / name).write_text("Status: `draft`\n", encoding="utf-8")
+    (run_dir / "judgment.md").write_text(
+        """# Accountable Judgment — 2026-07-09
+
+Status: `draft`
+As-of: `2026-07-09`
+Crisis object: `test-object`
+Review date: `2026-07-16`
+
+## Load-Bearing Judgments
+
+1. The test judgment is bounded and operationally modest.
+
+## Confidence Boundary
+
+Confidence: `medium`
+
+What this judgment depends on: `test evidence boundary`
+
+What would make it wrong: `test disconfirmation`
+
+## Support and Dissent
+
+Strongest supporting sources and voices: `SRC-01`
+
+Strongest counterevidence or dissent: `test counterevidence`
+
+## Claim and Forecast Dependencies
+
+- Reality claims: `none`
+- Forecast hooks: `none`
+- Operational or causal dependencies: `none`
+
+## Next Observable Signals
+
+- Test signal in the review window.
+
+## Decision / Public-use Implication
+
+`internal only`
+""",
+        encoding="utf-8",
+    )
     ledger_path.write_text("# Ledger\n", encoding="utf-8")
 
     monkeypatch.setattr(validator, "REPO_ROOT", tmp_path)
