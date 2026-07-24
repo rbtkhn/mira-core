@@ -17,6 +17,7 @@ if str(SCRIPTS_ROOT) not in sys.path:
 import triage_forecast_ledger as forecast_triage
 import verification as verification_packets
 import reality
+from cadence_results import aggregate as aggregate_results, command_result
 from runtime_bootstrap import BootstrapUnavailable, resolve_validation_python
 
 
@@ -24,6 +25,7 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 HANDOFF_PATH = (
     REPO_ROOT / "narrative-geopolitics" / "work" / "cadence" / "last-dream.json"
 )
+BASELINE_ROOT = REPO_ROOT / "narrative-geopolitics" / "work" / "cadence" / "baselines"
 DAILY_ROOT = REPO_ROOT / "narrative-geopolitics" / "work" / "daily"
 MANIFEST_PATH = REPO_ROOT / "narrative-geopolitics" / "archive" / "source-manifest.json"
 ARCHIVE_SOURCES_ROOT = REPO_ROOT / "narrative-geopolitics" / "archive" / "sources"
@@ -122,6 +124,22 @@ FORECAST_REVIEW_AUTHORITY = {
     ],
 }
 OUTCOMES = ("improved", "no_change", "regressed", "inconclusive")
+INHERITANCE_SCOPES = ("local-use", "repo-use", "public-use")
+EXPERIMENT_PROFILES = {
+    "smart-intake-routing": {
+        "version": 1,
+        "purpose": "Validate canonical routing, alias normalization, and safe intake landing.",
+        "paths": [
+            "scripts/smart_intake.py",
+            "scripts/land_best_intake.py",
+            "tests/test_smart_intake.py",
+            "tests/test_land_best_intake.py",
+            "tests/test_intake_observability.py",
+            "narrative-geopolitics/archive/source-manifest.json",
+        ],
+        "command": ["-m", "pytest", "tests/test_smart_intake.py", "tests/test_land_best_intake.py", "tests/test_intake_observability.py", "-q", "-p", "no:cacheprovider"],
+    }
+}
 NEXT_MODES = {
     "improved": "confirm_then_consolidate",
     "no_change": "retire_or_narrow",
@@ -722,6 +740,7 @@ def coffee_state(path: Path = HANDOFF_PATH) -> dict:
 
 def coffee_view(state: dict) -> dict:
     handoff = state.get("handoff")
+    verification = handoff.get("verification", {}) if handoff else {}
     return {
         "git_head": state["git_head"],
         "dirty_path_count": len(state["dirty_paths"]),
@@ -730,12 +749,18 @@ def coffee_view(state: dict) -> dict:
         "next_mode": state["next_mode"],
         "learning": handoff.get("learning") if handoff else None,
         "verification_passed": (
-            verification_passed(handoff.get("verification", {})) if handoff else None
+            verification_passed(verification) if handoff else None
         ),
+        "inheritance": verification.get("inheritance", {
+            "local-use": "blocked" if handoff else "not_applicable",
+            "repo-use": "blocked" if handoff else "not_applicable",
+            "public-use": "not_authorized",
+        }),
+        "experiment_verification": verification.get("experiment", {}).get("status") if handoff else None,
     }
 
 
-def run_verification() -> dict:
+def run_verification(profile: str | None = None) -> dict:
     try:
         python = resolve_validation_python(REPO_ROOT)
     except BootstrapUnavailable as error:
@@ -745,9 +770,23 @@ def run_verification() -> dict:
             "returncode": None,
             "output_tail": str(error)[-2000:],
         }
+        unavailable_result = command_result(
+            check_id="repository-validation",
+            status="unavailable",
+            scope="repository",
+            command=["validation-interpreter"],
+            failure_class="environment",
+            owner="repository",
+            next_action="Make the resolved validation interpreter available, then rerun cadence.",
+            evidence=str(error),
+        ).to_dict()
         return {
             "integrity": dict(unavailable),
             "tests": dict(unavailable),
+            "structured": aggregate_results([
+                command_result(check_id="repository-integrity", status="unavailable", scope="repository", command=["scripts/validate_repository.py"], failure_class="environment", owner="repository", next_action="Make the resolved validation interpreter available, then rerun cadence.", evidence=str(error)),
+                command_result(check_id="test-suite", status="unavailable", scope="repository", command=["-m", "pytest"], failure_class="environment", owner="repository", next_action="Make the resolved validation interpreter available, then rerun cadence.", evidence=str(error)),
+            ]),
         }
     commands = {
         "integrity": [str(python), "scripts/validate_repository.py"],
@@ -761,6 +800,30 @@ def run_verification() -> dict:
         ],
     }
     results: dict[str, dict] = {}
+    if profile:
+        spec = EXPERIMENT_PROFILES.get(profile)
+        if spec is None:
+            raise ValueError(f"unknown experiment profile: {profile}")
+        scoped = subprocess.run([str(python), *spec["command"]], cwd=REPO_ROOT, capture_output=True, text=True)
+        scoped_output = (scoped.stdout + scoped.stderr).strip()
+        results["experiment"] = {
+            "status": "passed" if scoped.returncode == 0 else "failed",
+            "passed": scoped.returncode == 0,
+            "returncode": scoped.returncode,
+            "profile": profile,
+            "paths": spec["paths"],
+            "output_tail": scoped_output[-2000:],
+        }
+        results.setdefault("structured_results", []).append(command_result(
+            check_id=profile,
+            status="passed" if scoped.returncode == 0 else "failed",
+            scope="experiment",
+            command=list(spec["command"]),
+            output_tail=scoped_output,
+            failure_class="command" if scoped.returncode else None,
+            owner="experiment",
+            next_action="Repair the scoped experiment checks, then rerun the profile." if scoped.returncode else "",
+        ))
     for name, command in commands.items():
         result = subprocess.run(
             command,
@@ -775,7 +838,53 @@ def run_verification() -> dict:
             "returncode": result.returncode,
             "output_tail": output[-2000:],
         }
+        failure_class = None if result.returncode == 0 else ("environment" if "required" in output.lower() or "unavailable" in output.lower() else "command")
+        results.setdefault("structured_results", []).append(command_result(
+            check_id=name,
+            status="passed" if result.returncode == 0 else "failed",
+            scope="repository",
+            command=command,
+            output_tail=output,
+            failure_class=failure_class,
+            owner="repository",
+            next_action="Inspect the validator output and repair the reported repository condition.",
+        ))
+    structured = results.pop("structured_results", [])
+    results["structured"] = aggregate_results(structured)
     return results
+
+
+def write_baseline(profile: str, path: Path | None = None) -> dict:
+    spec = EXPERIMENT_PROFILES.get(profile)
+    if spec is None:
+        raise ValueError(f"unknown experiment profile: {profile}")
+    try:
+        python = resolve_validation_python(REPO_ROOT)
+    except BootstrapUnavailable as error:
+        raise ValueError(str(error)) from error
+    result = subprocess.run([str(python), *spec["command"]], cwd=REPO_ROOT, capture_output=True, text=True)
+    output = (result.stdout + result.stderr).strip()
+    payload = {
+        "schema_version": 1,
+        "timestamp": datetime.now(timezone.utc).isoformat(),
+        "profile": profile,
+        "profile_version": spec["version"],
+        "git_head": git_head(),
+        "dirty_paths": dirty_paths(),
+        "worktree_fingerprint": worktree_fingerprint(),
+        "paths": spec["paths"],
+        "command": spec["command"],
+        "status": "passed" if result.returncode == 0 else "failed",
+        "passed": result.returncode == 0,
+        "returncode": result.returncode,
+        "output_tail": output[-2000:],
+    }
+    target = path or (BASELINE_ROOT / f"{profile}.json")
+    target.parent.mkdir(parents=True, exist_ok=True)
+    temporary = target.with_suffix(".tmp")
+    temporary.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+    temporary.replace(target)
+    return payload
 
 
 def write_dream(
@@ -787,6 +896,8 @@ def write_dream(
     evidence_summary: str,
     artifact_refs: list[str],
     tomorrow_inherits: str,
+    profile: str | None = None,
+    measurement: dict | None = None,
     path: Path = HANDOFF_PATH,
     verify: Callable[[], dict] = run_verification,
 ) -> dict:
@@ -794,7 +905,15 @@ def write_dream(
     if not evidence_summary:
         raise ValueError("evidence summary must not be empty")
     artifact_refs = normalize_artifact_refs(artifact_refs)
-    verification = verify()
+    verification = verify(profile) if profile else verify()
+    if profile and "experiment" in verification:
+        experiment_passed = verification["experiment"].get("passed", False)
+        repository_passed = verification_passed(verification)
+        verification["inheritance"] = {
+            "local-use": "eligible" if experiment_passed else "blocked",
+            "repo-use": "eligible" if experiment_passed and repository_passed else "blocked",
+            "public-use": "not_authorized",
+        }
     payload = {
         "schema_version": 2,
         "timestamp": datetime.now(timezone.utc).isoformat(),
@@ -802,6 +921,7 @@ def write_dream(
         "dirty_paths": dirty_paths(),
         "worktree_fingerprint": worktree_fingerprint(),
         "verification": verification,
+        "measurement": measurement or {},
         "learning": {
             "experiment": experiment,
             "outcome": outcome,
@@ -833,6 +953,11 @@ def print_coffee(state: dict) -> None:
         print(f"evidence_summary={learning.get('evidence_summary', '')}")
         print(f"artifact_refs={','.join(learning.get('artifact_refs', []))}")
         print(f"tomorrow_inherits={learning.get('tomorrow_inherits', '')}")
+        inheritance = handoff.get("verification", {}).get("inheritance", {})
+        if inheritance:
+            print(f"local_use={inheritance.get('local-use', 'blocked')}")
+            print(f"repo_use={inheritance.get('repo-use', 'blocked')}")
+            print("public_use=not_authorized")
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -859,7 +984,15 @@ def build_parser() -> argparse.ArgumentParser:
     startup.add_argument("--json", action="store_true")
     coffee = subparsers.add_parser("coffee", help="Read the last learning handoff.")
     coffee.add_argument("--json", action="store_true")
+    profile = subparsers.add_parser("profile", help="Inspect experiment profiles.")
+    profile.add_argument("action", choices=("list", "show"))
+    profile.add_argument("name", nargs="?")
+    profile.add_argument("--json", action="store_true")
+    baseline = subparsers.add_parser("baseline", help="Record a scoped experiment baseline.")
+    baseline.add_argument("--profile", choices=tuple(EXPERIMENT_PROFILES), required=True)
+    baseline.add_argument("--json", action="store_true")
     dream = subparsers.add_parser("dream", help="Verify and persist one learning handoff.")
+    dream.add_argument("--profile", choices=tuple(EXPERIMENT_PROFILES))
     dream.add_argument("--experiment", required=True)
     dream.add_argument("--outcome", choices=OUTCOMES, required=True)
     dream.add_argument("--lesson", required=True)
@@ -867,6 +1000,7 @@ def build_parser() -> argparse.ArgumentParser:
     dream.add_argument("--evidence-summary", required=True)
     dream.add_argument("--artifact-ref", action="append", required=True)
     dream.add_argument("--tomorrow-inherits", required=True)
+    dream.add_argument("--measurement-json", help="Optional JSON measurement payload for retrieval/rework benchmarking.")
     dream.add_argument("--json", action="store_true")
     return parser
 
@@ -900,6 +1034,26 @@ def main() -> None:
             print_coffee(state)
         return
 
+    if args.command == "profile":
+        if args.action == "list":
+            payload = {name: {"version": spec["version"], "purpose": spec["purpose"]} for name, spec in EXPERIMENT_PROFILES.items()}
+        else:
+            if not args.name or args.name not in EXPERIMENT_PROFILES:
+                raise SystemExit("profile name is required and must resolve")
+            payload = {args.name: EXPERIMENT_PROFILES[args.name]}
+        print(json.dumps(payload, indent=2) if getattr(args, "json", False) else json.dumps(payload, indent=2))
+        return
+
+    if args.command == "baseline":
+        payload = write_baseline(args.profile)
+        print(json.dumps(payload, indent=2) if args.json else f"baseline_written={BASELINE_ROOT.relative_to(REPO_ROOT).as_posix()}/{args.profile}.json")
+        if not payload["passed"]:
+            raise SystemExit(1)
+        return
+
+    measurement = json.loads(args.measurement_json) if args.measurement_json else None
+    if measurement is not None and not isinstance(measurement, dict):
+        raise SystemExit("--measurement-json must decode to an object")
     payload = write_dream(
         experiment=args.experiment,
         outcome=args.outcome,
@@ -908,6 +1062,8 @@ def main() -> None:
         evidence_summary=args.evidence_summary,
         artifact_refs=args.artifact_ref,
         tomorrow_inherits=args.tomorrow_inherits,
+        profile=args.profile,
+        measurement=measurement,
     )
     if args.json:
         print(json.dumps(payload, indent=2))

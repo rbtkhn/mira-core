@@ -31,6 +31,12 @@ Run:
 tools/run.ps1 cadence dream --experiment TEXT --outcome OUTCOME --lesson TEXT --improvement TEXT --evidence-summary TEXT --artifact-ref PATH --tomorrow-inherits TEXT --json
 ```
 
+For a profiled experiment, add `--profile PROFILE`. The persisted handoff keeps
+experiment-scoped verification separate from repository-wide verification;
+local-use eligibility never grants repo-use or public-use.
+Structured verification results must retain the raw output tail and identify an
+owner and next action for every non-passing result.
+
 Repeat `--artifact-ref` when needed. The command rejects missing, absolute, or
 repository-escaping references, runs repository integrity and tests through one
 resolved validation interpreter, then writes the ignored local

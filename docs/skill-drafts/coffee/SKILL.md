@@ -12,6 +12,10 @@ Use only in `narrative-systems`. Coffee is read-only.
 1. Run `tools/run.ps1 cadence coffee --json`.
 2. Inspect Git status, `public/watch.md`, accountable open forecasts, the latest
    manifest-backed daily run, and any experiment named by the handoff.
+   When the handoff has a verification profile, report experiment verification
+   separately from repository verification and show local-use versus repo-use.
+   Report structured lane failures with their owner and next action; retain the
+   raw output tail for auditability.
 3. Treat `handoff_status` as a gate:
    - `missing`: bootstrap one bounded experiment;
    - `verification_failed`: repair before inheriting any lesson;
