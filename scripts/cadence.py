@@ -585,8 +585,15 @@ def startup_state(
         )
         if resolved and not completed_packets:
             blockers.append("resolved_accountable_forecast_lacks_completed_packet")
-        lattice_assessment = (phase.get("lattice") or {}).get("assessment")
-        if resolved and phase.get("lattice") and not (
+        lattice = phase.get("lattice") or {}
+        lattice_claim = lattice.get("claim") or {}
+        lattice_assessment = lattice.get("assessment")
+        # Forecast scoring evaluates the declared forecast observable. It does
+        # not authorize factual adoption, publication, or operational truth.
+        # Keep canonical multilingual adjudication mandatory for other lattice
+        # claims, while avoiding a category error for bounded forecast review.
+        forecast_claim = lattice_claim.get("claim_type") == "forecast"
+        if resolved and phase.get("lattice") and not forecast_claim and not (
             lattice_assessment
             and lattice_assessment.get("status") in {"canonical_assessed", "canonical_with_language_waiver"}
             and lattice_assessment.get("authorizes_forecast_scoring") is True

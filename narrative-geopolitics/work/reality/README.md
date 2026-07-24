@@ -42,7 +42,11 @@ Automation validates records, renders views, and reports impact. It never signs
 an assessment. The human reviewer identity `operator` is the sole required
 signer for a canonical assessment, including high-consequence public adoption
 or accountable forecast scoring. A provisional assessment may guide internal
-work but cannot cross those gates.
+work but cannot cross those gates. At the cadence handoff, a completed
+verification packet may support scoring of a forecast's declared observable
+without making the underlying forecast claim canonically factual. Canonical
+multilingual adjudication remains required for factual adoption, publication,
+or operational and causal claims.
 
 ## Commands
 
