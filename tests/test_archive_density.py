@@ -148,7 +148,7 @@ def test_real_july_density_integration() -> None:
     rows = density.analyze_range([f"2026-07-{day:02d}" for day in range(1, 16)])
     stats = density.summary(rows)
 
-    assert stats["total_sources"] == 85
+    assert stats["total_sources"] == 87
     assert stats["high_density_days"] == [
         "2026-07-07",
         "2026-07-08",

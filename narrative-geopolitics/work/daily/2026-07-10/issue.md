@@ -1,5 +1,5 @@
 <!-- daily-issue-v1 inputs-sha256: 97d1c1e2e46ff91b87a02e09a66557c0d967d6a7257b6b7bb80289f42bc3aba0 -->
-<!-- reality-lattice-sha256: bf7e697eea09d1c158a0d9fdebf3a4b64bbfe42ad638f38d6df44ede05dd40f4 -->
+<!-- reality-lattice-sha256: e2134565e2784dcbf97b337648c971a4c151b3732904b491e6dc855565bb9007 -->
 <!-- Generated file. Edit canonical daily or reality-lattice inputs, then regenerate. -->
 
 Publication: **Narrative Geopolitics — Daily Issue**

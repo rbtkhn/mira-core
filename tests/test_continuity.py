@@ -70,8 +70,8 @@ def test_daily_orthogonality_covers_full_july20_roster_without_persisting():
     )
     assert code == 0
     payload = json.loads(output)
-    assert payload["source_count"] == 13
-    assert payload["voice_count"] == 12
+    assert payload["source_count"] == 14
+    assert payload["voice_count"] == 13
     assert {item["voice"] for item in payload["voices"]} >= {"mearsheimer", "weichert", "davis"}
     assert next(item for item in payload["voices"] if item["voice"] == "mearsheimer")["source_count"] == 2
     weichert = next(item for item in payload["voices"] if item["voice"] == "weichert")
@@ -85,7 +85,8 @@ def test_daily_orthogonality_reports_unmapped_voices_for_review():
         "orthogonality", "--date", "2026-07-20", "--daily", "--format", "json", "--dry-run"
     )
     payload = json.loads(output)
-    assert payload["unmapped_voice_count"] == 0
+    assert payload["unmapped_voice_count"] == 1
+    assert any(item["voice"] == "pape" and item["axis"] == "unmapped" for item in payload["voices"])
     assert any(item["voice"] == "weichert" and item["status"] == "distinct contribution" for item in payload["voices"])
     assert any(item["priority"] == "P1" and "escobar" in item["entity"] and "weichert" in item["entity"] for item in payload["review_queue"])
 
@@ -118,9 +119,9 @@ def test_daily_orthogonality_july19_is_a_distinct_basing_and_multitheater_fixtur
     )
     assert code == 0
     payload = json.loads(output)
-    assert payload["source_count"] == 6
-    assert payload["voice_count"] == 6
-    assert {item["voice"] for item in payload["voices"]} == {"sachs", "marandi", "mcgovern", "mercouris", "krapivnik", "johnson"}
+    assert payload["source_count"] == 9
+    assert payload["voice_count"] == 9
+    assert {item["voice"] for item in payload["voices"]} == {"sachs", "marandi", "mcgovern", "mercouris", "krapivnik", "johnson", "jiang", "pape", "ritter"}
     assert next(item for item in payload["voices"] if item["voice"] == "mcgovern")["axis"] == "basing exposure / intelligence sequence"
     assert any("basing" in item.lower() and "casualty" in item.lower() for item in payload["counter_pressure_gaps"])
     assert not any("vessel-level" in item for item in payload["counter_pressure_gaps"])
@@ -134,8 +135,8 @@ def test_daily_orthogonality_july18_surfaces_unmapped_voices_and_explainability(
     )
     assert code == 0
     payload = json.loads(output)
-    assert payload["source_count"] == 7
-    assert payload["voice_count"] == 7
+    assert payload["source_count"] == 8
+    assert payload["voice_count"] == 8
     assert payload["unmapped_voice_count"] == 3
     assert {item["voice"] for item in payload["voices"] if item["axis"] == "unmapped"} == {"matlock", "pape", "parsi"}
     assert all(item["source_ids"] and item["source_roles"] and item["mechanism_evidence"] for item in payload["pairs"])
@@ -150,8 +151,9 @@ def test_daily_orthogonality_july_range_includes_sparse_manifest_date_and_skips_
     payload = json.loads(output)
     assert payload["audited_dates"][0] == "2026-07-01"
     assert "2026-07-17" in payload["audited_dates"]
-    assert "2026-07-17" in payload["missing_context_dates"]
-    assert "2026-07-21" in payload["skipped_dates"]
+    assert "2026-07-17" not in payload["missing_context_dates"]
+    assert "2026-07-21" in payload["audited_dates"]
+    assert "2026-07-21" not in payload["skipped_dates"]
     assert "mercouris" in payload["recurring_voices"]
     assert any(item["priority"] == "P1" for item in payload["review_queue"])
     assert "independent observations" in payload["recommendation"]
