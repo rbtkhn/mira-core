@@ -38,7 +38,9 @@ Forecast review has two separate gates. A bounded forecast may be scored when
 its declared observable has a completed, valid verification packet and the
 packet supports the resolution. This authorizes scoring of the forecast
 observable only; it does not authorize factual adoption, publication, or a
-claim about an untested operational condition.
+claim about an untested operational condition. The exception is explicit: the
+lattice claim must carry `forecast_scope: public_discourse`. Operational or
+physical forecasts do not qualify.
 
 Claims that are not forecasts, including operational or causal claims, still
 require the canonical reality-lattice assessment and any applicable

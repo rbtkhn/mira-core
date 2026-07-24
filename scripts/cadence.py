@@ -592,8 +592,12 @@ def startup_state(
         # not authorize factual adoption, publication, or operational truth.
         # Keep canonical multilingual adjudication mandatory for other lattice
         # claims, while avoiding a category error for bounded forecast review.
-        forecast_claim = lattice_claim.get("claim_type") == "forecast"
-        if resolved and phase.get("lattice") and not forecast_claim and not (
+        forecast_scope = lattice_claim.get("forecast_scope")
+        bounded_discourse_forecast = (
+            lattice_claim.get("claim_type") == "forecast"
+            and forecast_scope == "public_discourse"
+        )
+        if resolved and phase.get("lattice") and not bounded_discourse_forecast and not (
             lattice_assessment
             and lattice_assessment.get("status") in {"canonical_assessed", "canonical_with_language_waiver"}
             and lattice_assessment.get("authorizes_forecast_scoring") is True

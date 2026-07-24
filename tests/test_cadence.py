@@ -679,7 +679,7 @@ def test_resolved_bounded_forecast_does_not_require_factual_lattice_adjudication
     phase = forecast_phase(packets=[packet])
     phase["resolution_status"] = "hit"
     phase["lattice"] = {
-        "claim": {"claim_type": "forecast"},
+        "claim": {"claim_type": "forecast", "forecast_scope": "public_discourse"},
         "assessment": None,
     }
     monkeypatch.setattr(cadence, "forecast_review_state", lambda hook_id, as_of: phase)
@@ -688,6 +688,31 @@ def test_resolved_bounded_forecast_does_not_require_factual_lattice_adjudication
     )
     assert state["ready"] is True
     assert "resolved_accountable_forecast_lacks_canonical_multilingual_adjudication" not in state["blockers"]
+
+
+def test_resolved_operational_forecast_keeps_canonical_lattice_gate(
+    monkeypatch,
+) -> None:
+    configure_bounded_phase_startup(monkeypatch)
+    packet = {
+        "packet_id": "VER-20260710-01",
+        "exists": True,
+        "status": "closed",
+        "assessment_outcome": "operationally_supported",
+        "validation_failures": [],
+    }
+    phase = forecast_phase(packets=[packet])
+    phase["resolution_status"] = "hit"
+    phase["lattice"] = {
+        "claim": {"claim_type": "forecast", "forecast_scope": "operational"},
+        "assessment": None,
+    }
+    monkeypatch.setattr(cadence, "forecast_review_state", lambda hook_id, as_of: phase)
+    state = cadence.startup_state(
+        "forecast-review", hook_id="NG-20260708-F02", as_of="2026-07-29"
+    )
+    assert state["ready"] is False
+    assert "resolved_accountable_forecast_lacks_canonical_multilingual_adjudication" in state["blockers"]
 
 
 def test_non_accountable_forecast_cannot_be_promoted_by_review_preflight(

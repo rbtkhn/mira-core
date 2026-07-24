@@ -46,7 +46,9 @@ work but cannot cross those gates. At the cadence handoff, a completed
 verification packet may support scoring of a forecast's declared observable
 without making the underlying forecast claim canonically factual. Canonical
 multilingual adjudication remains required for factual adoption, publication,
-or operational and causal claims.
+or operational and causal claims. The cadence exception applies only when a
+forecast claim explicitly carries `forecast_scope: public_discourse`; physical
+or operational forecasts remain subject to the canonical gate.
 
 ## Commands
 
