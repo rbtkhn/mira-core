@@ -54,7 +54,7 @@ A `best-intake` source is adequate when it has:
 
 Title and routing integrity rules:
 
-- Preserve the exact title exposed by the supplied source body or YouTube metadata when available. Do not shorten, normalize, or editorially rewrite it during landing.
+- Prefer a materially identifiable title embedded in the supplied transcript. Preserve an operator-supplied alternate in `title_aliases`; do not shorten or editorially rewrite the selected title.
 - If the operator supplies no channel and the channel is inferred from a title, URL, or body cue, record the route as provisional and retain the evidence basis. Do not label an inference as explicit-host.
 - Use canonical channel display names and slugs. For example, the display name is `Reason to Resist` and the slug is `reason-resist`.
 
@@ -116,6 +116,21 @@ The executable transformation order is fixed:
 ```text
 deterministic trim -> conservative ASR repair -> conservative sectioning
 ```
+
+Every normal landing runs a read-only preflight first. Use `--preflight` to
+inspect the receipt without writing, and add `--json` for machine-readable
+output. The receipt includes the YouTube video ID, canonical source identity,
+duplicate status, title/date/routing basis, planned path, transformations, and
+warnings. Warnings do not block landing; duplicate identities and path
+collisions remain idempotent safety stops.
+
+Source identity is `youtube:<video-id>` for YouTube URLs and the normalized URL
+for other sources. This identity is the manifest-level duplicate key.
+
+Date basis is recorded as `transcript-self-date`, `operator-supplied`,
+`verified-platform`, or `provisional-intake`. When no stronger date exists, an
+operator-supplied date is valid but remains explicitly provisional in the
+source note.
 
 Before writing, the helper preflights the full batch, generated paths, existing
 manifest paths, and collisions. It stages all source files and the proposed

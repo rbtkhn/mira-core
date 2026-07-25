@@ -31,6 +31,17 @@ The helper now writes trim metrics into landed source frontmatter automatically:
 4. Leave uncertain optional fields blank.
 5. Run `scripts/land_best_intake.py` from the metadata plus body file.
 
+For a read-only preflight before landing:
+
+```powershell
+python scripts/land_best_intake.py --metadata-file C:\path\to\source.txt --preflight --json
+```
+
+The receipt reports the selected transcript title, preserved title aliases,
+date and routing basis, canonical YouTube identity, duplicate status, planned
+archive path, transformations, and warnings. Warnings are retained in landed
+frontmatter and do not block an otherwise safe landing.
+
 For batch work, save one filled sidecar per source in a folder and run:
 
 ```powershell
@@ -63,6 +74,10 @@ ingest_date:
 url:
 body_file:
 ```
+
+Landed records also carry `source_identity`, `title_source`, `title_aliases`,
+`title_confidence`, `date_basis`, `routing_basis`, `source_form_basis`, and
+`metadata_warnings` for auditability.
 
 Supply these overrides only when known or inference is ambiguous:
 

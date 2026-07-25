@@ -1468,3 +1468,57 @@ def test_documented_host_allowlists_match_executable_contracts() -> None:
     for label, hosts in expected.items():
         assert documented_hosts(skill, label) == hosts
         assert documented_hosts(method, label) == hosts
+def test_transcript_title_wins_and_operator_title_is_preserved_as_alias() -> None:
+    args = build_fast_args(
+        "2026-07-24",
+        "https://www.youtube.com/watch?v=abc123XYZ_1",
+        "Operator title variant",
+        "Transcript title - YouTube\n\nTranscripts:\n\nGood day.\n",
+    )
+    args.host_slug = "audit-host"
+    args.voice_slugs = ["audit-voice"]
+    normalized = land_best_intake.normalize_args(args)
+    assert normalized.title == "Transcript title"
+    assert normalized.title_source == "transcript"
+    assert normalized.title_aliases == ["Operator title variant"]
+    assert normalized.source_identity == "youtube:abc123XYZ_1"
+    assert "operator-title-differs-from-transcript-title" in normalized.metadata_warnings
+
+
+def test_preflight_reports_video_identity_and_duplicate_warning(monkeypatch, tmp_path: Path) -> None:
+    _, manifest_path = configure_transaction_root(monkeypatch, tmp_path)
+    manifest_path.write_text(
+        json.dumps({
+            "source_count": 1,
+            "sources": [{
+                "local_path": "narrative-geopolitics/archive/sources/2026-07-24/source-existing.md",
+                "source_identity": "youtube:abc123XYZ_1",
+                "source_url": "https://www.youtube.com/watch?v=abc123XYZ_1",
+            }],
+        }), encoding="utf-8"
+    )
+    args = build_fast_args(
+        "2026-07-24", "https://www.youtube.com/watch?v=abc123XYZ_1", "A title", "Real body.\n"
+    )
+    args.host_slug = "audit-host"
+    args.voice_slugs = ["audit-voice"]
+    normalized = land_best_intake.normalize_args(args)
+    receipt = land_best_intake.preflight_receipt([normalized], json.loads(manifest_path.read_text(encoding="utf-8")))
+    row = receipt["sources"][0]
+    assert receipt["status"] == "warning"
+    assert row["video_id"] == "abc123XYZ_1"
+    assert row["duplicate"] is True
+    assert "already-landed-identity" in row["warnings"]
+
+
+def test_manifest_row_carries_identity_and_date_basis() -> None:
+    args = build_fast_args(
+        "2026-07-24", "https://www.youtube.com/watch?v=abc123XYZ_1", "A title", "Real body.\n"
+    )
+    args.host_slug = "audit-host"
+    args.voice_slugs = ["audit-voice"]
+    normalized = land_best_intake.normalize_args(args)
+    path = REPO_ROOT / "narrative-geopolitics" / "archive" / "sources" / "2026-07-24" / "source-a-title-2026-07-24.md"
+    row = land_best_intake.build_manifest_row(normalized, path, "operator-paste://2026-07-24/a-title")
+    assert row["source_identity"] == "youtube:abc123XYZ_1"
+    assert row["date_basis"] == "operator-supplied"

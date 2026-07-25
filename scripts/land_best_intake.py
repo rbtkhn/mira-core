@@ -560,9 +560,17 @@ def build_frontmatter(args: SimpleNamespace, title_slug: str, body: str) -> str:
             f"guest: {yaml_quote(args.guest)}",
             f"thread: {args.thread or args.voice_slugs[0]}",
             f"source_url: {yaml_quote(args.url)}",
+            f"source_identity: {yaml_quote(getattr(args, 'source_identity', ''))}",
             f"source_url_status: {'provided' if args.url else 'unavailable'}",
             f"source_note: {yaml_quote(args.source_note)}",
             f"inference_basis: {yaml_quote(','.join(getattr(args, 'inference_basis', [])))}",
+            f"title_source: {getattr(args, 'title_source', 'operator')}",
+            f"title_aliases: {yaml_quote('|'.join(getattr(args, 'title_aliases', [])))}",
+            f"title_confidence: {getattr(args, 'title_confidence', 'provisional')}",
+            f"date_basis: {getattr(args, 'date_basis', 'operator-supplied')}",
+            f"routing_basis: {getattr(args, 'routing_basis', 'inferred')}",
+            f"source_form_basis: {getattr(args, 'source_form_basis', 'inferred')}",
+            f"metadata_warnings: {yaml_quote('|'.join(getattr(args, 'metadata_warnings', [])))}",
             f"title_slug: {title_slug}",
             f"editorial_note: {yaml_quote(args.editorial_note)}",
             f"review_state: {args.review_state}",
@@ -608,6 +616,23 @@ def archived_source_urls() -> dict[str, str]:
     return urls
 
 
+def archived_source_identities() -> dict[str, str]:
+    """Read source identity from current and legacy archive frontmatter."""
+    identities: dict[str, str] = {}
+    pattern = re.compile(r'^source_url:\s*["\']?(https?://[^"\'\s]+)', re.MULTILINE)
+    identity_pattern = re.compile(r'^source_identity:\s*["\']?([^"\'\s]+)', re.MULTILINE)
+    for path in ARCHIVE_SOURCES_ROOT.rglob("source-*.md"):
+        text = path.read_text(encoding="utf-8", errors="replace")[:12000]
+        match = identity_pattern.search(text)
+        identity = match.group(1) if match else ""
+        if not identity:
+            url_match = pattern.search(text)
+            identity = canonical_source_identity(url_match.group(1)) if url_match else ""
+        if identity:
+            identities[identity] = path.relative_to(REPO_ROOT).as_posix()
+    return identities
+
+
 def write_manifest(manifest: dict) -> None:
     payload = manifest_bytes(manifest)
     descriptor, temporary_name = tempfile.mkstemp(
@@ -649,6 +674,10 @@ def build_manifest_row(
         "modality": args.modality,
         "voice_slugs": args.voice_slugs,
         "host_slug": args.host_slug,
+        "source_identity": getattr(args, "source_identity", ""),
+        "source_url": args.url,
+        "title_source": getattr(args, "title_source", "operator"),
+        "date_basis": getattr(args, "date_basis", "operator-supplied"),
         "inference_basis": list(getattr(args, "inference_basis", [])),
         "import_status": "imported",
     }
@@ -708,6 +737,9 @@ def parse_args() -> argparse.Namespace:
         action="store_true",
         help="Print planned output paths and manifest rows without writing files.",
     )
+    parser.add_argument("--preflight", action="store_true", help="Print a read-only intake preflight receipt.")
+    parser.add_argument("--json", action="store_true", help="Emit machine-readable preflight or landing receipts.")
+    parser.add_argument("--no-preflight", action="store_true", help="Skip internal preflight for controlled batch use.")
     parser.add_argument(
         "--trim-opening",
         choices=("auto", "none", *sorted(HOST_TRIM_RULES)),
@@ -809,6 +841,7 @@ def validate_iso_date(value: object, label: str) -> str:
 
 def normalize_args(args: SimpleNamespace) -> SimpleNamespace:
     resolve_quick_inputs(args)
+    add_metadata_defaults(args)
     infer_missing_metadata(args)
     args.host_people = [item for item in (args.host_people or []) if item]
     args.guest_people = [item for item in (args.guest_people or []) if item]
@@ -974,6 +1007,13 @@ def args_from_cli(cli_args: argparse.Namespace, *, normalize: bool = True) -> Si
         "section_pass": SECTIONING_PASS_LABEL,
         "asr_repair_applied": False,
         "asr_repair_pass": "",
+        "title_aliases": [],
+        "metadata_warnings": [],
+        "title_source": "operator" if cli_args.title else "transcript",
+        "title_confidence": "provisional",
+        "date_basis": "operator-supplied",
+        "routing_basis": "inferred",
+        "source_form_basis": "inferred",
     }
     args = SimpleNamespace(**mapped)
     return normalize_args(args) if normalize else args
@@ -1021,12 +1061,68 @@ def parse_title_from_body(body: str) -> str:
     if not lines:
         return ""
     first = lines[0]
+    if not re.search(r"-\s*YouTube(?:\s+Transcripts?)?\s*$", first, re.IGNORECASE) and "youtube transcripts:" not in first.lower() and not (len(lines) > 1 and lines[1].lower().startswith("transcripts:")):
+        return ""
     first = re.sub(r"\s*Transcripts?:.*$", "", first, flags=re.IGNORECASE)
     first = re.sub(r"\s*-\s*YouTube(?:\s+Transcripts?)?.*$", "", first, flags=re.IGNORECASE)
     first = re.sub(r"\s{2,}", " ", first).strip(" -:")
     if len(first) >= 8:
         return first
     return ""
+
+
+def youtube_video_id(url: str) -> str:
+    match = re.search(r"(?:[?&]v=|youtu\.be/|youtube\.com/shorts/)([A-Za-z0-9_-]{6,})", url or "")
+    return match.group(1) if match else ""
+
+
+def canonical_source_identity(url: str) -> str:
+    video_id = youtube_video_id(url)
+    if video_id:
+        return f"youtube:{video_id}"
+    return (url or "").strip().rstrip("/")
+
+
+def transcript_date_basis(body: str, pub_date: str) -> str:
+    if re.search(r"\b(?:today is|today's)\s+(?:\w+,\s+)?(?:january|february|march|april|may|june|july|august|september|october|november|december)\b", body, re.IGNORECASE):
+        return "transcript-self-date"
+    return "operator-supplied" if pub_date else "unknown"
+
+
+def add_metadata_defaults(args: SimpleNamespace) -> None:
+    args.source_identity = canonical_source_identity(getattr(args, "url", ""))
+    args.title_aliases = list(getattr(args, "title_aliases", []))
+    args.metadata_warnings = list(getattr(args, "metadata_warnings", []))
+    args.title_source = getattr(args, "title_source", "operator" if getattr(args, "title", "") else "transcript")
+    args.title_confidence = getattr(args, "title_confidence", "provisional")
+    args.date_basis = getattr(args, "date_basis", "operator-supplied")
+    args.routing_basis = getattr(args, "routing_basis", "inferred")
+    args.source_form_basis = getattr(args, "source_form_basis", "inferred")
+
+
+def apply_transcript_title(args: SimpleNamespace, body: str) -> None:
+    supplied_title = (getattr(args, "title", "") or "").strip()
+    transcript_title = parse_title_from_body(body)
+    if transcript_title:
+        if supplied_title and supplied_title != transcript_title:
+            args.title_aliases = [supplied_title]
+            args.metadata_warnings.append("operator-title-differs-from-transcript-title")
+        args.title = transcript_title
+        args.title_source = "transcript"
+        args.title_confidence = "high"
+    elif supplied_title:
+        args.title_source = "operator"
+        args.title_confidence = "provisional"
+
+
+def source_identity_matches(item: dict, identity: str, url: str) -> bool:
+    if not identity and not url:
+        return False
+    candidate = str(item.get("source_identity") or "").strip()
+    if candidate and candidate == identity:
+        return True
+    candidate_url = str(item.get("source_url") or item.get("url") or "").strip().rstrip("/")
+    return bool(candidate_url and candidate_url == (url or "").strip().rstrip("/"))
 
 
 def title_from_url(url: str) -> str:
@@ -1114,6 +1210,8 @@ def infer_missing_metadata(args: SimpleNamespace) -> SimpleNamespace:
     body = load_body_text(args)
     if not body:
         return args
+    apply_transcript_title(args, body)
+    args.date_basis = transcript_date_basis(body, getattr(args, "pub_date", ""))
     if not getattr(args, "ingest_date", None) and getattr(args, "pub_date", None):
         args.ingest_date = args.pub_date
     if not getattr(args, "pub_date", None) and getattr(args, "ingest_date", None):
@@ -1156,6 +1254,8 @@ def infer_missing_metadata(args: SimpleNamespace) -> SimpleNamespace:
         raise ValueError("Need one clarification: I could not infer the host/channel. Re-run with --host-slug.")
 
     args.source_form = infer_source_form(args, body, profile, voice_candidates)
+    args.source_form_basis = "explicit" if getattr(args, "source_form", "") not in ("", "interview") else "inferred"
+    args.routing_basis = "explicit-host" if "explicit-host" in args.inference_basis else "host-profile-or-body-cue"
     infer_defaults_for_source_form(args)
     if not getattr(args, "thread", None) and getattr(args, "voice_slugs", None):
         args.thread = args.voice_slugs[0]
@@ -1757,8 +1857,14 @@ def prepare_batch(source_args: list[SimpleNamespace], manifest: dict) -> tuple[l
     if len(existing_path_list) != len(set(existing_path_list)):
         raise ValueError("Manifest contains duplicate source paths")
     existing_paths = set(existing_path_list)
+    existing_identities = {
+        str(item.get("source_identity") or "").strip()
+        for item in manifest_sources
+        if isinstance(item, dict) and item.get("source_identity")
+    }
+    existing_identities.update(archived_source_identities())
     existing_urls = {
-        str(item.get("url") or item.get("source_url") or "").strip()
+        str(item.get("url") or item.get("source_url") or "").strip().rstrip("/")
         for item in manifest_sources
         if isinstance(item, dict) and (item.get("url") or item.get("source_url"))
     }
@@ -1766,7 +1872,9 @@ def prepare_batch(source_args: list[SimpleNamespace], manifest: dict) -> tuple[l
     planned_paths: set[str] = set()
     for args in source_args:
         plan = prepare_landing(args)
-        if args.url and args.url in existing_urls:
+        if args.source_identity and args.source_identity in existing_identities:
+            raise ValueError(f"Source identity already exists in manifest: {args.source_identity}")
+        if args.url and args.url.rstrip("/") in existing_urls:
             raise ValueError(f"Source URL already exists in manifest: {args.url}")
         relative_path = plan.source_path.relative_to(REPO_ROOT).as_posix()
         if relative_path in existing_paths:
@@ -1783,6 +1891,42 @@ def prepare_batch(source_args: list[SimpleNamespace], manifest: dict) -> tuple[l
     proposed["source_count"] = len(proposed_sources)
     manifest_bytes(proposed)
     return plans, proposed
+
+
+def preflight_receipt(source_args: list[SimpleNamespace], manifest: dict) -> dict[str, object]:
+    sources = manifest.get("sources", [])
+    existing = [item for item in sources if isinstance(item, dict)]
+    identities = {str(item.get("source_identity") or "") for item in existing}
+    urls = {str(item.get("source_url") or item.get("url") or "").rstrip("/") for item in existing}
+    archived_identities = archived_source_identities()
+    rows: list[dict[str, object]] = []
+    for args in sorted(source_args, key=lambda item: (item.pub_date, item.title, item.source_identity)):
+        source_path, _, _ = source_plan(args)
+        identity_duplicate = bool(args.source_identity and (args.source_identity in identities or args.source_identity in archived_identities))
+        url_duplicate = bool(args.url and args.url.rstrip("/") in urls)
+        warnings = list(getattr(args, "metadata_warnings", []))
+        if identity_duplicate or url_duplicate:
+            warnings.append("already-landed-identity")
+        rows.append({
+            "video_id": youtube_video_id(args.url),
+            "source_identity": args.source_identity,
+            "duplicate": identity_duplicate or url_duplicate,
+            "planned_path": source_path.relative_to(REPO_ROOT).as_posix(),
+            "title": args.title,
+            "title_source": args.title_source,
+            "title_aliases": args.title_aliases,
+            "date": args.pub_date,
+            "date_basis": args.date_basis,
+            "host": args.host,
+            "host_slug": args.host_slug,
+            "guest": args.guest,
+            "voice_slugs": args.voice_slugs,
+            "source_form": args.source_form,
+            "source_form_basis": args.source_form_basis,
+            "transformations": [name for name, applied in (("opening-trim", args.opening_trim_applied), ("closing-trim", args.closing_trim_applied), ("asr-repair", args.asr_repair_applied), ("sectioning", args.transcript_curation == "curated_sectioned")) if applied],
+            "warnings": warnings,
+        })
+    return {"status": "warning" if any(row["warnings"] for row in rows) else "ready", "count": len(rows), "sources": rows}
 
 
 def dry_run_messages(plans: list[LandingPlan]) -> list[str]:
@@ -2043,10 +2187,20 @@ def main() -> int:
             return 0
         source_args = gather_sources(cli_args)
         manifest = load_manifest()
+        receipt = preflight_receipt(source_args, manifest)
+        if cli_args.preflight:
+            print(json.dumps(receipt, indent=2, ensure_ascii=False) if cli_args.json else json.dumps(receipt, indent=2, ensure_ascii=False))
+            return 0
         existing_urls = archived_source_urls()
-        if len(source_args) == 1 and source_args[0].url and source_args[0].url in existing_urls:
-            print("ALREADY LANDED")
-            print(f"Archive: {existing_urls[source_args[0].url]}")
+        existing_identities = archived_source_identities()
+        if len(source_args) == 1 and source_args[0].source_identity in existing_identities:
+            result = {"status": "ALREADY LANDED", "archive": existing_identities[source_args[0].source_identity], "source_identity": source_args[0].source_identity}
+            print(json.dumps(result, indent=2) if cli_args.json else f"ALREADY LANDED\nArchive: {result['archive']}")
+            return 0
+        matching_url_path = next((path for url, path in existing_urls.items() if url.rstrip("/") == source_args[0].url.rstrip("/")), None)
+        if len(source_args) == 1 and matching_url_path:
+            result = {"status": "ALREADY LANDED", "archive": matching_url_path, "source_identity": source_args[0].source_identity}
+            print(json.dumps(result, indent=2) if cli_args.json else f"ALREADY LANDED\nArchive: {result['archive']}")
             return 0
         plans, proposed_manifest = prepare_batch(source_args, manifest)
         if cli_args.dry_run:
@@ -2058,7 +2212,13 @@ def main() -> int:
             messages = publish_batch(plans, proposed_manifest, voice_updates)
             messages.extend(voice_messages)
             messages.append(f"Manifest count: {proposed_manifest['source_count']}")
-        print("\n".join(messages))
+        if receipt.get("status") == "warning":
+            messages.insert(0, f"Preflight: WARNING ({sum(bool(row['warnings']) for row in receipt['sources'])} source(s))")
+        if cli_args.json:
+            result = {"status": "landed", "preflight": receipt, "messages": messages}
+            print(json.dumps(result, indent=2, ensure_ascii=False))
+        else:
+            print("\n".join(messages))
         return 0
     except Exception as exc:  # noqa: BLE001
         print(str(exc), file=sys.stderr)
