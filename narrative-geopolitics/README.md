@@ -30,6 +30,9 @@ Daily synthesis and public briefs are important operating modes, but they are
 not the whole product. The central long-term capability is disciplined inquiry
 across voices without flattening their disagreements into a house view.
 
+Internal corpus analytics are collected under [analytics/](analytics/), including
+the [cross-voice historical-reference density report](analytics/cross-voice-historical-reference-density.md).
+
 ## Operating Modes
 
 All operating modes inherit [The Repository Remembers; the Agent Receives a

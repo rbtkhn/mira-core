@@ -23,6 +23,7 @@ Status: `internal`
 | [source-index.md](source-index.md) | You need the imported local route map. | Links only to central archive source files. |
 | [historical-references.md](historical-references.md) | You need Freeman's historical repertoire, recurring analogies, or institutional-memory references. | Generated from the manifest-backed archive; attribution and transcript quality are explicitly marked. |
 | [historical-reference-density.md](historical-reference-density.md) | You need per-transcript historical-reference density or host/channel comparisons. | Uses occurrences per 1,000 transcript words; counts inherit the index's attribution and transcript-quality limits. |
+| [../../analytics/cross-voice-historical-reference-density.md](../../analytics/cross-voice-historical-reference-density.md) | You need a comparative historical-reference density view across voices. | Shared conservative taxonomy; candidate counts with explicit coverage and confidence limits. |
 
 ## Source Modalities
 
