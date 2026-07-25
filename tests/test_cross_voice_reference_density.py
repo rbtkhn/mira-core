@@ -23,6 +23,8 @@ def test_manifest_routes_are_deduplicated_and_normalized() -> None:
     identities = [(row["path" if "path" in row else "local_path"], row["voice_slug"]) for row in rows]
     assert len(identities) == len(set(identities))
     assert all(row["voice_slug"] == row["voice_slug"].lower() for row in rows)
+    selected = module.manifest_rows("freeman,diesen")
+    assert {row["voice_slug"] for row in selected} == {"freeman", "diesen"}
 
 
 def test_report_contains_comparison_surfaces_and_is_deterministic() -> None:
@@ -33,13 +35,34 @@ def test_report_contains_comparison_surfaces_and_is_deterministic() -> None:
     assert "## Voice comparison" in first
     assert "## Host/channel comparison" in first
     assert "## Transcript drilldown" in first
+    assert "## Occurrence ledger" in first
+    assert "CV-HR-" in first
+    assert "Quote:" in first
+    records, _ = module.build_records("freeman")
+    ledger = module.render_voice_ledger(records, "freeman")
+    assert "# Historical-Reference Ledger: freeman" in ledger
+    assert "| ID | Reference |" in ledger
+    assert "FREEMAN-HR-" in ledger
+    assert "Review status" in ledger
+    assert "## Source-level reference clusters" in ledger
+    assert "FREEMAN-CL-" in ledger
+    assert "`unreviewed`" in ledger
+    assert "`excluded-context`" in module.render_voice_ledger(module.build_records("freeman")[0], "freeman")
+    queue = module.render_review_queue(module.build_records("freeman")[0])
+    assert "# Historical-Reference Review Queue" in queue
+    assert "## needs-review" in queue
+    assert "## Cluster review queue" in queue
+    assert "RV-CL-" in queue
+    assert "Record durable decisions" in queue
     assert "Confidence mix" in first
     assert "candidate historical-reference" in first
-    assert "bounded validation pilot" in first
+    assert "bounded comparison pilot" in first
 
 
 def test_confidence_classes_are_explicit() -> None:
     module = load_module()
     assert module.confidence("**Freeman:** The Bay of Pigs", "freeman") == "direct"
-    assert module.confidence("**Host:** The Bay of Pigs", "freeman") == "strong-inferred"
+    assert module.confidence("**Host:** The Bay of Pigs", "freeman") is None
     assert module.confidence("The Bay of Pigs was a precedent.", "freeman") == "provisional"
+    assert module.is_context_only("Welcome back. We are joined today by Professor Mearsheimer.")
+    assert not module.is_context_only("The Cold War shaped the alliance system.")
