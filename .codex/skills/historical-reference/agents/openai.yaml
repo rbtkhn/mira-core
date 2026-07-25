@@ -1,0 +1,4 @@
+interface:
+  display_name: "Historical Reference"
+  short_description: "Bounded historical-reference analysis"
+  default_prompt: "Use $historical-reference to build a bounded, source-linked historical-reference ledger or comparison."
