@@ -32,3 +32,12 @@ def test_record_schema_and_stable_occurrence_identity(tmp_path):
 def test_skill_requires_explicit_voices():
     module = load()
     assert "--voices" in (ROOT / ".codex" / "skills" / "historical-reference" / "SKILL.md").read_text(encoding="utf-8")
+
+def test_calibration_report_is_measurable():
+    module = load()
+    report = module.calibration_report()
+    assert report["fixture_version"] == "1.0"
+    assert report["cases"] == 22
+    assert 0 <= report["reference_precision"] <= 1
+    assert 0 <= report["reference_recall"] <= 1
+    assert report["results"]

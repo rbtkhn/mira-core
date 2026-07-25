@@ -1,0 +1,27 @@
+{
+  "version": "1.0",
+  "cases": [
+    {"id": "CAL-001", "text": "The 2003 Iraq War remains a warning about regime change.", "expected_reference": "iraq-war", "expected_attribution": "provisional", "expected_mechanism": "coercion", "expected_crosswalk": "M-FR-001"},
+    {"id": "CAL-002", "text": "The Cold War bipolar order shaped the alliance system.", "expected_reference": "cold-war", "expected_attribution": "provisional", "expected_mechanism": "power", "expected_crosswalk": "M-FR-003"},
+    {"id": "CAL-003", "text": "The JCPOA demonstrated the value of negotiated limits.", "expected_reference": "jcpoa", "expected_attribution": "provisional", "expected_mechanism": "diplomacy", "expected_crosswalk": "M-FR-002"},
+    {"id": "CAL-004", "text": "The Renaissance depended on the transfer of Greek and Roman knowledge.", "expected_reference": "renaissance-knowledge", "expected_attribution": "provisional", "expected_mechanism": "competence", "expected_crosswalk": "M-FR-004"},
+    {"id": "CAL-005", "text": "The Iranian Revolution remains part of Iran's sovereignty narrative.", "expected_reference": "iranian-revolution", "expected_attribution": "provisional", "expected_mechanism": "legitimacy", "expected_crosswalk": "M-FR-005"},
+    {"id": "CAL-006", "text": "**Chas Freeman:** The Bay of Pigs was a failed intervention.", "expected_reference": "bay-of-pigs", "expected_attribution": "direct", "expected_mechanism": "coercion", "expected_crosswalk": "M-FR-001"},
+    {"id": "CAL-007", "text": "**Host:** Welcome back. Today we discuss the Cold War.", "expected_reference": null, "expected_attribution": "excluded-context", "expected_mechanism": null, "expected_crosswalk": null},
+    {"id": "CAL-008", "text": "The government signed an agreement yesterday.", "expected_reference": null, "expected_attribution": "provisional", "expected_mechanism": null, "expected_crosswalk": null},
+    {"id": "CAL-009", "text": "The Thucydides Trap is often invoked, but the present case lacks a shared mechanism.", "expected_reference": "thucydides-trap", "expected_attribution": "provisional", "expected_mechanism": "power", "expected_crosswalk": "M-FR-003", "false_analogy": true},
+    {"id": "CAL-010", "text": "The 2018 withdrawal from the JCPOA damaged treaty reliability.", "expected_reference": "jcpoa", "expected_attribution": "provisional", "expected_mechanism": "diplomacy", "expected_crosswalk": "M-FR-002"},
+    {"id": "CAL-011", "text": "The new restaurant is called Cold War Kitchen, but the discussion is about food prices.", "expected_reference": null, "expected_attribution": "provisional", "expected_mechanism": null, "expected_crosswalk": null},
+    {"id": "CAL-012", "text": "The Iraq office released a report on today's electricity outage.", "expected_reference": null, "expected_attribution": "provisional", "expected_mechanism": null, "expected_crosswalk": null},
+    {"id": "CAL-013", "text": "Renaissance Hotel opened a new location near the airport.", "expected_reference": null, "expected_attribution": "provisional", "expected_mechanism": null, "expected_crosswalk": null},
+    {"id": "CAL-014", "text": "**Host:** We are joined today by a guest to discuss the Vietnam War and current headlines.", "expected_reference": null, "expected_attribution": "excluded-context", "expected_mechanism": null, "expected_crosswalk": null},
+    {"id": "CAL-015", "text": "A quoted commentator said the Bay of Pigs was a failure, but Freeman did not adopt the claim.", "expected_reference": "bay-of-pigs", "expected_attribution": "provisional", "expected_mechanism": "coercion", "expected_crosswalk": "M-FR-001"},
+    {"id": "CAL-016", "text": "The phrase Thucydides Trap appeared in a book title, with no comparison to current power relations.", "expected_reference": "thucydides-trap", "expected_attribution": "provisional", "expected_mechanism": "power", "expected_crosswalk": "M-FR-003", "false_analogy": true},
+    {"id": "CAL-017", "text": "The Viet Nam war remains a warning about intervention.", "expected_reference": "vietnam-war", "expected_attribution": "provisional", "expected_mechanism": "coercion", "expected_crosswalk": "M-FR-001"},
+    {"id": "CAL-018", "text": "The J.C.P.O.A. depended on reciprocal inspection commitments.", "expected_reference": "jcpoa", "expected_attribution": "provisional", "expected_mechanism": "diplomacy", "expected_crosswalk": "M-FR-002"},
+    {"id": "CAL-019", "text": "La guerre du Vietnam montre les limites de la coercition.", "expected_reference": "vietnam-war", "expected_attribution": "provisional", "expected_mechanism": "coercion", "expected_crosswalk": "M-FR-001"},
+    {"id": "CAL-020", "text": "La guerra de Vietnam terminó después de una larga intervención estadounidense.", "expected_reference": "vietnam-war", "expected_attribution": "provisional", "expected_mechanism": "coercion", "expected_crosswalk": "M-FR-001"},
+    {"id": "CAL-021", "text": "The Cold War, uh, the cold wore as the transcript renders it, shaped the alliance system.", "expected_reference": "cold-war", "expected_attribution": "provisional", "expected_mechanism": "power", "expected_crosswalk": "M-FR-003"},
+    {"id": "CAL-022", "text": "The Gulf War and Kuwait liberation remain central to the security guarantee debate.", "expected_reference": "kuwait-liberation", "expected_attribution": "provisional", "expected_mechanism": "diplomacy", "expected_crosswalk": "M-FR-002"}
+  ]
+}
