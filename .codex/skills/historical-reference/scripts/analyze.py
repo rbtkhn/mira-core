@@ -1,7 +1,7 @@
 """Bounded incremental historical-reference evidence-layer analyzer."""
 from __future__ import annotations
 
-import argparse, hashlib, json, re
+import argparse, hashlib, json, re, shutil, tempfile
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -9,6 +9,8 @@ REPO = Path(__file__).resolve().parents[4]
 MANIFEST = REPO / "narrative-geopolitics" / "archive" / "source-manifest.json"
 CALIBRATION = Path(__file__).resolve().parents[1] / "references" / "calibration.json"
 VERSIONS = {"taxonomy": "1", "detector": "1", "mechanism": "1"}
+
+RUN_STATES = {"planned", "processing", "landed", "skipped", "failed", "invalid"}
 
 PATTERNS = {
     "bay-of-pigs": ("Bay of Pigs", r"bay of pigs"),
@@ -35,6 +37,95 @@ MECHANISMS = {
 
 def sha256(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
+
+def fingerprint(row: dict, voices: set[str]) -> dict[str, str]:
+    return {
+        "source_id": str(row.get("source_id") or row.get("id") or row["local_path"]),
+        "archive_path": str(row["local_path"]),
+        "file_hash": sha256(row["full_path"]),
+        "taxonomy_version": VERSIONS["taxonomy"],
+        "detector_version": VERSIONS["detector"],
+        "mechanism_version": VERSIONS["mechanism"],
+        "voice_scope": ",".join(sorted(voices)),
+    }
+
+def load_checkpoint(path: Path) -> dict:
+    if not path.exists():
+        return {"sources": {}}
+    return json.loads(path.read_text(encoding="utf-8"))
+
+def review_packet(item: dict) -> dict:
+    """Return a compact, stable-identity packet for operator review."""
+    return {
+        "review_id": f"review:{item['occurrence_id']}",
+        "identity": {
+            "occurrence_id": item["occurrence_id"],
+            "source_id": item["source_id"],
+            "reference_id": item["reference_id"],
+        },
+        "priority_score": item["risk_score"],
+        "source": {"date": item["date"], "title": item["title"], "archive_path": item["archive_path"]},
+        "evidence": {"quote": item["quote"], "basis": item.get("evidence_basis", "")},
+        "reference": {"id": item["reference_id"], "label": item["reference"], "parent_period": item["parent_period"]},
+        "attribution_confidence": item["attribution_confidence"],
+        "mechanism_suggestions": item.get("mechanism_suggestions", []),
+        "crosswalk_suggestions": item.get("crosswalk_suggestions", []),
+        "decision_options": ["accept", "qualify", "reject", "revise", "unresolved"],
+        "current_status": item["review_status"],
+    }
+
+def load_overrides(path: Path) -> dict[str, dict]:
+    if not path.exists():
+        return {}
+    data = json.loads(path.read_text(encoding="utf-8"))
+    return data.get("overrides", data)
+
+def apply_overrides(records: list[dict], overrides: dict[str, dict]) -> list[dict]:
+    for item in records:
+        override = overrides.get(item["occurrence_id"])
+        if not override:
+            continue
+        if "review_status" in override:
+            item["review_status"] = override["review_status"]
+        item["review_note"] = override.get("review_note", "")
+        item["reviewed_by"] = override.get("reviewed_by", "")
+        item["reviewed_at"] = override.get("reviewed_at", "")
+    return records
+
+def review_packets_markdown(packets: list[dict], run_id: str) -> str:
+    lines = [f"# Historical-reference review packets — `{run_id}`", "", "Operator review artifact. Candidates are source-derived and may remain provisional.", ""]
+    if not packets:
+        return "\n".join(lines + ["No unresolved review packets.", ""])
+    for packet in packets:
+        source = packet["source"]
+        reference = packet["reference"]
+        evidence = packet["evidence"]
+        lines.extend([
+            f"## `{packet['review_id']}` — {reference['label']}",
+            "",
+            f"Priority: `{packet['priority_score']}`  ",
+            f"Occurrence: `{packet['identity']['occurrence_id']}`  ",
+            f"Source: `{packet['identity']['source_id']}` — `{source['archive_path']}`  ",
+            f"Date: `{source['date']}`  ",
+            f"Attribution: `{packet['attribution_confidence']}`  ",
+            f"Current status: `{packet['current_status']}`",
+            "",
+            "### Evidence",
+            "",
+            f"> {evidence['quote']}",
+            "",
+            f"Basis: {evidence['basis']}",
+            "",
+            "### Suggested interpretation",
+            "",
+            f"- Parent period: `{reference['parent_period']}`",
+        ])
+        for suggestion in packet.get("mechanism_suggestions", []):
+            lines.append(f"- Mechanism suggestion: `{suggestion['id']}` — {suggestion['name']} ({suggestion.get('status', 'provisional')})")
+        for crosswalk in packet.get("crosswalk_suggestions", []):
+            lines.append(f"- Crosswalk suggestion: `{crosswalk['target']}`; confidence `{crosswalk['confidence']}`; conflict `{crosswalk['conflict_status']}`")
+        lines.extend(["", "### Decision", "", "Choose one: " + ", ".join(f"`{option}`" for option in packet["decision_options"]), "", "---", ""])
+    return "\n".join(lines)
 
 def source_rows(voices: set[str], sources: set[str] | None) -> list[dict]:
     data = json.loads(MANIFEST.read_text(encoding="utf-8"))
@@ -64,7 +155,7 @@ def analyze_row(row: dict, selected_voices: set[str] | None = None) -> list[dict
             mechanism = "coercion" if ref_id in {"iraq-war", "vietnam-war", "cuba-embargo"} else "diplomacy" if ref_id in {"jcpoa", "nixon-kissinger", "kuwait-liberation"} else "legitimacy" if ref_id in {"iranian-revolution", "october-7"} else "power"
             mid, mname = MECHANISMS[mechanism]
             confidence = "direct" if re.search(r"(?:\*\*)?(?:Chas|Charles) Freeman(?:\*\*)?:", block, re.I) else "provisional"
-            out.append({"occurrence_id": occurrence_id, "voices": voice, "source_id": source_id, "archive_path": row["local_path"], "date": row.get("date", ""), "title": row.get("title", ""), "quote": re.sub(r"\s+", " ", block)[:700], "reference_id": ref_id, "reference": label, "parent_period": "historical period", "attribution_confidence": confidence, "mechanism_suggestions": [{"id": mid, "name": mname, "basis": "native reference adapter"}], "crosswalk_suggestions": [{"target": mid, "confidence": "suggested", "rationale": "native reference adapter"}], "risk_score": (3 if confidence == "provisional" else 1), "review_status": "needs-review" if confidence == "provisional" else "unreviewed"})
+            out.append({"occurrence_id": occurrence_id, "voices": voice, "source_id": source_id, "archive_path": row["local_path"], "date": row.get("date", ""), "title": row.get("title", ""), "quote": re.sub(r"\s+", " ", block)[:700], "reference_id": ref_id, "reference": label, "parent_period": "historical period", "attribution_confidence": confidence, "mechanism_suggestions": [{"id": mid, "name": mname, "basis": "native reference adapter"}], "crosswalk_suggestions": [{"target": mid, "confidence": "suggested", "rationale": "native reference adapter", "conflict_status": "unreviewed", "review_status": "unreviewed"}], "risk_score": (3 if confidence == "provisional" else 1), "review_status": "needs-review" if confidence == "provisional" else "unreviewed"})
     return out
 
 def calibration_report() -> dict:
@@ -88,27 +179,68 @@ def calibration_report() -> dict:
     return {"fixture_version": json.loads(CALIBRATION.read_text(encoding="utf-8"))["version"], "cases": len(cases), "reference_precision": precision, "reference_recall": recall, "attribution_accuracy": attribution_ok / len(cases), "mechanism_accuracy": mechanism_ok / len(cases), "crosswalk_accuracy": crosswalk_ok / len(cases), "results": results}
 
 def main() -> int:
-    p = argparse.ArgumentParser(); p.add_argument("--voices", required=True); p.add_argument("--sources"); p.add_argument("--run-id", default=datetime.now(timezone.utc).strftime("run-%Y%m%dT%H%M%SZ")); p.add_argument("--resume", action="store_true"); p.add_argument("--changed-only", action="store_true"); p.add_argument("--dry-run", action="store_true"); p.add_argument("--output-dir", type=Path, default=REPO / "narrative-geopolitics" / "work" / "historical-reference"); p.add_argument("--calibration", action="store_true"); args = p.parse_args()
-    voices = {v.strip().lower() for v in args.voices.split(",") if v.strip()}; sources = {v.strip() for v in args.sources.split(",")} if args.sources else None
-    records = [record for row in source_rows(voices, sources) for record in analyze_row(row, voices)]
-    receipt = {"run_id": args.run_id, "voices": sorted(voices), "records": len(records), "versions": VERSIONS, "changed_only": args.changed_only, "resumable": True, "records_data": records}
-    if args.dry_run: print(json.dumps(receipt, ensure_ascii=False, indent=2)); return 0
+    p = argparse.ArgumentParser()
+    p.add_argument("--voices", required=True)
+    p.add_argument("--sources")
+    p.add_argument("--run-id", default=datetime.now(timezone.utc).strftime("run-%Y%m%dT%H%M%SZ"))
+    p.add_argument("--resume", action="store_true")
+    p.add_argument("--changed-only", action="store_true")
+    p.add_argument("--dry-run", action="store_true")
+    p.add_argument("--output-dir", type=Path, default=REPO / "narrative-geopolitics" / "work" / "historical-reference")
+    p.add_argument("--calibration", action="store_true")
+    p.add_argument("--overrides", type=Path)
+    args = p.parse_args()
+    voices = {v.strip().lower() for v in args.voices.split(",") if v.strip()}
+    if not voices:
+        p.error("--voices must contain at least one voice")
+    sources = {v.strip() for v in args.sources.split(",")} if args.sources else None
+    rows = source_rows(voices, sources)
+    if not rows:
+        p.error("no bounded manifest-backed sources selected")
+    if args.dry_run:
+        print(json.dumps({"run_id": args.run_id, "state": "planned", "voices": sorted(voices), "sources": [{"source_id": r.get("source_id"), "fingerprint": fingerprint(r, voices)} for r in rows]}, ensure_ascii=False, indent=2))
+        return 0
+
     args.output_dir.mkdir(parents=True, exist_ok=True)
-    batch_path = args.output_dir / f"{args.run_id}.json"
-    batch_path.write_text(json.dumps(receipt, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    queue = sorted(records, key=lambda item: (-item["risk_score"], item["source_id"], item["reference_id"], item["occurrence_id"]))
-    (args.output_dir / f"{args.run_id}-review-queue.json").write_text(json.dumps({"run_id": args.run_id, "items": queue}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    nodes = {}; edges = []
-    for item in records:
-        for node_id, kind in [(f"voice:{v}", "voice") for v in item["voices"]] + [(f"source:{item['source_id']}", "source"), (f"reference:{item['reference_id']}", "reference")]:
-            nodes[node_id] = {"id": node_id, "type": kind}
-        for voice in item["voices"]:
-            edges.append({"from": f"voice:{voice}", "to": f"source:{item['source_id']}", "type": "speaks-in"})
-        edges.append({"from": f"source:{item['source_id']}", "to": f"reference:{item['reference_id']}", "type": "contains"})
-    (args.output_dir / f"{args.run_id}-graph.json").write_text(json.dumps({"nodes": sorted(nodes.values(), key=lambda x: x["id"]), "edges": sorted(edges, key=lambda x: (x["from"], x["to"], x["type"]))}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    (args.output_dir / "checkpoint.json").write_text(json.dumps({"run_id": args.run_id, "completed_sources": sorted({item["source_id"] for item in records}), "versions": VERSIONS}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    if args.calibration:
-        (args.output_dir / f"{args.run_id}-calibration-report.json").write_text(json.dumps(calibration_report(), indent=2) + "\n", encoding="utf-8")
-    print(f"Wrote {batch_path}"); return 0
+    checkpoint_path = args.output_dir / f"{args.run_id}-checkpoint.json"
+    previous = load_checkpoint(checkpoint_path) if args.resume or args.changed_only else {"sources": {}}
+    receipts, records = [], []
+    for row in rows:
+        source_id = str(row.get("source_id") or row.get("id") or row["local_path"])
+        fp = fingerprint(row, voices)
+        old = previous.get("sources", {}).get(source_id, {})
+        if (args.resume or args.changed_only) and old.get("fingerprint") == fp and old.get("status") == "landed":
+            receipts.append({"source_id": source_id, "status": "skipped", "fingerprint": fp, "record_count": old.get("record_count", 0)})
+            continue
+        try:
+            source_records = analyze_row(row, voices)
+            records.extend(source_records)
+            receipts.append({"source_id": source_id, "status": "landed", "fingerprint": fp, "record_count": len(source_records), "archive_path": row["local_path"], "warnings": ["provisional attribution"] if any(r["attribution_confidence"] == "provisional" for r in source_records) else []})
+        except Exception as exc:
+            receipts.append({"source_id": source_id, "status": "failed", "fingerprint": fp, "record_count": 0, "error": str(exc)})
+
+    records = apply_overrides(records, load_overrides(args.overrides) if args.overrides else {})
+    payload = {"run_id": args.run_id, "state": "failed" if any(r["status"] == "failed" for r in receipts) else "landed", "voices": sorted(voices), "versions": VERSIONS, "receipts": sorted(receipts, key=lambda r: r["source_id"]), "records": sorted(records, key=lambda r: (r["date"], r["title"], r["source_id"], r["occurrence_id"]))}
+    if payload["state"] == "failed":
+        print(json.dumps(payload, ensure_ascii=False, indent=2))
+        return 2
+
+    stage = Path(tempfile.mkdtemp(prefix=f".{args.run_id}-", dir=args.output_dir))
+    try:
+        (stage / f"{args.run_id}.json").write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        queue = sorted(records, key=lambda item: (-item["risk_score"], item["source_id"], item["reference_id"], item["occurrence_id"]))
+        (stage / f"{args.run_id}-review-queue.json").write_text(json.dumps({"run_id": args.run_id, "items": queue}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        packets = [review_packet(item) for item in queue if item["review_status"] not in {"accepted", "rejected"}]
+        (stage / f"{args.run_id}-review-packets.json").write_text(json.dumps({"run_id": args.run_id, "packet_count": len(packets), "packets": packets}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        (stage / f"{args.run_id}-review-packets.md").write_text(review_packets_markdown(packets, args.run_id), encoding="utf-8")
+        (stage / f"{args.run_id}-checkpoint.json").write_text(json.dumps({"run_id": args.run_id, "versions": VERSIONS, "sources": {r["source_id"]: {"fingerprint": r["fingerprint"], "status": r["status"], "record_count": r["record_count"]} for r in receipts}}, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+        if args.calibration:
+            (stage / f"{args.run_id}-calibration-report.json").write_text(json.dumps(calibration_report(), indent=2) + "\n", encoding="utf-8")
+        for path in stage.iterdir():
+            shutil.move(str(path), str(args.output_dir / path.name))
+        print(f"Published {args.output_dir / (args.run_id + '.json')}")
+        return 0
+    finally:
+        shutil.rmtree(stage, ignore_errors=True)
 
 if __name__ == "__main__": raise SystemExit(main())

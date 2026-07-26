@@ -1,0 +1,13 @@
+{
+  "version": "2",
+  "voice": "freeman",
+  "lifecycle": "active",
+  "counted_unit": "specific event, institution, doctrine, actor, or analogy",
+  "references": {
+    "bay-of-pigs": {"label": "Bay of Pigs", "parent": "Cold War", "pattern": "bay of pigs", "mechanism": "coercion"},
+    "iranian-revolution": {"label": "Iranian Revolution", "parent": "Postwar Middle East", "pattern": "iranian revolution|islamic revolution", "mechanism": "legitimacy"},
+    "jcpoa": {"label": "JCPOA / Iran nuclear diplomacy", "parent": "Post-Cold War diplomacy", "pattern": "j\\.?\\s*c\\.?\\s*p\\.?\\s*o\\.?\\s*a|nuclear deal", "mechanism": "diplomacy"},
+    "kuwait-liberation": {"label": "1991 liberation of Kuwait", "parent": "Post-Cold War intervention", "pattern": "liberat(?:ed|ion) kuwait|gulf war", "mechanism": "diplomacy"},
+    "vietnam-war": {"label": "Vietnam War", "parent": "Cold War", "pattern": "viet\\s*nam war|war in viet\\s*nam", "mechanism": "coercion"}
+  }
+}

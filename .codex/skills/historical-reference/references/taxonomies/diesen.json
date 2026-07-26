@@ -1,0 +1,11 @@
+{
+  "version": "2",
+  "voice": "diesen",
+  "lifecycle": "active",
+  "counted_unit": "specific event, institution, doctrine, actor, or analogy",
+  "references": {
+    "cold-war": {"label": "Cold War", "parent": "Cold War", "pattern": "\\bcold war\\b", "mechanism": "power"},
+    "nixon-kissinger": {"label": "Nixon–Kissinger China strategy", "parent": "Cold War", "pattern": "nixon|kissinger", "mechanism": "diplomacy"},
+    "iraq-war": {"label": "2003 Iraq War", "parent": "Post-Cold War intervention", "pattern": "2003.{0,30}iraq|iraq war|saddam hussein", "mechanism": "coercion"}
+  }
+}

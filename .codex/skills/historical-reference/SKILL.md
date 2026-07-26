@@ -39,13 +39,29 @@ python .codex/skills/historical-reference/scripts/analyze.py --voices freeman,di
 
 Supported controls include `--voices`, `--sources`, `--run-id`, `--resume`, `--changed-only`, `--dry-run`, `--output-dir`, and `--calibration`.
 
+Build a bounded synthesis context packet explicitly from one analyzer run:
+
+```powershell
+python scripts/build_historical_context_packet.py --input RUN.json --date YYYY-MM-DD --voices freeman --max-items 12 --output context-packet.json
+```
+
+The packet writes JSON and Markdown beside the requested output. It never edits
+daily synthesis prose; the packet ID is the provenance handle for any deliberate
+operator insertion.
+
+Validate native taxonomies and generated crosswalk fields with:
+
+```powershell
+python scripts/validate_historical_reference_taxonomy.py --run RUN.json
+```
+
 ## Review and calibration
 
 Review decisions are keyed by stable source/reference/occurrence identities, never generated row numbers. Calibration fixtures cover positives, negatives, host-only text, attribution classes, parent/detail distinctions, mechanisms, crosswalks, and false analogies. Do not treat metrics as historical accuracy.
 
-## Structuring This Skill
+## Implementation Notes
 
-[TODO: Choose the structure that best fits this skill's purpose. Common patterns:
+[The skill is workflow-based: bounded selection, deterministic analysis, review, and publication. The following legacy template guidance is retained only as historical text and is not operational.]
 
 **1. Workflow-Based** (best for sequential processes)
 - Works well when there are clear step-by-step procedures

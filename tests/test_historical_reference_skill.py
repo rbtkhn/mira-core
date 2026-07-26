@@ -41,3 +41,44 @@ def test_calibration_report_is_measurable():
     assert 0 <= report["reference_precision"] <= 1
     assert 0 <= report["reference_recall"] <= 1
     assert report["results"]
+
+def test_review_packet_uses_stable_identity_and_explicit_decisions():
+    module = load()
+    item = {
+        "occurrence_id": "SRC-1:jcpoa:2", "source_id": "SRC-1", "reference_id": "jcpoa",
+        "date": "2026-01-01", "title": "Test", "archive_path": "archive/test.md",
+        "quote": "Freeman discussed the JCPOA.", "reference": "JCPOA", "parent_period": "Post-Cold War diplomacy",
+        "attribution_confidence": "provisional", "mechanism_suggestions": [], "crosswalk_suggestions": [],
+        "risk_score": 3, "review_status": "needs-review", "evidence_basis": "paragraph",
+    }
+    packet = module.review_packet(item)
+    assert packet["review_id"] == "review:SRC-1:jcpoa:2"
+    assert packet["identity"]["occurrence_id"] == item["occurrence_id"]
+    assert packet["decision_options"] == ["accept", "qualify", "reject", "revise", "unresolved"]
+
+def test_review_overrides_apply_by_occurrence_identity(tmp_path):
+    module = load()
+    path = tmp_path / "overrides.json"
+    path.write_text('{"overrides":{"SRC-1:jcpoa:2":{"review_status":"qualified","review_note":"Needs context.","reviewed_by":"operator"}}}', encoding="utf-8")
+    overrides = module.load_overrides(path)
+    item = {"occurrence_id": "SRC-1:jcpoa:2", "review_status": "needs-review"}
+    module.apply_overrides([item], overrides)
+    assert item["review_status"] == "qualified"
+    assert item["reviewed_by"] == "operator"
+
+def test_review_packets_markdown_preserves_identity_and_decisions():
+    module = load()
+    packet = {
+        "review_id": "review:SRC-1:jcpoa:2", "priority_score": 3,
+        "identity": {"occurrence_id": "SRC-1:jcpoa:2", "source_id": "SRC-1"},
+        "source": {"date": "2026-01-01", "archive_path": "archive/test.md"},
+        "attribution_confidence": "provisional", "current_status": "needs-review",
+        "evidence": {"quote": "A bounded excerpt.", "basis": "paragraph"},
+        "reference": {"label": "JCPOA", "parent_period": "Post-Cold War diplomacy"},
+        "mechanism_suggestions": [], "crosswalk_suggestions": [],
+        "decision_options": ["accept", "qualify", "reject", "revise", "unresolved"],
+    }
+    rendered = module.review_packets_markdown([packet], "run-1")
+    assert "review:SRC-1:jcpoa:2" in rendered
+    assert "A bounded excerpt." in rendered
+    assert "`accept`, `qualify`, `reject`, `revise`, `unresolved`" in rendered
