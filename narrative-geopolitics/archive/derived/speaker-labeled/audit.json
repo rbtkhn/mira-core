@@ -1,0 +1,1437 @@
+{
+  "kind": "speaker-labeling-audit-v1",
+  "sources": [
+    {
+      "source_path": "narrative-geopolitics/archive/sources/2026-07-17/source-breaking-irgc-claims-americans-killed-at-al-tanf-syria-col-larry-wilkerson-2026-07-17.md",
+      "source_sha256": "59adeab82d70cb09d1eff32b1b7ac841d5d7221934b59523352804821dbe12b7",
+      "labeling_method": "metadata-plus-explicit-markers-v1",
+      "confidence_policy": "explicit-marker-only; unknown otherwise",
+      "turn_count": 4,
+      "labeled_turn_count": 0,
+      "unknown_turn_count": 4,
+      "candidate_speakers": [
+        "Mario Nawfal",
+        "Larry Wilkerson",
+        "Wilkerson"
+      ],
+      "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2026-07-17/source-breaking-irgc-claims-americans-killed-at-al-tanf-syria-col-larry-wilkerson-2026-07-17.md"
+    },
+    {
+      "source_path": "narrative-geopolitics/archive/sources/2026-07-10/source-nato-summit-descends-into-total-farce-trump-mocks-europe-rutte-panic-2026-07-10.md",
+      "source_sha256": "bdbd296b41bdc36ebc57ef13abed05fc7dd1f694908e80192f0c9dc5ef258064",
+      "labeling_method": "metadata-plus-explicit-markers-v1",
+      "confidence_policy": "explicit-marker-only; unknown otherwise",
+      "turn_count": 4,
+      "labeled_turn_count": 0,
+      "unknown_turn_count": 4,
+      "candidate_speakers": [
+        "Mercouris"
+      ],
+      "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2026-07-10/source-nato-summit-descends-into-total-farce-trump-mocks-europe-rutte-panic-2026-07-10.md"
+    },
+    {
+      "source_path": "narrative-geopolitics/archive/sources/2026-07-10/source-lavrov-says-west-lies-no-talks-ever-again-kremlin-says-us-duplicitous-west-faces-diesel-shortage-2026-07-10.md",
+      "source_sha256": "2cb5abb0048ef570545cd181928d125e6941cee68f2b5274776d7942a7223770",
+      "labeling_method": "metadata-plus-explicit-markers-v1",
+      "confidence_policy": "explicit-marker-only; unknown otherwise",
+      "turn_count": 4,
+      "labeled_turn_count": 0,
+      "unknown_turn_count": 4,
+      "candidate_speakers": [
+        "Alexander Mercouris",
+        "Mercouris"
+      ],
+      "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2026-07-10/source-lavrov-says-west-lies-no-talks-ever-again-kremlin-says-us-duplicitous-west-faces-diesel-shortage-2026-07-10.md"
+    },
+    {
+      "source_path": "narrative-geopolitics/archive/sources/2026-07-09/source-alexander-mercouris-us-iran-war-resumes-full-force-mou-collapses-nato-absurd-summit-zaluzhny-ukraine-losing-attrition-2026-07-09.md",
+      "source_sha256": "37c45f966265eb4c5d418dd502e8ad10ad88b112ec8fcbc5e1d4665388a4dc4f",
+      "labeling_method": "metadata-plus-explicit-markers-v1",
+      "confidence_policy": "explicit-marker-only; unknown otherwise",
+      "turn_count": 4,
+      "labeled_turn_count": 0,
+      "unknown_turn_count": 4,
+      "candidate_speakers": [
+        "Alexander Mercouris",
+        "Mercouris"
+      ],
+      "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2026-07-09/source-alexander-mercouris-us-iran-war-resumes-full-force-mou-collapses-nato-absurd-summit-zaluzhny-ukraine-losing-attrition-2026-07-09.md"
+    },
+    {
+      "source_path": "narrative-geopolitics/archive/sources/2026-07-08/source-trump-declares-ceasefire-over-w-iran-lt-col-daniel-davis-2026-07-08.md",
+      "source_sha256": "4e7f64421716ba8b7c6c1d31b82dbcdb409150734413f8e79990e73dc1b37b92",
+      "labeling_method": "metadata-plus-explicit-markers-v1",
+      "confidence_policy": "explicit-marker-only; unknown otherwise",
+      "turn_count": 7,
+      "labeled_turn_count": 0,
+      "unknown_turn_count": 7,
+      "candidate_speakers": [
+        "Lt. Col. Daniel Davis",
+        "Davis"
+      ],
+      "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2026-07-08/source-trump-declares-ceasefire-over-w-iran-lt-col-daniel-davis-2026-07-08.md"
+    },
+    {
+      "source_path": "narrative-geopolitics/archive/sources/2026-07-08/source-alexander-mercouris-russia-gives-ww3-warning-prepares-kiev-orekhov-offensives-nato-meeting-bust-trump-talks-greenland-2026-07-08.md",
+      "source_sha256": "d5eff26b76cc52a40592bbb9efe54c29fef6eba63e1c263d9dd4c878b872ad9c",
+      "labeling_method": "metadata-plus-explicit-markers-v1",
+      "confidence_policy": "explicit-marker-only; unknown otherwise",
+      "turn_count": 5,
+      "labeled_turn_count": 0,
+      "unknown_turn_count": 5,
+      "candidate_speakers": [
+        "Alexander Mercouris",
+        "Mercouris"
+      ],
+      "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2026-07-08/source-alexander-mercouris-russia-gives-ww3-warning-prepares-kiev-orekhov-offensives-nato-meeting-bust-trump-talks-greenland-2026-07-08.md"
+    },
+    {
+      "source_path": "narrative-geopolitics/archive/sources/2026-07-07/source-mercouris-russia-destroys-arms-dump-zelensky-begs-patriots-2026-07-07.md",
+      "source_sha256": "c673b3c61d5598633fb55fbb699753ed7ecb5c217cc915c425b98bbf8bd52fc4",
+      "labeling_method": "metadata-plus-explicit-markers-v1",
+      "confidence_policy": "explicit-marker-only; unknown otherwise",
+      "turn_count": 117,
+      "labeled_turn_count": 0,
+      "unknown_turn_count": 117,
+      "candidate_speakers": [
+        "Alexander Mercouris",
+        "Mercouris"
+      ],
+      "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2026-07-07/source-mercouris-russia-destroys-arms-dump-zelensky-begs-patriots-2026-07-07.md"
+    },
+    {
+      "source_path": "narrative-geopolitics/archive/sources/2026-07-07/source-daniel-davis-breaking-us-new-strikes-on-iran-2026-07-07.md",
+      "source_sha256": "ea532bb2a0a877ee4ffbb36de5a2fb33b1be32871c1de1fe4ec3e2165173345e",
+      "labeling_method": "metadata-plus-explicit-markers-v1",
+      "confidence_policy": "explicit-marker-only; unknown otherwise",
+      "turn_count": 3,
+      "labeled_turn_count": 0,
+      "unknown_turn_count": 3,
+      "candidate_speakers": [
+        "Lt. Col. Daniel Davis",
+        "Davis"
+      ],
+      "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2026-07-07/source-daniel-davis-breaking-us-new-strikes-on-iran-2026-07-07.md"
+    },
+    {
+      "source_path": "narrative-geopolitics/archive/sources/2026-06-30/source-alexander-mercouris-kiev-fears-big-russian-oreshnik-strike-russia-repels-drones-eu-gas-crisis-2026-06-30.md",
+      "source_sha256": "6127771d0aa8db2aa583c6c09552c6e3f41e06016d672da4314fe763143bd1fa",
+      "labeling_method": "metadata-plus-explicit-markers-v1",
+      "confidence_policy": "explicit-marker-only; unknown otherwise",
+      "turn_count": 11,
+      "labeled_turn_count": 0,
+      "unknown_turn_count": 11,
+      "candidate_speakers": [
+        "Alexander Mercouris",
+        "Mercouris"
+      ],
+      "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2026-06-30/source-alexander-mercouris-kiev-fears-big-russian-oreshnik-strike-russia-repels-drones-eu-gas-crisis-2026-06-30.md"
+    },
+    {
+      "source_path": "narrative-geopolitics/archive/sources/2026-06-29/source-alexander-mercouris-putin-rejects-talks-odessa-donbas-drones-abate-2026-06-29.md",
+      "source_sha256": "5be828f3f29765076314b9634caea353ba75a448523bcec467c55a260937406c",
+      "labeling_method": "metadata-plus-explicit-markers-v1",
+      "confidence_policy": "explicit-marker-only; unknown otherwise",
+      "turn_count": 101,
+      "labeled_turn_count": 0,
+      "unknown_turn_count": 101,
+      "candidate_speakers": [
+        "Alexander Mercouris",
+        "Mercouris"
+      ],
+      "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2026-06-29/source-alexander-mercouris-putin-rejects-talks-odessa-donbas-drones-abate-2026-06-29.md"
+    },
+    {
+      "source_path": "narrative-geopolitics/archive/sources/2026-06-28/source-alexander-mercouris-russia-hits-back-kills-kiev-intel-chief-putin-west-kiev-strikes-destabilisation-failed-2026-06-28.md",
+      "source_sha256": "51d1a60e8b2a03ed3ef31c314693753b63ab35f28c5046d3e17dc125a01cbfff",
+      "labeling_method": "metadata-plus-explicit-markers-v1",
+      "confidence_policy": "explicit-marker-only; unknown otherwise",
+      "turn_count": 114,
+      "labeled_turn_count": 0,
+      "unknown_turn_count": 114,
+      "candidate_speakers": [
+        "Alexander Mercouris",
+        "Mercouris"
+      ],
+      "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2026-06-28/source-alexander-mercouris-russia-hits-back-kills-kiev-intel-chief-putin-west-kiev-strikes-destabilisation-failed-2026-06-28.md"
+    },
+    {
+      "source_path": "narrative-geopolitics/archive/sources/2026-06-27/source-duran-mercouris-russia-frontline-advance-putin-messaging-woes-lavrov-ww3-warning-ignored-2026-06-27.md",
+      "source_sha256": "29ab7e97c5bfddd502de64e50d6ca20502afb4a3d32d5e754b7eefe076805487",
+      "labeling_method": "metadata-plus-explicit-markers-v1",
+      "confidence_policy": "explicit-marker-only; unknown otherwise",
+      "turn_count": 4,
+      "labeled_turn_count": 0,
+      "unknown_turn_count": 4,
+      "candidate_speakers": [
+        "Alex Christoforou",
+        "Alexander Mercouris",
+        "Mercouris"
+      ],
+      "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2026-06-27/source-duran-mercouris-russia-frontline-advance-putin-messaging-woes-lavrov-ww3-warning-ignored-2026-06-27.md"
+    },
+    {
+      "source_path": "narrative-geopolitics/archive/sources/2026-06-27/source-alexander-mercouris-putin-lukashenko-rebuff-zelensky-meet-in-valdai-french-msm-admits-kiev-troops-losing-mou-unravels-2026-06-27.md",
+      "source_sha256": "282c0efa2f0949791fbf6312d70e54a6ba6e5613b97ca16071e1d71e380d43c7",
+      "labeling_method": "metadata-plus-explicit-markers-v1",
+      "confidence_policy": "explicit-marker-only; unknown otherwise",
+      "turn_count": 135,
+      "labeled_turn_count": 0,
+      "unknown_turn_count": 135,
+      "candidate_speakers": [
+        "Alexander Mercouris",
+        "Mercouris"
+      ],
+      "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2026-06-27/source-alexander-mercouris-putin-lukashenko-rebuff-zelensky-meet-in-valdai-french-msm-admits-kiev-troops-losing-mou-unravels-2026-06-27.md"
+    },
+    {
+      "source_path": "narrative-geopolitics/archive/sources/2026-06-26/source-mario-nawfal-macgregor-israel-furious-trump-turkey-syria-lebanon-2026-06-26.md",
+      "source_sha256": "65af6a67d1c0f0a2ee7af3976e87338250c537675c782590a39e4391ca362046",
+      "labeling_method": "metadata-plus-explicit-markers-v1",
+      "confidence_policy": "explicit-marker-only; unknown otherwise",
+      "turn_count": 22,
+      "labeled_turn_count": 0,
+      "unknown_turn_count": 22,
+      "candidate_speakers": [
+        "Mario Nawfal",
+        "Douglas Macgregor",
+        "Macgregor"
+      ],
+      "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2026-06-26/source-mario-nawfal-macgregor-israel-furious-trump-turkey-syria-lebanon-2026-06-26.md"
+    },
+    {
+      "source_path": "narrative-geopolitics/archive/sources/2026-06-26/source-judging-freedom-macgregor-judgment-day-trump-war-lost-2026-06-26.md",
+      "source_sha256": "d80f532c0df89688feda102dc4458de732e2940fc29fa237894ade64c459e23a",
+      "labeling_method": "metadata-plus-explicit-markers-v1",
+      "confidence_policy": "explicit-marker-only; unknown otherwise",
+      "turn_count": 22,
+      "labeled_turn_count": 0,
+      "unknown_turn_count": 22,
+      "candidate_speakers": [
+        "Judge Andrew Napolitano",
+        "Douglas Macgregor",
+        "Macgregor"
+      ],
+      "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2026-06-26/source-judging-freedom-macgregor-judgment-day-trump-war-lost-2026-06-26.md"
+    },
+    {
+      "source_path": "narrative-geopolitics/archive/sources/2026-06-26/source-alexander-mercouris-zelensky-threatens-belarus-kharkov-kiev-lavrov-rubio-bury-anchorage-2026-06-26.md",
+      "source_sha256": "82bd0982bead9610429bfcbe5bbac79362bcd96f5b2f02ffbe847ced27a252cb",
+      "labeling_method": "metadata-plus-explicit-markers-v1",
+      "confidence_policy": "explicit-marker-only; unknown otherwise",
+      "turn_count": 25,
+      "labeled_turn_count": 0,
+      "unknown_turn_count": 25,
+      "candidate_speakers": [
+        "Alexander Mercouris",
+        "Mercouris"
+      ],
+      "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2026-06-26/source-alexander-mercouris-zelensky-threatens-belarus-kharkov-kiev-lavrov-rubio-bury-anchorage-2026-06-26.md"
+    },
+    {
+      "source_path": "narrative-geopolitics/archive/sources/2026-06-25/source-glenn-diesen-marandi-trump-lost-iran-war-must-sell-victory-2026-06-25.md",
+      "source_sha256": "6ea725cbbfaace28497a25300f8d5f9011b1b8341cf1c306f78e84df4199c930",
+      "labeling_method": "metadata-plus-explicit-markers-v1",
+      "confidence_policy": "explicit-marker-only; unknown otherwise",
+      "turn_count": 22,
+      "labeled_turn_count": 0,
+      "unknown_turn_count": 22,
+      "candidate_speakers": [
+        "Glenn Diesen",
+        "Seyed Mohammad Marandi",
+        "Marandi"
+      ],
+      "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2026-06-25/source-glenn-diesen-marandi-trump-lost-iran-war-must-sell-victory-2026-06-25.md"
+    },
+    {
+      "source_path": "narrative-geopolitics/archive/sources/2026-06-25/source-alexander-mercouris-lukashenko-no-to-zelensky-belarus-stands-with-russia-russian-troops-enter-sumy-eu-no-to-kiev-entry-2026-06-25.md",
+      "source_sha256": "41899d6fbff82f412ddcae2136525e91e74683e8ebc2401d72cf2ff55feef424",
+      "labeling_method": "metadata-plus-explicit-markers-v1",
+      "confidence_policy": "explicit-marker-only; unknown otherwise",
+      "turn_count": 35,
+      "labeled_turn_count": 0,
+      "unknown_turn_count": 35,
+      "candidate_speakers": [
+        "Alexander Mercouris",
+        "Mercouris"
+      ],
+      "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2026-06-25/source-alexander-mercouris-lukashenko-no-to-zelensky-belarus-stands-with-russia-russian-troops-enter-sumy-eu-no-to-kiev-entry-2026-06-25.md"
+    },
+    {
+      "source_path": "narrative-geopolitics/archive/sources/2026-06-23/source-duran-mercouris-rubicon-crossed-zelensky-targets-belarus-2026-06-23.md",
+      "source_sha256": "657c302c9a8eecdbf06f51204eee9730d075721b21a738a3e62e0343256eb637",
+      "labeling_method": "metadata-plus-explicit-markers-v1",
+      "confidence_policy": "explicit-marker-only; unknown otherwise",
+      "turn_count": 19,
+      "labeled_turn_count": 0,
+      "unknown_turn_count": 19,
+      "candidate_speakers": [
+        "Alex Christoforou",
+        "Alexander Mercouris",
+        "Mercouris"
+      ],
+      "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2026-06-23/source-duran-mercouris-rubicon-crossed-zelensky-targets-belarus-2026-06-23.md"
+    },
+    {
+      "source_path": "narrative-geopolitics/archive/sources/2026-06-23/source-alexander-mercouris-putin-warns-russian-army-war-with-west-coming-russia-leads-west-in-arms-output-us-iran-talks-stuck-2026-06-23.md",
+      "source_sha256": "f1142321de7eceb8b0251458202d23858acf32dde5afa9ec3bc168117e2f58c0",
+      "labeling_method": "metadata-plus-explicit-markers-v1",
+      "confidence_policy": "explicit-marker-only; unknown otherwise",
+      "turn_count": 21,
+      "labeled_turn_count": 0,
+      "unknown_turn_count": 21,
+      "candidate_speakers": [
+        "Alexander Mercouris",
+        "Mercouris"
+      ],
+      "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2026-06-23/source-alexander-mercouris-putin-warns-russian-army-war-with-west-coming-russia-leads-west-in-arms-output-us-iran-talks-stuck-2026-06-23.md"
+    },
+    {
+      "source_path": "narrative-geopolitics/archive/sources/2026-06-22/source-duran-mercouris-us-iran-ceasefire-talks-conflict-round-3-2026-06-22.md",
+      "source_sha256": "ef5d421db63b98a021661ccb1ba8f192ce87421f2162b2d75c1c46dbf93ed22e",
+      "labeling_method": "metadata-plus-explicit-markers-v1",
+      "confidence_policy": "explicit-marker-only; unknown otherwise",
+      "turn_count": 19,
+      "labeled_turn_count": 0,
+      "unknown_turn_count": 19,
+      "candidate_speakers": [
+        "Alex Christoforou",
+        "Alexander Mercouris",
+        "Mercouris"
+      ],
+      "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2026-06-22/source-duran-mercouris-us-iran-ceasefire-talks-conflict-round-3-2026-06-22.md"
+    },
+    {
+      "source_path": "narrative-geopolitics/archive/sources/2026-06-22/source-alexander-mercouris-starmer-quits-bbc-kostyantynivka-donbas-neocons-iran-rage-2026-06-22.md",
+      "source_sha256": "a887f1d93ffee1881bcdd8ef6895b4c00a5f2bef93227360a797979648cfd1b7",
+      "labeling_method": "metadata-plus-explicit-markers-v1",
+      "confidence_policy": "explicit-marker-only; unknown otherwise",
+      "turn_count": 22,
+      "labeled_turn_count": 0,
+      "unknown_turn_count": 22,
+      "candidate_speakers": [
+        "Alexander Mercouris",
+        "Mercouris"
+      ],
+      "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2026-06-22/source-alexander-mercouris-starmer-quits-bbc-kostyantynivka-donbas-neocons-iran-rage-2026-06-22.md"
+    },
+    {
+      "source_path": "narrative-geopolitics/archive/sources/2026-06-21/source-alexander-mercouris-kremlin-says-talks-with-us-failed-russia-seeks-victory-kiev-strike-starmer-goes-2026-06-21.md",
+      "source_sha256": "2abaf15f49eec548843d4f3bc71d1964a36e50fc8639a9d0fa712419daf221ca",
+      "labeling_method": "metadata-plus-explicit-markers-v1",
+      "confidence_policy": "explicit-marker-only; unknown otherwise",
+      "turn_count": 23,
+      "labeled_turn_count": 0,
+      "unknown_turn_count": 23,
+      "candidate_speakers": [
+        "Alexander Mercouris",
+        "Mercouris"
+      ],
+      "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2026-06-21/source-alexander-mercouris-kremlin-says-talks-with-us-failed-russia-seeks-victory-kiev-strike-starmer-goes-2026-06-21.md"
+    },
+    {
+      "source_path": "narrative-geopolitics/archive/sources/2026-06-20/source-neutrality-studies-alexander-mercouris-secret-plot-destroy-russia-russophobia-2026-06-20.md",
+      "source_sha256": "bb00f83c5868b2b9208fe3d345bc9e927a90963091d698edebaf1ecd5ea21adb",
+      "labeling_method": "metadata-plus-explicit-markers-v1",
+      "confidence_policy": "explicit-marker-only; unknown otherwise",
+      "turn_count": 24,
+      "labeled_turn_count": 0,
+      "unknown_turn_count": 24,
+      "candidate_speakers": [
+        "Pascal Lottaz",
+        "Alexander Mercouris",
+        "Mercouris"
+      ],
+      "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2026-06-20/source-neutrality-studies-alexander-mercouris-secret-plot-destroy-russia-russophobia-2026-06-20.md"
+    },
+    {
+      "source_path": "narrative-geopolitics/archive/sources/2026-06-20/source-daniel-davis-strait-of-hormuz-closed-guess-who-were-sending-to-reopen-2026-06-20.md",
+      "source_sha256": "f9f07e087be76c428a2fd79b97800032e548a645364666a7ab866e8f09b0c14d",
+      "labeling_method": "metadata-plus-explicit-markers-v1",
+      "confidence_policy": "explicit-marker-only; unknown otherwise",
+      "turn_count": 22,
+      "labeled_turn_count": 0,
+      "unknown_turn_count": 22,
+      "candidate_speakers": [
+        "Daniel Davis",
+        "Davis"
+      ],
+      "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2026-06-20/source-daniel-davis-strait-of-hormuz-closed-guess-who-were-sending-to-reopen-2026-06-20.md"
+    },
+    {
+      "source_path": "narrative-geopolitics/archive/sources/2026-06-20/source-alexander-mercouris-zelensky-desperate-threatens-belarus-attack-russia-trebles-oreshnik-output-2026-06-20.md",
+      "source_sha256": "bdf7c6ba1d19a354faeabf8f06874f2dc0511f1fe408cbbfaf0cd93ea17a9d69",
+      "labeling_method": "metadata-plus-explicit-markers-v1",
+      "confidence_policy": "explicit-marker-only; unknown otherwise",
+      "turn_count": 25,
+      "labeled_turn_count": 0,
+      "unknown_turn_count": 25,
+      "candidate_speakers": [
+        "Alexander Mercouris",
+        "Mercouris"
+      ],
+      "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2026-06-20/source-alexander-mercouris-zelensky-desperate-threatens-belarus-attack-russia-trebles-oreshnik-output-2026-06-20.md"
+    },
+    {
+      "source_path": "narrative-geopolitics/archive/sources/2026-06-19/source-nobody-tells-us-what-to-do-katz-defies-trump-s-ceasefire-max-blumenthal-2026-06-19.md",
+      "source_sha256": "3a24f0b4940edb4402c53b06e4afc4643778b97bad4ad5b9b00aef16a10f5fac",
+      "labeling_method": "metadata-plus-explicit-markers-v1",
+      "confidence_policy": "explicit-marker-only; unknown otherwise",
+      "turn_count": 4,
+      "labeled_turn_count": 0,
+      "unknown_turn_count": 4,
+      "candidate_speakers": [
+        "Mario Nawfal",
+        "Max Blumenthal",
+        "Blumenthal"
+      ],
+      "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2026-06-19/source-nobody-tells-us-what-to-do-katz-defies-trump-s-ceasefire-max-blumenthal-2026-06-19.md"
+    },
+    {
+      "source_path": "narrative-geopolitics/archive/sources/2026-06-19/source-daniel-davis-israel-hezbollah-agree-ceasefire-2026-06-19.md",
+      "source_sha256": "91251d34a1d9009841976d75fd881885e9edae35c313db83d895bd8301acbb7e",
+      "labeling_method": "metadata-plus-explicit-markers-v1",
+      "confidence_policy": "explicit-marker-only; unknown otherwise",
+      "turn_count": 23,
+      "labeled_turn_count": 0,
+      "unknown_turn_count": 23,
+      "candidate_speakers": [
+        "Daniel Davis",
+        "Davis"
+      ],
+      "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2026-06-19/source-daniel-davis-israel-hezbollah-agree-ceasefire-2026-06-19.md"
+    },
+    {
+      "source_path": "narrative-geopolitics/archive/sources/2026-06-19/source-alexander-mercouris-russia-toughens-demands-donbas-towns-fall-eu-quarrels-us-israel-2026-06-19.md",
+      "source_sha256": "7b2d90e6b3619a25765ca84bcc39fcd481362f37df016ed16fc9257c7909811b",
+      "labeling_method": "metadata-plus-explicit-markers-v1",
+      "confidence_policy": "explicit-marker-only; unknown otherwise",
+      "turn_count": 23,
+      "labeled_turn_count": 0,
+      "unknown_turn_count": 23,
+      "candidate_speakers": [
+        "Alexander Mercouris",
+        "Mercouris"
+      ],
+      "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2026-06-19/source-alexander-mercouris-russia-toughens-demands-donbas-towns-fall-eu-quarrels-us-israel-2026-06-19.md"
+    },
+    {
+      "source_path": "narrative-geopolitics/archive/sources/2026-06-18/source-judging-freedom-macgregor-israel-the-real-loser-2026-06-18.md",
+      "source_sha256": "c3f2f8340e3dcc4045a9309bb1d513e35d98f58c0c96750fcdee1376ba80d0d4",
+      "labeling_method": "metadata-plus-explicit-markers-v1",
+      "confidence_policy": "explicit-marker-only; unknown otherwise",
+      "turn_count": 22,
+      "labeled_turn_count": 0,
+      "unknown_turn_count": 22,
+      "candidate_speakers": [
+        "Judge Andrew Napolitano",
+        "Douglas Macgregor",
+        "Macgregor"
+      ],
+      "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2026-06-18/source-judging-freedom-macgregor-israel-the-real-loser-2026-06-18.md"
+    },
+    {
+      "source_path": "narrative-geopolitics/archive/sources/2026-06-18/source-glenn-diesen-stanislav-krapivnik-russia-offensive-gains-speed-anger-moscow-2026-06-18.md",
+      "source_sha256": "5a2d42939e40a09c805ef040e2bf34141d7bb32a6a15aea66037c0cf29c2cbdb",
+      "labeling_method": "metadata-plus-explicit-markers-v1",
+      "confidence_policy": "explicit-marker-only; unknown otherwise",
+      "turn_count": 23,
+      "labeled_turn_count": 0,
+      "unknown_turn_count": 23,
+      "candidate_speakers": [
+        "Glenn Diesen",
+        "Stanislav Krapivnik",
+        "Krapivnik"
+      ],
+      "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2026-06-18/source-glenn-diesen-stanislav-krapivnik-russia-offensive-gains-speed-anger-moscow-2026-06-18.md"
+    },
+    {
+      "source_path": "narrative-geopolitics/archive/sources/2026-06-18/source-daniel-davis-tough-road-iran-deal-lays-out-2026-06-18.md",
+      "source_sha256": "96a2a2e948adbdab3d0b9b21d5e9a96272b96b1f23374d8e6a8ed345b9b04e29",
+      "labeling_method": "metadata-plus-explicit-markers-v1",
+      "confidence_policy": "explicit-marker-only; unknown otherwise",
+      "turn_count": 23,
+      "labeled_turn_count": 0,
+      "unknown_turn_count": 23,
+      "candidate_speakers": [
+        "Daniel Davis",
+        "Davis"
+      ],
+      "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2026-06-18/source-daniel-davis-tough-road-iran-deal-lays-out-2026-06-18.md"
+    },
+    {
+      "source_path": "narrative-geopolitics/archive/sources/2026-06-18/source-alexander-mercouris-russia-warns-iran-beware-us-trap-mou-iran-terms-2026-06-18.md",
+      "source_sha256": "f0c59fea6fc2eeb7ed1cad99d2069fba7eb7aa7b5b705e7328704a0531904146",
+      "labeling_method": "metadata-plus-explicit-markers-v1",
+      "confidence_policy": "explicit-marker-only; unknown otherwise",
+      "turn_count": 23,
+      "labeled_turn_count": 0,
+      "unknown_turn_count": 23,
+      "candidate_speakers": [
+        "Alexander Mercouris",
+        "Mercouris"
+      ],
+      "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2026-06-18/source-alexander-mercouris-russia-warns-iran-beware-us-trap-mou-iran-terms-2026-06-18.md"
+    },
+    {
+      "source_path": "narrative-geopolitics/archive/sources/2026-06-17/source-alexander-mercouris-russia-china-energy-pos2-russian-navy-stuns-uk-eu-sanctions-2026-06-17.md",
+      "source_sha256": "dc4b8b13f8870edddd6678fb1c13422bcb2ba866dc203fa0a7f014096698002a",
+      "labeling_method": "metadata-plus-explicit-markers-v1",
+      "confidence_policy": "explicit-marker-only; unknown otherwise",
+      "turn_count": 52,
+      "labeled_turn_count": 0,
+      "unknown_turn_count": 52,
+      "candidate_speakers": [
+        "Alexander Mercouris",
+        "Mercouris"
+      ],
+      "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2026-06-17/source-alexander-mercouris-russia-china-energy-pos2-russian-navy-stuns-uk-eu-sanctions-2026-06-17.md"
+    },
+    {
+      "source_path": "narrative-geopolitics/archive/sources/2026-06-16/source-daniel-davis-iran-deal-drama-doubt-lt-col-daniel-davis-2026-06-16.md",
+      "source_sha256": "252b5519fdc01b94d984c71c9472ef9a321cac60b4f0c43864ff7b4c9739c2d0",
+      "labeling_method": "metadata-plus-explicit-markers-v1",
+      "confidence_policy": "explicit-marker-only; unknown otherwise",
+      "turn_count": 23,
+      "labeled_turn_count": 0,
+      "unknown_turn_count": 23,
+      "candidate_speakers": [
+        "Daniel Davis",
+        "Davis"
+      ],
+      "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2026-06-16/source-daniel-davis-iran-deal-drama-doubt-lt-col-daniel-davis-2026-06-16.md"
+    },
+    {
+      "source_path": "narrative-geopolitics/archive/sources/2026-06-16/source-alexander-mercouris-us-iran-agree-mou-sea-blockade-neocons-israel-furious-putin-trump-ignore-uk-eu-2026-06-16.md",
+      "source_sha256": "402e509fc4de3c884a2545c0f387e305ec49824425589975f1974607b0f4e10b",
+      "labeling_method": "metadata-plus-explicit-markers-v1",
+      "confidence_policy": "explicit-marker-only; unknown otherwise",
+      "turn_count": 41,
+      "labeled_turn_count": 0,
+      "unknown_turn_count": 41,
+      "candidate_speakers": [
+        "Alexander Mercouris",
+        "Mercouris"
+      ],
+      "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2026-06-16/source-alexander-mercouris-us-iran-agree-mou-sea-blockade-neocons-israel-furious-putin-trump-ignore-uk-eu-2026-06-16.md"
+    },
+    {
+      "source_path": "narrative-geopolitics/archive/sources/2026-06-15/source-daniel-davis-whats-the-deal-with-iran-2026-06-15.md",
+      "source_sha256": "a0b3e524e4bc96678502059221c4b9fc4e7cea714b58b38096ae1a2e23cb83f0",
+      "labeling_method": "metadata-plus-explicit-markers-v1",
+      "confidence_policy": "explicit-marker-only; unknown otherwise",
+      "turn_count": 23,
+      "labeled_turn_count": 0,
+      "unknown_turn_count": 23,
+      "candidate_speakers": [
+        "Daniel Davis",
+        "Davis"
+      ],
+      "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2026-06-15/source-daniel-davis-whats-the-deal-with-iran-2026-06-15.md"
+    },
+    {
+      "source_path": "narrative-geopolitics/archive/sources/2026-06-15/source-daniel-davis-putin-macron-trump-ukraine-war-2026-06-15.md",
+      "source_sha256": "46a391e1850dbffeb4cd36605925cf13c8adf4d6ad03b4b687e8a4de79ad11aa",
+      "labeling_method": "metadata-plus-explicit-markers-v1",
+      "confidence_policy": "explicit-marker-only; unknown otherwise",
+      "turn_count": 21,
+      "labeled_turn_count": 0,
+      "unknown_turn_count": 21,
+      "candidate_speakers": [
+        "Daniel Davis",
+        "Davis"
+      ],
+      "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2026-06-15/source-daniel-davis-putin-macron-trump-ukraine-war-2026-06-15.md"
+    },
+    {
+      "source_path": "narrative-geopolitics/archive/sources/2026-06-14/source-glenn-diesen-seyed-m-marandi-israels-attack-on-beirut-sabotage-us-iran-deal-2026-06-14.md",
+      "source_sha256": "a751539e12808a2aa6d4dff68b94f174ab8149387ae2974577cf1e7f55813282",
+      "labeling_method": "metadata-plus-explicit-markers-v1",
+      "confidence_policy": "explicit-marker-only; unknown otherwise",
+      "turn_count": 21,
+      "labeled_turn_count": 0,
+      "unknown_turn_count": 21,
+      "candidate_speakers": [
+        "Glenn Diesen",
+        "Seyed M. Marandi",
+        "Marandi"
+      ],
+      "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2026-06-14/source-glenn-diesen-seyed-m-marandi-israels-attack-on-beirut-sabotage-us-iran-deal-2026-06-14.md"
+    },
+    {
+      "source_path": "narrative-geopolitics/archive/sources/2026-06-14/source-alexander-mercouris-us-iran-mou-iran-terms-konstantinovka-close-to-fall-2026-06-14.md",
+      "source_sha256": "36e72f8c12e3c070f79fe8c285b80a46a83cd8a3737c5c392f5ea06a0253fe58",
+      "labeling_method": "metadata-plus-explicit-markers-v1",
+      "confidence_policy": "explicit-marker-only; unknown otherwise",
+      "turn_count": 21,
+      "labeled_turn_count": 0,
+      "unknown_turn_count": 21,
+      "candidate_speakers": [
+        "Alexander Mercouris",
+        "Mercouris"
+      ],
+      "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2026-06-14/source-alexander-mercouris-us-iran-mou-iran-terms-konstantinovka-close-to-fall-2026-06-14.md"
+    },
+    {
+      "source_path": "narrative-geopolitics/archive/sources/2026-06-13/source-daniel-davis-signing-deal-tomorrow-scheduled-2026-06-13.md",
+      "source_sha256": "76481b0d2ac595c7b8c94ee343754c3527f43a51bd880b5229279f8f2d22029a",
+      "labeling_method": "metadata-plus-explicit-markers-v1",
+      "confidence_policy": "explicit-marker-only; unknown otherwise",
+      "turn_count": 20,
+      "labeled_turn_count": 0,
+      "unknown_turn_count": 20,
+      "candidate_speakers": [
+        "Daniel Davis",
+        "Davis"
+      ],
+      "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2026-06-13/source-daniel-davis-signing-deal-tomorrow-scheduled-2026-06-13.md"
+    },
+    {
+      "source_path": "narrative-geopolitics/archive/sources/2026-06-13/source-daniel-davis-iran-war-deal-skeptical-2026-06-13.md",
+      "source_sha256": "18f1f33374fa7919f6132e4686e4c14e435280640e297f9d9249f71e56ee16a0",
+      "labeling_method": "metadata-plus-explicit-markers-v1",
+      "confidence_policy": "explicit-marker-only; unknown otherwise",
+      "turn_count": 20,
+      "labeled_turn_count": 0,
+      "unknown_turn_count": 20,
+      "candidate_speakers": [
+        "Daniel Davis",
+        "Davis"
+      ],
+      "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2026-06-13/source-daniel-davis-iran-war-deal-skeptical-2026-06-13.md"
+    },
+    {
+      "source_path": "narrative-geopolitics/archive/sources/2026-06-13/source-alexander-mercouris-putin-meets-military-warns-west-drone-dominance-victory-us-china-trap-2026-06-13.md",
+      "source_sha256": "563209e130532445cd76cb0ff3295ae8f4a7a6c043b1ae4483042933717bea55",
+      "labeling_method": "metadata-plus-explicit-markers-v1",
+      "confidence_policy": "explicit-marker-only; unknown otherwise",
+      "turn_count": 20,
+      "labeled_turn_count": 0,
+      "unknown_turn_count": 20,
+      "candidate_speakers": [
+        "Alexander Mercouris",
+        "Mercouris"
+      ],
+      "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2026-06-13/source-alexander-mercouris-putin-meets-military-warns-west-drone-dominance-victory-us-china-trap-2026-06-13.md"
+    },
+    {
+      "source_path": "narrative-geopolitics/archive/sources/2026-06-12/source-daniel-davis-trump-again-claims-agmt-at-hand-iran-different-view-2026-06-12.md",
+      "source_sha256": "f1837f155f4ef6b79b314f03dd1562e3405bb98dcea4ad970efb4c047f4b6f8c",
+      "labeling_method": "metadata-plus-explicit-markers-v1",
+      "confidence_policy": "explicit-marker-only; unknown otherwise",
+      "turn_count": 22,
+      "labeled_turn_count": 0,
+      "unknown_turn_count": 22,
+      "candidate_speakers": [
+        "Daniel Davis",
+        "Davis"
+      ],
+      "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2026-06-12/source-daniel-davis-trump-again-claims-agmt-at-hand-iran-different-view-2026-06-12.md"
+    },
+    {
+      "source_path": "narrative-geopolitics/archive/sources/2026-06-12/source-alexander-mercouris-russia-mocks-eu-demands-uk-eu-arms-debt-surge-uk-gov-implodes-merkel-envoy-2026-06-12.md",
+      "source_sha256": "be5a61f12e7d0e383e91099c0d8f286010890c56084c497c90ea5484750d9700",
+      "labeling_method": "metadata-plus-explicit-markers-v1",
+      "confidence_policy": "explicit-marker-only; unknown otherwise",
+      "turn_count": 20,
+      "labeled_turn_count": 0,
+      "unknown_turn_count": 20,
+      "candidate_speakers": [
+        "Alexander Mercouris",
+        "Mercouris"
+      ],
+      "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2026-06-12/source-alexander-mercouris-russia-mocks-eu-demands-uk-eu-arms-debt-surge-uk-gov-implodes-merkel-envoy-2026-06-12.md"
+    },
+    {
+      "source_path": "narrative-geopolitics/archive/sources/2026-06-11/source-redacted-douglas-macgregor-this-all-about-to-collapse-trump-knows-it-2026-06-11.md",
+      "source_sha256": "4d981953b35a2f2d8c1a3901b174ae4201527283c2f3229110bb649403aa481c",
+      "labeling_method": "metadata-plus-explicit-markers-v1",
+      "confidence_policy": "explicit-marker-only; unknown otherwise",
+      "turn_count": 19,
+      "labeled_turn_count": 0,
+      "unknown_turn_count": 19,
+      "candidate_speakers": [
+        "Douglas Macgregor",
+        "Macgregor"
+      ],
+      "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2026-06-11/source-redacted-douglas-macgregor-this-all-about-to-collapse-trump-knows-it-2026-06-11.md"
+    },
+    {
+      "source_path": "narrative-geopolitics/archive/sources/2026-06-11/source-judging-freedom-macgregor-trumps-biggest-mistake-2026-06-11.md",
+      "source_sha256": "3ff40d35e24bfcbf515727a7adecbaa4bbea5c05eff7926c70e4179a16c02924",
+      "labeling_method": "metadata-plus-explicit-markers-v1",
+      "confidence_policy": "explicit-marker-only; unknown otherwise",
+      "turn_count": 19,
+      "labeled_turn_count": 0,
+      "unknown_turn_count": 19,
+      "candidate_speakers": [
+        "Judge Andrew Napolitano",
+        "Douglas Macgregor",
+        "Macgregor"
+      ],
+      "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2026-06-11/source-judging-freedom-macgregor-trumps-biggest-mistake-2026-06-11.md"
+    },
+    {
+      "source_path": "narrative-geopolitics/archive/sources/2026-06-11/source-alexander-mercouris-iran-us-war-resumes-russia-brushes-off-eu-sanctions-complains-to-china-over-drones-2026-06-11.md",
+      "source_sha256": "41f6172e71389ddf1bc59eb712ab47247edecebe17e40dba789e9f2f57abbcb8",
+      "labeling_method": "metadata-plus-explicit-markers-v1",
+      "confidence_policy": "explicit-marker-only; unknown otherwise",
+      "turn_count": 21,
+      "labeled_turn_count": 0,
+      "unknown_turn_count": 21,
+      "candidate_speakers": [
+        "Alexander Mercouris",
+        "Mercouris"
+      ],
+      "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2026-06-11/source-alexander-mercouris-iran-us-war-resumes-russia-brushes-off-eu-sanctions-complains-to-china-over-drones-2026-06-11.md"
+    },
+    {
+      "source_path": "narrative-geopolitics/archive/sources/2026-06-10/source-glenn-diesen-patrick-henningsen-us-defeat-makes-iran-world-power-2026-06-10.md",
+      "source_sha256": "6c72975d620676fbf35ebe0a439d7b5f0b73dc2c92a24db2edb7ed9cc0873396",
+      "labeling_method": "metadata-plus-explicit-markers-v1",
+      "confidence_policy": "explicit-marker-only; unknown otherwise",
+      "turn_count": 23,
+      "labeled_turn_count": 0,
+      "unknown_turn_count": 23,
+      "candidate_speakers": [
+        "Glenn Diesen",
+        "Patrick Henningsen",
+        "Henningsen"
+      ],
+      "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2026-06-10/source-glenn-diesen-patrick-henningsen-us-defeat-makes-iran-world-power-2026-06-10.md"
+    },
+    {
+      "source_path": "narrative-geopolitics/archive/sources/2026-06-10/source-alexander-mercouris-putin-ignores-eu-demand-for-russian-surrender-russia-confirms-kiev-troops-surrounded-iran-us-war-2026-06-10.md",
+      "source_sha256": "b1d134023d63513de341f5debad2db84d6c7843c1e16c4e3e70e60012fbc4192",
+      "labeling_method": "metadata-plus-explicit-markers-v1",
+      "confidence_policy": "explicit-marker-only; unknown otherwise",
+      "turn_count": 18,
+      "labeled_turn_count": 0,
+      "unknown_turn_count": 18,
+      "candidate_speakers": [
+        "Alexander Mercouris",
+        "Mercouris"
+      ],
+      "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2026-06-10/source-alexander-mercouris-putin-ignores-eu-demand-for-russian-surrender-russia-confirms-kiev-troops-surrounded-iran-us-war-2026-06-10.md"
+    },
+    {
+      "source_path": "narrative-geopolitics/archive/sources/2026-06-09/source-glenn-diesen-douglas-macgregor-new-world-israel-dying-nato-dead-us-defeated-iran-2026-06-09.md",
+      "source_sha256": "abf7045a5aac36a12a9ca84aaf861f5bbf895fec8accff631b396d4dda59dbcc",
+      "labeling_method": "metadata-plus-explicit-markers-v1",
+      "confidence_policy": "explicit-marker-only; unknown otherwise",
+      "turn_count": 21,
+      "labeled_turn_count": 0,
+      "unknown_turn_count": 21,
+      "candidate_speakers": [
+        "Glenn Diesen",
+        "Douglas Macgregor",
+        "Macgregor"
+      ],
+      "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2026-06-09/source-glenn-diesen-douglas-macgregor-new-world-israel-dying-nato-dead-us-defeated-iran-2026-06-09.md"
+    },
+    {
+      "source_path": "narrative-geopolitics/archive/sources/2026-06-09/source-daniel-davis-breaking-us-strikes-iran-qeshm-island-apache-response-2026-06-09.md",
+      "source_sha256": "b3872abb44e4d1635a68d0580b0c3dc114158a877a23009fbd7363372c065dce",
+      "labeling_method": "metadata-plus-explicit-markers-v1",
+      "confidence_policy": "explicit-marker-only; unknown otherwise",
+      "turn_count": 20,
+      "labeled_turn_count": 0,
+      "unknown_turn_count": 20,
+      "candidate_speakers": [
+        "Daniel Davis",
+        "Davis"
+      ],
+      "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2026-06-09/source-daniel-davis-breaking-us-strikes-iran-qeshm-island-apache-response-2026-06-09.md"
+    },
+    {
+      "source_path": "narrative-geopolitics/archive/sources/2026-06-09/source-alexander-mercouris-moscow-sumy-zelensky-ad-iran-israel-2026-06-09.md",
+      "source_sha256": "1db3b2d15f65a1be72c0bbecb8c5e1ad2beb3d00eece9993c02fe190726b566e",
+      "labeling_method": "metadata-plus-explicit-markers-v1",
+      "confidence_policy": "explicit-marker-only; unknown otherwise",
+      "turn_count": 21,
+      "labeled_turn_count": 0,
+      "unknown_turn_count": 21,
+      "candidate_speakers": [
+        "Alexander Mercouris",
+        "Mercouris"
+      ],
+      "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2026-06-09/source-alexander-mercouris-moscow-sumy-zelensky-ad-iran-israel-2026-06-09.md"
+    },
+    {
+      "source_path": "narrative-geopolitics/archive/sources/2026-06-08/source-glenn-diesen-seyed-m-marandi-iran-israel-strikes-trump-humiliated-yemen-red-sea-2026-06-08.md",
+      "source_sha256": "530e6b6ca50c0a8f75eff81a695f16812b6b09e42b42e6b7fe490af4251ae5e8",
+      "labeling_method": "metadata-plus-explicit-markers-v1",
+      "confidence_policy": "explicit-marker-only; unknown otherwise",
+      "turn_count": 46,
+      "labeled_turn_count": 0,
+      "unknown_turn_count": 46,
+      "candidate_speakers": [
+        "Glenn Diesen",
+        "Seyed M. Marandi",
+        "Marandi"
+      ],
+      "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2026-06-08/source-glenn-diesen-seyed-m-marandi-iran-israel-strikes-trump-humiliated-yemen-red-sea-2026-06-08.md"
+    },
+    {
+      "source_path": "narrative-geopolitics/archive/sources/2026-06-08/source-daniel-davis-weve-always-known-truth-of-war-iran-2026-06-08.md",
+      "source_sha256": "02344cd07fef38715d5ad23c6801891385fe636777eba789678e6b3072183ae2",
+      "labeling_method": "metadata-plus-explicit-markers-v1",
+      "confidence_policy": "explicit-marker-only; unknown otherwise",
+      "turn_count": 21,
+      "labeled_turn_count": 0,
+      "unknown_turn_count": 21,
+      "candidate_speakers": [
+        "Daniel Davis",
+        "Davis"
+      ],
+      "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2026-06-08/source-daniel-davis-weve-always-known-truth-of-war-iran-2026-06-08.md"
+    },
+    {
+      "source_path": "narrative-geopolitics/archive/sources/2026-06-08/source-daniel-davis-iran-war-expands-houthis-declare-war-on-israel-2026-06-08.md",
+      "source_sha256": "d7fc0715ed95a1f4418036c8ab2ce9f75504df08d8aa0d38940aef30e8a72f56",
+      "labeling_method": "metadata-plus-explicit-markers-v1",
+      "confidence_policy": "explicit-marker-only; unknown otherwise",
+      "turn_count": 21,
+      "labeled_turn_count": 0,
+      "unknown_turn_count": 21,
+      "candidate_speakers": [
+        "Daniel Davis",
+        "Davis"
+      ],
+      "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2026-06-08/source-daniel-davis-iran-war-expands-houthis-declare-war-on-israel-2026-06-08.md"
+    },
+    {
+      "source_path": "narrative-geopolitics/archive/sources/2026-06-08/source-alexander-mercouris-kiev-odessa-oreshnik-fortifications-iran-israel-strikes-2026-06-08.md",
+      "source_sha256": "12bf1c5be06083e38148f17c2b8737d70d07e56111aba72335b0cb92aa61cb07",
+      "labeling_method": "metadata-plus-explicit-markers-v1",
+      "confidence_policy": "explicit-marker-only; unknown otherwise",
+      "turn_count": 19,
+      "labeled_turn_count": 0,
+      "unknown_turn_count": 19,
+      "candidate_speakers": [
+        "Alexander Mercouris",
+        "Mercouris"
+      ],
+      "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2026-06-08/source-alexander-mercouris-kiev-odessa-oreshnik-fortifications-iran-israel-strikes-2026-06-08.md"
+    },
+    {
+      "source_path": "narrative-geopolitics/archive/sources/2026-06-07/source-daniel-davis-israel-launches-missile-attack-against-iran-2026-06-07.md",
+      "source_sha256": "2f13a9242f080c3df76d55d00f8f667db7d588c393014de49da4b11e93588f06",
+      "labeling_method": "metadata-plus-explicit-markers-v1",
+      "confidence_policy": "explicit-marker-only; unknown otherwise",
+      "turn_count": 78,
+      "labeled_turn_count": 0,
+      "unknown_turn_count": 78,
+      "candidate_speakers": [
+        "Daniel Davis",
+        "Davis"
+      ],
+      "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2026-06-07/source-daniel-davis-israel-launches-missile-attack-against-iran-2026-06-07.md"
+    },
+    {
+      "source_path": "narrative-geopolitics/archive/sources/2026-06-07/source-alexander-mercouris-russia-spurns-desperate-zelensky-secret-talks-offer-lyman-konstantinovka-about-to-fall-west-panic-2026-06-07.md",
+      "source_sha256": "8fbc99540917620f29ee309e71939c2eb9d6799eb5bdd56e0a1f296358b07724",
+      "labeling_method": "metadata-plus-explicit-markers-v1",
+      "confidence_policy": "explicit-marker-only; unknown otherwise",
+      "turn_count": 17,
+      "labeled_turn_count": 0,
+      "unknown_turn_count": 17,
+      "candidate_speakers": [
+        "Alexander Mercouris",
+        "Mercouris"
+      ],
+      "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2026-06-07/source-alexander-mercouris-russia-spurns-desperate-zelensky-secret-talks-offer-lyman-konstantinovka-about-to-fall-west-panic-2026-06-07.md"
+    },
+    {
+      "source_path": "narrative-geopolitics/archive/sources/2026-06-06/source-mario-nawfal-macgregor-pentagon-names-israel-top-spy-threat-iran-levels-gulf-again-2026-06-06.md",
+      "source_sha256": "728c8d7d6cabe0a5a43632f804a9f06224c70cdc236a7379d341a549a644495d",
+      "labeling_method": "metadata-plus-explicit-markers-v1",
+      "confidence_policy": "explicit-marker-only; unknown otherwise",
+      "turn_count": 21,
+      "labeled_turn_count": 0,
+      "unknown_turn_count": 21,
+      "candidate_speakers": [
+        "Mario Nawfal",
+        "Douglas Macgregor",
+        "Macgregor"
+      ],
+      "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2026-06-06/source-mario-nawfal-macgregor-pentagon-names-israel-top-spy-threat-iran-levels-gulf-again-2026-06-06.md"
+    },
+    {
+      "source_path": "narrative-geopolitics/archive/sources/2026-06-06/source-duran-mercouris-putin-reveals-oreshnik-plan-west-desperate-to-get-conflict-freeze-2026-06-06.md",
+      "source_sha256": "5482c5469c8d146f9b369f88c74b61909a3b43b69caee4680f05890b2ccdbfdc",
+      "labeling_method": "metadata-plus-explicit-markers-v1",
+      "confidence_policy": "explicit-marker-only; unknown otherwise",
+      "turn_count": 33,
+      "labeled_turn_count": 14,
+      "unknown_turn_count": 19,
+      "candidate_speakers": [
+        "Alex Christoforou",
+        "Alexander Mercouris",
+        "Mercouris"
+      ],
+      "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2026-06-06/source-duran-mercouris-putin-reveals-oreshnik-plan-west-desperate-to-get-conflict-freeze-2026-06-06.md"
+    },
+    {
+      "source_path": "narrative-geopolitics/archive/sources/2026-06-06/source-alexander-mercouris-putin-withering-reply-to-insolent-zelensky-letter-kiev-drones-to-fail-oreshnik-may-target-europe-2026-06-06.md",
+      "source_sha256": "494022f2ab209f63d7a0b95bb63b1960f7994540cfc66bdb22c7a85c81822f89",
+      "labeling_method": "metadata-plus-explicit-markers-v1",
+      "confidence_policy": "explicit-marker-only; unknown otherwise",
+      "turn_count": 20,
+      "labeled_turn_count": 0,
+      "unknown_turn_count": 20,
+      "candidate_speakers": [
+        "Alexander Mercouris",
+        "Mercouris"
+      ],
+      "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2026-06-06/source-alexander-mercouris-putin-withering-reply-to-insolent-zelensky-letter-kiev-drones-to-fail-oreshnik-may-target-europe-2026-06-06.md"
+    },
+    {
+      "source_path": "narrative-geopolitics/archive/sources/2026-06-05/source-glenn-diesen-seyed-m-marandi-hormuz-toll-strike-on-kuwait-israel-decline-iranian-nuclear-bomb-2026-06-05.md",
+      "source_sha256": "36ca36ae130765c4ad9bb1cb427562fa1aa30584124138af63f76eaf0bc91fcf",
+      "labeling_method": "metadata-plus-explicit-markers-v1",
+      "confidence_policy": "explicit-marker-only; unknown otherwise",
+      "turn_count": 22,
+      "labeled_turn_count": 0,
+      "unknown_turn_count": 22,
+      "candidate_speakers": [
+        "Glenn Diesen",
+        "Seyed M. Marandi",
+        "Marandi"
+      ],
+      "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2026-06-05/source-glenn-diesen-seyed-m-marandi-hormuz-toll-strike-on-kuwait-israel-decline-iranian-nuclear-bomb-2026-06-05.md"
+    },
+    {
+      "source_path": "narrative-geopolitics/archive/sources/2026-06-05/source-daniel-davis-zelensky-s-letter-to-putin-lt-col-daniel-davis-2026-06-05.md",
+      "source_sha256": "c0030cccbce93088cd3924b4b67a7e02a00c40c3bfceef297fdd9f7a4d9b3a26",
+      "labeling_method": "metadata-plus-explicit-markers-v1",
+      "confidence_policy": "explicit-marker-only; unknown otherwise",
+      "turn_count": 95,
+      "labeled_turn_count": 0,
+      "unknown_turn_count": 95,
+      "candidate_speakers": [
+        "Daniel Davis",
+        "Davis"
+      ],
+      "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2026-06-05/source-daniel-davis-zelensky-s-letter-to-putin-lt-col-daniel-davis-2026-06-05.md"
+    },
+    {
+      "source_path": "narrative-geopolitics/archive/sources/2026-06-05/source-alexander-mercouris-putin-uncompromising-tells-west-msm-oreshnik-will-strike-kiev-russia-winning-zelensky-pleads-summit-2026-06-05.md",
+      "source_sha256": "6f44dbfb39e67a02a94f5bd65eac20136a43b6dbfabf6d9250f72269629c6490",
+      "labeling_method": "metadata-plus-explicit-markers-v1",
+      "confidence_policy": "explicit-marker-only; unknown otherwise",
+      "turn_count": 20,
+      "labeled_turn_count": 0,
+      "unknown_turn_count": 20,
+      "candidate_speakers": [
+        "Alexander Mercouris",
+        "Mercouris"
+      ],
+      "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2026-06-05/source-alexander-mercouris-putin-uncompromising-tells-west-msm-oreshnik-will-strike-kiev-russia-winning-zelensky-pleads-summit-2026-06-05.md"
+    },
+    {
+      "source_path": "narrative-geopolitics/archive/sources/2026-06-04/source-judging-freedom-macgregor-does-the-us-have-a-military-option-in-iran-2026-06-04.md",
+      "source_sha256": "3ce3a06a40ac31b82471abda4473c9ee0623d85886935ac56a137da0c8a12177",
+      "labeling_method": "metadata-plus-explicit-markers-v1",
+      "confidence_policy": "explicit-marker-only; unknown otherwise",
+      "turn_count": 69,
+      "labeled_turn_count": 0,
+      "unknown_turn_count": 69,
+      "candidate_speakers": [
+        "Judge Andrew Napolitano",
+        "Douglas Macgregor",
+        "Macgregor"
+      ],
+      "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2026-06-04/source-judging-freedom-macgregor-does-the-us-have-a-military-option-in-iran-2026-06-04.md"
+    },
+    {
+      "source_path": "narrative-geopolitics/archive/sources/2026-06-04/source-alexander-mercouris-big-russian-army-breakthroughs-donbass-orekhov-shake-kiev-nato-zelensky-uk-eu-discuss-russia-talks-2026-06-04.md",
+      "source_sha256": "bde39db3ab686903c973555b44fcb139ada2811855d8356f67f62eb896d5e3c3",
+      "labeling_method": "metadata-plus-explicit-markers-v1",
+      "confidence_policy": "explicit-marker-only; unknown otherwise",
+      "turn_count": 20,
+      "labeled_turn_count": 0,
+      "unknown_turn_count": 20,
+      "candidate_speakers": [
+        "Alexander Mercouris",
+        "Mercouris"
+      ],
+      "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2026-06-04/source-alexander-mercouris-big-russian-army-breakthroughs-donbass-orekhov-shake-kiev-nato-zelensky-uk-eu-discuss-russia-talks-2026-06-04.md"
+    },
+    {
+      "source_path": "narrative-geopolitics/archive/sources/2026-06-03/source-alexander-mercouris-russia-sanctions-crumble-st-pete-hosts-us-german-business-zelensky-sends-drones-us-iran-fighting-2026-06-03.md",
+      "source_sha256": "c3fd465f6575f8b55ab9e8c4730a3df7e7c773b3780742d257d2397399fd885f",
+      "labeling_method": "metadata-plus-explicit-markers-v1",
+      "confidence_policy": "explicit-marker-only; unknown otherwise",
+      "turn_count": 103,
+      "labeled_turn_count": 0,
+      "unknown_turn_count": 103,
+      "candidate_speakers": [
+        "Alexander Mercouris",
+        "Mercouris"
+      ],
+      "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2026-06-03/source-alexander-mercouris-russia-sanctions-crumble-st-pete-hosts-us-german-business-zelensky-sends-drones-us-iran-fighting-2026-06-03.md"
+    },
+    {
+      "source_path": "narrative-geopolitics/archive/sources/2026-06-02/source-duran-mercouris-konstantinovka-is-falling-wests-ukraine-narrative-is-crumbling-2026-06-02.md",
+      "source_sha256": "854cba50015f941a3deb5cbb723aea6b05f59158f231e0621299e5002e74c021",
+      "labeling_method": "metadata-plus-explicit-markers-v1",
+      "confidence_policy": "explicit-marker-only; unknown otherwise",
+      "turn_count": 115,
+      "labeled_turn_count": 57,
+      "unknown_turn_count": 58,
+      "candidate_speakers": [
+        "Alex Christoforou",
+        "Alexander Mercouris",
+        "Mercouris"
+      ],
+      "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2026-06-02/source-duran-mercouris-konstantinovka-is-falling-wests-ukraine-narrative-is-crumbling-2026-06-02.md"
+    },
+    {
+      "source_path": "narrative-geopolitics/archive/sources/2026-06-02/source-diesen-krapivnik-kiev-attacked-frontlines-fall-belarus-enters-war-2026-06-02.md",
+      "source_sha256": "2b424b16211abd2215ff2a8dfaa04937d4e7e70e46cad2d457096dfaa248e778",
+      "labeling_method": "metadata-plus-explicit-markers-v1",
+      "confidence_policy": "explicit-marker-only; unknown otherwise",
+      "turn_count": 61,
+      "labeled_turn_count": 0,
+      "unknown_turn_count": 61,
+      "candidate_speakers": [
+        "Diesen",
+        "Stanislav Krapivnik",
+        "Krapivnik"
+      ],
+      "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2026-06-02/source-diesen-krapivnik-kiev-attacked-frontlines-fall-belarus-enters-war-2026-06-02.md"
+    },
+    {
+      "source_path": "narrative-geopolitics/archive/sources/2026-06-02/source-daniel-davis-americas-old-world-war-mentality-lt-col-daniel-davis-2026-06-02.md",
+      "source_sha256": "46ebe5669c28b7e9c1c04cefe7e4aa526a4882c4ae3aed1a84285c1529e958e3",
+      "labeling_method": "metadata-plus-explicit-markers-v1",
+      "confidence_policy": "explicit-marker-only; unknown otherwise",
+      "turn_count": 20,
+      "labeled_turn_count": 0,
+      "unknown_turn_count": 20,
+      "candidate_speakers": [
+        "Daniel Davis",
+        "Davis"
+      ],
+      "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2026-06-02/source-daniel-davis-americas-old-world-war-mentality-lt-col-daniel-davis-2026-06-02.md"
+    },
+    {
+      "source_path": "narrative-geopolitics/archive/sources/2026-06-02/source-alexander-mercouris-russian-massive-strike-shatters-kiev-tsirkon-missile-first-mass-use-kiev-troops-flee-konstantinovka-2026-06-02.md",
+      "source_sha256": "e1e05f448637f1b528eaf06f4bfce6db9f4115938610edb1932f19e5908950f9",
+      "labeling_method": "metadata-plus-explicit-markers-v1",
+      "confidence_policy": "explicit-marker-only; unknown otherwise",
+      "turn_count": 20,
+      "labeled_turn_count": 0,
+      "unknown_turn_count": 20,
+      "candidate_speakers": [
+        "Alexander Mercouris",
+        "Mercouris"
+      ],
+      "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2026-06-02/source-alexander-mercouris-russian-massive-strike-shatters-kiev-tsirkon-missile-first-mass-use-kiev-troops-flee-konstantinovka-2026-06-02.md"
+    },
+    {
+      "source_path": "narrative-geopolitics/archive/sources/2026-06-01/source-duran-mercouris-seeking-war-with-russia-2026-06-01.md",
+      "source_sha256": "85e48b25e6f12567f575225c79d39153b08ad364903ea4c1e737ef7465f9fa5a",
+      "labeling_method": "metadata-plus-explicit-markers-v1",
+      "confidence_policy": "explicit-marker-only; unknown otherwise",
+      "turn_count": 38,
+      "labeled_turn_count": 10,
+      "unknown_turn_count": 28,
+      "candidate_speakers": [
+        "Alex Christoforou",
+        "Alexander Mercouris",
+        "Mercouris"
+      ],
+      "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2026-06-01/source-duran-mercouris-seeking-war-with-russia-2026-06-01.md"
+    },
+    {
+      "source_path": "narrative-geopolitics/archive/sources/2026-06-01/source-diesen-jiang-u-s-trapped-in-iran-europe-s-war-against-russia-grand-bargain-with-china-2026-06-01.md",
+      "source_sha256": "78a63c424393ff8d822db96315b2a1fde5f6459b69eff098ab04947f82794be6",
+      "labeling_method": "metadata-plus-explicit-markers-v1",
+      "confidence_policy": "explicit-marker-only; unknown otherwise",
+      "turn_count": 23,
+      "labeled_turn_count": 0,
+      "unknown_turn_count": 23,
+      "candidate_speakers": [
+        "Glenn Diesen",
+        "Jiang Xueqin",
+        "Jiang"
+      ],
+      "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2026-06-01/source-diesen-jiang-u-s-trapped-in-iran-europe-s-war-against-russia-grand-bargain-with-china-2026-06-01.md"
+    },
+    {
+      "source_path": "narrative-geopolitics/archive/sources/2026-06-01/source-daniel-davis-iran-warhawks-delusional-fantasy-lt-col-daniel-davis-2026-06-01.md",
+      "source_sha256": "a015dcc947df4a0f9c3cb7e0f2a64e3fe88619670ff39b713ddb7d3b52ac2a4b",
+      "labeling_method": "metadata-plus-explicit-markers-v1",
+      "confidence_policy": "explicit-marker-only; unknown otherwise",
+      "turn_count": 17,
+      "labeled_turn_count": 0,
+      "unknown_turn_count": 17,
+      "candidate_speakers": [
+        "Daniel Davis",
+        "Davis"
+      ],
+      "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2026-06-01/source-daniel-davis-iran-warhawks-delusional-fantasy-lt-col-daniel-davis-2026-06-01.md"
+    },
+    {
+      "source_path": "narrative-geopolitics/archive/sources/2026-06-01/source-alexander-mercouris-zelensky-to-sack-syrsky-appoint-budanov-kiev-army-chief-kiev-s-konstantinovka-crisis-drones-fade-2026-06-01.md",
+      "source_sha256": "613782945fdfce2899b21f95a7245a7628873961599f7800989e22320ff8235b",
+      "labeling_method": "metadata-plus-explicit-markers-v1",
+      "confidence_policy": "explicit-marker-only; unknown otherwise",
+      "turn_count": 21,
+      "labeled_turn_count": 0,
+      "unknown_turn_count": 21,
+      "candidate_speakers": [
+        "Alexander Mercouris",
+        "Mercouris"
+      ],
+      "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2026-06-01/source-alexander-mercouris-zelensky-to-sack-syrsky-appoint-budanov-kiev-army-chief-kiev-s-konstantinovka-crisis-drones-fade-2026-06-01.md"
+    },
+    {
+      "source_path": "narrative-geopolitics/archive/sources/2026-05-31/source-alexander-mercouris-kiev-drone-strikes-zaporozhzhye-npp-west-iaea-silent-russia-orekhov-breakthrough-konstantinovka-2026-05-31.md",
+      "source_sha256": "8fffaad878495a9df3fca805e00bb7300062fd48e7e7397ed1c9c63af5b4d1a3",
+      "labeling_method": "metadata-plus-explicit-markers-v1",
+      "confidence_policy": "explicit-marker-only; unknown otherwise",
+      "turn_count": 4,
+      "labeled_turn_count": 0,
+      "unknown_turn_count": 4,
+      "candidate_speakers": [
+        "Alexander Mercouris",
+        "Mercouris"
+      ],
+      "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2026-05-31/source-alexander-mercouris-kiev-drone-strikes-zaporozhzhye-npp-west-iaea-silent-russia-orekhov-breakthrough-konstantinovka-2026-05-31.md"
+    },
+    {
+      "source_path": "narrative-geopolitics/archive/sources/2026-05-30/source-alexander-mercouris-zelensky-fears-new-big-russian-kiev-strike-kiev-s-drone-offensive-against-russia-fails-crimea-fuel-2026-05-30.md",
+      "source_sha256": "dea4ef54512349580bbde83e280e575df78389cae22d96d445f957ae81683849",
+      "labeling_method": "metadata-plus-explicit-markers-v1",
+      "confidence_policy": "explicit-marker-only; unknown otherwise",
+      "turn_count": 3,
+      "labeled_turn_count": 0,
+      "unknown_turn_count": 3,
+      "candidate_speakers": [
+        "Alexander Mercouris",
+        "Mercouris"
+      ],
+      "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2026-05-30/source-alexander-mercouris-zelensky-fears-new-big-russian-kiev-strike-kiev-s-drone-offensive-against-russia-fails-crimea-fuel-2026-05-30.md"
+    },
+    {
+      "source_path": "narrative-geopolitics/archive/sources/2026-05-29/source-neutrality-studies-usa-collapsing-washingtons-soviet-moment-is-here-col-douglas-macgregor-2026-05-29.md",
+      "source_sha256": "cdead9d831a243b21d651c234d8406533a4c9682fa4cd2fb496b93bfe2915cf4",
+      "labeling_method": "metadata-plus-explicit-markers-v1",
+      "confidence_policy": "explicit-marker-only; unknown otherwise",
+      "turn_count": 2,
+      "labeled_turn_count": 0,
+      "unknown_turn_count": 2,
+      "candidate_speakers": [
+        "Pascal Lottaz",
+        "Douglas Macgregor",
+        "Macgregor"
+      ],
+      "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2026-05-29/source-neutrality-studies-usa-collapsing-washingtons-soviet-moment-is-here-col-douglas-macgregor-2026-05-29.md"
+    },
+    {
+      "source_path": "narrative-geopolitics/archive/sources/2026-05-28/source-judging-freedom-macgregor-iran-stronger-now-putin-takes-off-the-gloves-2026-05-28.md",
+      "source_sha256": "3b6f8ebbdebe137b27bb0baad0406de2c2b2e84d85e051a708d4c0e42be4987e",
+      "labeling_method": "metadata-plus-explicit-markers-v1",
+      "confidence_policy": "explicit-marker-only; unknown otherwise",
+      "turn_count": 4,
+      "labeled_turn_count": 0,
+      "unknown_turn_count": 4,
+      "candidate_speakers": [
+        "Andrew Napolitano",
+        "Douglas Macgregor",
+        "Macgregor"
+      ],
+      "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2026-05-28/source-judging-freedom-macgregor-iran-stronger-now-putin-takes-off-the-gloves-2026-05-28.md"
+    },
+    {
+      "source_path": "narrative-geopolitics/archive/sources/2026-05-28/source-alexander-mercouris-zelensky-panic-begs-trump-help-as-kiev-ad-runs-out-russia-confirms-oreshnik-to-destroy-kiev-bunkers-2026-05-28.md",
+      "source_sha256": "9b197559bbbfc55fa6e974a7584943657620356c46b8aa70d800a7c5b5042895",
+      "labeling_method": "metadata-plus-explicit-markers-v1",
+      "confidence_policy": "explicit-marker-only; unknown otherwise",
+      "turn_count": 4,
+      "labeled_turn_count": 0,
+      "unknown_turn_count": 4,
+      "candidate_speakers": [
+        "Alexander Mercouris",
+        "Mercouris"
+      ],
+      "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2026-05-28/source-alexander-mercouris-zelensky-panic-begs-trump-help-as-kiev-ad-runs-out-russia-confirms-oreshnik-to-destroy-kiev-bunkers-2026-05-28.md"
+    },
+    {
+      "source_path": "narrative-geopolitics/archive/sources/2026-05-27/source-macgregor-mario-nawfal-trump-walks-back-on-deal-idf-to-flatten-beirut-2026-05-27.md",
+      "source_sha256": "db5492e92c74847ab814550eb785771b689fb0e10cee35ab514a9af8bd2dc4e7",
+      "labeling_method": "metadata-plus-explicit-markers-v1",
+      "confidence_policy": "explicit-marker-only; unknown otherwise",
+      "turn_count": 2,
+      "labeled_turn_count": 0,
+      "unknown_turn_count": 2,
+      "candidate_speakers": [
+        "Mario Nawfal",
+        "Douglas Macgregor",
+        "Macgregor"
+      ],
+      "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2026-05-27/source-macgregor-mario-nawfal-trump-walks-back-on-deal-idf-to-flatten-beirut-2026-05-27.md"
+    },
+    {
+      "source_path": "narrative-geopolitics/archive/sources/2026-05-27/source-daniel-davis-ukraine-russia-war-expansion-the-duran-s-alexander-mercouris-lt-col-daniel-davis-2026-05-27.md",
+      "source_sha256": "002e34d13da68ae48f2c1c4f2dcd91e2754f6f68ac6bec63ba5bece971c8938b",
+      "labeling_method": "metadata-plus-explicit-markers-v1",
+      "confidence_policy": "explicit-marker-only; unknown otherwise",
+      "turn_count": 89,
+      "labeled_turn_count": 0,
+      "unknown_turn_count": 89,
+      "candidate_speakers": [
+        "Daniel Davis",
+        "Alexander Mercouris",
+        "Mercouris"
+      ],
+      "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2026-05-27/source-daniel-davis-ukraine-russia-war-expansion-the-duran-s-alexander-mercouris-lt-col-daniel-davis-2026-05-27.md"
+    },
+    {
+      "source_path": "narrative-geopolitics/archive/sources/2026-05-27/source-alexander-mercouris-russia-plans-kiev-capture-prepares-next-strike-decision-centres-kiev-without-ad-zaporozhzhye-crisis-2026-05-27.md",
+      "source_sha256": "d28ebfae71e3a079f619351ef6196a01a7921061d8253a06f2212cb53d01f431",
+      "labeling_method": "metadata-plus-explicit-markers-v1",
+      "confidence_policy": "explicit-marker-only; unknown otherwise",
+      "turn_count": 4,
+      "labeled_turn_count": 0,
+      "unknown_turn_count": 4,
+      "candidate_speakers": [
+        "Alexander Mercouris",
+        "Mercouris"
+      ],
+      "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2026-05-27/source-alexander-mercouris-russia-plans-kiev-capture-prepares-next-strike-decision-centres-kiev-without-ad-zaporozhzhye-crisis-2026-05-27.md"
+    },
+    {
+      "source_path": "narrative-geopolitics/archive/sources/2026-05-26/source-duran-mercouris-pressure-to-walk-away-from-a-good-iran-deal-2026-05-26.md",
+      "source_sha256": "16914681e746202f3e081e899fe2924808f8a1c040f1b3b0ff5dfb9d08d9a812",
+      "labeling_method": "metadata-plus-explicit-markers-v1",
+      "confidence_policy": "explicit-marker-only; unknown otherwise",
+      "turn_count": 42,
+      "labeled_turn_count": 24,
+      "unknown_turn_count": 18,
+      "candidate_speakers": [
+        "Alex Christoforou",
+        "Alexander Mercouris",
+        "Mercouris"
+      ],
+      "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2026-05-26/source-duran-mercouris-pressure-to-walk-away-from-a-good-iran-deal-2026-05-26.md"
+    },
+    {
+      "source_path": "narrative-geopolitics/archive/sources/2026-05-26/source-daniel-davis-col-douglas-macgregor-u-s-strikes-iran-again-2026-05-26.md",
+      "source_sha256": "0ad005c61f1b79b1f6dc1124a06a45d35a28d8717e25d147a0102c075c081472",
+      "labeling_method": "metadata-plus-explicit-markers-v1",
+      "confidence_policy": "explicit-marker-only; unknown otherwise",
+      "turn_count": 2,
+      "labeled_turn_count": 0,
+      "unknown_turn_count": 2,
+      "candidate_speakers": [
+        "Daniel Davis",
+        "Doug Macgregor",
+        "Macgregor"
+      ],
+      "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2026-05-26/source-daniel-davis-col-douglas-macgregor-u-s-strikes-iran-again-2026-05-26.md"
+    },
+    {
+      "source_path": "narrative-geopolitics/archive/sources/2026-05-26/source-alexander-mercouris-russian-fiercest-warning-kiev-decision-centres-will-be-attacked-patience-exhausted-west-quit-kiev-2026-05-26.md",
+      "source_sha256": "4173edf5c928ec1140ce1ffd37f941fb16ca4ce4f401203857f443272ea45bac",
+      "labeling_method": "metadata-plus-explicit-markers-v1",
+      "confidence_policy": "explicit-marker-only; unknown otherwise",
+      "turn_count": 115,
+      "labeled_turn_count": 0,
+      "unknown_turn_count": 115,
+      "candidate_speakers": [
+        "Alexander Mercouris",
+        "Mercouris"
+      ],
+      "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2026-05-26/source-alexander-mercouris-russian-fiercest-warning-kiev-decision-centres-will-be-attacked-patience-exhausted-west-quit-kiev-2026-05-26.md"
+    },
+    {
+      "source_path": "narrative-geopolitics/archive/sources/2026-05-25/source-duran-mercouris-russia-unleashes-oreshnik-more-strikes-planned-2026-05-25.md",
+      "source_sha256": "e79e30e762e973f59f2b94ccc4d83e4ff92367bc60a0f9972da3667820f8d6b7",
+      "labeling_method": "metadata-plus-explicit-markers-v1",
+      "confidence_policy": "explicit-marker-only; unknown otherwise",
+      "turn_count": 73,
+      "labeled_turn_count": 32,
+      "unknown_turn_count": 41,
+      "candidate_speakers": [
+        "Alex Christoforou",
+        "Alexander Mercouris",
+        "Mercouris"
+      ],
+      "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2026-05-25/source-duran-mercouris-russia-unleashes-oreshnik-more-strikes-planned-2026-05-25.md"
+    },
+    {
+      "source_path": "narrative-geopolitics/archive/sources/2026-05-25/source-alexander-mercouris-russia-plans-more-oreshnik-strikes-speeds-up-zaporozhzhye-offensive-europe-ukraine-funds-run-short-2026-05-25.md",
+      "source_sha256": "75a103f5ec77da3cc99c90d9c6d0d2f19270147925149c3c98eef2ff51bbc54c",
+      "labeling_method": "metadata-plus-explicit-markers-v1",
+      "confidence_policy": "explicit-marker-only; unknown otherwise",
+      "turn_count": 117,
+      "labeled_turn_count": 0,
+      "unknown_turn_count": 117,
+      "candidate_speakers": [
+        "Alexander Mercouris",
+        "Mercouris"
+      ],
+      "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2026-05-25/source-alexander-mercouris-russia-plans-more-oreshnik-strikes-speeds-up-zaporozhzhye-offensive-europe-ukraine-funds-run-short-2026-05-25.md"
+    },
+    {
+      "source_path": "narrative-geopolitics/archive/sources/2026-05-24/source-alexander-mercouris-russian-massive-oreshnik-kiev-revenge-attack-stuns-ukraine-eu-zelensky-fears-russian-kiev-offensive-2026-05-24.md",
+      "source_sha256": "ae9648f9c0f25d0d21339451d0ac0da1c5818d671af21a604037c438f23c8f30",
+      "labeling_method": "metadata-plus-explicit-markers-v1",
+      "confidence_policy": "explicit-marker-only; unknown otherwise",
+      "turn_count": 110,
+      "labeled_turn_count": 0,
+      "unknown_turn_count": 110,
+      "candidate_speakers": [
+        "Alexander Mercouris",
+        "Mercouris"
+      ],
+      "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2026-05-24/source-alexander-mercouris-russian-massive-oreshnik-kiev-revenge-attack-stuns-ukraine-eu-zelensky-fears-russian-kiev-offensive-2026-05-24.md"
+    },
+    {
+      "source_path": "narrative-geopolitics/archive/sources/2026-05-23/source-alexander-mercouris-russia-vows-starobelsk-retaliation-nato-says-russia-hijacking-kiev-s-drones-msm-us-losing-iran-war-2026-05-23.md",
+      "source_sha256": "d34b89b407d171d8fdfb1aff5d49808242cbca6e3322bdc762b9d6f339ae7ac8",
+      "labeling_method": "metadata-plus-explicit-markers-v1",
+      "confidence_policy": "explicit-marker-only; unknown otherwise",
+      "turn_count": 103,
+      "labeled_turn_count": 0,
+      "unknown_turn_count": 103,
+      "candidate_speakers": [
+        "Alexander Mercouris",
+        "Mercouris"
+      ],
+      "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2026-05-23/source-alexander-mercouris-russia-vows-starobelsk-retaliation-nato-says-russia-hijacking-kiev-s-drones-msm-us-losing-iran-war-2026-05-23.md"
+    },
+    {
+      "source_path": "narrative-geopolitics/archive/sources/2026-05-22/source-alexander-mercouris-iran-impasse-trump-wants-airstrikes-as-stockpiles-depleted-2026-05-22.md",
+      "source_sha256": "945059b906028c11ade17b0a7ae130e7aacd757ddb628ac06d3110cdd945a753",
+      "labeling_method": "metadata-plus-explicit-markers-v1",
+      "confidence_policy": "explicit-marker-only; unknown otherwise",
+      "turn_count": 59,
+      "labeled_turn_count": 0,
+      "unknown_turn_count": 59,
+      "candidate_speakers": [
+        "Alexander Mercouris",
+        "Mercouris"
+      ],
+      "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2026-05-22/source-alexander-mercouris-iran-impasse-trump-wants-airstrikes-as-stockpiles-depleted-2026-05-22.md"
+    },
+    {
+      "source_path": "narrative-geopolitics/archive/sources/2026-05-22/source-alexander-mercouris-eu-says-never-buy-russian-oil-gas-backs-kiev-drone-war-energy-shock-russia-breaks-orekhov-defence-2026-05-22.md",
+      "source_sha256": "e8d04df038ac8c280dd64bf9163f5ebd431f920ed29e9267983b6a583918ddf8",
+      "labeling_method": "metadata-plus-explicit-markers-v1",
+      "confidence_policy": "explicit-marker-only; unknown otherwise",
+      "turn_count": 134,
+      "labeled_turn_count": 0,
+      "unknown_turn_count": 134,
+      "candidate_speakers": [
+        "Alexander Mercouris",
+        "Mercouris"
+      ],
+      "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2026-05-22/source-alexander-mercouris-eu-says-never-buy-russian-oil-gas-backs-kiev-drone-war-energy-shock-russia-breaks-orekhov-defence-2026-05-22.md"
+    },
+    {
+      "source_path": "narrative-geopolitics/archive/sources/2026-05-21/source-judging-freedom-macgregor-the-pentagon-and-decapitation-strikes-2026-05-21.md",
+      "source_sha256": "6546dafad4152ecd622c56b3c06db4a692702dbbe889e26c05ccac4307f6a971",
+      "labeling_method": "metadata-plus-explicit-markers-v1",
+      "confidence_policy": "explicit-marker-only; unknown otherwise",
+      "turn_count": 76,
+      "labeled_turn_count": 0,
+      "unknown_turn_count": 76,
+      "candidate_speakers": [
+        "Andrew Napolitano",
+        "Douglas Macgregor",
+        "Macgregor"
+      ],
+      "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2026-05-21/source-judging-freedom-macgregor-the-pentagon-and-decapitation-strikes-2026-05-21.md"
+    },
+    {
+      "source_path": "narrative-geopolitics/archive/sources/2026-05-20/source-alexander-mercouris-russian-sanctions-collapse-uk-buy-russian-oil-us-extends-waiver-russian-warnings-baltic-drone-panic-2026-05-20.md",
+      "source_sha256": "84645fe945963dc1bba3b3135537d4dff452745f7c349972e7b8380ff4ee630c",
+      "labeling_method": "metadata-plus-explicit-markers-v1",
+      "confidence_policy": "explicit-marker-only; unknown otherwise",
+      "turn_count": 108,
+      "labeled_turn_count": 0,
+      "unknown_turn_count": 108,
+      "candidate_speakers": [
+        "Alexander Mercouris",
+        "Mercouris"
+      ],
+      "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2026-05-20/source-alexander-mercouris-russian-sanctions-collapse-uk-buy-russian-oil-us-extends-waiver-russian-warnings-baltic-drone-panic-2026-05-20.md"
+    },
+    {
+      "source_path": "narrative-geopolitics/archive/sources/2026-05-19/source-alexander-mercouris-russia-warns-nato-baltic-war-test-nuclear-forces-putin-to-china-trump-iran-retreat-konstantinovka-2026-05-19.md",
+      "source_sha256": "4fbdf7c4c5f73ce2d652666273da9bb106a02cb8b900d0b5ae26afe97c7b1a8e",
+      "labeling_method": "metadata-plus-explicit-markers-v1",
+      "confidence_policy": "explicit-marker-only; unknown otherwise",
+      "turn_count": 3,
+      "labeled_turn_count": 0,
+      "unknown_turn_count": 3,
+      "candidate_speakers": [
+        "Alexander Mercouris",
+        "Mercouris"
+      ],
+      "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2026-05-19/source-alexander-mercouris-russia-warns-nato-baltic-war-test-nuclear-forces-putin-to-china-trump-iran-retreat-konstantinovka-2026-05-19.md"
+    },
+    {
+      "source_path": "narrative-geopolitics/archive/sources/2026-05-18/source-alexander-mercouris-eu-split-on-russia-talks-russia-conducts-huge-ukraine-strike-reports-new-weapon-hits-dnipro-iran-2026-05-18.md",
+      "source_sha256": "3419f286bbbc99e5ea097d0ed770edd0b6f353b0b22666fd8439b0b7193744cc",
+      "labeling_method": "metadata-plus-explicit-markers-v1",
+      "confidence_policy": "explicit-marker-only; unknown otherwise",
+      "turn_count": 2,
+      "labeled_turn_count": 0,
+      "unknown_turn_count": 2,
+      "candidate_speakers": [
+        "Alexander Mercouris",
+        "Mercouris"
+      ],
+      "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2026-05-18/source-alexander-mercouris-eu-split-on-russia-talks-russia-conducts-huge-ukraine-strike-reports-new-weapon-hits-dnipro-iran-2026-05-18.md"
+    },
+    {
+      "source_path": "narrative-geopolitics/archive/sources/2026-05-17/source-alexander-mercouris-russia-moldova-decree-stuns-eu-assembles-belarus-force-brushes-off-zelen-2026-05-17.md",
+      "source_sha256": "9323e1bad3420637253a8edc5b6014d8bbbcfa470f3f92935ba30c69ba0d8ad3",
+      "labeling_method": "metadata-plus-explicit-markers-v1",
+      "confidence_policy": "explicit-marker-only; unknown otherwise",
+      "turn_count": 4,
+      "labeled_turn_count": 0,
+      "unknown_turn_count": 4,
+      "candidate_speakers": [
+        "Alexander Mercouris",
+        "Mercouris"
+      ],
+      "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2026-05-17/source-alexander-mercouris-russia-moldova-decree-stuns-eu-assembles-belarus-force-brushes-off-zelen-2026-05-17.md"
+    },
+    {
+      "source_path": "narrative-geopolitics/archive/sources/2026-05-16/source-glenn-diesen-alexander-mercouris-the-political-legitimacy-crisis-across-europe-2026-05-16.md",
+      "source_sha256": "961232969e21e728d89402fe7a71ee53d6a3cd90722e7603c05de6c535c02a80",
+      "labeling_method": "metadata-plus-explicit-markers-v1",
+      "confidence_policy": "explicit-marker-only; unknown otherwise",
+      "turn_count": 112,
+      "labeled_turn_count": 0,
+      "unknown_turn_count": 112,
+      "candidate_speakers": [
+        "Glenn Diesen",
+        "Alexander Mercouris",
+        "Mercouris"
+      ],
+      "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2026-05-16/source-glenn-diesen-alexander-mercouris-the-political-legitimacy-crisis-across-europe-2026-05-16.md"
+    },
+    {
+      "source_path": "narrative-geopolitics/archive/sources/2026-05-16/source-alexander-mercouris-zelensky-panics-says-russia-will-attack-kiev-decision-centres-slaviansk-2026-05-16.md",
+      "source_sha256": "fcad8011de61e467c2b4fc4071ad451d680285289974492818fdd8d2f3132864",
+      "labeling_method": "metadata-plus-explicit-markers-v1",
+      "confidence_policy": "explicit-marker-only; unknown otherwise",
+      "turn_count": 2,
+      "labeled_turn_count": 0,
+      "unknown_turn_count": 2,
+      "candidate_speakers": [
+        "Alexander Mercouris",
+        "Mercouris"
+      ],
+      "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2026-05-16/source-alexander-mercouris-zelensky-panics-says-russia-will-attack-kiev-decision-centres-slaviansk-2026-05-16.md"
+    }
+  ]
+}

@@ -1,0 +1,1413 @@
+{
+  "kind": "speaker-labeling-pilot-v1",
+  "limit": 100,
+  "source_count": 100,
+  "sources": [
+    {
+      "date": "2026-07-17",
+      "title": "BREAKING: IRGC CLAIMS AMERICANS KILLED AT AL-TANF SYRIA - Col. Larry Wilkerson",
+      "local_path": "narrative-geopolitics/archive/sources/2026-07-17/source-breaking-irgc-claims-americans-killed-at-al-tanf-syria-col-larry-wilkerson-2026-07-17.md",
+      "voice_index_path": "../../archive/sources/2026-07-17/source-breaking-irgc-claims-americans-killed-at-al-tanf-syria-col-larry-wilkerson-2026-07-17.md",
+      "upstream_path": "operator-paste://2026-07-22/breaking-irgc-claims-americans-killed-at-al-tanf-syria-col-larry-wilkerson",
+      "source_class": "stream-sequence spine",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "wilkerson"
+      ],
+      "host_slug": "mario-nawfal",
+      "inference_basis": [
+        "explicit-host"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-07-10",
+      "title": "NATO Summit Descends Into Total Farce. Trump Mocks Europe, Rutte Panic",
+      "local_path": "narrative-geopolitics/archive/sources/2026-07-10/source-nato-summit-descends-into-total-farce-trump-mocks-europe-rutte-panic-2026-07-10.md",
+      "voice_index_path": "../../archive/sources/2026-07-10/source-nato-summit-descends-into-total-farce-trump-mocks-europe-rutte-panic-2026-07-10.md",
+      "upstream_path": "operator-paste://2026-07-10/nato-summit-descends-into-total-farce-trump-mocks-europe-rutte-panic",
+      "source_class": "stream-sequence spine",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "the-duran",
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-07-10",
+      "title": "Lavrov Says West Lies No Talks Ever Again; Kremlin Says US Duplicitous; West Faces Diesel Shortage",
+      "local_path": "narrative-geopolitics/archive/sources/2026-07-10/source-lavrov-says-west-lies-no-talks-ever-again-kremlin-says-us-duplicitous-west-faces-diesel-shortage-2026-07-10.md",
+      "voice_index_path": "../../archive/sources/2026-07-10/source-lavrov-says-west-lies-no-talks-ever-again-kremlin-says-us-duplicitous-west-faces-diesel-shortage-2026-07-10.md",
+      "upstream_path": "operator-paste://2026-07-10/lavrov-says-west-lies-no-talks-ever-again-kremlin-says-us-duplicitous-west-faces-diesel-shortage",
+      "source_class": "stream-sequence spine",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "alexander-mercouris",
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-07-09",
+      "title": "Alexander Mercouris: US Iran War Resumes Full Force; MoU Collapses; NATO Absurd Summit; Zaluzhny Ukraine Losing Attrition",
+      "local_path": "narrative-geopolitics/archive/sources/2026-07-09/source-alexander-mercouris-us-iran-war-resumes-full-force-mou-collapses-nato-absurd-summit-zaluzhny-ukraine-losing-attrition-2026-07-09.md",
+      "voice_index_path": "../../archive/sources/2026-07-09/source-alexander-mercouris-us-iran-war-resumes-full-force-mou-collapses-nato-absurd-summit-zaluzhny-ukraine-losing-attrition-2026-07-09.md",
+      "upstream_path": "operator-paste://2026-07-09/alexander-mercouris-us-iran-war-resumes-full-force-mou-collapses-nato-absurd-summit-zaluzhny-ukraine-losing-attrition",
+      "source_class": "stream-sequence spine",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "alexander-mercouris",
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-07-08",
+      "title": "Trump Declares CEASEFIRE OVER w/IRAN Lt Col Daniel Davis",
+      "local_path": "narrative-geopolitics/archive/sources/2026-07-08/source-trump-declares-ceasefire-over-w-iran-lt-col-daniel-davis-2026-07-08.md",
+      "voice_index_path": "../../archive/sources/2026-07-08/source-trump-declares-ceasefire-over-w-iran-lt-col-daniel-davis-2026-07-08.md",
+      "upstream_path": "operator-paste://2026-07-08/trump-declares-ceasefire-over-w-iran-lt-col-daniel-davis",
+      "source_class": "stream-sequence spine",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "davis"
+      ],
+      "host_slug": "daniel-davis",
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-07-08",
+      "title": "Alexander Mercouris: Russia Gives WW3 Warning; Prepares Kiev Orekhov Offensives; NATO Meeting Bust Trump Talks Greenland",
+      "local_path": "narrative-geopolitics/archive/sources/2026-07-08/source-alexander-mercouris-russia-gives-ww3-warning-prepares-kiev-orekhov-offensives-nato-meeting-bust-trump-talks-greenland-2026-07-08.md",
+      "voice_index_path": "../../archive/sources/2026-07-08/source-alexander-mercouris-russia-gives-ww3-warning-prepares-kiev-orekhov-offensives-nato-meeting-bust-trump-talks-greenland-2026-07-08.md",
+      "upstream_path": "operator-paste://2026-07-08/alexander-mercouris-russia-gives-ww3-warning-prepares-kiev-orekhov-offensives-nato-meeting-bust-trump-talks-greenland",
+      "source_class": "stream-sequence spine",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "alexander-mercouris",
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-07-07",
+      "title": "Russia Destroys Arms Dump Huge Blast; Zelensky Begs Patriots Says Russia Ground Advance Unimportant",
+      "local_path": "narrative-geopolitics/archive/sources/2026-07-07/source-mercouris-russia-destroys-arms-dump-zelensky-begs-patriots-2026-07-07.md",
+      "voice_index_path": "../../archive/sources/2026-07-07/source-mercouris-russia-destroys-arms-dump-zelensky-begs-patriots-2026-07-07.md",
+      "upstream_path": "operator-paste://2026-07-08/mercouris-russia-destroys-arms-dump-zelensky-begs-patriots",
+      "source_class": "stream-sequence spine",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "alexander-mercouris",
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-07-07",
+      "title": "BREAKING: US NEW STRIKES ON IRAN /Lt Col Daniel Davis",
+      "local_path": "narrative-geopolitics/archive/sources/2026-07-07/source-daniel-davis-breaking-us-new-strikes-on-iran-2026-07-07.md",
+      "voice_index_path": "../../archive/sources/2026-07-07/source-daniel-davis-breaking-us-new-strikes-on-iran-2026-07-07.md",
+      "upstream_path": "operator-paste://2026-07-08/daniel-davis-breaking-us-new-strikes-on-iran",
+      "source_class": "stream-sequence spine",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "davis"
+      ],
+      "host_slug": "daniel-davis",
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-06-30",
+      "title": "Kiev Fears Big Russian Oreshnik Strike Coming; Russia Repels Ukraine Drones; EU Gas Storage Crisis",
+      "local_path": "narrative-geopolitics/archive/sources/2026-06-30/source-alexander-mercouris-kiev-fears-big-russian-oreshnik-strike-russia-repels-drones-eu-gas-crisis-2026-06-30.md",
+      "voice_index_path": "../../archive/sources/2026-06-30/source-alexander-mercouris-kiev-fears-big-russian-oreshnik-strike-russia-repels-drones-eu-gas-crisis-2026-06-30.md",
+      "upstream_path": "C:/dev/strategy-codex/source-archive/statecraft/2026-06-30/source-alexander-mercouris-kiev-fears-big-russian-oreshnik-strike-russia-repels-drones-eu-gas-crisis-2026-06-30.md",
+      "source_class": "stream-sequence spine",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "alexander-mercouris",
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-06-29",
+      "title": "Putin Rejects Talks Aims For Odessa Says Russia About To Take Donbas Calls For Unity; Drones Abate",
+      "local_path": "narrative-geopolitics/archive/sources/2026-06-29/source-alexander-mercouris-putin-rejects-talks-odessa-donbas-drones-abate-2026-06-29.md",
+      "voice_index_path": "../../archive/sources/2026-06-29/source-alexander-mercouris-putin-rejects-talks-odessa-donbas-drones-abate-2026-06-29.md",
+      "upstream_path": "C:/dev/strategy-codex/source-archive/statecraft/2026-06-29/source-alexander-mercouris-putin-rejects-talks-odessa-donbas-drones-abate-2026-06-29.md",
+      "source_class": "stream-sequence spine",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "alexander-mercouris",
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-06-28",
+      "title": "Russia Hits Back Kills Kiev Intel Chief; Putin Says West Behind Kiev Strikes; Destabilisation Failed",
+      "local_path": "narrative-geopolitics/archive/sources/2026-06-28/source-alexander-mercouris-russia-hits-back-kills-kiev-intel-chief-putin-west-kiev-strikes-destabilisation-failed-2026-06-28.md",
+      "voice_index_path": "../../archive/sources/2026-06-28/source-alexander-mercouris-russia-hits-back-kills-kiev-intel-chief-putin-west-kiev-strikes-destabilisation-failed-2026-06-28.md",
+      "upstream_path": "C:/dev/strategy-codex/source-archive/statecraft/2026-06-28/source-alexander-mercouris-russia-hits-back-kills-kiev-intel-chief-putin-west-kiev-strikes-destabilisation-failed-2026-06-28.md",
+      "source_class": "stream-sequence spine",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "alexander-mercouris",
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-06-27",
+      "title": "Russia Frontline Advance. Putin's Messaging Woes as Lavrov's WW3 Warning Ignored",
+      "local_path": "narrative-geopolitics/archive/sources/2026-06-27/source-duran-mercouris-russia-frontline-advance-putin-messaging-woes-lavrov-ww3-warning-ignored-2026-06-27.md",
+      "voice_index_path": "../../archive/sources/2026-06-27/source-duran-mercouris-russia-frontline-advance-putin-messaging-woes-lavrov-ww3-warning-ignored-2026-06-27.md",
+      "upstream_path": "C:/dev/strategy-codex/source-archive/statecraft/2026-06-27/source-duran-mercouris-russia-frontline-advance-putin-messaging-woes-lavrov-ww3-warning-ignored-2026-06-27.md",
+      "source_class": "cross-host pressure test",
+      "modality": "transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "the-duran",
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-06-27",
+      "title": "Putin Lukashenko Rebuff Zelensky Meet In Valdai; French MSM Admits Kiev Troops Losing; MoU Unravels",
+      "local_path": "narrative-geopolitics/archive/sources/2026-06-27/source-alexander-mercouris-putin-lukashenko-rebuff-zelensky-meet-in-valdai-french-msm-admits-kiev-troops-losing-mou-unravels-2026-06-27.md",
+      "voice_index_path": "../../archive/sources/2026-06-27/source-alexander-mercouris-putin-lukashenko-rebuff-zelensky-meet-in-valdai-french-msm-admits-kiev-troops-losing-mou-unravels-2026-06-27.md",
+      "upstream_path": "C:/dev/strategy-codex/source-archive/statecraft/2026-06-27/source-alexander-mercouris-putin-lukashenko-rebuff-zelensky-meet-in-valdai-french-msm-admits-kiev-troops-losing-mou-unravels-2026-06-27.md",
+      "source_class": "stream-sequence spine",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "alexander-mercouris",
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-06-26",
+      "title": "ISRAEL FURIOUS AT TRUMP OVER TURKEY, SYRIA TO INVADE LEBANON - w/ Col. Macgregor",
+      "local_path": "narrative-geopolitics/archive/sources/2026-06-26/source-mario-nawfal-macgregor-israel-furious-trump-turkey-syria-lebanon-2026-06-26.md",
+      "voice_index_path": "../../archive/sources/2026-06-26/source-mario-nawfal-macgregor-israel-furious-trump-turkey-syria-lebanon-2026-06-26.md",
+      "upstream_path": "C:/dev/strategy-codex/source-archive/statecraft/2026-06-26/source-mario-nawfal-macgregor-israel-furious-trump-turkey-syria-lebanon-2026-06-26.md",
+      "source_class": "cross-host pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "macgregor"
+      ],
+      "host_slug": "mario-nawfal",
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-06-26",
+      "title": "[EXCLUSIVE] COL. Doug Macgregor : Judgment Day for Trump's War. Does he Know He Lost?",
+      "local_path": "narrative-geopolitics/archive/sources/2026-06-26/source-judging-freedom-macgregor-judgment-day-trump-war-lost-2026-06-26.md",
+      "voice_index_path": "../../archive/sources/2026-06-26/source-judging-freedom-macgregor-judgment-day-trump-war-lost-2026-06-26.md",
+      "upstream_path": "C:/dev/strategy-codex/source-archive/statecraft/2026-06-26/source-judging-freedom-macgregor-judgment-day-trump-war-lost-2026-06-26.md",
+      "source_class": "cross-host pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "macgregor"
+      ],
+      "host_slug": "judging-freedom",
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-06-26",
+      "title": "Zelensky Again Threatens Belarus; Kharkov Crumbles Threat To Kiev Grows; Lavrov Rubio Bury Anchorage",
+      "local_path": "narrative-geopolitics/archive/sources/2026-06-26/source-alexander-mercouris-zelensky-threatens-belarus-kharkov-kiev-lavrov-rubio-bury-anchorage-2026-06-26.md",
+      "voice_index_path": "../../archive/sources/2026-06-26/source-alexander-mercouris-zelensky-threatens-belarus-kharkov-kiev-lavrov-rubio-bury-anchorage-2026-06-26.md",
+      "upstream_path": "C:/dev/strategy-codex/source-archive/statecraft/2026-06-26/source-alexander-mercouris-zelensky-threatens-belarus-kharkov-kiev-lavrov-rubio-bury-anchorage-2026-06-26.md",
+      "source_class": "stream-sequence spine",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "alexander-mercouris",
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-06-25",
+      "title": "Seyed M. Marandi: Trump Lost the Iran War - Must Sell It as a Victory",
+      "local_path": "narrative-geopolitics/archive/sources/2026-06-25/source-glenn-diesen-marandi-trump-lost-iran-war-must-sell-victory-2026-06-25.md",
+      "voice_index_path": "../../archive/sources/2026-06-25/source-glenn-diesen-marandi-trump-lost-iran-war-must-sell-victory-2026-06-25.md",
+      "upstream_path": "C:/dev/strategy-codex/source-archive/statecraft/2026-06-25/source-glenn-diesen-marandi-trump-lost-iran-war-must-sell-victory-2026-06-25.md",
+      "source_class": "cross-host pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "marandi"
+      ],
+      "host_slug": "glenn-diesen",
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-06-25",
+      "title": "Lukashenko NO To Zelensky Belarus Stands With Russia; Russian Troops Enter Sumy; EU NO To Kiev Entry",
+      "local_path": "narrative-geopolitics/archive/sources/2026-06-25/source-alexander-mercouris-lukashenko-no-to-zelensky-belarus-stands-with-russia-russian-troops-enter-sumy-eu-no-to-kiev-entry-2026-06-25.md",
+      "voice_index_path": "../../archive/sources/2026-06-25/source-alexander-mercouris-lukashenko-no-to-zelensky-belarus-stands-with-russia-russian-troops-enter-sumy-eu-no-to-kiev-entry-2026-06-25.md",
+      "upstream_path": "C:/dev/strategy-codex/source-archive/statecraft/2026-06-25/source-alexander-mercouris-lukashenko-no-to-zelensky-belarus-stands-with-russia-russian-troops-enter-sumy-eu-no-to-kiev-entry-2026-06-25.md",
+      "source_class": "stream-sequence spine",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "alexander-mercouris",
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-06-23",
+      "title": "Rubicon Crossed, Permanent Conflict on Russia. Zelensky Targets Belarus Next",
+      "local_path": "narrative-geopolitics/archive/sources/2026-06-23/source-duran-mercouris-rubicon-crossed-zelensky-targets-belarus-2026-06-23.md",
+      "voice_index_path": "../../archive/sources/2026-06-23/source-duran-mercouris-rubicon-crossed-zelensky-targets-belarus-2026-06-23.md",
+      "upstream_path": "C:/dev/strategy-codex/source-archive/statecraft/2026-06-23/source-duran-mercouris-rubicon-crossed-zelensky-targets-belarus-2026-06-23.md",
+      "source_class": "cross-host pressure test",
+      "modality": "transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "the-duran",
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-06-23",
+      "title": "Putin Warns Russian Army War With West Coming; Russia Leads West In Arms Output; US Iran Talks Stuck",
+      "local_path": "narrative-geopolitics/archive/sources/2026-06-23/source-alexander-mercouris-putin-warns-russian-army-war-with-west-coming-russia-leads-west-in-arms-output-us-iran-talks-stuck-2026-06-23.md",
+      "voice_index_path": "../../archive/sources/2026-06-23/source-alexander-mercouris-putin-warns-russian-army-war-with-west-coming-russia-leads-west-in-arms-output-us-iran-talks-stuck-2026-06-23.md",
+      "upstream_path": "C:/dev/strategy-codex/source-archive/statecraft/2026-06-23/source-alexander-mercouris-putin-warns-russian-army-war-with-west-coming-russia-leads-west-in-arms-output-us-iran-talks-stuck-2026-06-23.md",
+      "source_class": "stream-sequence spine",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "alexander-mercouris",
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-06-22",
+      "title": "US-Iran Ceasefire Talks. Conflict Round 3 Is Coming",
+      "local_path": "narrative-geopolitics/archive/sources/2026-06-22/source-duran-mercouris-us-iran-ceasefire-talks-conflict-round-3-2026-06-22.md",
+      "voice_index_path": "../../archive/sources/2026-06-22/source-duran-mercouris-us-iran-ceasefire-talks-conflict-round-3-2026-06-22.md",
+      "upstream_path": "C:/dev/strategy-codex/source-archive/statecraft/2026-06-22/source-duran-mercouris-us-iran-ceasefire-talks-conflict-round-3-2026-06-22.md",
+      "source_class": "stream-sequence spine",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "the-duran",
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-06-22",
+      "title": "Starmer Finally Quits; BBC Admits Kiev Faces Donbas Crisis Losing Konstantinovka; Neocons Iran Rage",
+      "local_path": "narrative-geopolitics/archive/sources/2026-06-22/source-alexander-mercouris-starmer-quits-bbc-kostyantynivka-donbas-neocons-iran-rage-2026-06-22.md",
+      "voice_index_path": "../../archive/sources/2026-06-22/source-alexander-mercouris-starmer-quits-bbc-kostyantynivka-donbas-neocons-iran-rage-2026-06-22.md",
+      "upstream_path": "C:/dev/strategy-codex/source-archive/statecraft/2026-06-22/source-alexander-mercouris-starmer-quits-bbc-kostyantynivka-donbas-neocons-iran-rage-2026-06-22.md",
+      "source_class": "stream-sequence spine",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "alexander-mercouris",
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-06-21",
+      "title": "Kremlin Says Talks With US Failed; Russia Seeks Victory; Russia Prepares Big Kiev Strike; Starmer Goes",
+      "local_path": "narrative-geopolitics/archive/sources/2026-06-21/source-alexander-mercouris-kremlin-says-talks-with-us-failed-russia-seeks-victory-kiev-strike-starmer-goes-2026-06-21.md",
+      "voice_index_path": "../../archive/sources/2026-06-21/source-alexander-mercouris-kremlin-says-talks-with-us-failed-russia-seeks-victory-kiev-strike-starmer-goes-2026-06-21.md",
+      "upstream_path": "C:/dev/strategy-codex/source-archive/statecraft/2026-06-21/source-alexander-mercouris-kremlin-says-talks-with-us-failed-russia-seeks-victory-kiev-strike-starmer-goes-2026-06-21.md",
+      "source_class": "stream-sequence spine",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "alexander-mercouris",
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-06-20",
+      "title": "The Secret Plot to Destroy Russia | Alexander Mercouris",
+      "local_path": "narrative-geopolitics/archive/sources/2026-06-20/source-neutrality-studies-alexander-mercouris-secret-plot-destroy-russia-russophobia-2026-06-20.md",
+      "voice_index_path": "../../archive/sources/2026-06-20/source-neutrality-studies-alexander-mercouris-secret-plot-destroy-russia-russophobia-2026-06-20.md",
+      "upstream_path": "C:/dev/strategy-codex/source-archive/statecraft/2026-06-20/source-neutrality-studies-alexander-mercouris-secret-plot-destroy-russia-russophobia-2026-06-20.md",
+      "source_class": "cross-host pressure test",
+      "modality": "transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "neutrality-studies",
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-06-20",
+      "title": "STRAIT of HORMUZ CLOSED: Guess Who We're Sending to Get it Re-Opened? / Lt Col Daniel Davis",
+      "local_path": "narrative-geopolitics/archive/sources/2026-06-20/source-daniel-davis-strait-of-hormuz-closed-guess-who-were-sending-to-reopen-2026-06-20.md",
+      "voice_index_path": "../../archive/sources/2026-06-20/source-daniel-davis-strait-of-hormuz-closed-guess-who-were-sending-to-reopen-2026-06-20.md",
+      "upstream_path": "C:/dev/strategy-codex/source-archive/statecraft/2026-06-20/source-daniel-davis-strait-of-hormuz-closed-guess-who-were-sending-to-reopen-2026-06-20.md",
+      "source_class": "stream-sequence spine",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "davis"
+      ],
+      "host_slug": "daniel-davis",
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-06-20",
+      "title": "Zelensky Desperate; Threatens Belarus Attack; Russia Trebles Oreshnik Output; Plans Big Kiev Strikes",
+      "local_path": "narrative-geopolitics/archive/sources/2026-06-20/source-alexander-mercouris-zelensky-desperate-threatens-belarus-attack-russia-trebles-oreshnik-output-2026-06-20.md",
+      "voice_index_path": "../../archive/sources/2026-06-20/source-alexander-mercouris-zelensky-desperate-threatens-belarus-attack-russia-trebles-oreshnik-output-2026-06-20.md",
+      "upstream_path": "C:/dev/strategy-codex/source-archive/statecraft/2026-06-20/source-alexander-mercouris-zelensky-desperate-threatens-belarus-attack-russia-trebles-oreshnik-output-2026-06-20.md",
+      "source_class": "stream-sequence spine",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "alexander-mercouris",
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-06-19",
+      "title": "NOBODY TELLS US WHAT TO DO, KATZ DEFIES TRUMP'S CEASEFIRE - Max Blumenthal",
+      "local_path": "narrative-geopolitics/archive/sources/2026-06-19/source-nobody-tells-us-what-to-do-katz-defies-trump-s-ceasefire-max-blumenthal-2026-06-19.md",
+      "voice_index_path": "../../archive/sources/2026-06-19/source-nobody-tells-us-what-to-do-katz-defies-trump-s-ceasefire-max-blumenthal-2026-06-19.md",
+      "upstream_path": "operator-paste://2026-07-22/nobody-tells-us-what-to-do-katz-defies-trump-s-ceasefire-max-blumenthal",
+      "source_class": "stream-sequence spine",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "blumenthal"
+      ],
+      "host_slug": "mario-nawfal",
+      "inference_basis": [
+        "explicit-host"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-06-19",
+      "title": "Israel & Hezbollah Agree to Ceasefire / Lt Col Daniel Davis",
+      "local_path": "narrative-geopolitics/archive/sources/2026-06-19/source-daniel-davis-israel-hezbollah-agree-ceasefire-2026-06-19.md",
+      "voice_index_path": "../../archive/sources/2026-06-19/source-daniel-davis-israel-hezbollah-agree-ceasefire-2026-06-19.md",
+      "upstream_path": "C:/dev/strategy-codex/source-archive/statecraft/2026-06-19/source-daniel-davis-israel-hezbollah-agree-ceasefire-2026-06-19.md",
+      "source_class": "stream-sequence spine",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "davis"
+      ],
+      "host_slug": "daniel-davis",
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-06-19",
+      "title": "Russia Toughens Demands As Key Donbas Towns Fall; EU Quarrels Over Russia Talks; US Rounds On Israel",
+      "local_path": "narrative-geopolitics/archive/sources/2026-06-19/source-alexander-mercouris-russia-toughens-demands-donbas-towns-fall-eu-quarrels-us-israel-2026-06-19.md",
+      "voice_index_path": "../../archive/sources/2026-06-19/source-alexander-mercouris-russia-toughens-demands-donbas-towns-fall-eu-quarrels-us-israel-2026-06-19.md",
+      "upstream_path": "C:/dev/strategy-codex/source-archive/statecraft/2026-06-19/source-alexander-mercouris-russia-toughens-demands-donbas-towns-fall-eu-quarrels-us-israel-2026-06-19.md",
+      "source_class": "stream-sequence spine",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "alexander-mercouris",
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-06-18",
+      "title": "COL. Douglas Macgregor : Israel The Real Loser",
+      "local_path": "narrative-geopolitics/archive/sources/2026-06-18/source-judging-freedom-macgregor-israel-the-real-loser-2026-06-18.md",
+      "voice_index_path": "../../archive/sources/2026-06-18/source-judging-freedom-macgregor-israel-the-real-loser-2026-06-18.md",
+      "upstream_path": "C:/dev/strategy-codex/source-archive/statecraft/2026-06-18/source-judging-freedom-macgregor-israel-the-real-loser-2026-06-18.md",
+      "source_class": "cross-host pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "macgregor"
+      ],
+      "host_slug": "judging-freedom",
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-06-18",
+      "title": "Stanislav Krapivnik: Russia's Offensive Gains Speed & Anger Boils Over in Moscow",
+      "local_path": "narrative-geopolitics/archive/sources/2026-06-18/source-glenn-diesen-stanislav-krapivnik-russia-offensive-gains-speed-anger-moscow-2026-06-18.md",
+      "voice_index_path": "../../archive/sources/2026-06-18/source-glenn-diesen-stanislav-krapivnik-russia-offensive-gains-speed-anger-moscow-2026-06-18.md",
+      "upstream_path": "C:/dev/strategy-codex/source-archive/statecraft/2026-06-18/source-glenn-diesen-stanislav-krapivnik-russia-offensive-gains-speed-anger-moscow-2026-06-18.md",
+      "source_class": "cross-host pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "krapivnik"
+      ],
+      "host_slug": "glenn-diesen",
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-06-18",
+      "title": "Tough Road Iran Deal Lays Out / Lt Col Daniel Davis",
+      "local_path": "narrative-geopolitics/archive/sources/2026-06-18/source-daniel-davis-tough-road-iran-deal-lays-out-2026-06-18.md",
+      "voice_index_path": "../../archive/sources/2026-06-18/source-daniel-davis-tough-road-iran-deal-lays-out-2026-06-18.md",
+      "upstream_path": "C:/dev/strategy-codex/source-archive/statecraft/2026-06-18/source-daniel-davis-tough-road-iran-deal-lays-out-2026-06-18.md",
+      "source_class": "stream-sequence spine",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "davis"
+      ],
+      "host_slug": "daniel-davis",
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-06-18",
+      "title": "Russia Warns Iran Beware US Trap; US Signs MoU On Iran Terms; EU Offers Talks Russia 'Uninterested'",
+      "local_path": "narrative-geopolitics/archive/sources/2026-06-18/source-alexander-mercouris-russia-warns-iran-beware-us-trap-mou-iran-terms-2026-06-18.md",
+      "voice_index_path": "../../archive/sources/2026-06-18/source-alexander-mercouris-russia-warns-iran-beware-us-trap-mou-iran-terms-2026-06-18.md",
+      "upstream_path": "C:/dev/strategy-codex/source-archive/statecraft/2026-06-18/source-alexander-mercouris-russia-warns-iran-beware-us-trap-mou-iran-terms-2026-06-18.md",
+      "source_class": "stream-sequence spine",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "alexander-mercouris",
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-06-17",
+      "title": "Russia China Deepen Energy Ties Agree PoS2 Terms; Russian Navy Stuns UK; EU Wants More Oil Sanctions",
+      "local_path": "narrative-geopolitics/archive/sources/2026-06-17/source-alexander-mercouris-russia-china-energy-pos2-russian-navy-stuns-uk-eu-sanctions-2026-06-17.md",
+      "voice_index_path": "../../archive/sources/2026-06-17/source-alexander-mercouris-russia-china-energy-pos2-russian-navy-stuns-uk-eu-sanctions-2026-06-17.md",
+      "upstream_path": "C:/dev/strategy-codex/source-archive/statecraft/2026-06-17/source-alexander-mercouris-russia-china-energy-pos2-russian-navy-stuns-uk-eu-sanctions-2026-06-17.md",
+      "source_class": "stream-sequence spine",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "alexander-mercouris",
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-06-16",
+      "title": "IRAN DEAL DRAMA & DOUBT /Lt Col Daniel Davis",
+      "local_path": "narrative-geopolitics/archive/sources/2026-06-16/source-daniel-davis-iran-deal-drama-doubt-lt-col-daniel-davis-2026-06-16.md",
+      "voice_index_path": "../../archive/sources/2026-06-16/source-daniel-davis-iran-deal-drama-doubt-lt-col-daniel-davis-2026-06-16.md",
+      "upstream_path": "C:/dev/strategy-codex/source-archive/statecraft/2026-06-16/source-daniel-davis-iran-deal-drama-doubt-lt-col-daniel-davis-2026-06-16.md",
+      "source_class": "stream-sequence spine",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "davis"
+      ],
+      "host_slug": "daniel-davis",
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-06-16",
+      "title": "US Iran Agree MoU US Ends Sea Blockade Neocons Israel Furious; Putin Tells Trump Ignore UK/EU",
+      "local_path": "narrative-geopolitics/archive/sources/2026-06-16/source-alexander-mercouris-us-iran-agree-mou-sea-blockade-neocons-israel-furious-putin-trump-ignore-uk-eu-2026-06-16.md",
+      "voice_index_path": "../../archive/sources/2026-06-16/source-alexander-mercouris-us-iran-agree-mou-sea-blockade-neocons-israel-furious-putin-trump-ignore-uk-eu-2026-06-16.md",
+      "upstream_path": "C:/dev/strategy-codex/source-archive/statecraft/2026-06-16/source-alexander-mercouris-us-iran-agree-mou-sea-blockade-neocons-israel-furious-putin-trump-ignore-uk-eu-2026-06-16.md",
+      "source_class": "stream-sequence spine",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "alexander-mercouris",
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-06-15",
+      "title": "What's the Deal with Iran / Lt Col Daniel Davis",
+      "local_path": "narrative-geopolitics/archive/sources/2026-06-15/source-daniel-davis-whats-the-deal-with-iran-2026-06-15.md",
+      "voice_index_path": "../../archive/sources/2026-06-15/source-daniel-davis-whats-the-deal-with-iran-2026-06-15.md",
+      "upstream_path": "C:/dev/strategy-codex/source-archive/statecraft/2026-06-15/source-daniel-davis-whats-the-deal-with-iran-2026-06-15.md",
+      "source_class": "stream-sequence spine",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "davis"
+      ],
+      "host_slug": "daniel-davis",
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-06-15",
+      "title": "Putin & Macron Try to Persuade Trump to Their Side in RU/UKR War",
+      "local_path": "narrative-geopolitics/archive/sources/2026-06-15/source-daniel-davis-putin-macron-trump-ukraine-war-2026-06-15.md",
+      "voice_index_path": "../../archive/sources/2026-06-15/source-daniel-davis-putin-macron-trump-ukraine-war-2026-06-15.md",
+      "upstream_path": "C:/dev/strategy-codex/source-archive/statecraft/2026-06-15/source-daniel-davis-putin-macron-trump-ukraine-war-2026-06-15.md",
+      "source_class": "stream-sequence spine",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "davis"
+      ],
+      "host_slug": "daniel-davis",
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-06-14",
+      "title": "Seyed M. Marandi: Israel's Attack on Beirut to Sabotage US-Iran Deal",
+      "local_path": "narrative-geopolitics/archive/sources/2026-06-14/source-glenn-diesen-seyed-m-marandi-israels-attack-on-beirut-sabotage-us-iran-deal-2026-06-14.md",
+      "voice_index_path": "../../archive/sources/2026-06-14/source-glenn-diesen-seyed-m-marandi-israels-attack-on-beirut-sabotage-us-iran-deal-2026-06-14.md",
+      "upstream_path": "C:/dev/strategy-codex/source-archive/statecraft/2026-06-14/source-glenn-diesen-seyed-m-marandi-israels-attack-on-beirut-sabotage-us-iran-deal-2026-06-14.md",
+      "source_class": "cross-host pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "marandi"
+      ],
+      "host_slug": "glenn-diesen",
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-06-14",
+      "title": "US Iran Closer To Signing MoU Reflecting Iran's Terms; Russian MoD Says Konstantinovka Close To Fall",
+      "local_path": "narrative-geopolitics/archive/sources/2026-06-14/source-alexander-mercouris-us-iran-mou-iran-terms-konstantinovka-close-to-fall-2026-06-14.md",
+      "voice_index_path": "../../archive/sources/2026-06-14/source-alexander-mercouris-us-iran-mou-iran-terms-konstantinovka-close-to-fall-2026-06-14.md",
+      "upstream_path": "C:/dev/strategy-codex/source-archive/statecraft/2026-06-14/source-alexander-mercouris-us-iran-mou-iran-terms-konstantinovka-close-to-fall-2026-06-14.md",
+      "source_class": "stream-sequence spine",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "alexander-mercouris",
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-06-13",
+      "title": "Signing a Deal Tomorrow? It's Scheduled! / Lt Col Daniel Davis",
+      "local_path": "narrative-geopolitics/archive/sources/2026-06-13/source-daniel-davis-signing-deal-tomorrow-scheduled-2026-06-13.md",
+      "voice_index_path": "../../archive/sources/2026-06-13/source-daniel-davis-signing-deal-tomorrow-scheduled-2026-06-13.md",
+      "upstream_path": "C:/dev/strategy-codex/source-archive/statecraft/2026-06-13/source-daniel-davis-signing-deal-tomorrow-scheduled-2026-06-13.md",
+      "source_class": "stream-sequence spine",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "davis"
+      ],
+      "host_slug": "daniel-davis",
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-06-13",
+      "title": "IRAN WAR DEAL - I'm SKEPTICAL / Lt Col Daniel Davis",
+      "local_path": "narrative-geopolitics/archive/sources/2026-06-13/source-daniel-davis-iran-war-deal-skeptical-2026-06-13.md",
+      "voice_index_path": "../../archive/sources/2026-06-13/source-daniel-davis-iran-war-deal-skeptical-2026-06-13.md",
+      "upstream_path": "C:/dev/strategy-codex/source-archive/statecraft/2026-06-13/source-daniel-davis-iran-war-deal-skeptical-2026-06-13.md",
+      "source_class": "stream-sequence spine",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "davis"
+      ],
+      "host_slug": "daniel-davis",
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-06-13",
+      "title": "Putin Meets Military Warns West Says Russia Has Drone Dominance Seeks Victory; US Plans China Trap",
+      "local_path": "narrative-geopolitics/archive/sources/2026-06-13/source-alexander-mercouris-putin-meets-military-warns-west-drone-dominance-victory-us-china-trap-2026-06-13.md",
+      "voice_index_path": "../../archive/sources/2026-06-13/source-alexander-mercouris-putin-meets-military-warns-west-drone-dominance-victory-us-china-trap-2026-06-13.md",
+      "upstream_path": "C:/dev/strategy-codex/source-archive/statecraft/2026-06-13/source-alexander-mercouris-putin-meets-military-warns-west-drone-dominance-victory-us-china-trap-2026-06-13.md",
+      "source_class": "stream-sequence spine",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "alexander-mercouris",
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-06-12",
+      "title": "Trump Again Claims an Agmt \\\"At Hand\\\" but Iran has MUCH Different View / Lt Col Daniel Davis",
+      "local_path": "narrative-geopolitics/archive/sources/2026-06-12/source-daniel-davis-trump-again-claims-agmt-at-hand-iran-different-view-2026-06-12.md",
+      "voice_index_path": "../../archive/sources/2026-06-12/source-daniel-davis-trump-again-claims-agmt-at-hand-iran-different-view-2026-06-12.md",
+      "upstream_path": "C:/dev/strategy-codex/source-archive/statecraft/2026-06-12/source-daniel-davis-trump-again-claims-agmt-at-hand-iran-different-view-2026-06-12.md",
+      "source_class": "stream-sequence spine",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "davis"
+      ],
+      "host_slug": "daniel-davis",
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-06-12",
+      "title": "Russia Mocks EU Demands; UK/EU Plan Arms Spend Debt Surge; UK Gov Implodes; Merkel For Russia Envoy",
+      "local_path": "narrative-geopolitics/archive/sources/2026-06-12/source-alexander-mercouris-russia-mocks-eu-demands-uk-eu-arms-debt-surge-uk-gov-implodes-merkel-envoy-2026-06-12.md",
+      "voice_index_path": "../../archive/sources/2026-06-12/source-alexander-mercouris-russia-mocks-eu-demands-uk-eu-arms-debt-surge-uk-gov-implodes-merkel-envoy-2026-06-12.md",
+      "upstream_path": "C:/dev/strategy-codex/source-archive/statecraft/2026-06-12/source-alexander-mercouris-russia-mocks-eu-demands-uk-eu-arms-debt-surge-uk-gov-implodes-merkel-envoy-2026-06-12.md",
+      "source_class": "stream-sequence spine",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "alexander-mercouris",
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-06-11",
+      "title": "\\\"This all about to collapse and Trump knows it\\\" Col. Douglas Macgregor",
+      "local_path": "narrative-geopolitics/archive/sources/2026-06-11/source-redacted-douglas-macgregor-this-all-about-to-collapse-trump-knows-it-2026-06-11.md",
+      "voice_index_path": "../../archive/sources/2026-06-11/source-redacted-douglas-macgregor-this-all-about-to-collapse-trump-knows-it-2026-06-11.md",
+      "upstream_path": "C:/dev/strategy-codex/source-archive/statecraft/2026-06-11/source-redacted-douglas-macgregor-this-all-about-to-collapse-trump-knows-it-2026-06-11.md",
+      "source_class": "cross-host pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "macgregor"
+      ],
+      "host_slug": "redacted-news",
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-06-11",
+      "title": "COL. Douglas Macgregor : Trump's Biggest Mistake",
+      "local_path": "narrative-geopolitics/archive/sources/2026-06-11/source-judging-freedom-macgregor-trumps-biggest-mistake-2026-06-11.md",
+      "voice_index_path": "../../archive/sources/2026-06-11/source-judging-freedom-macgregor-trumps-biggest-mistake-2026-06-11.md",
+      "upstream_path": "C:/dev/strategy-codex/source-archive/statecraft/2026-06-11/source-judging-freedom-macgregor-trumps-biggest-mistake-2026-06-11.md",
+      "source_class": "cross-host pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "macgregor"
+      ],
+      "host_slug": "judging-freedom",
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-06-11",
+      "title": "Iran US War Resumes; Russia Brushes Off EU Sanctions, Complains To China Over Drones",
+      "local_path": "narrative-geopolitics/archive/sources/2026-06-11/source-alexander-mercouris-iran-us-war-resumes-russia-brushes-off-eu-sanctions-complains-to-china-over-drones-2026-06-11.md",
+      "voice_index_path": "../../archive/sources/2026-06-11/source-alexander-mercouris-iran-us-war-resumes-russia-brushes-off-eu-sanctions-complains-to-china-over-drones-2026-06-11.md",
+      "upstream_path": "C:/dev/strategy-codex/source-archive/statecraft/2026-06-11/source-alexander-mercouris-iran-us-war-resumes-russia-brushes-off-eu-sanctions-complains-to-china-over-drones-2026-06-11.md",
+      "source_class": "stream-sequence spine",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "alexander-mercouris",
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-06-10",
+      "title": "Patrick Henningsen: How a U.S. Defeat Makes Iran a World Power",
+      "local_path": "narrative-geopolitics/archive/sources/2026-06-10/source-glenn-diesen-patrick-henningsen-us-defeat-makes-iran-world-power-2026-06-10.md",
+      "voice_index_path": "../../archive/sources/2026-06-10/source-glenn-diesen-patrick-henningsen-us-defeat-makes-iran-world-power-2026-06-10.md",
+      "upstream_path": "C:/dev/strategy-codex/source-archive/statecraft/2026-06-10/source-glenn-diesen-patrick-henningsen-us-defeat-makes-iran-world-power-2026-06-10.md",
+      "source_class": "cross-host pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "henningsen"
+      ],
+      "host_slug": "glenn-diesen",
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-06-10",
+      "title": "Putin Ignores EU Demand For Russian Surrender; Russia Confirms Kiev Troops Surrounded; Iran US War",
+      "local_path": "narrative-geopolitics/archive/sources/2026-06-10/source-alexander-mercouris-putin-ignores-eu-demand-for-russian-surrender-russia-confirms-kiev-troops-surrounded-iran-us-war-2026-06-10.md",
+      "voice_index_path": "../../archive/sources/2026-06-10/source-alexander-mercouris-putin-ignores-eu-demand-for-russian-surrender-russia-confirms-kiev-troops-surrounded-iran-us-war-2026-06-10.md",
+      "upstream_path": "C:/dev/strategy-codex/source-archive/statecraft/2026-06-10/source-alexander-mercouris-putin-ignores-eu-demand-for-russian-surrender-russia-confirms-kiev-troops-surrounded-iran-us-war-2026-06-10.md",
+      "source_class": "stream-sequence spine",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "alexander-mercouris",
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-06-09",
+      "title": "Douglas Macgregor: New World - Israel Dying, NATO Dead & U.S. Defeated by Iran",
+      "local_path": "narrative-geopolitics/archive/sources/2026-06-09/source-glenn-diesen-douglas-macgregor-new-world-israel-dying-nato-dead-us-defeated-iran-2026-06-09.md",
+      "voice_index_path": "../../archive/sources/2026-06-09/source-glenn-diesen-douglas-macgregor-new-world-israel-dying-nato-dead-us-defeated-iran-2026-06-09.md",
+      "upstream_path": "C:/dev/strategy-codex/source-archive/statecraft/2026-06-09/source-glenn-diesen-douglas-macgregor-new-world-israel-dying-nato-dead-us-defeated-iran-2026-06-09.md",
+      "source_class": "cross-host pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "macgregor"
+      ],
+      "host_slug": "glenn-diesen",
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-06-09",
+      "title": "BREAKING: US Strikes IRAN Qeshm Island / Lt Col Daniel Davis",
+      "local_path": "narrative-geopolitics/archive/sources/2026-06-09/source-daniel-davis-breaking-us-strikes-iran-qeshm-island-apache-response-2026-06-09.md",
+      "voice_index_path": "../../archive/sources/2026-06-09/source-daniel-davis-breaking-us-strikes-iran-qeshm-island-apache-response-2026-06-09.md",
+      "upstream_path": "C:/dev/strategy-codex/source-archive/statecraft/2026-06-09/source-daniel-davis-breaking-us-strikes-iran-qeshm-island-apache-response-2026-06-09.md",
+      "source_class": "stream-sequence spine",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "davis"
+      ],
+      "host_slug": "daniel-davis",
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-06-09",
+      "title": "Zelensky Uselessly Begs UK/EU For AD; Russia Targets Sumy; Moscow Peaceful; Iran Israel Trade Blows",
+      "local_path": "narrative-geopolitics/archive/sources/2026-06-09/source-alexander-mercouris-moscow-sumy-zelensky-ad-iran-israel-2026-06-09.md",
+      "voice_index_path": "../../archive/sources/2026-06-09/source-alexander-mercouris-moscow-sumy-zelensky-ad-iran-israel-2026-06-09.md",
+      "upstream_path": "C:/dev/strategy-codex/source-archive/statecraft/2026-06-09/source-alexander-mercouris-moscow-sumy-zelensky-ad-iran-israel-2026-06-09.md",
+      "source_class": "stream-sequence spine",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "alexander-mercouris",
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-06-08",
+      "title": "Seyed M. Marandi: Iran-Israel Strikes, Trump Humiliated & Yemen Restricts Red Sea Access",
+      "local_path": "narrative-geopolitics/archive/sources/2026-06-08/source-glenn-diesen-seyed-m-marandi-iran-israel-strikes-trump-humiliated-yemen-red-sea-2026-06-08.md",
+      "voice_index_path": "../../archive/sources/2026-06-08/source-glenn-diesen-seyed-m-marandi-iran-israel-strikes-trump-humiliated-yemen-red-sea-2026-06-08.md",
+      "upstream_path": "C:/dev/strategy-codex/source-archive/statecraft/2026-06-08/source-glenn-diesen-seyed-m-marandi-iran-israel-strikes-trump-humiliated-yemen-red-sea-2026-06-08.md",
+      "source_class": "cross-host pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "marandi"
+      ],
+      "host_slug": "glenn-diesen",
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-06-08",
+      "title": "We've Always Known the Truth of War w/Iran",
+      "local_path": "narrative-geopolitics/archive/sources/2026-06-08/source-daniel-davis-weve-always-known-truth-of-war-iran-2026-06-08.md",
+      "voice_index_path": "../../archive/sources/2026-06-08/source-daniel-davis-weve-always-known-truth-of-war-iran-2026-06-08.md",
+      "upstream_path": "C:/dev/strategy-codex/source-archive/statecraft/2026-06-08/source-daniel-davis-weve-always-known-truth-of-war-iran-2026-06-08.md",
+      "source_class": "stream-sequence spine",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "davis"
+      ],
+      "host_slug": "daniel-davis",
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-06-08",
+      "title": "Iran War Expands, Houthis Declare War on Israel",
+      "local_path": "narrative-geopolitics/archive/sources/2026-06-08/source-daniel-davis-iran-war-expands-houthis-declare-war-on-israel-2026-06-08.md",
+      "voice_index_path": "../../archive/sources/2026-06-08/source-daniel-davis-iran-war-expands-houthis-declare-war-on-israel-2026-06-08.md",
+      "upstream_path": "C:/dev/strategy-codex/source-archive/statecraft/2026-06-08/source-daniel-davis-iran-war-expands-houthis-declare-war-on-israel-2026-06-08.md",
+      "source_class": "stream-sequence spine",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "davis"
+      ],
+      "host_slug": "daniel-davis",
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-06-08",
+      "title": "Kiev Steps Up Work On Odessa Defences Fears Oreshnik Smashes Fortifications; Big Iran Israel Strikes",
+      "local_path": "narrative-geopolitics/archive/sources/2026-06-08/source-alexander-mercouris-kiev-odessa-oreshnik-fortifications-iran-israel-strikes-2026-06-08.md",
+      "voice_index_path": "../../archive/sources/2026-06-08/source-alexander-mercouris-kiev-odessa-oreshnik-fortifications-iran-israel-strikes-2026-06-08.md",
+      "upstream_path": "C:/dev/strategy-codex/source-archive/statecraft/2026-06-08/source-alexander-mercouris-kiev-odessa-oreshnik-fortifications-iran-israel-strikes-2026-06-08.md",
+      "source_class": "stream-sequence spine",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "alexander-mercouris",
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-06-07",
+      "title": "BREAKING: ISRAEL LAUNCHES MISSILE ATTACK AGAINST IRAN",
+      "local_path": "narrative-geopolitics/archive/sources/2026-06-07/source-daniel-davis-israel-launches-missile-attack-against-iran-2026-06-07.md",
+      "voice_index_path": "../../archive/sources/2026-06-07/source-daniel-davis-israel-launches-missile-attack-against-iran-2026-06-07.md",
+      "upstream_path": "C:/dev/strategy-codex/source-archive/statecraft/2026-06-07/source-daniel-davis-israel-launches-missile-attack-against-iran-2026-06-07.md",
+      "source_class": "stream-sequence spine",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "davis"
+      ],
+      "host_slug": "daniel-davis",
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-06-07",
+      "title": "Russia Spurns Desperate Zelensky's Secret Talks Offer; Lyman Konstantinovka About To Fall West Panic",
+      "local_path": "narrative-geopolitics/archive/sources/2026-06-07/source-alexander-mercouris-russia-spurns-desperate-zelensky-secret-talks-offer-lyman-konstantinovka-about-to-fall-west-panic-2026-06-07.md",
+      "voice_index_path": "../../archive/sources/2026-06-07/source-alexander-mercouris-russia-spurns-desperate-zelensky-secret-talks-offer-lyman-konstantinovka-about-to-fall-west-panic-2026-06-07.md",
+      "upstream_path": "C:/dev/strategy-codex/source-archive/statecraft/2026-06-07/source-alexander-mercouris-russia-spurns-desperate-zelensky-secret-talks-offer-lyman-konstantinovka-about-to-fall-west-panic-2026-06-07.md",
+      "source_class": "stream-sequence spine",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "alexander-mercouris",
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-06-06",
+      "title": "PENTAGON NAMES ISRAEL TOP SPY THREAT, IRAN LEVELS GULF AGAIN– w/ Col. Douglas Macgregor",
+      "local_path": "narrative-geopolitics/archive/sources/2026-06-06/source-mario-nawfal-macgregor-pentagon-names-israel-top-spy-threat-iran-levels-gulf-again-2026-06-06.md",
+      "voice_index_path": "../../archive/sources/2026-06-06/source-mario-nawfal-macgregor-pentagon-names-israel-top-spy-threat-iran-levels-gulf-again-2026-06-06.md",
+      "upstream_path": "C:/dev/strategy-codex/source-archive/statecraft/2026-06-06/source-mario-nawfal-macgregor-pentagon-names-israel-top-spy-threat-iran-levels-gulf-again-2026-06-06.md",
+      "source_class": "cross-host pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "macgregor"
+      ],
+      "host_slug": "mario-nawfal",
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-06-06",
+      "title": "The Duran / Alexander Mercouris - Putin Reveals Oreshnik Plan. West Desperate to Get Conflict Freeze",
+      "local_path": "narrative-geopolitics/archive/sources/2026-06-06/source-duran-mercouris-putin-reveals-oreshnik-plan-west-desperate-to-get-conflict-freeze-2026-06-06.md",
+      "voice_index_path": "../../archive/sources/2026-06-06/source-duran-mercouris-putin-reveals-oreshnik-plan-west-desperate-to-get-conflict-freeze-2026-06-06.md",
+      "upstream_path": "C:/dev/strategy-codex/source-archive/statecraft/2026-06-06/source-duran-mercouris-putin-reveals-oreshnik-plan-west-desperate-to-get-conflict-freeze-2026-06-06.md",
+      "source_class": "cross-host pressure test",
+      "modality": "transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "the-duran",
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-06-06",
+      "title": "Putin Withering Reply To 'Insolent' Zelensky Letter; Kiev Drones To Fail Oreshnik May Target Europe",
+      "local_path": "narrative-geopolitics/archive/sources/2026-06-06/source-alexander-mercouris-putin-withering-reply-to-insolent-zelensky-letter-kiev-drones-to-fail-oreshnik-may-target-europe-2026-06-06.md",
+      "voice_index_path": "../../archive/sources/2026-06-06/source-alexander-mercouris-putin-withering-reply-to-insolent-zelensky-letter-kiev-drones-to-fail-oreshnik-may-target-europe-2026-06-06.md",
+      "upstream_path": "C:/dev/strategy-codex/source-archive/statecraft/2026-06-06/source-alexander-mercouris-putin-withering-reply-to-insolent-zelensky-letter-kiev-drones-to-fail-oreshnik-may-target-europe-2026-06-06.md",
+      "source_class": "stream-sequence spine",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "alexander-mercouris",
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-06-05",
+      "title": "Seyed M. Marandi: Hormuz Toll, Strike On Kuwait, Israel Decline & Iranian Nuclear Bomb?",
+      "local_path": "narrative-geopolitics/archive/sources/2026-06-05/source-glenn-diesen-seyed-m-marandi-hormuz-toll-strike-on-kuwait-israel-decline-iranian-nuclear-bomb-2026-06-05.md",
+      "voice_index_path": "../../archive/sources/2026-06-05/source-glenn-diesen-seyed-m-marandi-hormuz-toll-strike-on-kuwait-israel-decline-iranian-nuclear-bomb-2026-06-05.md",
+      "upstream_path": "C:/dev/strategy-codex/source-archive/statecraft/2026-06-05/source-glenn-diesen-seyed-m-marandi-hormuz-toll-strike-on-kuwait-israel-decline-iranian-nuclear-bomb-2026-06-05.md",
+      "source_class": "cross-host pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "marandi"
+      ],
+      "host_slug": "glenn-diesen",
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-06-05",
+      "title": "Zelensky's Letter to Putin /Lt Col Daniel Davis",
+      "local_path": "narrative-geopolitics/archive/sources/2026-06-05/source-daniel-davis-zelensky-s-letter-to-putin-lt-col-daniel-davis-2026-06-05.md",
+      "voice_index_path": "../../archive/sources/2026-06-05/source-daniel-davis-zelensky-s-letter-to-putin-lt-col-daniel-davis-2026-06-05.md",
+      "upstream_path": "C:/dev/strategy-codex/source-archive/statecraft/2026-06-05/source-daniel-davis-zelensky-s-letter-to-putin-lt-col-daniel-davis-2026-06-05.md",
+      "source_class": "stream-sequence spine",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "davis"
+      ],
+      "host_slug": "daniel-davis",
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-06-05",
+      "title": "Putin Uncompromising Tells West MSM Oreshnik Will Strike Kiev Russia Winning; Zelensky Pleads Summit",
+      "local_path": "narrative-geopolitics/archive/sources/2026-06-05/source-alexander-mercouris-putin-uncompromising-tells-west-msm-oreshnik-will-strike-kiev-russia-winning-zelensky-pleads-summit-2026-06-05.md",
+      "voice_index_path": "../../archive/sources/2026-06-05/source-alexander-mercouris-putin-uncompromising-tells-west-msm-oreshnik-will-strike-kiev-russia-winning-zelensky-pleads-summit-2026-06-05.md",
+      "upstream_path": "C:/dev/strategy-codex/source-archive/statecraft/2026-06-05/source-alexander-mercouris-putin-uncompromising-tells-west-msm-oreshnik-will-strike-kiev-russia-winning-zelensky-pleads-summit-2026-06-05.md",
+      "source_class": "stream-sequence spine",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "alexander-mercouris",
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-06-04",
+      "title": "COL. Douglas Macgregor : Does the US Have a Military Option in Iran?",
+      "local_path": "narrative-geopolitics/archive/sources/2026-06-04/source-judging-freedom-macgregor-does-the-us-have-a-military-option-in-iran-2026-06-04.md",
+      "voice_index_path": "../../archive/sources/2026-06-04/source-judging-freedom-macgregor-does-the-us-have-a-military-option-in-iran-2026-06-04.md",
+      "upstream_path": "C:/dev/strategy-codex/source-archive/statecraft/2026-06-04/source-judging-freedom-macgregor-does-the-us-have-a-military-option-in-iran-2026-06-04.md",
+      "source_class": "cross-host pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "macgregor"
+      ],
+      "host_slug": "judging-freedom",
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-06-04",
+      "title": "Big Russian Army Breakthroughs Donbass Orekhov Shake Kiev NATO; Zelensky UK/EU Discuss Russia Talks",
+      "local_path": "narrative-geopolitics/archive/sources/2026-06-04/source-alexander-mercouris-big-russian-army-breakthroughs-donbass-orekhov-shake-kiev-nato-zelensky-uk-eu-discuss-russia-talks-2026-06-04.md",
+      "voice_index_path": "../../archive/sources/2026-06-04/source-alexander-mercouris-big-russian-army-breakthroughs-donbass-orekhov-shake-kiev-nato-zelensky-uk-eu-discuss-russia-talks-2026-06-04.md",
+      "upstream_path": "C:/dev/strategy-codex/source-archive/statecraft/2026-06-04/source-alexander-mercouris-big-russian-army-breakthroughs-donbass-orekhov-shake-kiev-nato-zelensky-uk-eu-discuss-russia-talks-2026-06-04.md",
+      "source_class": "stream-sequence spine",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "alexander-mercouris",
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-06-03",
+      "title": "Russia Sanctions Crumble; St. Pete Hosts US German Business; Zelensky Sends Drones; US Iran Fighting",
+      "local_path": "narrative-geopolitics/archive/sources/2026-06-03/source-alexander-mercouris-russia-sanctions-crumble-st-pete-hosts-us-german-business-zelensky-sends-drones-us-iran-fighting-2026-06-03.md",
+      "voice_index_path": "../../archive/sources/2026-06-03/source-alexander-mercouris-russia-sanctions-crumble-st-pete-hosts-us-german-business-zelensky-sends-drones-us-iran-fighting-2026-06-03.md",
+      "upstream_path": "C:/dev/strategy-codex/source-archive/statecraft/2026-06-03/source-alexander-mercouris-russia-sanctions-crumble-st-pete-hosts-us-german-business-zelensky-sends-drones-us-iran-fighting-2026-06-03.md",
+      "source_class": "stream-sequence spine",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "alexander-mercouris",
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-06-02",
+      "title": "The Duran / Alexander Mercouris - Konstantinovka Is Falling, West's Ukraine Narrative Is Crumbling",
+      "local_path": "narrative-geopolitics/archive/sources/2026-06-02/source-duran-mercouris-konstantinovka-is-falling-wests-ukraine-narrative-is-crumbling-2026-06-02.md",
+      "voice_index_path": "../../archive/sources/2026-06-02/source-duran-mercouris-konstantinovka-is-falling-wests-ukraine-narrative-is-crumbling-2026-06-02.md",
+      "upstream_path": "C:/dev/strategy-codex/source-archive/statecraft/2026-06-02/source-duran-mercouris-konstantinovka-is-falling-wests-ukraine-narrative-is-crumbling-2026-06-02.md",
+      "source_class": "stream-sequence spine",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "the-duran",
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-06-02",
+      "title": "Stanislav Krapivnik: Kiev Attacked, Frontlines Fall & Belarus Enters War?",
+      "local_path": "narrative-geopolitics/archive/sources/2026-06-02/source-diesen-krapivnik-kiev-attacked-frontlines-fall-belarus-enters-war-2026-06-02.md",
+      "voice_index_path": "../../archive/sources/2026-06-02/source-diesen-krapivnik-kiev-attacked-frontlines-fall-belarus-enters-war-2026-06-02.md",
+      "upstream_path": "C:/dev/strategy-codex/source-archive/statecraft/2026-06-02/source-diesen-krapivnik-kiev-attacked-frontlines-fall-belarus-enters-war-2026-06-02.md",
+      "source_class": "cross-host pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "krapivnik"
+      ],
+      "host_slug": "glenn-diesen",
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-06-02",
+      "title": "America's OLD WORLD WAR MENTALITY /Lt Col Daniel Davis",
+      "local_path": "narrative-geopolitics/archive/sources/2026-06-02/source-daniel-davis-americas-old-world-war-mentality-lt-col-daniel-davis-2026-06-02.md",
+      "voice_index_path": "../../archive/sources/2026-06-02/source-daniel-davis-americas-old-world-war-mentality-lt-col-daniel-davis-2026-06-02.md",
+      "upstream_path": "C:/dev/strategy-codex/source-archive/statecraft/2026-06-02/source-daniel-davis-americas-old-world-war-mentality-lt-col-daniel-davis-2026-06-02.md",
+      "source_class": "stream-sequence spine",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "davis"
+      ],
+      "host_slug": "daniel-davis",
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-06-02",
+      "title": "Russian Massive Strike Shatters Kiev; Tsirkon Missile First Mass Use Kiev Troops Flee Konstantinovka",
+      "local_path": "narrative-geopolitics/archive/sources/2026-06-02/source-alexander-mercouris-russian-massive-strike-shatters-kiev-tsirkon-missile-first-mass-use-kiev-troops-flee-konstantinovka-2026-06-02.md",
+      "voice_index_path": "../../archive/sources/2026-06-02/source-alexander-mercouris-russian-massive-strike-shatters-kiev-tsirkon-missile-first-mass-use-kiev-troops-flee-konstantinovka-2026-06-02.md",
+      "upstream_path": "C:/dev/strategy-codex/source-archive/statecraft/2026-06-02/source-alexander-mercouris-russian-massive-strike-shatters-kiev-tsirkon-missile-first-mass-use-kiev-troops-flee-konstantinovka-2026-06-02.md",
+      "source_class": "stream-sequence spine",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "alexander-mercouris",
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-06-01",
+      "title": "The Duran / Alexander Mercouris - Seeking War With Russia",
+      "local_path": "narrative-geopolitics/archive/sources/2026-06-01/source-duran-mercouris-seeking-war-with-russia-2026-06-01.md",
+      "voice_index_path": "../../archive/sources/2026-06-01/source-duran-mercouris-seeking-war-with-russia-2026-06-01.md",
+      "upstream_path": "C:/dev/strategy-codex/source-archive/statecraft/2026-06-01/source-duran-mercouris-seeking-war-with-russia-2026-06-01.md",
+      "source_class": "cross-host pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "the-duran",
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-06-01",
+      "title": "Jiang Xueqin: U.S. Trapped In Iran, Europe's War Against Russia & a Grand Bargain With China",
+      "local_path": "narrative-geopolitics/archive/sources/2026-06-01/source-diesen-jiang-u-s-trapped-in-iran-europe-s-war-against-russia-grand-bargain-with-china-2026-06-01.md",
+      "voice_index_path": "../../archive/sources/2026-06-01/source-diesen-jiang-u-s-trapped-in-iran-europe-s-war-against-russia-grand-bargain-with-china-2026-06-01.md",
+      "upstream_path": "C:/dev/strategy-codex/source-archive/statecraft/2026-06-01/source-diesen-jiang-u-s-trapped-in-iran-europe-s-war-against-russia-grand-bargain-with-china-2026-06-01.md",
+      "source_class": "cross-host pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "jiang"
+      ],
+      "host_slug": "glenn-diesen",
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-06-01",
+      "title": "Iran Warhawks Delusional Fantasy /Lt Col Daniel Davis",
+      "local_path": "narrative-geopolitics/archive/sources/2026-06-01/source-daniel-davis-iran-warhawks-delusional-fantasy-lt-col-daniel-davis-2026-06-01.md",
+      "voice_index_path": "../../archive/sources/2026-06-01/source-daniel-davis-iran-warhawks-delusional-fantasy-lt-col-daniel-davis-2026-06-01.md",
+      "upstream_path": "C:/dev/strategy-codex/source-archive/statecraft/2026-06-01/source-daniel-davis-iran-warhawks-delusional-fantasy-lt-col-daniel-davis-2026-06-01.md",
+      "source_class": "stream-sequence spine",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "davis"
+      ],
+      "host_slug": "daniel-davis",
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-06-01",
+      "title": "Zelensky To Sack Syrsky Appoint Budanov Kiev Army Chief; Kiev's Konstantinovka Crisis; Drones Fade",
+      "local_path": "narrative-geopolitics/archive/sources/2026-06-01/source-alexander-mercouris-zelensky-to-sack-syrsky-appoint-budanov-kiev-army-chief-kiev-s-konstantinovka-crisis-drones-fade-2026-06-01.md",
+      "voice_index_path": "../../archive/sources/2026-06-01/source-alexander-mercouris-zelensky-to-sack-syrsky-appoint-budanov-kiev-army-chief-kiev-s-konstantinovka-crisis-drones-fade-2026-06-01.md",
+      "upstream_path": "C:/dev/strategy-codex/source-archive/statecraft/2026-06-01/source-alexander-mercouris-zelensky-to-sack-syrsky-appoint-budanov-kiev-army-chief-kiev-s-konstantinovka-crisis-drones-fade-2026-06-01.md",
+      "source_class": "stream-sequence spine",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "alexander-mercouris",
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-05-31",
+      "title": "Kiev Drone Strikes Zaporozhzhye NPP; West IAEA Silent; Russia Orekhov Breakthrough; Konstantinovka",
+      "local_path": "narrative-geopolitics/archive/sources/2026-05-31/source-alexander-mercouris-kiev-drone-strikes-zaporozhzhye-npp-west-iaea-silent-russia-orekhov-breakthrough-konstantinovka-2026-05-31.md",
+      "voice_index_path": "../../archive/sources/2026-05-31/source-alexander-mercouris-kiev-drone-strikes-zaporozhzhye-npp-west-iaea-silent-russia-orekhov-breakthrough-konstantinovka-2026-05-31.md",
+      "upstream_path": "C:/dev/strategy-codex/source-archive/statecraft/2026-05-31/source-alexander-mercouris-kiev-drone-strikes-zaporozhzhye-npp-west-iaea-silent-russia-orekhov-breakthrough-konstantinovka-2026-05-31.md",
+      "source_class": "stream-sequence spine",
+      "modality": "transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "alexander-mercouris",
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-05-30",
+      "title": "Zelensky Fears New Big Russian Kiev Strike; Kiev's Drone Offensive Against Russia Fails; Crimea Fuel",
+      "local_path": "narrative-geopolitics/archive/sources/2026-05-30/source-alexander-mercouris-zelensky-fears-new-big-russian-kiev-strike-kiev-s-drone-offensive-against-russia-fails-crimea-fuel-2026-05-30.md",
+      "voice_index_path": "../../archive/sources/2026-05-30/source-alexander-mercouris-zelensky-fears-new-big-russian-kiev-strike-kiev-s-drone-offensive-against-russia-fails-crimea-fuel-2026-05-30.md",
+      "upstream_path": "C:/dev/strategy-codex/source-archive/statecraft/2026-05-30/source-alexander-mercouris-zelensky-fears-new-big-russian-kiev-strike-kiev-s-drone-offensive-against-russia-fails-crimea-fuel-2026-05-30.md",
+      "source_class": "stream-sequence spine",
+      "modality": "transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "alexander-mercouris",
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-05-29",
+      "title": "USA Collapsing: Washington's Soviet Moment Is Here | Col. Douglas Macgregor",
+      "local_path": "narrative-geopolitics/archive/sources/2026-05-29/source-neutrality-studies-usa-collapsing-washingtons-soviet-moment-is-here-col-douglas-macgregor-2026-05-29.md",
+      "voice_index_path": "../../archive/sources/2026-05-29/source-neutrality-studies-usa-collapsing-washingtons-soviet-moment-is-here-col-douglas-macgregor-2026-05-29.md",
+      "upstream_path": "C:/dev/strategy-codex/source-archive/statecraft/2026-05-29/source-neutrality-studies-usa-collapsing-washingtons-soviet-moment-is-here-col-douglas-macgregor-2026-05-29.md",
+      "source_class": "cross-host pressure test",
+      "modality": "transcript",
+      "voice_slugs": [
+        "macgregor"
+      ],
+      "host_slug": "neutrality-studies",
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-05-28",
+      "title": "COL. Douglas Macgregor : Iran Stronger Now; Putin Takes Off the Gloves",
+      "local_path": "narrative-geopolitics/archive/sources/2026-05-28/source-judging-freedom-macgregor-iran-stronger-now-putin-takes-off-the-gloves-2026-05-28.md",
+      "voice_index_path": "../../archive/sources/2026-05-28/source-judging-freedom-macgregor-iran-stronger-now-putin-takes-off-the-gloves-2026-05-28.md",
+      "upstream_path": "C:/dev/strategy-codex/source-archive/statecraft/2026-05-28/source-judging-freedom-macgregor-iran-stronger-now-putin-takes-off-the-gloves-2026-05-28.md",
+      "source_class": "cross-host pressure test",
+      "modality": "transcript",
+      "voice_slugs": [
+        "macgregor"
+      ],
+      "host_slug": "judging-freedom",
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-05-28",
+      "title": "Zelensky Panic Begs Trump Help As Kiev AD Runs Out; Russia Confirms Oreshnik To Destroy Kiev Bunkers",
+      "local_path": "narrative-geopolitics/archive/sources/2026-05-28/source-alexander-mercouris-zelensky-panic-begs-trump-help-as-kiev-ad-runs-out-russia-confirms-oreshnik-to-destroy-kiev-bunkers-2026-05-28.md",
+      "voice_index_path": "../../archive/sources/2026-05-28/source-alexander-mercouris-zelensky-panic-begs-trump-help-as-kiev-ad-runs-out-russia-confirms-oreshnik-to-destroy-kiev-bunkers-2026-05-28.md",
+      "upstream_path": "C:/dev/strategy-codex/source-archive/statecraft/2026-05-28/source-alexander-mercouris-zelensky-panic-begs-trump-help-as-kiev-ad-runs-out-russia-confirms-oreshnik-to-destroy-kiev-bunkers-2026-05-28.md",
+      "source_class": "stream-sequence spine",
+      "modality": "transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "alexander-mercouris",
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-05-27",
+      "title": "TRUMP WALKS BACK ON DEAL, IDF TO \\\"FLATTEN BEIRUT\\\" - w/ Col. Macgregor",
+      "local_path": "narrative-geopolitics/archive/sources/2026-05-27/source-macgregor-mario-nawfal-trump-walks-back-on-deal-idf-to-flatten-beirut-2026-05-27.md",
+      "voice_index_path": "../../archive/sources/2026-05-27/source-macgregor-mario-nawfal-trump-walks-back-on-deal-idf-to-flatten-beirut-2026-05-27.md",
+      "upstream_path": "C:/dev/strategy-codex/source-archive/statecraft/2026-05-27/source-macgregor-mario-nawfal-trump-walks-back-on-deal-idf-to-flatten-beirut-2026-05-27.md",
+      "source_class": "cross-host pressure test",
+      "modality": "transcript",
+      "voice_slugs": [
+        "macgregor"
+      ],
+      "host_slug": "mario-nawfal",
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-05-27",
+      "title": "Ukraine Russia War Expansion /The Duran's Alexander Mercouris & Lt Col Daniel Davis",
+      "local_path": "narrative-geopolitics/archive/sources/2026-05-27/source-daniel-davis-ukraine-russia-war-expansion-the-duran-s-alexander-mercouris-lt-col-daniel-davis-2026-05-27.md",
+      "voice_index_path": "../../archive/sources/2026-05-27/source-daniel-davis-ukraine-russia-war-expansion-the-duran-s-alexander-mercouris-lt-col-daniel-davis-2026-05-27.md",
+      "upstream_path": "C:/dev/strategy-codex/source-archive/statecraft/2026-05-27/source-daniel-davis-ukraine-russia-war-expansion-the-duran-s-alexander-mercouris-lt-col-daniel-davis-2026-05-27.md",
+      "source_class": "cross-host pressure test",
+      "modality": "transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "daniel-davis",
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-05-27",
+      "title": "Russia Plans Kiev Capture Prepares Next Strike Decision Centres; Kiev Without AD Zaporozhzhye Crisis",
+      "local_path": "narrative-geopolitics/archive/sources/2026-05-27/source-alexander-mercouris-russia-plans-kiev-capture-prepares-next-strike-decision-centres-kiev-without-ad-zaporozhzhye-crisis-2026-05-27.md",
+      "voice_index_path": "../../archive/sources/2026-05-27/source-alexander-mercouris-russia-plans-kiev-capture-prepares-next-strike-decision-centres-kiev-without-ad-zaporozhzhye-crisis-2026-05-27.md",
+      "upstream_path": "C:/dev/strategy-codex/source-archive/statecraft/2026-05-27/source-alexander-mercouris-russia-plans-kiev-capture-prepares-next-strike-decision-centres-kiev-without-ad-zaporozhzhye-crisis-2026-05-27.md",
+      "source_class": "stream-sequence spine",
+      "modality": "transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "alexander-mercouris",
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-05-26",
+      "title": "The Duran / Alexander Mercouris - Pressure to Walk Away From a Good Iran Deal",
+      "local_path": "narrative-geopolitics/archive/sources/2026-05-26/source-duran-mercouris-pressure-to-walk-away-from-a-good-iran-deal-2026-05-26.md",
+      "voice_index_path": "../../archive/sources/2026-05-26/source-duran-mercouris-pressure-to-walk-away-from-a-good-iran-deal-2026-05-26.md",
+      "upstream_path": "C:/dev/strategy-codex/source-archive/statecraft/2026-05-26/source-duran-mercouris-pressure-to-walk-away-from-a-good-iran-deal-2026-05-26.md",
+      "source_class": "stream-sequence spine",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "the-duran",
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-05-26",
+      "title": "Col Douglas Macgregor: U.S. Strikes Iran Again",
+      "local_path": "narrative-geopolitics/archive/sources/2026-05-26/source-daniel-davis-col-douglas-macgregor-u-s-strikes-iran-again-2026-05-26.md",
+      "voice_index_path": "../../archive/sources/2026-05-26/source-daniel-davis-col-douglas-macgregor-u-s-strikes-iran-again-2026-05-26.md",
+      "upstream_path": "C:/dev/strategy-codex/source-archive/statecraft/2026-05-26/source-daniel-davis-col-douglas-macgregor-u-s-strikes-iran-again-2026-05-26.md",
+      "source_class": "cross-host pressure test",
+      "modality": "transcript",
+      "voice_slugs": [
+        "macgregor"
+      ],
+      "host_slug": "daniel-davis",
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-05-26",
+      "title": "Russian Fiercest Warning; Kiev Decision Centres Will Be Attacked; Patience Exhausted; West Quit Kiev",
+      "local_path": "narrative-geopolitics/archive/sources/2026-05-26/source-alexander-mercouris-russian-fiercest-warning-kiev-decision-centres-will-be-attacked-patience-exhausted-west-quit-kiev-2026-05-26.md",
+      "voice_index_path": "../../archive/sources/2026-05-26/source-alexander-mercouris-russian-fiercest-warning-kiev-decision-centres-will-be-attacked-patience-exhausted-west-quit-kiev-2026-05-26.md",
+      "upstream_path": "C:/dev/strategy-codex/source-archive/statecraft/2026-05-26/source-alexander-mercouris-russian-fiercest-warning-kiev-decision-centres-will-be-attacked-patience-exhausted-west-quit-kiev-2026-05-26.md",
+      "source_class": "stream-sequence spine",
+      "modality": "transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "alexander-mercouris",
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-05-25",
+      "title": "The Duran / Alexander Mercouris - Russia Unleashes Oreshnik, More Strikes Planned",
+      "local_path": "narrative-geopolitics/archive/sources/2026-05-25/source-duran-mercouris-russia-unleashes-oreshnik-more-strikes-planned-2026-05-25.md",
+      "voice_index_path": "../../archive/sources/2026-05-25/source-duran-mercouris-russia-unleashes-oreshnik-more-strikes-planned-2026-05-25.md",
+      "upstream_path": "C:/dev/strategy-codex/source-archive/statecraft/2026-05-25/source-duran-mercouris-russia-unleashes-oreshnik-more-strikes-planned-2026-05-25.md",
+      "source_class": "cross-host pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "the-duran",
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-05-25",
+      "title": "Russia Plans More Oreshnik Strikes Speeds Up Zaporozhzhye Offensive; Europe Ukraine Funds Run Short",
+      "local_path": "narrative-geopolitics/archive/sources/2026-05-25/source-alexander-mercouris-russia-plans-more-oreshnik-strikes-speeds-up-zaporozhzhye-offensive-europe-ukraine-funds-run-short-2026-05-25.md",
+      "voice_index_path": "../../archive/sources/2026-05-25/source-alexander-mercouris-russia-plans-more-oreshnik-strikes-speeds-up-zaporozhzhye-offensive-europe-ukraine-funds-run-short-2026-05-25.md",
+      "upstream_path": "C:/dev/strategy-codex/source-archive/statecraft/2026-05-25/source-alexander-mercouris-russia-plans-more-oreshnik-strikes-speeds-up-zaporozhzhye-offensive-europe-ukraine-funds-run-short-2026-05-25.md",
+      "source_class": "stream-sequence spine",
+      "modality": "transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "alexander-mercouris",
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-05-24",
+      "title": "Russian Massive Oreshnik Kiev Revenge Attack Stuns Ukraine EU; Zelensky Fears Russian Kiev Offensive",
+      "local_path": "narrative-geopolitics/archive/sources/2026-05-24/source-alexander-mercouris-russian-massive-oreshnik-kiev-revenge-attack-stuns-ukraine-eu-zelensky-fears-russian-kiev-offensive-2026-05-24.md",
+      "voice_index_path": "../../archive/sources/2026-05-24/source-alexander-mercouris-russian-massive-oreshnik-kiev-revenge-attack-stuns-ukraine-eu-zelensky-fears-russian-kiev-offensive-2026-05-24.md",
+      "upstream_path": "C:/dev/strategy-codex/source-archive/statecraft/2026-05-24/source-alexander-mercouris-russian-massive-oreshnik-kiev-revenge-attack-stuns-ukraine-eu-zelensky-fears-russian-kiev-offensive-2026-05-24.md",
+      "source_class": "stream-sequence spine",
+      "modality": "transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "alexander-mercouris",
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-05-23",
+      "title": "Russia Vows Starobelsk Retaliation; NATO Says Russia Hijacking Kiev's Drones; MSM US Losing Iran War",
+      "local_path": "narrative-geopolitics/archive/sources/2026-05-23/source-alexander-mercouris-russia-vows-starobelsk-retaliation-nato-says-russia-hijacking-kiev-s-drones-msm-us-losing-iran-war-2026-05-23.md",
+      "voice_index_path": "../../archive/sources/2026-05-23/source-alexander-mercouris-russia-vows-starobelsk-retaliation-nato-says-russia-hijacking-kiev-s-drones-msm-us-losing-iran-war-2026-05-23.md",
+      "upstream_path": "C:/dev/strategy-codex/source-archive/statecraft/2026-05-23/source-alexander-mercouris-russia-vows-starobelsk-retaliation-nato-says-russia-hijacking-kiev-s-drones-msm-us-losing-iran-war-2026-05-23.md",
+      "source_class": "stream-sequence spine",
+      "modality": "transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "alexander-mercouris",
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-05-22",
+      "title": "Iran Impasse: Trump Wants Airstrikes as Stockpiles Depleted",
+      "local_path": "narrative-geopolitics/archive/sources/2026-05-22/source-alexander-mercouris-iran-impasse-trump-wants-airstrikes-as-stockpiles-depleted-2026-05-22.md",
+      "voice_index_path": "../../archive/sources/2026-05-22/source-alexander-mercouris-iran-impasse-trump-wants-airstrikes-as-stockpiles-depleted-2026-05-22.md",
+      "upstream_path": "C:/dev/strategy-codex/source-archive/statecraft/2026-05-22/source-alexander-mercouris-iran-impasse-trump-wants-airstrikes-as-stockpiles-depleted-2026-05-22.md",
+      "source_class": "stream-sequence spine",
+      "modality": "transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "alexander-mercouris",
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-05-22",
+      "title": "EU Says NEVER Buy Russian Oil Gas Backs Kiev Drone War; Energy Shock; Russia Breaks Orekhov Defence",
+      "local_path": "narrative-geopolitics/archive/sources/2026-05-22/source-alexander-mercouris-eu-says-never-buy-russian-oil-gas-backs-kiev-drone-war-energy-shock-russia-breaks-orekhov-defence-2026-05-22.md",
+      "voice_index_path": "../../archive/sources/2026-05-22/source-alexander-mercouris-eu-says-never-buy-russian-oil-gas-backs-kiev-drone-war-energy-shock-russia-breaks-orekhov-defence-2026-05-22.md",
+      "upstream_path": "C:/dev/strategy-codex/source-archive/statecraft/2026-05-22/source-alexander-mercouris-eu-says-never-buy-russian-oil-gas-backs-kiev-drone-war-energy-shock-russia-breaks-orekhov-defence-2026-05-22.md",
+      "source_class": "stream-sequence spine",
+      "modality": "transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "alexander-mercouris",
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-05-21",
+      "title": "COL. Douglas Macgregor : The Pentagon and Decapitation Strikes",
+      "local_path": "narrative-geopolitics/archive/sources/2026-05-21/source-judging-freedom-macgregor-the-pentagon-and-decapitation-strikes-2026-05-21.md",
+      "voice_index_path": "../../archive/sources/2026-05-21/source-judging-freedom-macgregor-the-pentagon-and-decapitation-strikes-2026-05-21.md",
+      "upstream_path": "C:/dev/strategy-codex/source-archive/statecraft/2026-05-21/source-judging-freedom-macgregor-the-pentagon-and-decapitation-strikes-2026-05-21.md",
+      "source_class": "cross-host pressure test",
+      "modality": "transcript",
+      "voice_slugs": [
+        "macgregor"
+      ],
+      "host_slug": "judging-freedom",
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-05-20",
+      "title": "Russian Sanctions Collapse UK Buy Russian Oil US Extends Waiver; Russian Warnings Baltic Drone Panic",
+      "local_path": "narrative-geopolitics/archive/sources/2026-05-20/source-alexander-mercouris-russian-sanctions-collapse-uk-buy-russian-oil-us-extends-waiver-russian-warnings-baltic-drone-panic-2026-05-20.md",
+      "voice_index_path": "../../archive/sources/2026-05-20/source-alexander-mercouris-russian-sanctions-collapse-uk-buy-russian-oil-us-extends-waiver-russian-warnings-baltic-drone-panic-2026-05-20.md",
+      "upstream_path": "C:/dev/strategy-codex/source-archive/statecraft/2026-05-20/source-alexander-mercouris-russian-sanctions-collapse-uk-buy-russian-oil-us-extends-waiver-russian-warnings-baltic-drone-panic-2026-05-20.md",
+      "source_class": "stream-sequence spine",
+      "modality": "transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "alexander-mercouris",
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-05-19",
+      "title": "Russia Warns NATO Baltic War Test Nuclear Forces; Putin To China; Trump Iran Retreat; Konstantinovka",
+      "local_path": "narrative-geopolitics/archive/sources/2026-05-19/source-alexander-mercouris-russia-warns-nato-baltic-war-test-nuclear-forces-putin-to-china-trump-iran-retreat-konstantinovka-2026-05-19.md",
+      "voice_index_path": "../../archive/sources/2026-05-19/source-alexander-mercouris-russia-warns-nato-baltic-war-test-nuclear-forces-putin-to-china-trump-iran-retreat-konstantinovka-2026-05-19.md",
+      "upstream_path": "C:/dev/strategy-codex/source-archive/statecraft/2026-05-19/source-alexander-mercouris-russia-warns-nato-baltic-war-test-nuclear-forces-putin-to-china-trump-iran-retreat-konstantinovka-2026-05-19.md",
+      "source_class": "stream-sequence spine",
+      "modality": "transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "alexander-mercouris",
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-05-18",
+      "title": "EU Split on Russia Talks; Russia Conducts Huge Ukraine Strike Reports New Weapon Hits Dnipro; Iran",
+      "local_path": "narrative-geopolitics/archive/sources/2026-05-18/source-alexander-mercouris-eu-split-on-russia-talks-russia-conducts-huge-ukraine-strike-reports-new-weapon-hits-dnipro-iran-2026-05-18.md",
+      "voice_index_path": "../../archive/sources/2026-05-18/source-alexander-mercouris-eu-split-on-russia-talks-russia-conducts-huge-ukraine-strike-reports-new-weapon-hits-dnipro-iran-2026-05-18.md",
+      "upstream_path": "C:/dev/strategy-codex/source-archive/statecraft/2026-05-18/source-alexander-mercouris-eu-split-on-russia-talks-russia-conducts-huge-ukraine-strike-reports-new-weapon-hits-dnipro-iran-2026-05-18.md",
+      "source_class": "stream-sequence spine",
+      "modality": "transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "alexander-mercouris",
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-05-17",
+      "title": "Russia Moldova Decree Stuns EU; Assembles Belarus Force; Brushes Off Zelensky Drones; Putin To China",
+      "local_path": "narrative-geopolitics/archive/sources/2026-05-17/source-alexander-mercouris-russia-moldova-decree-stuns-eu-assembles-belarus-force-brushes-off-zelen-2026-05-17.md",
+      "voice_index_path": "../../archive/sources/2026-05-17/source-alexander-mercouris-russia-moldova-decree-stuns-eu-assembles-belarus-force-brushes-off-zelen-2026-05-17.md",
+      "upstream_path": "C:/dev/strategy-codex/source-archive/statecraft/2026-05-17/source-alexander-mercouris-russia-moldova-decree-stuns-eu-assembles-belarus-force-brushes-off-zelen-2026-05-17.md",
+      "source_class": "stream-sequence spine",
+      "modality": "transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "alexander-mercouris",
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-05-16",
+      "title": "Alexander Mercouris: The Political Legitimacy Crisis Across Europe",
+      "local_path": "narrative-geopolitics/archive/sources/2026-05-16/source-glenn-diesen-alexander-mercouris-the-political-legitimacy-crisis-across-europe-2026-05-16.md",
+      "voice_index_path": "../../archive/sources/2026-05-16/source-glenn-diesen-alexander-mercouris-the-political-legitimacy-crisis-across-europe-2026-05-16.md",
+      "upstream_path": "C:/dev/strategy-codex/source-archive/statecraft/2026-05-16/source-glenn-diesen-alexander-mercouris-the-political-legitimacy-crisis-across-europe-2026-05-16.md",
+      "source_class": "cross-host pressure test",
+      "modality": "transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "glenn-diesen",
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-05-16",
+      "title": "Zelensky Panics Says Russia Will Attack Kiev Decision Centres; Slaviansk Defence Collapse; Bond Rout",
+      "local_path": "narrative-geopolitics/archive/sources/2026-05-16/source-alexander-mercouris-zelensky-panics-says-russia-will-attack-kiev-decision-centres-slaviansk-2026-05-16.md",
+      "voice_index_path": "../../archive/sources/2026-05-16/source-alexander-mercouris-zelensky-panics-says-russia-will-attack-kiev-decision-centres-slaviansk-2026-05-16.md",
+      "upstream_path": "C:/dev/strategy-codex/source-archive/statecraft/2026-05-16/source-alexander-mercouris-zelensky-panics-says-russia-will-attack-kiev-decision-centres-slaviansk-2026-05-16.md",
+      "source_class": "stream-sequence spine",
+      "modality": "transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "alexander-mercouris",
+      "import_status": "imported"
+    }
+  ]
+}
