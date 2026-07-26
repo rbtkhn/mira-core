@@ -30,6 +30,7 @@ The governing rule is:
 | `scripts/` | Named capabilities with explicit mutation scope. |
 | skills and startup prompts | Session-scale authority envelopes and stop conditions. |
 | validators and tests | Executable invariants across phases. |
+| `docs/model-substitution-readiness.md` | Repository-wide internal gate for changing a model behind an existing workflow; never an authority expansion. |
 | coffee/dream handoff | Advisory, verified continuity; never research evidence. |
 | operator | Authorization boundary for widening scope or changing phases. |
 
@@ -48,6 +49,14 @@ Every operational session must make seven things legible before mutation:
 Agents may make conservative, reversible assumptions inside the envelope.
 They must stop when an ambiguity would change identity, provenance, public
 factual adoption, forecast resolution, publication, or Git/external state.
+
+Changing the model that performs a phase does not change the phase mandate.
+Before a hosted, open-weight, local, or materially different model version
+replaces an existing workflow model, apply the repository-wide
+[Model Substitution Readiness](../../docs/model-substitution-readiness.md)
+gate. The candidate inherits the narrower existing authority envelope. A
+readiness status cannot grant new tools, writes, data access, publication,
+external actions, or human approval authority.
 
 ## Phase Ownership
 

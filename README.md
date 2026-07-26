@@ -47,6 +47,8 @@ dependencies in an external user cache; no environment activation or repo-local
 
 The harness audit is read-only. Add `--json` for machine output or
 `--write-receipt` to write the ignored `tmp/ai-harness/latest.json` receipt.
+Changes to a model behind an existing workflow use the internal
+[model-substitution readiness gate](docs/model-substitution-readiness.md).
 
 Use `NARRATIVE_PYTHON` to select a specific Python executable and
 `NARRATIVE_VALIDATION_CACHE` to select an external cache directory. Private

@@ -38,6 +38,7 @@ PUBLIC_BRIEFS_ROOT = NG_ROOT / "public" / "briefs"
 ACTIVE_ASR_GUIDANCE = NG_ROOT / "work" / "asr-repair-pilot-findings-july-2026.md"
 LEGACY_VERIFICATION_ROOT = NG_ROOT / "work" / "verification" / "packets"
 LEGACY_VERIFICATION_INVENTORY = NG_ROOT / "work" / "verification" / "legacy-inventory.json"
+MODEL_SUBSTITUTION_GATE = REPO_ROOT / "docs" / "model-substitution-readiness.md"
 
 MARKDOWN_LINK_RE = re.compile(r"\[[^\]]+\]\(([^)]+)\)")
 HOOK_ID_RE = re.compile(r"`(NG-\d{8}-F\d{2})`")
@@ -70,6 +71,59 @@ OBSOLETE_GUIDANCE_PATTERNS = (
         "machine-specific user path",
         re.compile(r"(?:[A-Za-z]:[\\/]Users[\\/][^\\/\s`]+|/(?:Users|home)/[^/\s`]+/)", re.IGNORECASE),
     ),
+)
+
+MODEL_SUBSTITUTION_HEADINGS = (
+    "## When to use it",
+    "## Operating rule",
+    "## Evaluation dimensions",
+    "## Core questions",
+    "## Status guidance",
+    "## Output shape",
+    "## Integration with existing controls",
+    "## Boundary statement",
+    "## First bounded internal test",
+)
+MODEL_SUBSTITUTION_STATUSES = ("ready", "review-required", "hold", "blocked")
+MODEL_SUBSTITUTION_DIMENSIONS = (
+    "Task fit",
+    "Provenance and rights",
+    "Security",
+    "Data boundary",
+    "Tool and action authority",
+    "Human authority",
+    "Economics",
+    "Reversibility",
+    "Evidence quality",
+)
+MODEL_SUBSTITUTION_FIELDS = (
+    "Workflow:",
+    "Current model:",
+    "Candidate model:",
+    "Task and failure modes:",
+    "Evaluation evidence:",
+    "Provenance / rights status:",
+    "Security and data boundary:",
+    "Changed tool or action authority:",
+    "Human owner and approval point:",
+    "Override / rollback path:",
+    "Total cost and review burden:",
+    "Default state: review-required",
+    "Unresolved risk:",
+    "Next review trigger:",
+    "What remains internal:",
+)
+MODEL_SUBSTITUTION_TEST_ELEMENTS = (
+    "freeze and hash one task-set",
+    "known failure",
+    "quality",
+    "latency",
+    "total cost",
+    "review burden",
+    "provenance and rights review",
+    "data-boundary review",
+    "tool and action authority",
+    "restore the current model",
 )
 
 
@@ -181,6 +235,36 @@ def markdown_link_failures() -> list[str]:
             resolved = path.parent / target
             if not resolved.exists():
                 failures.append(f"broken Markdown link: {relative(path)} -> {raw_target}")
+    return failures
+
+
+def model_substitution_gate_failures(
+    path: Path = MODEL_SUBSTITUTION_GATE,
+) -> list[str]:
+    if not path.is_file():
+        return ["model substitution readiness gate is missing"]
+    text = path.read_text(encoding="utf-8")
+    failures: list[str] = []
+    for heading in MODEL_SUBSTITUTION_HEADINGS:
+        if heading not in text:
+            failures.append(f"model substitution gate missing section: {heading}")
+    for status in MODEL_SUBSTITUTION_STATUSES:
+        if f"`{status}`" not in text:
+            failures.append(f"model substitution gate missing status: {status}")
+    for dimension in MODEL_SUBSTITUTION_DIMENSIONS:
+        if f"| {dimension} |" not in text:
+            failures.append(f"model substitution gate missing dimension: {dimension}")
+    for field in MODEL_SUBSTITUTION_FIELDS:
+        if field not in text:
+            failures.append(f"model substitution gate missing output field: {field}")
+    first_test = " ".join(
+        text.partition("## First bounded internal test")[2].lower().split()
+    )
+    for element in MODEL_SUBSTITUTION_TEST_ELEMENTS:
+        if element not in first_test:
+            failures.append(f"model substitution gate first test missing: {element}")
+    if "Default state: `review-required`" not in text:
+        failures.append("model substitution gate default must be review-required")
     return failures
 
 
@@ -437,6 +521,7 @@ def validate_repository() -> list[str]:
         daily_run_failures,
         forecast_ledger_failures,
         markdown_link_failures,
+        model_substitution_gate_failures,
         editorial_title_failures,
         operational_claim_failures,
         verification_packet_failures,

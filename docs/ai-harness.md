@@ -42,6 +42,12 @@ and checks. They cannot prove the exact selected model, active sandbox and tool
 set, or which available control shaped a particular run. Those remain explicit
 coverage gaps rather than inferred facts.
 
+Before changing a model behind an existing workflow, use the
+[Model Substitution Readiness](model-substitution-readiness.md) gate. Its
+runtime evidence fills these coverage gaps for one proposed substitution
+without treating the harness audit as model, security, privacy, rights, or
+production approval.
+
 ## Outputs
 
 The default is a human console report. `--json` emits the same structured audit
