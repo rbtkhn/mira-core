@@ -17,14 +17,14 @@ evidence_grade: transcript-bearing
 source_note: Fetched from YouTube captions via the repo transcript pipeline and materialized into the canonical statecraft archive.
 quality_note: English caption fetch via repo YouTube transcript pipeline; adjacent duplicate caption lines removed, otherwise preserve transcript roughness.
 speaker_labeling: provisional
-speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-04-02/source-alexander-mercouris-moscow-talks-tough-us-ignores-kiev-truce-breaches-without-peace-ideas-china-russia-stand-together-2025-04-02.md", "source_sha256": "b4a3d9a676c4784be7b142d15cd403b7cdd873738de777cf8693e01161e941cd", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 3, "labeled_turn_count": 0, "unknown_turn_count": 3, "candidate_speakers": ["Alexander Mercouris", "Mercouris"]}
+speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-04-02/source-alexander-mercouris-moscow-talks-tough-us-ignores-kiev-truce-breaches-without-peace-ideas-china-russia-stand-together-2025-04-02.md", "source_sha256": "b4a3d9a676c4784be7b142d15cd403b7cdd873738de777cf8693e01161e941cd", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 1, "labeled_turn_count": 1, "unknown_turn_count": 0, "candidate_speakers": ["Alexander Mercouris"], "solo_format": "single-label-continuous"}
 ---
-**Unknown**: # 
+**Alexander Mercouris**: # 
 Moscow Talks Tough, US Ignores Kiev Truce Breaches, Without Peace Ideas; China Russia Stand Together
 
-**Unknown**: ## Transcript
+## Transcript
 
-**Unknown**: good day today is Wednesday 2nd April
+good day today is Wednesday 2nd April
 2025 it is the day which Donald Trump
 has referred to as Liberation day it's
 the day when we're supposed to be um

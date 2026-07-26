@@ -15,11 +15,11 @@ transcript_type: yt_dlp_caption_fetch
 source_note: Fetched from YouTube captions via the repo transcript pipeline and materialized into the canonical statecraft archive.
 quality_note: English caption fetch via repo YouTube transcript pipeline; adjacent duplicate caption lines removed, otherwise preserve transcript roughness.
 speaker_labeling: provisional
-speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-05-14/source-alexander-mercouris-istanbul-talks-chaos-trump-sends-witkoff-kellogg-zelensky-talking-only-to-putin-moscow-hardline-2025-05-14.md", "source_sha256": "2ec0ff2965d6d410c8225edc11c6bcb0a03265f4cc53934a20f5a657ee8438e6", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 2, "labeled_turn_count": 0, "unknown_turn_count": 2, "candidate_speakers": ["Alexander Mercouris", "Mercouris"]}
+speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-05-14/source-alexander-mercouris-istanbul-talks-chaos-trump-sends-witkoff-kellogg-zelensky-talking-only-to-putin-moscow-hardline-2025-05-14.md", "source_sha256": "2ec0ff2965d6d410c8225edc11c6bcb0a03265f4cc53934a20f5a657ee8438e6", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 1, "labeled_turn_count": 1, "unknown_turn_count": 0, "candidate_speakers": ["Alexander Mercouris"], "solo_format": "single-label-continuous"}
 ---
-**Unknown**: # Istanbul Talks Chaos; Trump Sends Witkoff Kellogg; Zelensky Talking Only To Putin; Moscow Hardline
+**Alexander Mercouris**: # Istanbul Talks Chaos; Trump Sends Witkoff Kellogg; Zelensky Talking Only To Putin; Moscow Hardline
 
-**Unknown**: Good day. Today is Wednesday 14th May
+Good day. Today is Wednesday 14th May
 2025 and the situation as I discuss it
 with this uh at the time of the making
 of this program concerning the

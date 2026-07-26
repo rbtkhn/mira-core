@@ -31,21 +31,21 @@ transcript_curation: curated_sectioned
 section_count: 9
 section_pass: 2026-07-09 semantic-section-v1
 speaker_labeling: provisional
-speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2026-06-01/source-alexander-mercouris-zelensky-to-sack-syrsky-appoint-budanov-kiev-army-chief-kiev-s-konstantinovka-crisis-drones-fade-2026-06-01.md", "source_sha256": "613782945fdfce2899b21f95a7245a7628873961599f7800989e22320ff8235b", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 21, "labeled_turn_count": 0, "unknown_turn_count": 21, "candidate_speakers": ["Alexander Mercouris", "Mercouris"]}
+speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2026-06-01/source-alexander-mercouris-zelensky-to-sack-syrsky-appoint-budanov-kiev-army-chief-kiev-s-konstantinovka-crisis-drones-fade-2026-06-01.md", "source_sha256": "613782945fdfce2899b21f95a7245a7628873961599f7800989e22320ff8235b", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 1, "labeled_turn_count": 1, "unknown_turn_count": 0, "candidate_speakers": ["Alexander Mercouris"], "solo_format": "single-label-continuous"}
 ---
-**Unknown**: # Zelensky To Sack Syrsky Appoint Budanov Kiev Army Chief; Kiev's Konstantinovka Crisis; Drones Fade
+**Alexander Mercouris**: # Zelensky To Sack Syrsky Appoint Budanov Kiev Army Chief; Kiev's Konstantinovka Crisis; Drones Fade
 
-**Unknown**: **Show:** Alexander Mercouris  
+**Show:** Alexander Mercouris  
 **Host:** Alexander Mercouris  
 **Published:** 2026-06-01  
 **Source:** [YouTube](https://www.youtube.com/watch?v=T1uIFLuYOrg)  
 **Transcript:** Operator-pasted YouTube transcript preserved as raw-input SSOT.
 
-**Unknown**: ## Transcript
+## Transcript
 
-**Unknown**: ### Show Open — Russia Ukraine Iran
+### Show Open — Russia Ukraine Iran
 
-**Unknown**: Good day. Today is Monday, 1st June 2026. Well, today we continue to have the two ongoing conflicts, the one in Ukraine and the one between the United States and Iran.
+Good day. Today is Monday, 1st June 2026. Well, today we continue to have the two ongoing conflicts, the one in Ukraine and the one between the United States and Iran.
  And of course, if you go to the media in the west, they continue to talk about an impass, a stalemate in relation to both conflicts. But of course, this is not true because there is no stalemate in the conflict in Ukraine. Um, since the autumn of 2023, what we have had is in effect a continuous Russian advance. It has been incremental but not as slow I think as many people believe.
  And that advance is continuing and it is now starting to reach closer and closer to the key positions upon which Ukraine in the long term depends for its eventual for its ultimate existence. Whereas the conflict in the Gulf, the conflict between the United States and Iran truly isn't in stalemate either. Because the ultimate issue there is not what happens in the sky or in the air, but what happens in global energy markets where the situation continues to deteriorate as well.
  Well, I'm going to start with the situation in Ukraine and I'm going to begin firstly with a discussion of the drone walls because of course these are what have attracted a huge amount of attention especially in the west. It has become a major talking point in the west that Ukraine has gained the initiative in the war in the sky that Ukraine is striking targets inside Russia.
@@ -59,9 +59,9 @@ But at the same time, it makes largecale drone strikes against Russia far more d
 And some are linking this to the change in Ukrainian tactics, the requirement for the Ukrainians to turn to trucks in order to launch their drones. Of course, the Russians also are aware of this change in Ukrainian tactics. And of course, they keep track of how the Ukrainians launch their drones. They observe the location of the trucks.
  They hunt the trucks, where they can find them. They destroy them. And no doubt quite a few trucks have been destroyed that way. the logistics of supplying trucks with drones, moving them around, doing these
 
-**Unknown**: ### Segment 2 — Russia Ukraine They'Re
+### Segment 2 — Russia Ukraine They'Re
 
-**Unknown**: kind of things, well, they're not insuperable, but they're not to be underestimated. So, quite plausibly, this does explain why we've been seeing fewer Ukrainian drone attacks against Russian targets inside Russia altogether.
+kind of things, well, they're not insuperable, but they're not to be underestimated. So, quite plausibly, this does explain why we've been seeing fewer Ukrainian drone attacks against Russian targets inside Russia altogether.
 And as I've discussed in recent programs, this may explain why the Ukrainians have been focusing so much more heavily over the last two weeks on attacking the highway from Mariupol to Crimea and have been making sure that these attacks on vehicles on that highway receive receive an enormous amount of attention.
 Now, here I think it may be interesting to see what the Russians themselves say about these drone attacks on the highway. And we've had a discussion of this, this whole Ukrainian offensive on the highway, which it turns out the Russians refer to as the Novarosa Highway. Um, we've had this discussion of it in TAS, the official Russian news agency, and I will read it out in full.
 what to know of attacks on the Novarusia highway. And the article then continues as follows. Mobile firing groups are repelling a Ukrainian drone attack in the area of the Novarosia federal highway in the Herson region, said governor of Hassan region. This is Russianappointed governor of Hersong region, Vladimia Salo.
@@ -75,9 +75,9 @@ Clearly this article byas is seeking to play down to some extent at least the si
 Logistical support is being provided to the Zaporozhye region. And then the TAS report continues that Nikolai Nukenko, Zep Zaporozhye regional transport minister has told TAS that the Novaria highway connecting Crimea and Rosto on Don through Donbass and Novora is open to traffic and is operating normally. So the sum total of all of this suggests that there are some attacks on the Novorosia highway but overall the Russians have the situation under control.
  Um, apparently vehicles are still able to travel. Um, mobile units to counter Ukrainian drones are being deployed to the area. The damage done, the attacks done are not on a scale that ultimately would create a long-term crisis. That's what Tess is saying here and that is what the Russian authorities are saying. And then the
 
-**Unknown**: ### Segment 3 — Russia Ukraine Europe
+### Segment 3 — Russia Ukraine Europe
 
-**Unknown**: article, the TAS article continues further as follows.
+article, the TAS article continues further as follows.
 Um, additional protection from of the Novarosia highway from Ukrainian attacks is carry being carried out by the defense ministry and regional authorities. Dimmitri Pascov Putin's spokesman told reporters and then we have remarks from Dennis Pushilin the head of the Donetsk regional government.
  The capabilities of the Dom Donbass dome electronic warfare system will be increased to successfully counter the increased Ukrainian attacks on civilian vehicles on federal and regional roads. According to Pushin, the Kiev regime is using a USControlled satellite group to attack civilian vehicles on the highways of Donva Donbass.
  The west supply of drones for strikes on Donbass makes European countries complicit in crimes. So the sum total of all of this from TAS is that there are attacks going on. The scale of the attacks is exaggerated. Um perhaps drivers of commercial vehicles hearing about these attacks are being deterred from traveling down the highway. something which might by the way be causing the fuel shortages in Crimea.
@@ -92,9 +92,9 @@ And very much like the Ukrainian drone offensive against Russia, over the next f
  The Russians are successfully developing counter systems for Ukrainian drones, electronic jamming techniques like the so-called Donbass dome, whatever that is. My guess is, by the way, that it is a multiplicity of different techniques and systems um to counter drones electronically which the Russians are putting together.
 um including for the record a j jamming selective j jamming of the Starlink system and well probably all sorts of other techniques and devices um about which I know little may maybe the microwave uh systems that stunnik discussed perhaps the um anti-
 
-**Unknown**: ### Segment 4 — Russia Ukraine Drones
+### Segment 4 — Russia Ukraine Drones
 
-**Unknown**: drone drones which are appearing in everinccreasing numbers. And I think that what we're going to see is not just the threat to the Russians from the strategic and tactical drones, those that have been conducting the strikes against Russia and those which have been used to attack the Novarosia
+drone drones which are appearing in everinccreasing numbers. And I think that what we're going to see is not just the threat to the Russians from the strategic and tactical drones, those that have been conducting the strikes against Russia and those which have been used to attack the Novarosia
 highway gradually fade away in the next few weeks. But probably over the next few weeks and months, we're going to see a decline in the effectiveness of the Ukrainian FPV drones as well as Russian technologies and more importantly Russian industrial skills gradually catch up and counter them. I noticed that on Marat Khairullin's Substack site, Marat Khairullin is of course a Russian war reporter and in my opinion the single best war reporter in the war.
 Um he um published a question and answer se um session a question and answer that took place between a Russian civilian and a Russian military officer who is a veteran of the special military operation. um a discussion about drones and the officer made that very same point. He said that in every war when a new weapon is introduced, the counter to that weapon soon follows.
 And he gave the example of tanks which were first used during the first world war when they seemed irresistible and then were used again at the start of the second world war and also appeared for a time to be extremely effective. But then as the war wore on, anti-tank systems increasingly developed and proliferated.
@@ -108,9 +108,9 @@ Schmeiggel was somebody that the West had got to know and I got get the sense th
 by none other than Kiril Budanov, Ukraine's former military intelligence chief and the man who is currently Zelensky's chief of staff. Now this is very interesting but it is worth saying that it is on its face an extremely strange appointment. Budanov is clearly a ruthless but nonetheless intelligent man.
  He has very strong links to the United States and to the CIA as the US media have reported. However, though he is a military officer, he has never commanded troops in the field in any great number. and he certainly has no general staff training and no experience and background in commanding armies or anything like that.
 
-**Unknown**: ### Segment 5 — Russia Ukraine Both
+### Segment 5 — Russia Ukraine Both
 
-**Unknown**: Both Zelusni and Syrsky, the previous and current Ukrainian commanders, at least did, though perhaps not with the depth of training that the Russian general staff provides to its command officers. What Budanov has been is a special forces commando who's conducted commando raids behind Russian lines especially in Crimea where on one occasion apparently he was seriously wounded.
+Both Zelusni and Syrsky, the previous and current Ukrainian commanders, at least did, though perhaps not with the depth of training that the Russian general staff provides to its command officers. What Budanov has been is a special forces commando who's conducted commando raids behind Russian lines especially in Crimea where on one occasion apparently he was seriously wounded.
 He has also been a military intelligence chief. Though in my opinion, the quality of the intelligence that he has provided to the west and to the Ukrainian leadership about the situation in Russia and about the competence of the Russian army has been extremely poor. Budanov's primary skills, as I have discussed in many programs, are those of a covert specialist, a specialist in covert guerilla war, if you like, and in special operations.
 Now, why then appoint a person like Budanov to the post of overall commander-in-chief of the Ukrainian armed forces. This possibility has been floated in the past, but up to now it has always been rejected. Well, the question arises who exactly is the person who is pushing Budanov's appointment to this role.
  Now, it could be Zelensky and the reporting suggests that the idea does indeed come from Zelensky. But my colleague and friend Alex Christophoru with whom I have discussed this is of the view that it the idea ultimately originates with the with the within the United States and that what actually happened is that Blumenl, Senator Blumenl came to Kiev to lobby for Zelensky for Budanov's appointment with Zelensky.
@@ -123,9 +123,9 @@ It is a decision which has already been made. Whether where by the way or that l
  I think the remainder is barely defendable. Um perhaps what Zelensky is actually doing is waiting for Konstantinovka to fall in order to sack Syrsky just as he waited for ADA to fall in January 2024 in order to sack Syrsky's predecessor General Zillusion. So it could be that that is Zelensky's g game plan in which case Syrsky could be out of a job within well a matter of a few weeks.
 Anyway, the fall of Konstantinovka looks inevitable. There are more rumors about the imminent fall east of Kramatorsk of the small town of Ry-Aleksandrovka, which many are seeing as an essential position for the Ukrainians to defend the supply lines to Kramatorsk and Slavansk. Um there's now several other commentators who've been pointing out what I've been pointing out for some time that the fall of Konstantinovka coming after the fall of Pokrovsk and Mirror now absolutely opens the way for the Russians to advance west
 
-**Unknown**: ### Segment 6 — Russia Ukraine Slavans
+### Segment 6 — Russia Ukraine Slavans
 
-**Unknown**: of the Slavans. Katausk connibation cutting off the supply lines, the supply roads from the west and well the fall of um places like Leman and Spatagos in the north which the Russian commander General Gerasimov assured us would soon come. Well, that if it does come, when it does come, potentially also cuts off supplies to the Slavansk connibation from the west as well.
+of the Slavans. Katausk connibation cutting off the supply lines, the supply roads from the west and well the fall of um places like Leman and Spatagos in the north which the Russian commander General Gerasimov assured us would soon come. Well, that if it does come, when it does come, potentially also cuts off supplies to the Slavansk connibation from the west as well.
  In fact, at that point, we start to see a cauldron emerge. Something that on the Duran we spoke about as the eventual Russian military objective in Donbass, we first spoke about it way back in March 2022. It's taken a lot longer for it to happen, to come to pass than we could have imagined then. But it seems as if we are on the brink of that happening now.
  Now the other maj major area of activity continues to be Zaporozhye region. Those who imagine that Ukrainian attacks on the Novorosia highway are intended to disrupt Russian logistics. might care to note that the attacks on the Novorosia highway don't seem to be having any effect on the Russian advance whatsoever. There's been further reports now of the Russians pushing westwards in the north from Vijka and other places that they've captured.
 And here again, the objective apparently is or clearly is to cut supply lines to Oreov from the north. In fact, the fighting around Oreov for me reminds me very much of the battles that took place in 2024 which the Russians conducted to capture the former Ukrainian fortress town of Ugladar. The Russians had been positioned to the south of Ugladar since the start of the special military operation.
@@ -138,9 +138,9 @@ So the fall of Oreov but at a higher temper will lead to the Russian offensive a
  And the damage done through the attacks on the no Borisa highway anyway were never as severe as people imagine. And with the fading of drone dominance on the Ukrainian battlefields and with the severe shrinking and crisis of the Ukrainian army, it seems to me that the way is indeed open for further Russian advances which we are going to see play out over the summer and autumn of this year.
  Now in the west by contrast we continue to get more rhetoric more statements from people who I believe generally have have generally fallen for
 
-**Unknown**: ### Segment 7 — Russia Ukraine Europe
+### Segment 7 — Russia Ukraine Europe
 
-**Unknown**: this campaign that the balance of the war the tide of the war has shifted in favor of Ukraine. There is a strange article in the Financial Times by the commentator Gideon Rackman.
+this campaign that the balance of the war the tide of the war has shifted in favor of Ukraine. There is a strange article in the Financial Times by the commentator Gideon Rackman.
 I should say that I follow Gideon Rackman closely. I disagree with him about practically everything, but I believe that he is sincere in what he says and I should make it clear that I don't believe he takes anybody's he takes orders from anybody. However, Gideon Ragman appears to believe that not only is the war going well for Ukraine, but that defeat in the war is going to trigger a major crisis in Russia, potentially leading to the collapse of the government there and of President Putin in particular.
 in the Guardian. Meanwhile, a few days ago, the former British Prime Minister Gordon Brown, who was of course Tony Blair's finance minister, has re written another piece about the war crimes tribunal to put Vladimir Putin and his political associates and military associates in Moscow on trial. something which obviously he too must expect a political crisis in Moscow for it to happen.
 I think all of these illusions that people like that have about the realities of the war are clearly based on simple reading of the material that is being published which ultimately originates from Ukraine's extremely effective information industry. And by the autumn, we're going to start to hear people like Rackman and Brown singing a completely different tune about how the Russians are coming and how important it is to send troops to save Ukraine.
@@ -154,9 +154,9 @@ French presidential election that is due to take place in France next year. So i
  um and seizing a tanker in the way that he has done provides him with the opportunity to do that. One should not nonetheless entirely downplay the significance of this incident. The Russians have refer called it piracy which perhaps it is just saying um I'm not an expert on the law of piracy but to the best of my knowledge does conform closely shall we say with some of the provisions of that law. Just saying.
  Um anyway um put that aside. Um, it's something that has not been done much recently. Mron has done it. He's tried to involve the British, by the way, in this affair by disclosing that
 
-**Unknown**: ### Segment 8 — Russia Europe European Union
+### Segment 8 — Russia Europe European Union
 
-**Unknown**: information about the whereabouts of this tanker was passed on to the French by a Royal Navy helicopter. I don't think the British authorities, by the way, will be very happy about Macron doing that. But anyway, whatever.
+information about the whereabouts of this tanker was passed on to the French by a Royal Navy helicopter. I don't think the British authorities, by the way, will be very happy about Macron doing that. But anyway, whatever.
  It is an unfriendly act. It's also a very strange thing to do for the French and for the Europeans at a time when there are global energy shortages coming when one would have assumed that the economic interest is to remove rather than create obstacles. for the free trade in Russian oil. And when the U E European Union itself facing higher energy prices and potential energy shortages is now apparently thinking of rowing back its sanctions on Russian oil by freezing the price gap on Russian oil that the European Union imposes, which
 is by the way currently 44 $4 a barrel or so I understand at the current level rather than tightening it even further. Now, of course, the Russians do not sell oil at $44 a barrel to the Europeans or $60 a barrel. Um according to the price cap the uh G7 price cap the c the current price of oil is currently around 90 to $100 a barrel and I believe that euros crude which is the benchmark oil around which Russian oil is priced is currently trading at $89.
  $9 a barrel, which by the way, and for the record, the Russians consider to be the optimal price for their oil. Just saying it's a topic which I will discuss perhaps another day. Anyway, there are plenty of buyers for Russian oil at these higher prices. The Russians are not going to pay any attention to these movements in the European price gap.
@@ -169,9 +169,9 @@ Whatever doubts people might have about the penetrative abilities of the Oreshni
 In reality the British military as I've discussed many times is in a parlor state and in no position to take on the Russians. I recently discussed various articles that have appeared mainly in the Daily Telegraph about the very poor condition of the Royal Air Force. The inddehaticable Mark Felton who runs a very interesting set of YouTube channels which deal mostly with historical topics has published another video within the last 24 hours outlining the decline and fall of Britain's Royal Navy.
 It makes interesting viewing and it does give a sense again of the institutional and material decay of what used to be within living memory perhaps the second most powerful fleet in the world. Anyway, there it is. All of this talk of war across Europe. a war which in reality the Europeans
 
-**Unknown**: ### Segment 9 — Iran Trump Hormuz
+### Segment 9 — Iran Trump Hormuz
 
-**Unknown**: are in no position to fight.
+are in no position to fight.
  As I discussed in a program recently, the commentator Gordon Han points out that there is indeed a small group of top Western politicians and officials who not only do not fear a war with Russia, but who give every impression of desiring it and of wanting it to happen. Well, all I can say is that these people really do need to start reading articles about the state of the European militaries and watching programs like Mark Felton's in order to get a perhaps more objective understanding
 of the recklessness, the absurdity of what it seems that they want to do. Anyway, there we go. Um to repeat again, I expect that over the next couple of days, couple of weeks, maybe next week, we're going to see renewed Russian missile strikes on Kiev, on the decision- making centers using perhaps missiles, but we're also going to see further shifts on the battle fronts.
 as well as a fading of Ukraine's various drone wars. And by midsummer, I think much of the confidence, the false confidence that we have seen in the west about Ukraine's current success will have vanished away and will be replaced instead by acute alarm was having been forgotten. The problem is that by the time that happens, the openings in Moscow for negotiations to the extent that they still exist are going to have faded away still further with the Donbass about to fall and certainly with the Donbass having

@@ -39,20 +39,20 @@ transcript_curation: curated_sectioned
 section_count: 9
 section_pass: 2026-07-09 semantic-section-v1
 speaker_labeling: provisional
-speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2026-06-15/source-daniel-davis-putin-macron-trump-ukraine-war-2026-06-15.md", "source_sha256": "46a391e1850dbffeb4cd36605925cf13c8adf4d6ad03b4b687e8a4de79ad11aa", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 21, "labeled_turn_count": 0, "unknown_turn_count": 21, "candidate_speakers": ["Daniel Davis", "Davis"]}
+speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2026-06-15/source-daniel-davis-putin-macron-trump-ukraine-war-2026-06-15.md", "source_sha256": "46a391e1850dbffeb4cd36605925cf13c8adf4d6ad03b4b687e8a4de79ad11aa", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 1, "labeled_turn_count": 1, "unknown_turn_count": 0, "candidate_speakers": ["Daniel Davis"], "solo_format": "single-label-continuous"}
 ---
-**Unknown**: # Putin & Macron Try to Persuade Trump to Their Side in RU/UKR War
+**Daniel Davis**: # Putin & Macron Try to Persuade Trump to Their Side in RU/UKR War
 
-**Unknown**: **Channel:** Daniel Davis Deep Dive  
+**Channel:** Daniel Davis Deep Dive  
 **Date:** Monday, 15 June 2026  
 **Host:** Lt Col Daniel Davis  
 **URL:** https://www.youtube.com/watch?v=S9ROJmN0HQ4
 
-**Unknown**: ## Transcript
+## Transcript
 
-**Unknown**: ### Show Open — Russia Ukraine Iran
+### Show Open — Russia Ukraine Iran
 
-**Unknown**: While all eyes are certainly understandably in the United States focused on what's going to happen on Friday or what may not happen on Friday with the signing of a deal with Iran, things inside of Russia and Ukraine continue a pace. And in fact, we've been telling you here in the last couple of weeks that there have been some growing ominous signs and statements from the Russian side about uh maybe escalating the war and and hitting Kiev harder.
+While all eyes are certainly understandably in the United States focused on what's going to happen on Friday or what may not happen on Friday with the signing of a deal with Iran, things inside of Russia and Ukraine continue a pace. And in fact, we've been telling you here in the last couple of weeks that there have been some growing ominous signs and statements from the Russian side about uh maybe escalating the war and and hitting Kiev harder.
  you recall uh 10 or 12 days ago, they said all the diplomats and everybody else should leave because they wouldn't be safe. They were going to hit uh information centers and energy centers uh and and other kinds of ministry targets inside of Kiev. Uh there lot of that so far. As a matter of fact, we haven't seen too much more than what we hadn't seen before.
  Uh but the monot the monotonous kind of relentless fighting that the Russians are doing does continue. it continues on the front line where the Ukraine's side continues to be uh grinded down in a war of attrition. There haven't been any big movements, but they are continuing to go forward. Whether that's something that's going to cause a near-term collapse uh is always possible, but has never materialized, meaning that it could go on for a long time.
  Uh in the past month or so, a lot of some Russian commentators have been telling the Russian public, hey, we need to be ready for an an even longer uh war. This could drag on another year or two. uh it may not be over soon. And yet there's others that are saying no. Uh we need to push even harder right now. We need to put our pedal on the gas.
@@ -62,9 +62,9 @@ went into Kiev. A lot of explosions happened there. A lot of things were destroy
  So that is the reality of it. And one has to wonder how long can Ukraine handle that. And the answer has been nearly four and a half years so far. So maybe they can continue on. But what that tells you is that the grinding nature of the war continues to go against Ukraine and there is literally no prospect militarily that you can ever reverse that because you have to first you have to stop it so that Russia can't fire missiles and and you see especially with the US having such a der of missiles for its own wars we are definitely not going to give a whole
 bunch more to the Ukraine side and as professor Postol has been talking
 
-**Unknown**: ### Segment 2 — Russia Trump Europe
+### Segment 2 — Russia Trump Europe
 
-**Unknown**: about is going to come back on and show us an updated version of what these interceptor missiles, even the pack 3es and the fads have been doing of late is way less than what anybody thinks. So even if we gave them a war, that's not going to stop the Russian onslaught.
+about is going to come back on and show us an updated version of what these interceptor missiles, even the pack 3es and the fads have been doing of late is way less than what anybody thinks. So even if we gave them a war, that's not going to stop the Russian onslaught.
 That's what they need to understand here. This is a war of attrition and even if it lasts a long time, still all the fundamentals rest on the Russian side. They have more men in the millions and they have a defense industrial base that is going to outpace everything else. And even if you said war is goes back and forth advantaging one over the other and then back and forth uh that's only one aspect of it and that is that is true.
  That's exactly how it's done and that does impose a cost on Russia and has slowed them down but it doesn't stop them because the other factors are indisputably and irrevocably on the Russian side. So that's where we are on this. Now, logic would dictate that because of the cost, especially economically to Europe for the sanctions they put on Russia and the energy issues and of course compounded by what's going on in the Middle East right now would logically lead the Europeans to the conclusion, hey, let's just get this off the table as best we
 can. Let's end this uh let's patch things up with Russia the best we can so we can get some cheap energy flowing back in and help our economies. That's what we would do if we were being logical. That doesn't appear to be the case. In fact, Ukraine, I'm sorry, Europe seems to be putting more pressure on President Trump to try to bring him to their side.
@@ -75,9 +75,9 @@ can. Let's end this uh let's patch things up with Russia the best we can so we c
  They're not looking for something that's going to leave Zinsky in power. They are setting conditions that makes it impossible. Not virtually, literally impossible. There's no chance Zinsky could do that. Now remember, this is coming on the heels last week of Vimir Zillinsky sending an insulting message to Putin saying, "Hey, we'll negotiate with you as long as it's on my terms and you come to the table like you're on the lower end of the dynamic instead of the upper end of the dynamic." Obviously, Putin mocked that.
 We showed you some of the comments that he
 
-**Unknown**: ### Segment 3 — Trump Russia Ukraine
+### Segment 3 — Trump Russia Ukraine
 
-**Unknown**: made about that. And now then Putin is returning the favor I think and very subtly like like is kind of known or Putin is known for he releases this readout of what's happening as he tells people publicly that for this to come to negotiated it in Zelensky will have to humble himself and come to Moscow not an independent place not a third location not not something that's mutually agreeable it has to be Moscow which means he will never do it which means Russia isn't really looking for a way
+made about that. And now then Putin is returning the favor I think and very subtly like like is kind of known or Putin is known for he releases this readout of what's happening as he tells people publicly that for this to come to negotiated it in Zelensky will have to humble himself and come to Moscow not an independent place not a third location not not something that's mutually agreeable it has to be Moscow which means he will never do it which means Russia isn't really looking for a way
 out of the war like that. They're probably still looking for something and they're probably why he was talking to Trump and saying, "Hey, listen. This is good for both of us." And I'm sure that there were things obviously not. It was an hour-long phone call and they only put out a handful of things.
  So, we don't know most of what was going on in there, but you can certainly imagine where President Putin is trying to put pressure on Trump to say, "How's about you and me come to a deal like you did with the Israeli situation in in Iran? You kind of made your own deal here." But by the way, interesting on that point there, uh I didn't mention this in the show earlier, but we're President Trump is trying to end this war that includes the United States and Israel against Iran by only including two of the three parties. We're not even
 talking about Israel. So, I think that Putin is saying, "Hey, how's about we do that here? Let's come to an agreement between you and me to get this war over with. You stop supporting them and then this this whole thing will come to an end." I can certainly imagine something like that happen.
@@ -87,9 +87,9 @@ talking about Israel. So, I think that Putin is saying, "Hey, how's about we do 
  Macaron added, "Now the G7's priorities must be to reinforce the pressure on Russia, for example, against the Shadow Fleet," he suggested. Now that was more than just a suggestion because days earlier you had Kier Starmer and the Royal Marines board a Russian Shadowfleet tanker in the English Channel. Royal Marine commandos boarded a Russian shadow fleet according to the BBC uh and the English Channel on the early hours of Sunday morning.
  Prime Minister Kier Starmer said that this successful oper operation delivers yet another blow to Russia and reminds those fueling Vladimir Putin's war in Ukraine that we will not let them hide. So you have Macron and Starmer continuing to say,
 
-**Unknown**: ### Segment 4 — Russia Europe Ukraine
+### Segment 4 — Russia Europe Ukraine
 
-**Unknown**: I don't care about this attrition battle.
+I don't care about this attrition battle.
  I don't care that hundreds of thousands of Ukraine men have died. I don't care if we keep throwing more and more and more into the meat grinder. I mean in that doesn't even bother me. I'm not even concerned about that. We just have to quote keep the pressure on Russia. So they're going to continue taunting Russia. Basically even though Russia has just said that they may expand this beyond their borders even though they have publicly said many of their leading figures that Russia may fire conventional weapons into Europe as if instead of saying okay let's don't
 carry this too far. In fact let's bring this to an end for all the reasons I said no we're not going to do that. In fact, let's amp up the pressure on Russia and let's taunt them even more by now taking their shadow fleets and humiliating them on the public stage, which is going to signal to Moscow that Europe has zero interest in bringing this war to an end, reinforcing it.
  They already knew that. The evidence and the physical uh EV actions scream this. They don't want the war to come to an end. They only want it to continue on. There is no logical rational path for this war to come to an end for for it to be reversed on on the on Kiev's side. There's none. It doesn't exist. They don't have the industrial capacity and especially they don't have the manpower.
@@ -100,9 +100,9 @@ So he's drawing those historical analogies that every Russian knows very well an
  and we own the air and we have more millions more men that we can fight with and we have our economy is far better than yours and we have all of our own natural resources. We have our own energy resources. We're not subject to a lot of the limitations that you have. So when you put the whole thing together, it is still ill illogical and irrational to believe that we can win.
 And that's what's clear that the European side isn't interested in winning. They don't even have a concept for it. They just want to continue fighting. And that's everything that we said here. I mean, you see that the
 
-**Unknown**: ### Segment 5 — Russia Ukraine Trump
+### Segment 5 — Russia Ukraine Trump
 
-**Unknown**: macaron put here. Uh he's he said this is a great opportunity to get bring Trump to the same table as us to reinforce the pressure on Russia.
+macaron put here. Uh he's he said this is a great opportunity to get bring Trump to the same table as us to reinforce the pressure on Russia.
  That's all he's doing. There is no even concept of winning because to do that you have to here's what he would have to say. Kim, Starmer, uh, Merittz, uh, K, the the NATO secretary Mark Rucha, uh, Kaakis, that whole group, they would all have to say, "Okay, we want to continue supporting Ukraine because we believe if we do A, B, and C, and they can fill in the blanks of what those are, then over time that is going to blunt the Russians so that we'll eventually stop their forward movement completely, and then because of DE and F, we'll then start to
 push Russia back and then over y time period some number of years then it is reasonable that we will then be able to push them out we being the collective west in Ukraine that's what they would have to do you would have to give a logical path to how that's even theoretically possible it's not that's why they haven't done it but instead of doing that they just say let's take actions let's take strategic actions put pressure on them there's no objective in that there's nothing you can say we're trying to accomplish this So therefore,
 no one can say whether it's winning or losing. It's just successful by virtue of its action. Taking a tanker, continuing to provide missiles, continuing to provide operating funds for the KF side. All of this does nothing to help the war effort at all. It doesn't. It just keeps the war going. There's not any kind of rational path that they even have a concept for.
@@ -113,9 +113,9 @@ no one can say whether it's winning or losing. It's just successful by virtue of
  And believe me, there's so much history there in the system of governance and the culture of Russia. They're going to complain about it and there may be protests, but they're not going to overturn the the regime and and Putin's country and government just because they're unhappy about something.
  That's just
 
-**Unknown**: ### Segment 6 — Russia Ukraine Trump
+### Segment 6 — Russia Ukraine Trump
 
-**Unknown**: not the way the Russians work. It would have to be something like what happened in the 1917 revolution, which would be a long period of substantial uh pain, economic, and 5 million people died before. That's how long it took them last time before they actually overturned the government. There hasn't been a fraction of that number.
+not the way the Russians work. It would have to be something like what happened in the 1917 revolution, which would be a long period of substantial uh pain, economic, and 5 million people died before. That's how long it took them last time before they actually overturned the government. There hasn't been a fraction of that number.
  Not even not even a tiny fraction. So, none of that pressure even exists. So, if you're banking on that, then you're sacrificing the loss of Ukraine. And and that's what they're doing. We'll see how this is all going to work out. But the bottom line is here, Russia still retains the strategic position of advantage and there is not even a path, not even a conception of a path from the Ukraine/ European side to win this.
  So I don't know what they're going to be trying to tell President Trump. Unfortunately, he can be swayed because he doesn't think strategically. So he's probably not even aware of what I just said here. And certainly Macron, Star, Marl will not tell him any of that. They'll just say this is what we have to do.
  They'll just say over time this will do something even though there's no path to it. They'll say it uh just to get President Trump on board. We'll see what happens. That's where it's at right now heading into the G7 summit. Now, there's one other thing that's been in the news of late regarding the Russia Ukraine war and that has been a disclosure made by Tulsi Gabbard, the outgoing uh uh director of the national intelligence.
@@ -126,9 +126,9 @@ no one can say whether it's winning or losing. It's just successful by virtue of
 start with Trump. It was definitely going on during the Biden administration a lot. Here is uh Admiral Kirby when he was first asked about this Russian report that they had seen a bunch of American biolabs in Ukraine. >> What do you have to say about these Russian accusations? >> The Russian accusations uh are absurd.
 They're laughable. And uh you know, in the words of my Irish Catholic grandfather, a bunch of malarkey. There's nothing to it. It's classic Russian propaganda. And uh and uh I wouldn't uh if I were you, I I wouldn't
 
-**Unknown**: ### Segment 7 — Ukraine Russia White House
+### Segment 7 — Ukraine Russia White House
 
-**Unknown**: give it uh I wouldn't give it a drop of ink worth paying attention to. >> Wouldn't give it a drop of ink worth paying to. Nothing to see here, folks.
+give it uh I wouldn't give it a drop of ink worth paying attention to. >> Wouldn't give it a drop of ink worth paying to. Nothing to see here, folks.
 Just move along here. It's malarkey. That's one of the favorite words of the Biden administration. And he says, "Yep, just Russian propaganda. Don't even worry about that. Not a shred of truth to it. Really, not a shred of truth." Now, you may recall that Congresswoman Tulsi Gabbard, a former Congresswoman Tulsi Gabbard, had put out videos on this even before the the war had started, if I'm not mistaken.
  Uh certainly before she became part of the administration, she was warning about a lot of these things because there were a lot of information out there. The Russians didn't just claim this. is they actually showed in some of the areas where they had captured some of these weapons.
  They showed a lot of physical documents from the White House. Now, we claimed all of those were fabricated, every single one of them, but they put out physical evidence that said this and they of course it all fell on deaf ears because we don't believe anything the Russians say because well, all of it's a lie and everything we say is the truth.
@@ -140,9 +140,9 @@ powerful people who falsely claimed that these biolabs didn't exist. Now they ac
  Uh you know we need to look into those things and what was in those labs. We need to know if there were labs. We need to know the truth. And if and look, it could be that there were some legitimate bio lab or bio kind of work that was done because we obviously through the NIH do a lot of things that are completely legitimate and helpful uh to biomedical uh research to to help us find ways to uh you know to protect ourselves from any kind of bio future warfare.
  But it has to be more than just a little bit shady that there were by some one report 30 of these things in Ukraine. Why would we put them in Ukraine or why would we support
 
-**Unknown**: ### Segment 8 — Trump Ukraine Russia
+### Segment 8 — Trump Ukraine Russia
 
-**Unknown**: that many in Ukraine? It's not like Ukraine is the hub of medical research mecca in the world that it makes sense to go there because they have a lot of experts.
+that many in Ukraine? It's not like Ukraine is the hub of medical research mecca in the world that it makes sense to go there because they have a lot of experts.
  In fact, that there's so little government oversight. It makes one also wonder is can they put stuff there that they couldn't do elsewhere? Again, I I'm not a medical expert. I haven't seen the documents, but just on the surface of it, this looks pretty shady. And now then that we have confirmation that this was true. It's not just an allegation.
 And you know, we have to again genuinely do ask why then did the Biden administration just categorically say it was all untrue and there was no truth to it. It's just Russian propaganda. It's malarkey. Whatever word you want to use. And now here apparently government sources, government documents that existed at the time, maybe even were many of them were done by the Biden administration is now being apparently released.
  And so we have to reconcile those two statements because they can't all be true. And and listen, I one of the reasons I wanted to show you this is is to to demonstrate that that there has been a long pattern of the government just lying to everyone. This didn't start with the Trump administration. They've taken it to a whole new level as you saw from our show earlier today.
@@ -154,9 +154,9 @@ manufacturing whatever we want to get what we want is fine. And you know, it's i
  And now then they're the ones that are pointing fingers at the Trump administration. The bottom line is it is an American problem. And the the common denominator in all this is that anybody who's in power, no matter what party they're from, is this contempt they have for the American public. I mean, they they literally consider us like mushrooms.
  Just just feed us whatever they want to keep us
 
-**Unknown**: ### Closing — American That'S One
+### Closing — American That'S One
 
-**Unknown**: in the dark. You know, that that deal. And that's that's what it is. No one no one cares about telling us the truth anymore. No one cares about lying. it it's become so easy, so second nature to just lie up one side and down the other to the point to where almost nothing is said true. And the intent is always to make you, the American people, believe what they say.
+in the dark. You know, that that deal. And that's that's what it is. No one no one cares about telling us the truth anymore. No one cares about lying. it it's become so easy, so second nature to just lie up one side and down the other to the point to where almost nothing is said true. And the intent is always to make you, the American people, believe what they say.
  So that when these policies come out, which are very often times as illegal and un and immoral as can be is somehow in a positive light because they make you believe that it is. So, it's all about deceiving you and having contempt for you so that you don't rise up in arms, so that you don't rise up and get mad and throw them out or vote them out or whatever.
  So, they'll lie to you. Listen, and they see it works because once somebody is on a team, if you're on team red or team blue, the the team leaders can realize that there is nothing that they can say that your their side will not believe. And so they have no motivation, no incentive to do anything except keep lying.
  That's where we are as a country right now. And until we get to the point where we don't give a damn who's leading team red or team blue, that we care about some kind of integrity, this will continue and it will escalate. It's never, listen to me, it's never going to get better on its own until we the people finally rise up on our team. That's what's important.

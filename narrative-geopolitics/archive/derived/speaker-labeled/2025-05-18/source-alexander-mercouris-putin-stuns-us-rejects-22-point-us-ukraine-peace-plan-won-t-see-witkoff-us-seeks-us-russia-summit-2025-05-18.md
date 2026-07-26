@@ -15,11 +15,11 @@ transcript_type: yt_dlp_caption_fetch
 source_note: Fetched from YouTube captions via the repo transcript pipeline and materialized into the canonical statecraft archive.
 quality_note: English caption fetch via repo YouTube transcript pipeline; adjacent duplicate caption lines removed, otherwise preserve transcript roughness.
 speaker_labeling: provisional
-speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-05-18/source-alexander-mercouris-putin-stuns-us-rejects-22-point-us-ukraine-peace-plan-won-t-see-witkoff-us-seeks-us-russia-summit-2025-05-18.md", "source_sha256": "5b8c3876953616029357fc15240e4fc3d6dc72202fa07492ed204709833f4586", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 2, "labeled_turn_count": 0, "unknown_turn_count": 2, "candidate_speakers": ["Alexander Mercouris", "Mercouris"]}
+speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-05-18/source-alexander-mercouris-putin-stuns-us-rejects-22-point-us-ukraine-peace-plan-won-t-see-witkoff-us-seeks-us-russia-summit-2025-05-18.md", "source_sha256": "5b8c3876953616029357fc15240e4fc3d6dc72202fa07492ed204709833f4586", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 1, "labeled_turn_count": 1, "unknown_turn_count": 0, "candidate_speakers": ["Alexander Mercouris"], "solo_format": "single-label-continuous"}
 ---
-**Unknown**: # Putin Stuns US, Rejects 22 Point US Ukraine Peace Plan, Won't See Witkoff; US Seeks US-Russia Summit
+**Alexander Mercouris**: # Putin Stuns US, Rejects 22 Point US Ukraine Peace Plan, Won't See Witkoff; US Seeks US-Russia Summit
 
-**Unknown**: Good day. Today is Sunday 18th May
+Good day. Today is Sunday 18th May
 2025 and I am making this program on the
 eve of my flight to um St.
 Petersburg. Um so it's early in the day,

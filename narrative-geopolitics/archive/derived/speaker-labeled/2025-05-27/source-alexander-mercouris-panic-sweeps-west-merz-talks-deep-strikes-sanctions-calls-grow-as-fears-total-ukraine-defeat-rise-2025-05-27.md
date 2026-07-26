@@ -15,11 +15,11 @@ transcript_type: yt_dlp_caption_fetch
 source_note: Fetched from YouTube captions via the repo transcript pipeline and materialized into the canonical statecraft archive.
 quality_note: English caption fetch via repo YouTube transcript pipeline; adjacent duplicate caption lines removed, otherwise preserve transcript roughness.
 speaker_labeling: provisional
-speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-05-27/source-alexander-mercouris-panic-sweeps-west-merz-talks-deep-strikes-sanctions-calls-grow-as-fears-total-ukraine-defeat-rise-2025-05-27.md", "source_sha256": "acf3366703684675dc6522c77b7d783e9d86715cff335792048aeac9d0ba520c", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 2, "labeled_turn_count": 0, "unknown_turn_count": 2, "candidate_speakers": ["Alexander Mercouris", "Mercouris"]}
+speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-05-27/source-alexander-mercouris-panic-sweeps-west-merz-talks-deep-strikes-sanctions-calls-grow-as-fears-total-ukraine-defeat-rise-2025-05-27.md", "source_sha256": "acf3366703684675dc6522c77b7d783e9d86715cff335792048aeac9d0ba520c", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 1, "labeled_turn_count": 1, "unknown_turn_count": 0, "candidate_speakers": ["Alexander Mercouris"], "solo_format": "single-label-continuous"}
 ---
-**Unknown**: # Panic Sweeps West, Merz Talks Deep Strikes Sanctions Calls Grow, As Fears Total Ukraine Defeat Rise
+**Alexander Mercouris**: # Panic Sweeps West, Merz Talks Deep Strikes Sanctions Calls Grow, As Fears Total Ukraine Defeat Rise
 
-**Unknown**: Good day. Today is Tuesday 27th May
+Good day. Today is Tuesday 27th May
 2025 and I'm going to suggest that we
 are in the early moments of the second
 big panic that we have seen over the

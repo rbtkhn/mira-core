@@ -17,11 +17,11 @@ source_note: Transcript pasted manually by operator after direct YouTube watch U
 editorial_note: Operator-pasted transcript body; not independently verified as verbatim.
 evidence_grade: transcript-bearing
 speaker_labeling: provisional
-speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2026-04-04/source-alexander-mercouris-iran-shoots-down-us-a10-hunts-f15-pilot-trump-sacks-more-generals-russia-2026-04-04.md", "source_sha256": "772ce76963e6f994c451814c0446b83ed18d1b95eb3d83b1a2b3af024f0b69a1", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 2, "labeled_turn_count": 0, "unknown_turn_count": 2, "candidate_speakers": ["Alexander Mercouris", "Mercouris"]}
+speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2026-04-04/source-alexander-mercouris-iran-shoots-down-us-a10-hunts-f15-pilot-trump-sacks-more-generals-russia-2026-04-04.md", "source_sha256": "772ce76963e6f994c451814c0446b83ed18d1b95eb3d83b1a2b3af024f0b69a1", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 1, "labeled_turn_count": 1, "unknown_turn_count": 0, "candidate_speakers": ["Alexander Mercouris"], "solo_format": "single-label-continuous"}
 ---
-**Unknown**: # Iran Shoots Down US A10 Hunts F15 Pilot; Trump Sacks More Generals; Russia Hunts Kiev AD; Oil Shock
+**Alexander Mercouris**: # Iran Shoots Down US A10 Hunts F15 Pilot; Trump Sacks More Generals; Russia Hunts Kiev AD; Oil Shock
 
-**Unknown**: Transcripts:
+Transcripts:
 Good day. Today is Saturday 4th April 2026. And before I proceed with this program, let me remind you again to tick the like button and check your subscription to this channel if once you've watched this program, you like what you've heard and you wish to indicate that fact. Now, when I made my program yesterday, I discussed reports that a US fighter jet, an F-15, had been shot down by Iran.
 Um, the Iranians were initially claiming that the aircraft they'd shot down was an F-35, but I mentioned over the course of the program that pictures of the wreckage of the aircraft, which the Iranians themselves released, suggested that it was an F-15. Well, over the next couple of hours, the United States confirmed that an F-15 had indeed been shot down.
 Then further reports began to swirl about more and more US aircraft having also been struck by Iranian air defenses um over Iran. There was said to be an operation carried out by US special forces trying to find the two crew members of the shot down F-15. One of the crew members according to a report by Associated Press had been found by the United States and had been rescued.

@@ -15,11 +15,11 @@ transcript_type: yt_dlp_caption_fetch
 source_note: Fetched from YouTube captions via the repo transcript pipeline and materialized into the canonical statecraft archive.
 quality_note: English caption fetch via repo YouTube transcript pipeline; adjacent duplicate caption lines removed, otherwise preserve transcript roughness.
 speaker_labeling: provisional
-speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-04-21/source-alexander-mercouris-easter-truce-ends-russia-resumes-offensive-accuses-kiev-many-breaches-us-ultimatum-to-kiev-coming-2025-04-21.md", "source_sha256": "47a5615cc218c8cb77299b4f441f31e3bb2eb9f73ba50d031b0ecdaf37251c0f", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 2, "labeled_turn_count": 0, "unknown_turn_count": 2, "candidate_speakers": ["Alexander Mercouris", "Mercouris"]}
+speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-04-21/source-alexander-mercouris-easter-truce-ends-russia-resumes-offensive-accuses-kiev-many-breaches-us-ultimatum-to-kiev-coming-2025-04-21.md", "source_sha256": "47a5615cc218c8cb77299b4f441f31e3bb2eb9f73ba50d031b0ecdaf37251c0f", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 1, "labeled_turn_count": 1, "unknown_turn_count": 0, "candidate_speakers": ["Alexander Mercouris"], "solo_format": "single-label-continuous"}
 ---
-**Unknown**: # Easter Truce Ends, Russia Resumes Offensive, Accuses Kiev Many Breaches; US Ultimatum To Kiev Coming
+**Alexander Mercouris**: # Easter Truce Ends, Russia Resumes Offensive, Accuses Kiev Many Breaches; US Ultimatum To Kiev Coming
 
-**Unknown**: Good day. Today is Monday 21st April
+Good day. Today is Monday 21st April
 2025, the day after Easter day. As in
 the Christian in the Eastern Orthodox
 Church, we

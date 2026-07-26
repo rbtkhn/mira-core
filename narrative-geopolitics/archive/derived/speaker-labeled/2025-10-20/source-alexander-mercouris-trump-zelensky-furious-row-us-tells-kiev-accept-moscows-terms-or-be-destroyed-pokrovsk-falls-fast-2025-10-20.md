@@ -20,13 +20,13 @@ verification_reason: sourceChars=51667; bodyChars=51667; exactMatch=True before 
 evidence_grade: transcript-bearing
 source_note: Mechanically extracted from local Codex session log after operator pasted the YouTube transcript; not independently fetched from YouTube subtitles.
 speaker_labeling: provisional
-speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-10-20/source-alexander-mercouris-trump-zelensky-furious-row-us-tells-kiev-accept-moscows-terms-or-be-destroyed-pokrovsk-falls-fast-2025-10-20.md", "source_sha256": "5b0ff2dfa741eb9e9f510f8a727198725b82c92687a06a9020cb5fc3baf363d8", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 3, "labeled_turn_count": 0, "unknown_turn_count": 3, "candidate_speakers": ["Alexander Mercouris", "Mercouris"]}
+speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-10-20/source-alexander-mercouris-trump-zelensky-furious-row-us-tells-kiev-accept-moscows-terms-or-be-destroyed-pokrovsk-falls-fast-2025-10-20.md", "source_sha256": "5b0ff2dfa741eb9e9f510f8a727198725b82c92687a06a9020cb5fc3baf363d8", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 1, "labeled_turn_count": 1, "unknown_turn_count": 0, "candidate_speakers": ["Alexander Mercouris"], "solo_format": "single-label-continuous"}
 ---
-**Unknown**: # Trump Zelensky Furious Row; US Tells Kiev Accept Moscow's Terms Or Be Destroyed; Pokrovsk Falls Fast
+**Alexander Mercouris**: # Trump Zelensky Furious Row; US Tells Kiev Accept Moscow's Terms Or Be Destroyed; Pokrovsk Falls Fast
 
-**Unknown**: ## Transcript
+## Transcript
 
-**Unknown**: Good day. Today is Monday, 20th October, 2025. And before I proceed with this program, let me remind you again to tick the like button if having listened to the program or whichever part of the program you want to listen to um and you like the program and you want to indicate that fact.
+Good day. Today is Monday, 20th October, 2025. And before I proceed with this program, let me remind you again to tick the like button if having listened to the program or whichever part of the program you want to listen to um and you like the program and you want to indicate that fact.
  So with that, let's proceed and discuss the topics of today. And again today's program is going to be devoted almost entirely to Ukraine related matters. And I am going to begin again as I did in my previous program with a brief discussion about the military situation to be precise the military situation in one specific place and that is Pokrovsk.
  Because the news that has been coming this morning, at least the reports that have been coming this morning, which to stress are not fully corroborated, but which may very well be true, speak of a complete collapse of Ukrainian resistance in Pokrovsk or at least maybe not a complete collapse, but of a rapid collapse of Ukrainian resistance in Pokrovsk.
  The first thing to say is that this morning the Russian defense ministry provided information, further information about the capture of a railway position um a railway station in the Pokrovsk area. Now this is not the main railway um within Pokrovsk itself. There are reports that the Russians captured have captured that.

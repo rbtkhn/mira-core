@@ -15,11 +15,11 @@ transcript_type: yt_dlp_caption_fetch
 source_note: Fetched from YouTube captions via the repo transcript pipeline and materialized into the canonical statecraft archive.
 quality_note: English caption fetch via repo YouTube transcript pipeline; adjacent duplicate caption lines removed, otherwise preserve transcript roughness.
 speaker_labeling: provisional
-speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-05-09/source-alexander-mercouris-moscow-celebrates-victory-day-says-kiev-violated-truce-vance-ukraine-losing-war-putin-xi-meet-2025-05-09.md", "source_sha256": "ba4de68160d21e535354d336f96bc791032bf347bdca968ab7800e781fcda958", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 2, "labeled_turn_count": 0, "unknown_turn_count": 2, "candidate_speakers": ["Alexander Mercouris", "Mercouris"]}
+speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-05-09/source-alexander-mercouris-moscow-celebrates-victory-day-says-kiev-violated-truce-vance-ukraine-losing-war-putin-xi-meet-2025-05-09.md", "source_sha256": "ba4de68160d21e535354d336f96bc791032bf347bdca968ab7800e781fcda958", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 1, "labeled_turn_count": 1, "unknown_turn_count": 0, "candidate_speakers": ["Alexander Mercouris"], "solo_format": "single-label-continuous"}
 ---
-**Unknown**: # Moscow Celebrates Victory Day, Says Kiev Violated Truce; Vance: Ukraine Losing War; Putin Xi Meet
+**Alexander Mercouris**: # Moscow Celebrates Victory Day, Says Kiev Violated Truce; Vance: Ukraine Losing War; Putin Xi Meet
 
-**Unknown**: Good day. Today is Friday 9th May
+Good day. Today is Friday 9th May
 2025. Um the day that is celebrated as
 victory day in many places and
 specifically in Russia and there has in

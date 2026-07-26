@@ -17,13 +17,13 @@ evidence_grade: transcript-bearing
 source_note: Fetched from YouTube captions via the repo transcript pipeline and materialized into the canonical statecraft archive.
 quality_note: English caption fetch via repo YouTube transcript pipeline; adjacent duplicate caption lines removed, otherwise preserve transcript roughness.
 speaker_labeling: provisional
-speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-04-03/source-alexander-mercouris-trump-tariffs-stun-world-cancel-globalisation-witkoff-dmitriev-us-russia-backchannel-eu-uk-fume-2025-04-03.md", "source_sha256": "05a7f5a8ef232e6d636c503e56beb986e038185b3307004f478e8acd1f046cd4", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 3, "labeled_turn_count": 0, "unknown_turn_count": 3, "candidate_speakers": ["Alexander Mercouris", "Mercouris"]}
+speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-04-03/source-alexander-mercouris-trump-tariffs-stun-world-cancel-globalisation-witkoff-dmitriev-us-russia-backchannel-eu-uk-fume-2025-04-03.md", "source_sha256": "05a7f5a8ef232e6d636c503e56beb986e038185b3307004f478e8acd1f046cd4", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 1, "labeled_turn_count": 1, "unknown_turn_count": 0, "candidate_speakers": ["Alexander Mercouris"], "solo_format": "single-label-continuous"}
 ---
-**Unknown**: # Trump Tariffs Stun World, Cancel Globalisation; Witkoff Dmitriev US-Russia Backchannel; EU/UK Fume
+**Alexander Mercouris**: # Trump Tariffs Stun World, Cancel Globalisation; Witkoff Dmitriev US-Russia Backchannel; EU/UK Fume
 
-**Unknown**: ## Transcript
+## Transcript
 
-**Unknown**: Good day.
+Good day.
 Today is Thursday 3rd April 2025
 and of course today is the day after
 liberation day in the United States. The

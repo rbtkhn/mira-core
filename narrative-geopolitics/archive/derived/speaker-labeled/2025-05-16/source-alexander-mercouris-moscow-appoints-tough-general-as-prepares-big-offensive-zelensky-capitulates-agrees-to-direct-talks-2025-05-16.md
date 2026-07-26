@@ -15,11 +15,11 @@ transcript_type: yt_dlp_caption_fetch
 source_note: Fetched from YouTube captions via the repo transcript pipeline and materialized into the canonical statecraft archive.
 quality_note: English caption fetch via repo YouTube transcript pipeline; adjacent duplicate caption lines removed, otherwise preserve transcript roughness.
 speaker_labeling: provisional
-speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-05-16/source-alexander-mercouris-moscow-appoints-tough-general-as-prepares-big-offensive-zelensky-capitulates-agrees-to-direct-talks-2025-05-16.md", "source_sha256": "bcb8e85108390e6bc62675be07f99ab7d4300253278d2f5ac575cf37a461af98", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 2, "labeled_turn_count": 0, "unknown_turn_count": 2, "candidate_speakers": ["Alexander Mercouris", "Mercouris"]}
+speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-05-16/source-alexander-mercouris-moscow-appoints-tough-general-as-prepares-big-offensive-zelensky-capitulates-agrees-to-direct-talks-2025-05-16.md", "source_sha256": "bcb8e85108390e6bc62675be07f99ab7d4300253278d2f5ac575cf37a461af98", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 1, "labeled_turn_count": 1, "unknown_turn_count": 0, "candidate_speakers": ["Alexander Mercouris"], "solo_format": "single-label-continuous"}
 ---
-**Unknown**: # Moscow Appoints Tough General As Prepares Big Offensive; Zelensky Capitulates Agrees To Direct Talks
+**Alexander Mercouris**: # Moscow Appoints Tough General As Prepares Big Offensive; Zelensky Capitulates Agrees To Direct Talks
 
-**Unknown**: Good day. Today is Friday 16th May
+Good day. Today is Friday 16th May
 2025 and as I make this program um news
 has come through that the first meeting,
 the first direct talks between the

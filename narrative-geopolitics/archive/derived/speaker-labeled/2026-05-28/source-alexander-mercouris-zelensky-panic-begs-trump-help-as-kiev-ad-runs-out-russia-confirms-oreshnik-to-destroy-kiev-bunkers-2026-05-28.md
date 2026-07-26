@@ -13,19 +13,19 @@ transcript_type: operator_pasted_transcript
 source_note: Operator-pasted YouTube transcript preserved as canonical May 28, 2026 Alexander Mercouris raw-input capture.
 editorial_note: Light cleanup only for routing-safe punctuation and obvious spacing.
 speaker_labeling: provisional
-speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2026-05-28/source-alexander-mercouris-zelensky-panic-begs-trump-help-as-kiev-ad-runs-out-russia-confirms-oreshnik-to-destroy-kiev-bunkers-2026-05-28.md", "source_sha256": "9b197559bbbfc55fa6e974a7584943657620356c46b8aa70d800a7c5b5042895", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 4, "labeled_turn_count": 0, "unknown_turn_count": 4, "candidate_speakers": ["Alexander Mercouris", "Mercouris"]}
+speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2026-05-28/source-alexander-mercouris-zelensky-panic-begs-trump-help-as-kiev-ad-runs-out-russia-confirms-oreshnik-to-destroy-kiev-bunkers-2026-05-28.md", "source_sha256": "9b197559bbbfc55fa6e974a7584943657620356c46b8aa70d800a7c5b5042895", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 1, "labeled_turn_count": 1, "unknown_turn_count": 0, "candidate_speakers": ["Alexander Mercouris"], "solo_format": "single-label-continuous"}
 ---
-**Unknown**: # Zelensky Panic Begs Trump Help As Kiev AD Runs Out; Russia Confirms Oreshnik To Destroy Kiev Bunkers
+**Alexander Mercouris**: # Zelensky Panic Begs Trump Help As Kiev AD Runs Out; Russia Confirms Oreshnik To Destroy Kiev Bunkers
 
-**Unknown**: **Show:** Alexander Mercouris  
+**Show:** Alexander Mercouris  
 **Host:** Alexander Mercouris  
 **Published:** 2026-05-28  
 **Source:** [YouTube](https://www.youtube.com/watch?v=OvxXwYAqlu4&t=4843s)  
 **Transcript:** Operator-pasted YouTube transcript preserved as raw-input SSOT.
 
-**Unknown**: ## Transcript
+## Transcript
 
-**Unknown**: Good day. Today is Thursday, 28th May, 2026. And before I proceed with this program, let me remind you again to tick the like button and to check your subscription to this channel. Well, yesterday I discussed in some detail the various warnings that the Russians had given to the United States and ultimately to the West about the presence of their diplomats in Kiev.
+Good day. Today is Thursday, 28th May, 2026. And before I proceed with this program, let me remind you again to tick the like button and to check your subscription to this channel. Well, yesterday I discussed in some detail the various warnings that the Russians had given to the United States and ultimately to the West about the presence of their diplomats in Kiev.
  The further signals that the Russians have been giving about increased strikes against Kiev. And I also discussed briefly or touched on briefly the long-term plans that the Russians have both to isolate the Ukrainian government and political leadership in Kiev to sever its contacts with the West by basically obliging the West to pull its embassies and personnel out of Kiev.
  and the long range plans that the Russians may have eventually to begin a siege of Kiev and to seek not this year but perhaps next year to seek eventually to capture the city which is of course the capital of Ukraine. Now, over the last few hours, reports have been circulating of a desperate, frantic letter sent to President Trump of the United States by President Zelensky of Ukraine.
  And this undoubtedly was the outcome of the massive Russian combined missile and drone strike on Kiev which took place some days ago. the same strike over the course of which the Russians used an oreski an oreshnik missile to attack a facility in a satellite town south of Kiev. And Zelensky in this letter, the text of which, by the way, I have not read, apparently tells Trump about the urgent shortages of air defense missile interceptors in Ukraine, the fact that Ukraine is now extremely short of these missile interceptors.

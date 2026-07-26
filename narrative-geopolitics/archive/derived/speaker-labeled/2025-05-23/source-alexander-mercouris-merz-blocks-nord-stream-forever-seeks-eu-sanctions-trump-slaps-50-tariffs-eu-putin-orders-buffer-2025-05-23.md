@@ -15,11 +15,11 @@ transcript_type: yt_dlp_caption_fetch
 source_note: Fetched from YouTube captions via the repo transcript pipeline and materialized into the canonical statecraft archive.
 quality_note: English caption fetch via repo YouTube transcript pipeline; adjacent duplicate caption lines removed, otherwise preserve transcript roughness.
 speaker_labeling: provisional
-speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-05-23/source-alexander-mercouris-merz-blocks-nord-stream-forever-seeks-eu-sanctions-trump-slaps-50-tariffs-eu-putin-orders-buffer-2025-05-23.md", "source_sha256": "4c456677d3625978ea831c8691c77f58e6ea15f94c21bb9e2626b7807cfdd5e7", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 2, "labeled_turn_count": 0, "unknown_turn_count": 2, "candidate_speakers": ["Alexander Mercouris", "Mercouris"]}
+speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-05-23/source-alexander-mercouris-merz-blocks-nord-stream-forever-seeks-eu-sanctions-trump-slaps-50-tariffs-eu-putin-orders-buffer-2025-05-23.md", "source_sha256": "4c456677d3625978ea831c8691c77f58e6ea15f94c21bb9e2626b7807cfdd5e7", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 1, "labeled_turn_count": 1, "unknown_turn_count": 0, "candidate_speakers": ["Alexander Mercouris"], "solo_format": "single-label-continuous"}
 ---
-**Unknown**: # Merz Blocks Nord Stream Forever, Seeks EU Sanctions; Trump Slaps 50% Tariffs EU; Putin Orders Buffer
+**Alexander Mercouris**: # Merz Blocks Nord Stream Forever, Seeks EU Sanctions; Trump Slaps 50% Tariffs EU; Putin Orders Buffer
 
-**Unknown**: Good day. Today is Friday, 23rd May,
+Good day. Today is Friday, 23rd May,
 2025. And today we've had more news of
 further Russian advances in Ukraine.
 We've had admissions in interesting

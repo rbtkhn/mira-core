@@ -15,11 +15,11 @@ transcript_type: yt_dlp_caption_fetch
 source_note: Fetched from YouTube captions via the repo transcript pipeline and materialized into the canonical statecraft archive.
 quality_note: English caption fetch via repo YouTube transcript pipeline; adjacent duplicate caption lines removed, otherwise preserve transcript roughness.
 speaker_labeling: provisional
-speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-04-24/source-alexander-mercouris-eu-rages-backs-zelensky-no-to-kellogg-plan-wants-crimea-in-ukraine-kiev-in-nato-trump-dithers-2025-04-24.md", "source_sha256": "bcefec736b25543dc74454e8aaec8396e5d7c5ba5679f3efc9aa589d370b2a52", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 2, "labeled_turn_count": 0, "unknown_turn_count": 2, "candidate_speakers": ["Alexander Mercouris", "Mercouris"]}
+speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-04-24/source-alexander-mercouris-eu-rages-backs-zelensky-no-to-kellogg-plan-wants-crimea-in-ukraine-kiev-in-nato-trump-dithers-2025-04-24.md", "source_sha256": "bcefec736b25543dc74454e8aaec8396e5d7c5ba5679f3efc9aa589d370b2a52", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 1, "labeled_turn_count": 1, "unknown_turn_count": 0, "candidate_speakers": ["Alexander Mercouris"], "solo_format": "single-label-continuous"}
 ---
-**Unknown**: # EU Rages, Backs Zelensky, NO To Kellogg Plan, Wants Crimea In Ukraine, Kiev In NATO; Trump Dithers
+**Alexander Mercouris**: # EU Rages, Backs Zelensky, NO To Kellogg Plan, Wants Crimea In Ukraine, Kiev In NATO; Trump Dithers
 
-**Unknown**: Good day. Today is Thursday, 24th April,
+Good day. Today is Thursday, 24th April,
 2025. We are a day from the collapse of
 the negotiations, the discussions in
 London, where the collective West, the

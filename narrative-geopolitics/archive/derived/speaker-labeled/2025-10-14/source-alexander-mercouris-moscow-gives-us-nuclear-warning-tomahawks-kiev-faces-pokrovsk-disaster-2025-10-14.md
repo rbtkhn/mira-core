@@ -20,13 +20,13 @@ verification_reason: sourceChars=56430; bodyChars=56174; exactMatch=True after r
 evidence_grade: transcript-bearing
 source_note: Mechanically extracted from local Codex session log after operator pasted the YouTube transcript; removed the leading title wrapper and Transcripts label only; transcript internal date says Tuesday, 2025-10-14; not independently fetched from YouTube subtitles.
 speaker_labeling: provisional
-speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-10-14/source-alexander-mercouris-moscow-gives-us-nuclear-warning-tomahawks-kiev-faces-pokrovsk-disaster-2025-10-14.md", "source_sha256": "a76777802210a99931bc4fb037011262f2736a174de5b6ea036ed11c2eeba771", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 3, "labeled_turn_count": 0, "unknown_turn_count": 3, "candidate_speakers": ["Alexander Mercouris", "Mercouris"]}
+speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-10-14/source-alexander-mercouris-moscow-gives-us-nuclear-warning-tomahawks-kiev-faces-pokrovsk-disaster-2025-10-14.md", "source_sha256": "a76777802210a99931bc4fb037011262f2736a174de5b6ea036ed11c2eeba771", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 1, "labeled_turn_count": 1, "unknown_turn_count": 0, "candidate_speakers": ["Alexander Mercouris"], "solo_format": "single-label-continuous"}
 ---
-**Unknown**: # Moscow Gives US Nuclear Warning On Tomahawks Says Trump Unfit Mediator; Kiev Faces Pokrovsk Disaster
+**Alexander Mercouris**: # Moscow Gives US Nuclear Warning On Tomahawks Says Trump Unfit Mediator; Kiev Faces Pokrovsk Disaster
 
-**Unknown**: ## Transcript
+## Transcript
 
-**Unknown**: Transcripts:
+Transcripts:
 Good day. Today is Tuesday, 14th October, 2025. And let me again start this video by asking you to tick the like button. If once having watched or listened to the video, you've liked what you've heard or if you watch and listen to part of the video, if you still like what you've heard and have decided that you want to take the like button.
  Well, with that and thanks for doing that. By the way, um let me now proceed with the substance of this program. And well, if you follow the international news, most of the news is about President Trump being in the Middle East, talking about the end of the war, talking about Israel's complete victory, and emphasizing his own role in achieving that victory.
  Now, I have to say that all of these claims by President Trump seem to me to be very much premature. Um, first of all, I'm far from certain that we have seen peace in Gaza, let alone peace in the Middle East. Israeli troops are still present in Gaza. There's no word yet that they're actually moving forward with their full withdrawal.

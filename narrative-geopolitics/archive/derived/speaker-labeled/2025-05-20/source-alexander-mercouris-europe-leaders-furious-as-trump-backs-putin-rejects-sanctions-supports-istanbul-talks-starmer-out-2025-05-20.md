@@ -15,11 +15,11 @@ transcript_type: yt_dlp_caption_fetch
 source_note: Fetched from YouTube captions via the repo transcript pipeline and materialized into the canonical statecraft archive.
 quality_note: English caption fetch via repo YouTube transcript pipeline; adjacent duplicate caption lines removed, otherwise preserve transcript roughness.
 speaker_labeling: provisional
-speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-05-20/source-alexander-mercouris-europe-leaders-furious-as-trump-backs-putin-rejects-sanctions-supports-istanbul-talks-starmer-out-2025-05-20.md", "source_sha256": "262ab2d867de5fd83b32195e6ba898f85a2bcbc6d5990f6780c1f7a4dfbc4ab2", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 2, "labeled_turn_count": 0, "unknown_turn_count": 2, "candidate_speakers": ["Alexander Mercouris", "Mercouris"]}
+speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-05-20/source-alexander-mercouris-europe-leaders-furious-as-trump-backs-putin-rejects-sanctions-supports-istanbul-talks-starmer-out-2025-05-20.md", "source_sha256": "262ab2d867de5fd83b32195e6ba898f85a2bcbc6d5990f6780c1f7a4dfbc4ab2", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 1, "labeled_turn_count": 1, "unknown_turn_count": 0, "candidate_speakers": ["Alexander Mercouris"], "solo_format": "single-label-continuous"}
 ---
-**Unknown**: # Europe Leaders Furious As Trump Backs Putin, Rejects Sanctions, Supports Istanbul Talks; Starmer Out
+**Alexander Mercouris**: # Europe Leaders Furious As Trump Backs Putin, Rejects Sanctions, Supports Istanbul Talks; Starmer Out
 
-**Unknown**: Good day. Today is Tuesday 20th May
+Good day. Today is Tuesday 20th May
 2025 and obviously I am still in St.
 Petersburg that this will be my last
 night here and my last evening here.

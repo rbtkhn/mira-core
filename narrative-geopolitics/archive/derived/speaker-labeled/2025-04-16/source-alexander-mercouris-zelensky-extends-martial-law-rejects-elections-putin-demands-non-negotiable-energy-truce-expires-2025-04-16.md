@@ -15,11 +15,11 @@ transcript_type: yt_dlp_caption_fetch
 source_note: Fetched from YouTube captions via the repo transcript pipeline and materialized into the canonical statecraft archive.
 quality_note: English caption fetch via repo YouTube transcript pipeline; adjacent duplicate caption lines removed, otherwise preserve transcript roughness.
 speaker_labeling: provisional
-speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-04-16/source-alexander-mercouris-zelensky-extends-martial-law-rejects-elections-putin-demands-non-negotiable-energy-truce-expires-2025-04-16.md", "source_sha256": "74fb0125261e20a1a27b7b6733d9d12560fd202bbb40f28e8296b0a03ee879e2", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 2, "labeled_turn_count": 0, "unknown_turn_count": 2, "candidate_speakers": ["Alexander Mercouris", "Mercouris"]}
+speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-04-16/source-alexander-mercouris-zelensky-extends-martial-law-rejects-elections-putin-demands-non-negotiable-energy-truce-expires-2025-04-16.md", "source_sha256": "74fb0125261e20a1a27b7b6733d9d12560fd202bbb40f28e8296b0a03ee879e2", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 1, "labeled_turn_count": 1, "unknown_turn_count": 0, "candidate_speakers": ["Alexander Mercouris"], "solo_format": "single-label-continuous"}
 ---
-**Unknown**: # Zelensky Extends Martial Law, Rejects Elections; Putin Demands Non-Negotiable; Energy Truce Expires
+**Alexander Mercouris**: # Zelensky Extends Martial Law, Rejects Elections; Putin Demands Non-Negotiable; Energy Truce Expires
 
-**Unknown**: Good day. Today is Wednesday, 16th
+Good day. Today is Wednesday, 16th
 April,
 2025. And briefly on the top topic of
 the tariffs, there's now growing

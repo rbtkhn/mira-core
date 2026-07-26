@@ -15,11 +15,11 @@ transcript_type: yt_dlp_caption_fetch
 source_note: Fetched from YouTube captions via the repo transcript pipeline and materialized into the canonical statecraft archive.
 quality_note: English caption fetch via repo YouTube transcript pipeline; adjacent duplicate caption lines removed, otherwise preserve transcript roughness.
 speaker_labeling: provisional
-speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-04-22/source-alexander-mercouris-russia-says-kellogg-plan-totally-unacceptable-targets-odessa-drone-plant-us-won-t-talk-to-zelensky-2025-04-22.md", "source_sha256": "2437e4627d1560aa5a0208ae6fbe4a1f7b031182cbe8fd8a344cf573ad3d63a7", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 2, "labeled_turn_count": 0, "unknown_turn_count": 2, "candidate_speakers": ["Alexander Mercouris", "Mercouris"]}
+speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-04-22/source-alexander-mercouris-russia-says-kellogg-plan-totally-unacceptable-targets-odessa-drone-plant-us-won-t-talk-to-zelensky-2025-04-22.md", "source_sha256": "2437e4627d1560aa5a0208ae6fbe4a1f7b031182cbe8fd8a344cf573ad3d63a7", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 1, "labeled_turn_count": 1, "unknown_turn_count": 0, "candidate_speakers": ["Alexander Mercouris"], "solo_format": "single-label-continuous"}
 ---
-**Unknown**: # Russia Says Kellogg Plan Totally Unacceptable, Targets Odessa Drone Plant, US Won't Talk To Zelensky
+**Alexander Mercouris**: # Russia Says Kellogg Plan Totally Unacceptable, Targets Odessa Drone Plant, US Won't Talk To Zelensky
 
-**Unknown**: Good day. Today is 22nd April
+Good day. Today is 22nd April
 2025 and tomorrow um in London there
 will be apparently a meeting between the
 United States, the European countries

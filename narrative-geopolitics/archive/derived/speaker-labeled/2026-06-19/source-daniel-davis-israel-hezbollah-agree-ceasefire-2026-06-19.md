@@ -42,20 +42,20 @@ transcript_curation: curated_sectioned
 section_count: 10
 section_pass: 2026-07-09 semantic-section-v1
 speaker_labeling: provisional
-speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2026-06-19/source-daniel-davis-israel-hezbollah-agree-ceasefire-2026-06-19.md", "source_sha256": "91251d34a1d9009841976d75fd881885e9edae35c313db83d895bd8301acbb7e", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 23, "labeled_turn_count": 0, "unknown_turn_count": 23, "candidate_speakers": ["Daniel Davis", "Davis"]}
+speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2026-06-19/source-daniel-davis-israel-hezbollah-agree-ceasefire-2026-06-19.md", "source_sha256": "91251d34a1d9009841976d75fd881885e9edae35c313db83d895bd8301acbb7e", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 1, "labeled_turn_count": 1, "unknown_turn_count": 0, "candidate_speakers": ["Daniel Davis"], "solo_format": "single-label-continuous"}
 ---
-**Unknown**: # Israel & Hezbollah Agree to Ceasefire / Lt Col Daniel Davis
+**Daniel Davis**: # Israel & Hezbollah Agree to Ceasefire / Lt Col Daniel Davis
 
-**Unknown**: **Channel:** Daniel Davis Deep Dive  
+**Channel:** Daniel Davis Deep Dive  
 **Host:** Lt Col Daniel Davis  
 **Published:** 2026-06-19  
 **URL:** https://www.youtube.com/watch?v=9mGWb0tO13o
 
-**Unknown**: ## Transcript
+## Transcript
 
-**Unknown**: ### Show Open — Israel Iran Hezbollah
+### Show Open — Israel Iran Hezbollah
 
-**Unknown**: We have some breaking news. Just about an hour ago, it was announced that Israel and Hezbollah have agreed, sorry about have agreed to a ceasefire. US officials have officials concern concerned, but it's not supposed to take effect until 400 pm today. Uh, and I wasn't clear whether that was 4 p.m. Eastern time or 4 p.m. local time.
+We have some breaking news. Just about an hour ago, it was announced that Israel and Hezbollah have agreed, sorry about have agreed to a ceasefire. US officials have officials concern concerned, but it's not supposed to take effect until 400 pm today. Uh, and I wasn't clear whether that was 4 p.m. Eastern time or 4 p.m. local time.
  Uh but the the announcement came out that both Israel, this is a confirmed by an American source, both Israel and Hezbollah have agreed to start a ceasefire later today. Now that is very significant for a number of reasons because everything has been contingent uh for the US Iran war to come to an end on Lebanon on the Hezbollah situation coming to an end as well because the Iranian side said that their number one point was an end of war on all fronts not just on the on the Iran front but on all fronts and expressly including
 Lebanon. Now up to obviously just this morning there were still attacks in there. So the question is going to be and has been number one, can President Trump bring Netanyahu and Israel to heal to tell them to not do something that makes a lot of sense to them? And that has been there's so many headwinds against this and we're going to look at a number of them in today's show.
  U because now then folks the hard work begins. Okay, it was one thing to get up to an agreed settlement uh and a signature on this memorandum of understanding and let's be again very clear for everyone to understand that did not end the war. It merely initiated a 60-day ceasefire period so that negotiations to end the war can take place.
@@ -70,9 +70,9 @@ Now, that was interesting because that says 3 hours ago, but one hour ago, they 
 " Because Hezbollah has always been helping out Iran in the past. And now then they're saying, "Hey, um, we're going to make the is Iran is saying, we're going to make sure that the war stops against you. But there's also the hardliners. There's hardliners in Iran. There's hardliners in Israel. There's hardliners in America.
  And there's hardliners in Hezbollah. And there are those who seek and require or desire to go to diplomacy in each of those. That is why this is such a chaotic and super difficult situation to manage because as I've
 
-**Unknown**: ### Segment 2 — Iran Trump Ceasefire
+### Segment 2 — Iran Trump Ceasefire
 
-**Unknown**: say so many times here and now, it's literally playing out before our faces. Once you unleash war, very often it takes on a life of its own.
+say so many times here and now, it's literally playing out before our faces. Once you unleash war, very often it takes on a life of its own.
  And when you may think you have full control and you can start something, it's actually easy to start a war. It is damn hard to stop one. And here is why. Because you unleash all these forces, all these emotions, uh because everybody's been hit and each side always thinks that their the pain that they have gotten has been the one that's the un unjustified and it's wrong.
  And those guys over there are wrong. And literally every side is saying that against the other. And so you have how are you going to mullify all these people which are inongruous. you know, you can't come up with one deal that's going to make anybody happy, probably much less everybody happy. But now then, this is the problem here because everything seems to hinge on the Hezbollah Israel thing.
  And so great, we have a ceasefire as of the moment. We'll see if it actually kicks in later today. But then what that for Iran, what they have said is that Israel has to withdraw. Not just ceasefire, they have to stop the war and withdraw their troops. And believe me, they and I'm going to show you here in a minute where the Israeli defense minister Katz had something to say about that um about withdrawing from Lebanon.
@@ -87,9 +87,9 @@ we'll talk about the uh the straight of Hormuse control and the fees? And why di
  A lot of the excerpts have been released this morning. I haven't seen the full report yet, but I'm going to show you a number of things from that report that are kind of like, wait, what did he just say? So given what I just told you, given what President Trump just put out on Truth Social, uh here he is uh being asked by the reporter about the issue of his previous demand for unconditional surrender.
 >> Beginning of conflict, you had talked about you only wanted unconditional surrender and >> well theou doesn't look like unconditional surrender. >> Well, it really probably is unconditional surrender. >> It is. >> I think so. >> Wait, wait, wait. what it
 
-**Unknown**: ### Segment 3 — Iran Trump Strategic Petroleum Reserve
+### Segment 3 — Iran Trump Strategic Petroleum Reserve
 
-**Unknown**: it is unconditional surrender. Well, I think that it kind of is.
+it is unconditional surrender. Well, I think that it kind of is.
  This is I mean I I make a little bit of light of it, but really it's not because this shows you the mental state of President Trump. I mean, his true socials we just showed you there just hours ago where he is so sensitive about all the criticism that he's given and instead of acknowledging anything, he keeps saying over and over that none of it's true that and I just showed you five of the 14 points right off the top.
  And every one of them, friend, every one of them are a concession to Iran from the United States. this country that he kept claiming over and over was the most powerful military force in the on the planet in the history of the world could not bring them to to heal and now that is giving concessions to them to please reopen the straight of Hormuz so that the we don't go into as President Trump himself said into a depression.
 President Trump himself said in in Versailles, listen, we only had like four weeks of the strategic petroleum reserves left and we were going to have real problems. So he acknowledged and recognized at some eventually belatedly that there was real problems. But now when pressed on that, he just is his mental state of mind is incapable of acknowledging patent self-evident truth.
@@ -105,9 +105,9 @@ So we'll see what the Iranian side is going to say. What do we have here? Irania
  They didn't, you know, it didn't last very long. >> Okay, that on that last part there that this that's no truth to that whatsoever. Of course, all kinds of stuff got through this. This just like there was some of the uh Gulf GCC country stuff that got through because of our escort, not escort, but the guidance that we helped some a number of ships did get through just like that happened.
  a number of Iranian ships. Actually, some of them weren't even covert. They were overt. They ab just flat out sailed through with permission from the Iranian side. So, there's no truth to what President Trump said there. But does he believe it or is he lying?
 
-**Unknown**: ### Segment 4 — Israel Iran Hezbollah
+### Segment 4 — Israel Iran Hezbollah
 
-**Unknown**: I don't know. It's unclear.
+I don't know. It's unclear.
  But the the fact that he says there are no limits to my power and that that includes everything. That includes the exercise of the power, the application of the power, whether we're talking about any constitutional constraints. I've told you this myself. He's now validating what I've been telling you. He sees no constraints. He will He is an autocratic military leader.
 Let that sink in for a second. We love to talk. We're about to celebrate the 250th year of our country and we're using all kinds of terms like democracy and freedom and all this. And yet we have the situation right now illustrated before your very eyes that we no longer have the constitutional breaks and separation of powers.
  We don't have the checks and balances in the in the issue of war making. They do not exist there. The 1973 war powers act has been destroyed. It didn't get taken care of like it's supposed to legally through the court systems like it didn't go to the Supreme Court and they rendered a decision on it. the political leadership just decided I don't like that law so I'm not going to follow it and I will absolutely at my leisure do it whether it's the attack on Iran in 2025 the attack on Venezuela the the killing and and extrajudicial killing of people in a
@@ -122,9 +122,9 @@ it is from February the 28th when President Trump announced exactly why we were 
  Obviously you never brought them to heal either. And then there's Katib Hezbollah in Iran, I'm sorry, in Iraq which also was was mobilized and ready to take into action if the war went back into hot. So all of their allies are still viable. No matter how much we have harmed, no matter how much Israel in 2025, devastated and decimated the Hezbollah leadership, they just replaced them.
  But the organization itself remained intact and after it was harmed, it rebuilt. And now you see that they are in a death struggle with them. And of course, Hamas still to this day in the Palestinian areas in Gazin and the West Bank are still very much active and have not been destroyed. So
 
-**Unknown**: ### Segment 5 — Trump Irgc Israel
+### Segment 5 — Trump Irgc Israel
 
-**Unknown**: that's another limited power.
+that's another limited power.
  You wanted to do all that. You weren't able to. Um the uh the the missile program we said that we have to destroy all their missiles. That was one of the other things she said elsewhere in that speech that it has to destroy all the missiles. We showed you, I think it was just yesterday's show, uh, where over and over and over, President Trump said, "Yes, we're going to continue to, uh, to destroy their missiles.
  They can't have a missile program." The missile program is what was used, according to Secretary Warick's death, that's what was used to, um, to enable this and why we had to go to war. And now President Trump is going, "That's fine. Don't even worry about it." And then, of course, the last one he said there, he said the IRGC had to be completely destroyed.
  face certain death, he said. And yet hardly anyone in the IRGC was killed. Very small. A few high-reking officials. But the the IRGC, I I think just in even uh pre-war periods is like a half a million. How many of those are still there? Almost all of them. So when you hear President Trump say, "I see no limits to my power, whether in the exercise or the application of them," you have to say, "There is something wrong with this man.
@@ -140,9 +140,9 @@ Apparently he told him that. Well, he wasn't listened to obviously, but now then
 have a lot of combat power and especially in all these things which we've talked about a long time. You see, that's just not the case. Well, one of the things I mentioned at the outset of this that there's there's the issue with the the the war camp and the the Warhawk camp and the the diplomatic camp and all the different quarters of this.
  U the other issue is directly in between the United States and Israel and
 
-**Unknown**: ### Segment 6 — Netanyahu Israel Trump
+### Segment 6 — Netanyahu Israel Trump
 
-**Unknown**: whether or not they're going to okay they didn't a ceasefire today so that's fine as far as it goes but where is that going to head now? There are growing signs that the the shift that you have seen in American public opinion polls against the Israeli government, specifically uh Netanyahu, has been growing.
+whether or not they're going to okay they didn't a ceasefire today so that's fine as far as it goes but where is that going to head now? There are growing signs that the the shift that you have seen in American public opinion polls against the Israeli government, specifically uh Netanyahu, has been growing.
  And we know President Trump pays a lot of attention to polls. So now then we're starting to see a little bit more confident statements from the administration itself. And this is going to include both President Trump and Vice President Vance. And let's take a look here at what Vice President Vance says because he's taken a lot of this kind of personally and has been pretty bold at some of his retaliatory comments.
 >> Netanyahu is fuming. That's not reflective of the conversations that I've had with him, but maybe he's saying something to somebody else that he's not saying to me. What I will say, and this does bother me, is that you have seen people within BB's cabinet who have come out and attacked the deal and in some ways very personally attacked the president of the United States.
  And I guess my message to them would be twofold. Number one, Donald J. Trump is the only head of state in the entire world who is sympathetic to the nation of Israel at this moment in time. And he happens to be the head of state of the world's superpower. If I was in the cabinet of the Israeli government, I might not be attacking the only powerful ally that I have anywhere left in the entire world.
@@ -157,9 +157,9 @@ have a lot of combat power and especially in all these things which we've talked
  And he says, "No, maybe it will." Because he got drunk, President Trump did, on Venezuela. Well, it worked with Maduro. We went in there, had a big splashy made for television event, had great visuals, and we got the guy, we got the oil. So, all we got to do here is listen to Benjamin Netanyahu and say, "Because we have this intelligence, we can assassinate the key leader.
  We took out Maduro physically, but we can take him out by death here, and then we'll have the same outcome." He just didn't listen to anybody who actually knew what they were talking about, and then now here we are.
 
-**Unknown**: ### Segment 7 — Netanyahu Israel Trump
+### Segment 7 — Netanyahu Israel Trump
 
-**Unknown**: So now he's belatedly recognized his the limits of power. But the question is where are we going to go from here? Now will Iran because because the next big question is if this ceasefire doesn't hold and if it doesn't result in an end of war negotiation with between Israel and Hezbollah, what will President Trump do then? So okay, Netanyahu has said some stuff. I'm
+So now he's belatedly recognized his the limits of power. But the question is where are we going to go from here? Now will Iran because because the next big question is if this ceasefire doesn't hold and if it doesn't result in an end of war negotiation with between Israel and Hezbollah, what will President Trump do then? So okay, Netanyahu has said some stuff. I'm
 sorry. Vice President Vance has said some things about Netanyahu about the Israeli side. uh President Trump has and you're gonna see one more from him here in just a second. Uh but well actually no, let me let me just show you because it's kind of important here. Here's what President Trump says now about Israel and specifically Benjamin Netanyahu.
 >> If it weren't for Donald Trump and BB Netanyahu worked well with me, but he will tell you we're the ones with the guns. We're the ones with the whole deal. We're the ones with the B2 bombers, etc. If it weren't for Donald Trump, Israel would have been eviscerated. >> Your relationship with Netanyahu's >> It's good, but we have to keep him a little bit uh sane.
 >> Are you going to be able to control Israel from attacking Lebanon? >> Yeah, >> I will be. I mean, I wonder uh they have a lot of respect for me and they do as I say. >> Okay. We'll see. But again, you see the mentality here. I'm the boss. I call the shots and they're going to do as I say. Okay. Little evidence right now.
@@ -174,9 +174,9 @@ category there that he's gonna say we brought peace and tranquility to Gaza. Are
 is wrong with this guy he's got some serious problems and and the the same problem exists for Netanyahu here yesterday when he made that speech as it did back in October of 2023 when I first started warning that Benjamin Netanyahu is taking his country down a path of military defeat and laying deep deep seeds watered with blood of many people for future insecurity for his country way into the future.
  No matter how this is eventually resolved and at some point it will get resolved. All wars eventually end just out of exhaustion if nothing else. But the seeds of future instability are deep and they have been watered with much blood. And I guarantee you just because
 
-**Unknown**: ### Segment 8 — Israel Ceasefire Netanyahu
+### Segment 8 — Israel Ceasefire Netanyahu
 
-**Unknown**: of the last millennia or so of human history and especially in the Middle East, when when some power goes and just kills so many people and and and wipes out so much territory and pushes people back, they never never forget about it.
+of the last millennia or so of human history and especially in the Middle East, when when some power goes and just kills so many people and and and wipes out so much territory and pushes people back, they never never forget about it.
  They will they will continue to grit their teeth and grind their teeth and b their time while they're in a power of a position of military in imbalance against them. While they're in the inferior position militarily, they will b their time until the balances as they always do later on shift. And as soon as they have the capacity, they are going to seek out the revenge.
  Just imagine, I think the actual number is somewhere in the 70,000 Palestinian people who have been killed. A significant majority of that is women, children, and elderly. But according to I think it's the the Lancet in in Great Britain, they say that number is actually more likely in the hundreds of thousands dead.
  God only knows how many are wounded in there. Remember, the total population was 2.1 million at the beginning and they have all suffered egregiously. There can't I I doubt seriously that there's a family in Palestine areas that has not lost some loved ones. We know some entire family of clans have been wiped out.
@@ -192,9 +192,9 @@ States is going to come into fruition and the straight of Hormus is going to ope
  It's only adding more of those seeds soaked in blood for future insecurity. And even now, that is not going to stop anything. whether it's Kusha rockets or or other kinds of missiles that the Hezbollah is able to make or require from whatever sources, Iran or elsewhere, you they just back them up further. So, he's moved on this this period up there.
  They wanted to go to the Latani River. Uh they're not anywhere near that. They have moved it back a pretty substantial portion to to the point that 200,000 people have been pushed out. But, dude, seriously, just use common sense. If you push the line up here and you have killed everybody and driven them out of their homes,
 
-**Unknown**: ### Segment 9 — Israel Trump Iran
+### Segment 9 — Israel Trump Iran
 
-**Unknown**: you're going to have profound and extreme anger and hatred on their side against you.
+you're going to have profound and extreme anger and hatred on their side against you.
  And so now then you've shoved all those people, the ones that weren't killed, back into more overpop populated areas. And what do you think's going to happen there? They're going to just do the same thing. And there's the rockets which may have been fired from further south in the first time will simply be fired from a little bit further north. That's it.
  it won't change anything and for that they continue to deepen their own harm. Well, that's not very good. That's not very helpful. It's not very useful. Last thing I want to show you today uh is is if if all those are headwinds to make anything happened and I I mean we may even get past 0 point one before this thing because at some point let me just sorry before I get onto this last part here.
  At some point there is the very real possibility, if not probability, that Iran may return to fighting themselves against Israel. If Israel continues to do what the defense minister said there and if what uh Netanyahu said yesterday about we will not stop until our southern border is secured to our satisfaction which is it's incompatible with this memorandum of understanding.
@@ -209,9 +209,9 @@ is because I think that Keane here is starting to set the stage for uh an insurg
 would be able to successfully retaliate against the Gulf States oil and gas infrastructure. Military leaders discount that because they think we could adequately defend it and also take away their most of their offensive capability to do that. But nonetheless, that idea landed and I think the risk of opening the straits of Amuse, which we tried and was shut down at 36th hour.
  What happened there? The Arabs put pressure on the on the president saying, "One, we don't think it's going to succeed, and two, we fear they're going to come after the oil and gas infrastructure." They had
 
-**Unknown**: ### Closing — Trump Iran Hormuz
+### Closing — Trump Iran Hormuz
 
-**Unknown**: no idea what our military capability would be to open the straits and also what our military capability would be to adequately defend the oil and gas infrastructure and take away Iran's offensive capability.
+no idea what our military capability would be to open the straits and also what our military capability would be to adequately defend the oil and gas infrastructure and take away Iran's offensive capability.
 >> Wow. Are you kidding me? Here is Jack Keane saying that the Arabs don't understand our ability to open the straight and to protect them. How in God's name can you make that argument? We didn't defend them. We didn't even protect our own bases for God's sake. 20 of them were badly damaged. 20 of them, 13 of our people were killed. 400 were wounded.
  All of these GCC countries all suffered significant damage. Some to civilian targets, some to military targets, some to energy infrastructure, especially the pars gas field for Qatar. There's sub substantial damage that was done to that. We never stopped it. We couldn't protect them. And and Iran had clearly said if we went back to active war, they were going to hit these other very specific energy targets which we again could not fully protect.
  And as as as Moscow is learning here, you can shoot down like not even if you actually shoot down 90 something%. If they flood it with enough drones, you're going to get through and you're going to have some pretty spectacular hits. But there's no evidence that we're getting anywhere near 90 something%. It's much lower than that.

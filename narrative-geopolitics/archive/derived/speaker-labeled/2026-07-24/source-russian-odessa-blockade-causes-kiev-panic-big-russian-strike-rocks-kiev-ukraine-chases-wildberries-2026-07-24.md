@@ -34,15 +34,15 @@ transcript_curation: preserved_unsectioned
 section_count: 0
 section_pass: 2026-07-09 semantic-section-v1
 speaker_labeling: provisional
-speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2026-07-24/source-russian-odessa-blockade-causes-kiev-panic-big-russian-strike-rocks-kiev-ukraine-chases-wildberries-2026-07-24.md", "source_sha256": "edfcaacec6cceb311f35454f230421e521076357984179683f7ea37d48c8ba59", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 4, "labeled_turn_count": 0, "unknown_turn_count": 4, "candidate_speakers": ["Alexander Mercouris", "Mercouris"]}
+speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2026-07-24/source-russian-odessa-blockade-causes-kiev-panic-big-russian-strike-rocks-kiev-ukraine-chases-wildberries-2026-07-24.md", "source_sha256": "edfcaacec6cceb311f35454f230421e521076357984179683f7ea37d48c8ba59", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 1, "labeled_turn_count": 1, "unknown_turn_count": 0, "candidate_speakers": ["Alexander Mercouris"], "solo_format": "single-label-continuous"}
 ---
-**Unknown**: # Russian Odessa Blockade Causes Kiev Panic; Big Russian Strike Rocks Kiev; Ukraine Chases Wildberries
+**Alexander Mercouris**: # Russian Odessa Blockade Causes Kiev Panic; Big Russian Strike Rocks Kiev; Ukraine Chases Wildberries
 
-**Unknown**: ## Transcript
+## Transcript
 
-**Unknown**: Russian Odessa Blockade Causes Kiev Panic; Big Russian Strike Rocks Kiev; Ukraine Chases Wildberries - YouTube
+Russian Odessa Blockade Causes Kiev Panic; Big Russian Strike Rocks Kiev; Ukraine Chases Wildberries - YouTube
 
-**Unknown**: Good day. Today is Friday, 24th July 2026. And before I proceed with this program, let me take this opportunity first to thank everybody for their very kind and supportive words which they sent to me after I informed everyone of my um illness yesterday. Uh this is all highly appreciated both by myself and by my wife.
+Good day. Today is Friday, 24th July 2026. And before I proceed with this program, let me take this opportunity first to thank everybody for their very kind and supportive words which they sent to me after I informed everyone of my um illness yesterday. Uh this is all highly appreciated both by myself and by my wife.
  As you can all see today, I am indeed better. Anyway, let us with that proceed now to the substance of the video. And even as I am making this program at this moment in time, reports are pouring in of another big Russian missile and drone strike against Kiev. a missile and drone strike incidentally which is taking place in daytime with indications again that Ukrainian air defense is incapable of parrying the blow.
  Now I don't have a full picture yet of the extent of this Russian missile and drone strike on Kiev. There is word that is M missiles, ballistic missiles are again being used and that Ciron hypersonic missiles are being used as well. There's word that up to 10 iscand ballistic missiles have been used so far and four ciron missiles. But as we are apparently in the early hours of this strike, it is quite possible that more targets will be will be hit and more missiles will be used and we will learn more about it over the course of the day. Now, inevitably, some are
 linking this further Russian missile and drone strike on Kiev to a Ukrainian drone attack on Russia, which took place last night, which I will come back to shortly. But I will say straight away that I don't think so. There's been rumors that the Russians were preparing another big strike on Kiev circulating for several days.

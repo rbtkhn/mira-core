@@ -15,11 +15,11 @@ transcript_type: yt_dlp_caption_fetch
 source_note: Fetched from YouTube captions via the repo transcript pipeline and materialized into the canonical statecraft archive.
 quality_note: English caption fetch via repo YouTube transcript pipeline; adjacent duplicate caption lines removed, otherwise preserve transcript roughness.
 speaker_labeling: provisional
-speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-05-31/source-alexander-mercouris-moscow-kiev-loses-odessa-east-south-ukraine-if-istanbul-talks-fail-uk-eu-gloom-as-us-exits-war-2025-05-31.md", "source_sha256": "4f0ca5913cb8ce7a50078dbdb8bd48cdeafea4591758f57e3b649120f04142cb", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 2, "labeled_turn_count": 0, "unknown_turn_count": 2, "candidate_speakers": ["Alexander Mercouris", "Mercouris"]}
+speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-05-31/source-alexander-mercouris-moscow-kiev-loses-odessa-east-south-ukraine-if-istanbul-talks-fail-uk-eu-gloom-as-us-exits-war-2025-05-31.md", "source_sha256": "4f0ca5913cb8ce7a50078dbdb8bd48cdeafea4591758f57e3b649120f04142cb", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 1, "labeled_turn_count": 1, "unknown_turn_count": 0, "candidate_speakers": ["Alexander Mercouris"], "solo_format": "single-label-continuous"}
 ---
-**Unknown**: # Moscow: Kiev Loses Odessa East & South Ukraine If Istanbul Talks Fail; UK/EU Gloom As US Exits War
+**Alexander Mercouris**: # Moscow: Kiev Loses Odessa East & South Ukraine If Istanbul Talks Fail; UK/EU Gloom As US Exits War
 
-**Unknown**: Good day. Today is Saturday 31st May
+Good day. Today is Saturday 31st May
 2025 and we are two days away from the
 next meeting between the Russian and
 Ukrainian delegations at the Donald

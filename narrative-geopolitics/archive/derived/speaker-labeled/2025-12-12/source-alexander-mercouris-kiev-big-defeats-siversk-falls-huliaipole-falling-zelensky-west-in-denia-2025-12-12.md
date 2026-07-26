@@ -23,17 +23,17 @@ normalization_state: ai_assisted_proper_noun_cleanup
 editorial_note: AI-assisted source-clean (scaffold + ph-civ series + entity + thread tiers (mercouris, channel:alex-mercouris)); 76 substitutions; not human-verified verbatim; verify before quotation. Prior provenance: Operator-pasted transcript; ASR artifacts retained; not human-verified verbatim against audio. Routine Mercouris solo subscribe/platform close trimmed in place; SSOT body otherwise preserved.
 quality_note: ASR normalization pass 2026-06-22; ph-civ replacement SSOT.
 speaker_labeling: provisional
-speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-12-12/source-alexander-mercouris-kiev-big-defeats-siversk-falls-huliaipole-falling-zelensky-west-in-denia-2025-12-12.md", "source_sha256": "72d4964ddc1568800253029b9b312ee5b804d3337f48d6f43f14bb9816309739", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 4, "labeled_turn_count": 0, "unknown_turn_count": 4, "candidate_speakers": ["Alexander Mercouris", "Mercouris"]}
+speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-12-12/source-alexander-mercouris-kiev-big-defeats-siversk-falls-huliaipole-falling-zelensky-west-in-denia-2025-12-12.md", "source_sha256": "72d4964ddc1568800253029b9b312ee5b804d3337f48d6f43f14bb9816309739", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 1, "labeled_turn_count": 1, "unknown_turn_count": 0, "candidate_speakers": ["Alexander Mercouris"], "solo_format": "single-label-continuous"}
 ---
-**Unknown**: # Kiev Big Defeats; Siversk Falls Huliaipole Falling; Zelensky West In Denial; Moscow Donbass Is Ours
+**Alexander Mercouris**: # Kiev Big Defeats; Siversk Falls Huliaipole Falling; Zelensky West In Denial; Moscow Donbass Is Ours
 
-**Unknown**: **Show:** Alexander Mercouris · **Host:** Alexander Mercouris  
+**Show:** Alexander Mercouris · **Host:** Alexander Mercouris  
 **Date:** 2025-12-12 (spoken self-date in transcript) · **Ingest:** 2026-06-22  
 **URL:** https://www.youtube.com/watch?v=Wcrd8lVc7vw
 
-**Unknown**: ## Transcript
+## Transcript
 
-**Unknown**: Good day. Today is Friday 12th December 2025. And uh before proceeding with this video, let me again remind you if once you've watched the video or whichever part of the video you want to watch, you liked what you've heard, please remember to tick the like button. Well, the big news over the last 24 hours was the confirmation from General Gerasimov, the chief of the general staff of the Russian armed forces that the Russian military has captured the fortified town of Siversk.
+Good day. Today is Friday 12th December 2025. And uh before proceeding with this video, let me again remind you if once you've watched the video or whichever part of the video you want to watch, you liked what you've heard, please remember to tick the like button. Well, the big news over the last 24 hours was the confirmation from General Gerasimov, the chief of the general staff of the Russian armed forces that the Russian military has captured the fortified town of Siversk.
 Now, he did this in a report that he gave to Putin. It was in fact a conference, a v um a virtual conference. It was not clear where Gerasimov was talking from and other senior military officials also participated virtually in this conference. But this time there was no attempt to u deny or pretend or hide the fact that Putin himself was in Moscow.
 He participated in the conference from his office in the Kremlin and uh which was by the way Stalin's old office just saying and well um this time as I said what I strongly suspect was the fiction that he had visited that Putin had visited the headquarters of the Russian groups of forces on the front lines.
 Well, that was not preserved. it was put aside. I think that the last occasion when this as I said fiction was um um was um pushed during the last meeting televised meeting that Putin had with the military. Um it was so obvious that the entire meeting was taking place in a set that this time it was decided that it might just as well it would it would work just as well to make it obvious that Putin is in Moscow and working from his office working from within the Kremlin.

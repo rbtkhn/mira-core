@@ -18,11 +18,11 @@ channel_url: https://www.youtube.com/channel/UCwGpHa6rMLjSSCBlckm5khw
 caption_language: en-orig
 caption_kind: manual
 speaker_labeling: provisional
-speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2026-05-16/source-alexander-mercouris-zelensky-panics-says-russia-will-attack-kiev-decision-centres-slaviansk-2026-05-16.md", "source_sha256": "fcad8011de61e467c2b4fc4071ad451d680285289974492818fdd8d2f3132864", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 2, "labeled_turn_count": 0, "unknown_turn_count": 2, "candidate_speakers": ["Alexander Mercouris", "Mercouris"]}
+speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2026-05-16/source-alexander-mercouris-zelensky-panics-says-russia-will-attack-kiev-decision-centres-slaviansk-2026-05-16.md", "source_sha256": "fcad8011de61e467c2b4fc4071ad451d680285289974492818fdd8d2f3132864", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 1, "labeled_turn_count": 1, "unknown_turn_count": 0, "candidate_speakers": ["Alexander Mercouris"], "solo_format": "single-label-continuous"}
 ---
-**Unknown**: # Zelensky Panics Says Russia Will Attack Kiev Decision Centres; Slaviansk Defence Collapse; Bond Rout
+**Alexander Mercouris**: # Zelensky Panics Says Russia Will Attack Kiev Decision Centres; Slaviansk Defence Collapse; Bond Rout
 
-**Unknown**: Kind: captions
+Kind: captions
 Language: en
 Good day. Today is Saturday 16th May
 2026.

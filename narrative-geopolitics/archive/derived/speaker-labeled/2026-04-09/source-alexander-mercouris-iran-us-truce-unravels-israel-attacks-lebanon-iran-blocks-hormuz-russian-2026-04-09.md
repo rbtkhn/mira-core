@@ -15,17 +15,17 @@ transcript_type: operator_pasted_transcript
 editorial_note: Direct YouTube watch URL already on disk; full transcript body supplied by operator in Codex chat and materialized in place.
 status: in-review
 speaker_labeling: provisional
-speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2026-04-09/source-alexander-mercouris-iran-us-truce-unravels-israel-attacks-lebanon-iran-blocks-hormuz-russian-2026-04-09.md", "source_sha256": "7b96d44ea18666a3824ffb521aed9174e706abc678c2534ffab6936cf08a86d3", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 4, "labeled_turn_count": 0, "unknown_turn_count": 4, "candidate_speakers": ["Alexander Mercouris", "Mercouris"]}
+speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2026-04-09/source-alexander-mercouris-iran-us-truce-unravels-israel-attacks-lebanon-iran-blocks-hormuz-russian-2026-04-09.md", "source_sha256": "7b96d44ea18666a3824ffb521aed9174e706abc678c2534ffab6936cf08a86d3", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 1, "labeled_turn_count": 1, "unknown_turn_count": 0, "candidate_speakers": ["Alexander Mercouris"], "solo_format": "single-label-continuous"}
 ---
-**Unknown**: # Iran US Truce Unravels; Israel Attacks Lebanon; Iran Blocks Hormuz; Russian Fleet Defies Panics UK
+**Alexander Mercouris**: # Iran US Truce Unravels; Israel Attacks Lebanon; Iran Blocks Hormuz; Russian Fleet Defies Panics UK
 
-**Unknown**: Channel: Alexander Mercouris
+Channel: Alexander Mercouris
 Published: 2026-04-09
 Source: [https://www.youtube.com/watch?v=V93i8GOIi-U](https://www.youtube.com/watch?v=V93i8GOIi-U)
 
-**Unknown**: ## Transcript
+## Transcript
 
-**Unknown**: Good day. Today is Thursday, 9th April 2026, and before I proceed with this program, let me remind you again to tick the like button and check your subscription to this channel. If once you've listened to this channel, you decide that you to this program, you decide that you like what you've heard and you wish to indicate that fact.
+Good day. Today is Thursday, 9th April 2026, and before I proceed with this program, let me remind you again to tick the like button and check your subscription to this channel. If once you've listened to this channel, you decide that you to this program, you decide that you like what you've heard and you wish to indicate that fact.
 Now, yesterday in my program, I discussed at some length the both the way the war began, the various meetings that took place in February between President Trump and Prime Minister Netanyahu and the subsequent discussions as discussed in a very interesting article in the New York Times. And also the ceasefire that emerged late on Tuesday of this week, the two-week ceasefire between the United agreed between the United States and Iran.
 The ceasefire, which suppo- which was uh mediated and basically arranged by Pakistan. And which was also arranged without any actual meetings or direct contacts between the Iranians and the Americans. Now, since I made that program yesterday, we've had some more information about some of the negotiations which led to the ceasefire to the ceasefire announcement.
 And I speculated in my program yesterday that China and Russia probably did play a role and I gave greater emphasis to China. And well, I was very interested to see that a short time later in the US media, I believe it was the New York Times, but also in Reuters, confirmation was received from Iranian officials that they did indeed come under a certain amount of pressure from China on Tuesday to agree to the ceasefire proposal, which was being made to them by the Pakistanis.

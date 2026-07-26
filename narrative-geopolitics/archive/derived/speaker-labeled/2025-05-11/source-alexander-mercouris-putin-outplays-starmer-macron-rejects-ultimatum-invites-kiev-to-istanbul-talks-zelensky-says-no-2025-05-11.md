@@ -15,11 +15,11 @@ transcript_type: yt_dlp_caption_fetch
 source_note: Fetched from YouTube captions via the repo transcript pipeline and materialized into the canonical statecraft archive.
 quality_note: English caption fetch via repo YouTube transcript pipeline; adjacent duplicate caption lines removed, otherwise preserve transcript roughness.
 speaker_labeling: provisional
-speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-05-11/source-alexander-mercouris-putin-outplays-starmer-macron-rejects-ultimatum-invites-kiev-to-istanbul-talks-zelensky-says-no-2025-05-11.md", "source_sha256": "870ec04433f532e0f7d2bd573d6f4c727129afc3401dd406e473960eb294dcb2", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 2, "labeled_turn_count": 0, "unknown_turn_count": 2, "candidate_speakers": ["Alexander Mercouris", "Mercouris"]}
+speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-05-11/source-alexander-mercouris-putin-outplays-starmer-macron-rejects-ultimatum-invites-kiev-to-istanbul-talks-zelensky-says-no-2025-05-11.md", "source_sha256": "870ec04433f532e0f7d2bd573d6f4c727129afc3401dd406e473960eb294dcb2", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 1, "labeled_turn_count": 1, "unknown_turn_count": 0, "candidate_speakers": ["Alexander Mercouris"], "solo_format": "single-label-continuous"}
 ---
-**Unknown**: # Putin Outplays Starmer/Macron, Rejects Ultimatum, Invites Kiev To Istanbul Talks; Zelensky Says NO
+**Alexander Mercouris**: # Putin Outplays Starmer/Macron, Rejects Ultimatum, Invites Kiev To Istanbul Talks; Zelensky Says NO
 
-**Unknown**: Good day. Today is a Sunday, 11th May
+Good day. Today is a Sunday, 11th May
 2025. And um yesterday was an extremely
 consequential day in terms of the
 evolution of the Ukraine crisis.

@@ -15,11 +15,11 @@ transcript_type: yt_dlp_caption_fetch
 source_note: Fetched from YouTube captions via the repo transcript pipeline and materialized into the canonical statecraft archive.
 quality_note: English caption fetch via repo YouTube transcript pipeline; adjacent duplicate caption lines removed, otherwise preserve transcript roughness.
 speaker_labeling: provisional
-speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-05-04/source-alexander-mercouris-putin-calm-world-leaders-defiant-as-zelensky-threatens-moscow-parade-russia-s-2-new-armies-prepare-2025-05-04.md", "source_sha256": "0d1de49d4b1dcbbed75f78323f83243bfb1a61518aabd8869927e9ec466ed1f8", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 2, "labeled_turn_count": 0, "unknown_turn_count": 2, "candidate_speakers": ["Alexander Mercouris", "Mercouris"]}
+speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-05-04/source-alexander-mercouris-putin-calm-world-leaders-defiant-as-zelensky-threatens-moscow-parade-russia-s-2-new-armies-prepare-2025-05-04.md", "source_sha256": "0d1de49d4b1dcbbed75f78323f83243bfb1a61518aabd8869927e9ec466ed1f8", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 1, "labeled_turn_count": 1, "unknown_turn_count": 0, "candidate_speakers": ["Alexander Mercouris"], "solo_format": "single-label-continuous"}
 ---
-**Unknown**: # Putin Calm World Leaders Defiant As Zelensky Threatens Moscow Parade; Russia's 2 New Armies Prepare
+**Alexander Mercouris**: # Putin Calm World Leaders Defiant As Zelensky Threatens Moscow Parade; Russia's 2 New Armies Prepare
 
-**Unknown**: Good day. Today is Sunday 4th May
+Good day. Today is Sunday 4th May
 2025 and in Britain we still have the
 echo effects from the electoral shock
 that um Britain experienced on Thursday

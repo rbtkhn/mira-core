@@ -20,13 +20,13 @@ verification_reason: sourceChars=55340; bodyChars=55088; exactMatch=True after r
 evidence_grade: transcript-bearing
 source_note: Mechanically extracted from local Codex session log after operator pasted the YouTube transcript; removed the leading title wrapper and Transcripts label only; transcript internal date says 2025-10-19; not independently fetched from YouTube subtitles.
 speaker_labeling: provisional
-speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-10-19/source-alexander-mercouris-kiev-military-crisis-badly-worsens-big-russian-gains-pokrovsk-kherson-2025-10-19.md", "source_sha256": "25b649a2c9e63563eff57ad88fbba3517e22d9120b24f1b06c3ed9e3c840e333", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 3, "labeled_turn_count": 0, "unknown_turn_count": 3, "candidate_speakers": ["Alexander Mercouris", "Mercouris"]}
+speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-10-19/source-alexander-mercouris-kiev-military-crisis-badly-worsens-big-russian-gains-pokrovsk-kherson-2025-10-19.md", "source_sha256": "25b649a2c9e63563eff57ad88fbba3517e22d9120b24f1b06c3ed9e3c840e333", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 1, "labeled_turn_count": 1, "unknown_turn_count": 0, "candidate_speakers": ["Alexander Mercouris"], "solo_format": "single-label-continuous"}
 ---
-**Unknown**: # Kiev Military Crisis Badly Worsens; Big Russian Gains Pokrovsk Kherson Zelensky In Denial No Retreat
+**Alexander Mercouris**: # Kiev Military Crisis Badly Worsens; Big Russian Gains Pokrovsk Kherson Zelensky In Denial No Retreat
 
-**Unknown**: ## Transcript
+## Transcript
 
-**Unknown**: Transcripts:
+Transcripts:
 Good day. Today is 19th October 2025 and as usual, let me remind you before I start with the rest of the program, let me remind you to take the like button if once you've listened or watched the program or whatever part of the program you want to listen or watch, you've liked what you've heard and you want to indicate that fact, please do so by ticking the like button.
 Now, let's proceed with the substance of this program and I'm going to say that I'm going to start with the military situation in Ukraine because we are now getting rather dramatic news from the various battle fronts. Dramatic news which if fully confirmed, which I expect it will be by the way, will have undoubtedly a significant bearing on the diplomacy that may be may be about to take place when Putin and Trump meet in Budapest in a few weeks' time.
 So, the news relates to events on three battle fronts. The Kherson battle front, the Zaporizhzhia battle front and Pokrovsk. There's been some interesting and important possible developments in other places, too. Lyman specifically and Kupiansk, but let me first begin with those three places that I've just mentioned.

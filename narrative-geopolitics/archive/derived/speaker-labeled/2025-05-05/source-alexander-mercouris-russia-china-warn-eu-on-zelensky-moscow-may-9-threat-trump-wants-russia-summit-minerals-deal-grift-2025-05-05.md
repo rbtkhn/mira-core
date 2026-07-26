@@ -15,11 +15,11 @@ transcript_type: yt_dlp_caption_fetch
 source_note: Fetched from YouTube captions via the repo transcript pipeline and materialized into the canonical statecraft archive.
 quality_note: English caption fetch via repo YouTube transcript pipeline; adjacent duplicate caption lines removed, otherwise preserve transcript roughness.
 speaker_labeling: provisional
-speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-05-05/source-alexander-mercouris-russia-china-warn-eu-on-zelensky-moscow-may-9-threat-trump-wants-russia-summit-minerals-deal-grift-2025-05-05.md", "source_sha256": "cd6982c8802b834d7d782ded4cb5a424c363f3de39aed91ea5b8f959e44dc0a0", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 2, "labeled_turn_count": 0, "unknown_turn_count": 2, "candidate_speakers": ["Alexander Mercouris", "Mercouris"]}
+speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-05-05/source-alexander-mercouris-russia-china-warn-eu-on-zelensky-moscow-may-9-threat-trump-wants-russia-summit-minerals-deal-grift-2025-05-05.md", "source_sha256": "cd6982c8802b834d7d782ded4cb5a424c363f3de39aed91ea5b8f959e44dc0a0", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 1, "labeled_turn_count": 1, "unknown_turn_count": 0, "candidate_speakers": ["Alexander Mercouris"], "solo_format": "single-label-continuous"}
 ---
-**Unknown**: # Russia China Warn EU On Zelensky Moscow MAY 9 Threat. Trump Wants Russia Summit; Minerals Deal Grift
+**Alexander Mercouris**: # Russia China Warn EU On Zelensky Moscow MAY 9 Threat. Trump Wants Russia Summit; Minerals Deal Grift
 
-**Unknown**: Good day. Today is Monday, 5th May
+Good day. Today is Monday, 5th May
 2025. And before I get into the
 Ukrainian discussions, the Ukrainian
 part of this video, I think it might be

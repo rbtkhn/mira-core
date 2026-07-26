@@ -36,25 +36,25 @@ transcript_curation: curated_sectioned
 section_count: 9
 section_pass: 2026-07-09 semantic-section-v1
 speaker_labeling: provisional
-speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2026-06-23/source-alexander-mercouris-putin-warns-russian-army-war-with-west-coming-russia-leads-west-in-arms-output-us-iran-talks-stuck-2026-06-23.md", "source_sha256": "f1142321de7eceb8b0251458202d23858acf32dde5afa9ec3bc168117e2f58c0", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 21, "labeled_turn_count": 0, "unknown_turn_count": 21, "candidate_speakers": ["Alexander Mercouris", "Mercouris"]}
+speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2026-06-23/source-alexander-mercouris-putin-warns-russian-army-war-with-west-coming-russia-leads-west-in-arms-output-us-iran-talks-stuck-2026-06-23.md", "source_sha256": "f1142321de7eceb8b0251458202d23858acf32dde5afa9ec3bc168117e2f58c0", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 1, "labeled_turn_count": 1, "unknown_turn_count": 0, "candidate_speakers": ["Alexander Mercouris"], "solo_format": "single-label-continuous"}
 ---
-**Unknown**: # Putin Warns Russian Army War With West Coming; Russia Leads West In Arms Output; US Iran Talks Stuck
+**Alexander Mercouris**: # Putin Warns Russian Army War With West Coming; Russia Leads West In Arms Output; US Iran Talks Stuck
 
-**Unknown**: **Show:** Alexander Mercouris  
+**Show:** Alexander Mercouris  
 **Host:** Alexander Mercouris  
 **Date:** Tuesday, 23 June 2026  
 **URL:** https://www.youtube.com/watch?v=XMKCnPsESMQ
 
-**Unknown**: ## Transcript
+## Transcript
 
-**Unknown**: ### Show Open — Place Meeting
+### Show Open — Place Meeting
 
-**Unknown**: Good day. Today is Tuesday, 23rd June, 2026. And before I proceed with this program, let me remind you again to take the like button and to check your subscription to this channel. Now, the most interesting thing, in my opinion, to have taken place over the last 24 hours is a meeting, another meeting which took place in the Kremlin today.
+Good day. Today is Tuesday, 23rd June, 2026. And before I proceed with this program, let me remind you again to take the like button and to check your subscription to this channel. Now, the most interesting thing, in my opinion, to have taken place over the last 24 hours is a meeting, another meeting which took place in the Kremlin today.
  And this was a
 
-**Unknown**: ### Segment 2 — Russia Ukraine Meeting
+### Segment 2 — Russia Ukraine Meeting
 
-**Unknown**: meeting between Putin and military cadets. And unlike other meetings that also happened in the Kremlin, this one was public and Putin made an important public address over the course of it. Again, the lack of interest in these meetings that we now see in the West is extraordinary. Now, way back in the autumn of 2021, before the special military operation began, I mentioned I discussed on a program, in a program on this channel, a meeting that Putin had with his top generals.
+meeting between Putin and military cadets. And unlike other meetings that also happened in the Kremlin, this one was public and Putin made an important public address over the course of it. Again, the lack of interest in these meetings that we now see in the West is extraordinary. Now, way back in the autumn of 2021, before the special military operation began, I mentioned I discussed on a program, in a program on this channel, a meeting that Putin had with his top generals.
 And I said that the meeting seemed to me both to resemble and appear to be designed to resemble a famous meeting that took place between Stalin and the senior officers of the Soviet military in the weeks preceding the Second World War. And in that meeting, Stalin basically told the military that war was coming and that they were going to be tested and tested tremendously as a result of that war.
 And it seemed to me that at this meeting that took place in the autumn of 2021, something very similar took place. Putin again spoke to the Russian military then, and also it seemed to me was basically telling them that war was coming. And sure enough, soon after war came, and war took the form of the special military operation, which is now taking place in Ukraine.
 Now, Stalin's meeting in um 20 1941 was a meeting with military cadets. And in fact, meetings between the Russian leadership and military cadets regularly take place um at this time of year. This is after all the commemoration we've just passed the anniversary of the German attack on the Soviet Union on the 22nd of June, 1941.
@@ -63,14 +63,14 @@ And the Kremlin has now provided us with a transcript of Putin's words. and well
 I'm confident that you will be worthy of the high rank of Russian officer and will do everything in your power to enhance enhance the glorious traditions of the armed forces. And [snorts] that was basically pretty much all that he said about the special military operation itself. But notice that he talks about the liberation of historic Russian lands and though he doesn't say what those are um you could argue that they don't just extend to Donbas.
 They could arguably extend to Zaporozhye and Kherson regions as well and probably by this point in the conflict do. But you could go much further and you could say based on history that they extend and include the entire Black Sea coast of Ukraine including of course Odessa but also all of Eastern Ukraine Ukraine east of the Dnieper River including such cities as Kharkiv, Sumy, Chernihiv, Poltava, Pavlohrad and others.
 
-**Unknown**: ### Segment 3 — Russia Ukraine Europe
+### Segment 3 — Russia Ukraine Europe
 
-**Unknown**: All this territory used to be referred to as Left Bank Ukraine and already by the mid-17th century it was considered Russian. And many Russians consider it fundamentally Russian to this day. Anyway, I don't want to put too much stress on this because of course Putin did not set out the boundaries. Um unlikely he would do so in a speech of this kind.
+All this territory used to be referred to as Left Bank Ukraine and already by the mid-17th century it was considered Russian. And many Russians consider it fundamentally Russian to this day. Anyway, I don't want to put too much stress on this because of course Putin did not set out the boundaries. Um unlikely he would do so in a speech of this kind.
 He left that question open. But as I said, the main part of this speech the most important part of this speech was not about the special military operation itself. Instead, he talked about the threat to Russia from Europe. And this is what he said. We see that while NATO countries previously limited themselves to supporting the Kiev Kiev regime, which came to power illegally through armed means, through a coup d'état, now the West is openly saying that they are
 
-**Unknown**: ### Segment 4 — Russia Europe Ukraine
+### Segment 4 — Russia Europe Ukraine
 
-**Unknown**: preparing for war with us and are increasing their military and offensive
+preparing for war with us and are increasing their military and offensive
 budgets. In order to justify such expenditures and the radical militarization of their societies, the leaders of the NATO countries and of the European Union, and notice that he is now linking the two together, as before, use false statements about an alleged Russian military threat. And then he delves a little into history, which given that he's Vladimir Putin, he always does.
  He says that the so-called pseudo-democratic West's modus operandi is very simple. First, create threats to our country, force us to take necessary actions for our self-defense, then accuse us of every mortal sin to justify continuing their aggressive policies, their aggressive actions against Russia. We are well aware of all this, familiar with it.
 And then he talks about he provides previous examples from history, and he talks about the start of the Second World War, which bear in mind that as these words were said on the anniversary of the German attack is unsurprising. And then he continued, "Let me emphasize that Russia consistently advocates for equal and indivisible security for all.
@@ -85,9 +85,9 @@ So, there it is. Now, given this attitude by the Russians, by Putin himself, I a
 And we had the statement from Ushakov that I discussed a few days ago, in which Ushakov said that the Russians are no longer waiting for the United States to fulfill the Anchorage agreements. What the Russians are now waiting for is for their army to achieve military victory in the battlefields in Ukraine. And again, and I cannot believe that these various statements from senior senior Russian officials are uncoordinated.
 We've also had a further statement from the Russian Foreign Minister >> [snorts] >> Sergey
 
-**Unknown**: ### Segment 5 — Russia Europe Ukraine
+### Segment 5 — Russia Europe Ukraine
 
-**Unknown**: Lavrov, in which he has said that all the diplomatic initiatives to end the war by the West, the the war in Ukraine, have failed, and that it is impossible to imagine that they can succeed because the West's pose, or at least the US's pose, he didn't say that the US, he said the West.
+Lavrov, in which he has said that all the diplomatic initiatives to end the war by the West, the the war in Ukraine, have failed, and that it is impossible to imagine that they can succeed because the West's pose, or at least the US's pose, he didn't say that the US, he said the West.
  The West's pose as a mediator, a potential mediator in the conflict has been completely discredited. Now, bear in mind that all of this is taking place a few days after Vladimir Putin met with the Russian Security Council in the Kremlin, received a long report, apparently it was a very long report, from Sergey Lavrov. We were told by the Russians that it was a foreign policy matter that was under discussion.
 But the Russians told us nothing else. But we are, it seems to me, now increasingly seeing signs of what clearly was discussed over this the course of this meeting. And we've give been given indications of what the policy decisions were which were made at this meeting probably were. That there is at the very least a real possibility of war with the West and that the Russians must prepare for that war and that the conflict in Ukraine is, in a sense and a part of that war.
 And if not perhaps a part of that war that the s- conflict has expanded to become that war. So that it is no longer a conflict between Russia and Ukraine but a conflict between the West and Russia. So, there is it. Now, I don't know that anybody in the West is aware of this meeting in Moscow or indeed of any of the various meetings in Moscow.
@@ -95,9 +95,9 @@ Um very very occasionally the odd newspaper in the West makes mention of some of
 Putin again over these comments that he made in the Kremlin to the military cadets carefully pointed out that the Russians have no aggressive plans against Europe, against the European members of NATO or of the European Union. The paradox is that even though much of the belligerent and angry talk about a future war is indeed coming from Europe even as European countries work overtime or at least pretend to work overtime to persuade persuade the Ukrainians to conduct deep missile strikes in some Russia inside Russia. We had the attack
 on the electronics factory in Voronezh by the
 
-**Unknown**: ### Segment 6 — Russia Europe Ukraine
+### Segment 6 — Russia Europe Ukraine
 
-**Unknown**: Storm Shadow missile if that was indeed what it was, which I am prepared to believe that it was. Um we have had the drone attacks across Russia, which of course the West has made little secret it is playing a role in. We have had the work in designing and manufacturing supposedly cheap missiles for Ukraine to use in strikes against Russia.
+Storm Shadow missile if that was indeed what it was, which I am prepared to believe that it was. Um we have had the drone attacks across Russia, which of course the West has made little secret it is playing a role in. We have had the work in designing and manufacturing supposedly cheap missiles for Ukraine to use in strikes against Russia.
 Whole article in the Daily Telegraph discussing how these missiles, which will be produced at the rate of about 20 a month, um the Russians, by the way, routinely launch around 20 missiles, long-range missiles, against Ukraine every day. But anyway, we'll come to that in a moment. Um the British talking about supplying, designing, and preparing these missiles for the Ukrainians and according to the Daily Telegraph using these missiles to strike Moscow itself.
 Even whilst we have all of these objectively very aggressive plans and statements from the Europeans, including a remarkably forceful set of statements from the head of the new German army, who statements which I personally found so forceful as again to point towards a future war. And the Russians, by the way, have commented extensively about those statements and have taken note of them.
 Even whilst, as I said, the Europeans talk about preparing for a war against Russia in 2028, 2029, 2030, sometime around then. It's actually the Russians who are preparing for it. It is the Russians who are building missiles, building tanks, 250 new T-90M tanks a year, apparently, with word that the production might be ramped up further, um who are busy developing and testing new types of drones, who've developed hypersonic missiles like the Avangard and other members of that family, who have an active production
@@ -120,9 +120,9 @@ be produced the idea that you can produce huge amounts of weapons when your indu
 If you want to author a comprehensive geopolitical disaster, far worse than the one we have seen in the Gulf or in Ukraine, then the leaders of Europe are going about it in exactly the right way. And of course they're doing this in a world of nuclear weapons against the world's biggest nuclear power, not just the biggest nuclear power, but Russia has carried out a comprehensive modernization of its nuclear strategic arsenals.
  So, it may also be the world's most advanced nuclear power. We are doing all of this in this reckless, careless, ill-thought-out way, in ways which could of course doom Europe and have very grave repercussions for the whole of humanity. Well, anyway, I'm not going to discuss this more in this program. Putin said what he said.
 
-**Unknown**: ### Segment 7 — Russia Economy Iran
+### Segment 7 — Russia Economy Iran
 
-**Unknown**: The Russian Security Council has met and has made the decisions it has made. Everybody can judge for themselves and can see where all this is now going. So, this was this meeting in the Kremlin with Putin discussing them talking to the military cadets discussing these issues. To my mind this is the most important event of the last 24 hours.
+The Russian Security Council has met and has made the decisions it has made. Everybody can judge for themselves and can see where all this is now going. So, this was this meeting in the Kremlin with Putin discussing them talking to the military cadets discussing these issues. To my mind this is the most important event of the last 24 hours.
 Anyway, for the rest, the war goes on and the Ukrainians continue to hammer away at Crimea. They seem to have slackened off somewhat in their strikes against Russia itself. Though I saw some claims that another missile was used against another target in Russia. But as of the time of making this program, I have no details and the Russian media that I've consulted has not reported about it.
  But anyway, they've been hitting Crimea which they have done regularly at various different times in the war and they've published suggestive pictures again of the Crimean Bridge which may mean that we might have a further attack on it at some point over the next few days. The photos they've produced by the way of the Crimean Bridge are now a year old.
 So I am not entirely sure about the relevance of these pictures. But none of the things the Ukrainians are doing affects the overall realities of the war itself. Where of course, as I've discussed in many places the Russians continue to advance. Now, there's been some more information about the situation in Kostyantynivka over the last 24 hours.
@@ -164,17 +164,17 @@ Based on my own observations whilst I was there. I am absolutely sure that he is
 There was no shaking of hands or anything of that kind. And already I'm starting to see disagreements between the parties as to what if anything was agreed. So, Vance said, as I discussed in my program yesterday, that the Iranians had agreed to allow the IAEA inspectors to come back into Iran to inspect the nuclear sites.
 The Iranians then said they didn't know what Vance was talking about. They'd agreed to no such thing. Um there's been other arguments about other things about sanctions relief, whether the United States is indeed going to unfreeze any Iranian assets or not. It seems not, at least not for the moment. Um if you look at things overall, it looks rather as if
 
-**Unknown**: ### Segment 8 — Hormuz Iran Israel
+### Segment 8 — Hormuz Iran Israel
 
-**Unknown**: nothing was agreed substantively about anything.
+nothing was agreed substantively about anything.
  Indeed, I've even seen a report that there are now contradictory advice in the Financial Times that the Americans and the Iranians are giving contradictory instructions to tanker captains in the Persian Gulf and to ship owners as to which path through the Strait of Hormuz they should follow and that there is considerable bewilderment and anxiety on the part of the ship owners as a result of all of this.
 And in summary I'm not even certain at the moment whether the Strait of Hormuz is in fact open or not. I'm starting to think that in some respects perhaps not. Perhaps things are not that very diff- not that different from what they were before the memorandum of understanding was signed. Which ships were going through the Strait of Hormuz at that time.
 Uh mostly they were ships carrying oil for China and India. Some of that oil was Iranian. Some of that oil was provided by other Persian Gulf states. There was this extraordinary report that appeared a few a little while back which actually suggested that the Americans were actually on behalf of the ship owners paying the Iranians the $2 fee to allow the ships to pass through the Strait of Hormuz.
 Might it be that the reality of what is actually happening on the Strait of Hormuz is not that changed from what it what it was say two or three weeks ago? I am not there. I don't know. And in the meantime Israel continues to say that there is absolutely no possibility of Israel withdrawing from Lebanon. That they're there to stay and that they will keep fighting Hezbollah and
 
-**Unknown**: ### Segment 9 — Israel Russia Iran
+### Segment 9 — Israel Russia Iran
 
-**Unknown**: Hezbollah for its part is insisting that it will go on fighting the Israelis in South South Lebanon until every Is- Israeli soldier has left.
+Hezbollah for its part is insisting that it will go on fighting the Israelis in South South Lebanon until every Is- Israeli soldier has left.
 You could say and I think it would not be unreasonable to say that in fact the situation is stark. That the negotiations which are supposed to last just 60 days have now been underway for a week and that no real progress or in fact no progress at all on any issue has been made. I am not sure that this is indeed the case.
 I suspect that there's at least been some agreement on some questions. And I still don't think that either side is anxious for the moment to rush into a war a renewal of the war. But I read recently a long analysis of the situation in the Persian Gulf which has appeared on the in the Russian media and it makes essentially the same points that I have done which is the the MOU, the memorandum of understanding was signed by the United States under compulsion that the United States is using the opportunity to reassess what happened during the
 recent war and to obtain space to rebuild its oil reserves and that what we have the memorandum of understanding is not so much a pathway to peace in the Persian Gulf but a pause ahead of another bigger even more powerful attack on Iran than the ones than the ones we have up to now seen. So, I think this does reflect very much the mood in Moscow.

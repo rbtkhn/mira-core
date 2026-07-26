@@ -15,11 +15,11 @@ transcript_type: yt_dlp_caption_fetch
 source_note: Fetched from YouTube captions via the repo transcript pipeline and materialized into the canonical statecraft archive.
 quality_note: English caption fetch via repo YouTube transcript pipeline; adjacent duplicate caption lines removed, otherwise preserve transcript roughness.
 speaker_labeling: provisional
-speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-05-12/source-alexander-mercouris-uk-eu-furious-as-trump-backs-istanbul-talks-vow-more-sanctions-moscow-scorns-latest-zelensky-stunt-2025-05-12.md", "source_sha256": "e36c6702fa8b2561905d1469a06082235b2a9ba3ad5321ded9009c06c961729a", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 2, "labeled_turn_count": 0, "unknown_turn_count": 2, "candidate_speakers": ["Alexander Mercouris", "Mercouris"]}
+speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-05-12/source-alexander-mercouris-uk-eu-furious-as-trump-backs-istanbul-talks-vow-more-sanctions-moscow-scorns-latest-zelensky-stunt-2025-05-12.md", "source_sha256": "e36c6702fa8b2561905d1469a06082235b2a9ba3ad5321ded9009c06c961729a", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 1, "labeled_turn_count": 1, "unknown_turn_count": 0, "candidate_speakers": ["Alexander Mercouris"], "solo_format": "single-label-continuous"}
 ---
-**Unknown**: # UK/EU Furious As Trump Backs Istanbul Talks, Vow More Sanctions; Moscow Scorns Latest Zelensky Stunt
+**Alexander Mercouris**: # UK/EU Furious As Trump Backs Istanbul Talks, Vow More Sanctions; Moscow Scorns Latest Zelensky Stunt
 
-**Unknown**: Good day. Today is Monday 12th May
+Good day. Today is Monday 12th May
 2025 and um as I make this program, we
 are on the countdown towards further
 announcements from the EU of further

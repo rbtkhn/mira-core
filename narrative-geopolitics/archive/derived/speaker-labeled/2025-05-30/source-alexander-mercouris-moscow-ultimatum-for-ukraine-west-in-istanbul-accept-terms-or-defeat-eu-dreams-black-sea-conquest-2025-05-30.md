@@ -15,11 +15,11 @@ transcript_type: yt_dlp_caption_fetch
 source_note: Fetched from YouTube captions via the repo transcript pipeline and materialized into the canonical statecraft archive.
 quality_note: English caption fetch via repo YouTube transcript pipeline; adjacent duplicate caption lines removed, otherwise preserve transcript roughness.
 speaker_labeling: provisional
-speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-05-30/source-alexander-mercouris-moscow-ultimatum-for-ukraine-west-in-istanbul-accept-terms-or-defeat-eu-dreams-black-sea-conquest-2025-05-30.md", "source_sha256": "c6b906082a2ef5826f327c42b8129b58837ecc4c3601102358e549e0cb528f06", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 2, "labeled_turn_count": 0, "unknown_turn_count": 2, "candidate_speakers": ["Alexander Mercouris", "Mercouris"]}
+speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-05-30/source-alexander-mercouris-moscow-ultimatum-for-ukraine-west-in-istanbul-accept-terms-or-defeat-eu-dreams-black-sea-conquest-2025-05-30.md", "source_sha256": "c6b906082a2ef5826f327c42b8129b58837ecc4c3601102358e549e0cb528f06", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 1, "labeled_turn_count": 1, "unknown_turn_count": 0, "candidate_speakers": ["Alexander Mercouris"], "solo_format": "single-label-continuous"}
 ---
-**Unknown**: # Moscow Ultimatum For Ukraine, West In Istanbul; Accept Terms Or Defeat; EU Dreams Black Sea Conquest
+**Alexander Mercouris**: # Moscow Ultimatum For Ukraine, West In Istanbul; Accept Terms Or Defeat; EU Dreams Black Sea Conquest
 
-**Unknown**: Good day. Today is Friday 30th May
+Good day. Today is Friday 30th May
 2025 and um in two days time we will
 have the first the second meeting rather
 in

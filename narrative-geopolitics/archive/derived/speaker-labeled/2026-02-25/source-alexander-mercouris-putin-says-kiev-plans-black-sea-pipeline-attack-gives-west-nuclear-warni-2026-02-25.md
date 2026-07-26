@@ -16,13 +16,13 @@ source_note: Direct YouTube watch URL already on disk; transcript body confirmed
 editorial_note: Treat as a transcript-grade raw-input capture. Operator-supplied transcript body resolved prior audit ambiguity.
 evidence_grade: transcript-bearing
 speaker_labeling: provisional
-speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2026-02-25/source-alexander-mercouris-putin-says-kiev-plans-black-sea-pipeline-attack-gives-west-nuclear-warni-2026-02-25.md", "source_sha256": "e5e81497233324cf81278bb569017f0d93910aba347522e9b165ddbeeb3c764b", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 3, "labeled_turn_count": 0, "unknown_turn_count": 3, "candidate_speakers": ["Alexander Mercouris", "Mercouris"]}
+speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2026-02-25/source-alexander-mercouris-putin-says-kiev-plans-black-sea-pipeline-attack-gives-west-nuclear-warni-2026-02-25.md", "source_sha256": "e5e81497233324cf81278bb569017f0d93910aba347522e9b165ddbeeb3c764b", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 1, "labeled_turn_count": 1, "unknown_turn_count": 0, "candidate_speakers": ["Alexander Mercouris"], "solo_format": "single-label-continuous"}
 ---
-**Unknown**: # Putin Says Kiev Plans Black Sea Pipeline Attack Gives West Nuclear Warning; Trump Speech Iran Strike
+**Alexander Mercouris**: # Putin Says Kiev Plans Black Sea Pipeline Attack Gives West Nuclear Warning; Trump Speech Iran Strike
 
-**Unknown**: ## Transcript (operator paste)
+## Transcript (operator paste)
 
-**Unknown**: Good day. Today is Wednesday, 25th February, 2026. And um before I proceed with this program, let me remind you again to tick the like button and check your subscription to this channel if once you've watched this program, you decide that you like what you have heard and wish to indicate that fact.
+Good day. Today is Wednesday, 25th February, 2026. And um before I proceed with this program, let me remind you again to tick the like button and check your subscription to this channel if once you've watched this program, you decide that you like what you have heard and wish to indicate that fact.
  Now today I'm going to discuss um three topics. Um, I'm going to discuss firstly the things that President Trump said in his State of the Union address about Iran and [snorts] about the likely prospect of an American attack on Iran and the limits on US capabilities. And then I'm going to discuss the situation in Ukraine or at least the conflict in Ukraine in light of certain comments especially made by President Putin at a meeting of Russia's counterintelligence agency the FSB.
  And then I'm going to finish by returning to British politics and I'm going to discuss the latest revelations in the Epstein Mandlesson uh scandal and the various steps that the prime minister Kier Stalmer appears to be taking in order to preserve his position as head of the British government. Let me start first with President Trump and his state of the union address and the whole situation with Iran.
  Now I am not going to discuss the domestic part of the state of the union address in this program. What I will say very briefly about it is that in tone and form it actually reminded me quite a lot of the State of the Union addresses that um President Trump's predecessor Joe Biden used to make. They were all just as Biden's addresses were highly partisan, so was Trump's.
@@ -149,4 +149,3 @@ after all because of an unnecessary arrest. in instigated by a tip off [snorts] 
 I'm getting the sense though that this is turning out to be a very very big scandal indeed. Um, it might be interesting to watch what Mandlesson himself has to say over the next few days. Um, it seems to me that all sorts of very strange things are taking place which may lead to certain, shall we say, rather troubling conclusions.
 Anyway, um, this is where I'm going to finish today's program. Let me remind you all that you can find all our programs on our various platforms, Locals, Rumble, X, and Substack. Please remember that you can also support our work via Patreon and Subscribe Star and by going to our shop links under this video.
  Last but not least, please remember if you've liked this video to tick the like button and to check your subscription to this channel. That's me for today. More from me soon. Have a very good day.
-

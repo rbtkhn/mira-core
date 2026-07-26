@@ -15,11 +15,11 @@ transcript_type: yt_dlp_caption_fetch
 source_note: Fetched from YouTube captions via the repo transcript pipeline and materialized into the canonical statecraft archive.
 quality_note: English caption fetch via repo YouTube transcript pipeline; adjacent duplicate caption lines removed, otherwise preserve transcript roughness.
 speaker_labeling: provisional
-speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-05-29/source-alexander-mercouris-moscow-forces-2nd-istanbul-round-makes-huge-demands-to-us-on-nato-taurus-strikes-on-moscow-coming-2025-05-29.md", "source_sha256": "52247267c4800343c5930093f82323c6dc3ed32bf4047a637f426f64f62f0dd5", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 2, "labeled_turn_count": 0, "unknown_turn_count": 2, "candidate_speakers": ["Alexander Mercouris", "Mercouris"]}
+speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-05-29/source-alexander-mercouris-moscow-forces-2nd-istanbul-round-makes-huge-demands-to-us-on-nato-taurus-strikes-on-moscow-coming-2025-05-29.md", "source_sha256": "52247267c4800343c5930093f82323c6dc3ed32bf4047a637f426f64f62f0dd5", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 1, "labeled_turn_count": 1, "unknown_turn_count": 0, "candidate_speakers": ["Alexander Mercouris"], "solo_format": "single-label-continuous"}
 ---
-**Unknown**: # Moscow Forces 2nd Istanbul Round, Makes Huge Demands To US On NATO; Taurus Strikes On Moscow Coming
+**Alexander Mercouris**: # Moscow Forces 2nd Istanbul Round, Makes Huge Demands To US On NATO; Taurus Strikes On Moscow Coming
 
-**Unknown**: Good day. Today is Thursday, 29th May,
+Good day. Today is Thursday, 29th May,
 2025. We are coming to the end of May,
 another incredibly complicated month um
 in the Ukrainian conflict and we are

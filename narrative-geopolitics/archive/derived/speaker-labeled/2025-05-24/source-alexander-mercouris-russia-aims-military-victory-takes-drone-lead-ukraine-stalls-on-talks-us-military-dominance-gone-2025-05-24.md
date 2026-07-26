@@ -15,11 +15,11 @@ transcript_type: yt_dlp_caption_fetch
 source_note: Fetched from YouTube captions via the repo transcript pipeline and materialized into the canonical statecraft archive.
 quality_note: English caption fetch via repo YouTube transcript pipeline; adjacent duplicate caption lines removed, otherwise preserve transcript roughness.
 speaker_labeling: provisional
-speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-05-24/source-alexander-mercouris-russia-aims-military-victory-takes-drone-lead-ukraine-stalls-on-talks-us-military-dominance-gone-2025-05-24.md", "source_sha256": "1d8df8d2d0889fa4c5c6761ef49826c58fbde9e834a77c4004db35f5a895b43a", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 2, "labeled_turn_count": 0, "unknown_turn_count": 2, "candidate_speakers": ["Alexander Mercouris", "Mercouris"]}
+speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-05-24/source-alexander-mercouris-russia-aims-military-victory-takes-drone-lead-ukraine-stalls-on-talks-us-military-dominance-gone-2025-05-24.md", "source_sha256": "1d8df8d2d0889fa4c5c6761ef49826c58fbde9e834a77c4004db35f5a895b43a", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 1, "labeled_turn_count": 1, "unknown_turn_count": 0, "candidate_speakers": ["Alexander Mercouris"], "solo_format": "single-label-continuous"}
 ---
-**Unknown**: # Russia Aims Military Victory Takes Drone Lead; Ukraine Stalls On Talks; US Military Dominance Gone
+**Alexander Mercouris**: # Russia Aims Military Victory Takes Drone Lead; Ukraine Stalls On Talks; US Military Dominance Gone
 
-**Unknown**: Good day. Today is Saturday 24th May
+Good day. Today is Saturday 24th May
 2025 and as I make this program, we are
 in a period between um the meeting in
 Istanbul between the Russian and

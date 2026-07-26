@@ -15,20 +15,20 @@ normalization_state: ai_assisted_proper_noun_cleanup
 quality_note: ASR normalization pass 2026-06-16; ph-civ replacement SSOT.
 editorial_note: AI-assisted ASR repair (common + series tiers + statecraft entity pass); 0 substitutions; not human-verified verbatim; verify before quotation.
 speaker_labeling: provisional
-speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2026-05-31/source-alexander-mercouris-kiev-drone-strikes-zaporozhzhye-npp-west-iaea-silent-russia-orekhov-breakthrough-konstantinovka-2026-05-31.md", "source_sha256": "8fffaad878495a9df3fca805e00bb7300062fd48e7e7397ed1c9c63af5b4d1a3", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 4, "labeled_turn_count": 0, "unknown_turn_count": 4, "candidate_speakers": ["Alexander Mercouris", "Mercouris"]}
+speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2026-05-31/source-alexander-mercouris-kiev-drone-strikes-zaporozhzhye-npp-west-iaea-silent-russia-orekhov-breakthrough-konstantinovka-2026-05-31.md", "source_sha256": "8fffaad878495a9df3fca805e00bb7300062fd48e7e7397ed1c9c63af5b4d1a3", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 1, "labeled_turn_count": 1, "unknown_turn_count": 0, "candidate_speakers": ["Alexander Mercouris"], "solo_format": "single-label-continuous"}
 ---
-**Unknown**: # Kiev Drone Strikes Zaporozhzhye NPP; West IAEA Silent; Russia Orekhov Breakthrough; Konstantinovka
+**Alexander Mercouris**: # Kiev Drone Strikes Zaporozhzhye NPP; West IAEA Silent; Russia Orekhov Breakthrough; Konstantinovka
 
-**Unknown**: **Show:** Alexander Mercouris  
+**Show:** Alexander Mercouris  
 **Host:** Alexander Mercouris  
 **Published:** 2026-05-31  
 **Source:** [YouTube](https://www.youtube.com/watch?v=-wmKK5PaiZg)  
 **Transcript:** Operator-pasted YouTube transcript preserved as raw-input SSOT.
 
-**Unknown**: ## Transcript
+## Transcript
 Kiev Drone Strikes Zaporozhzhye NPP; West IAEA Silent; Russia Orekhov Breakthrough; Konstantinovka - YouTube
 
-**Unknown**: Transcripts:
+Transcripts:
 Good day. Today is Sunday 31st May 2026 and before I proceed with this program, let me remind you to tick the like button and to check your subscription to this channel. Well, the war in Ukraine goes on and we have had as of this morning further complaints from the Russians about um drone attacks by the Ukrainians on what the Russians consider to be civilian targets and drone attacks which they say are full of extremely dangerous possibilities.
 Specifically, the Russians are complaining about another Ukrainian drone attack on the Zaporozhye nuclear power station and about an attempted or apparently successful in some respects Ukrainian drone attack on a school in on a school building in Zaporozhye region, Russian controlled Zaporozhye region. Now, in relation to the school building, the Russians say that the building at the time when it was attacked was empty and that nobody was actually wounded or killed.
  But they suggest that this is now becoming part of a pattern and that the Ukrainians are intentionally attacking buildings of this kind, presumably in order to so fear an alarm across our Poria region and in the Dombas and perhaps in order to provoke outrage and indic indignation in Russia piling on pressure on the Russian authorities and President Putin in particular to take action which perhaps left it himself, President Putin might choose not to take.
@@ -135,4 +135,3 @@ So things continue to deteriorate on every front in Ukraine, in the Middle East,
 And I have no idea whether he would be a good person to be chancellor or not. I understand that the politics of removing one chancellor and replacing him with another in Germany would be incredibly complicated. But that in a sense is a further sign of the extent of the crisis we are in. Nobody in the west is taking this crisis at all seriously or seems to have any genuine plan of how to get us through it.
 And well, in every respect, in Ukraine, in the Persian Gulf, in the energy sectors, in the global economy, time continues to run out. Well, this is where I finish my program today. Let me remind you again that you can find all our programs on our various platforms, Locals, Rumble, X, and Substack.
  You can support our work via Patreon and Subscribe Star and by going to our shop links under this video. Please remember to tick the like button and to check your subscription to this channel. That's me for today. More from me soon. Have a very good day.
-

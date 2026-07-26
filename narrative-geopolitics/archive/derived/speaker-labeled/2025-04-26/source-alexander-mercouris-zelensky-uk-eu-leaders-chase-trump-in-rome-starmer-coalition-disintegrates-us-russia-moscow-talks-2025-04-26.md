@@ -15,11 +15,11 @@ transcript_type: yt_dlp_caption_fetch
 source_note: Fetched from YouTube captions via the repo transcript pipeline and materialized into the canonical statecraft archive.
 quality_note: English caption fetch via repo YouTube transcript pipeline; adjacent duplicate caption lines removed, otherwise preserve transcript roughness.
 speaker_labeling: provisional
-speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-04-26/source-alexander-mercouris-zelensky-uk-eu-leaders-chase-trump-in-rome-starmer-coalition-disintegrates-us-russia-moscow-talks-2025-04-26.md", "source_sha256": "ca969f3824e0f7299b721764202ba49b1c541f669ac09607890961aa90acdbdc", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 2, "labeled_turn_count": 0, "unknown_turn_count": 2, "candidate_speakers": ["Alexander Mercouris", "Mercouris"]}
+speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-04-26/source-alexander-mercouris-zelensky-uk-eu-leaders-chase-trump-in-rome-starmer-coalition-disintegrates-us-russia-moscow-talks-2025-04-26.md", "source_sha256": "ca969f3824e0f7299b721764202ba49b1c541f669ac09607890961aa90acdbdc", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 1, "labeled_turn_count": 1, "unknown_turn_count": 0, "candidate_speakers": ["Alexander Mercouris"], "solo_format": "single-label-continuous"}
 ---
-**Unknown**: # Zelensky UK/EU Leaders Chase Trump In Rome; Starmer Coalition Disintegrates; US Russia Moscow Talks
+**Alexander Mercouris**: # Zelensky UK/EU Leaders Chase Trump In Rome; Starmer Coalition Disintegrates; US Russia Moscow Talks
 
-**Unknown**: Good day. Today is Saturday 26th April
+Good day. Today is Saturday 26th April
 2025.
 Um the day after my discussion of the
 two proposals, the American proposal and

@@ -38,19 +38,19 @@ transcript_curation: curated_sectioned
 section_count: 9
 section_pass: 2026-07-09 semantic-section-v1
 speaker_labeling: provisional
-speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2026-06-14/source-alexander-mercouris-us-iran-mou-iran-terms-konstantinovka-close-to-fall-2026-06-14.md", "source_sha256": "36e72f8c12e3c070f79fe8c285b80a46a83cd8a3737c5c392f5ea06a0253fe58", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 21, "labeled_turn_count": 0, "unknown_turn_count": 21, "candidate_speakers": ["Alexander Mercouris", "Mercouris"]}
+speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2026-06-14/source-alexander-mercouris-us-iran-mou-iran-terms-konstantinovka-close-to-fall-2026-06-14.md", "source_sha256": "36e72f8c12e3c070f79fe8c285b80a46a83cd8a3737c5c392f5ea06a0253fe58", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 1, "labeled_turn_count": 1, "unknown_turn_count": 0, "candidate_speakers": ["Alexander Mercouris"], "solo_format": "single-label-continuous"}
 ---
-**Unknown**: # US Iran Closer To Signing MoU Reflecting Iran's Terms; Russian MoD Says Konstantinovka Close To Fall
+**Alexander Mercouris**: # US Iran Closer To Signing MoU Reflecting Iran's Terms; Russian MoD Says Konstantinovka Close To Fall
 
-**Unknown**: **Channel:** Alexander Mercouris (solo)  
+**Channel:** Alexander Mercouris (solo)  
 **Date:** Sunday, 14 June 2026 (host; Russia, final conference day)  
 **URL:** https://www.youtube.com/watch?v=4xSucEKL32Y
 
-**Unknown**: ## Transcript
+## Transcript
 
-**Unknown**: ### Show Open — Iran Israel Trump
+### Show Open — Iran Israel Trump
 
-**Unknown**: Good day. Today is Sunday 14th June 2026 and today is the last day of my conference here in Russia. Thereafter I will be making my long winding journey back to London via Moscow and Istanbul. Um again it may not be easy for me to provide videos programming every day. Um, but I will do the best that I can just to say.
+Good day. Today is Sunday 14th June 2026 and today is the last day of my conference here in Russia. Thereafter I will be making my long winding journey back to London via Moscow and Istanbul. Um again it may not be easy for me to provide videos programming every day. Um, but I will do the best that I can just to say.
  Well, over the last 24 hours after what appeared to be an intense pattern of escalation over the previous two weeks with the United States and Iran trading blows and trading blows increasingly aggressively and with Iran also launching missile strikes on Israel and Israel countering with air strikes and missile strikes against Iran.
 Well, um, two days ago, three couple of days ago, we had a sudden announcement by Donald Trump that he was terminating military action against Iran. And yesterday um we suddenly got news from Donald Trump that a deal was about to be agreed between the United States and Iran and that it would be signed perhaps by sometime today.
  And interestingly the um Pakistani mediators appeared to confirm this. They too said that a deal had been all but agreed and was ready for signature or practically ready for signature and that it might be signed today. The Iranians have been much more careful. They have said that they don't expect the foreign ministry in Iran has said that they don't expect the deal to be signed today that there might still be some changes made to the memorandum uh of understanding which is by the way what we're talking about uh not a finalized agreement but a memorandum of
@@ -59,9 +59,9 @@ understanding that there might still be some tweaking that the United states mig
  He has also um provided um given interviews in which he has said that within Iran there is a feeling that the prospect of an agreement has now grown for the first time to above 50% though he wouldn't put himself any money on it if you know it came to a bet on the matter. So what is actually going on and are we indeed going to see an agreement today or soon? Well, the answer is that I think we need to wait because we have been here at this very point so often over the course of the last few months since early April when the ceasefire between the United States
 and Iran were agreed that personally I'm not going to believe that anything has been signed until it has been signed and until public confirmation of that has been made. Now on that point um we are of course in Sunday and
 
-**Unknown**: ### Segment 2 — Iran Ceasefire Nuclear Weapons
+### Segment 2 — Iran Ceasefire Nuclear Weapons
 
-**Unknown**: as of the time of my making of this program there is no word that anything has been signed at all.
+as of the time of my making of this program there is no word that anything has been signed at all.
  The Pakistanis say that the initial signatures will be made electronically. In other words, that there won't be a signing ceremony as such, which will of course simplify the matter and could result in some kind of announcement of an agreement over the course of today. But as I said, having been brought to this point so many times, having seen situations in which the moment it appears that we are indeed close to an agreement, the opponents of the agreement in Israel and the United States mobilize and put sway, put pressure on the president
 and he backtracks. This is of course assuming that the president is even um generally interested in such an agreement. Well anyway, we've seen these this thing play out in exactly that way and then the agreement which we were told was almost agreed turns in effect into dust. And something tells me that this time it's going to be no different.
  But anyway, it does seem as if both the Iranians and the P Pakistanis are more more hopeful this time than they have previously been. Now, if we do get an agreement and if there is an end to the hostilities between the United States and Iran, then straight away one should say that this is a good thing. It is better that we see an end to this confrontation and a reopening of the straight of Hormuz, whatever form that takes, and an end of the sea blockade of Iran, whatever form that takes, then that we continue to be in this very unstable situation
@@ -70,9 +70,9 @@ So if we do get an agreement for what it is worth that would be a good thing pro
 The memorandum of understanding does contain a provision that Iran commits never to develop nuclear weapons. And President Trump has been talking about this incessantly. He has repeatedly made the point that this is an essential part of the diplomatic process that the United States wants to see. Um he says he gives the impression that such a statement would itself in itself make whatever agreement is reached far better than the JCPOA negotiated and agreed by Barack Obama with the Iranians and others by the way
 long ago back in 2015. But of course this is absolutely hollow. It is completely empty because the reality is that the Iranians have repeatedly and incessantly said that they have no intention of acquiring nuclear weapons. The memorandum of understanding would, in other words, simply
 
-**Unknown**: ### Segment 3 — Iran Hormuz Trump
+### Segment 3 — Iran Hormuz Trump
 
-**Unknown**: contain a commitment by Iran to do that thing which Iran has always said that it is committed to doing, never to acquire nuclear weapons.
+contain a commitment by Iran to do that thing which Iran has always said that it is committed to doing, never to acquire nuclear weapons.
 Now, so if we put this frankly empty declaration to one side, everything else in these 14 points is clearly clearly represents a major shift in the power balance in the Middle East towards Iran. Firstly, the Iranians and the Omanis together will manage the straight of Hormuz. It will no longer be an international waterway.
 The Iranian foreign minister Abbas Araghchi has said that the Iranians may not necessarily insist on payment of tolls fees for ships to transfer through the straight of Hormuz. And um this has apparently been reiterated um in the American media, the US media. Fox News says that the Iranians will not impose tolls.
  But of course, the point is that the memorandum of understanding um nonetheless appears to concede Iran control of the straight of Hormuz. And it is important to say that we are only talking about a memorandum of understanding, not a finalized agreement. And that means that if the memorandum of understanding does not proceed and is not implemented and is not followed up by negotiations, then the Iranians in effect have reserved their right to reverse their position on this specific issue.
@@ -82,9 +82,9 @@ It would become something else. It would become a territorial waterway um admini
 The statement says that the straight of Hormuz will be gradually reopened to shipping over a 30-day period and that the United States over that same period will end the sea blockade of Iran. Donald Trump has previously rejected that demand. He has insisted that the United States will maintain its sea blockade and importantly that the United States will pay Iran $24 billion out of Iran's frozen assets and after that after all this has been agreed then we are going to have further discussions and negotiations in the future
 to work towards a separate agreement, a final agreement on the nuclear issue. So that is what the Iranian 14 points say. Donald Trump of course has said that the actual memorandum of understanding is completely different and that what the Iranians have been publishing bears no resemblance to this. But for the record and for the moment, as of now, I get the sense looking at the Iranian media that Iran is still expecting the memorandum of understanding to be very close or to be close
 
-**Unknown**: ### Segment 4 — Iran Russia Middle East
+### Segment 4 — Iran Russia Middle East
 
-**Unknown**: in some form to the 14 points if perhaps not identical to
+in some form to the 14 points if perhaps not identical to
 it. If as I said this is the agreement we get then obviously the balance of power has shifted significantly in Iran's favor. Now one interesting thing has happened which has not been widely reported in the international media but which has been discussed by the Iranians themselves is that there's been a meeting a not very well publicized meeting at some level I'm not sure which level between Iran, China and Russia.
  And it is clear that the Iranians are coordinating their diplomacy and their negotiations through the Pakistani mediators, with the United States, with the Chinese and the Russians. So it is likely that the finalized document that we're going to see will contain input from these two countries and probably in return for whatever movements or concessions the Chinese the Iranians might be persuaded to make to the Americans.
 Well, in that case, the Chinese and the Russians will probably commit to some level of further assistance to Iran. Again, this is a little speculative because we simply do not know the full details of this meeting, but I would have thought that certainly the Iranians would insist upon some kind of quid proquo from their Chinese and Russian friends.
@@ -94,9 +94,9 @@ And the government, the political system in Iran is still in place. Its authorit
  And I have no doubt whatsoever that that is how it would be perceived in the Middle East, the wider Middle East, that Iran absorbed the blow, showed it could hit back, exercised control of the Strait of Hormuz, and strengthened its overall friendships with its various supportive allies first and foremost China and Russia and I am going to have a little to say about that shortly.
  So that's the first thing I I want to say. The second is that if we are going to see an agreement, then again the question is why has the president of the United States Donald Trump decided to end this agreement in that way? I discussed in my program yesterday a theory that I have seen here in Russia or been told about here
 
-**Unknown**: ### Segment 5 — Oil Prices Russia Trump
+### Segment 5 — Oil Prices Russia Trump
 
-**Unknown**: in Russia that the United States or that some very tough-minded in the people in the United States actually do want the crisis to continue.
+in Russia that the United States or that some very tough-minded in the people in the United States actually do want the crisis to continue.
 They are actually calculating for a sudden dramatic surge in oil prices. They are prepared for the possibility, in fact they are comfortable with the possibility that this will trigger a recession in the United States and across the world and across the collective west. And the reason that they want this surge in oil prices is because they believe that this would lead to a destabilization of the BRICS payment systems.
  It would basically smash them before they became properly established because the BRICS states and first and foremost China and Russia would not have built in resilience to these systems and the Chinese faced by a sudden dramatic atic surge in oil prices would be caught in a quandry having to consider in what way to use their financial reserves.
 I think that there is at least a strong possibility that this has indeed been the plan and perhaps the plan for some time, though not I think the plan all along. Now, if that is so, then an agreement today or an agreement over the next few days basically works against the plan. Um, over the last few hours, there's been a significant fall in the oil price.
@@ -107,9 +107,9 @@ I think that there is at least a strong possibility that this has indeed been th
  Um, and I don't think that it would create the crisis in BRICS or in the BRICS payment and financial systems that the authors of this plan think it would. But anyway, we will have to wait and see because as I said, as of now, I am not convinced that we are close to the point where um where we are it's it's a certainty that it is a certainty that we are as close to the an agreement to end this crisis as many people believe.
  The next few hours and days will make this clear. Now before I finish discussing the situation in Iran,
 
-**Unknown**: ### Segment 6 — Russia Iran Ukraine
+### Segment 6 — Russia Iran Ukraine
 
-**Unknown**: I want to say something about the mood here in Russia in relation to the Iran war. Now I have not actually discussed the Iran war um practically at all with people here. Um my discussions have been mostly focused on relations between Russia and the West and about the conflict in Ukraine.
+I want to say something about the mood here in Russia in relation to the Iran war. Now I have not actually discussed the Iran war um practically at all with people here. Um my discussions have been mostly focused on relations between Russia and the West and about the conflict in Ukraine.
 But I did get a sense of Russian popular sentiment. Yesterday I attended a concert about which I will have to say a great deal uh that took place in a concert hall um and to which I was invited. There was a full audience uh very Russian audience um families, children present, very young children, all extraordinarily well behaved in ways that in Britain um the authorities would find difficult to believe.
  You are not able to take very very young children, children as young as that to concerts in Britain. Um anyway, a large audience. It was a rather eclectic concert. There was um a first part of the concert which was classical music um um performances of music by um Kosikov and Spirid and others.
  I will say more about this concert later. The second part of the concert was well rather more more was different. There was Indian classical music ragas played by a sit there was Chinese music. There was music from Scotland just to say and I as I will discuss this concert very interesting concert in more detail but there was also a performer from Iran and this performer was not able to come to the concert itself um because of the war but she was able to participate in the con con in the concert by video link and I noticed not just how warmly
@@ -118,9 +118,9 @@ she was received by the audience and there were some comments made, not very ver
 And I think the Kremlin is well aware of that. And I think if there is any wish or will to provide more support for Iran, then the knowledge that this support is there um might play a role in it. Now, this leaves less time today for me to discuss the situation in the war in Ukraine, but we have had what I consider to be an interesting development about the situation on the front lines, and that is that the Russian mil ministry of defense has now for the first time that I'm aware of given an update on the actual situation in Konstantinovka.
 Now, this was said by the Russian Ministry of Defense over the course of its usual daily update of the situation on the battlefields. And this is specifically on the topic of Konstantinovka. what the Russian Ministry of Defense is saying uh the Yuzhnaya group that means group of forces south
 
-**Unknown**: ### Segment 7 — Russia Situation Line
+### Segment 7 — Russia Situation Line
 
-**Unknown**: improve the tactical situation along the front line in Konstantinovka, Donetsk People's Republic, assault groups of the third and eighth armies and the third army core war.
+improve the tactical situation along the front line in Konstantinovka, Donetsk People's Republic, assault groups of the third and eighth armies and the third army core war.
  Third Army Corps, as I understand it, is made up of former Donbas Donets militia, advanced in the area of the Red October and Red Gord micro districts, and are finishing the mop up of the Peraviski district. In the past 24 hours, 172 buildings have been liberated in Konstantinovka. Up to 40 Ukrainian troops, three armored fighting vehicles, and four motor vehicles were neutralized.
 In total, the enemy has lost up to 115 troops. one Germanmade Leopard 2 tank, three armored fighting vehicles, 13 motor vehicles and three field artillery guns in the group of forces south area of responsibility which is it must be said larger than um Konstantinovka itself but which is very much centered on the fighting in Konstantinovka.
 Now this report reminds me very much of the reports that the Russian defense ministry was publishing towards the end of the battle of Pokrovsk. They were telling us about how areas of Pokrovsk were being mopped up, how uh buildings were being cleared and 175 buildings is a lot of buildings to clear.
@@ -131,9 +131,9 @@ also one of the last remaining fortified towns in Dombbass. This line of fortifi
 This is because with the fall of each town, the supply situation for the Ukrainians in the remaining towns starts to become more difficult. And well, one way or the other, it is clear to me that the battle of Donbass is coming to an end. and it is coming to an end over the next few months with a clear-cut victory for the Russians.
  The Ukrainians deny it, but the Russians say that they control the entirety of Lugansk region, and I'm sure that they are right.
 
-**Unknown**: ### Segment 8 — Russia Ukraine Say
+### Segment 8 — Russia Ukraine Say
 
-**Unknown**: The Ukrainians say very little, in fact, now about the situation in Konstantinovka and in this line of fortified towns. But I have no doubt that the Russian reports about this are true.
+The Ukrainians say very little, in fact, now about the situation in Konstantinovka and in this line of fortified towns. But I have no doubt that the Russian reports about this are true.
  Yesterday in my video I discussed the enormous overview of the battle of Konstantinovka provided by the blogger known as events in Ukraine and his vivid description of how the battle of Konstantinovka is going. how the situation of the Ukrainian forces in Konstantinovka is becoming more and more difficult and um how the Ukrainian situation is becoming more difficult right across the conflict line and how this is being confirmed by Ukrainian bloggers and reporting channels.
 So that's the situation on the front lines. Now there's a number of further things to say and there's one very important one which as far as I can see virtually everybody has missed. Um yesterday uh Vladimir Putin, the president of Russia had another meeting in the Kremlin uh with various officials.
  This time talking about the reconstruction and development of the territories, the Russian territories, the new Russian territories that are becoming part of Russia. And two things came out of this meeting. Firstly, there was discussions about the work of reconstruction in Donbass in Donetsk and Lugansk. But there was also a lot of talk about the state of reconstruction in Zaporozhye and Hersan regions as well.
@@ -143,9 +143,9 @@ though I'm not sure that it was made in the first place and I am not sure that t
 So that is one thing that came out of this meeting and there was something else which again I have noticed that nobody is talking about. Putin said that there is a plan and that the Russians are working to the plan that there is a plan to reconstruct all of these regions Donbass and Zaporozhye and to bring them up to Russian standards.
  in other words to the Russian level of living standards by 2030. Now that strongly implies that the Russians expect the special military operation. At any rate, it relative to Donbass and perhaps Zaporozhye and Hson regions as well that they expect it to be ended by at the latest
 
-**Unknown**: ### Segment 9 — Russia Perhaps Before
+### Segment 9 — Russia Perhaps Before
 
-**Unknown**: 2030 and perhaps long before. So assumptions that some people have that the Russians are thinking about a three-year war or a 5year war or a 10year war.
+2030 and perhaps long before. So assumptions that some people have that the Russians are thinking about a three-year war or a 5year war or a 10year war.
  Um Zelensky's talk a few weeks ago about a three-year war. That doesn't seem to be at all what the Russians are thinking. They presumably expect the war to be ended probably before that. My guess is by next year or at the outside 2028 at the latest probably sooner. Anyway, I just mentioned this. Certainly the Russians believe and assume that there will be peace in Donbass and in Zaporozhye and Herson region by 2030 at the latest.
  So we now have if you like the outer limit of a timeline. Now I'm going to finish this program by referencing uh something that was pointed out to me by Eve Smith um in a email that I have received from her and which relates to the situation with the drones and let me repeat again um I have seen no evidence of drones Ukrainian drones at any of the time that I have been in Russia.
  It doesn't mean that drone attacks don't take place. It doesn't mean the drone attacks don't do damage and don't do injury to people. But I personally whilst I have been here have witnessed no evidence of drone attack at all. Anyway, ESmith invited me to think back to the time during the 1970s and by the way still to some extent in the early 1980s but especially perhaps in the 1970s when the Irish Republican Army was conducting a bombing campaign on British territory on the territory of if you like mainland and Britain, the London

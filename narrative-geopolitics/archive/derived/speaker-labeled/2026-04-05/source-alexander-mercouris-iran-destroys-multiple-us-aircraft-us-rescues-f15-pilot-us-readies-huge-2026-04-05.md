@@ -17,11 +17,11 @@ source_note: Transcript pasted manually by operator after direct YouTube watch U
 editorial_note: Operator-pasted transcript body; not independently verified as verbatim.
 evidence_grade: transcript-bearing
 speaker_labeling: provisional
-speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2026-04-05/source-alexander-mercouris-iran-destroys-multiple-us-aircraft-us-rescues-f15-pilot-us-readies-huge-2026-04-05.md", "source_sha256": "da8933c7c1b69cdcf930908e310da3cd7f5c5f62004b96061c23f8d9fed84c72", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 2, "labeled_turn_count": 0, "unknown_turn_count": 2, "candidate_speakers": ["Alexander Mercouris", "Mercouris"]}
+speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2026-04-05/source-alexander-mercouris-iran-destroys-multiple-us-aircraft-us-rescues-f15-pilot-us-readies-huge-2026-04-05.md", "source_sha256": "da8933c7c1b69cdcf930908e310da3cd7f5c5f62004b96061c23f8d9fed84c72", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 1, "labeled_turn_count": 1, "unknown_turn_count": 0, "candidate_speakers": ["Alexander Mercouris"], "solo_format": "single-label-continuous"}
 ---
-**Unknown**: # Iran Destroys Multiple US Aircraft US Rescues F15 Pilot; US Readies Huge Bombing; US Abandons Kiev
+**Alexander Mercouris**: # Iran Destroys Multiple US Aircraft US Rescues F15 Pilot; US Readies Huge Bombing; US Abandons Kiev
 
-**Unknown**: Transcripts:
+Transcripts:
 Good day. Today is Sunday 5th April 2026. It is also Easter day in the Western churches. I of course am an Orthodox Christian. I celebrate Easter in a week's time. But may I take this opportunity to congratulate everybody who is celebrating Easter on this day to send you my warmest congratulations. Uh may this day resonate with you and with your friends and families throughout the the year that's coming.
 And may you enjoy the blessings of today and so may also all of your friends. Well, today of course is also the day when we continue to have two wars still underway. the war in Ukraine and the war in Iran. And over the last 24 hours, we have had reports from the United States, from the president himself about what he describes as a successful mission to rescue the navigator of the F-15 fighter jet that was shot down by the Iranians over central Iran.
 And well, the president has spoken about an exceptionally successful operation to extract this navigator. The media um in the west has been discussing this operation extensively. The president clearly is relieved that this has happened because though, as I discussed in my program yesterday, I never could bring myself to believe that the capture of a single American serviceman would suffice to change the course of US operations in the Persian Gulf area and in Iran.

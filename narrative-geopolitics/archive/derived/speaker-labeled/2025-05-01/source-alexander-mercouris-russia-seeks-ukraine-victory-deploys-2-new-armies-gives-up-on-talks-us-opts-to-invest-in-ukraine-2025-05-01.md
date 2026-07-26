@@ -15,11 +15,11 @@ transcript_type: yt_dlp_caption_fetch
 source_note: Fetched from YouTube captions via the repo transcript pipeline and materialized into the canonical statecraft archive.
 quality_note: English caption fetch via repo YouTube transcript pipeline; adjacent duplicate caption lines removed, otherwise preserve transcript roughness.
 speaker_labeling: provisional
-speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-05-01/source-alexander-mercouris-russia-seeks-ukraine-victory-deploys-2-new-armies-gives-up-on-talks-us-opts-to-invest-in-ukraine-2025-05-01.md", "source_sha256": "ab046639e8966753bd33f156abf375667b340629576e49a620285b8b5b3099dd", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 2, "labeled_turn_count": 0, "unknown_turn_count": 2, "candidate_speakers": ["Alexander Mercouris", "Mercouris"]}
+speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-05-01/source-alexander-mercouris-russia-seeks-ukraine-victory-deploys-2-new-armies-gives-up-on-talks-us-opts-to-invest-in-ukraine-2025-05-01.md", "source_sha256": "ab046639e8966753bd33f156abf375667b340629576e49a620285b8b5b3099dd", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 1, "labeled_turn_count": 1, "unknown_turn_count": 0, "candidate_speakers": ["Alexander Mercouris"], "solo_format": "single-label-continuous"}
 ---
-**Unknown**: # Russia Seeks Ukraine Victory, Deploys 2 New Armies; Gives Up On Talks; US Opts To Invest In Ukraine
+**Alexander Mercouris**: # Russia Seeks Ukraine Victory, Deploys 2 New Armies; Gives Up On Talks; US Opts To Invest In Ukraine
 
-**Unknown**: Good day. Today is Thursday 1st May
+Good day. Today is Thursday 1st May
 2025. It's by the way the uh holiday.
 It's a day of holiday in Russia and in
 many other countries around the world.

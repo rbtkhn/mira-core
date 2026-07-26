@@ -15,11 +15,11 @@ transcript_type: yt_dlp_caption_fetch
 source_note: Fetched from YouTube captions via the repo transcript pipeline and materialized into the canonical statecraft archive.
 quality_note: English caption fetch via repo YouTube transcript pipeline; adjacent duplicate caption lines removed, otherwise preserve transcript roughness.
 speaker_labeling: provisional
-speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-04-19/source-alexander-mercouris-europe-kiev-shock-us-to-quit-talks-ukraine-war-unless-deal-in-days-medvedev-welcomes-us-stance-2025-04-19.md", "source_sha256": "7eaa2426db197b5ebb0562f3a1544c8b62a303a17f4906d60fe116a20542ed93", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 2, "labeled_turn_count": 0, "unknown_turn_count": 2, "candidate_speakers": ["Alexander Mercouris", "Mercouris"]}
+speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-04-19/source-alexander-mercouris-europe-kiev-shock-us-to-quit-talks-ukraine-war-unless-deal-in-days-medvedev-welcomes-us-stance-2025-04-19.md", "source_sha256": "7eaa2426db197b5ebb0562f3a1544c8b62a303a17f4906d60fe116a20542ed93", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 1, "labeled_turn_count": 1, "unknown_turn_count": 0, "candidate_speakers": ["Alexander Mercouris"], "solo_format": "single-label-continuous"}
 ---
-**Unknown**: # Europe Kiev Shock; US To Quit Talks, Ukraine War, Unless Deal In Days; Medvedev Welcomes US Stance
+**Alexander Mercouris**: # Europe Kiev Shock; US To Quit Talks, Ukraine War, Unless Deal In Days; Medvedev Welcomes US Stance
 
-**Unknown**: Good day. Today is Saturday 19th April
+Good day. Today is Saturday 19th April
 2025 and it is of course the day before
 Easter day um this year celebrated
 tomorrow both by the Eastern Orthodox

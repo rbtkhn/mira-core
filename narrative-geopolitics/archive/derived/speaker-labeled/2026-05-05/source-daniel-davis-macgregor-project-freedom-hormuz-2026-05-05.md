@@ -55,7 +55,7 @@ speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sour
 
 **Douglas Macgregor**: China is not abandoning Iran. China is going to continue to provide Iran whatever it can. If you don't stand up to the United States at this point and you don't back the people who are resisting them, the United States is going to turn on others and eventually the United States is going to turn on you.
 
-**Douglas Macgregor**: What Iran has proven is that they can be very effective, and they don't really need a navy, per se, or an air force. They've got the ability with terrestrial-based and space-based intelligence, surveillance, and reconnaissance to see persistently everything that happens in the Gulf region and around their country.
+What Iran has proven is that they can be very effective, and they don't really need a navy, per se, or an air force. They've got the ability with terrestrial-based and space-based intelligence, surveillance, and reconnaissance to see persistently everything that happens in the Gulf region and around their country.
 
 **Unknown**: The conversation continues with the speakers discussing food stamps, Chris Martenson, Iranian resilience, Trump's communication with the public, Europe, Russia, China, Israel, munitions stockpiles, and Cuba, as detailed in the full cleaned version.
 

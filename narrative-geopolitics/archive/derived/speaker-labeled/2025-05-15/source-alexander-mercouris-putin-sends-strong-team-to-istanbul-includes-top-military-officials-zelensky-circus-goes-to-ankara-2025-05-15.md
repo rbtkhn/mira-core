@@ -16,11 +16,11 @@ source_note: Fetched from YouTube captions via the repo transcript pipeline and 
 quality_note: English caption fetch via repo YouTube transcript pipeline; adjacent duplicate caption lines removed, otherwise preserve transcript roughness.
 transcript_wrapper_tier: clean
 speaker_labeling: provisional
-speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-05-15/source-alexander-mercouris-putin-sends-strong-team-to-istanbul-includes-top-military-officials-zelensky-circus-goes-to-ankara-2025-05-15.md", "source_sha256": "8e3b40e5043eda29cc18993c95b67da636a56d195567667c0d6611ce3351dcc9", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 2, "labeled_turn_count": 0, "unknown_turn_count": 2, "candidate_speakers": ["Alexander Mercouris", "Mercouris"]}
+speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-05-15/source-alexander-mercouris-putin-sends-strong-team-to-istanbul-includes-top-military-officials-zelensky-circus-goes-to-ankara-2025-05-15.md", "source_sha256": "8e3b40e5043eda29cc18993c95b67da636a56d195567667c0d6611ce3351dcc9", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 1, "labeled_turn_count": 1, "unknown_turn_count": 0, "candidate_speakers": ["Alexander Mercouris"], "solo_format": "single-label-continuous"}
 ---
-**Unknown**: # Putin Sends Strong Team To Istanbul, Includes Top Military Officials; Zelensky Circus Goes To Ankara
+**Alexander Mercouris**: # Putin Sends Strong Team To Istanbul, Includes Top Military Officials; Zelensky Circus Goes To Ankara
 
-**Unknown**: Good day. Today is Thursday 15th May
+Good day. Today is Thursday 15th May
 2025 and we are at a most extraordinary
 moment in the Ukrainian conflict. And I
 think I can sum it up very simply by

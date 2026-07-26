@@ -15,11 +15,11 @@ transcript_type: yt_dlp_caption_fetch
 source_note: Fetched from YouTube captions via the repo transcript pipeline and materialized into the canonical statecraft archive.
 quality_note: English caption fetch via repo YouTube transcript pipeline; adjacent duplicate caption lines removed, otherwise preserve transcript roughness.
 speaker_labeling: provisional
-speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-04-30/source-alexander-mercouris-trump-warns-kiev-no-more-weapons-trump-threatens-moscow-more-sanctions-russia-unfazed-by-warning-2025-04-30.md", "source_sha256": "6c33e66909dd5fa087b010b59e06e1d110323db25e3364ae306250e2662b57b5", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 2, "labeled_turn_count": 0, "unknown_turn_count": 2, "candidate_speakers": ["Alexander Mercouris", "Mercouris"]}
+speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-04-30/source-alexander-mercouris-trump-warns-kiev-no-more-weapons-trump-threatens-moscow-more-sanctions-russia-unfazed-by-warning-2025-04-30.md", "source_sha256": "6c33e66909dd5fa087b010b59e06e1d110323db25e3364ae306250e2662b57b5", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 1, "labeled_turn_count": 1, "unknown_turn_count": 0, "candidate_speakers": ["Alexander Mercouris"], "solo_format": "single-label-continuous"}
 ---
-**Unknown**: # Trump warns Kiev, no more weapons. Trump threatens Moscow, more sanctions. Russia unfazed by warning
+**Alexander Mercouris**: # Trump warns Kiev, no more weapons. Trump threatens Moscow, more sanctions. Russia unfazed by warning
 
-**Unknown**: Good day. Today is Wednesday, 30th
+Good day. Today is Wednesday, 30th
 April, 2025.
 Now over my last course of my last
 couple of programs, I have been devoting

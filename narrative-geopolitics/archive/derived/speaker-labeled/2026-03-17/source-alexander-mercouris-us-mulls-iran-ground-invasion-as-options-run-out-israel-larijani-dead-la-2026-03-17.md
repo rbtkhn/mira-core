@@ -29,17 +29,17 @@ caption_header_strip_applied: true
 caption_wrapper_normalize_applied: true
 transcript_wrapper_tier: caption-metadata
 speaker_labeling: provisional
-speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2026-03-17/source-alexander-mercouris-us-mulls-iran-ground-invasion-as-options-run-out-israel-larijani-dead-la-2026-03-17.md", "source_sha256": "75e0067669797a70766d724be11f2a6a2e40f4b96673fb9205f64b4b4ec32514", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 4, "labeled_turn_count": 0, "unknown_turn_count": 4, "candidate_speakers": ["Alexander Mercouris", "Mercouris"]}
+speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2026-03-17/source-alexander-mercouris-us-mulls-iran-ground-invasion-as-options-run-out-israel-larijani-dead-la-2026-03-17.md", "source_sha256": "75e0067669797a70766d724be11f2a6a2e40f4b96673fb9205f64b4b4ec32514", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 1, "labeled_turn_count": 1, "unknown_turn_count": 0, "candidate_speakers": ["Alexander Mercouris"], "solo_format": "single-label-continuous"}
 ---
-**Unknown**: # US Mulls Iran Ground Invasion As Options Run Out; Israel: Larijani Dead; Lavrov Kiev Regime Must Go
+**Alexander Mercouris**: # US Mulls Iran Ground Invasion As Options Run Out; Israel: Larijani Dead; Lavrov Kiev Regime Must Go
 
-**Unknown**: **Channel:** Alexander Mercouris (solo)  
+**Channel:** Alexander Mercouris (solo)  
 **Date:** Tuesday, 17 March 2026 (host)  
 **URL:** https://www.youtube.com/watch?v=kcd_Y41tPFI
 
-**Unknown**: ## Transcript
+## Transcript
 
-**Unknown**: Good day.
+Good day.
 Today is Tuesday, 17th March 2026,
 and before I proceed with this program,
 let me remind you again to take the like

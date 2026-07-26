@@ -20,11 +20,11 @@ verification_reason: sourceChars=51845; bodyChars=51845; exactMatch=True after r
 evidence_grade: transcript-bearing
 source_note: Mechanically extracted from local Codex session log after operator pasted the YouTube transcript; removed the leading title wrapper and Transcripts label only; transcript internal date says Sunday 15th June 2025, which overrides the earlier June 16 mirror inference; not independently fetched from YouTube subtitles.
 speaker_labeling: provisional
-speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-06-15/source-alexander-mercouris-iran-strikes-continue-israels-plan-ad-falter-asks-us-join-war-putin-slams-trump-in-angry-call-2025-06-15.md", "source_sha256": "c9b20245e6e04696fecf5f77335fe34e20124f0b4a615de464405da0d9a55d24", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 2, "labeled_turn_count": 0, "unknown_turn_count": 2, "candidate_speakers": ["Alexander Mercouris", "Mercouris"]}
+speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-06-15/source-alexander-mercouris-iran-strikes-continue-israels-plan-ad-falter-asks-us-join-war-putin-slams-trump-in-angry-call-2025-06-15.md", "source_sha256": "c9b20245e6e04696fecf5f77335fe34e20124f0b4a615de464405da0d9a55d24", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 1, "labeled_turn_count": 1, "unknown_turn_count": 0, "candidate_speakers": ["Alexander Mercouris"], "solo_format": "single-label-continuous"}
 ---
-**Unknown**: # Iran Strikes Continue, Israel's Plan & AD Falter, Asks US Join War; Putin Slams Trump In Angry Call
+**Alexander Mercouris**: # Iran Strikes Continue, Israel's Plan & AD Falter, Asks US Join War; Putin Slams Trump In Angry Call
 
-**Unknown**: ## Transcript
+## Transcript
 Good day. Today is Sunday 15th June 2025 and I think it's probably fair to say that there are now the first hints and uh indications that even the West people are now starting to worry that the conflict between Israel and Iran is not going in the way that perhaps some expected.
  that Iran um has been far from bro bro bro bro bro bro bro bro bro bro bro bro bro bro bro bro bro bro bro bro bro bro bro bro bro bro bro bro bro bro bro bro bro bro bro bro bro bro bro bro broken by the Israeli attacks that the um Iranian nuclear facilities are in the main fundamentally undamaged and that Iran's missile strikes on Israel which continued yesterday for a second night and apparently even are now starting to take place during the day suggest that Iran is not just hitting back but is indeed hitting back successfully in places. I say that
 because despite all of the talk and all of the claims and all of the boasts about the success the the quality of Israel's air defenses, its Patriot missile systems, its Iron Dome system, its David Slings system. We're now getting more and more evidence that Iranian missiles are successfully pen penetrating into Israel and are causing damage there.
@@ -154,4 +154,3 @@ All of this is create creating and provoking perhaps the most panicky statements
 in which case the Iranians have shown that they can fight and sooner or later it's difficult to believe that their allies, the Russians, the Chinese and the Ukrainians will not themselves become involved. Putin's comments rather suggest that at some point they will. Anyway, this is where I'm finishing today's program.
  There'll be more from me soon. Let me remind you, you can find our programs again on our various platforms, Locals, Rumble, and X. You can support our work via Patreon and Subscribe Star and by going to our shop. Please remember that you can also, if you wish, support this channel by ticking the like button and by checking your subscription to this channel.
 That's me for today. More from me soon. Have a very good day. [Music]
-

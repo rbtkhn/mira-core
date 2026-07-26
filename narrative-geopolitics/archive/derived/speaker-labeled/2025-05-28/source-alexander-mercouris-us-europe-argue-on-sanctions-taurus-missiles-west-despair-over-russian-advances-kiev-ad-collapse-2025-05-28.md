@@ -15,11 +15,11 @@ transcript_type: yt_dlp_caption_fetch
 source_note: Fetched from YouTube captions via the repo transcript pipeline and materialized into the canonical statecraft archive.
 quality_note: English caption fetch via repo YouTube transcript pipeline; adjacent duplicate caption lines removed, otherwise preserve transcript roughness.
 speaker_labeling: provisional
-speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-05-28/source-alexander-mercouris-us-europe-argue-on-sanctions-taurus-missiles-west-despair-over-russian-advances-kiev-ad-collapse-2025-05-28.md", "source_sha256": "5eadf63f1871d86d077eb9631f0ade392f6e3595791b4c2d8a6511c59ffe9196", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 2, "labeled_turn_count": 0, "unknown_turn_count": 2, "candidate_speakers": ["Alexander Mercouris", "Mercouris"]}
+speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-05-28/source-alexander-mercouris-us-europe-argue-on-sanctions-taurus-missiles-west-despair-over-russian-advances-kiev-ad-collapse-2025-05-28.md", "source_sha256": "5eadf63f1871d86d077eb9631f0ade392f6e3595791b4c2d8a6511c59ffe9196", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 1, "labeled_turn_count": 1, "unknown_turn_count": 0, "candidate_speakers": ["Alexander Mercouris"], "solo_format": "single-label-continuous"}
 ---
-**Unknown**: # US Europe Argue On Sanctions, Taurus Missiles; West Despair Over Russian Advances, Kiev AD Collapse
+**Alexander Mercouris**: # US Europe Argue On Sanctions, Taurus Missiles; West Despair Over Russian Advances, Kiev AD Collapse
 
-**Unknown**: Good day. Today is Wednesday, 28th May,
+Good day. Today is Wednesday, 28th May,
 2025.
 And well, yesterday in my program, I
 said that we were seeing the first signs

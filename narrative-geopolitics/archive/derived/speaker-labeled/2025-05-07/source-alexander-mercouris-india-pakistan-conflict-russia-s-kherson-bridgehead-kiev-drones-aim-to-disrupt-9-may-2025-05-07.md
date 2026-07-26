@@ -15,11 +15,11 @@ transcript_type: yt_dlp_caption_fetch
 source_note: Fetched from YouTube captions via the repo transcript pipeline and materialized into the canonical statecraft archive.
 quality_note: English caption fetch via repo YouTube transcript pipeline; adjacent duplicate caption lines removed, otherwise preserve transcript roughness.
 speaker_labeling: provisional
-speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-05-07/source-alexander-mercouris-india-pakistan-conflict-russia-s-kherson-bridgehead-kiev-drones-aim-to-disrupt-9-may-2025-05-07.md", "source_sha256": "6cdae5ac8773b6b76fb2494cd552bb9477b924dd22a62ab1b616dd108cbcfc89", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 2, "labeled_turn_count": 0, "unknown_turn_count": 2, "candidate_speakers": ["Alexander Mercouris", "Mercouris"]}
+speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-05-07/source-alexander-mercouris-india-pakistan-conflict-russia-s-kherson-bridgehead-kiev-drones-aim-to-disrupt-9-may-2025-05-07.md", "source_sha256": "6cdae5ac8773b6b76fb2494cd552bb9477b924dd22a62ab1b616dd108cbcfc89", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 1, "labeled_turn_count": 1, "unknown_turn_count": 0, "candidate_speakers": ["Alexander Mercouris"], "solo_format": "single-label-continuous"}
 ---
-**Unknown**: # India Pakistan Conflict; Russiaâ€™s Kherson Bridgehead; Kiev Drones Aim To Disrupt 9 May
+**Alexander Mercouris**: # India Pakistan Conflict; Russiaâ€™s Kherson Bridgehead; Kiev Drones Aim To Disrupt 9 May
 
-**Unknown**: Good day. Today is Wednesday, 7th May
+Good day. Today is Wednesday, 7th May
 2025 and the big news over the last 24
 hours has been the enormous
 escalation in conflict in fighting um

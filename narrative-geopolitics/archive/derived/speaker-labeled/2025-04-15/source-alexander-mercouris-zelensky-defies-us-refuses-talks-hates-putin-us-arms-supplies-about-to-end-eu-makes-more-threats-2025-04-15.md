@@ -15,11 +15,11 @@ transcript_type: yt_dlp_caption_fetch
 source_note: Fetched from YouTube captions via the repo transcript pipeline and materialized into the canonical statecraft archive.
 quality_note: English caption fetch via repo YouTube transcript pipeline; adjacent duplicate caption lines removed, otherwise preserve transcript roughness.
 speaker_labeling: provisional
-speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-04-15/source-alexander-mercouris-zelensky-defies-us-refuses-talks-hates-putin-us-arms-supplies-about-to-end-eu-makes-more-threats-2025-04-15.md", "source_sha256": "20fd4acd577760d781ccf4a616c3dcf8932bd648bc059eabddfe94786ab26c88", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 2, "labeled_turn_count": 0, "unknown_turn_count": 2, "candidate_speakers": ["Alexander Mercouris", "Mercouris"]}
+speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-04-15/source-alexander-mercouris-zelensky-defies-us-refuses-talks-hates-putin-us-arms-supplies-about-to-end-eu-makes-more-threats-2025-04-15.md", "source_sha256": "20fd4acd577760d781ccf4a616c3dcf8932bd648bc059eabddfe94786ab26c88", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 1, "labeled_turn_count": 1, "unknown_turn_count": 0, "candidate_speakers": ["Alexander Mercouris"], "solo_format": "single-label-continuous"}
 ---
-**Unknown**: # Zelensky Defies US, Refuses Talks, Hates Putin; US Arms Supplies About To End; EU Makes More Threats
+**Alexander Mercouris**: # Zelensky Defies US, Refuses Talks, Hates Putin; US Arms Supplies About To End; EU Makes More Threats
 
-**Unknown**: Good day. Today is Tuesday, 15th April,
+Good day. Today is Tuesday, 15th April,
 2025, and we've had many developments in
 the conflict in Ukraine. All of which
 are very interesting and which also

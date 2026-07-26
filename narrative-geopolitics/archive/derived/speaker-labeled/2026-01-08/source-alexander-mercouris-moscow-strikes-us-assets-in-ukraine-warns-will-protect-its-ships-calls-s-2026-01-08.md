@@ -23,17 +23,17 @@ normalization_state: ai_assisted_proper_noun_cleanup
 editorial_note: AI-assisted source-clean (scaffold + ph-civ series + entity + thread tiers (mercouris, channel:alexander-mercouris)); 21 substitutions; not human-verified verbatim; verify before quotation. Prior provenance: Operator-pasted transcript; ASR artifacts retained; not human-verified verbatim against audio. Routine Mercouris solo subscribe/platform close trimmed in place; SSOT body otherwise preserved.
 quality_note: ASR normalization pass 2026-06-22; ph-civ replacement SSOT.
 speaker_labeling: provisional
-speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2026-01-08/source-alexander-mercouris-moscow-strikes-us-assets-in-ukraine-warns-will-protect-its-ships-calls-s-2026-01-08.md", "source_sha256": "a5143923497ef4cbe325b7604094923a4f630a1f6dfb8ab1e12220b4c8744d88", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 4, "labeled_turn_count": 0, "unknown_turn_count": 4, "candidate_speakers": ["Alexander Mercouris", "Mercouris"]}
+speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2026-01-08/source-alexander-mercouris-moscow-strikes-us-assets-in-ukraine-warns-will-protect-its-ships-calls-s-2026-01-08.md", "source_sha256": "a5143923497ef4cbe325b7604094923a4f630a1f6dfb8ab1e12220b4c8744d88", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 1, "labeled_turn_count": 1, "unknown_turn_count": 0, "candidate_speakers": ["Alexander Mercouris"], "solo_format": "single-label-continuous"}
 ---
-**Unknown**: # Moscow Strikes US Assets In Ukraine; Warns Will Protect Its Ships; Calls Starmer Macron Axis Of War
+**Alexander Mercouris**: # Moscow Strikes US Assets In Ukraine; Warns Will Protect Its Ships; Calls Starmer Macron Axis Of War
 
-**Unknown**: **Show:** Alexander Mercouris · **Host:** Alexander Mercouris  
+**Show:** Alexander Mercouris · **Host:** Alexander Mercouris  
 **Date:** 2026-01-08 · **Ingest:** 2026-06-22  
 **URL:** https://www.youtube.com/watch?v=tH6Llc4xGBk
 
-**Unknown**: ## Transcript
+## Transcript
 
-**Unknown**: Good day. Today is Thursday, 8th January, 2026. And before I proceed with this program, let me remind you again that um uh to tick the like button and to check your subscription to this channel. If once you've watched this video or whichever part of the video you want to watch, you decide that you've liked what you've heard and wish to indicate that fact.
+Good day. Today is Thursday, 8th January, 2026. And before I proceed with this program, let me remind you again that um uh to tick the like button and to check your subscription to this channel. If once you've watched this video or whichever part of the video you want to watch, you decide that you've liked what you've heard and wish to indicate that fact.
 Now, with all of this, let me now go straight into the program. the the video because it seems to me that we are on the cusp of very important and very interesting developments in terms of the relations between the United States and Russia and the situation in Ukraine, but also in relation to the wider policies that the United States is going to be following over the next few years.
 Certainly while President Trump remains President of the United States and perhaps beyond that in fact I'm confident that they will reflect the changes that will continue beyond that. Now let me first begin with the incident that I started my program with yesterday which is the Bella 2. the tanker that uh escaped was steaming uh northwards from the Caribbean, sailing towards um the um towards uh Russia, which painted a Russian flag on its hull um which um claimed to have registered Russian ownership and which um
 appeared to be making a dash for a Russian port. Most reports agree that the port in question was Murmansk. And as I discussed extensively at the start of my program yesterday, there were many reports that the Russian Navy was rushing ships to try to escort and protect the tanker whose original name was the Bella 2 but which then changed its name to Marinera.

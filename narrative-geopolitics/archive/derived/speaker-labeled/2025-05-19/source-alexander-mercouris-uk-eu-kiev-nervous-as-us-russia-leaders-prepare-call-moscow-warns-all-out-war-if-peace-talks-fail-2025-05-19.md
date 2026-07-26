@@ -15,11 +15,11 @@ transcript_type: yt_dlp_caption_fetch
 source_note: Fetched from YouTube captions via the repo transcript pipeline and materialized into the canonical statecraft archive.
 quality_note: English caption fetch via repo YouTube transcript pipeline; adjacent duplicate caption lines removed, otherwise preserve transcript roughness.
 speaker_labeling: provisional
-speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-05-19/source-alexander-mercouris-uk-eu-kiev-nervous-as-us-russia-leaders-prepare-call-moscow-warns-all-out-war-if-peace-talks-fail-2025-05-19.md", "source_sha256": "041e6b15c4cc2264420d22ecee18d44e34f15f905794e739020689c382d45cbd", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 2, "labeled_turn_count": 0, "unknown_turn_count": 2, "candidate_speakers": ["Alexander Mercouris", "Mercouris"]}
+speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-05-19/source-alexander-mercouris-uk-eu-kiev-nervous-as-us-russia-leaders-prepare-call-moscow-warns-all-out-war-if-peace-talks-fail-2025-05-19.md", "source_sha256": "041e6b15c4cc2264420d22ecee18d44e34f15f905794e739020689c382d45cbd", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 1, "labeled_turn_count": 1, "unknown_turn_count": 0, "candidate_speakers": ["Alexander Mercouris"], "solo_format": "single-label-continuous"}
 ---
-**Unknown**: # UK/EU Kiev Nervous As US-Russia Leaders Prepare Call; Moscow Warns All Out War If Peace Talks Fail
+**Alexander Mercouris**: # UK/EU Kiev Nervous As US-Russia Leaders Prepare Call; Moscow Warns All Out War If Peace Talks Fail
 
-**Unknown**: Good day. Today is Monday 19th May
+Good day. Today is Monday 19th May
 2025 and as you can see I am in my hotel
 room in St. Petersburg taking a break
 from the uh legal forum which I'm

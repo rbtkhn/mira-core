@@ -17,14 +17,14 @@ evidence_grade: transcript-bearing
 source_note: Fetched from YouTube captions via the repo transcript pipeline and materialized into the canonical statecraft archive.
 quality_note: English caption fetch via repo YouTube transcript pipeline; adjacent duplicate caption lines removed, otherwise preserve transcript roughness.
 speaker_labeling: provisional
-speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-04-01/source-alexander-mercouris-facing-us-threats-tariffs-russia-china-confer-wang-yi-moscow-oskol-2025-04-01.md", "source_sha256": "04948a524b7b0c381ba6867f7f68178e479c7c12fd70b4c800ac5b1fc1567041", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 3, "labeled_turn_count": 0, "unknown_turn_count": 3, "candidate_speakers": ["Alexander Mercouris", "Mercouris"]}
+speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-04-01/source-alexander-mercouris-facing-us-threats-tariffs-russia-china-confer-wang-yi-moscow-oskol-2025-04-01.md", "source_sha256": "04948a524b7b0c381ba6867f7f68178e479c7c12fd70b4c800ac5b1fc1567041", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 1, "labeled_turn_count": 1, "unknown_turn_count": 0, "candidate_speakers": ["Alexander Mercouris"], "solo_format": "single-label-continuous"}
 ---
-**Unknown**: # 
+**Alexander Mercouris**: # 
 Facing US Threats, Tariffs, Russia China Confer; Wang Yi In Moscow; Kiev Defences Collapse Oskol
 
-**Unknown**: ## Transcript
+## Transcript
 
-**Unknown**: good day today is Tuesday 1st April
+good day today is Tuesday 1st April
 2025 um we're into the month of April
 and tomorrow 2nd April according to
 president Trump is Liberation day the

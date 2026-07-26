@@ -37,19 +37,19 @@ transcript_curation: curated_sectioned
 section_count: 10
 section_pass: 2026-07-09 semantic-section-v1
 speaker_labeling: provisional
-speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2026-06-18/source-alexander-mercouris-russia-warns-iran-beware-us-trap-mou-iran-terms-2026-06-18.md", "source_sha256": "f0c59fea6fc2eeb7ed1cad99d2069fba7eb7aa7b5b705e7328704a0531904146", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 23, "labeled_turn_count": 0, "unknown_turn_count": 23, "candidate_speakers": ["Alexander Mercouris", "Mercouris"]}
+speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2026-06-18/source-alexander-mercouris-russia-warns-iran-beware-us-trap-mou-iran-terms-2026-06-18.md", "source_sha256": "f0c59fea6fc2eeb7ed1cad99d2069fba7eb7aa7b5b705e7328704a0531904146", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 1, "labeled_turn_count": 1, "unknown_turn_count": 0, "candidate_speakers": ["Alexander Mercouris"], "solo_format": "single-label-continuous"}
 ---
-**Unknown**: # Russia Warns Iran Beware US Trap; US Signs MoU On Iran Terms; EU Offers Talks Russia 'Uninterested'
+**Alexander Mercouris**: # Russia Warns Iran Beware US Trap; US Signs MoU On Iran Terms; EU Offers Talks Russia 'Uninterested'
 
-**Unknown**: **Channel:** Alexander Mercouris (solo)  
+**Channel:** Alexander Mercouris (solo)  
 **Date:** Thursday, 18 June 2026 (host)  
 **URL:** https://www.youtube.com/watch?v=8OgsCBK2gdc
 
-**Unknown**: ## Transcript
+## Transcript
 
-**Unknown**: ### Show Open — Iran Hormuz Ceasefire
+### Show Open — Iran Hormuz Ceasefire
 
-**Unknown**: Good day. Today is Thursday 18th June 2026 and before I proceed with this program, I just have a few very short comments to make. Firstly, addressing those people in Moscow who have been anxious to meet with me and who unfortunately because of intense pressures of time I was unable to meet.
+Good day. Today is Thursday 18th June 2026 and before I proceed with this program, I just have a few very short comments to make. Firstly, addressing those people in Moscow who have been anxious to meet with me and who unfortunately because of intense pressures of time I was unable to meet.
  Though I have been in Russia for roughly 10 days, u the bulk of that time has been in Puskoff, some distance away from Moscow. My total time in Moscow was limited to just a few hours. During that time, I'm afraid I had many things, many important and valuable things to do whilst I was in Moscow. And I'm afraid that left the available time to meet and have reestablished connections and established connections with many people in Moscow.
  That time just melted away. So I want to apologize firstly to those people who wanted to meet me for my inability to meet with them. I intend to write directly to all of these people to pass on my apologies in writing. Um I do intend to make further trips to Moscow hopefully reasonably soon. um and to have those meetings in less pressured circumstances than those which existed over the course of my uh most recent meeting.
  So that's one thing I wanted to say. The next is that I want to return to my usual thing about reminding you all to tick the like button and check your subscription to this channel if once you've watched this video you decide that you like what you've heard and you wish to indicate that fact.
@@ -63,9 +63,9 @@ And well, there's been much discussion about whether the memorandum precludes Ir
  The agreement will relate to the state of Iran's uranium enrichment program. But contrary to some claims, there's been no commitment, at least in the memorandum, the text of the memorandum that we have, that the Iranians will take any particular step um in relation to this uranium enrichment program. I mean, there's been claims that Iran has agreed to destroy its current stockpile or to dilute it.
 Perhaps words to that effect have been exchanged, but there is nothing in the memorandum that says this. And of course, if we're talking about Iran's ballistic missile program, Iran's assistance,
 
-**Unknown**: ### Segment 2 — Iran Russia Ukraine
+### Segment 2 — Iran Russia Ukraine
 
-**Unknown**: its long-term ties with his various regional allies, Hezbollah in Lebanon, the Houthis in Yemen, uh the various militias in Iraq, well, the memorandum of understanding is completely silent in relation to anything of that behind.
+its long-term ties with his various regional allies, Hezbollah in Lebanon, the Houthis in Yemen, uh the various militias in Iraq, well, the memorandum of understanding is completely silent in relation to anything of that behind.
 What we do have instead is commitments from the United States to unfreeze and repay Iran certain of its assets and eventually to move towards a total lifting of sanctions on Iran, allowing Iran to export its oil unhindered. So if we go simply by what is in the memorandum of understanding as I said it is clear that this current stage of the conflict has ended with a clearcut Iranian victory and President Trump who has been in France in fact he perhaps rather unwisely signed this memorandum
 of understanding in Versailles. Uh this is electronic signatures I should say. Um Pezish gun and Trump did not meet. Anyway, um President Trump has explained why he met with oil industry executives a short time ago. They told him that the reserves are almost exhausted. within four weeks time the United States, the world in general would face a cliff.
  At that point, um, oil prices would surge. There are further reports that say that we are also now approaching the point or were approaching the point where other critical materials also exported from the Persian Gulf were about to start running acutely short. So, the United States lost what my colleague and friend Alex Christophoru has described as the waiting game.
@@ -79,9 +79,9 @@ There was instead the ceasefire which was Minsk one. The Russians at that point 
 And what instead happened is that of course the Ukrainians did not implement any part of the Minsk agreement. Some of the terms again mirror remarkably things that you will see in the memorandum of understanding that the United States and Iran have just signed. So for example, the memorandum of understanding requires the United States to pull its forces away from Iran.
 And the Minsk agreement of February 2022
 
-**Unknown**: ### Segment 3 — Russia Iran Ukraine
+### Segment 3 — Russia Iran Ukraine
 
-**Unknown**: um required the Ukrainians to pull their forces and in particular their heavy weapons away from the contact line in Dombas. But of course that never happened in the connection with the Minsk agreement. The Minsk agreement had a timeline for negotiations that were supposed to end the conflict.
+um required the Ukrainians to pull their forces and in particular their heavy weapons away from the contact line in Dombas. But of course that never happened in the connection with the Minsk agreement. The Minsk agreement had a timeline for negotiations that were supposed to end the conflict.
  Every bit as ambitious as the 60-day timeline that we see in the memorandum of understanding. There was to be an agreement for a new constitution and elections by the end of 2015. Of course, none of that ever happened. And well, what happened was that the Russians, looking at the Minsk agreement that they just negotiated, believing that the terms of the Minsk agreement were not just in Russian interest, but in the general interests of the West as well.
  um and specifically and most importantly of the Germans, assuming that the Germans who followed up the Minsk agreement with further agreements like the agreement for example to build the Nordstream 2 pipeline which it's important to stress it was the Germans who argued for and which they presented to the Russians as a proposal within weeks of the Minsk agreement being signed in February 2015.
 Anyway, the Russians went away and told themselves that the high point of the crisis in Ukraine had ended. And instead of insisting on the implementation within time of every single provision of the Minsk agreement and instead of taking action to enforce that agreement, they engaged in fruitless negotiations for eight years during which time of course Ukraine rearmed.
@@ -95,9 +95,9 @@ The Western powers will do the same. There will be a major rearmament plan acros
  And then at some point, probably not within the next year or two or three, but at some point a renewed attack on Iran will come. Only it will be stronger, much stronger and far better organized and far more sustained than the attack which we have just seen. So that is the trap that the Iranians might potentially find themselves in.
 And well, I can say that this is the advice that the Iranians have been given by the Russians. I know that to be so. Um,
 
-**Unknown**: ### Segment 4 — Iran Russia Europe
+### Segment 4 — Iran Russia Europe
 
-**Unknown**: again, I don't want to say too much because obviously these are sensitive things. I know that there are some people in Russia who worry that there is too much of a mood of euphoria in Iran at this moment.
+again, I don't want to say too much because obviously these are sensitive things. I know that there are some people in Russia who worry that there is too much of a mood of euphoria in Iran at this moment.
  I even heard the expression dizzy with success which perhaps um is one that one should bear in mind. Anyway, um I know that the Russians are worried about this. They will be advising the Iranians not to make the same mistake that the Russians made after Minsk. I suspect that in Tehran this advice will receive a very receptive hearing.
  I don't think many people in Iran are under any illusions about this and I ought to say that it's quite likely that the Iranians themselves will have come to the same conclusions anyway. But as I said, the important thing is that having achieved this tactical win, the Iranians need to understand that that is what it is.
  And they need now to consolidate it. And the way to consolidate it is by doing those two things that I have discussed in many programs. Firstly, to rebuild Iran itself to strengthen its defense capabilities even further. And that means inevitably working closer with Iran's partners, China and Russia, who certainly in the case of the Russians, have in fact provided Iran with considerable help over the last few weeks. Just saying.
@@ -112,9 +112,9 @@ So the forces that are rel arrayed against this particular agreement and any fol
  So that's what I want to say about the Iranian side. Now I'm going to say something else which is about the Americans. And I have said that in this conflict, Iran has won a tactical victory. And of course, for many people in the United States, this is going to be infuriating. Let me make my views here absolutely clear.
  In my opinion, the memorandum
 
-**Unknown**: ### Segment 5 — Russia Iran Middle East
+### Segment 5 — Russia Iran Middle East
 
-**Unknown**: of understanding the terms of it plus a good agreement with Iran which might follow are objectively good things for the United States. The United States gains nothing by being tied down in the Middle East in a permanent confrontation with Iran, just as it gains nothing by being tied down in Europe into in a permanent confrontation with the Russians.
+of understanding the terms of it plus a good agreement with Iran which might follow are objectively good things for the United States. The United States gains nothing by being tied down in the Middle East in a permanent confrontation with Iran, just as it gains nothing by being tied down in Europe into in a permanent confrontation with the Russians.
 on any objective calculation, it makes total sense for the United States in terms of the Middle East to work towards extricating itself from an extremely difficult, very volatile region in which the United States no longer has strategic interests. This memorandum of understanding and a future agreement with Iran should be seen as a pathway to the United States, extricating itself from a region from which it should seek to escape.
 Just as the secret of peace in Europe for the United States is a good treaty with Russia. So the pathway to escape from the Middle East, it seems to me, is a good treaty with Iran. Those who are familiar with history will know that in saying these things, talking about a good treaty with the Russians and a good treaty with Iran, I am echoing the words of Bismar.
  When asked what the secret of politics was, Bismar said, "A good treaty with Russia." Now, there are, of course, as I've already said, powerful forces in the United States who will argue strongly against this. The burden now falls on those other forces which I know do exist to argue the opposite.
@@ -126,14 +126,14 @@ Just as the Minsk agreement was a good deal for Russia, just as this memorandum 
  I think well overwhelmingly it is more likely that things will begin to go wrong very quickly that we're going to see the negotiations falter and fail that we're going to see the buildup increase that we're going to hear all the same voices that we always hear in the United States and elsewhere advocating a return to war.
 But all I can do and what I have done is set it out as I see it. And that is what I have done in this program.
 
-**Unknown**: ### Segment 6 — Russia Ukraine First
+### Segment 6 — Russia Ukraine First
 
-**Unknown**: Now let me now move on and return to the perennial topic of the conflict in Ukraine. And I'm going to first begin by making some general observations based on my recent trip to Russia. The first thing to say is that I have never in all my time known a situation where the realities in Russia itself and by the way also on the front lines diverge so totally from the narratives that we are hearing in the west. I
+Now let me now move on and return to the perennial topic of the conflict in Ukraine. And I'm going to first begin by making some general observations based on my recent trip to Russia. The first thing to say is that I have never in all my time known a situation where the realities in Russia itself and by the way also on the front lines diverge so totally from the narratives that we are hearing in the west. I
 massively underestimated before I came to Russia the extent to which Russia as a country is basically a country at
 
-**Unknown**: ### Segment 7 — Russia Ukraine Economy
+### Segment 7 — Russia Ukraine Economy
 
-**Unknown**: peace. It's something one needs to qualify because of course there is a war going on and everybody talks about it and is aware of it. But it's not just that normal life continues. It's that normal life is being reinforced.
+peace. It's something one needs to qualify because of course there is a war going on and everybody talks about it and is aware of it. But it's not just that normal life continues. It's that normal life is being reinforced.
  That you have a strange sense in some ways of normaly. All of which ha has been taking place against the backdrop of a much stronger overall upswing in the economy and in conditions of life than I could have possibly imagined. People who say that the sanctions in Russia are having an impact and that there are stresses in the economy are I think completely unaware of the realities there.
  The sanctions have had an impact. They have accelerated Russian economic growth. living standards continue to grow and grow significantly. The Russia I saw this time when I was there and bear in mind I wasn't just in Moscow. I was in Skov which is one of the poorer regions in Russia. The Russia I saw is a very much richer country than the Russia I saw in 2019 when I was last in Moscow.
  So that is the overwhelming impression and that brings me very much to understanding the policies of the Russian government. What the Russian government is working to do and is managing very successfully or has managed up to now very successfully in my opinion is to maintain this sense of normaly and stability in Russia.
@@ -146,9 +146,9 @@ And that does affect the way in which the war is fought because in order to pers
  And that in turn means that military operations on the battle fronts have to be conducted in perhaps a less aggressive way than some people who discuss and comment about these things would like to see. But there is, as I said, a clear rationale behind it. And when you go to Russia, it immediately begins to make sense. The same, I have to say, is true about Ukrainian drone attacks.
  Now this morning the media in Britain is full of reports about this big Ukrainian drone attack on Moscow and the attack on the refinery in Moscow and the smoke that this has given rise to. And I have to say I am becoming very tired and very frustrated about reports that talk about the refinery having been destroyed when I have repeatedly pointed out that fires
 
-**Unknown**: ### Segment 8 — Russia Ukraine Refineries
+### Segment 8 — Russia Ukraine Refineries
 
-**Unknown**: and smoke columns do not translate to the destruction of refineries or anything like that.
+and smoke columns do not translate to the destruction of refineries or anything like that.
  On the contrary, the damage that is done to these refineries by these drones is superficial and is quickly repaired and that the overall impact of these drone attacks on the refineries is minimal. We have lots of information about this. We have statistics from Forbes and from all sorts of other sources. I am very very tired at the way in which people cling to these um beliefs that these drone attacks on the refineries are having a bigger impact than they actually are.
 But the other thing to say about the drone attacks is that clearly they are part of an effort to shake this sense of normaly in Russia. But so far they are failing to do so. Drones can strike inside Russia but never to the level or degree that would disrupt normal life. The air defense system is able to dr cope with the drone attacks.
  Overall I was in Moscow. I've been in Scoff. I've been in Russia for, as I said, around 10 days. The drone strikes take place. People talk about them. There is a certain degree of anxiety about them but never to the extent that they threaten the overall sense of stability and normaly which the Russian government wants to maintain.
@@ -161,9 +161,9 @@ the front lines, but everywhere else in Dombas the situation is changing radical
 And of course the point about Raya Alexandraka which has been said by every conceivable military analyst that I'm aware of is that because it is on a hill it overlooks Kamatsk. It enables the Russians to uh launch artillery strikes against Kamatsk and to operate drones not just over Kamatsk itself which by the way they are already doing but also to attack and intercept um using drones any road traffic that tries to enter Kamatsk from the west thereby in effect blocking Ukraine.
 Ukrainian supplies. On the subject on the topic of Kromatsk, the Russians now have been shelling and bombing Kromatsk systematically. It is not yet the heavy fire we have seen on other places like Bahmut, Torres, um Constantin wherever. Um but already apparently the civilian administrations have been withdrawn by the Ukrainians from Katossk and this in itself is important because since the fall of Seo Donetsk Lizy Chansk it is from Clamatsk that the
 
-**Unknown**: ### Segment 9 — Russia Ukraine Europe
+### Segment 9 — Russia Ukraine Europe
 
-**Unknown**: Ukrainian administration civilian administration of Ukrainian control, Donbass has been
+Ukrainian administration civilian administration of Ukrainian control, Donbass has been
 run and I believe I am right in saying that throughout the entire war, it has been in Kamatsk that the advanced headquarters of the Ukrainian army in Dombbass has been located. It looks as if that is going to be withdrawn from Clamatossk fairly quickly, probably within the next few weeks or days if it hasn't been withdrawn already.
  So Ry Alexandra's fall is important in itself and it further tightens the ring that the Russians are now creating around Slavansks. But even as these events have been happening, the Russian Defense Ministry is informing us about other things that are also happening in other parts of the front line as well. And here is where the Russian Defense Ministry is now providing us with detailed information.
 And over the last few hours they have provided us with updates about the situation in Leman and in Constantin. And this is what they say about Leman in Krashni Leman. The Russians refer to it as Krasni Leman. UK. The Ukrainian name for the town is just Leman. In Krasley Leman, assault detachments of the 25th Army continued to destroy scattered units of the armed forces of Ukraine.
@@ -178,9 +178,9 @@ During the day, units of the 67th Division advancing in the northwest part of th
 We've had statements from European officials talking about how Ukraine has the initiative on the battlefields, how it is gaining ground on the front lines. We've had an extraordinary article making that very same claim by Simon Tisdor appearing in the Guardian. Um, all I would say is that people who believe this are indeed living inside their own reality.
 um a reality which by the way is contradicted not just by these reports from the Russian Defense Ministry and from Russian uh military commentators
 
-**Unknown**: ### Segment 10 — Russia Ukraine Europe
+### Segment 10 — Russia Ukraine Europe
 
-**Unknown**: and reporting channels but also from Ukrainian military reporting channels as well which I would invite these political leaders from the west to start reading and to familiarize themselves better with anyway that is the situation on the front lines at the moment.
+and reporting channels but also from Ukrainian military reporting channels as well which I would invite these political leaders from the west to start reading and to familiarize themselves better with anyway that is the situation on the front lines at the moment.
  The G7 meeting in the meantime continues to deal in further fantasies. I discussed yesterday at very great length the talk about further oil sanctions on Russia which are coming out of the G7. how this had little contact with reality, especially now that the Chinese have made absolutely clear that they do not intend to enforce sanctions against Russia, American sanctions against Russia or against Russian oil any further.
 Meanwhile, the West has been coming up with further ideas. The latest idea is some kind of licensing agreement whereby Ukraine is going to be granted licenses to make its own weapons. I don't think anybody seriously imagines that that is ever going to happen either on the territory of Ukraine or indeed anywhere else.
 Obviously, this is a device to supply weapons to Ukraine, heavy weapons, missiles, air defense interceptors. those sort of things pretend that they are being manufactured by Ukraine or conceivably in Europe. In reality, even Germany and Japan, despite being granted licenses to produce Patriot missile interceptors, for example, are struggling to do so.

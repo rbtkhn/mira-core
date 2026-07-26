@@ -37,19 +37,19 @@ transcript_curation: curated_sectioned
 section_count: 10
 section_pass: 2026-07-09 semantic-section-v1
 speaker_labeling: provisional
-speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2026-06-19/source-alexander-mercouris-russia-toughens-demands-donbas-towns-fall-eu-quarrels-us-israel-2026-06-19.md", "source_sha256": "7b2d90e6b3619a25765ca84bcc39fcd481362f37df016ed16fc9257c7909811b", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 23, "labeled_turn_count": 0, "unknown_turn_count": 23, "candidate_speakers": ["Alexander Mercouris", "Mercouris"]}
+speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2026-06-19/source-alexander-mercouris-russia-toughens-demands-donbas-towns-fall-eu-quarrels-us-israel-2026-06-19.md", "source_sha256": "7b2d90e6b3619a25765ca84bcc39fcd481362f37df016ed16fc9257c7909811b", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 1, "labeled_turn_count": 1, "unknown_turn_count": 0, "candidate_speakers": ["Alexander Mercouris"], "solo_format": "single-label-continuous"}
 ---
-**Unknown**: # Russia Toughens Demands As Key Donbas Towns Fall; EU Quarrels Over Russia Talks; US Rounds On Israel
+**Alexander Mercouris**: # Russia Toughens Demands As Key Donbas Towns Fall; EU Quarrels Over Russia Talks; US Rounds On Israel
 
-**Unknown**: **Channel:** Alexander Mercouris (solo)  
+**Channel:** Alexander Mercouris (solo)  
 **Date:** Friday, 19 June 2026 (host)  
 **URL:** https://www.youtube.com/watch?v=vm8AsfGNlxM
 
-**Unknown**: ## Transcript
+## Transcript
 
-**Unknown**: ### Show Open — Russia Europe Ukraine
+### Show Open — Russia Europe Ukraine
 
-**Unknown**: Good day. Today is Friday 19th June 2026. And before I begin this program, let me remind you again to tick the like button and to check your subscription to this channel. Well, today we have all sorts of um events taking place in relation to the memorandum of understanding and the negotiations between the United States and Iran and tensions between the United States and Israel.
+Good day. Today is Friday 19th June 2026. And before I begin this program, let me remind you again to tick the like button and to check your subscription to this channel. Well, today we have all sorts of um events taking place in relation to the memorandum of understanding and the negotiations between the United States and Iran and tensions between the United States and Israel.
  These are important matters, but I intend to discuss them later over the course of this program. Today I'm going to I'm going to focus more on the situation in Europe, the conflict between Russia and Ukraine where there have been very important military developments over the last tw 24 hours.
  Well, where also there's been a very interesting meeting in the Kremlin about which the Russian authorities are telling us very little indeed. Now this is a meeting of the Russian security council. Putin chaired it. All the important people Putin of course himself Lavrov Shyigu Belellusf Mishin the prime minister Medved they're all there the intelligence and security people were also there so all the big names of the security council were there we were told that an issue of foreign policy was discussed and that Lavrov the foreign minister provided a report and
 that's all we've been told. Now this is very interesting and it's actually rather unusual. Obviously the Russian Security Council keeps its secrets. It doesn't tell us a huge amount about what it says, but it does provide us with some reports and occasionally it gives us a transcript of introductory words by Putin.
@@ -63,9 +63,9 @@ missiles are expensive and Russian drones are not. And production of air-to-air 
 But these pledges of assistance from the Europeans to Ukraine are not, I think, actually intended to change the flow of events on the battlefields. They are intended rather to persuade the Ukrainians to keep fighting. They are, if you like, a bribe to Zalinski and to his officials to keep them in the war. Not that in Zalinsk's case, I think they need much persuading, just to say.
 Anyway, so we've had all of that from the Europeans. We've had statements from people like Macron and Rout about how well the Ukrainians are doing on the battle fronts as I will discuss shortly. That is flatout wrong. In fact, it totally contradicts the actual flow of
 
-**Unknown**: ### Segment 2 — Russia Europe European Union
+### Segment 2 — Russia Europe European Union
 
-**Unknown**: events on the battle fronts. But ultimately and overall as to a diplomatic strategy that might interest the Russians, we have heard absolutely nothing from the Europeans so far and they have not of course yet even agreed on a chief negotiator.
+events on the battle fronts. But ultimately and overall as to a diplomatic strategy that might interest the Russians, we have heard absolutely nothing from the Europeans so far and they have not of course yet even agreed on a chief negotiator.
 Now, it's worth pointing out that Macron first floated the idea of a chief negotiator to represent the European Union in discussions with the Russians early last year. There was a agreement of some sort in principle made to move forward with this over the course of various European summit meetings in December.
  We are now in June and no progress has been made. Despite all that, there are some reports that the Europeans are making tentative approaches to the Russians. And it may be that Lavrov's report is partly about that. The other possibility of course is that it could be connected with some approach that is being made by the United States.
 Though to be frank again here I see very little positive sign of this. Um Trump spoke to Putin a couple of days ago. I discussed that previously in my program. There's been discussions about Witkoff and Kushner coming to Moscow again, but it's unclear what they're coming with and no date yet has been announced.
@@ -78,9 +78,9 @@ So, it's difficult to say exactly what is happening here, but something is happe
 There's no reference to Leman. There is no reference to the battle in the much bigger town of Constantineka. There's no reports about Russian advances towards the other Donbass town of Dorupilia. There's nothing about Russian advances on other parts of the conflict line. What there has been at extraordinary length is a very long discussion about many very long discussions and much euphoria, misplaced euphoria about the big drone attack that the Ukrainians recently, a day or so ago, carried out against Moscow. 200 drones we're told in
 total and lots of pictures in the Western media about a fire at a refinery west of Moscow and of the big smoke column that comes from the refinery fire and there's been eurid tales of how the um rain turned black over Moscow from the soot of the fire and things of that kind. Now I have discussed as I discussed as I said me me me me me me me me me me me me me me me me me me me me me me me me me me me me me me me me me me me me me me me me mentioned yesterday in
 
-**Unknown**: ### Segment 3 — Russia Ukraine Economy
+### Segment 3 — Russia Ukraine Economy
 
-**Unknown**: my program refinery fires in Moscow in Russia in many many
+my program refinery fires in Moscow in Russia in many many
 programs. Now to repeat again oil refineries are massive industrial facilities. A fire in an oil storage tank does not mean the destruction of the refinery. Often mostly the damage is superficial and we have had now reports from various sources. The Russian dissident site, Medusa, Moscow Times, Forbes, all of us, all of them saying what I have been saying all along that these refineries can be repaired very quickly, often within hours, sometimes within days, but there has never been any significant effect on the
 Russian energy complex. Lex's ability to continue operations. And I have absolutely no reason to think that this attack on the refinery was any the refinery near Moscow was any different. In fact, the Moscow city government speaks about the refinery having been been hit by several drones, but the fire having been put out and of repairs being underway and of the situation with gasoline in Moscow being stable and of production of gasoline overall.
 being unaffected with a refinery likely to go back into production fairly soon. Now, in every other respect, I have tried to discover to get a clear picture of what actual damage that this big Ukrainian drone attack on Moscow actually did. And to say it straightforwardly, my sense is very little. Overall, a few drones did get through.
@@ -94,9 +94,9 @@ despite all of that, Ukraine is still able to hit back and strike Russia and lan
 The other purpose of these attacks is the one that I've discussed in recent programs to shake in so far as it is possible to do the sense of normaly that is now very much the reality within Russia. The sense that the economy, patterns of life, commercial activity, all of that carries on very much as normal in conditions which essentially amount to peace.
 As I discussed in a recent program,
 
-**Unknown**: ### Segment 4 — Russia Ukraine Trump
+### Segment 4 — Russia Ukraine Trump
 
-**Unknown**: the West and the Ukrainians probably understand that if Ukraine is to have any chance of prevailing in this war, it must shatter this feeling of normaly in Russia. The drones are the latest attempts to do that. But as we have seen with this big drone attack on Moscow, the attempt overall has been unsuccessful.
+the West and the Ukrainians probably understand that if Ukraine is to have any chance of prevailing in this war, it must shatter this feeling of normaly in Russia. The drones are the latest attempts to do that. But as we have seen with this big drone attack on Moscow, the attempt overall has been unsuccessful.
 Now here I'm going to make an observation about something which took place last month. In the runup to the victory parade in Moscow on the 9th of May, President Zalinski was making all sorts of bold claims about Ukraine launching drones to disrupt the Victory Day parade in Moscow on Red Square on the 9th of May.
  And the Russians for their part made very very strong counterwarnings which were relayed directly to President Trump by the Russian President Vladimir Putin that if the Moscow victory parade were indeed disrupted were attacked by Ukrainian drones, the Russians would counter with a devastating attack on central Kiev which might result potentially in the safety of Western diplomats in Kiev being put at risk.
  And President Trump of the United States took that threat seriously and declared that over the period of Victory Day, there would be a three-day ceasefire. And the result was that no Ukrainian drone attack on Moscow did in fact take place on the 9th of May. Well, we have now just witnessed a Ukrainian drone attack on Moscow, which would have presumably been on the same scale as an attack, the attack, the threatened attack on Moscow, which perhaps the Ukrainians had been planning for the 9th of May.
@@ -109,9 +109,9 @@ inside urban centers. Shortly after my arrival in London from Russia, I received
 That the Arashnik is now conceived in Russia as a mature system. In which case, by the way, the development, its development has been astonishingly rapid. And well, with the acceleration of production and with its already ongoing deployment to the troops, we are indeed likely to see it used increasingly over the course of this year, presumably on urban centers on Kharkov, where there are many underground bunkers.
 on Nepro, but also of course on Kiev itself. Anyway, that's as I said the situation with drones and missiles um at the present time in this field in this area in the war in the
 
-**Unknown**: ### Segment 5 — Russia Sky Russians
+### Segment 5 — Russia Sky Russians
 
-**Unknown**: sky despite claims to the contrary it is the Russians who continue to have the overwhelming advantage. Now that now brings me to the situation on the front lines and here we appear to be getting important news.
+sky despite claims to the contrary it is the Russians who continue to have the overwhelming advantage. Now that now brings me to the situation on the front lines and here we appear to be getting important news.
  Firstly, the Russian Defense Ministry has published drone footage from Leman. This is a town located to the east of Slavansk. It's apparently on an elevation. It was briefly captured. It was captured by the Russians in May 2022, practically without resistance. Um, the Ukrainians then recaptured it in September 2022 over the course of their Harov counter offensive.
  The Russians have now come back and there is been intense fighting in Leman over the last few weeks. Um the Russian overall commander, General Gerimov, said about three weeks ago that the Russians control all 80 85% of Leman. About 2 or 3 days ago, the Russian Defense Ministry said that a group of Ukrainian troops had been encircled in a part of Leman and that the last supply route to the garrison had been destroyed by the Russians, leaving whatever Ukrainian troops were still in Leman essentially trapped there. And now the latest video footage
 shows Russian soldiers across pretty much all of Leman raising Russian flags, giving the strong impression that the town has essentially fallen. Now, there's been no announcement to that effect by the Russian Defense Ministry as of the time of making of this program. And the Russian Defense Ministry can sometimes be just as just to say a little slow in making these announcements.
@@ -125,9 +125,9 @@ And well, the Russians are saying that the Ukrainians are now in the process of 
  If enemy drones try to fly into our zone to isolate some area or conduct surveillance, they are immediately spotted and destroyed. Now there are some of you may have noticed a few contradictions in this report. The Ukrainians are fleeing and are offering no resistance, but at the same time they are still trying to infiltrate the town.
 So, not every Ukrainian soldier is fleeing and not every Ukrainian soldier is putting up no resistance. But
 
-**Unknown**: ### Segment 6 — Russia Ukraine Russian
+### Segment 6 — Russia Ukraine Russian
 
-**Unknown**: the Russian Defense Ministry when it publishes a report of this kind is telling us that it is all but over. that Constantinofka is indeed on the brink of falling, which is why we should expect an announcement to that effect very soon.
+the Russian Defense Ministry when it publishes a report of this kind is telling us that it is all but over. that Constantinofka is indeed on the brink of falling, which is why we should expect an announcement to that effect very soon.
  As I said, I'm guessing that it will be some point next week, perhaps early next week, and I expect the announcement that Leman will have fallen will be made this weekend. That will mean that over the last few days the Russians will have captured three important positions around the Slavansks constabation. The important village of Ry Alexandroka which overlooks Kamatsk and indeed partly Slavansk too.
  Leman in the north which does the same and Constantinfka in the south. By far the biggest place of these three. A place of course with a pre-war population as I recall of around 70,000 people. So I don't believe it is a coincidence that any all three of these places have all fallen at roughly the same time. I've discussed how the Russian Defense Ministry likes to synchronize its battles.
 It likes to do things as it says rhythmically. It wants all of these places to fall at the same time. Not because of any PR effect, but because by capturing these places simultaneously or all but simultaneously that increases the prospect of the Ukrainians being caught in a cauldron or semicordinators area and that I suspect is also a Russian objective in this war.
@@ -141,9 +141,9 @@ I pointed out at the time that this was extremely unlikely to be the case, if on
  I believe that attacks do take place, but apparently here again the Russians have successfully stabilized the situation. They found means to counter the Ukrainian Americanmade Hornet drones and road traffic along the highway apparently has returned to normal and I understand that the gasoline situation in Crimea has stabilized as well.
  So again, maybe the Russians are planning something in this area of the battle fronts. I
 
-**Unknown**: ### Segment 7 — Russia Europe Ukraine
+### Segment 7 — Russia Europe Ukraine
 
-**Unknown**: don't know. But the claims, some of which were very euphoric of a few weeks ago about how the Ukrainians had cut off Crimea, how they had achieved with their drones, that which they failed to do during the summer offensive of 2023, which was isolate Crimea from the Russian mainland.
+don't know. But the claims, some of which were very euphoric of a few weeks ago about how the Ukrainians had cut off Crimea, how they had achieved with their drones, that which they failed to do during the summer offensive of 2023, which was isolate Crimea from the Russian mainland.
  Well, we see that within just a few weeks that narrative has also has also failed. Now this now takes me back to that meeting in Moscow, the meeting of the Russian Security Council because of course Putin is going to be very thoroughly briefed. The Security Council is going to be very thoroughly briefed about military developments on the battlefields and the Russian Security Council will know about all of these military developments.
  The fact that Leman has either fallen or is about to fall and the fact that Constantine is also about to fall and that Ry Alexandroka has fallen and about the advances elsewhere on the front lines including by the way in northeastern Ukraine in Karakov region and in Sunumi region which I'm not going to discuss in this program and putting aside developments in terms of western outreach towards Russia, possible diplomatic initiatives by the Americans and by the Europeans, the Russians probably do need to think now about their own negotiating strategy going
 forward. There's been a lot of discussion about how the Russian military has supposedly told Putin that they expect Donbass to be under full Russian control before the autumn. I don't know whether that sort of assurance has indeed been given to Putin or to the security council. But it is not impossible that the Russians do want to see Donbass clear to the Ukrainians.
@@ -156,9 +156,9 @@ fully reunited with Russia but He's been talking about confirmation that western
  Anyway, he says that the Russians want assurances that this westernist well they want guarantees not asurances. They want to ensure that this this western expansion will altogether stop. And of course he again brought up the topic of the rights of Russian speakers in Ukraine. And he also said something else as well and he was talking about the Europeans.
 He said that the demands that the eur Europeans continue to make for the end of the war or the end of the conflict with Russia. The demands they make of the Russians are not intended to secure peace. They are
 
-**Unknown**: ### Segment 8 — Russia Israel Iran
+### Segment 8 — Russia Israel Iran
 
-**Unknown**: intended instead to prolong the life of the Zalinski regime. So when Lavro talks in that way, he of course speaks in a way that is consistent with the way that many other Russian officials have spoken about the end, the need to bring the existing regime in Kiev itself to an end.
+intended instead to prolong the life of the Zalinski regime. So when Lavro talks in that way, he of course speaks in a way that is consistent with the way that many other Russian officials have spoken about the end, the need to bring the existing regime in Kiev itself to an end.
 So, here is what I think is going to happen. I think the Russians are working on a diplomatic strategy. They're working waiting for the Americans to contact them with any new proposals that they might have. And Lavro Lavrov said that the Russians do expect a diplomatic initiative from the Americans. And they're also waiting to see whether the Europeans will ever get their act together and actually make a serious attempt to reach out to the Russians.
 But when that happens, the Russians expect that Donbass will already be either under their control or about to become so. And on the strength of that they will revise Istanbul plus and they will demand far more extensive changes in the internal arrangements in Ukraine than they have demanded up to now.
  They will demand a full restoration of political rights for Russian speakers, full restoration of the Russian language and of the church. But they will also demand a fundamental restructuring of the political system in Kiev. In fact, they will demand regime change in Kiev and a complete reconstruction of the whole of Ukraine, of the entire political system in Ukraine.
@@ -172,9 +172,9 @@ And one gets the clear sense that the Americans believe that the Israelis are tr
 But I think there is a fair chance that this one will because this time the Americans are going to insist on it and they're going to, I suspect, threaten action against the Israelis unless the Israelis agree and then negotiations between Iran and the United States will begin and they will begin in Geneva and they're certain to last much longer than 60 days and of course as I've discussed in several programs now both sides are going to use the time in order to rearm so we have that now um before us that development definitely
 is coming. One of the things that I have discussed in my recent programs is that Iran needs to be extremely careful not to be drawn into
 
-**Unknown**: ### Segment 9 — Russia Iran Process
+### Segment 9 — Russia Iran Process
 
-**Unknown**: a prolonged negotiation process that leads nowhere in the way that Russia was drawn in to a negotiating process that led nowhere. where following the signing of the Minsk agreement in February 2015.
+a prolonged negotiation process that leads nowhere in the way that Russia was drawn in to a negotiating process that led nowhere. where following the signing of the Minsk agreement in February 2015.
 I have pointed out in several programs now the degree to which theou the terms of theou remind me of the terms of the Minsk agreement of February 2015. And I have also said that Iran needs to take advantage of the various offers of support it has received from its bricks partners. But here I have to say something which I discovered when I was in Russia and which my colleague and friend Alex Christophoro in his entirely separate visit to Russia also discovered which is that not all is well with the bricks.
 The way the Russians put it, and both Alex and I heard the same thing, is that back in 2024, the Russians in the runup to the summit meeting at Kazan worked extremely hard to design the future financial architecture for bricks, bricks pay, and all of the other mechanisms. that we needed to complete a to create a complete financial system for bricks outside the dollar system designed by the United States.
  Uh various university departments and institutes across Russia were involved in this work. Um the Chinese were also apparently consulted. There was a lot of discussion of the relevant technologies and though there was clearly a lot of work to do. The Russians came forward at the Kazan meeting in the autumn of 2024 with a worked out and completed package.
@@ -188,9 +188,9 @@ the United States, and frankly, they don't want that to happen. Now, the Russian
  The two major players in Briggs, the Chinese and the Russians, are going to eventually move forward with all of these payment mechanisms. There is no reason why they would not. Um, we are probably going to see different tiers develop within BRIGs. The Russians and the Chinese will represent, if you like, the top integrationist tier.
  Integration is perhaps too strong a word, but the
 
-**Unknown**: ### Segment 10 — Iran Russia Israel
+### Segment 10 — Iran Russia Israel
 
-**Unknown**: top tier developing the alternative systems. Other countries that are not prepared to move so fast ahead will be further behind and the Indians will be somewhere in between. Now, this brings me back to Iran because if this does indeed happen, it is essential that Iran align itself with the top tier countries, with the Chinese and the Russians.
+top tier developing the alternative systems. Other countries that are not prepared to move so fast ahead will be further behind and the Indians will be somewhere in between. Now, this brings me back to Iran because if this does indeed happen, it is essential that Iran align itself with the top tier countries, with the Chinese and the Russians.
  The Iranians have shown that they have the ability so far and up to now to withstand successfully American and Israeli military attacks and to hit back and hit back hard. Now, it would be unwise and complacent to assume that this will always be the case. It may be, in fact, it's almost certainly will be the case that the Americans, the Pentagon, and definitely the Israelis will be looking at Iranian military capabilities and will be trying to work out ways to counter them.
  But here at least, the Iranians do have some time. It will take at least a year, probably longer, before the Americans and the Israelis come up to counters to some of the Iranian systems, the missiles and the drones and those sort of things. But always with Iran, the major vulnerability remains internal. Iranian society has shown a surprising, at least surprising to me, unity in the face of the pressure Iran has been subjected to over the last few months since the attack on 28th of February by Israel and the United States.
 However, it would be extremely unwise to take this for granted. Iran needs to address its longrunning problem of domestic financial instability. It needs to bring its inflation crisis under control. It's an inflation crisis that has been there for years. It needs to stabilize its financial system. It needs to bring order to its macroeconomic policy.

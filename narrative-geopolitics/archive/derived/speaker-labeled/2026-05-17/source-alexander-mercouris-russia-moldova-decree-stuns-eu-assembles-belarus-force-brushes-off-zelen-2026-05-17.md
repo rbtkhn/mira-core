@@ -18,17 +18,17 @@ editorial_note: Operator-pasted transcript body refreshed in place from cleaner 
 status: in-review
 evidence_grade: transcript-bearing
 speaker_labeling: provisional
-speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2026-05-17/source-alexander-mercouris-russia-moldova-decree-stuns-eu-assembles-belarus-force-brushes-off-zelen-2026-05-17.md", "source_sha256": "9323e1bad3420637253a8edc5b6014d8bbbcfa470f3f92935ba30c69ba0d8ad3", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 4, "labeled_turn_count": 0, "unknown_turn_count": 4, "candidate_speakers": ["Alexander Mercouris", "Mercouris"]}
+speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2026-05-17/source-alexander-mercouris-russia-moldova-decree-stuns-eu-assembles-belarus-force-brushes-off-zelen-2026-05-17.md", "source_sha256": "9323e1bad3420637253a8edc5b6014d8bbbcfa470f3f92935ba30c69ba0d8ad3", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 1, "labeled_turn_count": 1, "unknown_turn_count": 0, "candidate_speakers": ["Alexander Mercouris"], "solo_format": "single-label-continuous"}
 ---
-**Unknown**: # Russia Moldova Decree Stuns EU; Assembles Belarus Force; Brushes Off Zelensky Drones; Putin To China
+**Alexander Mercouris**: # Russia Moldova Decree Stuns EU; Assembles Belarus Force; Brushes Off Zelensky Drones; Putin To China
 
-**Unknown**: Channel: Alexander Mercouris
+Channel: Alexander Mercouris
 Published: 2026-05-17
 Source: [https://www.youtube.com/watch?v=1hBvMSLYviA](https://www.youtube.com/watch?v=1hBvMSLYviA)
 
-**Unknown**: ## Transcript
+## Transcript
 
-**Unknown**: Good day. Today is Sunday 17th May 2026 and before I proceed with this program, let me remind you again to take the like button and to check your subscription to this channel. Well, over the last 12 hours or so, um Ukraine, in response, as President Zelenskyy claims, has been conducting its own big drone strike against Russia, targeting specifically the city of Moscow.
+Good day. Today is Sunday 17th May 2026 and before I proceed with this program, let me remind you again to take the like button and to check your subscription to this channel. Well, over the last 12 hours or so, um Ukraine, in response, as President Zelenskyy claims, has been conducting its own big drone strike against Russia, targeting specifically the city of Moscow.
  And there have indeed been waves of Ukrainian drones, hundreds in quan- in hundreds of [clears throat] quantities heading towards Moscow. And um President Zelenskyy, for his part, and as I will come to shortly, has published an very interesting, very defiant statement. Now, a number of things to be said about this drone attack immediately.
  Hundreds of drones are involved. If you count numbers of drones, then, well, this is an attack comparable in scale to the attacks that the Russians launched against Ukraine. But, in some respects, in fact, in all respects, that merely highlights the difference because whilst Ukrainian air defenses clearly are now struggling to counter Russian drones, Geran drones, um the Russians still retain an extremely effective air defense system.
  In fact, my sense is that it's getting all the time more sophisticated and better adapted at dealing with drones. And it becomes that becomes very obvious when you compare the effect of Russian drone attacks with this particular drone attack, which is the biggest that Ukraine has managed to conduct up to now. So, even though we are talking about hundreds of drones, some are giving a figure of up to 600 drones.

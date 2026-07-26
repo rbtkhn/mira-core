@@ -38,19 +38,19 @@ transcript_curation: curated_sectioned
 section_count: 9
 section_pass: 2026-07-09 semantic-section-v1
 speaker_labeling: provisional
-speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2026-06-09/source-alexander-mercouris-moscow-sumy-zelensky-ad-iran-israel-2026-06-09.md", "source_sha256": "1db3b2d15f65a1be72c0bbecb8c5e1ad2beb3d00eece9993c02fe190726b566e", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 21, "labeled_turn_count": 0, "unknown_turn_count": 21, "candidate_speakers": ["Alexander Mercouris", "Mercouris"]}
+speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2026-06-09/source-alexander-mercouris-moscow-sumy-zelensky-ad-iran-israel-2026-06-09.md", "source_sha256": "1db3b2d15f65a1be72c0bbecb8c5e1ad2beb3d00eece9993c02fe190726b566e", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 1, "labeled_turn_count": 1, "unknown_turn_count": 0, "candidate_speakers": ["Alexander Mercouris"], "solo_format": "single-label-continuous"}
 ---
-**Unknown**: # Zelensky Uselessly Begs UK/EU For AD; Russia Targets Sumy; Moscow Peaceful; Iran Israel Trade Blows
+**Alexander Mercouris**: # Zelensky Uselessly Begs UK/EU For AD; Russia Targets Sumy; Moscow Peaceful; Iran Israel Trade Blows
 
-**Unknown**: **Channel:** Alexander Mercouris  
+**Channel:** Alexander Mercouris  
 **Date:** Tuesday, 9 June 2026 (host; Moscow hotel)  
 **URL:** https://www.youtube.com/watch?v=_pX1PORpq_Y
 
-**Unknown**: ## Transcript
+## Transcript
 
-**Unknown**: ### Show Open — Russia Ukraine Economy
+### Show Open — Russia Ukraine Economy
 
-**Unknown**: Good day. Today is Tuesday, 9th June, 2026. And as you can tell, I am now in Moscow and I'm making this uh program from my hotel room. Um, I've been here several hours, and it's been possible for me to make a to get a general impression of the state of things. Obviously, one can only say so much after being a few hours in a city.
+Good day. Today is Tuesday, 9th June, 2026. And as you can tell, I am now in Moscow and I'm making this uh program from my hotel room. Um, I've been here several hours, and it's been possible for me to make a to get a general impression of the state of things. Obviously, one can only say so much after being a few hours in a city.
  But anyway, I will come to all that to my first impressions in a moment. Now, there's two further announcements to make. Firstly, today shortly after I make this program, I'm on a long coach journey to the town of Scorf where I will be attending the conference to which I have been invited and which was of course the purpose and reason for my visit to Russia.
  The second thing I need to say is that in the meantime I have been experiencing certain internet difficulties in Russia. The Russian authorities have been tightening up controls as is well known on internet use. I found that some VPNs don't work here. And this is, I'm afraid, the reason why there have not been videos by Alex and myself on the Duran um for the time being.
  I believe I have found a solution to this problem and um we will no doubt and I'm sure be resuming videos uh shortly and you will be getting more videos on the Duran again very shortly. With all that, let's now turn to my first impressions of Moscow. Now when I was when I visited St. Petersburg in June last year. My overall impression was of a very very prosperous, very peaceful city.
@@ -62,9 +62,9 @@ Petersburg. Overall, there has been since I was last here a very evident, very o
  So I think that speaks for itself. Bear in mind that after 2019, there was the pandemic. Um then there was a brief recovery from the pandemic and then in 2022 uh the special military operation began with the sanctions that came with it. So if Moscow really were becoming affected by the sanctions, if there was pressure on the economy, I would expect to have seen it.
  I would have expected things to either be roughly the same that they were in 2019 or worse. But in fact, as I said, they are very significantly better overall. So, um, I'm going to say this now. I've been to two Russian cities, St. Petersburg
 
-**Unknown**: ### Segment 2 — Israel Hezbollah Ceasefire
+### Segment 2 — Israel Hezbollah Ceasefire
 
-**Unknown**: and Moscow. Admittedly, these are Russia's two historic capitals. It may be that the situation outside these two capitals is different, though I doubt it and everybody tells me otherwise.
+and Moscow. Admittedly, these are Russia's two historic capitals. It may be that the situation outside these two capitals is different, though I doubt it and everybody tells me otherwise.
 But judging by my experience up to now and from what I have seen here, the conclusion is obvious um sanctions war against Russia has been a complete failure. It's been a complete failure in economic and material terms. Living standards are rising. They are not falling. Um there may be all kinds of pressures and stresses within the economy but I think these are mostly products of Russian economic decisionmaking such as for example the excessive monetary easing that took place in 2023 and 2024 which led to um the overheating in the
 economy that became visible in 2024 and conversely the very severe monetary tightening which we have seen since 2024 which has significantly restricted economic growth as Vladimir Putin by the way has again admitted but I don't think that one can say that the sanctions themselves have had an effect on depressing the economy.
  In fact, I'm going to say that the steps that the Russians have taken to mitigate the effect of the sanctions um have not only been successful, but they've actually enabled the economy to grow faster than it would otherwise have done without the sanctions having been in place. That is of course a paradox which many people in the west will resist but I am only exper I'm only speaking from what I have seen.
@@ -77,9 +77,9 @@ So a lot now depends on what happens. If Netanyahu and the Israelis continue the
  Um he said he clearly is very unhappy about a ceasefire between Iran and the United States that might evolve into an actual settlement agreement. though I have to say we seem to be as far away from that as ever. But anyway, that seems to be one of Prime Minister's mot Prime Minister Netanyahu's motivations in continuing these attacks on um on Hezbollah.
 Though of course he says that Hezbollah is attacking Israel and he says that Israel will only respond if it is itself attacked. But I have to say the evidence that I have seen doesn't really support
 
-**Unknown**: ### Segment 3 — Russia Ukraine Iran
+### Segment 3 — Russia Ukraine Iran
 
-**Unknown**: that theory and I for one cannot understand why Hezbollah would want to attack Israel and undermine the larger ceasefire between Iran and the United States which exists at this time.
+that theory and I for one cannot understand why Hezbollah would want to attack Israel and undermine the larger ceasefire between Iran and the United States which exists at this time.
  So what this whole episode shows is how extremely fragile this limbo situation we have been in since the ceasefire announcement in April. How fragile it is. Without a proper peace agreement, it seems to me that the entire situation is capable of breaking down at any time. And at the moment, for the present time, there is no sign of a peace agreement being achieved.
  There is no word of any diplomatic breakthrough. I don't think that President Trump is willing to make the concessions to agree to that sort of breakthrough. And well, we are, as I said, in a situation where we are really in a situation of no peace, no war, and of what my colleague and friend Alex Christophoru has called the waiting game.
 With Iran confident that at some point over the next few months, oil prices will begin to rise globally, putting irresistible pressure on President Trump to agree to the concessions that is uh Iran is demanding and the United States, President Trump, the White House confident that the economic pressures on Iran, conversely, as a result of these this rather patty sea blockade will eventually be so overwhelming that it they will force Iran into some kind of compromise.
@@ -92,9 +92,9 @@ And this meeting with the European European leaders, which was supposed to be al
  Um and that for that reason, this is the moment to start piling on the pressure on the Russians and demanding concessions from them. Anyway, um all that narrative that we've been hearing so much about over the last few uh months, um this was supposed to be, as I said, the meeting which was going to discuss that and discuss the diplomatic outreach to the Russians.
  But I suspect that much of it was in fact actually taken up by Zelensky's demands for air defense. The problem is that the cupboard in the west is bare. The only country that produces air defense systems on a large scale in the west is the United States. The United States has
 
-**Unknown**: ### Segment 4 — Ukraine Russia Iran
+### Segment 4 — Ukraine Russia Iran
 
-**Unknown**: been trying to ramp up Patriot missile production for several years now.
+been trying to ramp up Patriot missile production for several years now.
  Missile production has increased, but nowhere near to the level that would be needed to support Ukraine and provide the necessary numbers of Patriot missiles for the United States and to cover Israel as self and to look after the situation in the Asia-Pacific region. And this was already true before the wars with Iran began. But those wars, the one in June and the one that took place in March and April, has further catastrophically drained the inventories.
 And there simply are no missiles, Patriot missiles available now to provide to Zelensky and to Ukraine. And I see no sign that the United States is interested or willing to provide whatever few Patriot missile systems remain in the cupboard. In Europe, the cupboard is indeed bare. Now, I've had discussions with people who are informed about the situation in the German military.
 They tell me that the situation with the German military remains the same as always. There are not enough recruits. There are not enough weapons. There's certainly not been any big ramp up in increase of air defense systems in Germany. The same is true in France and Italy. And in Britain, there have been reports circulating, more reports circulating about the terrible situation of the British armed forces.
@@ -108,9 +108,9 @@ To offer a lot, to provide very little, but to make an awful lot of money for th
  No doubt they are able to shoot down a certain number uh with radar guidance. But having said that, it's probably not they're probably not as success successful in that regard as um they've been trying to well as they've been claiming. In order to shoot down incoming missiles, Ukraine needs anti-aircraft missiles, anti-air defense missiles, and it is not getting them.
  and the fighter jets, the F-16s and the Mirage 2000s,
 
-**Unknown**: ### Segment 5 — Russia Ukraine Might
+### Segment 5 — Russia Ukraine Might
 
-**Unknown**: whatever theoretical capabilities they might have against Russian drones, are certainly not capable of shooting down the incoming Russian missiles and especially not the ballistic missiles like these Scandas and the hypersonic missiles. So from this point on, air defense in Ukraine is going to go continue to go downhill.
+whatever theoretical capabilities they might have against Russian drones, are certainly not capable of shooting down the incoming Russian missiles and especially not the ballistic missiles like these Scandas and the hypersonic missiles. So from this point on, air defense in Ukraine is going to go continue to go downhill.
  And by the way, that probably means at some point that we're going to start to see the Russian air force also start operations further behind the Ukrainian front lines. um bombing uh bombing fortified positions, acting to stop movements of supplies, that kind of thing, too. Now on this I should say that the Russians themselves have been conducting what you might call aggressive drone operations of their own against Ukrainian supply lines.
  And they seem to be particularly active in this regard in choking off using drones the supply road roots roads between the city of Sunumi and the city of Kharkov in northeastern Ukraine. There continues to be a lot of military activity by the Russians, specifically in northeastern Ukraine around Zumi and Kharkov regions. I've seen it suggested, in fact, it's been widely reported that the Russians are now making a major effort to break through and to reach the city of Humi.
 There is a lot of fighting apparently taking place around three villages still controlled by the Ukrainians north of a forest region that lies between the Russians and the city of Sunumi itself. There's been much discussion that if the Russians capture these three villages and push through into the forested forested area, they can use the forested area to build up their forces and and to protect their forces from Ukrainian FPV drones.
@@ -122,9 +122,9 @@ During a certain period under the Soviet Union, Hikov actually fulfilled for a t
  It's historically been a rich city. It's an important industrial city. I have discussed how the city of Zaporozhye, which the Russians are now edging towards, is massively important for Ukraine's aerospace industry. It's where the gas turbines and the aircraft engines and the helicopter engines and um a lot of military production has historically taken place under the Soviet Union and since then marine uh marine n um ship engines have also been built in Zaporozhye.
 Um, Harov has been the center by contrast of Ukraine's tank industry. The famous T34 tank, the Soviet T34 tank was originally designed in Kharkov. the T64 tank that is still a mainstay of Ukraine's armored force. Um, it was designed and built in Kharkov. Uh, the Malishef tank factory in Kharkov,
 
-**Unknown**: ### Segment 6 — Russia Ukraine Has
+### Segment 6 — Russia Ukraine Has
 
-**Unknown**: I understand, has not actually built many new tanks for a very long time, basically since the Soviet Union's collapse.
+I understand, has not actually built many new tanks for a very long time, basically since the Soviet Union's collapse.
  But it is still there. It is still a huge factory. It is still being involved in up updating and upgrading Ukrainian tanks and also I believe it has also been involved in producing Ukraine's armored vehicles. Uh whatever armored vehicles Ukraine itself produces other than tanks. So the loss of the Malisha factory of Kharkov's industrial base would certainly be a major blow for Ukraine.
  Um it would reduce its military capabilities in this war further. But I don't think it would be existential for Ukraine in the same way that the loss of the two key cities of the Dnieper, Zaporozhye and Nepo would be. Um, Kharkov has always, it seems to me, been very much part of the eastern Ukrainian industrial complex. It's historically had very close ties with the city of Belgarod, which is of course now in western Russia.
  Um, in fact, in the Soviet era, Belgarod and Kharkov, we could almost say, formed something of an industrial cluster together. But anyway, suffice to say that Kharkov, the loss of Kharker, there will be a major psychological blow um is something which I think Ukraine could absorb and it would remain functional as a country in ways that the loss of Zaporozhye and Nepal and the central territory around the Dnieper um if Ukraine were to lose that it might not remain not be able to remain functional in the same way at least that is my view now however the
@@ -137,9 +137,9 @@ Um there are still supply roads to Kharkov. Khakov has a significant garrison. A
 However, we can start to see the pieces perhaps beginning to fall into place. Sunumi itself is a town of about a quarter of a million people. So, it's not small, but it's not huge. And it's actually smaller than some of the places that the Russians have already captured in the war. Places like several donets, Liz Chansk, and Marupo.
 Ha. Having
 
-**Unknown**: ### Segment 7 — Russia Ceasefire Ukraine
+### Segment 7 — Russia Ceasefire Ukraine
 
-**Unknown**: said that, it could be a place which the Russians could capture. I've been told that it's difficult it to defend. Anyway, Sunumi would be the fall of Sunumi together with the fall of Kensk as I've said already makes the situation rel relative to itself much more difficult. But there is another thing to take into account which is that with the oresnik system now entering production with Russian commentators increasingly telling us that the archnik is designed for deep underground pre penetration with Putin saying that it
+said that, it could be a place which the Russians could capture. I've been told that it's difficult it to defend. Anyway, Sunumi would be the fall of Sunumi together with the fall of Kensk as I've said already makes the situation rel relative to itself much more difficult. But there is another thing to take into account which is that with the oresnik system now entering production with Russian commentators increasingly telling us that the archnik is designed for deep underground pre penetration with Putin saying that it
 has been um that it is being tested on Ukrainian territory in order to enable it to be used against targets in urban centers. In other words, to increase its accuracy to the point where it can be used against targets in urban centers. Well, there's been a lot of attention on the potential use of the Arashnik against Kiev, which is understandable given what the Russians have been saying.
  But it seems to me that an equally important target for the Russians might be the underground complexes which exist in Kharkov as well. And if we start to learn about major ornik strikes against in a few months, I would not be surprised. And that of course would be finally a clear sign that the Russians do seriously intend to capture this city.
 Now here again I'm going to come back to the point that I made in my program yesterday. I think we are now beyond the point of serious negotiations to end the war in Ukraine. the American negotiations, the American sponsored negotiations which basically began with um Trump's with Trump's inauguration in January last year.
@@ -152,9 +152,9 @@ So I think we are justified from this point on in focusing essentially and overw
  Um, Tarf wrote about how the Anchorage proposals would be a victory for Russia. Maybe perhaps, but as we've seen, Anchorage is no longer the topic of discussion anymore. And um Kashin also wants a freeze. He supports a ceasefire along the current conflict lines. But Kashin is someone who I know who has always advocated that.
  He has basically been an opponent of the special military operation all along. It always surprises people in the
 
-**Unknown**: ### Segment 8 — Russia European Union Ukraine
+### Segment 8 — Russia European Union Ukraine
 
-**Unknown**: west that people like Ashin still have a voice in Russia, but they do. I don't believe that his commentary reflects wide opinion in Russia and I certainly don't believe that what Kashin is writing carries any influence in the Kremlin at all.
+west that people like Ashin still have a voice in Russia, but they do. I don't believe that his commentary reflects wide opinion in Russia and I certainly don't believe that what Kashin is writing carries any influence in the Kremlin at all.
 Now, it is now confirmed conclusively that the businessman who tried to conduct a little bit of secret diplomacy of his own trying to get a ceasefire organized between the Russians and the Ukrainians. The former Russian oligarch was indeed Roman Abramovich. He did indeed have a meeting at Z with Zelensky.
  In fact, actually it was Zelensky who appears to have initiated the whole discussion. But as I've said already, Abramovich once upon a time in the 1990s was a person who did wield enormous political influence in Russia. with the end of the presidency of Boris Yeling, with the return with the arrival in power of Vladimir Putin and especially following the arrest of the most powerful oligarch of them all, Khadakoski in I think it was 2003, the period when people like Abraovic had any significant political influence in Russia has long since gone. The
 assumption that so many people in the west still have that Abramovich oligarch past is an oligarch still is completely and entirely wrong. So, no negotiations, no moves towards negotiations. We're going to be focused on the war, on the situation in Donbass, on the situation in Zaporozhye region, on the situation in um norththeastern Ukraine.
@@ -167,9 +167,9 @@ taking a hard enough line, not because he is pressing on with a war that is beco
 You don't see um uh large numbers of men in uniform. You don't get the sense here that this is the capital of a country at war. And if we're talking about economic stress, well, I have to say this, the contrast between Moscow and London where there is a fair amount of signs of economic stress.
  Anyway, the contrast there is sharp. So that's my view. Now, of course, there has
 
-**Unknown**: ### Segment 9 — Russia European Union Economy
+### Segment 9 — Russia European Union Economy
 
-**Unknown**: been a lot of excited commentary about what has just happened in Armenia, the fact that Nikico Pashin's party, according to the official figures, won just under half the vote. There's been a triumphant editorial about this, I noticed in the Financial Times about how um Russia's influence is diminishing.
+been a lot of excited commentary about what has just happened in Armenia, the fact that Nikico Pashin's party, according to the official figures, won just under half the vote. There's been a triumphant editorial about this, I noticed in the Financial Times about how um Russia's influence is diminishing.
 um around the world. I mean this is a extraordinary claim to make. I mean Putin has just had a very successful visit to China, a very successful visit to Kazakhstan. He is on very good terms with the prime minister of India who whose country is buying Russian oil in apparently record quantities and who whose government is now apparently entering into pre preliminary discussions to buy from Russia Su Hoy 57 fifth generation fighter jets.
 Um Putin um also um has um strong contacts with the Arab countries. I mentioned and by the way I can confirm that the Saudi energy minister who attended the St. Petersburg Economic Forum did indeed say that Russia and Saudi Arabia are now friends unto death. He actually said that. And against all of that, the might the once renowned Financial Times tells us that an election in tiny Armenia is proof of the overall decline in Russian global influence.
  It does seem to me that some people are getting very desperate in sustaining their narratives just to say. But anyway, let's turn to the situation in Armenia. I have no doubt that in time Armenia will gradually fall back into what might loosely be described as the Russian sphere of influence. Pashin continues to have considerable support in Armenia.

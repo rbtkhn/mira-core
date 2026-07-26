@@ -16,13 +16,13 @@ source_note: Direct YouTube watch URL already on disk; transcript body confirmed
 editorial_note: Treat as a transcript-grade raw-input capture. Operator-supplied transcript body resolved prior audit ambiguity.
 evidence_grade: transcript-bearing
 speaker_labeling: provisional
-speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2026-02-21/source-alexander-mercouris-putin-orders-medinsky-tough-line-zelensky-meltdown-wants-3-year-war-kiev-2026-02-21.md", "source_sha256": "8dbd36b877e5e2dae7ab85584cfca3b73bc11abe0ea88cc6a1cd2893f9d7e12b", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 3, "labeled_turn_count": 0, "unknown_turn_count": 3, "candidate_speakers": ["Alexander Mercouris", "Mercouris"]}
+speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2026-02-21/source-alexander-mercouris-putin-orders-medinsky-tough-line-zelensky-meltdown-wants-3-year-war-kiev-2026-02-21.md", "source_sha256": "8dbd36b877e5e2dae7ab85584cfca3b73bc11abe0ea88cc6a1cd2893f9d7e12b", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 1, "labeled_turn_count": 1, "unknown_turn_count": 0, "candidate_speakers": ["Alexander Mercouris"], "solo_format": "single-label-continuous"}
 ---
-**Unknown**: # Putin Orders Medinsky Tough Line; Zelensky Meltdown Wants 3 Year War; Kiev Shocked; Orekhov Cauldron
+**Alexander Mercouris**: # Putin Orders Medinsky Tough Line; Zelensky Meltdown Wants 3 Year War; Kiev Shocked; Orekhov Cauldron
 
-**Unknown**: ## Transcript (operator paste)
+## Transcript (operator paste)
 
-**Unknown**: Good day. Today is Saturday, 21st February, 2026. And let me begin this program by reminding you again to tick the like button and check your subscription to this channel. If once you've watched this video or whichever part of the video you want to watch, you decide that you like what you've heard and you wish to indicate the fact this fact.
+Good day. Today is Saturday, 21st February, 2026. And let me begin this program by reminding you again to tick the like button and check your subscription to this channel. If once you've watched this video or whichever part of the video you want to watch, you decide that you like what you've heard and you wish to indicate the fact this fact.
  Now today's program is going to be mostly about Ukraine, about the situation on the front lines where we have important and interesting developments and by the way predictions um about the diplomacy um if that's the right word to describe it and about President Zelensky's ideas for a three-year war.
  But before I turn to Ukraine, I'm going to quickly turn to two other topics. The first topic is the pending conflict with Iran. Now, I understand that despite US military officials having informed the president that the United States military in the Gulf is now in a position to conduct an attack on Iran.
  A decision has been made or perhaps it should be more correctly said a non-decision has been made by the president and his officials not to give the attack order. Um, I say that because it's not as if the president or his officials have as yet cancelled the entire military operation against Iran. Now, this is not because of any change in attitude towards Iran or perspective or any new one belief in the virtue of negotiations or any of these things.
@@ -156,4 +156,3 @@ invade. It turns out that in fact they had no intelligence, no actual informatio
 Now, one has lots of words thrown around, propaganda, disinformation, that sort of thing. Um, some of those words are used rather openly by journalists in some media outlets like some of the ones that Sean Walker has written for. Um, I think that those who make those claims ought to remember that those who live inside a glass house should not throw stones.
 Anyway, that's all I'm going to say on this program. This is me for today. Let me remind you again that you can find all our programs on our various platforms, Locals, Rumble, and X and as well and Substack as well. Links under this video. Please remember if you've liked this video to tick the like button and to check your subscription to this channel.
  And please also remember that you can support our work via Patreon and Subscribe Star and by going to our shop links under this video also. That's me for today. More from me soon. Have a very good day.
-

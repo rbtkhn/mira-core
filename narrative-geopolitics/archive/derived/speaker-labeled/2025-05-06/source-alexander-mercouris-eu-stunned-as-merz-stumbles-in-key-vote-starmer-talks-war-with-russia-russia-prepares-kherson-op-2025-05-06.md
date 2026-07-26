@@ -15,11 +15,11 @@ transcript_type: yt_dlp_caption_fetch
 source_note: Fetched from YouTube captions via the repo transcript pipeline and materialized into the canonical statecraft archive.
 quality_note: English caption fetch via repo YouTube transcript pipeline; adjacent duplicate caption lines removed, otherwise preserve transcript roughness.
 speaker_labeling: provisional
-speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-05-06/source-alexander-mercouris-eu-stunned-as-merz-stumbles-in-key-vote-starmer-talks-war-with-russia-russia-prepares-kherson-op-2025-05-06.md", "source_sha256": "380cb0533e37573a51ba3e9fe8d95daebcc83261279a0e05b4ab58e9fe7dfce8", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 2, "labeled_turn_count": 0, "unknown_turn_count": 2, "candidate_speakers": ["Alexander Mercouris", "Mercouris"]}
+speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-05-06/source-alexander-mercouris-eu-stunned-as-merz-stumbles-in-key-vote-starmer-talks-war-with-russia-russia-prepares-kherson-op-2025-05-06.md", "source_sha256": "380cb0533e37573a51ba3e9fe8d95daebcc83261279a0e05b4ab58e9fe7dfce8", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 1, "labeled_turn_count": 1, "unknown_turn_count": 0, "candidate_speakers": ["Alexander Mercouris"], "solo_format": "single-label-continuous"}
 ---
-**Unknown**: # EU Stunned As Merz Stumbles In Key Vote; Starmer Talks War With Russia; Russia Prepares Kherson Op
+**Alexander Mercouris**: # EU Stunned As Merz Stumbles In Key Vote; Starmer Talks War With Russia; Russia Prepares Kherson Op
 
-**Unknown**: Good day. Today is Tuesday 6th May
+Good day. Today is Tuesday 6th May
 2025 and I would suggest that we have we
 are witnessing over the last couple of
 days further signs of the gradual

@@ -20,13 +20,13 @@ verification_reason: sourceChars=56148; bodyChars=55892; exactMatch=True after r
 evidence_grade: transcript-bearing
 source_note: Mechanically extracted from local Codex session log after operator pasted the YouTube transcript; removed the leading title wrapper and Transcripts label only; transcript internal date says Wednesday, 2025-10-22; not independently fetched from YouTube subtitles.
 speaker_labeling: provisional
-speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-10-22/source-alexander-mercouris-moscow-furious-demands-answers-us-delays-summit-pokrovsk-disaster-worsens-2025-10-22.md", "source_sha256": "20add7bbc6db604f7500f69a0e472a241e851c40457a7cd507544f91c9dd3f60", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 3, "labeled_turn_count": 0, "unknown_turn_count": 3, "candidate_speakers": ["Alexander Mercouris", "Mercouris"]}
+speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-10-22/source-alexander-mercouris-moscow-furious-demands-answers-us-delays-summit-pokrovsk-disaster-worsens-2025-10-22.md", "source_sha256": "20add7bbc6db604f7500f69a0e472a241e851c40457a7cd507544f91c9dd3f60", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 1, "labeled_turn_count": 1, "unknown_turn_count": 0, "candidate_speakers": ["Alexander Mercouris"], "solo_format": "single-label-continuous"}
 ---
-**Unknown**: # Moscow Furious Demands Answers As US Delays Summit; Pokrovsk Disaster Worsens UK Kiev Briansk Strike
+**Alexander Mercouris**: # Moscow Furious Demands Answers As US Delays Summit; Pokrovsk Disaster Worsens UK Kiev Briansk Strike
 
-**Unknown**: ## Transcript
+## Transcript
 
-**Unknown**: Transcripts:
+Transcripts:
 Good day. Today is Wednesday, 22nd October 2025. And before I proceed with the uh substance of this video, let me just quickly again remind you to tick the like button. If having watched the video or that part of the video, you have you want to watch you've liked what you've heard.
  So let's proceed with what we're going to talk about today. And again it is going to be most it is going to be about the conflict in Ukraine which takes really extraordinary and at times very strange turns. And yesterday, I have to say, was one of the strangest because back on Thursday of last week, Vladimir Putin, the president of Russia, and Donald Trump, the president of the United States, had a 2 and a half hour telephone conversation.
  They appeared to have agreed or at least Donald Trump said that they had agreed to a summit meeting in a few weeks time in Budapest. The Russians as we will see were rather more reticent. And um they agreed also that their secretaries, their foreign ministers, secretary of state Marco Rubio and their and Russian foreign minister Sergey Lavough would first have a telephone call and then would meet and that there would then be preparations made for this summit to take place in Budapest.

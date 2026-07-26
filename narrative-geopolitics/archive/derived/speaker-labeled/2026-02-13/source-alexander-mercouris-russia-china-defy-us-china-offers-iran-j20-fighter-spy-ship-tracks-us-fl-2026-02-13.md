@@ -15,17 +15,17 @@ transcript_type: operator_pasted_transcript
 editorial_note: Direct YouTube watch URL already on disk; full transcript body supplied by operator in Codex chat and materialized in place.
 status: in-review
 speaker_labeling: provisional
-speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2026-02-13/source-alexander-mercouris-russia-china-defy-us-china-offers-iran-j20-fighter-spy-ship-tracks-us-fl-2026-02-13.md", "source_sha256": "6c737a82147d7de2ea192b7dae303c87ca189088ef861b43fbb592a0f65090af", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 4, "labeled_turn_count": 0, "unknown_turn_count": 4, "candidate_speakers": ["Alexander Mercouris", "Mercouris"]}
+speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2026-02-13/source-alexander-mercouris-russia-china-defy-us-china-offers-iran-j20-fighter-spy-ship-tracks-us-fl-2026-02-13.md", "source_sha256": "6c737a82147d7de2ea192b7dae303c87ca189088ef861b43fbb592a0f65090af", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 1, "labeled_turn_count": 1, "unknown_turn_count": 0, "candidate_speakers": ["Alexander Mercouris"], "solo_format": "single-label-continuous"}
 ---
-**Unknown**: # Russia China Defy US; China Offers Iran J20 Fighter Spy Ship Tracks US Fleet; Russia Sends Cuba Oil
+**Alexander Mercouris**: # Russia China Defy US; China Offers Iran J20 Fighter Spy Ship Tracks US Fleet; Russia Sends Cuba Oil
 
-**Unknown**: Channel: Alexander Mercouris
+Channel: Alexander Mercouris
 Published: 2026-02-13
 Source: [https://www.youtube.com/watch?v=jFd1BLOl35Y](https://www.youtube.com/watch?v=jFd1BLOl35Y)
 
-**Unknown**: ## Transcript
+## Transcript
 
-**Unknown**: Good day. Today is Friday, 13th February, 2026. And before I proceed with this program, let me remind you again to tick the like button and check your subscription to this video. If once you've watched this video or whichever part of the video you want to watch, you decide that you like what you've heard and wish to indicate that fact.
+Good day. Today is Friday, 13th February, 2026. And before I proceed with this program, let me remind you again to tick the like button and check your subscription to this video. If once you've watched this video or whichever part of the video you want to watch, you decide that you like what you've heard and wish to indicate that fact.
  Now in my program yesterday, I discussed at some length the various steps which according to either report or rumor the Russians are making to s to assist Iran during its current ongoing crisis. And I mentioned the fact that the Russians, according to information I've received from within Russia, from a source who's provided reliable information in the past, are helping the Iranians to improve the accuracy and um capabilities of their ballistic missiles, or at least some of them, that the Russians are also providing Iran with jamming equipment presumably uh to
 help Iran deflect um incoming American missiles and that the Russians are also taking further steps that they're moving troops closer to Iran's borders presumably to Central Asia and those sort of places. Though I ought to quickly say that in the in relation to the to the last point though I have definitely received reports about it which as I said are in my judgment reliable so far so far I've seen nothing to confirm these troop movements in the Russian media itself but that does not of course mean that they are not taking
 place. Anyway, there's been many reports, all of these reports taken together that talk about this. A lot of it, as I said, is rumor. A lot of it is speculative, but some of it is there out there in open sources and some of it comes from a source I have found reliable in the past and whom I trust and who does have information which comes from Moscow itself and I've discussed in many programs the information this person has provided me with. So that's the Russians.

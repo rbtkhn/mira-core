@@ -15,11 +15,11 @@ transcript_type: yt_dlp_caption_fetch
 source_note: Fetched from YouTube captions via the repo transcript pipeline and materialized into the canonical statecraft archive.
 quality_note: English caption fetch via repo YouTube transcript pipeline; adjacent duplicate caption lines removed, otherwise preserve transcript roughness.
 speaker_labeling: provisional
-speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-04-25/source-alexander-mercouris-uk-eu-bizarre-proposal-seeks-moscow-surrender-reparations-perpetual-sanctions-witkoff-meets-putin-2025-04-25.md", "source_sha256": "5e7062cc758ccb8031d2f6acea7fe146ae55da25324aad1325d0b07def9843b8", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 2, "labeled_turn_count": 0, "unknown_turn_count": 2, "candidate_speakers": ["Alexander Mercouris", "Mercouris"]}
+speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-04-25/source-alexander-mercouris-uk-eu-bizarre-proposal-seeks-moscow-surrender-reparations-perpetual-sanctions-witkoff-meets-putin-2025-04-25.md", "source_sha256": "5e7062cc758ccb8031d2f6acea7fe146ae55da25324aad1325d0b07def9843b8", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 1, "labeled_turn_count": 1, "unknown_turn_count": 0, "candidate_speakers": ["Alexander Mercouris"], "solo_format": "single-label-continuous"}
 ---
-**Unknown**: # UK/EU Bizarre Proposal Seeks Moscow Surrender, Reparations, Perpetual Sanctions; Witkoff Meets Putin
+**Alexander Mercouris**: # UK/EU Bizarre Proposal Seeks Moscow Surrender, Reparations, Perpetual Sanctions; Witkoff Meets Putin
 
-**Unknown**: Good day. Today is Friday, 25th April,
+Good day. Today is Friday, 25th April,
 2025. Today, Steve Witkoff is in Moscow.
 In fact, he's meeting with Vladimir
 Putin, the president of Russia in the

@@ -13,17 +13,17 @@ transcript_type: operator_pasted_transcript
 source_note: Operator-pasted YouTube transcript preserved as canonical May 30, 2026 Alexander Mercouris raw-input capture.
 editorial_note: Light cleanup only for pasted-wrapper removal, routing-safe punctuation, and obvious spacing.
 speaker_labeling: provisional
-speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2026-05-30/source-alexander-mercouris-zelensky-fears-new-big-russian-kiev-strike-kiev-s-drone-offensive-against-russia-fails-crimea-fuel-2026-05-30.md", "source_sha256": "dea4ef54512349580bbde83e280e575df78389cae22d96d445f957ae81683849", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 3, "labeled_turn_count": 0, "unknown_turn_count": 3, "candidate_speakers": ["Alexander Mercouris", "Mercouris"]}
+speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2026-05-30/source-alexander-mercouris-zelensky-fears-new-big-russian-kiev-strike-kiev-s-drone-offensive-against-russia-fails-crimea-fuel-2026-05-30.md", "source_sha256": "dea4ef54512349580bbde83e280e575df78389cae22d96d445f957ae81683849", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 1, "labeled_turn_count": 1, "unknown_turn_count": 0, "candidate_speakers": ["Alexander Mercouris"], "solo_format": "single-label-continuous"}
 ---
-**Unknown**: # Zelensky Fears New Big Russian Kiev Strike; Kiev's Drone Offensive Against Russia Fails; Crimea Fuel
+**Alexander Mercouris**: # Zelensky Fears New Big Russian Kiev Strike; Kiev's Drone Offensive Against Russia Fails; Crimea Fuel
 
-**Unknown**: **Show:** Alexander Mercouris  
+**Show:** Alexander Mercouris  
 **Host:** Alexander Mercouris  
 **Published:** 2026-05-30  
 **Source:** [YouTube](https://www.youtube.com/watch?v=eoJTnQ9vhT8)  
 **Transcript:** Operator-pasted YouTube transcript preserved as raw-input SSOT.
 
-**Unknown**: ## Transcript
+## Transcript
 Good day. Today is Saturday, 30th May 2026. And before I proceed with this program, let me remind you again to tick the like button and to check your subscription to this channel. Well, over the last 24 hours, the news has continued its frenetic pace. We've had President Zelensky um who I believe is back in Ukraine um telling us that a major Russian combined missile and drone strike on Ukraine is about to happen.
 We've also had further news on the battlefronts um in Constantin specifically. We've had some very interesting reports about the effectiveness or lack of it of Ukraine's own drone offensive against Russia. And we've had more extraordinary messages from the president of the United States, which many people took to mean one thing, which is to say that an agreement with Iran had been reached when in fact careful reading showed and subsequent events proved that it meant the diame they meant the diametric opposite. Well,
 let's let's start with President Zelensky's warning. President Zelensky uh says and he's telling the Ukrainian public that another massive Russian missile and drone attack on Ukraine is being prepared. Um he's made warnings like this many times in the past. I have to say that on many occasions when he's given these warnings, the massive missile and drone strike that he's telling us is being prepared never never takes place.

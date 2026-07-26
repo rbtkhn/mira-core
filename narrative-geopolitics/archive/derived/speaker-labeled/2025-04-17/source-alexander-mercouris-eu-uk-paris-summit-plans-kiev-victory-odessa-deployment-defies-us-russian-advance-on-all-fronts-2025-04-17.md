@@ -15,11 +15,11 @@ transcript_type: yt_dlp_caption_fetch
 source_note: Fetched from YouTube captions via the repo transcript pipeline and materialized into the canonical statecraft archive.
 quality_note: English caption fetch via repo YouTube transcript pipeline; adjacent duplicate caption lines removed, otherwise preserve transcript roughness.
 speaker_labeling: provisional
-speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-04-17/source-alexander-mercouris-eu-uk-paris-summit-plans-kiev-victory-odessa-deployment-defies-us-russian-advance-on-all-fronts-2025-04-17.md", "source_sha256": "890f09b11e317cd7b61df948bd8fa9dd668e3c92bda1a9a235eda6fcac4fc3e8", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 2, "labeled_turn_count": 0, "unknown_turn_count": 2, "candidate_speakers": ["Alexander Mercouris", "Mercouris"]}
+speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-04-17/source-alexander-mercouris-eu-uk-paris-summit-plans-kiev-victory-odessa-deployment-defies-us-russian-advance-on-all-fronts-2025-04-17.md", "source_sha256": "890f09b11e317cd7b61df948bd8fa9dd668e3c92bda1a9a235eda6fcac4fc3e8", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 1, "labeled_turn_count": 1, "unknown_turn_count": 0, "candidate_speakers": ["Alexander Mercouris"], "solo_format": "single-label-continuous"}
 ---
-**Unknown**: # EU/UK Paris Summit Plans Kiev Victory, Odessa Deployment, Defies US; Russian Advance On All Fronts
+**Alexander Mercouris**: # EU/UK Paris Summit Plans Kiev Victory, Odessa Deployment, Defies US; Russian Advance On All Fronts
 
-**Unknown**: Good day. Today is Thursday 17th April
+Good day. Today is Thursday 17th April
 2025 and of course it is the day before
 Good Friday. Uh Good Friday both in the
 Western world and in the Orthodox world.

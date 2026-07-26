@@ -23,11 +23,11 @@ verification_ok: true
 verification_reason: ok
 evidence_grade: transcript-grade
 speaker_labeling: provisional
-speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2026-01-02/source-alexander-mercouris-zelensky-sidelined-budanov-named-no-2-cia-role-in-drone-strikes-confirme-2026-01-02.md", "source_sha256": "415ebd7925eecccfc1a980d6956890c2917b4d13064a2d25ab540747f128de5e", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 2, "labeled_turn_count": 0, "unknown_turn_count": 2, "candidate_speakers": ["Alexander Mercouris", "Mercouris"]}
+speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2026-01-02/source-alexander-mercouris-zelensky-sidelined-budanov-named-no-2-cia-role-in-drone-strikes-confirme-2026-01-02.md", "source_sha256": "415ebd7925eecccfc1a980d6956890c2917b4d13064a2d25ab540747f128de5e", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 1, "labeled_turn_count": 1, "unknown_turn_count": 0, "candidate_speakers": ["Alexander Mercouris"], "solo_format": "single-label-continuous"}
 ---
-**Unknown**: # Zelensky Sidelined Budanov Named No. 2; CIA Role In Drone Strikes Confirmed; Insurgency After Defeat
+**Alexander Mercouris**: # Zelensky Sidelined Budanov Named No. 2; CIA Role In Drone Strikes Confirmed; Insurgency After Defeat
 
-**Unknown**: Kind: captions
+Kind: captions
 Language: en
 Good day. Today is Friday, 2nd January
 2026,

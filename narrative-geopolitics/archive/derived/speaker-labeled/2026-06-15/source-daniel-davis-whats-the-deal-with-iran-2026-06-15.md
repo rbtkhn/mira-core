@@ -39,20 +39,20 @@ transcript_curation: curated_sectioned
 section_count: 10
 section_pass: 2026-07-09 semantic-section-v1
 speaker_labeling: provisional
-speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2026-06-15/source-daniel-davis-whats-the-deal-with-iran-2026-06-15.md", "source_sha256": "a0b3e524e4bc96678502059221c4b9fc4e7cea714b58b38096ae1a2e23cb83f0", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 23, "labeled_turn_count": 0, "unknown_turn_count": 23, "candidate_speakers": ["Daniel Davis", "Davis"]}
+speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2026-06-15/source-daniel-davis-whats-the-deal-with-iran-2026-06-15.md", "source_sha256": "a0b3e524e4bc96678502059221c4b9fc4e7cea714b58b38096ae1a2e23cb83f0", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 1, "labeled_turn_count": 1, "unknown_turn_count": 0, "candidate_speakers": ["Daniel Davis"], "solo_format": "single-label-continuous"}
 ---
-**Unknown**: # What's the Deal with Iran / Lt Col Daniel Davis
+**Daniel Davis**: # What's the Deal with Iran / Lt Col Daniel Davis
 
-**Unknown**: **Channel:** Daniel Davis Deep Dive  
+**Channel:** Daniel Davis Deep Dive  
 **Date:** Monday, 15 June 2026  
 **Host:** Lt Col Daniel Davis  
 **URL:** https://www.youtube.com/watch?v=aaXKX3cPZSg
 
-**Unknown**: ## Transcript
+## Transcript
 
-**Unknown**: ### Show Open — Iran Hormuz Israel
+### Show Open — Iran Hormuz Israel
 
-**Unknown**: President Trump is looking to celebrate his victory about get about the deal that is going to be signed on Friday. At least that's the schedule uh releasing out on True Social this morning that hey everything is already starting to happen. In fact, there's oil going through the straits right now. According to what he wrote, ships are starting to move.
+President Trump is looking to celebrate his victory about get about the deal that is going to be signed on Friday. At least that's the schedule uh releasing out on True Social this morning that hey everything is already starting to happen. In fact, there's oil going through the straits right now. According to what he wrote, ships are starting to move.
  Many loaded up with oil out of the Strait of Hormuz. They are going along the southern highway which is totally safe uh secure and pristine even. Wow, that's pretty incredible there implying that everything's fine. Don't worry about all these headwinds and anything else. It's in fact it's basically it's already done.
  That's classic Trumpy and just telling you, hey, don't even worry about it. And like a number of things we'll see even in this episode here, we'll just have to take his word for it because we don't have any independent confirmation that that's the true statement. Um, and Secretary Hegseth is going to kind of follow that same pattern here.
  But here's what we need to understand. There are still a lot of headwinds against even getting to Friday, much less beyond Friday, much less beyond 60 days and getting this war over with. So again, you might want to keep the uh champagne bottles on ice without popping those corks a little bit longer. Uh we don't want to get ahead of ourselves here.
@@ -66,9 +66,9 @@ then he wants to add in the proxy support and missile support. And I I just can'
 is still not going to be any release of the Strait of Hormuz. We will keep that forever. There will be fees and not tolls because that's that word apparently is forbidden. But he said, "Yeah, we're still going to be able to charge a fee for going through there." But they're not going to give that up.
 And and again, just logically speaking, forget about your nationality. Just look at the thing logically. Why would the weaker military power that has the stronger military power at at it on its knees? Because of the economic pressure of the
 
-**Unknown**: ### Segment 2 — Iran Hezbollah Netanyahu
+### Segment 2 — Iran Hezbollah Netanyahu
 
-**Unknown**: straight of Hormuz, why would they ever surrender that and just go back to what it was before? And they said they won't do that.
+straight of Hormuz, why would they ever surrender that and just go back to what it was before? And they said they won't do that.
  So that that's just not going to happen there. And and you know, Jack Keane is wanting to say, well, we need to keep the threat of going back to on top of those. But look, I'm gonna I'm gonna show you here a clip by from Sean Bell uh in I think it's Sky News this morning. He makes a really good point of just how hard that would be.
 >> I think what we're forgetting about when you get to the end of that six days, even if nothing was agreed, is America actually going to revert back to military action again and end up with a closing straight moves, another two months close to the elections with all of the dust settling? Really unlikely. So it gives Iran even more leverage when it happens.
  But President Trump saying, "Let the oil flow," which is fantastic. But there's a Friday signature. A week's a long time in in the war. And actually for me, the main thing is Prime Minister Netanyahu, you know, he still insists that the deal does not include Hezbollah despite the fact that Iran plainly does. Israel's clearly trying to build a buffer zone.
@@ -82,9 +82,9 @@ the big important things to point out. Uh let's just go to one of the other impo
  What we have said is that we're willing to talk about unfreezing assets. But a much much bigger deal is unsanctioning their economy so long as they make the long-term commitments on the nuclear program. So, we're talking about working with the IAEA and working with the Iranians to go in and destroy that enriched stockpile of material.
 Whether we play an observer role or whether we play a more active role, these are the sorts of things that we'll figure out in technical talks. But what the president has made very clear is the United States will be there to confirm that that enriched stockpile of material is destroyed. >> So you don't rule out that US military forces might be part of ensuring this
 
-**Unknown**: ### Segment 3 — Iran Trump Jcpoa
+### Segment 3 — Iran Trump Jcpoa
 
-**Unknown**: that they may have to go in.
+that they may have to go in.
 >> Well, I don't think that US military forces are going to be necessary. >> Yeah. See, I just kind of waffling that. I appreciate the difficulty that he's under because he's got to try to keep the lid on this until uh we we get to some kind of an agreement because if he says anything about uh frozen funds being released ahead, you know, as a first step, then that's obviously going to set off lots of alarm bells in Washington.
  But notice he didn't deny that. What he said was that 24 billion doesn't occur in the text. But as Professor Marandi said last night, it's going to be somewhere between 10 and 12 billion up front and then the rest of it come later. So that may be technically true, but you can see how he was trying to waffle his way through that to not admit that.
  And that really brings up one of the big points here. Uh Gary, if you can play that full or show that full screen there of the New York Times. Uh one of the things that's clear and still this is as of this morning, there is still no text have been released by the White House. So, President Trump keeps talking over and over about this great deal we have and uh it's going to be wonderful and the strait's going to be open and all this kind of stuff and that the the Iranians have agreed to everything, but he hasn't released any of those terms. And you know, and this
@@ -97,9 +97,9 @@ Obama, they begged Iran um for a deal and we bombed Iran and then put in a block
 nobody is buying this and and this and and the minute that you actually release the terms I mean you're just going to give ammunition to the tops of Mark Levin for crime out loud. He will be opposed to this. Now, I will not be opposed to it because I will say get out of here. No matter what you have to do, whatever terms you have to agree to, we've got to that because we have suffered and and Pet is I I don't think the words could even come out of his mouth even though they're true or anybody else in the administration.
 They're just not able to say it. But the fact is this is an absolute strategic disaster and failure of epic proportions for the United States. The the the ramifications of this are going to reverberate for many years to come. And every reverberation will be worse for our interests than they were before.
 
-**Unknown**: ### Segment 4 — Trump Iran Hormuz
+### Segment 4 — Trump Iran Hormuz
 
-**Unknown**: I'm just telling you right now that the administration and so many of these people in power and so many of these people who want to have power in the US are going to lament the starting this war for a long time because the cost to us will be way more than the blood and treasure we've already lost which is something that is always near and dear to my heart and something that has made me angry from day one and that I warned about before day one was going to be a foolish waste of American blood and then we did it. That's gonna that's bad and
+I'm just telling you right now that the administration and so many of these people in power and so many of these people who want to have power in the US are going to lament the starting this war for a long time because the cost to us will be way more than the blood and treasure we've already lost which is something that is always near and dear to my heart and something that has made me angry from day one and that I warned about before day one was going to be a foolish waste of American blood and then we did it. That's gonna that's bad and
 it's terrible. That's but there's going to be a lot worse for our interests going forward and the loss of prestige the the loss of the fear of America because they see that we have limits of power even though we can't acknowledge it publicly. Everybody else sees that there are significant limits of power and the conditions.
  This is so important here too. Hegseth here and that's and sound Biden and the others that I'm about to show you. He's going to try to make this paint that this, you know, President Trump is a strong guy. He's out there doing great stuff and he is compelling those Iranians to do stuff etc. We already had a deal a a JCPOA that some of the same language that we're using now was already in place in 2015 that we got out of.
  So the things that they're trying to negotiate now was already in an agreement in 2015. We screwed that up and threw it in the trash. And now that we're trying to get something allegedly better, but we'll never get something even as good as that, especially now. And the only reason why we're trying to get the straight of Hormuz open is duh, because we started the damn war.
@@ -112,9 +112,9 @@ it's terrible. That's but there's going to be a lot worse for our interests goin
  Remember that we show I think just last night, President Trump said the IRGC must lay down their arms or face certain death. Only they didn't. We killed a lot of them, but not that many. I mean, remember their their active forces in with the besiege and the the IRGC and the regular army were somewhere around 8 900,000 and now they've mobilized a bunch more and they're apparently somewhere uh I mean they claimed somewhere in 10 20 million that's what just people signing up willing to help out or whatever but it's a lot of people standing up to fight and
 I think there's been like 3,500 killed or something like that not quite all of them facing certain deaths so obviously we've already been exposed as that just being absurd statement no truth in it whatsoever. Nor are there here. We're in control of the
 
-**Unknown**: ### Segment 5 — Pentagon Ukraine Trump
+### Segment 5 — Pentagon Ukraine Trump
 
-**Unknown**: straight homes. He says Iran has got no ships out.
+straight homes. He says Iran has got no ships out.
  That's obviously false. I mean, it's self-evident. I mean, there's like tanker tracker numbers for crying out loud by name have been seen to go through. We even talked about interdicting some of them later on. So, what are we interdicting if none of them got through? You see what I'm saying? And then the claim that we have gotten all this other 150 tankers, whatever that number was.
  President Trump said a 100 million barrels of oil have gotten out. No, no evidence at all of that. There's not. I mean, if there is, then then the same way that we have been able to track by name some of these other ships from the Iranian side that did get out that was coordinated uh through tan with with China and some other countries as well. They they self-evident.
  You can Google those. You can find the tacter numbers. these you can't Google and say what are the ships that equal this whatever the number was he said 150 ships here okay fair enough that's what you claim produce the evidence show us which ships went through what day where they went just that's all you got to do but they won't be coming because that's fiction some got through I'm sure there have been some reports that some got through but it's not a fraction of what he claims and and and to to keep telling people that that we're in control. It
@@ -129,9 +129,9 @@ That is a manufactured story that the media wants and ultimately we are our stoc
  Even though you testified, which she reminded you and you got aggravated about it. Uh, you said it would take years to reply. But yeah, forget about that. Forget what I said then. Just listen to what I said now. It's been refilled. That is a physical impossibility. It is a physical impossibility.
  And it is a baldfaced lie categorically. Why does he want to keep doing this and shred even what minimal respect and credibility he has?
 
-**Unknown**: ### Segment 6 — Iran Russia Lebanon
+### Segment 6 — Iran Russia Lebanon
 
-**Unknown**: There's none. I won't anymore believe anything he says. I cannot take a word he says at face value. And in fact, it's worse than that because now the assumption is that he's lying.
+There's none. I won't anymore believe anything he says. I cannot take a word he says at face value. And in fact, it's worse than that because now the assumption is that he's lying.
  If he says anything positive, my first reaction is that he's lying. and I'm going to go and try and find some validation, some independent sources to confirm whether he's telling the truth or whether he's not. And when do you know that we make around 600 650 maybe pack three interceptors per year? That's all we can produce.
  And then you know that we use probably several thousand in the first 40 days of this war. Uh do the math. Don't tell me that we're back to where we were because that's a physical impossibility. We can't make them that fast. Period. So, it's a lot. And and of course that you can keep some people are going to believe it just because they will believe every word that comes out of the administration no matter how crazy it sounds because they want to because they don't want to believe the alternative.
  So, they will they'll accept that and and he'll succeed at that to some degree. They'll hold on to some of their support. But listen to me. Listen to me. That is harmful to America because let me tell you something. Iran is not fooled. Russia is not fooled. China is not fooled. They know exactly. They probably have better fidelity than I do with their intelligence sources just how low our stock piles really are.
@@ -144,9 +144,9 @@ to it and they have to decide should they engage in a conventional war, then the
 bigger ones and that is what the Iranian side is thinking about this. I told you what they said last night. Well, they said some more things today. Uh and Iran insists that no deal uh US deal will last without guarantees for Lebanese security. You I showed you that Sean Bell quote earlier where he was talking about hey there's a real problem with the Lebanese issue because Israel has a very different view on this uh and the Lebanese do as well.
  Uh in fact um Gary if you could go to the uh the one that says Qalibaf on Lebanon. Uh you can pop that one up there. This is the their uh speaker of their house
 
-**Unknown**: ### Segment 7 — Israel Hezbollah Iran
+### Segment 7 — Israel Hezbollah Iran
 
-**Unknown**: and of course their chief negotiator. Uh he said they and I think he's referring to Israel can never catch any part of the pillars of resistance alone and isolated.
+and of course their chief negotiator. Uh he said they and I think he's referring to Israel can never catch any part of the pillars of resistance alone and isolated.
  The valiant struggle of Lebanese brave fighters and the powerful diplomacy of the Islamic Republic of Iran guarantee the sovereignty and territorial integrity of dear Lebanon and will dismantle the crazy antics of war mongering of the Israeli regime. Spin as we may spin. I'm not, this is a translation from the Persian, so I'm not sure that last phrase doesn't translate directly, but that first part sure does.
 And that's exactly what we have been warning about is that the Iranian side is saying, hey, listen, it's now Lebanon and Hezbollah and and and Hamas in Gaza and the Houthis down in in in Yemen, they're all one and the same. And now now then we will fight for them. Remember, even before President Trump announced this signature coming up on Friday, the Iranian side had already, this is confirmed not just by pre professor Marandi on our show last night, but also by Barack Ravid and Axios and several others. They're
 acknowledging Iran was ready to strike back against Israel because of their strike against Hezbollah in Lebanon. And and they're they they pulled it back because Trump said, "All right, we'll sign something. We'll get something off the table and we'll hold them back." So for now, Iran said, "All right, we won't retaliate for that one as long as we can get to the end.
@@ -161,9 +161,9 @@ Period. The joint campaign had many achievements in weakening Iran and they will
  In Lebanon, we will be tested. This is our war, our fighters, and the immediate security of our northern residents. I will continue to act so that we continue to stand firm on ours and allow the IDF full freedom of action to continue pushing Hezbollah away. So you see right there do I mean there's there's Smotrich who's you know in the Israeli government.
  He's one of the cabinet members. He still wants the freedom of action. And you just saw that the just hours ago today the Hezbollah Assad said we're not going to allow Israel the freedom of movement, the freedom of action that
 
-**Unknown**: ### Segment 8 — Israel Hezbollah Lebanon
+### Segment 8 — Israel Hezbollah Lebanon
 
-**Unknown**: it wants to be able to do anything and then stay silent. If they if Israel strikes us, we will strike back.
+it wants to be able to do anything and then stay silent. If they if Israel strikes us, we will strike back.
  And everything hinges on that. We've told you all in all that these these 14 points has been released by the Iranian side. Point number one was that the war has to end on all fronts expressly meaning Lebanon. The uh prime minister of Pakistan, the mediator expressly acknowledged Lebanon is included there. If Lebanon is not included, we don't even get to a signing on Friday. And uh Smotrich is one.
 Here's Benny Gance, another Israeli political leader uh making some similar comments. Vinagans, head of the uh the blue and white party has described the Iran US agreement as a strategic failure that will have long-term consequences for Israel. The emerging agreement with Iran appears to be a strategic failure that will require Israel to engage in diplomatic, military, and legal struggles in the coming years.
  against former defense minister said, "Under no circumstances, it is forbidden to agree to restrict Israel's freedom of action in Lebanon uh or to a withdrawal that endangers the residents of the North." So, he's saying, "Yeah, forget it. We're not going to do that." Now, these are this is this similar to like uh maybe it's it's a little different.
@@ -177,9 +177,9 @@ Here's Benny Gance, another Israeli political leader uh making some similar comm
  It it the way it is in Israel right now. something along the lines of uh like with with al-Qaeda in in the days right after you know 9/11 it was such an emotional and raw emotions uh on so many United States and someone just say and for some reason that the US had to just stop and I'm talking like in in the 2002 2003 2004 when it was still very raw and just say you know what forget about it I know what uh al-Qaeda said and what they tried to do and what they did do to us but hey you know we just have stop. I mean that because of
 some other country telling us we had to stop. We just wouldn't do it. So we'll it remains to be seen if Israel will, but that is the biggest headwind to all of this. Um and let's see. I think there was one other thing I wanted
 
-**Unknown**: ### Segment 9 — Iran Trump Hezbollah
+### Segment 9 — Iran Trump Hezbollah
 
-**Unknown**: to show. Oh yeah, last thing to show you. There's not not that one, Gary.
+to show. Oh yeah, last thing to show you. There's not not that one, Gary.
  The uh the the one on uh it's called TASM. Tasnim. Uh this is this is one of the things. This is also out in the Iranian media today. Says Iran is uh uh uh like Gary, I can't read that one either. I'm sorry if you could pull that up. >> Yeah, no problem. >> I'll have to. >> Unfreezing blocked assets and war reparations are key economic priorities in the agreement.
 >> In the agreement. So it's not just a Lebanese issue. It's not just getting the some of the unfrozen assets. It's not just getting the energy system uh redu released. It's also uh reparations and uh unfreezing all the blocked assets. That that reparations is the big one there. What has been what was released in the Iranian version of this last night was that $300 billion would have to be paid to it by whatever sources.
  It doesn't necessarily have to be the US, but they say from our side, somebody's going to pony up $300 billion in reparations. Now, you can't get reparations unless uh unless you were the winner. That like in World War I, Germany had to pay reparations because it lost the war even though it was still a a viable country.
@@ -194,9 +194,9 @@ So I doubt very seriously he'll allow that until he has a signature and then he'
  We just responded." And who's going to know who's going to care whether anything's true or not? Those people will seize hold of it immediately. These other firestorm people in the US will seize hold of it. And then you can't trust those Iranians. Jack Keane has already laid that foundation. You can't trust a word they say.
  Tom Cotton, you can't trust a word they say. Uh Sean Hannity, etc. All these people, Lindsey Graham, all they all talk about is you can't trust a
 
-**Unknown**: ### Closing — Israel Iran Trump
+### Closing — Israel Iran Trump
 
-**Unknown**: word they say. They violate every agreement. And so they will use that at the second that this happens, no matter who actually started it, whoever did something first.
+word they say. They violate every agreement. And so they will use that at the second that this happens, no matter who actually started it, whoever did something first.
  And they'll say, "Yes, that's it." Interestingly enough, there's also an element on the Iranian side that also doesn't want there's actually been I don't know if you've seen much of this. There have been protests in Tehran against the deal because they say, "No, we have the military advantage. Don't make a deal with them.
  Don't give them anything at all. Let's keep pressing until we have a military victory." Now, they're not thinking that through about the cost consequences to their people that that would entail, but that movement exists there, too. So with all these hardcore movements literally in all three camps, the chance that this gets to a negotiated settlement that genuinely survives 60 days and then either gets extended or gets signed into something is so remote is to not even is to be laughable to hope it works out that way.
 I still say that the best thing that can happen is that President Trump can do the walk away plan. I'm telling you this is the most viable to this day only maybe only shot that this gets solved by him just saying I declare that we've destroyed enough of their navy their missile factories and whatever killed enough people and still midnight hammer from last year we've got you know satellite lights on it and we're going to continue to if they do anything we'll come and bomb them etc and then just walk away take up our stuff and leave

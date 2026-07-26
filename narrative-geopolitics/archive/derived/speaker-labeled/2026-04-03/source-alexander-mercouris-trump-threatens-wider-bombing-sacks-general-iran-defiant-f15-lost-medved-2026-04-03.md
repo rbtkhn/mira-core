@@ -17,11 +17,11 @@ source_note: Transcript pasted manually by operator after direct YouTube watch U
 editorial_note: Operator-pasted transcript body; not independently verified as verbatim.
 evidence_grade: transcript-bearing
 speaker_labeling: provisional
-speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2026-04-03/source-alexander-mercouris-trump-threatens-wider-bombing-sacks-general-iran-defiant-f15-lost-medved-2026-04-03.md", "source_sha256": "4932dc75c23f3745b74896ebef46387eb57e69935c52384180075de5aecf022f", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 2, "labeled_turn_count": 0, "unknown_turn_count": 2, "candidate_speakers": ["Alexander Mercouris", "Mercouris"]}
+speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2026-04-03/source-alexander-mercouris-trump-threatens-wider-bombing-sacks-general-iran-defiant-f15-lost-medved-2026-04-03.md", "source_sha256": "4932dc75c23f3745b74896ebef46387eb57e69935c52384180075de5aecf022f", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 1, "labeled_turn_count": 1, "unknown_turn_count": 0, "candidate_speakers": ["Alexander Mercouris"], "solo_format": "single-label-continuous"}
 ---
-**Unknown**: # Trump Threatens Wider Bombing Sacks General; Iran Defiant; F15 Lost; Medvedev Rules Out Kiev Join EU
+**Alexander Mercouris**: # Trump Threatens Wider Bombing Sacks General; Iran Defiant; F15 Lost; Medvedev Rules Out Kiev Join EU
 
-**Unknown**: Transcripts:
+Transcripts:
 Good day. Today's Friday, 3rd April 2026. And before I proceed with this program, let me remind you again to tick the like button and to check your subscription to this channel. If once you've watched this program, you decide that you like what you've heard and you wish to indicate this fact. Now, in my opinion, the last 24 hours have seen a very ominous turn in the conflict between Iran and the United States and Israel.
 I spoke two days ago about how in his address to the American people on Wednesday, the president of the United States, Donald Trump, despite the escalating pressures he is under, tumbling poll ratings, a festering and rapidly expanding economic crisis, signs of dissension, within his administration nonetheless offered no new ideas, no new thinking.
 He discussed his conflict the US's conflict with Iran. He charted no clear way forward. He charted no way towards a negotiated resolution of the conflict. He charted no clear plan for a military victory. Basically, he offered more of the same. And perhaps the most generous interpretation of his address. A very generous interpretation of his address is that he told the American people to stay the course.

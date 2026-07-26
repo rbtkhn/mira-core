@@ -28,15 +28,15 @@ transcript_curation: curated_sectioned
 section_count: 9
 section_pass: 2026-07-09 semantic-section-v1
 speaker_labeling: provisional
-speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2026-06-05/source-alexander-mercouris-putin-uncompromising-tells-west-msm-oreshnik-will-strike-kiev-russia-winning-zelensky-pleads-summit-2026-06-05.md", "source_sha256": "6f44dbfb39e67a02a94f5bd65eac20136a43b6dbfabf6d9250f72269629c6490", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 20, "labeled_turn_count": 0, "unknown_turn_count": 20, "candidate_speakers": ["Alexander Mercouris", "Mercouris"]}
+speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2026-06-05/source-alexander-mercouris-putin-uncompromising-tells-west-msm-oreshnik-will-strike-kiev-russia-winning-zelensky-pleads-summit-2026-06-05.md", "source_sha256": "6f44dbfb39e67a02a94f5bd65eac20136a43b6dbfabf6d9250f72269629c6490", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 1, "labeled_turn_count": 1, "unknown_turn_count": 0, "candidate_speakers": ["Alexander Mercouris"], "solo_format": "single-label-continuous"}
 ---
-**Unknown**: # Putin Uncompromising Tells West MSM Oreshnik Will Strike Kiev Russia Winning; Zelensky Pleads Summit
+**Alexander Mercouris**: # Putin Uncompromising Tells West MSM Oreshnik Will Strike Kiev Russia Winning; Zelensky Pleads Summit
 
-**Unknown**: ## Transcript
+## Transcript
 
-**Unknown**: ### Show Open — Russia Ukraine Europe
+### Show Open — Russia Ukraine Europe
 
-**Unknown**: Good day. Today is Friday 6th June 2026. Let me also give advanced uh notice now that on Sunday I will be flying to Russia to attend a conference um arranged by the Ministry of Culture, the Russian Ministry of Culture in the city of Scorf.
+Good day. Today is Friday 6th June 2026. Let me also give advanced uh notice now that on Sunday I will be flying to Russia to attend a conference um arranged by the Ministry of Culture, the Russian Ministry of Culture in the city of Scorf.
  I'll be m meeting very many people whom I know there in scoff including Pascal L of neutrality studies and others and obviously it's a trip I am very very much looking forward to inevitably whilst I am in Russia attending this conference well that is going to affect on my time and on my schedules and it may mean the programs are going to be shorter than usual.
  And well, it could also be that my program tomorrow and perhaps even today will also have to be of reduced length. But anyway, I will keep you all informed and I will keep you informed of my movements. It remains my intention to continue to make a program every day whilst I am in Russia. Anyway, let's now proceed with the events of the last 24 hours.
  And in fact, the diplomacy in terms of the conflict in Ukraine um has in a sort of way intensified, if you can call it diplomacy, the staking out of positions might be a more appropriate way to describe it. Um whereas I have to say this the diplomacy in relation to the other conflict the one between the United States and Iran continues to be at a total standstill.
@@ -49,9 +49,9 @@ Petersburg. It was a very confident Putin, just to say, as was always the case w
  Now, I've been making this point in program after program. So we on the Duran. Um but Putin set it out in his own way. He said that on every part of the conflict line the Russian army is advancing. There is no part of the conflict line according to Putin where the Russians are not advancing. And basically and fundamentally he is right.
  He the Russians are advancing in Zaporozhye region. The Ukrainians have mounted counterattacks in western Zaporozhye region, but as I discussed in my program yesterday, the Russians have now broken through and are closing in on the key town of Oreov
 
-**Unknown**: ### Segment 2 — Russia Ukraine West
+### Segment 2 — Russia Ukraine West
 
-**Unknown**: from the west. Um he the same applies to the situation in Donbass. In fact, this morning there have been more reports from the city of Konstantinovka where perhaps the most intense fighting has been taking place.
+from the west. Um he the same applies to the situation in Donbass. In fact, this morning there have been more reports from the city of Konstantinovka where perhaps the most intense fighting has been taking place.
  A number of commentators have remarked on the fact that the Russians are now focusing their bombing in Konstantinovka on its very northern sections, which has led some to assume that the entirety of central and southern Konstantinovka is under Russian control. And it's also been mentioned that Ukrainian mapping projects are now adjusting their maps in Konstantinovka very rapidly, transferring more and more parts of the town to Russian control.
 And it's been suggested that this is less a product of Russian advances in Konstantinovka and more of the Ukrainian mapping agencies rushing to cut catch up with the realities in Konstantinovka in light of the likely prospect fairly soon of the entire town passing under Russian control. And well, we've also had over the last 24 hours significant word of further Russian advances in Sumy region and in Kharkov region and west of Kiev, which I'm going to talk about on another program.
  But anyway, Putin said that it's absolutely not the case that the conflict is in stalemate. The Russian army is advancing. and he gave a what he said was a disastrous picture of the state of the Ukrainian army. He said that it is losing men at the rate of 40,000 a month, 40,000 a month which it cannot replace.
@@ -64,9 +64,9 @@ Frankly, I can't myself disagree or dispute with what he said. What he said. He 
  I am certain that this was carefully prepared and discussed with the military in advance. He said that all of the strikes that have taken place with the oresnik system against Ukraine have to a great extent being test runs of the missile system. He said that the ordnik has never been tested on Russian territory itself. He said that after every strike, Russian drones are busy monitoring and examining the dispersion of the submunitions to see how tight the area of control o of strike actually is.
 He, by the way, and this is something which I think commentators have completely overlooked, he confirmed in passing that the very latest strike with the arashnik that took place about 10 days ago now. Um, that this involved two ornik missiles. one which struck a still un undisclosed target in a satellite satellite
 
-**Unknown**: ### Segment 3 — Russia Economy Interest Rates
+### Segment 3 — Russia Economy Interest Rates
 
-**Unknown**: town south of Kiev but and also another oreshnik which as he put it struck a fortified area in Donet's region.
+town south of Kiev but and also another oreshnik which as he put it struck a fortified area in Donet's region.
  So this corroborates what Gus of Millennium 7 said in his last latest latest program about the Orchnik that there were in fact two strikes on that day exactly as the Russian Ministry of Defense suggested. One on the satellite town south of Kiev. Another one in Donbass, apparently close to Slavansk and striking what Putin referred to as a fortified area.
 But the most interesting thing that Putin said in connection with all of this was that the Russians in conducting these tests with the Orashnik appear to be preparing the Orashnik, developing and perfecting the Orashnik. so that it can conduct strikes in populated urban areas. And well, the obvious urban area that Putin must have in mind is Kiev itself.
 And one must assume that what he's referring to here are the bunkers and underground facilities within Kiev and preparation for this is clearly underway. Now, I have already said in previous programs that the Russians have already said have said in fact that the decision to conduct strikes against command centers in Kiev has been made.
@@ -80,9 +80,9 @@ Which by any measure is extraordinarily high. And he said that this is clearly a
 But it's also one which he under no circumstances intends to risk. And again when comparing the situation between the Russian economy and those of the West he pointed out that Russia's current debt to GDP ratio is around 15%. That, by the way, is lower than some people, including myself, believe. I think it's closer to 18%.
  But anyway, it's a small matter of percentages. And he pointed out that in the west, debt to GDP ratios are now
 
-**Unknown**: ### Segment 4 — Russia Europe Trump
+### Segment 4 — Russia Europe Trump
 
-**Unknown**: above 100%. I would quickly and very quickly very briefly say that there is an argument and it's a reasonable argument that the very low debt to GDP ratio in Russia is also a symptom of low investment in the Russian economy over many decades.
+above 100%. I would quickly and very quickly very briefly say that there is an argument and it's a reasonable argument that the very low debt to GDP ratio in Russia is also a symptom of low investment in the Russian economy over many decades.
 investment is now picking up. It's picked up actually quite a lot. But a debt to GDP ratio of just 15%. Is not the entirely positive indicator that Putin wants to sell it as. But anyway, this isn't something I want to discuss at length in a program in this program. Certainly, it's better to have low debt or at least debt at Russia's levels than debt at the levels that we're seeing in some European countries, especially Britain being one of them.
  Anyway, let's let's move on. So, that's what Putin said about that. But then he came to a discussion of the political dynamics and firstly he came back to the agreement that he believes he made with Trump at the summit in Anchorage and he said that the Russians made various compromises and concessions to get this agreement with the United States.
 The Russians have never told us what those concessions were and nor has anyone else. By the way, we've never been provided with a proper explanation from any party, the Americans, the Russians, the Europeans, and the Ukrainians of what the understanding Putin and Trump reached with each other in Anchorage actually was.
@@ -95,9 +95,9 @@ There continues clearly to be a difference within the Russian leadership about t
 The alternative was a permanent conflict, a permanent situation of tension on Russia's western borders, which would be a constant drain both on Russia and on the West, which would not just be dangerous in terms of future security, but which would also impede within Russia the development the future development of Russia's economy and Russia's society which require a prolonged period of peace.
  This I think has been at the back of Putin's mind all along and he is never he's never slipped from it. But there is a further reason and it's more about
 
-**Unknown**: ### Segment 5 — Ukraine Russia Trump
+### Segment 5 — Ukraine Russia Trump
 
-**Unknown**: tactics now than strategy why Putin does not want to break with Trump. And that is that the reality over the last year is that the United States under Donald Trump has to a great extent though not entirely walked away from Ukraine.
+tactics now than strategy why Putin does not want to break with Trump. And that is that the reality over the last year is that the United States under Donald Trump has to a great extent though not entirely walked away from Ukraine.
  The United States no longer supplies heavy weapons to Ukraine directly. Even the previous policy of selling weapons to the Europeans who then transfer them to Ukraine, well, that appears to have essentially stopped given that there are now shortages of weapons of precision weapons in the United States as a result of the conflict with Iran.
 And the United States has taken no serious step to ramp out sanctions pressure on Russia. There were the sanctions on Luke Oil and Ros Neft in the autumn, but these have now to a great extent been walked back as a result of the current oil crisis. The Americans of course do still provide intelligence to Ukraine and help with its drone offensive.
 We're not talking about a total disengagement, but overall there's been a mark reduction in American aid to Ukraine since Biden left the White House. and Putin wants it to stay that way. So if being polite to Donald Trump assists him with that objective, well, why not? The fact that it also causes tensions between the Americans and the Europeans is, as far as Putin is concerned, icing on the cake.
@@ -110,9 +110,9 @@ I've said already that the vote that followed in the House of Representatives on
  The sums involved were not huge, but they do exist. And there was some talk again of providing direct military supplies to Ukraine. It passed the high the House of Representatives but again just under 200 representatives voted against it. Reuters spoke about these two bills in an article. It admitted that neither bill has received bipartisan support.
  It also admitted that Trump is opposed to both bills and is likely to veto both if they are were ever to get past the House and the Senate. And as things stand, there doesn't seem to be a large enough majority in either chamber, either the Senate or the House, to override his veto. It reinforces the view that I discussed two days ago in my video that it seems that a lot of the enthusiasm for
 
-**Unknown**: ### Segment 6 — Russia Europe Ukraine
+### Segment 6 — Russia Europe Ukraine
 
-**Unknown**: the conflict in Ukraine, for the support for Ukraine has drained away in Washington.
+the conflict in Ukraine, for the support for Ukraine has drained away in Washington.
 Ukraine still has its allies and its supporters there, but they don't dominate the scene as they used to do. And I'm going to express here my own surprise that opposition to both of these bills in the House of Representatives turned out to be as strong as it proved. I have always assumed that if either bill were put to the vote in the House of Representative House of Representatives, there would be overwhelming support for both bills and well that has not proved to be the case.
 support has fallen far short of that and this is unlikely to bother Trump very much and to the extent that Putin thinks about this and I'm no doubt he does this outcome must to some extent at least satisfy him looked at from his point of view it's obviously better if Ukraine gets less American support rather than more.
 And again, if he makes polite noises to Trump, even if these noises do not come with actual con concessions, which of course they don't, well, Putin will probably think will probably say to himself that this is a small price to pay. Now in saying all of this of course one has to also understand that not everybody in Russia agrees with this approach and there have been articles in parts of the media in the west um about claiming that um there is a ground swell of opinion building up within the Russian elite.
@@ -125,9 +125,9 @@ It it costs nothing to continue to be reasonably polite to Trump. And at the sam
 Now on one issue, Putin seemed to me to reflect a shift that is taking place in Russian policy. But it's clear that on this still he has not fully gone all the way. Lavrov, Medved, Shyigu have all said that the European Union is transforming itself into a political military alliance hostile to Russia. All of them are saying that in light of this Ukrainian membership of the EU is now unacceptable.
 Putin said that he agrees that the European Union is transforming itself into a political military alliance hostile to Russia. But he also said that Russia has never disputed the right of any state to integrate itself into the European economic structures. Some
 
-**Unknown**: ### Segment 7 — Russia Ukraine Europe
+### Segment 7 — Russia Ukraine Europe
 
-**Unknown**: have interpreted this to mean that Putin is content, still supports the old policy that Ukraine can join the European Union and Russia won't object to it.
+have interpreted this to mean that Putin is content, still supports the old policy that Ukraine can join the European Union and Russia won't object to it.
 It seems to me that what Putin is signaling is that that policy is indeed in the process of changing. He was not however prepared to say so forthrightly in a meeting with you with western journalists. And for that reason he fudged the question in ways which however I suspect that some people within the Russian security council are going to find infuriating.
 Anyway, on this, there clearly continues to be something of a split between Putin and the rest of the Security Council. And on that point, by the way, I should say that I carefully track what every member of the Russian Security Council says. I have not seen a single one say recently at any point recently that Russia does not object no longer object uh uh does not object to Ukraine joining the European Union which used to be the policy.
 On the contrary, Medved, Lavough and Shyu have argued otherwise and all of the others have remained silent on this question. My sense is that Putin, maybe for tactical reasons, did not announce the shift at this meeting. The shift nonetheless is happening. He's going to irritate some people in Russia by not announcing it, but sooner or later that shift will nonetheless still come.
@@ -140,9 +140,9 @@ He may be right about that. But at the present time, the Ukrainian and European 
 European and Ukrainian policy at the moment is a freeze of the conflict. it is nothing else. Now the Russians of course have responded to this letter by saying that yes absolutely Zelensky is welcome to meet with Putin but that meeting must take place in Moscow. Putin as he also by the way made clear in his meeting with the journalists has shall we say serious doubts about Zelensky's legitimacy.
 Putin again trotted out all of the arguments as to why Zelensky is not the constitutional president of Ukraine. I'm not going to re rehearse them in this program. But that seems to continue to be Putin's position. And anyway, that was what
 
-**Unknown**: ### Segment 8 — Russia Ukraine Economy
+### Segment 8 — Russia Ukraine Economy
 
-**Unknown**: Putin said. The Russians Pescov said that if Zelensky does want to speak with Putin, it's fine.
+Putin said. The Russians Pescov said that if Zelensky does want to speak with Putin, it's fine.
  He can come to Moscow and meet with him there. Anybody who wants to come to Moscow is free to come and to hold with the Russians whatever discussions they like. But for the rest, obviously a summit meeting between Putin and Zelensky or between Putin and whoever leads Ukraine is something that can only happen when a full agreement has been reached.
 And that meeting will then take place as part of the signing ceremony that will basically end the conflict and seal the agreement. Now, Zelensky of course knows this all perfectly well and one has to understand that this letter is part of the campaign that we have seen the narrative about the war being in stalemate the drone attacks which I've discussed now at enormous length the attempt to paint a picture of a domestic internal crisis in Russia.
 And it looks to me now as if the real purpose of all of this over the last few months, this campaign that has been underway has again been to get resounding votes from Congress to back Ukraine. in ways that Trump could not disregard in order to get the Americans back on side, to tell the Americans that actually things are not going as badly for Ukraine as the Russians are saying.
@@ -155,9 +155,9 @@ They never asked themselves why they believe that American involvement now can s
 Well, there we are. Now, over the next few weeks, as I've discussed in several programs, events on the battlefronts are going to start to change the narrative again. Konstantinovka looks like it's likely to fall. Ry-Aleksandrovka looks like it's likely to fall. We're probably some way from a direct attack on Oreov, but undoubtedly Oreov will fall.
 Lyman, according to many reports, is likely to fall as well. The Russian army in northeastern Ukraine continues to push forward and there are further reports that the regional capital of Sumy continues to see its out external defenses crumble and
 
-**Unknown**: ### Segment 9 — Russia Europe Economy
+### Segment 9 — Russia Europe Economy
 
-**Unknown**: that the Russians are close now to launching an attack on the important town in Kharkov region of Vovchansk.
+that the Russians are close now to launching an attack on the important town in Kharkov region of Vovchansk.
  Um quite probably in fact I think it is a certainty we are going to see missile strikes with Oreshnik missiles against Kiev this year. Um, by the way, Putin's comments about how the Russians have been testing out and perfecting the Oreshnik um to make it a viable weapon system to use in builtup areas confirms my opinion that that has been the Russian intention all along.
 that the Russian campaign against the command centers in Kiev has been in long preparation and has only been brought forward, not entirely provoked or initiated as a result of the Ukrainian attacks on Starobilsk. and with his civilian coach in Donbass. So anyway, at some point all of these there's the Europeans are again going to be faced with the underlying bankruptcy of their entire diplomatic and their entire diplomatic strategy.
 But for the moment at least they continue to resist the logic of that. We still see, for example, how in the UN General Assembly, Germany lost its vote, lost the vote for its mostly pro-former reelection as a member, as the non-permanent member of the UN Security Council. I mean, Germany has never lost a vote like this before in the General Assembly.

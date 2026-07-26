@@ -39,22 +39,22 @@ transcript_curation: curated_sectioned
 section_count: 9
 section_pass: 2026-07-09 semantic-section-v1
 speaker_labeling: provisional
-speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2026-06-12/source-daniel-davis-trump-again-claims-agmt-at-hand-iran-different-view-2026-06-12.md", "source_sha256": "f1837f155f4ef6b79b314f03dd1562e3405bb98dcea4ad970efb4c047f4b6f8c", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 22, "labeled_turn_count": 0, "unknown_turn_count": 22, "candidate_speakers": ["Daniel Davis", "Davis"]}
+speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2026-06-12/source-daniel-davis-trump-again-claims-agmt-at-hand-iran-different-view-2026-06-12.md", "source_sha256": "f1837f155f4ef6b79b314f03dd1562e3405bb98dcea4ad970efb4c047f4b6f8c", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 1, "labeled_turn_count": 1, "unknown_turn_count": 0, "candidate_speakers": ["Daniel Davis"], "solo_format": "single-label-continuous"}
 ---
-**Unknown**: # Trump Again Claims an Agmt "At Hand" but Iran has MUCH Different View / Lt Col Daniel Davis
+**Daniel Davis**: # Trump Again Claims an Agmt "At Hand" but Iran has MUCH Different View / Lt Col Daniel Davis
 
-**Unknown**: **Channel:** Daniel Davis Deep Dive  
+**Channel:** Daniel Davis Deep Dive  
 **Date:** Friday, 12 June 2026 (inferred from transcript)  
 **Host:** Lt. Col. Daniel Davis  
 **URL:** https://www.youtube.com/watch?v=VjI4y1ZcYug
 
-**Unknown**: ---
+---
 
-**Unknown**: ## Transcript
+## Transcript
 
-**Unknown**: ### Show Open — Trump Iran Hormuz
+### Show Open — Trump Iran Hormuz
 
-**Unknown**: We have a deal all but done. Almost. The only thing we got to do is put the bow on it, schedule the meeting next week. The signing ceremony somewhere in Europe. Apparently what President Trump said yesterday. Uh and this thing is going to be wrapped up. The Straits of Hormuz is going to be open.
+We have a deal all but done. Almost. The only thing we got to do is put the bow on it, schedule the meeting next week. The signing ceremony somewhere in Europe. Apparently what President Trump said yesterday. Uh and this thing is going to be wrapped up. The Straits of Hormuz is going to be open.
  America will lift its blockade. Iran will lift its blockade. Then we'll get into You know, I'm kidding. Of course, that's on piece of paper. That's coming out of words out of Trump's mouth that seem to have almost no relation to any kind of reality. What a surprise. You're going to see how that's nothing new there. This is probably time number 40.
  But President Trump just moments ago put this out on uh on True Social. He says the terms that Iran leaked out to the fake news had nothing to do with the terms that were agreed to in writing. What they said, including their weak and pathetic statement on having a deal, bears no relation to the truth. The very dishonorable people to deal with.
  With them, there is no such thing as dealing in good faith. Wow. Isn't that the pot column the kettle black amazing also they're totally re something I can't read underneath whatever that is right there drone attack last night against the Indian ships leaving the hormous straight is totally unacceptable they better get their act together and fast man have we heard that before and we're going to see some examples of that here in a minute uh but look let's let's first of all you may be thinking what wait what's been leaked because
@@ -65,9 +65,9 @@ That's that's almost breaking news by itself. Uh because he said, "Listen, we ha
  But our preference is for these straits to be opened to the way they're supposed to be open back to the way it was. Anyone can use it. No mines in the water. Nobody paying tolls. That's what we have to get back to. And that's the goal here. >> So, okay. Wait, wait, wait, wait, wait. You're saying that the goal of our negotiations here are to get back to the way it was before you started the war.
 So, you just want Iran to go, "Okay, let's just do a doover." Okay. Um, this didn't work out the way I thought. We thought we were going to get regime change. We thought that we were going to get a collapse of your government and dang it, that didn't work out. So, how about we just call it
 
-**Unknown**: ### Segment 2 — Trump Nuclear Weapon Hormuz
+### Segment 2 — Trump Nuclear Weapon Hormuz
 
-**Unknown**: a day, say, um, we learned our lesson and we'll just go back to the way it was before.
+a day, say, um, we learned our lesson and we'll just go back to the way it was before.
  despite the fact that we assassinated your leader, killed a whole bunch of your people, destroyed like 150 some odd of of your ships, killed 3,000 or so of your people, and blew a bunch of stuff up on the surface. Let's just call it a day and just open the straits up and we'll just shake hands and, you know, and say everything's good to go.
  Maybe that's what Trump is saying. Maybe he's saying, "How dare Marco say that?" Because those are not the terms I set out. And if anybody is not clear and doesn't remember, here is what the terms President Trump did set out on February 28th. >> We are going to destroy their missiles and raise their missile industry to the ground.
  It will be totally again obliterated. We are going to annihilate their navy. We are going to ensure that the region's terrorist proxies can no longer destabilize the region or the world and attack our forces and no longer use their IEDs or roadside bombs as they are sometimes called to so gravely wound and kill thousands and thousands of people including many Americans.
@@ -79,9 +79,9 @@ they can rise up and they can now take control of their government and the strai
  Huge number just spread all over the place. Maybe even more than that. And that's not anything that he is talking about now. That's not anything Rubio's talking about now. They just want the straight opened up. But to get the straight opened up, you're going to have to have some additional things that you give. See, here's the thing. President Trump is still trying to act like in this this True Social that I get to call all the shots.
  Everything is up to me. Nobody else gets a say in this. And I if they don't behave, he've said that several times just a couple of days ago again. If they don't behave, then we're going to come back in with bombs ablazing. problem is any kind of a memorandum of understanding anou any sort of a deal
 
-**Unknown**: ### Segment 3 — Iran Trump Middle East
+### Segment 3 — Iran Trump Middle East
 
-**Unknown**: on any description is going to require to get something to give something and that's what these a lot of these terms so that's that's uh Rubio made that comment here but let me show you uh what is also floating around all over the place on on the internet
+on any description is going to require to get something to give something and that's what these a lot of these terms so that's that's uh Rubio made that comment here but let me show you uh what is also floating around all over the place on on the internet
 here especially on social media these are the terms of some of the 14point draft memorandums is being rep reported by a number of sources here some western some Not um look, we'll just start right off the top here. The very first point which is cons which is consistent with what uh professor Marandi has told us on the air is that is their number one issue.
  Uh I think uh several others have said that as well. [clears throat] Uh immediate and permanent ceasefire on all fronts including Lebanon. So that is their number one out the gates situation here, which means Israel will have to stand down completely. They're in the middle of what they consider war. Their troops are all in the southern part of that country.
  They want to clear everything out up to the Latani River. They want to own it all and they want to continue just destroying portions of Beirut, the capital city here. But now then the first point that the Iranian side they're ready to agree to which allegedly is something that has been agreed to by American negotiators. That's important to understand here.
@@ -94,9 +94,9 @@ here especially on social media these are the terms of some of the 14point draft
 >> The Islamabad memorandum of understanding has never been closer. Pending its finalization. the media should refrain from injuring speculation about its contents. In line with our responsible and transparent approach, all details will be shared with the public in due course. So, I guess from his side, he's saying, "Yeah, um, we're going to do diplomacy the way it's supposed to be done behind closed doors.
  We're not going to do it out front. Uh, but there's a lot of things that have been
 
-**Unknown**: ### Segment 4 — Trump Iran Hormuz
+### Segment 4 — Trump Iran Hormuz
 
-**Unknown**: reported. Of course, a lot of people have been talking about this. I just showed you one of them on there. There's several versions that are out there. And incidentally, that is nearly identical. In fact, it may be identical to the 14 points that Iran gave in response to a US request in about the middle of the first part of May of last year.
+reported. Of course, a lot of people have been talking about this. I just showed you one of them on there. There's several versions that are out there. And incidentally, that is nearly identical. In fact, it may be identical to the 14 points that Iran gave in response to a US request in about the middle of the first part of May of last year.
  Meaning that the Iranian side has not moved. They have not moved any at all. Now, let's contrast what President Trump said yesterday with what the Iranian side said yesterday because there's some very interesting uh com contradictions here. So, President said basically everything's agreed to already. Well, whatever is actually in this plan.
  So, Abas Araghchi is saying, "We're not going to tell you what's in it, only that it's very close to a negotiated settlement, something that's close to being agreed to." But here was the senior military adviser to the Supreme Leader uh uh Resay yesterday was talking about some of the terms that he says have to be in the deal.
 That's the most So you see there there's basically four four comments there. I don't know about 14 but he mentioned four there some of which were in that previous leaked version. Uh number one is he said the withdrawal of American forces. So he says we have all this in our control. They have control of the straight hormuz.
@@ -108,9 +108,9 @@ That's the most So you see there there's basically four four comments there. I d
  So at some point President Trump will have to acknowledge those four things. Again he can spin them all he wants. can bring in a bunch of other facts and other statistics about bombs we dropped and things we blew up and how they it's going to take him decades to reply, whatever. He can say anything he wants to there, but we're going to have to agree to them there.
  Now, you may be thinking, just looking at all this on the surface of it and saying, uh, there's no way in hell that President Trump could politically survive if he said those kinds of things. Um, and and you'd be right on that, too. So the
 
-**Unknown**: ### Segment 5 — Iran Missile Cities Trump
+### Segment 5 — Iran Missile Cities Trump
 
-**Unknown**: Iranian side has apparently come to that same conclusion. So in a separate interview uh Mr.
+Iranian side has apparently come to that same conclusion. So in a separate interview uh Mr.
  Rosa uh Raza sorry said uh what would happen if we don't get a deal and we go back to fighting. If the war continues and the naval blockade is not lifted, we will drag the war to the Indian Ocean, the Babal Mandab Straight, the Red Sea and the Mediterranean. And we will give another dimension to the war by attacking these other American bases that we have been attacking so far.
  America will definitely suffer much more losses. America's losses will be very heavy. So listen, he's saying we're fully ready to go back. But here's the thing. Whereas if we go back to the war, we're going to basically try and reattack the same targets with the same ammunition. We we there were and last I saw at least one report said that the US had totally attacked 20,000 targets from February 27th up through the end or up through the recent the times here.
  So all the things altogether it's around 20,000 targets that was not enough to bring them to their heels. So if you want to go back to active war, what else are you going to hit? Because the the country's been right there. You've been hitting everything and you're obviously going to start with the most vulnerable what you perceive to be the most vulnerable targets to bring the enemy into submission right away.
@@ -122,9 +122,9 @@ these underground missile cities without effect. So if we go back we're just goi
  We tried all those and they just didn't work. But now then the Iranian side has stuff that did work and that can hit our uh infrastructure and all kinds of other things here. So when you're saying now who's going to blink here? Will President Trump do what is politically nearly suicide for him to do or will the Iranian side say, "Okay, if you don't do that, here's our next card." He's showing you this his ace.
 He's ready to play it. Not even hiding it. The face card is front. We're ready to
 
-**Unknown**: ### Segment 6 — Iran Trump Nuclear Weapons
+### Segment 6 — Iran Trump Nuclear Weapons
 
-**Unknown**: play our next ace. What do you want to do? Because if President Trump says, "No, I can't do that politically at some point, then we're just going to put Iran into a position where it's going to play that card and we have no defense against it.
+play our next ace. What do you want to do? Because if President Trump says, "No, I can't do that politically at some point, then we're just going to put Iran into a position where it's going to play that card and we have no defense against it.
 " Just like when we played our ace, they neutralized it. When they played this ace, we can't neutralize it. And that is the problem. That's why they have leverage and flexibility that we don't have. And which is why they are so confident in making these statements right now. Why? There's not only no fear from them, there's confidence because they know they have the leverage here.
 They know they have the capability that we can't defend against and that they can defend against us returning back to what we had. That is a hugely important issue. Now, uh let's take a look at some of the headwinds even aside from that that we have. This is uh this is what JD Vance here just 14 minutes ago.
  Uh he says, "I'm seeing a lot of fake information about a potential deal to reopen the straight into Iran's nuclear weapons. First, the Iranians are not receiving any cash and no funds for being released uh for simply signing a deal or attending a meeting and it could probably continue to go along with a lot of that.
@@ -136,9 +136,9 @@ yet, but while this is tenative, we feel confident that signing this in the next
  You just heard that the the Iranian side said this is non-negotiable. We have to have this upfront. And I've showed you many times from the diplomats have said the exact same thing because there's no trust. This is the consequence and the cost to our side that no one will take us at or work for anything and nobody is it's like it's like nobody's going to give you credit.
  It's like you your credit score is like 300 or
 
-**Unknown**: ### Segment 7 — Iran Trump Nuclear Weapon
+### Segment 7 — Iran Trump Nuclear Weapon
 
-**Unknown**: something like that and and you want to go and get even an old car but you you need some financing to get it. Nobody's going to give you a thing because you've defaulted on all your other loans. That's what we're facing right now. That's what our actions in the past have got. That's what happened with when Trump pulled out of the deal that a previous administration did 2018 with the JCPOA.
+something like that and and you want to go and get even an old car but you you need some financing to get it. Nobody's going to give you a thing because you've defaulted on all your other loans. That's what we're facing right now. That's what our actions in the past have got. That's what happened with when Trump pulled out of the deal that a previous administration did 2018 with the JCPOA.
 What President Trump did in 2025 when we were allegedly negotiating like the fifth round, I think, and then we bombed in the middle of it. In this one in 2026, we were in the third round. uh they had agreed to some huge concessions and then we threw that in their face and blew the whole thing up because no, we want everything.
  And now now that we because of the pressure point of the straight of Hormuz and the oil being shut down, we are desperately needing an end to this. And we really need them to just say, "All right, just open it up and then we'll promise to do some stuff later." We got no credit. We got none, folks. And this is the consequence right now.
  So now then we have been put in a position to where the our adversary is saying here are our we'll just keep it at the four. There's many others but those are pretty four big ones. You're going to stop fighting in Lebanon means you have to bring Israel into under control. [snorts] We're going to get 24 billion up front. You're going to release some sanctions and eventually you're going to have to leave the the region.
@@ -149,9 +149,9 @@ Do you even need to go any further down the line there? Because those are major 
 There is full agreement between me and President Trump on this issue." And he goes along and just has a lot of blah blah and ends up saying the same thing. But what he's also saying inherent in that is I'm not going to give anything to them. And if and if you're going to end and not if you're going to end with any kind of a deal that leaves this government in control because he has made synonymous the existence of that government and a nuclear weapon.
 Remember he also lied the other day uh last week I think it was and said that he had to go to war in the beginning of this this conflict
 
-**Unknown**: ### Segment 8 — Trump Iran Nuclear Weapon
+### Segment 8 — Trump Iran Nuclear Weapon
 
-**Unknown**: here because they were weeks away from attacking with a nuclear weapon. That's what he claimed back then. They were going to attack us with a nuclear weapon and we had to attack.
+here because they were weeks away from attacking with a nuclear weapon. That's what he claimed back then. They were going to attack us with a nuclear weapon and we had to attack.
  So you can see that that based on what he has said that he's not going to leave them in command. The last thing he will ever agree to is for Trump to give all of those things to leave the Iranian government in a stronger position than it was before and making it a regional power. So you can see that the chances that Trump, forget about him agreeing to all the stuff here, forget about all the diplomatic stuff that he has to agree to and the political heat he's got to take.
  He's got to get the the prime minister of Netanyahu whose very political life is at stake and whose whether he spends the rest of his life in jail are at stake. You've got to convince him to end this war. And of course, all these hardliners like Mark Levin and all that crew that I've told you about in the US will be just going crazy against Trump here.
  and Ben-Gvir Smotrich and a whole bunch of others uh cats possibly even on the Israeli side will be going crazy in Netanyahu if he ever agreed to that stuff. So the political winds you you see it's just almost impossible for our side at large to agree to any of these terms. But you see the Iranian side as of just yesterday and just a few minutes ago, they're still saying these are our terms.
@@ -162,9 +162,9 @@ Remember he also lied the other day uh last week I think it was and said that he
  We think we're close to a deal and that's okay. >> We're in the final throws of what will be a very, very good deal. >> Do we feel like we're in the final throws? This is at least I I want to say the 40th time that he has either directly or indirectly stated or sent out in a truth social that we're close to a deal.
  And now he's saying today, you know, don't listen to those, you know, crazy people. These these guys here better do it. They better behave or whatever the phrase he used was. I can't remember now. That's what there's no truth to it because President Trump has no credibility. He has no trust and we have no leverage. Do
 
-**Unknown**: ### Closing — Hormuz Israel Trump
+### Closing — Hormuz Israel Trump
 
-**Unknown**: you understand that? Whatever you hear him say, he has no trust, no credibility, and no leverage to make these statements here true to to make these trough tough tough sounding statements.
+you understand that? Whatever you hear him say, he has no trust, no credibility, and no leverage to make these statements here true to to make these trough tough tough sounding statements.
  The Iranian side does. They better get their act together. Thanks, Gary. Well, that their act is together, Mr. President. They they are very cogn cognitively aware of what the situations are, what their leverage is and the power that they have over us not just with Strait of Hormuz but now perversely militarily they have the advantage because they can hit targets that they haven't yet that they are vulnerable to their striking power.
  Whereas no matter how many bombs and missiles we have, and we've got a large number, still the targets that we have to hit are not vulnerable to what we have to bring to bear. That is the absolute crucial thing. Again, it doesn't matter what the spreadsheet says. Doesn't have no matter the number of bombs we have, how many fighter jets, F-35s, F-22s, F-18s, F-15s, you name it.
  That doesn't make any difference. Aircraft carriers, all this stuff looks great. None of it matters if the ordinance that all that stuff brings together cannot compel compliance on the other side. And that's where we are. Meanwhile, their arsenals can strike and can hit and can make it even worse. That is the desperately bad situation we find ourselves in today.

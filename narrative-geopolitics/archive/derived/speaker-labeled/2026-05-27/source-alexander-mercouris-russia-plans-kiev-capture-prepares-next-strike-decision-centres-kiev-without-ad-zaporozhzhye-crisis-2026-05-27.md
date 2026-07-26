@@ -18,17 +18,17 @@ source_note: Operator-pasted YouTube transcript for canonical May 27 2026 Mercou
 editorial_note: Full operator-pasted YouTube transcript preserved as raw-input SSOT. Light cleanup only where needed for routing-critical punctuation.
 evidence_grade: transcript-bearing
 speaker_labeling: provisional
-speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2026-05-27/source-alexander-mercouris-russia-plans-kiev-capture-prepares-next-strike-decision-centres-kiev-without-ad-zaporozhzhye-crisis-2026-05-27.md", "source_sha256": "d28ebfae71e3a079f619351ef6196a01a7921061d8253a06f2212cb53d01f431", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 4, "labeled_turn_count": 0, "unknown_turn_count": 4, "candidate_speakers": ["Alexander Mercouris", "Mercouris"]}
+speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2026-05-27/source-alexander-mercouris-russia-plans-kiev-capture-prepares-next-strike-decision-centres-kiev-without-ad-zaporozhzhye-crisis-2026-05-27.md", "source_sha256": "d28ebfae71e3a079f619351ef6196a01a7921061d8253a06f2212cb53d01f431", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 1, "labeled_turn_count": 1, "unknown_turn_count": 0, "candidate_speakers": ["Alexander Mercouris"], "solo_format": "single-label-continuous"}
 ---
-**Unknown**: # Russia Plans Kiev Capture Prepares Next Strike Decision Centres; Kiev Without AD Zaporozhzhye Crisis
+**Alexander Mercouris**: # Russia Plans Kiev Capture Prepares Next Strike Decision Centres; Kiev Without AD Zaporozhzhye Crisis
 
-**Unknown**: **Channel:** Alexander Mercouris  
+**Channel:** Alexander Mercouris  
 **Published:** 2026-05-27  
 **Source:** https://www.youtube.com/watch?v=toos2hmB_TM
 
-**Unknown**: ## Transcript
+## Transcript
 
-**Unknown**: Good day. Today is Wednesday, 27th May, 2026. And before I proceed with this program, let me remind you again that to tick the like button and to check your subscription to this channel. Now, over the last 24 hours, we've had some responses in the West to the Russian advice, and I should stress at the moment it is advice, not a demand.
+Good day. Today is Wednesday, 27th May, 2026. And before I proceed with this program, let me remind you again that to tick the like button and to check your subscription to this channel. Now, over the last 24 hours, we've had some responses in the West to the Russian advice, and I should stress at the moment it is advice, not a demand.
  the Russian advice that Western diplomats for their own safety quit Kiev and go somewhere to the west because Kiev now is an open target for the Russian missile forces. Anyway, we've had some responses from the West um in connection with this. Um the French government has made it clear that their embassy remains in Kiev and that their diplomats remain there as well.
  The Polish government has spoken in the same way. They have said that um if there is any harm done, any injury done to Polish diplomats in Kiev, this will be entirely the fault of the Russians. And the US Secretary of State Marco Rubio after speaking to U Sergey Lavough, as I discussed in my program yesterday, has said that the war is indeed caught up in a pattern of escalation.
 One strike is then responded to by an even bigger strike. That is basically all we have seen up to now. Um, nobody should be surprised about this. It's because the war is going from one escalation to another that the United States has tried so hard since President Trump became president to um achieve a resolution of the war, an end to the war.

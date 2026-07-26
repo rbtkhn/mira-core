@@ -32,15 +32,15 @@ transcript_curation: preserved_unsectioned
 section_count: 0
 section_pass: 2026-07-09 semantic-section-v1
 speaker_labeling: provisional
-speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2026-07-10/source-lavrov-says-west-lies-no-talks-ever-again-kremlin-says-us-duplicitous-west-faces-diesel-shortage-2026-07-10.md", "source_sha256": "2cb5abb0048ef570545cd181928d125e6941cee68f2b5274776d7942a7223770", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 4, "labeled_turn_count": 0, "unknown_turn_count": 4, "candidate_speakers": ["Alexander Mercouris", "Mercouris"]}
+speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2026-07-10/source-lavrov-says-west-lies-no-talks-ever-again-kremlin-says-us-duplicitous-west-faces-diesel-shortage-2026-07-10.md", "source_sha256": "2cb5abb0048ef570545cd181928d125e6941cee68f2b5274776d7942a7223770", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 1, "labeled_turn_count": 1, "unknown_turn_count": 0, "candidate_speakers": ["Alexander Mercouris"], "solo_format": "single-label-continuous"}
 ---
-**Unknown**: # Lavrov Says West Lies No Talks Ever Again; Kremlin Says US Duplicitous; West Faces Diesel Shortage
+**Alexander Mercouris**: # Lavrov Says West Lies No Talks Ever Again; Kremlin Says US Duplicitous; West Faces Diesel Shortage
 
-**Unknown**: ## Transcript
+## Transcript
 
-**Unknown**: Lavrov Says West Lies No Talks Ever Again; Kremlin Says US Duplicitous; West Faces Diesel Shortage - YouTube
+Lavrov Says West Lies No Talks Ever Again; Kremlin Says US Duplicitous; West Faces Diesel Shortage - YouTube
 
-**Unknown**: Good day. >> Today is Friday 10th July 2026 and before I proceed with this program, let me remind you again to tick the like button and to check your subscription to this channel. Well, today um the things I think which are of most interest and importance are a succession of statements made by senior Russian officials following the NATO summit meeting in Ankara.
+Good day. >> Today is Friday 10th July 2026 and before I proceed with this program, let me remind you again to tick the like button and to check your subscription to this channel. Well, today um the things I think which are of most interest and importance are a succession of statements made by senior Russian officials following the NATO summit meeting in Ankara.
  And the first person um I will discuss the first person whose comments I will discuss is the Russian foreign minister Sergey Lavrov. Now Lavrov is currently on a tour of Africa. He was in Ner where he attended a meeting of West African states. He then went to Mozambique where he met the foreign minister of Mozambique and other senior Mozambique officials and over a course the course of a press conference he made the following comments.
  The West continues to make hypocritical calls for a negotiated solution. Negotiated solutions were reached back in 2014, 2015, and 2019. In all of these cases, the West's guarantees were dismantled by the West itself. They all proved total lies. Besides, there was a negotiated solution between Russia and Ukraine in 2022, but the West undermined it openly and publicly.
  We no longer trust the West's declared willingness to find a negotiated solution. Our reserve of good faith and hope has run completely dry. So notice that Lavough is not making any distinction here between the Europeans and the Americans. He's simply talking about the West. And he says that the Russians have lost all expectations or hopes of ever coming to any kind of resolution of the Ukraine conflict with the West. Now that's Lavro.

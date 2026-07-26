@@ -15,11 +15,11 @@ transcript_type: yt_dlp_caption_fetch
 source_note: Fetched from YouTube captions via the repo transcript pipeline and materialized into the canonical statecraft archive.
 quality_note: English caption fetch via repo YouTube transcript pipeline; adjacent duplicate caption lines removed, otherwise preserve transcript roughness.
 speaker_labeling: provisional
-speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-05-26/source-alexander-mercouris-putin-protected-from-ukraine-drone-swarm-zaluzhny-ukraine-losing-no-miracle-coming-kiev-hammered-2025-05-26.md", "source_sha256": "c0d4e557f1a657ece9bd380284629013715eb562024f7db281f343472ec3c661", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 2, "labeled_turn_count": 0, "unknown_turn_count": 2, "candidate_speakers": ["Alexander Mercouris", "Mercouris"]}
+speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-05-26/source-alexander-mercouris-putin-protected-from-ukraine-drone-swarm-zaluzhny-ukraine-losing-no-miracle-coming-kiev-hammered-2025-05-26.md", "source_sha256": "c0d4e557f1a657ece9bd380284629013715eb562024f7db281f343472ec3c661", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 1, "labeled_turn_count": 1, "unknown_turn_count": 0, "candidate_speakers": ["Alexander Mercouris"], "solo_format": "single-label-continuous"}
 ---
-**Unknown**: # Putin Protected From Ukraine Drone Swarm; Zaluzhny: Ukraine Losing, No Miracle Coming; Kiev Hammered
+**Alexander Mercouris**: # Putin Protected From Ukraine Drone Swarm; Zaluzhny: Ukraine Losing, No Miracle Coming; Kiev Hammered
 
-**Unknown**: Good day. Today is Monday, 26th May,
+Good day. Today is Monday, 26th May,
 2025. And as you can see, I'm very much
 in the English countryside enjoying my
 holiday with my family. This inevitably

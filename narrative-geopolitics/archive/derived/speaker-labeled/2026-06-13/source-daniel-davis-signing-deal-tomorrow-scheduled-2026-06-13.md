@@ -39,22 +39,22 @@ transcript_curation: curated_sectioned
 section_count: 8
 section_pass: 2026-07-09 semantic-section-v1
 speaker_labeling: provisional
-speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2026-06-13/source-daniel-davis-signing-deal-tomorrow-scheduled-2026-06-13.md", "source_sha256": "76481b0d2ac595c7b8c94ee343754c3527f43a51bd880b5229279f8f2d22029a", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 20, "labeled_turn_count": 0, "unknown_turn_count": 20, "candidate_speakers": ["Daniel Davis", "Davis"]}
+speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2026-06-13/source-daniel-davis-signing-deal-tomorrow-scheduled-2026-06-13.md", "source_sha256": "76481b0d2ac595c7b8c94ee343754c3527f43a51bd880b5229279f8f2d22029a", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 1, "labeled_turn_count": 1, "unknown_turn_count": 0, "candidate_speakers": ["Daniel Davis"], "solo_format": "single-label-continuous"}
 ---
-**Unknown**: # Signing a Deal Tomorrow? It's Scheduled! / Lt Col Daniel Davis
+**Daniel Davis**: # Signing a Deal Tomorrow? It's Scheduled! / Lt Col Daniel Davis
 
-**Unknown**: **Channel:** Daniel Davis Deep Dive  
+**Channel:** Daniel Davis Deep Dive  
 **Date:** Saturday, 13 June 2026  
 **Host:** Lt. Col. Daniel Davis  
 **URL:** https://www.youtube.com/watch?v=OKpzUEn5U9A
 
-**Unknown**: ---
+---
 
-**Unknown**: ## Transcript
+## Transcript
 
-**Unknown**: ### Show Open — Trump Iran Ceasefire
+### Show Open — Trump Iran Ceasefire
 
-**Unknown**: We have breaking news. President Trump is not only saying there's going to be a deal, he is now announcing when it will be signed. He's saying it will be signed tomorrow on Sunday. The exact time has not been listed or exactly where or how the parties will be signed. There's a little bit of confusion on that, but President Trump is very emphatic that that is what is going to happen tomorrow.
+We have breaking news. President Trump is not only saying there's going to be a deal, he is now announcing when it will be signed. He's saying it will be signed tomorrow on Sunday. The exact time has not been listed or exactly where or how the parties will be signed. There's a little bit of confusion on that, but President Trump is very emphatic that that is what is going to happen tomorrow.
  Uh Pakistan has also been releasing some similar statements as well as we have been telling you throughout this entire period since the ceasefire went into effect. Everything depends on what is actually in the deal. So far all we've heard is that there's a deal signed. There's anou a memorandum of understanding that both sides have largely agreed to.
  And now apparently both sides have agreed to. We told you in our show this morning that you had the Iranian side, you had the American side, the Pakistani side, all said that the deal had been done and it could be distributed tomorrow. And now apparently according to President Trump, that's exactly what's going to happen.
  However, we still have some kind of headwinds tomorrow and there's still some things, some major major points that are going to have to be explained pretty soon. Now, I told you one of the things earlier this morning was that if there's a the deal is if there's an agreed deal upon it, it has to be one text that everybody signs off on to the same text.
@@ -63,9 +63,9 @@ It can't be different versions. It has to be identical. And for there to be some
 this is about an hour ago a little over an hour ago now the spokesman they say the spokesman for Pakistan's ministry of foreign affairs announced that Islamabad will be the host of the signing ceremony of the US Iran peace agreement tomorrow Sunday via video conference. So there's apparently the the discussion or the location it's going to be I guess they're going to be in in Pakistan Islamabad and there's going to be video teleconference.
  So presumably the other two parties the US and Iran will be from teleconference from their own locations. But it's interesting because at first this just said the spokesman of Pakistan's military announced this not that the Iranian side said this or that they agreed to it. Well then a little bit a little bit later I think uh
 
-**Unknown**: ### Segment 2 — Iran Lebanon Israel
+### Segment 2 — Iran Lebanon Israel
 
-**Unknown**: this one is um let's see this was yeah this is about 45 minutes ago.
+this one is um let's see this was yeah this is about 45 minutes ago.
  So after that other one was posted then you have the one of the clerics in Iran uh Ayatollah Hassan Hmani not sure if he's related to the uh the supreme leader but this is just one of the one of their clerical leaders he said in the current circumstance and by the way just to be clear this is translated from the original Farsy so this is to his own population is the primary audience here he said in the current circumstances we won't get anywhere through bickering and harsh words let us trust in the collective wisdom and major decisions of
 the high ranking officials in the system. Everyone can express their advisory opinions, but once the final decision is made, it must be followed. Now, one can certainly read into that and think and okay, the fact that that was put out after the announcement that there's going to be deals signed tomorrow certainly could imply that the Iranian side is going to back down from some of its really harsh statements and some of its maximalist demands which uh we showed you professor Marandi on on the the dialogue work showing what he
 said was he said if there's no money up front there's no deal if there's no sanctions released up front there's no deal if the Israeli side doesn't withdraw from Lebanon there's no deal. If the American blockade is not removed, there's no deal. Those those four things he just said categorically, all of those had to be on there or there would be no deal.
@@ -74,9 +74,9 @@ a deal at all. They say, "No, just keep fighting." And I know we're going to get
  I think it is theoretically possible, whereas it's impossible for us, the United States, to follow a military path. There's just not the wherewithal, the capability. We we couldn't ever get there. Iran conceivably could, but it wouldn't be a guarantee and it would come at an incredibly high cost. So, it could just be that the the the Mullers and the clericals and the people who were in charge are saying, "Hey, we're not going to pay that price here because we can get we can get a good enough outcome at a lot lower cost here." And
 maybe they're just telling
 
-**Unknown**: ### Segment 3 — Trump Iran Don'T
+### Segment 3 — Trump Iran Don'T
 
-**Unknown**: them that. I don't know. Or it could be something bigger. Like all this, we're going to have to wait until we see the the text of the deal, which we'll get at some point tomorrow. So that was uh about 45 minutes ago. But then an interesting this is uh about 3540 minutes ago. So this is even less now.
+them that. I don't know. Or it could be something bigger. Like all this, we're going to have to wait until we see the the text of the deal, which we'll get at some point tomorrow. So that was uh about 45 minutes ago. But then an interesting this is uh about 3540 minutes ago. So this is even less now.
  This is on the FARS news agency. Again this is from Tehran. [clears throat] They put this said about an hour ago. Trump once again emphasized that the memorandum of understanding with Iran will be signed Sunday. This comes even as Iranian officials have explicitly stated that the agreement has not been finalized and will definitely not take place on Sunday.
  So, this is the one pretty solid piece that began. This is the FARS news agency. This is about uh 35 minutes ago from from the time we're making this show right here. They say it's still being negotiated. There's still deals going on. There's still discussions and that it's not going to be tomorrow. So, I don't know how you get with President Trump saying it absolutely will be tomorrow.
  And then you have the Fars news agency which is the closest we have to an official Iranian statement that it won't be tomorrow and that the negotiations continue on. Who do you going to believe? I don't know. Uh I haven't seen anything. I've checked just then. I know Gary's going to continue throughout this uh this show here to be able to check all especially Galibbuff Aasa Rockshi uh poses to see if anybody makes an absolute official statement at a at a government official level.
@@ -85,9 +85,9 @@ maybe they're just telling
  U because Trump is just notoriously impatient. He can't let anything run through and and this whole process here is just really bizarre in terms of how things are normally done. Typically you you have through an intermediary you can pass notes back and forth to to just get on the same you know within the same period the same screen in in this example here get on the same planet at least and then if you're on the same planet or with you know at least disclosed then you send your personal delegates the guys who have decision-making authority from the
 respective sovereign that they can get together and make a deal and get it like right up to the one yard line and then they bring in the the heads of make to make the final decisions to make it go. That's how things normally happen. There hasn't been in this
 
-**Unknown**: ### Segment 4 — Iran Trump Nuclear Weapon
+### Segment 4 — Iran Trump Nuclear Weapon
 
-**Unknown**: round any direct negotiations.
+round any direct negotiations.
  Everything has been going through intermediaries or back and forth or uh text messages or whatever official correspondents, but nothing in person. So, it's hard to imagine you're going to get to a real genuine negotiation when you haven't even met face to face with your interlocutors, much less at the leaders level.
  But this is the Trump era, so all kinds of things are possible, I guess. We'll have to wait and see how that's going to happen. Let's take a look at what President Trump did say in that true social law because I think that's going to give us a bit of an indication of what what either is going to be in this term or that there won't be one.
  Because let me just also just categorically state this. This is what President Trump has said. How many times has he said something and then hours later, like five hours later, as we one of the shows we did last week, he changed within five hours. So God only knows what could be happening five hours from now or five minutes or tomorrow morning.
@@ -98,9 +98,9 @@ respective sovereign that they can get together and make a deal and get it like 
  These inspectors and then once it was brought to the attention of the public or after some time, Iran got back into compliance. That's a fact as well. So that prevented them. And then the the fundamentals of it at all and had only 3.67% 67% enrichment. You have to have 90% to make weapons grade. That was validated that they never went beyond that.
  Even what they had was very small
 
-**Unknown**: ### Segment 5 — Nuclear Weapon Trump Nuclear Weapons
+### Segment 5 — Nuclear Weapon Trump Nuclear Weapons
 
-**Unknown**: amounts of it. Uh anything beyond that had to be shipped out. And I think there was like 20,000 pounds if I'm not mistaken. Whatever the number was a large number was shipped out of the country. It went to Russia, I believe. So they didn't have any stock piles. There's so many things that they didn't have that they couldn't do a nuclear weapons program.
+amounts of it. Uh anything beyond that had to be shipped out. And I think there was like 20,000 pounds if I'm not mistaken. Whatever the number was a large number was shipped out of the country. It went to Russia, I believe. So they didn't have any stock piles. There's so many things that they didn't have that they couldn't do a nuclear weapons program.
  And so they validated that to everybody. that was going to be uh one of the problems that President Trump claimed when he got out of it 2018 was that it had a sunset clause in 2025. So even if you want to claim that in 2025 they would have gotten out of it and then race to a bomb which is illogical and irrational. There's no reason whatsoever to think they would have done that they would have abided by it all the way up to then.
  President Trump in that true social there says they would have had a bond six years ago which is tied to literally nothing. The if he had not pulled out of it, it still would have been good with no even if they didn't re renegotiate it, it would have expired in 2025. That's one year ago, not six. So that's just a number made up out of thin air.
 It's not related to anything. But the the bigger issue here is the fact that he's leading with this. He has this obsession, this myopic uh fear of being accused of being something less than Barack Obama. So, he has to predicate preface everything he's saying about the deal first with saying, "Oh, Barack Obama was terrible. The JCPO was awful.
@@ -110,9 +110,9 @@ It was a road to a nuclear weapon." Which again is just categorically false. It 
  But we're doing the same thing here. We're not going to let that kind of stuff slide. So, all of that is a predicate that he's going to say, "Okay, Obama sucked. I'm awesome. My deal is going to be so much better." Let's now get into what those details were. >> [clears throat] >> He says the the next thing I want to go down here is um that this the first of all he's going to say the straight is going to be open.
  So they can't have a nuclear weapon. Okay, that's that's been something that Iran has never quibbled with that at
 
-**Unknown**: ### Segment 6 — Iran Lebanon Hezbollah
+### Segment 6 — Iran Lebanon Hezbollah
 
-**Unknown**: all. They've always said uh we've always said we're not going to have a nuclear weapon. We've always declared it. Sure. If you want me to say it again, why not? We'll say it again. So that part's easy.
+all. They've always said uh we've always said we're not going to have a nuclear weapon. We've always declared it. Sure. If you want me to say it again, why not? We'll say it again. So that part's easy.
  There's no problem with that. Then he goes into the straight of Hormuz is open to all. Now remember this was supposed to be the condition for the initial ceasefire at about the 40-day mark that it was supposed to be both sides are going to lift the US lift its blockade the Iranian side would lift its blockade without any fees or tolls or anything else and it would just be free and open.
 That was what it was supposed to be. We'll see if that happens this time because what the Iranian side said back then was that even the ceasefire deal to get the two blockades opens necess necessarily included Lebanon, Hezbollah. And now then they're saying all up to this point they have emphatically said that is still the case.
  We will never leave our brethren behind. So are they going to leave them behind now? Are they going to make that not contingent? Are they say we'll come back to that? Well, because remember uh this is what President Netanyahu or Prime Minister Netanyahu said just yesterday. Uh he said that he is all for this deal as long as it includes the removal of enriched material which the Iranian side has up to this point categorically denied the dismantling of their enrich enrichment infrastructure which they said they won't do. Limitations on
@@ -121,9 +121,9 @@ say that over and over. just last night and it doesn't seem very reasonable to s
  So one of the other huge points of this uh this deal that doesn't seem to be lining up but again somebody is going to have to make a big change from what they've been saying publicly. Uh next thing is he says uh okay this is one of the bigger ones here no cash exchanges and here he uh dogs President Obama for having uh you know unlock uh Obama's hundreds of billion yeah hundreds of billions of dollars in payments to them including 1.7 billion in green.
  Now how he gets from 1.7 to hundreds plural of billions uh is not explained here. Uh but he says here no money will exchange hands. This is a repetition of what he said uh last Sunday on the NBC news interview where he was point blank asked will you give funds up front and will you put those energy sanctions uh on pause
 
-**Unknown**: ### Segment 7 — Iran Trump Netanyahu
+### Segment 7 — Iran Trump Netanyahu
 
-**Unknown**: up front and he said categorically no.
+up front and he said categorically no.
  So he repeats that here again and we've shown you both professor Marandi uh the uh also this morning from last night's TV interview Abasa Roxy both said yes that is a necessary first step. uh the uh Resai the the Mr. General Resi, the senior uh leader, senior adviser, military adviser, categorically said there will be money up front because we have no trust in the United States.
  So, we need trust, confidence building measures, and it's going to have to mean money upfront. So, it seems pretty unlikely that after all that's happened with the two wars and started in 2025 and 2026, and after all these statements by all these senior officials that they're suddenly going to say, "Never mind.
  You know what? We'll just trust you on this one, too. So, don't give us any money up front. Don't don't give us any of the sanctions relief. We'll open our blockade. Um, you open your blockade, but of course without the sanctions relief, people still can't buy our money. So, but yeah, and then we'll just talk about the nuclear program and all this kind of stuff, which means US will get everything and the and Iran will get nothing.
@@ -133,9 +133,9 @@ President Trump hasn't. So, he says something's going to be signed tomorrow. We'
  Now, here's here's my big concern here. I've I've shown you what the two sides have said and we've know the history of this because we tell it to you all the time. My worry is that Trump is actually going to get right up to the time when this is allegedly supposed to happen and then say that Iran reneaked on the deal. Well, let's see.
  I wonder if I still have this one up here. Remember this one here? Uh this is here. He said the terms of Iran, this is a couple of days ago. This is June 12th. Uh he said the terms of the leak
 
-**Unknown**: ### Segment 8 — Trump Iran White House
+### Segment 8 — Trump Iran White House
 
-**Unknown**: deal have nothing to do with the terms that were agreed to. what they said, including the weak and pathetic statement on having deals bears no relation to the truth.
+deal have nothing to do with the terms that were agreed to. what they said, including the weak and pathetic statement on having deals bears no relation to the truth.
  Dishonorable people to deal with with them. There is no such thing as dealing as good faith. So he's already insulting them then saying anybody who says anything to the contrary of what I'm saying is a bad actor. So now then either he has compelled them to comply and whatever was being leaked and we've shown you what that 14-point plan was and it's not much different than the Iranian 10point plan from back in May, April or May.
  So they haven't seemed to change anything publicly. So either there has been a radical transformation or President Trump is not dealing with reality and we're not going to get a deal signed tomorrow. So this has happened before. Remember, Robert Barnes on our show, who has some definite knowledge on the inside of the White House, has said there has been deals similar to this already agreed to by the two negotiating sides who have been going back and forth through intermediaries that they had find stuff that the White House would agree to that
 their Iran side would agree to. And Trump says no at the last minute every time. So, it seems to me the likelihood is pretty high that this will be I think number seven when he backs tracks from it. I I will be just shocked if if this goes through. I'm not part of these negotiations. I can't tell. Maybe something did happen behind the scenes that's going to allow this.

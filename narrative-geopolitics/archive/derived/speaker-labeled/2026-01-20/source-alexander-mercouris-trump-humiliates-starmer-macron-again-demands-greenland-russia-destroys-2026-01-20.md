@@ -17,17 +17,17 @@ source_note: Operator-pasted transcript; upgrades prior metadata-only stub (2026
 editorial_note: Davos 2026; Greenland demand; Starmer/Macron humiliation; project Ukraine; European weakness/LNG; Kiev AD offensive prep; Dmitriev at Davos — verify strike counts and Goncharenko/Zelensky claims against wire.
 evidence_grade: transcript-bearing
 speaker_labeling: provisional
-speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2026-01-20/source-alexander-mercouris-trump-humiliates-starmer-macron-again-demands-greenland-russia-destroys-2026-01-20.md", "source_sha256": "ba2ec02d4b58e454045222196f590dd3f2b5c37fee1bf7fac3f387e13f35220d", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 4, "labeled_turn_count": 0, "unknown_turn_count": 4, "candidate_speakers": ["Alexander Mercouris", "Mercouris"]}
+speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2026-01-20/source-alexander-mercouris-trump-humiliates-starmer-macron-again-demands-greenland-russia-destroys-2026-01-20.md", "source_sha256": "ba2ec02d4b58e454045222196f590dd3f2b5c37fee1bf7fac3f387e13f35220d", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 1, "labeled_turn_count": 1, "unknown_turn_count": 0, "candidate_speakers": ["Alexander Mercouris"], "solo_format": "single-label-continuous"}
 ---
-**Unknown**: # Trump Humiliates Starmer Macron; Again Demands Greenland; Russia Destroys Kiev AD Ahead Of Offensive
+**Alexander Mercouris**: # Trump Humiliates Starmer Macron; Again Demands Greenland; Russia Destroys Kiev AD Ahead Of Offensive
 
-**Unknown**: **Channel:** Alexander Mercouris  
+**Channel:** Alexander Mercouris  
 **Date:** Tuesday, 20 January 2026  
 **URL:** https://www.youtube.com/watch?v=uoMt5q2mXzU
 
-**Unknown**: ---
+---
 
-**Unknown**: ## Transcript
+## Transcript
 Good day. Today is Tuesday, 20th January 2026. And before I proceed with this program, let me remind you again to take the like button and check your subscription to this channel. If once you watch this program, you decide that you like what you've heard and wish to indicate that fact.
  Well, even as I am making this program, there is a gathering of Western leaders in Davos, the uh resort in Switzerland up in the mountains where the the um European Management Forum, as it was then called, um set up its first meeting in I think it was 1971. Um it subsequently became the World Economic Forum. Uh it was, as I've discussed many times, basically in its origins, which go back to the 1960s, a gathering of European old money.
  They came together in Davos. They used to ski uh for their holidays in the winter. And of course, they used to they met and they used to discuss economic things. And initially, originally it was very much about European integration. But as that proceeded, they set their wider they they developed wider, more global ambitions.

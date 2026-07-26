@@ -15,11 +15,11 @@ transcript_type: yt_dlp_caption_fetch
 source_note: Fetched from YouTube captions via the repo transcript pipeline and materialized into the canonical statecraft archive.
 quality_note: English caption fetch via repo YouTube transcript pipeline; adjacent duplicate caption lines removed, otherwise preserve transcript roughness.
 speaker_labeling: provisional
-speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-04-28/source-alexander-mercouris-lavrov-kiev-regime-must-go-crimea-4-regions-zaporozhye-npp-are-russian-status-non-negotiable-2025-04-28.md", "source_sha256": "3600bb8ac9180aacf29a51165c831f69807498e2b55188423d4f1dcd3d27ed5f", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 2, "labeled_turn_count": 0, "unknown_turn_count": 2, "candidate_speakers": ["Alexander Mercouris", "Mercouris"]}
+speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-04-28/source-alexander-mercouris-lavrov-kiev-regime-must-go-crimea-4-regions-zaporozhye-npp-are-russian-status-non-negotiable-2025-04-28.md", "source_sha256": "3600bb8ac9180aacf29a51165c831f69807498e2b55188423d4f1dcd3d27ed5f", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 1, "labeled_turn_count": 1, "unknown_turn_count": 0, "candidate_speakers": ["Alexander Mercouris"], "solo_format": "single-label-continuous"}
 ---
-**Unknown**: # Lavrov; Kiev Regime Must Go; Crimea, 4 Regions, Zaporozhye NPP Are Russian, Status Non-Negotiable
+**Alexander Mercouris**: # Lavrov; Kiev Regime Must Go; Crimea, 4 Regions, Zaporozhye NPP Are Russian, Status Non-Negotiable
 
-**Unknown**: Good day. Today is Monday, 28th April,
+Good day. Today is Monday, 28th April,
 2025. And the big story at least in
 terms of the Ukrainian conflict over the
 last 24 hours is that after the

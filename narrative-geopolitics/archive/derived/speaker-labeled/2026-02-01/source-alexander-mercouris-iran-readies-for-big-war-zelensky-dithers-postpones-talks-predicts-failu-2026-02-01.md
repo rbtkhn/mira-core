@@ -15,17 +15,17 @@ transcript_type: operator_pasted_transcript
 editorial_note: Direct YouTube watch URL already on disk; full transcript body supplied by operator in Codex chat and materialized in place.
 status: in-review
 speaker_labeling: provisional
-speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2026-02-01/source-alexander-mercouris-iran-readies-for-big-war-zelensky-dithers-postpones-talks-predicts-failu-2026-02-01.md", "source_sha256": "6d40c38440e51512719b124703ccd600ebd0fa7e8eb382220ce0ca75475fff28", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 4, "labeled_turn_count": 0, "unknown_turn_count": 4, "candidate_speakers": ["Alexander Mercouris", "Mercouris"]}
+speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2026-02-01/source-alexander-mercouris-iran-readies-for-big-war-zelensky-dithers-postpones-talks-predicts-failu-2026-02-01.md", "source_sha256": "6d40c38440e51512719b124703ccd600ebd0fa7e8eb382220ce0ca75475fff28", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 1, "labeled_turn_count": 1, "unknown_turn_count": 0, "candidate_speakers": ["Alexander Mercouris"], "solo_format": "single-label-continuous"}
 ---
-**Unknown**: # Iran Readies For Big War; Zelensky Dithers Postpones Talks Predicts Failure; Russia Restarts Strikes
+**Alexander Mercouris**: # Iran Readies For Big War; Zelensky Dithers Postpones Talks Predicts Failure; Russia Restarts Strikes
 
-**Unknown**: Channel: Alexander Mercouris
+Channel: Alexander Mercouris
 Published: 2026-02-01
 Source: [https://www.youtube.com/watch?v=0Np1Xh6sJLU](https://www.youtube.com/watch?v=0Np1Xh6sJLU)
 
-**Unknown**: ## Transcript
+## Transcript
 
-**Unknown**: Today is Sunday, 1st February, 2026. And before I begin this video, let me remind you again to tick the like button and to check your subscription to this channel. If once you've watched the video or whichever part of the video you want to watch, you decide that you like what you've heard and you wish to indicate that fact.
+Today is Sunday, 1st February, 2026. And before I begin this video, let me remind you again to tick the like button and to check your subscription to this channel. If once you've watched the video or whichever part of the video you want to watch, you decide that you like what you've heard and you wish to indicate that fact.
  Well, today we continue in the war of nerves between the United States and Iran. Um, over the previous 24 hours, there were more reports from Iran of the authorities there taking further preparations to prepare the country and Tean specifically for a possible American attack. I read reports that the Iranians were busy working to convert subway stations into possible shelters.
  that they were also providing other shelters or working to build other shelters or facilities for people who might be rendered homeless over the course of an American attack in other parts of the city and that further steps were being taken to stockpile food and medicines and essential supplies. Of course, all of this work will have been complicated by the ongoing economic crisis.
  Um, but Iran does have historic experience of doing this sort of thing as a result of the 1980s Iran Iraq war. And it is likely that there are Iranian officials still with that experience available in Tehran whom the authorities can call upon. One thing I should say about Iran is that I've discussed in many places the problems of economic mismanagement.

@@ -28,17 +28,17 @@ normalization_state: ai_assisted_proper_noun_cleanup
 editorial_note: AI-assisted source-clean (scaffold + ph-civ series + entity + thread tiers (mercouris, channel:alexander-mercouris)); 17 substitutions; manual ASR Pezeshkian×2, Witkoff×2, Milice×1, Alastair Crooke×7; not human-verified verbatim; verify before quotation. Prior provenance: Operator-pasted transcript; ASR artifacts retained; not human-verified verbatim against audio. Routine Mercouris solo subscribe/platform close trimmed in place; SSOT body otherwise preserved.
 quality_note: ASR normalization pass 2026-06-22; ph-civ replacement SSOT.
 speaker_labeling: provisional
-speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2026-01-15/source-alexander-mercouris-moscow-steps-in-us-iran-conflict-trump-backs-off-kiev-admits-odessa-russ-2026-01-15.md", "source_sha256": "5517297d691891d4ad0fc2406a6be52847b8418507d37125fa647fc0f644bb21", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 4, "labeled_turn_count": 0, "unknown_turn_count": 4, "candidate_speakers": ["Alexander Mercouris", "Mercouris"]}
+speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2026-01-15/source-alexander-mercouris-moscow-steps-in-us-iran-conflict-trump-backs-off-kiev-admits-odessa-russ-2026-01-15.md", "source_sha256": "5517297d691891d4ad0fc2406a6be52847b8418507d37125fa647fc0f644bb21", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 1, "labeled_turn_count": 1, "unknown_turn_count": 0, "candidate_speakers": ["Alexander Mercouris"], "solo_format": "single-label-continuous"}
 ---
-**Unknown**: # Moscow Steps In US Iran Conflict; Trump Backs Off; Kiev Admits Odessa Russian Main Goal; Kiev Crisis
+**Alexander Mercouris**: # Moscow Steps In US Iran Conflict; Trump Backs Off; Kiev Admits Odessa Russian Main Goal; Kiev Crisis
 
-**Unknown**: **Channel:** Alexander Mercouris (solo)  
+**Channel:** Alexander Mercouris (solo)  
 **Date:** Thursday, 15 January 2026 (host)  
 **URL:** https://www.youtube.com/watch?v=g2n-3yALThM
 
-**Unknown**: ## Transcript
+## Transcript
 
-**Unknown**: Good day.
+Good day.
 Today is Thursday, 15th January, 2026.
 And before I proceed with this program,
 let me remind you to take the like

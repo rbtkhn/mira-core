@@ -36,25 +36,25 @@ transcript_curation: curated_sectioned
 section_count: 11
 section_pass: 2026-07-09 semantic-section-v1
 speaker_labeling: provisional
-speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2026-06-26/source-alexander-mercouris-zelensky-threatens-belarus-kharkov-kiev-lavrov-rubio-bury-anchorage-2026-06-26.md", "source_sha256": "82bd0982bead9610429bfcbe5bbac79362bcd96f5b2f02ffbe847ced27a252cb", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 25, "labeled_turn_count": 0, "unknown_turn_count": 25, "candidate_speakers": ["Alexander Mercouris", "Mercouris"]}
+speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2026-06-26/source-alexander-mercouris-zelensky-threatens-belarus-kharkov-kiev-lavrov-rubio-bury-anchorage-2026-06-26.md", "source_sha256": "82bd0982bead9610429bfcbe5bbac79362bcd96f5b2f02ffbe847ced27a252cb", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 1, "labeled_turn_count": 1, "unknown_turn_count": 0, "candidate_speakers": ["Alexander Mercouris"], "solo_format": "single-label-continuous"}
 ---
-**Unknown**: # Zelensky Again Threatens Belarus; Kharkov Crumbles Threat To Kiev Grows; Lavrov Rubio Bury Anchorage
+**Alexander Mercouris**: # Zelensky Again Threatens Belarus; Kharkov Crumbles Threat To Kiev Grows; Lavrov Rubio Bury Anchorage
 
-**Unknown**: **Show:** Alexander Mercouris  
+**Show:** Alexander Mercouris  
 **Host:** Alexander Mercouris  
 **Date:** Friday, 26 June 2026  
 **URL:** https://www.youtube.com/watch?v=fxoQwJ-z9K4
 
-**Unknown**: ## Transcript
+## Transcript
 
-**Unknown**: ### Show Open — Iran Irgc Hormuz
+### Show Open — Iran Irgc Hormuz
 
-**Unknown**: Good day. Today is Friday, 26th June, 2026. Well, over the last 24 hours, there have been two important events. One is an attack by the IRGC on a um tanker in the straight of Hormuz hugging the coast of Oman.
+Good day. Today is Friday, 26th June, 2026. Well, over the last 24 hours, there have been two important events. One is an attack by the IRGC on a um tanker in the straight of Hormuz hugging the coast of Oman.
  The Iranian authorities, or to be more precise, the IRGC, said that the tanker was moving in a channel that had not been authorized by Iran and as a result, an attack on this tanker took place. I will return to this to the topic of this of this attack later in this program. At the beginning of this program,
 
-**Unknown**: ### Segment 2 — Russia Trump Ukraine
+### Segment 2 — Russia Trump Ukraine
 
-**Unknown**: I am going to discuss certain comments made by the US Secretary of State Marco Rubio.
+I am going to discuss certain comments made by the US Secretary of State Marco Rubio.
  Um, which as far as I'm concerned knock the final nail into the coffin of the Anchorage summit of August of last year. um whatever agreements or understandings Trump and Putin reached at that summit meeting can now be I think said to be officially dead. And anyway um Rubia made certain comments and as we will see in a moment the Russian foreign minister Serge Lavro um has responded to those comments from Rubia.
  So let's focus first on those and discuss what Rubio said and what Lavro said and let's do so in the context of what the Russians because it has been almost entirely the Russians have been saying about what happened in Anchorage basically from the moment that that summit between Putin and Trump took place.
  So the consistent Russian account, one repeated by Putin and Lavough on numerous occasions and one which finds an early expression in the press conference that Putin made in Anchorage itself directly after the conversation with Donald Trump. is that the summit meeting in Anchorage took place after Donald Trump in July dispatched his envoy Steve Witkoff to Moscow.
@@ -67,9 +67,9 @@ And up to now, and I think this is important, the Americans have never contradic
  Rubio doesn't say by whom. Um his last words might suggest that it was the Russians who made the offer, but the offer presumably was not accepted and as a result there was no agreement. Well, shortly after those words, Lavough also spoke. And well, this is what Lavough, Russia's foreign minister, said.
  Rubious claim that no agreement was reached on a Ukraine settlement at the meeting between Russia and the Russian president and the US president in Anchorage is dubious.
 
-**Unknown**: ### Segment 3 — Russia Trump Ceasefire
+### Segment 3 — Russia Trump Ceasefire
 
-**Unknown**: When my counterpart Marco Rubio says there were only proposals by no but no agreement in Alaska, I have to ask the question, what does do we mean by an agreement? The fact remains US proposals were discussed and accepted by the Russian side in Alaska.
+When my counterpart Marco Rubio says there were only proposals by no but no agreement in Alaska, I have to ask the question, what does do we mean by an agreement? The fact remains US proposals were discussed and accepted by the Russian side in Alaska.
 If one side, in this case the United States, puts its proposals for resettlement on the table for how to approach this crisis and the other side agrees to these proposals, then saying there was no agreement is a bit disingenuous. and Lavough then went on to say that it's necessary to clarify the situation now regarding the US role.
  Washington's statements about wanting to play a constructive role in the Ukraine conflict sound like a bid for mediation that the United States now now says it is interested in playing a constructive role constructing constru uniting the parties. That sounds like a bid for mediation. And even as um Lavough was speaking, Putin's press officer, his spokesman Pescov, said that the United States is not impartial or objective in the war.
  It clearly supports Ukraine and of course that puts its position as a potential mediator in question. Now here I'm going to say something. I think that the Russian account is true. And the reason I say this I the reason I do believe that the Russian account is true is twofold. Firstly, if it had not been true, if it had not been the case that some agreement had been reached, I would have expected the Americans to say as much over the many, many months since Anchorage.
@@ -95,9 +95,9 @@ I think that the Americans would not have responded well to that. And for all I 
 Well, the Russians never do this, and I don't expect they will in this case. They will come up with all sorts of good reasons why doing it would not be proper or correct diplomatic practice. But well, it's not correct diplomatic practice to deny the truth about a meeting, to lie about it, in other words.
  And yet that is exactly what the Americans have done. And this, as I said, very elaborate denial from Lavough really isn't going to correct or put right the false impression. Now here I would say something further. Lavrov himself has long as I said been skeptical about this entire process of diplomatic outreach to the Americans.
 
-**Unknown**: ### Segment 4 — Russia Trump Ceasefire
+### Segment 4 — Russia Trump Ceasefire
 
-**Unknown**: At a fundamental level, as a professional diplomat in charge of the Russian foreign minister min ministry, I think that Lavough deeply resents the fact that much of the conversation between Putin and Trump has been conducted through what one might call
+At a fundamental level, as a professional diplomat in charge of the Russian foreign minister min ministry, I think that Lavough deeply resents the fact that much of the conversation between Putin and Trump has been conducted through what one might call
 unofficial or unconventional intermediaries. is Witkoff and Kosha on the American side, neither of whom is a diplomat and Kiril Dimitrif on the Russian side who isn't a diplomat either. Like all professionals, I think that Lavough feels that the business of diplomacy should be left to the prof to the professionals.
  And for the record, I believe he is right. Anyway, just a few days ago, before Rubio um made these comments, Lavro himself said that it seemed to him that the Americans went to Anchorage, made their promises and their offers to Putin. promises and offers which as we know Putin accepted in no true good faith without any serious intention of following through.
 It was all just another device to spin to to string the Russians along perhaps to get them to agree to a premature ceasefire or something of that sort. It was all in other words another exercise in wasting the Russians time and that it should not be thought of is in any other way. That certainly was my impression of what Lavro was saying and well probably Anchorage was always contentious in Russia for precisely that reason.
@@ -106,18 +106,18 @@ It was all just another device to spin to to string the Russians along perhaps t
 There's no evidence that the Russians slowed down as a result of all these diplomatic exchanges with Trump. Pokrovsk and Mirnograd were still captured. Constant is about to be captured. Leman too. So it's not as if the Russians made any substantive concessions. But from this point going forward, I strongly doubt that we're going to see any real diplomatic progress between the Americans and the Russians.
  Certainly on the Ukraine issue, but probably on most other matters as well. Trust has been affected. It will have drained away.
 
-**Unknown**: ### Segment 5 — Russia Ukraine Ceasefire
+### Segment 5 — Russia Ukraine Ceasefire
 
-**Unknown**: Now that brings me now back to the topic of the war and well having appeared to call off his threats of an attack on Belarus. Um Zelensky is back to it again. He's now making further demands of the Bellar Russians and by the way of the Russians.
+Now that brings me now back to the topic of the war and well having appeared to call off his threats of an attack on Belarus. Um Zelensky is back to it again. He's now making further demands of the Bellar Russians and by the way of the Russians.
  He's saying that all Russian military facilities in Belarus, the scale of which he appears to be overstating that all of this all of this military infrastructure that the Russians are creating or have created in Belarus must be completely dismantled. This time he's not been exact about the kind of threats he's been making, but anyway, he has made threats and he's not given a timetable this time, but perhaps at some point he's going to do so.
  And well, Zelensky has also spoken and indeed authorized the Ukrainian drone and longrange forces to conduct what he says should be a 40-day offensive of some kind against Russia, supposedly intended to negotiate to force the Russians to what Zelensky calls the negotiating table. In other words, to force the Russians to agree to an unconditional ceasefire, which is of course what Zelensky has wanted well since the spring of last year.
 Now, the Russians of course are not going to agree and Lukashenko is not going to agree either. There's a meeting being set up between Putin and Luc Shanka. And as I discussed in my program yesterday, Luc Shanka has basically rebuffed the Ukrainian demands which are being made of him.
  And well, various Ukrainian commentators have all said that an attack by Ukraine on Belarus would be an catastrophic idea. It would massively expand extend the Ukrainian front lines at a time when the Ukrainian military is already disastrously overstretched. And of course, it would extend the front lines in very close proximity to Kiev itself and would bring the Russian army potentially into Belarus into positions where it would be located west of Kiev, strategically placed to interfere with Ukrainian supply lines.
  So, what is Zinsky doing? Why is he making all of these threats? Well, there are now an increasing flurry of statements from Ukrainian officials talking about the fact that Ukraine faces a very hard winter, if the war continues,
 
-**Unknown**: ### Segment 6 — Russia Ukraine Economy
+### Segment 6 — Russia Ukraine Economy
 
-**Unknown**: that the damage done to the energy system by the Russian strikes last autumn and mid- winter has not been fully repaired or perhaps even repaired at all.
+that the damage done to the energy system by the Russian strikes last autumn and mid- winter has not been fully repaired or perhaps even repaired at all.
  that the situation with the energy system has further deteriorated. So there is perhaps that pressure to end the war before or the end of fighting perhaps more precisely before the before the winter starts. But I'm going to suggest that there are probably a number of other reasons too why Zelensky is becoming increasingly well aggressive in some ways in his rhetoric, insisting on ending the war as soon as possible.
  aggressive in terms of his in terms of his proposed drone strikes against the Russian rear and making these threats uh threats towards Belarus. And in terms of the threats towards Belarus, I'm going to suggest that one of the things that is causing Zelensky now particularly serious alarm is the deterioration of the military situation, the Ukrainian military situation in northeastern Ukraine in the area of operations of group of forces north.
  Now, in my program yesterday, I discussed how the Russians have broken the Ukrainian defense lines north of the city of Sumi, have apparently begun to deploy their forces in the great forested area just north of the city of Sumy, where their forces are protected by the tree cover, the forest cover from the Ukrainian drones and how there have been reports from Ukrainian civilians about the Russian forces being at the gates of Sumy itself and how there've even been some reports of advanced Russian reconnaissance units having
@@ -142,15 +142,15 @@ Ukrainian drone strikes into the Russian interior are not having much effect or 
  Novak said that there's been a 20 to 30% jump in demand. This is causing some stress in some places, but by definition, it cannot be long-term. And of course, if we're talking about passenger cars, this almost inevitably has to abate because people cannot refill their car tanks every day. They have to do it when the tanks start to empty.
 So at some point anyway, all of this is bound to tail off. So no fundamental energy shortages, no sign that the economy overall is affected, no sign that Russian oil exports have been affected and a civilian population which is of course aware of the drone strikes which is to some extent at least nervous nervous of them, but not so nervous or so frightened that it's going to cause it to lose confidence in the political system or panic or change its behavior in any fundamental way.
 
-**Unknown**: ### Segment 7 — Russia Opinion Poll
+### Segment 7 — Russia Opinion Poll
 
-**Unknown**: We have, by the way, had another opinion poll on trust ratings in Russia. Many of these opinion polls, this time from Scion, the AllRussian Center for Public Opinion Research, which is, it should be stressed, a governmentbacked um polling agency. Anyway, they've now conducted a wide opinion poll. They say that 76.7% of respondents expressed trust in Putin.
+We have, by the way, had another opinion poll on trust ratings in Russia. Many of these opinion polls, this time from Scion, the AllRussian Center for Public Opinion Research, which is, it should be stressed, a governmentbacked um polling agency. Anyway, they've now conducted a wide opinion poll. They say that 76.7% of respondents expressed trust in Putin.
 The level of approval of his activities is 70%. That has been that is lower than it has sometimes been. But the trust rating from my recollection has actually increased slightly. trust in Prime Minister Mishin stands at um um 56.9%. Um approval of Mishon's work stands at 48.5%. Approval of the Russian government stands at 45.9%.
 These overall are stable figures. They do not suggest a collapse either in Putin's appro approval rating or in confidence confidence in Putin. They on the contrary suggest a stable situation in Russia overall. I fully expect some commentators in the West to claim otherwise, but they're not reading the figures as in my opinion they should.
 
-**Unknown**: ### Segment 8 — Russia Ratings Record
+### Segment 8 — Russia Ratings Record
 
-**Unknown**: There have been many times when Putin's favorability and trust ratings have fallen much lower. And for the record, the governing party and of course we are going to have um Russian parliamentary elections. Um in um a few months the governing party it rating is 33.8% um far higher than those of other parties. the closest the second party is the new people party which is 12% which is in my opinion I say frankly a Kremlin constructed party intended to appeal to middleclass Russians.
+There have been many times when Putin's favorability and trust ratings have fallen much lower. And for the record, the governing party and of course we are going to have um Russian parliamentary elections. Um in um a few months the governing party it rating is 33.8% um far higher than those of other parties. the closest the second party is the new people party which is 12% which is in my opinion I say frankly a Kremlin constructed party intended to appeal to middleclass Russians.
  Um it by the way supports the special military operation. I doubt that it will endure for very much longer. Uh what tends to happen with these Kremlin constructed parties is that instead of weakening the ratings of the opposition parties which as far as I can see remain unchanged, it tends to draw some support away from the government party United Russia.
  But anyway, these polling numbers are again numbers that the Kremlin Putin can live with. He will get a doomer a parliament on the basis of these figures which is every bit as compliant as the doomer that he has now. So that's how things look to me in Russia. Now elsewhere on the conflict lines things are in some places different.
  Um Scott Ritter um who visited Zaparoier but not Hon region did speak of very intense drone Ukrainian drone activity there in places like the town of Milo and presumably around the Novarosia highway. I understand that he was there a couple of days ago, which was the peak period of Ukrainian drone activity in this area.
@@ -161,9 +161,9 @@ But well since I've quoted him in one respect I feel that I need to quote him al
  What the Russians are doing is going through the various big apartment buildings in these two towns. They're tracking down Ukrainian stragglers, clearing these buildings of booby traps. That always takes time but I don't think there is any serious fighting in these two places still going on. What is going on in Donbass and in Zaporozhye region and by the way in Zaporozhye city is a very heavy Russian bombardment of Ukrainian fortified positions.
  The Russians are now bombing, for example, Zaporozhye city heavily and this is being done with fab bombs uh launched from Russian aircraft apparently based in Crimea and operating over Russian controlled territory in Zaparo and Hersan regions. By the way,
 
-**Unknown**: ### Segment 9 — Ukraine Russia Iran
+### Segment 9 — Ukraine Russia Iran
 
-**Unknown**: it is a long time since I saw any reports of any Russian aircraft shot down. Just saying.
+it is a long time since I saw any reports of any Russian aircraft shot down. Just saying.
 And the Russians have also been dropping bombs on the Slavansk thermal power plant which is located to the east of Slavansk. This is seen by the Russians as a heavy heavily fortified position protecting Slavansk itself. I understand by the way that it has been closed down and anyway the fact that the Russians are bombing it in the way they are suggests that an attack on it is indeed now coming.
 I go back to what Marat Khairullin, the Russian journalist was saying, which I discussed yesterday, that the Russians now control the high ground around all the remaining Donbass towns, Slavansk, Kramatorsk, Dujifka, and will soon be in a position position to start storming these t towns. There aren't the obstacles in the Russians way that there were before or the heavy fortifications as well.
  And Khairullin at least assumes that all of these places will fall this year. And that, by the way, finally brings me back to what Rubio was saying because, of course, he talks about the Russians wanting control of Donetsk, but the Russians are going to fairly soon have control of Donetsk. What then? It seems to me, and again, Rubio may not have understood this, but it seems to me that the Americans, the US, Rubio, and the hardliners by basically walking away from Anchorage, by failing to confront the Europeans, and the Ukrainians.
@@ -177,9 +177,9 @@ And this one has also come to the same conclusion as all of the others, which is
  This study suggests it will be the spring of 2027. And that will be the moment when a cascading collapse across the front lines finally comes. The problem with all of these statistical analyses is that they are all based on assumptions about losses of each side that are impossible to corroborate objectively. We simply don't have the official data to do so.
 But as I said, going back to that piece by events in Ukraine and
 
-**Unknown**: ### Segment 10 — Iran Russia Hormuz
+### Segment 10 — Iran Russia Hormuz
 
-**Unknown**: a recent policy announcement by the Danish government that Ukrainian men who between the ages of I believe it's 23 and 60 who come to Denmark should be refused entry unless they can show that they have an exemption from military service. That by the way is an astonishing document.
+a recent policy announcement by the Danish government that Ukrainian men who between the ages of I believe it's 23 and 60 who come to Denmark should be refused entry unless they can show that they have an exemption from military service. That by the way is an astonishing document.
  It is a fundamental betrayal of um western refugee law. Um, it is unheard of for countries that for western countries to compel men to go to fight and potentially die in a war that they do not wish to be a party to. Um, I know all about this because in my previous career I dealt lot I did an awful lot of work in refugee law and I'm astonished that a country like Denmark would be making a proposal like this.
  But the fact that proposals like this are being made, the fact that obviously unfit people are being recruited into the Ukrainian army as events in Ukraine are saying. Well, all of this cumulative cumulatively does appear to reinforce these studies and suggest that they might indeed be true. Anyway, we shall see what happens over the next few months.
  But on the topic of Donbass, at least I think that Khairullin is right. In fact, I'm certain that he is. And it does seem to me that the battle of Donbass is indeed now in its final stage. Now I'm now going to turn quickly to the situation in the Persian Gulf and we go back to my initial point that there was that the sorry that the MOU is not a peace agreement.
@@ -193,9 +193,9 @@ And it turns out that it was the same reason as the reason for the failure by Ir
 As soon as this huge deal with the United States was made with with China, sorry, was made. What happened was that Iran did cut a large number of trade and economic deals not with China but with Western companies. Chinese companies which bid for some of these deals were without exception rejected and this as I said was set out in this article in the Guardian.
  The Chinese apparently were deeply put out and offended and from that moment they began to take a much more wary view of their long-term relationship with Iran. And perhaps for that reason,
 
-**Unknown**: ### Segment 11 — Iran Hormuz Irgc
+### Segment 11 — Iran Hormuz Irgc
 
-**Unknown**: China's backing to Iran over the course of the current conflict has been perhaps rather less foolsome than it might have been or then as a matter of fact Russia's backing.
+China's backing to Iran over the course of the current conflict has been perhaps rather less foolsome than it might have been or then as a matter of fact Russia's backing.
 for Iran has been so it's perhaps been somewhat unsurprising that Iran is sorry that China in this situation straightforwardly put its economic interests first and told Iran agree a ceasefire and reopen the Strait of Hormuz. Iran cannot continue to treat its friends in this way. The swap agreement with China was still in place in January at the time of the collapse of the Iranian currency which led to the protests which took place in that month.
  As I have discussed in many programs, the Chinese could have stepped in, supported the real the sorry the Iranian currency through this swap arrangement because of the limited trades in the Iranian currency. It would have quickly recovered. The amounts the amount of funding from China that would have been needed would have been very small and indeed the Chinese would probably have made a profit from the whole affair.
 But the Iranians again did not invoke the swap arrangement. It appears that again they did not want to be dependent on China. Some people in the central bank perhaps still hanker for that long-term arrangement with the West. Iran, as I said, cannot afford to continue to treat those who are ready to be its friends and allies in that sort of way.

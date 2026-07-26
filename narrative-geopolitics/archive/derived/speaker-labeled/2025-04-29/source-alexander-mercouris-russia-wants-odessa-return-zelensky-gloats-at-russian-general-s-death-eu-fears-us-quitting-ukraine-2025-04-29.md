@@ -15,11 +15,11 @@ transcript_type: yt_dlp_caption_fetch
 source_note: Fetched from YouTube captions via the repo transcript pipeline and materialized into the canonical statecraft archive.
 quality_note: English caption fetch via repo YouTube transcript pipeline; adjacent duplicate caption lines removed, otherwise preserve transcript roughness.
 speaker_labeling: provisional
-speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-04-29/source-alexander-mercouris-russia-wants-odessa-return-zelensky-gloats-at-russian-general-s-death-eu-fears-us-quitting-ukraine-2025-04-29.md", "source_sha256": "7dae1134880d0be9857b48be0619283501e43461204668856a3a5aae334cb3ab", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 2, "labeled_turn_count": 0, "unknown_turn_count": 2, "candidate_speakers": ["Alexander Mercouris", "Mercouris"]}
+speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-04-29/source-alexander-mercouris-russia-wants-odessa-return-zelensky-gloats-at-russian-general-s-death-eu-fears-us-quitting-ukraine-2025-04-29.md", "source_sha256": "7dae1134880d0be9857b48be0619283501e43461204668856a3a5aae334cb3ab", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 1, "labeled_turn_count": 1, "unknown_turn_count": 0, "candidate_speakers": ["Alexander Mercouris"], "solo_format": "single-label-continuous"}
 ---
-**Unknown**: # Russia Wants Odessa Return, Zelensky Gloats At Russian General's Death, EU Fears US Quitting Ukraine
+**Alexander Mercouris**: # Russia Wants Odessa Return, Zelensky Gloats At Russian General's Death, EU Fears US Quitting Ukraine
 
-**Unknown**: Good day. Today is Tuesday 29th April
+Good day. Today is Tuesday 29th April
 2025 and um as I anticipated in my
 program yesterday, President Zelensky of
 Ukraine appears to have rejected

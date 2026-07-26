@@ -15,17 +15,17 @@ transcript_type: operator_pasted_transcript
 editorial_note: Direct YouTube watch URL already on disk; full transcript body supplied by operator in Codex chat and materialized in place.
 status: in-review
 speaker_labeling: provisional
-speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2026-02-03/source-alexander-mercouris-moscow-says-zelensky-terrorist-for-valdai-attack-confirms-harder-stance-2026-02-03.md", "source_sha256": "f98f1849fd2ed85a47e51203b15e62288c772f80a41ca2e3ca6b0920db813474", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 4, "labeled_turn_count": 0, "unknown_turn_count": 4, "candidate_speakers": ["Alexander Mercouris", "Mercouris"]}
+speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2026-02-03/source-alexander-mercouris-moscow-says-zelensky-terrorist-for-valdai-attack-confirms-harder-stance-2026-02-03.md", "source_sha256": "f98f1849fd2ed85a47e51203b15e62288c772f80a41ca2e3ca6b0920db813474", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 1, "labeled_turn_count": 1, "unknown_turn_count": 0, "candidate_speakers": ["Alexander Mercouris"], "solo_format": "single-label-continuous"}
 ---
-**Unknown**: # Moscow Says Zelensky Terrorist For Valdai Attack; Confirms Harder Stance; Huge Strike 60 Iskanders
+**Alexander Mercouris**: # Moscow Says Zelensky Terrorist For Valdai Attack; Confirms Harder Stance; Huge Strike 60 Iskanders
 
-**Unknown**: Channel: Alexander Mercouris
+Channel: Alexander Mercouris
 Published: 2026-02-03
 Source: [https://www.youtube.com/watch?v=uUZPSQw3cfA](https://www.youtube.com/watch?v=uUZPSQw3cfA)
 
-**Unknown**: ## Transcript
+## Transcript
 
-**Unknown**: Today is Tuesday 3rd February 2026 and before I proceed with this program, let me remind you again to tick the like button and to check your subscription to this channel. If once you've watched this program or whichever part of this program you want to watch, you decide that you like what you've heard and you wish to indicate that fact.
+Today is Tuesday 3rd February 2026 and before I proceed with this program, let me remind you again to tick the like button and to check your subscription to this channel. If once you've watched this program or whichever part of this program you want to watch, you decide that you like what you've heard and you wish to indicate that fact.
  Anyway, today um we do seem to be after roughly two weeks of growing tension in a situation of some kind of deescalation of the crisis in the Middle East. The Iranians definitely are talking about negotiations between themselves and the Americans and the Americans seem to be suggesting something similar. In the United States, Senator Lindsey Graham again made quite clear his grow his great dissatisfaction with this.
  He spoke again about the need for an attack on Iran. um of the need to achieve regime change there. The fact that he's been talking so viciferously about all of this suggests to me that there is indeed some some form of deescalation underway and that he's not happy with it. Now, as to what exactly is being discussed, obviously, we don't know exactly, but the Iranian media has been giving us some suggestions.
  They say that there's going to be a meeting fairly soon, that the meeting will be between the United States and Iran, that various Arab countries, including Saudi Arabia, the other Gulf States, and Egypt will be participating as well, that the Europeans pointedly are not invited to attend. And apparently there's actually been a decision by President Pzkan specifically to that effect.

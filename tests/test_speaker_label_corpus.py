@@ -24,6 +24,26 @@ def test_explicit_speaker_markers_are_normalized_and_unknown_is_preserved() -> N
     assert stats["unknown_turn_count"] == 1
 
 
+def test_solo_transcript_uses_one_label_for_continuous_body() -> None:
+    labeled, stats = MODULE.label_body(
+        "First paragraph.\n\nSecond paragraph.",
+        {"voice_slugs": ["mercouris"]},
+        {"source_form": "solo", "host": "Alexander Mercouris"},
+    )
+    assert labeled.startswith("**Alexander Mercouris**:")
+    assert labeled.count("**Alexander Mercouris**:") == 1
+    assert stats["solo_format"] == "single-label-continuous"
+
+
+def test_consecutive_explicit_turns_do_not_repeat_same_speaker() -> None:
+    labeled, _ = MODULE.label_body(
+        "Glenn Diesen: First.\n\nGlenn Diesen: Second.",
+        {"voice_slugs": ["freeman"]},
+        {"host": "Glenn Diesen", "guest": "Chas Freeman"},
+    )
+    assert labeled.count("**Glenn Diesen**:") == 1
+
+
 def test_selector_is_deterministic() -> None:
     rows = [{"date": "2025-01-01", "local_path": "b", "modality": "transcript"}, {"date": "2025-02-01", "local_path": "a", "modality": "transcript"}]
     manifest = {"sources": rows}

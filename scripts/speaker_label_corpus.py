@@ -72,8 +72,18 @@ def select_rows(manifest: dict[str, Any], limit: int) -> list[dict[str, Any]]:
 
 def label_body(body: str, row: dict[str, Any], fields: dict[str, str]) -> tuple[str, dict[str, Any]]:
     roster = candidates(row, fields)
+    solo = fields.get("source_form", "").casefold() == "solo" or (
+        fields.get("host", "") and fields.get("guest", "") and fields.get("host", "").casefold() == fields.get("guest", "").casefold()
+    )
+    if solo and roster:
+        name = roster[0].name
+        chunks = [chunk for chunk in re.split(r"\n\s*\n", body) if chunk.strip()]
+        labeled_body = "\n\n".join(chunks)
+        labeled_body = f"**{name}**: {labeled_body.strip()}\n"
+        return labeled_body, {"turn_count": 1, "labeled_turn_count": 1, "unknown_turn_count": 0, "candidate_speakers": [name], "solo_format": "single-label-continuous"}
     known = {c.name.casefold(): c for c in roster}
     output: list[str] = []
+    last_speaker: str | None = None
     labeled = unknown = 0
     for block in re.split(r"(\n\s*\n)", body):
         if not block.strip() or block.isspace():
@@ -88,10 +98,15 @@ def label_body(body: str, row: dict[str, Any], fields: dict[str, str]) -> tuple[
                 if len(aliases) == 1:
                     match_candidate = aliases[0]
             if match_candidate:
-                output.append(f"**{match_candidate.name}**: {match.group('text').strip()}")
+                if last_speaker == match_candidate.name:
+                    output.append(match.group("text").strip())
+                else:
+                    output.append(f"**{match_candidate.name}**: {match.group('text').strip()}")
+                last_speaker = match_candidate.name
                 labeled += 1
                 continue
         output.append(f"**Unknown**: {block.strip()}")
+        last_speaker = None
         unknown += 1
     total = labeled + unknown
     return "".join(output), {"turn_count": total, "labeled_turn_count": labeled, "unknown_turn_count": unknown, "candidate_speakers": [c.name for c in roster]}

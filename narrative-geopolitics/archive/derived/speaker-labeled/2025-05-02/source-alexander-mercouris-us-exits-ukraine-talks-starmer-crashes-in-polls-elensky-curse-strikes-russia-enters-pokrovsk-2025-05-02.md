@@ -15,11 +15,11 @@ transcript_type: yt_dlp_caption_fetch
 source_note: Fetched from YouTube captions via the repo transcript pipeline and materialized into the canonical statecraft archive.
 quality_note: English caption fetch via repo YouTube transcript pipeline; adjacent duplicate caption lines removed, otherwise preserve transcript roughness.
 speaker_labeling: provisional
-speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-05-02/source-alexander-mercouris-us-exits-ukraine-talks-starmer-crashes-in-polls-elensky-curse-strikes-russia-enters-pokrovsk-2025-05-02.md", "source_sha256": "633911bf61bdf0a1f5c4598f1a1fb45df676f66f7f727648e7901258a020145c", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 2, "labeled_turn_count": 0, "unknown_turn_count": 2, "candidate_speakers": ["Alexander Mercouris", "Mercouris"]}
+speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-05-02/source-alexander-mercouris-us-exits-ukraine-talks-starmer-crashes-in-polls-elensky-curse-strikes-russia-enters-pokrovsk-2025-05-02.md", "source_sha256": "633911bf61bdf0a1f5c4598f1a1fb45df676f66f7f727648e7901258a020145c", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 1, "labeled_turn_count": 1, "unknown_turn_count": 0, "candidate_speakers": ["Alexander Mercouris"], "solo_format": "single-label-continuous"}
 ---
-**Unknown**: # US Exits Ukraine Talks; Starmer Crashes In Polls, Elensky Curse Strikes; Russia Enters Pokrovsk
+**Alexander Mercouris**: # US Exits Ukraine Talks; Starmer Crashes In Polls, Elensky Curse Strikes; Russia Enters Pokrovsk
 
-**Unknown**: Good day. Today is Friday 2nd May
+Good day. Today is Friday 2nd May
 2025 and I think the big news that we
 can discuss today or will discuss today
 is the ongoing Russian offensive in um

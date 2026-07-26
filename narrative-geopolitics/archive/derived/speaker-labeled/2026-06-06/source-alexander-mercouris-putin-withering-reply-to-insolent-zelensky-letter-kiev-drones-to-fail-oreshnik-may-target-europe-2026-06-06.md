@@ -28,15 +28,15 @@ transcript_curation: curated_sectioned
 section_count: 9
 section_pass: 2026-07-09 semantic-section-v1
 speaker_labeling: provisional
-speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2026-06-06/source-alexander-mercouris-putin-withering-reply-to-insolent-zelensky-letter-kiev-drones-to-fail-oreshnik-may-target-europe-2026-06-06.md", "source_sha256": "494022f2ab209f63d7a0b95bb63b1960f7994540cfc66bdb22c7a85c81822f89", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 20, "labeled_turn_count": 0, "unknown_turn_count": 20, "candidate_speakers": ["Alexander Mercouris", "Mercouris"]}
+speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2026-06-06/source-alexander-mercouris-putin-withering-reply-to-insolent-zelensky-letter-kiev-drones-to-fail-oreshnik-may-target-europe-2026-06-06.md", "source_sha256": "494022f2ab209f63d7a0b95bb63b1960f7994540cfc66bdb22c7a85c81822f89", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 1, "labeled_turn_count": 1, "unknown_turn_count": 0, "candidate_speakers": ["Alexander Mercouris"], "solo_format": "single-label-continuous"}
 ---
-**Unknown**: # Putin Withering Reply To 'Insolent' Zelensky Letter; Kiev Drones To Fail Oreshnik May Target Europe
+**Alexander Mercouris**: # Putin Withering Reply To 'Insolent' Zelensky Letter; Kiev Drones To Fail Oreshnik May Target Europe
 
-**Unknown**: ## Transcript
+## Transcript
 
-**Unknown**: ### Show Open — Russia Ceasefire Ukraine
+### Show Open — Russia Ceasefire Ukraine
 
-**Unknown**: Good day. Today is Saturday, 6th June, 2026. And before I start my video, let me first of all begin by making two brief announcements. The first, which is a followup to the announcement I made yesterday, is to remind everyone that tomorrow I am flying to Moscow. Um, well, I'm flying first to Istanbul and then to Moscow.
+Good day. Today is Saturday, 6th June, 2026. And before I start my video, let me first of all begin by making two brief announcements. The first, which is a followup to the announcement I made yesterday, is to remind everyone that tomorrow I am flying to Moscow. Um, well, I'm flying first to Istanbul and then to Moscow.
 And from Moscow, I'm then traveling further towards the Russian town of Scorf where I shall be attending a conference. And inevitably, as I've previously said, this is going to impact on the time availability that I have to do programs, though it remains my full intention to do a program every day whilst I am in Russia.
  The second announcement I want to make, which is obvious, is that again I'm having problems with my voice. Something which this time indisputably in undoubtedly is connected to um a strong allergic reaction to the very heavy pollination that is taking place in this part of London. um it's affecting other members of my family and other people I know also unfortunately and inevitably that is going to limit my ability today to do a long video something which will please some and perhaps annoy others but there it is. Anyway, that's my two
 announcements today. Let's go straight in and let's say that the single most important event that took place yesterday over the last 24 hours was a speech and Q&A given by the Russian President Vladimir Putin at the St. Petersburg International Economic Forum. Now, someone in the Kremlin appears to have made the decision that this year um the format would be different from other years.
@@ -47,9 +47,9 @@ Well, I don't myself see much significance in that, but he did give an opportuni
 Now, I always expected that Putin would give this letter short shrift, but I did not expect that he would do so as thoroughly and as ferociously as he did yesterday. And well, what did Putin say? First of all, he said that the letter, Zelensky's letter, and by the way, as often happens with Putin, when he feels particular revulsion and disgust towards someone, he adopts the official Russian practice of not mentioning that person by name.
  and he never mentioned Zelensky's name at any point yesterday throughout the speech or the Q&A. But anyway, Putin said that Zelensky's public letter was written in an insolent and disrespectful tone. Putin understates the fact of it. When I read this letter um yesterday, I have to say that even by Zelensky's standards, it seemed to me that in terms of its completely ill judged, mockery, insolence, extraordinary disrespect, one could almost say sneering
 
-**Unknown**: ### Segment 2 — Russia Ukraine Trump
+### Segment 2 — Russia Ukraine Trump
 
-**Unknown**: attitude towards the person the letter is addressed to.
+attitude towards the person the letter is addressed to.
  It surpassed even Zelensky's own examples of this genre. Zelensky is an absolutely extraordinarily arrogant individual or at least can be when the fit seizes him. and he absolutely was so in this letter. It reminded me and I have to say this very much of Zelensky's behavior during the meeting he had with Trump and Vance in the Oval Office um back in February of last year just to say perhaps in some respects it went beyond that.
  Well, Putin never quite stooped to that level, but he turned the insulence in the letter, the disrespect in it, in my opinion, very much to his advantage. First of all, he obviously and unsurprisingly and as Zelensky no doubt anticipated rejected the proposal for the summit and the meeting. He said that there is no point in such a meeting.
 That what the Ukrainians are obviously seeking is a freeze of the conflict so that they can rearm and prepare for the next round. That obviously is why their Western sponsors support the freezing of the conflict in that way. Putin reminded everybody of Russia's experience with the Minsk February 2015 agreement.
@@ -62,9 +62,9 @@ which Zelensky considers obviously considers to be unacceptable to himself and t
 and Putin obviously said that this was unacceptable and unworkable. So there were those comments from Putin in the letter and well that's perhaps unsurprising. Putin had other things to say, however, and he disclosed certain facts which had previously been entirely unknown but which were very interesting and suggest a number of things.
 Firstly, Putin disclosed that some time ago, about a week or so ago, he was contacted by someone who he referred to as a Russian businessman. He did
 
-**Unknown**: ### Segment 3 — Russia Ukraine Ceasefire
+### Segment 3 — Russia Ukraine Ceasefire
 
-**Unknown**: not disclose the name of this person. He says that the he and he knows this person. They're acquainted slightly. He referred to this person as a decent person, which by the way I think is a very loaded compliment indeed.
+not disclose the name of this person. He says that the he and he knows this person. They're acquainted slightly. He referred to this person as a decent person, which by the way I think is a very loaded compliment indeed.
  That looked to me to put it another way as damning with full with faint praise. Anyway, he said this this businessman contacted Putin and informed Putin that he had received an invitation to go to Kiev and to meet Zelensky there. This is a Russian businessman. And Putin told this businessman that if this person wanted to go to Kiev, that was his business.
 But he should not imagine or consider in any way if he did go to Kiev that he was going there in any sort of official capacity or was going there as a possible or presumed representative of the Russian government. Putin very pointedly said that the only sort of representatives competent to speak for Russia in any contacts with the Ukrainians were officials of the foreign ministry or of the defense ministry of the Russian Federation.
 Well, the businessman then came back and said, "Well, he wasn't seeking to negotiate with the Russ with the Ukrainians." But did Putin object if he conveyed back to Putin any message that Zelensky might have to give him? And Putin said, "Obviously, no." whilst reiterating that this was not an acceptable means to conduct negotiations.
@@ -76,9 +76,9 @@ The businessman said that he would contact the Ukrainians to find out. But then 
  Both of whom have been in the past strong advocates of closer relations between Russia and the West. as you would expect from 1990s era oligarchs and both of whom, especially Abraovic, have in the past played side roles in trying to get some kind of deal between Ukraine and Russia organized. Abramovich, for example, played some sort of a role.
  It's never been clear what it was in the negotiations between Russia and Ukraine that took place in March and April of 2022. Anyway, it's clear that Putin was having none of it. Now it has been a consistent fallacy in the
 
-**Unknown**: ### Segment 4 — Russia Trump West
+### Segment 4 — Russia Trump West
 
-**Unknown**: west that these figures left over from the 1990s, Dereas, Abramovich and the others wield great influence in Moscow. They do not.
+west that these figures left over from the 1990s, Dereas, Abramovich and the others wield great influence in Moscow. They do not.
  They obviously are still there. They still have significant amounts of money. They're still billionaires. They're nowhere near as dominant or as important in the overall Russian economic system as they were in the 1990s and they have none of the political influence that they once did. But they do exist. I think in the west their influence continues to be exaggerated and I think in Kiev where oligarchs do indeed still continue to wield great influence.
  Um, Zelensky himself has been a tool in the past of various oligarchs, people like Ole E I Koyski and more recently Arinat Ameto. I think in Kiev perhaps they have made they have fallen for the same mistake. Anyway, what this all looks to me like is it looks like an attempt by the West and by the Ukrainians to kickstart discussions once again to get a freezing of the conflict, to get a freeze of the conflict as soon as possible before the crisis on the battlefields develops further and does so in an irreparable way.
 And the idea is the idea was that since Putin obviously now is not going to agree to that, get the people who are supposedly have power to influence him or to influence other people in the power structure. get them on board and get them to influence Putin instead. And this was what led to this invitation to this so-called businessman and to this strange approach and the fact that the approach from the Russians was completely rejected perhaps.
@@ -89,9 +89,9 @@ well and who will have heard all of the comments that Putin made about President
 In other words, despite all of the rumors, all of the discussions about what exactly it was that the Russians conceded in Anchorage, rumors which it ought to be said mostly originate with the Russians themselves. Putin continues to consider Zaporozhye and Hassan regions, regions of Russia, and that as part of any final settlement of the war, he clearly expects the Ukrainians to withdraw to withdraw from these two regions as well as from Donbass.
 Putin also ridiculed Zelensky's claims that the Russians will not capture, recapture or capture Donbass. He said that they already control all of Lugansk region and 85% of Donetsk region and that they're still advancing in Donets's region. Now, I know that the Ukrainians dispute this, but actually, according to all credible mapping projects, what
 
-**Unknown**: ### Segment 5 — Russia Economy Ukraine
+### Segment 5 — Russia Economy Ukraine
 
-**Unknown**: Putin said about this is true.
+Putin said about this is true.
 Putin also discussed at great length the issue of drones and Ukrainian drone attacks against Russia. And he said that the point about this Ukrainian drone offensive is that the Russians have a functioning air defense system and that what they need to do is to counter this Ukrainian drone offensive by upgrading their air defense system.
 And then he said something very interesting which the media has completely overlooked. He said that the Ukrainian drones are lowf flying and fly low and fly slowly. That they are therefore very easy to shoot down. He said that timely measures ought to have made it possible to protect Russia all but completely from this from these drones and that they are now being taken.
 Now, the implication of this is that Putin and presumably other people in the Russian military and political power structure feel that the Russian air defense forces did not prepare properly for this Ukrainian drone offensive and were caught unprepared for it when it took place. Now, that brings me back to the reshuffle of the leadership of the Russian aerospace forces that took place about two weeks ago, the dismissal as chief of the aerospace forces of General Azalof and his replacement by the rather more aggressive and significantly younger
@@ -104,9 +104,9 @@ General Chilaw. It looks to me as if Putin and others in the Russian power struc
  He pointed out that it has overall achieved significant growth that on a purchasing power parity basis it is the fourth biggest in the world. He spoke about major technological and structural upgrading that is taking place. He spoke about the very low level of unemployment and well he also and rather interestingly confirmed that the slowdown in economic growth which began last year and which has continued so far into this year and we are talking about growth both in March and April the economy grew and in the first four months According
 to Rasta, the official Russian statistical agency, it grew by 0.2% overall.
 
-**Unknown**: ### Segment 6 — Russia Economy Ukraine
+### Segment 6 — Russia Economy Ukraine
 
-**Unknown**: Anyway, he admitted that the major constraint on growth is the very high interest rates imposed on the com economy by the central bank as it responds. and cures the overheating in the economy which took place in 2024 and the inflation overhang which resulted from it.
+Anyway, he admitted that the major constraint on growth is the very high interest rates imposed on the com economy by the central bank as it responds. and cures the overheating in the economy which took place in 2024 and the inflation overhang which resulted from it.
 And as is always the way with Putin, he had an absolute avalanche of facts and figures and statistics um at his fingertips which he was able to deploy as needed. So Putin very much at the top of his game. Note again a few important facts. There is no compromise from Putin towards Zelensky or towards the Ukrainians.
  He also spoke at great length about the importance of eliminating all traces of the ideology of the 1930s in Ukraine. The Ukrainians have made in my opinion a disastrous president presentational mistake Zelensky has done by reberrying with honors in Kiev, one of the Ukrainian nationalist leaders who collaborated with the Germans during the Second World War and who is deeply implicated ated in all the horrors.
 Doing that has greatly upset the Russians obviously, but it has also attracted significant criticism from Poland and Israel. Well, Putin of course reminded everyone of that and pointed out used the fact to point out what a troubled society and I'm being careful in my use of words here Ukraine nowadays actually is.
@@ -118,9 +118,9 @@ Putin has also forged extremely successful diplomatic links with many of the mos
  So that Russia is now getting guest workers from North Korea and apparently from India as well and they're there in large numbers. Another country which as I said is there was present was Saudi Arabia and I noticed that the Saudi energy minister who was a lawyer uh who is a royal prince over the course of his comments said that Saudi Arabia and Russia are both religious countries.
  Saudi Arabia is Muslim. Russia is Orthodox and they are friends until death. This was apparently what the Saudi energy minister said. So I just do not understand where this narrative of weakness in respect of Putin comes from. One can disagree with some of his decisions. One can say
 
-**Unknown**: ### Segment 7 — Russia Ukraine Europe
+### Segment 7 — Russia Ukraine Europe
 
-**Unknown**: that maybe um he should have committed to a faster end to the war, though that would have required a greater degree of economic mobilization than Russian society might have welcomed at an earlier stage in the war.
+that maybe um he should have committed to a faster end to the war, though that would have required a greater degree of economic mobilization than Russian society might have welcomed at an earlier stage in the war.
 One can argue too that uh the Russians might have taken a harsher line towards the Americans and towards the Ukrainians, Europeans and by the way might you could argue that they should certainly do so now. But as I discussed in a program I made two days ago, Putin's approach arguably has been effective in reducing American backing from for Ukraine from the extremely high levels we saw during Biden's presidency.
 And well, one can come up with all sorts of criticisms and all sorts of arguments. Um, of course, it's difficult to know about alternative realities. But regardless of actual weakness, I have to see say I see no sign. It it baffles me when people talk in this way at a time when on the contrary it is the United States, not Russia, that is bogged down in an intractable and apparently unwininnable situation in the Persian Gulf when it is the European economies and to some extent the American economies that are now under stress.
 Um, not the Russian at least not to anything like the same degree. And when it is the Europeans and the Americans who are losing influence around the world as we have just seen with Germany's failure for the first time since 1987 apparently to win reelection to the UN Security Council. So anyway, I just wanted to say this overall, as I said, strong and confident performance.
@@ -132,9 +132,9 @@ Considering the Oreshnik's range, which allows it to destroy any target througho
  countries hostile to Russia. So this expert Igor Korotchenko is telling us and he undoubtedly knows what he's talking about. He is telling us that the Oreshnik will be used to attack command centers and key infrastructure in urban Ukraine, which obviously means Kiev, but that it might also be used to attack similar structures that are supporting the Ukrainian war effort in NATO Europe as well.
  He's not saying that this will happen. He's saying that it might happen. And perhaps he's telling us this in order to make people
 
-**Unknown**: ### Segment 8 — Russia Europe Ukraine
+### Segment 8 — Russia Europe Ukraine
 
-**Unknown**: in Europe worry that it might happen. But then would European officials care very much what an expert by the name of Igor Korotchenko says? Isn't this rather intended to inform a Russian audience? Might it be in fact exactly what some people in the Russian military are agitating and demanding and calling for? It does look to me as if this is at least a subject of discussion.
+in Europe worry that it might happen. But then would European officials care very much what an expert by the name of Igor Korotchenko says? Isn't this rather intended to inform a Russian audience? Might it be in fact exactly what some people in the Russian military are agitating and demanding and calling for? It does look to me as if this is at least a subject of discussion.
  Though I remain of the view that it is not something that Putin at the moment has is minded to agree to because he sees it he would see it as a tremendous escalation which is unnecessary at a moment when Russia is winning the war. Now on the question of the increased accuracy of the Oreshnik, I remember that on Millennium 7, Gus, the commentator there, um making some observations about the strike, the recent strike on the satellite town, mentioned that it seemed to him as if the submunitions were falling to the earth.
 In other words, falling onto the target in tighter clusters, uh, tighter than was previously aaa the case in the November 2024 strike against the huge mash factory in Yepro. Well, it looks as if and not for the s first time Gas is right. The Russians have indeed been working on improving the accuracy of the Oreshnik and presumably that is why the clusters of the sub submunitions are becoming tighter. Anyway, there it is.
  Um, the fact that Putin has now said this about the Oreshnik, the fact that he disclosed that it is being perfected for attacks on command centers in Kiev and elsewhere. The fact that Igor Korotchenko has now come out and provided further information about this. All this leads me to think that we are now very close to the point when that is now going to start to happen.
@@ -145,9 +145,9 @@ In other words, falling onto the target in tighter clusters, uh, tighter than wa
 And it's important to stress, by the way, that that 20% is not 20% is not made up of receipts from exports of oil overseas. The oil and gas companies obviously pay tax also on sales of oil and gas on the domestic Russian market. I've heard it suggested that this accounts for a very significant part of their revenue.
  In the case of Gasprom, I believe more than half. Just just saying. Anyway, put all this aside, there was this big Ukrainian drone attack. There was also a big Russian drone attack on Kiev as well. And there's been more talk apparently of the Russians preparing a major strike on Kiev over the next few hours.
 
-**Unknown**: ### Segment 9 — Russia Iran Ukraine
+### Segment 9 — Russia Iran Ukraine
 
-**Unknown**: We'll see. Now, there's also been more news from the battle fronts.
+We'll see. Now, there's also been more news from the battle fronts.
  The Russians continue to take ground, capture more and more ground in Kharkov and Sumy regions. But we now have video footage apparently of Russian troops in a central area of the town of Konstantinovka, which is leading some people to say that Ukrainian troops in southern Konstantinovka are trapped in a cauldron and that the Russians control over 60% of Konstantinovka.
 I think the Russians actually control more of Konstantinovka than that. I don't believe that it's justified to talk about a cauldron in southern Konstantinovka anymore. I think that most of the Ukrainian defenders probably have escaped from the place where many people believe this cauldron is.
  There's an area in southern Konstantinovka which most of the mappers still show as being under Ukrainian control, but I doubt that that is actually the case. Doubtless there are scattered groups of Ukrainian soldiers still isolated and trapped in various buildings in southern Konstantinovka. But I don't think that there is any organized resistance there.

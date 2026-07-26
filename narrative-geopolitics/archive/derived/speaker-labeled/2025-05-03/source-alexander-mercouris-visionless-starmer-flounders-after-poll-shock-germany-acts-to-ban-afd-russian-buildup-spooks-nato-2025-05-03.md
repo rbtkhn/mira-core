@@ -15,11 +15,11 @@ transcript_type: yt_dlp_caption_fetch
 source_note: Fetched from YouTube captions via the repo transcript pipeline and materialized into the canonical statecraft archive.
 quality_note: English caption fetch via repo YouTube transcript pipeline; adjacent duplicate caption lines removed, otherwise preserve transcript roughness.
 speaker_labeling: provisional
-speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-05-03/source-alexander-mercouris-visionless-starmer-flounders-after-poll-shock-germany-acts-to-ban-afd-russian-buildup-spooks-nato-2025-05-03.md", "source_sha256": "7ef44fdc4caf564507033d740a9532839544ad5d099eb02b6720db7ee6d86591", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 2, "labeled_turn_count": 0, "unknown_turn_count": 2, "candidate_speakers": ["Alexander Mercouris", "Mercouris"]}
+speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-05-03/source-alexander-mercouris-visionless-starmer-flounders-after-poll-shock-germany-acts-to-ban-afd-russian-buildup-spooks-nato-2025-05-03.md", "source_sha256": "7ef44fdc4caf564507033d740a9532839544ad5d099eb02b6720db7ee6d86591", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 1, "labeled_turn_count": 1, "unknown_turn_count": 0, "candidate_speakers": ["Alexander Mercouris"], "solo_format": "single-label-continuous"}
 ---
-**Unknown**: # Visionless Starmer Flounders After Poll Shock; Germany Acts To Ban AfD; Russian Buildup Spooks NATO
+**Alexander Mercouris**: # Visionless Starmer Flounders After Poll Shock; Germany Acts To Ban AfD; Russian Buildup Spooks NATO
 
-**Unknown**: Good day. Today is Saturday 3rd May
+Good day. Today is Saturday 3rd May
 2025 and I'm going to start again with
 the situation in Britain. Though also
 I'm going to look at the situation

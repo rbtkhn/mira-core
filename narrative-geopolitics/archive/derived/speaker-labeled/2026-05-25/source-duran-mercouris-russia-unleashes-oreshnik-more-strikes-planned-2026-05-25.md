@@ -106,7 +106,7 @@ speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sour
 
 **Alexander Mercouris**: ** Yes. I don't think it's, you know, wishful thinking or or they're just trying to to to fool anybody or game anybody. They really do believe that the tide has turned and they are now going to win this war. So, wrap up the video.
 
-**Alexander Mercouris**: ** Yes. I mean we we we go we go through these periods and I think I think there is wishful thinking and then of course it's repeated so often that it becomes accepted fact as it always does and they're all saying this to each other and the result is that um eventually they come to believe what they say themselves and we we've been here before we were here in the autumn of 2022 we were here in the spring of 2023 we've had similar statements made this time last year.
+** Yes. I mean we we we go we go through these periods and I think I think there is wishful thinking and then of course it's repeated so often that it becomes accepted fact as it always does and they're all saying this to each other and the result is that um eventually they come to believe what they say themselves and we we've been here before we were here in the autumn of 2022 we were here in the spring of 2023 we've had similar statements made this time last year.
 
 **Unknown**: By the way, people forget that this time last year, people were also talking about a stalemate. And even then, they were talking about drone balls. And um so we get this repeated cycle of comments and observations of this kind. And yes, they do believe it. And the reason they believe it is very simple because they don't want negotiations to happen with the Russians.
 

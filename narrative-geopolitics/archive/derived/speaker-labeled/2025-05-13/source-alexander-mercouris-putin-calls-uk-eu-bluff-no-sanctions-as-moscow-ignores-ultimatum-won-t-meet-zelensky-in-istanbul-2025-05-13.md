@@ -15,11 +15,11 @@ transcript_type: yt_dlp_caption_fetch
 source_note: Fetched from YouTube captions via the repo transcript pipeline and materialized into the canonical statecraft archive.
 quality_note: English caption fetch via repo YouTube transcript pipeline; adjacent duplicate caption lines removed, otherwise preserve transcript roughness.
 speaker_labeling: provisional
-speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-05-13/source-alexander-mercouris-putin-calls-uk-eu-bluff-no-sanctions-as-moscow-ignores-ultimatum-won-t-meet-zelensky-in-istanbul-2025-05-13.md", "source_sha256": "df642f45f80f68b3c41b6c674289a284754ebbf873f24069d3ef3a894f120a64", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 2, "labeled_turn_count": 0, "unknown_turn_count": 2, "candidate_speakers": ["Alexander Mercouris", "Mercouris"]}
+speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-05-13/source-alexander-mercouris-putin-calls-uk-eu-bluff-no-sanctions-as-moscow-ignores-ultimatum-won-t-meet-zelensky-in-istanbul-2025-05-13.md", "source_sha256": "df642f45f80f68b3c41b6c674289a284754ebbf873f24069d3ef3a894f120a64", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 1, "labeled_turn_count": 1, "unknown_turn_count": 0, "candidate_speakers": ["Alexander Mercouris"], "solo_format": "single-label-continuous"}
 ---
-**Unknown**: # Putin Calls UK/EU Bluff, No Sanctions As Moscow Ignores Ultimatum, Won't Meet Zelensky In Istanbul
+**Alexander Mercouris**: # Putin Calls UK/EU Bluff, No Sanctions As Moscow Ignores Ultimatum, Won't Meet Zelensky In Istanbul
 
-**Unknown**: Good day. Today is Tuesday 13th May
+Good day. Today is Tuesday 13th May
 2025 and lots of things continue to
 happen in the world. Donald Trump, for
 example, is currently in Saudi Arabia

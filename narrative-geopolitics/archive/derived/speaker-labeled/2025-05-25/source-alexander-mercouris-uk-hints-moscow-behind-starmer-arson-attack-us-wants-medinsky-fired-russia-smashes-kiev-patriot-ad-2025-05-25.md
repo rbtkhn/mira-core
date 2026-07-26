@@ -15,11 +15,11 @@ transcript_type: yt_dlp_caption_fetch
 source_note: Fetched from YouTube captions via the repo transcript pipeline and materialized into the canonical statecraft archive.
 quality_note: English caption fetch via repo YouTube transcript pipeline; adjacent duplicate caption lines removed, otherwise preserve transcript roughness.
 speaker_labeling: provisional
-speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-05-25/source-alexander-mercouris-uk-hints-moscow-behind-starmer-arson-attack-us-wants-medinsky-fired-russia-smashes-kiev-patriot-ad-2025-05-25.md", "source_sha256": "3fc4a64b9a3ba7acad202df4c3104a8033b84498eebaa84a425af4952fdc0873", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 2, "labeled_turn_count": 0, "unknown_turn_count": 2, "candidate_speakers": ["Alexander Mercouris", "Mercouris"]}
+speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-05-25/source-alexander-mercouris-uk-hints-moscow-behind-starmer-arson-attack-us-wants-medinsky-fired-russia-smashes-kiev-patriot-ad-2025-05-25.md", "source_sha256": "3fc4a64b9a3ba7acad202df4c3104a8033b84498eebaa84a425af4952fdc0873", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 1, "labeled_turn_count": 1, "unknown_turn_count": 0, "candidate_speakers": ["Alexander Mercouris"], "solo_format": "single-label-continuous"}
 ---
-**Unknown**: # UK Hints Moscow Behind Starmer Arson Attack: US Wants Medinsky Fired; Russia Smashes Kiev Patriot AD
+**Alexander Mercouris**: # UK Hints Moscow Behind Starmer Arson Attack: US Wants Medinsky Fired; Russia Smashes Kiev Patriot AD
 
-**Unknown**: Good day. As you can see from the
+Good day. As you can see from the
 background to this video, I am now in
 the English countryside and I am on
 leave with my family. And obviously

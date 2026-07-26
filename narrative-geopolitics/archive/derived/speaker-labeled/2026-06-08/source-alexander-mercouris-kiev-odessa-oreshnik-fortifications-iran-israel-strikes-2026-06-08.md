@@ -32,19 +32,19 @@ transcript_curation: curated_sectioned
 section_count: 8
 section_pass: 2026-07-09 semantic-section-v1
 speaker_labeling: provisional
-speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2026-06-08/source-alexander-mercouris-kiev-odessa-oreshnik-fortifications-iran-israel-strikes-2026-06-08.md", "source_sha256": "12bf1c5be06083e38148f17c2b8737d70d07e56111aba72335b0cb92aa61cb07", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 19, "labeled_turn_count": 0, "unknown_turn_count": 19, "candidate_speakers": ["Alexander Mercouris", "Mercouris"]}
+speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2026-06-08/source-alexander-mercouris-kiev-odessa-oreshnik-fortifications-iran-israel-strikes-2026-06-08.md", "source_sha256": "12bf1c5be06083e38148f17c2b8737d70d07e56111aba72335b0cb92aa61cb07", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 1, "labeled_turn_count": 1, "unknown_turn_count": 0, "candidate_speakers": ["Alexander Mercouris"], "solo_format": "single-label-continuous"}
 ---
-**Unknown**: # Kiev Steps Up Work On Odessa Defences Fears Oreshnik Smashes Fortifications; Big Iran Israel Strikes
+**Alexander Mercouris**: # Kiev Steps Up Work On Odessa Defences Fears Oreshnik Smashes Fortifications; Big Iran Israel Strikes
 
-**Unknown**: **Channel:** Alexander Mercouris (solo)  
+**Channel:** Alexander Mercouris (solo)  
 **Date:** Monday, 8 June 2026 (host; Istanbul airport)  
 **URL:** https://www.youtube.com/watch?v=aXsYSfAc7ks
 
-**Unknown**: ## Transcript
+## Transcript
 
-**Unknown**: ### Show Open — Russia Ukraine Ceasefire
+### Show Open — Russia Ukraine Ceasefire
 
-**Unknown**: Good day. Today is Monday 8th June 2026 and as you can see I am in an airport to be precise waiting for my flight which is going to take me to Moscow. Um I have decided to do my program here in um this airport which is in fact Istanbul airport because I'm not quite sure um what the arrangements will be when I arrive in Moscow and it may be that on my arrival there'll be many things to do and there won't be time to do a program.
+Good day. Today is Monday 8th June 2026 and as you can see I am in an airport to be precise waiting for my flight which is going to take me to Moscow. Um I have decided to do my program here in um this airport which is in fact Istanbul airport because I'm not quite sure um what the arrangements will be when I arrive in Moscow and it may be that on my arrival there'll be many things to do and there won't be time to do a program.
  Anyway, with all of that, thank you again for bearing with me. And obviously, this program today, like my previous program, is going to be shorter than normal. Now, over the last 24 hours, a lot of developments have happened. The most um ominous of which in some respects is the renewed missile strike by Iran against Israel.
  I will discuss this in more detail later in this program. But first again I am going to return to the situation in Ukraine. And following on from the points I have been making in my recent programs. Let me reiterate again my view. This is that the situation for the Ukrainian army, for the Ukrainian forces in general, is deteriorating and deteriorating in ways that the West appears to be mostly in denial about as it clings to a narrative that the Ukrainians have been able to stop the Russians in their tracks and that the Russians are not advancing and that the
 Russians are suffering damage from the Ukrainian drone attacks upon Russia. And we are seeing increasing signs now that the Ukrainians are becoming deeply concerned despite the brave rhetoric about the situation. There was the attempt to create a back channel um to Putin using apparently the former Russian oligarch Roman Abramovich who has connections, strong connections to Ukraine as an intermediary between the Ukrainian government led by Zelensky and President Putin himself.
@@ -53,9 +53,9 @@ And this has taken the form of requests, urgent messages by the Ukrainians, both
 We've had um also the attempt to get Congress also to pass more appropriations for Ukraine. As I expected, as I would have predicted, the bills, the two bills did gain majority support in the House of Representatives, but the vast majority of Republicans oppose the bills, which makes it extremely unlikely indeed that they will get come into law because Donald Trump is all but certain to veto them.
  So the result is that the pressure, the other attempt by the Ukrainians to get pressure to exert pressure on the Russians by bringing the United States back into the war. That
 
-**Unknown**: ### Segment 2 — Russia Ceasefire Ukraine
+### Segment 2 — Russia Ceasefire Ukraine
 
-**Unknown**: too has failed. The Ukrainians are also becoming increasingly alarmed that the oil sanctions are fracturing and though they have always in my opinion massively overestimated the impact of oil sanctions on Russia and on the Russian economy.
+too has failed. The Ukrainians are also becoming increasingly alarmed that the oil sanctions are fracturing and though they have always in my opinion massively overestimated the impact of oil sanctions on Russia and on the Russian economy.
  Vladimir Putin over the course of the St. Petersburg Economic Forum said that revenue from the oil industry has fallen from accounting for 50% of the Russian central government's budget as was the case at one time 10 or 15 years ago. It's now fallen to 20% and continues to decline. Anyway, the Ukrainians nonetheless still believe, as many of their supporters in the West still believe, that this is the magic bullet that's going to crash the Russian economy and implode the budget.
 But they're becoming increasingly alarmed that as a result of the war in Iran. The sanctions against Russia are being rode back. The United States has repeatedly rolled over uh or rather um held back um restrictions on Russian oil. It's I think it's on three occasions now since the 28th of February granted licenses to countries like India to buy Russian oil.
  The Europeans themselves including the British are also now rolling back um sanctions preventing them from buying through third parties, Russian oil products. And well, the Ukrainians must worry that the sanctions that the sanctions pressure on Russia is crumbling even as the very high oil prices have in fact pro possibly taken the Russian budget from a position of deficit at the start of the year to a position perhaps of surplus.
@@ -65,9 +65,9 @@ And from a Ukrainian point of view, the whole situation is in fact looking bleak
  In other words, in a few weeks time. And another um commentator Peter Turin um on his Substack uh site his article is is Ukraine Russia war entering the endg game. Um he has come to essentially the same conclusions. He too believes that the imbalance of forces on the battlefields between the Russians and the Ukrainians is now starting to become so lopsided that it is going to be difficult for the Ukrainians to keep resisting even though Peter Turin is less confident than Warrick Pal that the collapse will um as early as July
 and September. So we have these studies as
 
-**Unknown**: ### Segment 3 — Russia Nuclear Weapon Nuclear Weapons
+### Segment 3 — Russia Nuclear Weapon Nuclear Weapons
 
-**Unknown**: I said I'm not going to try and second guess these studies I find it very difficult myself to undertake that kind of statistical number crunching but anyway have these studies and the methodologies behind them seem fairly sound at least to me and well on top of that the Ukrainians now also have to worry about the amplification of the Russian drone and missile campaign against Ukraine and the prospect of the Russians using more archnic missiles to attack Ukrainian positions. Now there has been a very
+I said I'm not going to try and second guess these studies I find it very difficult myself to undertake that kind of statistical number crunching but anyway have these studies and the methodologies behind them seem fairly sound at least to me and well on top of that the Ukrainians now also have to worry about the amplification of the Russian drone and missile campaign against Ukraine and the prospect of the Russians using more archnic missiles to attack Ukrainian positions. Now there has been a very
 interesting discussion on this topic within Ukraine. To be precise, there has been some debate, some public debate apparently originating with the within the Ukrainian military about potential use by the Russians of tactical nuclear weapons supposedly to break through the front lines. I don't believe that the Russians have any plans to use tactical nuclear weapons.
  I don't believe that the Ukrainians seriously imagine that the Russians have any plans to use tactical nuclear weapons. What I think this whole debate is actually about is discussion within Ukraine about what might happen when the Russians start mass use of the arric system. According to Putin, at the time when the first Arashnik launch took place back in November 2024, a combined Orchnic strike could deliver the energy comparable to that of a nuclear weapon.
 like Professor Theodore Pastor. I think that was an extremely unfortunate and unwise thing for Putin to say I don't think there is any similarity or comparison between the ornik system and nuclear weapons and I wish that Putin had never said that. But there is no doubt at all that the Orchnik is a devastating area weapon.
@@ -76,9 +76,9 @@ like Professor Theodore Pastor. I think that was an extremely unfortunate and un
  Something by the way of which for the moment at least we see no sign. So I think that when the Ukrainians talk about Russian tactical nuclear weapons being used, that is really code for a discussion within Ukraine about Orchnic missiles being used. Arashnik missiles both against command bunkers, even in populated cities like Kiev itself, and potentially as an area strike weapon against vulnerable positions on the front lines.
  I am going to make a guess that in terms of using the oresnik to destroy fortifi fortifications on the front lines. That was what the recent strike in Donbass by the arashnik was all about. If you remember on the occasion of the massive Russian missile strike on Kiev, the strike over the course of which the Russians also launched an Orchnic
 
-**Unknown**: ### Segment 4 — Russia Ukraine Nuclear Weapons
+### Segment 4 — Russia Ukraine Nuclear Weapons
 
-**Unknown**: against a satellite town south of Kiev about which by the way we've been told very little except by Putin who said that it also serves served as some kind of test.
+against a satellite town south of Kiev about which by the way we've been told very little except by Putin who said that it also serves served as some kind of test.
  Anyway, over the course of that strike, there were all sorts of reports that a second ornik was used that it impacted on a target in Donbass. There was a great deal of debate and discussion about whether this was a real strike or not. Even though the Russian defense ministry spoke about ornik Gus on Millennium 7, the exemplary YouTube channel which covers these matters said that in his opinion a strike by Noreshnik did take place in Donbass roughly in the Slavansk area.
  Um that's an approximation by the way. Um he also said that he did not believe the various claims that there'd been a system malfunction. And in fact we had Putin himself over the course of his comments to the Western News agencies on the occasion of the St. Petersburg International Economic Forum saying that the archnik had been used against a Ukrainian fortified area in Donets's region and I am sure that that refers to this strike.
  So the Ukrainians have seen the effect of the Arashnik on this fortified area and they are alarmed and they're telling themselves what happens when archnik are used regularly to destroy Ukrainian fortifications on the front lines. What response can we have? What can we do when these missiles, these submunitions hit our trenches and our pill boxes and our dragon's teeth and other positions and destroys them? What do we do in that situation? And they're having a discussion about it.
@@ -88,9 +88,9 @@ Now the Ukrainians have seen that the Russians have a weapon, the archnik, which
  So this is in my opinion the general mood in Ukraine at the moment. Now the Ukrainians are also aware of developments on the front lines this morning and over the course of today at least since I've been able to catch up with the news. I can see that this is true over the course of the day. We've had more news from the battlefronts in four areas.
  Firstly, in Zaporozhye region, the Russian advance eastward towards Oraov itself appears to continue relentlessly. Um, the Russians here truly do seem like the famous Russian bulldozer grinding down all Ukrainian opposition before them. And in my opinion they will be reaching orov at the latest by July perhaps at some point earlier
 
-**Unknown**: ### Segment 5 — Russia Ukraine Will
+### Segment 5 — Russia Ukraine Will
 
-**Unknown**: than that in fact this month.
+than that in fact this month.
  I'm not saying that oresh or itself will fall as soon as the Russians reach it. But I doubt that the Ukrainians will be able to hold or for very long. And beyond Oreov is the Dnieper. Elsewhere in Dondas, an even an area where even more intense fighting has been taken place where the Russians basically were primarily focused for most of the war.
 There is now further mapping adjustments and video footage from Konstantinovka. I'm going to revise my view about the total territory that the Russians control in Konstantinovka. I think it is well over 70% of Konstantinovka. My guess is that the Ukrainians still are able to operate some level of organized resistance in the very northern outskirts of this town.
 But I don't think this can continue for very long. A little further to the north, to the northeast precisely, the village of Ari Alexander is falling. And I understand that Russian artillery, medium-range artillery, is already beginning to shell Ukrainian positions in Kramatorsk, the central and by the way biggest town within the Slavansk connibation.
@@ -100,9 +100,9 @@ objectives. He spoke about the Russians needing to complete the special military
  He spoke about the necessity to achieve total elimination of the ideology of the 1930s and 1940s from the territory of Ukraine. and he spoke about this at very great length. He obviously referenced the deeply mistaken and ill-conceived Ukrainian decision to um reberry a prominent collaborator with the Ukrainian with the Germans um in um um which took place recently.
  Um, I've already said how this seemed to me to be a disastrous, indeed tragic mistake. >> But anyway, um, Putin spoke about that. >> But of course, the point was that he seemed to be setting this as a fundamental mission for the Russians to follow. And well to my mind >> it's not on >> what that >>
 
-**Unknown**: ### Segment 6 — Ukraine Middle East Russia
+### Segment 6 — Ukraine Middle East Russia
 
-**Unknown**: implies what it must imply is a Russian determination a determination on Putin's own part to change the entire political system in Ukraine to achieve regime change in Ukraine to eliminate completely ly to uproot, if you prefer, all of what he would call
+implies what it must imply is a Russian determination a determination on Putin's own part to change the entire political system in Ukraine to achieve regime change in Ukraine to eliminate completely ly to uproot, if you prefer, all of what he would call
 are the noxious roots of the Maidan movement and to eliminate the effects of the Maidan events of 2014, which of course he has always referred to as a coup. Looking over Putin's words, this is the closest he has come in my opinion to talking about regime change in Ukraine. After the attack on Stok, I already said that Putin's comments about Starobilsk suggested to me that a point of no return had been reached and that it was inconceivable or impossible for Putin after the things he was saying about the Ukrainians,
 about terrorism, and things of that kind to seriously negotiate with the Ukrainians in the future and to entertain any kind of peace agreement with the current government in Kiev. His comments at the St. Petersburg Economic Forum >> in my opinion both confirm that analysis and take it further. So there we are.
 That is where I think this is going. I think the Ukrainians sense this. I think they are aware of the fact that we are now approaching very fast now the point of no return both for Ukraine on the battlefields but also the point of no return in terms of diplomacy and of the possibilities of achieving a diplomatic resolution to the conflict.
@@ -112,9 +112,9 @@ I think what we have just seen is another further attempt to use to kickstart so
  The Germans have been asking for Tomahawk missiles. Joe Biden agreed to supply them. The United States has now decided that it is not going to supply them. And the reason it is not going to do so, so the US is apparently telling the Germans is twofold. Firstly, what we all of us know that American arsenals of longrange missiles, both Tomahawk missiles and air defense missiles, is now critically depleted as a result both of the war in Ukraine and of the recent fighting in the Middle East between the United States and Iran, but also And more specifically because the
 United States apparently decided that
 
-**Unknown**: ### Segment 7 — Europe Russia Pentagon
+### Segment 7 — Europe Russia Pentagon
 
-**Unknown**: supplying Tomahawk missiles to Germany would be unacceptable to the Russians and might provoke a Russian response. Of course, that might be an excuse, but I don't personally think it is. The United States also can see the developments that are taking place in Russia with the Orchnik and with other systems.
+supplying Tomahawk missiles to Germany would be unacceptable to the Russians and might provoke a Russian response. Of course, that might be an excuse, but I don't personally think it is. The United States also can see the developments that are taking place in Russia with the Orchnik and with other systems.
  The United States also is not unaware of warnings that have been made by the Russians against about possible targeting of targets in Europe. The United States to told the Ukrainians back in May not to conduct strikes against the Red Square parade in Moscow on the 9th of May because it feared retaliation by the Russians against central Kiev.
 And well, the United States, as I said many times, with its hand hands full with China in the Asia-Pacific region and facing the conflict in the Middle East, really does not want a deeper crisis with the Russians at this time. They must also be aware of the incredibly belligerent rhetoric coming from the German government, from Fredic Matts and of some of his officials and also from other Western west European European governments as well.
 and they may maybe saying to themselves, can we really supply, can we really entrust long range missiles like the Tomahawks to people like this? Now, all of this is happening even as the United States continues to pull troops out of Europe. There have been several articles now in the US media speaking about dismay within the Pentagon at President Trump's proposals to deploy 5,000 US troops to Poland.
@@ -124,9 +124,9 @@ This after the decision which was previously made to pull 5,000 US troops out of
 It is beyond the spo scope of this program to discuss this. But the Europeans, it seems to me, now do need to start thinking about a post American Europe in some form in some way. If Europe is to recover some degree of economic balance and economic relevance, that will have to mean some kind of dialogue and rapromo with Russia.
  There is no important European leader who wants it. There is no important European leader currently who's going to pursue it. But at some point it's going to have to come. Now in the meantime, the United States continues to be bogged down in the
 
-**Unknown**: ### Segment 8 — Israel Iran Ceasefire
+### Segment 8 — Israel Iran Ceasefire
 
-**Unknown**: Middle East. Prime Minister Netanyahu's determination to continue the conflict against Hezbollah in Lebanon and to disregard any possible admonitions from the United States to agree a ceasefire there is now having its entirely predictable effect.
+Middle East. Prime Minister Netanyahu's determination to continue the conflict against Hezbollah in Lebanon and to disregard any possible admonitions from the United States to agree a ceasefire there is now having its entirely predictable effect.
 In a program that we did on the Duran, Alex Christophoru and I discussed about how it could be that the United States was stringing along the ceasefire negotiations, the settlement negotiations with the Iranians in order to give the Israelis the time and the space to conduct to continue their war in Lebanon against Hezbollah.
 Well, the Iranians unsurprisingly have said enough and they've now responded and they've responded with missile strikes against Israel as is always the way following Iranian missile strikes against Israel. We have no exact information or at least I have no exact information about the extent of the damage done but it is almost certain that the Israelis are going to respond.
  We are now looking at a completely different calculus from the calculus we saw in 2024 and 2025. Then it was the Israelis who held the initiative, conducted strikes against Iran and the Iranians responded. Now following the Israeli attacks on Lebanon, it is the Iranians who are striking Israel and it is the Israelis who are now under pressure to respond.

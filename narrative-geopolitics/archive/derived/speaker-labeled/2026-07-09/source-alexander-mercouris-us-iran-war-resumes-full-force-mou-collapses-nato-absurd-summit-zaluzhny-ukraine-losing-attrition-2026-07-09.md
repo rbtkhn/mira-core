@@ -29,15 +29,15 @@ transcript_curation: preserved_unsectioned
 section_count: 0
 section_pass: 2026-07-09 semantic-section-v1
 speaker_labeling: provisional
-speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2026-07-09/source-alexander-mercouris-us-iran-war-resumes-full-force-mou-collapses-nato-absurd-summit-zaluzhny-ukraine-losing-attrition-2026-07-09.md", "source_sha256": "37c45f966265eb4c5d418dd502e8ad10ad88b112ec8fcbc5e1d4665388a4dc4f", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 4, "labeled_turn_count": 0, "unknown_turn_count": 4, "candidate_speakers": ["Alexander Mercouris", "Mercouris"]}
+speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2026-07-09/source-alexander-mercouris-us-iran-war-resumes-full-force-mou-collapses-nato-absurd-summit-zaluzhny-ukraine-losing-attrition-2026-07-09.md", "source_sha256": "37c45f966265eb4c5d418dd502e8ad10ad88b112ec8fcbc5e1d4665388a4dc4f", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 1, "labeled_turn_count": 1, "unknown_turn_count": 0, "candidate_speakers": ["Alexander Mercouris"], "solo_format": "single-label-continuous"}
 ---
-**Unknown**: # Alexander Mercouris: US Iran War Resumes Full Force; MoU Collapses; NATO Absurd Summit; Zaluzhny Ukraine Losing Attrition
+**Alexander Mercouris**: # Alexander Mercouris: US Iran War Resumes Full Force; MoU Collapses; NATO Absurd Summit; Zaluzhny Ukraine Losing Attrition
 
-**Unknown**: ## Transcript
+## Transcript
 
-**Unknown**: US Iran War Resumes Full Force; MoU Collapses; NATO Absurd Summit; Zaluzhny Ukraine Losing Attrition - YouTube
+US Iran War Resumes Full Force; MoU Collapses; NATO Absurd Summit; Zaluzhny Ukraine Losing Attrition - YouTube
 
-**Unknown**: Transcripts:
+Transcripts:
 Good day. Today is Thursday 9th July 2026 and um as you can see I'm making this program from my hotel room in Montenegro where I'm on family. I'm on holiday with my family and where of course I'm attending a wedding of two very dear friends. And this is going to be a particularly busy day. So, this is going to be an even shorter video, probably the shortest video that I'm going to make whilst I am here, for which apologies, but well, there it is.
  I don't go on holiday as many of you have pointed out very often. So um briefly um we now can see that we are in effect back in renewed conflict between the United States and Iran. The Iranians some days ago took action against a Saudi tanker that was trying to transit the straight of Hormuz.
  Um there was a drone attack apparently on that tanker and it received damage. It's always difficult to get a clear picture of what happened over the course of this incident but the United States President Trump his officials reacted very strongly to this event. uh one gets the sense that President Trump has been under a great deal of pressure ever since he signed theou about three weeks ago and the situation escalated over the next couple of hours.

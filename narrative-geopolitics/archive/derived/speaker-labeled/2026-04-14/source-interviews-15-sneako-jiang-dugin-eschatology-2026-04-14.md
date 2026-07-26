@@ -36,7 +36,7 @@ speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sour
 
 **Sneako**: ** Great. Great. Great. Perfect. Excellent.
 
-**Sneako**: ** All right. Just want to make sure that we have everything set up here. Uh, Professor Jiang, should I have the document you sent me earlier?
+** All right. Just want to make sure that we have everything set up here. Uh, Professor Jiang, should I have the document you sent me earlier?
 
 **Unknown**: **Jiang Xueqin:** Yes. Yes, that is Professor Dugin’s PowerPoint and I think it’d be a good framework for discussion.
 

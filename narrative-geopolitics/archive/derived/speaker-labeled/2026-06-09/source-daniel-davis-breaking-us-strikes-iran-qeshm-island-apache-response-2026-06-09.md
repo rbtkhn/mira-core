@@ -37,20 +37,20 @@ transcript_curation: curated_sectioned
 section_count: 8
 section_pass: 2026-07-09 semantic-section-v1
 speaker_labeling: provisional
-speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2026-06-09/source-daniel-davis-breaking-us-strikes-iran-qeshm-island-apache-response-2026-06-09.md", "source_sha256": "b3872abb44e4d1635a68d0580b0c3dc114158a877a23009fbd7363372c065dce", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 20, "labeled_turn_count": 0, "unknown_turn_count": 20, "candidate_speakers": ["Daniel Davis", "Davis"]}
+speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2026-06-09/source-daniel-davis-breaking-us-strikes-iran-qeshm-island-apache-response-2026-06-09.md", "source_sha256": "b3872abb44e4d1635a68d0580b0c3dc114158a877a23009fbd7363372c065dce", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 1, "labeled_turn_count": 1, "unknown_turn_count": 0, "candidate_speakers": ["Daniel Davis"], "solo_format": "single-label-continuous"}
 ---
-**Unknown**: # BREAKING: US Strikes IRAN Qeshm Island / Lt Col Daniel Davis
+**Daniel Davis**: # BREAKING: US Strikes IRAN Qeshm Island / Lt Col Daniel Davis
 
-**Unknown**: **Show:** Daniel Davis Deep Dive  
+**Show:** Daniel Davis Deep Dive  
 **Host:** Lt Col Daniel Davis  
 **Published:** 9 June 2026 (breaking; CENTCOM ~5:00 p.m. ET)  
 **URL:** https://www.youtube.com/watch?v=TlcHuoC86JQ
 
-**Unknown**: ## Transcript
+## Transcript
 
-**Unknown**: ### Show Open — Iran Hormuz Pentagon
+### Show Open — Iran Hormuz Pentagon
 
-**Unknown**: We have breaking news. According to the Central Command and now starting to be many other media outlets, the United States has once again attacked Iranian territory. According to the Central Command, uh the forces began launching self-defense strikes against Iran at 5:00 p.m. Eastern time today at the commander-in-chief's direction in response to yesterday's downing of a US Army Apache helicopter.
+We have breaking news. According to the Central Command and now starting to be many other media outlets, the United States has once again attacked Iranian territory. According to the Central Command, uh the forces began launching self-defense strikes against Iran at 5:00 p.m. Eastern time today at the commander-in-chief's direction in response to yesterday's downing of a US Army Apache helicopter.
  The mission is proportional response to unjustified Iranian aggression. Now listen, this is this is a breaking situation right now. We've got a lot of uh potentially conflicting information. Some uh some things are unclear, some are not. There is a couple of responses here. I want to see what the Iranian side is saying. This is from the Iranian side forest news agency if I can sorry if I can bring that up on the screen here so you can see it.
  Uh the forest news agency is reporting that sounds of explosions have been heard in the Hormos Hormos area. Moments ago, the sound of several explosions was heard in eastern regions of Horoskan, including I'm not even going to try to pronounce those, Sir and Mnab. These uh the exact locations of these explosions is not yet known, but sources report air defense activity in some parts of the province.
  Further updates will come. Uh meanwhile, I also have from some other sources uh saying that let me see if I can pull this up here on my screen. Anyway, says that one of them matches up to Sir Port Naval Base, Bander Jaz Naval Base, the defense of Bandar Abbas, six explosions in Kashim, uh which I'll show you a map here shortly.
@@ -63,9 +63,9 @@ Very important. Both are safe and uninjured. So he says, "Nevertheless, the Unit
  It doesn't have to go literally straight, but it it's not navigable. It's not maneuverable in the sense that it can autonomously or even remote control be able to navigate and move etc. Not designed to hit a moving target. It's designed to hit a ground target. And so the idea that these this that a drone that drone in particular is going to be able to hit an A864 which is one of our most sophisticated helicopters.
  So one can wonder how is it that they didn't even know that there was another aircraft in the re in the area. That's another part that just doesn't quite add up. But that this this
 
-**Unknown**: ### Segment 2 — Iran Trump Ukraine
+### Segment 2 — Iran Trump Ukraine
 
-**Unknown**: enemy aircraft that can't maneuver was able to apparently sneak up on an A64 and then hit it. But then even that doesn't pass a common sense test. An a Shahi drone has a large warhead on its nose. That's the whole point of it.
+enemy aircraft that can't maneuver was able to apparently sneak up on an A64 and then hit it. But then even that doesn't pass a common sense test. An a Shahi drone has a large warhead on its nose. That's the whole point of it.
  It's a it's a suicide drone. And you've seen many examples of those that we've shown you over the years, but because that's they were used in the Russia Ukraine war and have been used extensively here by Iran. They have a large explosive warhead in the front. And so if it had hit a helicopter, I promise you the p the pilots would not be safe and unharmed.
  Um it's what it sounds that the evidence of what's been described sounds the most plausible is you have some kind of mechanical error. That's why if I thought if if the story had been that they were taken under small arms fire or something, that would be plausible because perhaps some of the bullets hit some of the the instrumentation or some of the lines and and caused it to start to wobble and it was going down and so they they ditch the aircraft in the sea.
  That would be plausible. But then it got hit with a Shahid drone is implausible because the drone itself is not navigable. So it can't chase down a moving target in the air. And even if you just accidentally flew into the flight path, then it's going to destroy the thing entirely. It's a huge explosion. So that by itself, at least what's reported so far, we have to acknowledge that there's all kinds of things that can happen uh and inaccurate information could come out and especially in the moments like this where it's literally been one hour since
@@ -77,7 +77,7 @@ not Yeah, this is one of them here. Uh, so this is actually from earlier in the 
 It's going to rip this the helicopter to pieces. Nobody can eject. Nobody can get out the door, etc. And this isn't like a a fighter jet, by the way, folks. It's not like that you can hit the eject button and you have the seats pop out like you do in a fighter. Um I as I understand you actually have to go out the door here and that's going to be really hard um if you've been hit with with a something of a shock like that.
 We'll see how that's going to work out too. But u let's take a look at like I said some of the uh the claims about what's happened here. Um now it became clear after President Trump signed that uh situation or signed that uh true social where he talked about he's going to respond. We had, as it turned out, uh, Professor Marandi on the show at the time and, uh, you may recall, if you saw that show earlier today, we asked him what would
 
-**Unknown**: happen if that was the case.
+happen if that was the case.
 He said that Iran would unquestionably retaliate and and based on their recent history, uh, they have not been, if you get, it's not a tit fortat situation. It's not a, okay, if we get hit with this one thing, then we're going to hit something similar on the other side. He said they're going to double it.
  They've been going above that. And of course, you have the claim by the United States, even at face value, uh, one helicopter was allegedly knocked down by enemy fire of some sort. And then we claim, sent that, that we're have a proportional response. And then at least according to the early news here, potentially up to five different bases have been hit.
  Does that sound proportional to you? I mean, if you were saying something proportional, you would be tit for tat. We lost a helicopter. We would take out something commensurate on their side if that's what you were trying to do. But if we genuinely did hit five different bases and again I have to caveat this as saying this is early reporting and I don't I can't guarantee that that is true only that that's what people reporting which does match up with some of the Iranian reporting as well.
@@ -91,9 +91,9 @@ He said that Iran would unquestionably retaliate and and based on their recent h
  But what is President Trump trying to accomplish here in that he said, thanks for bringing that up, Gary, that the timing was very good on that. He told Jonathan Carl of ABC News that this is uh because I have to respond very strongly. But Gary, if you can put that one back up there because then there's some other really curious things in his response I want to get to there.
 Um he said, "I have always throughout my life wanted to respond in a strong manner and we have a deal that was very good and probably will still be." What are you talking about? is is President Trump in his mind. Does he actually think I'm going to show them how strong I am? So, they hit a helicopter allegedly and so I'm going to go and
 
-**Unknown**: ### Segment 3 — Iran Trump White House
+### Segment 3 — Iran Trump White House
 
-**Unknown**: hit five bases and we don't know what's been hit there.
+hit five bases and we don't know what's been hit there.
  I think it's it's in it's already in dark there. So, we'll have to wait for the sun to come up to find out what kind of battle damage there has been. And I'm sure that there'll be satellite imagery and other things as time goes on. But whatever was hit, that's that's going to be something that's bigger from the Iranian side. Does President Trump think after everything that we've seen after everything that they have been doing even in the last week or so about how they have responded when somebody hits them or their proxies and their allies
 what they call them in Hezbollah in in Lebanon that that's going to cause them to stand down that they're going to think oh snap all right we shouldn't have done that I guess uh boy that showed us let's let's crawl back into our hole here or or okay Mr. president sure we'll have a deal in terms that you like u because of what you just did to our helicopter.
  Does he think that's the case? I mean it's it it would be the height of irrationality if he did because the only response the only rational response we can expect from the Iranian side is more attacks. And if you hit five bases I I would wager that the Iranian side would hit at least five different targets and maybe even more. And then the question is and one of the biggest problems I have with our current government is then what? So before you strike one thing in retaliation with this helicopter, surely I'm praying anyway that there were no shortage of
@@ -106,9 +106,9 @@ this big fiasco on the ground and uh the two of these big birds were burned on t
  the the MOA, this just so people are clear on that, that's not the end of the war, but it would be set into effect a longerterm ceasefire with the expectation and the intent to reach negotiated settlement on the bigger issues to end the war outright, which would start by opening the straight of Hormuz.
  US blockade would come off, the Iranian blockade would come off that was at in your hand. All you have to do is agree to the memorandum. But and this is according to uh to professor Marandi who himself is is
 
-**Unknown**: ### Segment 4 — Iran Israel Hezbollah
+### Segment 4 — Iran Israel Hezbollah
 
-**Unknown**: aware of of what these negotiations are going back and forth right now and from some administration sources I have. So I have it from two completely separate sources saying the same thing that there is largely an agreement that was already done at the memorandum level to start the process of getting the war over and the first big victory is opening in the
+aware of of what these negotiations are going back and forth right now and from some administration sources I have. So I have it from two completely separate sources saying the same thing that there is largely an agreement that was already done at the memorandum level to start the process of getting the war over and the first big victory is opening in the
 straight of Hormuz. Now, if you were sitting on the cusp of that, knowing the damage this is causing at home right now and the compounding problems that this could cause later on, especially with this fertilizers and other kinds of issues now where in harvest time, we're probably already going to start experiencing some of the problems with that.
  Why would you want to put all that at risk by striking back for a single helicopter right now? Even if that did happen, even if what's being reported is true in some miraculous way, there was a Shahi drone that didn't blow up the helicopter that did disable it, did put them in the drain, and then they were able to be rescued out later.
  You didn't lose any pilots. No one was even hurt according to the president himself. Why then would you want to go and risk this? It just doesn't make any sense. It's just not passing the common sense test to me. Uh well, let's let me take a look here. This is uh I'm looking at the moment at the this is the Wall Street Journal is reporting on this situation here and uh a couple of interesting things they also point out.
@@ -121,9 +121,9 @@ That was one of the other things I wanted to point out there because some of the
 Lebanon even in the southern part but definitely not in the northern part as professor Marandi detailed out earlier for us today. In fact, he he told us I asked him point blank at the end. I said, "Is there a scenario whereby even if nobody else attacks Iran and Israel doesn't go back into Beirut specifically, if they keep doing these other things, because remember they had attacked earlier today into uh I think it was um uh one of the the cities on the Tyrie on the on the coast on the Lebanese coast." And I said, "If they
 keep doing that and keep killing people, nine people were killed in that strike there, would Iran take action?" And he said, "Eventually, I think
 
-**Unknown**: ### Segment 5 — Iran Israel Fertilizer
+### Segment 5 — Iran Israel Fertilizer
 
-**Unknown**: they would." He goes, "I don't think that they're going to be passive with that because uh saving their their uh their brethren there, their people in in Lebanon is as important to them as protecting their own people.
+they would." He goes, "I don't think that they're going to be passive with that because uh saving their their uh their brethren there, their people in in Lebanon is as important to them as protecting their own people.
 " Now, what is Israel going to do about this? And now that we've seen that this is opened back up, is Israel now going to exploit this opportunity and go back to striking even in Beirut? So keep an eye on that because if Israel takes advantage of this then that's going to open up the door to one a new concern of mine is was this coordinated between the US and Israel all along and did we forget about trying to have an end to this? We just wanted to spark it up and then claim that it was Iran because if we can count on Iran with a retaliation just like uh
 if we had lost here if Iran had shot that down they would expect a US response now that we have hit them. we can expect a response here. And one wonders, are there people in either Washington or Tel Aviv that are hoping Iran does that and that they're hoping that Iran does something bigger than what happened to them so that we can point the finger at them and say they're the ones who sabotaged this piece.
  They attacked one of our helicopters and then when we did the normal appropriate thing and defended our troops, this self-defense measure that is what we've said out loud. Then all of a sudden now the thing spirals out of control and there is no negotiated settlement. We blame Iran. Let me tell you something. I don't know if that's the truth or not.
@@ -136,9 +136,9 @@ We we have cloudy information and imperfect knowledge and and inadequate informa
  So there is no good thing about doing this for us. It is all negative and it's all bad. What we should do is to and it's it may be too late already to do this. What we should have done is to not retaliate for the helicopter, but now that we have I don't know how it's going to how President Trump's going to get out of it because he made that statement to Jonathan Carl that Gary showed us a second ago to where he's saying I want to look tough.
  I've always been to tough about tough. Okay, I don't give a damn about looking tough in this position. I don't need someone to look tough as the president of the United States. I need someone to act wisely. I need someone to show actual leadership that knows that to be strong
 
-**Unknown**: ### Segment 6 — Iran Israel Trump
+### Segment 6 — Iran Israel Trump
 
-**Unknown**: means sometimes keep your mouth shut.
+means sometimes keep your mouth shut.
  Sometimes keep your weapons in your pocket. It means not taking action if doing so may satisfy an emotional need in the moment for you, but could harm the interest of the very people you were elected to lead and protect. That is what he should be doing now. now. But now then that decision may be taken out of his hands.
  I don't know how that's going to work now because we can now then we're at the mercy of whatever Iran chooses to do. And again, it's going to be pretty hard for President Trump to say he took all this action because of a single helicopter that was allegedly knocked down. And then what is he going to do? Nothing.
  If there's also now a strike on on multiple targets and especially if they're significant. Yeah, that's the one that he wrote right there. Very strong, very powerful. And that's what this one is. Yeah. It's also very foolish because it's now starting into a series of events that we're now out of control. Now, however strong he may consider himself, he is powerless about what happens next.
@@ -153,9 +153,9 @@ You talk about wanting to look tough. I mean now then the same issue is on for u
  They're now going to be elevated in the Iranian decision-making process because it's looking like they were right that if you try to go down a peaceful negotiation, if you try to reach some kind of a deal that it'll just encourage the US and Israel more as we see Israel continues to do in Lebanon.
  And now here we have done again. And so now then these people, these hardliners uh especially Resai I think his name is who's the uh supreme leader uh senior military adviser who's been on the interviewed a number
 
-**Unknown**: ### Segment 7 — Iran Trump Irgc
+### Segment 7 — Iran Trump Irgc
 
-**Unknown**: of times we've shown here he's probably going to say hey we need to do something much bigger because you can see where the logic on their side is going to say hey how about this instead of just tit for tat instead of just saying all right you took out five bases we're going to hit 20 or we're going to fire 50, a 100 missiles, not just two or
+of times we've shown here he's probably going to say hey we need to do something much bigger because you can see where the logic on their side is going to say hey how about this instead of just tit for tat instead of just saying all right you took out five bases we're going to hit 20 or we're going to fire 50, a 100 missiles, not just two or
 three, not just a handful, not just something commensurate with what happened, but we're going to try and reestablish deterrence. I know that this this conversation has been going on in Iran for a while, and some have been thinking that who knows if we have not unleashed the powers outside of our control and that may be not what happens next.
  And and if that does, then you can count on President Trump and Israel to say, "Oh, well, we're not going to be passive in the face of aggression of the bad guys." And so we're going to do something back and now then we're back in the war >> and all the negative things I said just happened. >> And then just earlier today GI Bof had uh posted this.
 >> Gi Buff says uh we prefer the language of diplomacy but we speak other languages far more fluently. Break your commitments and we'll switch to what we speak best. You ride the horse you saddle. Now, it's important to know that Galibbah is the uh the the uh speaker of the Iranian parliament. He is also a former IRGC officer.
@@ -168,9 +168,9 @@ So, we'll see what happens with that. But, if they already had target lists alre
  We hit some military sites on there, but we didn't hit any of the oil infrastructure. Keep an eye on that. That's a barometer. When you see any oil infrastructure hit on Car Island, if we ever go after that, then it's game on and and and gloves off. All right. So, what do we have here? This is from uh the Iran's Revolutionary Guard says it will soon deliver a heavy response.
  So folks, uh, just get buckled up because this is not going anywhere anytime soon. It's almost certainly going to expand. Uh, we may well be staring at the resumption of full-scale combat operations. Um, it's just hard for me to imagine how this doesn't turn into that. We we dodged a bullet uh last weekend when we had the the the Israeli side first
 
-**Unknown**: ### Closing — Iran Trump Israel
+### Closing — Iran Trump Israel
 
-**Unknown**: attacked targets in Beirut.
+attacked targets in Beirut.
 Iran responded with missiles against Israel. Israel fired back missiles against Iran. Uh both sides said all right that will will not turn it in. So it didn't explode then. This one I think is going to explode. It's it's pretty hard to imagine that Iran unlike that when it's like each side fired off something and then they all said, "All right, we're good to go.
  We're not going to do anything for a while." I I don't think that happens this time. uh because I think that too many people in Iran feel they're they have made every diplomatic offer and opportunity to bring this to a diplomatic close and we keep bombing them every time it gets close. We did 2025, we did it in February, and now it looks like again when allegedly we were this close to a diplomatic solution, and now here we have attacked these these bases uh apparently a pretty goodized one off of an alleged attack on a helicopter which
 may or may not have happened or that Iran may or may not have ordered it. That's one of the problems here that of of being too quick firing from the hip. I mean, who knows if if whatever may have brought this helicopter down if it was brought down by some kind of enemy fire, was it a rogue element? Was it some of these militia? Uh because there's a lot of people that are armed in the area or was it something from the Iranian government? I mean, that's critical.

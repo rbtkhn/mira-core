@@ -20,11 +20,11 @@ verification_reason: sourceChars=48788; bodyChars=48788; exactMatch=True after r
 evidence_grade: transcript-bearing
 source_note: Mechanically extracted from local Codex session log after operator pasted the YouTube transcript; removed the leading title wrapper and Transcripts label only; transcript internal date says Tuesday, 24th June, 2025, which overrides the earlier June 25 mirror inference; not independently fetched from YouTube subtitles.
 speaker_labeling: provisional
-speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-06-24/source-alexander-mercouris-us-retreats-seeks-truce-heeds-russian-warnings-hormuz-straits-closure-threats-iran-ahead-on-points-2025-06-24.md", "source_sha256": "f3e33692840fd750b740c0d2fd9be5cb6c67683a3b2571199386f8387cc08b23", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 2, "labeled_turn_count": 0, "unknown_turn_count": 2, "candidate_speakers": ["Alexander Mercouris", "Mercouris"]}
+speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-06-24/source-alexander-mercouris-us-retreats-seeks-truce-heeds-russian-warnings-hormuz-straits-closure-threats-iran-ahead-on-points-2025-06-24.md", "source_sha256": "f3e33692840fd750b740c0d2fd9be5cb6c67683a3b2571199386f8387cc08b23", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 1, "labeled_turn_count": 1, "unknown_turn_count": 0, "candidate_speakers": ["Alexander Mercouris"], "solo_format": "single-label-continuous"}
 ---
-**Unknown**: # US Retreats Seeks Truce Heeds Russian Warnings, Hormuz Straits Closure Threats, Iran Ahead On Points
+**Alexander Mercouris**: # US Retreats Seeks Truce Heeds Russian Warnings, Hormuz Straits Closure Threats, Iran Ahead On Points
 
-**Unknown**: ## Transcript
+## Transcript
 Good day. Today is Tuesday, 24th June, 2025. As you can see, there is still internet connection problems um in my home and in my surrounding area. The latest information, by the way, that I've received is that um I will not be able to have full internet from my service provider until Friday. Um I'm not going to discuss the ins and outs of that.
  All I will say is that I'm very grateful to various people who have come up with various suggestions about how to deal with that deal with the problem. Um I have in fact already started to take certain steps. I'm in touch with Starlink or at least one of the installers of Starlink and I expect to have a full Starink terminal very s very shortly.
  And again thanks to everybody who suggested it. the um as I said I'm I'm now act I'm acting on that suggestion but anyway um given that again I'm trespassing on the space of one of my friends I think the best thing to do is to go straight into the into the topic of the programs and today's program must begin with the announcement late yesterday and early this morning of a ceasefire as it has been called.
@@ -147,4 +147,3 @@ But there's been quite a lot of information about um the situation around Pokrov
  We will see whether this so-called ceasefire sticks. And even if it does to repeat again, this is far from being the end of the affair. Well, thank you again for joining me today. Let me remind you again, you can find again all our programs on our various platforms, Locals, Rumble and X. You can support our work via Patreon and Subscribe Star links under this video.
  Don't forget you can also check out our um shop uh where we're continuing to do our promotion on um various things that you can find like um um magic mugs and other things that are city related. Last but not least, if you've liked this program, please remember to tick the like button and to check your subscription to this channel. That's me for today.
  More from me soon. Have a very good day. [Music]
-

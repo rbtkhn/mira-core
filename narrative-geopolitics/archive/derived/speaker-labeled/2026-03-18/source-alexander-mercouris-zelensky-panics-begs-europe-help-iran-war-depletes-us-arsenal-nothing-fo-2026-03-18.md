@@ -29,17 +29,17 @@ normalization_state: ai_assisted_proper_noun_cleanup
 editorial_note: AI-assisted source-clean (scaffold + ph-civ series + entity + thread tiers (mercouris, channel:alex-mercouris)); 5 substitutions; not human-verified verbatim; verify before quotation. Manual ASR patch 2026-06-22: Larry Jani/Larry Johnson→Larijani; Scott Morrison→Scott Bessent (Treasury); Ryan Balletic→Brian Berletic; Moktada→Mojtaba Khamenei; Konstantinovka→Kostyantynivka; Scott Ritter calibrated→Scott of Calibrated (mapper). Readovka retained (Mercouris corpus spelling). Prior provenance: Routine Mercouris solo subscribe/platform close trimmed in place; SSOT body otherwise preserved.
 quality_note: ASR normalization pass 2026-06-22; ph-civ replacement SSOT; manual ASR patch 2026-06-22.
 speaker_labeling: provisional
-speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2026-03-18/source-alexander-mercouris-zelensky-panics-begs-europe-help-iran-war-depletes-us-arsenal-nothing-fo-2026-03-18.md", "source_sha256": "9d92157a2b66eec03cb2bc17bb35d0f987a5b3a49af72dc05ddfe90210158d18", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 4, "labeled_turn_count": 0, "unknown_turn_count": 4, "candidate_speakers": ["Alexander Mercouris", "Mercouris"]}
+speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2026-03-18/source-alexander-mercouris-zelensky-panics-begs-europe-help-iran-war-depletes-us-arsenal-nothing-fo-2026-03-18.md", "source_sha256": "9d92157a2b66eec03cb2bc17bb35d0f987a5b3a49af72dc05ddfe90210158d18", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 1, "labeled_turn_count": 1, "unknown_turn_count": 0, "candidate_speakers": ["Alexander Mercouris"], "solo_format": "single-label-continuous"}
 ---
-**Unknown**: # Zelensky Panics Begs Europe Help; Iran War Depletes US Arsenal, Nothing For Kiev; USS Ford Retreats
+**Alexander Mercouris**: # Zelensky Panics Begs Europe Help; Iran War Depletes US Arsenal, Nothing For Kiev; USS Ford Retreats
 
-**Unknown**: **Channel:** Alexander Mercouris (solo)  
+**Channel:** Alexander Mercouris (solo)  
 **Date:** Wednesday, 18 March 2026 (host)  
 **URL:** https://www.youtube.com/watch?v=3uMTdj3YhXk
 
-**Unknown**: ## Transcript
+## Transcript
 
-**Unknown**: Good day. Today is Wednesday, 18th March, 2026. And before I proceed with this program, let me remind you again to take the like button and to check your subscription to this channel. If once you watched this program, or whichever part of this program you want to watch, you decide that you like what you've heard and you wish to indicate that fact.
+Good day. Today is Wednesday, 18th March, 2026. And before I proceed with this program, let me remind you again to take the like button and to check your subscription to this channel. If once you watched this program, or whichever part of this program you want to watch, you decide that you like what you've heard and you wish to indicate that fact.
 Now, over the last 24 hours, we've had confirmation from the Iranian authorities that Ali Larijani, uh Khamenei's National Security Advisor, the person who was put in overall charge of Iran's security and defense apparatus by the previous Supreme Leader, Ayatollah Khamenei, after the protests in January, that Ali Larijani was indeed killed as the Israelis claimed in an air strike over the previous night.
 And incidentally, and for the record, the Israelis this morning are making more claims that they have also managed to kill a senior official, perhaps the head of Iran's intelligence service. So, since Iran has various intelligence agencies, I'm not sure exactly what role this person has. Now, when the Israelis make these claims, I've tended to see that they have been, well, almost invariably correct ever since the present Israeli process of killing senior officials of Iran, Hezbollah, Hamas, all of the other organizations
 and entities and indeed states that Israeli has been Israel has been in conflict with and well, so it proved in the case of Larijani. I've made this point before and I think that as I said when the Israelis make claims that this of this kind, they should be taken seriously. They are clearly on the hunt for these people.

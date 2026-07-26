@@ -15,11 +15,11 @@ transcript_type: yt_dlp_caption_fetch
 source_note: Fetched from YouTube captions via the repo transcript pipeline and materialized into the canonical statecraft archive.
 quality_note: English caption fetch via repo YouTube transcript pipeline; adjacent duplicate caption lines removed, otherwise preserve transcript roughness.
 speaker_labeling: provisional
-speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-05-17/source-alexander-mercouris-russia-sets-out-harsh-terms-at-istanbul-talks-uk-eu-despondent-outplayed-trump-seeks-russia-summit-2025-05-17.md", "source_sha256": "a4737b1962a47226c55d0779b840bac793a285bc672166d921c402a3c65db50f", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 2, "labeled_turn_count": 0, "unknown_turn_count": 2, "candidate_speakers": ["Alexander Mercouris", "Mercouris"]}
+speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-05-17/source-alexander-mercouris-russia-sets-out-harsh-terms-at-istanbul-talks-uk-eu-despondent-outplayed-trump-seeks-russia-summit-2025-05-17.md", "source_sha256": "a4737b1962a47226c55d0779b840bac793a285bc672166d921c402a3c65db50f", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 1, "labeled_turn_count": 1, "unknown_turn_count": 0, "candidate_speakers": ["Alexander Mercouris"], "solo_format": "single-label-continuous"}
 ---
-**Unknown**: # Russia Sets Out Harsh Terms At Istanbul Talks; UK/EU Despondent Outplayed; Trump Seeks Russia Summit
+**Alexander Mercouris**: # Russia Sets Out Harsh Terms At Istanbul Talks; UK/EU Despondent Outplayed; Trump Seeks Russia Summit
 
-**Unknown**: Good day. Today is Saturday 17th May
+Good day. Today is Saturday 17th May
 2025 and before proceeding with the
 substance of this program, I should
 quickly say that tomorrow and um for the

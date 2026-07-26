@@ -15,11 +15,11 @@ transcript_type: yt_dlp_caption_fetch
 source_note: Fetched from YouTube captions via the repo transcript pipeline and materialized into the canonical statecraft archive.
 quality_note: English caption fetch via repo YouTube transcript pipeline; adjacent duplicate caption lines removed, otherwise preserve transcript roughness.
 speaker_labeling: provisional
-speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-05-21/source-alexander-mercouris-moscow-warns-talks-kiev-s-last-chance-total-defeat-if-talks-fail-rubio-warns-against-more-sanctions-2025-05-21.md", "source_sha256": "a8de041e99c6d3678a45cb94bea924e924f901bcd731318605f194b507d7227b", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 2, "labeled_turn_count": 0, "unknown_turn_count": 2, "candidate_speakers": ["Alexander Mercouris", "Mercouris"]}
+speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-05-21/source-alexander-mercouris-moscow-warns-talks-kiev-s-last-chance-total-defeat-if-talks-fail-rubio-warns-against-more-sanctions-2025-05-21.md", "source_sha256": "a8de041e99c6d3678a45cb94bea924e924f901bcd731318605f194b507d7227b", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 1, "labeled_turn_count": 1, "unknown_turn_count": 0, "candidate_speakers": ["Alexander Mercouris"], "solo_format": "single-label-continuous"}
 ---
-**Unknown**: # Moscow Warns Talks Kiev's Last Chance Total Defeat If Talks Fail; Rubio Warns Against More Sanctions
+**Alexander Mercouris**: # Moscow Warns Talks Kiev's Last Chance Total Defeat If Talks Fail; Rubio Warns Against More Sanctions
 
-**Unknown**: Good day. Today is Wednesday, 21st May
+Good day. Today is Wednesday, 21st May
 2025, and this is my last um video, my
 last program, which I'm making in Russia
 before I fly back to the UK. In fact, I

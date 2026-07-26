@@ -15,11 +15,11 @@ transcript_type: yt_dlp_caption_fetch
 source_note: Fetched from YouTube captions via the repo transcript pipeline and materialized into the canonical statecraft archive.
 quality_note: English caption fetch via repo YouTube transcript pipeline; adjacent duplicate caption lines removed, otherwise preserve transcript roughness.
 speaker_labeling: provisional
-speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-05-22/source-alexander-mercouris-trump-to-eu-russia-winning-west-out-of-options-russia-debates-sumy-capture-starmer-crisis-deepens-2025-05-22.md", "source_sha256": "1761b78c599d3aa4cade69311807f1f26c821ff6f820e7dca7fc71e3e8b13ac0", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 2, "labeled_turn_count": 0, "unknown_turn_count": 2, "candidate_speakers": ["Alexander Mercouris", "Mercouris"]}
+speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-05-22/source-alexander-mercouris-trump-to-eu-russia-winning-west-out-of-options-russia-debates-sumy-capture-starmer-crisis-deepens-2025-05-22.md", "source_sha256": "1761b78c599d3aa4cade69311807f1f26c821ff6f820e7dca7fc71e3e8b13ac0", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 1, "labeled_turn_count": 1, "unknown_turn_count": 0, "candidate_speakers": ["Alexander Mercouris"], "solo_format": "single-label-continuous"}
 ---
-**Unknown**: # Trump To EU: Russia Winning West Out Of Options; Russia Debates Sumy Capture; Starmer Crisis Deepens
+**Alexander Mercouris**: # Trump To EU: Russia Winning West Out Of Options; Russia Debates Sumy Capture; Starmer Crisis Deepens
 
-**Unknown**: Good day. Today is Thursday, 22nd May,
+Good day. Today is Thursday, 22nd May,
 2025. And as you can see, I am back in
 London. Though I have a mountain of
 things to do and um I'm also to say it

@@ -15,11 +15,11 @@ transcript_type: yt_dlp_caption_fetch
 source_note: Fetched from YouTube captions via the repo transcript pipeline and materialized into the canonical statecraft archive.
 quality_note: English caption fetch via repo YouTube transcript pipeline; adjacent duplicate caption lines removed, otherwise preserve transcript roughness.
 speaker_labeling: provisional
-speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-04-23/source-alexander-mercouris-putin-win-after-angry-zelensky-rejects-kellogg-plan-london-talks-collapse-us-mulls-pullout-option-2025-04-23.md", "source_sha256": "51e90d8569e06173371f4882cfd3627d3d334c22139d2ab7f4ea81ce9b841077", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 2, "labeled_turn_count": 0, "unknown_turn_count": 2, "candidate_speakers": ["Alexander Mercouris", "Mercouris"]}
+speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-04-23/source-alexander-mercouris-putin-win-after-angry-zelensky-rejects-kellogg-plan-london-talks-collapse-us-mulls-pullout-option-2025-04-23.md", "source_sha256": "51e90d8569e06173371f4882cfd3627d3d334c22139d2ab7f4ea81ce9b841077", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 1, "labeled_turn_count": 1, "unknown_turn_count": 0, "candidate_speakers": ["Alexander Mercouris"], "solo_format": "single-label-continuous"}
 ---
-**Unknown**: # Putin Win After Angry Zelensky Rejects Kellogg Plan, London Talks Collapse, US Mulls Pullout Option
+**Alexander Mercouris**: # Putin Win After Angry Zelensky Rejects Kellogg Plan, London Talks Collapse, US Mulls Pullout Option
 
-**Unknown**: Good day. Today is Wednesday 23rd April
+Good day. Today is Wednesday 23rd April
 2025. And today, Wednesday, was also
 supposed to be the day when the
 Europeans, the Americans, and the
