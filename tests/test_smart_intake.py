@@ -21,3 +21,26 @@ def test_canonical_voice_is_unchanged():
     args, aliases = MODULE.normalize_voice_args(["--voice-slug", "sachs"])
     assert args == ["--voice-slug", "sachs"]
     assert aliases == []
+
+
+def test_bare_intake_contract_matches_canonical_front_door():
+    agents = (ROOT / "AGENTS.md").read_text(encoding="utf-8")
+    skill = (ROOT / "docs" / "skill-drafts" / "smart-intake" / "SKILL.md").read_text(
+        encoding="utf-8"
+    )
+
+    assert "The user-facing command is simply `intake`; `smart-intake` names the workflow" in agents
+    assert "Use the statecraft source-intake workflow only when the operator explicitly" in agents
+    assert "**Canonical operator command:** say **`intake`**." in skill
+    assert "Operators do not need to choose" in skill
+    assert "between those names." in skill
+
+
+def test_intake_startup_aliases_the_legacy_best_intake_mode():
+    cadence_spec = spec_from_file_location("cadence", ROOT / "scripts" / "cadence.py")
+    cadence = module_from_spec(cadence_spec)
+    assert cadence_spec.loader is not None
+    cadence_spec.loader.exec_module(cadence)
+
+    assert cadence.startup_state("intake") == cadence.startup_state("best-intake")
+    assert cadence.startup_state("smart-intake") == cadence.startup_state("best-intake")

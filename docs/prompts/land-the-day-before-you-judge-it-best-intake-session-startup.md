@@ -1,11 +1,12 @@
-# Land the Day Before You Judge It: A Best-Intake Session Startup
+# Land the Day Before You Judge It: Intake Session Startup
 
 Use this prompt to begin a fresh agent session for recent-day Narrative
 Geopolitics intake without widening the task into synthesis, forecasting, or
-publication.
+publication. The operator command is simply `intake`; internal workflow and
+engine names are implementation details.
 
 ```text
-Use the `best-intake` skill and continue recent-day Narrative Geopolitics intake in:
+Use the `intake` front door and continue recent-day Narrative Geopolitics intake in:
 
 C:\dev\narrative-systems
 
@@ -14,7 +15,7 @@ Startup contract:
 1. Read `narrative-geopolitics/method/bounded-agency-contract.md`.
 2. Run this read-only dynamic preflight before interpreting repository state:
 
-   `.\tools\run.ps1 cadence startup best-intake --json`
+   `.\tools\run.ps1 cadence startup intake --json`
 
 3. Treat the command output—not this prompt—as authoritative for the current:
    - Git commit, branch, upstream divergence, and dirty paths;
@@ -32,7 +33,7 @@ Land the transcripts I provide for the recent days quickly and faithfully. Conti
 
 Core boundary:
 
-`best-intake lands the day; geopolitical-synthesis judges the day`
+`intake lands the day; geopolitical-synthesis judges the day`
 
 For each supplied source:
 

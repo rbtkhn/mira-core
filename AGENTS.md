@@ -16,11 +16,11 @@ to use World Monitor as a Narrative Systems source, read
 `docs/skill-drafts/world-monitor/SKILL.md` completely and follow it.
 
 When the operator says bare `intake`, or asks to intake a source without a
-more specific workflow qualifier, use the canonical smart-intake workflow:
+more specific workflow qualifier, use the one canonical operator front door:
 read `docs/skill-drafts/smart-intake/SKILL.md` completely and follow it.
-Treat `intake` as an alias for `smart-intake` / `best-intake`; do not infer the
-legacy statecraft source-intake workflow from the bare word, even when the
-source is a YouTube transcript.
+The user-facing command is simply `intake`; `smart-intake` names the workflow
+and `best-intake` names its implementation engine. Do not infer the legacy
+statecraft source-intake workflow from the bare word, even for YouTube.
 
 Use the statecraft source-intake workflow only when the operator explicitly
 says `source-intake`, `statecraft source intake`, or `statecraft daily intake`.

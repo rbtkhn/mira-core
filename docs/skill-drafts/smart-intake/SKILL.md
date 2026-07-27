@@ -1,8 +1,8 @@
 ---
 name: smart-intake
 description: "Canonical Narrative Geopolitics source intake for pasted transcripts, Substack posts, essays, reports, and YouTube-linked source bodies. Use when Codex should classify the source, resolve date/voice/host metadata, detect duplicates, land archive truth, apply only approved normalization, and verify manifest/index routing."
-preferred_activation: smart-intake
-activation: smart-intake
+preferred_activation: intake
+activation: intake
 portable: false
 version: 1.0.0
 category: narrative-geopolitics
@@ -10,7 +10,11 @@ status: active
 ---
 # Smart Intake
 
-**Canonical activation:** say **`smart-intake`** or **`intake`**.
+**Canonical operator command:** say **`intake`**.
+
+Internally, `intake` enters this smart-intake workflow and delegates archive
+publication to the `best-intake` engine. Operators do not need to choose
+between those names.
 
 Smart intake is the canonical front door for source landing. It combines
 best-intake’s archive/provenance rules with routine classification and
@@ -78,5 +82,6 @@ Stop when the archive batch is grounded. The next move is
 
 ## Compatibility
 
-`best-intake` remains a compatibility alias for this skill during migration.
+`smart-intake` and `best-intake` remain compatibility names for the workflow
+and engine during migration; the operator-facing front door remains `intake`.
 Existing prompts and `scripts/land_best_intake.py` remain supported.

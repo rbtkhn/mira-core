@@ -477,6 +477,7 @@ def startup_state(
     hook_id: str | None = None,
     as_of: str | None = None,
 ) -> dict:
+    mode = {"intake": "best-intake", "smart-intake": "best-intake"}.get(mode, mode)
     if mode not in {
         "best-intake",
         "geopolitical-synthesis",
@@ -982,6 +983,8 @@ def build_parser() -> argparse.ArgumentParser:
     startup.add_argument(
         "mode",
         choices=(
+            "intake",
+            "smart-intake",
             "best-intake",
             "geopolitical-synthesis",
             "operational-verification",

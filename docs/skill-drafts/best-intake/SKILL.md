@@ -1,21 +1,22 @@
 ---
 name: best-intake
-description: "Compatibility alias for smart-intake. Use for legacy Narrative Geopolitics intake prompts while migrating to the canonical smart-intake front door."
-preferred_activation: best-intake
-activation: best-intake
+description: "Internal implementation engine for the canonical intake front door; retained for compatibility with legacy best-intake prompts."
+preferred_activation: intake
+activation: intake
 portable: false
 version: 0.2.0
 category: narrative-geopolitics
 status: active
 ---
-# Best Intake Compatibility Alias
+# Best-Intake Implementation Engine
 
-Use `smart-intake` as the canonical source-intake skill. This file preserves
-the legacy activation and points to the merged contract.
+`intake` is the sole operator-facing source-intake command. This file documents
+the implementation engine used by the smart-intake workflow and preserves
+legacy compatibility.
 
 See [../smart-intake/SKILL.md](../smart-intake/SKILL.md).
 
-**Preferred activation (operator):** say **`best-intake`**.
+Operators should say **`intake`**, not choose between internal workflow names.
 
 Use this skill for `narrative-geopolitics/` when the job is to land source truth
 fast enough to keep the day moving, without pretending that intake is already

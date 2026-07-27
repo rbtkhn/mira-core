@@ -129,7 +129,7 @@ Imported source truth lives in [archive/](archive/README.md). Voice records link
 
 Default source landing should follow [method/best-intake.md](method/best-intake.md).
 
-Use `best-intake` when the priority is to land same-day source truth quickly without pretending that provisional routing is final interpretation.
+Use `intake` to land same-day source truth quickly without pretending that provisional routing is final interpretation. Internally, `intake` uses the smart-intake workflow and best-intake engine.
 
 See [method/intake-speedup.md](method/intake-speedup.md) for the current speedup plan and [../scripts/land_best_intake.py](../scripts/land_best_intake.py) for the first helper that automates archive-file creation plus manifest append.
 
