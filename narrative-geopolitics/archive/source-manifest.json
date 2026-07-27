@@ -2,7 +2,7 @@
   "manifest_id": "narrative-geopolitics-source-manifest-v1",
   "source_basis": "central archive with completed historical strategy-codex imports",
   "imported_at": "2026-07-09",
-  "source_count": 1901,
+  "source_count": 1931,
   "boundary": {
     "archive": "source truth",
     "voices": "voice continuity and routing",
@@ -27541,6 +27541,544 @@
       "date_basis": "operator-supplied",
       "inference_basis": [
         "wrapper-normalized",
+        "explicit-host"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-01-08",
+      "title": "Alex Krainer: Venezuela Goes Trap & With Greenland NATO Faces Collapse",
+      "local_path": "narrative-geopolitics/archive/sources/2026-01-08/source-alex-krainer-venezuela-goes-trap-with-greenland-nato-faces-collapse-2026-01-08.md",
+      "voice_index_path": "../../archive/sources/2026-01-08/source-alex-krainer-venezuela-goes-trap-with-greenland-nato-faces-collapse-2026-01-08.md",
+      "upstream_path": "operator-paste://2026-07-23/alex-krainer-venezuela-goes-trap-with-greenland-nato-faces-collapse",
+      "source_class": "guest interview pressure test",
+      "modality": "transcript",
+      "voice_slugs": [
+        "krainer"
+      ],
+      "host_slug": "dialogue-works",
+      "inference_basis": [
+        "explicit-host"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-01-01",
+      "title": "Alex Krainer: New York Times Reports CIA Attacks on Russian Tankers",
+      "local_path": "narrative-geopolitics/archive/sources/2026-01-01/source-alex-krainer-new-york-times-reports-cia-attacks-on-russian-tankers-2026-01-01.md",
+      "voice_index_path": "../../archive/sources/2026-01-01/source-alex-krainer-new-york-times-reports-cia-attacks-on-russian-tankers-2026-01-01.md",
+      "upstream_path": "operator-paste://2026-07-23/alex-krainer-new-york-times-reports-cia-attacks-on-russian-tankers",
+      "source_class": "host-pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "krainer"
+      ],
+      "host_slug": "glenn-diesen",
+      "inference_basis": [
+        "explicit-host"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-01-14",
+      "title": "Alex Krainer: U.S. Resets Global Order to Regain Advantage",
+      "local_path": "narrative-geopolitics/archive/sources/2026-01-14/source-alex-krainer-u-s-resets-global-order-to-regain-advantage-2026-01-14.md",
+      "voice_index_path": "../../archive/sources/2026-01-14/source-alex-krainer-u-s-resets-global-order-to-regain-advantage-2026-01-14.md",
+      "upstream_path": "operator-paste://2026-07-23/alex-krainer-u-s-resets-global-order-to-regain-advantage",
+      "source_class": "host-pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "krainer"
+      ],
+      "host_slug": "glenn-diesen",
+      "inference_basis": [
+        "explicit-host"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-04-02",
+      "title": "Alex Krainer: Trump TRAPPED in Iran War - The Exit Plan Is Falling Apart",
+      "local_path": "narrative-geopolitics/archive/sources/2026-04-02/source-alex-krainer-trump-trapped-in-iran-war-the-exit-plan-is-falling-apart-2026-04-02.md",
+      "voice_index_path": "../../archive/sources/2026-04-02/source-alex-krainer-trump-trapped-in-iran-war-the-exit-plan-is-falling-apart-2026-04-02.md",
+      "upstream_path": "operator-paste://2026-07-23/alex-krainer-trump-trapped-in-iran-war-the-exit-plan-is-falling-apart",
+      "source_class": "guest interview pressure test",
+      "modality": "transcript",
+      "voice_slugs": [
+        "krainer"
+      ],
+      "host_slug": "dialogue-works",
+      "inference_basis": [
+        "explicit-host"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-03-02",
+      "title": "Alex Krainer: Iran War - Economic Disaster & End of Trump?",
+      "local_path": "narrative-geopolitics/archive/sources/2026-03-02/source-alex-krainer-iran-war-economic-disaster-end-of-trump-2026-03-02.md",
+      "voice_index_path": "../../archive/sources/2026-03-02/source-alex-krainer-iran-war-economic-disaster-end-of-trump-2026-03-02.md",
+      "upstream_path": "operator-paste://2026-07-23/alex-krainer-iran-war-economic-disaster-end-of-trump",
+      "source_class": "host-pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "krainer"
+      ],
+      "host_slug": "glenn-diesen",
+      "inference_basis": [
+        "explicit-host"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-05-13",
+      "title": "Trump Cornered By Powerful Banking Networks - w/ Analyst Alex Krainer",
+      "local_path": "narrative-geopolitics/archive/sources/2026-05-13/source-trump-cornered-by-powerful-banking-networks-w-analyst-alex-krainer-2026-05-13.md",
+      "voice_index_path": "../../archive/sources/2026-05-13/source-trump-cornered-by-powerful-banking-networks-w-analyst-alex-krainer-2026-05-13.md",
+      "upstream_path": "operator-paste://2026-07-23/trump-cornered-by-powerful-banking-networks-w-analyst-alex-krainer",
+      "source_class": "guest interview pressure test",
+      "modality": "transcript",
+      "voice_slugs": [
+        "krainer"
+      ],
+      "host_slug": "mario-nawfal",
+      "inference_basis": [
+        "explicit-host"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-01-14",
+      "title": "Max Blumenthal: Protecting Protesters or Manipulating Unrest? Trump and Iran",
+      "local_path": "narrative-geopolitics/archive/sources/2026-01-14/source-max-blumenthal-protecting-protesters-or-manipulating-unrest-trump-and-iran-2026-01-14.md",
+      "voice_index_path": "../../archive/sources/2026-01-14/source-max-blumenthal-protecting-protesters-or-manipulating-unrest-trump-and-iran-2026-01-14.md",
+      "upstream_path": "operator-paste://2026-07-23/max-blumenthal-protecting-protesters-or-manipulating-unrest-trump-and-iran",
+      "source_class": "guest interview pressure test",
+      "modality": "transcript",
+      "voice_slugs": [
+        "blumenthal"
+      ],
+      "host_slug": "judging-freedom",
+      "inference_basis": [
+        "explicit-host"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-01-28",
+      "title": "Max Blumenthal: Venezuela at a Crossroads",
+      "local_path": "narrative-geopolitics/archive/sources/2026-01-28/source-max-blumenthal-venezuela-at-a-crossroads-2026-01-28.md",
+      "voice_index_path": "../../archive/sources/2026-01-28/source-max-blumenthal-venezuela-at-a-crossroads-2026-01-28.md",
+      "upstream_path": "operator-paste://2026-07-23/max-blumenthal-venezuela-at-a-crossroads",
+      "source_class": "guest interview pressure test",
+      "modality": "transcript",
+      "voice_slugs": [
+        "blumenthal"
+      ],
+      "host_slug": "judging-freedom",
+      "inference_basis": [
+        "explicit-host"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-02-24",
+      "title": "Max Blumenthal: Boasting of ‘Deploying’ 200 Starlinks to Iran Amid Violence",
+      "local_path": "narrative-geopolitics/archive/sources/2026-02-24/source-max-blumenthal-boasting-of-deploying-200-starlinks-to-iran-amid-violence-2026-02-24.md",
+      "voice_index_path": "../../archive/sources/2026-02-24/source-max-blumenthal-boasting-of-deploying-200-starlinks-to-iran-amid-violence-2026-02-24.md",
+      "upstream_path": "operator-paste://2026-07-23/max-blumenthal-boasting-of-deploying-200-starlinks-to-iran-amid-violence",
+      "source_class": "guest interview pressure test",
+      "modality": "transcript",
+      "voice_slugs": [
+        "blumenthal"
+      ],
+      "host_slug": "dialogue-works",
+      "inference_basis": [
+        "explicit-host"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-02-12",
+      "title": "Max Blumenthal: Trump Threatens Venezuela’s New President",
+      "local_path": "narrative-geopolitics/archive/sources/2026-02-12/source-max-blumenthal-trump-threatens-venezuela-s-new-president-2026-02-12.md",
+      "voice_index_path": "../../archive/sources/2026-02-12/source-max-blumenthal-trump-threatens-venezuela-s-new-president-2026-02-12.md",
+      "upstream_path": "operator-paste://2026-07-23/max-blumenthal-trump-threatens-venezuela-s-new-president",
+      "source_class": "guest interview pressure test",
+      "modality": "transcript",
+      "voice_slugs": [
+        "blumenthal"
+      ],
+      "host_slug": "judging-freedom",
+      "inference_basis": [
+        "explicit-host"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-03-05",
+      "title": "Max Blumenthal: Gaza-like Horror in Tehran",
+      "local_path": "narrative-geopolitics/archive/sources/2026-03-05/source-max-blumenthal-gaza-like-horror-in-tehran-2026-03-05.md",
+      "voice_index_path": "../../archive/sources/2026-03-05/source-max-blumenthal-gaza-like-horror-in-tehran-2026-03-05.md",
+      "upstream_path": "operator-paste://2026-07-23/max-blumenthal-gaza-like-horror-in-tehran",
+      "source_class": "guest interview pressure test",
+      "modality": "transcript",
+      "voice_slugs": [
+        "blumenthal"
+      ],
+      "host_slug": "judging-freedom",
+      "inference_basis": [
+        "explicit-host"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-04-30",
+      "title": "Patrick Henningsen: Iran’s CHILLING Message to Trump – Ships Turning Back Near Hormuz",
+      "local_path": "narrative-geopolitics/archive/sources/2026-04-30/source-patrick-henningsen-iran-s-chilling-message-to-trump-ships-turning-back-near-hormuz-2026-04-30.md",
+      "voice_index_path": "../../archive/sources/2026-04-30/source-patrick-henningsen-iran-s-chilling-message-to-trump-ships-turning-back-near-hormuz-2026-04-30.md",
+      "upstream_path": "operator-paste://2026-07-23/patrick-henningsen-iran-s-chilling-message-to-trump-ships-turning-back-near-hormuz",
+      "source_class": "host-pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "henningsen"
+      ],
+      "host_slug": "dialogue-works",
+      "inference_basis": [
+        "explicit-host"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-04-14",
+      "title": "Navy Combat Vet: HORMUZ BLOCKADE NIGHTMARE / Lt Col Daniel Davis & Steve Jermy",
+      "local_path": "narrative-geopolitics/archive/sources/2026-04-14/source-navy-combat-vet-hormuz-blockade-nightmare-lt-col-daniel-davis-steve-jermy-2026-04-14.md",
+      "voice_index_path": "../../archive/sources/2026-04-14/source-navy-combat-vet-hormuz-blockade-nightmare-lt-col-daniel-davis-steve-jermy-2026-04-14.md",
+      "upstream_path": "operator-paste://2026-07-23/navy-combat-vet-hormuz-blockade-nightmare-lt-col-daniel-davis-steve-jermy",
+      "source_class": "host-pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "jermy"
+      ],
+      "host_slug": "daniel-davis",
+      "inference_basis": [
+        "explicit-host"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-03-26",
+      "title": "Navy Combat Vet: Opening Hormuz / Lt Col Daniel Davis & Steve Jermy",
+      "local_path": "narrative-geopolitics/archive/sources/2026-03-26/source-navy-combat-vet-opening-hormuz-lt-col-daniel-davis-steve-jermy-2026-03-26.md",
+      "voice_index_path": "../../archive/sources/2026-03-26/source-navy-combat-vet-opening-hormuz-lt-col-daniel-davis-steve-jermy-2026-03-26.md",
+      "upstream_path": "operator-paste://2026-07-23/navy-combat-vet-opening-hormuz-lt-col-daniel-davis-steve-jermy",
+      "source_class": "host-pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "jermy"
+      ],
+      "host_slug": "daniel-davis",
+      "inference_basis": [
+        "explicit-host"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-02-09",
+      "title": "There’s No FORCING RUSSIA Into Anything /w Navy Combat Vet Steve Jermy",
+      "local_path": "narrative-geopolitics/archive/sources/2026-02-09/source-there-s-no-forcing-russia-into-anything-w-navy-combat-vet-steve-jermy-2026-02-09.md",
+      "voice_index_path": "../../archive/sources/2026-02-09/source-there-s-no-forcing-russia-into-anything-w-navy-combat-vet-steve-jermy-2026-02-09.md",
+      "upstream_path": "operator-paste://2026-07-23/there-s-no-forcing-russia-into-anything-w-navy-combat-vet-steve-jermy",
+      "source_class": "host-pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "jermy"
+      ],
+      "host_slug": "daniel-davis",
+      "inference_basis": [
+        "explicit-host"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-07-24",
+      "title": "Russian Odessa Blockade Causes Kiev Panic; Big Russian Strike Rocks Kiev; Ukraine Chases Wildberries",
+      "local_path": "narrative-geopolitics/archive/sources/2026-07-24/source-russian-odessa-blockade-causes-kiev-panic-big-russian-strike-rocks-kiev-ukraine-chases-wildberries-2026-07-24.md",
+      "voice_index_path": "../../archive/sources/2026-07-24/source-russian-odessa-blockade-causes-kiev-panic-big-russian-strike-rocks-kiev-ukraine-chases-wildberries-2026-07-24.md",
+      "upstream_path": "operator-paste://2026-07-24/russian-odessa-blockade-causes-kiev-panic-big-russian-strike-rocks-kiev-ukraine-chases-wildberries",
+      "source_class": "host monologue",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "alexander-mercouris",
+      "inference_basis": [
+        "explicit-host"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-07-24",
+      "title": "US Contradictions on Iran Exposed: Glenn Diesen & Lt Col Daniel Davis",
+      "local_path": "narrative-geopolitics/archive/sources/2026-07-24/source-us-contradictions-on-iran-exposed-glenn-diesen-lt-col-daniel-davis-2026-07-24.md",
+      "voice_index_path": "../../archive/sources/2026-07-24/source-us-contradictions-on-iran-exposed-glenn-diesen-lt-col-daniel-davis-2026-07-24.md",
+      "upstream_path": "operator-paste://2026-07-24/us-contradictions-on-iran-exposed-glenn-diesen-lt-col-daniel-davis",
+      "source_class": "host monologue",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "diesen"
+      ],
+      "host_slug": "daniel-davis",
+      "inference_basis": [
+        "explicit-host"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-07-24",
+      "title": "Alastair Crooke: Iranians Want Vengeance - Don't Bend to Trump's Will",
+      "local_path": "narrative-geopolitics/archive/sources/2026-07-24/source-alastair-crooke-iranians-want-vengeance-don-t-bend-to-trump-s-will-2026-07-24.md",
+      "voice_index_path": "../../archive/sources/2026-07-24/source-alastair-crooke-iranians-want-vengeance-don-t-bend-to-trump-s-will-2026-07-24.md",
+      "upstream_path": "operator-paste://2026-07-24/alastair-crooke-iranians-want-vengeance-don-t-bend-to-trump-s-will",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "crooke"
+      ],
+      "host_slug": "daniel-davis",
+      "inference_basis": [
+        "explicit-host"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-07-24",
+      "title": "Amb. Chas Freeman: Iran Warns of Regional Blackouts After Trump Threatens to Bomb Its Infrastructure",
+      "local_path": "narrative-geopolitics/archive/sources/2026-07-24/source-amb-chas-freeman-iran-warns-of-regional-blackouts-after-trump-threatens-to-bomb-its-infrastructure-2026-07-24.md",
+      "voice_index_path": "../../archive/sources/2026-07-24/source-amb-chas-freeman-iran-warns-of-regional-blackouts-after-trump-threatens-to-bomb-its-infrastructure-2026-07-24.md",
+      "upstream_path": "operator-paste://2026-07-24/amb-chas-freeman-iran-warns-of-regional-blackouts-after-trump-threatens-to-bomb-its-infrastructure",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "freeman"
+      ],
+      "host_slug": "dialogue-works",
+      "inference_basis": [
+        "explicit-host"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-07-24",
+      "title": "Pointless Violence & Fake Diplomacy: US Strategy in Iran / Chas Freeman & Lt Col Daniel Davis",
+      "local_path": "narrative-geopolitics/archive/sources/2026-07-24/source-pointless-violence-fake-diplomacy-us-strategy-in-iran-chas-freeman-lt-col-daniel-davis-2026-07-24.md",
+      "voice_index_path": "../../archive/sources/2026-07-24/source-pointless-violence-fake-diplomacy-us-strategy-in-iran-chas-freeman-lt-col-daniel-davis-2026-07-24.md",
+      "upstream_path": "operator-paste://2026-07-24/pointless-violence-fake-diplomacy-us-strategy-in-iran-chas-freeman-lt-col-daniel-davis",
+      "source_class": "host monologue",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "freeman"
+      ],
+      "host_slug": "daniel-davis",
+      "inference_basis": [
+        "explicit-host"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-07-24",
+      "title": "Alexander Mercouris: NATO Will Soon Panic & Risk War with Russia",
+      "local_path": "narrative-geopolitics/archive/sources/2026-07-24/source-alexander-mercouris-nato-will-soon-panic-risk-war-with-russia-2026-07-24.md",
+      "voice_index_path": "../../archive/sources/2026-07-24/source-alexander-mercouris-nato-will-soon-panic-risk-war-with-russia-2026-07-24.md",
+      "upstream_path": "operator-paste://2026-07-24/alexander-mercouris-nato-will-soon-panic-risk-war-with-russia",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "glenn-diesen",
+      "inference_basis": [
+        "explicit-host"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-07-24",
+      "title": "BREAKING: Saudi Arabia Strike Yemen, Major Explosion, Trump Warns China & Russia",
+      "local_path": "narrative-geopolitics/archive/sources/2026-07-24/source-breaking-saudi-arabia-strike-yemen-major-explosion-trump-warns-china-russia-2026-07-24.md",
+      "voice_index_path": "../../archive/sources/2026-07-24/source-breaking-saudi-arabia-strike-yemen-major-explosion-trump-warns-china-russia-2026-07-24.md",
+      "upstream_path": "operator-paste://2026-07-24/breaking-saudi-arabia-strike-yemen-major-explosion-trump-warns-china-russia",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "hoh"
+      ],
+      "host_slug": "moral-resistance",
+      "inference_basis": [
+        "explicit-host"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-07-24",
+      "title": "BREAKING: TRUMP BOMBING IRAN NOW AFTER IRAN REFUSES OFF-RAMP - w/ Larry Johnson",
+      "local_path": "narrative-geopolitics/archive/sources/2026-07-24/source-breaking-trump-bombing-iran-now-after-iran-refuses-off-ramp-w-larry-johnson-2026-07-24.md",
+      "voice_index_path": "../../archive/sources/2026-07-24/source-breaking-trump-bombing-iran-now-after-iran-refuses-off-ramp-w-larry-johnson-2026-07-24.md",
+      "upstream_path": "operator-paste://2026-07-24/breaking-trump-bombing-iran-now-after-iran-refuses-off-ramp-w-larry-johnson",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "johnson"
+      ],
+      "host_slug": "mario-nawfal",
+      "source_identity": "youtube:JiAhRq62o_g",
+      "source_url": "https://www.youtube.com/watch?v=JiAhRq62o_g",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "explicit-host"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-07-25",
+      "title": "Russia Strike Smashes Kiev Drone Fair Zelensky Angry; US Orders Kiev Stop Black Sea Attacks; Kharkov",
+      "local_path": "narrative-geopolitics/archive/sources/2026-07-25/source-russia-strike-smashes-kiev-drone-fair-zelensky-angry-us-orders-kiev-stop-black-sea-attacks-kharkov-2026-07-25.md",
+      "voice_index_path": "../../archive/sources/2026-07-25/source-russia-strike-smashes-kiev-drone-fair-zelensky-angry-us-orders-kiev-stop-black-sea-attacks-kharkov-2026-07-25.md",
+      "upstream_path": "operator-paste://2026-07-25/russia-strike-smashes-kiev-drone-fair-zelensky-angry-us-orders-kiev-stop-black-sea-attacks-kharkov",
+      "source_class": "commentary",
+      "modality": "video",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "the-duran",
+      "source_identity": "youtube:JuL5zSjVTqA",
+      "source_url": "https://www.youtube.com/watch?v=JuL5zSjVTqA",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-07-24",
+      "title": "TRUMP: \"IRAN IS NOW BEING RUN BY A GAY DICTATOR\" - w/ Robert Barnes",
+      "local_path": "narrative-geopolitics/archive/sources/2026-07-24/source-trump-iran-is-now-being-run-by-a-gay-dictator-w-robert-barnes-2026-07-24.md",
+      "voice_index_path": "../../archive/sources/2026-07-24/source-trump-iran-is-now-being-run-by-a-gay-dictator-w-robert-barnes-2026-07-24.md",
+      "upstream_path": "operator-paste://2026-07-25/trump-iran-is-now-being-run-by-a-gay-dictator-w-robert-barnes",
+      "source_class": "commentary",
+      "modality": "video",
+      "voice_slugs": [
+        "mario-nawfal"
+      ],
+      "host_slug": "mario-nawfal",
+      "source_identity": "youtube:XCWwbdeI_MY",
+      "source_url": "https://www.youtube.com/watch?v=XCWwbdeI_MY",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "explicit-host"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-07-25",
+      "title": "Seyed M. Marandi: Aramco Facility Engulfed in Flames After Yemeni Missile Strike",
+      "local_path": "narrative-geopolitics/archive/sources/2026-07-25/source-seyed-m-marandi-aramco-facility-engulfed-in-flames-after-yemeni-missile-strike-2026-07-25.md",
+      "voice_index_path": "../../archive/sources/2026-07-25/source-seyed-m-marandi-aramco-facility-engulfed-in-flames-after-yemeni-missile-strike-2026-07-25.md",
+      "upstream_path": "operator-paste://2026-07-25/seyed-m-marandi-aramco-facility-engulfed-in-flames-after-yemeni-missile-strike",
+      "source_class": "commentary",
+      "modality": "video",
+      "voice_slugs": [
+        "marandi"
+      ],
+      "host_slug": "dialogue-works",
+      "source_identity": "youtube:JOiQTr_J7Go",
+      "source_url": "https://www.youtube.com/watch?v=JOiQTr_J7Go",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "explicit-host"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-07-25",
+      "title": "Black Sea Now Russian Lake, West's Grain Gamble Backfired",
+      "local_path": "narrative-geopolitics/archive/sources/2026-07-25/source-black-sea-now-russian-lake-west-s-grain-gamble-backfired-2026-07-25.md",
+      "voice_index_path": "../../archive/sources/2026-07-25/source-black-sea-now-russian-lake-west-s-grain-gamble-backfired-2026-07-25.md",
+      "upstream_path": "operator-paste://2026-07-25/black-sea-now-russian-lake-west-s-grain-gamble-backfired",
+      "source_class": "commentary",
+      "modality": "video",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "the-duran",
+      "source_identity": "youtube:MJ3TCjA-s4k",
+      "source_url": "https://www.youtube.com/watch?v=MJ3TCjA-s4k",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-07-25",
+      "title": "Joe Kent: Iran Trap, U.S. Ground Invasion & Israeli Deception",
+      "local_path": "narrative-geopolitics/archive/sources/2026-07-25/source-joe-kent-iran-trap-u-s-ground-invasion-israeli-deception-2026-07-25.md",
+      "voice_index_path": "../../archive/sources/2026-07-25/source-joe-kent-iran-trap-u-s-ground-invasion-israeli-deception-2026-07-25.md",
+      "upstream_path": "operator-paste://2026-07-25/joe-kent-iran-trap-u-s-ground-invasion-israeli-deception",
+      "source_class": "commentary",
+      "modality": "video",
+      "voice_slugs": [
+        "kent"
+      ],
+      "host_slug": "glenn-diesen",
+      "source_identity": "youtube:LKT74HJLaW4",
+      "source_url": "https://www.youtube.com/watch?v=LKT74HJLaW4",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "explicit-host"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-07-25",
+      "title": "TRUMP PREPARING \"MASSIVE ATTACK\" ON IRAN NEXT WEEK - w/ Brandon Weichert",
+      "local_path": "narrative-geopolitics/archive/sources/2026-07-25/source-trump-preparing-massive-attack-on-iran-next-week-w-brandon-weichert-2026-07-25.md",
+      "voice_index_path": "../../archive/sources/2026-07-25/source-trump-preparing-massive-attack-on-iran-next-week-w-brandon-weichert-2026-07-25.md",
+      "upstream_path": "operator-paste://2026-07-25/trump-preparing-massive-attack-on-iran-next-week-w-brandon-weichert",
+      "source_class": "commentary",
+      "modality": "video",
+      "voice_slugs": [
+        "weichert"
+      ],
+      "host_slug": "mario-nawfal",
+      "source_identity": "youtube:n2Bo5rsRdkE",
+      "source_url": "https://www.youtube.com/watch?v=n2Bo5rsRdkE",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "explicit-host"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-07-25",
+      "title": "Larry Johnson: Yemen SLAMS Saudi Oil as Iran and the US Prepare for MASSIVE MOVES",
+      "local_path": "narrative-geopolitics/archive/sources/2026-07-25/source-larry-johnson-yemen-slams-saudi-oil-as-iran-and-the-us-prepare-for-massive-moves-2026-07-25.md",
+      "voice_index_path": "../../archive/sources/2026-07-25/source-larry-johnson-yemen-slams-saudi-oil-as-iran-and-the-us-prepare-for-massive-moves-2026-07-25.md",
+      "upstream_path": "operator-paste://2026-07-25/larry-johnson-yemen-slams-saudi-oil-as-iran-and-the-us-prepare-for-massive-moves",
+      "source_class": "commentary",
+      "modality": "video",
+      "voice_slugs": [
+        "johnson"
+      ],
+      "host_slug": "dialogue-works",
+      "source_identity": "youtube:jzCm85uJXVE",
+      "source_url": "https://www.youtube.com/watch?v=jzCm85uJXVE",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
         "explicit-host"
       ],
       "import_status": "imported"
