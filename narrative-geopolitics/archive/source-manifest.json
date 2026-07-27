@@ -2,7 +2,7 @@
   "manifest_id": "narrative-geopolitics-source-manifest-v1",
   "source_basis": "central archive with completed historical strategy-codex imports",
   "imported_at": "2026-07-09",
-  "source_count": 1895,
+  "source_count": 1901,
   "boundary": {
     "archive": "source truth",
     "voices": "voice continuity and routing",
@@ -27414,5 +27414,136 @@
       "inference_basis": [],
       "import_status": "imported"
     },
+    {
+      "date": "2026-07-26",
+      "title": "Russian FAB Bombs Shatter Odessa; More Kiev Strikes Top Kiev Officials Killed; Russia Says NO Truce",
+      "local_path": "narrative-geopolitics/archive/sources/2026-07-26/source-russian-fab-bombs-shatter-odessa-more-kiev-strikes-top-kiev-officials-killed-russia-says-no-truce-2026-07-26.md",
+      "voice_index_path": "../../archive/sources/2026-07-26/source-russian-fab-bombs-shatter-odessa-more-kiev-strikes-top-kiev-officials-killed-russia-says-no-truce-2026-07-26.md",
+      "upstream_path": "operator-paste://2026-07-26/russian-fab-bombs-shatter-odessa-more-kiev-strikes-top-kiev-officials-killed-russia-says-no-truce",
+      "source_class": "solo geopolitical analysis",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "alexander-mercouris",
+      "source_identity": "youtube:Ewc9EnTiowU",
+      "source_url": "https://www.youtube.com/watch?v=Ewc9EnTiowU",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "explicit-host"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-07-26",
+      "title": "UKRAINE THREATEN TO BLOW UP IRANIAN CITIES, IRAN TO RETALIATE AGAINST UKRAINE w/ CIA Larry Johnson",
+      "local_path": "narrative-geopolitics/archive/sources/2026-07-26/source-ukraine-threaten-to-blow-up-iranian-cities-iran-to-retaliate-against-ukraine-w-cia-larry-johnson-2026-07-26.md",
+      "voice_index_path": "../../archive/sources/2026-07-26/source-ukraine-threaten-to-blow-up-iranian-cities-iran-to-retaliate-against-ukraine-w-cia-larry-johnson-2026-07-26.md",
+      "upstream_path": "operator-paste://2026-07-26/ukraine-threaten-to-blow-up-iranian-cities-iran-to-retaliate-against-ukraine-w-cia-larry-johnson",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "johnson"
+      ],
+      "host_slug": "moral-resistance",
+      "source_identity": "youtube:-xaXD1pVC9k",
+      "source_url": "https://www.youtube.com/watch?v=-xaXD1pVC9k",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-07-26",
+      "title": "Ray McGovern: Yemen Strikes on Saudi Are Rocking Across the Gulf",
+      "local_path": "narrative-geopolitics/archive/sources/2026-07-26/source-ray-mcgovern-yemen-strikes-on-saudi-are-rocking-across-the-gulf-2026-07-26.md",
+      "voice_index_path": "../../archive/sources/2026-07-26/source-ray-mcgovern-yemen-strikes-on-saudi-are-rocking-across-the-gulf-2026-07-26.md",
+      "upstream_path": "operator-paste://2026-07-26/ray-mcgovern-yemen-strikes-on-saudi-are-rocking-across-the-gulf",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mcgovern"
+      ],
+      "host_slug": "dialogue-works",
+      "source_identity": "youtube:HWvG1jAbYKo",
+      "source_url": "https://www.youtube.com/watch?v=HWvG1jAbYKo",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-07-26",
+      "title": "Seyed M. Marandi: Saudi Oil Is Burning & Trump Has No Way Out",
+      "local_path": "narrative-geopolitics/archive/sources/2026-07-26/source-seyed-m-marandi-saudi-oil-is-burning-trump-has-no-way-out-2026-07-26.md",
+      "voice_index_path": "../../archive/sources/2026-07-26/source-seyed-m-marandi-saudi-oil-is-burning-trump-has-no-way-out-2026-07-26.md",
+      "upstream_path": "operator-paste://2026-07-26/seyed-m-marandi-saudi-oil-is-burning-trump-has-no-way-out",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "marandi"
+      ],
+      "host_slug": "glenn-diesen",
+      "source_identity": "youtube:Vb0dPKizY_c",
+      "source_url": "https://www.youtube.com/watch?v=Vb0dPKizY_c",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-07-26",
+      "title": "Trump All-Out War Against Iran Guarantees Defeat - of America /Lt Col Daniel Davis",
+      "local_path": "narrative-geopolitics/archive/sources/2026-07-26/source-trump-all-out-war-against-iran-guarantees-defeat-of-america-lt-col-daniel-davis-2026-07-26.md",
+      "voice_index_path": "../../archive/sources/2026-07-26/source-trump-all-out-war-against-iran-guarantees-defeat-of-america-lt-col-daniel-davis-2026-07-26.md",
+      "upstream_path": "operator-paste://2026-07-26/trump-all-out-war-against-iran-guarantees-defeat-of-america-lt-col-daniel-davis",
+      "source_class": "solo geopolitical analysis",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "davis"
+      ],
+      "host_slug": "daniel-davis",
+      "source_identity": "youtube:85UzSfp8v9c",
+      "source_url": "https://www.youtube.com/watch?v=85UzSfp8v9c",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-07-26",
+      "title": "IRAN READY FOR U.S GROUND INVASION, WAR WILL RESUME SOON w/ BRANDON WEICHERT",
+      "local_path": "narrative-geopolitics/archive/sources/2026-07-26/source-iran-ready-for-u-s-ground-invasion-war-will-resume-soon-w-brandon-weichert-2026-07-26.md",
+      "voice_index_path": "../../archive/sources/2026-07-26/source-iran-ready-for-u-s-ground-invasion-war-will-resume-soon-w-brandon-weichert-2026-07-26.md",
+      "upstream_path": "operator-paste://2026-07-26/iran-ready-for-u-s-ground-invasion-war-will-resume-soon-w-brandon-weichert",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "weichert"
+      ],
+      "host_slug": "moral-resistance",
+      "source_identity": "youtube:_0Qi6DAYhnc",
+      "source_url": "https://www.youtube.com/watch?v=_0Qi6DAYhnc",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host"
+      ],
+      "import_status": "imported"
+    }
   ]
 }
