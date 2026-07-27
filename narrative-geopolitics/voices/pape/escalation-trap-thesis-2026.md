@@ -21,7 +21,7 @@ The thesis has four linked claims:
 
 Pape’s early 2026 “smart bomb trap” writing argued that precision and decapitation could create an illusion of control. By March, he described the conflict as moving through recognizable stages: parallel strategic attack, widening geography, and the conversion of an initially limited air campaign into a broader contest over infrastructure and political endurance.
 
-Sources: [February 27](../../archive/sources/2026-02-27/source-pape-from-kosovo-to-iran-the-smart-bomb-2026-02-27.md), [March 7](../../archive/sources/2026-03-07/source-pape-the-escalation-trap-widens-russias-2026-03-07.md), [March 12](../../archive/sources/2026-03-12/source-pape-four-strategic-patterns-now-visible-in-the-iran-war-2026-03-12.md)
+Sources: [February 27](../../archive/sources/2026-02-27/source-pape-from-kosovo-to-iran-the-smart-bomb-2026-02-27.md), [March 7](../../archive/sources/2026-03-07/source-pape-the-escalation-trap-widens-russias-2026-03-07.md), [March 12](../../archive/sources/2026-03-12/source-pape-four-strategic-patterns-now-visible-2026-03-12.md)
 
 ### April–May: zero-sum escalation and material clocks
 

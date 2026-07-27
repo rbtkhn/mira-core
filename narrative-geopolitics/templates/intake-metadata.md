@@ -29,12 +29,12 @@ The helper now writes trim metrics into landed source frontmatter automatically:
 2. Copy this template into a sidecar note next to it.
 3. Fill only the fields you know.
 4. Leave uncertain optional fields blank.
-5. Run `scripts/land_best_intake.py` from the metadata plus body file.
+5. Run the repository intake wrapper from the metadata plus body file: `tools/run.ps1 intake --metadata-file <path> --body-file <path>`.
 
 For a read-only preflight before landing:
 
 ```powershell
-python scripts/land_best_intake.py --metadata-file C:\path\to\source.txt --preflight --json
+tools/run.ps1 intake --metadata-file C:\path\to\source.txt --preflight --json
 ```
 
 The receipt reports the selected transcript title, preserved title aliases,
