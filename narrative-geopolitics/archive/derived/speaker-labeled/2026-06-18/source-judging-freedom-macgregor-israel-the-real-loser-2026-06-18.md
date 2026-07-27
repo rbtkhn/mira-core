@@ -34,7 +34,7 @@ verify_receipt: 2026-06-19
 verify: 
 - claim: Mark Levin / pro-Israel podcaster lane rips Trump over MOU (same-cycle hawk pushback mesh)
 verdict: partial
-note: Ingest tier-4 — Macgregor names Levin ripping Trump from pillar to post; not J19-17 direct Levin→Vance row · cross-ref [J19-17 matrix](../../../statecraft/notes/wire/2026-06-19-news-verify-matrix.md) · primary anchor [Johnson sEoIzK51T3U](./source-dialogue-works-larry-johnson-jd-vance-slams-netanyahu-government-2026-06-18.md)
+note: Ingest tier-4 — Macgregor names Levin ripping Trump from pillar to post; not J19-17 direct Levin→Vance row · cross-ref J19-17 matrix · primary anchor Johnson sEoIzK51T3U
 transcript_curation: curated_sectioned
 speaker_labeling: provisional
 speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2026-06-18/source-judging-freedom-macgregor-israel-the-real-loser-2026-06-18.md", "source_sha256": "c3f2f8340e3dcc4045a9309bb1d513e35d98f58c0c96750fcdee1376ba80d0d4", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 22, "labeled_turn_count": 0, "unknown_turn_count": 22, "candidate_speakers": ["Judge Andrew Napolitano", "Douglas Macgregor", "Macgregor"]}

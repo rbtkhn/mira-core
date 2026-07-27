@@ -112,6 +112,21 @@ def label_body(body: str, row: dict[str, Any], fields: dict[str, str]) -> tuple[
     return "".join(output), {"turn_count": total, "labeled_turn_count": labeled, "unknown_turn_count": unknown, "candidate_speakers": [c.name for c in roster]}
 
 
+def sanitize_unresolved_links(text: str, derived_path: Path) -> str:
+    """Keep link text while removing broken relative targets from derivatives."""
+    pattern = re.compile(r"\[([^\]]+)\]\(([^)]+)\)")
+
+    def replace(match: re.Match[str]) -> str:
+        label, target = match.group(1), match.group(2)
+        if target.startswith(("http://", "https://", "#", "mailto:")):
+            return match.group(0)
+        if (derived_path.parent / target.split("#", 1)[0]).resolve().is_file():
+            return match.group(0)
+        return label
+
+    return pattern.sub(replace, text)
+
+
 def derivative(row: dict[str, Any], output_root: Path) -> tuple[Path, dict[str, Any]]:
     source = REPO_ROOT / str(row["local_path"])
     raw = source.read_bytes()
@@ -123,7 +138,7 @@ def derivative(row: dict[str, Any], output_root: Path) -> tuple[Path, dict[str, 
     target = output_root / relative
     meta = {"source_path": row["local_path"], "source_sha256": source_hash, "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", **stats}
     header = "---\n" + "\n".join(f"{k}: {json.dumps(v, ensure_ascii=False) if isinstance(v, (list, dict)) else v}" for k, v in {**fields, "speaker_labeling": "provisional", "speaker_labeling_provenance": json.dumps(meta, ensure_ascii=False)}.items()) + "\n---\n"
-    return target, {"target": target, "text": header + labeled, "provenance": meta}
+    return target, {"target": target, "text": sanitize_unresolved_links(header + labeled, target), "provenance": meta}
 
 
 def main() -> int:

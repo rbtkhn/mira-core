@@ -61,3 +61,9 @@ def test_derivative_does_not_change_raw(tmp_path: Path) -> None:
     provenance = result["provenance"]
     assert provenance["source_sha256"] == before
     assert provenance["labeling_method"]
+
+
+def test_unresolved_relative_links_become_plain_text_in_derivative(tmp_path: Path) -> None:
+    target = tmp_path / "derived.md"
+    text = MODULE.sanitize_unresolved_links("[missing](missing.md#section) [web](https://example.com)", target)
+    assert text == "missing [web](https://example.com)"

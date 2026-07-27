@@ -5620,6 +5620,27 @@
       "import_status": "imported"
     },
     {
+      "date": "2026-07-26",
+      "title": "Russian FAB Bombs Shatter Odessa; More Kiev Strikes Top Kiev Officials Killed; Russia Says NO Truce",
+      "local_path": "narrative-geopolitics/archive/sources/2026-07-26/source-russian-fab-bombs-shatter-odessa-more-kiev-strikes-top-kiev-officials-killed-russia-says-no-truce-2026-07-26.md",
+      "voice_index_path": "../../archive/sources/2026-07-26/source-russian-fab-bombs-shatter-odessa-more-kiev-strikes-top-kiev-officials-killed-russia-says-no-truce-2026-07-26.md",
+      "upstream_path": "operator-paste://2026-07-26/russian-fab-bombs-shatter-odessa-more-kiev-strikes-top-kiev-officials-killed-russia-says-no-truce",
+      "source_class": "solo geopolitical analysis",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "alexander-mercouris",
+      "source_identity": "youtube:Ewc9EnTiowU",
+      "source_url": "https://www.youtube.com/watch?v=Ewc9EnTiowU",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "explicit-host"
+      ],
+      "import_status": "imported"
+    },
+    {
       "date": "2026-07-24",
       "title": "US Contradictions on Iran Exposed: Glenn Diesen & Lt Col Daniel Davis",
       "local_path": "narrative-geopolitics/archive/sources/2026-07-24/source-us-contradictions-on-iran-exposed-glenn-diesen-lt-col-daniel-davis-2026-07-24.md",
@@ -5648,23 +5669,6 @@
         "mercouris"
       ],
       "host_slug": "alexander-mercouris",
-      "inference_basis": [
-        "explicit-host"
-      ],
-      "import_status": "imported"
-    },
-    {
-      "date": "2026-07-24",
-      "title": "Pointless Violence & Fake Diplomacy: US Strategy in Iran / Chas Freeman & Lt Col Daniel Davis",
-      "local_path": "narrative-geopolitics/archive/sources/2026-07-24/source-pointless-violence-fake-diplomacy-us-strategy-in-iran-chas-freeman-lt-col-daniel-davis-2026-07-24.md",
-      "voice_index_path": "../../archive/sources/2026-07-24/source-pointless-violence-fake-diplomacy-us-strategy-in-iran-chas-freeman-lt-col-daniel-davis-2026-07-24.md",
-      "upstream_path": "operator-paste://2026-07-24/pointless-violence-fake-diplomacy-us-strategy-in-iran-chas-freeman-lt-col-daniel-davis",
-      "source_class": "host monologue",
-      "modality": "cleaned-transcript",
-      "voice_slugs": [
-        "freeman"
-      ],
-      "host_slug": "daniel-davis",
       "inference_basis": [
         "explicit-host"
       ],

@@ -960,7 +960,7 @@
     },
     {
       "source_path": "narrative-geopolitics/archive/sources/2026-06-03/source-alexander-mercouris-russia-sanctions-crumble-st-pete-hosts-us-german-business-zelensky-sends-drones-us-iran-fighting-2026-06-03.md",
-      "source_sha256": "c3fd465f6575f8b55ab9e8c4730a3df7e7c773b3780742d257d2397399fd885f",
+      "source_sha256": "d429ee10f731200c4d61daa70f4d1889f2a91e3f384f103d9c4679187bdf3bdb",
       "labeling_method": "metadata-plus-explicit-markers-v1",
       "confidence_policy": "explicit-marker-only; unknown otherwise",
       "turn_count": 1,
@@ -1004,7 +1004,7 @@
     },
     {
       "source_path": "narrative-geopolitics/archive/sources/2026-06-02/source-daniel-davis-americas-old-world-war-mentality-lt-col-daniel-davis-2026-06-02.md",
-      "source_sha256": "46ebe5669c28b7e9c1c04cefe7e4aa526a4882c4ae3aed1a84285c1529e958e3",
+      "source_sha256": "09682038cec8f99d32f5607d872631894b47ebd31940250f6d9af042f9fa08f3",
       "labeling_method": "metadata-plus-explicit-markers-v1",
       "confidence_policy": "explicit-marker-only; unknown otherwise",
       "turn_count": 1,
@@ -1018,7 +1018,7 @@
     },
     {
       "source_path": "narrative-geopolitics/archive/sources/2026-06-02/source-alexander-mercouris-russian-massive-strike-shatters-kiev-tsirkon-missile-first-mass-use-kiev-troops-flee-konstantinovka-2026-06-02.md",
-      "source_sha256": "e1e05f448637f1b528eaf06f4bfce6db9f4115938610edb1932f19e5908950f9",
+      "source_sha256": "249d36b8d8a677aa91b80eab3cb3bd3c176bde209a93a6ee729fab323e71318d",
       "labeling_method": "metadata-plus-explicit-markers-v1",
       "confidence_policy": "explicit-marker-only; unknown otherwise",
       "turn_count": 1,
@@ -1062,7 +1062,7 @@
     },
     {
       "source_path": "narrative-geopolitics/archive/sources/2026-06-01/source-daniel-davis-iran-warhawks-delusional-fantasy-lt-col-daniel-davis-2026-06-01.md",
-      "source_sha256": "a015dcc947df4a0f9c3cb7e0f2a64e3fe88619670ff39b713ddb7d3b52ac2a4b",
+      "source_sha256": "37b1849a9b5d32ea281eb225160bf0f8333459d27de6e07e5d13f3adcd435f37",
       "labeling_method": "metadata-plus-explicit-markers-v1",
       "confidence_policy": "explicit-marker-only; unknown otherwise",
       "turn_count": 1,
@@ -1076,7 +1076,7 @@
     },
     {
       "source_path": "narrative-geopolitics/archive/sources/2026-06-01/source-alexander-mercouris-zelensky-to-sack-syrsky-appoint-budanov-kiev-army-chief-kiev-s-konstantinovka-crisis-drones-fade-2026-06-01.md",
-      "source_sha256": "613782945fdfce2899b21f95a7245a7628873961599f7800989e22320ff8235b",
+      "source_sha256": "3257b32bfd0a843ebf8f86f5a37afd96499a8e42edd0760ae8897eade3f0cced",
       "labeling_method": "metadata-plus-explicit-markers-v1",
       "confidence_policy": "explicit-marker-only; unknown otherwise",
       "turn_count": 1,
@@ -5710,6 +5710,20 @@
       "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2025-01-10/source-alexander-mercouris-putiin-trump-summit-coming-eu-frets-trump-will-cancel-sanctions-zelensky-2025-01-10.md"
     },
     {
+      "source_path": "narrative-geopolitics/archive/sources/2026-07-26/source-russian-fab-bombs-shatter-odessa-more-kiev-strikes-top-kiev-officials-killed-russia-says-no-truce-2026-07-26.md",
+      "source_sha256": "7106726cdfa98ab67c878a6ee32e4a3ae27d1da7f35c6aad913a7aca8bc91af7",
+      "labeling_method": "metadata-plus-explicit-markers-v1",
+      "confidence_policy": "explicit-marker-only; unknown otherwise",
+      "turn_count": 1,
+      "labeled_turn_count": 1,
+      "unknown_turn_count": 0,
+      "candidate_speakers": [
+        "Alexander Mercouris"
+      ],
+      "solo_format": "single-label-continuous",
+      "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2026-07-26/source-russian-fab-bombs-shatter-odessa-more-kiev-strikes-top-kiev-officials-killed-russia-says-no-truce-2026-07-26.md"
+    },
+    {
       "source_path": "narrative-geopolitics/archive/sources/2026-07-24/source-us-contradictions-on-iran-exposed-glenn-diesen-lt-col-daniel-davis-2026-07-24.md",
       "source_sha256": "64a8df72efd70c408d9017aff2247e14783285f26f5476a2b9625c69539b1925",
       "labeling_method": "metadata-plus-explicit-markers-v1",
@@ -5737,21 +5751,6 @@
       ],
       "solo_format": "single-label-continuous",
       "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2026-07-24/source-russian-odessa-blockade-causes-kiev-panic-big-russian-strike-rocks-kiev-ukraine-chases-wildberries-2026-07-24.md"
-    },
-    {
-      "source_path": "narrative-geopolitics/archive/sources/2026-07-24/source-pointless-violence-fake-diplomacy-us-strategy-in-iran-chas-freeman-lt-col-daniel-davis-2026-07-24.md",
-      "source_sha256": "47885ac3015213503a1a8015192ac2b9cb5f2430da34d83bf12cd8ad1132c38f",
-      "labeling_method": "metadata-plus-explicit-markers-v1",
-      "confidence_policy": "explicit-marker-only; unknown otherwise",
-      "turn_count": 4,
-      "labeled_turn_count": 0,
-      "unknown_turn_count": 4,
-      "candidate_speakers": [
-        "Daniel Davis",
-        "Chas Freeman",
-        "Freeman"
-      ],
-      "derived_path": "narrative-geopolitics/archive/derived/speaker-labeled/2026-07-24/source-pointless-violence-fake-diplomacy-us-strategy-in-iran-chas-freeman-lt-col-daniel-davis-2026-07-24.md"
     }
   ]
 }

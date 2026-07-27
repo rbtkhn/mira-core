@@ -36,7 +36,7 @@ speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sour
 **Date:** Friday, June 5, 2026  
 **Guest:** Seyed M. Marandi  
 **URL:** https://www.youtube.com/watch?v=CtNtxF4LPKo  
-**Alias:** [Dialogue Works mis-file](source-dialogue-works-marandi-hormuz-toll-strike-on-kuwait-israel-decline-iranian-nuclear-bomb-2026-06-05.md) (same episode; legacy prefix `source-alkorshid-*`)
+**Alias:** Dialogue Works mis-file (same episode; legacy prefix `source-alkorshid-*`)
 
 **Unknown**: ---
 
