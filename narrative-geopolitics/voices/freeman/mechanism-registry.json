@@ -1,0 +1,65 @@
+{
+  "version": "1.0",
+  "mechanisms": [
+    {
+      "id": "M-FR-001",
+      "name": "coercion and strategic backfire",
+      "definition": "External pressure produces resistance, legitimacy loss, or strategic reversal for the coercing power.",
+      "inclusion_tests": [
+        "The quote connects pressure, intervention, sanctions, or regime change to resistance or failure."
+      ],
+      "exclusion_tests": [
+        "A reference is merely mentioned without a claim about coercion or consequences."
+      ],
+      "counterexample_guidance": "Record cases where pressure produces durable compliance or a favorable settlement."
+    },
+    {
+      "id": "M-FR-002",
+      "name": "institutional memory and diplomatic credibility",
+      "definition": "Records, commitments, guarantees, and prior diplomatic conduct shape the credibility of future negotiation.",
+      "inclusion_tests": [
+        "The quote links diplomatic reliability to records, treaties, guarantees, or prior commitments."
+      ],
+      "exclusion_tests": [
+        "A diplomatic event is named without a claim about credibility or institutional memory."
+      ],
+      "counterexample_guidance": "Record cases where diplomacy succeeds despite broken records or unreliable commitments."
+    },
+    {
+      "id": "M-FR-003",
+      "name": "imperial overstretch and power transition",
+      "definition": "Accumulated commitments, dependency, or declining strategic competence weaken a dominant power during systemic transition.",
+      "inclusion_tests": [
+        "The quote connects empire, hegemony, alliance burden, or strategic decline to a change in power."
+      ],
+      "exclusion_tests": [
+        "A great power is mentioned without a claim about overextension, dependency, or transition."
+      ],
+      "counterexample_guidance": "Record cases where expansion or dominance strengthens rather than exhausts a power."
+    },
+    {
+      "id": "M-FR-004",
+      "name": "knowledge transfer and institutional competence",
+      "definition": "Openness, scientific exchange, recordkeeping, and knowledge institutions produce or preserve political competence.",
+      "inclusion_tests": [
+        "The quote links knowledge exchange, science, education, or institutional openness to civilizational capacity."
+      ],
+      "exclusion_tests": [
+        "A civilization or cultural period is named without a competence claim."
+      ],
+      "counterexample_guidance": "Record cases where closed institutions retain or improve competence."
+    },
+    {
+      "id": "M-FR-005",
+      "name": "sovereignty, legitimacy, and historical memory",
+      "definition": "Historical injury, sovereignty claims, and inherited identity shape present resistance and political legitimacy.",
+      "inclusion_tests": [
+        "The quote links remembered injury, territorial legitimacy, or national identity to present conduct."
+      ],
+      "exclusion_tests": [
+        "A national event is mentioned without a claim about legitimacy, memory, or sovereignty."
+      ],
+      "counterexample_guidance": "Record cases where strategic incentives override inherited historical memory."
+    }
+  ]
+}

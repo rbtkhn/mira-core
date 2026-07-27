@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "voice": "freeman",
+  "scope": "2026-07-24",
+  "policy": "Collapse semantic parent/detail duplicates for review interpretation while preserving every source occurrence and stable occurrence ID.",
+  "decisions": [
+    {
+      "decision_id": "FR-REV-20260724-001",
+      "source_id": "SRC-FR-153",
+      "canonical_reference_key": "kuwait-liberation",
+      "canonical_label": "1991 Gulf War and Kuwait liberation",
+      "occurrence_ids": [
+        "FR-O-153-kuwait-liberation-0001",
+        "FR-O-153-gulf-war-1991-0001"
+      ],
+      "decision": "collapse-parent-detail",
+      "review_status": "accepted",
+      "rationale": "Both records describe the same 1991 coalition liberation event; retain the broader Gulf War label as the canonical review grouping."
+    },
+    {
+      "decision_id": "FR-REV-20260724-002",
+      "source_id": "SRC-FR-153",
+      "canonical_reference_key": "iraq-kuwait-claim",
+      "canonical_label": "Iraq's claim that Kuwait was its nineteenth province",
+      "occurrence_ids": [
+        "FR-O-153-iraq-19th-province-0001",
+        "FR-O-153-iraq-kuwait-claim-0001"
+      ],
+      "decision": "collapse-parent-detail",
+      "review_status": "accepted",
+      "rationale": "The two labels are duplicate formulations of one sovereignty claim, not separate historical events."
+    },
+    {
+      "decision_id": "FR-REV-20260724-003",
+      "source_id": "SRC-FR-153",
+      "canonical_reference_key": "renaissance-knowledge",
+      "canonical_label": "Renaissance transmission of Greek and Roman knowledge",
+      "occurrence_ids": [
+        "FR-O-153-renaissance-knowledge-0001",
+        "FR-O-153-renaissance-greek-roman-transmission-0001"
+      ],
+      "decision": "collapse-parent-detail",
+      "review_status": "accepted",
+      "rationale": "The two records identify the same knowledge-transfer reference; keep the shared canonical label."
+    },
+    {
+      "decision_id": "FR-REV-20260724-004",
+      "source_id": "SRC-FR-153",
+      "canonical_reference_key": "roger-of-sicily",
+      "canonical_label": "Roger of Sicily and Arabic-Latin translation",
+      "occurrence_ids": [
+        "FR-O-153-roger-of-sicily-0001",
+        "FR-O-153-roger-sicily-translation-0001"
+      ],
+      "decision": "collapse-parent-detail",
+      "review_status": "accepted",
+      "rationale": "The two records are spelling/wording variants for one Roger of Sicily knowledge-transfer reference."
+    },
+    {
+      "decision_id": "FR-REV-20260724-005",
+      "source_id": "SRC-FR-153",
+      "canonical_reference_key": "timur",
+      "canonical_label": "Timur / Tamerlane and imperial memory",
+      "occurrence_ids": [
+        "FR-O-153-timur-0001",
+        "FR-O-153-timur-imperial-memory-0001"
+      ],
+      "decision": "collapse-parent-detail",
+      "review_status": "accepted",
+      "rationale": "The two records refer to the same Timur/Tamerlane historical-memory reference; retain the more specific canonical label."
+    }
+  ]
+}

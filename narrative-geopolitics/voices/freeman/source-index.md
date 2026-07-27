@@ -4,7 +4,7 @@ This index routes the unified local Freeman corpus for `freeman` to the central 
 
 Source basis: `strategy-codex/statecraft/voices/freeman/freeman-index.md` plus already-local matching archive rows.
 
-Corpus: 152 local route rows across 152 central archive source files.
+Corpus: 154 local route rows across 154 central archive source files.
 
 Status: `imported-corpus`
 
@@ -171,6 +171,8 @@ Status: `imported-corpus`
 | `2026-06-29` | Chas Freeman: U.S. & Iran Resume War; Israel Attempts to Instigate Civil War in Lebanon | `host-pressure test` | `glenn-diesen` | [source](../../archive/sources/2026-06-29/source-glenn-diesen-chas-freeman-us-iran-resume-war-israel-lebanon-civil-war-2026-06-29.md) |
 | `2026-06-30` | AMB. Chas Freeman: Can Trump Save Lebanon? | `host-pressure test` | `judging-freedom` | [source](../../archive/sources/2026-06-30/source-judging-freedom-freeman-can-trump-save-lebanon-2026-06-30.md) |
 | `2026-07-13` | Chas Freeman: All-Out War With Iran & Dark Future for Israel | `host-pressure test` | `glenn-diesen` | [source](../../archive/sources/2026-07-13/source-chas-freeman-all-out-war-with-iran-dark-future-for-israel-2026-07-13.md) |
+| `2026-07-24` | Amb. Chas Freeman: Iran Warns of Regional Blackouts After Trump Threatens to Bomb Its Infrastructure | `host-pressure test` | `dialogue-works` | [source](../../archive/sources/2026-07-24/source-amb-chas-freeman-iran-warns-of-regional-blackouts-after-trump-threatens-to-bomb-its-infrastructure-2026-07-24.md) |
+| `2026-07-24` | Pointless Violence & Fake Diplomacy: US Strategy in Iran / Chas Freeman & Lt Col Daniel Davis | `host-pressure test` | `daniel-davis` | [source](../../archive/sources/2026-07-24/source-pointless-violence-fake-diplomacy-us-strategy-in-iran-chas-freeman-lt-col-daniel-davis-2026-07-24.md) |
 
 ## Import Boundary
 
