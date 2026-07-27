@@ -4,7 +4,7 @@ This index routes the transcript-bearing upstream-parity corpus for `mercouris` 
 
 Source basis: `strategy-codex/statecraft/voices/mercouris/mercouris-index.md`, `strategy-codex/statecraft/channels/alexander-mercouris/alexander-mercouris-channel-index.md`, and subsequent local intake.
 
-Corpus: 359 local route rows across 359 central archive source files.
+Corpus: 364 local route rows across 364 central archive source files.
 
 Status: `transcript-bearing-upstream-parity`
 
@@ -30,7 +30,7 @@ Status: `transcript-bearing-upstream-parity`
 | `2025-01-10` | Putiin Trump Summit Coming; EU Frets Trump Will Cancel Sanctions; Zelensky Wants NATO Troops | `provisional-route` | `alexander-mercouris` | [source](../../archive/sources/2025-01-10/source-alexander-mercouris-putiin-trump-summit-coming-eu-frets-trump-will-cancel-sanctions-zelensky-2025-01-10.md) |
 | `2025-01-16` | The Duran's Alexander Mercouris NATO Preparing for WAR w RUSSIA | `cross-host pressure test` | `daniel-davis` | [source](../../archive/sources/2025-01-16/source-daniel-davis-the-duran-s-alexander-mercouris-nato-preparing-for-war-w-russia-2025-01-16.md) |
 | `2025-01-20` | Trump President, Biden Blinken Exit; Russia China Summits; Zelensky Fumes, Starmer Out | `provisional-route` | `alexander-mercouris` | [source](../../archive/sources/2025-01-20/source-alexander-mercouris-trump-president-biden-blinken-exit-russia-china-summits-zelensky-fumes-s-2025-01-20.md) |
-| `2025-02-07` | The Duran / Alexander Mercouris - Trump's Ukraine dilemma, escalate or walk away | `stream-sequence spine` | `the-duran` | [source](../../archive/sources/2025-02-07/source-duran-mercouris-trumps-ukraine-dilemma-escalate-or-walk-away-2025-02-07.md) |
+| `2025-02-07` | The Duran / Alexander Mercouris - Trump's Ukraine dilemma, escalate or walk away | `stream-sequence spine` | `alexander-mercouris` | [source](../../archive/sources/2025-02-07/source-duran-mercouris-trumps-ukraine-dilemma-escalate-or-walk-away-2025-02-07.md) |
 | `2025-02-10` | Trump Confirms Putin Call; Putin Firm 4 Regions Russian: Ukraine Kursk Disaster; EU Gas Prices Surge | `provisional-route` | `alexander-mercouris` | [source](../../archive/sources/2025-02-10/source-alexander-mercouris-trump-confirms-putin-call-putin-firm-4-regions-russian-ukraine-kursk-disaster-eu-gas-prices-surge-2025-02-10.md) |
 | `2025-02-10` | The Duran / Alexander Mercouris - US carrot and stick offer to Russia | `stream-sequence spine` | `the-duran` | [source](../../archive/sources/2025-02-10/source-duran-mercouris-us-carrot-and-stick-offer-to-russia-2025-02-10.md) |
 | `2025-02-15` | Trump To Force Ukraine Peace on Europe - John Mearsheimer, Alexander Mercouris & Glenn Diesen | `cross-host pressure test` | `glenn-diesen` | [source](../../archive/sources/2025-02-15/source-diesen-mearsheimer-mercouris-trump-to-force-ukraine-peace-on-europe-2025-02-15.md) |
@@ -383,6 +383,11 @@ Status: `transcript-bearing-upstream-parity`
 | `2026-07-21` | Russia Destroys Odessa Ships Brushes Off Protests; Russia Fuel Situation Stabilises; Syrsky Survives | `provisional-route` | `alexander-mercouris` | [source](../../archive/sources/2026-07-21/source-russia-destroys-odessa-ships-brushes-off-protests-russia-fuel-situation-stabilises-syrsky-survives-2026-07-21.md) |
 | `2026-07-22` | Russia Strikes Odessa 24/7 Reaches Kramatorsk; Zelensky Panics Sacks Syrsky; EU Short Of Winter Gas | `provisional-route` | `alexander-mercouris` | [source](../../archive/sources/2026-07-22/source-russia-strikes-odessa-24-7-reaches-kramatorsk-zelensky-panics-sacks-syrsky-eu-short-of-winter-gas-2026-07-22.md) |
 | `2026-07-23` | Lavrov Defies Rubio; West Ships Avoid Odessa Belitskoye Falls Dobropilia Collapse; EU Sanctions Bust | `provisional-route` | `alexander-mercouris` | [source](../../archive/sources/2026-07-23/source-lavrov-defies-rubio-west-ships-avoid-odessa-belitskoye-falls-dobropilia-collapse-eu-sanctions-bust-2026-07-23.md) |
+| `2026-07-24` | Alexander Mercouris: NATO Will Soon Panic & Risk War with Russia | `host-pressure test` | `glenn-diesen` | [source](../../archive/sources/2026-07-24/source-alexander-mercouris-nato-will-soon-panic-risk-war-with-russia-2026-07-24.md) |
+| `2026-07-24` | Russian Odessa Blockade Causes Kiev Panic; Big Russian Strike Rocks Kiev; Ukraine Chases Wildberries | `provisional-route` | `alexander-mercouris` | [source](../../archive/sources/2026-07-24/source-russian-odessa-blockade-causes-kiev-panic-big-russian-strike-rocks-kiev-ukraine-chases-wildberries-2026-07-24.md) |
+| `2026-07-25` | Black Sea Now Russian Lake, West's Grain Gamble Backfired | `host-pressure test` | `the-duran` | [source](../../archive/sources/2026-07-25/source-black-sea-now-russian-lake-west-s-grain-gamble-backfired-2026-07-25.md) |
+| `2026-07-25` | Russia Strike Smashes Kiev Drone Fair Zelensky Angry; US Orders Kiev Stop Black Sea Attacks; Kharkov | `host-pressure test` | `the-duran` | [source](../../archive/sources/2026-07-25/source-russia-strike-smashes-kiev-drone-fair-zelensky-angry-us-orders-kiev-stop-black-sea-attacks-kharkov-2026-07-25.md) |
+| `2026-07-26` | Russian FAB Bombs Shatter Odessa; More Kiev Strikes Top Kiev Officials Killed; Russia Says NO Truce | `provisional-route` | `alexander-mercouris` | [source](../../archive/sources/2026-07-26/source-russian-fab-bombs-shatter-odessa-more-kiev-strikes-top-kiev-officials-killed-russia-says-no-truce-2026-07-26.md) |
 
 ## State Continuity
 

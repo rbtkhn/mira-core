@@ -4,7 +4,7 @@ This index routes the imported first-slice parity corpus for `johnson` to the ce
 
 Source basis: `narrative-geopolitics/archive/source-manifest.json`.
 
-Corpus: 102 local route rows across 102 central archive source files.
+Corpus: 105 local route rows across 105 central archive source files.
 
 Status: `first-slice-parity`
 
@@ -126,6 +126,9 @@ Status: `first-slice-parity`
 | `2026-07-20` | Larry Johnson: US Running Out of Ammo | `host-pressure test` | `judging-freedom` | [source](../../archive/sources/2026-07-20/source-larry-johnson-us-running-out-of-ammo-2026-07-20.md) |
 | `2026-07-21` | BREAKING: TRUMP TO BOMB IRAN'S NUCLEAR CENTRIFUGES - w/ Fmr. CIA Larry Johnson | `host-pressure test` | `mario-nawfal` | [source](../../archive/sources/2026-07-21/source-breaking-trump-to-bomb-iran-s-nuclear-centrifuges-w-fmr-cia-larry-johnson-2026-07-21.md) |
 | `2026-07-23` | Larry Johnson: BREAKING: Iran Rejects U.S. Offer as Trump Weighs Massive Military Strike | `host-pressure test` | `dialogue-works` | [source](../../archive/sources/2026-07-23/source-larry-johnson-breaking-iran-rejects-u-s-offer-as-trump-weighs-massive-military-strike-2026-07-23.md) |
+| `2026-07-24` | BREAKING: TRUMP BOMBING IRAN NOW AFTER IRAN REFUSES OFF-RAMP - w/ Larry Johnson | `host-pressure test` | `mario-nawfal` | [source](../../archive/sources/2026-07-24/source-breaking-trump-bombing-iran-now-after-iran-refuses-off-ramp-w-larry-johnson-2026-07-24.md) |
+| `2026-07-25` | Larry Johnson: Yemen SLAMS Saudi Oil as Iran and the US Prepare for MASSIVE MOVES | `host-pressure test` | `dialogue-works` | [source](../../archive/sources/2026-07-25/source-larry-johnson-yemen-slams-saudi-oil-as-iran-and-the-us-prepare-for-massive-moves-2026-07-25.md) |
+| `2026-07-26` | UKRAINE THREATEN TO BLOW UP IRANIAN CITIES, IRAN TO RETALIATE AGAINST UKRAINE w/ CIA Larry Johnson | `host-pressure test` | `moral-resistance` | [source](../../archive/sources/2026-07-26/source-ukraine-threaten-to-blow-up-iranian-cities-iran-to-retaliate-against-ukraine-w-cia-larry-johnson-2026-07-26.md) |
 
 ## State Continuity
 

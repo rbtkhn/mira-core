@@ -4,7 +4,7 @@ This index routes the unified local McGovern corpus for `mcgovern` to the centra
 
 Source basis: `strategy-codex/statecraft/voices/mcgovern/mcgovern-index.md` plus already-local matching archive rows.
 
-Corpus: 29 local route rows across 29 central archive source files.
+Corpus: 30 local route rows across 30 central archive source files.
 
 Status: `imported-corpus`
 
@@ -48,6 +48,7 @@ Status: `imported-corpus`
 | `2026-06-27` | Ray McGovern: Iran's Missiles Force US Retreat: Bases Moving West to Escape Attacks | `host-pressure test` | `dialogue-works` | [source](../../archive/sources/2026-06-27/source-dialogue-works-ray-mcgovern-iran-missiles-force-us-retreat-bases-moving-west-escape-attacks-2026-06-27.md) |
 | `2026-06-29` | Ray McGovern: Can Zelensky Goad Putin to Overact? | `host-pressure test` | `judging-freedom` | [source](../../archive/sources/2026-06-29/source-judging-freedom-mcgovern-zelensky-goad-putin-overact-2026-06-29.md) |
 | `2026-07-19` | Ray McGovern: Iran's Precision Strikes on Jordan Send Shockwaves Across the Gulf | `host-pressure test` | `dialogue-works` | [source](../../archive/sources/2026-07-19/source-ray-mcgovern-iran-s-precision-strikes-on-jordan-send-shockwaves-across-the-gulf-2026-07-19.md) |
+| `2026-07-26` | Ray McGovern: Yemen Strikes on Saudi Are Rocking Across the Gulf | `host-pressure test` | `dialogue-works` | [source](../../archive/sources/2026-07-26/source-ray-mcgovern-yemen-strikes-on-saudi-are-rocking-across-the-gulf-2026-07-26.md) |
 
 ## Import Boundary
 

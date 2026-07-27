@@ -4,7 +4,7 @@ This index routes the unified local Weichert corpus for `weichert` to the centra
 
 Source basis: `strategy-codex/statecraft/voices/weichert/weichert-index.md`.
 
-Corpus: 20 local route rows across 20 central archive source files.
+Corpus: 22 local route rows across 22 central archive source files.
 
 Status: `imported-corpus`
 
@@ -39,6 +39,8 @@ Status: `imported-corpus`
 | `2026-07-12` | BREAKING: U.S. HEAVILY BOMBING IRAN NOW â€“ w/ Geopolitical Analyst Brandon Weichert | `guest interview pressure test` | `mario-nawfal` | [source](../../archive/sources/2026-07-12/source-breaking-u-s-heavily-bombing-iran-now-w-geopolitical-analyst-brandon-weichert-2026-07-12.md) |
 | `2026-07-20` | U.S OUT OF OIL, YEMENI HOUTHIS CLOSE BAB EL MANDAB, GROUND INVASION? w/ BRANDON WEICHERT | `guest interview pressure test` | `moral-resistance` | [source](../../archive/sources/2026-07-20/source-u-s-out-of-oil-yemeni-houthis-close-bab-el-mandab-ground-invasion-w-brandon-weichert-2026-07-20.md) |
 | `2026-07-22` | We Are Preparing for ALL OUT WAR: A Ground War Is Coming to Iran | `host-pressure test` | `redacted-news` | [source](../../archive/sources/2026-07-22/source-we-are-preparing-for-all-out-war-a-ground-war-is-coming-to-iran-2026-07-22.md) |
+| `2026-07-25` | TRUMP PREPARING "MASSIVE ATTACK" ON IRAN NEXT WEEK - w/ Brandon Weichert | `host-pressure test` | `mario-nawfal` | [source](../../archive/sources/2026-07-25/source-trump-preparing-massive-attack-on-iran-next-week-w-brandon-weichert-2026-07-25.md) |
+| `2026-07-26` | IRAN READY FOR U.S GROUND INVASION, WAR WILL RESUME SOON w/ BRANDON WEICHERT | `host-pressure test` | `moral-resistance` | [source](../../archive/sources/2026-07-26/source-iran-ready-for-u-s-ground-invasion-war-will-resume-soon-w-brandon-weichert-2026-07-26.md) |
 
 ## Import Boundary
 

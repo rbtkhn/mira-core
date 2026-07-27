@@ -4,7 +4,7 @@ This index routes the imported first-slice parity corpus for `davis` to the cent
 
 Source basis: `strategy-codex/statecraft/voices/davis/davis-index.md`.
 
-Corpus: 101 local route rows across 101 central archive source files.
+Corpus: 102 local route rows across 102 central archive source files.
 
 Status: `first-slice-parity`
 
@@ -125,6 +125,7 @@ Status: `first-slice-parity`
 | `2026-07-22` | America's Own Words Coming Back to Haunt Them / Prof Seyed Marandi | `host-pressure test` | `daniel-davis` | [source](../../archive/sources/2026-07-22/source-america-s-own-words-coming-back-to-haunt-them-prof-seyed-marandi-2026-07-22.md) |
 | `2026-07-22` | Breaking: Zelensky Pushes Out Gen Syrsky in Major Shakeup | `host-pressure test` | `daniel-davis` | [source](../../archive/sources/2026-07-22/source-breaking-zelensky-pushes-out-gen-syrsky-in-major-shakeup-2026-07-22.md) |
 | `2026-07-22` | Trump Threatens Iran Civilian Targets / Larry Johnson & LT Col Daniel Davis | `host-pressure test` | `daniel-davis` | [source](../../archive/sources/2026-07-22/source-trump-threatens-iran-civilian-targets-larry-johnson-lt-col-daniel-davis-2026-07-22.md) |
+| `2026-07-26` | Trump All-Out War Against Iran Guarantees Defeat - of America /Lt Col Daniel Davis | `host-pressure test` | `daniel-davis` | [source](../../archive/sources/2026-07-26/source-trump-all-out-war-against-iran-guarantees-defeat-of-america-lt-col-daniel-davis-2026-07-26.md) |
 
 ## June 2026 Expansion
 
