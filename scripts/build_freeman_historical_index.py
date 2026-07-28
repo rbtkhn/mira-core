@@ -15,6 +15,7 @@ OUTPUT_PATH = NG_ROOT / "voices" / "freeman" / "historical-references.md"
 MECHANISM_REGISTRY_PATH = NG_ROOT / "voices" / "freeman" / "mechanism-registry.json"
 MECHANISM_REVIEW_PATH = NG_ROOT / "voices" / "freeman" / "mechanism-review.json"
 REVIEW_DECISIONS_PATH = NG_ROOT / "voices" / "freeman" / "historical-reference-review-decisions.json"
+MANUAL_TURN_REVIEW_PATH = NG_ROOT / "work" / "historical-reference" / "july24-manual-turn-review.json"
 MECHANISM_VERSION = "1.0"
 
 
@@ -245,6 +246,35 @@ def load_review_decisions() -> dict[str, dict]:
     return decisions
 
 
+def load_manual_turn_review() -> dict[str, dict]:
+    if not MANUAL_TURN_REVIEW_PATH.is_file():
+        return {}
+    payload = json.loads(MANUAL_TURN_REVIEW_PATH.read_text(encoding="utf-8"))
+    return {item["occurrence_id"]: item for item in payload.get("decisions", [])}
+
+
+def apply_manual_turn_review(occurrences: list[dict]) -> tuple[list[dict], list[dict]]:
+    decisions = load_manual_turn_review()
+    kept: list[dict] = []
+    rejected: list[dict] = []
+    for occurrence in occurrences:
+        decision = decisions.get(occurrence["occurrence_id"])
+        if not decision:
+            kept.append(occurrence)
+            continue
+        occurrence["manual_review_status"] = decision["decision"]
+        occurrence["manual_speaker"] = decision.get("speaker")
+        occurrence["manual_raw_lines"] = decision.get("raw_lines", "")
+        occurrence["manual_evidence"] = decision.get("evidence", "")
+        if decision["decision"] == "accepted":
+            occurrence["confidence"] = "manual-accepted"
+            occurrence["note"] = "Manual turn review: Chas Freeman attribution accepted; " + decision.get("evidence", "")
+            kept.append(occurrence)
+        else:
+            rejected.append(occurrence)
+    return kept, rejected
+
+
 def apply_review_decisions(occurrences: list[dict]) -> list[dict]:
     decisions = load_review_decisions()
     for occurrence in occurrences:
@@ -260,7 +290,7 @@ def apply_review_decisions(occurrences: list[dict]) -> list[dict]:
     return occurrences
 
 
-def structured_ledger(rows: list[dict], occurrences: list[dict], coverage: list[str], review: dict) -> dict:
+def structured_ledger(rows: list[dict], occurrences: list[dict], rejected: list[dict], coverage: list[str], review: dict) -> dict:
     return {
         "schema_version": 1,
         "taxonomy_version": "shared-reference-rules-1",
@@ -268,6 +298,14 @@ def structured_ledger(rows: list[dict], occurrences: list[dict], coverage: list[
         "voice": "freeman",
         "sources_scanned": len(rows),
         "coverage": coverage,
+        "manual_turn_review": {
+            "accepted_count": sum(1 for item in occurrences if item.get("manual_review_status") == "accepted"),
+            "rejected_count": len(rejected),
+            "rejected_occurrences": [
+                {key: value for key, value in item.items() if key != "rule"} | {"reference_key": item["rule"].key, "reference": item["rule"].label}
+                for item in rejected
+            ],
+        },
         "occurrences": [
             {key: value for key, value in occurrence.items() if key != "rule"} | {"reference_key": occurrence["rule"].key, "reference": occurrence["rule"].label}
             for occurrence in occurrences
@@ -279,6 +317,7 @@ def structured_ledger(rows: list[dict], occurrences: list[dict], coverage: list[
 def render() -> str:
     rows = source_rows()
     occurrences, coverage = build_occurrences()
+    occurrences, rejected = apply_manual_turn_review(occurrences)
     apply_review_decisions(occurrences)
     grouped: dict[str, list[dict]] = defaultdict(list)
     for occurrence in occurrences:
@@ -302,6 +341,7 @@ def render() -> str:
         "- Scope: references attributable to Freeman; host-only references are excluded unless Freeman adopts or develops them.",
         "- `direct` means a speaker label is present; `strong-inferred` means the transcript turn supports attribution; `provisional` means attribution requires later review.",
         "- Source transcripts may be operator-pasted or ASR-derived. Quotes are not human-verified by this index.",
+        f"- Manual turn review applied to July 24 sources: **{sum(1 for item in occurrences if item.get('manual_review_status') == 'accepted')} accepted**, **{len(rejected)} rejected**; rejected candidates remain in the structured ledger and are excluded from the Freeman index.",
         "",
         "## Reference index",
         "",
@@ -332,6 +372,7 @@ def render() -> str:
                 f"- Source: `{occurrence['source_id']}` · host/channel `{occurrence['host']}` · [archive source](../../archive/{occurrence['path'].split('archive/', 1)[-1]})",
                 f"- Domain: `{historical_domain(rule)}` · function: `{occurrence['function']}` · Freeman question: `{repertoire_question(rule)}`",
                 f"- Attribution: `{occurrence['confidence']}` ({occurrence['note']})",
+                *( [f"- Manual turn review: `{occurrence['manual_review_status']}` · speaker `{occurrence['manual_speaker']}` · raw lines `{occurrence['manual_raw_lines']}`"] if occurrence.get("manual_review_status") else [] ),
                 f"- Quote: “{occurrence['quote']}”",
                 "",
             ]
@@ -340,6 +381,9 @@ def render() -> str:
     for occurrence in sorted(occurrences, key=lambda item: item["occurrence_id"]):
         suggestions = ", ".join(f"`{item['id']}` {item['name']} ({item['basis']}{': ' + ', '.join(item['evidence_terms']) if item['evidence_terms'] else ''})" for item in occurrence["mechanism_suggestions"]) or "none"
         lines.append(f"- `{occurrence['occurrence_id']}` · `{occurrence['source_id']}` · `{occurrence['rule'].key}` · {suggestions}")
+    lines += ["", "## Manual turn review exclusions", "", "Rejected candidates are retained in the structured ledger for audit but excluded from Freeman-attributed index counts.", ""]
+    for occurrence in rejected:
+        lines.append(f"- `{occurrence['occurrence_id']}` · `{occurrence['source_id']}` · `{occurrence['rule'].key}` · speaker `{occurrence.get('manual_speaker') or 'unresolved'}` · raw lines `{occurrence.get('manual_raw_lines', '')}` · {occurrence.get('manual_evidence', '')}")
     lines += ["", "## Confirmed Freeman mechanisms", "", "Confirmed mechanisms require explicit operator review and preserve an evidence chain to occurrence IDs and archive sources.", ""]
     confirmed = load_mechanism_review().get("confirmed", [])
     if confirmed:
@@ -367,11 +411,12 @@ def main() -> int:
         args.output.write_text(rendered, encoding="utf-8", newline="\n")
         rows = source_rows()
         occurrences, coverage = build_occurrences()
+        occurrences, rejected = apply_manual_turn_review(occurrences)
         apply_review_decisions(occurrences)
         review = load_mechanism_review()
         MECHANISM_REGISTRY_PATH.write_text(json.dumps({"version": MECHANISM_VERSION, "mechanisms": list(MECHANISMS)}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
         MECHANISM_REVIEW_PATH.write_text(json.dumps(review, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
-        args.output.with_suffix(".json").write_text(json.dumps(structured_ledger(rows, occurrences, coverage, review), ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
+        args.output.with_suffix(".json").write_text(json.dumps(structured_ledger(rows, occurrences, rejected, coverage, review), ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
         print(f"Wrote {args.output.relative_to(REPO_ROOT).as_posix()}")
     return 0
 

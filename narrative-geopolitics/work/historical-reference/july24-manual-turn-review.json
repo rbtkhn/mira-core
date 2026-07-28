@@ -1,0 +1,96 @@
+{
+  "kind": "manual-turn-review-v1",
+  "reviewed_by": "codex",
+  "reviewed_at": "2026-07-27",
+  "scope": ["SRC-FR-153", "SRC-FR-154"],
+  "decisions": [
+    {
+      "occurrence_id": "FR-O-153-cuba-embargo-0001",
+      "source_id": "SRC-FR-153",
+      "speaker": "Chas Freeman",
+      "raw_lines": "120",
+      "decision": "accepted",
+      "evidence": "the embargo on Cuba where only two countries voted to sustain it"
+    },
+    {
+      "occurrence_id": "FR-O-153-iranian-revolution-0001",
+      "source_id": "SRC-FR-153",
+      "speaker": "Chas Freeman",
+      "raw_lines": "122-123",
+      "decision": "accepted",
+      "evidence": "this is like the Islamic revolution in Iran. It disrupted everything"
+    },
+    {
+      "occurrence_id": "FR-O-153-iraq-war-0001",
+      "source_id": "SRC-FR-153",
+      "speaker": "Chas Freeman",
+      "raw_lines": "96-97",
+      "decision": "rejected",
+      "evidence": "Iraq/Kuwait independence discussion is not a 2003 Iraq War reference"
+    },
+    {
+      "occurrence_id": "FR-O-153-jcpoa-0001",
+      "source_id": "SRC-FR-153",
+      "speaker": null,
+      "raw_lines": "49-50",
+      "decision": "rejected",
+      "evidence": "Saudi nuclear deal discussion; no explicit JCPOA reference in a Freeman turn"
+    },
+    {
+      "occurrence_id": "FR-O-153-kuwait-liberation-0001",
+      "source_id": "SRC-FR-153",
+      "speaker": "Chas Freeman",
+      "raw_lines": "96-97",
+      "decision": "accepted",
+      "evidence": "We liberated it from Iraq when Saddam Hussein annexed it"
+    },
+    {
+      "occurrence_id": "FR-O-153-october-7-0001",
+      "source_id": "SRC-FR-153",
+      "speaker": "Nima Alkhorshid",
+      "raw_lines": "105",
+      "decision": "rejected",
+      "evidence": "October 7 occurs in the host's Netanyahu question/continuation"
+    },
+    {
+      "occurrence_id": "FR-O-153-renaissance-knowledge-0001",
+      "source_id": "SRC-FR-153",
+      "speaker": "Chas Freeman",
+      "raw_lines": "111-113",
+      "decision": "accepted",
+      "evidence": "the Renaissance, which was sparked by the return of Greek and Roman knowledge"
+    },
+    {
+      "occurrence_id": "FR-O-154-bay-of-pigs-0002",
+      "source_id": "SRC-FR-154",
+      "speaker": "Chas Freeman",
+      "raw_lines": "148",
+      "decision": "accepted",
+      "evidence": "the Castro regime might not have survived in Cuba if we hadn't run the Bay of Pigs"
+    },
+    {
+      "occurrence_id": "FR-O-154-iraq-war-0002",
+      "source_id": "SRC-FR-154",
+      "speaker": null,
+      "raw_lines": "44-48",
+      "decision": "rejected",
+      "evidence": "the reviewed candidate does not contain a Freeman-attributed 2003 Iraq War reference"
+    },
+    {
+      "occurrence_id": "FR-O-154-jcpoa-0002",
+      "source_id": "SRC-FR-154",
+      "speaker": "Daniel Davis",
+      "raw_lines": "70",
+      "decision": "rejected",
+      "evidence": "the explicit JCPOA mention is in host Daniel Davis's turn"
+    },
+    {
+      "occurrence_id": "FR-O-154-nixon-kissinger-0002",
+      "source_id": "SRC-FR-154",
+      "speaker": "Chas Freeman",
+      "raw_lines": "97",
+      "decision": "accepted",
+      "evidence": "Henry Kissinger's famous remark that to be an enemy of the United States is a problem"
+    }
+  ]
+}
