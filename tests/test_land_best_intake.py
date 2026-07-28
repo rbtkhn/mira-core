@@ -1509,6 +1509,10 @@ def test_preflight_reports_video_identity_and_duplicate_warning(monkeypatch, tmp
     assert row["video_id"] == "abc123XYZ_1"
     assert row["duplicate"] is True
     assert "already-landed-identity" in row["warnings"]
+    assert receipt["outcome_metrics"]["attempted_sources"] == 1
+    assert receipt["outcome_metrics"]["warning_events"] == 1
+    assert receipt["outcome_metrics"]["duplicate_stops"] == 1
+    assert receipt["outcome_metrics"]["correction_signal_events"] == 0
 
 
 def test_manifest_row_carries_identity_and_date_basis() -> None:

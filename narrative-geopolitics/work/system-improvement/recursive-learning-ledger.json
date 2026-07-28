@@ -1,0 +1,217 @@
+{
+  "ledger_id": "narrative-systems-recursive-learning-ledger-v1",
+  "status": "internal-canonical",
+  "canonical_source": "recursive-learning-ledger.json",
+  "generated_markdown": "recursive-learning-ledger.md",
+  "scope_note": "Evidence-backed changes to how Narrative Systems observes, evaluates, or improves its own behavior. This ledger is process evidence, never research evidence.",
+  "allowed_classes": [
+    "closed-feedback-loop",
+    "recursive-governance",
+    "partial-feedback-loop"
+  ],
+  "allowed_closure_states": [
+    "validated",
+    "measured",
+    "partial",
+    "superseded"
+  ],
+  "entries": [
+    {
+      "id": "RSI-20260725-01",
+      "date": "2026-07-25",
+      "title": "Speaker labeling learns from corpus-scale turn structure",
+      "class": "closed-feedback-loop",
+      "closure_state": "validated",
+      "observation": {
+        "summary": "A 20-excerpt pilot passed its attribution threshold and authorized a 400-source expansion; the expanded derived corpus then exposed repeated same-speaker labels and paragraph boundaries being treated as turns.",
+        "evidence_paths": [
+          "narrative-geopolitics/archive/derived/speaker-labeled/qa-results.md",
+          "narrative-geopolitics/archive/derived/speaker-labeled/audit.json"
+        ]
+      },
+      "diagnosis": {
+        "summary": "The labeler needed to distinguish continuous solo speech from speaker changes and suppress duplicate labels on consecutive blocks by the same explicit speaker.",
+        "evidence_paths": [
+          "scripts/speaker_label_corpus.py"
+        ]
+      },
+      "intervention": {
+        "summary": "The transformation now emits one continuous label for solo sources, carries the last explicit speaker across adjacent blocks, and regenerates affected derived transcripts.",
+        "commits": [
+          "2755649",
+          "6ecf4dd",
+          "577bb91"
+        ],
+        "evidence_paths": [
+          "scripts/speaker_label_corpus.py",
+          "narrative-geopolitics/archive/derived/speaker-labeled/pilot-manifest.json"
+        ]
+      },
+      "validation": {
+        "summary": "Regression tests exercise continuous solo bodies and consecutive explicit turns by the same speaker.",
+        "evidence_paths": [
+          "tests/test_speaker_label_corpus.py"
+        ]
+      },
+      "outcome": {
+        "summary": "The repair was applied across 253 derived files and is regression-protected. A new post-repair human excerpt sample has not yet been recorded.",
+        "measure": "253 derived files regenerated; post-repair manual QA rate pending.",
+        "evidence_paths": [
+          "narrative-geopolitics/archive/derived/speaker-labeled/audit.json",
+          "tests/test_speaker_label_corpus.py"
+        ]
+      },
+      "next_measure": "Repeat the 20-excerpt human QA sample on repaired output and compare accepted attribution and turn-boundary rates with the pilot."
+    },
+    {
+      "id": "RSI-20260727-01",
+      "date": "2026-07-27",
+      "title": "Historical-reference review becomes detector control data",
+      "class": "closed-feedback-loop",
+      "closure_state": "validated",
+      "observation": {
+        "summary": "The historical-reference detector produced a review queue containing host-only, wrong-event, and uncertain speaker attributions alongside voice-supported candidates.",
+        "evidence_paths": [
+          "narrative-geopolitics/analytics/historical-reference-review-queue.md",
+          "narrative-geopolitics/voices/freeman/historical-references.json"
+        ]
+      },
+      "diagnosis": {
+        "summary": "Reference matching alone could not safely attribute every occurrence to the routed voice; turn-level review decisions needed to survive regeneration.",
+        "evidence_paths": [
+          "narrative-geopolitics/work/historical-reference/july24-manual-turn-review.json"
+        ]
+      },
+      "intervention": {
+        "summary": "Manual accepted and rejected occurrence decisions became structured inputs to the Freeman index builder; rejected candidates remain auditable but no longer contribute to voice-attributed counts.",
+        "commits": [
+          "16c6c38",
+          "5c79b7c",
+          "91264e4"
+        ],
+        "evidence_paths": [
+          "scripts/build_freeman_historical_index.py",
+          "narrative-geopolitics/work/historical-reference/july24-manual-turn-review.json"
+        ]
+      },
+      "validation": {
+        "summary": "Tests preserve the separation among provisional suggestions, confirmed mechanisms, accepted occurrences, and rejected occurrences in the structured ledger.",
+        "evidence_paths": [
+          "tests/test_freeman_mechanisms.py",
+          "tests/test_freeman_historical_index.py"
+        ]
+      },
+      "outcome": {
+        "summary": "Eleven July 24 candidates were reviewed: six accepted and five rejected. Subsequent index generation consumes those decisions and retains rejection lineage.",
+        "measure": "6 accepted and 5 rejected manual turn decisions integrated.",
+        "evidence_paths": [
+          "narrative-geopolitics/work/historical-reference/july24-manual-turn-review.json",
+          "narrative-geopolitics/voices/freeman/historical-references.json"
+        ]
+      },
+      "next_measure": "Apply the same reviewed-decision path to another voice and compare provisional-attribution and rejection rates."
+    },
+    {
+      "id": "RSI-20260721-01",
+      "date": "2026-07-21",
+      "title": "Continuity diagnostics become a bounded repair queue",
+      "class": "partial-feedback-loop",
+      "closure_state": "partial",
+      "observation": {
+        "summary": "Repository diagnostics measured repeated narrative framing and surfaced unresolved forecasts, unmapped voice identities, counter-pressure gaps, and missing lineage.",
+        "evidence_paths": [
+          "narrative-geopolitics/work/audits/2026-06-01--2026-07-19-narrative-reuse-baseline.md",
+          "narrative-geopolitics/work/continuity/triage/triage-2026-07.md"
+        ]
+      },
+      "diagnosis": {
+        "summary": "Accumulated archive and synthesis state needed prioritized, bounded attention rather than broad regeneration or an undifferentiated integrity failure.",
+        "evidence_paths": [
+          "narrative-geopolitics/work/continuity/triage/triage-2026-07.md"
+        ]
+      },
+      "intervention": {
+        "summary": "Continuity triage, longitudinal accountability, and cadence contracts converted diagnostic state into explicit next actions and executable boundaries.",
+        "commits": [
+          "1e4de96",
+          "e9dffff",
+          "f77cd11",
+          "0b697ce"
+        ],
+        "evidence_paths": [
+          "scripts/continuity.py",
+          "scripts/cadence_contracts.py",
+          "narrative-geopolitics/work/continuity/longitudinal/longitudinal-accountability-2026-07.md"
+        ]
+      },
+      "validation": {
+        "summary": "Continuity and cadence tests exercise deterministic triage and bounded validator results.",
+        "evidence_paths": [
+          "tests/test_continuity.py",
+          "tests/test_cadence_results.py"
+        ]
+      },
+      "outcome": {
+        "summary": "The repository now produces bounded attention queues, but no post-intervention rerun yet demonstrates reduced repetition or closure of the identified continuity gaps.",
+        "measure": "Baseline exists; comparable post-intervention measurement pending.",
+        "evidence_paths": [
+          "narrative-geopolitics/work/audits/2026-06-01--2026-07-19-narrative-reuse-baseline.md",
+          "narrative-geopolitics/work/continuity/triage/triage-2026-07.md"
+        ]
+      },
+      "next_measure": "Rerun narrative reuse and continuity triage over a later matched window and record which baseline gaps closed, persisted, or worsened."
+    },
+    {
+      "id": "RSI-20260727-02",
+      "date": "2026-07-27",
+      "title": "Intake hardening accumulates production lessons",
+      "class": "partial-feedback-loop",
+      "closure_state": "partial",
+      "observation": {
+        "summary": "Repeated intake work exposed ambiguous titles and dates, duplicate identity risk, provisional routing, and operator confusion between implementation names and the canonical front door.",
+        "evidence_paths": [
+          "narrative-geopolitics/method/best-intake.md",
+          "docs/skill-drafts/smart-intake/SKILL.md"
+        ]
+      },
+      "diagnosis": {
+        "summary": "Landing needed inspectable provenance and duplicate identity before writes, while the operator-facing command needed one stable route.",
+        "evidence_paths": [
+          "narrative-geopolitics/method/best-intake.md"
+        ]
+      },
+      "intervention": {
+        "summary": "The workflow added read-only preflight receipts, canonical source identities, metadata-basis fields, duplicate stops, and a simplified canonical intake front door.",
+        "commits": [
+          "a794919",
+          "467b21c",
+          "80382bd"
+        ],
+        "evidence_paths": [
+          "scripts/land_best_intake.py",
+          "docs/skill-drafts/smart-intake/SKILL.md",
+          "narrative-geopolitics/templates/intake-metadata.md"
+        ]
+      },
+      "validation": {
+        "summary": "Intake and smart-intake tests cover preflight metadata, identity duplication, routing, canonical command behavior, stable outcome counters, and terminal-retry aggregation.",
+        "evidence_paths": [
+          "tests/test_land_best_intake.py",
+          "tests/test_smart_intake.py",
+          "tests/test_intake_outcomes.py"
+        ]
+      },
+      "outcome": {
+        "summary": "The controls now emit stable counters for warnings, duplicate stops, correction signals, successful landings, failures, and terminal retries. A reconstructed July 27 source-state baseline covers 15 landed sources and one correction-signal source; attempt-level duplicate, failure, and retry metrics remain unavailable until saved receipts exist.",
+        "measure": "15 landed sources, 15 unique identities, and 1 correction-signal source; attempt-level baseline pending.",
+        "evidence_paths": [
+          "tests/test_land_best_intake.py",
+          "tests/test_intake_outcomes.py",
+          "scripts/report_intake_outcomes.py",
+          "narrative-geopolitics/work/system-improvement/intake-outcomes/baseline-2026-07-27.json"
+        ]
+      },
+      "next_measure": "Save JSON receipts for the next bounded intake batch and compare its attempt-level warnings, duplicate stops, failures, and retries with this July 27 source-state baseline."
+    }
+  ]
+}

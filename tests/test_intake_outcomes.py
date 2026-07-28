@@ -1,0 +1,99 @@
+from __future__ import annotations
+
+import importlib.util
+from pathlib import Path
+
+
+REPO_ROOT = Path(__file__).resolve().parents[1]
+SCRIPT = REPO_ROOT / "scripts" / "report_intake_outcomes.py"
+SPEC = importlib.util.spec_from_file_location("intake_outcome_tests", SCRIPT)
+assert SPEC and SPEC.loader
+MODULE = importlib.util.module_from_spec(SPEC)
+SPEC.loader.exec_module(MODULE)
+
+
+def receipt(identity: str, disposition: str, **metrics: int) -> dict:
+    values = {
+        "disposition": disposition,
+        "attempted_sources": 1,
+        "warning_sources": 0,
+        "warning_events": 0,
+        "duplicate_stops": 0,
+        "correction_signal_sources": 0,
+        "correction_signal_events": 0,
+        "successful_landings": 0,
+        "failed_attempts": 0,
+    }
+    values.update(metrics)
+    return {
+        "status": disposition,
+        "preflight": {
+            "sources": [{"source_identity": identity}],
+            "outcome_metrics": values,
+        },
+        "outcome_metrics": values,
+    }
+
+
+def test_aggregate_counts_outcomes_and_terminal_retries() -> None:
+    receipts = [
+        ("01.json", receipt("youtube:one", "preflight-only", warning_events=1)),
+        ("02.json", receipt("youtube:one", "failed", failed_attempts=1)),
+        ("03.json", receipt("youtube:one", "landed", successful_landings=1)),
+        (
+            "04.json",
+            receipt(
+                "youtube:two",
+                "duplicate-prevented",
+                duplicate_stops=1,
+                warning_events=1,
+            ),
+        ),
+    ]
+
+    summary = MODULE.aggregate_receipts(receipts)
+
+    assert summary["receipt_count"] == 4
+    assert summary["unique_source_identities"] == 2
+    assert summary["totals"]["successful_landings"] == 1
+    assert summary["totals"]["duplicate_stops"] == 1
+    assert summary["retry_source_count"] == 1
+    assert summary["successful_after_retry_count"] == 1
+
+
+def test_preflight_then_landing_is_not_a_retry() -> None:
+    summary = MODULE.aggregate_receipts(
+        [
+            ("01.json", receipt("youtube:one", "preflight-only")),
+            ("02.json", receipt("youtube:one", "landed", successful_landings=1)),
+        ]
+    )
+    assert summary["retry_source_count"] == 0
+
+
+def test_source_baseline_marks_unobservable_attempt_metrics_unavailable(
+    tmp_path: Path,
+) -> None:
+    source = tmp_path / "source-example.md"
+    source.write_text(
+        """---
+source_identity: "youtube:one"
+date_basis: operator-supplied
+routing_basis: explicit-host
+source_form_basis: inferred
+title_aliases: "Operator title"
+metadata_warnings: "operator-title-differs-from-transcript-title"
+---
+
+## Transcript
+""",
+        encoding="utf-8",
+    )
+
+    baseline = MODULE.source_baseline([tmp_path])
+
+    assert baseline["observed_metrics"]["successful_landings"] == 1
+    assert baseline["observed_metrics"]["correction_signal_sources"] == 1
+    assert baseline["date_basis"] == {"operator-supplied": 1}
+    assert "duplicate_stops" in baseline["unavailable_attempt_metrics"]
+    assert "duplicate_stops" not in baseline["observed_metrics"]

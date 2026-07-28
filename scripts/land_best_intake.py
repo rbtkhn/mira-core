@@ -1926,7 +1926,54 @@ def preflight_receipt(source_args: list[SimpleNamespace], manifest: dict) -> dic
             "transformations": [name for name, applied in (("opening-trim", args.opening_trim_applied), ("closing-trim", args.closing_trim_applied), ("asr-repair", args.asr_repair_applied), ("sectioning", args.transcript_curation == "curated_sectioned")) if applied],
             "warnings": warnings,
         })
-    return {"status": "warning" if any(row["warnings"] for row in rows) else "ready", "count": len(rows), "sources": rows}
+    warning_events = sum(len(row["warnings"]) for row in rows)
+    warning_sources = sum(bool(row["warnings"]) for row in rows)
+    duplicate_stops = sum(bool(row["duplicate"]) for row in rows)
+    correction_signal_events = sum(
+        len(row["title_aliases"])
+        + sum(warning != "already-landed-identity" for warning in row["warnings"])
+        for row in rows
+    )
+    correction_signal_sources = sum(
+        bool(row["title_aliases"])
+        or any(warning != "already-landed-identity" for warning in row["warnings"])
+        for row in rows
+    )
+    metrics = {
+        "disposition": "preflight-only",
+        "attempted_sources": len(rows),
+        "warning_sources": warning_sources,
+        "warning_events": warning_events,
+        "duplicate_stops": duplicate_stops,
+        "correction_signal_sources": correction_signal_sources,
+        "correction_signal_events": correction_signal_events,
+        "successful_landings": 0,
+        "failed_attempts": 0,
+    }
+    return {
+        "status": "warning" if warning_sources else "ready",
+        "count": len(rows),
+        "sources": rows,
+        "outcome_metrics": metrics,
+    }
+
+
+def disposition_metrics(
+    receipt: dict[str, object],
+    disposition: str,
+    *,
+    successful_landings: int = 0,
+    failed_attempts: int = 0,
+) -> dict[str, object]:
+    metrics = dict(receipt.get("outcome_metrics", {}))
+    metrics.update(
+        {
+            "disposition": disposition,
+            "successful_landings": successful_landings,
+            "failed_attempts": failed_attempts,
+        }
+    )
+    return metrics
 
 
 def dry_run_messages(plans: list[LandingPlan]) -> list[str]:
@@ -2173,6 +2220,7 @@ def gather_sources(cli_args: argparse.Namespace) -> list[SimpleNamespace]:
 
 def main() -> int:
     cli_args = parse_args()
+    receipt: dict[str, object] | None = None
 
     try:
         if cli_args.backfill_since:
@@ -2194,12 +2242,24 @@ def main() -> int:
         existing_urls = archived_source_urls()
         existing_identities = archived_source_identities()
         if len(source_args) == 1 and source_args[0].source_identity in existing_identities:
-            result = {"status": "ALREADY LANDED", "archive": existing_identities[source_args[0].source_identity], "source_identity": source_args[0].source_identity}
+            result = {
+                "status": "ALREADY LANDED",
+                "archive": existing_identities[source_args[0].source_identity],
+                "source_identity": source_args[0].source_identity,
+                "preflight": receipt,
+                "outcome_metrics": disposition_metrics(receipt, "duplicate-prevented"),
+            }
             print(json.dumps(result, indent=2) if cli_args.json else f"ALREADY LANDED\nArchive: {result['archive']}")
             return 0
         matching_url_path = next((path for url, path in existing_urls.items() if url.rstrip("/") == source_args[0].url.rstrip("/")), None)
         if len(source_args) == 1 and matching_url_path:
-            result = {"status": "ALREADY LANDED", "archive": matching_url_path, "source_identity": source_args[0].source_identity}
+            result = {
+                "status": "ALREADY LANDED",
+                "archive": matching_url_path,
+                "source_identity": source_args[0].source_identity,
+                "preflight": receipt,
+                "outcome_metrics": disposition_metrics(receipt, "duplicate-prevented"),
+            }
             print(json.dumps(result, indent=2) if cli_args.json else f"ALREADY LANDED\nArchive: {result['archive']}")
             return 0
         plans, proposed_manifest = prepare_batch(source_args, manifest)
@@ -2215,13 +2275,40 @@ def main() -> int:
         if receipt.get("status") == "warning":
             messages.insert(0, f"Preflight: WARNING ({sum(bool(row['warnings']) for row in receipt['sources'])} source(s))")
         if cli_args.json:
-            result = {"status": "landed", "preflight": receipt, "messages": messages}
+            disposition = "dry-run" if cli_args.dry_run else "landed"
+            result = {
+                "status": disposition,
+                "preflight": receipt,
+                "outcome_metrics": disposition_metrics(
+                    receipt,
+                    disposition,
+                    successful_landings=0 if cli_args.dry_run else len(plans),
+                ),
+                "messages": messages,
+            }
             print(json.dumps(result, indent=2, ensure_ascii=False))
         else:
             print("\n".join(messages))
         return 0
     except Exception as exc:  # noqa: BLE001
-        print(str(exc), file=sys.stderr)
+        if cli_args.json and receipt is not None:
+            print(
+                json.dumps(
+                    {
+                        "status": "failed",
+                        "error": str(exc),
+                        "preflight": receipt,
+                        "outcome_metrics": disposition_metrics(
+                            receipt, "failed", failed_attempts=1
+                        ),
+                    },
+                    indent=2,
+                    ensure_ascii=False,
+                ),
+                file=sys.stderr,
+            )
+        else:
+            print(str(exc), file=sys.stderr)
         return 1
 
 

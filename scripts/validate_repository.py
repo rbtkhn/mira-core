@@ -23,6 +23,7 @@ import forecast_ledger
 import verification as verification_packets
 import render_daily_issue as daily_issue
 import reality
+import recursive_learning_ledger
 
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
@@ -528,6 +529,7 @@ def validate_repository() -> list[str]:
         reality_lattice_failures,
         skill_contract_failures,
         voice_accountability_failures,
+        recursive_learning_ledger.validate_ledger,
         legacy_verification_inventory_failures,
         tracked_artifact_failures,
         obsolete_guidance_failures,

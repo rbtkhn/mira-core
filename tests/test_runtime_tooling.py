@@ -46,6 +46,7 @@ EXPECTED_SURFACES = {
     "forecast-triage": "triage_forecast_ledger.py",
     "harness": "audit_ai_harness.py",
     "intake-land": "smart_intake.py",
+    "intake-outcomes": "report_intake_outcomes.py",
     "intake-stats": "report_trim_stats.py",
     "issue-render": "render_daily_issue.py",
     "narrative-reuse": "report_narrative_reuse.py",

@@ -403,6 +403,31 @@ For host-level reporting, use:
 .\tools\run.ps1 intake-stats --ingested-since YYYY-MM-DD --json
 ```
 
+For attempt-level outcome measurement, save JSON receipts from bounded intake
+runs and aggregate them in chronological order:
+
+```powershell
+.\tools\run.ps1 intake-outcomes path\to\receipt-01.json path\to\receipt-02.json --json
+```
+
+Each preflight receipt reports attempted sources, warnings, duplicate stops,
+title or metadata correction signals, successful landings, and failed attempts.
+The aggregator counts a retry only when the same canonical source identity
+appears in more than one terminal receipt. A normal preflight followed by one
+landing is not a retry. Receipts are operator-selected operational evidence;
+they do not enter the archive or support geopolitical claims.
+
+When a landed batch predates saved receipts, establish a source-state baseline
+without inventing attempt outcomes:
+
+```powershell
+.\tools\run.ps1 intake-outcomes --source-baseline narrative-geopolitics\archive\sources\YYYY-MM-DD --json
+```
+
+This reconstruction may measure landed sources, provenance bases, aliases, and
+metadata warnings. It must label duplicate stops, failures, and retries
+unavailable rather than reporting them as zero.
+
 Reporting interprets automatically generated section state conservatively:
 
 - `useful_sectioning` requires at least two headings;

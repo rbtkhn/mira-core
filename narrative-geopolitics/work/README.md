@@ -162,6 +162,16 @@ evidence, supporting repository artifacts, and a candidate method change.
 Coffee inherits it only when verification passed and the Git worktree still
 matches. The handoff is never archive evidence or a research ledger.
 
+## System Improvement
+
+The [recursive learning ledger](system-improvement/recursive-learning-ledger.md)
+records evidence-backed changes to how the system observes, evaluates, or
+improves its own behavior. Its
+[method contract](../method/recursive-learning-ledger.md) distinguishes closed
+feedback loops from partial loops and ordinary feature work. The JSON ledger is
+canonical; repository validation rejects missing stage evidence or Markdown
+drift.
+
 ## Daily Operating Rule
 
 The order remains:

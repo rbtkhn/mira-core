@@ -1,0 +1,33 @@
+{
+  "schema": "intake-source-baseline-v1",
+  "measurement_basis": "reconstructed-from-landed-source-frontmatter",
+  "source_count": 15,
+  "unique_source_identities": 15,
+  "observed_metrics": {
+    "successful_landings": 15,
+    "metadata_warning_sources": 1,
+    "metadata_warning_events": 1,
+    "title_alias_sources": 1,
+    "title_alias_events": 1,
+    "correction_signal_sources": 1
+  },
+  "date_basis": {
+    "operator-supplied": 10,
+    "transcript-self-date": 5
+  },
+  "routing_basis": {
+    "explicit-host": 12,
+    "host-profile-or-body-cue": 3
+  },
+  "source_form_basis": {
+    "explicit": 3,
+    "inferred": 12
+  },
+  "unavailable_attempt_metrics": [
+    "duplicate_stops",
+    "failed_attempts",
+    "retry_source_count",
+    "successful_after_retry_count"
+  ],
+  "measurement_note": "This baseline reconstructs landed-source outcomes from archive frontmatter. Attempt-level metrics are unavailable because these landings predate saved JSON outcome receipts; unavailable values must not be interpreted as zero."
+}
