@@ -50,6 +50,7 @@ EXPECTED_SURFACES = {
     "intake-stats": "report_trim_stats.py",
     "issue-render": "render_daily_issue.py",
     "narrative-reuse": "report_narrative_reuse.py",
+    "operator-position": "operator_positions.py",
     "reality": "reality.py",
     "skills-check": "check_codex_skills_sync.py",
     "skills-sync": "sync_codex_skills.py",

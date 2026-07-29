@@ -24,6 +24,7 @@ import verification as verification_packets
 import render_daily_issue as daily_issue
 import reality
 import recursive_learning_ledger
+import operator_positions
 
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
@@ -530,6 +531,7 @@ def validate_repository() -> list[str]:
         skill_contract_failures,
         voice_accountability_failures,
         recursive_learning_ledger.validate_ledger,
+        operator_positions.validate_ledger,
         legacy_verification_inventory_failures,
         tracked_artifact_failures,
         obsolete_guidance_failures,

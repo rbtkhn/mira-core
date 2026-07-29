@@ -172,6 +172,26 @@ feedback loops from partial loops and ordinary feature work. The JSON ledger is
 canonical; repository validation rejects missing stage evidence or Markdown
 drift.
 
+## Operator Positions
+
+[*Strategic Judgment Ledger*](operator-positions/strategic-judgment-ledger.md)
+grows from approved journal events and immutable position versions, projects a
+typed graph for AI exploration, and compares positions with evidence-qualified
+repository voices. The chronological journal and thematic position view are
+generated readings of the same canonical event history. Its
+[method contract](../method/operator-position-self-map.md) keeps raw prompts
+and candidates local, requires explicit approvals for journal entries,
+positions, comparators, and scores, and forbids an overall coherence score.
+
+```powershell
+.\tools\run.ps1 operator-position query --view current-beliefs
+.\tools\run.ps1 operator-position query --view voice-map
+.\tools\run.ps1 operator-position due --as-of YYYY-MM-DD
+.\tools\run.ps1 operator-position journal-draft --input PATH --date YYYY-MM-DD --kind daily_reflection
+.\tools\run.ps1 operator-position report
+.\tools\run.ps1 operator-position validate
+```
+
 ## Daily Operating Rule
 
 The order remains:

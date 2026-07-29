@@ -21,6 +21,7 @@ SURFACES = {
     "intake-stats": REPO_ROOT / "scripts" / "report_trim_stats.py",
     "issue-render": REPO_ROOT / "scripts" / "render_daily_issue.py",
     "narrative-reuse": REPO_ROOT / "scripts" / "report_narrative_reuse.py",
+    "operator-position": REPO_ROOT / "scripts" / "operator_positions.py",
     "reality": REPO_ROOT / "scripts" / "reality.py",
     "skills-check": REPO_ROOT / "scripts" / "check_codex_skills_sync.py",
     "skills-sync": REPO_ROOT / "scripts" / "sync_codex_skills.py",

@@ -27,3 +27,6 @@ Thumbs.db
 
 # Optional read-only AI harness receipt
 /tmp/ai-harness/
+
+# Local operator-position inputs and unapproved candidates
+/narrative-geopolitics/work/operator-positions/.candidates/

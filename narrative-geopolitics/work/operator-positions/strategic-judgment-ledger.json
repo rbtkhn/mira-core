@@ -1,0 +1,1504 @@
+{
+  "anchors": {
+    "1": "absent or incoherent",
+    "2": "weak or implicit",
+    "3": "coherent but incomplete",
+    "4": "explicit and integrated",
+    "5": "unusually coherent with tensions handled",
+    "unavailable": "insufficient attributable evidence; outside the numeric scale"
+  },
+  "boundary": "Persuasive coherence does not establish factual truth, evidence independence, or predictive accuracy.",
+  "dimensions": [
+    "thesis_precision",
+    "internal_consistency",
+    "mechanism_completeness",
+    "scope_and_qualification_discipline",
+    "counterargument_integration",
+    "explanatory_compression"
+  ],
+  "journal_entries": [
+    {
+      "approval": {
+        "approved_at": "2026-07-28",
+        "basis": "Explicit operator decision that the book and position ledger are the same growing journal.",
+        "status": "approved"
+      },
+      "confidence_movement": "unchanged",
+      "entry_date": "2026-07-28",
+      "entry_id": "JRN-20260728-01",
+      "entry_kind": "architecture_decision",
+      "interpretation": "The journal and thematic position chapters must be two readings of one approved event history, not separate products.",
+      "learning_loop": {
+        "future_test": "The next approved daily decision should appear once in the journal and, when relevant, update a linked thematic chapter without creating a separate publication pipeline.",
+        "inherited_practice": "Treat journal entries and position versions as one event history with two reader views.",
+        "loop_status": "closed",
+        "pressure": "A separate downstream book would duplicate the position ledger and disconnect daily development from durable judgment.",
+        "prior_model": "The position ledger was a governed analytical record from which a separate book might later be assembled.",
+        "update": "The ledger and book became one living artifact rendered chronologically and thematically."
+      },
+      "linked_position_versions": [],
+      "observation": "The operator wants the book to grow with daily activity like a journal while retaining governed position history.",
+      "position_effect": "book_structure",
+      "provenance": {
+        "note": "Normalized from an explicit operator architecture decision; raw conversation text is not retained.",
+        "source_kind": "operator-approved conversation decision"
+      },
+      "title": "The ledger becomes the living book",
+      "unresolved_questions": [
+        "Which kinds of daily activity merit an approved journal entry?",
+        "How much revision history should the reader-facing chapter expose?"
+      ],
+      "voice_pressure": []
+    },
+    {
+      "approval": {
+        "approved_at": "2026-07-28",
+        "basis": "Explicit operator approval of the capitulation-boundary refinement.",
+        "status": "approved"
+      },
+      "confidence_movement": "unchanged",
+      "entry_date": "2026-07-28",
+      "entry_id": "JRN-20260728-02",
+      "entry_kind": "position_refinement",
+      "interpretation": "Capitulation can count as political conversion when battlefield dominance becomes an authoritative and behaviorally stable postwar order; mutual consent and legitimacy are not required.",
+      "learning_loop": {
+        "future_test": "Observe whether a battlefield collapse can produce durable termination without an agreement, imposed settlement, or stable behavioral order.",
+        "inherited_practice": "Test negotiated, tacit, and imposed pathways separately whenever battlefield movement is said to terminate a war.",
+        "loop_status": "open_test",
+        "pressure": "The v1 formulation treated capitulation ambiguously, while Mearsheimer's structural objection exposed the possibility that bargaining convergence might never occur.",
+        "prior_model": "War termination required mutually legible and implementable political terms, leaving unilateral capitulation near the edge of the mechanism.",
+        "update": "Capitulation became a limiting case of political conversion when dominance creates authoritative and behaviorally stable postwar arrangements."
+      },
+      "linked_position_versions": [
+        "OV-20260728-01-v2"
+      ],
+      "observation": "The original Ukraine thesis left unclear whether unilateral capitulation falsified or instantiated the conversion mechanism.",
+      "position_effect": "refinement",
+      "provenance": {
+        "note": "Normalized from the approved local revision candidate; raw candidate text remains ignored.",
+        "source_kind": "approved position review"
+      },
+      "title": "Capitulation is a limiting case of political conversion",
+      "unresolved_questions": [
+        "Can political conversion be defined without making the thesis tautological?",
+        "When does a frozen conflict count as termination rather than suspended war?"
+      ],
+      "voice_pressure": [
+        {
+          "relation": "strongest_corrective",
+          "voice_slug": "mearsheimer"
+        }
+      ]
+    },
+    {
+      "approval": {
+        "approved_at": "2026-07-28",
+        "basis": "explicit operator journal-entry approval",
+        "status": "approved"
+      },
+      "confidence_movement": "unchanged",
+      "entry_date": "2026-07-28",
+      "entry_id": "JRN-20260728-03",
+      "entry_kind": "architecture_decision",
+      "interpretation": "Strategic Judgment names the book as an evolving practice of forming, testing, and revising consequential views.",
+      "learning_loop": {
+        "future_test": "Future entries should read naturally under the title while remaining bounded to consequential strategic and public questions.",
+        "inherited_practice": "Name the reader-facing artifact by the practice it develops, not by its storage machinery.",
+        "loop_status": "open_test",
+        "pressure": "The generic operator-ledger language made the artifact feel administrative rather than personal and intellectual.",
+        "prior_model": "The book used a functional Operator Living Book title inherited from its implementation.",
+        "update": "The book adopted Strategic Judgment and a subtitle centered on positions, pressures, and revisions."
+      },
+      "linked_position_versions": [],
+      "observation": "A generic operator-ledger title described the machinery but not the intellectual practice the book is meant to sustain.",
+      "position_effect": "book_structure",
+      "provenance": {
+        "note": "Normalized from an approved local candidate; raw activity remains ignored.",
+        "source_kind": "nominated local daily activity"
+      },
+      "title": "The living book takes its name",
+      "unresolved_questions": [
+        "Should the book remain bounded to strategic and public questions?",
+        "When should its subtitle change as the journal develops?"
+      ],
+      "voice_pressure": []
+    },
+    {
+      "approval": {
+        "approved_at": "2026-07-28",
+        "basis": "explicit operator journal-entry approval",
+        "status": "approved"
+      },
+      "confidence_movement": "increased",
+      "entry_date": "2026-07-28",
+      "entry_id": "JRN-20260728-04",
+      "entry_kind": "architecture_decision",
+      "interpretation": "Strategic Judgment becomes recursive only when an approved update changes a later reasoning practice and remains exposed to a future test.",
+      "learning_loop": {
+        "future_test": "The next substantive journal entry must explicitly demonstrate whether it applied an inherited practice from an earlier entry.",
+        "inherited_practice": "Before approving a journal entry, ask what later judgment work will do differently and how that change will be tested.",
+        "loop_status": "open_test",
+        "pressure": "A journal can accumulate insight while leaving future framing, comparison, and falsification unchanged.",
+        "prior_model": "The living book recorded approved daily reflections and position revisions, but inheritance into later judgment was implicit.",
+        "update": "Every approved entry must state its prior model, pressure, update, future test, inherited practice, and loop status."
+      },
+      "linked_position_versions": [],
+      "observation": "A growing journal can preserve reflection without necessarily improving the next act of judgment.",
+      "position_effect": "book_structure",
+      "provenance": {
+        "note": "Normalized from an approved local candidate; raw activity remains ignored.",
+        "source_kind": "nominated local daily activity"
+      },
+      "title": "The journal becomes a recursive-learning instrument",
+      "unresolved_questions": [
+        "How should inherited practices be audited across later entries?",
+        "When does repeated no-change evidence justify closing an open test?"
+      ],
+      "voice_pressure": []
+    },
+    {
+      "approval": {
+        "approved_at": "2026-07-28",
+        "basis": "explicit operator journal-entry approval",
+        "status": "approved"
+      },
+      "confidence_movement": "decreased",
+      "entry_date": "2026-07-28",
+      "entry_id": "JRN-20260728-05",
+      "entry_kind": "position_challenge",
+      "interpretation": "A durable tacit armistice may terminate active war without settling the underlying political conflict. The next position review should test a three-state model: cessation stops fighting, termination stabilizes that cessation, and settlement resolves or governs the disputed political order.",
+      "learning_loop": {
+        "future_test": "Compare the three-state model against cases of durable armistice and against future Ukraine observables for renewed organized fighting, stable control lines, recognized authority, and compliance.",
+        "inherited_practice": "Apply JRN-20260728-02 by testing tacit order separately, and apply JRN-20260728-04 by naming the future observable before revising the position.",
+        "loop_status": "open_test",
+        "pressure": "The frozen-conflict counterexample suggests organized war can remain durably inactive even while the disputed political order is unresolved and weakly enforced.",
+        "prior_model": "Ukraine v2 treated durable war termination as requiring an explicit or behaviorally legible political order produced through negotiated, tacit, or imposed conversion.",
+        "update": "Provisional distinction: cessation, termination, and settlement may be separate analytical states rather than synonyms."
+      },
+      "linked_position_versions": [
+        "OV-20260728-01-v2"
+      ],
+      "observation": "Ukraine v2 requires political conversion for war termination, but frozen conflicts can suppress organized fighting while sovereignty, territorial authority, security obligations, and enforcement remain unresolved.",
+      "position_effect": "candidate_refinement",
+      "provenance": {
+        "note": "Normalized from an approved local candidate; raw activity remains ignored.",
+        "source_kind": "nominated local daily activity"
+      },
+      "title": "Cessation, termination, and settlement may be different states",
+      "unresolved_questions": [
+        "How long must a cessation persist before it counts as termination?",
+        "Can termination remain durable when no authority can enforce the tacit armistice?",
+        "Which observable distinguishes a frozen war from a merely paused campaign?"
+      ],
+      "voice_pressure": [
+        {
+          "relation": "strongest_corrective",
+          "voice_slug": "mearsheimer"
+        }
+      ]
+    },
+    {
+      "approval": {
+        "approved_at": "2026-07-28",
+        "basis": "explicit operator journal-entry approval",
+        "status": "approved"
+      },
+      "confidence_movement": "high confidence in necessity; likely outcome with substantial failure risk",
+      "entry_date": "2026-07-28",
+      "entry_id": "JRN-20260728-06",
+      "entry_kind": "daily_reflection",
+      "interpretation": "Candidate position with three separate epistemic layers. Security hypothesis: Russia cannot secure an acceptable strategic end state while a sovereign adversarial government in Kiev can rebuild military capacity and NATO alignment. Kiev therefore requires structural reconstitution: neutrality, security-service restructuring, demilitarization, territorial reorganization, and enforceable limits on anti-Russian state military policy. Russia must directly control a continuous southern belt through Kherson, Mykolaiv, Odessa, and the remaining Black Sea coast to Transnistria, denying hostile maritime access and eliminating Ukraine's independent Black Sea frontage. Actor-model civilizational premise: the relevant Russian state project treats Odessa's place in Russia's historical-civilizational space as politically constitutive and independently decisive even if neutrality removes the maritime threat; the operator strategically recognizes this premise without endorsing or adjudicating its historical justice. Only Russian strategic defeat or disappearance of the relevant state project terminates it. Conditional forecast: unless Russia loses the battlefield initiative and is forced from substantial currently controlled or claimed territory, it is likely to achieve both requirements before the present continuous phase of major combat can end durably. The expected pathway is parallel systemic collapse through interacting attrition, demographic-economic exhaustion, elite fragmentation, and declining Western support.",
+      "learning_loop": {
+        "future_test": "Keep the actor-model civilizational premise explicit and do not treat it as the operator's normative endorsement. Treat Ukrainian inability to replace trained formations, rotate exhausted units, or stabilize major breaches despite continued mobilization and external support as the earliest decisive signal that systemic collapse is activating. Continue tracking Western sponsor endurance, Russian force posture and terms, Odessa's defensibility, escalation thresholds, occupation burdens, and Russian acceptance or rejection of a neutral postwar Ukraine. Treat loss of Russian battlefield initiative plus forced loss of substantial currently controlled or claimed territory as the decisive reversal that defeats the current-war forecast.",
+        "inherited_practice": "Apply the cessation-termination-settlement distinction from JRN-20260728-05 and separate strategic necessity from intention, feasibility, prediction, and normative approval.",
+        "loop_status": "partial",
+        "pressure": "The newly stated judgment asserts that Kiev and Odessa are indispensable through different but interacting mechanisms: Kiev can regenerate an adversarial security alignment and its legitimacy, while Odessa can restore hostile Black Sea access, interrupt Russia's southern strategic geometry, and remain an identity loss.",
+        "prior_model": "The existing Ukraine position described how battlefield leverage becomes political order without specifying the territorial end state Russia requires.",
+        "update": "Open a distinct candidate position with three explicitly separate layers: an empirically testable security hypothesis, an actor-model civilizational premise for Odessa, and a conditional current-war forecast. The operator believes current Russian leadership already recognizes the requirements, while they also arise from structural logic beyond current policy. Kiev's minimum condition is structural reconstitution. The Odessa requirement is direct control of a continuous southern belt through Kherson, Mykolaiv, Odessa, and the remaining coast to Transnistria, eliminating Ukraine's independent Black Sea frontage. The operator recognizes the Odessa premise without endorsing its historical justice. Confidence is high in necessity and the current-war outcome is likely, with substantial failure risk. Parallel systemic collapse is the expected pathway. Escalation is the principal failure pathway; occupation and governance overextension are secondary. The strongest counterargument is that territorial expansion could intensify balancing, NATO militarization, insurgency, and overextension enough to make Russia less secure."
+      },
+      "linked_position_versions": [
+        "OV-20260728-01-v2"
+      ],
+      "observation": "The operator states that Russia's strategic imperative differs by city. Kiev must undergo structural reconstitution to prevent regeneration of an adversarial NATO-aligned security state. Russia must directly control a continuous southern belt through Kherson, Mykolaiv, Odessa, and the remaining coast to Transnistria, eliminating Ukraine's independent Black Sea frontage. Maritime denial is primary, reinforced by corridor geometry and a historical-civilizational claim. The operator believes current Russian leadership already recognizes these requirements as necessary war aims, while the underlying imperative would persist beyond the present leadership.",
+      "position_effect": "candidate_position",
+      "provenance": {
+        "note": "Normalized from an approved local candidate; raw activity remains ignored.",
+        "source_kind": "nominated local daily activity"
+      },
+      "title": "Russia's end state may require reconstituted Kiev and an Odessa-Transnistria corridor",
+      "unresolved_questions": [
+        "What evidence threshold should establish force-regeneration failure without relying on commentator claims alone?"
+      ],
+      "voice_pressure": []
+    },
+    {
+      "approval": {
+        "approved_at": "2026-07-29",
+        "basis": "explicit operator journal-entry approval",
+        "status": "approved"
+      },
+      "confidence_movement": "unchanged",
+      "entry_date": "2026-07-29",
+      "entry_id": "JRN-20260729-01",
+      "entry_kind": "architecture_decision",
+      "interpretation": "Judgment Chronicle describes one living, governed record that combines journal entries, immutable positions, voice comparisons, and recursive-learning history.",
+      "learning_loop": {
+        "future_test": "Watch whether operators and agents can refer to the Chronicle without confusing it with the repository, journal view, position view, or software platform.",
+        "inherited_practice": "Use Chronicle language in current interfaces and documentation while preserving historical journal wording as immutable context.",
+        "loop_status": "closed",
+        "pressure": "Book concealed the governed analytical structure, and Codex risked persistent confusion with the OpenAI platform used to maintain the repository.",
+        "prior_model": "The artifact was described generically as the book, with Codex considered as a more structured alternative.",
+        "update": "Strategic Judgment remains the title; Judgment Chronicle is the artifact type; the Chronicle is the conversational short name."
+      },
+      "linked_position_versions": [],
+      "observation": "The generic word book underspecified the artifact, while Codex would collide with the OpenAI platform name.",
+      "position_effect": "chronicle_structure",
+      "provenance": {
+        "note": "Normalized from an approved local candidate; raw activity remains ignored.",
+        "source_kind": "nominated local daily activity"
+      },
+      "title": "Strategic Judgment becomes the Chronicle",
+      "unresolved_questions": [
+        "Will the Chronicle remain the clearest short name as the artifact expands beyond geopolitical positions?"
+      ],
+      "voice_pressure": []
+    },
+    {
+      "approval": {
+        "approved_at": "2026-07-29",
+        "basis": "explicit operator journal-entry approval",
+        "status": "approved"
+      },
+      "confidence_movement": "unchanged",
+      "entry_date": "2026-07-29",
+      "entry_id": "JRN-20260729-02",
+      "entry_kind": "architecture_decision",
+      "interpretation": "Strategic Judgment should be an immutable event ledger with a deterministic typed graph and query-specific views; Markdown is a human projection rather than the primary analytical format.",
+      "learning_loop": {
+        "future_test": "Use current-beliefs, change-history, layer-map, voice-map, and review-queue queries during later judgment work and observe whether they reduce rereading and prevent relationship loss.",
+        "inherited_practice": "Add new analytical capabilities as typed nodes, edges, or bounded query views; keep generated prose subordinate to canonical events and graph validation.",
+        "loop_status": "closed",
+        "pressure": "AI exploration needs stable objects, explicit edges, scoped queries, and machine-checkable provenance rather than repeated reconstruction from linear prose.",
+        "prior_model": "Strategic Judgment was rendered principally as a chronological journal plus thematic position chapters and described as the Chronicle.",
+        "update": "The artifact is now the Strategic Judgment Ledger, backed by an immutable event source, deterministic graph projection, and typed query views."
+      },
+      "linked_position_versions": [],
+      "observation": "A linear-book mental model makes AI reread prose to reconstruct identities and relationships that the governed data already knows.",
+      "position_effect": "ledger_structure",
+      "provenance": {
+        "note": "Normalized from an approved local candidate; raw activity remains ignored.",
+        "source_kind": "nominated local daily activity"
+      },
+      "title": "The Chronicle becomes a graph-native Judgment Ledger",
+      "unresolved_questions": [
+        "Which additional query views materially improve judgment revision without duplicating the graph?",
+        "When, if ever, should embeddings assist retrieval without acquiring evidentiary authority?"
+      ],
+      "voice_pressure": []
+    }
+  ],
+  "ledger": {
+    "model": "graph-indexed immutable event ledger",
+    "primary_interface": "typed graph and query views",
+    "reading_modes": [
+      "current beliefs",
+      "change history",
+      "epistemic layer map",
+      "voice relation map",
+      "review queue",
+      "human-readable journal and position projection"
+    ],
+    "short_name": "the Judgment Ledger",
+    "slug": "strategic-judgment-ledger",
+    "subtitle": "A Graph-Native Record of Positions, Evidence Pressure, and Revision",
+    "title": "Strategic Judgment Ledger"
+  },
+  "positions": [
+    {
+      "object_label": "Ukraine war termination: battlefield-to-political conversion",
+      "object_slug": "ukraine-war-termination",
+      "position_id": "OV-20260728-01",
+      "versions": [
+        {
+          "approval": {
+            "approved_at": "2026-07-28",
+            "basis": "The operator explicitly approved implementation of the supplied pilot plan; the normalized position is bounded to that framing.",
+            "status": "approved"
+          },
+          "comparator_set": {
+            "approval": {
+              "approved_at": "2026-07-28",
+              "basis": "Pilot comparator approval within the explicit implementation request."
+            },
+            "excluded": [
+              {
+                "display_name": "Daniel Davis",
+                "evidence_count": 1,
+                "host_concentration": "Available material is concentrated on Davis's own channel and does not consistently separate host claims from guest claims.",
+                "reason": "Recommended seed retained, but fewer than two clearly attributable excerpts from two sources engage the exact battlefield-to-political conversion mechanism.",
+                "source_count": 1,
+                "target_layer_ids": [
+                  "termination_conversion"
+                ],
+                "voice_slug": "davis"
+              },
+              {
+                "display_name": "Robert Pape",
+                "evidence_count": 0,
+                "host_concentration": "No qualifying pilot evidence.",
+                "reason": "His coercion mechanism is potentially relevant, but the pilot search did not clear the two-source engagement threshold.",
+                "source_count": 0,
+                "target_layer_ids": [
+                  "termination_conversion"
+                ],
+                "voice_slug": "pape"
+              }
+            ],
+            "included": [
+              {
+                "display_name": "Alexander Mercouris",
+                "engaged_layer_ids": [
+                  "termination_conversion"
+                ],
+                "evidence": [
+                  {
+                    "excerpt": "They have not actually come to any agreement at all so far about Ukraine ... the war should end through negotiations, but Putin still talks about the root causes.",
+                    "layer_ids": [
+                      "termination_conversion"
+                    ],
+                    "line_end": 25,
+                    "line_start": 24,
+                    "path": "narrative-geopolitics/archive/sources/2025-02-15/source-diesen-mearsheimer-mercouris-trump-to-force-ukraine-peace-on-europe-2025-02-15.md"
+                  },
+                  {
+                    "excerpt": "My clear view is that no negotiations like that are going to happen ... we are drifting into ... a defeat for the West in Ukraine, no negotiations at all.",
+                    "layer_ids": [
+                      "termination_conversion"
+                    ],
+                    "line_end": 93,
+                    "line_start": 93,
+                    "path": "narrative-geopolitics/archive/sources/2024-01-28/source-glenn-diesen-mercouris-karaganov-lowering-nuclear-threshold-age-of-war-2024-01-28.md"
+                  }
+                ],
+                "evidence_count": 2,
+                "host_concentration": "Two distinct sources, both hosted by Glenn Diesen; source diversity passes while host concentration remains high.",
+                "inclusion_rationale": "Directly distinguishes diplomatic contact from agreement and links negotiating room to unresolved root causes and battlefield defeat.",
+                "orthogonality_axis": "room, sequence, and political legitimacy",
+                "source_count": 2,
+                "voice_slug": "mercouris"
+              },
+              {
+                "display_name": "John Mearsheimer",
+                "engaged_layer_ids": [
+                  "termination_conversion"
+                ],
+                "evidence": [
+                  {
+                    "excerpt": "There is no reason at all to think that these negotiations are going to produce a real peace ... Russia's demands ... are basically non-negotiable.",
+                    "layer_ids": [
+                      "termination_conversion"
+                    ],
+                    "line_end": 90,
+                    "line_start": 88,
+                    "path": "narrative-geopolitics/archive/sources/2026-01-31/source-diesen-mearsheimer-cold-war-nato-ukraine-2026-01-31.md"
+                  },
+                  {
+                    "excerpt": "A John Mearsheimer piece ... over whether the war in Ukraine can end in a negotiated peace or only on the battlefield.",
+                    "layer_ids": [
+                      "termination_conversion"
+                    ],
+                    "line_end": 47,
+                    "line_start": 47,
+                    "path": "narrative-geopolitics/archive/sources/2026-02-20/source-mearsheimer-is-a-peace-deal-in-ukraine-possible-2026-02-20.md"
+                  }
+                ],
+                "evidence_count": 2,
+                "host_concentration": "Two distinct hosts/front doors; one item is a bounded provenance wrapper rather than a full transcript.",
+                "inclusion_rationale": "Directly frames negotiated peace versus battlefield resolution and specifies incompatible structural demands.",
+                "orthogonality_axis": "structure, polarity, and security dilemma",
+                "source_count": 2,
+                "voice_slug": "mearsheimer"
+              },
+              {
+                "display_name": "Glenn Diesen",
+                "engaged_layer_ids": [
+                  "termination_conversion"
+                ],
+                "evidence": [
+                  {
+                    "excerpt": "Trump has held his first phone call with Putin ... taking big steps to end the war.",
+                    "layer_ids": [
+                      "termination_conversion"
+                    ],
+                    "line_end": 19,
+                    "line_start": 19,
+                    "path": "narrative-geopolitics/archive/sources/2025-02-15/source-diesen-mearsheimer-mercouris-trump-to-force-ukraine-peace-on-europe-2025-02-15.md"
+                  },
+                  {
+                    "excerpt": "How will this war end then? ... the situation is going from bad to worse ... we would seek to cement a good deal today.",
+                    "layer_ids": [
+                      "termination_conversion"
+                    ],
+                    "line_end": 86,
+                    "line_start": 82,
+                    "path": "narrative-geopolitics/archive/sources/2026-01-31/source-diesen-mearsheimer-cold-war-nato-ukraine-2026-01-31.md"
+                  }
+                ],
+                "evidence_count": 2,
+                "host_concentration": "Two distinct episodes on Diesen's own channel; host concentration is complete and the excerpts are his attributable framing/questions.",
+                "inclusion_rationale": "Connects worsening battlefield position to bargaining timing and asks how military conditions should be converted into a deal.",
+                "orthogonality_axis": "multipolar order transition and institutional legitimacy",
+                "source_count": 2,
+                "voice_slug": "diesen"
+              }
+            ],
+            "recommendation_basis": {
+              "method": "object overlap plus the existing orthogonality map; each engaged epistemic layer requires two attributable excerpts from two archive sources",
+              "orthogonality_map": "narrative-geopolitics/voices/comparisons/orthogonality-map.md",
+              "seeded_voices": [
+                "mercouris",
+                "mearsheimer",
+                "davis",
+                "diesen"
+              ]
+            },
+            "status": "approved"
+          },
+          "comparison": {
+            "approval": {
+              "approved_at": "2026-07-28",
+              "basis": "Pilot comparison approved as part of the operator's explicit implementation request; future score changes require a new approval."
+            },
+            "findings": {
+              "closest_affinity": {
+                "display_name": "Alexander Mercouris",
+                "layer_id": "termination_conversion",
+                "rationale": "He most directly reinforces the operator's distinction between diplomatic contact, unresolved terms, sequencing, and an actual agreement.",
+                "voice_slug": "mercouris"
+              },
+              "strongest_corrective": {
+                "display_name": "John Mearsheimer",
+                "layer_id": "termination_conversion",
+                "rationale": "His emphasis on structurally incompatible demands tests whether political conversion is merely difficult or presently impossible, forcing sharper change conditions.",
+                "voice_slug": "mearsheimer"
+              }
+            },
+            "profiles": [
+              {
+                "dimensions": {
+                  "counterargument_integration": {
+                    "evidence_refs": [
+                      "OV-20260728-01-v1:strongest_counterarguments"
+                    ],
+                    "rationale": "Three serious alternatives are stated, including collapse, exhaustion, and sponsor withdrawal.",
+                    "score": 4
+                  },
+                  "explanatory_compression": {
+                    "evidence_refs": [
+                      "OV-20260728-01-v1:thesis",
+                      "OV-20260728-01-v1:mechanism"
+                    ],
+                    "rationale": "The battlefield-leverage-to-implementable-terms chain is compact without erasing the key conversion step.",
+                    "score": 5
+                  },
+                  "internal_consistency": {
+                    "evidence_refs": [
+                      "OV-20260728-01-v1:position"
+                    ],
+                    "rationale": "Thesis, mechanism, implications, and falsifier use the same conversion logic.",
+                    "score": 4
+                  },
+                  "mechanism_completeness": {
+                    "evidence_refs": [
+                      "OV-20260728-01-v1:mechanism"
+                    ],
+                    "rationale": "It names leverage, bargaining terms, necessary parties, implementation, and sequencing, while leaving actor-specific pathways open.",
+                    "score": 4
+                  },
+                  "scope_and_qualification_discipline": {
+                    "evidence_refs": [
+                      "OV-20260728-01-v1:qualifications"
+                    ],
+                    "rationale": "The position limits itself to termination conversion and admits capitulation and secret diplomacy as qualifications.",
+                    "score": 4
+                  },
+                  "thesis_precision": {
+                    "evidence_refs": [
+                      "OV-20260728-01-v1:thesis"
+                    ],
+                    "rationale": "The necessary distinction between battlefield advantage and war termination is explicit and falsifiable.",
+                    "score": 5
+                  }
+                },
+                "display_name": "Operator",
+                "layer_id": "termination_conversion",
+                "subject": "operator"
+              },
+              {
+                "dimensions": {
+                  "counterargument_integration": {
+                    "evidence_refs": [
+                      "mercouris:evidence:1",
+                      "mercouris:evidence:2"
+                    ],
+                    "rationale": "He moderates premature optimism and recognizes both talks and reasons they may fail, but the bounded evidence contains limited developed counterargument.",
+                    "score": 3
+                  },
+                  "explanatory_compression": {
+                    "evidence_refs": [
+                      "mercouris:evidence:1"
+                    ],
+                    "rationale": "The distinction between speaking and agreement compresses the central conversion problem effectively.",
+                    "score": 4
+                  },
+                  "internal_consistency": {
+                    "evidence_refs": [
+                      "mercouris:evidence:1",
+                      "mercouris:evidence:2"
+                    ],
+                    "rationale": "Both excerpts consistently condition settlement on negotiating space and underlying causes.",
+                    "score": 4
+                  },
+                  "mechanism_completeness": {
+                    "evidence_refs": [
+                      "mercouris:evidence:1",
+                      "mercouris:evidence:2"
+                    ],
+                    "rationale": "Sequence and root causes are explicit, but enforcement and implementation are not fully developed in the bounded evidence.",
+                    "score": 3
+                  },
+                  "scope_and_qualification_discipline": {
+                    "evidence_refs": [
+                      "mercouris:evidence:1"
+                    ],
+                    "rationale": "He carefully qualifies early diplomatic signals and avoids equating contact with settlement.",
+                    "score": 4
+                  },
+                  "thesis_precision": {
+                    "evidence_refs": [
+                      "mercouris:evidence:1"
+                    ],
+                    "rationale": "His claim that talks are not an agreement is precise, though it is episode-specific rather than a general termination thesis.",
+                    "score": 4
+                  }
+                },
+                "display_name": "Alexander Mercouris",
+                "layer_id": "termination_conversion",
+                "subject": "mercouris"
+              },
+              {
+                "dimensions": {
+                  "counterargument_integration": {
+                    "evidence_refs": [
+                      "mearsheimer:evidence:1",
+                      "mearsheimer:evidence:2"
+                    ],
+                    "rationale": "The debate framing acknowledges negotiated-peace and battlefield alternatives, but the wrapper limits assessment of how fully objections are answered.",
+                    "score": 3
+                  },
+                  "explanatory_compression": {
+                    "evidence_refs": [
+                      "mearsheimer:evidence:1"
+                    ],
+                    "rationale": "Incompatible non-negotiable demands provide a compact structural explanation for failed settlement.",
+                    "score": 4
+                  },
+                  "internal_consistency": {
+                    "evidence_refs": [
+                      "mearsheimer:evidence:1",
+                      "mearsheimer:evidence:2"
+                    ],
+                    "rationale": "The structural incompatibility claim is consistent with the negotiated-peace versus battlefield framing.",
+                    "score": 4
+                  },
+                  "mechanism_completeness": {
+                    "evidence_refs": [
+                      "mearsheimer:evidence:1"
+                    ],
+                    "rationale": "The incompatibility mechanism is explicit, while pathways for changes in demands or implementation remain incomplete in this evidence set.",
+                    "score": 3
+                  },
+                  "scope_and_qualification_discipline": {
+                    "evidence_refs": [
+                      "mearsheimer:evidence:1"
+                    ],
+                    "rationale": "The claim is tightly tied to stated demands, though its categorical pessimism handles fewer contingent pathways.",
+                    "score": 3
+                  },
+                  "thesis_precision": {
+                    "evidence_refs": [
+                      "mearsheimer:evidence:1"
+                    ],
+                    "rationale": "Zero optimism and polar-opposite demands state a clear, testable position.",
+                    "score": 4
+                  }
+                },
+                "display_name": "John Mearsheimer",
+                "layer_id": "termination_conversion",
+                "subject": "mearsheimer"
+              },
+              {
+                "dimensions": {
+                  "counterargument_integration": {
+                    "evidence_refs": [
+                      "diesen:evidence:1",
+                      "diesen:evidence:2"
+                    ],
+                    "rationale": "His questions juxtapose diplomatic optimism and worsening battlefield conditions, but the excerpts do not show a full rebuttal structure.",
+                    "score": 3
+                  },
+                  "explanatory_compression": {
+                    "evidence_refs": [
+                      "diesen:evidence:2"
+                    ],
+                    "rationale": "The worsening-position-now-versus-worse-deal-later formulation compresses the bargaining-timing intuition.",
+                    "score": 4
+                  },
+                  "internal_consistency": {
+                    "evidence_refs": [
+                      "diesen:evidence:1",
+                      "diesen:evidence:2"
+                    ],
+                    "rationale": "The two episodes share a settlement frame, but optimism about diplomatic movement and concern about negotiating failure remain only partly reconciled.",
+                    "score": 3
+                  },
+                  "mechanism_completeness": {
+                    "evidence_refs": [
+                      "diesen:evidence:2"
+                    ],
+                    "rationale": "Battlefield deterioration is connected to bargaining urgency, but settlement terms and enforcement are implicit.",
+                    "score": 3
+                  },
+                  "scope_and_qualification_discipline": {
+                    "evidence_refs": [
+                      "diesen:evidence:1",
+                      "diesen:evidence:2"
+                    ],
+                    "rationale": "He frames questions rather than overclaiming a settled outcome, although the first excerpt calls early contact a big step.",
+                    "score": 3
+                  },
+                  "thesis_precision": {
+                    "evidence_refs": [
+                      "diesen:evidence:2"
+                    ],
+                    "rationale": "The claim that a worsening battlefield position should alter deal timing is clear but expressed as a question.",
+                    "score": 3
+                  }
+                },
+                "display_name": "Glenn Diesen",
+                "layer_id": "termination_conversion",
+                "subject": "diesen"
+              }
+            ],
+            "relations": [
+              {
+                "display_name": "Alexander Mercouris",
+                "layer_id": "termination_conversion",
+                "rationale": "Both distinguish battlefield and diplomatic movement from an actual settlement and emphasize unresolved terms and sequence.",
+                "relation": "reinforcement",
+                "voice_slug": "mercouris"
+              },
+              {
+                "display_name": "John Mearsheimer",
+                "layer_id": "termination_conversion",
+                "rationale": "He accepts the conversion problem but treats incompatible structural demands as a stronger present barrier than the operator's more conditional formulation.",
+                "relation": "conditional_divergence",
+                "voice_slug": "mearsheimer"
+              },
+              {
+                "display_name": "Glenn Diesen",
+                "layer_id": "termination_conversion",
+                "rationale": "He links battlefield deterioration to bargaining urgency, while his order-transition lens supplies a broader legitimacy mechanism than the operator position states.",
+                "relation": "mechanism_disagreement",
+                "voice_slug": "diesen"
+              }
+            ],
+            "status": "approved"
+          },
+          "position": {
+            "change_conditions": [
+              "Publication of mutually legible territorial, neutrality, security, enforcement, and sequencing terms accepted by the necessary parties.",
+              "A battlefield collapse that produces unilateral capitulation without prior negotiated convergence.",
+              "Evidence that sponsor withdrawal alone can create and sustain an implementable settlement."
+            ],
+            "confidence": "moderate-high",
+            "epistemic_layers": [
+              {
+                "claim": "Battlefield advantage does not by itself terminate the Ukraine war; military leverage must be converted into credible, mutually legible, and implementable political terms.",
+                "confidence": "moderate-high",
+                "evidence_standard": "Comparative war-termination cases and observable Ukraine-war sequences must distinguish changes in battlefield leverage from the appearance of implementable territorial, security, neutrality, enforcement, and sequencing terms.",
+                "falsifier_or_limitation": "A durable cessation and political settlement follows directly from battlefield collapse without prior explicit or tacit convergence on implementable political terms.",
+                "falsifier_status": "testable",
+                "label": "Battlefield-to-political conversion",
+                "layer_id": "termination_conversion",
+                "layer_type": "empirical_hypothesis"
+              }
+            ],
+            "falsifier": "A durable cessation and political settlement follows directly from battlefield collapse without prior convergence on implementable political terms.",
+            "horizon": "Medium-term, with event-triggered review and a 30-day backstop.",
+            "implications": "Battlefield momentum or diplomatic contact should not be labeled an endgame unless concrete terms, authorized parties, and enforcement pathways move together.",
+            "mechanism": "Military movement changes bargaining power, but settlement emerges only when actors translate leverage into territorial, security, neutrality, enforcement, and sequencing terms that the necessary parties can implement.",
+            "qualifications": [
+              "Battlefield outcomes can force concessions and sharply narrow the negotiated space.",
+              "Extreme asymmetry may yield capitulation rather than mutual agreement.",
+              "Secret diplomacy may create convergence before terms become observable."
+            ],
+            "strongest_counterarguments": [
+              "Military facts eventually dictate political terms, making a separate conversion mechanism redundant.",
+              "War exhaustion can make detailed prior convergence secondary to an urgent cessation.",
+              "Withdrawal by a decisive external sponsor can force settlement faster than bargaining models imply."
+            ],
+            "thesis": "Battlefield advantage does not by itself terminate the Ukraine war; termination requires converting military leverage into credible, mutually legible, and implementable political terms."
+          },
+          "previous_version_id": null,
+          "provenance": {
+            "note": "Normalized from the explicitly approved pilot framing; no raw prompt text is retained.",
+            "source_kind": "operator-approved implementation plan"
+          },
+          "relation_to_previous": "initial",
+          "review_trigger": {
+            "date": "2026-08-27",
+            "event": "credible-settlement-terms-linking-battlefield-disposition-to-political-conversion",
+            "mode": "earliest_of"
+          },
+          "version_id": "OV-20260728-01-v1",
+          "version_number": 1
+        },
+        {
+          "approval": {
+            "approved_at": "2026-07-28",
+            "basis": "explicit operator review approval",
+            "status": "approved"
+          },
+          "comparator_set": {
+            "approval": {
+              "approved_at": "2026-07-28",
+              "basis": "explicit operator comparator approval"
+            },
+            "excluded": [
+              {
+                "display_name": "Daniel Davis",
+                "evidence_count": 1,
+                "host_concentration": "Available material is concentrated on Davis's own channel and does not consistently separate host claims from guest claims.",
+                "reason": "Recommended seed retained, but fewer than two clearly attributable excerpts from two sources engage the exact battlefield-to-political conversion mechanism.",
+                "source_count": 1,
+                "target_layer_ids": [
+                  "termination_conversion"
+                ],
+                "voice_slug": "davis"
+              },
+              {
+                "display_name": "Robert Pape",
+                "evidence_count": 0,
+                "host_concentration": "No qualifying pilot evidence.",
+                "reason": "His coercion mechanism is potentially relevant, but the pilot search did not clear the two-source engagement threshold.",
+                "source_count": 0,
+                "target_layer_ids": [
+                  "termination_conversion"
+                ],
+                "voice_slug": "pape"
+              }
+            ],
+            "included": [
+              {
+                "display_name": "Alexander Mercouris",
+                "engaged_layer_ids": [
+                  "termination_conversion"
+                ],
+                "evidence": [
+                  {
+                    "excerpt": "They have not actually come to any agreement at all so far about Ukraine ... the war should end through negotiations, but Putin still talks about the root causes.",
+                    "layer_ids": [
+                      "termination_conversion"
+                    ],
+                    "line_end": 25,
+                    "line_start": 24,
+                    "path": "narrative-geopolitics/archive/sources/2025-02-15/source-diesen-mearsheimer-mercouris-trump-to-force-ukraine-peace-on-europe-2025-02-15.md"
+                  },
+                  {
+                    "excerpt": "My clear view is that no negotiations like that are going to happen ... we are drifting into ... a defeat for the West in Ukraine, no negotiations at all.",
+                    "layer_ids": [
+                      "termination_conversion"
+                    ],
+                    "line_end": 93,
+                    "line_start": 93,
+                    "path": "narrative-geopolitics/archive/sources/2024-01-28/source-glenn-diesen-mercouris-karaganov-lowering-nuclear-threshold-age-of-war-2024-01-28.md"
+                  }
+                ],
+                "evidence_count": 2,
+                "host_concentration": "Two distinct sources, both hosted by Glenn Diesen; source diversity passes while host concentration remains high.",
+                "inclusion_rationale": "Directly distinguishes diplomatic contact from agreement and links negotiating room to unresolved root causes and battlefield defeat.",
+                "orthogonality_axis": "room, sequence, and political legitimacy",
+                "source_count": 2,
+                "voice_slug": "mercouris"
+              },
+              {
+                "display_name": "John Mearsheimer",
+                "engaged_layer_ids": [
+                  "termination_conversion"
+                ],
+                "evidence": [
+                  {
+                    "excerpt": "There is no reason at all to think that these negotiations are going to produce a real peace ... Russia's demands ... are basically non-negotiable.",
+                    "layer_ids": [
+                      "termination_conversion"
+                    ],
+                    "line_end": 90,
+                    "line_start": 88,
+                    "path": "narrative-geopolitics/archive/sources/2026-01-31/source-diesen-mearsheimer-cold-war-nato-ukraine-2026-01-31.md"
+                  },
+                  {
+                    "excerpt": "A John Mearsheimer piece ... over whether the war in Ukraine can end in a negotiated peace or only on the battlefield.",
+                    "layer_ids": [
+                      "termination_conversion"
+                    ],
+                    "line_end": 47,
+                    "line_start": 47,
+                    "path": "narrative-geopolitics/archive/sources/2026-02-20/source-mearsheimer-is-a-peace-deal-in-ukraine-possible-2026-02-20.md"
+                  }
+                ],
+                "evidence_count": 2,
+                "host_concentration": "Two distinct hosts/front doors; one item is a bounded provenance wrapper rather than a full transcript.",
+                "inclusion_rationale": "Directly frames negotiated peace versus battlefield resolution and specifies incompatible structural demands.",
+                "orthogonality_axis": "structure, polarity, and security dilemma",
+                "source_count": 2,
+                "voice_slug": "mearsheimer"
+              },
+              {
+                "display_name": "Glenn Diesen",
+                "engaged_layer_ids": [
+                  "termination_conversion"
+                ],
+                "evidence": [
+                  {
+                    "excerpt": "Trump has held his first phone call with Putin ... taking big steps to end the war.",
+                    "layer_ids": [
+                      "termination_conversion"
+                    ],
+                    "line_end": 19,
+                    "line_start": 19,
+                    "path": "narrative-geopolitics/archive/sources/2025-02-15/source-diesen-mearsheimer-mercouris-trump-to-force-ukraine-peace-on-europe-2025-02-15.md"
+                  },
+                  {
+                    "excerpt": "How will this war end then? ... the situation is going from bad to worse ... we would seek to cement a good deal today.",
+                    "layer_ids": [
+                      "termination_conversion"
+                    ],
+                    "line_end": 86,
+                    "line_start": 82,
+                    "path": "narrative-geopolitics/archive/sources/2026-01-31/source-diesen-mearsheimer-cold-war-nato-ukraine-2026-01-31.md"
+                  }
+                ],
+                "evidence_count": 2,
+                "host_concentration": "Two distinct episodes on Diesen's own channel; host concentration is complete and the excerpts are his attributable framing/questions.",
+                "inclusion_rationale": "Connects worsening battlefield position to bargaining timing and asks how military conditions should be converted into a deal.",
+                "orthogonality_axis": "multipolar order transition and institutional legitimacy",
+                "source_count": 2,
+                "voice_slug": "diesen"
+              }
+            ],
+            "recommendation_basis": {
+              "method": "object overlap plus the existing orthogonality map; each engaged epistemic layer requires two attributable excerpts from two archive sources",
+              "orthogonality_map": "narrative-geopolitics/voices/comparisons/orthogonality-map.md",
+              "seeded_voices": [
+                "mercouris",
+                "mearsheimer",
+                "davis",
+                "diesen"
+              ]
+            },
+            "status": "approved"
+          },
+          "comparison": {
+            "approval": {
+              "approved_at": "2026-07-28",
+              "basis": "explicit operator score approval"
+            },
+            "findings": {
+              "closest_affinity": {
+                "display_name": "Alexander Mercouris",
+                "layer_id": "termination_conversion",
+                "rationale": "He most directly reinforces the operator's distinction between diplomatic contact, unresolved terms, sequencing, and an actual agreement.",
+                "voice_slug": "mercouris"
+              },
+              "strongest_corrective": {
+                "display_name": "John Mearsheimer",
+                "layer_id": "termination_conversion",
+                "rationale": "His emphasis on structurally incompatible demands tests whether political conversion is merely difficult or presently impossible, forcing sharper change conditions.",
+                "voice_slug": "mearsheimer"
+              }
+            },
+            "profiles": [
+              {
+                "dimensions": {
+                  "counterargument_integration": {
+                    "evidence_refs": [
+                      "OV-20260728-01-v2:counterargument_integration"
+                    ],
+                    "rationale": "The candidate directly incorporates capitulation and states the strongest tautology, exhaustion, and continuing-force objections.",
+                    "score": 5
+                  },
+                  "explanatory_compression": {
+                    "evidence_refs": [
+                      "OV-20260728-01-v2:explanatory_compression"
+                    ],
+                    "rationale": "The added pathways improve precision but make the thesis and mechanism less compact than v1.",
+                    "score": 4
+                  },
+                  "internal_consistency": {
+                    "evidence_refs": [
+                      "OV-20260728-01-v2:internal_consistency"
+                    ],
+                    "rationale": "Thesis, mechanism, implications, and qualifications consistently allow coercive capitulation, though the frozen-conflict boundary remains unsettled.",
+                    "score": 4
+                  },
+                  "mechanism_completeness": {
+                    "evidence_refs": [
+                      "OV-20260728-01-v2:mechanism_completeness"
+                    ],
+                    "rationale": "The mechanism now connects leverage and resistance capacity to authority, territory, security, cessation, compliance, and enforcement.",
+                    "score": 5
+                  },
+                  "scope_and_qualification_discipline": {
+                    "evidence_refs": [
+                      "OV-20260728-01-v2:scope_and_qualification_discipline"
+                    ],
+                    "rationale": "The view distinguishes legitimacy from effectiveness and treaties from de facto order, but its broad definition of political conversion risks expansion.",
+                    "score": 4
+                  },
+                  "thesis_precision": {
+                    "evidence_refs": [
+                      "OV-20260728-01-v2:thesis_precision"
+                    ],
+                    "rationale": "The refinement explicitly identifies negotiated, tacit, and imposed political-order pathways and separates termination from battlefield movement.",
+                    "score": 5
+                  }
+                },
+                "display_name": "Operator",
+                "layer_id": "termination_conversion",
+                "subject": "operator"
+              },
+              {
+                "dimensions": {
+                  "counterargument_integration": {
+                    "evidence_refs": [
+                      "mercouris:evidence:1",
+                      "mercouris:evidence:2"
+                    ],
+                    "rationale": "He moderates premature optimism and recognizes both talks and reasons they may fail, but the bounded evidence contains limited developed counterargument.",
+                    "score": 3
+                  },
+                  "explanatory_compression": {
+                    "evidence_refs": [
+                      "mercouris:evidence:1"
+                    ],
+                    "rationale": "The distinction between speaking and agreement compresses the central conversion problem effectively.",
+                    "score": 4
+                  },
+                  "internal_consistency": {
+                    "evidence_refs": [
+                      "mercouris:evidence:1",
+                      "mercouris:evidence:2"
+                    ],
+                    "rationale": "Both excerpts consistently condition settlement on negotiating space and underlying causes.",
+                    "score": 4
+                  },
+                  "mechanism_completeness": {
+                    "evidence_refs": [
+                      "mercouris:evidence:1",
+                      "mercouris:evidence:2"
+                    ],
+                    "rationale": "Sequence and root causes are explicit, but enforcement and implementation are not fully developed in the bounded evidence.",
+                    "score": 3
+                  },
+                  "scope_and_qualification_discipline": {
+                    "evidence_refs": [
+                      "mercouris:evidence:1"
+                    ],
+                    "rationale": "He carefully qualifies early diplomatic signals and avoids equating contact with settlement.",
+                    "score": 4
+                  },
+                  "thesis_precision": {
+                    "evidence_refs": [
+                      "mercouris:evidence:1"
+                    ],
+                    "rationale": "His claim that talks are not an agreement is precise, though it is episode-specific rather than a general termination thesis.",
+                    "score": 4
+                  }
+                },
+                "display_name": "Alexander Mercouris",
+                "layer_id": "termination_conversion",
+                "subject": "mercouris"
+              },
+              {
+                "dimensions": {
+                  "counterargument_integration": {
+                    "evidence_refs": [
+                      "mearsheimer:evidence:1",
+                      "mearsheimer:evidence:2"
+                    ],
+                    "rationale": "The debate framing acknowledges negotiated-peace and battlefield alternatives, but the wrapper limits assessment of how fully objections are answered.",
+                    "score": 3
+                  },
+                  "explanatory_compression": {
+                    "evidence_refs": [
+                      "mearsheimer:evidence:1"
+                    ],
+                    "rationale": "Incompatible non-negotiable demands provide a compact structural explanation for failed settlement.",
+                    "score": 4
+                  },
+                  "internal_consistency": {
+                    "evidence_refs": [
+                      "mearsheimer:evidence:1",
+                      "mearsheimer:evidence:2"
+                    ],
+                    "rationale": "The structural incompatibility claim is consistent with the negotiated-peace versus battlefield framing.",
+                    "score": 4
+                  },
+                  "mechanism_completeness": {
+                    "evidence_refs": [
+                      "mearsheimer:evidence:1"
+                    ],
+                    "rationale": "The incompatibility mechanism is explicit, while pathways for changes in demands or implementation remain incomplete in this evidence set.",
+                    "score": 3
+                  },
+                  "scope_and_qualification_discipline": {
+                    "evidence_refs": [
+                      "mearsheimer:evidence:1"
+                    ],
+                    "rationale": "The claim is tightly tied to stated demands, though its categorical pessimism handles fewer contingent pathways.",
+                    "score": 3
+                  },
+                  "thesis_precision": {
+                    "evidence_refs": [
+                      "mearsheimer:evidence:1"
+                    ],
+                    "rationale": "Zero optimism and polar-opposite demands state a clear, testable position.",
+                    "score": 4
+                  }
+                },
+                "display_name": "John Mearsheimer",
+                "layer_id": "termination_conversion",
+                "subject": "mearsheimer"
+              },
+              {
+                "dimensions": {
+                  "counterargument_integration": {
+                    "evidence_refs": [
+                      "diesen:evidence:1",
+                      "diesen:evidence:2"
+                    ],
+                    "rationale": "His questions juxtapose diplomatic optimism and worsening battlefield conditions, but the excerpts do not show a full rebuttal structure.",
+                    "score": 3
+                  },
+                  "explanatory_compression": {
+                    "evidence_refs": [
+                      "diesen:evidence:2"
+                    ],
+                    "rationale": "The worsening-position-now-versus-worse-deal-later formulation compresses the bargaining-timing intuition.",
+                    "score": 4
+                  },
+                  "internal_consistency": {
+                    "evidence_refs": [
+                      "diesen:evidence:1",
+                      "diesen:evidence:2"
+                    ],
+                    "rationale": "The two episodes share a settlement frame, but optimism about diplomatic movement and concern about negotiating failure remain only partly reconciled.",
+                    "score": 3
+                  },
+                  "mechanism_completeness": {
+                    "evidence_refs": [
+                      "diesen:evidence:2"
+                    ],
+                    "rationale": "Battlefield deterioration is connected to bargaining urgency, but settlement terms and enforcement are implicit.",
+                    "score": 3
+                  },
+                  "scope_and_qualification_discipline": {
+                    "evidence_refs": [
+                      "diesen:evidence:1",
+                      "diesen:evidence:2"
+                    ],
+                    "rationale": "He frames questions rather than overclaiming a settled outcome, although the first excerpt calls early contact a big step.",
+                    "score": 3
+                  },
+                  "thesis_precision": {
+                    "evidence_refs": [
+                      "diesen:evidence:2"
+                    ],
+                    "rationale": "The claim that a worsening battlefield position should alter deal timing is clear but expressed as a question.",
+                    "score": 3
+                  }
+                },
+                "display_name": "Glenn Diesen",
+                "layer_id": "termination_conversion",
+                "subject": "diesen"
+              }
+            ],
+            "relations": [
+              {
+                "display_name": "Alexander Mercouris",
+                "layer_id": "termination_conversion",
+                "rationale": "Both distinguish battlefield and diplomatic movement from an actual settlement and emphasize unresolved terms and sequence.",
+                "relation": "reinforcement",
+                "voice_slug": "mercouris"
+              },
+              {
+                "display_name": "John Mearsheimer",
+                "layer_id": "termination_conversion",
+                "rationale": "He accepts the conversion problem but treats incompatible structural demands as a stronger present barrier than the operator's more conditional formulation.",
+                "relation": "conditional_divergence",
+                "voice_slug": "mearsheimer"
+              },
+              {
+                "display_name": "Glenn Diesen",
+                "layer_id": "termination_conversion",
+                "rationale": "He links battlefield deterioration to bargaining urgency, while his order-transition lens supplies a broader legitimacy mechanism than the operator position states.",
+                "relation": "mechanism_disagreement",
+                "voice_slug": "diesen"
+              }
+            ],
+            "status": "approved"
+          },
+          "position": {
+            "change_conditions": [
+              "Evidence that loss of military capacity alone produces a durable cessation before any explicit or tacit postwar order emerges.",
+              "A stable frozen conflict with unresolved authority and recurring violations shows that enforceable political conversion is not necessary for termination.",
+              "Observed capitulation produces durable termination without any subsequent compliance, control, or enforcement arrangement."
+            ],
+            "confidence": "moderate-high",
+            "epistemic_layers": [
+              {
+                "claim": "Durable Ukraine-war termination requires battlefield leverage to become an explicit or behaviorally legible political order, whether negotiated, tacit, or imposed.",
+                "confidence": "moderate-high",
+                "evidence_standard": "Observed termination must be evaluated for an agreement, capitulation instrument, authoritative settlement, or stable behavioral pattern governing territorial control, security conduct, and compliance after organized fighting subsides.",
+                "falsifier_or_limitation": "A durable termination persists after battlefield collapse without an agreement, capitulation instrument, authoritative settlement, or behaviorally stable pattern governing territorial control, security conduct, and compliance.",
+                "falsifier_status": "testable",
+                "label": "Authoritative postwar-order requirement",
+                "layer_id": "termination_conversion",
+                "layer_type": "empirical_hypothesis"
+              }
+            ],
+            "falsifier": "A durable termination persists after battlefield collapse without an agreement, capitulation instrument, authoritative settlement, or behaviorally stable pattern governing territorial control, security conduct, and compliance.",
+            "horizon": "Medium-term, with event-triggered review and a 30-day backstop.",
+            "implications": "Battlefield momentum, military collapse, or diplomatic contact should not be labeled war termination until an observable authority and compliance structure governs cessation and the postwar disposition; mutual consent and normative legitimacy are not required.",
+            "mechanism": "Military movement changes bargaining power and capacity to resist. Termination occurs only when that leverage is translated through negotiated convergence, tacit accommodation, or capitulation into authoritative territorial, security, cessation, compliance, and enforcement arrangements that govern subsequent conduct.",
+            "qualifications": [
+              "Political conversion may be unilateral, coercive, and normatively illegitimate.",
+              "A formal treaty is unnecessary when a behaviorally legible de facto order governs subsequent conduct.",
+              "Extreme battlefield asymmetry can compress the conversion process and leave little meaningful bargaining."
+            ],
+            "strongest_counterarguments": [
+              "Defining every durable postwar pattern as political conversion risks making the thesis tautological.",
+              "Exhaustion or incapacity can stop organized fighting while sovereignty, territory, and security terms remain unresolved.",
+              "A victor may impose control through continuing force without creating credible or implementable political terms."
+            ],
+            "thesis": "Battlefield advantage does not by itself terminate the Ukraine war; termination requires converting military leverage into an explicit or behaviorally legible political order, whether negotiated, tacit, or imposed."
+          },
+          "previous_version_id": "OV-20260728-01-v1",
+          "provenance": {
+            "note": "Review normalized from a nominated local input; raw text remains ignored.",
+            "source_kind": "judgment"
+          },
+          "relation_to_previous": "refinement",
+          "review_trigger": {
+            "date": "2026-08-27",
+            "event": "credible-settlement-terms-linking-battlefield-disposition-to-political-conversion",
+            "mode": "earliest_of"
+          },
+          "version_id": "OV-20260728-01-v2",
+          "version_number": 2
+        }
+      ]
+    },
+    {
+      "object_label": "Russia, Kiev, Odessa, and the war end state",
+      "object_slug": "russia-kiev-odessa-end-state",
+      "position_id": "OV-20260728-02",
+      "versions": [
+        {
+          "approval": {
+            "approved_at": "2026-07-28",
+            "basis": "explicit operator approval",
+            "status": "approved"
+          },
+          "comparator_set": {
+            "approval": {
+              "approved_at": "2026-07-29",
+              "basis": "explicit operator comparator approval"
+            },
+            "excluded": [
+              {
+                "display_name": "Glenn Diesen",
+                "evidence_count": 0,
+                "host_concentration": "The qualifying search did not produce two attributable, mechanism-specific excerpts in which Diesen rather than a guest owns the claim.",
+                "reason": "Archive presence and host framing are relevant, but the exact Kiev-control versus durable-constraint mechanism did not clear the evidence threshold.",
+                "source_count": 0,
+                "target_layer_ids": [
+                  "kiev_security_requirement"
+                ],
+                "voice_slug": "diesen"
+              },
+              {
+                "display_name": "Daniel Davis",
+                "evidence_count": 0,
+                "host_concentration": "Much of the relevant archive material places Davis in the host role and does not cleanly separate his position from the guest's mechanism.",
+                "reason": "No two clearly attributable excerpts were found that engage whether Russia requires physical control of Kiev or can rely on enforceable structural constraints.",
+                "source_count": 0,
+                "target_layer_ids": [
+                  "kiev_security_requirement"
+                ],
+                "voice_slug": "davis"
+              },
+              {
+                "display_name": "Sergey Karaganov",
+                "evidence_count": 1,
+                "host_concentration": "All seven manifest-backed sources are concentrated on Glenn Diesen's channel.",
+                "reason": "One strong demilitarization formulation was found, but a second independently hosted source did not directly engage the Kiev-control mechanism.",
+                "source_count": 1,
+                "target_layer_ids": [
+                  "kiev_security_requirement"
+                ],
+                "voice_slug": "karaganov"
+              },
+              {
+                "display_name": "Robert Pape",
+                "evidence_count": 0,
+                "host_concentration": "The Ukraine references in the searched corpus do not yield a qualifying Kiev-security evidence pair.",
+                "reason": "His coercion framework may become relevant, but the current archive search did not find two direct excerpts on political control, neutrality, or Ukrainian force regeneration for this layer.",
+                "source_count": 0,
+                "target_layer_ids": [
+                  "kiev_security_requirement"
+                ],
+                "voice_slug": "pape"
+              }
+            ],
+            "included": [
+              {
+                "display_name": "Douglas Macgregor",
+                "engaged_layer_ids": [
+                  "kiev_security_requirement"
+                ],
+                "evidence": [
+                  {
+                    "excerpt": "A move to the river and then potentially cross and take Kiev ... is a real possibility now.",
+                    "layer_ids": [
+                      "kiev_security_requirement"
+                    ],
+                    "line_end": 48,
+                    "line_start": 47,
+                    "path": "narrative-geopolitics/archive/sources/2025-04-28/source-daniel-davis-macgregor-it-s-ukraine-prolonging-this-war-2025-04-28.md"
+                  },
+                  {
+                    "excerpt": "They've got to go into Kiev and put this government out of business ... Once it becomes clear that the government in Kiev is out of business and Odessa is in Russian hands ... you're looking at an end state.",
+                    "layer_ids": [
+                      "kiev_security_requirement"
+                    ],
+                    "line_end": 307,
+                    "line_start": 288,
+                    "path": "narrative-geopolitics/archive/sources/2025-06-10/source-glenn-diesen-douglas-macgregor-douglas-macgregor-russia-s-retaliation-nato-s-declining-relevance-2025-06-10.md"
+                  }
+                ],
+                "evidence_count": 2,
+                "host_concentration": "Two distinct interview hosts, Daniel Davis and Glenn Diesen; one source is raw operator-confirmed input and one uses raw YouTube auto-captions.",
+                "inclusion_rationale": "Directly tests the full operator claim by connecting physical action against Kiev's government to a Russian end state rather than treating neutrality alone as sufficient.",
+                "orthogonality_axis": "military feasibility, decisive control, and end-state imposition",
+                "source_count": 2,
+                "voice_slug": "macgregor"
+              },
+              {
+                "display_name": "Scott Ritter",
+                "engaged_layer_ids": [
+                  "kiev_security_requirement"
+                ],
+                "evidence": [
+                  {
+                    "excerpt": "Ukraine will be demilitarized down to 50,000 ... Russia will not yield on this.",
+                    "layer_ids": [
+                      "kiev_security_requirement"
+                    ],
+                    "line_end": 98,
+                    "line_start": 96,
+                    "path": "narrative-geopolitics/archive/sources/2025-03-21/source-india-global-left-trump-rubio-ukraine-peace-talks-scott-ritter-2025-03-21.md"
+                  },
+                  {
+                    "excerpt": "A Russian oriented government in Kiev ... will do the bidding of Russia. So you don't need to physically take Kiev.",
+                    "layer_ids": [
+                      "kiev_security_requirement"
+                    ],
+                    "line_end": 1172,
+                    "line_start": 1168,
+                    "path": "narrative-geopolitics/archive/sources/2025-05-24/source-glenn-diesen-scott-ritter-scott-ritter-will-trump-own-the-ukraine-war-or-walk-away-2025-05-24.md"
+                  }
+                ],
+                "evidence_count": 2,
+                "host_concentration": "Two distinct interview hosts, India and Global Left and Glenn Diesen; both transcripts carry non-verbatim or raw-ASR caveats.",
+                "inclusion_rationale": "Accepts demilitarization and political realignment as Russian requirements while explicitly rejecting physical possession of Kiev as the necessary mechanism.",
+                "orthogonality_axis": "demilitarization, political alignment, and control-without-occupation",
+                "source_count": 2,
+                "voice_slug": "ritter"
+              },
+              {
+                "display_name": "Alexander Mercouris",
+                "engaged_layer_ids": [
+                  "kiev_security_requirement"
+                ],
+                "evidence": [
+                  {
+                    "excerpt": "The root causes are the nature of the government in Kiev ... and the provisions of the April 2022 Istanbul agreement: no membership of NATO, neutral status, denuclearization, demilitarization, ultimately denazification.",
+                    "layer_ids": [
+                      "kiev_security_requirement"
+                    ],
+                    "line_end": 477,
+                    "line_start": 391,
+                    "path": "narrative-geopolitics/archive/sources/2025-04-21/source-alexander-mercouris-easter-truce-ends-russia-resumes-offensive-accuses-kiev-many-breaches-us-ultimatum-to-kiev-coming-2025-04-21.md"
+                  },
+                  {
+                    "excerpt": "There have to be major political changes in Kiev as well ... new elections, a new government in Kiev.",
+                    "layer_ids": [
+                      "kiev_security_requirement"
+                    ],
+                    "line_end": 163,
+                    "line_start": 162,
+                    "path": "narrative-geopolitics/archive/sources/2026-06-23/source-duran-mercouris-rubicon-crossed-zelensky-targets-belarus-2026-06-23.md"
+                  }
+                ],
+                "evidence_count": 2,
+                "host_concentration": "Two distinct program front doors, Alexander Mercouris and The Duran; the later item is an operator-pasted transcript not independently verified as verbatim.",
+                "inclusion_rationale": "Treats Kiev's political structure, neutrality, and demilitarization as root-cause settlement terms, directly testing whether structural reconstitution can substitute for permanent physical control.",
+                "orthogonality_axis": "room, sequence, political legitimacy, and settlement terms",
+                "source_count": 2,
+                "voice_slug": "mercouris"
+              },
+              {
+                "display_name": "John Mearsheimer",
+                "engaged_layer_ids": [
+                  "kiev_security_requirement"
+                ],
+                "evidence": [
+                  {
+                    "excerpt": "Putin has an interest in turning Ukraine into a dysfunctional rump state because the West wants to use Ukraine to defeat Russia and he cannot allow that to happen.",
+                    "layer_ids": [
+                      "kiev_security_requirement"
+                    ],
+                    "line_end": 608,
+                    "line_start": 598,
+                    "path": "narrative-geopolitics/archive/sources/2025-10-08/source-glenn-diesen-john-mearsheimer-john-mearsheimer-west-destroying-itself-in-ukraine-gaza-2025-10-08.md"
+                  },
+                  {
+                    "excerpt": "Russia has a powerful incentive ... to make Ukraine a dysfunctional rump state so that it can't join NATO and it's not any kind of a threat to you.",
+                    "layer_ids": [
+                      "kiev_security_requirement"
+                    ],
+                    "line_end": 91,
+                    "line_start": 87,
+                    "path": "narrative-geopolitics/archive/sources/2026-02-17/source-john-mearsheimer-how-trump-has-boxed-himself-into-a-corner-on-iran-2026-02-17.md"
+                  }
+                ],
+                "evidence_count": 2,
+                "host_concentration": "Two distinct interview hosts, Glenn Diesen and Judging Freedom; both excerpts are attributable to Mearsheimer, with historical transcript caveats retained.",
+                "inclusion_rationale": "Reinforces the security-disablement logic while leaving open whether territorial weakening and neutrality, rather than possession of Kiev, are sufficient.",
+                "orthogonality_axis": "structure, security dilemma, state incentive, and bargaining geometry",
+                "source_count": 2,
+                "voice_slug": "mearsheimer"
+              }
+            ],
+            "recommendation_basis": {
+              "method": "graph object overlap plus the existing orthogonality map where available; each engaged epistemic layer requires two attributable excerpts from two archive sources",
+              "orthogonality_map": "narrative-geopolitics/voices/comparisons/orthogonality-map.md",
+              "seeded_voices": [
+                "macgregor",
+                "ritter",
+                "mercouris",
+                "mearsheimer"
+              ]
+            },
+            "status": "approved"
+          },
+          "comparison": {
+            "findings": {},
+            "profiles": [],
+            "relations": [],
+            "status": "not_started"
+          },
+          "position": {
+            "change_conditions": [
+              "A durable neutral settlement accepted and sustained by Russia while Ukraine retains both cities and fails to regenerate an anti-Russian military capacity.",
+              "Persistent Ukrainian force regeneration despite continued Russian attrition, or evidence that the proposed parallel systemic-collapse mechanism is not developing.",
+              "A decisive loss of Russian battlefield initiative accompanied by forced loss of substantial currently controlled or claimed territory.",
+              "Evidence that the current Russian leadership and the enduring Russian state project regard substantially narrower territorial and political conditions as sufficient.",
+              "Evidence that insurgency, occupation burdens, or intensified external balancing make the proposed territorial outcome strategically counterproductive for Russia."
+            ],
+            "confidence": "High confidence in the claimed strategic necessity within the model; likely, but subject to substantial failure risk, as a current-war outcome.",
+            "epistemic_layers": [
+              {
+                "claim": "Russia's security requirements demand structural reconstitution of Kiev sufficient to prevent renewed NATO-aligned Ukrainian military regeneration; permanent Russian occupation is not necessary if the constraints are enforceable and durable.",
+                "confidence": "high within the stated security model",
+                "evidence_standard": "A credible assessment must compare post-settlement Ukrainian force regeneration, NATO alignment, security-service structure, military constraints, Russian acceptance, and the durability of alternative neutral arrangements.",
+                "falsifier_or_limitation": "The claim is seriously weakened by a durable, verifiable neutral settlement in which Ukraine retains Kiev and Odessa, has no NATO role, does not regenerate anti-Russian military capacity, and Russia treats the arrangement as sufficient.",
+                "falsifier_status": "testable",
+                "label": "Kiev security requirement",
+                "layer_id": "kiev_security_requirement",
+                "layer_type": "empirical_hypothesis"
+              },
+              {
+                "claim": "Odessa has independently compelling historical and civilizational significance for the enduring Russian state project, making direct Russian control of the southern corridor strategically imperative within that actor model.",
+                "confidence": "high as an operator model of the Russian state project; not independently established",
+                "evidence_standard": "Attribution requires sustained evidence from Russian leadership choices, doctrine, elite discourse, and costly behavior showing that the state project treats Odessa as indispensable rather than merely advantageous.",
+                "falsifier_or_limitation": "As currently formulated, the civilizational premise has no ordinary empirical falsifier; contrary Russian preferences can challenge its attribution, while Russian strategic defeat or disappearance of the relevant state project can terminate its applicability.",
+                "falsifier_status": "not_empirically_falsifiable",
+                "label": "Odessa civilizational actor model",
+                "layer_id": "odessa_civilizational_premise",
+                "layer_type": "actor_model_premise"
+              },
+              {
+                "claim": "Russia is likely, with substantial failure risk, to realize Kiev's structural reconstitution and direct control of a continuous Black Sea corridor to Transnistria before the present phase of major combat ends durably.",
+                "confidence": "likely, with substantial failure risk",
+                "evidence_standard": "The forecast requires observable progress in Russian battlefield initiative, Ukrainian force-regeneration failure despite mobilization and external support, demographic and economic exhaustion, elite cohesion, Western support, and operational feasibility along the southern corridor.",
+                "falsifier_or_limitation": "The forecast is falsified if the war ends durably without both outcomes and is defeated earlier by a decisive Russian battlefield reversal accompanied by forced loss of substantial currently controlled or claimed territory.",
+                "falsifier_status": "testable",
+                "label": "Current-war realization forecast",
+                "layer_id": "current_war_realization",
+                "layer_type": "conditional_forecast"
+              }
+            ],
+            "falsifier": "The security hypothesis would be seriously weakened by a durable, verifiable neutral settlement in which Ukraine retains Kiev and Odessa, has no NATO role, does not regenerate anti-Russian military capacity, and Russia treats the arrangement as sufficient. The current-war forecast is falsified if the war ends durably without both required outcomes, and is defeated earlier by a decisive Russian battlefield reversal with forced loss of substantial currently controlled or claimed territory. The civilizational premise has no ordinary empirical falsifier as currently formulated; that limitation is disclosed rather than converted into false testability.",
+            "horizon": "Before the present continuous phase of major combat ends durably, absent a decisive Russian reversal.",
+            "implications": "A ceasefire or settlement that leaves Ukraine able to regenerate as a NATO-aligned military platform, or leaves Odessa and the remaining coast under sovereign Ukrainian control, would constitute an incomplete termination under this model. Ukrainian force-regeneration performance is the earliest proposed observable. Analysis must distinguish what Russia needs, what Russian leaders intend, what Russia can achieve, and what is likely to occur.",
+            "mechanism": "Parallel systemic collapse: battlefield attrition and Ukrainian force-regeneration failure interact with demographic and economic exhaustion, elite fragmentation, and declining Western support. Kiev is then structurally reconstituted through enforceable neutrality, demilitarization, security-service restructuring, territorial reorganization, and durable limits on anti-Russian military policy. Direct control of the southern corridor removes Ukraine's independent Black Sea frontage, improves Crimea's security geometry, and connects Russia to Transnistria. Odessa's civilizational significance is modeled as a premise of the Russian state project, not asserted as an independently verified fact.",
+            "qualifications": [
+              "This is strategic recognition and actor modeling, not moral endorsement or adjudication of historical justice.",
+              "The security hypothesis, civilizational premise, and current-war forecast have different epistemic status and must be evaluated separately.",
+              "Kiev need not be permanently occupied if structural reconstitution is enforceable and durable.",
+              "The Odessa condition does require direct Russian control of a continuous southern corridor to Transnistria.",
+              "Likely does not mean inevitable; escalation, operational failure, and overextension remain substantial risks.",
+              "The claim must not be attributed to Russian leaders or repo voices without independent source evidence."
+            ],
+            "strongest_counterarguments": [
+              "Security dilemma: territorial expansion, insurgency, occupation burdens, and intensified NATO balancing could leave Russia less secure.",
+              "Limited-aims objection: Russia's actual leadership may regard narrower territorial or political aims as sufficient.",
+              "Security-substitutes objection: enforceable neutrality, arms limits, or external guarantees might provide the required security without physical control.",
+              "Identity-cohesion objection: coercion and territorial loss may strengthen Ukrainian national cohesion and long-run anti-Russian alignment.",
+              "Feasibility objection: the military and administrative costs of taking and holding the proposed areas may exceed Russian capacity or political tolerance."
+            ],
+            "thesis": "Russia's acceptable end state requires two asymmetric outcomes: structural reconstitution of Kiev sufficient to prevent renewed NATO-aligned military regeneration, and direct Russian control of a continuous southern corridor through Kherson, Mykolaiv, Odessa, and the remaining Black Sea coast to Transnistria. This combines a testable security hypothesis, an actor-model civilizational premise, and a conditional forecast; those layers must not be conflated."
+          },
+          "previous_version_id": null,
+          "provenance": {
+            "note": "Normalized from a nominated local input; raw text remains ignored.",
+            "source_kind": "judgment"
+          },
+          "relation_to_previous": "initial",
+          "review_trigger": {
+            "date": "2026-08-27",
+            "event": "credible-settlement-terms-linking-battlefield-disposition-to-political-conversion",
+            "mode": "earliest_of"
+          },
+          "version_id": "OV-20260728-02-v1",
+          "version_number": 1
+        }
+      ]
+    }
+  ],
+  "schema": "strategic-judgment-ledger-v1",
+  "status": "internal-canonical-graph-indexed"
+}
