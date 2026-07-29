@@ -40,6 +40,7 @@ EXPECTED_SURFACES = {
     "archive-density": "report_archive_density.py",
     "asr-repair": "run_asr_repair_pilot.py",
     "cadence": "cadence.py",
+    "choice": "choice_ledger.py",
     "continuity": "continuity.py",
     "daily-validate": "validate_daily_run.py",
     "forecast-sync": "sync_forecast_ledger.py",

@@ -11,6 +11,7 @@ SURFACES = {
     "archive-density": REPO_ROOT / "scripts" / "report_archive_density.py",
     "asr-repair": REPO_ROOT / "scripts" / "run_asr_repair_pilot.py",
     "cadence": REPO_ROOT / "scripts" / "cadence.py",
+    "choice": REPO_ROOT / "scripts" / "choice_ledger.py",
     "continuity": REPO_ROOT / "scripts" / "continuity.py",
     "daily-validate": REPO_ROOT / "scripts" / "validate_daily_run.py",
     "forecast-sync": REPO_ROOT / "scripts" / "sync_forecast_ledger.py",

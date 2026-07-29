@@ -1,0 +1,6 @@
+interface:
+  display_name: "Learn From Choices"
+  short_description: "Outcome-aware possibility navigation"
+  default_prompt: "Use $learn-from-choices to offer outcome-aware next possibilities and learn from selected branches."
+policy:
+  allow_implicit_invocation: true

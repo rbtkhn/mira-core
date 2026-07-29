@@ -22,6 +22,8 @@ outcome as `improved`, `no_change`, `regressed`, or `inconclusive`. State:
 
 Do not call a change `improved` merely because tests pass. It must improve a
 named judgment, quality, reliability, or efficiency criterion.
+Do not solicit or record unresolved choice outcomes during closeout. Route
+them through the next `coffee` re-entry instead.
 
 ## Verify and persist
 

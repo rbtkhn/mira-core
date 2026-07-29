@@ -33,7 +33,14 @@ edit, or retire any control during the audit.
 These are repository-local contracts. Do not synchronize them into global
 Codex skills. Their handoff is advisory cadence state, never research evidence.
 
-End every user-facing response with multiple-choice options for the next best
-ROI action. Put the recommended option first, keep the options concise and
-mutually distinct, and use the options even when the preceding response is
-primarily a status update or explanation.
+For every final user-facing response, read and follow
+`docs/skill-drafts/learn-from-choices/SKILL.md`. Do not apply its footer to
+intermediate progress commentary. End with three or four concise, meaningfully
+distinct next possibilities using the stable roles `recommended`,
+`alternative`, `overlooked`, and `pause-or-deepen`; omit a fourth option when
+it would create fake diversity. Explain the recommendation in one
+evidence-grounded sentence and preserve a credible overlooked path when one
+exists. A bare letter enters and develops that branch; it never silently
+authorizes mutation, execution, spending, publication, communication,
+customer action, commit, push, or deployment. A later explicit command
+supersedes the pending menu.

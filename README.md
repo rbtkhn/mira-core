@@ -55,6 +55,71 @@ Use `NARRATIVE_PYTHON` to select a specific Python executable and
 intake behavior is documented separately under
 `narrative-geopolitics/method/` and is not part of repository maintenance.
 
+## Outcome-aware choice navigation
+
+Final responses expose three or four distinct next possibilities. A letter
+enters and develops the selected branch; selection alone grants no authority
+to mutate, execute, spend, publish, communicate, act on customers, stage,
+commit, push, or deploy.
+
+Unselected menus are not retained. To retain selected branches privately,
+configure an absolute SQLite path outside the repository:
+
+```powershell
+$env:NARRATIVE_CHOICE_DB = "C:\private\narrative-choice-history.sqlite3"
+```
+
+The first retained selection creates or migrates the private store. Selection
+atomically records the exact sanitized option set, stable semantic roles,
+recommendation and selection bindings, scope, timestamps, bounded signals,
+and a `branch_selected` event. Prompts are immutable and later events are
+append-only and hash-chained. Direct contact data is redacted; secrets,
+credentials, and raw private evidence bodies are rejected. If the store is
+missing, navigation continues and retention is reported as unavailable.
+
+Use a private JSON file containing three or four objects with `key`, `role`,
+and `text` fields:
+
+```powershell
+.\tools\run.ps1 choice select --choice-id CHOICE-20260729-01 `
+  --options-json C:\private\choice-options.json --selected-key inspect `
+  --choice-kind next-step --consequence-level low `
+  --decision-summary "Choose the next bounded investigation" `
+  --presented-at 2026-07-29T18:00:00Z --idempotency-key select-20260729-01
+
+.\tools\run.ps1 choice outcome --choice-id CHOICE-20260729-01 `
+  --result successful --cognitive-load lower --momentum advanced `
+  --discovery-value new-useful-path --idempotency-key outcome-20260729-01
+
+.\tools\run.ps1 choice --format markdown review
+.\tools\run.ps1 choice --format markdown show --choice-id CHOICE-20260729-01
+.\tools\run.ps1 choice verify --choice-id CHOICE-20260729-01
+```
+
+Mutation commands accept `--dry-run`. Use `choice context` to inspect bounded
+recommendation evidence. One or two comparable resolved outcomes remain thin
+evidence. At least three are required before two consistent outcomes without a
+material contradiction may affect the recommended role. Selection frequency
+never affects ordering, and a credible overlooked path remains available.
+Boundary incidents surface immediately and learning remains tenant/lane
+isolated.
+
+`choice review` uses the earliest five resolved, non-superseded selections. It
+reports lower cognitive load, advanced momentum, new-useful-path discovery,
+result distribution, rework, negative experiences, and boundary incidents.
+Its precedence is `hold`, `extend-to-ten`, `adjust`, then `continue`. This
+descriptive pilot scorecard does not bypass the separate comparable-outcome
+threshold. Unresolved outcomes return only through `coffee`; `dream` does not
+solicit them.
+
+Back up and recover private state explicitly:
+
+```powershell
+.\tools\run.ps1 choice backup --to C:\private\backups\choices.sqlite3
+.\tools\run.ps1 choice recover --from C:\private\backups\choices.sqlite3 `
+  --to C:\private\restored-choices.sqlite3 --dry-run
+```
+
 ## Operating Boundary
 
 - `archive/` owns source truth.
