@@ -445,13 +445,21 @@ def validate_data(data: dict[str, Any], *, check_report: bool = False) -> list[s
     if tuple(data.get("dimensions", ())) != DIMENSIONS:
         errors.append("strategic judgment ledger: dimension contract drift")
     ledger = data.get("ledger", {})
+    classical = ledger.get("classical_definition", {})
     if (
         ledger.get("title") != "Strategic Judgment Ledger"
         or ledger.get("short_name") != "the Judgment Ledger"
         or ledger.get("model") != "graph-indexed immutable event ledger"
         or ledger.get("primary_interface") != "typed graph and query views"
+        or classical.get("name") != "living hypomnema and private agora"
+        or not classical.get("definition")
+        or not classical.get("dialogue")
+        or not classical.get("purpose")
+        or len(classical.get("practices", [])) != 3
     ):
-        errors.append("strategic judgment ledger: missing Ledger identity or graph model")
+        errors.append(
+            "strategic judgment ledger: missing Ledger identity, classical definition, or graph model"
+        )
     forbidden = {"overall_score", "grand_score", "total_score"}
     present = forbidden.intersection(_walk_keys(data))
     if present:
@@ -722,6 +730,22 @@ def render_report(data: dict[str, Any]) -> str:
         "",
         f"> {data['boundary']}",
         "",
+        "## Classical self-definition",
+        "",
+        f"**{ledger['classical_definition']['name'].title()}.** "
+        f"{ledger['classical_definition']['definition']}",
+        "",
+        f"> {ledger['classical_definition']['dialogue']}",
+        "",
+        f"**Purpose.** {ledger['classical_definition']['purpose']}",
+        "",
+    ]
+    for practice in ledger["classical_definition"]["practices"]:
+        lines.append(
+            f"- **{practice['tradition']}:** {practice['function']}"
+        )
+    lines += [
+        "",
         "Canonical event ledger: `strategic-judgment-ledger.json`.",
         "Deterministic AI graph: `strategic-judgment-graph.json`.",
         "",
@@ -852,8 +876,8 @@ def render_report(data: dict[str, Any]) -> str:
         lines += [
             "#### Approved comparators" if comparator_status == "approved" else "#### Comparator approval pending",
             "",
-            "| Voice | Engaged layers | Axis | Evidence | Host concentration |",
-            "|---|---|---|---:|---|",
+            "| Voice | Role | Engaged layers | Axis | Evidence | Host concentration |",
+            "|---|---|---|---|---:|---|",
         ]
         for comparator in version["comparator_set"]["included"]:
             layer_scope = "; ".join(
@@ -861,7 +885,9 @@ def render_report(data: dict[str, Any]) -> str:
                 for layer_id in comparator["engaged_layer_ids"]
             )
             lines.append(
-                f"| {comparator['display_name']} | {layer_scope} | "
+                f"| {comparator['display_name']} | "
+                f"{comparator.get('comparison_role', 'substantive comparator')} | "
+                f"{layer_scope} | "
                 f"{comparator['orthogonality_axis']} | "
                 f"{comparator['evidence_count']} excerpts / {comparator['source_count']} sources | "
                 f"{comparator['host_concentration']} |"
@@ -876,7 +902,7 @@ def render_report(data: dict[str, Any]) -> str:
         if comparator_status != "approved":
             lines += [
                 "",
-                "The copied comparator proposal is not canonical until operator approval.",
+                "The proposed comparator set is not canonical until operator approval.",
                 "",
                 "#### Revision history",
                 "",
@@ -1141,7 +1167,113 @@ def approve_candidate(candidate_path: Path, position_id: str, object_label: str)
     write_ledger(data)
 
 
-def recommend_for_position(data: dict[str, Any], position_id: str) -> dict[str, Any]:
+def apply_recommendation_candidate(
+    data: dict[str, Any],
+    position_id: str,
+    candidate_path: Path,
+) -> dict[str, Any]:
+    candidate = json.loads(candidate_path.read_text(encoding="utf-8"))
+    if candidate.get("schema") != "operator-comparator-recommendation-v1":
+        raise LedgerError("invalid comparator recommendation schema")
+    if candidate.get("position_id") != position_id:
+        raise LedgerError("comparator recommendation position does not match")
+
+    version = latest_version(find_position(data, position_id))
+    if candidate.get("version_id") != version.get("version_id"):
+        raise LedgerError("comparator recommendation is not for the current version")
+    if version["comparator_set"].get("status") == "approved":
+        raise LedgerError("approved comparator sets are immutable; create a review version first")
+
+    proposal = deepcopy(version["comparator_set"])
+    included = {item["voice_slug"]: item for item in proposal.get("included", [])}
+    for update in candidate.get("included_layer_updates", []):
+        voice_slug = update.get("voice_slug")
+        item = included.get(voice_slug)
+        if item is None:
+            raise LedgerError(f"unknown included comparator voice: {voice_slug}")
+        layer_id = update.get("layer_id")
+        if layer_id in item.get("engaged_layer_ids", []):
+            raise LedgerError(f"{voice_slug}/{layer_id}: comparator layer already exists")
+        evidence = update.get("evidence", [])
+        evidence_paths = {ref.get("path") for ref in evidence}
+        if (
+            len(evidence) < 2
+            or len(evidence_paths) < 2
+            or any(layer_id not in ref.get("layer_ids", []) for ref in evidence)
+        ):
+            raise LedgerError(
+                f"{voice_slug}/{layer_id}: comparator evidence threshold not met"
+            )
+        item.setdefault("engaged_layer_ids", []).append(layer_id)
+        item.setdefault("evidence", []).extend(deepcopy(evidence))
+        item["evidence_count"] = len(item["evidence"])
+        item["source_count"] = len({ref["path"] for ref in item["evidence"]})
+        for field in (
+            "host_concentration",
+            "inclusion_rationale",
+            "orthogonality_axis",
+        ):
+            if not str(update.get(field, "")).strip():
+                raise LedgerError(f"{voice_slug}: missing {field}")
+            item[field] = update[field]
+
+    for update in candidate.get("included_voice_updates", []):
+        voice_slug = update.get("voice_slug")
+        item = included.get(voice_slug)
+        if item is None:
+            raise LedgerError(f"unknown included comparator voice: {voice_slug}")
+        changed = False
+        for field in (
+            "comparison_role",
+            "host_concentration",
+            "inclusion_rationale",
+            "orthogonality_axis",
+        ):
+            if field not in update:
+                continue
+            if not str(update[field]).strip():
+                raise LedgerError(f"{voice_slug}: empty {field}")
+            item[field] = update[field]
+            changed = True
+        if not changed:
+            raise LedgerError(f"{voice_slug}: comparator voice update is empty")
+
+    excluded = {item["voice_slug"]: item for item in proposal.get("excluded", [])}
+    for update in candidate.get("excluded_layer_updates", []):
+        voice_slug = update.get("voice_slug")
+        item = excluded.get(voice_slug)
+        if item is None:
+            raise LedgerError(f"unknown excluded comparator voice: {voice_slug}")
+        layer_id = update.get("layer_id")
+        if layer_id not in item.get("target_layer_ids", []):
+            item.setdefault("target_layer_ids", []).append(layer_id)
+        for field in ("host_concentration", "reason"):
+            if not str(update.get(field, "")).strip():
+                raise LedgerError(f"{voice_slug}: missing exclusion {field}")
+            item[field] = update[field]
+
+    proposal.setdefault("recommendation_basis", {}).update(
+        deepcopy(candidate.get("recommendation_basis_updates", {}))
+    )
+    proposal["status"] = "proposed"
+    proposal.pop("approval", None)
+    version["comparator_set"] = proposal
+    version["comparison"] = {
+        "status": "not_started",
+        "profiles": [],
+        "relations": [],
+        "findings": {},
+    }
+    return proposal
+
+
+def recommend_for_position(
+    data: dict[str, Any],
+    position_id: str,
+    candidate_path: Path | None = None,
+) -> dict[str, Any]:
+    if candidate_path is not None:
+        return apply_recommendation_candidate(data, position_id, candidate_path)
     position = find_position(data, position_id)
     version = latest_version(position)
     if version["comparator_set"].get("status") == "approved":
@@ -1580,6 +1712,8 @@ def main(argv: list[str] | None = None) -> int:
     for name in ("recommend", "approve-comparators", "score", "approve-score"):
         command = sub.add_parser(name)
         command.add_argument("--position", required=True)
+        if name == "recommend":
+            command.add_argument("--candidate", type=Path)
     review = sub.add_parser("review")
     review.add_argument("--position", required=True)
     review.add_argument(
@@ -1662,7 +1796,7 @@ def main(argv: list[str] | None = None) -> int:
         else:
             data = load_ledger()
             if args.command == "recommend":
-                result = recommend_for_position(data, args.position)
+                result = recommend_for_position(data, args.position, args.candidate)
             elif args.command == "approve-comparators":
                 approve_comparators(data, args.position)
                 result = latest_version(find_position(data, args.position))["comparator_set"]

@@ -6,6 +6,18 @@ Artifact: **Judgment Ledger** — the Judgment Ledger.
 
 > Persuasive coherence does not establish factual truth, evidence independence, or predictive accuracy.
 
+## Classical self-definition
+
+**Living Hypomnema And Private Agora.** A living hypomnema: a disciplined book of remembrance in which the operator records not merely what is believed, but why, what would disprove it, and how encounters with other minds alter it.
+
+> A private agora where present judgment debates former judgment and the strongest available rival voices. Each belief declares its causes, limits, confidence, and conditions of defeat; no earlier belief is erased, so the record distinguishes learning, contradiction, refinement, and forgetfulness.
+
+**Purpose.** To make reasoning inspectable across time so that wisdom becomes cumulative rather than episodic.
+
+- **Socratic examination:** Every position must survive questions and counterarguments.
+- **Aristotelian analysis:** Thesis, mechanism, qualifications, and evidence are separated.
+- **Stoic self-observation:** Changes in judgment are recorded without concealing prior error.
+
 Canonical event ledger: `strategic-judgment-ledger.json`.
 Deterministic AI graph: `strategic-judgment-graph.json`.
 
@@ -26,7 +38,7 @@ The Ledger is queried by object and relationship rather than read only front-to-
 | Position | Current version | Epistemic layers | Comparator state | Review |
 |---|---|---|---|---|
 | Ukraine war termination: battlefield-to-political conversion | `OV-20260728-01-v2` | Authoritative postwar-order requirement | approved / approved | 2026-08-27 or `credible-settlement-terms-linking-battlefield-disposition-to-political-conversion` |
-| Russia, Kiev, Odessa, and the war end state | `OV-20260728-02-v1` | Kiev security requirement; Odessa civilizational actor model; Current-war realization forecast | approved / approved | 2026-08-27 or `credible-settlement-terms-linking-battlefield-disposition-to-political-conversion` |
+| Russia, Kiev, Odessa, and the war end state | `OV-20260728-02-v2` | Kiev security requirement; Odessa operator strategic premise; Current-war realization forecast | approved / not_started | 2026-08-28 or `credible-settlement-terms-linking-battlefield-disposition-to-political-conversion` |
 
 ## Journal event view
 
@@ -271,6 +283,34 @@ The Ledger is queried by object and relationship rather than read only front-to-
 - Which additional query views materially improve judgment revision without duplicating the graph?
 - When, if ever, should embeddings assist retrieval without acquiring evidentiary authority?
 
+### 2026-07-29 -- The Ledger gains its classical self-definition (`JRN-20260729-03`)
+
+**Observation.** The operator approved an ancient-Greek framing that joins Socratic examination, Aristotelian analysis, and Stoic self-observation.
+
+**Interpretation.** The Ledger is a living hypomnema and private agora: a durable instrument in which present judgment, prior judgment, and rival voices remain available for disciplined examination.
+
+**Confidence movement.** unchanged.
+
+**Position effect.** ledger structure.
+
+#### Recursive learning
+
+**Prior model.** The Ledger was defined primarily as a graph-native record of positions, evidence pressure, and revision.
+
+**Pressure.** A technical description of immutable events and typed graphs explained the machinery but not the philosophical practice the machinery serves.
+
+**Update.** Its canonical identity now also names the human practice: cumulative self-examination through memory, rival argument, explicit causes, and recorded revision.
+
+**Future test.** Use the classical definition when explaining the Ledger and observe whether it clarifies the artifact's purpose without obscuring its graph-native machinery.
+
+**Inherited practice.** Treat remembrance, examination, causal analysis, and self-observation as complementary functions of one governed judgment record.
+
+**Loop status.** closed.
+
+**Open questions.**
+
+- Will the hypomnema and private-agora language remain legible to readers without classical training?
+
 ## Position object view
 
 ### Ukraine war termination: battlefield-to-political conversion -- `OV-20260728-01-v2`
@@ -304,11 +344,11 @@ Review: 2026-08-27 or `credible-settlement-terms-linking-battlefield-disposition
 
 #### Approved comparators
 
-| Voice | Engaged layers | Axis | Evidence | Host concentration |
-|---|---|---|---:|---|
-| Alexander Mercouris | Authoritative postwar-order requirement | room, sequence, and political legitimacy | 2 excerpts / 2 sources | Two distinct sources, both hosted by Glenn Diesen; source diversity passes while host concentration remains high. |
-| John Mearsheimer | Authoritative postwar-order requirement | structure, polarity, and security dilemma | 2 excerpts / 2 sources | Two distinct hosts/front doors; one item is a bounded provenance wrapper rather than a full transcript. |
-| Glenn Diesen | Authoritative postwar-order requirement | multipolar order transition and institutional legitimacy | 2 excerpts / 2 sources | Two distinct episodes on Diesen's own channel; host concentration is complete and the excerpts are his attributable framing/questions. |
+| Voice | Role | Engaged layers | Axis | Evidence | Host concentration |
+|---|---|---|---|---:|---|
+| Alexander Mercouris | substantive comparator | Authoritative postwar-order requirement | room, sequence, and political legitimacy | 2 excerpts / 2 sources | Two distinct sources, both hosted by Glenn Diesen; source diversity passes while host concentration remains high. |
+| John Mearsheimer | substantive comparator | Authoritative postwar-order requirement | structure, polarity, and security dilemma | 2 excerpts / 2 sources | Two distinct hosts/front doors; one item is a bounded provenance wrapper rather than a full transcript. |
+| Glenn Diesen | substantive comparator | Authoritative postwar-order requirement | multipolar order transition and institutional legitimacy | 2 excerpts / 2 sources | Two distinct episodes on Diesen's own channel; host concentration is complete and the excerpts are his attributable framing/questions. |
 
 **Recorded exclusions.**
 
@@ -349,91 +389,62 @@ No overall score is calculated.
 - `OV-20260728-01-v1` (2026-07-28): initial.
 - `OV-20260728-01-v2` (2026-07-28): refinement.
 
-### Russia, Kiev, Odessa, and the war end state -- `OV-20260728-02-v1`
+### Russia, Kiev, Odessa, and the war end state -- `OV-20260728-02-v2`
 
-Approved: 2026-07-28
-Review: 2026-08-27 or `credible-settlement-terms-linking-battlefield-disposition-to-political-conversion`
+Approved: 2026-07-29
+Review: 2026-08-28 or `credible-settlement-terms-linking-battlefield-disposition-to-political-conversion`
 
 #### Approved operator position
 
-**Thesis.** Russia's acceptable end state requires two asymmetric outcomes: structural reconstitution of Kiev sufficient to prevent renewed NATO-aligned military regeneration, and direct Russian control of a continuous southern corridor through Kherson, Mykolaiv, Odessa, and the remaining Black Sea coast to Transnistria. This combines a testable security hypothesis, an actor-model civilizational premise, and a conditional forecast; those layers must not be conflated.
+**Thesis.** The operator judges that Russia's acceptable end state requires two asymmetric outcomes: structural reconstitution of Kiev sufficient to prevent renewed NATO-aligned military regeneration, and direct Russian control of a continuous southern corridor through Kherson, Mykolaiv, Odessa, and the remaining Black Sea coast to Transnistria. This combines a testable security hypothesis, an operator actor-model premise, and a conditional forecast. It does not assert that current binding Russian policy has adopted the same Odessa threshold.
 
 #### Epistemic layers
 
 - **Kiev security requirement** (`empirical_hypothesis`; confidence: high within the stated security model): Russia's security requirements demand structural reconstitution of Kiev sufficient to prevent renewed NATO-aligned Ukrainian military regeneration; permanent Russian occupation is not necessary if the constraints are enforceable and durable.
   - **Evidence standard:** A credible assessment must compare post-settlement Ukrainian force regeneration, NATO alignment, security-service structure, military constraints, Russian acceptance, and the durability of alternative neutral arrangements.
   - **Falsifier status:** `testable` — The claim is seriously weakened by a durable, verifiable neutral settlement in which Ukraine retains Kiev and Odessa, has no NATO role, does not regenerate anti-Russian military capacity, and Russia treats the arrangement as sufficient.
-- **Odessa civilizational actor model** (`actor_model_premise`; confidence: high as an operator model of the Russian state project; not independently established): Odessa has independently compelling historical and civilizational significance for the enduring Russian state project, making direct Russian control of the southern corridor strategically imperative within that actor model.
-  - **Evidence standard:** Attribution requires sustained evidence from Russian leadership choices, doctrine, elite discourse, and costly behavior showing that the state project treats Odessa as indispensable rather than merely advantageous.
-  - **Falsifier status:** `not_empirically_falsifiable` — As currently formulated, the civilizational premise has no ordinary empirical falsifier; contrary Russian preferences can challenge its attribution, while Russian strategic defeat or disappearance of the relevant state project can terminate its applicability.
+- **Odessa operator strategic premise** (`actor_model_premise`; confidence: high as an operator strategic inference; attribution to current binding Russian policy is provisionally contested): The operator judges that Odessa's historical-civilizational significance and the southern corridor's strategic geometry make direct Russian control imperative within the modeled Russian state project. This is an operator inference about structural logic, not a verified claim that current Russian policy treats Odessa as a non-negotiable war-termination condition.
+  - **Evidence standard:** Current-policy attribution requires explicit binding policy, enumerated settlement conditions, sustained leadership choices, doctrine, or costly behavior showing that Odessa is indispensable rather than historically significant or strategically advantageous. Identity rhetoric alone contextualizes the model but cannot establish the policy attribution.
+  - **Falsifier status:** `partially_testable` — The operator model is weakened if Russia durably accepts and sustains an end state without Odessa while treating that settlement as strategically sufficient. Current-policy attribution remains contested under ADJ-20260729-001 unless later binding policy or costly behavior crosses the declared evidence threshold.
 - **Current-war realization forecast** (`conditional_forecast`; confidence: likely, with substantial failure risk): Russia is likely, with substantial failure risk, to realize Kiev's structural reconstitution and direct control of a continuous Black Sea corridor to Transnistria before the present phase of major combat ends durably.
   - **Evidence standard:** The forecast requires observable progress in Russian battlefield initiative, Ukrainian force-regeneration failure despite mobilization and external support, demographic and economic exhaustion, elite cohesion, Western support, and operational feasibility along the southern corridor.
   - **Falsifier status:** `testable` — The forecast is falsified if the war ends durably without both outcomes and is defeated earlier by a decisive Russian battlefield reversal accompanied by forced loss of substantial currently controlled or claimed territory.
 
-**Mechanism.** Parallel systemic collapse: battlefield attrition and Ukrainian force-regeneration failure interact with demographic and economic exhaustion, elite fragmentation, and declining Western support. Kiev is then structurally reconstituted through enforceable neutrality, demilitarization, security-service restructuring, territorial reorganization, and durable limits on anti-Russian military policy. Direct control of the southern corridor removes Ukraine's independent Black Sea frontage, improves Crimea's security geometry, and connects Russia to Transnistria. Odessa's civilizational significance is modeled as a premise of the Russian state project, not asserted as an independently verified fact.
+**Mechanism.** Parallel systemic collapse: battlefield attrition and Ukrainian force-regeneration failure interact with demographic and economic exhaustion, elite fragmentation, and declining Western support. Kiev is then structurally reconstituted through enforceable neutrality, demilitarization, security-service restructuring, territorial reorganization, and durable limits on anti-Russian military policy. Direct control of the southern corridor removes Ukraine's independent Black Sea frontage, improves Crimea's security geometry, and connects Russia to Transnistria. Odessa's civilizational significance remains an operator premise about the Russian state project's structural logic; the provisional reality assessment does not verify it as current binding policy.
 
-**Implications.** A ceasefire or settlement that leaves Ukraine able to regenerate as a NATO-aligned military platform, or leaves Odessa and the remaining coast under sovereign Ukrainian control, would constitute an incomplete termination under this model. Ukrainian force-regeneration performance is the earliest proposed observable. Analysis must distinguish what Russia needs, what Russian leaders intend, what Russia can achieve, and what is likely to occur.
+**Implications.** Under the operator model, a ceasefire or settlement that leaves Ukraine able to regenerate as a NATO-aligned military platform, or leaves Odessa and the remaining coast under sovereign Ukrainian control, would constitute an incomplete termination. This is not evidence that current Russian policy applies the same threshold. Ukrainian force-regeneration performance is the earliest proposed observable. Analysis must distinguish the operator's judgment of what Russia needs from what Russian leaders publicly require, privately intend, can achieve, and are likely to do.
 
-**Horizon / confidence.** Before the present continuous phase of major combat ends durably, absent a decisive Russian reversal. / High confidence in the claimed strategic necessity within the model; likely, but subject to substantial failure risk, as a current-war outcome..
+**Horizon / confidence.** Before the present continuous phase of major combat ends durably, absent a decisive Russian reversal. / High confidence in the claimed strategic necessity within the operator model; current binding Russian-policy attribution is provisionally contested; likely, but subject to substantial failure risk, as a current-war outcome..
 
-**Falsifier.** The security hypothesis would be seriously weakened by a durable, verifiable neutral settlement in which Ukraine retains Kiev and Odessa, has no NATO role, does not regenerate anti-Russian military capacity, and Russia treats the arrangement as sufficient. The current-war forecast is falsified if the war ends durably without both required outcomes, and is defeated earlier by a decisive Russian battlefield reversal with forced loss of substantial currently controlled or claimed territory. The civilizational premise has no ordinary empirical falsifier as currently formulated; that limitation is disclosed rather than converted into false testability.
+**Falsifier.** The security hypothesis would be seriously weakened by a durable, verifiable neutral settlement in which Ukraine retains Kiev and Odessa, has no NATO role, does not regenerate anti-Russian military capacity, and Russia treats the arrangement as sufficient. The Odessa operator premise is weakened if Russia durably accepts such an end state while treating it as strategically sufficient; its attribution to current binding Russian policy remains contested under ADJ-20260729-001. The current-war forecast is falsified if the war ends durably without both required outcomes and is defeated earlier by a decisive Russian battlefield reversal with forced loss of substantial currently controlled or claimed territory.
 
-**Change conditions.** A durable neutral settlement accepted and sustained by Russia while Ukraine retains both cities and fails to regenerate an anti-Russian military capacity; Persistent Ukrainian force regeneration despite continued Russian attrition, or evidence that the proposed parallel systemic-collapse mechanism is not developing; A decisive loss of Russian battlefield initiative accompanied by forced loss of substantial currently controlled or claimed territory; Evidence that the current Russian leadership and the enduring Russian state project regard substantially narrower territorial and political conditions as sufficient; Evidence that insurgency, occupation burdens, or intensified external balancing make the proposed territorial outcome strategically counterproductive for Russia.
+**Change conditions.** A durable neutral settlement accepted and sustained by Russia while Ukraine retains both cities and fails to regenerate an anti-Russian military capacity; Persistent Ukrainian force regeneration despite continued Russian attrition, or evidence that the proposed parallel systemic-collapse mechanism is not developing; A decisive loss of Russian battlefield initiative accompanied by forced loss of substantial currently controlled or claimed territory; Binding Russian policy, settlement terms, or costly behavior that establish Odessa as non-negotiable rather than historically significant or strategically advantageous; Evidence that the current Russian leadership and the enduring Russian state project regard substantially narrower territorial and political conditions as sufficient; Evidence that insurgency, occupation burdens, or intensified external balancing make the proposed territorial outcome strategically counterproductive for Russia.
 
-**Qualifications.** This is strategic recognition and actor modeling, not moral endorsement or adjudication of historical justice; The security hypothesis, civilizational premise, and current-war forecast have different epistemic status and must be evaluated separately; Kiev need not be permanently occupied if structural reconstitution is enforceable and durable; The Odessa condition does require direct Russian control of a continuous southern corridor to Transnistria; Likely does not mean inevitable; escalation, operational failure, and overextension remain substantial risks; The claim must not be attributed to Russian leaders or repo voices without independent source evidence.
+**Qualifications.** This is strategic recognition and actor modeling, not moral endorsement or adjudication of historical justice; The security hypothesis, Odessa operator premise, current-policy attribution, and current-war forecast have different epistemic status and must be evaluated separately; ADJ-20260729-001 provisionally assesses the claim that current Russian policy makes Odessa indispensable as contested attribution; Kiev need not be permanently occupied if structural reconstitution is enforceable and durable; The operator model still requires direct Russian control of a continuous southern corridor to Transnistria; Likely does not mean inevitable; escalation, operational failure, and overextension remain substantial risks; The Odessa imperative must not be attributed to Russian leaders or repo voices without layer-specific evidence that crosses the declared threshold.
 
-**Strongest counterarguments.** Security dilemma: territorial expansion, insurgency, occupation burdens, and intensified NATO balancing could leave Russia less secure; Limited-aims objection: Russia's actual leadership may regard narrower territorial or political aims as sufficient; Security-substitutes objection: enforceable neutrality, arms limits, or external guarantees might provide the required security without physical control; Identity-cohesion objection: coercion and territorial loss may strengthen Ukrainian national cohesion and long-run anti-Russian alignment; Feasibility objection: the military and administrative costs of taking and holding the proposed areas may exceed Russian capacity or political tolerance.
+**Strongest counterarguments.** Public-policy objection: available Russian presidential settlement terms do not establish Odessa as non-negotiable and provisionally contest that attribution; Security dilemma: territorial expansion, insurgency, occupation burdens, and intensified NATO balancing could leave Russia less secure; Limited-aims objection: Russia's actual leadership may regard narrower territorial or political aims as sufficient; Security-substitutes objection: enforceable neutrality, arms limits, or external guarantees might provide the required security without physical control; Identity-cohesion objection: coercion and territorial loss may strengthen Ukrainian national cohesion and long-run anti-Russian alignment; Feasibility objection: the military and administrative costs of taking and holding the proposed areas may exceed Russian capacity or political tolerance.
 
 #### Approved comparators
 
-| Voice | Engaged layers | Axis | Evidence | Host concentration |
-|---|---|---|---:|---|
-| Douglas Macgregor | Kiev security requirement | military feasibility, decisive control, and end-state imposition | 2 excerpts / 2 sources | Two distinct interview hosts, Daniel Davis and Glenn Diesen; one source is raw operator-confirmed input and one uses raw YouTube auto-captions. |
-| Scott Ritter | Kiev security requirement | demilitarization, political alignment, and control-without-occupation | 2 excerpts / 2 sources | Two distinct interview hosts, India and Global Left and Glenn Diesen; both transcripts carry non-verbatim or raw-ASR caveats. |
-| Alexander Mercouris | Kiev security requirement | room, sequence, political legitimacy, and settlement terms | 2 excerpts / 2 sources | Two distinct program front doors, Alexander Mercouris and The Duran; the later item is an operator-pasted transcript not independently verified as verbatim. |
-| John Mearsheimer | Kiev security requirement | structure, security dilemma, state incentive, and bargaining geometry | 2 excerpts / 2 sources | Two distinct interview hosts, Glenn Diesen and Judging Freedom; both excerpts are attributable to Mearsheimer, with historical transcript caveats retained. |
+| Voice | Role | Engaged layers | Axis | Evidence | Host concentration |
+|---|---|---|---|---:|---|
+| Douglas Macgregor | substantive comparator | Kiev security requirement; Odessa operator strategic premise | decisive control, military feasibility, civilizational identity, and imposed end-state geometry | 4 excerpts / 4 sources | Four qualifying excerpts come from four distinct interview hosts: Daniel Davis, Glenn Diesen, Judging Freedom, and Neutrality Studies; transcript provenance caveats remain attached to the archive sources. |
+| Scott Ritter | substantive comparator | Kiev security requirement; Odessa operator strategic premise | control without occupation, contingent leadership choice, operational cost, and territorial end-state revision | 4 excerpts / 4 sources | Four qualifying excerpts span three hosts: Glenn Diesen carries two, with one each from India and Global Left and Judging Freedom; raw-ASR and non-verbatim caveats remain material. |
+| Alexander Mercouris | attribution-stress comparator; not independent confirmation of Kremlin policy | Kiev security requirement; Odessa operator strategic premise | settlement sequence, political legitimacy, historical-land interpretation, and attribution stress | 4 excerpts / 4 sources | Three of four qualifying excerpts are concentrated on Alexander Mercouris's own program and one appears through The Duran; the Odessa pair is 100% single-host, interpretive evidence and cannot independently corroborate Kremlin policy. |
+| John Mearsheimer | substantive comparator | Kiev security requirement; Odessa operator strategic premise | security dilemma, economic disablement, bargaining geometry, and cost-constrained feasibility | 4 excerpts / 3 sources | Four excerpts resolve to three archive sources across two hosts, Glenn Diesen and Judging Freedom; the February source legitimately supports both layers and is counted once in source_count. |
 
 **Recorded exclusions.**
 
-- Glenn Diesen (Kiev security requirement): Archive presence and host framing are relevant, but the exact Kiev-control versus durable-constraint mechanism did not clear the evidence threshold.
-- Daniel Davis (Kiev security requirement): No two clearly attributable excerpts were found that engage whether Russia requires physical control of Kiev or can rely on enforceable structural constraints.
-- Sergey Karaganov (Kiev security requirement): One strong demilitarization formulation was found, but a second independently hosted source did not directly engage the Kiev-control mechanism.
-- Robert Pape (Kiev security requirement): His coercion framework may become relevant, but the current archive search did not find two direct excerpts on political control, neutrality, or Ukrainian force regeneration for this layer.
+- Glenn Diesen (Kiev security requirement; Odessa operator strategic premise): Archive presence and host framing are relevant, but neither the Kiev mechanism nor the Odessa civilizational premise clears the two-source attributable-evidence threshold.
+- Daniel Davis (Kiev security requirement; Odessa operator strategic premise): No two clearly attributable excerpts were found in which Davis owns either the physical-control question for Kiev or the strategic-indispensability claim for Odessa.
+- Sergey Karaganov (Kiev security requirement; Odessa operator strategic premise): One strong Kiev-related demilitarization formulation remains relevant, but there is neither a second independently hosted Kiev source nor any qualifying Odessa evidence pair.
+- Robert Pape (Kiev security requirement; Odessa operator strategic premise): His coercion framework may become relevant, but the current archive does not support an attributable comparison on these specific layers.
 
-#### Persuasive-coherence profiles
+#### Persuasive-coherence scoring pending
 
-| Subject | Layer | Thesis | Consistency | Mechanism | Scope | Counterarguments | Compression |
-|---|---|---:|---:|---:|---:|---:|---:|
-| Operator | Kiev security requirement | 5 | 4 | 4 | 5 | 5 | 4 |
-| Operator | Odessa civilizational actor model | unavailable | unavailable | unavailable | unavailable | unavailable | unavailable |
-| Operator | Current-war realization forecast | unavailable | unavailable | unavailable | unavailable | unavailable | unavailable |
-| Douglas Macgregor | Kiev security requirement | 4 | 3 | 3 | 2 | 1 | 4 |
-| Scott Ritter | Kiev security requirement | 5 | 4 | 4 | 3 | 2 | 5 |
-| Alexander Mercouris | Kiev security requirement | 4 | 4 | 4 | 4 | 2 | 3 |
-| John Mearsheimer | Kiev security requirement | 4 | 4 | 3 | 4 | 2 | 5 |
-
-##### Dimension deltas (voice minus operator)
-
-| Voice | Layer | Thesis | Consistency | Mechanism | Scope | Counterarguments | Compression |
-|---|---|---:|---:|---:|---:|---:|---:|
-| Douglas Macgregor | Kiev security requirement | -1 | -1 | -1 | -3 | -4 | +0 |
-| Scott Ritter | Kiev security requirement | +0 | +0 | +0 | -2 | -3 | +1 |
-| Alexander Mercouris | Kiev security requirement | -1 | +0 | +0 | -1 | -3 | -1 |
-| John Mearsheimer | Kiev security requirement | -1 | +0 | -1 | -1 | -3 | +1 |
-
-No overall score is calculated.
-
-#### Relations and findings
-
-- **Douglas Macgregor on Kiev security requirement — reinforcement:** Macgregor reinforces the operator's strongest formulation by treating removal of the Kiev government as part of the imposed military-political end state.
-- **Scott Ritter on Kiev security requirement — mechanism disagreement:** Ritter agrees on demilitarization and political realignment but disputes physical possession as the mechanism, arguing that a Russia-oriented Kiev government can suffice.
-- **Alexander Mercouris on Kiev security requirement — conditional divergence:** Mercouris reinforces structural reconstitution through neutrality, demilitarization, elections, and governmental change while leaving physical control of Kiev conditional rather than necessary.
-- **John Mearsheimer on Kiev security requirement — conditional divergence:** Mearsheimer reinforces Russia's incentive to disable Ukraine as a NATO-aligned threat but does not establish that doing so requires control of Kiev.
-
-**Closest affinity.** Douglas Macgregor on Kiev security requirement: Macgregor most closely matches the operator's full end-state claim by linking action against Kiev's government to a Russian-imposed political and territorial settlement.
-
-**Strongest corrective.** Scott Ritter on Kiev security requirement: Ritter accepts demilitarization and political alignment as necessary but explicitly argues that those controls can be achieved without physically taking Kiev.
+No revised comparison profile has been generated.
 
 #### Revision history
 
 - `OV-20260728-02-v1` (2026-07-28): initial.
+- `OV-20260728-02-v2` (2026-07-29): refinement.

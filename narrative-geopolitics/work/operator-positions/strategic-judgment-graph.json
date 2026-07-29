@@ -121,6 +121,102 @@
       "target": "voice:ritter"
     },
     {
+      "edge_id": "edge:attributed_to:evidence:OV-20260728-02-v2:macgregor:01:voice:macgregor",
+      "edge_type": "attributed_to",
+      "source": "evidence:OV-20260728-02-v2:macgregor:01",
+      "target": "voice:macgregor"
+    },
+    {
+      "edge_id": "edge:attributed_to:evidence:OV-20260728-02-v2:macgregor:02:voice:macgregor",
+      "edge_type": "attributed_to",
+      "source": "evidence:OV-20260728-02-v2:macgregor:02",
+      "target": "voice:macgregor"
+    },
+    {
+      "edge_id": "edge:attributed_to:evidence:OV-20260728-02-v2:macgregor:03:voice:macgregor",
+      "edge_type": "attributed_to",
+      "source": "evidence:OV-20260728-02-v2:macgregor:03",
+      "target": "voice:macgregor"
+    },
+    {
+      "edge_id": "edge:attributed_to:evidence:OV-20260728-02-v2:macgregor:04:voice:macgregor",
+      "edge_type": "attributed_to",
+      "source": "evidence:OV-20260728-02-v2:macgregor:04",
+      "target": "voice:macgregor"
+    },
+    {
+      "edge_id": "edge:attributed_to:evidence:OV-20260728-02-v2:mearsheimer:01:voice:mearsheimer",
+      "edge_type": "attributed_to",
+      "source": "evidence:OV-20260728-02-v2:mearsheimer:01",
+      "target": "voice:mearsheimer"
+    },
+    {
+      "edge_id": "edge:attributed_to:evidence:OV-20260728-02-v2:mearsheimer:02:voice:mearsheimer",
+      "edge_type": "attributed_to",
+      "source": "evidence:OV-20260728-02-v2:mearsheimer:02",
+      "target": "voice:mearsheimer"
+    },
+    {
+      "edge_id": "edge:attributed_to:evidence:OV-20260728-02-v2:mearsheimer:03:voice:mearsheimer",
+      "edge_type": "attributed_to",
+      "source": "evidence:OV-20260728-02-v2:mearsheimer:03",
+      "target": "voice:mearsheimer"
+    },
+    {
+      "edge_id": "edge:attributed_to:evidence:OV-20260728-02-v2:mearsheimer:04:voice:mearsheimer",
+      "edge_type": "attributed_to",
+      "source": "evidence:OV-20260728-02-v2:mearsheimer:04",
+      "target": "voice:mearsheimer"
+    },
+    {
+      "edge_id": "edge:attributed_to:evidence:OV-20260728-02-v2:mercouris:01:voice:mercouris",
+      "edge_type": "attributed_to",
+      "source": "evidence:OV-20260728-02-v2:mercouris:01",
+      "target": "voice:mercouris"
+    },
+    {
+      "edge_id": "edge:attributed_to:evidence:OV-20260728-02-v2:mercouris:02:voice:mercouris",
+      "edge_type": "attributed_to",
+      "source": "evidence:OV-20260728-02-v2:mercouris:02",
+      "target": "voice:mercouris"
+    },
+    {
+      "edge_id": "edge:attributed_to:evidence:OV-20260728-02-v2:mercouris:03:voice:mercouris",
+      "edge_type": "attributed_to",
+      "source": "evidence:OV-20260728-02-v2:mercouris:03",
+      "target": "voice:mercouris"
+    },
+    {
+      "edge_id": "edge:attributed_to:evidence:OV-20260728-02-v2:mercouris:04:voice:mercouris",
+      "edge_type": "attributed_to",
+      "source": "evidence:OV-20260728-02-v2:mercouris:04",
+      "target": "voice:mercouris"
+    },
+    {
+      "edge_id": "edge:attributed_to:evidence:OV-20260728-02-v2:ritter:01:voice:ritter",
+      "edge_type": "attributed_to",
+      "source": "evidence:OV-20260728-02-v2:ritter:01",
+      "target": "voice:ritter"
+    },
+    {
+      "edge_id": "edge:attributed_to:evidence:OV-20260728-02-v2:ritter:02:voice:ritter",
+      "edge_type": "attributed_to",
+      "source": "evidence:OV-20260728-02-v2:ritter:02",
+      "target": "voice:ritter"
+    },
+    {
+      "edge_id": "edge:attributed_to:evidence:OV-20260728-02-v2:ritter:03:voice:ritter",
+      "edge_type": "attributed_to",
+      "source": "evidence:OV-20260728-02-v2:ritter:03",
+      "target": "voice:ritter"
+    },
+    {
+      "edge_id": "edge:attributed_to:evidence:OV-20260728-02-v2:ritter:04:voice:ritter",
+      "edge_type": "attributed_to",
+      "source": "evidence:OV-20260728-02-v2:ritter:04",
+      "target": "voice:ritter"
+    },
+    {
       "edge_id": "edge:comparison_finding:voice:macgregor:layer:OV-20260728-02-v1:kiev_security_requirement:closest_affinity",
       "edge_type": "comparison_finding",
       "rationale": "Macgregor most closely matches the operator's full end-state claim by linking action against Kiev's government to a Russian-imposed political and territorial settlement.",
@@ -223,6 +319,12 @@
       "target": "JRN-20260729-02"
     },
     {
+      "edge_id": "edge:contains_event:ledger:strategic-judgment:JRN-20260729-03",
+      "edge_type": "contains_event",
+      "source": "ledger:strategic-judgment",
+      "target": "JRN-20260729-03"
+    },
+    {
       "edge_id": "edge:contains_position:ledger:strategic-judgment:OV-20260728-01",
       "edge_type": "contains_position",
       "source": "ledger:strategic-judgment",
@@ -266,6 +368,26 @@
     },
     {
       "comparator_status": "approved",
+      "edge_id": "edge:engages_layer:voice:macgregor:layer:OV-20260728-02-v2:kiev_security_requirement",
+      "edge_type": "engages_layer",
+      "inclusion_rationale": "Engages both layers directly: physical action against Kiev is part of his proposed end state, while Odessa is framed as historically Russian and as a place that must return to Russia in Russian strategic consciousness.",
+      "orthogonality_axis": "decisive control, military feasibility, civilizational identity, and imposed end-state geometry",
+      "source": "voice:macgregor",
+      "target": "layer:OV-20260728-02-v2:kiev_security_requirement",
+      "version_id": "OV-20260728-02-v2"
+    },
+    {
+      "comparator_status": "approved",
+      "edge_id": "edge:engages_layer:voice:macgregor:layer:OV-20260728-02-v2:odessa_civilizational_premise",
+      "edge_type": "engages_layer",
+      "inclusion_rationale": "Engages both layers directly: physical action against Kiev is part of his proposed end state, while Odessa is framed as historically Russian and as a place that must return to Russia in Russian strategic consciousness.",
+      "orthogonality_axis": "decisive control, military feasibility, civilizational identity, and imposed end-state geometry",
+      "source": "voice:macgregor",
+      "target": "layer:OV-20260728-02-v2:odessa_civilizational_premise",
+      "version_id": "OV-20260728-02-v2"
+    },
+    {
+      "comparator_status": "approved",
       "edge_id": "edge:engages_layer:voice:mearsheimer:layer:OV-20260728-01-v1:termination_conversion",
       "edge_type": "engages_layer",
       "inclusion_rationale": "Directly frames negotiated peace versus battlefield resolution and specifies incompatible structural demands.",
@@ -293,6 +415,26 @@
       "source": "voice:mearsheimer",
       "target": "layer:OV-20260728-02-v1:kiev_security_requirement",
       "version_id": "OV-20260728-02-v1"
+    },
+    {
+      "comparator_status": "approved",
+      "edge_id": "edge:engages_layer:voice:mearsheimer:layer:OV-20260728-02-v2:kiev_security_requirement",
+      "edge_type": "engages_layer",
+      "inclusion_rationale": "Strongly engages the territorial outcome but supplies an instrumental corrective: Odessa matters for ports, economic disablement, and the security dilemma, not because civilizational identity by itself establishes indispensability.",
+      "orthogonality_axis": "security dilemma, economic disablement, bargaining geometry, and cost-constrained feasibility",
+      "source": "voice:mearsheimer",
+      "target": "layer:OV-20260728-02-v2:kiev_security_requirement",
+      "version_id": "OV-20260728-02-v2"
+    },
+    {
+      "comparator_status": "approved",
+      "edge_id": "edge:engages_layer:voice:mearsheimer:layer:OV-20260728-02-v2:odessa_civilizational_premise",
+      "edge_type": "engages_layer",
+      "inclusion_rationale": "Strongly engages the territorial outcome but supplies an instrumental corrective: Odessa matters for ports, economic disablement, and the security dilemma, not because civilizational identity by itself establishes indispensability.",
+      "orthogonality_axis": "security dilemma, economic disablement, bargaining geometry, and cost-constrained feasibility",
+      "source": "voice:mearsheimer",
+      "target": "layer:OV-20260728-02-v2:odessa_civilizational_premise",
+      "version_id": "OV-20260728-02-v2"
     },
     {
       "comparator_status": "approved",
@@ -326,6 +468,26 @@
     },
     {
       "comparator_status": "approved",
+      "edge_id": "edge:engages_layer:voice:mercouris:layer:OV-20260728-02-v2:kiev_security_requirement",
+      "edge_type": "engages_layer",
+      "inclusion_rationale": "Retained because he connects Kiev settlement terms to an expansive reading of historic Russian lands that includes Odessa. His function is to stress-test attribution: the Odessa conclusion is Mercouris's inference from Putin's language, not an enumerated binding condition or independent confirmation of Kremlin policy.",
+      "orthogonality_axis": "settlement sequence, political legitimacy, historical-land interpretation, and attribution stress",
+      "source": "voice:mercouris",
+      "target": "layer:OV-20260728-02-v2:kiev_security_requirement",
+      "version_id": "OV-20260728-02-v2"
+    },
+    {
+      "comparator_status": "approved",
+      "edge_id": "edge:engages_layer:voice:mercouris:layer:OV-20260728-02-v2:odessa_civilizational_premise",
+      "edge_type": "engages_layer",
+      "inclusion_rationale": "Retained because he connects Kiev settlement terms to an expansive reading of historic Russian lands that includes Odessa. His function is to stress-test attribution: the Odessa conclusion is Mercouris's inference from Putin's language, not an enumerated binding condition or independent confirmation of Kremlin policy.",
+      "orthogonality_axis": "settlement sequence, political legitimacy, historical-land interpretation, and attribution stress",
+      "source": "voice:mercouris",
+      "target": "layer:OV-20260728-02-v2:odessa_civilizational_premise",
+      "version_id": "OV-20260728-02-v2"
+    },
+    {
+      "comparator_status": "approved",
       "edge_id": "edge:engages_layer:voice:ritter:layer:OV-20260728-02-v1:kiev_security_requirement",
       "edge_type": "engages_layer",
       "inclusion_rationale": "Accepts demilitarization and political realignment as Russian requirements while explicitly rejecting physical possession of Kiev as the necessary mechanism.",
@@ -333,6 +495,26 @@
       "source": "voice:ritter",
       "target": "layer:OV-20260728-02-v1:kiev_security_requirement",
       "version_id": "OV-20260728-02-v1"
+    },
+    {
+      "comparator_status": "approved",
+      "edge_id": "edge:engages_layer:voice:ritter:layer:OV-20260728-02-v2:kiev_security_requirement",
+      "edge_type": "engages_layer",
+      "inclusion_rationale": "Provides a high-value conditional comparison: he calls Odessa Russian and anticipates movement in that direction, but explicitly says Putin has not made the decision and elsewhere argues political alignment can substitute for physical control of Kiev.",
+      "orthogonality_axis": "control without occupation, contingent leadership choice, operational cost, and territorial end-state revision",
+      "source": "voice:ritter",
+      "target": "layer:OV-20260728-02-v2:kiev_security_requirement",
+      "version_id": "OV-20260728-02-v2"
+    },
+    {
+      "comparator_status": "approved",
+      "edge_id": "edge:engages_layer:voice:ritter:layer:OV-20260728-02-v2:odessa_civilizational_premise",
+      "edge_type": "engages_layer",
+      "inclusion_rationale": "Provides a high-value conditional comparison: he calls Odessa Russian and anticipates movement in that direction, but explicitly says Putin has not made the decision and elsewhere argues political alignment can substitute for physical control of Kiev.",
+      "orthogonality_axis": "control without occupation, contingent leadership choice, operational cost, and territorial end-state revision",
+      "source": "voice:ritter",
+      "target": "layer:OV-20260728-02-v2:odessa_civilizational_premise",
+      "version_id": "OV-20260728-02-v2"
     },
     {
       "edge_id": "edge:event_links_version:JRN-20260728-02:OV-20260728-01-v2",
@@ -383,6 +565,26 @@
       "version_id": "OV-20260728-02-v1"
     },
     {
+      "edge_id": "edge:excluded_from_layer:voice:davis:layer:OV-20260728-02-v2:kiev_security_requirement",
+      "edge_type": "excluded_from_layer",
+      "evidence_count": 0,
+      "reason": "No two clearly attributable excerpts were found in which Davis owns either the physical-control question for Kiev or the strategic-indispensability claim for Odessa.",
+      "source": "voice:davis",
+      "source_count": 0,
+      "target": "layer:OV-20260728-02-v2:kiev_security_requirement",
+      "version_id": "OV-20260728-02-v2"
+    },
+    {
+      "edge_id": "edge:excluded_from_layer:voice:davis:layer:OV-20260728-02-v2:odessa_civilizational_premise",
+      "edge_type": "excluded_from_layer",
+      "evidence_count": 0,
+      "reason": "No two clearly attributable excerpts were found in which Davis owns either the physical-control question for Kiev or the strategic-indispensability claim for Odessa.",
+      "source": "voice:davis",
+      "source_count": 0,
+      "target": "layer:OV-20260728-02-v2:odessa_civilizational_premise",
+      "version_id": "OV-20260728-02-v2"
+    },
+    {
       "edge_id": "edge:excluded_from_layer:voice:diesen:layer:OV-20260728-02-v1:kiev_security_requirement",
       "edge_type": "excluded_from_layer",
       "evidence_count": 0,
@@ -393,6 +595,26 @@
       "version_id": "OV-20260728-02-v1"
     },
     {
+      "edge_id": "edge:excluded_from_layer:voice:diesen:layer:OV-20260728-02-v2:kiev_security_requirement",
+      "edge_type": "excluded_from_layer",
+      "evidence_count": 0,
+      "reason": "Archive presence and host framing are relevant, but neither the Kiev mechanism nor the Odessa civilizational premise clears the two-source attributable-evidence threshold.",
+      "source": "voice:diesen",
+      "source_count": 0,
+      "target": "layer:OV-20260728-02-v2:kiev_security_requirement",
+      "version_id": "OV-20260728-02-v2"
+    },
+    {
+      "edge_id": "edge:excluded_from_layer:voice:diesen:layer:OV-20260728-02-v2:odessa_civilizational_premise",
+      "edge_type": "excluded_from_layer",
+      "evidence_count": 0,
+      "reason": "Archive presence and host framing are relevant, but neither the Kiev mechanism nor the Odessa civilizational premise clears the two-source attributable-evidence threshold.",
+      "source": "voice:diesen",
+      "source_count": 0,
+      "target": "layer:OV-20260728-02-v2:odessa_civilizational_premise",
+      "version_id": "OV-20260728-02-v2"
+    },
+    {
       "edge_id": "edge:excluded_from_layer:voice:karaganov:layer:OV-20260728-02-v1:kiev_security_requirement",
       "edge_type": "excluded_from_layer",
       "evidence_count": 1,
@@ -401,6 +623,26 @@
       "source_count": 1,
       "target": "layer:OV-20260728-02-v1:kiev_security_requirement",
       "version_id": "OV-20260728-02-v1"
+    },
+    {
+      "edge_id": "edge:excluded_from_layer:voice:karaganov:layer:OV-20260728-02-v2:kiev_security_requirement",
+      "edge_type": "excluded_from_layer",
+      "evidence_count": 1,
+      "reason": "One strong Kiev-related demilitarization formulation remains relevant, but there is neither a second independently hosted Kiev source nor any qualifying Odessa evidence pair.",
+      "source": "voice:karaganov",
+      "source_count": 1,
+      "target": "layer:OV-20260728-02-v2:kiev_security_requirement",
+      "version_id": "OV-20260728-02-v2"
+    },
+    {
+      "edge_id": "edge:excluded_from_layer:voice:karaganov:layer:OV-20260728-02-v2:odessa_civilizational_premise",
+      "edge_type": "excluded_from_layer",
+      "evidence_count": 1,
+      "reason": "One strong Kiev-related demilitarization formulation remains relevant, but there is neither a second independently hosted Kiev source nor any qualifying Odessa evidence pair.",
+      "source": "voice:karaganov",
+      "source_count": 1,
+      "target": "layer:OV-20260728-02-v2:odessa_civilizational_premise",
+      "version_id": "OV-20260728-02-v2"
     },
     {
       "edge_id": "edge:excluded_from_layer:voice:pape:layer:OV-20260728-01-v1:termination_conversion",
@@ -433,6 +675,26 @@
       "version_id": "OV-20260728-02-v1"
     },
     {
+      "edge_id": "edge:excluded_from_layer:voice:pape:layer:OV-20260728-02-v2:kiev_security_requirement",
+      "edge_type": "excluded_from_layer",
+      "evidence_count": 0,
+      "reason": "His coercion framework may become relevant, but the current archive does not support an attributable comparison on these specific layers.",
+      "source": "voice:pape",
+      "source_count": 0,
+      "target": "layer:OV-20260728-02-v2:kiev_security_requirement",
+      "version_id": "OV-20260728-02-v2"
+    },
+    {
+      "edge_id": "edge:excluded_from_layer:voice:pape:layer:OV-20260728-02-v2:odessa_civilizational_premise",
+      "edge_type": "excluded_from_layer",
+      "evidence_count": 0,
+      "reason": "His coercion framework may become relevant, but the current archive does not support an attributable comparison on these specific layers.",
+      "source": "voice:pape",
+      "source_count": 0,
+      "target": "layer:OV-20260728-02-v2:odessa_civilizational_premise",
+      "version_id": "OV-20260728-02-v2"
+    },
+    {
       "edge_id": "edge:has_layer:OV-20260728-01-v1:layer:OV-20260728-01-v1:termination_conversion",
       "edge_type": "has_layer",
       "source": "OV-20260728-01-v1",
@@ -461,6 +723,24 @@
       "edge_type": "has_layer",
       "source": "OV-20260728-02-v1",
       "target": "layer:OV-20260728-02-v1:odessa_civilizational_premise"
+    },
+    {
+      "edge_id": "edge:has_layer:OV-20260728-02-v2:layer:OV-20260728-02-v2:current_war_realization",
+      "edge_type": "has_layer",
+      "source": "OV-20260728-02-v2",
+      "target": "layer:OV-20260728-02-v2:current_war_realization"
+    },
+    {
+      "edge_id": "edge:has_layer:OV-20260728-02-v2:layer:OV-20260728-02-v2:kiev_security_requirement",
+      "edge_type": "has_layer",
+      "source": "OV-20260728-02-v2",
+      "target": "layer:OV-20260728-02-v2:kiev_security_requirement"
+    },
+    {
+      "edge_id": "edge:has_layer:OV-20260728-02-v2:layer:OV-20260728-02-v2:odessa_civilizational_premise",
+      "edge_type": "has_layer",
+      "source": "OV-20260728-02-v2",
+      "target": "layer:OV-20260728-02-v2:odessa_civilizational_premise"
     },
     {
       "edge_id": "edge:has_profile:operator:primary:profile:OV-20260728-01-v1:operator:termination_conversion",
@@ -569,6 +849,12 @@
       "edge_type": "has_version",
       "source": "OV-20260728-02",
       "target": "OV-20260728-02-v1"
+    },
+    {
+      "edge_id": "edge:has_version:OV-20260728-02:OV-20260728-02-v2",
+      "edge_type": "has_version",
+      "source": "OV-20260728-02",
+      "target": "OV-20260728-02-v2"
     },
     {
       "edge_id": "edge:pressures_event:voice:mearsheimer:JRN-20260728-02",
@@ -783,11 +1069,24 @@
       "target": "trigger:OV-20260728-02-v1"
     },
     {
+      "edge_id": "edge:reviewed_by:OV-20260728-02-v2:trigger:OV-20260728-02-v2",
+      "edge_type": "reviewed_by",
+      "source": "OV-20260728-02-v2",
+      "target": "trigger:OV-20260728-02-v2"
+    },
+    {
       "edge_id": "edge:revises_version:OV-20260728-01-v2:OV-20260728-01-v1",
       "edge_type": "revises_version",
       "relation": "refinement",
       "source": "OV-20260728-01-v2",
       "target": "OV-20260728-01-v1"
+    },
+    {
+      "edge_id": "edge:revises_version:OV-20260728-02-v2:OV-20260728-02-v1",
+      "edge_type": "revises_version",
+      "relation": "refinement",
+      "source": "OV-20260728-02-v2",
+      "target": "OV-20260728-02-v1"
     },
     {
       "edge_id": "edge:supports_engagement:evidence:OV-20260728-01-v1:diesen:01:layer:OV-20260728-01-v1:termination_conversion",
@@ -908,12 +1207,108 @@
       "edge_type": "supports_engagement",
       "source": "evidence:OV-20260728-02-v1:ritter:02",
       "target": "layer:OV-20260728-02-v1:kiev_security_requirement"
+    },
+    {
+      "edge_id": "edge:supports_engagement:evidence:OV-20260728-02-v2:macgregor:01:layer:OV-20260728-02-v2:kiev_security_requirement",
+      "edge_type": "supports_engagement",
+      "source": "evidence:OV-20260728-02-v2:macgregor:01",
+      "target": "layer:OV-20260728-02-v2:kiev_security_requirement"
+    },
+    {
+      "edge_id": "edge:supports_engagement:evidence:OV-20260728-02-v2:macgregor:02:layer:OV-20260728-02-v2:kiev_security_requirement",
+      "edge_type": "supports_engagement",
+      "source": "evidence:OV-20260728-02-v2:macgregor:02",
+      "target": "layer:OV-20260728-02-v2:kiev_security_requirement"
+    },
+    {
+      "edge_id": "edge:supports_engagement:evidence:OV-20260728-02-v2:macgregor:03:layer:OV-20260728-02-v2:odessa_civilizational_premise",
+      "edge_type": "supports_engagement",
+      "source": "evidence:OV-20260728-02-v2:macgregor:03",
+      "target": "layer:OV-20260728-02-v2:odessa_civilizational_premise"
+    },
+    {
+      "edge_id": "edge:supports_engagement:evidence:OV-20260728-02-v2:macgregor:04:layer:OV-20260728-02-v2:odessa_civilizational_premise",
+      "edge_type": "supports_engagement",
+      "source": "evidence:OV-20260728-02-v2:macgregor:04",
+      "target": "layer:OV-20260728-02-v2:odessa_civilizational_premise"
+    },
+    {
+      "edge_id": "edge:supports_engagement:evidence:OV-20260728-02-v2:mearsheimer:01:layer:OV-20260728-02-v2:kiev_security_requirement",
+      "edge_type": "supports_engagement",
+      "source": "evidence:OV-20260728-02-v2:mearsheimer:01",
+      "target": "layer:OV-20260728-02-v2:kiev_security_requirement"
+    },
+    {
+      "edge_id": "edge:supports_engagement:evidence:OV-20260728-02-v2:mearsheimer:02:layer:OV-20260728-02-v2:kiev_security_requirement",
+      "edge_type": "supports_engagement",
+      "source": "evidence:OV-20260728-02-v2:mearsheimer:02",
+      "target": "layer:OV-20260728-02-v2:kiev_security_requirement"
+    },
+    {
+      "edge_id": "edge:supports_engagement:evidence:OV-20260728-02-v2:mearsheimer:03:layer:OV-20260728-02-v2:odessa_civilizational_premise",
+      "edge_type": "supports_engagement",
+      "source": "evidence:OV-20260728-02-v2:mearsheimer:03",
+      "target": "layer:OV-20260728-02-v2:odessa_civilizational_premise"
+    },
+    {
+      "edge_id": "edge:supports_engagement:evidence:OV-20260728-02-v2:mearsheimer:04:layer:OV-20260728-02-v2:odessa_civilizational_premise",
+      "edge_type": "supports_engagement",
+      "source": "evidence:OV-20260728-02-v2:mearsheimer:04",
+      "target": "layer:OV-20260728-02-v2:odessa_civilizational_premise"
+    },
+    {
+      "edge_id": "edge:supports_engagement:evidence:OV-20260728-02-v2:mercouris:01:layer:OV-20260728-02-v2:kiev_security_requirement",
+      "edge_type": "supports_engagement",
+      "source": "evidence:OV-20260728-02-v2:mercouris:01",
+      "target": "layer:OV-20260728-02-v2:kiev_security_requirement"
+    },
+    {
+      "edge_id": "edge:supports_engagement:evidence:OV-20260728-02-v2:mercouris:02:layer:OV-20260728-02-v2:kiev_security_requirement",
+      "edge_type": "supports_engagement",
+      "source": "evidence:OV-20260728-02-v2:mercouris:02",
+      "target": "layer:OV-20260728-02-v2:kiev_security_requirement"
+    },
+    {
+      "edge_id": "edge:supports_engagement:evidence:OV-20260728-02-v2:mercouris:03:layer:OV-20260728-02-v2:odessa_civilizational_premise",
+      "edge_type": "supports_engagement",
+      "source": "evidence:OV-20260728-02-v2:mercouris:03",
+      "target": "layer:OV-20260728-02-v2:odessa_civilizational_premise"
+    },
+    {
+      "edge_id": "edge:supports_engagement:evidence:OV-20260728-02-v2:mercouris:04:layer:OV-20260728-02-v2:odessa_civilizational_premise",
+      "edge_type": "supports_engagement",
+      "source": "evidence:OV-20260728-02-v2:mercouris:04",
+      "target": "layer:OV-20260728-02-v2:odessa_civilizational_premise"
+    },
+    {
+      "edge_id": "edge:supports_engagement:evidence:OV-20260728-02-v2:ritter:01:layer:OV-20260728-02-v2:kiev_security_requirement",
+      "edge_type": "supports_engagement",
+      "source": "evidence:OV-20260728-02-v2:ritter:01",
+      "target": "layer:OV-20260728-02-v2:kiev_security_requirement"
+    },
+    {
+      "edge_id": "edge:supports_engagement:evidence:OV-20260728-02-v2:ritter:02:layer:OV-20260728-02-v2:kiev_security_requirement",
+      "edge_type": "supports_engagement",
+      "source": "evidence:OV-20260728-02-v2:ritter:02",
+      "target": "layer:OV-20260728-02-v2:kiev_security_requirement"
+    },
+    {
+      "edge_id": "edge:supports_engagement:evidence:OV-20260728-02-v2:ritter:03:layer:OV-20260728-02-v2:odessa_civilizational_premise",
+      "edge_type": "supports_engagement",
+      "source": "evidence:OV-20260728-02-v2:ritter:03",
+      "target": "layer:OV-20260728-02-v2:odessa_civilizational_premise"
+    },
+    {
+      "edge_id": "edge:supports_engagement:evidence:OV-20260728-02-v2:ritter:04:layer:OV-20260728-02-v2:odessa_civilizational_premise",
+      "edge_type": "supports_engagement",
+      "source": "evidence:OV-20260728-02-v2:ritter:04",
+      "target": "layer:OV-20260728-02-v2:odessa_civilizational_premise"
     }
   ],
   "indexes": {
     "current_version_by_position": {
       "OV-20260728-01": "OV-20260728-01-v2",
-      "OV-20260728-02": "OV-20260728-02-v1"
+      "OV-20260728-02": "OV-20260728-02-v2"
     },
     "nodes_by_type": {
       "coherence_profile": [
@@ -938,7 +1333,10 @@
         "layer:OV-20260728-01-v2:termination_conversion",
         "layer:OV-20260728-02-v1:current_war_realization",
         "layer:OV-20260728-02-v1:kiev_security_requirement",
-        "layer:OV-20260728-02-v1:odessa_civilizational_premise"
+        "layer:OV-20260728-02-v1:odessa_civilizational_premise",
+        "layer:OV-20260728-02-v2:current_war_realization",
+        "layer:OV-20260728-02-v2:kiev_security_requirement",
+        "layer:OV-20260728-02-v2:odessa_civilizational_premise"
       ],
       "evidence_excerpt": [
         "evidence:OV-20260728-01-v1:diesen:01",
@@ -960,7 +1358,23 @@
         "evidence:OV-20260728-02-v1:mercouris:01",
         "evidence:OV-20260728-02-v1:mercouris:02",
         "evidence:OV-20260728-02-v1:ritter:01",
-        "evidence:OV-20260728-02-v1:ritter:02"
+        "evidence:OV-20260728-02-v1:ritter:02",
+        "evidence:OV-20260728-02-v2:macgregor:01",
+        "evidence:OV-20260728-02-v2:macgregor:02",
+        "evidence:OV-20260728-02-v2:macgregor:03",
+        "evidence:OV-20260728-02-v2:macgregor:04",
+        "evidence:OV-20260728-02-v2:mearsheimer:01",
+        "evidence:OV-20260728-02-v2:mearsheimer:02",
+        "evidence:OV-20260728-02-v2:mearsheimer:03",
+        "evidence:OV-20260728-02-v2:mearsheimer:04",
+        "evidence:OV-20260728-02-v2:mercouris:01",
+        "evidence:OV-20260728-02-v2:mercouris:02",
+        "evidence:OV-20260728-02-v2:mercouris:03",
+        "evidence:OV-20260728-02-v2:mercouris:04",
+        "evidence:OV-20260728-02-v2:ritter:01",
+        "evidence:OV-20260728-02-v2:ritter:02",
+        "evidence:OV-20260728-02-v2:ritter:03",
+        "evidence:OV-20260728-02-v2:ritter:04"
       ],
       "journal_event": [
         "JRN-20260728-01",
@@ -970,7 +1384,8 @@
         "JRN-20260728-05",
         "JRN-20260728-06",
         "JRN-20260729-01",
-        "JRN-20260729-02"
+        "JRN-20260729-02",
+        "JRN-20260729-03"
       ],
       "judgment_ledger": [
         "ledger:strategic-judgment"
@@ -985,7 +1400,8 @@
       "position_version": [
         "OV-20260728-01-v1",
         "OV-20260728-01-v2",
-        "OV-20260728-02-v1"
+        "OV-20260728-02-v1",
+        "OV-20260728-02-v2"
       ],
       "repo_voice": [
         "voice:davis",
@@ -1000,7 +1416,8 @@
       "review_trigger": [
         "trigger:OV-20260728-01-v1",
         "trigger:OV-20260728-01-v2",
-        "trigger:OV-20260728-02-v1"
+        "trigger:OV-20260728-02-v1",
+        "trigger:OV-20260728-02-v2"
       ]
     }
   },
@@ -1301,6 +1718,40 @@
       "voice_pressure": []
     },
     {
+      "approval": {
+        "approved_at": "2026-07-29",
+        "basis": "Explicit operator approval to preserve the classical description as the Ledger's self-definition.",
+        "status": "approved"
+      },
+      "confidence_movement": "unchanged",
+      "entry_date": "2026-07-29",
+      "entry_id": "JRN-20260729-03",
+      "entry_kind": "architecture_decision",
+      "interpretation": "The Ledger is a living hypomnema and private agora: a durable instrument in which present judgment, prior judgment, and rival voices remain available for disciplined examination.",
+      "learning_loop": {
+        "future_test": "Use the classical definition when explaining the Ledger and observe whether it clarifies the artifact's purpose without obscuring its graph-native machinery.",
+        "inherited_practice": "Treat remembrance, examination, causal analysis, and self-observation as complementary functions of one governed judgment record.",
+        "loop_status": "closed",
+        "pressure": "A technical description of immutable events and typed graphs explained the machinery but not the philosophical practice the machinery serves.",
+        "prior_model": "The Ledger was defined primarily as a graph-native record of positions, evidence pressure, and revision.",
+        "update": "Its canonical identity now also names the human practice: cumulative self-examination through memory, rival argument, explicit causes, and recorded revision."
+      },
+      "linked_position_versions": [],
+      "node_id": "JRN-20260729-03",
+      "node_type": "journal_event",
+      "observation": "The operator approved an ancient-Greek framing that joins Socratic examination, Aristotelian analysis, and Stoic self-observation.",
+      "position_effect": "ledger_structure",
+      "provenance": {
+        "note": "Normalized from an explicit operator-approved conceptual definition; no raw conversation text is retained.",
+        "source_kind": "operator-approved conversation decision"
+      },
+      "title": "The Ledger gains its classical self-definition",
+      "unresolved_questions": [
+        "Will the hypomnema and private-agora language remain legible to readers without classical training?"
+      ],
+      "voice_pressure": []
+    },
+    {
       "node_id": "OV-20260728-01",
       "node_type": "position",
       "object_label": "Ukraine war termination: battlefield-to-political conversion",
@@ -1435,6 +1886,55 @@
       },
       "relation_to_previous": "initial",
       "version_number": 1
+    },
+    {
+      "approval": {
+        "approved_at": "2026-07-29",
+        "basis": "explicit operator review approval",
+        "status": "approved"
+      },
+      "node_id": "OV-20260728-02-v2",
+      "node_type": "position_version",
+      "position": {
+        "change_conditions": [
+          "A durable neutral settlement accepted and sustained by Russia while Ukraine retains both cities and fails to regenerate an anti-Russian military capacity.",
+          "Persistent Ukrainian force regeneration despite continued Russian attrition, or evidence that the proposed parallel systemic-collapse mechanism is not developing.",
+          "A decisive loss of Russian battlefield initiative accompanied by forced loss of substantial currently controlled or claimed territory.",
+          "Binding Russian policy, settlement terms, or costly behavior that establish Odessa as non-negotiable rather than historically significant or strategically advantageous.",
+          "Evidence that the current Russian leadership and the enduring Russian state project regard substantially narrower territorial and political conditions as sufficient.",
+          "Evidence that insurgency, occupation burdens, or intensified external balancing make the proposed territorial outcome strategically counterproductive for Russia."
+        ],
+        "confidence": "High confidence in the claimed strategic necessity within the operator model; current binding Russian-policy attribution is provisionally contested; likely, but subject to substantial failure risk, as a current-war outcome.",
+        "falsifier": "The security hypothesis would be seriously weakened by a durable, verifiable neutral settlement in which Ukraine retains Kiev and Odessa, has no NATO role, does not regenerate anti-Russian military capacity, and Russia treats the arrangement as sufficient. The Odessa operator premise is weakened if Russia durably accepts such an end state while treating it as strategically sufficient; its attribution to current binding Russian policy remains contested under ADJ-20260729-001. The current-war forecast is falsified if the war ends durably without both required outcomes and is defeated earlier by a decisive Russian battlefield reversal with forced loss of substantial currently controlled or claimed territory.",
+        "horizon": "Before the present continuous phase of major combat ends durably, absent a decisive Russian reversal.",
+        "implications": "Under the operator model, a ceasefire or settlement that leaves Ukraine able to regenerate as a NATO-aligned military platform, or leaves Odessa and the remaining coast under sovereign Ukrainian control, would constitute an incomplete termination. This is not evidence that current Russian policy applies the same threshold. Ukrainian force-regeneration performance is the earliest proposed observable. Analysis must distinguish the operator's judgment of what Russia needs from what Russian leaders publicly require, privately intend, can achieve, and are likely to do.",
+        "mechanism": "Parallel systemic collapse: battlefield attrition and Ukrainian force-regeneration failure interact with demographic and economic exhaustion, elite fragmentation, and declining Western support. Kiev is then structurally reconstituted through enforceable neutrality, demilitarization, security-service restructuring, territorial reorganization, and durable limits on anti-Russian military policy. Direct control of the southern corridor removes Ukraine's independent Black Sea frontage, improves Crimea's security geometry, and connects Russia to Transnistria. Odessa's civilizational significance remains an operator premise about the Russian state project's structural logic; the provisional reality assessment does not verify it as current binding policy.",
+        "qualifications": [
+          "This is strategic recognition and actor modeling, not moral endorsement or adjudication of historical justice.",
+          "The security hypothesis, Odessa operator premise, current-policy attribution, and current-war forecast have different epistemic status and must be evaluated separately.",
+          "ADJ-20260729-001 provisionally assesses the claim that current Russian policy makes Odessa indispensable as contested attribution.",
+          "Kiev need not be permanently occupied if structural reconstitution is enforceable and durable.",
+          "The operator model still requires direct Russian control of a continuous southern corridor to Transnistria.",
+          "Likely does not mean inevitable; escalation, operational failure, and overextension remain substantial risks.",
+          "The Odessa imperative must not be attributed to Russian leaders or repo voices without layer-specific evidence that crosses the declared threshold."
+        ],
+        "strongest_counterarguments": [
+          "Public-policy objection: available Russian presidential settlement terms do not establish Odessa as non-negotiable and provisionally contest that attribution.",
+          "Security dilemma: territorial expansion, insurgency, occupation burdens, and intensified NATO balancing could leave Russia less secure.",
+          "Limited-aims objection: Russia's actual leadership may regard narrower territorial or political aims as sufficient.",
+          "Security-substitutes objection: enforceable neutrality, arms limits, or external guarantees might provide the required security without physical control.",
+          "Identity-cohesion objection: coercion and territorial loss may strengthen Ukrainian national cohesion and long-run anti-Russian alignment.",
+          "Feasibility objection: the military and administrative costs of taking and holding the proposed areas may exceed Russian capacity or political tolerance."
+        ],
+        "thesis": "The operator judges that Russia's acceptable end state requires two asymmetric outcomes: structural reconstitution of Kiev sufficient to prevent renewed NATO-aligned military regeneration, and direct Russian control of a continuous southern corridor through Kherson, Mykolaiv, Odessa, and the remaining Black Sea coast to Transnistria. This combines a testable security hypothesis, an operator actor-model premise, and a conditional forecast. It does not assert that current binding Russian policy has adopted the same Odessa threshold."
+      },
+      "position_id": "OV-20260728-02",
+      "provenance": {
+        "note": "Review normalized from a nominated local input; raw text remains ignored.",
+        "source_kind": "approved provisional reality-check assessment ADJ-20260729-001"
+      },
+      "relation_to_previous": "refinement",
+      "version_number": 2
     },
     {
       "excerpt": "Trump has held his first phone call with Putin ... taking big steps to end the war.",
@@ -1697,6 +2197,214 @@
       "voice_slug": "ritter"
     },
     {
+      "excerpt": "A move to the river and then potentially cross and take Kiev ... is a real possibility now.",
+      "layer_ids": [
+        "kiev_security_requirement"
+      ],
+      "line_end": 48,
+      "line_start": 47,
+      "node_id": "evidence:OV-20260728-02-v2:macgregor:01",
+      "node_type": "evidence_excerpt",
+      "path": "narrative-geopolitics/archive/sources/2025-04-28/source-daniel-davis-macgregor-it-s-ukraine-prolonging-this-war-2025-04-28.md",
+      "version_id": "OV-20260728-02-v2",
+      "voice_slug": "macgregor"
+    },
+    {
+      "excerpt": "They've got to go into Kiev and put this government out of business ... Once it becomes clear that the government in Kiev is out of business and Odessa is in Russian hands ... you're looking at an end state.",
+      "layer_ids": [
+        "kiev_security_requirement"
+      ],
+      "line_end": 307,
+      "line_start": 288,
+      "node_id": "evidence:OV-20260728-02-v2:macgregor:02",
+      "node_type": "evidence_excerpt",
+      "path": "narrative-geopolitics/archive/sources/2025-06-10/source-glenn-diesen-douglas-macgregor-douglas-macgregor-russia-s-retaliation-nato-s-declining-relevance-2025-06-10.md",
+      "version_id": "OV-20260728-02-v2",
+      "voice_slug": "macgregor"
+    },
+    {
+      "excerpt": "One of those of course is Odessa ... Odessa is historically a Russian city where everybody speaks Russian.",
+      "layer_ids": [
+        "odessa_civilizational_premise"
+      ],
+      "line_end": 56,
+      "line_start": 54,
+      "node_id": "evidence:OV-20260728-02-v2:macgregor:03",
+      "node_type": "evidence_excerpt",
+      "path": "narrative-geopolitics/archive/sources/2026-02-10/source-judging-freedom-macgregor-us-iran-war-could-spiral-out-of-control-2026-02-10.md",
+      "version_id": "OV-20260728-02-v2",
+      "voice_slug": "macgregor"
+    },
+    {
+      "excerpt": "Odessa is historically a Russian city ... founded by Katherine the Great ... one of those places that must return to Russia in the minds of Russians.",
+      "layer_ids": [
+        "odessa_civilizational_premise"
+      ],
+      "line_end": 44,
+      "line_start": 41,
+      "node_id": "evidence:OV-20260728-02-v2:macgregor:04",
+      "node_type": "evidence_excerpt",
+      "path": "narrative-geopolitics/archive/sources/2026-05-29/source-neutrality-studies-usa-collapsing-washingtons-soviet-moment-is-here-col-douglas-macgregor-2026-05-29.md",
+      "version_id": "OV-20260728-02-v2",
+      "voice_slug": "macgregor"
+    },
+    {
+      "excerpt": "Putin has an interest in turning Ukraine into a dysfunctional rump state because the West wants to use Ukraine to defeat Russia and he cannot allow that to happen.",
+      "layer_ids": [
+        "kiev_security_requirement"
+      ],
+      "line_end": 608,
+      "line_start": 598,
+      "node_id": "evidence:OV-20260728-02-v2:mearsheimer:01",
+      "node_type": "evidence_excerpt",
+      "path": "narrative-geopolitics/archive/sources/2025-10-08/source-glenn-diesen-john-mearsheimer-john-mearsheimer-west-destroying-itself-in-ukraine-gaza-2025-10-08.md",
+      "version_id": "OV-20260728-02-v2",
+      "voice_slug": "mearsheimer"
+    },
+    {
+      "excerpt": "Russia has a powerful incentive ... to make Ukraine a dysfunctional rump state so that it can't join NATO and it's not any kind of a threat to you.",
+      "layer_ids": [
+        "kiev_security_requirement"
+      ],
+      "line_end": 91,
+      "line_start": 87,
+      "node_id": "evidence:OV-20260728-02-v2:mearsheimer:02",
+      "node_type": "evidence_excerpt",
+      "path": "narrative-geopolitics/archive/sources/2026-02-17/source-john-mearsheimer-how-trump-has-boxed-himself-into-a-corner-on-iran-2026-02-17.md",
+      "version_id": "OV-20260728-02-v2",
+      "voice_slug": "mearsheimer"
+    },
+    {
+      "excerpt": "They'll probably take Odessa ... taking Odessa removes Ukraine's access to the Black Sea and helps turn it into a dysfunctional rump state.",
+      "layer_ids": [
+        "odessa_civilizational_premise"
+      ],
+      "line_end": 91,
+      "line_start": 85,
+      "node_id": "evidence:OV-20260728-02-v2:mearsheimer:03",
+      "node_type": "evidence_excerpt",
+      "path": "narrative-geopolitics/archive/sources/2026-02-17/source-john-mearsheimer-how-trump-has-boxed-himself-into-a-corner-on-iran-2026-02-17.md",
+      "version_id": "OV-20260728-02-v2",
+      "voice_slug": "mearsheimer"
+    },
+    {
+      "excerpt": "Russia wants Odessa to remove Ukraine's ports and make it dysfunctional, but whether Russia can capture it at reasonable cost remains uncertain.",
+      "layer_ids": [
+        "odessa_civilizational_premise"
+      ],
+      "line_end": 120,
+      "line_start": 113,
+      "node_id": "evidence:OV-20260728-02-v2:mearsheimer:04",
+      "node_type": "evidence_excerpt",
+      "path": "narrative-geopolitics/archive/sources/2026-07-16/source-john-mearsheimer-all-out-war-in-the-middle-east-trump-s-war-on-russia-2026-07-16.md",
+      "version_id": "OV-20260728-02-v2",
+      "voice_slug": "mearsheimer"
+    },
+    {
+      "excerpt": "The root causes are the nature of the government in Kiev ... and the provisions of the April 2022 Istanbul agreement: no membership of NATO, neutral status, denuclearization, demilitarization, ultimately denazification.",
+      "layer_ids": [
+        "kiev_security_requirement"
+      ],
+      "line_end": 477,
+      "line_start": 391,
+      "node_id": "evidence:OV-20260728-02-v2:mercouris:01",
+      "node_type": "evidence_excerpt",
+      "path": "narrative-geopolitics/archive/sources/2025-04-21/source-alexander-mercouris-easter-truce-ends-russia-resumes-offensive-accuses-kiev-many-breaches-us-ultimatum-to-kiev-coming-2025-04-21.md",
+      "version_id": "OV-20260728-02-v2",
+      "voice_slug": "mercouris"
+    },
+    {
+      "excerpt": "There have to be major political changes in Kiev as well ... new elections, a new government in Kiev.",
+      "layer_ids": [
+        "kiev_security_requirement"
+      ],
+      "line_end": 163,
+      "line_start": 162,
+      "node_id": "evidence:OV-20260728-02-v2:mercouris:02",
+      "node_type": "evidence_excerpt",
+      "path": "narrative-geopolitics/archive/sources/2026-06-23/source-duran-mercouris-rubicon-crossed-zelensky-targets-belarus-2026-06-23.md",
+      "version_id": "OV-20260728-02-v2",
+      "voice_slug": "mercouris"
+    },
+    {
+      "excerpt": "Historic Russian lands could extend to the entire Black Sea coast ... including of course Odessa.",
+      "layer_ids": [
+        "odessa_civilizational_premise"
+      ],
+      "line_end": 71,
+      "line_start": 70,
+      "node_id": "evidence:OV-20260728-02-v2:mercouris:03",
+      "node_type": "evidence_excerpt",
+      "path": "narrative-geopolitics/archive/sources/2026-06-23/source-alexander-mercouris-putin-warns-russian-army-war-with-west-coming-russia-leads-west-in-arms-output-us-iran-talks-stuck-2026-06-23.md",
+      "version_id": "OV-20260728-02-v2",
+      "voice_slug": "mercouris"
+    },
+    {
+      "excerpt": "Historically Catherine's conquests included the Black Sea coast and Odessa; I have no reason to think that Putin does not mean that as well.",
+      "layer_ids": [
+        "odessa_civilizational_premise"
+      ],
+      "line_end": 194,
+      "line_start": 192,
+      "node_id": "evidence:OV-20260728-02-v2:mercouris:04",
+      "node_type": "evidence_excerpt",
+      "path": "narrative-geopolitics/archive/sources/2026-06-29/source-alexander-mercouris-putin-rejects-talks-odessa-donbas-drones-abate-2026-06-29.md",
+      "version_id": "OV-20260728-02-v2",
+      "voice_slug": "mercouris"
+    },
+    {
+      "excerpt": "Ukraine will be demilitarized down to 50,000 ... Russia will not yield on this.",
+      "layer_ids": [
+        "kiev_security_requirement"
+      ],
+      "line_end": 98,
+      "line_start": 96,
+      "node_id": "evidence:OV-20260728-02-v2:ritter:01",
+      "node_type": "evidence_excerpt",
+      "path": "narrative-geopolitics/archive/sources/2025-03-21/source-india-global-left-trump-rubio-ukraine-peace-talks-scott-ritter-2025-03-21.md",
+      "version_id": "OV-20260728-02-v2",
+      "voice_slug": "ritter"
+    },
+    {
+      "excerpt": "A Russian oriented government in Kiev ... will do the bidding of Russia. So you don't need to physically take Kiev.",
+      "layer_ids": [
+        "kiev_security_requirement"
+      ],
+      "line_end": 1172,
+      "line_start": 1168,
+      "node_id": "evidence:OV-20260728-02-v2:ritter:02",
+      "node_type": "evidence_excerpt",
+      "path": "narrative-geopolitics/archive/sources/2025-05-24/source-glenn-diesen-scott-ritter-scott-ritter-will-trump-own-the-ukraine-war-or-walk-away-2025-05-24.md",
+      "version_id": "OV-20260728-02-v2",
+      "voice_slug": "ritter"
+    },
+    {
+      "excerpt": "Odessa is a Russian city. This war doesn't end in a way that's going to be good for Ukraine.",
+      "layer_ids": [
+        "odessa_civilizational_premise"
+      ],
+      "line_end": 149,
+      "line_start": 146,
+      "node_id": "evidence:OV-20260728-02-v2:ritter:03",
+      "node_type": "evidence_excerpt",
+      "path": "narrative-geopolitics/archive/sources/2026-07-14/source-scott-ritter-russia-is-winning-the-war-and-winning-decisively-2026-07-14.md",
+      "version_id": "OV-20260728-02-v2",
+      "voice_slug": "ritter"
+    },
+    {
+      "excerpt": "Odessa is a Russian city ... I think that is the direction Russia is going, but Vladimir Putin hasn't made that decision yet.",
+      "layer_ids": [
+        "odessa_civilizational_premise"
+      ],
+      "line_end": 82,
+      "line_start": 80,
+      "node_id": "evidence:OV-20260728-02-v2:ritter:04",
+      "node_type": "evidence_excerpt",
+      "path": "narrative-geopolitics/archive/sources/2026-07-28/source-scott-ritter-russia-s-ukraine-strategy-2026-07-28.md",
+      "version_id": "OV-20260728-02-v2",
+      "voice_slug": "ritter"
+    },
+    {
       "claim": "Battlefield advantage does not by itself terminate the Ukraine war; military leverage must be converted into credible, mutually legible, and implementable political terms.",
       "confidence": "moderate-high",
       "evidence_standard": "Comparative war-termination cases and observable Ukraine-war sequences must distinguish changes in battlefield leverage from the appearance of implementable territorial, security, neutrality, enforcement, and sequencing terms.",
@@ -1767,6 +2475,68 @@
       "version_id": "OV-20260728-02-v1"
     },
     {
+      "claim": "Russia is likely, with substantial failure risk, to realize Kiev's structural reconstitution and direct control of a continuous Black Sea corridor to Transnistria before the present phase of major combat ends durably.",
+      "confidence": "likely, with substantial failure risk",
+      "evidence_standard": "The forecast requires observable progress in Russian battlefield initiative, Ukrainian force-regeneration failure despite mobilization and external support, demographic and economic exhaustion, elite cohesion, Western support, and operational feasibility along the southern corridor.",
+      "falsifier_or_limitation": "The forecast is falsified if the war ends durably without both outcomes and is defeated earlier by a decisive Russian battlefield reversal accompanied by forced loss of substantial currently controlled or claimed territory.",
+      "falsifier_status": "testable",
+      "label": "Current-war realization forecast",
+      "layer_id": "current_war_realization",
+      "layer_type": "conditional_forecast",
+      "node_id": "layer:OV-20260728-02-v2:current_war_realization",
+      "node_type": "epistemic_layer",
+      "position_id": "OV-20260728-02",
+      "version_id": "OV-20260728-02-v2"
+    },
+    {
+      "claim": "Russia's security requirements demand structural reconstitution of Kiev sufficient to prevent renewed NATO-aligned Ukrainian military regeneration; permanent Russian occupation is not necessary if the constraints are enforceable and durable.",
+      "confidence": "high within the stated security model",
+      "evidence_standard": "A credible assessment must compare post-settlement Ukrainian force regeneration, NATO alignment, security-service structure, military constraints, Russian acceptance, and the durability of alternative neutral arrangements.",
+      "falsifier_or_limitation": "The claim is seriously weakened by a durable, verifiable neutral settlement in which Ukraine retains Kiev and Odessa, has no NATO role, does not regenerate anti-Russian military capacity, and Russia treats the arrangement as sufficient.",
+      "falsifier_status": "testable",
+      "label": "Kiev security requirement",
+      "layer_id": "kiev_security_requirement",
+      "layer_type": "empirical_hypothesis",
+      "node_id": "layer:OV-20260728-02-v2:kiev_security_requirement",
+      "node_type": "epistemic_layer",
+      "position_id": "OV-20260728-02",
+      "version_id": "OV-20260728-02-v2"
+    },
+    {
+      "claim": "The operator judges that Odessa's historical-civilizational significance and the southern corridor's strategic geometry make direct Russian control imperative within the modeled Russian state project. This is an operator inference about structural logic, not a verified claim that current Russian policy treats Odessa as a non-negotiable war-termination condition.",
+      "confidence": "high as an operator strategic inference; attribution to current binding Russian policy is provisionally contested",
+      "evidence_standard": "Current-policy attribution requires explicit binding policy, enumerated settlement conditions, sustained leadership choices, doctrine, or costly behavior showing that Odessa is indispensable rather than historically significant or strategically advantageous. Identity rhetoric alone contextualizes the model but cannot establish the policy attribution.",
+      "falsifier_or_limitation": "The operator model is weakened if Russia durably accepts and sustains an end state without Odessa while treating that settlement as strategically sufficient. Current-policy attribution remains contested under ADJ-20260729-001 unless later binding policy or costly behavior crosses the declared evidence threshold.",
+      "falsifier_status": "partially_testable",
+      "label": "Odessa operator strategic premise",
+      "layer_id": "odessa_civilizational_premise",
+      "layer_type": "actor_model_premise",
+      "node_id": "layer:OV-20260728-02-v2:odessa_civilizational_premise",
+      "node_type": "epistemic_layer",
+      "position_id": "OV-20260728-02",
+      "version_id": "OV-20260728-02-v2"
+    },
+    {
+      "classical_definition": {
+        "definition": "A living hypomnema: a disciplined book of remembrance in which the operator records not merely what is believed, but why, what would disprove it, and how encounters with other minds alter it.",
+        "dialogue": "A private agora where present judgment debates former judgment and the strongest available rival voices. Each belief declares its causes, limits, confidence, and conditions of defeat; no earlier belief is erased, so the record distinguishes learning, contradiction, refinement, and forgetfulness.",
+        "name": "living hypomnema and private agora",
+        "practices": [
+          {
+            "function": "Every position must survive questions and counterarguments.",
+            "tradition": "Socratic examination"
+          },
+          {
+            "function": "Thesis, mechanism, qualifications, and evidence are separated.",
+            "tradition": "Aristotelian analysis"
+          },
+          {
+            "function": "Changes in judgment are recorded without concealing prior error.",
+            "tradition": "Stoic self-observation"
+          }
+        ],
+        "purpose": "To make reasoning inspectable across time so that wisdom becomes cumulative rather than episodic."
+      },
       "model": "graph-indexed immutable event ledger",
       "node_id": "ledger:strategic-judgment",
       "node_type": "judgment_ledger",
@@ -2624,6 +3394,14 @@
       "node_id": "trigger:OV-20260728-02-v1",
       "node_type": "review_trigger",
       "version_id": "OV-20260728-02-v1"
+    },
+    {
+      "date": "2026-08-28",
+      "event": "credible-settlement-terms-linking-battlefield-disposition-to-political-conversion",
+      "mode": "earliest_of",
+      "node_id": "trigger:OV-20260728-02-v2",
+      "node_type": "review_trigger",
+      "version_id": "OV-20260728-02-v2"
     },
     {
       "display_name": "Daniel Davis",

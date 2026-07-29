@@ -42,20 +42,34 @@ def test_canonical_ledger_has_events_positions_and_graph_views() -> None:
     assert not {"overall_score", "grand_score", "total_score"}.intersection(keys)
     assert data["schema"] == "strategic-judgment-ledger-v1"
     assert data["ledger"]["short_name"] == "the Judgment Ledger"
+    assert (
+        data["ledger"]["classical_definition"]["name"]
+        == "living hypomnema and private agora"
+    )
     entry_ids = [entry["entry_id"] for entry in data["journal_entries"]]
     assert entry_ids == sorted(entry_ids)
     assert {"JRN-20260728-01", "JRN-20260728-02"}.issubset(entry_ids)
     titles = {entry["title"] for entry in data["journal_entries"]}
     assert "The living book takes its name" in titles
     assert "The journal becomes a recursive-learning instrument" in titles
+    assert "The Ledger gains its classical self-definition" in titles
     version = data["positions"][0]["versions"][-1]
     assert version["approval"]["status"] == "approved"
+    odessa_version = data["positions"][-1]["versions"][-1]
+    mercouris = next(
+        item for item in odessa_version["comparator_set"]["included"]
+        if item["voice_slug"] == "mercouris"
+    )
+    assert odessa_version["comparator_set"]["status"] == "approved"
+    assert mercouris["comparison_role"].startswith("attribution-stress comparator")
     rendered = subject.render_report(data)
+    assert "## Classical self-definition" in rendered
+    assert "wisdom becomes cumulative rather than episodic" in rendered
     assert "## AI exploration" in rendered
     assert "## Journal event view" in rendered
     assert "## Position object view" in rendered
     assert "#### Epistemic layers" in rendered
-    assert "| Voice | Engaged layers | Axis | Evidence | Host concentration |" in rendered
+    assert "| Voice | Role | Engaged layers | Axis | Evidence | Host concentration |" in rendered
     assert "#### Persuasive-coherence profiles" in rendered
 
 
@@ -86,6 +100,8 @@ def test_ai_query_views_return_object_scoped_results() -> None:
         position_id="OV-20260728-02",
     )
     assert len(current["results"]) == 1
+    assert current["results"][0]["current_version_id"] == "OV-20260728-02-v2"
+    assert "current binding Russian policy" in current["results"][0]["thesis"]
     assert len(current["results"][0]["layers"]) == 3
     layers = subject.query_ledger(
         data,
@@ -110,7 +126,7 @@ def test_ai_query_views_return_object_scoped_results() -> None:
         data,
         "review-queue",
         position_id="OV-20260728-02",
-        as_of=date(2026, 8, 27),
+        as_of=date(2026, 8, 28),
     )
     assert review["results"]["due"][0]["position_id"] == "OV-20260728-02"
 
@@ -154,7 +170,7 @@ def test_epistemic_layers_are_explicit_and_independently_validated() -> None:
         "actor_model_premise",
         "conditional_forecast",
     ]
-    assert layers[1]["falsifier_status"] == "not_empirically_falsifiable"
+    assert layers[1]["falsifier_status"] == "partially_testable"
     layers[2]["layer_id"] = layers[0]["layer_id"]
     layers[1]["falsifier_status"] = "immune_to_evidence"
     errors = subject.validate_data(data)
@@ -254,6 +270,69 @@ def test_approved_surfaces_are_immutable_and_unchanged_review_appends() -> None:
     )
     assert version["version_id"] == "OV-20260728-01-v3"
     assert version["previous_version_id"] == "OV-20260728-01-v2"
+    assert subject.validate_data(data) == []
+
+
+def test_recommendation_candidate_extends_current_version_without_approval(
+    tmp_path: Path,
+) -> None:
+    data = canonical()
+    position = next(
+        item for item in data["positions"]
+        if item["position_id"] == "OV-20260728-02"
+    )
+    version = position["versions"][-1]
+    version["comparator_set"]["status"] = "proposed"
+    version["comparator_set"].pop("approval", None)
+    macgregor = next(
+        item for item in version["comparator_set"]["included"]
+        if item["voice_slug"] == "macgregor"
+    )
+    odessa_evidence = [
+        deepcopy(ref)
+        for ref in macgregor["evidence"]
+        if "odessa_civilizational_premise" in ref["layer_ids"]
+    ]
+    macgregor["engaged_layer_ids"].remove("odessa_civilizational_premise")
+    macgregor["evidence"] = [
+        ref for ref in macgregor["evidence"]
+        if "odessa_civilizational_premise" not in ref["layer_ids"]
+    ]
+    macgregor["evidence_count"] = len(macgregor["evidence"])
+    macgregor["source_count"] = len({ref["path"] for ref in macgregor["evidence"]})
+    candidate = {
+        "schema": "operator-comparator-recommendation-v1",
+        "position_id": position["position_id"],
+        "version_id": version["version_id"],
+        "included_layer_updates": [{
+            "voice_slug": "macgregor",
+            "layer_id": "odessa_civilizational_premise",
+            "evidence": odessa_evidence,
+            "host_concentration": "Four sources across four interview hosts.",
+            "inclusion_rationale": "Tests both the Kiev and Odessa operator layers.",
+            "orthogonality_axis": "control, identity, and feasibility",
+        }],
+        "excluded_layer_updates": [],
+        "recommendation_basis_updates": {"scope_note": "test extension"},
+    }
+    candidate_path = tmp_path / "recommendation.json"
+    candidate_path.write_text(json.dumps(candidate), encoding="utf-8")
+
+    proposal = subject.recommend_for_position(
+        data,
+        position["position_id"],
+        candidate_path,
+    )
+
+    assert proposal["status"] == "proposed"
+    assert "approval" not in proposal
+    assert version["comparison"]["status"] == "not_started"
+    updated_macgregor = next(
+        item for item in proposal["included"]
+        if item["voice_slug"] == "macgregor"
+    )
+    assert updated_macgregor["evidence_count"] == 4
+    assert updated_macgregor["source_count"] == 4
     assert subject.validate_data(data) == []
 
 
