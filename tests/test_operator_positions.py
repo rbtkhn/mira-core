@@ -123,6 +123,12 @@ def test_newly_approved_position_may_await_comparator_work() -> None:
         "included": [],
         "excluded": [],
     }
+    latest["comparison"] = {
+        "status": "not_started",
+        "profiles": [],
+        "relations": [],
+        "findings": {},
+    }
     assert latest["comparator_set"]["status"] == "proposed"
     assert latest["comparison"]["status"] == "not_started"
     assert subject.validate_data(data) == []
@@ -133,6 +139,7 @@ def test_newly_approved_position_may_await_comparator_work() -> None:
 def test_pending_lifecycle_rejects_premature_score_data() -> None:
     data = canonical()
     latest = data["positions"][-1]["versions"][-1]
+    latest["comparison"]["status"] = "not_started"
     latest["comparison"]["profiles"] = [{"subject": "operator"}]
     errors = subject.validate_data(data)
     assert any("not-started comparison contains score data" in error for error in errors)
@@ -334,6 +341,12 @@ def test_multilayer_scoring_preserves_unavailable_and_evidence_insufficiency() -
             "approved_at": "2026-07-29",
             "basis": "test approval",
         },
+    }
+    version["comparison"] = {
+        "status": "not_started",
+        "profiles": [],
+        "relations": [],
+        "findings": {},
     }
     comparison = subject.score_position(data, "OV-20260728-02")
     assert {

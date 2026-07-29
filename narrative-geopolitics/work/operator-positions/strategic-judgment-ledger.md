@@ -26,7 +26,7 @@ The Ledger is queried by object and relationship rather than read only front-to-
 | Position | Current version | Epistemic layers | Comparator state | Review |
 |---|---|---|---|---|
 | Ukraine war termination: battlefield-to-political conversion | `OV-20260728-01-v2` | Authoritative postwar-order requirement | approved / approved | 2026-08-27 or `credible-settlement-terms-linking-battlefield-disposition-to-political-conversion` |
-| Russia, Kiev, Odessa, and the war end state | `OV-20260728-02-v1` | Kiev security requirement; Odessa civilizational actor model; Current-war realization forecast | approved / not_started | 2026-08-27 or `credible-settlement-terms-linking-battlefield-disposition-to-political-conversion` |
+| Russia, Kiev, Odessa, and the war end state | `OV-20260728-02-v1` | Kiev security requirement; Odessa civilizational actor model; Current-war realization forecast | approved / approved | 2026-08-27 or `credible-settlement-terms-linking-battlefield-disposition-to-political-conversion` |
 
 ## Journal event view
 
@@ -400,9 +400,39 @@ Review: 2026-08-27 or `credible-settlement-terms-linking-battlefield-disposition
 - Sergey Karaganov (Kiev security requirement): One strong demilitarization formulation was found, but a second independently hosted source did not directly engage the Kiev-control mechanism.
 - Robert Pape (Kiev security requirement): His coercion framework may become relevant, but the current archive search did not find two direct excerpts on political control, neutrality, or Ukrainian force regeneration for this layer.
 
-#### Persuasive-coherence scoring pending
+#### Persuasive-coherence profiles
 
-No revised comparison profile has been generated.
+| Subject | Layer | Thesis | Consistency | Mechanism | Scope | Counterarguments | Compression |
+|---|---|---:|---:|---:|---:|---:|---:|
+| Operator | Kiev security requirement | 5 | 4 | 4 | 5 | 5 | 4 |
+| Operator | Odessa civilizational actor model | unavailable | unavailable | unavailable | unavailable | unavailable | unavailable |
+| Operator | Current-war realization forecast | unavailable | unavailable | unavailable | unavailable | unavailable | unavailable |
+| Douglas Macgregor | Kiev security requirement | 4 | 3 | 3 | 2 | 1 | 4 |
+| Scott Ritter | Kiev security requirement | 5 | 4 | 4 | 3 | 2 | 5 |
+| Alexander Mercouris | Kiev security requirement | 4 | 4 | 4 | 4 | 2 | 3 |
+| John Mearsheimer | Kiev security requirement | 4 | 4 | 3 | 4 | 2 | 5 |
+
+##### Dimension deltas (voice minus operator)
+
+| Voice | Layer | Thesis | Consistency | Mechanism | Scope | Counterarguments | Compression |
+|---|---|---:|---:|---:|---:|---:|---:|
+| Douglas Macgregor | Kiev security requirement | -1 | -1 | -1 | -3 | -4 | +0 |
+| Scott Ritter | Kiev security requirement | +0 | +0 | +0 | -2 | -3 | +1 |
+| Alexander Mercouris | Kiev security requirement | -1 | +0 | +0 | -1 | -3 | -1 |
+| John Mearsheimer | Kiev security requirement | -1 | +0 | -1 | -1 | -3 | +1 |
+
+No overall score is calculated.
+
+#### Relations and findings
+
+- **Douglas Macgregor on Kiev security requirement — reinforcement:** Macgregor reinforces the operator's strongest formulation by treating removal of the Kiev government as part of the imposed military-political end state.
+- **Scott Ritter on Kiev security requirement — mechanism disagreement:** Ritter agrees on demilitarization and political realignment but disputes physical possession as the mechanism, arguing that a Russia-oriented Kiev government can suffice.
+- **Alexander Mercouris on Kiev security requirement — conditional divergence:** Mercouris reinforces structural reconstitution through neutrality, demilitarization, elections, and governmental change while leaving physical control of Kiev conditional rather than necessary.
+- **John Mearsheimer on Kiev security requirement — conditional divergence:** Mearsheimer reinforces Russia's incentive to disable Ukraine as a NATO-aligned threat but does not establish that doing so requires control of Kiev.
+
+**Closest affinity.** Douglas Macgregor on Kiev security requirement: Macgregor most closely matches the operator's full end-state claim by linking action against Kiev's government to a Russian-imposed political and territorial settlement.
+
+**Strongest corrective.** Scott Ritter on Kiev security requirement: Ritter accepts demilitarization and political alignment as necessary but explicitly argues that those controls can be achieved without physically taking Kiev.
 
 #### Revision history
 

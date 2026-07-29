@@ -1415,10 +1415,400 @@
             "status": "approved"
           },
           "comparison": {
-            "findings": {},
-            "profiles": [],
-            "relations": [],
-            "status": "not_started"
+            "approval": {
+              "approved_at": "2026-07-29",
+              "basis": "explicit operator score approval"
+            },
+            "findings": {
+              "closest_affinity": {
+                "display_name": "Douglas Macgregor",
+                "layer_id": "kiev_security_requirement",
+                "rationale": "Macgregor most closely matches the operator's full end-state claim by linking action against Kiev's government to a Russian-imposed political and territorial settlement.",
+                "voice_slug": "macgregor"
+              },
+              "strongest_corrective": {
+                "display_name": "Scott Ritter",
+                "layer_id": "kiev_security_requirement",
+                "rationale": "Ritter accepts demilitarization and political alignment as necessary but explicitly argues that those controls can be achieved without physically taking Kiev.",
+                "voice_slug": "ritter"
+              }
+            },
+            "profiles": [
+              {
+                "dimensions": {
+                  "counterargument_integration": {
+                    "evidence_refs": [
+                      "OV-20260728-02-v1:kiev_security_requirement:counterargument_integration"
+                    ],
+                    "rationale": "The position states the strongest security-dilemma, limited-aims, substitution, identity-cohesion, and feasibility objections and supplies explicit change conditions.",
+                    "score": 5
+                  },
+                  "explanatory_compression": {
+                    "evidence_refs": [
+                      "OV-20260728-02-v1:kiev_security_requirement:explanatory_compression"
+                    ],
+                    "rationale": "The regeneration logic compresses a complex security claim effectively, although its connection to the broader three-layer thesis still requires careful unpacking.",
+                    "score": 4
+                  },
+                  "internal_consistency": {
+                    "evidence_refs": [
+                      "OV-20260728-02-v1:kiev_security_requirement:internal_consistency"
+                    ],
+                    "rationale": "The position consistently distinguishes structural reconstitution from permanent occupation, but its language of strategic imperative can still be read as stronger than its stated neutral-settlement exception.",
+                    "score": 4
+                  },
+                  "mechanism_completeness": {
+                    "evidence_refs": [
+                      "OV-20260728-02-v1:kiev_security_requirement:mechanism_completeness"
+                    ],
+                    "rationale": "It specifies neutrality, demilitarization, security-service restructuring, territorial reorganization, and enforcement, while leaving the durability and governance of those constraints partly unresolved.",
+                    "score": 4
+                  },
+                  "scope_and_qualification_discipline": {
+                    "evidence_refs": [
+                      "OV-20260728-02-v1:kiev_security_requirement:scope_and_qualification_discipline"
+                    ],
+                    "rationale": "The claim is explicitly bounded as a testable security hypothesis, separates necessity from feasibility and forecast, and states that occupation is unnecessary if constraints are durable.",
+                    "score": 5
+                  },
+                  "thesis_precision": {
+                    "evidence_refs": [
+                      "OV-20260728-02-v1:kiev_security_requirement:thesis_precision"
+                    ],
+                    "rationale": "The layer names the actor, security objective, regeneration threat, required political transformation, and the condition under which physical occupation is unnecessary.",
+                    "score": 5
+                  }
+                },
+                "display_name": "Operator",
+                "layer_id": "kiev_security_requirement",
+                "subject": "operator"
+              },
+              {
+                "dimensions": {
+                  "counterargument_integration": {
+                    "evidence_refs": [
+                      "OV-20260728-02-v1:odessa_civilizational_premise:counterargument_integration"
+                    ],
+                    "rationale": "Layer-specific persuasive-coherence scoring has not yet been reviewed for this epistemic layer.",
+                    "score": "unavailable"
+                  },
+                  "explanatory_compression": {
+                    "evidence_refs": [
+                      "OV-20260728-02-v1:odessa_civilizational_premise:explanatory_compression"
+                    ],
+                    "rationale": "Layer-specific persuasive-coherence scoring has not yet been reviewed for this epistemic layer.",
+                    "score": "unavailable"
+                  },
+                  "internal_consistency": {
+                    "evidence_refs": [
+                      "OV-20260728-02-v1:odessa_civilizational_premise:internal_consistency"
+                    ],
+                    "rationale": "Layer-specific persuasive-coherence scoring has not yet been reviewed for this epistemic layer.",
+                    "score": "unavailable"
+                  },
+                  "mechanism_completeness": {
+                    "evidence_refs": [
+                      "OV-20260728-02-v1:odessa_civilizational_premise:mechanism_completeness"
+                    ],
+                    "rationale": "Layer-specific persuasive-coherence scoring has not yet been reviewed for this epistemic layer.",
+                    "score": "unavailable"
+                  },
+                  "scope_and_qualification_discipline": {
+                    "evidence_refs": [
+                      "OV-20260728-02-v1:odessa_civilizational_premise:scope_and_qualification_discipline"
+                    ],
+                    "rationale": "Layer-specific persuasive-coherence scoring has not yet been reviewed for this epistemic layer.",
+                    "score": "unavailable"
+                  },
+                  "thesis_precision": {
+                    "evidence_refs": [
+                      "OV-20260728-02-v1:odessa_civilizational_premise:thesis_precision"
+                    ],
+                    "rationale": "Layer-specific persuasive-coherence scoring has not yet been reviewed for this epistemic layer.",
+                    "score": "unavailable"
+                  }
+                },
+                "display_name": "Operator",
+                "layer_id": "odessa_civilizational_premise",
+                "subject": "operator"
+              },
+              {
+                "dimensions": {
+                  "counterargument_integration": {
+                    "evidence_refs": [
+                      "OV-20260728-02-v1:current_war_realization:counterargument_integration"
+                    ],
+                    "rationale": "Layer-specific persuasive-coherence scoring has not yet been reviewed for this epistemic layer.",
+                    "score": "unavailable"
+                  },
+                  "explanatory_compression": {
+                    "evidence_refs": [
+                      "OV-20260728-02-v1:current_war_realization:explanatory_compression"
+                    ],
+                    "rationale": "Layer-specific persuasive-coherence scoring has not yet been reviewed for this epistemic layer.",
+                    "score": "unavailable"
+                  },
+                  "internal_consistency": {
+                    "evidence_refs": [
+                      "OV-20260728-02-v1:current_war_realization:internal_consistency"
+                    ],
+                    "rationale": "Layer-specific persuasive-coherence scoring has not yet been reviewed for this epistemic layer.",
+                    "score": "unavailable"
+                  },
+                  "mechanism_completeness": {
+                    "evidence_refs": [
+                      "OV-20260728-02-v1:current_war_realization:mechanism_completeness"
+                    ],
+                    "rationale": "Layer-specific persuasive-coherence scoring has not yet been reviewed for this epistemic layer.",
+                    "score": "unavailable"
+                  },
+                  "scope_and_qualification_discipline": {
+                    "evidence_refs": [
+                      "OV-20260728-02-v1:current_war_realization:scope_and_qualification_discipline"
+                    ],
+                    "rationale": "Layer-specific persuasive-coherence scoring has not yet been reviewed for this epistemic layer.",
+                    "score": "unavailable"
+                  },
+                  "thesis_precision": {
+                    "evidence_refs": [
+                      "OV-20260728-02-v1:current_war_realization:thesis_precision"
+                    ],
+                    "rationale": "Layer-specific persuasive-coherence scoring has not yet been reviewed for this epistemic layer.",
+                    "score": "unavailable"
+                  }
+                },
+                "display_name": "Operator",
+                "layer_id": "current_war_realization",
+                "subject": "operator"
+              },
+              {
+                "dimensions": {
+                  "counterargument_integration": {
+                    "evidence_refs": [
+                      "macgregor:kiev_security_requirement:approved-comparator-evidence"
+                    ],
+                    "rationale": "The bounded excerpts assert the end-state requirement without integrating occupation costs, alternative neutral arrangements, or escalation objections.",
+                    "score": 1
+                  },
+                  "explanatory_compression": {
+                    "evidence_refs": [
+                      "macgregor:kiev_security_requirement:approved-comparator-evidence"
+                    ],
+                    "rationale": "Crossing the river, removing the Kiev government, and taking Odessa form a compact and readily legible end-state account.",
+                    "score": 4
+                  },
+                  "internal_consistency": {
+                    "evidence_refs": [
+                      "macgregor:kiev_security_requirement:approved-comparator-evidence"
+                    ],
+                    "rationale": "Both excerpts move toward decisive political control, but the earlier description of taking Kiev as a possibility is weaker than the later formulation that Russia must do so.",
+                    "score": 3
+                  },
+                  "mechanism_completeness": {
+                    "evidence_refs": [
+                      "macgregor:kiev_security_requirement:approved-comparator-evidence"
+                    ],
+                    "rationale": "The military route to removing the government is explicit, while the post-capture governance, enforcement, and force-regeneration controls are largely implicit.",
+                    "score": 3
+                  },
+                  "scope_and_qualification_discipline": {
+                    "evidence_refs": [
+                      "macgregor:kiev_security_requirement:approved-comparator-evidence"
+                    ],
+                    "rationale": "The claims are direct but offer little qualification about feasibility, alternative mechanisms, or the conditions under which a narrower settlement could suffice.",
+                    "score": 2
+                  },
+                  "thesis_precision": {
+                    "evidence_refs": [
+                      "macgregor:kiev_security_requirement:approved-comparator-evidence"
+                    ],
+                    "rationale": "Macgregor clearly connects crossing into Kiev, ending the incumbent government, and control of Odessa with the war's end state.",
+                    "score": 4
+                  }
+                },
+                "display_name": "Douglas Macgregor",
+                "layer_id": "kiev_security_requirement",
+                "subject": "macgregor"
+              },
+              {
+                "dimensions": {
+                  "counterargument_integration": {
+                    "evidence_refs": [
+                      "ritter:kiev_security_requirement:approved-comparator-evidence"
+                    ],
+                    "rationale": "The alternative to occupation directly answers one mechanism objection, but the excerpts do not substantially test whether imposed political alignment would remain durable.",
+                    "score": 2
+                  },
+                  "explanatory_compression": {
+                    "evidence_refs": [
+                      "ritter:kiev_security_requirement:approved-comparator-evidence"
+                    ],
+                    "rationale": "A demilitarized Ukraine plus a Russia-oriented Kiev government expresses the proposed substitute for occupation with unusual economy.",
+                    "score": 5
+                  },
+                  "internal_consistency": {
+                    "evidence_refs": [
+                      "ritter:kiev_security_requirement:approved-comparator-evidence"
+                    ],
+                    "rationale": "The two excerpts consistently join severe demilitarization with political alignment and explicitly distinguish those outcomes from physical possession.",
+                    "score": 4
+                  },
+                  "mechanism_completeness": {
+                    "evidence_refs": [
+                      "ritter:kiev_security_requirement:approved-comparator-evidence"
+                    ],
+                    "rationale": "Ritter identifies force limits and political control as the substitute mechanism, though enforcement, succession, and resistance pathways remain underdeveloped.",
+                    "score": 4
+                  },
+                  "scope_and_qualification_discipline": {
+                    "evidence_refs": [
+                      "ritter:kiev_security_requirement:approved-comparator-evidence"
+                    ],
+                    "rationale": "He cleanly limits the claim to what Russia needs from Kiev, but presents the demilitarization outcome with more certainty than the bounded evidence can establish.",
+                    "score": 3
+                  },
+                  "thesis_precision": {
+                    "evidence_refs": [
+                      "ritter:kiev_security_requirement:approved-comparator-evidence"
+                    ],
+                    "rationale": "The thesis is exceptionally explicit: demilitarize Ukraine and align the Kiev government, without physically taking the capital.",
+                    "score": 5
+                  }
+                },
+                "display_name": "Scott Ritter",
+                "layer_id": "kiev_security_requirement",
+                "subject": "ritter"
+              },
+              {
+                "dimensions": {
+                  "counterargument_integration": {
+                    "evidence_refs": [
+                      "mercouris:kiev_security_requirement:approved-comparator-evidence"
+                    ],
+                    "rationale": "The excerpts explain why a political settlement must address root causes, but do not integrate the strongest objections concerning coercive durability or alternative guarantees.",
+                    "score": 2
+                  },
+                  "explanatory_compression": {
+                    "evidence_refs": [
+                      "mercouris:kiev_security_requirement:approved-comparator-evidence"
+                    ],
+                    "rationale": "The multi-part root-cause list is informative but less compressed, and its relationship to new elections and a replacement government requires synthesis across sources.",
+                    "score": 3
+                  },
+                  "internal_consistency": {
+                    "evidence_refs": [
+                      "mercouris:kiev_security_requirement:approved-comparator-evidence"
+                    ],
+                    "rationale": "Neutrality, demilitarization, denazification, elections, and governmental change form a consistent structural-reconstitution account across the two excerpts.",
+                    "score": 4
+                  },
+                  "mechanism_completeness": {
+                    "evidence_refs": [
+                      "mercouris:kiev_security_requirement:approved-comparator-evidence"
+                    ],
+                    "rationale": "Mercouris supplies both institutional terms and a political transition pathway, while enforcement and prevention of later military regeneration remain only partly specified.",
+                    "score": 4
+                  },
+                  "scope_and_qualification_discipline": {
+                    "evidence_refs": [
+                      "mercouris:kiev_security_requirement:approved-comparator-evidence"
+                    ],
+                    "rationale": "He distinguishes settlement terms from physical occupation and attributes several requirements to Russian demands, although some evaluative agreement is blended with attribution.",
+                    "score": 4
+                  },
+                  "thesis_precision": {
+                    "evidence_refs": [
+                      "mercouris:kiev_security_requirement:approved-comparator-evidence"
+                    ],
+                    "rationale": "The required political and security transformation is explicit, but the excerpts stop short of a single precise claim about whether control of Kiev itself is necessary.",
+                    "score": 4
+                  }
+                },
+                "display_name": "Alexander Mercouris",
+                "layer_id": "kiev_security_requirement",
+                "subject": "mercouris"
+              },
+              {
+                "dimensions": {
+                  "counterargument_integration": {
+                    "evidence_refs": [
+                      "mearsheimer:kiev_security_requirement:approved-comparator-evidence"
+                    ],
+                    "rationale": "The structural account implicitly answers why Russia would weaken Ukraine, but the bounded excerpts do not test neutral-settlement durability, occupation costs, or escalation effects.",
+                    "score": 2
+                  },
+                  "explanatory_compression": {
+                    "evidence_refs": [
+                      "mearsheimer:kiev_security_requirement:approved-comparator-evidence"
+                    ],
+                    "rationale": "The dysfunctional-rump-state formulation compresses territory, NATO exclusion, and threat reduction into one highly legible structural proposition.",
+                    "score": 5
+                  },
+                  "internal_consistency": {
+                    "evidence_refs": [
+                      "mearsheimer:kiev_security_requirement:approved-comparator-evidence"
+                    ],
+                    "rationale": "Both sources give the same causal account: Western use of Ukraine creates a Russian incentive to weaken it until it cannot join NATO or threaten Russia.",
+                    "score": 4
+                  },
+                  "mechanism_completeness": {
+                    "evidence_refs": [
+                      "mearsheimer:kiev_security_requirement:approved-comparator-evidence"
+                    ],
+                    "rationale": "The security incentive and disabling outcome are explicit, while the political institutions, enforcement arrangements, and exact role of Kiev remain unspecified.",
+                    "score": 3
+                  },
+                  "scope_and_qualification_discipline": {
+                    "evidence_refs": [
+                      "mearsheimer:kiev_security_requirement:approved-comparator-evidence"
+                    ],
+                    "rationale": "The claim stays within a structural security-incentive frame and does not overclaim physical occupation, though the rump-state outcome is presented broadly.",
+                    "score": 4
+                  },
+                  "thesis_precision": {
+                    "evidence_refs": [
+                      "mearsheimer:kiev_security_requirement:approved-comparator-evidence"
+                    ],
+                    "rationale": "Mearsheimer precisely states the security objective—prevent NATO membership and remove Ukraine as a threat—but does not specify the required political relationship to Kiev.",
+                    "score": 4
+                  }
+                },
+                "display_name": "John Mearsheimer",
+                "layer_id": "kiev_security_requirement",
+                "subject": "mearsheimer"
+              }
+            ],
+            "relations": [
+              {
+                "display_name": "Douglas Macgregor",
+                "layer_id": "kiev_security_requirement",
+                "rationale": "Macgregor reinforces the operator's strongest formulation by treating removal of the Kiev government as part of the imposed military-political end state.",
+                "relation": "reinforcement",
+                "voice_slug": "macgregor"
+              },
+              {
+                "display_name": "Scott Ritter",
+                "layer_id": "kiev_security_requirement",
+                "rationale": "Ritter agrees on demilitarization and political realignment but disputes physical possession as the mechanism, arguing that a Russia-oriented Kiev government can suffice.",
+                "relation": "mechanism_disagreement",
+                "voice_slug": "ritter"
+              },
+              {
+                "display_name": "Alexander Mercouris",
+                "layer_id": "kiev_security_requirement",
+                "rationale": "Mercouris reinforces structural reconstitution through neutrality, demilitarization, elections, and governmental change while leaving physical control of Kiev conditional rather than necessary.",
+                "relation": "conditional_divergence",
+                "voice_slug": "mercouris"
+              },
+              {
+                "display_name": "John Mearsheimer",
+                "layer_id": "kiev_security_requirement",
+                "rationale": "Mearsheimer reinforces Russia's incentive to disable Ukraine as a NATO-aligned threat but does not establish that doing so requires control of Kiev.",
+                "relation": "conditional_divergence",
+                "voice_slug": "mearsheimer"
+              }
+            ],
+            "status": "approved"
           },
           "position": {
             "change_conditions": [
