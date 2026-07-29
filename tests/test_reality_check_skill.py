@@ -29,10 +29,20 @@ def test_reality_check_skill_metadata_and_authority_contract() -> None:
     assert "Keep a plain reality check read-only" in text
     assert "ask whether the operator wants to sign" in text
     assert "Never infer a reviewer" in text
+    assert "references/kremlin-sourcing.md" in text
+    assert "two-human requirements pass" in text
 
     metadata = (skill_root / "agents" / "openai.yaml").read_text(encoding="utf-8")
     assert 'display_name: "Reality Check"' in metadata
     assert "$reality-check" in metadata
+
+    kremlin = (skill_root / "references" / "kremlin-sourcing.md").read_text(
+        encoding="utf-8"
+    )
+    assert "VSRC-OFF-KREMLIN" in kremlin
+    assert "One event, one lineage" in kremlin
+    assert "Omission is not renunciation" in kremlin
+    assert "identity rhetoric into a territorial requirement" in kremlin
 
 
 def test_skill_sync_mirrors_complete_directory_and_detects_drift(

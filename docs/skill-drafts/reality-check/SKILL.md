@@ -50,6 +50,11 @@ original-language environments, independence requirements, interested-source
 restrictions, lineage risks, time window, and stop condition. Browse only
 inside that declared plan.
 
+When collecting or admitting material from the President of Russia website,
+read [references/kremlin-sourcing.md](references/kremlin-sourcing.md)
+completely before searching or writing evidence. Keep that module subordinate
+to the same investigation and authorization boundaries.
+
 - Treat archive records as evidence of what was said, not what happened.
 - Treat unregistered sources as leads until separately admitted.
 - Record origin and access languages separately.
@@ -85,20 +90,18 @@ claim-specific.
    confidence boundary, rationale, language audit, and authorization flags.
 3. Validate the assessment and the full lattice.
 4. Leave a high-consequence result provisional unless the three-language,
-   three-lineage, regional, external, and human `operator` requirements pass.
+   three-lineage, regional, external, and two-human requirements pass.
 5. Render generated views only after canonical records validate.
 
 Never infer a language waiver. A waiver requires unusually strong primary
-observational evidence, a documented search failure, and explicit approval
-from the human `operator`.
+observational evidence, a documented search failure, and two distinct humans.
 
 ## Human signature boundary
 
 After presenting a valid assessment, ask whether the operator wants to sign
-it. Record a signature only after the operator confirms the reviewer identity
-`operator`. Never infer a reviewer or that approval, treat an agent as a human
-authority, or sign merely because validation passed. Other human reviewers may
-add advisory signoffs, but only `operator` is required for canonical status.
+it. Record a signature only after the operator confirms and supplies the
+reviewer identity. Never infer a reviewer, fabricate a second signer, treat an
+agent as a human authority, or sign merely because validation passed.
 
 An assessment constrains downstream judgment but never authorizes automatic
 publication, forecast scoring, source admission, or prose rewriting. End with
