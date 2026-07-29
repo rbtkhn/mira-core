@@ -226,6 +226,15 @@
       "version_id": "OV-20260728-02-v1"
     },
     {
+      "edge_id": "edge:comparison_finding:voice:macgregor:layer:OV-20260728-02-v2:odessa_civilizational_premise:closest_affinity",
+      "edge_type": "comparison_finding",
+      "rationale": "Macgregor most directly joins Odessa's historical-Russian identity to an expectation of territorial return, matching the operator premise.",
+      "role": "closest_affinity",
+      "source": "voice:macgregor",
+      "target": "layer:OV-20260728-02-v2:odessa_civilizational_premise",
+      "version_id": "OV-20260728-02-v2"
+    },
+    {
       "edge_id": "edge:comparison_finding:voice:mearsheimer:layer:OV-20260728-01-v1:termination_conversion:strongest_corrective",
       "edge_type": "comparison_finding",
       "rationale": "His emphasis on structurally incompatible demands tests whether political conversion is merely difficult or presently impossible, forcing sharper change conditions.",
@@ -242,6 +251,15 @@
       "source": "voice:mearsheimer",
       "target": "layer:OV-20260728-01-v2:termination_conversion",
       "version_id": "OV-20260728-01-v2"
+    },
+    {
+      "edge_id": "edge:comparison_finding:voice:mearsheimer:layer:OV-20260728-02-v2:odessa_civilizational_premise:strongest_corrective",
+      "edge_type": "comparison_finding",
+      "rationale": "Mearsheimer reaches a similar territorial expectation through ports, economic disablement, security incentives, capability, and cost, forcing the operator to show what civilizational logic adds.",
+      "role": "strongest_corrective",
+      "source": "voice:mearsheimer",
+      "target": "layer:OV-20260728-02-v2:odessa_civilizational_premise",
+      "version_id": "OV-20260728-02-v2"
     },
     {
       "edge_id": "edge:comparison_finding:voice:mercouris:layer:OV-20260728-01-v1:termination_conversion:closest_affinity",
@@ -773,6 +791,24 @@
       "target": "profile:OV-20260728-02-v1:operator:odessa_civilizational_premise"
     },
     {
+      "edge_id": "edge:has_profile:operator:primary:profile:OV-20260728-02-v2:operator:current_war_realization",
+      "edge_type": "has_profile",
+      "source": "operator:primary",
+      "target": "profile:OV-20260728-02-v2:operator:current_war_realization"
+    },
+    {
+      "edge_id": "edge:has_profile:operator:primary:profile:OV-20260728-02-v2:operator:kiev_security_requirement",
+      "edge_type": "has_profile",
+      "source": "operator:primary",
+      "target": "profile:OV-20260728-02-v2:operator:kiev_security_requirement"
+    },
+    {
+      "edge_id": "edge:has_profile:operator:primary:profile:OV-20260728-02-v2:operator:odessa_civilizational_premise",
+      "edge_type": "has_profile",
+      "source": "operator:primary",
+      "target": "profile:OV-20260728-02-v2:operator:odessa_civilizational_premise"
+    },
+    {
       "edge_id": "edge:has_profile:voice:diesen:profile:OV-20260728-01-v1:diesen:termination_conversion",
       "edge_type": "has_profile",
       "source": "voice:diesen",
@@ -789,6 +825,18 @@
       "edge_type": "has_profile",
       "source": "voice:macgregor",
       "target": "profile:OV-20260728-02-v1:macgregor:kiev_security_requirement"
+    },
+    {
+      "edge_id": "edge:has_profile:voice:macgregor:profile:OV-20260728-02-v2:macgregor:kiev_security_requirement",
+      "edge_type": "has_profile",
+      "source": "voice:macgregor",
+      "target": "profile:OV-20260728-02-v2:macgregor:kiev_security_requirement"
+    },
+    {
+      "edge_id": "edge:has_profile:voice:macgregor:profile:OV-20260728-02-v2:macgregor:odessa_civilizational_premise",
+      "edge_type": "has_profile",
+      "source": "voice:macgregor",
+      "target": "profile:OV-20260728-02-v2:macgregor:odessa_civilizational_premise"
     },
     {
       "edge_id": "edge:has_profile:voice:mearsheimer:profile:OV-20260728-01-v1:mearsheimer:termination_conversion",
@@ -809,6 +857,18 @@
       "target": "profile:OV-20260728-02-v1:mearsheimer:kiev_security_requirement"
     },
     {
+      "edge_id": "edge:has_profile:voice:mearsheimer:profile:OV-20260728-02-v2:mearsheimer:kiev_security_requirement",
+      "edge_type": "has_profile",
+      "source": "voice:mearsheimer",
+      "target": "profile:OV-20260728-02-v2:mearsheimer:kiev_security_requirement"
+    },
+    {
+      "edge_id": "edge:has_profile:voice:mearsheimer:profile:OV-20260728-02-v2:mearsheimer:odessa_civilizational_premise",
+      "edge_type": "has_profile",
+      "source": "voice:mearsheimer",
+      "target": "profile:OV-20260728-02-v2:mearsheimer:odessa_civilizational_premise"
+    },
+    {
       "edge_id": "edge:has_profile:voice:mercouris:profile:OV-20260728-01-v1:mercouris:termination_conversion",
       "edge_type": "has_profile",
       "source": "voice:mercouris",
@@ -827,10 +887,34 @@
       "target": "profile:OV-20260728-02-v1:mercouris:kiev_security_requirement"
     },
     {
+      "edge_id": "edge:has_profile:voice:mercouris:profile:OV-20260728-02-v2:mercouris:kiev_security_requirement",
+      "edge_type": "has_profile",
+      "source": "voice:mercouris",
+      "target": "profile:OV-20260728-02-v2:mercouris:kiev_security_requirement"
+    },
+    {
+      "edge_id": "edge:has_profile:voice:mercouris:profile:OV-20260728-02-v2:mercouris:odessa_civilizational_premise",
+      "edge_type": "has_profile",
+      "source": "voice:mercouris",
+      "target": "profile:OV-20260728-02-v2:mercouris:odessa_civilizational_premise"
+    },
+    {
       "edge_id": "edge:has_profile:voice:ritter:profile:OV-20260728-02-v1:ritter:kiev_security_requirement",
       "edge_type": "has_profile",
       "source": "voice:ritter",
       "target": "profile:OV-20260728-02-v1:ritter:kiev_security_requirement"
+    },
+    {
+      "edge_id": "edge:has_profile:voice:ritter:profile:OV-20260728-02-v2:ritter:kiev_security_requirement",
+      "edge_type": "has_profile",
+      "source": "voice:ritter",
+      "target": "profile:OV-20260728-02-v2:ritter:kiev_security_requirement"
+    },
+    {
+      "edge_id": "edge:has_profile:voice:ritter:profile:OV-20260728-02-v2:ritter:odessa_civilizational_premise",
+      "edge_type": "has_profile",
+      "source": "voice:ritter",
+      "target": "profile:OV-20260728-02-v2:ritter:odessa_civilizational_premise"
     },
     {
       "edge_id": "edge:has_version:OV-20260728-01:OV-20260728-01-v1",
@@ -961,6 +1045,72 @@
       "target": "layer:OV-20260728-02-v1:kiev_security_requirement"
     },
     {
+      "edge_id": "edge:profiles_layer:profile:OV-20260728-02-v2:macgregor:kiev_security_requirement:layer:OV-20260728-02-v2:kiev_security_requirement",
+      "edge_type": "profiles_layer",
+      "source": "profile:OV-20260728-02-v2:macgregor:kiev_security_requirement",
+      "target": "layer:OV-20260728-02-v2:kiev_security_requirement"
+    },
+    {
+      "edge_id": "edge:profiles_layer:profile:OV-20260728-02-v2:macgregor:odessa_civilizational_premise:layer:OV-20260728-02-v2:odessa_civilizational_premise",
+      "edge_type": "profiles_layer",
+      "source": "profile:OV-20260728-02-v2:macgregor:odessa_civilizational_premise",
+      "target": "layer:OV-20260728-02-v2:odessa_civilizational_premise"
+    },
+    {
+      "edge_id": "edge:profiles_layer:profile:OV-20260728-02-v2:mearsheimer:kiev_security_requirement:layer:OV-20260728-02-v2:kiev_security_requirement",
+      "edge_type": "profiles_layer",
+      "source": "profile:OV-20260728-02-v2:mearsheimer:kiev_security_requirement",
+      "target": "layer:OV-20260728-02-v2:kiev_security_requirement"
+    },
+    {
+      "edge_id": "edge:profiles_layer:profile:OV-20260728-02-v2:mearsheimer:odessa_civilizational_premise:layer:OV-20260728-02-v2:odessa_civilizational_premise",
+      "edge_type": "profiles_layer",
+      "source": "profile:OV-20260728-02-v2:mearsheimer:odessa_civilizational_premise",
+      "target": "layer:OV-20260728-02-v2:odessa_civilizational_premise"
+    },
+    {
+      "edge_id": "edge:profiles_layer:profile:OV-20260728-02-v2:mercouris:kiev_security_requirement:layer:OV-20260728-02-v2:kiev_security_requirement",
+      "edge_type": "profiles_layer",
+      "source": "profile:OV-20260728-02-v2:mercouris:kiev_security_requirement",
+      "target": "layer:OV-20260728-02-v2:kiev_security_requirement"
+    },
+    {
+      "edge_id": "edge:profiles_layer:profile:OV-20260728-02-v2:mercouris:odessa_civilizational_premise:layer:OV-20260728-02-v2:odessa_civilizational_premise",
+      "edge_type": "profiles_layer",
+      "source": "profile:OV-20260728-02-v2:mercouris:odessa_civilizational_premise",
+      "target": "layer:OV-20260728-02-v2:odessa_civilizational_premise"
+    },
+    {
+      "edge_id": "edge:profiles_layer:profile:OV-20260728-02-v2:operator:current_war_realization:layer:OV-20260728-02-v2:current_war_realization",
+      "edge_type": "profiles_layer",
+      "source": "profile:OV-20260728-02-v2:operator:current_war_realization",
+      "target": "layer:OV-20260728-02-v2:current_war_realization"
+    },
+    {
+      "edge_id": "edge:profiles_layer:profile:OV-20260728-02-v2:operator:kiev_security_requirement:layer:OV-20260728-02-v2:kiev_security_requirement",
+      "edge_type": "profiles_layer",
+      "source": "profile:OV-20260728-02-v2:operator:kiev_security_requirement",
+      "target": "layer:OV-20260728-02-v2:kiev_security_requirement"
+    },
+    {
+      "edge_id": "edge:profiles_layer:profile:OV-20260728-02-v2:operator:odessa_civilizational_premise:layer:OV-20260728-02-v2:odessa_civilizational_premise",
+      "edge_type": "profiles_layer",
+      "source": "profile:OV-20260728-02-v2:operator:odessa_civilizational_premise",
+      "target": "layer:OV-20260728-02-v2:odessa_civilizational_premise"
+    },
+    {
+      "edge_id": "edge:profiles_layer:profile:OV-20260728-02-v2:ritter:kiev_security_requirement:layer:OV-20260728-02-v2:kiev_security_requirement",
+      "edge_type": "profiles_layer",
+      "source": "profile:OV-20260728-02-v2:ritter:kiev_security_requirement",
+      "target": "layer:OV-20260728-02-v2:kiev_security_requirement"
+    },
+    {
+      "edge_id": "edge:profiles_layer:profile:OV-20260728-02-v2:ritter:odessa_civilizational_premise:layer:OV-20260728-02-v2:odessa_civilizational_premise",
+      "edge_type": "profiles_layer",
+      "source": "profile:OV-20260728-02-v2:ritter:odessa_civilizational_premise",
+      "target": "layer:OV-20260728-02-v2:odessa_civilizational_premise"
+    },
+    {
       "edge_id": "edge:relates_to_layer:voice:diesen:layer:OV-20260728-01-v1:termination_conversion",
       "edge_type": "relates_to_layer",
       "rationale": "He links battlefield deterioration to bargaining urgency, while his order-transition lens supplies a broader legitimacy mechanism than the operator position states.",
@@ -986,6 +1136,24 @@
       "source": "voice:macgregor",
       "target": "layer:OV-20260728-02-v1:kiev_security_requirement",
       "version_id": "OV-20260728-02-v1"
+    },
+    {
+      "edge_id": "edge:relates_to_layer:voice:macgregor:layer:OV-20260728-02-v2:kiev_security_requirement",
+      "edge_type": "relates_to_layer",
+      "rationale": "He shares the requirement for decisive political disablement but treats action against Kiev's government as more physically direct than the operator's sufficient condition of durable structural constraint.",
+      "relation": "conditional_divergence",
+      "source": "voice:macgregor",
+      "target": "layer:OV-20260728-02-v2:kiev_security_requirement",
+      "version_id": "OV-20260728-02-v2"
+    },
+    {
+      "edge_id": "edge:relates_to_layer:voice:macgregor:layer:OV-20260728-02-v2:odessa_civilizational_premise",
+      "edge_type": "relates_to_layer",
+      "rationale": "He most directly reinforces the operator premise by joining Odessa's Russian historical identity to an asserted expectation of return.",
+      "relation": "reinforcement",
+      "source": "voice:macgregor",
+      "target": "layer:OV-20260728-02-v2:odessa_civilizational_premise",
+      "version_id": "OV-20260728-02-v2"
     },
     {
       "edge_id": "edge:relates_to_layer:voice:mearsheimer:layer:OV-20260728-01-v1:termination_conversion",
@@ -1015,6 +1183,24 @@
       "version_id": "OV-20260728-02-v1"
     },
     {
+      "edge_id": "edge:relates_to_layer:voice:mearsheimer:layer:OV-20260728-02-v2:kiev_security_requirement",
+      "edge_type": "relates_to_layer",
+      "rationale": "His dysfunctional-rump-state logic reinforces durable threat disablement without making occupation of Kiev the necessary mechanism.",
+      "relation": "reinforcement",
+      "source": "voice:mearsheimer",
+      "target": "layer:OV-20260728-02-v2:kiev_security_requirement",
+      "version_id": "OV-20260728-02-v2"
+    },
+    {
+      "edge_id": "edge:relates_to_layer:voice:mearsheimer:layer:OV-20260728-02-v2:odessa_civilizational_premise",
+      "edge_type": "relates_to_layer",
+      "rationale": "He supports the Odessa outcome through port denial, economic disablement, and security incentives rather than civilizational indispensability.",
+      "relation": "mechanism_disagreement",
+      "source": "voice:mearsheimer",
+      "target": "layer:OV-20260728-02-v2:odessa_civilizational_premise",
+      "version_id": "OV-20260728-02-v2"
+    },
+    {
       "edge_id": "edge:relates_to_layer:voice:mercouris:layer:OV-20260728-01-v1:termination_conversion",
       "edge_type": "relates_to_layer",
       "rationale": "Both distinguish battlefield and diplomatic movement from an actual settlement and emphasize unresolved terms and sequence.",
@@ -1042,6 +1228,24 @@
       "version_id": "OV-20260728-02-v1"
     },
     {
+      "edge_id": "edge:relates_to_layer:voice:mercouris:layer:OV-20260728-02-v2:kiev_security_requirement",
+      "edge_type": "relates_to_layer",
+      "rationale": "His neutrality, demilitarization, elections, and government-change terms reinforce structural reconstitution as the settlement mechanism.",
+      "relation": "reinforcement",
+      "source": "voice:mercouris",
+      "target": "layer:OV-20260728-02-v2:kiev_security_requirement",
+      "version_id": "OV-20260728-02-v2"
+    },
+    {
+      "edge_id": "edge:relates_to_layer:voice:mercouris:layer:OV-20260728-02-v2:odessa_civilizational_premise",
+      "edge_type": "relates_to_layer",
+      "rationale": "His historical-land reading supports the premise only as an interpretation of Putin's language, not as independently corroborated binding policy.",
+      "relation": "conditional_divergence",
+      "source": "voice:mercouris",
+      "target": "layer:OV-20260728-02-v2:odessa_civilizational_premise",
+      "version_id": "OV-20260728-02-v2"
+    },
+    {
       "edge_id": "edge:relates_to_layer:voice:ritter:layer:OV-20260728-02-v1:kiev_security_requirement",
       "edge_type": "relates_to_layer",
       "rationale": "Ritter agrees on demilitarization and political realignment but disputes physical possession as the mechanism, arguing that a Russia-oriented Kiev government can suffice.",
@@ -1049,6 +1253,24 @@
       "source": "voice:ritter",
       "target": "layer:OV-20260728-02-v1:kiev_security_requirement",
       "version_id": "OV-20260728-02-v1"
+    },
+    {
+      "edge_id": "edge:relates_to_layer:voice:ritter:layer:OV-20260728-02-v2:kiev_security_requirement",
+      "edge_type": "relates_to_layer",
+      "rationale": "His demilitarization and political-alignment substitute closely matches the operator's claim that enforceable reconstitution can suffice without permanent occupation.",
+      "relation": "reinforcement",
+      "source": "voice:ritter",
+      "target": "layer:OV-20260728-02-v2:kiev_security_requirement",
+      "version_id": "OV-20260728-02-v2"
+    },
+    {
+      "edge_id": "edge:relates_to_layer:voice:ritter:layer:OV-20260728-02-v2:odessa_civilizational_premise",
+      "edge_type": "relates_to_layer",
+      "rationale": "He accepts the Russian-city premise and anticipates movement toward Odessa, but explicitly withholds attribution of a present Putin decision.",
+      "relation": "conditional_divergence",
+      "source": "voice:ritter",
+      "target": "layer:OV-20260728-02-v2:odessa_civilizational_premise",
+      "version_id": "OV-20260728-02-v2"
     },
     {
       "edge_id": "edge:reviewed_by:OV-20260728-01-v1:trigger:OV-20260728-01-v1",
@@ -1326,7 +1548,18 @@
         "profile:OV-20260728-02-v1:operator:current_war_realization",
         "profile:OV-20260728-02-v1:operator:kiev_security_requirement",
         "profile:OV-20260728-02-v1:operator:odessa_civilizational_premise",
-        "profile:OV-20260728-02-v1:ritter:kiev_security_requirement"
+        "profile:OV-20260728-02-v1:ritter:kiev_security_requirement",
+        "profile:OV-20260728-02-v2:macgregor:kiev_security_requirement",
+        "profile:OV-20260728-02-v2:macgregor:odessa_civilizational_premise",
+        "profile:OV-20260728-02-v2:mearsheimer:kiev_security_requirement",
+        "profile:OV-20260728-02-v2:mearsheimer:odessa_civilizational_premise",
+        "profile:OV-20260728-02-v2:mercouris:kiev_security_requirement",
+        "profile:OV-20260728-02-v2:mercouris:odessa_civilizational_premise",
+        "profile:OV-20260728-02-v2:operator:current_war_realization",
+        "profile:OV-20260728-02-v2:operator:kiev_security_requirement",
+        "profile:OV-20260728-02-v2:operator:odessa_civilizational_premise",
+        "profile:OV-20260728-02-v2:ritter:kiev_security_requirement",
+        "profile:OV-20260728-02-v2:ritter:odessa_civilizational_premise"
       ],
       "epistemic_layer": [
         "layer:OV-20260728-01-v1:termination_conversion",
@@ -3370,6 +3603,637 @@
       "node_type": "coherence_profile",
       "subject": "ritter",
       "version_id": "OV-20260728-02-v1"
+    },
+    {
+      "comparison_status": "approved",
+      "dimensions": {
+        "counterargument_integration": {
+          "evidence_refs": [
+            "narrative-geopolitics/archive/sources/2025-04-28/source-daniel-davis-macgregor-it-s-ukraine-prolonging-this-war-2025-04-28.md",
+            "narrative-geopolitics/archive/sources/2025-06-10/source-glenn-diesen-douglas-macgregor-douglas-macgregor-russia-s-retaliation-nato-s-declining-relevance-2025-06-10.md"
+          ],
+          "rationale": "The approved excerpts do not provide enough counterargument material to score this dimension without treating silence as weakness.",
+          "score": "unavailable"
+        },
+        "explanatory_compression": {
+          "evidence_refs": [
+            "narrative-geopolitics/archive/sources/2025-04-28/source-daniel-davis-macgregor-it-s-ukraine-prolonging-this-war-2025-04-28.md",
+            "narrative-geopolitics/archive/sources/2025-06-10/source-glenn-diesen-douglas-macgregor-douglas-macgregor-russia-s-retaliation-nato-s-declining-relevance-2025-06-10.md"
+          ],
+          "rationale": "Government removal leading to an end state is expressed with strong economy.",
+          "score": 4
+        },
+        "internal_consistency": {
+          "evidence_refs": [
+            "narrative-geopolitics/archive/sources/2025-04-28/source-daniel-davis-macgregor-it-s-ukraine-prolonging-this-war-2025-04-28.md",
+            "narrative-geopolitics/archive/sources/2025-06-10/source-glenn-diesen-douglas-macgregor-douglas-macgregor-russia-s-retaliation-nato-s-declining-relevance-2025-06-10.md"
+          ],
+          "rationale": "The two excerpts consistently move from military possibility to government removal and termination.",
+          "score": 4
+        },
+        "mechanism_completeness": {
+          "evidence_refs": [
+            "narrative-geopolitics/archive/sources/2025-04-28/source-daniel-davis-macgregor-it-s-ukraine-prolonging-this-war-2025-04-28.md",
+            "narrative-geopolitics/archive/sources/2025-06-10/source-glenn-diesen-douglas-macgregor-douglas-macgregor-russia-s-retaliation-nato-s-declining-relevance-2025-06-10.md"
+          ],
+          "rationale": "Decisive action is explicit, but the post-removal institutional and enforcement mechanism is not developed.",
+          "score": 3
+        },
+        "scope_and_qualification_discipline": {
+          "evidence_refs": [
+            "narrative-geopolitics/archive/sources/2025-04-28/source-daniel-davis-macgregor-it-s-ukraine-prolonging-this-war-2025-04-28.md",
+            "narrative-geopolitics/archive/sources/2025-06-10/source-glenn-diesen-douglas-macgregor-douglas-macgregor-russia-s-retaliation-nato-s-declining-relevance-2025-06-10.md"
+          ],
+          "rationale": "The claim is direct but does not sharply distinguish temporary regime removal, occupation, and durable structural constraint.",
+          "score": 3
+        },
+        "thesis_precision": {
+          "evidence_refs": [
+            "narrative-geopolitics/archive/sources/2025-04-28/source-daniel-davis-macgregor-it-s-ukraine-prolonging-this-war-2025-04-28.md",
+            "narrative-geopolitics/archive/sources/2025-06-10/source-glenn-diesen-douglas-macgregor-douglas-macgregor-russia-s-retaliation-nato-s-declining-relevance-2025-06-10.md"
+          ],
+          "rationale": "The bounded evidence clearly identifies action against Kiev and its government as part of an end state.",
+          "score": 4
+        }
+      },
+      "display_name": "Douglas Macgregor",
+      "layer_id": "kiev_security_requirement",
+      "node_id": "profile:OV-20260728-02-v2:macgregor:kiev_security_requirement",
+      "node_type": "coherence_profile",
+      "subject": "macgregor",
+      "version_id": "OV-20260728-02-v2"
+    },
+    {
+      "comparison_status": "approved",
+      "dimensions": {
+        "counterargument_integration": {
+          "evidence_refs": [
+            "narrative-geopolitics/archive/sources/2026-02-10/source-judging-freedom-macgregor-us-iran-war-could-spiral-out-of-control-2026-02-10.md",
+            "narrative-geopolitics/archive/sources/2026-05-29/source-neutrality-studies-usa-collapsing-washingtons-soviet-moment-is-here-col-douglas-macgregor-2026-05-29.md"
+          ],
+          "rationale": "The bounded pair contains no attributable counterargument exchange, so this dimension is unavailable rather than weak.",
+          "score": "unavailable"
+        },
+        "explanatory_compression": {
+          "evidence_refs": [
+            "narrative-geopolitics/archive/sources/2026-02-10/source-judging-freedom-macgregor-us-iran-war-could-spiral-out-of-control-2026-02-10.md",
+            "narrative-geopolitics/archive/sources/2026-05-29/source-neutrality-studies-usa-collapsing-washingtons-soviet-moment-is-here-col-douglas-macgregor-2026-05-29.md"
+          ],
+          "rationale": "The historical identity and return claim is memorable and compact.",
+          "score": 4
+        },
+        "internal_consistency": {
+          "evidence_refs": [
+            "narrative-geopolitics/archive/sources/2026-02-10/source-judging-freedom-macgregor-us-iran-war-could-spiral-out-of-control-2026-02-10.md",
+            "narrative-geopolitics/archive/sources/2026-05-29/source-neutrality-studies-usa-collapsing-washingtons-soviet-moment-is-here-col-douglas-macgregor-2026-05-29.md"
+          ],
+          "rationale": "The historical-city and return-to-Russia formulations reinforce one another across distinct hosts.",
+          "score": 4
+        },
+        "mechanism_completeness": {
+          "evidence_refs": [
+            "narrative-geopolitics/archive/sources/2026-02-10/source-judging-freedom-macgregor-us-iran-war-could-spiral-out-of-control-2026-02-10.md",
+            "narrative-geopolitics/archive/sources/2026-05-29/source-neutrality-studies-usa-collapsing-washingtons-soviet-moment-is-here-col-douglas-macgregor-2026-05-29.md"
+          ],
+          "rationale": "Identity and Russian public consciousness are named, but the chain from those facts to strategic indispensability remains incomplete.",
+          "score": 3
+        },
+        "scope_and_qualification_discipline": {
+          "evidence_refs": [
+            "narrative-geopolitics/archive/sources/2026-02-10/source-judging-freedom-macgregor-us-iran-war-could-spiral-out-of-control-2026-02-10.md",
+            "narrative-geopolitics/archive/sources/2026-05-29/source-neutrality-studies-usa-collapsing-washingtons-soviet-moment-is-here-col-douglas-macgregor-2026-05-29.md"
+          ],
+          "rationale": "The evidence does not distinguish broad Russian sentiment from binding leadership policy or feasible war aims.",
+          "score": 2
+        },
+        "thesis_precision": {
+          "evidence_refs": [
+            "narrative-geopolitics/archive/sources/2026-02-10/source-judging-freedom-macgregor-us-iran-war-could-spiral-out-of-control-2026-02-10.md",
+            "narrative-geopolitics/archive/sources/2026-05-29/source-neutrality-studies-usa-collapsing-washingtons-soviet-moment-is-here-col-douglas-macgregor-2026-05-29.md"
+          ],
+          "rationale": "Odessa is directly described as historically Russian and as a place that must return in Russian consciousness.",
+          "score": 4
+        }
+      },
+      "display_name": "Douglas Macgregor",
+      "layer_id": "odessa_civilizational_premise",
+      "node_id": "profile:OV-20260728-02-v2:macgregor:odessa_civilizational_premise",
+      "node_type": "coherence_profile",
+      "subject": "macgregor",
+      "version_id": "OV-20260728-02-v2"
+    },
+    {
+      "comparison_status": "approved",
+      "dimensions": {
+        "counterargument_integration": {
+          "evidence_refs": [
+            "narrative-geopolitics/archive/sources/2025-10-08/source-glenn-diesen-john-mearsheimer-john-mearsheimer-west-destroying-itself-in-ukraine-gaza-2025-10-08.md",
+            "narrative-geopolitics/archive/sources/2026-02-17/source-john-mearsheimer-how-trump-has-boxed-himself-into-a-corner-on-iran-2026-02-17.md"
+          ],
+          "rationale": "The Kiev evidence pair does not contain enough explicit counterargument handling to support a numeric score.",
+          "score": "unavailable"
+        },
+        "explanatory_compression": {
+          "evidence_refs": [
+            "narrative-geopolitics/archive/sources/2025-10-08/source-glenn-diesen-john-mearsheimer-john-mearsheimer-west-destroying-itself-in-ukraine-gaza-2025-10-08.md",
+            "narrative-geopolitics/archive/sources/2026-02-17/source-john-mearsheimer-how-trump-has-boxed-himself-into-a-corner-on-iran-2026-02-17.md"
+          ],
+          "rationale": "The incentive-to-disable-threat chain achieves unusually strong explanatory compression.",
+          "score": 5
+        },
+        "internal_consistency": {
+          "evidence_refs": [
+            "narrative-geopolitics/archive/sources/2025-10-08/source-glenn-diesen-john-mearsheimer-john-mearsheimer-west-destroying-itself-in-ukraine-gaza-2025-10-08.md",
+            "narrative-geopolitics/archive/sources/2026-02-17/source-john-mearsheimer-how-trump-has-boxed-himself-into-a-corner-on-iran-2026-02-17.md"
+          ],
+          "rationale": "Threat reduction, NATO exclusion, and territorial weakening form a highly consistent realist account.",
+          "score": 5
+        },
+        "mechanism_completeness": {
+          "evidence_refs": [
+            "narrative-geopolitics/archive/sources/2025-10-08/source-glenn-diesen-john-mearsheimer-john-mearsheimer-west-destroying-itself-in-ukraine-gaza-2025-10-08.md",
+            "narrative-geopolitics/archive/sources/2026-02-17/source-john-mearsheimer-how-trump-has-boxed-himself-into-a-corner-on-iran-2026-02-17.md"
+          ],
+          "rationale": "The security-dilemma mechanism links Western use of Ukraine, Russian incentives, state capacity, and threat disablement.",
+          "score": 5
+        },
+        "scope_and_qualification_discipline": {
+          "evidence_refs": [
+            "narrative-geopolitics/archive/sources/2025-10-08/source-glenn-diesen-john-mearsheimer-john-mearsheimer-west-destroying-itself-in-ukraine-gaza-2025-10-08.md",
+            "narrative-geopolitics/archive/sources/2026-02-17/source-john-mearsheimer-how-trump-has-boxed-himself-into-a-corner-on-iran-2026-02-17.md"
+          ],
+          "rationale": "The account stays instrumental and avoids converting predicted incentives into identity or legal claims.",
+          "score": 4
+        },
+        "thesis_precision": {
+          "evidence_refs": [
+            "narrative-geopolitics/archive/sources/2025-10-08/source-glenn-diesen-john-mearsheimer-john-mearsheimer-west-destroying-itself-in-ukraine-gaza-2025-10-08.md",
+            "narrative-geopolitics/archive/sources/2026-02-17/source-john-mearsheimer-how-trump-has-boxed-himself-into-a-corner-on-iran-2026-02-17.md"
+          ],
+          "rationale": "The dysfunctional-rump-state objective precisely identifies the security effect Russia seeks without requiring possession of Kiev.",
+          "score": 4
+        }
+      },
+      "display_name": "John Mearsheimer",
+      "layer_id": "kiev_security_requirement",
+      "node_id": "profile:OV-20260728-02-v2:mearsheimer:kiev_security_requirement",
+      "node_type": "coherence_profile",
+      "subject": "mearsheimer",
+      "version_id": "OV-20260728-02-v2"
+    },
+    {
+      "comparison_status": "approved",
+      "dimensions": {
+        "counterargument_integration": {
+          "evidence_refs": [
+            "narrative-geopolitics/archive/sources/2026-02-17/source-john-mearsheimer-how-trump-has-boxed-himself-into-a-corner-on-iran-2026-02-17.md",
+            "narrative-geopolitics/archive/sources/2026-07-16/source-john-mearsheimer-all-out-war-in-the-middle-east-trump-s-war-on-russia-2026-07-16.md"
+          ],
+          "rationale": "Capability and cost uncertainty are integrated directly, though long-run balancing and occupation effects remain less developed.",
+          "score": 4
+        },
+        "explanatory_compression": {
+          "evidence_refs": [
+            "narrative-geopolitics/archive/sources/2026-02-17/source-john-mearsheimer-how-trump-has-boxed-himself-into-a-corner-on-iran-2026-02-17.md",
+            "narrative-geopolitics/archive/sources/2026-07-16/source-john-mearsheimer-all-out-war-in-the-middle-east-trump-s-war-on-russia-2026-07-16.md"
+          ],
+          "rationale": "The port-denial-to-dysfunctional-state chain is unusually compact and explanatory.",
+          "score": 5
+        },
+        "internal_consistency": {
+          "evidence_refs": [
+            "narrative-geopolitics/archive/sources/2026-02-17/source-john-mearsheimer-how-trump-has-boxed-himself-into-a-corner-on-iran-2026-02-17.md",
+            "narrative-geopolitics/archive/sources/2026-07-16/source-john-mearsheimer-all-out-war-in-the-middle-east-trump-s-war-on-russia-2026-07-16.md"
+          ],
+          "rationale": "The two sources consistently apply the same instrumental security logic.",
+          "score": 5
+        },
+        "mechanism_completeness": {
+          "evidence_refs": [
+            "narrative-geopolitics/archive/sources/2026-02-17/source-john-mearsheimer-how-trump-has-boxed-himself-into-a-corner-on-iran-2026-02-17.md",
+            "narrative-geopolitics/archive/sources/2026-07-16/source-john-mearsheimer-all-out-war-in-the-middle-east-trump-s-war-on-russia-2026-07-16.md"
+          ],
+          "rationale": "Port removal, loss of sea access, rump-state economics, and capture cost form the most complete Odessa mechanism in the set.",
+          "score": 5
+        },
+        "scope_and_qualification_discipline": {
+          "evidence_refs": [
+            "narrative-geopolitics/archive/sources/2026-02-17/source-john-mearsheimer-how-trump-has-boxed-himself-into-a-corner-on-iran-2026-02-17.md",
+            "narrative-geopolitics/archive/sources/2026-07-16/source-john-mearsheimer-all-out-war-in-the-middle-east-trump-s-war-on-russia-2026-07-16.md"
+          ],
+          "rationale": "Desire, capability, reasonable cost, and civilizational interpretation remain clearly distinct.",
+          "score": 5
+        },
+        "thesis_precision": {
+          "evidence_refs": [
+            "narrative-geopolitics/archive/sources/2026-02-17/source-john-mearsheimer-how-trump-has-boxed-himself-into-a-corner-on-iran-2026-02-17.md",
+            "narrative-geopolitics/archive/sources/2026-07-16/source-john-mearsheimer-all-out-war-in-the-middle-east-trump-s-war-on-russia-2026-07-16.md"
+          ],
+          "rationale": "Odessa is tied precisely to ports, Black Sea access, economic disablement, and a likely but uncertain Russian move.",
+          "score": 4
+        }
+      },
+      "display_name": "John Mearsheimer",
+      "layer_id": "odessa_civilizational_premise",
+      "node_id": "profile:OV-20260728-02-v2:mearsheimer:odessa_civilizational_premise",
+      "node_type": "coherence_profile",
+      "subject": "mearsheimer",
+      "version_id": "OV-20260728-02-v2"
+    },
+    {
+      "comparison_status": "approved",
+      "dimensions": {
+        "counterargument_integration": {
+          "evidence_refs": [
+            "narrative-geopolitics/archive/sources/2025-04-21/source-alexander-mercouris-easter-truce-ends-russia-resumes-offensive-accuses-kiev-many-breaches-us-ultimatum-to-kiev-coming-2025-04-21.md",
+            "narrative-geopolitics/archive/sources/2026-06-23/source-duran-mercouris-rubicon-crossed-zelensky-targets-belarus-2026-06-23.md"
+          ],
+          "rationale": "The approved excerpts do not contain enough direct engagement with competing settlement models to score counterargument integration.",
+          "score": "unavailable"
+        },
+        "explanatory_compression": {
+          "evidence_refs": [
+            "narrative-geopolitics/archive/sources/2025-04-21/source-alexander-mercouris-easter-truce-ends-russia-resumes-offensive-accuses-kiev-many-breaches-us-ultimatum-to-kiev-coming-2025-04-21.md",
+            "narrative-geopolitics/archive/sources/2026-06-23/source-duran-mercouris-rubicon-crossed-zelensky-targets-belarus-2026-06-23.md"
+          ],
+          "rationale": "The root-causes formulation compresses several settlement conditions effectively.",
+          "score": 4
+        },
+        "internal_consistency": {
+          "evidence_refs": [
+            "narrative-geopolitics/archive/sources/2025-04-21/source-alexander-mercouris-easter-truce-ends-russia-resumes-offensive-accuses-kiev-many-breaches-us-ultimatum-to-kiev-coming-2025-04-21.md",
+            "narrative-geopolitics/archive/sources/2026-06-23/source-duran-mercouris-rubicon-crossed-zelensky-targets-belarus-2026-06-23.md"
+          ],
+          "rationale": "The root-causes and new-government formulations align across the two approved sources.",
+          "score": 4
+        },
+        "mechanism_completeness": {
+          "evidence_refs": [
+            "narrative-geopolitics/archive/sources/2025-04-21/source-alexander-mercouris-easter-truce-ends-russia-resumes-offensive-accuses-kiev-many-breaches-us-ultimatum-to-kiev-coming-2025-04-21.md",
+            "narrative-geopolitics/archive/sources/2026-06-23/source-duran-mercouris-rubicon-crossed-zelensky-targets-belarus-2026-06-23.md"
+          ],
+          "rationale": "The political-reconstitution mechanism is substantial, though enforcement and long-run force regeneration remain less explicit.",
+          "score": 4
+        },
+        "scope_and_qualification_discipline": {
+          "evidence_refs": [
+            "narrative-geopolitics/archive/sources/2025-04-21/source-alexander-mercouris-easter-truce-ends-russia-resumes-offensive-accuses-kiev-many-breaches-us-ultimatum-to-kiev-coming-2025-04-21.md",
+            "narrative-geopolitics/archive/sources/2026-06-23/source-duran-mercouris-rubicon-crossed-zelensky-targets-belarus-2026-06-23.md"
+          ],
+          "rationale": "The evidence distinguishes political conditions from battlefield movement, while some terms remain broad and contested.",
+          "score": 4
+        },
+        "thesis_precision": {
+          "evidence_refs": [
+            "narrative-geopolitics/archive/sources/2025-04-21/source-alexander-mercouris-easter-truce-ends-russia-resumes-offensive-accuses-kiev-many-breaches-us-ultimatum-to-kiev-coming-2025-04-21.md",
+            "narrative-geopolitics/archive/sources/2026-06-23/source-duran-mercouris-rubicon-crossed-zelensky-targets-belarus-2026-06-23.md"
+          ],
+          "rationale": "Neutrality, demilitarization, denazification, elections, and political change are stated as concrete settlement requirements.",
+          "score": 4
+        }
+      },
+      "display_name": "Alexander Mercouris",
+      "layer_id": "kiev_security_requirement",
+      "node_id": "profile:OV-20260728-02-v2:mercouris:kiev_security_requirement",
+      "node_type": "coherence_profile",
+      "subject": "mercouris",
+      "version_id": "OV-20260728-02-v2"
+    },
+    {
+      "comparison_status": "approved",
+      "dimensions": {
+        "counterargument_integration": {
+          "evidence_refs": [
+            "narrative-geopolitics/archive/sources/2026-06-23/source-alexander-mercouris-putin-warns-russian-army-war-with-west-coming-russia-leads-west-in-arms-output-us-iran-talks-stuck-2026-06-23.md",
+            "narrative-geopolitics/archive/sources/2026-06-29/source-alexander-mercouris-putin-rejects-talks-odessa-donbas-drones-abate-2026-06-29.md"
+          ],
+          "rationale": "The bounded evidence does not contain enough attributable engagement with narrower readings of Putin's language to score this dimension.",
+          "score": "unavailable"
+        },
+        "explanatory_compression": {
+          "evidence_refs": [
+            "narrative-geopolitics/archive/sources/2026-06-23/source-alexander-mercouris-putin-warns-russian-army-war-with-west-coming-russia-leads-west-in-arms-output-us-iran-talks-stuck-2026-06-23.md",
+            "narrative-geopolitics/archive/sources/2026-06-29/source-alexander-mercouris-putin-rejects-talks-odessa-donbas-drones-abate-2026-06-29.md"
+          ],
+          "rationale": "The historical inference is intelligible but requires caveats that reduce compression.",
+          "score": 3
+        },
+        "internal_consistency": {
+          "evidence_refs": [
+            "narrative-geopolitics/archive/sources/2026-06-23/source-alexander-mercouris-putin-warns-russian-army-war-with-west-coming-russia-leads-west-in-arms-output-us-iran-talks-stuck-2026-06-23.md",
+            "narrative-geopolitics/archive/sources/2026-06-29/source-alexander-mercouris-putin-rejects-talks-odessa-donbas-drones-abate-2026-06-29.md"
+          ],
+          "rationale": "Both excerpts consistently apply the same historical-land interpretation.",
+          "score": 4
+        },
+        "mechanism_completeness": {
+          "evidence_refs": [
+            "narrative-geopolitics/archive/sources/2026-06-23/source-alexander-mercouris-putin-warns-russian-army-war-with-west-coming-russia-leads-west-in-arms-output-us-iran-talks-stuck-2026-06-23.md",
+            "narrative-geopolitics/archive/sources/2026-06-29/source-alexander-mercouris-putin-rejects-talks-odessa-donbas-drones-abate-2026-06-29.md"
+          ],
+          "rationale": "Catherine-era geography supplies an interpretive bridge, but it does not complete the mechanism from rhetoric to binding war aim.",
+          "score": 3
+        },
+        "scope_and_qualification_discipline": {
+          "evidence_refs": [
+            "narrative-geopolitics/archive/sources/2026-06-23/source-alexander-mercouris-putin-warns-russian-army-war-with-west-coming-russia-leads-west-in-arms-output-us-iran-talks-stuck-2026-06-23.md",
+            "narrative-geopolitics/archive/sources/2026-06-29/source-alexander-mercouris-putin-rejects-talks-odessa-donbas-drones-abate-2026-06-29.md"
+          ],
+          "rationale": "Mercouris marks the conclusion as his interpretation, but the move from historical scope to current intent remains broader than the quoted language itself.",
+          "score": 3
+        },
+        "thesis_precision": {
+          "evidence_refs": [
+            "narrative-geopolitics/archive/sources/2026-06-23/source-alexander-mercouris-putin-warns-russian-army-war-with-west-coming-russia-leads-west-in-arms-output-us-iran-talks-stuck-2026-06-23.md",
+            "narrative-geopolitics/archive/sources/2026-06-29/source-alexander-mercouris-putin-rejects-talks-odessa-donbas-drones-abate-2026-06-29.md"
+          ],
+          "rationale": "The evidence identifies Odessa within a possible historic-Russian-lands scope, but the decisive claim is inferential rather than enumerated policy.",
+          "score": 3
+        }
+      },
+      "display_name": "Alexander Mercouris",
+      "layer_id": "odessa_civilizational_premise",
+      "node_id": "profile:OV-20260728-02-v2:mercouris:odessa_civilizational_premise",
+      "node_type": "coherence_profile",
+      "subject": "mercouris",
+      "version_id": "OV-20260728-02-v2"
+    },
+    {
+      "comparison_status": "approved",
+      "dimensions": {
+        "counterargument_integration": {
+          "evidence_refs": [
+            "OV-20260728-02-v2:current_war_realization:position"
+          ],
+          "rationale": "Escalation, overextension, battlefield reversal, and durable narrower settlement are integrated as genuine failure pathways.",
+          "score": 5
+        },
+        "explanatory_compression": {
+          "evidence_refs": [
+            "OV-20260728-02-v2:current_war_realization:position"
+          ],
+          "rationale": "The forecast carries too many interacting conditions to compress without losing important uncertainty.",
+          "score": 3
+        },
+        "internal_consistency": {
+          "evidence_refs": [
+            "OV-20260728-02-v2:current_war_realization:position"
+          ],
+          "rationale": "The forecast follows from the stated security model without being presented as inevitable or as verified Russian policy.",
+          "score": 4
+        },
+        "mechanism_completeness": {
+          "evidence_refs": [
+            "OV-20260728-02-v2:current_war_realization:position"
+          ],
+          "rationale": "Parallel military, demographic, economic, elite, and external-support pathways are specified, but their interaction and thresholds remain only partly operationalized.",
+          "score": 4
+        },
+        "scope_and_qualification_discipline": {
+          "evidence_refs": [
+            "OV-20260728-02-v2:current_war_realization:position"
+          ],
+          "rationale": "Substantial failure risk and separate policy attribution are explicit, though the forecast spans several difficult-to-measure systems.",
+          "score": 4
+        },
+        "thesis_precision": {
+          "evidence_refs": [
+            "OV-20260728-02-v2:current_war_realization:position"
+          ],
+          "rationale": "The forecast names both required outcomes, the combat-phase horizon, likelihood language, and an early defeat condition.",
+          "score": 4
+        }
+      },
+      "display_name": "Operator",
+      "layer_id": "current_war_realization",
+      "node_id": "profile:OV-20260728-02-v2:operator:current_war_realization",
+      "node_type": "coherence_profile",
+      "subject": "operator",
+      "version_id": "OV-20260728-02-v2"
+    },
+    {
+      "comparison_status": "approved",
+      "dimensions": {
+        "counterargument_integration": {
+          "evidence_refs": [
+            "OV-20260728-02-v2:kiev_security_requirement:position"
+          ],
+          "rationale": "Neutrality substitutes, security-dilemma effects, insurgency, and narrower Russian aims are integrated as serious tests rather than dismissed.",
+          "score": 5
+        },
+        "explanatory_compression": {
+          "evidence_refs": [
+            "OV-20260728-02-v2:kiev_security_requirement:position"
+          ],
+          "rationale": "The core constraint-regeneration logic is compact, but its institutional implementation requires several linked clauses.",
+          "score": 4
+        },
+        "internal_consistency": {
+          "evidence_refs": [
+            "OV-20260728-02-v2:kiev_security_requirement:position"
+          ],
+          "rationale": "The thesis, mechanism, falsifier, and qualifications consistently treat durable constraint rather than possession of the capital as the security requirement.",
+          "score": 4
+        },
+        "mechanism_completeness": {
+          "evidence_refs": [
+            "OV-20260728-02-v2:kiev_security_requirement:position"
+          ],
+          "rationale": "Neutrality, demilitarization, security-service restructuring, territorial reorganization, and enforcement durability form an unusually complete causal chain.",
+          "score": 5
+        },
+        "scope_and_qualification_discipline": {
+          "evidence_refs": [
+            "OV-20260728-02-v2:kiev_security_requirement:position"
+          ],
+          "rationale": "The layer is separated from the Odessa premise and forecast, though structural reconstitution still covers several possible institutional forms.",
+          "score": 4
+        },
+        "thesis_precision": {
+          "evidence_refs": [
+            "OV-20260728-02-v2:kiev_security_requirement:position"
+          ],
+          "rationale": "The claim precisely distinguishes structural reconstitution from permanent occupation and names the prohibited regeneration outcome.",
+          "score": 5
+        }
+      },
+      "display_name": "Operator",
+      "layer_id": "kiev_security_requirement",
+      "node_id": "profile:OV-20260728-02-v2:operator:kiev_security_requirement",
+      "node_type": "coherence_profile",
+      "subject": "operator",
+      "version_id": "OV-20260728-02-v2"
+    },
+    {
+      "comparison_status": "approved",
+      "dimensions": {
+        "counterargument_integration": {
+          "evidence_refs": [
+            "OV-20260728-02-v2:odessa_civilizational_premise:position"
+          ],
+          "rationale": "Public-policy silence, security substitutes, balancing, insurgency, and feasibility are all stated as potentially model-changing objections.",
+          "score": 5
+        },
+        "explanatory_compression": {
+          "evidence_refs": [
+            "OV-20260728-02-v2:odessa_civilizational_premise:position"
+          ],
+          "rationale": "The direct-control conclusion is clear, though combining identity and strategic geometry reduces compression.",
+          "score": 4
+        },
+        "internal_consistency": {
+          "evidence_refs": [
+            "OV-20260728-02-v2:odessa_civilizational_premise:position"
+          ],
+          "rationale": "Historical significance, maritime denial, corridor geometry, and the current-policy caveat remain mutually compatible across the position.",
+          "score": 4
+        },
+        "mechanism_completeness": {
+          "evidence_refs": [
+            "OV-20260728-02-v2:odessa_civilizational_premise:position"
+          ],
+          "rationale": "The southern-corridor mechanism identifies maritime, Crimean, and Transnistrian effects, but the civilizational premise does not independently prove indispensability.",
+          "score": 4
+        },
+        "scope_and_qualification_discipline": {
+          "evidence_refs": [
+            "OV-20260728-02-v2:odessa_civilizational_premise:position"
+          ],
+          "rationale": "The operator inference, policy attribution, moral endorsement, and outcome forecast are unusually well separated.",
+          "score": 5
+        },
+        "thesis_precision": {
+          "evidence_refs": [
+            "OV-20260728-02-v2:odessa_civilizational_premise:position"
+          ],
+          "rationale": "The layer explicitly states direct corridor control as an operator premise and denies that it is verified current Russian policy.",
+          "score": 5
+        }
+      },
+      "display_name": "Operator",
+      "layer_id": "odessa_civilizational_premise",
+      "node_id": "profile:OV-20260728-02-v2:operator:odessa_civilizational_premise",
+      "node_type": "coherence_profile",
+      "subject": "operator",
+      "version_id": "OV-20260728-02-v2"
+    },
+    {
+      "comparison_status": "approved",
+      "dimensions": {
+        "counterargument_integration": {
+          "evidence_refs": [
+            "narrative-geopolitics/archive/sources/2025-03-21/source-india-global-left-trump-rubio-ukraine-peace-talks-scott-ritter-2025-03-21.md",
+            "narrative-geopolitics/archive/sources/2025-05-24/source-glenn-diesen-scott-ritter-scott-ritter-will-trump-own-the-ukraine-war-or-walk-away-2025-05-24.md"
+          ],
+          "rationale": "The substitute mechanism implicitly answers the occupation objection, but the excerpts do not deeply test its legitimacy or durability.",
+          "score": 3
+        },
+        "explanatory_compression": {
+          "evidence_refs": [
+            "narrative-geopolitics/archive/sources/2025-03-21/source-india-global-left-trump-rubio-ukraine-peace-talks-scott-ritter-2025-03-21.md",
+            "narrative-geopolitics/archive/sources/2025-05-24/source-glenn-diesen-scott-ritter-scott-ritter-will-trump-own-the-ukraine-war-or-walk-away-2025-05-24.md"
+          ],
+          "rationale": "The mechanism is compressed into a clear contrast between possession and alignment.",
+          "score": 4
+        },
+        "internal_consistency": {
+          "evidence_refs": [
+            "narrative-geopolitics/archive/sources/2025-03-21/source-india-global-left-trump-rubio-ukraine-peace-talks-scott-ritter-2025-03-21.md",
+            "narrative-geopolitics/archive/sources/2025-05-24/source-glenn-diesen-scott-ritter-scott-ritter-will-trump-own-the-ukraine-war-or-walk-away-2025-05-24.md"
+          ],
+          "rationale": "Political alignment and force reduction consistently serve as substitutes for occupation.",
+          "score": 4
+        },
+        "mechanism_completeness": {
+          "evidence_refs": [
+            "narrative-geopolitics/archive/sources/2025-03-21/source-india-global-left-trump-rubio-ukraine-peace-talks-scott-ritter-2025-03-21.md",
+            "narrative-geopolitics/archive/sources/2025-05-24/source-glenn-diesen-scott-ritter-scott-ritter-will-trump-own-the-ukraine-war-or-walk-away-2025-05-24.md"
+          ],
+          "rationale": "The control-without-occupation mechanism identifies force limits and a Russia-oriented government, though enforcement durability is underdeveloped.",
+          "score": 4
+        },
+        "scope_and_qualification_discipline": {
+          "evidence_refs": [
+            "narrative-geopolitics/archive/sources/2025-03-21/source-india-global-left-trump-rubio-ukraine-peace-talks-scott-ritter-2025-03-21.md",
+            "narrative-geopolitics/archive/sources/2025-05-24/source-glenn-diesen-scott-ritter-scott-ritter-will-trump-own-the-ukraine-war-or-walk-away-2025-05-24.md"
+          ],
+          "rationale": "Ritter distinguishes physical capture from effective political control more carefully than most comparators.",
+          "score": 4
+        },
+        "thesis_precision": {
+          "evidence_refs": [
+            "narrative-geopolitics/archive/sources/2025-03-21/source-india-global-left-trump-rubio-ukraine-peace-talks-scott-ritter-2025-03-21.md",
+            "narrative-geopolitics/archive/sources/2025-05-24/source-glenn-diesen-scott-ritter-scott-ritter-will-trump-own-the-ukraine-war-or-walk-away-2025-05-24.md"
+          ],
+          "rationale": "The evidence precisely combines a demilitarization floor with the claim that physical possession of Kiev is unnecessary.",
+          "score": 4
+        }
+      },
+      "display_name": "Scott Ritter",
+      "layer_id": "kiev_security_requirement",
+      "node_id": "profile:OV-20260728-02-v2:ritter:kiev_security_requirement",
+      "node_type": "coherence_profile",
+      "subject": "ritter",
+      "version_id": "OV-20260728-02-v2"
+    },
+    {
+      "comparison_status": "approved",
+      "dimensions": {
+        "counterargument_integration": {
+          "evidence_refs": [
+            "narrative-geopolitics/archive/sources/2026-07-14/source-scott-ritter-russia-is-winning-the-war-and-winning-decisively-2026-07-14.md",
+            "narrative-geopolitics/archive/sources/2026-07-28/source-scott-ritter-russia-s-ukraine-strategy-2026-07-28.md"
+          ],
+          "rationale": "Leadership hesitation and force requirements function as meaningful correctives, though wider strategic objections remain sparse.",
+          "score": 3
+        },
+        "explanatory_compression": {
+          "evidence_refs": [
+            "narrative-geopolitics/archive/sources/2026-07-14/source-scott-ritter-russia-is-winning-the-war-and-winning-decisively-2026-07-14.md",
+            "narrative-geopolitics/archive/sources/2026-07-28/source-scott-ritter-russia-s-ukraine-strategy-2026-07-28.md"
+          ],
+          "rationale": "The identity claim and policy-contingency caveat are expressed economically.",
+          "score": 4
+        },
+        "internal_consistency": {
+          "evidence_refs": [
+            "narrative-geopolitics/archive/sources/2026-07-14/source-scott-ritter-russia-is-winning-the-war-and-winning-decisively-2026-07-14.md",
+            "narrative-geopolitics/archive/sources/2026-07-28/source-scott-ritter-russia-s-ukraine-strategy-2026-07-28.md"
+          ],
+          "rationale": "Identity, anticipated direction, operational scale, and leadership contingency coexist without contradiction.",
+          "score": 4
+        },
+        "mechanism_completeness": {
+          "evidence_refs": [
+            "narrative-geopolitics/archive/sources/2026-07-14/source-scott-ritter-russia-is-winning-the-war-and-winning-decisively-2026-07-14.md",
+            "narrative-geopolitics/archive/sources/2026-07-28/source-scott-ritter-russia-s-ukraine-strategy-2026-07-28.md"
+          ],
+          "rationale": "The evidence supplies operational-cost estimates and directional logic but not a complete necessity mechanism.",
+          "score": 3
+        },
+        "scope_and_qualification_discipline": {
+          "evidence_refs": [
+            "narrative-geopolitics/archive/sources/2026-07-14/source-scott-ritter-russia-is-winning-the-war-and-winning-decisively-2026-07-14.md",
+            "narrative-geopolitics/archive/sources/2026-07-28/source-scott-ritter-russia-s-ukraine-strategy-2026-07-28.md"
+          ],
+          "rationale": "The distinction between the speaker's forecast and Putin's present decision is unusually disciplined.",
+          "score": 5
+        },
+        "thesis_precision": {
+          "evidence_refs": [
+            "narrative-geopolitics/archive/sources/2026-07-14/source-scott-ritter-russia-is-winning-the-war-and-winning-decisively-2026-07-14.md",
+            "narrative-geopolitics/archive/sources/2026-07-28/source-scott-ritter-russia-s-ukraine-strategy-2026-07-28.md"
+          ],
+          "rationale": "Ritter plainly calls Odessa Russian while separately stating that Putin has not made the decision to take it.",
+          "score": 4
+        }
+      },
+      "display_name": "Scott Ritter",
+      "layer_id": "odessa_civilizational_premise",
+      "node_id": "profile:OV-20260728-02-v2:ritter:odessa_civilizational_premise",
+      "node_type": "coherence_profile",
+      "subject": "ritter",
+      "version_id": "OV-20260728-02-v2"
     },
     {
       "date": "2026-08-27",

@@ -446,6 +446,53 @@ def test_multilayer_scoring_preserves_unavailable_and_evidence_insufficiency() -
     assert subject.validate_data(data) == []
 
 
+def test_odessa_pilot_scoring_is_layer_specific_and_has_no_aggregate() -> None:
+    data = canonical()
+    version = next(
+        position for position in data["positions"]
+        if position["position_id"] == "OV-20260728-02"
+    )["versions"][-1]
+    version["comparison"] = {
+        "status": "not_started",
+        "profiles": [],
+        "relations": [],
+        "findings": {},
+    }
+    comparison = subject.score_position(data, "OV-20260728-02")
+    assert comparison["status"] == "provisional"
+    assert comparison["measurement_scope"] == "bounded-evidence persuasive coherence"
+    assert len(comparison["profiles"]) == 11
+    assert len(comparison["relations"]) == 8
+    assert all(
+        dimension["score"] != "unavailable"
+        for profile in comparison["profiles"]
+        if profile["subject"] == "operator"
+        for dimension in profile["dimensions"].values()
+    )
+    assert any(
+        profile["dimensions"]["counterargument_integration"]["score"] == "unavailable"
+        for profile in comparison["profiles"]
+        if profile["subject"] != "operator"
+    )
+    assert comparison["findings"]["closest_affinity"]["voice_slug"] == "macgregor"
+    assert comparison["findings"]["strongest_corrective"]["voice_slug"] == "mearsheimer"
+    mercouris_odessa = next(
+        relation for relation in comparison["relations"]
+        if relation["voice_slug"] == "mercouris"
+        and relation["layer_id"] == "odessa_civilizational_premise"
+    )
+    assert mercouris_odessa["relation"] == "conditional_divergence"
+    assert not {"overall_score", "grand_score", "total_score"}.intersection(
+        set(subject._walk_keys(comparison))
+    )
+    assert subject.validate_data(data) == []
+    comparison.pop("measurement_scope")
+    assert any(
+        "must disclose bounded-evidence scope and asymmetry" in error
+        for error in subject.validate_data(data)
+    )
+
+
 def test_due_handles_date_and_event_independently() -> None:
     data = canonical()
     assert subject.due_items(data, date(2026, 8, 27))[0]["reason"] == "date"

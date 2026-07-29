@@ -38,7 +38,7 @@ The Ledger is queried by object and relationship rather than read only front-to-
 | Position | Current version | Epistemic layers | Comparator state | Review |
 |---|---|---|---|---|
 | Ukraine war termination: battlefield-to-political conversion | `OV-20260728-01-v2` | Authoritative postwar-order requirement | approved / approved | 2026-08-27 or `credible-settlement-terms-linking-battlefield-disposition-to-political-conversion` |
-| Russia, Kiev, Odessa, and the war end state | `OV-20260728-02-v2` | Kiev security requirement; Odessa operator strategic premise; Current-war realization forecast | approved / not_started | 2026-08-28 or `credible-settlement-terms-linking-battlefield-disposition-to-political-conversion` |
+| Russia, Kiev, Odessa, and the war end state | `OV-20260728-02-v2` | Kiev security requirement; Odessa operator strategic premise; Current-war realization forecast | approved / approved | 2026-08-28 or `credible-settlement-terms-linking-battlefield-disposition-to-political-conversion` |
 
 ## Journal event view
 
@@ -440,9 +440,55 @@ Review: 2026-08-28 or `credible-settlement-terms-linking-battlefield-disposition
 - Sergey Karaganov (Kiev security requirement; Odessa operator strategic premise): One strong Kiev-related demilitarization formulation remains relevant, but there is neither a second independently hosted Kiev source nor any qualifying Odessa evidence pair.
 - Robert Pape (Kiev security requirement; Odessa operator strategic premise): His coercion framework may become relevant, but the current archive does not support an attributable comparison on these specific layers.
 
-#### Persuasive-coherence scoring pending
+#### Persuasive-coherence profiles
 
-No revised comparison profile has been generated.
+**Measurement scope.** bounded-evidence persuasive coherence.
+
+**Evidence asymmetry.** Operator profiles use the complete approved position; voice profiles use only the approved layer-specific excerpts. Unavailable marks dimensions that those excerpts cannot support and is not converted to zero.
+
+| Subject | Layer | Thesis | Consistency | Mechanism | Scope | Counterarguments | Compression |
+|---|---|---:|---:|---:|---:|---:|---:|
+| Operator | Kiev security requirement | 5 | 4 | 5 | 4 | 5 | 4 |
+| Operator | Odessa operator strategic premise | 5 | 4 | 4 | 5 | 5 | 4 |
+| Operator | Current-war realization forecast | 4 | 4 | 4 | 4 | 5 | 3 |
+| Douglas Macgregor | Kiev security requirement | 4 | 4 | 3 | 3 | unavailable | 4 |
+| Douglas Macgregor | Odessa operator strategic premise | 4 | 4 | 3 | 2 | unavailable | 4 |
+| Scott Ritter | Kiev security requirement | 4 | 4 | 4 | 4 | 3 | 4 |
+| Scott Ritter | Odessa operator strategic premise | 4 | 4 | 3 | 5 | 3 | 4 |
+| Alexander Mercouris | Kiev security requirement | 4 | 4 | 4 | 4 | unavailable | 4 |
+| Alexander Mercouris | Odessa operator strategic premise | 3 | 4 | 3 | 3 | unavailable | 3 |
+| John Mearsheimer | Kiev security requirement | 4 | 5 | 5 | 4 | unavailable | 5 |
+| John Mearsheimer | Odessa operator strategic premise | 4 | 5 | 5 | 5 | 4 | 5 |
+
+##### Dimension deltas (voice minus operator)
+
+| Voice | Layer | Thesis | Consistency | Mechanism | Scope | Counterarguments | Compression |
+|---|---|---:|---:|---:|---:|---:|---:|
+| Douglas Macgregor | Kiev security requirement | -1 | +0 | -2 | -1 | unavailable | +0 |
+| Douglas Macgregor | Odessa operator strategic premise | -1 | +0 | -1 | -3 | unavailable | +0 |
+| Scott Ritter | Kiev security requirement | -1 | +0 | -1 | +0 | -2 | +0 |
+| Scott Ritter | Odessa operator strategic premise | -1 | +0 | -1 | +0 | -2 | +0 |
+| Alexander Mercouris | Kiev security requirement | -1 | +0 | -1 | +0 | unavailable | +0 |
+| Alexander Mercouris | Odessa operator strategic premise | -2 | +0 | -1 | -2 | unavailable | -1 |
+| John Mearsheimer | Kiev security requirement | -1 | +1 | +0 | +0 | unavailable | +1 |
+| John Mearsheimer | Odessa operator strategic premise | -1 | +1 | +1 | +0 | -1 | +1 |
+
+No overall score is calculated.
+
+#### Relations and findings
+
+- **Douglas Macgregor on Kiev security requirement — conditional divergence:** He shares the requirement for decisive political disablement but treats action against Kiev's government as more physically direct than the operator's sufficient condition of durable structural constraint.
+- **Douglas Macgregor on Odessa operator strategic premise — reinforcement:** He most directly reinforces the operator premise by joining Odessa's Russian historical identity to an asserted expectation of return.
+- **Scott Ritter on Kiev security requirement — reinforcement:** His demilitarization and political-alignment substitute closely matches the operator's claim that enforceable reconstitution can suffice without permanent occupation.
+- **Scott Ritter on Odessa operator strategic premise — conditional divergence:** He accepts the Russian-city premise and anticipates movement toward Odessa, but explicitly withholds attribution of a present Putin decision.
+- **Alexander Mercouris on Kiev security requirement — reinforcement:** His neutrality, demilitarization, elections, and government-change terms reinforce structural reconstitution as the settlement mechanism.
+- **Alexander Mercouris on Odessa operator strategic premise — conditional divergence:** His historical-land reading supports the premise only as an interpretation of Putin's language, not as independently corroborated binding policy.
+- **John Mearsheimer on Kiev security requirement — reinforcement:** His dysfunctional-rump-state logic reinforces durable threat disablement without making occupation of Kiev the necessary mechanism.
+- **John Mearsheimer on Odessa operator strategic premise — mechanism disagreement:** He supports the Odessa outcome through port denial, economic disablement, and security incentives rather than civilizational indispensability.
+
+**Closest affinity.** Douglas Macgregor on Odessa operator strategic premise: Macgregor most directly joins Odessa's historical-Russian identity to an expectation of territorial return, matching the operator premise.
+
+**Strongest corrective.** John Mearsheimer on Odessa operator strategic premise: Mearsheimer reaches a similar territorial expectation through ports, economic disablement, security incentives, capability, and cost, forcing the operator to show what civilizational logic adds.
 
 #### Revision history
 

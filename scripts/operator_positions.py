@@ -624,6 +624,20 @@ def validate_data(data: dict[str, Any], *, check_report: bool = False) -> list[s
             )
             if comparison_status not in allowed_comparison_statuses:
                 errors.append(f"{vid}: invalid comparison lifecycle status")
+            if (
+                position.get("object_slug") == "russia-kiev-odessa-end-state"
+                and version.get("version_number", 0) >= 2
+                and comparator_set.get("included")
+                and comparison_status in {"provisional", "approved"}
+                and (
+                    comparison.get("measurement_scope")
+                    != "bounded-evidence persuasive coherence"
+                    or not comparison.get("evidence_asymmetry")
+                )
+            ):
+                errors.append(
+                    f"{vid}: Odessa comparison must disclose bounded-evidence scope and asymmetry"
+                )
             profiles = comparison.get("profiles", [])
             profile_pairs = {
                 (item.get("subject"), item.get("layer_id"))
@@ -938,6 +952,15 @@ def render_report(data: dict[str, Any]) -> str:
             if comparison_status == "approved"
             else "#### Provisional persuasive-coherence profiles",
             "",
+        ]
+        if version["comparison"].get("measurement_scope"):
+            lines += [
+                f"**Measurement scope.** {version['comparison']['measurement_scope']}.",
+                "",
+                f"**Evidence asymmetry.** {version['comparison']['evidence_asymmetry']}",
+                "",
+            ]
+        lines += [
             "| Subject | Layer | Thesis | Consistency | Mechanism | Scope | Counterarguments | Compression |",
             "|---|---|---:|---:|---:|---:|---:|---:|",
         ]
@@ -1377,6 +1400,263 @@ def _operator_draft_profile(version: dict[str, Any], layer_id: str) -> dict[str,
     }
 
 
+ODESSA_PROFILE_SPECS = {
+    ("operator", "kiev_security_requirement"): {
+        "scores": (5, 4, 5, 4, 5, 4),
+        "rationales": (
+            "The claim precisely distinguishes structural reconstitution from permanent occupation and names the prohibited regeneration outcome.",
+            "The thesis, mechanism, falsifier, and qualifications consistently treat durable constraint rather than possession of the capital as the security requirement.",
+            "Neutrality, demilitarization, security-service restructuring, territorial reorganization, and enforcement durability form an unusually complete causal chain.",
+            "The layer is separated from the Odessa premise and forecast, though structural reconstitution still covers several possible institutional forms.",
+            "Neutrality substitutes, security-dilemma effects, insurgency, and narrower Russian aims are integrated as serious tests rather than dismissed.",
+            "The core constraint-regeneration logic is compact, but its institutional implementation requires several linked clauses.",
+        ),
+    },
+    ("operator", "odessa_civilizational_premise"): {
+        "scores": (5, 4, 4, 5, 5, 4),
+        "rationales": (
+            "The layer explicitly states direct corridor control as an operator premise and denies that it is verified current Russian policy.",
+            "Historical significance, maritime denial, corridor geometry, and the current-policy caveat remain mutually compatible across the position.",
+            "The southern-corridor mechanism identifies maritime, Crimean, and Transnistrian effects, but the civilizational premise does not independently prove indispensability.",
+            "The operator inference, policy attribution, moral endorsement, and outcome forecast are unusually well separated.",
+            "Public-policy silence, security substitutes, balancing, insurgency, and feasibility are all stated as potentially model-changing objections.",
+            "The direct-control conclusion is clear, though combining identity and strategic geometry reduces compression.",
+        ),
+    },
+    ("operator", "current_war_realization"): {
+        "scores": (4, 4, 4, 4, 5, 3),
+        "rationales": (
+            "The forecast names both required outcomes, the combat-phase horizon, likelihood language, and an early defeat condition.",
+            "The forecast follows from the stated security model without being presented as inevitable or as verified Russian policy.",
+            "Parallel military, demographic, economic, elite, and external-support pathways are specified, but their interaction and thresholds remain only partly operationalized.",
+            "Substantial failure risk and separate policy attribution are explicit, though the forecast spans several difficult-to-measure systems.",
+            "Escalation, overextension, battlefield reversal, and durable narrower settlement are integrated as genuine failure pathways.",
+            "The forecast carries too many interacting conditions to compress without losing important uncertainty.",
+        ),
+    },
+    ("macgregor", "kiev_security_requirement"): {
+        "scores": (4, 4, 3, 3, "unavailable", 4),
+        "rationales": (
+            "The bounded evidence clearly identifies action against Kiev and its government as part of an end state.",
+            "The two excerpts consistently move from military possibility to government removal and termination.",
+            "Decisive action is explicit, but the post-removal institutional and enforcement mechanism is not developed.",
+            "The claim is direct but does not sharply distinguish temporary regime removal, occupation, and durable structural constraint.",
+            "The approved excerpts do not provide enough counterargument material to score this dimension without treating silence as weakness.",
+            "Government removal leading to an end state is expressed with strong economy.",
+        ),
+    },
+    ("macgregor", "odessa_civilizational_premise"): {
+        "scores": (4, 4, 3, 2, "unavailable", 4),
+        "rationales": (
+            "Odessa is directly described as historically Russian and as a place that must return in Russian consciousness.",
+            "The historical-city and return-to-Russia formulations reinforce one another across distinct hosts.",
+            "Identity and Russian public consciousness are named, but the chain from those facts to strategic indispensability remains incomplete.",
+            "The evidence does not distinguish broad Russian sentiment from binding leadership policy or feasible war aims.",
+            "The bounded pair contains no attributable counterargument exchange, so this dimension is unavailable rather than weak.",
+            "The historical identity and return claim is memorable and compact.",
+        ),
+    },
+    ("ritter", "kiev_security_requirement"): {
+        "scores": (4, 4, 4, 4, 3, 4),
+        "rationales": (
+            "The evidence precisely combines a demilitarization floor with the claim that physical possession of Kiev is unnecessary.",
+            "Political alignment and force reduction consistently serve as substitutes for occupation.",
+            "The control-without-occupation mechanism identifies force limits and a Russia-oriented government, though enforcement durability is underdeveloped.",
+            "Ritter distinguishes physical capture from effective political control more carefully than most comparators.",
+            "The substitute mechanism implicitly answers the occupation objection, but the excerpts do not deeply test its legitimacy or durability.",
+            "The mechanism is compressed into a clear contrast between possession and alignment.",
+        ),
+    },
+    ("ritter", "odessa_civilizational_premise"): {
+        "scores": (4, 4, 3, 5, 3, 4),
+        "rationales": (
+            "Ritter plainly calls Odessa Russian while separately stating that Putin has not made the decision to take it.",
+            "Identity, anticipated direction, operational scale, and leadership contingency coexist without contradiction.",
+            "The evidence supplies operational-cost estimates and directional logic but not a complete necessity mechanism.",
+            "The distinction between the speaker's forecast and Putin's present decision is unusually disciplined.",
+            "Leadership hesitation and force requirements function as meaningful correctives, though wider strategic objections remain sparse.",
+            "The identity claim and policy-contingency caveat are expressed economically.",
+        ),
+    },
+    ("mercouris", "kiev_security_requirement"): {
+        "scores": (4, 4, 4, 4, "unavailable", 4),
+        "rationales": (
+            "Neutrality, demilitarization, denazification, elections, and political change are stated as concrete settlement requirements.",
+            "The root-causes and new-government formulations align across the two approved sources.",
+            "The political-reconstitution mechanism is substantial, though enforcement and long-run force regeneration remain less explicit.",
+            "The evidence distinguishes political conditions from battlefield movement, while some terms remain broad and contested.",
+            "The approved excerpts do not contain enough direct engagement with competing settlement models to score counterargument integration.",
+            "The root-causes formulation compresses several settlement conditions effectively.",
+        ),
+    },
+    ("mercouris", "odessa_civilizational_premise"): {
+        "scores": (3, 4, 3, 3, "unavailable", 3),
+        "rationales": (
+            "The evidence identifies Odessa within a possible historic-Russian-lands scope, but the decisive claim is inferential rather than enumerated policy.",
+            "Both excerpts consistently apply the same historical-land interpretation.",
+            "Catherine-era geography supplies an interpretive bridge, but it does not complete the mechanism from rhetoric to binding war aim.",
+            "Mercouris marks the conclusion as his interpretation, but the move from historical scope to current intent remains broader than the quoted language itself.",
+            "The bounded evidence does not contain enough attributable engagement with narrower readings of Putin's language to score this dimension.",
+            "The historical inference is intelligible but requires caveats that reduce compression.",
+        ),
+    },
+    ("mearsheimer", "kiev_security_requirement"): {
+        "scores": (4, 5, 5, 4, "unavailable", 5),
+        "rationales": (
+            "The dysfunctional-rump-state objective precisely identifies the security effect Russia seeks without requiring possession of Kiev.",
+            "Threat reduction, NATO exclusion, and territorial weakening form a highly consistent realist account.",
+            "The security-dilemma mechanism links Western use of Ukraine, Russian incentives, state capacity, and threat disablement.",
+            "The account stays instrumental and avoids converting predicted incentives into identity or legal claims.",
+            "The Kiev evidence pair does not contain enough explicit counterargument handling to support a numeric score.",
+            "The incentive-to-disable-threat chain achieves unusually strong explanatory compression.",
+        ),
+    },
+    ("mearsheimer", "odessa_civilizational_premise"): {
+        "scores": (4, 5, 5, 5, 4, 5),
+        "rationales": (
+            "Odessa is tied precisely to ports, Black Sea access, economic disablement, and a likely but uncertain Russian move.",
+            "The two sources consistently apply the same instrumental security logic.",
+            "Port removal, loss of sea access, rump-state economics, and capture cost form the most complete Odessa mechanism in the set.",
+            "Desire, capability, reasonable cost, and civilizational interpretation remain clearly distinct.",
+            "Capability and cost uncertainty are integrated directly, though long-run balancing and occupation effects remain less developed.",
+            "The port-denial-to-dysfunctional-state chain is unusually compact and explanatory.",
+        ),
+    },
+}
+
+
+def _odessa_pilot_comparison(version: dict[str, Any]) -> dict[str, Any]:
+    comparators = {
+        item["voice_slug"]: item
+        for item in version["comparator_set"]["included"]
+    }
+    profiles = []
+    operator_layers = [
+        layer["layer_id"]
+        for layer in version["position"]["epistemic_layers"]
+    ]
+    profile_pairs = [("operator", layer_id) for layer_id in operator_layers]
+    profile_pairs += [
+        (item["voice_slug"], layer_id)
+        for item in version["comparator_set"]["included"]
+        for layer_id in item["engaged_layer_ids"]
+    ]
+    for subject, layer_id in profile_pairs:
+        spec = ODESSA_PROFILE_SPECS.get((subject, layer_id))
+        if spec is None:
+            raise LedgerError(
+                f"{subject}/{layer_id}: missing Odessa pilot score profile"
+            )
+        if subject == "operator":
+            display_name = "Operator"
+            evidence_refs = [
+                f"{version['version_id']}:{layer_id}:position"
+            ]
+        else:
+            comparator = comparators[subject]
+            display_name = comparator["display_name"]
+            evidence_refs = [
+                ref["path"]
+                for ref in comparator["evidence"]
+                if layer_id in ref["layer_ids"]
+            ]
+        profiles.append({
+            "subject": subject,
+            "display_name": display_name,
+            "layer_id": layer_id,
+            "dimensions": {
+                dimension: {
+                    "score": score,
+                    "rationale": rationale,
+                    "evidence_refs": evidence_refs,
+                }
+                for dimension, score, rationale in zip(
+                    DIMENSIONS,
+                    spec["scores"],
+                    spec["rationales"],
+                )
+            },
+        })
+
+    relation_specs = {
+        ("macgregor", "kiev_security_requirement"): (
+            "conditional_divergence",
+            "He shares the requirement for decisive political disablement but treats action against Kiev's government as more physically direct than the operator's sufficient condition of durable structural constraint.",
+        ),
+        ("macgregor", "odessa_civilizational_premise"): (
+            "reinforcement",
+            "He most directly reinforces the operator premise by joining Odessa's Russian historical identity to an asserted expectation of return.",
+        ),
+        ("ritter", "kiev_security_requirement"): (
+            "reinforcement",
+            "His demilitarization and political-alignment substitute closely matches the operator's claim that enforceable reconstitution can suffice without permanent occupation.",
+        ),
+        ("ritter", "odessa_civilizational_premise"): (
+            "conditional_divergence",
+            "He accepts the Russian-city premise and anticipates movement toward Odessa, but explicitly withholds attribution of a present Putin decision.",
+        ),
+        ("mercouris", "kiev_security_requirement"): (
+            "reinforcement",
+            "His neutrality, demilitarization, elections, and government-change terms reinforce structural reconstitution as the settlement mechanism.",
+        ),
+        ("mercouris", "odessa_civilizational_premise"): (
+            "conditional_divergence",
+            "His historical-land reading supports the premise only as an interpretation of Putin's language, not as independently corroborated binding policy.",
+        ),
+        ("mearsheimer", "kiev_security_requirement"): (
+            "reinforcement",
+            "His dysfunctional-rump-state logic reinforces durable threat disablement without making occupation of Kiev the necessary mechanism.",
+        ),
+        ("mearsheimer", "odessa_civilizational_premise"): (
+            "mechanism_disagreement",
+            "He supports the Odessa outcome through port denial, economic disablement, and security incentives rather than civilizational indispensability.",
+        ),
+    }
+    relations = []
+    for comparator in version["comparator_set"]["included"]:
+        for layer_id in comparator["engaged_layer_ids"]:
+            relation, rationale = relation_specs[(comparator["voice_slug"], layer_id)]
+            relations.append({
+                "voice_slug": comparator["voice_slug"],
+                "display_name": comparator["display_name"],
+                "layer_id": layer_id,
+                "relation": relation,
+                "rationale": rationale,
+            })
+    return {
+        "status": "provisional",
+        "measurement_scope": "bounded-evidence persuasive coherence",
+        "evidence_asymmetry": (
+            "Operator profiles use the complete approved position; voice profiles use "
+            "only the approved layer-specific excerpts. Unavailable marks dimensions "
+            "that those excerpts cannot support and is not converted to zero."
+        ),
+        "profiles": profiles,
+        "relations": relations,
+        "findings": {
+            "closest_affinity": {
+                "voice_slug": "macgregor",
+                "display_name": comparators["macgregor"]["display_name"],
+                "layer_id": "odessa_civilizational_premise",
+                "rationale": (
+                    "Macgregor most directly joins Odessa's historical-Russian identity "
+                    "to an expectation of territorial return, matching the operator premise."
+                ),
+            },
+            "strongest_corrective": {
+                "voice_slug": "mearsheimer",
+                "display_name": comparators["mearsheimer"]["display_name"],
+                "layer_id": "odessa_civilizational_premise",
+                "rationale": (
+                    "Mearsheimer reaches a similar territorial expectation through ports, "
+                    "economic disablement, security incentives, capability, and cost, forcing "
+                    "the operator to show what civilizational logic adds."
+                ),
+            },
+        },
+    }
+
+
 def score_position(data: dict[str, Any], position_id: str) -> dict[str, Any]:
     position = find_position(data, position_id)
     version = latest_version(position)
@@ -1384,6 +1664,13 @@ def score_position(data: dict[str, Any], position_id: str) -> dict[str, Any]:
         raise LedgerError("approve the comparator set before scoring")
     if version["comparison"].get("status") == "approved":
         raise LedgerError("approved comparisons are immutable; create a review version first")
+    if (
+        position.get("object_slug") == "russia-kiev-odessa-end-state"
+        and version["comparator_set"].get("included")
+    ):
+        comparison = _odessa_pilot_comparison(version)
+        version["comparison"] = comparison
+        return comparison
     pilot_comparison = data["positions"][0]["versions"][0]["comparison"]
     pilot_profiles = {
         (profile["subject"], profile["layer_id"]): profile
