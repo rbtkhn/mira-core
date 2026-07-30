@@ -43,6 +43,7 @@ EXPECTED_SURFACES = {
     "choice": "choice_ledger.py",
     "continuity": "continuity.py",
     "daily-validate": "validate_daily_run.py",
+    "elicitation": "elicitation.py",
     "forecast-sync": "sync_forecast_ledger.py",
     "forecast-triage": "triage_forecast_ledger.py",
     "harness": "audit_ai_harness.py",
@@ -283,10 +284,110 @@ def test_runner_preserves_read_and_write_surface_arguments(monkeypatch) -> None:
     assert commands[1][-3:] == ["--skill", "reality-check", "--dry-run"]
 
 
+def test_environment_argument_transport_is_exact_and_consumed() -> None:
+    expected = [
+        "elicitation",
+        "validate",
+        "--surface-json",
+        '{"type":"neutral-evidence","label":"Quoted \\"value\\" and Καλημέρα"}',
+        "",
+    ]
+    environment = {
+        runner.ARGUMENTS_ENV: json.dumps(expected, ensure_ascii=False)
+    }
+    assert runner.resolve_arguments([runner.ARGUMENTS_ENV_FLAG], environment) == expected
+    assert runner.ARGUMENTS_ENV not in environment
+
+
+@pytest.mark.parametrize(
+    "payload",
+    (
+        "not-json",
+        '{"surface":"not-a-list"}',
+        '["valid", 3]',
+    ),
+)
+def test_environment_argument_transport_rejects_invalid_payloads(payload: str) -> None:
+    environment = {runner.ARGUMENTS_ENV: payload}
+    with pytest.raises(ValueError):
+        runner.resolve_arguments([runner.ARGUMENTS_ENV_FLAG], environment)
+    assert runner.ARGUMENTS_ENV not in environment
+
+
+def test_environment_argument_transport_is_not_mixed_with_direct_arguments() -> None:
+    environment = {runner.ARGUMENTS_ENV: '["cadence"]'}
+    with pytest.raises(ValueError, match="only command-line argument"):
+        runner.resolve_arguments(
+            [runner.ARGUMENTS_ENV_FLAG, "cadence"], environment
+        )
+    assert runner.ARGUMENTS_ENV in environment
+
+
+def test_runner_removes_transport_environment_before_child(monkeypatch) -> None:
+    observed: dict[str, object] = {}
+    monkeypatch.setenv(
+        runner.ARGUMENTS_ENV,
+        json.dumps(["archive-density", "--month", "2026-07"]),
+    )
+
+    def run(command, **kwargs):
+        observed["command"] = command
+        observed["environment"] = kwargs["env"]
+        return SimpleNamespace(returncode=0)
+
+    monkeypatch.setattr(runner.subprocess, "run", run)
+    assert runner.main([runner.ARGUMENTS_ENV_FLAG]) == 0
+    assert observed["command"][-2:] == ["--month", "2026-07"]
+    assert runner.ARGUMENTS_ENV not in observed["environment"]
+    assert runner.ARGUMENTS_ENV not in os.environ
+
+
 def test_powershell_runner_forwards_all_arguments() -> None:
     launcher = (REPO_ROOT / "tools" / "run.ps1").read_text(encoding="utf-8")
     assert "[Parameter(ValueFromRemainingArguments = $true)]" in launcher
-    assert "$runner @RunArguments" in launcher
+    assert "ConvertTo-Json -Compress -InputObject @($RunArguments)" in launcher
+    assert "$runner --arguments-env" in launcher
+    assert "$previousArguments" in launcher
+
+
+@pytest.mark.skipif(
+    sys.platform != "win32",
+    reason="PowerShell argument transport is Windows-specific",
+)
+def test_powershell_runner_round_trips_inline_json_and_restores_environment() -> None:
+    powershell = Path(
+        r"C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe"
+    )
+    command = r"""
+$env:NARRATIVE_PYTHON = $env:TEST_VALIDATION_PYTHON
+$env:NARRATIVE_RUN_ARGUMENTS_JSON = 'pre-existing'
+$surface = [ordered]@{
+    type = 'neutral-evidence'
+    options = @(
+        [ordered]@{ key = 'yes'; label = 'Yes with spaces' },
+        [ordered]@{ key = 'no'; label = 'Καλημέρα "quoted"' }
+    )
+}
+$surfaceJson = $surface | ConvertTo-Json -Depth 4 -Compress
+.\tools\run.ps1 elicitation validate --surface-json $surfaceJson
+Write-Output ('RESTORED=' + $env:NARRATIVE_RUN_ARGUMENTS_JSON)
+"""
+    environment = os.environ.copy()
+    environment["TEST_VALIDATION_PYTHON"] = sys.executable
+    result = subprocess.run(
+        [str(powershell), "-NoProfile", "-Command", command],
+        cwd=REPO_ROOT,
+        env=environment,
+        check=True,
+        capture_output=True,
+        text=True,
+    )
+    json_text, restored = result.stdout.rsplit("RESTORED=", 1)
+    assert "\\u039a" in json_text
+    payload = json.loads(json_text)
+    assert payload["options"][0]["label"] == "Yes with spaces"
+    assert payload["options"][1]["label"] == 'Καλημέρα "quoted"'
+    assert restored.strip() == "pre-existing"
 
 
 def test_named_runner_preserves_json_stdout() -> None:

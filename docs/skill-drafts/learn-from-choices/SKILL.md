@@ -47,6 +47,12 @@ labeled `Execute`, `Stage`, `Commit`, `Push`, `Send`, `Publish`, or `Deploy`.
 A later explicit command supersedes a pending menu. All existing authority,
 approval, privacy, tenant, lane, and safety rules remain controlling.
 
+When a surface was validated by `elicitation` as `decision-navigation`, apply
+that skill's narrower first-token grammar: only `Execute`, `Commit`, `Push`,
+and `Send` can authorize the exact visible bounded action.
+Keep `Stage`, `Publish`, and `Deploy` exploratory on that surface. Ordinary
+possibility menus retain this skill's seven-verb vocabulary.
+
 ## Retain only a selection
 
 Do not retain an unselected footer. When the operator selects a branch:
@@ -56,7 +62,8 @@ Do not retain an unselected footer. When the operator selects a branch:
 3. If a private store is configured, run `choice select` atomically with the
    selected stable key, recommendation binding, lane/workspace/tenant scope,
    choice kind, consequence, summary, actor, timestamps, and bounded signals.
-4. State that selection granted no execution authority.
+4. State that receipt retention granted no authority; any bounded action
+   authority came only from the governing visible option label.
 5. If the store is missing or unavailable, continue navigation and disclose
    that the selection was not retained.
 

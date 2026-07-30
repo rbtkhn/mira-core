@@ -1,0 +1,6 @@
+interface:
+  display_name: "Elicitation"
+  short_description: "Resolve consequential unknowns with low-load questions"
+  default_prompt: "Use $elicitation to ask only the minimum human questions needed for safe progress."
+policy:
+  allow_implicit_invocation: true

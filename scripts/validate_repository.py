@@ -351,6 +351,7 @@ def skill_contract_failures() -> list[str]:
     deployable = set(DEPLOYABLE_SKILL_NAMES)
     if deployable != {
         "best-intake",
+        "elicitation",
         "learn-from-choices",
         "smart-intake",
         "voice-comparison",

@@ -9,6 +9,7 @@ SKILL_DRAFT_ROOT = REPO_ROOT / "docs" / "skill-drafts"
 CODEX_SKILLS_ROOT = Path.home() / ".codex" / "skills"
 DEPLOYABLE_SKILL_NAMES = (
     "best-intake",
+    "elicitation",
     "learn-from-choices",
     "smart-intake",
     "voice-comparison",

@@ -19,6 +19,7 @@ PROJECTION_VERSION = "1.0"
 REVIEW_PROJECTION_VERSION = "2.0"
 DB_ENV = "NARRATIVE_CHOICE_DB"
 REPO_ROOT = Path(__file__).resolve().parent.parent
+AUTHORITY_EFFECT = "none"
 ROLES = ("recommended", "alternative", "overlooked", "pause-or-deepen")
 EVENT_TYPES = (
     "branch_selected",
@@ -37,8 +38,9 @@ DISCOVERY = (
     "Missing",
 )
 NO_AUTHORITY = (
-    "Branch selection grants no execution, mutation, spending, publication, "
-    "communication, customer action, commit, push, or deployment authority."
+    "Receipt retention grants no authority. Any bounded action authority comes "
+    "only from the governing visible option label and remains subject to "
+    "existing controls."
 )
 EMAIL_RE = re.compile(r"(?<![\w.+-])[\w.+-]+@[\w.-]+\.[A-Za-z]{2,}")
 PHONE_RE = re.compile(r"(?<!\d)(?:\+?\d[\d ()-]{7,}\d)(?!\d)")
@@ -460,6 +462,7 @@ def select_branch(
                     item["role"] for item in sanitized if item["key"] == selected_key
                 ),
                 "options_hash": prompt["options_hash"],
+                "authority_effect": AUTHORITY_EFFECT,
                 "no_execution_authority": NO_AUTHORITY,
             },
         )
@@ -470,6 +473,7 @@ def select_branch(
         "selected_key": selected_key,
         "selected_role": json.loads(event["payload_json"])["selected_role"],
         "options_hash": prompt["options_hash"],
+        "authority_effect": AUTHORITY_EFFECT,
         "no_execution_authority": NO_AUTHORITY,
     }
 
@@ -658,6 +662,7 @@ def project_choice(connection: sqlite3.Connection, choice_id: str) -> dict[str, 
         "attention_flags": boundary_flags(events),
         "events": events,
         "lineage": verify_choice(connection, choice_id),
+        "authority_effect": AUTHORITY_EFFECT,
         "no_execution_authority": row["no_execution_authority"],
     }
 
@@ -1052,6 +1057,7 @@ def markdown_projection(payload: dict[str, Any], title: str) -> str:
 def unavailable_payload(reason: str, *, expected_retention: bool = False) -> dict[str, Any]:
     return {
         "projection_version": PROJECTION_VERSION,
+        "authority_effect": AUTHORITY_EFFECT,
         "retained": False,
         "available": False,
         "reason": reason,
@@ -1147,6 +1153,7 @@ def main(arguments: list[str] | None = None) -> int:
             "retained": False,
             "sanitized_options": sanitize_options(parse_json_argument(args.options_json)),
             "selected_key": args.selected_key,
+            "authority_effect": AUTHORITY_EFFECT,
             "no_execution_authority": NO_AUTHORITY,
         }
         print(

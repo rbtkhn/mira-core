@@ -37,7 +37,16 @@ def test_universal_contract_has_stable_roles_and_navigation_boundary() -> None:
     assert "Do not retain an unselected footer" in skill
     assert "bare letter" in router
     assert "never silently" in router
-    assert "granted no execution authority" in skill
+    assert "receipt retention granted no authority" in skill
+
+
+def test_elicitation_composition_keeps_the_existing_seven_verb_contract() -> None:
+    skill = (SKILL_ROOT / "SKILL.md").read_text(encoding="utf-8")
+    for verb in ("Execute", "Stage", "Commit", "Push", "Send", "Publish", "Deploy"):
+        assert f"`{verb}`" in skill
+    assert "validated by `elicitation` as `decision-navigation`" in skill
+    assert "narrower first-token grammar" in skill
+    assert "Keep `Stage`, `Publish`, and `Deploy` exploratory" in skill
 
 
 def test_coffee_and_dream_composition_is_bounded() -> None:

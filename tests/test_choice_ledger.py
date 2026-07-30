@@ -197,8 +197,36 @@ def test_selection_is_atomic_exact_sanitized_and_navigation_only(tmp_path: Path)
     assert projection["choice"]["options_hash"] == choice_ledger.digest(
         projection["choice"]["options"]
     )
-    assert "grants no execution" in projection["no_execution_authority"].lower()
+    assert "receipt retention grants no authority" in projection["no_execution_authority"].lower()
+    assert projection["authority_effect"] == "none"
+    assert result["authority_effect"] == "none"
     assert [event["event_type"] for event in projection["events"]] == ["branch_selected"]
+
+
+def test_schema_one_historical_receipt_survives_without_migration(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    db = connection(tmp_path / "historical.sqlite3")
+    legacy_notice = "Branch selection grants no execution authority."
+    monkeypatch.setattr(choice_ledger, "NO_AUTHORITY", legacy_notice)
+    select(db)
+    before = dict(
+        db.execute(
+            "SELECT * FROM choice_prompts WHERE choice_id='CHOICE-001'"
+        ).fetchone()
+    )
+    monkeypatch.undo()
+    choice_ledger.migrate(db)
+    after = dict(
+        db.execute(
+            "SELECT * FROM choice_prompts WHERE choice_id='CHOICE-001'"
+        ).fetchone()
+    )
+    assert db.execute("PRAGMA user_version").fetchone()[0] == 1
+    assert after == before
+    projection = choice_ledger.project_choice(db, "CHOICE-001")
+    assert projection["no_execution_authority"] == legacy_notice
+    assert projection["authority_effect"] == "none"
     db.close()
 
 
@@ -919,4 +947,4 @@ def test_json_and_markdown_projections(tmp_path: Path) -> None:
         text=True,
     )
     assert "# Choice Projection" in result.stdout
-    assert "Branch selection grants no execution" in result.stdout
+    assert "Receipt retention grants no authority" in result.stdout
