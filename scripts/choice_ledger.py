@@ -16,6 +16,7 @@ from typing import Any, Iterable
 
 SCHEMA_VERSION = 1
 PROJECTION_VERSION = "1.0"
+REVIEW_PROJECTION_VERSION = "2.0"
 DB_ENV = "NARRATIVE_CHOICE_DB"
 REPO_ROOT = Path(__file__).resolve().parent.parent
 ROLES = ("recommended", "alternative", "overlooked", "pause-or-deepen")
@@ -851,35 +852,80 @@ def review_scorecard(
     connection: sqlite3.Connection, *, tenant: str, workspace: str, lane: str
 ) -> dict[str, Any]:
     choices = scoped_choices(connection, tenant=tenant, workspace=workspace, lane=lane)
-    eligible = [item for item in choices if item["current_state"] == "resolved"][:5]
-    if len(eligible) < 5:
-        return {
-            "projection_version": PROJECTION_VERSION,
-            "assessment": "pending",
-            "eligible_resolved": len(eligible),
-            "needed": 5 - len(eligible),
-            "selection_frequency_used": False,
-        }
-    outcomes = [item["outcome"] for item in eligible]
+    resolved = [item for item in choices if item["current_state"] == "resolved"]
+    pilot = resolved[:5]
 
-    def measure(field: str, favorable: str, signal: int) -> dict[str, Any]:
-        observed = [item[field] for item in outcomes if item[field] != "Missing"]
-        numerator = sum(value == favorable for value in observed)
+    def measures(items: list[dict[str, Any]]) -> dict[str, dict[str, Any]]:
+        outcomes = [item["outcome"] for item in items]
+
+        def measure(field: str, favorable: str, signal: int) -> dict[str, Any]:
+            observed = [item[field] for item in outcomes if item[field] != "Missing"]
+            numerator = sum(value == favorable for value in observed)
+            return {
+                "numerator": numerator,
+                "denominator": len(observed),
+                "provisional_signal": numerator >= signal,
+            }
+
         return {
-            "numerator": numerator,
-            "denominator": len(observed),
-            "provisional_signal": numerator >= signal,
+            "lower_cognitive_load": measure("cognitive_load", "lower", 3),
+            "advanced_momentum": measure("momentum", "advanced", 3),
+            "new_useful_path_discovery": measure(
+                "discovery_value", "new-useful-path", 1
+            ),
         }
 
-    primary = {
-        "lower_cognitive_load": measure("cognitive_load", "lower", 3),
-        "advanced_momentum": measure("momentum", "advanced", 3),
-        "new_useful_path_discovery": measure(
-            "discovery_value", "new-useful-path", 1
-        ),
-    }
-    incidents = sorted({flag for item in eligible for flag in item["attention_flags"]})
-    observed_complete = all(item["denominator"] >= 3 for item in primary.values())
+    def gaps(
+        measured: dict[str, dict[str, Any]],
+    ) -> dict[str, dict[str, int]]:
+        return {
+            name: {
+                "observed": value["denominator"],
+                "required": 3,
+                "missing": 3 - value["denominator"],
+            }
+            for name, value in measured.items()
+            if value["denominator"] < 3
+        }
+
+    pilot_primary = measures(pilot)
+    pilot_observation_gaps = gaps(pilot_primary)
+    pilot_complete = len(pilot) == 5 and not pilot_observation_gaps
+    if len(pilot) < 5 or pilot_complete:
+        cohort_stage = "pilot"
+        cohort_target = 5
+        cohort = pilot
+    else:
+        cohort_stage = "extension"
+        cohort_target = 10
+        cohort = resolved[:10]
+
+    outcomes = [item["outcome"] for item in cohort]
+    primary = measures(cohort)
+    observation_gaps = gaps(primary)
+    extension_trigger_gaps = (
+        pilot_observation_gaps if cohort_stage == "extension" else {}
+    )
+    cohort_choice_ids = [item["choice"]["choice_id"] for item in cohort]
+    cohort_choice_id_set = set(cohort_choice_ids)
+    boundary_incident_sources = [
+        {
+            "choice_id": item["choice"]["choice_id"],
+            "incidents": item["attention_flags"],
+            "in_measurement_cohort": item["choice"]["choice_id"]
+            in cohort_choice_id_set,
+        }
+        for item in choices
+        if item["attention_flags"]
+    ]
+    incidents = sorted(
+        {
+            incident
+            for source in boundary_incident_sources
+            for incident in source["incidents"]
+        }
+    )
+    observed_complete = not observation_gaps
     negative_count = sum(
         outcome["cognitive_load"] == "higher"
         or outcome["momentum"] == "stalled"
@@ -888,21 +934,39 @@ def review_scorecard(
     )
     if incidents:
         assessment = "hold"
-    elif not observed_complete:
+    elif len(pilot) < 5:
+        assessment = "pending"
+    elif cohort_stage == "extension" and len(cohort) < 10:
         assessment = "extend-to-ten"
+    elif not observed_complete:
+        assessment = "adjust"
     elif negative_count >= 2:
         assessment = "adjust"
     elif sum(item["provisional_signal"] for item in primary.values()) >= 2:
         assessment = "continue"
     else:
         assessment = "adjust"
-    distribution = {result: sum(item["result"] == result for item in outcomes) for result in RESULTS}
-    rework = [item["rework_minutes"] for item in outcomes if item["rework_minutes"] is not None]
+    distribution = {
+        result: sum(item["result"] == result for item in outcomes)
+        for result in RESULTS
+    }
+    rework = [
+        item["rework_minutes"]
+        for item in outcomes
+        if item["rework_minutes"] is not None
+    ]
     return {
-        "projection_version": PROJECTION_VERSION,
+        "projection_kind": "review-scorecard",
+        "projection_version": REVIEW_PROJECTION_VERSION,
         "assessment": assessment,
-        "cohort_choice_ids": [item["choice"]["choice_id"] for item in eligible],
+        "cohort_stage": cohort_stage,
+        "cohort_target": cohort_target,
+        "eligible_resolved": len(cohort),
+        "needed": max(cohort_target - len(cohort), 0),
+        "cohort_choice_ids": cohort_choice_ids,
         "primary_measures": primary,
+        "observation_gaps": observation_gaps,
+        "extension_trigger_gaps": extension_trigger_gaps,
         "result_distribution": distribution,
         "rework_summary": {
             "observed": len(rework),
@@ -911,8 +975,12 @@ def review_scorecard(
         },
         "repeated_negative_experience_count": negative_count,
         "boundary_incidents": incidents,
+        "boundary_incident_sources": boundary_incident_sources,
         "selection_frequency_used": False,
-        "note": "Descriptive pilot evidence; comparable-outcome thresholds separately control recommendation changes.",
+        "note": (
+            "Descriptive pilot evidence; comparable-outcome thresholds separately "
+            "control recommendation changes."
+        ),
     }
 
 
@@ -940,10 +1008,35 @@ def markdown_projection(payload: dict[str, Any], title: str) -> str:
         lines.extend(
             [
                 f"- Assessment: `{payload['assessment']}`",
-                f"- Eligible resolved: `{payload.get('eligible_resolved', 5)}`",
+                f"- Projection: `{payload.get('projection_kind', 'review-scorecard')} "
+                f"{payload['projection_version']}`",
+                f"- Cohort: `{payload['eligible_resolved']}/{payload['cohort_target']}` "
+                f"(`{payload['cohort_stage']}`)",
+                f"- Remaining: `{payload['needed']}`",
                 f"- Selection frequency used: `false`",
             ]
         )
+        for name, value in payload.get("observation_gaps", {}).items():
+            lines.append(
+                f"- {name.replace('_', ' ').title()} gap: `{value['missing']}` "
+                f"(`{value['observed']}/{value['required']}` observed)"
+            )
+        for name, value in payload.get("extension_trigger_gaps", {}).items():
+            lines.append(
+                f"- Extension trigger, {name.replace('_', ' ')}: "
+                f"`{value['missing']}` missing at pilot "
+                f"(`{value['observed']}/{value['required']}` observed)"
+            )
+        for source in payload.get("boundary_incident_sources", []):
+            location = (
+                "inside cohort"
+                if source["in_measurement_cohort"]
+                else "outside cohort"
+            )
+            lines.append(
+                f"- Boundary incident: `{source['choice_id']}` "
+                f"({', '.join(source['incidents'])}; {location})"
+            )
         for name, value in payload.get("primary_measures", {}).items():
             lines.append(
                 f"- {name.replace('_', ' ').title()}: "
@@ -1024,7 +1117,9 @@ def parse_args(arguments: list[str] | None = None) -> argparse.Namespace:
     outcome.add_argument("--supersedes-event-id")
     outcome.add_argument("--dry-run", action="store_true")
 
-    review = subparsers.add_parser("review", help="Read the deterministic five-selection scorecard.")
+    review = subparsers.add_parser(
+        "review", help="Read the deterministic staged five-to-ten scorecard."
+    )
     add_scope(review)
 
     show = subparsers.add_parser("show", help="Project one choice and its event history.")
@@ -1201,7 +1296,7 @@ def main(arguments: list[str] | None = None) -> int:
     if args.format == "markdown":
         title = {
             "context": "Choice Learning Context",
-            "review": "Five-Selection Review",
+            "review": "Staged Five-to-Ten Review",
             "show": "Choice Projection",
             "verify": "Choice Chain Verification",
         }.get(args.command, "Choice Ledger Result")

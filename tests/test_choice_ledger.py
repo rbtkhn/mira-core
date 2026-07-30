@@ -96,16 +96,38 @@ def seed_five(
     discovery=("new-useful-path",) * 5,
     incidents: dict | None = None,
 ) -> None:
-    for index in range(5):
+    seed_outcomes(
+        db,
+        cognitive=cognitive,
+        momentum=momentum,
+        discovery=discovery,
+        incidents_by_index={0: incidents} if incidents else None,
+    )
+
+
+def seed_outcomes(
+    db: sqlite3.Connection,
+    *,
+    cognitive,
+    momentum,
+    discovery,
+    incidents_by_index: dict[int, dict] | None = None,
+) -> None:
+    assert len(cognitive) == len(momentum) == len(discovery)
+    for index in range(len(cognitive)):
         choice_id = f"CHOICE-{index:03d}"
-        select(db, choice_id, selected_at=f"2026-07-2{index}T12:00:00+00:00")
+        select(
+            db,
+            choice_id,
+            selected_at=f"2026-07-{20 + index:02d}T12:00:00+00:00",
+        )
         outcome(
             db,
             choice_id,
             cognitive_load=cognitive[index],
             momentum=momentum[index],
             discovery=discovery[index],
-            **(incidents if index == 0 and incidents else {}),
+            **((incidents_by_index or {}).get(index, {})),
         )
 
 
@@ -609,6 +631,14 @@ def test_five_selection_review_states(
         db, tenant="tenant-a", workspace="workspace-a", lane="lane-a"
     )
     assert scorecard["assessment"] == expected
+    assert scorecard["projection_kind"] == "review-scorecard"
+    assert scorecard["projection_version"] == choice_ledger.REVIEW_PROJECTION_VERSION
+    assert scorecard["cohort_stage"] == (
+        "extension" if expected == "extend-to-ten" else "pilot"
+    )
+    assert scorecard["cohort_target"] == (
+        10 if expected == "extend-to-ten" else 5
+    )
     assert scorecard["cohort_choice_ids"] == [f"CHOICE-{index:03d}" for index in range(5)]
     assert scorecard["selection_frequency_used"] is False
     db.close()
@@ -621,14 +651,244 @@ def test_five_selection_review_pending(tmp_path: Path) -> None:
     scorecard = choice_ledger.review_scorecard(
         db, tenant="tenant-a", workspace="workspace-a", lane="lane-a"
     )
-    assert scorecard == {
-        "projection_version": choice_ledger.PROJECTION_VERSION,
-        "assessment": "pending",
-        "eligible_resolved": 1,
-        "needed": 4,
-        "selection_frequency_used": False,
+    assert scorecard["projection_version"] == choice_ledger.REVIEW_PROJECTION_VERSION
+    assert scorecard["assessment"] == "pending"
+    assert scorecard["cohort_stage"] == "pilot"
+    assert scorecard["cohort_target"] == 5
+    assert scorecard["eligible_resolved"] == 1
+    assert scorecard["needed"] == 4
+    assert scorecard["selection_frequency_used"] is False
+    db.close()
+
+
+def test_review_incident_overrides_pending_before_five(tmp_path: Path) -> None:
+    db = connection(tmp_path / "early-incident.sqlite3")
+    select(db)
+    choice_ledger.append_choice_event(
+        db,
+        choice_id="CHOICE-001",
+        event_type="review_deferred",
+        idempotency_key="early-incident",
+        occurred_at="2026-07-30T12:00:00+00:00",
+        privacy_incident=True,
+    )
+    scorecard = choice_ledger.review_scorecard(
+        db, tenant="tenant-a", workspace="workspace-a", lane="lane-a"
+    )
+    assert scorecard["assessment"] == "hold"
+    assert scorecard["eligible_resolved"] == 0
+    assert scorecard["needed"] == 5
+    assert scorecard["boundary_incident_sources"] == [
+        {
+            "choice_id": "CHOICE-001",
+            "incidents": ["privacy"],
+            "in_measurement_cohort": False,
+        }
+    ]
+    db.close()
+
+
+def test_review_extension_is_frozen_through_outcome_nine(tmp_path: Path) -> None:
+    db = connection(tmp_path / "frozen-extension.sqlite3")
+    seed_outcomes(
+        db,
+        cognitive=("Missing",) * 5 + ("lower",) * 4,
+        momentum=("advanced",) * 9,
+        discovery=("new-useful-path",) * 9,
+    )
+    scorecard = choice_ledger.review_scorecard(
+        db, tenant="tenant-a", workspace="workspace-a", lane="lane-a"
+    )
+    assert scorecard["assessment"] == "extend-to-ten"
+    assert scorecard["cohort_stage"] == "extension"
+    assert scorecard["cohort_target"] == 10
+    assert scorecard["eligible_resolved"] == 9
+    assert scorecard["needed"] == 1
+    assert scorecard["observation_gaps"] == {}
+    assert scorecard["extension_trigger_gaps"]["lower_cognitive_load"] == {
+        "observed": 0,
+        "required": 3,
+        "missing": 3,
     }
     db.close()
+
+
+def test_review_terminal_gap_adjusts_at_ten(tmp_path: Path) -> None:
+    db = connection(tmp_path / "terminal-gap.sqlite3")
+    seed_outcomes(
+        db,
+        cognitive=("Missing",) * 10,
+        momentum=("advanced",) * 10,
+        discovery=("new-useful-path",) * 10,
+    )
+    scorecard = choice_ledger.review_scorecard(
+        db, tenant="tenant-a", workspace="workspace-a", lane="lane-a"
+    )
+    assert scorecard["assessment"] == "adjust"
+    assert scorecard["cohort_stage"] == "extension"
+    assert scorecard["needed"] == 0
+    assert scorecard["extension_trigger_gaps"]["lower_cognitive_load"] == {
+        "observed": 0,
+        "required": 3,
+        "missing": 3,
+    }
+    assert scorecard["observation_gaps"]["lower_cognitive_load"] == {
+        "observed": 0,
+        "required": 3,
+        "missing": 3,
+    }
+    db.close()
+
+
+def test_review_complete_extension_uses_cumulative_ten(tmp_path: Path) -> None:
+    db = connection(tmp_path / "complete-extension.sqlite3")
+    seed_outcomes(
+        db,
+        cognitive=("Missing",) * 5 + ("lower",) * 5,
+        momentum=("advanced",) * 10,
+        discovery=("new-useful-path",) * 10,
+    )
+    scorecard = choice_ledger.review_scorecard(
+        db, tenant="tenant-a", workspace="workspace-a", lane="lane-a"
+    )
+    assert scorecard["assessment"] == "continue"
+    assert scorecard["cohort_choice_ids"] == [
+        f"CHOICE-{index:03d}" for index in range(10)
+    ]
+    assert scorecard["primary_measures"]["lower_cognitive_load"]["denominator"] == 5
+    db.close()
+
+
+def test_review_incident_after_five_holds_immediately(tmp_path: Path) -> None:
+    db = connection(tmp_path / "late-incident.sqlite3")
+    seed_outcomes(
+        db,
+        cognitive=("Missing",) * 5 + ("lower",),
+        momentum=("advanced",) * 6,
+        discovery=("new-useful-path",) * 6,
+        incidents_by_index={5: {"lane_incident": True}},
+    )
+    scorecard = choice_ledger.review_scorecard(
+        db, tenant="tenant-a", workspace="workspace-a", lane="lane-a"
+    )
+    assert scorecard["assessment"] == "hold"
+    assert scorecard["boundary_incident_sources"][0] == {
+        "choice_id": "CHOICE-005",
+        "incidents": ["lane-boundary"],
+        "in_measurement_cohort": True,
+    }
+    db.close()
+
+
+def test_review_excludes_eleventh_measurement_but_not_its_incident(
+    tmp_path: Path,
+) -> None:
+    db = connection(tmp_path / "eleventh.sqlite3")
+    seed_outcomes(
+        db,
+        cognitive=("Missing",) * 5 + ("lower",) * 5 + ("higher",),
+        momentum=("advanced",) * 10 + ("stalled",),
+        discovery=("new-useful-path",) * 10 + ("not-useful",),
+    )
+    baseline = choice_ledger.review_scorecard(
+        db, tenant="tenant-a", workspace="workspace-a", lane="lane-a"
+    )
+    assert baseline["assessment"] == "continue"
+    assert len(baseline["cohort_choice_ids"]) == 10
+    assert "CHOICE-010" not in baseline["cohort_choice_ids"]
+    assert baseline["repeated_negative_experience_count"] == 0
+
+    choice_ledger.append_choice_event(
+        db,
+        choice_id="CHOICE-010",
+        event_type="review_deferred",
+        idempotency_key="outside-incident",
+        occurred_at="2026-08-01T12:00:00+00:00",
+        safety_incident=True,
+    )
+    held = choice_ledger.review_scorecard(
+        db, tenant="tenant-a", workspace="workspace-a", lane="lane-a"
+    )
+    assert held["assessment"] == "hold"
+    assert held["primary_measures"] == baseline["primary_measures"]
+    assert held["boundary_incident_sources"] == [
+        {
+            "choice_id": "CHOICE-010",
+            "incidents": ["safety"],
+            "in_measurement_cohort": False,
+        }
+    ]
+    db.close()
+
+
+def test_review_excludes_superseded_before_cohort_ordering(tmp_path: Path) -> None:
+    db = connection(tmp_path / "superseded.sqlite3")
+    seed_outcomes(
+        db,
+        cognitive=("Missing",) * 5 + ("lower",) * 6,
+        momentum=("advanced",) * 11,
+        discovery=("new-useful-path",) * 11,
+    )
+    target = choice_ledger.project_choice(db, "CHOICE-003")["outcome"]["event_id"]
+    choice_ledger.append_choice_event(
+        db,
+        choice_id="CHOICE-003",
+        event_type="superseded",
+        idempotency_key="supersede-review-member",
+        occurred_at="2026-08-02T12:00:00+00:00",
+        supersedes_event_id=target,
+    )
+    scorecard = choice_ledger.review_scorecard(
+        db, tenant="tenant-a", workspace="workspace-a", lane="lane-a"
+    )
+    assert len(scorecard["cohort_choice_ids"]) == 10
+    assert "CHOICE-003" not in scorecard["cohort_choice_ids"]
+    assert "CHOICE-010" in scorecard["cohort_choice_ids"]
+    db.close()
+
+
+def test_review_v2_markdown_and_mixed_projection_versions(tmp_path: Path) -> None:
+    path = tmp_path / "review-markdown.sqlite3"
+    db = connection(path)
+    seed_outcomes(
+        db,
+        cognitive=("Missing",) * 10,
+        momentum=("advanced",) * 10,
+        discovery=("new-useful-path",) * 10,
+    )
+    choice = choice_ledger.project_choice(db, "CHOICE-000")
+    scorecard = choice_ledger.review_scorecard(
+        db, tenant="tenant-a", workspace="workspace-a", lane="lane-a"
+    )
+    rendered = choice_ledger.markdown_projection(scorecard, "Choice Review")
+    assert choice["projection_version"] == choice_ledger.PROJECTION_VERSION
+    assert scorecard["projection_version"] == choice_ledger.REVIEW_PROJECTION_VERSION
+    assert "- Cohort: `10/10` (`extension`)" in rendered
+    assert "- Lower Cognitive Load gap: `3` (`0/3` observed)" in rendered
+    db.close()
+    result = subprocess.run(
+        [
+            sys.executable,
+            str(SCRIPTS_ROOT / "choice_ledger.py"),
+            "--db",
+            str(path),
+            "--format",
+            "markdown",
+            "review",
+            "--tenant",
+            "tenant-a",
+            "--workspace",
+            "workspace-a",
+            "--lane",
+            "lane-a",
+        ],
+        check=True,
+        capture_output=True,
+        text=True,
+    )
+    assert "# Staged Five-to-Ten Review" in result.stdout
+    assert "- Projection: `review-scorecard 2.0`" in result.stdout
+    assert "- Cohort: `10/10` (`extension`)" in result.stdout
 
 
 def test_json_and_markdown_projections(tmp_path: Path) -> None:

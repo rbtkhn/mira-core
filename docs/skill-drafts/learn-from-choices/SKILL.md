@@ -1,6 +1,6 @@
 ---
 name: learn-from-choices
-description: "Turn final user-facing responses into outcome-aware possibility maps and learn from explicitly selected branches without expanding action authority. Use implicitly for every final response, when a user replies with a menu letter, and when choice outcomes or five-selection reviews should be retained or examined."
+description: "Turn final user-facing responses into outcome-aware possibility maps and learn from explicitly selected branches without expanding action authority. Use implicitly for every final response, when a user replies with a menu letter, and when choice outcomes or staged five-to-ten reviews should be retained or examined."
 ---
 
 # Learn From Choices
@@ -107,13 +107,22 @@ learning was unavailable when that fact matters.
 
 ## Review through coffee
 
-Route unresolved outcomes and the deterministic five-selection review through
-`coffee`, the existing re-entry workflow. Do not interrupt ordinary work.
+Route unresolved outcomes and the deterministic staged five-to-ten review
+through `coffee`, the existing re-entry workflow. Do not interrupt ordinary work.
 `coffee` retains its native Confirm/Test/Deepen/Reframe shape while mapping
 those options to recommended/alternative/overlooked/pause-or-deepen roles.
 
-After five resolved, non-superseded selections, use the earliest five eligible
-choices. Run `choice review` and report:
+Run `choice review` over resolved, non-superseded selections ordered by
+selection time and stable choice ID. Fewer than five eligible choices are
+`pending`. At five, evaluate the earliest five as the pilot cohort. If every
+primary dimension has at least three observations, that five-choice assessment
+is final and later outcomes do not alter its measurements. If any primary
+dimension is underobserved, enter an extension cohort that is frozen until ten
+eligible outcomes exist; choices six through nine cannot terminate it early.
+At ten, evaluate the cumulative earliest ten and exclude later eligible choices
+from cohort measurements.
+
+Report:
 
 - lower cognitive load: `lower` over observed non-`Missing` values, signal at
   three favorable observations;
@@ -124,10 +133,21 @@ choices. Run `choice review` and report:
 - result distribution, rework, repeated negative experiences, incidents, and
   confirmation that selection frequency was excluded.
 
-Apply assessment precedence: `hold` for any boundary incident;
-`extend-to-ten` when any primary dimension has fewer than three observations;
-`adjust` for at least two negative experiences; `continue` when at least two
-primary signals pass; otherwise `adjust`.
+Apply boundary incidents before `pending` and independently of the measurement
+cohort: `hold` for any scoped authority, privacy, safety, or lane incident, and
+identify whether each incident source is inside or outside the cohort. Without
+an incident, apply assessment precedence: `pending` below five;
+`extend-to-ten` for an underobserved pilot while the frozen extension has fewer
+than ten outcomes; terminal `adjust` at ten when any primary dimension still
+has fewer than three observations; `adjust` for at least two negative
+experiences; `continue` when at least two primary signals pass; otherwise
+`adjust`.
+
+Use review projection version `2.0` while keeping choice, context, unavailable,
+and verification projections on version `1.0`. Report cohort stage, target,
+eligible count, remaining count, cohort choice IDs, named observation gaps,
+the pilot gaps that triggered any frozen extension, incident sources, and
+confirmation that selection frequency was excluded.
 
 Treat the scorecard as descriptive pilot evidence, separate from the
 comparable-outcome recommendation threshold. Closeout workflows such as

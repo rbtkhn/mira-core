@@ -27,8 +27,8 @@ Use only in `narrative-systems`. Coffee is read-only.
 5. When `NARRATIVE_CHOICE_DB` is configured, run
    `tools/run.ps1 choice --format json review` and inspect the deterministic
    unresolved queue through `choice context`. Surface at most one lightweight
-   unresolved-outcome prompt or five-selection choice review; ordinary work
-   remains uninterrupted when the store is absent.
+   unresolved-outcome prompt or staged five-to-ten choice review; ordinary
+   work remains uninterrupted when the store is absent.
 
 ## Return
 

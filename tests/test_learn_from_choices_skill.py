@@ -49,6 +49,19 @@ def test_coffee_and_dream_composition_is_bounded() -> None:
     )
     assert "choice review" in coffee
     assert "unresolved-outcome prompt" in coffee
+    assert "five-to-ten" in coffee
     for role in ("recommended", "alternative", "overlooked", "pause-or-deepen"):
         assert f"`{role}`" in coffee
     assert "Do not solicit or record unresolved choice outcomes" in dream
+
+
+def test_review_contract_is_staged_and_terminal() -> None:
+    skill = (SKILL_ROOT / "SKILL.md").read_text(encoding="utf-8")
+    for phrase in (
+        "frozen until ten",
+        "cumulative earliest ten",
+        "terminal `adjust`",
+        "before `pending`",
+        "selection frequency was excluded",
+    ):
+        assert phrase in skill
