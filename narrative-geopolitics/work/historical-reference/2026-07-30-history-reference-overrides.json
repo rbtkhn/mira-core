@@ -1,0 +1,70 @@
+{
+  "overrides": {
+    "narrative-geopolitics/archive/sources/2026-07-30/source-how-ukraine-could-pull-the-us-into-a-bigger-war-chas-freeman-2026-07-30.md:sino-indian-war-1962:3": {
+      "review_status": "qualify",
+      "review_note": "Explicitly named by Freeman at transcript line 148 as the Sino-Indian War of 1962; transcript renders the name as Sanino Indian. Exact-context quote repair remains needed.",
+      "reviewed_by": "operator-directed-review",
+      "reviewed_at": "2026-07-31"
+    },
+    "narrative-geopolitics/archive/sources/2026-07-30/source-how-ukraine-could-pull-the-us-into-a-bigger-war-chas-freeman-2026-07-30.md:sino-vietnamese-war-1979:3": {
+      "review_status": "qualify",
+      "review_note": "Explicitly named by Freeman at transcript line 148 as the Sino-Vietnamese War of 1979; line 149 supplies the diplomacy-during-war context. Exact-context quote repair remains needed.",
+      "reviewed_by": "operator-directed-review",
+      "reviewed_at": "2026-07-31"
+    },
+    "narrative-geopolitics/archive/sources/2026-07-30/source-breaking-russian-kh-101-cruise-missile-strikes-nato-s-poland-w-prof-glenn-diesen-2026-07-30.md:cold-war:3": {
+      "review_status": "qualify",
+      "review_note": "Historical reference supported at transcript line 143; generated quote requires exact-context repair.",
+      "reviewed_by": "operator-directed-review",
+      "reviewed_at": "2026-07-31"
+    },
+    "narrative-geopolitics/archive/sources/2026-07-30/source-col-lawrence-wilkerson-does-trump-know-he-lost-his-war-2026-07-30.md:jcpoa:3": {
+      "review_status": "qualify",
+      "review_note": "JCPOA reference supported at transcript lines 115-117; generated quote requires exact-context repair.",
+      "reviewed_by": "operator-directed-review",
+      "reviewed_at": "2026-07-31"
+    },
+    "narrative-geopolitics/archive/sources/2026-07-30/source-how-ukraine-could-pull-the-us-into-a-bigger-war-chas-freeman-2026-07-30.md:cold-war:3": {
+      "review_status": "qualify",
+      "review_note": "Cold War references supported at transcript lines 132 and 156; generated quote requires exact-context repair.",
+      "reviewed_by": "operator-directed-review",
+      "reviewed_at": "2026-07-31"
+    },
+    "narrative-geopolitics/archive/sources/2026-07-30/source-how-ukraine-could-pull-the-us-into-a-bigger-war-chas-freeman-2026-07-30.md:iranian-revolution:3": {
+      "review_status": "rejected",
+      "review_note": "False positive: transcript mentions the Islamic Revolutionary Guard but does not explicitly reference the Iranian Revolution, 1979, Khomeini, or the Shah.",
+      "reviewed_by": "operator-directed-review",
+      "reviewed_at": "2026-07-31"
+    },
+    "narrative-geopolitics/archive/sources/2026-07-30/source-how-ukraine-could-pull-the-us-into-a-bigger-war-chas-freeman-2026-07-30.md:jcpoa:3": {
+      "review_status": "qualify",
+      "review_note": "Generic nuclear-diplomacy wording appears, but an explicit JCPOA reference requires manual confirmation; generated quote requires exact-context repair.",
+      "reviewed_by": "operator-directed-review",
+      "reviewed_at": "2026-07-31"
+    },
+    "narrative-geopolitics/archive/sources/2026-07-30/source-john-mearsheimer-ukraine-is-landlocked-donbas-enters-endgame-2026-07-30.md:cold-war:3": {
+      "review_status": "qualify",
+      "review_note": "Cold War references supported at transcript lines 137, 145, and 160; generated quote requires exact-context repair.",
+      "reviewed_by": "operator-directed-review",
+      "reviewed_at": "2026-07-31"
+    },
+    "narrative-geopolitics/archive/sources/2026-07-30/source-trump-pushes-centcom-to-continue-strikes-despite-protest-w-joe-kent-2026-07-30.md:iraq-war:3": {
+      "review_status": "qualify",
+      "review_note": "2003 Iraq War reference supported at transcript line 75; generated quote requires exact-context repair.",
+      "reviewed_by": "operator-directed-review",
+      "reviewed_at": "2026-07-31"
+    },
+    "narrative-geopolitics/archive/sources/2026-07-30/source-us-unleashes-heavy-wave-of-strikes-against-iran-lt-col-daniel-davis-2026-07-30.md:iraq-war:3": {
+      "review_status": "qualify",
+      "review_note": "2003 Iraq War reference supported at transcript lines 114-116; generated quote requires exact-context repair.",
+      "reviewed_by": "operator-directed-review",
+      "reviewed_at": "2026-07-31"
+    },
+    "narrative-geopolitics/archive/sources/2026-07-30/source-us-unleashes-heavy-wave-of-strikes-against-iran-lt-col-daniel-davis-2026-07-30.md:kuwait-liberation:3": {
+      "review_status": "qualify",
+      "review_note": "1991 Gulf War reference supported at transcript line 116; generated quote requires exact-context repair.",
+      "reviewed_by": "operator-directed-review",
+      "reviewed_at": "2026-07-31"
+    }
+  }
+}

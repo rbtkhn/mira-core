@@ -3,7 +3,7 @@ name: geopolitical-synthesis
 description: "Narrative Geopolitics guided synthesis for manifest-backed live or intentional retrospective days."
 preferred_activation: geopolitical-synthesis
 portable: false
-version: 0.2.0
+version: 0.2.1
 category: narrative-geopolitics
 status: active
 ---
@@ -72,6 +72,26 @@ rules this way:
 - dense days: check voice triangulation, issue selection, and held-story logic;
 - `OPC-*` days: prioritize verification review, but do not assign operational truth;
 - carried-hook days: avoid duplicate forecasts unless a new wager is genuinely created.
+
+## Source-Anchor Coverage
+
+Use a variable source-anchor target rather than a hard 40-anchor minimum:
+
+- require at least one valid `SRC-*` anchor for every landed source included in
+  the Run Source Set;
+- target 2–3 anchors per major mechanism or theme;
+- treat approximately 24–30 anchors as a normal full-day working ceiling unless
+  the material supports more distinct, non-redundant points;
+- use 40 anchors only for unusually dense or multi-theater batches, and only
+  when each additional anchor has a distinct analytic job.
+
+Anchors support source traceability; they do not independently corroborate a
+claim or convert source assertion into reality-check evidence.
+
+The daily-run validator performs advisory checks for minimum source coverage,
+partial quote coverage, repeated load-bearing quotes, and unusually high anchor
+counts. These checks warn for review; they do not replace source judgment or
+block a justified dense-batch exception.
 
 ## Guardrails
 

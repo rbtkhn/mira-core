@@ -1,0 +1,166 @@
+{
+  "run_id": "2026-07-30-history-reference-reviewed-v4",
+  "sources": {
+    "narrative-geopolitics/archive/sources/2026-07-30/source-alex-krainer-the-inevitable-just-happened-massive-middle-east-shifts-2026-07-30.md": {
+      "fingerprint": {
+        "archive_path": "narrative-geopolitics/archive/sources/2026-07-30/source-alex-krainer-the-inevitable-just-happened-massive-middle-east-shifts-2026-07-30.md",
+        "detector_version": "3",
+        "file_hash": "2450f9deb4942ea5faa632e6e2ce143678b21556be527d544642449dc3f8ccda",
+        "mechanism_version": "1",
+        "source_id": "narrative-geopolitics/archive/sources/2026-07-30/source-alex-krainer-the-inevitable-just-happened-massive-middle-east-shifts-2026-07-30.md",
+        "taxonomy_version": "2",
+        "voice_scope": "blumenthal,davis,diesen,escobar,freeman,kent,krainer,mearsheimer,mercouris,postol,sachs,wilkerson"
+      },
+      "record_count": 0,
+      "status": "landed"
+    },
+    "narrative-geopolitics/archive/sources/2026-07-30/source-breaking-russian-kh-101-cruise-missile-strikes-nato-s-poland-w-prof-glenn-diesen-2026-07-30.md": {
+      "fingerprint": {
+        "archive_path": "narrative-geopolitics/archive/sources/2026-07-30/source-breaking-russian-kh-101-cruise-missile-strikes-nato-s-poland-w-prof-glenn-diesen-2026-07-30.md",
+        "detector_version": "3",
+        "file_hash": "55c39988230b82f29cec51eaae4322afbb64da68956bba2d3ca0e984f901da10",
+        "mechanism_version": "1",
+        "source_id": "narrative-geopolitics/archive/sources/2026-07-30/source-breaking-russian-kh-101-cruise-missile-strikes-nato-s-poland-w-prof-glenn-diesen-2026-07-30.md",
+        "taxonomy_version": "2",
+        "voice_scope": "blumenthal,davis,diesen,escobar,freeman,kent,krainer,mearsheimer,mercouris,postol,sachs,wilkerson"
+      },
+      "record_count": 1,
+      "status": "landed"
+    },
+    "narrative-geopolitics/archive/sources/2026-07-30/source-col-lawrence-wilkerson-does-trump-know-he-lost-his-war-2026-07-30.md": {
+      "fingerprint": {
+        "archive_path": "narrative-geopolitics/archive/sources/2026-07-30/source-col-lawrence-wilkerson-does-trump-know-he-lost-his-war-2026-07-30.md",
+        "detector_version": "3",
+        "file_hash": "3f4ad6f14d3d1b13dafd1893d669b8bd237a2727148925aca1b54de54835d597",
+        "mechanism_version": "1",
+        "source_id": "narrative-geopolitics/archive/sources/2026-07-30/source-col-lawrence-wilkerson-does-trump-know-he-lost-his-war-2026-07-30.md",
+        "taxonomy_version": "2",
+        "voice_scope": "blumenthal,davis,diesen,escobar,freeman,kent,krainer,mearsheimer,mercouris,postol,sachs,wilkerson"
+      },
+      "record_count": 1,
+      "status": "landed"
+    },
+    "narrative-geopolitics/archive/sources/2026-07-30/source-how-ukraine-could-pull-the-us-into-a-bigger-war-chas-freeman-2026-07-30.md": {
+      "fingerprint": {
+        "archive_path": "narrative-geopolitics/archive/sources/2026-07-30/source-how-ukraine-could-pull-the-us-into-a-bigger-war-chas-freeman-2026-07-30.md",
+        "detector_version": "3",
+        "file_hash": "cc67effc33a3aa1c31df6cdbfbd5e8076c64a94c978bfd1ada313598cbdb1067",
+        "mechanism_version": "1",
+        "source_id": "narrative-geopolitics/archive/sources/2026-07-30/source-how-ukraine-could-pull-the-us-into-a-bigger-war-chas-freeman-2026-07-30.md",
+        "taxonomy_version": "2",
+        "voice_scope": "blumenthal,davis,diesen,escobar,freeman,kent,krainer,mearsheimer,mercouris,postol,sachs,wilkerson"
+      },
+      "record_count": 5,
+      "status": "landed"
+    },
+    "narrative-geopolitics/archive/sources/2026-07-30/source-iran-missiles-stroner-than-oreshniks-mit-professor-ted-postol-2026-07-30.md": {
+      "fingerprint": {
+        "archive_path": "narrative-geopolitics/archive/sources/2026-07-30/source-iran-missiles-stroner-than-oreshniks-mit-professor-ted-postol-2026-07-30.md",
+        "detector_version": "3",
+        "file_hash": "de0d33847912b6eb7850dbaa54003d89fcbb239c75589b369d5b0a655b5924c9",
+        "mechanism_version": "1",
+        "source_id": "narrative-geopolitics/archive/sources/2026-07-30/source-iran-missiles-stroner-than-oreshniks-mit-professor-ted-postol-2026-07-30.md",
+        "taxonomy_version": "2",
+        "voice_scope": "blumenthal,davis,diesen,escobar,freeman,kent,krainer,mearsheimer,mercouris,postol,sachs,wilkerson"
+      },
+      "record_count": 0,
+      "status": "landed"
+    },
+    "narrative-geopolitics/archive/sources/2026-07-30/source-john-mearsheimer-ukraine-is-landlocked-donbas-enters-endgame-2026-07-30.md": {
+      "fingerprint": {
+        "archive_path": "narrative-geopolitics/archive/sources/2026-07-30/source-john-mearsheimer-ukraine-is-landlocked-donbas-enters-endgame-2026-07-30.md",
+        "detector_version": "3",
+        "file_hash": "f796ecff21bdbe20e81da7f0f690a63d59bf72769383457700a2b1ad6b18f141",
+        "mechanism_version": "1",
+        "source_id": "narrative-geopolitics/archive/sources/2026-07-30/source-john-mearsheimer-ukraine-is-landlocked-donbas-enters-endgame-2026-07-30.md",
+        "taxonomy_version": "2",
+        "voice_scope": "blumenthal,davis,diesen,escobar,freeman,kent,krainer,mearsheimer,mercouris,postol,sachs,wilkerson"
+      },
+      "record_count": 1,
+      "status": "landed"
+    },
+    "narrative-geopolitics/archive/sources/2026-07-30/source-max-blumenthal-why-netanyahu-is-desperate-2026-07-30.md": {
+      "fingerprint": {
+        "archive_path": "narrative-geopolitics/archive/sources/2026-07-30/source-max-blumenthal-why-netanyahu-is-desperate-2026-07-30.md",
+        "detector_version": "3",
+        "file_hash": "9cfa14e833a82f5f0ec525577d236c05d2e8d72c42698ec2a00fcefcf9eaaa74",
+        "mechanism_version": "1",
+        "source_id": "narrative-geopolitics/archive/sources/2026-07-30/source-max-blumenthal-why-netanyahu-is-desperate-2026-07-30.md",
+        "taxonomy_version": "2",
+        "voice_scope": "blumenthal,davis,diesen,escobar,freeman,kent,krainer,mearsheimer,mercouris,postol,sachs,wilkerson"
+      },
+      "record_count": 0,
+      "status": "landed"
+    },
+    "narrative-geopolitics/archive/sources/2026-07-30/source-pepe-escobar-iran-is-dismantling-the-u-s-military-ecosystem-2026-07-30.md": {
+      "fingerprint": {
+        "archive_path": "narrative-geopolitics/archive/sources/2026-07-30/source-pepe-escobar-iran-is-dismantling-the-u-s-military-ecosystem-2026-07-30.md",
+        "detector_version": "3",
+        "file_hash": "cbb7d33e71f6b1a06caa6f248b07edf2010eaaebac1b0ecd79d5e9d4dca25ea6",
+        "mechanism_version": "1",
+        "source_id": "narrative-geopolitics/archive/sources/2026-07-30/source-pepe-escobar-iran-is-dismantling-the-u-s-military-ecosystem-2026-07-30.md",
+        "taxonomy_version": "2",
+        "voice_scope": "blumenthal,davis,diesen,escobar,freeman,kent,krainer,mearsheimer,mercouris,postol,sachs,wilkerson"
+      },
+      "record_count": 0,
+      "status": "landed"
+    },
+    "narrative-geopolitics/archive/sources/2026-07-30/source-prof-jeffrey-sachs-can-dr-fauci-tell-the-truth-2026-07-30.md": {
+      "fingerprint": {
+        "archive_path": "narrative-geopolitics/archive/sources/2026-07-30/source-prof-jeffrey-sachs-can-dr-fauci-tell-the-truth-2026-07-30.md",
+        "detector_version": "3",
+        "file_hash": "93759f344bcdfdea83046a262d8cdfece45cdc03526d6812a7c6c1a3d5161974",
+        "mechanism_version": "1",
+        "source_id": "narrative-geopolitics/archive/sources/2026-07-30/source-prof-jeffrey-sachs-can-dr-fauci-tell-the-truth-2026-07-30.md",
+        "taxonomy_version": "2",
+        "voice_scope": "blumenthal,davis,diesen,escobar,freeman,kent,krainer,mearsheimer,mercouris,postol,sachs,wilkerson"
+      },
+      "record_count": 0,
+      "status": "landed"
+    },
+    "narrative-geopolitics/archive/sources/2026-07-30/source-russia-huge-strike-across-ukraine-great-destruction-us-without-patriots-ukraine-no-ad-dobropiliya-2026-07-30.md": {
+      "fingerprint": {
+        "archive_path": "narrative-geopolitics/archive/sources/2026-07-30/source-russia-huge-strike-across-ukraine-great-destruction-us-without-patriots-ukraine-no-ad-dobropiliya-2026-07-30.md",
+        "detector_version": "3",
+        "file_hash": "117af5cee9cdbca2995ee9969c2f53cc3977a5f61ecb236849a6e14a3e646fdb",
+        "mechanism_version": "1",
+        "source_id": "narrative-geopolitics/archive/sources/2026-07-30/source-russia-huge-strike-across-ukraine-great-destruction-us-without-patriots-ukraine-no-ad-dobropiliya-2026-07-30.md",
+        "taxonomy_version": "2",
+        "voice_scope": "blumenthal,davis,diesen,escobar,freeman,kent,krainer,mearsheimer,mercouris,postol,sachs,wilkerson"
+      },
+      "record_count": 0,
+      "status": "landed"
+    },
+    "narrative-geopolitics/archive/sources/2026-07-30/source-trump-pushes-centcom-to-continue-strikes-despite-protest-w-joe-kent-2026-07-30.md": {
+      "fingerprint": {
+        "archive_path": "narrative-geopolitics/archive/sources/2026-07-30/source-trump-pushes-centcom-to-continue-strikes-despite-protest-w-joe-kent-2026-07-30.md",
+        "detector_version": "3",
+        "file_hash": "872138d716a09ec4ecd3a4f2036fce54a5b34388f033b03c8ebb5ca8734bb47e",
+        "mechanism_version": "1",
+        "source_id": "narrative-geopolitics/archive/sources/2026-07-30/source-trump-pushes-centcom-to-continue-strikes-despite-protest-w-joe-kent-2026-07-30.md",
+        "taxonomy_version": "2",
+        "voice_scope": "blumenthal,davis,diesen,escobar,freeman,kent,krainer,mearsheimer,mercouris,postol,sachs,wilkerson"
+      },
+      "record_count": 1,
+      "status": "landed"
+    },
+    "narrative-geopolitics/archive/sources/2026-07-30/source-us-unleashes-heavy-wave-of-strikes-against-iran-lt-col-daniel-davis-2026-07-30.md": {
+      "fingerprint": {
+        "archive_path": "narrative-geopolitics/archive/sources/2026-07-30/source-us-unleashes-heavy-wave-of-strikes-against-iran-lt-col-daniel-davis-2026-07-30.md",
+        "detector_version": "3",
+        "file_hash": "66561a46ddda39fe723cc4cfbec53dd65717f0f2c811cbdeb98235fe2a07d12b",
+        "mechanism_version": "1",
+        "source_id": "narrative-geopolitics/archive/sources/2026-07-30/source-us-unleashes-heavy-wave-of-strikes-against-iran-lt-col-daniel-davis-2026-07-30.md",
+        "taxonomy_version": "2",
+        "voice_scope": "blumenthal,davis,diesen,escobar,freeman,kent,krainer,mearsheimer,mercouris,postol,sachs,wilkerson"
+      },
+      "record_count": 2,
+      "status": "landed"
+    }
+  },
+  "versions": {
+    "detector": "3",
+    "mechanism": "1",
+    "taxonomy": "2"
+  }
+}

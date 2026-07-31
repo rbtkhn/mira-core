@@ -8,7 +8,7 @@ from pathlib import Path
 REPO = Path(__file__).resolve().parents[4]
 MANIFEST = REPO / "narrative-geopolitics" / "archive" / "source-manifest.json"
 CALIBRATION = Path(__file__).resolve().parents[1] / "references" / "calibration.json"
-VERSIONS = {"taxonomy": "1", "detector": "1", "mechanism": "1"}
+VERSIONS = {"taxonomy": "2", "detector": "3", "mechanism": "1"}
 
 RUN_STATES = {"planned", "processing", "landed", "skipped", "failed", "invalid"}
 
@@ -22,6 +22,8 @@ PATTERNS = {
     "nixon-kissinger": ("Nixon–Kissinger China strategy", r"nixon|kissinger"),
     "iranian-revolution": ("Iranian Revolution", r"iranian revolution|islamic revolution"),
     "kuwait-liberation": ("1991 liberation of Kuwait", r"liberat(?:ed|ion) kuwait|gulf war"),
+    "sino-indian-war-1962": ("Sino-Indian War of 1962", r"(?:sino|sanino)[\s-]+indian war(?: of)? 1962|(?:sino|sanino)[\s-]+indian war"),
+    "sino-vietnamese-war-1979": ("Sino-Vietnamese War of 1979", r"sino[\s-]+vietnamese war(?: of)? 1979|sino[\s-]+vietnamese war"),
     "october-7": ("7 October Hamas attack", r"october 7(?:th)?|hamas breakout"),
     "renaissance-knowledge": ("Renaissance transmission of Greek and Roman knowledge", r"renaissance.{0,80}(?:greek|roman|knowledge)|greek and roman (?:knowledge|texts)"),
     "thucydides-trap": ("Thucydides Trap", r"thucydides"),
@@ -152,10 +154,11 @@ def analyze_row(row: dict, selected_voices: set[str] | None = None) -> list[dict
             available_voices = {str(v).lower() for v in (row.get("voice_slugs") or [])}
             voice = sorted(available_voices if selected_voices is None else available_voices.intersection(selected_voices))
             occurrence_id = f"{source_id}:{ref_id}:{paragraph}"
-            mechanism = "coercion" if ref_id in {"iraq-war", "vietnam-war", "cuba-embargo"} else "diplomacy" if ref_id in {"jcpoa", "nixon-kissinger", "kuwait-liberation"} else "legitimacy" if ref_id in {"iranian-revolution", "october-7"} else "power"
+            mechanism = "coercion" if ref_id in {"iraq-war", "vietnam-war", "cuba-embargo"} else "diplomacy" if ref_id in {"jcpoa", "nixon-kissinger", "kuwait-liberation", "sino-indian-war-1962", "sino-vietnamese-war-1979"} else "legitimacy" if ref_id in {"iranian-revolution", "october-7"} else "power"
             mid, mname = MECHANISMS[mechanism]
             confidence = "direct" if re.search(r"(?:\*\*)?(?:Chas|Charles) Freeman(?:\*\*)?:", block, re.I) else "provisional"
-            out.append({"occurrence_id": occurrence_id, "voices": voice, "source_id": source_id, "archive_path": row["local_path"], "date": row.get("date", ""), "title": row.get("title", ""), "quote": re.sub(r"\s+", " ", block)[:700], "reference_id": ref_id, "reference": label, "parent_period": "historical period", "attribution_confidence": confidence, "mechanism_suggestions": [{"id": mid, "name": mname, "basis": "native reference adapter"}], "crosswalk_suggestions": [{"target": mid, "confidence": "suggested", "rationale": "native reference adapter", "conflict_status": "unreviewed", "review_status": "unreviewed"}], "risk_score": (3 if confidence == "provisional" else 1), "review_status": "needs-review" if confidence == "provisional" else "unreviewed"})
+            parent_period = "Cold War" if ref_id in {"cold-war", "vietnam-war", "sino-indian-war-1962", "sino-vietnamese-war-1979"} else "historical period"
+            out.append({"occurrence_id": occurrence_id, "voices": voice, "source_id": source_id, "archive_path": row["local_path"], "date": row.get("date", ""), "title": row.get("title", ""), "quote": re.sub(r"\s+", " ", block)[:700], "reference_id": ref_id, "reference": label, "parent_period": parent_period, "attribution_confidence": confidence, "mechanism_suggestions": [{"id": mid, "name": mname, "basis": "native reference adapter"}], "crosswalk_suggestions": [{"target": mid, "confidence": "suggested", "rationale": "native reference adapter", "conflict_status": "unreviewed", "review_status": "unreviewed"}], "risk_score": (3 if confidence == "provisional" else 1), "review_status": "needs-review" if confidence == "provisional" else "unreviewed"})
     return out
 
 def calibration_report() -> dict:
@@ -170,7 +173,7 @@ def calibration_report() -> dict:
         elif detected != expected and expected is not None: reference_fn += 1
         predicted_attr = "direct" if re.search(r"(?:\*\*)?(?:Chas|Charles) Freeman(?:\*\*)?:", case["text"], re.I) else "excluded-context" if re.search(r"\*\*Host:\*\*|Welcome back", case["text"], re.I) else "provisional"
         attribution_ok += int(predicted_attr == case["expected_attribution"])
-        predicted_mechanism = "coercion" if detected in {"iraq-war", "vietnam-war", "cuba-embargo", "bay-of-pigs"} else "diplomacy" if detected in {"jcpoa", "nixon-kissinger", "kuwait-liberation"} else "legitimacy" if detected in {"iranian-revolution", "october-7"} else "power" if detected in {"cold-war", "thucydides-trap"} else "competence" if detected == "renaissance-knowledge" else None
+        predicted_mechanism = "coercion" if detected in {"iraq-war", "vietnam-war", "cuba-embargo", "bay-of-pigs"} else "diplomacy" if detected in {"jcpoa", "nixon-kissinger", "kuwait-liberation", "sino-indian-war-1962", "sino-vietnamese-war-1979"} else "legitimacy" if detected in {"iranian-revolution", "october-7"} else "power" if detected in {"cold-war", "thucydides-trap"} else "competence" if detected == "renaissance-knowledge" else None
         mechanism_ok += int(predicted_mechanism == case["expected_mechanism"])
         crosswalk_ok += int(("M-FR-001" if predicted_mechanism == "coercion" else "M-FR-002" if predicted_mechanism == "diplomacy" else "M-FR-003" if predicted_mechanism == "power" else "M-FR-004" if predicted_mechanism == "competence" else "M-FR-005" if predicted_mechanism == "legitimacy" else None) == case["expected_crosswalk"])
         results.append({"id": case["id"], "expected_reference": expected, "detected_reference": detected, "reference_match": detected == expected, "attribution_match": predicted_attr == case["expected_attribution"], "mechanism_match": predicted_mechanism == case["expected_mechanism"]})

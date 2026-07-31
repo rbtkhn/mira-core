@@ -43,8 +43,21 @@ JUDGMENT_REQUIRED_SECTIONS = (
     "## Claim and Forecast Dependencies",
     "## Next Observable Signals",
     "## Decision / Public-use Implication",
+    "## Decision Compression",
 )
-JUDGMENT_REF_RE = re.compile(r"`((?:OPC|CLM|NG)-[A-Z0-9-]+)`")
+JUDGMENT_REF_RE = re.compile(r"`((?:SRC|OPC|CLM|NG|VER)-[A-Z0-9-]+)`")
+JUDGMENT_DISPOSITION_RE = re.compile(
+    r"Recommended disposition:\s*`?([^`\n]+)`?", re.IGNORECASE
+)
+JUDGMENT_DISPOSITIONS = {
+    "archive-only",
+    "synthesis-use",
+    "forecast-hook",
+    "verification-request",
+    "reality-claim-candidate",
+    "longitudinal-review",
+    "public-use-held",
+}
 
 
 def parse_args() -> argparse.Namespace:
@@ -110,6 +123,28 @@ def judgment_failures(run_date: str, rows: list[dict[str, Any]], stage: str) -> 
     if not re.search(r"-\s+[^\n]+", text.split("## Next Observable Signals", 1)[-1]):
         failures.append("judgment.md requires at least one next observable signal")
 
+    compression = text.split("## Decision Compression", 1)[-1].split("## Later Review Note", 1)[0]
+    for label in (
+        "What changed:",
+        "Reusable mechanism:",
+        "Decision implication:",
+        "Evidence still missing:",
+        "Recommended disposition:",
+    ):
+        match = re.search(rf"^{re.escape(label)}\s*(.+)$", compression, re.MULTILINE)
+        if not match or not match.group(1).strip() or match.group(1).strip().lower() in {"none", "n/a"}:
+            failures.append(f"judgment.md Decision Compression requires {label[:-1].lower()}")
+    disposition = JUDGMENT_DISPOSITION_RE.search(compression)
+    if not disposition:
+        failures.append("judgment.md Decision Compression requires a recommended disposition")
+    else:
+        values = {item.strip().strip("`").lower() for item in disposition.group(1).split(",")}
+        invalid = sorted(values - JUDGMENT_DISPOSITIONS)
+        if invalid:
+            failures.append(f"judgment.md has invalid recommended disposition: {', '.join(invalid)}")
+    if re.search(r"(?i)\b(?:is|are|was|were)\s+(?:verified|confirmed|operationally supported)\b|\boperationally_supported\b", compression) and not re.search(r"`(?:OPC|CLM|VER)-[A-Z0-9-]+`", compression):
+        failures.append("judgment.md cannot assert verification status without a linked OPC, CLM, or VER record")
+
     records_root = NG_ROOT / "work" / "reality"
     known_ids = set()
     if records_root.exists():
@@ -121,8 +156,18 @@ def judgment_failures(run_date: str, rows: list[dict[str, Any]], stage: str) -> 
             if record.get("id"):
                 known_ids.add(str(record["id"]))
     ledger_ids = set(HOOK_RE.findall(read_text(LEDGER_PATH)))
+    source_ids = set(re.findall(r"`(SRC-[A-Z0-9-]+)`", read_text(daily_dir(run_date) / "sources.md")))
+    verification_ids = {
+        path.name for path in (NG_ROOT / "work" / "verification" / "packets").glob("VER-*")
+    } if (NG_ROOT / "work" / "verification" / "packets").exists() else set()
     for ref in JUDGMENT_REF_RE.findall(text):
-        if ref.startswith("NG-"):
+        if ref.startswith("SRC-"):
+            if ref not in source_ids:
+                failures.append(f"judgment.md reference does not resolve: {ref}")
+        elif ref.startswith("VER-"):
+            if not any(ref == item or item.startswith(ref + "-") for item in verification_ids):
+                failures.append(f"judgment.md reference does not resolve: {ref}")
+        elif ref.startswith("NG-"):
             if ref not in known_ids and ref not in ledger_ids:
                 failures.append(f"judgment.md reference does not resolve: {ref}")
         elif ref not in known_ids:
@@ -195,6 +240,33 @@ def coverage_differences(
     return sorted(manifest_paths - intake_paths), sorted(intake_paths - manifest_paths)
 
 
+def anchor_quality_warnings(sources_text: str, landed_count: int) -> list[str]:
+    """Advisory checks for variable source-anchor coverage and quote redundancy."""
+    warnings: list[str] = []
+    source_rows = re.findall(r"\|\s*`(SRC-[A-Z0-9-]+)`\s*\|", sources_text)
+    source_ids = set(source_rows)
+    quote_rows = re.findall(r"\|\s*`(SRC-[A-Z0-9-]+)`\s*\|\s*[“\"]([^|]+)[”\"]\s*\|", sources_text)
+    quote_ids = {item[0] for item in quote_rows}
+    if landed_count and len(source_ids) < landed_count:
+        warnings.append(f"source-anchor coverage below minimum: {len(source_ids)} SRC anchors for {landed_count} landed sources")
+    if quote_rows and len(quote_ids) < len(source_ids):
+        warnings.append(f"load-bearing quote coverage is partial: {len(quote_ids)} of {len(source_ids)} SRC anchors have quotes")
+    normalized: dict[str, list[str]] = {}
+    for source_id, quote in quote_rows:
+        key = re.sub(r"[^a-z0-9]+", " ", quote.lower()).strip()
+        if key:
+            normalized.setdefault(key, []).append(source_id)
+    duplicates = [ids for ids in normalized.values() if len(ids) > 1]
+    if duplicates:
+        warnings.append("load-bearing quote redundancy detected: " + "; ".join(", ".join(ids) for ids in duplicates))
+    anchor_count = len(quote_rows) if quote_rows else len(source_ids)
+    if anchor_count >= 40:
+        warnings.append(f"anchor count is {anchor_count}: confirm each anchor has a distinct analytic job before treating 40 as justified")
+    elif landed_count and anchor_count > 30:
+        warnings.append(f"anchor count is {anchor_count}: above the normal 24–30 working range; review for redundancy")
+    return warnings
+
+
 def validate_run(run_date: str, stage: str = "intake") -> dict[str, Any]:
     if stage not in {"intake", "synthesis", "forecast", "issue", "publication"}:
         raise ValueError(f"unsupported validation stage: {stage}")
@@ -231,6 +303,8 @@ def validate_run(run_date: str, stage: str = "intake") -> dict[str, Any]:
 
     if rows and (run_path / "sources.md").exists():
         sources_text = read_text(run_path / "sources.md")
+        if downstream:
+            warnings.extend(anchor_quality_warnings(sources_text, len(rows)))
         consumed_sources = len(
             manifest_archive_paths(rows) & set(extract_intake_paths(sources_text))
         )
@@ -290,10 +364,32 @@ def validate_run(run_date: str, stage: str = "intake") -> dict[str, Any]:
                         "delta-v1 synthesis has incomplete Distinctive Contribution"
                     )
                     break
-            if "Disposition: `archive-only`" in synthesis_text:
-                failures.append(
-                    "archive-only delta-v1 disposition must not become a completed daily packet"
-                )
+            archive_only = "Disposition: `archive-only`" in synthesis_text
+            if not archive_only:
+                primary = synthesis_text.split("## Primary Voices", 1)[-1].split("##", 1)[0]
+                voice_rows = [line for line in primary.splitlines() if line.startswith("|") and "---" not in line]
+                if len(voice_rows) < 2:
+                    failures.append("deepening gate requires at least two source-specific analytical contributions")
+                story_desk = synthesis_text.split("## Issue Story Desk", 1)[-1].split("##", 1)[0]
+                if not re.search(r"\|\s*`NGI-\d{8}-S\d{2}`\s*\|\s*`lead`\s*\|", story_desk):
+                    failures.append("deepening gate requires one valid lead story")
+                if "[" in synthesis_text or "]" in synthesis_text:
+                    failures.append("deepening gate rejects unresolved synthesis placeholders")
+            else:
+                if (run_path / "issue.md").exists():
+                    warnings.append("archive-only disposition should not generate issue.md")
+            forecast_text = read_text(run_path / "forecast.md") if (run_path / "forecast.md").exists() else ""
+            forecast_hooks = HOOK_RE.findall(forecast_text)
+            if not forecast_hooks and not archive_only and not re.search(
+                r"(?i)no new (?:accountable )?forecast hook|no forecast hook is issued", forecast_text
+            ):
+                failures.append("forecast.md requires an explicit forecast decision")
+            for line in forecast_text.splitlines():
+                if line.lstrip().startswith("|") and re.search(r"NG-\d{8}-F\d{2}", line):
+                    cells = [cell.strip() for cell in line.strip().strip("|").split("|")]
+                    if len(cells) < 3 or not cells[1] or not cells[2]:
+                        failures.append("forecast.md contains an incomplete forecast hook row")
+                        break
         failures.extend(
             verification.validate_day_claims(
                 run_date,
@@ -303,14 +399,23 @@ def validate_run(run_date: str, stage: str = "intake") -> dict[str, Any]:
             )
         )
 
-    issue_failures, issue_warnings = daily_issue.validate_issue(
-        run_date,
-        require=stage == "issue",
-        daily_root=DAILY_ROOT,
-        ledger_path=LEDGER_PATH,
-    )
-    failures.extend(f"issue.md: {item}" for item in issue_failures)
-    warnings.extend(f"issue.md: {item}" for item in issue_warnings)
+    archive_only = False
+    synthesis_path = run_path / "synthesis.md"
+    if synthesis_path.exists():
+        archive_only = "Disposition: `archive-only`" in read_text(synthesis_path)
+    if not archive_only:
+        issue_failures, issue_warnings = daily_issue.validate_issue(
+            run_date,
+            require=stage == "issue",
+            daily_root=DAILY_ROOT,
+            ledger_path=LEDGER_PATH,
+        )
+        failures.extend(f"issue.md: {item}" for item in issue_failures)
+        for item in issue_warnings:
+            if stage in {"issue", "publication"} and "word count outside 1500-2500" in item:
+                failures.append(f"issue.md: {item}; daily-packet requires 1500-2500 editorial words")
+            else:
+                warnings.append(f"issue.md: {item}")
 
     return {
         "date": run_date,
