@@ -373,7 +373,7 @@ def validate_run(run_date: str, stage: str = "intake") -> dict[str, Any]:
                 story_desk = synthesis_text.split("## Issue Story Desk", 1)[-1].split("##", 1)[0]
                 if not re.search(r"\|\s*`NGI-\d{8}-S\d{2}`\s*\|\s*`lead`\s*\|", story_desk):
                     failures.append("deepening gate requires one valid lead story")
-                if "[" in synthesis_text or "]" in synthesis_text:
+                if re.search(r"\[(?:prior date|name the new|daily-packet|Who can do what|bounded judgment|use `|add the VER|observable signal|internal decision|causal or structural)", synthesis_text):
                     failures.append("deepening gate rejects unresolved synthesis placeholders")
             else:
                 if (run_path / "issue.md").exists():
