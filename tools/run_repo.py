@@ -11,6 +11,7 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 ARGUMENTS_ENV = "NARRATIVE_RUN_ARGUMENTS_JSON"
 ARGUMENTS_ENV_FLAG = "--arguments-env"
 SURFACES = {
+    "archive-audit": REPO_ROOT / "scripts" / "archive_audit.py",
     "archive-density": REPO_ROOT / "scripts" / "report_archive_density.py",
     "asr-repair": REPO_ROOT / "scripts" / "run_asr_repair_pilot.py",
     "cadence": REPO_ROOT / "scripts" / "cadence.py",

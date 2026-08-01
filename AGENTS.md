@@ -19,11 +19,20 @@ When the operator says `archive-repair`, asks to repair an existing archive
 source, or requests ASR/sectioning repair, read
 `docs/skill-drafts/archive-repair/SKILL.md` completely and follow it.
 
+When the operator says `archive-query` or asks a bounded question about archive
+inventory, paths, voices, hosts, channels, or membership, read
+`docs/skill-drafts/archive-query/SKILL.md` completely and follow it.
+
+When the operator says `archive-audit` or asks for systematic archive health,
+coverage, density, parity, routing, duplicate, or repair-candidate assessment,
+read `docs/skill-drafts/archive-audit/SKILL.md` completely and follow it.
+
 When the operator says bare `intake`, or asks to intake a source without a
 more specific workflow qualifier, use the one canonical operator front door:
-read `docs/skill-drafts/smart-intake/SKILL.md` completely and follow it.
-The user-facing command is simply `intake`; `smart-intake` names the workflow
-and `best-intake` names its implementation engine. Do not infer the legacy
+read `docs/skill-drafts/archive-intake/SKILL.md` completely and follow it.
+The user-facing command is simply `intake`; `archive-intake` names the canonical
+skill, while `smart-intake` and `best-intake` remain compatibility aliases.
+Do not infer the legacy
 statecraft source-intake workflow from the bare word, even for YouTube.
 
 Use the statecraft source-intake workflow only when the operator explicitly

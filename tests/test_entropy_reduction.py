@@ -275,6 +275,7 @@ def test_analytical_interface_templates_preserve_required_prompts() -> None:
 
 def test_only_portable_skills_are_deployable() -> None:
     assert set(skill_registry.DEPLOYABLE_SKILL_NAMES) == {
+        "archive-intake",
         "best-intake",
         "elicitation",
         "learn-from-choices",
@@ -285,6 +286,7 @@ def test_only_portable_skills_are_deployable() -> None:
         "voice-accountability",
     }
     assert set(skill_registry.build_registry()) == {
+        "archive-intake",
         "best-intake",
         "elicitation",
         "learn-from-choices",

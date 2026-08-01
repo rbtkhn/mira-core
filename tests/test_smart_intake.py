@@ -25,15 +25,23 @@ def test_canonical_voice_is_unchanged():
 
 def test_bare_intake_contract_matches_canonical_front_door():
     agents = (ROOT / "AGENTS.md").read_text(encoding="utf-8")
-    skill = (ROOT / "docs" / "skill-drafts" / "smart-intake" / "SKILL.md").read_text(
+    skill = (ROOT / "docs" / "skill-drafts" / "archive-intake" / "SKILL.md").read_text(
         encoding="utf-8"
     )
 
-    assert "The user-facing command is simply `intake`; `smart-intake` names the workflow" in agents
+    assert "The user-facing command is simply `intake`; `archive-intake` names the canonical" in agents
     assert "Use the statecraft source-intake workflow only when the operator explicitly" in agents
-    assert "**Canonical operator command:** say **`intake`**." in skill
-    assert "Operators do not need to choose" in skill
-    assert "between those names." in skill
+    assert "Use `intake` as the sole operator-facing command." in skill
+    assert "permanent compatibility names" in skill
+
+
+def test_legacy_intake_skills_are_permanent_redirects():
+    for name in ("smart-intake", "best-intake"):
+        text = (ROOT / "docs" / "skill-drafts" / name / "SKILL.md").read_text(
+            encoding="utf-8"
+        )
+        assert "../archive-intake/SKILL.md" in text
+        assert "compatibility" in text.lower()
 
 
 def test_intake_startup_aliases_the_legacy_best_intake_mode():
@@ -43,4 +51,5 @@ def test_intake_startup_aliases_the_legacy_best_intake_mode():
     cadence_spec.loader.exec_module(cadence)
 
     assert cadence.startup_state("intake") == cadence.startup_state("best-intake")
+    assert cadence.startup_state("archive-intake") == cadence.startup_state("best-intake")
     assert cadence.startup_state("smart-intake") == cadence.startup_state("best-intake")

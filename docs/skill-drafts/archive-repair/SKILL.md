@@ -13,8 +13,8 @@ retrieval or analysis without silently changing meaning.
 
 Choose one mode before touching files:
 
-- `inspect`: read-only audit of metadata, ASR state, sectioning state, source
-  paths, manifest parity, and likely repair issues.
+- `archive-audit`: use the canonical read-only audit for metadata, ASR state,
+  sectioning state, source paths, manifest parity, and likely repair issues.
 - `dry-run`: preview the exact files, transformations, statuses, and expected
   diffs without writing.
 - `execute`: apply only the explicitly approved bounded repair, then validate
@@ -55,7 +55,8 @@ it means the deterministic pass changed text. Do not treat
 
 ## Workflow
 
-1. Read the relevant repository controls and inspect current Git status.
+1. Run a bounded `archive-audit`, read the relevant repository controls, and
+   inspect current Git status.
 2. Load the source manifest and resolve the bounded target set.
 3. Verify every target path exists and every manifest row points to the
    expected source. Detect duplicate URLs and duplicate paths.

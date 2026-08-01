@@ -33,7 +33,14 @@ ARCHIVE_SOURCES = NG_ROOT / "archive" / "sources"
 MANIFEST_PATH = NG_ROOT / "archive" / "source-manifest.json"
 DAILY_ROOT = NG_ROOT / "work" / "daily"
 LEDGER_PATH = NG_ROOT / "work" / "forecasts" / "forecast-ledger.md"
-LOCAL_SKILLS = {"archive-repair", "coffee", "dream", "world-monitor"}
+LOCAL_SKILLS = {
+    "archive-audit",
+    "archive-query",
+    "archive-repair",
+    "coffee",
+    "dream",
+    "world-monitor",
+}
 LOCAL_ROUTER_PATH = REPO_ROOT / "AGENTS.md"
 REQUIRED_DAILY_FILES = {"sources.md", "synthesis.md", "forecast.md", "judgment.md", "daily-brief.md"}
 PUBLIC_BRIEFS_ROOT = NG_ROOT / "public" / "briefs"
@@ -350,6 +357,7 @@ def skill_contract_failures() -> list[str]:
     failures: list[str] = []
     deployable = set(DEPLOYABLE_SKILL_NAMES)
     if deployable != {
+        "archive-intake",
         "best-intake",
         "elicitation",
         "learn-from-choices",

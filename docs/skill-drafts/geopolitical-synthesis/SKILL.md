@@ -20,7 +20,7 @@ Read in this order:
 archive -> voices/channels -> work/daily
 ```
 
-This skill does not replace `best-intake` and never creates a daily directory
+This skill does not replace `archive-intake` and never creates a daily directory
 for a date without manifest rows.
 
 ## Daily Contract
@@ -62,10 +62,10 @@ After validation and before deepening, use archive density as a review guide.
 Run a range or day check when source load may affect judgment:
 
 ```powershell
-.\tools\run.ps1 archive-density --start-date YYYY-MM-DD --end-date YYYY-MM-DD
+.\tools\run.ps1 archive-audit --start-date YYYY-MM-DD --end-date YYYY-MM-DD --format markdown
 ```
 
-Use [archive-density](../../../narrative-geopolitics/method/archive-density.md)
+Use [archive audit and density](../../../narrative-geopolitics/method/archive-density.md)
 rules this way:
 
 - thin days: check overclaim risk, hook necessity, and caveat language;

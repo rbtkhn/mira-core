@@ -37,6 +37,7 @@ repository_validation = load_module(
 
 
 EXPECTED_SURFACES = {
+    "archive-audit": "archive_audit.py",
     "archive-density": "report_archive_density.py",
     "asr-repair": "run_asr_repair_pilot.py",
     "cadence": "cadence.py",
@@ -278,10 +279,12 @@ def test_runner_preserves_read_and_write_surface_arguments(monkeypatch) -> None:
         "run",
         lambda command, **kwargs: commands.append(command) or SimpleNamespace(returncode=0),
     )
+    assert runner.main(["archive-audit", "--whole-corpus", "--voice-slug", "davis", "--format", "json"]) == 0
     assert runner.main(["archive-density", "--month", "2026-07"]) == 0
     assert runner.main(["skills-sync", "--skill", "reality-check", "--dry-run"]) == 0
-    assert commands[0][-2:] == ["--month", "2026-07"]
-    assert commands[1][-3:] == ["--skill", "reality-check", "--dry-run"]
+    assert commands[0][-5:] == ["--whole-corpus", "--voice-slug", "davis", "--format", "json"]
+    assert commands[1][-2:] == ["--month", "2026-07"]
+    assert commands[2][-3:] == ["--skill", "reality-check", "--dry-run"]
 
 
 def test_environment_argument_transport_is_exact_and_consumed() -> None:

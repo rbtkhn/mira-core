@@ -4,12 +4,14 @@ import argparse
 import csv
 import json
 import re
+import sys
 from dataclasses import asdict, dataclass
 from datetime import date, timedelta
 from pathlib import Path
 from typing import Any
 
 import validate_daily_run
+import archive_audit
 
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
@@ -84,16 +86,7 @@ def iter_dates(month: str | None, start_date: str | None, end_date: str | None) 
 def load_manifest_counts(manifest_path: Path = MANIFEST_PATH) -> dict[str, int]:
     if not manifest_path.exists():
         return {}
-    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
-    rows = manifest.get("sources", []) if isinstance(manifest, dict) else manifest
-    counts: dict[str, int] = {}
-    for row in rows:
-        if not isinstance(row, dict):
-            continue
-        run_date = row.get("date") or row.get("archive_date") or row.get("day")
-        if isinstance(run_date, str):
-            counts[run_date] = counts.get(run_date, 0) + 1
-    return counts
+    return archive_audit.load_manifest_counts(manifest_path)
 
 
 def read_daily_text(run_date: str, daily_root: Path = DAILY_ROOT) -> dict[str, str]:
@@ -151,11 +144,7 @@ def selected_issue_stories(synthesis_text: str) -> int:
 
 
 def density_class(source_count: int) -> str:
-    if source_count <= 3:
-        return "thin"
-    if source_count >= 7:
-        return "dense"
-    return "normal"
+    return archive_audit.density_class(source_count)
 
 
 def classifications(
@@ -166,18 +155,7 @@ def classifications(
     stories: int,
     ratio: float,
 ) -> list[str]:
-    labels: list[str] = []
-    if density == "thin" and (hooks or opcs or stories):
-        labels.append("thin-but-pivotal")
-    if density == "dense":
-        labels.append("dense-synthesis-check")
-    if density == "thin" and ratio >= 1.0:
-        labels.append("overclaim-risk")
-    if density == "dense" and (hooks + opcs + stories) <= 2:
-        labels.append("underuse-risk")
-    if opcs:
-        labels.append("verification-priority")
-    return labels
+    return archive_audit.density_labels(density, source_count, hooks, opcs, stories, ratio)
 
 
 def validation_counts(run_date: str, daily_root: Path = DAILY_ROOT) -> tuple[int, int]:
@@ -324,6 +302,10 @@ def write_json(rows: list[DensityRow], path: Path) -> None:
 
 
 def main() -> None:
+    print(
+        "DEPRECATED: use tools/run.ps1 archive-audit; archive-density remains a density-only compatibility route.",
+        file=sys.stderr,
+    )
     args = parse_args()
     dates = iter_dates(args.month, args.start_date, args.end_date)
     rows = analyze_range(dates)

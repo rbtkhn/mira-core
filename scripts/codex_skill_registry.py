@@ -8,6 +8,7 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 SKILL_DRAFT_ROOT = REPO_ROOT / "docs" / "skill-drafts"
 CODEX_SKILLS_ROOT = Path.home() / ".codex" / "skills"
 DEPLOYABLE_SKILL_NAMES = (
+    "archive-intake",
     "best-intake",
     "elicitation",
     "learn-from-choices",

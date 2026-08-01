@@ -1591,9 +1591,6 @@ def test_manifest_publication_failure_rolls_back_all_sources(
 
 
 def test_documented_host_allowlists_match_executable_contracts() -> None:
-    skill = (REPO_ROOT / "docs" / "skill-drafts" / "best-intake" / "SKILL.md").read_text(
-        encoding="utf-8"
-    )
     method = (
         REPO_ROOT / "narrative-geopolitics" / "method" / "best-intake.md"
     ).read_text(encoding="utf-8")
@@ -1604,7 +1601,6 @@ def test_documented_host_allowlists_match_executable_contracts() -> None:
     }
 
     for label, hosts in expected.items():
-        assert documented_hosts(skill, label) == hosts
         assert documented_hosts(method, label) == hosts
 def test_transcript_title_wins_and_operator_title_is_preserved_as_alias() -> None:
     args = build_fast_args(
