@@ -758,7 +758,7 @@ def test_retrofit_source_uses_filename_fallback_for_mercouris() -> None:
         shutil.rmtree(tmp_dir)
 
 
-def stale_retrofit_source_sections_clear_eligible_transcript() -> None:
+def test_retrofit_source_sections_clear_eligible_transcript() -> None:
     tmp_dir = make_local_temp_dir()
     try:
         source = tmp_dir / "source-test.md"
@@ -796,7 +796,44 @@ def stale_retrofit_source_sections_clear_eligible_transcript() -> None:
         shutil.rmtree(tmp_dir)
 
 
-def stale_retrofit_source_preserves_existing_sectioned_body_without_force() -> None:
+def test_retrofit_source_sectioning_is_idempotent() -> None:
+    tmp_dir = make_local_temp_dir()
+    try:
+        source = tmp_dir / "source-test.md"
+        source.write_text(
+            "---\n"
+            "pub_date: 2026-07-07\n"
+            "host_slug: dialogue-works\n"
+            "title: Example Dialogue Works Source\n"
+            "routing_state: provisional\n"
+            "---\n"
+            "# Example\n\n"
+            "## Transcript\n\n"
+            "Hi everybody. Today we are looking at White House demands on Iran and the Hormuz crisis.\n\n"
+            "I want to ask first about the White House offer and whether Tehran sees it as coercive diplomacy.\n\n"
+            "Another point is the regional shipping lane, insurance costs, and whether the blockade threat is credible.\n",
+            encoding="utf-8",
+        )
+
+        first = land_best_intake.retrofit_source(
+            source, "2026-06-01", force_sections=True
+        )
+        first_text = source.read_text(encoding="utf-8")
+        second = land_best_intake.retrofit_source(
+            source, "2026-06-01", force_sections=True
+        )
+        second_text = source.read_text(encoding="utf-8")
+
+        assert first is not None and first.startswith("TRIMMED")
+        assert second is not None
+        assert second.startswith("UNCHANGED") or second.startswith("NORMALIZED")
+        assert second_text == first_text
+        assert second_text.count("### ") == 3
+    finally:
+        shutil.rmtree(tmp_dir)
+
+
+def test_retrofit_source_preserves_existing_sectioned_body_without_force() -> None:
     tmp_dir = make_local_temp_dir()
     try:
         source = tmp_dir / "source-test.md"
@@ -890,6 +927,107 @@ def test_repair_asr_text_respects_none_mode() -> None:
     assert repaired == body
     assert args.asr_repair_applied is False
     assert args.asr_repair_pass == ""
+
+
+def test_repair_asr_text_preserves_existing_provenance_when_body_is_clean() -> None:
+    args = trim_args("daniel-davis")
+    args.asr_repair_applied = True
+    args.asr_repair_pass = "2026-07-09 asr-repair-v1"
+    body = "The Strait of Hormuz remained open during the briefing.\n"
+
+    repaired = land_best_intake.repair_asr_text(args, body)
+
+    assert repaired == body
+    assert args.asr_repair_applied is True
+    assert args.asr_repair_pass == "2026-07-09 asr-repair-v1"
+
+
+def test_repair_asr_text_preserves_existing_provenance_for_unapproved_host() -> None:
+    args = trim_args("neutrality-studies")
+    args.asr_repair_applied = True
+    args.asr_repair_pass = "manual-review-v1"
+    body = "The transcript remains unchanged.\n"
+
+    repaired = land_best_intake.repair_asr_text(args, body)
+
+    assert repaired == body
+    assert args.asr_repair_applied is True
+    assert args.asr_repair_pass == "manual-review-v1"
+
+
+def test_retrofit_source_is_idempotent_for_already_repaired_source() -> None:
+    tmp_dir = make_local_temp_dir()
+    try:
+        source = tmp_dir / "source-test.md"
+        source.write_text(
+            "---\n"
+            "pub_date: 2026-07-07\n"
+            "host_slug: daniel-davis\n"
+            "asr_repair_applied: true\n"
+            "asr_repair_pass: \"2026-07-09 asr-repair-v1\"\n"
+            "routing_state: provisional\n"
+            "---\n"
+            "# Example\n\n"
+            "## Transcript\n\n"
+            "The Strait of Hormuz remained open during the briefing.\n",
+            encoding="utf-8",
+        )
+
+        land_best_intake.retrofit_source(source, "2026-06-01")
+        text = source.read_text(encoding="utf-8")
+
+        assert "asr_repair_applied: true" in text
+        assert 'asr_repair_pass: "2026-07-09 asr-repair-v1"' in text
+    finally:
+        shutil.rmtree(tmp_dir)
+
+
+def test_apply_trim_metadata_preserves_existing_trim_provenance_when_clean() -> None:
+    args = trim_args("daniel-davis")
+    args.closing_trim_applied = True
+    args.closing_trim_rule = "daniel-davis-closing-v1"
+    args.closing_trim_chars_saved = 213
+    args.closing_trim_words_saved = 41
+    body = "The substantive discussion continues without the show closing.\n"
+
+    trimmed = land_best_intake.apply_trim_metadata(args, body)
+
+    assert trimmed == body
+    assert args.closing_trim_applied is True
+    assert args.closing_trim_rule == "daniel-davis-closing-v1"
+    assert args.closing_trim_chars_saved == 213
+    assert args.closing_trim_words_saved == 41
+
+
+def test_retrofit_source_preserves_existing_trim_provenance() -> None:
+    tmp_dir = make_local_temp_dir()
+    try:
+        source = tmp_dir / "source-test.md"
+        source.write_text(
+            "---\n"
+            "pub_date: 2026-07-07\n"
+            "host_slug: daniel-davis\n"
+            "closing_trim_applied: true\n"
+            "closing_trim_rule: \"daniel-davis-closing-v1\"\n"
+            "closing_trim_chars_saved: 213\n"
+            "closing_trim_words_saved: 41\n"
+            "routing_state: provisional\n"
+            "---\n"
+            "# Example\n\n"
+            "## Transcript\n\n"
+            "The substantive discussion continues without the show closing.\n",
+            encoding="utf-8",
+        )
+
+        land_best_intake.retrofit_source(source, "2026-06-01")
+        text = source.read_text(encoding="utf-8")
+
+        assert "closing_trim_applied: true" in text
+        assert 'closing_trim_rule: "daniel-davis-closing-v1"' in text
+        assert "closing_trim_chars_saved: 213" in text
+        assert "closing_trim_words_saved: 41" in text
+    finally:
+        shutil.rmtree(tmp_dir)
 
 
 def test_retrofit_source_sections_clear_eligible_transcript() -> None:

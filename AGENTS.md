@@ -15,6 +15,10 @@ When the operator says `world-monitor`, asks for a World Monitor scan, or asks
 to use World Monitor as a Narrative Systems source, read
 `docs/skill-drafts/world-monitor/SKILL.md` completely and follow it.
 
+When the operator says `archive-repair`, asks to repair an existing archive
+source, or requests ASR/sectioning repair, read
+`docs/skill-drafts/archive-repair/SKILL.md` completely and follow it.
+
 When the operator says bare `intake`, or asks to intake a source without a
 more specific workflow qualifier, use the one canonical operator front door:
 read `docs/skill-drafts/smart-intake/SKILL.md` completely and follow it.

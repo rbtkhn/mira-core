@@ -1343,16 +1343,46 @@ def maybe_trim_closing(args: SimpleNamespace, body: str) -> tuple[str, bool, str
 
 
 def apply_trim_metadata(args: SimpleNamespace, body: str) -> str:
+    prior_opening = (
+        getattr(args, "opening_trim_applied", False),
+        getattr(args, "opening_trim_rule", ""),
+        getattr(args, "opening_trim_chars_saved", 0),
+        getattr(args, "opening_trim_words_saved", 0),
+    )
+    prior_closing = (
+        getattr(args, "closing_trim_applied", False),
+        getattr(args, "closing_trim_rule", ""),
+        getattr(args, "closing_trim_chars_saved", 0),
+        getattr(args, "closing_trim_words_saved", 0),
+    )
+
     body, opening_trim_applied, opening_trim_rule, opening_trim_chars_saved, opening_trim_words_saved = maybe_trim_opening(args, body)
+    if opening_trim_applied:
+        args.opening_trim_applied = opening_trim_applied
+        args.opening_trim_rule = opening_trim_rule
+        args.opening_trim_chars_saved = opening_trim_chars_saved
+        args.opening_trim_words_saved = opening_trim_words_saved
+    else:
+        (
+            args.opening_trim_applied,
+            args.opening_trim_rule,
+            args.opening_trim_chars_saved,
+            args.opening_trim_words_saved,
+        ) = prior_opening
+
     body, closing_trim_applied, closing_trim_rule, closing_trim_chars_saved, closing_trim_words_saved = maybe_trim_closing(args, body)
-    args.opening_trim_applied = opening_trim_applied
-    args.opening_trim_rule = opening_trim_rule
-    args.opening_trim_chars_saved = opening_trim_chars_saved
-    args.opening_trim_words_saved = opening_trim_words_saved
-    args.closing_trim_applied = closing_trim_applied
-    args.closing_trim_rule = closing_trim_rule
-    args.closing_trim_chars_saved = closing_trim_chars_saved
-    args.closing_trim_words_saved = closing_trim_words_saved
+    if closing_trim_applied:
+        args.closing_trim_applied = closing_trim_applied
+        args.closing_trim_rule = closing_trim_rule
+        args.closing_trim_chars_saved = closing_trim_chars_saved
+        args.closing_trim_words_saved = closing_trim_words_saved
+    else:
+        (
+            args.closing_trim_applied,
+            args.closing_trim_rule,
+            args.closing_trim_chars_saved,
+            args.closing_trim_words_saved,
+        ) = prior_closing
     return body
 
 
@@ -1361,11 +1391,18 @@ def host_supports_asr_repair(host_slug: str | None) -> bool:
 
 
 def repair_asr_text(args: SimpleNamespace, body: str) -> str:
-    args.asr_repair_applied = False
-    args.asr_repair_pass = ""
+    prior_applied = bool(getattr(args, "asr_repair_applied", False))
+    prior_pass = getattr(args, "asr_repair_pass", "")
+
+    def preserve_prior_metadata() -> None:
+        args.asr_repair_applied = prior_applied
+        args.asr_repair_pass = prior_pass
+
     if getattr(args, "asr_repair", "auto") == "none":
+        preserve_prior_metadata()
         return body
     if not host_supports_asr_repair(getattr(args, "host_slug", None)):
+        preserve_prior_metadata()
         return body
 
     repaired = body
@@ -1378,6 +1415,8 @@ def repair_asr_text(args: SimpleNamespace, body: str) -> str:
     if repaired != body:
         args.asr_repair_applied = True
         args.asr_repair_pass = ASR_REPAIR_PASS_LABEL
+    else:
+        preserve_prior_metadata()
     return repaired
 
 
