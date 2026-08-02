@@ -20,7 +20,7 @@ Read in this order:
 archive -> voices/channels -> work/daily
 ```
 
-This skill does not replace `best-intake` and never creates a daily directory
+This skill does not replace `archive-intake` and never creates a daily directory
 for a date without manifest rows.
 
 ## Daily Contract
@@ -35,6 +35,10 @@ Canonical:
 Generated after the canonical files are issue-ready:
 
 - `issue.md`
+
+Generated in the following morning cadence when requested:
+
+- `narrative-geopolitics/work/morning-brief/YYYY-MM-DD.md`
 
 There is no tracked session receipt or placeholder-day state.
 
@@ -62,10 +66,10 @@ After validation and before deepening, use archive density as a review guide.
 Run a range or day check when source load may affect judgment:
 
 ```powershell
-.\tools\run.ps1 archive-density --start-date YYYY-MM-DD --end-date YYYY-MM-DD
+.\tools\run.ps1 archive-audit --start-date YYYY-MM-DD --end-date YYYY-MM-DD --format markdown
 ```
 
-Use [archive-density](../../../narrative-geopolitics/method/archive-density.md)
+Use [archive audit and density](../../../narrative-geopolitics/method/archive-density.md)
 rules this way:
 
 - thin days: check overclaim risk, hook necessity, and caveat language;
@@ -104,6 +108,9 @@ block a justified dense-batch exception.
   substantive delta, keep the intake archive-only and do not create a daily
   packet.
 - Keep `daily-brief.md` internal until intentionally promoted.
+- Treat `morning-brief` as a bounded carry-forward from an explicitly named
+  prior synthesis; it is not a new daily synthesis and does not require a
+  manifest batch for the brief date.
 - Keep `issue.md` internal reader-facing; generation is not publication.
 - Declare issue membership in the synthesis `Issue Story Desk`; require matching `Issue Copy` in `daily-brief.md` and regenerate rather than hand-editing `issue.md`.
 - Do not revive the old `public-brief.md` contract.
