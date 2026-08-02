@@ -64,6 +64,12 @@ begin with the governing executable verb (`Execute`, `Commit`, `Push`, or
 label after that executable prefix; never present `Recommended — Execute ...`
 when the selection is meant to authorize execution.
 
+Selection closure and idempotence: once a selected branch is confirmed,
+paused, or otherwise settled, repeating the same stable selection is a no-op.
+Acknowledge the settled state once and close the branch instead of regenerating
+the same footer. Present a new possibility set only when a genuinely new
+decision, scope, evidence gap, or action exists.
+
 ## Retain only a selection
 
 Do not retain an unselected footer. When the operator selects a branch:

@@ -80,3 +80,9 @@ bounded action, its visible label must begin with the governing executable
 verb (`Execute`, `Commit`, `Push`, or `Send`), followed immediately by the
 action and target. Do not hide an executable action behind a role label such
 as `Recommended`; stable possibility roles belong after the executable verb.
+
+Selection closure and idempotence: after a branch is confirmed, paused, or
+otherwise settled, a repeated selection of the same stable option is a no-op.
+Acknowledge the settled state once and close the branch; do not regenerate the
+same possibility menu. Only present a new menu when a genuinely new decision,
+scope, evidence gap, or action is available.
