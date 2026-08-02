@@ -12,8 +12,6 @@ Status: `internal`
 | Source basis | `strategy-codex/statecraft/voices/parsi/parsi-index.md` plus already-local matching archive rows |
 | Public summary status | `none` |
 | Parity status | `imported-corpus` |
-| Imported source rows | 51 |
-| Central archive files | 51 |
 | Last reviewed | `2026-07-08` |
 
 ## Routing

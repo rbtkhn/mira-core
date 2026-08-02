@@ -12,8 +12,6 @@ Status: `internal`
 | Source basis | `strategy-codex/statecraft/voices/mcgovern/mcgovern-index.md` plus already-local matching archive rows |
 | Public summary status | `none` |
 | Parity status | `imported-corpus` |
-| Imported source rows | 28 |
-| Central archive files | 28 |
 | Last reviewed | `2026-07-08` |
 
 ## Routing

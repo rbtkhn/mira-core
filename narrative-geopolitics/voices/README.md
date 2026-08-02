@@ -37,7 +37,7 @@ For navigability, each voice directory exposes two canonical routes:
 
 ## Pape-Parity Standard
 
-`Pape parity` means a voice has the same operational shape as Pape, even if it does not yet have Pape's full 75-source depth.
+`Pape parity` means a voice has the same operational shape as Pape: manifest-backed source coverage, a derived source index, retrieval lenses, and channel-aware pressure separation. Corpus depth is queried from the manifest, not fixed here.
 
 A parity-ready voice has:
 

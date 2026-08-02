@@ -8,7 +8,6 @@ Status: `internal`
 | --- | --- |
 | Name | Polyanskiy |
 | Slug | `polyanskiy` |
-| Imported source rows | 4 |
 | Parity status | `imported-corpus` |
 
 ## Routing

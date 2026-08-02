@@ -12,8 +12,6 @@ Status: `internal`
 | Source basis | `strategy-codex/statecraft/voices/jermy/jermy-index.md` |
 | Public summary status | `none` |
 | Parity status | `imported-corpus` |
-| Imported source rows | 12 |
-| Central archive files | 12 |
 | Last reviewed | `2026-07-08` |
 
 ## Routing

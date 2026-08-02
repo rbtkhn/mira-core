@@ -12,8 +12,6 @@ Status: `internal`
 | Source basis | `strategy-codex/statecraft/voices/blumenthal/blumenthal-index.md` plus already-local matching archive rows |
 | Public summary status | `none` |
 | Parity status | `imported-corpus` |
-| Imported source rows | 8 |
-| Central archive files | 8 |
 | Last reviewed | `2026-07-08` |
 
 ## Routing

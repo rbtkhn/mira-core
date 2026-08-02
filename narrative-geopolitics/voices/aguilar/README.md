@@ -12,8 +12,6 @@ Status: `internal`
 | Source basis | `strategy-codex/statecraft/voices/aguilar/aguilar-index.md` |
 | Public summary status | `none` |
 | Parity status | `imported-corpus` |
-| Imported source rows | 19 |
-| Central archive files | 19 |
 | Last reviewed | `2026-07-08` |
 
 ## Routing

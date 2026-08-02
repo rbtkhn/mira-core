@@ -12,8 +12,6 @@ Status: `internal`
 | Source basis | Transcript-bearing appearances migrated from `strategy-codex/statecraft/voices/macgregor/macgregor-index.md` plus subsequent local intake |
 | Public summary status | `none` |
 | Parity status | `transcript-bearing-upstream-parity` |
-| Imported source rows | 77 |
-| Central archive files | 77 |
 | Last reviewed | `2026-07-12` |
 
 ## Routing

@@ -8,7 +8,6 @@ Status: `internal`
 | --- | --- |
 | Name | Vilano |
 | Slug | `vilano` |
-| Imported source rows | 1 |
 | Parity status | `imported-corpus` |
 
 ## Routing

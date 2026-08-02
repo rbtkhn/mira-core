@@ -4,14 +4,14 @@ This index isolates Robert Pape's authored material from the complete Pape sourc
 
 Use this file when the task is to understand Pape's own forecast mechanism, claim sequence, falsifier logic, or written theory of the crisis. Source truth still lives in `../../archive/sources/`; this file is a voice-continuity retrieval lens only.
 
-Corpus: 58 authored forecast-mechanism sources.
+Scope: Authored forecast-mechanism sources routed by [source-index.md](source-index.md).
 
 ## Reading Rule
 
 1. Start here for Pape's baseline model before using interviews.
 2. Treat written sources as the forecast spine and guest appearances as pressure tests.
 3. Preserve date order when tracing how a claim developed.
-4. Use [source-index.md](source-index.md) for the complete 75-source Pape route map.
+4. Use [source-index.md](source-index.md) for the complete current Pape route map.
 
 ## Claim-Family Routes
 

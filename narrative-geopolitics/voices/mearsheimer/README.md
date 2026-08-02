@@ -12,8 +12,6 @@ Status: `internal`
 | Source basis | `strategy-codex/statecraft/voices/mearsheimer` |
 | Public summary status | `none` |
 | Parity status | `first-slice-parity` |
-| Imported source rows | 25 |
-| Central archive files | 25 |
 | Last reviewed | `2026-07-08` |
 
 ## Routing
@@ -66,4 +64,4 @@ synthesis, host framing, or verified fact.
 
 This voice now has Pape-style operational shape: central archive evidence, manifest coverage, complete local routing for the imported slice, two retrieval lenses, and channel-aware pressure separation.
 
-It does not yet have full-source parity with Pape's 75-source corpus.
+It does not yet claim Pape's full-source parity.

@@ -18,7 +18,7 @@ Status: `internal`
 
 | Route | Use when | Notes |
 | --- | --- | --- |
-| [source-index.md](source-index.md) | You need the complete Pape corpus route. | 75 imported sources: 58 authored sources and 17 guest appearances. |
+| [source-index.md](source-index.md) | You need the complete Pape corpus route. | Current corpus totals are reported by the manifest-backed source index. |
 | [authored-forecast-spine.md](authored-forecast-spine.md) | You need Pape's own written model, claim development, or forecast logic. | Written sources are the forecast-mechanism spine. |
 | [guest-pressure-tests.md](guest-pressure-tests.md) | You need Pape under host, show, or channel pressure. | Open the relevant `channels/` shelf before synthesis. |
 | [claim-map.md](claim-map.md) | You need the interpretive claim layer. | Maps claim families to source dates, forecast IDs, pressure tests, and open review questions. |

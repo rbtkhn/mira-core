@@ -8,7 +8,6 @@ Status: `internal`
 | --- | --- |
 | Name | Armstrong |
 | Slug | `armstrong` |
-| Imported source rows | 8 |
 | Parity status | `imported-corpus` |
 
 ## Routing

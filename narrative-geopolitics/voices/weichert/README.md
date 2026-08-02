@@ -12,8 +12,6 @@ Status: `internal`
 | Source basis | `strategy-codex/statecraft/voices/weichert/weichert-index.md` |
 | Public summary status | `none` |
 | Parity status | `imported-corpus` |
-| Imported source rows | 17 |
-| Central archive files | 17 |
 | Last reviewed | `2026-07-08` |
 
 ## Routing

@@ -8,7 +8,6 @@ Status: `internal`
 | --- | --- |
 | Name | Alkhorshid |
 | Slug | `alkhorshid` |
-| Imported source rows | 4 |
 | Parity status | `imported-corpus` |
 
 ## Routing

@@ -8,7 +8,6 @@ Status: `internal`
 | --- | --- |
 | Name | Dugin |
 | Slug | `dugin` |
-| Imported source rows | 1 |
 | Parity status | `imported-corpus` |
 
 ## Routing

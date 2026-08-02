@@ -8,7 +8,6 @@ Status: `internal`
 | --- | --- |
 | Name | Marouf |
 | Slug | `marouf` |
-| Imported source rows | 1 |
 | Parity status | `imported-corpus` |
 
 ## Routing

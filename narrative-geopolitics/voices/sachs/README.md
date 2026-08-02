@@ -12,8 +12,6 @@ Status: `internal`
 | Source basis | `strategy-codex/statecraft/voices/sachs/sachs-index.md` |
 | Public summary status | `none` |
 | Parity status | `imported-corpus` |
-| Imported source rows | 92 |
-| Central archive files | 92 |
 | Last reviewed | `2026-07-08` |
 
 ## Routing

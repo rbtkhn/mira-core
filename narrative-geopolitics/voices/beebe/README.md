@@ -8,7 +8,6 @@ Status: `internal`
 | --- | --- |
 | Name | Beebe |
 | Slug | `beebe` |
-| Imported source rows | 10 |
 | Parity status | `imported-corpus` |
 
 ## Routing

@@ -12,8 +12,6 @@ Status: `internal`
 | Source basis | `strategy-codex/statecraft/voices/diesen` |
 | Public summary status | `none` |
 | Parity status | `first-slice-parity` |
-| Imported source rows | 3 |
-| Central archive files | 3 |
 | Last reviewed | `2026-07-08` |
 
 ## Routing
@@ -55,4 +53,4 @@ Evidence needed before relying on this voice:
 
 This voice now has Pape-style operational shape: central archive evidence, manifest coverage, complete local routing for the imported slice, two retrieval lenses, and channel-aware pressure separation.
 
-It does not yet have full-source parity with Pape's 75-source corpus.
+It does not yet claim Pape's full-source parity.

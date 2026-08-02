@@ -8,7 +8,6 @@ Status: `internal`
 | --- | --- |
 | Name | Berletic |
 | Slug | `berletic` |
-| Imported source rows | 2 |
 | Parity status | `imported-corpus` |
 
 ## Routing

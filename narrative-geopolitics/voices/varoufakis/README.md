@@ -8,7 +8,6 @@ Status: `internal`
 | --- | --- |
 | Name | Varoufakis |
 | Slug | `varoufakis` |
-| Imported source rows | 2 |
 | Parity status | `imported-corpus` |
 
 ## Routing

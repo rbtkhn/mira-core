@@ -12,8 +12,6 @@ Status: `internal`
 | Source basis | `strategy-codex/statecraft/voices/crooke/crooke-index.md` plus already-local 2026 Crooke archive rows |
 | Public summary status | `none` |
 | Parity status | `imported-corpus` |
-| Imported source rows | 66 |
-| Central archive files | 66 |
 | Last reviewed | `2026-07-08` |
 
 ## Routing

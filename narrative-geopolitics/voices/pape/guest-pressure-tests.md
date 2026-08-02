@@ -4,7 +4,7 @@ This index isolates Robert Pape's guest appearances from the complete Pape sourc
 
 Use this file when the task is to understand how Pape's claims survive, compress, intensify, or translate under host, show, or channel pressure. Source truth still lives in `../../archive/sources/`; host/show conditioning belongs in `../../channels/`.
 
-Corpus: 17 guest interview pressure-test sources across 7 channel shelves.
+Scope: Guest interview pressure tests routed by [source-index.md](source-index.md) across host and channel shelves.
 
 ## Reading Rule
 

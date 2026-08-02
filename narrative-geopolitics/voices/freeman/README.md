@@ -12,8 +12,6 @@ Status: `internal`
 | Source basis | `strategy-codex/statecraft/voices/freeman/freeman-index.md` plus already-local matching archive rows |
 | Public summary status | `none` |
 | Parity status | `imported-corpus` |
-| Imported source rows | 153+ |
-| Central archive files | 153+ |
 | Last reviewed | `2026-07-08` |
 
 ## Routing

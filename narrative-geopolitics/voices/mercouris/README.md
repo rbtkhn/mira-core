@@ -12,8 +12,6 @@ Status: `internal`
 | Source basis | Transcript-bearing guest and solo-channel captures migrated from `strategy-codex`, plus subsequent local intake |
 | Public summary status | `none` |
 | Parity status | `transcript-bearing-upstream-parity` |
-| Imported source rows | 285 |
-| Central archive files | 285 |
 | Last reviewed | `2026-07-12` |
 
 ## Routing

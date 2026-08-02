@@ -12,8 +12,6 @@ Status: `internal`
 | Source basis | `strategy-codex/source-archive/statecraft` |
 | Public summary status | `none` |
 | Parity status | `seeded` |
-| Imported source rows | 1 |
-| Central archive files | 1 |
 | Last reviewed | `2026-07-08` |
 
 ## Routing

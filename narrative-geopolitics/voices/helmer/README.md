@@ -12,8 +12,6 @@ Status: `internal`
 | Source basis | `strategy-codex/statecraft/voices/helmer/helmer-index.md` |
 | Public summary status | `none` |
 | Parity status | `imported-corpus` |
-| Imported source rows | 18 |
-| Central archive files | 18 |
 | Last reviewed | `2026-07-08` |
 
 ## Routing

@@ -12,8 +12,6 @@ Status: `internal`
 | Source basis | `strategy-codex/statecraft/voices/karaganov/karaganov-index.md` plus already-local matching archive rows |
 | Public summary status | `none` |
 | Parity status | `imported-corpus` |
-| Imported source rows | 7 |
-| Central archive files | 7 |
 | Last reviewed | `2026-07-08` |
 
 ## Routing

@@ -8,7 +8,6 @@ Status: `internal`
 | --- | --- |
 | Name | Hudson |
 | Slug | `hudson` |
-| Imported source rows | 2 |
 | Parity status | `imported-corpus` |
 
 ## Routing

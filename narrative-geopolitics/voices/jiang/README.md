@@ -12,8 +12,6 @@ Status: `internal`
 | Source basis | Seventeen third-party geopolitical interviews plus 43 authored geopolitical essays; Predictive History-owned lecture material remains excluded |
 | Public summary status | `none` |
 | Parity status | `imported-corpus` |
-| Imported source rows | 60 |
-| Central archive files | 60 |
 | Last reviewed | `2026-07-11` |
 
 ## Routing
