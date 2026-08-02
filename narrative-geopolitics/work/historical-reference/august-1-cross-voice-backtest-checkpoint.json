@@ -1,0 +1,49 @@
+{
+  "run_id": "august-1-cross-voice-backtest",
+  "sources": {
+    "narrative-geopolitics/archive/sources/2026-08-01/source-chas-freeman-middle-east-in-transition-a-new-world-order-2026-08-01.md": {
+      "fingerprint": {
+        "archive_path": "narrative-geopolitics/archive/sources/2026-08-01/source-chas-freeman-middle-east-in-transition-a-new-world-order-2026-08-01.md",
+        "detector_version": "3",
+        "file_hash": "b78ff32eed32785e6f180f89c1f6b3060d8122b16661bc9534896a9242e36be4",
+        "mechanism_version": "1",
+        "source_id": "narrative-geopolitics/archive/sources/2026-08-01/source-chas-freeman-middle-east-in-transition-a-new-world-order-2026-08-01.md",
+        "taxonomy_version": "2",
+        "voice_scope": "davis,freeman,macgregor,marandi,mercouris"
+      },
+      "record_count": 1,
+      "status": "landed"
+    },
+    "narrative-geopolitics/archive/sources/2026-08-01/source-colonel-douglas-macgregor-america-and-israel-have-lost-iran-war-2026-08-01.md": {
+      "fingerprint": {
+        "archive_path": "narrative-geopolitics/archive/sources/2026-08-01/source-colonel-douglas-macgregor-america-and-israel-have-lost-iran-war-2026-08-01.md",
+        "detector_version": "3",
+        "file_hash": "cfd52f23da8a4ad2c3719c1f4e4a0bf2e55fb8ee5a44516740f89c92023aa4e3",
+        "mechanism_version": "1",
+        "source_id": "narrative-geopolitics/archive/sources/2026-08-01/source-colonel-douglas-macgregor-america-and-israel-have-lost-iran-war-2026-08-01.md",
+        "taxonomy_version": "2",
+        "voice_scope": "davis,freeman,macgregor,marandi,mercouris"
+      },
+      "record_count": 1,
+      "status": "landed"
+    },
+    "narrative-geopolitics/archive/sources/2026-08-01/source-reports-of-israel-u-s-preparing-strikes-on-iran-s-infrastructure-w-nima-rostami-alkhorshid-2026-08-01.md": {
+      "fingerprint": {
+        "archive_path": "narrative-geopolitics/archive/sources/2026-08-01/source-reports-of-israel-u-s-preparing-strikes-on-iran-s-infrastructure-w-nima-rostami-alkhorshid-2026-08-01.md",
+        "detector_version": "3",
+        "file_hash": "701976e043ac6ef935655bb68d0cb4936a992dbf409d84ae6e9916a745a11c23",
+        "mechanism_version": "1",
+        "source_id": "narrative-geopolitics/archive/sources/2026-08-01/source-reports-of-israel-u-s-preparing-strikes-on-iran-s-infrastructure-w-nima-rostami-alkhorshid-2026-08-01.md",
+        "taxonomy_version": "2",
+        "voice_scope": "davis,freeman,macgregor,marandi,mercouris"
+      },
+      "record_count": 1,
+      "status": "landed"
+    }
+  },
+  "versions": {
+    "detector": "3",
+    "mechanism": "1",
+    "taxonomy": "2"
+  }
+}

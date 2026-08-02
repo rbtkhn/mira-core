@@ -2,13 +2,50 @@
 from __future__ import annotations
 
 import argparse, hashlib, json, re, shutil, tempfile
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parents[4]
 MANIFEST = REPO / "narrative-geopolitics" / "archive" / "source-manifest.json"
 CALIBRATION = Path(__file__).resolve().parents[1] / "references" / "calibration.json"
-VERSIONS = {"taxonomy": "2", "detector": "3", "mechanism": "1"}
+VERSIONS = {"schema": "2", "taxonomy": "2", "detector": "3", "mechanism": "1"}
+
+FUNCTION_TAXONOMY = {
+    "order-theory",
+    "civilizational-endurance",
+    "strategic-failure-analogy",
+    "operational-comparison",
+    "strategic-precedent",
+    "other-review-required",
+}
+
+VOICE_CHARACTERIZATIONS = {
+    "freeman": {
+        "characterization": "uses history to explain post-Western order, diplomacy, and balance-of-power change",
+        "analytical_function": "order-theory",
+        "falsifier": "Repeated historical references that do not address order, diplomacy, or power transition would weaken this characterization.",
+    },
+    "marandi": {
+        "characterization": "uses historical and civilizational continuity to explain Iranian endurance and anti-hegemonic resistance",
+        "analytical_function": "civilizational-endurance",
+        "falsifier": "A sustained sample where historical references function mainly as tactical or operational analogies would weaken this characterization.",
+    },
+    "macgregor": {
+        "characterization": "uses historical analogies to explain strategic failure, overreach, and war termination",
+        "analytical_function": "strategic-failure-analogy",
+        "falsifier": "A sustained sample dominated by descriptive history without failure or overreach reasoning would weaken this characterization.",
+    },
+    "davis": {
+        "characterization": "uses recent strategic precedent to interpret alliance dependency and escalation limits",
+        "analytical_function": "strategic-precedent",
+        "falsifier": "A sample with repeated formal historical analogies rather than recent operational precedent would require reclassification.",
+    },
+    "mercouris": {
+        "characterization": "uses historical and military comparisons to interpret strategic miscalculation, alliance behavior, and changing operational effectiveness",
+        "analytical_function": "operational-comparison",
+        "falsifier": "A sample where historical references do not compare military effectiveness, alliance behavior, or strategic miscalculation would weaken this characterization.",
+    },
+}
 
 RUN_STATES = {"planned", "processing", "landed", "skipped", "failed", "invalid"}
 
@@ -142,6 +179,64 @@ def source_rows(voices: set[str], sources: set[str] | None) -> list[dict]:
         if full.is_file(): rows.append({**row, "full_path": full})
     return sorted(rows, key=lambda x: (str(x.get("date") or ""), str(x.get("local_path") or "")))
 
+def build_characterizations(voices: set[str], selected_rows: list[dict], backtest_rows: list[dict], records: list[dict], backtest_records: list[dict]) -> list[dict]:
+    rows_by_voice = {}
+    for row in backtest_rows:
+        for voice in {str(v).lower() for v in (row.get("voice_slugs") or []) if str(v).lower() in voices}:
+            rows_by_voice.setdefault(voice, []).append(row)
+    records_by_voice = {}
+    for record in backtest_records:
+        for voice in record.get("voices", []):
+            records_by_voice.setdefault(voice, []).append(record)
+    output = []
+    for voice in sorted(voices):
+        spec = VOICE_CHARACTERIZATIONS.get(voice, {
+            "characterization": "historical-reference function requires operator review",
+            "analytical_function": "other-review-required",
+            "falsifier": "Operator review is required to define a discriminating observable.",
+        })
+        function = spec["analytical_function"]
+        if function not in FUNCTION_TAXONOMY:
+            function = "other-review-required"
+        dates = sorted({str(r.get("date")) for r in rows_by_voice.get(voice, []) if r.get("date")})
+        samples = len(rows_by_voice.get(voice, []))
+        if len(dates) >= 3:
+            confidence = "supported"
+        elif samples > 0:
+            confidence = "partially-supported"
+        else:
+            confidence = "untested"
+        gaps = []
+        if dates:
+            start = datetime.fromisoformat(dates[0]).date()
+            end = datetime.fromisoformat(dates[-1]).date()
+            covered = {datetime.fromisoformat(d).date() for d in dates}
+            cursor = start
+            while cursor <= end:
+                if cursor not in covered:
+                    gaps.append(cursor.isoformat())
+                cursor = cursor + timedelta(days=1)
+        voice_records = [r for r in records if voice in r.get("voices", [])]
+        backtest_voice_records = records_by_voice.get(voice, [])
+        output.append({
+            "voice": voice,
+            "characterization": spec["characterization"],
+            "analytical_function": function,
+            "characterization_confidence": confidence,
+            "backtest_sample_count": samples,
+            "backtest_date_count": len(dates),
+            "date_coverage": dates,
+            "coverage_gaps": gaps,
+            "falsifier": spec["falsifier"],
+            "forecast_linkage": [],
+            "source_ids": sorted({str(r.get("source_id") or r.get("local_path")) for r in rows_by_voice.get(voice, [])}),
+            "archive_paths": sorted({str(r.get("local_path")) for r in rows_by_voice.get(voice, [])}),
+            "pilot_occurrence_ids": sorted({r["occurrence_id"] for r in voice_records}),
+            "backtest_occurrence_ids": sorted({r["occurrence_id"] for r in backtest_voice_records}),
+            "backtest_status": "coverage-gap" if gaps else "complete-window",
+        })
+    return output
+
 def analyze_row(row: dict, selected_voices: set[str] | None = None) -> list[dict]:
     text = row["full_path"].read_text(encoding="utf-8", errors="replace")
     body = text.split("---", 2)[-1]
@@ -185,6 +280,7 @@ def main() -> int:
     p = argparse.ArgumentParser()
     p.add_argument("--voices", required=True)
     p.add_argument("--sources")
+    p.add_argument("--backtest-sources", help="Explicit comma-separated source IDs or archive paths used for characterization backtesting.")
     p.add_argument("--run-id", default=datetime.now(timezone.utc).strftime("run-%Y%m%dT%H%M%SZ"))
     p.add_argument("--resume", action="store_true")
     p.add_argument("--changed-only", action="store_true")
@@ -197,17 +293,21 @@ def main() -> int:
     if not voices:
         p.error("--voices must contain at least one voice")
     sources = {v.strip() for v in args.sources.split(",")} if args.sources else None
+    backtest_sources = {v.strip() for v in args.backtest_sources.split(",")} if args.backtest_sources else set()
     rows = source_rows(voices, sources)
     if not rows:
         p.error("no bounded manifest-backed sources selected")
+    backtest_rows = source_rows(voices, backtest_sources) if backtest_sources else []
+    if args.backtest_sources and not backtest_rows:
+        p.error("no bounded manifest-backed backtest sources selected")
     if args.dry_run:
-        print(json.dumps({"run_id": args.run_id, "state": "planned", "voices": sorted(voices), "sources": [{"source_id": r.get("source_id"), "fingerprint": fingerprint(r, voices)} for r in rows]}, ensure_ascii=False, indent=2))
+        print(json.dumps({"run_id": args.run_id, "state": "planned", "voices": sorted(voices), "sources": [{"source_id": r.get("source_id"), "fingerprint": fingerprint(r, voices)} for r in rows], "backtest_sources": [{"source_id": r.get("source_id"), "archive_path": r.get("local_path"), "date": r.get("date")} for r in backtest_rows]}, ensure_ascii=False, indent=2))
         return 0
 
     args.output_dir.mkdir(parents=True, exist_ok=True)
     checkpoint_path = args.output_dir / f"{args.run_id}-checkpoint.json"
     previous = load_checkpoint(checkpoint_path) if args.resume or args.changed_only else {"sources": {}}
-    receipts, records = [], []
+    receipts, records, backtest_records = [], [], []
     for row in rows:
         source_id = str(row.get("source_id") or row.get("id") or row["local_path"])
         fp = fingerprint(row, voices)
@@ -223,7 +323,11 @@ def main() -> int:
             receipts.append({"source_id": source_id, "status": "failed", "fingerprint": fp, "record_count": 0, "error": str(exc)})
 
     records = apply_overrides(records, load_overrides(args.overrides) if args.overrides else {})
-    payload = {"run_id": args.run_id, "state": "failed" if any(r["status"] == "failed" for r in receipts) else "landed", "voices": sorted(voices), "versions": VERSIONS, "receipts": sorted(receipts, key=lambda r: r["source_id"]), "records": sorted(records, key=lambda r: (r["date"], r["title"], r["source_id"], r["occurrence_id"]))}
+    for row in backtest_rows:
+        backtest_records.extend(analyze_row(row, voices))
+    characterizations = build_characterizations(voices, rows, backtest_rows, records, backtest_records)
+    characterization_review_queue = [item for item in characterizations if item["characterization_confidence"] != "supported" or item["coverage_gaps"]]
+    payload = {"run_id": args.run_id, "state": "failed" if any(r["status"] == "failed" for r in receipts) else "landed", "voices": sorted(voices), "versions": VERSIONS, "receipts": sorted(receipts, key=lambda r: r["source_id"]), "records": sorted(records, key=lambda r: (r["date"], r["title"], r["source_id"], r["occurrence_id"])), "backtest": {"source_ids": sorted({str(r.get("source_id") or r.get("local_path")) for r in backtest_rows}), "archive_paths": sorted({str(r.get("local_path")) for r in backtest_rows}), "dates": sorted({str(r.get("date")) for r in backtest_rows if r.get("date")}), "records": sorted(backtest_records, key=lambda r: (r["date"], r["title"], r["source_id"], r["occurrence_id"]))}, "characterizations": characterizations, "characterization_review_queue": characterization_review_queue}
     if payload["state"] == "failed":
         print(json.dumps(payload, ensure_ascii=False, indent=2))
         return 2
@@ -236,6 +340,15 @@ def main() -> int:
         packets = [review_packet(item) for item in queue if item["review_status"] not in {"accepted", "rejected"}]
         (stage / f"{args.run_id}-review-packets.json").write_text(json.dumps({"run_id": args.run_id, "packet_count": len(packets), "packets": packets}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
         (stage / f"{args.run_id}-review-packets.md").write_text(review_packets_markdown(packets, args.run_id), encoding="utf-8")
+        (stage / f"{args.run_id}-characterizations.json").write_text(json.dumps({"run_id": args.run_id, "characterizations": payload["characterizations"], "backtest": payload["backtest"]}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        (stage / f"{args.run_id}-characterization-review-queue.json").write_text(json.dumps({"run_id": args.run_id, "items": payload["characterization_review_queue"]}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        characterization_lines = [f"# Cross-voice historical-reference characterizations — `{args.run_id}`", "", "Bounded, source-linked comparison. Characterization is not historical truth adjudication.", ""]
+        for item in payload["characterizations"]:
+            characterization_lines.extend([
+                f"## `{item['voice']}` — {item['characterization']}", "",
+                f"- Function: `{item['analytical_function']}`", f"- Confidence: `{item['characterization_confidence']}`", f"- Backtest samples: `{item['backtest_sample_count']}` across `{item['backtest_date_count']}` dates", f"- Dates: `{', '.join(item['date_coverage']) or 'none'}`", f"- Coverage gaps: `{', '.join(item['coverage_gaps']) or 'none'}`", f"- Status: `{item['backtest_status']}`", f"- Falsifier: {item['falsifier']}", f"- Pilot occurrences: `{len(item['pilot_occurrence_ids'])}`", ""]
+            )
+        (stage / f"{args.run_id}-characterizations.md").write_text("\n".join(characterization_lines), encoding="utf-8")
         (stage / f"{args.run_id}-checkpoint.json").write_text(json.dumps({"run_id": args.run_id, "versions": VERSIONS, "sources": {r["source_id"]: {"fingerprint": r["fingerprint"], "status": r["status"], "record_count": r["record_count"]} for r in receipts}}, indent=2, sort_keys=True) + "\n", encoding="utf-8")
         if args.calibration:
             (stage / f"{args.run_id}-calibration-report.json").write_text(json.dumps(calibration_report(), indent=2) + "\n", encoding="utf-8")

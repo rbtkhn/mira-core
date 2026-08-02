@@ -1,0 +1,150 @@
+{
+  "run_id": "august-1-cross-voice-backtest",
+  "packet_count": 3,
+  "packets": [
+    {
+      "review_id": "review:narrative-geopolitics/archive/sources/2026-08-01/source-chas-freeman-middle-east-in-transition-a-new-world-order-2026-08-01.md:cold-war:3",
+      "identity": {
+        "occurrence_id": "narrative-geopolitics/archive/sources/2026-08-01/source-chas-freeman-middle-east-in-transition-a-new-world-order-2026-08-01.md:cold-war:3",
+        "source_id": "narrative-geopolitics/archive/sources/2026-08-01/source-chas-freeman-middle-east-in-transition-a-new-world-order-2026-08-01.md",
+        "reference_id": "cold-war"
+      },
+      "priority_score": 3,
+      "source": {
+        "date": "2026-08-01",
+        "title": "Chas Freeman: Middle East in Transition & a New World Order",
+        "archive_path": "narrative-geopolitics/archive/sources/2026-08-01/source-chas-freeman-middle-east-in-transition-a-new-world-order-2026-08-01.md"
+      },
+      "evidence": {
+        "quote": "Welcome back everyone. One of the great American diplomats, Ambassador Chaz Freeman, joins us today who was also the former US ambassador to Saudi Arabia and the former assistant secretary of defense. So, thank you for coming back. I always look forward to speaking with you. >> Well, I always look forward to um hearing your very complicated questions. Well, let me start with a overly complicated end one. Uh we will actually want to start by asking about the crisis unfolding further in the Middle East because seems to be spiraling out of control and what this means for world order. But first I I wanted to ask a bit of a wider question that is I recently spoke with Professor John Mirshime who ",
+        "basis": ""
+      },
+      "reference": {
+        "id": "cold-war",
+        "label": "Cold War",
+        "parent_period": "Cold War"
+      },
+      "attribution_confidence": "provisional",
+      "mechanism_suggestions": [
+        {
+          "id": "M-FR-003",
+          "name": "imperial overstretch and power transition",
+          "basis": "native reference adapter"
+        }
+      ],
+      "crosswalk_suggestions": [
+        {
+          "target": "M-FR-003",
+          "confidence": "suggested",
+          "rationale": "native reference adapter",
+          "conflict_status": "unreviewed",
+          "review_status": "unreviewed"
+        }
+      ],
+      "decision_options": [
+        "accept",
+        "qualify",
+        "reject",
+        "revise",
+        "unresolved"
+      ],
+      "current_status": "needs-review"
+    },
+    {
+      "review_id": "review:narrative-geopolitics/archive/sources/2026-08-01/source-colonel-douglas-macgregor-america-and-israel-have-lost-iran-war-2026-08-01.md:cold-war:3",
+      "identity": {
+        "occurrence_id": "narrative-geopolitics/archive/sources/2026-08-01/source-colonel-douglas-macgregor-america-and-israel-have-lost-iran-war-2026-08-01.md:cold-war:3",
+        "source_id": "narrative-geopolitics/archive/sources/2026-08-01/source-colonel-douglas-macgregor-america-and-israel-have-lost-iran-war-2026-08-01.md",
+        "reference_id": "cold-war"
+      },
+      "priority_score": 3,
+      "source": {
+        "date": "2026-08-01",
+        "title": "Colonel Douglas Macgregor: America and Israel Have Lost Iran War",
+        "archive_path": "narrative-geopolitics/archive/sources/2026-08-01/source-colonel-douglas-macgregor-america-and-israel-have-lost-iran-war-2026-08-01.md"
+      },
+      "evidence": {
+        "quote": "Transcripts: Welcome back to Real Talk with Cyrus Jansen and today we have a special guest in the studio, Colonel Douglas McGregor. You know, I wanted to get you back on the show because we are looking at a very big escalation, you know, potentially here in the United States and Iran war. And, you know, it seems that Donald Trump seems to be going further and further down this escalation trap. We're over five months in. There doesn't seem to be really anything accomplished by the United States military. uh very little strategic goals accomplished and really just a lot of chaos and a lot of uncertainty. Uh we're approaching the beginning of August. What is your take right now on the Iran war?",
+        "basis": ""
+      },
+      "reference": {
+        "id": "cold-war",
+        "label": "Cold War",
+        "parent_period": "Cold War"
+      },
+      "attribution_confidence": "provisional",
+      "mechanism_suggestions": [
+        {
+          "id": "M-FR-003",
+          "name": "imperial overstretch and power transition",
+          "basis": "native reference adapter"
+        }
+      ],
+      "crosswalk_suggestions": [
+        {
+          "target": "M-FR-003",
+          "confidence": "suggested",
+          "rationale": "native reference adapter",
+          "conflict_status": "unreviewed",
+          "review_status": "unreviewed"
+        }
+      ],
+      "decision_options": [
+        "accept",
+        "qualify",
+        "reject",
+        "revise",
+        "unresolved"
+      ],
+      "current_status": "needs-review"
+    },
+    {
+      "review_id": "review:narrative-geopolitics/archive/sources/2026-08-01/source-reports-of-israel-u-s-preparing-strikes-on-iran-s-infrastructure-w-nima-rostami-alkhorshid-2026-08-01.md:iraq-war:3",
+      "identity": {
+        "occurrence_id": "narrative-geopolitics/archive/sources/2026-08-01/source-reports-of-israel-u-s-preparing-strikes-on-iran-s-infrastructure-w-nima-rostami-alkhorshid-2026-08-01.md:iraq-war:3",
+        "source_id": "narrative-geopolitics/archive/sources/2026-08-01/source-reports-of-israel-u-s-preparing-strikes-on-iran-s-infrastructure-w-nima-rostami-alkhorshid-2026-08-01.md",
+        "reference_id": "iraq-war"
+      },
+      "priority_score": 3,
+      "source": {
+        "date": "2026-08-01",
+        "title": "REPORTS OF ISRAEL & U.S. PREPARING STRIKES ON IRAN'S INFRASTRUCTURE - w/ Nima Rostami Alkhorshid",
+        "archive_path": "narrative-geopolitics/archive/sources/2026-08-01/source-reports-of-israel-u-s-preparing-strikes-on-iran-s-infrastructure-w-nima-rostami-alkhorshid-2026-08-01.md"
+      },
+      "evidence": {
+        "quote": "Hello Mario, how's it going? >> Ah, man. [sighs] It was going well until last night. >> Yeah. >> [laughter] >> Yeah. >> Yeah. >> What do you What do you think of the uh reports? Obviously, the reports are cited by CBS, the Wall Street Journal, then Axios, and CNN that Trump has decided to conduct um a significant strike, a strike similar to March on uh not only Iran, but Iran's energy infrastructure, according to some reports. Um some say he wants the strikes, you know, could start as early as tonight. Um some reports say that he you know, Trump wants to end it before the markets open, before Monday, but in almost all reports, they say these strikes are going to continue for a few days. Um w",
+        "basis": ""
+      },
+      "reference": {
+        "id": "iraq-war",
+        "label": "2003 Iraq War",
+        "parent_period": "historical period"
+      },
+      "attribution_confidence": "provisional",
+      "mechanism_suggestions": [
+        {
+          "id": "M-FR-001",
+          "name": "coercion and strategic backfire",
+          "basis": "native reference adapter"
+        }
+      ],
+      "crosswalk_suggestions": [
+        {
+          "target": "M-FR-001",
+          "confidence": "suggested",
+          "rationale": "native reference adapter",
+          "conflict_status": "unreviewed",
+          "review_status": "unreviewed"
+        }
+      ],
+      "decision_options": [
+        "accept",
+        "qualify",
+        "reject",
+        "revise",
+        "unresolved"
+      ],
+      "current_status": "needs-review"
+    }
+  ]
+}

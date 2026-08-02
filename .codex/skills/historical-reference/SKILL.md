@@ -29,6 +29,26 @@ Use this skill for bounded, manifest-backed analysis of historical references in
 7. Score review risk and generate a deterministic queue.
 8. Publish structured ledgers, Markdown views, receipts, calibration reports, and minimal graph exports atomically.
 
+## Cross-voice backtesting
+
+When a characterization is being calibrated, require an explicit bounded
+`--backtest-sources` set and record that exact source set and date window in
+the run. Distinguish repeated analytical function from repeated topic. Treat
+missing dates or absent sources as `coverage_gaps`, never as disconfirmation.
+
+Each generated characterization must include its function taxonomy value,
+source IDs and archive paths, voice/host provenance, reference occurrence IDs,
+`supported`, `partially-supported`, `untested`, or `overbroad` confidence,
+source and distinct-date sample counts, falsifier, and optional forecast
+linkage. `supported` requires at least three distinct dated samples; otherwise
+use the appropriate lower-confidence state. Emit a dedicated
+`characterization_review_queue` for low-confidence or gapped entries.
+
+Backtesting remains ledger/report-only: it does not adjudicate historical
+truth, overwrite synthesis prose, promote forecasts, or publish public
+material. The August 1 five-voice pilot is the acceptance baseline before
+broader application.
+
 ## Interfaces
 
 Run the bundled analyzer from the repository root:
@@ -37,7 +57,7 @@ Run the bundled analyzer from the repository root:
 python .codex/skills/historical-reference/scripts/analyze.py --voices freeman,diesen --changed-only
 ```
 
-Supported controls include `--voices`, `--sources`, `--run-id`, `--resume`, `--changed-only`, `--dry-run`, `--output-dir`, and `--calibration`.
+Supported controls include `--voices`, `--sources`, `--backtest-sources`, `--run-id`, `--resume`, `--changed-only`, `--dry-run`, `--output-dir`, and `--calibration`. `--backtest-sources` must be an explicit comma-separated list of source IDs or archive paths; there is no implicit corpus scan.
 
 Build a bounded synthesis context packet explicitly from one analyzer run:
 

@@ -58,6 +58,13 @@ the command. If direct confirmation is still required, ask only for the
 minimal confirmation at the exact action point and preserve the selected
 scope.
 
+Selection carry-forward is mandatory: a selected letter is a semantic command
+for the complete visible option, not a request for the operator to restate its
+text. Parse the selected option once, retain its bounded action and target,
+and either continue that branch or stop at the precise remaining authorization
+boundary. Do not regenerate the same menu after a branch is settled, and do
+not reinterpret a repeated letter as a new request.
+
 Action-ready menu grammar: an option that authorizes a bounded action must
 begin with the governing executable verb (`Execute`, `Commit`, `Push`, or
 `Send`), followed immediately by the action and target. Put the stable role
