@@ -51,6 +51,11 @@ direct explicit command. A later explicit command supersedes a pending menu.
 All existing authority, approval, privacy, tenant, lane, and safety rules
 remain controlling.
 
+The universal possibility footer is not automatically an Elicitation surface.
+Apply Elicitation's implicit-invocation gate independently. Only a
+machine-validated `decision-navigation` surface with an explicit
+`selection_effect` may carry Elicitation action authority.
+
 Menu usability: action-bearing possibilities must show the complete bounded
 action and target in the visible label. Once the operator selects one by
 letter, carry that action and scope forward rather than asking them to retype
@@ -65,6 +70,12 @@ and either continue that branch or stop at the precise remaining authorization
 boundary. Do not regenerate the same menu after a branch is settled, and do
 not reinterpret a repeated letter as a new request.
 
+Carry a selected branch through all reversible read-only investigation needed
+to produce a meaningful result. Do not use a final response as a progress
+checkpoint merely to generate another possibility menu. A later Elicitation
+surface in the same objective requires a newly emerged blocker that passes its
+full implicit-invocation gate.
+
 Action-ready menu grammar: an option that authorizes a bounded action must
 begin with the governing executable verb (`Execute`, `Commit`, `Push`, or
 `Send`), followed immediately by the action and target. Put the stable role
@@ -76,6 +87,10 @@ paused, or otherwise settled, repeating the same stable selection is a no-op.
 Acknowledge the settled state once and close the branch instead of regenerating
 the same footer. Present a new possibility set only when a genuinely new
 decision, scope, evidence gap, or action exists.
+
+Closure takes precedence over the universal footer: when the branch is settled
+and no genuinely new possibility exists, acknowledge closure without
+manufacturing another possibility set.
 
 ## Retain only a selection
 

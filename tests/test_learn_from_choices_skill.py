@@ -49,6 +49,30 @@ def test_elicitation_composition_keeps_the_existing_seven_verb_contract() -> Non
     assert "Keep `Stage`, `Publish`, and `Deploy` exploratory" in skill
 
 
+def test_universal_footer_is_not_implicit_elicitation() -> None:
+    skill = (SKILL_ROOT / "SKILL.md").read_text(encoding="utf-8")
+    assert "universal possibility footer is not automatically an Elicitation surface" in skill
+    assert "Apply Elicitation's implicit-invocation gate independently" in skill
+    assert "with an explicit" in skill
+    assert "`selection_effect`" in skill
+
+
+def test_selected_branch_reaches_a_meaningful_result_before_reelicitation() -> None:
+    skill = (SKILL_ROOT / "SKILL.md").read_text(encoding="utf-8")
+    assert "all reversible read-only investigation" in skill
+    assert "produce a meaningful result" in skill
+    assert "Do not use a final response as a progress" in skill
+    assert "checkpoint merely to generate another possibility menu" in skill
+    assert "newly emerged blocker" in skill
+
+
+def test_closure_precedes_the_universal_footer() -> None:
+    skill = (SKILL_ROOT / "SKILL.md").read_text(encoding="utf-8")
+    assert "Closure takes precedence over the universal footer" in skill
+    assert "acknowledge closure without" in skill
+    assert "manufacturing another possibility set" in skill
+
+
 def test_coffee_and_dream_composition_is_bounded() -> None:
     coffee = (REPO_ROOT / "docs" / "skill-drafts" / "coffee" / "SKILL.md").read_text(
         encoding="utf-8"

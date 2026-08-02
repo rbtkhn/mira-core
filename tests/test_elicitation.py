@@ -302,6 +302,45 @@ def test_skill_discovery_metadata_and_registry_resolve_to_canonical_skill() -> N
     assert entry.dest.parent.name == "elicitation"
 
 
+def test_skill_contract_has_strict_implicit_invocation_gate() -> None:
+    skill = (
+        REPO_ROOT / "docs" / "skill-drafts" / "elicitation" / "SKILL.md"
+    ).read_text(encoding="utf-8")
+    for condition in (
+        "`blocked`",
+        "`material`",
+        "`human-only`",
+        "`immediate`",
+        "`unsettled`",
+    ):
+        assert condition in skill
+    assert "An explicit request for clarification" in skill
+    for non_trigger in (
+        "File inspection",
+        "diagnostics",
+        "test design",
+        "status reporting",
+        "diff review",
+        "reversible",
+        "read-only work",
+    ):
+        assert non_trigger in skill
+    assert "newly emerged blocker" in skill
+    assert "exact bounded action is ready" in skill
+
+
+def test_skill_contract_limits_repeated_selection_chains() -> None:
+    skill = (
+        REPO_ROOT / "docs" / "skill-drafts" / "elicitation" / "SKILL.md"
+    ).read_text(encoding="utf-8")
+    assert "After three consecutive compact selections" in skill
+    assert "continue the" in skill
+    assert "selected branch" in skill
+    assert "to a meaningful result" in skill
+    assert "Explicit creative or preference discovery" in skill
+    assert "ten-question limit" in skill
+
+
 def test_cli_validates_and_interprets_without_mutation() -> None:
     surface = json.dumps(decision_surface())
     result = subprocess.run(

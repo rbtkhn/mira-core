@@ -9,6 +9,29 @@ Ask only when missing human input materially blocks safe progress. Read the
 repository and task context first. Infer safely or make a reversible authorized
 assumption when the distinction cannot change the next action.
 
+## Pass the implicit-invocation gate
+
+Invoke implicitly only when the missing input is all five of:
+
+- `blocked`: safe progress cannot continue without it;
+- `material`: it changes scope, authority, irreversible effects, significant
+  cost, external communication, or the essential result;
+- `human-only`: repository evidence, explicit instructions, and a reversible
+  authorized assumption cannot resolve it;
+- `immediate`: it changes the next action rather than a hypothetical later
+  branch; and
+- `unsettled`: the operator has not already resolved or selected it.
+
+An explicit request for clarification, discovery questions, requirements
+intake, or structured decision support is sufficient to invoke the skill, but
+still ask only questions that can change the result. File inspection,
+diagnostics, test design, status reporting, diff review, and other reversible
+read-only work already in scope do not pass the implicit gate.
+
+Within one objective, present another Elicitation surface only for a newly
+emerged blocker that passes all five conditions. Action authority becomes a
+blocker only when the exact bounded action is ready.
+
 ## Choose the interaction
 
 Use `decision-navigation` for judgment, preference, or path selection:
@@ -65,6 +88,12 @@ Ask no more than ten questions. Batch native controls in groups of one to
 three; ask one blocking question at a time in text. Stop current and remaining
 batches immediately on an explicit controlling `Hold`. Ask only questions that
 can change the next action.
+
+After three consecutive compact selections within one objective, continue the
+selected branch to a meaningful result. Do not present another Elicitation
+surface unless a newly emerged blocker passes all five implicit-invocation
+conditions. Explicit creative or preference discovery may continue within the
+ten-question limit because each answer supplies missing human evidence.
 
 ## Retain conservatively
 
