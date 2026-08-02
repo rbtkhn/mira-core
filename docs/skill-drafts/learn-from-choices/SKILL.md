@@ -42,16 +42,27 @@ Treat a bare letter as “enter and develop this branch.” Continue read-only
 investigation already in scope. Do not infer authority to mutate, execute,
 spend, publish, communicate, act on customers, stage, commit, push, or deploy.
 
-Mutation requires a direct explicit command or a later option explicitly
-labeled `Execute`, `Stage`, `Commit`, `Push`, `Send`, `Publish`, or `Deploy`.
-A later explicit command supersedes a pending menu. All existing authority,
-approval, privacy, tenant, lane, and safety rules remain controlling.
+Ordinary possibility menus are navigation-only. An action-ready option must be
+composed and validated by `elicitation` as `decision-navigation`, with a
+machine-checked `selection_effect` matching the label's first token. Only
+`Execute`, `Commit`, `Push`, and `Send` can authorize the exact visible bounded
+action through a letter selection. `Stage`, `Publish`, and `Deploy` require a
+direct explicit command. A later explicit command supersedes a pending menu.
+All existing authority, approval, privacy, tenant, lane, and safety rules
+remain controlling.
 
-When a surface was validated by `elicitation` as `decision-navigation`, apply
-that skill's narrower first-token grammar: only `Execute`, `Commit`, `Push`,
-and `Send` can authorize the exact visible bounded action.
-Keep `Stage`, `Publish`, and `Deploy` exploratory on that surface. Ordinary
-possibility menus retain this skill's seven-verb vocabulary.
+Menu usability: action-bearing possibilities must show the complete bounded
+action and target in the visible label. Once the operator selects one by
+letter, carry that action and scope forward rather than asking them to retype
+the command. If direct confirmation is still required, ask only for the
+minimal confirmation at the exact action point and preserve the selected
+scope.
+
+Action-ready menu grammar: an option that authorizes a bounded action must
+begin with the governing executable verb (`Execute`, `Commit`, `Push`, or
+`Send`), followed immediately by the action and target. Put the stable role
+label after that executable prefix; never present `Recommended — Execute ...`
+when the selection is meant to authorize execution.
 
 ## Retain only a selection
 
@@ -63,14 +74,15 @@ Do not retain an unselected footer. When the operator selects a branch:
    selected stable key, recommendation binding, lane/workspace/tenant scope,
    choice kind, consequence, summary, actor, timestamps, and bounded signals.
 4. State that receipt retention granted no authority; any bounded action
-   authority came only from the governing visible option label.
+   authority came only from the validated `selection_effect` paired with the
+   governing visible option label.
 5. If the store is missing or unavailable, continue navigation and disclose
    that the selection was not retained.
 
 Configure private state only with an absolute path outside Git:
 
 ```powershell
-$env:NARRATIVE_CHOICE_DB = "C:\private\choice-history.sqlite3"
+$env:NARRATIVE_CHOICE_DB = "C:\private\narrative-choice-history.sqlite3"
 .\tools\run.ps1 choice select ...
 ```
 
