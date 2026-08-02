@@ -1,0 +1,221 @@
+{
+  "run_id": "august-1-cross-voice-backtest",
+  "source_set": [
+    {
+      "source_id": "narrative-geopolitics/archive/sources/2026-08-01/source-chas-freeman-middle-east-in-transition-a-new-world-order-2026-08-01.md",
+      "status": "landed",
+      "fingerprint": {
+        "source_id": "narrative-geopolitics/archive/sources/2026-08-01/source-chas-freeman-middle-east-in-transition-a-new-world-order-2026-08-01.md",
+        "archive_path": "narrative-geopolitics/archive/sources/2026-08-01/source-chas-freeman-middle-east-in-transition-a-new-world-order-2026-08-01.md",
+        "file_hash": "b78ff32eed32785e6f180f89c1f6b3060d8122b16661bc9534896a9242e36be4",
+        "taxonomy_version": "2",
+        "detector_version": "3",
+        "mechanism_version": "1",
+        "voice_scope": "davis,freeman,macgregor,marandi,mercouris"
+      },
+      "record_count": 1,
+      "archive_path": "narrative-geopolitics/archive/sources/2026-08-01/source-chas-freeman-middle-east-in-transition-a-new-world-order-2026-08-01.md",
+      "warnings": [
+        "provisional attribution"
+      ]
+    },
+    {
+      "source_id": "narrative-geopolitics/archive/sources/2026-08-01/source-colonel-douglas-macgregor-america-and-israel-have-lost-iran-war-2026-08-01.md",
+      "status": "landed",
+      "fingerprint": {
+        "source_id": "narrative-geopolitics/archive/sources/2026-08-01/source-colonel-douglas-macgregor-america-and-israel-have-lost-iran-war-2026-08-01.md",
+        "archive_path": "narrative-geopolitics/archive/sources/2026-08-01/source-colonel-douglas-macgregor-america-and-israel-have-lost-iran-war-2026-08-01.md",
+        "file_hash": "cfd52f23da8a4ad2c3719c1f4e4a0bf2e55fb8ee5a44516740f89c92023aa4e3",
+        "taxonomy_version": "2",
+        "detector_version": "3",
+        "mechanism_version": "1",
+        "voice_scope": "davis,freeman,macgregor,marandi,mercouris"
+      },
+      "record_count": 1,
+      "archive_path": "narrative-geopolitics/archive/sources/2026-08-01/source-colonel-douglas-macgregor-america-and-israel-have-lost-iran-war-2026-08-01.md",
+      "warnings": [
+        "provisional attribution"
+      ]
+    },
+    {
+      "source_id": "narrative-geopolitics/archive/sources/2026-08-01/source-reports-of-israel-u-s-preparing-strikes-on-iran-s-infrastructure-w-nima-rostami-alkhorshid-2026-08-01.md",
+      "status": "landed",
+      "fingerprint": {
+        "source_id": "narrative-geopolitics/archive/sources/2026-08-01/source-reports-of-israel-u-s-preparing-strikes-on-iran-s-infrastructure-w-nima-rostami-alkhorshid-2026-08-01.md",
+        "archive_path": "narrative-geopolitics/archive/sources/2026-08-01/source-reports-of-israel-u-s-preparing-strikes-on-iran-s-infrastructure-w-nima-rostami-alkhorshid-2026-08-01.md",
+        "file_hash": "701976e043ac6ef935655bb68d0cb4936a992dbf409d84ae6e9916a745a11c23",
+        "taxonomy_version": "2",
+        "detector_version": "3",
+        "mechanism_version": "1",
+        "voice_scope": "davis,freeman,macgregor,marandi,mercouris"
+      },
+      "record_count": 1,
+      "archive_path": "narrative-geopolitics/archive/sources/2026-08-01/source-reports-of-israel-u-s-preparing-strikes-on-iran-s-infrastructure-w-nima-rostami-alkhorshid-2026-08-01.md",
+      "warnings": [
+        "provisional attribution"
+      ]
+    }
+  ],
+  "voices": [
+    "davis",
+    "freeman",
+    "macgregor",
+    "marandi",
+    "mercouris"
+  ],
+  "method": "Compare references shared by at least two selected voices; distinguish repeated topic from repeated analytical function.",
+  "includes_backtest": true,
+  "backtest_window": [
+    "2026-07-14",
+    "2026-07-24",
+    "2026-07-25",
+    "2026-07-26",
+    "2026-07-27",
+    "2026-07-28",
+    "2026-07-29",
+    "2026-07-30",
+    "2026-07-31"
+  ],
+  "comparisons": [
+    {
+      "reference_id": "cold-war",
+      "reference": "Cold War",
+      "voices": [
+        "freeman",
+        "macgregor",
+        "mercouris"
+      ],
+      "voice_functions": {
+        "freeman": "order-theory",
+        "macgregor": "strategic-failure-analogy",
+        "mercouris": "operational-comparison"
+      },
+      "comparison": "same-topic-different-function",
+      "occurrence_ids": [
+        "narrative-geopolitics/archive/sources/2026-07-14/source-iran-war-repercussions-the-us-will-be-blamed-the-duran-s-alexander-mercouris-2026-07-14.md:cold-war:4",
+        "narrative-geopolitics/archive/sources/2026-07-29/source-col-douglas-macgregor-is-putin-losing-patience-2026-07-29.md:cold-war:3",
+        "narrative-geopolitics/archive/sources/2026-07-30/source-how-ukraine-could-pull-the-us-into-a-bigger-war-chas-freeman-2026-07-30.md:cold-war:3",
+        "narrative-geopolitics/archive/sources/2026-08-01/source-chas-freeman-middle-east-in-transition-a-new-world-order-2026-08-01.md:cold-war:3",
+        "narrative-geopolitics/archive/sources/2026-08-01/source-colonel-douglas-macgregor-america-and-israel-have-lost-iran-war-2026-08-01.md:cold-war:3"
+      ],
+      "archive_paths": [
+        "narrative-geopolitics/archive/sources/2026-07-14/source-iran-war-repercussions-the-us-will-be-blamed-the-duran-s-alexander-mercouris-2026-07-14.md",
+        "narrative-geopolitics/archive/sources/2026-07-29/source-col-douglas-macgregor-is-putin-losing-patience-2026-07-29.md",
+        "narrative-geopolitics/archive/sources/2026-07-30/source-how-ukraine-could-pull-the-us-into-a-bigger-war-chas-freeman-2026-07-30.md",
+        "narrative-geopolitics/archive/sources/2026-08-01/source-chas-freeman-middle-east-in-transition-a-new-world-order-2026-08-01.md",
+        "narrative-geopolitics/archive/sources/2026-08-01/source-colonel-douglas-macgregor-america-and-israel-have-lost-iran-war-2026-08-01.md"
+      ]
+    },
+    {
+      "reference_id": "iranian-revolution",
+      "reference": "Iranian Revolution",
+      "voices": [
+        "freeman",
+        "marandi"
+      ],
+      "voice_functions": {
+        "freeman": "order-theory",
+        "marandi": "civilizational-endurance"
+      },
+      "comparison": "same-topic-different-function",
+      "occurrence_ids": [
+        "narrative-geopolitics/archive/sources/2026-07-24/source-amb-chas-freeman-iran-warns-of-regional-blackouts-after-trump-threatens-to-bomb-its-infrastructure-2026-07-24.md:iranian-revolution:3",
+        "narrative-geopolitics/archive/sources/2026-07-25/source-seyed-m-marandi-aramco-facility-engulfed-in-flames-after-yemeni-missile-strike-2026-07-25.md:iranian-revolution:3",
+        "narrative-geopolitics/archive/sources/2026-07-30/source-how-ukraine-could-pull-the-us-into-a-bigger-war-chas-freeman-2026-07-30.md:iranian-revolution:3"
+      ],
+      "archive_paths": [
+        "narrative-geopolitics/archive/sources/2026-07-24/source-amb-chas-freeman-iran-warns-of-regional-blackouts-after-trump-threatens-to-bomb-its-infrastructure-2026-07-24.md",
+        "narrative-geopolitics/archive/sources/2026-07-25/source-seyed-m-marandi-aramco-facility-engulfed-in-flames-after-yemeni-missile-strike-2026-07-25.md",
+        "narrative-geopolitics/archive/sources/2026-07-30/source-how-ukraine-could-pull-the-us-into-a-bigger-war-chas-freeman-2026-07-30.md"
+      ]
+    },
+    {
+      "reference_id": "iraq-war",
+      "reference": "2003 Iraq War",
+      "voices": [
+        "davis",
+        "freeman",
+        "macgregor",
+        "marandi"
+      ],
+      "voice_functions": {
+        "davis": "strategic-precedent",
+        "freeman": "order-theory",
+        "macgregor": "strategic-failure-analogy",
+        "marandi": "civilizational-endurance"
+      },
+      "comparison": "same-topic-different-function",
+      "occurrence_ids": [
+        "narrative-geopolitics/archive/sources/2026-07-24/source-amb-chas-freeman-iran-warns-of-regional-blackouts-after-trump-threatens-to-bomb-its-infrastructure-2026-07-24.md:iraq-war:3",
+        "narrative-geopolitics/archive/sources/2026-07-24/source-pointless-violence-fake-diplomacy-us-strategy-in-iran-chas-freeman-lt-col-daniel-davis-2026-07-24.md:iraq-war:4",
+        "narrative-geopolitics/archive/sources/2026-07-25/source-seyed-m-marandi-aramco-facility-engulfed-in-flames-after-yemeni-missile-strike-2026-07-25.md:iraq-war:3",
+        "narrative-geopolitics/archive/sources/2026-07-26/source-trump-all-out-war-against-iran-guarantees-defeat-of-america-lt-col-daniel-davis-2026-07-26.md:iraq-war:3",
+        "narrative-geopolitics/archive/sources/2026-07-28/source-col-doug-macgregor-iran-must-finish-the-job-too-2026-07-28.md:iraq-war:3",
+        "narrative-geopolitics/archive/sources/2026-07-30/source-us-unleashes-heavy-wave-of-strikes-against-iran-lt-col-daniel-davis-2026-07-30.md:iraq-war:3",
+        "narrative-geopolitics/archive/sources/2026-08-01/source-reports-of-israel-u-s-preparing-strikes-on-iran-s-infrastructure-w-nima-rostami-alkhorshid-2026-08-01.md:iraq-war:3"
+      ],
+      "archive_paths": [
+        "narrative-geopolitics/archive/sources/2026-07-24/source-amb-chas-freeman-iran-warns-of-regional-blackouts-after-trump-threatens-to-bomb-its-infrastructure-2026-07-24.md",
+        "narrative-geopolitics/archive/sources/2026-07-24/source-pointless-violence-fake-diplomacy-us-strategy-in-iran-chas-freeman-lt-col-daniel-davis-2026-07-24.md",
+        "narrative-geopolitics/archive/sources/2026-07-25/source-seyed-m-marandi-aramco-facility-engulfed-in-flames-after-yemeni-missile-strike-2026-07-25.md",
+        "narrative-geopolitics/archive/sources/2026-07-26/source-trump-all-out-war-against-iran-guarantees-defeat-of-america-lt-col-daniel-davis-2026-07-26.md",
+        "narrative-geopolitics/archive/sources/2026-07-28/source-col-doug-macgregor-iran-must-finish-the-job-too-2026-07-28.md",
+        "narrative-geopolitics/archive/sources/2026-07-30/source-us-unleashes-heavy-wave-of-strikes-against-iran-lt-col-daniel-davis-2026-07-30.md",
+        "narrative-geopolitics/archive/sources/2026-08-01/source-reports-of-israel-u-s-preparing-strikes-on-iran-s-infrastructure-w-nima-rostami-alkhorshid-2026-08-01.md"
+      ]
+    },
+    {
+      "reference_id": "jcpoa",
+      "reference": "JCPOA / Iran nuclear diplomacy",
+      "voices": [
+        "freeman",
+        "marandi"
+      ],
+      "voice_functions": {
+        "freeman": "order-theory",
+        "marandi": "civilizational-endurance"
+      },
+      "comparison": "same-topic-different-function",
+      "occurrence_ids": [
+        "narrative-geopolitics/archive/sources/2026-07-24/source-amb-chas-freeman-iran-warns-of-regional-blackouts-after-trump-threatens-to-bomb-its-infrastructure-2026-07-24.md:jcpoa:3",
+        "narrative-geopolitics/archive/sources/2026-07-24/source-pointless-violence-fake-diplomacy-us-strategy-in-iran-chas-freeman-lt-col-daniel-davis-2026-07-24.md:jcpoa:4",
+        "narrative-geopolitics/archive/sources/2026-07-25/source-seyed-m-marandi-aramco-facility-engulfed-in-flames-after-yemeni-missile-strike-2026-07-25.md:jcpoa:3",
+        "narrative-geopolitics/archive/sources/2026-07-29/source-iran-ready-to-destroy-trump-s-presidency-professor-seyed-marandi-in-tehran-2026-07-29.md:jcpoa:3",
+        "narrative-geopolitics/archive/sources/2026-07-30/source-how-ukraine-could-pull-the-us-into-a-bigger-war-chas-freeman-2026-07-30.md:jcpoa:3"
+      ],
+      "archive_paths": [
+        "narrative-geopolitics/archive/sources/2026-07-24/source-amb-chas-freeman-iran-warns-of-regional-blackouts-after-trump-threatens-to-bomb-its-infrastructure-2026-07-24.md",
+        "narrative-geopolitics/archive/sources/2026-07-24/source-pointless-violence-fake-diplomacy-us-strategy-in-iran-chas-freeman-lt-col-daniel-davis-2026-07-24.md",
+        "narrative-geopolitics/archive/sources/2026-07-25/source-seyed-m-marandi-aramco-facility-engulfed-in-flames-after-yemeni-missile-strike-2026-07-25.md",
+        "narrative-geopolitics/archive/sources/2026-07-29/source-iran-ready-to-destroy-trump-s-presidency-professor-seyed-marandi-in-tehran-2026-07-29.md",
+        "narrative-geopolitics/archive/sources/2026-07-30/source-how-ukraine-could-pull-the-us-into-a-bigger-war-chas-freeman-2026-07-30.md"
+      ]
+    },
+    {
+      "reference_id": "kuwait-liberation",
+      "reference": "1991 liberation of Kuwait",
+      "voices": [
+        "davis",
+        "freeman"
+      ],
+      "voice_functions": {
+        "davis": "strategic-precedent",
+        "freeman": "order-theory"
+      },
+      "comparison": "same-topic-different-function",
+      "occurrence_ids": [
+        "narrative-geopolitics/archive/sources/2026-07-24/source-amb-chas-freeman-iran-warns-of-regional-blackouts-after-trump-threatens-to-bomb-its-infrastructure-2026-07-24.md:kuwait-liberation:3",
+        "narrative-geopolitics/archive/sources/2026-07-30/source-us-unleashes-heavy-wave-of-strikes-against-iran-lt-col-daniel-davis-2026-07-30.md:kuwait-liberation:3"
+      ],
+      "archive_paths": [
+        "narrative-geopolitics/archive/sources/2026-07-24/source-amb-chas-freeman-iran-warns-of-regional-blackouts-after-trump-threatens-to-bomb-its-infrastructure-2026-07-24.md",
+        "narrative-geopolitics/archive/sources/2026-07-30/source-us-unleashes-heavy-wave-of-strikes-against-iran-lt-col-daniel-davis-2026-07-30.md"
+      ]
+    }
+  ],
+  "summary": {
+    "shared_reference_count": 5,
+    "same_topic_different_function": 5,
+    "same_topic_same_function": 0
+  }
+}

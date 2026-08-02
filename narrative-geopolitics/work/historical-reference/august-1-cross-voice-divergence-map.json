@@ -1,0 +1,95 @@
+{
+  "run_id": "august-1-cross-voice-backtest",
+  "source_set": [
+    {
+      "source_id": "narrative-geopolitics/archive/sources/2026-08-01/source-chas-freeman-middle-east-in-transition-a-new-world-order-2026-08-01.md",
+      "status": "landed",
+      "fingerprint": {
+        "source_id": "narrative-geopolitics/archive/sources/2026-08-01/source-chas-freeman-middle-east-in-transition-a-new-world-order-2026-08-01.md",
+        "archive_path": "narrative-geopolitics/archive/sources/2026-08-01/source-chas-freeman-middle-east-in-transition-a-new-world-order-2026-08-01.md",
+        "file_hash": "b78ff32eed32785e6f180f89c1f6b3060d8122b16661bc9534896a9242e36be4",
+        "taxonomy_version": "2",
+        "detector_version": "3",
+        "mechanism_version": "1",
+        "voice_scope": "davis,freeman,macgregor,marandi,mercouris"
+      },
+      "record_count": 1,
+      "archive_path": "narrative-geopolitics/archive/sources/2026-08-01/source-chas-freeman-middle-east-in-transition-a-new-world-order-2026-08-01.md",
+      "warnings": [
+        "provisional attribution"
+      ]
+    },
+    {
+      "source_id": "narrative-geopolitics/archive/sources/2026-08-01/source-colonel-douglas-macgregor-america-and-israel-have-lost-iran-war-2026-08-01.md",
+      "status": "landed",
+      "fingerprint": {
+        "source_id": "narrative-geopolitics/archive/sources/2026-08-01/source-colonel-douglas-macgregor-america-and-israel-have-lost-iran-war-2026-08-01.md",
+        "archive_path": "narrative-geopolitics/archive/sources/2026-08-01/source-colonel-douglas-macgregor-america-and-israel-have-lost-iran-war-2026-08-01.md",
+        "file_hash": "cfd52f23da8a4ad2c3719c1f4e4a0bf2e55fb8ee5a44516740f89c92023aa4e3",
+        "taxonomy_version": "2",
+        "detector_version": "3",
+        "mechanism_version": "1",
+        "voice_scope": "davis,freeman,macgregor,marandi,mercouris"
+      },
+      "record_count": 1,
+      "archive_path": "narrative-geopolitics/archive/sources/2026-08-01/source-colonel-douglas-macgregor-america-and-israel-have-lost-iran-war-2026-08-01.md",
+      "warnings": [
+        "provisional attribution"
+      ]
+    },
+    {
+      "source_id": "narrative-geopolitics/archive/sources/2026-08-01/source-reports-of-israel-u-s-preparing-strikes-on-iran-s-infrastructure-w-nima-rostami-alkhorshid-2026-08-01.md",
+      "status": "landed",
+      "fingerprint": {
+        "source_id": "narrative-geopolitics/archive/sources/2026-08-01/source-reports-of-israel-u-s-preparing-strikes-on-iran-s-infrastructure-w-nima-rostami-alkhorshid-2026-08-01.md",
+        "archive_path": "narrative-geopolitics/archive/sources/2026-08-01/source-reports-of-israel-u-s-preparing-strikes-on-iran-s-infrastructure-w-nima-rostami-alkhorshid-2026-08-01.md",
+        "file_hash": "701976e043ac6ef935655bb68d0cb4936a992dbf409d84ae6e9916a745a11c23",
+        "taxonomy_version": "2",
+        "detector_version": "3",
+        "mechanism_version": "1",
+        "voice_scope": "davis,freeman,macgregor,marandi,mercouris"
+      },
+      "record_count": 1,
+      "archive_path": "narrative-geopolitics/archive/sources/2026-08-01/source-reports-of-israel-u-s-preparing-strikes-on-iran-s-infrastructure-w-nima-rostami-alkhorshid-2026-08-01.md",
+      "warnings": [
+        "provisional attribution"
+      ]
+    }
+  ],
+  "voices": [
+    "davis",
+    "freeman",
+    "macgregor",
+    "marandi",
+    "mercouris"
+  ],
+  "method": "Compare references shared by at least two selected voices; distinguish repeated topic from repeated analytical function.",
+  "comparisons": [
+    {
+      "reference_id": "cold-war",
+      "reference": "Cold War",
+      "voices": [
+        "freeman",
+        "macgregor"
+      ],
+      "voice_functions": {
+        "freeman": "order-theory",
+        "macgregor": "strategic-failure-analogy"
+      },
+      "comparison": "same-topic-different-function",
+      "occurrence_ids": [
+        "narrative-geopolitics/archive/sources/2026-08-01/source-chas-freeman-middle-east-in-transition-a-new-world-order-2026-08-01.md:cold-war:3",
+        "narrative-geopolitics/archive/sources/2026-08-01/source-colonel-douglas-macgregor-america-and-israel-have-lost-iran-war-2026-08-01.md:cold-war:3"
+      ],
+      "archive_paths": [
+        "narrative-geopolitics/archive/sources/2026-08-01/source-chas-freeman-middle-east-in-transition-a-new-world-order-2026-08-01.md",
+        "narrative-geopolitics/archive/sources/2026-08-01/source-colonel-douglas-macgregor-america-and-israel-have-lost-iran-war-2026-08-01.md"
+      ]
+    }
+  ],
+  "summary": {
+    "shared_reference_count": 1,
+    "same_topic_different_function": 1,
+    "same_topic_same_function": 0
+  }
+}
