@@ -29,6 +29,90 @@ def connection(path: Path) -> sqlite3.Connection:
     return choice_ledger.connect(path)
 
 
+def test_read_only_connection_never_migrates_or_accepts_writes(
+    tmp_path: Path, monkeypatch
+) -> None:
+    path = tmp_path / "choices.sqlite3"
+    writable = connection(path)
+    select(writable)
+    writable.close()
+
+    def migration_is_a_write(_connection: sqlite3.Connection) -> None:
+        raise AssertionError("read-only access must not migrate")
+
+    monkeypatch.setattr(choice_ledger, "migrate", migration_is_a_write)
+    readonly = choice_ledger.connect_read_only(path)
+    assert readonly.execute("SELECT COUNT(*) FROM choice_prompts").fetchone()[0] == 1
+    with pytest.raises(sqlite3.OperationalError, match="readonly"):
+        readonly.execute("DELETE FROM choice_prompts")
+    readonly.close()
+    assert not path.with_name(f"{path.name}-wal").exists()
+    assert not path.with_name(f"{path.name}-shm").exists()
+    assert not path.with_name(f"{path.name}-journal").exists()
+
+
+def test_writable_connection_migrates_existing_wal_store_to_delete(
+    tmp_path: Path,
+) -> None:
+    path = tmp_path / "choices.sqlite3"
+    legacy = sqlite3.connect(path)
+    assert legacy.execute("PRAGMA journal_mode = WAL").fetchone()[0] == "wal"
+    legacy.execute("CREATE TABLE legacy_probe (value INTEGER)")
+    legacy.commit()
+    legacy.close()
+    assert path.read_bytes()[18:20] == b"\x02\x02"
+
+    writable = connection(path)
+    assert writable.execute("PRAGMA journal_mode").fetchone()[0] == "delete"
+    writable.close()
+    assert path.read_bytes()[18:20] == b"\x01\x01"
+
+
+def test_read_only_connection_rejects_wal_before_sqlite_open(
+    tmp_path: Path, monkeypatch
+) -> None:
+    path = tmp_path / "choices.sqlite3"
+    legacy = sqlite3.connect(path)
+    assert legacy.execute("PRAGMA journal_mode = WAL").fetchone()[0] == "wal"
+    legacy.execute("CREATE TABLE legacy_probe (value INTEGER)")
+    legacy.commit()
+    legacy.close()
+
+    def sqlite_open_forbidden(*_args, **_kwargs):
+        raise AssertionError("WAL preflight must fail before SQLite opens the store")
+
+    monkeypatch.setattr(choice_ledger.sqlite3, "connect", sqlite_open_forbidden)
+    with pytest.raises(sqlite3.OperationalError, match="WAL-to-DELETE migration"):
+        choice_ledger.connect_read_only(path)
+
+
+def test_read_snapshot_blocks_writer_commit_instead_of_ignoring_changes(
+    tmp_path: Path,
+) -> None:
+    path = tmp_path / "choices.sqlite3"
+    writer = connection(path)
+    writer.execute("CREATE TABLE concurrency_probe (value INTEGER)")
+    writer.commit()
+
+    reader = choice_ledger.connect_read_only(path)
+    assert reader.execute("SELECT COUNT(*) FROM concurrency_probe").fetchone()[0] == 0
+    writer.execute("PRAGMA busy_timeout = 25")
+    writer.execute("INSERT INTO concurrency_probe VALUES (1)")
+    with pytest.raises(sqlite3.OperationalError, match="locked"):
+        writer.commit()
+    assert reader.execute("SELECT COUNT(*) FROM concurrency_probe").fetchone()[0] == 0
+
+    reader.close()
+    writer.rollback()
+    writer.execute("INSERT INTO concurrency_probe VALUES (1)")
+    writer.commit()
+    writer.close()
+
+    current = choice_ledger.connect_read_only(path)
+    assert current.execute("SELECT COUNT(*) FROM concurrency_probe").fetchone()[0] == 1
+    current.close()
+
+
 def select(
     db: sqlite3.Connection,
     choice_id: str = "CHOICE-001",
@@ -487,11 +571,127 @@ def test_privacy_scan_redacts_contacts_and_rejects_secrets() -> None:
         )
 
 
-def test_missing_store_fallback_does_not_block_navigation(capsys) -> None:
+def test_missing_store_fallback_does_not_block_navigation(
+    capsys, monkeypatch
+) -> None:
+    monkeypatch.delenv(choice_ledger.DB_ENV, raising=False)
     assert choice_ledger.main(["context"]) == 0
     payload = json.loads(capsys.readouterr().out)
     assert payload["available"] is False
     assert "may continue" in payload["disclosure"]
+
+
+@pytest.mark.parametrize("command", ("context", "review"))
+def test_read_only_commands_do_not_use_the_writable_store_connection(
+    tmp_path: Path, monkeypatch, capsys, command: str
+) -> None:
+    path = tmp_path / "choices.sqlite3"
+    writable = connection(path)
+    writable.close()
+    monkeypatch.setenv(choice_ledger.DB_ENV, str(path))
+
+    def writable_connection_forbidden(_path: Path):
+        raise AssertionError("read-only command requested a writable connection")
+
+    monkeypatch.setattr(choice_ledger, "connect", writable_connection_forbidden)
+    assert choice_ledger.main([command]) == 0
+    payload = json.loads(capsys.readouterr().out)
+    expected_version = (
+        choice_ledger.REVIEW_PROJECTION_VERSION
+        if command == "review"
+        else choice_ledger.PROJECTION_VERSION
+    )
+    assert payload["projection_version"] == expected_version
+
+
+def select_arguments() -> list[str]:
+    return [
+        "select",
+        "--choice-id",
+        "CHOICE-UNAVAILABLE",
+        "--options-json",
+        "[]",
+        "--selected-key",
+        "path-a",
+        "--choice-kind",
+        "navigation",
+        "--consequence-level",
+        "low",
+        "--decision-summary",
+        "Unavailable private store",
+        "--presented-at",
+        "2026-08-01T12:00:00+00:00",
+        "--idempotency-key",
+        "unavailable-select",
+    ]
+
+
+@pytest.mark.parametrize(
+    ("arguments", "expected_disclosure"),
+    (
+        (["context"], "ordinary work may continue"),
+        (["review"], "ordinary work may continue"),
+        (select_arguments(), "Selection was not retained"),
+    ),
+)
+@pytest.mark.parametrize(
+    "failure",
+    (
+        PermissionError("access denied"),
+        sqlite3.OperationalError("unable to open database file"),
+    ),
+)
+def test_configured_unavailable_store_degrades_for_navigation_commands(
+    tmp_path: Path,
+    monkeypatch,
+    capsys,
+    arguments: list[str],
+    expected_disclosure: str,
+    failure: Exception,
+) -> None:
+    path = tmp_path / "configured.sqlite3"
+    path.touch()
+    monkeypatch.setenv(choice_ledger.DB_ENV, str(path))
+
+    def unavailable(_path: Path):
+        raise failure
+
+    connection_name = (
+        "connect_read_only"
+        if arguments[0] in choice_ledger.READ_ONLY_COMMANDS
+        else "connect"
+    )
+    monkeypatch.setattr(choice_ledger, connection_name, unavailable)
+    assert choice_ledger.main(arguments) == 0
+    payload = json.loads(capsys.readouterr().out)
+    assert payload["available"] is False
+    assert payload["retained"] is False
+    assert payload["reason"] == "private choice store could not be opened"
+    assert str(path) not in json.dumps(payload)
+    assert expected_disclosure in payload["disclosure"]
+
+
+def test_configured_unavailable_store_remains_hard_for_explicit_operations(
+    tmp_path: Path, monkeypatch
+) -> None:
+    path = tmp_path / "configured.sqlite3"
+    path.touch()
+    monkeypatch.setenv(choice_ledger.DB_ENV, str(path))
+
+    def unavailable(_path: Path):
+        raise sqlite3.OperationalError("unable to open database file")
+
+    monkeypatch.setattr(choice_ledger, "connect", unavailable)
+    with pytest.raises(sqlite3.OperationalError, match="unable to open"):
+        choice_ledger.main(
+            [
+                "outcome",
+                "--choice-id",
+                "CHOICE-UNAVAILABLE",
+                "--idempotency-key",
+                "unavailable-outcome",
+            ]
+        )
 
 
 def test_store_path_must_be_absolute_and_outside_repository() -> None:

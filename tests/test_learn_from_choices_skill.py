@@ -40,13 +40,15 @@ def test_universal_contract_has_stable_roles_and_navigation_boundary() -> None:
     assert "receipt retention granted no authority" in skill
 
 
-def test_elicitation_composition_keeps_the_existing_seven_verb_contract() -> None:
+def test_action_ready_choices_require_machine_validated_elicitation() -> None:
     skill = (SKILL_ROOT / "SKILL.md").read_text(encoding="utf-8")
-    for verb in ("Execute", "Stage", "Commit", "Push", "Send", "Publish", "Deploy"):
+    assert "Ordinary possibility menus are navigation-only" in skill
+    assert "machine-checked `selection_effect`" in skill
+    for verb in ("Execute", "Commit", "Push", "Send"):
         assert f"`{verb}`" in skill
     assert "validated by `elicitation` as `decision-navigation`" in skill
-    assert "narrower first-token grammar" in skill
-    assert "Keep `Stage`, `Publish`, and `Deploy` exploratory" in skill
+    assert "`Stage`, `Publish`, and `Deploy` require a" in skill
+    assert "direct explicit command" in skill
 
 
 def test_universal_footer_is_not_implicit_elicitation() -> None:
@@ -71,6 +73,15 @@ def test_closure_precedes_the_universal_footer() -> None:
     assert "Closure takes precedence over the universal footer" in skill
     assert "acknowledge closure without" in skill
     assert "manufacturing another possibility set" in skill
+
+
+def test_private_choice_store_example_matches_repository_guidance() -> None:
+    skill = (SKILL_ROOT / "SKILL.md").read_text(encoding="utf-8")
+    readme = (REPO_ROOT / "README.md").read_text(encoding="utf-8")
+    canonical = r"C:\private\narrative-choice-history.sqlite3"
+    assert canonical in skill
+    assert canonical in readme
+    assert r"C:\private\choice-history.sqlite3" not in skill
 
 
 def test_coffee_and_dream_composition_is_bounded() -> None:

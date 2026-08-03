@@ -18,7 +18,10 @@ SCHEMA_VERSION = 1
 PROJECTION_VERSION = "1.0"
 REVIEW_PROJECTION_VERSION = "2.0"
 DB_ENV = "NARRATIVE_CHOICE_DB"
+GRACEFUL_CONNECTION_FAILURE_COMMANDS = frozenset({"context", "review", "select"})
+READ_ONLY_COMMANDS = frozenset({"context", "review", "show", "verify"})
 REPO_ROOT = Path(__file__).resolve().parent.parent
+SQLITE_HEADER = b"SQLite format 3\x00"
 AUTHORITY_EFFECT = "none"
 ROLES = ("recommended", "alternative", "overlooked", "pause-or-deepen")
 EVENT_TYPES = (
@@ -182,11 +185,57 @@ def parse_json_argument(value: str) -> Any:
 def connect(path: Path) -> sqlite3.Connection:
     path.parent.mkdir(parents=True, exist_ok=True)
     connection = sqlite3.connect(path)
-    connection.row_factory = sqlite3.Row
-    connection.execute("PRAGMA foreign_keys = ON")
-    connection.execute("PRAGMA journal_mode = WAL")
-    connection.execute("PRAGMA synchronous = FULL")
-    migrate(connection)
+    try:
+        connection.row_factory = sqlite3.Row
+        connection.execute("PRAGMA foreign_keys = ON")
+        journal_mode = connection.execute("PRAGMA journal_mode = DELETE").fetchone()[0]
+        if str(journal_mode).lower() != "delete":
+            raise sqlite3.OperationalError(
+                "choice store could not enter rollback-journal mode"
+            )
+        connection.execute("PRAGMA synchronous = FULL")
+        migrate(connection)
+    except (ChoiceError, sqlite3.Error):
+        connection.close()
+        raise
+    return connection
+
+
+def require_rollback_journal(path: Path) -> None:
+    with path.open("rb") as stream:
+        header = stream.read(20)
+    if len(header) < 20 or header[:16] != SQLITE_HEADER:
+        raise sqlite3.DatabaseError("choice store has an invalid SQLite header")
+    journal_versions = (header[18], header[19])
+    if journal_versions == (2, 2):
+        raise sqlite3.OperationalError(
+            "choice store requires writable WAL-to-DELETE migration "
+            "before read-only access"
+        )
+    if journal_versions != (1, 1):
+        raise sqlite3.DatabaseError(
+            "choice store has unsupported SQLite journal format versions"
+        )
+
+
+def connect_read_only(path: Path) -> sqlite3.Connection:
+    resolved = path.resolve()
+    require_rollback_journal(resolved)
+    connection = sqlite3.connect(f"{resolved.as_uri()}?mode=ro", uri=True)
+    try:
+        connection.row_factory = sqlite3.Row
+        connection.execute("PRAGMA foreign_keys = ON")
+        connection.execute("PRAGMA query_only = ON")
+        connection.execute("BEGIN")
+        version = int(connection.execute("PRAGMA user_version").fetchone()[0])
+        if version != SCHEMA_VERSION:
+            raise ChoiceError(
+                f"choice store schema {version} requires migration to {SCHEMA_VERSION} "
+                "before read-only access"
+            )
+    except (ChoiceError, sqlite3.Error):
+        connection.close()
+        raise
     return connection
 
 
@@ -1196,7 +1245,20 @@ def main(arguments: list[str] | None = None) -> int:
         destination = create_backup(resolution.path, Path(args.to))
         print(json.dumps({"backed_up": True, "path": str(destination)}, indent=2))
         return 0
-    connection = connect(resolution.path)
+    try:
+        connection_factory = (
+            connect_read_only if args.command in READ_ONLY_COMMANDS else connect
+        )
+        connection = connection_factory(resolution.path)
+    except (OSError, sqlite3.OperationalError):
+        if args.command not in GRACEFUL_CONNECTION_FAILURE_COMMANDS:
+            raise
+        payload = unavailable_payload(
+            "private choice store could not be opened",
+            expected_retention=args.command == "select",
+        )
+        print(json.dumps(payload, indent=2))
+        return 0
     try:
         if args.command == "context":
             payload = learning_context(
