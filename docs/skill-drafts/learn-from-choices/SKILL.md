@@ -51,6 +51,15 @@ direct explicit command. A later explicit command supersedes a pending menu.
 All existing authority, approval, privacy, tenant, lane, and safety rules
 remain controlling.
 
+Before choosing an ordinary footer or an Elicitation surface, classify every
+option independently. If an exact action, target, and verification step are
+ready, no material choice remains unresolved, and authority is the only
+blocker, use a validated mixed `decision-navigation` surface and declare that
+option in `action_readiness.ready_option_keys`. Other options may remain
+navigational. Never replace the ready action with a request to settle, confirm,
+adopt, or approve its already-bounded scope. For an all-navigation surface,
+record the bounded `all_navigation_reason` required by Elicitation.
+
 The universal possibility footer is not automatically an Elicitation surface.
 Apply Elicitation's implicit-invocation gate independently. Only a
 machine-validated `decision-navigation` surface with an explicit

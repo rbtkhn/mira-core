@@ -29,6 +29,10 @@ def decision_surface(
         "Test the overlooked inverse",
         "Pause and deepen",
     ),
+    selection_effects: tuple[str, ...] | None = None,
+    *,
+    all_navigation_reason: str = "no-bounded-action",
+    ready_option_keys: list[str] | None = None,
 ) -> dict:
     roles = (
         "recommended",
@@ -36,11 +40,30 @@ def decision_surface(
         "overlooked",
         "pause-or-deepen",
     )
+    effects = selection_effects or ("navigate",) * len(labels)
+    executable_keys = [
+        f"path-{index}"
+        for index, effect in enumerate(effects)
+        if effect != "navigate"
+    ]
     return {
         "type": "decision-navigation",
         "presented_at": PRESENTED_AT,
+        "action_readiness": {
+            "ready_option_keys": (
+                executable_keys if ready_option_keys is None else ready_option_keys
+            ),
+            "all_navigation_reason": (
+                None if executable_keys else all_navigation_reason
+            ),
+        },
         "options": [
-            {"key": f"path-{index}", "role": roles[index], "label": label}
+            {
+                "key": f"path-{index}",
+                "role": roles[index],
+                "label": label,
+                "selection_effect": effects[index],
+            }
             for index, label in enumerate(labels)
         ],
     }
@@ -62,7 +85,15 @@ def test_decision_surface_accepts_three_or_four_options(count: int) -> None:
     surface["options"] = surface["options"][:count]
     normalized = elicitation.validate_elicitation_surface(surface)
     assert len(normalized["options"]) == count
+    assert all(
+        option["selection_effect"] == "navigate"
+        for option in normalized["options"]
+    )
     assert normalized["authority_effect"] == "none"
+    assert normalized["action_readiness"] == {
+        "ready_option_keys": [],
+        "all_navigation_reason": "no-bounded-action",
+    }
 
 
 @pytest.mark.parametrize("count", (0, 1, 2, 5))
@@ -70,7 +101,12 @@ def test_decision_surface_rejects_other_option_counts(count: int) -> None:
     surface = decision_surface()
     if count == 5:
         surface["options"].append(
-            {"key": "path-4", "role": "overlooked", "label": "A fifth path"}
+            {
+                "key": "path-4",
+                "role": "overlooked",
+                "label": "A fifth path",
+                "selection_effect": "navigate",
+            }
         )
     else:
         surface["options"] = surface["options"][:count]
@@ -101,6 +137,142 @@ def test_neutral_surface_rejects_roles_and_action_labels() -> None:
     action_surface["options"][0]["label"] = "Send the report"
     with pytest.raises(elicitation.ElicitationError, match="action-authorizing"):
         elicitation.validate_elicitation_surface(action_surface)
+    effect_surface = neutral_surface()
+    effect_surface["options"][0]["selection_effect"] = "navigate"
+    with pytest.raises(elicitation.ElicitationError, match="selection_effect"):
+        elicitation.validate_elicitation_surface(effect_surface)
+
+
+def test_decision_surface_requires_known_machine_checked_effects() -> None:
+    missing = decision_surface()
+    del missing["options"][0]["selection_effect"]
+    with pytest.raises(elicitation.ElicitationError, match="selection_effect"):
+        elicitation.validate_elicitation_surface(missing)
+
+    unknown = decision_surface()
+    unknown["options"][0]["selection_effect"] = "deploy"
+    with pytest.raises(elicitation.ElicitationError, match="unsupported selection_effect"):
+        elicitation.validate_elicitation_surface(unknown)
+
+    for noncanonical in ("EXECUTE", "Navigate", "sEnD"):
+        wrong_case = decision_surface()
+        wrong_case["options"][0]["selection_effect"] = noncanonical
+        with pytest.raises(
+            elicitation.ElicitationError, match="unsupported selection_effect"
+        ):
+            elicitation.validate_elicitation_surface(wrong_case)
+
+
+@pytest.mark.parametrize(
+    ("selection_effect", "label"),
+    (
+        ("navigate", "Inspect the bounded evidence"),
+        ("execute", "Execute the bounded action"),
+        ("commit", "Commit the bounded change"),
+        ("push", "Push the bounded branch"),
+        ("send", "Send the bounded message"),
+    ),
+)
+def test_canonical_selection_effects_validate(
+    selection_effect: str, label: str
+) -> None:
+    surface = decision_surface(
+        (label, "Compare", "Invert"),
+        (selection_effect, "navigate", "navigate"),
+    )
+    normalized = elicitation.validate_elicitation_surface(surface)
+    assert normalized["options"][0]["selection_effect"] == selection_effect
+
+
+def test_effect_and_visible_label_must_match() -> None:
+    mismatched = decision_surface(
+        selection_effects=("send", "navigate", "navigate", "navigate")
+    )
+    with pytest.raises(elicitation.ElicitationError, match="must match"):
+        elicitation.validate_elicitation_surface(mismatched)
+
+    wrong_action_verb = decision_surface(
+        ("Send the bounded action", "Compare", "Invert"),
+        ("execute", "navigate", "navigate"),
+    )
+    with pytest.raises(elicitation.ElicitationError, match="must match"):
+        elicitation.validate_elicitation_surface(wrong_action_verb)
+
+    action_label_navigation = decision_surface(("Send the report", "Compare", "Invert"))
+    with pytest.raises(elicitation.ElicitationError, match="navigate options"):
+        elicitation.validate_elicitation_surface(action_label_navigation)
+
+
+def test_decision_surface_requires_action_readiness_metadata() -> None:
+    surface = decision_surface()
+    del surface["action_readiness"]
+    with pytest.raises(elicitation.ElicitationError, match="action_readiness"):
+        elicitation.validate_elicitation_surface(surface)
+
+
+def test_mixed_surface_requires_ready_keys_to_match_executable_options() -> None:
+    valid = decision_surface(
+        ("Execute the bounded fix", "Compare", "Invert"),
+        ("execute", "navigate", "navigate"),
+    )
+    normalized = elicitation.validate_elicitation_surface(valid)
+    assert normalized["action_readiness"] == {
+        "ready_option_keys": ["path-0"],
+        "all_navigation_reason": None,
+    }
+
+    omitted = decision_surface(
+        ("Execute the bounded fix", "Compare", "Invert"),
+        ("execute", "navigate", "navigate"),
+        ready_option_keys=[],
+    )
+    with pytest.raises(elicitation.ElicitationError, match="exactly match"):
+        elicitation.validate_elicitation_surface(omitted)
+
+    navigation_key = decision_surface(ready_option_keys=["path-0"])
+    with pytest.raises(elicitation.ElicitationError, match="exactly match"):
+        elicitation.validate_elicitation_surface(navigation_key)
+
+
+def test_all_navigation_surface_requires_a_bounded_reason() -> None:
+    missing = decision_surface(all_navigation_reason=None)
+    with pytest.raises(elicitation.ElicitationError, match="recognized"):
+        elicitation.validate_elicitation_surface(missing)
+
+    unknown = decision_surface(all_navigation_reason="confirm-again")
+    with pytest.raises(elicitation.ElicitationError, match="recognized"):
+        elicitation.validate_elicitation_surface(unknown)
+
+    for reason in (
+        "no-bounded-action",
+        "material-choice-unresolved",
+        "operator-requested-read-only",
+        "action-complete",
+    ):
+        normalized = elicitation.validate_elicitation_surface(
+            decision_surface(all_navigation_reason=reason)
+        )
+        assert normalized["action_readiness"]["all_navigation_reason"] == reason
+
+
+def test_action_ready_surface_rejects_all_navigation_reason() -> None:
+    surface = decision_surface(
+        ("Execute the bounded fix", "Compare", "Invert"),
+        ("execute", "navigate", "navigate"),
+    )
+    surface["action_readiness"]["all_navigation_reason"] = "no-bounded-action"
+    with pytest.raises(elicitation.ElicitationError, match="must not assign"):
+        elicitation.validate_elicitation_surface(surface)
+
+
+def test_action_readiness_rejects_unknown_and_duplicate_keys() -> None:
+    unknown = decision_surface(ready_option_keys=["missing"])
+    with pytest.raises(elicitation.ElicitationError, match="unknown option"):
+        elicitation.validate_elicitation_surface(unknown)
+
+    duplicate = decision_surface(ready_option_keys=["path-0", "path-0"])
+    with pytest.raises(elicitation.ElicitationError, match="must be unique"):
+        elicitation.validate_elicitation_surface(duplicate)
 
 
 def test_single_exploratory_letter_authorizes_no_action() -> None:
@@ -114,11 +286,15 @@ def test_single_exploratory_letter_authorizes_no_action() -> None:
 
 @pytest.mark.parametrize("verb", ("execute", "COMMIT", "Push", "sEnD"))
 def test_reserved_verbs_are_case_insensitive_first_tokens(verb: str) -> None:
-    surface = decision_surface((f"{verb}: the bounded action", "Compare", "Invert"))
+    surface = decision_surface(
+        (f"{verb}: the bounded action", "Compare", "Invert"),
+        (verb.lower(), "navigate", "navigate"),
+    )
     result = elicitation.interpret_elicitation_response(surface, "A")
     branch = result["ordered_selected_branches"][0]
     assert branch["action_authorized"] is True
     assert branch["normalized_reserved_verb"] == verb.lower()
+    assert branch["selection_effect"] == verb.lower()
     assert branch["exact_bounded_action_label"] == f"{verb}: the bounded action"
 
 
@@ -142,6 +318,11 @@ def test_compound_selection_preserves_order_and_receipt_identity() -> None:
         "path-0",
     ]
     assert len({item["options_hash"] for item in result["receipt_directives"]}) == 1
+    assert all(
+        "selection_effect" not in option
+        for directive in result["receipt_directives"]
+        for option in directive["options"]
+    )
     assert {item["presented_at"] for item in result["receipt_directives"]} == {
         PRESENTED_AT
     }
@@ -215,7 +396,10 @@ def test_invalid_compact_responses_fail(response: str, message: str) -> None:
 
 
 def test_ranked_response_is_read_only_and_receipt_free() -> None:
-    surface = decision_surface(("Execute the task", "Compare", "Invert"))
+    surface = decision_surface(
+        ("Execute the task", "Compare", "Invert"),
+        ("execute", "navigate", "navigate"),
+    )
     result = elicitation.interpret_elicitation_response(surface, "A>C>B")
     assert result["mode"] == "ranked"
     assert result["ordered_selected_branches"] == []
@@ -246,7 +430,11 @@ def test_neutral_letter_and_freeform_are_evidence_not_navigation() -> None:
 
 def test_action_failure_stops_and_reports_unexecuted_branches() -> None:
     result = elicitation.interpret_elicitation_response(
-        decision_surface(("Execute first", "Commit second", "Send third")), "A,B,C"
+        decision_surface(
+            ("Execute first", "Commit second", "Send third"),
+            ("execute", "commit", "send"),
+        ),
+        "A,B,C",
     )
     failure = elicitation.report_compound_failure(result, "B")
     assert [item["letter"] for item in failure["completed_branches"]] == ["A"]
@@ -294,6 +482,8 @@ def test_skill_discovery_metadata_and_registry_resolve_to_canonical_skill() -> N
     ]
     assert frontmatter == ["name", "description"]
     assert "Use implicitly only when safe execution is blocked" in skill
+    assert "contradiction-check" in skill
+    assert "grants no authority" in skill
     assert "allow_implicit_invocation: true" in metadata
     assert 'default_prompt: "Use $elicitation' in metadata
     entry = codex_skill_registry.build_registry()["elicitation"]
@@ -327,6 +517,26 @@ def test_skill_contract_has_strict_implicit_invocation_gate() -> None:
         assert non_trigger in skill
     assert "newly emerged blocker" in skill
     assert "exact bounded action is ready" in skill
+    assert "Classify every decision option independently" in skill
+    assert "ready_option_keys" in skill
+    assert "all_navigation_reason" in skill
+    assert "settle, confirm" in skill
+
+
+def test_host_and_choice_contract_require_option_level_readiness() -> None:
+    agents = (REPO_ROOT / "AGENTS.md").read_text(encoding="utf-8")
+    choices = (
+        REPO_ROOT / "docs" / "skill-drafts" / "learn-from-choices" / "SKILL.md"
+    ).read_text(encoding="utf-8")
+    for contract in (agents, choices):
+        assert "classify action readiness" in contract.casefold() or (
+            "classify every" in contract.casefold()
+        )
+        assert "independently" in contract
+        assert "all-navigation" in contract
+        assert "settle, confirm" in contract
+    assert "A decision surface may mix executable and navigational" in agents
+    assert "validated mixed `decision-navigation`" in choices
 
 
 def test_skill_contract_limits_repeated_selection_chains() -> None:

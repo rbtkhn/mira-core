@@ -32,6 +32,52 @@ Within one objective, present another Elicitation surface only for a newly
 emerged blocker that passes all five conditions. Action authority becomes a
 blocker only when the exact bounded action is ready.
 
+## Classify action readiness
+
+Classify every decision option independently before presentation. Mixed
+surfaces are valid: one option may execute a ready change while the others
+navigate to genuinely different analysis, scope, or evidence.
+
+Every `decision-navigation` surface must include:
+
+```json
+{
+  "action_readiness": {
+    "ready_option_keys": ["apply-bounded-change"],
+    "all_navigation_reason": null
+  }
+}
+```
+
+`ready_option_keys` must exactly equal the keys of options whose
+`selection_effect` is `execute`, `commit`, `push`, or `send`. When every option
+is navigational, the list must be empty and `all_navigation_reason` must be one
+of `no-bounded-action`, `material-choice-unresolved`,
+`operator-requested-read-only`, or `action-complete`.
+
+Treat an action as ready when its exact action, target, and verification step
+are bounded, no material human choice remains unresolved, and authority is the
+only blocker. If that action is the recommended next path, the recommended
+option must be executable. Do not substitute a request to settle, confirm,
+adopt, or approve a scope that is already bounded. Validate the complete mixed
+surface before presenting it.
+
+## Run contradiction preflight when warranted
+
+After intent recovery and before consequential questions or execution, run:
+
+```powershell
+.\tools\run.ps1 contradiction-check --packet PACKET.yaml --format markdown
+```
+
+Run it only when an explicit material factual premise may conflict with a named
+repository fact. Inspect and encode only the smallest relevant controlling
+surface. Route missing or stale ordinary control to `neutral-evidence`, a
+direct conflict to `decision-navigation`, and conflicting current controls to
+named-authority resolution. Skip it for exact menu selections, ordinary
+preferences, and clear commands without a factual conflict. The preflight is
+read-only, reports contradictions, and grants no authority.
+
 ## Choose the interaction
 
 Use `decision-navigation` for judgment, preference, or path selection:
@@ -39,6 +85,9 @@ Use `decision-navigation` for judgment, preference, or path selection:
 - Present three or four genuinely distinct paths.
 - Bind `recommended`, `alternative`, and `overlooked`; add
   `pause-or-deepen` only when it is real.
+- Give every option a `selection_effect`: `navigate`, `execute`, `commit`,
+  `push`, or `send`.
+- Give the surface machine-checked `action_readiness` metadata.
 - Explain the recommendation from current evidence.
 - Preserve a credible overlooked path.
 
@@ -68,15 +117,17 @@ read-only exploration.
 
 ## Keep authority exact
 
-Treat a selection as read-only navigation unless its visible label begins,
-case-insensitively, with `Execute`, `Commit`, `Push`, or `Send`. Match the verb
-as the first token, including a trailing colon. Authorize only the exact visible
-bounded action, subject to every existing permission and approval boundary.
+Treat a selection as read-only navigation unless its validated
+`selection_effect` is `execute`, `commit`, `push`, or `send`. Require the
+visible label to begin, case-insensitively, with the matching verb as its first
+token, including a trailing colon. Authorize only the exact visible bounded
+action, subject to every existing permission and approval boundary.
 
-`Review and push`, `Stage`, `Publish`, and `Deploy` remain exploratory on an
-Elicitation surface. This narrower grammar controls only surfaces validated as
-`decision-navigation`; ordinary `learn-from-choices` menus retain their native
-action vocabulary. A direct later command supersedes a pending menu.
+Reject missing, unknown, or mismatched effects before presentation. A
+`navigate` option cannot begin with a reserved action verb, and neutral
+evidence accepts no `selection_effect`. `Stage`, `Publish`, and `Deploy`
+require a direct explicit command. Ordinary `learn-from-choices` menus are
+navigation-only. A direct later command supersedes a pending menu.
 
 Process compound branches left to right. Stop on an action failure, report the
 failed branch and every unexecuted branch, and never retry or skip ahead
@@ -103,6 +154,7 @@ option set, presentation timestamp, and option-set hash. Record outcomes
 independently. Do not retain rankings or neutral evidence as branch selections.
 
 Receipt retention has `authority_effect: none`; authority comes only from the
-governing visible label. Never retain secrets, credentials, private evidence
-bodies, or cross-tenant data. If the ledger is unavailable, continue and
-disclose that the selection was not retained.
+validated `selection_effect` paired with its governing visible label. Never
+retain secrets, credentials, private evidence bodies, or cross-tenant data. If
+the ledger is unavailable, continue and disclose that the selection was not
+retained.

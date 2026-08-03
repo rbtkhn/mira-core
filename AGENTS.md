@@ -52,6 +52,11 @@ When the operator says `harness audit`, run
 five stations, actionable findings, and coverage gaps. Do not synchronize,
 edit, or retire any control during the audit.
 
+When the operator says `morning-brief` or asks for the experimental morning
+brief, read `docs/skill-drafts/morning-brief/SKILL.md` completely and follow it.
+This route is repository-local and must not be synchronized to a user-level
+skill mirror.
+
 These are repository-local contracts. Do not synchronize them into global
 Codex skills. Their handoff is advisory cadence state, never research evidence.
 
@@ -80,6 +85,16 @@ bounded action, its visible label must begin with the governing executable
 verb (`Execute`, `Commit`, `Push`, or `Send`), followed immediately by the
 action and target. Do not hide an executable action behind a role label such
 as `Recommended`; stable possibility roles belong after the executable verb.
+
+Before presenting any possibility footer, classify action readiness for each
+option independently. A decision surface may mix executable and navigational
+options. When an exact bounded action, target, and verification step are ready,
+no material choice remains unresolved, and authority is the only blocker, the
+surface must declare that option ready, give it the matching executable
+`selection_effect`, and pass `elicitation validate`. Do not replace a ready
+action with a navigational request to settle, confirm, adopt, or approve an
+already-bounded scope. An all-navigation surface must declare the bounded
+reason no action is ready.
 
 Selection closure and idempotence: after a branch is confirmed, paused, or
 otherwise settled, a repeated selection of the same stable option is a no-op.

@@ -19,6 +19,13 @@ DECISION_ROLES = (
     "pause-or-deepen",
 )
 RESERVED_VERBS = ("execute", "commit", "push", "send")
+SELECTION_EFFECTS = ("navigate", *RESERVED_VERBS)
+ALL_NAVIGATION_REASONS = (
+    "no-bounded-action",
+    "material-choice-unresolved",
+    "operator-requested-read-only",
+    "action-complete",
+)
 ACTION_LABEL_RE = re.compile(
     r"^\s*(execute|commit|push|send)(?=\s|:|$)", re.IGNORECASE
 )
@@ -62,6 +69,58 @@ def _receipt_options(options: Iterable[dict[str, Any]]) -> list[dict[str, str]]:
     ]
 
 
+def _validate_action_readiness(
+    raw: Any, *, options: list[dict[str, Any]]
+) -> dict[str, Any]:
+    if not isinstance(raw, dict):
+        raise ElicitationError(
+            "decision-navigation requires action_readiness metadata"
+        )
+    ready_option_keys = raw.get("ready_option_keys")
+    if not isinstance(ready_option_keys, list) or any(
+        not isinstance(key, str) or not key.strip() for key in ready_option_keys
+    ):
+        raise ElicitationError(
+            "action_readiness.ready_option_keys must be a list of option keys"
+        )
+    normalized_ready_keys = [key.strip() for key in ready_option_keys]
+    if len(set(normalized_ready_keys)) != len(normalized_ready_keys):
+        raise ElicitationError("action_readiness ready option keys must be unique")
+
+    option_keys = {option["key"] for option in options}
+    unknown = [key for key in normalized_ready_keys if key not in option_keys]
+    if unknown:
+        raise ElicitationError(
+            "action_readiness references unknown option key(s): "
+            + ", ".join(unknown)
+        )
+    executable_keys = [
+        option["key"]
+        for option in options
+        if option["selection_effect"] in RESERVED_VERBS
+    ]
+    if set(normalized_ready_keys) != set(executable_keys):
+        raise ElicitationError(
+            "action_readiness ready option keys must exactly match executable options"
+        )
+
+    all_navigation_reason = raw.get("all_navigation_reason")
+    if executable_keys:
+        if all_navigation_reason is not None:
+            raise ElicitationError(
+                "action-ready surfaces must not assign an all-navigation reason"
+            )
+    elif all_navigation_reason not in ALL_NAVIGATION_REASONS:
+        raise ElicitationError(
+            "all-navigation surfaces require a recognized all_navigation_reason"
+        )
+
+    return {
+        "ready_option_keys": normalized_ready_keys,
+        "all_navigation_reason": all_navigation_reason,
+    }
+
+
 def validate_elicitation_surface(surface: Any) -> dict[str, Any]:
     if not isinstance(surface, dict):
         raise ElicitationError("surface must be an object")
@@ -102,11 +161,32 @@ def validate_elicitation_surface(surface: Any) -> dict[str, Any]:
                 raise ElicitationError("decision roles must be unique")
             roles.add(role)
             normalized["role"] = role
+            selection_effect = _text(
+                raw.get("selection_effect"), label="selection_effect"
+            )
+            if selection_effect not in SELECTION_EFFECTS:
+                raise ElicitationError(
+                    f"unsupported selection_effect: {selection_effect}"
+                )
+            label_verb = _reserved_verb(label)
+            if selection_effect == "navigate" and label_verb is not None:
+                raise ElicitationError(
+                    "navigate options must not use action-authorizing labels"
+                )
+            if selection_effect != "navigate" and label_verb != selection_effect:
+                raise ElicitationError(
+                    "action selection_effect must match the label's first verb"
+                )
+            normalized["selection_effect"] = selection_effect
             if "control" in raw:
                 raise ElicitationError("decision options do not accept intake controls")
         else:
             if "role" in raw:
                 raise ElicitationError("neutral evidence options must not assign roles")
+            if "selection_effect" in raw:
+                raise ElicitationError(
+                    "neutral evidence options must not assign selection_effect"
+                )
             if _reserved_verb(label):
                 raise ElicitationError(
                     "neutral evidence options must not use action-authorizing labels"
@@ -127,6 +207,16 @@ def validate_elicitation_surface(surface: Any) -> dict[str, Any]:
                 f"decision roles must be exactly {sorted(required)}"
             )
 
+    action_readiness = None
+    if interaction_type == "decision-navigation":
+        action_readiness = _validate_action_readiness(
+            surface.get("action_readiness"), options=options
+        )
+    elif "action_readiness" in surface:
+        raise ElicitationError(
+            "neutral evidence surfaces must not assign action_readiness"
+        )
+
     presented_at = _timestamp(surface.get("presented_at"))
     normalized_surface = {
         "type": interaction_type,
@@ -135,6 +225,8 @@ def validate_elicitation_surface(surface: Any) -> dict[str, Any]:
     }
     if presented_at is not None:
         normalized_surface["presented_at"] = presented_at
+    if action_readiness is not None:
+        normalized_surface["action_readiness"] = action_readiness
     return normalized_surface
 
 
@@ -156,12 +248,18 @@ def _selected_letters(
 
 
 def _branch(option: dict[str, Any], *, allow_action: bool) -> dict[str, Any]:
-    verb = _reserved_verb(option["label"]) if allow_action else None
+    selection_effect = option.get("selection_effect")
+    verb = (
+        selection_effect
+        if allow_action and selection_effect in RESERVED_VERBS
+        else None
+    )
     result = {
         "option_key": option["key"],
         "letter": option["letter"],
         "role": option.get("role"),
         "visible_label": option["label"],
+        "selection_effect": selection_effect,
         "action_authorized": verb is not None,
         "normalized_reserved_verb": verb,
         "exact_bounded_action_label": option["label"] if verb else None,
