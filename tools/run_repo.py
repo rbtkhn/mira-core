@@ -28,6 +28,7 @@ SURFACES = {
     "narrative-reuse": REPO_ROOT / "scripts" / "report_narrative_reuse.py",
     "operator-position": REPO_ROOT / "scripts" / "operator_positions.py",
     "reality": REPO_ROOT / "scripts" / "reality.py",
+    "session-preflight": REPO_ROOT / "scripts" / "session_preflight.py",
     "skills-check": REPO_ROOT / "scripts" / "check_codex_skills_sync.py",
     "skills-sync": REPO_ROOT / "scripts" / "sync_codex_skills.py",
     "synthesis": REPO_ROOT / "scripts" / "geopolitical_synthesis.py",

@@ -10,8 +10,13 @@ Use only in `narrative-systems`. Coffee is read-only.
 ## Orient
 
 1. Run `tools/run.ps1 cadence coffee --json`.
+   Start it once. If the execution remains live, resume or poll the returned
+   session rather than launching a duplicate cadence command.
 2. Inspect Git status, `public/watch.md`, accountable open forecasts, the latest
    manifest-backed daily run, and any experiment named by the handoff.
+   Inspect dirty-state counts and capped top-level groupings before requesting
+   paths. Scope any later path listing to the named experiment or failed lane;
+   do not print the complete worktree in a broadly dirty repository.
    When the handoff has a verification profile, report experiment verification
    separately from repository verification and show local-use versus repo-use.
    Report structured lane failures with their owner and next action; retain the
@@ -29,6 +34,10 @@ Use only in `narrative-systems`. Coffee is read-only.
    unresolved queue through `choice context`. Surface at most one lightweight
    unresolved-outcome prompt or staged five-to-ten choice review; ordinary
    work remains uninterrupted when the store is absent.
+6. Before running a test profile that writes temporary files, run
+   `tools/run.ps1 session-preflight --temp-root ABSOLUTE_PATH --json`. Start
+   each verifier once and resume its live process until completion. A missing
+   output chunk is not evidence that the verifier failed or should be relaunched.
 
 ## Return
 

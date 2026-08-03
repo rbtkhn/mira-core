@@ -54,6 +54,7 @@ EXPECTED_SURFACES = {
     "narrative-reuse": "report_narrative_reuse.py",
     "operator-position": "operator_positions.py",
     "reality": "reality.py",
+    "session-preflight": "session_preflight.py",
     "skills-check": "check_codex_skills_sync.py",
     "skills-sync": "sync_codex_skills.py",
     "synthesis": "geopolitical_synthesis.py",

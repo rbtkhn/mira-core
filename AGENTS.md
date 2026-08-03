@@ -5,6 +5,32 @@ alternatives only when the tradeoff remains genuinely unsettled or the
 operator requests them. When alternatives are necessary, make their sequence,
 dependencies, tradeoffs, and consequences explicit.
 
+## Efficient Tool Execution
+
+Bound diagnostic output before expanding it. For a dirty repository, inspect
+counts and capped top-level groupings first. Do not print a complete status or
+path inventory when more than 200 entries are present unless the operator or a
+specific repair requires those paths. Search named controlling files before
+repository-wide text, and exclude archive transcript bodies from administrative
+queries unless their contents are the evidence under review.
+
+When a tool returns a live session or cell identifier, record it and resume or
+poll that exact process until it reaches a terminal state. Never relaunch the
+same long-running command merely because the initial call returned no output.
+Keep direct command output bounded and retain a concise raw failure tail when
+the governing workflow requires auditability.
+
+Before a test or renderer writes temporary files, run the repository's
+`session-preflight` command against the intended absolute temporary root. Fail
+before starting the workload when the root is missing, inside the repository,
+or not writable. Do not infer writability from a declared sandbox permission
+alone.
+
+Cache an optional service's unavailable state for the current task. Do not
+repeat the same availability probe unless its path, environment, credentials,
+permissions, or other external state changes, or the operator explicitly asks
+for a retry.
+
 When the operator says `coffee`, read
 `docs/skill-drafts/coffee/SKILL.md` completely and follow it.
 

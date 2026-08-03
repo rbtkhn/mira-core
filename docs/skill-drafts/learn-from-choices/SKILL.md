@@ -107,7 +107,8 @@ Do not retain an unselected footer. When the operator selects a branch:
 
 1. Reconstruct the exact displayed possibility set and its semantic roles.
 2. Sanitize direct contact data and reject secrets or credentials.
-3. If a private store is configured, run `choice select` atomically with the
+3. If a private store is configured and has not already been cached as
+   unavailable for the current task, run `choice select` atomically with the
    selected stable key, recommendation binding, lane/workspace/tenant scope,
    choice kind, consequence, summary, actor, timestamps, and bounded signals.
 4. State that receipt retention granted no authority; any bounded action
@@ -115,6 +116,12 @@ Do not retain an unselected footer. When the operator selects a branch:
    governing visible option label.
 5. If the store is missing or unavailable, continue navigation and disclose
    that the selection was not retained.
+
+Cache unavailability by resolved store path and relevant environment state for
+the remainder of the task. Do not reopen the same unavailable store on every
+selection, review, or context request. Retry only after the configured path,
+credentials, permissions, environment, or other external state changes, or
+when the operator explicitly requests another probe.
 
 Configure private state only with an absolute path outside Git:
 
