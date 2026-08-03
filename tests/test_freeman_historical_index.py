@@ -32,10 +32,10 @@ def test_attribution_confidence_is_explicit() -> None:
 
 def test_render_is_deterministic_and_contains_required_surfaces() -> None:
     module = load_module()
-    occurrences, _ = module.build_occurrences()
-    assert len(occurrences) < 2000
-    first = module.render()
-    second = module.render()
+    analysis = module.build_analysis()
+    assert len(analysis.occurrences) < 2000
+    first = module.render(analysis)
+    second = module.render(analysis)
     assert first == second
     assert "# Chas Freeman Historical References" in first
     assert "## Reference index" in first
@@ -45,3 +45,22 @@ def test_render_is_deterministic_and_contains_required_surfaces() -> None:
     assert "Freeman question" in first
     assert "FR-HR-" in first
     assert "attribution" in first
+
+
+def test_main_builds_analysis_once(monkeypatch, capsys) -> None:
+    module = load_module()
+    sentinel = object()
+    calls = 0
+
+    def build_analysis():
+        nonlocal calls
+        calls += 1
+        return sentinel
+
+    monkeypatch.setattr(module, "build_analysis", build_analysis)
+    monkeypatch.setattr(module, "render", lambda analysis: "rendered" if analysis is sentinel else "unexpected")
+    monkeypatch.setattr(sys, "argv", [str(SCRIPT), "--dry-run"])
+
+    assert module.main() == 0
+    assert capsys.readouterr().out.strip() == "rendered"
+    assert calls == 1

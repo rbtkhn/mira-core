@@ -30,6 +30,15 @@ class ReferenceRule:
     patterns: tuple[str, ...]
 
 
+@dataclass(frozen=True)
+class HistoricalIndexAnalysis:
+    rows: list[dict]
+    occurrences: list[dict]
+    rejected: list[dict]
+    coverage: list[str]
+    review: dict
+
+
 MECHANISMS = (
     {"id": "M-FR-001", "name": "coercion and strategic backfire", "definition": "External pressure produces resistance, legitimacy loss, or strategic reversal for the coercing power.", "inclusion_tests": ["The quote connects pressure, intervention, sanctions, or regime change to resistance or failure."], "exclusion_tests": ["A reference is merely mentioned without a claim about coercion or consequences."], "counterexample_guidance": "Record cases where pressure produces durable compliance or a favorable settlement."},
     {"id": "M-FR-002", "name": "institutional memory and diplomatic credibility", "definition": "Records, commitments, guarantees, and prior diplomatic conduct shape the credibility of future negotiation.", "inclusion_tests": ["The quote links diplomatic reliability to records, treaties, guarantees, or prior commitments."], "exclusion_tests": ["A diplomatic event is named without a claim about credibility or institutional memory."], "counterexample_guidance": "Record cases where diplomacy succeeds despite broken records or unreliable commitments."},
@@ -186,10 +195,11 @@ def mechanism_suggestions(rule: ReferenceRule, paragraph: str) -> list[dict]:
     return suggestions
 
 
-def build_occurrences() -> tuple[list[dict], list[str]]:
+def build_occurrences(rows: list[dict] | None = None) -> tuple[list[dict], list[str]]:
     occurrences: list[dict] = []
     coverage: list[str] = []
-    for row_index, row in enumerate(source_rows(), start=1):
+    source_items = source_rows() if rows is None else rows
+    for row_index, row in enumerate(source_items, start=1):
         path: Path = row["full_path"]
         if not path.is_file():
             coverage.append(f"MISSING {row.get('local_path', '')}")
@@ -290,6 +300,20 @@ def apply_review_decisions(occurrences: list[dict]) -> list[dict]:
     return occurrences
 
 
+def build_analysis() -> HistoricalIndexAnalysis:
+    rows = source_rows()
+    occurrences, coverage = build_occurrences(rows)
+    occurrences, rejected = apply_manual_turn_review(occurrences)
+    apply_review_decisions(occurrences)
+    return HistoricalIndexAnalysis(
+        rows=rows,
+        occurrences=occurrences,
+        rejected=rejected,
+        coverage=coverage,
+        review=load_mechanism_review(),
+    )
+
+
 def structured_ledger(rows: list[dict], occurrences: list[dict], rejected: list[dict], coverage: list[str], review: dict) -> dict:
     return {
         "schema_version": 1,
@@ -314,11 +338,12 @@ def structured_ledger(rows: list[dict], occurrences: list[dict], rejected: list[
     }
 
 
-def render() -> str:
-    rows = source_rows()
-    occurrences, coverage = build_occurrences()
-    occurrences, rejected = apply_manual_turn_review(occurrences)
-    apply_review_decisions(occurrences)
+def render(analysis: HistoricalIndexAnalysis | None = None) -> str:
+    analysis = build_analysis() if analysis is None else analysis
+    rows = analysis.rows
+    occurrences = analysis.occurrences
+    rejected = analysis.rejected
+    coverage = analysis.coverage
     grouped: dict[str, list[dict]] = defaultdict(list)
     for occurrence in occurrences:
         grouped[occurrence["canonical_reference_key"]].append(occurrence)
@@ -385,7 +410,7 @@ def render() -> str:
     for occurrence in rejected:
         lines.append(f"- `{occurrence['occurrence_id']}` · `{occurrence['source_id']}` · `{occurrence['rule'].key}` · speaker `{occurrence.get('manual_speaker') or 'unresolved'}` · raw lines `{occurrence.get('manual_raw_lines', '')}` · {occurrence.get('manual_evidence', '')}")
     lines += ["", "## Confirmed Freeman mechanisms", "", "Confirmed mechanisms require explicit operator review and preserve an evidence chain to occurrence IDs and archive sources.", ""]
-    confirmed = load_mechanism_review().get("confirmed", [])
+    confirmed = analysis.review.get("confirmed", [])
     if confirmed:
         for item in confirmed:
             lines += [f"### `{item['id']}` — {item['name']}", "", f"- Evidence occurrences: {', '.join(f'`{value}`' for value in item.get('occurrence_ids', []))}", f"- Sources: {', '.join(f'`{value}`' for value in item.get('source_ids', []))}", f"- Rationale: {item.get('rationale', '')}", f"- Differences: {item.get('material_differences', '')}", f"- Reviewed: {item.get('reviewed_date', '')}", ""]
@@ -403,20 +428,16 @@ def main() -> int:
     parser.add_argument("--output", type=Path, default=OUTPUT_PATH)
     parser.add_argument("--dry-run", action="store_true")
     args = parser.parse_args()
-    rendered = render()
+    analysis = build_analysis()
+    rendered = render(analysis)
     if args.dry_run:
         print(rendered)
     else:
         args.output.parent.mkdir(parents=True, exist_ok=True)
         args.output.write_text(rendered, encoding="utf-8", newline="\n")
-        rows = source_rows()
-        occurrences, coverage = build_occurrences()
-        occurrences, rejected = apply_manual_turn_review(occurrences)
-        apply_review_decisions(occurrences)
-        review = load_mechanism_review()
         MECHANISM_REGISTRY_PATH.write_text(json.dumps({"version": MECHANISM_VERSION, "mechanisms": list(MECHANISMS)}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
-        MECHANISM_REVIEW_PATH.write_text(json.dumps(review, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
-        args.output.with_suffix(".json").write_text(json.dumps(structured_ledger(rows, occurrences, rejected, coverage, review), ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
+        MECHANISM_REVIEW_PATH.write_text(json.dumps(analysis.review, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
+        args.output.with_suffix(".json").write_text(json.dumps(structured_ledger(analysis.rows, analysis.occurrences, analysis.rejected, analysis.coverage, analysis.review), ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
         print(f"Wrote {args.output.relative_to(REPO_ROOT).as_posix()}")
     return 0
 

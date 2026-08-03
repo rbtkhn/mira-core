@@ -29,8 +29,9 @@ def test_manifest_routes_are_deduplicated_and_normalized() -> None:
 
 def test_report_contains_comparison_surfaces_and_is_deterministic() -> None:
     module = load_module()
-    first = module.build_report()
-    assert first == module.build_report()
+    records, coverage = module.build_records("freeman")
+    first = module.render_report(records, coverage, "freeman")
+    assert first == module.render_report(records, coverage, "freeman")
     assert "# Historical-Reference Density Pilot" in first
     assert "## Voice comparison" in first
     assert "## Host/channel comparison" in first
@@ -38,7 +39,6 @@ def test_report_contains_comparison_surfaces_and_is_deterministic() -> None:
     assert "## Occurrence ledger" in first
     assert "CV-HR-" in first
     assert "Quote:" in first
-    records, _ = module.build_records("freeman")
     ledger = module.render_voice_ledger(records, "freeman")
     assert "# Historical-Reference Ledger: freeman" in ledger
     assert "| ID | Reference |" in ledger
@@ -47,8 +47,8 @@ def test_report_contains_comparison_surfaces_and_is_deterministic() -> None:
     assert "## Source-level reference clusters" in ledger
     assert "FREEMAN-CL-" in ledger
     assert "`unreviewed`" in ledger
-    assert "`excluded-context`" in module.render_voice_ledger(module.build_records("freeman")[0], "freeman")
-    queue = module.render_review_queue(module.build_records("freeman")[0])
+    assert "`excluded-context`" in module.render_voice_ledger(records, "freeman")
+    queue = module.render_review_queue(records)
     assert "# Historical-Reference Review Queue" in queue
     assert "## needs-review" in queue
     assert "## Cluster review queue" in queue
@@ -57,6 +57,23 @@ def test_report_contains_comparison_surfaces_and_is_deterministic() -> None:
     assert "Confidence mix" in first
     assert "candidate historical-reference" in first
     assert "bounded comparison pilot" in first
+
+
+def test_main_builds_records_once(monkeypatch, capsys) -> None:
+    module = load_module()
+    calls = 0
+
+    def build_records(voice_filter: str):
+        nonlocal calls
+        calls += 1
+        return [], []
+
+    monkeypatch.setattr(module, "build_records", build_records)
+    monkeypatch.setattr(sys, "argv", [str(SCRIPT), "--dry-run"])
+
+    assert module.main() == 0
+    assert "Historical-Reference Density Pilot" in capsys.readouterr().out
+    assert calls == 1
 
 
 def test_confidence_classes_are_explicit() -> None:

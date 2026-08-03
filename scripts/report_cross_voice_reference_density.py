@@ -129,8 +129,11 @@ def build_records(voice_filter: str = "freeman") -> tuple[list[dict], list[str]]
     return records, coverage
 
 
-def build_report(voice_filter: str = "freeman") -> str:
-    records, coverage = build_records(voice_filter)
+def render_report(
+    records: list[dict],
+    coverage: list[str],
+    voice_filter: str = "freeman",
+) -> str:
     by_voice: dict[str, list[dict]] = defaultdict(list)
     by_host: dict[str, list[dict]] = defaultdict(list)
     for record in records:
@@ -198,6 +201,11 @@ def build_report(voice_filter: str = "freeman") -> str:
 
     lines += ["", "## Guardrails and coverage", "", "- A high density can reflect a historical topic, repeated mentions, transcript artifacts, or shared host framing; it is not a measure of analytical quality.", "- Provisional candidates remain visible in the primary metric but are not voice-attributed speech.", "- Explicitly labeled host/interviewer turns and recognizable context-only openings are excluded; other unlabeled interview text is retained only as provisional review material.", "- Sparse voices are visible but should not be ranked as stable voice traits without more corpus coverage.", "- Duplicate manifest rows are collapsed by `(local_path, voice_slug)`; the same source may legitimately count once for each routed voice.", "", "## Coverage log", "", *[f"- {entry}" for entry in coverage], ""]
     return "\n".join(lines)
+
+
+def build_report(voice_filter: str = "freeman") -> str:
+    records, coverage = build_records(voice_filter)
+    return render_report(records, coverage, voice_filter)
 
 
 def render_voice_ledger(records: list[dict], voice: str) -> str:
@@ -319,7 +327,9 @@ def main() -> int:
     parser.add_argument("--review-queue", type=Path, default=REVIEW_QUEUE_PATH)
     parser.add_argument("--dry-run", action="store_true")
     args = parser.parse_args()
-    report = build_report(args.voices.lower())
+    voice_filter = args.voices.lower()
+    records, coverage = build_records(voice_filter)
+    report = render_report(records, coverage, voice_filter)
     if args.dry_run:
         print(report)
     else:
@@ -327,7 +337,6 @@ def main() -> int:
         output.parent.mkdir(parents=True, exist_ok=True)
         output.write_text(report, encoding="utf-8", newline="\n")
         print(f"Wrote {output.relative_to(REPO_ROOT).as_posix()}")
-        records, _ = build_records(args.voices.lower())
         ledger_dir = args.voice_ledger_dir if args.voice_ledger_dir.is_absolute() else REPO_ROOT / args.voice_ledger_dir
         ledger_dir.mkdir(parents=True, exist_ok=True)
         for voice in sorted({record["voice"] for record in records}):

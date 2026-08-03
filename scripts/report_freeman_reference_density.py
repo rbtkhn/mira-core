@@ -5,11 +5,19 @@ import argparse
 import importlib.util
 import sys
 from collections import Counter, defaultdict
+from dataclasses import dataclass
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 OUTPUT_PATH = REPO_ROOT / "narrative-geopolitics" / "voices" / "freeman" / "historical-reference-density.md"
 INDEX_SCRIPT = REPO_ROOT / "scripts" / "build_freeman_historical_index.py"
+
+
+@dataclass(frozen=True)
+class DensityAnalysis:
+    records: list[dict]
+    coverage: list[str]
+    occurrences: list[dict]
 
 
 def load_index_module():
@@ -30,7 +38,7 @@ def transcript_word_count(module, row: dict) -> int:
                )
 
 
-def build_report() -> str:
+def build_density_analysis() -> DensityAnalysis:
     module = load_index_module()
     rows = module.source_rows()
     occurrences, coverage = module.build_occurrences()
@@ -56,6 +64,18 @@ def build_report() -> str:
             "categories": len(categories),
             "confidence": confidence,
         })
+
+    return DensityAnalysis(
+        records=records,
+        coverage=coverage,
+        occurrences=occurrences,
+    )
+
+
+def render_report(analysis: DensityAnalysis) -> str:
+    records = analysis.records
+    coverage = analysis.coverage
+    occurrences = analysis.occurrences
 
     total_words = sum(item["words"] for item in records)
     total_refs = sum(item["references"] for item in records)
@@ -104,6 +124,10 @@ def build_report() -> str:
 
     lines += ["", "## Interpretation guardrails", "", "- Compare rates only when transcript capture quality and attribution confidence are reasonably comparable.", "- High density may reflect a historical discussion, a long transcript, or repeated ASR fragments; inspect the occurrence ledger before interpreting it as a voice trait.", "- This report measures Freeman first. Cross-voice comparison is a separate report with its own coverage and normalization audit.", "", "## Coverage log", "", *[f"- {item}" for item in coverage], ""]
     return "\n".join(lines)
+
+
+def build_report() -> str:
+    return render_report(build_density_analysis())
 
 
 def main() -> int:
