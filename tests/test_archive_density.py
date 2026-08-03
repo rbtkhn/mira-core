@@ -123,6 +123,10 @@ def test_analyze_range_counts_sources_and_load(tmp_path: Path, monkeypatch) -> N
     assert "dense-synthesis-check" in rows[1].classifications
     assert rows[1].same_day_hooks == 1
     assert rows[1].carried_hooks == 1
+    stats = density.summary(rows)
+    assert stats["total_sources"] == 10
+    assert stats["high_density_days"] == ["2026-07-02"]
+    assert stats["low_density_days"] == ["2026-07-01"]
 
 
 def test_markdown_csv_and_json_outputs(tmp_path: Path, monkeypatch) -> None:
@@ -142,19 +146,3 @@ def test_markdown_csv_and_json_outputs(tmp_path: Path, monkeypatch) -> None:
     payload = json.loads(json_path.read_text(encoding="utf-8"))
     assert payload["summary"]["total_sources"] == 10
     assert payload["rows"][1]["title"] == "Dense Day"
-
-
-def test_real_july_density_integration() -> None:
-    rows = density.analyze_range([f"2026-07-{day:02d}" for day in range(1, 16)])
-    stats = density.summary(rows)
-
-    assert stats["total_sources"] == 87
-    assert stats["high_density_days"] == [
-        "2026-07-07",
-        "2026-07-08",
-        "2026-07-09",
-        "2026-07-13",
-        "2026-07-14",
-        "2026-07-15",
-    ]
-    assert stats["low_density_days"] == ["2026-07-02", "2026-07-11", "2026-07-12"]
