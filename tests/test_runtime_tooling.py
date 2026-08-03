@@ -262,6 +262,9 @@ def test_runner_allowlists_surfaces_and_propagates_arguments(monkeypatch) -> Non
     assert observed["kwargs"]["env"]["PYTHONPATH"].split(os.pathsep)[0] == str(
         REPO_ROOT / "scripts"
     )
+    assert "capture_output" not in observed["kwargs"]
+    assert "stdout" not in observed["kwargs"]
+    assert "stderr" not in observed["kwargs"]
     assert runner.main(["unknown"]) == 2
 
 
@@ -363,6 +366,7 @@ def test_powershell_entrypoints_choose_one_application_launcher() -> None:
     ):
         launcher = (REPO_ROOT / relative_path).read_text(encoding="utf-8")
         assert "Get-Command py.exe" in launcher
+        assert "-CommandType Application" in launcher
         assert ")[0]" in launcher
 
 
@@ -370,12 +374,38 @@ def test_powershell_entrypoints_choose_one_application_launcher() -> None:
     sys.platform != "win32",
     reason="PowerShell argument transport is Windows-specific",
 )
-def test_powershell_runner_round_trips_inline_json_and_restores_environment() -> None:
+def test_powershell_runner_transport_contract(tmp_path: Path) -> None:
     powershell = Path(
         r"C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe"
     )
+    capture_path = tmp_path / "transport.jsonl"
+    runner_stub = tmp_path / "runner-stub.ps1"
+    runner_stub.write_text(
+        r"""[CmdletBinding()]
+param([Parameter(ValueFromRemainingArguments = $true)][string[]] $Arguments)
+$serialized = [Environment]::GetEnvironmentVariable(
+    'NARRATIVE_RUN_ARGUMENTS_JSON',
+    [EnvironmentVariableTarget]::Process
+)
+[IO.File]::AppendAllText(
+    $env:TEST_TRANSPORT_CAPTURE,
+    $serialized + [Environment]::NewLine,
+    [Text.UTF8Encoding]::new($false)
+)
+exit [int]$env:TEST_CHILD_EXIT
+""",
+        encoding="utf-8",
+        newline="\n",
+    )
+    bootstrap_stub = tmp_path / "bootstrap-stub.ps1"
+    bootstrap_stub.write_text(
+        "Write-Output $env:TEST_RUNNER_STUB\n"
+        "$global:LASTEXITCODE = 0\n",
+        encoding="utf-8",
+        newline="\n",
+    )
     command = r"""
-$env:NARRATIVE_PYTHON = $env:TEST_VALIDATION_PYTHON
+$env:NARRATIVE_PYTHON = $env:TEST_BOOTSTRAP_STUB
 $env:NARRATIVE_RUN_ARGUMENTS_JSON = 'pre-existing'
 $surface = [ordered]@{
     type = 'neutral-evidence'
@@ -385,37 +415,50 @@ $surface = [ordered]@{
     )
 }
 $surfaceJson = $surface | ConvertTo-Json -Depth 4 -Compress
+$env:TEST_CHILD_EXIT = '0'
 .\tools\run.ps1 elicitation validate --surface-json $surfaceJson
-Write-Output ('RESTORED=' + $env:NARRATIVE_RUN_ARGUMENTS_JSON)
+$firstCode = $LASTEXITCODE
+$firstRestored = $env:NARRATIVE_RUN_ARGUMENTS_JSON
+$env:TEST_CHILD_EXIT = '19'
+.\tools\run.ps1 test `
+  --path tests/test_elicitation.py `
+  --path tests/test_learn_from_choices_skill.py
+$secondCode = $LASTEXITCODE
+$secondRestored = $env:NARRATIVE_RUN_ARGUMENTS_JSON
+Write-Output (
+    'STATUS=' + $firstCode + ':' + $firstRestored + '|' +
+    $secondCode + ':' + $secondRestored
+)
+if ($firstCode -ne 0 -or $secondCode -ne 19) { exit 1 }
 """
     environment = os.environ.copy()
-    environment["TEST_VALIDATION_PYTHON"] = sys.executable
+    environment["TEST_BOOTSTRAP_STUB"] = str(bootstrap_stub)
+    environment["TEST_RUNNER_STUB"] = str(runner_stub)
+    environment["TEST_TRANSPORT_CAPTURE"] = str(capture_path)
     result = subprocess.run(
         [str(powershell), "-NoProfile", "-Command", command],
         cwd=REPO_ROOT,
         env=environment,
-        check=True,
         capture_output=True,
         text=True,
     )
-    json_text, restored = result.stdout.rsplit("RESTORED=", 1)
-    assert "\\u039a" in json_text
-    payload = json.loads(json_text)
+    assert result.returncode == 0, result.stderr
+    assert "STATUS=0:pre-existing|19:pre-existing" in result.stdout
+    transported = [
+        json.loads(line)
+        for line in capture_path.read_text(encoding="utf-8").splitlines()
+    ]
+    assert transported[0][:3] == ["elicitation", "validate", "--surface-json"]
+    payload = json.loads(transported[0][3])
     assert payload["options"][0]["label"] == "Yes with spaces"
     assert payload["options"][1]["label"] == 'Καλημέρα "quoted"'
-    assert restored.strip() == "pre-existing"
-
-
-def test_named_runner_preserves_json_stdout() -> None:
-    result = subprocess.run(
-        [sys.executable, str(REPO_ROOT / "tools" / "run_repo.py"), "cadence", "coffee", "--json"],
-        cwd=REPO_ROOT,
-        check=True,
-        capture_output=True,
-        text=True,
-    )
-    payload = json.loads(result.stdout)
-    assert "handoff_status" in payload
+    assert transported[1] == [
+        "test",
+        "--path",
+        "tests/test_elicitation.py",
+        "--path",
+        "tests/test_learn_from_choices_skill.py",
+    ]
 
 
 @pytest.mark.parametrize(
