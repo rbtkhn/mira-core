@@ -58,6 +58,7 @@ EXPECTED_SURFACES = {
     "skills-check": "check_codex_skills_sync.py",
     "skills-sync": "sync_codex_skills.py",
     "synthesis": "geopolitical_synthesis.py",
+    "test": "validate_repo.py",
     "verification": "verification.py",
     "voice-accountability": "voice_accountability.py",
     "voice-canonicalize": "canonicalize_voice_metadata.py",
@@ -267,9 +268,10 @@ def test_runner_allowlists_surfaces_and_propagates_arguments(monkeypatch) -> Non
 def test_registry_is_complete_unique_and_bounded_to_scripts() -> None:
     assert {name: path.name for name, path in runner.SURFACES.items()} == EXPECTED_SURFACES
     scripts_root = (REPO_ROOT / "scripts").resolve()
-    for target in runner.SURFACES.values():
+    for name, target in runner.SURFACES.items():
         assert target.is_file()
-        assert target.resolve().parent == scripts_root
+        expected_parent = (REPO_ROOT / "tools").resolve() if name == "test" else scripts_root
+        assert target.resolve().parent == expected_parent
 
 
 def test_runner_preserves_read_and_write_surface_arguments(monkeypatch) -> None:
@@ -347,8 +349,21 @@ def test_powershell_runner_forwards_all_arguments() -> None:
     launcher = (REPO_ROOT / "tools" / "run.ps1").read_text(encoding="utf-8")
     assert "[Parameter(ValueFromRemainingArguments = $true)]" in launcher
     assert "ConvertTo-Json -Compress -InputObject @($RunArguments)" in launcher
+    assert "scripts\\runtime_bootstrap.py" in launcher
+    assert "$bootstrap --print-python" in launcher
     assert "$runner --arguments-env" in launcher
     assert "$previousArguments" in launcher
+
+
+def test_powershell_entrypoints_choose_one_application_launcher() -> None:
+    for relative_path in (
+        "tools/run.ps1",
+        "tools/validate.ps1",
+        "scripts/python.ps1",
+    ):
+        launcher = (REPO_ROOT / relative_path).read_text(encoding="utf-8")
+        assert "Get-Command py.exe" in launcher
+        assert ")[0]" in launcher
 
 
 @pytest.mark.skipif(
@@ -457,22 +472,261 @@ def test_ci_uses_only_canonical_validation_with_four_jobs() -> None:
     assert "validate_repository.py" not in workflow
 
 
+def test_validation_mode_defaults_to_full_and_accepts_force() -> None:
+    default = validator.parse_args([])
+    forced = validator.parse_args(["--mode", "full", "--force"])
+    assert (default.mode, default.force) == ("full", False)
+    assert (forced.mode, forced.force) == ("full", True)
+
+
+def test_fast_route_selects_tests_for_narrow_allowlisted_changes() -> None:
+    route = validator.fast_route(
+        [
+            validator.Change(
+                " M",
+                "narrative-geopolitics/archive/sources/2026-08-03/example.md",
+            ),
+            validator.Change(" M", "tests/test_runtime_tooling.py"),
+        ]
+    )
+    assert route.effective_mode == "fast"
+    assert route.reasons == ("all_changes_match_fast_allowlist",)
+    assert "tests/test_smart_intake.py" in route.tests
+    assert "tests/test_runtime_tooling.py" in route.tests
+
+
+@pytest.mark.parametrize(
+    "change",
+    (
+        validator.Change(" M", "tools/validate_repo.py"),
+        validator.Change("R ", "old.md -> new.md"),
+        validator.Change("??", "tests/test_new_contract.py"),
+        validator.Change(" M", "narrative-geopolitics/archive/manifest.json"),
+    ),
+)
+def test_fast_route_fails_closed_for_risky_or_unknown_changes(change) -> None:
+    route = validator.fast_route([change])
+    assert route.effective_mode == "full"
+    assert route.reasons
+    assert route.tests == ()
+
+
+def test_full_result_fingerprint_is_content_based(tmp_path: Path) -> None:
+    write_pyproject(tmp_path)
+    (tmp_path / "tracked.txt").write_text("same content\n", encoding="utf-8")
+    first = validator.full_result_fingerprint(
+        Path(sys.executable), tmp_path, paths=["pyproject.toml", "tracked.txt"]
+    )
+    second = validator.full_result_fingerprint(
+        Path(sys.executable), tmp_path, paths=["tracked.txt", "pyproject.toml"]
+    )
+    assert second == first
+    (tmp_path / "tracked.txt").write_text("changed content\n", encoding="utf-8")
+    assert validator.full_result_fingerprint(
+        Path(sys.executable), tmp_path, paths=["pyproject.toml", "tracked.txt"]
+    ) != first
+
+
+def test_successful_full_result_cache_rejects_failure_and_wrong_fingerprint(
+    tmp_path: Path,
+) -> None:
+    record = tmp_path / "full-results" / "abc.json"
+    validator.store_successful_full_result(record, "abc")
+    assert validator.has_successful_full_result(record, "abc")
+    assert not validator.has_successful_full_result(record, "def")
+    record.write_text(
+        json.dumps({"schema": validator.FULL_RESULT_SCHEMA, "fingerprint": "abc", "result": "failed"}),
+        encoding="utf-8",
+    )
+    assert not validator.has_successful_full_result(record, "abc")
+
+
+def test_powershell_validator_exposes_fast_full_and_force() -> None:
+    launcher = (REPO_ROOT / "tools" / "validate.ps1").read_text(encoding="utf-8")
+    assert "[ValidateSet('Full', 'Fast')]" in launcher
+    assert "$validatorArguments = @('--mode', $Mode.ToLowerInvariant())" in launcher
+    assert "$validatorArguments += '--force'" in launcher
+    assert launcher.count("@validatorArguments") == 4
+
+
 def test_validator_uses_one_interpreter_and_runs_both_checks(monkeypatch) -> None:
     python = Path("resolved-python")
     commands: list[list[str]] = []
+    environments: list[dict[str, str]] = []
     monkeypatch.setattr(validator, "resolve_validation_python", lambda repo: python)
+    monkeypatch.setenv("NARRATIVE_CHOICE_DB", r"C:\private\real-choice.sqlite3")
+    monkeypatch.setenv("VALIDATION_SENTINEL", "preserved")
 
     def run(command, **kwargs):
         commands.append(command)
+        environments.append(kwargs["env"])
         failed = any(value.endswith("validate_repository.py") for value in command)
         return SimpleNamespace(returncode=4 if failed else 0)
 
     monkeypatch.setattr(validator.subprocess, "run", run)
-    assert validator.main() == 4
+    assert validator.main([]) == 4
     assert len(commands) == 2
     assert all(command[0] == str(python) for command in commands)
     assert commands[0][1] == "scripts/validate_repository.py"
     assert commands[1][1:4] == ["-m", "pytest", "-q"]
+    assert commands[1][-2:] == ["-m", "not repository_integrity"]
+    assert all("NARRATIVE_CHOICE_DB" not in item for item in environments)
+    assert all(item["VALIDATION_SENTINEL"] == "preserved" for item in environments)
+    assert os.environ["NARRATIVE_CHOICE_DB"] == r"C:\private\real-choice.sqlite3"
+
+
+def test_full_validator_reports_ordered_phase_timings(monkeypatch, capsys) -> None:
+    commands: list[list[str]] = []
+    times = iter((0.0, 1.0, 2.25, 3.0, 7.5, 8.0, 13.0, 14.0))
+    monkeypatch.setattr(
+        validator, "resolve_validation_python", lambda repo: Path("resolved-python")
+    )
+
+    def run(command, **kwargs):
+        commands.append(command)
+        failed = command[1].endswith("validate_repository.py")
+        return SimpleNamespace(returncode=4 if failed else 0)
+
+    monkeypatch.setattr(validator.subprocess, "run", run)
+    assert validator.main([], clock=lambda: next(times)) == 4
+    assert len(commands) == 2
+    lines = [
+        line for line in capsys.readouterr().err.splitlines()
+        if line.startswith("validation_timing")
+    ]
+    assert lines == [
+        "validation_timing mode=full phase=bootstrap seconds=1.250 status=passed",
+        "validation_timing mode=full phase=structural seconds=4.500 status=failed",
+        "validation_timing mode=full phase=pytest seconds=5.000 status=passed",
+        "validation_timing mode=full phase=total seconds=14.000 status=failed",
+    ]
+
+
+def test_focused_validator_reports_structural_skip(monkeypatch, capsys) -> None:
+    times = iter((0.0, 1.0, 1.5, 2.0, 4.5, 5.0))
+    monkeypatch.setattr(
+        validator, "resolve_validation_python", lambda repo: Path("resolved-python")
+    )
+    monkeypatch.setattr(
+        validator.subprocess,
+        "run",
+        lambda command, **kwargs: SimpleNamespace(returncode=0),
+    )
+    assert validator.main(
+        ["--path", "tests/test_elicitation.py"], clock=lambda: next(times)
+    ) == 0
+    lines = [
+        line for line in capsys.readouterr().err.splitlines()
+        if line.startswith("validation_timing")
+    ]
+    assert lines == [
+        "validation_timing mode=focused phase=bootstrap seconds=0.500 status=passed",
+        "validation_timing mode=focused phase=structural seconds=0.000 status=skipped reason=focused_tests",
+        "validation_timing mode=focused phase=pytest seconds=2.500 status=passed",
+        "validation_timing mode=focused phase=total seconds=5.000 status=passed",
+    ]
+
+
+def test_bootstrap_failure_reports_timing_without_execution(monkeypatch, capsys) -> None:
+    times = iter((0.0, 1.0, 3.0, 4.0))
+
+    def unavailable(repo):
+        raise validator.BootstrapUnavailable("test unavailable")
+
+    monkeypatch.setattr(validator, "resolve_validation_python", unavailable)
+    monkeypatch.setattr(
+        validator.subprocess,
+        "run",
+        lambda *args, **kwargs: pytest.fail("bootstrap failure must not execute"),
+    )
+    assert validator.main([], clock=lambda: next(times)) == 1
+    error = capsys.readouterr().err
+    assert "validation_timing mode=full phase=bootstrap seconds=2.000 status=failed" in error
+    assert "validation_timing mode=full phase=total seconds=4.000 status=failed" in error
+    assert "validation unavailable: test unavailable" in error
+
+
+def test_validation_environment_removes_only_private_store_binding() -> None:
+    source = {
+        "NARRATIVE_CHOICE_DB": r"C:\private\real-choice.sqlite3",
+        "PRESERVED": "yes",
+    }
+    sanitized = validator.validation_environment(source)
+    assert sanitized == {"PRESERVED": "yes"}
+    assert source["NARRATIVE_CHOICE_DB"] == r"C:\private\real-choice.sqlite3"
+
+
+def test_focused_validator_uses_same_interpreter_and_only_pytest(monkeypatch) -> None:
+    python = Path("resolved-python")
+    commands: list[list[str]] = []
+    environments: list[dict[str, str]] = []
+    monkeypatch.setattr(validator, "resolve_validation_python", lambda repo: python)
+    monkeypatch.setenv("NARRATIVE_CHOICE_DB", r"C:\private\real-choice.sqlite3")
+    monkeypatch.setattr(
+        validator.subprocess,
+        "run",
+        lambda command, **kwargs: (
+            commands.append(command),
+            environments.append(kwargs["env"]),
+            SimpleNamespace(returncode=7),
+        )[-1],
+    )
+    assert validator.main(
+        ["--path", "tests/test_elicitation.py", "--path", "tests/test_runtime_tooling.py"]
+    ) == 7
+    assert commands == [[
+        str(python),
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "-m",
+        "not repository_integrity",
+        "tests/test_elicitation.py",
+        "tests/test_runtime_tooling.py",
+    ]]
+    assert len(environments) == 1
+    assert "NARRATIVE_CHOICE_DB" not in environments[0]
+
+
+@pytest.mark.parametrize(
+    "path",
+    (
+        "README.md",
+        "tests/missing.py",
+        "../tests/test_runtime_tooling.py",
+        "tests/../tests/test_runtime_tooling.py",
+        "tests/test_runtime_tooling.py::test_validator_uses_one_interpreter_and_runs_both_checks",
+        "tests/test_*.py",
+    ),
+)
+def test_focused_validator_rejects_unsafe_or_unsupported_paths(path: str) -> None:
+    with pytest.raises(ValueError):
+        validator.focused_test_paths([path])
+
+
+@pytest.mark.parametrize(
+    "path",
+    (
+        "README.md",
+        "tests/missing.py",
+        "../tests/test_runtime_tooling.py",
+        "tests/../tests/test_runtime_tooling.py",
+        "tests/test_runtime_tooling.py::test_validator_uses_one_interpreter_and_runs_both_checks",
+        "tests/test_*.py",
+        str(REPO_ROOT / "tests" / "test_runtime_tooling.py"),
+    ),
+)
+def test_focused_validator_invalid_paths_exit_two_without_execution(
+    path: str, monkeypatch
+) -> None:
+    def unexpected_call(*args, **kwargs):
+        raise AssertionError("invalid focused paths must not bootstrap or execute")
+
+    monkeypatch.setattr(validator, "resolve_validation_python", unexpected_call)
+    monkeypatch.setattr(validator.subprocess, "run", unexpected_call)
+    assert validator.main(["--path", path]) == 2
 
 
 def test_compatibility_shim_no_longer_requires_dot_venv() -> None:

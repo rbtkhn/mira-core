@@ -6,6 +6,7 @@ param(
 
 $repoRoot = Split-Path -Parent $PSScriptRoot
 $runner = Join-Path $repoRoot 'tools\run_repo.py'
+$bootstrap = Join-Path $repoRoot 'scripts\runtime_bootstrap.py'
 $argumentsEnvironment = 'NARRATIVE_RUN_ARGUMENTS_JSON'
 $hadPreviousArguments = Test-Path "Env:$argumentsEnvironment"
 $previousArguments = [Environment]::GetEnvironmentVariable(
@@ -13,6 +14,11 @@ $previousArguments = [Environment]::GetEnvironmentVariable(
     [EnvironmentVariableTarget]::Process
 )
 $serializedArguments = ConvertTo-Json -Compress -InputObject @($RunArguments)
+$pyLauncher = @(
+    Get-Command py.exe `
+        -CommandType Application `
+        -ErrorAction SilentlyContinue
+)[0]
 [Environment]::SetEnvironmentVariable(
     $argumentsEnvironment,
     $serializedArguments,
@@ -21,18 +27,25 @@ $serializedArguments = ConvertTo-Json -Compress -InputObject @($RunArguments)
 
 try {
     if ($env:NARRATIVE_PYTHON) {
-        & $env:NARRATIVE_PYTHON $runner --arguments-env
-    } elseif (Get-Command py -ErrorAction SilentlyContinue) {
-        & py -3 $runner --arguments-env
+        $python = & $env:NARRATIVE_PYTHON $bootstrap --print-python
+    } elseif ($pyLauncher) {
+        $python = & $pyLauncher.Source -3 $bootstrap --print-python
     } elseif (Get-Command python3 -ErrorAction SilentlyContinue) {
-        & python3 $runner --arguments-env
+        $python = & python3 $bootstrap --print-python
     } elseif (Get-Command python -ErrorAction SilentlyContinue) {
-        & python $runner --arguments-env
+        $python = & python $bootstrap --print-python
     } else {
         Write-Error 'Python 3.11+ was not found. Install Python or set NARRATIVE_PYTHON.'
-        exit 1
+        $python = $null
+        $LASTEXITCODE = 1
     }
-    $runExitCode = $LASTEXITCODE
+    $bootstrapExitCode = $LASTEXITCODE
+    if ($bootstrapExitCode -ne 0 -or -not $python) {
+        $runExitCode = if ($bootstrapExitCode) { $bootstrapExitCode } else { 1 }
+    } else {
+        & ($python.Trim()) $runner --arguments-env
+        $runExitCode = $LASTEXITCODE
+    }
 } finally {
     if ($hadPreviousArguments) {
         [Environment]::SetEnvironmentVariable(

@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import importlib.util
+import io
 import json
 import subprocess
 import sys
@@ -28,8 +29,46 @@ integrity = load_module("repository_integrity_tests", SCRIPTS_ROOT / "validate_r
 skill_registry = load_module("skill_registry_tests", SCRIPTS_ROOT / "codex_skill_registry.py")
 
 
+@pytest.mark.repository_integrity
 def test_current_repository_integrity_is_clean() -> None:
     assert integrity.validate_repository() == []
+
+
+def test_repository_checks_report_ordered_timings_and_failure_counts() -> None:
+    output = io.StringIO()
+    times = iter((0.0, 1.25, 2.0, 4.5))
+    checks = (
+        ("clean_check", lambda: []),
+        ("failing_check", lambda: ["bounded failure"]),
+    )
+    assert integrity.validate_repository(
+        checks=checks,
+        clock=lambda: next(times),
+        timing_stream=output,
+    ) == ["bounded failure"]
+    assert output.getvalue().splitlines() == [
+        "validation_check name=clean_check seconds=1.250 status=passed failures=0",
+        "validation_check name=failing_check seconds=2.500 status=failed failures=1",
+    ]
+
+
+def test_repository_check_exception_reports_timing_and_remains_visible() -> None:
+    output = io.StringIO()
+    times = iter((0.0, 0.75))
+
+    def explode() -> list[str]:
+        raise RuntimeError("visible failure")
+
+    with pytest.raises(RuntimeError, match="visible failure"):
+        integrity.validate_repository(
+            checks=(("exploding_check", explode),),
+            clock=lambda: next(times),
+            timing_stream=output,
+        )
+    assert output.getvalue().strip() == (
+        "validation_check name=exploding_check seconds=0.750 "
+        "status=failed failures=0"
+    )
 
 
 def test_manifest_count_mismatch_is_detected(monkeypatch, tmp_path: Path) -> None:

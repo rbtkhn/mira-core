@@ -40,10 +40,30 @@ dependencies in an external user cache; no environment activation or repo-local
 `.venv` is required.
 
 ```powershell
+.\tools\run.ps1 test --path tests/test_example.py
+.\tools\validate.ps1 -Mode Fast
 .\tools\validate.ps1
+.\tools\validate.ps1 -Force
 .\tools\run.ps1 cadence coffee --json
 .\tools\run.ps1 harness
 ```
+
+Repeat `--path` to run multiple focused test files or directories. Focused
+tests are an iteration aid. `-Mode Fast` examines the working-tree change set
+and runs an integrity/privacy floor plus an allowlisted set of tests for narrow
+archive-source, daily-work, voice-index, comparison, continuity, or modified
+existing-test changes. Renames, deletions, new tests, manifests, code,
+dependencies, workflows, schemas, skills, templates, security surfaces, and
+every unknown path fail closed to Full. The route, reasons, selected checks,
+and phase timings are written to stderr.
+
+`.\tools\validate.ps1` remains the Full terminal gate. A successful Full result
+is reused only when the complete tracked and non-ignored untracked repository
+content, executable bits, validation policy, dependency declarations, and
+validation runtime fingerprint are unchanged. Commit SHA, branch name, and
+timestamps are deliberately excluded, so content-equivalent commits can reuse
+the result. The result record lives under the external validation cache;
+`-Force` bypasses it. Failed and Fast results are never cached.
 
 The harness audit is read-only. Add `--json` for machine output or
 `--write-receipt` to write the ignored `tmp/ai-harness/latest.json` receipt.

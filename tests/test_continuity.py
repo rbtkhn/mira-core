@@ -159,13 +159,48 @@ def test_daily_orthogonality_july_range_includes_sparse_manifest_date_and_skips_
     assert "independent observations" in payload["recommendation"]
 
 
-def test_daily_orthogonality_range_markdown_has_required_rollup_sections(tmp_path):
+def test_daily_orthogonality_range_markdown_has_required_rollup_sections(
+    tmp_path, monkeypatch
+):
     target = tmp_path / "july-rollup.md"
+    live_output_root = (
+        ROOT
+        / "narrative-geopolitics"
+        / "work"
+        / "continuity"
+        / "orthogonality"
+    )
+
+    def snapshot(root: Path) -> dict[str, bytes]:
+        return {
+            path.relative_to(root).as_posix(): path.read_bytes()
+            for path in root.rglob("*")
+            if path.is_file()
+        }
+
+    live_before = snapshot(live_output_root)
+    daily_output_root = tmp_path / "daily"
+    persist_daily_payload = continuity.persist_daily_payload
+
+    def persist_daily_payload_in_tmp(payload, target=None):
+        assert target is None
+        return persist_daily_payload(
+            payload,
+            daily_output_root / f"orthogonality-{payload['date']}.md",
+        )
+
+    monkeypatch.setattr(
+        continuity,
+        "persist_daily_payload",
+        persist_daily_payload_in_tmp,
+    )
     code, output = run_continuity(
         "orthogonality", "--daily", "--start-date", "2026-07-01", "--end-date", "2026-07-31", "--format", "md", "--output", str(target)
     )
     assert code == 0
     assert target.exists()
+    assert list(daily_output_root.glob("orthogonality-*.md"))
+    assert snapshot(live_output_root) == live_before
     text = target.read_text(encoding="utf-8")
     for section in ("Decision Summary", "Coverage and Data Availability", "Crisis-Object Transitions", "Prioritized Month-Level Review Queue", "Counter-Pressure Gaps by Crisis Object", "Limitations and Non-Evidence Notice"):
         assert section in text

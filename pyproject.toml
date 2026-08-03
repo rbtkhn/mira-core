@@ -21,3 +21,6 @@ test = [
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 addopts = ["--capture=sys"]
+markers = [
+  "repository_integrity: live whole-repository validation already run by the canonical wrapper"
+]

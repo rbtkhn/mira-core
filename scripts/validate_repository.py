@@ -4,7 +4,9 @@ import json
 import re
 import subprocess
 import sys
+import time
 from pathlib import Path
+from typing import Callable, TextIO
 
 SCRIPTS_ROOT = Path(__file__).resolve().parent
 if str(SCRIPTS_ROOT) not in sys.path:
@@ -518,28 +520,64 @@ def legacy_verification_inventory_failures() -> list[str]:
     return failures
 
 
-def validate_repository() -> list[str]:
+REPOSITORY_CHECKS = (
+    ("archive_manifest_failures", archive_manifest_failures),
+    ("daily_run_failures", daily_run_failures),
+    ("forecast_ledger_failures", forecast_ledger_failures),
+    ("markdown_link_failures", markdown_link_failures),
+    ("model_substitution_gate_failures", model_substitution_gate_failures),
+    ("editorial_title_failures", editorial_title_failures),
+    ("operational_claim_failures", operational_claim_failures),
+    ("verification_packet_failures", verification_packet_failures),
+    ("reality_lattice_failures", reality_lattice_failures),
+    ("skill_contract_failures", skill_contract_failures),
+    ("voice_accountability_failures", voice_accountability_failures),
+    ("recursive_learning_ledger.validate_ledger", recursive_learning_ledger.validate_ledger),
+    ("operator_positions.validate_ledger", operator_positions.validate_ledger),
+    ("legacy_verification_inventory_failures", legacy_verification_inventory_failures),
+    ("tracked_artifact_failures", tracked_artifact_failures),
+    ("obsolete_guidance_failures", obsolete_guidance_failures),
+    ("voice_routing_failures", voice_routing_failures),
+)
+
+
+def validate_repository(
+    *,
+    checks: tuple[tuple[str, Callable[[], list[str]]], ...] | None = None,
+    clock: Callable[[], float] | None = None,
+    timing_stream: TextIO | None = None,
+) -> list[str]:
+    selected_checks = REPOSITORY_CHECKS if checks is None else checks
+    monotonic = time.perf_counter if clock is None else clock
+    stream = sys.stderr if timing_stream is None else timing_stream
     failures: list[str] = []
-    for check in (
-        archive_manifest_failures,
-        daily_run_failures,
-        forecast_ledger_failures,
-        markdown_link_failures,
-        model_substitution_gate_failures,
-        editorial_title_failures,
-        operational_claim_failures,
-        verification_packet_failures,
-        reality_lattice_failures,
-        skill_contract_failures,
-        voice_accountability_failures,
-        recursive_learning_ledger.validate_ledger,
-        operator_positions.validate_ledger,
-        legacy_verification_inventory_failures,
-        tracked_artifact_failures,
-        obsolete_guidance_failures,
-        voice_routing_failures,
-    ):
-        failures.extend(check())
+    for name, check in selected_checks:
+        started = monotonic()
+        try:
+            check_failures = check()
+        except BaseException:
+            print(
+                " ".join((
+                    "validation_check",
+                    f"name={name}",
+                    f"seconds={max(0.0, monotonic() - started):.3f}",
+                    "status=failed",
+                    "failures=0",
+                )),
+                file=stream,
+            )
+            raise
+        print(
+            " ".join((
+                "validation_check",
+                f"name={name}",
+                f"seconds={max(0.0, monotonic() - started):.3f}",
+                f"status={'passed' if not check_failures else 'failed'}",
+                f"failures={len(check_failures)}",
+            )),
+            file=stream,
+        )
+        failures.extend(check_failures)
     return failures
 
 
