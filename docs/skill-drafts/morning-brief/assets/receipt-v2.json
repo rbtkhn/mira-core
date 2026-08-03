@@ -1,0 +1,137 @@
+{
+  "schema_version": "2.1",
+  "renderer_version": "2.1",
+  "brief_date": "YYYY-MM-DD",
+  "as_of_utc": "YYYY-MM-DDTHH:MM:SSZ",
+  "window": {
+    "start_utc": "YYYY-MM-DDTHH:MM:SSZ",
+    "end_utc": "YYYY-MM-DDTHH:MM:SSZ",
+    "hours": 24
+  },
+  "research": {
+    "mode": "scan",
+    "geography": "global",
+    "output": "five-minute-selective-global-update",
+    "stop_condition": "Four material developments plus one outlier or visibility gap, or documented exhaustion.",
+    "retrieved_at_utc": "YYYY-MM-DDTHH:MM:SSZ"
+  },
+  "coverage": {
+    "scope": "selective-global",
+    "retrieval_status": "healthy",
+    "geographies": [],
+    "domains": [],
+    "upstream_sources_reviewed": 0,
+    "lineage_roots_reviewed": 0,
+    "limitations": []
+  },
+  "morning_judgment": "Complete after candidate selection.",
+  "material_change": false,
+  "baseline": {
+    "lookback_days": 30,
+    "judgments": [
+      {
+        "model_id": "JUDG-YYYYMMDD",
+        "path": "narrative-geopolitics/work/daily/YYYY-MM-DD/judgment.md",
+        "sha256": "SHA256",
+        "as_of": "YYYY-MM-DD",
+        "crisis_object": "Exact completed crisis object from judgment.md.",
+        "summary": "Exact What changed value from Decision Compression."
+      }
+    ],
+    "forecasts": [
+      {
+        "hook_id": "NG-YYYYMMDD-F01",
+        "run_date": "YYYY-MM-DD",
+        "crisis_object": "Exact forecast-ledger crisis object.",
+        "claim": "Exact forecast-ledger claim.",
+        "probability_band": "plausible",
+        "review_date": "YYYY-MM-DD",
+        "source_path": "narrative-geopolitics/work/forecasts/forecast-ledger.md",
+        "sha256": "SHA256",
+        "status": "open",
+        "accountable": true,
+        "due": false,
+        "impact": "unaffected"
+      }
+    ]
+  },
+  "candidates": [
+    {
+      "id": "OBS-01",
+      "kind": "development",
+      "title": "Concise development title.",
+      "geography": "Declared coverage geography.",
+      "domain": "Declared coverage domain.",
+      "observed_at_utc": "YYYY-MM-DDTHH:MM:SSZ",
+      "retrieved_at_utc": "YYYY-MM-DDTHH:MM:SSZ",
+      "observation": "Narrow sourced observation, separated from interpretation.",
+      "interpretation": "Provisional impact on named inherited state.",
+      "materiality": "Why this observation clears the selection threshold.",
+      "model_refs": [
+        "JUDG-YYYYMMDD"
+      ],
+      "forecast_refs": [
+        "NG-YYYYMMDD-F01"
+      ],
+      "impact": "complicates",
+      "confidence_boundary": "Specific missing corroboration or lineage limit.",
+      "discovery": {
+        "provider": "World Monitor or broad search surface.",
+        "reference": "https://discovery.example/item",
+        "is_evidence": false
+      },
+      "upstream": {
+        "provider": "Recovered upstream provider.",
+        "url": "https://upstream.example/item",
+        "source_type": "official",
+        "lineage_root": "stable-lineage-root",
+        "freshness": "fresh"
+      },
+      "related_observations": [],
+      "reality": {
+        "match_status": "none",
+        "claim_refs": [],
+        "assessment_refs": [],
+        "epistemic_state": {
+          "status": "not-in-lattice",
+          "claims": []
+        },
+        "relationship": "context-only",
+        "lattice_paths": [],
+        "audited_at_utc": "YYYY-MM-DDTHH:MM:SSZ",
+        "confidence_effect": "No exact lattice claim exists; interpretation remains provisional."
+      },
+      "disposition": "included",
+      "selection_reason": "Bounded reason for inclusion."
+    }
+  ],
+  "gaps": [
+    {
+      "id": "GAP-01",
+      "type": "thin",
+      "geography": "Declared coverage geography.",
+      "domain": "Declared coverage domain.",
+      "description": "What was stale, failed, missing, disabled, or thin.",
+      "consequence": "Which downstream observation or model this gap weakens.",
+      "disposition": "selected"
+    }
+  ],
+  "selected_development_ids": [
+    "OBS-01"
+  ],
+  "selected_outlier_or_gap": {
+    "kind": "gap",
+    "id": "GAP-01"
+  },
+  "watch": [
+    {
+      "id": "WATCH-01",
+      "observable": "A supported discriminator to watch.",
+      "timing": "Bounded timing window.",
+      "source_refs": [
+        "JUDG-YYYYMMDD",
+        "OBS-01"
+      ]
+    }
+  ]
+}
