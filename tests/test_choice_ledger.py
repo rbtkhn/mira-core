@@ -231,6 +231,152 @@ def test_schema_migration_is_idempotent_and_preserves_existing_data(tmp_path: Pa
     reopened.close()
 
 
+def test_schema_one_migration_adds_utc_ordering_without_changing_history(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    source_path = tmp_path / "source-v2.sqlite3"
+    source = connection(source_path)
+    select(
+        source,
+        selected_at="2026-07-29T14:00:00+02:00",
+    )
+    outcome(source, "CHOICE-001")
+    prompt_columns = [
+        "choice_id",
+        "tenant",
+        "workspace",
+        "lane",
+        "choice_kind",
+        "consequence_level",
+        "decision_summary",
+        "actor",
+        "presented_at",
+        "selected_at",
+        "options_json",
+        "options_hash",
+        "recommended_key",
+        "selected_key",
+        "learning_refs_json",
+        "success_signals_json",
+        "risk_signals_json",
+        "no_execution_authority",
+    ]
+    prompt = source.execute(
+        f"SELECT {','.join(prompt_columns)} FROM choice_prompts"
+    ).fetchone()
+    events = source.execute(
+        "SELECT * FROM choice_events ORDER BY sequence"
+    ).fetchall()
+    source.close()
+
+    legacy_path = tmp_path / "legacy-v1.sqlite3"
+    legacy = sqlite3.connect(legacy_path)
+    legacy.row_factory = sqlite3.Row
+    legacy.execute("PRAGMA foreign_keys = ON")
+    legacy.executescript(
+        """
+        CREATE TABLE choice_prompts (
+            choice_id TEXT PRIMARY KEY, tenant TEXT NOT NULL,
+            workspace TEXT NOT NULL, lane TEXT NOT NULL,
+            choice_kind TEXT NOT NULL, consequence_level TEXT NOT NULL,
+            decision_summary TEXT NOT NULL, actor TEXT NOT NULL,
+            presented_at TEXT NOT NULL, selected_at TEXT NOT NULL,
+            options_json TEXT NOT NULL, options_hash TEXT NOT NULL,
+            recommended_key TEXT NOT NULL, selected_key TEXT NOT NULL,
+            learning_refs_json TEXT NOT NULL, success_signals_json TEXT NOT NULL,
+            risk_signals_json TEXT NOT NULL, no_execution_authority TEXT NOT NULL
+        );
+        CREATE TABLE choice_events (
+            event_id TEXT PRIMARY KEY,
+            choice_id TEXT NOT NULL REFERENCES choice_prompts(choice_id),
+            sequence INTEGER NOT NULL,
+            event_type TEXT NOT NULL,
+            occurred_at TEXT NOT NULL,
+            idempotency_key TEXT NOT NULL,
+            payload_json TEXT NOT NULL,
+            previous_hash TEXT,
+            event_hash TEXT NOT NULL,
+            UNIQUE(choice_id, sequence),
+            UNIQUE(choice_id, idempotency_key)
+        );
+        CREATE TRIGGER choice_prompts_no_update BEFORE UPDATE ON choice_prompts
+        BEGIN SELECT RAISE(ABORT, 'choice prompts are immutable'); END;
+        CREATE TRIGGER choice_prompts_no_delete BEFORE DELETE ON choice_prompts
+        BEGIN SELECT RAISE(ABORT, 'choice prompts are immutable'); END;
+        CREATE TRIGGER choice_events_no_update BEFORE UPDATE ON choice_events
+        BEGIN SELECT RAISE(ABORT, 'choice events are append-only'); END;
+        CREATE TRIGGER choice_events_no_delete BEFORE DELETE ON choice_events
+        BEGIN SELECT RAISE(ABORT, 'choice events are append-only'); END;
+        PRAGMA user_version = 1;
+        """
+    )
+    legacy.execute(
+        f"INSERT INTO choice_prompts({','.join(prompt_columns)}) "
+        f"VALUES ({','.join('?' for _ in prompt_columns)})",
+        tuple(prompt[column] for column in prompt_columns),
+    )
+    event_columns = list(events[0].keys())
+    legacy.executemany(
+        f"INSERT INTO choice_events({','.join(event_columns)}) "
+        f"VALUES ({','.join('?' for _ in event_columns)})",
+        [tuple(event[column] for column in event_columns) for event in events],
+    )
+    legacy.commit()
+    legacy.close()
+
+    readonly_legacy = choice_ledger.connect_read_only(legacy_path)
+    assert choice_ledger.scoped_choices(
+        readonly_legacy,
+        tenant="tenant-a",
+        workspace="workspace-a",
+        lane="lane-a",
+    )[0]["choice"]["choice_id"] == "CHOICE-001"
+    readonly_legacy.close()
+    before = choice_ledger.inspect_store(legacy_path)
+    failing_path = tmp_path / "failing-v1.sqlite3"
+    failing_path.write_bytes(legacy_path.read_bytes())
+    failing = sqlite3.connect(failing_path)
+    failing.row_factory = sqlite3.Row
+
+    def interrupted_backfill(_value: str) -> int:
+        raise RuntimeError("simulated migration interruption")
+
+    monkeypatch.setattr(choice_ledger, "timestamp_order_key", interrupted_backfill)
+    with pytest.raises(RuntimeError, match="interruption"):
+        choice_ledger.migrate(failing)
+    monkeypatch.undo()
+    assert failing.execute("PRAGMA user_version").fetchone()[0] == 1
+    assert "selected_at_utc_us" not in {
+        row[1] for row in failing.execute("PRAGMA table_info(choice_prompts)")
+    }
+    assert failing.execute(
+        "SELECT COUNT(*) FROM sqlite_master "
+        "WHERE type='trigger' AND name='choice_prompts_no_update'"
+    ).fetchone()[0] == 1
+    failing.close()
+    assert choice_ledger.inspect_store(failing_path)["logical_fingerprint"] == before[
+        "logical_fingerprint"
+    ]
+    migrated = connection(legacy_path)
+    after = choice_ledger.inspect_store(legacy_path)
+    assert migrated.execute("PRAGMA user_version").fetchone()[0] == 2
+    assert migrated.execute(
+        "SELECT selected_at_utc_us FROM choice_prompts"
+    ).fetchone()[0] == choice_ledger.timestamp_order_key(
+        "2026-07-29T14:00:00+02:00"
+    )
+    plan = migrated.execute(
+        "EXPLAIN QUERY PLAN SELECT choice_id FROM choice_prompts "
+        "WHERE tenant=? AND workspace=? AND lane=? "
+        "ORDER BY selected_at_utc_us, choice_id",
+        ("tenant-a", "workspace-a", "lane-a"),
+    ).fetchall()
+    assert any("choice_prompts_scope_selected" in row[3] for row in plan)
+    assert before["logical_fingerprint"] == after["logical_fingerprint"]
+    assert choice_ledger.verify_choice(migrated, "CHOICE-001")["valid"] is True
+    migrated.close()
+
+
 def test_backup_and_recovery_round_trip(tmp_path: Path) -> None:
     path = tmp_path / "choices.sqlite3"
     db = connection(path)
@@ -241,6 +387,74 @@ def test_backup_and_recovery_round_trip(tmp_path: Path) -> None:
     restored = connection(recovered)
     assert restored.execute("SELECT COUNT(*) FROM choice_prompts").fetchone()[0] == 1
     restored.close()
+
+
+def test_backup_status_detects_exact_and_stale_logical_state(tmp_path: Path) -> None:
+    path = tmp_path / "choices.sqlite3"
+    backup_path = tmp_path / "backups" / "choices.sqlite3"
+    db = connection(path)
+    select(db)
+    db.close()
+    choice_ledger.create_backup(path, backup_path)
+    exact = choice_ledger.compare_backup(path, backup_path)
+    assert exact["fresh"] is True
+    assert exact["source"]["logical_fingerprint"] == exact["backup"][
+        "logical_fingerprint"
+    ]
+
+    db = connection(path)
+    select(db, "CHOICE-002")
+    db.close()
+    stale = choice_ledger.compare_backup(path, backup_path)
+    assert stale["fresh"] is False
+    assert stale["source"]["choice_prompts"] == 2
+    assert stale["backup"]["choice_prompts"] == 1
+
+
+def test_cli_backup_and_status_report_verified_freshness(
+    tmp_path: Path, capsys: pytest.CaptureFixture[str]
+) -> None:
+    path = tmp_path / "choices.sqlite3"
+    backup_path = tmp_path / "backups" / "choices.sqlite3"
+    db = connection(path)
+    select(db)
+    db.close()
+    assert choice_ledger.main(
+        ["--db", str(path), "backup", "--to", str(backup_path)]
+    ) == 0
+    created = json.loads(capsys.readouterr().out)
+    assert created["backed_up"] is True
+    assert created["fresh"] is True
+    assert choice_ledger.main(
+        ["--db", str(path), "backup-status", "--backup", str(backup_path)]
+    ) == 0
+    status = json.loads(capsys.readouterr().out)
+    assert status["fresh"] is True
+
+
+def test_atomic_backup_failure_preserves_existing_destination(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    path = tmp_path / "choices.sqlite3"
+    backup_path = tmp_path / "backups" / "choices.sqlite3"
+    db = connection(path)
+    select(db)
+    db.close()
+    choice_ledger.create_backup(path, backup_path)
+    original_backup = backup_path.read_bytes()
+    real_inspect = choice_ledger.inspect_store
+
+    def mismatched_inspection(candidate: Path) -> dict:
+        result = real_inspect(candidate)
+        if str(candidate).endswith(".backuping"):
+            result["logical_fingerprint"] = "mismatch"
+        return result
+
+    monkeypatch.setattr(choice_ledger, "inspect_store", mismatched_inspection)
+    with pytest.raises(choice_ledger.ChoiceError, match="fingerprint"):
+        choice_ledger.create_backup(path, backup_path)
+    assert backup_path.read_bytes() == original_backup
+    assert not list(backup_path.parent.glob("*.backuping"))
 
 
 def test_backup_and_recovery_destinations_must_remain_outside_repository(
@@ -287,7 +501,7 @@ def test_selection_is_atomic_exact_sanitized_and_navigation_only(tmp_path: Path)
     assert [event["event_type"] for event in projection["events"]] == ["branch_selected"]
 
 
-def test_schema_one_historical_receipt_survives_without_migration(
+def test_historical_receipt_notice_survives_idempotent_current_migration(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:
     db = connection(tmp_path / "historical.sqlite3")
@@ -306,7 +520,7 @@ def test_schema_one_historical_receipt_survives_without_migration(
             "SELECT * FROM choice_prompts WHERE choice_id='CHOICE-001'"
         ).fetchone()
     )
-    assert db.execute("PRAGMA user_version").fetchone()[0] == 1
+    assert db.execute("PRAGMA user_version").fetchone()[0] == choice_ledger.SCHEMA_VERSION
     assert after == before
     projection = choice_ledger.project_choice(db, "CHOICE-001")
     assert projection["no_execution_authority"] == legacy_notice
@@ -534,6 +748,66 @@ def test_tenant_and_lane_isolation(tmp_path: Path) -> None:
             db, tenant="tenant-a", workspace="workspace-a", lane="lane-a"
         )
     ) == 1
+    db.close()
+
+
+def test_scoped_choices_and_review_use_chronological_utc_order(
+    tmp_path: Path,
+) -> None:
+    db = connection(tmp_path / "chronological.sqlite3")
+    chronology = (
+        ("FIRST", "2026-07-29T00:30:00+02:00"),
+        ("SECOND", "2026-07-28T23:00:00Z"),
+        ("THIRD", "2026-07-28T19:30:00-04:00"),
+        ("FOURTH", "2026-07-29T00:00:00+00:00"),
+        ("FIFTH", "2026-07-29T01:30:00+01:00"),
+        ("SIXTH", "2026-07-29T01:00:00Z"),
+    )
+    for choice_id, selected_at in chronology:
+        select(db, choice_id, selected_at=selected_at)
+        outcome(db, choice_id)
+    projected = choice_ledger.scoped_choices(
+        db, tenant="tenant-a", workspace="workspace-a", lane="lane-a"
+    )
+    assert [item["choice"]["choice_id"] for item in projected] == [
+        choice_id for choice_id, _ in chronology
+    ]
+    review = choice_ledger.review_scorecard(
+        db, tenant="tenant-a", workspace="workspace-a", lane="lane-a"
+    )
+    assert review["cohort_choice_ids"] == [
+        choice_id for choice_id, _ in chronology[:5]
+    ]
+    db.close()
+
+
+def test_scoped_projection_batches_queries_and_uses_scope_index(
+    tmp_path: Path,
+) -> None:
+    db = connection(tmp_path / "batched.sqlite3")
+    for index in range(12):
+        choice_id = f"BATCH-{index:02d}"
+        select(
+            db,
+            choice_id,
+            selected_at=f"2026-07-29T12:{index:02d}:00+00:00",
+        )
+        outcome(db, choice_id)
+    statements: list[str] = []
+    db.set_trace_callback(statements.append)
+    context = choice_ledger.learning_context(
+        db, tenant="tenant-a", workspace="workspace-a", lane="lane-a"
+    )
+    db.set_trace_callback(None)
+    assert context["comparable_resolved_count"] == 12
+    assert len(statements) == 3
+    plan = db.execute(
+        "EXPLAIN QUERY PLAN SELECT * FROM choice_prompts "
+        "WHERE tenant=? AND workspace=? AND lane=? "
+        "ORDER BY selected_at_utc_us, choice_id",
+        ("tenant-a", "workspace-a", "lane-a"),
+    ).fetchall()
+    assert any("choice_prompts_scope_selected" in row[3] for row in plan)
     db.close()
 
 

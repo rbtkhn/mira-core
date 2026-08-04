@@ -135,10 +135,28 @@ solicit them.
 Back up and recover private state explicitly:
 
 ```powershell
-.\tools\run.ps1 choice backup --to C:\private\backups\choices.sqlite3
-.\tools\run.ps1 choice recover --from C:\private\backups\choices.sqlite3 `
+.\tools\run.ps1 choice backup `
+  --to C:\private\backups\narrative-choice-history-20260804.sqlite3
+.\tools\run.ps1 choice backup-status `
+  --backup C:\private\backups\narrative-choice-history-20260804.sqlite3
+.\tools\run.ps1 choice recover `
+  --from C:\private\backups\narrative-choice-history-20260804.sqlite3 `
   --to C:\private\restored-choices.sqlite3 --dry-run
 ```
+
+Backups are created through a same-directory temporary database, checked for
+integrity and logical equivalence, and then atomically replace the destination.
+`backup-status` reports `fresh: true` only when the backup is healthy and its
+sanitized logical fingerprint exactly matches the current store. Use a dated
+destination so an older recovery point is not silently discarded.
+
+Choice-store schema 2 preserves the submitted timestamp text and adds a derived
+UTC microsecond key for chronological cohort ordering. Read-only commands remain
+compatible with schema 1; the first later writable choice command migrates a
+schema-1 store transactionally. Create and verify a current backup before that
+first writable command. Scoped context, review, and whole-scope verification use
+batched prompt/event reads and the scope-ordering index rather than one query per
+choice.
 
 ## Operating Boundary
 

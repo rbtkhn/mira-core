@@ -8,13 +8,15 @@ import re
 import shutil
 import sqlite3
 import sys
+import tempfile
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Iterable
 
 
-SCHEMA_VERSION = 1
+SCHEMA_VERSION = 2
+READABLE_SCHEMA_VERSIONS = frozenset({1, SCHEMA_VERSION})
 PROJECTION_VERSION = "1.0"
 REVIEW_PROJECTION_VERSION = "2.0"
 DB_ENV = "NARRATIVE_CHOICE_DB"
@@ -75,6 +77,19 @@ def validate_timestamp(value: str) -> str:
     if parsed.tzinfo is None:
         raise ChoiceError("timestamps must include a timezone")
     return value
+
+
+def timestamp_order_key(value: str) -> int:
+    validate_timestamp(value)
+    parsed = datetime.fromisoformat(value.replace("Z", "+00:00")).astimezone(
+        timezone.utc
+    )
+    epoch = datetime(1970, 1, 1, tzinfo=timezone.utc)
+    delta = parsed - epoch
+    return (
+        (delta.days * 86_400 + delta.seconds) * 1_000_000
+        + delta.microseconds
+    )
 
 
 def canonical_json(value: Any) -> str:
@@ -228,10 +243,10 @@ def connect_read_only(path: Path) -> sqlite3.Connection:
         connection.execute("PRAGMA query_only = ON")
         connection.execute("BEGIN")
         version = int(connection.execute("PRAGMA user_version").fetchone()[0])
-        if version != SCHEMA_VERSION:
+        if version not in READABLE_SCHEMA_VERSIONS:
             raise ChoiceError(
-                f"choice store schema {version} requires migration to {SCHEMA_VERSION} "
-                "before read-only access"
+                f"choice store schema {version} is not readable; supported versions are "
+                f"{sorted(READABLE_SCHEMA_VERSIONS)}"
             )
     except (ChoiceError, sqlite3.Error):
         connection.close()
@@ -258,6 +273,7 @@ def migrate(connection: sqlite3.Connection) -> None:
                     actor TEXT NOT NULL,
                     presented_at TEXT NOT NULL,
                     selected_at TEXT NOT NULL,
+                    selected_at_utc_us INTEGER NOT NULL,
                     options_json TEXT NOT NULL,
                     options_hash TEXT NOT NULL,
                     recommended_key TEXT NOT NULL,
@@ -291,6 +307,10 @@ def migrate(connection: sqlite3.Connection) -> None:
                     BEFORE DELETE ON choice_prompts BEGIN
                     SELECT RAISE(ABORT, 'choice prompts are immutable');
                 END;
+                CREATE INDEX IF NOT EXISTS choice_prompts_scope_selected
+                    ON choice_prompts(
+                        tenant, workspace, lane, selected_at_utc_us, choice_id
+                    );
                 CREATE TRIGGER IF NOT EXISTS choice_events_no_update
                     BEFORE UPDATE ON choice_events BEGIN
                     SELECT RAISE(ABORT, 'choice events are append-only');
@@ -302,6 +322,44 @@ def migrate(connection: sqlite3.Connection) -> None:
                 """
             )
             connection.execute(f"PRAGMA user_version = {SCHEMA_VERSION}")
+        elif version == 1:
+            connection.execute("BEGIN IMMEDIATE")
+            columns = {
+                row[1] for row in connection.execute("PRAGMA table_info(choice_prompts)")
+            }
+            connection.execute("DROP TRIGGER IF EXISTS choice_prompts_no_update")
+            if "selected_at_utc_us" not in columns:
+                connection.execute(
+                    "ALTER TABLE choice_prompts ADD COLUMN selected_at_utc_us INTEGER"
+                )
+            rows = connection.execute(
+                "SELECT choice_id, selected_at FROM choice_prompts "
+                "WHERE selected_at_utc_us IS NULL"
+            ).fetchall()
+            connection.executemany(
+                "UPDATE choice_prompts SET selected_at_utc_us=? WHERE choice_id=?",
+                [
+                    (timestamp_order_key(row[1]), row[0])
+                    for row in rows
+                ],
+            )
+            connection.execute(
+                "CREATE TRIGGER choice_prompts_no_update "
+                "BEFORE UPDATE ON choice_prompts BEGIN "
+                "SELECT RAISE(ABORT, 'choice prompts are immutable'); END"
+            )
+            connection.execute(
+                "CREATE TRIGGER IF NOT EXISTS choice_prompts_selected_at_utc_required "
+                "BEFORE INSERT ON choice_prompts "
+                "WHEN NEW.selected_at_utc_us IS NULL BEGIN "
+                "SELECT RAISE(ABORT, 'choice prompts require UTC ordering'); END"
+            )
+            connection.execute(
+                "CREATE INDEX IF NOT EXISTS choice_prompts_scope_selected "
+                "ON choice_prompts(tenant, workspace, lane, "
+                "selected_at_utc_us, choice_id)"
+            )
+            connection.execute(f"PRAGMA user_version = {SCHEMA_VERSION}")
 
 
 def create_backup(path: Path, destination: Path) -> Path:
@@ -309,15 +367,98 @@ def create_backup(path: Path, destination: Path) -> Path:
     destination_path = require_private_path(destination, label="backup")
     if not source_path.is_file():
         raise ChoiceError("cannot back up a missing choice store")
+    if source_path == destination_path:
+        raise ChoiceError("backup destination must differ from the choice store")
     destination_path.parent.mkdir(parents=True, exist_ok=True)
-    source = sqlite3.connect(source_path)
-    target = sqlite3.connect(destination_path)
+    descriptor, temporary_name = tempfile.mkstemp(
+        prefix=f"{destination_path.name}.",
+        suffix=".backuping",
+        dir=destination_path.parent,
+    )
+    os.close(descriptor)
+    temporary = Path(temporary_name)
+    source = sqlite3.connect(f"{source_path.as_uri()}?mode=ro", uri=True)
+    target = sqlite3.connect(temporary)
     try:
         source.backup(target)
-    finally:
         target.close()
         source.close()
+        source_status = inspect_store(source_path)
+        backup_status = inspect_store(temporary)
+        if backup_status["integrity_check"] != "ok":
+            raise ChoiceError(
+                f"backup integrity check failed: {backup_status['integrity_check']}"
+            )
+        if backup_status["logical_fingerprint"] != source_status["logical_fingerprint"]:
+            raise ChoiceError("backup logical fingerprint differs from the choice store")
+        temporary.replace(destination_path)
+    finally:
+        try:
+            target.close()
+        finally:
+            source.close()
+        if temporary.exists():
+            temporary.unlink()
     return destination_path
+
+
+def inspect_store(path: Path) -> dict[str, Any]:
+    resolved = require_private_path(path, label="choice store inspection")
+    if not resolved.is_file():
+        raise ChoiceError(f"choice store does not exist: {resolved}")
+    connection = sqlite3.connect(f"{resolved.as_uri()}?mode=ro", uri=True)
+    connection.row_factory = sqlite3.Row
+    try:
+        integrity = str(connection.execute("PRAGMA integrity_check").fetchone()[0])
+        prompt_rows = [
+            dict(row)
+            for row in connection.execute(
+                "SELECT choice_id, tenant, workspace, lane, choice_kind, "
+                "consequence_level, decision_summary, actor, presented_at, "
+                "selected_at, options_json, options_hash, recommended_key, "
+                "selected_key, learning_refs_json, success_signals_json, "
+                "risk_signals_json, no_execution_authority "
+                "FROM choice_prompts ORDER BY choice_id"
+            )
+        ]
+        event_rows = [
+            dict(row)
+            for row in connection.execute(
+                "SELECT event_id, choice_id, sequence, event_type, occurred_at, "
+                "idempotency_key, payload_json, previous_hash, event_hash "
+                "FROM choice_events ORDER BY choice_id, sequence"
+            )
+        ]
+        return {
+            "path": str(resolved),
+            "schema_version": int(
+                connection.execute("PRAGMA user_version").fetchone()[0]
+            ),
+            "integrity_check": integrity,
+            "choice_prompts": len(prompt_rows),
+            "choice_events": len(event_rows),
+            "logical_fingerprint": digest(
+                {"choice_prompts": prompt_rows, "choice_events": event_rows}
+            ),
+        }
+    finally:
+        connection.close()
+
+
+def compare_backup(path: Path, backup: Path) -> dict[str, Any]:
+    source_status = inspect_store(path)
+    backup_status = inspect_store(backup)
+    exact_match = (
+        source_status["integrity_check"] == "ok"
+        and backup_status["integrity_check"] == "ok"
+        and source_status["logical_fingerprint"]
+        == backup_status["logical_fingerprint"]
+    )
+    return {
+        "fresh": exact_match,
+        "source": source_status,
+        "backup": backup_status,
+    }
 
 
 def recover_backup(backup: Path, destination: Path) -> Path:
@@ -461,6 +602,7 @@ def select_branch(
         "actor": sanitize_text(actor, limit=120),
         "presented_at": validate_timestamp(presented_at),
         "selected_at": validate_timestamp(selected_at),
+        "selected_at_utc_us": timestamp_order_key(selected_at),
         "options_json": canonical_json(sanitized),
         "options_hash": digest(sanitized),
         "recommended_key": recommended_key,
@@ -484,6 +626,7 @@ def select_branch(
         ).fetchone()
         if retried_event and retried_event["event_type"] == "branch_selected":
             prompt["selected_at"] = existing["selected_at"]
+            prompt["selected_at_utc_us"] = existing["selected_at_utc_us"]
         elif not retried_event:
             raise ChoiceError(
                 "choice already has a branch selection; new idempotency key rejected"
@@ -652,6 +795,10 @@ def _events(connection: sqlite3.Connection, choice_id: str) -> list[dict[str, An
     rows = connection.execute(
         "SELECT * FROM choice_events WHERE choice_id=? ORDER BY sequence", (choice_id,)
     ).fetchall()
+    return _decode_event_rows(rows)
+
+
+def _decode_event_rows(rows: Iterable[sqlite3.Row]) -> list[dict[str, Any]]:
     return [dict(row) | {"payload": json.loads(row["payload_json"])} for row in rows]
 
 
@@ -675,13 +822,9 @@ def _current_outcome(events: list[dict[str, Any]]) -> dict[str, Any] | None:
     return outcome
 
 
-def project_choice(connection: sqlite3.Connection, choice_id: str) -> dict[str, Any]:
-    row = connection.execute(
-        "SELECT * FROM choice_prompts WHERE choice_id=?", (choice_id,)
-    ).fetchone()
-    if not row:
-        raise ChoiceError("choice does not exist")
-    events = _events(connection, choice_id)
+def _project_choice_rows(
+    row: sqlite3.Row | dict[str, Any], events: list[dict[str, Any]]
+) -> dict[str, Any]:
     superseded = any(item["event_type"] == "superseded" for item in events)
     outcome = _current_outcome(events)
     return {
@@ -710,10 +853,19 @@ def project_choice(connection: sqlite3.Connection, choice_id: str) -> dict[str, 
         "review_timing": {"eligible_when_resolved_count": 5},
         "attention_flags": boundary_flags(events),
         "events": events,
-        "lineage": verify_choice(connection, choice_id),
+        "lineage": _verify_choice_rows(row, events),
         "authority_effect": AUTHORITY_EFFECT,
         "no_execution_authority": row["no_execution_authority"],
     }
+
+
+def project_choice(connection: sqlite3.Connection, choice_id: str) -> dict[str, Any]:
+    row = connection.execute(
+        "SELECT * FROM choice_prompts WHERE choice_id=?", (choice_id,)
+    ).fetchone()
+    if not row:
+        raise ChoiceError("choice does not exist")
+    return _project_choice_rows(row, _events(connection, choice_id))
 
 
 def boundary_flags(events: list[dict[str, Any]]) -> list[str]:
@@ -731,17 +883,13 @@ def boundary_flags(events: list[dict[str, Any]]) -> list[str]:
     return sorted(flags)
 
 
-def verify_choice(connection: sqlite3.Connection, choice_id: str) -> dict[str, Any]:
-    prompt = connection.execute(
-        "SELECT * FROM choice_prompts WHERE choice_id=?", (choice_id,)
-    ).fetchone()
-    if not prompt:
-        raise ChoiceError("choice does not exist")
+def _verify_choice_rows(
+    prompt: sqlite3.Row | dict[str, Any], events: list[dict[str, Any]]
+) -> dict[str, Any]:
     failures: list[str] = []
     options = json.loads(prompt["options_json"])
     if digest(options) != prompt["options_hash"]:
         failures.append("immutable option-set identity mismatch")
-    events = _events(connection, choice_id)
     selection_events = [
         event for event in events if event["event_type"] == "branch_selected"
     ]
@@ -817,21 +965,58 @@ def verify_choice(connection: sqlite3.Connection, choice_id: str) -> dict[str, A
             )
         previous_hash = event["event_hash"]
         seen_events[event["event_id"]] = event
-    return {"valid": not failures, "failures": failures, "event_count": expected if "expected" in locals() else 0}
+    return {
+        "valid": not failures,
+        "failures": failures,
+        "event_count": expected if "expected" in locals() else 0,
+    }
+
+
+def verify_choice(connection: sqlite3.Connection, choice_id: str) -> dict[str, Any]:
+    prompt = connection.execute(
+        "SELECT * FROM choice_prompts WHERE choice_id=?", (choice_id,)
+    ).fetchone()
+    if not prompt:
+        raise ChoiceError("choice does not exist")
+    return _verify_choice_rows(prompt, _events(connection, choice_id))
 
 
 def scoped_choices(
     connection: sqlite3.Connection, *, tenant: str, workspace: str, lane: str
 ) -> list[dict[str, Any]]:
-    rows = connection.execute(
-        """
-        SELECT choice_id FROM choice_prompts
-        WHERE tenant=? AND workspace=? AND lane=?
-        ORDER BY selected_at, choice_id
-        """,
+    version = int(connection.execute("PRAGMA user_version").fetchone()[0])
+    order = (
+        "selected_at_utc_us, choice_id"
+        if version >= 2
+        else "choice_id"
+    )
+    prompts = connection.execute(
+        "SELECT * FROM choice_prompts "
+        "WHERE tenant=? AND workspace=? AND lane=? "
+        f"ORDER BY {order}",
         (tenant, workspace, lane),
     ).fetchall()
-    return [project_choice(connection, row["choice_id"]) for row in rows]
+    if version == 1:
+        prompts = sorted(
+            prompts,
+            key=lambda row: (timestamp_order_key(row["selected_at"]), row["choice_id"]),
+        )
+    event_rows = connection.execute(
+        "SELECT choice_events.* FROM choice_events "
+        "JOIN choice_prompts USING(choice_id) "
+        "WHERE tenant=? AND workspace=? AND lane=? "
+        "ORDER BY choice_events.choice_id, choice_events.sequence",
+        (tenant, workspace, lane),
+    ).fetchall()
+    events_by_choice: dict[str, list[dict[str, Any]]] = {
+        row["choice_id"]: [] for row in prompts
+    }
+    for event in _decode_event_rows(event_rows):
+        events_by_choice[event["choice_id"]].append(event)
+    return [
+        _project_choice_rows(row, events_by_choice[row["choice_id"]])
+        for row in prompts
+    ]
 
 
 def learning_context(
@@ -1187,6 +1372,10 @@ def parse_args(arguments: list[str] | None = None) -> argparse.Namespace:
 
     backup = subparsers.add_parser("backup", help="Create a consistent private-store backup.")
     backup.add_argument("--to", required=True)
+    backup_status = subparsers.add_parser(
+        "backup-status", help="Compare a backup with the current logical store."
+    )
+    backup_status.add_argument("--backup", required=True)
     recover = subparsers.add_parser("recover", help="Recover a private store from a backup.")
     recover.add_argument("--from", dest="source", required=True)
     recover.add_argument("--to", required=True)
@@ -1226,7 +1415,11 @@ def main(arguments: list[str] | None = None) -> int:
             end="" if args.format == "markdown" else "\n",
         )
         return 0
-    resolution = resolve_store(args.db, require_exists=args.command in {"context", "review", "show", "verify", "backup"})
+    resolution = resolve_store(
+        args.db,
+        require_exists=args.command
+        in {"context", "review", "show", "verify", "backup", "backup-status"},
+    )
     if args.command == "recover":
         payload = {"would_recover": args.dry_run, "from": args.source, "to": args.to}
         if not args.dry_run:
@@ -1243,7 +1436,26 @@ def main(arguments: list[str] | None = None) -> int:
         return 0 if args.command in {"context", "review", "select"} else 2
     if args.command == "backup":
         destination = create_backup(resolution.path, Path(args.to))
-        print(json.dumps({"backed_up": True, "path": str(destination)}, indent=2))
+        status = compare_backup(resolution.path, destination)
+        print(
+            json.dumps(
+                {
+                    "backed_up": True,
+                    "path": str(destination),
+                    "fresh": status["fresh"],
+                    "logical_fingerprint": status["backup"]["logical_fingerprint"],
+                },
+                indent=2,
+            )
+        )
+        return 0
+    if args.command == "backup-status":
+        print(
+            json.dumps(
+                compare_backup(resolution.path, Path(args.backup)),
+                indent=2,
+            )
+        )
         return 0
     try:
         connection_factory = (
@@ -1329,7 +1541,8 @@ def main(arguments: list[str] | None = None) -> int:
                 )
         else:
             if args.choice_id:
-                scoped = project_choice(connection, args.choice_id)["choice"]
+                projection = project_choice(connection, args.choice_id)
+                scoped = projection["choice"]
                 if (scoped["tenant"], scoped["workspace"], scoped["lane"]) != (
                     args.tenant,
                     args.workspace,
@@ -1338,23 +1551,17 @@ def main(arguments: list[str] | None = None) -> int:
                     raise ChoiceError(
                         "choice is outside the requested tenant/workspace/lane scope"
                     )
-            choice_ids = (
-                [args.choice_id]
-                if args.choice_id
-                else [
-                    row["choice_id"]
-                    for row in connection.execute(
-                        "SELECT choice_id FROM choice_prompts "
-                        "WHERE tenant=? AND workspace=? AND lane=? "
-                        "ORDER BY selected_at",
-                        (args.tenant, args.workspace, args.lane),
+                results = {args.choice_id: projection["lineage"]}
+            else:
+                results = {
+                    item["choice"]["choice_id"]: item["lineage"]
+                    for item in scoped_choices(
+                        connection,
+                        tenant=args.tenant,
+                        workspace=args.workspace,
+                        lane=args.lane,
                     )
-                ]
-            )
-            results = {
-                choice_id: verify_choice(connection, choice_id)
-                for choice_id in choice_ids
-            }
+                }
             payload = {
                 "projection_version": PROJECTION_VERSION,
                 "valid": all(item["valid"] for item in results.values()),
