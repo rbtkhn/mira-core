@@ -148,6 +148,24 @@ Praise may support `successful` or `mixed`; friction may support `mixed` or
 `unsuccessful`. Never infer an unobserved dimension from praise,
 dissatisfaction, or selection alone. Leave it `Missing`.
 
+Measure cognitive load from contemporaneous friction rather than retrospective
+operator memory. Do not ask the operator to reconstruct old workflow details
+solely to fill the load field. Prefer artifact-side signals available during or
+immediately after the workflow: clarification loops, reruns, corrections,
+reopened branches, repeated scope restatement, user method correction, and
+whether the final state reduced or increased next-step ambiguity.
+
+Use this default cognitive-load rubric:
+
+- `lower`: at most one clarification loop, no reopened branch, no operator
+  correction of method, and the final state is clear enough to act or stop.
+- `same`: the workflow completes but needs ordinary steering, one correction,
+  or a modest clarification without derailing.
+- `higher`: the workflow needs repeated prompts, operator memory
+  reconstruction, branch reopening, a method correction, or leaves the operator
+  doing extra bookkeeping.
+- `Missing`: no contemporaneous or artifact-derived signal exists.
+
 Use `corrected` and `superseded` events rather than rewriting history. Use
 `review_deferred` when an unresolved outcome returns through review.
 
