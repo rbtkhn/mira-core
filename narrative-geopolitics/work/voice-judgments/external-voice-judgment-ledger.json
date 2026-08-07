@@ -1,0 +1,312 @@
+{
+  "schema": "external-voice-judgment-ledger-v1",
+  "status": "internal-canonical",
+  "authority_boundary": "Archive sources establish what a voice said. This registry organizes expressed judgments but is never evidence that an underlying world claim is true. Reality outcomes and formal forecast results are displayed only by governed reference.",
+  "revision_ledger_ref": "narrative-geopolitics/work/voice-accountability/voice-revision-ledger.json",
+  "judgments": [
+    {
+      "id": "VJ-CROOKE-0001",
+      "voice_slug": "crooke",
+      "class": "mechanism",
+      "lifecycle": "active",
+      "legacy_ids": [
+        "STATE-CROOKE-0001"
+      ],
+      "versions": [
+        {
+          "id": "VJ-CROOKE-0001-v1",
+          "proposition": "Escalation narrows diplomatic room and can turn a coercive campaign into a wider regional war.",
+          "expression_type": "close-paraphrase",
+          "first_seen": "2026-07-20",
+          "last_seen": "2026-07-20",
+          "source_refs": [
+            "narrative-geopolitics/archive/sources/2026-07-20/source-alastair-crooke-iran-war-3-0-2026-07-20.md"
+          ],
+          "daily_refs": [
+            "narrative-geopolitics/work/daily/2026-07-20/synthesis.md"
+          ],
+          "formal_forecast_refs": [
+            "NG-20260720-F01"
+          ],
+          "unresolved_forecast_refs": [],
+          "reality_claim_refs": [],
+          "revision_refs": [],
+          "review_condition": "Legacy trajectory requires source-level normalization before accountability use.",
+          "migration_note": "First state entry in this pilot.",
+          "migration_warnings": []
+        }
+      ]
+    },
+    {
+      "id": "VJ-DAVIS-0001",
+      "voice_slug": "davis",
+      "class": "strategic_assessment",
+      "lifecycle": "active",
+      "legacy_ids": [
+        "STATE-DAVIS-0001"
+      ],
+      "versions": [
+        {
+          "id": "VJ-DAVIS-0001-v1",
+          "proposition": "Escalation may disrupt regional access without reliably restoring control or producing a decisive settlement.",
+          "expression_type": "close-paraphrase",
+          "first_seen": "2026-07-19",
+          "last_seen": "2026-07-20",
+          "source_refs": [
+            "narrative-geopolitics/archive/sources/2026-07-20/source-breaking-houthis-close-babal-mandeb-strait-2026-07-20.md"
+          ],
+          "daily_refs": [
+            "narrative-geopolitics/work/daily/2026-07-20/synthesis.md"
+          ],
+          "formal_forecast_refs": [
+            "NG-20260720-F01"
+          ],
+          "unresolved_forecast_refs": [],
+          "reality_claim_refs": [],
+          "revision_refs": [],
+          "review_condition": "Legacy trajectory requires source-level normalization before accountability use.",
+          "migration_note": "Practical-force warning carried into the current day.",
+          "migration_warnings": [
+            "A legacy day-local source reference did not resolve to this voice and was excluded."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "VJ-DIESEN-0001",
+      "voice_slug": "diesen",
+      "class": "strategic_assessment",
+      "lifecycle": "active",
+      "legacy_ids": [
+        "STATE-DIESEN-0001"
+      ],
+      "versions": [
+        {
+          "id": "VJ-DIESEN-0001-v1",
+          "proposition": "Regional war and sanctions pressure are interpreted as evidence of wider order transition and declining Western institutional legitimacy.",
+          "expression_type": "explicit",
+          "first_seen": "2026-06-24",
+          "last_seen": "2026-06-30",
+          "source_refs": [
+            "narrative-geopolitics/archive/sources/2026-05-31/source-mario-nawfal-diesen-breaking-iran-collects-tolls-from-28-ships-in-past-24-hours-2026-05-31.md",
+            "narrative-geopolitics/archive/sources/2026-06-24/source-judging-freedom-diesen-europe-preparing-war-2026-06-24.md"
+          ],
+          "daily_refs": [
+            "narrative-geopolitics/work/daily/2026-06-24/synthesis.md",
+            "narrative-geopolitics/work/daily/2026-06-30/synthesis.md"
+          ],
+          "formal_forecast_refs": [],
+          "unresolved_forecast_refs": [],
+          "reality_claim_refs": [],
+          "revision_refs": [],
+          "review_condition": "Legacy trajectory requires source-level normalization before accountability use.",
+          "migration_note": "Host-owned order-transition frame; guest propositions remain separate.",
+          "migration_warnings": []
+        }
+      ]
+    },
+    {
+      "id": "VJ-JOHNSON-0001",
+      "voice_slug": "johnson",
+      "class": "strategic_assessment",
+      "lifecycle": "active",
+      "legacy_ids": [
+        "STATE-JOHNSON-0001"
+      ],
+      "versions": [
+        {
+          "id": "VJ-JOHNSON-0001-v1",
+          "proposition": "U.S. material capacity and ammunition constraints may limit the ability to sustain or widen the campaign.",
+          "expression_type": "close-paraphrase",
+          "first_seen": "2026-07-18",
+          "last_seen": "2026-07-20",
+          "source_refs": [
+            "narrative-geopolitics/archive/sources/2026-07-20/source-larry-johnson-us-running-out-of-ammo-2026-07-20.md"
+          ],
+          "daily_refs": [
+            "narrative-geopolitics/work/daily/2026-07-20/synthesis.md"
+          ],
+          "formal_forecast_refs": [],
+          "unresolved_forecast_refs": [
+            "NG-20260720-F02"
+          ],
+          "reality_claim_refs": [],
+          "revision_refs": [],
+          "review_condition": "Legacy trajectory requires source-level normalization before accountability use.",
+          "migration_note": "Current entry remains a source-grounded capacity claim, not verified stockpile data.",
+          "migration_warnings": []
+        }
+      ]
+    },
+    {
+      "id": "VJ-MARANDI-0001",
+      "voice_slug": "marandi",
+      "class": "position",
+      "lifecycle": "active",
+      "legacy_ids": [
+        "STATE-MARANDI-0001"
+      ],
+      "versions": [
+        {
+          "id": "VJ-MARANDI-0001-v1",
+          "proposition": "Iranian resistance and sovereignty language treats continued pressure and regional participation as legitimacy and red-line questions, not only bargaining variables.",
+          "expression_type": "close-paraphrase",
+          "first_seen": "2026-07-16",
+          "last_seen": "2026-07-19",
+          "source_refs": [
+            "narrative-geopolitics/archive/sources/2026-07-16/source-seyed-m-marandi-plans-for-a-u-s-land-invasion-of-iran-yemen-iran-enters-the-war-2026-07-16.md",
+            "narrative-geopolitics/archive/sources/2026-07-18/source-breaking-iran-threatens-to-bomb-dubai-airport-w-prof-seyed-marandi-2026-07-18.md",
+            "narrative-geopolitics/archive/sources/2026-07-19/source-professor-marandi-ground-invasion-coming-16-u-s-soldiers-dead-f-15-fighter-jets-destroyed-2026-07-19.md"
+          ],
+          "daily_refs": [
+            "narrative-geopolitics/work/daily/2026-07-16/synthesis.md",
+            "narrative-geopolitics/work/daily/2026-07-19/synthesis.md"
+          ],
+          "formal_forecast_refs": [],
+          "unresolved_forecast_refs": [],
+          "reality_claim_refs": [],
+          "revision_refs": [],
+          "review_condition": "Legacy trajectory requires source-level normalization before accountability use.",
+          "migration_note": "Red-line framing; specific strike and casualty claims remain source assertions.",
+          "migration_warnings": []
+        }
+      ]
+    },
+    {
+      "id": "VJ-MEARSHEIMER-0001",
+      "voice_slug": "mearsheimer",
+      "class": "mechanism",
+      "lifecycle": "active",
+      "legacy_ids": [
+        "STATE-MEARSHEIMER-0001"
+      ],
+      "versions": [
+        {
+          "id": "VJ-MEARSHEIMER-0001-v1",
+          "proposition": "Escalation and economic interdependence can produce a wider war and a severe cost problem without a clean U.S. exit.",
+          "expression_type": "explicit",
+          "first_seen": "2026-07-16",
+          "last_seen": "2026-07-20",
+          "source_refs": [
+            "narrative-geopolitics/archive/sources/2026-07-20/source-john-mearsheimer-dire-warning-of-global-economic-calamity-2026-07-20.md",
+            "narrative-geopolitics/archive/sources/2026-07-20/source-prof-john-mearsheimer-pentagon-prepares-for-a-wider-war-as-military-build-up-accelerates-2026-07-20.md"
+          ],
+          "daily_refs": [
+            "narrative-geopolitics/work/daily/2026-07-20/synthesis.md"
+          ],
+          "formal_forecast_refs": [
+            "NG-20260720-F01"
+          ],
+          "unresolved_forecast_refs": [],
+          "reality_claim_refs": [],
+          "revision_refs": [],
+          "review_condition": "Legacy trajectory requires source-level normalization before accountability use.",
+          "migration_note": "Current day repeats the structural constraint across two host contexts.",
+          "migration_warnings": []
+        }
+      ]
+    },
+    {
+      "id": "VJ-MERCOURIS-0001",
+      "voice_slug": "mercouris",
+      "class": "strategic_assessment",
+      "lifecycle": "active",
+      "legacy_ids": [
+        "STATE-MERCOURIS-0001"
+      ],
+      "versions": [
+        {
+          "id": "VJ-MERCOURIS-0001-v1",
+          "proposition": "Coalition and Ukrainian capacity constraints can narrow diplomatic and operational room while headline resolve persists.",
+          "expression_type": "close-paraphrase",
+          "first_seen": "2026-07-19",
+          "last_seen": "2026-07-20",
+          "source_refs": [
+            "narrative-geopolitics/archive/sources/2026-07-20/source-russia-cuts-off-odessa-zelensky-discusses-syrsky-sacking-eu-states-split-on-sanctions-russia-talks-2026-07-20.md"
+          ],
+          "daily_refs": [
+            "narrative-geopolitics/work/daily/2026-07-20/synthesis.md"
+          ],
+          "formal_forecast_refs": [],
+          "unresolved_forecast_refs": [
+            "NG-20260720-F02"
+          ],
+          "reality_claim_refs": [],
+          "revision_refs": [],
+          "review_condition": "Legacy trajectory requires source-level normalization before accountability use.",
+          "migration_note": "Comparative capacity lens, not a direct Iran-war fact.",
+          "migration_warnings": []
+        }
+      ]
+    },
+    {
+      "id": "VJ-PAPE-0001",
+      "voice_slug": "pape",
+      "class": "mechanism",
+      "lifecycle": "active",
+      "legacy_ids": [
+        "STATE-PAPE-0001"
+      ],
+      "versions": [
+        {
+          "id": "VJ-PAPE-0001-v1",
+          "proposition": "Coercive campaigns can widen through escalation traps when initial pressure fails to produce concession.",
+          "expression_type": "explicit",
+          "first_seen": "2026-07-15",
+          "last_seen": "2026-07-16",
+          "source_refs": [
+            "narrative-geopolitics/archive/sources/2026-07-15/source-robert-pape-reacts-trump-ground-troops-in-iran-threat-2026-07-15.md",
+            "narrative-geopolitics/archive/sources/2026-07-16/source-breaking-analysis-3-tehran-s-second-front-heating-up-fast-are-markets-watching-2026-07-16.md"
+          ],
+          "daily_refs": [
+            "narrative-geopolitics/work/daily/2026-07-15/synthesis.md",
+            "narrative-geopolitics/work/daily/2026-07-16/synthesis.md"
+          ],
+          "formal_forecast_refs": [],
+          "unresolved_forecast_refs": [],
+          "reality_claim_refs": [],
+          "revision_refs": [],
+          "review_condition": "Legacy trajectory requires source-level normalization before accountability use.",
+          "migration_note": "Mechanism and falsifier entry; forecast linkage remains to be reconciled.",
+          "migration_warnings": []
+        }
+      ]
+    },
+    {
+      "id": "VJ-PAPE-0002",
+      "voice_slug": "pape",
+      "class": "forecast_expression",
+      "lifecycle": "unclear",
+      "legacy_ids": [],
+      "versions": [
+        {
+          "id": "VJ-PAPE-0002-v1",
+          "proposition": "A blockade/shortage dynamic moves first from price shock into visible shortages around the 45-60 day range, then into measurable economic contraction around the 60-90 day range if disruption persists.",
+          "expression_type": "close-paraphrase",
+          "first_seen": "2026-04-22",
+          "last_seen": "2026-04-22",
+          "source_refs": [
+            "narrative-geopolitics/archive/sources/2026-04-22/source-pape-within-10-days-shortages-already-2026-04-22.md"
+          ],
+          "daily_refs": [],
+          "formal_forecast_refs": [],
+          "unresolved_forecast_refs": [
+            "PAPE-2026-F015"
+          ],
+          "reality_claim_refs": [],
+          "revision_refs": [
+            "VR-20260420-02"
+          ],
+          "review_condition": "Review the 2026-06-21 through 2026-07-21 window for at least two reviewed observables showing shortage dynamics broadening into measurable contraction: industrial-output decline tied to energy/input shortage; supply-chain fragmentation tied to constrained inputs; state rationing/allocation; route reductions or production cuts; or documented contraction in sectors dependent on continuous energy or petrochemical inputs.",
+          "migration_note": "Split from the legacy Pape voice-local hook PAPE-2026-F015. Retained as a forecast expression candidate with a governed review rule; it is not scored unless promoted through governed forecast or verification workflow.",
+          "migration_warnings": [
+            "Voice-local hook; not a governed NG-* forecast.",
+            "Revision VR-20260420-02 maps only as a timing-revision link and does not adjudicate the underlying world claim.",
+            "The 45-60 and 60-90 day windows are relative to the asserted cutoff/disruption start and are not independently verified in this registry entry.",
+            "Outcome requires authorized evidence review before any hit/mixed/miss label."
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -113,3 +113,7 @@ What could eventually be public:
 What should remain internal for now:
 
 - Full source archive and detailed routing notes until daily briefs prove which parts are safe and useful for public-facing summaries.
+
+## Judgment Ledger
+
+Canonical external-voice reading surface: [judgment-ledger.md](judgment-ledger.md). It records governed expressed judgments and separately canonical self-revisions without establishing factual truth.

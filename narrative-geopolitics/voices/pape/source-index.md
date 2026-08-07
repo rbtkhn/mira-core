@@ -1,10 +1,10 @@
-﻿# Pape Source Index
+# Pape Source Index
 
 This index routes Robert Pape voice work to the central Narrative Geopolitics source archive.
 
 Source basis: `strategy-codex/statecraft/voices/pape/pape-index.md`.
 
-Corpus: 68 authored sources, 24 guest appearances, 92 total imported sources.
+Corpus: 70 authored sources, 28 guest appearances, 98 total imported sources.
 
 ## Reading Rule
 
@@ -41,7 +41,7 @@ Corpus: 68 authored sources, 24 guest appearances, 92 total imported sources.
 - [2026-03-07 — The Escalation Trap Widens: Russiaâ€™s Intelligence Lifeline to Iran](../../archive/sources/2026-03-07/source-pape-the-escalation-trap-widens-russias-2026-03-07.md) — **authored** · substack-post
 - [2026-03-08 — Three Signals to Watch After Iranâ€™s Leadership Transition](../../archive/sources/2026-03-08/source-pape-three-signals-to-watch-after-irans-2026-03-08.md) — **authored** · substack-post
 - [2026-03-09 — Answers to Questions Our Community is Asking](../../archive/sources/2026-03-09/source-pape-answers-to-questions-our-community-2026-03-09.md) — **authored** · substack-post
-- [2026-03-10 — The Escalation Trap: Why Escalation Favors Iran](../../archive/sources/2026-03-10/source-daniel-davis-pape-escalation-trap-2026-03-10.md) — **guest** · transcript · host: `daniel-davis`
+- [2026-03-10 — The Escalation Trap: Why Escalation Favors Iran](../../archive/sources/2026-03-10/source-daniel-davis-pape-escalation-trap-2026-03-10.md) — **guest** · cleaned-transcript · host: `daniel-davis`
 - [2026-03-12 — Four Strategic Patterns Now Visible in the Iran War](../../archive/sources/2026-03-12/source-pape-four-strategic-patterns-now-visible-2026-03-12.md) — **authored** · newsletter
 - [2026-03-13 — Strategic Briefings: Iran War and the Middle Game of Escalation](../../archive/sources/2026-03-13/source-pape-strategic-briefings-iran-war-and-2026-03-13.md) — **authored** · substack-post
 - [2026-03-16 — Iran's New Battlefield: The Global Economy](../../archive/sources/2026-03-16/source-pape-irans-new-battlefield-the-global-2026-03-16.md) — **authored** · newsletter
@@ -60,7 +60,7 @@ Corpus: 68 authored sources, 24 guest appearances, 92 total imported sources.
 - [2026-04-17 — A Real-Time Test of Powerâ€”and Why Tonight Matters](../../archive/sources/2026-04-17/source-pape-a-real-time-test-of-powerand-why-2026-04-17.md) — **authored** · substack-post
 - [2026-04-17 — Pape](../../archive/sources/2026-04-17/source-pape-2026-04-17.md) — **guest** · transcript · host: `upstream-unresolved`
 - [2026-04-18 — Pape](../../archive/sources/2026-04-18/source-pape-2026-04-18.md) — **guest** · transcript · host: `upstream-unresolved`
-- [2026-04-20 — Redacted â€” *The Collapse is Now "Ahead of Schedule"* (April 20, 2026)](../../archive/sources/2026-04-20/source-pape-collapse-ahead-of-schedule-2026-04-20.md) — **guest** · transcript · host: `redacted-news`
+- [2026-04-20 — Redacted â€” *The Collapse is Now "Ahead of Schedule"* (April 20, 2026)](../../archive/sources/2026-04-20/source-pape-collapse-ahead-of-schedule-2026-04-20.md) — **guest** · cleaned-transcript · host: `redacted-news`
 - [2026-04-21 — Robert A. Pape (@ProfessorPape) â€” zero-sum conflict / escalation laddâ€¦](../../archive/sources/2026-04-21/source-pape-zero-sum-escalation-ladder-2026-04-21.md) — **authored** · x-post-text
 - [2026-04-22 — The First Move Has Begun](../../archive/sources/2026-04-22/source-pape-the-first-move-has-begun-2026-04-22.md) — **authored** · substack-post
 - [2026-04-22 — Within 10 Days, Shortages Are Already Here](../../archive/sources/2026-04-22/source-pape-within-10-days-shortages-already-2026-04-22.md) — **authored** · substack-post
@@ -127,4 +127,13 @@ Corpus: 68 authored sources, 24 guest appearances, 92 total imported sources.
 - [2026-07-21 — Breaking Analysis #7: New Intel on Pick Axe Mountain -- Has Iran Already Won the Nuclear Race?](../../archive/sources/2026-07-21/source-breaking-analysis-7-new-intel-on-pick-axe-mountain-has-iran-already-won-the-nuclear-race-2026-07-21.md) — **authored** · substack-post
 - [2026-07-22 — Iran With Major Strikes on Israel Coming Within 3-4 Days, Ground Invasion Coming](../../archive/sources/2026-07-22/source-iran-with-major-strikes-on-israel-coming-within-3-4-days-ground-invasion-coming-2026-07-22.md) — **guest** · transcript · host: `moral-resistance`
 - [2026-07-23 — The Impossible Drone Hunt: Why Reopening the Strait of Hormuz Could Be Far Harder Than Most People Realize](../../archive/sources/2026-07-23/source-the-impossible-drone-hunt-why-reopening-the-strait-of-hormuz-could-be-far-harder-than-most-people-realize-2026-07-23.md) — **authored** · substack-post
-- [2026-07-23 — The Impossible Drone Hunt](../../archive/sources/2026-07-23/source-the-impossible-drone-hunt-2026-07-23.md) — **guest** · cleaned-transcript · host: `escalation-trap`
+- [2026-07-24 — Trump: “They Have Not Suffered Enough Yet” — What Happens When a City of Ten Million Loses Electricity — Tehran](../../archive/sources/2026-07-24/source-trump-they-have-not-suffered-enough-yet-what-happens-when-a-city-of-ten-million-loses-electricity-tehran-2026-07-24.md) — **authored** · essay
+- [2026-07-27 — BREAKING: TOP U.S. COMMANDER WANTS TO HALT THE IRAN BOMBING — w/ Prof. Robert Pape](../../archive/sources/2026-07-27/source-breaking-top-u-s-commander-wants-to-halt-the-iran-bombing-w-prof-robert-pape-2026-07-27.md) — **guest** · cleaned-transcript · host: `mario-nawfal`
+- [2026-07-27 — Why July Red Sea Front = August Energy Shock — Escalation Trap This Week: Staying Ahead of the Risks](../../archive/sources/2026-07-27/source-why-july-red-sea-front-august-energy-shock-escalation-trap-this-week-staying-ahead-of-the-risks-2026-07-27.md) — **authored** · essay
+- [2026-07-29 — Breaking Analysis #8: Iran Attacks Jordan – Sends the US a Message](../../archive/sources/2026-07-29/source-breaking-analysis-8-iran-attacks-jordan-sends-the-us-a-message-2026-07-29.md) — **guest** · cleaned-transcript · host: `escalation-trap`
+- [2026-07-31 — Breaking Analysis #9: Iran Attacks Egypt – Is a Mediterranean Front Opening?](../../archive/sources/2026-07-31/source-breaking-analysis-9-iran-attacks-egypt-is-a-mediterranean-front-opening-2026-07-31.md) — **guest** · cleaned-transcript · host: `escalation-trap`
+
+## 2026-08
+
+- [2026-08-03 — Breaking Analysis #10: Trump’s Illusion of Control Meets Escalation Reality](../../archive/sources/2026-08-03/source-untitled-source-2026-08-03.md) — **guest** · cleaned-transcript · host: `escalation-trap`
+- [2026-08-03 — TRUMP BOMBS IRAN FOR 5 MONTHS AND THEY STILL SAY NO — w/ Prof. Robert Pape](../../archive/sources/2026-08-03/source-trump-bombs-iran-for-5-months-and-they-still-say-no-w-prof-robert-pape-2026-08-03.md) — **guest** · cleaned-transcript · host: `mario-nawfal`
