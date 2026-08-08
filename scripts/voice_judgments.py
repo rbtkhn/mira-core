@@ -500,9 +500,11 @@ def render_voice(
         "",
         "## Forecast Expressions",
         "",
-        "Voice-local forecast expressions are not scored unless they reference a governed formal `NG-*` forecast.",
+        "Voice-local forecast expressions remain unscored in this ledger. Any related `NG-*` record is governed and scored separately.",
         "",
-        "| Judgment | Formal Forecasts | Unresolved Voice-Local Hooks |",
+        "An `NG-*` reference identifies a separately authored Narrative Geopolitics forecast. It does not mean the voice authored or adopted that forecast, and its score does not apply to the voice judgment.",
+        "",
+        "| Judgment | Related NG Forecasts (Reference Only) | Unresolved Voice-Local Hooks |",
         "| --- | --- | --- |",
     ])
     forecast_rows = 0
@@ -523,18 +525,29 @@ def render_voice(
         "",
         "## Self-Revisions",
         "",
-        "| Revision | Date | Class | Prior View | Revised View | Source | Judgment Links |",
-        "| --- | --- | --- | --- | --- | --- | --- |",
+        "| Revision | Date | Class | Judgment Links |",
+        "| --- | --- | --- | --- |",
     ])
     for entry in voice_revisions:
-        source = md_link(voice_dir, entry["source_path"], entry["source_title"])
         refs = ", ".join(f"`{value}`" for value in entry.get("judgment_refs", [])) or "none"
         lines.append(
-            f"| `{entry['id']}` | `{entry['date']}` | `{entry['class']}` | {md_escape(entry['prior_view'])} | "
-            f"{md_escape(entry['revised_view'])} | {source} | {refs} |"
+            f"| `{entry['id']}` | `{entry['date']}` | `{entry['class']}` | {refs} |"
         )
     if not voice_revisions:
-        lines.append("| none | none | none | none | none | none | none |")
+        lines.append("| none | none | none | none |")
+    else:
+        lines.extend(["", "### Revision Details", ""])
+        for entry in voice_revisions:
+            source = md_link(voice_dir, entry["source_path"], entry["source_title"])
+            lines.extend([
+                f"#### `{entry['id']}`",
+                "",
+                f"- **Prior View:** {md_escape(entry['prior_view'])}",
+                f"- **Revised View:** {md_escape(entry['revised_view'])}",
+                f"- **Source:** {source}",
+                f"- **Canonical Context:** {md_escape(entry['adjudication_note'])}",
+                "",
+            ])
 
     lines.extend([
         "",

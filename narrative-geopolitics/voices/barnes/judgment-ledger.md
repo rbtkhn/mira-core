@@ -25,17 +25,29 @@ The separately canonical voice-revision ledger adjudicates documented self-revis
 
 ## Forecast Expressions
 
-Voice-local forecast expressions are not scored unless they reference a governed formal `NG-*` forecast.
+Voice-local forecast expressions remain unscored in this ledger. Any related `NG-*` record is governed and scored separately.
 
-| Judgment | Formal Forecasts | Unresolved Voice-Local Hooks |
+An `NG-*` reference identifies a separately authored Narrative Geopolitics forecast. It does not mean the voice authored or adopted that forecast, and its score does not apply to the voice judgment.
+
+| Judgment | Related NG Forecasts (Reference Only) | Unresolved Voice-Local Hooks |
 | --- | --- | --- |
 | none | none | none |
 
 ## Self-Revisions
 
-| Revision | Date | Class | Prior View | Revised View | Source | Judgment Links |
-| --- | --- | --- | --- | --- | --- | --- |
-| `VR-20260625-01` | `2026-06-25` | `personal-position-revision` | Previously regarded Israel as an utterly unreliable ally and strategic saboteur. | Said he had revised that view after considering independent information and recent events. | [Robert Barnes: Breaking GCC Attack Iran; Rubio Meeting; Iran Strike Vessel Hormuz](../../archive/sources/2026-06-25/source-mario-nawfal-barnes-breaking-gcc-attack-iran-rubio-meeting-iran-strike-vessel-hormuz-2026-06-25.md) | none |
+| Revision | Date | Class | Judgment Links |
+| --- | --- | --- | --- |
+| `VR-20260625-01` | `2026-06-25` | `personal-position-revision` | none |
+
+### Revision Details
+
+#### `VR-20260625-01`
+
+- **Prior View:** Previously regarded Israel as an utterly unreliable ally and strategic saboteur.
+- **Revised View:** Said he had revised that view after considering independent information and recent events.
+- **Source:** [Robert Barnes: Breaking GCC Attack Iran; Rubio Meeting; Iran Strike Vessel Hormuz](../../archive/sources/2026-06-25/source-mario-nawfal-barnes-breaking-gcc-attack-iran-rubio-meeting-iran-strike-vessel-hormuz-2026-06-25.md)
+- **Canonical Context:** The passage contains a substantive first-person reversal of a prior political judgment. The transcript has some attribution and ASR noise, so this entry is retained as active but should be treated as lower-confidence than the cleaner admissions.
+
 
 ## Linked Reality Outcomes
 

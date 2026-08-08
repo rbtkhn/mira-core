@@ -25,18 +25,37 @@ The separately canonical voice-revision ledger adjudicates documented self-revis
 
 ## Forecast Expressions
 
-Voice-local forecast expressions are not scored unless they reference a governed formal `NG-*` forecast.
+Voice-local forecast expressions remain unscored in this ledger. Any related `NG-*` record is governed and scored separately.
 
-| Judgment | Formal Forecasts | Unresolved Voice-Local Hooks |
+An `NG-*` reference identifies a separately authored Narrative Geopolitics forecast. It does not mean the voice authored or adopted that forecast, and its score does not apply to the voice judgment.
+
+| Judgment | Related NG Forecasts (Reference Only) | Unresolved Voice-Local Hooks |
 | --- | --- | --- |
 | none | none | none |
 
 ## Self-Revisions
 
-| Revision | Date | Class | Prior View | Revised View | Source | Judgment Links |
-| --- | --- | --- | --- | --- | --- | --- |
-| `VR-20260523-01` | `2026-05-23` | `personal-prediction-revision` | Expected Marjorie Taylor Greene to retain her seat, Tulsi Gabbard to retain Trump's trust, and Thomas Massie to win his primary easily. | Acknowledged that all three political forecasts were wrong and that Trump's behavior resisted coherent prediction. | [The Loneliness of Mad King Trump](../../archive/sources/2026-05-23/source-the-loneliness-of-mad-king-trump-2026-05-23.md) | none |
-| `VR-20260530-01` | `2026-05-30` | `explicit-personal-admission` | Expected Peter Thiel's Gawker victory to mark Thiel's decline through hubris. | Reassessed Thiel as strategically more capable than previously estimated. | [Peter Thiel's Republic](../../archive/sources/2026-05-30/source-peter-thiel-s-republic-2026-05-30.md) | none |
+| Revision | Date | Class | Judgment Links |
+| --- | --- | --- | --- |
+| `VR-20260523-01` | `2026-05-23` | `personal-prediction-revision` | none |
+| `VR-20260530-01` | `2026-05-30` | `explicit-personal-admission` | none |
+
+### Revision Details
+
+#### `VR-20260523-01`
+
+- **Prior View:** Expected Marjorie Taylor Greene to retain her seat, Tulsi Gabbard to retain Trump's trust, and Thomas Massie to win his primary easily.
+- **Revised View:** Acknowledged that all three political forecasts were wrong and that Trump's behavior resisted coherent prediction.
+- **Source:** [The Loneliness of Mad King Trump](../../archive/sources/2026-05-23/source-the-loneliness-of-mad-king-trump-2026-05-23.md)
+- **Canonical Context:** The author lists multiple personal forecasts, identifies their contrary outcomes, and explicitly revises his confidence in making sense of Trump's political behavior. The source is a first-person newsletter by the featured voice.
+
+#### `VR-20260530-01`
+
+- **Prior View:** Expected Peter Thiel's Gawker victory to mark Thiel's decline through hubris.
+- **Revised View:** Reassessed Thiel as strategically more capable than previously estimated.
+- **Source:** [Peter Thiel's Republic](../../archive/sources/2026-05-30/source-peter-thiel-s-republic-2026-05-30.md)
+- **Canonical Context:** The author states the prior interpretation, directly admits the error, and names the revised analytical judgment. The source is a first-person newsletter by the featured voice.
+
 
 ## Linked Reality Outcomes
 

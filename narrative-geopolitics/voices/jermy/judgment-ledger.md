@@ -25,18 +25,37 @@ The separately canonical voice-revision ledger adjudicates documented self-revis
 
 ## Forecast Expressions
 
-Voice-local forecast expressions are not scored unless they reference a governed formal `NG-*` forecast.
+Voice-local forecast expressions remain unscored in this ledger. Any related `NG-*` record is governed and scored separately.
 
-| Judgment | Formal Forecasts | Unresolved Voice-Local Hooks |
+An `NG-*` reference identifies a separately authored Narrative Geopolitics forecast. It does not mean the voice authored or adopted that forecast, and its score does not apply to the voice judgment.
+
+| Judgment | Related NG Forecasts (Reference Only) | Unresolved Voice-Local Hooks |
 | --- | --- | --- |
 | none | none | none |
 
 ## Self-Revisions
 
-| Revision | Date | Class | Prior View | Revised View | Source | Judgment Links |
-| --- | --- | --- | --- | --- | --- | --- |
-| `VR-20260301-02` | `2026-03-01` | `personal-prediction-revision` | Expected air superiority would take longer to establish. | Acknowledged that superiority appeared to have been achieved earlier than expected. | [Steve Jermy: Iran War Endgame and Global Fallout](../../archive/sources/2026-03-01/source-glenn-diesen-steve-jermy-iran-war-endgame-global-fallout-2026-03-01.md) | none |
-| `VR-20260318-01` | `2026-03-18` | `personal-prediction-revision` | Bet that the campaign would not happen because the risks were high and the benefits appeared limited. | Acknowledged that the campaign occurred and his forecast was wrong. | [Steve Jermy: The US Already Lost the Naval War](../../archive/sources/2026-03-18/source-neutrality-studies-us-already-lost-naval-war-steve-jermy-2026-03-18.md) | none |
+| Revision | Date | Class | Judgment Links |
+| --- | --- | --- | --- |
+| `VR-20260301-02` | `2026-03-01` | `personal-prediction-revision` | none |
+| `VR-20260318-01` | `2026-03-18` | `personal-prediction-revision` | none |
+
+### Revision Details
+
+#### `VR-20260301-02`
+
+- **Prior View:** Expected air superiority would take longer to establish.
+- **Revised View:** Acknowledged that superiority appeared to have been achieved earlier than expected.
+- **Source:** [Steve Jermy: Iran War Endgame and Global Fallout](../../archive/sources/2026-03-01/source-glenn-diesen-steve-jermy-iran-war-endgame-global-fallout-2026-03-01.md)
+- **Canonical Context:** The speaker contrasts an earlier timing expectation with the observed speed of the campaign's air-superiority result. The update is substantive but non-explicit, so it is kept distinct from his March 18 direct admission.
+
+#### `VR-20260318-01`
+
+- **Prior View:** Bet that the campaign would not happen because the risks were high and the benefits appeared limited.
+- **Revised View:** Acknowledged that the campaign occurred and his forecast was wrong.
+- **Source:** [Steve Jermy: The US Already Lost the Naval War](../../archive/sources/2026-03-18/source-neutrality-studies-us-already-lost-naval-war-steve-jermy-2026-03-18.md)
+- **Canonical Context:** The featured voice states both the prior forecast and the direct revision in the same passage. This is a personal prediction revision and is distinct from his March 1 timing update.
+
 
 ## Linked Reality Outcomes
 

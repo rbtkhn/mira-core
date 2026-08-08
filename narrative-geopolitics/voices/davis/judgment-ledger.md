@@ -25,17 +25,29 @@ The separately canonical voice-revision ledger adjudicates documented self-revis
 
 ## Forecast Expressions
 
-Voice-local forecast expressions are not scored unless they reference a governed formal `NG-*` forecast.
+Voice-local forecast expressions remain unscored in this ledger. Any related `NG-*` record is governed and scored separately.
 
-| Judgment | Formal Forecasts | Unresolved Voice-Local Hooks |
+An `NG-*` reference identifies a separately authored Narrative Geopolitics forecast. It does not mean the voice authored or adopted that forecast, and its score does not apply to the voice judgment.
+
+| Judgment | Related NG Forecasts (Reference Only) | Unresolved Voice-Local Hooks |
 | --- | --- | --- |
 | `VJ-DAVIS-0001` | `NG-20260720-F01` | none |
 
 ## Self-Revisions
 
-| Revision | Date | Class | Prior View | Revised View | Source | Judgment Links |
-| --- | --- | --- | --- | --- | --- | --- |
-| `VR-20260301-01` | `2026-03-01` | `personal-prediction-revision` | Expected Iran might hold some attacks back as negotiating leverage. | Acknowledged that Iran went further than expected and appeared to commit to an all-in response. | [Daniel Davis: Iran Miscalculation](../../archive/sources/2026-03-01/source-glenn-diesen-daniel-davis-iran-miscalculation-2026-03-01.md) | none |
+| Revision | Date | Class | Judgment Links |
+| --- | --- | --- | --- |
+| `VR-20260301-01` | `2026-03-01` | `personal-prediction-revision` | none |
+
+### Revision Details
+
+#### `VR-20260301-01`
+
+- **Prior View:** Expected Iran might hold some attacks back as negotiating leverage.
+- **Revised View:** Acknowledged that Iran went further than expected and appeared to commit to an all-in response.
+- **Source:** [Daniel Davis: Iran Miscalculation](../../archive/sources/2026-03-01/source-glenn-diesen-daniel-davis-iran-miscalculation-2026-03-01.md)
+- **Canonical Context:** The featured voice identifies a prior expectation about the extent of Iran's response and updates it in light of the observed campaign. This is a non-explicit forecast revision, not a direct admission of error.
+
 
 ## Linked Reality Outcomes
 

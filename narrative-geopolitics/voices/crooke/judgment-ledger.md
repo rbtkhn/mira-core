@@ -25,17 +25,19 @@ The separately canonical voice-revision ledger adjudicates documented self-revis
 
 ## Forecast Expressions
 
-Voice-local forecast expressions are not scored unless they reference a governed formal `NG-*` forecast.
+Voice-local forecast expressions remain unscored in this ledger. Any related `NG-*` record is governed and scored separately.
 
-| Judgment | Formal Forecasts | Unresolved Voice-Local Hooks |
+An `NG-*` reference identifies a separately authored Narrative Geopolitics forecast. It does not mean the voice authored or adopted that forecast, and its score does not apply to the voice judgment.
+
+| Judgment | Related NG Forecasts (Reference Only) | Unresolved Voice-Local Hooks |
 | --- | --- | --- |
 | `VJ-CROOKE-0001` | `NG-20260720-F01` | none |
 
 ## Self-Revisions
 
-| Revision | Date | Class | Prior View | Revised View | Source | Judgment Links |
-| --- | --- | --- | --- | --- | --- | --- |
-| none | none | none | none | none | none | none |
+| Revision | Date | Class | Judgment Links |
+| --- | --- | --- | --- |
+| none | none | none | none |
 
 ## Linked Reality Outcomes
 

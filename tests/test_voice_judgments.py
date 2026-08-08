@@ -78,6 +78,69 @@ def test_reality_outcome_is_resolved_at_render_time_not_stored() -> None:
     assert data["judgments"][0]["versions"][0].get("outcome") is None
 
 
+def test_ng_forecast_links_render_as_non_attributive_references() -> None:
+    rendered = voice_judgments.render_voice(
+        "crooke",
+        registry(),
+        voice_judgments.all_revision_entries(),
+        voice_judgments.reality_claims(),
+        voice_judgments.reality_assessments(),
+    )
+
+    assert "Related NG Forecasts (Reference Only)" in rendered
+    assert "It does not mean the voice authored or adopted that forecast" in rendered
+    assert "its score does not apply to the voice judgment" in rendered
+    assert "| Judgment | Formal Forecasts |" not in rendered
+
+
+def test_revision_adjudication_context_is_resolved_at_render_time() -> None:
+    data = registry()
+    revisions = voice_judgments.all_revision_entries()
+    rendered = voice_judgments.render_voice(
+        "ritter",
+        data,
+        revisions,
+        voice_judgments.reality_claims(),
+        voice_judgments.reality_assessments(),
+    )
+    assert "| Revision | Date | Class | Judgment Links |" in rendered
+    assert "| Revision | Date | Class | Prior View |" not in rendered
+    assert "### Revision Details" in rendered
+    assert "#### `VR-20260514-01`" in rendered
+    assert "- **Prior View:**" in rendered
+    assert "- **Revised View:**" in rendered
+    assert "- **Source:**" in rendered
+    assert "- **Canonical Context:**" in rendered
+    assert "linked duplicate chain rather than an independent analytical update" in rendered
+
+    changed_revisions = copy.deepcopy(revisions)
+    may_revision = next(item for item in changed_revisions if item["id"] == "VR-20260514-01")
+    may_revision["adjudication_note"] = "Changed canonical revision context."
+    changed = voice_judgments.render_voice(
+        "ritter",
+        data,
+        changed_revisions,
+        voice_judgments.reality_claims(),
+        voice_judgments.reality_assessments(),
+    )
+    assert "Changed canonical revision context." in changed
+    assert "Changed canonical revision context." not in rendered
+    assert "adjudication_note" not in json.dumps(data)
+
+
+def test_revision_details_scale_as_blocks_for_high_volume_voice() -> None:
+    rendered = voice_judgments.render_voice(
+        "mercouris",
+        registry(),
+        voice_judgments.all_revision_entries(),
+        voice_judgments.reality_claims(),
+        voice_judgments.reality_assessments(),
+    )
+
+    assert rendered.count("#### `VR-") == 7
+    assert rendered.count("- **Canonical Context:**") == 7
+
+
 def test_legacy_state_stub_preserves_anchor_and_redirects() -> None:
     data = registry()
     judgment = data["judgments"][0]

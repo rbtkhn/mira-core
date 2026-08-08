@@ -27,17 +27,29 @@ The separately canonical voice-revision ledger adjudicates documented self-revis
 
 ## Forecast Expressions
 
-Voice-local forecast expressions are not scored unless they reference a governed formal `NG-*` forecast.
+Voice-local forecast expressions remain unscored in this ledger. Any related `NG-*` record is governed and scored separately.
 
-| Judgment | Formal Forecasts | Unresolved Voice-Local Hooks |
+An `NG-*` reference identifies a separately authored Narrative Geopolitics forecast. It does not mean the voice authored or adopted that forecast, and its score does not apply to the voice judgment.
+
+| Judgment | Related NG Forecasts (Reference Only) | Unresolved Voice-Local Hooks |
 | --- | --- | --- |
 | `VJ-PAPE-0002` | none | `PAPE-2026-F015` |
 
 ## Self-Revisions
 
-| Revision | Date | Class | Prior View | Revised View | Source | Judgment Links |
-| --- | --- | --- | --- | --- | --- | --- |
-| `VR-20260420-02` | `2026-04-20` | `personal-prediction-revision` | Expected shortages and contraction to emerge later in the disruption cycle. | Updated the forecast, saying shortages were arriving sooner than anticipated. | [Robert Pape: Collapse Ahead of Schedule](../../archive/sources/2026-04-20/source-pape-collapse-ahead-of-schedule-2026-04-20.md) | `VJ-PAPE-0002` |
+| Revision | Date | Class | Judgment Links |
+| --- | --- | --- | --- |
+| `VR-20260420-02` | `2026-04-20` | `personal-prediction-revision` | `VJ-PAPE-0002` |
+
+### Revision Details
+
+#### `VR-20260420-02`
+
+- **Prior View:** Expected shortages and contraction to emerge later in the disruption cycle.
+- **Revised View:** Updated the forecast, saying shortages were arriving sooner than anticipated.
+- **Source:** [Robert Pape: Collapse Ahead of Schedule](../../archive/sources/2026-04-20/source-pape-collapse-ahead-of-schedule-2026-04-20.md)
+- **Canonical Context:** The speaker explicitly updates the timing of his own forecast in response to observed conditions. This is a prediction revision rather than a claim that the original forecast was wholly false.
+
 
 ## Linked Reality Outcomes
 

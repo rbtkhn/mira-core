@@ -25,18 +25,37 @@ The separately canonical voice-revision ledger adjudicates documented self-revis
 
 ## Forecast Expressions
 
-Voice-local forecast expressions are not scored unless they reference a governed formal `NG-*` forecast.
+Voice-local forecast expressions remain unscored in this ledger. Any related `NG-*` record is governed and scored separately.
 
-| Judgment | Formal Forecasts | Unresolved Voice-Local Hooks |
+An `NG-*` reference identifies a separately authored Narrative Geopolitics forecast. It does not mean the voice authored or adopted that forecast, and its score does not apply to the voice judgment.
+
+| Judgment | Related NG Forecasts (Reference Only) | Unresolved Voice-Local Hooks |
 | --- | --- | --- |
 | none | none | none |
 
 ## Self-Revisions
 
-| Revision | Date | Class | Prior View | Revised View | Source | Judgment Links |
-| --- | --- | --- | --- | --- | --- | --- |
-| `VR-20260402-01` | `2026-04-02` | `explicit-personal-admission` | Believed Trump would never attack Iran because the strategic downside was too great. | Acknowledged that Trump did attack Iran despite that expectation. | [Alex Krainer: Trump Trapped in Iran War; Exit Plan Falling Apart](../../archive/sources/2026-04-02/source-alex-krainer-trump-trapped-in-iran-war-the-exit-plan-is-falling-apart-2026-04-02.md) | none |
-| `VR-20260618-01` | `2026-06-18` | `explicit-personal-admission` | Believed the United States and Israel would not attack Iran because the strategic downside was too great. | Acknowledged that they attacked Iran despite that expectation. | [Alex Krainer: Trump Scolds Netanyahu; Iran Oil Sanctions Lifted](../../archive/sources/2026-06-18/source-dialogue-works-alex-krainer-trump-scolds-netanyahu-iran-oil-sanctions-lifted-2026-06-18.md) | none |
+| Revision | Date | Class | Judgment Links |
+| --- | --- | --- | --- |
+| `VR-20260402-01` | `2026-04-02` | `explicit-personal-admission` | none |
+| `VR-20260618-01` | `2026-06-18` | `explicit-personal-admission` | none |
+
+### Revision Details
+
+#### `VR-20260402-01`
+
+- **Prior View:** Believed Trump would never attack Iran because the strategic downside was too great.
+- **Revised View:** Acknowledged that Trump did attack Iran despite that expectation.
+- **Source:** [Alex Krainer: Trump Trapped in Iran War; Exit Plan Falling Apart](../../archive/sources/2026-04-02/source-alex-krainer-trump-trapped-in-iran-war-the-exit-plan-is-falling-apart-2026-04-02.md)
+- **Canonical Context:** The featured voice states the prior prediction, identifies the contrary event, and explicitly accepts that the prediction was wrong.
+
+#### `VR-20260618-01`
+
+- **Prior View:** Believed the United States and Israel would not attack Iran because the strategic downside was too great.
+- **Revised View:** Acknowledged that they attacked Iran despite that expectation.
+- **Source:** [Alex Krainer: Trump Scolds Netanyahu; Iran Oil Sanctions Lifted](../../archive/sources/2026-06-18/source-dialogue-works-alex-krainer-trump-scolds-netanyahu-iran-oil-sanctions-lifted-2026-06-18.md)
+- **Canonical Context:** The speaker explicitly states his prior prediction, identifies the event that falsified it, and accepts responsibility for the error. The surrounding passage supplies the prior reasoning and the observed reversal.
+
 
 ## Linked Reality Outcomes
 

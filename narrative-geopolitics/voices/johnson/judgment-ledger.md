@@ -25,18 +25,37 @@ The separately canonical voice-revision ledger adjudicates documented self-revis
 
 ## Forecast Expressions
 
-Voice-local forecast expressions are not scored unless they reference a governed formal `NG-*` forecast.
+Voice-local forecast expressions remain unscored in this ledger. Any related `NG-*` record is governed and scored separately.
 
-| Judgment | Formal Forecasts | Unresolved Voice-Local Hooks |
+An `NG-*` reference identifies a separately authored Narrative Geopolitics forecast. It does not mean the voice authored or adopted that forecast, and its score does not apply to the voice judgment.
+
+| Judgment | Related NG Forecasts (Reference Only) | Unresolved Voice-Local Hooks |
 | --- | --- | --- |
 | `VJ-JOHNSON-0001` | none | `NG-20260720-F02` |
 
 ## Self-Revisions
 
-| Revision | Date | Class | Prior View | Revised View | Source | Judgment Links |
-| --- | --- | --- | --- | --- | --- | --- |
-| `VR-20260617-01` | `2026-06-17` | `explicit-personal-admission` | Did not expect the USâ€“Iran process to reach the memorandum-of-understanding stage. | Acknowledged that the process had reached that point and that his expectation was wrong. | [Larry Johnson: Trump Surrender Document, Total Iranian Victory](../../archive/sources/2026-06-17/source-dialogue-works-larry-johnson-trump-surrender-document-total-iranian-victory-2026-06-17.md) | none |
-| `VR-20260713-01` | `2026-07-13` | `personal-prediction-revision` | Expected Trump to signal renewed diplomatic progress with Iran by the following morning. | Withdrew that expectation after Trump escalated and reinstated the blockade. | [Larry Johnson: US Attacks Iran; Iran Hits Back as Hormuz Turns Into a Firing Hell](../../archive/sources/2026-07-13/source-larry-johnson-u-s-attacks-iran-now-iran-hits-back-as-hormuz-turns-into-a-firing-hell-2026-07-13.md) | none |
+| Revision | Date | Class | Judgment Links |
+| --- | --- | --- | --- |
+| `VR-20260617-01` | `2026-06-17` | `explicit-personal-admission` | none |
+| `VR-20260713-01` | `2026-07-13` | `personal-prediction-revision` | none |
+
+### Revision Details
+
+#### `VR-20260617-01`
+
+- **Prior View:** Did not expect the USâ€“Iran process to reach the memorandum-of-understanding stage.
+- **Revised View:** Acknowledged that the process had reached that point and that his expectation was wrong.
+- **Source:** [Larry Johnson: Trump Surrender Document, Total Iranian Victory](../../archive/sources/2026-06-17/source-dialogue-works-larry-johnson-trump-surrender-document-total-iranian-victory-2026-06-17.md)
+- **Canonical Context:** The speaker names the prior expectation and directly reverses it in response to the observed development. The transcript clearly attributes the statement to Larry Johnson.
+
+#### `VR-20260713-01`
+
+- **Prior View:** Expected Trump to signal renewed diplomatic progress with Iran by the following morning.
+- **Revised View:** Withdrew that expectation after Trump escalated and reinstated the blockade.
+- **Source:** [Larry Johnson: US Attacks Iran; Iran Hits Back as Hormuz Turns Into a Firing Hell](../../archive/sources/2026-07-13/source-larry-johnson-u-s-attacks-iran-now-iran-hits-back-as-hormuz-turns-into-a-firing-hell-2026-07-13.md)
+- **Canonical Context:** The speaker identifies a near-term personal forecast, reports the contrary outcome, and explicitly calls himself wrong. This is a prediction revision rather than a general change of policy analysis.
+
 
 ## Linked Reality Outcomes
 

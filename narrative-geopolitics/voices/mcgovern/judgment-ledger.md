@@ -25,18 +25,37 @@ The separately canonical voice-revision ledger adjudicates documented self-revis
 
 ## Forecast Expressions
 
-Voice-local forecast expressions are not scored unless they reference a governed formal `NG-*` forecast.
+Voice-local forecast expressions remain unscored in this ledger. Any related `NG-*` record is governed and scored separately.
 
-| Judgment | Formal Forecasts | Unresolved Voice-Local Hooks |
+An `NG-*` reference identifies a separately authored Narrative Geopolitics forecast. It does not mean the voice authored or adopted that forecast, and its score does not apply to the voice judgment.
+
+| Judgment | Related NG Forecasts (Reference Only) | Unresolved Voice-Local Hooks |
 | --- | --- | --- |
 | none | none | none |
 
 ## Self-Revisions
 
-| Revision | Date | Class | Prior View | Revised View | Source | Judgment Links |
-| --- | --- | --- | --- | --- | --- | --- |
-| `VR-20260308-01` | `2026-03-08` | `explicit-personal-admission` | Thought a Russian-Iran mutual-defense treaty was a bridge too far. | Acknowledged that his assessment was wrong after clarifying that Iran, rather than Russia, resisted the treaty. | [Ray McGovern: Does Armageddon Loom?](../../archive/sources/2026-03-08/source-dialogue-works-ray-mcgovern-does-armageddon-loom-iran-comes-close-to-decimating-israel-in-the-coming-weeks-2026-03-08.md) | none |
-| `VR-20260719-01` | `2026-07-19` | `personal-prediction-revision` | Expected Gulf monarchies to recognize that they had backed the wrong power after observing the war's balance. | Admitted that he was wrong to think they would have recognized that by then. | [Ray McGovern: Iran's Precision Strikes on Jordan Send Shockwaves Across the Gulf](../../archive/sources/2026-07-19/source-ray-mcgovern-iran-s-precision-strikes-on-jordan-send-shockwaves-across-the-gulf-2026-07-19.md) | none |
+| Revision | Date | Class | Judgment Links |
+| --- | --- | --- | --- |
+| `VR-20260308-01` | `2026-03-08` | `explicit-personal-admission` | none |
+| `VR-20260719-01` | `2026-07-19` | `personal-prediction-revision` | none |
+
+### Revision Details
+
+#### `VR-20260308-01`
+
+- **Prior View:** Thought a Russian-Iran mutual-defense treaty was a bridge too far.
+- **Revised View:** Acknowledged that his assessment was wrong after clarifying that Iran, rather than Russia, resisted the treaty.
+- **Source:** [Ray McGovern: Does Armageddon Loom?](../../archive/sources/2026-03-08/source-dialogue-works-ray-mcgovern-does-armageddon-loom-iran-comes-close-to-decimating-israel-in-the-coming-weeks-2026-03-08.md)
+- **Canonical Context:** The featured voice states a prior personal assessment and directly retracts it. The surrounding passage supplies the revised factual understanding; the ledger records the self-revision without adjudicating the underlying claim.
+
+#### `VR-20260719-01`
+
+- **Prior View:** Expected Gulf monarchies to recognize that they had backed the wrong power after observing the war's balance.
+- **Revised View:** Admitted that he was wrong to think they would have recognized that by then.
+- **Source:** [Ray McGovern: Iran's Precision Strikes on Jordan Send Shockwaves Across the Gulf](../../archive/sources/2026-07-19/source-ray-mcgovern-iran-s-precision-strikes-on-jordan-send-shockwaves-across-the-gulf-2026-07-19.md)
+- **Canonical Context:** The speaker explicitly withdraws a time-bound expectation about other states' behavior. Because the revision concerns his own forecast rather than asserting that the monarchies were wrong, it qualifies as a personal prediction revision.
+
 
 ## Linked Reality Outcomes
 

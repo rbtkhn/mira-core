@@ -25,18 +25,37 @@ The separately canonical voice-revision ledger adjudicates documented self-revis
 
 ## Forecast Expressions
 
-Voice-local forecast expressions are not scored unless they reference a governed formal `NG-*` forecast.
+Voice-local forecast expressions remain unscored in this ledger. Any related `NG-*` record is governed and scored separately.
 
-| Judgment | Formal Forecasts | Unresolved Voice-Local Hooks |
+An `NG-*` reference identifies a separately authored Narrative Geopolitics forecast. It does not mean the voice authored or adopted that forecast, and its score does not apply to the voice judgment.
+
+| Judgment | Related NG Forecasts (Reference Only) | Unresolved Voice-Local Hooks |
 | --- | --- | --- |
 | none | none | none |
 
 ## Self-Revisions
 
-| Revision | Date | Class | Prior View | Revised View | Source | Judgment Links |
-| --- | --- | --- | --- | --- | --- | --- |
-| `VR-20260514-01` | `2026-05-14` | `explicit-personal-admission` | Initially interpreted Russia's 2022 action as a full-scale invasion rather than a special military operation. | Acknowledged that this initial framing was wrong and that the operation had been misunderstood. | [Scott Ritter: Russia Retaliation on Europe No Longer in Doubt](../../archive/sources/2026-05-14/source-daniel-davis-scott-ritter-russia-retaliation-on-europe-no-longer-in-doubt-2026-05-14.md) | none |
-| `VR-20260701-01` | `2026-07-01` | `explicit-personal-admission` | Initially treated Russia's 2022 action as a conventional war that would end quickly. | Later understood it as a special military operation with a different objective and timeline. | [Scott Ritter: Trump Briefed on All-Out War Scenario in Iran](../../archive/sources/2026-07-01/source-scott-ritter-trump-briefed-on-all-out-war-scenario-in-iran-2026-07-01.md) | none |
+| Revision | Date | Class | Judgment Links |
+| --- | --- | --- | --- |
+| `VR-20260514-01` | `2026-05-14` | `explicit-personal-admission` | none |
+| `VR-20260701-01` | `2026-07-01` | `explicit-personal-admission` | none |
+
+### Revision Details
+
+#### `VR-20260514-01`
+
+- **Prior View:** Initially interpreted Russia's 2022 action as a full-scale invasion rather than a special military operation.
+- **Revised View:** Acknowledged that this initial framing was wrong and that the operation had been misunderstood.
+- **Source:** [Scott Ritter: Russia Retaliation on Europe No Longer in Doubt](../../archive/sources/2026-05-14/source-daniel-davis-scott-ritter-russia-retaliation-on-europe-no-longer-in-doubt-2026-05-14.md)
+- **Canonical Context:** This is a May appearance containing the same substantive self-revision later repeated in July. It is retained as a dated occurrence for the May audit, but it should be treated as a linked duplicate chain rather than an independent analytical update.
+
+#### `VR-20260701-01`
+
+- **Prior View:** Initially treated Russia's 2022 action as a conventional war that would end quickly.
+- **Revised View:** Later understood it as a special military operation with a different objective and timeline.
+- **Source:** [Scott Ritter: Trump Briefed on All-Out War Scenario in Iran](../../archive/sources/2026-07-01/source-scott-ritter-trump-briefed-on-all-out-war-scenario-in-iran-2026-07-01.md)
+- **Canonical Context:** The speaker explicitly identifies his earlier analytical framing as wrong and explains the revised model. The prior view and revision are stated in the same passage and concern his own analysis.
+
 
 ## Linked Reality Outcomes
 
