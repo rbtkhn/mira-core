@@ -1,0 +1,21 @@
+schema_version: 1
+request_ref: example-request
+authority_domain: repository-contract
+scope: repository
+consequence_level: high
+as_of: "2026-07-30T12:00:00-06:00"
+request_assertions:
+  - id: REQ-001
+    normalized_field: git_authorized
+    value: false
+    scope: repository
+    source_ref: operator-request
+    provisional: false
+controlling_facts:
+  - id: CTRL-001
+    normalized_field: git_authorized
+    value: false
+    scope: repository
+    authority_role: canonical-operating-contract
+    source_ref: AGENTS.md
+    as_of: "2026-07-30T12:00:00-06:00"

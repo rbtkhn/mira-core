@@ -16,6 +16,7 @@ SURFACES = {
     "cadence": REPO_ROOT / "scripts" / "cadence.py",
     "choice": REPO_ROOT / "scripts" / "choice_ledger.py",
     "continuity": REPO_ROOT / "scripts" / "continuity.py",
+    "contradiction-check": REPO_ROOT / "scripts" / "contradiction_check.py",
     "daily-validate": REPO_ROOT / "scripts" / "validate_daily_run.py",
     "elicitation": REPO_ROOT / "scripts" / "elicitation.py",
     "forecast-sync": REPO_ROOT / "scripts" / "sync_forecast_ledger.py",

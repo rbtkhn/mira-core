@@ -1,0 +1,8 @@
+{
+  "kernel_id": "narrative-systems-contradiction-preflight",
+  "algorithm_version": "contradiction-preflight-v1",
+  "canonical_source": "scripts/contradiction_kernel.py",
+  "kernel_sha256": "71916cc17379749765bac587f91416e4bf3216cc817c5cdcab005e8ae20b441f",
+  "ownership": "repository-native",
+  "authority_effect": "none"
+}
