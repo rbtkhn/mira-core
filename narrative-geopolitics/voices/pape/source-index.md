@@ -4,7 +4,7 @@ This index routes Robert Pape voice work to the central Narrative Geopolitics so
 
 Source basis: `strategy-codex/statecraft/voices/pape/pape-index.md`.
 
-Corpus: 70 authored sources, 28 guest appearances, 98 total imported sources.
+Corpus: 70 authored sources, 29 guest appearances, 99 total imported sources.
 
 ## Reading Rule
 
@@ -137,5 +137,6 @@ Corpus: 70 authored sources, 28 guest appearances, 98 total imported sources.
 
 - [2026-08-03 — Breaking Analysis #10: Trump’s Illusion of Control Meets Escalation Reality](../../archive/sources/2026-08-03/source-untitled-source-2026-08-03.md) — **guest** · cleaned-transcript · host: `escalation-trap`
 - [2026-08-03 — TRUMP BOMBS IRAN FOR 5 MONTHS AND THEY STILL SAY NO — w/ Prof. Robert Pape](../../archive/sources/2026-08-03/source-trump-bombs-iran-for-5-months-and-they-still-say-no-w-prof-robert-pape-2026-08-03.md) — **guest** · cleaned-transcript · host: `mario-nawfal`
+- [2026-08-07 — (1) Professor Robert Pape: Iran War is a Trap and America Has No Way Out!](../../archive/sources/2026-08-07/source-1-professor-robert-pape-iran-war-is-a-trap-and-america-has-no-way-out-2026-08-07.md) — **guest** · cleaned-transcript · host: `cyrus-janssen`
 
 Canonical external-voice reading surface: [judgment-ledger.md](judgment-ledger.md). It records governed expressed judgments and separately canonical self-revisions without establishing factual truth.

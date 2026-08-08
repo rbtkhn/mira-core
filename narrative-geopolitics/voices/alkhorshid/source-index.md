@@ -2,7 +2,7 @@
 
 This index routes the unified local Alkhorshid corpus to the central Narrative Geopolitics source archive.
 
-Corpus: 5 local route rows across 5 central archive source files.
+Corpus: 6 local route rows across 6 central archive source files.
 
 | Date | Source | Role | Host slug | Archive link |
 | --- | --- | --- | --- | --- |
@@ -11,3 +11,4 @@ Corpus: 5 local route rows across 5 central archive source files.
 | `2026-06-09` | Iran LAUNCHES Immediate Retaliation: Explosions Rock Bahrain After US Strikes | `author` | `dialogue-works` | [source](../../archive/sources/2026-06-09/source-dialogue-works-iran-launches-immediate-retaliation-explosions-rock-bahrain-after-us-strikes-2026-06-09.md) |
 | `2026-06-14` | BREAKING: Iran Deputy Commander: 'Beirut attack won't go unanswered | `author` | `dialogue-works` | [source](../../archive/sources/2026-06-14/source-dialogue-works-nima-beirut-attack-wont-go-unanswered-deputy-commander-2026-06-14.md) |
 | `2026-08-01` | REPORTS OF ISRAEL & U.S. PREPARING STRIKES ON IRAN'S INFRASTRUCTURE - w/ Nima Rostami Alkhorshid | `guest` | `mario-nawfal` | [source](../../archive/sources/2026-08-01/source-reports-of-israel-u-s-preparing-strikes-on-iran-s-infrastructure-w-nima-rostami-alkhorshid-2026-08-01.md) |
+| `2026-08-07` | (1) IRAN's LONG-RUN STRATEGY /Nima Alkhorshid & Lt Col Daniel Davis | `host-pressure test` | `daniel-davis` | [source](../../archive/sources/2026-08-07/source-1-iran-s-long-run-strategy-nima-alkhorshid-lt-col-daniel-davis-2026-08-07.md) |

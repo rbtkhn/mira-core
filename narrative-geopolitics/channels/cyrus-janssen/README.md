@@ -29,6 +29,7 @@ Cyrus Janssen frames guests for a China-facing geopolitical explainer audience. 
 | `2026-05-07` | macgregor | [Colonel Douglas Macgregor: Trump Not Prepared for What Iran Does Next!](../../archive/sources/2026-05-07/source-macgregor-cyrus-janssen-trump-not-prepared-for-what-iran-does-next-2026-05-07.md) |
 | `2026-05-10` | ritter | [Scott Ritter on Iran, the Strait of Hormuz, and the Energy Shock](../../archive/sources/2026-05-10/source-ritter-cyrus-janssen-iran-hormuz-energy-shock-2026-05-10.md) |
 | `2026-07-12` | ritter | [LIVE: Scott Ritter - Russia Ukraine Now Enters the Most Dangerous Phase!](../../archive/sources/2026-07-12/source-live-scott-ritter-russia-ukraine-now-enters-the-most-dangerous-phase-2026-07-12.md) |
+| `2026-08-07` | pape | [Professor Robert Pape: Iran War is a Trap and America Has No Way Out!](../../archive/sources/2026-08-07/source-1-professor-robert-pape-iran-war-is-a-trap-and-america-has-no-way-out-2026-08-07.md) |
 
 ## Host-Conditioning Notes
 

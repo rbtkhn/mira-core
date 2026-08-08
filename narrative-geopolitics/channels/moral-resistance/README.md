@@ -28,6 +28,7 @@ Moral Resistance frames guests through MOU, legislative-action, resistance-press
 | `2026-06-26` | pape | [U.S. strike Iran; U.S.-Israel Lebanon deal violates MOU w/ Robert Pape](../../archive/sources/2026-06-26/source-moral-resistance-robert-pape-us-strike-iran-lebanon-deal-violates-mou-2026-06-26.md) |
 | `2026-07-09` | aguilar | [U.S PLAN GROUND INVASION w/ Col Anthony Aguilar](../../archive/sources/2026-07-09/source-u-s-plan-ground-invasion-w-col-anthony-aguilar-2026-07-09.md) |
 | `2026-07-13` | aguilar | [BREAKING: IRAN STRIKING JORDAN & BAHRAIN RIGHT NOW, SAUDI ATTACK YEMEN, w/ Col Anthony Aguilar](../../archive/sources/2026-07-13/source-breaking-iran-striking-jordan-bahrain-right-now-saudi-attack-yemen-w-col-anthony-aguilar-2026-07-13.md) |
+| `2026-08-07` | aguilar | [ISRAEL REJECT TRUMP ATTEMPT AT IRAN DEAL, YEMEN STRIKE SAUDI, ISLAMIC NATO? w/ Col Anthony Aguilar](../../archive/sources/2026-08-07/source-1-israel-reject-trump-attempt-at-iran-deal-yemen-strike-saudi-islamic-nato-w-col-anthony-aguilar-2026-08-07.md) |
 
 ## Guest Lanes
 
