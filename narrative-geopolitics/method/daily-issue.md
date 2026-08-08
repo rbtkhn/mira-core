@@ -26,6 +26,18 @@ turning the issue itself into evidence.
 
 The masthead is **Narrative Geopolitics — Daily Issue**. A normal issue is written for a serious generalist in calm institutional prose and targets 1,500–2,500 editorial words. It normally carries one lead and two to four briefs, but a thin substantive day may carry fewer stories when the Editor's Note says why.
 
+## Adoption Boundary
+
+The mandatory issue-ready completeness standard begins with `2026-08-01`.
+August 1, 2026 is the first archive day implemented under this mandatory level:
+manifest-backed source accounting, canonical daily files, Decision Compression,
+Issue Story Desk and matching Issue Copy, generated current `issue.md`,
+validator-clean daily state, and issue prose inside the editorial target.
+
+Earlier archive days may be migrated to this standard, but they should not be
+treated as originally authored under it unless their local audit record proves
+the same completeness gate was intentionally applied.
+
 The eight desks have stable jobs:
 
 1. `Front Page` states the lead and the issue hierarchy.

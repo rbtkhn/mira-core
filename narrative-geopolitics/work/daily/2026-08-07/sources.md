@@ -10,31 +10,41 @@ This packet is scaffolded from the landed August 7 archive batch. Source IDs are
 
 ## Intake Batch
 
-| Source ID | Voice(s) | Host / Channel | Archive Source |
-| --- | --- | --- | --- |
-| `SRC-01` | Alastair Crooke | Lt. Col. Daniel Davis | [Alastair Crooke - Iran's ONLY Choice: Humiliate the US](../../../archive/sources/2026-08-07/source-1-alastair-crooke-iran-s-only-choice-humiliate-the-us-2026-08-07.md) |
-| `SRC-02` | Chas Freeman | Nima Alkhorshid | [Amb. Chas Freeman: BREAKING: Saudi, Pakistan, Turkiye Just Signed a Joint Defense Pact](../../../archive/sources/2026-08-07/source-1-amb-chas-freeman-breaking-saudi-pakistan-turkiye-just-signed-a-joint-defense-pact-2026-08-07.md) |
-| `SRC-03` | Glenn Diesen | Mario Nawfal | [BREAKING: TURKEY, SAUDI & PAKISTAN SIGN MUTUAL DEFENSE PACT - w/ Prof. Glenn Diesen](../../../archive/sources/2026-08-07/source-1-breaking-turkey-saudi-pakistan-sign-mutual-defense-pact-w-prof-glenn-diesen-2026-08-07.md) |
-| `SRC-04` | Larry Johnson | Lt. Col. Daniel Davis | [fmr CIA Analyst Larry Johnson: US Grudgingly Returns to Diplomacy](../../../archive/sources/2026-08-07/source-1-fmr-cia-analyst-larry-johnson-us-grudgingly-returns-to-diplomacy-2026-08-07.md) |
-| `SRC-05` | Nima Alkhorshid, Daniel Davis | Lt. Col. Daniel Davis | [IRAN's LONG-RUN STRATEGY /Nima Alkhorshid & Lt Col Daniel Davis](../../../archive/sources/2026-08-07/source-1-iran-s-long-run-strategy-nima-alkhorshid-lt-col-daniel-davis-2026-08-07.md) |
-| `SRC-06` | Anthony Aguilar | Moral Resistance | [ISRAEL REJECT TRUMP ATTEMPT AT IRAN DEAL, YEMEN STRIKE SAUDI, ISLAMIC NATO? w/ Col Anthony Aguilar](../../../archive/sources/2026-08-07/source-1-israel-reject-trump-attempt-at-iran-deal-yemen-strike-saudi-islamic-nato-w-col-anthony-aguilar-2026-08-07.md) |
-| `SRC-07` | Larry Johnson, Larry Wilkerson | Nima Alkhorshid | [Larry Johnson & Col. Larry Wilkerson: The Old Middle East Is DEAD](../../../archive/sources/2026-08-07/source-1-larry-johnson-col-larry-wilkerson-the-old-middle-east-is-dead-2026-08-07.md) |
-| `SRC-08` | Pepe Escobar | Glenn Diesen | [Pepe Escobar: A Secret Diplomatic Deal Taking Shape in Iran](../../../archive/sources/2026-08-07/source-1-pepe-escobar-a-secret-diplomatic-deal-taking-shape-in-iran-2026-08-07.md) |
-| `SRC-09` | Robert Pape | Cyrus Janssen | [Professor Robert Pape: Iran War is a Trap and America Has No Way Out!](../../../archive/sources/2026-08-07/source-1-professor-robert-pape-iran-war-is-a-trap-and-america-has-no-way-out-2026-08-07.md) |
-| `SRC-10` | Max Blumenthal | Mario Nawfal | [REUTERS: ONLY 35% OF AMERICANS SUPPORT THE IRAN WAR - w/ Max Blumenthal](../../../archive/sources/2026-08-07/source-1-reuters-only-35-of-americans-support-the-iran-war-w-max-blumenthal-2026-08-07.md) |
-| `SRC-11` | Trita Parsi | Glenn Diesen | [Trita Parsi: New Deals Will Change the Middle East Forever](../../../archive/sources/2026-08-07/source-1-trita-parsi-new-deals-will-change-the-middle-east-forever-2026-08-07.md) |
-| `SRC-12` | Trita Parsi | Judge Andrew Napolitano | [Trita Parsi: What the US Misunderstands about Iran: LIVE - PART TWO](../../../archive/sources/2026-08-07/source-1-trita-parsi-what-the-us-misunderstands-about-iran-live-part-two-2026-08-07.md) |
-| `SRC-13` | Alexander Mercouris | Alexander Mercouris | [West Kiev Panic As Patriots Run Out, Russia Hammers Odessa, Dobropiliya Breakthrough; Merz In Crisis](../../../archive/sources/2026-08-07/source-1-west-kiev-panic-as-patriots-run-out-russia-hammers-odessa-dobropiliya-breakthrough-merz-in-crisis-2026-08-07.md) |
+This run is grounded in the `2026-08-07` day batch already landed in the central archive.
+
+| Source File | Source Type | Intake Status | Manifest Row | Voice Route | Channel Route | Notes |
+| --- | --- | --- | --- | --- | --- | --- |
+| `archive/sources/2026-08-07/source-1-alastair-crooke-iran-s-only-choice-humiliate-the-us-2026-08-07.md` | cleaned-transcript | `imported` | `yes` | Alastair Crooke | Lt. Col. Daniel Davis | `SRC-01`; Hormuz reopening and sanctions/assets leverage. |
+| `archive/sources/2026-08-07/source-1-amb-chas-freeman-breaking-saudi-pakistan-turkiye-just-signed-a-joint-defense-pact-2026-08-07.md` | cleaned-transcript | `imported` | `yes` | Chas Freeman | Nima Alkhorshid | `SRC-02`; regional defense architecture after Iran-Oman settlement channel. |
+| `archive/sources/2026-08-07/source-1-breaking-turkey-saudi-pakistan-sign-mutual-defense-pact-w-prof-glenn-diesen-2026-08-07.md` | cleaned-transcript | `imported` | `yes` | Glenn Diesen | Mario Nawfal | `SRC-03`; Saudi-Pakistan-Turkiye pact as umbrella-repricing signal. |
+| `archive/sources/2026-08-07/source-1-fmr-cia-analyst-larry-johnson-us-grudgingly-returns-to-diplomacy-2026-08-07.md` | cleaned-transcript | `imported` | `yes` | Larry Johnson | Lt. Col. Daniel Davis | `SRC-04`; coercive capacity limit and diplomacy-under-pressure mechanism. |
+| `archive/sources/2026-08-07/source-1-iran-s-long-run-strategy-nima-alkhorshid-lt-col-daniel-davis-2026-08-07.md` | cleaned-transcript | `imported` | `yes` | Nima Alkhorshid, Daniel Davis | Lt. Col. Daniel Davis | `SRC-05`; Iran-Oman technical path and regional-security authority claim. |
+| `archive/sources/2026-08-07/source-1-israel-reject-trump-attempt-at-iran-deal-yemen-strike-saudi-islamic-nato-w-col-anthony-aguilar-2026-08-07.md` | cleaned-transcript | `imported` | `yes` | Anthony Aguilar | Moral Resistance | `SRC-06`; wider-war constraints against premature settlement framing. |
+| `archive/sources/2026-08-07/source-1-larry-johnson-col-larry-wilkerson-the-old-middle-east-is-dead-2026-08-07.md` | cleaned-transcript | `imported` | `yes` | Larry Johnson, Larry Wilkerson | Nima Alkhorshid | `SRC-07`; mutual-defense pact trigger logic and target ambiguity. |
+| `archive/sources/2026-08-07/source-1-pepe-escobar-a-secret-diplomatic-deal-taking-shape-in-iran-2026-08-07.md` | cleaned-transcript | `imported` | `yes` | Pepe Escobar | Glenn Diesen | `SRC-08`; no-war/no-peace condition and Eurasian mediation pressure. |
+| `archive/sources/2026-08-07/source-1-professor-robert-pape-iran-war-is-a-trap-and-america-has-no-way-out-2026-08-07.md` | cleaned-transcript | `imported` | `yes` | Robert Pape | Cyrus Janssen | `SRC-09`; operational scale mechanism for coercive limits. |
+| `archive/sources/2026-08-07/source-1-reuters-only-35-of-americans-support-the-iran-war-w-max-blumenthal-2026-08-07.md` | cleaned-transcript | `imported` | `yes` | Max Blumenthal | Mario Nawfal | `SRC-10`; domestic narrative pressure and anti-war reporting. |
+| `archive/sources/2026-08-07/source-1-trita-parsi-new-deals-will-change-the-middle-east-forever-2026-08-07.md` | cleaned-transcript | `imported` | `yes` | Trita Parsi | Glenn Diesen | `SRC-11`; regional security alternatives after U.S. umbrella shock. |
+| `archive/sources/2026-08-07/source-1-trita-parsi-what-the-us-misunderstands-about-iran-live-part-two-2026-08-07.md` | cleaned-transcript | `imported` | `yes` | Trita Parsi | Judge Andrew Napolitano | `SRC-12`; territorial-water framing of Hormuz negotiations. |
+| `archive/sources/2026-08-07/source-1-west-kiev-panic-as-patriots-run-out-russia-hammers-odessa-dobropiliya-breakthrough-merz-in-crisis-2026-08-07.md` | cleaned-transcript | `imported` | `yes` | Alexander Mercouris | Alexander Mercouris | `SRC-13`; Ukraine/Russia secondary capacity lane and Patriot scarcity. |
 
 ## Run Source Set
 
-Primary object candidates:
-- U.S. off-ramp attempt under constrained coercive capacity.
-- Hormuz/Oman settlement channel as recognition and transit-governance battlefield.
-- Regional defense architecture after the Saudi-Pakistan-Turkiye pact.
-
-Secondary pressure lane:
-- Ukraine/Russia capacity and alliance-stress signal from `SRC-13`.
+| Source ID | Voice | Host / Channel | Modality | Archive Path | Why It Matters |
+| --- | --- | --- | --- | --- | --- |
+| `SRC-01` | Alastair Crooke | Lt. Col. Daniel Davis | cleaned-transcript | [2026-08-07 Crooke](../../../archive/sources/2026-08-07/source-1-alastair-crooke-iran-s-only-choice-humiliate-the-us-2026-08-07.md) | Hormuz reopening and sanctions/assets leverage. |
+| `SRC-02` | Chas Freeman | Nima Alkhorshid | cleaned-transcript | [2026-08-07 Freeman](../../../archive/sources/2026-08-07/source-1-amb-chas-freeman-breaking-saudi-pakistan-turkiye-just-signed-a-joint-defense-pact-2026-08-07.md) | Regional defense architecture after the Iran-Oman settlement channel. |
+| `SRC-03` | Glenn Diesen | Mario Nawfal | cleaned-transcript | [2026-08-07 Diesen](../../../archive/sources/2026-08-07/source-1-breaking-turkey-saudi-pakistan-sign-mutual-defense-pact-w-prof-glenn-diesen-2026-08-07.md) | Saudi-Pakistan-Turkiye pact as umbrella-repricing signal. |
+| `SRC-04` | Larry Johnson | Lt. Col. Daniel Davis | cleaned-transcript | [2026-08-07 Johnson](../../../archive/sources/2026-08-07/source-1-fmr-cia-analyst-larry-johnson-us-grudgingly-returns-to-diplomacy-2026-08-07.md) | Coercive capacity limit and diplomacy-under-pressure mechanism. |
+| `SRC-05` | Nima Alkhorshid, Daniel Davis | Lt. Col. Daniel Davis | cleaned-transcript | [2026-08-07 Alkhorshid Davis](../../../archive/sources/2026-08-07/source-1-iran-s-long-run-strategy-nima-alkhorshid-lt-col-daniel-davis-2026-08-07.md) | Iran-Oman technical path and regional-security authority claim. |
+| `SRC-06` | Anthony Aguilar | Moral Resistance | cleaned-transcript | [2026-08-07 Aguilar](../../../archive/sources/2026-08-07/source-1-israel-reject-trump-attempt-at-iran-deal-yemen-strike-saudi-islamic-nato-w-col-anthony-aguilar-2026-08-07.md) | Wider-war constraints against premature settlement framing. |
+| `SRC-07` | Larry Johnson, Larry Wilkerson | Nima Alkhorshid | cleaned-transcript | [2026-08-07 Johnson Wilkerson](../../../archive/sources/2026-08-07/source-1-larry-johnson-col-larry-wilkerson-the-old-middle-east-is-dead-2026-08-07.md) | Mutual-defense pact trigger logic and target ambiguity. |
+| `SRC-08` | Pepe Escobar | Glenn Diesen | cleaned-transcript | [2026-08-07 Escobar](../../../archive/sources/2026-08-07/source-1-pepe-escobar-a-secret-diplomatic-deal-taking-shape-in-iran-2026-08-07.md) | No-war/no-peace condition and Eurasian mediation pressure. |
+| `SRC-09` | Robert Pape | Cyrus Janssen | cleaned-transcript | [2026-08-07 Pape](../../../archive/sources/2026-08-07/source-1-professor-robert-pape-iran-war-is-a-trap-and-america-has-no-way-out-2026-08-07.md) | Operational scale mechanism for coercive limits. |
+| `SRC-10` | Max Blumenthal | Mario Nawfal | cleaned-transcript | [2026-08-07 Blumenthal](../../../archive/sources/2026-08-07/source-1-reuters-only-35-of-americans-support-the-iran-war-w-max-blumenthal-2026-08-07.md) | Domestic narrative pressure and anti-war reporting. |
+| `SRC-11` | Trita Parsi | Glenn Diesen | cleaned-transcript | [2026-08-07 Parsi Diesen](../../../archive/sources/2026-08-07/source-1-trita-parsi-new-deals-will-change-the-middle-east-forever-2026-08-07.md) | Regional security alternatives after U.S. umbrella shock. |
+| `SRC-12` | Trita Parsi | Judge Andrew Napolitano | cleaned-transcript | [2026-08-07 Parsi Napolitano](../../../archive/sources/2026-08-07/source-1-trita-parsi-what-the-us-misunderstands-about-iran-live-part-two-2026-08-07.md) | Territorial-water framing of Hormuz negotiations. |
+| `SRC-13` | Alexander Mercouris | Alexander Mercouris | cleaned-transcript | [2026-08-07 Mercouris](../../../archive/sources/2026-08-07/source-1-west-kiev-panic-as-patriots-run-out-russia-hammers-odessa-dobropiliya-breakthrough-merz-in-crisis-2026-08-07.md) | Ukraine/Russia secondary capacity lane and Patriot scarcity. |
 
 ## Load-Bearing Quotes
 

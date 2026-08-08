@@ -84,23 +84,36 @@ The lead story is not whether diplomacy exists; it is whether the attributed Ira
 
 The practical implication is to watch linkage language, not victory language. If Hormuz reopening is publicly tied to sanctions, assets, territorial-water authority, Lebanon/Gaza restraint, or U.S. force posture, the off-ramp is functioning as recognition terrain. If shipping normalizes quietly through a narrow technical channel, the day's lead judgment weakens.
 
+The August 7 lead is stronger than a simple continuation of August 5 because the regional architecture has entered the frame. A narrow Hormuz arrangement might be technically useful, but it becomes politically fragile if surrounding actors are already repricing security guarantees. The sources point to a possible convergence: Washington may need a lower-cost exit, Iran may want recognition of regional transit authority, Gulf actors may want commerce without exposure, and Israel may have incentives to prevent any settlement that leaves Iran visibly strengthened. That mix turns the off-ramp itself into contested terrain.
+
+The issue should preserve the evidence boundary. It does not verify the Iran-Oman arrangement, pact terms, munitions scarcity, or Israeli intent. It says the archive now has a coherent mechanism to watch: whether the public handling of Hormuz treats transit as a technical reopening or as a recognition bargain. The forecast depends on that observable difference. If public signals name sanctions, assets, territorial waters, regional authority, Gaza/Lebanon restraint, or force posture, the day’s judgment strengthens. If the channel stays narrow and commercial, it weakens.
+
 ### NGI-20260807-S02 - The Old Umbrella Is Getting Repriced
 
 The Saudi-Pakistan-Turkiye pact belongs in the brief as a regional-architecture signal, not as a settled alliance map. Freeman, Diesen, Johnson/Wilkerson, Escobar, and Parsi all read the region as testing alternatives or supplements to U.S.-centered protection. The important question is whether the pact becomes durable security architecture or a temporary hedge against exposure.
+
+This story matters because security umbrellas are not only military guarantees; they are expectations about who will absorb risk. If regional actors believe the U.S. umbrella is hollow, overstretched, or politically costly, they may seek supplementary arrangements even without formally abandoning Washington. That does not prove a new bloc has formed. It does mean the old order has to be measured by behavior rather than labels. Official pact text, implementation steps, joint exercises, basing language, and regional reactions would all sharpen the judgment.
 
 ### NGI-20260807-S03 - Ukraine Is the Secondary Proof of the Stockpile Problem
 
 Ukraine is not the lead object, but it sharpens the capacity mechanism. Mercouris' Patriot-scarcity lane, alongside Johnson and Parsi's Middle East constraints, suggests that Washington and Europe are trying to sustain multiple coercive commitments with visible air-defense and weapons-stock stress. That makes the Iran off-ramp part of a wider allocation problem.
 
-### NGI-20260807-S04 - The Narrative Front Comes Home
+The Ukraine comparison should stay secondary and evidentiary. It becomes useful when it shows that capacity pressure is not just a Middle East talking point. Patriot availability, European air-defense reluctance, production timelines, and transfer decisions can all reveal whether commitments are competing. If those signals remain thin, Ukraine remains an analogy. If they accumulate, the Hormuz off-ramp becomes part of a wider force-allocation problem in which diplomacy is attractive because the coercive base is finite.
 
-Hold for verification. Blumenthal's source adds a domestic narrative-pressure layer around anti-war reporting and Israel-linked pressure, but the story should not be promoted without independent civil-liberties and platform-policy evidence.
+August 7 is the week’s most complete synthesis because it combines the earlier mechanisms into one credibility test. Infrastructure exposure, sequence control, off-ramp durability, capacity limits, and regional legitimacy all appear in the same packet. The issue should make that accumulation visible without overstating factual certainty. The reader should come away with one governing question: can a constrained exit be made credible when the actors around it are already adjusting to a less reliable old order?
+
+That question has several observable branches. If the Hormuz channel produces official text, maritime notices, and quiet shipping normalization, the settlement may be more technical than transformational. If the channel is publicly tied to sanctions, assets, territorial-water authority, or U.S. posture, recognition becomes the issue. If the Saudi-Pakistan-Turkiye pact generates implementation moves, the regional architecture story strengthens. If it remains rhetorical, it stays a hedge. If Ukraine capacity signals intensify at the same time, the Middle East off-ramp becomes part of a global allocation problem.
+
+The issue’s restraint is just as important as its synthesis. It does not promote the domestic narrative-pressure lane without independent evidence. It does not treat pact commentary as pact text. It does not treat expert claims about U.S. military limits as inventory data. Those boundaries let the reader-facing issue be rich without becoming credulous. The result is a usable capstone for August 1-7: the week begins with infrastructure exposure and ends with the question of whether recognition, capacity, and regional-security hedging can be organized into a durable exit.
+
+The final reader-facing implication is to treat August 7 as a watch desk, not a verdict. The archive now has a structured hypothesis: the old transit order may be giving way to negotiated recognition under capacity pressure. But the evidence still has to arrive in public, observable form. Official text, maritime behavior, pact implementation, procurement choices, and regional statements will decide how much of the hypothesis survives. The issue’s job is to make that future evidence legible.
+
+That is why August 7 should close the week rather than merely add another dense day. It collects the week’s questions into one frame: what happens when an off-ramp must satisfy commerce, sovereignty, security architecture, Israeli disruption pressure, U.S. credibility, and cross-theater capacity all at once? If the answer is a narrow technical arrangement, the week’s stronger recognition thesis weakens. If the answer is explicit linkage across those domains, the week’s synthesis strengthens sharply.
+
+The day also clarifies why density alone is not completeness. August 7 has the largest source batch of the week, but the issue has to select rather than summarize. Crooke, Alkhorshid, Parsi, Johnson, Pape, Aguilar, Freeman, Diesen, Escobar, Blumenthal, and Mercouris cannot all be coequal in the reader-facing argument. The issue is complete when each voice has an analytical job: recognition threshold, coercive limit, regional architecture, domestic pressure held for verification, or secondary capacity test. That is what prevents the dense packet from becoming a pile of interesting claims.
+
+The final review posture should remain conditional. The issue gives the archive a strong hypothesis, but not a settled reality claim. If official documents and shipping behavior support a narrow arrangement, the capstone should be revised downward. If public signals connect transit to sanctions, assets, territorial-water authority, pact implementation, and capacity limits, the capstone becomes the week’s strongest bridge into the next sequence. The point is not to predict everything; it is to make the next evidence legible before it arrives.
 
 ## Revision Log
 
 No revisions.
-
-When an issued day changes, append a row; do not silently replace an earlier entry.
-
-| Timestamp (UTC) | Type | Note |
-| --- | --- | --- |

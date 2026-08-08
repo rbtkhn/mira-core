@@ -34,11 +34,14 @@ Crisis object: Can a constrained U.S. exit through the attributed Iran-Oman/Horm
 
 | Voice | Role In This Run | What It Adds | Main Risk |
 | --- | --- | --- | --- |
+| Alastair Crooke | Recognition and leverage threshold | Frames Hormuz reopening as tied to sanctions, assets, and recognition rather than simple shipping normalization. | Relies on reported bargaining terms that remain source assertions. |
+| Nima Alkhorshid | Iran-Oman channel and regional-authority frame | Adds the settlement-channel and transit-governance lens around Iranian and Omani authority. | Host/source proximity can compress claims that require primary-text verification. |
 | Trita Parsi | Settlement architecture and legitimacy threshold | Frames Hormuz as a territorial-water and regional-authority problem while linking U.S. military limits to serious diplomacy. | Relies on reported negotiations, legal interpretation, and inferred Iranian/U.S. calculations. |
 | Larry Johnson | Diplomacy-under-pressure mechanism | Treats U.S. force options as constrained by acceptable casualties, weapons depth, and posture indicators. | Strong source-claim confidence requires independent verification before factual use. |
 | Robert Pape | Operational scale pressure test | Explains why suppression of Iranian dispersed capabilities cannot be assumed quick or solvable. | Technical mechanism is persuasive but still expert assessment, not an adjudicated campaign model. |
 | Chas Freeman / Glenn Diesen | Regional order architecture | Interpret the Saudi-Pakistan-Turkiye pact and Iran-Oman channel as possible signs of security re-formation beyond U.S. tutelage. | Broad structural claims can outrun the limited public text of the pact or draft arrangement. |
 | Anthony Aguilar | War-continuation and U.S.-Israel pressure | Keeps Hormuz from becoming a false ending by naming sanctions, assets, Lebanon, Gaza, Israel, and alliance formation as unresolved. | Highly declarative claims about U.S.-Israel control and war duration need attribution. |
+| Larry Wilkerson | Mutual-defense pact pressure test | Presses the pact question toward adversary definition and the risk that new security guarantees create new target ambiguity. | Pact meaning and implementation remain unverified from primary text. |
 | Max Blumenthal | Domestic narrative-pressure layer | Adds U.S. information-war and anti-war dissent pressure as part of the Iran-war battlefield. | Personal case and political claims should be used as attributed narrative evidence, not general fact. |
 | Alexander Mercouris | Ukraine/Russia secondary capacity lane | Shows Patriot scarcity and European air-defense reluctance as a parallel capacity stress. | Ukraine/Russia claims should pressure-test the lead, not displace it. |
 
@@ -94,9 +97,7 @@ Record only concrete operating facts that control planned public factual use, wa
 
 | Claim ID | Operational claim | Current status | Consequence if false | Public use | Verification |
 | --- | --- | --- | --- | --- | --- |
-| `OPC-20260807-01` | Iran and Oman are negotiating or finalizing a Hormuz transit arrangement with a regional-authority component. | `source_assertion` | high | no | request |
-| `OPC-20260807-02` | U.S. or allied munitions/interceptor scarcity is constraining Iran-war and Ukraine-war choices. | `source_assertion` | high | no | request |
-| `OPC-20260807-03` | Saudi Arabia, Pakistan, and Turkiye have signed or announced a mutual-defense pact. | `source_assertion` | medium | no | request |
+| `OPC-20260807-01` | Iran and Oman are negotiating or finalizing a Hormuz transit arrangement with a regional-authority component. | `source_assertion` | `high` | `no` | `request` |
 
 ## Accountable Judgment Handoff
 
@@ -106,9 +107,9 @@ Complete `judgment.md` after forecast triage. The core handoff should preserve t
 
 | Story ID | Placement | Argument headline | Crisis object | Evidence posture | Source IDs | Voices | Forecast hooks | Operational claims | Selection rationale |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| `NGI-20260807-S01` | `lead` | Hormuz Is Now the Exit Test | Can a constrained U.S. exit through the Iran-Oman/Hormuz channel become a credible regional settlement before Israeli disruption pressure and coercive scarcity pull it back into war? | `bounded-analysis` | `SRC-01,SRC-04,SRC-05,SRC-06,SRC-09,SRC-11,SRC-12` | Crooke, Johnson, Alkhorshid, Aguilar, Pape, Parsi | `NG-20260807-F01` | `OPC-20260807-01,OPC-20260807-02` | The highest-consequence mechanism is whether an off-ramp can survive the constraints that created it. |
-| `NGI-20260807-S02` | `brief` | The Old Umbrella Is Getting Repriced | Does the Saudi-Pakistan-Turkiye pact signal a durable regional security alternative, or only a temporary hedge against U.S. unreliability? | `bounded-analysis` | `SRC-02,SRC-03,SRC-07,SRC-11` | Freeman, Diesen, Johnson, Wilkerson, Parsi | `none` | `OPC-20260807-03` | Useful as the day's regional architecture delta, but too ambiguous to lead. |
-| `NGI-20260807-S03` | `brief` | Ukraine Is the Secondary Proof of the Stockpile Problem | Does Patriot scarcity in the Ukraine lane show the same capacity/narrative gap governing the Iran off-ramp? | `bounded-analysis` | `SRC-13,SRC-04,SRC-11` | Mercouris, Johnson, Parsi | `none` | `OPC-20260807-02` | Keeps Ukraine as a pressure test for the coercive-capacity mechanism. |
+| `NGI-20260807-S01` | `lead` | Hormuz Is Now the Exit Test | Can a constrained U.S. exit through the Iran-Oman/Hormuz channel become a credible regional settlement before Israeli disruption pressure and coercive scarcity pull it back into war? | `bounded-analysis` | `SRC-01,SRC-04,SRC-05,SRC-06,SRC-09,SRC-11,SRC-12` | Crooke, Johnson, Alkhorshid, Aguilar, Pape, Parsi | `NG-20260807-F01` | `OPC-20260807-01` | The highest-consequence mechanism is whether an off-ramp can survive the constraints that created it. |
+| `NGI-20260807-S02` | `brief` | The Old Umbrella Is Getting Repriced | Does the Saudi-Pakistan-Turkiye pact signal a durable regional security alternative, or only a temporary hedge against U.S. unreliability? | `bounded-analysis` | `SRC-02,SRC-03,SRC-07,SRC-11` | Freeman, Diesen, Johnson, Wilkerson, Parsi | `none` | `none` | Useful as the day's regional architecture delta, but too ambiguous to lead. |
+| `NGI-20260807-S03` | `brief` | Ukraine Is the Secondary Proof of the Stockpile Problem | Does Patriot scarcity in the Ukraine lane show the same capacity/narrative gap governing the Iran off-ramp? | `bounded-analysis` | `SRC-13,SRC-04,SRC-11` | Mercouris, Johnson, Parsi | `none` | `none` | Keeps Ukraine as a pressure test for the coercive-capacity mechanism. |
 | `NGI-20260807-S04` | `hold` | The Narrative Front Comes Home | Does Israel-linked pressure on anti-war reporting become part of the Iran-war domestic constraint? | `bounded-analysis` | `SRC-10` | Blumenthal | `none` | `none` | Important for domestic legitimacy, but should remain held unless paired with independent civil-liberties verification. |
 
 ## Forecast Candidates
