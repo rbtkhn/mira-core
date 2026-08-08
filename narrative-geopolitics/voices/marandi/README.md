@@ -54,3 +54,7 @@ Evidence needed before relying on this voice:
 This voice now has Pape-style operational shape: central archive evidence, manifest coverage, complete local routing for the imported slice, two retrieval lenses, and channel-aware pressure separation.
 
 It does not yet claim Pape's full-source parity.
+
+## Judgment Ledger
+
+Canonical external-voice reading surface: [judgment-ledger.md](judgment-ledger.md). It records governed expressed judgments and separately canonical self-revisions without establishing factual truth.

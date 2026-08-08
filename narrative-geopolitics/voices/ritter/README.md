@@ -50,3 +50,6 @@ Evidence needed before relying on this voice:
 
 This voice now has an imported central archive corpus derived from the strategy-codex Ritter index. It is broad rather than curated-thin, so later cleanup may separate authored, guest, and discovery-adjacent slices more sharply.
 
+## Judgment Ledger
+
+Canonical external-voice reading surface: [judgment-ledger.md](judgment-ledger.md). It records governed expressed judgments and separately canonical self-revisions without establishing factual truth.

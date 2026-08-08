@@ -35,6 +35,7 @@ SURFACES = {
     "test": REPO_ROOT / "tools" / "validate_repo.py",
     "verification": REPO_ROOT / "scripts" / "verification.py",
     "voice-accountability": REPO_ROOT / "scripts" / "voice_accountability.py",
+    "voice-judgment": REPO_ROOT / "scripts" / "voice_judgments.py",
     "voice-canonicalize": REPO_ROOT / "scripts" / "canonicalize_voice_metadata.py",
     "voice-sync": REPO_ROOT / "scripts" / "sync_voice_indexes.py",
     "voice-comparison": REPO_ROOT / "scripts" / "voice_comparison.py",

@@ -61,6 +61,7 @@ EXPECTED_SURFACES = {
     "test": "validate_repo.py",
     "verification": "verification.py",
     "voice-accountability": "voice_accountability.py",
+    "voice-judgment": "voice_judgments.py",
     "voice-canonicalize": "canonicalize_voice_metadata.py",
     "voice-sync": "sync_voice_indexes.py",
     "voice-comparison": "voice_comparison.py",

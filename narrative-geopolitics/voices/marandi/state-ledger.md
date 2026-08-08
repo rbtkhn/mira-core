@@ -1,29 +1,10 @@
-# Seyed Mohammad Marandi State Ledger
+<!-- Retired compatibility surface. Canonical data lives in the external voice-judgment registry. -->
 
-Voice: `marandi`  
-Profile: [README.md](README.md)  
-Source Index: [source-index.md](source-index.md)  
-Status: `internal`
+# Seyed Mohammad Marandi State Ledger (Retired)
 
-## State Contract
+This legacy path is retained for compatibility. Use [judgment-ledger.md](judgment-ledger.md) for the generated canonical reading surface.
 
-This ledger records documented expressed positions, not private beliefs. It
-preserves regional red-line and legitimacy language without treating it as
-independent operational verification.
+No substantive state is maintained in this file.
 
-## Active Trajectory
-
-| State ID | Proposition | State | First Seen | Last Seen | Expression Type | Source IDs | Daily Blocks | Forecast Hook | Revision Note |
-|---|---|---|---|---|---|---|---|---|---|
-| `STATE-MARANDI-0001` | Iranian resistance and sovereignty language treats continued pressure and regional participation as legitimacy and red-line questions, not only bargaining variables. | `persistent` | `2026-07-16` | `2026-07-19` | `close-paraphrase` | `SRC-08,SRC-02` | [2026-07-16](../../work/daily/2026-07-16/synthesis.md), [2026-07-19](../../work/daily/2026-07-19/synthesis.md) | none | Red-line framing; specific strike and casualty claims remain source assertions. |
-
-## Unclear / Disputed Continuity
-
-| State ID | Proposition | Why Unclear | Source IDs | Daily Blocks | Review Need |
-|---|---|---|---|---|---|
-
-## State Transitions
-
-| Date | State ID | Transition | Basis | Source IDs | Daily Block |
-|---|---|---|---|---|---|
-| `2026-07-19` | `STATE-MARANDI-0001` | `persistent` | regional legitimacy frame recurs across host contexts | `SRC-08,SRC-02` | [2026-07-19](../../work/daily/2026-07-19/synthesis.md) |
+<a id="state-marandi-0001"></a>
+- `STATE-MARANDI-0001` -> [`VJ-MARANDI-0001`](judgment-ledger.md#vj-marandi-0001)

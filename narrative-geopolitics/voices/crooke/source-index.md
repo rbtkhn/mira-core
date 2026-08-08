@@ -101,6 +101,12 @@ The source index owns retrieval and source-to-voice routing. The state ledger
 owns dated proposition continuity. The profile owns interpretation and use
 guidance. None of these surfaces independently establishes factual truth.
 
-## Import Boundary
+## Judgment Continuity
 
+- [Judgment Ledger](judgment-ledger.md) - governed, source-backed external-voice judgment trajectory.
+- Judgment IDs are the continuity keys; legacy state IDs remain aliases.
+- Source rows remain the evidence floor; judgment entries never replace archive links.
+- Check host/channel context before classifying a proposition as voice-native.
+
+## Import Boundary
 This local shelf unifies imported Crooke sources from strategy-codex with already-present June 2026 Crooke rows already materialized in this repo.

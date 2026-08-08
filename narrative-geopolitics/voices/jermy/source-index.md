@@ -38,3 +38,7 @@ Status: `imported-corpus`
 ## Import Boundary
 
 This import followed the strategy-codex Jermy index and copied source captures into `archive/sources/YYYY-MM-DD/` while preserving already-local matching archive rows.
+
+## Judgment Ledger
+
+Canonical external-voice reading surface: [judgment-ledger.md](judgment-ledger.md). It records governed expressed judgments and separately canonical self-revisions without establishing factual truth.

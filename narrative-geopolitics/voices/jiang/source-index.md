@@ -94,3 +94,7 @@ Status: `imported-corpus`
 ## Import Boundary
 
 Predictive History-owned Game Theory, Great Books, and Founding Members items remain in the central archive but are excluded from this Narrative Geopolitics voice route. They should be handled by the sibling Predictive History corpus rather than treated as third-party geopolitical interviews.
+
+## Judgment Ledger
+
+Canonical external-voice reading surface: [judgment-ledger.md](judgment-ledger.md). It records governed expressed judgments and separately canonical self-revisions without establishing factual truth.

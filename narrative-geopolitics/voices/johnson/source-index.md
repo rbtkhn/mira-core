@@ -141,6 +141,12 @@ The source index owns retrieval and source-to-voice routing. The state ledger
 owns dated proposition continuity. The profile owns interpretation and use
 guidance. None of these surfaces independently establishes factual truth.
 
-## Import Boundary
+## Judgment Continuity
 
+- [Judgment Ledger](judgment-ledger.md) - governed, source-backed external-voice judgment trajectory.
+- Judgment IDs are the continuity keys; legacy state IDs remain aliases.
+- Source rows remain the evidence floor; judgment entries never replace archive links.
+- Check host/channel context before classifying a proposition as voice-native.
+
+## Import Boundary
 Future expansion should keep copying source captures into `archive/sources/YYYY-MM-DD/` and adding manifest rows before treating them as source truth.

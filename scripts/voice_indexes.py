@@ -21,6 +21,11 @@ PAPE_ROW_RE = re.compile(
     r"^- \[(?P<date>\d{4}-\d{2}-\d{2}) — (?P<title>.*?)\]\((?P<link>[^)]+)\) — \*\*(?P<role>authored|guest)\*\* · (?P<modality>[^·\r\n]+?)(?: · host: `(?P<host>[^`]+)`)?$"
 )
 COUNT_RE = re.compile(r"^Corpus: .*?$", re.MULTILINE)
+JUDGMENT_LEDGER_NAVIGATION = (
+    "Canonical external-voice reading surface: "
+    "[judgment-ledger.md](judgment-ledger.md). It records governed expressed "
+    "judgments and separately canonical self-revisions without establishing factual truth."
+)
 
 
 def load_manifest(path: Path = voice_metadata.MANIFEST_PATH) -> dict[str, Any]:
@@ -254,7 +259,13 @@ def render_pape(
     blocks = []
     for month in sorted(by_month):
         blocks.append(f"## {month}\n\n" + "\n".join(sorted(by_month[month])))
-    updated = prefix + "\n\n".join(blocks) + "\n"
+    updated = (
+        prefix
+        + "\n\n".join(blocks)
+        + "\n\n"
+        + JUDGMENT_LEDGER_NAVIGATION
+        + "\n"
+    )
     updated = COUNT_RE.sub(f"Corpus: {authored} authored sources, {guest} guest appearances, {authored + guest} total imported sources.", updated, count=1)
     return updated, {"failures": failures, "added": missing, "missing": missing, "duplicates": duplicates, "orphan": orphan}
 

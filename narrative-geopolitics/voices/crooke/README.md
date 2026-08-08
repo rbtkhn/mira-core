@@ -46,9 +46,9 @@ Evidence needed before relying on this voice:
 - A host/channel check whenever `host_slug` is not `crooke`.
 - Independent corroboration when authored argument and host-conditioned interview framing diverge.
 
-## State Continuity
+## Judgment Continuity
 
-Canonical state ledger: [state-ledger.md](state-ledger.md). It records the
+Canonical judgment ledger: [judgment-ledger.md](judgment-ledger.md). It records the
 dated trajectory of expressed positions, not private beliefs, moderator
 synthesis, host framing, or verified fact.
 

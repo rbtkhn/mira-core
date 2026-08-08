@@ -68,11 +68,60 @@ def validate_tmp(tmp_path: Path, ledger: dict, **kwargs) -> list[str]:
 
 def test_seeded_mearsheimer_entry_validates_as_strict() -> None:
     assert voice_accountability.validate_ledger() == []
-    entry = voice_accountability.load_ledger()["entries"][0]
+    entry = next(
+        item
+        for item in voice_accountability.load_ledger()["entries"]
+        if item["id"] == "VR-20260716-01"
+    )
     assert entry["id"] == "VR-20260716-01"
     assert entry["voice_slug"] == "mearsheimer"
     assert entry["class"] == "explicit-personal-admission"
     assert "did not fully appreciate" in entry["revised_view"].lower()
+
+
+def test_judgment_refs_are_optional_but_typed(tmp_path: Path) -> None:
+    ledger = valid_seed_ledger()
+    ledger["entries"][0]["judgment_refs"] = ["not-a-judgment"]
+    failures = validate_tmp(tmp_path=tmp_path, ledger=ledger)
+    assert any("invalid voice-revision judgment reference" in failure for failure in failures)
+
+
+def test_non_active_revisions_require_status_notes_and_forbid_judgment_refs(
+    tmp_path: Path,
+) -> None:
+    ledger = valid_seed_ledger()
+    entry = ledger["entries"][0]
+    entry["status"] = "withdrawn"
+    entry["judgment_refs"] = ["VJ-MEARSHEIMER-0001"]
+    failures = validate_tmp(tmp_path=tmp_path, ledger=ledger)
+    assert any("missing status_note" in failure for failure in failures)
+    assert any("has judgment references" in failure for failure in failures)
+
+
+def test_correction_manifest_preserves_active_and_withdrawn_counts() -> None:
+    entries = voice_accountability.load_ledger()["entries"]
+    active = [entry for entry in entries if entry["status"] == "active"]
+    withdrawn = [entry for entry in entries if entry["status"] == "withdrawn"]
+    assert len(entries) == 26
+    assert len(active) == 25
+    assert len(withdrawn) == 1
+    assert all(entry.get("status_note") for entry in withdrawn)
+    assert all(not entry.get("judgment_refs") for entry in withdrawn)
+    assert all(entry["voice_slug"] != "mario-nawfal" for entry in entries)
+
+    near_misses = voice_accountability.NEAR_MISSES_PATH.read_text(encoding="utf-8")
+    for legacy_id in (
+        "VR-20260316-01",
+        "VR-20260530-02",
+        "VR-20260531-03",
+    ):
+        assert legacy_id in near_misses
+        assert all(entry["id"] != legacy_id for entry in entries)
+
+    mearsheimer = next(
+        entry for entry in entries if entry["id"] == "VR-20260716-01"
+    )
+    assert mearsheimer["judgment_refs"] == ["VJ-MEARSHEIMER-0001"]
 
 
 def test_markdown_json_id_mismatch_is_rejected(tmp_path: Path) -> None:

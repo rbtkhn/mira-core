@@ -1,27 +1,10 @@
-# Alexander Mercouris State Ledger
+<!-- Retired compatibility surface. Canonical data lives in the external voice-judgment registry. -->
 
-Voice: `mercouris`  
-Profile: [README.md](README.md)  
-Source Index: [source-index.md](source-index.md)  
-Status: `internal`
+# Alexander Mercouris State Ledger (Retired)
 
-## State Contract
+This legacy path is retained for compatibility. Use [judgment-ledger.md](judgment-ledger.md) for the generated canonical reading surface.
 
-This ledger records documented expressed positions, not private beliefs.
+No substantive state is maintained in this file.
 
-## Active Trajectory
-
-| State ID | Proposition | State | First Seen | Last Seen | Expression Type | Source IDs | Daily Blocks | Forecast Hook | Revision Note |
-|---|---|---|---|---|---|---|---|---|---|
-| `STATE-MERCOURIS-0001` | Coalition and Ukrainian capacity constraints can narrow diplomatic and operational room while headline resolve persists. | `persistent` | `2026-07-19` | `2026-07-20` | `close-paraphrase` | `SRC-10` | [2026-07-20](../../work/daily/2026-07-20/synthesis.md) | `NG-20260720-F02` | Comparative capacity lens, not a direct Iran-war fact. |
-
-## Unclear / Disputed Continuity
-
-| State ID | Proposition | Why Unclear | Source IDs | Daily Blocks | Review Need |
-|---|---|---|---|---|---|
-
-## State Transitions
-
-| Date | State ID | Transition | Basis | Source IDs | Daily Block |
-|---|---|---|---|---|---|
-| `2026-07-20` | `STATE-MERCOURIS-0001` | `persistent` | comparative capacity frame retained in current synthesis | `SRC-10` | [2026-07-20](../../work/daily/2026-07-20/synthesis.md) |
+<a id="state-mercouris-0001"></a>
+- `STATE-MERCOURIS-0001` -> [`VJ-MERCOURIS-0001`](judgment-ledger.md#vj-mercouris-0001)

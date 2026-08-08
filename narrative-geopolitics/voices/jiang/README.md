@@ -54,3 +54,7 @@ Evidence needed before relying on this voice:
 ## Parity Note
 
 This is an operator-designated external-interview shelf. It is deep enough for bounded continuity work but remains channel-concentrated and excludes Jiang's Predictive History lectures, essays, member material, and other PH-owned surfaces.
+
+## Judgment Ledger
+
+Canonical external-voice reading surface: [judgment-ledger.md](judgment-ledger.md). It records governed expressed judgments and separately canonical self-revisions without establishing factual truth.

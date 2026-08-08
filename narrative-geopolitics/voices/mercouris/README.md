@@ -49,9 +49,9 @@ Evidence needed before relying on this voice:
 - A modality check through the relevant voice-native lens.
 - A channel check whenever a source has a `host_slug`.
 
-## State Continuity
+## Judgment Continuity
 
-Canonical state ledger: [state-ledger.md](state-ledger.md). It records the
+Canonical judgment ledger: [judgment-ledger.md](judgment-ledger.md). It records the
 dated trajectory of expressed positions, not private beliefs, moderator
 synthesis, host framing, or verified fact.
 

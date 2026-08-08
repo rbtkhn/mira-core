@@ -26,6 +26,7 @@ CANDIDATE_SCRIPT = (
 )
 
 REVISION_ID_RE = re.compile(r"\bVR-\d{8}-\d{2}\b")
+JUDGMENT_ID_RE = re.compile(r"VJ-[A-Z0-9-]+-\d{4}$")
 NEAR_MISS_ID_RE = re.compile(r"\bNM-\d{8}-\d{2}\b")
 MARKDOWN_TABLE_ID_RE = re.compile(r"^\|\s*`(?P<id>VR-\d{8}-\d{2})`\s*\|", re.MULTILINE)
 
@@ -115,6 +116,8 @@ def render_markdown(ledger: dict[str, Any]) -> str:
     lines.extend(["", "## Entry Notes", ""])
     for entry in entries:
         hooks = ", ".join(f"`{item}`" for item in entry.get("forecast_hooks", [])) or "none"
+        judgments = ", ".join(f"`{item}`" for item in entry.get("judgment_refs", [])) or "none"
+        status_note = str(entry.get("status_note", "")).strip() or "none"
         lines.extend(
             [
                 f"### `{entry['id']}` - {entry['voice_slug']}",
@@ -125,7 +128,9 @@ def render_markdown(ledger: dict[str, Any]) -> str:
                 f"- Revised view: {entry['revised_view']}",
                 f"- Transcript excerpt: \"{entry['excerpt']}\"",
                 f"- Adjudication note: {entry['adjudication_note']}",
+                f"- Status note: {status_note}",
                 f"- Forecast hooks: {hooks}.",
+                f"- External judgment links: {judgments}.",
                 "",
             ]
         )
@@ -201,6 +206,24 @@ def validate_ledger(
             failures.append(f"invalid voice-revision class: {label} -> {entry.get('class')}")
         if entry.get("status") not in ALLOWED_STATUSES:
             failures.append(f"invalid voice-revision status: {label} -> {entry.get('status')}")
+        status_note = entry.get("status_note")
+        if entry.get("status") != "active" and (
+            not isinstance(status_note, str) or not status_note.strip()
+        ):
+            failures.append(f"non-active voice-revision missing status_note: {label}")
+        judgment_refs = entry.get("judgment_refs", [])
+        if not isinstance(judgment_refs, list):
+            failures.append(f"voice-revision judgment_refs must be a list: {label}")
+        else:
+            if entry.get("status") != "active" and judgment_refs:
+                failures.append(
+                    f"non-active voice-revision has judgment references: {label}"
+                )
+            for judgment_ref in judgment_refs:
+                if not isinstance(judgment_ref, str) or not JUDGMENT_ID_RE.fullmatch(judgment_ref):
+                    failures.append(
+                        f"invalid voice-revision judgment reference: {label} -> {judgment_ref}"
+                    )
 
         source_value = entry.get("source_path")
         if not isinstance(source_value, str) or not source_value:

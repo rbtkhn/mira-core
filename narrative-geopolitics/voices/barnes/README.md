@@ -50,3 +50,6 @@ Evidence needed before relying on this voice:
 
 This voice is a unified local Barnes shelf built from the strategy-codex Barnes index and any already-routed local archive rows that match the imported corpus.
 
+## Judgment Ledger
+
+Canonical external-voice reading surface: [judgment-ledger.md](judgment-ledger.md). It records governed expressed judgments and separately canonical self-revisions without establishing factual truth.

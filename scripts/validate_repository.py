@@ -21,6 +21,7 @@ from codex_skill_registry import (
 import voice_indexes
 import voice_metadata
 import voice_accountability
+import voice_judgments
 import forecast_ledger
 import verification as verification_packets
 import render_daily_issue as daily_issue
@@ -476,6 +477,17 @@ def voice_accountability_failures() -> list[str]:
     return voice_accountability.validate_ledger()
 
 
+def voice_judgment_failures() -> list[str]:
+    failures = voice_judgments.validate_registry()
+    if not failures:
+        for path, expected in voice_judgments.expected_outputs().items():
+            if not path.exists() or path.read_text(encoding="utf-8") != expected:
+                failures.append(
+                    f"voice judgment generated view drift: {relative(path)}"
+                )
+    return failures
+
+
 def legacy_verification_inventory_failures() -> list[str]:
     if not LEGACY_VERIFICATION_INVENTORY.is_file():
         return ["legacy verification inventory missing"]
@@ -532,6 +544,7 @@ REPOSITORY_CHECKS = (
     ("reality_lattice_failures", reality_lattice_failures),
     ("skill_contract_failures", skill_contract_failures),
     ("voice_accountability_failures", voice_accountability_failures),
+    ("voice_judgment_failures", voice_judgment_failures),
     ("recursive_learning_ledger.validate_ledger", recursive_learning_ledger.validate_ledger),
     ("operator_positions.validate_ledger", operator_positions.validate_ledger),
     ("legacy_verification_inventory_failures", legacy_verification_inventory_failures),

@@ -137,3 +137,5 @@ Corpus: 70 authored sources, 28 guest appearances, 98 total imported sources.
 
 - [2026-08-03 — Breaking Analysis #10: Trump’s Illusion of Control Meets Escalation Reality](../../archive/sources/2026-08-03/source-untitled-source-2026-08-03.md) — **guest** · cleaned-transcript · host: `escalation-trap`
 - [2026-08-03 — TRUMP BOMBS IRAN FOR 5 MONTHS AND THEY STILL SAY NO — w/ Prof. Robert Pape](../../archive/sources/2026-08-03/source-trump-bombs-iran-for-5-months-and-they-still-say-no-w-prof-robert-pape-2026-08-03.md) — **guest** · cleaned-transcript · host: `mario-nawfal`
+
+Canonical external-voice reading surface: [judgment-ledger.md](judgment-ledger.md). It records governed expressed judgments and separately canonical self-revisions without establishing factual truth.

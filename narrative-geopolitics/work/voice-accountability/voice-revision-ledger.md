@@ -23,9 +23,322 @@ Near-misses never enter this ledger. Confirmed entries may be mirrored into voic
 
 | Revision ID | Date | Voice | Host | Class | Status | Source |
 | --- | --- | --- | --- | --- | --- | --- |
+| `VR-20260301-01` | `2026-03-01` | `davis` | `glenn-diesen` | `personal-prediction-revision` | `active` | [Daniel Davis: Iran Miscalculation](../../archive/sources/2026-03-01/source-glenn-diesen-daniel-davis-iran-miscalculation-2026-03-01.md#L77) |
+| `VR-20260301-02` | `2026-03-01` | `jermy` | `glenn-diesen` | `personal-prediction-revision` | `active` | [Steve Jermy: Iran War Endgame and Global Fallout](../../archive/sources/2026-03-01/source-glenn-diesen-steve-jermy-iran-war-endgame-global-fallout-2026-03-01.md#L145) |
+| `VR-20260308-01` | `2026-03-08` | `mcgovern` | `dialogue-works` | `explicit-personal-admission` | `active` | [Ray McGovern: Does Armageddon Loom?](../../archive/sources/2026-03-08/source-dialogue-works-ray-mcgovern-does-armageddon-loom-iran-comes-close-to-decimating-israel-in-the-coming-weeks-2026-03-08.md#L1246) |
+| `VR-20260318-01` | `2026-03-18` | `jermy` | `neutrality-studies` | `personal-prediction-revision` | `active` | [Steve Jermy: The US Already Lost the Naval War](../../archive/sources/2026-03-18/source-neutrality-studies-us-already-lost-naval-war-steve-jermy-2026-03-18.md#L55) |
+| `VR-20260321-01` | `2026-03-21` | `mercouris` | `alexander-mercouris` | `explicit-personal-admission` | `active` | [Alexander Mercouris: Iran Strikes Diego Garcia](../../archive/sources/2026-03-21/source-alexander-mercouris-iran-strikes-diego-garcia-putin-tells-iran-russia-loyal-ally-reports-ira-2026-03-21.md#L96) |
+| `VR-20260402-01` | `2026-04-02` | `krainer` | `dialogue-works` | `explicit-personal-admission` | `active` | [Alex Krainer: Trump Trapped in Iran War; Exit Plan Falling Apart](../../archive/sources/2026-04-02/source-alex-krainer-trump-trapped-in-iran-war-the-exit-plan-is-falling-apart-2026-04-02.md#L111) |
+| `VR-20260404-01` | `2026-04-04` | `mercouris` | `mercouris` | `personal-position-revision` | `active` | [Alexander Mercouris: Iran Shoots Down US A-10; Russia Hunts Kiev Air Defense](../../archive/sources/2026-04-04/source-alexander-mercouris-iran-shoots-down-us-a10-hunts-f15-pilot-trump-sacks-more-generals-russia-2026-04-04.md#L89) |
+| `VR-20260420-01` | `2026-04-20` | `mearsheimer` | `chris-hedges` | `personal-prediction-revision` | `active` | [John Mearsheimer: Iran War and Hormuz Ceasefire](../../archive/sources/2026-04-20/source-hedges-mearsheimer-iran-2026-04-20.md#L115) |
+| `VR-20260420-02` | `2026-04-20` | `pape` | `redacted` | `personal-prediction-revision` | `active` | [Robert Pape: Collapse Ahead of Schedule](../../archive/sources/2026-04-20/source-pape-collapse-ahead-of-schedule-2026-04-20.md#L36) |
+| `VR-20260423-01` | `2026-04-23` | `mercouris` | `duran` | `personal-position-revision` | `withdrawn` | [The Duran: Robert Barnes on Fractured Iran and Trump](../../archive/sources/2026-04-23/source-duran-mercouris-barnes-fractured-iran-trump-2026-04-23.md#L42) |
+| `VR-20260505-01` | `2026-05-05` | `mercouris` | `mercouris` | `personal-position-revision` | `active` | [Alexander Mercouris: Hormuz, UAE, Russia, China](../../archive/sources/2026-05-05/source-alexander-mercouris-hormuz-uae-russia-china-2026-05-05.md#L109) |
+| `VR-20260514-01` | `2026-05-14` | `ritter` | `daniel-davis` | `explicit-personal-admission` | `active` | [Scott Ritter: Russia Retaliation on Europe No Longer in Doubt](../../archive/sources/2026-05-14/source-daniel-davis-scott-ritter-russia-retaliation-on-europe-no-longer-in-doubt-2026-05-14.md#L186) |
+| `VR-20260514-02` | `2026-05-14` | `mercouris` | `alexander-mercouris` | `personal-position-revision` | `active` | [Alexander Mercouris: China Tough Stance in Trump Visit; Russia Biggest Strike](../../archive/sources/2026-05-14/source-alexander-mercouris-china-tough-stance-in-trump-visit-russia-biggest-strike-kiev-shredded-ad-collapses-zelensky-panic-2026-05-14.md#L223) |
+| `VR-20260517-01` | `2026-05-17` | `weichert` | `mario-nawfal` | `explicit-personal-admission` | `active` | [Brandon Weichert: Russiaâ€“Ukraine Escalating, Iran War Restarting](../../archive/sources/2026-05-17/source-mario-nawfal-weichert-russia-ukraine-escalating-iran-war-restarting-2026-05-17.md#L144) |
+| `VR-20260523-01` | `2026-05-23` | `jiang` | `predictive-history` | `personal-prediction-revision` | `active` | [The Loneliness of Mad King Trump](../../archive/sources/2026-05-23/source-the-loneliness-of-mad-king-trump-2026-05-23.md#L98) |
+| `VR-20260530-01` | `2026-05-30` | `jiang` | `predictive-history` | `explicit-personal-admission` | `active` | [Peter Thiel's Republic](../../archive/sources/2026-05-30/source-peter-thiel-s-republic-2026-05-30.md#L90) |
+| `VR-20260531-02` | `2026-05-31` | `mercouris` | `alexander-mercouris` | `personal-position-revision` | `active` | [Alexander Mercouris: Kiev Drone Strikes Zaporizhzhia NPP; Russia Breakthrough](../../archive/sources/2026-05-31/source-alexander-mercouris-kiev-drone-strikes-zaporozhzhye-npp-west-iaea-silent-russia-orekhov-breakthrough-konstantinovka-2026-05-31.md#L42) |
+| `VR-20260602-01` | `2026-06-02` | `mercouris` | `alexander-mercouris` | `explicit-personal-admission` | `active` | [Alexander Mercouris: Russian Massive Strike Shatters Kiev; Tsirkon Missile First Mass Use](../../archive/sources/2026-06-02/source-alexander-mercouris-russian-massive-strike-shatters-kiev-tsirkon-missile-first-mass-use-kiev-troops-flee-konstantinovka-2026-06-02.md#L175) |
+| `VR-20260617-01` | `2026-06-17` | `johnson` | `dialogue-works` | `explicit-personal-admission` | `active` | [Larry Johnson: Trump Surrender Document, Total Iranian Victory](../../archive/sources/2026-06-17/source-dialogue-works-larry-johnson-trump-surrender-document-total-iranian-victory-2026-06-17.md#L62) |
+| `VR-20260618-01` | `2026-06-18` | `krainer` | `dialogue-works` | `explicit-personal-admission` | `active` | [Alex Krainer: Trump Scolds Netanyahu; Iran Oil Sanctions Lifted](../../archive/sources/2026-06-18/source-dialogue-works-alex-krainer-trump-scolds-netanyahu-iran-oil-sanctions-lifted-2026-06-18.md#L100) |
+| `VR-20260625-01` | `2026-06-25` | `barnes` | `mario-nawfal` | `personal-position-revision` | `active` | [Robert Barnes: Breaking GCC Attack Iran; Rubio Meeting; Iran Strike Vessel Hormuz](../../archive/sources/2026-06-25/source-mario-nawfal-barnes-breaking-gcc-attack-iran-rubio-meeting-iran-strike-vessel-hormuz-2026-06-25.md#L130) |
+| `VR-20260701-01` | `2026-07-01` | `ritter` | `dialogue-works` | `explicit-personal-admission` | `active` | [Scott Ritter: Trump Briefed on All-Out War Scenario in Iran](../../archive/sources/2026-07-01/source-scott-ritter-trump-briefed-on-all-out-war-scenario-in-iran-2026-07-01.md#L202) |
+| `VR-20260713-01` | `2026-07-13` | `johnson` | `dialogue-works` | `personal-prediction-revision` | `active` | [Larry Johnson: US Attacks Iran; Iran Hits Back as Hormuz Turns Into a Firing Hell](../../archive/sources/2026-07-13/source-larry-johnson-u-s-attacks-iran-now-iran-hits-back-as-hormuz-turns-into-a-firing-hell-2026-07-13.md#L65) |
+| `VR-20260715-01` | `2026-07-15` | `mercouris` | `alexander-mercouris` | `explicit-personal-admission` | `active` | [Zelensky to Sack Kiev Defence Chief; Drone War Fails; EU Faces Gas Crisis](../../archive/sources/2026-07-15/source-zelensky-to-sack-kiev-defence-chief-drone-war-fails-eu-faces-gas-crisis-funds-kiev-buy-china-drones-2026-07-15.md#L83) |
 | `VR-20260716-01` | `2026-07-16` | `mearsheimer` | `glenn-diesen` | `explicit-personal-admission` | `active` | [John Mearsheimer: All-Out War in the Middle East & Trump's War on Russia](../../archive/sources/2026-07-16/source-john-mearsheimer-all-out-war-in-the-middle-east-trump-s-war-on-russia-2026-07-16.md#L123) |
+| `VR-20260719-01` | `2026-07-19` | `mcgovern` | `dialogue-works` | `personal-prediction-revision` | `active` | [Ray McGovern: Iran's Precision Strikes on Jordan Send Shockwaves Across the Gulf](../../archive/sources/2026-07-19/source-ray-mcgovern-iran-s-precision-strikes-on-jordan-send-shockwaves-across-the-gulf-2026-07-19.md#L66) |
 
 ## Entry Notes
+
+### `VR-20260301-01` - davis
+
+- Source path: `narrative-geopolitics/archive/sources/2026-03-01/source-glenn-diesen-daniel-davis-iran-miscalculation-2026-03-01.md`
+- Line reference: `77`
+- Prior view: Expected Iran might hold some attacks back as negotiating leverage.
+- Revised view: Acknowledged that Iran went further than expected and appeared to commit to an all-in response.
+- Transcript excerpt: "It was 50/50 for me. ... they went a bit further than I expected."
+- Adjudication note: The featured voice identifies a prior expectation about the extent of Iran's response and updates it in light of the observed campaign. This is a non-explicit forecast revision, not a direct admission of error.
+- Status note: none
+- Forecast hooks: none.
+- External judgment links: none.
+
+### `VR-20260301-02` - jermy
+
+- Source path: `narrative-geopolitics/archive/sources/2026-03-01/source-glenn-diesen-steve-jermy-iran-war-endgame-global-fallout-2026-03-01.md`
+- Line reference: `145`
+- Prior view: Expected air superiority would take longer to establish.
+- Revised view: Acknowledged that superiority appeared to have been achieved earlier than expected.
+- Transcript excerpt: "I was ... surprised that ... superiority seems to have been achieved earlier than I expected."
+- Adjudication note: The speaker contrasts an earlier timing expectation with the observed speed of the campaign's air-superiority result. The update is substantive but non-explicit, so it is kept distinct from his March 18 direct admission.
+- Status note: none
+- Forecast hooks: none.
+- External judgment links: none.
+
+### `VR-20260308-01` - mcgovern
+
+- Source path: `narrative-geopolitics/archive/sources/2026-03-08/source-dialogue-works-ray-mcgovern-does-armageddon-loom-iran-comes-close-to-decimating-israel-in-the-coming-weeks-2026-03-08.md`
+- Line reference: `1246`
+- Prior view: Thought a Russian-Iran mutual-defense treaty was a bridge too far.
+- Revised view: Acknowledged that his assessment was wrong after clarifying that Iran, rather than Russia, resisted the treaty.
+- Transcript excerpt: "I thought that was a bridge too far. ... I was wrong on that, too."
+- Adjudication note: The featured voice states a prior personal assessment and directly retracts it. The surrounding passage supplies the revised factual understanding; the ledger records the self-revision without adjudicating the underlying claim.
+- Status note: none
+- Forecast hooks: none.
+- External judgment links: none.
+
+### `VR-20260318-01` - jermy
+
+- Source path: `narrative-geopolitics/archive/sources/2026-03-18/source-neutrality-studies-us-already-lost-naval-war-steve-jermy-2026-03-18.md`
+- Line reference: `55`
+- Prior view: Bet that the campaign would not happen because the risks were high and the benefits appeared limited.
+- Revised view: Acknowledged that the campaign occurred and his forecast was wrong.
+- Transcript excerpt: "I said it was about 50/50, but if I had to bet, I would bet that it wouldn't happen. ... I'm afraid I was wrong."
+- Adjudication note: The featured voice states both the prior forecast and the direct revision in the same passage. This is a personal prediction revision and is distinct from his March 1 timing update.
+- Status note: none
+- Forecast hooks: none.
+- External judgment links: none.
+
+### `VR-20260321-01` - mercouris
+
+- Source path: `narrative-geopolitics/archive/sources/2026-03-21/source-alexander-mercouris-iran-strikes-diego-garcia-putin-tells-iran-russia-loyal-ally-reports-ira-2026-03-21.md`
+- Line reference: `96`
+- Prior view: Estimated that the US assault force in the region might number 3,000 Marines.
+- Revised view: Corrected the estimate to approximately 1,600 troops after recognizing a misreading of the helicopter-carrier deployment.
+- Transcript excerpt: "Now, I overestimated the number of Marines ... the assault force might number 3,000 troops ... based on a misreading."
+- Adjudication note: The featured voice explicitly identifies his prior estimate, the source of the error, and the lower revised estimate in the following line. This is a direct personal correction.
+- Status note: none
+- Forecast hooks: none.
+- External judgment links: none.
+
+### `VR-20260402-01` - krainer
+
+- Source path: `narrative-geopolitics/archive/sources/2026-04-02/source-alex-krainer-trump-trapped-in-iran-war-the-exit-plan-is-falling-apart-2026-04-02.md`
+- Line reference: `111`
+- Prior view: Believed Trump would never attack Iran because the strategic downside was too great.
+- Revised view: Acknowledged that Trump did attack Iran despite that expectation.
+- Transcript excerpt: "I have been insisting ... that Trump would never do this because it's so dumb that nobody can possibly be that dumb. But it looks like I was wrong about that."
+- Adjudication note: The featured voice states the prior prediction, identifies the contrary event, and explicitly accepts that the prediction was wrong.
+- Status note: none
+- Forecast hooks: none.
+- External judgment links: none.
+
+### `VR-20260404-01` - mercouris
+
+- Source path: `narrative-geopolitics/archive/sources/2026-04-04/source-alexander-mercouris-iran-shoots-down-us-a10-hunts-f15-pilot-trump-sacks-more-generals-russia-2026-04-04.md`
+- Line reference: `89`
+- Prior view: Believed Western audiences might be especially disturbed by attacks on cultural and archaeological sites.
+- Revised view: No longer believed that such attacks would reliably produce significant Western public reaction.
+- Transcript excerpt: "I would have thought even more ... Perhaps though I have less belief in this than I once did ... I no longer believe that."
+- Adjudication note: The speaker explicitly compares a former expectation with a diminished present belief, grounding the revision in observed reactions to earlier destruction in Iraq and Syria.
+- Status note: none
+- Forecast hooks: none.
+- External judgment links: none.
+
+### `VR-20260420-01` - mearsheimer
+
+- Source path: `narrative-geopolitics/archive/sources/2026-04-20/source-hedges-mearsheimer-iran-2026-04-20.md`
+- Line reference: `115`
+- Prior view: Believed the Lebanon ceasefire and Iranian reopening of the Strait of Hormuz meant negotiations in Islamabad would proceed.
+- Revised view: Recognized that Trump's decision to maintain the blockade led Iran to reverse course and re-close the Strait.
+- Transcript excerpt: "I thought ... that the ceasefire was then fully in place and that we would begin moving forward in the negotiations in Islamabad. It looked very promising ... Then President Trump said that he was not going to take the US blockade off the Strait of Hormuz."
+- Adjudication note: The speaker states a near-term personal expectation, then records the contrary development and its consequence. The following lines preserve the revision from apparent diplomatic progress to renewed closure and stalled negotiations.
+- Status note: none
+- Forecast hooks: none.
+- External judgment links: none.
+
+### `VR-20260420-02` - pape
+
+- Source path: `narrative-geopolitics/archive/sources/2026-04-20/source-pape-collapse-ahead-of-schedule-2026-04-20.md`
+- Line reference: `36`
+- Prior view: Expected shortages and contraction to emerge later in the disruption cycle.
+- Revised view: Updated the forecast, saying shortages were arriving sooner than anticipated.
+- Transcript excerpt: "The shortages I predicted are coming sooner than I anticipated, not later."
+- Adjudication note: The speaker explicitly updates the timing of his own forecast in response to observed conditions. This is a prediction revision rather than a claim that the original forecast was wholly false.
+- Status note: none
+- Forecast hooks: none.
+- External judgment links: `VJ-PAPE-0002`.
+
+### `VR-20260423-01` - mercouris
+
+- Source path: `narrative-geopolitics/archive/sources/2026-04-23/source-duran-mercouris-barnes-fractured-iran-trump-2026-04-23.md`
+- Line reference: `42`
+- Prior view: Held that the assumptions behind the war implied a quick and successful resolution.
+- Revised view: Acknowledged that those assumptions about how quickly the war would end had proved wrong.
+- Transcript excerpt: "The assumptions that led to the war in terms of how quickly it would be over have turned out to be wrong."
+- Adjudication note: The statement is made by the featured Alexander Mercouris in the source metadata and identifies a material revision to the war-duration model. It is distinct from his separate April 4 cultural-reaction revision.
+- Status note: Withdrawn after 2026-08-06 source-context review found no personal revision: Mercouris says his panel's prior commentary was vindicated while attributing the failed duration assumptions to the war's planners.
+- Forecast hooks: none.
+- External judgment links: none.
+
+### `VR-20260505-01` - mercouris
+
+- Source path: `narrative-geopolitics/archive/sources/2026-05-05/source-alexander-mercouris-hormuz-uae-russia-china-2026-05-05.md`
+- Line reference: `109`
+- Prior view: Assumed Putin and Xi Jinping spoke regularly by phone.
+- Revised view: Revised this to the view that most contacts occurred through written messages carried by special couriers.
+- Transcript excerpt: "It is not the case, as I assumed, that Putin and Xi Jinping speak every day on the phone ... most of the contacts ... take place in writing."
+- Adjudication note: The speaker explicitly identifies his prior assumption and supplies a materially different account of the communication channel. This is a personal position revision, although the underlying source claim remains transcript-level and unverified.
+- Status note: none
+- Forecast hooks: none.
+- External judgment links: none.
+
+### `VR-20260514-01` - ritter
+
+- Source path: `narrative-geopolitics/archive/sources/2026-05-14/source-daniel-davis-scott-ritter-russia-retaliation-on-europe-no-longer-in-doubt-2026-05-14.md`
+- Line reference: `186`
+- Prior view: Initially interpreted Russia's 2022 action as a full-scale invasion rather than a special military operation.
+- Revised view: Acknowledged that this initial framing was wrong and that the operation had been misunderstood.
+- Transcript excerpt: "I happen to match the assessment ... that this was a full-scale military invasion. I was wrong. Nobody predicted the special military operation."
+- Adjudication note: This is a May appearance containing the same substantive self-revision later repeated in July. It is retained as a dated occurrence for the May audit, but it should be treated as a linked duplicate chain rather than an independent analytical update.
+- Status note: none
+- Forecast hooks: none.
+- External judgment links: none.
+
+### `VR-20260514-02` - mercouris
+
+- Source path: `narrative-geopolitics/archive/sources/2026-05-14/source-alexander-mercouris-china-tough-stance-in-trump-visit-russia-biggest-strike-kiev-shredded-ad-collapses-zelensky-panic-2026-05-14.md`
+- Line reference: `223`
+- Prior view: Assumed the Ohio-class submarine near Gibraltar had been adapted to launch large numbers of cruise missiles.
+- Revised view: Recognized that it was a Trident ballistic-missile carrier and not relevant to the Iran conflict in that way.
+- Transcript excerpt: "I assumed that the Ohio submarine in Gibraltar was one, except that it turns out that it isn't because the submarine in question apparently is indeed a Trident ballistic missile nuclear weapons carrier."
+- Adjudication note: The speaker contrasts a prior equipment identification with the later identification that displaced it. This is a non-explicit but clearly documented personal position revision.
+- Status note: none
+- Forecast hooks: none.
+- External judgment links: none.
+
+### `VR-20260517-01` - weichert
+
+- Source path: `narrative-geopolitics/archive/sources/2026-05-17/source-mario-nawfal-weichert-russia-ukraine-escalating-iran-war-restarting-2026-05-17.md`
+- Line reference: `144`
+- Prior view: Viewed Iranian leaders through a Washington bias as irrational actors seeking to usher in the end of the world.
+- Revised view: Revised toward seeing them as pragmatic, rational, and professionally capable actors responding proportionally to escalation.
+- Transcript excerpt: "I used to think ... they were a bunch of crazies over there. I have been telling people publicly I was wrong in that assessment."
+- Adjudication note: The speaker identifies a prior interpretive bias, explicitly withdraws it, and explains the observed behavior that produced the revision. This is a substantive analytical-model correction.
+- Status note: none
+- Forecast hooks: none.
+- External judgment links: none.
+
+### `VR-20260523-01` - jiang
+
+- Source path: `narrative-geopolitics/archive/sources/2026-05-23/source-the-loneliness-of-mad-king-trump-2026-05-23.md`
+- Line reference: `98`
+- Prior view: Expected Marjorie Taylor Greene to retain her seat, Tulsi Gabbard to retain Trump's trust, and Thomas Massie to win his primary easily.
+- Revised view: Acknowledged that all three political forecasts were wrong and that Trump's behavior resisted coherent prediction.
+- Transcript excerpt: "I was wrong to believe that Marjorie Taylor-Greene would fight to keep her Congressional seat. I was wrong to believe that Gabbard had the trust of Trump. I was wrong to believe Thomas Massie would win easily."
+- Adjudication note: The author lists multiple personal forecasts, identifies their contrary outcomes, and explicitly revises his confidence in making sense of Trump's political behavior. The source is a first-person newsletter by the featured voice.
+- Status note: none
+- Forecast hooks: none.
+- External judgment links: none.
+
+### `VR-20260530-01` - jiang
+
+- Source path: `narrative-geopolitics/archive/sources/2026-05-30/source-peter-thiel-s-republic-2026-05-30.md`
+- Line reference: `90`
+- Prior view: Expected Peter Thiel's Gawker victory to mark Thiel's decline through hubris.
+- Revised view: Reassessed Thiel as strategically more capable than previously estimated.
+- Transcript excerpt: "I also believed that the Gawker victory would mark the decline of Thiel ... I was wrong ... I had underestimated Thiel's strategic sensibility."
+- Adjudication note: The author states the prior interpretation, directly admits the error, and names the revised analytical judgment. The source is a first-person newsletter by the featured voice.
+- Status note: none
+- Forecast hooks: none.
+- External judgment links: none.
+
+### `VR-20260531-02` - mercouris
+
+- Source path: `narrative-geopolitics/archive/sources/2026-05-31/source-alexander-mercouris-kiev-drone-strikes-zaporozhzhye-npp-west-iaea-silent-russia-orekhov-breakthrough-konstantinovka-2026-05-31.md`
+- Line reference: `42`
+- Prior view: Regarded Russian reports of Ukrainian commando attempts against the Zaporizhzhia nuclear plant as fantastical and likely fabricated.
+- Revised view: Accepted that the commando operation occurred and that Russian accounts were substantially accurate.
+- Transcript excerpt: "The whole story seemed to me to be so incredible and so fantastic ... I thought that the Russians must have been making it all up ... subsequently ... confirm that operation actually did take place."
+- Adjudication note: The speaker preserves his earlier skepticism, identifies later reporting that changed his assessment, and states the revised conclusion. This is a non-explicit personal position revision.
+- Status note: none
+- Forecast hooks: none.
+- External judgment links: none.
+
+### `VR-20260602-01` - mercouris
+
+- Source path: `narrative-geopolitics/archive/sources/2026-06-02/source-alexander-mercouris-russian-massive-strike-shatters-kiev-tsirkon-missile-first-mass-use-kiev-troops-flee-konstantinovka-2026-06-02.md`
+- Line reference: `175`
+- Prior view: Believed reports of a Trumpâ€“Netanyahu rift before the prior Iran attack were likely true.
+- Revised view: Recognized that those reports had been part of a deception operation and became more cautious about similar reports.
+- Transcript excerpt: "I fell for those reports. I thought they were likely true. And it turned out that it was all part of an elaborate deception."
+- Adjudication note: The featured voice explicitly identifies his prior belief, acknowledges that it was wrong, and states the analytical caution it produced. This is a direct personal admission rather than a claim about another person's error.
+- Status note: none
+- Forecast hooks: none.
+- External judgment links: none.
+
+### `VR-20260617-01` - johnson
+
+- Source path: `narrative-geopolitics/archive/sources/2026-06-17/source-dialogue-works-larry-johnson-trump-surrender-document-total-iranian-victory-2026-06-17.md`
+- Line reference: `62`
+- Prior view: Did not expect the USâ€“Iran process to reach the memorandum-of-understanding stage.
+- Revised view: Acknowledged that the process had reached that point and that his expectation was wrong.
+- Transcript excerpt: "I didn't think we'd get to this point. So, I was wrong. I was wrong in thinking we wouldn't get to this point."
+- Adjudication note: The speaker names the prior expectation and directly reverses it in response to the observed development. The transcript clearly attributes the statement to Larry Johnson.
+- Status note: none
+- Forecast hooks: none.
+- External judgment links: none.
+
+### `VR-20260618-01` - krainer
+
+- Source path: `narrative-geopolitics/archive/sources/2026-06-18/source-dialogue-works-alex-krainer-trump-scolds-netanyahu-iran-oil-sanctions-lifted-2026-06-18.md`
+- Line reference: `100`
+- Prior view: Believed the United States and Israel would not attack Iran because the strategic downside was too great.
+- Revised view: Acknowledged that they attacked Iran despite that expectation.
+- Transcript excerpt: "I was saying there's no way. Nobody's that dumb. But I was wrong and they went ahead with it."
+- Adjudication note: The speaker explicitly states his prior prediction, identifies the event that falsified it, and accepts responsibility for the error. The surrounding passage supplies the prior reasoning and the observed reversal.
+- Status note: none
+- Forecast hooks: none.
+- External judgment links: none.
+
+### `VR-20260625-01` - barnes
+
+- Source path: `narrative-geopolitics/archive/sources/2026-06-25/source-mario-nawfal-barnes-breaking-gcc-attack-iran-rubio-meeting-iran-strike-vessel-hormuz-2026-06-25.md`
+- Line reference: `130`
+- Prior view: Previously regarded Israel as an utterly unreliable ally and strategic saboteur.
+- Revised view: Said he had revised that view after considering independent information and recent events.
+- Transcript excerpt: "As long as you are willing to have be open-minded to independent information, I could just see that I was wrong that Israel was an utterly unreliable ally."
+- Adjudication note: The passage contains a substantive first-person reversal of a prior political judgment. The transcript has some attribution and ASR noise, so this entry is retained as active but should be treated as lower-confidence than the cleaner admissions.
+- Status note: none
+- Forecast hooks: none.
+- External judgment links: none.
+
+### `VR-20260701-01` - ritter
+
+- Source path: `narrative-geopolitics/archive/sources/2026-07-01/source-scott-ritter-trump-briefed-on-all-out-war-scenario-in-iran-2026-07-01.md`
+- Line reference: `202`
+- Prior view: Initially treated Russia's 2022 action as a conventional war that would end quickly.
+- Revised view: Later understood it as a special military operation with a different objective and timeline.
+- Transcript excerpt: "I was wrong. It wasn't a war. It was a special military operation. I didn't understand that till later."
+- Adjudication note: The speaker explicitly identifies his earlier analytical framing as wrong and explains the revised model. The prior view and revision are stated in the same passage and concern his own analysis.
+- Status note: none
+- Forecast hooks: none.
+- External judgment links: none.
+
+### `VR-20260713-01` - johnson
+
+- Source path: `narrative-geopolitics/archive/sources/2026-07-13/source-larry-johnson-u-s-attacks-iran-now-iran-hits-back-as-hormuz-turns-into-a-firing-hell-2026-07-13.md`
+- Line reference: `65`
+- Prior view: Expected Trump to signal renewed diplomatic progress with Iran by the following morning.
+- Revised view: Withdrew that expectation after Trump escalated and reinstated the blockade.
+- Transcript excerpt: "I was giving Trump the benefit of the doubt that ... Trump would have come out with some statements like ... we're back on track. Well he didn't do that."
+- Adjudication note: The speaker identifies a near-term personal forecast, reports the contrary outcome, and explicitly calls himself wrong. This is a prediction revision rather than a general change of policy analysis.
+- Status note: none
+- Forecast hooks: none.
+- External judgment links: none.
+
+### `VR-20260715-01` - mercouris
+
+- Source path: `narrative-geopolitics/archive/sources/2026-07-15/source-zelensky-to-sack-kiev-defence-chief-drone-war-fails-eu-faces-gas-crisis-funds-kiev-buy-china-drones-2026-07-15.md`
+- Line reference: `83`
+- Prior view: Thought deep strikes inside Russia were conducted by Ukrainian sabotage cells operating locally.
+- Revised view: Understood the refinery attack as having been carried out by large Ukrainian aircraft-type drones.
+- Transcript excerpt: "I now understand that was wrong. And in fact, I understand that the attack on the arms refinery was indeed carried out by the big Ukrainian aircraft type drones."
+- Adjudication note: The speaker states the prior interpretation immediately before the correction and directly replaces it with a new explanation. The earlier July 7 episode independently preserves the sabotage-team interpretation.
+- Status note: none
+- Forecast hooks: none.
+- External judgment links: none.
 
 ### `VR-20260716-01` - mearsheimer
 
@@ -35,4 +348,18 @@ Near-misses never enter this ledger. Confirmed entries may be mirrored into voic
 - Revised view: Did not fully appreciate how well Iran would perform militarily in the fighting.
 - Transcript excerpt: "I thought all along the Iranians would do very well. Uh I thought they would shut the Strait of Hormuz, but I I did not fully appreciate how well Iran would do in in the fighting."
 - Adjudication note: This is a strict self-revision because the speaker explicitly contrasts a prior personal expectation with a stronger observed performance than he had appreciated. The prior view and revised view both appear in the same passage, the speaker is the featured voice, and the admission concerns his own analytical appreciation rather than a third party's error.
+- Status note: none
 - Forecast hooks: none.
+- External judgment links: `VJ-MEARSHEIMER-0001`.
+
+### `VR-20260719-01` - mcgovern
+
+- Source path: `narrative-geopolitics/archive/sources/2026-07-19/source-ray-mcgovern-iran-s-precision-strikes-on-jordan-send-shockwaves-across-the-gulf-2026-07-19.md`
+- Line reference: `66`
+- Prior view: Expected Gulf monarchies to recognize that they had backed the wrong power after observing the war's balance.
+- Revised view: Admitted that he was wrong to think they would have recognized that by then.
+- Transcript excerpt: "Now, I was wrong in thinking they would have woken up by now."
+- Adjudication note: The speaker explicitly withdraws a time-bound expectation about other states' behavior. Because the revision concerns his own forecast rather than asserting that the monarchies were wrong, it qualifies as a personal prediction revision.
+- Status note: none
+- Forecast hooks: none.
+- External judgment links: none.

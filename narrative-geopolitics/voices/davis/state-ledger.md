@@ -1,27 +1,10 @@
-# Daniel Davis State Ledger
+<!-- Retired compatibility surface. Canonical data lives in the external voice-judgment registry. -->
 
-Voice: `davis`  
-Profile: [README.md](README.md)  
-Source Index: [source-index.md](source-index.md)  
-Status: `internal`
+# Daniel L. Davis State Ledger (Retired)
 
-## State Contract
+This legacy path is retained for compatibility. Use [judgment-ledger.md](judgment-ledger.md) for the generated canonical reading surface.
 
-This ledger records documented expressed positions, not private beliefs.
+No substantive state is maintained in this file.
 
-## Active Trajectory
-
-| State ID | Proposition | State | First Seen | Last Seen | Expression Type | Source IDs | Daily Blocks | Forecast Hook | Revision Note |
-|---|---|---|---|---|---|---|---|---|---|
-| `STATE-DAVIS-0001` | Escalation may disrupt regional access without reliably restoring control or producing a decisive settlement. | `persistent` | `2026-07-19` | `2026-07-20` | `close-paraphrase` | `SRC-02,SRC-05` | [2026-07-20](../../work/daily/2026-07-20/synthesis.md) | `NG-20260720-F01` | Practical-force warning carried into the current day. |
-
-## Unclear / Disputed Continuity
-
-| State ID | Proposition | Why Unclear | Source IDs | Daily Blocks | Review Need |
-|---|---|---|---|---|---|
-
-## State Transitions
-
-| Date | State ID | Transition | Basis | Source IDs | Daily Block |
-|---|---|---|---|---|---|
-| `2026-07-20` | `STATE-DAVIS-0001` | `persistent` | practical-force framing recurs across solo and guest routes | `SRC-02,SRC-05` | [2026-07-20](../../work/daily/2026-07-20/synthesis.md) |
+<a id="state-davis-0001"></a>
+- `STATE-DAVIS-0001` -> [`VJ-DAVIS-0001`](judgment-ledger.md#vj-davis-0001)

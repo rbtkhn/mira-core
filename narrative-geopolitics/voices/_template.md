@@ -33,7 +33,7 @@ Check every modality that applies.
 
 ## State Continuity
 
-Canonical state ledger after instantiation: `state-ledger.md`
+Canonical external-voice reading surface after instantiation: `judgment-ledger.md`
 
 This ledger records the voice's documented expressed-position trajectory:
 what appears new, persistent, revised, abandoned, or unclear in the authorized

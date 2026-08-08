@@ -1,27 +1,10 @@
-# Alastair Crooke State Ledger
+<!-- Retired compatibility surface. Canonical data lives in the external voice-judgment registry. -->
 
-Voice: `crooke`  
-Profile: [README.md](README.md)  
-Source Index: [source-index.md](source-index.md)  
-Status: `internal`
+# Alastair Crooke State Ledger (Retired)
 
-## State Contract
+This legacy path is retained for compatibility. Use [judgment-ledger.md](judgment-ledger.md) for the generated canonical reading surface.
 
-This ledger records documented expressed positions, not private beliefs.
+No substantive state is maintained in this file.
 
-## Active Trajectory
-
-| State ID | Proposition | State | First Seen | Last Seen | Expression Type | Source IDs | Daily Blocks | Forecast Hook | Revision Note |
-|---|---|---|---|---|---|---|---|---|---|
-| `STATE-CROOKE-0001` | Escalation narrows diplomatic room and can turn a coercive campaign into a wider regional war. | `new` | `2026-07-20` | `2026-07-20` | `close-paraphrase` | `SRC-01` | [2026-07-20](../../work/daily/2026-07-20/synthesis.md) | `NG-20260720-F01` | First state entry in this pilot. |
-
-## Unclear / Disputed Continuity
-
-| State ID | Proposition | Why Unclear | Source IDs | Daily Blocks | Review Need |
-|---|---|---|---|---|---|
-
-## State Transitions
-
-| Date | State ID | Transition | Basis | Source IDs | Daily Block |
-|---|---|---|---|---|---|
-| `2026-07-20` | `STATE-CROOKE-0001` | `new` | first pilot extraction from the day source | `SRC-01` | [2026-07-20](../../work/daily/2026-07-20/synthesis.md) |
+<a id="state-crooke-0001"></a>
+- `STATE-CROOKE-0001` -> [`VJ-CROOKE-0001`](judgment-ledger.md#vj-crooke-0001)
