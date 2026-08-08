@@ -41,21 +41,21 @@ This run is grounded in the `2026-08-03` day batch already landed in the central
 | `SRC-08` | Pape | Mario Nawfal | cleaned-transcript | [2026-08-03 Pape](../../../archive/sources/2026-08-03/source-trump-bombs-iran-for-5-months-and-they-still-say-no-w-prof-robert-pape-2026-08-03.md) | TRUMP BOMBS IRAN FOR 5 MONTHS AND THEY STILL SAY NO — w/ Prof. Robert Pape |
 | `SRC-09` | Pape | Escalation Trap | cleaned-transcript | [2026-08-03 Pape](../../../archive/sources/2026-08-03/source-untitled-source-2026-08-03.md) | Breaking Analysis #10: Trump’s Illusion of Control Meets Escalation Reality |
 
-## Load-Bearing Source Anchors
+## Load-Bearing Quotes
 
-These are paraphrase anchors from the landed transcript titles and synthesis read, not exact quote anchors. Do not promote as verbatim quotation without transcript-level review.
+Candidate transcript quote anchors from unreviewed cleaned transcripts. Preserve as archive-grounded anchors, not human-verified verbatim publication quotes.
 
-| Source ID | Anchor | Why It Matters |
+| Source ID | Quote Anchor | Why It Matters |
 | --- | --- | --- |
-| `SRC-01` | Crooke frames Trump as trapped by the consequences of his own Iran policy choices. | Strategic overreach frame. |
-| `SRC-02` | Escobar foregrounds Iranian claims that Washington conceded on Hormuz. | Concession-sequence pressure. |
-| `SRC-03` | Baud foregrounds an Iranian ship-pressure signal in the Strait of Hormuz after U.S. statements. | Maritime defiance lane. |
-| `SRC-04` | Johnson foregrounds secret-talk claims and Iranian demands after reported U.S. concessions. | Negotiation sequence and verification risk. |
-| `SRC-05` | Sachs frames U.S. policy toward Iran and Russia as destructive overreach. | Wider strategic context. |
-| `SRC-06` | Mercouris treats Ukraine/Russia battlefield pressure as a test of Western capacity and credibility. | Secondary capacity lane. |
-| `SRC-07` | Ritter argues Russia is winning decisively, adding battlefield-confidence pressure to the Ukraine lane. | Secondary theater pressure test. |
-| `SRC-08` | Pape argues repeated bombing of Iran has not produced compliance. | Escalation-trap mechanism. |
-| `SRC-09` | Pape frames Trump's control narrative as colliding with escalation reality. | Forecast mechanism and control-risk frame. |
+| `SRC-01` | "There is not a solution that would give him a victory over Iran." | Strategic overreach frame. |
+| `SRC-02` | "Trump has no viable military or political exit or off-ramp other than a broader American retreat from West Asia." | Concession-sequence pressure. |
+| `SRC-03` | "What is important in the whole case is the negotiations between Iran and Oman." | Maritime defiance lane. |
+| `SRC-04` | "Absolutely not. We're going to continue, I think, to get these reports." | Negotiation sequence and verification risk. |
+| `SRC-05` | "The whole war was based on a absurd delusion, but the kind of delusion that fuels American foreign policy generally." | Wider strategic context. |
+| `SRC-06` | "The Ukrainian army is, as the Financial Times itself in an editorial admitted a few weeks ago, overstretched and exhausted." | Secondary capacity lane. |
+| `SRC-07` | "The Russians are waging a broadspectctrum war of attrition that goes beyond the battlefield." | Secondary theater pressure test. |
+| `SRC-08` | "Air power alone and air power plus the naval blockade is not doing the job." | Escalation-trap mechanism. |
+| `SRC-09` | "Airpower has not restored secure commercial transit through Hormuz. It has not broken Iran's regional leverage." | Forecast mechanism and control-risk frame. |
 
 ## Initial Claims
 

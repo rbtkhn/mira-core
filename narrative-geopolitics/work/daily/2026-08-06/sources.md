@@ -37,19 +37,19 @@ This run is grounded in the `2026-08-06` day batch already landed in the central
 | `SRC-06` | Mercouris | Alexander Mercouris | cleaned-transcript | [2026-08-06 Mercouris](../../../archive/sources/2026-08-06/source-1-russia-prepares-chernigov-offensive-china-to-block-drone-exports-worried-west-meets-russia-vienna-2026-08-06.md) | (1) Russia Prepares Chernigov Offensive; China To Block Drone Exports; Worried West Meets Russia Vienna |
 | `SRC-07` | Mercouris | The Duran | cleaned-transcript | [2026-08-06 Mercouris](../../../archive/sources/2026-08-06/source-1-russia-rearms-west-disarms-zelensky-wants-us-to-strike-russian-missile-launchers-2026-08-06.md) | (1) Russia Rearms, West Disarms. Zelensky Wants US to Strike Russian Missile Launchers |
 
-## Load-Bearing Source Anchors
+## Load-Bearing Quotes
 
-These are paraphrase anchors from the landed transcript titles and synthesis read, not exact quote anchors. Do not promote as verbatim quotation without transcript-level review.
+Candidate transcript quote anchors from unreviewed cleaned transcripts. Preserve as archive-grounded anchors, not human-verified verbatim publication quotes.
 
-| Source ID | Anchor | Why It Matters |
+| Source ID | Quote Anchor | Why It Matters |
 | --- | --- | --- |
-| `SRC-01` | Martyanov frames Iran as a strategic nightmare that leaves the United States with few workable force options. | Strategic feasibility pressure. |
-| `SRC-02` | Macgregor frames all-out war with Iran as increasingly difficult to avoid. | Escalation-warning lane. |
-| `SRC-03` | Blumenthal foregrounds press freedom and domestic narrative control under Trump. | Held domestic legitimacy lane. |
-| `SRC-04` | Mearsheimer argues drones cannot by themselves deliver Ukraine victory. | Technology-limit mechanism. |
-| `SRC-05` | Marandi centers the question of who started the war. | War-origin legitimacy lane. |
-| `SRC-06` | Mercouris links Russian offensive preparations, Chinese drone controls, and Western concern. | Ukraine/Russia material-capacity lane. |
-| `SRC-07` | Mercouris and The Duran frame Russia as rearming while the West disarms. | Industrial-depth pressure test. |
+| `SRC-01` | "They do not understand how to provide the industrial development of the country." | Strategic feasibility pressure. |
+| `SRC-02` | "There is no evidence whatsoever that I can find from anybody who is in a position to know." | Escalation-warning lane. |
+| `SRC-03` | "Any journalist who challenges power should be watching this case because it could be your phone, your devices." | Held domestic legitimacy lane. |
+| `SRC-04` | "Hitting Russia with drones alone is going to cause the Russians to throw up their hands and surrender." | Technology-limit mechanism. |
+| `SRC-05` | "Chemical weapons were given to Saddam. And the list goes on. I mean, maximum pressure sanctions." | War-origin legitimacy lane. |
+| `SRC-06` | "Patriot missiles, the PAC 3es are now in very short supply, that there is no means for Ukraine to obtain more." | Ukraine/Russia material-capacity lane. |
+| `SRC-07` | "I mean, there are desperately few air defense systems left, and if you won't do that, that's not because you can't." | Industrial-depth pressure test. |
 
 ## Initial Claims
 
