@@ -1,0 +1,549 @@
+{
+  "as_of_utc": "2026-08-03T22:46:47Z",
+  "baseline": {
+    "forecasts": [
+      {
+        "accountable": true,
+        "claim": "Within 21 days, the Lebanon-Hormuz linkage will remain explicit in Iran-facing public bargaining, with no clean return to a narrow nuclear-only negotiation frame.",
+        "crisis_object": "Lebanon-Hormuz linkage durability",
+        "due": true,
+        "hook_id": "NG-20260707-F01",
+        "impact": "unaffected",
+        "probability_band": "likely",
+        "review_date": "2026-07-28",
+        "run_date": "2026-07-07",
+        "sha256": "66764e756408fd0303e45da2d29400b922e34c49ecb1e63b0bff6f25f215088f",
+        "source_path": "narrative-geopolitics/work/forecasts/forecast-ledger.md",
+        "status": "open"
+      },
+      {
+        "accountable": true,
+        "claim": "Within 30 days, U.S. or Israeli public signaling will again test coercive escalation because the old transit and sanctions baseline cannot be quietly restored.",
+        "crisis_object": "Renewed coercive signaling",
+        "due": false,
+        "hook_id": "NG-20260707-F02",
+        "impact": "strengthens",
+        "probability_band": "likely",
+        "review_date": "2026-08-07",
+        "run_date": "2026-07-07",
+        "sha256": "66764e756408fd0303e45da2d29400b922e34c49ecb1e63b0bff6f25f215088f",
+        "source_path": "narrative-geopolitics/work/forecasts/forecast-ledger.md",
+        "status": "open"
+      },
+      {
+        "accountable": true,
+        "claim": "Within 21 days, at least one new U.S., Israeli, or Gulf-side attempt to bypass or dilute Iranian transit authority will trigger another visible coercive test.",
+        "crisis_object": "Hormuz transit governance breakdown",
+        "due": true,
+        "hook_id": "NG-20260708-F02",
+        "impact": "complicates",
+        "probability_band": "likely",
+        "review_date": "2026-07-29",
+        "run_date": "2026-07-08",
+        "sha256": "66764e756408fd0303e45da2d29400b922e34c49ecb1e63b0bff6f25f215088f",
+        "source_path": "narrative-geopolitics/work/forecasts/forecast-ledger.md",
+        "status": "open"
+      },
+      {
+        "accountable": true,
+        "claim": "By `2026-08-16`, at least one major U.S., GCC, Iranian, or Ansarallah/Yemeni public statement will explicitly link Bab el-Mandeb or Red Sea security to the Hormuz/Iran war settlement rather than treating it as a separate Yemen-Saudi issue.",
+        "crisis_object": "Dual chokepoint energy-flow control",
+        "due": false,
+        "hook_id": "NG-20260716-F01",
+        "impact": "unaffected",
+        "probability_band": "likely",
+        "review_date": "2026-08-16",
+        "run_date": "2026-07-16",
+        "sha256": "66764e756408fd0303e45da2d29400b922e34c49ecb1e63b0bff6f25f215088f",
+        "source_path": "narrative-geopolitics/work/forecasts/forecast-ledger.md",
+        "status": "open"
+      },
+      {
+        "accountable": true,
+        "claim": "By `2026-08-19`, at least one major July follow-on source or official/regional posture signal will still frame the Iran war around U.S. regional base access, host-state exposure, or relocation/protection of U.S. assets rather than only airstrikes or nuclear bargaining.",
+        "crisis_object": "Can Washington sustain simultaneous coercive pressure against Iran and Russia when the bases, ports, corridors, and allies that carry that pressure become targets of the opposing strategy?",
+        "due": false,
+        "hook_id": "NG-20260719-F01",
+        "impact": "strengthens",
+        "probability_band": "likely",
+        "review_date": "2026-08-19",
+        "run_date": "2026-07-19",
+        "sha256": "66764e756408fd0303e45da2d29400b922e34c49ecb1e63b0bff6f25f215088f",
+        "source_path": "narrative-geopolitics/work/forecasts/forecast-ledger.md",
+        "status": "open"
+      },
+      {
+        "accountable": true,
+        "claim": "Over the next 7–14 days, political and military pressure will shift toward maritime chokepoints, bases, and energy access rather than a decisive ground settlement.",
+        "crisis_object": "coalition access versus regional denial",
+        "due": true,
+        "hook_id": "NG-20260720-F01",
+        "impact": "strengthens",
+        "probability_band": "likely",
+        "review_date": "2026-08-03",
+        "run_date": "2026-07-20",
+        "sha256": "66764e756408fd0303e45da2d29400b922e34c49ecb1e63b0bff6f25f215088f",
+        "source_path": "narrative-geopolitics/work/forecasts/forecast-ledger.md",
+        "status": "open"
+      },
+      {
+        "accountable": true,
+        "claim": "Within 14 days, the Iran conflict will show another cycle of limited strikes, threats, or pressure on bases/infrastructure without a durable settlement.",
+        "crisis_object": "Iran conflict escalation cycle",
+        "due": false,
+        "hook_id": "NG-20260721-F01",
+        "impact": "strengthens",
+        "probability_band": "likely",
+        "review_date": "2026-08-04",
+        "run_date": "2026-07-21",
+        "sha256": "66764e756408fd0303e45da2d29400b922e34c49ecb1e63b0bff6f25f215088f",
+        "source_path": "narrative-geopolitics/work/forecasts/forecast-ledger.md",
+        "status": "open"
+      },
+      {
+        "accountable": true,
+        "claim": "Within 30 days, Russia-Iran alignment will produce public signaling or a concrete cooperation dispute tied to U.S. pressure.",
+        "crisis_object": "Russia-Iran alignment signaling",
+        "due": false,
+        "hook_id": "NG-20260721-F02",
+        "impact": "unaffected",
+        "probability_band": "plausible",
+        "review_date": "2026-08-20",
+        "run_date": "2026-07-21",
+        "sha256": "66764e756408fd0303e45da2d29400b922e34c49ecb1e63b0bff6f25f215088f",
+        "source_path": "narrative-geopolitics/work/forecasts/forecast-ledger.md",
+        "status": "open"
+      },
+      {
+        "accountable": true,
+        "claim": "Within 14 days, at least one public U.S., Iranian, Saudi, or Yemeni posture change will explicitly link maritime access to infrastructure protection, alliance participation, or security guarantees.",
+        "crisis_object": "Iran-war participation-control crisis",
+        "due": false,
+        "hook_id": "NG-20260722-F01",
+        "impact": "strengthens",
+        "probability_band": "likely",
+        "review_date": "2026-08-05",
+        "run_date": "2026-07-22",
+        "sha256": "66764e756408fd0303e45da2d29400b922e34c49ecb1e63b0bff6f25f215088f",
+        "source_path": "narrative-geopolitics/work/forecasts/forecast-ledger.md",
+        "status": "open"
+      }
+    ],
+    "judgments": [
+      {
+        "as_of": "2026-07-24",
+        "crisis_object": "Can US coercion restore negotiable regional access without triggering a connected retaliation cycle through Hormuz, Bab el-Mandeb, Gulf bases, and the Ukraine theater?",
+        "model_id": "JUDG-20260724",
+        "path": "narrative-geopolitics/work/daily/2026-07-24/judgment.md",
+        "sha256": "1f92c9fe67360e03963fe6266af28afc2cb2914765dfc116809b56473dbf12a7",
+        "summary": "The 2026-07-24 batch links Iran, Yemen, Gulf access, and Ukraine into one escalation sequence."
+      },
+      {
+        "as_of": "2026-07-25",
+        "crisis_object": "Can force reopen maritime-energy access without widening the war?",
+        "model_id": "JUDG-20260725",
+        "path": "narrative-geopolitics/work/daily/2026-07-25/judgment.md",
+        "sha256": "bf92c8091dbb5e14acf21e65da18e8d23afb83799dc6f62261289e49f0276f47",
+        "summary": "The archive now contains a cross-voice same-day convergence on maritime-energy access as the binding escalation constraint."
+      },
+      {
+        "as_of": "2026-07-26",
+        "crisis_object": "Can the United States and its partners widen pressure on Iran without exhausting defensive stocks and opening a retaliatory Gulf-Red Sea-Ukraine escalation chain?",
+        "model_id": "JUDG-20260726",
+        "path": "narrative-geopolitics/work/daily/2026-07-26/judgment.md",
+        "sha256": "7fa57a66a4f8abd1432fdc2292ab1ebfc44045ac7d3c43a3c2a254af72968836",
+        "summary": "The archive now contains a five-voice same-day convergence on widening retaliation and finite capacity as the binding escalation constraint."
+      },
+      {
+        "as_of": "2026-07-27",
+        "crisis_object": "Can coalition coercion produce an Iran settlement before material and regional constraints force an off-ramp?",
+        "model_id": "JUDG-20260727",
+        "path": "narrative-geopolitics/work/daily/2026-07-27/judgment.md",
+        "sha256": "96ce81e57f7b871be3f9f371480b09af49b507e5dc569d20c5b5772dcd9875e4",
+        "summary": "The July 27 batch turns a general “war may widen” concern into a more specific non-exit mechanism: tactical damage is not converting into political compliance while regional and material constraints accumulate."
+      },
+      {
+        "as_of": "2026-07-28",
+        "crisis_object": "Caspian strike as a bridge between the Ukraine and Iran theaters",
+        "model_id": "JUDG-20260728",
+        "path": "narrative-geopolitics/work/daily/2026-07-28/judgment.md",
+        "sha256": "95ce8ff9859aa5321e417f46855a705b1dacbedb78e07e61336f4df9703b7ba4",
+        "summary": "Two Helmer interviews on July 28 connect the Caspian incident to Russia–Iran intelligence cooperation and a possible Russian retaliation test."
+      },
+      {
+        "as_of": "2026-07-30",
+        "crisis_object": "Whether renewed strikes can compel concessions without widening the actor field beyond diplomatic control",
+        "model_id": "JUDG-20260730",
+        "path": "narrative-geopolitics/work/daily/2026-07-30/judgment.md",
+        "sha256": "2f25e2eef13a4052ce7dc91c72554783333bc2900d8bb3b94d1acfc17367ce9a",
+        "summary": "Compared with July 29, the batch clarifies the control problem linking strikes, widening participation, and diplomatic channels."
+      },
+      {
+        "as_of": "2026-08-01",
+        "crisis_object": "Can the United States and Israel sustain a wider infrastructure campaign against Iran without losing regional basing, escalation control, and economic resilience?",
+        "model_id": "JUDG-20260801",
+        "path": "narrative-geopolitics/work/daily/2026-08-01/judgment.md",
+        "sha256": "2820e2ad5dfc8ad4771e96827134e34e1ad2e11cfdd9bd753b915333d89a039d",
+        "summary": "On 2026-08-01, the source batch shifted focus from strike possibility to infrastructure escalation and coalition exposure."
+      },
+      {
+        "as_of": "2026-08-02",
+        "crisis_object": "Who can govern commercially tolerable Hormuz passage while preserving coalition access and avoiding regional infrastructure escalation?",
+        "model_id": "JUDG-20260802",
+        "path": "narrative-geopolitics/work/daily/2026-08-02/judgment.md",
+        "sha256": "b1c0d600ae5c175fac06bff93447eee8c95a629d3676fdbe2b259cac614f8d35",
+        "summary": "The August 2 batch makes infrastructure and passage governance the clearest cross-source mechanism, while adding a Ukraine logistics comparison."
+      }
+    ],
+    "lookback_days": 30
+  },
+  "brief_date": "2026-08-03",
+  "candidates": [
+    {
+      "confidence_boundary": "Washington and Tehran dispute whether direct talks exist; no durable ceasefire, agreed agenda, or confirmed transit mechanism exists.",
+      "discovery": {
+        "is_evidence": false,
+        "provider": "World Monitor and broad web search",
+        "reference": "https://www.world-monitor.news/"
+      },
+      "disposition": "included",
+      "domain": "maritime-energy",
+      "forecast_refs": [
+        "NG-20260707-F02",
+        "NG-20260708-F02",
+        "NG-20260719-F01",
+        "NG-20260720-F01",
+        "NG-20260721-F01",
+        "NG-20260722-F01"
+      ],
+      "geography": "West Asia",
+      "id": "OBS-01",
+      "impact": "complicates",
+      "interpretation": "This complicates a ceasefire narrative and strengthens the model that Gulf exposure and passage governance constrain escalation. The pause is operational; the channel is not mutually defined.",
+      "kind": "development",
+      "materiality": "It changes near-term strike risk and pressures forecasts on signaling, maritime access, coalition exposure, and another escalation cycle.",
+      "model_refs": [
+        "JUDG-20260727",
+        "JUDG-20260730",
+        "JUDG-20260801",
+        "JUDG-20260802"
+      ],
+      "observation": "Trump said Gulf leaders helped defer major new strikes and called planned talks Iran's last chance. Tehran denied direct U.S. talks, describing Oman talks on temporary safe passage through Hormuz.",
+      "observed_at_utc": "2026-08-03T04:05:18Z",
+      "reality": {
+        "assessment_refs": [],
+        "audited_at_utc": "2026-08-03T22:40:00Z",
+        "claim_refs": [],
+        "confidence_effect": "No exact atomic lattice claim matches this observation; interpretation remains provisional.",
+        "epistemic_state": {
+          "claims": [],
+          "status": "not-in-lattice"
+        },
+        "lattice_paths": [],
+        "match_status": "none",
+        "relationship": "context-only"
+      },
+      "related_observations": [
+        {
+          "candidate_id": "REL-01",
+          "relationship": "qualifies"
+        }
+      ],
+      "retrieved_at_utc": "2026-08-03T22:40:00Z",
+      "selection_reason": "Highest-impact change to Hormuz-access and coalition-exposure models.",
+      "title": "Gulf pressure buys a pause, but not a shared negotiating frame",
+      "upstream": {
+        "freshness": "fresh",
+        "lineage_root": "ap-20260803-trump-iran-war-gulf-allies",
+        "provider": "Associated Press",
+        "source_type": "wire",
+        "url": "https://apnews.com/article/trump-iran-war-gulf-allies-fb81a68f999f4a7b0498ae71cbffe8e5"
+      }
+    },
+    {
+      "confidence_boundary": "Belligerent claims were not independently confirmed in full. The report establishes strike pressure, not lasting effects at every target.",
+      "discovery": {
+        "is_evidence": false,
+        "provider": "Broad web search",
+        "reference": "https://apnews.com/hub/russia-ukraine"
+      },
+      "disposition": "included",
+      "domain": "military-capacity",
+      "forecast_refs": [
+        "NG-20260719-F01"
+      ],
+      "geography": "Eastern Europe",
+      "id": "OBS-02",
+      "impact": "strengthens",
+      "interpretation": "This strengthens the cross-theater model: infrastructure coercion is broadening while high-end defensive stocks remain a shared constraint.",
+      "kind": "development",
+      "materiality": "The strike cycle and interceptor pressure affect judgments about finite stocks and vulnerable bases, corridors, and energy infrastructure.",
+      "model_refs": [
+        "JUDG-20260724",
+        "JUDG-20260726",
+        "JUDG-20260728"
+      ],
+      "observation": "AP reported Russian glide-bomb attacks on Zaporizhzhia and Ukrainian strikes on the Saratov refinery, Engels air base, and a Kaluga oil depot amid continued Patriot scarcity.",
+      "observed_at_utc": "2026-08-03T09:33:11Z",
+      "reality": {
+        "assessment_refs": [],
+        "audited_at_utc": "2026-08-03T22:40:00Z",
+        "claim_refs": [],
+        "confidence_effect": "No exact atomic lattice claim matches this observation; interpretation remains provisional.",
+        "epistemic_state": {
+          "claims": [],
+          "status": "not-in-lattice"
+        },
+        "lattice_paths": [],
+        "match_status": "none",
+        "relationship": "context-only"
+      },
+      "related_observations": [],
+      "retrieved_at_utc": "2026-08-03T22:40:00Z",
+      "selection_reason": "Fresh evidence on the cross-theater capacity model.",
+      "title": "Ukraine and Russia widen the reciprocal infrastructure-air-defense contest",
+      "upstream": {
+        "freshness": "fresh",
+        "lineage_root": "ap-20260803-russia-ukraine-strikes",
+        "provider": "Associated Press",
+        "source_type": "wire",
+        "url": "https://apnews.com/article/russia-ukraine-war-glide-bombs-patriots-zaporizhzhia-9e4000f63b54cf814704ff60373f2bb9"
+      }
+    },
+    {
+      "confidence_boundary": "AP reported the remarks; an official program corroborates the setting. No draft code, timetable, or observed posture change followed.",
+      "discovery": {
+        "is_evidence": false,
+        "provider": "Broad web search",
+        "reference": "https://apnews.com/hub/asia-pacific"
+      },
+      "disposition": "included",
+      "domain": "alliance-posture",
+      "forecast_refs": [],
+      "geography": "Indo-Pacific",
+      "id": "OUT-01",
+      "impact": "no-material-effect",
+      "interpretation": "Harder deterrence signaling and claimed diplomatic progress can coexist; neither statement demonstrates changed maritime behavior.",
+      "kind": "outlier",
+      "materiality": "Outside the Iran-centered baseline, this becomes consequential if diplomacy or deployments alter the operating environment.",
+      "model_refs": [],
+      "observation": "At a Kuala Lumpur conference, Admiral Samuel Paparo opposed regional domination while ASEAN's secretary-general said a South China Sea code was closer to completion.",
+      "observed_at_utc": "2026-08-03T08:57:29Z",
+      "reality": {
+        "assessment_refs": [],
+        "audited_at_utc": "2026-08-03T22:40:00Z",
+        "claim_refs": [],
+        "confidence_effect": "No exact atomic lattice claim matches this observation; interpretation remains provisional.",
+        "epistemic_state": {
+          "claims": [],
+          "status": "not-in-lattice"
+        },
+        "lattice_paths": [],
+        "match_status": "none",
+        "relationship": "context-only"
+      },
+      "related_observations": [
+        {
+          "candidate_id": "REL-02",
+          "relationship": "corroborates"
+        }
+      ],
+      "retrieved_at_utc": "2026-08-03T22:40:00Z",
+      "selection_reason": "Consequential Indo-Pacific blind-spot test beyond the active baseline.",
+      "title": "Indo-Pacific deterrence rhetoric hardens while ASEAN claims code progress",
+      "upstream": {
+        "freshness": "fresh",
+        "lineage_root": "ap-20260803-indo-pacific-conference",
+        "provider": "Associated Press",
+        "source_type": "wire",
+        "url": "https://apnews.com/article/us-south-china-sea-indo-pacific-8b2b98dad27f8420c7bc217a31354b4a"
+      }
+    },
+    {
+      "confidence_boundary": "The proposal is neither agreed nor implemented.",
+      "discovery": {
+        "is_evidence": false,
+        "provider": "Broad web search",
+        "reference": "https://www.google.com/search?q=Iran+Oman+Hormuz+August+3+2026"
+      },
+      "disposition": "related",
+      "domain": "maritime-energy",
+      "forecast_refs": [],
+      "geography": "West Asia",
+      "id": "REL-01",
+      "impact": "no-material-effect",
+      "interpretation": "This narrows Washington's negotiating claim without negating the pause.",
+      "kind": "development",
+      "materiality": "It constrains the reported scope of diplomacy.",
+      "model_refs": [],
+      "observation": "El País reported an Omani divided-route proposal, suggesting the talks may concern passage mechanics rather than a comprehensive settlement.",
+      "observed_at_utc": "2026-08-03T03:33:05Z",
+      "reality": {
+        "assessment_refs": [],
+        "audited_at_utc": "2026-08-03T22:40:00Z",
+        "claim_refs": [],
+        "confidence_effect": "No exact atomic lattice claim matches this observation; interpretation remains provisional.",
+        "epistemic_state": {
+          "claims": [],
+          "status": "not-in-lattice"
+        },
+        "lattice_paths": [],
+        "match_status": "none",
+        "relationship": "context-only"
+      },
+      "related_observations": [],
+      "retrieved_at_utc": "2026-08-03T22:40:00Z",
+      "selection_reason": "Qualification of the negotiating scope.",
+      "title": "Oman's route proposal narrows the immediate diplomatic object",
+      "upstream": {
+        "freshness": "fresh",
+        "lineage_root": "elpais-20260803-iran-oman-route",
+        "provider": "El País",
+        "source_type": "attributed-reporting",
+        "url": "https://elpais.com/internacional/2026-08-03/trump-asegura-que-las-conversaciones-con-iran-se-reanudaran-este-lunes.html"
+      }
+    },
+    {
+      "confidence_boundary": "A program confirms scheduling, not policy change.",
+      "discovery": {
+        "is_evidence": false,
+        "provider": "Broad web search",
+        "reference": "https://www.pacom.mil/"
+      },
+      "disposition": "related",
+      "domain": "alliance-posture",
+      "forecast_refs": [],
+      "geography": "Indo-Pacific",
+      "id": "REL-02",
+      "impact": "no-material-effect",
+      "interpretation": "The program corroborates the setting, not the remarks' effect.",
+      "kind": "outlier",
+      "materiality": "It establishes the official conference context.",
+      "model_refs": [],
+      "observation": "The official program scheduled Paparo, Gilberto Teodoro, and Kao Kim Hourn to address the August 3 conference.",
+      "observed_at_utc": "2026-08-03T00:30:00Z",
+      "reality": {
+        "assessment_refs": [],
+        "audited_at_utc": "2026-08-03T22:40:00Z",
+        "claim_refs": [],
+        "confidence_effect": "No exact atomic lattice claim matches this observation; interpretation remains provisional.",
+        "epistemic_state": {
+          "claims": [],
+          "status": "not-in-lattice"
+        },
+        "lattice_paths": [],
+        "match_status": "none",
+        "relationship": "context-only"
+      },
+      "related_observations": [],
+      "retrieved_at_utc": "2026-08-03T22:40:00Z",
+      "selection_reason": "Official corroboration of the event and speakers.",
+      "title": "Official program confirms the Kuala Lumpur security forum",
+      "upstream": {
+        "freshness": "fresh",
+        "lineage_root": "usindopacom-milops-2026-program",
+        "provider": "U.S. Indo-Pacific Command",
+        "source_type": "official",
+        "url": "https://www.pacom.mil/Portals/55/Documents/Legal/MILOPS%202026%20IMAGES/MILOPS%202026%20DRAFT%20Program%20as%20of%207%20May%202026.pdf?ver=u9JA83KYHmdqekYpBcthTA%3D%3D"
+      }
+    }
+  ],
+  "coverage": {
+    "domains": [
+      "maritime-energy",
+      "military-capacity",
+      "alliance-posture"
+    ],
+    "geographies": [
+      "West Asia",
+      "Eastern Europe",
+      "Indo-Pacific"
+    ],
+    "limitations": [
+      "Selective coverage is not comprehensive.",
+      "World Monitor's live feed remained at a connecting state and supplied no evidence.",
+      "Washington and Tehran describe different negotiating channels.",
+      "Belligerent strike claims were not independently confirmed in full."
+    ],
+    "lineage_roots_reviewed": 5,
+    "retrieval_status": "healthy",
+    "scope": "selective-global",
+    "upstream_sources_reviewed": 3
+  },
+  "gaps": [
+    {
+      "consequence": "It supplied neither evidence nor additional geographic discovery.",
+      "description": "World Monitor remained at a connecting state with no recoverable current payload or timestamps.",
+      "disposition": "recorded",
+      "domain": "alliance-posture",
+      "geography": "Indo-Pacific",
+      "id": "GAP-01",
+      "type": "failed"
+    }
+  ],
+  "material_change": true,
+  "morning_judgment": "A negotiated pause lacks a common negotiation: Gulf pressure deferred a U.S. strike, but Washington and Tehran describe different channels. Access governance still sets the escalation ceiling, while reciprocal Russia-Ukraine strikes keep cross-theater capacity pressure active.",
+  "renderer_version": "2.1",
+  "research": {
+    "geography": "global",
+    "mode": "scan",
+    "output": "five-minute-selective-global-update",
+    "retrieved_at_utc": "2026-08-03T22:40:00Z",
+    "stop_condition": "Four material developments plus one outlier or visibility gap, or documented exhaustion."
+  },
+  "schema_version": "2.1",
+  "selected_development_ids": [
+    "OBS-01",
+    "OBS-02"
+  ],
+  "selected_outlier_or_gap": {
+    "id": "OUT-01",
+    "kind": "candidate"
+  },
+  "watch": [
+    {
+      "id": "WATCH-01",
+      "observable": "A jointly acknowledged agenda, participant list, or Hormuz transit mechanism.",
+      "source_refs": [
+        "OBS-01",
+        "REL-01",
+        "JUDG-20260802"
+      ],
+      "timing": "Next 24-72 hours"
+    },
+    {
+      "id": "WATCH-02",
+      "observable": "Whether the pause survives without attacks on bases, ships, or infrastructure.",
+      "source_refs": [
+        "OBS-01",
+        "NG-20260721-F01",
+        "NG-20260722-F01"
+      ],
+      "timing": "By 2026-08-05"
+    },
+    {
+      "id": "WATCH-03",
+      "observable": "Patriot delivery, licensing, or redeployment that changes Ukrainian capacity.",
+      "source_refs": [
+        "OBS-02",
+        "JUDG-20260726",
+        "NG-20260719-F01"
+      ],
+      "timing": "Next seven days"
+    },
+    {
+      "id": "WATCH-04",
+      "observable": "Draft South China Sea code language or changed maritime posture.",
+      "source_refs": [
+        "OUT-01",
+        "REL-02"
+      ],
+      "timing": "Next seven days"
+    }
+  ],
+  "window": {
+    "end_utc": "2026-08-03T22:46:47Z",
+    "hours": 24,
+    "start_utc": "2026-08-02T22:46:47Z"
+  }
+}
