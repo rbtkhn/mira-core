@@ -140,6 +140,18 @@ IDs, Reality Check state, coverage limitations, lineage metadata, and watch
 support references into the Analyst's Note. A rendered brief above 1,000 words
 fails closed before either canonical file changes.
 
+Forecast rendering separates observation pressure from review administration
+without changing receipt schema `2.1`. Every forecast whose impact is not
+`unaffected` must be referenced by a selected material development, and every
+forecast referenced by a selected material development must carry a pressure
+label. Render pressured claims first, due forecasts with no new pressure in a
+separate subsection, and one count of forecasts that are both unaffected and
+not due. A due-and-pressured forecast appears only once, under pressure. Order
+pressured rows due-first and then by review date and hook ID; order due-only
+rows by review date and hook ID. Omit repetitive `not due` prose, preserve the
+complete forecast claim before hook metadata, and never infer resolution from
+the Morning Brief.
+
 ## Authority and pilot boundary
 
 - Do not land or relabel archive evidence.

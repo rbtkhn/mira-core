@@ -36,7 +36,7 @@ Generated after the canonical files are issue-ready:
 
 - `issue.md`
 
-Generated in the following morning cadence when requested:
+Generated only by a separate live-research experiment when explicitly requested:
 
 - `narrative-geopolitics/work/morning-brief/YYYY-MM-DD.md`
 
@@ -108,9 +108,11 @@ block a justified dense-batch exception.
   substantive delta, keep the intake archive-only and do not create a daily
   packet.
 - Keep `daily-brief.md` internal until intentionally promoted.
-- Treat `morning-brief` as a bounded carry-forward from an explicitly named
-  prior synthesis; it is not a new daily synthesis and does not require a
-  manifest batch for the brief date.
+- Treat `morning-brief` as a local, opt-in current-signal experiment with a
+  frozen research receipt. It may compare provisional observations with recent
+  judgments and accountable open forecasts, but it does not revise this daily
+  contract, create a daily synthesis, or require a manifest batch for the brief
+  date.
 - Keep `issue.md` internal reader-facing; generation is not publication.
 - Declare issue membership in the synthesis `Issue Story Desk`; require matching `Issue Copy` in `daily-brief.md` and regenerate rather than hand-editing `issue.md`.
 - Do not revive the old `public-brief.md` contract.

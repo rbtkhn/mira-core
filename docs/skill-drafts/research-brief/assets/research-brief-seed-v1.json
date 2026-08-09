@@ -1,0 +1,35 @@
+{
+  "schema": "research-brief-seed-v1",
+  "producer": {
+    "workflow": "<reality-handoff | world-monitor | continuity-triage>",
+    "item_id": "<producer-scoped item identifier>",
+    "source_refs": ["<repository path, canonical ID, or upstream URL>" ]
+  },
+  "decision_context": "<decision the proposed research may inform>",
+  "candidate_question": "<one provisional bounded question>",
+  "scope_hints": {
+    "actors": [],
+    "geography": [],
+    "time_window": null,
+    "languages": []
+  },
+  "known_context": [],
+  "unresolved_gaps": ["<research-addressable gap>"],
+  "rival_hints": [],
+  "routing_hint": {
+    "workflow": "<supported destination workflow>",
+    "reason": "<advisory routing reason>"
+  },
+  "identifiers": {
+    "canonical_claim_id": null,
+    "forecast_ids": [],
+    "reality_ids": [],
+    "source_ids": []
+  },
+  "authority": {
+    "execute": false,
+    "mutate": false,
+    "publish": false,
+    "communicate": false
+  }
+}

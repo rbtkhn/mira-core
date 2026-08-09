@@ -1,0 +1,42 @@
+{
+  "schema": "research-execution-handoff-v1",
+  "decision_and_use": "<decision or artifact this research will inform>",
+  "focal_question": "<one bounded question>",
+  "scope": {
+    "actors": ["<actor>"],
+    "geography": ["<geography>"],
+    "time_window": "<bounded time window>",
+    "observation_cutoff": "<ISO-8601 timestamp or explicit cutoff>",
+    "coverage": "<global or bounded>",
+    "output_form": "<requested output form>"
+  },
+  "research_contract": {
+    "research_questions": ["<atomic research question>"],
+    "evidence_plan": "<source, language, and lineage requirements>",
+    "rival_explanations": ["<credible rival explanation>"],
+    "contradiction_protocol": "<how conflicting evidence remains visible>",
+    "finding_format": "<required finding fields>",
+    "stop_condition": "<completion bar and unresolved-gap rule>"
+  },
+  "destination": {
+    "workflow": "<morning-brief | reality-check | world-monitor | intake | geopolitical-synthesis | external-research>",
+    "reason": "<why this workflow fits>",
+    "compatibility": "<ready | needs-scope-normalization | needs-claim-resolution | incompatible>",
+    "reasons": ["<deterministic compatibility reason>"]
+  },
+  "prerequisites": {
+    "canonical_claim_id": null,
+    "world_monitor_objective": null,
+    "supplied_source_body": false,
+    "manifest_backed_date": false,
+    "explicit_execution_request": false
+  },
+  "authority": {
+    "execute": false,
+    "mutate": false,
+    "publish": false,
+    "communicate": false
+  },
+  "origin_seed": null,
+  "disposition": "<ready | needs-scope-normalization | needs-claim-resolution | incompatible>"
+}

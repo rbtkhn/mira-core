@@ -41,6 +41,19 @@ When the operator says `world-monitor`, asks for a World Monitor scan, or asks
 to use World Monitor as a Narrative Systems source, read
 `docs/skill-drafts/world-monitor/SKILL.md` completely and follow it.
 
+When the operator says exact `research-brief`, asks for a research plan or
+research assignment, asks to design an investigation or source strategy, or
+asks what a researcher should investigate, read
+`docs/skill-drafts/research-brief/SKILL.md` completely and follow it. This route
+designs the research contract only. Do not use it for requests to conduct
+research, retrieve sources, produce sourced findings or analytical reports, or
+run `morning-brief`.
+
+Treat the unhyphenated phrase `research brief` as ambiguous when the surrounding
+request does not distinguish a research plan from a researched report. Ask one
+question -- "Do you want an investigation plan or sourced findings?" -- before
+choosing a workflow. Do not browse while resolving that ambiguity.
+
 When the operator says `archive-repair`, asks to repair an existing archive
 source, or requests ASR/sectioning repair, read
 `docs/skill-drafts/archive-repair/SKILL.md` completely and follow it.

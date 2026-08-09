@@ -1,100 +1,93 @@
 ---
 name: archive-repair
-description: Governed repair of Narrative Geopolitics archive sources, including bounded ASR normalization, transcript sectioning, repair audits, dry-runs, diffs, and post-repair archive/manifest validation. Use when an existing archive source needs correction or sectioning; do not use for ordinary intake, synthesis, or unrestricted bulk rewriting.
+description: Governed repair of existing Narrative Geopolitics archive sources through bounded metadata normalization, deterministic ASR repair, semantic sectioning, or wrapper trimming. Use for repair inspection, digest-bound dry-runs, and explicitly authorized repair execution; do not use for intake, synthesis, factual verification, or unrestricted bulk rewriting.
 ---
 
 # Archive Repair
 
-Repair only an explicit, bounded archive scope. Treat the archive source body
-as source truth and make the smallest reversible change that improves
-retrieval or analysis without silently changing meaning.
+Repair only an explicit, bounded set of existing archive sources. Treat source
+body wording as source truth and apply exactly one approved repair class.
 
-## Modes
+## Modes and authority
 
-Choose one mode before touching files:
+- Use `archive-audit` to diagnose metadata, manifest membership, ASR state,
+  sectioning state, and approved-host status without proposing changed bytes.
+- Use `--dry-run` to render the exact proposed bytes, diff, input/output hashes,
+  manifest hash, and plan digest without writing.
+- Use `--execute --plan-digest DIGEST` only after a direct explicit command for
+  the visible class and target set.
 
-- `inspect`: read-only audit of metadata, ASR state, sectioning state, source
-  paths, manifest parity, and likely repair issues.
-- `dry-run`: preview the exact files, transformations, statuses, and expected
-  diffs without writing.
-- `execute`: apply only the explicitly approved bounded repair, then validate
-  the result.
+A menu navigation, archive-query result, dry-run, or plan digest grants no
+authority. The digest binds execution to reviewed bytes; it is not a
+capability token.
 
-A bare menu selection never authorizes `execute`. Require a direct explicit
- repair command for mutation.
+## Scope
 
-## Required scope
+Accept only repository-relative, manifest-backed Markdown files contained
+under `narrative-geopolitics/archive/sources`. Reject absolute paths,
+traversal, globs, directories, missing files, duplicate targets, duplicate or
+missing manifest membership, escaping links, and dirty execution targets.
 
-Require at least one of:
-
-- an explicit file list;
-- an exact date or date range;
-- a named voice or host, with the resulting file set printed before action.
-
-Never infer a whole-corpus repair from a general request. Preserve unrelated
-working-tree changes and stop if the target set is ambiguous.
+Use `archive-query` when a date, voice, host, or channel must be resolved into
+an operator-visible file set. Treat that result as derived scope evidence, not
+authority. Before planning or execution, re-read the source manifest and
+independently verify every target path and host route.
 
 ## Repair classes
 
-Keep these classes separate and report each result independently:
+Choose exactly one class per invocation:
 
-1. Metadata normalization: repair only fields whose controlling evidence is
-   explicit and local. Verify manifest and archive parity afterward.
-2. Deterministic ASR repair: use the approved host rules in
-   `scripts/land_best_intake.py`. Do not apply automatic ASR rules to an
-   unapproved host; report it for review instead.
-3. Semantic sectioning: default to no automatic sectioning. Use conservative
-   sectioning only when strong boundaries and approved host rules exist.
-   Preserve transcript wording. If boundaries require interpretation, produce
-   a dry-run or manual-review report rather than editing automatically.
+1. `metadata`: normalize locally evidenced repair metadata only. Preserve body
+   bytes.
+2. `asr`: apply only approved deterministic ASR substitutions. Do not trim,
+   section, edit unrelated metadata, or normalize layout.
+3. `sectioning`: add conservative semantic headings and section metadata for
+   approved hosts while preserving transcript word order. Require
+   `--resection` to replace existing headings.
+4. `wrapper-trim`: remove only an approved host wrapper and update only its
+   trim provenance.
 
-Do not treat `asr_repair_applied: true` as proof that a transcript is clean;
-it means the deterministic pass changed text. Do not treat
-`section_pass` as proof that sections exist; verify `section_count` and actual
-`###` headings.
+Fail closed for an unapproved host or disagreement between manifest and source
+host routes. Do not treat prior `*_applied` fields as proof that content is
+currently clean.
+
+## Canonical command
+
+Use the repository runner:
+
+```powershell
+.\tools\run.ps1 archive-repair `
+  --class asr `
+  --path narrative-geopolitics/archive/sources/YYYY-MM-DD/source-example.md `
+  --dry-run `
+  --format markdown
+```
+
+For multiple files, repeat `--path` or provide one repository-relative
+`--list-file`. The legacy `scripts/run_asr_repair_pilot.py` and
+`scripts/backfill_section_list.py` commands are compatibility adapters only;
+they must route through the canonical engine and require an explicit mode.
 
 ## Workflow
 
-1. Read the relevant repository controls and inspect current Git status.
-2. Load the source manifest and resolve the bounded target set.
-3. Verify every target path exists and every manifest row points to the
-   expected source. Detect duplicate URLs and duplicate paths.
-4. Classify each target by repair class and approved-host status.
-5. Run the appropriate dry-run helper. Prefer explicit-list tools:
-   `scripts/run_asr_repair_pilot.py` for ASR/section previews and
-   `scripts/backfill_section_list.py` for bounded sectioning previews.
-6. Report proposed changes and stop for explicit execution authority when
-   mutation is required.
-7. On execution, apply only the approved class and target set.
-8. Re-read changed files, inspect the diff, and confirm no out-of-scope paths
-   changed.
-9. Revalidate source/manifest parity, metadata integrity, ASR fields,
-   section counts, and duplicate safety.
-10. Report changed files, unchanged files, skipped files, unresolved issues,
-    and validation evidence.
+1. Run a bounded `archive-audit` and inspect repository controls and Git status.
+2. Resolve and print the bounded target set.
+3. Revalidate manifest membership, paths, host routes, and duplicates.
+4. Run one class in `--dry-run` mode and inspect every proposed diff.
+5. Stop for a direct explicit execute command naming the exact scope.
+6. Rebuild the plan and reject changed manifest, target, or digest state.
+7. Apply only planned bytes through atomic replacement and bounded rollback.
+8. Confirm changed paths are a subset of approved targets.
+9. Re-read the files and verify class-specific invariants.
+10. Use `archive-query` to recheck membership, paths, duplicates, and routing;
+    this post-check does not establish transcript correctness.
 
 ## Stop conditions
 
-Stop without editing when:
+Stop without editing when the source is malformed or insubstantial, routing is
+uncertain, the archive and manifest disagree, a target is already dirty, the
+plan changed after review, section boundaries are weak, a repair depends on
+factual verification, or safe completion would touch an unapproved file.
 
-- the source body is missing, malformed, or not materially substantive;
-- the host or voice route is uncertain enough to misidentify the source;
-- the proposed change depends on factual verification rather than transcript
-  normalization;
-- section boundaries are inferred from weak cues;
-- the manifest and archive disagree;
-- the requested scope includes unrelated dirty paths;
-- a repair would overwrite or delete source material.
-
-## Boundaries
-
-Archive repair does not fetch sources, verify geopolitical claims, create
-daily synthesis, publish material, update voice shelves, stage, commit, push,
-or deploy. Route claim verification to `reality-check` and day judgment to
-`geopolitical-synthesis`.
-
-## Completion standard
-
-A repair is complete only when the bounded diff is explainable, the original
-transcript wording is preserved except for the approved repair class, archive
-and manifest parity holds, and unresolved uncertainty is explicitly reported.
+Archive repair does not fetch sources, adjudicate claims, create synthesis,
+publish, update voice shelves, stage, commit, push, or deploy.

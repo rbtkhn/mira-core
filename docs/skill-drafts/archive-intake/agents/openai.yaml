@@ -1,0 +1,6 @@
+interface:
+  display_name: "Archive Intake"
+  short_description: "Land source truth into the governed archive"
+  default_prompt: "Use $archive-intake to land this source into the Narrative Geopolitics archive."
+policy:
+  allow_implicit_invocation: true

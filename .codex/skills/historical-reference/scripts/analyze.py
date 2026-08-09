@@ -40,6 +40,11 @@ VOICE_CHARACTERIZATIONS = {
         "analytical_function": "strategic-precedent",
         "falsifier": "A sample with repeated formal historical analogies rather than recent operational precedent would require reclassification.",
     },
+    "johnson": {
+        "characterization": "uses historical references to evaluate diplomatic credibility and negotiated off-ramps under coercive pressure",
+        "analytical_function": "strategic-precedent",
+        "falsifier": "Repeated future samples dominated by tactical battlefield analogies without negotiation, credibility, or off-ramp analysis would weaken this characterization.",
+    },
     "mercouris": {
         "characterization": "uses historical and military comparisons to interpret strategic miscalculation, alliance behavior, and changing operational effectiveness",
         "analytical_function": "operational-comparison",

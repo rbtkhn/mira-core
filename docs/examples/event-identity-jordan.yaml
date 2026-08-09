@@ -1,0 +1,39 @@
+schema_version: 1
+request_ref: VER-20260729-04
+candidate:
+  id: candidate-jordan-20260729
+  domain: military-activity
+  event_type: ballistic-missile-attack
+  actor: iran-irgc
+  action: missile-launch
+  target: mwaffaq-salti-air-base
+  location: jordan-azraq
+  time:
+    raw: July 28 at 5:45 p.m. ET
+    value: 2026-07-28T17:45:00-04:00
+    precision: minute
+    timezone_basis: explicit-offset
+    source_ref: centcom-statement
+  stable_anchors:
+    - kind: official-event-time
+      value: 2026-07-28T21:45:00Z
+      source_ref: centcom-statement
+comparands:
+  - id: jordan-early-wednesday
+    domain: military-activity
+    event_type: ballistic-missile-attack
+    actor: iran-irgc
+    action: missile-launch
+    target: mwaffaq-salti-air-base
+    location: jordan-azraq
+    time:
+      raw: early Wednesday
+      value: 2026-07-29
+      precision: day
+      timezone: Asia/Amman
+      timezone_basis: reporting-location
+      source_ref: jordanian-military
+    stable_anchors:
+      - kind: official-event-time
+        value: 2026-07-28T21:45:00Z
+        source_ref: centcom-statement

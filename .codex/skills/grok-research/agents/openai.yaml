@@ -1,0 +1,4 @@
+interface:
+  display_name: "Grok Research"
+  short_description: "Turn Grok research into verified repo value"
+  default_prompt: "Use $grok-research to generate a bounded external Grok research workflow for this repository."

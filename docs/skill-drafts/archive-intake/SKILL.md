@@ -45,6 +45,16 @@ historical-reference records. If the featured voice is uncertain, use a
 provisional voice route and retain the host rather than inferring the guest
 from the channel name or title alone.
 
+Manifest role metadata is source-participation data, not a replacement for the
+person shelf: keep `voice_slugs` person-only and add `voice_roles`,
+`role_status`, and `role_basis`. Use `author` for authored work, `guest` for
+an invited analyst, `host` or `co-host` for substantive framing, and
+`panelist` for panel participation. Keep `host_kind` explicit (`channel`,
+`show`, or `host-person`) and use publication fields only for authored
+publication provenance. Ambiguity is `provisional` or `inferred`, never a new
+person route. Strong quotation attribution requires a speaker-labeled turn
+edge; a host introduction cannot inherit a guest's words.
+
 ## Canonical helper
 
 ```powershell

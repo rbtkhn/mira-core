@@ -9,6 +9,31 @@ Operate only inside the Narrative Systems repository. Treat
 `scripts/reality.py` and `narrative-geopolitics/work/reality/` as canonical;
 do not reproduce their schemas in the skill.
 
+## Authority and trigger contract
+
+This skill has standing authority to use web research, but web search is gated.
+Ordinary audits and handoffs never browse. For a direct claim or forecast
+request, resolve the exact canonical claim, display the bounded investigation
+plan, and present the `Investigate` gate. Selecting `Investigate` automatically
+invokes the Codex web connector using that plan; no second web-authorization
+prompt is required.
+
+The gate does not authorize evidence admission, assessment, human signoff,
+forecast scoring, publication, or downstream prose mutation. Those remain
+separate explicit actions.
+
+The investigation plan must contain:
+
+- atomic observables;
+- time window;
+- target original-language environments;
+- source tiers;
+- independence and lineage rules;
+- interested-source restrictions;
+- stop condition;
+- standing web authority and selected gate state;
+- read-only authorization boundary.
+
 ## Default audit
 
 Keep a plain reality check read-only.
@@ -40,10 +65,60 @@ first, especially dense days with many dependent claims or thin days carrying a
 large operational burden. Density never verifies truth, supplies lineage
 independence, or substitutes for lattice evidence.
 
-## Explicit investigation
+## Claim-first handoff
 
-Escalate only when the operator explicitly asks to investigate or collect
-evidence.
+Prefer exact claim resolution over date-based lexical discovery:
+
+```powershell
+.\tools\run.ps1 reality-handoff --claim NG-YYYYMMDD-FNN --json
+.\tools\run.ps1 reality-handoff --hook NG-YYYYMMDD-FNN --json
+```
+
+The date form remains a discovery fallback:
+
+```powershell
+.\tools\run.ps1 reality-handoff --date YYYY-MM-DD --json
+```
+
+An exact handoff must resolve the claim first, map linked daily forecast,
+ledger, synthesis, and issue artifacts, and show the investigation plan. If
+the claim is absent from the lattice, browsing is blocked.
+
+When the exact claim has research-addressable investigation, observable,
+original-language, independent-lineage, regional-environment, or
+external-environment gaps, the handoff may also expose an inline
+`research-brief-seed-v1`. The seed is provisional planning context. It does not
+trigger browsing, replace the investigation plan, satisfy a missing gate, or
+carry assessment authority. Expand it only after the operator selects it and
+Research Brief confirms the commissioning details. Do not emit seeds for
+governance-only gaps or date-based lexical candidates.
+
+## Gated automatic investigation
+
+Selecting `Investigate` invokes the standing-authority web connector:
+
+```powershell
+.\tools\run.ps1 reality-handoff --claim NG-YYYYMMDD-FNN --investigate --json
+```
+
+The repository emits the bounded trigger; the Codex web connector performs
+retrieval. The result must report whether web search was not triggered, gated
+and executed, stopped by the declared condition, or blocked by a missing claim
+or investigation-plan input.
+
+Before creating or admitting evidence for a possibly repeated event, use the
+read-only event-identity preflight when reporting dates may differ by timezone
+or when the same actor, action, and target recur in a narrow window:
+
+```powershell
+.\tools\run.ps1 reality identity-check --packet EVENT.yaml --format markdown
+```
+
+Supply only explicitly inspected candidate records; do not scan the archive to
+construct the packet. Treat `hold-same-event` as a duplicate-risk hold,
+`clarify-ambiguous` as a request for a stronger time or event anchor, and
+`continue-distinct` only as identity separation. The result never adjudicates
+truth, merges records, admits evidence, or grants authority.
 
 Before browsing, present the bounded claim, atomic observables, target
 original-language environments, independence requirements, interested-source
@@ -65,6 +140,14 @@ to the same investigation and authorization boundaries.
 - Never use issues, synthesis, agent output, or other derived analysis as
   upstream evidence.
 - Preserve disagreement as contested; do not resolve it by majority vote.
+- Treat Reddit, Wikipedia, unsourced aggregators, and commentary as
+  discovery-only; they cannot satisfy an independence gate.
+- Label every result inside or outside the declared time window.
+- Collapse translations, quotations, syndication, and copied reporting to one
+  lineage root.
+- Separate bypass attempt, coercive response, attribution, and measurable
+  effect into distinct observables.
+- Do not let evidence for a related mechanism resolve the exact claim.
 
 Use the existing `new` and `add` commands. Validate every created record before
 continuing. Do not mutate the archive, admit a new source, publish, score a
@@ -106,3 +189,13 @@ agent as a human authority, or sign merely because validation passed.
 An assessment constrains downstream judgment but never authorizes automatic
 publication, forecast scoring, source admission, or prose rewriting. End with
 the refreshed decision brief and name any remaining gate.
+
+## Morning Brief consumer boundary
+
+Morning Brief may call `reality audit CLAIM_ID --json` and
+`reality impact CLAIM_ID --json` read-only after independently sourcing a fresh
+observation. Only an exact `same-observable` match may carry the assessment's
+epistemic state into that observation; related crises, actors, mechanisms, and
+forecast dependencies remain context. Morning Brief may snapshot controlling
+claim and assessment paths and hashes, but it may not create, investigate,
+assess, sign, transition, render, or otherwise mutate lattice state.

@@ -6,6 +6,8 @@ This directory holds working notes for the research side of the project. The not
 
 - [Repository-native AI harness contract](ai-harness.md)
 
+- [Contradiction preflight](contradiction-preflight.md)
+
 - [Model substitution readiness](model-substitution-readiness.md)
 
 - [Working vocabulary](working-vocabulary.md)

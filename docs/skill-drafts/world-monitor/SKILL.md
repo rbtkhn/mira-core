@@ -94,6 +94,19 @@ Produce a compact candidate packet containing the observation-contract fields,
 the bounded claim it may motivate, unresolved source work, independence limits,
 and the recommended Narrative Systems destination.
 
+For a retained candidate whose upstream source has been recovered but which
+still needs source recovery, independence testing, or rival-mechanism
+discrimination, include one inline `research-brief-seed-v1` using the template
+at `../research-brief/assets/research-brief-seed-v1.json`. Give the seed a
+producer-scoped candidate ID, bounded source references, provisional scope
+hints, unresolved gaps, rival hints, identifiers, and an advisory route. Keep
+every authority flag false. Do not include compatibility, disposition, a
+completed research contract, or execution intent. Expand the seed only after
+operator selection.
+
+Do not seed ordinary scans, excluded or held items, unrecovered dashboard
+signals, or `intake-ready` material with no unresolved research question.
+
 Route only after upstream recovery:
 
 - source material or attributed commentary -> archive-first intake;
