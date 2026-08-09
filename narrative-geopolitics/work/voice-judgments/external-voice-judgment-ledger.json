@@ -307,6 +307,141 @@
           ]
         }
       ]
+    },
+    {
+      "id": "VJ-PAPE-0003",
+      "voice_slug": "pape",
+      "class": "mechanism",
+      "lifecycle": "active",
+      "legacy_ids": [],
+      "versions": [
+        {
+          "id": "VJ-PAPE-0003-v1",
+          "proposition": "Precision bombing can create false confidence in bounded control when tactical damage fails to produce rapid political concession.",
+          "expression_type": "close-paraphrase",
+          "first_seen": "2026-02-25",
+          "last_seen": "2026-05-23",
+          "source_refs": [
+            "narrative-geopolitics/archive/sources/2026-02-25/source-pape-the-smart-bomb-trap-2026-02-25.md",
+            "narrative-geopolitics/archive/sources/2026-05-23/source-pape-trump-may-be-approaching-the-biggest-2026-05-23.md"
+          ],
+          "daily_refs": [],
+          "formal_forecast_refs": [],
+          "unresolved_forecast_refs": [
+            "PAPE-2026-F001"
+          ],
+          "reality_claim_refs": [],
+          "revision_refs": [],
+          "review_condition": "Before accountability use, split the voice-local hook into separate spiral, exit, and control propositions and verify each against source-level falsifiers.",
+          "migration_note": "Split from the legacy Pape voice-local hook PAPE-2026-F001. Classified as an escalation mechanism rather than a governed forecast because it needs atomic proposition splitting before scoring.",
+          "migration_warnings": [
+            "Voice-local hook; not a governed NG-* forecast.",
+            "Forecast-like language requires atomic splitting before any accountability use.",
+            "Outcome requires authorized evidence review before any hit/mixed/miss label."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "VJ-PAPE-0004",
+      "voice_slug": "pape",
+      "class": "mechanism",
+      "lifecycle": "active",
+      "legacy_ids": [],
+      "versions": [
+        {
+          "id": "VJ-PAPE-0004-v1",
+          "proposition": "Iran-war pressure can move into the global economy when energy, insurance, tanker confidence, and industrial-input constraints become the decisive battlefield.",
+          "expression_type": "close-paraphrase",
+          "first_seen": "2026-03-16",
+          "last_seen": "2026-03-16",
+          "source_refs": [
+            "narrative-geopolitics/archive/sources/2026-03-16/source-pape-irans-new-battlefield-the-global-2026-03-16.md"
+          ],
+          "daily_refs": [],
+          "formal_forecast_refs": [],
+          "unresolved_forecast_refs": [
+            "PAPE-2026-F010"
+          ],
+          "reality_claim_refs": [],
+          "revision_refs": [],
+          "review_condition": "Review only after separating economic-battlefield mechanism evidence from any dated price, shortage, or policy outcome claim.",
+          "migration_note": "Split from the legacy Pape voice-local hook PAPE-2026-F010. Classified as a mechanism judgment rather than a governed forecast because the current hook names the proposed battlefield more than a scored observable.",
+          "migration_warnings": [
+            "Voice-local hook; not a governed NG-* forecast.",
+            "Primarily a mechanism judgment; do not score as a forecast without a separate observable and review window.",
+            "Outcome requires authorized evidence review before any hit/mixed/miss label."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "VJ-PAPE-0005",
+      "voice_slug": "pape",
+      "class": "strategic_assessment",
+      "lifecycle": "active",
+      "legacy_ids": [],
+      "versions": [
+        {
+          "id": "VJ-PAPE-0005-v1",
+          "proposition": "Iran can function as a coercive system-shaping center through leverage without being treated as a comprehensive-power peer.",
+          "expression_type": "close-paraphrase",
+          "first_seen": "2026-05-03",
+          "last_seen": "2026-06-22",
+          "source_refs": [
+            "narrative-geopolitics/archive/sources/2026-05-03/source-pape-what-the-first-60-days-actually-changed-and-why-the-next-30-will-be-worse-2026-05-03.md",
+            "narrative-geopolitics/archive/sources/2026-06-22/source-pape-getting-the-framework-right-why-iran-seeking-power-not-just-money-2026-06-22.md"
+          ],
+          "daily_refs": [],
+          "formal_forecast_refs": [],
+          "unresolved_forecast_refs": [
+            "PAPE-2026-F023"
+          ],
+          "reality_claim_refs": [],
+          "revision_refs": [],
+          "review_condition": "Preserve the narrow coercive-leverage reading and separate any child forecast about future Iranian behavior before review.",
+          "migration_note": "Split from the legacy Pape voice-local hook PAPE-2026-F023. Classified as a strategic assessment with a separable child forecast rather than as one scored forecast.",
+          "migration_warnings": [
+            "Voice-local hook; not a governed NG-* forecast.",
+            "Contains a separable child forecast; do not score the whole strategic assessment as one prediction.",
+            "Use narrowly as coercive system leverage, not comprehensive-power equivalence."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "VJ-PAPE-0006",
+      "voice_slug": "pape",
+      "class": "mechanism",
+      "lifecycle": "active",
+      "legacy_ids": [],
+      "versions": [
+        {
+          "id": "VJ-PAPE-0006-v1",
+          "proposition": "Formal reopening or de-escalation can matter less than whether Gulf risk premiums, tanker confidence, insurance, and producer behavior continue to price coercive exposure.",
+          "expression_type": "close-paraphrase",
+          "first_seen": "2026-05-27",
+          "last_seen": "2026-06-30",
+          "source_refs": [
+            "narrative-geopolitics/archive/sources/2026-05-27/source-pape-the-price-of-oil-is-the-real-iran-2026-05-27.md",
+            "narrative-geopolitics/archive/sources/2026-06-30/source-pape-situation-report-pakistans-troops-2026-06-30.md"
+          ],
+          "daily_refs": [],
+          "formal_forecast_refs": [],
+          "unresolved_forecast_refs": [
+            "PAPE-2026-F030"
+          ],
+          "reality_claim_refs": [],
+          "revision_refs": [],
+          "review_condition": "Review only after separating the risk-pricing mechanism from dated oil-price or shipping-market observables and checking external market evidence.",
+          "migration_note": "Split from the legacy Pape voice-local hook PAPE-2026-F030. Classified as a risk-pricing mechanism rather than a governed forecast until a dated market observable is created.",
+          "migration_warnings": [
+            "Voice-local hook; not a governed NG-* forecast.",
+            "Primarily a mechanism judgment; do not score as a forecast without fresh market evidence and a bounded observable.",
+            "Outcome requires authorized evidence review before any hit/mixed/miss label."
+          ]
+        }
+      ]
     }
   ]
 }

@@ -212,3 +212,49 @@ def test_registry_json_never_contains_copied_reality_outcomes() -> None:
     text = json.dumps(voice_judgments.load_registry())
     for forbidden in ("assessment_status", "reality_outcome", "forecast_score"):
         assert f'"{forbidden}"' not in text
+
+
+def test_pape_voice_local_hooks_are_split_by_judgment_class() -> None:
+    data = registry()
+    pape = {
+        version["unresolved_forecast_refs"][0]: item
+        for item in data["judgments"]
+        if item["voice_slug"] == "pape"
+        for version in item["versions"]
+        if version.get("unresolved_forecast_refs")
+    }
+
+    assert set(pape) >= {
+        "PAPE-2026-F001",
+        "PAPE-2026-F010",
+        "PAPE-2026-F015",
+        "PAPE-2026-F023",
+        "PAPE-2026-F030",
+    }
+    assert pape["PAPE-2026-F001"]["class"] == "mechanism"
+    assert pape["PAPE-2026-F010"]["class"] == "mechanism"
+    assert pape["PAPE-2026-F015"]["class"] == "forecast_expression"
+    assert pape["PAPE-2026-F023"]["class"] == "strategic_assessment"
+    assert pape["PAPE-2026-F030"]["class"] == "mechanism"
+
+
+def test_pape_generated_ledger_preserves_unscored_hook_boundary() -> None:
+    rendered = voice_judgments.render_voice(
+        "pape",
+        registry(),
+        voice_judgments.all_revision_entries(),
+        voice_judgments.reality_claims(),
+        voice_judgments.reality_assessments(),
+    )
+
+    for hook_id in (
+        "PAPE-2026-F001",
+        "PAPE-2026-F010",
+        "PAPE-2026-F015",
+        "PAPE-2026-F023",
+        "PAPE-2026-F030",
+    ):
+        assert hook_id in rendered
+    assert "Voice-local forecast expressions remain unscored in this ledger" in rendered
+    assert "Related NG Forecasts (Reference Only)" in rendered
+    assert "does not adjudicate the underlying world claim" in rendered
