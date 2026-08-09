@@ -98,6 +98,46 @@ Recommended disposition: `verification-request`
     return daily_root, ledger
 
 
+def add_accountable_forecast(
+    root: Path,
+    hook_id: str,
+    *,
+    review_date: str,
+    claim: str,
+) -> None:
+    ledger = root / "narrative-geopolitics" / "work" / "forecasts" / "forecast-ledger.md"
+    text = ledger.read_text(encoding="utf-8")
+    entry = (
+        f"| `{hook_id}` | `2026-08-02` | Additional fixture hook | {claim} | "
+        f"`plausible` | `{review_date}` | [run](../daily/2026-08-02/forecast.md) | `open` |\n"
+    )
+    triage = (
+        f"| `{hook_id}` | `2026-08-02` | `same-day-live-intake` | `ex_ante` | "
+        "`open` | `yes` | Review remains prospective. |\n"
+    )
+    text = text.replace(
+        "| `NG-20260701-F01` | `2026-07-01` | Closed hook",
+        entry + "| `NG-20260701-F01` | `2026-07-01` | Closed hook",
+        1,
+    )
+    text = text.replace(
+        "| `NG-20260701-F01` | `2026-07-01` | `same-day-live-intake`",
+        triage + "| `NG-20260701-F01` | `2026-07-01` | `same-day-live-intake`",
+        1,
+    )
+    ledger.write_text(text, encoding="utf-8", newline="\n")
+
+
+def remove_accountable_forecast(root: Path) -> None:
+    ledger = root / "narrative-geopolitics" / "work" / "forecasts" / "forecast-ledger.md"
+    lines = ledger.read_text(encoding="utf-8").splitlines()
+    ledger.write_text(
+        "\n".join(line for line in lines if f"`{HOOK_ID}`" not in line) + "\n",
+        encoding="utf-8",
+        newline="\n",
+    )
+
+
 def candidate(
     candidate_id: str,
     *,
@@ -404,6 +444,109 @@ def test_no_material_change_generates_valid_gap_brief(bounded_repo: Path) -> Non
     assert "No material change" in body
     assert "No material development cleared the selection threshold" in body
     assert "East Asia — diplomacy" in body
+    assert "No accountable open forecast is materially pressured." in body
+    assert "### Due, unpressured" in body
+    assert "**No new pressure.**" in body
+
+
+def test_pressured_forecast_requires_selected_development_reference(
+    bounded_repo: Path,
+) -> None:
+    payload = receipt(bounded_repo)
+    payload["candidates"][0]["forecast_refs"] = []
+    with pytest.raises(
+        morning_brief.BriefError,
+        match="pressured forecast lacks a selected material-development reference",
+    ):
+        generate(bounded_repo, payload)
+
+
+def test_selected_forecast_reference_cannot_be_labeled_unaffected(
+    bounded_repo: Path,
+) -> None:
+    payload = receipt(bounded_repo)
+    payload["baseline"]["forecasts"][0]["impact"] = "unaffected"
+    with pytest.raises(
+        morning_brief.BriefError,
+        match=r"selected development references forecast\(s\) labeled unaffected",
+    ):
+        generate(bounded_repo, payload)
+
+
+def test_forecast_pressure_separates_pressure_due_and_unaffected(
+    bounded_repo: Path,
+) -> None:
+    due_only = "NG-20260802-F01"
+    unaffected = "NG-20260810-F01"
+    add_accountable_forecast(
+        bounded_repo,
+        due_only,
+        review_date="2026-08-02",
+        claim="A due-only fixture claim remains open.",
+    )
+    add_accountable_forecast(
+        bounded_repo,
+        unaffected,
+        review_date="2026-08-10",
+        claim="A future unaffected fixture claim remains open.",
+    )
+    payload = receipt(bounded_repo)
+    for row in payload["baseline"]["forecasts"]:
+        if row["hook_id"] != HOOK_ID:
+            row["impact"] = "unaffected"
+    brief_path, _ = generate(bounded_repo, payload)
+    body = brief_path.read_text(encoding="utf-8")
+
+    assert "### Pressured today" in body
+    assert "**Pressure: `strengthens`.**" in body
+    assert f"(`{HOOK_ID}`; due today)" in body
+    pressure = body.split("## Forecast Pressure", 1)[1].split("## What to Watch", 1)[0]
+    assert pressure.count(f"`{HOOK_ID}`") == 1
+    assert "### Due, unpressured" in body
+    assert "A due-only fixture claim remains open. **No new pressure.**" in body
+    assert f"(`{due_only}`; overdue since `2026-08-02`)" in body
+    assert "`1` unaffected, not-due forecast(s)." in body
+    assert "not due `" not in body
+    assert body.index(f"`{HOOK_ID}`; due today") < body.index(f"`{due_only}`; overdue")
+
+
+def test_pressured_forecasts_order_due_first_then_review_date(
+    bounded_repo: Path,
+) -> None:
+    overdue = "NG-20260801-F02"
+    future = "NG-20260810-F02"
+    add_accountable_forecast(
+        bounded_repo,
+        overdue,
+        review_date="2026-08-01",
+        claim="An overdue pressured fixture claim remains open.",
+    )
+    add_accountable_forecast(
+        bounded_repo,
+        future,
+        review_date="2026-08-10",
+        claim="A future pressured fixture claim remains open.",
+    )
+    payload = receipt(bounded_repo)
+    payload["candidates"][0]["forecast_refs"] = [overdue, HOOK_ID, future]
+    brief_path, _ = generate(bounded_repo, payload)
+    body = brief_path.read_text(encoding="utf-8")
+    pressure = body.split("### Pressured today", 1)[1].split("## What to Watch", 1)[0]
+    assert pressure.index(overdue) < pressure.index(HOOK_ID) < pressure.index(future)
+    assert "overdue since `2026-08-01`" in pressure
+    assert "due today" in pressure
+    assert "review `2026-08-10`" in pressure
+
+
+def test_empty_forecast_baseline_renders_explicitly(bounded_repo: Path) -> None:
+    remove_accountable_forecast(bounded_repo)
+    payload = receipt(bounded_repo, material_change=False)
+    for row in payload["candidates"]:
+        row["forecast_refs"] = []
+    payload["watch"] = []
+    brief_path, _ = generate(bounded_repo, payload)
+    body = brief_path.read_text(encoding="utf-8")
+    assert "No accountable open forecasts are present in the baseline." in body
 
 
 def test_identical_receipts_render_byte_identically(bounded_repo: Path) -> None:
@@ -710,6 +853,8 @@ def test_five_fixture_dry_pilot_proves_mechanics_not_utility(bounded_repo: Path)
         if scenario["material_change"]:
             payload["candidates"][0]["impact"] = scenario["development_impact"]
             payload["morning_judgment"] = scenario["morning_judgment"]
+            if scenario["forecast_impact"] == "unaffected":
+                payload["candidates"][0]["forecast_refs"] = []
         outputs.append(generate(bounded_repo, payload, output_name=f"pilot-{index}")[0])
     assert len(outputs) == 5
     assert all(path.is_file() for path in outputs)

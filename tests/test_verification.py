@@ -58,6 +58,22 @@ def ledger(path: Path) -> Path:
     return path
 
 
+def write_registry(
+    path: Path,
+    *,
+    evidence_class: str = "expert_commentary",
+    status: str = "candidate",
+) -> Path:
+    path.write_text(
+        "# Test Registry\n\n"
+        "| ID | Source | URL | Domain | Observables | Evidence class | Perspective | Geography | Languages | Translation | Access | Fallback | Latency | Chain | Failures | Uses | Inappropriate | Reviewed | Status |\n"
+        "| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |\n"
+        f"| `VSRC-RPT-COMMENTARY` | Commentary | https://example.com/commentary | `professional_reporting` | interpretation and cited reporting | `{evidence_class}` | `western_independent` | external | `ru` | `not_required` | `open_limited` | `self` | days | One cited report is one chain. | Secondary-source dependence. | Context and source tracing. | Direct operational proof. | `2026-07-29` | `{status}` |\n",
+        encoding="utf-8",
+    )
+    return path
+
+
 def test_sequential_packet_ids_do_not_collide(tmp_path: Path) -> None:
     packets = tmp_path / "packets"
     template_path = tmp_path / "template.md"
@@ -141,6 +157,42 @@ def test_interested_sources_alone_cannot_operationally_support(tmp_path: Path) -
     packet = verification.parse_packet(write_packet(tmp_path / "packets", evidence_rows=rows, chains=2))
     failures = verification.validate_packet(packet, tmp_path, ledger(tmp_path / "ledger.md"))
     assert any("cannot independently establish" in item for item in failures)
+
+
+def test_expert_commentary_candidate_is_valid_registry_context(tmp_path: Path) -> None:
+    registry_path = write_registry(tmp_path / "registry.md")
+    assert verification.validate_registry(registry_path) == []
+    row = "| `EVID-01` | `VSRC-RPT-COMMENTARY` | https://example.com/commentary | `2026-07-29` | `2026-07-29` | `expert_commentary` | `CHAIN-01` | `context_only` | `not_required` | Contextual lead only. |"
+    packet = verification.parse_packet(
+        write_packet(
+            tmp_path / "packets",
+            outcome="operationally_contested",
+            evidence_rows=row,
+            chains=1,
+        )
+    )
+    assert verification.validate_packet(
+        packet,
+        tmp_path,
+        ledger(tmp_path / "ledger.md"),
+        registry_path,
+    ) == []
+
+
+def test_expert_commentary_cannot_establish_operational_support(tmp_path: Path) -> None:
+    registry_path = write_registry(tmp_path / "registry.md")
+    row = "| `EVID-01` | `VSRC-RPT-COMMENTARY` | https://example.com/commentary | `2026-07-29` | `2026-07-29` | `expert_commentary` | `CHAIN-01` | `supports` | `not_required` | Contextual lead only. |"
+    packet = verification.parse_packet(
+        write_packet(tmp_path / "packets", evidence_rows=row, chains=1)
+    )
+    failures = verification.validate_packet(
+        packet,
+        tmp_path,
+        ledger(tmp_path / "ledger.md"),
+        registry_path,
+    )
+    assert any("may supply context only" in item for item in failures)
+    assert any("cannot independently establish operational support" in item for item in failures)
 
 
 def write_day(tmp_path: Path, synthesis_rows: str, forecast_rows: str = "") -> Path:

@@ -1,0 +1,32 @@
+[
+  {
+    "material_change": true,
+    "development_impact": "strengthens",
+    "forecast_impact": "strengthens",
+    "morning_judgment": "Fresh observations strengthen the inherited infrastructure-exposure model."
+  },
+  {
+    "material_change": true,
+    "development_impact": "weakens",
+    "forecast_impact": "weakens",
+    "morning_judgment": "Fresh observations weaken the inherited infrastructure-exposure model."
+  },
+  {
+    "material_change": true,
+    "development_impact": "complicates",
+    "forecast_impact": "complicates",
+    "morning_judgment": "Fresh observations complicate the inherited infrastructure-exposure model."
+  },
+  {
+    "material_change": false,
+    "development_impact": "no-material-effect",
+    "forecast_impact": "unaffected",
+    "morning_judgment": "No material change cleared the threshold in a healthy selective-global scan."
+  },
+  {
+    "material_change": true,
+    "development_impact": "strengthens",
+    "forecast_impact": "unaffected",
+    "morning_judgment": "One fresh observation strengthens an inherited judgment without pressuring the accountable forecast."
+  }
+]

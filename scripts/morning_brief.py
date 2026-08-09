@@ -939,6 +939,7 @@ def validate_receipt(
     if material_change != bool(selected_developments):
         raise BriefError("material_change must match selected developments")
     selected_ids: list[str] = []
+    selected_development_forecast_refs: set[str] = set()
     for candidate_id in selected_developments:
         row = candidate_by_id.get(candidate_id)
         if not row or row["kind"] != "development" or row["disposition"] != "included":
@@ -947,7 +948,33 @@ def validate_receipt(
             raise BriefError(f"material development has no inherited-state reference: {candidate_id}")
         if row["impact"] == "no-material-effect":
             raise BriefError(f"selected development has no material effect: {candidate_id}")
+        selected_development_forecast_refs.update(row["forecast_refs"])
         selected_ids.append(candidate_id)
+
+    forecast_by_id = {row["hook_id"]: row for row in forecasts}
+    referenced_unaffected = sorted(
+        hook_id
+        for hook_id in selected_development_forecast_refs
+        if forecast_by_id[hook_id]["impact"] == "unaffected"
+    )
+    if referenced_unaffected:
+        raise BriefError(
+            "selected development references forecast(s) labeled unaffected: "
+            + ", ".join(referenced_unaffected)
+        )
+    pressured_forecasts = {
+        hook_id
+        for hook_id, row in forecast_by_id.items()
+        if row["impact"] != "unaffected"
+    }
+    unsupported_pressure = sorted(
+        pressured_forecasts - selected_development_forecast_refs
+    )
+    if unsupported_pressure:
+        raise BriefError(
+            "pressured forecast lacks a selected material-development reference: "
+            + ", ".join(unsupported_pressure)
+        )
 
     gaps = list_value(payload["gaps"], "gaps")
     gap_by_id: dict[str, dict[str, Any]] = {}
@@ -1216,35 +1243,73 @@ def render_markdown(payload: dict[str, Any], receipt_hash: str) -> bytes:
         )
 
     lines.extend(["## Forecast Pressure", ""])
-    relevant = [
-        row
-        for row in payload["baseline"]["forecasts"]
-        if row["due"] or row["impact"] != "unaffected"
-    ]
-    if not relevant:
-        unaffected = len(payload["baseline"]["forecasts"])
-        lines.extend(
-            [
-                f"No accountable open forecast is due or materially pressured; `{unaffected}` remain unaffected.",
-                "",
-            ]
-        )
+    forecast_rows = payload["baseline"]["forecasts"]
+    if not forecast_rows:
+        lines.extend(["No accountable open forecasts are present in the baseline.", ""])
     else:
-        for row in relevant:
-            due = "due" if row["due"] else "not due"
+        pressured = sorted(
+            (row for row in forecast_rows if row["impact"] != "unaffected"),
+            key=lambda row: (not row["due"], row["review_date"], row["hook_id"]),
+        )
+        due_without_pressure = sorted(
+            (
+                row
+                for row in forecast_rows
+                if row["due"] and row["impact"] == "unaffected"
+            ),
+            key=lambda row: (row["review_date"], row["hook_id"]),
+        )
+        unaffected_not_due = sum(
+            not row["due"] and row["impact"] == "unaffected"
+            for row in forecast_rows
+        )
+
+        def due_marker(row: dict[str, Any]) -> str | None:
+            if not row["due"]:
+                return None
+            if row["review_date"] == payload["brief_date"]:
+                return "due today"
+            return f"overdue since `{row['review_date']}`"
+
+        if not pressured and not due_without_pressure:
             lines.extend(
                 [
-                    f"- {markdown_text(row['claim'])} (`{row['hook_id']}` — "
-                    f"`{row['impact']}`; {due} `{row['review_date']}`).",
+                    "No accountable open forecast is due or materially pressured; "
+                    f"`{unaffected_not_due}` remain unaffected.",
+                    "",
                 ]
             )
-        unaffected = sum(
-            not row["due"] and row["impact"] == "unaffected"
-            for row in payload["baseline"]["forecasts"]
-        )
-        if unaffected:
-            lines.append(f"- `{unaffected}` additional accountable open forecast(s) remain unaffected.")
-        lines.append("")
+        else:
+            if pressured:
+                lines.extend(["### Pressured today", ""])
+                for row in pressured:
+                    marker = due_marker(row)
+                    review = marker or f"review `{row['review_date']}`"
+                    lines.append(
+                        f"- {markdown_text(row['claim'])} **Pressure: `{row['impact']}`.** "
+                        f"(`{row['hook_id']}`; {review})."
+                    )
+                lines.append("")
+            else:
+                lines.extend(
+                    ["No accountable open forecast is materially pressured.", ""]
+                )
+
+            if due_without_pressure:
+                lines.extend(["### Due, unpressured", ""])
+                for row in due_without_pressure:
+                    lines.append(
+                        f"- {markdown_text(row['claim'])} **No new pressure.** "
+                        f"(`{row['hook_id']}`; {due_marker(row)})."
+                    )
+                lines.append("")
+
+            lines.extend(
+                [
+                    f"- `{unaffected_not_due}` unaffected, not-due forecast(s).",
+                    "",
+                ]
+            )
 
     lines.extend(["## What to Watch", ""])
     if payload["watch"]:

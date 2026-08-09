@@ -19,6 +19,8 @@ VOICE_ALIASES = {
     "steve-jermy": "jermy",
     "trita-parsi": "parsi",
     "alexander-mercouris": "mercouris",
+    "alex-christoforou": "cristoforou",
+    "christoforou": "cristoforou",
     "jiang-xueqin": "jiang",
 }
 

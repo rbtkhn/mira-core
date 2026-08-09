@@ -18,6 +18,21 @@ import codex_skill_registry
 import validate_repository
 
 
+def stub_live_repository_checks(monkeypatch: pytest.MonkeyPatch) -> None:
+    monkeypatch.setattr(validate_repository, "validate_repository", lambda: [])
+    monkeypatch.setattr(audit_ai_harness, "mirror_records", lambda: [])
+    monkeypatch.setattr(
+        audit_ai_harness,
+        "git_state",
+        lambda: {
+            "branch": "test",
+            "head": "000000000000",
+            "tracked_changes": 0,
+            "untracked_entries": 0,
+        },
+    )
+
+
 def test_frontmatter_parser_reads_scalars_without_interpreting_body(tmp_path: Path) -> None:
     skill = tmp_path / "SKILL.md"
     skill.write_text(
@@ -83,7 +98,10 @@ def test_current_skill_metadata_and_routes_are_valid() -> None:
     assert validate_repository.skill_contract_failures() == []
 
 
-def test_audit_json_has_stable_top_level_contract_and_expected_gap_labels() -> None:
+def test_audit_json_has_stable_top_level_contract_and_expected_gap_labels(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    stub_live_repository_checks(monkeypatch)
     payload = audit_ai_harness.build_audit()
 
     assert set(payload) == {
@@ -113,6 +131,7 @@ def test_audit_json_has_stable_top_level_contract_and_expected_gap_labels() -> N
 def test_build_is_no_write_and_receipt_write_is_explicit(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:
+    stub_live_repository_checks(monkeypatch)
     receipt = tmp_path / "ai-harness" / "latest.json"
     monkeypatch.setattr(audit_ai_harness, "RECEIPT_PATH", receipt)
 
@@ -121,6 +140,25 @@ def test_build_is_no_write_and_receipt_write_is_explicit(
 
     audit_ai_harness.write_receipt(payload)
     assert json.loads(receipt.read_text(encoding="utf-8"))["audit_mode"] == "READ_ONLY"
+
+
+def test_build_surfaces_repository_failures(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    stub_live_repository_checks(monkeypatch)
+    monkeypatch.setattr(
+        validate_repository,
+        "validate_repository",
+        lambda: ["bounded repository failure"],
+    )
+
+    payload = audit_ai_harness.build_audit()
+
+    assert payload["repository_check"] == {
+        "status": "FAIL",
+        "failures": ["bounded repository failure"],
+    }
+    assert "bounded repository failure" in payload["strict_findings"]
 
 
 def test_strict_mode_exits_nonzero_for_findings(
@@ -143,15 +181,18 @@ def test_strict_mode_exits_nonzero_for_findings(
     assert "STRICT FINDINGS" in capsys.readouterr().out
 
 
-def test_json_cli_is_parseable_and_receipt_path_is_ignored() -> None:
-    result = subprocess.run(
-        [sys.executable, str(SCRIPTS_ROOT / "audit_ai_harness.py"), "--json"],
-        cwd=REPO_ROOT,
-        check=True,
-        capture_output=True,
-        text=True,
-    )
-    payload = json.loads(result.stdout)
+def test_json_main_is_parseable_and_receipt_path_is_ignored(
+    monkeypatch: pytest.MonkeyPatch,
+    capsys: pytest.CaptureFixture[str],
+) -> None:
+    stub_live_repository_checks(monkeypatch)
+    payload = audit_ai_harness.build_audit()
+    monkeypatch.setattr(audit_ai_harness, "build_audit", lambda: payload)
+    monkeypatch.setattr(sys, "argv", ["audit_ai_harness.py", "--json"])
+
+    audit_ai_harness.main()
+
+    payload = json.loads(capsys.readouterr().out)
     assert payload["audit_mode"] == "READ_ONLY"
 
     ignored = subprocess.run(

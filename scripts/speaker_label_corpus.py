@@ -24,6 +24,7 @@ def args() -> argparse.Namespace:
     p.add_argument("--execute", action="store_true", help="Write labeled derivatives and audit data.")
     p.add_argument("--qa-packet", action="store_true", help="Write a 20-source manual QA packet from the pilot.")
     p.add_argument("--limit", type=int, default=100)
+    p.add_argument("--path", action="append", default=[], help="Process only this manifest local_path; repeat for a bounded set.")
     p.add_argument("--manifest", type=Path, default=MANIFEST)
     p.add_argument("--pilot-manifest", type=Path, default=DERIVED_ROOT / "pilot-manifest.json")
     p.add_argument("--output-root", type=Path, default=DERIVED_ROOT)
@@ -81,6 +82,24 @@ def label_body(body: str, row: dict[str, Any], fields: dict[str, str]) -> tuple[
         labeled_body = "\n\n".join(chunks)
         labeled_body = f"**{name}**: {labeled_body.strip()}\n"
         return labeled_body, {"turn_count": 1, "labeled_turn_count": 1, "unknown_turn_count": 0, "candidate_speakers": [name], "solo_format": "single-label-continuous"}
+    if ">>" in body and len(roster) >= 2:
+        prefix, marker_body = (body.split("## Transcript", 1) + [""])[:2] if "## Transcript" in body else ("", body)
+        segments = [segment.strip() for segment in re.split(r"\s*>>\s*", marker_body) if segment.strip()]
+        if segments:
+            # Marker boundaries are useful provenance, but they are not reliable
+            # speaker boundaries: transcripts can contain mixed speech, clipped
+            # audio, and markers inserted inside a single utterance. Never turn
+            # that uncertainty into a false host/guest attribution.
+            labeled_segments = [f"**Unknown**: {segment}" for segment in segments]
+            labeled_body = prefix + ("## Transcript\n\n" if prefix else "") + "\n\n".join(labeled_segments) + "\n"
+            return labeled_body, {
+                "turn_count": len(segments),
+                "labeled_turn_count": 0,
+                "unknown_turn_count": len(segments),
+                "candidate_speakers": [c.name for c in roster],
+                "turn_labeling": "marker-boundary-preserved-uncertain",
+                "mixed_turn_count": len(segments),
+            }
     known = {c.name.casefold(): c for c in roster}
     output: list[str] = []
     last_speaker: str | None = None
@@ -136,7 +155,14 @@ def derivative(row: dict[str, Any], output_root: Path) -> tuple[Path, dict[str, 
     source_hash = hashlib.sha256(raw).hexdigest()
     relative = Path(str(row["local_path"])).relative_to("narrative-geopolitics/archive/sources")
     target = output_root / relative
-    meta = {"source_path": row["local_path"], "source_sha256": source_hash, "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", **stats}
+    marker_labeling = stats.get("turn_labeling")
+    meta = {
+        "source_path": row["local_path"],
+        "source_sha256": source_hash,
+        "labeling_method": "metadata-plus-marker-boundaries-v3" if marker_labeling else "metadata-plus-explicit-markers-v1",
+        "confidence_policy": "attribution-withheld; manual review required" if marker_labeling else "explicit-marker-only; unknown otherwise",
+        **stats,
+    }
     header = "---\n" + "\n".join(f"{k}: {json.dumps(v, ensure_ascii=False) if isinstance(v, (list, dict)) else v}" for k, v in {**fields, "speaker_labeling": "provisional", "speaker_labeling_provenance": json.dumps(meta, ensure_ascii=False)}.items()) + "\n---\n"
     return target, {"target": target, "text": sanitize_unresolved_links(header + labeled, target), "provenance": meta}
 
@@ -144,7 +170,10 @@ def derivative(row: dict[str, Any], output_root: Path) -> tuple[Path, dict[str, 
 def main() -> int:
     cli = args()
     manifest = json.loads(cli.manifest.read_text(encoding="utf-8-sig"))
-    rows = select_rows(manifest, cli.limit)
+    rows = select_rows(manifest, len(manifest.get("sources", [])) if cli.path else cli.limit)
+    if cli.path:
+        selected = set(cli.path)
+        rows = [row for row in rows if str(row.get("local_path", "")) in selected][: cli.limit]
     pilot = {"kind": "speaker-labeling-pilot-v1", "limit": cli.limit, "source_count": len(rows), "sources": rows}
     if cli.select or cli.execute:
         cli.pilot_manifest.parent.mkdir(parents=True, exist_ok=True)

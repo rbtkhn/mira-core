@@ -50,25 +50,33 @@ def candidate_lines(lines: list[str], object_text: str) -> list[tuple[int, str]]
     keywords = ("capture", "control", "take", "blockade", "isolate", "objective", "end", "move", "cross", "fall", "port")
     results: list[tuple[int, str]] = []
     for index, raw in enumerate(lines):
-        width = 5
+        width = 1
         window = " ".join(" ".join(lines[index : index + width]).split())
         folded = window.casefold()
         if not window or window.startswith("#") or len(window.split()) < 8:
+            continue
+        # Metadata/editorial notes are navigation material, not speaker evidence.
+        if any(marker in folded for marker in ("cleanup notes", "editorial note:", "source note:", "quality note:")):
             continue
         if not all(term in folded for term in terms):
             continue
         if any(word in folded for word in keywords):
             # Prefer a complete local transcript turn over a chopped ASR line.
             words = window.split()
-            if len(words) <= 40:
+            if len(words) <= 60:
                 results.append((index + 1, window))
     return results
 
 
-def collect_quotes(rows: list[dict], voices: list[str], object_text: str) -> dict[str, list[Quote]]:
+def collect_quotes(rows: list[dict], voices: list[str], object_text: str, date_start: str | None = None, date_end: str | None = None) -> dict[str, list[Quote]]:
     collected = {voice: [] for voice in voices}
     seen: set[tuple[str, str]] = set()
     for row in rows:
+        row_date = str(row.get("date") or "")
+        if date_start and row_date < date_start:
+            continue
+        if date_end and row_date > date_end:
+            continue
         row_voices = {str(v) for v in row.get("voice_slugs", [])}
         matches = [voice for voice in voices if voice in row_voices]
         if not matches:
@@ -76,7 +84,7 @@ def collect_quotes(rows: list[dict], voices: list[str], object_text: str) -> dic
         path = source_path(row)
         host = str(row.get("host_slug") or row.get("channel_name") or "unresolved")
         for number, text in candidate_lines(body_lines(path), object_text):
-            if len(text.split()) > 40:
+            if len(text.split()) > 60:
                 continue
             for voice in matches:
                 key = (voice, text)
@@ -104,8 +112,9 @@ def labels(quotes: list[Quote]) -> tuple[str, str, str]:
     return mechanism, timing, confidence
 
 
-def render(object_text: str, voices: list[str], quotes: dict[str, list[Quote]]) -> str:
-    lines = [f"# Voice Comparison: {object_text}", "", "Status: `archive-statements-only`", "", f"Scope: `{object_text}` across explicitly named voices: " + ", ".join(f"`{v}`" for v in voices) + ".", "", "## Evidence Boundary", "", "This note compares archive statements, not reality. Repetition across archive sources is not independent corroboration. Use `reality-check` for external verification and `voice-accountability` for self-revision audits.", "", "## Voice Evidence", ""]
+def render(object_text: str, voices: list[str], quotes: dict[str, list[Quote]], date_start: str | None = None, date_end: str | None = None) -> str:
+    date_scope = f"; date window `{date_start or 'open'}` to `{date_end or 'open'}`" if date_start or date_end else ""
+    lines = [f"# Voice Comparison: {object_text}", "", "Status: `archive-statements-only`", "", f"Scope: `{object_text}` across explicitly named voices: " + ", ".join(f"`{v}`" for v in voices) + date_scope + ".", "", "## Evidence Boundary", "", "This note compares archive statements, not reality. Repetition across archive sources is not independent corroboration. Use `reality-check` for external verification and `voice-accountability` for self-revision audits.", "", "## Voice Evidence", ""]
     for voice in voices:
         mechanism, timing, confidence = labels(quotes[voice])
         lines += [f"### {voice}", "", f"Observed mechanism: **{mechanism}**.", f"Observed timing language: **{timing}**.", f"Observed confidence language: **{confidence}**.", "", "Quotes:", ""]
@@ -128,12 +137,14 @@ def main() -> int:
     compare = sub.add_parser("compare")
     compare.add_argument("--object", required=True)
     compare.add_argument("--voice", action="append", required=True)
+    compare.add_argument("--date-start")
+    compare.add_argument("--date-end")
     compare.add_argument("--write", action="store_true")
     args = parser.parse_args()
     if len(args.voice) < 2:
         parser.error("compare requires at least two explicit --voice values")
     voices = list(dict.fromkeys(args.voice))
-    report = render(args.object, voices, collect_quotes(load_rows(), voices, args.object))
+    report = render(args.object, voices, collect_quotes(load_rows(), voices, args.object, args.date_start, args.date_end), args.date_start, args.date_end)
     target = OUT_ROOT / f"{slug(args.object)}--{'-'.join(sorted(slug(v) for v in voices))}.md"
     if args.write:
         target.parent.mkdir(parents=True, exist_ok=True)

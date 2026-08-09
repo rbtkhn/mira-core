@@ -182,3 +182,33 @@ def test_role_override_registry_rejects_orphan_path() -> None:
         "voice-role override path absent from manifest: "
         "narrative-geopolitics/archive/sources/missing.md"
     ]
+
+
+def test_pape_renderer_maps_canonical_author_to_authored(tmp_path: Path) -> None:
+    index = tmp_path / "narrative-geopolitics" / "voices" / "pape" / "source-index.md"
+    index.parent.mkdir(parents=True)
+    text = "# Pape Source Index\n\nCorpus: 0 authored sources, 0 guest appearances, 0 total imported sources.\n\n## 2026-07\n"
+    rel = "narrative-geopolitics/archive/sources/2026-07-10/source.md"
+    row = {
+        **manifest_row(rel, "pape"),
+        "voice_roles": {"pape": ["author"]},
+    }
+
+    updated, _ = voice_indexes.render_pape(index, text, [row], repo_root=tmp_path)
+
+    assert "Corpus: 1 authored sources, 0 guest appearances, 1 total imported sources." in updated
+    assert "**authored**" in updated
+
+
+def test_pape_override_registry_rejects_non_binary_display_role() -> None:
+    rel = "narrative-geopolitics/archive/sources/2026-07-10/source.md"
+    manifest = {"sources": [manifest_row(rel, "pape")]}
+
+    failures = voice_indexes.role_override_failures(
+        manifest,
+        {("pape", rel): "authored newsletter"},
+    )
+
+    assert failures == [
+        "unsupported Pape voice-role override: authored newsletter " + rel
+    ]

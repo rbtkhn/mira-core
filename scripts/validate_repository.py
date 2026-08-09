@@ -29,6 +29,7 @@ import reality
 import recursive_learning_ledger
 import mira_continuity
 import operator_positions
+from role_aware_archive import validate_row as validate_role_row
 
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
@@ -37,7 +38,16 @@ ARCHIVE_SOURCES = NG_ROOT / "archive" / "sources"
 MANIFEST_PATH = NG_ROOT / "archive" / "source-manifest.json"
 DAILY_ROOT = NG_ROOT / "work" / "daily"
 LEDGER_PATH = NG_ROOT / "work" / "forecasts" / "forecast-ledger.md"
-LOCAL_SKILLS = {"archive-repair", "coffee", "dream", "world-monitor"}
+LOCAL_SKILLS = {
+    "archive-audit",
+    "archive-query",
+    "archive-repair",
+    "coffee",
+    "dream",
+    "morning-brief",
+    "research-brief",
+    "world-monitor",
+}
 LOCAL_ROUTER_PATH = REPO_ROOT / "AGENTS.md"
 REQUIRED_DAILY_FILES = {"sources.md", "synthesis.md", "forecast.md", "judgment.md", "daily-brief.md"}
 PUBLIC_BRIEFS_ROOT = NG_ROOT / "public" / "briefs"
@@ -152,6 +162,12 @@ def archive_manifest_failures() -> list[str]:
         failures.append(
             f"manifest source_count={manifest.get('source_count')} but rows={len(rows)}"
         )
+    for row in rows:
+        if any(key in row for key in ("voice_roles", "role_status", "role_basis", "host_kind", "publication_slug")):
+            failures.extend(
+                f"role metadata: {row.get('local_path')}: {item}"
+                for item in validate_role_row(row)
+            )
     if len(row_paths) != len(set(row_paths)):
         failures.append("manifest contains duplicate local_path rows")
     if sorted(row_paths) != file_paths:
@@ -236,9 +252,14 @@ def markdown_link_failures() -> list[str]:
         for match in MARKDOWN_LINK_RE.finditer(text):
             raw_target = match.group(1).strip().strip("<>")
             target = raw_target.split("#", 1)[0]
+            # Thesis reports append a source line locator as `:N`; it is not
+            # part of the filesystem target.
+            target = re.sub(r":\d+$", "", target)
             if not target or target.startswith(("http://", "https://", "mailto:")):
                 continue
             resolved = path.parent / target
+            if not resolved.exists() and target.replace("\\", "/").startswith("narrative-geopolitics/"):
+                resolved = REPO_ROOT / target.replace("/", "\\")
             if not resolved.exists():
                 failures.append(f"broken Markdown link: {relative(path)} -> {raw_target}")
     return failures
@@ -281,7 +302,12 @@ def reader_facing_title_files() -> list[Path]:
     for path in markdown_files():
         if (NG_ROOT / "templates") in path.parents:
             continue
-        if "Title standard: `reader-facing`" in path.read_text(encoding="utf-8"):
+        text = path.read_text(encoding="utf-8")
+        # Unpromoted daily scaffolds are working documents, not reader-facing
+        # publications; their placeholder title is intentionally allowed.
+        if path.parent.parent == NG_ROOT / "work" / "daily" and "Status: `not-promoted`" in text[:400]:
+            continue
+        if "Title standard: `reader-facing`" in text:
             candidates.add(path)
     return sorted(candidates)
 
@@ -354,6 +380,7 @@ def skill_contract_failures() -> list[str]:
     failures: list[str] = []
     deployable = set(DEPLOYABLE_SKILL_NAMES)
     if deployable != {
+        "archive-intake",
         "best-intake",
         "elicitation",
         "learn-from-choices",
@@ -433,7 +460,14 @@ def active_guidance_files(repo_root: Path = REPO_ROOT) -> list[Path]:
             files.update(root.rglob("*.md"))
     work_root = ng_root / "work"
     if work_root.exists():
-        files.update(work_root.rglob("README.md"))
+        files.update(
+            path
+            for path in work_root.rglob("README.md")
+            if not any(
+                territory in path.relative_to(work_root).parts
+                for territory in ("daily", "audits")
+            )
+        )
     asr_guidance = ng_root / "work" / "asr-repair-pilot-findings-july-2026.md"
     if asr_guidance.exists():
         files.add(asr_guidance)

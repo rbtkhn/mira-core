@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import argparse
 import importlib.util
+import re
 from pathlib import Path
 from typing import Any
 
@@ -27,6 +28,7 @@ def load_module(script_name: str, module_name: str):
 BOOTSTRAP = load_module("bootstrap_daily_run.py", "bootstrap_daily_run")
 VALIDATOR = load_module("validate_daily_run.py", "validate_daily_run")
 LEDGER_SYNC = load_module("sync_forecast_ledger.py", "sync_forecast_ledger")
+DAILY_ROOT = BOOTSTRAP.DAILY_ROOT
 
 
 def parse_args() -> argparse.Namespace:
@@ -163,6 +165,9 @@ def run_ledger_sync(args: argparse.Namespace) -> dict[str, Any]:
 
 
 def run_issue_render(run_date: str, dry_run: bool = False) -> dict[str, str]:
+    synthesis_path = DAILY_ROOT / run_date / "synthesis.md"
+    if synthesis_path.exists() and "Disposition: `archive-only`" in synthesis_path.read_text(encoding="utf-8"):
+        return {"action": "archive-only", "detail": "explicit archive-only disposition; issue.md not generated"}
     try:
         model = ISSUE.load_model(run_date)
         failures = ISSUE.model_failures(
@@ -172,9 +177,17 @@ def run_issue_render(run_date: str, dry_run: bool = False) -> dict[str, str]:
         if failures:
             return {"action": "blocked", "detail": "; ".join(failures)}
         issue_path = ISSUE.DAILY_ROOT / run_date / "issue.md"
+        rendered = ISSUE.render_model(model)
+        prose = re.sub(r"(?m)^\|.*$|`[^`]+`|\[[^\]]+\]\([^)]+\)|<!--.*?-->", " ", rendered)
+        word_count = len(re.findall(r"\b[\w'-]+\b", prose))
+        if not dry_run and not 1500 <= word_count <= 2500:
+            return {
+                "action": "blocked",
+                "detail": f"daily-packet requires 1500-2500 editorial words; rendered issue has {word_count}",
+            }
         if dry_run:
             return {"action": "plan", "detail": str(issue_path.relative_to(REPO_ROOT))}
-        issue_path.write_text(ISSUE.render_model(model), encoding="utf-8", newline="\n")
+        issue_path.write_text(rendered, encoding="utf-8", newline="\n")
         return {"action": "write", "detail": str(issue_path.relative_to(REPO_ROOT))}
     except ISSUE.IssueError as exc:
         return {"action": "deferred", "detail": str(exc)}
@@ -229,10 +242,22 @@ def main() -> None:
     print(f"ledger_new_rows={ledger_sync['new_rows']}")
     print(f"issue_action={issue['action']}")
     print(f"issue_detail={issue['detail']}")
+    if validation["failures"]:
+        print("status=blocked-needs-deepening")
+    elif validation["warnings"]:
+        print("status=blocked-needs-deepening")
+    elif issue["action"] in {"blocked", "deferred"}:
+        print("status=blocked-needs-deepening")
+    elif issue["action"] == "archive-only":
+        print("status=archive-only")
+    elif issue["action"] == "write":
+        print("status=issue-complete")
+    else:
+        print("status=synthesis-complete")
     for row in ledger_sync["rows"]:
         print(row)
 
-    if validation["failures"]:
+    if validation["failures"] or validation["warnings"]:
         raise SystemExit(1)
 
 

@@ -7,7 +7,7 @@ import subprocess
 import sys
 from datetime import date, datetime, timezone
 from pathlib import Path
-from typing import Callable
+from typing import Any, Callable
 
 
 SCRIPTS_ROOT = Path(__file__).resolve().parent
@@ -126,6 +126,46 @@ FORECAST_REVIEW_AUTHORITY = {
 OUTCOMES = ("improved", "no_change", "regressed", "inconclusive")
 INHERITANCE_SCOPES = ("local-use", "repo-use", "public-use")
 EXPERIMENT_PROFILES = {
+    "research-brief-commissioning": {
+        "version": 1,
+        "purpose": (
+            "Validate the Research Brief commissioning contract, cold-handoff "
+            "schemas, runtime routing, and non-authorizing producer seeds. Passing "
+            "this profile does not establish decision usefulness."
+        ),
+        "paths": [
+            "AGENTS.md",
+            "docs/skill-drafts/research-brief/SKILL.md",
+            "docs/skill-drafts/research-brief/assets/research-brief-seed-v1.json",
+            "docs/skill-drafts/research-brief/assets/research-execution-handoff-v1.json",
+            "docs/skill-drafts/reality-check/SKILL.md",
+            "docs/skill-drafts/world-monitor/SKILL.md",
+            "scripts/research_handoff.py",
+            "scripts/reality_handoff.py",
+            "scripts/continuity.py",
+            "scripts/validate_repository.py",
+            "tools/run_repo.py",
+            "tests/test_research_handoff.py",
+            "tests/test_research_brief_skill.py",
+            "tests/test_reality_handoff.py",
+            "tests/test_reality_check_skill.py",
+            "tests/test_continuity.py",
+            "tests/test_runtime_tooling.py",
+        ],
+        "command": [
+            "-m",
+            "pytest",
+            "tests/test_research_handoff.py",
+            "tests/test_research_brief_skill.py",
+            "tests/test_reality_handoff.py",
+            "tests/test_reality_check_skill.py",
+            "tests/test_continuity.py",
+            "tests/test_runtime_tooling.py",
+            "-q",
+            "-p",
+            "no:cacheprovider",
+        ],
+    },
     "smart-intake-routing": {
         "version": 1,
         "purpose": "Validate canonical routing, alias normalization, and safe intake landing.",
@@ -477,7 +517,11 @@ def startup_state(
     hook_id: str | None = None,
     as_of: str | None = None,
 ) -> dict:
-    mode = {"intake": "best-intake", "smart-intake": "best-intake"}.get(mode, mode)
+    mode = {
+        "intake": "best-intake",
+        "archive-intake": "best-intake",
+        "smart-intake": "best-intake",
+    }.get(mode, mode)
     if mode not in {
         "best-intake",
         "geopolitical-synthesis",
@@ -866,6 +910,33 @@ def run_verification(profile: str | None = None) -> dict:
     return results
 
 
+def verification_exception(error: BaseException) -> dict[str, Any]:
+    """Represent an unexpected verifier failure without losing the handoff."""
+    detail = f"{type(error).__name__}: {error}"
+    unavailable = {
+        "status": "unavailable",
+        "passed": False,
+        "returncode": None,
+        "output_tail": detail,
+    }
+    blocker = command_result(
+        check_id="repository-verification",
+        status="unavailable",
+        scope="repository",
+        command=["cadence", "dream", "verification"],
+        failure_class="command",
+        owner="repository",
+        next_action="Inspect the verifier exception and rerun cadence dream.",
+        evidence=detail,
+        output_tail=detail,
+    )
+    return {
+        "integrity": dict(unavailable),
+        "tests": dict(unavailable),
+        "structured": aggregate_results([blocker]),
+    }
+
+
 def write_baseline(profile: str, path: Path | None = None) -> dict:
     spec = EXPERIMENT_PROFILES.get(profile)
     if spec is None:
@@ -917,7 +988,10 @@ def write_dream(
     if not evidence_summary:
         raise ValueError("evidence summary must not be empty")
     artifact_refs = normalize_artifact_refs(artifact_refs)
-    verification = verify(profile) if profile else verify()
+    try:
+        verification = verify(profile) if profile else verify()
+    except Exception as error:  # Preserve the advisory learning if verification cannot start.
+        verification = verification_exception(error)
     if profile and "experiment" in verification:
         experiment_passed = verification["experiment"].get("passed", False)
         repository_passed = verification_passed(verification)
@@ -984,6 +1058,7 @@ def build_parser() -> argparse.ArgumentParser:
         "mode",
         choices=(
             "intake",
+            "archive-intake",
             "smart-intake",
             "best-intake",
             "geopolitical-synthesis",

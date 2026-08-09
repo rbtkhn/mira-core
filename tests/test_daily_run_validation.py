@@ -81,6 +81,18 @@ Strongest counterevidence or dissent: `test counterevidence`
 ## Decision / Public-use Implication
 
 `internal only`
+
+## Decision Compression
+
+What changed: The test packet adds a bounded daily change.
+
+Reusable mechanism: Test evidence changes operator attention without establishing a verified fact.
+
+Decision implication: Preserve the source set and review the test signal before promotion.
+
+Evidence still missing: Independent corroboration and a dated falsifier.
+
+Recommended disposition: `synthesis-use`
 """,
         encoding="utf-8",
     )
@@ -100,7 +112,7 @@ def complete_sources_text(selected_subset: bool = False) -> str:
         "| --- | --- |\n"
         "| `SRC-01` | [A](../../../archive/sources/2026-07-09/source-a.md) |\n"
         if selected_subset
-        else ""
+        else "\n## Run Source Set\n| Source ID | Archive Path |\n| --- | --- |\n| `SRC-01` | [A](../../../archive/sources/2026-07-09/source-a.md) |\n"
     )
     return (
         "Status: `live-intake-first`\n\n"
@@ -155,7 +167,7 @@ def test_historical_synthesis_without_delta_contract_is_grandfathered(
     assert not any("Distinctive Contribution" in item for item in result["failures"])
 
 
-def test_delta_contract_rejects_archive_only_daily_packet(
+def test_delta_contract_allows_explicit_archive_only_disposition(
     monkeypatch, tmp_path: Path
 ) -> None:
     configure_fixture(monkeypatch, tmp_path, complete_sources_text())
@@ -173,7 +185,35 @@ def test_delta_contract_rejects_archive_only_daily_packet(
 
     result = validator.validate_run("2026-07-09", "synthesis")
 
-    assert "archive-only delta-v1 disposition must not become a completed daily packet" in result["failures"]
+    assert not any("archive-only delta-v1" in item for item in result["failures"])
+
+
+def test_delta_contract_rejects_unresolved_distinctive_contribution(
+    monkeypatch, tmp_path: Path
+) -> None:
+    configure_fixture(monkeypatch, tmp_path, complete_sources_text())
+    synthesis = (
+        tmp_path / "narrative-geopolitics" / "work" / "daily" / "2026-07-09" / "synthesis.md"
+    )
+    synthesis.write_text(
+        "Status: `draft`\n\nSynthesis contract: `delta-v1`\n\n"
+        "## Distinctive Contribution\n\n"
+        "Compared with: [prior date]\n\n"
+        "New contribution: [name the new mechanism]\n\n"
+        "Disposition: `daily-packet`\n\n"
+        "## Primary Voices\n\n"
+        "| Voice | Role | Adds | Risk |\n| --- | --- | --- | --- |\n"
+        "| Analyst | mechanism | comparison | source risk |\n"
+        "| Analyst 2 | pressure | dissent | source risk |\n\n"
+        "## Issue Story Desk\n\n"
+        "| Story ID | Placement |\n| --- | --- |\n"
+        "| `NGI-20260709-S01` | `lead` |\n",
+        encoding="utf-8",
+    )
+
+    result = validator.validate_run("2026-07-09", "synthesis")
+
+    assert any("unresolved synthesis placeholders" in item for item in result["failures"])
 
 
 def test_exact_intake_coverage_is_ready(monkeypatch, tmp_path: Path) -> None:
@@ -181,11 +221,31 @@ def test_exact_intake_coverage_is_ready(monkeypatch, tmp_path: Path) -> None:
 
     result = validator.validate_run("2026-07-09", "synthesis")
 
+    assert not any("Decision Compression" in item for item in result["failures"])
     assert result["state"] == "ready"
     assert result["failures"] == []
     assert result["landed_sources"] == 2
     assert result["consumed_sources"] == 2
 
+
+def test_compression_rejects_missing_disposition(monkeypatch, tmp_path: Path) -> None:
+    configure_fixture(monkeypatch, tmp_path, complete_sources_text())
+    path = tmp_path / "narrative-geopolitics" / "work" / "daily" / "2026-07-09" / "judgment.md"
+    path.write_text(path.read_text(encoding="utf-8").replace("Recommended disposition: `synthesis-use`", "Recommended disposition:"), encoding="utf-8")
+
+    result = validator.validate_run("2026-07-09", "synthesis")
+
+    assert any("recommended disposition" in item for item in result["failures"])
+
+
+def test_compression_rejects_unresolved_reference(monkeypatch, tmp_path: Path) -> None:
+    configure_fixture(monkeypatch, tmp_path, complete_sources_text())
+    path = tmp_path / "narrative-geopolitics" / "work" / "daily" / "2026-07-09" / "judgment.md"
+    path.write_text(path.read_text(encoding="utf-8").replace("Evidence still missing:", "Evidence still missing: see `VER-20990101-99`"), encoding="utf-8")
+
+    result = validator.validate_run("2026-07-09", "synthesis")
+
+    assert "judgment.md reference does not resolve: VER-20990101-99" in result["failures"]
 
 def test_selected_run_source_set_may_be_subset(monkeypatch, tmp_path: Path) -> None:
     configure_fixture(monkeypatch, tmp_path, complete_sources_text(selected_subset=True))

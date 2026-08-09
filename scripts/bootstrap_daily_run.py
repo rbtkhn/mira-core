@@ -265,6 +265,11 @@ Use short direct quotes only when wording matters. Keep quotes brief and tie eac
 def build_from_template(name: str, run_date: str, status: str) -> str:
     text = load_template(name)
     text = text.replace("YYYY-MM-DD", run_date)
+    # Templates live one directory below the repository root, while rendered
+    # daily artifacts live two directories below it.
+    if name in {"synthesis.md", "forecast.md", "daily-brief.md"}:
+        text = text.replace("](../method/", "](../../../method/")
+        text = text.replace("](../work/verification/", "](../../../work/verification/")
     if "Status: `template`" in text:
         text = text.replace("Status: `template`", f"Status: `{status}`", 1)
     if name == "daily-brief.md":

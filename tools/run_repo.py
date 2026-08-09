@@ -11,7 +11,9 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 ARGUMENTS_ENV = "NARRATIVE_RUN_ARGUMENTS_JSON"
 ARGUMENTS_ENV_FLAG = "--arguments-env"
 SURFACES = {
+    "archive-audit": REPO_ROOT / "scripts" / "archive_audit.py",
     "archive-density": REPO_ROOT / "scripts" / "report_archive_density.py",
+    "archive-repair": REPO_ROOT / "scripts" / "archive_repair.py",
     "asr-repair": REPO_ROOT / "scripts" / "run_asr_repair_pilot.py",
     "cadence": REPO_ROOT / "scripts" / "cadence.py",
     "choice": REPO_ROOT / "scripts" / "choice_ledger.py",
@@ -26,10 +28,13 @@ SURFACES = {
     "intake-outcomes": REPO_ROOT / "scripts" / "report_intake_outcomes.py",
     "intake-stats": REPO_ROOT / "scripts" / "report_trim_stats.py",
     "issue-render": REPO_ROOT / "scripts" / "render_daily_issue.py",
+    "morning-brief": REPO_ROOT / "scripts" / "morning_brief.py",
     "mira-continuity": REPO_ROOT / "scripts" / "mira_continuity.py",
     "narrative-reuse": REPO_ROOT / "scripts" / "report_narrative_reuse.py",
     "operator-position": REPO_ROOT / "scripts" / "operator_positions.py",
     "reality": REPO_ROOT / "scripts" / "reality.py",
+    "reality-handoff": REPO_ROOT / "scripts" / "reality_handoff.py",
+    "research-handoff": REPO_ROOT / "scripts" / "research_handoff.py",
     "session-preflight": REPO_ROOT / "scripts" / "session_preflight.py",
     "skills-check": REPO_ROOT / "scripts" / "check_codex_skills_sync.py",
     "skills-sync": REPO_ROOT / "scripts" / "sync_codex_skills.py",

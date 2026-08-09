@@ -13,6 +13,7 @@ REPO_ROOT = voice_metadata.REPO_ROOT
 NG_ROOT = voice_metadata.NG_ROOT
 VOICES_ROOT = NG_ROOT / "voices"
 ROLE_OVERRIDES_NAME = "role-overrides.json"
+PAPE_OVERRIDE_ROLES = {"author", "authored", "guest"}
 STANDARD_HEADER = "| Date | Source | Role | Host slug | Archive link |"
 STANDARD_ROW_RE = re.compile(
     r"^\| `(?P<date>[^`]+)` \| (?P<title>.*?) \| `(?P<role>[^`]*)` \| `(?P<host>[^`]*)` \| \[source\]\((?P<link>[^)]+)\) \|$"
@@ -63,6 +64,10 @@ def role_override_failures(
             failures.append(f"voice-role override voice absent from manifest row: {slug} {local_path}")
         if not role.strip():
             failures.append(f"empty voice-role override: {slug} {local_path}")
+        elif slug == "pape" and role not in PAPE_OVERRIDE_ROLES:
+            failures.append(
+                f"unsupported Pape voice-role override: {role} {local_path}"
+            )
     return failures
 
 
@@ -108,6 +113,12 @@ def all_manifest_rows_for_voice(manifest: dict[str, Any], slug: str) -> list[dic
 
 
 def derive_role(row: dict[str, Any], voice_slug: str) -> str:
+    explicit = row.get("voice_roles") or {}
+    values = explicit.get(voice_slug) or explicit.get(voice_metadata.canonical_slug(voice_slug))
+    if values:
+        # Indexes have one role column; preserve the most specific source role.
+        priority = {"author": 0, "guest": 1, "panelist": 2, "co-host": 3, "host": 4}
+        return sorted(values, key=lambda value: priority.get(value, 99))[0]
     source_class = str(row.get("source_class", "")).lower()
     modality = str(row.get("modality", "")).lower()
     host = str(row.get("host_slug", ""))
@@ -119,6 +130,11 @@ def derive_role(row: dict[str, Any], voice_slug: str) -> str:
     if host and voice_metadata.canonical_slug(host) != voice_slug:
         return "host-pressure test"
     return "provisional-route"
+
+
+def pape_display_role(role: str) -> str:
+    """Translate canonical archive roles into Pape's binary index vocabulary."""
+    return "authored" if role in {"author", "authored"} else "guest"
 
 
 def parse_standard(index_path: Path, text: str, repo_root: Path = REPO_ROOT) -> tuple[dict[str, dict[str, str]], list[str], tuple[int, int] | None]:
@@ -242,10 +258,11 @@ def render_pape(
     guest = 0
     for row in manifest_rows:
         local_path = row["local_path"]
-        role = role_overrides.get(
+        source_role = role_overrides.get(
             ("pape", local_path),
-            "authored" if derive_role(row, "pape") == "authored" else "guest",
+            derive_role(row, "pape"),
         )
+        role = pape_display_role(source_role)
         host = row.get("host_slug") or ""
         host_suffix = f" · host: `{host}`" if role == "guest" and host else ""
         line = f"- [{row['date']} — {row.get('title', '')}]({archive_link(local_path)}) — **{role}** · {row.get('modality', '')}{host_suffix}"

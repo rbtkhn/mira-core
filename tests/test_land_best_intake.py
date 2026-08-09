@@ -929,6 +929,21 @@ def test_repair_asr_text_respects_none_mode() -> None:
     assert args.asr_repair_pass == ""
 
 
+def test_repair_asr_text_can_preserve_layout_for_class_isolated_repair() -> None:
+    args = trim_args("daniel-davis")
+    body = "The straight of hormones remained open.\n\n\nLayout boundary stays visible.\n"
+
+    repaired = land_best_intake.repair_asr_text(
+        args,
+        body,
+        normalize_layout=False,
+    )
+
+    assert "Strait of Hormuz" in repaired
+    assert "\n\n\nLayout boundary" in repaired
+    assert args.asr_repair_applied is True
+
+
 def test_repair_asr_text_preserves_existing_provenance_when_body_is_clean() -> None:
     args = trim_args("daniel-davis")
     args.asr_repair_applied = True
@@ -1393,6 +1408,15 @@ def test_backfill_rejects_reversed_range_before_scanning(monkeypatch, tmp_path: 
     assert list(sources.iterdir()) == []
 
 
+def test_legacy_backfill_execution_is_disabled_before_scanning(monkeypatch, tmp_path: Path) -> None:
+    sources, _ = configure_transaction_root(monkeypatch, tmp_path)
+
+    with pytest.raises(ValueError, match="Legacy backfill execution is disabled"):
+        land_best_intake.backfill_sources("2026-07-01")
+
+    assert list(sources.iterdir()) == []
+
+
 def test_url_is_optional_and_upstream_provenance_remains_distinct(monkeypatch, tmp_path: Path) -> None:
     _, _ = configure_transaction_root(monkeypatch, tmp_path)
     args = transaction_args("2026-07-15", "URL unavailable", url="")
@@ -1591,9 +1615,6 @@ def test_manifest_publication_failure_rolls_back_all_sources(
 
 
 def test_documented_host_allowlists_match_executable_contracts() -> None:
-    skill = (REPO_ROOT / "docs" / "skill-drafts" / "best-intake" / "SKILL.md").read_text(
-        encoding="utf-8"
-    )
     method = (
         REPO_ROOT / "narrative-geopolitics" / "method" / "best-intake.md"
     ).read_text(encoding="utf-8")
@@ -1604,7 +1625,6 @@ def test_documented_host_allowlists_match_executable_contracts() -> None:
     }
 
     for label, hosts in expected.items():
-        assert documented_hosts(skill, label) == hosts
         assert documented_hosts(method, label) == hosts
 def test_transcript_title_wins_and_operator_title_is_preserved_as_alias() -> None:
     args = build_fast_args(

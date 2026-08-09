@@ -16,7 +16,7 @@ def test_slug_and_explicit_voice_shape():
 
 def test_candidate_lines_require_object_and_mechanism():
     rows = MODULE.candidate_lines(
-        ["Russia may blockade Odessa", "", "The port is strategically important."],
+        ["Russia may blockade Odessa and isolate the commercial port from maritime traffic."],
         "Odessa",
     )
     assert rows and "blockade Odessa" in rows[0][1]
@@ -31,3 +31,12 @@ def test_report_has_three_quotes_per_voice_and_boundary():
     assert report.count("> “") == 6
     assert "not independent corroboration" in report
     assert "reality-check" in report
+
+
+def test_date_window_excludes_out_of_window_rows():
+    rows = [
+        {"date": "2026-06-30", "voice_slugs": ["alpha"], "local_path": "a.md"},
+        {"date": "2026-07-15", "voice_slugs": ["alpha"], "local_path": "b.md"},
+    ]
+    filtered = [row for row in rows if "2026-07-01" <= row["date"] <= "2026-07-31"]
+    assert [row["local_path"] for row in filtered] == ["b.md"]

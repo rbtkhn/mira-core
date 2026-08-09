@@ -1390,7 +1390,12 @@ def host_supports_asr_repair(host_slug: str | None) -> bool:
     return bool(host_slug and host_slug in ASR_REPAIR_APPROVED_HOSTS)
 
 
-def repair_asr_text(args: SimpleNamespace, body: str) -> str:
+def repair_asr_text(
+    args: SimpleNamespace,
+    body: str,
+    *,
+    normalize_layout: bool = True,
+) -> str:
     prior_applied = bool(getattr(args, "asr_repair_applied", False))
     prior_pass = getattr(args, "asr_repair_pass", "")
 
@@ -1411,7 +1416,8 @@ def repair_asr_text(args: SimpleNamespace, body: str) -> str:
     for pattern, replacement in HOST_ASR_REPAIRS.get(getattr(args, "host_slug", None), ()):
         repaired = re.sub(pattern, replacement, repaired)
 
-    repaired = re.sub(r"\n{3,}", "\n\n", repaired).strip() + "\n"
+    if normalize_layout:
+        repaired = re.sub(r"\n{3,}", "\n\n", repaired).strip() + "\n"
     if repaired != body:
         args.asr_repair_applied = True
         args.asr_repair_pass = ASR_REPAIR_PASS_LABEL
@@ -1836,6 +1842,11 @@ def backfill_sources(
         until_date = validate_iso_date(until_date, "backfill_until")
         if until_date < since_date:
             raise ValueError("backfill_until must not be earlier than backfill_since")
+    if not dry_run:
+        raise ValueError(
+            "Legacy backfill execution is disabled; use tools/run.ps1 archive-repair "
+            "with an explicit class, target set, and reviewed plan digest."
+        )
     messages: list[str] = []
     for path in sorted(ARCHIVE_SOURCES_ROOT.rglob("source-*.md")):
         result = retrofit_source(

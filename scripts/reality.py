@@ -11,6 +11,14 @@ from pathlib import Path
 from typing import Any, Iterable
 from urllib.parse import urlparse
 
+try:
+    import yaml
+except ModuleNotFoundError:  # JSON audit/impact consumers do not require YAML.
+    yaml = None
+
+import event_identity_kernel
+from event_identity_policy import HOST_POLICY as EVENT_IDENTITY_POLICY
+
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 NG_ROOT = REPO_ROOT / "narrative-geopolitics"
@@ -92,6 +100,7 @@ TRANSLATION_PROVENANCE = {
     "machine_assisted_disclosed",
 }
 EVIDENCE_ROLES = {"observational", "official_position", "professional_reporting", "context_only", "derived_editorial"}
+NON_SUPPORTING_EVIDENCE_ROLES = {"context_only", "derived_editorial"}
 CANONICAL_REVIEWER = "operator"
 REQUIRED_SIGNOFFS = 1
 COMMON_REQUIRED = {"schema_version", "id", "kind", "created_at", "created_by", "as_of", "status", "revision_of"}
@@ -113,6 +122,134 @@ LEGACY_EVIDENCE_RE = re.compile(
 
 class RealityError(ValueError):
     pass
+
+
+if yaml is not None:
+    class EventIdentitySafeLoader(yaml.SafeLoader):
+        pass
+
+
+    EventIdentitySafeLoader.yaml_implicit_resolvers = {
+        key: [
+            (tag, regexp)
+            for tag, regexp in resolvers
+            if tag != "tag:yaml.org,2002:timestamp"
+        ]
+        for key, resolvers in yaml.SafeLoader.yaml_implicit_resolvers.items()
+    }
+else:
+    EventIdentitySafeLoader = Any
+
+
+def _event_identity_mapping(
+    loader: EventIdentitySafeLoader,
+    node: yaml.MappingNode,
+    deep: bool = False,
+) -> dict[Any, Any]:
+    mapping: dict[Any, Any] = {}
+    for key_node, value_node in node.value:
+        key = loader.construct_object(key_node, deep=deep)
+        try:
+            duplicate = key in mapping
+        except TypeError as error:
+            raise event_identity_kernel.EventIdentityError(
+                "packet.invalid-mapping-key"
+            ) from error
+        if duplicate:
+            raise event_identity_kernel.EventIdentityError(
+                "packet.duplicate-yaml-key"
+            )
+        mapping[key] = loader.construct_object(value_node, deep=deep)
+    return mapping
+
+
+if yaml is not None:
+    EventIdentitySafeLoader.add_constructor(
+        yaml.resolver.BaseResolver.DEFAULT_MAPPING_TAG, _event_identity_mapping
+    )
+
+
+def load_event_identity_packet(path: Path) -> Any:
+    if yaml is None:
+        raise event_identity_kernel.EventIdentityError("packet.yaml-unavailable")
+    try:
+        size = path.stat().st_size
+    except OSError as error:
+        raise event_identity_kernel.EventIdentityError("packet.read-error") from error
+    if size > EVENT_IDENTITY_POLICY.bounds.max_packet_bytes:
+        raise event_identity_kernel.EventIdentityError("packet.too-large")
+    try:
+        text = path.read_text(encoding="utf-8")
+    except (OSError, UnicodeError) as error:
+        raise event_identity_kernel.EventIdentityError("packet.read-error") from error
+    try:
+        documents = list(yaml.load_all(text, Loader=EventIdentitySafeLoader))
+    except event_identity_kernel.EventIdentityError:
+        raise
+    except yaml.YAMLError as error:
+        raise event_identity_kernel.EventIdentityError("packet.invalid-yaml") from error
+    if len(documents) != 1:
+        raise event_identity_kernel.EventIdentityError(
+            "packet.multiple-yaml-documents"
+        )
+    return documents[0]
+
+
+def event_identity_invalid_result(
+    error: event_identity_kernel.EventIdentityError,
+) -> dict[str, Any]:
+    return {
+        "status": "invalid",
+        "errors": [{"code": code} for code in error.codes],
+        "authority_effect": event_identity_kernel.AUTHORITY_EFFECT,
+        "capability_token": event_identity_kernel.CAPABILITY_TOKEN,
+        "notice": event_identity_kernel.NO_AUTHORITY_NOTICE,
+    }
+
+
+def render_event_identity_invalid(
+    result: dict[str, Any], output_format: str
+) -> str:
+    if output_format == "json":
+        return json.dumps(
+            result, ensure_ascii=True, sort_keys=True, separators=(",", ":")
+        )
+    lines = [
+        "# Event Identity Preflight",
+        "",
+        "- Status: `invalid`",
+        f"- Authority effect: `{result['authority_effect']}`",
+        f"- Capability token: `{str(result['capability_token']).lower()}`",
+        "",
+        f"> {result['notice']}",
+        "",
+        "## Errors",
+        "",
+        *[f"- `{item['code']}`" for item in result["errors"]],
+    ]
+    return "\n".join(lines) + "\n"
+
+
+def run_event_identity_check(packet_path: Path, output_format: str) -> int:
+    try:
+        result = event_identity_kernel.compare_packet(
+            load_event_identity_packet(packet_path), EVENT_IDENTITY_POLICY
+        )
+    except event_identity_kernel.EventIdentityError as error:
+        print(
+            render_event_identity_invalid(
+                event_identity_invalid_result(error), output_format
+            ),
+            end="",
+        )
+        return 1
+    rendered = (
+        event_identity_kernel.render_json(result)
+        if output_format == "json"
+        else event_identity_kernel.render_markdown(result)
+    )
+    print(rendered, end="" if rendered.endswith("\n") else "\n")
+    return 0 if result["disposition"] == "continue-distinct" else 1
 
 
 def utc_now() -> str:
@@ -205,6 +342,8 @@ def validate_record(record: dict[str, Any], records: dict[str, dict[str, Any]]) 
         failures.extend(f"{label}: missing field {field}" for field in sorted(SOURCE_FIELDS - set(record)))
         if record.get("status") not in SOURCE_STATUSES:
             failures.append(f"{label}: invalid source status {record.get('status')}")
+        if record.get("evidence_class") == "expert_commentary" and record.get("status") != "candidate":
+            failures.append(f"{label}: expert commentary source must remain candidate")
         for field in ("origin_languages", "access_languages", "review_history"):
             if not isinstance(record.get(field), list) or not record.get(field):
                 failures.append(f"{label}: {field} must be a non-empty list")
@@ -244,6 +383,8 @@ def validate_record(record: dict[str, Any], records: dict[str, dict[str, Any]]) 
             failures.append(f"{label}: source_id does not resolve")
         elif source.get("status") == "candidate" and record.get("evidence_role") != "context_only":
             failures.append(f"{label}: candidate source may supply context only")
+        elif source.get("evidence_class") == "expert_commentary" and record.get("evidence_role") != "context_only":
+            failures.append(f"{label}: expert commentary source may supply context only")
         if record.get("translation_provenance") not in TRANSLATION_PROVENANCE:
             failures.append(f"{label}: invalid translation_provenance")
         if record.get("evidence_role") not in EVIDENCE_ROLES:
@@ -271,8 +412,11 @@ def validate_record(record: dict[str, Any], records: dict[str, dict[str, Any]]) 
             source = records.get(record.get("from_id"), {})
             if source.get("kind") != "evidence":
                 failures.append(f"{label}: {record.get('relation_type')} must originate from evidence")
-            if source.get("evidence_role") == "derived_editorial":
-                failures.append(f"{label}: derived editorial material cannot support or challenge empirical claims")
+            if source.get("evidence_role") in NON_SUPPORTING_EVIDENCE_ROLES:
+                role_label = "derived editorial" if source.get("evidence_role") == "derived_editorial" else "context_only"
+                failures.append(
+                    f"{label}: {role_label} material cannot support or challenge empirical claims"
+                )
     elif kind == "assessment":
         failures.extend(validate_assessment(record, records))
     elif kind == "transition":
@@ -303,7 +447,11 @@ def supporting_evidence(assessment: dict[str, Any], records: dict[str, dict[str,
         and relation.get("relation_type") == "supports"
         and relation.get("to_id") == assessment.get("claim_id")
     }
-    return [records[item] for item in sorted(evidence_ids & supported_ids) if item in records]
+    return [
+        records[item]
+        for item in sorted(evidence_ids & supported_ids)
+        if item in records and records[item].get("evidence_role") not in NON_SUPPORTING_EVIDENCE_ROLES
+    ]
 
 
 def validate_assessment(assessment: dict[str, Any], records: dict[str, dict[str, Any]]) -> list[str]:
@@ -656,6 +804,7 @@ def migrated_evidence_record(item: dict[str, str], index: int, sources: dict[str
         "official_interested_primary": "official_position",
         "state_affiliated_reporting": "official_position",
         "independent_professional_reporting": "professional_reporting",
+        "expert_commentary": "context_only",
     }
     record.update({
         "source_id": item["registry_id"], "url": item["url"], "retrieved_at": item["retrieved"],
@@ -1397,6 +1546,12 @@ def parse_args() -> argparse.Namespace:
     profile = sub.add_parser("profile"); profile.add_argument("voice"); profile.add_argument("--json", action="store_true")
     render = sub.add_parser("render"); render.add_argument("--check", action="store_true")
     check = sub.add_parser("check"); check.add_argument("record_id", nargs="?"); check.add_argument("--all", action="store_true")
+    identity = sub.add_parser(
+        "identity-check",
+        help="read-only cross-time-zone event-identity preflight",
+    )
+    identity.add_argument("--packet", type=Path, required=True)
+    identity.add_argument("--format", choices=("markdown", "json"), default="markdown")
     migrate = sub.add_parser("migrate"); migrate.add_argument("--date", required=True); migrate.add_argument("--check", action="store_true")
     return parser.parse_args()
 
@@ -1442,6 +1597,8 @@ def main() -> None:
                 print("\n".join(f"FAIL {item}" for item in failures))
                 raise SystemExit(1)
             print("reality_failures=0")
+        elif args.command == "identity-check":
+            raise SystemExit(run_event_identity_check(args.packet, args.format))
         elif args.command == "migrate":
             if args.check:
                 failures = check_migration(args.date) + validate_all()

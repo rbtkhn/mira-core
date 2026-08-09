@@ -1,78 +1,41 @@
 from __future__ import annotations
 
 import argparse
-import importlib.util
 import sys
-from pathlib import Path
+
+import archive_repair
 
 
-REPO_ROOT = Path(__file__).resolve().parent.parent
-LAND_SCRIPT = REPO_ROOT / "scripts" / "land_best_intake.py"
-
-
-def load_land_best_intake():
-    spec = importlib.util.spec_from_file_location("land_best_intake", LAND_SCRIPT)
-    assert spec is not None
-    assert spec.loader is not None
-    module = importlib.util.module_from_spec(spec)
-    sys.modules["land_best_intake"] = module
-    spec.loader.exec_module(module)
-    return module
-
-
-def parse_args() -> argparse.Namespace:
+def parse_args(arguments: list[str] | None = None) -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        description="Run a bounded ASR repair pilot by force-rerunning sectioning on an explicit file list."
+        description="Deprecated adapter for bounded ASR-only archive repair."
     )
-    parser.add_argument(
-        "--list-file",
-        required=True,
-        help="Text file containing repo-relative source markdown paths, one per line.",
+    parser.add_argument("--list-file", required=True)
+    mode = parser.add_mutually_exclusive_group(required=True)
+    mode.add_argument("--dry-run", action="store_true")
+    mode.add_argument("--execute", action="store_true")
+    parser.add_argument("--plan-digest")
+    parser.add_argument("--format", choices=("markdown", "json"), default="markdown")
+    args = parser.parse_args(arguments)
+    if args.execute and not args.plan_digest:
+        parser.error("--execute requires --plan-digest")
+    if not args.execute and args.plan_digest:
+        parser.error("--plan-digest is valid only with --execute")
+    return args
+
+
+def main(arguments: list[str] | None = None) -> int:
+    args = parse_args(arguments)
+    print(
+        "DEPRECATED: use tools/run.ps1 archive-repair --class asr instead.",
+        file=sys.stderr,
     )
-    parser.add_argument(
-        "--dry-run",
-        action="store_true",
-        help="Preview what would be reprocessed without writing files.",
-    )
-    return parser.parse_args()
-
-
-def load_paths(list_file: Path) -> list[Path]:
-    if not list_file.is_file():
-        raise FileNotFoundError(f"List file not found: {list_file}")
-    paths: list[Path] = []
-    for raw_line in list_file.read_text(encoding="utf-8").splitlines():
-        line = raw_line.strip()
-        if not line or line.startswith("#"):
-            continue
-        source_path = (REPO_ROOT / line).resolve()
-        if not source_path.is_file():
-            raise FileNotFoundError(f"Source file not found: {source_path}")
-        paths.append(source_path)
-    if not paths:
-        raise ValueError(f"No source paths found in: {list_file}")
-    return paths
-
-
-def main() -> int:
-    args = parse_args()
-    module = load_land_best_intake()
-    list_file = (REPO_ROOT / args.list_file).resolve()
-    paths = load_paths(list_file)
-
-    messages: list[str] = []
-    for path in paths:
-        result = module.retrofit_source(
-            path,
-            "1900-01-01",
-            dry_run=args.dry_run,
-            force_sections=True,
-            sectioning="auto",
-        )
-        if result:
-            messages.append(result)
-    print("\n".join(messages))
-    return 0
+    forwarded = ["--class", "asr", "--list-file", args.list_file]
+    forwarded.append("--execute" if args.execute else "--dry-run")
+    if args.plan_digest:
+        forwarded.extend(("--plan-digest", args.plan_digest))
+    forwarded.extend(("--format", args.format))
+    return archive_repair.main(forwarded)
 
 
 if __name__ == "__main__":

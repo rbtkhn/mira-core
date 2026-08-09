@@ -23,6 +23,11 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--dry-run", action="store_true")
     parser.add_argument("--crisis-object", default="")
     parser.add_argument("--skip-ledger-sync", action="store_true")
+    parser.add_argument("--forecast-authored-at", default="")
+    parser.add_argument("--forecast-timing-provenance", default="")
+    parser.add_argument("--forecast-type", choices=("ex_ante", "falsifier", "indicator", "retrospective_hypothesis", "unscorable"))
+    parser.add_argument("--forecast-accountable", choices=("yes", "no"))
+    parser.add_argument("--forecast-review-note", default="")
     parser.add_argument(
         "--scaffold-empty",
         action="store_true",
@@ -71,6 +76,11 @@ def stack_args(args: argparse.Namespace, run_date: str) -> argparse.Namespace:
         dry_run=args.dry_run,
         crisis_object=args.crisis_object,
         skip_ledger_sync=args.skip_ledger_sync,
+        forecast_authored_at=args.forecast_authored_at,
+        forecast_timing_provenance=args.forecast_timing_provenance,
+        forecast_type=args.forecast_type,
+        forecast_accountable=args.forecast_accountable,
+        forecast_review_note=args.forecast_review_note,
     )
 
 
@@ -211,11 +221,23 @@ def execute_date(run_date: str, args: argparse.Namespace) -> None:
     print(f"ledger_new_rows={ledger_sync['new_rows']}")
     print(f"issue_action={issue['action']}")
     print(f"issue_detail={issue['detail']}")
+    if validation["failures"]:
+        print("status=blocked-needs-deepening")
+    elif validation["warnings"]:
+        print("status=blocked-needs-deepening")
+    elif issue["action"] in {"blocked", "deferred"}:
+        print("status=blocked-needs-deepening")
+    elif issue["action"] == "archive-only":
+        print("status=archive-only")
+    elif issue["action"] == "write":
+        print("status=issue-complete")
+    else:
+        print("status=synthesis-complete")
     for item in validation["failures"]:
         print(f"FAIL {item}")
     for item in validation["warnings"]:
         print(f"WARN {item}")
-    if validation["failures"]:
+    if validation["failures"] or validation["warnings"]:
         raise SystemExit(1)
 
 

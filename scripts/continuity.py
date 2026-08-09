@@ -10,6 +10,9 @@ from datetime import date, timedelta
 from datetime import datetime, timezone
 from pathlib import Path
 
+import research_handoff
+import voice_judgments
+
 ROOT = Path(__file__).resolve().parent.parent
 NG = ROOT / "narrative-geopolitics"
 VOICES = NG / "voices"
@@ -62,6 +65,34 @@ def rows(path: Path):
 
 
 def all_states():
+    if voice_judgments.REGISTRY_PATH.exists():
+        registry = voice_judgments.load_registry()
+        out = []
+        for judgment in registry.get("judgments", []):
+            version = judgment["versions"][-1]
+            aliases = judgment.get("legacy_ids", [])
+            state_id = aliases[0] if aliases else judgment["id"]
+            formal = version.get("formal_forecast_refs", [])
+            unresolved = version.get("unresolved_forecast_refs", [])
+            item = {
+                "state_id": state_id,
+                "judgment_id": judgment["id"],
+                "proposition": version["proposition"],
+                "state": "new" if state_id == "STATE-CROOKE-0001" else (
+                    "persistent" if judgment.get("lifecycle") == "active" else judgment.get("lifecycle")
+                ),
+                "first_seen": version["first_seen"],
+                "last_seen": version["last_seen"],
+                "expression_type": version["expression_type"],
+                "source_ids": ",".join(version.get("source_refs", [])),
+                "daily_blocks": ",".join(version.get("daily_refs", [])),
+                "forecast_hook": (formal + unresolved + ["none"])[0],
+                "revision_note": version.get("migration_note", ""),
+                "voice": judgment["voice_slug"],
+                "ledger": f"narrative-geopolitics/voices/{judgment['voice_slug']}/judgment-ledger.md",
+            }
+            out.append(item)
+        return out
     out = []
     for voice, path in ledgers():
         for item in rows(path):
@@ -568,14 +599,10 @@ def parse_forecast_rows():
 
 def parse_state_forecast_links():
     links = defaultdict(list)
-    for voice, path in ledgers():
-        text = path.read_text(encoding="utf-8")
-        for line in text.splitlines():
-            if not line.startswith("|") or "State ID" in line or set(line.replace("|", "").strip()) <= {"-", ":", " "}:
-                continue
-            cells = [c.strip().strip("`") for c in line.strip("|").split("|")]
-            if len(cells) >= 10 and cells[0].startswith("STATE-") and cells[8].startswith("NG-"):
-                links[cells[8]].append({"voice": voice, "state_id": cells[0], "state": cells[2], "first_seen": cells[3], "last_seen": cells[4], "expression_type": cells[5], "source_ids": cells[6], "daily_blocks": cells[7], "revision_note": cells[9]})
+    for state in all_states():
+        hook = state.get("forecast_hook", "")
+        if hook.startswith("NG-"):
+            links[hook].append(state)
     return links
 
 
@@ -776,7 +803,7 @@ def geometry_payload(start_date, end_date):
     for hook_id, hook in forecast_hooks.items():
         forecast_id = f"forecast:{hook_id}"; geometry_node(nodes, forecast_id, "forecast", hook_id, status=hook["status"], provenance=hook["provenance"])
         for state in state_links.get(hook_id, []):
-            source_ids = re.findall(r"SRC-[0-9]+", state["source_ids"])
+            source_ids = [value for value in state["source_ids"].split(",") if value]
             geometry_edge(edges, f"voice:{state['voice']}", forecast_id, "forecasted", date_value=hook["date"], source_ids=source_ids, objects=geometry_object_terms(hook["crisis_object"]), classification="explicit forecast-to-voice linkage", confidence="bounded", basis_type="longitudinal_link")
         for record in reality_records():
             if hook_id not in json.dumps(record, ensure_ascii=False):
@@ -847,8 +874,117 @@ def command_geometry():
     print(json.dumps(payload, indent=2, ensure_ascii=False) if ARGS.format == "json" else rendered)
 
 
+def triage_research_seed(item):
+    priority = item["priority"]
+    category = item["category"]
+    eligible = (
+        priority == "P1" and category in {"forecast", "lineage"}
+    ) or (
+        priority == "P2" and category == "counter_pressure"
+    )
+    if not eligible:
+        return None
+
+    entity = item["entity"]
+    links = item["links"]
+    if category == "forecast":
+        decision_context = (
+            "Decide what evidence is needed to adjudicate the accountable forecast "
+            "against its declared observable without forcing an outcome."
+        )
+        question = (
+            f"What evidence supports, challenges, or leaves unresolved the declared observable for {entity}?"
+        )
+        rivals = [
+            "The declared observable resolves consistently with the forecast.",
+            "The observable challenges the forecast or remains unresolved.",
+        ]
+        route = "reality-check"
+        route_reason = "The triage item targets an accountable canonical forecast."
+    elif category == "lineage":
+        decision_context = (
+            "Decide whether apparent analytical convergence reflects distinct "
+            "mechanisms or shared sourcing and host dependence."
+        )
+        question = (
+            f"Do {entity} represent distinct mechanisms supported by independent lineage?"
+        )
+        rivals = [
+            "The voices express distinct mechanisms supported by independent lineage.",
+            "The apparent convergence descends from shared sourcing or host dependence.",
+        ]
+        route = "external-research"
+        route_reason = "The item requires bounded lineage and mechanism comparison."
+    else:
+        decision_context = (
+            "Decide whether a missing counter-pressure reflects a real analytical "
+            "gap or incomplete source coverage."
+        )
+        question = f"What independent evidence could test the missing counter-pressure for {entity}?"
+        rivals = [
+            "The missing counter-pressure is a source-coverage gap.",
+            "The available record genuinely lacks the proposed counter-pressure.",
+        ]
+        route = "external-research"
+        route_reason = "The item requires an orthogonal evidence search outside canonical state."
+
+    canonical_claim_id = (
+        entity if research_handoff.CLAIM_ID_RE.fullmatch(entity) is not None else None
+    )
+    known_context = [item["reason"]]
+    if item["crisis_objects"]:
+        known_context.append("Crisis objects: " + ", ".join(item["crisis_objects"]))
+    if item["basis"]:
+        known_context.append("Triage basis: " + ", ".join(item["basis"]))
+    all_source_refs = sorted(set(
+        item["source_ids"]
+        + links["forecast_ids"]
+        + links["reality_ids"]
+        + links["geometry_edges"]
+    ))
+    source_refs = all_source_refs[:20]
+    actors = item["voices"][:12]
+    source_ids = item["source_ids"][:20]
+    if len(all_source_refs) > len(source_refs):
+        known_context.append(
+            f"{len(all_source_refs) - len(source_refs)} additional references remain on the originating triage item."
+        )
+    if len(item["voices"]) > len(actors):
+        known_context.append(
+            f"{len(item['voices']) - len(actors)} additional voices remain on the originating triage item."
+        )
+    return research_handoff.build_seed(
+        producer_workflow="continuity-triage",
+        item_id=f"{category}:{item['date']}:{entity}",
+        source_refs=source_refs,
+        decision_context=decision_context,
+        candidate_question=question,
+        scope_hints={
+            "actors": actors,
+            "geography": [],
+            "time_window": item["date"],
+            "languages": [],
+        },
+        known_context=known_context,
+        unresolved_gaps=[item["action"]],
+        rival_hints=rivals,
+        routing_workflow=route,
+        routing_reason=route_reason,
+        identifiers={
+            "canonical_claim_id": canonical_claim_id,
+            "forecast_ids": links["forecast_ids"],
+            "reality_ids": links["reality_ids"],
+            "source_ids": source_ids,
+        },
+    )
+
+
 def triage_item(priority, category, entity, date_value, *, crisis_objects=None, source_ids=None, voices=None, hosts=None, basis=None, reason, action, links=None):
-    return {"priority": priority, "category": category, "entity": entity, "date": date_value, "crisis_objects": sorted(set(crisis_objects or [])), "source_ids": sorted(set(source_ids or [])), "voices": sorted(set(voices or [])), "hosts": sorted(set(hosts or [])), "basis": sorted(set(basis or [])), "reason": reason, "action": action, "links": links or {"forecast_ids": [], "reality_ids": [], "geometry_edges": []}}
+    item = {"priority": priority, "category": category, "entity": entity, "date": date_value, "crisis_objects": sorted(set(crisis_objects or [])), "source_ids": sorted(set(source_ids or [])), "voices": sorted(set(voices or [])), "hosts": sorted(set(hosts or [])), "basis": sorted(set(basis or [])), "reason": reason, "action": action, "links": links or {"forecast_ids": [], "reality_ids": [], "geometry_edges": []}}
+    seed = triage_research_seed(item)
+    if seed is not None:
+        item["research_brief_seed"] = seed
+    return item
 
 
 def triage_payload(start_date, end_date):
@@ -903,7 +1039,11 @@ def render_triage(payload):
     lines = ["# Continuity Triage", "", "## Decision Summary", "", f"- Range: {payload['range']['start']} through {payload['range']['end']}; total items: {payload['summary']['total_items']}; P1: {payload['summary']['p1']}; P2: {payload['summary']['p2']}; P3: {payload['summary']['p3']}", "", "## P1 Immediate Review", ""]
     for title, key in (("P1 Immediate Review", "p1_immediate_review"), ("P2 Structural Review", "p2_structural_review"), ("P3 Quality and Completeness Review", "p3_quality_review")):
         if title != "P1 Immediate Review": lines.extend(["", f"## {title}", ""])
-        lines.extend([f"{i}. **{item['entity']}** [{item['category']}] {item['reason']} Action: {item['action']}" for i, item in enumerate(payload[key], 1)] or ["- None."])
+        lines.extend([
+            f"{i}. **{item['entity']}** [{item['category']}] {item['reason']} Action: {item['action']}"
+            + (" Research Brief seed available; select this item before expansion." if "research_brief_seed" in item else "")
+            for i, item in enumerate(payload[key], 1)
+        ] or ["- None."])
     lines.extend(["", "## Forecast Accountability Queue", "", f"- {payload['forecast_accountability']}", "", "## Reality-Check Queue", "", f"- Linked reality records: {payload['reality_check']['linked_record_count']}", "", "## Counter-Pressure and Missing-Observable Queue", ""] + [f"- {gap['object']}: {gap['missing_axis']} Action: {gap['action']}" for gap in payload["counter_pressure"]])
     lines.extend(["", "## Host and Lineage Limitations", "", f"- Reviewable geometry relationships: {len(payload['host_lineage_limits'])}", "", "## Crisis-Object Transition Watch", ""] + [f"- {item['object']}: {item['state']} ({item['first_seen']}–{item['last_seen']})" for item in payload["transitions"]] + ["", "## Editorial Compression Warnings", "", "- Preserve counter-pressure and lineage limitations when compressing the daily brief.", "", "## Coverage and Quality Metrics", "", f"- {payload['quality_metrics']}", "", "## Limitations and Non-Evidence Notice", "", f"- Generated: `{payload['generated_at']}`", f"- Content hash: `{payload['content_hash']}`"] + [f"- {item}" for item in payload["limitations"]])
     return "\n".join(lines) + "\n"

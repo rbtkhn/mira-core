@@ -44,6 +44,22 @@ def test_consecutive_explicit_turns_do_not_repeat_same_speaker() -> None:
     assert labeled.count("**Glenn Diesen**:") == 1
 
 
+def test_turn_markers_preserve_uncertainty_instead_of_inventing_attribution() -> None:
+    body = "# Interview\n\n## Transcript\n\nHost opening. >> Guest answer. >> Host follow-up."
+    labeled, stats = MODULE.label_body(
+        body,
+        {"voice_slugs": ["freeman"]},
+        {"host": "Daniel Davis", "guest": "Chas Freeman"},
+    )
+    assert "**Unknown**: Host opening." in labeled
+    assert "**Unknown**: Guest answer." in labeled
+    assert "**Unknown**: Host follow-up." in labeled
+    assert stats["turn_labeling"] == "marker-boundary-preserved-uncertain"
+    assert stats["labeled_turn_count"] == 0
+    assert stats["unknown_turn_count"] == 3
+    assert stats["mixed_turn_count"] == 3
+
+
 def test_selector_is_deterministic() -> None:
     rows = [{"date": "2025-01-01", "local_path": "b", "modality": "transcript"}, {"date": "2025-02-01", "local_path": "a", "modality": "transcript"}]
     manifest = {"sources": rows}
@@ -61,6 +77,21 @@ def test_derivative_does_not_change_raw(tmp_path: Path) -> None:
     provenance = result["provenance"]
     assert provenance["source_sha256"] == before
     assert provenance["labeling_method"]
+
+
+def test_marker_boundary_provenance_withholds_attribution(tmp_path: Path) -> None:
+    row = {"local_path": "narrative-geopolitics/archive/sources/2025-05-31/source-glenn-diesen-chas-freeman-the-collapse-of-american-diplomacy-2025-05-31.md", "voice_slugs": ["freeman"]}
+    _, result = MODULE.derivative(row, tmp_path)
+    # This fixture is explicit-marker based; the assertion protects the
+    # provenance contract for the uncertain marker path through label_body.
+    labeled, stats = MODULE.label_body(
+        "## Transcript\n\nHost. >> Guest.",
+        row,
+        {"host": "Glenn Diesen", "guest": "Chas Freeman"},
+    )
+    assert "**Unknown**: Host." in labeled
+    assert stats["turn_labeling"] == "marker-boundary-preserved-uncertain"
+    assert result["provenance"]["labeling_method"]
 
 
 def test_unresolved_relative_links_become_plain_text_in_derivative(tmp_path: Path) -> None:

@@ -256,10 +256,25 @@ def test_derived_editorial_material_cannot_support_claim(tmp_path: Path) -> None
     assert "REL-20260715-001: derived editorial material cannot support or challenge empirical claims" in failure
 
 
+def test_context_only_material_cannot_support_claim_or_enter_assessment_counts(tmp_path: Path) -> None:
+    records = graph(tmp_path, ["en", "zh", "ru"], ["A", "B", "C"])
+    records["EVD-20260715-001"]["evidence_role"] = "context_only"
+    relation_failure = reality.validate_record(records["REL-20260715-001"], records)
+    assert "REL-20260715-001: context_only material cannot support or challenge empirical claims" in relation_failure
+    supporting = reality.supporting_evidence(records["ADJ-20260715-001"], records)
+    assert {item["id"] for item in supporting} == {"EVD-20260715-002", "EVD-20260715-003"}
+
+
 def test_candidate_source_is_context_only(tmp_path: Path) -> None:
     records = graph(tmp_path, ["en", "zh", "ru"], ["A", "B", "C"])
     records["VSRC-TEST-1"]["status"] = "candidate"
     assert "EVD-20260715-001: candidate source may supply context only" in reality.validate_record(records["EVD-20260715-001"], records)
+
+
+def test_expert_commentary_source_must_remain_candidate(tmp_path: Path) -> None:
+    records = graph(tmp_path, ["en", "zh", "ru"], ["A", "B", "C"])
+    records["VSRC-TEST-1"]["evidence_class"] = "expert_commentary"
+    assert "VSRC-TEST-1: expert commentary source must remain candidate" in reality.validate_record(records["VSRC-TEST-1"], records)
 
 
 def test_profile_is_withheld_until_ten_claims_across_three_objects(tmp_path: Path) -> None:

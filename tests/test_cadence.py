@@ -134,6 +134,54 @@ def test_unavailable_bootstrap_is_recorded_for_both_checks(monkeypatch) -> None:
     assert cadence.verification_passed(result) is False
 
 
+def test_research_brief_commissioning_profile_is_bounded() -> None:
+    spec = cadence.EXPERIMENT_PROFILES["research-brief-commissioning"]
+
+    assert spec["version"] == 1
+    assert "does not establish decision usefulness" in spec["purpose"]
+    assert "docs/skill-drafts/research-brief/SKILL.md" in spec["paths"]
+    assert "scripts/research_handoff.py" in spec["paths"]
+    assert "scripts/reality_handoff.py" in spec["paths"]
+    assert "scripts/continuity.py" in spec["paths"]
+    assert "narrative-geopolitics/archive/source-manifest.json" not in spec["paths"]
+    assert spec["command"][-3:] == ["-q", "-p", "no:cacheprovider"]
+    assert set(spec["command"][2:-3]) == {
+        "tests/test_research_handoff.py",
+        "tests/test_research_brief_skill.py",
+        "tests/test_reality_handoff.py",
+        "tests/test_reality_check_skill.py",
+        "tests/test_continuity.py",
+        "tests/test_runtime_tooling.py",
+    }
+
+
+def test_research_brief_profile_reports_scoped_verification_separately(
+    monkeypatch,
+) -> None:
+    commands: list[list[str]] = []
+    monkeypatch.setattr(cadence, "resolve_validation_python", lambda root: Path("python"))
+    monkeypatch.setattr(
+        cadence.subprocess,
+        "run",
+        lambda command, **kwargs: commands.append(command)
+        or SimpleNamespace(returncode=0, stdout="passed", stderr=""),
+    )
+
+    result = cadence.run_verification("research-brief-commissioning")
+
+    assert result["experiment"]["status"] == "passed"
+    assert result["experiment"]["profile"] == "research-brief-commissioning"
+    assert result["experiment"]["paths"] == cadence.EXPERIMENT_PROFILES[
+        "research-brief-commissioning"
+    ]["paths"]
+    assert result["integrity"]["status"] == "passed"
+    assert result["tests"]["status"] == "passed"
+    assert commands[0] == [
+        "python",
+        *cadence.EXPERIMENT_PROFILES["research-brief-commissioning"]["command"],
+    ]
+
+
 def test_changed_repository_state_requires_reconciliation(
     monkeypatch, tmp_path: Path
 ) -> None:
@@ -173,6 +221,33 @@ def test_dream_persists_the_learning_contract(monkeypatch, tmp_path: Path) -> No
     assert payload["learning"]["outcome"] == "no_change"
     assert payload["learning"]["artifact_refs"] == ["tests/test_cadence.py"]
     assert json.loads(path.read_text(encoding="utf-8")) == payload
+
+
+def test_dream_persists_when_verification_raises(tmp_path: Path) -> None:
+    path = tmp_path / "last-dream.json"
+
+    def verifier() -> dict:
+        raise RuntimeError("validator process could not start")
+
+    payload = cadence.write_dream(
+        experiment="verifier failure preservation",
+        outcome="inconclusive",
+        lesson="a verifier crash must not erase the advisory handoff",
+        improvement="persist the failure as explicit verification state",
+        evidence_summary="the verifier raised before returning a result",
+        artifact_refs=["narrative-geopolitics/work/daily/2026-07-27/synthesis.md"],
+        tomorrow_inherits="rerun verification before relying on the lesson",
+        path=path,
+        verify=verifier,
+    )
+
+    saved = json.loads(path.read_text(encoding="utf-8"))
+    assert saved == payload
+    assert saved["verification"]["integrity"]["status"] == "unavailable"
+    assert "validator process could not start" in saved["verification"]["integrity"]["output_tail"]
+    blocker = saved["verification"]["structured"]["blockers"][0]
+    assert blocker["owner"] == "repository"
+    assert blocker["next_action"]
 
 
 def test_reconstruction_keeps_decisive_scope_and_artifacts(

@@ -276,6 +276,78 @@ def test_triage_prioritizes_geometry_and_forecast_risks_without_claiming_adjudic
     assert "does not adjudicate truth" in payload["limitations"][0]
 
 
+def test_triage_embeds_seeds_only_for_research_eligible_items():
+    code, output = run_continuity(
+        "triage", "--start-date", "2026-07-18", "--end-date", "2026-07-20", "--format", "json", "--dry-run"
+    )
+    assert code == 0
+    payload = json.loads(output)
+
+    for item in payload["queue"]:
+        eligible = (
+            item["priority"] == "P1" and item["category"] in {"forecast", "lineage"}
+        ) or (
+            item["priority"] == "P2" and item["category"] == "counter_pressure"
+        )
+        assert ("research_brief_seed" in item) is eligible
+        if not eligible:
+            continue
+        seed = item["research_brief_seed"]
+        assert seed["schema"] == "research-brief-seed-v1"
+        assert seed["producer"]["workflow"] == "continuity-triage"
+        assert seed["producer"]["item_id"].startswith(f"{item['category']}:")
+        assert seed["unresolved_gaps"] == [item["action"]]
+        assert not any(seed["authority"].values())
+        expected_route = "reality-check" if item["category"] == "forecast" else "external-research"
+        assert seed["routing_hint"]["workflow"] == expected_route
+
+
+def test_triage_excludes_identity_and_editorial_administration_from_seeds():
+    identity = continuity.triage_item(
+        "P2",
+        "lineage",
+        "unmapped-voice",
+        "2026-08-03",
+        reason="Voice lacks a descriptor.",
+        action="Assign or review a stable descriptor.",
+    )
+    editorial = continuity.triage_item(
+        "P3",
+        "editorial",
+        "2026-08-03",
+        "2026-08-03",
+        reason="Daily context is incomplete.",
+        action="Recover context or retain the limitation.",
+    )
+
+    assert "research_brief_seed" not in identity
+    assert "research_brief_seed" not in editorial
+
+
+def test_triage_seed_bounds_hints_without_truncating_origin_item():
+    source_ids = [f"SRC-{index:04d}" for index in range(25)]
+    voices = [f"voice-{index:02d}" for index in range(15)]
+    item = continuity.triage_item(
+        "P1",
+        "lineage",
+        "large-lineage-review",
+        "2026-08-03",
+        source_ids=source_ids,
+        voices=voices,
+        reason="Shared lineage requires review.",
+        action="Recover independent lineage.",
+    )
+
+    seed = item["research_brief_seed"]
+    assert item["source_ids"] == source_ids
+    assert item["voices"] == voices
+    assert len(seed["producer"]["source_refs"]) == 20
+    assert len(seed["identifiers"]["source_ids"]) == 20
+    assert len(seed["scope_hints"]["actors"]) == 12
+    assert any("additional references" in text for text in seed["known_context"])
+    assert any("additional voices" in text for text in seed["known_context"])
+
+
 def test_triage_markdown_output_and_content_stability(tmp_path):
     target = tmp_path / "triage.md"
     code, first = run_continuity("triage", "--date", "2026-07-20", "--format", "md", "--output", str(target))
@@ -284,3 +356,4 @@ def test_triage_markdown_output_and_content_stability(tmp_path):
     code, second = run_continuity("triage", "--date", "2026-07-20", "--format", "md", "--output", str(target))
     assert code == 0 and target.read_bytes() == before
     assert "P1 Immediate Review" in second
+    assert "Research Brief seed available; select this item before expansion." in second

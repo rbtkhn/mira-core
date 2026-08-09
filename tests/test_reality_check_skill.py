@@ -31,6 +31,9 @@ def test_reality_check_skill_metadata_and_authority_contract() -> None:
     assert "Never infer a reviewer" in text
     assert "references/kremlin-sourcing.md" in text
     assert "two-human requirements pass" in text
+    assert "research-brief-seed-v1" in text
+    assert "Do not emit seeds for" in text
+    assert "does not\ntrigger browsing" in text
 
     metadata = (skill_root / "agents" / "openai.yaml").read_text(encoding="utf-8")
     assert 'display_name: "Reality Check"' in metadata

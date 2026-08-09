@@ -27,7 +27,13 @@ OUTCOMES = {
     "unresolvable_with_authorized_evidence",
     "not_investigated",
 }
-EVIDENCE_CLASSES = {"observational_registry", "sensor_or_tracking_data", "commercial_operational_data", "multilateral_primary", "official_interested_primary", "independent_professional_reporting", "state_affiliated_reporting"}
+EVIDENCE_CLASSES = {"observational_registry", "sensor_or_tracking_data", "commercial_operational_data", "multilateral_primary", "official_interested_primary", "independent_professional_reporting", "state_affiliated_reporting", "expert_commentary"}
+CONTEXT_ONLY_EVIDENCE_CLASSES = {"expert_commentary"}
+INDEPENDENT_SUPPORT_EVIDENCE_CLASSES = EVIDENCE_CLASSES - {
+    "official_interested_primary",
+    "state_affiliated_reporting",
+    *CONTEXT_ONLY_EVIDENCE_CLASSES,
+}
 DOMAINS = {"maritime_incident", "humanitarian_event", "nuclear_verification", "maritime_tracking", "satellite_observation", "aviation_tracking", "energy_market", "macroeconomic", "military_activity", "diplomatic_position", "professional_reporting"}
 PERSPECTIVES = {"multilateral", "commercial", "western_state", "western_independent", "european_independent", "middle_east_regional", "turkish_state_affiliated", "russian_state_affiliated", "chinese_state_affiliated", "iranian_state", "gulf_state", "israeli_state", "ukrainian_state"}
 ACCESS_CLASSES = {"open", "open_limited", "registration", "subscription"}
@@ -380,6 +386,11 @@ def validate_packet(packet: Packet, repo_root: Path = REPO_ROOT, ledger_path: Pa
             failures.append(f"{label}: source type for {item['id']} does not match registry")
         if item["direction"] not in DIRECTIONS:
             failures.append(f"{label}: invalid direction for {item['id']}: {item['direction']}")
+        if source and (
+            source.status == "candidate"
+            or source.evidence_class in CONTEXT_ONLY_EVIDENCE_CLASSES
+        ) and item["direction"] != "context_only":
+            failures.append(f"{label}: candidate or context-only source {source.source_id} may supply context only")
         if not item["chain"].strip():
             failures.append(f"{label}: missing origin chain for {item['id']}")
         if item["translation"] not in TRANSLATION_PROVENANCE:
@@ -415,8 +426,16 @@ def validate_packet(packet: Packet, repo_root: Path = REPO_ROOT, ledger_path: Pa
         failures.append(f"{label}: operationally_supported requires supporting evidence")
     if outcome == "operationally_supported":
         supporting = [registry.get(item["registry_id"]) for item in packet.evidence if item["direction"] == "supports"]
-        if not any(source and source.evidence_class not in {"official_interested_primary", "state_affiliated_reporting"} for source in supporting):
-            failures.append(f"{label}: state-affiliated or interested official sources cannot independently establish operational support")
+        if not any(
+            source
+            and source.status != "candidate"
+            and source.evidence_class in INDEPENDENT_SUPPORT_EVIDENCE_CLASSES
+            for source in supporting
+        ):
+            failures.append(
+                f"{label}: state-affiliated, interested official, candidate, or context-only sources "
+                "cannot independently establish operational support"
+            )
         if len({item["chain"] for item in packet.evidence if item["direction"] == "supports"}) < 2:
             failures.append(f"{label}: operationally_supported requires two supporting evidence chains")
     try:

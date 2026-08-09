@@ -37,11 +37,14 @@ repository_validation = load_module(
 
 
 EXPECTED_SURFACES = {
+    "archive-audit": "archive_audit.py",
     "archive-density": "report_archive_density.py",
+    "archive-repair": "archive_repair.py",
     "asr-repair": "run_asr_repair_pilot.py",
     "cadence": "cadence.py",
     "choice": "choice_ledger.py",
     "continuity": "continuity.py",
+    "contradiction-check": "contradiction_check.py",
     "daily-validate": "validate_daily_run.py",
     "elicitation": "elicitation.py",
     "forecast-sync": "sync_forecast_ledger.py",
@@ -51,10 +54,13 @@ EXPECTED_SURFACES = {
     "intake-outcomes": "report_intake_outcomes.py",
     "intake-stats": "report_trim_stats.py",
     "issue-render": "render_daily_issue.py",
+    "morning-brief": "morning_brief.py",
     "mira-continuity": "mira_continuity.py",
     "narrative-reuse": "report_narrative_reuse.py",
     "operator-position": "operator_positions.py",
     "reality": "reality.py",
+    "reality-handoff": "reality_handoff.py",
+    "research-handoff": "research_handoff.py",
     "session-preflight": "session_preflight.py",
     "skills-check": "check_codex_skills_sync.py",
     "skills-sync": "sync_codex_skills.py",
@@ -286,10 +292,48 @@ def test_runner_preserves_read_and_write_surface_arguments(monkeypatch) -> None:
         "run",
         lambda command, **kwargs: commands.append(command) or SimpleNamespace(returncode=0),
     )
+    assert runner.main(["archive-audit", "--whole-corpus", "--voice-slug", "davis", "--format", "json"]) == 0
     assert runner.main(["archive-density", "--month", "2026-07"]) == 0
     assert runner.main(["skills-sync", "--skill", "reality-check", "--dry-run"]) == 0
-    assert commands[0][-2:] == ["--month", "2026-07"]
-    assert commands[1][-3:] == ["--skill", "reality-check", "--dry-run"]
+    assert commands[0][-5:] == ["--whole-corpus", "--voice-slug", "davis", "--format", "json"]
+    assert commands[1][-2:] == ["--month", "2026-07"]
+    assert commands[2][-3:] == ["--skill", "reality-check", "--dry-run"]
+
+
+def test_runner_preserves_archive_repair_authority_binding(monkeypatch) -> None:
+    commands: list[list[str]] = []
+    monkeypatch.setattr(
+        runner.subprocess,
+        "run",
+        lambda command, **kwargs: commands.append(command) or SimpleNamespace(returncode=0),
+    )
+    target = "narrative-geopolitics/archive/sources/2026-07-31/source-example.md"
+    digest = "a" * 64
+    assert runner.main(
+        [
+            "archive-repair",
+            "--class",
+            "asr",
+            "--path",
+            target,
+            "--execute",
+            "--plan-digest",
+            digest,
+            "--format",
+            "json",
+        ]
+    ) == 0
+    assert commands[0][-9:] == [
+        "--class",
+        "asr",
+        "--path",
+        target,
+        "--execute",
+        "--plan-digest",
+        digest,
+        "--format",
+        "json",
+    ]
 
 
 def test_environment_argument_transport_is_exact_and_consumed() -> None:
