@@ -65,6 +65,7 @@ EXPECTED_SURFACES = {
     "skills-check": "check_codex_skills_sync.py",
     "skills-sync": "sync_codex_skills.py",
     "synthesis": "geopolitical_synthesis.py",
+    "system-archive": "system_archive.py",
     "test": "validate_repo.py",
     "verification": "verification.py",
     "voice-accountability": "voice_accountability.py",

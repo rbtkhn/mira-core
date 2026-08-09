@@ -12,7 +12,8 @@ This directory implements five governed continuity layers:
 
 - `session-registry.json` is the canonical capture registry.
 - `identity-ledger.json` is the canonical identity authority.
-- `captures/` contains immutable deterministic `.jsonl.gz` snapshots.
+- `captures/` contains byte-identical hydrated views of immutable deterministic
+  `.jsonl.gz` snapshots stored by the root [System Archive](../../system-archive/README.md).
 - `harvests/` contains selective reviewed packets; an indexed session need not be harvested.
 - `../identity.md`, `trajectory.md`, and `activation.md` are generated views.
 
@@ -47,6 +48,7 @@ authority reference. Earlier versions are preserved.
 
 Session history is continuity evidence only. It is not archive evidence,
 Reality evidence, automatic operator belief, or permission to act.
+System Archive storage and retrieval do not change this authority boundary.
 
 ## Stage 1 Durability Guards
 

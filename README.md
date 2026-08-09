@@ -1,7 +1,12 @@
 # narrative-systems
 
-An archive-first family of source-grounded systems for historical traversal,
-historical inheritance, and geopolitical judgment.
+Mira's archive-first family of source-grounded systems for historical
+traversal, historical inheritance, geopolitical judgment, and governed
+recursive learning.
+
+[System Archive](system-archive/README.md) is the shared durable substrate for
+immutable bodies, cross-collection inventory, provenance, temporal retrieval,
+and bounded context assembly. It does not replace collection-native authority.
 
 The executable center is [Narrative Geopolitics](narrative-geopolitics/README.md):
 a source-bounded system for curating intellectual voices, testing their
@@ -25,6 +30,7 @@ independent evidence for the sources from which they descend.
 
 ```text
 .
+├── system-archive/         Shared storage, provenance, time, and context governance
 ├── narrative-geopolitics/  Archive, continuity, work, forecasts, and public output
 ├── predictive-history/     Sibling public-system study
 ├── historical-entropy/     Governed historical inheritance and long-memory study
@@ -46,6 +52,7 @@ dependencies in an external user cache; no environment activation or repo-local
 .\tools\validate.ps1 -Force
 .\tools\run.ps1 cadence coffee --json
 .\tools\run.ps1 harness
+.\tools\run.ps1 system-archive status
 ```
 
 Repeat `--path` to run multiple focused test files or directories. Focused
@@ -161,6 +168,8 @@ choice.
 ## Operating Boundary
 
 - `archive/` owns source truth.
+- `system-archive/` owns shared storage and cross-collection inventory; it does
+  not adjudicate collection membership or truth.
 - `voices/` and `channels/` own continuity and conditioning.
 - `work/` owns internal dialogue, judgment, experiments, and forecast review.
 - `public/` contains intentionally promoted reader-facing material.

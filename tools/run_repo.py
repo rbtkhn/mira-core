@@ -39,6 +39,7 @@ SURFACES = {
     "skills-check": REPO_ROOT / "scripts" / "check_codex_skills_sync.py",
     "skills-sync": REPO_ROOT / "scripts" / "sync_codex_skills.py",
     "synthesis": REPO_ROOT / "scripts" / "geopolitical_synthesis.py",
+    "system-archive": REPO_ROOT / "scripts" / "system_archive.py",
     "test": REPO_ROOT / "tools" / "validate_repo.py",
     "verification": REPO_ROOT / "scripts" / "verification.py",
     "voice-accountability": REPO_ROOT / "scripts" / "voice_accountability.py",

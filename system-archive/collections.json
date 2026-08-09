@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "registry_id": "system-archive-collections-v1",
+  "authority_boundary": "System Archive governs storage and cross-collection inventory; collection-native controls govern membership, routing, adjudication, continuity, and identity.",
+  "collections": [
+    {"id": "narrative-geopolitics-archive", "kind": "narrative-geopolitics-source-manifest", "registry_path": "narrative-geopolitics/archive/source-manifest.json", "logical_root": "narrative-geopolitics/archive/sources", "authority_owner": "narrative-geopolitics/archive/source-manifest.json", "evidence_class": "imported-archive-source"},
+    {"id": "mira-continuity", "kind": "mira-session-registry", "registry_path": "mira/continuity/session-registry.json", "logical_root": "mira/continuity/captures", "authority_owner": "mira/continuity/session-registry.json", "evidence_class": "continuity-evidence"}
+  ]
+}
