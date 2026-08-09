@@ -23,6 +23,7 @@ STORY_ID_RE = re.compile(r"NGI-(\d{8})-S\d{2}")
 SOURCE_ID_RE = re.compile(r"SRC-\d{2}")
 HOOK_ID_RE = re.compile(r"NG-\d{8}-F\d{2}")
 CLAIM_ID_RE = re.compile(r"OPC-\d{8}-\d{2}")
+LATTICE_ID_RE = re.compile(r"(?:OPC|CLM|NG)-\d{8}-(?:\d{2}|F\d{2})")
 VER_ID_RE = re.compile(r"VER-\d{8}-\d{2}")
 H1_RE = re.compile(r"^#\s+(.+?)\s*$", re.MULTILINE)
 HEADING_RE = re.compile(r"^(#{2,3})\s+(.+?)\s*$", re.MULTILINE)
@@ -69,6 +70,7 @@ class Story:
     voices: tuple[str, ...]
     forecast_hooks: tuple[str, ...]
     operational_claims: tuple[str, ...]
+    reality_claims: tuple[str, ...]
     selection_rationale: str
 
 
@@ -196,6 +198,7 @@ def parse_stories(run_date: str, synthesis: str) -> tuple[Story, ...]:
             voices=tuple(part.strip() for part in re.split(r"[,;]", clean_cell(row["Voices"])) if part.strip() and part.strip().lower() != "none"),
             forecast_hooks=split_list(row["Forecast hooks"], HOOK_ID_RE),
             operational_claims=split_list(row["Operational claims"], CLAIM_ID_RE),
+            reality_claims=split_list(row.get("Reality Claim IDs", "none"), LATTICE_ID_RE),
             selection_rationale=clean_cell(row["Selection rationale"]),
         ))
     if sum(story.placement == "lead" for story in stories) != 1:
@@ -203,6 +206,12 @@ def parse_stories(run_date: str, synthesis: str) -> tuple[Story, ...]:
     if sum(story.placement == "brief" for story in stories) > 4:
         raise IssueError("Issue Story Desk may contain no more than four briefs")
     return tuple(stories)
+
+
+def parse_reality_links(synthesis: str) -> dict[str, tuple[str, ...]]:
+    section = extract_section(synthesis, "Reality Claim Handoff")
+    rows = first_table_with(section, {"Story ID", "Reality Claim IDs"})
+    return {clean_cell(row["Story ID"]): split_list(row["Reality Claim IDs"], LATTICE_ID_RE) for row in rows}
 
 
 def parse_issue_copy(daily_brief: str) -> dict[str, str]:
@@ -273,13 +282,14 @@ def parse_forecasts(stories: tuple[Story, ...], ledger_text: str, daily_root: Pa
     ledger = parse_ledger(ledger_text)
     output: dict[str, dict[str, str]] = {}
     for hook_id in dict.fromkeys(hook for story in stories if story.placement != "hold" for hook in story.forecast_hooks):
-        if hook_id not in ledger:
+        if hook_id not in ledger and hook_id not in ledger_text:
             continue
         detail = parse_forecast_detail(hook_id, daily_root)
+        ledger_row = ledger.get(hook_id, {})
         output[hook_id] = {
-            "Claim": clean_cell(detail.get("Claim", detail.get("Observable claim", ledger[hook_id]["Claim"]))),
-            "Probability Band": clean_cell(detail.get("Probability Band", ledger[hook_id]["Probability Band"])),
-            "Review Date": clean_cell(detail.get("Review Date", ledger[hook_id]["Review Date"])),
+            "Claim": clean_cell(detail.get("Claim", detail.get("Observable claim", ledger_row.get("Claim", "")))),
+            "Probability Band": clean_cell(detail.get("Probability Band", ledger_row.get("Probability Band", ""))),
+            "Review Date": clean_cell(detail.get("Review Date", ledger_row.get("Review Date", ""))),
             "Strengthening Evidence": clean_cell(detail.get("Strengthening Evidence", detail.get("Strengthening evidence", "See the canonical forecast review."))),
             "Weakening Evidence": clean_cell(detail.get("Weakening Evidence", detail.get("Weakening evidence", "See the canonical forecast review."))),
         }
@@ -320,6 +330,8 @@ def load_model(
 ) -> IssueModel:
     inputs = canonical_inputs(run_date, daily_root)
     stories = parse_stories(run_date, inputs["synthesis.md"])
+    reality_links = parse_reality_links(inputs["synthesis.md"])
+    stories = tuple(Story(**{**story.__dict__, "reality_claims": reality_links.get(story.story_id, story.reality_claims)}) for story in stories)
     copy = parse_issue_copy(inputs["daily-brief.md"])
     selected_ids = {story.story_id for story in stories if story.placement != "hold"}
     if set(copy) != selected_ids:
@@ -369,7 +381,8 @@ def load_model(
 
 
 def render_story(story: Story, body: str) -> str:
-    return f"### {story.headline}\n\nEvidence posture: `{story.evidence_posture}`\n\nCrisis object: {story.crisis_object}\n\n{body.strip()}"
+    related = ", ".join(f"`{claim_id}`" for claim_id in story.reality_claims) or "None registered"
+    return f"### {story.headline}\n\nEvidence posture: `{story.evidence_posture}`\n\nCrisis object: {story.crisis_object}\n\nRelated reality claims: {related}\n\n{body.strip()}"
 
 
 def source_display(row: dict[str, str]) -> tuple[str, str, str]:

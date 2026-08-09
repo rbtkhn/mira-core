@@ -184,6 +184,25 @@ def test_forecast_hook_must_exist_in_the_days_forecast(tmp_path: Path) -> None:
     assert f"NGI-20260709-S01: forecast hook missing from the day's forecast.md {HOOK_ID}" in failures
 
 
+def test_forecast_detail_can_supply_rows_when_ledger_table_is_not_parseable(tmp_path: Path) -> None:
+    daily_root, ledger_path = fixture_tree(tmp_path)
+    ledger_path.write_text(
+        f"""# Forecast Ledger
+
+| Hook ID | Date | Crisis Object | Claim | Probability Band | Review Date | Source Run | Status |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| `{HOOK_ID}` | `{RUN_DATE}` | Passage governance | Passage remains conditional. | Mechanism text adds one extra cell. | `likely` | `2026-07-20` | [run](../daily/{RUN_DATE}/forecast.md) | `open` |
+""",
+        encoding="utf-8",
+    )
+
+    model = issue.load_model(RUN_DATE, daily_root, ledger_path)
+    failures = issue.model_failures(model, ledger_path.read_text(encoding="utf-8"), daily_root)
+
+    assert f"NGI-20260709-S01: forecast hook missing detail or ledger row {HOOK_ID}" not in failures
+    assert model.forecast_rows[HOOK_ID]["Claim"] == "Passage remains conditional."
+
+
 def test_thin_issue_is_valid_and_records_the_reason(tmp_path: Path) -> None:
     daily_root, ledger_path = fixture_tree(tmp_path)
     run_dir = daily_root / RUN_DATE
