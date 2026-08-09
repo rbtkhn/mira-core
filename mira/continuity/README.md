@@ -50,6 +50,10 @@ Session history is continuity evidence only. It is not archive evidence,
 Reality evidence, automatic operator belief, or permission to act.
 System Archive storage and retrieval do not change this authority boundary.
 
+Mira's daily first-person reflections are separately governed by
+`tools/run.ps1 mira-journal`. The journal may cite continuity records but is
+not itself session history or canonical identity authority.
+
 ## Stage 1 Durability Guards
 
 `recover --staged` verifies the exact Stage 1 Git index rather than the dirty

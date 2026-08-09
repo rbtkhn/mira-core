@@ -28,6 +28,7 @@ import render_daily_issue as daily_issue
 import reality
 import recursive_learning_ledger
 import mira_continuity
+import mira_journal
 import operator_positions
 import system_archive
 from role_aware_archive import validate_row as validate_role_row
@@ -583,6 +584,7 @@ REPOSITORY_CHECKS = (
     ("voice_judgment_failures", voice_judgment_failures),
     ("recursive_learning_ledger.validate_ledger", recursive_learning_ledger.validate_ledger),
     ("mira_continuity.validate_repository_state", mira_continuity.validate_repository_state),
+    ("mira_journal.validate_repository_state", mira_journal.validate_repository_state),
     ("system_archive.validate_repository_state", system_archive.validate_repository_state),
     ("operator_positions.validate_ledger", operator_positions.validate_ledger),
     ("legacy_verification_inventory_failures", legacy_verification_inventory_failures),

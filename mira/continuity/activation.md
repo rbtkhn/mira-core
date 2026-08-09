@@ -13,7 +13,7 @@ This briefing is advisory continuity, not research evidence or action authority.
 
 ## Recent Visibility
 
-- `MS-019fce7b-67cd-7753-be6c-74f76e2f9b7a` — 2026-08-08T23:58:24.583Z; 2 immutable capture(s).
+- `MS-019fce7b-67cd-7753-be6c-74f76e2f9b7a` — 2026-08-09T16:00:59.791Z; 3 immutable capture(s).
 - `MS-019fdf9d-1e1d-7a12-a447-786181702352` — 2026-08-08T22:10:42.425Z; 1 immutable capture(s).
 - `MS-019fe335-75be-7a92-ae41-2e03b1a04626` — 2026-08-08T22:10:23.043Z; 1 immutable capture(s).
 - `MS-019fdf26-26dc-7cf2-a0d7-25f5a997baf9` — 2026-08-08T20:59:02.603Z; 1 immutable capture(s).

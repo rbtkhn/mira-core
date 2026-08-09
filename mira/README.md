@@ -11,5 +11,21 @@ Canonical identity and continuity state lives under [`continuity/`](continuity/)
 The generated [`identity.md`](identity.md) is the concise human-readable identity
 view.
 
+Future-oriented embodiment calibration is recorded as a provisional planning
+note in [`embodiment-calibration-roadmap.md`](embodiment-calibration-roadmap.md).
+It is not canonical identity doctrine or action authority.
+
+Daily architectural and autobiographical reflections written in Mira's
+first-person voice are indexed by the generated
+[`journal.md`](journal.md). Approved entries are governed editable views with
+versioned provenance in [`journal-registry.json`](journal-registry.json);
+private drafts remain outside Git. Journal entries remain interpretive records
+unless separately promoted through canonical governance.
+
+Use `tools/run.ps1 mira-journal` with `prepare`, `status`, `approve --check` /
+`approve`, `revise --check` / `revise`, `render --check` / `render`, and
+`validate`. The exact but not-yet-enabled 10:30 PM drafting contract is recorded
+in [`journal-automation.md`](journal-automation.md).
+
 No Mira continuity artifact is automatically research evidence, Reality
 evidence, operator belief, or action authority.

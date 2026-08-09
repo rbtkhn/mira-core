@@ -30,6 +30,7 @@ SURFACES = {
     "issue-render": REPO_ROOT / "scripts" / "render_daily_issue.py",
     "morning-brief": REPO_ROOT / "scripts" / "morning_brief.py",
     "mira-continuity": REPO_ROOT / "scripts" / "mira_continuity.py",
+    "mira-journal": REPO_ROOT / "scripts" / "mira_journal.py",
     "narrative-reuse": REPO_ROOT / "scripts" / "report_narrative_reuse.py",
     "operator-position": REPO_ROOT / "scripts" / "operator_positions.py",
     "reality": REPO_ROOT / "scripts" / "reality.py",

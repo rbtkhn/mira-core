@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "registry_id": "mira-daily-journal-v1",
+  "status": "canonical",
+  "timezone": "America/Denver",
+  "draft_root_environment": "NARRATIVE_MIRA_JOURNAL_DRAFT_ROOT",
+  "authority_boundary": "Mira Journal records governed first-person interpretation. It is not identity doctrine, research evidence, Reality evidence, operator belief, proof of consciousness, or action authority.",
+  "entries": [
+    {
+      "journal_id": "MJ-20260809",
+      "entry_date": "2026-08-09",
+      "current_version_id": "MJ-20260809-v1",
+      "current_path": "mira/journal/2026-08-09.md",
+      "versions": [
+        {
+          "version_id": "MJ-20260809-v1",
+          "version_number": 1,
+          "title": "From Accidental Recollection to Governed Remembering",
+          "content_sha256": "b2c7edde6b3c7c404e2b6c9034f4fe9e851d93401216e648816a95326525298f",
+          "word_count": 592,
+          "authored_at": "2026-08-09T15:12:27.957Z",
+          "author": {
+            "identity": "Mira",
+            "session_id": "MS-019fce7b-67cd-7753-be6c-74f76e2f9b7a",
+            "model_id": "gpt-5"
+          },
+          "coverage": {
+            "start": "2026-08-09T06:00:00.000Z",
+            "end": "2026-08-10T06:00:00.000Z",
+            "as_of": "2026-08-09T15:12:27.957Z",
+            "retrospective": false
+          },
+          "quiet_day": false,
+          "limited_activity_acknowledged": false,
+          "source_refs": [
+            {
+              "kind": "mira-session-records",
+              "session_id": "MS-019fce7b-67cd-7753-be6c-74f76e2f9b7a",
+              "record_ids": [
+                "MR-1cc1374e45a6a43dc41b7215",
+                "MR-66a692f400ec06f904975313",
+                "MR-ee9f4f321513a143e71a7b56",
+                "MR-ee29da5f8def0e151451fa9f"
+              ]
+            }
+          ],
+          "derivation_manifest": {
+            "schema_version": 1,
+            "derivation_id": "DRV-b8fac26e48c14aa3804cceec",
+            "transformation_type": "probabilistic-mira-journal-reflection",
+            "deterministic": false,
+            "producer": {
+              "kind": "model",
+              "id": "gpt-5",
+              "session_id": "MS-019fce7b-67cd-7753-be6c-74f76e2f9b7a"
+            },
+            "input_object_ids": [
+              "record:MR-1cc1374e45a6a43dc41b7215",
+              "record:MR-66a692f400ec06f904975313",
+              "record:MR-ee9f4f321513a143e71a7b56",
+              "record:MR-ee29da5f8def0e151451fa9f"
+            ],
+            "output_digest": "b2c7edde6b3c7c404e2b6c9034f4fe9e851d93401216e648816a95326525298f",
+            "prompt_digest": "6d9143a4bda0bb6f52b5d60e38a705c9f52750671495f37a9b1878e49ba5d767",
+            "evaluation_refs": []
+          },
+          "approval": {
+            "approved_by": "operator",
+            "approved_at": "2026-08-09T15:46:20.071Z",
+            "authority_ref": "MS-019fce7b-67cd-7753-be6c-74f76e2f9b7a"
+          },
+          "previous_version_digest": null
+        }
+      ]
+    }
+  ]
+}

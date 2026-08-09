@@ -2028,7 +2028,7 @@
       "id": "MS-019fce7b-67cd-7753-be6c-74f76e2f9b7a",
       "codex_session_id": "019fce7b-67cd-7753-be6c-74f76e2f9b7a",
       "started_at": "2026-08-04T20:33:41.985Z",
-      "last_observed_at": "2026-08-08T23:58:24.583Z",
+      "last_observed_at": "2026-08-09T16:00:59.791Z",
       "source_kind": "vscode",
       "captures": [
         {
@@ -2047,6 +2047,15 @@
           "source_sha256": "bde647c8cb5918eaf9b2a7f3d71f79f79230c1c71f6eea4092e223279bfd9e55",
           "record_count": 3762,
           "observed_at": "2026-08-08T23:58:24.583Z",
+          "source_class": "active"
+        },
+        {
+          "id": "MC-378965f3af85946fd71787d4",
+          "path": "mira/continuity/captures/019fce7b-67cd-7753-be6c-74f76e2f9b7a/MC-378965f3af85946fd71787d4.jsonl.gz",
+          "sha256": "406c5ce881d0aace296a79919905e4b9e669f4078d692d5939c4202692bf3199",
+          "source_sha256": "de03aace1421cb33895d4df074a46120dc33575a2bf25461a7371fb32801a1df",
+          "record_count": 5823,
+          "observed_at": "2026-08-09T16:00:59.791Z",
           "source_class": "active"
         }
       ],
