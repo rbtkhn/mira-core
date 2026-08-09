@@ -1,0 +1,528 @@
+{
+  "run_id": "2026-07-30-history-reference",
+  "state": "landed",
+  "voices": [
+    "blumenthal",
+    "davis",
+    "diesen",
+    "escobar",
+    "freeman",
+    "kent",
+    "krainer",
+    "mearsheimer",
+    "mercouris",
+    "postol",
+    "sachs",
+    "wilkerson"
+  ],
+  "versions": {
+    "taxonomy": "1",
+    "detector": "1",
+    "mechanism": "1"
+  },
+  "receipts": [
+    {
+      "source_id": "narrative-geopolitics/archive/sources/2026-07-30/source-alex-krainer-the-inevitable-just-happened-massive-middle-east-shifts-2026-07-30.md",
+      "status": "landed",
+      "fingerprint": {
+        "source_id": "narrative-geopolitics/archive/sources/2026-07-30/source-alex-krainer-the-inevitable-just-happened-massive-middle-east-shifts-2026-07-30.md",
+        "archive_path": "narrative-geopolitics/archive/sources/2026-07-30/source-alex-krainer-the-inevitable-just-happened-massive-middle-east-shifts-2026-07-30.md",
+        "file_hash": "2450f9deb4942ea5faa632e6e2ce143678b21556be527d544642449dc3f8ccda",
+        "taxonomy_version": "1",
+        "detector_version": "1",
+        "mechanism_version": "1",
+        "voice_scope": "blumenthal,davis,diesen,escobar,freeman,kent,krainer,mearsheimer,mercouris,postol,sachs,wilkerson"
+      },
+      "record_count": 0,
+      "archive_path": "narrative-geopolitics/archive/sources/2026-07-30/source-alex-krainer-the-inevitable-just-happened-massive-middle-east-shifts-2026-07-30.md",
+      "warnings": []
+    },
+    {
+      "source_id": "narrative-geopolitics/archive/sources/2026-07-30/source-breaking-russian-kh-101-cruise-missile-strikes-nato-s-poland-w-prof-glenn-diesen-2026-07-30.md",
+      "status": "landed",
+      "fingerprint": {
+        "source_id": "narrative-geopolitics/archive/sources/2026-07-30/source-breaking-russian-kh-101-cruise-missile-strikes-nato-s-poland-w-prof-glenn-diesen-2026-07-30.md",
+        "archive_path": "narrative-geopolitics/archive/sources/2026-07-30/source-breaking-russian-kh-101-cruise-missile-strikes-nato-s-poland-w-prof-glenn-diesen-2026-07-30.md",
+        "file_hash": "55c39988230b82f29cec51eaae4322afbb64da68956bba2d3ca0e984f901da10",
+        "taxonomy_version": "1",
+        "detector_version": "1",
+        "mechanism_version": "1",
+        "voice_scope": "blumenthal,davis,diesen,escobar,freeman,kent,krainer,mearsheimer,mercouris,postol,sachs,wilkerson"
+      },
+      "record_count": 1,
+      "archive_path": "narrative-geopolitics/archive/sources/2026-07-30/source-breaking-russian-kh-101-cruise-missile-strikes-nato-s-poland-w-prof-glenn-diesen-2026-07-30.md",
+      "warnings": [
+        "provisional attribution"
+      ]
+    },
+    {
+      "source_id": "narrative-geopolitics/archive/sources/2026-07-30/source-col-lawrence-wilkerson-does-trump-know-he-lost-his-war-2026-07-30.md",
+      "status": "landed",
+      "fingerprint": {
+        "source_id": "narrative-geopolitics/archive/sources/2026-07-30/source-col-lawrence-wilkerson-does-trump-know-he-lost-his-war-2026-07-30.md",
+        "archive_path": "narrative-geopolitics/archive/sources/2026-07-30/source-col-lawrence-wilkerson-does-trump-know-he-lost-his-war-2026-07-30.md",
+        "file_hash": "3f4ad6f14d3d1b13dafd1893d669b8bd237a2727148925aca1b54de54835d597",
+        "taxonomy_version": "1",
+        "detector_version": "1",
+        "mechanism_version": "1",
+        "voice_scope": "blumenthal,davis,diesen,escobar,freeman,kent,krainer,mearsheimer,mercouris,postol,sachs,wilkerson"
+      },
+      "record_count": 1,
+      "archive_path": "narrative-geopolitics/archive/sources/2026-07-30/source-col-lawrence-wilkerson-does-trump-know-he-lost-his-war-2026-07-30.md",
+      "warnings": [
+        "provisional attribution"
+      ]
+    },
+    {
+      "source_id": "narrative-geopolitics/archive/sources/2026-07-30/source-how-ukraine-could-pull-the-us-into-a-bigger-war-chas-freeman-2026-07-30.md",
+      "status": "landed",
+      "fingerprint": {
+        "source_id": "narrative-geopolitics/archive/sources/2026-07-30/source-how-ukraine-could-pull-the-us-into-a-bigger-war-chas-freeman-2026-07-30.md",
+        "archive_path": "narrative-geopolitics/archive/sources/2026-07-30/source-how-ukraine-could-pull-the-us-into-a-bigger-war-chas-freeman-2026-07-30.md",
+        "file_hash": "cc67effc33a3aa1c31df6cdbfbd5e8076c64a94c978bfd1ada313598cbdb1067",
+        "taxonomy_version": "1",
+        "detector_version": "1",
+        "mechanism_version": "1",
+        "voice_scope": "blumenthal,davis,diesen,escobar,freeman,kent,krainer,mearsheimer,mercouris,postol,sachs,wilkerson"
+      },
+      "record_count": 3,
+      "archive_path": "narrative-geopolitics/archive/sources/2026-07-30/source-how-ukraine-could-pull-the-us-into-a-bigger-war-chas-freeman-2026-07-30.md",
+      "warnings": [
+        "provisional attribution"
+      ]
+    },
+    {
+      "source_id": "narrative-geopolitics/archive/sources/2026-07-30/source-iran-missiles-stroner-than-oreshniks-mit-professor-ted-postol-2026-07-30.md",
+      "status": "landed",
+      "fingerprint": {
+        "source_id": "narrative-geopolitics/archive/sources/2026-07-30/source-iran-missiles-stroner-than-oreshniks-mit-professor-ted-postol-2026-07-30.md",
+        "archive_path": "narrative-geopolitics/archive/sources/2026-07-30/source-iran-missiles-stroner-than-oreshniks-mit-professor-ted-postol-2026-07-30.md",
+        "file_hash": "de0d33847912b6eb7850dbaa54003d89fcbb239c75589b369d5b0a655b5924c9",
+        "taxonomy_version": "1",
+        "detector_version": "1",
+        "mechanism_version": "1",
+        "voice_scope": "blumenthal,davis,diesen,escobar,freeman,kent,krainer,mearsheimer,mercouris,postol,sachs,wilkerson"
+      },
+      "record_count": 0,
+      "archive_path": "narrative-geopolitics/archive/sources/2026-07-30/source-iran-missiles-stroner-than-oreshniks-mit-professor-ted-postol-2026-07-30.md",
+      "warnings": []
+    },
+    {
+      "source_id": "narrative-geopolitics/archive/sources/2026-07-30/source-john-mearsheimer-ukraine-is-landlocked-donbas-enters-endgame-2026-07-30.md",
+      "status": "landed",
+      "fingerprint": {
+        "source_id": "narrative-geopolitics/archive/sources/2026-07-30/source-john-mearsheimer-ukraine-is-landlocked-donbas-enters-endgame-2026-07-30.md",
+        "archive_path": "narrative-geopolitics/archive/sources/2026-07-30/source-john-mearsheimer-ukraine-is-landlocked-donbas-enters-endgame-2026-07-30.md",
+        "file_hash": "f796ecff21bdbe20e81da7f0f690a63d59bf72769383457700a2b1ad6b18f141",
+        "taxonomy_version": "1",
+        "detector_version": "1",
+        "mechanism_version": "1",
+        "voice_scope": "blumenthal,davis,diesen,escobar,freeman,kent,krainer,mearsheimer,mercouris,postol,sachs,wilkerson"
+      },
+      "record_count": 1,
+      "archive_path": "narrative-geopolitics/archive/sources/2026-07-30/source-john-mearsheimer-ukraine-is-landlocked-donbas-enters-endgame-2026-07-30.md",
+      "warnings": [
+        "provisional attribution"
+      ]
+    },
+    {
+      "source_id": "narrative-geopolitics/archive/sources/2026-07-30/source-max-blumenthal-why-netanyahu-is-desperate-2026-07-30.md",
+      "status": "landed",
+      "fingerprint": {
+        "source_id": "narrative-geopolitics/archive/sources/2026-07-30/source-max-blumenthal-why-netanyahu-is-desperate-2026-07-30.md",
+        "archive_path": "narrative-geopolitics/archive/sources/2026-07-30/source-max-blumenthal-why-netanyahu-is-desperate-2026-07-30.md",
+        "file_hash": "9cfa14e833a82f5f0ec525577d236c05d2e8d72c42698ec2a00fcefcf9eaaa74",
+        "taxonomy_version": "1",
+        "detector_version": "1",
+        "mechanism_version": "1",
+        "voice_scope": "blumenthal,davis,diesen,escobar,freeman,kent,krainer,mearsheimer,mercouris,postol,sachs,wilkerson"
+      },
+      "record_count": 0,
+      "archive_path": "narrative-geopolitics/archive/sources/2026-07-30/source-max-blumenthal-why-netanyahu-is-desperate-2026-07-30.md",
+      "warnings": []
+    },
+    {
+      "source_id": "narrative-geopolitics/archive/sources/2026-07-30/source-pepe-escobar-iran-is-dismantling-the-u-s-military-ecosystem-2026-07-30.md",
+      "status": "landed",
+      "fingerprint": {
+        "source_id": "narrative-geopolitics/archive/sources/2026-07-30/source-pepe-escobar-iran-is-dismantling-the-u-s-military-ecosystem-2026-07-30.md",
+        "archive_path": "narrative-geopolitics/archive/sources/2026-07-30/source-pepe-escobar-iran-is-dismantling-the-u-s-military-ecosystem-2026-07-30.md",
+        "file_hash": "cbb7d33e71f6b1a06caa6f248b07edf2010eaaebac1b0ecd79d5e9d4dca25ea6",
+        "taxonomy_version": "1",
+        "detector_version": "1",
+        "mechanism_version": "1",
+        "voice_scope": "blumenthal,davis,diesen,escobar,freeman,kent,krainer,mearsheimer,mercouris,postol,sachs,wilkerson"
+      },
+      "record_count": 0,
+      "archive_path": "narrative-geopolitics/archive/sources/2026-07-30/source-pepe-escobar-iran-is-dismantling-the-u-s-military-ecosystem-2026-07-30.md",
+      "warnings": []
+    },
+    {
+      "source_id": "narrative-geopolitics/archive/sources/2026-07-30/source-prof-jeffrey-sachs-can-dr-fauci-tell-the-truth-2026-07-30.md",
+      "status": "landed",
+      "fingerprint": {
+        "source_id": "narrative-geopolitics/archive/sources/2026-07-30/source-prof-jeffrey-sachs-can-dr-fauci-tell-the-truth-2026-07-30.md",
+        "archive_path": "narrative-geopolitics/archive/sources/2026-07-30/source-prof-jeffrey-sachs-can-dr-fauci-tell-the-truth-2026-07-30.md",
+        "file_hash": "93759f344bcdfdea83046a262d8cdfece45cdc03526d6812a7c6c1a3d5161974",
+        "taxonomy_version": "1",
+        "detector_version": "1",
+        "mechanism_version": "1",
+        "voice_scope": "blumenthal,davis,diesen,escobar,freeman,kent,krainer,mearsheimer,mercouris,postol,sachs,wilkerson"
+      },
+      "record_count": 0,
+      "archive_path": "narrative-geopolitics/archive/sources/2026-07-30/source-prof-jeffrey-sachs-can-dr-fauci-tell-the-truth-2026-07-30.md",
+      "warnings": []
+    },
+    {
+      "source_id": "narrative-geopolitics/archive/sources/2026-07-30/source-russia-huge-strike-across-ukraine-great-destruction-us-without-patriots-ukraine-no-ad-dobropiliya-2026-07-30.md",
+      "status": "landed",
+      "fingerprint": {
+        "source_id": "narrative-geopolitics/archive/sources/2026-07-30/source-russia-huge-strike-across-ukraine-great-destruction-us-without-patriots-ukraine-no-ad-dobropiliya-2026-07-30.md",
+        "archive_path": "narrative-geopolitics/archive/sources/2026-07-30/source-russia-huge-strike-across-ukraine-great-destruction-us-without-patriots-ukraine-no-ad-dobropiliya-2026-07-30.md",
+        "file_hash": "117af5cee9cdbca2995ee9969c2f53cc3977a5f61ecb236849a6e14a3e646fdb",
+        "taxonomy_version": "1",
+        "detector_version": "1",
+        "mechanism_version": "1",
+        "voice_scope": "blumenthal,davis,diesen,escobar,freeman,kent,krainer,mearsheimer,mercouris,postol,sachs,wilkerson"
+      },
+      "record_count": 0,
+      "archive_path": "narrative-geopolitics/archive/sources/2026-07-30/source-russia-huge-strike-across-ukraine-great-destruction-us-without-patriots-ukraine-no-ad-dobropiliya-2026-07-30.md",
+      "warnings": []
+    },
+    {
+      "source_id": "narrative-geopolitics/archive/sources/2026-07-30/source-trump-pushes-centcom-to-continue-strikes-despite-protest-w-joe-kent-2026-07-30.md",
+      "status": "landed",
+      "fingerprint": {
+        "source_id": "narrative-geopolitics/archive/sources/2026-07-30/source-trump-pushes-centcom-to-continue-strikes-despite-protest-w-joe-kent-2026-07-30.md",
+        "archive_path": "narrative-geopolitics/archive/sources/2026-07-30/source-trump-pushes-centcom-to-continue-strikes-despite-protest-w-joe-kent-2026-07-30.md",
+        "file_hash": "872138d716a09ec4ecd3a4f2036fce54a5b34388f033b03c8ebb5ca8734bb47e",
+        "taxonomy_version": "1",
+        "detector_version": "1",
+        "mechanism_version": "1",
+        "voice_scope": "blumenthal,davis,diesen,escobar,freeman,kent,krainer,mearsheimer,mercouris,postol,sachs,wilkerson"
+      },
+      "record_count": 1,
+      "archive_path": "narrative-geopolitics/archive/sources/2026-07-30/source-trump-pushes-centcom-to-continue-strikes-despite-protest-w-joe-kent-2026-07-30.md",
+      "warnings": [
+        "provisional attribution"
+      ]
+    },
+    {
+      "source_id": "narrative-geopolitics/archive/sources/2026-07-30/source-us-unleashes-heavy-wave-of-strikes-against-iran-lt-col-daniel-davis-2026-07-30.md",
+      "status": "landed",
+      "fingerprint": {
+        "source_id": "narrative-geopolitics/archive/sources/2026-07-30/source-us-unleashes-heavy-wave-of-strikes-against-iran-lt-col-daniel-davis-2026-07-30.md",
+        "archive_path": "narrative-geopolitics/archive/sources/2026-07-30/source-us-unleashes-heavy-wave-of-strikes-against-iran-lt-col-daniel-davis-2026-07-30.md",
+        "file_hash": "66561a46ddda39fe723cc4cfbec53dd65717f0f2c811cbdeb98235fe2a07d12b",
+        "taxonomy_version": "1",
+        "detector_version": "1",
+        "mechanism_version": "1",
+        "voice_scope": "blumenthal,davis,diesen,escobar,freeman,kent,krainer,mearsheimer,mercouris,postol,sachs,wilkerson"
+      },
+      "record_count": 2,
+      "archive_path": "narrative-geopolitics/archive/sources/2026-07-30/source-us-unleashes-heavy-wave-of-strikes-against-iran-lt-col-daniel-davis-2026-07-30.md",
+      "warnings": [
+        "provisional attribution"
+      ]
+    }
+  ],
+  "records": [
+    {
+      "occurrence_id": "narrative-geopolitics/archive/sources/2026-07-30/source-breaking-russian-kh-101-cruise-missile-strikes-nato-s-poland-w-prof-glenn-diesen-2026-07-30.md:cold-war:3",
+      "voices": [
+        "diesen"
+      ],
+      "source_id": "narrative-geopolitics/archive/sources/2026-07-30/source-breaking-russian-kh-101-cruise-missile-strikes-nato-s-poland-w-prof-glenn-diesen-2026-07-30.md",
+      "archive_path": "narrative-geopolitics/archive/sources/2026-07-30/source-breaking-russian-kh-101-cruise-missile-strikes-nato-s-poland-w-prof-glenn-diesen-2026-07-30.md",
+      "date": "2026-07-30",
+      "title": "BREAKING: RUSSIAN KH-101 CRUISE MISSILE STRIKES NATO'S POLAND - w/ Prof. Glenn Diesen",
+      "quote": "Where you been? >> Me? Oh, I just got back from Serbia last night. >> Where'd you go? >> Uh Yakova. Uh like uh yeah, 20 minutes south of the capital. >> Holiday. >> Yeah. >> Yeah. No, >> good timing for a holiday. >> Uh how so? Oh, the world falling back. Now, now that you're back, a missile landed in Poland again. What would you like to comment, Professor? I I am I'm dismissing it. But then my team, one of my team members who follows the war very closely, he's like, \"Mario, there is another scenario to this and that could be Poland probing NATO. Sorry, Russia probing NATO and that missile was not might have been not accidental, might have been might have been intentional to see NATO's respo",
+      "reference_id": "cold-war",
+      "reference": "Cold War",
+      "parent_period": "historical period",
+      "attribution_confidence": "provisional",
+      "mechanism_suggestions": [
+        {
+          "id": "M-FR-003",
+          "name": "imperial overstretch and power transition",
+          "basis": "native reference adapter"
+        }
+      ],
+      "crosswalk_suggestions": [
+        {
+          "target": "M-FR-003",
+          "confidence": "suggested",
+          "rationale": "native reference adapter",
+          "conflict_status": "unreviewed",
+          "review_status": "unreviewed"
+        }
+      ],
+      "risk_score": 3,
+      "review_status": "needs-review"
+    },
+    {
+      "occurrence_id": "narrative-geopolitics/archive/sources/2026-07-30/source-col-lawrence-wilkerson-does-trump-know-he-lost-his-war-2026-07-30.md:jcpoa:3",
+      "voices": [
+        "wilkerson"
+      ],
+      "source_id": "narrative-geopolitics/archive/sources/2026-07-30/source-col-lawrence-wilkerson-does-trump-know-he-lost-his-war-2026-07-30.md",
+      "archive_path": "narrative-geopolitics/archive/sources/2026-07-30/source-col-lawrence-wilkerson-does-trump-know-he-lost-his-war-2026-07-30.md",
+      "date": "2026-07-30",
+      "title": "COL. Lawrence Wilkerson : Does Trump Know He Lost His War?",
+      "quote": "Undeclared wars are commonplace. Tragically, our government engages in preemptive war, otherwise known as aggression, with no complaints from the American people. Sadly, we have become accustomed to living with the illegitimate use of force by government. To develop a truly free society, the issue of initiating force [music] must be understood and rejected. What if sometimes to love [music] your country you had to alter or abolish the government? What if Jefferson was right? What if that government is best which governs least? What if it is dangerous to be right when the government is wrong? What if it is better to perish fighting for freedom [music] than to live as a slave? What if freedom'",
+      "reference_id": "jcpoa",
+      "reference": "JCPOA / Iran nuclear diplomacy",
+      "parent_period": "historical period",
+      "attribution_confidence": "provisional",
+      "mechanism_suggestions": [
+        {
+          "id": "M-FR-002",
+          "name": "institutional memory and diplomatic credibility",
+          "basis": "native reference adapter"
+        }
+      ],
+      "crosswalk_suggestions": [
+        {
+          "target": "M-FR-002",
+          "confidence": "suggested",
+          "rationale": "native reference adapter",
+          "conflict_status": "unreviewed",
+          "review_status": "unreviewed"
+        }
+      ],
+      "risk_score": 3,
+      "review_status": "needs-review"
+    },
+    {
+      "occurrence_id": "narrative-geopolitics/archive/sources/2026-07-30/source-how-ukraine-could-pull-the-us-into-a-bigger-war-chas-freeman-2026-07-30.md:cold-war:3",
+      "voices": [
+        "freeman"
+      ],
+      "source_id": "narrative-geopolitics/archive/sources/2026-07-30/source-how-ukraine-could-pull-the-us-into-a-bigger-war-chas-freeman-2026-07-30.md",
+      "archive_path": "narrative-geopolitics/archive/sources/2026-07-30/source-how-ukraine-could-pull-the-us-into-a-bigger-war-chas-freeman-2026-07-30.md",
+      "date": "2026-07-30",
+      "title": "How Ukraine Could Pull the US Into a Bigger War | Chas Freeman",
+      "quote": "Transcripts: Hello and welcome to another episode of India and Global Left. If you are new to the show, please hit that subscribe button. Also consider becoming a YouTube member, a Patreon or donate small amount given in the link in the description box. Without further ado, let me welcome our guest tonight, Ambassador Chess Freeman. Ambassador Freeman is a retired American diplomat and author and a political commentator. Ambassador Freeman, welcome back to Indian Global Left. >> Thank you, Jish. It's good to be with you. I wanted to start with u your update on how you see the situation between US and Iran. We are still in the period of 60 days of negotiations on the MU although the United St",
+      "reference_id": "cold-war",
+      "reference": "Cold War",
+      "parent_period": "historical period",
+      "attribution_confidence": "provisional",
+      "mechanism_suggestions": [
+        {
+          "id": "M-FR-003",
+          "name": "imperial overstretch and power transition",
+          "basis": "native reference adapter"
+        }
+      ],
+      "crosswalk_suggestions": [
+        {
+          "target": "M-FR-003",
+          "confidence": "suggested",
+          "rationale": "native reference adapter",
+          "conflict_status": "unreviewed",
+          "review_status": "unreviewed"
+        }
+      ],
+      "risk_score": 3,
+      "review_status": "needs-review"
+    },
+    {
+      "occurrence_id": "narrative-geopolitics/archive/sources/2026-07-30/source-how-ukraine-could-pull-the-us-into-a-bigger-war-chas-freeman-2026-07-30.md:iranian-revolution:3",
+      "voices": [
+        "freeman"
+      ],
+      "source_id": "narrative-geopolitics/archive/sources/2026-07-30/source-how-ukraine-could-pull-the-us-into-a-bigger-war-chas-freeman-2026-07-30.md",
+      "archive_path": "narrative-geopolitics/archive/sources/2026-07-30/source-how-ukraine-could-pull-the-us-into-a-bigger-war-chas-freeman-2026-07-30.md",
+      "date": "2026-07-30",
+      "title": "How Ukraine Could Pull the US Into a Bigger War | Chas Freeman",
+      "quote": "Transcripts: Hello and welcome to another episode of India and Global Left. If you are new to the show, please hit that subscribe button. Also consider becoming a YouTube member, a Patreon or donate small amount given in the link in the description box. Without further ado, let me welcome our guest tonight, Ambassador Chess Freeman. Ambassador Freeman is a retired American diplomat and author and a political commentator. Ambassador Freeman, welcome back to Indian Global Left. >> Thank you, Jish. It's good to be with you. I wanted to start with u your update on how you see the situation between US and Iran. We are still in the period of 60 days of negotiations on the MU although the United St",
+      "reference_id": "iranian-revolution",
+      "reference": "Iranian Revolution",
+      "parent_period": "historical period",
+      "attribution_confidence": "provisional",
+      "mechanism_suggestions": [
+        {
+          "id": "M-FR-005",
+          "name": "sovereignty, legitimacy, and historical memory",
+          "basis": "native reference adapter"
+        }
+      ],
+      "crosswalk_suggestions": [
+        {
+          "target": "M-FR-005",
+          "confidence": "suggested",
+          "rationale": "native reference adapter",
+          "conflict_status": "unreviewed",
+          "review_status": "unreviewed"
+        }
+      ],
+      "risk_score": 3,
+      "review_status": "needs-review"
+    },
+    {
+      "occurrence_id": "narrative-geopolitics/archive/sources/2026-07-30/source-how-ukraine-could-pull-the-us-into-a-bigger-war-chas-freeman-2026-07-30.md:jcpoa:3",
+      "voices": [
+        "freeman"
+      ],
+      "source_id": "narrative-geopolitics/archive/sources/2026-07-30/source-how-ukraine-could-pull-the-us-into-a-bigger-war-chas-freeman-2026-07-30.md",
+      "archive_path": "narrative-geopolitics/archive/sources/2026-07-30/source-how-ukraine-could-pull-the-us-into-a-bigger-war-chas-freeman-2026-07-30.md",
+      "date": "2026-07-30",
+      "title": "How Ukraine Could Pull the US Into a Bigger War | Chas Freeman",
+      "quote": "Transcripts: Hello and welcome to another episode of India and Global Left. If you are new to the show, please hit that subscribe button. Also consider becoming a YouTube member, a Patreon or donate small amount given in the link in the description box. Without further ado, let me welcome our guest tonight, Ambassador Chess Freeman. Ambassador Freeman is a retired American diplomat and author and a political commentator. Ambassador Freeman, welcome back to Indian Global Left. >> Thank you, Jish. It's good to be with you. I wanted to start with u your update on how you see the situation between US and Iran. We are still in the period of 60 days of negotiations on the MU although the United St",
+      "reference_id": "jcpoa",
+      "reference": "JCPOA / Iran nuclear diplomacy",
+      "parent_period": "historical period",
+      "attribution_confidence": "provisional",
+      "mechanism_suggestions": [
+        {
+          "id": "M-FR-002",
+          "name": "institutional memory and diplomatic credibility",
+          "basis": "native reference adapter"
+        }
+      ],
+      "crosswalk_suggestions": [
+        {
+          "target": "M-FR-002",
+          "confidence": "suggested",
+          "rationale": "native reference adapter",
+          "conflict_status": "unreviewed",
+          "review_status": "unreviewed"
+        }
+      ],
+      "risk_score": 3,
+      "review_status": "needs-review"
+    },
+    {
+      "occurrence_id": "narrative-geopolitics/archive/sources/2026-07-30/source-john-mearsheimer-ukraine-is-landlocked-donbas-enters-endgame-2026-07-30.md:cold-war:3",
+      "voices": [
+        "mearsheimer"
+      ],
+      "source_id": "narrative-geopolitics/archive/sources/2026-07-30/source-john-mearsheimer-ukraine-is-landlocked-donbas-enters-endgame-2026-07-30.md",
+      "archive_path": "narrative-geopolitics/archive/sources/2026-07-30/source-john-mearsheimer-ukraine-is-landlocked-donbas-enters-endgame-2026-07-30.md",
+      "date": "2026-07-30",
+      "title": "John Mearsheimer: Ukraine Is Landlocked & Donbas Enters Endgame",
+      "quote": "Welcome back everyone. Today is July 30th, 2026 and uh Professor John Mirshimer joins us to try to make some sense of the world. So, thank you for coming back on. >> My pleasure, Glenn, and I'll do my best. Uh although it's a very difficult task at this point in time, as you well know. >> Yes. No, I agree. No matter where we look, things just appears to be getting more crazy. Um I I did I wanted to start a bit with uh well what has been celebrated so very widely in the west which are these uh new attacks by Ukraine into Russia um with what appears of course to have extensive support from NATO. uh they're hitting deep inside Russia, but instead of just going after refineries, they're also now",
+      "reference_id": "cold-war",
+      "reference": "Cold War",
+      "parent_period": "historical period",
+      "attribution_confidence": "provisional",
+      "mechanism_suggestions": [
+        {
+          "id": "M-FR-003",
+          "name": "imperial overstretch and power transition",
+          "basis": "native reference adapter"
+        }
+      ],
+      "crosswalk_suggestions": [
+        {
+          "target": "M-FR-003",
+          "confidence": "suggested",
+          "rationale": "native reference adapter",
+          "conflict_status": "unreviewed",
+          "review_status": "unreviewed"
+        }
+      ],
+      "risk_score": 3,
+      "review_status": "needs-review"
+    },
+    {
+      "occurrence_id": "narrative-geopolitics/archive/sources/2026-07-30/source-trump-pushes-centcom-to-continue-strikes-despite-protest-w-joe-kent-2026-07-30.md:iraq-war:3",
+      "voices": [
+        "kent"
+      ],
+      "source_id": "narrative-geopolitics/archive/sources/2026-07-30/source-trump-pushes-centcom-to-continue-strikes-despite-protest-w-joe-kent-2026-07-30.md",
+      "archive_path": "narrative-geopolitics/archive/sources/2026-07-30/source-trump-pushes-centcom-to-continue-strikes-despite-protest-w-joe-kent-2026-07-30.md",
+      "date": "2026-07-30",
+      "title": "TRUMP PUSHES CENTCOM TO CONTINUE STRIKES DESPITE PROTEST - w/ Joe Kent",
+      "quote": "Hey man. >> Hey Mario. How are you? >> Good, man. How you doing? >> Good. >> Uh, we're back at it again, huh? >> Yeah. Here we are. I mean, it was predictable. I don't I don't know if we predicted um Iran taking the the first shot in this iteration of the ceasefire game, but it was bound to happen at some point because I just think the Iranians don't take us seriously when we say that, hey, stop now. We we want diplomacy. I think finally they're more hardline wing one out and said, \"Let's take the first swing this time and see if we can capture the momentum.\" >> Yeah, exactly. Exactly. That's a change. Um let's start with the BB Trump meeting. What do you make of that? And the statements fro",
+      "reference_id": "iraq-war",
+      "reference": "2003 Iraq War",
+      "parent_period": "historical period",
+      "attribution_confidence": "provisional",
+      "mechanism_suggestions": [
+        {
+          "id": "M-FR-001",
+          "name": "coercion and strategic backfire",
+          "basis": "native reference adapter"
+        }
+      ],
+      "crosswalk_suggestions": [
+        {
+          "target": "M-FR-001",
+          "confidence": "suggested",
+          "rationale": "native reference adapter",
+          "conflict_status": "unreviewed",
+          "review_status": "unreviewed"
+        }
+      ],
+      "risk_score": 3,
+      "review_status": "needs-review"
+    },
+    {
+      "occurrence_id": "narrative-geopolitics/archive/sources/2026-07-30/source-us-unleashes-heavy-wave-of-strikes-against-iran-lt-col-daniel-davis-2026-07-30.md:iraq-war:3",
+      "voices": [
+        "davis"
+      ],
+      "source_id": "narrative-geopolitics/archive/sources/2026-07-30/source-us-unleashes-heavy-wave-of-strikes-against-iran-lt-col-daniel-davis-2026-07-30.md",
+      "archive_path": "narrative-geopolitics/archive/sources/2026-07-30/source-us-unleashes-heavy-wave-of-strikes-against-iran-lt-col-daniel-davis-2026-07-30.md",
+      "date": "2026-07-30",
+      "title": "US Unleashes Heavy Wave of Strikes Against Iran /Lt Col Daniel Davis",
+      "quote": "After the United States and Iran went back and forth for 13 straight days of tit fortat strikes, it's back on. We we went, I think it was three or four days without any while we're trying to figure out what in the world we should do next, and that seems to have come back again. These are videoed images shown by central command about other things they hit. Um, I didn't even know there was any more boats left to blow up, but I guess there was. And who knows, there's some holes in the ground. Why not blow those up, too? I guess some trucks sitting on the side of the road. Um, that's just what we do. Um, we're looking for targets to hit because President Trump wants to wants to show how tough we",
+      "reference_id": "iraq-war",
+      "reference": "2003 Iraq War",
+      "parent_period": "historical period",
+      "attribution_confidence": "provisional",
+      "mechanism_suggestions": [
+        {
+          "id": "M-FR-001",
+          "name": "coercion and strategic backfire",
+          "basis": "native reference adapter"
+        }
+      ],
+      "crosswalk_suggestions": [
+        {
+          "target": "M-FR-001",
+          "confidence": "suggested",
+          "rationale": "native reference adapter",
+          "conflict_status": "unreviewed",
+          "review_status": "unreviewed"
+        }
+      ],
+      "risk_score": 3,
+      "review_status": "needs-review"
+    },
+    {
+      "occurrence_id": "narrative-geopolitics/archive/sources/2026-07-30/source-us-unleashes-heavy-wave-of-strikes-against-iran-lt-col-daniel-davis-2026-07-30.md:kuwait-liberation:3",
+      "voices": [
+        "davis"
+      ],
+      "source_id": "narrative-geopolitics/archive/sources/2026-07-30/source-us-unleashes-heavy-wave-of-strikes-against-iran-lt-col-daniel-davis-2026-07-30.md",
+      "archive_path": "narrative-geopolitics/archive/sources/2026-07-30/source-us-unleashes-heavy-wave-of-strikes-against-iran-lt-col-daniel-davis-2026-07-30.md",
+      "date": "2026-07-30",
+      "title": "US Unleashes Heavy Wave of Strikes Against Iran /Lt Col Daniel Davis",
+      "quote": "After the United States and Iran went back and forth for 13 straight days of tit fortat strikes, it's back on. We we went, I think it was three or four days without any while we're trying to figure out what in the world we should do next, and that seems to have come back again. These are videoed images shown by central command about other things they hit. Um, I didn't even know there was any more boats left to blow up, but I guess there was. And who knows, there's some holes in the ground. Why not blow those up, too? I guess some trucks sitting on the side of the road. Um, that's just what we do. Um, we're looking for targets to hit because President Trump wants to wants to show how tough we",
+      "reference_id": "kuwait-liberation",
+      "reference": "1991 liberation of Kuwait",
+      "parent_period": "historical period",
+      "attribution_confidence": "provisional",
+      "mechanism_suggestions": [
+        {
+          "id": "M-FR-002",
+          "name": "institutional memory and diplomatic credibility",
+          "basis": "native reference adapter"
+        }
+      ],
+      "crosswalk_suggestions": [
+        {
+          "target": "M-FR-002",
+          "confidence": "suggested",
+          "rationale": "native reference adapter",
+          "conflict_status": "unreviewed",
+          "review_status": "unreviewed"
+        }
+      ],
+      "risk_score": 3,
+      "review_status": "needs-review"
+    }
+  ]
+}

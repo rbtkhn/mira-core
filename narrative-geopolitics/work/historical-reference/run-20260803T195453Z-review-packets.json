@@ -1,0 +1,198 @@
+{
+  "run_id": "run-20260803T195453Z",
+  "packet_count": 4,
+  "packets": [
+    {
+      "review_id": "review:narrative-geopolitics/archive/sources/2025-06-16/source-glenn-diesen-larry-johnson-larry-johnson-trump-negotiator-or-warmonger-2025-06-16.md:iraq-war:2",
+      "identity": {
+        "occurrence_id": "narrative-geopolitics/archive/sources/2025-06-16/source-glenn-diesen-larry-johnson-larry-johnson-trump-negotiator-or-warmonger-2025-06-16.md:iraq-war:2",
+        "source_id": "narrative-geopolitics/archive/sources/2025-06-16/source-glenn-diesen-larry-johnson-larry-johnson-trump-negotiator-or-warmonger-2025-06-16.md",
+        "reference_id": "iraq-war"
+      },
+      "priority_score": 3,
+      "source": {
+        "date": "2025-06-16",
+        "title": "Larry Johnson: Trump - Negotiator or Warmonger?",
+        "archive_path": "narrative-geopolitics/archive/sources/2025-06-16/source-glenn-diesen-larry-johnson-larry-johnson-trump-negotiator-or-warmonger-2025-06-16.md"
+      },
+      "evidence": {
+        "quote": "Hi everyone and welcome. I am joined today by Larry Johnson, a former CI analyst and extremely popular commentator. Insightful I would add. Uh so yeah, welcome back to the program. I'm glad I haven't worn out my welcome. Thanks for having me. Well, uh I uh yeah, I want to discuss with you the obviously the debacle going on with this attack on Iran. Now yeah, guess the debacle has a lot of layers to it. Uh but uh I thought perhaps we could start with looking at how you see what went wrong here because there seems to have been an intelligence failure because the assumption I think was that uh Israel could have a very powerful decapitation attack. Uh you know air defense systems in Iran everyth",
+        "basis": ""
+      },
+      "reference": {
+        "id": "iraq-war",
+        "label": "2003 Iraq War",
+        "parent_period": "historical period"
+      },
+      "attribution_confidence": "provisional",
+      "mechanism_suggestions": [
+        {
+          "id": "M-FR-001",
+          "name": "coercion and strategic backfire",
+          "basis": "native reference adapter"
+        }
+      ],
+      "crosswalk_suggestions": [
+        {
+          "target": "M-FR-001",
+          "confidence": "suggested",
+          "rationale": "native reference adapter",
+          "conflict_status": "unreviewed",
+          "review_status": "unreviewed"
+        }
+      ],
+      "decision_options": [
+        "accept",
+        "qualify",
+        "reject",
+        "revise",
+        "unresolved"
+      ],
+      "current_status": "needs-review"
+    },
+    {
+      "review_id": "review:narrative-geopolitics/archive/sources/2026-05-18/source-dialogue-works-larry-johnson-giant-mushroom-cloud-blasts-over-israeli-defense-company-what-we-know-2026-05-18.md:october-7:2",
+      "identity": {
+        "occurrence_id": "narrative-geopolitics/archive/sources/2026-05-18/source-dialogue-works-larry-johnson-giant-mushroom-cloud-blasts-over-israeli-defense-company-what-we-know-2026-05-18.md:october-7:2",
+        "source_id": "narrative-geopolitics/archive/sources/2026-05-18/source-dialogue-works-larry-johnson-giant-mushroom-cloud-blasts-over-israeli-defense-company-what-we-know-2026-05-18.md",
+        "reference_id": "october-7"
+      },
+      "priority_score": 3,
+      "source": {
+        "date": "2026-05-18",
+        "title": "Larry Johnson: Giant Mushroom Cloud Blasts Over Israeli Defense Company – What We Know",
+        "archive_path": "narrative-geopolitics/archive/sources/2026-05-18/source-dialogue-works-larry-johnson-giant-mushroom-cloud-blasts-over-israeli-defense-company-what-we-know-2026-05-18.md"
+      },
+      "evidence": {
+        "quote": "Hi everybody. Today is Monday, May 18, 2026 and our dear friend Larry Johnson is here with us. Welcome. >> I'm back with my favorite Iranian, German, Brazilian personality. >> How's everything, Larry? >> Hey, we're just watching. Is the world going to blow up? you know, the we're we're in a we're in a situation where it looks like the Saudis and the Qataris, they they hold they hold the veto on whether or not this war is going to expand >> or if it's going to, you know, you know, be brought to an end with Iran in control of the Strait of Hormuz. So, uh, I I'm hopeful that the Saudis will recognize that there's not a viable path forward if they if they if they pursue additional attacks agains",
+        "basis": ""
+      },
+      "reference": {
+        "id": "october-7",
+        "label": "7 October Hamas attack",
+        "parent_period": "historical period"
+      },
+      "attribution_confidence": "provisional",
+      "mechanism_suggestions": [
+        {
+          "id": "M-FR-005",
+          "name": "sovereignty, legitimacy, and historical memory",
+          "basis": "native reference adapter"
+        }
+      ],
+      "crosswalk_suggestions": [
+        {
+          "target": "M-FR-005",
+          "confidence": "suggested",
+          "rationale": "native reference adapter",
+          "conflict_status": "unreviewed",
+          "review_status": "unreviewed"
+        }
+      ],
+      "decision_options": [
+        "accept",
+        "qualify",
+        "reject",
+        "revise",
+        "unresolved"
+      ],
+      "current_status": "needs-review"
+    },
+    {
+      "review_id": "review:narrative-geopolitics/archive/sources/2026-08-02/source-larry-johnson-i-called-it-off-trump-confirms-scrapped-iran-attack-amid-drone-impacts-in-kurdistan-2026-08-02.md:iranian-revolution:3",
+      "identity": {
+        "occurrence_id": "narrative-geopolitics/archive/sources/2026-08-02/source-larry-johnson-i-called-it-off-trump-confirms-scrapped-iran-attack-amid-drone-impacts-in-kurdistan-2026-08-02.md:iranian-revolution:3",
+        "source_id": "narrative-geopolitics/archive/sources/2026-08-02/source-larry-johnson-i-called-it-off-trump-confirms-scrapped-iran-attack-amid-drone-impacts-in-kurdistan-2026-08-02.md",
+        "reference_id": "iranian-revolution"
+      },
+      "priority_score": 3,
+      "source": {
+        "date": "2026-08-02",
+        "title": "Larry Johnson: I Called It Off: Trump Confirms Scrapped Iran Attack Amid Drone Impacts in Kurdistan",
+        "archive_path": "narrative-geopolitics/archive/sources/2026-08-02/source-larry-johnson-i-called-it-off-trump-confirms-scrapped-iran-attack-amid-drone-impacts-in-kurdistan-2026-08-02.md"
+      },
+      "evidence": {
+        "quote": "[music] Hi everybody. Today's Sunday, August 2nd, 2026, and our dear friend Lar. [clears throat] Welcome back, Lar. >> Oh, heck. What the heck? What in the world happened here? >> What's going on? >> Sorry about that. It's Some YouTube video just started playing itself on its own. [laughter] >> It's so strange. The gremlins are at work. >> Yeah, there is something going on. Larry, let me start with what has happened last night. Donald Trump finally said he cancelled the attack on Iran which was supposed to attack all those civilian infrastructure, the power grids, everything there. >> And again, we're back. What is your understanding of what has happened? Iran was they were supposed to attac",
+        "basis": ""
+      },
+      "reference": {
+        "id": "iranian-revolution",
+        "label": "Iranian Revolution",
+        "parent_period": "historical period"
+      },
+      "attribution_confidence": "provisional",
+      "mechanism_suggestions": [
+        {
+          "id": "M-FR-005",
+          "name": "sovereignty, legitimacy, and historical memory",
+          "basis": "native reference adapter"
+        }
+      ],
+      "crosswalk_suggestions": [
+        {
+          "target": "M-FR-005",
+          "confidence": "suggested",
+          "rationale": "native reference adapter",
+          "conflict_status": "unreviewed",
+          "review_status": "unreviewed"
+        }
+      ],
+      "decision_options": [
+        "accept",
+        "qualify",
+        "reject",
+        "revise",
+        "unresolved"
+      ],
+      "current_status": "needs-review"
+    },
+    {
+      "review_id": "review:narrative-geopolitics/archive/sources/2026-08-02/source-larry-johnson-i-called-it-off-trump-confirms-scrapped-iran-attack-amid-drone-impacts-in-kurdistan-2026-08-02.md:jcpoa:3",
+      "identity": {
+        "occurrence_id": "narrative-geopolitics/archive/sources/2026-08-02/source-larry-johnson-i-called-it-off-trump-confirms-scrapped-iran-attack-amid-drone-impacts-in-kurdistan-2026-08-02.md:jcpoa:3",
+        "source_id": "narrative-geopolitics/archive/sources/2026-08-02/source-larry-johnson-i-called-it-off-trump-confirms-scrapped-iran-attack-amid-drone-impacts-in-kurdistan-2026-08-02.md",
+        "reference_id": "jcpoa"
+      },
+      "priority_score": 3,
+      "source": {
+        "date": "2026-08-02",
+        "title": "Larry Johnson: I Called It Off: Trump Confirms Scrapped Iran Attack Amid Drone Impacts in Kurdistan",
+        "archive_path": "narrative-geopolitics/archive/sources/2026-08-02/source-larry-johnson-i-called-it-off-trump-confirms-scrapped-iran-attack-amid-drone-impacts-in-kurdistan-2026-08-02.md"
+      },
+      "evidence": {
+        "quote": "[music] Hi everybody. Today's Sunday, August 2nd, 2026, and our dear friend Lar. [clears throat] Welcome back, Lar. >> Oh, heck. What the heck? What in the world happened here? >> What's going on? >> Sorry about that. It's Some YouTube video just started playing itself on its own. [laughter] >> It's so strange. The gremlins are at work. >> Yeah, there is something going on. Larry, let me start with what has happened last night. Donald Trump finally said he cancelled the attack on Iran which was supposed to attack all those civilian infrastructure, the power grids, everything there. >> And again, we're back. What is your understanding of what has happened? Iran was they were supposed to attac",
+        "basis": ""
+      },
+      "reference": {
+        "id": "jcpoa",
+        "label": "JCPOA / Iran nuclear diplomacy",
+        "parent_period": "historical period"
+      },
+      "attribution_confidence": "provisional",
+      "mechanism_suggestions": [
+        {
+          "id": "M-FR-002",
+          "name": "institutional memory and diplomatic credibility",
+          "basis": "native reference adapter"
+        }
+      ],
+      "crosswalk_suggestions": [
+        {
+          "target": "M-FR-002",
+          "confidence": "suggested",
+          "rationale": "native reference adapter",
+          "conflict_status": "unreviewed",
+          "review_status": "unreviewed"
+        }
+      ],
+      "decision_options": [
+        "accept",
+        "qualify",
+        "reject",
+        "revise",
+        "unresolved"
+      ],
+      "current_status": "needs-review"
+    }
+  ]
+}

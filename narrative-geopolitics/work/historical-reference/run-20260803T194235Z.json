@@ -1,0 +1,1612 @@
+{
+  "run_id": "run-20260803T194235Z",
+  "state": "landed",
+  "voices": [
+    "johnson",
+    "mcgovern",
+    "ritter",
+    "weichert"
+  ],
+  "versions": {
+    "schema": "2",
+    "taxonomy": "2",
+    "detector": "3",
+    "mechanism": "1"
+  },
+  "receipts": [
+    {
+      "source_id": "narrative-geopolitics/archive/sources/2025-06-01/source-glenn-diesen-ray-mcgovern-america-between-a-new-peace-world-war-3-2025-06-01.md",
+      "status": "landed",
+      "fingerprint": {
+        "source_id": "narrative-geopolitics/archive/sources/2025-06-01/source-glenn-diesen-ray-mcgovern-america-between-a-new-peace-world-war-3-2025-06-01.md",
+        "archive_path": "narrative-geopolitics/archive/sources/2025-06-01/source-glenn-diesen-ray-mcgovern-america-between-a-new-peace-world-war-3-2025-06-01.md",
+        "file_hash": "22c2038e6e4a8f3b715f57de4224ccb28f05c6395814867613cf6d7645e8ac69",
+        "taxonomy_version": "2",
+        "detector_version": "3",
+        "mechanism_version": "1",
+        "voice_scope": "johnson,mcgovern,ritter,weichert"
+      },
+      "record_count": 14,
+      "archive_path": "narrative-geopolitics/archive/sources/2025-06-01/source-glenn-diesen-ray-mcgovern-america-between-a-new-peace-world-war-3-2025-06-01.md",
+      "warnings": [
+        "provisional attribution"
+      ]
+    },
+    {
+      "source_id": "narrative-geopolitics/archive/sources/2025-06-10/source-glenn-diesen-scott-ritter-scott-ritter-dangerous-endgame-in-ukraine-collapse-or-escalation-2025-06-10.md",
+      "status": "landed",
+      "fingerprint": {
+        "source_id": "narrative-geopolitics/archive/sources/2025-06-10/source-glenn-diesen-scott-ritter-scott-ritter-dangerous-endgame-in-ukraine-collapse-or-escalation-2025-06-10.md",
+        "archive_path": "narrative-geopolitics/archive/sources/2025-06-10/source-glenn-diesen-scott-ritter-scott-ritter-dangerous-endgame-in-ukraine-collapse-or-escalation-2025-06-10.md",
+        "file_hash": "80fd7881ca58a907d80f93cb282a4fd2c93b67c4b04369b1e568a88c88f581b0",
+        "taxonomy_version": "2",
+        "detector_version": "3",
+        "mechanism_version": "1",
+        "voice_scope": "johnson,mcgovern,ritter,weichert"
+      },
+      "record_count": 1,
+      "archive_path": "narrative-geopolitics/archive/sources/2025-06-10/source-glenn-diesen-scott-ritter-scott-ritter-dangerous-endgame-in-ukraine-collapse-or-escalation-2025-06-10.md",
+      "warnings": [
+        "provisional attribution"
+      ]
+    },
+    {
+      "source_id": "narrative-geopolitics/archive/sources/2025-06-16/source-glenn-diesen-larry-johnson-larry-johnson-trump-negotiator-or-warmonger-2025-06-16.md",
+      "status": "landed",
+      "fingerprint": {
+        "source_id": "narrative-geopolitics/archive/sources/2025-06-16/source-glenn-diesen-larry-johnson-larry-johnson-trump-negotiator-or-warmonger-2025-06-16.md",
+        "archive_path": "narrative-geopolitics/archive/sources/2025-06-16/source-glenn-diesen-larry-johnson-larry-johnson-trump-negotiator-or-warmonger-2025-06-16.md",
+        "file_hash": "3de159be08a47d2ccb3fa87c110570b0092bafa42fcfac425936cb9242e79fd8",
+        "taxonomy_version": "2",
+        "detector_version": "3",
+        "mechanism_version": "1",
+        "voice_scope": "johnson,mcgovern,ritter,weichert"
+      },
+      "record_count": 1,
+      "archive_path": "narrative-geopolitics/archive/sources/2025-06-16/source-glenn-diesen-larry-johnson-larry-johnson-trump-negotiator-or-warmonger-2025-06-16.md",
+      "warnings": [
+        "provisional attribution"
+      ]
+    },
+    {
+      "source_id": "narrative-geopolitics/archive/sources/2025-11-04/source-judging-freedom-ritter-natos-ukraine-strategy-is-collapsing-2025-11-04.md",
+      "status": "landed",
+      "fingerprint": {
+        "source_id": "narrative-geopolitics/archive/sources/2025-11-04/source-judging-freedom-ritter-natos-ukraine-strategy-is-collapsing-2025-11-04.md",
+        "archive_path": "narrative-geopolitics/archive/sources/2025-11-04/source-judging-freedom-ritter-natos-ukraine-strategy-is-collapsing-2025-11-04.md",
+        "file_hash": "cf6f571da72353596157d4eddb6a34a7711f456d786b245501cc25f5cc8472c3",
+        "taxonomy_version": "2",
+        "detector_version": "3",
+        "mechanism_version": "1",
+        "voice_scope": "johnson,mcgovern,ritter,weichert"
+      },
+      "record_count": 0,
+      "archive_path": "narrative-geopolitics/archive/sources/2025-11-04/source-judging-freedom-ritter-natos-ukraine-strategy-is-collapsing-2025-11-04.md",
+      "warnings": []
+    },
+    {
+      "source_id": "narrative-geopolitics/archive/sources/2025-11-23/source-glenn-diesen-ray-mcgovern-zelensky-s-dilemma-bad-peace-or-total-defeat-2025-11-23.md",
+      "status": "landed",
+      "fingerprint": {
+        "source_id": "narrative-geopolitics/archive/sources/2025-11-23/source-glenn-diesen-ray-mcgovern-zelensky-s-dilemma-bad-peace-or-total-defeat-2025-11-23.md",
+        "archive_path": "narrative-geopolitics/archive/sources/2025-11-23/source-glenn-diesen-ray-mcgovern-zelensky-s-dilemma-bad-peace-or-total-defeat-2025-11-23.md",
+        "file_hash": "65251e1ecb96a773a98eb80af9e9a949276f4b9d3737cf7fd216233a1fcb5f52",
+        "taxonomy_version": "2",
+        "detector_version": "3",
+        "mechanism_version": "1",
+        "voice_scope": "johnson,mcgovern,ritter,weichert"
+      },
+      "record_count": 4,
+      "archive_path": "narrative-geopolitics/archive/sources/2025-11-23/source-glenn-diesen-ray-mcgovern-zelensky-s-dilemma-bad-peace-or-total-defeat-2025-11-23.md",
+      "warnings": [
+        "provisional attribution"
+      ]
+    },
+    {
+      "source_id": "narrative-geopolitics/archive/sources/2026-03-16/source-daniel-davis-scott-ritter-danny-davis-combat-vets-can-the-us-force-hormuz-open-2026-03-16.md",
+      "status": "landed",
+      "fingerprint": {
+        "source_id": "narrative-geopolitics/archive/sources/2026-03-16/source-daniel-davis-scott-ritter-danny-davis-combat-vets-can-the-us-force-hormuz-open-2026-03-16.md",
+        "archive_path": "narrative-geopolitics/archive/sources/2026-03-16/source-daniel-davis-scott-ritter-danny-davis-combat-vets-can-the-us-force-hormuz-open-2026-03-16.md",
+        "file_hash": "b05b1b7fddc57d3bb574a4ce428b6112963e48636008e89af20e46d74ce8c67b",
+        "taxonomy_version": "2",
+        "detector_version": "3",
+        "mechanism_version": "1",
+        "voice_scope": "johnson,mcgovern,ritter,weichert"
+      },
+      "record_count": 1,
+      "archive_path": "narrative-geopolitics/archive/sources/2026-03-16/source-daniel-davis-scott-ritter-danny-davis-combat-vets-can-the-us-force-hormuz-open-2026-03-16.md",
+      "warnings": [
+        "provisional attribution"
+      ]
+    },
+    {
+      "source_id": "narrative-geopolitics/archive/sources/2026-05-17/source-mario-nawfal-weichert-russia-ukraine-escalating-iran-war-restarting-2026-05-17.md",
+      "status": "landed",
+      "fingerprint": {
+        "source_id": "narrative-geopolitics/archive/sources/2026-05-17/source-mario-nawfal-weichert-russia-ukraine-escalating-iran-war-restarting-2026-05-17.md",
+        "archive_path": "narrative-geopolitics/archive/sources/2026-05-17/source-mario-nawfal-weichert-russia-ukraine-escalating-iran-war-restarting-2026-05-17.md",
+        "file_hash": "67ef10a6993c5db10ccf834a28085d5543f055311b89cde8cd297393cb79d20d",
+        "taxonomy_version": "2",
+        "detector_version": "3",
+        "mechanism_version": "1",
+        "voice_scope": "johnson,mcgovern,ritter,weichert"
+      },
+      "record_count": 3,
+      "archive_path": "narrative-geopolitics/archive/sources/2026-05-17/source-mario-nawfal-weichert-russia-ukraine-escalating-iran-war-restarting-2026-05-17.md",
+      "warnings": [
+        "provisional attribution"
+      ]
+    },
+    {
+      "source_id": "narrative-geopolitics/archive/sources/2026-05-18/source-consortium-news-russia-debate-scott-ritter-vs-ray-mcgovern-2026-05-18.md",
+      "status": "landed",
+      "fingerprint": {
+        "source_id": "narrative-geopolitics/archive/sources/2026-05-18/source-consortium-news-russia-debate-scott-ritter-vs-ray-mcgovern-2026-05-18.md",
+        "archive_path": "narrative-geopolitics/archive/sources/2026-05-18/source-consortium-news-russia-debate-scott-ritter-vs-ray-mcgovern-2026-05-18.md",
+        "file_hash": "0881e09c0a0003bdd5ceb4515dfe881bcad870cd8859e24a72c72e6f94353553",
+        "taxonomy_version": "2",
+        "detector_version": "3",
+        "mechanism_version": "1",
+        "voice_scope": "johnson,mcgovern,ritter,weichert"
+      },
+      "record_count": 1,
+      "archive_path": "narrative-geopolitics/archive/sources/2026-05-18/source-consortium-news-russia-debate-scott-ritter-vs-ray-mcgovern-2026-05-18.md",
+      "warnings": [
+        "provisional attribution"
+      ]
+    },
+    {
+      "source_id": "narrative-geopolitics/archive/sources/2026-05-18/source-dialogue-works-larry-johnson-giant-mushroom-cloud-blasts-over-israeli-defense-company-what-we-know-2026-05-18.md",
+      "status": "landed",
+      "fingerprint": {
+        "source_id": "narrative-geopolitics/archive/sources/2026-05-18/source-dialogue-works-larry-johnson-giant-mushroom-cloud-blasts-over-israeli-defense-company-what-we-know-2026-05-18.md",
+        "archive_path": "narrative-geopolitics/archive/sources/2026-05-18/source-dialogue-works-larry-johnson-giant-mushroom-cloud-blasts-over-israeli-defense-company-what-we-know-2026-05-18.md",
+        "file_hash": "b26d456602eaf007e9d194fe5edbd24d575b4ee98bc18fba746871eea3359293",
+        "taxonomy_version": "2",
+        "detector_version": "3",
+        "mechanism_version": "1",
+        "voice_scope": "johnson,mcgovern,ritter,weichert"
+      },
+      "record_count": 1,
+      "archive_path": "narrative-geopolitics/archive/sources/2026-05-18/source-dialogue-works-larry-johnson-giant-mushroom-cloud-blasts-over-israeli-defense-company-what-we-know-2026-05-18.md",
+      "warnings": [
+        "provisional attribution"
+      ]
+    },
+    {
+      "source_id": "narrative-geopolitics/archive/sources/2026-06-16/source-mario-nawfal-weichert-breaking-full-iran-mou-leaked-axios-2026-06-16.md",
+      "status": "landed",
+      "fingerprint": {
+        "source_id": "narrative-geopolitics/archive/sources/2026-06-16/source-mario-nawfal-weichert-breaking-full-iran-mou-leaked-axios-2026-06-16.md",
+        "archive_path": "narrative-geopolitics/archive/sources/2026-06-16/source-mario-nawfal-weichert-breaking-full-iran-mou-leaked-axios-2026-06-16.md",
+        "file_hash": "a473f1187b5dc73eb4544eb34d72a0bde8ecfdabd590639f863f00b0cded927a",
+        "taxonomy_version": "2",
+        "detector_version": "3",
+        "mechanism_version": "1",
+        "voice_scope": "johnson,mcgovern,ritter,weichert"
+      },
+      "record_count": 3,
+      "archive_path": "narrative-geopolitics/archive/sources/2026-06-16/source-mario-nawfal-weichert-breaking-full-iran-mou-leaked-axios-2026-06-16.md",
+      "warnings": [
+        "provisional attribution"
+      ]
+    },
+    {
+      "source_id": "narrative-geopolitics/archive/sources/2026-06-19/source-dialogue-works-seyed-m-marandi-larry-johnson-iran-shuts-down-geneva-talks-mou-2026-06-19.md",
+      "status": "landed",
+      "fingerprint": {
+        "source_id": "narrative-geopolitics/archive/sources/2026-06-19/source-dialogue-works-seyed-m-marandi-larry-johnson-iran-shuts-down-geneva-talks-mou-2026-06-19.md",
+        "archive_path": "narrative-geopolitics/archive/sources/2026-06-19/source-dialogue-works-seyed-m-marandi-larry-johnson-iran-shuts-down-geneva-talks-mou-2026-06-19.md",
+        "file_hash": "f1cc32e5a91f8ce3dea53343c41ff4d27f1a2d1322053b5b705138a4f49217ba",
+        "taxonomy_version": "2",
+        "detector_version": "3",
+        "mechanism_version": "1",
+        "voice_scope": "johnson,mcgovern,ritter,weichert"
+      },
+      "record_count": 0,
+      "archive_path": "narrative-geopolitics/archive/sources/2026-06-19/source-dialogue-works-seyed-m-marandi-larry-johnson-iran-shuts-down-geneva-talks-mou-2026-06-19.md",
+      "warnings": []
+    },
+    {
+      "source_id": "narrative-geopolitics/archive/sources/2026-07-20/source-scott-ritter-graham-s-legacy-zelenskyy-s-blunder-trump-s-stupidity-2026-07-20.md",
+      "status": "landed",
+      "fingerprint": {
+        "source_id": "narrative-geopolitics/archive/sources/2026-07-20/source-scott-ritter-graham-s-legacy-zelenskyy-s-blunder-trump-s-stupidity-2026-07-20.md",
+        "archive_path": "narrative-geopolitics/archive/sources/2026-07-20/source-scott-ritter-graham-s-legacy-zelenskyy-s-blunder-trump-s-stupidity-2026-07-20.md",
+        "file_hash": "d0e161b52c61362f53b3082f36032125095bcccf2b5bc4df8be9c66275cf6594",
+        "taxonomy_version": "2",
+        "detector_version": "3",
+        "mechanism_version": "1",
+        "voice_scope": "johnson,mcgovern,ritter,weichert"
+      },
+      "record_count": 2,
+      "archive_path": "narrative-geopolitics/archive/sources/2026-07-20/source-scott-ritter-graham-s-legacy-zelenskyy-s-blunder-trump-s-stupidity-2026-07-20.md",
+      "warnings": [
+        "provisional attribution"
+      ]
+    },
+    {
+      "source_id": "narrative-geopolitics/archive/sources/2026-07-20/source-u-s-out-of-oil-yemeni-houthis-close-bab-el-mandab-ground-invasion-w-brandon-weichert-2026-07-20.md",
+      "status": "landed",
+      "fingerprint": {
+        "source_id": "narrative-geopolitics/archive/sources/2026-07-20/source-u-s-out-of-oil-yemeni-houthis-close-bab-el-mandab-ground-invasion-w-brandon-weichert-2026-07-20.md",
+        "archive_path": "narrative-geopolitics/archive/sources/2026-07-20/source-u-s-out-of-oil-yemeni-houthis-close-bab-el-mandab-ground-invasion-w-brandon-weichert-2026-07-20.md",
+        "file_hash": "29ba69ac46dfe092cad43c0c5e4ad83bd42d61ee1432c67ba40921c557a43062",
+        "taxonomy_version": "2",
+        "detector_version": "3",
+        "mechanism_version": "1",
+        "voice_scope": "johnson,mcgovern,ritter,weichert"
+      },
+      "record_count": 0,
+      "archive_path": "narrative-geopolitics/archive/sources/2026-07-20/source-u-s-out-of-oil-yemeni-houthis-close-bab-el-mandab-ground-invasion-w-brandon-weichert-2026-07-20.md",
+      "warnings": []
+    },
+    {
+      "source_id": "narrative-geopolitics/archive/sources/2026-07-26/source-ray-mcgovern-yemen-strikes-on-saudi-are-rocking-across-the-gulf-2026-07-26.md",
+      "status": "landed",
+      "fingerprint": {
+        "source_id": "narrative-geopolitics/archive/sources/2026-07-26/source-ray-mcgovern-yemen-strikes-on-saudi-are-rocking-across-the-gulf-2026-07-26.md",
+        "archive_path": "narrative-geopolitics/archive/sources/2026-07-26/source-ray-mcgovern-yemen-strikes-on-saudi-are-rocking-across-the-gulf-2026-07-26.md",
+        "file_hash": "3e813658bda848ced504c361167bbbb9ac1b7dbb90272bf8090849ca782902bd",
+        "taxonomy_version": "2",
+        "detector_version": "3",
+        "mechanism_version": "1",
+        "voice_scope": "johnson,mcgovern,ritter,weichert"
+      },
+      "record_count": 1,
+      "archive_path": "narrative-geopolitics/archive/sources/2026-07-26/source-ray-mcgovern-yemen-strikes-on-saudi-are-rocking-across-the-gulf-2026-07-26.md",
+      "warnings": [
+        "provisional attribution"
+      ]
+    },
+    {
+      "source_id": "narrative-geopolitics/archive/sources/2026-07-28/source-larry-johnson-russia-s-naval-blockade-of-odessa-ukraine-s-attack-on-iranian-ship-2026-07-28.md",
+      "status": "landed",
+      "fingerprint": {
+        "source_id": "narrative-geopolitics/archive/sources/2026-07-28/source-larry-johnson-russia-s-naval-blockade-of-odessa-ukraine-s-attack-on-iranian-ship-2026-07-28.md",
+        "archive_path": "narrative-geopolitics/archive/sources/2026-07-28/source-larry-johnson-russia-s-naval-blockade-of-odessa-ukraine-s-attack-on-iranian-ship-2026-07-28.md",
+        "file_hash": "10165452b361479e5e1dbb9fbd5957aff5039c0bd9c8c96962c23efb646a7eac",
+        "taxonomy_version": "2",
+        "detector_version": "3",
+        "mechanism_version": "1",
+        "voice_scope": "johnson,mcgovern,ritter,weichert"
+      },
+      "record_count": 0,
+      "archive_path": "narrative-geopolitics/archive/sources/2026-07-28/source-larry-johnson-russia-s-naval-blockade-of-odessa-ukraine-s-attack-on-iranian-ship-2026-07-28.md",
+      "warnings": []
+    },
+    {
+      "source_id": "narrative-geopolitics/archive/sources/2026-07-29/source-bibi-says-trump-meeting-was-the-best-china-arms-iran-with-400-manpads-2026-07-29.md",
+      "status": "landed",
+      "fingerprint": {
+        "source_id": "narrative-geopolitics/archive/sources/2026-07-29/source-bibi-says-trump-meeting-was-the-best-china-arms-iran-with-400-manpads-2026-07-29.md",
+        "archive_path": "narrative-geopolitics/archive/sources/2026-07-29/source-bibi-says-trump-meeting-was-the-best-china-arms-iran-with-400-manpads-2026-07-29.md",
+        "file_hash": "080b501a207de2e821e0d3669ee2355b06539f2c069f5810abed54f78c1f1631",
+        "taxonomy_version": "2",
+        "detector_version": "3",
+        "mechanism_version": "1",
+        "voice_scope": "johnson,mcgovern,ritter,weichert"
+      },
+      "record_count": 1,
+      "archive_path": "narrative-geopolitics/archive/sources/2026-07-29/source-bibi-says-trump-meeting-was-the-best-china-arms-iran-with-400-manpads-2026-07-29.md",
+      "warnings": [
+        "provisional attribution"
+      ]
+    }
+  ],
+  "records": [
+    {
+      "occurrence_id": "narrative-geopolitics/archive/sources/2025-06-01/source-glenn-diesen-ray-mcgovern-america-between-a-new-peace-world-war-3-2025-06-01.md:cold-war:1244",
+      "voices": [
+        "mcgovern"
+      ],
+      "source_id": "narrative-geopolitics/archive/sources/2025-06-01/source-glenn-diesen-ray-mcgovern-america-between-a-new-peace-world-war-3-2025-06-01.md",
+      "archive_path": "narrative-geopolitics/archive/sources/2025-06-01/source-glenn-diesen-ray-mcgovern-america-between-a-new-peace-world-war-3-2025-06-01.md",
+      "date": "2025-06-01",
+      "title": "Ray McGovern: America Between a New Peace & World War 3",
+      "quote": "extent because after the cold war we did",
+      "reference_id": "cold-war",
+      "reference": "Cold War",
+      "parent_period": "Cold War",
+      "attribution_confidence": "provisional",
+      "mechanism_suggestions": [
+        {
+          "id": "M-FR-003",
+          "name": "imperial overstretch and power transition",
+          "basis": "native reference adapter"
+        }
+      ],
+      "crosswalk_suggestions": [
+        {
+          "target": "M-FR-003",
+          "confidence": "suggested",
+          "rationale": "native reference adapter",
+          "conflict_status": "unreviewed",
+          "review_status": "unreviewed"
+        }
+      ],
+      "risk_score": 3,
+      "review_status": "needs-review"
+    },
+    {
+      "occurrence_id": "narrative-geopolitics/archive/sources/2025-06-01/source-glenn-diesen-ray-mcgovern-america-between-a-new-peace-world-war-3-2025-06-01.md:cold-war:597",
+      "voices": [
+        "mcgovern"
+      ],
+      "source_id": "narrative-geopolitics/archive/sources/2025-06-01/source-glenn-diesen-ray-mcgovern-america-between-a-new-peace-world-war-3-2025-06-01.md",
+      "archive_path": "narrative-geopolitics/archive/sources/2025-06-01/source-glenn-diesen-ray-mcgovern-america-between-a-new-peace-world-war-3-2025-06-01.md",
+      "date": "2025-06-01",
+      "title": "Ray McGovern: America Between a New Peace & World War 3",
+      "quote": "um you know the during the cold war the",
+      "reference_id": "cold-war",
+      "reference": "Cold War",
+      "parent_period": "Cold War",
+      "attribution_confidence": "provisional",
+      "mechanism_suggestions": [
+        {
+          "id": "M-FR-003",
+          "name": "imperial overstretch and power transition",
+          "basis": "native reference adapter"
+        }
+      ],
+      "crosswalk_suggestions": [
+        {
+          "target": "M-FR-003",
+          "confidence": "suggested",
+          "rationale": "native reference adapter",
+          "conflict_status": "unreviewed",
+          "review_status": "unreviewed"
+        }
+      ],
+      "risk_score": 3,
+      "review_status": "needs-review"
+    },
+    {
+      "occurrence_id": "narrative-geopolitics/archive/sources/2025-06-01/source-glenn-diesen-ray-mcgovern-america-between-a-new-peace-world-war-3-2025-06-01.md:cold-war:626",
+      "voices": [
+        "mcgovern"
+      ],
+      "source_id": "narrative-geopolitics/archive/sources/2025-06-01/source-glenn-diesen-ray-mcgovern-america-between-a-new-peace-world-war-3-2025-06-01.md",
+      "archive_path": "narrative-geopolitics/archive/sources/2025-06-01/source-glenn-diesen-ray-mcgovern-america-between-a-new-peace-world-war-3-2025-06-01.md",
+      "date": "2025-06-01",
+      "title": "Ray McGovern: America Between a New Peace & World War 3",
+      "quote": "find a peace to end the cold war. uh",
+      "reference_id": "cold-war",
+      "reference": "Cold War",
+      "parent_period": "Cold War",
+      "attribution_confidence": "provisional",
+      "mechanism_suggestions": [
+        {
+          "id": "M-FR-003",
+          "name": "imperial overstretch and power transition",
+          "basis": "native reference adapter"
+        }
+      ],
+      "crosswalk_suggestions": [
+        {
+          "target": "M-FR-003",
+          "confidence": "suggested",
+          "rationale": "native reference adapter",
+          "conflict_status": "unreviewed",
+          "review_status": "unreviewed"
+        }
+      ],
+      "risk_score": 3,
+      "review_status": "needs-review"
+    },
+    {
+      "occurrence_id": "narrative-geopolitics/archive/sources/2025-06-01/source-glenn-diesen-ray-mcgovern-america-between-a-new-peace-world-war-3-2025-06-01.md:nixon-kissinger:399",
+      "voices": [
+        "mcgovern"
+      ],
+      "source_id": "narrative-geopolitics/archive/sources/2025-06-01/source-glenn-diesen-ray-mcgovern-america-between-a-new-peace-world-war-3-2025-06-01.md",
+      "archive_path": "narrative-geopolitics/archive/sources/2025-06-01/source-glenn-diesen-ray-mcgovern-america-between-a-new-peace-world-war-3-2025-06-01.md",
+      "date": "2025-06-01",
+      "title": "Ray McGovern: America Between a New Peace & World War 3",
+      "quote": "time. As I pointed out before, Kissinger",
+      "reference_id": "nixon-kissinger",
+      "reference": "Nixon–Kissinger China strategy",
+      "parent_period": "historical period",
+      "attribution_confidence": "provisional",
+      "mechanism_suggestions": [
+        {
+          "id": "M-FR-002",
+          "name": "institutional memory and diplomatic credibility",
+          "basis": "native reference adapter"
+        }
+      ],
+      "crosswalk_suggestions": [
+        {
+          "target": "M-FR-002",
+          "confidence": "suggested",
+          "rationale": "native reference adapter",
+          "conflict_status": "unreviewed",
+          "review_status": "unreviewed"
+        }
+      ],
+      "risk_score": 3,
+      "review_status": "needs-review"
+    },
+    {
+      "occurrence_id": "narrative-geopolitics/archive/sources/2025-06-01/source-glenn-diesen-ray-mcgovern-america-between-a-new-peace-world-war-3-2025-06-01.md:nixon-kissinger:400",
+      "voices": [
+        "mcgovern"
+      ],
+      "source_id": "narrative-geopolitics/archive/sources/2025-06-01/source-glenn-diesen-ray-mcgovern-america-between-a-new-peace-world-war-3-2025-06-01.md",
+      "archive_path": "narrative-geopolitics/archive/sources/2025-06-01/source-glenn-diesen-ray-mcgovern-america-between-a-new-peace-world-war-3-2025-06-01.md",
+      "date": "2025-06-01",
+      "title": "Ray McGovern: America Between a New Peace & World War 3",
+      "quote": "and Nixon took advantage of uh Soviet in",
+      "reference_id": "nixon-kissinger",
+      "reference": "Nixon–Kissinger China strategy",
+      "parent_period": "historical period",
+      "attribution_confidence": "provisional",
+      "mechanism_suggestions": [
+        {
+          "id": "M-FR-002",
+          "name": "institutional memory and diplomatic credibility",
+          "basis": "native reference adapter"
+        }
+      ],
+      "crosswalk_suggestions": [
+        {
+          "target": "M-FR-002",
+          "confidence": "suggested",
+          "rationale": "native reference adapter",
+          "conflict_status": "unreviewed",
+          "review_status": "unreviewed"
+        }
+      ],
+      "risk_score": 3,
+      "review_status": "needs-review"
+    },
+    {
+      "occurrence_id": "narrative-geopolitics/archive/sources/2025-06-01/source-glenn-diesen-ray-mcgovern-america-between-a-new-peace-world-war-3-2025-06-01.md:nixon-kissinger:403",
+      "voices": [
+        "mcgovern"
+      ],
+      "source_id": "narrative-geopolitics/archive/sources/2025-06-01/source-glenn-diesen-ray-mcgovern-america-between-a-new-peace-world-war-3-2025-06-01.md",
+      "archive_path": "narrative-geopolitics/archive/sources/2025-06-01/source-glenn-diesen-ray-mcgovern-america-between-a-new-peace-world-war-3-2025-06-01.md",
+      "date": "2025-06-01",
+      "title": "Ray McGovern: America Between a New Peace & World War 3",
+      "quote": "uh even people like Kissinger uh wrote",
+      "reference_id": "nixon-kissinger",
+      "reference": "Nixon–Kissinger China strategy",
+      "parent_period": "historical period",
+      "attribution_confidence": "provisional",
+      "mechanism_suggestions": [
+        {
+          "id": "M-FR-002",
+          "name": "institutional memory and diplomatic credibility",
+          "basis": "native reference adapter"
+        }
+      ],
+      "crosswalk_suggestions": [
+        {
+          "target": "M-FR-002",
+          "confidence": "suggested",
+          "rationale": "native reference adapter",
+          "conflict_status": "unreviewed",
+          "review_status": "unreviewed"
+        }
+      ],
+      "risk_score": 3,
+      "review_status": "needs-review"
+    },
+    {
+      "occurrence_id": "narrative-geopolitics/archive/sources/2025-06-01/source-glenn-diesen-ray-mcgovern-america-between-a-new-peace-world-war-3-2025-06-01.md:nixon-kissinger:82",
+      "voices": [
+        "mcgovern"
+      ],
+      "source_id": "narrative-geopolitics/archive/sources/2025-06-01/source-glenn-diesen-ray-mcgovern-america-between-a-new-peace-world-war-3-2025-06-01.md",
+      "archive_path": "narrative-geopolitics/archive/sources/2025-06-01/source-glenn-diesen-ray-mcgovern-america-between-a-new-peace-world-war-3-2025-06-01.md",
+      "date": "2025-06-01",
+      "title": "Ray McGovern: America Between a New Peace & World War 3",
+      "quote": "relationship and Kissinger and Nixon and",
+      "reference_id": "nixon-kissinger",
+      "reference": "Nixon–Kissinger China strategy",
+      "parent_period": "historical period",
+      "attribution_confidence": "provisional",
+      "mechanism_suggestions": [
+        {
+          "id": "M-FR-002",
+          "name": "institutional memory and diplomatic credibility",
+          "basis": "native reference adapter"
+        }
+      ],
+      "crosswalk_suggestions": [
+        {
+          "target": "M-FR-002",
+          "confidence": "suggested",
+          "rationale": "native reference adapter",
+          "conflict_status": "unreviewed",
+          "review_status": "unreviewed"
+        }
+      ],
+      "risk_score": 3,
+      "review_status": "needs-review"
+    },
+    {
+      "occurrence_id": "narrative-geopolitics/archive/sources/2025-06-01/source-glenn-diesen-ray-mcgovern-america-between-a-new-peace-world-war-3-2025-06-01.md:nixon-kissinger:9",
+      "voices": [
+        "mcgovern"
+      ],
+      "source_id": "narrative-geopolitics/archive/sources/2025-06-01/source-glenn-diesen-ray-mcgovern-america-between-a-new-peace-world-war-3-2025-06-01.md",
+      "archive_path": "narrative-geopolitics/archive/sources/2025-06-01/source-glenn-diesen-ray-mcgovern-america-between-a-new-peace-world-war-3-2025-06-01.md",
+      "date": "2025-06-01",
+      "title": "Ray McGovern: America Between a New Peace & World War 3",
+      "quote": "Kissinger if I'm not mistaken. So uh uh",
+      "reference_id": "nixon-kissinger",
+      "reference": "Nixon–Kissinger China strategy",
+      "parent_period": "historical period",
+      "attribution_confidence": "provisional",
+      "mechanism_suggestions": [
+        {
+          "id": "M-FR-002",
+          "name": "institutional memory and diplomatic credibility",
+          "basis": "native reference adapter"
+        }
+      ],
+      "crosswalk_suggestions": [
+        {
+          "target": "M-FR-002",
+          "confidence": "suggested",
+          "rationale": "native reference adapter",
+          "conflict_status": "unreviewed",
+          "review_status": "unreviewed"
+        }
+      ],
+      "risk_score": 3,
+      "review_status": "needs-review"
+    },
+    {
+      "occurrence_id": "narrative-geopolitics/archive/sources/2025-06-01/source-glenn-diesen-ray-mcgovern-america-between-a-new-peace-world-war-3-2025-06-01.md:nixon-kissinger:91",
+      "voices": [
+        "mcgovern"
+      ],
+      "source_id": "narrative-geopolitics/archive/sources/2025-06-01/source-glenn-diesen-ray-mcgovern-america-between-a-new-peace-world-war-3-2025-06-01.md",
+      "archive_path": "narrative-geopolitics/archive/sources/2025-06-01/source-glenn-diesen-ray-mcgovern-america-between-a-new-peace-world-war-3-2025-06-01.md",
+      "date": "2025-06-01",
+      "title": "Ray McGovern: America Between a New Peace & World War 3",
+      "quote": "thing you know, Kissinger goes to",
+      "reference_id": "nixon-kissinger",
+      "reference": "Nixon–Kissinger China strategy",
+      "parent_period": "historical period",
+      "attribution_confidence": "provisional",
+      "mechanism_suggestions": [
+        {
+          "id": "M-FR-002",
+          "name": "institutional memory and diplomatic credibility",
+          "basis": "native reference adapter"
+        }
+      ],
+      "crosswalk_suggestions": [
+        {
+          "target": "M-FR-002",
+          "confidence": "suggested",
+          "rationale": "native reference adapter",
+          "conflict_status": "unreviewed",
+          "review_status": "unreviewed"
+        }
+      ],
+      "risk_score": 3,
+      "review_status": "needs-review"
+    },
+    {
+      "occurrence_id": "narrative-geopolitics/archive/sources/2025-06-01/source-glenn-diesen-ray-mcgovern-america-between-a-new-peace-world-war-3-2025-06-01.md:nixon-kissinger:92",
+      "voices": [
+        "mcgovern"
+      ],
+      "source_id": "narrative-geopolitics/archive/sources/2025-06-01/source-glenn-diesen-ray-mcgovern-america-between-a-new-peace-world-war-3-2025-06-01.md",
+      "archive_path": "narrative-geopolitics/archive/sources/2025-06-01/source-glenn-diesen-ray-mcgovern-america-between-a-new-peace-world-war-3-2025-06-01.md",
+      "date": "2025-06-01",
+      "title": "Ray McGovern: America Between a New Peace & World War 3",
+      "quote": "Beijing and then Nixon goes to Beijing.",
+      "reference_id": "nixon-kissinger",
+      "reference": "Nixon–Kissinger China strategy",
+      "parent_period": "historical period",
+      "attribution_confidence": "provisional",
+      "mechanism_suggestions": [
+        {
+          "id": "M-FR-002",
+          "name": "institutional memory and diplomatic credibility",
+          "basis": "native reference adapter"
+        }
+      ],
+      "crosswalk_suggestions": [
+        {
+          "target": "M-FR-002",
+          "confidence": "suggested",
+          "rationale": "native reference adapter",
+          "conflict_status": "unreviewed",
+          "review_status": "unreviewed"
+        }
+      ],
+      "risk_score": 3,
+      "review_status": "needs-review"
+    },
+    {
+      "occurrence_id": "narrative-geopolitics/archive/sources/2025-06-01/source-glenn-diesen-ray-mcgovern-america-between-a-new-peace-world-war-3-2025-06-01.md:nixon-kissinger:921",
+      "voices": [
+        "mcgovern"
+      ],
+      "source_id": "narrative-geopolitics/archive/sources/2025-06-01/source-glenn-diesen-ray-mcgovern-america-between-a-new-peace-world-war-3-2025-06-01.md",
+      "archive_path": "narrative-geopolitics/archive/sources/2025-06-01/source-glenn-diesen-ray-mcgovern-america-between-a-new-peace-world-war-3-2025-06-01.md",
+      "date": "2025-06-01",
+      "title": "Ray McGovern: America Between a New Peace & World War 3",
+      "quote": "persuade Nixon and Kissinger that it was",
+      "reference_id": "nixon-kissinger",
+      "reference": "Nixon–Kissinger China strategy",
+      "parent_period": "historical period",
+      "attribution_confidence": "provisional",
+      "mechanism_suggestions": [
+        {
+          "id": "M-FR-002",
+          "name": "institutional memory and diplomatic credibility",
+          "basis": "native reference adapter"
+        }
+      ],
+      "crosswalk_suggestions": [
+        {
+          "target": "M-FR-002",
+          "confidence": "suggested",
+          "rationale": "native reference adapter",
+          "conflict_status": "unreviewed",
+          "review_status": "unreviewed"
+        }
+      ],
+      "risk_score": 3,
+      "review_status": "needs-review"
+    },
+    {
+      "occurrence_id": "narrative-geopolitics/archive/sources/2025-06-01/source-glenn-diesen-ray-mcgovern-america-between-a-new-peace-world-war-3-2025-06-01.md:nixon-kissinger:97",
+      "voices": [
+        "mcgovern"
+      ],
+      "source_id": "narrative-geopolitics/archive/sources/2025-06-01/source-glenn-diesen-ray-mcgovern-america-between-a-new-peace-world-war-3-2025-06-01.md",
+      "archive_path": "narrative-geopolitics/archive/sources/2025-06-01/source-glenn-diesen-ray-mcgovern-america-between-a-new-peace-world-war-3-2025-06-01.md",
+      "date": "2025-06-01",
+      "title": "Ray McGovern: America Between a New Peace & World War 3",
+      "quote": "much ahead and Kissinger and Nixon said",
+      "reference_id": "nixon-kissinger",
+      "reference": "Nixon–Kissinger China strategy",
+      "parent_period": "historical period",
+      "attribution_confidence": "provisional",
+      "mechanism_suggestions": [
+        {
+          "id": "M-FR-002",
+          "name": "institutional memory and diplomatic credibility",
+          "basis": "native reference adapter"
+        }
+      ],
+      "crosswalk_suggestions": [
+        {
+          "target": "M-FR-002",
+          "confidence": "suggested",
+          "rationale": "native reference adapter",
+          "conflict_status": "unreviewed",
+          "review_status": "unreviewed"
+        }
+      ],
+      "risk_score": 3,
+      "review_status": "needs-review"
+    },
+    {
+      "occurrence_id": "narrative-geopolitics/archive/sources/2025-06-01/source-glenn-diesen-ray-mcgovern-america-between-a-new-peace-world-war-3-2025-06-01.md:vietnam-war:610",
+      "voices": [
+        "mcgovern"
+      ],
+      "source_id": "narrative-geopolitics/archive/sources/2025-06-01/source-glenn-diesen-ray-mcgovern-america-between-a-new-peace-world-war-3-2025-06-01.md",
+      "archive_path": "narrative-geopolitics/archive/sources/2025-06-01/source-glenn-diesen-ray-mcgovern-america-between-a-new-peace-world-war-3-2025-06-01.md",
+      "date": "2025-06-01",
+      "title": "Ray McGovern: America Between a New Peace & World War 3",
+      "quote": "key mis read of the whole Vietnam war.",
+      "reference_id": "vietnam-war",
+      "reference": "Vietnam War",
+      "parent_period": "Cold War",
+      "attribution_confidence": "provisional",
+      "mechanism_suggestions": [
+        {
+          "id": "M-FR-001",
+          "name": "coercion and strategic backfire",
+          "basis": "native reference adapter"
+        }
+      ],
+      "crosswalk_suggestions": [
+        {
+          "target": "M-FR-001",
+          "confidence": "suggested",
+          "rationale": "native reference adapter",
+          "conflict_status": "unreviewed",
+          "review_status": "unreviewed"
+        }
+      ],
+      "risk_score": 3,
+      "review_status": "needs-review"
+    },
+    {
+      "occurrence_id": "narrative-geopolitics/archive/sources/2025-06-01/source-glenn-diesen-ray-mcgovern-america-between-a-new-peace-world-war-3-2025-06-01.md:vietnam-war:68",
+      "voices": [
+        "mcgovern"
+      ],
+      "source_id": "narrative-geopolitics/archive/sources/2025-06-01/source-glenn-diesen-ray-mcgovern-america-between-a-new-peace-world-war-3-2025-06-01.md",
+      "archive_path": "narrative-geopolitics/archive/sources/2025-06-01/source-glenn-diesen-ray-mcgovern-america-between-a-new-peace-world-war-3-2025-06-01.md",
+      "date": "2025-06-01",
+      "title": "Ray McGovern: America Between a New Peace & World War 3",
+      "quote": "was was trying to make war in Vietnam",
+      "reference_id": "vietnam-war",
+      "reference": "Vietnam War",
+      "parent_period": "Cold War",
+      "attribution_confidence": "provisional",
+      "mechanism_suggestions": [
+        {
+          "id": "M-FR-001",
+          "name": "coercion and strategic backfire",
+          "basis": "native reference adapter"
+        }
+      ],
+      "crosswalk_suggestions": [
+        {
+          "target": "M-FR-001",
+          "confidence": "suggested",
+          "rationale": "native reference adapter",
+          "conflict_status": "unreviewed",
+          "review_status": "unreviewed"
+        }
+      ],
+      "risk_score": 3,
+      "review_status": "needs-review"
+    },
+    {
+      "occurrence_id": "narrative-geopolitics/archive/sources/2025-06-10/source-glenn-diesen-scott-ritter-scott-ritter-dangerous-endgame-in-ukraine-collapse-or-escalation-2025-06-10.md:cold-war:2",
+      "voices": [
+        "ritter"
+      ],
+      "source_id": "narrative-geopolitics/archive/sources/2025-06-10/source-glenn-diesen-scott-ritter-scott-ritter-dangerous-endgame-in-ukraine-collapse-or-escalation-2025-06-10.md",
+      "archive_path": "narrative-geopolitics/archive/sources/2025-06-10/source-glenn-diesen-scott-ritter-scott-ritter-dangerous-endgame-in-ukraine-collapse-or-escalation-2025-06-10.md",
+      "date": "2025-06-10",
+      "title": "Scott Ritter: Dangerous Endgame in Ukraine: Collapse or Escalation",
+      "quote": "Hi everyone and welcome. I'm joined today by Scott Ritter, a former major intelligence officer in the US Marines and also a UN weapons inspector. So welcome back to the program. Thanks for having me. So uh for me what one of the absurdities of this whole proxy war in Ukraine is that the people who warned for the past 20 years that NATO expansion to Ukraine would result in its destruction. You know, they were smeared as anti- Ukrainians for a reason, while the people who essentially condemned Ukraine to destruction by cheering on NATO expansion, then rejecting negotiations and uh well, insisting on keeping the fighting going even after it's been effectively lost. They are somehow the pro- Ukr",
+      "reference_id": "cold-war",
+      "reference": "Cold War",
+      "parent_period": "Cold War",
+      "attribution_confidence": "provisional",
+      "mechanism_suggestions": [
+        {
+          "id": "M-FR-003",
+          "name": "imperial overstretch and power transition",
+          "basis": "native reference adapter"
+        }
+      ],
+      "crosswalk_suggestions": [
+        {
+          "target": "M-FR-003",
+          "confidence": "suggested",
+          "rationale": "native reference adapter",
+          "conflict_status": "unreviewed",
+          "review_status": "unreviewed"
+        }
+      ],
+      "risk_score": 3,
+      "review_status": "needs-review"
+    },
+    {
+      "occurrence_id": "narrative-geopolitics/archive/sources/2025-06-16/source-glenn-diesen-larry-johnson-larry-johnson-trump-negotiator-or-warmonger-2025-06-16.md:iraq-war:2",
+      "voices": [
+        "johnson"
+      ],
+      "source_id": "narrative-geopolitics/archive/sources/2025-06-16/source-glenn-diesen-larry-johnson-larry-johnson-trump-negotiator-or-warmonger-2025-06-16.md",
+      "archive_path": "narrative-geopolitics/archive/sources/2025-06-16/source-glenn-diesen-larry-johnson-larry-johnson-trump-negotiator-or-warmonger-2025-06-16.md",
+      "date": "2025-06-16",
+      "title": "Larry Johnson: Trump - Negotiator or Warmonger?",
+      "quote": "Hi everyone and welcome. I am joined today by Larry Johnson, a former CI analyst and extremely popular commentator. Insightful I would add. Uh so yeah, welcome back to the program. I'm glad I haven't worn out my welcome. Thanks for having me. Well, uh I uh yeah, I want to discuss with you the obviously the debacle going on with this attack on Iran. Now yeah, guess the debacle has a lot of layers to it. Uh but uh I thought perhaps we could start with looking at how you see what went wrong here because there seems to have been an intelligence failure because the assumption I think was that uh Israel could have a very powerful decapitation attack. Uh you know air defense systems in Iran everyth",
+      "reference_id": "iraq-war",
+      "reference": "2003 Iraq War",
+      "parent_period": "historical period",
+      "attribution_confidence": "provisional",
+      "mechanism_suggestions": [
+        {
+          "id": "M-FR-001",
+          "name": "coercion and strategic backfire",
+          "basis": "native reference adapter"
+        }
+      ],
+      "crosswalk_suggestions": [
+        {
+          "target": "M-FR-001",
+          "confidence": "suggested",
+          "rationale": "native reference adapter",
+          "conflict_status": "unreviewed",
+          "review_status": "unreviewed"
+        }
+      ],
+      "risk_score": 3,
+      "review_status": "needs-review"
+    },
+    {
+      "occurrence_id": "narrative-geopolitics/archive/sources/2025-11-23/source-glenn-diesen-ray-mcgovern-zelensky-s-dilemma-bad-peace-or-total-defeat-2025-11-23.md:nixon-kissinger:698",
+      "voices": [
+        "mcgovern"
+      ],
+      "source_id": "narrative-geopolitics/archive/sources/2025-11-23/source-glenn-diesen-ray-mcgovern-zelensky-s-dilemma-bad-peace-or-total-defeat-2025-11-23.md",
+      "archive_path": "narrative-geopolitics/archive/sources/2025-11-23/source-glenn-diesen-ray-mcgovern-zelensky-s-dilemma-bad-peace-or-total-defeat-2025-11-23.md",
+      "date": "2025-11-23",
+      "title": "Ray McGovern: Zelensky's Dilemma - Bad Peace or Total Defeat",
+      "quote": ">> Well, actually, it was Nixon and",
+      "reference_id": "nixon-kissinger",
+      "reference": "Nixon–Kissinger China strategy",
+      "parent_period": "historical period",
+      "attribution_confidence": "provisional",
+      "mechanism_suggestions": [
+        {
+          "id": "M-FR-002",
+          "name": "institutional memory and diplomatic credibility",
+          "basis": "native reference adapter"
+        }
+      ],
+      "crosswalk_suggestions": [
+        {
+          "target": "M-FR-002",
+          "confidence": "suggested",
+          "rationale": "native reference adapter",
+          "conflict_status": "unreviewed",
+          "review_status": "unreviewed"
+        }
+      ],
+      "risk_score": 3,
+      "review_status": "needs-review"
+    },
+    {
+      "occurrence_id": "narrative-geopolitics/archive/sources/2025-11-23/source-glenn-diesen-ray-mcgovern-zelensky-s-dilemma-bad-peace-or-total-defeat-2025-11-23.md:nixon-kissinger:699",
+      "voices": [
+        "mcgovern"
+      ],
+      "source_id": "narrative-geopolitics/archive/sources/2025-11-23/source-glenn-diesen-ray-mcgovern-zelensky-s-dilemma-bad-peace-or-total-defeat-2025-11-23.md",
+      "archive_path": "narrative-geopolitics/archive/sources/2025-11-23/source-glenn-diesen-ray-mcgovern-zelensky-s-dilemma-bad-peace-or-total-defeat-2025-11-23.md",
+      "date": "2025-11-23",
+      "title": "Ray McGovern: Zelensky's Dilemma - Bad Peace or Total Defeat",
+      "quote": "Kissinger and I was there. I go back to",
+      "reference_id": "nixon-kissinger",
+      "reference": "Nixon–Kissinger China strategy",
+      "parent_period": "historical period",
+      "attribution_confidence": "provisional",
+      "mechanism_suggestions": [
+        {
+          "id": "M-FR-002",
+          "name": "institutional memory and diplomatic credibility",
+          "basis": "native reference adapter"
+        }
+      ],
+      "crosswalk_suggestions": [
+        {
+          "target": "M-FR-002",
+          "confidence": "suggested",
+          "rationale": "native reference adapter",
+          "conflict_status": "unreviewed",
+          "review_status": "unreviewed"
+        }
+      ],
+      "risk_score": 3,
+      "review_status": "needs-review"
+    },
+    {
+      "occurrence_id": "narrative-geopolitics/archive/sources/2025-11-23/source-glenn-diesen-ray-mcgovern-zelensky-s-dilemma-bad-peace-or-total-defeat-2025-11-23.md:nixon-kissinger:707",
+      "voices": [
+        "mcgovern"
+      ],
+      "source_id": "narrative-geopolitics/archive/sources/2025-11-23/source-glenn-diesen-ray-mcgovern-zelensky-s-dilemma-bad-peace-or-total-defeat-2025-11-23.md",
+      "archive_path": "narrative-geopolitics/archive/sources/2025-11-23/source-glenn-diesen-ray-mcgovern-zelensky-s-dilemma-bad-peace-or-total-defeat-2025-11-23.md",
+      "date": "2025-11-23",
+      "title": "Ray McGovern: Zelensky's Dilemma - Bad Peace or Total Defeat",
+      "quote": "about it? Kissinger wants to know how",
+      "reference_id": "nixon-kissinger",
+      "reference": "Nixon–Kissinger China strategy",
+      "parent_period": "historical period",
+      "attribution_confidence": "provisional",
+      "mechanism_suggestions": [
+        {
+          "id": "M-FR-002",
+          "name": "institutional memory and diplomatic credibility",
+          "basis": "native reference adapter"
+        }
+      ],
+      "crosswalk_suggestions": [
+        {
+          "target": "M-FR-002",
+          "confidence": "suggested",
+          "rationale": "native reference adapter",
+          "conflict_status": "unreviewed",
+          "review_status": "unreviewed"
+        }
+      ],
+      "risk_score": 3,
+      "review_status": "needs-review"
+    },
+    {
+      "occurrence_id": "narrative-geopolitics/archive/sources/2025-11-23/source-glenn-diesen-ray-mcgovern-zelensky-s-dilemma-bad-peace-or-total-defeat-2025-11-23.md:nixon-kissinger:711",
+      "voices": [
+        "mcgovern"
+      ],
+      "source_id": "narrative-geopolitics/archive/sources/2025-11-23/source-glenn-diesen-ray-mcgovern-zelensky-s-dilemma-bad-peace-or-total-defeat-2025-11-23.md",
+      "archive_path": "narrative-geopolitics/archive/sources/2025-11-23/source-glenn-diesen-ray-mcgovern-zelensky-s-dilemma-bad-peace-or-total-defeat-2025-11-23.md",
+      "date": "2025-11-23",
+      "title": "Ray McGovern: Zelensky's Dilemma - Bad Peace or Total Defeat",
+      "quote": "Kissinger that said, \"Okay, that's good",
+      "reference_id": "nixon-kissinger",
+      "reference": "Nixon–Kissinger China strategy",
+      "parent_period": "historical period",
+      "attribution_confidence": "provisional",
+      "mechanism_suggestions": [
+        {
+          "id": "M-FR-002",
+          "name": "institutional memory and diplomatic credibility",
+          "basis": "native reference adapter"
+        }
+      ],
+      "crosswalk_suggestions": [
+        {
+          "target": "M-FR-002",
+          "confidence": "suggested",
+          "rationale": "native reference adapter",
+          "conflict_status": "unreviewed",
+          "review_status": "unreviewed"
+        }
+      ],
+      "risk_score": 3,
+      "review_status": "needs-review"
+    },
+    {
+      "occurrence_id": "narrative-geopolitics/archive/sources/2026-03-16/source-daniel-davis-scott-ritter-danny-davis-combat-vets-can-the-us-force-hormuz-open-2026-03-16.md:iraq-war:2",
+      "voices": [
+        "ritter"
+      ],
+      "source_id": "narrative-geopolitics/archive/sources/2026-03-16/source-daniel-davis-scott-ritter-danny-davis-combat-vets-can-the-us-force-hormuz-open-2026-03-16.md",
+      "archive_path": "narrative-geopolitics/archive/sources/2026-03-16/source-daniel-davis-scott-ritter-danny-davis-combat-vets-can-the-us-force-hormuz-open-2026-03-16.md",
+      "date": "2026-03-16",
+      "title": "Scott Ritter, Danny Davis Combat Vets: Can the US Force Hormuz Open?",
+      "quote": "Kind: captions Language: en what Iran has to actually keep that thing closed. They have to have and they do have lots of drone boats. Trump claimed they're we've destroyed their navy. Well, you destroyed their big surface combatants, but what we haven't even touched is their small speedboats. Things that are very lethal because they have anti-ship missiles on them. They have the ability to lay mines and then you have these drone boats, much like the Ukrainians used to cause so much damage to the Russian Black Sea Fleet that forced them out of Sevastopol and moving further out. The we're doing I'm we're The Iranian side is doing similar things on to the uh to the shipping in the Gulf. So, alr",
+      "reference_id": "iraq-war",
+      "reference": "2003 Iraq War",
+      "parent_period": "historical period",
+      "attribution_confidence": "provisional",
+      "mechanism_suggestions": [
+        {
+          "id": "M-FR-001",
+          "name": "coercion and strategic backfire",
+          "basis": "native reference adapter"
+        }
+      ],
+      "crosswalk_suggestions": [
+        {
+          "target": "M-FR-001",
+          "confidence": "suggested",
+          "rationale": "native reference adapter",
+          "conflict_status": "unreviewed",
+          "review_status": "unreviewed"
+        }
+      ],
+      "risk_score": 3,
+      "review_status": "needs-review"
+    },
+    {
+      "occurrence_id": "narrative-geopolitics/archive/sources/2026-05-17/source-mario-nawfal-weichert-russia-ukraine-escalating-iran-war-restarting-2026-05-17.md:cold-war:4",
+      "voices": [
+        "weichert"
+      ],
+      "source_id": "narrative-geopolitics/archive/sources/2026-05-17/source-mario-nawfal-weichert-russia-ukraine-escalating-iran-war-restarting-2026-05-17.md",
+      "archive_path": "narrative-geopolitics/archive/sources/2026-05-17/source-mario-nawfal-weichert-russia-ukraine-escalating-iran-war-restarting-2026-05-17.md",
+      "date": "2026-05-17",
+      "title": "RUSSIA-UKRAINE ESCALATING, IRAN WAR RESTARTING - w/ Geopolitics Expert Brandon Weichert",
+      "quote": "[clears throat] >> Hey man. How you doing? Very well. How are you? >> Good man, good. Good. Um all right, so most people are focused on Iran. We were just saying that offline. And most people are focused on Iran and they don't understand one of the biggest attacks by Russia against Ukraine happened a couple of days ago. Massive attacks, hundreds of drones and and dozens of missiles, I think it is. And then today we saw the same thing on Ukrainian side, over 550 drones in one massive barrage against Moscow and and other the Moscow region and other areas. So that's my Ukraine against Russia. All while Iran is looking like it's heading in a very dark direction, a very scary direction. While in ",
+      "reference_id": "cold-war",
+      "reference": "Cold War",
+      "parent_period": "Cold War",
+      "attribution_confidence": "provisional",
+      "mechanism_suggestions": [
+        {
+          "id": "M-FR-003",
+          "name": "imperial overstretch and power transition",
+          "basis": "native reference adapter"
+        }
+      ],
+      "crosswalk_suggestions": [
+        {
+          "target": "M-FR-003",
+          "confidence": "suggested",
+          "rationale": "native reference adapter",
+          "conflict_status": "unreviewed",
+          "review_status": "unreviewed"
+        }
+      ],
+      "risk_score": 3,
+      "review_status": "needs-review"
+    },
+    {
+      "occurrence_id": "narrative-geopolitics/archive/sources/2026-05-17/source-mario-nawfal-weichert-russia-ukraine-escalating-iran-war-restarting-2026-05-17.md:jcpoa:5",
+      "voices": [
+        "weichert"
+      ],
+      "source_id": "narrative-geopolitics/archive/sources/2026-05-17/source-mario-nawfal-weichert-russia-ukraine-escalating-iran-war-restarting-2026-05-17.md",
+      "archive_path": "narrative-geopolitics/archive/sources/2026-05-17/source-mario-nawfal-weichert-russia-ukraine-escalating-iran-war-restarting-2026-05-17.md",
+      "date": "2026-05-17",
+      "title": "RUSSIA-UKRAINE ESCALATING, IRAN WAR RESTARTING - w/ Geopolitics Expert Brandon Weichert",
+      "quote": ">> No, I I and I and I think the reason I say no, look at what Trump said about Taiwan. And the fact that the United States is >> Can I break it down? Do you want to tell the audience what he said and why it's significant? >> Yeah, basically so he will not officially state whether the US would defend Taiwan in the event of some kind of Chinese attack on the island. Furthermore, he is stonewalling or slow walking the approval process for a tranche of weapons that were supposed to be sent to Taiwan by now and he is indicating that those weapons may never be sent which obviously the rest of the world is looking at Yeah, yeah, so the rest of the world look at that. So, you know, Taiwan is obviou",
+      "reference_id": "jcpoa",
+      "reference": "JCPOA / Iran nuclear diplomacy",
+      "parent_period": "historical period",
+      "attribution_confidence": "provisional",
+      "mechanism_suggestions": [
+        {
+          "id": "M-FR-002",
+          "name": "institutional memory and diplomatic credibility",
+          "basis": "native reference adapter"
+        }
+      ],
+      "crosswalk_suggestions": [
+        {
+          "target": "M-FR-002",
+          "confidence": "suggested",
+          "rationale": "native reference adapter",
+          "conflict_status": "unreviewed",
+          "review_status": "unreviewed"
+        }
+      ],
+      "risk_score": 3,
+      "review_status": "needs-review"
+    },
+    {
+      "occurrence_id": "narrative-geopolitics/archive/sources/2026-05-17/source-mario-nawfal-weichert-russia-ukraine-escalating-iran-war-restarting-2026-05-17.md:vietnam-war:4",
+      "voices": [
+        "weichert"
+      ],
+      "source_id": "narrative-geopolitics/archive/sources/2026-05-17/source-mario-nawfal-weichert-russia-ukraine-escalating-iran-war-restarting-2026-05-17.md",
+      "archive_path": "narrative-geopolitics/archive/sources/2026-05-17/source-mario-nawfal-weichert-russia-ukraine-escalating-iran-war-restarting-2026-05-17.md",
+      "date": "2026-05-17",
+      "title": "RUSSIA-UKRAINE ESCALATING, IRAN WAR RESTARTING - w/ Geopolitics Expert Brandon Weichert",
+      "quote": "[clears throat] >> Hey man. How you doing? Very well. How are you? >> Good man, good. Good. Um all right, so most people are focused on Iran. We were just saying that offline. And most people are focused on Iran and they don't understand one of the biggest attacks by Russia against Ukraine happened a couple of days ago. Massive attacks, hundreds of drones and and dozens of missiles, I think it is. And then today we saw the same thing on Ukrainian side, over 550 drones in one massive barrage against Moscow and and other the Moscow region and other areas. So that's my Ukraine against Russia. All while Iran is looking like it's heading in a very dark direction, a very scary direction. While in ",
+      "reference_id": "vietnam-war",
+      "reference": "Vietnam War",
+      "parent_period": "Cold War",
+      "attribution_confidence": "provisional",
+      "mechanism_suggestions": [
+        {
+          "id": "M-FR-001",
+          "name": "coercion and strategic backfire",
+          "basis": "native reference adapter"
+        }
+      ],
+      "crosswalk_suggestions": [
+        {
+          "target": "M-FR-001",
+          "confidence": "suggested",
+          "rationale": "native reference adapter",
+          "conflict_status": "unreviewed",
+          "review_status": "unreviewed"
+        }
+      ],
+      "risk_score": 3,
+      "review_status": "needs-review"
+    },
+    {
+      "occurrence_id": "narrative-geopolitics/archive/sources/2026-05-18/source-dialogue-works-larry-johnson-giant-mushroom-cloud-blasts-over-israeli-defense-company-what-we-know-2026-05-18.md:october-7:2",
+      "voices": [
+        "johnson"
+      ],
+      "source_id": "narrative-geopolitics/archive/sources/2026-05-18/source-dialogue-works-larry-johnson-giant-mushroom-cloud-blasts-over-israeli-defense-company-what-we-know-2026-05-18.md",
+      "archive_path": "narrative-geopolitics/archive/sources/2026-05-18/source-dialogue-works-larry-johnson-giant-mushroom-cloud-blasts-over-israeli-defense-company-what-we-know-2026-05-18.md",
+      "date": "2026-05-18",
+      "title": "Larry Johnson: Giant Mushroom Cloud Blasts Over Israeli Defense Company – What We Know",
+      "quote": "Hi everybody. Today is Monday, May 18, 2026 and our dear friend Larry Johnson is here with us. Welcome. >> I'm back with my favorite Iranian, German, Brazilian personality. >> How's everything, Larry? >> Hey, we're just watching. Is the world going to blow up? you know, the we're we're in a we're in a situation where it looks like the Saudis and the Qataris, they they hold they hold the veto on whether or not this war is going to expand >> or if it's going to, you know, you know, be brought to an end with Iran in control of the Strait of Hormuz. So, uh, I I'm hopeful that the Saudis will recognize that there's not a viable path forward if they if they if they pursue additional attacks agains",
+      "reference_id": "october-7",
+      "reference": "7 October Hamas attack",
+      "parent_period": "historical period",
+      "attribution_confidence": "provisional",
+      "mechanism_suggestions": [
+        {
+          "id": "M-FR-005",
+          "name": "sovereignty, legitimacy, and historical memory",
+          "basis": "native reference adapter"
+        }
+      ],
+      "crosswalk_suggestions": [
+        {
+          "target": "M-FR-005",
+          "confidence": "suggested",
+          "rationale": "native reference adapter",
+          "conflict_status": "unreviewed",
+          "review_status": "unreviewed"
+        }
+      ],
+      "risk_score": 3,
+      "review_status": "needs-review"
+    },
+    {
+      "occurrence_id": "narrative-geopolitics/archive/sources/2026-05-18/source-consortium-news-russia-debate-scott-ritter-vs-ray-mcgovern-2026-05-18.md:jcpoa:102",
+      "voices": [
+        "mcgovern",
+        "ritter"
+      ],
+      "source_id": "narrative-geopolitics/archive/sources/2026-05-18/source-consortium-news-russia-debate-scott-ritter-vs-ray-mcgovern-2026-05-18.md",
+      "archive_path": "narrative-geopolitics/archive/sources/2026-05-18/source-consortium-news-russia-debate-scott-ritter-vs-ray-mcgovern-2026-05-18.md",
+      "date": "2026-05-18",
+      "title": "RUSSIA DEBATE – SCOTT RITTER vs. RAY McGOVERN",
+      "quote": "**Ray McGovern:** Yeah. But he also said that — that is Putin. Look, enrichment, no problem. We help with the JCPOA. We can help again. As a matter of fact, the Iranians say they’re not working on a nuclear weapon. And actually IAEA has been all over that place and they found no trace of work on a nuclear weapon. And there’s lots of evidence that this may be true. So we’re willing to help out on those things.",
+      "reference_id": "jcpoa",
+      "reference": "JCPOA / Iran nuclear diplomacy",
+      "parent_period": "historical period",
+      "attribution_confidence": "provisional",
+      "mechanism_suggestions": [
+        {
+          "id": "M-FR-002",
+          "name": "institutional memory and diplomatic credibility",
+          "basis": "native reference adapter"
+        }
+      ],
+      "crosswalk_suggestions": [
+        {
+          "target": "M-FR-002",
+          "confidence": "suggested",
+          "rationale": "native reference adapter",
+          "conflict_status": "unreviewed",
+          "review_status": "unreviewed"
+        }
+      ],
+      "risk_score": 3,
+      "review_status": "needs-review"
+    },
+    {
+      "occurrence_id": "narrative-geopolitics/archive/sources/2026-06-16/source-mario-nawfal-weichert-breaking-full-iran-mou-leaked-axios-2026-06-16.md:cold-war:17",
+      "voices": [
+        "weichert"
+      ],
+      "source_id": "narrative-geopolitics/archive/sources/2026-06-16/source-mario-nawfal-weichert-breaking-full-iran-mou-leaked-axios-2026-06-16.md",
+      "archive_path": "narrative-geopolitics/archive/sources/2026-06-16/source-mario-nawfal-weichert-breaking-full-iran-mou-leaked-axios-2026-06-16.md",
+      "date": "2026-06-16",
+      "title": "BREAKING: FULL IRAN MoU JUST LEAKED TO AXIOS - w/ Brandon Weichert",
+      "quote": "saw that this morning. Yeah. Yeah. But you know, at the end of the day, um Reuters just reported more than half of the $300 billion in reparations for Iran has already been committed. >> It's good to know that my take, you know, I keep I posted this. I went viral when that was first announced last week or over the weekend. I said, uh, you know, 300 billion going to rebuild Iran's infrastructure. Zero going to rebuild our infrastructure here. And Mario, I don't know if you've been to the States lately, but our infrastructure here is not doing good. It is not. It is not. certain pockets are okay, certain wealthy zip codes, but um you know, this is uh starting to look a lot like the FLLA uh you",
+      "reference_id": "cold-war",
+      "reference": "Cold War",
+      "parent_period": "Cold War",
+      "attribution_confidence": "provisional",
+      "mechanism_suggestions": [
+        {
+          "id": "M-FR-003",
+          "name": "imperial overstretch and power transition",
+          "basis": "native reference adapter"
+        }
+      ],
+      "crosswalk_suggestions": [
+        {
+          "target": "M-FR-003",
+          "confidence": "suggested",
+          "rationale": "native reference adapter",
+          "conflict_status": "unreviewed",
+          "review_status": "unreviewed"
+        }
+      ],
+      "risk_score": 3,
+      "review_status": "needs-review"
+    },
+    {
+      "occurrence_id": "narrative-geopolitics/archive/sources/2026-06-16/source-mario-nawfal-weichert-breaking-full-iran-mou-leaked-axios-2026-06-16.md:cold-war:19",
+      "voices": [
+        "weichert"
+      ],
+      "source_id": "narrative-geopolitics/archive/sources/2026-06-16/source-mario-nawfal-weichert-breaking-full-iran-mou-leaked-axios-2026-06-16.md",
+      "archive_path": "narrative-geopolitics/archive/sources/2026-06-16/source-mario-nawfal-weichert-breaking-full-iran-mou-leaked-axios-2026-06-16.md",
+      "date": "2026-06-16",
+      "title": "BREAKING: FULL IRAN MoU JUST LEAKED TO AXIOS - w/ Brandon Weichert",
+      "quote": "fund designed to incentivize both the US and Iran to conclude a final deal has been outlined in the framework agreement with more than half of the sum already committed. I don't know what that would be like a lot of countries investing in Iran. The fund so we will you mention >> let me read I'll read it for you just to give you more context. The fund to be named the reconstruction and development fund is a private investment vehicle rather than a reconstruction or reparations program. It will not include government money or grants. >> Oh, sure. >> Iran initially. >> So Wickoff is going to be a rich man when this is done. So is Kushner. They'll be able to buy that island outright. >> That is ",
+      "reference_id": "cold-war",
+      "reference": "Cold War",
+      "parent_period": "Cold War",
+      "attribution_confidence": "provisional",
+      "mechanism_suggestions": [
+        {
+          "id": "M-FR-003",
+          "name": "imperial overstretch and power transition",
+          "basis": "native reference adapter"
+        }
+      ],
+      "crosswalk_suggestions": [
+        {
+          "target": "M-FR-003",
+          "confidence": "suggested",
+          "rationale": "native reference adapter",
+          "conflict_status": "unreviewed",
+          "review_status": "unreviewed"
+        }
+      ],
+      "risk_score": 3,
+      "review_status": "needs-review"
+    },
+    {
+      "occurrence_id": "narrative-geopolitics/archive/sources/2026-06-16/source-mario-nawfal-weichert-breaking-full-iran-mou-leaked-axios-2026-06-16.md:vietnam-war:13",
+      "voices": [
+        "weichert"
+      ],
+      "source_id": "narrative-geopolitics/archive/sources/2026-06-16/source-mario-nawfal-weichert-breaking-full-iran-mou-leaked-axios-2026-06-16.md",
+      "archive_path": "narrative-geopolitics/archive/sources/2026-06-16/source-mario-nawfal-weichert-breaking-full-iran-mou-leaked-axios-2026-06-16.md",
+      "date": "2026-06-16",
+      "title": "BREAKING: FULL IRAN MoU JUST LEAKED TO AXIOS - w/ Brandon Weichert",
+      "quote": "to get through. It's a patch. Everything's a patch, you know? It's it's it's like the the guy who's always two weeks away from bankruptcy. Just give me two more weeks. Give me two more weeks. That's all this is. He just he's just getting a patch to get through. And by the way, we can't we can't also discount the fact that he just wants to get through the midterms. And if he can get through the midterms, I mean, he said this the other day. He said, you know, well, we can always just start dropping bombs after the midterms. So, you know, there is a political calculation here and Trump is keenly aware that his party is on the losing side right now of things and he's got to figure out how can he",
+      "reference_id": "vietnam-war",
+      "reference": "Vietnam War",
+      "parent_period": "Cold War",
+      "attribution_confidence": "provisional",
+      "mechanism_suggestions": [
+        {
+          "id": "M-FR-001",
+          "name": "coercion and strategic backfire",
+          "basis": "native reference adapter"
+        }
+      ],
+      "crosswalk_suggestions": [
+        {
+          "target": "M-FR-001",
+          "confidence": "suggested",
+          "rationale": "native reference adapter",
+          "conflict_status": "unreviewed",
+          "review_status": "unreviewed"
+        }
+      ],
+      "risk_score": 3,
+      "review_status": "needs-review"
+    },
+    {
+      "occurrence_id": "narrative-geopolitics/archive/sources/2026-07-20/source-scott-ritter-graham-s-legacy-zelenskyy-s-blunder-trump-s-stupidity-2026-07-20.md:cold-war:4",
+      "voices": [
+        "ritter"
+      ],
+      "source_id": "narrative-geopolitics/archive/sources/2026-07-20/source-scott-ritter-graham-s-legacy-zelenskyy-s-blunder-trump-s-stupidity-2026-07-20.md",
+      "archive_path": "narrative-geopolitics/archive/sources/2026-07-20/source-scott-ritter-graham-s-legacy-zelenskyy-s-blunder-trump-s-stupidity-2026-07-20.md",
+      "date": "2026-07-20",
+      "title": "SCOTT RITTER: Graham's Legacy; Zelenskyy's Blunder; Trump's Stupidity",
+      "quote": "Undeclared wars are commonplace. Tragically, our government engages in preemptive war, otherwise known as aggression, with no complaints from the American people. Sadly, we have become accustomed to living with the illegitimate use of force by government. To develop a truly free society, the issue of initiating force must be understood and rejected. What if sometimes to love your country you had to alter or abolish the government? What if Jefferson was right? What if that government is best which governs least? What if it is dangerous to be right when the government is wrong? What if it is better to perish fighting for freedom than to live as a slave? What if freedom's greatest hour of dange",
+      "reference_id": "cold-war",
+      "reference": "Cold War",
+      "parent_period": "Cold War",
+      "attribution_confidence": "provisional",
+      "mechanism_suggestions": [
+        {
+          "id": "M-FR-003",
+          "name": "imperial overstretch and power transition",
+          "basis": "native reference adapter"
+        }
+      ],
+      "crosswalk_suggestions": [
+        {
+          "target": "M-FR-003",
+          "confidence": "suggested",
+          "rationale": "native reference adapter",
+          "conflict_status": "unreviewed",
+          "review_status": "unreviewed"
+        }
+      ],
+      "risk_score": 3,
+      "review_status": "needs-review"
+    },
+    {
+      "occurrence_id": "narrative-geopolitics/archive/sources/2026-07-20/source-scott-ritter-graham-s-legacy-zelenskyy-s-blunder-trump-s-stupidity-2026-07-20.md:iraq-war:4",
+      "voices": [
+        "ritter"
+      ],
+      "source_id": "narrative-geopolitics/archive/sources/2026-07-20/source-scott-ritter-graham-s-legacy-zelenskyy-s-blunder-trump-s-stupidity-2026-07-20.md",
+      "archive_path": "narrative-geopolitics/archive/sources/2026-07-20/source-scott-ritter-graham-s-legacy-zelenskyy-s-blunder-trump-s-stupidity-2026-07-20.md",
+      "date": "2026-07-20",
+      "title": "SCOTT RITTER: Graham's Legacy; Zelenskyy's Blunder; Trump's Stupidity",
+      "quote": "Undeclared wars are commonplace. Tragically, our government engages in preemptive war, otherwise known as aggression, with no complaints from the American people. Sadly, we have become accustomed to living with the illegitimate use of force by government. To develop a truly free society, the issue of initiating force must be understood and rejected. What if sometimes to love your country you had to alter or abolish the government? What if Jefferson was right? What if that government is best which governs least? What if it is dangerous to be right when the government is wrong? What if it is better to perish fighting for freedom than to live as a slave? What if freedom's greatest hour of dange",
+      "reference_id": "iraq-war",
+      "reference": "2003 Iraq War",
+      "parent_period": "historical period",
+      "attribution_confidence": "provisional",
+      "mechanism_suggestions": [
+        {
+          "id": "M-FR-001",
+          "name": "coercion and strategic backfire",
+          "basis": "native reference adapter"
+        }
+      ],
+      "crosswalk_suggestions": [
+        {
+          "target": "M-FR-001",
+          "confidence": "suggested",
+          "rationale": "native reference adapter",
+          "conflict_status": "unreviewed",
+          "review_status": "unreviewed"
+        }
+      ],
+      "risk_score": 3,
+      "review_status": "needs-review"
+    },
+    {
+      "occurrence_id": "narrative-geopolitics/archive/sources/2026-07-26/source-ray-mcgovern-yemen-strikes-on-saudi-are-rocking-across-the-gulf-2026-07-26.md:jcpoa:3",
+      "voices": [
+        "mcgovern"
+      ],
+      "source_id": "narrative-geopolitics/archive/sources/2026-07-26/source-ray-mcgovern-yemen-strikes-on-saudi-are-rocking-across-the-gulf-2026-07-26.md",
+      "archive_path": "narrative-geopolitics/archive/sources/2026-07-26/source-ray-mcgovern-yemen-strikes-on-saudi-are-rocking-across-the-gulf-2026-07-26.md",
+      "date": "2026-07-26",
+      "title": "Ray McGovern: Yemen Strikes on Saudi Are Rocking Across the Gulf",
+      "quote": "[music] >> Hi all. Ready? Today is Sunday, July 26, 2026, and our dear friend Ray McGovern is here with us. Welcome back, Ray. >> Thank you, Edima. >> Ray, I I want to start with the ongoing conflict between Iran and the United States. >> [clears throat] >> Which in the last 2 days you see no attacks, you American attacks on Iranians. And we had in the last 2 days we had some attacks from Iran on Kuwait, on Bahrain, and on Saudi Arabia 2 days ago on Saudi Arabia as well with the case of logistics there. And then the new conflict between Saudi Arabia and Yemen, which is somehow complicating the whole case of the West Asia because there was no attack between the two sides. There was a siege on",
+      "reference_id": "jcpoa",
+      "reference": "JCPOA / Iran nuclear diplomacy",
+      "parent_period": "historical period",
+      "attribution_confidence": "provisional",
+      "mechanism_suggestions": [
+        {
+          "id": "M-FR-002",
+          "name": "institutional memory and diplomatic credibility",
+          "basis": "native reference adapter"
+        }
+      ],
+      "crosswalk_suggestions": [
+        {
+          "target": "M-FR-002",
+          "confidence": "suggested",
+          "rationale": "native reference adapter",
+          "conflict_status": "unreviewed",
+          "review_status": "unreviewed"
+        }
+      ],
+      "risk_score": 3,
+      "review_status": "needs-review"
+    },
+    {
+      "occurrence_id": "narrative-geopolitics/archive/sources/2026-07-29/source-bibi-says-trump-meeting-was-the-best-china-arms-iran-with-400-manpads-2026-07-29.md:cold-war:3",
+      "voices": [
+        "weichert"
+      ],
+      "source_id": "narrative-geopolitics/archive/sources/2026-07-29/source-bibi-says-trump-meeting-was-the-best-china-arms-iran-with-400-manpads-2026-07-29.md",
+      "archive_path": "narrative-geopolitics/archive/sources/2026-07-29/source-bibi-says-trump-meeting-was-the-best-china-arms-iran-with-400-manpads-2026-07-29.md",
+      "date": "2026-07-29",
+      "title": "BIBI SAYS TRUMP MEETING WAS \"THE BEST\", CHINA ARMS IRAN WITH 400 MANPADS",
+      "quote": "Good. Good. If you hear any loud engines, it's because my uh my yard people are outside. >> No, it's because No, I wish it was more interesting, but my yard people have decided today is the day they're going to do what I've been asking them to do for three weeks. So, um >> That's right. That's right. Um yeah. So, so I um I put out a post saying for the first time, and today's the day, well, this week, but today's really clicked with me. um this morning um or last night at P this morning >> I don't think the war is over anymore. I uh I think what happened this week the fact that the Iranians decided to strike the Americans yesterday which indicates that there is no resolution on the diplomati",
+      "reference_id": "cold-war",
+      "reference": "Cold War",
+      "parent_period": "Cold War",
+      "attribution_confidence": "provisional",
+      "mechanism_suggestions": [
+        {
+          "id": "M-FR-003",
+          "name": "imperial overstretch and power transition",
+          "basis": "native reference adapter"
+        }
+      ],
+      "crosswalk_suggestions": [
+        {
+          "target": "M-FR-003",
+          "confidence": "suggested",
+          "rationale": "native reference adapter",
+          "conflict_status": "unreviewed",
+          "review_status": "unreviewed"
+        }
+      ],
+      "risk_score": 3,
+      "review_status": "needs-review"
+    }
+  ],
+  "backtest": {
+    "source_ids": [],
+    "archive_paths": [],
+    "dates": [],
+    "records": []
+  },
+  "characterizations": [
+    {
+      "voice": "johnson",
+      "characterization": "historical-reference function requires operator review",
+      "analytical_function": "other-review-required",
+      "characterization_confidence": "untested",
+      "backtest_sample_count": 0,
+      "backtest_date_count": 0,
+      "date_coverage": [],
+      "coverage_gaps": [],
+      "falsifier": "Operator review is required to define a discriminating observable.",
+      "forecast_linkage": [],
+      "source_ids": [],
+      "archive_paths": [],
+      "pilot_occurrence_ids": [
+        "narrative-geopolitics/archive/sources/2025-06-16/source-glenn-diesen-larry-johnson-larry-johnson-trump-negotiator-or-warmonger-2025-06-16.md:iraq-war:2",
+        "narrative-geopolitics/archive/sources/2026-05-18/source-dialogue-works-larry-johnson-giant-mushroom-cloud-blasts-over-israeli-defense-company-what-we-know-2026-05-18.md:october-7:2"
+      ],
+      "backtest_occurrence_ids": [],
+      "backtest_status": "complete-window"
+    },
+    {
+      "voice": "mcgovern",
+      "characterization": "historical-reference function requires operator review",
+      "analytical_function": "other-review-required",
+      "characterization_confidence": "untested",
+      "backtest_sample_count": 0,
+      "backtest_date_count": 0,
+      "date_coverage": [],
+      "coverage_gaps": [],
+      "falsifier": "Operator review is required to define a discriminating observable.",
+      "forecast_linkage": [],
+      "source_ids": [],
+      "archive_paths": [],
+      "pilot_occurrence_ids": [
+        "narrative-geopolitics/archive/sources/2025-06-01/source-glenn-diesen-ray-mcgovern-america-between-a-new-peace-world-war-3-2025-06-01.md:cold-war:1244",
+        "narrative-geopolitics/archive/sources/2025-06-01/source-glenn-diesen-ray-mcgovern-america-between-a-new-peace-world-war-3-2025-06-01.md:cold-war:597",
+        "narrative-geopolitics/archive/sources/2025-06-01/source-glenn-diesen-ray-mcgovern-america-between-a-new-peace-world-war-3-2025-06-01.md:cold-war:626",
+        "narrative-geopolitics/archive/sources/2025-06-01/source-glenn-diesen-ray-mcgovern-america-between-a-new-peace-world-war-3-2025-06-01.md:nixon-kissinger:399",
+        "narrative-geopolitics/archive/sources/2025-06-01/source-glenn-diesen-ray-mcgovern-america-between-a-new-peace-world-war-3-2025-06-01.md:nixon-kissinger:400",
+        "narrative-geopolitics/archive/sources/2025-06-01/source-glenn-diesen-ray-mcgovern-america-between-a-new-peace-world-war-3-2025-06-01.md:nixon-kissinger:403",
+        "narrative-geopolitics/archive/sources/2025-06-01/source-glenn-diesen-ray-mcgovern-america-between-a-new-peace-world-war-3-2025-06-01.md:nixon-kissinger:82",
+        "narrative-geopolitics/archive/sources/2025-06-01/source-glenn-diesen-ray-mcgovern-america-between-a-new-peace-world-war-3-2025-06-01.md:nixon-kissinger:9",
+        "narrative-geopolitics/archive/sources/2025-06-01/source-glenn-diesen-ray-mcgovern-america-between-a-new-peace-world-war-3-2025-06-01.md:nixon-kissinger:91",
+        "narrative-geopolitics/archive/sources/2025-06-01/source-glenn-diesen-ray-mcgovern-america-between-a-new-peace-world-war-3-2025-06-01.md:nixon-kissinger:92",
+        "narrative-geopolitics/archive/sources/2025-06-01/source-glenn-diesen-ray-mcgovern-america-between-a-new-peace-world-war-3-2025-06-01.md:nixon-kissinger:921",
+        "narrative-geopolitics/archive/sources/2025-06-01/source-glenn-diesen-ray-mcgovern-america-between-a-new-peace-world-war-3-2025-06-01.md:nixon-kissinger:97",
+        "narrative-geopolitics/archive/sources/2025-06-01/source-glenn-diesen-ray-mcgovern-america-between-a-new-peace-world-war-3-2025-06-01.md:vietnam-war:610",
+        "narrative-geopolitics/archive/sources/2025-06-01/source-glenn-diesen-ray-mcgovern-america-between-a-new-peace-world-war-3-2025-06-01.md:vietnam-war:68",
+        "narrative-geopolitics/archive/sources/2025-11-23/source-glenn-diesen-ray-mcgovern-zelensky-s-dilemma-bad-peace-or-total-defeat-2025-11-23.md:nixon-kissinger:698",
+        "narrative-geopolitics/archive/sources/2025-11-23/source-glenn-diesen-ray-mcgovern-zelensky-s-dilemma-bad-peace-or-total-defeat-2025-11-23.md:nixon-kissinger:699",
+        "narrative-geopolitics/archive/sources/2025-11-23/source-glenn-diesen-ray-mcgovern-zelensky-s-dilemma-bad-peace-or-total-defeat-2025-11-23.md:nixon-kissinger:707",
+        "narrative-geopolitics/archive/sources/2025-11-23/source-glenn-diesen-ray-mcgovern-zelensky-s-dilemma-bad-peace-or-total-defeat-2025-11-23.md:nixon-kissinger:711",
+        "narrative-geopolitics/archive/sources/2026-05-18/source-consortium-news-russia-debate-scott-ritter-vs-ray-mcgovern-2026-05-18.md:jcpoa:102",
+        "narrative-geopolitics/archive/sources/2026-07-26/source-ray-mcgovern-yemen-strikes-on-saudi-are-rocking-across-the-gulf-2026-07-26.md:jcpoa:3"
+      ],
+      "backtest_occurrence_ids": [],
+      "backtest_status": "complete-window"
+    },
+    {
+      "voice": "ritter",
+      "characterization": "historical-reference function requires operator review",
+      "analytical_function": "other-review-required",
+      "characterization_confidence": "untested",
+      "backtest_sample_count": 0,
+      "backtest_date_count": 0,
+      "date_coverage": [],
+      "coverage_gaps": [],
+      "falsifier": "Operator review is required to define a discriminating observable.",
+      "forecast_linkage": [],
+      "source_ids": [],
+      "archive_paths": [],
+      "pilot_occurrence_ids": [
+        "narrative-geopolitics/archive/sources/2025-06-10/source-glenn-diesen-scott-ritter-scott-ritter-dangerous-endgame-in-ukraine-collapse-or-escalation-2025-06-10.md:cold-war:2",
+        "narrative-geopolitics/archive/sources/2026-03-16/source-daniel-davis-scott-ritter-danny-davis-combat-vets-can-the-us-force-hormuz-open-2026-03-16.md:iraq-war:2",
+        "narrative-geopolitics/archive/sources/2026-05-18/source-consortium-news-russia-debate-scott-ritter-vs-ray-mcgovern-2026-05-18.md:jcpoa:102",
+        "narrative-geopolitics/archive/sources/2026-07-20/source-scott-ritter-graham-s-legacy-zelenskyy-s-blunder-trump-s-stupidity-2026-07-20.md:cold-war:4",
+        "narrative-geopolitics/archive/sources/2026-07-20/source-scott-ritter-graham-s-legacy-zelenskyy-s-blunder-trump-s-stupidity-2026-07-20.md:iraq-war:4"
+      ],
+      "backtest_occurrence_ids": [],
+      "backtest_status": "complete-window"
+    },
+    {
+      "voice": "weichert",
+      "characterization": "historical-reference function requires operator review",
+      "analytical_function": "other-review-required",
+      "characterization_confidence": "untested",
+      "backtest_sample_count": 0,
+      "backtest_date_count": 0,
+      "date_coverage": [],
+      "coverage_gaps": [],
+      "falsifier": "Operator review is required to define a discriminating observable.",
+      "forecast_linkage": [],
+      "source_ids": [],
+      "archive_paths": [],
+      "pilot_occurrence_ids": [
+        "narrative-geopolitics/archive/sources/2026-05-17/source-mario-nawfal-weichert-russia-ukraine-escalating-iran-war-restarting-2026-05-17.md:cold-war:4",
+        "narrative-geopolitics/archive/sources/2026-05-17/source-mario-nawfal-weichert-russia-ukraine-escalating-iran-war-restarting-2026-05-17.md:jcpoa:5",
+        "narrative-geopolitics/archive/sources/2026-05-17/source-mario-nawfal-weichert-russia-ukraine-escalating-iran-war-restarting-2026-05-17.md:vietnam-war:4",
+        "narrative-geopolitics/archive/sources/2026-06-16/source-mario-nawfal-weichert-breaking-full-iran-mou-leaked-axios-2026-06-16.md:cold-war:17",
+        "narrative-geopolitics/archive/sources/2026-06-16/source-mario-nawfal-weichert-breaking-full-iran-mou-leaked-axios-2026-06-16.md:cold-war:19",
+        "narrative-geopolitics/archive/sources/2026-06-16/source-mario-nawfal-weichert-breaking-full-iran-mou-leaked-axios-2026-06-16.md:vietnam-war:13",
+        "narrative-geopolitics/archive/sources/2026-07-29/source-bibi-says-trump-meeting-was-the-best-china-arms-iran-with-400-manpads-2026-07-29.md:cold-war:3"
+      ],
+      "backtest_occurrence_ids": [],
+      "backtest_status": "complete-window"
+    }
+  ],
+  "characterization_review_queue": [
+    {
+      "voice": "johnson",
+      "characterization": "historical-reference function requires operator review",
+      "analytical_function": "other-review-required",
+      "characterization_confidence": "untested",
+      "backtest_sample_count": 0,
+      "backtest_date_count": 0,
+      "date_coverage": [],
+      "coverage_gaps": [],
+      "falsifier": "Operator review is required to define a discriminating observable.",
+      "forecast_linkage": [],
+      "source_ids": [],
+      "archive_paths": [],
+      "pilot_occurrence_ids": [
+        "narrative-geopolitics/archive/sources/2025-06-16/source-glenn-diesen-larry-johnson-larry-johnson-trump-negotiator-or-warmonger-2025-06-16.md:iraq-war:2",
+        "narrative-geopolitics/archive/sources/2026-05-18/source-dialogue-works-larry-johnson-giant-mushroom-cloud-blasts-over-israeli-defense-company-what-we-know-2026-05-18.md:october-7:2"
+      ],
+      "backtest_occurrence_ids": [],
+      "backtest_status": "complete-window"
+    },
+    {
+      "voice": "mcgovern",
+      "characterization": "historical-reference function requires operator review",
+      "analytical_function": "other-review-required",
+      "characterization_confidence": "untested",
+      "backtest_sample_count": 0,
+      "backtest_date_count": 0,
+      "date_coverage": [],
+      "coverage_gaps": [],
+      "falsifier": "Operator review is required to define a discriminating observable.",
+      "forecast_linkage": [],
+      "source_ids": [],
+      "archive_paths": [],
+      "pilot_occurrence_ids": [
+        "narrative-geopolitics/archive/sources/2025-06-01/source-glenn-diesen-ray-mcgovern-america-between-a-new-peace-world-war-3-2025-06-01.md:cold-war:1244",
+        "narrative-geopolitics/archive/sources/2025-06-01/source-glenn-diesen-ray-mcgovern-america-between-a-new-peace-world-war-3-2025-06-01.md:cold-war:597",
+        "narrative-geopolitics/archive/sources/2025-06-01/source-glenn-diesen-ray-mcgovern-america-between-a-new-peace-world-war-3-2025-06-01.md:cold-war:626",
+        "narrative-geopolitics/archive/sources/2025-06-01/source-glenn-diesen-ray-mcgovern-america-between-a-new-peace-world-war-3-2025-06-01.md:nixon-kissinger:399",
+        "narrative-geopolitics/archive/sources/2025-06-01/source-glenn-diesen-ray-mcgovern-america-between-a-new-peace-world-war-3-2025-06-01.md:nixon-kissinger:400",
+        "narrative-geopolitics/archive/sources/2025-06-01/source-glenn-diesen-ray-mcgovern-america-between-a-new-peace-world-war-3-2025-06-01.md:nixon-kissinger:403",
+        "narrative-geopolitics/archive/sources/2025-06-01/source-glenn-diesen-ray-mcgovern-america-between-a-new-peace-world-war-3-2025-06-01.md:nixon-kissinger:82",
+        "narrative-geopolitics/archive/sources/2025-06-01/source-glenn-diesen-ray-mcgovern-america-between-a-new-peace-world-war-3-2025-06-01.md:nixon-kissinger:9",
+        "narrative-geopolitics/archive/sources/2025-06-01/source-glenn-diesen-ray-mcgovern-america-between-a-new-peace-world-war-3-2025-06-01.md:nixon-kissinger:91",
+        "narrative-geopolitics/archive/sources/2025-06-01/source-glenn-diesen-ray-mcgovern-america-between-a-new-peace-world-war-3-2025-06-01.md:nixon-kissinger:92",
+        "narrative-geopolitics/archive/sources/2025-06-01/source-glenn-diesen-ray-mcgovern-america-between-a-new-peace-world-war-3-2025-06-01.md:nixon-kissinger:921",
+        "narrative-geopolitics/archive/sources/2025-06-01/source-glenn-diesen-ray-mcgovern-america-between-a-new-peace-world-war-3-2025-06-01.md:nixon-kissinger:97",
+        "narrative-geopolitics/archive/sources/2025-06-01/source-glenn-diesen-ray-mcgovern-america-between-a-new-peace-world-war-3-2025-06-01.md:vietnam-war:610",
+        "narrative-geopolitics/archive/sources/2025-06-01/source-glenn-diesen-ray-mcgovern-america-between-a-new-peace-world-war-3-2025-06-01.md:vietnam-war:68",
+        "narrative-geopolitics/archive/sources/2025-11-23/source-glenn-diesen-ray-mcgovern-zelensky-s-dilemma-bad-peace-or-total-defeat-2025-11-23.md:nixon-kissinger:698",
+        "narrative-geopolitics/archive/sources/2025-11-23/source-glenn-diesen-ray-mcgovern-zelensky-s-dilemma-bad-peace-or-total-defeat-2025-11-23.md:nixon-kissinger:699",
+        "narrative-geopolitics/archive/sources/2025-11-23/source-glenn-diesen-ray-mcgovern-zelensky-s-dilemma-bad-peace-or-total-defeat-2025-11-23.md:nixon-kissinger:707",
+        "narrative-geopolitics/archive/sources/2025-11-23/source-glenn-diesen-ray-mcgovern-zelensky-s-dilemma-bad-peace-or-total-defeat-2025-11-23.md:nixon-kissinger:711",
+        "narrative-geopolitics/archive/sources/2026-05-18/source-consortium-news-russia-debate-scott-ritter-vs-ray-mcgovern-2026-05-18.md:jcpoa:102",
+        "narrative-geopolitics/archive/sources/2026-07-26/source-ray-mcgovern-yemen-strikes-on-saudi-are-rocking-across-the-gulf-2026-07-26.md:jcpoa:3"
+      ],
+      "backtest_occurrence_ids": [],
+      "backtest_status": "complete-window"
+    },
+    {
+      "voice": "ritter",
+      "characterization": "historical-reference function requires operator review",
+      "analytical_function": "other-review-required",
+      "characterization_confidence": "untested",
+      "backtest_sample_count": 0,
+      "backtest_date_count": 0,
+      "date_coverage": [],
+      "coverage_gaps": [],
+      "falsifier": "Operator review is required to define a discriminating observable.",
+      "forecast_linkage": [],
+      "source_ids": [],
+      "archive_paths": [],
+      "pilot_occurrence_ids": [
+        "narrative-geopolitics/archive/sources/2025-06-10/source-glenn-diesen-scott-ritter-scott-ritter-dangerous-endgame-in-ukraine-collapse-or-escalation-2025-06-10.md:cold-war:2",
+        "narrative-geopolitics/archive/sources/2026-03-16/source-daniel-davis-scott-ritter-danny-davis-combat-vets-can-the-us-force-hormuz-open-2026-03-16.md:iraq-war:2",
+        "narrative-geopolitics/archive/sources/2026-05-18/source-consortium-news-russia-debate-scott-ritter-vs-ray-mcgovern-2026-05-18.md:jcpoa:102",
+        "narrative-geopolitics/archive/sources/2026-07-20/source-scott-ritter-graham-s-legacy-zelenskyy-s-blunder-trump-s-stupidity-2026-07-20.md:cold-war:4",
+        "narrative-geopolitics/archive/sources/2026-07-20/source-scott-ritter-graham-s-legacy-zelenskyy-s-blunder-trump-s-stupidity-2026-07-20.md:iraq-war:4"
+      ],
+      "backtest_occurrence_ids": [],
+      "backtest_status": "complete-window"
+    },
+    {
+      "voice": "weichert",
+      "characterization": "historical-reference function requires operator review",
+      "analytical_function": "other-review-required",
+      "characterization_confidence": "untested",
+      "backtest_sample_count": 0,
+      "backtest_date_count": 0,
+      "date_coverage": [],
+      "coverage_gaps": [],
+      "falsifier": "Operator review is required to define a discriminating observable.",
+      "forecast_linkage": [],
+      "source_ids": [],
+      "archive_paths": [],
+      "pilot_occurrence_ids": [
+        "narrative-geopolitics/archive/sources/2026-05-17/source-mario-nawfal-weichert-russia-ukraine-escalating-iran-war-restarting-2026-05-17.md:cold-war:4",
+        "narrative-geopolitics/archive/sources/2026-05-17/source-mario-nawfal-weichert-russia-ukraine-escalating-iran-war-restarting-2026-05-17.md:jcpoa:5",
+        "narrative-geopolitics/archive/sources/2026-05-17/source-mario-nawfal-weichert-russia-ukraine-escalating-iran-war-restarting-2026-05-17.md:vietnam-war:4",
+        "narrative-geopolitics/archive/sources/2026-06-16/source-mario-nawfal-weichert-breaking-full-iran-mou-leaked-axios-2026-06-16.md:cold-war:17",
+        "narrative-geopolitics/archive/sources/2026-06-16/source-mario-nawfal-weichert-breaking-full-iran-mou-leaked-axios-2026-06-16.md:cold-war:19",
+        "narrative-geopolitics/archive/sources/2026-06-16/source-mario-nawfal-weichert-breaking-full-iran-mou-leaked-axios-2026-06-16.md:vietnam-war:13",
+        "narrative-geopolitics/archive/sources/2026-07-29/source-bibi-says-trump-meeting-was-the-best-china-arms-iran-with-400-manpads-2026-07-29.md:cold-war:3"
+      ],
+      "backtest_occurrence_ids": [],
+      "backtest_status": "complete-window"
+    }
+  ]
+}

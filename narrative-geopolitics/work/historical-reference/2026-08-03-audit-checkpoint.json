@@ -1,0 +1,128 @@
+{
+  "run_id": "2026-08-03-audit",
+  "sources": {
+    "narrative-geopolitics/archive/sources/2026-08-03/source-alastair-crooke-live-8am-trump-in-a-box-of-his-own-making-2026-08-03.md": {
+      "fingerprint": {
+        "archive_path": "narrative-geopolitics/archive/sources/2026-08-03/source-alastair-crooke-live-8am-trump-in-a-box-of-his-own-making-2026-08-03.md",
+        "detector_version": "3",
+        "file_hash": "70b52248b44f3355c455367cf21696174de81d1a1de870314abeb930f3b23644",
+        "mechanism_version": "1",
+        "source_id": "narrative-geopolitics/archive/sources/2026-08-03/source-alastair-crooke-live-8am-trump-in-a-box-of-his-own-making-2026-08-03.md",
+        "taxonomy_version": "2",
+        "voice_scope": "baud,crooke,escobar,johnson,mercouris,pape,ritter,sachs"
+      },
+      "record_count": 0,
+      "status": "landed"
+    },
+    "narrative-geopolitics/archive/sources/2026-08-03/source-breaking-iran-claims-u-s-conceded-on-hormuz-w-pepe-escobar-2026-08-03.md": {
+      "fingerprint": {
+        "archive_path": "narrative-geopolitics/archive/sources/2026-08-03/source-breaking-iran-claims-u-s-conceded-on-hormuz-w-pepe-escobar-2026-08-03.md",
+        "detector_version": "3",
+        "file_hash": "3d62462af0dbab575343dbe8af7beeb79cb44dc5bbca61fe69d920b5d9e76ad5",
+        "mechanism_version": "1",
+        "source_id": "narrative-geopolitics/archive/sources/2026-08-03/source-breaking-iran-claims-u-s-conceded-on-hormuz-w-pepe-escobar-2026-08-03.md",
+        "taxonomy_version": "2",
+        "voice_scope": "baud,crooke,escobar,johnson,mercouris,pape,ritter,sachs"
+      },
+      "record_count": 0,
+      "status": "landed"
+    },
+    "narrative-geopolitics/archive/sources/2026-08-03/source-col-jacques-baud-iran-defies-trump-targets-ship-in-strait-of-hormuz-hours-after-statement-2026-08-03.md": {
+      "fingerprint": {
+        "archive_path": "narrative-geopolitics/archive/sources/2026-08-03/source-col-jacques-baud-iran-defies-trump-targets-ship-in-strait-of-hormuz-hours-after-statement-2026-08-03.md",
+        "detector_version": "3",
+        "file_hash": "86c67d570b5c779532890e6d2a02eb26ac41ca383dc8c919e1d7b15bcf4829ff",
+        "mechanism_version": "1",
+        "source_id": "narrative-geopolitics/archive/sources/2026-08-03/source-col-jacques-baud-iran-defies-trump-targets-ship-in-strait-of-hormuz-hours-after-statement-2026-08-03.md",
+        "taxonomy_version": "2",
+        "voice_scope": "baud,crooke,escobar,johnson,mercouris,pape,ritter,sachs"
+      },
+      "record_count": 2,
+      "status": "landed"
+    },
+    "narrative-geopolitics/archive/sources/2026-08-03/source-larry-johnson-u-s-concedes-to-iran-in-secret-talks-but-tehran-fires-back-with-a-demand-2026-08-03.md": {
+      "fingerprint": {
+        "archive_path": "narrative-geopolitics/archive/sources/2026-08-03/source-larry-johnson-u-s-concedes-to-iran-in-secret-talks-but-tehran-fires-back-with-a-demand-2026-08-03.md",
+        "detector_version": "3",
+        "file_hash": "6b12e91db3fa7bb7c6e0956ce07faef6be89a512b3e1a8aabf3822199dd4a8f6",
+        "mechanism_version": "1",
+        "source_id": "narrative-geopolitics/archive/sources/2026-08-03/source-larry-johnson-u-s-concedes-to-iran-in-secret-talks-but-tehran-fires-back-with-a-demand-2026-08-03.md",
+        "taxonomy_version": "2",
+        "voice_scope": "baud,crooke,escobar,johnson,mercouris,pape,ritter,sachs"
+      },
+      "record_count": 1,
+      "status": "landed"
+    },
+    "narrative-geopolitics/archive/sources/2026-08-03/source-prof-jeffrey-sachs-live-3pm-us-wants-to-destroy-iran-and-russia-2026-08-03.md": {
+      "fingerprint": {
+        "archive_path": "narrative-geopolitics/archive/sources/2026-08-03/source-prof-jeffrey-sachs-live-3pm-us-wants-to-destroy-iran-and-russia-2026-08-03.md",
+        "detector_version": "3",
+        "file_hash": "02329846654748a09fde31211e1f2ba534fbf350fb4c6fb512dad8c9149ef800",
+        "mechanism_version": "1",
+        "source_id": "narrative-geopolitics/archive/sources/2026-08-03/source-prof-jeffrey-sachs-live-3pm-us-wants-to-destroy-iran-and-russia-2026-08-03.md",
+        "taxonomy_version": "2",
+        "voice_scope": "baud,crooke,escobar,johnson,mercouris,pape,ritter,sachs"
+      },
+      "record_count": 0,
+      "status": "landed"
+    },
+    "narrative-geopolitics/archive/sources/2026-08-03/source-russia-smashes-key-odessa-bridge-captures-bely-kolodez-kharkov-defence-collapses-saudi-rages-at-us-2026-08-03.md": {
+      "fingerprint": {
+        "archive_path": "narrative-geopolitics/archive/sources/2026-08-03/source-russia-smashes-key-odessa-bridge-captures-bely-kolodez-kharkov-defence-collapses-saudi-rages-at-us-2026-08-03.md",
+        "detector_version": "3",
+        "file_hash": "e5d917926873877785f4d33af427ad30dab4fc2482b382cec1d3b6cf382072ac",
+        "mechanism_version": "1",
+        "source_id": "narrative-geopolitics/archive/sources/2026-08-03/source-russia-smashes-key-odessa-bridge-captures-bely-kolodez-kharkov-defence-collapses-saudi-rages-at-us-2026-08-03.md",
+        "taxonomy_version": "2",
+        "voice_scope": "baud,crooke,escobar,johnson,mercouris,pape,ritter,sachs"
+      },
+      "record_count": 0,
+      "status": "landed"
+    },
+    "narrative-geopolitics/archive/sources/2026-08-03/source-scott-ritter-live-2pm-russia-winning-decisively-2026-08-03.md": {
+      "fingerprint": {
+        "archive_path": "narrative-geopolitics/archive/sources/2026-08-03/source-scott-ritter-live-2pm-russia-winning-decisively-2026-08-03.md",
+        "detector_version": "3",
+        "file_hash": "eecef8d616611450f20cf8b03f0196f38757aa0717267cf5eec5ad3c093e4fe2",
+        "mechanism_version": "1",
+        "source_id": "narrative-geopolitics/archive/sources/2026-08-03/source-scott-ritter-live-2pm-russia-winning-decisively-2026-08-03.md",
+        "taxonomy_version": "2",
+        "voice_scope": "baud,crooke,escobar,johnson,mercouris,pape,ritter,sachs"
+      },
+      "record_count": 1,
+      "status": "landed"
+    },
+    "narrative-geopolitics/archive/sources/2026-08-03/source-trump-bombs-iran-for-5-months-and-they-still-say-no-w-prof-robert-pape-2026-08-03.md": {
+      "fingerprint": {
+        "archive_path": "narrative-geopolitics/archive/sources/2026-08-03/source-trump-bombs-iran-for-5-months-and-they-still-say-no-w-prof-robert-pape-2026-08-03.md",
+        "detector_version": "3",
+        "file_hash": "a3a16ffc1e88c449330c0834b0d0deb1adaf9ede6e9337436dffa11b79673a98",
+        "mechanism_version": "1",
+        "source_id": "narrative-geopolitics/archive/sources/2026-08-03/source-trump-bombs-iran-for-5-months-and-they-still-say-no-w-prof-robert-pape-2026-08-03.md",
+        "taxonomy_version": "2",
+        "voice_scope": "baud,crooke,escobar,johnson,mercouris,pape,ritter,sachs"
+      },
+      "record_count": 5,
+      "status": "landed"
+    },
+    "narrative-geopolitics/archive/sources/2026-08-03/source-untitled-source-2026-08-03.md": {
+      "fingerprint": {
+        "archive_path": "narrative-geopolitics/archive/sources/2026-08-03/source-untitled-source-2026-08-03.md",
+        "detector_version": "3",
+        "file_hash": "8663423382ee33ec67848c4c81f12c0fd58cfbb22d4e957819666aec44d56267",
+        "mechanism_version": "1",
+        "source_id": "narrative-geopolitics/archive/sources/2026-08-03/source-untitled-source-2026-08-03.md",
+        "taxonomy_version": "2",
+        "voice_scope": "baud,crooke,escobar,johnson,mercouris,pape,ritter,sachs"
+      },
+      "record_count": 0,
+      "status": "landed"
+    }
+  },
+  "versions": {
+    "detector": "3",
+    "mechanism": "1",
+    "schema": "2",
+    "taxonomy": "2"
+  }
+}

@@ -1,0 +1,102 @@
+{
+  "run_id": "run-20260803T193508Z",
+  "sources": {
+    "narrative-geopolitics/archive/sources/2026-08-02/source-breaking-iran-attacks-ship-after-trump-cancels-strikes-w-lt-col-anthony-aguilar-2026-08-02.md": {
+      "fingerprint": {
+        "archive_path": "narrative-geopolitics/archive/sources/2026-08-02/source-breaking-iran-attacks-ship-after-trump-cancels-strikes-w-lt-col-anthony-aguilar-2026-08-02.md",
+        "detector_version": "3",
+        "file_hash": "3c5677eeef76a19cc43ee838632c99bd565a9ca6b17c5a36d923fe1bab5a49f9",
+        "mechanism_version": "1",
+        "source_id": "narrative-geopolitics/archive/sources/2026-08-02/source-breaking-iran-attacks-ship-after-trump-cancels-strikes-w-lt-col-anthony-aguilar-2026-08-02.md",
+        "taxonomy_version": "2",
+        "voice_scope": "aguilar,davis,johnson,mcgovern,mercouris,ritter,weichert"
+      },
+      "record_count": 0,
+      "status": "landed"
+    },
+    "narrative-geopolitics/archive/sources/2026-08-02/source-larry-johnson-i-called-it-off-trump-confirms-scrapped-iran-attack-amid-drone-impacts-in-kurdistan-2026-08-02.md": {
+      "fingerprint": {
+        "archive_path": "narrative-geopolitics/archive/sources/2026-08-02/source-larry-johnson-i-called-it-off-trump-confirms-scrapped-iran-attack-amid-drone-impacts-in-kurdistan-2026-08-02.md",
+        "detector_version": "3",
+        "file_hash": "921daadcebabf6d57db4b894a93a6ec7ac72e7621613665514a3f5bcd55c48e5",
+        "mechanism_version": "1",
+        "source_id": "narrative-geopolitics/archive/sources/2026-08-02/source-larry-johnson-i-called-it-off-trump-confirms-scrapped-iran-attack-amid-drone-impacts-in-kurdistan-2026-08-02.md",
+        "taxonomy_version": "2",
+        "voice_scope": "aguilar,davis,johnson,mcgovern,mercouris,ritter,weichert"
+      },
+      "record_count": 2,
+      "status": "landed"
+    },
+    "narrative-geopolitics/archive/sources/2026-08-02/source-live-scott-ritter-iran-and-russia-wars-now-entering-most-dangerous-phase-2026-08-02.md": {
+      "fingerprint": {
+        "archive_path": "narrative-geopolitics/archive/sources/2026-08-02/source-live-scott-ritter-iran-and-russia-wars-now-entering-most-dangerous-phase-2026-08-02.md",
+        "detector_version": "3",
+        "file_hash": "ea3788976411e5f9b62da1b5b3756c2ef1590abdd891cdca3c8ab848da45a2ca",
+        "mechanism_version": "1",
+        "source_id": "narrative-geopolitics/archive/sources/2026-08-02/source-live-scott-ritter-iran-and-russia-wars-now-entering-most-dangerous-phase-2026-08-02.md",
+        "taxonomy_version": "2",
+        "voice_scope": "aguilar,davis,johnson,mcgovern,mercouris,ritter,weichert"
+      },
+      "record_count": 2,
+      "status": "landed"
+    },
+    "narrative-geopolitics/archive/sources/2026-08-02/source-ray-mcgovern-iran-s-gulf-shockwave-how-precision-strikes-just-collapsed-the-war-strategy-2026-08-02.md": {
+      "fingerprint": {
+        "archive_path": "narrative-geopolitics/archive/sources/2026-08-02/source-ray-mcgovern-iran-s-gulf-shockwave-how-precision-strikes-just-collapsed-the-war-strategy-2026-08-02.md",
+        "detector_version": "3",
+        "file_hash": "ca194373279cc2782b952eb2f031bc50006ca24d53f33049ca32e0f3102ce89b",
+        "mechanism_version": "1",
+        "source_id": "narrative-geopolitics/archive/sources/2026-08-02/source-ray-mcgovern-iran-s-gulf-shockwave-how-precision-strikes-just-collapsed-the-war-strategy-2026-08-02.md",
+        "taxonomy_version": "2",
+        "voice_scope": "aguilar,davis,johnson,mcgovern,mercouris,ritter,weichert"
+      },
+      "record_count": 2,
+      "status": "landed"
+    },
+    "narrative-geopolitics/archive/sources/2026-08-02/source-trump-iran-begged-him-not-to-strike-as-they-are-ready-for-deal-2026-08-02.md": {
+      "fingerprint": {
+        "archive_path": "narrative-geopolitics/archive/sources/2026-08-02/source-trump-iran-begged-him-not-to-strike-as-they-are-ready-for-deal-2026-08-02.md",
+        "detector_version": "3",
+        "file_hash": "6ee6d05bc21d1ac46c7584192ba9279d11ed2af513bbb3772a3b38ece402234d",
+        "mechanism_version": "1",
+        "source_id": "narrative-geopolitics/archive/sources/2026-08-02/source-trump-iran-begged-him-not-to-strike-as-they-are-ready-for-deal-2026-08-02.md",
+        "taxonomy_version": "2",
+        "voice_scope": "aguilar,davis,johnson,mcgovern,mercouris,ritter,weichert"
+      },
+      "record_count": 1,
+      "status": "landed"
+    },
+    "narrative-geopolitics/archive/sources/2026-08-02/source-trump-tacos-again-what-s-next-lt-col-daniel-davis-2026-08-02.md": {
+      "fingerprint": {
+        "archive_path": "narrative-geopolitics/archive/sources/2026-08-02/source-trump-tacos-again-what-s-next-lt-col-daniel-davis-2026-08-02.md",
+        "detector_version": "3",
+        "file_hash": "85026607c7e207cd9bbadf5a39bcf94f9b18940d391b2da49692d3feb40429c4",
+        "mechanism_version": "1",
+        "source_id": "narrative-geopolitics/archive/sources/2026-08-02/source-trump-tacos-again-what-s-next-lt-col-daniel-davis-2026-08-02.md",
+        "taxonomy_version": "2",
+        "voice_scope": "aguilar,davis,johnson,mcgovern,mercouris,ritter,weichert"
+      },
+      "record_count": 1,
+      "status": "landed"
+    },
+    "narrative-geopolitics/archive/sources/2026-08-02/source-ukraine-landocked-russia-cuts-off-odessa-land-sea-routes-rassvet-begins-operating-merz-implodes-2026-08-02.md": {
+      "fingerprint": {
+        "archive_path": "narrative-geopolitics/archive/sources/2026-08-02/source-ukraine-landocked-russia-cuts-off-odessa-land-sea-routes-rassvet-begins-operating-merz-implodes-2026-08-02.md",
+        "detector_version": "3",
+        "file_hash": "f31ebf7a5452f7e4afd28b6e4786212c3c1ad91f96da5ff13476fa6c51da4816",
+        "mechanism_version": "1",
+        "source_id": "narrative-geopolitics/archive/sources/2026-08-02/source-ukraine-landocked-russia-cuts-off-odessa-land-sea-routes-rassvet-begins-operating-merz-implodes-2026-08-02.md",
+        "taxonomy_version": "2",
+        "voice_scope": "aguilar,davis,johnson,mcgovern,mercouris,ritter,weichert"
+      },
+      "record_count": 0,
+      "status": "landed"
+    }
+  },
+  "versions": {
+    "detector": "3",
+    "mechanism": "1",
+    "schema": "2",
+    "taxonomy": "2"
+  }
+}

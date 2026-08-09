@@ -1,0 +1,187 @@
+{
+  "fixture_version": "1.0",
+  "cases": 22,
+  "reference_precision": 1.0,
+  "reference_recall": 1.0,
+  "attribution_accuracy": 1.0,
+  "mechanism_accuracy": 1.0,
+  "crosswalk_accuracy": 1.0,
+  "results": [
+    {
+      "id": "CAL-001",
+      "expected_reference": "iraq-war",
+      "detected_reference": "iraq-war",
+      "reference_match": true,
+      "attribution_match": true,
+      "mechanism_match": true
+    },
+    {
+      "id": "CAL-002",
+      "expected_reference": "cold-war",
+      "detected_reference": "cold-war",
+      "reference_match": true,
+      "attribution_match": true,
+      "mechanism_match": true
+    },
+    {
+      "id": "CAL-003",
+      "expected_reference": "jcpoa",
+      "detected_reference": "jcpoa",
+      "reference_match": true,
+      "attribution_match": true,
+      "mechanism_match": true
+    },
+    {
+      "id": "CAL-004",
+      "expected_reference": "renaissance-knowledge",
+      "detected_reference": "renaissance-knowledge",
+      "reference_match": true,
+      "attribution_match": true,
+      "mechanism_match": true
+    },
+    {
+      "id": "CAL-005",
+      "expected_reference": "iranian-revolution",
+      "detected_reference": "iranian-revolution",
+      "reference_match": true,
+      "attribution_match": true,
+      "mechanism_match": true
+    },
+    {
+      "id": "CAL-006",
+      "expected_reference": "bay-of-pigs",
+      "detected_reference": "bay-of-pigs",
+      "reference_match": true,
+      "attribution_match": true,
+      "mechanism_match": true
+    },
+    {
+      "id": "CAL-007",
+      "expected_reference": null,
+      "detected_reference": null,
+      "reference_match": true,
+      "attribution_match": true,
+      "mechanism_match": true
+    },
+    {
+      "id": "CAL-008",
+      "expected_reference": null,
+      "detected_reference": null,
+      "reference_match": true,
+      "attribution_match": true,
+      "mechanism_match": true
+    },
+    {
+      "id": "CAL-009",
+      "expected_reference": "thucydides-trap",
+      "detected_reference": "thucydides-trap",
+      "reference_match": true,
+      "attribution_match": true,
+      "mechanism_match": true
+    },
+    {
+      "id": "CAL-010",
+      "expected_reference": "jcpoa",
+      "detected_reference": "jcpoa",
+      "reference_match": true,
+      "attribution_match": true,
+      "mechanism_match": true
+    },
+    {
+      "id": "CAL-011",
+      "expected_reference": null,
+      "detected_reference": null,
+      "reference_match": true,
+      "attribution_match": true,
+      "mechanism_match": true
+    },
+    {
+      "id": "CAL-012",
+      "expected_reference": null,
+      "detected_reference": null,
+      "reference_match": true,
+      "attribution_match": true,
+      "mechanism_match": true
+    },
+    {
+      "id": "CAL-013",
+      "expected_reference": null,
+      "detected_reference": null,
+      "reference_match": true,
+      "attribution_match": true,
+      "mechanism_match": true
+    },
+    {
+      "id": "CAL-014",
+      "expected_reference": null,
+      "detected_reference": null,
+      "reference_match": true,
+      "attribution_match": true,
+      "mechanism_match": true
+    },
+    {
+      "id": "CAL-015",
+      "expected_reference": "bay-of-pigs",
+      "detected_reference": "bay-of-pigs",
+      "reference_match": true,
+      "attribution_match": true,
+      "mechanism_match": true
+    },
+    {
+      "id": "CAL-016",
+      "expected_reference": "thucydides-trap",
+      "detected_reference": "thucydides-trap",
+      "reference_match": true,
+      "attribution_match": true,
+      "mechanism_match": true
+    },
+    {
+      "id": "CAL-017",
+      "expected_reference": "vietnam-war",
+      "detected_reference": "vietnam-war",
+      "reference_match": true,
+      "attribution_match": true,
+      "mechanism_match": true
+    },
+    {
+      "id": "CAL-018",
+      "expected_reference": "jcpoa",
+      "detected_reference": "jcpoa",
+      "reference_match": true,
+      "attribution_match": true,
+      "mechanism_match": true
+    },
+    {
+      "id": "CAL-019",
+      "expected_reference": "vietnam-war",
+      "detected_reference": "vietnam-war",
+      "reference_match": true,
+      "attribution_match": true,
+      "mechanism_match": true
+    },
+    {
+      "id": "CAL-020",
+      "expected_reference": "vietnam-war",
+      "detected_reference": "vietnam-war",
+      "reference_match": true,
+      "attribution_match": true,
+      "mechanism_match": true
+    },
+    {
+      "id": "CAL-021",
+      "expected_reference": "cold-war",
+      "detected_reference": "cold-war",
+      "reference_match": true,
+      "attribution_match": true,
+      "mechanism_match": true
+    },
+    {
+      "id": "CAL-022",
+      "expected_reference": "kuwait-liberation",
+      "detected_reference": "kuwait-liberation",
+      "reference_match": true,
+      "attribution_match": true,
+      "mechanism_match": true
+    }
+  ]
+}

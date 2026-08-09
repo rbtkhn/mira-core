@@ -1,0 +1,37 @@
+{
+  "run_id": "run-20260803T195003Z",
+  "sources": {
+    "narrative-geopolitics/archive/sources/2026-06-05/source-judging-freedom-johnson-mcgovern-intel-roundtable-weekly-wrap-5-june-2026-06-05.md": {
+      "fingerprint": {
+        "archive_path": "narrative-geopolitics/archive/sources/2026-06-05/source-judging-freedom-johnson-mcgovern-intel-roundtable-weekly-wrap-5-june-2026-06-05.md",
+        "detector_version": "3",
+        "file_hash": "70c28dc310360dad40d3e429cb1cb690ad9a52dc8ffa63f1c0eab0431e83044c",
+        "mechanism_version": "1",
+        "source_id": "narrative-geopolitics/archive/sources/2026-06-05/source-judging-freedom-johnson-mcgovern-intel-roundtable-weekly-wrap-5-june-2026-06-05.md",
+        "taxonomy_version": "2",
+        "voice_scope": "johnson,mcgovern"
+      },
+      "record_count": 0,
+      "status": "landed"
+    },
+    "narrative-geopolitics/archive/sources/2026-06-12/source-judging-freedom-johnson-mcgovern-intel-roundtable-weekly-wrap-12-june-2026-06-12.md": {
+      "fingerprint": {
+        "archive_path": "narrative-geopolitics/archive/sources/2026-06-12/source-judging-freedom-johnson-mcgovern-intel-roundtable-weekly-wrap-12-june-2026-06-12.md",
+        "detector_version": "3",
+        "file_hash": "dadef89559b55430be8db629112946254e8f09b6165e21f5b02b23768b8a1259",
+        "mechanism_version": "1",
+        "source_id": "narrative-geopolitics/archive/sources/2026-06-12/source-judging-freedom-johnson-mcgovern-intel-roundtable-weekly-wrap-12-june-2026-06-12.md",
+        "taxonomy_version": "2",
+        "voice_scope": "johnson,mcgovern"
+      },
+      "record_count": 0,
+      "status": "landed"
+    }
+  },
+  "versions": {
+    "detector": "3",
+    "mechanism": "1",
+    "schema": "2",
+    "taxonomy": "2"
+  }
+}

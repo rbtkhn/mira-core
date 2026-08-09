@@ -1,0 +1,448 @@
+{
+  "run_id": "july24-paragraph-qa",
+  "state": "landed",
+  "voices": [
+    "freeman"
+  ],
+  "versions": {
+    "taxonomy": "1",
+    "detector": "1",
+    "mechanism": "1"
+  },
+  "receipts": [
+    {
+      "source_id": "narrative-geopolitics/archive/sources/2026-07-24/source-amb-chas-freeman-iran-warns-of-regional-blackouts-after-trump-threatens-to-bomb-its-infrastructure-2026-07-24.md",
+      "status": "landed",
+      "fingerprint": {
+        "source_id": "narrative-geopolitics/archive/sources/2026-07-24/source-amb-chas-freeman-iran-warns-of-regional-blackouts-after-trump-threatens-to-bomb-its-infrastructure-2026-07-24.md",
+        "archive_path": "narrative-geopolitics/archive/sources/2026-07-24/source-amb-chas-freeman-iran-warns-of-regional-blackouts-after-trump-threatens-to-bomb-its-infrastructure-2026-07-24.md",
+        "file_hash": "b513460322aa2dec4658fd20f2c8db03f3b3728e88e10aae14982fff273a358b",
+        "taxonomy_version": "1",
+        "detector_version": "1",
+        "mechanism_version": "1",
+        "voice_scope": "freeman"
+      },
+      "record_count": 7,
+      "archive_path": "narrative-geopolitics/archive/sources/2026-07-24/source-amb-chas-freeman-iran-warns-of-regional-blackouts-after-trump-threatens-to-bomb-its-infrastructure-2026-07-24.md",
+      "warnings": [
+        "provisional attribution"
+      ]
+    },
+    {
+      "source_id": "narrative-geopolitics/archive/sources/2026-07-24/source-pointless-violence-fake-diplomacy-us-strategy-in-iran-chas-freeman-lt-col-daniel-davis-2026-07-24.md",
+      "status": "landed",
+      "fingerprint": {
+        "source_id": "narrative-geopolitics/archive/sources/2026-07-24/source-pointless-violence-fake-diplomacy-us-strategy-in-iran-chas-freeman-lt-col-daniel-davis-2026-07-24.md",
+        "archive_path": "narrative-geopolitics/archive/sources/2026-07-24/source-pointless-violence-fake-diplomacy-us-strategy-in-iran-chas-freeman-lt-col-daniel-davis-2026-07-24.md",
+        "file_hash": "47885ac3015213503a1a8015192ac2b9cb5f2430da34d83bf12cd8ad1132c38f",
+        "taxonomy_version": "1",
+        "detector_version": "1",
+        "mechanism_version": "1",
+        "voice_scope": "freeman"
+      },
+      "record_count": 4,
+      "archive_path": "narrative-geopolitics/archive/sources/2026-07-24/source-pointless-violence-fake-diplomacy-us-strategy-in-iran-chas-freeman-lt-col-daniel-davis-2026-07-24.md",
+      "warnings": [
+        "provisional attribution"
+      ]
+    }
+  ],
+  "records": [
+    {
+      "occurrence_id": "narrative-geopolitics/archive/sources/2026-07-24/source-amb-chas-freeman-iran-warns-of-regional-blackouts-after-trump-threatens-to-bomb-its-infrastructure-2026-07-24.md:cuba-embargo:3",
+      "voices": [
+        "freeman"
+      ],
+      "source_id": "narrative-geopolitics/archive/sources/2026-07-24/source-amb-chas-freeman-iran-warns-of-regional-blackouts-after-trump-threatens-to-bomb-its-infrastructure-2026-07-24.md",
+      "archive_path": "narrative-geopolitics/archive/sources/2026-07-24/source-amb-chas-freeman-iran-warns-of-regional-blackouts-after-trump-threatens-to-bomb-its-infrastructure-2026-07-24.md",
+      "date": "2026-07-24",
+      "title": "Amb. Chas Freeman: Iran Warns of Regional Blackouts After Trump Threatens to Bomb Its Infrastructure",
+      "quote": "[music] Hi everybody. Today's Friday, July 24th, 2026 and our dear friend, Ambassador Chess Freeman is here with us. Welcome back, Ambassador. >> Glad to be with you, Nema. >> I want to start, ambassador, with the case of the Red Sea and Yemenes. After 12 years of tremendous pressure, they came out and put a blockade, a siege on Saudi Arabia because of the situation in the foremost. The pressure they're putting on Saudi Arabia is tremendous because there is no way to for them to export oil except using the Swiss canal and which has its own limit limitations. >> Exactly. What what is your understanding of the way that Yemen is putting pressure on Saudi Arabia and how do you see Saudi Arabia's",
+      "reference_id": "cuba-embargo",
+      "reference": "US embargo on Cuba",
+      "parent_period": "historical period",
+      "attribution_confidence": "provisional",
+      "mechanism_suggestions": [
+        {
+          "id": "M-FR-001",
+          "name": "coercion and strategic backfire",
+          "basis": "native reference adapter"
+        }
+      ],
+      "crosswalk_suggestions": [
+        {
+          "target": "M-FR-001",
+          "confidence": "suggested",
+          "rationale": "native reference adapter",
+          "conflict_status": "unreviewed",
+          "review_status": "unreviewed"
+        }
+      ],
+      "risk_score": 3,
+      "review_status": "accepted",
+      "review_note": "Accepted for Freeman voice use. The Cuba embargo reference is in Freeman's continuous answer at raw source line 120.",
+      "reviewed_by": "codex",
+      "reviewed_at": "2026-07-27"
+    },
+    {
+      "occurrence_id": "narrative-geopolitics/archive/sources/2026-07-24/source-amb-chas-freeman-iran-warns-of-regional-blackouts-after-trump-threatens-to-bomb-its-infrastructure-2026-07-24.md:iranian-revolution:3",
+      "voices": [
+        "freeman"
+      ],
+      "source_id": "narrative-geopolitics/archive/sources/2026-07-24/source-amb-chas-freeman-iran-warns-of-regional-blackouts-after-trump-threatens-to-bomb-its-infrastructure-2026-07-24.md",
+      "archive_path": "narrative-geopolitics/archive/sources/2026-07-24/source-amb-chas-freeman-iran-warns-of-regional-blackouts-after-trump-threatens-to-bomb-its-infrastructure-2026-07-24.md",
+      "date": "2026-07-24",
+      "title": "Amb. Chas Freeman: Iran Warns of Regional Blackouts After Trump Threatens to Bomb Its Infrastructure",
+      "quote": "[music] Hi everybody. Today's Friday, July 24th, 2026 and our dear friend, Ambassador Chess Freeman is here with us. Welcome back, Ambassador. >> Glad to be with you, Nema. >> I want to start, ambassador, with the case of the Red Sea and Yemenes. After 12 years of tremendous pressure, they came out and put a blockade, a siege on Saudi Arabia because of the situation in the foremost. The pressure they're putting on Saudi Arabia is tremendous because there is no way to for them to export oil except using the Swiss canal and which has its own limit limitations. >> Exactly. What what is your understanding of the way that Yemen is putting pressure on Saudi Arabia and how do you see Saudi Arabia's",
+      "reference_id": "iranian-revolution",
+      "reference": "Iranian Revolution",
+      "parent_period": "historical period",
+      "attribution_confidence": "provisional",
+      "mechanism_suggestions": [
+        {
+          "id": "M-FR-005",
+          "name": "sovereignty, legitimacy, and historical memory",
+          "basis": "native reference adapter"
+        }
+      ],
+      "crosswalk_suggestions": [
+        {
+          "target": "M-FR-005",
+          "confidence": "suggested",
+          "rationale": "native reference adapter",
+          "conflict_status": "unreviewed",
+          "review_status": "unreviewed"
+        }
+      ],
+      "risk_score": 3,
+      "review_status": "accepted",
+      "review_note": "Accepted for Freeman voice use. The Islamic Revolution comparison is in Freeman's continuous answer at raw source lines 122-123.",
+      "reviewed_by": "codex",
+      "reviewed_at": "2026-07-27"
+    },
+    {
+      "occurrence_id": "narrative-geopolitics/archive/sources/2026-07-24/source-amb-chas-freeman-iran-warns-of-regional-blackouts-after-trump-threatens-to-bomb-its-infrastructure-2026-07-24.md:iraq-war:3",
+      "voices": [
+        "freeman"
+      ],
+      "source_id": "narrative-geopolitics/archive/sources/2026-07-24/source-amb-chas-freeman-iran-warns-of-regional-blackouts-after-trump-threatens-to-bomb-its-infrastructure-2026-07-24.md",
+      "archive_path": "narrative-geopolitics/archive/sources/2026-07-24/source-amb-chas-freeman-iran-warns-of-regional-blackouts-after-trump-threatens-to-bomb-its-infrastructure-2026-07-24.md",
+      "date": "2026-07-24",
+      "title": "Amb. Chas Freeman: Iran Warns of Regional Blackouts After Trump Threatens to Bomb Its Infrastructure",
+      "quote": "[music] Hi everybody. Today's Friday, July 24th, 2026 and our dear friend, Ambassador Chess Freeman is here with us. Welcome back, Ambassador. >> Glad to be with you, Nema. >> I want to start, ambassador, with the case of the Red Sea and Yemenes. After 12 years of tremendous pressure, they came out and put a blockade, a siege on Saudi Arabia because of the situation in the foremost. The pressure they're putting on Saudi Arabia is tremendous because there is no way to for them to export oil except using the Swiss canal and which has its own limit limitations. >> Exactly. What what is your understanding of the way that Yemen is putting pressure on Saudi Arabia and how do you see Saudi Arabia's",
+      "reference_id": "iraq-war",
+      "reference": "2003 Iraq War",
+      "parent_period": "historical period",
+      "attribution_confidence": "provisional",
+      "mechanism_suggestions": [
+        {
+          "id": "M-FR-001",
+          "name": "coercion and strategic backfire",
+          "basis": "native reference adapter"
+        }
+      ],
+      "crosswalk_suggestions": [
+        {
+          "target": "M-FR-001",
+          "confidence": "suggested",
+          "rationale": "native reference adapter",
+          "conflict_status": "unreviewed",
+          "review_status": "unreviewed"
+        }
+      ],
+      "risk_score": 3,
+      "review_status": "rejected",
+      "review_note": "Rejected for this reference class. Raw source lines 96-97 discuss Iraq's relationship to Kuwaiti independence, not the 2003 Iraq War.",
+      "reviewed_by": "codex",
+      "reviewed_at": "2026-07-27"
+    },
+    {
+      "occurrence_id": "narrative-geopolitics/archive/sources/2026-07-24/source-amb-chas-freeman-iran-warns-of-regional-blackouts-after-trump-threatens-to-bomb-its-infrastructure-2026-07-24.md:jcpoa:3",
+      "voices": [
+        "freeman"
+      ],
+      "source_id": "narrative-geopolitics/archive/sources/2026-07-24/source-amb-chas-freeman-iran-warns-of-regional-blackouts-after-trump-threatens-to-bomb-its-infrastructure-2026-07-24.md",
+      "archive_path": "narrative-geopolitics/archive/sources/2026-07-24/source-amb-chas-freeman-iran-warns-of-regional-blackouts-after-trump-threatens-to-bomb-its-infrastructure-2026-07-24.md",
+      "date": "2026-07-24",
+      "title": "Amb. Chas Freeman: Iran Warns of Regional Blackouts After Trump Threatens to Bomb Its Infrastructure",
+      "quote": "[music] Hi everybody. Today's Friday, July 24th, 2026 and our dear friend, Ambassador Chess Freeman is here with us. Welcome back, Ambassador. >> Glad to be with you, Nema. >> I want to start, ambassador, with the case of the Red Sea and Yemenes. After 12 years of tremendous pressure, they came out and put a blockade, a siege on Saudi Arabia because of the situation in the foremost. The pressure they're putting on Saudi Arabia is tremendous because there is no way to for them to export oil except using the Swiss canal and which has its own limit limitations. >> Exactly. What what is your understanding of the way that Yemen is putting pressure on Saudi Arabia and how do you see Saudi Arabia's",
+      "reference_id": "jcpoa",
+      "reference": "JCPOA / Iran nuclear diplomacy",
+      "parent_period": "historical period",
+      "attribution_confidence": "provisional",
+      "mechanism_suggestions": [
+        {
+          "id": "M-FR-002",
+          "name": "institutional memory and diplomatic credibility",
+          "basis": "native reference adapter"
+        }
+      ],
+      "crosswalk_suggestions": [
+        {
+          "target": "M-FR-002",
+          "confidence": "suggested",
+          "rationale": "native reference adapter",
+          "conflict_status": "unreviewed",
+          "review_status": "unreviewed"
+        }
+      ],
+      "risk_score": 3,
+      "review_status": "rejected",
+      "review_note": "Rejected for Freeman voice use. The candidate is a false positive around a Saudi nuclear deal; no explicit JCPOA passage is present in the reviewed Freeman turn.",
+      "reviewed_by": "codex",
+      "reviewed_at": "2026-07-27"
+    },
+    {
+      "occurrence_id": "narrative-geopolitics/archive/sources/2026-07-24/source-amb-chas-freeman-iran-warns-of-regional-blackouts-after-trump-threatens-to-bomb-its-infrastructure-2026-07-24.md:kuwait-liberation:3",
+      "voices": [
+        "freeman"
+      ],
+      "source_id": "narrative-geopolitics/archive/sources/2026-07-24/source-amb-chas-freeman-iran-warns-of-regional-blackouts-after-trump-threatens-to-bomb-its-infrastructure-2026-07-24.md",
+      "archive_path": "narrative-geopolitics/archive/sources/2026-07-24/source-amb-chas-freeman-iran-warns-of-regional-blackouts-after-trump-threatens-to-bomb-its-infrastructure-2026-07-24.md",
+      "date": "2026-07-24",
+      "title": "Amb. Chas Freeman: Iran Warns of Regional Blackouts After Trump Threatens to Bomb Its Infrastructure",
+      "quote": "[music] Hi everybody. Today's Friday, July 24th, 2026 and our dear friend, Ambassador Chess Freeman is here with us. Welcome back, Ambassador. >> Glad to be with you, Nema. >> I want to start, ambassador, with the case of the Red Sea and Yemenes. After 12 years of tremendous pressure, they came out and put a blockade, a siege on Saudi Arabia because of the situation in the foremost. The pressure they're putting on Saudi Arabia is tremendous because there is no way to for them to export oil except using the Swiss canal and which has its own limit limitations. >> Exactly. What what is your understanding of the way that Yemen is putting pressure on Saudi Arabia and how do you see Saudi Arabia's",
+      "reference_id": "kuwait-liberation",
+      "reference": "1991 liberation of Kuwait",
+      "parent_period": "historical period",
+      "attribution_confidence": "provisional",
+      "mechanism_suggestions": [
+        {
+          "id": "M-FR-002",
+          "name": "institutional memory and diplomatic credibility",
+          "basis": "native reference adapter"
+        }
+      ],
+      "crosswalk_suggestions": [
+        {
+          "target": "M-FR-002",
+          "confidence": "suggested",
+          "rationale": "native reference adapter",
+          "conflict_status": "unreviewed",
+          "review_status": "unreviewed"
+        }
+      ],
+      "risk_score": 3,
+      "review_status": "accepted",
+      "review_note": "Accepted for Freeman voice use. Freeman describes the coalition liberation of Kuwait and the Iraq claim at raw source lines 96-97.",
+      "reviewed_by": "codex",
+      "reviewed_at": "2026-07-27"
+    },
+    {
+      "occurrence_id": "narrative-geopolitics/archive/sources/2026-07-24/source-amb-chas-freeman-iran-warns-of-regional-blackouts-after-trump-threatens-to-bomb-its-infrastructure-2026-07-24.md:october-7:3",
+      "voices": [
+        "freeman"
+      ],
+      "source_id": "narrative-geopolitics/archive/sources/2026-07-24/source-amb-chas-freeman-iran-warns-of-regional-blackouts-after-trump-threatens-to-bomb-its-infrastructure-2026-07-24.md",
+      "archive_path": "narrative-geopolitics/archive/sources/2026-07-24/source-amb-chas-freeman-iran-warns-of-regional-blackouts-after-trump-threatens-to-bomb-its-infrastructure-2026-07-24.md",
+      "date": "2026-07-24",
+      "title": "Amb. Chas Freeman: Iran Warns of Regional Blackouts After Trump Threatens to Bomb Its Infrastructure",
+      "quote": "[music] Hi everybody. Today's Friday, July 24th, 2026 and our dear friend, Ambassador Chess Freeman is here with us. Welcome back, Ambassador. >> Glad to be with you, Nema. >> I want to start, ambassador, with the case of the Red Sea and Yemenes. After 12 years of tremendous pressure, they came out and put a blockade, a siege on Saudi Arabia because of the situation in the foremost. The pressure they're putting on Saudi Arabia is tremendous because there is no way to for them to export oil except using the Swiss canal and which has its own limit limitations. >> Exactly. What what is your understanding of the way that Yemen is putting pressure on Saudi Arabia and how do you see Saudi Arabia's",
+      "reference_id": "october-7",
+      "reference": "7 October Hamas attack",
+      "parent_period": "historical period",
+      "attribution_confidence": "provisional",
+      "mechanism_suggestions": [
+        {
+          "id": "M-FR-005",
+          "name": "sovereignty, legitimacy, and historical memory",
+          "basis": "native reference adapter"
+        }
+      ],
+      "crosswalk_suggestions": [
+        {
+          "target": "M-FR-005",
+          "confidence": "suggested",
+          "rationale": "native reference adapter",
+          "conflict_status": "unreviewed",
+          "review_status": "unreviewed"
+        }
+      ],
+      "risk_score": 3,
+      "review_status": "rejected",
+      "review_note": "Rejected for Freeman voice use. The October 7 reference occurs in the host's Netanyahu question/continuation at raw source line 105, not in a Freeman turn.",
+      "reviewed_by": "codex",
+      "reviewed_at": "2026-07-27"
+    },
+    {
+      "occurrence_id": "narrative-geopolitics/archive/sources/2026-07-24/source-amb-chas-freeman-iran-warns-of-regional-blackouts-after-trump-threatens-to-bomb-its-infrastructure-2026-07-24.md:renaissance-knowledge:3",
+      "voices": [
+        "freeman"
+      ],
+      "source_id": "narrative-geopolitics/archive/sources/2026-07-24/source-amb-chas-freeman-iran-warns-of-regional-blackouts-after-trump-threatens-to-bomb-its-infrastructure-2026-07-24.md",
+      "archive_path": "narrative-geopolitics/archive/sources/2026-07-24/source-amb-chas-freeman-iran-warns-of-regional-blackouts-after-trump-threatens-to-bomb-its-infrastructure-2026-07-24.md",
+      "date": "2026-07-24",
+      "title": "Amb. Chas Freeman: Iran Warns of Regional Blackouts After Trump Threatens to Bomb Its Infrastructure",
+      "quote": "[music] Hi everybody. Today's Friday, July 24th, 2026 and our dear friend, Ambassador Chess Freeman is here with us. Welcome back, Ambassador. >> Glad to be with you, Nema. >> I want to start, ambassador, with the case of the Red Sea and Yemenes. After 12 years of tremendous pressure, they came out and put a blockade, a siege on Saudi Arabia because of the situation in the foremost. The pressure they're putting on Saudi Arabia is tremendous because there is no way to for them to export oil except using the Swiss canal and which has its own limit limitations. >> Exactly. What what is your understanding of the way that Yemen is putting pressure on Saudi Arabia and how do you see Saudi Arabia's",
+      "reference_id": "renaissance-knowledge",
+      "reference": "Renaissance transmission of Greek and Roman knowledge",
+      "parent_period": "historical period",
+      "attribution_confidence": "provisional",
+      "mechanism_suggestions": [
+        {
+          "id": "M-FR-003",
+          "name": "imperial overstretch and power transition",
+          "basis": "native reference adapter"
+        }
+      ],
+      "crosswalk_suggestions": [
+        {
+          "target": "M-FR-003",
+          "confidence": "suggested",
+          "rationale": "native reference adapter",
+          "conflict_status": "unreviewed",
+          "review_status": "unreviewed"
+        }
+      ],
+      "risk_score": 3,
+      "review_status": "accepted",
+      "review_note": "Accepted for Freeman voice use. Freeman discusses Renaissance transmission of Greek and Roman knowledge at raw source lines 111-113.",
+      "reviewed_by": "codex",
+      "reviewed_at": "2026-07-27"
+    },
+    {
+      "occurrence_id": "narrative-geopolitics/archive/sources/2026-07-24/source-pointless-violence-fake-diplomacy-us-strategy-in-iran-chas-freeman-lt-col-daniel-davis-2026-07-24.md:bay-of-pigs:4",
+      "voices": [
+        "freeman"
+      ],
+      "source_id": "narrative-geopolitics/archive/sources/2026-07-24/source-pointless-violence-fake-diplomacy-us-strategy-in-iran-chas-freeman-lt-col-daniel-davis-2026-07-24.md",
+      "archive_path": "narrative-geopolitics/archive/sources/2026-07-24/source-pointless-violence-fake-diplomacy-us-strategy-in-iran-chas-freeman-lt-col-daniel-davis-2026-07-24.md",
+      "date": "2026-07-24",
+      "title": "Pointless Violence & Fake Diplomacy: US Strategy in Iran / Chas Freeman & Lt Col Daniel Davis",
+      "quote": "President of the United States has two wars on his hand and he is desperately trying to figure a way out of both of them. The one that we started in Iran and then the one that his predecessor basically started in Ukraine uh against Russia. But now it's President Trump's. It's on his table and he's got to try to figure it out because that's going in a decided bad direction which could see it escalate into a NATO clash with Russia. How is President Trump gonna navigate these two very very complex mission? Of course, diplomacy is the best answer because there is no military solution to either one of them. If that's what we think is the solution, we're in even bigger trouble than any of us reali",
+      "reference_id": "bay-of-pigs",
+      "reference": "Bay of Pigs",
+      "parent_period": "historical period",
+      "attribution_confidence": "provisional",
+      "mechanism_suggestions": [
+        {
+          "id": "M-FR-003",
+          "name": "imperial overstretch and power transition",
+          "basis": "native reference adapter"
+        }
+      ],
+      "crosswalk_suggestions": [
+        {
+          "target": "M-FR-003",
+          "confidence": "suggested",
+          "rationale": "native reference adapter",
+          "conflict_status": "unreviewed",
+          "review_status": "unreviewed"
+        }
+      ],
+      "risk_score": 3,
+      "review_status": "accepted",
+      "review_note": "Accepted for Freeman voice use. Freeman makes the Bay of Pigs/Castro comparison at raw source line 148.",
+      "reviewed_by": "codex",
+      "reviewed_at": "2026-07-27"
+    },
+    {
+      "occurrence_id": "narrative-geopolitics/archive/sources/2026-07-24/source-pointless-violence-fake-diplomacy-us-strategy-in-iran-chas-freeman-lt-col-daniel-davis-2026-07-24.md:iraq-war:4",
+      "voices": [
+        "freeman"
+      ],
+      "source_id": "narrative-geopolitics/archive/sources/2026-07-24/source-pointless-violence-fake-diplomacy-us-strategy-in-iran-chas-freeman-lt-col-daniel-davis-2026-07-24.md",
+      "archive_path": "narrative-geopolitics/archive/sources/2026-07-24/source-pointless-violence-fake-diplomacy-us-strategy-in-iran-chas-freeman-lt-col-daniel-davis-2026-07-24.md",
+      "date": "2026-07-24",
+      "title": "Pointless Violence & Fake Diplomacy: US Strategy in Iran / Chas Freeman & Lt Col Daniel Davis",
+      "quote": "President of the United States has two wars on his hand and he is desperately trying to figure a way out of both of them. The one that we started in Iran and then the one that his predecessor basically started in Ukraine uh against Russia. But now it's President Trump's. It's on his table and he's got to try to figure it out because that's going in a decided bad direction which could see it escalate into a NATO clash with Russia. How is President Trump gonna navigate these two very very complex mission? Of course, diplomacy is the best answer because there is no military solution to either one of them. If that's what we think is the solution, we're in even bigger trouble than any of us reali",
+      "reference_id": "iraq-war",
+      "reference": "2003 Iraq War",
+      "parent_period": "historical period",
+      "attribution_confidence": "provisional",
+      "mechanism_suggestions": [
+        {
+          "id": "M-FR-001",
+          "name": "coercion and strategic backfire",
+          "basis": "native reference adapter"
+        }
+      ],
+      "crosswalk_suggestions": [
+        {
+          "target": "M-FR-001",
+          "confidence": "suggested",
+          "rationale": "native reference adapter",
+          "conflict_status": "unreviewed",
+          "review_status": "unreviewed"
+        }
+      ],
+      "risk_score": 3,
+      "review_status": "rejected",
+      "review_note": "Rejected for this reference class. The reviewed candidate paragraph does not contain a Freeman-attributed 2003 Iraq War reference.",
+      "reviewed_by": "codex",
+      "reviewed_at": "2026-07-27"
+    },
+    {
+      "occurrence_id": "narrative-geopolitics/archive/sources/2026-07-24/source-pointless-violence-fake-diplomacy-us-strategy-in-iran-chas-freeman-lt-col-daniel-davis-2026-07-24.md:jcpoa:4",
+      "voices": [
+        "freeman"
+      ],
+      "source_id": "narrative-geopolitics/archive/sources/2026-07-24/source-pointless-violence-fake-diplomacy-us-strategy-in-iran-chas-freeman-lt-col-daniel-davis-2026-07-24.md",
+      "archive_path": "narrative-geopolitics/archive/sources/2026-07-24/source-pointless-violence-fake-diplomacy-us-strategy-in-iran-chas-freeman-lt-col-daniel-davis-2026-07-24.md",
+      "date": "2026-07-24",
+      "title": "Pointless Violence & Fake Diplomacy: US Strategy in Iran / Chas Freeman & Lt Col Daniel Davis",
+      "quote": "President of the United States has two wars on his hand and he is desperately trying to figure a way out of both of them. The one that we started in Iran and then the one that his predecessor basically started in Ukraine uh against Russia. But now it's President Trump's. It's on his table and he's got to try to figure it out because that's going in a decided bad direction which could see it escalate into a NATO clash with Russia. How is President Trump gonna navigate these two very very complex mission? Of course, diplomacy is the best answer because there is no military solution to either one of them. If that's what we think is the solution, we're in even bigger trouble than any of us reali",
+      "reference_id": "jcpoa",
+      "reference": "JCPOA / Iran nuclear diplomacy",
+      "parent_period": "historical period",
+      "attribution_confidence": "provisional",
+      "mechanism_suggestions": [
+        {
+          "id": "M-FR-002",
+          "name": "institutional memory and diplomatic credibility",
+          "basis": "native reference adapter"
+        }
+      ],
+      "crosswalk_suggestions": [
+        {
+          "target": "M-FR-002",
+          "confidence": "suggested",
+          "rationale": "native reference adapter",
+          "conflict_status": "unreviewed",
+          "review_status": "unreviewed"
+        }
+      ],
+      "risk_score": 3,
+      "review_status": "rejected",
+      "review_note": "Rejected for Freeman voice use. The explicit JCPOA mention at raw source line 70 is in host Daniel Davis's turn.",
+      "reviewed_by": "codex",
+      "reviewed_at": "2026-07-27"
+    },
+    {
+      "occurrence_id": "narrative-geopolitics/archive/sources/2026-07-24/source-pointless-violence-fake-diplomacy-us-strategy-in-iran-chas-freeman-lt-col-daniel-davis-2026-07-24.md:nixon-kissinger:4",
+      "voices": [
+        "freeman"
+      ],
+      "source_id": "narrative-geopolitics/archive/sources/2026-07-24/source-pointless-violence-fake-diplomacy-us-strategy-in-iran-chas-freeman-lt-col-daniel-davis-2026-07-24.md",
+      "archive_path": "narrative-geopolitics/archive/sources/2026-07-24/source-pointless-violence-fake-diplomacy-us-strategy-in-iran-chas-freeman-lt-col-daniel-davis-2026-07-24.md",
+      "date": "2026-07-24",
+      "title": "Pointless Violence & Fake Diplomacy: US Strategy in Iran / Chas Freeman & Lt Col Daniel Davis",
+      "quote": "President of the United States has two wars on his hand and he is desperately trying to figure a way out of both of them. The one that we started in Iran and then the one that his predecessor basically started in Ukraine uh against Russia. But now it's President Trump's. It's on his table and he's got to try to figure it out because that's going in a decided bad direction which could see it escalate into a NATO clash with Russia. How is President Trump gonna navigate these two very very complex mission? Of course, diplomacy is the best answer because there is no military solution to either one of them. If that's what we think is the solution, we're in even bigger trouble than any of us reali",
+      "reference_id": "nixon-kissinger",
+      "reference": "Nixon–Kissinger China strategy",
+      "parent_period": "historical period",
+      "attribution_confidence": "provisional",
+      "mechanism_suggestions": [
+        {
+          "id": "M-FR-002",
+          "name": "institutional memory and diplomatic credibility",
+          "basis": "native reference adapter"
+        }
+      ],
+      "crosswalk_suggestions": [
+        {
+          "target": "M-FR-002",
+          "confidence": "suggested",
+          "rationale": "native reference adapter",
+          "conflict_status": "unreviewed",
+          "review_status": "unreviewed"
+        }
+      ],
+      "risk_score": 3,
+      "review_status": "accepted",
+      "review_note": "Accepted for Freeman voice use. Freeman invokes Henry Kissinger's remark in the continuous answer at raw source line 97.",
+      "reviewed_by": "codex",
+      "reviewed_at": "2026-07-27"
+    }
+  ]
+}

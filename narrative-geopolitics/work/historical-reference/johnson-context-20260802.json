@@ -1,0 +1,80 @@
+{
+  "packet_id": "HCP-e0f6f564e732f46b",
+  "packet_type": "historical-context",
+  "status": "bounded-context-only",
+  "source_run_id": "run-20260803T195453Z",
+  "date": "2026-08-02",
+  "voices": [
+    "johnson"
+  ],
+  "crisis_filter": null,
+  "record_limit": 12,
+  "record_count": 2,
+  "records": [
+    {
+      "occurrence_id": "narrative-geopolitics/archive/sources/2026-08-02/source-larry-johnson-i-called-it-off-trump-confirms-scrapped-iran-attack-amid-drone-impacts-in-kurdistan-2026-08-02.md:iranian-revolution:3",
+      "source_id": "narrative-geopolitics/archive/sources/2026-08-02/source-larry-johnson-i-called-it-off-trump-confirms-scrapped-iran-attack-amid-drone-impacts-in-kurdistan-2026-08-02.md",
+      "archive_path": "narrative-geopolitics/archive/sources/2026-08-02/source-larry-johnson-i-called-it-off-trump-confirms-scrapped-iran-attack-amid-drone-impacts-in-kurdistan-2026-08-02.md",
+      "title": "Larry Johnson: I Called It Off: Trump Confirms Scrapped Iran Attack Amid Drone Impacts in Kurdistan",
+      "date": "2026-08-02",
+      "reference_id": "iranian-revolution",
+      "reference": "Iranian Revolution",
+      "quote": "[music] Hi everybody. Today's Sunday, August 2nd, 2026, and our dear friend Lar. [clears throat] Welcome back, Lar. >> Oh, heck. What the heck? What in the world happened here? >> What's going on? >> Sorry about that. It's Some YouTube video just started playing itself on its own. [laughter] >> It's so strange. The gremlins are at work. >> Yeah, there is something going on. Larry, let me start with what has happened last night. Donald Trump finally said he cancelled the attack on Iran which was supposed to attack all those civilian infrastructure, the power grids, everything there. >> And again, we're back. What is your understanding of what has happened? Iran was they were supposed to attac",
+      "attribution_confidence": "provisional",
+      "mechanism_suggestions": [
+        {
+          "id": "M-FR-005",
+          "name": "sovereignty, legitimacy, and historical memory",
+          "basis": "native reference adapter"
+        }
+      ],
+      "crosswalk_suggestions": [
+        {
+          "target": "M-FR-005",
+          "confidence": "suggested",
+          "rationale": "native reference adapter",
+          "conflict_status": "unreviewed",
+          "review_status": "unreviewed"
+        }
+      ],
+      "review_status": "needs-review",
+      "risk_score": 3
+    },
+    {
+      "occurrence_id": "narrative-geopolitics/archive/sources/2026-08-02/source-larry-johnson-i-called-it-off-trump-confirms-scrapped-iran-attack-amid-drone-impacts-in-kurdistan-2026-08-02.md:jcpoa:3",
+      "source_id": "narrative-geopolitics/archive/sources/2026-08-02/source-larry-johnson-i-called-it-off-trump-confirms-scrapped-iran-attack-amid-drone-impacts-in-kurdistan-2026-08-02.md",
+      "archive_path": "narrative-geopolitics/archive/sources/2026-08-02/source-larry-johnson-i-called-it-off-trump-confirms-scrapped-iran-attack-amid-drone-impacts-in-kurdistan-2026-08-02.md",
+      "title": "Larry Johnson: I Called It Off: Trump Confirms Scrapped Iran Attack Amid Drone Impacts in Kurdistan",
+      "date": "2026-08-02",
+      "reference_id": "jcpoa",
+      "reference": "JCPOA / Iran nuclear diplomacy",
+      "quote": "[music] Hi everybody. Today's Sunday, August 2nd, 2026, and our dear friend Lar. [clears throat] Welcome back, Lar. >> Oh, heck. What the heck? What in the world happened here? >> What's going on? >> Sorry about that. It's Some YouTube video just started playing itself on its own. [laughter] >> It's so strange. The gremlins are at work. >> Yeah, there is something going on. Larry, let me start with what has happened last night. Donald Trump finally said he cancelled the attack on Iran which was supposed to attack all those civilian infrastructure, the power grids, everything there. >> And again, we're back. What is your understanding of what has happened? Iran was they were supposed to attac",
+      "attribution_confidence": "provisional",
+      "mechanism_suggestions": [
+        {
+          "id": "M-FR-002",
+          "name": "institutional memory and diplomatic credibility",
+          "basis": "native reference adapter"
+        }
+      ],
+      "crosswalk_suggestions": [
+        {
+          "target": "M-FR-002",
+          "confidence": "suggested",
+          "rationale": "native reference adapter",
+          "conflict_status": "unreviewed",
+          "review_status": "unreviewed"
+        }
+      ],
+      "review_status": "needs-review",
+      "risk_score": 3
+    }
+  ],
+  "guardrails": [
+    "Historical context is source-derived and not historical verification.",
+    "Provisional attribution remains provisional.",
+    "This packet does not overwrite synthesis prose.",
+    "This packet must not be treated as analytical-quality or forecast-success evidence."
+  ],
+  "created_at": "2026-08-03T20:01:20.378829+00:00"
+}

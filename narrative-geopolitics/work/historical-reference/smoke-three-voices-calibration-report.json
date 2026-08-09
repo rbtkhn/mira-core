@@ -1,0 +1,6 @@
+{
+  "status": "fixture-required",
+  "precision": null,
+  "recall": null,
+  "note": "Add reviewed calibration fixtures before interpreting cross-voice metrics."
+}

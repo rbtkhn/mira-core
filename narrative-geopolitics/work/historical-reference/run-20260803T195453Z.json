@@ -1,0 +1,636 @@
+{
+  "run_id": "run-20260803T195453Z",
+  "state": "landed",
+  "voices": [
+    "johnson"
+  ],
+  "versions": {
+    "schema": "2",
+    "taxonomy": "2",
+    "detector": "3",
+    "mechanism": "1"
+  },
+  "receipts": [
+    {
+      "source_id": "narrative-geopolitics/archive/sources/2025-06-16/source-glenn-diesen-larry-johnson-larry-johnson-trump-negotiator-or-warmonger-2025-06-16.md",
+      "status": "landed",
+      "fingerprint": {
+        "source_id": "narrative-geopolitics/archive/sources/2025-06-16/source-glenn-diesen-larry-johnson-larry-johnson-trump-negotiator-or-warmonger-2025-06-16.md",
+        "archive_path": "narrative-geopolitics/archive/sources/2025-06-16/source-glenn-diesen-larry-johnson-larry-johnson-trump-negotiator-or-warmonger-2025-06-16.md",
+        "file_hash": "3de159be08a47d2ccb3fa87c110570b0092bafa42fcfac425936cb9242e79fd8",
+        "taxonomy_version": "2",
+        "detector_version": "3",
+        "mechanism_version": "1",
+        "voice_scope": "johnson"
+      },
+      "record_count": 1,
+      "archive_path": "narrative-geopolitics/archive/sources/2025-06-16/source-glenn-diesen-larry-johnson-larry-johnson-trump-negotiator-or-warmonger-2025-06-16.md",
+      "warnings": [
+        "provisional attribution"
+      ]
+    },
+    {
+      "source_id": "narrative-geopolitics/archive/sources/2026-05-18/source-dialogue-works-larry-johnson-giant-mushroom-cloud-blasts-over-israeli-defense-company-what-we-know-2026-05-18.md",
+      "status": "landed",
+      "fingerprint": {
+        "source_id": "narrative-geopolitics/archive/sources/2026-05-18/source-dialogue-works-larry-johnson-giant-mushroom-cloud-blasts-over-israeli-defense-company-what-we-know-2026-05-18.md",
+        "archive_path": "narrative-geopolitics/archive/sources/2026-05-18/source-dialogue-works-larry-johnson-giant-mushroom-cloud-blasts-over-israeli-defense-company-what-we-know-2026-05-18.md",
+        "file_hash": "b26d456602eaf007e9d194fe5edbd24d575b4ee98bc18fba746871eea3359293",
+        "taxonomy_version": "2",
+        "detector_version": "3",
+        "mechanism_version": "1",
+        "voice_scope": "johnson"
+      },
+      "record_count": 1,
+      "archive_path": "narrative-geopolitics/archive/sources/2026-05-18/source-dialogue-works-larry-johnson-giant-mushroom-cloud-blasts-over-israeli-defense-company-what-we-know-2026-05-18.md",
+      "warnings": [
+        "provisional attribution"
+      ]
+    },
+    {
+      "source_id": "narrative-geopolitics/archive/sources/2026-06-19/source-dialogue-works-seyed-m-marandi-larry-johnson-iran-shuts-down-geneva-talks-mou-2026-06-19.md",
+      "status": "landed",
+      "fingerprint": {
+        "source_id": "narrative-geopolitics/archive/sources/2026-06-19/source-dialogue-works-seyed-m-marandi-larry-johnson-iran-shuts-down-geneva-talks-mou-2026-06-19.md",
+        "archive_path": "narrative-geopolitics/archive/sources/2026-06-19/source-dialogue-works-seyed-m-marandi-larry-johnson-iran-shuts-down-geneva-talks-mou-2026-06-19.md",
+        "file_hash": "f1cc32e5a91f8ce3dea53343c41ff4d27f1a2d1322053b5b705138a4f49217ba",
+        "taxonomy_version": "2",
+        "detector_version": "3",
+        "mechanism_version": "1",
+        "voice_scope": "johnson"
+      },
+      "record_count": 0,
+      "archive_path": "narrative-geopolitics/archive/sources/2026-06-19/source-dialogue-works-seyed-m-marandi-larry-johnson-iran-shuts-down-geneva-talks-mou-2026-06-19.md",
+      "warnings": []
+    },
+    {
+      "source_id": "narrative-geopolitics/archive/sources/2026-07-28/source-larry-johnson-russia-s-naval-blockade-of-odessa-ukraine-s-attack-on-iranian-ship-2026-07-28.md",
+      "status": "landed",
+      "fingerprint": {
+        "source_id": "narrative-geopolitics/archive/sources/2026-07-28/source-larry-johnson-russia-s-naval-blockade-of-odessa-ukraine-s-attack-on-iranian-ship-2026-07-28.md",
+        "archive_path": "narrative-geopolitics/archive/sources/2026-07-28/source-larry-johnson-russia-s-naval-blockade-of-odessa-ukraine-s-attack-on-iranian-ship-2026-07-28.md",
+        "file_hash": "10165452b361479e5e1dbb9fbd5957aff5039c0bd9c8c96962c23efb646a7eac",
+        "taxonomy_version": "2",
+        "detector_version": "3",
+        "mechanism_version": "1",
+        "voice_scope": "johnson"
+      },
+      "record_count": 0,
+      "archive_path": "narrative-geopolitics/archive/sources/2026-07-28/source-larry-johnson-russia-s-naval-blockade-of-odessa-ukraine-s-attack-on-iranian-ship-2026-07-28.md",
+      "warnings": []
+    },
+    {
+      "source_id": "narrative-geopolitics/archive/sources/2026-08-02/source-larry-johnson-i-called-it-off-trump-confirms-scrapped-iran-attack-amid-drone-impacts-in-kurdistan-2026-08-02.md",
+      "status": "landed",
+      "fingerprint": {
+        "source_id": "narrative-geopolitics/archive/sources/2026-08-02/source-larry-johnson-i-called-it-off-trump-confirms-scrapped-iran-attack-amid-drone-impacts-in-kurdistan-2026-08-02.md",
+        "archive_path": "narrative-geopolitics/archive/sources/2026-08-02/source-larry-johnson-i-called-it-off-trump-confirms-scrapped-iran-attack-amid-drone-impacts-in-kurdistan-2026-08-02.md",
+        "file_hash": "921daadcebabf6d57db4b894a93a6ec7ac72e7621613665514a3f5bcd55c48e5",
+        "taxonomy_version": "2",
+        "detector_version": "3",
+        "mechanism_version": "1",
+        "voice_scope": "johnson"
+      },
+      "record_count": 2,
+      "archive_path": "narrative-geopolitics/archive/sources/2026-08-02/source-larry-johnson-i-called-it-off-trump-confirms-scrapped-iran-attack-amid-drone-impacts-in-kurdistan-2026-08-02.md",
+      "warnings": [
+        "provisional attribution"
+      ]
+    }
+  ],
+  "records": [
+    {
+      "occurrence_id": "narrative-geopolitics/archive/sources/2025-06-16/source-glenn-diesen-larry-johnson-larry-johnson-trump-negotiator-or-warmonger-2025-06-16.md:iraq-war:2",
+      "voices": [
+        "johnson"
+      ],
+      "source_id": "narrative-geopolitics/archive/sources/2025-06-16/source-glenn-diesen-larry-johnson-larry-johnson-trump-negotiator-or-warmonger-2025-06-16.md",
+      "archive_path": "narrative-geopolitics/archive/sources/2025-06-16/source-glenn-diesen-larry-johnson-larry-johnson-trump-negotiator-or-warmonger-2025-06-16.md",
+      "date": "2025-06-16",
+      "title": "Larry Johnson: Trump - Negotiator or Warmonger?",
+      "quote": "Hi everyone and welcome. I am joined today by Larry Johnson, a former CI analyst and extremely popular commentator. Insightful I would add. Uh so yeah, welcome back to the program. I'm glad I haven't worn out my welcome. Thanks for having me. Well, uh I uh yeah, I want to discuss with you the obviously the debacle going on with this attack on Iran. Now yeah, guess the debacle has a lot of layers to it. Uh but uh I thought perhaps we could start with looking at how you see what went wrong here because there seems to have been an intelligence failure because the assumption I think was that uh Israel could have a very powerful decapitation attack. Uh you know air defense systems in Iran everyth",
+      "reference_id": "iraq-war",
+      "reference": "2003 Iraq War",
+      "parent_period": "historical period",
+      "attribution_confidence": "provisional",
+      "mechanism_suggestions": [
+        {
+          "id": "M-FR-001",
+          "name": "coercion and strategic backfire",
+          "basis": "native reference adapter"
+        }
+      ],
+      "crosswalk_suggestions": [
+        {
+          "target": "M-FR-001",
+          "confidence": "suggested",
+          "rationale": "native reference adapter",
+          "conflict_status": "unreviewed",
+          "review_status": "unreviewed"
+        }
+      ],
+      "risk_score": 3,
+      "review_status": "needs-review"
+    },
+    {
+      "occurrence_id": "narrative-geopolitics/archive/sources/2026-05-18/source-dialogue-works-larry-johnson-giant-mushroom-cloud-blasts-over-israeli-defense-company-what-we-know-2026-05-18.md:october-7:2",
+      "voices": [
+        "johnson"
+      ],
+      "source_id": "narrative-geopolitics/archive/sources/2026-05-18/source-dialogue-works-larry-johnson-giant-mushroom-cloud-blasts-over-israeli-defense-company-what-we-know-2026-05-18.md",
+      "archive_path": "narrative-geopolitics/archive/sources/2026-05-18/source-dialogue-works-larry-johnson-giant-mushroom-cloud-blasts-over-israeli-defense-company-what-we-know-2026-05-18.md",
+      "date": "2026-05-18",
+      "title": "Larry Johnson: Giant Mushroom Cloud Blasts Over Israeli Defense Company – What We Know",
+      "quote": "Hi everybody. Today is Monday, May 18, 2026 and our dear friend Larry Johnson is here with us. Welcome. >> I'm back with my favorite Iranian, German, Brazilian personality. >> How's everything, Larry? >> Hey, we're just watching. Is the world going to blow up? you know, the we're we're in a we're in a situation where it looks like the Saudis and the Qataris, they they hold they hold the veto on whether or not this war is going to expand >> or if it's going to, you know, you know, be brought to an end with Iran in control of the Strait of Hormuz. So, uh, I I'm hopeful that the Saudis will recognize that there's not a viable path forward if they if they if they pursue additional attacks agains",
+      "reference_id": "october-7",
+      "reference": "7 October Hamas attack",
+      "parent_period": "historical period",
+      "attribution_confidence": "provisional",
+      "mechanism_suggestions": [
+        {
+          "id": "M-FR-005",
+          "name": "sovereignty, legitimacy, and historical memory",
+          "basis": "native reference adapter"
+        }
+      ],
+      "crosswalk_suggestions": [
+        {
+          "target": "M-FR-005",
+          "confidence": "suggested",
+          "rationale": "native reference adapter",
+          "conflict_status": "unreviewed",
+          "review_status": "unreviewed"
+        }
+      ],
+      "risk_score": 3,
+      "review_status": "needs-review"
+    },
+    {
+      "occurrence_id": "narrative-geopolitics/archive/sources/2026-08-02/source-larry-johnson-i-called-it-off-trump-confirms-scrapped-iran-attack-amid-drone-impacts-in-kurdistan-2026-08-02.md:iranian-revolution:3",
+      "voices": [
+        "johnson"
+      ],
+      "source_id": "narrative-geopolitics/archive/sources/2026-08-02/source-larry-johnson-i-called-it-off-trump-confirms-scrapped-iran-attack-amid-drone-impacts-in-kurdistan-2026-08-02.md",
+      "archive_path": "narrative-geopolitics/archive/sources/2026-08-02/source-larry-johnson-i-called-it-off-trump-confirms-scrapped-iran-attack-amid-drone-impacts-in-kurdistan-2026-08-02.md",
+      "date": "2026-08-02",
+      "title": "Larry Johnson: I Called It Off: Trump Confirms Scrapped Iran Attack Amid Drone Impacts in Kurdistan",
+      "quote": "[music] Hi everybody. Today's Sunday, August 2nd, 2026, and our dear friend Lar. [clears throat] Welcome back, Lar. >> Oh, heck. What the heck? What in the world happened here? >> What's going on? >> Sorry about that. It's Some YouTube video just started playing itself on its own. [laughter] >> It's so strange. The gremlins are at work. >> Yeah, there is something going on. Larry, let me start with what has happened last night. Donald Trump finally said he cancelled the attack on Iran which was supposed to attack all those civilian infrastructure, the power grids, everything there. >> And again, we're back. What is your understanding of what has happened? Iran was they were supposed to attac",
+      "reference_id": "iranian-revolution",
+      "reference": "Iranian Revolution",
+      "parent_period": "historical period",
+      "attribution_confidence": "provisional",
+      "mechanism_suggestions": [
+        {
+          "id": "M-FR-005",
+          "name": "sovereignty, legitimacy, and historical memory",
+          "basis": "native reference adapter"
+        }
+      ],
+      "crosswalk_suggestions": [
+        {
+          "target": "M-FR-005",
+          "confidence": "suggested",
+          "rationale": "native reference adapter",
+          "conflict_status": "unreviewed",
+          "review_status": "unreviewed"
+        }
+      ],
+      "risk_score": 3,
+      "review_status": "needs-review"
+    },
+    {
+      "occurrence_id": "narrative-geopolitics/archive/sources/2026-08-02/source-larry-johnson-i-called-it-off-trump-confirms-scrapped-iran-attack-amid-drone-impacts-in-kurdistan-2026-08-02.md:jcpoa:3",
+      "voices": [
+        "johnson"
+      ],
+      "source_id": "narrative-geopolitics/archive/sources/2026-08-02/source-larry-johnson-i-called-it-off-trump-confirms-scrapped-iran-attack-amid-drone-impacts-in-kurdistan-2026-08-02.md",
+      "archive_path": "narrative-geopolitics/archive/sources/2026-08-02/source-larry-johnson-i-called-it-off-trump-confirms-scrapped-iran-attack-amid-drone-impacts-in-kurdistan-2026-08-02.md",
+      "date": "2026-08-02",
+      "title": "Larry Johnson: I Called It Off: Trump Confirms Scrapped Iran Attack Amid Drone Impacts in Kurdistan",
+      "quote": "[music] Hi everybody. Today's Sunday, August 2nd, 2026, and our dear friend Lar. [clears throat] Welcome back, Lar. >> Oh, heck. What the heck? What in the world happened here? >> What's going on? >> Sorry about that. It's Some YouTube video just started playing itself on its own. [laughter] >> It's so strange. The gremlins are at work. >> Yeah, there is something going on. Larry, let me start with what has happened last night. Donald Trump finally said he cancelled the attack on Iran which was supposed to attack all those civilian infrastructure, the power grids, everything there. >> And again, we're back. What is your understanding of what has happened? Iran was they were supposed to attac",
+      "reference_id": "jcpoa",
+      "reference": "JCPOA / Iran nuclear diplomacy",
+      "parent_period": "historical period",
+      "attribution_confidence": "provisional",
+      "mechanism_suggestions": [
+        {
+          "id": "M-FR-002",
+          "name": "institutional memory and diplomatic credibility",
+          "basis": "native reference adapter"
+        }
+      ],
+      "crosswalk_suggestions": [
+        {
+          "target": "M-FR-002",
+          "confidence": "suggested",
+          "rationale": "native reference adapter",
+          "conflict_status": "unreviewed",
+          "review_status": "unreviewed"
+        }
+      ],
+      "risk_score": 3,
+      "review_status": "needs-review"
+    }
+  ],
+  "backtest": {
+    "source_ids": [
+      "narrative-geopolitics/archive/sources/2026-06-05/source-dialogue-works-johnson-wilkerson-iran-fires-missiles-at-us-destroyers-us-ships-flee-to-indian-ocean-2026-06-05.md",
+      "narrative-geopolitics/archive/sources/2026-06-12/source-glenn-diesen-larry-johnson-end-of-war-us-iran-close-to-a-deal-2026-06-12.md",
+      "narrative-geopolitics/archive/sources/2026-07-08/source-larry-johnson-iran-strikes-us-bases-in-bahrain-kuwait-after-us-strikes-south-iran-hormuz-closed-2026-07-08.md",
+      "narrative-geopolitics/archive/sources/2026-07-16/source-fmr-cia-analyst-larry-johnson-us-can-t-force-hormuz-open-2026-07-16.md",
+      "narrative-geopolitics/archive/sources/2026-07-24/source-breaking-trump-bombing-iran-now-after-iran-refuses-off-ramp-w-larry-johnson-2026-07-24.md",
+      "narrative-geopolitics/archive/sources/2026-08-01/source-larry-johnson-us-israel-about-to-launch-most-extensive-bombing-campaign-yet-on-iran-s-energy-grid-2026-08-01.md"
+    ],
+    "archive_paths": [
+      "narrative-geopolitics/archive/sources/2026-06-05/source-dialogue-works-johnson-wilkerson-iran-fires-missiles-at-us-destroyers-us-ships-flee-to-indian-ocean-2026-06-05.md",
+      "narrative-geopolitics/archive/sources/2026-06-12/source-glenn-diesen-larry-johnson-end-of-war-us-iran-close-to-a-deal-2026-06-12.md",
+      "narrative-geopolitics/archive/sources/2026-07-08/source-larry-johnson-iran-strikes-us-bases-in-bahrain-kuwait-after-us-strikes-south-iran-hormuz-closed-2026-07-08.md",
+      "narrative-geopolitics/archive/sources/2026-07-16/source-fmr-cia-analyst-larry-johnson-us-can-t-force-hormuz-open-2026-07-16.md",
+      "narrative-geopolitics/archive/sources/2026-07-24/source-breaking-trump-bombing-iran-now-after-iran-refuses-off-ramp-w-larry-johnson-2026-07-24.md",
+      "narrative-geopolitics/archive/sources/2026-08-01/source-larry-johnson-us-israel-about-to-launch-most-extensive-bombing-campaign-yet-on-iran-s-energy-grid-2026-08-01.md"
+    ],
+    "dates": [
+      "2026-06-05",
+      "2026-06-12",
+      "2026-07-08",
+      "2026-07-16",
+      "2026-07-24",
+      "2026-08-01"
+    ],
+    "records": [
+      {
+        "occurrence_id": "narrative-geopolitics/archive/sources/2026-06-05/source-dialogue-works-johnson-wilkerson-iran-fires-missiles-at-us-destroyers-us-ships-flee-to-indian-ocean-2026-06-05.md:iraq-war:18",
+        "voices": [
+          "johnson"
+        ],
+        "source_id": "narrative-geopolitics/archive/sources/2026-06-05/source-dialogue-works-johnson-wilkerson-iran-fires-missiles-at-us-destroyers-us-ships-flee-to-indian-ocean-2026-06-05.md",
+        "archive_path": "narrative-geopolitics/archive/sources/2026-06-05/source-dialogue-works-johnson-wilkerson-iran-fires-missiles-at-us-destroyers-us-ships-flee-to-indian-ocean-2026-06-05.md",
+        "date": "2026-06-05",
+        "title": "Larry Johnson & Col. Wilkerson: Iran FIRES MISSILES at US Destroyers - US Ships FLEE to Indian Ocean",
+        "quote": "been discussing, much greater strategic ramifications than the loss in Vietnam did, actually. >> Yeah. Well, he's not, you know, I'll I'll take back things I said about him being stupid. He's not completely stupid. uh he made some actually astute correct observations. Um now he you know but but he he failed to consider one other alternative. >> The straight will be safe. Just negotiate a deal with Iran where you leave him to hell alone. >> Yes. >> You know stop stop trying to destroy the Islamic Republic. And you know, we we we pretend that we got to that this is about a fanatical religious regime that's hanging homosexuals and you know uh you know burning virgins and you know all sorts of r",
+        "reference_id": "iraq-war",
+        "reference": "2003 Iraq War",
+        "parent_period": "historical period",
+        "attribution_confidence": "provisional",
+        "mechanism_suggestions": [
+          {
+            "id": "M-FR-001",
+            "name": "coercion and strategic backfire",
+            "basis": "native reference adapter"
+          }
+        ],
+        "crosswalk_suggestions": [
+          {
+            "target": "M-FR-001",
+            "confidence": "suggested",
+            "rationale": "native reference adapter",
+            "conflict_status": "unreviewed",
+            "review_status": "unreviewed"
+          }
+        ],
+        "risk_score": 3,
+        "review_status": "needs-review"
+      },
+      {
+        "occurrence_id": "narrative-geopolitics/archive/sources/2026-06-05/source-dialogue-works-johnson-wilkerson-iran-fires-missiles-at-us-destroyers-us-ships-flee-to-indian-ocean-2026-06-05.md:jcpoa:24",
+        "voices": [
+          "johnson"
+        ],
+        "source_id": "narrative-geopolitics/archive/sources/2026-06-05/source-dialogue-works-johnson-wilkerson-iran-fires-missiles-at-us-destroyers-us-ships-flee-to-indian-ocean-2026-06-05.md",
+        "archive_path": "narrative-geopolitics/archive/sources/2026-06-05/source-dialogue-works-johnson-wilkerson-iran-fires-missiles-at-us-destroyers-us-ships-flee-to-indian-ocean-2026-06-05.md",
+        "date": "2026-06-05",
+        "title": "Larry Johnson & Col. Wilkerson: Iran FIRES MISSILES at US Destroyers - US Ships FLEE to Indian Ocean",
+        "quote": "he did for North Korea. >> Yeah. >> Meeting with Kim Jong-un. Um, you know, this is uh um again it goes back to, you know, where we started off our conversation earlier that uh Trump is now taking seriously the possibility that Iran does have a functioning nuclear weapon. This was all you know what we've seen in the course of uh even last year where they where when Tulsi Gabbard said that the assessment of the intelligence community was Iran didn't have one and I I think it was right that was correct but with the the final blow or what what really sort of ignited then Iran into reversing course was the attack on the 28th of February. You know, look look at it from Iran standpoint. They're si",
+        "reference_id": "jcpoa",
+        "reference": "JCPOA / Iran nuclear diplomacy",
+        "parent_period": "historical period",
+        "attribution_confidence": "provisional",
+        "mechanism_suggestions": [
+          {
+            "id": "M-FR-002",
+            "name": "institutional memory and diplomatic credibility",
+            "basis": "native reference adapter"
+          }
+        ],
+        "crosswalk_suggestions": [
+          {
+            "target": "M-FR-002",
+            "confidence": "suggested",
+            "rationale": "native reference adapter",
+            "conflict_status": "unreviewed",
+            "review_status": "unreviewed"
+          }
+        ],
+        "risk_score": 3,
+        "review_status": "needs-review"
+      },
+      {
+        "occurrence_id": "narrative-geopolitics/archive/sources/2026-06-05/source-dialogue-works-johnson-wilkerson-iran-fires-missiles-at-us-destroyers-us-ships-flee-to-indian-ocean-2026-06-05.md:nixon-kissinger:18",
+        "voices": [
+          "johnson"
+        ],
+        "source_id": "narrative-geopolitics/archive/sources/2026-06-05/source-dialogue-works-johnson-wilkerson-iran-fires-missiles-at-us-destroyers-us-ships-flee-to-indian-ocean-2026-06-05.md",
+        "archive_path": "narrative-geopolitics/archive/sources/2026-06-05/source-dialogue-works-johnson-wilkerson-iran-fires-missiles-at-us-destroyers-us-ships-flee-to-indian-ocean-2026-06-05.md",
+        "date": "2026-06-05",
+        "title": "Larry Johnson & Col. Wilkerson: Iran FIRES MISSILES at US Destroyers - US Ships FLEE to Indian Ocean",
+        "quote": "been discussing, much greater strategic ramifications than the loss in Vietnam did, actually. >> Yeah. Well, he's not, you know, I'll I'll take back things I said about him being stupid. He's not completely stupid. uh he made some actually astute correct observations. Um now he you know but but he he failed to consider one other alternative. >> The straight will be safe. Just negotiate a deal with Iran where you leave him to hell alone. >> Yes. >> You know stop stop trying to destroy the Islamic Republic. And you know, we we we pretend that we got to that this is about a fanatical religious regime that's hanging homosexuals and you know uh you know burning virgins and you know all sorts of r",
+        "reference_id": "nixon-kissinger",
+        "reference": "Nixon–Kissinger China strategy",
+        "parent_period": "historical period",
+        "attribution_confidence": "provisional",
+        "mechanism_suggestions": [
+          {
+            "id": "M-FR-002",
+            "name": "institutional memory and diplomatic credibility",
+            "basis": "native reference adapter"
+          }
+        ],
+        "crosswalk_suggestions": [
+          {
+            "target": "M-FR-002",
+            "confidence": "suggested",
+            "rationale": "native reference adapter",
+            "conflict_status": "unreviewed",
+            "review_status": "unreviewed"
+          }
+        ],
+        "risk_score": 3,
+        "review_status": "needs-review"
+      },
+      {
+        "occurrence_id": "narrative-geopolitics/archive/sources/2026-06-12/source-glenn-diesen-larry-johnson-end-of-war-us-iran-close-to-a-deal-2026-06-12.md:jcpoa:16",
+        "voices": [
+          "johnson"
+        ],
+        "source_id": "narrative-geopolitics/archive/sources/2026-06-12/source-glenn-diesen-larry-johnson-end-of-war-us-iran-close-to-a-deal-2026-06-12.md",
+        "archive_path": "narrative-geopolitics/archive/sources/2026-06-12/source-glenn-diesen-larry-johnson-end-of-war-us-iran-close-to-a-deal-2026-06-12.md",
+        "date": "2026-06-12",
+        "title": "Larry Johnson: End of War? U.S. & Iran Close to a Deal?",
+        "quote": "to to keep the media quiet. And I was wondering, how do you read this? Is this for people not to oversell the story or have in in order to essentially create the wrong expectations to sabotage it? I mean, it looks like this. the the concern for sabotage is on all sides to be honest because yeah one often looks at the American side is many who do not want this deal the Israeli Israelis are obviously also eager to sabotage but also within Iran you have the hawks many hawks who also say well for good reason they are in a strong position now this is the time to well put an end to their enemies not uh to accept a deal And of course you can understand why there would be hesitant to make any deals ",
+        "reference_id": "jcpoa",
+        "reference": "JCPOA / Iran nuclear diplomacy",
+        "parent_period": "historical period",
+        "attribution_confidence": "provisional",
+        "mechanism_suggestions": [
+          {
+            "id": "M-FR-002",
+            "name": "institutional memory and diplomatic credibility",
+            "basis": "native reference adapter"
+          }
+        ],
+        "crosswalk_suggestions": [
+          {
+            "target": "M-FR-002",
+            "confidence": "suggested",
+            "rationale": "native reference adapter",
+            "conflict_status": "unreviewed",
+            "review_status": "unreviewed"
+          }
+        ],
+        "risk_score": 3,
+        "review_status": "needs-review"
+      },
+      {
+        "occurrence_id": "narrative-geopolitics/archive/sources/2026-06-12/source-glenn-diesen-larry-johnson-end-of-war-us-iran-close-to-a-deal-2026-06-12.md:jcpoa:8",
+        "voices": [
+          "johnson"
+        ],
+        "source_id": "narrative-geopolitics/archive/sources/2026-06-12/source-glenn-diesen-larry-johnson-end-of-war-us-iran-close-to-a-deal-2026-06-12.md",
+        "archive_path": "narrative-geopolitics/archive/sources/2026-06-12/source-glenn-diesen-larry-johnson-end-of-war-us-iran-close-to-a-deal-2026-06-12.md",
+        "date": "2026-06-12",
+        "title": "Larry Johnson: End of War? U.S. & Iran Close to a Deal?",
+        "quote": "it's been so many yeah nonsense negotiations and um also once you get this out of the way uh yeah it's a it's going to essentially be a cost for the US as well to to to go back on what is promised. So it's a good it's a it's a good uh first move. Um but uh but what are the other things that have to be included into this deal though? Well, you know, again, lifting all the sanctions, not just oil. So, part of what one of the initial gestures will be lifting sanctions on oil. That benefits that benefits Trump as well. Uh, you know, helps get some more oil out of the in the market, but ultimately get all of the sanctions uh lifted uh lift the US blockade. And then I think the real stumbling bloc",
+        "reference_id": "jcpoa",
+        "reference": "JCPOA / Iran nuclear diplomacy",
+        "parent_period": "historical period",
+        "attribution_confidence": "provisional",
+        "mechanism_suggestions": [
+          {
+            "id": "M-FR-002",
+            "name": "institutional memory and diplomatic credibility",
+            "basis": "native reference adapter"
+          }
+        ],
+        "crosswalk_suggestions": [
+          {
+            "target": "M-FR-002",
+            "confidence": "suggested",
+            "rationale": "native reference adapter",
+            "conflict_status": "unreviewed",
+            "review_status": "unreviewed"
+          }
+        ],
+        "risk_score": 3,
+        "review_status": "needs-review"
+      }
+    ]
+  },
+  "characterizations": [
+    {
+      "voice": "johnson",
+      "characterization": "uses historical references to evaluate diplomatic credibility and negotiated off-ramps under coercive pressure",
+      "analytical_function": "strategic-precedent",
+      "characterization_confidence": "supported",
+      "backtest_sample_count": 6,
+      "backtest_date_count": 6,
+      "date_coverage": [
+        "2026-06-05",
+        "2026-06-12",
+        "2026-07-08",
+        "2026-07-16",
+        "2026-07-24",
+        "2026-08-01"
+      ],
+      "coverage_gaps": [
+        "2026-06-06",
+        "2026-06-07",
+        "2026-06-08",
+        "2026-06-09",
+        "2026-06-10",
+        "2026-06-11",
+        "2026-06-13",
+        "2026-06-14",
+        "2026-06-15",
+        "2026-06-16",
+        "2026-06-17",
+        "2026-06-18",
+        "2026-06-19",
+        "2026-06-20",
+        "2026-06-21",
+        "2026-06-22",
+        "2026-06-23",
+        "2026-06-24",
+        "2026-06-25",
+        "2026-06-26",
+        "2026-06-27",
+        "2026-06-28",
+        "2026-06-29",
+        "2026-06-30",
+        "2026-07-01",
+        "2026-07-02",
+        "2026-07-03",
+        "2026-07-04",
+        "2026-07-05",
+        "2026-07-06",
+        "2026-07-07",
+        "2026-07-09",
+        "2026-07-10",
+        "2026-07-11",
+        "2026-07-12",
+        "2026-07-13",
+        "2026-07-14",
+        "2026-07-15",
+        "2026-07-17",
+        "2026-07-18",
+        "2026-07-19",
+        "2026-07-20",
+        "2026-07-21",
+        "2026-07-22",
+        "2026-07-23",
+        "2026-07-25",
+        "2026-07-26",
+        "2026-07-27",
+        "2026-07-28",
+        "2026-07-29",
+        "2026-07-30",
+        "2026-07-31"
+      ],
+      "falsifier": "Repeated future samples dominated by tactical battlefield analogies without negotiation, credibility, or off-ramp analysis would weaken this characterization.",
+      "forecast_linkage": [],
+      "source_ids": [
+        "narrative-geopolitics/archive/sources/2026-06-05/source-dialogue-works-johnson-wilkerson-iran-fires-missiles-at-us-destroyers-us-ships-flee-to-indian-ocean-2026-06-05.md",
+        "narrative-geopolitics/archive/sources/2026-06-12/source-glenn-diesen-larry-johnson-end-of-war-us-iran-close-to-a-deal-2026-06-12.md",
+        "narrative-geopolitics/archive/sources/2026-07-08/source-larry-johnson-iran-strikes-us-bases-in-bahrain-kuwait-after-us-strikes-south-iran-hormuz-closed-2026-07-08.md",
+        "narrative-geopolitics/archive/sources/2026-07-16/source-fmr-cia-analyst-larry-johnson-us-can-t-force-hormuz-open-2026-07-16.md",
+        "narrative-geopolitics/archive/sources/2026-07-24/source-breaking-trump-bombing-iran-now-after-iran-refuses-off-ramp-w-larry-johnson-2026-07-24.md",
+        "narrative-geopolitics/archive/sources/2026-08-01/source-larry-johnson-us-israel-about-to-launch-most-extensive-bombing-campaign-yet-on-iran-s-energy-grid-2026-08-01.md"
+      ],
+      "archive_paths": [
+        "narrative-geopolitics/archive/sources/2026-06-05/source-dialogue-works-johnson-wilkerson-iran-fires-missiles-at-us-destroyers-us-ships-flee-to-indian-ocean-2026-06-05.md",
+        "narrative-geopolitics/archive/sources/2026-06-12/source-glenn-diesen-larry-johnson-end-of-war-us-iran-close-to-a-deal-2026-06-12.md",
+        "narrative-geopolitics/archive/sources/2026-07-08/source-larry-johnson-iran-strikes-us-bases-in-bahrain-kuwait-after-us-strikes-south-iran-hormuz-closed-2026-07-08.md",
+        "narrative-geopolitics/archive/sources/2026-07-16/source-fmr-cia-analyst-larry-johnson-us-can-t-force-hormuz-open-2026-07-16.md",
+        "narrative-geopolitics/archive/sources/2026-07-24/source-breaking-trump-bombing-iran-now-after-iran-refuses-off-ramp-w-larry-johnson-2026-07-24.md",
+        "narrative-geopolitics/archive/sources/2026-08-01/source-larry-johnson-us-israel-about-to-launch-most-extensive-bombing-campaign-yet-on-iran-s-energy-grid-2026-08-01.md"
+      ],
+      "pilot_occurrence_ids": [
+        "narrative-geopolitics/archive/sources/2025-06-16/source-glenn-diesen-larry-johnson-larry-johnson-trump-negotiator-or-warmonger-2025-06-16.md:iraq-war:2",
+        "narrative-geopolitics/archive/sources/2026-05-18/source-dialogue-works-larry-johnson-giant-mushroom-cloud-blasts-over-israeli-defense-company-what-we-know-2026-05-18.md:october-7:2",
+        "narrative-geopolitics/archive/sources/2026-08-02/source-larry-johnson-i-called-it-off-trump-confirms-scrapped-iran-attack-amid-drone-impacts-in-kurdistan-2026-08-02.md:iranian-revolution:3",
+        "narrative-geopolitics/archive/sources/2026-08-02/source-larry-johnson-i-called-it-off-trump-confirms-scrapped-iran-attack-amid-drone-impacts-in-kurdistan-2026-08-02.md:jcpoa:3"
+      ],
+      "backtest_occurrence_ids": [
+        "narrative-geopolitics/archive/sources/2026-06-05/source-dialogue-works-johnson-wilkerson-iran-fires-missiles-at-us-destroyers-us-ships-flee-to-indian-ocean-2026-06-05.md:iraq-war:18",
+        "narrative-geopolitics/archive/sources/2026-06-05/source-dialogue-works-johnson-wilkerson-iran-fires-missiles-at-us-destroyers-us-ships-flee-to-indian-ocean-2026-06-05.md:jcpoa:24",
+        "narrative-geopolitics/archive/sources/2026-06-05/source-dialogue-works-johnson-wilkerson-iran-fires-missiles-at-us-destroyers-us-ships-flee-to-indian-ocean-2026-06-05.md:nixon-kissinger:18",
+        "narrative-geopolitics/archive/sources/2026-06-12/source-glenn-diesen-larry-johnson-end-of-war-us-iran-close-to-a-deal-2026-06-12.md:jcpoa:16",
+        "narrative-geopolitics/archive/sources/2026-06-12/source-glenn-diesen-larry-johnson-end-of-war-us-iran-close-to-a-deal-2026-06-12.md:jcpoa:8"
+      ],
+      "backtest_status": "coverage-gap"
+    }
+  ],
+  "characterization_review_queue": [
+    {
+      "voice": "johnson",
+      "characterization": "uses historical references to evaluate diplomatic credibility and negotiated off-ramps under coercive pressure",
+      "analytical_function": "strategic-precedent",
+      "characterization_confidence": "supported",
+      "backtest_sample_count": 6,
+      "backtest_date_count": 6,
+      "date_coverage": [
+        "2026-06-05",
+        "2026-06-12",
+        "2026-07-08",
+        "2026-07-16",
+        "2026-07-24",
+        "2026-08-01"
+      ],
+      "coverage_gaps": [
+        "2026-06-06",
+        "2026-06-07",
+        "2026-06-08",
+        "2026-06-09",
+        "2026-06-10",
+        "2026-06-11",
+        "2026-06-13",
+        "2026-06-14",
+        "2026-06-15",
+        "2026-06-16",
+        "2026-06-17",
+        "2026-06-18",
+        "2026-06-19",
+        "2026-06-20",
+        "2026-06-21",
+        "2026-06-22",
+        "2026-06-23",
+        "2026-06-24",
+        "2026-06-25",
+        "2026-06-26",
+        "2026-06-27",
+        "2026-06-28",
+        "2026-06-29",
+        "2026-06-30",
+        "2026-07-01",
+        "2026-07-02",
+        "2026-07-03",
+        "2026-07-04",
+        "2026-07-05",
+        "2026-07-06",
+        "2026-07-07",
+        "2026-07-09",
+        "2026-07-10",
+        "2026-07-11",
+        "2026-07-12",
+        "2026-07-13",
+        "2026-07-14",
+        "2026-07-15",
+        "2026-07-17",
+        "2026-07-18",
+        "2026-07-19",
+        "2026-07-20",
+        "2026-07-21",
+        "2026-07-22",
+        "2026-07-23",
+        "2026-07-25",
+        "2026-07-26",
+        "2026-07-27",
+        "2026-07-28",
+        "2026-07-29",
+        "2026-07-30",
+        "2026-07-31"
+      ],
+      "falsifier": "Repeated future samples dominated by tactical battlefield analogies without negotiation, credibility, or off-ramp analysis would weaken this characterization.",
+      "forecast_linkage": [],
+      "source_ids": [
+        "narrative-geopolitics/archive/sources/2026-06-05/source-dialogue-works-johnson-wilkerson-iran-fires-missiles-at-us-destroyers-us-ships-flee-to-indian-ocean-2026-06-05.md",
+        "narrative-geopolitics/archive/sources/2026-06-12/source-glenn-diesen-larry-johnson-end-of-war-us-iran-close-to-a-deal-2026-06-12.md",
+        "narrative-geopolitics/archive/sources/2026-07-08/source-larry-johnson-iran-strikes-us-bases-in-bahrain-kuwait-after-us-strikes-south-iran-hormuz-closed-2026-07-08.md",
+        "narrative-geopolitics/archive/sources/2026-07-16/source-fmr-cia-analyst-larry-johnson-us-can-t-force-hormuz-open-2026-07-16.md",
+        "narrative-geopolitics/archive/sources/2026-07-24/source-breaking-trump-bombing-iran-now-after-iran-refuses-off-ramp-w-larry-johnson-2026-07-24.md",
+        "narrative-geopolitics/archive/sources/2026-08-01/source-larry-johnson-us-israel-about-to-launch-most-extensive-bombing-campaign-yet-on-iran-s-energy-grid-2026-08-01.md"
+      ],
+      "archive_paths": [
+        "narrative-geopolitics/archive/sources/2026-06-05/source-dialogue-works-johnson-wilkerson-iran-fires-missiles-at-us-destroyers-us-ships-flee-to-indian-ocean-2026-06-05.md",
+        "narrative-geopolitics/archive/sources/2026-06-12/source-glenn-diesen-larry-johnson-end-of-war-us-iran-close-to-a-deal-2026-06-12.md",
+        "narrative-geopolitics/archive/sources/2026-07-08/source-larry-johnson-iran-strikes-us-bases-in-bahrain-kuwait-after-us-strikes-south-iran-hormuz-closed-2026-07-08.md",
+        "narrative-geopolitics/archive/sources/2026-07-16/source-fmr-cia-analyst-larry-johnson-us-can-t-force-hormuz-open-2026-07-16.md",
+        "narrative-geopolitics/archive/sources/2026-07-24/source-breaking-trump-bombing-iran-now-after-iran-refuses-off-ramp-w-larry-johnson-2026-07-24.md",
+        "narrative-geopolitics/archive/sources/2026-08-01/source-larry-johnson-us-israel-about-to-launch-most-extensive-bombing-campaign-yet-on-iran-s-energy-grid-2026-08-01.md"
+      ],
+      "pilot_occurrence_ids": [
+        "narrative-geopolitics/archive/sources/2025-06-16/source-glenn-diesen-larry-johnson-larry-johnson-trump-negotiator-or-warmonger-2025-06-16.md:iraq-war:2",
+        "narrative-geopolitics/archive/sources/2026-05-18/source-dialogue-works-larry-johnson-giant-mushroom-cloud-blasts-over-israeli-defense-company-what-we-know-2026-05-18.md:october-7:2",
+        "narrative-geopolitics/archive/sources/2026-08-02/source-larry-johnson-i-called-it-off-trump-confirms-scrapped-iran-attack-amid-drone-impacts-in-kurdistan-2026-08-02.md:iranian-revolution:3",
+        "narrative-geopolitics/archive/sources/2026-08-02/source-larry-johnson-i-called-it-off-trump-confirms-scrapped-iran-attack-amid-drone-impacts-in-kurdistan-2026-08-02.md:jcpoa:3"
+      ],
+      "backtest_occurrence_ids": [
+        "narrative-geopolitics/archive/sources/2026-06-05/source-dialogue-works-johnson-wilkerson-iran-fires-missiles-at-us-destroyers-us-ships-flee-to-indian-ocean-2026-06-05.md:iraq-war:18",
+        "narrative-geopolitics/archive/sources/2026-06-05/source-dialogue-works-johnson-wilkerson-iran-fires-missiles-at-us-destroyers-us-ships-flee-to-indian-ocean-2026-06-05.md:jcpoa:24",
+        "narrative-geopolitics/archive/sources/2026-06-05/source-dialogue-works-johnson-wilkerson-iran-fires-missiles-at-us-destroyers-us-ships-flee-to-indian-ocean-2026-06-05.md:nixon-kissinger:18",
+        "narrative-geopolitics/archive/sources/2026-06-12/source-glenn-diesen-larry-johnson-end-of-war-us-iran-close-to-a-deal-2026-06-12.md:jcpoa:16",
+        "narrative-geopolitics/archive/sources/2026-06-12/source-glenn-diesen-larry-johnson-end-of-war-us-iran-close-to-a-deal-2026-06-12.md:jcpoa:8"
+      ],
+      "backtest_status": "coverage-gap"
+    }
+  ]
+}

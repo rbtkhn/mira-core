@@ -1,0 +1,111 @@
+{
+  "run_id": "run-20260803T194235Z",
+  "items": [
+    {
+      "voice": "johnson",
+      "characterization": "historical-reference function requires operator review",
+      "analytical_function": "other-review-required",
+      "characterization_confidence": "untested",
+      "backtest_sample_count": 0,
+      "backtest_date_count": 0,
+      "date_coverage": [],
+      "coverage_gaps": [],
+      "falsifier": "Operator review is required to define a discriminating observable.",
+      "forecast_linkage": [],
+      "source_ids": [],
+      "archive_paths": [],
+      "pilot_occurrence_ids": [
+        "narrative-geopolitics/archive/sources/2025-06-16/source-glenn-diesen-larry-johnson-larry-johnson-trump-negotiator-or-warmonger-2025-06-16.md:iraq-war:2",
+        "narrative-geopolitics/archive/sources/2026-05-18/source-dialogue-works-larry-johnson-giant-mushroom-cloud-blasts-over-israeli-defense-company-what-we-know-2026-05-18.md:october-7:2"
+      ],
+      "backtest_occurrence_ids": [],
+      "backtest_status": "complete-window"
+    },
+    {
+      "voice": "mcgovern",
+      "characterization": "historical-reference function requires operator review",
+      "analytical_function": "other-review-required",
+      "characterization_confidence": "untested",
+      "backtest_sample_count": 0,
+      "backtest_date_count": 0,
+      "date_coverage": [],
+      "coverage_gaps": [],
+      "falsifier": "Operator review is required to define a discriminating observable.",
+      "forecast_linkage": [],
+      "source_ids": [],
+      "archive_paths": [],
+      "pilot_occurrence_ids": [
+        "narrative-geopolitics/archive/sources/2025-06-01/source-glenn-diesen-ray-mcgovern-america-between-a-new-peace-world-war-3-2025-06-01.md:cold-war:1244",
+        "narrative-geopolitics/archive/sources/2025-06-01/source-glenn-diesen-ray-mcgovern-america-between-a-new-peace-world-war-3-2025-06-01.md:cold-war:597",
+        "narrative-geopolitics/archive/sources/2025-06-01/source-glenn-diesen-ray-mcgovern-america-between-a-new-peace-world-war-3-2025-06-01.md:cold-war:626",
+        "narrative-geopolitics/archive/sources/2025-06-01/source-glenn-diesen-ray-mcgovern-america-between-a-new-peace-world-war-3-2025-06-01.md:nixon-kissinger:399",
+        "narrative-geopolitics/archive/sources/2025-06-01/source-glenn-diesen-ray-mcgovern-america-between-a-new-peace-world-war-3-2025-06-01.md:nixon-kissinger:400",
+        "narrative-geopolitics/archive/sources/2025-06-01/source-glenn-diesen-ray-mcgovern-america-between-a-new-peace-world-war-3-2025-06-01.md:nixon-kissinger:403",
+        "narrative-geopolitics/archive/sources/2025-06-01/source-glenn-diesen-ray-mcgovern-america-between-a-new-peace-world-war-3-2025-06-01.md:nixon-kissinger:82",
+        "narrative-geopolitics/archive/sources/2025-06-01/source-glenn-diesen-ray-mcgovern-america-between-a-new-peace-world-war-3-2025-06-01.md:nixon-kissinger:9",
+        "narrative-geopolitics/archive/sources/2025-06-01/source-glenn-diesen-ray-mcgovern-america-between-a-new-peace-world-war-3-2025-06-01.md:nixon-kissinger:91",
+        "narrative-geopolitics/archive/sources/2025-06-01/source-glenn-diesen-ray-mcgovern-america-between-a-new-peace-world-war-3-2025-06-01.md:nixon-kissinger:92",
+        "narrative-geopolitics/archive/sources/2025-06-01/source-glenn-diesen-ray-mcgovern-america-between-a-new-peace-world-war-3-2025-06-01.md:nixon-kissinger:921",
+        "narrative-geopolitics/archive/sources/2025-06-01/source-glenn-diesen-ray-mcgovern-america-between-a-new-peace-world-war-3-2025-06-01.md:nixon-kissinger:97",
+        "narrative-geopolitics/archive/sources/2025-06-01/source-glenn-diesen-ray-mcgovern-america-between-a-new-peace-world-war-3-2025-06-01.md:vietnam-war:610",
+        "narrative-geopolitics/archive/sources/2025-06-01/source-glenn-diesen-ray-mcgovern-america-between-a-new-peace-world-war-3-2025-06-01.md:vietnam-war:68",
+        "narrative-geopolitics/archive/sources/2025-11-23/source-glenn-diesen-ray-mcgovern-zelensky-s-dilemma-bad-peace-or-total-defeat-2025-11-23.md:nixon-kissinger:698",
+        "narrative-geopolitics/archive/sources/2025-11-23/source-glenn-diesen-ray-mcgovern-zelensky-s-dilemma-bad-peace-or-total-defeat-2025-11-23.md:nixon-kissinger:699",
+        "narrative-geopolitics/archive/sources/2025-11-23/source-glenn-diesen-ray-mcgovern-zelensky-s-dilemma-bad-peace-or-total-defeat-2025-11-23.md:nixon-kissinger:707",
+        "narrative-geopolitics/archive/sources/2025-11-23/source-glenn-diesen-ray-mcgovern-zelensky-s-dilemma-bad-peace-or-total-defeat-2025-11-23.md:nixon-kissinger:711",
+        "narrative-geopolitics/archive/sources/2026-05-18/source-consortium-news-russia-debate-scott-ritter-vs-ray-mcgovern-2026-05-18.md:jcpoa:102",
+        "narrative-geopolitics/archive/sources/2026-07-26/source-ray-mcgovern-yemen-strikes-on-saudi-are-rocking-across-the-gulf-2026-07-26.md:jcpoa:3"
+      ],
+      "backtest_occurrence_ids": [],
+      "backtest_status": "complete-window"
+    },
+    {
+      "voice": "ritter",
+      "characterization": "historical-reference function requires operator review",
+      "analytical_function": "other-review-required",
+      "characterization_confidence": "untested",
+      "backtest_sample_count": 0,
+      "backtest_date_count": 0,
+      "date_coverage": [],
+      "coverage_gaps": [],
+      "falsifier": "Operator review is required to define a discriminating observable.",
+      "forecast_linkage": [],
+      "source_ids": [],
+      "archive_paths": [],
+      "pilot_occurrence_ids": [
+        "narrative-geopolitics/archive/sources/2025-06-10/source-glenn-diesen-scott-ritter-scott-ritter-dangerous-endgame-in-ukraine-collapse-or-escalation-2025-06-10.md:cold-war:2",
+        "narrative-geopolitics/archive/sources/2026-03-16/source-daniel-davis-scott-ritter-danny-davis-combat-vets-can-the-us-force-hormuz-open-2026-03-16.md:iraq-war:2",
+        "narrative-geopolitics/archive/sources/2026-05-18/source-consortium-news-russia-debate-scott-ritter-vs-ray-mcgovern-2026-05-18.md:jcpoa:102",
+        "narrative-geopolitics/archive/sources/2026-07-20/source-scott-ritter-graham-s-legacy-zelenskyy-s-blunder-trump-s-stupidity-2026-07-20.md:cold-war:4",
+        "narrative-geopolitics/archive/sources/2026-07-20/source-scott-ritter-graham-s-legacy-zelenskyy-s-blunder-trump-s-stupidity-2026-07-20.md:iraq-war:4"
+      ],
+      "backtest_occurrence_ids": [],
+      "backtest_status": "complete-window"
+    },
+    {
+      "voice": "weichert",
+      "characterization": "historical-reference function requires operator review",
+      "analytical_function": "other-review-required",
+      "characterization_confidence": "untested",
+      "backtest_sample_count": 0,
+      "backtest_date_count": 0,
+      "date_coverage": [],
+      "coverage_gaps": [],
+      "falsifier": "Operator review is required to define a discriminating observable.",
+      "forecast_linkage": [],
+      "source_ids": [],
+      "archive_paths": [],
+      "pilot_occurrence_ids": [
+        "narrative-geopolitics/archive/sources/2026-05-17/source-mario-nawfal-weichert-russia-ukraine-escalating-iran-war-restarting-2026-05-17.md:cold-war:4",
+        "narrative-geopolitics/archive/sources/2026-05-17/source-mario-nawfal-weichert-russia-ukraine-escalating-iran-war-restarting-2026-05-17.md:jcpoa:5",
+        "narrative-geopolitics/archive/sources/2026-05-17/source-mario-nawfal-weichert-russia-ukraine-escalating-iran-war-restarting-2026-05-17.md:vietnam-war:4",
+        "narrative-geopolitics/archive/sources/2026-06-16/source-mario-nawfal-weichert-breaking-full-iran-mou-leaked-axios-2026-06-16.md:cold-war:17",
+        "narrative-geopolitics/archive/sources/2026-06-16/source-mario-nawfal-weichert-breaking-full-iran-mou-leaked-axios-2026-06-16.md:cold-war:19",
+        "narrative-geopolitics/archive/sources/2026-06-16/source-mario-nawfal-weichert-breaking-full-iran-mou-leaked-axios-2026-06-16.md:vietnam-war:13",
+        "narrative-geopolitics/archive/sources/2026-07-29/source-bibi-says-trump-meeting-was-the-best-china-arms-iran-with-400-manpads-2026-07-29.md:cold-war:3"
+      ],
+      "backtest_occurrence_ids": [],
+      "backtest_status": "complete-window"
+    }
+  ]
+}

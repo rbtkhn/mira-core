@@ -1,0 +1,91 @@
+{
+  "fixture_version": "1.0",
+  "cases": 10,
+  "reference_precision": 0.8333333333333334,
+  "reference_recall": 0.625,
+  "attribution_accuracy": 1.0,
+  "mechanism_accuracy": 0.6,
+  "crosswalk_accuracy": 0.6,
+  "results": [
+    {
+      "id": "CAL-001",
+      "expected_reference": "iraq-war",
+      "detected_reference": "iraq-war",
+      "reference_match": true,
+      "attribution_match": true,
+      "mechanism_match": true
+    },
+    {
+      "id": "CAL-002",
+      "expected_reference": "cold-war",
+      "detected_reference": "cold-war",
+      "reference_match": true,
+      "attribution_match": true,
+      "mechanism_match": true
+    },
+    {
+      "id": "CAL-003",
+      "expected_reference": "jcpoa",
+      "detected_reference": "jcpoa",
+      "reference_match": true,
+      "attribution_match": true,
+      "mechanism_match": true
+    },
+    {
+      "id": "CAL-004",
+      "expected_reference": "renaissance-knowledge",
+      "detected_reference": null,
+      "reference_match": false,
+      "attribution_match": true,
+      "mechanism_match": false
+    },
+    {
+      "id": "CAL-005",
+      "expected_reference": "iranian-revolution",
+      "detected_reference": "iranian-revolution",
+      "reference_match": true,
+      "attribution_match": true,
+      "mechanism_match": true
+    },
+    {
+      "id": "CAL-006",
+      "expected_reference": "bay-of-pigs",
+      "detected_reference": null,
+      "reference_match": false,
+      "attribution_match": true,
+      "mechanism_match": false
+    },
+    {
+      "id": "CAL-007",
+      "expected_reference": null,
+      "detected_reference": "cold-war",
+      "reference_match": false,
+      "attribution_match": true,
+      "mechanism_match": false
+    },
+    {
+      "id": "CAL-008",
+      "expected_reference": null,
+      "detected_reference": null,
+      "reference_match": true,
+      "attribution_match": true,
+      "mechanism_match": true
+    },
+    {
+      "id": "CAL-009",
+      "expected_reference": "thucydides-trap",
+      "detected_reference": null,
+      "reference_match": false,
+      "attribution_match": true,
+      "mechanism_match": false
+    },
+    {
+      "id": "CAL-010",
+      "expected_reference": "jcpoa",
+      "detected_reference": "jcpoa",
+      "reference_match": true,
+      "attribution_match": true,
+      "mechanism_match": true
+    }
+  ]
+}

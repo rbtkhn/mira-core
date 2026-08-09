@@ -1,0 +1,143 @@
+{
+  "run_id": "run-20260803T193508Z",
+  "characterizations": [
+    {
+      "voice": "aguilar",
+      "characterization": "historical-reference function requires operator review",
+      "analytical_function": "other-review-required",
+      "characterization_confidence": "untested",
+      "backtest_sample_count": 0,
+      "backtest_date_count": 0,
+      "date_coverage": [],
+      "coverage_gaps": [],
+      "falsifier": "Operator review is required to define a discriminating observable.",
+      "forecast_linkage": [],
+      "source_ids": [],
+      "archive_paths": [],
+      "pilot_occurrence_ids": [],
+      "backtest_occurrence_ids": [],
+      "backtest_status": "complete-window"
+    },
+    {
+      "voice": "davis",
+      "characterization": "uses recent strategic precedent to interpret alliance dependency and escalation limits",
+      "analytical_function": "strategic-precedent",
+      "characterization_confidence": "untested",
+      "backtest_sample_count": 0,
+      "backtest_date_count": 0,
+      "date_coverage": [],
+      "coverage_gaps": [],
+      "falsifier": "A sample with repeated formal historical analogies rather than recent operational precedent would require reclassification.",
+      "forecast_linkage": [],
+      "source_ids": [],
+      "archive_paths": [],
+      "pilot_occurrence_ids": [
+        "narrative-geopolitics/archive/sources/2026-08-02/source-trump-tacos-again-what-s-next-lt-col-daniel-davis-2026-08-02.md:jcpoa:3"
+      ],
+      "backtest_occurrence_ids": [],
+      "backtest_status": "complete-window"
+    },
+    {
+      "voice": "johnson",
+      "characterization": "historical-reference function requires operator review",
+      "analytical_function": "other-review-required",
+      "characterization_confidence": "untested",
+      "backtest_sample_count": 0,
+      "backtest_date_count": 0,
+      "date_coverage": [],
+      "coverage_gaps": [],
+      "falsifier": "Operator review is required to define a discriminating observable.",
+      "forecast_linkage": [],
+      "source_ids": [],
+      "archive_paths": [],
+      "pilot_occurrence_ids": [
+        "narrative-geopolitics/archive/sources/2026-08-02/source-larry-johnson-i-called-it-off-trump-confirms-scrapped-iran-attack-amid-drone-impacts-in-kurdistan-2026-08-02.md:iranian-revolution:3",
+        "narrative-geopolitics/archive/sources/2026-08-02/source-larry-johnson-i-called-it-off-trump-confirms-scrapped-iran-attack-amid-drone-impacts-in-kurdistan-2026-08-02.md:jcpoa:3"
+      ],
+      "backtest_occurrence_ids": [],
+      "backtest_status": "complete-window"
+    },
+    {
+      "voice": "mcgovern",
+      "characterization": "historical-reference function requires operator review",
+      "analytical_function": "other-review-required",
+      "characterization_confidence": "untested",
+      "backtest_sample_count": 0,
+      "backtest_date_count": 0,
+      "date_coverage": [],
+      "coverage_gaps": [],
+      "falsifier": "Operator review is required to define a discriminating observable.",
+      "forecast_linkage": [],
+      "source_ids": [],
+      "archive_paths": [],
+      "pilot_occurrence_ids": [
+        "narrative-geopolitics/archive/sources/2026-08-02/source-ray-mcgovern-iran-s-gulf-shockwave-how-precision-strikes-just-collapsed-the-war-strategy-2026-08-02.md:iraq-war:3",
+        "narrative-geopolitics/archive/sources/2026-08-02/source-ray-mcgovern-iran-s-gulf-shockwave-how-precision-strikes-just-collapsed-the-war-strategy-2026-08-02.md:vietnam-war:3"
+      ],
+      "backtest_occurrence_ids": [],
+      "backtest_status": "complete-window"
+    },
+    {
+      "voice": "mercouris",
+      "characterization": "uses historical and military comparisons to interpret strategic miscalculation, alliance behavior, and changing operational effectiveness",
+      "analytical_function": "operational-comparison",
+      "characterization_confidence": "untested",
+      "backtest_sample_count": 0,
+      "backtest_date_count": 0,
+      "date_coverage": [],
+      "coverage_gaps": [],
+      "falsifier": "A sample where historical references do not compare military effectiveness, alliance behavior, or strategic miscalculation would weaken this characterization.",
+      "forecast_linkage": [],
+      "source_ids": [],
+      "archive_paths": [],
+      "pilot_occurrence_ids": [],
+      "backtest_occurrence_ids": [],
+      "backtest_status": "complete-window"
+    },
+    {
+      "voice": "ritter",
+      "characterization": "historical-reference function requires operator review",
+      "analytical_function": "other-review-required",
+      "characterization_confidence": "untested",
+      "backtest_sample_count": 0,
+      "backtest_date_count": 0,
+      "date_coverage": [],
+      "coverage_gaps": [],
+      "falsifier": "Operator review is required to define a discriminating observable.",
+      "forecast_linkage": [],
+      "source_ids": [],
+      "archive_paths": [],
+      "pilot_occurrence_ids": [
+        "narrative-geopolitics/archive/sources/2026-08-02/source-live-scott-ritter-iran-and-russia-wars-now-entering-most-dangerous-phase-2026-08-02.md:cold-war:4",
+        "narrative-geopolitics/archive/sources/2026-08-02/source-live-scott-ritter-iran-and-russia-wars-now-entering-most-dangerous-phase-2026-08-02.md:kuwait-liberation:4"
+      ],
+      "backtest_occurrence_ids": [],
+      "backtest_status": "complete-window"
+    },
+    {
+      "voice": "weichert",
+      "characterization": "historical-reference function requires operator review",
+      "analytical_function": "other-review-required",
+      "characterization_confidence": "untested",
+      "backtest_sample_count": 0,
+      "backtest_date_count": 0,
+      "date_coverage": [],
+      "coverage_gaps": [],
+      "falsifier": "Operator review is required to define a discriminating observable.",
+      "forecast_linkage": [],
+      "source_ids": [],
+      "archive_paths": [],
+      "pilot_occurrence_ids": [
+        "narrative-geopolitics/archive/sources/2026-08-02/source-trump-iran-begged-him-not-to-strike-as-they-are-ready-for-deal-2026-08-02.md:cold-war:3"
+      ],
+      "backtest_occurrence_ids": [],
+      "backtest_status": "complete-window"
+    }
+  ],
+  "backtest": {
+    "source_ids": [],
+    "archive_paths": [],
+    "dates": [],
+    "records": []
+  }
+}

@@ -1,0 +1,219 @@
+{
+  "run_id": "run-20260803T194235Z",
+  "sources": {
+    "narrative-geopolitics/archive/sources/2025-06-01/source-glenn-diesen-ray-mcgovern-america-between-a-new-peace-world-war-3-2025-06-01.md": {
+      "fingerprint": {
+        "archive_path": "narrative-geopolitics/archive/sources/2025-06-01/source-glenn-diesen-ray-mcgovern-america-between-a-new-peace-world-war-3-2025-06-01.md",
+        "detector_version": "3",
+        "file_hash": "22c2038e6e4a8f3b715f57de4224ccb28f05c6395814867613cf6d7645e8ac69",
+        "mechanism_version": "1",
+        "source_id": "narrative-geopolitics/archive/sources/2025-06-01/source-glenn-diesen-ray-mcgovern-america-between-a-new-peace-world-war-3-2025-06-01.md",
+        "taxonomy_version": "2",
+        "voice_scope": "johnson,mcgovern,ritter,weichert"
+      },
+      "record_count": 14,
+      "status": "landed"
+    },
+    "narrative-geopolitics/archive/sources/2025-06-10/source-glenn-diesen-scott-ritter-scott-ritter-dangerous-endgame-in-ukraine-collapse-or-escalation-2025-06-10.md": {
+      "fingerprint": {
+        "archive_path": "narrative-geopolitics/archive/sources/2025-06-10/source-glenn-diesen-scott-ritter-scott-ritter-dangerous-endgame-in-ukraine-collapse-or-escalation-2025-06-10.md",
+        "detector_version": "3",
+        "file_hash": "80fd7881ca58a907d80f93cb282a4fd2c93b67c4b04369b1e568a88c88f581b0",
+        "mechanism_version": "1",
+        "source_id": "narrative-geopolitics/archive/sources/2025-06-10/source-glenn-diesen-scott-ritter-scott-ritter-dangerous-endgame-in-ukraine-collapse-or-escalation-2025-06-10.md",
+        "taxonomy_version": "2",
+        "voice_scope": "johnson,mcgovern,ritter,weichert"
+      },
+      "record_count": 1,
+      "status": "landed"
+    },
+    "narrative-geopolitics/archive/sources/2025-06-16/source-glenn-diesen-larry-johnson-larry-johnson-trump-negotiator-or-warmonger-2025-06-16.md": {
+      "fingerprint": {
+        "archive_path": "narrative-geopolitics/archive/sources/2025-06-16/source-glenn-diesen-larry-johnson-larry-johnson-trump-negotiator-or-warmonger-2025-06-16.md",
+        "detector_version": "3",
+        "file_hash": "3de159be08a47d2ccb3fa87c110570b0092bafa42fcfac425936cb9242e79fd8",
+        "mechanism_version": "1",
+        "source_id": "narrative-geopolitics/archive/sources/2025-06-16/source-glenn-diesen-larry-johnson-larry-johnson-trump-negotiator-or-warmonger-2025-06-16.md",
+        "taxonomy_version": "2",
+        "voice_scope": "johnson,mcgovern,ritter,weichert"
+      },
+      "record_count": 1,
+      "status": "landed"
+    },
+    "narrative-geopolitics/archive/sources/2025-11-04/source-judging-freedom-ritter-natos-ukraine-strategy-is-collapsing-2025-11-04.md": {
+      "fingerprint": {
+        "archive_path": "narrative-geopolitics/archive/sources/2025-11-04/source-judging-freedom-ritter-natos-ukraine-strategy-is-collapsing-2025-11-04.md",
+        "detector_version": "3",
+        "file_hash": "cf6f571da72353596157d4eddb6a34a7711f456d786b245501cc25f5cc8472c3",
+        "mechanism_version": "1",
+        "source_id": "narrative-geopolitics/archive/sources/2025-11-04/source-judging-freedom-ritter-natos-ukraine-strategy-is-collapsing-2025-11-04.md",
+        "taxonomy_version": "2",
+        "voice_scope": "johnson,mcgovern,ritter,weichert"
+      },
+      "record_count": 0,
+      "status": "landed"
+    },
+    "narrative-geopolitics/archive/sources/2025-11-23/source-glenn-diesen-ray-mcgovern-zelensky-s-dilemma-bad-peace-or-total-defeat-2025-11-23.md": {
+      "fingerprint": {
+        "archive_path": "narrative-geopolitics/archive/sources/2025-11-23/source-glenn-diesen-ray-mcgovern-zelensky-s-dilemma-bad-peace-or-total-defeat-2025-11-23.md",
+        "detector_version": "3",
+        "file_hash": "65251e1ecb96a773a98eb80af9e9a949276f4b9d3737cf7fd216233a1fcb5f52",
+        "mechanism_version": "1",
+        "source_id": "narrative-geopolitics/archive/sources/2025-11-23/source-glenn-diesen-ray-mcgovern-zelensky-s-dilemma-bad-peace-or-total-defeat-2025-11-23.md",
+        "taxonomy_version": "2",
+        "voice_scope": "johnson,mcgovern,ritter,weichert"
+      },
+      "record_count": 4,
+      "status": "landed"
+    },
+    "narrative-geopolitics/archive/sources/2026-03-16/source-daniel-davis-scott-ritter-danny-davis-combat-vets-can-the-us-force-hormuz-open-2026-03-16.md": {
+      "fingerprint": {
+        "archive_path": "narrative-geopolitics/archive/sources/2026-03-16/source-daniel-davis-scott-ritter-danny-davis-combat-vets-can-the-us-force-hormuz-open-2026-03-16.md",
+        "detector_version": "3",
+        "file_hash": "b05b1b7fddc57d3bb574a4ce428b6112963e48636008e89af20e46d74ce8c67b",
+        "mechanism_version": "1",
+        "source_id": "narrative-geopolitics/archive/sources/2026-03-16/source-daniel-davis-scott-ritter-danny-davis-combat-vets-can-the-us-force-hormuz-open-2026-03-16.md",
+        "taxonomy_version": "2",
+        "voice_scope": "johnson,mcgovern,ritter,weichert"
+      },
+      "record_count": 1,
+      "status": "landed"
+    },
+    "narrative-geopolitics/archive/sources/2026-05-17/source-mario-nawfal-weichert-russia-ukraine-escalating-iran-war-restarting-2026-05-17.md": {
+      "fingerprint": {
+        "archive_path": "narrative-geopolitics/archive/sources/2026-05-17/source-mario-nawfal-weichert-russia-ukraine-escalating-iran-war-restarting-2026-05-17.md",
+        "detector_version": "3",
+        "file_hash": "67ef10a6993c5db10ccf834a28085d5543f055311b89cde8cd297393cb79d20d",
+        "mechanism_version": "1",
+        "source_id": "narrative-geopolitics/archive/sources/2026-05-17/source-mario-nawfal-weichert-russia-ukraine-escalating-iran-war-restarting-2026-05-17.md",
+        "taxonomy_version": "2",
+        "voice_scope": "johnson,mcgovern,ritter,weichert"
+      },
+      "record_count": 3,
+      "status": "landed"
+    },
+    "narrative-geopolitics/archive/sources/2026-05-18/source-consortium-news-russia-debate-scott-ritter-vs-ray-mcgovern-2026-05-18.md": {
+      "fingerprint": {
+        "archive_path": "narrative-geopolitics/archive/sources/2026-05-18/source-consortium-news-russia-debate-scott-ritter-vs-ray-mcgovern-2026-05-18.md",
+        "detector_version": "3",
+        "file_hash": "0881e09c0a0003bdd5ceb4515dfe881bcad870cd8859e24a72c72e6f94353553",
+        "mechanism_version": "1",
+        "source_id": "narrative-geopolitics/archive/sources/2026-05-18/source-consortium-news-russia-debate-scott-ritter-vs-ray-mcgovern-2026-05-18.md",
+        "taxonomy_version": "2",
+        "voice_scope": "johnson,mcgovern,ritter,weichert"
+      },
+      "record_count": 1,
+      "status": "landed"
+    },
+    "narrative-geopolitics/archive/sources/2026-05-18/source-dialogue-works-larry-johnson-giant-mushroom-cloud-blasts-over-israeli-defense-company-what-we-know-2026-05-18.md": {
+      "fingerprint": {
+        "archive_path": "narrative-geopolitics/archive/sources/2026-05-18/source-dialogue-works-larry-johnson-giant-mushroom-cloud-blasts-over-israeli-defense-company-what-we-know-2026-05-18.md",
+        "detector_version": "3",
+        "file_hash": "b26d456602eaf007e9d194fe5edbd24d575b4ee98bc18fba746871eea3359293",
+        "mechanism_version": "1",
+        "source_id": "narrative-geopolitics/archive/sources/2026-05-18/source-dialogue-works-larry-johnson-giant-mushroom-cloud-blasts-over-israeli-defense-company-what-we-know-2026-05-18.md",
+        "taxonomy_version": "2",
+        "voice_scope": "johnson,mcgovern,ritter,weichert"
+      },
+      "record_count": 1,
+      "status": "landed"
+    },
+    "narrative-geopolitics/archive/sources/2026-06-16/source-mario-nawfal-weichert-breaking-full-iran-mou-leaked-axios-2026-06-16.md": {
+      "fingerprint": {
+        "archive_path": "narrative-geopolitics/archive/sources/2026-06-16/source-mario-nawfal-weichert-breaking-full-iran-mou-leaked-axios-2026-06-16.md",
+        "detector_version": "3",
+        "file_hash": "a473f1187b5dc73eb4544eb34d72a0bde8ecfdabd590639f863f00b0cded927a",
+        "mechanism_version": "1",
+        "source_id": "narrative-geopolitics/archive/sources/2026-06-16/source-mario-nawfal-weichert-breaking-full-iran-mou-leaked-axios-2026-06-16.md",
+        "taxonomy_version": "2",
+        "voice_scope": "johnson,mcgovern,ritter,weichert"
+      },
+      "record_count": 3,
+      "status": "landed"
+    },
+    "narrative-geopolitics/archive/sources/2026-06-19/source-dialogue-works-seyed-m-marandi-larry-johnson-iran-shuts-down-geneva-talks-mou-2026-06-19.md": {
+      "fingerprint": {
+        "archive_path": "narrative-geopolitics/archive/sources/2026-06-19/source-dialogue-works-seyed-m-marandi-larry-johnson-iran-shuts-down-geneva-talks-mou-2026-06-19.md",
+        "detector_version": "3",
+        "file_hash": "f1cc32e5a91f8ce3dea53343c41ff4d27f1a2d1322053b5b705138a4f49217ba",
+        "mechanism_version": "1",
+        "source_id": "narrative-geopolitics/archive/sources/2026-06-19/source-dialogue-works-seyed-m-marandi-larry-johnson-iran-shuts-down-geneva-talks-mou-2026-06-19.md",
+        "taxonomy_version": "2",
+        "voice_scope": "johnson,mcgovern,ritter,weichert"
+      },
+      "record_count": 0,
+      "status": "landed"
+    },
+    "narrative-geopolitics/archive/sources/2026-07-20/source-scott-ritter-graham-s-legacy-zelenskyy-s-blunder-trump-s-stupidity-2026-07-20.md": {
+      "fingerprint": {
+        "archive_path": "narrative-geopolitics/archive/sources/2026-07-20/source-scott-ritter-graham-s-legacy-zelenskyy-s-blunder-trump-s-stupidity-2026-07-20.md",
+        "detector_version": "3",
+        "file_hash": "d0e161b52c61362f53b3082f36032125095bcccf2b5bc4df8be9c66275cf6594",
+        "mechanism_version": "1",
+        "source_id": "narrative-geopolitics/archive/sources/2026-07-20/source-scott-ritter-graham-s-legacy-zelenskyy-s-blunder-trump-s-stupidity-2026-07-20.md",
+        "taxonomy_version": "2",
+        "voice_scope": "johnson,mcgovern,ritter,weichert"
+      },
+      "record_count": 2,
+      "status": "landed"
+    },
+    "narrative-geopolitics/archive/sources/2026-07-20/source-u-s-out-of-oil-yemeni-houthis-close-bab-el-mandab-ground-invasion-w-brandon-weichert-2026-07-20.md": {
+      "fingerprint": {
+        "archive_path": "narrative-geopolitics/archive/sources/2026-07-20/source-u-s-out-of-oil-yemeni-houthis-close-bab-el-mandab-ground-invasion-w-brandon-weichert-2026-07-20.md",
+        "detector_version": "3",
+        "file_hash": "29ba69ac46dfe092cad43c0c5e4ad83bd42d61ee1432c67ba40921c557a43062",
+        "mechanism_version": "1",
+        "source_id": "narrative-geopolitics/archive/sources/2026-07-20/source-u-s-out-of-oil-yemeni-houthis-close-bab-el-mandab-ground-invasion-w-brandon-weichert-2026-07-20.md",
+        "taxonomy_version": "2",
+        "voice_scope": "johnson,mcgovern,ritter,weichert"
+      },
+      "record_count": 0,
+      "status": "landed"
+    },
+    "narrative-geopolitics/archive/sources/2026-07-26/source-ray-mcgovern-yemen-strikes-on-saudi-are-rocking-across-the-gulf-2026-07-26.md": {
+      "fingerprint": {
+        "archive_path": "narrative-geopolitics/archive/sources/2026-07-26/source-ray-mcgovern-yemen-strikes-on-saudi-are-rocking-across-the-gulf-2026-07-26.md",
+        "detector_version": "3",
+        "file_hash": "3e813658bda848ced504c361167bbbb9ac1b7dbb90272bf8090849ca782902bd",
+        "mechanism_version": "1",
+        "source_id": "narrative-geopolitics/archive/sources/2026-07-26/source-ray-mcgovern-yemen-strikes-on-saudi-are-rocking-across-the-gulf-2026-07-26.md",
+        "taxonomy_version": "2",
+        "voice_scope": "johnson,mcgovern,ritter,weichert"
+      },
+      "record_count": 1,
+      "status": "landed"
+    },
+    "narrative-geopolitics/archive/sources/2026-07-28/source-larry-johnson-russia-s-naval-blockade-of-odessa-ukraine-s-attack-on-iranian-ship-2026-07-28.md": {
+      "fingerprint": {
+        "archive_path": "narrative-geopolitics/archive/sources/2026-07-28/source-larry-johnson-russia-s-naval-blockade-of-odessa-ukraine-s-attack-on-iranian-ship-2026-07-28.md",
+        "detector_version": "3",
+        "file_hash": "10165452b361479e5e1dbb9fbd5957aff5039c0bd9c8c96962c23efb646a7eac",
+        "mechanism_version": "1",
+        "source_id": "narrative-geopolitics/archive/sources/2026-07-28/source-larry-johnson-russia-s-naval-blockade-of-odessa-ukraine-s-attack-on-iranian-ship-2026-07-28.md",
+        "taxonomy_version": "2",
+        "voice_scope": "johnson,mcgovern,ritter,weichert"
+      },
+      "record_count": 0,
+      "status": "landed"
+    },
+    "narrative-geopolitics/archive/sources/2026-07-29/source-bibi-says-trump-meeting-was-the-best-china-arms-iran-with-400-manpads-2026-07-29.md": {
+      "fingerprint": {
+        "archive_path": "narrative-geopolitics/archive/sources/2026-07-29/source-bibi-says-trump-meeting-was-the-best-china-arms-iran-with-400-manpads-2026-07-29.md",
+        "detector_version": "3",
+        "file_hash": "080b501a207de2e821e0d3669ee2355b06539f2c069f5810abed54f78c1f1631",
+        "mechanism_version": "1",
+        "source_id": "narrative-geopolitics/archive/sources/2026-07-29/source-bibi-says-trump-meeting-was-the-best-china-arms-iran-with-400-manpads-2026-07-29.md",
+        "taxonomy_version": "2",
+        "voice_scope": "johnson,mcgovern,ritter,weichert"
+      },
+      "record_count": 1,
+      "status": "landed"
+    }
+  },
+  "versions": {
+    "detector": "3",
+    "mechanism": "1",
+    "schema": "2",
+    "taxonomy": "2"
+  }
+}

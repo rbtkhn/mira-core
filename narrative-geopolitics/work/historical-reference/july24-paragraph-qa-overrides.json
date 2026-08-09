@@ -1,0 +1,70 @@
+{
+  "overrides": {
+    "narrative-geopolitics/archive/sources/2026-07-24/source-amb-chas-freeman-iran-warns-of-regional-blackouts-after-trump-threatens-to-bomb-its-infrastructure-2026-07-24.md:cuba-embargo:3": {
+      "review_status": "accepted",
+      "review_note": "Accepted for Freeman voice use. The Cuba embargo reference is in Freeman's continuous answer at raw source line 120.",
+      "reviewed_by": "codex",
+      "reviewed_at": "2026-07-27"
+    },
+    "narrative-geopolitics/archive/sources/2026-07-24/source-amb-chas-freeman-iran-warns-of-regional-blackouts-after-trump-threatens-to-bomb-its-infrastructure-2026-07-24.md:iranian-revolution:3": {
+      "review_status": "accepted",
+      "review_note": "Accepted for Freeman voice use. The Islamic Revolution comparison is in Freeman's continuous answer at raw source lines 122-123.",
+      "reviewed_by": "codex",
+      "reviewed_at": "2026-07-27"
+    },
+    "narrative-geopolitics/archive/sources/2026-07-24/source-amb-chas-freeman-iran-warns-of-regional-blackouts-after-trump-threatens-to-bomb-its-infrastructure-2026-07-24.md:iraq-war:3": {
+      "review_status": "rejected",
+      "review_note": "Rejected for this reference class. Raw source lines 96-97 discuss Iraq's relationship to Kuwaiti independence, not the 2003 Iraq War.",
+      "reviewed_by": "codex",
+      "reviewed_at": "2026-07-27"
+    },
+    "narrative-geopolitics/archive/sources/2026-07-24/source-amb-chas-freeman-iran-warns-of-regional-blackouts-after-trump-threatens-to-bomb-its-infrastructure-2026-07-24.md:jcpoa:3": {
+      "review_status": "rejected",
+      "review_note": "Rejected for Freeman voice use. The candidate is a false positive around a Saudi nuclear deal; no explicit JCPOA passage is present in the reviewed Freeman turn.",
+      "reviewed_by": "codex",
+      "reviewed_at": "2026-07-27"
+    },
+    "narrative-geopolitics/archive/sources/2026-07-24/source-amb-chas-freeman-iran-warns-of-regional-blackouts-after-trump-threatens-to-bomb-its-infrastructure-2026-07-24.md:kuwait-liberation:3": {
+      "review_status": "accepted",
+      "review_note": "Accepted for Freeman voice use. Freeman describes the coalition liberation of Kuwait and the Iraq claim at raw source lines 96-97.",
+      "reviewed_by": "codex",
+      "reviewed_at": "2026-07-27"
+    },
+    "narrative-geopolitics/archive/sources/2026-07-24/source-amb-chas-freeman-iran-warns-of-regional-blackouts-after-trump-threatens-to-bomb-its-infrastructure-2026-07-24.md:october-7:3": {
+      "review_status": "rejected",
+      "review_note": "Rejected for Freeman voice use. The October 7 reference occurs in the host's Netanyahu question/continuation at raw source line 105, not in a Freeman turn.",
+      "reviewed_by": "codex",
+      "reviewed_at": "2026-07-27"
+    },
+    "narrative-geopolitics/archive/sources/2026-07-24/source-amb-chas-freeman-iran-warns-of-regional-blackouts-after-trump-threatens-to-bomb-its-infrastructure-2026-07-24.md:renaissance-knowledge:3": {
+      "review_status": "accepted",
+      "review_note": "Accepted for Freeman voice use. Freeman discusses Renaissance transmission of Greek and Roman knowledge at raw source lines 111-113.",
+      "reviewed_by": "codex",
+      "reviewed_at": "2026-07-27"
+    },
+    "narrative-geopolitics/archive/sources/2026-07-24/source-pointless-violence-fake-diplomacy-us-strategy-in-iran-chas-freeman-lt-col-daniel-davis-2026-07-24.md:bay-of-pigs:4": {
+      "review_status": "accepted",
+      "review_note": "Accepted for Freeman voice use. Freeman makes the Bay of Pigs/Castro comparison at raw source line 148.",
+      "reviewed_by": "codex",
+      "reviewed_at": "2026-07-27"
+    },
+    "narrative-geopolitics/archive/sources/2026-07-24/source-pointless-violence-fake-diplomacy-us-strategy-in-iran-chas-freeman-lt-col-daniel-davis-2026-07-24.md:iraq-war:4": {
+      "review_status": "rejected",
+      "review_note": "Rejected for this reference class. The reviewed candidate paragraph does not contain a Freeman-attributed 2003 Iraq War reference.",
+      "reviewed_by": "codex",
+      "reviewed_at": "2026-07-27"
+    },
+    "narrative-geopolitics/archive/sources/2026-07-24/source-pointless-violence-fake-diplomacy-us-strategy-in-iran-chas-freeman-lt-col-daniel-davis-2026-07-24.md:jcpoa:4": {
+      "review_status": "rejected",
+      "review_note": "Rejected for Freeman voice use. The explicit JCPOA mention at raw source line 70 is in host Daniel Davis's turn.",
+      "reviewed_by": "codex",
+      "reviewed_at": "2026-07-27"
+    },
+    "narrative-geopolitics/archive/sources/2026-07-24/source-pointless-violence-fake-diplomacy-us-strategy-in-iran-chas-freeman-lt-col-daniel-davis-2026-07-24.md:nixon-kissinger:4": {
+      "review_status": "accepted",
+      "review_note": "Accepted for Freeman voice use. Freeman invokes Henry Kissinger's remark in the continuous answer at raw source line 97.",
+      "reviewed_by": "codex",
+      "reviewed_at": "2026-07-27"
+    }
+  }
+}

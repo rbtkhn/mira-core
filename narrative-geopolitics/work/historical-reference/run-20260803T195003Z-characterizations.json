@@ -1,0 +1,45 @@
+{
+  "run_id": "run-20260803T195003Z",
+  "characterizations": [
+    {
+      "voice": "johnson",
+      "characterization": "historical-reference function requires operator review",
+      "analytical_function": "other-review-required",
+      "characterization_confidence": "untested",
+      "backtest_sample_count": 0,
+      "backtest_date_count": 0,
+      "date_coverage": [],
+      "coverage_gaps": [],
+      "falsifier": "Operator review is required to define a discriminating observable.",
+      "forecast_linkage": [],
+      "source_ids": [],
+      "archive_paths": [],
+      "pilot_occurrence_ids": [],
+      "backtest_occurrence_ids": [],
+      "backtest_status": "complete-window"
+    },
+    {
+      "voice": "mcgovern",
+      "characterization": "historical-reference function requires operator review",
+      "analytical_function": "other-review-required",
+      "characterization_confidence": "untested",
+      "backtest_sample_count": 0,
+      "backtest_date_count": 0,
+      "date_coverage": [],
+      "coverage_gaps": [],
+      "falsifier": "Operator review is required to define a discriminating observable.",
+      "forecast_linkage": [],
+      "source_ids": [],
+      "archive_paths": [],
+      "pilot_occurrence_ids": [],
+      "backtest_occurrence_ids": [],
+      "backtest_status": "complete-window"
+    }
+  ],
+  "backtest": {
+    "source_ids": [],
+    "archive_paths": [],
+    "dates": [],
+    "records": []
+  }
+}

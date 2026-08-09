@@ -1,0 +1,76 @@
+{
+  "run_id": "run-20260803T195207Z",
+  "sources": {
+    "narrative-geopolitics/archive/sources/2025-06-16/source-glenn-diesen-larry-johnson-larry-johnson-trump-negotiator-or-warmonger-2025-06-16.md": {
+      "fingerprint": {
+        "archive_path": "narrative-geopolitics/archive/sources/2025-06-16/source-glenn-diesen-larry-johnson-larry-johnson-trump-negotiator-or-warmonger-2025-06-16.md",
+        "detector_version": "3",
+        "file_hash": "3de159be08a47d2ccb3fa87c110570b0092bafa42fcfac425936cb9242e79fd8",
+        "mechanism_version": "1",
+        "source_id": "narrative-geopolitics/archive/sources/2025-06-16/source-glenn-diesen-larry-johnson-larry-johnson-trump-negotiator-or-warmonger-2025-06-16.md",
+        "taxonomy_version": "2",
+        "voice_scope": "johnson"
+      },
+      "record_count": 1,
+      "status": "landed"
+    },
+    "narrative-geopolitics/archive/sources/2026-05-18/source-dialogue-works-larry-johnson-giant-mushroom-cloud-blasts-over-israeli-defense-company-what-we-know-2026-05-18.md": {
+      "fingerprint": {
+        "archive_path": "narrative-geopolitics/archive/sources/2026-05-18/source-dialogue-works-larry-johnson-giant-mushroom-cloud-blasts-over-israeli-defense-company-what-we-know-2026-05-18.md",
+        "detector_version": "3",
+        "file_hash": "b26d456602eaf007e9d194fe5edbd24d575b4ee98bc18fba746871eea3359293",
+        "mechanism_version": "1",
+        "source_id": "narrative-geopolitics/archive/sources/2026-05-18/source-dialogue-works-larry-johnson-giant-mushroom-cloud-blasts-over-israeli-defense-company-what-we-know-2026-05-18.md",
+        "taxonomy_version": "2",
+        "voice_scope": "johnson"
+      },
+      "record_count": 1,
+      "status": "landed"
+    },
+    "narrative-geopolitics/archive/sources/2026-06-19/source-dialogue-works-seyed-m-marandi-larry-johnson-iran-shuts-down-geneva-talks-mou-2026-06-19.md": {
+      "fingerprint": {
+        "archive_path": "narrative-geopolitics/archive/sources/2026-06-19/source-dialogue-works-seyed-m-marandi-larry-johnson-iran-shuts-down-geneva-talks-mou-2026-06-19.md",
+        "detector_version": "3",
+        "file_hash": "f1cc32e5a91f8ce3dea53343c41ff4d27f1a2d1322053b5b705138a4f49217ba",
+        "mechanism_version": "1",
+        "source_id": "narrative-geopolitics/archive/sources/2026-06-19/source-dialogue-works-seyed-m-marandi-larry-johnson-iran-shuts-down-geneva-talks-mou-2026-06-19.md",
+        "taxonomy_version": "2",
+        "voice_scope": "johnson"
+      },
+      "record_count": 0,
+      "status": "landed"
+    },
+    "narrative-geopolitics/archive/sources/2026-07-28/source-larry-johnson-russia-s-naval-blockade-of-odessa-ukraine-s-attack-on-iranian-ship-2026-07-28.md": {
+      "fingerprint": {
+        "archive_path": "narrative-geopolitics/archive/sources/2026-07-28/source-larry-johnson-russia-s-naval-blockade-of-odessa-ukraine-s-attack-on-iranian-ship-2026-07-28.md",
+        "detector_version": "3",
+        "file_hash": "10165452b361479e5e1dbb9fbd5957aff5039c0bd9c8c96962c23efb646a7eac",
+        "mechanism_version": "1",
+        "source_id": "narrative-geopolitics/archive/sources/2026-07-28/source-larry-johnson-russia-s-naval-blockade-of-odessa-ukraine-s-attack-on-iranian-ship-2026-07-28.md",
+        "taxonomy_version": "2",
+        "voice_scope": "johnson"
+      },
+      "record_count": 0,
+      "status": "landed"
+    },
+    "narrative-geopolitics/archive/sources/2026-08-02/source-larry-johnson-i-called-it-off-trump-confirms-scrapped-iran-attack-amid-drone-impacts-in-kurdistan-2026-08-02.md": {
+      "fingerprint": {
+        "archive_path": "narrative-geopolitics/archive/sources/2026-08-02/source-larry-johnson-i-called-it-off-trump-confirms-scrapped-iran-attack-amid-drone-impacts-in-kurdistan-2026-08-02.md",
+        "detector_version": "3",
+        "file_hash": "921daadcebabf6d57db4b894a93a6ec7ac72e7621613665514a3f5bcd55c48e5",
+        "mechanism_version": "1",
+        "source_id": "narrative-geopolitics/archive/sources/2026-08-02/source-larry-johnson-i-called-it-off-trump-confirms-scrapped-iran-attack-amid-drone-impacts-in-kurdistan-2026-08-02.md",
+        "taxonomy_version": "2",
+        "voice_scope": "johnson"
+      },
+      "record_count": 2,
+      "status": "landed"
+    }
+  },
+  "versions": {
+    "detector": "3",
+    "mechanism": "1",
+    "schema": "2",
+    "taxonomy": "2"
+  }
+}

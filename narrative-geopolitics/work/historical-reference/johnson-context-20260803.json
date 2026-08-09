@@ -1,0 +1,21 @@
+{
+  "packet_id": "HCP-e94e1aa9f9a7720d",
+  "packet_type": "historical-context",
+  "status": "bounded-context-only",
+  "source_run_id": "run-20260803T195453Z",
+  "date": "2026-08-03",
+  "voices": [
+    "johnson"
+  ],
+  "crisis_filter": null,
+  "record_limit": 12,
+  "record_count": 0,
+  "records": [],
+  "guardrails": [
+    "Historical context is source-derived and not historical verification.",
+    "Provisional attribution remains provisional.",
+    "This packet does not overwrite synthesis prose.",
+    "This packet must not be treated as analytical-quality or forecast-success evidence."
+  ],
+  "created_at": "2026-08-03T20:01:05.693283+00:00"
+}

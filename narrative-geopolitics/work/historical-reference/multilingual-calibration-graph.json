@@ -1,0 +1,3288 @@
+{
+  "nodes": [
+    {
+      "id": "reference:bay-of-pigs",
+      "type": "reference"
+    },
+    {
+      "id": "reference:cold-war",
+      "type": "reference"
+    },
+    {
+      "id": "reference:cuba-embargo",
+      "type": "reference"
+    },
+    {
+      "id": "reference:iranian-revolution",
+      "type": "reference"
+    },
+    {
+      "id": "reference:iraq-war",
+      "type": "reference"
+    },
+    {
+      "id": "reference:jcpoa",
+      "type": "reference"
+    },
+    {
+      "id": "reference:kuwait-liberation",
+      "type": "reference"
+    },
+    {
+      "id": "reference:nixon-kissinger",
+      "type": "reference"
+    },
+    {
+      "id": "reference:october-7",
+      "type": "reference"
+    },
+    {
+      "id": "reference:renaissance-knowledge",
+      "type": "reference"
+    },
+    {
+      "id": "reference:thucydides-trap",
+      "type": "reference"
+    },
+    {
+      "id": "reference:vietnam-war",
+      "type": "reference"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2025-01-07/source-judging-freedom-amb-chas-freeman-is-israel-destroying-itself-2025-01-07.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2025-01-17/source-dialogue-works-amb-chas-freeman-the-delusional-policies-driving-america-s-decline-2025-01-17.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2025-01-21/source-judging-freedom-amb-chas-freeman-a-ceasefire-or-a-pause-2025-01-21.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2025-01-24/source-dialogue-works-amb-chas-freeman-is-the-world-on-the-brink-of-total-chaos-2025-01-24.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2025-01-28/source-judging-freedom-amb-chas-freeman-netanyahu-on-the-ropes-2025-01-28.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2025-02-04/source-judging-freedom-amb-chas-freeman-trump-and-usaid-2025-02-04.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2025-02-05/source-daniel-davis-trump-and-the-takeover-of-gaza-w-ambassador-chas-freeman-2025-02-05.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2025-02-07/source-dialogue-works-amb-chas-freeman-can-the-u-s-take-control-of-gaza-2025-02-07.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2025-02-18/source-judging-freedom-amb-charles-freeman-trump-russia-and-europe-2025-02-18.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2025-02-25/source-judging-freedom-amb-chas-freeman-trump-and-angry-europe-2025-02-25.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2025-03-01/source-india-global-left-trump-zelensky-oval-office-chas-freeman-2025-03-01.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2025-03-12/source-glenn-diesen-chas-freeman-minsk-3-ceasefire-without-political-settlement-2025-03-12.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2025-03-12/source-judging-freedom-amb-charles-freeman-how-natos-strategy-is-failed-in-ukraine-2025-03-12.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2025-03-21/source-dialogue-works-amb-chas-freeman-on-trump-keeping-promises-or-breaking-them-2025-03-21.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2025-03-25/source-judging-freedom-amb-charles-freeman-will-russia-help-iran-if-us-attacks-2025-03-25.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2025-03-28/source-dialogue-works-amb-chas-freeman-will-iran-get-backup-from-russia-and-china-against-the-u-s-2025-03-28.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2025-04-04/source-dialogue-works-mohammad-marandi-larry-wilkerson-and-chas-freeman-on-middle-east-erupts-iran-challenges-ultimatum-2025-04-04.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2025-04-04/source-glenn-diesen-chas-freeman-diplomacy-at-an-impasse-trump-escalates-actions-against-russia-and-iran-2025-04-04.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2025-04-18/source-dialogue-works-mohammad-marandi-larry-wilkerson-and-chas-freeman-talks-or-total-war-clock-ticks-for-iran-and-u-s-2025-04-18.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2025-04-22/source-judging-freedom-amb-charles-freeman-will-china-cave-on-trumps-tariffs-2025-04-22.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2025-05-02/source-dialogue-works-mohammad-marandi-and-amb-chas-freeman-ticking-toward-war-u-s-and-iran-at-a-dangerous-crossroads-2025-05-02.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2025-05-09/source-dialogue-works-amb-chas-freeman-and-trita-parsi-trump-s-wake-up-call-yemen-s-chaos-forcing-a-deal-with-iran-2025-05-09.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2025-05-12/source-glenn-diesen-chas-freeman-the-lies-we-tell-ourselves-about-china-2025-05-12.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2025-05-15/source-dialogue-works-amb-chas-freeman-trump-s-backroom-deal-with-iran-what-s-really-happening-in-istanbul-2025-05-15.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2025-05-15/source-india-global-left-trump-gulf-visit-us-israel-gulf-shift-chas-freeman-2025-05-15.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2025-05-24/source-dialogue-works-amb-chas-freeman-the-dangerous-myths-we-tell-ourselves-about-china-russia-and-iran-2025-05-24.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2025-05-28/source-judging-freedom-amb-charles-freeman-does-putin-fear-trump-2025-05-28.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2025-05-30/source-dialogue-works-lawrence-wilkerson-larry-wilkerson-chas-freeman-why-america-s-missing-grand-strategy-could-be-a-global-disaster-2025-05-30.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2025-05-31/source-glenn-diesen-chas-freeman-the-collapse-of-american-diplomacy-2025-05-31.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2025-06-04/source-judging-freedom-amb-charles-freeman-is-hegseth-picking-a-fight-with-china-2025-06-04.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2025-06-14/source-dialogue-works-col-larry-wilkerson-and-chas-freeman-israel-s-attack-on-iran-and-its-devastating-consequences-2025-06-14.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2025-06-17/source-glenn-diesen-chas-freeman-iran-attacked-turning-point-for-russia-and-the-world-2025-06-17.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2025-06-18/source-judging-freedom-amb-charles-freeman-what-remains-of-the-resistance-2025-06-18.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2025-06-21/source-india-global-left-push-war-iran-chas-freeman-2025-06-21.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2025-06-22/source-dialogue-works-col-larry-wilkerson-amb-chas-freeman-and-trita-parsi-the-us-could-face-a-war-it-can-t-win-2025-06-22.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2025-06-25/source-dialogue-works-amb-chas-freeman-turning-point-in-global-power-iran-attacked-russia-reacts-2025-06-25.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2025-07-11/source-dialogue-works-amb-chas-freeman-war-zones-can-china-ukraine-gaza-and-iran-ever-achieve-peace-2025-07-11.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2025-07-15/source-judging-freedom-amb-charles-freeman-is-middle-east-peace-possible-2025-07-15.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2025-07-18/source-dialogue-works-col-larry-wilkerson-and-chas-freeman-ww3-imminent-shocking-signs-we-re-on-the-brink-of-global-war-2025-07-18.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2025-07-26/source-dialogue-works-amb-chas-freeman-and-trita-parsi-how-the-iran-israel-war-changed-everything-overnight-2025-07-26.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2025-08-01/source-dialogue-works-amb-chas-freeman-gaza-s-silent-hell-genocide-and-starvation-in-real-time-2025-08-01.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2025-08-04/source-glenn-diesen-chas-freeman-israel-is-overextended-exhausted-and-facing-blowback-2025-08-04.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2025-08-08/source-dialogue-works-amb-chas-freeman-trump-s-next-move-does-he-even-know-2025-08-08.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2025-08-14/source-glenn-diesen-chas-freeman-america-s-global-role-after-the-ukraine-proxy-war-2025-08-14.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2025-08-15/source-dialogue-works-amb-chas-freeman-and-trita-parsi-the-next-israel-iran-war-is-coming-2025-08-15.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2025-08-19/source-judging-freedom-amb-chas-freeman-can-the-us-bring-peace-2025-08-19.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2025-08-29/source-dialogue-works-amb-chas-freeman-america-s-fatal-mistake-a-disaster-in-the-making-2025-08-29.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2025-09-05/source-dialogue-works-amb-chas-freeman-the-end-of-western-dominance-is-here-2025-09-05.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2025-09-11/source-glenn-diesen-chas-freeman-the-old-world-is-dying-the-new-world-struggles-to-be-born-2025-09-11.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2025-09-15/source-daniel-davis-u-s-foreign-policy-bad-under-biden-worse-with-trump-lt-col-daniel-davis-and-chas-freeman-2025-09-15.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2025-09-16/source-judging-freedom-amb-chas-freeman-how-dark-are-these-days-2025-09-16.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2025-09-26/source-dialogue-works-amb-chas-freeman-al-qaeda-gets-a-seat-at-the-un-2025-09-26.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2025-10-06/source-glenn-diesen-chas-freeman-coalition-of-the-deluded-pursues-war-with-russia-2025-10-06.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2025-10-07/source-judging-freedom-amb-chas-freeman-israel-near-collapse-2025-10-07.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2025-10-10/source-india-global-left-gaza-ceasefire-wont-last-chas-freeman-2025-10-10.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2025-10-17/source-dialogue-works-amb-chas-freeman-how-the-u-s-is-spiraling-toward-disaster-2025-10-17.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2025-10-25/source-glenn-diesen-chas-freeman-imperial-overstretch-500-years-of-dominance-come-to-an-end-2025-10-25.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2025-11-07/source-dialogue-works-amb-chas-freeman-mamdani-s-victory-development-in-the-levant-and-the-wol-2025-11-07.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2025-11-10/source-judging-freedom-freeman-trump-israel-or-america-first-2025-11-10.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2025-11-20/source-glenn-diesen-chas-freeman-fake-peace-political-collapse-and-major-wars-2025-11-20.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2025-11-25/source-judging-freedom-amb-chas-freeman-zelensky-s-self-caused-dilemma-2025-11-25.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2025-11-28/source-dialogue-works-amb-chas-freeman-national-guard-shooting-israel-s-force-first-approach-failing-russia-ukraine-2025-11-28.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2025-12-04/source-diesen-freeman-thucydides-trap-us-reaction-china-rise-2025-12-04.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2025-12-05/source-dialogue-works-amb-chas-freeman-israel-s-strategy-is-collapsing-eu-seems-paralyzed-ceding-the-future-to-china-2025-12-05.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2025-12-09/source-judging-freedom-freeman-does-anyone-want-peace-2025-12-09.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2025-12-12/source-dialogue-works-wilkerson-freeman-chain-reaction-2025-12-12.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2025-12-18/source-glenn-diesen-chas-freeman-age-of-wars-as-freedom-of-navigation-ends-2025-12-18.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2025-12-19/source-dialogue-works-freeman-parsi-middle-east-you-knew-disappearing-2025-12-19.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2026-01-02/source-dialogue-works-amb-chas-freeman-mohammad-marandi-trump-issues-warning-to-iran-tehran-fi-2026-01-02.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2026-01-07/source-glenn-diesen-chas-freeman-collapse-of-law-reason-return-to-war-2026-01-07.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2026-01-20/source-daniel-davis-iran-eu-trump-greenland-lt-col-daniel-davis-chas-freeman-2026-01-20.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2026-01-22/source-dialogue-works-amb-chas-freeman-iran-vows-huge-response-to-us-israel-attack-2026-01-22.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2026-02-06/source-dialogue-works-amb-chas-freeman-negotiations-or-the-brink-of-all-out-war-2026-02-06.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2026-02-17/source-glenn-diesen-chas-freeman-u-s-restoring-empire-war-on-eurasia-2026-02-17.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2026-02-24/source-india-global-left-war-iran-inevitable-chas-freeman-2026-02-24.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2026-02-24/source-judging-freedom-freeman-israel-pushes-us-into-another-endless-war-2026-02-24.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2026-02-27/source-dialogue-works-amb-chas-freeman-emergency-diplomacy-oman-s-fm-flies-to-washington-to-av-2026-02-27.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2026-03-01/source-glenn-diesen-chas-freeman-the-war-against-iran-could-destroy-the-u-s-republic-2026-03-01.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2026-03-06/source-daniel-davis-diplomacy-is-dead-w-iran-lt-col-daniel-davis-fmr-amb-chas-freeman-2026-03-06.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2026-03-06/source-dialogue-works-amb-chas-freeman-the-war-with-iran-is-breaking-everything-the-u-s-planne-2026-03-06.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2026-03-07/source-india-global-left-iran-strategy-pezeshkian-gulf-halt-chas-freeman-2026-03-07.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2026-03-20/source-dialogue-works-amb-chas-freeman-ground-troops-in-iran-this-could-collapse-netanyahu-s-s-2026-03-20.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2026-03-23/source-india-global-left-geo-historical-shift-chas-freeman-2026-03-23.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2026-03-27/source-dialogue-works-chas-freeman-if-troops-enter-iran-israel-s-entire-strategy-falls-a-2026-03-27.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2026-04-03/source-dialogue-works-amb-chas-freeman-trump-pushes-escalation-israel-s-strategy-collapses-ove-2026-04-03.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2026-04-13/source-daniel-davis-iran-war-whoever-drops-the-most-bombs-wins-lt-col-daniel-davis-chas-free-2026-04-13.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2026-04-14/source-judging-freedom-freeman-israels-strategy-collapsing-2026-04-14.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2026-04-21/source-judging-freedom-freeman-us-diplomacy-is-dead-2026-04-21.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2026-04-24/source-nima-freeman-israel-agenda-collapsing-2026-04-24.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2026-05-01/source-dialogue-works-amb-chas-freeman-israel-s-grand-plan-collapsed-in-record-time-2026-05-01.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2026-05-08/source-dialogue-works-freeman-hormuz-ceasefire-gulf-states-china-2026-05-08.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2026-05-11/source-india-global-left-four-endgames-iran-war-chas-freeman-2026-05-11.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2026-05-12/source-glenn-diesen-chas-freeman-trump-goes-to-beijing-after-historic-defeat-in-iran-2026-05-12.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2026-05-16/source-neutrality-studies-power-moves-east-china-teaches-usa-a-big-lesson-chas-freeman-2026-05-16.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2026-05-20/source-india-global-left-is-iran-now-a-world-power-chas-freeman-2026-05-20.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2026-05-25/source-glenn-diesen-chas-freeman-crisis-in-israel-iranian-nuclear-weapons-2026-05-25.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2026-05-29/source-dialogue-works-chas-freeman-hezbollah-strikes-israel-hard-israel-now-prepares-for-war-with-egypt-turkey-2026-05-29.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2026-06-02/source-judging-freedom-freeman-how-the-us-lost-geopolitical-primacy-2026-06-02.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2026-06-05/source-dialogue-works-freeman-israels-free-fall-on-all-fronts-2026-06-05.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2026-06-06/source-dialogue-works-freeman-the-greater-israel-project-is-collapsing-2026-06-06.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2026-06-06/source-glenn-diesen-chas-freeman-the-greater-israel-project-is-collapsing-2026-06-06.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2026-06-11/source-india-global-left-freeman-regional-fallout-us-iran-war-2026-06-11.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2026-06-12/source-dialogue-works-chas-freeman-era-impunity-israel-us-west-asia-over-2026-06-12.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2026-06-16/source-judging-freedom-freeman-if-trump-says-no-to-netanyahu-2026-06-16.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2026-06-19/source-dialogue-works-chas-freeman-israel-agenda-major-collapse-2026-06-19.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2026-06-23/source-judging-freedom-freeman-should-iran-trust-trump-2026-06-23.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2026-06-26/source-dialogue-works-chas-freeman-collapse-israel-agenda-2026-06-26.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2026-06-29/source-glenn-diesen-chas-freeman-us-iran-resume-war-israel-lebanon-civil-war-2026-06-29.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2026-07-24/source-amb-chas-freeman-iran-warns-of-regional-blackouts-after-trump-threatens-to-bomb-its-infrastructure-2026-07-24.md",
+      "type": "source"
+    },
+    {
+      "id": "source:narrative-geopolitics/archive/sources/2026-07-24/source-pointless-violence-fake-diplomacy-us-strategy-in-iran-chas-freeman-lt-col-daniel-davis-2026-07-24.md",
+      "type": "source"
+    },
+    {
+      "id": "voice:freeman",
+      "type": "voice"
+    }
+  ],
+  "edges": [
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-01-07/source-judging-freedom-amb-chas-freeman-is-israel-destroying-itself-2025-01-07.md",
+      "to": "reference:cold-war",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-01-17/source-dialogue-works-amb-chas-freeman-the-delusional-policies-driving-america-s-decline-2025-01-17.md",
+      "to": "reference:nixon-kissinger",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-01-17/source-dialogue-works-amb-chas-freeman-the-delusional-policies-driving-america-s-decline-2025-01-17.md",
+      "to": "reference:october-7",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-01-17/source-dialogue-works-amb-chas-freeman-the-delusional-policies-driving-america-s-decline-2025-01-17.md",
+      "to": "reference:vietnam-war",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-01-21/source-judging-freedom-amb-chas-freeman-a-ceasefire-or-a-pause-2025-01-21.md",
+      "to": "reference:jcpoa",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-01-24/source-dialogue-works-amb-chas-freeman-is-the-world-on-the-brink-of-total-chaos-2025-01-24.md",
+      "to": "reference:iranian-revolution",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-01-24/source-dialogue-works-amb-chas-freeman-is-the-world-on-the-brink-of-total-chaos-2025-01-24.md",
+      "to": "reference:jcpoa",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-01-24/source-dialogue-works-amb-chas-freeman-is-the-world-on-the-brink-of-total-chaos-2025-01-24.md",
+      "to": "reference:jcpoa",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-01-24/source-dialogue-works-amb-chas-freeman-is-the-world-on-the-brink-of-total-chaos-2025-01-24.md",
+      "to": "reference:october-7",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-01-24/source-dialogue-works-amb-chas-freeman-is-the-world-on-the-brink-of-total-chaos-2025-01-24.md",
+      "to": "reference:october-7",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-01-28/source-judging-freedom-amb-chas-freeman-netanyahu-on-the-ropes-2025-01-28.md",
+      "to": "reference:october-7",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-02-04/source-judging-freedom-amb-chas-freeman-trump-and-usaid-2025-02-04.md",
+      "to": "reference:jcpoa",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-02-04/source-judging-freedom-amb-chas-freeman-trump-and-usaid-2025-02-04.md",
+      "to": "reference:october-7",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-02-05/source-daniel-davis-trump-and-the-takeover-of-gaza-w-ambassador-chas-freeman-2025-02-05.md",
+      "to": "reference:iraq-war",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-02-05/source-daniel-davis-trump-and-the-takeover-of-gaza-w-ambassador-chas-freeman-2025-02-05.md",
+      "to": "reference:jcpoa",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-02-05/source-daniel-davis-trump-and-the-takeover-of-gaza-w-ambassador-chas-freeman-2025-02-05.md",
+      "to": "reference:jcpoa",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-02-07/source-dialogue-works-amb-chas-freeman-can-the-u-s-take-control-of-gaza-2025-02-07.md",
+      "to": "reference:jcpoa",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-02-07/source-dialogue-works-amb-chas-freeman-can-the-u-s-take-control-of-gaza-2025-02-07.md",
+      "to": "reference:nixon-kissinger",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-02-18/source-judging-freedom-amb-charles-freeman-trump-russia-and-europe-2025-02-18.md",
+      "to": "reference:october-7",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-02-25/source-judging-freedom-amb-chas-freeman-trump-and-angry-europe-2025-02-25.md",
+      "to": "reference:nixon-kissinger",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-03-01/source-india-global-left-trump-zelensky-oval-office-chas-freeman-2025-03-01.md",
+      "to": "reference:cold-war",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-03-01/source-india-global-left-trump-zelensky-oval-office-chas-freeman-2025-03-01.md",
+      "to": "reference:nixon-kissinger",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-03-12/source-glenn-diesen-chas-freeman-minsk-3-ceasefire-without-political-settlement-2025-03-12.md",
+      "to": "reference:cold-war",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-03-12/source-glenn-diesen-chas-freeman-minsk-3-ceasefire-without-political-settlement-2025-03-12.md",
+      "to": "reference:cold-war",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-03-12/source-glenn-diesen-chas-freeman-minsk-3-ceasefire-without-political-settlement-2025-03-12.md",
+      "to": "reference:jcpoa",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-03-12/source-glenn-diesen-chas-freeman-minsk-3-ceasefire-without-political-settlement-2025-03-12.md",
+      "to": "reference:nixon-kissinger",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-03-12/source-glenn-diesen-chas-freeman-minsk-3-ceasefire-without-political-settlement-2025-03-12.md",
+      "to": "reference:nixon-kissinger",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-03-12/source-judging-freedom-amb-charles-freeman-how-natos-strategy-is-failed-in-ukraine-2025-03-12.md",
+      "to": "reference:cold-war",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-03-21/source-dialogue-works-amb-chas-freeman-on-trump-keeping-promises-or-breaking-them-2025-03-21.md",
+      "to": "reference:jcpoa",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-03-25/source-judging-freedom-amb-charles-freeman-will-russia-help-iran-if-us-attacks-2025-03-25.md",
+      "to": "reference:iranian-revolution",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-03-25/source-judging-freedom-amb-charles-freeman-will-russia-help-iran-if-us-attacks-2025-03-25.md",
+      "to": "reference:iraq-war",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-03-25/source-judging-freedom-amb-charles-freeman-will-russia-help-iran-if-us-attacks-2025-03-25.md",
+      "to": "reference:nixon-kissinger",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-03-28/source-dialogue-works-amb-chas-freeman-will-iran-get-backup-from-russia-and-china-against-the-u-s-2025-03-28.md",
+      "to": "reference:cold-war",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-03-28/source-dialogue-works-amb-chas-freeman-will-iran-get-backup-from-russia-and-china-against-the-u-s-2025-03-28.md",
+      "to": "reference:cold-war",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-03-28/source-dialogue-works-amb-chas-freeman-will-iran-get-backup-from-russia-and-china-against-the-u-s-2025-03-28.md",
+      "to": "reference:jcpoa",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-03-28/source-dialogue-works-amb-chas-freeman-will-iran-get-backup-from-russia-and-china-against-the-u-s-2025-03-28.md",
+      "to": "reference:nixon-kissinger",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-03-28/source-dialogue-works-amb-chas-freeman-will-iran-get-backup-from-russia-and-china-against-the-u-s-2025-03-28.md",
+      "to": "reference:vietnam-war",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-04-04/source-dialogue-works-mohammad-marandi-larry-wilkerson-and-chas-freeman-on-middle-east-erupts-iran-challenges-ultimatum-2025-04-04.md",
+      "to": "reference:cold-war",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-04-04/source-dialogue-works-mohammad-marandi-larry-wilkerson-and-chas-freeman-on-middle-east-erupts-iran-challenges-ultimatum-2025-04-04.md",
+      "to": "reference:jcpoa",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-04-04/source-dialogue-works-mohammad-marandi-larry-wilkerson-and-chas-freeman-on-middle-east-erupts-iran-challenges-ultimatum-2025-04-04.md",
+      "to": "reference:jcpoa",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-04-04/source-glenn-diesen-chas-freeman-diplomacy-at-an-impasse-trump-escalates-actions-against-russia-and-iran-2025-04-04.md",
+      "to": "reference:cold-war",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-04-04/source-glenn-diesen-chas-freeman-diplomacy-at-an-impasse-trump-escalates-actions-against-russia-and-iran-2025-04-04.md",
+      "to": "reference:cold-war",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-04-04/source-glenn-diesen-chas-freeman-diplomacy-at-an-impasse-trump-escalates-actions-against-russia-and-iran-2025-04-04.md",
+      "to": "reference:iranian-revolution",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-04-04/source-glenn-diesen-chas-freeman-diplomacy-at-an-impasse-trump-escalates-actions-against-russia-and-iran-2025-04-04.md",
+      "to": "reference:jcpoa",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-04-04/source-glenn-diesen-chas-freeman-diplomacy-at-an-impasse-trump-escalates-actions-against-russia-and-iran-2025-04-04.md",
+      "to": "reference:nixon-kissinger",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-04-18/source-dialogue-works-mohammad-marandi-larry-wilkerson-and-chas-freeman-talks-or-total-war-clock-ticks-for-iran-and-u-s-2025-04-18.md",
+      "to": "reference:iraq-war",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-04-18/source-dialogue-works-mohammad-marandi-larry-wilkerson-and-chas-freeman-talks-or-total-war-clock-ticks-for-iran-and-u-s-2025-04-18.md",
+      "to": "reference:jcpoa",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-04-18/source-dialogue-works-mohammad-marandi-larry-wilkerson-and-chas-freeman-talks-or-total-war-clock-ticks-for-iran-and-u-s-2025-04-18.md",
+      "to": "reference:jcpoa",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-04-18/source-dialogue-works-mohammad-marandi-larry-wilkerson-and-chas-freeman-talks-or-total-war-clock-ticks-for-iran-and-u-s-2025-04-18.md",
+      "to": "reference:jcpoa",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-04-18/source-dialogue-works-mohammad-marandi-larry-wilkerson-and-chas-freeman-talks-or-total-war-clock-ticks-for-iran-and-u-s-2025-04-18.md",
+      "to": "reference:jcpoa",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-04-22/source-judging-freedom-amb-charles-freeman-will-china-cave-on-trumps-tariffs-2025-04-22.md",
+      "to": "reference:nixon-kissinger",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-05-02/source-dialogue-works-mohammad-marandi-and-amb-chas-freeman-ticking-toward-war-u-s-and-iran-at-a-dangerous-crossroads-2025-05-02.md",
+      "to": "reference:cold-war",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-05-02/source-dialogue-works-mohammad-marandi-and-amb-chas-freeman-ticking-toward-war-u-s-and-iran-at-a-dangerous-crossroads-2025-05-02.md",
+      "to": "reference:iraq-war",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-05-02/source-dialogue-works-mohammad-marandi-and-amb-chas-freeman-ticking-toward-war-u-s-and-iran-at-a-dangerous-crossroads-2025-05-02.md",
+      "to": "reference:jcpoa",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-05-02/source-dialogue-works-mohammad-marandi-and-amb-chas-freeman-ticking-toward-war-u-s-and-iran-at-a-dangerous-crossroads-2025-05-02.md",
+      "to": "reference:nixon-kissinger",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-05-09/source-dialogue-works-amb-chas-freeman-and-trita-parsi-trump-s-wake-up-call-yemen-s-chaos-forcing-a-deal-with-iran-2025-05-09.md",
+      "to": "reference:iraq-war",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-05-09/source-dialogue-works-amb-chas-freeman-and-trita-parsi-trump-s-wake-up-call-yemen-s-chaos-forcing-a-deal-with-iran-2025-05-09.md",
+      "to": "reference:jcpoa",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-05-09/source-dialogue-works-amb-chas-freeman-and-trita-parsi-trump-s-wake-up-call-yemen-s-chaos-forcing-a-deal-with-iran-2025-05-09.md",
+      "to": "reference:kuwait-liberation",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-05-12/source-glenn-diesen-chas-freeman-the-lies-we-tell-ourselves-about-china-2025-05-12.md",
+      "to": "reference:cold-war",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-05-12/source-glenn-diesen-chas-freeman-the-lies-we-tell-ourselves-about-china-2025-05-12.md",
+      "to": "reference:nixon-kissinger",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-05-12/source-glenn-diesen-chas-freeman-the-lies-we-tell-ourselves-about-china-2025-05-12.md",
+      "to": "reference:vietnam-war",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-05-15/source-dialogue-works-amb-chas-freeman-trump-s-backroom-deal-with-iran-what-s-really-happening-in-istanbul-2025-05-15.md",
+      "to": "reference:jcpoa",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-05-15/source-dialogue-works-amb-chas-freeman-trump-s-backroom-deal-with-iran-what-s-really-happening-in-istanbul-2025-05-15.md",
+      "to": "reference:october-7",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-05-15/source-india-global-left-trump-gulf-visit-us-israel-gulf-shift-chas-freeman-2025-05-15.md",
+      "to": "reference:cold-war",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-05-15/source-india-global-left-trump-gulf-visit-us-israel-gulf-shift-chas-freeman-2025-05-15.md",
+      "to": "reference:iranian-revolution",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-05-15/source-india-global-left-trump-gulf-visit-us-israel-gulf-shift-chas-freeman-2025-05-15.md",
+      "to": "reference:jcpoa",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-05-15/source-india-global-left-trump-gulf-visit-us-israel-gulf-shift-chas-freeman-2025-05-15.md",
+      "to": "reference:kuwait-liberation",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-05-15/source-india-global-left-trump-gulf-visit-us-israel-gulf-shift-chas-freeman-2025-05-15.md",
+      "to": "reference:nixon-kissinger",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-05-24/source-dialogue-works-amb-chas-freeman-the-dangerous-myths-we-tell-ourselves-about-china-russia-and-iran-2025-05-24.md",
+      "to": "reference:cold-war",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-05-24/source-dialogue-works-amb-chas-freeman-the-dangerous-myths-we-tell-ourselves-about-china-russia-and-iran-2025-05-24.md",
+      "to": "reference:vietnam-war",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-05-28/source-judging-freedom-amb-charles-freeman-does-putin-fear-trump-2025-05-28.md",
+      "to": "reference:october-7",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-05-30/source-dialogue-works-lawrence-wilkerson-larry-wilkerson-chas-freeman-why-america-s-missing-grand-strategy-could-be-a-global-disaster-2025-05-30.md",
+      "to": "reference:jcpoa",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-05-30/source-dialogue-works-lawrence-wilkerson-larry-wilkerson-chas-freeman-why-america-s-missing-grand-strategy-could-be-a-global-disaster-2025-05-30.md",
+      "to": "reference:nixon-kissinger",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-05-31/source-glenn-diesen-chas-freeman-the-collapse-of-american-diplomacy-2025-05-31.md",
+      "to": "reference:cold-war",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-05-31/source-glenn-diesen-chas-freeman-the-collapse-of-american-diplomacy-2025-05-31.md",
+      "to": "reference:cold-war",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-05-31/source-glenn-diesen-chas-freeman-the-collapse-of-american-diplomacy-2025-05-31.md",
+      "to": "reference:jcpoa",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-05-31/source-glenn-diesen-chas-freeman-the-collapse-of-american-diplomacy-2025-05-31.md",
+      "to": "reference:jcpoa",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-05-31/source-glenn-diesen-chas-freeman-the-collapse-of-american-diplomacy-2025-05-31.md",
+      "to": "reference:nixon-kissinger",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-05-31/source-glenn-diesen-chas-freeman-the-collapse-of-american-diplomacy-2025-05-31.md",
+      "to": "reference:nixon-kissinger",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-05-31/source-glenn-diesen-chas-freeman-the-collapse-of-american-diplomacy-2025-05-31.md",
+      "to": "reference:nixon-kissinger",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-06-04/source-judging-freedom-amb-charles-freeman-is-hegseth-picking-a-fight-with-china-2025-06-04.md",
+      "to": "reference:cold-war",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-06-04/source-judging-freedom-amb-charles-freeman-is-hegseth-picking-a-fight-with-china-2025-06-04.md",
+      "to": "reference:jcpoa",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-06-14/source-dialogue-works-col-larry-wilkerson-and-chas-freeman-israel-s-attack-on-iran-and-its-devastating-consequences-2025-06-14.md",
+      "to": "reference:bay-of-pigs",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-06-14/source-dialogue-works-col-larry-wilkerson-and-chas-freeman-israel-s-attack-on-iran-and-its-devastating-consequences-2025-06-14.md",
+      "to": "reference:iranian-revolution",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-06-14/source-dialogue-works-col-larry-wilkerson-and-chas-freeman-israel-s-attack-on-iran-and-its-devastating-consequences-2025-06-14.md",
+      "to": "reference:iraq-war",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-06-17/source-glenn-diesen-chas-freeman-iran-attacked-turning-point-for-russia-and-the-world-2025-06-17.md",
+      "to": "reference:iraq-war",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-06-17/source-glenn-diesen-chas-freeman-iran-attacked-turning-point-for-russia-and-the-world-2025-06-17.md",
+      "to": "reference:jcpoa",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-06-17/source-glenn-diesen-chas-freeman-iran-attacked-turning-point-for-russia-and-the-world-2025-06-17.md",
+      "to": "reference:kuwait-liberation",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-06-18/source-judging-freedom-amb-charles-freeman-what-remains-of-the-resistance-2025-06-18.md",
+      "to": "reference:iraq-war",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-06-18/source-judging-freedom-amb-charles-freeman-what-remains-of-the-resistance-2025-06-18.md",
+      "to": "reference:jcpoa",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-06-21/source-india-global-left-push-war-iran-chas-freeman-2025-06-21.md",
+      "to": "reference:iranian-revolution",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-06-21/source-india-global-left-push-war-iran-chas-freeman-2025-06-21.md",
+      "to": "reference:iraq-war",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-06-21/source-india-global-left-push-war-iran-chas-freeman-2025-06-21.md",
+      "to": "reference:jcpoa",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-06-22/source-dialogue-works-col-larry-wilkerson-amb-chas-freeman-and-trita-parsi-the-us-could-face-a-war-it-can-t-win-2025-06-22.md",
+      "to": "reference:cold-war",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-06-22/source-dialogue-works-col-larry-wilkerson-amb-chas-freeman-and-trita-parsi-the-us-could-face-a-war-it-can-t-win-2025-06-22.md",
+      "to": "reference:iraq-war",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-06-22/source-dialogue-works-col-larry-wilkerson-amb-chas-freeman-and-trita-parsi-the-us-could-face-a-war-it-can-t-win-2025-06-22.md",
+      "to": "reference:jcpoa",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-06-22/source-dialogue-works-col-larry-wilkerson-amb-chas-freeman-and-trita-parsi-the-us-could-face-a-war-it-can-t-win-2025-06-22.md",
+      "to": "reference:vietnam-war",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-06-25/source-dialogue-works-amb-chas-freeman-turning-point-in-global-power-iran-attacked-russia-reacts-2025-06-25.md",
+      "to": "reference:cold-war",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-06-25/source-dialogue-works-amb-chas-freeman-turning-point-in-global-power-iran-attacked-russia-reacts-2025-06-25.md",
+      "to": "reference:iranian-revolution",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-07-11/source-dialogue-works-amb-chas-freeman-war-zones-can-china-ukraine-gaza-and-iran-ever-achieve-peace-2025-07-11.md",
+      "to": "reference:cold-war",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-07-15/source-judging-freedom-amb-charles-freeman-is-middle-east-peace-possible-2025-07-15.md",
+      "to": "reference:iraq-war",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-07-15/source-judging-freedom-amb-charles-freeman-is-middle-east-peace-possible-2025-07-15.md",
+      "to": "reference:october-7",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-07-18/source-dialogue-works-col-larry-wilkerson-and-chas-freeman-ww3-imminent-shocking-signs-we-re-on-the-brink-of-global-war-2025-07-18.md",
+      "to": "reference:kuwait-liberation",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-07-26/source-dialogue-works-amb-chas-freeman-and-trita-parsi-how-the-iran-israel-war-changed-everything-overnight-2025-07-26.md",
+      "to": "reference:jcpoa",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-07-26/source-dialogue-works-amb-chas-freeman-and-trita-parsi-how-the-iran-israel-war-changed-everything-overnight-2025-07-26.md",
+      "to": "reference:october-7",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-08-01/source-dialogue-works-amb-chas-freeman-gaza-s-silent-hell-genocide-and-starvation-in-real-time-2025-08-01.md",
+      "to": "reference:october-7",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-08-04/source-glenn-diesen-chas-freeman-israel-is-overextended-exhausted-and-facing-blowback-2025-08-04.md",
+      "to": "reference:cold-war",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-08-04/source-glenn-diesen-chas-freeman-israel-is-overextended-exhausted-and-facing-blowback-2025-08-04.md",
+      "to": "reference:october-7",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-08-04/source-glenn-diesen-chas-freeman-israel-is-overextended-exhausted-and-facing-blowback-2025-08-04.md",
+      "to": "reference:october-7",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-08-04/source-glenn-diesen-chas-freeman-israel-is-overextended-exhausted-and-facing-blowback-2025-08-04.md",
+      "to": "reference:october-7",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-08-08/source-dialogue-works-amb-chas-freeman-trump-s-next-move-does-he-even-know-2025-08-08.md",
+      "to": "reference:iranian-revolution",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-08-08/source-dialogue-works-amb-chas-freeman-trump-s-next-move-does-he-even-know-2025-08-08.md",
+      "to": "reference:nixon-kissinger",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-08-08/source-dialogue-works-amb-chas-freeman-trump-s-next-move-does-he-even-know-2025-08-08.md",
+      "to": "reference:nixon-kissinger",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-08-08/source-dialogue-works-amb-chas-freeman-trump-s-next-move-does-he-even-know-2025-08-08.md",
+      "to": "reference:october-7",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-08-08/source-dialogue-works-amb-chas-freeman-trump-s-next-move-does-he-even-know-2025-08-08.md",
+      "to": "reference:october-7",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-08-08/source-dialogue-works-amb-chas-freeman-trump-s-next-move-does-he-even-know-2025-08-08.md",
+      "to": "reference:october-7",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-08-08/source-dialogue-works-amb-chas-freeman-trump-s-next-move-does-he-even-know-2025-08-08.md",
+      "to": "reference:october-7",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-08-08/source-dialogue-works-amb-chas-freeman-trump-s-next-move-does-he-even-know-2025-08-08.md",
+      "to": "reference:october-7",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-08-08/source-dialogue-works-amb-chas-freeman-trump-s-next-move-does-he-even-know-2025-08-08.md",
+      "to": "reference:october-7",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-08-08/source-dialogue-works-amb-chas-freeman-trump-s-next-move-does-he-even-know-2025-08-08.md",
+      "to": "reference:october-7",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-08-08/source-dialogue-works-amb-chas-freeman-trump-s-next-move-does-he-even-know-2025-08-08.md",
+      "to": "reference:october-7",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-08-08/source-dialogue-works-amb-chas-freeman-trump-s-next-move-does-he-even-know-2025-08-08.md",
+      "to": "reference:october-7",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-08-14/source-glenn-diesen-chas-freeman-america-s-global-role-after-the-ukraine-proxy-war-2025-08-14.md",
+      "to": "reference:cold-war",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-08-14/source-glenn-diesen-chas-freeman-america-s-global-role-after-the-ukraine-proxy-war-2025-08-14.md",
+      "to": "reference:nixon-kissinger",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-08-14/source-glenn-diesen-chas-freeman-america-s-global-role-after-the-ukraine-proxy-war-2025-08-14.md",
+      "to": "reference:nixon-kissinger",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-08-15/source-dialogue-works-amb-chas-freeman-and-trita-parsi-the-next-israel-iran-war-is-coming-2025-08-15.md",
+      "to": "reference:iraq-war",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-08-19/source-judging-freedom-amb-chas-freeman-can-the-us-bring-peace-2025-08-19.md",
+      "to": "reference:nixon-kissinger",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-08-29/source-dialogue-works-amb-chas-freeman-america-s-fatal-mistake-a-disaster-in-the-making-2025-08-29.md",
+      "to": "reference:kuwait-liberation",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-08-29/source-dialogue-works-amb-chas-freeman-america-s-fatal-mistake-a-disaster-in-the-making-2025-08-29.md",
+      "to": "reference:nixon-kissinger",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-09-05/source-dialogue-works-amb-chas-freeman-the-end-of-western-dominance-is-here-2025-09-05.md",
+      "to": "reference:cold-war",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-09-11/source-glenn-diesen-chas-freeman-the-old-world-is-dying-the-new-world-struggles-to-be-born-2025-09-11.md",
+      "to": "reference:cold-war",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-09-11/source-glenn-diesen-chas-freeman-the-old-world-is-dying-the-new-world-struggles-to-be-born-2025-09-11.md",
+      "to": "reference:iraq-war",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-09-15/source-daniel-davis-u-s-foreign-policy-bad-under-biden-worse-with-trump-lt-col-daniel-davis-and-chas-freeman-2025-09-15.md",
+      "to": "reference:cold-war",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-09-15/source-daniel-davis-u-s-foreign-policy-bad-under-biden-worse-with-trump-lt-col-daniel-davis-and-chas-freeman-2025-09-15.md",
+      "to": "reference:cold-war",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-09-15/source-daniel-davis-u-s-foreign-policy-bad-under-biden-worse-with-trump-lt-col-daniel-davis-and-chas-freeman-2025-09-15.md",
+      "to": "reference:cold-war",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-09-15/source-daniel-davis-u-s-foreign-policy-bad-under-biden-worse-with-trump-lt-col-daniel-davis-and-chas-freeman-2025-09-15.md",
+      "to": "reference:nixon-kissinger",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-09-15/source-daniel-davis-u-s-foreign-policy-bad-under-biden-worse-with-trump-lt-col-daniel-davis-and-chas-freeman-2025-09-15.md",
+      "to": "reference:vietnam-war",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-09-16/source-judging-freedom-amb-chas-freeman-how-dark-are-these-days-2025-09-16.md",
+      "to": "reference:october-7",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-09-26/source-dialogue-works-amb-chas-freeman-al-qaeda-gets-a-seat-at-the-un-2025-09-26.md",
+      "to": "reference:jcpoa",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-09-26/source-dialogue-works-amb-chas-freeman-al-qaeda-gets-a-seat-at-the-un-2025-09-26.md",
+      "to": "reference:jcpoa",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-10-06/source-glenn-diesen-chas-freeman-coalition-of-the-deluded-pursues-war-with-russia-2025-10-06.md",
+      "to": "reference:cold-war",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-10-06/source-glenn-diesen-chas-freeman-coalition-of-the-deluded-pursues-war-with-russia-2025-10-06.md",
+      "to": "reference:cold-war",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-10-06/source-glenn-diesen-chas-freeman-coalition-of-the-deluded-pursues-war-with-russia-2025-10-06.md",
+      "to": "reference:cold-war",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-10-06/source-glenn-diesen-chas-freeman-coalition-of-the-deluded-pursues-war-with-russia-2025-10-06.md",
+      "to": "reference:cold-war",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-10-06/source-glenn-diesen-chas-freeman-coalition-of-the-deluded-pursues-war-with-russia-2025-10-06.md",
+      "to": "reference:cold-war",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-10-06/source-glenn-diesen-chas-freeman-coalition-of-the-deluded-pursues-war-with-russia-2025-10-06.md",
+      "to": "reference:cold-war",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-10-07/source-judging-freedom-amb-chas-freeman-israel-near-collapse-2025-10-07.md",
+      "to": "reference:october-7",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-10-07/source-judging-freedom-amb-chas-freeman-israel-near-collapse-2025-10-07.md",
+      "to": "reference:october-7",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-10-10/source-india-global-left-gaza-ceasefire-wont-last-chas-freeman-2025-10-10.md",
+      "to": "reference:october-7",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-10-17/source-dialogue-works-amb-chas-freeman-how-the-u-s-is-spiraling-toward-disaster-2025-10-17.md",
+      "to": "reference:iraq-war",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-10-17/source-dialogue-works-amb-chas-freeman-how-the-u-s-is-spiraling-toward-disaster-2025-10-17.md",
+      "to": "reference:nixon-kissinger",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-10-17/source-dialogue-works-amb-chas-freeman-how-the-u-s-is-spiraling-toward-disaster-2025-10-17.md",
+      "to": "reference:vietnam-war",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-10-17/source-dialogue-works-amb-chas-freeman-how-the-u-s-is-spiraling-toward-disaster-2025-10-17.md",
+      "to": "reference:vietnam-war",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-10-25/source-glenn-diesen-chas-freeman-imperial-overstretch-500-years-of-dominance-come-to-an-end-2025-10-25.md",
+      "to": "reference:cold-war",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-10-25/source-glenn-diesen-chas-freeman-imperial-overstretch-500-years-of-dominance-come-to-an-end-2025-10-25.md",
+      "to": "reference:cold-war",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-10-25/source-glenn-diesen-chas-freeman-imperial-overstretch-500-years-of-dominance-come-to-an-end-2025-10-25.md",
+      "to": "reference:cold-war",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-10-25/source-glenn-diesen-chas-freeman-imperial-overstretch-500-years-of-dominance-come-to-an-end-2025-10-25.md",
+      "to": "reference:cold-war",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-10-25/source-glenn-diesen-chas-freeman-imperial-overstretch-500-years-of-dominance-come-to-an-end-2025-10-25.md",
+      "to": "reference:nixon-kissinger",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-11-07/source-dialogue-works-amb-chas-freeman-mamdani-s-victory-development-in-the-levant-and-the-wol-2025-11-07.md",
+      "to": "reference:kuwait-liberation",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-11-07/source-dialogue-works-amb-chas-freeman-mamdani-s-victory-development-in-the-levant-and-the-wol-2025-11-07.md",
+      "to": "reference:october-7",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-11-10/source-judging-freedom-freeman-trump-israel-or-america-first-2025-11-10.md",
+      "to": "reference:october-7",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-11-20/source-glenn-diesen-chas-freeman-fake-peace-political-collapse-and-major-wars-2025-11-20.md",
+      "to": "reference:cold-war",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-11-25/source-judging-freedom-amb-chas-freeman-zelensky-s-self-caused-dilemma-2025-11-25.md",
+      "to": "reference:bay-of-pigs",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-11-28/source-dialogue-works-amb-chas-freeman-national-guard-shooting-israel-s-force-first-approach-failing-russia-ukraine-2025-11-28.md",
+      "to": "reference:cold-war",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-12-04/source-diesen-freeman-thucydides-trap-us-reaction-china-rise-2025-12-04.md",
+      "to": "reference:cold-war",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-12-04/source-diesen-freeman-thucydides-trap-us-reaction-china-rise-2025-12-04.md",
+      "to": "reference:cold-war",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-12-04/source-diesen-freeman-thucydides-trap-us-reaction-china-rise-2025-12-04.md",
+      "to": "reference:cold-war",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-12-04/source-diesen-freeman-thucydides-trap-us-reaction-china-rise-2025-12-04.md",
+      "to": "reference:thucydides-trap",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-12-04/source-diesen-freeman-thucydides-trap-us-reaction-china-rise-2025-12-04.md",
+      "to": "reference:thucydides-trap",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-12-04/source-diesen-freeman-thucydides-trap-us-reaction-china-rise-2025-12-04.md",
+      "to": "reference:thucydides-trap",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-12-04/source-diesen-freeman-thucydides-trap-us-reaction-china-rise-2025-12-04.md",
+      "to": "reference:thucydides-trap",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-12-05/source-dialogue-works-amb-chas-freeman-israel-s-strategy-is-collapsing-eu-seems-paralyzed-ceding-the-future-to-china-2025-12-05.md",
+      "to": "reference:cold-war",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-12-09/source-judging-freedom-freeman-does-anyone-want-peace-2025-12-09.md",
+      "to": "reference:cold-war",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-12-12/source-dialogue-works-wilkerson-freeman-chain-reaction-2025-12-12.md",
+      "to": "reference:nixon-kissinger",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-12-12/source-dialogue-works-wilkerson-freeman-chain-reaction-2025-12-12.md",
+      "to": "reference:nixon-kissinger",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-12-12/source-dialogue-works-wilkerson-freeman-chain-reaction-2025-12-12.md",
+      "to": "reference:nixon-kissinger",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-12-12/source-dialogue-works-wilkerson-freeman-chain-reaction-2025-12-12.md",
+      "to": "reference:nixon-kissinger",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-12-12/source-dialogue-works-wilkerson-freeman-chain-reaction-2025-12-12.md",
+      "to": "reference:nixon-kissinger",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-12-18/source-glenn-diesen-chas-freeman-age-of-wars-as-freedom-of-navigation-ends-2025-12-18.md",
+      "to": "reference:cold-war",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-12-18/source-glenn-diesen-chas-freeman-age-of-wars-as-freedom-of-navigation-ends-2025-12-18.md",
+      "to": "reference:cold-war",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-12-18/source-glenn-diesen-chas-freeman-age-of-wars-as-freedom-of-navigation-ends-2025-12-18.md",
+      "to": "reference:cold-war",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-12-18/source-glenn-diesen-chas-freeman-age-of-wars-as-freedom-of-navigation-ends-2025-12-18.md",
+      "to": "reference:iranian-revolution",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2025-12-19/source-dialogue-works-freeman-parsi-middle-east-you-knew-disappearing-2025-12-19.md",
+      "to": "reference:kuwait-liberation",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2026-01-02/source-dialogue-works-amb-chas-freeman-mohammad-marandi-trump-issues-warning-to-iran-tehran-fi-2026-01-02.md",
+      "to": "reference:iraq-war",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2026-01-07/source-glenn-diesen-chas-freeman-collapse-of-law-reason-return-to-war-2026-01-07.md",
+      "to": "reference:nixon-kissinger",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2026-01-07/source-glenn-diesen-chas-freeman-collapse-of-law-reason-return-to-war-2026-01-07.md",
+      "to": "reference:october-7",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2026-01-20/source-daniel-davis-iran-eu-trump-greenland-lt-col-daniel-davis-chas-freeman-2026-01-20.md",
+      "to": "reference:jcpoa",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2026-01-20/source-daniel-davis-iran-eu-trump-greenland-lt-col-daniel-davis-chas-freeman-2026-01-20.md",
+      "to": "reference:october-7",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2026-01-22/source-dialogue-works-amb-chas-freeman-iran-vows-huge-response-to-us-israel-attack-2026-01-22.md",
+      "to": "reference:cold-war",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2026-02-06/source-dialogue-works-amb-chas-freeman-negotiations-or-the-brink-of-all-out-war-2026-02-06.md",
+      "to": "reference:jcpoa",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2026-02-17/source-glenn-diesen-chas-freeman-u-s-restoring-empire-war-on-eurasia-2026-02-17.md",
+      "to": "reference:jcpoa",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2026-02-24/source-india-global-left-war-iran-inevitable-chas-freeman-2026-02-24.md",
+      "to": "reference:iranian-revolution",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2026-02-24/source-india-global-left-war-iran-inevitable-chas-freeman-2026-02-24.md",
+      "to": "reference:iraq-war",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2026-02-24/source-india-global-left-war-iran-inevitable-chas-freeman-2026-02-24.md",
+      "to": "reference:kuwait-liberation",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2026-02-24/source-judging-freedom-freeman-israel-pushes-us-into-another-endless-war-2026-02-24.md",
+      "to": "reference:iraq-war",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2026-02-27/source-dialogue-works-amb-chas-freeman-emergency-diplomacy-oman-s-fm-flies-to-washington-to-av-2026-02-27.md",
+      "to": "reference:bay-of-pigs",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2026-02-27/source-dialogue-works-amb-chas-freeman-emergency-diplomacy-oman-s-fm-flies-to-washington-to-av-2026-02-27.md",
+      "to": "reference:jcpoa",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2026-03-01/source-glenn-diesen-chas-freeman-the-war-against-iran-could-destroy-the-u-s-republic-2026-03-01.md",
+      "to": "reference:iraq-war",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2026-03-01/source-glenn-diesen-chas-freeman-the-war-against-iran-could-destroy-the-u-s-republic-2026-03-01.md",
+      "to": "reference:october-7",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2026-03-06/source-daniel-davis-diplomacy-is-dead-w-iran-lt-col-daniel-davis-fmr-amb-chas-freeman-2026-03-06.md",
+      "to": "reference:iranian-revolution",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2026-03-06/source-daniel-davis-diplomacy-is-dead-w-iran-lt-col-daniel-davis-fmr-amb-chas-freeman-2026-03-06.md",
+      "to": "reference:iraq-war",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2026-03-06/source-dialogue-works-amb-chas-freeman-the-war-with-iran-is-breaking-everything-the-u-s-planne-2026-03-06.md",
+      "to": "reference:iranian-revolution",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2026-03-06/source-dialogue-works-amb-chas-freeman-the-war-with-iran-is-breaking-everything-the-u-s-planne-2026-03-06.md",
+      "to": "reference:iraq-war",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2026-03-06/source-dialogue-works-amb-chas-freeman-the-war-with-iran-is-breaking-everything-the-u-s-planne-2026-03-06.md",
+      "to": "reference:kuwait-liberation",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2026-03-06/source-dialogue-works-amb-chas-freeman-the-war-with-iran-is-breaking-everything-the-u-s-planne-2026-03-06.md",
+      "to": "reference:vietnam-war",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2026-03-07/source-india-global-left-iran-strategy-pezeshkian-gulf-halt-chas-freeman-2026-03-07.md",
+      "to": "reference:cold-war",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2026-03-07/source-india-global-left-iran-strategy-pezeshkian-gulf-halt-chas-freeman-2026-03-07.md",
+      "to": "reference:jcpoa",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2026-03-07/source-india-global-left-iran-strategy-pezeshkian-gulf-halt-chas-freeman-2026-03-07.md",
+      "to": "reference:kuwait-liberation",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2026-03-20/source-dialogue-works-amb-chas-freeman-ground-troops-in-iran-this-could-collapse-netanyahu-s-s-2026-03-20.md",
+      "to": "reference:cold-war",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2026-03-23/source-india-global-left-geo-historical-shift-chas-freeman-2026-03-23.md",
+      "to": "reference:october-7",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2026-03-27/source-dialogue-works-chas-freeman-if-troops-enter-iran-israel-s-entire-strategy-falls-a-2026-03-27.md",
+      "to": "reference:iraq-war",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2026-03-27/source-dialogue-works-chas-freeman-if-troops-enter-iran-israel-s-entire-strategy-falls-a-2026-03-27.md",
+      "to": "reference:jcpoa",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2026-03-27/source-dialogue-works-chas-freeman-if-troops-enter-iran-israel-s-entire-strategy-falls-a-2026-03-27.md",
+      "to": "reference:kuwait-liberation",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2026-03-27/source-dialogue-works-chas-freeman-if-troops-enter-iran-israel-s-entire-strategy-falls-a-2026-03-27.md",
+      "to": "reference:kuwait-liberation",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2026-04-03/source-dialogue-works-amb-chas-freeman-trump-pushes-escalation-israel-s-strategy-collapses-ove-2026-04-03.md",
+      "to": "reference:iraq-war",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2026-04-03/source-dialogue-works-amb-chas-freeman-trump-pushes-escalation-israel-s-strategy-collapses-ove-2026-04-03.md",
+      "to": "reference:october-7",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2026-04-13/source-daniel-davis-iran-war-whoever-drops-the-most-bombs-wins-lt-col-daniel-davis-chas-free-2026-04-13.md",
+      "to": "reference:cold-war",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2026-04-14/source-judging-freedom-freeman-israels-strategy-collapsing-2026-04-14.md",
+      "to": "reference:jcpoa",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2026-04-21/source-judging-freedom-freeman-us-diplomacy-is-dead-2026-04-21.md",
+      "to": "reference:iranian-revolution",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2026-04-21/source-judging-freedom-freeman-us-diplomacy-is-dead-2026-04-21.md",
+      "to": "reference:iraq-war",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2026-04-24/source-nima-freeman-israel-agenda-collapsing-2026-04-24.md",
+      "to": "reference:jcpoa",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2026-04-24/source-nima-freeman-israel-agenda-collapsing-2026-04-24.md",
+      "to": "reference:jcpoa",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2026-05-01/source-dialogue-works-amb-chas-freeman-israel-s-grand-plan-collapsed-in-record-time-2026-05-01.md",
+      "to": "reference:iranian-revolution",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2026-05-01/source-dialogue-works-amb-chas-freeman-israel-s-grand-plan-collapsed-in-record-time-2026-05-01.md",
+      "to": "reference:iraq-war",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2026-05-01/source-dialogue-works-amb-chas-freeman-israel-s-grand-plan-collapsed-in-record-time-2026-05-01.md",
+      "to": "reference:jcpoa",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2026-05-01/source-dialogue-works-amb-chas-freeman-israel-s-grand-plan-collapsed-in-record-time-2026-05-01.md",
+      "to": "reference:october-7",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2026-05-01/source-dialogue-works-amb-chas-freeman-israel-s-grand-plan-collapsed-in-record-time-2026-05-01.md",
+      "to": "reference:vietnam-war",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2026-05-08/source-dialogue-works-freeman-hormuz-ceasefire-gulf-states-china-2026-05-08.md",
+      "to": "reference:cold-war",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2026-05-08/source-dialogue-works-freeman-hormuz-ceasefire-gulf-states-china-2026-05-08.md",
+      "to": "reference:cold-war",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2026-05-11/source-india-global-left-four-endgames-iran-war-chas-freeman-2026-05-11.md",
+      "to": "reference:october-7",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2026-05-12/source-glenn-diesen-chas-freeman-trump-goes-to-beijing-after-historic-defeat-in-iran-2026-05-12.md",
+      "to": "reference:cold-war",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2026-05-12/source-glenn-diesen-chas-freeman-trump-goes-to-beijing-after-historic-defeat-in-iran-2026-05-12.md",
+      "to": "reference:cold-war",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2026-05-12/source-glenn-diesen-chas-freeman-trump-goes-to-beijing-after-historic-defeat-in-iran-2026-05-12.md",
+      "to": "reference:jcpoa",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2026-05-12/source-glenn-diesen-chas-freeman-trump-goes-to-beijing-after-historic-defeat-in-iran-2026-05-12.md",
+      "to": "reference:nixon-kissinger",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2026-05-12/source-glenn-diesen-chas-freeman-trump-goes-to-beijing-after-historic-defeat-in-iran-2026-05-12.md",
+      "to": "reference:nixon-kissinger",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2026-05-12/source-glenn-diesen-chas-freeman-trump-goes-to-beijing-after-historic-defeat-in-iran-2026-05-12.md",
+      "to": "reference:nixon-kissinger",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2026-05-12/source-glenn-diesen-chas-freeman-trump-goes-to-beijing-after-historic-defeat-in-iran-2026-05-12.md",
+      "to": "reference:nixon-kissinger",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2026-05-12/source-glenn-diesen-chas-freeman-trump-goes-to-beijing-after-historic-defeat-in-iran-2026-05-12.md",
+      "to": "reference:nixon-kissinger",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2026-05-12/source-glenn-diesen-chas-freeman-trump-goes-to-beijing-after-historic-defeat-in-iran-2026-05-12.md",
+      "to": "reference:nixon-kissinger",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2026-05-16/source-neutrality-studies-power-moves-east-china-teaches-usa-a-big-lesson-chas-freeman-2026-05-16.md",
+      "to": "reference:cold-war",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2026-05-16/source-neutrality-studies-power-moves-east-china-teaches-usa-a-big-lesson-chas-freeman-2026-05-16.md",
+      "to": "reference:nixon-kissinger",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2026-05-20/source-india-global-left-is-iran-now-a-world-power-chas-freeman-2026-05-20.md",
+      "to": "reference:october-7",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2026-05-25/source-glenn-diesen-chas-freeman-crisis-in-israel-iranian-nuclear-weapons-2026-05-25.md",
+      "to": "reference:cold-war",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2026-05-25/source-glenn-diesen-chas-freeman-crisis-in-israel-iranian-nuclear-weapons-2026-05-25.md",
+      "to": "reference:cold-war",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2026-05-25/source-glenn-diesen-chas-freeman-crisis-in-israel-iranian-nuclear-weapons-2026-05-25.md",
+      "to": "reference:iranian-revolution",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2026-05-25/source-glenn-diesen-chas-freeman-crisis-in-israel-iranian-nuclear-weapons-2026-05-25.md",
+      "to": "reference:jcpoa",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2026-05-29/source-dialogue-works-chas-freeman-hezbollah-strikes-israel-hard-israel-now-prepares-for-war-with-egypt-turkey-2026-05-29.md",
+      "to": "reference:nixon-kissinger",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2026-06-02/source-judging-freedom-freeman-how-the-us-lost-geopolitical-primacy-2026-06-02.md",
+      "to": "reference:jcpoa",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2026-06-02/source-judging-freedom-freeman-how-the-us-lost-geopolitical-primacy-2026-06-02.md",
+      "to": "reference:jcpoa",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2026-06-02/source-judging-freedom-freeman-how-the-us-lost-geopolitical-primacy-2026-06-02.md",
+      "to": "reference:jcpoa",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2026-06-05/source-dialogue-works-freeman-israels-free-fall-on-all-fronts-2026-06-05.md",
+      "to": "reference:iranian-revolution",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2026-06-05/source-dialogue-works-freeman-israels-free-fall-on-all-fronts-2026-06-05.md",
+      "to": "reference:vietnam-war",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2026-06-06/source-dialogue-works-freeman-the-greater-israel-project-is-collapsing-2026-06-06.md",
+      "to": "reference:nixon-kissinger",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2026-06-06/source-dialogue-works-freeman-the-greater-israel-project-is-collapsing-2026-06-06.md",
+      "to": "reference:nixon-kissinger",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2026-06-06/source-glenn-diesen-chas-freeman-the-greater-israel-project-is-collapsing-2026-06-06.md",
+      "to": "reference:nixon-kissinger",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2026-06-06/source-glenn-diesen-chas-freeman-the-greater-israel-project-is-collapsing-2026-06-06.md",
+      "to": "reference:nixon-kissinger",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2026-06-11/source-india-global-left-freeman-regional-fallout-us-iran-war-2026-06-11.md",
+      "to": "reference:kuwait-liberation",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2026-06-12/source-dialogue-works-chas-freeman-era-impunity-israel-us-west-asia-over-2026-06-12.md",
+      "to": "reference:iranian-revolution",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2026-06-16/source-judging-freedom-freeman-if-trump-says-no-to-netanyahu-2026-06-16.md",
+      "to": "reference:iranian-revolution",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2026-06-16/source-judging-freedom-freeman-if-trump-says-no-to-netanyahu-2026-06-16.md",
+      "to": "reference:october-7",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2026-06-16/source-judging-freedom-freeman-if-trump-says-no-to-netanyahu-2026-06-16.md",
+      "to": "reference:october-7",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2026-06-16/source-judging-freedom-freeman-if-trump-says-no-to-netanyahu-2026-06-16.md",
+      "to": "reference:vietnam-war",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2026-06-19/source-dialogue-works-chas-freeman-israel-agenda-major-collapse-2026-06-19.md",
+      "to": "reference:october-7",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2026-06-19/source-dialogue-works-chas-freeman-israel-agenda-major-collapse-2026-06-19.md",
+      "to": "reference:vietnam-war",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2026-06-23/source-judging-freedom-freeman-should-iran-trust-trump-2026-06-23.md",
+      "to": "reference:jcpoa",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2026-06-26/source-dialogue-works-chas-freeman-collapse-israel-agenda-2026-06-26.md",
+      "to": "reference:october-7",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2026-06-26/source-dialogue-works-chas-freeman-collapse-israel-agenda-2026-06-26.md",
+      "to": "reference:october-7",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2026-06-29/source-glenn-diesen-chas-freeman-us-iran-resume-war-israel-lebanon-civil-war-2026-06-29.md",
+      "to": "reference:cold-war",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2026-07-24/source-amb-chas-freeman-iran-warns-of-regional-blackouts-after-trump-threatens-to-bomb-its-infrastructure-2026-07-24.md",
+      "to": "reference:cuba-embargo",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2026-07-24/source-amb-chas-freeman-iran-warns-of-regional-blackouts-after-trump-threatens-to-bomb-its-infrastructure-2026-07-24.md",
+      "to": "reference:iranian-revolution",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2026-07-24/source-amb-chas-freeman-iran-warns-of-regional-blackouts-after-trump-threatens-to-bomb-its-infrastructure-2026-07-24.md",
+      "to": "reference:iraq-war",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2026-07-24/source-amb-chas-freeman-iran-warns-of-regional-blackouts-after-trump-threatens-to-bomb-its-infrastructure-2026-07-24.md",
+      "to": "reference:jcpoa",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2026-07-24/source-amb-chas-freeman-iran-warns-of-regional-blackouts-after-trump-threatens-to-bomb-its-infrastructure-2026-07-24.md",
+      "to": "reference:kuwait-liberation",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2026-07-24/source-amb-chas-freeman-iran-warns-of-regional-blackouts-after-trump-threatens-to-bomb-its-infrastructure-2026-07-24.md",
+      "to": "reference:october-7",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2026-07-24/source-amb-chas-freeman-iran-warns-of-regional-blackouts-after-trump-threatens-to-bomb-its-infrastructure-2026-07-24.md",
+      "to": "reference:renaissance-knowledge",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2026-07-24/source-pointless-violence-fake-diplomacy-us-strategy-in-iran-chas-freeman-lt-col-daniel-davis-2026-07-24.md",
+      "to": "reference:bay-of-pigs",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2026-07-24/source-pointless-violence-fake-diplomacy-us-strategy-in-iran-chas-freeman-lt-col-daniel-davis-2026-07-24.md",
+      "to": "reference:iraq-war",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2026-07-24/source-pointless-violence-fake-diplomacy-us-strategy-in-iran-chas-freeman-lt-col-daniel-davis-2026-07-24.md",
+      "to": "reference:jcpoa",
+      "type": "contains"
+    },
+    {
+      "from": "source:narrative-geopolitics/archive/sources/2026-07-24/source-pointless-violence-fake-diplomacy-us-strategy-in-iran-chas-freeman-lt-col-daniel-davis-2026-07-24.md",
+      "to": "reference:nixon-kissinger",
+      "type": "contains"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-01-07/source-judging-freedom-amb-chas-freeman-is-israel-destroying-itself-2025-01-07.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-01-17/source-dialogue-works-amb-chas-freeman-the-delusional-policies-driving-america-s-decline-2025-01-17.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-01-17/source-dialogue-works-amb-chas-freeman-the-delusional-policies-driving-america-s-decline-2025-01-17.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-01-17/source-dialogue-works-amb-chas-freeman-the-delusional-policies-driving-america-s-decline-2025-01-17.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-01-21/source-judging-freedom-amb-chas-freeman-a-ceasefire-or-a-pause-2025-01-21.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-01-24/source-dialogue-works-amb-chas-freeman-is-the-world-on-the-brink-of-total-chaos-2025-01-24.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-01-24/source-dialogue-works-amb-chas-freeman-is-the-world-on-the-brink-of-total-chaos-2025-01-24.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-01-24/source-dialogue-works-amb-chas-freeman-is-the-world-on-the-brink-of-total-chaos-2025-01-24.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-01-24/source-dialogue-works-amb-chas-freeman-is-the-world-on-the-brink-of-total-chaos-2025-01-24.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-01-24/source-dialogue-works-amb-chas-freeman-is-the-world-on-the-brink-of-total-chaos-2025-01-24.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-01-28/source-judging-freedom-amb-chas-freeman-netanyahu-on-the-ropes-2025-01-28.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-02-04/source-judging-freedom-amb-chas-freeman-trump-and-usaid-2025-02-04.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-02-04/source-judging-freedom-amb-chas-freeman-trump-and-usaid-2025-02-04.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-02-05/source-daniel-davis-trump-and-the-takeover-of-gaza-w-ambassador-chas-freeman-2025-02-05.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-02-05/source-daniel-davis-trump-and-the-takeover-of-gaza-w-ambassador-chas-freeman-2025-02-05.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-02-05/source-daniel-davis-trump-and-the-takeover-of-gaza-w-ambassador-chas-freeman-2025-02-05.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-02-07/source-dialogue-works-amb-chas-freeman-can-the-u-s-take-control-of-gaza-2025-02-07.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-02-07/source-dialogue-works-amb-chas-freeman-can-the-u-s-take-control-of-gaza-2025-02-07.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-02-18/source-judging-freedom-amb-charles-freeman-trump-russia-and-europe-2025-02-18.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-02-25/source-judging-freedom-amb-chas-freeman-trump-and-angry-europe-2025-02-25.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-03-01/source-india-global-left-trump-zelensky-oval-office-chas-freeman-2025-03-01.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-03-01/source-india-global-left-trump-zelensky-oval-office-chas-freeman-2025-03-01.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-03-12/source-glenn-diesen-chas-freeman-minsk-3-ceasefire-without-political-settlement-2025-03-12.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-03-12/source-glenn-diesen-chas-freeman-minsk-3-ceasefire-without-political-settlement-2025-03-12.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-03-12/source-glenn-diesen-chas-freeman-minsk-3-ceasefire-without-political-settlement-2025-03-12.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-03-12/source-glenn-diesen-chas-freeman-minsk-3-ceasefire-without-political-settlement-2025-03-12.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-03-12/source-glenn-diesen-chas-freeman-minsk-3-ceasefire-without-political-settlement-2025-03-12.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-03-12/source-judging-freedom-amb-charles-freeman-how-natos-strategy-is-failed-in-ukraine-2025-03-12.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-03-21/source-dialogue-works-amb-chas-freeman-on-trump-keeping-promises-or-breaking-them-2025-03-21.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-03-25/source-judging-freedom-amb-charles-freeman-will-russia-help-iran-if-us-attacks-2025-03-25.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-03-25/source-judging-freedom-amb-charles-freeman-will-russia-help-iran-if-us-attacks-2025-03-25.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-03-25/source-judging-freedom-amb-charles-freeman-will-russia-help-iran-if-us-attacks-2025-03-25.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-03-28/source-dialogue-works-amb-chas-freeman-will-iran-get-backup-from-russia-and-china-against-the-u-s-2025-03-28.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-03-28/source-dialogue-works-amb-chas-freeman-will-iran-get-backup-from-russia-and-china-against-the-u-s-2025-03-28.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-03-28/source-dialogue-works-amb-chas-freeman-will-iran-get-backup-from-russia-and-china-against-the-u-s-2025-03-28.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-03-28/source-dialogue-works-amb-chas-freeman-will-iran-get-backup-from-russia-and-china-against-the-u-s-2025-03-28.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-03-28/source-dialogue-works-amb-chas-freeman-will-iran-get-backup-from-russia-and-china-against-the-u-s-2025-03-28.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-04-04/source-dialogue-works-mohammad-marandi-larry-wilkerson-and-chas-freeman-on-middle-east-erupts-iran-challenges-ultimatum-2025-04-04.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-04-04/source-dialogue-works-mohammad-marandi-larry-wilkerson-and-chas-freeman-on-middle-east-erupts-iran-challenges-ultimatum-2025-04-04.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-04-04/source-dialogue-works-mohammad-marandi-larry-wilkerson-and-chas-freeman-on-middle-east-erupts-iran-challenges-ultimatum-2025-04-04.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-04-04/source-glenn-diesen-chas-freeman-diplomacy-at-an-impasse-trump-escalates-actions-against-russia-and-iran-2025-04-04.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-04-04/source-glenn-diesen-chas-freeman-diplomacy-at-an-impasse-trump-escalates-actions-against-russia-and-iran-2025-04-04.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-04-04/source-glenn-diesen-chas-freeman-diplomacy-at-an-impasse-trump-escalates-actions-against-russia-and-iran-2025-04-04.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-04-04/source-glenn-diesen-chas-freeman-diplomacy-at-an-impasse-trump-escalates-actions-against-russia-and-iran-2025-04-04.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-04-04/source-glenn-diesen-chas-freeman-diplomacy-at-an-impasse-trump-escalates-actions-against-russia-and-iran-2025-04-04.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-04-18/source-dialogue-works-mohammad-marandi-larry-wilkerson-and-chas-freeman-talks-or-total-war-clock-ticks-for-iran-and-u-s-2025-04-18.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-04-18/source-dialogue-works-mohammad-marandi-larry-wilkerson-and-chas-freeman-talks-or-total-war-clock-ticks-for-iran-and-u-s-2025-04-18.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-04-18/source-dialogue-works-mohammad-marandi-larry-wilkerson-and-chas-freeman-talks-or-total-war-clock-ticks-for-iran-and-u-s-2025-04-18.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-04-18/source-dialogue-works-mohammad-marandi-larry-wilkerson-and-chas-freeman-talks-or-total-war-clock-ticks-for-iran-and-u-s-2025-04-18.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-04-18/source-dialogue-works-mohammad-marandi-larry-wilkerson-and-chas-freeman-talks-or-total-war-clock-ticks-for-iran-and-u-s-2025-04-18.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-04-22/source-judging-freedom-amb-charles-freeman-will-china-cave-on-trumps-tariffs-2025-04-22.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-05-02/source-dialogue-works-mohammad-marandi-and-amb-chas-freeman-ticking-toward-war-u-s-and-iran-at-a-dangerous-crossroads-2025-05-02.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-05-02/source-dialogue-works-mohammad-marandi-and-amb-chas-freeman-ticking-toward-war-u-s-and-iran-at-a-dangerous-crossroads-2025-05-02.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-05-02/source-dialogue-works-mohammad-marandi-and-amb-chas-freeman-ticking-toward-war-u-s-and-iran-at-a-dangerous-crossroads-2025-05-02.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-05-02/source-dialogue-works-mohammad-marandi-and-amb-chas-freeman-ticking-toward-war-u-s-and-iran-at-a-dangerous-crossroads-2025-05-02.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-05-09/source-dialogue-works-amb-chas-freeman-and-trita-parsi-trump-s-wake-up-call-yemen-s-chaos-forcing-a-deal-with-iran-2025-05-09.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-05-09/source-dialogue-works-amb-chas-freeman-and-trita-parsi-trump-s-wake-up-call-yemen-s-chaos-forcing-a-deal-with-iran-2025-05-09.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-05-09/source-dialogue-works-amb-chas-freeman-and-trita-parsi-trump-s-wake-up-call-yemen-s-chaos-forcing-a-deal-with-iran-2025-05-09.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-05-12/source-glenn-diesen-chas-freeman-the-lies-we-tell-ourselves-about-china-2025-05-12.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-05-12/source-glenn-diesen-chas-freeman-the-lies-we-tell-ourselves-about-china-2025-05-12.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-05-12/source-glenn-diesen-chas-freeman-the-lies-we-tell-ourselves-about-china-2025-05-12.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-05-15/source-dialogue-works-amb-chas-freeman-trump-s-backroom-deal-with-iran-what-s-really-happening-in-istanbul-2025-05-15.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-05-15/source-dialogue-works-amb-chas-freeman-trump-s-backroom-deal-with-iran-what-s-really-happening-in-istanbul-2025-05-15.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-05-15/source-india-global-left-trump-gulf-visit-us-israel-gulf-shift-chas-freeman-2025-05-15.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-05-15/source-india-global-left-trump-gulf-visit-us-israel-gulf-shift-chas-freeman-2025-05-15.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-05-15/source-india-global-left-trump-gulf-visit-us-israel-gulf-shift-chas-freeman-2025-05-15.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-05-15/source-india-global-left-trump-gulf-visit-us-israel-gulf-shift-chas-freeman-2025-05-15.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-05-15/source-india-global-left-trump-gulf-visit-us-israel-gulf-shift-chas-freeman-2025-05-15.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-05-24/source-dialogue-works-amb-chas-freeman-the-dangerous-myths-we-tell-ourselves-about-china-russia-and-iran-2025-05-24.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-05-24/source-dialogue-works-amb-chas-freeman-the-dangerous-myths-we-tell-ourselves-about-china-russia-and-iran-2025-05-24.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-05-28/source-judging-freedom-amb-charles-freeman-does-putin-fear-trump-2025-05-28.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-05-30/source-dialogue-works-lawrence-wilkerson-larry-wilkerson-chas-freeman-why-america-s-missing-grand-strategy-could-be-a-global-disaster-2025-05-30.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-05-30/source-dialogue-works-lawrence-wilkerson-larry-wilkerson-chas-freeman-why-america-s-missing-grand-strategy-could-be-a-global-disaster-2025-05-30.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-05-31/source-glenn-diesen-chas-freeman-the-collapse-of-american-diplomacy-2025-05-31.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-05-31/source-glenn-diesen-chas-freeman-the-collapse-of-american-diplomacy-2025-05-31.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-05-31/source-glenn-diesen-chas-freeman-the-collapse-of-american-diplomacy-2025-05-31.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-05-31/source-glenn-diesen-chas-freeman-the-collapse-of-american-diplomacy-2025-05-31.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-05-31/source-glenn-diesen-chas-freeman-the-collapse-of-american-diplomacy-2025-05-31.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-05-31/source-glenn-diesen-chas-freeman-the-collapse-of-american-diplomacy-2025-05-31.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-05-31/source-glenn-diesen-chas-freeman-the-collapse-of-american-diplomacy-2025-05-31.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-06-04/source-judging-freedom-amb-charles-freeman-is-hegseth-picking-a-fight-with-china-2025-06-04.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-06-04/source-judging-freedom-amb-charles-freeman-is-hegseth-picking-a-fight-with-china-2025-06-04.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-06-14/source-dialogue-works-col-larry-wilkerson-and-chas-freeman-israel-s-attack-on-iran-and-its-devastating-consequences-2025-06-14.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-06-14/source-dialogue-works-col-larry-wilkerson-and-chas-freeman-israel-s-attack-on-iran-and-its-devastating-consequences-2025-06-14.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-06-14/source-dialogue-works-col-larry-wilkerson-and-chas-freeman-israel-s-attack-on-iran-and-its-devastating-consequences-2025-06-14.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-06-17/source-glenn-diesen-chas-freeman-iran-attacked-turning-point-for-russia-and-the-world-2025-06-17.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-06-17/source-glenn-diesen-chas-freeman-iran-attacked-turning-point-for-russia-and-the-world-2025-06-17.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-06-17/source-glenn-diesen-chas-freeman-iran-attacked-turning-point-for-russia-and-the-world-2025-06-17.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-06-18/source-judging-freedom-amb-charles-freeman-what-remains-of-the-resistance-2025-06-18.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-06-18/source-judging-freedom-amb-charles-freeman-what-remains-of-the-resistance-2025-06-18.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-06-21/source-india-global-left-push-war-iran-chas-freeman-2025-06-21.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-06-21/source-india-global-left-push-war-iran-chas-freeman-2025-06-21.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-06-21/source-india-global-left-push-war-iran-chas-freeman-2025-06-21.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-06-22/source-dialogue-works-col-larry-wilkerson-amb-chas-freeman-and-trita-parsi-the-us-could-face-a-war-it-can-t-win-2025-06-22.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-06-22/source-dialogue-works-col-larry-wilkerson-amb-chas-freeman-and-trita-parsi-the-us-could-face-a-war-it-can-t-win-2025-06-22.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-06-22/source-dialogue-works-col-larry-wilkerson-amb-chas-freeman-and-trita-parsi-the-us-could-face-a-war-it-can-t-win-2025-06-22.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-06-22/source-dialogue-works-col-larry-wilkerson-amb-chas-freeman-and-trita-parsi-the-us-could-face-a-war-it-can-t-win-2025-06-22.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-06-25/source-dialogue-works-amb-chas-freeman-turning-point-in-global-power-iran-attacked-russia-reacts-2025-06-25.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-06-25/source-dialogue-works-amb-chas-freeman-turning-point-in-global-power-iran-attacked-russia-reacts-2025-06-25.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-07-11/source-dialogue-works-amb-chas-freeman-war-zones-can-china-ukraine-gaza-and-iran-ever-achieve-peace-2025-07-11.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-07-15/source-judging-freedom-amb-charles-freeman-is-middle-east-peace-possible-2025-07-15.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-07-15/source-judging-freedom-amb-charles-freeman-is-middle-east-peace-possible-2025-07-15.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-07-18/source-dialogue-works-col-larry-wilkerson-and-chas-freeman-ww3-imminent-shocking-signs-we-re-on-the-brink-of-global-war-2025-07-18.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-07-26/source-dialogue-works-amb-chas-freeman-and-trita-parsi-how-the-iran-israel-war-changed-everything-overnight-2025-07-26.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-07-26/source-dialogue-works-amb-chas-freeman-and-trita-parsi-how-the-iran-israel-war-changed-everything-overnight-2025-07-26.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-08-01/source-dialogue-works-amb-chas-freeman-gaza-s-silent-hell-genocide-and-starvation-in-real-time-2025-08-01.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-08-04/source-glenn-diesen-chas-freeman-israel-is-overextended-exhausted-and-facing-blowback-2025-08-04.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-08-04/source-glenn-diesen-chas-freeman-israel-is-overextended-exhausted-and-facing-blowback-2025-08-04.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-08-04/source-glenn-diesen-chas-freeman-israel-is-overextended-exhausted-and-facing-blowback-2025-08-04.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-08-04/source-glenn-diesen-chas-freeman-israel-is-overextended-exhausted-and-facing-blowback-2025-08-04.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-08-08/source-dialogue-works-amb-chas-freeman-trump-s-next-move-does-he-even-know-2025-08-08.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-08-08/source-dialogue-works-amb-chas-freeman-trump-s-next-move-does-he-even-know-2025-08-08.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-08-08/source-dialogue-works-amb-chas-freeman-trump-s-next-move-does-he-even-know-2025-08-08.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-08-08/source-dialogue-works-amb-chas-freeman-trump-s-next-move-does-he-even-know-2025-08-08.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-08-08/source-dialogue-works-amb-chas-freeman-trump-s-next-move-does-he-even-know-2025-08-08.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-08-08/source-dialogue-works-amb-chas-freeman-trump-s-next-move-does-he-even-know-2025-08-08.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-08-08/source-dialogue-works-amb-chas-freeman-trump-s-next-move-does-he-even-know-2025-08-08.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-08-08/source-dialogue-works-amb-chas-freeman-trump-s-next-move-does-he-even-know-2025-08-08.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-08-08/source-dialogue-works-amb-chas-freeman-trump-s-next-move-does-he-even-know-2025-08-08.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-08-08/source-dialogue-works-amb-chas-freeman-trump-s-next-move-does-he-even-know-2025-08-08.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-08-08/source-dialogue-works-amb-chas-freeman-trump-s-next-move-does-he-even-know-2025-08-08.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-08-08/source-dialogue-works-amb-chas-freeman-trump-s-next-move-does-he-even-know-2025-08-08.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-08-14/source-glenn-diesen-chas-freeman-america-s-global-role-after-the-ukraine-proxy-war-2025-08-14.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-08-14/source-glenn-diesen-chas-freeman-america-s-global-role-after-the-ukraine-proxy-war-2025-08-14.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-08-14/source-glenn-diesen-chas-freeman-america-s-global-role-after-the-ukraine-proxy-war-2025-08-14.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-08-15/source-dialogue-works-amb-chas-freeman-and-trita-parsi-the-next-israel-iran-war-is-coming-2025-08-15.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-08-19/source-judging-freedom-amb-chas-freeman-can-the-us-bring-peace-2025-08-19.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-08-29/source-dialogue-works-amb-chas-freeman-america-s-fatal-mistake-a-disaster-in-the-making-2025-08-29.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-08-29/source-dialogue-works-amb-chas-freeman-america-s-fatal-mistake-a-disaster-in-the-making-2025-08-29.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-09-05/source-dialogue-works-amb-chas-freeman-the-end-of-western-dominance-is-here-2025-09-05.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-09-11/source-glenn-diesen-chas-freeman-the-old-world-is-dying-the-new-world-struggles-to-be-born-2025-09-11.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-09-11/source-glenn-diesen-chas-freeman-the-old-world-is-dying-the-new-world-struggles-to-be-born-2025-09-11.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-09-15/source-daniel-davis-u-s-foreign-policy-bad-under-biden-worse-with-trump-lt-col-daniel-davis-and-chas-freeman-2025-09-15.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-09-15/source-daniel-davis-u-s-foreign-policy-bad-under-biden-worse-with-trump-lt-col-daniel-davis-and-chas-freeman-2025-09-15.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-09-15/source-daniel-davis-u-s-foreign-policy-bad-under-biden-worse-with-trump-lt-col-daniel-davis-and-chas-freeman-2025-09-15.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-09-15/source-daniel-davis-u-s-foreign-policy-bad-under-biden-worse-with-trump-lt-col-daniel-davis-and-chas-freeman-2025-09-15.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-09-15/source-daniel-davis-u-s-foreign-policy-bad-under-biden-worse-with-trump-lt-col-daniel-davis-and-chas-freeman-2025-09-15.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-09-16/source-judging-freedom-amb-chas-freeman-how-dark-are-these-days-2025-09-16.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-09-26/source-dialogue-works-amb-chas-freeman-al-qaeda-gets-a-seat-at-the-un-2025-09-26.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-09-26/source-dialogue-works-amb-chas-freeman-al-qaeda-gets-a-seat-at-the-un-2025-09-26.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-10-06/source-glenn-diesen-chas-freeman-coalition-of-the-deluded-pursues-war-with-russia-2025-10-06.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-10-06/source-glenn-diesen-chas-freeman-coalition-of-the-deluded-pursues-war-with-russia-2025-10-06.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-10-06/source-glenn-diesen-chas-freeman-coalition-of-the-deluded-pursues-war-with-russia-2025-10-06.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-10-06/source-glenn-diesen-chas-freeman-coalition-of-the-deluded-pursues-war-with-russia-2025-10-06.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-10-06/source-glenn-diesen-chas-freeman-coalition-of-the-deluded-pursues-war-with-russia-2025-10-06.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-10-06/source-glenn-diesen-chas-freeman-coalition-of-the-deluded-pursues-war-with-russia-2025-10-06.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-10-07/source-judging-freedom-amb-chas-freeman-israel-near-collapse-2025-10-07.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-10-07/source-judging-freedom-amb-chas-freeman-israel-near-collapse-2025-10-07.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-10-10/source-india-global-left-gaza-ceasefire-wont-last-chas-freeman-2025-10-10.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-10-17/source-dialogue-works-amb-chas-freeman-how-the-u-s-is-spiraling-toward-disaster-2025-10-17.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-10-17/source-dialogue-works-amb-chas-freeman-how-the-u-s-is-spiraling-toward-disaster-2025-10-17.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-10-17/source-dialogue-works-amb-chas-freeman-how-the-u-s-is-spiraling-toward-disaster-2025-10-17.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-10-17/source-dialogue-works-amb-chas-freeman-how-the-u-s-is-spiraling-toward-disaster-2025-10-17.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-10-25/source-glenn-diesen-chas-freeman-imperial-overstretch-500-years-of-dominance-come-to-an-end-2025-10-25.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-10-25/source-glenn-diesen-chas-freeman-imperial-overstretch-500-years-of-dominance-come-to-an-end-2025-10-25.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-10-25/source-glenn-diesen-chas-freeman-imperial-overstretch-500-years-of-dominance-come-to-an-end-2025-10-25.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-10-25/source-glenn-diesen-chas-freeman-imperial-overstretch-500-years-of-dominance-come-to-an-end-2025-10-25.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-10-25/source-glenn-diesen-chas-freeman-imperial-overstretch-500-years-of-dominance-come-to-an-end-2025-10-25.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-11-07/source-dialogue-works-amb-chas-freeman-mamdani-s-victory-development-in-the-levant-and-the-wol-2025-11-07.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-11-07/source-dialogue-works-amb-chas-freeman-mamdani-s-victory-development-in-the-levant-and-the-wol-2025-11-07.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-11-10/source-judging-freedom-freeman-trump-israel-or-america-first-2025-11-10.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-11-20/source-glenn-diesen-chas-freeman-fake-peace-political-collapse-and-major-wars-2025-11-20.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-11-25/source-judging-freedom-amb-chas-freeman-zelensky-s-self-caused-dilemma-2025-11-25.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-11-28/source-dialogue-works-amb-chas-freeman-national-guard-shooting-israel-s-force-first-approach-failing-russia-ukraine-2025-11-28.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-12-04/source-diesen-freeman-thucydides-trap-us-reaction-china-rise-2025-12-04.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-12-04/source-diesen-freeman-thucydides-trap-us-reaction-china-rise-2025-12-04.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-12-04/source-diesen-freeman-thucydides-trap-us-reaction-china-rise-2025-12-04.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-12-04/source-diesen-freeman-thucydides-trap-us-reaction-china-rise-2025-12-04.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-12-04/source-diesen-freeman-thucydides-trap-us-reaction-china-rise-2025-12-04.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-12-04/source-diesen-freeman-thucydides-trap-us-reaction-china-rise-2025-12-04.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-12-04/source-diesen-freeman-thucydides-trap-us-reaction-china-rise-2025-12-04.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-12-05/source-dialogue-works-amb-chas-freeman-israel-s-strategy-is-collapsing-eu-seems-paralyzed-ceding-the-future-to-china-2025-12-05.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-12-09/source-judging-freedom-freeman-does-anyone-want-peace-2025-12-09.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-12-12/source-dialogue-works-wilkerson-freeman-chain-reaction-2025-12-12.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-12-12/source-dialogue-works-wilkerson-freeman-chain-reaction-2025-12-12.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-12-12/source-dialogue-works-wilkerson-freeman-chain-reaction-2025-12-12.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-12-12/source-dialogue-works-wilkerson-freeman-chain-reaction-2025-12-12.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-12-12/source-dialogue-works-wilkerson-freeman-chain-reaction-2025-12-12.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-12-18/source-glenn-diesen-chas-freeman-age-of-wars-as-freedom-of-navigation-ends-2025-12-18.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-12-18/source-glenn-diesen-chas-freeman-age-of-wars-as-freedom-of-navigation-ends-2025-12-18.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-12-18/source-glenn-diesen-chas-freeman-age-of-wars-as-freedom-of-navigation-ends-2025-12-18.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-12-18/source-glenn-diesen-chas-freeman-age-of-wars-as-freedom-of-navigation-ends-2025-12-18.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2025-12-19/source-dialogue-works-freeman-parsi-middle-east-you-knew-disappearing-2025-12-19.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2026-01-02/source-dialogue-works-amb-chas-freeman-mohammad-marandi-trump-issues-warning-to-iran-tehran-fi-2026-01-02.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2026-01-07/source-glenn-diesen-chas-freeman-collapse-of-law-reason-return-to-war-2026-01-07.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2026-01-07/source-glenn-diesen-chas-freeman-collapse-of-law-reason-return-to-war-2026-01-07.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2026-01-20/source-daniel-davis-iran-eu-trump-greenland-lt-col-daniel-davis-chas-freeman-2026-01-20.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2026-01-20/source-daniel-davis-iran-eu-trump-greenland-lt-col-daniel-davis-chas-freeman-2026-01-20.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2026-01-22/source-dialogue-works-amb-chas-freeman-iran-vows-huge-response-to-us-israel-attack-2026-01-22.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2026-02-06/source-dialogue-works-amb-chas-freeman-negotiations-or-the-brink-of-all-out-war-2026-02-06.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2026-02-17/source-glenn-diesen-chas-freeman-u-s-restoring-empire-war-on-eurasia-2026-02-17.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2026-02-24/source-india-global-left-war-iran-inevitable-chas-freeman-2026-02-24.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2026-02-24/source-india-global-left-war-iran-inevitable-chas-freeman-2026-02-24.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2026-02-24/source-india-global-left-war-iran-inevitable-chas-freeman-2026-02-24.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2026-02-24/source-judging-freedom-freeman-israel-pushes-us-into-another-endless-war-2026-02-24.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2026-02-27/source-dialogue-works-amb-chas-freeman-emergency-diplomacy-oman-s-fm-flies-to-washington-to-av-2026-02-27.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2026-02-27/source-dialogue-works-amb-chas-freeman-emergency-diplomacy-oman-s-fm-flies-to-washington-to-av-2026-02-27.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2026-03-01/source-glenn-diesen-chas-freeman-the-war-against-iran-could-destroy-the-u-s-republic-2026-03-01.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2026-03-01/source-glenn-diesen-chas-freeman-the-war-against-iran-could-destroy-the-u-s-republic-2026-03-01.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2026-03-06/source-daniel-davis-diplomacy-is-dead-w-iran-lt-col-daniel-davis-fmr-amb-chas-freeman-2026-03-06.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2026-03-06/source-daniel-davis-diplomacy-is-dead-w-iran-lt-col-daniel-davis-fmr-amb-chas-freeman-2026-03-06.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2026-03-06/source-dialogue-works-amb-chas-freeman-the-war-with-iran-is-breaking-everything-the-u-s-planne-2026-03-06.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2026-03-06/source-dialogue-works-amb-chas-freeman-the-war-with-iran-is-breaking-everything-the-u-s-planne-2026-03-06.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2026-03-06/source-dialogue-works-amb-chas-freeman-the-war-with-iran-is-breaking-everything-the-u-s-planne-2026-03-06.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2026-03-06/source-dialogue-works-amb-chas-freeman-the-war-with-iran-is-breaking-everything-the-u-s-planne-2026-03-06.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2026-03-07/source-india-global-left-iran-strategy-pezeshkian-gulf-halt-chas-freeman-2026-03-07.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2026-03-07/source-india-global-left-iran-strategy-pezeshkian-gulf-halt-chas-freeman-2026-03-07.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2026-03-07/source-india-global-left-iran-strategy-pezeshkian-gulf-halt-chas-freeman-2026-03-07.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2026-03-20/source-dialogue-works-amb-chas-freeman-ground-troops-in-iran-this-could-collapse-netanyahu-s-s-2026-03-20.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2026-03-23/source-india-global-left-geo-historical-shift-chas-freeman-2026-03-23.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2026-03-27/source-dialogue-works-chas-freeman-if-troops-enter-iran-israel-s-entire-strategy-falls-a-2026-03-27.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2026-03-27/source-dialogue-works-chas-freeman-if-troops-enter-iran-israel-s-entire-strategy-falls-a-2026-03-27.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2026-03-27/source-dialogue-works-chas-freeman-if-troops-enter-iran-israel-s-entire-strategy-falls-a-2026-03-27.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2026-03-27/source-dialogue-works-chas-freeman-if-troops-enter-iran-israel-s-entire-strategy-falls-a-2026-03-27.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2026-04-03/source-dialogue-works-amb-chas-freeman-trump-pushes-escalation-israel-s-strategy-collapses-ove-2026-04-03.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2026-04-03/source-dialogue-works-amb-chas-freeman-trump-pushes-escalation-israel-s-strategy-collapses-ove-2026-04-03.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2026-04-13/source-daniel-davis-iran-war-whoever-drops-the-most-bombs-wins-lt-col-daniel-davis-chas-free-2026-04-13.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2026-04-14/source-judging-freedom-freeman-israels-strategy-collapsing-2026-04-14.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2026-04-21/source-judging-freedom-freeman-us-diplomacy-is-dead-2026-04-21.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2026-04-21/source-judging-freedom-freeman-us-diplomacy-is-dead-2026-04-21.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2026-04-24/source-nima-freeman-israel-agenda-collapsing-2026-04-24.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2026-04-24/source-nima-freeman-israel-agenda-collapsing-2026-04-24.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2026-05-01/source-dialogue-works-amb-chas-freeman-israel-s-grand-plan-collapsed-in-record-time-2026-05-01.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2026-05-01/source-dialogue-works-amb-chas-freeman-israel-s-grand-plan-collapsed-in-record-time-2026-05-01.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2026-05-01/source-dialogue-works-amb-chas-freeman-israel-s-grand-plan-collapsed-in-record-time-2026-05-01.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2026-05-01/source-dialogue-works-amb-chas-freeman-israel-s-grand-plan-collapsed-in-record-time-2026-05-01.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2026-05-01/source-dialogue-works-amb-chas-freeman-israel-s-grand-plan-collapsed-in-record-time-2026-05-01.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2026-05-08/source-dialogue-works-freeman-hormuz-ceasefire-gulf-states-china-2026-05-08.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2026-05-08/source-dialogue-works-freeman-hormuz-ceasefire-gulf-states-china-2026-05-08.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2026-05-11/source-india-global-left-four-endgames-iran-war-chas-freeman-2026-05-11.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2026-05-12/source-glenn-diesen-chas-freeman-trump-goes-to-beijing-after-historic-defeat-in-iran-2026-05-12.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2026-05-12/source-glenn-diesen-chas-freeman-trump-goes-to-beijing-after-historic-defeat-in-iran-2026-05-12.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2026-05-12/source-glenn-diesen-chas-freeman-trump-goes-to-beijing-after-historic-defeat-in-iran-2026-05-12.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2026-05-12/source-glenn-diesen-chas-freeman-trump-goes-to-beijing-after-historic-defeat-in-iran-2026-05-12.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2026-05-12/source-glenn-diesen-chas-freeman-trump-goes-to-beijing-after-historic-defeat-in-iran-2026-05-12.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2026-05-12/source-glenn-diesen-chas-freeman-trump-goes-to-beijing-after-historic-defeat-in-iran-2026-05-12.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2026-05-12/source-glenn-diesen-chas-freeman-trump-goes-to-beijing-after-historic-defeat-in-iran-2026-05-12.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2026-05-12/source-glenn-diesen-chas-freeman-trump-goes-to-beijing-after-historic-defeat-in-iran-2026-05-12.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2026-05-12/source-glenn-diesen-chas-freeman-trump-goes-to-beijing-after-historic-defeat-in-iran-2026-05-12.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2026-05-16/source-neutrality-studies-power-moves-east-china-teaches-usa-a-big-lesson-chas-freeman-2026-05-16.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2026-05-16/source-neutrality-studies-power-moves-east-china-teaches-usa-a-big-lesson-chas-freeman-2026-05-16.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2026-05-20/source-india-global-left-is-iran-now-a-world-power-chas-freeman-2026-05-20.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2026-05-25/source-glenn-diesen-chas-freeman-crisis-in-israel-iranian-nuclear-weapons-2026-05-25.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2026-05-25/source-glenn-diesen-chas-freeman-crisis-in-israel-iranian-nuclear-weapons-2026-05-25.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2026-05-25/source-glenn-diesen-chas-freeman-crisis-in-israel-iranian-nuclear-weapons-2026-05-25.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2026-05-25/source-glenn-diesen-chas-freeman-crisis-in-israel-iranian-nuclear-weapons-2026-05-25.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2026-05-29/source-dialogue-works-chas-freeman-hezbollah-strikes-israel-hard-israel-now-prepares-for-war-with-egypt-turkey-2026-05-29.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2026-06-02/source-judging-freedom-freeman-how-the-us-lost-geopolitical-primacy-2026-06-02.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2026-06-02/source-judging-freedom-freeman-how-the-us-lost-geopolitical-primacy-2026-06-02.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2026-06-02/source-judging-freedom-freeman-how-the-us-lost-geopolitical-primacy-2026-06-02.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2026-06-05/source-dialogue-works-freeman-israels-free-fall-on-all-fronts-2026-06-05.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2026-06-05/source-dialogue-works-freeman-israels-free-fall-on-all-fronts-2026-06-05.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2026-06-06/source-dialogue-works-freeman-the-greater-israel-project-is-collapsing-2026-06-06.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2026-06-06/source-dialogue-works-freeman-the-greater-israel-project-is-collapsing-2026-06-06.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2026-06-06/source-glenn-diesen-chas-freeman-the-greater-israel-project-is-collapsing-2026-06-06.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2026-06-06/source-glenn-diesen-chas-freeman-the-greater-israel-project-is-collapsing-2026-06-06.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2026-06-11/source-india-global-left-freeman-regional-fallout-us-iran-war-2026-06-11.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2026-06-12/source-dialogue-works-chas-freeman-era-impunity-israel-us-west-asia-over-2026-06-12.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2026-06-16/source-judging-freedom-freeman-if-trump-says-no-to-netanyahu-2026-06-16.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2026-06-16/source-judging-freedom-freeman-if-trump-says-no-to-netanyahu-2026-06-16.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2026-06-16/source-judging-freedom-freeman-if-trump-says-no-to-netanyahu-2026-06-16.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2026-06-16/source-judging-freedom-freeman-if-trump-says-no-to-netanyahu-2026-06-16.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2026-06-19/source-dialogue-works-chas-freeman-israel-agenda-major-collapse-2026-06-19.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2026-06-19/source-dialogue-works-chas-freeman-israel-agenda-major-collapse-2026-06-19.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2026-06-23/source-judging-freedom-freeman-should-iran-trust-trump-2026-06-23.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2026-06-26/source-dialogue-works-chas-freeman-collapse-israel-agenda-2026-06-26.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2026-06-26/source-dialogue-works-chas-freeman-collapse-israel-agenda-2026-06-26.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2026-06-29/source-glenn-diesen-chas-freeman-us-iran-resume-war-israel-lebanon-civil-war-2026-06-29.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2026-07-24/source-amb-chas-freeman-iran-warns-of-regional-blackouts-after-trump-threatens-to-bomb-its-infrastructure-2026-07-24.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2026-07-24/source-amb-chas-freeman-iran-warns-of-regional-blackouts-after-trump-threatens-to-bomb-its-infrastructure-2026-07-24.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2026-07-24/source-amb-chas-freeman-iran-warns-of-regional-blackouts-after-trump-threatens-to-bomb-its-infrastructure-2026-07-24.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2026-07-24/source-amb-chas-freeman-iran-warns-of-regional-blackouts-after-trump-threatens-to-bomb-its-infrastructure-2026-07-24.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2026-07-24/source-amb-chas-freeman-iran-warns-of-regional-blackouts-after-trump-threatens-to-bomb-its-infrastructure-2026-07-24.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2026-07-24/source-amb-chas-freeman-iran-warns-of-regional-blackouts-after-trump-threatens-to-bomb-its-infrastructure-2026-07-24.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2026-07-24/source-amb-chas-freeman-iran-warns-of-regional-blackouts-after-trump-threatens-to-bomb-its-infrastructure-2026-07-24.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2026-07-24/source-pointless-violence-fake-diplomacy-us-strategy-in-iran-chas-freeman-lt-col-daniel-davis-2026-07-24.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2026-07-24/source-pointless-violence-fake-diplomacy-us-strategy-in-iran-chas-freeman-lt-col-daniel-davis-2026-07-24.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2026-07-24/source-pointless-violence-fake-diplomacy-us-strategy-in-iran-chas-freeman-lt-col-daniel-davis-2026-07-24.md",
+      "type": "speaks-in"
+    },
+    {
+      "from": "voice:freeman",
+      "to": "source:narrative-geopolitics/archive/sources/2026-07-24/source-pointless-violence-fake-diplomacy-us-strategy-in-iran-chas-freeman-lt-col-daniel-davis-2026-07-24.md",
+      "type": "speaks-in"
+    }
+  ]
+}

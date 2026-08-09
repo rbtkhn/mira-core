@@ -1,0 +1,139 @@
+{
+  "fixture_version": "1.0",
+  "cases": 16,
+  "reference_precision": 0.9090909090909091,
+  "reference_recall": 1.0,
+  "attribution_accuracy": 1.0,
+  "mechanism_accuracy": 0.9375,
+  "crosswalk_accuracy": 0.9375,
+  "results": [
+    {
+      "id": "CAL-001",
+      "expected_reference": "iraq-war",
+      "detected_reference": "iraq-war",
+      "reference_match": true,
+      "attribution_match": true,
+      "mechanism_match": true
+    },
+    {
+      "id": "CAL-002",
+      "expected_reference": "cold-war",
+      "detected_reference": "cold-war",
+      "reference_match": true,
+      "attribution_match": true,
+      "mechanism_match": true
+    },
+    {
+      "id": "CAL-003",
+      "expected_reference": "jcpoa",
+      "detected_reference": "jcpoa",
+      "reference_match": true,
+      "attribution_match": true,
+      "mechanism_match": true
+    },
+    {
+      "id": "CAL-004",
+      "expected_reference": "renaissance-knowledge",
+      "detected_reference": "renaissance-knowledge",
+      "reference_match": true,
+      "attribution_match": true,
+      "mechanism_match": true
+    },
+    {
+      "id": "CAL-005",
+      "expected_reference": "iranian-revolution",
+      "detected_reference": "iranian-revolution",
+      "reference_match": true,
+      "attribution_match": true,
+      "mechanism_match": true
+    },
+    {
+      "id": "CAL-006",
+      "expected_reference": "bay-of-pigs",
+      "detected_reference": "bay-of-pigs",
+      "reference_match": true,
+      "attribution_match": true,
+      "mechanism_match": true
+    },
+    {
+      "id": "CAL-007",
+      "expected_reference": null,
+      "detected_reference": null,
+      "reference_match": true,
+      "attribution_match": true,
+      "mechanism_match": true
+    },
+    {
+      "id": "CAL-008",
+      "expected_reference": null,
+      "detected_reference": null,
+      "reference_match": true,
+      "attribution_match": true,
+      "mechanism_match": true
+    },
+    {
+      "id": "CAL-009",
+      "expected_reference": "thucydides-trap",
+      "detected_reference": "thucydides-trap",
+      "reference_match": true,
+      "attribution_match": true,
+      "mechanism_match": true
+    },
+    {
+      "id": "CAL-010",
+      "expected_reference": "jcpoa",
+      "detected_reference": "jcpoa",
+      "reference_match": true,
+      "attribution_match": true,
+      "mechanism_match": true
+    },
+    {
+      "id": "CAL-011",
+      "expected_reference": null,
+      "detected_reference": "cold-war",
+      "reference_match": false,
+      "attribution_match": true,
+      "mechanism_match": false
+    },
+    {
+      "id": "CAL-012",
+      "expected_reference": null,
+      "detected_reference": null,
+      "reference_match": true,
+      "attribution_match": true,
+      "mechanism_match": true
+    },
+    {
+      "id": "CAL-013",
+      "expected_reference": null,
+      "detected_reference": null,
+      "reference_match": true,
+      "attribution_match": true,
+      "mechanism_match": true
+    },
+    {
+      "id": "CAL-014",
+      "expected_reference": null,
+      "detected_reference": null,
+      "reference_match": true,
+      "attribution_match": true,
+      "mechanism_match": true
+    },
+    {
+      "id": "CAL-015",
+      "expected_reference": "bay-of-pigs",
+      "detected_reference": "bay-of-pigs",
+      "reference_match": true,
+      "attribution_match": true,
+      "mechanism_match": true
+    },
+    {
+      "id": "CAL-016",
+      "expected_reference": "thucydides-trap",
+      "detected_reference": "thucydides-trap",
+      "reference_match": true,
+      "attribution_match": true,
+      "mechanism_match": true
+    }
+  ]
+}

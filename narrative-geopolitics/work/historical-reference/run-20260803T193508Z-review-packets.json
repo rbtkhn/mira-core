@@ -1,0 +1,390 @@
+{
+  "run_id": "run-20260803T193508Z",
+  "packet_count": 8,
+  "packets": [
+    {
+      "review_id": "review:narrative-geopolitics/archive/sources/2026-08-02/source-larry-johnson-i-called-it-off-trump-confirms-scrapped-iran-attack-amid-drone-impacts-in-kurdistan-2026-08-02.md:iranian-revolution:3",
+      "identity": {
+        "occurrence_id": "narrative-geopolitics/archive/sources/2026-08-02/source-larry-johnson-i-called-it-off-trump-confirms-scrapped-iran-attack-amid-drone-impacts-in-kurdistan-2026-08-02.md:iranian-revolution:3",
+        "source_id": "narrative-geopolitics/archive/sources/2026-08-02/source-larry-johnson-i-called-it-off-trump-confirms-scrapped-iran-attack-amid-drone-impacts-in-kurdistan-2026-08-02.md",
+        "reference_id": "iranian-revolution"
+      },
+      "priority_score": 3,
+      "source": {
+        "date": "2026-08-02",
+        "title": "Larry Johnson: I Called It Off: Trump Confirms Scrapped Iran Attack Amid Drone Impacts in Kurdistan",
+        "archive_path": "narrative-geopolitics/archive/sources/2026-08-02/source-larry-johnson-i-called-it-off-trump-confirms-scrapped-iran-attack-amid-drone-impacts-in-kurdistan-2026-08-02.md"
+      },
+      "evidence": {
+        "quote": "[music] Hi everybody. Today's Sunday, August 2nd, 2026, and our dear friend Lar. [clears throat] Welcome back, Lar. >> Oh, heck. What the heck? What in the world happened here? >> What's going on? >> Sorry about that. It's Some YouTube video just started playing itself on its own. [laughter] >> It's so strange. The gremlins are at work. >> Yeah, there is something going on. Larry, let me start with what has happened last night. Donald Trump finally said he cancelled the attack on Iran which was supposed to attack all those civilian infrastructure, the power grids, everything there. >> And again, we're back. What is your understanding of what has happened? Iran was they were supposed to attac",
+        "basis": ""
+      },
+      "reference": {
+        "id": "iranian-revolution",
+        "label": "Iranian Revolution",
+        "parent_period": "historical period"
+      },
+      "attribution_confidence": "provisional",
+      "mechanism_suggestions": [
+        {
+          "id": "M-FR-005",
+          "name": "sovereignty, legitimacy, and historical memory",
+          "basis": "native reference adapter"
+        }
+      ],
+      "crosswalk_suggestions": [
+        {
+          "target": "M-FR-005",
+          "confidence": "suggested",
+          "rationale": "native reference adapter",
+          "conflict_status": "unreviewed",
+          "review_status": "unreviewed"
+        }
+      ],
+      "decision_options": [
+        "accept",
+        "qualify",
+        "reject",
+        "revise",
+        "unresolved"
+      ],
+      "current_status": "needs-review"
+    },
+    {
+      "review_id": "review:narrative-geopolitics/archive/sources/2026-08-02/source-larry-johnson-i-called-it-off-trump-confirms-scrapped-iran-attack-amid-drone-impacts-in-kurdistan-2026-08-02.md:jcpoa:3",
+      "identity": {
+        "occurrence_id": "narrative-geopolitics/archive/sources/2026-08-02/source-larry-johnson-i-called-it-off-trump-confirms-scrapped-iran-attack-amid-drone-impacts-in-kurdistan-2026-08-02.md:jcpoa:3",
+        "source_id": "narrative-geopolitics/archive/sources/2026-08-02/source-larry-johnson-i-called-it-off-trump-confirms-scrapped-iran-attack-amid-drone-impacts-in-kurdistan-2026-08-02.md",
+        "reference_id": "jcpoa"
+      },
+      "priority_score": 3,
+      "source": {
+        "date": "2026-08-02",
+        "title": "Larry Johnson: I Called It Off: Trump Confirms Scrapped Iran Attack Amid Drone Impacts in Kurdistan",
+        "archive_path": "narrative-geopolitics/archive/sources/2026-08-02/source-larry-johnson-i-called-it-off-trump-confirms-scrapped-iran-attack-amid-drone-impacts-in-kurdistan-2026-08-02.md"
+      },
+      "evidence": {
+        "quote": "[music] Hi everybody. Today's Sunday, August 2nd, 2026, and our dear friend Lar. [clears throat] Welcome back, Lar. >> Oh, heck. What the heck? What in the world happened here? >> What's going on? >> Sorry about that. It's Some YouTube video just started playing itself on its own. [laughter] >> It's so strange. The gremlins are at work. >> Yeah, there is something going on. Larry, let me start with what has happened last night. Donald Trump finally said he cancelled the attack on Iran which was supposed to attack all those civilian infrastructure, the power grids, everything there. >> And again, we're back. What is your understanding of what has happened? Iran was they were supposed to attac",
+        "basis": ""
+      },
+      "reference": {
+        "id": "jcpoa",
+        "label": "JCPOA / Iran nuclear diplomacy",
+        "parent_period": "historical period"
+      },
+      "attribution_confidence": "provisional",
+      "mechanism_suggestions": [
+        {
+          "id": "M-FR-002",
+          "name": "institutional memory and diplomatic credibility",
+          "basis": "native reference adapter"
+        }
+      ],
+      "crosswalk_suggestions": [
+        {
+          "target": "M-FR-002",
+          "confidence": "suggested",
+          "rationale": "native reference adapter",
+          "conflict_status": "unreviewed",
+          "review_status": "unreviewed"
+        }
+      ],
+      "decision_options": [
+        "accept",
+        "qualify",
+        "reject",
+        "revise",
+        "unresolved"
+      ],
+      "current_status": "needs-review"
+    },
+    {
+      "review_id": "review:narrative-geopolitics/archive/sources/2026-08-02/source-live-scott-ritter-iran-and-russia-wars-now-entering-most-dangerous-phase-2026-08-02.md:cold-war:4",
+      "identity": {
+        "occurrence_id": "narrative-geopolitics/archive/sources/2026-08-02/source-live-scott-ritter-iran-and-russia-wars-now-entering-most-dangerous-phase-2026-08-02.md:cold-war:4",
+        "source_id": "narrative-geopolitics/archive/sources/2026-08-02/source-live-scott-ritter-iran-and-russia-wars-now-entering-most-dangerous-phase-2026-08-02.md",
+        "reference_id": "cold-war"
+      },
+      "priority_score": 3,
+      "source": {
+        "date": "2026-08-02",
+        "title": "🚨 LIVE: Scott Ritter - Iran and Russia Wars Now Entering Most Dangerous Phase",
+        "archive_path": "narrative-geopolitics/archive/sources/2026-08-02/source-live-scott-ritter-iran-and-russia-wars-now-entering-most-dangerous-phase-2026-08-02.md"
+      },
+      "evidence": {
+        "quote": "Transcripts: welcome to a very important episode of let's talk geopolitics i am one of your hosts cyrus jansen and we have an amazing show for you this evening or this afternoon wherever you are joining us from now we have breaking news on the iran war of course once again it seems to be taco sundays as donald trump has just announced that he is of course potentially making another deal with iran and that the united states is going to hold off on the bombing campaign now what we're looking at in the middle east everyone is we're looking at a major escalation trap here we are on august 2nd and the strait of hormuz is still under iranian control there is absolutely nothing the united states ca",
+        "basis": ""
+      },
+      "reference": {
+        "id": "cold-war",
+        "label": "Cold War",
+        "parent_period": "Cold War"
+      },
+      "attribution_confidence": "provisional",
+      "mechanism_suggestions": [
+        {
+          "id": "M-FR-003",
+          "name": "imperial overstretch and power transition",
+          "basis": "native reference adapter"
+        }
+      ],
+      "crosswalk_suggestions": [
+        {
+          "target": "M-FR-003",
+          "confidence": "suggested",
+          "rationale": "native reference adapter",
+          "conflict_status": "unreviewed",
+          "review_status": "unreviewed"
+        }
+      ],
+      "decision_options": [
+        "accept",
+        "qualify",
+        "reject",
+        "revise",
+        "unresolved"
+      ],
+      "current_status": "needs-review"
+    },
+    {
+      "review_id": "review:narrative-geopolitics/archive/sources/2026-08-02/source-live-scott-ritter-iran-and-russia-wars-now-entering-most-dangerous-phase-2026-08-02.md:kuwait-liberation:4",
+      "identity": {
+        "occurrence_id": "narrative-geopolitics/archive/sources/2026-08-02/source-live-scott-ritter-iran-and-russia-wars-now-entering-most-dangerous-phase-2026-08-02.md:kuwait-liberation:4",
+        "source_id": "narrative-geopolitics/archive/sources/2026-08-02/source-live-scott-ritter-iran-and-russia-wars-now-entering-most-dangerous-phase-2026-08-02.md",
+        "reference_id": "kuwait-liberation"
+      },
+      "priority_score": 3,
+      "source": {
+        "date": "2026-08-02",
+        "title": "🚨 LIVE: Scott Ritter - Iran and Russia Wars Now Entering Most Dangerous Phase",
+        "archive_path": "narrative-geopolitics/archive/sources/2026-08-02/source-live-scott-ritter-iran-and-russia-wars-now-entering-most-dangerous-phase-2026-08-02.md"
+      },
+      "evidence": {
+        "quote": "Transcripts: welcome to a very important episode of let's talk geopolitics i am one of your hosts cyrus jansen and we have an amazing show for you this evening or this afternoon wherever you are joining us from now we have breaking news on the iran war of course once again it seems to be taco sundays as donald trump has just announced that he is of course potentially making another deal with iran and that the united states is going to hold off on the bombing campaign now what we're looking at in the middle east everyone is we're looking at a major escalation trap here we are on august 2nd and the strait of hormuz is still under iranian control there is absolutely nothing the united states ca",
+        "basis": ""
+      },
+      "reference": {
+        "id": "kuwait-liberation",
+        "label": "1991 liberation of Kuwait",
+        "parent_period": "historical period"
+      },
+      "attribution_confidence": "provisional",
+      "mechanism_suggestions": [
+        {
+          "id": "M-FR-002",
+          "name": "institutional memory and diplomatic credibility",
+          "basis": "native reference adapter"
+        }
+      ],
+      "crosswalk_suggestions": [
+        {
+          "target": "M-FR-002",
+          "confidence": "suggested",
+          "rationale": "native reference adapter",
+          "conflict_status": "unreviewed",
+          "review_status": "unreviewed"
+        }
+      ],
+      "decision_options": [
+        "accept",
+        "qualify",
+        "reject",
+        "revise",
+        "unresolved"
+      ],
+      "current_status": "needs-review"
+    },
+    {
+      "review_id": "review:narrative-geopolitics/archive/sources/2026-08-02/source-ray-mcgovern-iran-s-gulf-shockwave-how-precision-strikes-just-collapsed-the-war-strategy-2026-08-02.md:iraq-war:3",
+      "identity": {
+        "occurrence_id": "narrative-geopolitics/archive/sources/2026-08-02/source-ray-mcgovern-iran-s-gulf-shockwave-how-precision-strikes-just-collapsed-the-war-strategy-2026-08-02.md:iraq-war:3",
+        "source_id": "narrative-geopolitics/archive/sources/2026-08-02/source-ray-mcgovern-iran-s-gulf-shockwave-how-precision-strikes-just-collapsed-the-war-strategy-2026-08-02.md",
+        "reference_id": "iraq-war"
+      },
+      "priority_score": 3,
+      "source": {
+        "date": "2026-08-02",
+        "title": "Ray McGovern: IRAN'S GULF SHOCKWAVE: How 'Precision' Strikes Just Collapsed the War Strategy",
+        "archive_path": "narrative-geopolitics/archive/sources/2026-08-02/source-ray-mcgovern-iran-s-gulf-shockwave-how-precision-strikes-just-collapsed-the-war-strategy-2026-08-02.md"
+      },
+      "evidence": {
+        "quote": "Hi everybody. Today's Sunday, August 2nd, 2026 and our dear friend Ray McGovern is here with us. Welcome back, Ray. >> Thanks, Nema. >> Ray, let me start with what has happened. Donald Trump finally has decided to cancel the attack which would could have been devastating for the whole region for the west Asia because he was talking about hidden power grids together with civilian infrastructures. There were talks between Donald Trump and it seems that MBS the crown prince of Saudi Arabia called Donald Trump. There was ongoing talks between Iran and the mediators basically Pakistan Monourir the head of army in Pakistan and the Turkish foreign minister as well was communicating with both Irania",
+        "basis": ""
+      },
+      "reference": {
+        "id": "iraq-war",
+        "label": "2003 Iraq War",
+        "parent_period": "historical period"
+      },
+      "attribution_confidence": "provisional",
+      "mechanism_suggestions": [
+        {
+          "id": "M-FR-001",
+          "name": "coercion and strategic backfire",
+          "basis": "native reference adapter"
+        }
+      ],
+      "crosswalk_suggestions": [
+        {
+          "target": "M-FR-001",
+          "confidence": "suggested",
+          "rationale": "native reference adapter",
+          "conflict_status": "unreviewed",
+          "review_status": "unreviewed"
+        }
+      ],
+      "decision_options": [
+        "accept",
+        "qualify",
+        "reject",
+        "revise",
+        "unresolved"
+      ],
+      "current_status": "needs-review"
+    },
+    {
+      "review_id": "review:narrative-geopolitics/archive/sources/2026-08-02/source-ray-mcgovern-iran-s-gulf-shockwave-how-precision-strikes-just-collapsed-the-war-strategy-2026-08-02.md:vietnam-war:3",
+      "identity": {
+        "occurrence_id": "narrative-geopolitics/archive/sources/2026-08-02/source-ray-mcgovern-iran-s-gulf-shockwave-how-precision-strikes-just-collapsed-the-war-strategy-2026-08-02.md:vietnam-war:3",
+        "source_id": "narrative-geopolitics/archive/sources/2026-08-02/source-ray-mcgovern-iran-s-gulf-shockwave-how-precision-strikes-just-collapsed-the-war-strategy-2026-08-02.md",
+        "reference_id": "vietnam-war"
+      },
+      "priority_score": 3,
+      "source": {
+        "date": "2026-08-02",
+        "title": "Ray McGovern: IRAN'S GULF SHOCKWAVE: How 'Precision' Strikes Just Collapsed the War Strategy",
+        "archive_path": "narrative-geopolitics/archive/sources/2026-08-02/source-ray-mcgovern-iran-s-gulf-shockwave-how-precision-strikes-just-collapsed-the-war-strategy-2026-08-02.md"
+      },
+      "evidence": {
+        "quote": "Hi everybody. Today's Sunday, August 2nd, 2026 and our dear friend Ray McGovern is here with us. Welcome back, Ray. >> Thanks, Nema. >> Ray, let me start with what has happened. Donald Trump finally has decided to cancel the attack which would could have been devastating for the whole region for the west Asia because he was talking about hidden power grids together with civilian infrastructures. There were talks between Donald Trump and it seems that MBS the crown prince of Saudi Arabia called Donald Trump. There was ongoing talks between Iran and the mediators basically Pakistan Monourir the head of army in Pakistan and the Turkish foreign minister as well was communicating with both Irania",
+        "basis": ""
+      },
+      "reference": {
+        "id": "vietnam-war",
+        "label": "Vietnam War",
+        "parent_period": "Cold War"
+      },
+      "attribution_confidence": "provisional",
+      "mechanism_suggestions": [
+        {
+          "id": "M-FR-001",
+          "name": "coercion and strategic backfire",
+          "basis": "native reference adapter"
+        }
+      ],
+      "crosswalk_suggestions": [
+        {
+          "target": "M-FR-001",
+          "confidence": "suggested",
+          "rationale": "native reference adapter",
+          "conflict_status": "unreviewed",
+          "review_status": "unreviewed"
+        }
+      ],
+      "decision_options": [
+        "accept",
+        "qualify",
+        "reject",
+        "revise",
+        "unresolved"
+      ],
+      "current_status": "needs-review"
+    },
+    {
+      "review_id": "review:narrative-geopolitics/archive/sources/2026-08-02/source-trump-iran-begged-him-not-to-strike-as-they-are-ready-for-deal-2026-08-02.md:cold-war:3",
+      "identity": {
+        "occurrence_id": "narrative-geopolitics/archive/sources/2026-08-02/source-trump-iran-begged-him-not-to-strike-as-they-are-ready-for-deal-2026-08-02.md:cold-war:3",
+        "source_id": "narrative-geopolitics/archive/sources/2026-08-02/source-trump-iran-begged-him-not-to-strike-as-they-are-ready-for-deal-2026-08-02.md",
+        "reference_id": "cold-war"
+      },
+      "priority_score": 3,
+      "source": {
+        "date": "2026-08-02",
+        "title": "TRUMP: IRAN BEGGED HIM NOT TO STRIKE AS THEY ARE READY FOR DEAL",
+        "archive_path": "narrative-geopolitics/archive/sources/2026-08-02/source-trump-iran-begged-him-not-to-strike-as-they-are-ready-for-deal-2026-08-02.md"
+      },
+      "evidence": {
+        "quote": "I guess I had the wrong link. That's why I was running late. I I was on the wrong uh Anyway, so I'm here. So, um I shouldn't have changed my mind. I guess I shouldn't have not changed my mind, but I shouldn't have started questioning my thesis that the war is over. I u I need to >> I need to apologize everybody. I've been saying the war is over correctly since March. And then a week ago, oh, sorry, earlier this week, I said, \"Look, I'm I really don't I don't feel comfortable saying the war is over.\" >> Yeah. >> And I messed up. Then my source told me, which I mentioned to you, my said, \"Mario, the one I mentioned last interview said, Mario, >> um, Trump, Bull Taco, strikes that are going to ",
+        "basis": ""
+      },
+      "reference": {
+        "id": "cold-war",
+        "label": "Cold War",
+        "parent_period": "Cold War"
+      },
+      "attribution_confidence": "provisional",
+      "mechanism_suggestions": [
+        {
+          "id": "M-FR-003",
+          "name": "imperial overstretch and power transition",
+          "basis": "native reference adapter"
+        }
+      ],
+      "crosswalk_suggestions": [
+        {
+          "target": "M-FR-003",
+          "confidence": "suggested",
+          "rationale": "native reference adapter",
+          "conflict_status": "unreviewed",
+          "review_status": "unreviewed"
+        }
+      ],
+      "decision_options": [
+        "accept",
+        "qualify",
+        "reject",
+        "revise",
+        "unresolved"
+      ],
+      "current_status": "needs-review"
+    },
+    {
+      "review_id": "review:narrative-geopolitics/archive/sources/2026-08-02/source-trump-tacos-again-what-s-next-lt-col-daniel-davis-2026-08-02.md:jcpoa:3",
+      "identity": {
+        "occurrence_id": "narrative-geopolitics/archive/sources/2026-08-02/source-trump-tacos-again-what-s-next-lt-col-daniel-davis-2026-08-02.md:jcpoa:3",
+        "source_id": "narrative-geopolitics/archive/sources/2026-08-02/source-trump-tacos-again-what-s-next-lt-col-daniel-davis-2026-08-02.md",
+        "reference_id": "jcpoa"
+      },
+      "priority_score": 3,
+      "source": {
+        "date": "2026-08-02",
+        "title": "Trump Tacos Again! What's Next /Lt Col Daniel Davis",
+        "archive_path": "narrative-geopolitics/archive/sources/2026-08-02/source-trump-tacos-again-what-s-next-lt-col-daniel-davis-2026-08-02.md"
+      },
+      "evidence": {
+        "quote": "After much fanfare in the days leading up to today on Sunday, President Trump has again done the infamous taco and has backed down from attacking Iran. This is the second consecutive week and the fifth time that he had indicated through a lot of claims and a lot of true socials and a lot of statements that he was getting ready to do something really really big and hit the the Iranian energy systems hard and to hit the bridges and to teach them a lesson. >> We're going to be hitting them very hard because it's our turn to hit them. But you know, you know, we got to smack him a little bit. >> We'll be hitting him very hard and, you know, at some point they're going to say, \"We just can't take ",
+        "basis": ""
+      },
+      "reference": {
+        "id": "jcpoa",
+        "label": "JCPOA / Iran nuclear diplomacy",
+        "parent_period": "historical period"
+      },
+      "attribution_confidence": "provisional",
+      "mechanism_suggestions": [
+        {
+          "id": "M-FR-002",
+          "name": "institutional memory and diplomatic credibility",
+          "basis": "native reference adapter"
+        }
+      ],
+      "crosswalk_suggestions": [
+        {
+          "target": "M-FR-002",
+          "confidence": "suggested",
+          "rationale": "native reference adapter",
+          "conflict_status": "unreviewed",
+          "review_status": "unreviewed"
+        }
+      ],
+      "decision_options": [
+        "accept",
+        "qualify",
+        "reject",
+        "revise",
+        "unresolved"
+      ],
+      "current_status": "needs-review"
+    }
+  ]
+}

@@ -1,0 +1,127 @@
+{
+  "run_id": "run-20260803T195003Z",
+  "state": "landed",
+  "voices": [
+    "johnson",
+    "mcgovern"
+  ],
+  "versions": {
+    "schema": "2",
+    "taxonomy": "2",
+    "detector": "3",
+    "mechanism": "1"
+  },
+  "receipts": [
+    {
+      "source_id": "narrative-geopolitics/archive/sources/2026-06-05/source-judging-freedom-johnson-mcgovern-intel-roundtable-weekly-wrap-5-june-2026-06-05.md",
+      "status": "landed",
+      "fingerprint": {
+        "source_id": "narrative-geopolitics/archive/sources/2026-06-05/source-judging-freedom-johnson-mcgovern-intel-roundtable-weekly-wrap-5-june-2026-06-05.md",
+        "archive_path": "narrative-geopolitics/archive/sources/2026-06-05/source-judging-freedom-johnson-mcgovern-intel-roundtable-weekly-wrap-5-june-2026-06-05.md",
+        "file_hash": "70c28dc310360dad40d3e429cb1cb690ad9a52dc8ffa63f1c0eab0431e83044c",
+        "taxonomy_version": "2",
+        "detector_version": "3",
+        "mechanism_version": "1",
+        "voice_scope": "johnson,mcgovern"
+      },
+      "record_count": 0,
+      "archive_path": "narrative-geopolitics/archive/sources/2026-06-05/source-judging-freedom-johnson-mcgovern-intel-roundtable-weekly-wrap-5-june-2026-06-05.md",
+      "warnings": []
+    },
+    {
+      "source_id": "narrative-geopolitics/archive/sources/2026-06-12/source-judging-freedom-johnson-mcgovern-intel-roundtable-weekly-wrap-12-june-2026-06-12.md",
+      "status": "landed",
+      "fingerprint": {
+        "source_id": "narrative-geopolitics/archive/sources/2026-06-12/source-judging-freedom-johnson-mcgovern-intel-roundtable-weekly-wrap-12-june-2026-06-12.md",
+        "archive_path": "narrative-geopolitics/archive/sources/2026-06-12/source-judging-freedom-johnson-mcgovern-intel-roundtable-weekly-wrap-12-june-2026-06-12.md",
+        "file_hash": "dadef89559b55430be8db629112946254e8f09b6165e21f5b02b23768b8a1259",
+        "taxonomy_version": "2",
+        "detector_version": "3",
+        "mechanism_version": "1",
+        "voice_scope": "johnson,mcgovern"
+      },
+      "record_count": 0,
+      "archive_path": "narrative-geopolitics/archive/sources/2026-06-12/source-judging-freedom-johnson-mcgovern-intel-roundtable-weekly-wrap-12-june-2026-06-12.md",
+      "warnings": []
+    }
+  ],
+  "records": [],
+  "backtest": {
+    "source_ids": [],
+    "archive_paths": [],
+    "dates": [],
+    "records": []
+  },
+  "characterizations": [
+    {
+      "voice": "johnson",
+      "characterization": "historical-reference function requires operator review",
+      "analytical_function": "other-review-required",
+      "characterization_confidence": "untested",
+      "backtest_sample_count": 0,
+      "backtest_date_count": 0,
+      "date_coverage": [],
+      "coverage_gaps": [],
+      "falsifier": "Operator review is required to define a discriminating observable.",
+      "forecast_linkage": [],
+      "source_ids": [],
+      "archive_paths": [],
+      "pilot_occurrence_ids": [],
+      "backtest_occurrence_ids": [],
+      "backtest_status": "complete-window"
+    },
+    {
+      "voice": "mcgovern",
+      "characterization": "historical-reference function requires operator review",
+      "analytical_function": "other-review-required",
+      "characterization_confidence": "untested",
+      "backtest_sample_count": 0,
+      "backtest_date_count": 0,
+      "date_coverage": [],
+      "coverage_gaps": [],
+      "falsifier": "Operator review is required to define a discriminating observable.",
+      "forecast_linkage": [],
+      "source_ids": [],
+      "archive_paths": [],
+      "pilot_occurrence_ids": [],
+      "backtest_occurrence_ids": [],
+      "backtest_status": "complete-window"
+    }
+  ],
+  "characterization_review_queue": [
+    {
+      "voice": "johnson",
+      "characterization": "historical-reference function requires operator review",
+      "analytical_function": "other-review-required",
+      "characterization_confidence": "untested",
+      "backtest_sample_count": 0,
+      "backtest_date_count": 0,
+      "date_coverage": [],
+      "coverage_gaps": [],
+      "falsifier": "Operator review is required to define a discriminating observable.",
+      "forecast_linkage": [],
+      "source_ids": [],
+      "archive_paths": [],
+      "pilot_occurrence_ids": [],
+      "backtest_occurrence_ids": [],
+      "backtest_status": "complete-window"
+    },
+    {
+      "voice": "mcgovern",
+      "characterization": "historical-reference function requires operator review",
+      "analytical_function": "other-review-required",
+      "characterization_confidence": "untested",
+      "backtest_sample_count": 0,
+      "backtest_date_count": 0,
+      "date_coverage": [],
+      "coverage_gaps": [],
+      "falsifier": "Operator review is required to define a discriminating observable.",
+      "forecast_linkage": [],
+      "source_ids": [],
+      "archive_paths": [],
+      "pilot_occurrence_ids": [],
+      "backtest_occurrence_ids": [],
+      "backtest_status": "complete-window"
+    }
+  ]
+}

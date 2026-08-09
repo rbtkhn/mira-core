@@ -1,0 +1,89 @@
+{
+  "run_id": "run-20260803T194832Z",
+  "sources": {
+    "narrative-geopolitics/archive/sources/2026-06-05/source-dialogue-works-johnson-wilkerson-iran-fires-missiles-at-us-destroyers-us-ships-flee-to-indian-ocean-2026-06-05.md": {
+      "fingerprint": {
+        "archive_path": "narrative-geopolitics/archive/sources/2026-06-05/source-dialogue-works-johnson-wilkerson-iran-fires-missiles-at-us-destroyers-us-ships-flee-to-indian-ocean-2026-06-05.md",
+        "detector_version": "3",
+        "file_hash": "6e5950d44b80ed5c453ba0b1a2961f2146ea286ffa03eaa78f400c69f9efd735",
+        "mechanism_version": "1",
+        "source_id": "narrative-geopolitics/archive/sources/2026-06-05/source-dialogue-works-johnson-wilkerson-iran-fires-missiles-at-us-destroyers-us-ships-flee-to-indian-ocean-2026-06-05.md",
+        "taxonomy_version": "2",
+        "voice_scope": "johnson"
+      },
+      "record_count": 3,
+      "status": "landed"
+    },
+    "narrative-geopolitics/archive/sources/2026-06-12/source-glenn-diesen-larry-johnson-end-of-war-us-iran-close-to-a-deal-2026-06-12.md": {
+      "fingerprint": {
+        "archive_path": "narrative-geopolitics/archive/sources/2026-06-12/source-glenn-diesen-larry-johnson-end-of-war-us-iran-close-to-a-deal-2026-06-12.md",
+        "detector_version": "3",
+        "file_hash": "4e57e96db94a6a2dd6272a284f350cb75e78954e02343ff8bef4bcbc60f484f4",
+        "mechanism_version": "1",
+        "source_id": "narrative-geopolitics/archive/sources/2026-06-12/source-glenn-diesen-larry-johnson-end-of-war-us-iran-close-to-a-deal-2026-06-12.md",
+        "taxonomy_version": "2",
+        "voice_scope": "johnson"
+      },
+      "record_count": 2,
+      "status": "landed"
+    },
+    "narrative-geopolitics/archive/sources/2026-07-08/source-larry-johnson-iran-strikes-us-bases-in-bahrain-kuwait-after-us-strikes-south-iran-hormuz-closed-2026-07-08.md": {
+      "fingerprint": {
+        "archive_path": "narrative-geopolitics/archive/sources/2026-07-08/source-larry-johnson-iran-strikes-us-bases-in-bahrain-kuwait-after-us-strikes-south-iran-hormuz-closed-2026-07-08.md",
+        "detector_version": "3",
+        "file_hash": "1459859e97e4760018f541ec7ad140c96ce6e331f6b01eefadc6ed1388b5e8a2",
+        "mechanism_version": "1",
+        "source_id": "narrative-geopolitics/archive/sources/2026-07-08/source-larry-johnson-iran-strikes-us-bases-in-bahrain-kuwait-after-us-strikes-south-iran-hormuz-closed-2026-07-08.md",
+        "taxonomy_version": "2",
+        "voice_scope": "johnson"
+      },
+      "record_count": 0,
+      "status": "landed"
+    },
+    "narrative-geopolitics/archive/sources/2026-07-16/source-fmr-cia-analyst-larry-johnson-us-can-t-force-hormuz-open-2026-07-16.md": {
+      "fingerprint": {
+        "archive_path": "narrative-geopolitics/archive/sources/2026-07-16/source-fmr-cia-analyst-larry-johnson-us-can-t-force-hormuz-open-2026-07-16.md",
+        "detector_version": "3",
+        "file_hash": "a9cd05bbb55362099b6db2b618190ff779a9963ae24662cb81201c691ada5f7e",
+        "mechanism_version": "1",
+        "source_id": "narrative-geopolitics/archive/sources/2026-07-16/source-fmr-cia-analyst-larry-johnson-us-can-t-force-hormuz-open-2026-07-16.md",
+        "taxonomy_version": "2",
+        "voice_scope": "johnson"
+      },
+      "record_count": 0,
+      "status": "landed"
+    },
+    "narrative-geopolitics/archive/sources/2026-07-24/source-breaking-trump-bombing-iran-now-after-iran-refuses-off-ramp-w-larry-johnson-2026-07-24.md": {
+      "fingerprint": {
+        "archive_path": "narrative-geopolitics/archive/sources/2026-07-24/source-breaking-trump-bombing-iran-now-after-iran-refuses-off-ramp-w-larry-johnson-2026-07-24.md",
+        "detector_version": "3",
+        "file_hash": "485e04af59167e0c3bdd8cbee8a98b91dd5351981aaadc4cfb16d1a739e0d9d2",
+        "mechanism_version": "1",
+        "source_id": "narrative-geopolitics/archive/sources/2026-07-24/source-breaking-trump-bombing-iran-now-after-iran-refuses-off-ramp-w-larry-johnson-2026-07-24.md",
+        "taxonomy_version": "2",
+        "voice_scope": "johnson"
+      },
+      "record_count": 0,
+      "status": "landed"
+    },
+    "narrative-geopolitics/archive/sources/2026-08-01/source-larry-johnson-us-israel-about-to-launch-most-extensive-bombing-campaign-yet-on-iran-s-energy-grid-2026-08-01.md": {
+      "fingerprint": {
+        "archive_path": "narrative-geopolitics/archive/sources/2026-08-01/source-larry-johnson-us-israel-about-to-launch-most-extensive-bombing-campaign-yet-on-iran-s-energy-grid-2026-08-01.md",
+        "detector_version": "3",
+        "file_hash": "2be8b3b82689b545f4cd531d7bc985b1819343005e7e5f27a31942bccf1c1539",
+        "mechanism_version": "1",
+        "source_id": "narrative-geopolitics/archive/sources/2026-08-01/source-larry-johnson-us-israel-about-to-launch-most-extensive-bombing-campaign-yet-on-iran-s-energy-grid-2026-08-01.md",
+        "taxonomy_version": "2",
+        "voice_scope": "johnson"
+      },
+      "record_count": 0,
+      "status": "landed"
+    }
+  },
+  "versions": {
+    "detector": "3",
+    "mechanism": "1",
+    "schema": "2",
+    "taxonomy": "2"
+  }
+}

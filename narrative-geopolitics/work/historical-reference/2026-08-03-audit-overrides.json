@@ -1,0 +1,58 @@
+{
+  "overrides": {
+    "narrative-geopolitics/archive/sources/2026-08-03/source-col-jacques-baud-iran-defies-trump-targets-ship-in-strait-of-hormuz-hours-after-statement-2026-08-03.md:iraq-war:3": {
+      "review_status": "qualify",
+      "review_note": "Retain as a contextual Iraq War reference tied to coercion and strategic backfire; do not treat Iraq as a direct predictive analogue for Iranian behavior.",
+      "reviewed_by": "operator-directed-review",
+      "reviewed_at": "2026-08-03"
+    },
+    "narrative-geopolitics/archive/sources/2026-08-03/source-col-jacques-baud-iran-defies-trump-targets-ship-in-strait-of-hormuz-hours-after-statement-2026-08-03.md:jcpoa:3": {
+      "review_status": "qualify",
+      "review_note": "Retain for institutional memory and diplomatic credibility; distinguish the 2018 U.S. withdrawal from the current MOU.",
+      "reviewed_by": "operator-directed-review",
+      "reviewed_at": "2026-08-03"
+    },
+    "narrative-geopolitics/archive/sources/2026-08-03/source-larry-johnson-u-s-concedes-to-iran-in-secret-talks-but-tehran-fires-back-with-a-demand-2026-08-03.md:jcpoa:3": {
+      "review_status": "qualify",
+      "review_note": "Retain for institutional memory and diplomatic credibility, with sequencing and implementation as the primary mechanism; do not collapse the JCPOA and current MOU.",
+      "reviewed_by": "operator-directed-review",
+      "reviewed_at": "2026-08-03"
+    },
+    "narrative-geopolitics/archive/sources/2026-08-03/source-scott-ritter-live-2pm-russia-winning-decisively-2026-08-03.md:cold-war:3": {
+      "review_status": "qualify",
+      "review_note": "Retain for imperial overstretch and power transition, with scope limits around unipolarity claims.",
+      "reviewed_by": "operator-directed-review",
+      "reviewed_at": "2026-08-03"
+    },
+    "narrative-geopolitics/archive/sources/2026-08-03/source-trump-bombs-iran-for-5-months-and-they-still-say-no-w-prof-robert-pape-2026-08-03.md:cold-war:3": {
+      "review_status": "qualify",
+      "review_note": "Retain for imperial overstretch and power transition; review the Cold War frame as structural context, not proof of present causation.",
+      "reviewed_by": "operator-directed-review",
+      "reviewed_at": "2026-08-03"
+    },
+    "narrative-geopolitics/archive/sources/2026-08-03/source-trump-bombs-iran-for-5-months-and-they-still-say-no-w-prof-robert-pape-2026-08-03.md:iraq-war:3": {
+      "review_status": "qualify",
+      "review_note": "Retain for coercion and strategic backfire; distinguish intervention outcome from evidence of current Iranian strategy.",
+      "reviewed_by": "operator-directed-review",
+      "reviewed_at": "2026-08-03"
+    },
+    "narrative-geopolitics/archive/sources/2026-08-03/source-trump-bombs-iran-for-5-months-and-they-still-say-no-w-prof-robert-pape-2026-08-03.md:kuwait-liberation:3": {
+      "review_status": "qualify",
+      "review_note": "Retain as a contrast case for bounded objectives and escalation dominance; do not treat 1991 Kuwait as a direct Hormuz analogue.",
+      "reviewed_by": "operator-directed-review",
+      "reviewed_at": "2026-08-03"
+    },
+    "narrative-geopolitics/archive/sources/2026-08-03/source-trump-bombs-iran-for-5-months-and-they-still-say-no-w-prof-robert-pape-2026-08-03.md:nixon-kissinger:3": {
+      "review_status": "qualify",
+      "review_note": "Retain provisionally; review whether the reference concerns diplomatic sequencing, great-power transition, or both before synthesis use.",
+      "reviewed_by": "operator-directed-review",
+      "reviewed_at": "2026-08-03"
+    },
+    "narrative-geopolitics/archive/sources/2026-08-03/source-trump-bombs-iran-for-5-months-and-they-still-say-no-w-prof-robert-pape-2026-08-03.md:vietnam-war:3": {
+      "review_status": "qualify",
+      "review_note": "Retain for escalation, domestic politics, and congressional termination pressure; limit the analogy for geography, alliance structure, and force posture.",
+      "reviewed_by": "operator-directed-review",
+      "reviewed_at": "2026-08-03"
+    }
+  }
+}
