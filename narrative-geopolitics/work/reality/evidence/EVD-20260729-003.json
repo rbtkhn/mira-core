@@ -1,0 +1,23 @@
+{
+  "access_language": "fa",
+  "as_of": "2026-07-29",
+  "created_at": "2026-07-29T00:00:00Z",
+  "created_by": "operator",
+  "event_time": "2026-03-28",
+  "evidence_role": "professional_reporting",
+  "geopolitical_environment": "middle_east_regional",
+  "id": "EVD-20260729-003",
+  "kind": "evidence",
+  "limitation": "Relays AP-linked reporting and an intelligence assessment; does not independently establish delivery, shipment records, or direct intelligence transfer.",
+  "observation": "Euronews Persian reported an assessment attributed to British defense intelligence that Russia had provided Iran training and information before the Middle East war and was sending upgraded drones.",
+  "origin_language": "fa",
+  "originating_chain": "CHAIN-AP-20260327-RUSSIA-IRAN-DRONES",
+  "representation_sha256": "13788bd6badb3f033249a73ca229c23f68f8053c8590a0c6f0e9965200b92f90",
+  "retrieved_at": "2026-07-29",
+  "revision_of": null,
+  "schema_version": 1,
+  "source_id": "VSRC-RPT-EURONEWS-FA",
+  "status": "active",
+  "translation_provenance": "not_required",
+  "url": "https://parsi.euronews.com/2026/03/28/ap-russia-is-sending-upgraded-drones-used-in-the-ukraine-war-to-iran"
+}

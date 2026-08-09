@@ -1,0 +1,41 @@
+{
+  "access": "open",
+  "access_languages": [
+    "ar",
+    "en"
+  ],
+  "appropriate_uses": "Jordanian official position, government statements, security announcements, and local official event chronology.",
+  "as_of": "2026-08-06",
+  "canonical_url": "https://petra.gov.jo/",
+  "created_at": "2026-08-06T00:00:00Z",
+  "created_by": "operator",
+  "domain": "diplomatic_position",
+  "evidence_class": "official_interested_primary",
+  "geography": "Jordan and regional security environment",
+  "geopolitical_environment": "middle_east_regional",
+  "id": "VSRC-OFF-PETRA",
+  "inappropriate_uses": "Independent verification of contested military outcomes, attribution, or damage beyond Jordanian official statements.",
+  "kind": "source",
+  "known_failure_modes": "State messaging; official-source selectivity; English and Arabic editions may differ in detail or timing.",
+  "latency": "minutes-days",
+  "name": "Jordan News Agency Petra",
+  "observables": "Jordanian official statements, government positions, security notices, and reported official chronology",
+  "open_fallback": "self",
+  "order": 28,
+  "origin_languages": [
+    "ar"
+  ],
+  "originating_chain_rule": "Arabic, English, agency-site, and official reposts of one Jordanian statement remain one originating chain.",
+  "perspective": "middle_east_regional",
+  "review_history": [
+    {
+      "date": "2026-08-06",
+      "note": "Added after source-ID hygiene audit found Petra official evidence incorrectly routed through AP.",
+      "reviewer": "operator-directed-registry-addition"
+    }
+  ],
+  "revision_of": null,
+  "schema_version": 1,
+  "status": "active",
+  "translation_provenance": "official_english_available"
+}

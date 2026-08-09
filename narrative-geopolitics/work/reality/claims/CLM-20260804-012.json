@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-08-04T00:00:00Z",
+  "created_by": "operator",
+  "as_of": "2026-08-04",
+  "status": "open",
+  "revision_of": null,
+  "id": "CLM-20260804-012",
+  "kind": "claim",
+  "claim_type": "operational_factual",
+  "text": "A material cessation of direct US-Iran hostilities began no later than April 8, 2026.",
+  "scope": "Commencement of material cessation, separately from announcement and completed duration.",
+  "crisis_object": "April US-Iran ceasefire implementation",
+  "consequence": "high",
+  "empirical_eligibility": true,
+  "claimant_refs": [],
+  "source_refs": [],
+  "aliases": [
+    "GR-20260804-006/commencement"
+  ]
+}

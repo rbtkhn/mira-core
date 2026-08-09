@@ -1,0 +1,23 @@
+{
+  "access_language": "en",
+  "as_of": "2026-08-04",
+  "created_at": "2026-08-04T00:00:00Z",
+  "created_by": "operator",
+  "event_time": "2026-04-07",
+  "evidence_role": "professional_reporting",
+  "geopolitical_environment": "western_independent",
+  "id": "EVD-20260804-005",
+  "kind": "evidence",
+  "limitation": "Contemporaneous reporting of official and mediator statements; does not establish zero violations.",
+  "observation": "AP reports that the US and Iran agreed to a two-week ceasefire including reopening the Strait of Hormuz, with Pakistan mediation.",
+  "origin_language": "en",
+  "originating_chain": "CHAIN-AP-APRIL-CEASEFIRE",
+  "representation_sha256": "c2f52caf46e8bb33ba16ef4e4317e9e2c18aeb4e79eafd9016a3fdddc5c4406f",
+  "retrieved_at": "2026-08-04",
+  "revision_of": null,
+  "schema_version": 1,
+  "source_id": "VSRC-RPT-AP",
+  "status": "active",
+  "translation_provenance": "not_required",
+  "url": "https://apnews.com/article/421ee64fdc9a5c26460df8119c7d1b3f"
+}

@@ -10,9 +10,9 @@ Opened: `2026-08-04`
 
 Closed: `none`
 
-Claim: `[Exact operational claim under review.]`
+Claim: `From March 7 through April 7, 2026, US and Israeli forces held localized air superiority over Tehran and documented western-Iran strike corridors, while Iranian forces retained residual capacity to threaten or disrupt operations; theater-wide air supremacy is excluded.`
 
-Why it matters: `[Judgment, publication, promotion, or forecast consequence.]`
+Why it matters: `Operational access, Iranian denial capacity, geography, continuity, and the distinction between localized superiority and theater-wide supremacy control the defensible strategic assessment.`
 
 Affected forecast hooks: `none`
 
@@ -28,7 +28,12 @@ Further automation justified: `no`
 
 ## Required Observables
 
-- [ ] `[Observable required to support or challenge the claim.]`
+- [ ] `OBS-20260804-030`: What geolocated, dated evidence establishes recurring coalition strike missions over Tehran and documented western-Iran strike corridors?
+- [ ] `OBS-20260804-031`: Which documented missions are attributable to US forces, Israeli forces, combined action, or unresolved actors?
+- [ ] `OBS-20260804-032`: What aircraft losses, aborted missions, route changes, or other Iranian interference materially constrained coalition operations?
+- [ ] `OBS-20260804-033`: What Iranian radar, interceptor, and ground-based air-defense activity remained operational within the bounded geography?
+- [ ] `OBS-20260804-034`: Did recurring coalition access persist across the interval, and what material temporal or geographic gaps qualify that continuity?
+- [ ] `OBS-20260804-035`: What counterevidence from the bounded areas or other Iranian regions prevents generalization to theater-wide air supremacy?
 
 ## Evidence Records
 

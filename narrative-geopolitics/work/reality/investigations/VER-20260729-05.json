@@ -1,0 +1,19 @@
+{
+  "affected_artifacts": [],
+  "affected_forecast_hooks": [],
+  "as_of": "2026-07-29",
+  "claim_ids": [
+    "CLM-20260729-004"
+  ],
+  "created_at": "2026-07-29T00:00:00Z",
+  "created_by": "operator",
+  "id": "VER-20260729-05",
+  "kind": "investigation",
+  "observable_ids": [
+    "OBS-20260729-005"
+  ],
+  "research_boundary": "Bounded investigation of the reported US-Saudi strike on Iraqi PMF facilities, separating location, actor participation, force status, casualties, and Iraqi government response; require Iraqi, regional, and external evidence with independent lineage.",
+  "revision_of": null,
+  "schema_version": 1,
+  "status": "requested"
+}

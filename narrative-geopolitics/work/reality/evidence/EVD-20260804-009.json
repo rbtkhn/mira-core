@@ -1,0 +1,23 @@
+{
+  "access_language": "en",
+  "as_of": "2026-08-04",
+  "created_at": "2026-08-04T00:00:00Z",
+  "created_by": "operator",
+  "event_time": "2026-07-08",
+  "evidence_role": "professional_reporting",
+  "geopolitical_environment": "western_independent",
+  "id": "EVD-20260804-009",
+  "kind": "evidence",
+  "limitation": "Same Reuters Ankara statement chain as EVD-20260804-007; not independent confirmation of termination.",
+  "observation": "Reuters reports market reaction to Trumps statement that the Iran MOU was over.",
+  "origin_language": "en",
+  "originating_chain": "CHAIN-REUTERS-TRUMP-MOU-OVER",
+  "representation_sha256": "b5b0aeba08c806b80dc13a4fadba479252bb116f78c621dd101bbe9891fd7fa9",
+  "retrieved_at": "2026-08-04",
+  "revision_of": null,
+  "schema_version": 1,
+  "source_id": "VSRC-RPT-REUTERS",
+  "status": "active",
+  "translation_provenance": "not_required",
+  "url": "https://www.investing.com/news/economy-news/stocks-bonds-retreat-after-trump-says-iran-mou-is-over-4781953"
+}

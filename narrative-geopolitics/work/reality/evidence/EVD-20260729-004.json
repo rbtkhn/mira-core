@@ -1,0 +1,23 @@
+{
+  "access_language": "ru",
+  "as_of": "2026-07-29",
+  "created_at": "2026-07-29T00:00:00Z",
+  "created_by": "operator",
+  "event_time": "2026-04-15",
+  "evidence_role": "context_only",
+  "geopolitical_environment": "western_independent",
+  "id": "EVD-20260729-004",
+  "kind": "evidence",
+  "limitation": "Expert commentary and secondary-source dependence; no direct documentation or independent physical evidence; not a separate confirmation of the underlying reports.",
+  "observation": "Carnegie Politika Russian commentary stated that Russia supplied Iran with drones and intelligence for targeting, while citing other reporting and presenting the claim as an interpretation of the developing relationship.",
+  "origin_language": "ru",
+  "originating_chain": "CHAIN-POLITICO-202604-RUSSIA-IRAN-INTEL",
+  "representation_sha256": "f2b74b12bae1edadaf9350000caabbf94ad7777207708f7aa8620806ddb5fc37",
+  "retrieved_at": "2026-07-29",
+  "revision_of": null,
+  "schema_version": 1,
+  "source_id": "VSRC-RPT-CARNEGIE-RU",
+  "status": "active",
+  "translation_provenance": "not_required",
+  "url": "https://carnegieendowment.org/ru/russia-eurasia/politika/2026/04/russia-iran-intel-sharing"
+}

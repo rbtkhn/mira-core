@@ -1,0 +1,23 @@
+{
+  "access_language": "en",
+  "as_of": "2026-08-04",
+  "created_at": "2026-08-04T00:00:00Z",
+  "created_by": "operator",
+  "event_time": "2026-04-08",
+  "evidence_role": "professional_reporting",
+  "geopolitical_environment": "western_independent",
+  "id": "EVD-20260804-006",
+  "kind": "evidence",
+  "limitation": "Reports statements and terms; implementation and comprehensive incident record remain unresolved.",
+  "observation": "Reuters reports Trump agreement to a two-week ceasefire and an Iranian statement that safe passage through Hormuz was possible.",
+  "origin_language": "en",
+  "originating_chain": "CHAIN-REUTERS-APRIL-CEASEFIRE",
+  "representation_sha256": "bacb52381e0cdecebf370c4335d9590c002b4a2114f342eef2ca0c5252266947",
+  "retrieved_at": "2026-08-04",
+  "revision_of": null,
+  "schema_version": 1,
+  "source_id": "VSRC-RPT-REUTERS",
+  "status": "active",
+  "translation_provenance": "not_required",
+  "url": "https://www.investing.com/news/world-news/trump-agrees-to-two-week-ceasefire-iran-says-safe-passage-through-hormuz-possible-4601917"
+}

@@ -1,0 +1,30 @@
+{
+  "as_of": "2026-07-29",
+  "claim_ids": [
+    "CLM-20260729-004"
+  ],
+  "created_at": "2026-07-29T00:00:00Z",
+  "created_by": "operator",
+  "domain_profile": "DOMAIN-MILITARY-ACTIVITY",
+  "id": "OBS-20260729-005",
+  "kind": "observable",
+  "possible_results": [
+    "observed",
+    "not_observed",
+    "contested",
+    "unavailable"
+  ],
+  "question": "Did US and Saudi forces strike PMF facilities in Iraq on 2026-07-29, and were PMF or IRGC personnel killed or wounded?",
+  "required_language_environments": [
+    "en",
+    "ar"
+  ],
+  "resolution_rule": "Support requires Iraqi official or PMF records plus independent regional and external reporting; separate strike occurrence, force identity, actor participation, casualty count, and legal status; preserve disagreement where attribution conflicts.",
+  "revision_of": null,
+  "schema_version": 1,
+  "status": "open",
+  "window": {
+    "end": "2026-08-15",
+    "start": "2026-07-29"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-08-04T00:00:00Z",
+  "created_by": "operator",
+  "as_of": "2026-08-04",
+  "status": "requested",
+  "revision_of": null,
+  "kind": "investigation",
+  "affected_forecast_hooks": [],
+  "affected_artifacts": [],
+  "id": "VER-20260804-07",
+  "claim_ids": [
+    "CLM-20260804-008"
+  ],
+  "observable_ids": [
+    "OBS-20260804-017",
+    "OBS-20260804-018",
+    "OBS-20260804-019"
+  ],
+  "research_boundary": "Memorandum authenticity, parties, stated obligations, and Hormuz provisions; implementation is excluded.",
+  "legacy_packet_path": "narrative-geopolitics/work/verification/packets/VER-20260804-07-grok-june-mou-hormuz-terms/README.md"
+}

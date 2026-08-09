@@ -10,9 +10,9 @@ Opened: `2026-08-04`
 
 Closed: `none`
 
-Claim: `[Exact operational claim under review.]`
+Claim: `Approximately 900 strike events occurred during the twelve hours following the first independently established strike on February 28, 2026, and US and Israeli forces operationally coordinated those events.`
 
-Why it matters: `[Judgment, publication, promotion, or forecast consequence.]`
+Why it matters: `The opening timestamp, counting unit, actor attribution, and evidence of operational coordination control whether the reported total can support publication or strategic assessment.`
 
 Affected forecast hooks: `none`
 
@@ -28,7 +28,10 @@ Further automation justified: `no`
 
 ## Required Observables
 
-- [ ] `[Observable required to support or challenge the claim.]`
+- [ ] `OBS-20260804-005`: What timestamp defines the first independently established strike and the ensuing twelve-hour interval?
+- [ ] `OBS-20260804-006`: How many events fall inside that interval when counted using one declared unit?
+- [ ] `OBS-20260804-007`: Which counted events are attributable to US forces, Israeli forces, or unresolved actors?
+- [ ] `OBS-20260804-008`: Is there direct operational evidence of joint planning, command integration, target allocation, or synchronized execution?
 
 ## Evidence Records
 

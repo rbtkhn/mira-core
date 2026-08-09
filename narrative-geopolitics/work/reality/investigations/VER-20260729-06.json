@@ -1,0 +1,19 @@
+{
+  "affected_artifacts": [],
+  "affected_forecast_hooks": [],
+  "as_of": "2026-07-29",
+  "claim_ids": [
+    "CLM-20260729-005"
+  ],
+  "created_at": "2026-07-29T00:00:00Z",
+  "created_by": "operator",
+  "id": "VER-20260729-06",
+  "kind": "investigation",
+  "observable_ids": [
+    "OBS-20260729-006"
+  ],
+  "research_boundary": "Bounded investigation of the reported Caspian cargo-vessel strike, separating vessel identity, location, damage, cargo status, Ukrainian responsibility, and any Russian or Iranian response; require Caspian-region and external evidence with independent lineage.",
+  "revision_of": null,
+  "schema_version": 1,
+  "status": "requested"
+}

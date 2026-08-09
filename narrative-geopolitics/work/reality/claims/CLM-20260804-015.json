@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-08-04T00:00:00Z",
+  "created_by": "operator",
+  "as_of": "2026-08-04",
+  "status": "open",
+  "revision_of": null,
+  "id": "CLM-20260804-015",
+  "kind": "claim",
+  "claim_type": "operational_factual",
+  "text": "From March 7 through April 7, 2026, Iranian air and air-defense forces did not consistently deny coalition access to Tehran and documented western-Iran strike corridors, while retaining residual capacity to threaten or disrupt operations.",
+  "scope": "Persistence and denial capacity within the bounded geography and interval.",
+  "crisis_object": "Localized coalition air access persistence",
+  "consequence": "high",
+  "empirical_eligibility": true,
+  "claimant_refs": [],
+  "source_refs": [],
+  "aliases": [
+    "GR-20260804-010/persistence"
+  ]
+}

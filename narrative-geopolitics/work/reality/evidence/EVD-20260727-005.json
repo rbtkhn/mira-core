@@ -1,0 +1,23 @@
+{
+  "access_language": "ar",
+  "as_of": "2026-07-27",
+  "created_at": "2026-07-27T00:00:00Z",
+  "created_by": "operator",
+  "event_time": "2026-03-23",
+  "evidence_role": "professional_reporting",
+  "geopolitical_environment": "middle_east_regional",
+  "id": "EVD-20260727-005",
+  "kind": "evidence",
+  "limitation": "The report describes one disputed incident and does not establish a system-wide Patriot failure rate; attribution and mechanism remain contested.",
+  "observation": "Al Jazeera Arabic reported a Reuters-reviewed academic and forensic analysis that a U.S.-operated Patriot battery was likely responsible for an interceptor explosion in Bahrain; analysts said the trajectory could indicate an unsuccessful interception or technical malfunction, while Iran claimed the U.S. weapon caused the civilian damage.",
+  "origin_language": "ar",
+  "originating_chain": "CHAIN-AJ-AR-20260323-BAHRAIN-PATRIOT-INCIDENT",
+  "representation_sha256": "61c1b89bc1928099f19a8ba424a950598fe7265a6176fbdf78fdec13ed70168b",
+  "retrieved_at": "2026-07-27",
+  "revision_of": null,
+  "schema_version": 1,
+  "source_id": "VSRC-RPT-AJ",
+  "status": "active",
+  "translation_provenance": "official_edition",
+  "url": "https://www.aljazeera.net/amp/news/2026/3/23/%D8%AA%D8%AD%D9%84%D9%8A%D9%84-%D8%B1%D9%88%D9%8A%D8%AA%D8%B1%D8%B2-%D9%88%D8%AA%D8%B9%D9%84%D9%8A%D9%82-%D8%A5%D9%8A%D8%B1%D8%A7%D9%86-%D9%83%D9%8A%D9%81-%D8%A7%D8%B3%D8%AA%D9%87%D8%AF%D9%81"
+}

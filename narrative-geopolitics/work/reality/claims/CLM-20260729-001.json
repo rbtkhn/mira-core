@@ -1,0 +1,19 @@
+{
+  "aliases": [],
+  "as_of": "2026-07-29",
+  "claim_type": "actor_position",
+  "claimant_refs": [],
+  "consequence": "high",
+  "created_at": "2026-07-29T00:00:00Z",
+  "created_by": "operator",
+  "crisis_object": "ukraine-war-termination",
+  "empirical_eligibility": true,
+  "id": "CLM-20260729-001",
+  "kind": "claim",
+  "revision_of": null,
+  "schema_version": 1,
+  "scope": "bounded claim",
+  "source_refs": [],
+  "status": "open",
+  "text": "The Russian state treats obtaining physical control of Odessa as an indispensable condition of an acceptable Ukraine war end state."
+}

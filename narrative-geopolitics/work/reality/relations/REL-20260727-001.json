@@ -1,0 +1,14 @@
+{
+  "as_of": "2026-07-27",
+  "created_at": "2026-07-27T00:00:00Z",
+  "created_by": "operator",
+  "from_id": "EVD-20260727-001",
+  "id": "REL-20260727-001",
+  "kind": "relation",
+  "relation_type": "supports",
+  "revision_of": null,
+  "schema_version": 1,
+  "scope": "Supports meaningful but imperfect missile interception; does not establish the exact Patriot-only rate.",
+  "status": "active",
+  "to_id": "CLM-20260727-001"
+}

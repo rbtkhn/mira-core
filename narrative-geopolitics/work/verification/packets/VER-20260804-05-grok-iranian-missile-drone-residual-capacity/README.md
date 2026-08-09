@@ -10,9 +10,9 @@ Opened: `2026-08-04`
 
 Closed: `none`
 
-Claim: `[Exact operational claim under review.]`
+Claim: `Iran demonstrated operational missile-launch and attack-drone launch capacity during July and again between August 1 and August 4, 2026.`
 
-Why it matters: `[Judgment, publication, promotion, or forecast consequence.]`
+Why it matters: `Missile and attack-drone capacity must be demonstrated separately across both time windows before the reported residual-capacity claim can support strategic assessment.`
 
 Affected forecast hooks: `none`
 
@@ -28,7 +28,10 @@ Further automation justified: `no`
 
 ## Required Observables
 
-- [ ] `[Observable required to support or challenge the claim.]`
+- [ ] `OBS-20260804-013`: Is at least one attributable Iranian missile launch operationally documented during July?
+- [ ] `OBS-20260804-014`: Is at least one attributable Iranian missile launch operationally documented between August 1 and August 4?
+- [ ] `OBS-20260804-015`: Is at least one attributable Iranian attack-drone launch operationally documented during July?
+- [ ] `OBS-20260804-016`: Is at least one attributable Iranian attack-drone launch operationally documented between August 1 and August 4?
 
 ## Evidence Records
 

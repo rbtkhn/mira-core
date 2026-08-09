@@ -1,0 +1,40 @@
+{
+  "access": "open_limited",
+  "access_languages": [
+    "en"
+  ],
+  "appropriate_uses": "Regional business, energy, Gulf, and maritime reporting, especially as a lead to named commercial datasets or official positions.",
+  "as_of": "2026-08-06",
+  "canonical_url": "https://www.thenationalnews.com/",
+  "created_at": "2026-08-06T00:00:00Z",
+  "created_by": "operator",
+  "domain": "professional_reporting",
+  "evidence_class": "independent_professional_reporting",
+  "geography": "Gulf region and global business coverage",
+  "geopolitical_environment": "middle_east_regional",
+  "id": "VSRC-RPT-THENATIONAL",
+  "inappropriate_uses": "Independent confirmation of proprietary commercial datasets, official claims, or unattributed operational facts when the report cites those sources.",
+  "kind": "source",
+  "known_failure_modes": "Secondary reporting; UAE/Gulf editorial context; dependence on cited commercial datasets, officials, or wire material.",
+  "latency": "minutes-days",
+  "name": "The National",
+  "observables": "regional reporting, energy-market reporting, maritime and business context, and cited commercial-data summaries",
+  "open_fallback": "self",
+  "order": 92,
+  "origin_languages": [
+    "en"
+  ],
+  "originating_chain_rule": "The National reports citing Kpler, MarineTraffic, official statements, or wire material remain linked to the cited underlying chain and are not independent confirmation of that underlying evidence.",
+  "perspective": "middle_east_regional",
+  "review_history": [
+    {
+      "date": "2026-08-06",
+      "note": "Added after provenance-policy review decided article hosts should carry source_id while originating_chain preserves underlying Kpler dependence.",
+      "reviewer": "operator-directed-registry-addition"
+    }
+  ],
+  "revision_of": null,
+  "schema_version": 1,
+  "status": "active",
+  "translation_provenance": "not_required"
+}

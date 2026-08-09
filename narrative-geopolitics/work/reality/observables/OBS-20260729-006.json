@@ -1,0 +1,31 @@
+{
+  "as_of": "2026-07-29",
+  "claim_ids": [
+    "CLM-20260729-005"
+  ],
+  "created_at": "2026-07-29T00:00:00Z",
+  "created_by": "operator",
+  "domain_profile": "DOMAIN-MARITIME-INCIDENT",
+  "id": "OBS-20260729-006",
+  "kind": "observable",
+  "possible_results": [
+    "observed",
+    "not_observed",
+    "contested",
+    "unavailable"
+  ],
+  "question": "Was an Iranian-linked cargo vessel struck in the Caspian Sea near an Iranian port on 2026-07-28 or 2026-07-29, and is Ukrainian responsibility established?",
+  "required_language_environments": [
+    "en",
+    "fa",
+    "ru"
+  ],
+  "resolution_rule": "Support requires vessel identity and incident confirmation from maritime, port, or registry evidence plus two independent reporting lineages; attribution requires Ukrainian, Iranian, Russian, or technical evidence beyond commentator assertion; distinguish cargo status and damage from responsibility.",
+  "revision_of": null,
+  "schema_version": 1,
+  "status": "open",
+  "window": {
+    "end": "2026-08-15",
+    "start": "2026-07-29"
+  }
+}

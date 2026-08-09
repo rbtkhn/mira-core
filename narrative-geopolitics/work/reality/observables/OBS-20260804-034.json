@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-08-04T00:00:00Z",
+  "created_by": "operator",
+  "as_of": "2026-08-04",
+  "status": "open",
+  "revision_of": null,
+  "kind": "observable",
+  "id": "OBS-20260804-034",
+  "claim_ids": [
+    "CLM-20260804-015",
+    "CLM-20260804-016"
+  ],
+  "domain_profile": "DOMAIN-MILITARY-ACTIVITY",
+  "question": "Did recurring coalition access persist across the interval, and what material temporal or geographic gaps qualify that continuity?",
+  "resolution_rule": "Resolve only from event-specific evidence with globally traced lineage and required multilingual coverage; distinguish direct observation from actor claims and shared reporting chains.",
+  "window": {
+    "start": "2026-03-07",
+    "end": "2026-04-07"
+  },
+  "possible_results": [
+    "observed",
+    "not_observed",
+    "contested",
+    "unavailable"
+  ],
+  "required_language_environments": [
+    "affected_or_claimant_region",
+    "external_or_challenged",
+    "third_independent_environment"
+  ]
+}

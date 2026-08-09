@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-08-04T00:00:00Z",
+  "created_by": "operator",
+  "as_of": "2026-08-04",
+  "status": "open",
+  "revision_of": null,
+  "kind": "observable",
+  "id": "OBS-20260804-001",
+  "claim_ids": [
+    "CLM-20260804-001"
+  ],
+  "domain_profile": "DOMAIN-MILITARY-ACTIVITY",
+  "question": "Is Ali Khamenei's death independently confirmed, and what death date is established?",
+  "resolution_rule": "Resolve only from event-specific evidence with globally traced lineage and required multilingual coverage; distinguish direct observation from actor claims and shared reporting chains.",
+  "window": {
+    "start": "2026-02-28",
+    "end": "2026-03-02"
+  },
+  "possible_results": [
+    "observed",
+    "not_observed",
+    "contested",
+    "unavailable"
+  ],
+  "required_language_environments": [
+    "affected_or_claimant_region",
+    "external_or_challenged",
+    "third_independent_environment"
+  ]
+}

@@ -1,0 +1,70 @@
+# Verification Packet: VER-20260806-03 - july-20-maritime-bases-energy-access-review
+
+Verification ID: `VER-20260806-03`
+
+Status: `requested`
+
+Assessment outcome: `not_investigated`
+
+Opened: `2026-08-06`
+
+Closed: `none`
+
+Claim: `Between 2026-07-20 and 2026-08-03, political and military pressure shifted toward maritime chokepoints, bases, and energy access rather than a decisive ground settlement.`
+
+Why it matters: `Controls review of accountable forecast NG-20260720-F01; packet scopes whether the forecasted pressure object was publicly observable before the review date.`
+
+Affected forecast hooks: `NG-20260720-F01`
+
+Affected artifacts: `narrative-geopolitics/work/forecasts/forecast-ledger.md, narrative-geopolitics/work/daily/2026-07-20/forecast.md`
+
+Research minutes: `0`
+
+Evidence chains examined: `0`
+
+Judgment changed: `no`
+
+Further automation justified: `no`
+
+## Required Observables
+
+- [ ] Public posture, official statements, professional reporting, or maritime/security advisories from `2026-07-20` through `2026-08-03` centered on Hormuz, the Red Sea, Bab el-Mandeb, Gulf bases, oil/LNG, ports, or energy access.
+- [ ] Comparable evidence in the same window that a durable settlement or decisive ground settlement displaced maritime, base, or energy access as the dominant pressure object.
+- [ ] Specific actor statements or implementation signals linking pressure to bases, shipping, energy infrastructure, or route access.
+- [ ] Evidence lineage distinguishing operational records from source commentary.
+
+## Evidence Records
+
+| Evidence ID | Registry source ID | URL | Retrieved at | Event time | Source type | Origin chain | Direction | Translation provenance | Limitation |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+
+Source types and translation values must match `source-registry.md`.
+
+Allowed directions: `supports`, `challenges`, `context_only`.
+
+## Independence Analysis
+
+`Not investigated. Packet has been opened to define the evidence needed before NG-20260720-F01 can be resolved.`
+
+## Perspective and Coverage Audit
+
+| Coverage floor | Status | Registry sources or waiver |
+| --- | --- | --- |
+| Closest registry, sensor, or original document | `waived` | Not yet investigated; packet is scoped for future collection. |
+| Affected-region or local source | `waived` | Not yet investigated; packet is scoped for future collection. |
+| Claimant official position | `waived` | Not yet investigated; packet is scoped for future collection. |
+| Challenged actor position or denial | `waived` | Not yet investigated; packet is scoped for future collection. |
+| Two professional reporting chains from different geopolitical environments | `waived` | Not yet investigated; packet is scoped for future collection. |
+| Commercial or observational evidence when applicable | `not_applicable` | Not required for opening this pressure-object packet. |
+
+## Assessment
+
+Conclusion: `Not investigated.`
+
+Confidence boundary: `No evidence has been collected in this packet yet, so it cannot support forecast resolution.`
+
+Downstream effect: `Keep NG-20260720-F01 open until an assessed packet establishes whether maritime, base, and energy access pressure displaced settlement claims within the review window.`
+
+## Research Record
+
+`Opened as a requested packet on 2026-08-06 from forecast triage. No source collection has been performed.`

@@ -1,0 +1,42 @@
+{
+  "access": "open_limited",
+  "access_languages": [
+    "fa",
+    "en"
+  ],
+  "appropriate_uses": "Persian and English regional reporting as a lead for Iranian, Yemeni, Gulf, and diaspora-facing claims.",
+  "as_of": "2026-08-06",
+  "canonical_url": "https://www.iranintl.com/",
+  "created_at": "2026-08-06T00:00:00Z",
+  "created_by": "operator",
+  "domain": "professional_reporting",
+  "evidence_class": "independent_professional_reporting",
+  "geography": "Iranian diaspora and Middle East region",
+  "geopolitical_environment": "middle_east_regional",
+  "id": "VSRC-RPT-IRANINTL",
+  "inappropriate_uses": "Treating reported official claims or anonymous sourcing as direct proof, or counting translated versions as separate chains.",
+  "kind": "source",
+  "known_failure_modes": "Diaspora editorial stance; translation and summarization drift; reliance on opposition, official, or anonymous sources can require lineage separation.",
+  "latency": "minutes-days",
+  "name": "Iran International",
+  "observables": "Persian and English reporting, official-source claims, regional statements, and opposition or diaspora perspectives",
+  "open_fallback": "self",
+  "order": 91,
+  "origin_languages": [
+    "fa",
+    "en"
+  ],
+  "originating_chain_rule": "Persian and English Iran International editions, updates, and republications of one report remain one originating chain unless independently sourced reporting is documented.",
+  "perspective": "middle_east_regional",
+  "review_history": [
+    {
+      "date": "2026-08-06",
+      "note": "Added after source-ID hygiene audit found Iran International evidence incorrectly routed through Anadolu.",
+      "reviewer": "operator-directed-registry-addition"
+    }
+  ],
+  "revision_of": null,
+  "schema_version": 1,
+  "status": "active",
+  "translation_provenance": "not_required"
+}

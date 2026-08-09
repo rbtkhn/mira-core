@@ -1,0 +1,32 @@
+{
+  "as_of": "2026-07-27",
+  "claim_ids": [
+    "CLM-20260727-001"
+  ],
+  "created_at": "2026-07-27T00:00:00Z",
+  "created_by": "operator",
+  "domain_profile": "DOMAIN-MILITARY-ACTIVITY",
+  "id": "OBS-20260727-001",
+  "kind": "observable",
+  "possible_results": [
+    "observed",
+    "not_observed",
+    "contested",
+    "unavailable"
+  ],
+  "question": "What independently documented missile engagements during the 2026 Iran war identify the defensive system used, the incoming weapon type, and the outcome, and do any primary or near-primary records support a Patriot-wide interception rate near 2-3 percent?",
+  "required_language_environments": [
+    "en",
+    "fa",
+    "ar",
+    "ru"
+  ],
+  "resolution_rule": "Resolve only with time-bounded engagement records, official after-action or operational statements, independently reviewed imagery, or named technical analysis; separate Patriot, THAAD, Aegis, allied systems, drones, and ballistic missiles; do not calculate a system-wide rate from selected videos or aggregate coalition claims.",
+  "revision_of": null,
+  "schema_version": 1,
+  "status": "open",
+  "window": {
+    "end": "2026-08-15",
+    "start": "2026-07-27"
+  }
+}

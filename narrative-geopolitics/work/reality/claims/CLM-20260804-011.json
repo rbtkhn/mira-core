@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-08-04T00:00:00Z",
+  "created_by": "operator",
+  "as_of": "2026-08-04",
+  "status": "open",
+  "revision_of": null,
+  "id": "CLM-20260804-011",
+  "kind": "claim",
+  "claim_type": "operational_factual",
+  "text": "On April 7-8, 2026, the United States and Iran announced or accepted a ceasefire intended to last fourteen days and containing a linked Hormuz transit provision.",
+  "scope": "Agreement, parties, intended duration, and linked transit provision; implementation is separate.",
+  "crisis_object": "April US-Iran ceasefire",
+  "consequence": "high",
+  "empirical_eligibility": true,
+  "claimant_refs": [],
+  "source_refs": [],
+  "aliases": [
+    "GR-20260804-006/agreement"
+  ]
+}

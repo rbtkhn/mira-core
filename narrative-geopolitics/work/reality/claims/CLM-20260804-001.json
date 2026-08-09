@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-08-04T00:00:00Z",
+  "created_by": "operator",
+  "as_of": "2026-08-04",
+  "status": "open",
+  "revision_of": null,
+  "id": "CLM-20260804-001",
+  "kind": "claim",
+  "claim_type": "operational_factual",
+  "text": "Ali Khamenei died on February 28, 2026.",
+  "scope": "Death and date only.",
+  "crisis_object": "Iranian leadership succession",
+  "consequence": "high",
+  "empirical_eligibility": true,
+  "claimant_refs": [],
+  "source_refs": [],
+  "aliases": [
+    "GR-20260804-001/death"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "as_of": "2026-07-29",
+  "created_at": "2026-07-29T00:00:00Z",
+  "created_by": "operator",
+  "from_id": "EVD-20260729-003",
+  "id": "REL-20260729-003",
+  "kind": "relation",
+  "relation_type": "supports",
+  "revision_of": null,
+  "schema_version": 1,
+  "scope": "Provisional Persian-language relay of AP and intelligence-assessment reporting; not independent of the AP lineage.",
+  "status": "active",
+  "to_id": "CLM-20260723-001"
+}

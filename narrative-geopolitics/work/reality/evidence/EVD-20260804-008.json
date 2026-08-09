@@ -1,0 +1,23 @@
+{
+  "access_language": "en",
+  "as_of": "2026-08-04",
+  "created_at": "2026-08-04T00:00:00Z",
+  "created_by": "operator",
+  "event_time": "2026-07-09",
+  "evidence_role": "professional_reporting",
+  "geopolitical_environment": "european_independent",
+  "id": "EVD-20260804-008",
+  "kind": "evidence",
+  "limitation": "Contextual reporting and analysis; does not establish formal legal abrogation.",
+  "observation": "Le Monde reports renewed US-Iran hostilities and analyzes the July breakdown and Tehrans mistrust of negotiations.",
+  "origin_language": "fr",
+  "originating_chain": "CHAIN-LEMONDE-MOU-BREAKDOWN",
+  "representation_sha256": "057549a9b1ee5f370b81ca72be880289556ed9b30b148855759df2cb779b91da",
+  "retrieved_at": "2026-08-04",
+  "revision_of": null,
+  "schema_version": 1,
+  "source_id": "VSRC-RPT-LEMONDE",
+  "status": "active",
+  "translation_provenance": "official_edition",
+  "url": "https://www.lemonde.fr/en/international/article/2026/07/09/renewed-us-iran-hostilities-highlight-tehran-s-deep-mistrust-of-negotiations_6755298_4.html"
+}

@@ -1,0 +1,23 @@
+{
+  "access_language": "ar",
+  "as_of": "2026-07-27",
+  "created_at": "2026-07-27T00:00:00Z",
+  "created_by": "operator",
+  "event_time": "2026-04-21",
+  "evidence_role": "professional_reporting",
+  "geopolitical_environment": "middle_east_regional",
+  "id": "EVD-20260727-006",
+  "kind": "evidence",
+  "limitation": "The article relays Wall Street Journal, CNN, and CSIS estimates rather than publishing independent inventory data; it is a regional-language confirmation of a secondary estimate.",
+  "observation": "Al Jazeera Arabic reported estimates that the United States had used about 45 percent of precision-strike missiles and about half of its THAAD and Patriot interceptor stocks during the Iran war, while noting production and supply-chain limits.",
+  "origin_language": "ar",
+  "originating_chain": "CHAIN-AJ-AR-20260421-US-MUNITIONS-STOCKS",
+  "representation_sha256": "1c117130718c329a0e9bd6af1f9b7c15c8801c896962a6beab2affb29983dd6f",
+  "retrieved_at": "2026-07-27",
+  "revision_of": null,
+  "schema_version": 1,
+  "source_id": "VSRC-RPT-AJ",
+  "status": "active",
+  "translation_provenance": "official_edition",
+  "url": "https://www.aljazeera.net/news/2026/4/21/%D8%A8%D8%B3%D8%A8%D8%A8-%D8%A7%D9%84%D8%AD%D8%B1%D8%A8-%D8%A7%D9%84%D8%A5%D9%8A%D8%B1%D8%A7%D9%86%D9%8A%D8%A9-%D8%A7%D8%B3%D8%AA%D9%86%D8%B2%D8%A7%D9%81"
+}

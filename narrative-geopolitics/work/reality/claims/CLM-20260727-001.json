@@ -1,0 +1,19 @@
+{
+  "aliases": [],
+  "as_of": "2026-07-27",
+  "claim_type": "operational_factual",
+  "claimant_refs": [],
+  "consequence": "high",
+  "created_at": "2026-07-27T00:00:00Z",
+  "created_by": "operator",
+  "crisis_object": "Whether Patriot and allied air defenses were effective against Iranian missile and drone attacks during the 2026 Iran war.",
+  "empirical_eligibility": true,
+  "id": "CLM-20260727-001",
+  "kind": "claim",
+  "revision_of": null,
+  "schema_version": 1,
+  "scope": "bounded claim",
+  "source_refs": [],
+  "status": "open",
+  "text": "The 2026 U.S.-led air-defense campaign achieved meaningful but imperfect interception of Iranian missiles; the available evidence does not establish a 2-3 percent Patriot-wide interception rate."
+}

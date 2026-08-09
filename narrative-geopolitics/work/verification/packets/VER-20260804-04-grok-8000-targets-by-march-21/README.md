@@ -10,9 +10,9 @@ Opened: `2026-08-04`
 
 Closed: `none`
 
-Claim: `[Exact operational claim under review.]`
+Claim: `US forces struck more than 8,000 distinct targets in Iran from the opening strikes through March 21, 2026, inclusive.`
 
-Why it matters: `[Judgment, publication, promotion, or forecast consequence.]`
+Why it matters: `The claim materially affects assessments of campaign scale and must distinguish targets from strikes, sorties, aim points, munitions, repeated attacks, and Israeli or combined action.`
 
 Affected forecast hooks: `none`
 
@@ -28,7 +28,10 @@ Further automation justified: `no`
 
 ## Required Observables
 
-- [ ] `[Observable required to support or challenge the claim.]`
+- [ ] `OBS-20260804-009`: What exact start and cutoff times govern the cumulative target claim?
+- [ ] `OBS-20260804-010`: Does a traceable count exceed 8,000 distinct Iranian targets inside the interval?
+- [ ] `OBS-20260804-011`: Which counted targets are attributable specifically to US action rather than Israeli or combined action?
+- [ ] `OBS-20260804-012`: Does the count distinguish targets from strikes, sorties, aim points, and munitions while deduplicating repeated attacks?
 
 ## Evidence Records
 

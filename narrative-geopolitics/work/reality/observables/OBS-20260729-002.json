@@ -1,0 +1,29 @@
+{
+  "as_of": "2026-07-29",
+  "claim_ids": [
+    "CLM-20260729-001"
+  ],
+  "created_at": "2026-07-29T00:00:00Z",
+  "created_by": "operator",
+  "domain_profile": "DOMAIN-DIPLOMATIC-POSITION",
+  "id": "OBS-20260729-002",
+  "kind": "observable",
+  "possible_results": [
+    "observed",
+    "not_observed",
+    "contested",
+    "unavailable"
+  ],
+  "question": "Russian presidential statements or binding state documents explicitly require Russian physical control or annexation of Odessa for ceasefire or final settlement, or explicitly accept a final settlement leaving Odessa under Ukrainian control.",
+  "required_language_environments": [
+    "ru"
+  ],
+  "resolution_rule": "Support requires explicit end-state language making Odessa control necessary; challenge requires explicit acceptance of a durable end state without it. Historical identity language alone is contextual and does not resolve the observable.",
+  "revision_of": null,
+  "schema_version": 1,
+  "status": "open",
+  "window": {
+    "end": "open",
+    "start": "2026-07-29"
+  }
+}

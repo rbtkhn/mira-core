@@ -1,0 +1,23 @@
+{
+  "access_language": "en",
+  "as_of": "2026-08-04",
+  "created_at": "2026-08-04T00:00:00Z",
+  "created_by": "operator",
+  "event_time": "2026-07-08",
+  "evidence_role": "professional_reporting",
+  "geopolitical_environment": "western_independent",
+  "id": "EVD-20260804-007",
+  "kind": "evidence",
+  "limitation": "Establishes a US presidential declaration, not formal bilateral legal termination.",
+  "observation": "Reuters reports Trump said the memorandum of understanding with Iran was over in Ankara on July 8.",
+  "origin_language": "en",
+  "originating_chain": "CHAIN-REUTERS-TRUMP-MOU-OVER",
+  "representation_sha256": "74c76a7b21bd3e8d3a4c1d8f5383cea835e5976c519d40fa5441b6ebc7cf3af5",
+  "retrieved_at": "2026-08-04",
+  "revision_of": null,
+  "schema_version": 1,
+  "source_id": "VSRC-RPT-REUTERS",
+  "status": "active",
+  "translation_provenance": "not_required",
+  "url": "https://www.investing.com/news/world-news/trump-says-interim-accord-with-iran-to-end-war-is-over-4780838"
+}

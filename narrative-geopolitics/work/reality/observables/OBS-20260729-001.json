@@ -1,0 +1,32 @@
+{
+  "as_of": "2026-07-29",
+  "claim_ids": [
+    "CLM-20260723-001"
+  ],
+  "created_at": "2026-07-29T00:00:00Z",
+  "created_by": "operator",
+  "domain_profile": "DOMAIN-MILITARY-ACTIVITY",
+  "id": "OBS-20260729-001",
+  "kind": "observable",
+  "possible_results": [
+    "observed",
+    "not_observed",
+    "contested",
+    "unavailable"
+  ],
+  "question": "What independent evidence shows that Russian intelligence or drone-related assistance reached Iran during the 2026 conflict?",
+  "required_language_environments": [
+    "en",
+    "fa",
+    "ar",
+    "ru"
+  ],
+  "resolution_rule": "Resolve only with attributable official records, named technical or registry evidence, or independently corroborated reporting from at least three lineages; require one Iranian or regional environment and one external environment; distinguish direct transfer, advisory support, and inference from military performance; do not infer assistance solely from timing or commentary.",
+  "revision_of": null,
+  "schema_version": 1,
+  "status": "open",
+  "window": {
+    "end": "2026-08-15",
+    "start": "2026-07-29"
+  }
+}

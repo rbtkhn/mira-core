@@ -1,0 +1,14 @@
+{
+  "as_of": "2026-07-29",
+  "created_at": "2026-07-29T00:00:00Z",
+  "created_by": "operator",
+  "from_id": "EVD-20260729-005",
+  "id": "REL-20260729-005",
+  "kind": "relation",
+  "relation_type": "contextualizes",
+  "revision_of": null,
+  "schema_version": 1,
+  "scope": "Establishes explicit presidential historical-identity attribution for Odessa, but not a requirement for physical control; the same statement records prior acceptance of Odessa outside Russia.",
+  "status": "active",
+  "to_id": "CLM-20260729-001"
+}

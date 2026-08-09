@@ -1,0 +1,42 @@
+{
+  "access": "open",
+  "access_languages": [
+    "ar",
+    "en",
+    "fa"
+  ],
+  "appropriate_uses": "Saudi official position, coalition statements, warnings, port-access claims, and Gulf-state diplomatic or security posture.",
+  "as_of": "2026-08-06",
+  "canonical_url": "https://www.spa.gov.sa/",
+  "created_at": "2026-08-06T00:00:00Z",
+  "created_by": "operator",
+  "domain": "diplomatic_position",
+  "evidence_class": "official_interested_primary",
+  "geography": "Saudi Arabia and Gulf region",
+  "geopolitical_environment": "gulf_state",
+  "id": "VSRC-OFF-SPA",
+  "inappropriate_uses": "Independent verification of contested operational outcomes, vessel movement, battle damage, or actor intent beyond the stated Saudi position.",
+  "kind": "source",
+  "known_failure_modes": "State messaging; selective disclosure; coalition-attribution incentives; multilingual editions may differ in detail or timing.",
+  "latency": "minutes-days",
+  "name": "Saudi Press Agency",
+  "observables": "Saudi official statements, royal and ministry positions, coalition communiques, warnings, and port or infrastructure security language",
+  "open_fallback": "self",
+  "order": 27,
+  "origin_languages": [
+    "ar"
+  ],
+  "originating_chain_rule": "Saudi Press Agency Arabic, English, Persian, other language editions, ministry reposts, and state-media reproductions of one Saudi or coalition statement remain one originating chain.",
+  "perspective": "gulf_state",
+  "review_history": [
+    {
+      "date": "2026-08-06",
+      "note": "Added after VER-20260806-02 exposed SPA as a recurring Saudi official-position source for Bab al-Mandab and Saudi infrastructure/security posture.",
+      "reviewer": "operator-directed-registry-addition"
+    }
+  ],
+  "revision_of": null,
+  "schema_version": 1,
+  "status": "active",
+  "translation_provenance": "official_english_available"
+}

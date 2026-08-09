@@ -1,0 +1,23 @@
+{
+  "access_language": "en",
+  "as_of": "2026-07-27",
+  "created_at": "2026-07-27T00:00:00Z",
+  "created_by": "operator",
+  "event_time": "2026-05-27",
+  "evidence_role": "professional_reporting",
+  "geopolitical_environment": "western_independent",
+  "id": "EVD-20260727-002",
+  "kind": "evidence",
+  "limitation": "AP is reporting CSIS estimates rather than disclosing official inventory totals; the analysis does not prove operational impossibility in the Iran theater.",
+  "observation": "AP reported a CSIS analysis finding that the United States had enough munitions for plausible Iran-war scenarios but that depleted inventories created a vulnerability for a potential Western Pacific conflict; replenishing heavily used Tomahawk, Patriot, and THAAD stocks would take years.",
+  "origin_language": "en",
+  "originating_chain": "CHAIN-AP-20260527-CSIS-MUNITIONS",
+  "representation_sha256": "98638699de4f18bfc89f12c72a9eca8b4307f421536b498b554ce4f1f319a1d2",
+  "retrieved_at": "2026-07-27",
+  "revision_of": null,
+  "schema_version": 1,
+  "source_id": "VSRC-RPT-AP",
+  "status": "active",
+  "translation_provenance": "not_required",
+  "url": "https://apnews.com/article/593f866ad4eae4ddbbcfdafa22267329"
+}

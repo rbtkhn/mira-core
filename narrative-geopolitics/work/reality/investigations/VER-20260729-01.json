@@ -1,0 +1,19 @@
+{
+  "affected_artifacts": [],
+  "affected_forecast_hooks": [],
+  "as_of": "2026-07-29",
+  "claim_ids": [
+    "CLM-20260723-001"
+  ],
+  "created_at": "2026-07-29T00:00:00Z",
+  "created_by": "operator",
+  "id": "VER-20260729-01",
+  "kind": "investigation",
+  "observable_ids": [
+    "OBS-20260729-001"
+  ],
+  "research_boundary": "Bounded investigation of whether Russian intelligence or drone-related assistance reached Iran during the 2026 conflict, requiring original-language regional and external evidence and independent lineage separation.",
+  "revision_of": null,
+  "schema_version": 1,
+  "status": "requested"
+}

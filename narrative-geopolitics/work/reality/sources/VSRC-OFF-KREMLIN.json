@@ -1,0 +1,41 @@
+{
+  "access": "open",
+  "access_languages": [
+    "ru",
+    "en"
+  ],
+  "appropriate_uses": "Attributable Russian presidential statements, signed presidential documents, formal policy positions, and official event transcripts.",
+  "as_of": "2026-07-29",
+  "canonical_url": "https://kremlin.ru/",
+  "created_at": "2026-07-29T00:00:00Z",
+  "created_by": "operator",
+  "domain": "diplomatic_position",
+  "evidence_class": "official_interested_primary",
+  "geography": "Russia and global",
+  "geopolitical_environment": "russian_state_affiliated",
+  "id": "VSRC-OFF-KREMLIN",
+  "inappropriate_uses": "Independent verification of truth, sincerity, legal entitlement, battlefield conditions, military capability, or implementation.",
+  "kind": "source",
+  "known_failure_modes": "Strategic messaging; selective disclosure; retrospective reframing; policy ambiguity; official English editions may smooth distinctions in the Russian original.",
+  "latency": "hours-days",
+  "name": "President of Russia",
+  "observables": "Russian presidential rhetoric, signed acts, declared policy, negotiation terms, warnings, and denials",
+  "open_fallback": "special.kremlin.ru",
+  "order": 22,
+  "origin_languages": [
+    "ru"
+  ],
+  "originating_chain_rule": "Russian and English editions, special.kremlin.ru mirrors, video, transcript, and state-media reproductions of the same presidential event are one lineage.",
+  "perspective": "russian_state_affiliated",
+  "review_history": [
+    {
+      "date": "2026-07-29",
+      "note": "Admitted by explicit operator choice for bounded primary-position verification; interested-source and edition-lineage limits recorded.",
+      "reviewer": "operator"
+    }
+  ],
+  "revision_of": null,
+  "schema_version": 1,
+  "status": "active",
+  "translation_provenance": "official_edition"
+}

@@ -1,0 +1,23 @@
+{
+  "access_language": "en",
+  "as_of": "2026-07-27",
+  "created_at": "2026-07-27T00:00:00Z",
+  "created_by": "operator",
+  "event_time": "2026-03-15",
+  "evidence_role": "professional_reporting",
+  "geopolitical_environment": "european_independent",
+  "id": "EVD-20260727-004",
+  "kind": "evidence",
+  "limitation": "The report cites military experts and does not provide a complete system-by-system expenditure ledger; the English rendering was machine-assisted and reviewed for sense.",
+  "observation": "Le Monde reported that several hundred Patriot interceptors had already been fired, that two to five interceptors were sometimes used against a single missile, and that replenishment activity was running beyond existing production capacity.",
+  "origin_language": "fr",
+  "originating_chain": "CHAIN-LEMONDE-20260315-INTERCEPTOR-STOCKS",
+  "representation_sha256": "9c14226ec11573aeefef0bc9d2f9f7112f6509a34fb7da57d81848705a2a434c",
+  "retrieved_at": "2026-07-27",
+  "revision_of": null,
+  "schema_version": 1,
+  "source_id": "VSRC-RPT-LEMONDE",
+  "status": "active",
+  "translation_provenance": "machine_assisted_disclosed",
+  "url": "https://www.lemonde.fr/en/international/article/2026/03/15/war-in-iran-strains-ammunition-supplies-raising-concern-among-military-leadership_6751466_4.html"
+}

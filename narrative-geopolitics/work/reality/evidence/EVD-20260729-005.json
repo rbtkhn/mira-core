@@ -1,0 +1,23 @@
+{
+  "access_language": "en",
+  "as_of": "2026-07-29",
+  "created_at": "2026-07-29T00:00:00Z",
+  "created_by": "operator",
+  "event_time": "2023-12-14T00:00:00Z",
+  "evidence_role": "official_position",
+  "geopolitical_environment": "russian_state_affiliated",
+  "id": "EVD-20260729-005",
+  "kind": "evidence",
+  "limitation": "State-affiliated English rendering of a presidential statement; establishes attributed official rhetoric, not sincerity, legal entitlement, military feasibility, or an imperative to obtain physical control.",
+  "observation": "TASS reproduces Putin's year-end statement that Odessa is a Russian city and that the Black Sea coast is historically Russian territory, while also reproducing his statement that Russia had accepted the post-Soviet arrangement and had been prepared to live within it.",
+  "origin_language": "ru",
+  "originating_chain": "putin-2023-12-14-year-end-press-conference",
+  "representation_sha256": "81b1c693c045ae8f423967ee829d406190c9a89375ea0dfd0bd4cc89d2295da6",
+  "retrieved_at": "2026-07-29T18:26:19Z",
+  "revision_of": null,
+  "schema_version": 1,
+  "source_id": "VSRC-RPT-TASS",
+  "status": "active",
+  "translation_provenance": "official_edition",
+  "url": "https://tass.com/politics/1721001/amp"
+}

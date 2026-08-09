@@ -1,0 +1,23 @@
+{
+  "access_language": "en",
+  "as_of": "2026-07-27",
+  "created_at": "2026-07-27T00:00:00Z",
+  "created_by": "operator",
+  "event_time": "2026-03-06",
+  "evidence_role": "professional_reporting",
+  "geopolitical_environment": "western_independent",
+  "id": "EVD-20260727-001",
+  "kind": "evidence",
+  "limitation": "The report relies partly on anonymous U.S. officials and does not publish system-level engagement data or a Patriot-only rate.",
+  "observation": "AP reported that U.S. officials said Patriot and THAAD had successfully taken down Iranian missiles, while U.S. defenses against Iranian Shahed drones were disappointing and expensive interceptor use created a force-protection math problem.",
+  "origin_language": "en",
+  "originating_chain": "CHAIN-AP-20260306-MISSILE-DRONE-DEFENSE",
+  "representation_sha256": "9fc3b4254f73a32ddb376526f4485516e2715712def1a008d484a89500787453",
+  "retrieved_at": "2026-07-27",
+  "revision_of": null,
+  "schema_version": 1,
+  "source_id": "VSRC-RPT-AP",
+  "status": "active",
+  "translation_provenance": "not_required",
+  "url": "https://apnews.com/article/iran-drones-ukraine-russia-war-merops-75295389d8464a61d2383fb0221f4ba1"
+}

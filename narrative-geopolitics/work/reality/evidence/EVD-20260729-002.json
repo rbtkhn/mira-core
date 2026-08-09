@@ -1,0 +1,23 @@
+{
+  "access_language": "ar",
+  "as_of": "2026-07-29",
+  "created_at": "2026-07-29T00:00:00Z",
+  "created_by": "operator",
+  "event_time": "2026-03-11",
+  "evidence_role": "professional_reporting",
+  "geopolitical_environment": "middle_east_regional",
+  "id": "EVD-20260729-002",
+  "kind": "evidence",
+  "limitation": "Anonymous source; no published documentation, named technical evidence, or confirmation by Russia or Iran; possible overlap with other Western intelligence reporting.",
+  "observation": "CNN Arabic reported that a Western intelligence source said Russia was giving Iran specific advice on drone tactics, while describing the claim as intelligence-source reporting.",
+  "origin_language": "ar",
+  "originating_chain": "CHAIN-CNN-AR-20260311-DRONE-TACTICS",
+  "representation_sha256": "911db6b33fedd02d92c1be120cdcb77ef86d821149c08e1a19fdf7d48ab2faf6",
+  "retrieved_at": "2026-07-29",
+  "revision_of": null,
+  "schema_version": 1,
+  "source_id": "VSRC-RPT-CNN-AR",
+  "status": "active",
+  "translation_provenance": "not_required",
+  "url": "https://arabic.cnn.com/middle-east/article/2026/03/11/exclusive-russia-is-giving-iran-specific-advice-on-drone-tactics-western-intelligence-source-tells"
+}

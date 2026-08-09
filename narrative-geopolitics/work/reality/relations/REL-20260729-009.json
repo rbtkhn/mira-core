@@ -1,0 +1,14 @@
+{
+  "as_of": "2026-07-29",
+  "created_at": "2026-07-29T00:00:00Z",
+  "created_by": "operator",
+  "from_id": "EVD-20260729-009",
+  "id": "REL-20260729-009",
+  "kind": "relation",
+  "relation_type": "challenges",
+  "revision_of": null,
+  "schema_version": 1,
+  "scope": "Strongest formal challenge: a presidential proposal characterized as final conflict termination omitted Odessa from its territorial conditions; remains provisional because it was an offer, not a concluded settlement, and allowed future terms to change.",
+  "status": "active",
+  "to_id": "CLM-20260729-001"
+}

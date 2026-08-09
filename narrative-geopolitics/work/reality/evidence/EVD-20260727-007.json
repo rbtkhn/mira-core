@@ -1,0 +1,23 @@
+{
+  "access_language": "ar",
+  "as_of": "2026-07-27",
+  "created_at": "2026-07-27T00:00:00Z",
+  "created_by": "operator",
+  "event_time": "2026-07-27",
+  "evidence_role": "professional_reporting",
+  "geopolitical_environment": "middle_east_regional",
+  "id": "EVD-20260727-007",
+  "kind": "evidence",
+  "limitation": "The report relies on attributed U.S. and Israeli estimates and does not independently verify remaining inventories or the causal reason for the pause.",
+  "observation": "Al Jazeera Arabic reported that a planned intensive U.S. campaign was delayed amid internal discussion about the effect on Patriot and other air-defense stocks, while U.S. and Israeli estimates said Iran still retained thousands of ballistic missiles.",
+  "origin_language": "ar",
+  "originating_chain": "CHAIN-AJ-AR-20260727-PAUSE-STOCKPILE-DEBATE",
+  "representation_sha256": "67eb177a23f97586abe95f3cbac8986b16b592e637a9bc25c7003806ab3227b2",
+  "retrieved_at": "2026-07-27",
+  "revision_of": null,
+  "schema_version": 1,
+  "source_id": "VSRC-RPT-AJ",
+  "status": "active",
+  "translation_provenance": "official_edition",
+  "url": "https://www.aljazeera.net/amp/politics/2026/7/27/%D9%87%D8%AF%D9%86%D8%A9-%D8%A7%D9%84%D9%85%D9%81%D8%A7%D9%88%D8%B6%D8%A7%D8%AA-%D8%A3%D9%85-%D9%85%D8%AE%D8%A7%D8%B2%D9%86-%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D8%AD-%D9%87%D9%84"
+}

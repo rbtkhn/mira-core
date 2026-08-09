@@ -1,0 +1,23 @@
+{
+  "access_language": "en",
+  "as_of": "2026-08-04",
+  "created_at": "2026-08-04T00:00:00Z",
+  "created_by": "operator",
+  "event_time": "2026-02-28/2026-03-01",
+  "evidence_role": "professional_reporting",
+  "geopolitical_environment": "western_independent",
+  "id": "EVD-20260804-002",
+  "kind": "evidence",
+  "limitation": "Professional reporting; relies materially on official statements and does not independently establish forensic causation.",
+  "observation": "Reuters reports Iranian state-media confirmation of Khamenei death after US-Israeli airstrikes and describes the strike attribution.",
+  "origin_language": "en",
+  "originating_chain": "CHAIN-REUTERS-KHAMENEI",
+  "representation_sha256": "dd5ccb4f2ad51a25998647bfbed6d59cc2e53e06cf98eeb3eb7e4de7bd0db15d",
+  "retrieved_at": "2026-08-04",
+  "revision_of": null,
+  "schema_version": 1,
+  "source_id": "VSRC-RPT-REUTERS",
+  "status": "active",
+  "translation_provenance": "not_required",
+  "url": "https://www.investing.com/news/world-news/irans-ali-khamenei-who-based-iron-rule-on-fiery-hostility-to-us-and-israel-dies-at-86-4533459"
+}

@@ -10,9 +10,9 @@ Opened: `2026-08-04`
 
 Closed: `none`
 
-Claim: `[Exact operational claim under review.]`
+Claim: `On April 7-8, 2026, the United States and Iran announced or accepted a ceasefire intended to last fourteen days and containing a linked Hormuz transit provision; direct hostilities then materially ceased for approximately fourteen days.`
 
-Why it matters: `[Judgment, publication, promotion, or forecast consequence.]`
+Why it matters: `Announcement, original-language assent, effective start, implementation, duration, and the Hormuz provision must be established separately before the reported ceasefire can support judgment or forecast resolution.`
 
 Affected forecast hooks: `none`
 
@@ -28,7 +28,12 @@ Further automation justified: `no`
 
 ## Required Observables
 
-- [ ] `[Observable required to support or challenge the claim.]`
+- [ ] `OBS-20260804-024`: What authentic US announcement establishes the ceasefire's parties, intended duration, and exact terms?
+- [ ] `OBS-20260804-025`: What original-language Iranian statement establishes assent, and how does its wording compare with the US announcement?
+- [ ] `OBS-20260804-026`: What effective start time and timezone are established for material cessation of direct US-Iran hostilities?
+- [ ] `OBS-20260804-027`: What direct-hostility incidents occurred during the first forty-eight hours after the stated start time?
+- [ ] `OBS-20260804-028`: Did the principal pattern of direct US-Iran hostilities remain materially ceased through approximately April 21-22?
+- [ ] `OBS-20260804-029`: What exact Hormuz reopening or safe-passage provision was linked to the ceasefire, and was it accepted by both parties?
 
 ## Evidence Records
 

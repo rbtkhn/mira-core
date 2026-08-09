@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-08-04T00:00:00Z",
+  "created_by": "operator",
+  "as_of": "2026-08-04",
+  "status": "requested",
+  "revision_of": null,
+  "kind": "investigation",
+  "affected_forecast_hooks": [],
+  "affected_artifacts": [],
+  "id": "VER-20260804-03",
+  "claim_ids": [
+    "CLM-20260804-003",
+    "CLM-20260804-004"
+  ],
+  "observable_ids": [
+    "OBS-20260804-005",
+    "OBS-20260804-006",
+    "OBS-20260804-007",
+    "OBS-20260804-008"
+  ],
+  "research_boundary": "Opening timestamp, twelve-hour window, uniform counting unit, actor-specific totals, and operational coordination.",
+  "legacy_packet_path": "narrative-geopolitics/work/verification/packets/VER-20260804-03-grok-900-strikes-first-12-hours/README.md"
+}

@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-08-04T00:00:00Z",
+  "created_by": "operator",
+  "as_of": "2026-08-04",
+  "status": "open",
+  "revision_of": null,
+  "id": "CLM-20260804-003",
+  "kind": "claim",
+  "claim_type": "operational_factual",
+  "text": "Approximately 900 strike events occurred during the twelve hours following the first independently established strike on February 28, 2026.",
+  "scope": "Approximately means an evidence-supported range of 800-1,000 using one declared counting unit.",
+  "crisis_object": "Opening strike volume",
+  "consequence": "high",
+  "empirical_eligibility": true,
+  "claimant_refs": [],
+  "source_refs": [],
+  "aliases": [
+    "GR-20260804-003/strike-count"
+  ]
+}

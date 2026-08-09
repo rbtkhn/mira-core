@@ -1,0 +1,19 @@
+{
+  "aliases": [],
+  "as_of": "2026-07-29",
+  "claim_type": "operational_factual",
+  "claimant_refs": [],
+  "consequence": "high",
+  "created_at": "2026-07-29T00:00:00Z",
+  "created_by": "operator",
+  "crisis_object": "caspian-vessel-strike",
+  "empirical_eligibility": true,
+  "id": "CLM-20260729-005",
+  "kind": "claim",
+  "revision_of": null,
+  "schema_version": 1,
+  "scope": "bounded claim",
+  "source_refs": [],
+  "status": "open",
+  "text": "Ukrainian forces struck an Iranian-linked cargo vessel in the Caspian Sea near an Iranian port on 2026-07-28 or 2026-07-29."
+}

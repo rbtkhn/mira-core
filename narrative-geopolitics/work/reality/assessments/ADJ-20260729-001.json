@@ -1,0 +1,40 @@
+{
+  "as_of": "2026-07-29",
+  "authorizes_forecast_scoring": false,
+  "authorizes_public": false,
+  "calibration_eligible": false,
+  "claim_id": "CLM-20260729-001",
+  "confidence_boundary": "Moderate confidence that the available public Russian presidential record does not establish physical control of Odessa as an indispensable war-termination condition. High confidence that Putin has placed Odessa within Russian historical and civilizational space. Low confidence about concealed aims, policy changes after the June 2024 proposal, military feasibility, or whether future battlefield conditions would make Odessa non-negotiable.",
+  "created_at": "2026-07-29T00:00:00Z",
+  "created_by": "operator",
+  "evidence_ids": [
+    "EVD-20260729-005",
+    "EVD-20260729-006",
+    "EVD-20260729-007",
+    "EVD-20260729-008",
+    "EVD-20260729-009"
+  ],
+  "id": "ADJ-20260729-001",
+  "kind": "assessment",
+  "language_audit": {
+    "external_environment_present": false,
+    "missing_environments": [
+      "external non-Russian environment",
+      "two additional original-language environments"
+    ],
+    "origin_languages": [],
+    "originating_chains": [],
+    "regional_environment_present": false
+  },
+  "language_search_record": "Russian-original Kremlin searches covered Odessa, Novorossiya, Russian-city language, negotiation conditions, ceasefire, troop withdrawal, special-military-operation goals, reunification, and admission into the Russian Federation. Three distinct presidential-event lineages were admitted. TASS English reproductions were assigned to the same event roots and add no independence. The search found repeated historical-identity attribution but no signed act, annexation instrument, or enumerated settlement condition requiring Russian physical control of Odessa. No external or Ukrainian original-language environment was collected for this actor-position assessment.",
+  "observable_ids": [
+    "OBS-20260729-002"
+  ],
+  "outcome": "contested_attribution",
+  "physical_evidence_exception": false,
+  "rationale": "The evidence supports only the narrower proposition that Putin publicly describes Odessa as historically Russian. It does not support the assessed claim that physical control is indispensable to an acceptable war end state. At Valdai, Putin paired Russian-city language with a security- rather than territory-centered stopping condition. In December 2023, he said Russia had previously accepted the post-Soviet territorial arrangement. In June 2024, he presented a proposal described as final conflict termination whose territorial requirements named Crimea and the four annexed regions but not Odessa. That omission is a bounded challenge, not an explicit renunciation, because the proposal was conditional and allowed terms to change with battlefield conditions. The public actor position is therefore contested rather than supported or disconfirmed.",
+  "revision_of": null,
+  "schema_version": 1,
+  "signoffs": [],
+  "status": "provisional_assessed"
+}

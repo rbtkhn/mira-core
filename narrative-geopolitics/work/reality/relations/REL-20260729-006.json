@@ -1,0 +1,14 @@
+{
+  "as_of": "2026-07-29",
+  "created_at": "2026-07-29T00:00:00Z",
+  "created_by": "operator",
+  "from_id": "EVD-20260729-006",
+  "id": "REL-20260729-006",
+  "kind": "relation",
+  "relation_type": "challenges",
+  "revision_of": null,
+  "schema_version": 1,
+  "scope": "Challenges indispensability because Russia publicly offered final conflict termination on territorial terms that did not include Odessa; remains provisional because the offer was conditional and terms were allowed to change.",
+  "status": "active",
+  "to_id": "CLM-20260729-001"
+}

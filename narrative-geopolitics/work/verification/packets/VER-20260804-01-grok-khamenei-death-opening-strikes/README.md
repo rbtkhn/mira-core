@@ -10,9 +10,9 @@ Opened: `2026-08-04`
 
 Closed: `none`
 
-Claim: `[Exact operational claim under review.]`
+Claim: `Ali Khamenei died on February 28, 2026, and opening US-Israeli strikes on that date caused his death.`
 
-Why it matters: `[Judgment, publication, promotion, or forecast consequence.]`
+Why it matters: `The death, timing, target location, attacking actors, and causal attribution must be separated before the reported event can support publication or downstream judgment.`
 
 Affected forecast hooks: `none`
 
@@ -28,7 +28,10 @@ Further automation justified: `no`
 
 ## Required Observables
 
-- [ ] `[Observable required to support or challenge the claim.]`
+- [ ] `OBS-20260804-001`: Is Ali Khamenei's death independently confirmed, and what death date is established?
+- [ ] `OBS-20260804-002`: Was Khamenei present at a location struck during the independently established opening-strike window?
+- [ ] `OBS-20260804-003`: What event-specific evidence attributes the relevant strike to US forces?
+- [ ] `OBS-20260804-004`: What event-specific evidence attributes the relevant strike to Israeli forces, and what credible alternative causes exist?
 
 ## Evidence Records
 

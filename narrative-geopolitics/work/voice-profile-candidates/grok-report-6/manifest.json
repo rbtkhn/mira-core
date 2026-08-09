@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "manifest_id": "grok-report-6-voice-profile-candidates",
+  "status": "review-only",
+  "source_report": "operator-local:grok-report-6.pdf:not-retained-in-repository",
+  "source_report_date": "2026-08-04",
+  "source_url_status": "no-embedded-direct-urls-recovered",
+  "conversion_status": "grok-reported-unverified",
+  "voices": [
+    {"slug":"mercouris","name":"Alexander Mercouris","packet":"mercouris.md","candidate_count":10},
+    {"slug":"davis","name":"Daniel Davis","packet":"davis.md","candidate_count":10},
+    {"slug":"johnson","name":"Larry Johnson","packet":"johnson.md","candidate_count":10},
+    {"slug":"jermy","name":"Steve Jermy","packet":"jermy.md","candidate_count":10},
+    {"slug":"mearsheimer","name":"John Mearsheimer","packet":"mearsheimer.md","candidate_count":10}
+  ],
+  "promotion_gates": [
+    "Recover direct source URLs and dates.",
+    "Confirm speaker attribution and separate host/channel framing.",
+    "Find at least two dated supporting sources where available.",
+    "Deduplicate shared citation chains.",
+    "Route factual claims to verification packets.",
+    "Record human review before profile or ledger mutation."
+  ]
+}

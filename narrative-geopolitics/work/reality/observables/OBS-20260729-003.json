@@ -1,0 +1,29 @@
+{
+  "as_of": "2026-07-29",
+  "claim_ids": [
+    "CLM-20260729-002"
+  ],
+  "created_at": "2026-07-29T00:00:00Z",
+  "created_by": "operator",
+  "domain_profile": "DOMAIN-MARITIME-INCIDENT",
+  "id": "OBS-20260729-003",
+  "kind": "observable",
+  "possible_results": [
+    "observed",
+    "not_observed",
+    "contested",
+    "unavailable"
+  ],
+  "question": "Was a US-owned LNG floating storage facility at Damietta port in Egypt struck by a drone on 2026-07-29, and what was the drone's attribution?",
+  "required_language_environments": [
+    "en"
+  ],
+  "resolution_rule": "Support requires port, vessel, and incident confirmation from maritime-security or port records plus two independent reporting lineages; attribution requires separate technical or official evidence and must remain contested if only inferred.",
+  "revision_of": null,
+  "schema_version": 1,
+  "status": "open",
+  "window": {
+    "end": "2026-08-15",
+    "start": "2026-07-29"
+  }
+}

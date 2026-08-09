@@ -1,0 +1,19 @@
+{
+  "affected_artifacts": [],
+  "affected_forecast_hooks": [],
+  "as_of": "2026-07-27",
+  "claim_ids": [
+    "CLM-20260727-002"
+  ],
+  "created_at": "2026-07-27T00:00:00Z",
+  "created_by": "operator",
+  "id": "VER-20260727-02",
+  "kind": "investigation",
+  "observable_ids": [
+    "OBS-20260727-002"
+  ],
+  "research_boundary": "Bounded investigation of U.S. munition stockpile strain and replenishment flexibility after the 2026 Iran war, including the interaction of Ukraine transfers, Middle East operations, production throughput, and cross-theater allocation.",
+  "revision_of": null,
+  "schema_version": 1,
+  "status": "requested"
+}

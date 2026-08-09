@@ -1,0 +1,23 @@
+{
+  "access_language": "en",
+  "as_of": "2026-07-27",
+  "created_at": "2026-07-27T00:00:00Z",
+  "created_by": "operator",
+  "event_time": "2026-07-27",
+  "evidence_role": "professional_reporting",
+  "geopolitical_environment": "western_independent",
+  "id": "EVD-20260727-003",
+  "kind": "evidence",
+  "limitation": "The report relies on analysts and an unnamed U.S. official and does not disclose classified inventory counts.",
+  "observation": "AP reported that the Iran war had drawn down U.S. stocks of key missiles and interceptors, that experts questioned how long both sides could sustain operations, and that the chairman of the Joint Chiefs warned the stockpile could affect operations.",
+  "origin_language": "en",
+  "originating_chain": "CHAIN-AP-20260727-STOCKPILE-OPERATIONS",
+  "representation_sha256": "b53c383eff0d80b325dc64e3f016f2815bbbfcb69fc5f862e05efb5cf7e596e1",
+  "retrieved_at": "2026-07-27",
+  "revision_of": null,
+  "schema_version": 1,
+  "source_id": "VSRC-RPT-AP",
+  "status": "active",
+  "translation_provenance": "not_required",
+  "url": "https://apnews.com/article/d57e675a7be6dbdd34561909ced240d0"
+}

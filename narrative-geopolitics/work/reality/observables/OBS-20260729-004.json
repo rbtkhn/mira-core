@@ -1,0 +1,30 @@
+{
+  "as_of": "2026-07-29",
+  "claim_ids": [
+    "CLM-20260729-003"
+  ],
+  "created_at": "2026-07-29T00:00:00Z",
+  "created_by": "operator",
+  "domain_profile": "DOMAIN-MILITARY-ACTIVITY",
+  "id": "OBS-20260729-004",
+  "kind": "observable",
+  "possible_results": [
+    "observed",
+    "not_observed",
+    "contested",
+    "unavailable"
+  ],
+  "question": "Did Iranian ballistic missiles target US forces or a US-linked facility at Mwaffaq Salti Air Base in Jordan on 2026-07-29, and what damage or interception occurred?",
+  "required_language_environments": [
+    "en",
+    "ar"
+  ],
+  "resolution_rule": "Support requires Jordanian or other official records plus at least two independent reporting lineages; distinguish launch attribution, target identity, interception, and damage; do not treat commentator claims as event evidence.",
+  "revision_of": null,
+  "schema_version": 1,
+  "status": "open",
+  "window": {
+    "end": "2026-08-15",
+    "start": "2026-07-29"
+  }
+}
