@@ -1,6 +1,7 @@
 ---
 
 
+
 ingest_date: 2026-06-02
 pub_date: 2026-06-02
 kind: cleaned-transcript
@@ -25,7 +26,7 @@ source_note: "Materialized from operator-pasted YouTube transcript for the June 
 normalization_note: Removed routine ideological cold open, sponsor read, and closing schedule promo; kept operator-pasted source language and residual ASR noise.
 opening_tier: clean
 normalization_state: ai_assisted_proper_noun_cleanup
-editorial_note: "AI-assisted ASR repair (common + series tiers + statecraft entity pass); 28 substitutions; not human-verified verbatim; verify before quotation. · source-section pass 2026-07-09 (7 sections)."
+editorial_note: "AI-assisted ASR repair (common + series tiers + statecraft entity pass); 28 substitutions; not human-verified verbatim; verify before quotation. · source-section pass 2026-07-09 (7 sections). - source-section pass 2026-07-09 (7 sections)."
 quality_note: "ASR normalization pass 2026-06-15; ph-civ replacement SSOT."
 opening_trim_applied: false
 opening_trim_rule: ""
@@ -35,6 +36,8 @@ closing_trim_applied: false
 closing_trim_rule: ""
 closing_trim_chars_saved: 0
 closing_trim_words_saved: 0
+asr_repair_applied: false
+asr_repair_pass: ""
 transcript_curation: curated_sectioned
 section_count: 7
 section_pass: "2026-07-09 semantic-section-v1"
@@ -43,7 +46,7 @@ section_pass: "2026-07-09 semantic-section-v1"
 
 ## Transcript
 
-### Show Open — Trump Iran Netanyahu
+### Show Open - Trump Iran Netanyahu
 
 Ambassador Freeman, uh, welcome here. Let's get right to uh the breaking news of the morning. We'll reserve the Larry Johnson uh revelations uh in just a moment. Uh Iran in in the past 48 hours, Iran has withdrawn from the negotiations with the United States, such as they were.
 
@@ -52,7 +55,7 @@ The Israelis have ramped up their invasion and slaughter in Lebanon. Uh, Preside
 President Trump is not famous for his constancy uh or predictability. Quite the contrary. Therefore, he often adjusts changes um what has already been apparently agreed by his negotiators or basically repudiates what they have agreed. Um, and if he does agree, anything he agrees to is at referendum to Prime Minister Netanyahu of Israel, uh, who reserves the right and exercises it uh, to veto anything that, uh, Donald Trump has, uh, has apparently approved.
 And as if that were not enough, uh, that the Trump administration, Mr. Trump um is under constant pressure from wararm mongers in Congress uh and from his Zionist mega donors whereas Mr. Netanyahu is under pressure from fanatic fascists in his cabinet and uh others. Um, and the whole enterprise that he uh embarked upon with the United States was essentially uh intended to uh take down Iran, to destroy the Iranian state, to break it up uh to uh remove its weapons capability, eliminate it as a threat to the
 
-### Segment 2 — Israel Iran Lebanon
+### Segment 2 - Israel Iran Lebanon
 
 continued expansion of the Israeli
 state. And this was all subcontracted to the United States. So now the subcontractor is finally realizing that u we the United States can't fulfill the contract uh and the contractor Israel is objecting. So we get vituprative comments between President Trump and and Prime Minister Netanyahu uh possibly for show to demonstrate to Iran and others that uh we're really serious about reigning in the Israelis.
@@ -62,7 +65,7 @@ So this is a breakdown. And in the midst of this uh we get um not just a suspens
 
 Uh and uh we're looking at prices for oil which could go to $200 a barrel this summer. Uh if this situation is not corrected, there's no sign that it will be corrected. Uh and uh we're looking probably at uh uh a series of unfortunate event events including Iranian withdrawal from the non-prololiferation treaty and as Larry Johnson and Pepe Escobar have reported um a um demonstration nuclear explosion
 
-### Segment 3 — Israel Netanyahu Lebanon
+### Segment 3 - Israel Netanyahu Lebanon
 
 along the lines of what Pakistan and India did uh decades ago.
 >> Wow. Uh Chris, let's uh go to the full screens that uh that we have. This is what Axios is reporting. Trump said to Netanyahu, "You're effing crazy." Trump fumes at Netanyahu and call on Lebanon. You'd be in prison if it weren't for me. I'm saving your ass. Everybody hates you now.
@@ -77,7 +80,7 @@ The report is that Iran received from some other source a deliverable nuclear we
 who fe felt that only weapons of mass destruction would suffice to deter Israeli and American attack. The objective of the Iranians is to deter to end the the threat of Israeli or Israeli and American attack on them. They are not interested in a ceasefire. The record of ceasefires with Israel and the United States is uh extremely disturbing and unsatisfactory.
 Look at Gaza. Look at Lebanon. There's supposed to be a ceasefire in Lebanon, but we have the defense ministry of Israel, Israel cuts, saying there's no ceasefire and we're going to continue as as before. So, Israel is totally defiant. Uh, and it basically has thrown down the G the United States.
 
-### Segment 4 — Jcpoa Trump Iran
+### Segment 4 - Jcpoa Trump Iran
 
 Uh, we'll see whether we pick it up uh or not. you know, when uh Iran uh and John Kerry, then the Secretary of State, negotiated the JCPOA and it was accepted by everybody, including the UN. Nobody really questioned whether the United States was worthy of negotiating with and was a credible uh negotiator. And the JCPOA uh limited Iran's nuclear enrichment to 3.
 6 67 uh% at the present time it's at least 60% because Trump uh everyone says tore up I don't know that he ripped up a copy but said he wasn't going to comply uh with the JCPOA today the United States is not a credible negotiator anymore than Israel is is it? There's a record unfortunate
@@ -85,14 +88,14 @@ Uh, we'll see whether we pick it up uh or not. you know, when uh Iran uh and Joh
 record of American iniquity um beginning I guess with the Trump first Trump administration's repudiation of the JCPOA the nuclear deal which had been approved by the United Nations Security Council and which therefore was a matter of international law which the United
 States unilaterally um tore up I guess um perhaps not physically but uh certainly figuratively. So that that was the beginning, but we've seen since then the use of negotiations as cover for surprise attacks, something far worse than what the Japanese did at Pearl Harbor. Um, and nobody trusts us.
 
-### Segment 5 — Ceasefire Iran Israel
+### Segment 5 - Ceasefire Iran Israel
 
 Uh, we've also seen absurd um schemes attempted to be imposed. For example, the Board of Peace in Gaza, which not a single country has contributed the membership fees for, which is essentially uh doing nothing. Uh and the whole premise of that was basically the real estate development, luxury real estate, uh over the graves of the Gazins that Israel had killed.
  Uh nobody finds this kind of thing credible or attractive. So the Iranians have a have every reason to demand as they have done that before they do anything before they make any concession they see a an actual concession implemented by the United States. Um you know they're not prepared to take American words because Americans under recent administrations not just the Trump administration uh have not lived up to our word.
  They want to see actions. They've seen no actions. What they've seen are continued fantasy foreign policy on the part of Washington demanding things uh from Iran which we do not have the capacity to compel them to deliver in return for what nothing much maybe promises a ceasefire for another 60 days. This is not a ceasefire.
  when you see u uh exchanges of fire between uh American aircraft launched from Kuwait and a return fire from uh Iran um that does damage to an American base. Um you can't call this a ceasefire. So uh I think the whole premise of uh the negotiating position of the United States has been on very unstable legs uh and is
 
-### Segment 6 — Israel Trump Lebanon
+### Segment 6 - Israel Trump Lebanon
 
 basically now fallen apart.
 >> Can the United States control Israel or is it a a political impossibility for President Trump to pick up the phone and say stop or you'll get nothing from us? Would would the political consequences at home be too much for Trump to bear or the personal consequences if they have any dirt on him? >> Um well, we don't know how much dirt they have on him from the Epstein files.
@@ -102,7 +105,7 @@ Probably substantial dirt. Um but we're a long way from Ronald Reagan who picked
  Netanyahu, recognizes and chafes under. He has declared that he wants to avoid this. And the Israel lobby in the United States is very cleverly uh passing legislation as part of the National Defense Authorization Act which would basically treat the Israeli armed forces like part of the American armed forces for purposes of re research, development, weapons supply, logistical support, training and everything else.
 So basically
 
-### Closing — Israel Lebanon Trump
+### Closing - Israel Lebanon Trump
 
 what they're trying to do uh is to end their use of foreign military sales and basically just become a full-fledged parasite on the Pentagon. >> Did Did I miss something? Did the Senate ratify some treaty with Israel that I'm unaware of? >> There is no treaty. >> I'm being sarcastic.
  Of course, there is no treaty. And yet, and yet the NDAA, the National Defense Authorization Act, which is more than a thousand pages long, has these two very controversial uh segments in it or sections in it that probably will be passed, which, as you say, will make the IDF a parasite uh to the American military.

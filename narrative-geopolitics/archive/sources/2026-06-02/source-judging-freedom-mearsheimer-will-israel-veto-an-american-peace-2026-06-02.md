@@ -1,6 +1,7 @@
 ---
 
 
+
 ingest_date: 2026-06-02
 pub_date: 2026-06-02
 kind: cleaned-transcript
@@ -27,7 +28,7 @@ napolitano_sponsor_trim_applied: true
 napolitano_close_promo_trim_applied: true
 opening_tier: full-scaffold
 normalization_state: ai_assisted_proper_noun_cleanup
-editorial_note: "AI-assisted ASR repair (common + series tiers + statecraft entity pass); 68 substitutions; not human-verified verbatim; verify before quotation. Prior provenance: Canned sponsor read trimmed in place; SSOT body otherwise preserved. Routine closing lineup promo trimmed in place; SSOT body otherwise preserved. Ideological cold open trimmed in place; SSOT body otherwise preserved. · source-section pass 2026-07-09 (8 sections)."
+editorial_note: "AI-assisted ASR repair (common + series tiers + statecraft entity pass); 68 substitutions; not human-verified verbatim; verify before quotation. Prior provenance: Canned sponsor read trimmed in place; SSOT body otherwise preserved. Routine closing lineup promo trimmed in place; SSOT body otherwise preserved. Ideological cold open trimmed in place; SSOT body otherwise preserved. · source-section pass 2026-07-09 (8 sections). - source-section pass 2026-07-09 (8 sections)."
 quality_note: ASR normalization pass 2026-06-15; ph-civ replacement SSOT.
 napolitano_cold_open_trim_applied: true
 napolitano_leading_noise_trim_applied: true
@@ -39,6 +40,8 @@ closing_trim_applied: false
 closing_trim_rule: ""
 closing_trim_chars_saved: 0
 closing_trim_words_saved: 0
+asr_repair_applied: false
+asr_repair_pass: ""
 transcript_curation: curated_sectioned
 section_count: 8
 section_pass: "2026-07-09 semantic-section-v1"
@@ -48,12 +51,12 @@ section_pass: "2026-07-09 semantic-section-v1"
 
 ## Transcript
 
-### Show Open — Netanyahu Israel Trump
+### Show Open - Netanyahu Israel Trump
 
 Hi everyone, Judge Andrew Napolitano here for Judging Freedom.
  Today is Tuesday, June 2nd, 2026. Professor John Mirshimer will be with us in just a moment. Can Donald Trump's anger restrain Prime Minister Netanyahu. Will Israel veto an American peace?
 
-### Segment 2 — Trump Netanyahu Lebanon
+### Segment 2 - Trump Netanyahu Lebanon
 
 Professor Mir Shamber, welcome here uh my dear friend. I'd like to start with the breaking news uh this morning. Although this first item is about 48 hours old, Iran has withdrawn from negotiations. Israel is continuing to invade Lebanon. President Trump has cursed and revealed the curse or leaked it out.
  Um, Prime Minister Netanyahu and Iranian President Pezeshkian claims he has not resigned. On top of all this, Larry Johnson and Pepe Escobar are reporting that Iran has a nuclear weapon. Let's reserve the nuclear weapon issue for a moment. What is happening between the United States and Iran and the United States and Israel as you understand it, Professor Mayor Shimemer? Well, Lebanon is the key issue and what's going on here is that President Trump wants to separate the Israel Lebanon war from the Iran issue.
@@ -72,7 +75,7 @@ But he can't do that until he shuts down the war in Lebanon because that's the c
  Do you believe that these uh quotations from Trump and Netanyahu uh were said in earnest or just performative? Oh, I think that Trump would speak like that to Netanyahu. I mean, it's sort of typical Trump language. And uh I do believe that Trump is greatly frustrated by his dealings with the Israelis in general and Netanyahu in public.
  I mean, Netany Netanyahu in particular. How could it be otherwise? So, I think Trump actually said this. What I think is very interesting is if you read the Axios piece, it appears there were there were three separate people who told the reporter what had transpired in this conversation. This tells me that the administration was very interested in telling Barack Ravid, the reporter at Axios, exactly what
 
-### Segment 3 — Trump Netanyahu Israel
+### Segment 3 - Trump Netanyahu Israel
 
 happened, making it clear that Trump was furious and sourcing the story with three different individuals. So there's no mistaking
 that Trump is reading uh Netanyahu, the riot act, at this point in time. Can Trump control Netanyahu as he boasts he can? Can he stop the invasion of Lebanon with a phone call? >> Well, if he is determined to do that and the people around him are in agreement that this has to be done, he'll do it. And I've long argued that the only thing that will get him to do that is the threat of the international economy going off the cliff.
@@ -83,7 +86,7 @@ There's no question about that. It's just that up to now, no president has ever 
  But look, let's assume that that happens. Let's assume that we get a genuine ceasefire. The question you then have to ask yourself is whether you think the Israelis will stick to that ceasefire over time or do you think that they'll do everything they can to sabotage it? And I would bet a lot of money that even if Trump can coersse them now, if he can play hard ball with Israel and with the lobby and get a genuine ceasefire, uh I think the Israelis working with the lobby will go to great lengths to undermine that.
 >> Does the lobby have um leverage on Trump other than financial? Does the lobby have dirt on
 
-### Segment 4 — Israel Lebanon Turkey
+### Segment 4 - Israel Lebanon Turkey
 
 Trump? >> I have no evidence of that. All I would say is that it certainly appears that that's the case. Uh I don't think I've ever seen a president who is as subservient to Israel as Donald Trump is. It's really quite remarkable.
  Uh I thought that Trump would if anything uh be more independent of the lobby than any of his predecessors, certainly Joe Biden, but uh I do not see any evidence of that. And it does make one think that they must have some dirt on him. Uh, and given what we now know about the Epstein files, and given what we know about President Trump's close relationship with Jeffrey Epstein, it certainly is uh possible uh that the Israelis have a lot of dirt on Trump and they're using that to blackmail him.
@@ -94,7 +97,7 @@ Trump? >> I have no evidence of that. All I would say is that it certainly appea
 >> You forgot that they're also in southern Syria, uh, not that far away from Damascus on top of all of those other instances you described. Uh look, this military is overstretched. Uh the chief of staff of the IDF has been complaining bitterly uh about how tired and run down the IDF is and some respit is required here. That's point one.
  But with point two, regarding your question, there's just absolutely no doubt that Israel couldn't conduct this highly aggressive and ambitious foreign policy without the immense support that it gets from the United States of America. Uh, as we've talked about many times on the show, uh, they could not have committed the genocide
 
-### Segment 5 — Israel Iran Trump
+### Segment 5 - Israel Iran Trump
 
 in Gaza without support from the United States.
  uh they couldn't be at war with Iran uh without the United States. I mean, reports have just come out that show that when the Iranians uh struck Israel with ballistic missiles, this is when the air war was going on uh between February 28th and April 8th. Uh during that time, the United States was doing much more than Israel was doing to protect Israel.
@@ -106,7 +109,7 @@ I um wonder if uh Trump is under pressure from the Pentagon to end the war becau
  This is just more evidence of the fact that Israel, which led us into the war, uh, is a strategic liability. It's an albatross around our neck. I mean, let's go back to the beginning of our conversation. What were we saying at the start of our conversation? We were saying that Israel not only got us into the war, they won't let us get out of the war, >> right? >> They got us into a losing war, we want to get out of a losing war, and they won't let us get out of a losing war.
 They want to escalate. They want to restart the air war against Iran. And we cannot afford to fight the air war again against uh Iran. So Israel is a huge albatross around our
 
-### Segment 6 — Israel Trump Netanyahu
+### Segment 6 - Israel Trump Netanyahu
 
 neck. And now the uh National Defense Authorization Act for 2027, a thousandpage piece of legislation that very few members of Congress will read before voting in favor of.
  Basically funds the Pentagon. also has some um I guess I can't call them Christmas tree ornaments, but also has some goodies in there for uh the Israelis. An alliance between the IDF and the US military for sharing research, intel uh and military hardware. How could we possibly do that with another country? Moreover, a country with which we don't have a treaty of alliance.
@@ -118,7 +121,7 @@ this is Trumpian language the IDF turned around in Lebanon. Netanyahu claims, Ch
  And the reason that Trump will do that is because the Iranians will tell Trump that there will be no ceasefire until Israel stops its bombardment of Israel, excuse me, of Lebanon, whether it's in southern Beirut or in southern Lebanon itself. You got to get a genuine ceasefire. That's what the Iranians are demanding.
  And I believe Trump has gotten the message and he will try to convey that to Netanyahu.
 
-### Segment 7 — Iran Nuclear Weapon Russia
+### Segment 7 - Iran Nuclear Weapon Russia
 
 And again, my argument is only when the economic situation is threatening enough will you see Trump really lower the boom on Netanyahu. >> Here's uh what our friend and colleague, in my case, longtime friend and colleague Larry Johnson uh posted on his website.
  Does Iran have a nuke? Wellplaced source says yes. So Larry reported yesterday on this show and now has reaffirmed it that he and Pepe Escobar, another um friend of the show and friend of mine, received clarification on how Iran obtained a functioning functioning deliverable functioning means deliverable nuke. Iran's objective is with the backing of Pakistan, China, and Russia to raise the risk to Israel of engaging in future attacks on Iran.
@@ -129,7 +132,7 @@ And again, my argument is only when the economic situation is threatening enough
  Do you think that the people around Trump, I'm not asking you, Trump himself because who knows what he thinks, the people around Trump ru the day he withdrew from the JCPOA. The maximum enrichment was 3.67% verifiable by international inspectors. No inspectors since he tore it up in 2017. >> Well, there's no question it was a major mistake.
  You want to remember when I debated when Steve Walt and I debated uh Victoria Nuland and Mike Pompeo, uh Victoria Nuland made it clear that she thought it was a mistake to
 
-### Closing — Nuclear Weapon Iran Israel
+### Closing - Nuclear Weapon Iran Israel
 
 withdraw from the JCPOA. Pompeo, of course, who was Secretary of State at the time and therefore uh was one of the principal individuals in the first Trump administration responsible for withdrawing from the JCPOA.
  Still thinks it's a good move, unsurprisingly. But Victoria Nuland thought it was a foolish move. And uh I think the fact that she thought that uh tells you that it's likely that a good number of people around President Trump and maybe even President Trump himself uh wishes they could go back and undo that. Uh I think uh we'd be in a much better situation today.

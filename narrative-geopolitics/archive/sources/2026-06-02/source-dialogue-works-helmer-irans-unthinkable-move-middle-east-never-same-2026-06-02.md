@@ -2,6 +2,7 @@
 
 
 
+
 ingest_date: 2026-06-02
 pub_date: 2026-06-02
 transcript_type: ai_assisted_operator_pasted_youtube_transcript
@@ -26,7 +27,7 @@ youtube_id: OVcXeOl-LSw
 source_note: "Cleaned transcript pasted by operator. · ASR pass 2026-06-15."
 opening_tier: host-tease
 normalization_state: ai_assisted_proper_noun_cleanup
-editorial_note: "AI-assisted ASR repair (common + series tiers + statecraft entity pass); 12 substitutions; not human-verified verbatim; verify before quotation. Prior provenance: Preserve as raw cleaned transcript; verify polling, military, sanctions, Russian domestic-politics, and succession-faction claims before promotion beyond analyst tier. · source-section pass 2026-07-09 (9 sections)."
+editorial_note: "AI-assisted ASR repair (common + series tiers + statecraft entity pass); 12 substitutions; not human-verified verbatim; verify before quotation. Prior provenance: Preserve as raw cleaned transcript; verify polling, military, sanctions, Russian domestic-politics, and succession-faction claims before promotion beyond analyst tier. · source-section pass 2026-07-09 (9 sections). - source-section pass 2026-07-09 (9 sections)."
 quality_note: "ASR normalization pass 2026-06-15; ph-civ replacement SSOT."
 opening_trim_applied: false
 opening_trim_rule: ""
@@ -36,6 +37,8 @@ closing_trim_applied: false
 closing_trim_rule: ""
 closing_trim_chars_saved: 0
 closing_trim_words_saved: 0
+asr_repair_applied: false
+asr_repair_pass: ""
 transcript_curation: curated_sectioned
 section_count: 9
 section_pass: "2026-07-09 semantic-section-v1"
@@ -51,7 +54,7 @@ section_pass: "2026-07-09 semantic-section-v1"
 
 ## Transcript
 
-### Show Open — Israel Trump Iran
+### Show Open - Israel Trump Iran
 
 Hi everybody. Today's Tuesday, June 2nd, 2026, and our dear friend, our brother, John Helmer, is here with us. Welcome back, John. >> Thanks for having me. You know, good to be back. >> John, let me start with what has happened yesterday. And Israelis wanted to attack Dahi in the southern part of Beirut.
 And it was some sort of announcement on the part of Israelis. They said that they have to evacuate their homes. The whole city should be evacuated. Then we had some sort of Iranian message. They said there is no talks anymore. No direct indirect and no messages between Iran and the United States.
@@ -66,7 +69,7 @@ these wars now and we'll come to the Russian war in the Ukraine and in Europe. T
 back to the same sort of behavior that we've been witnessing with the start of the war, the second round of war against Iran. >> Short answer, yes. But it's not just the midterm elections in the US. I I need to emphasize I've just done an interview in Tehran Times with Sahad Daju and forgive me for for those who've read that um to repeat myself.
 Uh before the November 3 election, what's very important on a US presidential clock is the fall budget review. In other words, between September and November. uh the US Office of Management and Budget with where I was
 
-### Segment 2 — Russia Trump Iran
+### Segment 2 - Russia Trump Iran
 
 an official during the Carter administration for four years decides what next year's budget will be, what the money will be for everybody.
 It's a very contentious and difficult time intense conflict between White House uh the agencies uh uh the budget uh bureau and the Congress all these uh let's say lobbies for for want a better term are arguing for more money resisting um cuts uh to their budgets for next year. That means that military operations have to be shown to be successful.
@@ -82,7 +85,7 @@ Um, the effect of economic recession in the in Russia has been to substantially 
 entire Kremlin staff is devoted to this. To prevent that outcome um will require significant combination of election fraud rigging the votes at at least as much as 5% which was standard during the the Yelson administration and perhaps in some places up to 10% especially to kill the communist vote or a protest vote spreading from the single constituency contest to the proportional party vote.
 To do that, to do that, the uh the president and Kremlin has to promise a short war. Promise a short war. And you've seen a number of statements by the president in recent days uh indicating that uh he has the confidence he can end the war quickly on the Ukraine
 
-### Segment 3 — Russia Ukraine Trump
+### Segment 3 - Russia Ukraine Trump
 
 battlefield. And that's reflected in continuous tweeting by Dimmitri uh who's basically say finding no fault with anything Trump does in order and to encourage Trump to allow Russia to escalate on the Ukraine battlefield.
 And we've seen that too. We've seen a combination of Ukrainian drone escalation with significant let's not uh gild any liies here and lots let's not exaggerate but let's not deny very significant success in the Ukrainian drone strategy assisted by the US assisted by the British assisted by NATO to cut refinery capacity in Russia to cut um uh port shipments of uh oil uh from Russia to hit the Russian fleet as it uh moves across the high seas.
@@ -98,7 +101,7 @@ Hits in Zaporozhye, hits in the far west of uh of the Ukraine. Um I won't uh hit
 finally on the railroads, but not still not still not at Putin's direction to cut the Ukraine railway connection to its resupply hubs in Poland. So what we have is an attempt to patch over last week's uh public argument over what uh military strategy should be by saying that that we now are attacking the drone centers, the drone manufacturies.
 This is all part and it's a necessary part on the general stuff of winning the
 
-### Segment 4 — Russia Europe Trump
+### Segment 4 - Russia Europe Trump
 
 war, but it's part of the uh Putin uh campaign to win the election. And now the last bit. We've just seen uh Bloomberg come out with a report that finance minister Anton Silwanov and he the report doesn't mention central bank chairman Elvver Nabiola are on the on the eve of the St.
 Petersburg uh international economic forum, the most important international economic uh conference that Russia holds. On the eve of this meeting, the two senior finance min finance officials of the Russian government are saying we must cut our expenses. We must cut our military expenses to balance our budget to cut the Russian budget deficit.
@@ -114,7 +117,7 @@ withdrew its forces from the Dawnbas that mess means Zaparo, Harrison, Daetsk, a
 All the sides, the US side is as committed to permanent war with Russia and as the Europeans in it benefits from this escalation of drone capacity that the Ukrainians are demonstrating. The US side want to see Russia's refinery capacity cut by 30 or 40% as we now face at the moment. So is there a negotiation to stop that answer? No.
 John, do you see any sort of sign when it comes to Russia
 
-### Segment 5 — Russia Economy Iran
+### Segment 5 - Russia Economy Iran
 
 and Iran? We know that the war is happening. One side is the United States, the other side is one in West Asia is Iran and in Eurasia in in Europe is Russia. And when it comes to understanding of the Russian people and the Russian government and these different factions in Russia, what do they feel about when you put all these vectors together? The outcome the outcome of these vectors is about more negotiating with the United States is about the the United States doesn't
 want Russia to be a superpower. That's why they try to continue this war. What do they what is the general understanding on the part of the public opinion on the part of the government different factions within the government? >> Do you mean that? Do you mean Russian public opinion or US public opinion? >> No, Russian public opinion.
@@ -130,7 +133,7 @@ So the re Russian reaction is we rally behind our president, behind our army, bu
 They do not have the confidence in either Trump which they had when he was elected or that Dimmitri insists that Putin has now or Nabulina or Silanov. That's a political faction fight. Most Russians do not have that confidence. They understand their principal enemies are the United States, Germany, and the British. and everything that comes out of the media uh propaganda platforms of the world convince them this is still the case.
 Now the Russians have a
 
-### Segment 6 — Iran Trump Ukraine
+### Segment 6 - Iran Trump Ukraine
 
 deep understanding of German behavior but they also understand now how weak German uh political system is now and how dominated it has always been by the United States. So there's no confidence that the US is pulling out of Germany. And all the media that you'll see shows that that Trump's performative attacks on Chancellor Merittz are back are then reinforced and contradicted by increasing US willingness to put nuclear weapons in Germany, in Poland, in Finland, and everywhere else.
 So the Russians understand this is a war, a long-term war, but nobody wants to live in a state of permanent war. So everyone looks to to put in to finish it. Everyone except the Ditrifi Silwana faction and they love the United States. They want to be loved by the United States. They want to be back business as usual.
@@ -144,7 +147,7 @@ That's why they may talk with the United States but they know that there is noth
 right now what is happening in the mind of Iranians if we can negotiate if we can send it's not negotiations by the way >> the two sides are sending messages back and forth >> yes >> if we can do something some sort of letter document to temporarily put an end to the war we can do it with these messages if not everything going to be on the battlefield if the United States going to get back we're going to respond and with the case of I think what is so complicated with the case of Iran is the situation between Israel and
 Lebanon. Iran said there would be no agreement or no deal as far as as as long as Israel is attacking Lebanon >> and is attacking Gaza >> and they're bringing these two cases right now to the negotiations. That's why I don't see the public opinion is not positive by any measure that they can get
 
-### Segment 7 — Iran Trump Lebanon
+### Segment 7 - Iran Trump Lebanon
 
 something through these negotiations.
 That that's why you see the head of the Iranian parliament two days ago said we decide about the outcome of the war on the battlefield and we document the results of the battlefield on the paper. It's not going to be through negotiations. This is the mindset on the majority of the majority of Iranian people right now. >> Well, uh thank you for putting it so clearly.
@@ -160,7 +163,7 @@ The reason is that uh the US can make sign anou but the permanent war continues 
 Um so if Russian public opinion were similar, we would not see the extent of the vacasillation between President Putin uh his uh general staff and foreign ministry and intelligence services on the one hand and the finance minister, the central bank governor and the Demetri group representing Russian business.
 we would not see that so public. So in a certain sense, Russian public opinion, to go back to your question, uh isn't prepared to
 
-### Segment 8 — Trump Iran Russia
+### Segment 8 - Trump Iran Russia
 
 accept permanent war against Russia. They do understand, the man in the street understands that you do the best you can to negotiate. you understand that enemies like the Germans, the Americans and the British uh will not be dissuaded. They understand that.
 Um so uh there's a difference there in the political leadership. There's a difference there in in in the um public opinion and in the way they connect. Yes. On the other hand, the effect of 40 years of sanctions against Iranian business has wiped out the group, the so-called Russian oligarchy that still wants to return to its villas in Italy, uh, the Kotazil in France and its mansions in New York, uh, Colorado and Washington DC.
@@ -176,7 +179,7 @@ The opposition in the succession is uh Rubio, a Roman Catholic, and uh JD Vance,
 Either Eric Trump or Donald Trump Jr. The polls currently measure Donald Trump Jr. as 10 12 13% favored by Republicans in this succession context. My answer to your question is Vance represents a Catholic doctrine of the just war and the Iran war and the Ukraine war don't qualify in quite the way the Miller the Jewish faction the Kabad faction um think and Trump will go one way or another with with his sentiment primarily uh towards Kabat towards Miller towards the Jewish community.
 Uh so there is some prospect that with Vance and Rubio, you would have um what we began with when the Trump administration began and we were talking
 
-### Closing — Russia Iran Trump
+### Closing - Russia Iran Trump
 
 about the strategy of sequencing of wars where the US would pull out of wars that they were unable to win directly or even indirectly through the Europeans like the Ukraine war.
 They would reinforce Europe for the long-term campaign against Russia and minimizing Russian power in Europe. They would concentrate on Venezuela, Cuba, the Americas. They would build a new American fortress. Yes, that clearly is in line with what Rubio and Vance want. They would then withdraw from and find methods of negotiating semi-permanent uh withdrawal terms from the Iran war and from the Ukraine war.

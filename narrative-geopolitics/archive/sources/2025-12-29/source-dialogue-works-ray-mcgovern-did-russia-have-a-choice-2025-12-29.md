@@ -13,6 +13,8 @@ channel_slug: "dialogue-works"
 source_url: "https://www.youtube.com/watch?v=w24parHs8_U"
 source_note: "Automated YouTube transcript fetch for Dialogue Works."
 ---
+## Transcript
+
 # Ray McGovern: Did Russia Have a Choice?
 
 Hi everybody. Today's Monday, December

@@ -87,7 +87,10 @@ Record only concrete operating facts that control planned public factual use, wa
 Complete `judgment.md` after synthesis and forecast triage. It is the concise
 internal handoff, not a replacement for this synthesis. Include 3–5 load-bearing
 judgments, a confidence boundary, counterevidence, observable signals, review
-date, and only valid existing claim or forecast references.
+date, only valid existing claim or forecast references, and the required Decision
+Compression fields: what changed, reusable mechanism, decision implication,
+evidence still missing, and recommended disposition. Do not use it to promote
+source assertions into verified facts or to authorize public publication.
 
 ## Issue Story Desk
 

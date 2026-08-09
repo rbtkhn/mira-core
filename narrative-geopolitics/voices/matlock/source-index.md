@@ -19,12 +19,12 @@ Status: `imported-corpus`
 
 | Date | Source | Role | Host slug | Archive link |
 | --- | --- | --- | --- | --- |
-| `2025-05-27` | Jack Matlock: Negotiating an End to the Cold War & Instigating a New Cold War | `host-pressure test` | `glenn-diesen` | [source](../../archive/sources/2025-05-27/source-diesen-matlock-negotiating-end-cold-war-instigating-new-cold-war-2025-05-27.md) |
-| `2025-06-21` | Jack Matlock: Superpower Illusions - Reviving the Cold War | `host-pressure test` | `glenn-diesen` | [source](../../archive/sources/2025-06-21/source-diesen-matlock-superpower-illusions-reviving-cold-war-2025-06-21.md) |
-| `2025-09-01` | Amb. Jack Matlock: Western Leaders Became Ideological War Criminals | `host-pressure test` | `glenn-diesen` | [source](../../archive/sources/2025-09-01/source-diesen-matlock-western-leaders-ideological-war-criminals-2025-09-01.md) |
-| `2025-12-10` | Jack Matlock: NATO Expansion, Coup & Subversion of Ukraine Started the War | `host-pressure test` | `glenn-diesen` | [source](../../archive/sources/2025-12-10/source-diesen-matlock-nato-expansion-coup-subversion-ukraine-started-war-2025-12-10.md) |
-| `2026-04-19` | Jack Matlock: How NATO Expansionism Broke European Security | `host-pressure test` | `glenn-diesen` | [source](../../archive/sources/2026-04-19/source-diesen-matlock-how-nato-expansionism-broke-european-security-2026-04-19.md) |
-| `2026-07-18` | Jack Matlock: The Cuban Missile Crisis & NATO's War in Ukraine | `host-pressure test` | `glenn-diesen` | [source](../../archive/sources/2026-07-18/source-jack-matlock-the-cuban-missile-crisis-nato-s-war-in-ukraine-2026-07-18.md) |
+| `2025-05-27` | Jack Matlock: Negotiating an End to the Cold War & Instigating a New Cold War | `guest` | `glenn-diesen` | [source](../../archive/sources/2025-05-27/source-diesen-matlock-negotiating-end-cold-war-instigating-new-cold-war-2025-05-27.md) |
+| `2025-06-21` | Jack Matlock: Superpower Illusions - Reviving the Cold War | `guest` | `glenn-diesen` | [source](../../archive/sources/2025-06-21/source-diesen-matlock-superpower-illusions-reviving-cold-war-2025-06-21.md) |
+| `2025-09-01` | Amb. Jack Matlock: Western Leaders Became Ideological War Criminals | `guest` | `glenn-diesen` | [source](../../archive/sources/2025-09-01/source-diesen-matlock-western-leaders-ideological-war-criminals-2025-09-01.md) |
+| `2025-12-10` | Jack Matlock: NATO Expansion, Coup & Subversion of Ukraine Started the War | `guest` | `glenn-diesen` | [source](../../archive/sources/2025-12-10/source-diesen-matlock-nato-expansion-coup-subversion-ukraine-started-war-2025-12-10.md) |
+| `2026-04-19` | Jack Matlock: How NATO Expansionism Broke European Security | `guest` | `glenn-diesen` | [source](../../archive/sources/2026-04-19/source-diesen-matlock-how-nato-expansionism-broke-european-security-2026-04-19.md) |
+| `2026-07-18` | Jack Matlock: The Cuban Missile Crisis & NATO's War in Ukraine | `guest` | `glenn-diesen` | [source](../../archive/sources/2026-07-18/source-jack-matlock-the-cuban-missile-crisis-nato-s-war-in-ukraine-2026-07-18.md) |
 
 ## Import Boundary
 

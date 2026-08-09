@@ -12,6 +12,8 @@ channel_slug: "glenn-diesen"
 source_url: "https://www.youtube.com/watch?v=tgF_DF3l3o4"
 source_note: "Automated YouTube transcript fetch for Glenn Diesen."
 ---
+## Transcript
+
 # Ray McGovern: America Between a New Peace & World War 3
 
 Hi everyone and welcome. Today we are

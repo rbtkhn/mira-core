@@ -1,6 +1,7 @@
 ---
 
 
+
 ingest_date: 2026-06-02
 pub_date: 2026-06-02
 kind: cleaned-transcript
@@ -25,7 +26,7 @@ source_note: "Materialized from operator-pasted YouTube transcript for the June 
 normalization_note: Removed routine ideological cold open and closing schedule promo; kept operator-pasted source language and residual ASR noise.
 opening_tier: clean
 normalization_state: ai_assisted_proper_noun_cleanup
-editorial_note: "AI-assisted ASR repair (common + series tiers + statecraft entity pass); 38 substitutions; not human-verified verbatim; verify before quotation. · source-section pass 2026-07-09 (8 sections)."
+editorial_note: "AI-assisted ASR repair (common + series tiers + statecraft entity pass); 38 substitutions; not human-verified verbatim; verify before quotation. · source-section pass 2026-07-09 (8 sections). - source-section pass 2026-07-09 (8 sections)."
 quality_note: "ASR normalization pass 2026-06-15; ph-civ replacement SSOT."
 opening_trim_applied: false
 opening_trim_rule: ""
@@ -35,6 +36,8 @@ closing_trim_applied: false
 closing_trim_rule: ""
 closing_trim_chars_saved: 0
 closing_trim_words_saved: 0
+asr_repair_applied: false
+asr_repair_pass: ""
 transcript_curation: curated_sectioned
 section_count: 8
 section_pass: "2026-07-09 semantic-section-v1"
@@ -43,7 +46,7 @@ section_pass: "2026-07-09 semantic-section-v1"
 
 ## Transcript
 
-### Show Open — Trump Iran Matt
+### Show Open - Trump Iran Matt
 
 Today is Tuesday, June 2nd, 2026. Matt Hoe joins us now. Matt, a pleasure. Thank you very much, my friend. Uh before we get into military spending and uh the quagmire that Trump has painted himself into in Iran, he just announced it announced the appointment about an hour or two ago of a new director of national intelligence.
 Uh a homebuilder known for barroom brawling and corporate takeovers with zero experience in the intelligence community. How can this guy get a top secret national security clearance and deal with the CIA? >> Well, he'll get a security clearance. I have no I don't think there's any problem with that.
@@ -55,7 +58,7 @@ that they aren't dupes for in their those cases the Democratic party, you know, 
  The DNI is responsible for the uh 18 uh federal intelligence agencies. uh and I think now might be 19 now because the Capitol Hill police have their own intelligence service from what I understand now. So they're somehow, you know, adjacent or ancillary to uh all the other federal intelligence agencies.
  So maybe there's 19 intelligence agencies now. But yeah, how how you could not do this part-time or as a second job, but that's not the purpose. His purpose is to be loyal to the president, to push the president's agenda, uh to be a figurehead essentially. We've seen that Jean Ratcliffe, the CIA
 
-### Segment 2 — Netanyahu Israel Trump
+### Segment 2 - Netanyahu Israel Trump
 
 director, he he supplanted uh Tulsi Gabbard over the last year.
  He is a darling of the intelligence committee. He is a darling of the neoconservatives. He is fully in the pocket uh of the Israel lobby. And I think Ratcliffe is the guy who is the one who runs uh you know, American intelligence. Uh but uh he also has the great trust of the United States. Who was the first person who went to Venezuela after the Maduro kidnapping? It was Ratcliffe, right? I mean, so who's you know that those uh you know, I I don't think this the DNI's purpose is going to be for anything other than to uh just essentially be Donald Trump's
@@ -66,7 +69,7 @@ politicians over their own personal staffs. >> Right. Right. So, in the past 48 
  You know, there's the the report of Bill Clinton. You know, when he first met Netanyahu, Netanyahu comes in the Oval Office. And when Netanyahu leaves, Clinton says, "Who the hell does that guy think he is?" you know, and the same thing Obama getting caught in an open mic complaining about uh Netanyahu. Uh but we have to balance that with what we've seen come out of Axios over the last uh three or so years where there has been just one story after another, one headline after another where uh particularly Barack Ravid, the journal
 journalist who authored this piece, uh has, you know, made it out as if Donald Joe Biden is very angry with Netanyahu. uh things are at a breaking point. Donald Trump is really upset with Netanyahu. Things are at a breaking point. But then nothing happens. Nothing changes. And I I think it it is uh grist uh for
 
-### Segment 3 — Israel Netanyahu Trump
+### Segment 3 - Israel Netanyahu Trump
 
 the United States audience.
  I think it's it's a way for the Axios and Barack Rav to spin on behalf of the White House that Donald Trump is not being controlled by Israel, that Joe Biden is not being controlled by Israel. Uh that they people have their own agency. uh that they don't agree with Netanyahu's war, however you want to phrase it.
@@ -78,7 +81,7 @@ the United States audience.
  It was a whole host of war criminals that came over from Israel. there's been a number of folks who have, you know, taken the time to document who was there and you see just just members of the Knesset, uh, former Israeli ministers, uh, various public figures who have called for genocide who have rooted on the, you know, the the atrocities, uh, you know, so it wasn't just Smootric, it was a whole cobble of these people that were there.
  And we have to remind people that Bezos Motrich among other things is currently under investigation by the International Criminal Court for war crimes and we're likely to see within this year an arrest warrant be issued for him. >> Is he an official in the government as in the cabinet as well as
 
-### Segment 4 — Israel West Bank Trump
+### Segment 4 - Israel West Bank Trump
 
 in the Knesset? Is he like the treasury or something like that? >> He's the finance minister judge.
  I mean he's not some like backbencher. He's not some guy who is the minister of uh you know uh theme parks or something like that you know he is the minister of finance. He's also essentially the governor of the West Bank. uh his position also includes uh this this role ad ministering on the civilian side the West Bank and Enmar Bengavir as a minister of national security on the security side on the police side administers the West Bank you know that way and this is why it's such a terrible place to be in the West Bank has been
@@ -89,7 +92,7 @@ Certainly the leverage the United States has over Israel uh with regards to as I
  But also then two you have on the other hand America's legalized system of bribery. So where you might have an empire acting sely might say you know this colony that we have here this proxy we have we no longer need. And I think people make a very strong argument that Israel is not in the United States's strategic strategic interest. I'll say I'll say it's not in the strategic interest.
  You know we don't need Israel. Uh we have bases in every country in the Middle East besides what? Yemen and Iran. What do we need Israel for? Uh or we had bases until Iran blew them all up. But uh you know on the other side of it though is this idea that we have a legal our government is legalized bribery and the Israelis just like big a just like the pharmaceutical companies uh just like the banks etc all understand that and
 
-### Segment 5 — Israel Palestine Middle East
+### Segment 5 - Israel Palestine Middle East
 
 so they control Middle East policy uh just in the way again that uh the health care insurance companies control our healthc care
 policy uh you know so I mean that that's the way I look at it uh you know in the United States Americans view Israel as controlling the United States, but in Israel, the Israelis view the Americans as controlling Israel. Uh so I think a lot of it probably is your perspective, but again, I go back to the two fundamental things here.
@@ -102,7 +105,7 @@ the primary where what $35 million was spent to unseat him majority of that comi
  I think in every other demographic, you have either majority support or plurality support for Palestine essentially. >> Let me let me change the subject because I want to ask you I want to prevail in your expertise in this. What is he Seth gonna do with 1.7 trillion? >> It sounds like a joke. Really? >> Really? I know.
  Because I want says, "I have a check for 1.7 trillion. What should I do with it?" >> He's going to spend a lot on booze and makeup. I can tell you
 
-### Segment 6 — Trump Nuclear Weapon Israel
+### Segment 6 - Trump Nuclear Weapon Israel
 
 that, judge. You know what I mean? So, but um >> you know, I don't even know if they can spend it. You know, you've had some pretty serious people look at this, like the folks at the National Properties Project, the people at Brown University, uh, guys like Bill Hartong or Steven Semler.
  It may not even be possible to spend all that much money. I mean, it'll just eventually go into back orders for the weapons companies. I mean, that's where this money will go to. It will go to uh uh, you know, the the the milit you know, the the the defense industry. Uh, it's not going to pay raises for the troops.
@@ -113,7 +116,7 @@ It's going to go to build this golden dome missile defense system, which uh most
 This is from Sonar 21, which is Larry's website. Now, Larry revealed this on our show yesterday. He since uh has related that he has done more research and he and Escobar Pepe are satisfied uh that their source is credible and accurate. This is somebody known to both of them. >> Does this make sense to you? >> It it doesn't make sense to me in a sense that the Iranians have not abandoned their fatwa uh on having a nuclear weapon and I believe they're very sincere about that.
  uh they certainly face the risk of another attack from the United States and Israel. They faced the risk of attacks from United States and Israel
 
-### Segment 7 — Nuclear Weapon Iran Nuclear Weapons
+### Segment 7 - Nuclear Weapon Iran Nuclear Weapons
 
 for the conceivable future. I mean, even if a deal was even if if if we had a magic wand and we created a deal today to end this war judge, you and I know that six months from now, uh they're going to be back at it.
  And so uh you know the idea of of having a nuclear weapon to deter the Americans and the Israelis as well as having a nuclear weapon to deter Israeli use of of of nuclear weapons. Uh I can understand all that. But again I believe the Iranians are sincere in their commitment to not having a nuclear weapon at this point.
@@ -125,7 +128,7 @@ for the conceivable future. I mean, even if a deal was even if if if we had a ma
 >> Correct. >> Yeah. >> Nobody reads it. It's a thousand pages long. The Republicans have inserted in. They since have taken it out. They're probably going to try and get it back in the section 224, which would provide for a joint sharing in the law now without discretion. the joint sharing of military u and intelligence information between the United States and the IDF.
  It's actually more than the IDF. It's the Israeli government, >> right? >> This is something that has never existed in American history. >> No, certainly not with not with a non-treaty ally. I mean, you can make
 
-### Closing — Israel Pentagon Ukraine
+### Closing - Israel Pentagon Ukraine
 
 a comparison to that. We have similar types of agreements with say our, you know, United States NATO allies with the five eyes.
  You could you could stretch it and say, "Oh, it's it's really just like that." But it's not. It's an integration of the Israelis into not just our our our our Pentagon, not just our intelligence services, but into our defense industry. Uh it would allow for uh the Israelis to produce uh weapons here in the United States. Uh it would allow for uh American policy, our planning, our our budgets to incorporate Israel into it.

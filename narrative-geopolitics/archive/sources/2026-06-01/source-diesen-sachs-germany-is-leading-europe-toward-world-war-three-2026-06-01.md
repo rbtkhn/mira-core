@@ -1,4 +1,5 @@
 ---
+
 ingest_date: 2026-06-04
 pub_date: 2026-06-01
 kind: article
@@ -28,6 +29,8 @@ closing_trim_applied: false
 closing_trim_rule: ""
 closing_trim_chars_saved: 0
 closing_trim_words_saved: 0
+asr_repair_applied: true
+asr_repair_pass: "2026-07-09 asr-repair-v1"
 transcript_curation: preserved_unsectioned
 section_count: 0
 section_pass: "2026-07-09 semantic-section-v1"
@@ -57,3 +60,4 @@ What is not yet recovered:
 ## Filing Rule
 
 Use this as a canonical June 2026 Diesen / Sachs front door, but do not quote or route it as if a local transcript body were already materialized.
+

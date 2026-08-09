@@ -12,6 +12,8 @@ channel_slug: "glenn-diesen"
 source_url: "https://www.youtube.com/watch?v=hkeFYwFVfes"
 source_note: "Automated YouTube transcript fetch for Glenn Diesen."
 ---
+## Transcript
+
 # Ray McGovern: The Road War - Arms Control Collapsing
 
 Welcome back. We are joined today by our

@@ -12,6 +12,8 @@ channel_slug: "glenn-diesen"
 source_url: "https://www.youtube.com/watch?v=AbDMF7GlxCQ"
 source_note: "Automated YouTube transcript fetch for Glenn Diesen."
 ---
+## Transcript
+
 # Ray McGovern: Trump versus the Deep State
 
 hi everyone I'm Glenn dies and today I'm

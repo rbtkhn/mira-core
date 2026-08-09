@@ -9,6 +9,7 @@
 
 
 
+
 ingest_date: 2026-06-02
 pub_date: 2026-06-02
 kind: cleaned-transcript
@@ -30,7 +31,7 @@ thread: davis
 channel_url: "https://www.youtube.com/@DanielDavisDeepDive"
 evidence_grade: transcript-bearing
 normalization_state: ai_assisted_proper_noun_cleanup
-editorial_note: "AI-assisted ASR repair (common + series tiers + statecraft entity pass); 0 substitutions; not human-verified verbatim; verify before quotation. Routine closing lineup/subscribe promo trimmed in place; SSOT body otherwise preserved.\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\" · source-section pass 2026-07-09 (9 sections)."
+editorial_note: "AI-assisted ASR repair (common + series tiers + statecraft entity pass); 0 substitutions; not human-verified verbatim; verify before quotation. Routine closing lineup/subscribe promo trimmed in place; SSOT body otherwise preserved.\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\" · source-section pass 2026-07-09 (9 sections). - source-section pass 2026-07-09 (9 sections)."
 quality_note: ASR normalization pass 2026-06-15; ph-civ replacement SSOT.
 davis_close_promo_trim_applied: true
 opening_trim_applied: false
@@ -41,6 +42,8 @@ closing_trim_applied: false
 closing_trim_rule: ""
 closing_trim_chars_saved: 0
 closing_trim_words_saved: 0
+asr_repair_applied: false
+asr_repair_pass: ""
 transcript_curation: curated_sectioned
 section_count: 9
 section_pass: "2026-07-09 semantic-section-v1"
@@ -50,7 +53,7 @@ section_pass: "2026-07-09 semantic-section-v1"
 
 ## Transcript
 
-### Show Open — Russia Ukraine Europe
+### Show Open - Russia Ukraine Europe
 
 Old ways never die easily, especially when they've had a long period of time like we have. Really since the end of World War II, but definitely since the end of the Cold War, we have been the United States the dominant power in the world and everything else to include Europe, the global south, China, and to include Russia, what was the Soviet Union, and then subsequently Russia, and then all the uh states that arose after the USSR fell apart.
  They've all been dominant. They were all secondary, far secondary. At least they were in the 1990s. And then that started changing in the 2000s. And then as time continued on, all of a sudden, China is no longer this little power. Now they are a powerhouse. And now then they will not be subordinated. They will not be set aside.
@@ -65,7 +68,7 @@ And part of the reason is because of what happened in Star Oilsk where the Ukrai
  But the bottom line and things that is crucial to understand here is that that is accelerating and the arrogance and the pompousness behind our statements that we don't have to worry about. Russia, they'll never do anything anyway. China will never do anything anyway. Iran will never do anything anyway because we're all that. And and and we're oblivious and blind to the physical things that are happening around us.
  and the rise of the other side and the anger of the other side and the fact that their patience is wearing thin and they're getting sick of being treated
 
-### Segment 2 — Russia Turkey United Nations
+### Segment 2 - Russia Turkey United Nations
 
 this way for a long time in ways incidentally we would never tolerate someone trying to do to us. We would be up in arms long before what these other powers have.
  But now then belatedly they're reaching that point. And let me show you how it's manifesting here in recent times. Just a couple of days ago uh in the United Nations Security Council, the Lithuanian ambassador made an impassion plea begging for help against Russia trying to get them condemned. >> On 23rd 24th of May, Russia launched the largest ever combined missile attack against K.
@@ -81,7 +84,7 @@ this way for a long time in ways incidentally we would never tolerate someone tr
  That's important phrase because again with no context it's like man yeah they're killing civilians and the Russians are directly attacking them. That's what they claim is a lot of video shows malls and uh other buildings that are used that don't look to be military. Now, there are reports that those sites were struck because the the Ukrainian side had chose to use them to house and and do other kinds of things with military application.
  I don't know if it's true or not. I just know that's what the Russians claim. The Ukrainian side says they don't. Only history will be able to tell us what the actual ground truth was. I'm not defending or or attacking either
 
-### Segment 3 — International Law Russia Iran
+### Segment 3 - International Law Russia Iran
 
 side. I'm saying what both sides are telling you. However, what I'm also going to tell you is that's not the full story as we're about to see.
  But uh let's look first at the United States because because Tammy Bruce the US ambassador to the United Nations uh went in in support of the uh of our Baltic friends of our NATO allies and she added this. >> We note too with serious concern Russia's apparent disregard for the protections afforded to diplomatic facilities and personnel under under international law.
@@ -96,7 +99,7 @@ do is that international law you see you can do these things and if you're power
 And that's where we are here. And you know she's she's again she's talking about we this this war can only end on a negotiated settlement on on whose terms but our terms. So we decide what the terms are and then Russia must accomplish them or are you willing to actually engage in diplomatic negotiations which of course means to get something you have to give something back and forth.
  That's just how real terms work. That's how real negotiations function. But here's our UN ambassador just just lecturing the body here. And of course, all this is performative art. There's no actual diplomacy going on. Every single person on that stage to include the
 
-### Segment 4 — Russia Iran Ukraine
+### Segment 4 - Russia Iran Ukraine
 
 Russian ambassador who was also spoke, the Ukrainian ambassadors, but everybody's just talking to the wind or to their own domestic audiences.
  There's no actual diplomacy going on there. But that's part of the problem is because we want to claim that uh we're we're trying to uphold international law when it suits us and that we'll go power when that suits us. And then when other people who are rising powers don't do what we want, we we get upset.
@@ -112,7 +115,7 @@ There was our strike on the Kiev region. about the fact that we struck the Kiev 
 Simply not a single word about the tragedy in Stabbel, about the fact that children died, that they purposefully killed our children. Not a word. as if it does not exist at all. Well, what is that? Is that mass media? No, that is a means of mass deception. >> And look, other people around the world are seeing this.
  They're saying, you know, it's not just the the kids in Starills that were killed. There were kids in in uh Ukraine that have been killed. That's that's not fake. That's true. There have been. And this war is
 
-### Segment 5 — Russia Ukraine Iran
+### Segment 5 - Russia Ukraine Iran
 
 a terrible thing, which is why I'm so adamantly opposed to stupid wars that are not forced on anybody, but just chosen by the two sides.
  And there's some blame to go around on both the Russian and the Ukraine side. So nobody's hands are completely innocent here, but we definitely have kept this thing going and and and avoided every diplomatic offramp that could have avoided the war alto together. Could have gotten it off the table a month in and all the way through to this day.
@@ -127,7 +130,7 @@ Bounce power shifting now. Then it's we're not going to be able to do that anymo
 listening to them. All of this is because we won't pay any attention to reality and we won't pay any attention to what used to be the laws that we ourselves wrote and put into effect. We won't hold to any kind of morality that applies to everyone because we thought we had the power so we could do whatever we wanted.
  Well, now then those chickens are coming home to roost and and we're not going to
 
-### Segment 6 — Russia Europe Ukraine
+### Segment 6 - Russia Europe Ukraine
 
 like it. And and I dare say this is only the beginning. And if we don't stop pretty damn quick before we're going deeper down a hole, then we can find ourselves in a world of hurt. That's what we should do.
  But you know that only when something forces us to do it are we going to do it. because this old dying elite that governs the western world, United States and Europe especially kind of all together here. It's it's a sick and dying breed. And I' I've been talking to you many times about that. Like Mike Pompeo is a is a key advocate of that.
@@ -142,7 +145,7 @@ like it. And and I dare say this is only the beginning. And if we don't stop pre
  None of them want to talk about diplomacy. Mr. Forbes seems to conveniently ignore that. Forget that. Didn't know it. I don't know what. But see, he wants to characterize things that, oh, look, it's those darn evil Russians and a let's pull out the Hitler card. That's the best one because Hitler passed this law and stuff and and claimed that all these these ethnic Germans at the time in prior to World War II were being mistreated or whatever and he used that as a pretext to go on.
  That part is true. It's also true that Russia is doing something similar here. We've had this on the show before, too. Putin signs a
 
-### Segment 7 — Russia Ukraine Europe
+### Segment 7 - Russia Ukraine Europe
 
 law authorizing use of military force to protect Russian citizens abroad. And it's not clear what he has in mind on that. It could well be something like that. It could well be that Russia is thinking that because of the stuff that Narushkin talked about where they're seeing that the NATO forces are building up that they're saying, "Hey, we're stupid if we're just going to sit by and wait for all of this
 rebuild Europe program to to get done to everybody to get up to 5% GDP and for them to be able to build up all their arsenals and then bring the combat power onto them when they have an advant an advantage right now, a military advantage." So, they may be saying, "Hey, we need to strike now before they do.
@@ -156,7 +159,7 @@ nobody's saying that you should just trust Russia that they're not going to do a
  Maybe they'll train more soldiers. Maybe they'll make their army bigger. Maybe they'll have more of a defense industrial base. And oh, snap. Now they can outdo what we can. We didn't seem to think it through too bad because we didn't think we had to. We thought we could just keep going on the way we have been by just telling everybody what to do and then they would eventually fall in and do it.
  We'll kill a few people here and there, blow up a few boats, uh, steal a country here, uh, attack this country over here, and we'll help you guys, this country here, attack that country, and then they'll get the message and sent down. Well, that worked for a long time. I'm just telling you, that's no
 
-### Segment 8 — Europe Iran Ukraine
+### Segment 8 - Europe Iran Ukraine
 
 longer the way it's going to be.
  But it's not just Iran. It's not just the the Iran war with the United States or the Ukraine war with Russia and our participation in that one, too. this mentality spreads all across the world. And in that same interview with Steve Forbes, he went on to like wrap the whole thing up and to show how everybody in the world should be under our boot.
@@ -172,7 +175,7 @@ Nothing should ever come out of anywhere. Germany, you name it. We should stay e
  And there were many in both Asia and in Europe that were only too happy to do that because they too could benefit financially from it. A lot of people their national countries and their economies and uh you know the various populations in their countries they benefited from it and maybe they chafed under a little bit but they did benefit.
  So they're like all right fine we'll just let it roll. Well now then that's starting to change and now then
 
-### Segment 9 — Ukraine Russia Lot
+### Segment 9 - Ukraine Russia Lot
 
 a lot of people are starting to say wait we shouldn't be doing this. We don't even want you here, especially because now it's not working out. It's a good force. Ask Saudi Arabia how it's going. Ask Kuwait how it's going.
  Ask UAE how it is to ask Qatar how it is to have been our friend and somebody that we alleged to defend. And now then they have suffered significant harm and damage and could have suffered even more if that war continues on. And now here's Ukraine. How's that worked out for Ukraine? Had they not had they not listened to Boris Johnson and apparently uh Joe Biden and several others in the west and they had done the Estanbul agreement in 2022 in April of 2022 the war would have been over.

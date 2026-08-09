@@ -10,6 +10,7 @@
 
 
 
+
 ingest_date: 2026-06-02
 pub_date: 2026-06-02
 transcript_type: ai_assisted_operator_pasted_youtube_transcript
@@ -29,7 +30,7 @@ channel_slug: alexander-mercouris
 source_url: "https://www.youtube.com/watch?v=A-49Jvk_VSk"
 source_note: "Operator-pasted YouTube transcript for Alex Mercouris hub capture. · ASR pass 2026-06-15."
 normalization_state: ai_assisted_proper_noun_cleanup
-editorial_note: "AI-assisted ASR repair (common + series tiers + statecraft entity pass); 10 substitutions; not human-verified verbatim; verify before quotation. Routine Mercouris solo subscribe/platform close trimmed in place; SSOT body otherwise preserved.\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\" · source-section pass 2026-07-09 (9 sections)."
+editorial_note: "AI-assisted ASR repair (common + series tiers + statecraft entity pass); 10 substitutions; not human-verified verbatim; verify before quotation. Routine Mercouris solo subscribe/platform close trimmed in place; SSOT body otherwise preserved.\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\" · source-section pass 2026-07-09 (9 sections). - source-section pass 2026-07-09 (9 sections)."
 quality_note: "ASR normalization pass 2026-06-15; ph-civ replacement SSOT."
 mercouris_close_promo_trim_applied: true
 opening_trim_applied: false
@@ -40,6 +41,8 @@ closing_trim_applied: false
 closing_trim_rule: ""
 closing_trim_chars_saved: 0
 closing_trim_words_saved: 0
+asr_repair_applied: false
+asr_repair_pass: ""
 transcript_curation: curated_sectioned
 section_count: 9
 section_pass: "2026-07-09 semantic-section-v1"
@@ -48,7 +51,7 @@ section_pass: "2026-07-09 semantic-section-v1"
 
 ## Transcript
 
-### Show Open — Russia Ukraine Last
+### Show Open - Russia Ukraine Last
 
 Good day. Today is Tuesday, 2nd June 2026. Now, over the last week or so, I have been discussing the probability that the Russians would resume and continue the massive program of strikes against Kiev, specifically Kiev, but no doubt also other places in Ukraine that they warned about following the attack, the Ukrainian attack on the building, the dormatory building in Starobilsk.
 I said that there was every reason to think that the Russians would indeed fulfill their promise to conduct strikes against Kiev, that there was also every reason to think that these strikes would now become much more powerful and that they would start to target um what are referred to as decisionmaking centers, bunkers, command posts, that kind of thing.
@@ -61,7 +64,7 @@ In my opinion, the attacks form part of a developing strategy that the Russians 
  Now, what did the Russians achieve through the attack on Kiev? And what sorts of weapons in fact were used? Well, large numbers of weapons were used. The Ukrainians are claiming that some something like 750 missiles and drones were launched by the Russians altogether last night. Not all of these targeted Kiev. Interestingly, the city of Zaporozhye now very much an objective for the Russian army which is advancing in Zaporozhye region.
  Anyway, the city of Zaporozhye was also very much a target, but the main weight of the attack was on Kiev itself. And it is not yet clear to me where the Kha hypersonic missiles launched from the sky by very fast, very powerful Mig 31 fighter jets um participated in that
 
-### Segment 2 — Russia Ukraine Attack
+### Segment 2 - Russia Ukraine Attack
 
 attack. But one relatively new system, the Ciron hypersonic cruise missile was indeed used and apparently to devastating effect.
 Even the Ukrainians, even the Western media are admitting that Ukraine's now deeply depleted air defenses were not able to shoot down a single one of these hypersonic cruise missiles. Now there is some discussion about the exact number of Turkon hypersonic missiles which were used in the strike against Kiev itself.
@@ -77,7 +80,7 @@ The very early strikes on Ukraine with Ciron hypersonic missiles were conducted 
 One or two were launched from Crimea by the ground launcher that was used previously in the tests. However, the greater part of the Turkon systems that were used against Kiev last night were ground launched from launchers which the Russians say are located in Korsk region. Now this multiplies massively Ukraine's own targeting difficulties.
 Ukraine doesn't have the elaborate early warning radar de radar detection system that Russia does. It relies very heavily on information from the western powers for its advanced early warning systems. Um, the Western powers have indeed
 
-### Segment 3 — Russia Ukraine Ukrainians
+### Segment 3 - Russia Ukraine Ukrainians
 
 provided the Ukrainians with a great deal of help and information about incoming Russian strikes by providing them with information about incoming Russian missiles.
 But obviously it's easier to do that from air launched missiles because you can track the aircraft that launch them and from ships because you can track the ships that launch them. Ground launches are far more difficult to keep a constant track on, especially if you are the western powers and you are located a significant distance from the battlefields and you're not able to operate your surveillance drones over western Russia.
@@ -92,7 +95,7 @@ If you believe that claim, well, that's your prerogative. But in that case, I ha
  the palta in Kelnitzki and Sunumi regions, fuel and transport infrastructure used by the Ukrainian army and military airfields. So that's what the Russians say they targeted. I doubt that that is a complete account, not remotely in fact, of what the Russians did in fact target. There's no doubt also incidentally that Iscanda missiles were also heavily used in this attack.
  But as to the targets, it seems to me that the Russian defense ministry actually is telling us very little. Anyway, TAS, the Russian news agency, has done a summary of what the Russian media is saying and they say
 
-### Segment 4 — Russia Trump West Bank
+### Segment 4 - Russia Trump West Bank
 
 that the attack lasted 4 hours, 4 and a half hours, that um the Ukrainian media over the course of the attack were reporting explosions across Kiev, that the sky above Kiev was covered with smoke after a series of blasts in the city.
 Um the media um uh outlet and this refers to Strana, the dissident Ukrainian channel which is published abroad. Anyway, let's Strana posted several videos on his telegram channel showing plumes of smoke billowing high into the sky. Um, there are reports, this is all taken from TAS, that central and peripheral streets of Kiev have been closed off after a series of blasts at night and that streets located in the areas of the right bank of the Dnieper River, that's on the West Bank, were closed off and that the Kiev police
@@ -106,7 +109,7 @@ Anyway, I ask these questions. I should say I don't know the answer, but we are 
 bombs which come with a far bigger, far more powerful explosive charge than that of any missile except probably the arachnik itself. So a devastating attack. Now the reaction around the world has been very interesting. Previously, there's been a storm in the west of protest whenever a strike on Kiev takes place.
 The president of the United States, Donald Trump, in the past used to make comments about these strikes. He would deplore them and would say that Putin was crazy, was acting crazily to mount them. This time I noticed that President Trump and the US government altogether have remained silent and well western governments have been critical of this attack as have the western media generally but I don't get the sense of this shock, horror, um um fury, rage
 
-### Segment 5 — Russia Ukraine Iran
+### Segment 5 - Russia Ukraine Iran
 
 that the Russians have conducted a strike of this kind that we
 used to see. And that is a very interesting fact. Now, it could be that after the battles in Gaza and Iran, Western commentators have become much tougher minded in connection with strikes like the one we saw last night, possibly. I don't think that is the reason. I think that the reason is that the Russians have dealt with this issue of strikes on Kiev in the way that people do when they're supposed to boil frogs.
@@ -121,7 +124,7 @@ over the last few months. Of course, you can do what Kayakalis and Osuland Lion 
 So the Russians by now, undoubtedly so know that they have also outweighted the West in terms of in terms of complaints about attacks on Kiev as well. From now on, Russian attacks on Kiev can only escalate now. I've said that this is part of a systematic campaign. As I said, various targets have been struck. The main decision making centers so far have not been.
  It is only a matter of time before strikes on those decision making centers come. And
 
-### Segment 6 — Russia Ukraine I'Ve
+### Segment 6 - Russia Ukraine I'Ve
 
 to repeat again what I've said, as this aerial campaign progresses, it is only a matter of time before the West pulls its people out of Kiev. Now on that, I might have misjudged Vladimir Zelensky. I assumed that if the Western powers evacuate Kiev, he and his officials would nonetheless choose to remain.
 Um, I have become somewhat less sure of this based on what I've heard. I I'm getting reports of all sorts of bolt holes that have been prepared for Zelensky in all sorts of places. Maybe he will leave, maybe he won't, but that's a topic I'm going to leave for discussion to another day. Anyway, that's what I'm going to say about the attack on Kiev.
@@ -135,7 +138,7 @@ because it was in a hill on a hill, the Russians would struggle to capture it. B
 The Russians will not only be in a position to overlook the supply lines leading into Kramatorsk, they'll be able to overlook Kramatorsk itself and their spearhead forces will be almost on the very boundary of Kramatorsk itself and Slavansk and Kat. tossque are now both being heavily patrolled by Russian drones and Russian drones now conduct regular strikes against Ukrainian military targets in both of these towns.
  But before long the Russian artillery is going to be active, conventional artillery is going
 
-### Segment 7 — Russia Ukraine Iran
+### Segment 7 - Russia Ukraine Iran
 
 to be active also. And the effect of that I suspect will be devastating. Anyway, that is the overall situation on the battlefront. There's lots of details which I could go into, but I am not going to. Ukraine attempted its own drone attack on Russia yesterday without much impact as far as I can see.
  There still are claims that the Ukrainians continue to conduct attacks on the Novarosia highway uh between Marupal and Crimea. Again, I'm not going to discuss that further. It is in Dongbass that the main battle is happening and the Russians are winning it. and in the sky over Kiev. Well, the skies there are darkening, too.
@@ -149,7 +152,7 @@ And the main speaker in the meeting was a in a a Russian official um Mr. Bastrii
  As a result of the explosions and subsequent fires um fires, partial collapse of the floor slabs occurred um from the sixth to the second floor. 70 young people were affected, 21 were killed and 49 were injured, including 19 minors. So quite a quite an appalling description of what was by all accounts a harrowing affair. Though not, it must be said, on the scale of the even more horrible, indeed much more horrible Minab strike that took place in Iran on the first day of the current conflict between Iran, Israel, and the United States. Anyway, this this meeting in the
 Kremlin, apart from Bastriin's description and account of the attack, is notable also for what Putin himself had to say, and the Kremlin quotes his words as follows. It
 
-### Segment 8 — Russia Ukraine Europe
+### Segment 8 - Russia Ukraine Europe
 
 appears that the Kiev leadership has deliberately committed these grave crimes against children and adolescents in the treat teacher training college in Stal and they have decided to open a new chapter in a string of their crimes in Geneek airport and impact and impact a new direct dimension to the conflict.
  The reference to Genesisk is to an attack by a fixedwing Ukrainian drone which took place um on Saturday. And this drone struck a residential building and according to Bastriin, the facads of four blocks of flats were damaged. A six-year-old child was killed and 15 civilians were injured. Well, Putin says that this is now part of a pattern. It's a deliberate pattern.
@@ -163,7 +166,7 @@ And when we get into that kind of phase of each side seeing only escalation from
  Anyway, that is my thought. We will see whether I am right on this at least. I hope not. But well, anyway, we will see how things go. Certainly to repeat again, I think this latest attack on Kiev is only the second in a sequence and um I certainly think that the Russians are going to press ahead with their attacks on Kiev itself.
 And I don't believe that there's going to be any negotiations in the immediate term. As for Zelensky's continued pleas to the Americans for more air defense systems, I don't believe that any of those are coming either. I don't think the Americans have any
 
-### Segment 9 — Iran Israel Netanyahu
+### Segment 9 - Iran Israel Netanyahu
 
 to spare and I think the Americans have basically washed their hands of Zelensky and of Ukraine at least to a great degree.
  Now here I'm going to say a few things now about the situation in the Persian Gulf because we see also a pattern of escalation develop too. The Israelis have continued their offensive in Lebanon. I discussed yesterday their recent capture of Bowford Castle. Iran has now responded by saying that in light of these Israeli advances in Lebanon, which the Iranians are treating as a violation of the ceasefire.

@@ -21,7 +21,7 @@ Joint analyst/channel frame; combines Mercouris sequence, Christoforou prompts, 
 
 Mercouris guest lens: [../../voices/mercouris/source-index.md](../../voices/mercouris/source-index.md).
 
-Christoforou remains a host speaker object; use this shelf for channel conditioning rather than whole-source-person continuity.
+Cristoforou has a canonical person shelf at [voices/cristoforou](../../voices/cristoforou/README.md); use this shelf for channel conditioning rather than whole-source-person continuity.
 
 ## Source Links
 

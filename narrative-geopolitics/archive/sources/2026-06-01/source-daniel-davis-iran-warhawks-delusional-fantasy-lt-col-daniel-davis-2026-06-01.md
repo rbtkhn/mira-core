@@ -5,6 +5,7 @@
 
 
 
+
 ingest_date: 2026-06-01
 pub_date: 2026-06-01
 kind: cleaned-transcript
@@ -26,7 +27,7 @@ thread: davis
 channel_url: "https://www.youtube.com/@DanielDavisDeepDive"
 evidence_grade: transcript-bearing
 normalization_state: ai_assisted_proper_noun_cleanup
-editorial_note: "AI-assisted ASR repair (common + series tiers + statecraft entity pass); 4 substitutions; not human-verified verbatim; verify before quotation. Prior provenance: Operator-pasted transcript body; not independently verified as verbatim. Light cleanup removed the routine closing promo. Transcript section wrapper normalized in place; SSOT body otherwise preserved. Routine closing lineup/subscribe promo trimmed in place; SSOT body otherwise preserved. · source-section pass 2026-07-09 (7 sections)."
+editorial_note: "AI-assisted ASR repair (common + series tiers + statecraft entity pass); 4 substitutions; not human-verified verbatim; verify before quotation. Prior provenance: Operator-pasted transcript body; not independently verified as verbatim. Light cleanup removed the routine closing promo. Transcript section wrapper normalized in place; SSOT body otherwise preserved. Routine closing lineup/subscribe promo trimmed in place; SSOT body otherwise preserved. · source-section pass 2026-07-09 (7 sections). - source-section pass 2026-07-09 (7 sections)."
 quality_note: ASR normalization pass 2026-06-15; ph-civ replacement SSOT.
 davis_wrapper_trim_applied: true
 davis_close_promo_trim_applied: true
@@ -38,6 +39,8 @@ closing_trim_applied: false
 closing_trim_rule: ""
 closing_trim_chars_saved: 0
 closing_trim_words_saved: 0
+asr_repair_applied: false
+asr_repair_pass: ""
 transcript_curation: curated_sectioned
 section_count: 7
 section_pass: "2026-07-09 semantic-section-v1"
@@ -47,7 +50,7 @@ section_pass: "2026-07-09 semantic-section-v1"
 
 ## Transcript
 
-### Show Open — Trump Iran Ceasefire
+### Show Open - Trump Iran Ceasefire
 
 give Trump credit for what he's doing here. They, you know, they shut down the straits. Eventually, we put a blockade in that shut down 100% of their exports. Now, he's taken another aggressive action to open up the straits. And I think it's more likely than not that we will return to combat operations to finish these guys once and for all.
 >> Finish these guys once and for all. I'm going to be tough. I'm going to be hard. and I'm gonna show them a thing or two. I am sick and tired of that kind of hubris and arrogance and pompacity. I'm tired of it. You can see I'm a little bit aggravated this morning early on a Monday morning.
@@ -58,7 +61,7 @@ give Trump credit for what he's doing here. They, you know, they shut down the s
  Finish the job. Then you have uh all kinds of other individuals here. Mike Pompeo finished the job. Keith Kellogg finished the job. Trump Warren himself, Iran, I will finish the job. And then there's also the newspapers, Wall Street Journal, finish the job. New York Times finished the job.
  Washington Post in there only military action will will I guess they didn't get the memo on the actual phrase, but they you get the idea. They continued to say the same sorts of things. What is the common theme here? a lust for war. Now, there should have been some sobering up of this. I mean, it's it's like it's like a bunch of dudes go to a frat party or a some kind of a a big shindig in a
 
-### Segment 2 — Iran Trump American
+### Segment 2 - Iran Trump American
 
 in a bar on a Friday night.
 They all get sauced up. Uh they all make a lot of comments and, you know, brag about any number of male hormone induced things. And then they wake up Saturday morning and you know now they got a hangover and they realize none of the stuff they said last night they could do. Oh snap.
@@ -80,7 +83,7 @@ is still in power the foreign minister Araghchi is still in power the speaker of
  Everything else you saw was at its port. It was just docked up or it was sitting on on a flatbed or something like that. Those are the ships that they're not using. There's a reason why they were out in the open. The ones that matter, the ones that can affect clo uh traffic in the straight are these fast boats and these other speedboats and these uh surface drones and subsurface drones.
  Those are the ones of their navy that matter. And they actually, and I I forgot to
 
-### Segment 3 — Hezbollah Lebanon Trump
+### Segment 3 - Hezbollah Lebanon Trump
 
 post a picture of this, but over the weekend they put on social media in Tehran, they had a a a big huge rally for the government, also underscoring how all these lies that we said that they're so weak and all we got to do is push them and arm the opposition and stuff.
  Now that everybody comes up nearly every night and supports the regime, good job, General Keane. Good job, General Kellogg. You got just what you asked for with the war and you produced the exact opposite of what you promised. that keeps going on. But in this in last night's rally, they apparently introduced a new category of of speedboat that has anti-ship cruise missile launch tubes on the top of it.
@@ -91,7 +94,7 @@ control. So when he says that we have and and when all these guys act activated 
  And of course the proxy issue they still support with Hezbollah uh in Lebanon um and uh especially in the Houthis down there in in Yemen. Those things are still going on. In fact, and we're going to get to that in a second with the issues with Hezbollah in Lebanon is a huge issue of even bringing this war to an end which we also can't solve.
 And then the other thing is that you know this nuclear dust or whatever it is Trump talks about all the time the reprocessed material the 60% 20% and several other uh categories of things and red says yeah we ain't doing that and you're going to do what you see
 
-### Segment 4 — Iran Irgc Missile Factories
+### Segment 4 - Iran Irgc Missile Factories
 
 what I'm saying because we have started this war we can't finish it and all of these things were the failed result of the first 40 days and why is that and Gary was just showing you one image there but look at this one this is one we show where the entire entire western side of
 the country has a whole series of mountain ranges on. So you're it's virtually impregnable to an army. So even if you had one, even if you had a million a million and a half troops, which we don't, not even with all of our allies, it would be literal suicide to go anywhere to try to go through these mountains because it gives every advantage to the defense.
@@ -102,7 +105,7 @@ That's on the one hand. Then of course these uh these underground missile factor
  But you see, as of today, 50 of the 69 ones that we hit, those are just the ones that we knew of and hit, not the ones that we don't know of and never hit, they're operational today. And Iran simply uh regained access by using bulldozers, just common bulldozers. So everything you keep doing with all this high-tech weapon and these multi-million dollar missiles, they bring a bulldozer in and then they're able to clear the stuff out and turn it back into use.
  The threat posed by Iran's missiles is being underestimated given the small number of interceptor missiles available to the United States. Iran still has approximately a thousand missiles stored in underground sites. And from what I've been
 
-### Segment 5 — Nuclear Weapons Nuclear Weapon Trump
+### Segment 5 - Nuclear Weapons Nuclear Weapon Trump
 
 told by folks who do have access to and some of our intelligence, that is a vastly underestimated number.
  Um the war has shown that the United States is unable to destroy Iran's missile capabilities. We are unable to do that. And then you have this other issue here. We've talked about this before as well. The United States is going to need years to replenish the stockpiles of advanced weapons that you we've used in the first 40 days.
@@ -114,7 +117,7 @@ told by folks who do have access to and some of our intelligence, that is a vast
  I'm not going to fill in that blank because there's no facts to fill it with. But that's what they owe us. They owe us to say, "All right, we'll use different ordnance that will have a different outcome." And and these 33 bases, these 33 missile cities will be obliterated this time when they weren't last time. And by the way, some of these bases are designed to survive nuclear weapons.
  So even if he's going to say we're going to go from, you know, just some standard conventional cruise missiles up to nuclear weapons, that's not even going to knock them out. So you're going to have
 
-### Segment 6 — Economy Iran White House
+### Segment 6 - Economy Iran White House
 
 to come up with something better than that. And then you're going to have to say why, okay, even though most of their navy is still underwater or or in these bunkers that can come out anytime they want because they have all these access points.
  And even though we burned through all these percentages, huge percentages of our total national inventories last time, this time we'll be able to do it. And and what h how are you going to say we're not going to burn through even more of our inventory? Because you've got to be able to plausibly say for me to go back and and for President Trump to go back and do what I'm advocating, it's going to take approximately this percentage of what we have left.
@@ -125,7 +128,7 @@ to come up with something better than that. And then you're going to have to say
 for our country. And listen, all wars are ultimately about your economic capacity to sustain war. And if we don't launch here, Iran has the capability which they have not yet attempted to categor undercut the foundation of our democracy of of our of our economy which is access to plentiful cheap crude oil.
  Our economy cannot function. We cannot create GDP unless
 
-### Segment 7 — Economy Iran American
+### Segment 7 - Economy Iran American
 
 we have sufficient amounts of energy at affordable prices. And it takes both of those enough energy and at affordable prices. If you don't have enough and if the prices are too expensive, then you will destroy demand. It's called you will destroy economic activity.
  It it's a one-to-one correlation. You cannot have GDP uh production without cheap crude at the appropriate level. And if you take it down like 10 12% you will take down your economic output 10 12% and that equals say it with me the depression they have that over us and they know that they have the capacity to inflict this.

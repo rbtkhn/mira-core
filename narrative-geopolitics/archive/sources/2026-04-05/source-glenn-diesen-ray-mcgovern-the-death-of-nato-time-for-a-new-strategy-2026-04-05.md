@@ -13,6 +13,8 @@ source_url: "https://www.youtube.com/watch?v=J7JDMRg_rJ4"
 source_note: "Automated YouTube transcript fetch for Glenn Diesen."
 entity_asr_pass: 2026-06-22 — kallas cluster via fix_statecraft_common_asr_entities
 ---
+## Transcript
+
 # Ray McGovern: The Death of NATO - Time for a New Strategy?
 
 Welcome back. We are joined today by Ray

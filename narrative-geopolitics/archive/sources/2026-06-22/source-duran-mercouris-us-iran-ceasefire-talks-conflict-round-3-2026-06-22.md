@@ -5,8 +5,10 @@ kind: cleaned-transcript
 source_form: interview
 source_type: youtube
 transcript_type: ai_assisted_operator_pasted_youtube_transcript
-host_people: ""
-guest_people: ""
+host_people:
+  - Alex Christoforou
+guest_people:
+  - Alexander Mercouris
 show_title: The Duran
 channel_name: The Duran
 thread: mercouris

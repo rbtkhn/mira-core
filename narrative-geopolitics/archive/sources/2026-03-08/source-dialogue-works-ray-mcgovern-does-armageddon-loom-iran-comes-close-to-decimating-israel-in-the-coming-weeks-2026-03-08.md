@@ -13,6 +13,8 @@ channel_slug: "dialogue-works"
 source_url: "https://www.youtube.com/watch?v=X4FmPL72_48"
 source_note: "Automated YouTube transcript fetch for Dialogue Works."
 ---
+## Transcript
+
 # Ray McGovern: Does Armageddon Loom? Iran Comes Close to “DECIMATING” Israel in the Coming Weeks
 
 Hi everybody. Today is Sunday, March

@@ -4,6 +4,7 @@
 
 
 
+
 ingest_date: 2026-06-02
 pub_date: 2026-06-02
 transcript_type: ai_assisted_operator_pasted_youtube_transcript
@@ -28,7 +29,7 @@ youtube_id: frZDd7KM3Fo
 source_note: "Cleaned transcript pasted by operator. · ASR pass 2026-06-15."
 opening_tier: host-tease
 normalization_state: ai_assisted_proper_noun_cleanup
-editorial_note: "AI-assisted ASR repair (common + series tiers + statecraft entity pass); 24 substitutions; not human-verified verbatim; verify before quotation. Prior provenance: Preserve as raw cleaned transcript; verify military, logistics, Hormuz, Red Sea, and strategic claims before promotion beyond analyst tier. · source-section pass 2026-07-09 (10 sections)."
+editorial_note: "AI-assisted ASR repair (common + series tiers + statecraft entity pass); 24 substitutions; not human-verified verbatim; verify before quotation. Prior provenance: Preserve as raw cleaned transcript; verify military, logistics, Hormuz, Red Sea, and strategic claims before promotion beyond analyst tier. · source-section pass 2026-07-09 (10 sections). - source-section pass 2026-07-09 (10 sections)."
 quality_note: "ASR normalization pass 2026-06-15; ph-civ replacement SSOT."
 opening_trim_applied: false
 opening_trim_rule: ""
@@ -38,6 +39,8 @@ closing_trim_applied: false
 closing_trim_rule: ""
 closing_trim_chars_saved: 0
 closing_trim_words_saved: 0
+asr_repair_applied: true
+asr_repair_pass: "2026-07-09 asr-repair-v1"
 transcript_curation: curated_sectioned
 section_count: 10
 section_pass: "2026-07-09 semantic-section-v1"
@@ -53,7 +56,7 @@ section_pass: "2026-07-09 semantic-section-v1"
 
 ## Transcript
 
-### Show Open — Israel Iran Trump
+### Show Open - Israel Iran Trump
 
 Hi everybody. Today is Tuesday, June 2nd, 2026 and our dear friend Larry Wilkerson is here with us. Welcome back there. >> Good to be with you, Nima. Although it's not a good time. Things things are really falling apart. I I mean I mean that. Yeah, Larry. Yesterday there was a storm between Israel and Lebanon.
  Israel announced that they're going to attack Lebanon in Dahiyeh in southern part of Beirut and the city is gigantic. Dahiyeh is a populated very populated area and they wanted everybody to evacuate their homes all of their homes and everything there and get out of the city. And quite a few quite a few people are there who've already evacuated further south to Beirut.
@@ -70,7 +73,7 @@ There's nothing meaningful going on in the way of diplomacy. All we have from th
  I don't know about the clandestine world, but I can't detect anything happening of consequence. And an administration that apparently from Kaine to Hegseth to the central command commander Bradley Cooper to anybody else involved in the chain of command can figure out what to do. They're lost.
  They have no idea what to do. Not only are they lost, they are coming to the comprehension. I don't see how they could not that they are losing that this is a conflict they're losing and the longer they stay at it not only the more people they're going to kill or get killed
 
-### Segment 2 — Iran Russia Ukraine
+### Segment 2 - Iran Russia Ukraine
 
 but the deeper is going to be the profundity of their loss and all I had to do is take out as I was telling you before we went on the air I have about a 20 by 30 um space where I can put down a fairly large map But even then, I can't encompass the distances we're talking about with precision. But
 some of these maps are pretty good. So I took a look at the Chinese railroad that comes in through the mountains and Mashad and directly into Tran and then goes elsewhere. And by the way, it finally apparently is destined for London. Um, and then I looked at the Caspian Sea and the routes and the ports on the Caspian Sea, both in the South and the North.
@@ -87,7 +90,7 @@ Oh, by the way, we're losing the preliminary skirmish in Ukraine, too. And it lo
  Putin is talking about eliminating the title of special military operation and calling it a war and declaring war on Ukraine. Um that would be the first step, I think, to a much wider war with strikes on NATO targets in NATO countries other than those that abut Ukraine, for example, like Poland. Um, so this is a recipe for marching to a global conflict the likes of which the world has never seen and I include World War II in that and the likes of which have for example driven Peter Teal even to go to Argentina.
 I mean this is this is more or less >> beginning to fulfill what his comments have indicated. He believes that the welfare states of the world,
 
-### Segment 3 — Netanyahu Israel Syria
+### Segment 3 - Netanyahu Israel Syria
 
 the democratic liberal democratic states of the world are all collapsing, falling apart, and you need to have if you're one of these sovereign individuals like he is, you need to have multiple places to go and you need to have things that can work for you in those multiple places.
  while the principal origin, if you will, is falling apart, disintegrating, dismembering itself. Um, and that's what we're I I think that's the serious nature of this conflict that we don't grasp right now. We go up to Congress and we talk about $1.5 trillion from military that's losing. We talk about actually the national security budget being somewhere around two trillion plus. We talk about DNIs.
@@ -105,13 +108,13 @@ It seems to me Israel is doing the same in a you know in in a in a reduced scale
  Instead of backing up and taking a check and maybe cutting back on your wishes and your desires, maybe readjusting what you're doing, you double down and triple down, particularly if you happen to be the leader and you are in increasing political trouble, and I think he is not just this Knesset first Knesset round to dissolve and uh have the elections early, but also the talk in Israel right now is not necessarily as pro- Netanyahu as it was say two or three months ago or at the point where we started what 28 February that we started this was a real
 tick in euphoria.
 
-### Segment 4 — Israel Trump American
+### Segment 4 - Israel Trump American
 
 We finally got the target we want. We finally got Iran in our crosshairs. We finally have got the empire behind us. This is going to be over quick. It wasn't. It isn't. And now they're beginning to realize that. And so I think they're going to turn on Netanyahu viciously before this is over with and maybe even before the elections.
 >> Larry, when it comes to the phone call between Benjamin Net and Donald Trump, do you think that the Axis is reporting the reality of what has happened? Because we know that they have reported the same thing during the Biden administration. They said Biden called Benjamin Nadna who said you're not going to you're son of something like that fword and but when it comes to Donald Trump how how do you see the the way that the war is putting a lot of pressure by the way on Donald Trump the war in the Middle East because of the reality of the
 straight over on one side. On the other side, we see how Benjamin Net and Israelis and these Zionists are they have a lot of leverage on the Trump administration. No president in the United States I have ever seen in my lifetime to be that much in favor of Israel or do whatever Benjamin Netnau is asking for.
  Who's Donald Trump today after seeing the reality of what has happened in this trade of >> which not just Donald Trump? Look at what Johnson's doing in the House right now with section 224, I think it is, of the House version of the National Defense Authorization Act. They're trying actually to eliminate the need for a renewed 10-year memorandum of understanding.
-That's the way we've essentially every decade guaranteed 3.8, 8 3.9 whatever billion dollars going to Israel every year and more when it's needed as was the case with October 7th and the days afterwards. Now we're going to eliminate and and everyone was trying to figure out why is Netanyahu talking about this? Why is he talking about he doesn't need the United States anymore? Why is he talking about that there won't be a renewal of theou? Well, we now know this 224 of the House NDAA under Johnson's supervision right now is essentially
+That's the way we've essentially every decade guaranteed 3.8, 8 3.9 whatever billion dollars going to Israel every year and more when it's needed as was the case with October 7th and the days afterwards. Now we're going to eliminate and and everyone was trying to figure out why is Netanyahu talking about this? Why is he talking about he doesn't need the United States anymore? Why is he talking about that there won't be a renewal of MOU? Well, we now know this 224 of the House NDAA under Johnson's supervision right now is essentially
 creating a mechanism whereby the United States and Israel will go to a marriage and we will be married in the security complex and the people in this marriage it's not going to be a man wife marriage it's going to be a marriage of the US defense industry that is to say Loheed Martin Grumman Boeing RTX and others like that and their technological development laboratories and everything else about them and Israel's counterpart and there's going to be no oversight or any oversight there is is going to be in the defense department and we know how
 sorry that oversight is so there won't be any lehy law there won't be any uh reach out and oversight when Israel kills people with our weapon systems that it isn't supposed to be killing like civilians and women and children like Josh Paul resigned over. There won't be any need to expose this sort of absolute ignimonyy in terms of killing civilians all the time because there won't be any oversight. None whatsoever.
 This is going to bury Israel into the United States security complex irretrievably and almost as if we were the same country. In other words, their wildest dream to be the 51st state of the United States and be the most powerful state will be brought to bear and to being by this legislation, at least for security purposes.
@@ -122,7 +125,7 @@ This is going to bury Israel into the United States security complex irretrievab
  Israel has not completed its war against Iran. It's, you know, got to do war at this moment. We're losing, too. And we're their big daddy. You can't make a worse scene for this president to be confronting. And you can't have a worse leader to be confronting it. He doesn't know what to do, Nema. He's He's lost. He's lost.
  And he's twoing and froing. and attacking and coming back. He doesn't know what to do. And you know, I almost want to say I feel sorry for him, but I don't because I know what kind of a grifter and a jerk he is. Cuz even as he's doing this, he's still making money. Big money. >> His personal life is just booming.
 
-### Segment 5 — Blackmail Israel Trump
+### Segment 5 - Blackmail Israel Trump
 
 It's just >> Oh, it's incredible.
  You I I guess you saw the the uh what's her name? the uh ambassador uh who was a a part of the oh I've lost the names now Zoli uh the exposure that she gave to the business of Epstein and and what they were saying about who introduced Melania to whom. This is another story that's growing and I I don't doubt she's probably telling the truth.
@@ -140,7 +143,7 @@ I don't know if you if you've seen this new look. It's it's a brilliantly done u
  The British, for example, quit funding the communists in 44 because they realized they were the most fierce fighters in France. And by God, the war was going to be over and they were going to have to fight them for Joe Stalin. So, so they quit funding them and they they kept on though. They were the fiercest members of the res of the resistance.
  Um, so we're we're looking at a a world that's falling apart, Nema. It's falling apart and it's principal power for the last 70 plus years is leading the collapse. >> Larry, what do you make of this new attitude of the Congress about merging the two military, the US military to the Israeli military? Because for those people who are arguing that Israel is a strategic liability for the United States, but at the same time, it's going to be a strategic trap for the United States in my opinion because the United States
 
-### Segment 6 — Israel Iran Middle East
+### Segment 6 - Israel Iran Middle East
 
 has to fight all of these wars
 that Israel is just at the beginning of those wars. They're talking about the war against Turkey, Egypt, Iran is going on and on and on. In my opinion, it's not going to end anytime soon. And it's going to be against the whole West Asia basically. >> Well, this is the neoconservative pathway that was constructed by people like Kagan and others who drafted the clean break strategy and managed to get everything they needed to put it into action, however imperfectly, and Iran was the last target on the list. And in
@@ -158,7 +161,7 @@ that strategy is where I saw the most opportunistic and the most definitive look
 What do you have to do to tell someone they're failing and to stop it? Especially when it's illegal like this. Larry, when I look deeper on what Robert Kagan wrote on the Atlantic, he basically says that what has happened in the Middle East is a checkmate for the United States.
  But look at the content of the article. >> Yes. It reminds me of someone who he was advocating for this war for such a long time. He's not against the war against Iran. >> It's like it's like someone saying the gas you used in the concentration camps in the showers wasn't good enough. >> Yeah. Exactly. And his main concern when you read the article, his main concern is not the United States is about the more, you know, the United States stay there in the Middle East,
 
-### Segment 7 — Middle East Israel Trump
+### Segment 7 - Middle East Israel Trump
 
 the, you know, the bigger Israel loses in the Middle East.
 He sees how Israel is losing everything. That's why he's asking there is no other solution for what Donald Trump is trying to do in the Middle East. The only solution would be putting troops on the ground which is impossible which looking at the reality is impossible. So the only solution for Donald Trump is to get out of the Middle East, get out of the West Asia what he's suggesting.
@@ -177,7 +180,7 @@ um really a disheartening article but very well written and very well sourced in
  It goes and all of a sudden people are looking around and realizing, my god, there's nothing here. Then you got problems. You got significant problems. Even if you're still surviving with a pretty decent superructure, warehouses all around, AI going up everywhere, highways teameming with cars and so forth.
  All of this is on someone else's dime and has been for some time. People loaning us money. >> I don't know if you heard Rubio today talking and about the summit in China. what will he said it's just it doesn't show any positive any outcome out of that summit in China and he says because he said that we are dependent on China something like 90% of rare earth minerals coming from China and how important is that for the chips for for
 
-### Segment 8 — Trump Iran Middle East
+### Segment 8 - Trump Iran Middle East
 
 the production of chips for the military-industrial complex with these weapons being depleted by this war of
 choice of Donald Trump in the Middle East. And that's why you see Marco Rubio in Armenia signing a deal with the government in Armenia about rare earth min can come from Armenia. This is amazing what's going on with the Trump administration. There's actually, as I've said many times before, there's actually a lot of this in the United States, but we won't go after it because it requires imminent domain be implemented in a massive sort of way.
@@ -196,7 +199,7 @@ Yeah. It's funny these people that are kind of in cahoots with the same gang for
  We were not going to piss Maggie Thatcher off, you know, but we were we were doing some things like we did with Iran and Iraq in the Iran Iraq war, you know. Oh, we better keep things warm here with Buenosares. Oh, we got to do things right with London. It it was even Sandy Woodward, the admiral who was in charge basically for the British down there.
  When he came up to Newport to brief us on the war, he said, "One more ship and I would have called London and told him, "It's over. Bring us home. It's
 
-### Segment 9 — Trump Pentagon Russia
+### Segment 9 - Trump Pentagon Russia
 
 over. We can't fight this war. We can't fight this war." the submarines were what were getting him and he said it didn't happen. So I got I got the victory, you know, but he said it was a close run thing.
  Very honest guy. Very honest Navy guy, which British admirals tend to be if they have a brain. Now there's a lot of them don't have a brain, but if if they do have a brain, they're usually pretty straightforward about how things go. Um, were it to happen again, I don't think England could even get down there, let alone win the war.
@@ -213,7 +216,7 @@ say, "Bang, you're dead." Over the guard channel, 2430, I think it is. They just
 " They would have killed it because it got through all of their surface, subsurface, and air screen. and got within torpedo firing range. Every time Donald Trump is talking about the Strait of Hormuz, he said we don't need the Strait because we are independent. We are producing everything here in the United States.
  But the reality is that the oil this light oil that the United States produces is not good for producing diesel, >> right? And that's why the United States is dependent on this radar for most one way or another. And that and many people understand that those people who are involved in
 
-### Closing — Iran Hormuz Trump
+### Closing - Iran Hormuz Trump
 
 this market, they know what they're dealing with.
  But Donald Trump is trying to sell that to us to this ordinary people who don't know, who don't know. >> You've got fertilizer, ura, you've got helium. I'm sure there are other things too, but those are the ones that have been mentioned as being uh substantial. And now the supply is completely cut off.

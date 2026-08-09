@@ -43,12 +43,14 @@ Use density after source-accounting validation and before synthesis deepening.
 - Dense days: check whether voice comparison, issue selection, and held-story decisions are explicit enough.
 - `OPC-*` days: treat density as prioritization only; packet support still controls public factual use and forecast resolution.
 
-Run the dashboard with:
+Run density as part of the canonical archive audit:
 
 ```powershell
-.\tools\run.ps1 archive-density --start-date YYYY-MM-DD --end-date YYYY-MM-DD
-.\tools\run.ps1 archive-density --month YYYY-MM --markdown narrative-geopolitics/work/audits/YYYY-MM-density-dashboard.md
+.\tools\run.ps1 archive-audit --start-date YYYY-MM-DD --end-date YYYY-MM-DD --format markdown
+.\tools\run.ps1 archive-audit --month YYYY-MM --format json
 ```
 
-Optional `--csv` and `--json` outputs are for downstream visualization and
-review; they do not alter canonical daily files.
+`archive-density` remains a deprecated compatibility route with its existing
+optional `--markdown`, `--csv`, and `--json` artifact outputs. New work should
+use stdout from `archive-audit`; neither command alters canonical archive or
+daily files.

@@ -2,6 +2,7 @@
 
 
 
+
 ingest_date: 2026-06-01
 pub_date: 2026-06-01
 transcript_type: ai_assisted_operator_pasted_youtube_transcript
@@ -24,7 +25,7 @@ source_url: "https://www.youtube.com/watch?v=LD3uX3lj0-Y"
 source_note: "Cleaned transcript pasted by operator. · ASR pass 2026-06-15."
 opening_tier: host-tease
 normalization_state: ai_assisted_proper_noun_cleanup
-editorial_note: "AI-assisted ASR repair (common + series tiers + statecraft entity pass); 38 substitutions; not human-verified verbatim; verify before quotation. · source-section pass 2026-07-09 (10 sections)."
+editorial_note: "AI-assisted ASR repair (common + series tiers + statecraft entity pass); 38 substitutions; not human-verified verbatim; verify before quotation. · source-section pass 2026-07-09 (10 sections). - source-section pass 2026-07-09 (10 sections)."
 quality_note: "ASR normalization pass 2026-06-15; ph-civ replacement SSOT."
 opening_trim_applied: false
 opening_trim_rule: ""
@@ -34,6 +35,8 @@ closing_trim_applied: false
 closing_trim_rule: ""
 closing_trim_chars_saved: 0
 closing_trim_words_saved: 0
+asr_repair_applied: false
+asr_repair_pass: ""
 transcript_curation: curated_sectioned
 section_count: 10
 section_pass: "2026-07-09 semantic-section-v1"
@@ -49,7 +52,7 @@ section_pass: "2026-07-09 semantic-section-v1"
 
 ## Transcript
 
-### Show Open — Israel Hezbollah Lebanon
+### Show Open - Israel Hezbollah Lebanon
 
 Hi everybody. Today is Monday, June 1st, 2026 and our dear friend, our brother Carl Jacquo is here with us. Welcome back, Carl. >> Hi and thank you for having me back in your show. Thank you, >> Carl. I want to start with the situation and what's going on between Israel and Lebanon because we know one of the main points of the talks of the messages between Iran and the United States is is the situation there in that region.
  Moments ago, we've learned that Israel is just has just announced announced a no a statement that the people in the southern part of Beirut in Dah should leave their homes because they want to bomb. They want to destroy everything it seems. And at the same time, the frustration comes from the ongoing conflict in the southern part of Lebanon that Israel is not has not been able to defeat or to control Hezbollah because of the FPV drones.
@@ -66,7 +69,7 @@ response. And in in 2014, they completely destroyed this um this uh area just be
  So that's that's the idea. So in fact they are also making something that is against the rule the not the rule of law but the international humanitarian law which is to take a a population an innocent population responsible for the activities of a group that has been artificially and arbitrarily designed as terrorist.
 But that's that's the whole thing. So, but that's that's exactly what the Israelis have done in Gaza. That's part of the reason why the Israelis why when they found or they they yes they found that they could not get a read from Hamas as
 
-### Segment 2 — Europe Israel Lebanon
+### Segment 2 - Europe Israel Lebanon
 
 such they started to bomb the population with the idea that the population would then turn against the Hamas and and held hold that the Hamas are responsible for the the situation.
 And we have exactly the same strategy today in in Lebanon. The problem is that again the as it is in Gaza by the way we have movement that resist an occupation and the the the whole thing in the in the narrative of the Israelis is to make the occupation legitimate. So, and that's very interesting by the way that if you look at European countries, well, the US it's obvious, but European countries, no country has in fact condemned the invasion of Lebanon. None.
@@ -85,7 +88,7 @@ It you can blame them for that and all that. I'm I'm completely agree with with 
  But we are now in another situation. We have a situation where because of the conflict with Iran, the this the US strategy should be to have more stability in the region probably to stabilize also the oil market, stabilize the relations in the on the on this part of the world, including stabilizing the relationship between the US and its Arab partners.
 So in that sense I would expect in the sense of the uh uh US national security
 
-### Segment 3 — Israel Iran Netanyahu
+### Segment 3 - Israel Iran Netanyahu
 
 strategy that they would take action to prevent Israel to further deteriorate the situation because we as as we discussed before I have presented only the Israeli point of view when attacking Lebanon. But now if we if we look a little bit from higher uh this the idea of of uh of Netanyahu is that first of all he's against any agreement with Iran and since he it has no means to attack Iran directly or not enough means to have a substantive uh uh result
 against Iran. They attack Lebanon in in with the idea that this would make any agreement between Iran and the US to collapse. Again, we are in a in a war mongering strategy, nothing else. Israel is a country that lives since 1948 exclusively out of war. War has been the rational for the country to exist. And it I I say that because without war they would probably not have the material, military, political strategic support from the United States.
@@ -101,7 +104,7 @@ the war against Iran as we talked about it for Netanyahu wanted this war for suc
 uh as a as a population as a people is a a people that is wanting war all the time of course as long as their enemy are weaker than they are that's how they lived for 80 years and it's fine because where the others are weaker you can impose yourself and that's fine. The problem is that today we have enemies I mean the Israel has enemies that are stronger than they are and probably more determined to uh react and that changed the equation.
  Uh and again put putting Netanyahu aside having stepping back a little bit and looking at Israel as a country as a nation. Why
 
-### Segment 4 — Israel Palestinian Ukraine
+### Segment 4 - Israel Palestinian Ukraine
 
 would peace be a problem for Israel? I mean essentially not. I mean again the the of course they would abandon the idea of greater Israel the Israel which would pledge for uh an expansion of Israel.
  Coral do we know sorry for interrupting. Do we know how many of those people who are supporting Israeli genocide in Gaza are supporting the greater Israel? How many of those people? We have Ashkenazi Jews. We have Mizrai Jews, Sepharic Jews, if I'm not mistaken, Sephoric or something like that. and >> separat are those people who originally >> from Spain and then on the they were expelled from Spain in 1492 and then scattered around the Mediterranean and in 1948 or and 49 and and subsequent years they came into Israel.
@@ -118,7 +121,7 @@ Odessa. So in Ukraine as an example, Benyon was Polish um the same as I think Ne
 Um so you this idea that this this part of the world uh belongs to them since 2,000 years is is an historical fantasy. Let's put it that way. It's a and and even biblical because they don't they were not part of of this they they came much later. So they are not part of this heritage in some extent but um that's also explained the way they behave you know when you do >> you know how many of these people are supporting the greater Israel which is the main agenda.
  In fact, well you know the greater Israel there first of
 
-### Segment 5 — Israel Netanyahu Palestine
+### Segment 5 - Israel Netanyahu Palestine
 
 all different definition of the greater Israel. Uh let's put this very simply. The greater Israel I don't know if I have here uh maybe I can explain that I have a document probably here that I can show you. Yes, I have it. It's a leaflet. It's a leaflet from the early the um the Hagana and I show you here it's a it's a a leaflet of the Hagana and you see here the greater Israel that was part that is part of the ideology uh of the um Netanyahu.
  And if you look at this, the the logo here, uh you see the Israel here in that part and you see here Jordan right on the right hand side of the um of the rifle. Now this is very important because the the movement from which Netanyahuaru comes from is a movement that has was created in the late 20s 1920s uh by Jabotinski.
@@ -134,7 +137,7 @@ Euphrates in Iraq notaben that Today we tend to portray the struggle against Ira
  This is the current setting I would say. Um just to make things clear. And today uh a large part of the population which comes from the Ashkanazi are in fact those Zionists who support Netanyahu. the policy of Natan has about 80 82% of supporters. So that's that's that's just given by the polls done in in Israel. Um so that's the reality as we have it.
  But again this is also given by the fact that Netanyahu can only survive in a situation where its country his country is at war with if had we another leader instead of of Netanyahu I can assume that those people would okay uh uh they they would probably support another policy. I mean I that's that's my assumption again and I I'm I'm sure that had we a sensible new leader that is not bound to have war in order to survive politically uh probably we could have something more peaceful
 
-### Segment 6 — Israel Palestinian Palestine
+### Segment 6 - Israel Palestinian Palestine
 
 and a more uh stable Israel.
  I I'm not sure that Israel as a population, the population itself needs war to survive as a nation. I'm not sure. The this is certainly war is certainly ne needed for the political survival of Netanyahu. That's for sure. But I'm not sure it's considered as a necessity for the survival of the Israeli population.
@@ -153,7 +156,7 @@ And they achieved that. The Palestinians achieved that. They suffered a lot of l
 The problem is that Israel was taken into the cycle of violence and that they were in fact they could not stop themselves from being violent and after Gaza they needed to address West Bank and and uh and and then Lebanon and and things like this because this is the sad reality that Israel needs the war to have its regime to survive.
  But again, the regime, not Israel. I mean, I hope so. And and that's what the Israelis have to realize. That's what the the the world has now realized that what has
 
-### Segment 7 — Israel Europe International Law
+### Segment 7 - Israel Europe International Law
 
 happened in October 2023 was not the start of a war but was just a small part of a war that started long ago. And it was a war that Israel has declared not just against the Palestinians but against the international law.
  The international law system that was established in 1945 with the creation of the United Nations with the Nermberg tribunal and things like this. So this is this is the the the exactly what Israel is fighting against. and and now they have and and that needs a collective effort. I'm not sure we our diplomacy and the in particular European countries and even the US but the US is probably something slightly different in nature because the support of uh Israel by the US is also very much religiously uh colored and that that gives another
@@ -171,7 +174,7 @@ It's a it's a it's a Jewish nationalism if you want. That's probably the best as
  Of course, some of you some people may argue that they are brutal. They are. So, we can we can have a discussion on that. But to to to remain as objective as possible, anti-semitism today has more to do with the misbehavior of Israel than with the simple fact of Judaism. And again, you may define the Palestinians as you wish and as you want, even terrorists and what but you but again the law is the law.
  It's not because someone is defined as terrorist that you can be torture and think like this is not the the we have this tendency in the west especially that
 
-### Segment 8 — Israel Palestinian Europe
+### Segment 8 - Israel Palestinian Europe
 
 comes from Israel by the way. We have the US has adopted that from Israel and then the Europeans have that taken over that from the US to define people as terrorists. So then you are allowed to do anything.
  You can kill population, you can kill civilians, can bomb them, you can do everything, you can use torture, you can use whatever you want as long as people is defined as terrorists. And that's the reason why we tend to define terrorists. Uh uh so interestingly enough by the way as the the west because the French for instance have decided that the RGC so the um the the the revolutionary guard in Iran were defined as a terrorist organization.
@@ -190,7 +193,7 @@ As a military, that seems to me extremely important. The way you win, the way yo
  So I look at Iran as a problem we absolutely have to finish and I'll explain what I mean by that. Gaza, same thing. And the uh why why am I fixated on this now? Because we have to be prepared for the next war which will be probably against Turkey and Egypt. So >> let's hope not >> with I hope not also. But we, you know, hope you remember it was the last demon out of Pandora's box.
  And there's a reason for that. Carl, two points. One of them is he
 
-### Segment 9 — Israel Iran Turkey
+### Segment 9 - Israel Iran Turkey
 
 said that we're going to I'm going to talk about this situation against Iran. And in the other part when it comes to Iran, he mentioned they can use nukes against Iran and he agrees on that. Go ahead. >> Well, uh uh first of all, we have to understand who is Jonathan Polard.
  He used to be um um member of the internationalist community in the US. He was not a Jew, by the way. And he's tried to betray the Americans by providing uh uh sensitive and even secret documents to the to the Israeli intelligence during the 70s and the 80s. And um he was eventually arrested, identified and arrested and condemned to life sentence because essentially he was a traitor period.
@@ -207,7 +210,7 @@ This is not just a given fact that people hate Israel. People people hate Israel
  Although during the 80s there were probably the same problems but at the lower scale they uh in in Palestine and all and all that and you of course you had the Oslo agreements and things like this they didn't lead to something concrete but at least there were dialogue there was a dialogue and then and the the uh the government in Israel at that time was ready for dialogue.
  Today nobody is ready for dialogue and you you have and you you you have kind of a polarization of the uh the mindset on both sides. you have a country that has become increasingly um uh increasingly extremist. And I remember in the early 90s in in Switzerland in the administration where when Israel decided to make torture legal and that created an outrage in the Swiss military and people said, "Well, why why do we continue to talk to these people? I mean
 
-### Closing — Israel Iran United Nations
+### Closing - Israel Iran United Nations
 
 we we we are not talking to people who legalize torture.
  That's exactly what Switzerland fought against. So why are we accepting that from Israel? And since then it has only it has been even worse. And of course these are the 30 years in which you had constantly Netanyahu in power or more or less constantly um this this ideology that is carried by Netanyahu which is this uh as I explained before this kind of revisionist Zionism which is probably the most extreme variant of the Zionism is in fact harming ing Israel and that has to be in my view that should be understood by the Israelis themselves so

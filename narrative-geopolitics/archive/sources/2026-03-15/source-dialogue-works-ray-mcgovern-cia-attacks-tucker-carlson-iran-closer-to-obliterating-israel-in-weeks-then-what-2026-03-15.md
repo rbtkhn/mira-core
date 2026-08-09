@@ -18,6 +18,8 @@ thread: dialogue-works
 channel_url: https://www.youtube.com/@NimaAlkhorshid
 evidence_grade: transcript-bearing
 ---
+## Transcript
+
 # Ray McGovern: CIA Attacks Tucker Carlson?- Iran Closer to 'OBLITERATING' Israel in Weeks —Then What?
 
 Hi everybody. Today's Sunday, March 15, 2026 and our dear friend Ray [snorts] M is here with us. Welcome back, Ray. >> Thank you. [snorts] Let me start Ray with what has happened just hours ago that Tucker Carlson came out and said that CIA is trying to go against him. They're trying to connect him with the Iranians and saying that he's doing something in favor of Iranian government in the United States.

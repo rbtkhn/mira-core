@@ -2,6 +2,7 @@
 
 
 
+
 ingest_date: 2026-06-01
 pub_date: 2026-06-01
 kind: cleaned-transcript
@@ -24,7 +25,7 @@ thread: davis
 channel_url: "https://www.youtube.com/@DanielDavisDeepDive"
 evidence_grade: transcript-bearing
 normalization_state: ai_assisted_proper_noun_cleanup
-editorial_note: "AI-assisted ASR repair (common + series tiers + statecraft entity pass); 36 substitutions; not human-verified verbatim; verify before quotation. Prior provenance: Operator-pasted transcript body; not independently verified as verbatim. Light cleanup removed wrapper title lines and a routine closing promo. Transcript section wrapper normalized in place; SSOT body otherwise preserved. Routine closing lineup/subscribe promo trimmed in place; SSOT body otherwise preserved. · source-section pass 2026-07-09 (11 sections)."
+editorial_note: "AI-assisted ASR repair (common + series tiers + statecraft entity pass); 36 substitutions; not human-verified verbatim; verify before quotation. Prior provenance: Operator-pasted transcript body; not independently verified as verbatim. Light cleanup removed wrapper title lines and a routine closing promo. Transcript section wrapper normalized in place; SSOT body otherwise preserved. Routine closing lineup/subscribe promo trimmed in place; SSOT body otherwise preserved. · source-section pass 2026-07-09 (11 sections). - source-section pass 2026-07-09 (11 sections)."
 quality_note: ASR normalization pass 2026-06-15; ph-civ replacement SSOT.
 davis_wrapper_trim_applied: true
 davis_close_promo_trim_applied: true
@@ -36,6 +37,8 @@ closing_trim_applied: false
 closing_trim_rule: ""
 closing_trim_chars_saved: 0
 closing_trim_words_saved: 0
+asr_repair_applied: false
+asr_repair_pass: ""
 transcript_curation: curated_sectioned
 section_count: 11
 section_pass: "2026-07-09 semantic-section-v1"
@@ -45,7 +48,7 @@ section_pass: "2026-07-09 semantic-section-v1"
 
 ## Transcript
 
-### Show Open — Iran Trump Netanyahu
+### Show Open - Iran Trump Netanyahu
 
 Peace talks are off. Oil prices are up and President Trump is saying, "What's up?" He's trying to figure all this out. A lot of things have been flying around since even we were on our show earlier today. Uh the Iranian side has come out and said that they have suspended their peace talks with the United States.
 President Trump initially told CNBC, I think it was, that um I'm gonna I'm gonna call Netanyahu to find out what's going on with this Lebanon issue because that was the whole point that the Iranian side is saying because of strikes from the US and also from Israel onto uh specifically onto Lebanon and accelerating that their advance in there, Iran has said, "Therefore, you have violated the ceasefire, so we're not even going to talk anymore to try and try and see if it's even possible to put all this together and find out what
@@ -63,7 +66,7 @@ sickening. I've said it before, if Donald Trump was a Netflix television show, I
  Uh, in fact, speaking of that, here's here's part of the subtext to that episode that you're talking about here. So, we showed you what he said on CNBC, whenever that was about an hour or so ago, minutes before we came on screen here. Um, literally just minutes ago, he says he he posted two posts within just a few minutes of each other.
  He said, "I had a very productive call with Prime Minister BB Netanyahu. Uh, and there will be no troops going to Beirut and any troops that are on the way there have already been turned back. Likewise, uh they'll highly placed representatives. I have a very good call with Hezbollah and they agreed that all shooting
 
-### Segment 2 — Israel Iran Netanyahu
+### Segment 2 - Israel Iran Netanyahu
 
 will stop that Israel will not attack them and they will not attack Israel.
  And then he jumps over to the second topic which apparently he now does care about. Talks are continuing at a rapid pace with the Islamic Republic of Iran. Thank you for your attention to this matter. Uh we'll see you on the next episode of the Netflix uh series of shows here. But listen, uh I mean, let's just get to continue. Look at the first part there.
@@ -83,7 +86,7 @@ Uh you know, on Saturday, he says that the Iranians have agreed to uh no longer 
  Uh, so they, this shows that they've gone a little bit. You can see just a little bit of area past that. It's not far clear how far, but you see Beirut still up even north of this. It's not even seen. So there's no troops anywhere near Beirut. So if Trump's saying, "Hey, no worries. No, no Israeli troops going to IDF or no I IDF troops going to Beirut.
 " Netanyahu is probably going, "Uh, yeah, sure. We'll agree to that because there weren't any anyway." But he
 
-### Segment 3 — White House Trump Israel
+### Segment 3 - White House Trump Israel
 
 did not say uh that he would not go to uh to bomb the place. And and let me show you. I think we have it loaded up now. Here. Here's what Netanyahu said this morning about bombing in Lebanon. >> There will not be a situation where Hezbollah attacks our cities and our citizens and its terror headquarters in Beirut and the Deia remain out of bounds.
 >> So he's claiming that no man, these guys have been attacking some northern Israeli cities for no reason. Absolutely no reason at all. Um and because they did, we're not going to allow these terrorists to go on. So we're even even that area he's talking about Dakia and I may be pronouncing it wrong is is a portion of of Beirut where he wants to attack.
@@ -101,7 +104,7 @@ uh I don't want to call it hope because it's not hope. It's more of a fear. It I
  And this is where the uh your your your corporate uh moderate centrist Democrats, you know, understand it where certainly the Democratic National Committee and the DC DEC and DSCC and all these other Democratic party organizations understand it that look if Donald Trump does get a deal with uh the Iranians and this is going to cause such heartache from the Israel lobby that they're going to defund, right? gonna pull funding from some of his candidates.
  So any Trump candidates in the midterms that are running on a pla
 
-### Segment 4 — Trump Israel Iran
+### Segment 4 - Trump Israel Iran
 
 running on a platform campaigning saying Donald Trump did the right thing by allowing Iran to keep its ballistic missile program by unfreezing Iranian by giving billions of dollars to the Iranians, right? any of those candidates are going to be defunded uh by Apac and the Israel lobby and then that money is going to go to pro-Israel Democrats.
  This is what Apac and the Israel lobby has have done uh for decades essentially, right? I mean, this is how they keep order. This is how they enforce discipline. And there's no reason why I don't think that the Israel lobby wouldn't enforce discipline against Donald Trump. Uh so this idea that if he does make a deal uh the Democrats feel that then uh they may benefit politically by picking up Israeli lobby support in House races where the Republican is a Trump uh candidate and is supporting Trump's peace deal. So I mean I I think that's
@@ -119,7 +122,7 @@ I mean, that's not going to happen. But so this is what the Democrats put forwar
 what are you paying now for oil to be delivered 60 days from now or whatever whatever the date is. Um that oil doesn't exist. We we've had the heads of of the companies, we've had the trading houses, we had financial firms, we've had shipping companies, we've had, you know, all say that the oil runs out, all these inventories, whether it was the Iranian and the Russian oil that was a float on ships around the world, couple hundred million barrels, whether it's the strategic petroleum reserves, uh, you know, 400 million barrels or 475
 million barrels that were allocated to this, you know, all of that runs out by early July. So, if you're buying oil today on June 1st for oil to be delivered on August 1st and how are you paying for something that
 
-### Segment 5 — Iran Israel Lebanon
+### Segment 5 - Iran Israel Lebanon
 
 doesn't exist? How are you putting a price on something that basically everyone out there is saying it's not going to be there? I mean, so the irrationality here, the absurdity, and that creates this uh, you know, but this is again, this is war, right? This is why every war that you and I know that we've been a part of and
 that we've studied, you know, going back, you know, through the the decades that we've been alive, it's all been based on a bright shining lie. And so there's just contribution after contribution after contribution to keep the lie afloat, right? To keep the bubble expanded. Uh and so, you know, what happens uh when oil goes up to $150, $160 a barrel, you know? Um, I think that's why I was thinking that the Americans were thinking we wait until August or or the decision is wait until August until we make any concessions
@@ -137,7 +140,7 @@ time's on your side. You know, if you go back, you've shown that you can counter
  I just showed you what the the uh uh senior adviser to the uh senior leader said. Uh this is Galibbath the senior negotiator. He said the naval blockade and escalation of war crimes in Lebanon by the Zionist regime are clear evidence of US non-compliance with the ceasefire. Every choice has a price and that bill is coming due. Then we have foreign minister Abbas Araghchi.
  A ceasefire between Iran and the United States constitutes without ambiguity the comprehensive ceasefire across all fronts including Lebanon. Any violation of the ceasefire on
 
-### Segment 6 — Israel Iran Netanyahu
+### Segment 6 - Israel Iran Netanyahu
 
 one front shall be considered a violation across all fronts. the Israeli United States and Israel bear responsibility for the consequences of this breach.
  I mean, every everywhere we're look, there's there's stronger and stronger terms across the board, a unified message here, which sounds like they're actually considering doing something, which makes me worried that they may have calculated that it is an opportune moment and they see the weakness on our side because imagine if what you described, if they did that the long version, and I'm definitely sure that that was part of their discussion, but but then that may be that the we just peter off, we fall away, but I can see guys on the IRGC who
@@ -155,7 +158,7 @@ around, but this time the Americans would commit. Uh, Israelis also believe simp
  Uh so you know the idea though that the politicians will do what they want in spite of the military reality. My god Danny there's been how many books fil how many books in the library are there about that type of thing right? And so I think that's what you would get from the Israelis. This idea that this is the best opportunity they've been presented that this is Netanyahu's uh messianic uh uh purpose to establish uh Israel for a thousand years by you know creating the conditions reordering the Middle East ensuring Israeli dominance. You've got
 broad political support for it. Uh so if they don't do it then just like you know it's same as in the United States where the pre the political pressure on Netanyahu is really great on this uh you know it's it's completely a different way but it's it's the same type of domestic political concerns. You know
 
-### Segment 7 — Iran Israel Ceasefire
+### Segment 7 - Iran Israel Ceasefire
 
 you you've got uh uh Benny Gance uh speaking out against the ceasefires.
  I mean gosh Y laid and Nali Bennett created a whole party based upon opposition to the ceasefire. Uh so politically, for domestic domestic political reasons, it's a really good idea for the Israelis to get this war started again, even though I it's in complete contradiction to probably everything that their military is telling them.
@@ -173,7 +176,7 @@ It's a challenge though. But here's here's what these guys have to be here's wha
  If you've uh say we should go back and finish this job and any of these people whether it's in Israel or the administration or any of these other places that say let's go back to active combat operations we have to go hm you know let's take like these uh there's we reported anyway according to western media 30 of 33 of these kind of missile uh cities missile metros it's called here all along the the frontier uh of the the straight of Hormuz and the Persian Gulf and the Gulf of Oman uh are in order here. This particular one here,
 Yas Granite Fortress was hit at least six times earlier in the war. Uh, never got knocked out of base here. So, you have to argue, you know what? How about we take the same missiles that we fired the first time
 
-### Segment 8 — Iran Hezbollah Netanyahu
+### Segment 8 - Iran Hezbollah Netanyahu
 
 and fire them into the same missile factories and try to clear try to knock them out? Or, you know, would also be cool? Let's go and take our army this time.
  Let's get about a million men from ours and we'll get a bunch of other ones. I don't know, NATO or somebody else and wherever we can get them. and then let's invade over mountains uh to try to get to Tehran to have a negotiated win. And so let's do one or both of those because if you don't argue that if you don't say we're going to rehit this missile this missile bases with the same missiles that we've already used a huge portion of or you you're not going to say that we're going to get on the ground and roll in and take them over like we did with Iraq in
@@ -190,7 +193,7 @@ We can't have more than two, maybe three carriers afloat at one time, you know, 
  This is from Ben-Gvir uh just minutes ago. Mr. Prime Minister, you said that a strong prime minister tells the president of the United States when possible, but no when necessary. This is the time to tell our friend, President Trump, no. Time to tell him no. Now is the time to do what is required, necessary, strike Hezbollah, unleash the hands of our fighters, and restore uh to the north in Hezbollah.
  So, uh this this we we asked the question what what's going to happen whether Netanyahu is going to listen to him. All we have so far is what President Trump put in this trans social here is that I had a very good call with Netanyahu and there will be no troops going to
 
-### Segment 9 — Israel Trump Lebanon
+### Segment 9 - Israel Trump Lebanon
 
 Beirut. Any troops are going back.
  But then you have Ben Gir saying, "Yeah, now it's time to tell him no. What do you think's going to happen with this?" >> Yeah. I mean, for the Israelis, you almost I'm trying I'm not sure how to phrase this, but you almost have sympathy for them having a deal with Donald Trump, right? you know, I mean, I don't have any for them, of course, but you know, this this idea that they're dealing with a person, it was what, five, six days ago, Donald Trump put out a message saying that uh the deal was at hand.
@@ -207,7 +210,7 @@ four decades or so um or at least seems to be empire most of the last four decad
  Uh so uh you know this idea of of finally having this opportunity that was given to them by the October 7th attacks to carry this out and then having uh Donald Trump in the White House. You know, it's interesting to see how much they would have gotten away with if if Harris had won. I think it probably similarly I don't know if they would have gotten this war with Iran with Harris, but they certainly would have gotten their invasion of Lebanon somehow, right? Right.
  I mean, the Biden administration, as as far as we know, Brett Mcgherk and Amos Hawkstein, uh, Biden's top two Middle East guys, uh, they are the ones who gave the Israelis the green light to launch their invasion back in 2024, uh, as well as all those killings and everything else. So um I think the Harris administration would have allowed the Israelis to continue their conquest uh of Lebanon would have allowed their buffer in the Israeli buffer in Syria to continue would have said hey
 
-### Segment 10 — Turkey Israel Iran
+### Segment 10 - Turkey Israel Iran
 
 just you know you can continue with your uh annexation of the West Bank just don't
 let us hear it about hear us about it right so it would make their annexation of the West Bank slower but I don't think the Harris administration really would have blocked it in any meeting for a while but I don't know if the Harris administration would have gone gone along with this war on Iran. >> Who knows? Yeah.
@@ -224,7 +227,7 @@ excuse me, Pakistani Saudi military alliance, which I think most of us are still
  And I haven't looked in the last week or so, so maybe that has gone away or maybe it's happened. I don't know. But you know this idea then of of what does the region look like following this war and the order that's being created uh as a result of this war if there is a fracture in the American order if the Americans have to abandon their bases in Kuwait and Saudi Arabia in Qatar fall back essentially just to the Amiradis and to Israel uh you know certainly that provides space then for a block within the Middle East uh and you can imagine that' be a pretty powerful block uh
 between Saudi Arabia and cutters uh wealth uh the Turks and the Pakistani military capabilities, the size of both
 
-### Closing — Israel Turkey Nuclear Weapon
+### Closing - Israel Turkey Nuclear Weapon
 
 Turkey and Pakistan uh their positions strategically where they're located. Uh I mean that makes for a pretty formidable block. Uh but does that make sense? Am I too much in the 20th century mind? Am I in my head? Am I playing Axis and Allies here? You know, right? rather than uh I don't know whatever the version you play on your phone right now would be. Uh right.
  I mean like am I repeating the same 20th century mindset looking at this and trying to establish things you know very much I criticize it all the time. Kiss and journs in in in Brazinski you know the whole idea of a grand chess board but I fall victim to that myself all the time. That's how I'm trying to analyze Turkeykey's position right now is in the scheme of this grand chess board.

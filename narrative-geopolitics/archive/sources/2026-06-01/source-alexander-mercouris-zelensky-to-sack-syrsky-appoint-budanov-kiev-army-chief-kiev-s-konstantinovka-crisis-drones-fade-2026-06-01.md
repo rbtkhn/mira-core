@@ -11,6 +11,7 @@
 
 
 
+
 ingest_date: 2026-06-01
 pub_date: 2026-06-01
 kind: cleaned-transcript
@@ -29,7 +30,7 @@ source_type: youtube
 transcript_type: ai_assisted_operator_pasted_youtube_transcript
 source_note: "Operator-pasted YouTube transcript preserved as canonical June 1, 2026 Alexander Mercouris raw-input capture. · ASR pass 2026-06-15."
 normalization_state: ai_assisted_proper_noun_cleanup
-editorial_note: "AI-assisted ASR repair (common + series tiers + statecraft entity pass); 0 substitutions; not human-verified verbatim; verify before quotation. Routine Mercouris solo subscribe/platform close trimmed in place; SSOT body otherwise preserved.\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\" · source-section pass 2026-07-09 (9 sections)."
+editorial_note: "AI-assisted ASR repair (common + series tiers + statecraft entity pass); 0 substitutions; not human-verified verbatim; verify before quotation. Routine Mercouris solo subscribe/platform close trimmed in place; SSOT body otherwise preserved.\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\" · source-section pass 2026-07-09 (9 sections). - source-section pass 2026-07-09 (9 sections)."
 quality_note: "ASR normalization pass 2026-06-15; ph-civ replacement SSOT."
 mercouris_close_promo_trim_applied: true
 opening_trim_applied: false
@@ -40,6 +41,8 @@ closing_trim_applied: false
 closing_trim_rule: ""
 closing_trim_chars_saved: 0
 closing_trim_words_saved: 0
+asr_repair_applied: false
+asr_repair_pass: ""
 transcript_curation: curated_sectioned
 section_count: 9
 section_pass: "2026-07-09 semantic-section-v1"
@@ -54,7 +57,7 @@ section_pass: "2026-07-09 semantic-section-v1"
 
 ## Transcript
 
-### Show Open — Russia Ukraine Iran
+### Show Open - Russia Ukraine Iran
 
 Good day. Today is Monday, 1st June 2026. Well, today we continue to have the two ongoing conflicts, the one in Ukraine and the one between the United States and Iran.
  And of course, if you go to the media in the west, they continue to talk about an impass, a stalemate in relation to both conflicts. But of course, this is not true because there is no stalemate in the conflict in Ukraine. Um, since the autumn of 2023, what we have had is in effect a continuous Russian advance. It has been incremental but not as slow I think as many people believe.
@@ -70,7 +73,7 @@ But at the same time, it makes largecale drone strikes against Russia far more d
 And some are linking this to the change in Ukrainian tactics, the requirement for the Ukrainians to turn to trucks in order to launch their drones. Of course, the Russians also are aware of this change in Ukrainian tactics. And of course, they keep track of how the Ukrainians launch their drones. They observe the location of the trucks.
  They hunt the trucks, where they can find them. They destroy them. And no doubt quite a few trucks have been destroyed that way. the logistics of supplying trucks with drones, moving them around, doing these
 
-### Segment 2 — Russia Ukraine They'Re
+### Segment 2 - Russia Ukraine They'Re
 
 kind of things, well, they're not insuperable, but they're not to be underestimated. So, quite plausibly, this does explain why we've been seeing fewer Ukrainian drone attacks against Russian targets inside Russia altogether.
 And as I've discussed in recent programs, this may explain why the Ukrainians have been focusing so much more heavily over the last two weeks on attacking the highway from Mariupol to Crimea and have been making sure that these attacks on vehicles on that highway receive receive an enormous amount of attention.
@@ -86,7 +89,7 @@ Clearly this article byas is seeking to play down to some extent at least the si
 Logistical support is being provided to the Zaporozhye region. And then the TAS report continues that Nikolai Nukenko, Zep Zaporozhye regional transport minister has told TAS that the Novaria highway connecting Crimea and Rosto on Don through Donbass and Novora is open to traffic and is operating normally. So the sum total of all of this suggests that there are some attacks on the Novorosia highway but overall the Russians have the situation under control.
  Um, apparently vehicles are still able to travel. Um, mobile units to counter Ukrainian drones are being deployed to the area. The damage done, the attacks done are not on a scale that ultimately would create a long-term crisis. That's what Tess is saying here and that is what the Russian authorities are saying. And then the
 
-### Segment 3 — Russia Ukraine Europe
+### Segment 3 - Russia Ukraine Europe
 
 article, the TAS article continues further as follows.
 Um, additional protection from of the Novarosia highway from Ukrainian attacks is carry being carried out by the defense ministry and regional authorities. Dimmitri Pascov Putin's spokesman told reporters and then we have remarks from Dennis Pushilin the head of the Donetsk regional government.
@@ -103,7 +106,7 @@ And very much like the Ukrainian drone offensive against Russia, over the next f
  The Russians are successfully developing counter systems for Ukrainian drones, electronic jamming techniques like the so-called Donbass dome, whatever that is. My guess is, by the way, that it is a multiplicity of different techniques and systems um to counter drones electronically which the Russians are putting together.
 um including for the record a j jamming selective j jamming of the Starlink system and well probably all sorts of other techniques and devices um about which I know little may maybe the microwave uh systems that stunnik discussed perhaps the um anti-
 
-### Segment 4 — Russia Ukraine Drones
+### Segment 4 - Russia Ukraine Drones
 
 drone drones which are appearing in everinccreasing numbers. And I think that what we're going to see is not just the threat to the Russians from the strategic and tactical drones, those that have been conducting the strikes against Russia and those which have been used to attack the Novarosia
 highway gradually fade away in the next few weeks. But probably over the next few weeks and months, we're going to see a decline in the effectiveness of the Ukrainian FPV drones as well as Russian technologies and more importantly Russian industrial skills gradually catch up and counter them. I noticed that on Marat Khairullin's Substack site, Marat Khairullin is of course a Russian war reporter and in my opinion the single best war reporter in the war.
@@ -119,7 +122,7 @@ Schmeiggel was somebody that the West had got to know and I got get the sense th
 by none other than Kiril Budanov, Ukraine's former military intelligence chief and the man who is currently Zelensky's chief of staff. Now this is very interesting but it is worth saying that it is on its face an extremely strange appointment. Budanov is clearly a ruthless but nonetheless intelligent man.
  He has very strong links to the United States and to the CIA as the US media have reported. However, though he is a military officer, he has never commanded troops in the field in any great number. and he certainly has no general staff training and no experience and background in commanding armies or anything like that.
 
-### Segment 5 — Russia Ukraine Both
+### Segment 5 - Russia Ukraine Both
 
 Both Zelusni and Syrsky, the previous and current Ukrainian commanders, at least did, though perhaps not with the depth of training that the Russian general staff provides to its command officers. What Budanov has been is a special forces commando who's conducted commando raids behind Russian lines especially in Crimea where on one occasion apparently he was seriously wounded.
 He has also been a military intelligence chief. Though in my opinion, the quality of the intelligence that he has provided to the west and to the Ukrainian leadership about the situation in Russia and about the competence of the Russian army has been extremely poor. Budanov's primary skills, as I have discussed in many programs, are those of a covert specialist, a specialist in covert guerilla war, if you like, and in special operations.
@@ -134,7 +137,7 @@ It is a decision which has already been made. Whether where by the way or that l
  I think the remainder is barely defendable. Um perhaps what Zelensky is actually doing is waiting for Konstantinovka to fall in order to sack Syrsky just as he waited for ADA to fall in January 2024 in order to sack Syrsky's predecessor General Zillusion. So it could be that that is Zelensky's g game plan in which case Syrsky could be out of a job within well a matter of a few weeks.
 Anyway, the fall of Konstantinovka looks inevitable. There are more rumors about the imminent fall east of Kramatorsk of the small town of Ry-Aleksandrovka, which many are seeing as an essential position for the Ukrainians to defend the supply lines to Kramatorsk and Slavansk. Um there's now several other commentators who've been pointing out what I've been pointing out for some time that the fall of Konstantinovka coming after the fall of Pokrovsk and Mirror now absolutely opens the way for the Russians to advance west
 
-### Segment 6 — Russia Ukraine Slavans
+### Segment 6 - Russia Ukraine Slavans
 
 of the Slavans. Katausk connibation cutting off the supply lines, the supply roads from the west and well the fall of um places like Leman and Spatagos in the north which the Russian commander General Gerasimov assured us would soon come. Well, that if it does come, when it does come, potentially also cuts off supplies to the Slavansk connibation from the west as well.
  In fact, at that point, we start to see a cauldron emerge. Something that on the Duran we spoke about as the eventual Russian military objective in Donbass, we first spoke about it way back in March 2022. It's taken a lot longer for it to happen, to come to pass than we could have imagined then. But it seems as if we are on the brink of that happening now.
@@ -149,7 +152,7 @@ So the fall of Oreov but at a higher temper will lead to the Russian offensive a
  And the damage done through the attacks on the no Borisa highway anyway were never as severe as people imagine. And with the fading of drone dominance on the Ukrainian battlefields and with the severe shrinking and crisis of the Ukrainian army, it seems to me that the way is indeed open for further Russian advances which we are going to see play out over the summer and autumn of this year.
  Now in the west by contrast we continue to get more rhetoric more statements from people who I believe generally have have generally fallen for
 
-### Segment 7 — Russia Ukraine Europe
+### Segment 7 - Russia Ukraine Europe
 
 this campaign that the balance of the war the tide of the war has shifted in favor of Ukraine. There is a strange article in the Financial Times by the commentator Gideon Rackman.
 I should say that I follow Gideon Rackman closely. I disagree with him about practically everything, but I believe that he is sincere in what he says and I should make it clear that I don't believe he takes anybody's he takes orders from anybody. However, Gideon Ragman appears to believe that not only is the war going well for Ukraine, but that defeat in the war is going to trigger a major crisis in Russia, potentially leading to the collapse of the government there and of President Putin in particular.
@@ -165,7 +168,7 @@ French presidential election that is due to take place in France next year. So i
  um and seizing a tanker in the way that he has done provides him with the opportunity to do that. One should not nonetheless entirely downplay the significance of this incident. The Russians have refer called it piracy which perhaps it is just saying um I'm not an expert on the law of piracy but to the best of my knowledge does conform closely shall we say with some of the provisions of that law. Just saying.
  Um anyway um put that aside. Um, it's something that has not been done much recently. Mron has done it. He's tried to involve the British, by the way, in this affair by disclosing that
 
-### Segment 8 — Russia Europe European Union
+### Segment 8 - Russia Europe European Union
 
 information about the whereabouts of this tanker was passed on to the French by a Royal Navy helicopter. I don't think the British authorities, by the way, will be very happy about Macron doing that. But anyway, whatever.
  It is an unfriendly act. It's also a very strange thing to do for the French and for the Europeans at a time when there are global energy shortages coming when one would have assumed that the economic interest is to remove rather than create obstacles. for the free trade in Russian oil. And when the U E European Union itself facing higher energy prices and potential energy shortages is now apparently thinking of rowing back its sanctions on Russian oil by freezing the price gap on Russian oil that the European Union imposes, which
@@ -180,7 +183,7 @@ Whatever doubts people might have about the penetrative abilities of the Oreshni
 In reality the British military as I've discussed many times is in a parlor state and in no position to take on the Russians. I recently discussed various articles that have appeared mainly in the Daily Telegraph about the very poor condition of the Royal Air Force. The inddehaticable Mark Felton who runs a very interesting set of YouTube channels which deal mostly with historical topics has published another video within the last 24 hours outlining the decline and fall of Britain's Royal Navy.
 It makes interesting viewing and it does give a sense again of the institutional and material decay of what used to be within living memory perhaps the second most powerful fleet in the world. Anyway, there it is. All of this talk of war across Europe. a war which in reality the Europeans
 
-### Segment 9 — Iran Trump Hormuz
+### Segment 9 - Iran Trump Hormuz
 
 are in no position to fight.
  As I discussed in a program recently, the commentator Gordon Han points out that there is indeed a small group of top Western politicians and officials who not only do not fear a war with Russia, but who give every impression of desiring it and of wanting it to happen. Well, all I can say is that these people really do need to start reading articles about the state of the European militaries and watching programs like Mark Felton's in order to get a perhaps more objective understanding

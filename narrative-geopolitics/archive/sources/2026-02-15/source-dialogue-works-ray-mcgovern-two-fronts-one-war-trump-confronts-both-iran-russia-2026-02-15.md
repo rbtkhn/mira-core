@@ -17,6 +17,8 @@ source_note: "Direct YouTube watch URL already on disk; transcript body confirme
 editorial_note: "Treat as a transcript-grade raw-input capture. Operator-supplied transcript body resolved prior audit ambiguity."
 evidence_grade: transcript-bearing
 ---
+## Transcript
+
 # Ray McGovern: Two Fronts, One War? Trump Confronts BOTH Iran & Russia
 
 Hi everybody. Today is Sunday, February

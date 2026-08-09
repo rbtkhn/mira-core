@@ -16,6 +16,8 @@ transcript_wrapper_tier: clean
 opening_tier: host-tease
 entity_asr_pass: 2026-06-22 — kallas cluster via fix_statecraft_common_asr_entities
 ---
+## Transcript
+
 # Ray McGovern & Graham E. Fuller: Ukraine Running Out of Options, Forced Peace or Total Breakdown?
 
 Hi everybody. Today is Friday, November

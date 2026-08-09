@@ -12,6 +12,8 @@ channel_slug: "glenn-diesen"
 source_url: "https://www.youtube.com/watch?v=8VIvT7cY0Uc"
 source_note: "Automated YouTube transcript fetch for Glenn Diesen."
 ---
+## Transcript
+
 # Ray McGovern: Zelensky's Dilemma - Bad Peace or Total Defeat
 
 Welcome back to the program. We are

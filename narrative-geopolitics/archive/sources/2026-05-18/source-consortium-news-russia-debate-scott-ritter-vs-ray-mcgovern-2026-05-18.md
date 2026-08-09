@@ -15,6 +15,8 @@ guest: Scott Ritter; Ray McGovern
 thread: ritter-mcgovern
 evidence_grade: transcript-bearing
 ---
+## Transcript
+
 # RUSSIA DEBATE – SCOTT RITTER vs. RAY McGOVERN
 
 **Host:** You said, I think last week, that you thought Russia would eventually hit command centers in Kiev. Now Zelensky is saying — there’s a leak that they got some Russian intelligence — that Russia is going to attack Kiev command centers from Belarus. So is he right about that? Would Putin want to inform the Chinese that they’re about to do such a radical step as that? That’s what I meant.

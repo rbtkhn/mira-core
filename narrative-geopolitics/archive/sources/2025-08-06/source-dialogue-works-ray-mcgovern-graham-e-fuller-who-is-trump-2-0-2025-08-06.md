@@ -13,6 +13,8 @@ channel_slug: "dialogue-works"
 source_url: "https://www.youtube.com/watch?v=-6xGWBSWcnI"
 source_note: "Automated YouTube transcript fetch for Dialogue Works."
 ---
+## Transcript
+
 # Ray McGovern and Graham E. Fuller: Who Is Trump 2.0?
 
 Hi everybody. Today is Wednesday, August
