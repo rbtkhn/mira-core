@@ -16,6 +16,7 @@ Method: [recursive-learning-ledger.md](../../method/recursive-learning-ledger.md
 | `RSI-20260725-01` | `2026-07-25` | `closed-feedback-loop` | `validated` | Speaker labeling learns from corpus-scale turn structure |
 | `RSI-20260727-01` | `2026-07-27` | `closed-feedback-loop` | `validated` | Historical-reference review becomes detector control data |
 | `RSI-20260727-02` | `2026-07-27` | `partial-feedback-loop` | `partial` | Intake hardening accumulates production lessons |
+| `RSI-20260731-01` | `2026-07-31` | `closed-feedback-loop` | `validated` | Source-anchor policy becomes a validated synthesis gate |
 
 ## `RSI-20260721-01` — Continuity diagnostics become a bounded repair queue
 
@@ -248,3 +249,63 @@ Measure: 15 landed sources, 15 unique identities, and 1 correction-signal source
 ### Next Measure
 
 Save JSON receipts for the next bounded intake batch and compare its attempt-level warnings, duplicate stops, failures, and retries with this July 27 source-state baseline.
+
+## `RSI-20260731-01` — Source-anchor policy becomes a validated synthesis gate
+
+- Class: `closed-feedback-loop`
+- Closure: `validated`
+
+### Observation
+
+The July 30 run began with one source anchor per transcript, while a proposed hard minimum of 40 anchors risked padding and the first synthesis attempt stopped on template and issue-readiness failures.
+
+Evidence:
+
+- [`narrative-geopolitics/work/daily/2026-07-30/sources.md`](../../../narrative-geopolitics/work/daily/2026-07-30/sources.md)
+- [`narrative-geopolitics/work/daily/2026-07-30/synthesis.md`](../../../narrative-geopolitics/work/daily/2026-07-30/synthesis.md)
+
+### Diagnosis
+
+Anchor quantity was being treated as a proxy for source coverage and synthesis quality; the workflow needed variable coverage targets plus advisory checks for missing and redundant anchors.
+
+Evidence:
+
+- [`docs/skill-drafts/geopolitical-synthesis/SKILL.md`](../../../docs/skill-drafts/geopolitical-synthesis/SKILL.md)
+- [`scripts/validate_daily_run.py`](../../../scripts/validate_daily_run.py)
+
+### Intervention
+
+The synthesis contract adopted one anchor per landed source, 2–3 per major mechanism, a normal 24–30 working range, and a justified exception path for 40; the validator added coverage, redundancy, and high-count warnings.
+
+Evidence:
+
+- [`docs/skill-drafts/geopolitical-synthesis/SKILL.md`](../../../docs/skill-drafts/geopolitical-synthesis/SKILL.md)
+- [`scripts/validate_daily_run.py`](../../../scripts/validate_daily_run.py)
+- [`narrative-geopolitics/work/daily/2026-07-30/sources.md`](../../../narrative-geopolitics/work/daily/2026-07-30/sources.md)
+
+Commits: `e593816`, `115f171`.
+
+### Validation
+
+The July 30 source ledger reconciled 12 manifest rows with 12 anchors and zero anchor-quality warnings; the completed issue then validated with zero daily-run failures and zero warnings.
+
+Evidence:
+
+- [`narrative-geopolitics/work/daily/2026-07-30/sources.md`](../../../narrative-geopolitics/work/daily/2026-07-30/sources.md)
+- [`narrative-geopolitics/work/daily/2026-07-30/issue.md`](../../../narrative-geopolitics/work/daily/2026-07-30/issue.md)
+- [`scripts/validate_daily_run.py`](../../../scripts/validate_daily_run.py)
+
+### Outcome
+
+The policy was consumed by the same run that generated it: 12 source anchors were retained without padding, the synthesis was expanded to the issue contract, and the final issue passed validation.
+
+Evidence:
+
+- [`narrative-geopolitics/work/daily/2026-07-30/sources.md`](../../../narrative-geopolitics/work/daily/2026-07-30/sources.md)
+- [`narrative-geopolitics/work/daily/2026-07-30/issue.md`](../../../narrative-geopolitics/work/daily/2026-07-30/issue.md)
+
+Measure: 12 manifest-backed sources, 12 source anchors, 0 anchor-quality warnings, and 0 issue-stage validation failures.
+
+### Next Measure
+
+Apply the variable-anchor checks to the next two synthesis runs and compare anchor redundancy, issue word-range failures, and post-render validation outcomes.
