@@ -1,0 +1,30 @@
+{
+  "type": "decision-navigation",
+  "presented_at": "2026-08-03T00:00:00-06:00",
+  "options": [
+    {
+      "key": "minimal-coherent-closure",
+      "role": "recommended",
+      "label": "Map and publish the minimal coherent dependency closure for Morning Brief 2.1 plus the Alkhorshid repair, together with the seven commits already ahead of origin/main",
+      "selection_effect": "navigate"
+    },
+    {
+      "key": "morning-brief-only",
+      "role": "alternative",
+      "label": "Publish only the four Morning Brief 2.1 implementation files, together with the seven commits already ahead of origin/main, and leave the archive repair local",
+      "selection_effect": "navigate"
+    },
+    {
+      "key": "whole-worktree",
+      "role": "overlooked",
+      "label": "Publish the entire current worktree and the seven commits already ahead of origin/main, including every pending archive and systems change",
+      "selection_effect": "navigate"
+    },
+    {
+      "key": "pause-scope",
+      "role": "pause-or-deepen",
+      "label": "Pause publication and inspect the dirty-worktree ownership boundaries more deeply",
+      "selection_effect": "navigate"
+    }
+  ]
+}
