@@ -51,6 +51,7 @@ EXPECTED_SURFACES = {
     "intake-outcomes": "report_intake_outcomes.py",
     "intake-stats": "report_trim_stats.py",
     "issue-render": "render_daily_issue.py",
+    "mira-continuity": "mira_continuity.py",
     "narrative-reuse": "report_narrative_reuse.py",
     "operator-position": "operator_positions.py",
     "reality": "reality.py",

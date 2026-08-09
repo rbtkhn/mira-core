@@ -26,6 +26,7 @@ SURFACES = {
     "intake-outcomes": REPO_ROOT / "scripts" / "report_intake_outcomes.py",
     "intake-stats": REPO_ROOT / "scripts" / "report_trim_stats.py",
     "issue-render": REPO_ROOT / "scripts" / "render_daily_issue.py",
+    "mira-continuity": REPO_ROOT / "scripts" / "mira_continuity.py",
     "narrative-reuse": REPO_ROOT / "scripts" / "report_narrative_reuse.py",
     "operator-position": REPO_ROOT / "scripts" / "operator_positions.py",
     "reality": REPO_ROOT / "scripts" / "reality.py",

@@ -27,6 +27,7 @@ import verification as verification_packets
 import render_daily_issue as daily_issue
 import reality
 import recursive_learning_ledger
+import mira_continuity
 import operator_positions
 
 
@@ -546,6 +547,7 @@ REPOSITORY_CHECKS = (
     ("voice_accountability_failures", voice_accountability_failures),
     ("voice_judgment_failures", voice_judgment_failures),
     ("recursive_learning_ledger.validate_ledger", recursive_learning_ledger.validate_ledger),
+    ("mira_continuity.validate_repository_state", mira_continuity.validate_repository_state),
     ("operator_positions.validate_ledger", operator_positions.validate_ledger),
     ("legacy_verification_inventory_failures", legacy_verification_inventory_failures),
     ("tracked_artifact_failures", tracked_artifact_failures),

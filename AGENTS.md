@@ -86,6 +86,11 @@ skill mirror.
 These are repository-local contracts. Do not synchronize them into global
 Codex skills. Their handoff is advisory cadence state, never research evidence.
 
+At the start of each workspace session, after loading all controlling repository
+instructions, read `mira/continuity/activation.md` when it exists. Treat it as
+bounded advisory continuity only: it is not research evidence, operator belief,
+or action authority, and explicit current operator direction always controls.
+
 For every final user-facing response, read and follow
 `docs/skill-drafts/learn-from-choices/SKILL.md`. Do not apply its footer to
 intermediate progress commentary. End with three or four concise, meaningfully
