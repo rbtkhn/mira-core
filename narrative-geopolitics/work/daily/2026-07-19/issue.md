@@ -34,6 +34,8 @@ Evidence posture: `bounded-analysis`
 
 Crisis object: Can Russia increase battlefield and port pressure without forcing NATO/EU escalation into a direct-war pathway?
 
+Related reality claims: None registered
+
 The Russia/Ukraine material remains issue-worthy as the secondary track. Mercouris reads Russian strikes and Ukrainian political strain as part of a hardening battlefield sequence. Krapivnik, via Glenn Diesen, raises the warning that NATO/Russia pressure could move toward a more direct EU-Russia confrontation.
 
 This track should not displace the Gulf lead, but it matters because it shows a second arena where operating geography is becoming coercive. Ports, cities, routes, air defense, and NATO frontiers are not backdrop. They are the systems through which pressure is applied and settlement space narrows.
@@ -51,6 +53,8 @@ This secondary track also protects the issue from overfitting the day to the Gul
 Evidence posture: `bounded-analysis`
 
 Crisis object: Can U.S. primacy strategy keep pressing Russia, Iran, and China without unifying the opposition and exposing U.S. material limits?
+
+Related reality claims: None registered
 
 Sachs gives the day its structural bridge. His argument is that U.S. policy has long treated Russia, Iran, and China as obstacles to primacy in Eurasia, and that current crises are connected through that strategy. The important use of Sachs here is not to make every local development fit one master theory. It is to ask whether Washington's simultaneous pressure on Iran and Russia is exposing capacity limits and unifying opposing coalitions.
 
@@ -71,6 +75,8 @@ The principal alternative is still possible. The U.S. could regain initiative th
 Evidence posture: `bounded-analysis`
 
 Crisis object: Can Washington sustain pressure on Iran when the regional geography carrying that pressure becomes the target?
+
+Related reality claims: None registered
 
 The July 19 lead is that the Iran war is becoming a test of the regional basing system. Washington can strike Iran, but those strikes depend on geography: Gulf bases, Jordanian posture, tankers, aircraft, ships, ports, and airspace. McGovern and Johnson both read that geography as newly exposed. Marandi's interview shows why Iran-facing rhetoric treats U.S. regional access as part of the battlefield rather than a protected background condition.
 

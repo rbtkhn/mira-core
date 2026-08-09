@@ -35,6 +35,8 @@ Evidence posture: `bounded-analysis`
 
 Crisis object: Can renewed U.S. blockade/strikes be contained to Hormuz, or does the source batch make Jordan, Bahrain, Yemen, Saudi Arabia, and Israel part of the same participation problem?
 
+Related reality claims: None registered
+
 Aguilar, Baud, Johnson, and Barnes supply high-consequence strike and retaliation claims. Their value here is to define packet needs and participation thresholds.
 
 This brief is included because it changes how the lead should be read. It does not create a separate factual finding; it gives the reader a second pressure test for the same archive day.
@@ -45,6 +47,8 @@ Evidence posture: `bounded-analysis`
 
 Crisis object: Can renewed U.S. blockade/strikes be contained to Hormuz, or does the source batch make Jordan, Bahrain, Yemen, Saudi Arabia, and Israel part of the same participation problem?
 
+Related reality claims: None registered
+
 Pape gives escalation logic; Parsi gives the war-ending critique. Together they make July 13 more than a breaking-news pile.
 
 This brief is included because it changes how the lead should be read. It does not create a separate factual finding; it gives the reader a second pressure test for the same archive day.
@@ -54,6 +58,8 @@ This brief is included because it changes how the lead should be read. It does n
 Evidence posture: `bounded-analysis`
 
 Crisis object: Can renewed U.S. blockade/strikes be contained to Hormuz, or does the source batch make Jordan, Bahrain, Yemen, Saudi Arabia, and Israel part of the same participation problem?
+
+Related reality claims: None registered
 
 Mercouris’s Kiev/Oreshnik/air-defense frame matters, but it does not displace the Hormuz participation object.
 
@@ -66,6 +72,8 @@ This brief is included because it changes how the lead should be read. It does n
 Evidence posture: `bounded-analysis`
 
 Crisis object: Can renewed U.S. blockade/strikes be contained to Hormuz, or does the source batch make Jordan, Bahrain, Yemen, Saudi Arabia, and Israel part of the same participation problem?
+
+Related reality claims: None registered
 
 July 13 is the major bridge into July 14. Hormuz stops being a narrow chokepoint story and becomes a regional participation object. The source batch pulls Jordan, Bahrain, Yemen, Saudi Arabia, Israel, Iran, and U.S. domestic incentives into one pressure field. The archive should not promote the strike claims as facts, but it can use their convergence to define the day’s owning question: can the renewed blockade/strike cycle stay contained?
 

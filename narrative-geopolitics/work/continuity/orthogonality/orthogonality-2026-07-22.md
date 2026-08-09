@@ -2,7 +2,7 @@
 
 ## Decision Summary
 
-- Sources: 13; distinct voices: 10; mapped: 6; unmapped: 4
+- Sources: 14; distinct voices: 11; mapped: 6; unmapped: 5
 - Strongest convergence: No material same-day convergence cluster was identified from available titles and synthesis text.
 - Highest collapse risk: none
 - Top counter-pressure gap: No vessel-level or official-maritime counter-pressure is represented in the daily source ledger; maritime threat convergence must not be treated as closure evidence.
@@ -11,10 +11,10 @@
 ## Audit Metadata
 
 - **Date:** `2026-07-22`
-- **Generated:** `2026-07-23T05:31:07.221991+00:00`
-- **Content hash:** `48e1b1edf9b036a3`
-- **Sources:** 13
-- **Voices:** 10 (6 mapped, 4 unmapped)
+- **Generated:** `2026-08-03T17:54:02.206129+00:00`
+- **Content hash:** `ef773f314851b201`
+- **Sources:** 14
+- **Voices:** 11 (6 mapped, 5 unmapped)
 
 > Same conclusion plus different mechanism can be orthogonal; same conclusion plus shared lineage is not independent corroboration.
 
@@ -23,6 +23,7 @@
 | Voice | Canonical axis | Daily contribution | Risk | Sources | Hosts | Status |
 | --- | --- | --- | --- | --- | --- | --- |
 | `barnes` | legal-strategic / force feasibility | Daily source set centers on Robert Barnes: Breaking: Trump Threatens to Bomb Iran's Critical Infrastructure Over Hormuz Attacks. | Compressing legal, strategic, and operational claims into one frame. | SRC-07 | dialogue-works | distinct contribution |
+| `cristoforou` | unmapped | Daily source set centers on ISRAEL TO JOIN WAR AS TRUMP ESCALATES - w/ Duran's Alex Christoforou. | Temporary daily identity requires human review. | none | mario-nawfal | human review required |
 | `davis` | practical room / military feasibility | Daily source set centers on Trump Threatens Iran Civilian Targets / Larry Johnson & LT Col Daniel Davis America's Own Words Coming Back to Haunt Them / Prof Seyed Marandi Breaking: Zelensky Pushes Out Gen Syrsky in Major Shakeup. | Over-practical skepticism or underweighting structure and legitimacy. | SRC-01,SRC-03,SRC-11 | daniel-davis | distinct contribution |
 | `escobar` | regional legitimacy / siege-for-siege | Daily source set centers on Pepe Escobar: All Bets Are Off!. | Attributed legitimacy claims can be mistaken for operational fact. | SRC-06 | judging-freedom | distinct contribution |
 | `hoh` | unmapped | Daily source set centers on Matthew Hoh: Iran's Untouchable Mountain - Hegseth Says the U.S. Can Reach Anything. | Temporary daily identity requires human review. | SRC-05 | dialogue-works | human review required |
@@ -36,9 +37,9 @@
 ## Analytical Axis Coverage
 
 - `legal-strategic / force feasibility`: barnes
+- `unmapped`: cristoforou, hoh, macgregor, pape, parsi
 - `practical room / military feasibility`: davis
 - `regional legitimacy / siege-for-siege`: escobar
-- `unmapped`: hoh, macgregor, pape, parsi
 - `room / sequence / legitimacy`: mercouris
 - `historical precedent / strategic judgment`: ritter
 - `access sequence / capacity pressure`: weichert
@@ -59,17 +60,18 @@
 
 ## Prioritized Human-Review Queue
 
-1. **P2** — hoh: voice has no canonical descriptor Action: assign or review a stable voice identity
-2. **P2** — macgregor: voice has no canonical descriptor Action: assign or review a stable voice identity
-3. **P2** — pape: voice has no canonical descriptor Action: assign or review a stable voice identity
-4. **P2** — parsi: voice has no canonical descriptor Action: assign or review a stable voice identity
+1. **P2** — cristoforou: voice has no canonical descriptor Action: assign or review a stable voice identity
+2. **P2** — hoh: voice has no canonical descriptor Action: assign or review a stable voice identity
+3. **P2** — macgregor: voice has no canonical descriptor Action: assign or review a stable voice identity
+4. **P2** — pape: voice has no canonical descriptor Action: assign or review a stable voice identity
+5. **P2** — parsi: voice has no canonical descriptor Action: assign or review a stable voice identity
 
 ## Missing Counter-Pressure
 
 - No vessel-level or official-maritime counter-pressure is represented in the daily source ledger; maritime threat convergence must not be treated as closure evidence.
 - No independently verified basing, casualty, strike-effect, or infrastructure observations are represented; keep those reports source-attributed.
 - No independently verified force-posture or diplomatic-threshold observation is represented for the Russia/NATO secondary theater.
-- Unmapped voices require human review before their temporary daily contribution is treated as a stable analytical identity: hoh, macgregor, pape, parsi.
+- Unmapped voices require human review before their temporary daily contribution is treated as a stable analytical identity: cristoforou, hoh, macgregor, pape, parsi.
 
 ## Recommended Orthogonal Test
 

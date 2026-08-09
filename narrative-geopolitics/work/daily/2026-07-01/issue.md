@@ -34,6 +34,8 @@ Evidence posture: `bounded-analysis`
 
 Crisis object: Can Western strategy manage Ukraine/Russia and Iran/Hormuz pressure at once, or do simultaneous theaters expose capacity limits?
 
+Related reality claims: None registered
+
 Parsi gives the day its sharpest Iran-specific warning: the risk is not a generic future war, but a window in which Israel may attack again before October. That claim is retained as authored forecast mechanism rather than operational fact.
 
 This brief is included because it changes how the lead should be read. It does not create a separate factual finding; it gives the reader a second pressure test for the same archive day.
@@ -43,6 +45,8 @@ This brief is included because it changes how the lead should be read. It does n
 Evidence posture: `bounded-analysis`
 
 Crisis object: Can Western strategy manage Ukraine/Russia and Iran/Hormuz pressure at once, or do simultaneous theaters expose capacity limits?
+
+Related reality claims: None registered
 
 Mercouris and Macgregor make Ukraine the second theater: Russian objectives are described as expanding while Kiev’s drone-war and army position falter. The point is not to verify every front-line claim here, but to preserve the capacity question.
 
@@ -55,6 +59,8 @@ This brief is included because it changes how the lead should be read. It does n
 Evidence posture: `bounded-analysis`
 
 Crisis object: Can Western strategy manage Ukraine/Russia and Iran/Hormuz pressure at once, or do simultaneous theaters expose capacity limits?
+
+Related reality claims: None registered
 
 July 1 is best read as a dual-theater capacity day. The archive does not prove that Ukraine/Russia and Iran/Hormuz are operationally linked by a single command decision. It does show that the same Western system is being asked to absorb both: a stressed Ukraine theater, a live Iran war-risk calendar, and commentators reading both as tests of whether U.S.-led strategy can sustain simultaneous coercive commitments.
 

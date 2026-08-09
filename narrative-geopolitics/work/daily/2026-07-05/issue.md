@@ -34,6 +34,8 @@ Evidence posture: `bounded-analysis`
 
 Crisis object: Are Jordan/A-10 and NATO-Russia warnings real escalation pathways, or pressure signals inside already constrained wars?
 
+Related reality claims: None registered
+
 Johnson’s source controls the Iran side of the day. It should be used as a warning object and verification target, not as settled proof of impending ground war.
 
 This brief is included because it changes how the lead should be read. It does not create a separate factual finding; it gives the reader a second pressure test for the same archive day.
@@ -43,6 +45,8 @@ This brief is included because it changes how the lead should be read. It does n
 Evidence posture: `bounded-analysis`
 
 Crisis object: Are Jordan/A-10 and NATO-Russia warnings real escalation pathways, or pressure signals inside already constrained wars?
+
+Related reality claims: None registered
 
 Jermy and Mercouris make Western escalation against Russia look capability-constrained, while Krapivnik adds tactical pressure through drone/strike claims.
 
@@ -55,6 +59,8 @@ This brief is included because it changes how the lead should be read. It does n
 Evidence posture: `bounded-analysis`
 
 Crisis object: Are Jordan/A-10 and NATO-Russia warnings real escalation pathways, or pressure signals inside already constrained wars?
+
+Related reality claims: None registered
 
 July 5 brings ground-war language into both theaters. Johnson makes the Iran signal concrete through A-10s and Jordan. Jermy, Krapivnik, and Mercouris keep Russia/Ukraine in view through NATO feasibility warnings, strike claims, and battlefield-political sequence. The bounded judgment is not that either ground war is decided. It is that both theaters are producing signals that make escalation feel more available than strategy can safely absorb.
 

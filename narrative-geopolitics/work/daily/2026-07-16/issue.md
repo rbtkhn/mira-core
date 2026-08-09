@@ -36,6 +36,8 @@ Evidence posture: `bounded-analysis`
 
 Crisis object: Can Washington restore credible energy-flow control when Iran-centered leverage can shift from Hormuz to Bab el-Mandeb faster than U.S. military action can restore market confidence?
 
+Related reality claims: None registered
+
 The July 16 story is not simply that the Iran war continued. It is that the pressure system may no longer be containable inside Hormuz. Pape's second-front warning, Johnson's oil-flow constraint, Marandi and Escobar's Yemen/Saudi escalation lane, and Mearsheimer's coercive-leverage frame point to the same problem: the United States may be able to hit targets, but still fail to restore confidence that energy routes are under control.
 
 The strategic distinction is between damage and control. A military campaign can damage launchers, radar sites, ports, power systems, or command nodes while still leaving shippers, insurers, Gulf governments, and energy buyers unsure whether normal movement can resume. July 16 pushes that distinction to the front. If Hormuz is the only active pressure point, Washington can frame the test as a Gulf navigation problem. If Bab el-Mandeb and the Red Sea become part of the same bargaining field, the test becomes system-wide: can the United States make the energy route feel governable again?

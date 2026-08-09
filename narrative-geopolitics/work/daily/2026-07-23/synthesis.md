@@ -4,9 +4,9 @@ Date: `2026-07-23`
 
 Status: `live-intake-first`
 
-Analytical language contract: [labels as analytical interfaces](../method/analytical-interfaces.md)
+Analytical language contract: [labels as analytical interfaces](../../../method/analytical-interfaces.md)
 
-Density triage: use [archive-density](../method/archive-density.md) after validation and before deepening to check whether the day is thin, dense, overclaim-prone, underused, or verification-heavy. Density guides triage only; it does not promote source assertions into facts.
+Density triage: use [archive-density](../../../method/archive-density.md) after validation and before deepening to check whether the day is thin, dense, overclaim-prone, underused, or verification-heavy. Density guides triage only; it does not promote source assertions into facts.
 
 Synthesis contract: `delta-v1`
 

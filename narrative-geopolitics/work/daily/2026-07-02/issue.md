@@ -34,6 +34,8 @@ Evidence posture: `bounded-analysis`
 
 Crisis object: Do spectacular strikes and nuclear-site pressure change adversary behavior, or reveal coercion limits?
 
+Related reality claims: None registered
+
 Postol’s role is to make the nuclear and hardened-target problem concrete. The archive can use his source as a warning about escalation consequence without adopting every technical conclusion as verified fact.
 
 This brief is included because it changes how the lead should be read. It does not create a separate factual finding; it gives the reader a second pressure test for the same archive day.
@@ -43,6 +45,8 @@ This brief is included because it changes how the lead should be read. It does n
 Evidence posture: `bounded-analysis`
 
 Crisis object: Do spectacular strikes and nuclear-site pressure change adversary behavior, or reveal coercion limits?
+
+Related reality claims: None registered
 
 Mercouris adds a Ukraine sequence: Russian strikes and Ukrainian demands for European money indicate pressure, but not a settlement-changing Western capability.
 
@@ -55,6 +59,8 @@ This brief is included because it changes how the lead should be read. It does n
 Evidence posture: `bounded-analysis`
 
 Crisis object: Do spectacular strikes and nuclear-site pressure change adversary behavior, or reveal coercion limits?
+
+Related reality claims: None registered
 
 July 2 is a narrow but useful coercion-limit day. Postol and Mercouris are not speaking about the same battlefield, but they expose the same question: whether spectacular military action can buy political control when the adversary’s strategic incentives remain intact. The synthesis keeps the nuclear-collapse language and Kiev-strike claims attributed while using them to test the mechanism.
 

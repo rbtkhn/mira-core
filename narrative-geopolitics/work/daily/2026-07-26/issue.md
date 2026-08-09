@@ -36,6 +36,8 @@ Evidence posture: `bounded-analysis`
 
 Crisis object: Can the United States widen pressure on Iran without exhausting stocks and opening a retaliatory regional chain?
 
+Related reality claims: None registered
+
 The day’s sources converge on a mechanism rather than a settled event record. Pressure on maritime and energy infrastructure expands the retaliation surface across the Gulf, Red Sea, and Ukraine theater, while finite defensive capacity and an unclear end state narrow the value of a larger strike. The practical judgment is to watch route status, force movements, and stockpile evidence before treating reported strikes, threats, or damage as independently established facts.
 
 The strongest counterargument comes from the possibility that the pause is not a constraint but a preparation interval. If U.S. forces are repairing, rearming, and assembling a larger operation, the current lull could precede renewed escalation. That possibility should remain live. It does not, however, remove the underlying problem: a larger operation must still produce a political result and must still manage the additional retaliation surfaces it creates.

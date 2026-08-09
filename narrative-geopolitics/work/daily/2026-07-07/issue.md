@@ -34,6 +34,8 @@ Evidence posture: `bounded-analysis`
 
 Crisis object: Can coercive pressure restore credibility if sanctions and waivers can be reversed at will?
 
+Related reality claims: None registered
+
 The American-side problem in the July 7 stack is not only material capacity. It is commitment discipline. Barnes frames waiver reversal as evidence that relief cannot be trusted. Davis adds inventory and escalation pressure. Helmer broadens the pattern into a bargaining style that mixes coercion with improvisation. Parsi’s off-ramp only matters because the system needs a way to defer sovereignty conflict without pretending trust has already been restored.
 
 This brief is secondary because it explains the lead mechanism rather than replacing it. The day is still owned by Lebanon/Hormuz settlement breakdown. The U.S. commitment problem is the internal reason that a technical implementation dispute can become a credibility crisis.
@@ -43,6 +45,8 @@ This brief is secondary because it explains the lead mechanism rather than repla
 Evidence posture: `bounded-analysis`
 
 Crisis object: Does NATO/Russia pressure reduce confidence that Washington can casually expand the Iran front?
+
+Related reality claims: None registered
 
 Helmer and Mercouris keep Russia/NATO pressure in view. Their role is not to turn July 7 into a Ukraine day. Their role is to reduce confidence that Washington can casually reopen or expand the Iran front while carrying simultaneous pressure elsewhere.
 
@@ -55,6 +59,8 @@ This brief should remain contextual. It matters when later rows ask whether the 
 Evidence posture: `bounded-analysis`
 
 Crisis object: Is the MOU/deal breaking down because Lebanon linkage, waiver reversal, and Hormuz control now act as linked settlement gates?
+
+Related reality claims: None registered
 
 July 7 is best read as the day the MOU/deal stops looking like a fragile pause and starts looking like a contested settlement sequence. The archive does not prove the operational status of every strike, route, ship count, or inventory claim. It does show that the voices most relevant to the day are no longer treating the dispute as a narrow paperwork problem. They are treating Lebanon, waiver behavior, sanctions credibility, and Hormuz control as linked gates.
 

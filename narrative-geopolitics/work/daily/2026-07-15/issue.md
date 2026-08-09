@@ -34,6 +34,8 @@ Evidence posture: `source-assertion`
 
 Crisis object: Would verified strikes or disruptions across Gulf support nodes prove regional participation rather than mere rhetoric?
 
+Related reality claims: None registered
+
 Several sources discuss strikes, drones, air defenses, tankers, Kuwait, Bahrain, Erbil, Jordan, and other Gulf-linked nodes. Those claims matter because, if supported, they would move the judgment from coercive pressure to a more explicit regional participation threshold.
 
 They are not promoted here as established facts. The useful boundary is narrower: the claims identify exactly what must be checked before public factual use. The next synthesis move is not to repeat every strike claim, but to test whether Gulf support infrastructure is actually becoming the retaliation surface of the Hormuz fight.
@@ -52,6 +54,8 @@ Evidence posture: `bounded-analysis`
 
 Crisis object: Does Iran/Hormuz pressure now drain Ukraine and Europe through weapons, energy, rare earths, and drone inputs?
 
+Related reality claims: None registered
+
 Mercouris keeps a second layer in view. The Iran/Hormuz crisis is not isolated from Ukraine or Europe. In his reading, renewed Middle East escalation drains U.S. weapons inventories, complicates support for Kiev, worsens European energy exposure, and reveals dependence on Chinese drone components and rare-earth supply chains.
 
 That does not displace the day's central ground-power dilemma. It explains why the dilemma matters beyond the Gulf. If the United States cannot cheaply recover passage control, the cost is not only military. It travels through energy, weapons, industrial inputs, and the credibility of Western escalation capacity.
@@ -69,6 +73,8 @@ This remains bounded analysis, not a new controlling fact pattern. The day is st
 Evidence posture: `bounded-analysis`
 
 Crisis object: Can the United States restore Gulf passage on non-Iranian terms without accepting Iranian permission or escalating into ground war?
+
+Related reality claims: None registered
 
 The July 15 source batch does not prove that a ground campaign is underway. It shows the pressure that makes ground talk more likely. If Washington cannot restore commercially tolerable Gulf passage through air and missile pressure, it must either accept a passage regime it does not control, find a political off-ramp, or reach for terrain.
 

@@ -34,6 +34,8 @@ Evidence posture: `bounded-analysis`
 
 Crisis object: Can Washington renegotiate Hormuz terms after Iran frames control as legitimacy and Russia continues advancing in Ukraine?
 
+Related reality claims: None registered
+
 The synthesis should preserve Johnson’s two-source convergence without treating it as proof of Iranian legal position. Its value is analytical: the MOU is no longer neutral text, but a contested projection surface.
 
 This brief is included because it changes how the lead should be read. It does not create a separate factual finding; it gives the reader a second pressure test for the same archive day.
@@ -43,6 +45,8 @@ This brief is included because it changes how the lead should be read. It does n
 Evidence posture: `bounded-analysis`
 
 Crisis object: Can Washington renegotiate Hormuz terms after Iran frames control as legitimacy and Russia continues advancing in Ukraine?
+
+Related reality claims: None registered
 
 Mercouris’s two sources keep Ukraine active: Donbas, Kharkov/Sumy, drone-war failure, and arms-dump claims all point to continuing Western support pressure.
 
@@ -55,6 +59,8 @@ This brief is included because it changes how the lead should be read. It does n
 Evidence posture: `bounded-analysis`
 
 Crisis object: Can Washington renegotiate Hormuz terms after Iran frames control as legitimacy and Russia continues advancing in Ukraine?
+
+Related reality claims: None registered
 
 July 4 is the day the MOU becomes a projection fight. The Johnson sources do the main work: one frames U.S. renegotiation as bait-and-switch, the other treats Iranian pushback as a legitimacy claim rather than a proclamation. Mercouris supplies the parallel Ukraine pressure, where Russian battlefield claims and Ukrainian air-defense weakness keep Western capacity under strain.
 

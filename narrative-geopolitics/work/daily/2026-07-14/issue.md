@@ -1,5 +1,5 @@
 <!-- daily-issue-v1 inputs-sha256: 18dd98cb38c8231891d38b51660fb5f696d3658b58d2765f84522a76346877f4 -->
-<!-- reality-lattice-sha256: 9eaca2fa5fdc5792fa324b58ee7bc097697cbd8696aff5c2e8740b40f26a6f7a -->
+<!-- reality-lattice-sha256: 1520682d4bfceac9461b30a2e8f83fdfda42a80905f9421a2c0f52e204693044 -->
 <!-- Generated file. Edit canonical daily or reality-lattice inputs, then regenerate. -->
 
 Publication: **Narrative Geopolitics — Daily Issue**
@@ -35,6 +35,8 @@ Evidence posture: `source-assertion`
 
 Crisis object: Would independently supported strikes across Gulf facilities move the judgment from participation pressure to open regional war?
 
+Related reality claims: None registered
+
 Several sources describe Iranian attacks on U.S. or Gulf-linked facilities across Bahrain, Kuwait, Oman, Jordan, Qatar, or nearby corridors. The reports are consequential because supported, repeated strikes across that cluster would show that the maritime dispute had become a sustained regional targeting system. They are also precisely the kind of claims that repetition inside adjacent commentary channels cannot verify.
 
 The useful publication move is to name the threshold and the missing evidence together. Target-level location and timing, damage records, interceptor activity, official acknowledgment, independent imagery, and a defensible attribution chain would determine whether the cluster marks open regional warfare or a more limited and noisily narrated sequence. Until that work exists, the issue treats `OPC-20260714-01` as a source assertion and a verification need. It does not convert confident source language into a reported event.
@@ -47,6 +49,8 @@ Evidence posture: `mixed`
 
 Crisis object: Can Yemen/Saudi pressure make Bab al-Mandab part of the same passage-governance contest?
 
+Related reality claims: None registered
+
 The Yemen and Saudi material matters because it could connect Bab al-Mandab to the same governance problem now organizing Hormuz. Escobar presents regional participation as a linked system; Marandi ties pressure on Gulf routes and support nodes to Iranian red lines; Barnes adds Saudi and Israeli political incentives. Together they identify a plausible second transit front in which a local event could alter shipping risk, regional alignment, or the cost of supporting the Gulf campaign.
 
 The archive does not yet possess the event chain needed to make that a finding. It lacks independent confirmation of the alleged Saudi action, the Yemeni response, attribution, repetition, and measurable effects on passage or infrastructure. `OPC-20260714-03` therefore remains gated. The existing Hormuz governance forecast can absorb this as strengthening evidence only if the regional pressure becomes observable; a dramatic claim alone does not widen the forecast.
@@ -58,6 +62,8 @@ The discriminating signal would be continuity rather than spectacle: repeated wa
 Evidence posture: `bounded-analysis`
 
 Crisis object: Has Western rhetoric produced deployable capacity or a settlement-changing threshold in Ukraine?
+
+Related reality claims: None registered
 
 The Russia, NATO, and Ukraine cluster is substantial enough to deserve a brief even though it does not own the day. Ritter, Mercouris, and Helmer describe Russian advantage, Ukrainian political strain, and a widening gap between Western declarations and usable capacity. Their material sustains the older watch that rhetoric and political commitment may be rising faster than deployable capability.
 
@@ -72,6 +78,8 @@ That distinction protects the digest form from becoming a source-counting exerci
 Evidence posture: `mixed`
 
 Crisis object: Can commercially tolerable Gulf passage be restored without accepting Iranian coordination or widening regional costs?
+
+Related reality claims: None registered
 
 July 14 widens the Hormuz question without resolving its hardest factual claims. The archive's strongest judgment is that commercially tolerable passage is being narrated as a regional participation problem rather than a simple contest over whether the waterway is physically open. Gulf facilities, tanker routes, Yemen and Saudi Arabia, Israeli logistics, and American political strain all appear in the batch as possible costs of trying to restore passage without Iranian coordination.
 

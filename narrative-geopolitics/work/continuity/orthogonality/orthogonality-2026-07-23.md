@@ -2,7 +2,7 @@
 
 ## Decision Summary
 
-- Sources: 16; distinct voices: 13; mapped: 6; unmapped: 7
+- Sources: 17; distinct voices: 14; mapped: 6; unmapped: 8
 - Strongest convergence: No material same-day convergence cluster was identified from available titles and synthesis text.
 - Highest collapse risk: none
 - Top counter-pressure gap: No vessel-level or official-maritime counter-pressure is represented in the daily source ledger; maritime threat convergence must not be treated as closure evidence.
@@ -11,10 +11,10 @@
 ## Audit Metadata
 
 - **Date:** `2026-07-23`
-- **Generated:** `2026-07-23T23:40:12.512389+00:00`
-- **Content hash:** `53dd29ddf50754d6`
-- **Sources:** 16
-- **Voices:** 13 (6 mapped, 7 unmapped)
+- **Generated:** `2026-07-24T05:19:03.992568+00:00`
+- **Content hash:** `6f834cbef6494fb8`
+- **Sources:** 17
+- **Voices:** 14 (6 mapped, 8 unmapped)
 
 > Same conclusion plus different mechanism can be orthogonal; same conclusion plus shared lineage is not independent corroboration.
 
@@ -33,13 +33,14 @@
 | `marandi` | regional red line / legitimacy | Daily source set centers on Prof. Mohammad Marandi: Trump Threatens War Crimes; Iran Ready for Him 'NO NEGOTIATIONS': Professor Marandi Says Iran Is Done Talking. | Regime-adjacent signaling may be mistaken for independently verified fact. | SRC-10,SRC-14 | breaking-points, judging-freedom | distinct contribution |
 | `mearsheimer` | structure / security dilemma | Daily source set centers on Prof John Mearsheimer: NOTHING LEFT TO HIT IN IRAN THAT MATTERS, More Damage is Meaningless. | Over-structuring and underweighting agency or local dynamics. | SRC-13 | daniel-davis | distinct contribution |
 | `mercouris` | room / sequence / legitimacy | Daily source set centers on Lavrov Defies Rubio; West Ships Avoid Odessa Belitskoye Falls Dobropilia Collapse; EU Sanctions Bust. | Narrative over-coherence or source-frame smoothing. | SRC-07 | alexander-mercouris | distinct contribution |
+| `pape` | unmapped | Daily source set centers on The Impossible Drone Hunt: Why Reopening the Strait of Hormuz Could Be Far Harder Than Most People Realize. | Temporary daily identity requires human review. | none | escalation-trap | human review required |
 | `parsi` | unmapped | Daily source set centers on TRUMP THREATENS TEHRAN'S POWER PLANTS, IRAN THREATENS U.S. ENERGY ASSETS - w/ Trita Parsi. | Temporary daily identity requires human review. | SRC-16 | mario-nawfal | human review required |
 | `wilkerson` | unmapped | Daily source set centers on Lawrence Wilkerson: Iran War Escalates Toward Global Crisis COL. Lawrence Wilkerson: Iran Has the Upper Hand. | Temporary daily identity requires human review. | SRC-05,SRC-08 | glenn-diesen, judging-freedom | human review required |
 
 ## Analytical Axis Coverage
 
 - `legal-strategic / force feasibility`: barnes
-- `unmapped`: diesen, henningsen, hoh, krainer, macgregor, parsi, wilkerson
+- `unmapped`: diesen, henningsen, hoh, krainer, macgregor, pape, parsi, wilkerson
 - `material capacity / sustainability`: johnson
 - `NATO frontier / escalation threshold`: krapivnik
 - `regional red line / legitimacy`: marandi
@@ -67,15 +68,16 @@
 3. **P2** — hoh: voice has no canonical descriptor Action: assign or review a stable voice identity
 4. **P2** — krainer: voice has no canonical descriptor Action: assign or review a stable voice identity
 5. **P2** — macgregor: voice has no canonical descriptor Action: assign or review a stable voice identity
-6. **P2** — parsi: voice has no canonical descriptor Action: assign or review a stable voice identity
-7. **P2** — wilkerson: voice has no canonical descriptor Action: assign or review a stable voice identity
+6. **P2** — pape: voice has no canonical descriptor Action: assign or review a stable voice identity
+7. **P2** — parsi: voice has no canonical descriptor Action: assign or review a stable voice identity
+8. **P2** — wilkerson: voice has no canonical descriptor Action: assign or review a stable voice identity
 
 ## Missing Counter-Pressure
 
 - No vessel-level or official-maritime counter-pressure is represented in the daily source ledger; maritime threat convergence must not be treated as closure evidence.
 - No independently verified basing, casualty, strike-effect, or infrastructure observations are represented; keep those reports source-attributed.
 - No independently verified force-posture or diplomatic-threshold observation is represented for the Russia/NATO secondary theater.
-- Unmapped voices require human review before their temporary daily contribution is treated as a stable analytical identity: diesen, henningsen, hoh, krainer, macgregor, parsi, wilkerson.
+- Unmapped voices require human review before their temporary daily contribution is treated as a stable analytical identity: diesen, henningsen, hoh, krainer, macgregor, pape, parsi, wilkerson.
 
 ## Recommended Orthogonal Test
 

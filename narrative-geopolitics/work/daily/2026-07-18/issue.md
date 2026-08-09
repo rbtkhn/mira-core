@@ -34,6 +34,8 @@ Evidence posture: `bounded-analysis`
 
 Crisis object: Can U.S. pressure move from airstrikes to terrain-control threats without forcing the wider regional war it seeks to avoid?
 
+Related reality claims: None registered
+
 The secondary Iran story is whether expanded U.S. pressure is drifting toward terrain-control logic. Mercouris raises island or ground-operation speculation; Johnson and Davis pressure-test whether force can produce leverage without exposing U.S. troops and Gulf hosts to a wider retaliation cycle.
 
 This is not yet adopted as an operational fact. Its analytic value is that it names the next coercive threshold. If airstrikes and infrastructure pressure do not restore bargaining leverage, the campaign faces a choice between an off-ramp framed as success and a more dangerous attempt to control terrain, routes, or islands directly.
@@ -49,6 +51,8 @@ That does not mean the next step must be a landing, seizure, or declared ground 
 Evidence posture: `bounded-analysis`
 
 Crisis object: Do Black Sea blockade pressure and Gulf transit pressure reveal the same shift from battlefield movement to governed passage?
+
+Related reality claims: None registered
 
 The Ukraine/Russia material should stay in the issue, but not as the lead. Mercouris's discussion of Odessa, Nikolayev, and Black Sea pressure shows a parallel passage problem: ports and routes are becoming coercive objects there too. Matlock's crisis-management frame adds the warning that great-power systems often underestimate how quickly escalation narrows the room for exit.
 
@@ -67,6 +71,8 @@ The Ukraine story also prevents the Gulf story from becoming too narrow. Western
 Evidence posture: `bounded-analysis`
 
 Crisis object: Can Washington coerce Iran through infrastructure and transit pressure without turning Gulf civilian systems into the battlefield that decides regional participation?
+
+Related reality claims: None registered
 
 The July 18 lead is that the Iran/Hormuz crisis has moved beyond passage through the Strait into the systems that make Gulf participation physically tolerable. Pape's water-infrastructure argument and Parsi's diplomatic warning point to the same trap: Iran can make regional states feel the cost of U.S. escalation, but doing so may convince those states that Tehran, not Washington, is the immediate threat to civilian survival.
 

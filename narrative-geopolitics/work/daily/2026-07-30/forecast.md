@@ -28,7 +28,7 @@ Open forecast hooks whose review date is due on or before this run date:
 
 | Hook ID | Observable claim | Causal mechanism | Probability Band | Review Date | Strengthening evidence | Weakening evidence | Resolution criteria | Principal alternative | Operational Dependency |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| `NG-YYYYMMDD-F01` |  |  |  |  |  |  |  |  | `none` |
+| `NG-20260730-F01` | By `2026-08-06`, diplomatic channels will remain publicly visible while renewed strikes continue, but no durable reciprocal settlement will be implemented. | Force can create pressure and new participants faster than diplomacy can stabilize the sequence, leaving channels open without yet controlling the conflict. | `plausible` | `2026-08-06` | Public negotiation activity, declared terms, back-channel or mediator activity, or official statements showing channels remain open while strikes, threats, or intermittent pressure continue. | A durable pause or settlement with reciprocal implementation, or direct entry by additional actors that displaces diplomacy as an operative channel. | `hit` if channels remain publicly visible while renewed strikes or coercive pressure continue without durable reciprocal settlement by review date; `miss` if a durable reciprocal settlement is implemented or diplomacy disappears as an operative channel; `mixed` if diplomatic contact remains visible but direct actor entry materially changes the sequence; `unresolvable_with_authorized_evidence` if public records cannot establish channel status. | A short escalation pause restores negotiations with durable reciprocal commitments. | `none` |
 
 ## Forecast Quality Gate
 

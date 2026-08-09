@@ -1,5 +1,5 @@
 <!-- daily-issue-v1 inputs-sha256: 94b6f97d2368b38d28564cf0d297109aba59f1597c5ecf363a935ff1af5df69f -->
-<!-- reality-lattice-sha256: 9eaca2fa5fdc5792fa324b58ee7bc097697cbd8696aff5c2e8740b40f26a6f7a -->
+<!-- reality-lattice-sha256: 1520682d4bfceac9461b30a2e8f83fdfda42a80905f9421a2c0f52e204693044 -->
 <!-- Generated file. Edit canonical daily or reality-lattice inputs, then regenerate. -->
 
 Publication: **Narrative Geopolitics — Daily Issue**
@@ -33,6 +33,8 @@ Evidence posture: `bounded-analysis`
 
 Crisis object: Does the source sequence show persistence of a governed-passage contest rather than a simple open-or-closed Strait?
 
+Related reality claims: None registered
+
 The secondary story is continuity. The June 23 through July 9 sequence makes Hormuz difficult to read as a simple open-or-closed question. The better question is whether the old baseline has returned in both practice and political meaning.
 
 This brief supports the lead because it names the falsifier. If passage, pricing, and routing normalize while Iranian supervision and Lebanon linkage lose salience, the burden-of-normalization thesis weakens. If nominal openness coexists with repeated governance disputes, the thesis remains alive.
@@ -44,6 +46,8 @@ This brief supports the lead because it names the falsifier. If passage, pricing
 Evidence posture: `bounded-analysis`
 
 Crisis object: Who governs practical passage through Hormuz, and whether military pressure can restore a depoliticized transit baseline.
+
+Related reality claims: None registered
 
 July 9 is not a new daily escalation note so much as a controlled value-test promotion of the Hormuz transit-governance sequence. The day’s judgment is that Hormuz should be read as a dispute over the burden of proving normalization. Iran does not need to close the Strait completely to keep leverage alive. It only needs to show that passage can remain conditional, supervised, risk-priced, or politically entangled. Washington has the harder burden: it must show that transit has returned to a low-risk, depoliticized baseline.
 

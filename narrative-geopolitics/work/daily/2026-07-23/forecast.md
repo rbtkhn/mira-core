@@ -4,7 +4,7 @@ Date: `2026-07-23`
 
 Status: `live-intake-first`
 
-Forecast rule: state a causal wager, not topic plus outcome. See [labels as analytical interfaces](../method/analytical-interfaces.md).
+Forecast rule: state a causal wager, not topic plus outcome. See [labels as analytical interfaces](../../../method/analytical-interfaces.md).
 
 ## Probability Bands
 
@@ -27,7 +27,8 @@ Open forecast hooks whose review date is due on or before this run date:
 
 | Hook ID | Observable claim | Causal mechanism | Probability Band | Review Date | Strengthening evidence | Weakening evidence | Resolution criteria | Principal alternative | Operational Dependency |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| `NG-YYYYMMDD-F01` |  |  |  |  |  |  |  |  | `none` |
+
+Forecast decision: `no new accountable forecast hook issued`.
 
 ## Forecast Quality Gate
 

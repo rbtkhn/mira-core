@@ -34,6 +34,8 @@ Evidence posture: `bounded-analysis`
 
 Crisis object: Does MOU fragility push the U.S. from managed pause into renewed force posture while Russia hardens its wider deterrent frame?
 
+Related reality claims: None registered
+
 Johnson’s source turns the MOU problem into visible force posture: rejection, surge, and target expansion. These remain source assertions but they define the verification path.
 
 This brief is included because it changes how the lead should be read. It does not create a separate factual finding; it gives the reader a second pressure test for the same archive day.
@@ -43,6 +45,8 @@ This brief is included because it changes how the lead should be read. It does n
 Evidence posture: `bounded-analysis`
 
 Crisis object: Does MOU fragility push the U.S. from managed pause into renewed force posture while Russia hardens its wider deterrent frame?
+
+Related reality claims: None registered
 
 Mearsheimer and Mercouris keep the day from becoming only Hormuz. Their value is to show that the same U.S. strategic reset is being read through Russia and Baltic pressure.
 
@@ -55,6 +59,8 @@ This brief is included because it changes how the lead should be read. It does n
 Evidence posture: `bounded-analysis`
 
 Crisis object: Does MOU fragility push the U.S. from managed pause into renewed force posture while Russia hardens its wider deterrent frame?
+
+Related reality claims: None registered
 
 July 3 marks the MOU becoming less a settlement track than a holding pattern that can be replaced by Plan B. Crooke gives the day its title logic, Johnson supplies the Iran/Hormuz force-posture pressure, and Mearsheimer plus Mercouris widen the frame to Russia, restraint, and deterrence. The issue is not whether every event claim is verified; it is whether the pause is losing its stabilizing function.
 

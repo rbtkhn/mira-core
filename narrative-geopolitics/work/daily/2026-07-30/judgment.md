@@ -28,7 +28,7 @@ Strongest counterevidence or dissent: `Kent presents diplomacy as still availabl
 ## Claim and Forecast Dependencies
 
 - Reality claims: `none`
-- Forecast hooks: `none`
+- Forecast hooks: `NG-20260730-F01`
 - Operational or causal dependencies: `none`
 
 Do not treat repeated source assertions as verified claims. Link only to existing `OPC-*`, `CLM-*`, `NG-*`, or `NG-*-F*` records.

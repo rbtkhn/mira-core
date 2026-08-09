@@ -102,7 +102,7 @@ Declare the reader-facing lineup only after the synthesis, forecast, and operati
 
 | Story ID | Placement | Argument headline | Crisis object | Evidence posture | Source IDs | Voices | Forecast hooks | Operational claims | Selection rationale |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| `NGI-20260730-S01` | `lead` | Force widens the field faster than diplomacy can contain it | US-Iran-regional escalation control | `bounded-analysis` | `SRC-02`, `SRC-06`, `SRC-08` | Freeman, Davis | `none` | `none` | Cross-voice convergence on widening actors, force limits, and diplomacy during war. |
+| `NGI-20260730-S01` | `lead` | Force widens the field faster than diplomacy can contain it | US-Iran-regional escalation control | `bounded-analysis` | `SRC-02`, `SRC-06`, `SRC-08` | Freeman, Davis | `NG-20260730-F01` | `none` | Cross-voice convergence on widening actors, force limits, and diplomacy during war. |
 
 ## Forecast Candidates
 

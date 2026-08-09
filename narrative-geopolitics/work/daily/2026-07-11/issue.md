@@ -33,6 +33,8 @@ Evidence posture: `bounded-analysis`
 
 Crisis object: Does the July 11 Mercouris source shift the day from battlefield movement to strategic materials, helium, sanctions, and air-defense scarcity?
 
+Related reality claims: None registered
+
 Because there is one manifest row, the issue should not pretend to be broader than it is. Mercouris supplies a coherent industrial-pressure reading, and the evidence boundary must stay explicit.
 
 This brief is included because it changes how the lead should be read. It does not create a separate factual finding; it gives the reader a second pressure test for the same archive day.
@@ -44,6 +46,8 @@ This brief is included because it changes how the lead should be read. It does n
 Evidence posture: `bounded-analysis`
 
 Crisis object: Does the July 11 Mercouris source shift the day from battlefield movement to strategic materials, helium, sanctions, and air-defense scarcity?
+
+Related reality claims: None registered
 
 July 11 is intentionally thin and Mercouris-owned. The day’s value is not source diversity; it is the shift from battlefield movement to industrial chokepoints. China helium exports, U.S. sanctions, Russian strike preparation, and Ukrainian air-defense scarcity all point to the same bounded mechanism: war capacity is being decided by inputs as much as by front-line intent.
 

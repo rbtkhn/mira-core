@@ -1,5 +1,5 @@
 <!-- daily-issue-v1 inputs-sha256: 97d1c1e2e46ff91b87a02e09a66557c0d967d6a7257b6b7bb80289f42bc3aba0 -->
-<!-- reality-lattice-sha256: e2134565e2784dcbf97b337648c971a4c151b3732904b491e6dc855565bb9007 -->
+<!-- reality-lattice-sha256: 17e0a5c7c688b728a68300b7287d708ae95ce14b226a8e4ec7bcf85f0bd5af86 -->
 <!-- Generated file. Edit canonical daily or reality-lattice inputs, then regenerate. -->
 
 Publication: **Narrative Geopolitics — Daily Issue**
@@ -34,6 +34,8 @@ Evidence posture: `bounded-analysis`
 
 Crisis object: Can military pressure restore an uncontested transit baseline or credible settlement terms?
 
+Related reality claims: None registered
+
 Across the Hormuz material, a second judgment survives even if the alleged bypass sequence remains contested: additional force has not supplied an uncontested transit baseline or a credible route to settlement. Mearsheimer emphasizes the incentives created when a claimed arrangement is violated. Crooke reads the regional response through legitimacy and resistance. Macgregor argues that proposals for seizure, special operations, or decisive escalation fail the feasibility test.
 
 This is bounded analysis rather than event verification. The voices share a critical view of U.S. strategy and appear in overlapping media environments, so agreement cannot be counted as institutional independence. Their value lies in performing different analytical operations on the same problem. Structure, regional incentive, and force capacity all point toward the absence of a clean end-state, while the exact operating sequence remains unresolved.
@@ -49,6 +51,8 @@ This brief also guards against converting strategic criticism into a prediction 
 Evidence posture: `bounded-analysis`
 
 Crisis object: Did summit language and support promises produce a force-posture change capable of altering battlefield or settlement terms?
+
+Related reality claims: None registered
 
 The NATO and Russia material carries intense language about Patriot production, drone support, possible escalation, and exhausted negotiating trust. Mercouris supplies most of the diplomatic sequence, while Macgregor pressures the practical military assumptions. The cluster warrants continued attention because harder rhetoric and support commitments can eventually alter force posture or settlement expectations.
 
@@ -67,6 +71,8 @@ Keeping this lane brief preserves the purpose of a multi-story issue. Readers ca
 Evidence posture: `verification-contested`
 
 Crisis object: Can commercially tolerable passage occur without Iranian coordination, and did a documented bypass produce a coercive response?
+
+Related reality claims: None registered
 
 The July 10 archive supplies the clearest test yet of the Hormuz governance thesis: an alleged attempt to send vessels through an Oman-side route without Iranian coordination, followed by coercive action and renewed U.S. strikes. If the full sequence occurred as described, nominally open water would still be politically governed because passage outside the claimed permission regime would carry a visible cost.
 

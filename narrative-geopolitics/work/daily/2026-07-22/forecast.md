@@ -4,7 +4,7 @@ Date: `2026-07-22`
 
 Status: `live-intake-first`
 
-Forecast rule: state a causal wager, not topic plus outcome. See [labels as analytical interfaces](../method/analytical-interfaces.md).
+Forecast rule: state a causal wager, not topic plus outcome. See [labels as analytical interfaces](../../../method/analytical-interfaces.md).
 
 ## Probability Bands
 
@@ -27,7 +27,7 @@ Open forecast hooks whose review date is due on or before this run date:
 
 | Hook ID | Observable claim | Causal mechanism | Probability Band | Review Date | Strengthening evidence | Weakening evidence | Resolution criteria | Principal alternative | Operational Dependency |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| `NG-20260722-F01` | Within 14 days, at least one public U.S., Iranian, Saudi, or Yemeni posture change will explicitly link maritime access to infrastructure protection, alliance participation, or security guarantees. | Pressure transfers between carriers, forcing actors to state whether access, infrastructure, and partner defense are one bargaining system. | `likely` | `2026-08-05` | A narrow maritime-security frame returns and actors compartmentalize the files. | New statements or implementation actions explicitly join two or more carriers. | Public posture language or implementation connecting maritime access with infrastructure, alliance, or security guarantees. | Actors maintain separate files without a visible linkage. | `none` |
+| `NG-20260722-F01` | Within 14 days, at least one public U.S., Iranian, Saudi, or Yemeni posture change will explicitly link maritime access to infrastructure protection, alliance participation, or security guarantees. | Pressure transfers between carriers, forcing actors to state whether access, infrastructure, and partner defense are one bargaining system. | `likely` | `2026-08-05` | New statements or implementation actions explicitly join two or more carriers. | A narrow maritime-security frame returns and actors compartmentalize the files. | Public posture language or implementation connecting maritime access with infrastructure, alliance, or security guarantees. | Actors maintain separate files without a visible linkage. | `none` |
 
 ## Forecast Quality Gate
 

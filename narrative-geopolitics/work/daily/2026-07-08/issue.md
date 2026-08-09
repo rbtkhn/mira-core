@@ -1,5 +1,5 @@
 <!-- daily-issue-v1 inputs-sha256: 2341a53b4f8745bb45b0a366b25c7e48af1ec69f612322e2e8978ff1811e82ae -->
-<!-- reality-lattice-sha256: 9eaca2fa5fdc5792fa324b58ee7bc097697cbd8696aff5c2e8740b40f26a6f7a -->
+<!-- reality-lattice-sha256: 1520682d4bfceac9461b30a2e8f83fdfda42a80905f9421a2c0f52e204693044 -->
 <!-- Generated file. Edit canonical daily or reality-lattice inputs, then regenerate. -->
 
 Publication: **Narrative Geopolitics — Daily Issue**
@@ -34,6 +34,8 @@ Evidence posture: `bounded-analysis`
 
 Crisis object: Does renewed bombing restore control or increase economic and political exposure?
 
+Related reality claims: None registered
+
 Davis, Hoh, Barnes, and Pape all pressure-test the U.S. coercion lane. Their shared implication is not that every bombing claim is verified, but that tactical action may worsen the bargaining environment if it fails to restore stable transit. That makes renewed bombing a trap mechanism rather than a simple display of control.
 
 This brief supports the lead by showing why transit governance matters. If force cannot restore ordinary passage, then the issue is not the number of strikes alone. It is whether coercion can produce a usable commercial and political order.
@@ -43,6 +45,8 @@ This brief supports the lead by showing why transit governance matters. If force
 Evidence posture: `bounded-analysis`
 
 Crisis object: Does simultaneous Ukraine/NATO strain reduce U.S. freedom to sustain Iran coercion?
+
+Related reality claims: None registered
 
 Mercouris and Krapivnik keep Ukraine/NATO pressure in the background. Their role is contextual: they show that Washington is not operating from unlimited strategic slack while trying to manage Iran and Hormuz.
 
@@ -55,6 +59,8 @@ This brief should not displace the lead. It matters because cross-theater strain
 Evidence posture: `bounded-analysis`
 
 Crisis object: Whether the postwar Gulf order will operate under Iranian managed passage or under a restored American assumption of free passage without Iranian enforcement authority.
+
+Related reality claims: None registered
 
 July 8 is the cleanest transit-governance day in the early July sequence. The source stack points to a narrower and harder crisis object than general escalation with Iran. The real dispute is who governs actual passage through Hormuz after the war. Washington wants restored transit without fully accepting Iranian management. Iran is treating management of passage as an enforceable floor of the postwar order.
 

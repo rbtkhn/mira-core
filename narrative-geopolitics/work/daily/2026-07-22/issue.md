@@ -1,4 +1,4 @@
-<!-- daily-issue-v1 inputs-sha256: a467a27932d3bdf003802f9cc088f0f949a99aac5245b06dd8a7e0c1ff4aedc6 -->
+<!-- daily-issue-v1 inputs-sha256: 536c072fb38ccc3463a941d9fb1b9a22d5faeb5b47921c1f09d24581fd6eb5b1 -->
 <!-- reality-lattice-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 -->
 <!-- Generated file. Edit canonical daily or reality-lattice inputs, then regenerate. -->
 
@@ -36,6 +36,8 @@ Evidence posture: `bounded-analysis`
 
 Crisis object: Can Washington protect access without multiplying the carriers that make partners and infrastructure targets?
 
+Related reality claims: None registered
+
 The July 22 source batch is best understood as a pressure-carrier system. The immediate danger is not only whether a ship, base, or facility is hit; it is that pressure in one lane forces participation in another. Hormuz and the Red Sea connect maritime access to energy and Saudi exposure. U.S. bases and airspace make Gulf hosts part of the conflict. Threats against infrastructure can then turn a coercive campaign into a civilian and political escalation. The resulting contest is over who can preserve room to exit while still claiming control.
 
 ## Source Ledger
@@ -62,7 +64,7 @@ Forecasts remain accountable to the [canonical daily review](forecast.md) and [c
 
 | Hook | Observable claim | Band | Review date | Strengthening test | Weakening test |
 | --- | --- | --- | --- | --- | --- |
-| `NG-20260722-F01` | Within 14 days, at least one public U.S., Iranian, Saudi, or Yemeni posture change will explicitly link maritime access to infrastructure protection, alliance participation, or security guarantees. | `likely` | `2026-08-05` | A narrow maritime-security frame returns and actors compartmentalize the files. | New statements or implementation actions explicitly join two or more carriers. |
+| `NG-20260722-F01` | Within 14 days, at least one public U.S., Iranian, Saudi, or Yemeni posture change will explicitly link maritime access to infrastructure protection, alliance participation, or security guarantees. | `likely` | `2026-08-05` | New statements or implementation actions explicitly join two or more carriers. | A narrow maritime-security frame returns and actors compartmentalize the files. |
 
 ## Verification Desk
 

@@ -1,4 +1,4 @@
-<!-- daily-issue-v1 inputs-sha256: ebcaebd1b5c54c838d480aa7262dc883efdb10501ee54019577b4f994518f0cf -->
+<!-- daily-issue-v1 inputs-sha256: f21ce2b69aea9a1c07061a920adbf3c58b106967cb7619bb97dde77c34711143 -->
 <!-- reality-lattice-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 -->
 <!-- Generated file. Edit canonical daily or reality-lattice inputs, then regenerate. -->
 
@@ -80,7 +80,9 @@ Only sources used by selected issue stories appear here. See the [complete canon
 
 Forecasts remain accountable to the [canonical daily review](forecast.md) and [central ledger](../../forecasts/forecast-ledger.md).
 
-No selected story carries a forecast hook.
+| Hook | Observable claim | Band | Review date | Strengthening test | Weakening test |
+| --- | --- | --- | --- | --- | --- |
+| `NG-20260730-F01` | By `2026-08-06`, diplomatic channels will remain publicly visible while renewed strikes continue, but no durable reciprocal settlement will be implemented. | `plausible` | `2026-08-06` | Public negotiation activity, declared terms, back-channel or mediator activity, or official statements showing channels remain open while strikes, threats, or intermittent pressure continue. | A durable pause or settlement with reciprocal implementation, or direct entry by additional actors that displaces diplomacy as an operative channel. |
 
 ## Verification Desk
 

@@ -34,6 +34,8 @@ Evidence posture: `bounded-analysis`
 
 Crisis object: Does Iran’s post-funeral mobilization make de-escalation harder while regional settlement proposals compete?
 
+Related reality claims: None registered
+
 Pape’s authored forecast matters because it gives the archive a reviewable timing claim. It should be carried as forecast logic, not as settled destiny.
 
 This brief is included because it changes how the lead should be read. It does not create a separate factual finding; it gives the reader a second pressure test for the same archive day.
@@ -43,6 +45,8 @@ This brief is included because it changes how the lead should be read. It does n
 Evidence posture: `bounded-analysis`
 
 Crisis object: Does Iran’s post-funeral mobilization make de-escalation harder while regional settlement proposals compete?
+
+Related reality claims: None registered
 
 Parsi and Baud offer different settlement imaginations: one warns against an anti-Abraham inversion, the other sees Israel’s push reaching a terminal card.
 
@@ -55,6 +59,8 @@ This brief is included because it changes how the lead should be read. It does n
 Evidence posture: `bounded-analysis`
 
 Crisis object: Does Iran’s post-funeral mobilization make de-escalation harder while regional settlement proposals compete?
+
+Related reality claims: None registered
 
 July 6 is an off-ramp narrowing day. Pape treats Iran’s funeral mobilization as a mechanism for an August shock. Parsi supplies the regional-order alternative, Baud frames Trump and Israel through a final-card lens, and Mercouris keeps Ukraine/NATO pressure alive. The synthesis should hold these together as competing exit theories: settlement redesign, coercive pause, or renewed escalation.
 

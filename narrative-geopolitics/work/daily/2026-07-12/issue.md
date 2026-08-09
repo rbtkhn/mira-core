@@ -34,6 +34,8 @@ Evidence posture: `bounded-analysis`
 
 Crisis object: Does renewed U.S. bombing, Russia/Ukraine danger, and fading Trump-Putin security room indicate closure of diplomatic escape routes?
 
+Related reality claims: None registered
+
 The Weichert source should be used to mark renewed U.S.-Iran coercion, not as independent proof of all strike details.
 
 This brief is included because it changes how the lead should be read. It does not create a separate factual finding; it gives the reader a second pressure test for the same archive day.
@@ -43,6 +45,8 @@ This brief is included because it changes how the lead should be read. It does n
 Evidence posture: `bounded-analysis`
 
 Crisis object: Does renewed U.S. bombing, Russia/Ukraine danger, and fading Trump-Putin security room indicate closure of diplomatic escape routes?
+
+Related reality claims: None registered
 
 Ritter and Mercouris show a second diplomatic narrowing: danger rises while a security bargain looks less available.
 
@@ -55,6 +59,8 @@ This brief is included because it changes how the lead should be read. It does n
 Evidence posture: `bounded-analysis`
 
 Crisis object: Does renewed U.S. bombing, Russia/Ukraine danger, and fading Trump-Putin security room indicate closure of diplomatic escape routes?
+
+Related reality claims: None registered
 
 July 12 is a bridge from settlement hope to renewed bombing. Weichert owns the immediate Iran signal, Ritter keeps Russia/Ukraine danger active, and Mercouris supplies the fading Trump-Putin security-deal reading. The bounded judgment is that diplomatic escape routes are narrowing across both files, even though the archive does not verify every operational claim.
 
