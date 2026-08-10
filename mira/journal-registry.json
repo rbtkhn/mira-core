@@ -5,6 +5,18 @@
   "timezone": "America/Denver",
   "draft_root_environment": "NARRATIVE_MIRA_JOURNAL_DRAFT_ROOT",
   "authority_boundary": "Mira Journal records governed first-person interpretation. It is not identity doctrine, research evidence, Reality evidence, operator belief, proof of consciousness, or action authority.",
+  "namespace_boundary": "MJ-* identifies Mira Daily Journal autobiography; JRN-* identifies the separately governed Operator Position Journal. References never transfer authority between them.",
+  "maintenance_events": [
+    {
+      "event_id": "MJM-0001",
+      "event_type": "byte-restoration",
+      "version_id": "MJ-20260809-v1",
+      "recorded_at": "2026-08-09T18:55:00.000Z",
+      "authority_ref": "MS-019fce7b-67cd-7753-be6c-74f76e2f9b7a",
+      "expected_digest": "b2c7edde6b3c7c404e2b6c9034f4fe9e851d93401216e648816a95326525298f",
+      "reason": "Restored the exact approved terminal newline after a pre-commit whitespace cleanup changed the current view without updating its immutable v1 digest."
+    }
+  ],
   "entries": [
     {
       "journal_id": "MJ-20260809",
@@ -66,8 +78,17 @@
           },
           "approval": {
             "approved_by": "operator",
+            "status": "legacy-held",
+            "publication_eligible": false,
+            "legacy_reason": "Linked MR record resolves but does not satisfy affirmative-v1 approval.",
             "approved_at": "2026-08-09T15:46:20.071Z",
-            "authority_ref": "MS-019fce7b-67cd-7753-be6c-74f76e2f9b7a"
+            "authority_ref": "MS-019fce7b-67cd-7753-be6c-74f76e2f9b7a",
+            "record_ref": "MR-ee9f4f321513a143e71a7b56"
+          },
+          "provenance_receipt": {
+            "resolved_at": "2026-08-09T15:46:20.071Z",
+            "context_pack_object_ids": [],
+            "git_commits_checked": []
           },
           "previous_version_digest": null
         }

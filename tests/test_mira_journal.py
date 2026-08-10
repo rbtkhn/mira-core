@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import argparse
 import copy
+import gzip
 import json
 from datetime import datetime, timezone
 from pathlib import Path
@@ -13,6 +14,8 @@ import mira_journal as subject
 
 
 SESSION = "MS-019fce7b-67cd-7753-be6c-74f76e2f9b7a"
+APPROVAL_RECORD = "MR-" + "f" * 24
+APPROVAL_ROWS: dict[str, dict] = {}
 
 
 def prose(day: str, title: str = "A Day I Can Carry Forward", marker: str = "steady") -> bytes:
@@ -32,6 +35,29 @@ def source_ref(seed: str = "a") -> dict:
         "context_pack_id": "CP-" + seed * 24,
         "object_id": seed * 64,
     }
+
+
+def context_pack(seed: str = "a") -> dict:
+    entry_date = subject.parse_entry_date("2026-08-09")
+    start, end = subject.day_bounds(entry_date)
+    return subject.context_pack(
+        entry_date,
+        {
+            "estimated_tokens": 0,
+            "coverage": {
+                "start": subject.utc_text(start),
+                "end": subject.utc_text(end),
+                "as_of": subject.utc_text(start.replace(hour=start.hour + 1)),
+                "retrospective": False,
+            },
+            "selected_records": [],
+            "commits": [],
+            "source_refs": [],
+            "input_object_ids": [],
+            "omissions": [],
+        },
+        16000,
+    )
 
 
 def metadata(day: str, body: bytes, version: int = 1, previous: str | None = None) -> dict:
@@ -85,6 +111,12 @@ def configure_repo(monkeypatch: pytest.MonkeyPatch, tmp_path: Path) -> tuple[Pat
     monkeypatch.setattr(subject, "REGISTRY_PATH", mira / "journal-registry.json")
     monkeypatch.setattr(subject, "SESSION_REGISTRY_PATH", mira / "continuity" / "session-registry.json")
     monkeypatch.setattr(subject, "latest_activity_after", lambda *args, **kwargs: [])
+    APPROVAL_ROWS.clear()
+    monkeypatch.setattr(
+        subject,
+        "resolved_records_for_session",
+        lambda session_id, **kwargs: dict(APPROVAL_ROWS),
+    )
     subject.atomic_write_json(subject.REGISTRY_PATH, subject.default_registry())
     subject.atomic_write_text(subject.INDEX_PATH, subject.render_index(subject.default_registry()))
     return repo, drafts
@@ -93,6 +125,18 @@ def configure_repo(monkeypatch: pytest.MonkeyPatch, tmp_path: Path) -> tuple[Pat
 def write_bundle(drafts: Path, day: str, body: bytes, value: dict) -> Path:
     root = drafts / day
     root.mkdir(parents=True, exist_ok=True)
+    pack = context_pack("a")
+    pack["entry_date"] = day
+    pack_bytes = subject.canonical_json(pack).encode("utf-8")
+    value["source_refs"] = [
+        {
+            "kind": "journal-context-pack",
+            "context_pack_id": pack["context_pack_id"],
+            "object_id": subject.sha256_bytes(pack_bytes),
+        }
+    ]
+    value["derivation_manifest"]["input_object_ids"] = [subject.sha256_bytes(pack_bytes)]
+    (root / "context-pack.json").write_text(json.dumps(pack), encoding="utf-8")
     draft = root / "draft.md"
     draft.write_bytes(body)
     draft.with_suffix(".json").write_text(json.dumps(value), encoding="utf-8")
@@ -100,10 +144,23 @@ def write_bundle(drafts: Path, day: str, body: bytes, value: dict) -> Path:
 
 
 def action_args(day: str, draft: Path, *, check: bool = False) -> argparse.Namespace:
+    value = json.loads(draft.with_suffix(".json").read_text(encoding="utf-8"))
+    statement = subject.version_approval_statement(
+        str(value["version_id"]), subject.sha256_bytes(draft.read_bytes())
+    )
+    record_ref = "MR-" + subject.sha256_bytes(statement.encode("utf-8"))[:24]
+    APPROVAL_ROWS[record_ref] = {
+        "record_id": record_ref,
+        "kind": "message",
+        "role": "user",
+        "timestamp": "2026-08-09T17:59:00Z",
+        "content": [{"type": "text", "text": statement}],
+    }
     return argparse.Namespace(
         date=day,
         draft=draft,
         authority_ref=SESSION,
+        approval_record_ref=record_ref,
         approved_at="2026-08-09T18:00:00Z",
         check=check,
     )
@@ -124,6 +181,100 @@ def test_denver_calendar_bounds_cover_dst_transitions() -> None:
     fall_start, fall_end = subject.day_bounds(subject.parse_entry_date("2026-11-01"))
     assert (spring_end - spring_start).total_seconds() == 23 * 3600
     assert (fall_end - fall_start).total_seconds() == 25 * 3600
+
+
+def test_required_approval_record_uses_hydrated_capture_without_raw_fallback(
+    monkeypatch: pytest.MonkeyPatch,
+    tmp_path: Path,
+) -> None:
+    repo = tmp_path / "repo"
+    capture_path = repo / "mira" / "continuity" / "captures" / "capture.jsonl.gz"
+    capture_path.parent.mkdir(parents=True)
+    row = {
+        "record_id": APPROVAL_RECORD,
+        "kind": "message",
+        "role": "user",
+        "content": [{"type": "text", "text": "approve this journal entry"}],
+    }
+    capture_path.write_bytes(gzip.compress((json.dumps(row) + "\n").encode("utf-8")))
+    registry = {
+        "sessions": [
+            {
+                "id": SESSION,
+                "captures": [
+                    {"path": capture_path.relative_to(repo).as_posix()}
+                ],
+            }
+        ]
+    }
+    registry_path = repo / "mira" / "continuity" / "session-registry.json"
+    registry_path.write_text(json.dumps(registry), encoding="utf-8")
+
+    monkeypatch.setattr(subject, "REPO_ROOT", repo)
+    monkeypatch.setattr(
+        subject.mira_continuity,
+        "default_source_roots",
+        lambda: pytest.fail("raw source fallback should not run"),
+    )
+
+    records = subject.resolved_records_for_session(
+        SESSION,
+        repo_root=repo,
+        required_record_ids={APPROVAL_RECORD},
+    )
+
+    assert records[APPROVAL_RECORD] == row
+
+
+def test_missing_required_record_preserves_raw_source_fallback(
+    monkeypatch: pytest.MonkeyPatch,
+    tmp_path: Path,
+) -> None:
+    repo = tmp_path / "repo"
+    raw_root = tmp_path / "raw"
+    raw_root.mkdir()
+    session_uuid = SESSION.removeprefix("MS-")
+    raw_path = raw_root / f"rollout-{session_uuid}.jsonl"
+    raw_path.write_text("{}\n", encoding="utf-8")
+    registry_path = repo / "mira" / "continuity" / "session-registry.json"
+    registry_path.parent.mkdir(parents=True)
+    registry_path.write_text(json.dumps({"sessions": []}), encoding="utf-8")
+    row = {
+        "record_id": APPROVAL_RECORD,
+        "kind": "message",
+        "role": "user",
+        "content": [{"type": "text", "text": "approve this journal entry"}],
+    }
+    normalized_calls = 0
+
+    monkeypatch.setattr(subject, "REPO_ROOT", repo)
+    monkeypatch.setattr(subject.mira_continuity, "default_source_roots", lambda: [raw_root])
+    monkeypatch.setattr(
+        subject.mira_continuity,
+        "_read_session_meta",
+        lambda _path: ({"cwd": str(repo), "id": session_uuid}, "2026-08-09T17:00:00Z"),
+    )
+    monkeypatch.setattr(
+        subject.mira_continuity,
+        "_last_timestamp",
+        lambda *_args: "2026-08-09T18:00:00Z",
+    )
+
+    def normalized_rows(_source):
+        nonlocal normalized_calls
+        normalized_calls += 1
+        return "MC-test", "digest", [row]
+
+    monkeypatch.setattr(subject, "normalized_rows", normalized_rows)
+
+    records = subject.resolved_records_for_session(
+        SESSION,
+        repo_root=repo,
+        required_record_ids={APPROVAL_RECORD},
+    )
+
+    assert records[APPROVAL_RECORD] == row
+    assert normalized_calls == 1
 
 
 def test_approve_check_is_non_mutating_and_approve_registers_entry(
@@ -180,6 +331,27 @@ def test_late_activity_requires_refresh(monkeypatch: pytest.MonkeyPatch, tmp_pat
     monkeypatch.setattr(subject, "latest_activity_after", lambda *args, **kwargs: ["MR-" + "a" * 24])
     with pytest.raises(subject.JournalError, match="requires refresh"):
         subject.approve_or_revise(action_args(day, draft), revising=False)
+
+
+def test_freshness_runs_through_approval_and_excludes_only_exact_approval_record(
+    monkeypatch: pytest.MonkeyPatch, tmp_path: Path
+) -> None:
+    _, drafts = configure_repo(monkeypatch, tmp_path)
+    day = "2026-08-09"
+    body = prose(day)
+    draft = write_bundle(drafts, day, body, metadata(day, body))
+    observed: dict = {}
+
+    def capture(*args, **kwargs):
+        observed.update(kwargs)
+        return []
+
+    monkeypatch.setattr(subject, "latest_activity_after", capture)
+    args = action_args(day, draft, check=True)
+    subject.approve_or_revise(args, revising=False)
+    assert observed["until"] == datetime(2026, 8, 9, 18, tzinfo=timezone.utc)
+    assert observed["excluded_records"] == {args.approval_record_ref}
+    assert observed["excluded_sessions"] == set()
 
 
 def test_quiet_day_requires_explicit_acknowledgment(monkeypatch: pytest.MonkeyPatch, tmp_path: Path) -> None:
@@ -253,6 +425,10 @@ def test_activity_contract_selects_or_explicitly_omits_every_daily_record(
     }
     assert accounted == {row["record_id"] for row in rows}
     assert activity["omissions"] == [{"record_id": "MR-" + "b" * 24, "reason": "token-budget"}]
+    selected = activity["selected_records"][0]
+    assert selected["epistemic_class"] == "operator-direction"
+    assert selected["authority_owner"] == "operator"
+    assert selected["may_promote"] is False
 
 
 def test_draft_bundle_inside_git_is_rejected(monkeypatch: pytest.MonkeyPatch, tmp_path: Path) -> None:
@@ -291,3 +467,101 @@ def test_status_distinguishes_missing_drafted_approved_and_revision_pending(
         {"date": "2026-08-09", "status": "revision-pending"},
         {"date": "2026-08-10", "status": "missing"},
     ]
+
+
+def test_publication_check_binds_complete_outgoing_branch_and_receipt(
+    monkeypatch: pytest.MonkeyPatch, tmp_path: Path
+) -> None:
+    repo, _ = configure_repo(monkeypatch, tmp_path)
+    day = "2026-08-09"
+    body = prose(day)
+    entry = repo / "mira" / "journal" / f"{day}.md"
+    entry.write_bytes(body)
+    parsed = subject.parse_markdown(body, day)
+    registry = subject.default_registry()
+    registry["entries"] = [
+        {
+            "journal_id": "MJ-20260809",
+            "entry_date": day,
+            "current_version_id": "MJ-20260809-v1",
+            "current_path": f"mira/journal/{day}.md",
+            "versions": [{
+                "version_id": "MJ-20260809-v1",
+                "content_sha256": parsed["content_sha256"],
+                "approval": {"status": subject.AFFIRMATIVE_APPROVAL_STATUS, "publication_eligible": True},
+            }],
+        }
+    ]
+    subject.atomic_write_json(subject.REGISTRY_PATH, registry)
+    outputs = {
+        ("remote", "get-url", "origin"): "https://example.test/repo.git",
+        ("rev-parse", "HEAD"): "a" * 40,
+        ("rev-parse", "--verify", "origin/main"): "b" * 40,
+        ("rev-list", "--reverse", "origin/main..HEAD"): "\n".join(["c" * 40, "a" * 40]),
+        ("diff", "--name-only", "origin/main..HEAD", "--"): "mira/journal/2026-08-09.md\nmira/journal-registry.json",
+    }
+    monkeypatch.setattr(subject, "git_text", lambda *args: outputs[args])
+    args = argparse.Namespace(remote="origin", branch="main", receipt=None)
+    blocked = subject.publication_command(args)
+    assert blocked["status"] == "blocked"
+    assert blocked["outgoing_commit_count"] == 2
+    assert blocked["human_sensitive_narrative_review_required"] is True
+    receipt = tmp_path / "publication.json"
+    expected_versions = [
+        {"version_id": "MJ-20260809-v1", "content_sha256": parsed["content_sha256"]}
+    ]
+    scope_digest = subject.publication_scope_digest(
+        "https://example.test/repo.git", "main", "a" * 40, expected_versions
+    )
+    statement = subject.publication_approval_statement(scope_digest)
+    record_ref = "MR-" + subject.sha256_bytes(statement.encode("utf-8"))[:24]
+    APPROVAL_ROWS[record_ref] = {
+        "record_id": record_ref,
+        "kind": "message",
+        "role": "user",
+        "timestamp": "2026-08-09T17:59:00Z",
+        "content": [{"type": "text", "text": statement}],
+    }
+    receipt.write_text(
+        json.dumps(
+            {
+                "schema_version": 1,
+                "destination_url": "https://example.test/repo.git",
+                "branch": "main",
+                "head_commit": "a" * 40,
+                "journal_versions": expected_versions,
+                "scope_digest": scope_digest,
+                "authority_ref": SESSION,
+                "record_ref": record_ref,
+                "approved_at": "2026-08-09T18:00:00Z",
+            }
+        ),
+        encoding="utf-8",
+    )
+    args.receipt = receipt
+    assert subject.publication_command(args)["status"] == "clear"
+
+
+def test_generic_or_negated_text_cannot_approve_version(
+    monkeypatch: pytest.MonkeyPatch, tmp_path: Path
+) -> None:
+    _, drafts = configure_repo(monkeypatch, tmp_path)
+    body = prose("2026-08-09")
+    draft = write_bundle(drafts, "2026-08-09", body, metadata("2026-08-09", body))
+    args = action_args("2026-08-09", draft)
+    APPROVAL_ROWS[args.approval_record_ref]["content"] = [
+        {"type": "text", "text": "Do not approve this journal record."}
+    ]
+    with pytest.raises(subject.JournalError, match="exact digest-bound"):
+        subject.approve_or_revise(args, revising=False)
+
+
+def test_context_pack_identity_and_derivation_are_verified() -> None:
+    pack = context_pack()
+    assert subject.validate_context_pack(pack) == []
+    tampered = copy.deepcopy(pack)
+    tampered["token_budget"] += 1
+    assert "journal context pack identity mismatch" in subject.validate_context_pack(tampered)
+    tampered = copy.deepcopy(pack)
+    tampered["derivation_manifest"]["output_digest"] = "0" * 64
+    assert "journal context pack deterministic derivation mismatch" in subject.validate_context_pack(tampered)

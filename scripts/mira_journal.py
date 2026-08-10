@@ -9,7 +9,7 @@ import os
 import re
 import subprocess
 import sys
-from datetime import date, datetime, time, timezone
+from datetime import date, datetime, time, timedelta, timezone
 from pathlib import Path
 from typing import Any, Iterable
 from zoneinfo import ZoneInfo
@@ -39,12 +39,27 @@ CAPTURE_ID_RE = re.compile(r"^MC-[0-9a-f]{24}$")
 RECORD_ID_RE = re.compile(r"^MR-[0-9a-f]{24}$")
 SHA256_RE = re.compile(r"^[0-9a-f]{64}$")
 DERIVATION_ID_RE = re.compile(r"^DRV-[0-9a-f]{24}$")
+MAINTENANCE_ID_RE = re.compile(r"^MJM-[0-9]{4}$")
+AFFIRMATIVE_APPROVAL_STATUS = "affirmative-v1"
+LEGACY_HELD_STATUS = "legacy-held"
+EPISTEMIC_CLASSES = {
+    "operator-direction",
+    "agent-interpretation",
+    "tool-observation",
+    "repository-event",
+    "prior-journal-reflection",
+    "unresolved-material",
+}
 TITLE_RE = re.compile(r"^# (?P<date>\d{4}-\d{2}-\d{2})\s+[—-]\s+(?P<title>[^\r\n]+)\s*$")
 WORD_RE = re.compile(r"\b[\w’'-]+\b", re.UNICODE)
 FIRST_PERSON_RE = re.compile(r"\b(?:I|me|my|mine|myself|we|our|ours)\b", re.IGNORECASE)
 AUTHORITY_BOUNDARY = (
     "Mira Journal records governed first-person interpretation. It is not identity doctrine, "
     "research evidence, Reality evidence, operator belief, proof of consciousness, or action authority."
+)
+NAMESPACE_BOUNDARY = (
+    "MJ-* identifies Mira Daily Journal autobiography; JRN-* identifies the separately governed "
+    "Operator Position Journal. References never transfer authority between them."
 )
 
 
@@ -58,6 +73,29 @@ def canonical_json(value: Any) -> str:
 
 def pretty_json(value: Any) -> str:
     return json.dumps(value, ensure_ascii=False, indent=2, sort_keys=False) + "\n"
+
+
+def version_approval_statement(version_id: str, content_digest: str) -> str:
+    return f"Approve Mira Journal version {version_id} with digest {content_digest}."
+
+
+def publication_scope_digest(
+    destination_url: str,
+    branch: str,
+    head_commit: str,
+    journal_versions: list[dict[str, str]],
+) -> str:
+    scope = {
+        "destination_url": destination_url,
+        "branch": branch,
+        "head_commit": head_commit,
+        "journal_versions": journal_versions,
+    }
+    return sha256_bytes(canonical_json(scope).encode("utf-8"))
+
+
+def publication_approval_statement(scope_digest: str) -> str:
+    return f"Approve Mira Journal publication scope {scope_digest}."
 
 
 def sha256_bytes(value: bytes) -> str:
@@ -107,6 +145,8 @@ def default_registry() -> dict[str, Any]:
         "timezone": TIMEZONE_NAME,
         "draft_root_environment": DRAFT_ROOT_ENV,
         "authority_boundary": AUTHORITY_BOUNDARY,
+        "namespace_boundary": NAMESPACE_BOUNDARY,
+        "maintenance_events": [],
         "entries": [],
     }
 
@@ -273,6 +313,79 @@ def raw_records_for_session(session_id: str) -> set[str]:
     return available
 
 
+def resolved_records_for_session(
+    session_id: str,
+    *,
+    repo_root: Path = REPO_ROOT,
+    required_record_ids: set[str] | None = None,
+) -> dict[str, dict[str, Any]]:
+    records: dict[str, dict[str, Any]] = {}
+    registry_path = repo_root / "mira" / "continuity" / "session-registry.json"
+    if registry_path.is_file():
+        try:
+            registry = load_json(registry_path)
+        except JournalError:
+            registry = {}
+        for session in registry.get("sessions", []):
+            if not isinstance(session, dict) or session.get("id") != session_id:
+                continue
+            for capture in session.get("captures", []):
+                if not isinstance(capture, dict):
+                    continue
+                path = repo_root / str(capture.get("path", ""))
+                if not path.is_file():
+                    continue
+                try:
+                    rows = [
+                        json.loads(line)
+                        for line in gzip.decompress(path.read_bytes()).splitlines()
+                    ]
+                except (OSError, json.JSONDecodeError):
+                    continue
+                records.update(
+                    {
+                        str(row.get("record_id", "")): row
+                        for row in rows
+                        if isinstance(row, dict)
+                        and RECORD_ID_RE.fullmatch(str(row.get("record_id", "")))
+                    }
+                )
+    if required_record_ids and required_record_ids <= records.keys():
+        return records
+    if repo_root.resolve() == REPO_ROOT.resolve():
+        session_uuid = session_id.removeprefix("MS-")
+        for root in mira_continuity.default_source_roots():
+            if not root.is_dir():
+                continue
+            for path in root.rglob(f"*{session_uuid}*.jsonl"):
+                meta_result = mira_continuity._read_session_meta(path)
+                if meta_result is None:
+                    continue
+                meta, top_timestamp = meta_result
+                if mira_continuity.canonical_path(str(meta.get("cwd", ""))) != mira_continuity.canonical_path(REPO_ROOT.resolve()):
+                    continue
+                source = mira_continuity.SessionSource(
+                    session_uuid=session_uuid,
+                    started_at=mira_continuity.normalize_timestamp(meta.get("timestamp") or top_timestamp),
+                    last_observed_at=mira_continuity._last_timestamp(path, str(top_timestamp)),
+                    cwd="$REPO_ROOT",
+                    source_kind=mira_continuity._source_kind(meta.get("source")),
+                    source_class=mira_continuity.source_class(path),
+                    source_name=path.name,
+                    path=path,
+                )
+                _, _, rows = normalized_rows(source)
+                records.update(
+                    {
+                        str(row.get("record_id", "")): row
+                        for row in rows
+                        if isinstance(row, dict)
+                        and RECORD_ID_RE.fullmatch(str(row.get("record_id", "")))
+                    }
+                )
+    return records
+
+
 def normalized_rows(source: mira_continuity.SessionSource) -> tuple[str, str, list[dict[str, Any]]]:
     capture_id, normalized, compressed, _ = mira_continuity.normalize_capture(source)
     rows = [json.loads(line) for line in normalized.splitlines()]
@@ -289,6 +402,29 @@ def row_text(row: dict[str, Any]) -> str:
     if row.get("kind") == "operation":
         return str(row.get("event", ""))
     return canonical_json({key: value for key, value in row.items() if key not in {"schema_version"}})
+
+
+def epistemic_metadata(row: dict[str, Any]) -> dict[str, Any]:
+    kind = str(row.get("kind", ""))
+    role = str(row.get("role", ""))
+    text = row_text(row)
+    if role == "user":
+        epistemic_class, authority_owner = "operator-direction", "operator"
+    elif role == "assistant":
+        epistemic_class, authority_owner = "agent-interpretation", "agent-session"
+    elif kind in {"tool_result", "operation"}:
+        epistemic_class, authority_owner = "tool-observation", "tool-runtime"
+    else:
+        epistemic_class, authority_owner = "unresolved-material", "unknown"
+    if "# Mira Journal" in text or re.search(r"\bMJ-\d{8}(?:-v\d+)?\b", text):
+        epistemic_class, authority_owner = "prior-journal-reflection", "mira-daily-journal"
+    return {
+        "epistemic_class": epistemic_class,
+        "authority_owner": authority_owner,
+        "canonicality": "observed-session-record",
+        "may_support_reflection": True,
+        "may_promote": False,
+    }
 
 
 def git_commits(start: datetime, end: datetime) -> list[dict[str, str]]:
@@ -365,6 +501,7 @@ def collect_activity(
                 "kind": row.get("kind"),
                 "role": row.get("role"),
                 "text": row_text(row),
+                **epistemic_metadata(row),
             }
         if selected_ids:
             source_refs[(source.session_id, capture_id)] = {
@@ -394,6 +531,16 @@ def collect_activity(
         if record_ids:
             bounded_source_refs.append({**ref, "record_ids": record_ids})
     commits = git_commits(start, cutoff)
+    for commit in commits:
+        commit.update(
+            {
+                "epistemic_class": "repository-event",
+                "authority_owner": "git-history",
+                "canonicality": "observed-commit",
+                "may_support_reflection": True,
+                "may_promote": False,
+            }
+        )
     git_refs = [
         {"kind": "git-commit", "commit": row["commit"], "timestamp": row["timestamp"]}
         for row in commits
@@ -449,6 +596,84 @@ def context_pack(entry_date: date, activity: dict[str, Any], token_budget: int) 
             "evaluation_refs": [],
         },
     }
+
+
+def validate_context_pack(value: dict[str, Any]) -> list[str]:
+    failures: list[str] = []
+    if value.get("schema_version") != SCHEMA_VERSION or value.get("compiler_version") != CONTEXT_VERSION:
+        failures.append("journal context pack schema or compiler mismatch")
+    if value.get("authority_boundary") != AUTHORITY_BOUNDARY:
+        failures.append("journal context pack authority boundary mismatch")
+    required = {
+        "entry_date", "timezone", "token_budget", "estimated_tokens", "coverage",
+        "selected_records", "commits", "source_refs", "omissions", "context_pack_id",
+        "derivation_manifest",
+    }
+    missing = sorted(required - value.keys())
+    if missing:
+        failures.append(f"journal context pack missing fields: {', '.join(missing)}")
+    core = {
+        key: item
+        for key, item in value.items()
+        if key not in {"context_pack_id", "derivation_manifest"}
+    }
+    core_digest = sha256_bytes(canonical_json(core).encode("utf-8"))
+    expected_pack_id = "CP-" + core_digest[:24]
+    if value.get("context_pack_id") != expected_pack_id:
+        failures.append("journal context pack identity mismatch")
+    coverage = value.get("coverage")
+    if not isinstance(coverage, dict) or not {"start", "end", "as_of", "retrospective"} <= coverage.keys():
+        failures.append("journal context pack coverage is incomplete")
+    if not isinstance(value.get("token_budget"), int) or not isinstance(value.get("estimated_tokens"), int):
+        failures.append("journal context pack token accounting is malformed")
+    elif not 0 <= value["estimated_tokens"] <= value["token_budget"]:
+        failures.append("journal context pack token accounting is inconsistent")
+    for row in value.get("selected_records", []):
+        if not isinstance(row, dict):
+            failures.append("journal context selected record must be an object")
+            continue
+        if row.get("epistemic_class") not in EPISTEMIC_CLASSES:
+            failures.append("journal context record lacks epistemic class")
+        if not isinstance(row.get("authority_owner"), str) or not row.get("authority_owner"):
+            failures.append("journal context record lacks authority owner")
+        if row.get("may_promote") is not False:
+            failures.append("journal context record may not carry promotion authority")
+    for commit in value.get("commits", []):
+        if not isinstance(commit, dict) or commit.get("epistemic_class") != "repository-event":
+            failures.append("journal context commit lacks repository-event classification")
+        elif commit.get("may_promote") is not False:
+            failures.append("journal context commit may not carry promotion authority")
+    input_ids: set[str] = set()
+    for ref in value.get("source_refs", []):
+        if not isinstance(ref, dict):
+            failures.append("journal context source reference must be an object")
+            continue
+        if ref.get("kind") == "mira-session-capture" and SHA256_RE.fullmatch(str(ref.get("object_id", ""))):
+            input_ids.add(str(ref["object_id"]))
+        elif ref.get("kind") == "git-commit" and re.fullmatch(r"[0-9a-f]{40}", str(ref.get("commit", ""))):
+            input_ids.add(f"git:{ref['commit']}")
+        else:
+            failures.append("journal context source reference is malformed")
+    derivation = value.get("derivation_manifest")
+    if not isinstance(derivation, dict):
+        failures.append("journal context pack lacks deterministic derivation")
+    else:
+        expected_derivation_id = "DRV-" + sha256_bytes(
+            canonical_json([expected_pack_id, sorted(input_ids)]).encode("utf-8")
+        )[:24]
+        if (
+            derivation.get("schema_version") != SCHEMA_VERSION
+            or derivation.get("transformation_type") != "deterministic-mira-journal-context-compilation"
+            or derivation.get("deterministic") is not True
+            or derivation.get("producer") != {"kind": "tool", "id": CONTEXT_VERSION}
+            or derivation.get("input_object_ids") != sorted(input_ids)
+            or derivation.get("output_digest") != core_digest
+            or derivation.get("derivation_id") != expected_derivation_id
+            or derivation.get("prompt_digest") is not None
+            or derivation.get("evaluation_refs") != []
+        ):
+            failures.append("journal context pack deterministic derivation mismatch")
+    return failures
 
 
 def draft_contract(entry_date: date, pack: dict[str, Any]) -> dict[str, Any]:
@@ -550,8 +775,11 @@ def validate_derivation(value: Any, *, expected_digest: str, expected_inputs: se
         failures.append("journal derivation output digest mismatch")
     if not SHA256_RE.fullmatch(str(value.get("prompt_digest", ""))):
         failures.append("journal derivation requires a prompt digest")
-    if not isinstance(value.get("evaluation_refs"), list):
+    evaluation_refs = value.get("evaluation_refs")
+    if not isinstance(evaluation_refs, list):
         failures.append("journal derivation evaluation_refs must be a list")
+    elif evaluation_refs:
+        failures.append("journal derivation contains unresolved evaluation references")
     return failures
 
 
@@ -637,6 +865,33 @@ def validate_registry(
         failures.append("journal registry status or timezone mismatch")
     if registry.get("authority_boundary") != AUTHORITY_BOUNDARY:
         failures.append("journal authority boundary mismatch")
+    if registry.get("namespace_boundary") != NAMESPACE_BOUNDARY:
+        failures.append("journal namespace boundary mismatch")
+    maintenance_events = registry.get("maintenance_events")
+    if not isinstance(maintenance_events, list):
+        failures.append("journal maintenance_events must be a list")
+        maintenance_events = []
+    seen_maintenance: set[str] = set()
+    for event in maintenance_events:
+        if not isinstance(event, dict):
+            failures.append("journal maintenance event must be an object")
+            continue
+        event_id = str(event.get("event_id", ""))
+        if not MAINTENANCE_ID_RE.fullmatch(event_id) or event_id in seen_maintenance:
+            failures.append(f"invalid or duplicate journal maintenance event: {event_id}")
+        seen_maintenance.add(event_id)
+        if event.get("event_type") not in {"byte-restoration", "metadata-correction"}:
+            failures.append(f"unsupported journal maintenance event type: {event_id}")
+        if not VERSION_ID_RE.fullmatch(str(event.get("version_id", ""))):
+            failures.append(f"malformed journal maintenance version: {event_id}")
+        if not SHA256_RE.fullmatch(str(event.get("expected_digest", ""))):
+            failures.append(f"malformed journal maintenance digest: {event_id}")
+        if not SESSION_ID_RE.fullmatch(str(event.get("authority_ref", ""))):
+            failures.append(f"malformed journal maintenance authority: {event_id}")
+        try:
+            parse_timestamp(str(event.get("recorded_at", "")), label="maintenance recorded_at")
+        except JournalError:
+            failures.append(f"invalid journal maintenance timestamp: {event_id}")
     entries = registry.get("entries")
     if not isinstance(entries, list):
         return failures + ["journal entries must be a list"]
@@ -680,6 +935,70 @@ def validate_registry(
                     failures.append(f"journal version has invalid approval time: {expected_version}")
                 if not SESSION_ID_RE.fullmatch(str(approval.get("authority_ref", ""))):
                     failures.append(f"journal version has malformed authority reference: {expected_version}")
+                authority_ref = str(approval.get("authority_ref", ""))
+                approval_record_ref = str(approval.get("record_ref", ""))
+                if not RECORD_ID_RE.fullmatch(approval_record_ref):
+                    failures.append(f"journal version lacks exact operator approval record: {expected_version}")
+                else:
+                    authority_records = resolved_records_for_session(
+                        authority_ref,
+                        repo_root=repo_root,
+                        required_record_ids={approval_record_ref},
+                    )
+                    approval_row = authority_records.get(approval_record_ref)
+                    if approval_row is None:
+                        failures.append(f"journal version has unresolved operator approval record: {expected_version}")
+                    else:
+                        approval_text = row_text(approval_row)
+                        approval_status = approval.get("status")
+                        publication_eligible = approval.get("publication_eligible")
+                        if approval_status == AFFIRMATIVE_APPROVAL_STATUS:
+                            expected_statement = version_approval_statement(
+                                expected_version, str(version.get("content_sha256", ""))
+                            )
+                            if approval_row.get("role") != "user" or approval_text.strip() != expected_statement:
+                                failures.append(f"journal approval record is not the exact digest-bound instruction: {expected_version}")
+                            if publication_eligible is not True:
+                                failures.append(f"affirmative journal version is not publication eligible: {expected_version}")
+                        elif approval_status == LEGACY_HELD_STATUS:
+                            if approval_row.get("role") != "user" or publication_eligible is not False:
+                                failures.append(f"legacy-held journal approval boundary is malformed: {expected_version}")
+                        else:
+                            failures.append(f"journal version has unsupported approval status: {expected_version}")
+                        try:
+                            record_time = parse_timestamp(str(approval_row.get("timestamp", "")), label="approval record timestamp")
+                            approved_time = parse_timestamp(str(approval.get("approved_at", "")), label="approved_at")
+                            if record_time > approved_time:
+                                failures.append(f"journal approval predates its authority record: {expected_version}")
+                        except JournalError:
+                            failures.append(f"journal approval record has invalid timestamp: {expected_version}")
+                try:
+                    authored_time = parse_timestamp(str(version.get("authored_at", "")), label="authored_at")
+                    approved_time = parse_timestamp(str(approval.get("approved_at", "")), label="approved_at")
+                    if approved_time < authored_time:
+                        failures.append(f"journal approval predates draft authorship: {expected_version}")
+                except JournalError:
+                    failures.append(f"journal version has invalid authorship time: {expected_version}")
+            provenance_receipt = version.get("provenance_receipt")
+            if not isinstance(provenance_receipt, dict):
+                failures.append(f"journal version lacks provenance receipt: {expected_version}")
+            else:
+                context_ids = provenance_receipt.get("context_pack_object_ids")
+                if not isinstance(context_ids, list) or any(
+                    not SHA256_RE.fullmatch(str(item)) for item in context_ids
+                ):
+                    failures.append(f"journal version has malformed context-pack receipt: {expected_version}")
+                elif approval.get("status") == AFFIRMATIVE_APPROVAL_STATUS and not context_ids:
+                    failures.append(f"affirmative journal version lacks context-pack provenance: {expected_version}")
+                git_checked = provenance_receipt.get("git_commits_checked")
+                if not isinstance(git_checked, list) or any(
+                    not re.fullmatch(r"[0-9a-f]{40}", str(item)) for item in git_checked
+                ):
+                    failures.append(f"journal version has malformed Git provenance receipt: {expected_version}")
+                try:
+                    parse_timestamp(str(provenance_receipt.get("resolved_at", "")), label="provenance resolved_at")
+                except JournalError:
+                    failures.append(f"journal version has invalid provenance receipt time: {expected_version}")
             inputs, source_failures = source_input_ids(version.get("source_refs"))
             failures.extend(f"{expected_version}: {item}" for item in source_failures)
             for ref in version.get("source_refs", []):
@@ -796,10 +1115,12 @@ def latest_activity_after(
     *,
     until: datetime,
     excluded_sessions: set[str],
+    excluded_records: set[str] | None = None,
 ) -> list[str]:
     _, end = day_bounds(entry_date)
     cutoff = min(until, end)
     latest: list[str] = []
+    excluded_records = excluded_records or set()
     for source in session_sources_since(after):
         if source.session_id in excluded_sessions:
             continue
@@ -819,8 +1140,13 @@ def latest_activity_after(
                 timestamp = parse_timestamp(timestamp_text, label="session record timestamp")
             except JournalError:
                 continue
-            if after < timestamp < cutoff and RECORD_ID_RE.fullmatch(str(row.get("record_id", ""))):
-                latest.append(str(row["record_id"]))
+            record_id = str(row.get("record_id", ""))
+            if (
+                after < timestamp <= cutoff
+                and RECORD_ID_RE.fullmatch(record_id)
+                and record_id not in excluded_records
+            ):
+                latest.append(record_id)
     latest.extend(f"git:{row['commit']}" for row in git_commits(after, cutoff))
     return sorted(set(latest))
 
@@ -848,8 +1174,10 @@ def normalized_version(
     expected_date: date,
     expected_number: int,
     authority_ref: str,
+    approval_record_ref: str,
     approved_at: str,
     previous_digest: str | None,
+    draft_directory: Path,
 ) -> dict[str, Any]:
     entry_date = expected_date.isoformat()
     parsed = parse_markdown(body, entry_date)
@@ -877,6 +1205,17 @@ def normalized_version(
     inputs, source_failures = source_input_ids(metadata.get("source_refs"))
     if source_failures:
         raise JournalError("; ".join(source_failures))
+    for ref in metadata.get("source_refs", []):
+        if not isinstance(ref, dict) or ref.get("kind") != "git-commit":
+            continue
+        result = subprocess.run(
+            ["git", "cat-file", "-e", f"{ref.get('commit')}^{{commit}}"],
+            cwd=REPO_ROOT,
+            capture_output=True,
+            check=False,
+        )
+        if result.returncode:
+            raise JournalError(f"journal Git source does not resolve: {ref.get('commit')}")
     derivation_failures = validate_derivation(metadata.get("derivation_manifest"), expected_digest=parsed["content_sha256"], expected_inputs=inputs)
     if derivation_failures:
         raise JournalError("; ".join(derivation_failures))
@@ -884,15 +1223,52 @@ def normalized_version(
         raise JournalError("draft previous-version digest mismatch")
     if not SESSION_ID_RE.fullmatch(authority_ref):
         raise JournalError("operator authority reference must be an MS session ID")
-    parse_timestamp(approved_at, label="approved_at")
+    if not RECORD_ID_RE.fullmatch(approval_record_ref):
+        raise JournalError("operator approval requires an exact MR record reference")
+    approval_records = resolved_records_for_session(
+        authority_ref,
+        required_record_ids={approval_record_ref},
+    )
+    approval_row = approval_records.get(approval_record_ref)
+    if approval_row is None:
+        raise JournalError("operator approval record does not resolve")
+    expected_approval = version_approval_statement(expected_version, parsed["content_sha256"])
+    if approval_row.get("role") != "user" or row_text(approval_row).strip() != expected_approval:
+        raise JournalError("operator approval record is not the exact digest-bound instruction")
+    approved_time = parse_timestamp(approved_at, label="approved_at")
     authored_at = parse_timestamp(str(metadata.get("authored_at", "")), label="authored_at")
+    if approved_time < authored_at:
+        raise JournalError("approved_at precedes draft authorship")
+    if approved_time > datetime.now(timezone.utc).replace(microsecond=0) + timedelta(minutes=5):
+        raise JournalError("approved_at is implausibly in the future")
+    approval_record_time = parse_timestamp(str(approval_row.get("timestamp", "")), label="approval record timestamp")
+    if approval_record_time > approved_time:
+        raise JournalError("approved_at precedes the approval record")
+    context_pack_ids = []
+    for ref in metadata.get("source_refs", []):
+        if not isinstance(ref, dict) or ref.get("kind") != "journal-context-pack":
+            continue
+        context_path = draft_directory / "context-pack.json"
+        if not context_path.is_file():
+            raise JournalError("journal context-pack source does not resolve")
+        context_value = load_json(context_path)
+        context_failures = validate_context_pack(context_value)
+        if context_failures:
+            raise JournalError("; ".join(context_failures))
+        context_bytes = canonical_json(context_value).encode("utf-8")
+        if context_value.get("context_pack_id") != ref.get("context_pack_id") or sha256_bytes(context_bytes) != ref.get("object_id"):
+            raise JournalError("journal context-pack source digest mismatch")
+        context_pack_ids.append(str(ref["object_id"]))
+    if not context_pack_ids:
+        raise JournalError("journal draft must resolve its context pack")
     if authored_at < as_of:
         raise JournalError("draft authored_at precedes its context cutoff")
     late = latest_activity_after(
         expected_date,
         as_of,
-        until=authored_at,
-        excluded_sessions={str(author.get("session_id")), authority_ref},
+        until=approved_time,
+        excluded_sessions={str(author.get("session_id"))} - {authority_ref},
+        excluded_records={approval_record_ref},
     )
     if late:
         raise JournalError(f"draft requires refresh for {len(late)} later activity record(s)")
@@ -909,7 +1285,23 @@ def normalized_version(
         "limited_activity_acknowledged": bool(metadata.get("limited_activity_acknowledged")),
         "source_refs": copy.deepcopy(metadata.get("source_refs")),
         "derivation_manifest": copy.deepcopy(metadata.get("derivation_manifest")),
-        "approval": {"approved_by": "operator", "approved_at": approved_at, "authority_ref": authority_ref},
+        "approval": {
+            "approved_by": "operator",
+            "status": AFFIRMATIVE_APPROVAL_STATUS,
+            "publication_eligible": True,
+            "approved_at": approved_at,
+            "authority_ref": authority_ref,
+            "record_ref": approval_record_ref,
+        },
+        "provenance_receipt": {
+            "resolved_at": approved_at,
+            "context_pack_object_ids": sorted(context_pack_ids),
+            "git_commits_checked": sorted(
+                str(ref["commit"])
+                for ref in metadata.get("source_refs", [])
+                if isinstance(ref, dict) and ref.get("kind") == "git-commit"
+            ),
+        },
         "previous_version_digest": previous_digest,
     }
 
@@ -991,8 +1383,10 @@ def approve_or_revise(args: argparse.Namespace, *, revising: bool) -> dict[str, 
         expected_date=entry_date,
         expected_number=number,
         authority_ref=args.authority_ref,
+        approval_record_ref=args.approval_record_ref,
         approved_at=approved_at,
         previous_digest=previous,
+        draft_directory=args.draft.expanduser().resolve().parent,
     )
     updated = copy.deepcopy(registry)
     updated_entry = next((item for item in updated.get("entries", []) if item.get("journal_id") == journal_id(entry_date)), None)
@@ -1062,6 +1456,156 @@ def command_validate(_: argparse.Namespace) -> dict[str, Any]:
     return {"status": "passed" if not failures else "failed", "failures": failures}
 
 
+def git_text(*arguments: str) -> str:
+    result = subprocess.run(
+        ["git", *arguments],
+        cwd=REPO_ROOT,
+        text=True,
+        encoding="utf-8",
+        errors="replace",
+        capture_output=True,
+        check=False,
+    )
+    if result.returncode:
+        raise JournalError(f"Git inspection failed: {' '.join(arguments)}")
+    return result.stdout.strip()
+
+
+def publication_command(args: argparse.Namespace) -> dict[str, Any]:
+    remote_url = git_text("remote", "get-url", args.remote)
+    destination_ref = f"{args.remote}/{args.branch}"
+    head = git_text("rev-parse", "HEAD")
+    git_text("rev-parse", "--verify", destination_ref)
+    commits = [
+        line
+        for line in git_text("rev-list", "--reverse", f"{destination_ref}..HEAD").splitlines()
+        if line
+    ]
+    paths = [
+        line
+        for line in git_text("diff", "--name-only", f"{destination_ref}..HEAD", "--").splitlines()
+        if line
+    ]
+    registry = load_registry()
+    journal_changed = any(
+        path == "mira/journal-registry.json"
+        or path == "mira/journal.md"
+        or path.startswith("mira/journal/")
+        for path in paths
+    )
+    versions: list[dict[str, Any]] = []
+    findings: list[dict[str, str]] = []
+    if journal_changed:
+        for entry in registry.get("entries", []):
+            current = entry["versions"][-1]
+            versions.append(
+                {
+                    "journal_id": entry["journal_id"],
+                    "version_id": current["version_id"],
+                    "content_sha256": current["content_sha256"],
+                    "path": entry["current_path"],
+                }
+            )
+            entry_text = (REPO_ROOT / entry["current_path"]).read_text(encoding="utf-8")
+            findings.extend(
+                {
+                    "version_id": current["version_id"],
+                    "kind": "privacy-detector",
+                    "finding": item,
+                }
+                for item in privacy_failures(entry_text)
+            )
+            findings.append(
+                {
+                    "version_id": current["version_id"],
+                    "kind": "human-review-required",
+                    "finding": "Approved autobiographical prose requires destination-specific personal-name and sensitive-narrative review.",
+                }
+            )
+    receipt_valid = False
+    receipt_failures: list[str] = []
+    if args.receipt:
+        receipt_path = args.receipt.expanduser().resolve()
+        try:
+            receipt_path.relative_to(REPO_ROOT.resolve())
+        except ValueError:
+            pass
+        else:
+            receipt_failures.append("publication receipt must remain outside Git")
+        if not receipt_failures:
+            receipt = load_json(receipt_path)
+            expected_versions = [
+                {
+                    "version_id": item["version_id"],
+                    "content_sha256": item["content_sha256"],
+                }
+                for item in versions
+            ]
+            if receipt.get("schema_version") != 1:
+                receipt_failures.append("publication receipt schema mismatch")
+            if receipt.get("destination_url") != remote_url or receipt.get("branch") != args.branch:
+                receipt_failures.append("publication receipt destination mismatch")
+            if receipt.get("head_commit") != head:
+                receipt_failures.append("publication receipt head mismatch")
+            if receipt.get("journal_versions") != expected_versions:
+                receipt_failures.append("publication receipt journal-version mismatch")
+            scope_digest = publication_scope_digest(remote_url, args.branch, head, expected_versions)
+            if receipt.get("scope_digest") != scope_digest:
+                receipt_failures.append("publication receipt scope digest mismatch")
+            authority_ref = str(receipt.get("authority_ref", ""))
+            record_ref = str(receipt.get("record_ref", ""))
+            if not SESSION_ID_RE.fullmatch(authority_ref) or not RECORD_ID_RE.fullmatch(record_ref):
+                receipt_failures.append("publication receipt authority reference is malformed")
+            else:
+                approval_row = resolved_records_for_session(
+                    authority_ref, required_record_ids={record_ref}
+                ).get(record_ref)
+                if (
+                    approval_row is None
+                    or approval_row.get("role") != "user"
+                    or row_text(approval_row).strip() != publication_approval_statement(scope_digest)
+                ):
+                    receipt_failures.append("publication receipt lacks exact operator instruction")
+                else:
+                    try:
+                        record_time = parse_timestamp(str(approval_row.get("timestamp", "")), label="publication record timestamp")
+                        approved_time = parse_timestamp(str(receipt.get("approved_at", "")), label="publication approved_at")
+                        if record_time > approved_time:
+                            receipt_failures.append("publication approval predates its authority record")
+                    except JournalError:
+                        receipt_failures.append("publication receipt approval time is invalid")
+            if any(
+                entry.get("versions", [])[-1].get("approval", {}).get("publication_eligible") is not True
+                for entry in registry.get("entries", [])
+            ):
+                receipt_failures.append("publication includes a publication-ineligible journal version")
+            receipt_valid = not receipt_failures
+    blocked = journal_changed and not receipt_valid
+    return {
+        "status": "blocked" if blocked else "clear",
+        "mutation": False,
+        "remote": args.remote,
+        "destination_url": remote_url,
+        "branch": args.branch,
+        "head_commit": head,
+        "outgoing_commit_count": len(commits),
+        "outgoing_commits": commits,
+        "outgoing_path_count": len(paths),
+        "journal_changed": journal_changed,
+        "journal_versions": versions,
+        "privacy_findings": findings,
+        "human_sensitive_narrative_review_required": journal_changed,
+        "publication_receipt_valid": receipt_valid,
+        "required_publication_statement": publication_approval_statement(
+            publication_scope_digest(remote_url, args.branch, head, [
+                {"version_id": item["version_id"], "content_sha256": item["content_sha256"]}
+                for item in versions
+            ])
+        ) if journal_changed else None,
+        "receipt_failures": receipt_failures,
+    }
+
+
 def add_output(parser: argparse.ArgumentParser) -> None:
     parser.add_argument("--json", action="store_true")
 
@@ -1091,6 +1635,7 @@ def parser() -> argparse.ArgumentParser:
         action.add_argument("--date", required=True)
         action.add_argument("--draft", type=Path, required=True)
         action.add_argument("--authority-ref", required=True)
+        action.add_argument("--approval-record-ref", required=True)
         action.add_argument("--approved-at")
         action.add_argument("--check", action="store_true")
         add_output(action)
@@ -1104,6 +1649,15 @@ def parser() -> argparse.ArgumentParser:
     validate = subparsers.add_parser("validate", help="Validate journal governance and canonical state.")
     add_output(validate)
     validate.set_defaults(handler=command_validate)
+    publication = subparsers.add_parser(
+        "publication-check",
+        help="Inspect the complete outgoing branch and require a destination-bound journal publication receipt.",
+    )
+    publication.add_argument("--remote", default="origin")
+    publication.add_argument("--branch", default="main")
+    publication.add_argument("--receipt", type=Path)
+    add_output(publication)
+    publication.set_defaults(handler=publication_command)
     return root
 
 
@@ -1125,7 +1679,7 @@ def main(arguments: list[str] | None = None) -> int:
             if key == "status":
                 continue
             print(f"{key}={canonical_json(value) if isinstance(value, (dict, list)) else value}")
-    return 1 if result.get("status") in {"failed", "stale"} else 0
+    return 1 if result.get("status") in {"failed", "stale", "blocked"} else 0
 
 
 if __name__ == "__main__":
