@@ -30,3 +30,6 @@ Thumbs.db
 
 # Local operator-position inputs and unapproved candidates
 /narrative-geopolitics/work/operator-positions/.candidates/
+
+# Private continuity payloads are hydrated locally and never published by default.
+/mira/continuity/captures/

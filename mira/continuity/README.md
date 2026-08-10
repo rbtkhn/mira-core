@@ -12,7 +12,8 @@ This directory implements five governed continuity layers:
 
 - `session-registry.json` is the canonical capture registry.
 - `identity-ledger.json` is the canonical identity authority.
-- `captures/` contains immutable deterministic `.jsonl.gz` snapshots.
+- `captures/` contains private, locally hydrated immutable deterministic
+  `.jsonl.gz` snapshots. The directory is excluded from Git.
 - `harvests/` contains selective reviewed packets; an indexed session need not be harvested.
 - `../identity.md`, `trajectory.md`, and `activation.md` are generated views.
 
@@ -47,6 +48,13 @@ authority reference. Earlier versions are preserved.
 
 Session history is continuity evidence only. It is not archive evidence,
 Reality evidence, automatic operator belief, or permission to act.
+
+Repository-wide validation checks the canonical registry, identities,
+harvest references, and generated views without requiring private capture
+bodies in a clean clone. `mira-continuity validate` remains strict: it requires
+the hydrated bodies and verifies their compressed hashes, normalized content,
+record linkage, and privacy invariants. A passing control-plane check must not
+be reported as capture-body verification.
 
 ## Stage 1 Durability Guards
 

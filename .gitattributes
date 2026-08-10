@@ -1,0 +1,2 @@
+# Provenance-bound source must hash identically across platforms.
+scripts/contradiction_kernel.py text eol=lf

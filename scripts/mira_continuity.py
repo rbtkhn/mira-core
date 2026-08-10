@@ -1678,6 +1678,7 @@ def validate_repository_state(
     identity_path: Path = IDENTITY_LEDGER_PATH,
     harvests_root: Path = HARVESTS_ROOT,
     check_views: bool = True,
+    check_capture_bodies: bool = True,
 ) -> list[str]:
     failures: list[str] = []
     try:
@@ -1728,17 +1729,19 @@ def validate_repository_state(
             if Path(raw_path).is_absolute() or not raw_path.startswith("mira/continuity/captures/"):
                 failures.append(f"{capture_id}: malformed capture path")
                 continue
-            path = repo_root / raw_path
-            if not path.is_file():
-                failures.append(f"{capture_id}: missing capture file: {raw_path}")
-                continue
-            compressed = path.read_bytes()
             if not re.fullmatch(r"[0-9a-f]{64}", str(ref.get("sha256", ""))):
                 failures.append(f"{capture_id}: malformed compressed digest")
             if not re.fullmatch(r"[0-9a-f]{64}", str(ref.get("source_sha256", ""))):
                 failures.append(f"{capture_id}: malformed source digest")
             if not valid_timestamp(ref.get("observed_at")):
                 failures.append(f"{capture_id}: invalid observed_at timestamp")
+            if not check_capture_bodies:
+                continue
+            path = repo_root / raw_path
+            if not path.is_file():
+                failures.append(f"{capture_id}: missing capture file: {raw_path}")
+                continue
+            compressed = path.read_bytes()
             if sha256_bytes(compressed) != ref.get("sha256"):
                 failures.append(f"{capture_id}: compressed digest mismatch")
                 continue
@@ -1811,6 +1814,25 @@ def validate_repository_state(
             if not path.is_file() or path.read_text(encoding="utf-8") != expected:
                 failures.append(f"Mira generated view drift: {relative_path(path)}")
     return failures
+
+
+def validate_control_plane_state(
+    *,
+    repo_root: Path = REPO_ROOT,
+    registry_path: Path = REGISTRY_PATH,
+    identity_path: Path = IDENTITY_LEDGER_PATH,
+    harvests_root: Path = HARVESTS_ROOT,
+    check_views: bool = True,
+) -> list[str]:
+    """Validate publishable continuity controls without private payload bodies."""
+    return validate_repository_state(
+        repo_root=repo_root,
+        registry_path=registry_path,
+        identity_path=identity_path,
+        harvests_root=harvests_root,
+        check_views=check_views,
+        check_capture_bodies=False,
+    )
 
 
 def render_views(*, check: bool) -> list[str]:
