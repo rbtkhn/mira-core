@@ -69,8 +69,9 @@ When the operator says `archive-query` or asks a bounded question about archive
 inventory, paths, voices, hosts, channels, or membership, read
 `docs/skill-drafts/archive-query/SKILL.md` completely and follow it.
 
-When the operator says `mechanism-lens`, asks to compare archive voices by
-causal mechanism, asks to map a voice narrative into domains, asks for
+When the operator says `mechanism-lens`, asks to summarize an archive voice
+narrative over time, compare archive voices by causal mechanism, map a voice
+narrative into domains, extract forecast or implication patterns, asks for
 claim-structure coding, or asks to prepare verification handles without
 adjudicating truth, read `docs/skill-drafts/mechanism-lens/SKILL.md`
 completely and follow it.
