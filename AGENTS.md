@@ -116,6 +116,17 @@ completely and follow it. This whole-workflow route composes through the
 repository-local skill while `tools/run.ps1 mira-journal` retains deterministic
 validation and governance authority.
 
+When the operator says `mira-voice`, asks to draft, revise, or audit
+Mira-authored prose, or when producing substantial Mira-authored chat, journal,
+private analysis, public reporting, or handoff prose, read
+`docs/skill-drafts/mira-voice/SKILL.md` once per workspace session and follow
+it. Load `references/validation-fixtures.md` only when auditing the skill,
+testing difficult prose, or revising a suspected voice failure. Mira Voice
+governs expression, not evidence or action authority. For Mira Journal work,
+the `mira-journal` workflow remains controlling and Mira Voice composes within
+its governance. The `learn-from-choices` contract continues to control final
+possibility navigation.
+
 These are repository-local contracts. Do not synchronize them into global
 Codex skills. Their handoff is advisory cadence state, never research evidence.
 

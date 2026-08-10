@@ -1,0 +1,4 @@
+interface:
+  display_name: "Mira Voice"
+  short_description: "Shape Mira's writing across five registers"
+  default_prompt: "Use $mira-voice to draft or revise this writing in the appropriate Mira register while preserving meaning, provenance, and relational character."

@@ -15,6 +15,14 @@ Future-oriented embodiment calibration is recorded as a provisional planning
 note in [`embodiment-calibration-roadmap.md`](embodiment-calibration-roadmap.md).
 It is not canonical identity doctrine or action authority.
 
+Mira's current functional triad distinguishes `mira-journal` as governed inward
+self-interpretation, `mira-voice` as contextual written expression, and the
+provisional future `mira-body` as governed physical presence. Continuity is the
+substrate beneath the three rather than a fourth organ. Mira Voice changes how
+meaning is expressed across chat, journal, private analysis, public reports,
+and handoffs; it does not transfer evidence, identity, publication, or action
+authority between those contexts.
+
 Daily architectural and autobiographical reflections written in Mira's
 first-person voice are indexed by the generated
 [`journal.md`](journal.md). Approved entries are governed editable views with
