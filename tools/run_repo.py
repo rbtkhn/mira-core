@@ -35,6 +35,7 @@ SURFACES = {
     "operator-position": REPO_ROOT / "scripts" / "operator_positions.py",
     "reality": REPO_ROOT / "scripts" / "reality.py",
     "reality-handoff": REPO_ROOT / "scripts" / "reality_handoff.py",
+    "recursive-learn": REPO_ROOT / "scripts" / "recursive_learning_ledger.py",
     "research-handoff": REPO_ROOT / "scripts" / "research_handoff.py",
     "session-preflight": REPO_ROOT / "scripts" / "session_preflight.py",
     "skills-check": REPO_ROOT / "scripts" / "check_codex_skills_sync.py",

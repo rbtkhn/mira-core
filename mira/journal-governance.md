@@ -17,16 +17,40 @@ Every journal context input carries an epistemic class, authority owner,
 canonicality label, and may_promote set to false. Prior MJ-* material is marked
 as self-reference rather than independent corroboration.
 
-Private drafts and context packs remain outside Git. Operator approval binds an
-approved version to an exact MR-* user record, and approval-time freshness
+Private drafts, context packs, and candidate technical references remain outside Git. Operator approval binds an
+approved version and its version-specific technical reference to an exact MR-* user record, and approval-time freshness
 checks cover the interval through actual approval. Approved bytes enter System
 Archive as autobiographical-interpretation under an explicit-only retrieval
 policy; storage and retrieval never change their authority.
 
+Journal preparation reads the canonical Recursive Learning Ledger and includes
+a bounded, cutoff-safe set of admitted RSI lessons in the composition context.
+Prose may draw from a lesson when it materially shapes the reflection. The
+technical reference names each consumed RSI ID. Reflection can expose a later
+candidate signal, but neither prose nor a companion validates, measures, or
+closes a learning loop; `recursive-learn` assessment and explicit RSI admission
+remain separate.
+
 New approvals use an exact digest-bound instruction: `Approve Mira Journal
-version <MJ-version> with digest <sha256>.` Generic keywords, negated language,
+version <MJ-version> with digest <prose-sha256> and technical reference
+<MJTR-version> with digest <reference-sha256>.` Generic keywords, negated language,
 and mismatched versions or digests do not approve a version. Context packs must
 carry a recomputable content identity and deterministic derivation lineage.
+
+Each canonical companion lives as JSON plus deterministic Markdown under
+`mira/journal/references/`, contains 3-7 exact prose anchors, and separates prose
+grounding from recursive-learning status. A later RSI admission links backward
+through `journal_context_refs`; it never mutates an older companion. Legacy
+technical-reference backfill requires `Approve Mira Journal technical reference
+<MJTR-version> with digest <reference-sha256>.` and does not change the journal
+version's approval or publication status.
+
+Every companion declares the context cutoff it inherits. An
+`observed-by-cutoff` item must cite a full Git commit and the exact paths that
+commit touched, or an admitted RSI entry dated no later than the journal day.
+Mutable repository paths are permitted only as labeled historical context or
+retrospective backfill. Validation rejects commits after the cutoff and paths
+not present in the cited commit.
 
 `MJ-20260809-v1` is retained as `legacy-held`: its historical bytes, digest,
 and original record reference remain canonical durability, but the linked

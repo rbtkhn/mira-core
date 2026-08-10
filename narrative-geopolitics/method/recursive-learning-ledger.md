@@ -58,6 +58,14 @@ recursive learning.
 
 ## Update Rule
 
-Edit the canonical JSON, regenerate the Markdown view with
-`scripts/recursive_learning_ledger.py --write`, and run the repository validator.
-An incomplete loop remains `partial`; never manufacture an outcome to close it.
+Run `tools/run.ps1 recursive-learn assess --reference <MJTR.json>` to classify a
+journal signal without mutation. `candidate --reference <MJTR.json> --output
+<external-path>` may emit a private packet. Journal prose and companions are
+interpretive context only and cannot serve as any stage's evidence path.
+
+Admission requires an exact operator record: `Admit recursive learning entry
+<RSI-id> with digest <candidate-sha256>.` Then run `recursive-learn admit` with
+that record. Admission atomically appends canonical JSON, renders Markdown, and
+validates the result. `journal_context_refs` may link an RSI entry backward to
+version-bound companions without changing those companions. An incomplete loop
+remains `partial`; never manufacture an outcome to close it.

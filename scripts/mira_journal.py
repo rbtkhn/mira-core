@@ -15,6 +15,7 @@ from typing import Any, Iterable
 from zoneinfo import ZoneInfo
 
 import mira_continuity
+import mira_journal_references
 
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
@@ -23,6 +24,10 @@ JOURNAL_ROOT = MIRA_ROOT / "journal"
 INDEX_PATH = MIRA_ROOT / "journal.md"
 REGISTRY_PATH = MIRA_ROOT / "journal-registry.json"
 SESSION_REGISTRY_PATH = MIRA_ROOT / "continuity" / "session-registry.json"
+REFERENCE_ROOT = JOURNAL_ROOT / "references"
+LEARNING_LEDGER_PATH = (
+    REPO_ROOT / "narrative-geopolitics" / "work" / "system-improvement" / "recursive-learning-ledger.json"
+)
 
 DRAFT_ROOT_ENV = "NARRATIVE_MIRA_JOURNAL_DRAFT_ROOT"
 DEFAULT_DRAFT_ROOT = Path(r"C:\private\mira-journal-drafts")
@@ -41,6 +46,7 @@ SHA256_RE = re.compile(r"^[0-9a-f]{64}$")
 DERIVATION_ID_RE = re.compile(r"^DRV-[0-9a-f]{24}$")
 MAINTENANCE_ID_RE = re.compile(r"^MJM-[0-9]{4}$")
 AFFIRMATIVE_APPROVAL_STATUS = "affirmative-v1"
+COMBINED_APPROVAL_STATUS = "affirmative-v2"
 LEGACY_HELD_STATUS = "legacy-held"
 EPISTEMIC_CLASSES = {
     "operator-direction",
@@ -79,6 +85,19 @@ def version_approval_statement(version_id: str, content_digest: str) -> str:
     return f"Approve Mira Journal version {version_id} with digest {content_digest}."
 
 
+def combined_approval_statement(
+    version_id: str, content_digest: str, reference_id: str, reference_digest: str
+) -> str:
+    return (
+        f"Approve Mira Journal version {version_id} with digest {content_digest} and technical "
+        f"reference {reference_id} with digest {reference_digest}."
+    )
+
+
+def reference_backfill_statement(reference_id: str, reference_digest: str) -> str:
+    return f"Approve Mira Journal technical reference {reference_id} with digest {reference_digest}."
+
+
 def publication_scope_digest(
     destination_url: str,
     branch: str,
@@ -96,6 +115,22 @@ def publication_scope_digest(
 
 def publication_approval_statement(scope_digest: str) -> str:
     return f"Approve Mira Journal publication scope {scope_digest}."
+
+
+def publication_version_scope(version: dict[str, Any]) -> dict[str, str]:
+    value = {
+        "version_id": str(version["version_id"]),
+        "content_sha256": str(version["content_sha256"]),
+    }
+    reference = version.get("technical_reference")
+    if isinstance(reference, dict):
+        value.update({
+            "technical_reference_id": str(reference["reference_id"]),
+            "technical_reference_sha256": str(reference["content_sha256"]),
+            "technical_reference_json_path": str(reference["json_path"]),
+            "technical_reference_markdown_path": str(reference["markdown_path"]),
+        })
+    return value
 
 
 def sha256_bytes(value: bytes) -> str:
@@ -565,19 +600,37 @@ def collect_activity(
     }
 
 
-def context_pack(entry_date: date, activity: dict[str, Any], token_budget: int) -> dict[str, Any]:
+def context_pack(
+    entry_date: date,
+    activity: dict[str, Any],
+    token_budget: int,
+    recursive_learning_context: dict[str, Any] | None = None,
+) -> dict[str, Any]:
+    learning_context = recursive_learning_context or {
+        "source_path": "narrative-geopolitics/work/system-improvement/recursive-learning-ledger.json",
+        "source_sha256": "0" * 64,
+        "selection_rule": "not-loaded",
+        "selected_entries": [],
+        "omitted_entry_ids": [],
+        "authority_boundary": mira_journal_references.AUTHORITY_BOUNDARY,
+    }
+    learning_tokens = (
+        max(1, (len(canonical_json(learning_context)) + 3) // 4)
+        if recursive_learning_context is not None else 0
+    )
     core = {
         "schema_version": SCHEMA_VERSION,
         "compiler_version": CONTEXT_VERSION,
         "entry_date": entry_date.isoformat(),
         "timezone": TIMEZONE_NAME,
         "token_budget": token_budget,
-        "estimated_tokens": activity["estimated_tokens"],
+        "estimated_tokens": activity["estimated_tokens"] + learning_tokens,
         "coverage": activity["coverage"],
         "selected_records": activity["selected_records"],
         "commits": activity["commits"],
         "source_refs": activity["source_refs"],
         "omissions": activity["omissions"],
+        "recursive_learning_context": learning_context,
         "authority_boundary": AUTHORITY_BOUNDARY,
     }
     pack_id = "CP-" + sha256_bytes(canonical_json(core).encode("utf-8"))[:24]
@@ -607,7 +660,7 @@ def validate_context_pack(value: dict[str, Any]) -> list[str]:
     required = {
         "entry_date", "timezone", "token_budget", "estimated_tokens", "coverage",
         "selected_records", "commits", "source_refs", "omissions", "context_pack_id",
-        "derivation_manifest",
+        "derivation_manifest", "recursive_learning_context",
     }
     missing = sorted(required - value.keys())
     if missing:
@@ -643,6 +696,20 @@ def validate_context_pack(value: dict[str, Any]) -> list[str]:
             failures.append("journal context commit lacks repository-event classification")
         elif commit.get("may_promote") is not False:
             failures.append("journal context commit may not carry promotion authority")
+    learning_context = value.get("recursive_learning_context")
+    if not isinstance(learning_context, dict):
+        failures.append("journal context lacks recursive learning context")
+    else:
+        if learning_context.get("authority_boundary") != mira_journal_references.AUTHORITY_BOUNDARY:
+            failures.append("journal recursive learning authority boundary mismatch")
+        if not SHA256_RE.fullmatch(str(learning_context.get("source_sha256", ""))):
+            failures.append("journal recursive learning source digest is malformed")
+        for row in learning_context.get("selected_entries", []):
+            if not isinstance(row, dict) or not re.fullmatch(r"RSI-\d{8}-\d{2}", str(row.get("id", ""))):
+                failures.append("journal recursive learning context entry is malformed")
+                continue
+            if row.get("epistemic_class") != "admitted-recursive-learning" or row.get("may_promote") is not False:
+                failures.append(f"journal recursive learning context authority is malformed: {row.get('id')}")
     input_ids: set[str] = set()
     for ref in value.get("source_refs", []):
         if not isinstance(ref, dict):
@@ -703,6 +770,10 @@ def draft_contract(entry_date: date, pack: dict[str, Any]) -> dict[str, Any]:
             ],
             "quiet_day": quiet,
             "quiet_day_rule": "Acknowledge limited activity honestly while still writing 300-700 words; invent nothing.",
+            "recursive_learning_rule": (
+                "Consult recursive_learning_context. Draw on an admitted lesson only when it materially shapes "
+                "the reflection; do not recap the ledger or claim that reflection proves new learning."
+            ),
         },
         "context_pack_ref": pack["context_pack_id"],
         "context_pack_digest": sha256_bytes(canonical_json(pack).encode("utf-8")),
@@ -721,6 +792,39 @@ def draft_contract(entry_date: date, pack: dict[str, Any]) -> dict[str, Any]:
             "derivation_manifest",
         ],
         "authority_boundary": AUTHORITY_BOUNDARY,
+    }
+
+
+def technical_reference_contract(entry_date: date, pack: dict[str, Any], draft: dict[str, Any]) -> dict[str, Any]:
+    return {
+        "schema_version": SCHEMA_VERSION,
+        "contract": "mira-journal-technical-reference-v1",
+        "reference_id": mira_journal_references.reference_id(draft["version_id"]),
+        "journal_version_id": draft["version_id"],
+        "entry_date": entry_date.isoformat(),
+        "cutoff_at": pack["coverage"]["as_of"],
+        "required_filename": "technical-reference.json",
+        "item_count": {"minimum": 3, "maximum": 7},
+        "item_requirements": [
+            "exact unique prose_anchor",
+            "narrative_function",
+            "technical_development",
+            "cutoff_status",
+            "one or more evidence_refs",
+            "observed-by-cutoff evidence uses a full Git commit plus paths touched by that commit",
+            "may_promote=false",
+        ],
+        "recursive_learning": {
+            "consumed_rsi_ids_must_resolve": True,
+            "available_rsi_ids": [
+                row["id"] for row in pack["recursive_learning_context"]["selected_entries"]
+            ],
+            "candidate_signal_values": ["none", "observation", "possible-loop"],
+            "closure_claims_forbidden": True,
+            "future_test_required": True,
+        },
+        "approval": "combined-prose-and-reference",
+        "authority_boundary": mira_journal_references.AUTHORITY_BOUNDARY,
     }
 
 
@@ -746,10 +850,14 @@ def render_index(registry: dict[str, Any]) -> str:
         lines.append("No operator-approved journal entries exist.")
     for entry in entries:
         current = entry["versions"][-1]
-        lines.append(
+        line = (
             f"- [{entry['entry_date']} — {current['title']}](journal/{entry['entry_date']}.md) "
             f"— `{current['version_id']}`"
         )
+        reference = current.get("technical_reference")
+        if isinstance(reference, dict):
+            line += f" · [technical reference](journal/references/{reference['reference_id']}.md)"
+        lines.append(line)
     return "\n".join(lines) + "\n"
 
 
@@ -880,7 +988,7 @@ def validate_registry(
         if not MAINTENANCE_ID_RE.fullmatch(event_id) or event_id in seen_maintenance:
             failures.append(f"invalid or duplicate journal maintenance event: {event_id}")
         seen_maintenance.add(event_id)
-        if event.get("event_type") not in {"byte-restoration", "metadata-correction"}:
+        if event.get("event_type") not in {"byte-restoration", "metadata-correction", "technical-reference-backfill"}:
             failures.append(f"unsupported journal maintenance event type: {event_id}")
         if not VERSION_ID_RE.fullmatch(str(event.get("version_id", ""))):
             failures.append(f"malformed journal maintenance version: {event_id}")
@@ -960,6 +1068,18 @@ def validate_registry(
                                 failures.append(f"journal approval record is not the exact digest-bound instruction: {expected_version}")
                             if publication_eligible is not True:
                                 failures.append(f"affirmative journal version is not publication eligible: {expected_version}")
+                        elif approval_status == COMBINED_APPROVAL_STATUS:
+                            reference = version.get("technical_reference")
+                            expected_statement = combined_approval_statement(
+                                expected_version,
+                                str(version.get("content_sha256", "")),
+                                str(reference.get("reference_id", "")) if isinstance(reference, dict) else "",
+                                str(reference.get("content_sha256", "")) if isinstance(reference, dict) else "",
+                            )
+                            if approval_row.get("role") != "user" or approval_text.strip() != expected_statement:
+                                failures.append(f"journal approval record does not bind prose and technical reference: {expected_version}")
+                            if publication_eligible is not True:
+                                failures.append(f"combined journal version is not publication eligible: {expected_version}")
                         elif approval_status == LEGACY_HELD_STATUS:
                             if approval_row.get("role") != "user" or publication_eligible is not False:
                                 failures.append(f"legacy-held journal approval boundary is malformed: {expected_version}")
@@ -988,7 +1108,7 @@ def validate_registry(
                     not SHA256_RE.fullmatch(str(item)) for item in context_ids
                 ):
                     failures.append(f"journal version has malformed context-pack receipt: {expected_version}")
-                elif approval.get("status") == AFFIRMATIVE_APPROVAL_STATUS and not context_ids:
+                elif approval.get("status") in {AFFIRMATIVE_APPROVAL_STATUS, COMBINED_APPROVAL_STATUS} and not context_ids:
                     failures.append(f"affirmative journal version lacks context-pack provenance: {expected_version}")
                 git_checked = provenance_receipt.get("git_commits_checked")
                 if not isinstance(git_checked, list) or any(
@@ -1058,6 +1178,52 @@ def validate_registry(
                     expected_inputs=inputs,
                 )
             )
+            reference = version.get("technical_reference")
+            if approval.get("status") == COMBINED_APPROVAL_STATUS and not isinstance(reference, dict):
+                failures.append(f"combined journal version lacks technical reference: {expected_version}")
+            if isinstance(reference, dict):
+                expected_reference_id = mira_journal_references.reference_id(expected_version)
+                if reference.get("reference_id") != expected_reference_id:
+                    failures.append(f"journal technical reference identity mismatch: {expected_version}")
+                json_path = repo_root / str(reference.get("json_path", ""))
+                markdown_path = repo_root / str(reference.get("markdown_path", ""))
+                if not json_path.is_file():
+                    failures.append(f"missing journal technical reference JSON: {expected_version}")
+                else:
+                    try:
+                        reference_value = load_json(json_path)
+                        if mira_journal_references.reference_digest(reference_value) != reference.get("content_sha256"):
+                            failures.append(f"journal technical reference digest drift: {expected_version}")
+                        if not markdown_path.is_file() or markdown_path.read_text(encoding="utf-8") != mira_journal_references.render_reference(reference_value):
+                            failures.append(f"journal technical reference Markdown drift: {expected_version}")
+                    except (JournalError, KeyError) as error:
+                        failures.append(f"invalid journal technical reference {expected_version}: {error}")
+                backfill = reference.get("backfill_approval")
+                if isinstance(backfill, dict):
+                    backfill_authority = str(backfill.get("authority_ref", ""))
+                    backfill_record = str(backfill.get("record_ref", ""))
+                    rows = resolved_records_for_session(
+                        backfill_authority,
+                        repo_root=repo_root,
+                        required_record_ids={backfill_record},
+                    )
+                    row = rows.get(backfill_record)
+                    expected = reference_backfill_statement(
+                        str(reference.get("reference_id", "")),
+                        str(reference.get("content_sha256", "")),
+                    )
+                    if row is None or row.get("role") != "user" or row_text(row).strip() != expected:
+                        failures.append(f"journal technical reference backfill lacks exact approval: {expected_version}")
+                    else:
+                        try:
+                            record_time = parse_timestamp(str(row.get("timestamp", "")), label="backfill record timestamp")
+                            approved_time = parse_timestamp(str(backfill.get("approved_at", "")), label="backfill approved_at")
+                            if record_time > approved_time:
+                                failures.append(f"journal technical reference backfill predates its approval record: {expected_version}")
+                        except JournalError:
+                            failures.append(f"journal technical reference backfill has invalid approval time: {expected_version}")
+                    if approval.get("status") != LEGACY_HELD_STATUS or approval.get("publication_eligible") is not False:
+                        failures.append(f"technical reference backfill changed legacy publication boundary: {expected_version}")
             coverage = version.get("coverage")
             if not isinstance(coverage, dict):
                 failures.append(f"journal version lacks coverage: {expected_version}")
@@ -1086,6 +1252,27 @@ def validate_registry(
             failures.append(f"unregistered journal prose drift: {expected_path}")
         if parsed["title"] != current.get("title") or parsed["word_count"] != current.get("word_count"):
             failures.append(f"journal prose metadata drift: {expected_path}")
+        reference = current.get("technical_reference")
+        if isinstance(reference, dict):
+            json_path = repo_root / str(reference.get("json_path", ""))
+            ledger_path = repo_root / "narrative-geopolitics" / "work" / "system-improvement" / "recursive-learning-ledger.json"
+            if json_path.is_file() and ledger_path.is_file():
+                try:
+                    reference_value = load_json(json_path)
+                    ledger = mira_journal_references.load_ledger(ledger_path)
+                    failures.extend(
+                        f"{expected_version}: {item}" for item in mira_journal_references.validate_reference(
+                            reference_value,
+                            prose=path.read_text(encoding="utf-8"),
+                            prose_sha256=parsed["content_sha256"],
+                            version_id=str(current["version_id"]),
+                            ledger=ledger,
+                            repo_root=repo_root,
+                            expected_cutoff_at=str(current.get("coverage", {}).get("as_of", "")),
+                        )
+                    )
+                except (JournalError, mira_journal_references.ReferenceError) as error:
+                    failures.append(f"{expected_version}: {error}")
         failures.extend(f"{expected_path}: {item}" for item in privacy_failures(path.read_text(encoding="utf-8")))
     if entries != sorted(entries, key=lambda item: item.get("entry_date", "")):
         failures.append("journal registry entries must be date ordered")
@@ -1167,9 +1354,17 @@ def load_draft_bundle(draft: Path) -> tuple[bytes, dict[str, Any]]:
     return resolved.read_bytes(), load_json(metadata_path)
 
 
+def load_draft_reference(draft: Path) -> dict[str, Any]:
+    path = draft.expanduser().resolve().parent / "technical-reference.json"
+    if not path.is_file():
+        raise JournalError(f"missing journal technical reference: {path}")
+    return load_json(path)
+
+
 def normalized_version(
     body: bytes,
     metadata: dict[str, Any],
+    technical_reference: dict[str, Any],
     *,
     expected_date: date,
     expected_number: int,
@@ -1186,6 +1381,19 @@ def normalized_version(
         raise JournalError("; ".join(privacy))
     expected_journal = journal_id(expected_date)
     expected_version = version_id(expected_date, expected_number)
+    ledger = mira_journal_references.load_ledger(LEARNING_LEDGER_PATH)
+    reference_failures = mira_journal_references.validate_reference(
+        technical_reference,
+        prose=body.decode("utf-8"),
+        prose_sha256=parsed["content_sha256"],
+        version_id=expected_version,
+        ledger=ledger,
+        repo_root=REPO_ROOT,
+        expected_cutoff_at=str(metadata.get("coverage", {}).get("as_of", "")),
+    )
+    if reference_failures:
+        raise JournalError("; ".join(reference_failures))
+    technical_reference_digest = mira_journal_references.reference_digest(technical_reference)
     if metadata.get("journal_id") != expected_journal or metadata.get("version_id") != expected_version:
         raise JournalError("draft identity or version does not match requested operation")
     if metadata.get("entry_date") != entry_date or metadata.get("status") != "private-draft":
@@ -1232,7 +1440,12 @@ def normalized_version(
     approval_row = approval_records.get(approval_record_ref)
     if approval_row is None:
         raise JournalError("operator approval record does not resolve")
-    expected_approval = version_approval_statement(expected_version, parsed["content_sha256"])
+    expected_approval = combined_approval_statement(
+        expected_version,
+        parsed["content_sha256"],
+        str(technical_reference["reference_id"]),
+        technical_reference_digest,
+    )
     if approval_row.get("role") != "user" or row_text(approval_row).strip() != expected_approval:
         raise JournalError("operator approval record is not the exact digest-bound instruction")
     approved_time = parse_timestamp(approved_at, label="approved_at")
@@ -1245,6 +1458,7 @@ def normalized_version(
     if approval_record_time > approved_time:
         raise JournalError("approved_at precedes the approval record")
     context_pack_ids = []
+    consumed_ids = set(technical_reference["recursive_learning"]["consumed_rsi_ids"])
     for ref in metadata.get("source_refs", []):
         if not isinstance(ref, dict) or ref.get("kind") != "journal-context-pack":
             continue
@@ -1255,10 +1469,19 @@ def normalized_version(
         context_failures = validate_context_pack(context_value)
         if context_failures:
             raise JournalError("; ".join(context_failures))
+        if context_value.get("coverage") != coverage:
+            raise JournalError("journal context-pack coverage differs from draft coverage")
         context_bytes = canonical_json(context_value).encode("utf-8")
         if context_value.get("context_pack_id") != ref.get("context_pack_id") or sha256_bytes(context_bytes) != ref.get("object_id"):
             raise JournalError("journal context-pack source digest mismatch")
         context_pack_ids.append(str(ref["object_id"]))
+        available_ids = {
+            str(row["id"])
+            for row in context_value.get("recursive_learning_context", {}).get("selected_entries", [])
+            if isinstance(row, dict) and row.get("id")
+        }
+        if not consumed_ids <= available_ids:
+            raise JournalError("technical reference consumes RSI lessons absent from composition context")
     if not context_pack_ids:
         raise JournalError("journal draft must resolve its context pack")
     if authored_at < as_of:
@@ -1287,11 +1510,20 @@ def normalized_version(
         "derivation_manifest": copy.deepcopy(metadata.get("derivation_manifest")),
         "approval": {
             "approved_by": "operator",
-            "status": AFFIRMATIVE_APPROVAL_STATUS,
+            "status": COMBINED_APPROVAL_STATUS,
             "publication_eligible": True,
             "approved_at": approved_at,
             "authority_ref": authority_ref,
             "record_ref": approval_record_ref,
+        },
+        "technical_reference": {
+            "reference_id": technical_reference["reference_id"],
+            "json_path": f"mira/journal/references/{technical_reference['reference_id']}.json",
+            "markdown_path": f"mira/journal/references/{technical_reference['reference_id']}.md",
+            "content_sha256": technical_reference_digest,
+            "item_count": len(technical_reference["items"]),
+            "consumed_rsi_ids": copy.deepcopy(technical_reference["recursive_learning"]["consumed_rsi_ids"]),
+            "candidate_signal": technical_reference["recursive_learning"]["candidate_signal"],
         },
         "provenance_receipt": {
             "resolved_at": approved_at,
@@ -1316,14 +1548,27 @@ def command_prepare(args: argparse.Namespace) -> dict[str, Any]:
     if entry_date < now.astimezone(TIMEZONE).date() and not args.as_of:
         as_of = end
     root = external_draft_root(args.output_root)
-    activity = collect_activity(entry_date, as_of=as_of, token_budget=args.token_budget)
-    pack = context_pack(entry_date, activity, args.token_budget)
+    ledger = mira_journal_references.load_ledger(LEARNING_LEDGER_PATH)
+    learning_context = mira_journal_references.select_admitted_lessons(
+        ledger,
+        entry_date,
+        source_path="narrative-geopolitics/work/system-improvement/recursive-learning-ledger.json",
+    )
+    learning_tokens = max(1, (len(canonical_json(learning_context)) + 3) // 4)
+    if learning_tokens > args.token_budget - 256:
+        raise JournalError("recursive learning context leaves insufficient journal context budget")
+    activity = collect_activity(
+        entry_date, as_of=as_of, token_budget=args.token_budget - learning_tokens
+    )
+    pack = context_pack(entry_date, activity, args.token_budget, learning_context)
     contract = draft_contract(entry_date, pack)
+    reference_contract = technical_reference_contract(entry_date, pack, contract)
     target = root / entry_date.isoformat()
     if not args.check:
         target.mkdir(parents=True, exist_ok=True)
         atomic_write_json(target / "context-pack.json", pack)
         atomic_write_json(target / "draft-contract.json", contract)
+        atomic_write_json(target / "technical-reference-contract.json", reference_contract)
     return {
         "status": "ready" if args.check else "prepared",
         "mutation": not args.check,
@@ -1335,6 +1580,8 @@ def command_prepare(args: argparse.Namespace) -> dict[str, Any]:
         "omissions": len(pack["omissions"]),
         "quiet_day": contract["prose_contract"]["quiet_day"],
         "next_version_id": contract["version_id"],
+        "available_rsi_ids": reference_contract["recursive_learning"]["available_rsi_ids"],
+        "technical_reference_id": reference_contract["reference_id"],
     }
 
 
@@ -1368,6 +1615,7 @@ def command_status(args: argparse.Namespace) -> dict[str, Any]:
 def approve_or_revise(args: argparse.Namespace, *, revising: bool) -> dict[str, Any]:
     entry_date = parse_entry_date(args.date)
     body, metadata = load_draft_bundle(args.draft)
+    technical_reference = load_draft_reference(args.draft)
     registry = load_registry()
     entry = next((item for item in registry.get("entries", []) if item.get("journal_id") == journal_id(entry_date)), None)
     if revising and entry is None:
@@ -1380,6 +1628,7 @@ def approve_or_revise(args: argparse.Namespace, *, revising: bool) -> dict[str, 
     version = normalized_version(
         body,
         metadata,
+        technical_reference,
         expected_date=entry_date,
         expected_number=number,
         authority_ref=args.authority_ref,
@@ -1409,6 +1658,12 @@ def approve_or_revise(args: argparse.Namespace, *, revising: bool) -> dict[str, 
         raise JournalError("; ".join(failures))
     if not args.check:
         atomic_write_text(entry_path(entry_date), body.decode("utf-8"))
+        reference_metadata = version["technical_reference"]
+        atomic_write_json(REPO_ROOT / reference_metadata["json_path"], technical_reference)
+        atomic_write_text(
+            REPO_ROOT / reference_metadata["markdown_path"],
+            mira_journal_references.render_reference(technical_reference),
+        )
         atomic_write_json(REGISTRY_PATH, updated)
         atomic_write_text(INDEX_PATH, render_index(updated))
     return {
@@ -1418,6 +1673,8 @@ def approve_or_revise(args: argparse.Namespace, *, revising: bool) -> dict[str, 
         "version_id": version["version_id"],
         "content_sha256": version["content_sha256"],
         "word_count": version["word_count"],
+        "technical_reference_id": technical_reference["reference_id"],
+        "technical_reference_sha256": version["technical_reference"]["content_sha256"],
     }
 
 
@@ -1446,9 +1703,129 @@ def command_render(args: argparse.Namespace) -> dict[str, Any]:
     registry = load_registry()
     expected = render_index(registry)
     matches = INDEX_PATH.is_file() and INDEX_PATH.read_text(encoding="utf-8") == expected
+    reference_matches = True
+    for entry in registry.get("entries", []):
+        for version in entry.get("versions", []):
+            metadata = version.get("technical_reference")
+            if not isinstance(metadata, dict):
+                continue
+            json_path = REPO_ROOT / str(metadata["json_path"])
+            markdown_path = REPO_ROOT / str(metadata["markdown_path"])
+            if not json_path.is_file():
+                reference_matches = False
+                continue
+            rendered = mira_journal_references.render_reference(load_json(json_path))
+            current = markdown_path.is_file() and markdown_path.read_text(encoding="utf-8") == rendered
+            reference_matches = reference_matches and current
+            if not args.check:
+                atomic_write_text(markdown_path, rendered)
     if not args.check:
         atomic_write_text(INDEX_PATH, expected)
-    return {"status": "current" if matches else ("stale" if args.check else "rendered"), "mutation": not args.check, "matches": matches}
+    all_match = matches and reference_matches
+    return {"status": "current" if all_match else ("stale" if args.check else "rendered"), "mutation": not args.check, "matches": all_match}
+
+
+def command_reference_backfill(args: argparse.Namespace) -> dict[str, Any]:
+    source = args.input.expanduser().resolve()
+    try:
+        source.relative_to(REPO_ROOT.resolve())
+    except ValueError:
+        pass
+    else:
+        raise JournalError("technical reference backfill input must remain outside Git")
+    reference = load_json(source)
+    registry = load_registry()
+    version: dict[str, Any] | None = None
+    entry: dict[str, Any] | None = None
+    for candidate_entry in registry.get("entries", []):
+        for candidate_version in candidate_entry.get("versions", []):
+            if candidate_version.get("version_id") == args.version:
+                entry, version = candidate_entry, candidate_version
+                break
+    if entry is None or version is None:
+        raise JournalError(f"journal version does not exist: {args.version}")
+    if entry.get("current_version_id") != args.version:
+        raise JournalError("reference backfill currently requires the current prose version")
+    if version.get("technical_reference") is not None:
+        raise JournalError(f"journal version already has a technical reference: {args.version}")
+    if reference.get("mapping_mode") != "retrospective-backfill":
+        raise JournalError("legacy technical reference must declare retrospective-backfill mapping")
+    prose_path = REPO_ROOT / str(entry["current_path"])
+    prose = prose_path.read_text(encoding="utf-8")
+    ledger = mira_journal_references.load_ledger(LEARNING_LEDGER_PATH)
+    failures = mira_journal_references.validate_reference(
+        reference,
+        prose=prose,
+        prose_sha256=str(version["content_sha256"]),
+        version_id=args.version,
+        ledger=ledger,
+        repo_root=REPO_ROOT,
+        expected_cutoff_at=str(version.get("coverage", {}).get("as_of", "")),
+    )
+    if failures:
+        raise JournalError("; ".join(failures))
+    digest = mira_journal_references.reference_digest(reference)
+    if not SESSION_ID_RE.fullmatch(args.authority_ref) or not RECORD_ID_RE.fullmatch(args.approval_record_ref):
+        raise JournalError("technical reference approval references are malformed")
+    rows = resolved_records_for_session(args.authority_ref, required_record_ids={args.approval_record_ref})
+    approval_row = rows.get(args.approval_record_ref)
+    expected = reference_backfill_statement(str(reference["reference_id"]), digest)
+    if approval_row is None or approval_row.get("role") != "user" or row_text(approval_row).strip() != expected:
+        raise JournalError("technical reference approval is not the exact digest-bound instruction")
+    approved_at = args.approved_at or utc_text(datetime.now(timezone.utc))
+    approved_time = parse_timestamp(approved_at, label="approved_at")
+    record_time = parse_timestamp(str(approval_row.get("timestamp", "")), label="approval record timestamp")
+    if record_time > approved_time:
+        raise JournalError("technical reference approved_at precedes its approval record")
+    if approved_time > datetime.now(timezone.utc).replace(microsecond=0) + timedelta(minutes=5):
+        raise JournalError("technical reference approved_at is implausibly in the future")
+    updated = copy.deepcopy(registry)
+    updated_version = next(
+        candidate_version
+        for candidate_entry in updated["entries"]
+        for candidate_version in candidate_entry["versions"]
+        if candidate_version["version_id"] == args.version
+    )
+    metadata = {
+        "reference_id": reference["reference_id"],
+        "json_path": f"mira/journal/references/{reference['reference_id']}.json",
+        "markdown_path": f"mira/journal/references/{reference['reference_id']}.md",
+        "content_sha256": digest,
+        "item_count": len(reference["items"]),
+        "consumed_rsi_ids": copy.deepcopy(reference["recursive_learning"]["consumed_rsi_ids"]),
+        "candidate_signal": reference["recursive_learning"]["candidate_signal"],
+        "backfill_approval": {
+            "approved_by": "operator",
+            "approved_at": approved_at,
+            "authority_ref": args.authority_ref,
+            "record_ref": args.approval_record_ref,
+        },
+    }
+    updated_version["technical_reference"] = metadata
+    event_number = len(updated.get("maintenance_events", [])) + 1
+    updated.setdefault("maintenance_events", []).append({
+        "event_id": f"MJM-{event_number:04d}",
+        "event_type": "technical-reference-backfill",
+        "version_id": args.version,
+        "expected_digest": digest,
+        "authority_ref": args.authority_ref,
+        "record_ref": args.approval_record_ref,
+        "recorded_at": approved_at,
+    })
+    if not args.check:
+        atomic_write_json(REPO_ROOT / metadata["json_path"], reference)
+        atomic_write_text(REPO_ROOT / metadata["markdown_path"], mira_journal_references.render_reference(reference))
+        atomic_write_json(REGISTRY_PATH, updated)
+        atomic_write_text(INDEX_PATH, render_index(updated))
+    return {
+        "status": "ready" if args.check else "backfilled",
+        "mutation": not args.check,
+        "version_id": args.version,
+        "reference_id": reference["reference_id"],
+        "reference_sha256": digest,
+        "journal_approval_status": version["approval"]["status"],
+        "publication_eligible": version["approval"]["publication_eligible"],
+    }
 
 
 def command_validate(_: argparse.Namespace) -> dict[str, Any]:
@@ -1504,6 +1881,10 @@ def publication_command(args: argparse.Namespace) -> dict[str, Any]:
                     "version_id": current["version_id"],
                     "content_sha256": current["content_sha256"],
                     "path": entry["current_path"],
+                    **(
+                        {"technical_reference": copy.deepcopy(current["technical_reference"])}
+                        if isinstance(current.get("technical_reference"), dict) else {}
+                    ),
                 }
             )
             entry_text = (REPO_ROOT / entry["current_path"]).read_text(encoding="utf-8")
@@ -1534,13 +1915,7 @@ def publication_command(args: argparse.Namespace) -> dict[str, Any]:
             receipt_failures.append("publication receipt must remain outside Git")
         if not receipt_failures:
             receipt = load_json(receipt_path)
-            expected_versions = [
-                {
-                    "version_id": item["version_id"],
-                    "content_sha256": item["content_sha256"],
-                }
-                for item in versions
-            ]
+            expected_versions = [publication_version_scope(item) for item in versions]
             if receipt.get("schema_version") != 1:
                 receipt_failures.append("publication receipt schema mismatch")
             if receipt.get("destination_url") != remote_url or receipt.get("branch") != args.branch:
@@ -1598,8 +1973,7 @@ def publication_command(args: argparse.Namespace) -> dict[str, Any]:
         "publication_receipt_valid": receipt_valid,
         "required_publication_statement": publication_approval_statement(
             publication_scope_digest(remote_url, args.branch, head, [
-                {"version_id": item["version_id"], "content_sha256": item["content_sha256"]}
-                for item in versions
+                publication_version_scope(item) for item in versions
             ])
         ) if journal_changed else None,
         "receipt_failures": receipt_failures,
@@ -1645,6 +2019,18 @@ def parser() -> argparse.ArgumentParser:
     render.add_argument("--check", action="store_true")
     add_output(render)
     render.set_defaults(handler=command_render)
+
+    reference = subparsers.add_parser("reference", help="Govern version-bound journal technical references.")
+    reference_commands = reference.add_subparsers(dest="reference_command", required=True)
+    backfill = reference_commands.add_parser("backfill", help="Attach a separately approved legacy companion.")
+    backfill.add_argument("--version", required=True)
+    backfill.add_argument("--input", type=Path, required=True)
+    backfill.add_argument("--authority-ref", required=True)
+    backfill.add_argument("--approval-record-ref", required=True)
+    backfill.add_argument("--approved-at")
+    backfill.add_argument("--check", action="store_true")
+    add_output(backfill)
+    backfill.set_defaults(handler=command_reference_backfill)
 
     validate = subparsers.add_parser("validate", help="Validate journal governance and canonical state.")
     add_output(validate)

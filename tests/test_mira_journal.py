@@ -97,6 +97,34 @@ def metadata(day: str, body: bytes, version: int = 1, previous: str | None = Non
     }
 
 
+def technical_reference(day: str, body: bytes, version: int = 1, *, mode: str = "contemporaneous") -> dict:
+    text = body.decode("utf-8")
+    heading, paragraph = text.strip().split("\n\n", 1)
+    version_value = subject.version_id(subject.parse_entry_date(day), version)
+    evidence = [{"kind": "repo-path", "path": "evidence.md"}]
+    return {
+        "schema_version": 1,
+        "reference_id": subject.mira_journal_references.reference_id(version_value),
+        "journal_version_id": version_value,
+        "journal_content_sha256": subject.sha256_bytes(body),
+        "entry_date": day,
+        "cutoff_at": subject.utc_text(subject.day_bounds(subject.parse_entry_date(day))[1]),
+        "mapping_mode": mode,
+        "authority_boundary": subject.mira_journal_references.AUTHORITY_BOUNDARY,
+        "items": [
+            {"item_id": "T1", "prose_anchor": heading, "narrative_function": "title", "technical_development": "governed version identity", "cutoff_status": "historical-context", "evidence_refs": evidence, "may_promote": False},
+            {"item_id": "T2", "prose_anchor": paragraph, "narrative_function": "reflection", "technical_development": "bounded continuity synthesis", "cutoff_status": "historical-context", "evidence_refs": evidence, "may_promote": False},
+            {"item_id": "T3", "prose_anchor": text.strip(), "narrative_function": "whole-entry relation", "technical_development": "prose and provenance remain distinct", "cutoff_status": "historical-context", "evidence_refs": evidence, "may_promote": False},
+        ],
+        "recursive_learning": {
+            "consumed_rsi_ids": [],
+            "candidate_signal": "none",
+            "candidate_summary": "",
+            "future_test": "Check whether the next entry uses this inherited practice without redundant recap.",
+        },
+    }
+
+
 def configure_repo(monkeypatch: pytest.MonkeyPatch, tmp_path: Path) -> tuple[Path, Path]:
     repo = tmp_path / "repo"
     mira = repo / "mira"
@@ -104,6 +132,7 @@ def configure_repo(monkeypatch: pytest.MonkeyPatch, tmp_path: Path) -> tuple[Pat
     drafts = tmp_path / "private-drafts"
     journal.mkdir(parents=True)
     drafts.mkdir()
+    (repo / "evidence.md").write_text("technical evidence\n", encoding="utf-8")
     monkeypatch.setattr(subject, "REPO_ROOT", repo)
     monkeypatch.setattr(subject, "MIRA_ROOT", mira)
     monkeypatch.setattr(subject, "JOURNAL_ROOT", journal)
@@ -140,13 +169,21 @@ def write_bundle(drafts: Path, day: str, body: bytes, value: dict) -> Path:
     draft = root / "draft.md"
     draft.write_bytes(body)
     draft.with_suffix(".json").write_text(json.dumps(value), encoding="utf-8")
+    version_number = int(str(value["version_id"]).rsplit("-v", 1)[1])
+    reference = technical_reference(day, body, version_number)
+    reference["cutoff_at"] = str(value["coverage"]["as_of"])
+    (root / "technical-reference.json").write_text(json.dumps(reference), encoding="utf-8")
     return draft
 
 
 def action_args(day: str, draft: Path, *, check: bool = False) -> argparse.Namespace:
     value = json.loads(draft.with_suffix(".json").read_text(encoding="utf-8"))
-    statement = subject.version_approval_statement(
-        str(value["version_id"]), subject.sha256_bytes(draft.read_bytes())
+    reference = json.loads((draft.parent / "technical-reference.json").read_text(encoding="utf-8"))
+    statement = subject.combined_approval_statement(
+        str(value["version_id"]),
+        subject.sha256_bytes(draft.read_bytes()),
+        str(reference["reference_id"]),
+        subject.mira_journal_references.reference_digest(reference),
     )
     record_ref = "MR-" + subject.sha256_bytes(statement.encode("utf-8"))[:24]
     APPROVAL_ROWS[record_ref] = {
@@ -388,6 +425,125 @@ def test_prepare_check_is_deterministic_and_reports_quiet_day(
     assert not (tmp_path / "drafts-two").exists()
 
 
+def test_prepare_supplies_admitted_recursive_lessons_to_composition(
+    monkeypatch: pytest.MonkeyPatch, tmp_path: Path
+) -> None:
+    configure_repo(monkeypatch, tmp_path)
+    ledger_path = tmp_path / "ledger.json"
+    ledger_path.write_text(json.dumps({"entries": [{
+        "id": "RSI-20260808-01",
+        "date": "2026-08-08",
+        "title": "Continuity becomes inherited practice",
+        "class": "partial-feedback-loop",
+        "closure_state": "partial",
+        "intervention": {"summary": "Carry one admitted lesson into the next composition."},
+        "outcome": {"summary": "Measurement remains pending."},
+        "next_measure": "Observe whether the next entry uses it without recap.",
+    }]}), encoding="utf-8")
+    monkeypatch.setattr(subject, "LEARNING_LEDGER_PATH", ledger_path)
+    monkeypatch.setattr(subject, "session_sources_since", lambda minimum: [])
+    monkeypatch.setattr(subject, "git_commits", lambda start, end: [])
+    output = tmp_path / "composition-drafts"
+    args = argparse.Namespace(
+        date="2026-08-08",
+        as_of="2026-08-09T06:00:00Z",
+        token_budget=16000,
+        output_root=output,
+        check=False,
+    )
+    result = subject.command_prepare(args)
+    target = output / "2026-08-08"
+    pack = json.loads((target / "context-pack.json").read_text(encoding="utf-8"))
+    contract = json.loads((target / "draft-contract.json").read_text(encoding="utf-8"))
+    reference_contract = json.loads((target / "technical-reference-contract.json").read_text(encoding="utf-8"))
+    assert result["available_rsi_ids"] == ["RSI-20260808-01"]
+    assert pack["recursive_learning_context"]["selected_entries"][0]["lesson"].startswith("Carry one")
+    assert "Draw on an admitted lesson" in contract["prose_contract"]["recursive_learning_rule"]
+    assert reference_contract["recursive_learning"]["available_rsi_ids"] == ["RSI-20260808-01"]
+
+
+def test_nightly_prepare_never_mutates_recursive_learning_ledger(
+    monkeypatch: pytest.MonkeyPatch, tmp_path: Path
+) -> None:
+    configure_repo(monkeypatch, tmp_path)
+    ledger_path = tmp_path / "ledger.json"
+    ledger_path.write_text(json.dumps({"entries": []}), encoding="utf-8")
+    before = ledger_path.read_bytes()
+    monkeypatch.setattr(subject, "LEARNING_LEDGER_PATH", ledger_path)
+    monkeypatch.setattr(subject, "session_sources_since", lambda minimum: [])
+    monkeypatch.setattr(subject, "git_commits", lambda start, end: [])
+    subject.command_prepare(argparse.Namespace(
+        date="2026-08-08",
+        as_of="2026-08-09T06:00:00Z",
+        token_budget=16000,
+        output_root=tmp_path / "nightly-drafts",
+        check=False,
+    ))
+    assert ledger_path.read_bytes() == before
+
+
+def test_technical_reference_rejects_unknown_consumed_lesson(
+    monkeypatch: pytest.MonkeyPatch, tmp_path: Path
+) -> None:
+    repo, _ = configure_repo(monkeypatch, tmp_path)
+    body = prose("2026-08-09")
+    value = technical_reference("2026-08-09", body)
+    value["recursive_learning"]["consumed_rsi_ids"] = ["RSI-20990101-01"]
+    failures = subject.mira_journal_references.validate_reference(
+        value,
+        prose=body.decode("utf-8"),
+        prose_sha256=subject.sha256_bytes(body),
+        version_id="MJ-20260809-v1",
+        ledger={"entries": []},
+        repo_root=repo,
+    )
+    assert "technical reference consumes an unknown RSI entry" in failures
+
+
+def test_technical_reference_markdown_is_deterministic() -> None:
+    body = prose("2026-08-09")
+    value = technical_reference("2026-08-09", body)
+    assert subject.mira_journal_references.render_reference(value) == subject.mira_journal_references.render_reference(copy.deepcopy(value))
+
+
+def test_observed_technical_evidence_is_cutoff_and_path_bound() -> None:
+    body = prose("2026-08-09")
+    value = technical_reference("2026-08-09", body)
+    for item in value["items"]:
+        item["evidence_refs"] = [{"kind": "repo-path", "path": "scripts/mira_journal.py"}]
+    observed = value["items"][0]
+    observed["cutoff_status"] = "observed-by-cutoff"
+    observed["evidence_refs"] = [{
+        "kind": "git-commit",
+        "commit": "88d7128d0b98b05d5cbb48ed8e8c138ad89b1c56",
+        "paths": ["scripts/mira_journal.py"],
+    }]
+    value["cutoff_at"] = "2000-01-01T00:00:00Z"
+    failures = subject.mira_journal_references.validate_reference(
+        value,
+        prose=body.decode("utf-8"),
+        prose_sha256=subject.sha256_bytes(body),
+        version_id="MJ-20260809-v1",
+        ledger=subject.mira_journal_references.load_ledger(subject.LEARNING_LEDGER_PATH),
+        repo_root=subject.REPO_ROOT,
+    )
+    assert any("exceeds the declared cutoff" in failure for failure in failures)
+
+    value["cutoff_at"] = "2030-01-01T00:00:00Z"
+    observed["evidence_refs"][0]["paths"] = ["README.md"]
+    failures = subject.mira_journal_references.validate_reference(
+        value,
+        prose=body.decode("utf-8"),
+        prose_sha256=subject.sha256_bytes(body),
+        version_id="MJ-20260809-v1",
+        ledger=subject.mira_journal_references.load_ledger(subject.LEARNING_LEDGER_PATH),
+        repo_root=subject.REPO_ROOT,
+        expected_cutoff_at="2026-08-10T06:00:00.000Z",
+    )
+    assert any("was not touched" in failure for failure in failures)
+    assert "technical reference cutoff does not match journal coverage" in failures
+
+
 def test_activity_contract_selects_or_explicitly_omits_every_daily_record(
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
@@ -554,6 +710,82 @@ def test_generic_or_negated_text_cannot_approve_version(
     ]
     with pytest.raises(subject.JournalError, match="exact digest-bound"):
         subject.approve_or_revise(args, revising=False)
+
+
+def test_legacy_reference_backfill_preserves_prose_and_publication_boundary(
+    monkeypatch: pytest.MonkeyPatch, tmp_path: Path
+) -> None:
+    repo, drafts = configure_repo(monkeypatch, tmp_path)
+    day = "2026-08-09"
+    body = prose(day)
+    parsed = subject.parse_markdown(body, day)
+    canonical = subject.entry_path(subject.parse_entry_date(day))
+    canonical.write_bytes(body)
+    registry = subject.default_registry()
+    registry["entries"] = [{
+        "journal_id": "MJ-20260809",
+        "entry_date": day,
+        "current_version_id": "MJ-20260809-v1",
+        "current_path": "mira/journal/2026-08-09.md",
+        "versions": [{
+            "version_id": "MJ-20260809-v1",
+            "version_number": 1,
+            "title": parsed["title"],
+            "content_sha256": parsed["content_sha256"],
+            "word_count": parsed["word_count"],
+            "coverage": {
+                "start": "2026-08-09T06:00:00Z",
+                "end": "2026-08-10T06:00:00Z",
+                "as_of": "2026-08-09T18:00:00Z",
+                "retrospective": False,
+            },
+            "approval": {
+                "approved_by": "operator",
+                "status": subject.LEGACY_HELD_STATUS,
+                "publication_eligible": False,
+            },
+            "previous_version_digest": None,
+        }],
+    }]
+    subject.atomic_write_json(subject.REGISTRY_PATH, registry)
+    subject.atomic_write_text(subject.INDEX_PATH, subject.render_index(registry))
+    reference = technical_reference(day, body, mode="retrospective-backfill")
+    reference["cutoff_at"] = "2026-08-09T18:00:00Z"
+    input_path = drafts / "legacy-reference.json"
+    input_path.write_text(json.dumps(reference), encoding="utf-8")
+    digest = subject.mira_journal_references.reference_digest(reference)
+    statement = subject.reference_backfill_statement(reference["reference_id"], digest)
+    record_id = "MR-" + digest[:24]
+    APPROVAL_ROWS[record_id] = {
+        "record_id": record_id,
+        "kind": "message",
+        "role": "user",
+        "timestamp": "2026-08-09T18:00:00Z",
+        "content": [{"type": "text", "text": statement}],
+    }
+    args = argparse.Namespace(
+        version="MJ-20260809-v1",
+        input=input_path,
+        authority_ref=SESSION,
+        approval_record_ref=record_id,
+        approved_at="2026-08-09T17:59:00Z",
+        check=True,
+    )
+    with pytest.raises(subject.JournalError, match="precedes its approval record"):
+        subject.command_reference_backfill(args)
+    args.approved_at = "2026-08-09T18:01:00Z"
+    before = canonical.read_bytes()
+    assert subject.command_reference_backfill(args)["status"] == "ready"
+    assert "technical_reference" not in subject.load_registry()["entries"][0]["versions"][0]
+    args.check = False
+    result = subject.command_reference_backfill(args)
+    assert result["status"] == "backfilled"
+    assert canonical.read_bytes() == before
+    stored = subject.load_registry()["entries"][0]["versions"][0]
+    assert stored["approval"]["status"] == subject.LEGACY_HELD_STATUS
+    assert stored["approval"]["publication_eligible"] is False
+    assert (repo / stored["technical_reference"]["json_path"]).is_file()
+    assert (repo / stored["technical_reference"]["markdown_path"]).is_file()
 
 
 def test_context_pack_identity_and_derivation_are_verified() -> None:

@@ -61,6 +61,7 @@ EXPECTED_SURFACES = {
     "operator-position": "operator_positions.py",
     "reality": "reality.py",
     "reality-handoff": "reality_handoff.py",
+    "recursive-learn": "recursive_learning_ledger.py",
     "research-handoff": "research_handoff.py",
     "session-preflight": "session_preflight.py",
     "skills-check": "check_codex_skills_sync.py",

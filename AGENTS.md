@@ -37,6 +37,13 @@ When the operator says `coffee`, read
 When the operator says `dream`, read
 `docs/skill-drafts/dream/SKILL.md` completely and follow it.
 
+When the operator says `recursive-learn`, asks whether a Mira Journal
+technical reference demonstrates recursive learning, requests an RSI candidate,
+or explicitly directs admission to the recursive-learning ledger, read
+`docs/skill-drafts/recursive-learn/SKILL.md` completely and follow it. Default
+to read-only assessment; only exact digest-bound admission may mutate the
+canonical ledger.
+
 When the operator says `world-monitor`, asks for a World Monitor scan, or asks
 to use World Monitor as a Narrative Systems source, read
 `docs/skill-drafts/world-monitor/SKILL.md` completely and follow it.

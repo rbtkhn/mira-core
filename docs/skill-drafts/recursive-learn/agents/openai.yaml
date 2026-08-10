@@ -1,0 +1,4 @@
+interface:
+  display_name: "Recursive Learn"
+  short_description: "Assess and admit evidence-backed learning loops"
+  default_prompt: "Use $recursive-learn to assess a journal technical reference for an evidence-backed recursive-learning loop."
