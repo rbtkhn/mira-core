@@ -223,6 +223,7 @@ def test_profile_verification_is_bounded_and_uses_direct_external_basetemp(
     assert commands[0][1 : 1 + len(cadence.EXPERIMENT_PROFILES["research-brief-commissioning"]["command"])] == cadence.EXPERIMENT_PROFILES["research-brief-commissioning"]["command"]
     assert commands[0][-2] == "--basetemp"
     assert "PYTEST_ADDOPTS" not in environments[0]
+    assert str(cadence.SCRIPTS_ROOT) in environments[0]["PYTHONPATH"].split(cadence.os.pathsep)
 
 
 def test_changed_repository_state_requires_reconciliation(

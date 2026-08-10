@@ -846,6 +846,9 @@ def validation_environment() -> dict[str, str]:
     environment = os.environ.copy()
     environment.pop("PYTEST_ADDOPTS", None)
     environment.pop("NARRATIVE_CHOICE_DB", None)
+    existing = environment.get("PYTHONPATH")
+    scripts = str(SCRIPTS_ROOT)
+    environment["PYTHONPATH"] = scripts if not existing else os.pathsep.join((scripts, existing))
     return environment
 
 
