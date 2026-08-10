@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "index_id": "mira-journal-continuity-v1",
+  "status": "generated-advisory",
+  "authority_boundary": "This index is a deterministic projection of approved autobiographical continuity events. It is not identity doctrine, recursive-learning evidence, or action authority.",
+  "source_versions": [],
+  "threads": [],
+  "legacy_unthreaded_versions": [
+    "MJ-20260809-v1"
+  ]
+}

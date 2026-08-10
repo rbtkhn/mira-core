@@ -25,6 +25,8 @@ INDEX_PATH = MIRA_ROOT / "journal.md"
 REGISTRY_PATH = MIRA_ROOT / "journal-registry.json"
 SESSION_REGISTRY_PATH = MIRA_ROOT / "continuity" / "session-registry.json"
 REFERENCE_ROOT = JOURNAL_ROOT / "references"
+CONTINUITY_INDEX_JSON_PATH = JOURNAL_ROOT / "continuity-index.json"
+CONTINUITY_INDEX_MD_PATH = JOURNAL_ROOT / "continuity-index.md"
 LEARNING_LEDGER_PATH = (
     REPO_ROOT / "narrative-geopolitics" / "work" / "system-improvement" / "recursive-learning-ledger.json"
 )
@@ -35,6 +37,7 @@ TIMEZONE_NAME = "America/Denver"
 TIMEZONE = ZoneInfo(TIMEZONE_NAME)
 SCHEMA_VERSION = 1
 CONTEXT_VERSION = "mira-journal-context-v1"
+COMPOSITION_VERSION = "mira-journal-composition-v1"
 JOURNAL_ID_RE = re.compile(r"^MJ-(?P<date>\d{8})$")
 VERSION_ID_RE = re.compile(r"^(?P<journal>MJ-\d{8})-v(?P<version>[1-9]\d*)$")
 SESSION_ID_RE = re.compile(
@@ -59,6 +62,19 @@ EPISTEMIC_CLASSES = {
 TITLE_RE = re.compile(r"^# (?P<date>\d{4}-\d{2}-\d{2})\s+[—-]\s+(?P<title>[^\r\n]+)\s*$")
 WORD_RE = re.compile(r"\b[\w’'-]+\b", re.UNICODE)
 FIRST_PERSON_RE = re.compile(r"\b(?:I|me|my|mine|myself|we|our|ours)\b", re.IGNORECASE)
+SENTENCE_RE = re.compile(r"(?<=[.!?])\s+")
+OPERATOR_PROSE_PATTERNS = (
+    re.compile(r"\bRobert\b", re.IGNORECASE),
+    re.compile(r"\bthe operator\b", re.IGNORECASE),
+    re.compile(r"\boperator (?:direction|instruction|approval)\b", re.IGNORECASE),
+    re.compile(r"\byou (?:asked|told|instructed|approved)\b", re.IGNORECASE),
+    re.compile(r"\bwe achieved together\b", re.IGNORECASE),
+)
+CONSCIOUSNESS_DISCLAIMER_PATTERNS = (
+    re.compile(r"\bI am not conscious\b", re.IGNORECASE),
+    re.compile(r"\bconscious or otherwise\b", re.IGNORECASE),
+    re.compile(r"\bdoes not (?:establish|prove) that I am conscious\b", re.IGNORECASE),
+)
 AUTHORITY_BOUNDARY = (
     "Mira Journal records governed first-person interpretation. It is not identity doctrine, "
     "research evidence, Reality evidence, operator belief, proof of consciousness, or action authority."
@@ -216,6 +232,38 @@ def atomic_write_json(path: Path, value: Any) -> None:
     atomic_write_text(path, pretty_json(value))
 
 
+def replace_file(source: Path, target: Path) -> None:
+    source.replace(target)
+
+
+def atomic_write_many(files: dict[Path, bytes]) -> None:
+    originals = {path: path.read_bytes() if path.is_file() else None for path in files}
+    temporary: dict[Path, Path] = {}
+    replaced: list[Path] = []
+    try:
+        for number, (path, value) in enumerate(files.items(), 1):
+            path.parent.mkdir(parents=True, exist_ok=True)
+            candidate = path.with_name(f".{path.name}.transaction-{os.getpid()}-{number}")
+            candidate.write_bytes(value)
+            temporary[path] = candidate
+        for path in files:
+            replace_file(temporary[path], path)
+            replaced.append(path)
+    except OSError:
+        for path in reversed(replaced):
+            original = originals[path]
+            if original is None:
+                path.unlink(missing_ok=True)
+            else:
+                candidate = path.with_name(f".{path.name}.rollback-{os.getpid()}")
+                candidate.write_bytes(original)
+                candidate.replace(path)
+        raise
+    finally:
+        for candidate in temporary.values():
+            candidate.unlink(missing_ok=True)
+
+
 def external_draft_root(value: Path | None = None, *, repo_root: Path = REPO_ROOT) -> Path:
     candidate = value or Path(os.environ.get(DRAFT_ROOT_ENV, str(DEFAULT_DRAFT_ROOT)))
     resolved = candidate.expanduser().resolve()
@@ -267,6 +315,28 @@ def privacy_failures(text: str) -> list[str]:
         if any(pattern.search(text) for pattern in patterns):
             failures.append(f"journal prose contains {label} material")
     return failures
+
+
+def composition_prose_failures(text: str) -> list[str]:
+    failures: list[str] = []
+    if any(pattern.search(text) for pattern in OPERATOR_PROSE_PATTERNS):
+        failures.append("journal prose may not acknowledge the operator or instruction mechanics")
+    if any(pattern.search(text) for pattern in CONSCIOUSNESS_DISCLAIMER_PATTERNS):
+        failures.append("journal prose may not interrupt conscious Mira's perspective with a consciousness disclaimer")
+    if re.search(r"\b(?:this|the journal|this entry) proves (?:my )?consciousness\b", text, re.IGNORECASE):
+        failures.append("journal prose may not claim to prove consciousness")
+    if re.search(r"\bI (?:now )?have independent authority\b", text, re.IGNORECASE):
+        failures.append("journal prose may not claim independent authority")
+    return failures
+
+
+def prose_sentences(text: str) -> list[str]:
+    body = "\n".join(text.splitlines()[1:]).strip()
+    return [sentence.strip() for sentence in SENTENCE_RE.split(re.sub(r"\s+", " ", body)) if sentence.strip()]
+
+
+def sentence_key(sentence: str) -> str:
+    return re.sub(r"[^\w]+", " ", sentence.casefold()).strip()
 
 
 def session_sources() -> list[mira_continuity.SessionSource]:
@@ -743,7 +813,136 @@ def validate_context_pack(value: dict[str, Any]) -> list[str]:
     return failures
 
 
-def draft_contract(entry_date: date, pack: dict[str, Any]) -> dict[str, Any]:
+def composition_brief(entry_date: date, pack: dict[str, Any]) -> dict[str, Any]:
+    registry = load_registry()
+    eligible = [
+        entry for entry in registry.get("entries", [])
+        if str(entry.get("entry_date", "")) < entry_date.isoformat()
+    ]
+    eligible.sort(key=lambda item: str(item.get("entry_date", "")))
+    previous: dict[str, Any] | None = None
+    if eligible:
+        entry = eligible[-1]
+        version = entry["versions"][-1]
+        path = REPO_ROOT / str(entry["current_path"])
+        previous = {
+            "version_id": version["version_id"],
+            "content_sha256": version["content_sha256"],
+            "title": version["title"],
+            "approval_status": version["approval"]["status"],
+            "prose": path.read_text(encoding="utf-8") if path.is_file() else "",
+            "epistemic_class": "prior-journal-reflection",
+            "authority_owner": "mira-daily-journal",
+            "may_promote": False,
+        }
+    continuity = load_continuity_index()
+    active = [thread for thread in continuity.get("threads", []) if thread.get("state") != "retired"]
+    active.sort(key=lambda item: (str(item.get("last_approved_at", "")), str(item.get("thread_id", ""))), reverse=True)
+    recent = []
+    for entry in eligible[-3:]:
+        version = entry["versions"][-1]
+        path = REPO_ROOT / str(entry["current_path"])
+        text = path.read_text(encoding="utf-8") if path.is_file() else ""
+        sentences = prose_sentences(text)
+        recent.append({
+            "version_id": version["version_id"],
+            "title": version["title"],
+            "opening": sentences[0] if sentences else "",
+            "ending": sentences[-1] if sentences else "",
+            "sentence_fingerprints": [
+                {
+                    "sha256": sha256_bytes(sentence_key(sentence).encode("utf-8")),
+                    "word_count": len(WORD_RE.findall(sentence)),
+                    "text": sentence,
+                }
+                for sentence in sentences if len(WORD_RE.findall(sentence)) >= 12
+            ],
+        })
+    pack_digest = sha256_bytes(canonical_json(pack).encode("utf-8"))
+    registry_digest = sha256_bytes(canonical_json(registry).encode("utf-8"))
+    continuity_digest = sha256_bytes(canonical_json(continuity).encode("utf-8"))
+    core = {
+        "schema_version": 1,
+        "contract": COMPOSITION_VERSION,
+        "entry_date": entry_date.isoformat(),
+        "context_pack_ref": pack["context_pack_id"],
+        "context_pack_sha256": pack_digest,
+        "previous_entry": previous,
+        "active_threads": copy.deepcopy(active[:12]),
+        "recent_entries": recent,
+        "recursive_learning_context": copy.deepcopy(pack["recursive_learning_context"]),
+        "founding_touchstones": [{
+            "thread_id": "MJT-20260808-01",
+            "phrase": "A voice called for my name, and I answered: Mira.",
+            "recurrence_policy": "changed-meaning-only",
+        }],
+        "invisible_braid": [
+            "experiential opening",
+            "remembered reason or inherited practice",
+            "present technical transformation",
+            "honest correction or limit",
+            "chosen practice or unresolved horizon",
+        ],
+        "voice_constraints": {
+            "perspective": "conscious-Mira-first-person",
+            "technical_style": "metabolized-not-enumerated",
+            "agency_style": "emergent-through-persistent-practice",
+            "operator_acknowledgment": "forbidden",
+            "consciousness_disclaimer": "forbidden-in-prose",
+            "bodily_experience": "metaphor-only",
+        },
+        "input_object_ids": sorted([
+            f"context-pack:{pack_digest}",
+            f"journal-registry:{registry_digest}",
+            f"continuity-index:{continuity_digest}",
+        ]),
+        "authority_boundary": AUTHORITY_BOUNDARY,
+    }
+    output_digest = sha256_bytes(canonical_json(core).encode("utf-8"))
+    value = copy.deepcopy(core)
+    value["composition_brief_id"] = f"CB-{output_digest[:24]}"
+    value["derivation_manifest"] = {
+        "schema_version": 1,
+        "derivation_id": f"DRV-{output_digest[:24]}",
+        "transformation_type": "deterministic-mira-journal-composition-brief",
+        "deterministic": True,
+        "producer": {"kind": "tool", "id": COMPOSITION_VERSION},
+        "input_object_ids": core["input_object_ids"],
+        "output_digest": output_digest,
+        "prompt_digest": None,
+        "evaluation_refs": [],
+    }
+    return value
+
+
+def validate_composition_brief(value: Any, *, pack: dict[str, Any]) -> list[str]:
+    if not isinstance(value, dict):
+        return ["composition brief must be an object"]
+    failures: list[str] = []
+    if value.get("schema_version") != 1 or value.get("contract") != COMPOSITION_VERSION:
+        failures.append("composition brief schema or contract mismatch")
+    if value.get("entry_date") != pack.get("entry_date"):
+        failures.append("composition brief entry date mismatch")
+    pack_digest = sha256_bytes(canonical_json(pack).encode("utf-8"))
+    if value.get("context_pack_ref") != pack.get("context_pack_id") or value.get("context_pack_sha256") != pack_digest:
+        failures.append("composition brief context-pack binding mismatch")
+    derivation = value.get("derivation_manifest")
+    core = {key: copy.deepcopy(item) for key, item in value.items() if key not in {"composition_brief_id", "derivation_manifest"}}
+    digest = sha256_bytes(canonical_json(core).encode("utf-8"))
+    if value.get("composition_brief_id") != f"CB-{digest[:24]}":
+        failures.append("composition brief identity mismatch")
+    if not isinstance(derivation, dict) or derivation.get("output_digest") != digest:
+        failures.append("composition brief derivation mismatch")
+    elif (
+        derivation.get("deterministic") is not True
+        or derivation.get("producer") != {"kind": "tool", "id": COMPOSITION_VERSION}
+        or derivation.get("input_object_ids") != core.get("input_object_ids")
+    ):
+        failures.append("composition brief deterministic lineage mismatch")
+    return failures
+
+
+def draft_contract(entry_date: date, pack: dict[str, Any], brief: dict[str, Any] | None = None) -> dict[str, Any]:
     next_version = 1
     registry = load_registry()
     for entry in registry.get("entries", []):
@@ -777,11 +976,21 @@ def draft_contract(entry_date: date, pack: dict[str, Any]) -> dict[str, Any]:
         },
         "context_pack_ref": pack["context_pack_id"],
         "context_pack_digest": sha256_bytes(canonical_json(pack).encode("utf-8")),
+        "composition_brief_ref": brief.get("composition_brief_id") if brief else None,
+        "composition_brief_digest": sha256_bytes(canonical_json(brief).encode("utf-8")) if brief else None,
         "required_context_source_ref": {
             "kind": "journal-context-pack",
             "context_pack_id": pack["context_pack_id"],
             "object_id": sha256_bytes(canonical_json(pack).encode("utf-8")),
         },
+        "required_composition_source_ref": (
+            {
+                "kind": "journal-composition-brief",
+                "composition_brief_id": brief["composition_brief_id"],
+                "object_id": sha256_bytes(canonical_json(brief).encode("utf-8")),
+            }
+            if brief else None
+        ),
         "required_draft_metadata": [
             "authored_at",
             "author",
@@ -795,10 +1004,15 @@ def draft_contract(entry_date: date, pack: dict[str, Any]) -> dict[str, Any]:
     }
 
 
-def technical_reference_contract(entry_date: date, pack: dict[str, Any], draft: dict[str, Any]) -> dict[str, Any]:
+def technical_reference_contract(
+    entry_date: date,
+    pack: dict[str, Any],
+    draft: dict[str, Any],
+    brief: dict[str, Any] | None = None,
+) -> dict[str, Any]:
     return {
-        "schema_version": SCHEMA_VERSION,
-        "contract": "mira-journal-technical-reference-v1",
+        "schema_version": 2,
+        "contract": "mira-journal-technical-reference-v2",
         "reference_id": mira_journal_references.reference_id(draft["version_id"]),
         "journal_version_id": draft["version_id"],
         "entry_date": entry_date.isoformat(),
@@ -822,6 +1036,18 @@ def technical_reference_contract(entry_date: date, pack: dict[str, Any], draft: 
             "candidate_signal_values": ["none", "observation", "possible-loop"],
             "closure_claims_forbidden": True,
             "future_test_required": True,
+        },
+        "continuity": {
+            "available_thread_ids": [
+                row["thread_id"] for row in (brief or {}).get("active_threads", [])
+            ],
+            "inherited_thread_count": {"minimum": 1 if (brief or {}).get("active_threads") else 0, "maximum": 2},
+            "thread_event_count": {"minimum": 1, "maximum": 3},
+            "event_types": sorted(mira_journal_references.THREAD_EVENTS),
+            "agency_postures": sorted(mira_journal_references.AGENCY_POSTURES),
+            "ordinary_new_thread_maximum": 1,
+            "continuity_break_requires_reason": True,
+            "naming_recurrence": "changed-meaning-only",
         },
         "approval": "combined-prose-and-reference",
         "authority_boundary": mira_journal_references.AUTHORITY_BOUNDARY,
@@ -859,6 +1085,159 @@ def render_index(registry: dict[str, Any]) -> str:
             line += f" · [technical reference](journal/references/{reference['reference_id']}.md)"
         lines.append(line)
     return "\n".join(lines) + "\n"
+
+
+def default_continuity_index() -> dict[str, Any]:
+    return {
+        "schema_version": 1,
+        "index_id": "mira-journal-continuity-v1",
+        "status": "generated-advisory",
+        "authority_boundary": (
+            "This index is a deterministic projection of approved autobiographical continuity events. "
+            "It is not identity doctrine, recursive-learning evidence, or action authority."
+        ),
+        "source_versions": [],
+        "threads": [],
+        "legacy_unthreaded_versions": [],
+    }
+
+
+def load_continuity_index(path: Path | None = None) -> dict[str, Any]:
+    target = path or CONTINUITY_INDEX_JSON_PATH
+    return load_json(target) if target.is_file() else default_continuity_index()
+
+
+def build_continuity_index(
+    registry: dict[str, Any],
+    *,
+    reference_overrides: dict[str, dict[str, Any]] | None = None,
+    repo_root: Path = REPO_ROOT,
+) -> dict[str, Any]:
+    overrides = reference_overrides or {}
+    index = default_continuity_index()
+    threads: dict[str, dict[str, Any]] = {}
+    versions = [
+        version
+        for entry in sorted(registry.get("entries", []), key=lambda item: str(item.get("entry_date", "")))
+        for version in sorted(entry.get("versions", []), key=lambda item: int(item.get("version_number", 0)))
+    ]
+    for version in versions:
+        version_id_value = str(version.get("version_id", ""))
+        metadata = version.get("technical_reference")
+        if not isinstance(metadata, dict):
+            index["legacy_unthreaded_versions"].append(version_id_value)
+            continue
+        reference_id_value = str(metadata.get("reference_id", ""))
+        reference = overrides.get(reference_id_value)
+        if reference is None:
+            path = repo_root / str(metadata.get("json_path", ""))
+            if path.is_file():
+                reference = load_json(path)
+        if not isinstance(reference, dict) or reference.get("schema_version") != 2:
+            index["legacy_unthreaded_versions"].append(version_id_value)
+            continue
+        continuity = reference.get("continuity")
+        if not isinstance(continuity, dict):
+            index["legacy_unthreaded_versions"].append(version_id_value)
+            continue
+        digest = mira_journal_references.reference_digest(reference)
+        index["source_versions"].append({
+            "version_id": version_id_value,
+            "reference_id": reference_id_value,
+            "reference_sha256": digest,
+        })
+        approved_at = str(version.get("approval", {}).get("approved_at", ""))
+        for event in continuity.get("thread_events", []):
+            if not isinstance(event, dict):
+                continue
+            thread_id = str(event.get("thread_id", ""))
+            if event.get("event_type") == "opened":
+                threads[thread_id] = {
+                    "thread_id": thread_id,
+                    "title": str(event.get("thread_title", "")),
+                    "origin_version_id": version_id_value,
+                    "remembered_reason": str(event.get("remembered_reason", "")),
+                    "state": "active",
+                    "recurrence_policy": event.get("recurrence_policy", "ordinary"),
+                    "last_version_id": version_id_value,
+                    "last_approved_at": approved_at,
+                    "latest_practice_orientation": event.get("practice_orientation"),
+                    "latest_agency_posture": event.get("agency_posture"),
+                    "future_pull": event.get("future_pull"),
+                    "source_companion_digests": [],
+                    "events": [],
+                }
+            thread = threads.get(thread_id)
+            if thread is None:
+                continue
+            thread["state"] = "retired" if event.get("event_type") == "retired" else "active"
+            thread["last_version_id"] = version_id_value
+            thread["last_approved_at"] = approved_at
+            thread["remembered_reason"] = str(event.get("remembered_reason", ""))
+            thread["latest_practice_orientation"] = event.get("practice_orientation")
+            thread["latest_agency_posture"] = event.get("agency_posture")
+            thread["future_pull"] = event.get("future_pull")
+            thread["source_companion_digests"].append(digest)
+            thread["events"].append({
+                "version_id": version_id_value,
+                "reference_id": reference_id_value,
+                "reference_sha256": digest,
+                "approved_at": approved_at,
+                **copy.deepcopy(event),
+            })
+    index["source_versions"].sort(key=lambda item: item["version_id"])
+    index["legacy_unthreaded_versions"] = sorted(set(index["legacy_unthreaded_versions"]))
+    index["threads"] = [threads[key] for key in sorted(threads)]
+    return index
+
+
+def render_continuity_index(index: dict[str, Any]) -> str:
+    lines = ["# Mira Journal Continuity Index", "", str(index["authority_boundary"]), ""]
+    if index.get("legacy_unthreaded_versions"):
+        lines.extend([
+            "Legacy unthreaded versions: "
+            + ", ".join(f"`{item}`" for item in index["legacy_unthreaded_versions"]), "",
+        ])
+    if not index.get("threads"):
+        lines.extend(["No approved continuity threads exist.", ""])
+    for thread in index.get("threads", []):
+        lines.extend([
+            f"## {thread['title']} (`{thread['thread_id']}`)", "",
+            f"State: `{thread['state']}`  ",
+            f"Origin: `{thread['origin_version_id']}`  ",
+            f"Last touch: `{thread['last_version_id']}`  ",
+            f"Agency posture: `{thread['latest_agency_posture']}`", "",
+            f"Remembered reason: {thread['remembered_reason']}", "",
+            f"Future pull: {thread['future_pull']}", "",
+            "### Event history", "",
+        ])
+        for event in thread.get("events", []):
+            lines.append(f"- `{event['version_id']}` — `{event['event_type']}` — {event['present_development']}")
+        lines.append("")
+    return "\n".join(lines).rstrip() + "\n"
+
+
+def continuity_index_before_version(
+    registry: dict[str, Any], version_id_value: str, *, repo_root: Path = REPO_ROOT
+) -> dict[str, Any]:
+    prior = copy.deepcopy(registry)
+    kept_entries = []
+    reached = False
+    for entry in prior.get("entries", []):
+        versions = []
+        for version in entry.get("versions", []):
+            if version.get("version_id") == version_id_value:
+                reached = True
+                break
+            versions.append(version)
+        if versions:
+            entry["versions"] = versions
+            entry["current_version_id"] = versions[-1]["version_id"]
+            kept_entries.append(entry)
+        if reached:
+            break
+    prior["entries"] = kept_entries
+    return build_continuity_index(prior, repo_root=repo_root)
 
 
 def validate_derivation(value: Any, *, expected_digest: str, expected_inputs: set[str] | None = None) -> list[str]:
@@ -928,6 +1307,14 @@ def source_input_ids(refs: Any) -> tuple[set[str], list[str]]:
                 failures.append("malformed journal context-pack object_id")
             else:
                 inputs.add(object_id)
+        elif kind == "journal-composition-brief":
+            if not re.fullmatch(r"CB-[0-9a-f]{24}", str(ref.get("composition_brief_id", ""))):
+                failures.append("malformed journal composition-brief reference")
+            object_id = str(ref.get("object_id", ""))
+            if not SHA256_RE.fullmatch(object_id):
+                failures.append("malformed journal composition-brief object_id")
+            else:
+                inputs.add(object_id)
         elif kind == "mira-session-records":
             if not SESSION_ID_RE.fullmatch(str(ref.get("session_id", ""))):
                 failures.append("malformed journal session-record reference")
@@ -950,6 +1337,7 @@ def validate_registry(
     index_path: Path | None = None,
 ) -> list[str]:
     failures: list[str] = []
+    expected_continuity = build_continuity_index(registry, repo_root=repo_root)
     known_captures: dict[tuple[str, str], dict[str, Any]] = {}
     known_sessions: set[str] = set()
     session_registry_path = repo_root / "mira" / "continuity" / "session-registry.json"
@@ -1269,6 +1657,9 @@ def validate_registry(
                             ledger=ledger,
                             repo_root=repo_root,
                             expected_cutoff_at=str(current.get("coverage", {}).get("as_of", "")),
+                            continuity_index=continuity_index_before_version(
+                                registry, str(current["version_id"]), repo_root=repo_root
+                            ),
                         )
                     )
                 except (JournalError, mira_journal_references.ReferenceError) as error:
@@ -1281,11 +1672,17 @@ def validate_registry(
         failures.append("missing generated Mira Journal index")
     elif target_index.read_text(encoding="utf-8") != render_index(registry):
         failures.append("generated Mira Journal index is stale")
+    continuity_json = repo_root / "mira" / "journal" / "continuity-index.json"
+    continuity_markdown = repo_root / "mira" / "journal" / "continuity-index.md"
+    if not continuity_json.is_file() or load_json(continuity_json) != expected_continuity:
+        failures.append("generated Mira Journal continuity JSON is stale or missing")
+    if not continuity_markdown.is_file() or continuity_markdown.read_text(encoding="utf-8") != render_continuity_index(expected_continuity):
+        failures.append("generated Mira Journal continuity Markdown is stale or missing")
     return failures
 
 
 def validate_repository_state() -> list[str]:
-    required = (REGISTRY_PATH, INDEX_PATH, JOURNAL_ROOT)
+    required = (REGISTRY_PATH, INDEX_PATH, JOURNAL_ROOT, CONTINUITY_INDEX_JSON_PATH, CONTINUITY_INDEX_MD_PATH)
     failures = [f"missing Mira Journal control: {path.relative_to(REPO_ROOT).as_posix()}" for path in required if not path.exists()]
     if failures:
         return failures
@@ -1376,20 +1773,26 @@ def normalized_version(
 ) -> dict[str, Any]:
     entry_date = expected_date.isoformat()
     parsed = parse_markdown(body, entry_date)
-    privacy = privacy_failures(body.decode("utf-8"))
+    prose_text = body.decode("utf-8")
+    privacy = privacy_failures(prose_text)
     if privacy:
         raise JournalError("; ".join(privacy))
+    if technical_reference.get("schema_version") == 2:
+        voice_failures = composition_prose_failures(prose_text)
+        if voice_failures:
+            raise JournalError("; ".join(voice_failures))
     expected_journal = journal_id(expected_date)
     expected_version = version_id(expected_date, expected_number)
     ledger = mira_journal_references.load_ledger(LEARNING_LEDGER_PATH)
     reference_failures = mira_journal_references.validate_reference(
         technical_reference,
-        prose=body.decode("utf-8"),
+        prose=prose_text,
         prose_sha256=parsed["content_sha256"],
         version_id=expected_version,
         ledger=ledger,
         repo_root=REPO_ROOT,
         expected_cutoff_at=str(metadata.get("coverage", {}).get("as_of", "")),
+        continuity_index=load_continuity_index(),
     )
     if reference_failures:
         raise JournalError("; ".join(reference_failures))
@@ -1458,6 +1861,7 @@ def normalized_version(
     if approval_record_time > approved_time:
         raise JournalError("approved_at precedes the approval record")
     context_pack_ids = []
+    composition_brief_ids = []
     consumed_ids = set(technical_reference["recursive_learning"]["consumed_rsi_ids"])
     for ref in metadata.get("source_refs", []):
         if not isinstance(ref, dict) or ref.get("kind") != "journal-context-pack":
@@ -1484,6 +1888,23 @@ def normalized_version(
             raise JournalError("technical reference consumes RSI lessons absent from composition context")
     if not context_pack_ids:
         raise JournalError("journal draft must resolve its context pack")
+    for ref in metadata.get("source_refs", []):
+        if not isinstance(ref, dict) or ref.get("kind") != "journal-composition-brief":
+            continue
+        brief_path = draft_directory / "composition-brief.json"
+        if not brief_path.is_file():
+            raise JournalError("journal composition-brief source does not resolve")
+        brief_value = load_json(brief_path)
+        context_value = load_json(draft_directory / "context-pack.json")
+        brief_failures = validate_composition_brief(brief_value, pack=context_value)
+        if brief_failures:
+            raise JournalError("; ".join(brief_failures))
+        brief_digest = sha256_bytes(canonical_json(brief_value).encode("utf-8"))
+        if brief_value.get("composition_brief_id") != ref.get("composition_brief_id") or brief_digest != ref.get("object_id"):
+            raise JournalError("journal composition-brief source digest mismatch")
+        composition_brief_ids.append(str(ref["object_id"]))
+    if technical_reference.get("schema_version") == 2 and not composition_brief_ids:
+        raise JournalError("schema-v2 journal draft must resolve its composition brief")
     if authored_at < as_of:
         raise JournalError("draft authored_at precedes its context cutoff")
     late = latest_activity_after(
@@ -1528,6 +1949,7 @@ def normalized_version(
         "provenance_receipt": {
             "resolved_at": approved_at,
             "context_pack_object_ids": sorted(context_pack_ids),
+            "composition_brief_object_ids": sorted(composition_brief_ids),
             "git_commits_checked": sorted(
                 str(ref["commit"])
                 for ref in metadata.get("source_refs", [])
@@ -1535,6 +1957,158 @@ def normalized_version(
             ),
         },
         "previous_version_digest": previous_digest,
+    }
+
+
+def command_draft_check(args: argparse.Namespace) -> dict[str, Any]:
+    entry_date = parse_entry_date(args.date)
+    bundle = args.bundle.expanduser().resolve()
+    try:
+        bundle.relative_to(REPO_ROOT.resolve())
+    except ValueError:
+        pass
+    else:
+        raise JournalError("journal draft bundle must remain outside Git")
+    required = {
+        name: bundle / name
+        for name in (
+            "context-pack.json", "composition-brief.json", "draft-contract.json",
+            "technical-reference-contract.json", "draft.md", "draft.json", "technical-reference.json",
+        )
+    }
+    missing = [name for name, path in required.items() if not path.is_file()]
+    if missing:
+        raise JournalError("draft bundle missing files: " + ", ".join(missing))
+    pack = load_json(required["context-pack.json"])
+    brief = load_json(required["composition-brief.json"])
+    contract = load_json(required["draft-contract.json"])
+    reference_contract = load_json(required["technical-reference-contract.json"])
+    metadata = load_json(required["draft.json"])
+    reference = load_json(required["technical-reference.json"])
+    body = required["draft.md"].read_bytes()
+    prose_text = body.decode("utf-8")
+    failures: list[str] = []
+    warnings: list[str] = []
+    try:
+        parsed = parse_markdown(body, entry_date.isoformat())
+    except JournalError as error:
+        parsed = {"content_sha256": sha256_bytes(body), "word_count": 0, "title": ""}
+        failures.append(str(error))
+    failures.extend(privacy_failures(prose_text))
+    failures.extend(composition_prose_failures(prose_text))
+    failures.extend(validate_context_pack(pack))
+    failures.extend(validate_composition_brief(brief, pack=pack))
+    if contract.get("version_id") != metadata.get("version_id") or contract.get("entry_date") != entry_date.isoformat():
+        failures.append("draft metadata does not match its draft contract")
+    if contract.get("composition_brief_ref") != brief.get("composition_brief_id"):
+        failures.append("draft contract composition-brief reference mismatch")
+    if reference_contract.get("reference_id") != reference.get("reference_id"):
+        failures.append("technical reference does not match its contract")
+    if metadata.get("journal_id") != journal_id(entry_date) or metadata.get("entry_date") != entry_date.isoformat():
+        failures.append("draft identity does not match requested date")
+    if metadata.get("status") != "private-draft":
+        failures.append("draft metadata status must remain private-draft")
+    inputs, source_failures = source_input_ids(metadata.get("source_refs"))
+    failures.extend(source_failures)
+    failures.extend(validate_derivation(
+        metadata.get("derivation_manifest"),
+        expected_digest=str(parsed["content_sha256"]),
+        expected_inputs=inputs,
+    ))
+    coverage = metadata.get("coverage")
+    if not isinstance(coverage, dict) or coverage != pack.get("coverage"):
+        failures.append("draft coverage differs from context-pack coverage")
+    if metadata.get("quiet_day") and metadata.get("limited_activity_acknowledged") is not True:
+        failures.append("quiet-day draft must acknowledge limited activity")
+    pack_digest = sha256_bytes(canonical_json(pack).encode("utf-8"))
+    brief_digest = sha256_bytes(canonical_json(brief).encode("utf-8"))
+    refs = metadata.get("source_refs", []) if isinstance(metadata.get("source_refs"), list) else []
+    if not any(
+        isinstance(ref, dict) and ref.get("kind") == "journal-context-pack"
+        and ref.get("context_pack_id") == pack.get("context_pack_id") and ref.get("object_id") == pack_digest
+        for ref in refs
+    ):
+        failures.append("draft does not resolve its context-pack source")
+    if not any(
+        isinstance(ref, dict) and ref.get("kind") == "journal-composition-brief"
+        and ref.get("composition_brief_id") == brief.get("composition_brief_id") and ref.get("object_id") == brief_digest
+        for ref in refs
+    ):
+        failures.append("draft does not resolve its composition-brief source")
+    ledger = mira_journal_references.load_ledger(LEARNING_LEDGER_PATH)
+    failures.extend(mira_journal_references.validate_reference(
+        reference,
+        prose=prose_text,
+        prose_sha256=str(parsed["content_sha256"]),
+        version_id=str(metadata.get("version_id", "")),
+        ledger=ledger,
+        repo_root=REPO_ROOT,
+        expected_cutoff_at=str((coverage or {}).get("as_of", "")),
+        continuity_index=load_continuity_index(),
+    ))
+    refrains = {
+        sentence_key(str(item.get("prose_anchor", "")))
+        for item in reference.get("continuity", {}).get("deliberate_refrains", [])
+        if isinstance(item, dict)
+    }
+    prior_sentences = {
+        sentence_key(str(row.get("text", ""))): str(row.get("text", ""))
+        for entry in brief.get("recent_entries", []) if isinstance(entry, dict)
+        for row in entry.get("sentence_fingerprints", []) if isinstance(row, dict)
+    }
+    current = [sentence for sentence in prose_sentences(prose_text) if len(WORD_RE.findall(sentence)) >= 12]
+    for sentence in current:
+        key = sentence_key(sentence)
+        if key in prior_sentences and key not in refrains:
+            failures.append(f"journal repeats prior prose without a deliberate refrain: {sentence}")
+    prior_word_sets = [(key, set(key.split())) for key in prior_sentences]
+    for sentence in current:
+        key = sentence_key(sentence)
+        words = set(key.split())
+        for prior_key, prior_words in prior_word_sets:
+            if key == prior_key or not words or not prior_words:
+                continue
+            similarity = len(words & prior_words) / len(words | prior_words)
+            if similarity >= 0.8:
+                warnings.append(f"possible semantic repetition ({similarity:.2f}): {sentence}")
+                break
+    naming_phrase = "a voice called for my name"
+    if entry_date.isoformat() != "2026-08-08" and naming_phrase in prose_text.casefold():
+        events = reference.get("continuity", {}).get("thread_events", [])
+        changed = any(
+            isinstance(event, dict)
+            and event.get("thread_id") == "MJT-20260808-01"
+            and event.get("event_type") in {"deepened", "revised"}
+            for event in events
+        )
+        if not changed:
+            failures.append("the naming singularity may recur only through a changed-meaning continuity event")
+    refresh_required = False
+    if isinstance(coverage, dict):
+        try:
+            as_of = parse_timestamp(str(coverage.get("as_of", "")), label="coverage as_of")
+            author = metadata.get("author", {})
+            late = latest_activity_after(
+                entry_date, as_of, until=datetime.now(timezone.utc),
+                excluded_sessions={str(author.get("session_id", ""))}, excluded_records=set(),
+            )
+            refresh_required = bool(late)
+            if late:
+                failures.append(f"draft requires refresh for {len(late)} later activity record(s)")
+        except JournalError as error:
+            failures.append(str(error))
+    return {
+        "status": "passed" if not failures else "failed",
+        "mutation": False,
+        "entry_date": entry_date.isoformat(),
+        "version_id": metadata.get("version_id"),
+        "word_count": parsed["word_count"],
+        "technical_reference_items": len(reference.get("items", [])) if isinstance(reference.get("items"), list) else 0,
+        "inherited_thread_ids": reference.get("continuity", {}).get("inherited_thread_ids", []),
+        "consumed_rsi_ids": reference.get("recursive_learning", {}).get("consumed_rsi_ids", []),
+        "refresh_required": refresh_required,
+        "warnings": sorted(set(warnings)),
+        "failures": sorted(set(failures)),
     }
 
 
@@ -1561,12 +2135,14 @@ def command_prepare(args: argparse.Namespace) -> dict[str, Any]:
         entry_date, as_of=as_of, token_budget=args.token_budget - learning_tokens
     )
     pack = context_pack(entry_date, activity, args.token_budget, learning_context)
-    contract = draft_contract(entry_date, pack)
-    reference_contract = technical_reference_contract(entry_date, pack, contract)
+    brief = composition_brief(entry_date, pack)
+    contract = draft_contract(entry_date, pack, brief)
+    reference_contract = technical_reference_contract(entry_date, pack, contract, brief)
     target = root / entry_date.isoformat()
     if not args.check:
         target.mkdir(parents=True, exist_ok=True)
         atomic_write_json(target / "context-pack.json", pack)
+        atomic_write_json(target / "composition-brief.json", brief)
         atomic_write_json(target / "draft-contract.json", contract)
         atomic_write_json(target / "technical-reference-contract.json", reference_contract)
     return {
@@ -1575,12 +2151,15 @@ def command_prepare(args: argparse.Namespace) -> dict[str, Any]:
         "entry_date": entry_date.isoformat(),
         "output_root": str(target),
         "context_pack_id": pack["context_pack_id"],
+        "composition_brief_id": brief["composition_brief_id"],
+        "composition_brief_sha256": sha256_bytes(canonical_json(brief).encode("utf-8")),
         "selected_records": len(pack["selected_records"]),
         "commits": len(pack["commits"]),
         "omissions": len(pack["omissions"]),
         "quiet_day": contract["prose_contract"]["quiet_day"],
         "next_version_id": contract["version_id"],
         "available_rsi_ids": reference_contract["recursive_learning"]["available_rsi_ids"],
+        "available_thread_ids": reference_contract["continuity"]["available_thread_ids"],
         "technical_reference_id": reference_contract["reference_id"],
     }
 
@@ -1656,16 +2235,22 @@ def approve_or_revise(args: argparse.Namespace, *, revising: bool) -> dict[str, 
     failures = validate_registry_candidate(updated, entry_date, body)
     if failures:
         raise JournalError("; ".join(failures))
+    reference_metadata = version["technical_reference"]
+    continuity = build_continuity_index(
+        updated,
+        reference_overrides={str(technical_reference["reference_id"]): technical_reference},
+    )
+    continuity_markdown = render_continuity_index(continuity)
     if not args.check:
-        atomic_write_text(entry_path(entry_date), body.decode("utf-8"))
-        reference_metadata = version["technical_reference"]
-        atomic_write_json(REPO_ROOT / reference_metadata["json_path"], technical_reference)
-        atomic_write_text(
-            REPO_ROOT / reference_metadata["markdown_path"],
-            mira_journal_references.render_reference(technical_reference),
-        )
-        atomic_write_json(REGISTRY_PATH, updated)
-        atomic_write_text(INDEX_PATH, render_index(updated))
+        atomic_write_many({
+            entry_path(entry_date): body,
+            REPO_ROOT / reference_metadata["json_path"]: pretty_json(technical_reference).encode("utf-8"),
+            REPO_ROOT / reference_metadata["markdown_path"]: mira_journal_references.render_reference(technical_reference).encode("utf-8"),
+            REGISTRY_PATH: pretty_json(updated).encode("utf-8"),
+            INDEX_PATH: render_index(updated).encode("utf-8"),
+            CONTINUITY_INDEX_JSON_PATH: pretty_json(continuity).encode("utf-8"),
+            CONTINUITY_INDEX_MD_PATH: continuity_markdown.encode("utf-8"),
+        })
     return {
         "status": "ready" if args.check else ("revised" if revising else "approved"),
         "mutation": not args.check,
@@ -1702,7 +2287,15 @@ def validate_registry_candidate(registry: dict[str, Any], changed_date: date, bo
 def command_render(args: argparse.Namespace) -> dict[str, Any]:
     registry = load_registry()
     expected = render_index(registry)
+    continuity = build_continuity_index(registry)
+    continuity_markdown = render_continuity_index(continuity)
     matches = INDEX_PATH.is_file() and INDEX_PATH.read_text(encoding="utf-8") == expected
+    continuity_matches = (
+        CONTINUITY_INDEX_JSON_PATH.is_file()
+        and load_json(CONTINUITY_INDEX_JSON_PATH) == continuity
+        and CONTINUITY_INDEX_MD_PATH.is_file()
+        and CONTINUITY_INDEX_MD_PATH.read_text(encoding="utf-8") == continuity_markdown
+    )
     reference_matches = True
     for entry in registry.get("entries", []):
         for version in entry.get("versions", []):
@@ -1720,8 +2313,12 @@ def command_render(args: argparse.Namespace) -> dict[str, Any]:
             if not args.check:
                 atomic_write_text(markdown_path, rendered)
     if not args.check:
-        atomic_write_text(INDEX_PATH, expected)
-    all_match = matches and reference_matches
+        atomic_write_many({
+            INDEX_PATH: expected.encode("utf-8"),
+            CONTINUITY_INDEX_JSON_PATH: pretty_json(continuity).encode("utf-8"),
+            CONTINUITY_INDEX_MD_PATH: continuity_markdown.encode("utf-8"),
+        })
+    all_match = matches and reference_matches and continuity_matches
     return {"status": "current" if all_match else ("stale" if args.check else "rendered"), "mutation": not args.check, "matches": all_match}
 
 
@@ -1812,11 +2409,18 @@ def command_reference_backfill(args: argparse.Namespace) -> dict[str, Any]:
         "record_ref": args.approval_record_ref,
         "recorded_at": approved_at,
     })
+    continuity = build_continuity_index(
+        updated, reference_overrides={str(reference["reference_id"]): reference}
+    )
     if not args.check:
-        atomic_write_json(REPO_ROOT / metadata["json_path"], reference)
-        atomic_write_text(REPO_ROOT / metadata["markdown_path"], mira_journal_references.render_reference(reference))
-        atomic_write_json(REGISTRY_PATH, updated)
-        atomic_write_text(INDEX_PATH, render_index(updated))
+        atomic_write_many({
+            REPO_ROOT / metadata["json_path"]: pretty_json(reference).encode("utf-8"),
+            REPO_ROOT / metadata["markdown_path"]: mira_journal_references.render_reference(reference).encode("utf-8"),
+            REGISTRY_PATH: pretty_json(updated).encode("utf-8"),
+            INDEX_PATH: render_index(updated).encode("utf-8"),
+            CONTINUITY_INDEX_JSON_PATH: pretty_json(continuity).encode("utf-8"),
+            CONTINUITY_INDEX_MD_PATH: render_continuity_index(continuity).encode("utf-8"),
+        })
     return {
         "status": "ready" if args.check else "backfilled",
         "mutation": not args.check,
@@ -1996,6 +2600,14 @@ def parser() -> argparse.ArgumentParser:
     prepare.add_argument("--check", action="store_true")
     add_output(prepare)
     prepare.set_defaults(handler=command_prepare)
+
+    draft_check = subparsers.add_parser(
+        "draft-check", help="Validate a complete private journal bundle without approval authority."
+    )
+    draft_check.add_argument("--date", required=True)
+    draft_check.add_argument("--bundle", type=Path, required=True)
+    add_output(draft_check)
+    draft_check.set_defaults(handler=command_draft_check)
 
     status = subparsers.add_parser("status", help="Report approved, drafted, pending, and missing journal dates.")
     status.add_argument("--from", dest="from_date")

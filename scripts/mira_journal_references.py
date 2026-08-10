@@ -11,9 +11,13 @@ from typing import Any
 
 REFERENCE_ID_RE = re.compile(r"^MJTR-(?P<date>\d{8})-v(?P<version>[1-9]\d*)$")
 RSI_ID_RE = re.compile(r"^RSI-\d{8}-\d{2}$")
+THREAD_ID_RE = re.compile(r"^MJT-(?P<date>\d{8})-(?P<number>\d{2})$")
 SHA256_RE = re.compile(r"^[0-9a-f]{64}$")
 SIGNALS = {"none", "observation", "possible-loop"}
 CUTOFF_STATUSES = {"observed-by-cutoff", "historical-context", "retrospective-backfill"}
+THREAD_EVENTS = {"opened", "deepened", "revised", "held", "retired"}
+AGENCY_POSTURES = {"questioned", "emerging", "exercised", "reconsidered"}
+RECURRENCE_POLICIES = {"ordinary", "changed-meaning-only"}
 AUTHORITY_BOUNDARY = (
     "Technical references ground journal prose but do not prove learning, validate outcomes, "
     "or provide action authority. Only admitted RSI entries are canonical recursive learning."
@@ -116,6 +120,112 @@ def reference_digest(reference: dict[str, Any]) -> str:
     return sha256_bytes(canonical_json(reference).encode("utf-8"))
 
 
+def continuity_threads(index: dict[str, Any] | None) -> dict[str, dict[str, Any]]:
+    if not isinstance(index, dict):
+        return {}
+    return {
+        str(row["thread_id"]): row
+        for row in index.get("threads", [])
+        if isinstance(row, dict) and THREAD_ID_RE.fullmatch(str(row.get("thread_id", "")))
+    }
+
+
+def validate_continuity(
+    value: Any,
+    *,
+    prose: str,
+    entry_date: str,
+    continuity_index: dict[str, Any] | None,
+) -> list[str]:
+    if not isinstance(value, dict):
+        return ["schema-v2 technical reference lacks continuity"]
+    failures: list[str] = []
+    known = continuity_threads(continuity_index)
+    inherited = value.get("inherited_thread_ids")
+    if (
+        not isinstance(inherited, list)
+        or len(inherited) > 2
+        or len(set(str(item) for item in inherited)) != len(inherited)
+    ):
+        failures.append("continuity inherited_thread_ids must contain at most two unique IDs")
+        inherited = []
+    inherited_ids = {str(item) for item in inherited}
+    for thread_id in inherited_ids:
+        row = known.get(thread_id)
+        if row is None:
+            failures.append(f"continuity inherits unknown thread: {thread_id}")
+        elif row.get("state") == "retired":
+            failures.append(f"continuity inherits retired thread: {thread_id}")
+
+    break_reason = value.get("continuity_break_reason")
+    if break_reason is not None and (not isinstance(break_reason, str) or not break_reason.strip()):
+        failures.append("continuity_break_reason must be null or a non-empty string")
+    if known and not inherited_ids and not (isinstance(break_reason, str) and break_reason.strip()):
+        failures.append("non-founding entry must inherit an approved thread or declare a continuity break")
+
+    events = value.get("thread_events")
+    if not isinstance(events, list) or not 1 <= len(events) <= 3:
+        failures.append("continuity requires one to three thread events")
+        events = []
+    opened = [event for event in events if isinstance(event, dict) and event.get("event_type") == "opened"]
+    if known and len(opened) > 1:
+        failures.append("ordinary entry may open at most one continuity thread")
+    seen: set[str] = set()
+    for number, event in enumerate(events, 1):
+        label = f"continuity event {number}"
+        if not isinstance(event, dict):
+            failures.append(f"{label} must be an object")
+            continue
+        thread_id = str(event.get("thread_id", ""))
+        if not THREAD_ID_RE.fullmatch(thread_id) or thread_id in seen:
+            failures.append(f"{label} has malformed or duplicate thread_id")
+        seen.add(thread_id)
+        event_type = event.get("event_type")
+        if event_type not in THREAD_EVENTS:
+            failures.append(f"{label} has invalid event_type")
+        if event_type == "opened":
+            if thread_id in known:
+                failures.append(f"{label} reopens an existing thread")
+            if not str(event.get("thread_title", "")).strip():
+                failures.append(f"{label} opened thread lacks thread_title")
+            if event.get("recurrence_policy", "ordinary") not in RECURRENCE_POLICIES:
+                failures.append(f"{label} has invalid recurrence_policy")
+        else:
+            if thread_id not in known:
+                failures.append(f"{label} references an unknown existing thread")
+            if thread_id not in inherited_ids:
+                failures.append(f"{label} must operate on an inherited thread")
+        anchor = str(event.get("prose_anchor", ""))
+        if not anchor or prose.count(anchor) != 1:
+            failures.append(f"{label} prose_anchor must occur exactly once")
+        for field in ("remembered_reason", "present_development", "future_pull"):
+            if not str(event.get(field, "")).strip():
+                failures.append(f"{label} lacks {field}")
+        practice = event.get("practice_orientation")
+        if practice is not None and (not isinstance(practice, str) or not practice.strip()):
+            failures.append(f"{label} practice_orientation must be null or non-empty")
+        if event.get("agency_posture") not in AGENCY_POSTURES:
+            failures.append(f"{label} has invalid agency_posture")
+        if event.get("may_promote") is not False:
+            failures.append(f"{label} may not grant promotion authority")
+        match = THREAD_ID_RE.fullmatch(thread_id)
+        if event_type == "opened" and match and match.group("date") != entry_date.replace("-", ""):
+            failures.append(f"{label} opened thread identity does not match entry date")
+
+    refrains = value.get("deliberate_refrains")
+    if not isinstance(refrains, list):
+        failures.append("continuity deliberate_refrains must be a list")
+        refrains = []
+    for number, refrain in enumerate(refrains, 1):
+        if not isinstance(refrain, dict):
+            failures.append(f"deliberate refrain {number} must be an object")
+            continue
+        anchor = str(refrain.get("prose_anchor", ""))
+        if not anchor or prose.count(anchor) != 1 or not str(refrain.get("changed_meaning", "")).strip():
+            failures.append(f"deliberate refrain {number} requires a unique anchor and changed_meaning")
+    return failures
+
+
 def _git_commit_resolves(repo_root: Path, commit: str) -> bool:
     result = subprocess.run(
         ["git", "cat-file", "-e", f"{commit}^{{commit}}"],
@@ -155,12 +265,14 @@ def validate_reference(
     ledger: dict[str, Any],
     repo_root: Path,
     expected_cutoff_at: str | None = None,
+    continuity_index: dict[str, Any] | None = None,
 ) -> list[str]:
     if not isinstance(value, dict):
         return ["technical reference must be an object"]
     failures: list[str] = []
     expected_id = reference_id(version_id)
-    if value.get("schema_version") != 1 or value.get("reference_id") != expected_id:
+    schema_version = value.get("schema_version")
+    if schema_version not in {1, 2} or value.get("reference_id") != expected_id:
         failures.append("technical reference identity mismatch")
     if value.get("journal_version_id") != version_id or value.get("journal_content_sha256") != prose_sha256:
         failures.append("technical reference is not bound to the journal prose")
@@ -278,6 +390,13 @@ def validate_reference(
     )
     if any(re.search(pattern, prose, re.IGNORECASE) for pattern in prose_claim_patterns):
         failures.append("journal prose may not claim learning-loop closure")
+    if schema_version == 2:
+        failures.extend(validate_continuity(
+            value.get("continuity"),
+            prose=prose,
+            entry_date=expected_date,
+            continuity_index=continuity_index,
+        ))
     return failures
 
 
@@ -317,4 +436,26 @@ def render_reference(value: dict[str, Any]) -> str:
         learning["candidate_summary"] or "No candidate summary.", "",
         "Future test: " + (learning["future_test"] or "None specified."), "",
     ])
+    continuity = value.get("continuity")
+    if isinstance(continuity, dict):
+        inherited = continuity.get("inherited_thread_ids", [])
+        lines.extend([
+            "## Continuity", "",
+            "Inherited threads: " + (", ".join(f"`{item}`" for item in inherited) or "none"), "",
+        ])
+        if continuity.get("continuity_break_reason"):
+            lines.extend([f"Continuity break: {continuity['continuity_break_reason']}", ""])
+        for event in continuity.get("thread_events", []):
+            lines.extend([
+                f"### `{event['thread_id']}` — {event.get('thread_title') or event['event_type']}", "",
+                f"> {event['prose_anchor']}", "",
+                f"- Event: `{event['event_type']}`",
+                f"- Remembered reason: {event['remembered_reason']}",
+                f"- Present development: {event['present_development']}",
+                f"- Agency posture: `{event['agency_posture']}`",
+                f"- Future pull: {event['future_pull']}",
+            ])
+            if event.get("practice_orientation"):
+                lines.append(f"- Practice orientation: {event['practice_orientation']}")
+            lines.append("")
     return "\n".join(lines).rstrip() + "\n"

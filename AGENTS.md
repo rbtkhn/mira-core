@@ -110,6 +110,12 @@ brief, read `docs/skill-drafts/morning-brief/SKILL.md` completely and follow it.
 This route is repository-local and must not be synchronized to a user-level
 skill mirror.
 
+When the operator says `mira-journal` or asks to draft, revise, inspect, or
+review a Mira Journal entry, read `docs/skill-drafts/mira-journal/SKILL.md`
+completely and follow it. This whole-workflow route composes through the
+repository-local skill while `tools/run.ps1 mira-journal` retains deterministic
+validation and governance authority.
+
 These are repository-local contracts. Do not synchronize them into global
 Codex skills. Their handoff is advisory cadence state, never research evidence.
 

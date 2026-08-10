@@ -1,0 +1,4 @@
+interface:
+  display_name: "Mira Journal"
+  short_description: "Compose Mira's governed continuity journal"
+  default_prompt: "Use $mira-journal to prepare and compose Mira's private journal entry for today."

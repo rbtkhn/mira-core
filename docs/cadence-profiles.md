@@ -15,6 +15,11 @@ timeout:
   --temp-root C:\private\narrative-systems-test-temp ...
 ```
 
+`mira-journal-composition` verifies the repository-local skill, journal and
+technical-reference contracts, continuity indexes, transaction rollback, and
+RSI boundaries. Its pass can make the composition practice eligible for local
+use only; promotion and any RSI admission remain explicit separate actions.
+
 Dream persists before verification and records the profile result separately
 from repository promotion. A scoped pass may support `local-use`; promote
 repository use explicitly through:

@@ -195,6 +195,17 @@ def test_pape_voice_judgment_profile_is_bounded() -> None:
     ]
 
 
+def test_mira_journal_composition_profile_is_bounded() -> None:
+    spec = cadence.EXPERIMENT_PROFILES["mira-journal-composition"]
+
+    assert spec["version"] == 1
+    assert "local-use eligibility only" in spec["purpose"]
+    assert "docs/skill-drafts/mira-journal/SKILL.md" in spec["paths"]
+    assert "tests/test_mira_journal.py" in spec["paths"]
+    assert "tests/test_recursive_learning_ledger.py" in spec["paths"]
+    assert spec["command"][-3:] == ["-q", "-p", "no:cacheprovider"]
+
+
 def test_profile_verification_is_bounded_and_uses_direct_external_basetemp(
     monkeypatch, tmp_path: Path
 ) -> None:

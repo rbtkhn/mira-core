@@ -135,6 +135,32 @@ FORECAST_REVIEW_AUTHORITY = {
 OUTCOMES = ("improved", "no_change", "regressed", "inconclusive")
 INHERITANCE_SCOPES = ("local-use", "repo-use", "public-use")
 EXPERIMENT_PROFILES = {
+    "mira-journal-composition": {
+        "version": 1,
+        "timeout_seconds": 180,
+        "purpose": (
+            "Validate the repository-local Mira Journal skill, governed composition "
+            "contracts, continuity projection, recoverable approval transaction, and "
+            "recursive-learning boundary. A pass grants local-use eligibility only."
+        ),
+        "paths": [
+            "docs/skill-drafts/mira-journal/SKILL.md",
+            "docs/skill-drafts/mira-journal/references/composition-method.md",
+            "docs/skill-drafts/mira-journal/agents/openai.yaml",
+            "scripts/mira_journal.py",
+            "scripts/mira_journal_references.py",
+            "tests/test_mira_journal.py",
+            "tests/test_mira_journal_skill.py",
+            "tests/test_recursive_learning_ledger.py",
+        ],
+        "command": [
+            "-m", "pytest",
+            "tests/test_mira_journal.py",
+            "tests/test_mira_journal_skill.py",
+            "tests/test_recursive_learning_ledger.py",
+            "-q", "-p", "no:cacheprovider",
+        ],
+    },
     "research-brief-commissioning": {
         "version": 1,
         "timeout_seconds": 180,

@@ -31,6 +31,26 @@ candidate signal, but neither prose nor a companion validates, measures, or
 closes a learning loop; `recursive-learn` assessment and explicit RSI admission
 remain separate.
 
+The repository-local `mira-journal` skill is the composition front door. Its
+deterministic composition brief binds the previous approved prose and digest,
+remembered reasons, active continuity threads, recent openings and endings,
+admitted cutoff-safe RSI lessons, material technical developments, and voice
+constraints. The skill selects one primary inherited thread and at most one
+secondary thread; the command validates but does not write the prose.
+
+New combined approvals use schema-v2 technical companions. Their continuity
+events are autobiographical interpretation, not RSI evidence or action
+authority. The generated `mira/journal/continuity-index.json` and Markdown view
+project only approved events, preserve every revision event, and label older
+versions without continuity metadata `legacy-unthreaded`. The naming thread's
+recurrence policy is `changed-meaning-only`.
+
+`mira-journal draft-check` is approval-free and nonmutating. It validates the
+whole external bundle, exact grounding and continuity anchors, prose privacy,
+ancestry, RSI cutoff resolution, recurrence, repetition, lineage, digests, and
+late activity. Approval and revision replace prose, companion, registry, journal
+index, and continuity indexes as one recoverable transaction.
+
 New approvals use an exact digest-bound instruction: `Approve Mira Journal
 version <MJ-version> with digest <prose-sha256> and technical reference
 <MJTR-version> with digest <reference-sha256>.` Generic keywords, negated language,
