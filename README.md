@@ -46,10 +46,11 @@ dependencies in an external user cache; no environment activation or repo-local
 `.venv` is required.
 
 ```powershell
-.\tools\run.ps1 test --path tests/test_example.py
-.\tools\validate.ps1 -Mode Fast
-.\tools\validate.ps1
-.\tools\validate.ps1 -Force
+$env:NARRATIVE_SESSION_TEMP_ROOT = 'C:\private\narrative-systems-test-temp'
+.\tools\run.ps1 test --temp-root $env:NARRATIVE_SESSION_TEMP_ROOT --path tests/test_example.py
+.\tools\validate.ps1 -Mode Fast -TempRoot $env:NARRATIVE_SESSION_TEMP_ROOT
+.\tools\validate.ps1 -TempRoot $env:NARRATIVE_SESSION_TEMP_ROOT
+.\tools\validate.ps1 -Force -TempRoot $env:NARRATIVE_SESSION_TEMP_ROOT
 .\tools\run.ps1 cadence coffee --json
 .\tools\run.ps1 harness
 .\tools\run.ps1 system-archive status
@@ -63,6 +64,11 @@ existing-test changes. Renames, deletions, new tests, manifests, code,
 dependencies, workflows, schemas, skills, templates, security surfaces, and
 every unknown path fail closed to Full. The route, reasons, selected checks,
 and phase timings are written to stderr.
+
+All pytest-running validation requires an absolute, writable temporary root
+outside the repository. Pass it explicitly or configure
+`NARRATIVE_SESSION_TEMP_ROOT`; governed validation removes inherited
+`PYTEST_ADDOPTS` and supplies `--basetemp` directly.
 
 `.\tools\validate.ps1` remains the Full terminal gate. A successful Full result
 is reused only when the complete tracked and non-ignored untracked repository

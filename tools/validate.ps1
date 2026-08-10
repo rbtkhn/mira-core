@@ -2,7 +2,8 @@
 param(
     [ValidateSet('Full', 'Fast')]
     [string] $Mode = 'Full',
-    [switch] $Force
+    [switch] $Force,
+    [string] $TempRoot = $env:NARRATIVE_SESSION_TEMP_ROOT
 )
 
 $repoRoot = Split-Path -Parent $PSScriptRoot
@@ -10,6 +11,9 @@ $validator = Join-Path $repoRoot 'tools\validate_repo.py'
 $validatorArguments = @('--mode', $Mode.ToLowerInvariant())
 if ($Force) {
     $validatorArguments += '--force'
+}
+if ($TempRoot) {
+    $validatorArguments += @('--temp-root', $TempRoot)
 }
 $pyLauncher = @(
     Get-Command py.exe `

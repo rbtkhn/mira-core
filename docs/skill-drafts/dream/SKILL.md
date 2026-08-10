@@ -33,17 +33,29 @@ Run:
 tools/run.ps1 cadence dream --experiment TEXT --outcome OUTCOME --lesson TEXT --improvement TEXT --evidence-summary TEXT --artifact-ref PATH --tomorrow-inherits TEXT --json
 ```
 
-For a profiled experiment, add `--profile PROFILE`. The persisted handoff keeps
-experiment-scoped verification separate from repository-wide verification;
-local-use eligibility never grants repo-use or public-use.
+For a profiled experiment, add `--profile PROFILE` and provide an externally
+preflighted root through `--temp-root ABSOLUTE_PATH` or
+`NARRATIVE_SESSION_TEMP_ROOT`. Dream persists before the profile begins and
+again after it finishes. A passing profile may grant local-use eligibility;
+Dream never runs repository-wide verification automatically. An unprofiled
+Dream is persisted as advisory state with local-use and repo-use blocked.
 Structured verification results must retain the raw output tail and identify an
 owner and next action for every non-passing result.
 
 Repeat `--artifact-ref` when needed. The command rejects missing, absolute, or
-repository-escaping references, runs repository integrity and tests through one
-resolved validation interpreter, then writes the ignored local
-`work/cadence/last-dream.json`. Failed or unavailable verification is recorded,
-reported, and leaves the lesson blocked.
+repository-escaping references and writes schema-v3 state to the ignored local
+`work/cadence/last-dream.json`. Failed, unavailable, timed-out, or interrupted
+profile verification is recorded without erasing the initial handoff.
+
+Promote repository use only through the separate explicit command:
+
+```text
+tools/run.ps1 cadence promote --temp-root ABSOLUTE_PATH --json
+```
+
+Promotion uses the content-addressed full-validation cache when valid. Use
+`--force` only when a fresh structural and pytest run is intentionally required.
+Local-use eligibility never grants repo-use or public-use.
 
 ## Return
 

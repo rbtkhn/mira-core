@@ -121,17 +121,36 @@ def test_missing_verification_blocks_learning(monkeypatch, tmp_path: Path) -> No
     assert state["handoff_status"] == "verification_failed"
 
 
-def test_unavailable_bootstrap_is_recorded_for_both_checks(monkeypatch) -> None:
+def test_schema_v3_running_phase_is_reported_as_interrupted(
+    monkeypatch, tmp_path: Path
+) -> None:
+    patch_repo_state(monkeypatch)
+    path = tmp_path / "last-dream.json"
+    payload = {
+        "schema_version": 3,
+        "git_head": "abc",
+        "dirty_paths": [],
+        "worktree_fingerprint": "fingerprint",
+        "verification": cadence.initial_verification("pape-voice-judgment"),
+        "learning": {"outcome": "improved"},
+    }
+    path.write_text(json.dumps(payload), encoding="utf-8")
+
+    state = cadence.coffee_state(path)
+
+    assert state["handoff_status"] == "interrupted"
+    assert state["next_mode"] == "resume_or_repair_interrupted_verification"
+
+
+def test_unavailable_profile_bootstrap_is_recorded(monkeypatch, tmp_path: Path) -> None:
     def unavailable(repo_root):
         raise cadence.BootstrapUnavailable("offline and no completed cache")
 
     monkeypatch.setattr(cadence, "resolve_validation_python", unavailable)
-    result = cadence.run_verification()
-    assert result["integrity"]["status"] == "unavailable"
-    assert result["tests"]["status"] == "unavailable"
-    assert result["tests"]["returncode"] is None
-    assert "offline" in result["tests"]["output_tail"]
-    assert cadence.verification_passed(result) is False
+    result = cadence.run_profile_verification("pape-voice-judgment", tmp_path)
+    assert result["status"] == "unavailable"
+    assert result["returncode"] is None
+    assert "offline" in result["output_tail"]
 
 
 def test_research_brief_commissioning_profile_is_bounded() -> None:
@@ -155,31 +174,55 @@ def test_research_brief_commissioning_profile_is_bounded() -> None:
     }
 
 
-def test_research_brief_profile_reports_scoped_verification_separately(
-    monkeypatch,
+def test_pape_voice_judgment_profile_is_bounded() -> None:
+    spec = cadence.EXPERIMENT_PROFILES["pape-voice-judgment"]
+
+    assert spec["version"] == 1
+    assert "does not promote or score any hook" in spec["purpose"]
+    assert spec["paths"] == [
+        "scripts/voice_judgments.py",
+        "narrative-geopolitics/work/voice-judgments/external-voice-judgment-ledger.json",
+        "narrative-geopolitics/voices/pape/judgment-ledger.md",
+        "tests/test_voice_judgments.py",
+    ]
+    assert spec["command"] == [
+        "-m",
+        "pytest",
+        "tests/test_voice_judgments.py",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+    ]
+
+
+def test_profile_verification_is_bounded_and_uses_direct_external_basetemp(
+    monkeypatch, tmp_path: Path
 ) -> None:
     commands: list[list[str]] = []
+    environments: list[dict[str, str]] = []
     monkeypatch.setattr(cadence, "resolve_validation_python", lambda root: Path("python"))
     monkeypatch.setattr(
         cadence.subprocess,
         "run",
-        lambda command, **kwargs: commands.append(command)
-        or SimpleNamespace(returncode=0, stdout="passed", stderr=""),
+        lambda command, **kwargs: (
+            commands.append(command),
+            environments.append(kwargs["env"]),
+            SimpleNamespace(returncode=0, stdout="passed", stderr=""),
+        )[-1],
     )
 
-    result = cadence.run_verification("research-brief-commissioning")
+    monkeypatch.setenv("PYTEST_ADDOPTS", r"--basetemp C:\unsafe\pytest")
+    result = cadence.run_profile_verification("research-brief-commissioning", tmp_path)
 
-    assert result["experiment"]["status"] == "passed"
-    assert result["experiment"]["profile"] == "research-brief-commissioning"
-    assert result["experiment"]["paths"] == cadence.EXPERIMENT_PROFILES[
+    assert result["status"] == "passed"
+    assert result["profile"] == "research-brief-commissioning"
+    assert result["paths"] == cadence.EXPERIMENT_PROFILES[
         "research-brief-commissioning"
     ]["paths"]
-    assert result["integrity"]["status"] == "passed"
-    assert result["tests"]["status"] == "passed"
-    assert commands[0] == [
-        "python",
-        *cadence.EXPERIMENT_PROFILES["research-brief-commissioning"]["command"],
-    ]
+    assert commands[0][:1] == ["python"]
+    assert commands[0][1 : 1 + len(cadence.EXPERIMENT_PROFILES["research-brief-commissioning"]["command"])] == cadence.EXPERIMENT_PROFILES["research-brief-commissioning"]["command"]
+    assert commands[0][-2] == "--basetemp"
+    assert "PYTEST_ADDOPTS" not in environments[0]
 
 
 def test_changed_repository_state_requires_reconciliation(
@@ -214,22 +257,239 @@ def test_dream_persists_the_learning_contract(monkeypatch, tmp_path: Path) -> No
         artifact_refs=["tests/test_cadence.py"],
         tomorrow_inherits="test the narrower rule on one crisis",
         path=path,
-        verify=lambda: verified(),
     )
     assert path.exists()
-    assert payload["schema_version"] == 2
+    assert payload["schema_version"] == 3
     assert payload["learning"]["outcome"] == "no_change"
     assert payload["learning"]["artifact_refs"] == ["tests/test_cadence.py"]
+    assert payload["verification"]["experiment"]["status"] == "not_run"
+    assert payload["verification"]["repository"]["status"] == "not_run"
+    assert payload["verification"]["inheritance"]["local-use"] == "blocked"
     assert json.loads(path.read_text(encoding="utf-8")) == payload
 
 
-def test_dream_persists_when_verification_raises(tmp_path: Path) -> None:
+def test_profiled_dream_separates_local_and_repository_inheritance(
+    monkeypatch, tmp_path: Path
+) -> None:
+    patch_repo_state(monkeypatch)
+    experiment = {
+        "status": "passed",
+        "passed": True,
+        "returncode": 0,
+        "profile": "pape-voice-judgment",
+        "paths": cadence.EXPERIMENT_PROFILES["pape-voice-judgment"]["paths"],
+        "elapsed_seconds": 1.0,
+        "output_tail": "passed",
+    }
     path = tmp_path / "last-dream.json"
 
-    def verifier() -> dict:
+    payload = cadence.write_dream(
+        profile="pape-voice-judgment",
+        experiment="repair Pape voice-judgment hook coverage",
+        outcome="improved",
+        lesson="Pape hooks require separate judgment classes",
+        improvement="retain the split Pape reading surface",
+        evidence_summary="the bounded Pape profile passed",
+        artifact_refs=["tests/test_voice_judgments.py"],
+        tomorrow_inherits="use locally while repository validation is repaired",
+        temp_root=tmp_path,
+        path=path,
+        profile_runner=lambda profile, temp_root: experiment,
+    )
+
+    assert payload["verification"]["inheritance"] == {
+        "local-use": "eligible",
+        "repo-use": "blocked",
+        "public-use": "not_authorized",
+    }
+    view = cadence.coffee_view(cadence.coffee_state(path))
+    assert view["handoff_status"] == "local_current_repo_pending"
+    assert view["experiment_verification"] == "passed"
+    assert view["repository_verification"] == "not_run"
+    assert view["inheritance"]["local-use"] == "eligible"
+    assert view["inheritance"]["repo-use"] == "blocked"
+
+
+def test_profiled_dream_persists_running_receipt_before_profile(
+    monkeypatch, tmp_path: Path
+) -> None:
+    patch_repo_state(monkeypatch)
+    path = tmp_path / "last-dream.json"
+
+    def inspect_initial(profile: str, temp_root: Path) -> dict:
+        saved = json.loads(path.read_text(encoding="utf-8"))
+        assert saved["schema_version"] == 3
+        assert saved["verification"]["experiment"]["status"] == "running"
+        assert saved["verification"]["repository"]["status"] == "not_run"
+        return {
+            "status": "passed",
+            "passed": True,
+            "returncode": 0,
+            "profile": profile,
+            "elapsed_seconds": 0.1,
+            "output_tail": "passed",
+        }
+
+    cadence.write_dream(
+        profile="pape-voice-judgment",
+        experiment="persist before verify",
+        outcome="improved",
+        lesson="partial receipts survive interruption",
+        improvement="write before subprocess start",
+        evidence_summary="the runner observed the persisted running receipt",
+        artifact_refs=["tests/test_cadence.py"],
+        tomorrow_inherits="retain completed phase receipts",
+        temp_root=tmp_path,
+        path=path,
+        profile_runner=inspect_initial,
+    )
+
+
+def test_promotion_uses_cache_receipt_and_promotes_both_scopes(
+    monkeypatch, tmp_path: Path
+) -> None:
+    patch_repo_state(monkeypatch)
+    path = tmp_path / "last-dream.json"
+    cadence.write_dream(
+        experiment="unprofiled advisory",
+        outcome="inconclusive",
+        lesson="promotion is explicit",
+        improvement="separate Dream from full validation",
+        evidence_summary="the advisory handoff was persisted",
+        artifact_refs=["tests/test_cadence.py"],
+        tomorrow_inherits="promote explicitly",
+        path=path,
+    )
+
+    promoted = cadence.promote_dream(
+        temp_root=tmp_path,
+        path=path,
+        runner=lambda temp_root, force=False: {
+            "status": "passed",
+            "passed": True,
+            "returncode": 0,
+            "cache_status": "hit",
+            "phase_timings": {
+                "structural": {"seconds": 0.0, "status": "skipped", "reason": "cache_hit"},
+                "pytest": {"seconds": 0.0, "status": "skipped", "reason": "cache_hit"},
+            },
+            "elapsed_seconds": 0.2,
+            "output_tail": "validation_cache status=hit",
+        },
+    )
+
+    assert promoted["verification"]["repository"]["status"] == "passed"
+    assert promoted["verification"]["repository"]["cache_status"] == "hit"
+    assert promoted["verification"]["inheritance"] == {
+        "local-use": "eligible",
+        "repo-use": "eligible",
+        "public-use": "not_authorized",
+    }
+
+
+def test_promotion_rejects_stale_handoff_without_running(
+    monkeypatch, tmp_path: Path
+) -> None:
+    patch_repo_state(monkeypatch)
+    path = tmp_path / "last-dream.json"
+    cadence.write_dream(
+        experiment="stale advisory",
+        outcome="inconclusive",
+        lesson="stale state cannot promote",
+        improvement="compare fingerprints before execution",
+        evidence_summary="the handoff has one stable fingerprint",
+        artifact_refs=["tests/test_cadence.py"],
+        tomorrow_inherits="create a current handoff",
+        path=path,
+    )
+    monkeypatch.setattr(cadence, "worktree_fingerprint", lambda: "changed")
+
+    try:
+        cadence.promote_dream(
+            temp_root=tmp_path,
+            path=path,
+            runner=lambda *args, **kwargs: (_ for _ in ()).throw(
+                AssertionError("stale promotion must not execute")
+            ),
+        )
+    except ValueError as error:
+        assert "stale" in str(error)
+    else:
+        raise AssertionError("stale handoff was promoted")
+
+
+def test_promotion_records_state_change_without_losing_terminal_receipt(
+    monkeypatch, tmp_path: Path
+) -> None:
+    patch_repo_state(monkeypatch)
+    path = tmp_path / "last-dream.json"
+    cadence.write_dream(
+        experiment="concurrent change",
+        outcome="inconclusive",
+        lesson="promotion requires stable state",
+        improvement="retain a terminal state-changed receipt",
+        evidence_summary="the repository changed after validation started",
+        artifact_refs=["tests/test_cadence.py"],
+        tomorrow_inherits="create a current handoff",
+        path=path,
+    )
+    fingerprints = iter(("fingerprint", "changed"))
+    monkeypatch.setattr(cadence, "worktree_fingerprint", lambda: next(fingerprints))
+
+    promoted = cadence.promote_dream(
+        temp_root=tmp_path,
+        path=path,
+        runner=lambda temp_root, force=False: {
+            "status": "passed",
+            "passed": True,
+            "returncode": 0,
+            "cache_status": "not_stored",
+            "phase_timings": {},
+            "elapsed_seconds": 1.0,
+            "output_tail": "repository changed during validation",
+        },
+    )
+
+    assert promoted["verification"]["repository"]["status"] == "state_changed"
+    assert promoted["verification"]["structured"]["status"] == "failed"
+    assert promoted["verification"]["structured"]["blockers"][0]["details"] == {
+        "phase_status": "state_changed"
+    }
+
+
+def test_schema_v2_handoff_is_readable_and_promotes_as_v3(
+    monkeypatch, tmp_path: Path
+) -> None:
+    patch_repo_state(monkeypatch)
+    path = write_handoff(tmp_path, outcome="improved", verification=verified())
+
+    promoted = cadence.promote_dream(
+        temp_root=tmp_path,
+        path=path,
+        runner=lambda temp_root, force=False: {
+            "status": "passed",
+            "passed": True,
+            "returncode": 0,
+            "cache_status": "hit",
+            "phase_timings": {},
+            "elapsed_seconds": 0.1,
+            "output_tail": "cache hit",
+        },
+    )
+
+    assert promoted["schema_version"] == 3
+    assert promoted["verification"]["repository"]["status"] == "passed"
+
+
+def test_dream_persists_when_profile_verification_raises(monkeypatch, tmp_path: Path) -> None:
+    patch_repo_state(monkeypatch)
+    path = tmp_path / "last-dream.json"
+
+    def verifier(profile: str, temp_root: Path) -> dict:
         raise RuntimeError("validator process could not start")
 
     payload = cadence.write_dream(
+        profile="pape-voice-judgment",
         experiment="verifier failure preservation",
         outcome="inconclusive",
         lesson="a verifier crash must not erase the advisory handoff",
@@ -237,16 +497,17 @@ def test_dream_persists_when_verification_raises(tmp_path: Path) -> None:
         evidence_summary="the verifier raised before returning a result",
         artifact_refs=["narrative-geopolitics/work/daily/2026-07-27/synthesis.md"],
         tomorrow_inherits="rerun verification before relying on the lesson",
+        temp_root=tmp_path,
         path=path,
-        verify=verifier,
+        profile_runner=verifier,
     )
 
     saved = json.loads(path.read_text(encoding="utf-8"))
     assert saved == payload
-    assert saved["verification"]["integrity"]["status"] == "unavailable"
-    assert "validator process could not start" in saved["verification"]["integrity"]["output_tail"]
+    assert saved["verification"]["experiment"]["status"] == "unavailable"
+    assert "validator process could not start" in saved["verification"]["experiment"]["output_tail"]
     blocker = saved["verification"]["structured"]["blockers"][0]
-    assert blocker["owner"] == "repository"
+    assert blocker["owner"] == "experiment"
     assert blocker["next_action"]
 
 
@@ -270,7 +531,6 @@ def test_reconstruction_keeps_decisive_scope_and_artifacts(
         ],
         tomorrow_inherits="wait for a party-owned terms record",
         path=path,
-        verify=lambda: verified(),
     )
     view = cadence.coffee_view(cadence.coffee_state(path))
     assert view["learning"]["evidence_summary"] == payload["learning"][
@@ -291,7 +551,6 @@ def test_dream_rejects_missing_or_escaping_artifact_references(
         "evidence_summary": "no evidence",
         "tomorrow_inherits": "repair",
         "path": tmp_path / "last-dream.json",
-        "verify": lambda: verified(),
     }
     for artifact_ref in ("missing.md", "../outside.md"):
         try:

@@ -23,6 +23,10 @@ Use only in `narrative-systems`. Coffee is read-only.
    raw output tail for auditability.
 3. Treat `handoff_status` as a gate:
    - `missing`: bootstrap one bounded experiment;
+   - `local_current_repo_pending`: the bounded profile may be used locally when
+     local-use is eligible; repository use requires explicit promotion;
+   - `interrupted`: preserve completed phase receipts and resume or repair the
+     interrupted phase without rerunning successful earlier work;
    - `verification_failed`: repair before inheriting any lesson;
    - `stale`: reconcile current Git state with the handoff;
    - `current`: use `next_mode` to choose the next test.
@@ -35,7 +39,8 @@ Use only in `narrative-systems`. Coffee is read-only.
    unresolved-outcome prompt or staged five-to-ten choice review; ordinary
    work remains uninterrupted when the store is absent.
 6. Before running a test profile that writes temporary files, run
-   `tools/run.ps1 session-preflight --temp-root ABSOLUTE_PATH --json`. Start
+   `tools/run.ps1 session-preflight --temp-root ABSOLUTE_PATH --json`, then pass
+   that root through `--temp-root` or `NARRATIVE_SESSION_TEMP_ROOT`. Start
    each verifier once and resume its live process until completion. A missing
    output chunk is not evidence that the verifier failed or should be relaunched.
 

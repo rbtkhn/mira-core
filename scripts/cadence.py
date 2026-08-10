@@ -3,8 +3,13 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import os
+import re
+import shutil
 import subprocess
 import sys
+import time
+import uuid
 from datetime import date, datetime, timezone
 from pathlib import Path
 from typing import Any, Callable
@@ -19,6 +24,7 @@ import verification as verification_packets
 import reality
 from cadence_results import aggregate as aggregate_results, command_result
 from runtime_bootstrap import BootstrapUnavailable, resolve_validation_python
+from session_preflight import probe_temp_root
 
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
@@ -26,6 +32,9 @@ HANDOFF_PATH = (
     REPO_ROOT / "narrative-geopolitics" / "work" / "cadence" / "last-dream.json"
 )
 BASELINE_ROOT = REPO_ROOT / "narrative-geopolitics" / "work" / "cadence" / "baselines"
+VALIDATOR_PATH = REPO_ROOT / "tools" / "validate_repo.py"
+TEMP_ROOT_ENV = "NARRATIVE_SESSION_TEMP_ROOT"
+HEARTBEAT_SECONDS = 30
 DAILY_ROOT = REPO_ROOT / "narrative-geopolitics" / "work" / "daily"
 MANIFEST_PATH = REPO_ROOT / "narrative-geopolitics" / "archive" / "source-manifest.json"
 ARCHIVE_SOURCES_ROOT = REPO_ROOT / "narrative-geopolitics" / "archive" / "sources"
@@ -128,6 +137,7 @@ INHERITANCE_SCOPES = ("local-use", "repo-use", "public-use")
 EXPERIMENT_PROFILES = {
     "research-brief-commissioning": {
         "version": 1,
+        "timeout_seconds": 180,
         "purpose": (
             "Validate the Research Brief commissioning contract, cold-handoff "
             "schemas, runtime routing, and non-authorizing producer seeds. Passing "
@@ -168,6 +178,7 @@ EXPERIMENT_PROFILES = {
     },
     "smart-intake-routing": {
         "version": 1,
+        "timeout_seconds": 120,
         "purpose": "Validate canonical routing, alias normalization, and safe intake landing.",
         "paths": [
             "scripts/smart_intake.py",
@@ -178,7 +189,31 @@ EXPERIMENT_PROFILES = {
             "narrative-geopolitics/archive/source-manifest.json",
         ],
         "command": ["-m", "pytest", "tests/test_smart_intake.py", "tests/test_land_best_intake.py", "tests/test_intake_observability.py", "-q", "-p", "no:cacheprovider"],
-    }
+    },
+    "pape-voice-judgment": {
+        "version": 1,
+        "timeout_seconds": 30,
+        "purpose": (
+            "Validate the five migrated Pape voice-local hooks, their distinct "
+            "judgment classes, deterministic rendering, and unscored boundary. "
+            "Passing this profile does not promote or score any hook as an NG-* "
+            "forecast."
+        ),
+        "paths": [
+            "scripts/voice_judgments.py",
+            "narrative-geopolitics/work/voice-judgments/external-voice-judgment-ledger.json",
+            "narrative-geopolitics/voices/pape/judgment-ledger.md",
+            "tests/test_voice_judgments.py",
+        ],
+        "command": [
+            "-m",
+            "pytest",
+            "tests/test_voice_judgments.py",
+            "-q",
+            "-p",
+            "no:cacheprovider",
+        ],
+    },
 }
 NEXT_MODES = {
     "improved": "confirm_then_consolidate",
@@ -727,10 +762,150 @@ def load_handoff(path: Path = HANDOFF_PATH) -> dict | None:
 
 
 def verification_passed(verification: dict) -> bool:
+    if "repository" in verification:
+        return verification["repository"].get("passed") is True
     required = {"integrity", "tests"}
     return required <= set(verification) and all(
         verification[name].get("passed") is True for name in required
     )
+
+
+def atomic_write_json(path: Path, payload: dict) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    temporary = path.with_suffix(f"{path.suffix}.tmp")
+    temporary.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+    temporary.replace(path)
+
+
+def command_digest(command: list[str]) -> str:
+    return hashlib.sha256(
+        json.dumps(command, separators=(",", ":")).encode("utf-8")
+    ).hexdigest()
+
+
+def unresolved_check(status: str = "not_run") -> dict:
+    return {
+        "status": status,
+        "passed": False,
+        "returncode": None,
+        "elapsed_seconds": 0.0,
+        "output_tail": "",
+    }
+
+
+def initial_verification(profile: str | None) -> dict:
+    experiment = unresolved_check("running" if profile else "not_run")
+    if profile:
+        spec = EXPERIMENT_PROFILES[profile]
+        experiment.update(
+            {
+                "profile": profile,
+                "profile_version": spec["version"],
+                "paths": spec["paths"],
+                "command_digest": command_digest(spec["command"]),
+                "started_at": datetime.now(timezone.utc).isoformat(),
+            }
+        )
+    repository = unresolved_check()
+    repository.update({"cache_status": "not_checked", "phase_timings": {}})
+    return {
+        "experiment": experiment,
+        "repository": repository,
+        "integrity": unresolved_check(),
+        "tests": unresolved_check(),
+        "structured": aggregate_results([]),
+        "inheritance": {
+            "local-use": "blocked",
+            "repo-use": "blocked",
+            "public-use": "not_authorized",
+        },
+    }
+
+
+def resolve_temp_root(value: Path | None) -> Path:
+    candidate = value
+    if candidate is None and os.environ.get(TEMP_ROOT_ENV):
+        candidate = Path(os.environ[TEMP_ROOT_ENV])
+    if candidate is None:
+        raise ValueError(f"--temp-root or {TEMP_ROOT_ENV} is required")
+    report = probe_temp_root(candidate, repo_root=REPO_ROOT)
+    if not report["writable"] or not report["probe_removed"]:
+        raise ValueError(report["failure"] or "temporary root preflight failed")
+    return Path(report["resolved_root"])
+
+
+def cleanup_owned_temp(path: Path | None, *, root: Path | None) -> None:
+    if path is None or root is None or not path.exists():
+        return
+    resolved = path.resolve()
+    resolved.relative_to(root.resolve())
+    shutil.rmtree(resolved)
+
+
+def validation_environment() -> dict[str, str]:
+    environment = os.environ.copy()
+    environment.pop("PYTEST_ADDOPTS", None)
+    environment.pop("NARRATIVE_CHOICE_DB", None)
+    return environment
+
+
+def run_profile_verification(profile: str, temp_root: Path) -> dict:
+    spec = EXPERIMENT_PROFILES.get(profile)
+    if spec is None:
+        raise ValueError(f"unknown experiment profile: {profile}")
+    try:
+        python = resolve_validation_python(REPO_ROOT)
+    except BootstrapUnavailable as error:
+        return {
+            **unresolved_check("unavailable"),
+            "profile": profile,
+            "profile_version": spec["version"],
+            "paths": spec["paths"],
+            "command_digest": command_digest(spec["command"]),
+            "output_tail": str(error)[-2000:],
+            "finished_at": datetime.now(timezone.utc).isoformat(),
+        }
+    pytest_root = temp_root / f"profile-{profile}-{os.getpid()}-{uuid.uuid4().hex}"
+    command = [str(python), *spec["command"]]
+    if spec["command"][:2] == ["-m", "pytest"]:
+        command.extend(["--basetemp", str(pytest_root)])
+    started = time.monotonic()
+    status = "failed"
+    returncode: int | None = None
+    output = ""
+    try:
+        result = subprocess.run(
+            command,
+            cwd=REPO_ROOT,
+            env=validation_environment(),
+            capture_output=True,
+            text=True,
+            timeout=spec["timeout_seconds"],
+        )
+        returncode = result.returncode
+        output = (result.stdout + result.stderr).strip()
+        status = "passed" if returncode == 0 else "failed"
+    except subprocess.TimeoutExpired as error:
+        status = "timed_out"
+        returncode = 124
+        stdout = error.stdout.decode() if isinstance(error.stdout, bytes) else (error.stdout or "")
+        stderr = error.stderr.decode() if isinstance(error.stderr, bytes) else (error.stderr or "")
+        output = f"{stdout}{stderr}".strip()
+    finally:
+        cleanup_owned_temp(pytest_root, root=temp_root)
+    return {
+        "status": status,
+        "passed": status == "passed",
+        "returncode": returncode,
+        "profile": profile,
+        "profile_version": spec["version"],
+        "paths": spec["paths"],
+        "command_digest": command_digest(spec["command"]),
+        "timeout_seconds": spec["timeout_seconds"],
+        "elapsed_seconds": round(time.monotonic() - started, 3),
+        "output_tail": output[-2000:],
+        "finished_at": datetime.now(timezone.utc).isoformat(),
+    }
 
 
 def normalize_artifact_refs(values: list[str]) -> list[str]:
@@ -778,13 +953,29 @@ def coffee_state(path: Path = HANDOFF_PATH) -> dict:
         same_dirty = handoff["worktree_fingerprint"] == current_fingerprint
     else:
         same_dirty = handoff.get("dirty_paths") == current_dirty
-    verified = verification_passed(handoff.get("verification", {}))
-    if not verified:
-        status = "verification_failed"
-        mode = "repair_before_inheriting"
+    verification = handoff.get("verification", {})
+    experiment_status = verification.get("experiment", {}).get("status")
+    repository_status = verification.get("repository", {}).get("status")
+    if handoff.get("schema_version", 2) >= 3 and (
+        experiment_status == "running" or repository_status == "running"
+    ):
+        status = "interrupted"
+        mode = "resume_or_repair_interrupted_verification"
     elif not (same_head and same_dirty):
         status = "stale"
         mode = "reconcile_state_before_inheriting"
+    elif handoff.get("schema_version", 2) >= 3 and (
+        experiment_status in {"failed", "timed_out", "unavailable", "state_changed"}
+        or repository_status in {"failed", "timed_out", "unavailable", "state_changed"}
+    ):
+        status = "verification_failed"
+        mode = "repair_before_inheriting"
+    elif handoff.get("schema_version", 2) >= 3 and repository_status == "not_run":
+        status = "local_current_repo_pending"
+        mode = "promote_or_continue_local_only"
+    elif not verification_passed(verification):
+        status = "verification_failed"
+        mode = "repair_before_inheriting"
     else:
         status = "current"
         outcome = handoff.get("learning", {}).get("outcome", "inconclusive")
@@ -813,140 +1004,264 @@ def coffee_view(state: dict) -> dict:
             "public-use": "not_authorized",
         }),
         "experiment_verification": verification.get("experiment", {}).get("status") if handoff else None,
+        "repository_verification": verification.get("repository", {}).get("status") if handoff else None,
+        "repository_cache_status": verification.get("repository", {}).get("cache_status") if handoff else None,
     }
 
 
-def run_verification(profile: str | None = None) -> dict:
+def refresh_structured_verification(verification: dict) -> None:
+    results = []
+    experiment = verification.get("experiment", {})
+    if experiment.get("status") not in {None, "not_run", "running"}:
+        status = experiment["status"]
+        structured_status = (
+            "passed" if status == "passed" else ("unavailable" if status == "unavailable" else "failed")
+        )
+        results.append(
+            command_result(
+                check_id=experiment.get("profile", "unprofiled-experiment"),
+                status=structured_status,
+                scope="experiment",
+                command=["profile", experiment.get("profile", "none")],
+                output_tail=experiment.get("output_tail", ""),
+                failure_class=None if structured_status == "passed" else "command",
+                owner="experiment" if structured_status != "passed" else "",
+                next_action=(
+                    "Repair or rerun the bounded experiment profile."
+                    if structured_status != "passed"
+                    else ""
+                ),
+                details={"phase_status": status},
+            )
+        )
+    repository = verification.get("repository", {})
+    if repository.get("status") not in {None, "not_run", "running"}:
+        status = repository["status"]
+        structured_status = (
+            "passed" if status == "passed" else ("unavailable" if status == "unavailable" else "failed")
+        )
+        results.append(
+            command_result(
+                check_id="repository-promotion",
+                status=structured_status,
+                scope="repository",
+                command=["cadence", "promote"],
+                output_tail=repository.get("output_tail", ""),
+                failure_class=None if structured_status == "passed" else "command",
+                owner="repository" if structured_status != "passed" else "",
+                next_action=(
+                    "Repair the reported repository condition, then rerun cadence promote."
+                    if structured_status != "passed"
+                    else ""
+                ),
+                details={"phase_status": status},
+            )
+        )
+    verification["structured"] = aggregate_results(results)
+
+
+def parse_validator_output(output: str) -> tuple[str, dict[str, dict]]:
+    cache_status = "unavailable"
+    phase_timings: dict[str, dict] = {}
+    cache_match = re.search(r"validation_cache status=([^\s]+)", output)
+    if cache_match:
+        cache_status = cache_match.group(1)
+    for match in re.finditer(
+        r"validation_timing mode=\S+ phase=(\S+) seconds=([0-9.]+) status=(\S+)(?: reason=(\S+))?",
+        output,
+    ):
+        phase_timings[match.group(1)] = {
+            "seconds": float(match.group(2)),
+            "status": match.group(3),
+            "reason": match.group(4),
+        }
+    return cache_status, phase_timings
+
+
+def run_repository_validator(
+    temp_root: Path,
+    *,
+    force: bool = False,
+    heartbeat_seconds: int = HEARTBEAT_SECONDS,
+) -> dict:
     try:
         python = resolve_validation_python(REPO_ROOT)
     except BootstrapUnavailable as error:
-        unavailable = {
-            "status": "unavailable",
-            "passed": False,
-            "returncode": None,
+        return {
+            **unresolved_check("unavailable"),
+            "cache_status": "unavailable",
+            "phase_timings": {},
             "output_tail": str(error)[-2000:],
         }
-        unavailable_result = command_result(
-            check_id="repository-validation",
-            status="unavailable",
-            scope="repository",
-            command=["validation-interpreter"],
-            failure_class="environment",
-            owner="repository",
-            next_action="Make the resolved validation interpreter available, then rerun cadence.",
-            evidence=str(error),
-        ).to_dict()
-        return {
-            "integrity": dict(unavailable),
-            "tests": dict(unavailable),
-            "structured": aggregate_results([
-                command_result(check_id="repository-integrity", status="unavailable", scope="repository", command=["scripts/validate_repository.py"], failure_class="environment", owner="repository", next_action="Make the resolved validation interpreter available, then rerun cadence.", evidence=str(error)),
-                command_result(check_id="test-suite", status="unavailable", scope="repository", command=["-m", "pytest"], failure_class="environment", owner="repository", next_action="Make the resolved validation interpreter available, then rerun cadence.", evidence=str(error)),
-            ]),
-        }
-    commands = {
-        "integrity": [str(python), "scripts/validate_repository.py"],
-        "tests": [
-            str(python),
-            "-m",
-            "pytest",
-            "-q",
-            "-p",
-            "no:cacheprovider",
-        ],
-    }
-    results: dict[str, dict] = {}
-    if profile:
-        spec = EXPERIMENT_PROFILES.get(profile)
-        if spec is None:
-            raise ValueError(f"unknown experiment profile: {profile}")
-        scoped = subprocess.run([str(python), *spec["command"]], cwd=REPO_ROOT, capture_output=True, text=True)
-        scoped_output = (scoped.stdout + scoped.stderr).strip()
-        results["experiment"] = {
-            "status": "passed" if scoped.returncode == 0 else "failed",
-            "passed": scoped.returncode == 0,
-            "returncode": scoped.returncode,
-            "profile": profile,
-            "paths": spec["paths"],
-            "output_tail": scoped_output[-2000:],
-        }
-        results.setdefault("structured_results", []).append(command_result(
-            check_id=profile,
-            status="passed" if scoped.returncode == 0 else "failed",
-            scope="experiment",
-            command=list(spec["command"]),
-            output_tail=scoped_output,
-            failure_class="command" if scoped.returncode else None,
-            owner="experiment",
-            next_action="Repair the scoped experiment checks, then rerun the profile." if scoped.returncode else "",
-        ))
-    for name, command in commands.items():
-        result = subprocess.run(
-            command,
-            cwd=REPO_ROOT,
-            capture_output=True,
-            text=True,
-        )
-        output = (result.stdout + result.stderr).strip()
-        results[name] = {
-            "status": "passed" if result.returncode == 0 else "failed",
-            "passed": result.returncode == 0,
-            "returncode": result.returncode,
-            "output_tail": output[-2000:],
-        }
-        failure_class = None if result.returncode == 0 else ("environment" if "required" in output.lower() or "unavailable" in output.lower() else "command")
-        results.setdefault("structured_results", []).append(command_result(
-            check_id=name,
-            status="passed" if result.returncode == 0 else "failed",
-            scope="repository",
-            command=command,
-            output_tail=output,
-            failure_class=failure_class,
-            owner="repository",
-            next_action="Inspect the validator output and repair the reported repository condition.",
-        ))
-    structured = results.pop("structured_results", [])
-    results["structured"] = aggregate_results(structured)
-    return results
-
-
-def verification_exception(error: BaseException) -> dict[str, Any]:
-    """Represent an unexpected verifier failure without losing the handoff."""
-    detail = f"{type(error).__name__}: {error}"
-    unavailable = {
-        "status": "unavailable",
-        "passed": False,
-        "returncode": None,
-        "output_tail": detail,
-    }
-    blocker = command_result(
-        check_id="repository-verification",
-        status="unavailable",
-        scope="repository",
-        command=["cadence", "dream", "verification"],
-        failure_class="command",
-        owner="repository",
-        next_action="Inspect the verifier exception and rerun cadence dream.",
-        evidence=detail,
-        output_tail=detail,
-    )
+    owned = temp_root / f"promotion-{os.getpid()}-{uuid.uuid4().hex}"
+    owned.mkdir()
+    log_path = owned / "validator.log"
+    command = [
+        str(python),
+        str(VALIDATOR_PATH.relative_to(REPO_ROOT)),
+        "--mode",
+        "full",
+        "--temp-root",
+        str(temp_root),
+    ]
+    if force:
+        command.append("--force")
+    started = time.monotonic()
+    returncode: int | None = None
+    output = ""
+    status = "failed"
+    try:
+        with log_path.open("w", encoding="utf-8") as log:
+            process = subprocess.Popen(
+                command,
+                cwd=REPO_ROOT,
+                env=validation_environment(),
+                stdout=log,
+                stderr=subprocess.STDOUT,
+                text=True,
+            )
+            next_heartbeat = started + heartbeat_seconds
+            while process.poll() is None:
+                now = time.monotonic()
+                if now >= next_heartbeat:
+                    print(
+                        "cadence_promotion_heartbeat "
+                        f"elapsed_seconds={int(now - started)}",
+                        file=sys.stderr,
+                        flush=True,
+                    )
+                    next_heartbeat = now + heartbeat_seconds
+                time.sleep(0.25)
+            returncode = process.returncode
+        output = log_path.read_text(encoding="utf-8", errors="replace")
+        status = "passed" if returncode == 0 else ("timed_out" if returncode == 124 else "failed")
+    finally:
+        if log_path.exists() and not output:
+            output = log_path.read_text(encoding="utf-8", errors="replace")
+        cleanup_owned_temp(owned, root=temp_root)
+    cache_status, phase_timings = parse_validator_output(output)
     return {
-        "integrity": dict(unavailable),
-        "tests": dict(unavailable),
-        "structured": aggregate_results([blocker]),
+        "status": status,
+        "passed": status == "passed",
+        "returncode": returncode,
+        "cache_status": cache_status,
+        "phase_timings": phase_timings,
+        "command_digest": command_digest(command[1:]),
+        "elapsed_seconds": round(time.monotonic() - started, 3),
+        "output_tail": output[-2000:],
+        "finished_at": datetime.now(timezone.utc).isoformat(),
     }
 
 
-def write_baseline(profile: str, path: Path | None = None) -> dict:
+def upgrade_handoff_v3(handoff: dict) -> dict:
+    if handoff.get("schema_version", 2) >= 3:
+        return handoff
+    verification = handoff.setdefault("verification", {})
+    old_passed = verification_passed(verification)
+    repository = unresolved_check("passed" if old_passed else "failed")
+    repository.update(
+        {
+            "passed": old_passed,
+            "cache_status": "legacy",
+            "phase_timings": {},
+            "output_tail": "Migrated from schema-v2 repository verification.",
+        }
+    )
+    verification.setdefault("experiment", unresolved_check())
+    verification["repository"] = repository
+    verification["inheritance"] = {
+        "local-use": "eligible" if old_passed else "blocked",
+        "repo-use": "eligible" if old_passed else "blocked",
+        "public-use": "not_authorized",
+    }
+    handoff["schema_version"] = 3
+    refresh_structured_verification(verification)
+    return handoff
+
+
+def promote_dream(
+    *,
+    temp_root: Path,
+    force: bool = False,
+    path: Path = HANDOFF_PATH,
+    runner: Callable[..., dict] = run_repository_validator,
+) -> dict:
+    handoff = load_handoff(path)
+    if handoff is None:
+        raise ValueError("no Dream handoff exists to promote")
+    handoff = upgrade_handoff_v3(handoff)
+    current_head = git_head()
+    current_fingerprint = worktree_fingerprint()
+    if handoff.get("git_head") != current_head or handoff.get("worktree_fingerprint") != current_fingerprint:
+        raise ValueError("Dream handoff is stale; create a current handoff before promotion")
+    experiment = handoff["verification"].get("experiment", {})
+    if experiment.get("profile") and experiment.get("status") != "passed":
+        raise ValueError("profiled Dream cannot be promoted until its experiment passes")
+    repository = unresolved_check("running")
+    repository.update(
+        {
+            "cache_status": "checking",
+            "phase_timings": {},
+            "started_at": datetime.now(timezone.utc).isoformat(),
+        }
+    )
+    handoff["verification"]["repository"] = repository
+    handoff["updated_at"] = datetime.now(timezone.utc).isoformat()
+    refresh_structured_verification(handoff["verification"])
+    atomic_write_json(path, handoff)
+
+    result = runner(temp_root, force=force)
+    post_head = git_head()
+    post_fingerprint = worktree_fingerprint()
+    if post_head != current_head or post_fingerprint != current_fingerprint:
+        result["status"] = "state_changed"
+        result["passed"] = False
+        result["output_tail"] = (
+            result.get("output_tail", "")
+            + "\nRepository state changed during promotion."
+        )[-2000:]
+    handoff["verification"]["repository"] = result
+    phase_timings = result.get("phase_timings", {})
+    cache_hit = result.get("cache_status") == "hit"
+    for key, phase in (("integrity", "structural"), ("tests", "pytest")):
+        timing = phase_timings.get(phase, {})
+        phase_passed = result.get("passed", False) and (
+            cache_hit or timing.get("status") in {"passed", "skipped"}
+        )
+        handoff["verification"][key] = {
+            "status": "passed" if phase_passed else result.get("status", "failed"),
+            "passed": phase_passed,
+            "returncode": 0 if phase_passed else result.get("returncode"),
+            "elapsed_seconds": timing.get("seconds", 0.0),
+            "output_tail": result.get("output_tail", ""),
+        }
+    if result.get("passed"):
+        handoff["verification"]["inheritance"] = {
+            "local-use": "eligible",
+            "repo-use": "eligible",
+            "public-use": "not_authorized",
+        }
+    else:
+        handoff["verification"]["inheritance"]["repo-use"] = "blocked"
+    handoff["git_head"] = post_head
+    handoff["dirty_paths"] = dirty_paths()
+    handoff["worktree_fingerprint"] = post_fingerprint
+    handoff["updated_at"] = datetime.now(timezone.utc).isoformat()
+    refresh_structured_verification(handoff["verification"])
+    atomic_write_json(path, handoff)
+    return handoff
+
+
+def write_baseline(
+    profile: str,
+    *,
+    temp_root: Path,
+    path: Path | None = None,
+) -> dict:
     spec = EXPERIMENT_PROFILES.get(profile)
     if spec is None:
         raise ValueError(f"unknown experiment profile: {profile}")
-    try:
-        python = resolve_validation_python(REPO_ROOT)
-    except BootstrapUnavailable as error:
-        raise ValueError(str(error)) from error
-    result = subprocess.run([str(python), *spec["command"]], cwd=REPO_ROOT, capture_output=True, text=True)
-    output = (result.stdout + result.stderr).strip()
+    result = run_profile_verification(profile, temp_root)
     payload = {
         "schema_version": 1,
         "timestamp": datetime.now(timezone.utc).isoformat(),
@@ -957,16 +1272,14 @@ def write_baseline(profile: str, path: Path | None = None) -> dict:
         "worktree_fingerprint": worktree_fingerprint(),
         "paths": spec["paths"],
         "command": spec["command"],
-        "status": "passed" if result.returncode == 0 else "failed",
-        "passed": result.returncode == 0,
-        "returncode": result.returncode,
-        "output_tail": output[-2000:],
+        "status": result["status"],
+        "passed": result["passed"],
+        "returncode": result["returncode"],
+        "elapsed_seconds": result["elapsed_seconds"],
+        "output_tail": result["output_tail"],
     }
     target = path or (BASELINE_ROOT / f"{profile}.json")
-    target.parent.mkdir(parents=True, exist_ok=True)
-    temporary = target.with_suffix(".tmp")
-    temporary.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
-    temporary.replace(target)
+    atomic_write_json(target, payload)
     return payload
 
 
@@ -980,32 +1293,28 @@ def write_dream(
     artifact_refs: list[str],
     tomorrow_inherits: str,
     profile: str | None = None,
+    temp_root: Path | None = None,
     measurement: dict | None = None,
     path: Path = HANDOFF_PATH,
-    verify: Callable[[], dict] = run_verification,
+    profile_runner: Callable[[str, Path], dict] = run_profile_verification,
 ) -> dict:
     evidence_summary = evidence_summary.strip()
     if not evidence_summary:
         raise ValueError("evidence summary must not be empty")
     artifact_refs = normalize_artifact_refs(artifact_refs)
-    try:
-        verification = verify(profile) if profile else verify()
-    except Exception as error:  # Preserve the advisory learning if verification cannot start.
-        verification = verification_exception(error)
-    if profile and "experiment" in verification:
-        experiment_passed = verification["experiment"].get("passed", False)
-        repository_passed = verification_passed(verification)
-        verification["inheritance"] = {
-            "local-use": "eligible" if experiment_passed else "blocked",
-            "repo-use": "eligible" if experiment_passed and repository_passed else "blocked",
-            "public-use": "not_authorized",
-        }
+    if profile and profile not in EXPERIMENT_PROFILES:
+        raise ValueError(f"unknown experiment profile: {profile}")
+    verification = initial_verification(profile)
+    initial_head = git_head()
+    initial_fingerprint = worktree_fingerprint()
+    now = datetime.now(timezone.utc).isoformat()
     payload = {
-        "schema_version": 2,
-        "timestamp": datetime.now(timezone.utc).isoformat(),
-        "git_head": git_head(),
+        "schema_version": 3,
+        "timestamp": now,
+        "updated_at": now,
+        "git_head": initial_head,
         "dirty_paths": dirty_paths(),
-        "worktree_fingerprint": worktree_fingerprint(),
+        "worktree_fingerprint": initial_fingerprint,
         "verification": verification,
         "measurement": measurement or {},
         "learning": {
@@ -1018,10 +1327,41 @@ def write_dream(
             "tomorrow_inherits": tomorrow_inherits,
         },
     }
-    path.parent.mkdir(parents=True, exist_ok=True)
-    temporary = path.with_suffix(".tmp")
-    temporary.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
-    temporary.replace(path)
+    atomic_write_json(path, payload)
+    if not profile:
+        return payload
+
+    try:
+        resolved_temp = resolve_temp_root(temp_root)
+        experiment_result = profile_runner(profile, resolved_temp)
+    except Exception as error:
+        detail = f"{type(error).__name__}: {error}"
+        experiment_result = {
+            **verification["experiment"],
+            "status": "unavailable",
+            "passed": False,
+            "returncode": None,
+            "output_tail": detail[-2000:],
+            "finished_at": datetime.now(timezone.utc).isoformat(),
+        }
+    final_head = git_head()
+    final_fingerprint = worktree_fingerprint()
+    if final_head != initial_head or final_fingerprint != initial_fingerprint:
+        experiment_result["status"] = "state_changed"
+        experiment_result["passed"] = False
+        experiment_result["output_tail"] = (
+            experiment_result.get("output_tail", "")
+            + "\nRepository state changed during profile verification."
+        )[-2000:]
+    payload["verification"]["experiment"] = experiment_result
+    if experiment_result.get("passed"):
+        payload["verification"]["inheritance"]["local-use"] = "eligible"
+    payload["git_head"] = final_head
+    payload["dirty_paths"] = dirty_paths()
+    payload["worktree_fingerprint"] = final_fingerprint
+    payload["updated_at"] = datetime.now(timezone.utc).isoformat()
+    refresh_structured_verification(payload["verification"])
+    atomic_write_json(path, payload)
     return payload
 
 
@@ -1079,9 +1419,11 @@ def build_parser() -> argparse.ArgumentParser:
     profile.add_argument("--json", action="store_true")
     baseline = subparsers.add_parser("baseline", help="Record a scoped experiment baseline.")
     baseline.add_argument("--profile", choices=tuple(EXPERIMENT_PROFILES), required=True)
+    baseline.add_argument("--temp-root", type=Path)
     baseline.add_argument("--json", action="store_true")
-    dream = subparsers.add_parser("dream", help="Verify and persist one learning handoff.")
+    dream = subparsers.add_parser("dream", help="Persist one profile-first learning handoff.")
     dream.add_argument("--profile", choices=tuple(EXPERIMENT_PROFILES))
+    dream.add_argument("--temp-root", type=Path)
     dream.add_argument("--experiment", required=True)
     dream.add_argument("--outcome", choices=OUTCOMES, required=True)
     dream.add_argument("--lesson", required=True)
@@ -1091,6 +1433,12 @@ def build_parser() -> argparse.ArgumentParser:
     dream.add_argument("--tomorrow-inherits", required=True)
     dream.add_argument("--measurement-json", help="Optional JSON measurement payload for retrieval/rework benchmarking.")
     dream.add_argument("--json", action="store_true")
+    promote = subparsers.add_parser(
+        "promote", help="Explicitly promote the current Dream through repository validation."
+    )
+    promote.add_argument("--temp-root", type=Path)
+    promote.add_argument("--force", action="store_true")
+    promote.add_argument("--json", action="store_true")
     return parser
 
 
@@ -1125,7 +1473,7 @@ def main() -> None:
 
     if args.command == "profile":
         if args.action == "list":
-            payload = {name: {"version": spec["version"], "purpose": spec["purpose"]} for name, spec in EXPERIMENT_PROFILES.items()}
+            payload = {name: {"version": spec["version"], "timeout_seconds": spec["timeout_seconds"], "purpose": spec["purpose"]} for name, spec in EXPERIMENT_PROFILES.items()}
         else:
             if not args.name or args.name not in EXPERIMENT_PROFILES:
                 raise SystemExit("profile name is required and must resolve")
@@ -1134,9 +1482,30 @@ def main() -> None:
         return
 
     if args.command == "baseline":
-        payload = write_baseline(args.profile)
+        try:
+            temp_root = resolve_temp_root(args.temp_root)
+            payload = write_baseline(args.profile, temp_root=temp_root)
+        except ValueError as error:
+            raise SystemExit(str(error)) from error
         print(json.dumps(payload, indent=2) if args.json else f"baseline_written={BASELINE_ROOT.relative_to(REPO_ROOT).as_posix()}/{args.profile}.json")
         if not payload["passed"]:
+            raise SystemExit(1)
+        return
+
+    if args.command == "promote":
+        try:
+            temp_root = resolve_temp_root(args.temp_root)
+            payload = promote_dream(temp_root=temp_root, force=args.force)
+        except ValueError as error:
+            raise SystemExit(str(error)) from error
+        if args.json:
+            print(json.dumps(payload, indent=2))
+        else:
+            repository = payload["verification"]["repository"]
+            print(f"promotion_status={repository['status']}")
+            print(f"cache_status={repository.get('cache_status', 'unavailable')}")
+            print(f"repo_use={payload['verification']['inheritance']['repo-use']}")
+        if not verification_passed(payload["verification"]):
             raise SystemExit(1)
         return
 
@@ -1152,16 +1521,20 @@ def main() -> None:
         artifact_refs=args.artifact_ref,
         tomorrow_inherits=args.tomorrow_inherits,
         profile=args.profile,
+        temp_root=args.temp_root,
         measurement=measurement,
     )
     if args.json:
         print(json.dumps(payload, indent=2))
     else:
-        passed = verification_passed(payload["verification"])
+        experiment_status = payload["verification"]["experiment"]["status"]
         print(f"dream_written={HANDOFF_PATH.relative_to(REPO_ROOT).as_posix()}")
-        print(f"verification_passed={str(passed).lower()}")
-        print(f"next_mode={NEXT_MODES[args.outcome] if passed else 'repair_before_inheriting'}")
-    if not verification_passed(payload["verification"]):
+        print(f"experiment_status={experiment_status}")
+        print(f"local_use={payload['verification']['inheritance']['local-use']}")
+        print("repo_use=blocked")
+        print("next_mode=promote_or_continue_local_only")
+    experiment = payload["verification"]["experiment"]
+    if args.profile and not experiment.get("passed"):
         raise SystemExit(1)
 
 

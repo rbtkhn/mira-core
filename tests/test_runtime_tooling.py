@@ -561,6 +561,7 @@ def test_ci_uses_only_canonical_validation_with_four_jobs() -> None:
     assert workflow.count("python tools/validate_repo.py") == 1
     assert "pytest" not in workflow
     assert "validate_repository.py" not in workflow
+    assert "NARRATIVE_SESSION_TEMP_ROOT: ${{ runner.temp }}" in workflow
 
 
 def test_validation_mode_defaults_to_full_and_accepts_force() -> None:
@@ -568,6 +569,7 @@ def test_validation_mode_defaults_to_full_and_accepts_force() -> None:
     forced = validator.parse_args(["--mode", "full", "--force"])
     assert (default.mode, default.force) == ("full", False)
     assert (forced.mode, forced.force) == ("full", True)
+    assert default.temp_root is None
 
 
 def test_fast_route_selects_tests_for_narrow_allowlisted_changes() -> None:
@@ -637,15 +639,18 @@ def test_powershell_validator_exposes_fast_full_and_force() -> None:
     assert "[ValidateSet('Full', 'Fast')]" in launcher
     assert "$validatorArguments = @('--mode', $Mode.ToLowerInvariant())" in launcher
     assert "$validatorArguments += '--force'" in launcher
+    assert "NARRATIVE_SESSION_TEMP_ROOT" in launcher
+    assert "@('--temp-root', $TempRoot)" in launcher
     assert launcher.count("@validatorArguments") == 4
 
 
-def test_validator_uses_one_interpreter_and_runs_both_checks(monkeypatch) -> None:
+def test_validator_uses_one_interpreter_and_runs_both_checks(monkeypatch, tmp_path: Path) -> None:
     python = Path("resolved-python")
     commands: list[list[str]] = []
     environments: list[dict[str, str]] = []
     monkeypatch.setattr(validator, "resolve_validation_python", lambda repo: python)
     monkeypatch.setenv("NARRATIVE_CHOICE_DB", r"C:\private\real-choice.sqlite3")
+    monkeypatch.setenv("PYTEST_ADDOPTS", r"--basetemp C:\unsafe\pytest")
     monkeypatch.setenv("VALIDATION_SENTINEL", "preserved")
 
     def run(command, **kwargs):
@@ -655,18 +660,22 @@ def test_validator_uses_one_interpreter_and_runs_both_checks(monkeypatch) -> Non
         return SimpleNamespace(returncode=4 if failed else 0)
 
     monkeypatch.setattr(validator.subprocess, "run", run)
-    assert validator.main([]) == 4
+    assert validator.main(["--temp-root", str(tmp_path)]) == 4
     assert len(commands) == 2
     assert all(command[0] == str(python) for command in commands)
     assert commands[0][1] == "scripts/validate_repository.py"
     assert commands[1][1:4] == ["-m", "pytest", "-q"]
-    assert commands[1][-2:] == ["-m", "not repository_integrity"]
+    marker_index = commands[1].index("not repository_integrity")
+    assert commands[1][marker_index - 1 : marker_index + 1] == ["-m", "not repository_integrity"]
+    assert "--basetemp" in commands[1]
+    assert str(tmp_path) in commands[1][commands[1].index("--basetemp") + 1]
     assert all("NARRATIVE_CHOICE_DB" not in item for item in environments)
+    assert all("PYTEST_ADDOPTS" not in item for item in environments)
     assert all(item["VALIDATION_SENTINEL"] == "preserved" for item in environments)
     assert os.environ["NARRATIVE_CHOICE_DB"] == r"C:\private\real-choice.sqlite3"
 
 
-def test_full_validator_reports_ordered_phase_timings(monkeypatch, capsys) -> None:
+def test_full_validator_reports_ordered_phase_timings(monkeypatch, capsys, tmp_path: Path) -> None:
     commands: list[list[str]] = []
     times = iter((0.0, 1.0, 2.25, 3.0, 7.5, 8.0, 13.0, 14.0))
     monkeypatch.setattr(
@@ -679,7 +688,7 @@ def test_full_validator_reports_ordered_phase_timings(monkeypatch, capsys) -> No
         return SimpleNamespace(returncode=4 if failed else 0)
 
     monkeypatch.setattr(validator.subprocess, "run", run)
-    assert validator.main([], clock=lambda: next(times)) == 4
+    assert validator.main(["--temp-root", str(tmp_path)], clock=lambda: next(times)) == 4
     assert len(commands) == 2
     lines = [
         line for line in capsys.readouterr().err.splitlines()
@@ -693,7 +702,45 @@ def test_full_validator_reports_ordered_phase_timings(monkeypatch, capsys) -> No
     ]
 
 
-def test_focused_validator_reports_structural_skip(monkeypatch, capsys) -> None:
+def test_validator_phase_timeout_returns_124_and_reports_limit(
+    monkeypatch, capsys
+) -> None:
+    times = iter((1.0, 4.0))
+    monkeypatch.setattr(
+        validator.subprocess,
+        "run",
+        lambda *args, **kwargs: (_ for _ in ()).throw(
+            subprocess.TimeoutExpired(args[0], kwargs["timeout"])
+        ),
+    )
+
+    result = validator.run_phase(
+        ["python", "slow.py"],
+        mode="full",
+        phase="structural",
+        environment={},
+        clock=lambda: next(times),
+        timeout_seconds=180,
+    )
+
+    assert result == 124
+    assert "status=timed_out reason=limit_180s" in capsys.readouterr().err
+
+
+def test_validator_temp_root_rejects_repository_local_path(tmp_path: Path) -> None:
+    repository = tmp_path / "repo"
+    repository.mkdir()
+    local = repository / "tmp"
+    local.mkdir()
+    try:
+        validator.resolve_temp_root(local, repo_root=repository)
+    except ValueError as error:
+        assert "outside the repository" in str(error)
+    else:
+        raise AssertionError("repository-local pytest root was accepted")
+
+
+def test_focused_validator_reports_structural_skip(monkeypatch, capsys, tmp_path: Path) -> None:
     times = iter((0.0, 1.0, 1.5, 2.0, 4.5, 5.0))
     monkeypatch.setattr(
         validator, "resolve_validation_python", lambda repo: Path("resolved-python")
@@ -704,7 +751,7 @@ def test_focused_validator_reports_structural_skip(monkeypatch, capsys) -> None:
         lambda command, **kwargs: SimpleNamespace(returncode=0),
     )
     assert validator.main(
-        ["--path", "tests/test_elicitation.py"], clock=lambda: next(times)
+        ["--temp-root", str(tmp_path), "--path", "tests/test_elicitation.py"], clock=lambda: next(times)
     ) == 0
     lines = [
         line for line in capsys.readouterr().err.splitlines()
@@ -718,7 +765,7 @@ def test_focused_validator_reports_structural_skip(monkeypatch, capsys) -> None:
     ]
 
 
-def test_bootstrap_failure_reports_timing_without_execution(monkeypatch, capsys) -> None:
+def test_bootstrap_failure_reports_timing_without_execution(monkeypatch, capsys, tmp_path: Path) -> None:
     times = iter((0.0, 1.0, 3.0, 4.0))
 
     def unavailable(repo):
@@ -730,16 +777,17 @@ def test_bootstrap_failure_reports_timing_without_execution(monkeypatch, capsys)
         "run",
         lambda *args, **kwargs: pytest.fail("bootstrap failure must not execute"),
     )
-    assert validator.main([], clock=lambda: next(times)) == 1
+    assert validator.main(["--temp-root", str(tmp_path)], clock=lambda: next(times)) == 1
     error = capsys.readouterr().err
     assert "validation_timing mode=full phase=bootstrap seconds=2.000 status=failed" in error
     assert "validation_timing mode=full phase=total seconds=4.000 status=failed" in error
     assert "validation unavailable: test unavailable" in error
 
 
-def test_validation_environment_removes_only_private_store_binding() -> None:
+def test_validation_environment_removes_private_and_unsafe_pytest_bindings() -> None:
     source = {
         "NARRATIVE_CHOICE_DB": r"C:\private\real-choice.sqlite3",
+        "PYTEST_ADDOPTS": r"--basetemp C:\unsafe\pytest",
         "PRESERVED": "yes",
     }
     sanitized = validator.validation_environment(source)
@@ -747,7 +795,7 @@ def test_validation_environment_removes_only_private_store_binding() -> None:
     assert source["NARRATIVE_CHOICE_DB"] == r"C:\private\real-choice.sqlite3"
 
 
-def test_focused_validator_uses_same_interpreter_and_only_pytest(monkeypatch) -> None:
+def test_focused_validator_uses_same_interpreter_and_only_pytest(monkeypatch, tmp_path: Path) -> None:
     python = Path("resolved-python")
     commands: list[list[str]] = []
     environments: list[dict[str, str]] = []
@@ -763,9 +811,10 @@ def test_focused_validator_uses_same_interpreter_and_only_pytest(monkeypatch) ->
         )[-1],
     )
     assert validator.main(
-        ["--path", "tests/test_elicitation.py", "--path", "tests/test_runtime_tooling.py"]
+        ["--temp-root", str(tmp_path), "--path", "tests/test_elicitation.py", "--path", "tests/test_runtime_tooling.py"]
     ) == 7
-    assert commands == [[
+    assert len(commands) == 1
+    assert commands[0][:8] == [
         str(python),
         "-m",
         "pytest",
@@ -774,9 +823,10 @@ def test_focused_validator_uses_same_interpreter_and_only_pytest(monkeypatch) ->
         "no:cacheprovider",
         "-m",
         "not repository_integrity",
-        "tests/test_elicitation.py",
-        "tests/test_runtime_tooling.py",
-    ]]
+    ]
+    assert commands[0][8] == "--basetemp"
+    assert str(tmp_path) in commands[0][9]
+    assert commands[0][-2:] == ["tests/test_elicitation.py", "tests/test_runtime_tooling.py"]
     assert len(environments) == 1
     assert "NARRATIVE_CHOICE_DB" not in environments[0]
 
@@ -810,14 +860,14 @@ def test_focused_validator_rejects_unsafe_or_unsupported_paths(path: str) -> Non
     ),
 )
 def test_focused_validator_invalid_paths_exit_two_without_execution(
-    path: str, monkeypatch
+    path: str, monkeypatch, tmp_path: Path
 ) -> None:
     def unexpected_call(*args, **kwargs):
         raise AssertionError("invalid focused paths must not bootstrap or execute")
 
     monkeypatch.setattr(validator, "resolve_validation_python", unexpected_call)
     monkeypatch.setattr(validator.subprocess, "run", unexpected_call)
-    assert validator.main(["--path", path]) == 2
+    assert validator.main(["--temp-root", str(tmp_path), "--path", path]) == 2
 
 
 def test_compatibility_shim_no_longer_requires_dot_venv() -> None:

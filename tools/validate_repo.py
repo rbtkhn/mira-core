@@ -5,9 +5,11 @@ import hashlib
 import json
 import os
 import re
+import shutil
 import subprocess
 import sys
 import time
+import uuid
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Callable
@@ -24,9 +26,13 @@ from runtime_bootstrap import (  # noqa: E402
     dependency_declarations,
     resolve_validation_python,
 )
+from session_preflight import probe_temp_root  # noqa: E402
 
 
-PRIVATE_VALIDATION_ENVIRONMENT_KEYS = ("NARRATIVE_CHOICE_DB",)
+PRIVATE_VALIDATION_ENVIRONMENT_KEYS = ("NARRATIVE_CHOICE_DB", "PYTEST_ADDOPTS")
+TEMP_ROOT_ENV = "NARRATIVE_SESSION_TEMP_ROOT"
+STRUCTURAL_TIMEOUT_SECONDS = 180
+PYTEST_TIMEOUT_SECONDS = 600
 FULL_RESULT_SCHEMA = 1
 TEXT_SUFFIXES = {".json", ".md", ".py", ".toml", ".txt", ".yaml", ".yml"}
 PRIVATE_TEXT_PATTERNS = (
@@ -109,10 +115,25 @@ def run_phase(
     phase: str,
     environment: dict[str, str],
     clock: Callable[[], float],
+    timeout_seconds: int,
 ) -> int:
     started = clock()
     try:
-        result = subprocess.run(command, cwd=REPO_ROOT, env=environment)
+        result = subprocess.run(
+            command,
+            cwd=REPO_ROOT,
+            env=environment,
+            timeout=timeout_seconds,
+        )
+    except subprocess.TimeoutExpired:
+        emit_timing(
+            mode=mode,
+            phase=phase,
+            seconds=clock() - started,
+            status="timed_out",
+            reason=f"limit_{timeout_seconds}s",
+        )
+        return 124
     except BaseException:
         emit_timing(
             mode=mode,
@@ -159,7 +180,38 @@ def parse_args(arguments: list[str] | None = None) -> argparse.Namespace:
         metavar="TEST_PATH",
         help="existing repository-relative file or directory under tests/; repeatable",
     )
+    parser.add_argument(
+        "--temp-root",
+        type=Path,
+        help=f"absolute external pytest root; defaults to {TEMP_ROOT_ENV}",
+    )
     return parser.parse_args(arguments)
+
+
+def resolve_temp_root(
+    value: Path | None,
+    *,
+    environment: dict[str, str] | os._Environ[str] | None = None,
+    repo_root: Path = REPO_ROOT,
+) -> Path:
+    source = os.environ if environment is None else environment
+    candidate = value
+    if candidate is None and source.get(TEMP_ROOT_ENV):
+        candidate = Path(source[TEMP_ROOT_ENV])
+    if candidate is None:
+        raise ValueError(f"--temp-root or {TEMP_ROOT_ENV} is required")
+    report = probe_temp_root(candidate, repo_root=repo_root)
+    if not report["writable"] or not report["probe_removed"]:
+        raise ValueError(report["failure"] or "temporary root preflight failed")
+    return Path(report["resolved_root"])
+
+
+def cleanup_owned_temp(path: Path | None, *, root: Path | None) -> None:
+    if path is None or root is None or not path.exists():
+        return
+    resolved = path.resolve()
+    resolved.relative_to(root.resolve())
+    shutil.rmtree(resolved)
 
 
 def focused_test_paths(values: list[str]) -> list[str]:
@@ -331,8 +383,16 @@ def main(
     total_started = monotonic()
     mode = "full"
     final_status = "failed"
+    pytest_root: Path | None = None
+    temp_root: Path | None = None
     try:
         args = parse_args(arguments)
+        try:
+            temp_root = resolve_temp_root(args.temp_root)
+        except ValueError as error:
+            print(f"validation temporary-root error: {error}", file=sys.stderr)
+            return 2
+        pytest_root = temp_root / f"pytest-{os.getpid()}-{uuid.uuid4().hex}"
         try:
             paths = focused_test_paths(args.paths) if args.paths else []
         except ValueError as error:
@@ -390,6 +450,8 @@ def main(
             "no:cacheprovider",
             "-m",
             "not repository_integrity",
+            "--basetemp",
+            str(pytest_root),
             *pytest_paths,
         ]
         if paths:
@@ -406,6 +468,7 @@ def main(
                 phase="pytest",
                 environment=environment,
                 clock=monotonic,
+                timeout_seconds=PYTEST_TIMEOUT_SECONDS,
             )
             final_status = "passed" if returncode == 0 else "failed"
             return returncode
@@ -429,6 +492,11 @@ def main(
                     phase=phase,
                     environment=environment,
                     clock=monotonic,
+                    timeout_seconds=(
+                        STRUCTURAL_TIMEOUT_SECONDS
+                        if phase == "integrity"
+                        else PYTEST_TIMEOUT_SECONDS
+                    ),
                 )
                 if phase_returncode and not returncode:
                     returncode = phase_returncode
@@ -466,6 +534,11 @@ def main(
                 phase=phase,
                 environment=environment,
                 clock=monotonic,
+                timeout_seconds=(
+                    STRUCTURAL_TIMEOUT_SECONDS
+                    if phase == "structural"
+                    else PYTEST_TIMEOUT_SECONDS
+                ),
             )
             if phase_returncode and not returncode:
                 returncode = phase_returncode
@@ -481,6 +554,7 @@ def main(
         final_status = "passed" if returncode == 0 else "failed"
         return returncode
     finally:
+        cleanup_owned_temp(pytest_root, root=temp_root)
         emit_timing(
             mode=mode,
             phase="total",

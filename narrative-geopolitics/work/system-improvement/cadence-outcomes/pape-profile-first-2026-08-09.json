@@ -1,0 +1,31 @@
+{
+  "receipt_id": "CADENCE-PAPE-PROFILE-FIRST-20260809-01",
+  "schema_version": 1,
+  "recorded_at": "2026-08-09T21:24:34.587127+00:00",
+  "source": {
+    "logical_path": "narrative-geopolitics/work/cadence/last-dream.json",
+    "sha256": "e8e2c6432aec2bd932616f909e81dcbe13519e5ad958f6cba9a30e8fee4d09ca",
+    "git_head": "48cc5cd7206a44abe88c5e86044d4b7ab77bf254",
+    "worktree_fingerprint": "3053746f0fc0efafd1ee682838f88e06f72a6f9c7da9ec7e33af65fe374d21e5"
+  },
+  "profile": {
+    "id": "pape-voice-judgment",
+    "version": 1,
+    "command_digest": "8f76491616cce3837f078c25ca3eef9c36efc80e1b8181185c3b0e518860c31e",
+    "timeout_seconds": 30,
+    "elapsed_seconds": 7.84,
+    "status": "passed",
+    "test_result": "13 passed in 4.68s"
+  },
+  "inheritance": {
+    "local-use": "eligible",
+    "repo-use": "blocked",
+    "public-use": "not_authorized"
+  },
+  "assessment": {
+    "acceptance_threshold_seconds": 30,
+    "threshold_met": true,
+    "claim": "The profiled Dream preserved a passing Pape result and granted bounded local eligibility without launching repository validation.",
+    "boundary": "This receipt does not establish repository eligibility or public-use authority."
+  }
+}
