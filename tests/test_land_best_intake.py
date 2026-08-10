@@ -1521,7 +1521,7 @@ def test_voice_indexes_sync_after_successful_publish(monkeypatch, tmp_path: Path
     assert "Voice shelves changed: audit-voice" in messages
     assert "Voice routes added: 1" in messages
     assert "Corpus: 1 local route rows across 1 central archive source files." in index_text
-    assert "| `2026-07-15` | Voice shelf source | `host-pressure test` | `audit-host` |" in index_text
+    assert "| `2026-07-15` | Voice shelf source | `guest` | `audit-host` |" in index_text
 
 
 def test_voice_index_failure_rolls_back_sources_indexes_and_manifest(

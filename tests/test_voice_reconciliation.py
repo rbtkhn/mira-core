@@ -131,7 +131,10 @@ def test_standard_shelf_sync_is_idempotent_and_preserves_role(monkeypatch, tmp_p
     manifest = {
         "sources": [
             manifest_row(first_rel, "johnson", title="A"),
-            manifest_row(second_rel, "johnson", title="B"),
+            {
+                **manifest_row(second_rel, "johnson", title="B"),
+                "source_class": "guest interview pressure test",
+            },
         ]
     }
     overrides = {
@@ -153,7 +156,7 @@ def test_standard_shelf_sync_is_idempotent_and_preserves_role(monkeypatch, tmp_p
     assert second["changed_shelves"] == []
     assert "Corpus: 2 local route rows across 2 central archive source files." in after_first
     assert "`guest interview pressure test`" in after_first
-    assert "| `2026-07-10` | B | `host-pressure test`" in after_first
+    assert "| `2026-07-10` | B | `guest`" in after_first
 
 
 def test_shelf_less_voice_is_reported_not_failed(monkeypatch, tmp_path: Path) -> None:

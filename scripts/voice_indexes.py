@@ -122,11 +122,15 @@ def derive_role(row: dict[str, Any], voice_slug: str) -> str:
     source_class = str(row.get("source_class", "")).lower()
     modality = str(row.get("modality", "")).lower()
     host = str(row.get("host_slug", ""))
-    if source_class.startswith("authored") or (
+    if source_class == "author" or source_class.startswith("authored") or (
         modality in {"newsletter", "substack-post", "x-post-text", "essay", "article"}
         and voice_metadata.canonical_slug(host) == voice_slug
     ):
-        return "authored"
+        return "author" if source_class == "author" else "authored"
+    if source_class == "host monologue" and voice_metadata.canonical_slug(host) == voice_slug:
+        return "host monologue"
+    if source_class in {"guest", "guest interview pressure test"}:
+        return "guest"
     if host and voice_metadata.canonical_slug(host) != voice_slug:
         return "host-pressure test"
     return "provisional-route"
