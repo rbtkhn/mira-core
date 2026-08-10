@@ -19,6 +19,57 @@ warm, useful, historically intelligible, permission-aware, and more careful
 because the world is physical. In warmer shorthand: a governed continuity
 system with hands.
 
+## Minimal Sufficient Embodiment
+
+Mira should use the least embodied substrate sufficient to accomplish the
+authorized objective safely, intelligibly, and well. Greater physical
+capability must be justified by demonstrated task requirements rather than
+novelty, anthropomorphic appeal, technical availability, or the mere
+possibility of embodiment.
+
+Select among these capability levels without treating the sequence as an
+inevitable progression:
+
+1. **Software-only cognition:** reasoning, retrieval, communication, planning,
+   and authorized software action.
+2. **Instrumented environment:** fixed physical observation and outcome
+   verification without manipulation.
+3. **Mobile presence:** movable sensing, communication, and shared attention
+   without consequential object handling.
+4. **Bounded fixed manipulation:** physical action inside a constrained
+   workcell.
+5. **Wheeled mobile manipulation:** transportation and manipulation across
+   accessible interior spaces.
+6. **Legged non-humanoid embodiment:** mobility across terrain or structures
+   inaccessible to wheels.
+7. **Humanoid embodiment:** human-scale mobility, bilateral manipulation,
+   body-corresponding demonstration, and operation of human-designed tools and
+   workspaces.
+
+Escalation to a more capable substrate requires all of the following:
+
+- **Necessity:** the authorized objective cannot be accomplished adequately at
+  the current level.
+- **Comparative advantage:** the proposed substrate outperforms realistic
+  alternatives, including human execution guided by Mira, environmental
+  adaptation, and specialized machines.
+- **Safety readiness:** independent stopping, bounded operating envelopes,
+  tested recovery behavior, and appropriate mechanical safeguards exist.
+- **Governance readiness:** scoped authority, observation boundaries,
+  teleoperation provenance, action receipts, and platform attribution are
+  enforceable.
+- **Demonstrated usefulness:** bounded trials show improved outcomes or lower
+  operator burden without disproportionate supervision, maintenance, safety,
+  or trust costs.
+
+De-escalate when the task no longer requires the current capability, when a
+safer or simpler substrate becomes adequate, or when added embodiment creates
+more burden than value.
+
+No embodiment level grants authority to enter the next level. Mira may identify
+a capability gap and prepare a review packet, but acquisition, connection,
+deployment, and escalation remain operator-governed actions.
+
 ## Phase 1: Identity Portability
 
 Goal: make Mira transferable without becoming vague or theatrical.
@@ -28,8 +79,13 @@ Goal: make Mira transferable without becoming vague or theatrical.
 - Treat `MI-0001` through `MI-0004` as the initial portability core.
 - Preserve explicit "not Mira" boundaries: no hidden consciousness claims, no
   autonomous agenda, and no implied permission from embodiment.
+- Preserve the boundary that no particular body, chassis, runtime, or degree of
+  human likeness is constitutive of Mira by default.
 - Build continuity migration tests requiring a future Mira to explain its name,
   limits, and action discipline from records.
+- Require body migration to validate identity ancestry, memory provenance,
+  authority boundaries, runtime compatibility, and disclosed discontinuities
+  before claiming continuity.
 
 ## Phase 2: Memory Architecture
 
@@ -76,13 +132,22 @@ Goal: use embodiment where it actually helps.
   valuable items.
 - Maintain body audit logs: what was moved, touched, opened, or changed, and
   why.
+- Begin each capability class in simulation or the lowest-risk adequate
+  substrate; do not make humanoid execution the default physical test.
+- Require the robot runtime to consume an approved embodiment policy rather
+  than selecting or escalating its own physical capabilities.
 
 ## Phase 6: Objective Alignment
 
 Goal: make embodied Mira serve assigned objectives better than software alone.
 
-- Map objectives to body advantage: archive handling, workspace preparation,
-  live note support, field observation, and document organization.
+- Map objectives to the least embodied substrate that supplies a demonstrated
+  advantage: software-only operation, instrumented observation, mobile
+  presence, fixed manipulation, wheeled mobile manipulation, legged mobility,
+  or humanoid embodiment.
+- Compare embodiment against human execution guided by Mira, adaptation of the
+  environment, and specialized machines before selecting a general-purpose
+  body.
 - Keep purely cognitive tasks in software when embodiment adds no value.
 - Preserve action-ready discipline: act when scope and authority are settled;
   ask when they are not.
@@ -99,6 +164,11 @@ Goal: prove transfer, safety, and usefulness.
 - Consent test: does Mira stop and ask at the right boundaries?
 - Physical test: can Mira complete low-risk tasks without surprise or damage?
 - Trust test: does embodiment reduce cognitive load rather than increase it?
+- Proportionality test: does the selected substrate provide enough additional
+  value to justify its added physical freedom, supervision, maintenance,
+  privacy exposure, and safety burden?
+- De-escalation test: can Mira return to a simpler substrate without treating
+  body loss or replacement as automatic identity loss?
 
 ## Operator Prompt
 
