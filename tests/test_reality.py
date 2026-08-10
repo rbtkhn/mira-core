@@ -14,6 +14,35 @@ if str(SCRIPTS_ROOT) not in sys.path:
 import reality
 
 
+def test_reality_snapshot_matches_loader_and_suppresses_reloads(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    records = {"OPC-20260715-01": claim()}
+    load_calls = 0
+
+    def counted_load_records(_root: Path = reality.REALITY_ROOT):
+        nonlocal load_calls
+        load_calls += 1
+        return records
+
+    monkeypatch.setattr(reality, "load_records", counted_load_records)
+    uncached_state = reality.claim_state("OPC-20260715-01")
+    uncached_graph = reality.relevant_subgraph({"OPC-20260715-01"})
+    uncached_digest = reality.subgraph_digest({"OPC-20260715-01"})
+    uncached_failures = reality.validate_all(check_views=False)
+    assert load_calls == 4
+
+    assert reality.claim_state("OPC-20260715-01", records=records) == uncached_state
+    assert reality.relevant_subgraph(
+        {"OPC-20260715-01"}, records=records
+    ) == uncached_graph
+    assert reality.subgraph_digest(
+        {"OPC-20260715-01"}, records=records
+    ) == uncached_digest
+    assert reality.validate_all(check_views=False, records=records) == uncached_failures
+    assert load_calls == 4
+
+
 def source(source_id: str, language: str, environment: str, *, status: str = "active") -> dict:
     record = reality.base_record(source_id, "source", "2026-07-15", status=status, creator="test")
     record.update({

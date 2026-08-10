@@ -145,6 +145,59 @@ def test_render_is_deterministic_and_selects_declared_sources(tmp_path: Path) ->
     assert set(issue.REQUIRED_ISSUE_SECTIONS) <= set(name for level, name in issue.HEADING_RE.findall(first) if level == "##")
 
 
+def test_validation_context_preserves_output_and_loads_reality_once(
+    monkeypatch: pytest.MonkeyPatch,
+    tmp_path: Path,
+) -> None:
+    daily_root, ledger_path = fixture_tree(tmp_path)
+    reality_root = tmp_path / "reality"
+    reality_root.mkdir()
+    load_calls = 0
+    original_load_records = issue.reality.load_records
+
+    def counted_load_records(root: Path = issue.reality.REALITY_ROOT):
+        nonlocal load_calls
+        load_calls += 1
+        return original_load_records(root)
+
+    monkeypatch.setattr(issue.reality, "load_records", counted_load_records)
+    context = issue.load_validation_context(
+        daily_root=daily_root,
+        ledger_path=ledger_path,
+        reality_root=reality_root,
+    )
+    cached_model = issue.load_model(
+        RUN_DATE,
+        daily_root,
+        ledger_path,
+        context=context,
+    )
+    cached_render = issue.render_model(cached_model, context=context)
+    issue_path = daily_root / RUN_DATE / "issue.md"
+    issue_path.write_text(cached_render, encoding="utf-8")
+
+    cached_result = issue.validate_issue(
+        RUN_DATE,
+        require=True,
+        daily_root=daily_root,
+        ledger_path=ledger_path,
+        context=context,
+    )
+    assert load_calls == 1
+    uncached_model = issue.load_model(RUN_DATE, daily_root, ledger_path)
+    uncached_render = issue.render_model(uncached_model)
+    uncached_result = issue.validate_issue(
+        RUN_DATE,
+        require=True,
+        daily_root=daily_root,
+        ledger_path=ledger_path,
+    )
+
+    assert cached_render == uncached_render
+    assert cached_result == uncached_result
+    assert load_calls == 3
+
+
 def test_issue_validation_detects_stale_canonical_input(tmp_path: Path) -> None:
     daily_root, ledger_path = fixture_tree(tmp_path)
     run_dir = daily_root / RUN_DATE

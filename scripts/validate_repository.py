@@ -180,7 +180,9 @@ def archive_manifest_failures() -> list[str]:
     return failures
 
 
-def daily_run_failures() -> list[str]:
+def daily_run_failures(
+    context: daily_issue.IssueValidationContext | None = None,
+) -> list[str]:
     manifest = load_manifest()
     dates = {row.get("date") for row in manifest.get("sources", [])}
     failures: list[str] = []
@@ -207,6 +209,7 @@ def daily_run_failures() -> list[str]:
                 run_dir.name,
                 daily_root=DAILY_ROOT,
                 ledger_path=LEDGER_PATH,
+                context=context,
             )
             failures.extend(
                 f"daily issue invalid: {relative(run_dir / 'issue.md')} -> {item}"
@@ -374,8 +377,12 @@ def verification_packet_failures() -> list[str]:
     return verification_packets.validate_all()
 
 
-def reality_lattice_failures() -> list[str]:
-    return reality.validate_all()
+def reality_lattice_failures(
+    context: daily_issue.IssueValidationContext | None = None,
+) -> list[str]:
+    return reality.validate_all(
+        records=context.reality_records if context is not None else None
+    )
 
 
 def skill_contract_failures() -> list[str]:
@@ -600,7 +607,32 @@ def validate_repository(
     clock: Callable[[], float] | None = None,
     timing_stream: TextIO | None = None,
 ) -> list[str]:
-    selected_checks = REPOSITORY_CHECKS if checks is None else checks
+    if checks is None:
+        shared_context: list[daily_issue.IssueValidationContext] = []
+
+        def get_context() -> daily_issue.IssueValidationContext:
+            if not shared_context:
+                shared_context.append(
+                    daily_issue.load_validation_context(
+                        daily_root=DAILY_ROOT,
+                        ledger_path=LEDGER_PATH,
+                    )
+                )
+            return shared_context[0]
+
+        selected_checks = tuple(
+            (
+                name,
+                (lambda: daily_run_failures(context=get_context()))
+                if check is daily_run_failures
+                else (lambda: reality_lattice_failures(context=get_context()))
+                if check is reality_lattice_failures
+                else check,
+            )
+            for name, check in REPOSITORY_CHECKS
+        )
+    else:
+        selected_checks = checks
     monotonic = time.perf_counter if clock is None else clock
     stream = sys.stderr if timing_stream is None else timing_stream
     failures: list[str] = []

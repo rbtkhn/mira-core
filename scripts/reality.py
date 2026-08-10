@@ -8,7 +8,7 @@ import tempfile
 from collections import Counter, defaultdict, deque
 from datetime import date, datetime, timezone
 from pathlib import Path
-from typing import Any, Iterable
+from typing import Any, Iterable, Mapping
 from urllib.parse import urlparse
 
 try:
@@ -540,8 +540,13 @@ def validate_assessment(assessment: dict[str, Any], records: dict[str, dict[str,
     return failures
 
 
-def validate_all(root: Path = REALITY_ROOT, *, check_views: bool = True) -> list[str]:
-    records = load_records(root)
+def validate_all(
+    root: Path = REALITY_ROOT,
+    *,
+    check_views: bool = True,
+    records: Mapping[str, dict[str, Any]] | None = None,
+) -> list[str]:
+    records = load_records(root) if records is None else records
     failures: list[str] = []
     for record_id, record in records.items():
         if record.get("_duplicate"):
@@ -1049,8 +1054,13 @@ def migration_record_matches(
     return actual.get("status") == expected_status
 
 
-def claim_state(claim_id: str, root: Path = REALITY_ROOT) -> dict[str, Any] | None:
-    records = load_records(root)
+def claim_state(
+    claim_id: str,
+    root: Path = REALITY_ROOT,
+    *,
+    records: Mapping[str, dict[str, Any]] | None = None,
+) -> dict[str, Any] | None:
+    records = load_records(root) if records is None else records
     claim = records.get(claim_id)
     if not claim or claim.get("kind") != "claim":
         return None
@@ -1059,8 +1069,13 @@ def claim_state(claim_id: str, root: Path = REALITY_ROOT) -> dict[str, Any] | No
     return {"claim": clean_record(claim), "assessment": clean_record(current) if current else None, "migrated": True}
 
 
-def relevant_subgraph(seed_ids: Iterable[str], root: Path = REALITY_ROOT) -> list[dict[str, Any]]:
-    records = load_records(root)
+def relevant_subgraph(
+    seed_ids: Iterable[str],
+    root: Path = REALITY_ROOT,
+    *,
+    records: Mapping[str, dict[str, Any]] | None = None,
+) -> list[dict[str, Any]]:
+    records = load_records(root) if records is None else records
     included = {item for item in seed_ids if item in records}
     changed = True
     while changed:
@@ -1081,8 +1096,13 @@ def relevant_subgraph(seed_ids: Iterable[str], root: Path = REALITY_ROOT) -> lis
     return [clean_record(records[item]) for item in sorted(included)]
 
 
-def subgraph_digest(seed_ids: Iterable[str], root: Path = REALITY_ROOT) -> str:
-    return record_digest(relevant_subgraph(seed_ids, root))
+def subgraph_digest(
+    seed_ids: Iterable[str],
+    root: Path = REALITY_ROOT,
+    *,
+    records: Mapping[str, dict[str, Any]] | None = None,
+) -> str:
+    return record_digest(relevant_subgraph(seed_ids, root, records=records))
 
 
 def impact_payload(subject_id: str, root: Path = REALITY_ROOT) -> dict[str, Any]:

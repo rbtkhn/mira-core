@@ -7,6 +7,7 @@ import os
 import re
 from dataclasses import dataclass
 from pathlib import Path
+from typing import Any, Mapping
 
 import verification
 import reality
@@ -57,6 +58,29 @@ EVIDENCE_POSTURES = {
 
 class IssueError(ValueError):
     pass
+
+
+@dataclass(frozen=True)
+class IssueValidationContext:
+    ledger_text: str
+    manifest_paths: frozenset[str]
+    reality_records: Mapping[str, dict[str, Any]]
+
+
+def load_validation_context(
+    daily_root: Path = DAILY_ROOT,
+    ledger_path: Path = LEDGER_PATH,
+    reality_root: Path = reality.REALITY_ROOT,
+) -> IssueValidationContext:
+    manifest_path = daily_root.parents[1] / "archive" / "source-manifest.json"
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8-sig"))
+    return IssueValidationContext(
+        ledger_text=ledger_path.read_text(encoding="utf-8"),
+        manifest_paths=frozenset(
+            str(row.get("local_path", "")) for row in manifest.get("sources", [])
+        ),
+        reality_records=reality.load_records(reality_root),
+    )
 
 
 @dataclass(frozen=True)
@@ -327,6 +351,8 @@ def load_model(
     daily_root: Path = DAILY_ROOT,
     ledger_path: Path = LEDGER_PATH,
     packets_root: Path = verification.PACKETS_ROOT,
+    *,
+    context: IssueValidationContext | None = None,
 ) -> IssueModel:
     inputs = canonical_inputs(run_date, daily_root)
     stories = parse_stories(run_date, inputs["synthesis.md"])
@@ -347,7 +373,11 @@ def load_model(
     if not revision_log:
         raise IssueError("daily-brief.md is missing Revision Log")
     validate_revision_log(revision_log)
-    ledger_text = ledger_path.read_text(encoding="utf-8")
+    ledger_text = (
+        context.ledger_text
+        if context is not None
+        else ledger_path.read_text(encoding="utf-8")
+    )
     claim_rows = parse_claim_rows(inputs["synthesis.md"])
     verification_links: dict[str, str] = {}
     issue_dir = daily_root / run_date
@@ -376,7 +406,10 @@ def load_model(
         missing_observables=missing_observables or "No additional missing observables were recorded.",
         revision_log=revision_log,
         input_digest=input_digest(inputs),
-        reality_digest=reality.subgraph_digest(selected_claims | selected_hooks),
+        reality_digest=reality.subgraph_digest(
+            selected_claims | selected_hooks,
+            records=context.reality_records if context is not None else None,
+        ),
     )
 
 
@@ -392,7 +425,12 @@ def source_display(row: dict[str, str]) -> tuple[str, str, str]:
     return voice, source, job
 
 
-def render_model(model: IssueModel, template_text: str | None = None) -> str:
+def render_model(
+    model: IssueModel,
+    template_text: str | None = None,
+    *,
+    context: IssueValidationContext | None = None,
+) -> str:
     template = template_text if template_text is not None else TEMPLATE_PATH.read_text(encoding="utf-8")
     selected = [story for story in model.stories if story.placement != "hold"]
     lead = next(story for story in selected if story.placement == "lead")
@@ -430,7 +468,10 @@ def render_model(model: IssueModel, template_text: str | None = None) -> str:
             row = model.claim_rows[claim_id]
             raw_verification = clean_cell(row.get("Verification", ""))
             verification_display = model.verification_links.get(raw_verification, row.get("Verification", ""))
-            state = reality.claim_state(claim_id)
+            state = reality.claim_state(
+                claim_id,
+                records=context.reality_records if context is not None else None,
+            )
             assessment = state.get("assessment") if state else None
             lattice_display = f"`{assessment.get('status')}: {assessment.get('outcome')}`" if assessment else ("`migrated: unassessed`" if state else "`legacy`")
             verification_lines.append(f"| `{claim_id}` | {row.get('Operational claim', '')} | {row.get('Current status', '')} | {lattice_display} | {row.get('Consequence if false', '')} | {verification_display} |")
@@ -477,6 +518,8 @@ def model_failures(
     ledger_text: str,
     daily_root: Path = DAILY_ROOT,
     packets_root: Path = verification.PACKETS_ROOT,
+    *,
+    context: IssueValidationContext | None = None,
 ) -> list[str]:
     failures: list[str] = []
     selected = [story for story in model.stories if story.placement != "hold"]
@@ -502,7 +545,10 @@ def model_failures(
             if VER_ID_RE.fullmatch(verification_id) and verification.find_packet(verification_id, packets_root) is None:
                 failures.append(f"{story.story_id}: verification packet not found {verification_id}")
             if clean_cell(model.claim_rows[claim_id].get("Current status", "")) == "operationally_supported":
-                lattice = reality.claim_state(claim_id)
+                lattice = reality.claim_state(
+                    claim_id,
+                    records=context.reality_records if context is not None else None,
+                )
                 lattice_assessment = lattice.get("assessment") if lattice else None
                 if lattice and not (
                     lattice_assessment
@@ -533,7 +579,10 @@ def model_failures(
                 packet = verification.parse_packet(packet_path)
                 if packet.fields.get("status") not in {"assessed", "closed"} or packet.fields.get("assessment_outcome") != "operationally_supported":
                     failures.append(f"{story.story_id}: verification-supported packet does not operationally support the claim")
-                lattice = reality.claim_state(claim_id)
+                lattice = reality.claim_state(
+                    claim_id,
+                    records=context.reality_records if context is not None else None,
+                )
                 lattice_assessment = lattice.get("assessment") if lattice else None
                 if lattice and not (
                     lattice_assessment
@@ -554,24 +603,40 @@ def model_failures(
                     failures.append(f"{source_id}: archive link does not resolve {target}")
                     continue
                 manifest_path = daily_root.parents[1] / "archive" / "source-manifest.json"
-                if manifest_path.exists():
+                if context is not None:
+                    manifest_paths = context.manifest_paths
+                elif manifest_path.exists():
                     manifest = json.loads(manifest_path.read_text(encoding="utf-8-sig"))
+                    manifest_paths = frozenset(
+                        str(item.get("local_path", ""))
+                        for item in manifest.get("sources", [])
+                    )
+                else:
+                    manifest_paths = frozenset()
+                if context is not None or manifest_path.exists():
                     repo_root = daily_root.parents[2]
                     local_path = resolved.relative_to(repo_root).as_posix()
-                    if local_path not in {row.get("local_path") for row in manifest.get("sources", [])}:
+                    if local_path not in manifest_paths:
                         failures.append(f"{source_id}: archive link has no manifest row {local_path}")
     return failures
 
 
-def validate_issue(run_date: str, require: bool = False, daily_root: Path = DAILY_ROOT, ledger_path: Path = LEDGER_PATH) -> tuple[list[str], list[str]]:
+def validate_issue(
+    run_date: str,
+    require: bool = False,
+    daily_root: Path = DAILY_ROOT,
+    ledger_path: Path = LEDGER_PATH,
+    *,
+    context: IssueValidationContext | None = None,
+) -> tuple[list[str], list[str]]:
     issue_path = daily_root / run_date / "issue.md"
     if not issue_path.exists():
         return (["missing issue.md"] if require else []), []
     failures: list[str] = []
     warnings: list[str] = []
     try:
-        model = load_model(run_date, daily_root, ledger_path)
-        expected = render_model(model)
+        model = load_model(run_date, daily_root, ledger_path, context=context)
+        expected = render_model(model, context=context)
     except (IssueError, KeyError, StopIteration) as exc:
         return [str(exc)], []
     actual = issue_path.read_text(encoding="utf-8")
@@ -596,8 +661,12 @@ def validate_issue(run_date: str, require: bool = False, daily_root: Path = DAIL
         target = (daily_root / run_date / raw_target).resolve()
         if not target.exists():
             failures.append(f"issue.md verification link does not resolve: {packet_id} -> {raw_target}")
-    ledger_text = ledger_path.read_text(encoding="utf-8")
-    failures.extend(model_failures(model, ledger_text, daily_root))
+    ledger_text = (
+        context.ledger_text
+        if context is not None
+        else ledger_path.read_text(encoding="utf-8")
+    )
+    failures.extend(model_failures(model, ledger_text, daily_root, context=context))
     prose = re.sub(r"(?m)^\|.*$|`[^`]+`|\[[^\]]+\]\([^)]+\)|<!--.*?-->", " ", actual)
     words = re.findall(r"\b[\w’'-]+\b", prose)
     if not 1500 <= len(words) <= 2500:

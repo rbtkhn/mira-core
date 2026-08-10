@@ -71,6 +71,44 @@ def test_repository_check_exception_reports_timing_and_remains_visible() -> None
     )
 
 
+def test_default_repository_checks_share_one_validation_context(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    context = integrity.daily_issue.IssueValidationContext(
+        ledger_text="ledger",
+        manifest_paths=frozenset(),
+        reality_records={},
+    )
+    load_calls = 0
+    observed_contexts = []
+
+    def load_context(**_kwargs):
+        nonlocal load_calls
+        load_calls += 1
+        return context
+
+    def daily(context=None):
+        observed_contexts.append(context)
+        return []
+
+    def lattice(context=None):
+        observed_contexts.append(context)
+        return []
+
+    monkeypatch.setattr(integrity.daily_issue, "load_validation_context", load_context)
+    monkeypatch.setattr(integrity, "daily_run_failures", daily)
+    monkeypatch.setattr(integrity, "reality_lattice_failures", lattice)
+    monkeypatch.setattr(
+        integrity,
+        "REPOSITORY_CHECKS",
+        (("daily_run_failures", daily), ("reality_lattice_failures", lattice)),
+    )
+
+    assert integrity.validate_repository(timing_stream=io.StringIO()) == []
+    assert load_calls == 1
+    assert observed_contexts == [context, context]
+
+
 def test_manifest_count_mismatch_is_detected(monkeypatch, tmp_path: Path) -> None:
     archive = tmp_path / "narrative-geopolitics" / "archive"
     source_dir = archive / "sources" / "2026-07-09"
