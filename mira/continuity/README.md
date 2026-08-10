@@ -52,7 +52,9 @@ System Archive storage and retrieval do not change this authority boundary.
 
 Mira's daily first-person reflections are separately governed by
 `tools/run.ps1 mira-journal`. The journal may cite continuity records but is
-not itself session history or canonical identity authority.
+not itself session history or canonical identity authority. Continuity
+references retain their own evidence class when compiled into journal context,
+and every journal input is explicitly barred from automatic promotion.
 
 ## Stage 1 Durability Guards
 

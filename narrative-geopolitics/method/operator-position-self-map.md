@@ -43,7 +43,9 @@ change, or link to a separately approved position refinement.
 
 ## Recursive-learning contract
 
-Every approved journal entry makes its learning loop explicit:
+Every approved Operator Position Journal (JRN-*) entry makes its learning loop
+explicit. Mira Daily Journal (MJ-*) autobiography is a separate,
+non-authoritative surface and cannot satisfy this contract:
 
 - `prior_model`: the inherited view, assumption, or practice;
 - `pressure`: the evidence, voice, outcome, or inconsistency that challenged it;

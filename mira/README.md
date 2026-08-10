@@ -21,11 +21,14 @@ first-person voice are indexed by the generated
 versioned provenance in [`journal-registry.json`](journal-registry.json);
 private drafts remain outside Git. Journal entries remain interpretive records
 unless separately promoted through canonical governance.
+The namespace and non-transference membrane are defined in
+[journal-governance.md](journal-governance.md).
 
 Use `tools/run.ps1 mira-journal` with `prepare`, `status`, `approve --check` /
 `approve`, `revise --check` / `revise`, `render --check` / `render`, and
-`validate`. The exact but not-yet-enabled 10:30 PM drafting contract is recorded
-in [`journal-automation.md`](journal-automation.md).
+`validate`, plus the read-only `publication-check`. The enabled standalone
+10:30 PM drafting automation follows
+[`journal-automation.md`](journal-automation.md).
 
 No Mira continuity artifact is automatically research evidence, Reality
 evidence, operator belief, or action authority.

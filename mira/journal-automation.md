@@ -1,8 +1,8 @@
 # Mira Journal Nightly Draft Contract
 
-This is the implementation contract for a future standalone local Codex
-automation. Creating or enabling that automation requires separate operator
-authorization.
+This is the implementation contract for the enabled standalone local Codex
+automation. Changing its schedule, project, notification policy, or authority
+requires separate operator authorization.
 
 ## Schedule
 
@@ -24,9 +24,12 @@ authorization.
 5. Bind the draft metadata to the context-pack source reference, coverage
    window, authoring session/model, prompt digest, source references, and a
    probabilistic derivation manifest whose output digest matches `draft.md`.
-6. Run `tools/run.ps1 mira-journal approve --check` only as a readiness check.
-   Do not approve, revise, stage, commit, push, publish, promote identity, or
-   write canonical journal files.
+   Preserve every input's epistemic class and authority owner, and keep
+   `may_promote` false.
+6. Do not invent an operator approval record. Without an exact operator
+   `MR-*` approval instruction, report the draft as approval-pending rather
+   than invoking `approve --check`. Do not approve, revise, stage, commit,
+   push, publish, promote identity, or write canonical journal files.
 7. Report the private draft location, date, word count, omissions, privacy
    status, and any late-activity refresh requirement to the operator.
 
