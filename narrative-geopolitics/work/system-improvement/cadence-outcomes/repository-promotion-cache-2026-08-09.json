@@ -1,0 +1,38 @@
+{
+  "receipt_id": "CADENCE-REPOSITORY-PROMOTION-CACHE-20260809-01",
+  "schema_version": 1,
+  "recorded_at": "2026-08-10T01:25:55.253281+00:00",
+  "intervention_commit": "505c40cd0e79af731348ec5d5690921b5d4f565e",
+  "validation_subject": {
+    "git_head": "88d7128d0b98b05d5cbb48ed8e8c138ad89b1c56",
+    "worktree_fingerprint": "67a7e85101465e805fb7bb9da577c1ce3101f6f45198577958ef86a28b02f1e1",
+    "validation_fingerprint": "c68f60fe2ac99a42974b7387e078a33bde7eef874fc8797006616bd949d9b9bb"
+  },
+  "cache_seed": {
+    "cache_status": "miss",
+    "repository_status": "passed",
+    "structural_seconds": 54.817,
+    "pytest_seconds": 149.94,
+    "validator_total_seconds": 211.665,
+    "test_result": "892 passed, 1 skipped, 1 deselected",
+    "cache_receipt_stored": true
+  },
+  "cache_hit": {
+    "cache_status": "hit",
+    "repository_status": "passed",
+    "bootstrap_seconds": 0.231,
+    "structural_status": "skipped",
+    "pytest_status": "skipped",
+    "validator_total_seconds": 2.053,
+    "promotion_elapsed_seconds": 2.576,
+    "command_wall_seconds": 9.495,
+    "repository_use": "eligible"
+  },
+  "assessment": {
+    "acceptance_threshold_seconds": 15,
+    "threshold_met": true,
+    "claim": "A content-equivalent cached promotion completed without rerunning structural validation or pytest and retained repository eligibility.",
+    "boundary": "The cache is validation evidence for the exact fingerprint only and grants no public-use authority."
+  },
+  "environment_note": "The default AppData cache path rejected the first receipt write. The measured cache cycle used NARRATIVE_VALIDATION_CACHE=C:\\private\\narrative-validation-cache, an external writable private root."
+}

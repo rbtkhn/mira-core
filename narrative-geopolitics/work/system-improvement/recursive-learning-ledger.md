@@ -17,6 +17,7 @@ Method: [recursive-learning-ledger.md](../../method/recursive-learning-ledger.md
 | `RSI-20260727-01` | `2026-07-27` | `closed-feedback-loop` | `validated` | Historical-reference review becomes detector control data |
 | `RSI-20260727-02` | `2026-07-27` | `partial-feedback-loop` | `partial` | Intake hardening accumulates production lessons |
 | `RSI-20260731-01` | `2026-07-31` | `closed-feedback-loop` | `validated` | Source-anchor policy becomes a validated synthesis gate |
+| `RSI-20260809-01` | `2026-08-09` | `closed-feedback-loop` | `measured` | Profile-first verification preserves learning before repository promotion |
 
 ## `RSI-20260721-01` — Continuity diagnostics become a bounded repair queue
 
@@ -309,3 +310,66 @@ Measure: 12 manifest-backed sources, 12 source anchors, 0 anchor-quality warning
 ### Next Measure
 
 Apply the variable-anchor checks to the next two synthesis runs and compare anchor redundancy, issue word-range failures, and post-render validation outcomes.
+
+## `RSI-20260809-01` — Profile-first verification preserves learning before repository promotion
+
+- Class: `closed-feedback-loop`
+- Closure: `measured`
+
+### Observation
+
+A narrowly scoped Pape repair became entangled with repeated full-repository verification. The profile itself passed, but slow and unrelated repository failures obscured that result, caused redundant work, and increased operator cognitive load.
+
+Evidence:
+
+- [`docs/cadence-profiles.md`](../../../docs/cadence-profiles.md)
+- [`narrative-geopolitics/work/system-improvement/cadence-outcomes/pape-profile-first-2026-08-09.json`](../../../narrative-geopolitics/work/system-improvement/cadence-outcomes/pape-profile-first-2026-08-09.json)
+
+### Diagnosis
+
+Dream coupled local lesson eligibility to a much slower repository-wide gate and did not persist completed phase evidence early enough. A timeout, interruption, unsafe inherited pytest configuration, or moving worktree could therefore conceal successful local verification.
+
+Evidence:
+
+- [`docs/skill-drafts/dream/SKILL.md`](../../../docs/skill-drafts/dream/SKILL.md)
+- [`scripts/cadence.py`](../../../scripts/cadence.py)
+- [`tools/validate_repo.py`](../../../tools/validate_repo.py)
+
+### Intervention
+
+Cadence now persists schema-v3 handoffs around every verification phase, grants bounded local eligibility after the selected profile passes, and reserves repository eligibility for an explicit cache-aware promotion command. Governed validation preflights an external temporary root, passes pytest basetemp directly, removes inherited PYTEST_ADDOPTS, preserves partial receipts, and reports interruption or failure without erasing completed experiment evidence.
+
+Evidence:
+
+- [`scripts/cadence.py`](../../../scripts/cadence.py)
+- [`tools/validate.ps1`](../../../tools/validate.ps1)
+- [`tools/validate_repo.py`](../../../tools/validate_repo.py)
+- [`docs/skill-drafts/dream/SKILL.md`](../../../docs/skill-drafts/dream/SKILL.md)
+- [`docs/skill-drafts/coffee/SKILL.md`](../../../docs/skill-drafts/coffee/SKILL.md)
+
+Commits: `505c40c`.
+
+### Validation
+
+Targeted cadence and runtime tests exercise profile-first persistence, separated eligibility, safe temporary-root handling, cache-aware promotion, moving-state rejection, interruption receipts, and Coffee status distinctions. A stable full promotion passed 892 tests and stored a content-addressed success receipt; the identical next promotion skipped structural validation and pytest on a cache hit.
+
+Evidence:
+
+- [`tests/test_cadence.py`](../../../tests/test_cadence.py)
+- [`tests/test_runtime_tooling.py`](../../../tests/test_runtime_tooling.py)
+- [`narrative-geopolitics/work/system-improvement/cadence-outcomes/repository-promotion-cache-2026-08-09.json`](../../../narrative-geopolitics/work/system-improvement/cadence-outcomes/repository-promotion-cache-2026-08-09.json)
+
+### Outcome
+
+A profiled Pape Dream reached durable local eligibility in 7.84 seconds without launching repository validation. After explicit promotion, repository use became eligible; a content-equivalent cached promotion completed in 2.576 validator seconds and 9.495 seconds wall time without rerunning structural validation or pytest.
+
+Evidence:
+
+- [`narrative-geopolitics/work/system-improvement/cadence-outcomes/pape-profile-first-2026-08-09.json`](../../../narrative-geopolitics/work/system-improvement/cadence-outcomes/pape-profile-first-2026-08-09.json)
+- [`narrative-geopolitics/work/system-improvement/cadence-outcomes/repository-promotion-cache-2026-08-09.json`](../../../narrative-geopolitics/work/system-improvement/cadence-outcomes/repository-promotion-cache-2026-08-09.json)
+
+Measure: Pape profile: 7.84 seconds against a 30-second limit; cache-hit promotion: 2.576 validator seconds and 9.495 wall seconds against a 15-second acceptance threshold; 0 structural or pytest phases rerun on the cache hit.
+
+### Next Measure
+
+Apply profile-first Dream to the next two eligible cadence episodes and compare local completion time, preserved interruption evidence, repository-promotion frequency, cache-hit rate, and operator correction load.
