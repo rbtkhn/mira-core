@@ -92,6 +92,7 @@ SECRET_PATTERNS = (
 )
 EMAIL_RE = re.compile(r"(?<![\w.+-])[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}(?![\w.-])", re.IGNORECASE)
 PHONE_RE = re.compile(r"(?<!\w)(?:\+\d{1,3}[ .()-]*)?(?:\(?\d{3}\)?[ .-]+)\d{3}[ .-]+\d{4}(?!\w)")
+PHONE_TAIL_RE = re.compile(r"\d{3}[ .-]+\d{4}")
 DATA_URL_RE = re.compile(r"data:[^\s\"']+", re.IGNORECASE)
 ATTACHMENT_PATH_RE = re.compile(
     r"(?:[A-Za-z]:[\\/][^\s\"']*?[\\/]\.codex[\\/]attachments[\\/][^\s\"']+|/(?:Users|home)/[^/\s]+/\.codex/attachments/[^\s\"']+)",
@@ -1638,20 +1639,80 @@ def _string_values(value: Any) -> Iterable[str]:
 
 
 def _sensitive_failures(value: Any, label: str) -> list[str]:
-    failures: list[str] = []
-    strings = list(_string_values(value))
-    for pattern, description in (
-        (EMAIL_RE, "email address"),
-        (PHONE_RE, "phone number"),
-        (DATA_URL_RE, "data URL"),
-        (ATTACHMENT_PATH_RE, "private attachment path"),
-        (USER_HOME_RE, "machine-specific user path"),
-    ):
-        if any(pattern.search(text) for text in strings):
-            failures.append(f"{label}: unredacted {description}")
-    if any(pattern.search(text) for pattern in SECRET_PATTERNS for text in strings):
-        failures.append(f"{label}: unredacted credential pattern")
-    return failures
+    found: set[str] = set()
+    all_categories = {
+        "email address",
+        "phone number",
+        "data URL",
+        "private attachment path",
+        "machine-specific user path",
+        "credential pattern",
+    }
+    for text in _string_values(value):
+        folded = text.casefold()
+        if (
+            "email address" not in found
+            and "@" in text
+            and EMAIL_RE.search(text)
+        ):
+            found.add("email address")
+        if (
+            "phone number" not in found
+            and PHONE_TAIL_RE.search(text)
+            and PHONE_RE.search(text)
+        ):
+            found.add("phone number")
+        if (
+            "data URL" not in found
+            and "data:" in folded
+            and DATA_URL_RE.search(text)
+        ):
+            found.add("data URL")
+        if (
+            "private attachment path" not in found
+            and ".codex" in folded
+            and "attachments" in folded
+            and ATTACHMENT_PATH_RE.search(text)
+        ):
+            found.add("private attachment path")
+        if (
+            "machine-specific user path" not in found
+            and ("users" in folded or "/home/" in folded)
+            and USER_HOME_RE.search(text)
+        ):
+            found.add("machine-specific user path")
+        if "credential pattern" not in found:
+            credential_candidates = (
+                ("sk-" in text, SECRET_PATTERNS[0]),
+                (
+                    any(
+                        prefix in text
+                        for prefix in ("ghp_", "gho_", "ghu_", "ghs_", "github_pat_")
+                    ),
+                    SECRET_PATTERNS[1],
+                ),
+                ("bearer" in folded, SECRET_PATTERNS[2]),
+                ("PRIVATE KEY" in text, SECRET_PATTERNS[3]),
+            )
+            if any(
+                enabled and pattern.search(text)
+                for enabled, pattern in credential_candidates
+            ):
+                found.add("credential pattern")
+        if found == all_categories:
+            break
+    return [
+        f"{label}: unredacted {description}"
+        for description in (
+            "email address",
+            "phone number",
+            "data URL",
+            "private attachment path",
+            "machine-specific user path",
+            "credential pattern",
+        )
+        if description in found
+    ]
 
 
 def validate_harvest(harvest: dict[str, Any], session_ids: set[str]) -> list[str]:

@@ -5,6 +5,8 @@ import gzip
 import json
 from pathlib import Path
 
+import pytest
+
 from scripts import mira_continuity
 
 
@@ -364,6 +366,91 @@ def test_malformed_source_row_is_registered_without_copying_partial_content(tmp_
 
 def test_current_mira_continuity_state_validates() -> None:
     assert mira_continuity.validate_repository_state() == []
+
+
+def legacy_sensitive_failures(value: object, label: str) -> list[str]:
+    strings = list(mira_continuity._string_values(value))
+    failures = [
+        f"{label}: unredacted {description}"
+        for pattern, description in (
+            (mira_continuity.EMAIL_RE, "email address"),
+            (mira_continuity.PHONE_RE, "phone number"),
+            (mira_continuity.DATA_URL_RE, "data URL"),
+            (mira_continuity.ATTACHMENT_PATH_RE, "private attachment path"),
+            (mira_continuity.USER_HOME_RE, "machine-specific user path"),
+        )
+        if any(pattern.search(text) for text in strings)
+    ]
+    if any(
+        pattern.search(text)
+        for pattern in mira_continuity.SECRET_PATTERNS
+        for text in strings
+    ):
+        failures.append(f"{label}: unredacted credential pattern")
+    return failures
+
+
+@pytest.mark.parametrize(
+    "payload",
+    (
+        {"value": "person@example.com"},
+        {"value": "+1 (303) 555-0199"},
+        {"value": "DATA:text/plain;base64,SGVsbG8="},
+        {"value": r"C:\Users\person\.codex\attachments\private.txt"},
+        {"value": "/home/person/private.txt"},
+        {"value": "sk-proj-abcdefghijklmnop"},
+        {"value": "github_pat_abcdefghijklmnop"},
+        {"value": "Bearer abcdefghijklmnop"},
+        {
+            "value": (
+                "-----BEGIN PRIVATE KEY-----private"
+                "-----END PRIVATE KEY-----"
+            )
+        },
+        {
+            "nested": [
+                "safe text",
+                {"email": "person@example.com", "phone": "303-555-0199"},
+            ]
+        },
+        {"safe": ["2026-08-09T20:52:42.5177600+00:00", "nine digits 123456789"]},
+    ),
+)
+def test_sensitive_failure_optimization_preserves_detector_semantics(payload: object) -> None:
+    assert mira_continuity._sensitive_failures(payload, "capture") == (
+        legacy_sensitive_failures(payload, "capture")
+    )
+
+
+def test_sensitive_failure_gates_avoid_expensive_searches_for_benign_text(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    class SearchProbe:
+        def __init__(self) -> None:
+            self.calls = 0
+
+        def search(self, _text: str) -> None:
+            self.calls += 1
+            return None
+
+    probes = [SearchProbe() for _ in range(9)]
+    for name, probe in zip(
+        ("EMAIL_RE", "PHONE_RE", "DATA_URL_RE", "ATTACHMENT_PATH_RE", "USER_HOME_RE"),
+        probes[:5],
+        strict=True,
+    ):
+        monkeypatch.setattr(mira_continuity, name, probe)
+    monkeypatch.setattr(mira_continuity, "SECRET_PATTERNS", tuple(probes[5:]))
+
+    payload = {
+        "records": [
+            {"message": f"ordinary archive prose without detector markers {index}"}
+            for index in range(1_000)
+        ]
+    }
+
+    assert mira_continuity._sensitive_failures(payload, "capture") == []
+    assert sum(probe.calls for probe in probes) == 0
 
 
 def test_privacy_audit_is_deterministic_and_never_emits_matched_text(tmp_path: Path) -> None:
