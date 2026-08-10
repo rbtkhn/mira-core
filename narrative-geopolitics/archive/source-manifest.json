@@ -2,7 +2,7 @@
   "manifest_id": "narrative-geopolitics-source-manifest-v1",
   "source_basis": "central archive with completed historical strategy-codex imports",
   "imported_at": "2026-07-09",
-  "source_count": 2074,
+  "source_count": 2084,
   "boundary": {
     "archive": "source truth",
     "voices": "voice continuity and routing",
@@ -56573,6 +56573,235 @@
       "host_slug": "moral-resistance",
       "source_identity": "youtube:jnsPnu6x_C8",
       "source_url": "https://www.youtube.com/watch?v=jnsPnu6x_C8",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-08",
+      "title": "(2) Russia Wins Air War; Bombs Kiev Army HQs Jams Starlink Starts Rassvet; Kiev Drone Offensive Flopped",
+      "local_path": "narrative-geopolitics/archive/sources/2026-08-08/source-2-russia-wins-air-war-bombs-kiev-army-hqs-jams-starlink-starts-rassvet-kiev-drone-offensive-flopped-2026-08-08.md",
+      "voice_index_path": "../../archive/sources/2026-08-08/source-2-russia-wins-air-war-bombs-kiev-army-hqs-jams-starlink-starts-rassvet-kiev-drone-offensive-flopped-2026-08-08.md",
+      "upstream_path": "operator-paste://2026-08-08/2-russia-wins-air-war-bombs-kiev-army-hqs-jams-starlink-starts-rassvet-kiev-drone-offensive-flopped",
+      "source_class": "host monologue",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "alexander-mercouris",
+      "source_identity": "youtube:EtxtGYSVpKM",
+      "source_url": "https://www.youtube.com/watch?v=EtxtGYSVpKM",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-09",
+      "title": "(2) Russia Makes Biggest Odessa Attack; Rejects Turkey Truce Call; Captures Key Donbas Defences; Orekhov",
+      "local_path": "narrative-geopolitics/archive/sources/2026-08-09/source-2-russia-makes-biggest-odessa-attack-rejects-turkey-truce-call-captures-key-donbas-defences-orekhov-2026-08-09.md",
+      "voice_index_path": "../../archive/sources/2026-08-09/source-2-russia-makes-biggest-odessa-attack-rejects-turkey-truce-call-captures-key-donbas-defences-orekhov-2026-08-09.md",
+      "upstream_path": "operator-paste://2026-08-09/2-russia-makes-biggest-odessa-attack-rejects-turkey-truce-call-captures-key-donbas-defences-orekhov",
+      "source_class": "host monologue",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "alexander-mercouris",
+      "source_identity": "youtube:zJWlrlF5mZc",
+      "source_url": "https://www.youtube.com/watch?v=zJWlrlF5mZc",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-08",
+      "title": "(2) Seyed M. Marandi: Iran's Strikes Hit Emirati Oil Tanker & Kurdish HQ in Iraq, New Hormuz Order",
+      "local_path": "narrative-geopolitics/archive/sources/2026-08-08/source-2-seyed-m-marandi-iran-s-strikes-hit-emirati-oil-tanker-kurdish-hq-in-iraq-new-hormuz-order-2026-08-08.md",
+      "voice_index_path": "../../archive/sources/2026-08-08/source-2-seyed-m-marandi-iran-s-strikes-hit-emirati-oil-tanker-kurdish-hq-in-iraq-new-hormuz-order-2026-08-08.md",
+      "upstream_path": "operator-paste://2026-08-08/2-seyed-m-marandi-iran-s-strikes-hit-emirati-oil-tanker-kurdish-hq-in-iraq-new-hormuz-order",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "marandi"
+      ],
+      "host_slug": "nima-alkhorshid",
+      "source_identity": "youtube:bp7MG2nfa3s",
+      "source_url": "https://www.youtube.com/watch?v=bp7MG2nfa3s",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-08",
+      "title": "(2) TIME HAS COME: Ukraine Should Accept Russia Terms or LIKELY SUFFER TOTAL DEFEAT",
+      "local_path": "narrative-geopolitics/archive/sources/2026-08-08/source-2-time-has-come-ukraine-should-accept-russia-terms-or-likely-suffer-total-defeat-2026-08-08.md",
+      "voice_index_path": "../../archive/sources/2026-08-08/source-2-time-has-come-ukraine-should-accept-russia-terms-or-likely-suffer-total-defeat-2026-08-08.md",
+      "upstream_path": "operator-paste://2026-08-08/2-time-has-come-ukraine-should-accept-russia-terms-or-likely-suffer-total-defeat",
+      "source_class": "author",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "davis"
+      ],
+      "host_slug": "daniel-davis",
+      "source_identity": "youtube:LD7W3n4pXdE",
+      "source_url": "https://www.youtube.com/watch?v=LD7W3n4pXdE",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-08",
+      "title": "(2) IRAN BOARDS SHIP IN HORMUZ, TRUMP'S TOP GENERAL CALLS FOR END OF IRAN WAR",
+      "local_path": "narrative-geopolitics/archive/sources/2026-08-08/source-2-iran-boards-ship-in-hormuz-trump-s-top-general-calls-for-end-of-iran-war-2026-08-08.md",
+      "voice_index_path": "../../archive/sources/2026-08-08/source-2-iran-boards-ship-in-hormuz-trump-s-top-general-calls-for-end-of-iran-war-2026-08-08.md",
+      "upstream_path": "operator-paste://2026-08-08/2-iran-boards-ship-in-hormuz-trump-s-top-general-calls-for-end-of-iran-war",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "weichert"
+      ],
+      "host_slug": "mario-nawfal",
+      "source_identity": "youtube:0FiOSRr7F3c",
+      "source_url": "https://www.youtube.com/watch?v=0FiOSRr7F3c",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-08",
+      "title": "(2) Larry Johnson: Top U.S. General Just Privately Broke With Trump Over Iran",
+      "local_path": "narrative-geopolitics/archive/sources/2026-08-08/source-2-larry-johnson-top-u-s-general-just-privately-broke-with-trump-over-iran-2026-08-08.md",
+      "voice_index_path": "../../archive/sources/2026-08-08/source-2-larry-johnson-top-u-s-general-just-privately-broke-with-trump-over-iran-2026-08-08.md",
+      "upstream_path": "operator-paste://2026-08-08/2-larry-johnson-top-u-s-general-just-privately-broke-with-trump-over-iran",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "johnson"
+      ],
+      "host_slug": "dialogue-works",
+      "source_identity": "youtube:VnoXkijrptA",
+      "source_url": "https://www.youtube.com/watch?v=VnoXkijrptA",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-09",
+      "title": "(2) Seyed M. Marandi: Iran-Oman Hormuz Deal Almost Reached & the Saudi-Turkey-Pakistan Defence Pact",
+      "local_path": "narrative-geopolitics/archive/sources/2026-08-09/source-2-seyed-m-marandi-iran-oman-hormuz-deal-almost-reached-the-saudi-turkey-pakistan-defence-pact-2026-08-09.md",
+      "voice_index_path": "../../archive/sources/2026-08-09/source-2-seyed-m-marandi-iran-oman-hormuz-deal-almost-reached-the-saudi-turkey-pakistan-defence-pact-2026-08-09.md",
+      "upstream_path": "operator-paste://2026-08-09/2-seyed-m-marandi-iran-oman-hormuz-deal-almost-reached-the-saudi-turkey-pakistan-defence-pact",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "marandi"
+      ],
+      "host_slug": "glenn-diesen",
+      "source_identity": "youtube:PZzrl4q82ac",
+      "source_url": "https://www.youtube.com/watch?v=PZzrl4q82ac",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-09",
+      "title": "(2) Nima R. Alkhorshid: The Inevitable Just Happened in the Middle East",
+      "local_path": "narrative-geopolitics/archive/sources/2026-08-09/source-2-nima-r-alkhorshid-the-inevitable-just-happened-in-the-middle-east-2026-08-09.md",
+      "voice_index_path": "../../archive/sources/2026-08-09/source-2-nima-r-alkhorshid-the-inevitable-just-happened-in-the-middle-east-2026-08-09.md",
+      "upstream_path": "operator-paste://2026-08-09/2-nima-r-alkhorshid-the-inevitable-just-happened-in-the-middle-east",
+      "source_class": "author",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "alkhorshid"
+      ],
+      "host_slug": "dialogue-works",
+      "source_identity": "youtube:QMRVqrps9e4",
+      "source_url": "https://www.youtube.com/watch?v=QMRVqrps9e4",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-09",
+      "title": "(2) Stanislav Krapivnik: Russia Just Crippled Ukraine’s Supply Lines in Odessa and Nikolaev",
+      "local_path": "narrative-geopolitics/archive/sources/2026-08-09/source-2-stanislav-krapivnik-russia-just-crippled-ukraine-s-supply-lines-in-odessa-and-nikolaev-2026-08-09.md",
+      "voice_index_path": "../../archive/sources/2026-08-09/source-2-stanislav-krapivnik-russia-just-crippled-ukraine-s-supply-lines-in-odessa-and-nikolaev-2026-08-09.md",
+      "upstream_path": "operator-paste://2026-08-09/2-stanislav-krapivnik-russia-just-crippled-ukraine-s-supply-lines-in-odessa-and-nikolaev",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "krapivnik"
+      ],
+      "host_slug": "dialogue-works",
+      "source_identity": "youtube:gOkelWEjy7Y",
+      "source_url": "https://www.youtube.com/watch?v=gOkelWEjy7Y",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-09",
+      "title": "(2) NETANYAHU REFUSES TRUMP'S DEMANDS TO LEAVE IRAN, LEBANON AND GAZA w/ CIA Larry Johnson",
+      "local_path": "narrative-geopolitics/archive/sources/2026-08-09/source-2-netanyahu-refuses-trump-s-demands-to-leave-iran-lebanon-and-gaza-w-cia-larry-johnson-2026-08-09.md",
+      "voice_index_path": "../../archive/sources/2026-08-09/source-2-netanyahu-refuses-trump-s-demands-to-leave-iran-lebanon-and-gaza-w-cia-larry-johnson-2026-08-09.md",
+      "upstream_path": "operator-paste://2026-08-09/2-netanyahu-refuses-trump-s-demands-to-leave-iran-lebanon-and-gaza-w-cia-larry-johnson",
+      "source_class": "guest",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "johnson"
+      ],
+      "host_slug": "moral-resistance",
+      "source_identity": "youtube:DVKtD1bKlDY",
+      "source_url": "https://www.youtube.com/watch?v=DVKtD1bKlDY",
       "title_source": "transcript",
       "date_basis": "operator-supplied",
       "inference_basis": [

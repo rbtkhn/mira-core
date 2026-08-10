@@ -4,7 +4,7 @@ This index routes the imported first-slice parity corpus for `davis` to the cent
 
 Source basis: `strategy-codex/statecraft/voices/davis/davis-index.md`.
 
-Corpus: 108 local route rows across 108 central archive source files.
+Corpus: 109 local route rows across 109 central archive source files.
 
 Status: `first-slice-parity`
 
@@ -132,6 +132,7 @@ Status: `first-slice-parity`
 | `2026-07-31` | IRAN WARHAWKS: THEIR FATAL LOSING STRATEGY /Lt Col Daniel Davis | `guest` | `daniel-davis` | [source](../../archive/sources/2026-07-31/source-iran-warhawks-their-fatal-losing-strategy-lt-col-daniel-davis-2026-07-31.md) |
 | `2026-08-01` | America's Israel-First Obsession, Everyone Loses /Lt Col Daniel Davis | `guest` | `judging-freedom` | [source](../../archive/sources/2026-08-01/source-america-s-israel-first-obsession-everyone-loses-lt-col-daniel-davis-2026-08-01.md) |
 | `2026-08-02` | Trump Tacos Again! What's Next /Lt Col Daniel Davis | `guest` | `daniel-davis` | [source](../../archive/sources/2026-08-02/source-trump-tacos-again-what-s-next-lt-col-daniel-davis-2026-08-02.md) |
+| `2026-08-08` | (2) TIME HAS COME: Ukraine Should Accept Russia Terms or LIKELY SUFFER TOTAL DEFEAT | `author` | `daniel-davis` | [source](../../archive/sources/2026-08-08/source-2-time-has-come-ukraine-should-accept-russia-terms-or-likely-suffer-total-defeat-2026-08-08.md) |
 
 ## June 2026 Expansion
 

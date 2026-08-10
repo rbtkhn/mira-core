@@ -4,7 +4,7 @@ This index routes the imported first-slice parity corpus for `marandi` to the ce
 
 Source basis: `strategy-codex/statecraft/voices/marandi/marandi-index.md`.
 
-Corpus: 89 local route rows across 89 central archive source files.
+Corpus: 91 local route rows across 91 central archive source files.
 
 Status: `first-slice-parity`
 
@@ -110,9 +110,11 @@ Status: `first-slice-parity`
 | `2026-07-31` | Prof. Mohammad Marandi : LIVE from Tehran, Iran - 8AM | `guest` | `judging-freedom` | [source](../../archive/sources/2026-07-31/source-prof-mohammad-marandi-live-from-tehran-iran-8am-2026-07-31.md) |
 | `2026-08-01` | Seyed M. Marandi: Iran & Yemen to Unleash Missiles on Gulf, Israel | `guest` | `glenn-diesen` | [source](../../archive/sources/2026-08-01/source-seyed-m-marandi-iran-yemen-to-unleash-missiles-on-gulf-israel-2026-08-01.md) |
 | `2026-08-01` | Seyed M. Marandi: Morocco Invades Spain? The U.S. Disciplines Its Proxies | `guest` | `glenn-diesen` | [source](../../archive/sources/2026-08-01/source-seyed-m-marandi-morocco-invades-spain-the-u-s-disciplines-its-proxies-2026-08-01.md) |
-| `2026-08-04` | Seyed M. Marandi: Yemeni Blockade Cripples Saudi Oil Exports, Trapping Trump in a Regional Quagmire | `host-pressure test` | `nima-alkhorshid` | [source](../../archive/sources/2026-08-04/source-seyed-m-marandi-yemeni-blockade-cripples-saudi-oil-exports-trapping-trump-in-a-regional-quagmire-2026-08-04.md) |
-| `2026-08-05` | (1) BREAKING: 60-DAY HORMUZ ARRANGEMENT CONFIRMED BY TEHRAN & OMAN — w/ Prof. Seyed Mohammad Marandi | `host-pressure test` | `mario-nawfal` | [source](../../archive/sources/2026-08-05/source-1-breaking-60-day-hormuz-arrangement-confirmed-by-tehran-oman-w-prof-seyed-mohammad-marandi-2026-08-05.md) |
-| `2026-08-06` | (1) Prof. Mohammad Marandi : Who Started this War? | `host-pressure test` | `judging-freedom` | [source](../../archive/sources/2026-08-06/source-1-prof-mohammad-marandi-who-started-this-war-2026-08-06.md) |
+| `2026-08-04` | Seyed M. Marandi: Yemeni Blockade Cripples Saudi Oil Exports, Trapping Trump in a Regional Quagmire | `guest` | `nima-alkhorshid` | [source](../../archive/sources/2026-08-04/source-seyed-m-marandi-yemeni-blockade-cripples-saudi-oil-exports-trapping-trump-in-a-regional-quagmire-2026-08-04.md) |
+| `2026-08-05` | (1) BREAKING: 60-DAY HORMUZ ARRANGEMENT CONFIRMED BY TEHRAN & OMAN — w/ Prof. Seyed Mohammad Marandi | `guest` | `mario-nawfal` | [source](../../archive/sources/2026-08-05/source-1-breaking-60-day-hormuz-arrangement-confirmed-by-tehran-oman-w-prof-seyed-mohammad-marandi-2026-08-05.md) |
+| `2026-08-06` | (1) Prof. Mohammad Marandi : Who Started this War? | `guest` | `judging-freedom` | [source](../../archive/sources/2026-08-06/source-1-prof-mohammad-marandi-who-started-this-war-2026-08-06.md) |
+| `2026-08-08` | (2) Seyed M. Marandi: Iran's Strikes Hit Emirati Oil Tanker & Kurdish HQ in Iraq, New Hormuz Order | `guest` | `nima-alkhorshid` | [source](../../archive/sources/2026-08-08/source-2-seyed-m-marandi-iran-s-strikes-hit-emirati-oil-tanker-kurdish-hq-in-iraq-new-hormuz-order-2026-08-08.md) |
+| `2026-08-09` | (2) Seyed M. Marandi: Iran-Oman Hormuz Deal Almost Reached & the Saudi-Turkey-Pakistan Defence Pact | `guest` | `glenn-diesen` | [source](../../archive/sources/2026-08-09/source-2-seyed-m-marandi-iran-oman-hormuz-deal-almost-reached-the-saudi-turkey-pakistan-defence-pact-2026-08-09.md) |
 
 ## Import Boundary
 

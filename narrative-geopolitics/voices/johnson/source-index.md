@@ -4,7 +4,7 @@ This index routes the imported first-slice parity corpus for `johnson` to the ce
 
 Source basis: `narrative-geopolitics/archive/source-manifest.json`.
 
-Corpus: 115 local route rows across 115 central archive source files.
+Corpus: 117 local route rows across 117 central archive source files.
 
 Status: `first-slice-parity`
 
@@ -134,11 +134,13 @@ Status: `first-slice-parity`
 | `2026-07-29` | US Limitations Fighting Iran Grow /fmr CIA Analyst Larry Johnson | `guest` | `daniel-davis` | [source](../../archive/sources/2026-07-29/source-us-limitations-fighting-iran-grow-fmr-cia-analyst-larry-johnson-2026-07-29.md) |
 | `2026-08-01` | Larry Johnson: US & Israel About to Launch Most Extensive Bombing Campaign Yet on Iran's Energy Grid | `guest` | `dialogue-works` | [source](../../archive/sources/2026-08-01/source-larry-johnson-us-israel-about-to-launch-most-extensive-bombing-campaign-yet-on-iran-s-energy-grid-2026-08-01.md) |
 | `2026-08-02` | Larry Johnson: I Called It Off: Trump Confirms Scrapped Iran Attack Amid Drone Impacts in Kurdistan | `guest` | `dialogue-works` | [source](../../archive/sources/2026-08-02/source-larry-johnson-i-called-it-off-trump-confirms-scrapped-iran-attack-amid-drone-impacts-in-kurdistan-2026-08-02.md) |
-| `2026-08-03` | Larry Johnson: U.S. CONCEDES to Iran in Secret Talks—But Tehran Fires Back with a Demand | `host-pressure test` | `glenn-diesen` | [source](../../archive/sources/2026-08-03/source-larry-johnson-u-s-concedes-to-iran-in-secret-talks-but-tehran-fires-back-with-a-demand-2026-08-03.md) |
-| `2026-08-04` | Larry Johnson: Desperation as America's Weapons Stockpiles Deplete in Iran | `host-pressure test` | `glenn-diesen` | [source](../../archive/sources/2026-08-04/source-larry-johnson-desperation-as-america-s-weapons-stockpiles-deplete-in-iran-2026-08-04.md) |
-| `2026-08-05` | (1) Larry Johnson: Tehran & Washington Enter the Endgame—No More Bluffing | `host-pressure test` | `dialogue-works` | [source](../../archive/sources/2026-08-05/source-1-larry-johnson-tehran-washington-enter-the-endgame-no-more-bluffing-2026-08-05.md) |
-| `2026-08-07` | (1) fmr CIA Analyst Larry Johnson: US Grudgingly Returns to Diplomacy | `host-pressure test` | `daniel-davis` | [source](../../archive/sources/2026-08-07/source-1-fmr-cia-analyst-larry-johnson-us-grudgingly-returns-to-diplomacy-2026-08-07.md) |
-| `2026-08-07` | (1) Larry Johnson & Col. Larry Wilkerson: The Old Middle East Is DEAD | `host-pressure test` | `dialogue-works` | [source](../../archive/sources/2026-08-07/source-1-larry-johnson-col-larry-wilkerson-the-old-middle-east-is-dead-2026-08-07.md) |
+| `2026-08-03` | Larry Johnson: U.S. CONCEDES to Iran in Secret Talks—But Tehran Fires Back with a Demand | `guest` | `glenn-diesen` | [source](../../archive/sources/2026-08-03/source-larry-johnson-u-s-concedes-to-iran-in-secret-talks-but-tehran-fires-back-with-a-demand-2026-08-03.md) |
+| `2026-08-04` | Larry Johnson: Desperation as America's Weapons Stockpiles Deplete in Iran | `guest` | `glenn-diesen` | [source](../../archive/sources/2026-08-04/source-larry-johnson-desperation-as-america-s-weapons-stockpiles-deplete-in-iran-2026-08-04.md) |
+| `2026-08-05` | (1) Larry Johnson: Tehran & Washington Enter the Endgame—No More Bluffing | `guest` | `dialogue-works` | [source](../../archive/sources/2026-08-05/source-1-larry-johnson-tehran-washington-enter-the-endgame-no-more-bluffing-2026-08-05.md) |
+| `2026-08-07` | (1) fmr CIA Analyst Larry Johnson: US Grudgingly Returns to Diplomacy | `guest` | `daniel-davis` | [source](../../archive/sources/2026-08-07/source-1-fmr-cia-analyst-larry-johnson-us-grudgingly-returns-to-diplomacy-2026-08-07.md) |
+| `2026-08-07` | (1) Larry Johnson & Col. Larry Wilkerson: The Old Middle East Is DEAD | `guest` | `dialogue-works` | [source](../../archive/sources/2026-08-07/source-1-larry-johnson-col-larry-wilkerson-the-old-middle-east-is-dead-2026-08-07.md) |
+| `2026-08-08` | (2) Larry Johnson: Top U.S. General Just Privately Broke With Trump Over Iran | `guest` | `dialogue-works` | [source](../../archive/sources/2026-08-08/source-2-larry-johnson-top-u-s-general-just-privately-broke-with-trump-over-iran-2026-08-08.md) |
+| `2026-08-09` | (2) NETANYAHU REFUSES TRUMP'S DEMANDS TO LEAVE IRAN, LEBANON AND GAZA w/ CIA Larry Johnson | `guest` | `moral-resistance` | [source](../../archive/sources/2026-08-09/source-2-netanyahu-refuses-trump-s-demands-to-leave-iran-lebanon-and-gaza-w-cia-larry-johnson-2026-08-09.md) |
 
 ## Judgment Continuity
 

@@ -4,7 +4,7 @@ This index routes the imported seeded corpus for `krapivnik` to the central Narr
 
 Source basis: `strategy-codex/source-archive/statecraft` plus local July 2026 intake.
 
-Corpus: 20 local route rows across 20 central archive source files.
+Corpus: 21 local route rows across 21 central archive source files.
 
 Status: `seeded`
 
@@ -39,6 +39,7 @@ Status: `seeded`
 | `2026-07-19` | Stanislav Krapivnik: Russia's Anger Boils Over - EU-Russia War Coming? | `guest` | `glenn-diesen` | [source](../../archive/sources/2026-07-19/source-stanislav-krapivnik-russia-s-anger-boils-over-eu-russia-war-coming-2026-07-19.md) |
 | `2026-07-23` | TRUMP PLANS EVEN BIGGER STRIKES ON IRAN, RUSSIA HELPING IRAN WITH THE WAR w/ STANISLAV KRAPIVNIK | `guest` | `moral-resistance` | [source](../../archive/sources/2026-07-23/source-trump-plans-even-bigger-strikes-on-iran-russia-helping-iran-with-the-war-w-stanislav-krapivnik-2026-07-23.md) |
 | `2026-07-31` | Escalation to DEFEAT: USA Losing on BOTH Fronts \| Stanislav Krapivnik | `guest` | `neutrality-studies` | [source](../../archive/sources/2026-07-31/source-escalation-to-defeat-usa-losing-on-both-fronts-stanislav-krapivnik-2026-07-31.md) |
+| `2026-08-09` | (2) Stanislav Krapivnik: Russia Just Crippled Ukraine’s Supply Lines in Odessa and Nikolaev | `guest` | `dialogue-works` | [source](../../archive/sources/2026-08-09/source-2-stanislav-krapivnik-russia-just-crippled-ukraine-s-supply-lines-in-odessa-and-nikolaev-2026-08-09.md) |
 
 ## Import Boundary
 

@@ -4,7 +4,7 @@ This index routes the unified local Weichert corpus for `weichert` to the centra
 
 Source basis: `strategy-codex/statecraft/voices/weichert/weichert-index.md`.
 
-Corpus: 27 local route rows across 27 central archive source files.
+Corpus: 28 local route rows across 28 central archive source files.
 
 Status: `imported-corpus`
 
@@ -46,6 +46,7 @@ Status: `imported-corpus`
 | `2026-07-29` | BIBI SAYS TRUMP MEETING WAS "THE BEST", CHINA ARMS IRAN WITH 400 MANPADS | `guest` | `mario-nawfal` | [source](../../archive/sources/2026-07-29/source-bibi-says-trump-meeting-was-the-best-china-arms-iran-with-400-manpads-2026-07-29.md) |
 | `2026-08-01` | BREAKING: U.S. ISSUES SECURITY ALERT, TRUMP PLANS TO HAMMER IRAN HARD THIS WEEKEND! | `guest` | `mario-nawfal` | [source](../../archive/sources/2026-08-01/source-breaking-u-s-issues-security-alert-trump-plans-to-hammer-iran-hard-this-weekend-2026-08-01.md) |
 | `2026-08-02` | TRUMP: IRAN BEGGED HIM NOT TO STRIKE AS THEY ARE READY FOR DEAL | `guest` | `mario-nawfal` | [source](../../archive/sources/2026-08-02/source-trump-iran-begged-him-not-to-strike-as-they-are-ready-for-deal-2026-08-02.md) |
+| `2026-08-08` | (2) IRAN BOARDS SHIP IN HORMUZ, TRUMP'S TOP GENERAL CALLS FOR END OF IRAN WAR | `guest` | `mario-nawfal` | [source](../../archive/sources/2026-08-08/source-2-iran-boards-ship-in-hormuz-trump-s-top-general-calls-for-end-of-iran-war-2026-08-08.md) |
 
 ## Import Boundary
 
