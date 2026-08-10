@@ -33,7 +33,7 @@ Use another workflow when the task is mainly:
    rows. Report date, title, host, and local path for the source set.
 3. Read enough of each selected source to identify the claim structure. Do not
    infer a missing claim from the title alone.
-4. Classify each voice's analytical function:
+4. Classify each voice's analytical function before assigning domains:
    - operational mechanism;
    - decisive-war or end-state theory;
    - grand-strategy or proxy-war structure;
@@ -64,6 +64,21 @@ Use another workflow when the task is mainly:
    - contradicts prior voice claim;
    - raises verification priority;
    - background only.
+
+For strategic or end-state-heavy sources, keep the voice function primary and
+use domains as supporting evidence. Do not flatten a grand-strategy or
+decisive-war argument into an operational map merely because it mentions ports,
+front lines, drones, or missiles.
+
+For escalation-control or attribution-heavy sources, preserve the actor chain
+before assigning domains:
+
+```text
+actor -> enabling system -> instrument -> target -> intended pressure
+```
+
+This is especially important when the source attributes local action to a
+larger proxy, funding, intelligence, logistics, or targeting structure.
 
 ## Output Forms
 

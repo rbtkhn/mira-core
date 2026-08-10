@@ -100,6 +100,18 @@ Notes:
 
 - 
 
+## Actor Chain
+
+Use for escalation-control or attribution-heavy sources:
+
+actor -> enabling system -> instrument -> target -> intended pressure
+
+- Actor:
+- Enabling system:
+- Instrument:
+- Target:
+- Intended pressure:
+
 ## Primary Domains
 
 {domains}
