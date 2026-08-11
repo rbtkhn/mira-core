@@ -172,6 +172,23 @@ def outcome(
     )
 
 
+def close(
+    db: sqlite3.Connection,
+    choice_id: str = "CHOICE-001",
+    *,
+    reason: str = "completed",
+    suffix: str = "close",
+) -> dict:
+    return choice_ledger.close_branch(
+        db,
+        choice_id=choice_id,
+        reason=reason,
+        idempotency_key=f"{suffix}-{choice_id}",
+        occurred_at="2026-07-30T11:00:00+00:00",
+        observation="The promised branch result was delivered.",
+    )
+
+
 def seed_five(
     db: sqlite3.Connection,
     *,
@@ -359,7 +376,7 @@ def test_schema_one_migration_adds_utc_ordering_without_changing_history(
     ]
     migrated = connection(legacy_path)
     after = choice_ledger.inspect_store(legacy_path)
-    assert migrated.execute("PRAGMA user_version").fetchone()[0] == 2
+    assert migrated.execute("PRAGMA user_version").fetchone()[0] == 3
     assert migrated.execute(
         "SELECT selected_at_utc_us FROM choice_prompts"
     ).fetchone()[0] == choice_ledger.timestamp_order_key(
@@ -375,6 +392,199 @@ def test_schema_one_migration_adds_utc_ordering_without_changing_history(
     assert before["logical_fingerprint"] == after["logical_fingerprint"]
     assert choice_ledger.verify_choice(migrated, "CHOICE-001")["valid"] is True
     migrated.close()
+
+
+def test_schema_two_is_readable_and_migrates_event_constraint_transactionally(
+    tmp_path: Path,
+) -> None:
+    path = tmp_path / "legacy-v2.sqlite3"
+    db = connection(path)
+    select(db)
+    before_events = [tuple(row) for row in db.execute(
+        "SELECT * FROM choice_events ORDER BY sequence"
+    ).fetchall()]
+    db.execute("PRAGMA user_version = 2")
+    db.commit()
+    db.close()
+
+    readonly = choice_ledger.connect_read_only(path)
+    assert choice_ledger.project_choice(readonly, "CHOICE-001")["current_state"] == "unresolved"
+    readonly.close()
+
+    migrated = connection(path)
+    assert migrated.execute("PRAGMA user_version").fetchone()[0] == 3
+    assert [tuple(row) for row in migrated.execute(
+        "SELECT * FROM choice_events ORDER BY sequence"
+    ).fetchall()] == before_events
+    close(migrated)
+    assert choice_ledger.verify_choice(migrated, "CHOICE-001")["valid"] is True
+    migrated.close()
+
+
+def test_schema_two_event_rebuild_rolls_back_on_invalid_legacy_event(
+    tmp_path: Path,
+) -> None:
+    path = tmp_path / "invalid-v2.sqlite3"
+    db = connection(path)
+    select(db)
+    db.execute("DROP TRIGGER choice_events_no_update")
+    db.execute("DROP TRIGGER choice_events_no_delete")
+    db.execute("ALTER TABLE choice_events RENAME TO choice_events_valid")
+    db.execute(
+        "CREATE TABLE choice_events AS SELECT * FROM choice_events_valid WHERE 0"
+    )
+    db.execute("INSERT INTO choice_events SELECT * FROM choice_events_valid")
+    db.execute("DROP TABLE choice_events_valid")
+    db.execute(
+        "UPDATE choice_events SET event_type='invalid_legacy_event' WHERE sequence=1"
+    )
+    db.execute("PRAGMA user_version = 2")
+    db.commit()
+    with pytest.raises(sqlite3.IntegrityError):
+        choice_ledger.migrate(db)
+    assert db.execute("PRAGMA user_version").fetchone()[0] == 2
+    assert db.execute(
+        "SELECT event_type FROM choice_events WHERE sequence=1"
+    ).fetchone()[0] == "invalid_legacy_event"
+    assert not db.execute(
+        "SELECT 1 FROM sqlite_master WHERE type='table' AND name='choice_events_v2'"
+    ).fetchone()
+    db.close()
+
+
+def test_branch_closure_is_distinct_from_outcome_and_later_resolves(
+    tmp_path: Path,
+) -> None:
+    db = connection(tmp_path / "choices.sqlite3")
+    select(db)
+    created = close(db, reason="saturated")
+    assert created["created"] is True
+    projection = choice_ledger.project_choice(db, "CHOICE-001")
+    assert projection["current_state"] == "closed"
+    assert projection["closure"]["reason"] == "saturated"
+    assert projection["outcome"] is None
+
+    outcome(db, "CHOICE-001")
+    resolved = choice_ledger.project_choice(db, "CHOICE-001")
+    assert resolved["current_state"] == "resolved"
+    assert resolved["closure"]["reason"] == "saturated"
+    assert resolved["outcome"]["result"] == "successful"
+    assert choice_ledger.verify_choice(db, "CHOICE-001")["valid"] is True
+    db.close()
+
+
+def test_branch_closure_is_idempotent_but_rejects_conflicts_and_late_closure(
+    tmp_path: Path,
+) -> None:
+    db = connection(tmp_path / "choices.sqlite3")
+    select(db)
+    first = close(db)
+    retry = close(db)
+    assert first["created"] is True
+    assert retry["created"] is False
+    with pytest.raises(choice_ledger.ChoiceError, match="already closed"):
+        close(db, suffix="different")
+
+    select(db, "CHOICE-002")
+    outcome(db, "CHOICE-002")
+    with pytest.raises(choice_ledger.ChoiceError, match="resolved choice"):
+        close(db, "CHOICE-002")
+    db.close()
+
+
+def test_closed_choices_leave_attention_queue_without_becoming_learning_evidence(
+    tmp_path: Path,
+) -> None:
+    db = connection(tmp_path / "choices.sqlite3")
+    select(db, "OPEN")
+    select(db, "CLOSED")
+    close(db, "CLOSED", reason="paused")
+    context = choice_ledger.learning_context(
+        db, tenant="tenant-a", workspace="workspace-a", lane="lane-a"
+    )
+    assert context["comparable_resolved_count"] == 0
+    assert [item["choice_id"] for item in context["unresolved_review_queue"]] == [
+        "OPEN"
+    ]
+    review = choice_ledger.review_scorecard(
+        db, tenant="tenant-a", workspace="workspace-a", lane="lane-a"
+    )
+    assert review["eligible_resolved"] == 0
+    db.close()
+
+
+@pytest.mark.parametrize("reason", choice_ledger.CLOSURE_REASONS)
+def test_cli_close_supports_json_markdown_dry_run_and_scope(
+    tmp_path: Path,
+    capsys: pytest.CaptureFixture[str],
+    reason: str,
+) -> None:
+    path = tmp_path / f"{reason}.sqlite3"
+    db = connection(path)
+    select(db)
+    db.close()
+    base = [
+        "--db", str(path), "close", "--choice-id", "CHOICE-001",
+        "--reason", reason, "--idempotency-key", f"close-{reason}",
+        "--tenant", "tenant-a", "--workspace", "workspace-a", "--lane", "lane-a",
+    ]
+    assert choice_ledger.main(base + ["--dry-run"]) == 0
+    assert json.loads(capsys.readouterr().out)["dry_run"] is True
+    assert choice_ledger.main(base) == 0
+    assert json.loads(capsys.readouterr().out)["event_type"] == "branch_closed"
+    assert choice_ledger.main(["--format", "markdown", *base]) == 0
+    assert "branch_closed" in capsys.readouterr().out
+
+
+def test_cli_close_rejects_cross_scope_and_missing_store_is_graceful(
+    tmp_path: Path,
+    capsys: pytest.CaptureFixture[str],
+) -> None:
+    path = tmp_path / "choices.sqlite3"
+    db = connection(path)
+    select(db)
+    db.close()
+    with pytest.raises(choice_ledger.ChoiceError, match="outside the requested scope"):
+        choice_ledger.main(
+            [
+                "--db", str(path), "close", "--choice-id", "CHOICE-001",
+                "--reason", "completed", "--idempotency-key", "wrong-scope",
+            ]
+        )
+    missing = tmp_path / "not-configured.sqlite3"
+    assert choice_ledger.main(
+        [
+            "--db", str(missing), "close", "--choice-id", "CHOICE-001",
+            "--reason", "completed", "--idempotency-key", "missing",
+        ]
+    ) == 0
+    assert json.loads(capsys.readouterr().out)["retained"] is False
+
+
+def test_close_sanitizes_observation_and_survives_verified_backup(
+    tmp_path: Path,
+) -> None:
+    path = tmp_path / "choices.sqlite3"
+    backup_path = tmp_path / "backups" / "choices.sqlite3"
+    db = connection(path)
+    select(db)
+    with pytest.raises(choice_ledger.ChoiceError, match="credential or secret"):
+        choice_ledger.close_branch(
+            db,
+            choice_id="CHOICE-001",
+            reason="completed",
+            idempotency_key="unsafe-close",
+            occurred_at="2026-07-30T11:00:00+00:00",
+            observation="password=do-not-store",
+        )
+    close(db)
+    db.close()
+    choice_ledger.create_backup(path, backup_path)
+    status = choice_ledger.compare_backup(path, backup_path)
+    assert status["fresh"] is True
+    restored = choice_ledger.connect_read_only(backup_path)
+    assert choice_ledger.project_choice(restored, "CHOICE-001")["current_state"] == "closed"
+    restored.close()
 
 
 def test_backup_and_recovery_round_trip(tmp_path: Path) -> None:

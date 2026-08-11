@@ -1,0 +1,7 @@
+interface:
+  display_name: "Repository Audit"
+  short_description: "Audit repository systems without modifying them"
+  default_prompt: "Use $repo-audit to perform a read-only system audit of this repository."
+
+policy:
+  allow_implicit_invocation: true

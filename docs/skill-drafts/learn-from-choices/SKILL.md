@@ -8,7 +8,29 @@ description: "Turn final user-facing responses into outcome-aware possibility ma
 Use this contract in Narrative Systems for every final response. Do not apply
 the footer to intermediate progress commentary.
 
-## End with possibilities
+## Classify closure before possibilities
+
+Before composing a footer, decide whether the current selected branch is
+settled. It is settled when its complete visible promise has been delivered and
+no new decision, evidence gap, scope change, or executable action remains.
+Closure takes precedence: end without a menu and, when retention is available,
+append a quiet `branch_closed` event.
+
+Treat repeated interpretation as a saturation signal. After two consecutive
+navigation-only selections deepen the same objective, default to `saturated`
+closure unless the latest turn introduces new evidence, resolves a material
+contradiction, or exposes a genuinely new decision or action. Do not offer
+options that merely analyze, rewrite, compare, or audit the answer just
+produced. A completed reflection may remain meaningful without becoming a
+journal candidate, identity proposition, or new analytical object.
+
+If further work has lower expected value than stopping, closure is the
+recommendation. When a real decision still exists and a footer is warranted,
+the stop path may occupy the `recommended` role; include a separate
+`pause-or-deepen` option only when it changes the commitment or depth rather
+than duplicating that recommendation.
+
+## End open branches with possibilities
 
 End with three or four concise, meaningfully distinct possibilities:
 
@@ -91,6 +113,12 @@ begin with the governing executable verb (`Execute`, `Commit`, `Push`, or
 label after that executable prefix; never present `Recommended — Execute ...`
 when the selection is meant to authorize execution.
 
+Negative example: `Patch both skills`, `Create tests`, or `Update the file` in
+an ordinary footer remains navigation-only even when it sounds action-bearing.
+Mutation authority through a selected letter requires the executable prefix and
+a validated `selection_effect`; otherwise the branch can only be developed up to
+the next authorization boundary.
+
 Selection closure and idempotence: once a selected branch is confirmed,
 paused, or otherwise settled, repeating the same stable selection is a no-op.
 Acknowledge the settled state once and close the branch instead of regenerating
@@ -99,7 +127,8 @@ decision, scope, evidence gap, or action exists.
 
 Closure takes precedence over the universal footer: when the branch is settled
 and no genuinely new possibility exists, acknowledge closure without
-manufacturing another possibility set.
+manufacturing another possibility set. Do not turn the acknowledgement itself
+into a new menu.
 
 ## Retain only a selection
 
@@ -117,6 +146,17 @@ Do not retain an unselected footer. When the operator selects a branch:
 5. If the store is missing or unavailable, continue navigation and disclose
    that the selection was not retained.
 
+When the selected branch later settles, run `choice close` with reason
+`completed`, `paused`, or `saturated`. Closure is lifecycle state, not an
+outcome: it removes the branch from unresolved review without creating success,
+cognitive-load, momentum, or discovery evidence. A later observed outcome may
+resolve a closed branch. Do not close after an outcome has already resolved it,
+and do not backfill historical selections from reconstructed memory.
+
+Successful closure retention is routine internal process. Keep it quiet unless
+retention fails, the lifecycle transition is invalid, or an authority, privacy,
+safety, or lane incident must be surfaced.
+
 Cache unavailability by resolved store path and relevant environment state for
 the remainder of the task. Do not reopen the same unavailable store on every
 selection, review, or context request. Retry only after the configured path,
@@ -128,6 +168,19 @@ Configure private state only with an absolute path outside Git:
 ```powershell
 $env:NARRATIVE_CHOICE_DB = "C:\private\narrative-choice-history.sqlite3"
 .\tools\run.ps1 choice select ...
+```
+
+`choice select --options-json` expects a JSON array of three or four option
+objects, not an object keyed by letter. Each option needs `key`, `role`, and
+`text`:
+
+```json
+[
+  {"key": "A", "role": "recommended", "text": "Reflect on the selected branch."},
+  {"key": "B", "role": "alternative", "text": "Compare the adjacent branch."},
+  {"key": "C", "role": "overlooked", "text": "Inspect the overlooked path."},
+  {"key": "D", "role": "pause-or-deepen", "text": "Pause or return to the prior workflow."}
+]
 ```
 
 Never put raw evidence bodies, secrets, credentials, personal contact data, or
@@ -243,8 +296,13 @@ evidence and private choice memory remain separate.
 
 ## Complete a turn
 
-A turn is complete when the final answer has three or four real possibilities,
-one evidence-grounded recommendation, stable role bindings, a credible
-overlooked path when available, and no silent action authorization. If a branch
-was selected, either retain its exact sanitized menu atomically or disclose the
-graceful unretained fallback.
+A turn has two valid terminal forms:
+
+- an open branch ends with three or four real possibilities, one
+  evidence-grounded recommendation, stable role bindings, a credible overlooked
+  path when available, and no silent action authorization; or
+- a settled branch ends with explicit closure and no manufactured footer.
+
+If a branch was selected, retain its exact sanitized menu atomically or
+disclose the graceful unretained fallback. When that branch settles, retain
+closure quietly when possible without inferring an outcome.

@@ -91,6 +91,13 @@ statecraft source-intake workflow from the bare word, even for YouTube.
 Use the statecraft source-intake workflow only when the operator explicitly
 says `source-intake`, `statecraft source intake`, or `statecraft daily intake`.
 
+When `repo-audit` targets Narrative Systems, read
+`docs/skill-drafts/repo-audit/SKILL.md` completely and apply that canonical
+contract together with all repository-local controls in this file. Compose
+through `archive-audit` when archive health is materially in scope; do not
+duplicate its rules or infer repair authority from its findings. The installed
+global `repo-audit` skill is a deployable mirror, not a second authority.
+
 After intent recovery and before consequential elicitation or execution, run
 `tools/run.ps1 contradiction-check` when an explicit material factual premise
 may conflict with a named repository fact. Supply only the smallest relevant
@@ -128,8 +135,11 @@ For Mira Journal work, the `mira-journal` workflow remains controlling and Mira
 Voice composes within its governance. The `learn-from-choices` contract
 continues to control final possibility navigation.
 
-These are repository-local contracts. Do not synchronize them into global
-Codex skills. Their handoff is advisory cadence state, never research evidence.
+Only portable skills explicitly registered in
+`scripts/codex_skill_registry.py` may be synchronized into global Codex skills,
+and only through the explicit `tools/run.ps1 skills-sync` route. All other
+repository-local contracts must remain local. Their handoff is advisory cadence
+state, never research evidence.
 
 At the start of each workspace session, after loading all controlling repository
 instructions, read `mira/continuity/activation.md` when it exists. Treat it as
@@ -138,8 +148,11 @@ or action authority, and explicit current operator direction always controls.
 
 For every final user-facing response, read and follow
 `docs/skill-drafts/learn-from-choices/SKILL.md`. Do not apply its footer to
-intermediate progress commentary. End with three or four concise, meaningfully
-distinct next possibilities using the stable roles `recommended`,
+intermediate progress commentary. Before constructing a footer, determine
+whether the selected branch is settled: its complete visible promise was
+delivered and no new decision, evidence gap, scope change, or executable action
+remains. A settled branch closes without a menu. Otherwise, end with three or
+four concise, meaningfully distinct next possibilities using the stable roles `recommended`,
 `alternative`, `overlooked`, and `pause-or-deepen`; omit a fourth option when
 it would create fake diversity. Explain the recommendation in one
 evidence-grounded sentence and preserve a credible overlooked path when one
@@ -177,3 +190,30 @@ otherwise settled, a repeated selection of the same stable option is a no-op.
 Acknowledge the settled state once and close the branch; do not regenerate the
 same possibility menu. Only present a new menu when a genuinely new decision,
 scope, evidence gap, or action is available.
+
+## Permanent Document Delivery
+
+Whenever Codex produces a substantial document such as an essay, report,
+brief, journal draft, source note, or formal evaluation, state explicitly
+whether it was saved permanently. If it was not saved, include a genuine
+possibility-menu option to save it, with a proposed permanent path and the
+applicable privacy, repository, or publication status. When the path and action
+are fully bounded, make that option action-ready under the existing
+`learn-from-choices` and Elicitation contracts rather than hiding it in prose.
+
+After saving, report a clickable path, status, and verification result. Keep
+private storage, repository admission, staging, commit, push, and external
+publication as distinct authority boundaries. Do not describe a working-tree
+file as publicly available until the required commit, push, and hosting state
+actually exist.
+
+Saturation is closure, not another menu. After two consecutive navigation-only
+selections deepen the same objective, default to closing unless the latest turn
+adds new evidence, resolves a material contradiction, or exposes a genuinely
+new decision or action. Do not offer options that merely analyze, rewrite,
+compare, or audit the answer just produced. When a selected branch settles and
+the private choice store is available, append a quiet `branch_closed` event
+with reason `completed`, `paused`, or `saturated`; closure records lifecycle
+only and must not infer an outcome. Surface only retention failure, an invalid
+lifecycle transition, or a material authority, privacy, safety, or lane
+incident.

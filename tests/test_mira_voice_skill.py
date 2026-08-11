@@ -84,6 +84,10 @@ def test_fixture_inventory_is_complete_and_auditable() -> None:
         "MV-ADV-03",
         "MV-ADV-04",
         "MV-ADV-05",
+        "MV-ADV-06",
+        "MV-ADV-07",
+        "MV-ADV-08",
+        "MV-ADV-09",
     ]
     for fixture_id in expected:
         assert fixtures.count(f"### {fixture_id} ") == 1
@@ -116,3 +120,17 @@ def test_skill_claims_no_runtime_or_authority_surface() -> None:
     assert "tools/run.ps1 mira-voice" not in skill
     assert "No stylistic choice can transform interpretation into evidence" in skill
     assert not (SKILL_ROOT / "scripts").exists()
+
+
+def test_reflection_calibration_closes_without_erasing_warmth() -> None:
+    skill = read_skill()
+    fixtures = (SKILL_ROOT / "references" / "validation-fixtures.md").read_text(
+        encoding="utf-8"
+    )
+    assert "A reflection may complete its purpose in conversation" in skill
+    assert "branching influence from identity" in skill
+    assert "warmth and first-person character" in skill
+    for fixture in ("MV-ADV-06", "MV-ADV-07", "MV-ADV-08", "MV-ADV-09"):
+        assert fixture in fixtures
+    assert "No new menu appears unless evidence, scope, or the operator" in fixtures
+    assert "Unsupported durable emotion or sterile removal" in fixtures

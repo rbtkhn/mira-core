@@ -15,12 +15,14 @@ from pathlib import Path
 from typing import Any, Iterable
 
 
-SCHEMA_VERSION = 2
-READABLE_SCHEMA_VERSIONS = frozenset({1, SCHEMA_VERSION})
-PROJECTION_VERSION = "1.0"
+SCHEMA_VERSION = 3
+READABLE_SCHEMA_VERSIONS = frozenset({1, 2, SCHEMA_VERSION})
+PROJECTION_VERSION = "1.1"
 REVIEW_PROJECTION_VERSION = "2.0"
 DB_ENV = "NARRATIVE_CHOICE_DB"
-GRACEFUL_CONNECTION_FAILURE_COMMANDS = frozenset({"context", "review", "select"})
+GRACEFUL_CONNECTION_FAILURE_COMMANDS = frozenset(
+    {"context", "review", "select", "close"}
+)
 READ_ONLY_COMMANDS = frozenset({"context", "review", "show", "verify"})
 REPO_ROOT = Path(__file__).resolve().parent.parent
 SQLITE_HEADER = b"SQLite format 3\x00"
@@ -28,11 +30,13 @@ AUTHORITY_EFFECT = "none"
 ROLES = ("recommended", "alternative", "overlooked", "pause-or-deepen")
 EVENT_TYPES = (
     "branch_selected",
+    "branch_closed",
     "outcome_recorded",
     "review_deferred",
     "corrected",
     "superseded",
 )
+CLOSURE_REASONS = ("completed", "paused", "saturated")
 RESULTS = ("successful", "mixed", "unsuccessful", "no_action", "not_observable")
 COGNITIVE_LOAD = ("lower", "same", "higher", "Missing")
 MOMENTUM = ("advanced", "neutral", "stalled", "Missing")
@@ -288,7 +292,7 @@ def migrate(connection: sqlite3.Connection) -> None:
                     choice_id TEXT NOT NULL REFERENCES choice_prompts(choice_id),
                     sequence INTEGER NOT NULL,
                     event_type TEXT NOT NULL CHECK(event_type IN (
-                        'branch_selected', 'outcome_recorded', 'review_deferred',
+                        'branch_selected', 'branch_closed', 'outcome_recorded', 'review_deferred',
                         'corrected', 'superseded'
                     )),
                     occurred_at TEXT NOT NULL,
@@ -359,7 +363,54 @@ def migrate(connection: sqlite3.Connection) -> None:
                 "ON choice_prompts(tenant, workspace, lane, "
                 "selected_at_utc_us, choice_id)"
             )
-            connection.execute(f"PRAGMA user_version = {SCHEMA_VERSION}")
+            connection.execute("PRAGMA user_version = 2")
+    version = int(connection.execute("PRAGMA user_version").fetchone()[0])
+    if version == 2:
+        with connection:
+            connection.execute("BEGIN IMMEDIATE")
+            connection.execute("DROP TRIGGER IF EXISTS choice_events_no_update")
+            connection.execute("DROP TRIGGER IF EXISTS choice_events_no_delete")
+            connection.execute("ALTER TABLE choice_events RENAME TO choice_events_v2")
+            connection.execute(
+                """CREATE TABLE choice_events (
+                    event_id TEXT PRIMARY KEY,
+                    choice_id TEXT NOT NULL REFERENCES choice_prompts(choice_id),
+                    sequence INTEGER NOT NULL,
+                    event_type TEXT NOT NULL CHECK(event_type IN (
+                        'branch_selected', 'branch_closed', 'outcome_recorded',
+                        'review_deferred', 'corrected', 'superseded'
+                    )),
+                    occurred_at TEXT NOT NULL,
+                    idempotency_key TEXT NOT NULL,
+                    payload_json TEXT NOT NULL,
+                    previous_hash TEXT,
+                    event_hash TEXT NOT NULL,
+                    UNIQUE(choice_id, sequence),
+                    UNIQUE(choice_id, idempotency_key)
+                )"""
+            )
+            connection.execute(
+                """INSERT INTO choice_events(
+                    event_id, choice_id, sequence, event_type, occurred_at,
+                    idempotency_key, payload_json, previous_hash, event_hash
+                )
+                SELECT
+                    event_id, choice_id, sequence, event_type, occurred_at,
+                    idempotency_key, payload_json, previous_hash, event_hash
+                FROM choice_events_v2"""
+            )
+            connection.execute("DROP TABLE choice_events_v2")
+            connection.execute(
+                """CREATE TRIGGER choice_events_no_update
+                    BEFORE UPDATE ON choice_events BEGIN
+                    SELECT RAISE(ABORT, 'choice events are append-only'); END"""
+            )
+            connection.execute(
+                """CREATE TRIGGER choice_events_no_delete
+                    BEFORE DELETE ON choice_events BEGIN
+                    SELECT RAISE(ABORT, 'choice events are append-only'); END"""
+            )
+            connection.execute("PRAGMA user_version = 3")
 
 
 def create_backup(path: Path, destination: Path) -> Path:
@@ -791,6 +842,77 @@ def append_choice_event(
     }
 
 
+def close_branch(
+    connection: sqlite3.Connection,
+    *,
+    choice_id: str,
+    reason: str,
+    idempotency_key: str,
+    occurred_at: str,
+    observation: str | None = None,
+    tenant: str | None = None,
+    workspace: str | None = None,
+    lane: str | None = None,
+) -> dict[str, Any]:
+    if reason not in CLOSURE_REASONS:
+        raise ChoiceError("branch closure requires a bounded reason")
+    prompt = connection.execute(
+        "SELECT tenant, workspace, lane FROM choice_prompts WHERE choice_id=?",
+        (choice_id,),
+    ).fetchone()
+    if not prompt:
+        raise ChoiceError("choice does not exist")
+    supplied_scope = (tenant, workspace, lane)
+    if any(value is not None for value in supplied_scope) and supplied_scope != (
+        prompt["tenant"],
+        prompt["workspace"],
+        prompt["lane"],
+    ):
+        raise ChoiceError("choice is outside the requested scope")
+    payload = {
+        "reason": reason,
+        "observation": sanitize_text(observation, limit=1000) if observation else None,
+    }
+    existing_retry = connection.execute(
+        "SELECT event_type, payload_json FROM choice_events "
+        "WHERE choice_id=? AND idempotency_key=?",
+        (choice_id, idempotency_key),
+    ).fetchone()
+    if existing_retry:
+        if (
+            existing_retry["event_type"] != "branch_closed"
+            or existing_retry["payload_json"] != canonical_json(payload)
+        ):
+            raise ChoiceError("conflicting retry rejected; history was not overwritten")
+    else:
+        if connection.execute(
+            "SELECT 1 FROM choice_events WHERE choice_id=? "
+            "AND event_type='branch_closed'",
+            (choice_id,),
+        ).fetchone():
+            raise ChoiceError("choice branch is already closed")
+        if _current_outcome(_events(connection, choice_id)):
+            raise ChoiceError("resolved choice cannot be closed")
+    with connection:
+        event, created = _append_event(
+            connection,
+            choice_id=choice_id,
+            event_type="branch_closed",
+            occurred_at=validate_timestamp(occurred_at),
+            idempotency_key=idempotency_key,
+            payload=payload,
+        )
+    return {
+        "retained": True,
+        "created": created,
+        "choice_id": choice_id,
+        "event_id": event["event_id"],
+        "event_type": "branch_closed",
+        "reason": reason,
+        "authority_effect": AUTHORITY_EFFECT,
+    }
+
+
 def _events(connection: sqlite3.Connection, choice_id: str) -> list[dict[str, Any]]:
     rows = connection.execute(
         "SELECT * FROM choice_events WHERE choice_id=? ORDER BY sequence", (choice_id,)
@@ -826,7 +948,16 @@ def _project_choice_rows(
     row: sqlite3.Row | dict[str, Any], events: list[dict[str, Any]]
 ) -> dict[str, Any]:
     superseded = any(item["event_type"] == "superseded" for item in events)
+    closed = next(
+        (item for item in reversed(events) if item["event_type"] == "branch_closed"),
+        None,
+    )
     outcome = _current_outcome(events)
+    current_state = (
+        "superseded"
+        if superseded
+        else ("resolved" if outcome else ("closed" if closed else "unresolved"))
+    )
     return {
         "projection_version": PROJECTION_VERSION,
         "choice": {
@@ -848,7 +979,13 @@ def _project_choice_rows(
             "success_signals": json.loads(row["success_signals_json"]),
             "risk_signals": json.loads(row["risk_signals_json"]),
         },
-        "current_state": "superseded" if superseded else ("resolved" if outcome else "unresolved"),
+        "current_state": current_state,
+        "closure": (
+            closed["payload"]
+            | {"event_id": closed["event_id"], "occurred_at": closed["occurred_at"]}
+            if closed
+            else None
+        ),
         "outcome": outcome,
         "review_timing": {"eligible_when_resolved_count": 5},
         "attention_flags": boundary_flags(events),
@@ -923,6 +1060,19 @@ def _verify_choice_rows(
     previous_hash: str | None = None
     seen_events: dict[str, dict[str, Any]] = {}
     superseded_targets: set[str] = set()
+    closure_sequences = [
+        event["sequence"] for event in events if event["event_type"] == "branch_closed"
+    ]
+    outcome_sequences = [
+        event["sequence"]
+        for event in events
+        if event["event_type"] in {"outcome_recorded", "corrected"}
+        and event["payload"].get("result")
+    ]
+    if len(closure_sequences) > 1:
+        failures.append("expected at most one branch_closed event")
+    if closure_sequences and outcome_sequences and closure_sequences[0] > outcome_sequences[0]:
+        failures.append("branch_closed event occurs after a recorded outcome")
     for expected, event in enumerate(events, start=1):
         if event["sequence"] != expected:
             failures.append(f"event ordering mismatch at sequence {expected}")
@@ -1288,7 +1438,12 @@ def markdown_projection(payload: dict[str, Any], title: str) -> str:
     return "\n".join(lines).rstrip() + "\n"
 
 
-def unavailable_payload(reason: str, *, expected_retention: bool = False) -> dict[str, Any]:
+def unavailable_payload(
+    reason: str,
+    *,
+    expected_retention: bool = False,
+    retention_kind: str = "choice event",
+) -> dict[str, Any]:
     return {
         "projection_version": PROJECTION_VERSION,
         "authority_effect": AUTHORITY_EFFECT,
@@ -1296,7 +1451,7 @@ def unavailable_payload(reason: str, *, expected_retention: bool = False) -> dic
         "available": False,
         "reason": reason,
         "disclosure": (
-            "Selection was not retained; navigation may continue."
+            f"{retention_kind.capitalize()} was not retained; ordinary work may continue."
             if expected_retention
             else "Private choice history is unavailable; ordinary work may continue."
         ),
@@ -1357,6 +1512,17 @@ def parse_args(arguments: list[str] | None = None) -> argparse.Namespace:
     outcome.add_argument("--supersedes-event-id")
     outcome.add_argument("--dry-run", action="store_true")
 
+    close = subparsers.add_parser(
+        "close", help="Close a completed, paused, or saturated selected branch."
+    )
+    close.add_argument("--choice-id", required=True)
+    close.add_argument("--reason", choices=CLOSURE_REASONS, required=True)
+    close.add_argument("--idempotency-key", required=True)
+    close.add_argument("--occurred-at", default=None)
+    close.add_argument("--observation")
+    close.add_argument("--dry-run", action="store_true")
+    add_scope(close)
+
     review = subparsers.add_parser(
         "review", help="Read the deterministic staged five-to-ten scorecard."
     )
@@ -1415,10 +1581,31 @@ def main(arguments: list[str] | None = None) -> int:
             end="" if args.format == "markdown" else "\n",
         )
         return 0
+    if args.command == "close" and args.dry_run:
+        payload = {
+            "dry_run": True,
+            "retained": False,
+            "choice_id": sanitize_text(args.choice_id, limit=120),
+            "event_type": "branch_closed",
+            "reason": args.reason,
+            "observation": (
+                sanitize_text(args.observation, limit=1000)
+                if args.observation
+                else None
+            ),
+            "authority_effect": AUTHORITY_EFFECT,
+        }
+        print(
+            markdown_projection(payload, "Choice Ledger Result")
+            if args.format == "markdown"
+            else json.dumps(payload, indent=2, ensure_ascii=False),
+            end="" if args.format == "markdown" else "\n",
+        )
+        return 0
     resolution = resolve_store(
         args.db,
         require_exists=args.command
-        in {"context", "review", "show", "verify", "backup", "backup-status"},
+        in {"context", "review", "show", "verify", "backup", "backup-status", "close"},
     )
     if args.command == "recover":
         payload = {"would_recover": args.dry_run, "from": args.source, "to": args.to}
@@ -1430,10 +1617,15 @@ def main(arguments: list[str] | None = None) -> int:
     if resolution.path is None:
         payload = unavailable_payload(
             resolution.reason or "choice store unavailable",
-            expected_retention=args.command in {"select", "outcome"},
+            expected_retention=args.command in {"select", "outcome", "close"},
+            retention_kind={
+                "select": "selection",
+                "outcome": "outcome",
+                "close": "closure",
+            }.get(args.command, "choice event"),
         )
         print(json.dumps(payload, indent=2))
-        return 0 if args.command in {"context", "review", "select"} else 2
+        return 0 if args.command in {"context", "review", "select", "close"} else 2
     if args.command == "backup":
         destination = create_backup(resolution.path, Path(args.to))
         status = compare_backup(resolution.path, destination)
@@ -1467,7 +1659,10 @@ def main(arguments: list[str] | None = None) -> int:
             raise
         payload = unavailable_payload(
             "private choice store could not be opened",
-            expected_retention=args.command == "select",
+            expected_retention=args.command in {"select", "close"},
+            retention_kind={"select": "selection", "close": "closure"}.get(
+                args.command, "choice event"
+            ),
         )
         print(json.dumps(payload, indent=2))
         return 0
@@ -1520,6 +1715,18 @@ def main(arguments: list[str] | None = None) -> int:
                 safety_incident=args.safety_incident,
                 lane_incident=args.lane_incident,
                 supersedes_event_id=args.supersedes_event_id,
+            )
+        elif args.command == "close":
+            payload = close_branch(
+                connection,
+                choice_id=args.choice_id,
+                reason=args.reason,
+                idempotency_key=args.idempotency_key,
+                occurred_at=args.occurred_at or utc_now(),
+                observation=args.observation,
+                tenant=args.tenant,
+                workspace=args.workspace,
+                lane=args.lane,
             )
         elif args.command == "review":
             payload = review_scorecard(

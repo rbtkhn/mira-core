@@ -54,3 +54,7 @@ Raw objects remain primary. Indexes and context packs are derived views. Hidden
 reasoning is excluded. Model output, repetition, or confidence never promotes
 policy or identity. No operation authorizes commit, push, publication, rename,
 or external action.
+
+Reader-facing interpretations of the archive's history and architecture live
+under [`essays/`](essays/README.md). They are authored prose, not canonical
+archived bodies, independent evidence, or collection-native authority.

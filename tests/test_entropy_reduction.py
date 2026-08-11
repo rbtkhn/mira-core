@@ -360,6 +360,7 @@ def test_only_portable_skills_are_deployable() -> None:
         "voice-comparison",
         "geopolitical-synthesis",
         "reality-check",
+        "repo-audit",
         "voice-accountability",
     }
     assert set(skill_registry.build_registry()) == {
@@ -371,6 +372,7 @@ def test_only_portable_skills_are_deployable() -> None:
         "voice-comparison",
         "geopolitical-synthesis",
         "reality-check",
+        "repo-audit",
         "voice-accountability",
     }
 

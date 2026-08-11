@@ -90,8 +90,9 @@ intake behavior is documented separately under
 
 ## Outcome-aware choice navigation
 
-Final responses expose three or four distinct next possibilities. A letter
-enters and develops the selected branch; selection alone grants no authority
+Open final responses expose three or four distinct next possibilities; settled
+branches close without manufacturing another menu. A letter enters and
+develops the selected branch; selection alone grants no authority
 to mutate, execute, spend, publish, communicate, act on customers, stage,
 commit, push, or deploy.
 
@@ -123,6 +124,9 @@ and `text` fields:
 .\tools\run.ps1 choice outcome --choice-id CHOICE-20260729-01 `
   --result successful --cognitive-load lower --momentum advanced `
   --discovery-value new-useful-path --idempotency-key outcome-20260729-01
+
+.\tools\run.ps1 choice close --choice-id CHOICE-20260729-01 `
+  --reason completed --idempotency-key close-20260729-01
 
 .\tools\run.ps1 choice --format markdown review
 .\tools\run.ps1 choice --format markdown show --choice-id CHOICE-20260729-01
@@ -163,13 +167,20 @@ integrity and logical equivalence, and then atomically replace the destination.
 sanitized logical fingerprint exactly matches the current store. Use a dated
 destination so an older recovery point is not silently discarded.
 
-Choice-store schema 2 preserves the submitted timestamp text and adds a derived
-UTC microsecond key for chronological cohort ordering. Read-only commands remain
-compatible with schema 1; the first later writable choice command migrates a
-schema-1 store transactionally. Create and verify a current backup before that
-first writable command. Scoped context, review, and whole-scope verification use
-batched prompt/event reads and the scope-ordering index rather than one query per
-choice.
+Choice-store schema 3 adds append-only `branch_closed` lifecycle events and
+choice projection 1.1. Closure reasons are `completed`, `paused`, and
+`saturated`. A closed branch leaves unresolved review but contributes no outcome
+or recommendation evidence; a later observed outcome may resolve it. Review
+projection remains 2.0 and includes only resolved outcomes.
+
+Schema 3 retains schema 2's submitted timestamp text and derived UTC microsecond
+ordering key. Read-only commands remain compatible with schemas 1 and 2; the
+first later writable command migrates an older store transactionally, including
+rebuilding the constrained event table without changing existing events. Create
+and verify a current backup before that first writable command. Existing
+unresolved choices are not backfilled automatically. Scoped context, review,
+and whole-scope verification use batched prompt/event reads and the scope-ordering
+index rather than one query per choice.
 
 ## Operating Boundary
 

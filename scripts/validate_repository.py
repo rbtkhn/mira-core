@@ -397,6 +397,7 @@ def skill_contract_failures() -> list[str]:
         "voice-comparison",
         "geopolitical-synthesis",
         "reality-check",
+        "repo-audit",
         "voice-accountability",
     }:
         failures.append(f"unexpected deployable skill allowlist: {sorted(deployable)}")

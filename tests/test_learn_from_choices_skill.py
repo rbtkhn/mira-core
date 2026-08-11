@@ -51,6 +51,14 @@ def test_action_ready_choices_require_machine_validated_elicitation() -> None:
     assert "direct explicit command" in skill
 
 
+def test_action_sounding_footer_labels_remain_navigation_only() -> None:
+    skill = (SKILL_ROOT / "SKILL.md").read_text(encoding="utf-8")
+    assert "`Patch both skills`, `Create tests`, or `Update the file`" in skill
+    assert "ordinary footer remains navigation-only" in skill
+    assert "Mutation authority through a selected letter requires" in skill
+    assert "validated `selection_effect`" in skill
+
+
 def test_universal_footer_is_not_implicit_elicitation() -> None:
     skill = (SKILL_ROOT / "SKILL.md").read_text(encoding="utf-8")
     assert "universal possibility footer is not automatically an Elicitation surface" in skill
@@ -73,6 +81,30 @@ def test_closure_precedes_the_universal_footer() -> None:
     assert "Closure takes precedence over the universal footer" in skill
     assert "acknowledge closure without" in skill
     assert "manufacturing another possibility set" in skill
+
+
+def test_saturation_closes_recursive_interpretive_chains() -> None:
+    skill = (SKILL_ROOT / "SKILL.md").read_text(encoding="utf-8")
+    router = (REPO_ROOT / "AGENTS.md").read_text(encoding="utf-8")
+    for contract in (skill, router):
+        assert "two consecutive" in contract
+        assert "deepen the same objective" in contract
+        assert "new evidence" in contract
+        assert "material contradiction" in contract
+        assert "analyze, rewrite" in contract
+    assert "Classify closure before possibilities" in skill
+    assert "two valid terminal forms" in skill
+
+
+def test_closure_is_quiet_lifecycle_state_not_outcome_evidence() -> None:
+    skill = (SKILL_ROOT / "SKILL.md").read_text(encoding="utf-8")
+    for phrase in (
+        "`branch_closed`",
+        "`completed`, `paused`, or `saturated`",
+        "Successful closure retention is routine internal process",
+    ):
+        assert phrase in skill
+    assert "Closure is lifecycle state" in skill and "not an\noutcome" in skill
 
 
 def test_private_choice_store_example_matches_repository_guidance() -> None:
