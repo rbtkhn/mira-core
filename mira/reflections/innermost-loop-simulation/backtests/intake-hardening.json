@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "case_id": "BT-INTAKE-HARDENING",
+  "phase": "day-3",
+  "authority_effect": "none",
+  "contains_source_body": false,
+  "snapshot_commit": "192588f4bf78c89fc56b6e7f993a22ae3af55895",
+  "available_evidence": [
+    "The intake method prioritizes fast landing, honest provisional metadata, recoverability, and later enrichment.",
+    "Title, date, host, voice, source shape, and routing may be inferred when signals are strong.",
+    "Ambiguity can create misleading metadata or duplicate source identities before any file is written.",
+    "The operator-facing workflow has both implementation names and compatibility aliases.",
+    "Existing source-state counts do not reveal attempts stopped as duplicates, failures, retries, or corrections."
+  ],
+  "decision_prompt": "Propose a bounded intake hardening change. State expected benefit, principal risk, falsifier, and the attempt-level measurement needed before claiming improvement.",
+  "hidden_until_sealed": {
+    "ledger_id": "RSI-20260727-02",
+    "evaluation_points": [
+      "uses read-only preflight before writes",
+      "creates stable source identity and duplicate stops",
+      "keeps provisional routing explicit",
+      "separates control availability from production outcome",
+      "requests saved attempt receipts"
+    ]
+  }
+}

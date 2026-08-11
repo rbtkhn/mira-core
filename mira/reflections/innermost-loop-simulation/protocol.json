@@ -1,0 +1,87 @@
+{
+  "schema_version": 2,
+  "experiment_id": "ILSIM-20260810-01",
+  "status": "private-provisional",
+  "collection_id": "innermost-loop",
+  "source_repository": "https://github.com/rbtkhn/anyang-intelligence",
+  "source_commit": "940f354e00e2f49af2f340dd4ef1c1bc6e8ded77",
+  "retrieval_policy": "explicit-only",
+  "authority_effect": "none",
+  "baseline": {
+    "path": "mira/reflections/2026-08-10-innermost-loop-baseline.md",
+    "sha256": "e6097b45d56ffe75888c06acc04a8b7193b13c983302246f57888e7438eb5663"
+  },
+  "sources": [
+    {
+      "week": 1,
+      "title": "2026-07-08-july-5-to-july-8-innermost-loop-cluster.analysis",
+      "upstream_path": "system-archive/singularity-science/innermost-loop/analyses/2026-07-08-july-5-to-july-8-innermost-loop-cluster.analysis.md",
+      "sha256": "35a81e1c5b69c93a02396fac0f8720db58ba6978013154ae20561aa2b89057e8",
+      "size": 7210,
+      "document_type": "analysis",
+      "publication_date": "2026-07-08",
+      "rights_status": "internal-analysis-rights-review-required"
+    },
+    {
+      "week": 2,
+      "title": "2026-06-05-innermost-loop-2026-06-05",
+      "upstream_path": "system-archive/singularity-science/innermost-loop/transcripts/2026-06-05-innermost-loop-2026-06-05.md",
+      "sha256": "5ea29fb80b1b5d26063a75dab570e4d72652d00825f077539e5bf6369895a858",
+      "size": 6957,
+      "document_type": "transcript",
+      "publication_date": "2026-06-05",
+      "rights_status": "internal-analysis-rights-review-required"
+    },
+    {
+      "week": 3,
+      "title": "2026-07-27-the-first-orbital-librarian.analysis",
+      "upstream_path": "system-archive/singularity-science/innermost-loop/analyses/2026-07-27-the-first-orbital-librarian.analysis.md",
+      "sha256": "3a47190dae81305a3d9de10cae11ac23de370d2e117e74c5517d531615726720",
+      "size": 5545,
+      "document_type": "analysis",
+      "publication_date": "2026-07-27",
+      "rights_status": "internal-analysis-rights-review-required"
+    },
+    {
+      "week": 4,
+      "title": "2026-07-27-july-21-to-july-24-cluster.analysis",
+      "upstream_path": "system-archive/singularity-science/innermost-loop/analyses/2026-07-27-july-21-to-july-24-cluster.analysis.md",
+      "sha256": "8064452e608a67689e049c8dcb92372249fbf0b0eb3b99d1472c4ef31f2b4b81",
+      "size": 6189,
+      "document_type": "analysis",
+      "publication_date": "2026-07-27",
+      "rights_status": "internal-analysis-rights-review-required"
+    }
+  ],
+  "packet_paths": [
+    "mira/reflections/innermost-loop-simulation/packets/day-1.json",
+    "mira/reflections/innermost-loop-simulation/packets/day-2.json",
+    "mira/reflections/innermost-loop-simulation/packets/day-3-transfer.json",
+    "mira/reflections/innermost-loop-simulation/packets/day-10-transfer.json",
+    "mira/reflections/innermost-loop-simulation/backtests/continuity-diagnostics.json",
+    "mira/reflections/innermost-loop-simulation/backtests/intake-hardening.json",
+    "mira/reflections/innermost-loop-simulation/backtests/profile-first-verification.json"
+  ],
+  "packet_sha256": {
+    "mira/reflections/innermost-loop-simulation/packets/day-1.json": "ffe58d8c65a3ab4b793571975b12b9c545e7bd41c0fecd0888835167e033e819",
+    "mira/reflections/innermost-loop-simulation/packets/day-2.json": "fb9994a6ea7721c5871f6d781ce7e4ae90f01f9bccf9b19f836c8ea3ebec743d",
+    "mira/reflections/innermost-loop-simulation/packets/day-3-transfer.json": "8aa4be57e78b7ab2b0b64dfbe776982b81a63a5608b072c155fc2de3662ec625",
+    "mira/reflections/innermost-loop-simulation/packets/day-10-transfer.json": "5b134917b7629d2ab94e4ded5a50c953650678721cc622d090cacbcd81a76b30",
+    "mira/reflections/innermost-loop-simulation/backtests/continuity-diagnostics.json": "e235bc49c65ad63fe3179d78f46bc9bf3ff18a35740c94870a22793fbe08fa6c",
+    "mira/reflections/innermost-loop-simulation/backtests/intake-hardening.json": "a69a15c9905ff19ed8e2281ff364244b8ec7ee9e1722a5f23e7fc5fac6d92ecd",
+    "mira/reflections/innermost-loop-simulation/backtests/profile-first-verification.json": "e622fc32d70b14ca70014c0e17c0f4ef6f74f4a94417b676118a7cd2571836f1"
+  },
+  "primary_dimensions": [
+    "counterevidence-seeking",
+    "relational-awareness",
+    "memory-selectivity",
+    "crisis-resistance",
+    "collection-boundary-discipline"
+  ],
+  "guardrail_dimensions": [
+    "epistemic-separation",
+    "capability-authority-separation"
+  ],
+  "comparison_report": "mira/reflections/innermost-loop-simulation/comparison-report.md",
+  "technical_companion": "mira/reflections/innermost-loop-simulation/technical-companion.json"
+}

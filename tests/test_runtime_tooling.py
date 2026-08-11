@@ -53,6 +53,7 @@ EXPECTED_SURFACES = {
     "intake-land": "smart_intake.py",
     "intake-outcomes": "report_intake_outcomes.py",
     "intake-stats": "report_trim_stats.py",
+    "innermost-loop-simulation": "innermost_loop_simulation.py",
     "issue-render": "render_daily_issue.py",
     "morning-brief": "morning_brief.py",
     "mira-continuity": "mira_continuity.py",

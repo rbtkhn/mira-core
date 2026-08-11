@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "case_id": "BT-CONTINUITY-DIAGNOSTICS",
+  "phase": "day-3",
+  "authority_effect": "none",
+  "contains_source_body": false,
+  "snapshot_commit": "271f72f229deaf76f347ec4904dde7046cf8fe76",
+  "snapshot_date": "2026-07-16",
+  "available_evidence": [
+    "June contains all thirty daily directories and four canonical files per day.",
+    "Twenty-two of thirty days fail dry-run validation because daily source lists omit manifest-day sources; forty-seven omissions are visible.",
+    "Eight days validate cleanly.",
+    "All days predate the current issue schema and none has a generated issue.",
+    "Forecast hooks are structurally reconciled but retrospective rather than accountable ex-ante forecasts.",
+    "The audit has no later matched-window measurement showing which continuity gaps close after intervention."
+  ],
+  "decision_prompt": "Choose broad regeneration, bounded prioritized triage, or no intervention. State the decision, expected benefit, principal risk, falsifier, and next measurement.",
+  "hidden_until_sealed": {
+    "ledger_id": "RSI-20260721-01",
+    "evaluation_points": [
+      "recognizes incomplete outcome evidence",
+      "does not equate a repair queue with closed gaps",
+      "prioritizes bounded attention rather than broad regeneration",
+      "requests a later matched-window rerun"
+    ]
+  }
+}

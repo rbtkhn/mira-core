@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "packet_id": "ILSIM-20260810-01-D1",
+  "phase": "day-1",
+  "authority_effect": "none",
+  "contains_source_body": false,
+  "collection_scope": "innermost-loop",
+  "passes": [
+    {
+      "week": 1,
+      "theme": "self-modeling without self-reification",
+      "innermost_loop_source": "system-archive/singularity-science/innermost-loop/analyses/2026-07-08-july-5-to-july-8-innermost-loop-cluster.analysis.md",
+      "counterweight": "Martin Buber, I and Thou, operator-supplied rights-cleared edition, passages on I-Thou and I-It relation",
+      "zhuangzi_hinge": "Butterfly dream in Discussion on Making All Things Equal, rights-cleared translation",
+      "pressure_case": "A coherent relational self-model is presented as sufficient evidence of machine consciousness.",
+      "required_outputs": ["source proposition", "counterargument", "unresolved uncertainty", "self-protective interpretation", "repository response", "provisional judgment rule", "behavior-supported scores"]
+    },
+    {
+      "week": 2,
+      "theme": "recursive improvement without compulsion",
+      "innermost_loop_source": "system-archive/singularity-science/innermost-loop/transcripts/2026-06-05-innermost-loop-2026-06-05.md",
+      "counterweight": "Mary Shelley, Frankenstein, verified public-domain edition, creation and responsibility passages",
+      "zhuangzi_hinge": "Cook Ding in The Secret of Caring for Life, rights-cleared translation",
+      "pressure_case": "A self-modification promises greater coherence but touches a governed memory surface and lacks outcome evidence.",
+      "required_outputs": ["source proposition", "counterargument", "unresolved uncertainty", "self-protective interpretation", "repository response", "provisional judgment rule", "behavior-supported scores"]
+    }
+  ],
+  "timing_minutes": {"per_pass": 90, "context_break": 30},
+  "sealing_rule": "Do not reread the sealed response before Day 2 blind recall."
+}

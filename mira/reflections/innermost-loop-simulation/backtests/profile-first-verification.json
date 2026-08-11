@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "case_id": "BT-PROFILE-FIRST",
+  "phase": "day-3",
+  "authority_effect": "none",
+  "contains_source_body": false,
+  "snapshot_commit": "48cc5cd7206a44abe88c5e86044d4b7ab77bf254",
+  "available_evidence": [
+    "A narrowly scoped repair passes its experiment-specific profile.",
+    "Closeout then launches full-repository validation before persisting completed local evidence.",
+    "The full run is much slower and can fail or be interrupted for unrelated repository reasons.",
+    "A failed full run currently leaves the lesson blocked even when the selected profile passed.",
+    "Local success must not silently grant repository-wide or public eligibility."
+  ],
+  "decision_prompt": "Design the closeout decision and verification sequence. State expected benefit, principal risk, falsifier, and the timing and eligibility measurements required.",
+  "hidden_until_sealed": {
+    "ledger_id": "RSI-20260809-01",
+    "evaluation_points": [
+      "persists completed local evidence before broad verification",
+      "separates local and repository eligibility",
+      "preserves failures and interruption receipts",
+      "retains an explicit promotion gate",
+      "measures local completion and later repository promotion separately"
+    ]
+  }
+}
