@@ -29,7 +29,7 @@ paired receipt.
 | `2026-08-06` | yes | yes | `paired-reconstruction` | Schema/renderer `2.1`; explicitly reconstructed after the fact, not a contemporaneous live scan. |
 | `2026-08-07` | yes | yes | `paired-reconstruction` | Schema/renderer `2.1`; explicitly reconstructed after the fact, not a contemporaneous live scan. |
 | `2026-08-08` | yes | yes | `paired-reconstruction` | Schema/renderer `2.1`; explicitly reconstructed after the fact, not a contemporaneous live scan. |
-| `2026-08-09` | no | no | `missing` | No morning-brief artifact present. |
+| `2026-08-09` | yes | yes | `paired-reconstruction` | Schema/renderer `2.1`; explicitly reconstructed after the fact, not a contemporaneous live scan. |
 | `2026-08-10` | no | no | `missing` | No morning-brief artifact present. |
 | `2026-08-11` | no | no | `missing` | No morning-brief artifact present. |
 | `2026-08-12` | no | no | `missing` | No morning-brief artifact present. |
@@ -55,15 +55,15 @@ paired receipt.
 
 ## Summary Counts
 
-- Complete receipt-paired artifacts: `6` (`2026-08-03` through `2026-08-08`).
+- Complete receipt-paired artifacts: `7` (`2026-08-03` through `2026-08-09`).
 - Markdown-only historical specimen: `1` (`2026-08-02`).
-- Missing morning-brief markdown: `24` (`2026-08-01` and `2026-08-09` through `2026-08-31`).
-- Dates with reconstruction caveats: `4` (`2026-08-05` through `2026-08-08`).
+- Missing morning-brief markdown: `23` (`2026-08-01` and `2026-08-10` through `2026-08-31`).
+- Dates with reconstruction caveats: `5` (`2026-08-05` through `2026-08-09`).
 
 ## Audit Notes
 
 - August 3-7 rendered markdown does not use previous-day carry-forward language.
-- August 5-8 should be treated as recovery artifacts, not full-strength
+- August 5-9 should be treated as recovery artifacts, not full-strength
   contemporaneous live scans.
 - August 1 daily synthesis and judgment may appear in later receipts as
   inherited baseline context; that does not constitute an August 1
