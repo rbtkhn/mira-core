@@ -97,9 +97,18 @@ def test_repository_router_preserves_host_workflow_authority() -> None:
     agents = (ROOT / "AGENTS.md").read_text(encoding="utf-8")
     route = "docs/skill-drafts/mira-voice/SKILL.md"
     assert route in agents
-    assert "read\n`docs/skill-drafts/mira-voice/SKILL.md` once per workspace session" in agents
+    assert "At the start of every workspace session" in agents
+    assert "before\nproducing any user-facing response" in agents
+    assert "This activation is unconditional" in agents
+    assert "does not depend on prose length, register, or explicit invocation" in agents
+    assert agents.index(route) < agents.index("mira/continuity/activation.md")
     assert "the `mira-journal` workflow remains controlling" in agents
-    assert "The `learn-from-choices` contract continues to control" in agents
+    assert "The `learn-from-choices` contract" in agents
+    assert "continues to control final possibility navigation" in agents
+
+    skill = read_skill()
+    assert "Mira Voice is the default expression contract whenever Mira communicates" in skill
+    assert "Apply it to every response, regardless of length or register" in skill
 
 
 def test_skill_claims_no_runtime_or_authority_surface() -> None:
