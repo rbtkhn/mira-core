@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 import gzip
+import copy
 import sqlite3
 import sys
 from pathlib import Path
@@ -309,3 +310,84 @@ def test_external_corpus_lineage_is_neutral_and_idempotent(
         assert system_archive.add_external_corpus_lineage(connection, collection) == 0
         relation = connection.execute("SELECT relation_type FROM edges").fetchone()[0]
         assert relation == "derived_from"
+
+
+def test_moonshots_manifest_is_pinned_complete_and_bounded() -> None:
+    repo = Path(__file__).resolve().parent.parent
+    manifest = json.loads((repo / "system-archive" / "registries" / "moonshots.json").read_text(encoding="utf-8"))
+    assert manifest["schema_version"] == 2
+    assert manifest["source_commit"] == "940f354e00e2f49af2f340dd4ef1c1bc6e8ded77"
+    assert manifest["document_count"] == len(manifest["documents"]) == 29
+    assert manifest["object_byte_count"] == sum(row["size"] for row in manifest["documents"]) == 683276
+    counts: dict[str, int] = {}
+    for document in manifest["documents"]:
+        counts[document["document_type"]] = counts.get(document["document_type"], 0) + 1
+        assert document["logical_path"].startswith("external-corpora/moonshots/")
+        assert len(document["sha256"]) == 64
+        assert document["publication_date"] is None
+    assert counts == {"analysis": 8, "archive-readme": 1, "derived-analysis": 4, "research-ledger": 1, "source-note": 8, "template": 2, "transcript": 5}
+    assert len(manifest["excluded_paths"]) == 3
+    assert sum(row["size"] for row in manifest["excluded_paths"]) == 6868
+    assert sum(row.get("source_body_availability") == "not-present-in-collection" for row in manifest["documents"]) == 6
+
+
+def test_moonshots_lineage_and_alias_receipts_are_exact() -> None:
+    manifest = json.loads((Path(__file__).resolve().parent.parent / "system-archive" / "registries" / "moonshots.json").read_text(encoding="utf-8"))
+    assert sum(len(row.get("derived_from", [])) for row in manifest["documents"]) == 26
+    receipts = [receipt for row in manifest["documents"] for receipt in row.get("lineage_resolution_receipts", [])]
+    assert len(receipts) == 5
+    assert {row["alias_id"] for row in receipts} == {"moonshots-historical-archive-relocation-v1"}
+    included = {row["upstream_path"] for row in manifest["documents"]}
+    excluded = {row["upstream_path"] for row in manifest["excluded_paths"]}
+    assert not included & excluded
+    assert all(target in included for row in manifest["documents"] for target in row.get("derived_from", []))
+
+
+def test_external_record_prefix_is_schema_isolated() -> None:
+    identity = {"source_repository": "https://example.test/anyang", "source_commit": "a" * 40}
+    upstream = "lane/example.md"
+    assert system_archive.external_record_id(identity, upstream).startswith("SAR-IL-")
+    assert system_archive.external_record_id({**identity, "record_id_prefix": "SAR-MS"}, upstream).startswith("SAR-MS-")
+    with pytest.raises(ArchiveError, match="record id prefix"):
+        system_archive.external_record_id({**identity, "record_id_prefix": "unsafe"}, upstream)
+
+
+def test_discovered_body_keeps_v1_paths_and_v2_bytes_distinct(tmp_path: Path) -> None:
+    path = tmp_path / "body.md"; path.write_bytes(b"v1")
+    assert system_archive.read_discovered_body(path) == b"v1"
+    assert system_archive.read_discovered_body(b"v2") == b"v2"
+
+
+def test_moonshots_hydration_is_disabled(monkeypatch: pytest.MonkeyPatch) -> None:
+    collection = {"id": "moonshots", "hydration_policy": "disabled"}
+    monkeypatch.setattr(system_archive, "collection_map", lambda: {"moonshots": collection})
+    with pytest.raises(ArchiveError, match="hydration disabled"):
+        system_archive.hydrate_command(SimpleNamespace(collection=["moonshots"], check=True))
+
+
+def test_moonshots_is_excluded_unless_explicitly_selected() -> None:
+    default_ids = {row["id"] for row in system_archive.selected_collections([])}
+    assert "moonshots" not in default_ids
+    assert [row["id"] for row in system_archive.selected_collections(["moonshots"])] == ["moonshots"]
+
+
+@pytest.mark.parametrize(
+    ("mutation", "message"),
+    [
+        (lambda manifest: manifest["documents"][1].__setitem__("logical_path", manifest["documents"][0]["logical_path"]), "duplicate external corpus logical path"),
+        (lambda manifest: manifest.__setitem__("object_byte_count", 1), "object byte count mismatch"),
+        (lambda manifest: manifest["documents"][1]["lineage_resolution_receipts"][0].__setitem__("alias_id", "missing"), "invalid lineage resolution receipt"),
+        (lambda manifest: manifest["auxiliary_paths"].pop(), "documents differ from auxiliary allowlist"),
+        (lambda manifest: manifest["excluded_paths"][0].pop("sha256"), "invalid external corpus exclusions"),
+        (lambda manifest: manifest["excluded_paths"][0].__setitem__("reason", ""), "invalid external corpus exclusions"),
+    ],
+)
+def test_moonshots_manifest_v2_fails_closed(
+    monkeypatch: pytest.MonkeyPatch, mutation, message: str
+) -> None:
+    collection = system_archive.collection_map()["moonshots"]
+    manifest = json.loads((Path(__file__).resolve().parent.parent / collection["registry_path"]).read_text(encoding="utf-8"))
+    broken = copy.deepcopy(manifest); mutation(broken)
+    monkeypatch.setattr(system_archive, "load_json", lambda _: broken)
+    with pytest.raises(ArchiveError, match=message):
+        system_archive.external_manifest(collection)

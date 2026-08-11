@@ -1,0 +1,539 @@
+{
+  "auxiliary_paths": [
+    "projects/singularity-science/moonshots-272-learning-loop-ownership-review.md",
+    "projects/singularity-science/moonshots-272-recursive-self-improvement-deep-dive.md",
+    "projects/singularity-science/moonshots-272-research-to-improvement-receipt.md",
+    "projects/singularity-science/moonshots-272-singularity-implications-memo.md"
+  ],
+  "collection_id": "moonshots",
+  "document_count": 29,
+  "documents": [
+    {
+      "capture_date": null,
+      "derived_from": [
+        "projects/singularity-science/moonshots-272-recursive-self-improvement-deep-dive.md"
+      ],
+      "document_type": "derived-analysis",
+      "logical_path": "external-corpora/moonshots/derived/moonshots-272-learning-loop-ownership-review.md",
+      "publication_date": null,
+      "rights_policy": "internal-research-only-review-required",
+      "rights_status": "internal-analysis-rights-review-required",
+      "sha256": "868cdb3b9f9e07614e3b078114b3b1d1acda2c3f264cfdca42b4cd2a1db7791e",
+      "size": 6472,
+      "title": "Moonshots #272 Learning-Loop Ownership Review",
+      "upstream_path": "projects/singularity-science/moonshots-272-learning-loop-ownership-review.md"
+    },
+    {
+      "capture_date": null,
+      "derived_from": [
+        "system-archive/singularity-science/moonshots/analyses/2026-07-19-kimi-k3-delivers-frontier-ai-at-1-percent-of-the-cost-ai-sputnik-moment-emad-mostaque.analysis.md"
+      ],
+      "document_type": "derived-analysis",
+      "lineage_resolution_receipts": [
+        {
+          "alias_id": "moonshots-historical-archive-relocation-v1",
+          "normalized_original_path": "projects/singularity-science/archive/moonshots/analyses/2026-07-19-kimi-k3-delivers-frontier-ai-at-1-percent-of-the-cost-ai-sputnik-moment-emad-mostaque.analysis.md",
+          "original_reference": "archive/moonshots/analyses/2026-07-19-kimi-k3-delivers-frontier-ai-at-1-percent-of-the-cost-ai-sputnik-moment-emad-mostaque.analysis.md",
+          "resolution": "reviewed-prefix-relocation",
+          "resolved_target": "system-archive/singularity-science/moonshots/analyses/2026-07-19-kimi-k3-delivers-frontier-ai-at-1-percent-of-the-cost-ai-sputnik-moment-emad-mostaque.analysis.md"
+        }
+      ],
+      "logical_path": "external-corpora/moonshots/derived/moonshots-272-recursive-self-improvement-deep-dive.md",
+      "publication_date": null,
+      "rights_policy": "internal-research-only-review-required",
+      "rights_status": "internal-analysis-rights-review-required",
+      "sha256": "f612fe0bed23d3545baf0c91a011a3b9ce2e63d31bb0e883ebdf87dbc9e3433c",
+      "size": 11822,
+      "title": "Moonshots #272: Recursive Self-Improvement Deep Dive",
+      "upstream_path": "projects/singularity-science/moonshots-272-recursive-self-improvement-deep-dive.md"
+    },
+    {
+      "capture_date": null,
+      "derived_from": [
+        "system-archive/singularity-science/moonshots/source-notes/2026-07-19-kimi-k3-delivers-frontier-ai-at-1-percent-of-the-cost-ai-sputnik-moment-emad-mostaque.source-note.md",
+        "system-archive/singularity-science/moonshots/analyses/2026-07-19-kimi-k3-delivers-frontier-ai-at-1-percent-of-the-cost-ai-sputnik-moment-emad-mostaque.analysis.md",
+        "projects/singularity-science/moonshots-272-recursive-self-improvement-deep-dive.md",
+        "projects/singularity-science/moonshots-272-learning-loop-ownership-review.md"
+      ],
+      "document_type": "derived-analysis",
+      "lineage_resolution_receipts": [
+        {
+          "alias_id": "moonshots-historical-archive-relocation-v1",
+          "normalized_original_path": "projects/singularity-science/archive/moonshots/source-notes/2026-07-19-kimi-k3-delivers-frontier-ai-at-1-percent-of-the-cost-ai-sputnik-moment-emad-mostaque.source-note.md",
+          "original_reference": "archive/moonshots/source-notes/2026-07-19-kimi-k3-delivers-frontier-ai-at-1-percent-of-the-cost-ai-sputnik-moment-emad-mostaque.source-note.md",
+          "resolution": "reviewed-prefix-relocation",
+          "resolved_target": "system-archive/singularity-science/moonshots/source-notes/2026-07-19-kimi-k3-delivers-frontier-ai-at-1-percent-of-the-cost-ai-sputnik-moment-emad-mostaque.source-note.md"
+        },
+        {
+          "alias_id": "moonshots-historical-archive-relocation-v1",
+          "normalized_original_path": "projects/singularity-science/archive/moonshots/analyses/2026-07-19-kimi-k3-delivers-frontier-ai-at-1-percent-of-the-cost-ai-sputnik-moment-emad-mostaque.analysis.md",
+          "original_reference": "archive/moonshots/analyses/2026-07-19-kimi-k3-delivers-frontier-ai-at-1-percent-of-the-cost-ai-sputnik-moment-emad-mostaque.analysis.md",
+          "resolution": "reviewed-prefix-relocation",
+          "resolved_target": "system-archive/singularity-science/moonshots/analyses/2026-07-19-kimi-k3-delivers-frontier-ai-at-1-percent-of-the-cost-ai-sputnik-moment-emad-mostaque.analysis.md"
+        }
+      ],
+      "logical_path": "external-corpora/moonshots/derived/moonshots-272-research-to-improvement-receipt.md",
+      "publication_date": null,
+      "rights_policy": "internal-research-only-review-required",
+      "rights_status": "internal-analysis-rights-review-required",
+      "sha256": "ea95bd61545a5451df1dcb9f0774f4c188cc9cc9c2e734853dff93c2d5302a91",
+      "size": 4340,
+      "title": "Research-to-Improvement Receipt: Moonshots #272",
+      "upstream_path": "projects/singularity-science/moonshots-272-research-to-improvement-receipt.md"
+    },
+    {
+      "capture_date": null,
+      "derived_from": [
+        "system-archive/singularity-science/moonshots/source-notes/2026-07-19-kimi-k3-delivers-frontier-ai-at-1-percent-of-the-cost-ai-sputnik-moment-emad-mostaque.source-note.md",
+        "system-archive/singularity-science/moonshots/transcripts/2026-07-19-kimi-k3-delivers-frontier-ai-at-1-percent-of-the-cost-ai-sputnik-moment-emad-mostaque.md"
+      ],
+      "document_type": "derived-analysis",
+      "lineage_resolution_receipts": [
+        {
+          "alias_id": "moonshots-historical-archive-relocation-v1",
+          "normalized_original_path": "projects/singularity-science/archive/moonshots/source-notes/2026-07-19-kimi-k3-delivers-frontier-ai-at-1-percent-of-the-cost-ai-sputnik-moment-emad-mostaque.source-note.md",
+          "original_reference": "archive/moonshots/source-notes/2026-07-19-kimi-k3-delivers-frontier-ai-at-1-percent-of-the-cost-ai-sputnik-moment-emad-mostaque.source-note.md",
+          "resolution": "reviewed-prefix-relocation",
+          "resolved_target": "system-archive/singularity-science/moonshots/source-notes/2026-07-19-kimi-k3-delivers-frontier-ai-at-1-percent-of-the-cost-ai-sputnik-moment-emad-mostaque.source-note.md"
+        },
+        {
+          "alias_id": "moonshots-historical-archive-relocation-v1",
+          "normalized_original_path": "projects/singularity-science/archive/moonshots/transcripts/2026-07-19-kimi-k3-delivers-frontier-ai-at-1-percent-of-the-cost-ai-sputnik-moment-emad-mostaque.md",
+          "original_reference": "archive/moonshots/transcripts/2026-07-19-kimi-k3-delivers-frontier-ai-at-1-percent-of-the-cost-ai-sputnik-moment-emad-mostaque.md",
+          "resolution": "reviewed-prefix-relocation",
+          "resolved_target": "system-archive/singularity-science/moonshots/transcripts/2026-07-19-kimi-k3-delivers-frontier-ai-at-1-percent-of-the-cost-ai-sputnik-moment-emad-mostaque.md"
+        }
+      ],
+      "logical_path": "external-corpora/moonshots/derived/moonshots-272-singularity-implications-memo.md",
+      "publication_date": null,
+      "rights_policy": "internal-research-only-review-required",
+      "rights_status": "internal-analysis-rights-review-required",
+      "sha256": "b1c876e8eb7f2b6b254d48162711dbfa5cc1c2ced8d3fd3d79a4281223ab35e7",
+      "size": 13843,
+      "title": "Moonshots #272: Singularity Science Implications Memo",
+      "upstream_path": "projects/singularity-science/moonshots-272-singularity-implications-memo.md"
+    },
+    {
+      "capture_date": null,
+      "derived_from": [],
+      "document_type": "archive-readme",
+      "logical_path": "external-corpora/moonshots/README.md",
+      "publication_date": null,
+      "rights_policy": "internal-research-only-review-required",
+      "rights_status": "internal-analysis-rights-review-required",
+      "sha256": "55f7498baa5b7806237e69181ac0e865459fcc1ff315be1dd89ce973430f69c4",
+      "size": 2042,
+      "title": "Moonshots Archive",
+      "upstream_path": "system-archive/singularity-science/moonshots/README.md"
+    },
+    {
+      "capture_date": "2026-06-09",
+      "derived_from": [
+        "system-archive/singularity-science/moonshots/source-notes/2026-06-09-moonshots-emerging-anthropic-global-pause-recursive-self-improvement-ai-personhood.source-note.md",
+        "system-archive/singularity-science/moonshots/transcripts/2026-06-09-moonshots-emerging-anthropic-pause-ai-personhood-2026-06-09.md"
+      ],
+      "document_type": "analysis",
+      "logical_path": "external-corpora/moonshots/analyses/2026-06-09-moonshots-emerging-anthropic-global-pause-recursive-self-improvement-ai-personhood.analysis.md",
+      "publication_date": null,
+      "rights_policy": "internal-research-only-review-required",
+      "rights_status": "internal-analysis-rights-review-required",
+      "sha256": "e7163adc6b2f4c2db7b079c05f91c2bc396d8c0c9cda0031f39deee59a93f232",
+      "size": 8428,
+      "title": "Emerging Situation: Anthropic Global Pause, Recursive Self-Improvement, AI Personhood",
+      "upstream_path": "system-archive/singularity-science/moonshots/analyses/2026-06-09-moonshots-emerging-anthropic-global-pause-recursive-self-improvement-ai-personhood.analysis.md"
+    },
+    {
+      "capture_date": "2026-06-19",
+      "derived_from": [
+        "system-archive/singularity-science/moonshots/source-notes/2026-06-19-moonshots-265-spacex-ipo-anthropic-export-control-openai-ipo-delay.source-note.md",
+        "system-archive/singularity-science/moonshots/transcripts/2026-06-19-moonshots-265-spacex-ipo-anthropic-export-control-2026-06-19.md"
+      ],
+      "document_type": "analysis",
+      "logical_path": "external-corpora/moonshots/analyses/2026-06-19-moonshots-265-spacex-ipo-anthropic-export-control-openai-ipo-delay.analysis.md",
+      "publication_date": null,
+      "rights_policy": "internal-research-only-review-required",
+      "rights_status": "internal-analysis-rights-review-required",
+      "sha256": "84e9e5e57f286948574bf532b30d45762c6aaef4a03de89d5c53b9b6b848e33e",
+      "size": 7376,
+      "title": "Moonshots #265: SpaceX IPO, Anthropic Export Control, OpenAI IPO Delay",
+      "upstream_path": "system-archive/singularity-science/moonshots/analyses/2026-06-19-moonshots-265-spacex-ipo-anthropic-export-control-openai-ipo-delay.analysis.md"
+    },
+    {
+      "capture_date": "2026-07-08",
+      "derived_from": [
+        "system-archive/singularity-science/moonshots/source-notes/2026-07-08-moonshots-268-sonnet-5-fable-5-fusion-philip-johnston.source-note.md"
+      ],
+      "document_type": "analysis",
+      "logical_path": "external-corpora/moonshots/analyses/2026-07-08-moonshots-268-sonnet-5-fable-5-fusion-philip-johnston.analysis.md",
+      "publication_date": null,
+      "rights_policy": "internal-research-only-review-required",
+      "rights_status": "internal-analysis-rights-review-required",
+      "sha256": "5384d5c678c294dc195ebe1f2066771e95fb4e280079c041b9571c061086e921",
+      "size": 6726,
+      "source_body_availability": "not-present-in-collection",
+      "source_body_reason": "truncated-or-attachment-only-upstream-record-excluded",
+      "title": "Moonshots #268: Sonnet 5, Fable 5, Fusion with Philip Johnston",
+      "upstream_path": "system-archive/singularity-science/moonshots/analyses/2026-07-08-moonshots-268-sonnet-5-fable-5-fusion-philip-johnston.analysis.md"
+    },
+    {
+      "capture_date": "2026-07-08",
+      "derived_from": [
+        "system-archive/singularity-science/moonshots/source-notes/2026-07-08-moonshots-269-claude-conscious-fable-5-government-deal-openai.source-note.md",
+        "system-archive/singularity-science/moonshots/transcripts/2026-07-08-moonshots-269-claude-conscious-fable-5-government-deal-openai.md"
+      ],
+      "document_type": "analysis",
+      "logical_path": "external-corpora/moonshots/analyses/2026-07-08-moonshots-269-claude-conscious-fable-5-government-deal-openai.analysis.md",
+      "publication_date": null,
+      "rights_policy": "internal-research-only-review-required",
+      "rights_status": "internal-analysis-rights-review-required",
+      "sha256": "1514ac71ea531ee09f34b24fbdf53ed98899fe0ba4448a0a2d113021f21d7530",
+      "size": 7137,
+      "title": "Moonshots #269: Claude Consciousness, Fable 5, Government and OpenAI",
+      "upstream_path": "system-archive/singularity-science/moonshots/analyses/2026-07-08-moonshots-269-claude-conscious-fable-5-government-deal-openai.analysis.md"
+    },
+    {
+      "capture_date": "2026-07-19",
+      "derived_from": [
+        "system-archive/singularity-science/moonshots/source-notes/2026-07-19-kimi-k3-delivers-frontier-ai-at-1-percent-of-the-cost-ai-sputnik-moment-emad-mostaque.source-note.md",
+        "system-archive/singularity-science/moonshots/transcripts/2026-07-19-kimi-k3-delivers-frontier-ai-at-1-percent-of-the-cost-ai-sputnik-moment-emad-mostaque.md"
+      ],
+      "document_type": "analysis",
+      "logical_path": "external-corpora/moonshots/analyses/2026-07-19-kimi-k3-delivers-frontier-ai-at-1-percent-of-the-cost-ai-sputnik-moment-emad-mostaque.analysis.md",
+      "publication_date": null,
+      "rights_policy": "internal-research-only-review-required",
+      "rights_status": "internal-analysis-rights-review-required",
+      "sha256": "4053cb17e441d00c8bada5a4c452c86865ef398d5f75008caa2369e03b16c475",
+      "size": 8784,
+      "title": "Moonshots #272: Kimi K3 and Emad Mostaque",
+      "upstream_path": "system-archive/singularity-science/moonshots/analyses/2026-07-19-kimi-k3-delivers-frontier-ai-at-1-percent-of-the-cost-ai-sputnik-moment-emad-mostaque.analysis.md"
+    },
+    {
+      "capture_date": "2026-07-24",
+      "derived_from": [
+        "system-archive/singularity-science/moonshots/source-notes/2026-07-24-moonshots-273-hugging-face-breach-kimi-k3-white-house-ai-bets.source-note.md"
+      ],
+      "document_type": "analysis",
+      "logical_path": "external-corpora/moonshots/analyses/2026-07-24-moonshots-273-hugging-face-breach-kimi-k3-white-house-ai-bets.analysis.md",
+      "publication_date": null,
+      "rights_policy": "internal-research-only-review-required",
+      "rights_status": "internal-analysis-rights-review-required",
+      "sha256": "a1b98fef7494128b0a914c20e5c57339c28bb58d7932b00153b195f2bedd6f05",
+      "size": 11331,
+      "source_body_availability": "not-present-in-collection",
+      "source_body_reason": "truncated-or-attachment-only-upstream-record-excluded",
+      "title": "Moonshots #273: Hugging Face, Kimi K3, White House AI Bets",
+      "upstream_path": "system-archive/singularity-science/moonshots/analyses/2026-07-24-moonshots-273-hugging-face-breach-kimi-k3-white-house-ai-bets.analysis.md"
+    },
+    {
+      "capture_date": "2026-07-27",
+      "derived_from": [
+        "system-archive/singularity-science/moonshots/source-notes/2026-07-27-moonshots-274-jared-isaacman-uaps-moon-base-mars.source-note.md",
+        "system-archive/singularity-science/moonshots/transcripts/2026-07-27-moonshots-274-jared-isaacman-uaps-moon-base-mars.md"
+      ],
+      "document_type": "analysis",
+      "logical_path": "external-corpora/moonshots/analyses/2026-07-27-moonshots-274-jared-isaacman-uaps-moon-base-mars.analysis.md",
+      "publication_date": null,
+      "rights_policy": "internal-research-only-review-required",
+      "rights_status": "internal-analysis-rights-review-required",
+      "sha256": "8b204495f1d7699788ef17169b352ac2839ce486495dc50420db691da9b62232",
+      "size": 11030,
+      "title": "Moonshots #274: Jared Isaacman, UAPs, Moon Base, Mars",
+      "upstream_path": "system-archive/singularity-science/moonshots/analyses/2026-07-27-moonshots-274-jared-isaacman-uaps-moon-base-mars.analysis.md"
+    },
+    {
+      "capture_date": "2026-07-29",
+      "derived_from": [
+        "system-archive/singularity-science/moonshots/source-notes/2026-07-29-moonshots-275-jensen-huang-open-ai-alliance.source-note.md"
+      ],
+      "document_type": "analysis",
+      "logical_path": "external-corpora/moonshots/analyses/2026-07-29-moonshots-275-jensen-huang-open-ai-alliance.analysis.md",
+      "publication_date": null,
+      "rights_policy": "internal-research-only-review-required",
+      "rights_status": "internal-analysis-rights-review-required",
+      "sha256": "e13d6ed9685bd2e9ae84b4b41eaad9af2a3f84971147996ee82b671c361600f8",
+      "size": 6676,
+      "source_body_availability": "not-present-in-collection",
+      "source_body_reason": "truncated-or-attachment-only-upstream-record-excluded",
+      "title": "Moonshots #275: Jensen Huang and an Open AI Alliance",
+      "upstream_path": "system-archive/singularity-science/moonshots/analyses/2026-07-29-moonshots-275-jensen-huang-open-ai-alliance.analysis.md"
+    },
+    {
+      "capture_date": null,
+      "derived_from": [],
+      "document_type": "template",
+      "logical_path": "external-corpora/moonshots/analysis-template.md",
+      "publication_date": null,
+      "rights_policy": "internal-research-only-review-required",
+      "rights_status": "internal-analysis-rights-review-required",
+      "sha256": "dc6b44c9d9a56ce5cb72165cf24449cb8002beae2c914b3b858d4ebcbaa00f7e",
+      "size": 3475,
+      "title": "Moonshots Analysis Template",
+      "upstream_path": "system-archive/singularity-science/moonshots/analysis-template.md"
+    },
+    {
+      "capture_date": null,
+      "derived_from": [],
+      "document_type": "research-ledger",
+      "logical_path": "external-corpora/moonshots/roi-ledger.md",
+      "publication_date": null,
+      "rights_policy": "internal-research-only-review-required",
+      "rights_status": "internal-analysis-rights-review-required",
+      "sha256": "48e7bb43fc480643d306515dadb2d539058771d4e06a6b895690dea8474a181e",
+      "size": 21090,
+      "title": "Moonshots ROI Ledger",
+      "upstream_path": "system-archive/singularity-science/moonshots/roi-ledger.md"
+    },
+    {
+      "capture_date": null,
+      "derived_from": [],
+      "document_type": "template",
+      "logical_path": "external-corpora/moonshots/source-note-template.md",
+      "publication_date": null,
+      "rights_policy": "internal-research-only-review-required",
+      "rights_status": "internal-analysis-rights-review-required",
+      "sha256": "86092695e9fa5d44c4a239403c6eb39667ea3ccaa7d9537cfb9ad7db22db7d28",
+      "size": 1418,
+      "title": "Moonshots Source Note Template",
+      "upstream_path": "system-archive/singularity-science/moonshots/source-note-template.md"
+    },
+    {
+      "capture_date": "2026-06-09",
+      "derived_from": [
+        "system-archive/singularity-science/moonshots/transcripts/2026-06-09-moonshots-emerging-anthropic-pause-ai-personhood-2026-06-09.md"
+      ],
+      "document_type": "source-note",
+      "logical_path": "external-corpora/moonshots/source-notes/2026-06-09-moonshots-emerging-anthropic-global-pause-recursive-self-improvement-ai-personhood.source-note.md",
+      "publication_date": null,
+      "rights_policy": "internal-research-only-review-required",
+      "rights_status": "internal-commit-approved",
+      "sha256": "be0e98ebd27359c77a0f3d04c090633c4e2c928711bf2adc44c8967f9449d37a",
+      "size": 4648,
+      "title": "Emerging Situation: Anthropic Global Pause, Recursive Self-Improvement, AI Personhood",
+      "upstream_path": "system-archive/singularity-science/moonshots/source-notes/2026-06-09-moonshots-emerging-anthropic-global-pause-recursive-self-improvement-ai-personhood.source-note.md"
+    },
+    {
+      "capture_date": "2026-06-19",
+      "derived_from": [
+        "system-archive/singularity-science/moonshots/transcripts/2026-06-19-moonshots-265-spacex-ipo-anthropic-export-control-2026-06-19.md"
+      ],
+      "document_type": "source-note",
+      "logical_path": "external-corpora/moonshots/source-notes/2026-06-19-moonshots-265-spacex-ipo-anthropic-export-control-openai-ipo-delay.source-note.md",
+      "publication_date": null,
+      "rights_policy": "internal-research-only-review-required",
+      "rights_status": "internal-commit-approved",
+      "sha256": "b6d3dac1c7307bccb493c0aa83df9d7e418fafe10188cb9b44a15f36a72485b9",
+      "size": 4573,
+      "title": "Moonshots #265: SpaceX IPO, Anthropic Export Control, OpenAI IPO Delay",
+      "upstream_path": "system-archive/singularity-science/moonshots/source-notes/2026-06-19-moonshots-265-spacex-ipo-anthropic-export-control-openai-ipo-delay.source-note.md"
+    },
+    {
+      "capture_date": "2026-07-08",
+      "derived_from": [],
+      "document_type": "source-note",
+      "logical_path": "external-corpora/moonshots/source-notes/2026-07-08-moonshots-268-sonnet-5-fable-5-fusion-philip-johnston.source-note.md",
+      "publication_date": null,
+      "rights_policy": "internal-research-only-review-required",
+      "rights_status": "internal-commit-approved",
+      "sha256": "845af0a4bc438f3d795010abb8b165a1ed7440d9be6f5fff608ae4f9a4aa14a7",
+      "size": 4059,
+      "source_body_availability": "not-present-in-collection",
+      "source_body_reason": "truncated-or-attachment-only-upstream-record-excluded",
+      "title": "Moonshots #268: Sonnet 5, Fable 5, Fusion with Philip Johnston",
+      "upstream_path": "system-archive/singularity-science/moonshots/source-notes/2026-07-08-moonshots-268-sonnet-5-fable-5-fusion-philip-johnston.source-note.md"
+    },
+    {
+      "capture_date": "2026-07-08",
+      "derived_from": [
+        "system-archive/singularity-science/moonshots/transcripts/2026-07-08-moonshots-269-claude-conscious-fable-5-government-deal-openai.md"
+      ],
+      "document_type": "source-note",
+      "logical_path": "external-corpora/moonshots/source-notes/2026-07-08-moonshots-269-claude-conscious-fable-5-government-deal-openai.source-note.md",
+      "publication_date": null,
+      "rights_policy": "internal-research-only-review-required",
+      "rights_status": "internal-commit-approved",
+      "sha256": "5603b86e158e3dd4822625578fd18a7227b6e746af00e7a81e888995bb896fc2",
+      "size": 5084,
+      "title": "Moonshots #269: Claude Consciousness, Fable 5, Government and OpenAI",
+      "upstream_path": "system-archive/singularity-science/moonshots/source-notes/2026-07-08-moonshots-269-claude-conscious-fable-5-government-deal-openai.source-note.md"
+    },
+    {
+      "capture_date": "2026-07-19",
+      "derived_from": [
+        "system-archive/singularity-science/moonshots/transcripts/2026-07-19-kimi-k3-delivers-frontier-ai-at-1-percent-of-the-cost-ai-sputnik-moment-emad-mostaque.md"
+      ],
+      "document_type": "source-note",
+      "logical_path": "external-corpora/moonshots/source-notes/2026-07-19-kimi-k3-delivers-frontier-ai-at-1-percent-of-the-cost-ai-sputnik-moment-emad-mostaque.source-note.md",
+      "publication_date": null,
+      "rights_policy": "internal-research-only-review-required",
+      "rights_status": "operator-supplied transcript; reuse and redistribution rights not established",
+      "sha256": "82eac3b6ad696f33483cde52a7bf64c16150e0245b900932034a831ad5952c8a",
+      "size": 3692,
+      "title": "Moonshots #272: Kimi K3 and Emad Mostaque",
+      "upstream_path": "system-archive/singularity-science/moonshots/source-notes/2026-07-19-kimi-k3-delivers-frontier-ai-at-1-percent-of-the-cost-ai-sputnik-moment-emad-mostaque.source-note.md"
+    },
+    {
+      "capture_date": "2026-07-24",
+      "derived_from": [],
+      "document_type": "source-note",
+      "logical_path": "external-corpora/moonshots/source-notes/2026-07-24-moonshots-273-hugging-face-breach-kimi-k3-white-house-ai-bets.source-note.md",
+      "publication_date": null,
+      "rights_policy": "internal-research-only-review-required",
+      "rights_status": "operator-supplied transcript; reuse and redistribution rights not established",
+      "sha256": "7963a25e2017d80696a8f3c363158c46465d0cb8b9e153e7c08814d0ef543ab0",
+      "size": 4366,
+      "source_body_availability": "not-present-in-collection",
+      "source_body_reason": "truncated-or-attachment-only-upstream-record-excluded",
+      "title": "Moonshots #273: Hugging Face, Kimi K3, White House AI Bets",
+      "upstream_path": "system-archive/singularity-science/moonshots/source-notes/2026-07-24-moonshots-273-hugging-face-breach-kimi-k3-white-house-ai-bets.source-note.md"
+    },
+    {
+      "capture_date": "2026-07-27",
+      "derived_from": [
+        "system-archive/singularity-science/moonshots/transcripts/2026-07-27-moonshots-274-jared-isaacman-uaps-moon-base-mars.md"
+      ],
+      "document_type": "source-note",
+      "logical_path": "external-corpora/moonshots/source-notes/2026-07-27-moonshots-274-jared-isaacman-uaps-moon-base-mars.source-note.md",
+      "publication_date": null,
+      "rights_policy": "internal-research-only-review-required",
+      "rights_status": "internal-commit-approved",
+      "sha256": "9a81bebf37fbe584836baa47e25cf2f63e00aa6ec137e0873e5c71a3913f13c1",
+      "size": 5054,
+      "title": "Moonshots #274: Jared Isaacman, UAPs, Moon Base, Mars",
+      "upstream_path": "system-archive/singularity-science/moonshots/source-notes/2026-07-27-moonshots-274-jared-isaacman-uaps-moon-base-mars.source-note.md"
+    },
+    {
+      "capture_date": "2026-07-29",
+      "derived_from": [],
+      "document_type": "source-note",
+      "logical_path": "external-corpora/moonshots/source-notes/2026-07-29-moonshots-275-jensen-huang-open-ai-alliance.source-note.md",
+      "publication_date": null,
+      "rights_policy": "internal-research-only-review-required",
+      "rights_status": "operator-supplied transcript; internal analysis only; reuse and quotation not cleared",
+      "sha256": "739a31f76e8e1159d35eab1d44ec87d634e6db03e09a3c148eed2a10d078e14b",
+      "size": 4064,
+      "source_body_availability": "not-present-in-collection",
+      "source_body_reason": "truncated-or-attachment-only-upstream-record-excluded",
+      "title": "Moonshots #275: Jensen Huang and an Open AI Alliance",
+      "upstream_path": "system-archive/singularity-science/moonshots/source-notes/2026-07-29-moonshots-275-jensen-huang-open-ai-alliance.source-note.md"
+    },
+    {
+      "body_status": "body-present",
+      "capture_date": "2026-06-09",
+      "completeness_basis": "substantial-body-with-natural-ending",
+      "completeness_status": "not-independently-verified",
+      "derived_from": [],
+      "document_type": "transcript",
+      "logical_path": "external-corpora/moonshots/transcripts/2026-06-09-moonshots-emerging-anthropic-pause-ai-personhood-2026-06-09.md",
+      "publication_date": null,
+      "rights_policy": "internal-research-only-review-required",
+      "rights_status": "internal-commit-approved",
+      "sha256": "a461276b0a13e2c7a0bbab1722b689242dc173042b6ee79fbcb588a21975e75d",
+      "size": 69029,
+      "title": "Emerging Situation: Anthropic Global Pause, Recursive Self-Improvement, AI Personhood",
+      "upstream_path": "system-archive/singularity-science/moonshots/transcripts/2026-06-09-moonshots-emerging-anthropic-pause-ai-personhood-2026-06-09.md"
+    },
+    {
+      "body_status": "body-present",
+      "capture_date": "2026-06-19",
+      "completeness_basis": "substantial-body-with-natural-ending",
+      "completeness_status": "not-independently-verified",
+      "derived_from": [],
+      "document_type": "transcript",
+      "logical_path": "external-corpora/moonshots/transcripts/2026-06-19-moonshots-265-spacex-ipo-anthropic-export-control-2026-06-19.md",
+      "publication_date": null,
+      "rights_policy": "internal-research-only-review-required",
+      "rights_status": "internal-commit-approved",
+      "sha256": "abb2bf428d140354f30803faa90cbf97f60b521540fc4853713bd3822dc2961f",
+      "size": 118884,
+      "title": "Moonshots #265: SpaceX IPO, Anthropic Export Control, OpenAI IPO Delay",
+      "upstream_path": "system-archive/singularity-science/moonshots/transcripts/2026-06-19-moonshots-265-spacex-ipo-anthropic-export-control-2026-06-19.md"
+    },
+    {
+      "body_status": "body-present",
+      "capture_date": "2026-07-08",
+      "completeness_basis": "substantial-body-with-natural-ending",
+      "completeness_status": "not-independently-verified",
+      "derived_from": [],
+      "document_type": "transcript",
+      "logical_path": "external-corpora/moonshots/transcripts/2026-07-08-moonshots-269-claude-conscious-fable-5-government-deal-openai.md",
+      "publication_date": null,
+      "rights_policy": "internal-research-only-review-required",
+      "rights_status": "internal-commit-approved",
+      "sha256": "7912ba2497094053c9114e2556b79da3fd2e421f72e9fc0eee76e54f8b1731b7",
+      "size": 104198,
+      "title": "Moonshots #269: Claude Consciousness, Fable 5, Government and OpenAI",
+      "upstream_path": "system-archive/singularity-science/moonshots/transcripts/2026-07-08-moonshots-269-claude-conscious-fable-5-government-deal-openai.md"
+    },
+    {
+      "body_status": "body-present",
+      "capture_date": "2026-07-19",
+      "completeness_basis": "substantial-body-with-natural-ending",
+      "completeness_status": "not-independently-verified",
+      "derived_from": [],
+      "document_type": "transcript",
+      "logical_path": "external-corpora/moonshots/transcripts/2026-07-19-kimi-k3-delivers-frontier-ai-at-1-percent-of-the-cost-ai-sputnik-moment-emad-mostaque.md",
+      "publication_date": null,
+      "rights_policy": "internal-research-only-review-required",
+      "rights_status": "operator-supplied transcript; reuse and redistribution rights not established",
+      "sha256": "3f5be54e433f9c02258e4a23f51e126295b5c0ec88a4eaf290720c2c99e8e8a7",
+      "size": 128176,
+      "title": "Moonshots #272: Kimi K3 and Emad Mostaque",
+      "upstream_path": "system-archive/singularity-science/moonshots/transcripts/2026-07-19-kimi-k3-delivers-frontier-ai-at-1-percent-of-the-cost-ai-sputnik-moment-emad-mostaque.md"
+    },
+    {
+      "body_status": "body-present",
+      "capture_date": "2026-07-27",
+      "completeness_basis": "substantial-body-with-natural-ending",
+      "completeness_status": "not-independently-verified",
+      "derived_from": [],
+      "document_type": "transcript",
+      "logical_path": "external-corpora/moonshots/transcripts/2026-07-27-moonshots-274-jared-isaacman-uaps-moon-base-mars.md",
+      "publication_date": null,
+      "rights_policy": "internal-research-only-review-required",
+      "rights_status": "internal-commit-approved",
+      "sha256": "fead8ce5f502d24381a4c446d9a85923f667f8ea36e184bc6e054d78c2c5edf0",
+      "size": 95459,
+      "title": "Moonshots #274: Jared Isaacman, UAPs, Moon Base, Mars",
+      "upstream_path": "system-archive/singularity-science/moonshots/transcripts/2026-07-27-moonshots-274-jared-isaacman-uaps-moon-base-mars.md"
+    }
+  ],
+  "excluded_paths": [
+    {
+      "reason": "truncated transcript excerpt excluded by reviewed boundary",
+      "sha256": "1e28e6c3d60837eb46d1f7c98b7398b76c7b7f810ffa0e960eabf1c138f4b10b",
+      "size": 4520,
+      "upstream_path": "system-archive/singularity-science/moonshots/transcripts/2026-07-08-moonshots-268-sonnet-5-fable-5-fusion-philip-johnston.md"
+    },
+    {
+      "reason": "attachment-only transcript wrapper excluded by reviewed boundary",
+      "sha256": "777141626f986bdfb3622dfa8fb5bc5a534a91ab8daff6c965ae529c7e5e05a7",
+      "size": 845,
+      "upstream_path": "system-archive/singularity-science/moonshots/transcripts/2026-07-24-moonshots-273-hugging-face-breach-kimi-k3-white-house-ai-bets.md"
+    },
+    {
+      "reason": "attachment-only transcript wrapper excluded by reviewed boundary",
+      "sha256": "afcdcbbf90a16382487a6833acdca6f11f268852827c647f4e1394f4caadbbe1",
+      "size": 1503,
+      "upstream_path": "system-archive/singularity-science/moonshots/transcripts/2026-07-29-moonshots-275-jensen-huang-open-ai-alliance.md"
+    }
+  ],
+  "imported_at": "2026-08-11",
+  "object_byte_count": 683276,
+  "reference_aliases": [
+    {
+      "allowed_source_prefix": "projects/singularity-science/moonshots-272-",
+      "allowed_target_prefix": "system-archive/singularity-science/moonshots/",
+      "from_prefix": "projects/singularity-science/archive/moonshots/",
+      "id": "moonshots-historical-archive-relocation-v1",
+      "relation_type": "derived_from",
+      "scope": "lineage-resolution-only",
+      "status": "reviewed-historical-relocation",
+      "to_prefix": "system-archive/singularity-science/moonshots/"
+    }
+  ],
+  "schema_version": 2,
+  "source_commit": "940f354e00e2f49af2f340dd4ef1c1bc6e8ded77",
+  "source_prefix": "system-archive/singularity-science/moonshots",
+  "source_repository": "https://github.com/rbtkhn/anyang-intelligence",
+  "source_unavailable_secondary_records": 6
+}

@@ -6,6 +6,7 @@ import hashlib
 import io
 import json
 import os
+import posixpath
 import re
 import shutil
 import sqlite3
@@ -148,13 +149,14 @@ def discover_journal(collection: Mapping[str,Any]) -> Iterator[tuple[RecordInput
 
 def external_manifest(collection: Mapping[str,Any]) -> dict[str,Any]:
     registry_path=REPO_ROOT/str(collection["registry_path"]); manifest=load_json(registry_path); documents=manifest.get("documents")
-    if manifest.get("schema_version")!=1 or manifest.get("collection_id")!=collection.get("id") or not isinstance(documents,list):
+    version=manifest.get("schema_version")
+    if version not in {1,2} or manifest.get("collection_id")!=collection.get("id") or not isinstance(documents,list):
         raise ArchiveError("invalid external corpus manifest")
     if manifest.get("source_repository")!=collection.get("source_repository") or manifest.get("source_commit")!=collection.get("source_commit"):
         raise ArchiveError("external corpus provenance differs from collection registry")
     if manifest.get("document_count")!=len(documents) or manifest.get("document_count")!=collection.get("expected_records"):
         raise ArchiveError("external corpus document count mismatch")
-    seen=set()
+    seen=set(); logical_seen=set()
     required=("upstream_path","sha256","size","document_type","rights_status")
     for document in documents:
         if not isinstance(document,dict) or any(field not in document for field in required): raise ArchiveError("external corpus document is incomplete")
@@ -163,11 +165,44 @@ def external_manifest(collection: Mapping[str,Any]) -> dict[str,Any]:
         seen.add(upstream)
         if not isinstance(document["size"],int) or document["size"]<0: raise ArchiveError(f"invalid external corpus size: {upstream}")
         if not re.fullmatch(r"[0-9a-f]{64}",str(document["sha256"])): raise ArchiveError(f"invalid external corpus digest: {upstream}")
+        if version==2:
+            logical=safe_logical_path(str(document.get("logical_path","")))
+            logical_root=safe_logical_path(str(collection.get("logical_root",""))).rstrip("/")+"/"
+            if not logical.startswith(logical_root): raise ArchiveError(f"external corpus logical path escapes collection root: {logical}")
+            if logical in logical_seen: raise ArchiveError(f"duplicate external corpus logical path: {logical}")
+            logical_seen.add(logical)
         references=document.get("derived_from",[])
         if not isinstance(references,list) or any(not isinstance(item,str) for item in references): raise ArchiveError(f"invalid external corpus lineage: {upstream}")
     for document in documents:
         for target in document.get("derived_from",[]):
             if safe_logical_path(target) not in seen: raise ArchiveError(f"unresolved external corpus lineage target: {target}")
+    if version==2:
+        if manifest.get("object_byte_count")!=sum(int(row["size"]) for row in documents): raise ArchiveError("external corpus object byte count mismatch")
+        exclusions=manifest.get("excluded_paths",[]); auxiliary=manifest.get("auxiliary_paths",[]); aliases=manifest.get("reference_aliases",[])
+        if not isinstance(exclusions,list) or not isinstance(auxiliary,list) or not isinstance(aliases,list): raise ArchiveError("invalid external corpus v2 path controls")
+        excluded_paths=[]
+        for exclusion in exclusions:
+            if not isinstance(exclusion,dict) or any(field not in exclusion for field in ("upstream_path","sha256","size","reason")): raise ArchiveError("invalid external corpus exclusions")
+            excluded=safe_logical_path(str(exclusion["upstream_path"])); excluded_paths.append(excluded)
+            if not isinstance(exclusion["size"],int) or exclusion["size"]<0 or not re.fullmatch(r"[0-9a-f]{64}",str(exclusion["sha256"])) or not str(exclusion["reason"]).strip(): raise ArchiveError("invalid external corpus exclusions")
+        if len(set(excluded_paths))!=len(excluded_paths) or set(excluded_paths)&seen: raise ArchiveError("invalid external corpus exclusions")
+        auxiliary_paths=[safe_logical_path(str(item)) for item in auxiliary]
+        if len(set(auxiliary_paths))!=len(auxiliary_paths) or any(item not in seen for item in auxiliary_paths): raise ArchiveError("invalid external corpus auxiliary paths")
+        source_prefix=safe_logical_path(str(manifest.get("source_prefix",""))).rstrip("/")+"/"
+        outside_prefix={item for item in seen if not item.startswith(source_prefix)}
+        if outside_prefix!=set(auxiliary_paths): raise ArchiveError("external corpus documents differ from auxiliary allowlist")
+        alias_ids=set()
+        for alias in aliases:
+            if not isinstance(alias,dict) or alias.get("scope")!="lineage-resolution-only" or alias.get("relation_type")!="derived_from": raise ArchiveError("invalid external corpus reference alias")
+            alias_id=str(alias.get("id","")); source=safe_logical_path(str(alias.get("from_prefix",""))).rstrip("/")+"/"; target=safe_logical_path(str(alias.get("to_prefix",""))).rstrip("/")+"/"
+            allowed_source=safe_logical_path(str(alias.get("allowed_source_prefix",""))); allowed_target=safe_logical_path(str(alias.get("allowed_target_prefix",""))).rstrip("/")+"/"
+            if not alias_id or alias_id in alias_ids or source==target or not allowed_source or not allowed_target: raise ArchiveError("invalid external corpus reference alias")
+            alias_ids.add(alias_id)
+        for document in documents:
+            receipts=document.get("lineage_resolution_receipts",[])
+            if not isinstance(receipts,list): raise ArchiveError(f"invalid lineage resolution receipts: {document['upstream_path']}")
+            for receipt in receipts:
+                if not isinstance(receipt,dict) or receipt.get("alias_id") not in alias_ids or safe_logical_path(str(receipt.get("resolved_target",""))) not in set(document.get("derived_from",[])): raise ArchiveError(f"invalid lineage resolution receipt: {document['upstream_path']}")
     return manifest
 
 
@@ -186,11 +221,13 @@ def external_source_root(collection: Mapping[str,Any],source_root: Path | None) 
 
 def external_record_id(collection: Mapping[str,Any],upstream_path: str) -> str:
     identity=f"{collection['source_repository']}@{collection['source_commit']}:{upstream_path}"
-    return stable_record_id("SAR-IL",identity)
+    prefix=str(collection.get("record_id_prefix","SAR-IL"))
+    if not re.fullmatch(r"SAR-[A-Z0-9]{2,8}",prefix): raise ArchiveError(f"invalid external corpus record id prefix: {prefix}")
+    return stable_record_id(prefix,identity)
 
 
-def discover_external_corpus(collection: Mapping[str,Any],source_root: Path | None) -> Iterator[tuple[RecordInput,Path]]:
-    manifest=external_manifest(collection); root=external_source_root(collection,source_root); documents=manifest["documents"]
+def discover_external_corpus_v1(collection: Mapping[str,Any],manifest: Mapping[str,Any],source_root: Path | None) -> Iterator[tuple[RecordInput,Path]]:
+    root=external_source_root(collection,source_root); documents=manifest["documents"]
     expected={safe_logical_path(str(row["upstream_path"])) for row in documents}; source_prefix=safe_logical_path(str(manifest["source_prefix"]))
     lane_root=(root/source_prefix).resolve()
     if not lane_root.is_dir(): raise ArchiveError(f"missing external corpus source prefix: {source_prefix}")
@@ -213,7 +250,55 @@ def discover_external_corpus(collection: Mapping[str,Any],source_root: Path | No
         yield RecordInput(external_record_id(collection,upstream),str(document["document_type"]),logical,str(collection["id"]),authority,str(collection["evidence_class"]),"external-repository",f"{collection['source_repository']}@{collection['source_commit']}",observed,day_timestamp(str(publication)) if publication else None,None,metadata,body.decode("utf-8",errors="replace")),path
 
 
-def discover(collections: Sequence[Mapping[str,Any]],source_root: Path | None=None) -> Iterator[tuple[RecordInput,Path]]:
+def git_object_bytes(root: Path,commit: str,path: str) -> bytes:
+    result=subprocess.run(["git","-c",f"safe.directory={root.as_posix()}","-C",str(root),"cat-file","blob",f"{commit}:{path}"],capture_output=True)
+    if result.returncode: raise ArchiveError(f"missing external corpus git object: {path}")
+    return result.stdout
+
+
+def discover_external_corpus_v2(collection: Mapping[str,Any],manifest: Mapping[str,Any],source_root: Path | None) -> Iterator[tuple[RecordInput,bytes]]:
+    root=external_source_root(collection,source_root); documents=manifest["documents"]; commit=str(collection["source_commit"])
+    source_prefix=safe_logical_path(str(manifest["source_prefix"])); prefix=source_prefix.rstrip("/")+"/"
+    result=subprocess.run(["git","-c",f"safe.directory={root.as_posix()}","-C",str(root),"ls-tree","-r","--name-only",commit,"--",source_prefix],capture_output=True,text=True)
+    if result.returncode: raise ArchiveError("could not enumerate external corpus git tree")
+    actual={item for item in result.stdout.splitlines() if item and not item.endswith("/.gitkeep")}
+    canonical={safe_logical_path(str(row["upstream_path"])) for row in documents if str(row["upstream_path"]).startswith(prefix)}
+    excluded={safe_logical_path(str(row["upstream_path"])) for row in manifest.get("excluded_paths",[])}
+    missing=sorted((canonical|excluded)-actual); unexpected=sorted(actual-(canonical|excluded))
+    if missing: raise ArchiveError(f"missing external corpus paths: {', '.join(missing[:5])}")
+    if unexpected: raise ArchiveError(f"unexpected external corpus paths: {', '.join(unexpected[:5])}")
+    observed=day_timestamp(str(manifest["imported_at"])); authority=str(collection["authority_owner"]); aliases={str(row["id"]):row for row in manifest.get("reference_aliases",[])}
+    for exclusion in manifest.get("excluded_paths",[]):
+        upstream=safe_logical_path(str(exclusion["upstream_path"])); body=git_object_bytes(root,commit,upstream)
+        if len(body)!=exclusion["size"] or sha256_bytes(body)!=exclusion["sha256"]: raise ArchiveError(f"external corpus exclusion hash mismatch: {upstream}")
+    for document in documents:
+        upstream=safe_logical_path(str(document["upstream_path"])); body=git_object_bytes(root,commit,upstream)
+        if len(body)!=document["size"] or sha256_bytes(body)!=document["sha256"]: raise ArchiveError(f"external corpus hash mismatch: {upstream}")
+        text=body.decode("utf-8",errors="replace")
+        for receipt in document.get("lineage_resolution_receipts",[]):
+            original=str(receipt["original_reference"]); alias=aliases[str(receipt["alias_id"])]
+            if original not in text: raise ArchiveError(f"lineage receipt reference absent from source: {upstream}")
+            normalized=safe_logical_path(str(receipt["normalized_original_path"])); from_prefix=safe_logical_path(str(alias["from_prefix"])).rstrip("/")+"/"; to_prefix=safe_logical_path(str(alias["to_prefix"])).rstrip("/")+"/"
+            expected_normalized=safe_logical_path(posixpath.normpath(posixpath.join(posixpath.dirname(upstream),original)))
+            allowed_source=safe_logical_path(str(alias["allowed_source_prefix"])); allowed_target=safe_logical_path(str(alias["allowed_target_prefix"])).rstrip("/")+"/"
+            if normalized!=expected_normalized or not upstream.startswith(allowed_source) or not normalized.startswith(from_prefix): raise ArchiveError(f"lineage receipt is outside alias source: {upstream}")
+            resolved=to_prefix+normalized[len(from_prefix):]
+            if resolved!=safe_logical_path(str(receipt["resolved_target"])) or not resolved.startswith(allowed_target): raise ArchiveError(f"lineage receipt target mismatch: {upstream}")
+        publication=document.get("publication_date")
+        metadata={"title":document.get("title"),"document_type":document["document_type"],"genre":collection.get("genre"),"upstream_path":upstream,"source_repository":collection["source_repository"],"source_commit":collection["source_commit"],"rights_status":document["rights_status"],"rights_policy":document.get("rights_policy"),"retrieval_policy":collection.get("retrieval_policy"),"hydration_policy":collection.get("hydration_policy"),"body_status":document.get("body_status"),"completeness_status":document.get("completeness_status"),"source_body_availability":document.get("source_body_availability"),"may_promote":False,"may_quote":False,"may_republish":False,"may_route_to_customer":False,"manifest":str(collection["registry_path"])}
+        yield RecordInput(external_record_id(collection,upstream),str(document["document_type"]),safe_logical_path(str(document["logical_path"])),str(collection["id"]),authority,str(collection["evidence_class"]),"external-repository",f"{collection['source_repository']}@{collection['source_commit']}",observed,day_timestamp(str(publication)) if publication else None,None,metadata,text),body
+
+
+def discover_external_corpus(collection: Mapping[str,Any],source_root: Path | None) -> Iterator[tuple[RecordInput,Path|bytes]]:
+    manifest=external_manifest(collection)
+    if manifest["schema_version"]==1: yield from discover_external_corpus_v1(collection,manifest,source_root)
+    else: yield from discover_external_corpus_v2(collection,manifest,source_root)
+
+
+def read_discovered_body(source: Path|bytes) -> bytes: return source if isinstance(source,bytes) else source.read_bytes()
+
+
+def discover(collections: Sequence[Mapping[str,Any]],source_root: Path | None=None) -> Iterator[tuple[RecordInput,Path|bytes]]:
     for collection in collections:
         if collection.get("kind")=="narrative-geopolitics-source-manifest": yield from discover_archive(collection)
         elif collection.get("kind")=="mira-session-registry": yield from discover_mira(collection)
@@ -226,7 +311,7 @@ def inventory(collections: Sequence[Mapping[str,Any]],source_root: Path | None=N
     counts={}; total=0; digest=hashlib.sha256(); seen=set()
     for record,path in discover(collections,source_root):
         if record.logical_path in seen: raise ArchiveError(f"duplicate collection logical path: {record.logical_path}")
-        seen.add(record.logical_path); body=path.read_bytes(); counts[record.collection_id]=counts.get(record.collection_id,0)+1; total+=len(body); digest.update(canonical_json([record.logical_path,sha256_bytes(body),len(body)]).encode()+b"\n")
+        seen.add(record.logical_path); body=read_discovered_body(path); counts[record.collection_id]=counts.get(record.collection_id,0)+1; total+=len(body); digest.update(canonical_json([record.logical_path,sha256_bytes(body),len(body)]).encode()+b"\n")
     return {"collections":counts,"records":sum(counts.values()),"original_bytes":total,"inventory_sha256":digest.hexdigest()}
 
 
@@ -241,7 +326,12 @@ def add_external_corpus_lineage(connection: sqlite3.Connection,collection: Mappi
             target_id=external_record_id(collection,target_path); target_version=connection.execute("SELECT MAX(version) FROM records WHERE record_id=?",(target_id,)).fetchone()[0]
             if target_version is None: raise ArchiveError(f"missing external lineage target: {target_path}")
             before=connection.execute("SELECT COUNT(*) FROM edges").fetchone()[0]
-            add_edge(connection,source=(source_id,int(source_version)),target=(target_id,int(target_version)),relation_type="derived_from",metadata={"manifest":str(collection["registry_path"])})
+            metadata={"manifest":str(collection["registry_path"])}
+            if manifest.get("schema_version")==2:
+                receipt=next((row for row in document.get("lineage_resolution_receipts",[]) if row.get("resolved_target")==target_path),None)
+                metadata={**metadata,"resolution":"reviewed-historical-relocation" if receipt else "literal"}
+                if receipt: metadata.update({"alias_id":receipt["alias_id"],"original_reference":receipt["original_reference"]})
+            add_edge(connection,source=(source_id,int(source_version)),target=(target_id,int(target_version)),relation_type="derived_from",metadata=metadata)
             added+=int(connection.execute("SELECT COUNT(*) FROM edges").fetchone()[0]>before)
     return added
 
@@ -310,7 +400,7 @@ def ingest_command(args: argparse.Namespace) -> dict[str,Any]:
     archive=store(create=True); added=unchanged=0
     with archive.connect(create=True) as connection:
         for record,path in discover(collections,args.source_root):
-            _,changed,_=ingest_record(connection,archive,record,path.read_bytes()); added+=int(changed); unchanged+=int(not changed)
+            _,changed,_=ingest_record(connection,archive,record,read_discovered_body(path)); added+=int(changed); unchanged+=int(not changed)
         lineage_edges=add_journal_lineage(connection) if any(row.get("id")=="mira-journal" for row in collections) else 0
         for collection in collections:
             if collection.get("kind")=="external-corpus-manifest": lineage_edges+=add_external_corpus_lineage(connection,collection)
