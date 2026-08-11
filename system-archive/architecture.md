@@ -23,3 +23,8 @@ Experiments remain noncanonical until promotion and cannot automatically alter
 instructions, skills, belief, authority, or Mira identity. Later stages add
 external replay adapters, multimodal derivations, governed learning experiments,
 and federated portable memory.
+
+Mira Daily Journal records are an explicit-only collection with evidence class
+autobiographical-interpretation. Their provenance edges may point to Continuity
+records and repository events, but graph traversal never transfers the source
+node's authority or converts a reflection into corroboration.

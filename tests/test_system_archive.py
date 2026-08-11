@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import gzip
 import sqlite3
 import sys
 from pathlib import Path
@@ -71,3 +72,240 @@ def test_context_is_deterministic_and_replay_is_nonexecuting(tmp_path: Path, mon
     assert not args.output.exists(); args.check = False; assert system_archive.context_command(args)["status"] == "written"
     replay = system_archive.replay_command(SimpleNamespace(task=task, output=output_root / "replay.json", as_of="2026-02-01T00:00:00Z", context_pack="CP-example", check=True))["replay_plan"]
     assert (replay["execution"], replay["canonical_effect"]) == ("external-only", "none")
+
+
+def test_mira_journal_collection_is_explicit_only_and_non_evidentiary(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    repo = tmp_path / "repo"
+    journal_root = repo / "mira" / "journal"
+    journal_root.mkdir(parents=True)
+    body = b"# 2026-08-09 - A governed memory\n\nI remember this bounded reflection.\n"
+    (journal_root / "2026-08-09.md").write_bytes(body)
+    registry = {
+        "authority_boundary": "not evidence",
+        "namespace_boundary": "MJ and JRN remain separate",
+        "entries": [
+            {
+                "journal_id": "MJ-20260809",
+                "entry_date": "2026-08-09",
+                "current_path": "mira/journal/2026-08-09.md",
+                "versions": [
+                    {
+                        "version_id": "MJ-20260809-v1",
+                        "content_sha256": system_archive.sha256_bytes(body),
+                        "title": "A governed memory",
+                        "word_count": 6,
+                        "author": {"model_id": "test-model"},
+                        "approval": {"approved_at": "2026-08-09T18:00:00Z"},
+                    }
+                ],
+            }
+        ],
+    }
+    (repo / "mira" / "journal-registry.json").write_text(json.dumps(registry), encoding="utf-8")
+    collection = {
+        "id": "mira-journal",
+        "kind": "mira-journal-registry",
+        "registry_path": "mira/journal-registry.json",
+        "authority_owner": "mira/journal-registry.json",
+        "evidence_class": "autobiographical-interpretation",
+        "retrieval_policy": "explicit-only",
+    }
+    monkeypatch.setattr(system_archive, "REPO_ROOT", repo)
+    discovered = list(system_archive.discover_journal(collection))
+    record_input, path = discovered[0]
+    assert path.read_bytes() == body
+    assert record_input.evidence_class == "autobiographical-interpretation"
+    assert record_input.metadata["may_promote"] is False
+    monkeypatch.setattr(
+        system_archive,
+        "collection_map",
+        lambda: {
+            "ordinary": {"id": "ordinary"},
+            "mira-journal": collection,
+        },
+    )
+    assert [row["id"] for row in system_archive.selected_collections([])] == ["ordinary"]
+    assert [row["id"] for row in system_archive.selected_collections(["mira-journal"])] == ["mira-journal"]
+
+
+def test_journal_lineage_links_sources_and_exact_approval(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    repo = tmp_path / "repo"
+    capture_path = repo / "mira" / "continuity" / "captures" / "capture.jsonl.gz"
+    capture_path.parent.mkdir(parents=True)
+    source_record = "MR-" + "a" * 24
+    approval_record = "MR-" + "b" * 24
+    capture_id = "MC-" + "c" * 24
+    rows = [
+        {"record_id": source_record, "kind": "message", "role": "assistant"},
+        {"record_id": approval_record, "kind": "message", "role": "user"},
+    ]
+    capture_path.write_bytes(gzip.compress(("\n".join(json.dumps(row) for row in rows) + "\n").encode()))
+    (repo / "mira" / "continuity" / "session-registry.json").write_text(
+        json.dumps(
+            {
+                "sessions": [
+                    {
+                        "captures": [
+                            {"id": capture_id, "path": "mira/continuity/captures/capture.jsonl.gz"}
+                        ]
+                    }
+                ]
+            }
+        ),
+        encoding="utf-8",
+    )
+    (repo / "mira" / "journal-registry.json").write_text(
+        json.dumps(
+            {
+                "entries": [
+                    {
+                        "versions": [
+                            {
+                                "version_id": "MJ-20260809-v1",
+                                "source_refs": [
+                                    {
+                                        "kind": "mira-session-records",
+                                        "record_ids": [source_record],
+                                    }
+                                ],
+                                "approval": {"record_ref": approval_record},
+                            }
+                        ]
+                    }
+                ]
+            }
+        ),
+        encoding="utf-8",
+    )
+    archive = ArtifactStore(tmp_path / "external", repo, create=True)
+    monkeypatch.setattr(system_archive, "REPO_ROOT", repo)
+    with archive.connect(create=True) as connection:
+        capture_input = RecordInput(
+            capture_id, "session-capture", "mira/continuity/captures/capture.jsonl.gz",
+            "mira-continuity", "registry", "continuity-evidence", "agent-session",
+            "session", "2026-08-09T18:00:00Z", None, None, {}, "source"
+        )
+        journal_input = RecordInput(
+            "MJ-20260809-v1", "journal-entry", "mira/journal/2026-08-09.md",
+            "mira-journal", "registry", "autobiographical-interpretation", "model",
+            "model", "2026-08-09T18:00:00Z", None, None, {}, "reflection"
+        )
+        ingest_record(connection, archive, capture_input, capture_path.read_bytes())
+        ingest_record(connection, archive, journal_input, b"reflection")
+        assert system_archive.add_journal_lineage(connection) == 2
+        relations = {
+            row[0] for row in connection.execute("SELECT relation_type FROM edges")
+        }
+        assert relations == {"derived_from", "collection:mira-journal:approved_by"}
+
+
+def test_innermost_loop_manifest_is_pinned_and_complete() -> None:
+    manifest = json.loads(
+        (Path(__file__).resolve().parent.parent / "system-archive" / "registries" / "innermost-loop.json").read_text(encoding="utf-8")
+    )
+    assert manifest["source_commit"] == "940f354e00e2f49af2f340dd4ef1c1bc6e8ded77"
+    assert manifest["document_count"] == len(manifest["documents"]) == 193
+    counts: dict[str, int] = {}
+    for document in manifest["documents"]:
+        counts[document["document_type"]] = counts.get(document["document_type"], 0) + 1
+        assert document["rights_status"] == "internal-analysis-rights-review-required"
+        assert len(document["sha256"]) == 64
+    assert counts == {
+        "analysis": 5,
+        "archive-readme": 1,
+        "research-ledger": 1,
+        "source-note": 5,
+        "template": 2,
+        "transcript": 179,
+    }
+
+
+def test_external_corpus_discovery_preserves_bytes_and_boundaries(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    source_root = tmp_path / "anyang"
+    upstream = "system-archive/singularity-science/innermost-loop/transcripts/2026-01-02-example.md"
+    body = b"# Example\n\nFrontier AI source material.\n"
+    path = source_root / upstream
+    path.parent.mkdir(parents=True)
+    path.write_bytes(body)
+    manifest = {
+        "schema_version": 1,
+        "collection_id": "innermost-loop",
+        "source_repository": "https://example.test/anyang",
+        "source_commit": "a" * 40,
+        "source_prefix": "system-archive/singularity-science/innermost-loop",
+        "imported_at": "2026-08-10",
+        "document_count": 1,
+        "documents": [{
+            "upstream_path": upstream,
+            "sha256": system_archive.sha256_bytes(body),
+            "size": len(body),
+            "document_type": "transcript",
+            "publication_date": "2026-01-02",
+            "title": "Example",
+            "rights_status": "internal-analysis-rights-review-required",
+            "derived_from": [],
+        }],
+    }
+    collection = {
+        "id": "innermost-loop",
+        "registry_path": "registry.json",
+        "authority_owner": "registry.json",
+        "evidence_class": "frontier-ai-research-source",
+        "genre": "frontier-ai-and-technology",
+        "retrieval_policy": "explicit-only",
+        "source_repository": manifest["source_repository"],
+        "source_commit": manifest["source_commit"],
+    }
+    monkeypatch.setattr(system_archive, "external_manifest", lambda _: manifest)
+    monkeypatch.setattr(system_archive, "external_source_root", lambda _collection, _root: source_root)
+    record_input, discovered_path = list(system_archive.discover_external_corpus(collection, source_root))[0]
+    assert discovered_path.read_bytes() == body
+    assert record_input.logical_path == "external-corpora/innermost-loop/transcripts/2026-01-02-example.md"
+    assert record_input.evidence_class == "frontier-ai-research-source"
+    assert record_input.metadata["may_promote"] is False
+    path.write_bytes(body + b"changed")
+    with pytest.raises(ArchiveError, match="hash mismatch"):
+        list(system_archive.discover_external_corpus(collection, source_root))
+
+
+def test_external_corpus_hydration_is_disabled(monkeypatch: pytest.MonkeyPatch) -> None:
+    collection = {"id": "innermost-loop", "hydration_policy": "disabled"}
+    monkeypatch.setattr(system_archive, "collection_map", lambda: {"innermost-loop": collection})
+    with pytest.raises(ArchiveError, match="hydration disabled"):
+        system_archive.hydrate_command(SimpleNamespace(collection=["innermost-loop"], check=True))
+
+
+def test_external_corpus_lineage_is_neutral_and_idempotent(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    repo = tmp_path / "repo"; repo.mkdir(); archive = ArtifactStore(tmp_path / "external", repo, create=True)
+    collection = {
+        "id": "innermost-loop",
+        "registry_path": "registry.json",
+        "source_repository": "https://example.test/anyang",
+        "source_commit": "a" * 40,
+    }
+    analysis_path = "lane/analysis.md"; transcript_path = "lane/transcript.md"
+    manifest = {"documents": [
+        {"upstream_path": analysis_path, "derived_from": [transcript_path]},
+        {"upstream_path": transcript_path, "derived_from": []},
+    ]}
+    monkeypatch.setattr(system_archive, "external_manifest", lambda _: manifest)
+    with archive.connect(create=True) as connection:
+        for upstream in (analysis_path, transcript_path):
+            item = RecordInput(
+                system_archive.external_record_id(collection, upstream), "source", upstream,
+                "innermost-loop", "registry.json", "frontier-ai-research-source",
+                "external-repository", "fixture", "2026-08-10T00:00:00Z", None, None, {}, upstream,
+            )
+            ingest_record(connection, archive, item, upstream.encode())
+        assert system_archive.add_external_corpus_lineage(connection, collection) == 1
+        assert system_archive.add_external_corpus_lineage(connection, collection) == 0
+        relation = connection.execute("SELECT relation_type FROM edges").fetchone()[0]
+        assert relation == "derived_from"

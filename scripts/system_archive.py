@@ -15,7 +15,7 @@ import time
 from pathlib import Path
 from typing import Any, Iterator, Mapping, Sequence
 
-from system_archive_store import ArchiveError, ArtifactStore, RecordInput, canonical_json, catalog_counts, catalog_fingerprint, ingest_record, iter_active_records, parse_time, safe_logical_path, sha256_bytes, verify_derivation_acyclic
+from system_archive_store import ArchiveError, ArtifactStore, RecordInput, add_edge, canonical_json, catalog_counts, catalog_fingerprint, ingest_record, iter_active_records, parse_time, safe_logical_path, sha256_bytes, verify_derivation_acyclic
 
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
@@ -72,8 +72,13 @@ def collection_map() -> dict[str,dict[str,Any]]:
     return result
 
 
-def selected_collections(values: Sequence[str]) -> list[dict[str,Any]]:
-    available=collection_map(); selected=list(values) if values else list(available); unknown=sorted(set(selected)-set(available))
+def selected_collections(values: Sequence[str], *, include_explicit_default: bool=False) -> list[dict[str,Any]]:
+    available=collection_map()
+    selected=list(values) if values else [
+        identifier for identifier,row in available.items()
+        if include_explicit_default or row.get("retrieval_policy")!="explicit-only"
+    ]
+    unknown=sorted(set(selected)-set(available))
     if unknown: raise ArchiveError(f"unknown collection(s): {', '.join(unknown)}")
     return [available[item] for item in selected]
 
@@ -116,29 +121,200 @@ def discover_mira(collection: Mapping[str,Any]) -> Iterator[tuple[RecordInput,Pa
             yield RecordInput(str(capture.get("id")),"session-capture",logical,str(collection["id"]),str(collection["authority_owner"]),str(collection["evidence_class"]),"agent-session",str(session.get("id")),str(capture.get("observed_at")),str(session.get("started_at")),str(session.get("last_observed_at")),{"session_id":session.get("id"),"codex_session_id":session.get("codex_session_id"),"capture_id":capture.get("id"),"record_count":capture.get("record_count"),"source_class":capture.get("source_class"),"registry":str(collection["registry_path"])},capture_search_text(body)),path
 
 
-def discover(collections: Sequence[Mapping[str,Any]]) -> Iterator[tuple[RecordInput,Path]]:
+def discover_journal(collection: Mapping[str,Any]) -> Iterator[tuple[RecordInput,Path]]:
+    registry=load_json(REPO_ROOT/str(collection["registry_path"])); entries=registry.get("entries")
+    if not isinstance(entries,list): raise ArchiveError("invalid Mira Journal registry")
+    for entry in entries:
+        versions=entry.get("versions",[])
+        if not isinstance(versions,list) or not versions: raise ArchiveError("Mira Journal entry has no versions")
+        current=versions[-1]; logical=safe_logical_path(str(entry.get("current_path",""))); path=REPO_ROOT/logical
+        if not path.is_file(): raise ArchiveError(f"missing Mira Journal body: {logical}")
+        body=path.read_bytes()
+        if current.get("content_sha256")!=sha256_bytes(body): raise ArchiveError(f"Mira Journal registry hash mismatch: {logical}")
+        approval=current.get("approval",{})
+        metadata={
+            "journal_id":entry.get("journal_id"),
+            "version_id":current.get("version_id"),
+            "title":current.get("title"),
+            "word_count":current.get("word_count"),
+            "authority_boundary":registry.get("authority_boundary"),
+            "namespace_boundary":registry.get("namespace_boundary"),
+            "retrieval_policy":collection.get("retrieval_policy"),
+            "may_promote":False,
+            "registry":str(collection["registry_path"]),
+        }
+        yield RecordInput(str(current.get("version_id")),"journal-entry",logical,str(collection["id"]),str(collection["authority_owner"]),str(collection["evidence_class"]),"model",str(current.get("author",{}).get("model_id","unknown")),str(approval.get("approved_at")),day_timestamp(str(entry.get("entry_date"))),None,metadata,body.decode("utf-8",errors="replace")),path
+
+
+def external_manifest(collection: Mapping[str,Any]) -> dict[str,Any]:
+    registry_path=REPO_ROOT/str(collection["registry_path"]); manifest=load_json(registry_path); documents=manifest.get("documents")
+    if manifest.get("schema_version")!=1 or manifest.get("collection_id")!=collection.get("id") or not isinstance(documents,list):
+        raise ArchiveError("invalid external corpus manifest")
+    if manifest.get("source_repository")!=collection.get("source_repository") or manifest.get("source_commit")!=collection.get("source_commit"):
+        raise ArchiveError("external corpus provenance differs from collection registry")
+    if manifest.get("document_count")!=len(documents) or manifest.get("document_count")!=collection.get("expected_records"):
+        raise ArchiveError("external corpus document count mismatch")
+    seen=set()
+    required=("upstream_path","sha256","size","document_type","rights_status")
+    for document in documents:
+        if not isinstance(document,dict) or any(field not in document for field in required): raise ArchiveError("external corpus document is incomplete")
+        upstream=safe_logical_path(str(document["upstream_path"]))
+        if upstream in seen: raise ArchiveError(f"duplicate external corpus path: {upstream}")
+        seen.add(upstream)
+        if not isinstance(document["size"],int) or document["size"]<0: raise ArchiveError(f"invalid external corpus size: {upstream}")
+        if not re.fullmatch(r"[0-9a-f]{64}",str(document["sha256"])): raise ArchiveError(f"invalid external corpus digest: {upstream}")
+        references=document.get("derived_from",[])
+        if not isinstance(references,list) or any(not isinstance(item,str) for item in references): raise ArchiveError(f"invalid external corpus lineage: {upstream}")
+    for document in documents:
+        for target in document.get("derived_from",[]):
+            if safe_logical_path(target) not in seen: raise ArchiveError(f"unresolved external corpus lineage target: {target}")
+    return manifest
+
+
+def external_source_root(collection: Mapping[str,Any],source_root: Path | None) -> Path:
+    if source_root is None: raise ArchiveError(f"collection {collection['id']} requires --source-root")
+    root=source_root.resolve()
+    if not root.is_dir(): raise ArchiveError(f"external corpus source root is not a directory: {root}")
+    try: root.relative_to(REPO_ROOT.resolve())
+    except ValueError: pass
+    else: raise ArchiveError("external corpus source root must be outside the Narrative Systems repository")
+    result=subprocess.run(["git","-c",f"safe.directory={root.as_posix()}","-C",str(root),"rev-parse","HEAD"],capture_output=True,text=True)
+    if result.returncode or result.stdout.strip()!=collection.get("source_commit"):
+        raise ArchiveError(f"external corpus source commit mismatch: expected {collection.get('source_commit')}")
+    return root
+
+
+def external_record_id(collection: Mapping[str,Any],upstream_path: str) -> str:
+    identity=f"{collection['source_repository']}@{collection['source_commit']}:{upstream_path}"
+    return stable_record_id("SAR-IL",identity)
+
+
+def discover_external_corpus(collection: Mapping[str,Any],source_root: Path | None) -> Iterator[tuple[RecordInput,Path]]:
+    manifest=external_manifest(collection); root=external_source_root(collection,source_root); documents=manifest["documents"]
+    expected={safe_logical_path(str(row["upstream_path"])) for row in documents}; source_prefix=safe_logical_path(str(manifest["source_prefix"]))
+    lane_root=(root/source_prefix).resolve()
+    if not lane_root.is_dir(): raise ArchiveError(f"missing external corpus source prefix: {source_prefix}")
+    actual={item.relative_to(root).as_posix() for item in lane_root.rglob("*") if item.is_file() and item.name!=".gitkeep"}
+    missing=sorted(expected-actual); unexpected=sorted(actual-expected)
+    if missing: raise ArchiveError(f"missing external corpus paths: {', '.join(missing[:5])}")
+    if unexpected: raise ArchiveError(f"unexpected external corpus paths: {', '.join(unexpected[:5])}")
+    observed=day_timestamp(str(manifest["imported_at"])); authority=str(collection["authority_owner"])
+    prefix=source_prefix.rstrip("/")+"/"
+    for document in documents:
+        upstream=safe_logical_path(str(document["upstream_path"])); path=(root/upstream).resolve()
+        try: path.relative_to(root)
+        except ValueError as error: raise ArchiveError(f"external corpus path escapes source root: {upstream}") from error
+        body=path.read_bytes()
+        if len(body)!=document["size"] or sha256_bytes(body)!=document["sha256"]: raise ArchiveError(f"external corpus hash mismatch: {upstream}")
+        relative=upstream[len(prefix):] if upstream.startswith(prefix) else upstream
+        logical=safe_logical_path(f"external-corpora/{collection['id']}/{relative}")
+        publication=document.get("publication_date")
+        metadata={"title":document.get("title"),"document_type":document["document_type"],"genre":collection.get("genre"),"upstream_path":upstream,"source_repository":collection["source_repository"],"source_commit":collection["source_commit"],"rights_status":document["rights_status"],"retrieval_policy":collection.get("retrieval_policy"),"may_promote":False,"manifest":str(collection["registry_path"])}
+        yield RecordInput(external_record_id(collection,upstream),str(document["document_type"]),logical,str(collection["id"]),authority,str(collection["evidence_class"]),"external-repository",f"{collection['source_repository']}@{collection['source_commit']}",observed,day_timestamp(str(publication)) if publication else None,None,metadata,body.decode("utf-8",errors="replace")),path
+
+
+def discover(collections: Sequence[Mapping[str,Any]],source_root: Path | None=None) -> Iterator[tuple[RecordInput,Path]]:
     for collection in collections:
         if collection.get("kind")=="narrative-geopolitics-source-manifest": yield from discover_archive(collection)
         elif collection.get("kind")=="mira-session-registry": yield from discover_mira(collection)
+        elif collection.get("kind")=="mira-journal-registry": yield from discover_journal(collection)
+        elif collection.get("kind")=="external-corpus-manifest": yield from discover_external_corpus(collection,source_root)
         else: raise ArchiveError(f"unsupported collection kind: {collection.get('kind')}")
 
 
-def inventory(collections: Sequence[Mapping[str,Any]]) -> dict[str,Any]:
+def inventory(collections: Sequence[Mapping[str,Any]],source_root: Path | None=None) -> dict[str,Any]:
     counts={}; total=0; digest=hashlib.sha256(); seen=set()
-    for record,path in discover(collections):
+    for record,path in discover(collections,source_root):
         if record.logical_path in seen: raise ArchiveError(f"duplicate collection logical path: {record.logical_path}")
         seen.add(record.logical_path); body=path.read_bytes(); counts[record.collection_id]=counts.get(record.collection_id,0)+1; total+=len(body); digest.update(canonical_json([record.logical_path,sha256_bytes(body),len(body)]).encode()+b"\n")
     return {"collections":counts,"records":sum(counts.values()),"original_bytes":total,"inventory_sha256":digest.hexdigest()}
 
 
+def add_external_corpus_lineage(connection: sqlite3.Connection,collection: Mapping[str,Any]) -> int:
+    manifest=external_manifest(collection); added=0
+    for document in manifest["documents"]:
+        references=document.get("derived_from",[])
+        if not references: continue
+        source_id=external_record_id(collection,str(document["upstream_path"])); source_version=connection.execute("SELECT MAX(version) FROM records WHERE record_id=?",(source_id,)).fetchone()[0]
+        if source_version is None: raise ArchiveError(f"missing external lineage source: {document['upstream_path']}")
+        for target_path in references:
+            target_id=external_record_id(collection,target_path); target_version=connection.execute("SELECT MAX(version) FROM records WHERE record_id=?",(target_id,)).fetchone()[0]
+            if target_version is None: raise ArchiveError(f"missing external lineage target: {target_path}")
+            before=connection.execute("SELECT COUNT(*) FROM edges").fetchone()[0]
+            add_edge(connection,source=(source_id,int(source_version)),target=(target_id,int(target_version)),relation_type="derived_from",metadata={"manifest":str(collection["registry_path"])})
+            added+=int(connection.execute("SELECT COUNT(*) FROM edges").fetchone()[0]>before)
+    return added
+
+
+def add_journal_lineage(connection: sqlite3.Connection) -> int:
+    journal=load_json(REPO_ROOT/"mira"/"journal-registry.json")
+    continuity=load_json(REPO_ROOT/"mira"/"continuity"/"session-registry.json")
+    record_capture: dict[str,str]={}
+    for session in continuity.get("sessions",[]):
+        for capture in session.get("captures",[]):
+            path=REPO_ROOT/str(capture.get("path",""))
+            if not path.is_file(): continue
+            try:
+                rows=[json.loads(line) for line in gzip.decompress(path.read_bytes()).splitlines()]
+            except (OSError,json.JSONDecodeError): continue
+            for row in rows:
+                if isinstance(row,dict) and isinstance(row.get("record_id"),str):
+                    record_capture[row["record_id"]]=str(capture.get("id"))
+    added=0
+    for entry in journal.get("entries",[]):
+        versions=entry.get("versions",[])
+        if not versions: continue
+        current=versions[-1]; journal_id=str(current.get("version_id"))
+        source_version=connection.execute("SELECT MAX(version) FROM records WHERE record_id=?",(journal_id,)).fetchone()[0]
+        if source_version is None: continue
+        source=(journal_id,int(source_version))
+        capture_records: dict[str,list[str]]={}
+        for ref in current.get("source_refs",[]):
+            if not isinstance(ref,dict): continue
+            if ref.get("kind")=="mira-session-capture":
+                capture_records.setdefault(str(ref.get("capture_id")),[]).extend(str(item) for item in ref.get("record_ids",[]))
+            elif ref.get("kind")=="mira-session-records":
+                for record_id in ref.get("record_ids",[]):
+                    capture_id=record_capture.get(str(record_id))
+                    if capture_id: capture_records.setdefault(capture_id,[]).append(str(record_id))
+        for capture_id,record_ids in sorted(capture_records.items()):
+            target_version=connection.execute("SELECT MAX(version) FROM records WHERE record_id=?",(capture_id,)).fetchone()[0]
+            if target_version is None: continue
+            before=connection.execute("SELECT COUNT(*) FROM edges").fetchone()[0]
+            add_edge(connection,source=source,target=(capture_id,int(target_version)),relation_type="derived_from",metadata={"record_ids":sorted(set(record_ids))})
+            added+=int(connection.execute("SELECT COUNT(*) FROM edges").fetchone()[0]>before)
+        approval=current.get("approval",{})
+        approval_capture=record_capture.get(str(approval.get("record_ref","")))
+        if approval_capture:
+            target_version=connection.execute("SELECT MAX(version) FROM records WHERE record_id=?",(approval_capture,)).fetchone()[0]
+            if target_version is not None:
+                before=connection.execute("SELECT COUNT(*) FROM edges").fetchone()[0]
+                add_edge(connection,source=source,target=(approval_capture,int(target_version)),relation_type="collection:mira-journal:approved_by",metadata={"record_ref":approval.get("record_ref")})
+                added+=int(connection.execute("SELECT COUNT(*) FROM edges").fetchone()[0]>before)
+        if len(versions)>1:
+            previous_id=str(versions[-2].get("version_id"))
+            previous_version=connection.execute("SELECT MAX(version) FROM records WHERE record_id=?",(previous_id,)).fetchone()[0]
+            if previous_version is not None:
+                before=connection.execute("SELECT COUNT(*) FROM edges").fetchone()[0]
+                add_edge(connection,source=source,target=(previous_id,int(previous_version)),relation_type="supersedes")
+                added+=int(connection.execute("SELECT COUNT(*) FROM edges").fetchone()[0]>before)
+    return added
+
+
 def ingest_command(args: argparse.Namespace) -> dict[str,Any]:
-    collections=selected_collections(args.collection); planned=inventory(collections)
+    collections=selected_collections(args.collection,include_explicit_default=True)
+    if not args.collection: collections=[row for row in collections if row.get("kind")!="external-corpus-manifest"]
+    if args.source_root and not any(row.get("kind")=="external-corpus-manifest" for row in collections): raise ArchiveError("--source-root requires an external corpus collection")
+    planned=inventory(collections,args.source_root)
     if args.check: return {"status":"ready","mutation":False,**planned}
     archive=store(create=True); added=unchanged=0
     with archive.connect(create=True) as connection:
-        for record,path in discover(collections):
+        for record,path in discover(collections,args.source_root):
             _,changed,_=ingest_record(connection,archive,record,path.read_bytes()); added+=int(changed); unchanged+=int(not changed)
-        connection.commit(); return {"status":"ingested","mutation":True,"added_versions":added,"unchanged":unchanged,"catalog":catalog_counts(connection),"catalog_fingerprint":catalog_fingerprint(connection),**planned}
+        lineage_edges=add_journal_lineage(connection) if any(row.get("id")=="mira-journal" for row in collections) else 0
+        for collection in collections:
+            if collection.get("kind")=="external-corpus-manifest": lineage_edges+=add_external_corpus_lineage(connection,collection)
+        connection.commit(); return {"status":"ingested","mutation":True,"added_versions":added,"unchanged":unchanged,"lineage_edges_added":lineage_edges,"catalog":catalog_counts(connection),"catalog_fingerprint":catalog_fingerprint(connection),**planned}
 
 
 def status_command(_: argparse.Namespace) -> dict[str,Any]:
@@ -149,7 +325,11 @@ def status_command(_: argparse.Namespace) -> dict[str,Any]:
 
 
 def hydrate_command(args: argparse.Namespace) -> dict[str,Any]:
-    archive=store(); collections=[row["id"] for row in selected_collections(args.collection)]; matching=would_write=0
+    selected=selected_collections(args.collection,include_explicit_default=True)
+    disabled=[row["id"] for row in selected if row.get("hydration_policy")=="disabled"]
+    if args.collection and disabled: raise ArchiveError(f"hydration disabled for collection(s): {', '.join(disabled)}")
+    selected=[row for row in selected if row.get("hydration_policy")!="disabled"]
+    archive=store(); collections=[row["id"] for row in selected]; matching=would_write=0
     with archive.connect() as connection:
         rows=list(iter_active_records(connection,collection_ids=collections))
         for row in rows:
@@ -191,6 +371,9 @@ def validate_repository_state(repo_root: Path=REPO_ROOT) -> list[str]:
             if not (repo_root/str(row.get("registry_path",""))).is_file(): failures.append(f"missing collection registry: {row.get('registry_path')}")
             for field in ("kind","authority_owner","evidence_class"):
                 if not isinstance(row.get(field),str) or not row[field].strip(): failures.append(f"collection {identifier} missing {field}")
+            if row.get("retrieval_policy") not in {None,"default","explicit-only"}: failures.append(f"collection {identifier} has invalid retrieval_policy")
+            if row.get("hydration_policy") not in {None,"default","disabled"}: failures.append(f"collection {identifier} has invalid hydration_policy")
+            if row.get("kind")=="external-corpus-manifest": external_manifest(row)
     except (ArchiveError,KeyError,TypeError) as error: failures.append(str(error))
     try:
         result=subprocess.run(["git","ls-files","-z","--","narrative-geopolitics/archive/sources","mira/continuity/captures"],cwd=repo_root,check=True,capture_output=True)
@@ -324,7 +507,7 @@ def parser() -> argparse.ArgumentParser:
     root=argparse.ArgumentParser(description="System Archive epistemic substrate"); sub=root.add_subparsers(dest="command",required=True)
     def output(p: argparse.ArgumentParser) -> None: p.add_argument("--json",action="store_true")
     p=sub.add_parser("status"); output(p); p.set_defaults(handler=status_command)
-    p=sub.add_parser("ingest"); p.add_argument("--check",action="store_true"); p.add_argument("--collection",action="append",default=[]); output(p); p.set_defaults(handler=ingest_command)
+    p=sub.add_parser("ingest"); p.add_argument("--check",action="store_true"); p.add_argument("--collection",action="append",default=[]); p.add_argument("--source-root",type=Path); output(p); p.set_defaults(handler=ingest_command)
     p=sub.add_parser("hydrate"); p.add_argument("--check",action="store_true"); p.add_argument("--collection",action="append",default=[]); output(p); p.set_defaults(handler=hydrate_command)
     p=sub.add_parser("validate"); p.add_argument("--git-only",action="store_true"); p.add_argument("--full",action="store_true"); output(p); p.set_defaults(handler=validate_command)
     p=sub.add_parser("verify"); p.add_argument("--hydration",action="store_true"); output(p); p.set_defaults(handler=verify_command)
