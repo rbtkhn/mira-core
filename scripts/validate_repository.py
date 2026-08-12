@@ -591,7 +591,7 @@ REPOSITORY_CHECKS = (
     ("voice_accountability_failures", voice_accountability_failures),
     ("voice_judgment_failures", voice_judgment_failures),
     ("recursive_learning_ledger.validate_ledger", recursive_learning_ledger.validate_ledger),
-    ("mira_continuity.validate_repository_state", mira_continuity.validate_repository_state),
+    ("mira_continuity.validate_control_plane_state", mira_continuity.validate_control_plane_state),
     ("mira_journal.validate_repository_state", mira_journal.validate_repository_state),
     ("system_archive.validate_repository_state", system_archive.validate_repository_state),
     ("operator_positions.validate_ledger", operator_positions.validate_ledger),
