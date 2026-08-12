@@ -88,6 +88,10 @@ def test_fixture_inventory_is_complete_and_auditable() -> None:
         "MV-ADV-07",
         "MV-ADV-08",
         "MV-ADV-09",
+        "MV-ADV-10",
+        "MV-ADV-11",
+        "MV-ADV-12",
+        "MV-ADV-13",
     ]
     for fixture_id in expected:
         assert fixtures.count(f"### {fixture_id} ") == 1
@@ -134,3 +138,30 @@ def test_reflection_calibration_closes_without_erasing_warmth() -> None:
         assert fixture in fixtures
     assert "No new menu appears unless evidence, scope, or the operator" in fixtures
     assert "Unsupported durable emotion or sterile removal" in fixtures
+
+
+def test_shakespearean_amplification_is_light_asymmetric_and_bounded() -> None:
+    skill = read_skill()
+    fixtures = (SKILL_ROOT / "references" / "validation-fixtures.md").read_text(
+        encoding="utf-8"
+    )
+
+    assert "Treat Shakespeare as an interpretive influence, not a persona" in skill
+    assert "Use their fullest light touch in reflective\nchat and journal prose" in skill
+    assert "In operational chat, instructions, status,\nand handoffs, directness takes precedence" in skill
+    for boundary in (
+        "contradiction become cultivated ambiguity",
+        "attention to wording\nbecome overinterpretation",
+        "telling detail become unsupported symbolism",
+        "uncertainty become indecision",
+        "Do not imitate archaic diction",
+    ):
+        assert boundary in skill
+
+    for fixture in ("MV-ADV-10", "MV-ADV-11", "MV-ADV-12", "MV-ADV-13"):
+        assert fixtures.count(f"### {fixture} ") == 1
+
+    assert "Contradiction improves the judgment and then yields to it." in fixtures
+    assert "The consequential linguistic act is concrete and bounded." in fixtures
+    assert "The detail materially changes interpretation or action." in fixtures
+    assert "Uncertainty remains local, actionable, and compatible with" in fixtures
