@@ -76,11 +76,36 @@ def test_selected_branch_reaches_a_meaningful_result_before_reelicitation() -> N
     assert "newly emerged blocker" in skill
 
 
-def test_closure_precedes_the_universal_footer() -> None:
+def test_branch_closure_is_separate_from_new_path_navigation() -> None:
     skill = (SKILL_ROOT / "SKILL.md").read_text(encoding="utf-8")
-    assert "Closure takes precedence over the universal footer" in skill
-    assert "acknowledge closure without" in skill
-    assert "manufacturing another possibility set" in skill
+    router = (REPO_ROOT / "AGENTS.md").read_text(encoding="utf-8")
+    for contract in (skill, router):
+        normalized = " ".join(contract.split())
+        assert "wider conversation" in normalized
+        assert "`New paths`" in normalized
+        assert "new choice identity" in normalized
+        assert "never reopens" in normalized
+
+
+def test_new_paths_require_independent_eligibility() -> None:
+    skill = (SKILL_ROOT / "SKILL.md").read_text(encoding="utf-8")
+    router = (REPO_ROOT / "AGENTS.md").read_text(encoding="utf-8")
+    for contract in (skill, router):
+        normalized = " ".join(contract.split())
+        assert "at least two" in normalized
+        assert "genuinely different" in normalized
+        assert "explicit stop" in normalized
+        assert "wider conversation" in normalized
+        assert "manufactured busywork" in normalized
+    assert "rewrite, re-audit, compare, or deepen" in " ".join(skill.split())
+
+
+def test_complete_turn_supports_three_terminal_forms() -> None:
+    skill = (SKILL_ROOT / "SKILL.md").read_text(encoding="utf-8")
+    assert "A turn has three valid terminal forms" in skill
+    assert "an open branch ends" in skill
+    assert "a settled branch ends" in skill
+    assert "a settled conversation ends" in skill
 
 
 def test_closure_debt_audit_distinguishes_open_and_settled_scenarios() -> None:
@@ -109,8 +134,8 @@ def test_saturation_closes_recursive_interpretive_chains() -> None:
         assert "new evidence" in contract
         assert "material contradiction" in contract
         assert "analyze, rewrite" in contract
-    assert "Classify closure before possibilities" in skill
-    assert "two valid terminal forms" in skill
+    assert "Classify branch closure separately from new-path navigation" in skill
+    assert "three valid terminal forms" in skill
 
 
 def test_closure_is_quiet_lifecycle_state_not_outcome_evidence() -> None:

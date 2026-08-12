@@ -8,13 +8,23 @@ description: "Turn final user-facing responses into outcome-aware possibility ma
 Use this contract in Narrative Systems for every final response. Do not apply
 the footer to intermediate progress commentary.
 
-## Classify closure before possibilities
+## Classify branch closure separately from new-path navigation
 
 Before composing a footer, decide whether the current selected branch is
 settled. It is settled when its complete visible promise has been delivered and
 no new decision, evidence gap, scope change, or executable action remains.
-Closure takes precedence: end without a menu and, when retention is available,
-append a quiet `branch_closed` event.
+Close that branch honestly and, when retention is available, append a quiet
+`branch_closed` event. Classify the wider conversation separately: branch
+closure does not by itself require conversational finality.
+
+After closing a branch, offer a `New paths` footer only when at least two
+credible options begin genuinely different objectives, evidence searches, or
+commitments. These paths are not closure debt and must not merely rewrite,
+re-audit, compare, or deepen the completed answer. Selecting one creates a new
+choice identity and never reopens or reinterprets the closed branch. Suppress
+the footer after an explicit stop, when saturation applies to the wider
+conversation, when no credible paths exist, or when the options would be
+manufactured busywork.
 
 Run a closure-debt audit before declaring the branch settled. Closure debt is
 an obligation introduced by the current response or its visible promise that
@@ -142,10 +152,11 @@ Acknowledge the settled state once and close the branch instead of regenerating
 the same footer. Present a new possibility set only when a genuinely new
 decision, scope, evidence gap, or action exists.
 
-Closure takes precedence over the universal footer: when the branch is settled
-and no genuinely new possibility exists, acknowledge closure without
-manufacturing another possibility set. Do not turn the acknowledgement itself
-into a new menu.
+Branch closure takes precedence over continuation of the same branch. When no
+genuinely new path exists, acknowledge closure without manufacturing another
+possibility set. When distinct new paths do exist, label the completed branch
+explicitly and present them under `New paths`; do not imply that they are
+unfinished obligations from the closed work.
 
 ## Retain only a selection
 
@@ -313,12 +324,14 @@ evidence and private choice memory remain separate.
 
 ## Complete a turn
 
-A turn has two valid terminal forms:
+A turn has three valid terminal forms:
 
 - an open branch ends with three or four real possibilities, one
   evidence-grounded recommendation, stable role bindings, a credible overlooked
   path when available, and no silent action authorization; or
-- a settled branch ends with explicit closure and no manufactured footer.
+- a settled branch ends with explicit closure followed by optional `New paths`
+  when at least two independently eligible directions exist; or
+- a settled conversation ends with explicit closure and no manufactured footer.
 
 If a branch was selected, retain its exact sanitized menu atomically or
 disclose the graceful unretained fallback. When that branch settles, retain

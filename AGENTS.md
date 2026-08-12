@@ -158,8 +158,14 @@ For every final user-facing response, read and follow
 intermediate progress commentary. Before constructing a footer, determine
 whether the selected branch is settled: its complete visible promise was
 delivered and no new decision, evidence gap, scope change, or executable action
-remains. A settled branch closes without a menu. Otherwise, end with three or
-four concise, meaningfully distinct next possibilities using the stable roles `recommended`,
+remains. Close a settled branch honestly, then classify the wider conversation
+separately. When at least two credible directions begin genuinely different
+objectives, evidence searches, or commitments, offer them under `New paths`;
+selecting one creates a new choice identity and never reopens the closed branch.
+Suppress that footer after an explicit stop, when saturation applies to the
+wider conversation, when no credible paths exist, or when the options would be
+manufactured busywork. Otherwise, end an open branch with three or four concise,
+meaningfully distinct next possibilities using the stable roles `recommended`,
 `alternative`, `overlooked`, and `pause-or-deepen`; omit a fourth option when
 it would create fake diversity. Explain the recommendation in one
 evidence-grounded sentence and preserve a credible overlooked path when one
@@ -228,7 +234,9 @@ Saturation is closure, not another menu. After two consecutive navigation-only
 selections deepen the same objective, default to closing unless the latest turn
 adds new evidence, resolves a material contradiction, or exposes a genuinely
 new decision or action. Do not offer options that merely analyze, rewrite,
-compare, or audit the answer just produced. When a selected branch settles and
+compare, or audit the answer just produced. Saturation of one objective does not
+forbid independently eligible new paths, but saturation of the wider
+conversation does. When a selected branch settles and
 the private choice store is available, append a quiet `branch_closed` event
 with reason `completed`, `paused`, or `saturated`; closure records lifecycle
 only and must not infer an outcome. Surface only retention failure, an invalid
