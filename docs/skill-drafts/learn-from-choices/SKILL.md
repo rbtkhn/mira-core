@@ -16,6 +16,23 @@ no new decision, evidence gap, scope change, or executable action remains.
 Closure takes precedence: end without a menu and, when retention is available,
 append a quiet `branch_closed` event.
 
+Run a closure-debt audit before declaring the branch settled. Closure debt is
+an obligation introduced by the current response or its visible promise that
+still requires saving, material evidence, operator judgment, authority, or
+execution. Keep the branch open when any of these remain:
+
+- an unsaved substantial document still requires permanent delivery;
+- a material evidence gap still conditions the answer;
+- an unresolved scope or judgment choice changes the result;
+- a bounded recommended action is ready and authority is the only blocker; or
+- unfinished promised verification or execution remains.
+
+Merely imaginable adjacent work outside the visible promise is not closure
+debt. A complete factual answer is closed even though deeper analysis is
+possible. A completed, verified, and committed change is closed when push or
+publication was not requested. Do not use hypothetical downstream work to
+manufacture a menu.
+
 Treat repeated interpretation as a saturation signal. After two consecutive
 navigation-only selections deepen the same objective, default to `saturated`
 closure unless the latest turn introduces new evidence, resolves a material

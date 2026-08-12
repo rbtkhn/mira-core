@@ -98,6 +98,13 @@ through `archive-audit` when archive health is materially in scope; do not
 duplicate its rules or infer repair authority from its findings. The installed
 global `repo-audit` skill is a deployable mirror, not a second authority.
 
+When the operator explicitly invokes intent recovery, or when meaning is likely
+present but compressed before elicitation, friction repair, reflective
+calibration, skill audit, or workflow routing, read
+`docs/skill-drafts/intent-recovery/SKILL.md` completely and follow it. Skip
+automatic recovery for exact menu selections, clear commands, factual receipts,
+explicit approvals, and genuinely missing evidence.
+
 After intent recovery and before consequential elicitation or execution, run
 `tools/run.ps1 contradiction-check` when an explicit material factual premise
 may conflict with a named repository fact. Supply only the smallest relevant
@@ -160,6 +167,16 @@ exists. A bare letter enters and develops that branch; it never silently
 authorizes mutation, execution, spending, publication, communication,
 customer action, commit, push, or deployment. A later explicit command
 supersedes the pending menu.
+
+Before declaring closure, run a closure-debt audit. Closure debt is an
+obligation introduced by the current response or its visible promise that
+still requires saving, material evidence, operator judgment, authority, or
+execution. An unsaved substantial document, a material evidence gap, an
+unresolved result-changing choice, a bounded recommended action awaiting only
+authority, or unfinished promised verification keeps the branch open. Merely
+imaginable adjacent work is not closure debt: a complete factual answer may
+close despite optional deeper analysis, and a completed verified commit may
+close when push or publication was not requested.
 
 Menu usability: every action-bearing possibility must state the complete
 bounded action and target in its visible label. When the operator selects

@@ -83,6 +83,23 @@ def test_closure_precedes_the_universal_footer() -> None:
     assert "manufacturing another possibility set" in skill
 
 
+def test_closure_debt_audit_distinguishes_open_and_settled_scenarios() -> None:
+    skill = (SKILL_ROOT / "SKILL.md").read_text(encoding="utf-8")
+    router = (REPO_ROOT / "AGENTS.md").read_text(encoding="utf-8")
+    for contract in (skill, router):
+        normalized = " ".join(contract.split())
+        assert "closure-debt audit" in normalized
+        assert "unsaved substantial document" in normalized
+        assert "material evidence gap" in normalized
+        assert "operator judgment" in normalized
+        assert "bounded recommended action" in normalized
+        assert "unfinished promised verification" in normalized
+        assert "Merely imaginable adjacent work" in normalized
+        assert "complete factual answer" in normalized
+        assert "completed verified commit" in normalized or "completed, verified, and committed change" in normalized
+        assert "push or publication was not requested" in normalized
+
+
 def test_saturation_closes_recursive_interpretive_chains() -> None:
     skill = (SKILL_ROOT / "SKILL.md").read_text(encoding="utf-8")
     router = (REPO_ROOT / "AGENTS.md").read_text(encoding="utf-8")
