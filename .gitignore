@@ -33,4 +33,5 @@ Thumbs.db
 
 # Hydrated System Archive body mirrors (canonical bytes live outside Git)
 /narrative-geopolitics/archive/sources/
+# Private continuity payloads are hydrated locally and never published by default.
 /mira/continuity/captures/

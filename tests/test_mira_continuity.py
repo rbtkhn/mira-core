@@ -365,7 +365,28 @@ def test_malformed_source_row_is_registered_without_copying_partial_content(tmp_
 
 
 def test_current_mira_continuity_state_validates() -> None:
-    assert mira_continuity.validate_repository_state() == []
+    assert mira_continuity.validate_control_plane_state() == []
+
+
+def test_control_plane_validation_is_honest_without_hydrated_capture(
+    tmp_path: Path,
+) -> None:
+    repo, registry_path, identity_path, registry, _ = build_state(tmp_path)
+    capture_path = repo / registry["sessions"][0]["captures"][0]["path"]
+    capture_path.unlink()
+
+    common = {
+        "repo_root": repo,
+        "registry_path": registry_path,
+        "identity_path": identity_path,
+        "harvests_root": repo / "mira" / "continuity" / "harvests",
+        "check_views": False,
+    }
+    assert mira_continuity.validate_control_plane_state(**common) == []
+    assert any(
+        "missing capture file" in failure
+        for failure in mira_continuity.validate_repository_state(**common)
+    )
 
 
 def legacy_sensitive_failures(value: object, label: str) -> list[str]:
