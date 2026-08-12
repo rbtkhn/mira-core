@@ -15,6 +15,13 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 TRACKER_ROOT = REPO_ROOT / "narrative-geopolitics" / "work" / "system-improvement"
 LEDGER_JSON_PATH = TRACKER_ROOT / "recursive-learning-ledger.json"
 LEDGER_MD_PATH = TRACKER_ROOT / "recursive-learning-ledger.md"
+OUTCOME_RECEIPT_ROOT = TRACKER_ROOT / "recursive-learning-outcomes"
+
+ASSESSOR_IMPLEMENTATION_PATHS = (
+    "docs/skill-drafts/recursive-learn/SKILL.md",
+    "scripts/recursive_learning_ledger.py",
+    "tests/test_recursive_learning_ledger.py",
+)
 
 ENTRY_ID_RE = re.compile(r"^RSI-\d{8}-\d{2}$")
 COMMIT_RE = re.compile(r"^[0-9a-f]{7,40}$")
@@ -106,6 +113,58 @@ def external_output(path: Path) -> Path:
     except ValueError:
         return resolved
     raise LearningError(f"recursive-learning candidate output must be outside Git: {resolved}")
+
+
+def governed_outcome_output(path: Path, *, root: Path = OUTCOME_RECEIPT_ROOT) -> Path:
+    resolved = path.expanduser().resolve()
+    governed_root = root.resolve()
+    try:
+        resolved.relative_to(governed_root)
+    except ValueError as error:
+        raise LearningError(
+            f"recursive-learning outcome receipt must be under {governed_root}: {resolved}"
+        ) from error
+    if resolved.suffix.casefold() != ".json":
+        raise LearningError("recursive-learning outcome receipt must be JSON")
+    return resolved
+
+
+def repository_evidence_path(value: str, *, repo_root: Path = REPO_ROOT) -> str:
+    normalized = value.replace("\\", "/").strip()
+    if not normalized or Path(normalized).is_absolute() or normalized.startswith("../"):
+        raise LearningError("baseline_ref must be a repository-relative path")
+    if _is_journal_path(normalized):
+        raise LearningError("journal context cannot serve as an outcome-receipt baseline")
+    if not (repo_root / normalized).is_file():
+        raise LearningError(f"outcome-receipt baseline does not resolve: {normalized}")
+    return normalized
+
+
+def parse_observed_at(value: str) -> datetime:
+    text = value.strip()
+    if text.endswith("Z"):
+        text = text[:-1] + "+00:00"
+    try:
+        parsed = datetime.fromisoformat(text)
+    except ValueError as error:
+        raise LearningError("observed_at must be an ISO-8601 timestamp") from error
+    if parsed.tzinfo is None:
+        raise LearningError("observed_at must include a timezone")
+    return parsed.astimezone(timezone.utc).replace(microsecond=0)
+
+
+def utc_text(value: datetime) -> str:
+    return value.astimezone(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
+
+
+def persist_outcome_receipt(path: Path, encoded: bytes, *, check: bool) -> tuple[str, bool]:
+    existing = path.read_bytes() if path.is_file() else None
+    if existing is not None and existing != encoded:
+        raise LearningError(f"refusing to overwrite a different outcome receipt: {path}")
+    wrote = not check and existing is None
+    if wrote:
+        atomic_write_bytes(path, encoded)
+    return ("current" if existing is not None else ("ready" if check else "written"), wrote)
 
 
 def admission_statement(entry_id: str, candidate_digest: str) -> str:
@@ -343,6 +402,90 @@ def candidate_from_inputs(reference: dict[str, Any]) -> dict[str, Any] | None:
     return candidate
 
 
+def stage_dispositions(
+    signal: str,
+    candidate: dict[str, Any] | None,
+    *,
+    repo_root: Path = REPO_ROOT,
+) -> dict[str, dict[str, str]]:
+    if signal == "none":
+        return {
+            stage: {
+                "status": "not-applicable",
+                "reason": "the journal reference declares no recursive-learning candidate signal",
+            }
+            for stage in REQUIRED_STAGES
+        }
+    if signal == "observation":
+        return {
+            stage: {
+                "status": "context-only" if stage == "observation" else "missing",
+                "reason": (
+                    "journal observation is interpretive context, not admissible stage evidence"
+                    if stage == "observation"
+                    else f"no admissible {stage} stage was supplied"
+                ),
+            }
+            for stage in REQUIRED_STAGES
+        }
+    dispositions: dict[str, dict[str, str]] = {}
+    for stage_name in REQUIRED_STAGES:
+        stage = candidate.get(stage_name) if isinstance(candidate, dict) else None
+        if not isinstance(stage, dict):
+            dispositions[stage_name] = {
+                "status": "missing",
+                "reason": f"no {stage_name} stage object was supplied",
+            }
+            continue
+        paths = stage.get("evidence_paths")
+        if not isinstance(paths, list) or not paths:
+            dispositions[stage_name] = {
+                "status": "missing",
+                "reason": f"the {stage_name} stage has no evidence paths",
+            }
+            continue
+        invalid_reasons: list[str] = []
+        if not str(stage.get("summary", "")).strip():
+            invalid_reasons.append("missing summary")
+        for raw_path in paths:
+            raw_text = str(raw_path)
+            if _is_journal_path(raw_text):
+                invalid_reasons.append(f"journal context is inadmissible evidence: {raw_text}")
+            elif not (repo_root / raw_text).exists():
+                invalid_reasons.append(f"evidence path does not resolve: {raw_text}")
+        if stage_name == "intervention":
+            commits = stage.get("commits")
+            if not isinstance(commits, list) or not commits:
+                invalid_reasons.append("missing commits")
+            elif any(not COMMIT_RE.fullmatch(str(commit)) for commit in commits):
+                invalid_reasons.append("invalid commit reference")
+        if stage_name == "outcome" and not str(stage.get("measure", "")).strip():
+            invalid_reasons.append("missing outcome measure")
+        dispositions[stage_name] = {
+            "status": "invalid" if invalid_reasons else "provided",
+            "reason": "; ".join(invalid_reasons) if invalid_reasons else f"the {stage_name} stage supplies repository evidence",
+        }
+    return dispositions
+
+
+def stage_evidence_scope(signal: str, candidate: dict[str, Any] | None) -> dict[str, Any]:
+    paths: set[str] = set()
+    if signal == "possible-loop" and isinstance(candidate, dict):
+        for stage_name in REQUIRED_STAGES:
+            stage = candidate.get(stage_name)
+            if not isinstance(stage, dict):
+                continue
+            for raw_path in stage.get("evidence_paths", []):
+                raw_text = str(raw_path)
+                if not _is_journal_path(raw_text):
+                    paths.add(raw_text)
+    return {
+        "mode": "full-stage-evidence" if signal == "possible-loop" else "reference-validation-only",
+        "stage_evidence_paths": sorted(paths),
+        "technical_grounding_reinspection_required": False,
+    }
+
+
 def assess_reference(reference: dict[str, Any], *, ledger: dict[str, Any] | None = None) -> dict[str, Any]:
     reference_id = str(reference.get("reference_id", ""))
     if not REFERENCE_ID_RE.fullmatch(reference_id):
@@ -391,7 +534,119 @@ def assess_reference(reference: dict[str, Any], *, ledger: dict[str, Any] | None
             else []
             for stage in REQUIRED_STAGES
         },
+        "stage_dispositions": stage_dispositions(signal, candidate),
+        "evidence_read_scope": stage_evidence_scope(signal, candidate),
         "failures": candidate_failures,
+        "authority_effect": "none",
+    }
+
+
+def build_outcome_receipt(
+    *,
+    reference: dict[str, Any],
+    reference_bytes: bytes,
+    assessment: dict[str, Any],
+    baseline_ref: str,
+    observed_at: datetime,
+    ledger_before: bytes,
+    ledger_after: bytes,
+    repo_root: Path = REPO_ROOT,
+) -> dict[str, Any]:
+    if ledger_before != ledger_after:
+        raise LearningError("canonical recursive-learning ledger changed during outcome assessment")
+    baseline = repository_evidence_path(baseline_ref, repo_root=repo_root)
+    reference_id = str(reference["reference_id"])
+    source_digests: dict[str, str] = {}
+    for relative in ASSESSOR_IMPLEMENTATION_PATHS:
+        path = repo_root / relative
+        if not path.is_file():
+            raise LearningError(f"outcome-receipt implementation path does not resolve: {relative}")
+        source_digests[relative] = sha256_bytes(path.read_bytes())
+    dispositions = assessment["stage_dispositions"]
+    scope = assessment["evidence_read_scope"]
+    entry_date = str(reference.get("entry_date", ""))
+    receipt_date = entry_date.replace("-", "") if re.fullmatch(r"\d{4}-\d{2}-\d{2}", entry_date) else f"{observed_at:%Y%m%d}"
+    return {
+        "schema_version": 1,
+        "receipt_id": f"RLOR-{receipt_date}-{reference_id}",
+        "status": "internal-verification",
+        "subject": "recursive-learn-assessment",
+        "observed_at": utc_text(observed_at),
+        "baseline_ref": baseline,
+        "input": {
+            "reference_id": reference_id,
+            "reference_sha256": sha256_bytes(reference_bytes),
+            "journal_context_only": True,
+        },
+        "implementation": {
+            "source_sha256": source_digests,
+        },
+        "assessment": assessment,
+        "observed_measures": {
+            "assessment_status": assessment["status"],
+            "stage_dispositions_reported": len(dispositions),
+            "stage_disposition_statuses": {
+                stage: dispositions[stage]["status"] for stage in REQUIRED_STAGES
+            },
+            "evidence_read_scope_mode": scope["mode"],
+            "stage_evidence_path_count": len(scope["stage_evidence_paths"]),
+            "technical_grounding_reinspection_required": scope[
+                "technical_grounding_reinspection_required"
+            ],
+            "candidate_emitted": assessment["candidate_entry_id"] is not None,
+            "authority_effect": assessment["authority_effect"],
+            "ledger_unchanged": True,
+        },
+        "ledger_integrity": {
+            "path": str(LEDGER_JSON_PATH.relative_to(REPO_ROOT)).replace("\\", "/"),
+            "sha256_before": sha256_bytes(ledger_before),
+            "sha256_after": sha256_bytes(ledger_after),
+            "mutation": False,
+        },
+        "limitations": [
+            "This receipt records one post-intervention assessment and does not establish longitudinal persistence.",
+            "The journal reference is context input only and supplies no recursive-learning stage evidence.",
+            "This receipt does not establish RSI closure or grant admission authority.",
+        ],
+        "authority_effect": "none",
+    }
+
+
+def create_outcome_receipt(
+    *,
+    reference_path: Path,
+    baseline_ref: str,
+    observed_at_text: str,
+    output: Path,
+    check: bool,
+) -> dict[str, Any]:
+    resolved_reference = reference_path.expanduser().resolve()
+    reference_bytes = resolved_reference.read_bytes()
+    reference = validated_reference(resolved_reference)
+    observed_at = parse_observed_at(observed_at_text)
+    output_path = governed_outcome_output(output)
+    ledger_before = LEDGER_JSON_PATH.read_bytes()
+    assessment = assess_reference(reference, ledger=json.loads(ledger_before.decode("utf-8")))
+    ledger_after = LEDGER_JSON_PATH.read_bytes()
+    receipt = build_outcome_receipt(
+        reference=reference,
+        reference_bytes=reference_bytes,
+        assessment=assessment,
+        baseline_ref=baseline_ref,
+        observed_at=observed_at,
+        ledger_before=ledger_before,
+        ledger_after=ledger_after,
+    )
+    encoded = pretty_json(receipt).encode("utf-8")
+    status, wrote = persist_outcome_receipt(output_path, encoded, check=check)
+    return {
+        "status": status,
+        "mutation": wrote,
+        "output": str(output_path),
+        "receipt_id": receipt["receipt_id"],
+        "receipt_sha256": sha256_bytes(encoded),
+        "assessment_status": receipt["assessment"]["status"],
+        "ledger_unchanged": True,
         "authority_effect": "none",
     }
 
@@ -513,6 +768,15 @@ def parser() -> argparse.ArgumentParser:
     candidate.add_argument("--reference", type=Path, required=True)
     candidate.add_argument("--output", type=Path, required=True)
     candidate.add_argument("--check", action="store_true")
+    receipt = subparsers.add_parser(
+        "outcome-receipt",
+        help="Record a deterministic post-intervention assessment outcome.",
+    )
+    receipt.add_argument("--reference", type=Path, required=True)
+    receipt.add_argument("--baseline-ref", required=True)
+    receipt.add_argument("--observed-at", required=True)
+    receipt.add_argument("--output", type=Path, required=True)
+    receipt.add_argument("--check", action="store_true")
     admit = subparsers.add_parser("admit", help="Admit an explicitly approved candidate to the canonical ledger.")
     admit.add_argument("--input", type=Path, required=True)
     admit.add_argument("--authority-ref", required=True)
@@ -545,6 +809,14 @@ def main(arguments: list[str] | None = None) -> int:
                 "entry_id": candidate["id"],
                 "candidate_sha256": sha256_bytes(canonical_json(candidate).encode("utf-8")),
             }
+        elif args.command == "outcome-receipt":
+            result = create_outcome_receipt(
+                reference_path=args.reference,
+                baseline_ref=args.baseline_ref,
+                observed_at_text=args.observed_at,
+                output=args.output,
+                check=args.check,
+            )
         elif args.command == "admit":
             candidate = json.loads(args.input.read_text(encoding="utf-8"))
             result = admit_candidate(

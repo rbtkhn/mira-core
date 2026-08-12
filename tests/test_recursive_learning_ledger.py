@@ -3,12 +3,17 @@ from __future__ import annotations
 import copy
 import importlib.util
 import json
+import sys
+from datetime import timezone
 from pathlib import Path
 
 import pytest
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
+SCRIPTS_ROOT = REPO_ROOT / "scripts"
+if str(SCRIPTS_ROOT) not in sys.path:
+    sys.path.insert(0, str(SCRIPTS_ROOT))
 SCRIPT = REPO_ROOT / "scripts" / "recursive_learning_ledger.py"
 SPEC = importlib.util.spec_from_file_location("recursive_learning_ledger_tests", SCRIPT)
 assert SPEC and SPEC.loader
@@ -80,11 +85,28 @@ def reference(signal: str, *, measured: bool = False, include_inputs: bool = Tru
 
 
 def test_assessment_states_preserve_the_learning_gate() -> None:
-    assert MODULE.assess_reference(reference("none", include_inputs=False))["status"] == "non-candidate"
-    assert MODULE.assess_reference(reference("observation", include_inputs=False))["status"] == "observation-only"
+    none = MODULE.assess_reference(reference("none", include_inputs=False))
+    assert none["status"] == "non-candidate"
+    assert {row["status"] for row in none["stage_dispositions"].values()} == {"not-applicable"}
+    assert none["evidence_read_scope"] == {
+        "mode": "reference-validation-only",
+        "stage_evidence_paths": [],
+        "technical_grounding_reinspection_required": False,
+    }
+    observation = MODULE.assess_reference(reference("observation", include_inputs=False))
+    assert observation["status"] == "observation-only"
+    assert observation["stage_dispositions"]["observation"]["status"] == "context-only"
+    assert observation["stage_dispositions"]["diagnosis"]["status"] == "missing"
+    assert observation["evidence_read_scope"]["mode"] == "reference-validation-only"
     partial = MODULE.assess_reference(reference("possible-loop"))
     assert partial["status"] == "partial-candidate"
     assert partial["authority_effect"] == "none"
+    assert {row["status"] for row in partial["stage_dispositions"].values()} == {"provided"}
+    assert partial["evidence_read_scope"] == {
+        "mode": "full-stage-evidence",
+        "stage_evidence_paths": ["scripts/mira_journal.py", "tests/test_mira_journal.py"],
+        "technical_grounding_reinspection_required": False,
+    }
     closed = MODULE.assess_reference(reference("possible-loop", measured=True))
     assert closed["status"] == "admissible"
     represented_ledger = {"entries": [{"id": "RSI-20260809-99", "journal_context_refs": ["MJTR-20260809-v2"]}]}
@@ -109,11 +131,126 @@ def test_ordinary_feature_work_is_not_admissible() -> None:
 
 
 def test_journal_files_are_rejected_as_stage_evidence() -> None:
-    candidate = MODULE.candidate_from_inputs(reference("possible-loop", measured=True))
+    value = reference("possible-loop", measured=True)
+    candidate = MODULE.candidate_from_inputs(value)
     assert candidate is not None
     candidate["observation"]["evidence_paths"] = ["mira/journal/2026-08-09.md"]
     failures = MODULE.validate_entry(candidate)
     assert any("journal context cannot serve as observation evidence" in failure for failure in failures)
+    value["recursive_learning"]["assessment_inputs"]["observation"]["evidence_paths"] = [
+        "mira/journal/2026-08-09.md",
+        "scripts/mira_journal.py",
+    ]
+    assessment = MODULE.assess_reference(value)
+    assert assessment["stage_dispositions"]["observation"]["status"] == "invalid"
+    assert assessment["evidence_read_scope"]["stage_evidence_paths"] == [
+        "scripts/mira_journal.py",
+        "tests/test_mira_journal.py",
+    ]
+
+
+def test_possible_loop_without_inputs_reports_missing_stages() -> None:
+    assessment = MODULE.assess_reference(reference("possible-loop", include_inputs=False))
+    assert assessment["status"] == "partial-candidate"
+    assert {row["status"] for row in assessment["stage_dispositions"].values()} == {"missing"}
+    assert assessment["evidence_read_scope"] == {
+        "mode": "full-stage-evidence",
+        "stage_evidence_paths": [],
+        "technical_grounding_reinspection_required": False,
+    }
+
+
+def test_stage_evidence_scope_is_sorted_and_deduplicated() -> None:
+    value = reference("possible-loop")
+    inputs = value["recursive_learning"]["assessment_inputs"]
+    inputs["observation"]["evidence_paths"] = [
+        "tests/test_mira_journal.py",
+        "scripts/mira_journal.py",
+        "tests/test_mira_journal.py",
+    ]
+    assert MODULE.assess_reference(value)["evidence_read_scope"]["stage_evidence_paths"] == [
+        "scripts/mira_journal.py",
+        "tests/test_mira_journal.py",
+    ]
+
+
+def test_outcome_receipt_is_deterministic_and_preserves_boundaries() -> None:
+    value = reference("observation", include_inputs=False)
+    value["entry_date"] = "2026-08-11"
+    assessment = MODULE.assess_reference(value)
+    ledger_bytes = MODULE.LEDGER_JSON_PATH.read_bytes()
+    observed_at = MODULE.parse_observed_at("2026-08-11T22:15:00-06:00")
+    assert observed_at.tzinfo == timezone.utc
+    kwargs = {
+        "reference": value,
+        "reference_bytes": MODULE.pretty_json(value).encode("utf-8"),
+        "assessment": assessment,
+        "baseline_ref": "docs/audits/2026-08-11-recursive-learn-performance.md",
+        "observed_at": observed_at,
+        "ledger_before": ledger_bytes,
+        "ledger_after": ledger_bytes,
+    }
+    first = MODULE.build_outcome_receipt(**kwargs)
+    second = MODULE.build_outcome_receipt(**kwargs)
+
+    assert first == second
+    assert first["receipt_id"] == "RLOR-20260811-MJTR-20260809-v2"
+    assert first["input"]["journal_context_only"] is True
+    assert first["observed_measures"] == {
+        "assessment_status": "observation-only",
+        "stage_dispositions_reported": 5,
+        "stage_disposition_statuses": {
+            "observation": "context-only",
+            "diagnosis": "missing",
+            "intervention": "missing",
+            "validation": "missing",
+            "outcome": "missing",
+        },
+        "evidence_read_scope_mode": "reference-validation-only",
+        "stage_evidence_path_count": 0,
+        "technical_grounding_reinspection_required": False,
+        "candidate_emitted": False,
+        "authority_effect": "none",
+        "ledger_unchanged": True,
+    }
+    assert first["ledger_integrity"]["sha256_before"] == first["ledger_integrity"]["sha256_after"]
+    assert first["authority_effect"] == "none"
+
+
+def test_outcome_receipt_rejects_ledger_drift_and_ungoverned_paths(tmp_path: Path) -> None:
+    value = reference("observation", include_inputs=False)
+    ledger_bytes = MODULE.LEDGER_JSON_PATH.read_bytes()
+    with pytest.raises(MODULE.LearningError, match="ledger changed"):
+        MODULE.build_outcome_receipt(
+            reference=value,
+            reference_bytes=b"{}",
+            assessment=MODULE.assess_reference(value),
+            baseline_ref="docs/audits/2026-08-11-recursive-learn-performance.md",
+            observed_at=MODULE.parse_observed_at("2026-08-11T22:15:00Z"),
+            ledger_before=ledger_bytes,
+            ledger_after=ledger_bytes + b" ",
+        )
+    governed = tmp_path / "governed"
+    assert MODULE.governed_outcome_output(governed / "receipt.json", root=governed) == (
+        governed / "receipt.json"
+    ).resolve()
+    with pytest.raises(MODULE.LearningError, match="must be under"):
+        MODULE.governed_outcome_output(tmp_path / "outside.json", root=governed)
+    with pytest.raises(MODULE.LearningError, match="must be JSON"):
+        MODULE.governed_outcome_output(governed / "receipt.md", root=governed)
+    with pytest.raises(MODULE.LearningError, match="journal context"):
+        MODULE.repository_evidence_path("mira/journal/2026-08-11.md")
+
+
+def test_outcome_receipt_write_is_atomic_idempotent_and_immutable(tmp_path: Path) -> None:
+    output = tmp_path / "receipt.json"
+    assert MODULE.persist_outcome_receipt(output, b"one\n", check=True) == ("ready", False)
+    assert not output.exists()
+    assert MODULE.persist_outcome_receipt(output, b"one\n", check=False) == ("written", True)
+    assert output.read_bytes() == b"one\n"
+    assert MODULE.persist_outcome_receipt(output, b"one\n", check=False) == ("current", False)
+    with pytest.raises(MODULE.LearningError, match="refusing to overwrite"):
+        MODULE.persist_outcome_receipt(output, b"two\n", check=False)
 
 
 def test_assessment_entrypoint_runs_the_full_companion_validator(tmp_path: Path) -> None:

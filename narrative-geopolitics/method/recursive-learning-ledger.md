@@ -63,6 +63,13 @@ journal signal without mutation. `candidate --reference <MJTR.json> --output
 <external-path>` may emit a private packet. Journal prose and companions are
 interpretive context only and cannot serve as any stage's evidence path.
 
+When a later assessment exercises a diagnosed change to `recursive-learn`
+itself, `outcome-receipt` may preserve the exact assessment, implementation
+digests, and unchanged-ledger hashes under
+`work/system-improvement/recursive-learning-outcomes/`. This receipt supplies
+bounded outcome evidence only; it cannot create a candidate or establish
+closure by itself.
+
 Admission requires an exact operator record: `Admit recursive learning entry
 <RSI-id> with digest <candidate-sha256>.` Then run `recursive-learn admit` with
 that record. Admission atomically appends canonical JSON, renders Markdown, and

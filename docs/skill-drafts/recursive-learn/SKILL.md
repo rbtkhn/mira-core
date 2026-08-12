@@ -7,8 +7,10 @@ description: "Assess and explicitly admit evidence-backed Narrative Systems recu
 
 Use only in `narrative-systems`. Read
 `narrative-geopolitics/method/recursive-learning-ledger.md`, the canonical JSON
-ledger, the named MJTR companion, and every linked evidence artifact before
-classifying a loop.
+ledger, and the named MJTR companion. Run full companion validation first.
+Follow the returned `evidence_read_scope`: do not reread ordinary grounding
+artifacts for `reference-validation-only`; for `full-stage-evidence`, read every
+unique repository artifact listed in `stage_evidence_paths` before classifying.
 
 ## Assess by default
 
@@ -24,7 +26,9 @@ technical companion supplies interpretive context, never stage evidence.
 Require repository evidence for observation, diagnosis, persistent
 intervention, separate validation, and outcome. Reject ordinary feature work,
 tests accompanying an unused feature, readiness gates without observed use,
-and prose that merely claims self-improvement.
+and prose that merely claims self-improvement. Report each
+`stage_disposition`, including why evidence is missing, context-only, invalid,
+or provided.
 
 ## Prepare privately
 
@@ -37,6 +41,21 @@ tools/run.ps1 recursive-learn candidate --reference PATH --output ABSOLUTE_EXTER
 
 Candidate creation grants no ledger authority. Keep honest missing measurements
 in `partial-feedback-loop` / `partial` entries; never manufacture closure.
+
+## Preserve an assessor outcome
+
+When a repository audit diagnoses `recursive-learn` itself and a later real
+assessment exercises the intervention, preserve that outcome separately:
+
+```text
+tools/run.ps1 recursive-learn outcome-receipt --reference PATH --baseline-ref REPO/AUDIT.md --observed-at ISO-8601 --output REPO/OUTCOME.json --check
+tools/run.ps1 recursive-learn outcome-receipt --reference PATH --baseline-ref REPO/AUDIT.md --observed-at ISO-8601 --output REPO/OUTCOME.json
+```
+
+Write only under the governed recursive-learning outcomes directory. The
+receipt binds exact inputs, implementation digests, assessment output, and
+ledger before/after hashes. It is outcome evidence, not a candidate, closure
+claim, or admission authority.
 
 ## Admit only on exact instruction
 
