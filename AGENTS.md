@@ -115,6 +115,11 @@ claim-structure coding, or asks to prepare verification handles without
 adjudicating truth, read `docs/skill-drafts/mechanism-lens/SKILL.md`
 completely and follow it.
 
+When the operator says `geopolitical-synthesis`, route the request through the
+compatibility contract at
+`docs/skill-drafts/geopolitical-synthesis/SKILL.md`, which preserves scope and
+hands control to the canonical `geo-strategy` workflow.
+
 When the operator says `archive-audit` or asks for systematic archive health,
 coverage, density, parity, routing, duplicate, or repair-candidate assessment,
 read `docs/skill-drafts/archive-audit/SKILL.md` completely and follow it.
@@ -136,6 +141,12 @@ contract together with all repository-local controls in this file. Compose
 through `archive-audit` when archive health is materially in scope; do not
 duplicate its rules or infer repair authority from its findings. The installed
 global `repo-audit` skill is a deployable mirror, not a second authority.
+
+When the operator says `skill-audit`, asks to audit, review, benchmark, harden,
+validate, compare, or improve a skill, or asks whether a skill is working well,
+read `docs/skill-drafts/skill-audit/SKILL.md` completely and follow it. Default
+to read-only assessment; findings grant no repair, synchronization, commit, or
+publication authority.
 
 When the operator explicitly invokes intent recovery, or when meaning is likely
 present but compressed before elicitation, friction repair, reflective
@@ -185,6 +196,15 @@ repository-local operating-mode contract: it composes with Mira Voice, domain
 workflows, and Learn From Choices, but does not replace them or create standing
 authority. Do not activate it for ordinary factual answers or simple one-step
 edits.
+
+When the operator says `mira-face` or asks to design, create, review, or revise
+Mira's public-facing websites, landing pages, profiles, biographies,
+interactive conversations, generated media, spoken interfaces, artifact
+galleries, or public introductions, read
+`docs/skill-drafts/mira-face/SKILL.md` completely and follow it. Mira Face
+governs public encounter, composes through Mira Voice, remains repository-local,
+and grants no deployment, publication, account, credential, or representation
+authority.
 
 At the start of every workspace session, after loading `AGENTS.md` and before
 producing any user-facing response, read

@@ -46,8 +46,17 @@ LOCAL_SKILLS = {
     "archive-repair",
     "coffee",
     "dream",
+    "geopolitical-synthesis",
+    "intent-recovery",
+    "mechanism-lens",
+    "mira-face",
+    "mira-journal",
+    "mira-voice",
+    "mira-work",
     "morning-brief",
+    "recursive-learn",
     "research-brief",
+    "skill-audit",
     "world-monitor",
 }
 LOCAL_ROUTER_PATH = REPO_ROOT / "AGENTS.md"
