@@ -24,18 +24,18 @@ Working object file: [U.S. Force-Strain / Iran-Hormuz](../../crisis-objects/us-f
 
 Review signal: The judgment strengthens if later packets show the same pressure moving from rhetoric into force rotations, base vulnerability, sanctions substitutes, Gulf hedging, or explicit coalition fatigue. It weakens if a verifiable settlement, durable military reset, or stable regional enforcement arrangement appears.
 
-## Primary Voices By Function
+## Primary Voices
 
-| Source | Voice | Function in the day | Useful pressure |
+| Voice | Source | Function in the day | Useful pressure |
 | --- | --- | --- | --- |
-| `SRC-01` | Chas Freeman | Regional-order frame | U.S. decline appears as reduced agenda-setting power in the Middle East, with regional actors seeking more autonomous security relationships. |
-| `SRC-02` | Lawrence Wilkerson | Republic-versus-empire frame | The force-strain question becomes constitutional and institutional: imperial posture outruns republican consent and restraint. |
-| `SRC-03` | Larry Johnson | Iran victory-narrative frame | A possible Trump claim of victory is treated as exit rhetoric that may not solve the underlying nuclear, sanctions, or coercion problem. |
-| `SRC-04` | Stanislav Krapivnik | Russia-side attrition frame | Ukraine and Russia pressure widen the capacity ledger, making Iran/Gulf coercion part of a broader U.S. bandwidth contest. |
-| `SRC-05` | Anthony Aguilar | Force-health frame | The USS Abraham Lincoln discussion makes military endurance and crew/platform strain central to the political narrative. |
-| `SRC-06` | Alexander Mercouris | Maritime-reprisal frame | Russian naval seizure claims, if verified elsewhere, would show maritime coercion spreading beyond the Gulf object. |
-| `SRC-07` | Robert Barnes | Domestic-control frame | The Iran-war lane is framed as under-contested inside the administration, raising the risk that internal checks do not discipline escalation. |
-| `SRC-08` | Scott Ritter | Psychological-warfare frame | Russia-Ukraine pressure is framed as societal and cognitive endurance, not only battlefield exchange. |
+| Chas Freeman | `SRC-01` | Regional-order frame | U.S. decline appears as reduced agenda-setting power in the Middle East, with regional actors seeking more autonomous security relationships. |
+| Lawrence Wilkerson | `SRC-02` | Republic-versus-empire frame | The force-strain question becomes constitutional and institutional: imperial posture outruns republican consent and restraint. |
+| Larry Johnson | `SRC-03` | Iran victory-narrative frame | A possible Trump claim of victory is treated as exit rhetoric that may not solve the underlying nuclear, sanctions, or coercion problem. |
+| Stanislav Krapivnik | `SRC-04` | Russia-side attrition frame | Ukraine and Russia pressure widen the capacity ledger, making Iran/Gulf coercion part of a broader U.S. bandwidth contest. |
+| Anthony Aguilar | `SRC-05` | Force-health frame | The USS Abraham Lincoln discussion makes military endurance and crew/platform strain central to the political narrative. |
+| Alexander Mercouris | `SRC-06` | Maritime-reprisal frame | Russian naval seizure claims, if verified elsewhere, would show maritime coercion spreading beyond the Gulf object. |
+| Robert Barnes | `SRC-07` | Domestic-control frame | The Iran-war lane is framed as under-contested inside the administration, raising the risk that internal checks do not discipline escalation. |
+| Scott Ritter | `SRC-08` | Psychological-warfare frame | Russia-Ukraine pressure is framed as societal and cognitive endurance, not only battlefield exchange. |
 
 ## Orthogonal Pressure Test
 
@@ -82,9 +82,9 @@ No operational claim is retained for public factual use in this pass. Aguilar's 
 
 ## Issue Story Desk
 
-| Story ID | Rank | Working title | Crisis object | Evidence posture | Source support | Forecast hook | Operational claim dependency | Publication status | Rationale |
+| Story ID | Placement | Argument headline | Crisis object | Evidence posture | Source IDs | Voices | Forecast hooks | Operational claims | Selection rationale |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| `NGI-20260812-S01` | `lead` | Force-Strain Replaces Clean Victory | U.S. Force-Strain / Iran-Hormuz | `bounded-analysis` | `SRC-01`, `SRC-02`, `SRC-03`, `SRC-04`, `SRC-05`, `SRC-06`, `SRC-07`, `SRC-08` | `NG-20260812-F01` | `none-public` | `internal-only` | The day is useful because multiple lanes describe the cost of U.S. coercion, not because any single operational allegation is verified. |
+| `NGI-20260812-S01` | `lead` | Force-Strain Replaces Clean Victory | U.S. Force-Strain / Iran-Hormuz | `bounded-analysis` | `SRC-01`, `SRC-02`, `SRC-03`, `SRC-04`, `SRC-05`, `SRC-06`, `SRC-07`, `SRC-08` | Freeman, Wilkerson, Johnson, Krapivnik, Aguilar, Mercouris, Barnes, Ritter | `NG-20260812-F01` | none | The day is useful because multiple lanes describe the cost of U.S. coercion, not because any single operational allegation is verified. |
 
 ## Forecast Candidates
 

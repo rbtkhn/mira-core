@@ -1,62 +1,42 @@
+<!-- daily-issue-v1 inputs-sha256: a7a7185acbd1009fd5e3f97413c99dd33ca7729dae657824897412ba4cbcc1fa -->
+<!-- reality-lattice-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 -->
+<!-- Generated file. Edit canonical daily or reality-lattice inputs, then regenerate. -->
+
+Publication: **Narrative Geopolitics — Daily Issue**
+
 # The Same Margin Must Cover Every Front
+
+Title standard: `reader-facing`
+
+Title rationale: `The title compresses the day's lead judgment: the Iran/Gulf file, Ukraine/Russia pressure, Israeli demands, maritime coercion, military endurance, and domestic legitimacy all compete for the same U.S. strategic margin.`
 
 Date: `2026-08-12`
 
-Status: `internal-only`, `source-bounded`, `public-use-held`
+Status: `internal-reader-facing`
 
-Title rationale: The title compresses the day's lead judgment: the Iran/Gulf file, Ukraine/Russia pressure, Israeli demands, maritime coercion, military endurance, and domestic legitimacy all compete for the same U.S. strategic margin.
+Evidence posture: `archive-first; story-level labels govern factual use`
 
-Evidence boundary: This brief synthesizes the August 12 archive batch. It does not independently verify operational allegations inside the transcripts.
+## Front Page
 
-## Lead Judgment
+Rank: `lead`
 
-August 12 should be handled as a force-strain day. The archive's value is not that one voice supplies a decisive fact. Its value is that different voices pressure the same object from different sides: Freeman on regional autonomy, Wilkerson on empire and republican strain, Johnson on victory rhetoric around Iran, Aguilar on military endurance, Barnes on weak internal restraint, and the Russia/Ukraine lanes on wider U.S. bandwidth.
+| Desk | Story | Evidence posture |
+| --- | --- | --- |
+| Main Analysis | Force-Strain Replaces Clean Victory | `bounded-analysis` |
 
-The working judgment is that Washington may still be able to threaten, strike, sanction, and declare success, but the conversion of those acts into durable settlement is becoming more expensive. The strategic problem is no longer only escalation; it is whether coercion still clears its own political, military, and regional bill.
+## Briefing Desk
 
-## Crisis Object
+No secondary brief met the issue threshold for this archive day.
 
-Can the United States sustain coercive pressure around Iran and Gulf transit while force posture, alliance management, domestic politics, and regional security autonomy all draw on the same limited capacity?
+## Main Analysis
 
-Object file: [U.S. Force-Strain / Iran-Hormuz](../../crisis-objects/us-force-strain-iran-hormuz-2026-08-12.md)
+### Force-Strain Replaces Clean Victory
 
-## Source Grounding
+Evidence posture: `bounded-analysis`
 
-| Source | Contribution |
-| --- | --- |
-| `SRC-01` Freeman | Makes U.S. decline a regional-order question rather than only a Washington policy failure. |
-| `SRC-02` Wilkerson | Connects imperial posture to institutional and constitutional strain. |
-| `SRC-03` Johnson | Treats a possible Iran victory declaration as exit rhetoric that may not equal settlement. |
-| `SRC-04` Krapivnik | Keeps Ukraine/Russia pressure inside the same strategic bandwidth ledger. |
-| `SRC-05` Aguilar | Gives the day a force-health and platform-endurance pressure point. |
-| `SRC-06` Mercouris | Adds maritime coercion as a possible spreading mechanism, pending verification. |
-| `SRC-07` Barnes | Presses the internal-restraint problem inside the administration. |
-| `SRC-08` Ritter | Frames Russia/Ukraine as mental and societal endurance pressure. |
+Crisis object: U.S. Force-Strain / Iran-Hormuz
 
-## Strategic Shape
-
-The day is not analytically tidy, and that is part of its use. A tidy Iran brief would ask whether Trump declares victory and exits. The better brief asks what such a declaration would be trying to solve: a public need for closure, a military need to husband force, an Israeli or Gulf-management problem, a sanctions problem, and a domestic-control problem.
-
-That makes "victory" a poor sole metric. The harder metric is conversion: does U.S. coercive power produce compliance, or does it mainly produce the need for more coercive maintenance?
-
-## Counterweight
-
-The strongest caution is source clustering. These voices are not a representative map of all U.S., Gulf, Israeli, Iranian, or European positions. They are valuable for mechanism discovery, not sufficient for public factual conclusion. The correct use is to track the force-strain object across later archive days and verification packets.
-
-## Watch Signals
-
-- U.S. language shifts from victory to sanctions enforcement, containment, rotation, or burden management.
-- Gulf, Turkish, Iranian, or Israeli lanes show hedging around U.S.-led escalation.
-- Carrier, base, or maritime-access strain appears across independent reporting.
-- Russia/Ukraine pressure continues to be linked to U.S. global bandwidth.
-
-## Forecast Hook
-
-`NG-20260812-F01`: By `2026-08-19`, at least one later source lane, official statement, or policy move frames Iran/Gulf pressure as containment, sanctions enforcement, force rotation, maritime access management, or managed attrition rather than a clean victory settlement.
-
-## Issue Copy
-
-### NGI-20260812-S01 - Force-Strain Replaces Clean Victory
+Related reality claims: None registered
 
 Rank: `lead`
 
@@ -102,6 +82,61 @@ The review path is therefore practical. Watch for U.S. language moving from clea
 
 For internal strategy work, the implication is to stop treating Iran/Gulf pressure as a standalone escalation story. The better object is force-strain under coercive maintenance. That object can absorb both hard and soft signals: force posture, public messaging, regional autonomy, domestic restraint, alliance discipline, and adversary patience. It also keeps the evidence discipline intact. Operational assertions remain held. The strategic mechanism is live.
 
-## Revision Log
+## Source Ledger
+
+Only sources used by selected issue stories appear here. See the [complete canonical source accounting](sources.md).
+
+| Source ID | Voice | Archive source | Analytical job |
+| --- | --- | --- | --- |
+| `SRC-01` | Freeman | [2026-08-12 Freeman](../../../archive/sources/2026-08-12/source-3-chas-freeman-how-u-s-decline-reshapes-the-middle-east-2026-08-12.md) | (3) Chas Freeman: How U.S. Decline Reshapes the Middle East |
+| `SRC-02` | Wilkerson | [2026-08-12 Wilkerson](../../../archive/sources/2026-08-12/source-3-col-lawrence-wilkerson-is-the-us-a-republic-or-an-empire-2026-08-12.md) | (3) COL. Lawrence Wilkerson : Is the US a Republic or an Empire? |
+| `SRC-03` | Johnson | [2026-08-12 Johnson](../../../archive/sources/2026-08-12/source-3-larry-johnson-will-trump-declare-victory-against-iran-walk-away-without-a-nuclear-deal-2026-08-12.md) | (3) Larry Johnson: Will Trump Declare Victory Against Iran & Walk Away Without a Nuclear Deal? |
+| `SRC-04` | Krapivnik | [2026-08-12 Krapivnik](../../../archive/sources/2026-08-12/source-3-live-from-russia-stanislav-krapivnik-2026-08-12.md) | (3) LIVE from Russia Stanislav Krapivnik |
+| `SRC-05` | Aguilar | [2026-08-12 Aguilar](../../../archive/sources/2026-08-12/source-3-lt-col-anthony-aguilar-the-unraveling-of-the-uss-abraham-lincoln-2026-08-12.md) | (3) Lt. Col. Anthony Aguilar: The Unraveling of the USS Abraham Lincoln |
+| `SRC-06` | Mercouris | [2026-08-12 Mercouris](../../../archive/sources/2026-08-12/source-3-putin-orders-retaliatory-seizures-by-russian-navy-of-eu-ships-orekhov-crisis-kiev-brigade-trapped-2026-08-12.md) | (3) Putin Orders Retaliatory Seizures By Russian Navy Of EU Ships; Orekhov Crisis Kiev Brigade Trapped |
+| `SRC-07` | Barnes | [2026-08-12 Barnes](../../../archive/sources/2026-08-12/source-3-robert-barnes-nobody-s-pushing-back-on-trump-in-the-admin-re-iran-war-2026-08-12.md) | (3) Robert Barnes: Nobody's Pushing Back on Trump in the Admin re: IRAN WAR |
+| `SRC-08` | Ritter | [2026-08-12 Ritter](../../../archive/sources/2026-08-12/source-3-scott-ritter-russia-ukraine-mental-warfare-societal-pressures-rising-2026-08-12.md) | (3) Scott Ritter: Russia Ukraine MENTAL WARFARE, Societal Pressures Rising |
+
+## Forecast Desk
+
+Forecasts remain accountable to the [canonical daily review](forecast.md) and [central ledger](../../forecasts/forecast-ledger.md).
+
+| Hook | Observable claim | Band | Review date | Strengthening test | Weakening test |
+| --- | --- | --- | --- | --- | --- |
+| `NG-20260812-F01` |  | `` | `` | See the canonical forecast review. | See the canonical forecast review. |
+
+## Verification Desk
+
+Operational claims remain attributed unless canonical multilingual adjudication supports factual adoption.
+
+### Missing observables
+
+No additional missing observables were recorded.
+
+## Voices / Columns
+
+Names identify source-bounded pressure tests, not endorsement or reconstructed present opinion.
+
+| Voice | Analytical operation | Contribution | Main risk |
+| --- | --- | --- | --- |
+| Freeman |  |  |  |
+| Wilkerson |  |  |  |
+| Johnson |  |  |  |
+| Krapivnik |  |  |  |
+| Aguilar |  |  |  |
+| Mercouris |  |  |  |
+| Barnes |  |  |  |
+| Ritter |  |  |  |
+
+## Editor's Note
+
+This issue selects stories by declared analytical consequence, not by source volume.
+- **Force-Strain Replaces Clean Victory:** The day is useful because multiple lanes describe the cost of U.S. coercion, not because any single operational allegation is verified.
+
+This is intentionally a thin issue: fewer than three story objects cleared the selection threshold.
+
+Canonical inputs: [sources](sources.md), [synthesis](synthesis.md), [forecast](forecast.md), and [daily brief](daily-brief.md).
+
+### Revision Log
 
 No revisions.

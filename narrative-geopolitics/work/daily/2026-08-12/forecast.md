@@ -1,5 +1,7 @@
 # Forecast Hooks - 2026-08-12
 
+Date: `2026-08-12`
+
 Status: `deepened-source-bounded`
 
 Forecast rule: state a causal wager, not topic plus outcome. See [labels as analytical interfaces](../../../method/analytical-interfaces.md).
