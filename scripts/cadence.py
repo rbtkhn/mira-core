@@ -175,7 +175,6 @@ EXPERIMENT_PROFILES = {
             "docs/skill-drafts/research-brief/assets/research-brief-seed-v1.json",
             "docs/skill-drafts/research-brief/assets/research-execution-handoff-v1.json",
             "docs/skill-drafts/reality-check/SKILL.md",
-            "docs/skill-drafts/world-monitor/SKILL.md",
             "scripts/research_handoff.py",
             "scripts/reality_handoff.py",
             "scripts/continuity.py",

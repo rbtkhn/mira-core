@@ -1,7 +1,7 @@
 {
   "schema": "research-brief-seed-v1",
   "producer": {
-    "workflow": "<reality-handoff | world-monitor | continuity-triage>",
+    "workflow": "<reality-handoff | continuity-triage>",
     "item_id": "<producer-scoped item identifier>",
     "source_refs": ["<repository path, canonical ID, or upstream URL>" ]
   },

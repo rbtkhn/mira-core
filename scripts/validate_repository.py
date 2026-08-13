@@ -57,7 +57,6 @@ LOCAL_SKILLS = {
     "recursive-learn",
     "research-brief",
     "skill-audit",
-    "world-monitor",
 }
 LOCAL_ROUTER_PATH = REPO_ROOT / "AGENTS.md"
 REQUIRED_DAILY_FILES = {"sources.md", "synthesis.md", "forecast.md", "judgment.md", "daily-brief.md"}

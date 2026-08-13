@@ -7,7 +7,6 @@ ROOT = Path(__file__).resolve().parents[1]
 SKILL_PATH = ROOT / "docs" / "skill-drafts" / "research-brief" / "SKILL.md"
 HANDOFF_TEMPLATE = SKILL_PATH.parent / "assets" / "research-execution-handoff-v1.json"
 SEED_TEMPLATE = SKILL_PATH.parent / "assets" / "research-brief-seed-v1.json"
-WORLD_MONITOR_SKILL = ROOT / "docs" / "skill-drafts" / "world-monitor" / "SKILL.md"
 
 
 def skill_text() -> str:
@@ -74,7 +73,6 @@ def test_research_brief_preserves_evidence_and_workflow_boundaries() -> None:
         "Rival explanations",
         "Contradiction protocol",
         "independent lineage",
-        "world-monitor",
         "morning-brief",
         "reality-check",
         "intake",
@@ -101,6 +99,7 @@ def test_research_brief_emits_a_non_authorizing_handoff() -> None:
     assert "research-handoff --packet" in value
     assert "transfers scope" in value
     assert "routing compatibility, never as execution authority" in value
+    assert "world-monitor" not in json.dumps(template)
 
 
 def test_research_brief_uses_calibrated_adaptive_intake() -> None:
@@ -161,16 +160,10 @@ def test_seed_template_is_inline_context_without_execution_fields() -> None:
         assert forbidden not in template
 
 
-def test_world_monitor_emits_only_eligible_selected_seed_context() -> None:
-    value = WORLD_MONITOR_SKILL.read_text(encoding="utf-8")
+def test_current_signal_discovery_routes_without_world_monitor() -> None:
+    value = skill_text()
     normalized = " ".join(value.split())
 
-    for required in (
-        "research-brief-seed-v1",
-        "Keep every authority flag false",
-        "Do not include compatibility, disposition",
-        "Expand the seed only after operator selection",
-        "Do not seed ordinary scans",
-        "unrecovered dashboard signals",
-    ):
-        assert required in normalized
+    assert "current signal discovery -> `external-research`" in normalized
+    assert "unless the request matches the fixed `morning-brief` scope" in normalized
+    assert "world-monitor" not in normalized

@@ -164,7 +164,7 @@ def candidate(
         "impact": impact,
         "confidence_boundary": "One recovered upstream source; independent corroboration remains absent.",
         "discovery": {
-            "provider": "World Monitor" if candidate_id == "OBS-01" else "Broad search",
+            "provider": "Broad search",
             "reference": f"https://discovery.invalid/{candidate_id.lower()}",
             "is_evidence": False,
         },
@@ -610,16 +610,6 @@ def test_shared_selected_lineage_is_rejected(bounded_repo: Path) -> None:
         generate(bounded_repo, payload)
 
 
-def test_world_monitor_cannot_be_upstream_evidence(bounded_repo: Path) -> None:
-    payload = receipt(bounded_repo)
-    payload["candidates"][0]["upstream"].update(
-        provider="World Monitor",
-        url="https://upstream.example/brief",
-    )
-    with pytest.raises(morning_brief.BriefError, match="cannot be used as upstream evidence"):
-        generate(bounded_repo, payload)
-
-
 def test_four_development_limit_is_enforced(bounded_repo: Path) -> None:
     payload = receipt(bounded_repo)
     payload["selected_development_ids"] = ["OBS-01", "OBS-02", "OBS-03", "OBS-04", "OBS-05"]
@@ -701,9 +691,15 @@ def test_morning_brief_is_governed_local_only_and_research_led() -> None:
     skill = (REPO_ROOT / "docs" / "skill-drafts" / "morning-brief" / "SKILL.md").read_text(
         encoding="utf-8"
     )
+    normalized_skill = " ".join(skill.split())
     assert "docs/skill-drafts/morning-brief/SKILL.md" in agents
     assert ".\\tools\\run.ps1 morning-brief" in skill
-    assert "World Monitor and broad current search for discovery" in skill
+    assert "Use broad current search and other non-evidentiary discovery surfaces" in normalized_skill
+    assert (
+        "Recover an official, primary, wire, or clearly attributed upstream source"
+        in normalized_skill
+    )
+    assert "Discovery surfaces are never evidence" in skill
     assert "experimental-internal-morning-update" in skill
     assert "version `2.1`" in skill
     assert "related_observations" in skill

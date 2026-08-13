@@ -76,7 +76,7 @@
       "impact": "complicates",
       "confidence_boundary": "Specific missing corroboration or lineage limit.",
       "discovery": {
-        "provider": "World Monitor or broad search surface.",
+        "provider": "Broad search or other discovery surface.",
         "reference": "https://discovery.example/item",
         "is_evidence": false
       },

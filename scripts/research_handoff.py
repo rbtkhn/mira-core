@@ -14,13 +14,12 @@ SEED_SCHEMA = "research-brief-seed-v1"
 WORKFLOWS = {
     "morning-brief",
     "reality-check",
-    "world-monitor",
     "intake",
     "geo-strategy",
     "geopolitical-synthesis",
     "external-research",
 }
-SEED_PRODUCERS = {"reality-handoff", "world-monitor", "continuity-triage"}
+SEED_PRODUCERS = {"reality-handoff", "continuity-triage"}
 SEED_FIELDS = {
     "schema",
     "producer",
@@ -158,12 +157,6 @@ def classify(packet: dict[str, Any], *, claims_root: Path = CLAIMS_ROOT) -> tupl
         if not claim_exists(claim_id, claims_root):
             return "needs-claim-resolution", [f"canonical claim is not present in the lattice: {claim_id}"]
         return "ready", [f"canonical claim exists in the lattice: {claim_id}"]
-
-    if workflow == "world-monitor":
-        objective = prerequisites.get("world_monitor_objective")
-        if objective not in {"current-signal-discovery", "coverage-gap"}:
-            return "incompatible", ["world_monitor_objective must be current-signal-discovery or coverage-gap"]
-        return "ready", [f"World Monitor supports {objective}"]
 
     if workflow == "intake":
         if prerequisites.get("supplied_source_body") is not True:
