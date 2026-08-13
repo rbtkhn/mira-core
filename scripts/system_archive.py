@@ -733,6 +733,8 @@ def copy_replica(source: ArtifactStore,destination: ArtifactStore) -> None:
 
 
 def replica_command(args: argparse.Namespace) -> dict[str,Any]:
+    if args.sync and not args.full:
+        raise ArchiveError("replica synchronization is archive-wide; rerun with --sync --full only for an explicit maintenance or integrity objective")
     source=store(); replica_root=configured_root(REPLICA_ROOT_ENV); assert replica_root is not None
     if args.sync and not args.check: copy_replica(source,ArtifactStore(replica_root,REPO_ROOT,create=True))
     try:

@@ -77,6 +77,15 @@ membership and selected object size, decompression, and hashes; unscoped
 verification additionally performs whole-catalog SQLite, foreign-key, and
 derivation-graph integrity checks.
 
+Routine single-source intake stops after the collection-scoped dry run,
+canonical ingestion, exact hash-verified retrieval of the new source, and
+bounded tests. It does not include `doctor --full`, unscoped `verify`, or
+replica synchronization. Report replica staleness without repairing it unless
+the operator explicitly requests full synchronization, a bounded integrity
+failure justifies escalation, or archive maintenance is the stated objective.
+Because synchronization walks the complete object store, `replica-status
+--sync` also requires the explicit `--full` acknowledgement flag.
+
 Raw objects remain primary. Indexes and context packs are derived views. Hidden
 reasoning is excluded. Model output, repetition, or confidence never promotes
 policy or identity. No operation authorizes commit, push, publication, rename,

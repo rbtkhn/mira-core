@@ -499,6 +499,12 @@ def test_doctor_detects_missing_collection_and_stale_replica(tmp_path: Path, mon
     assert "replica catalog fingerprint differs" in result["failures"]
 
 
+def test_replica_sync_requires_explicit_full_archive_acknowledgement() -> None:
+    args = SimpleNamespace(sync=True, check=False, full=False)
+    with pytest.raises(ArchiveError, match="archive-wide"):
+        system_archive.replica_command(args)
+
+
 def test_verify_can_scope_expensive_object_checks_to_selected_collections(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
     repo=tmp_path/"repo"; repo.mkdir(); archive_root=tmp_path/"archive"; archive=ArtifactStore(archive_root,repo,create=True)
     with archive.connect(create=True) as connection:

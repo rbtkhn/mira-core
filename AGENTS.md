@@ -26,6 +26,16 @@ before starting the workload when the root is missing, inside the repository,
 or not writable. Do not infer writability from a declared sandbox permission
 alone.
 
+For routine System Archive intake, keep verification proportional to the
+selected collection and newly admitted records. The default stop boundary is:
+collection-scoped dry run, canonical ingestion, exact retrieval with object
+hash verification, and bounded tests. Do not run `doctor --full`, unscoped
+`verify`, or `replica-status --sync` as part of ordinary intake. Whole-archive
+verification or replica synchronization requires an explicit operator request,
+a collection-scoped integrity failure that warrants escalation, or a separately
+identified archive-maintenance objective. A stale replica may be reported
+without repairing it during intake.
+
 Cache an optional service's unavailable state for the current task. Do not
 repeat the same availability probe unless its path, environment, credentials,
 permissions, or other external state changes, or the operator explicitly asks
