@@ -497,3 +497,27 @@ def test_doctor_detects_missing_collection_and_stale_replica(tmp_path: Path, mon
     assert result["status"]=="unhealthy"
     assert "replica missing autobiographical collection: moonshots" in result["failures"]
     assert "replica catalog fingerprint differs" in result["failures"]
+
+
+def test_verify_can_scope_expensive_object_checks_to_selected_collections(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+    repo=tmp_path/"repo"; repo.mkdir(); archive_root=tmp_path/"archive"; archive=ArtifactStore(archive_root,repo,create=True)
+    with archive.connect(create=True) as connection:
+        for index,collection_id in enumerate(("moonshots","narrative-geopolitics-archive")):
+            body=f"{collection_id}\n".encode(); item=RecordInput(f"REC-{index}","transcript",f"external/{collection_id}.md",collection_id,"registry","research","test","fixture","2026-08-12T00:00:00Z",None,None,{},body.decode())
+            ingest_record(connection,archive,item,body)
+        connection.commit()
+    monkeypatch.setattr(system_archive,"REPO_ROOT",repo); monkeypatch.setenv(system_archive.ARCHIVE_ROOT_ENV,str(archive_root)); monkeypatch.setattr(system_archive,"collection_map",lambda:{"moonshots":{"id":"moonshots"},"narrative-geopolitics-archive":{"id":"narrative-geopolitics-archive"}})
+    unrelated_id="REC-1"
+    with archive.connect() as connection: unrelated_object=connection.execute("SELECT object_id FROM records WHERE record_id=?",(unrelated_id,)).fetchone()[0]
+    archive.object_path(unrelated_object).write_bytes(b"corrupt unrelated object")
+    scoped=system_archive.verify_command(SimpleNamespace(collection=["moonshots"],hydration=False))
+    assert scoped["status"]=="passed" and scoped["scope"]=="selected-collections"
+    assert scoped["collections"]==["moonshots"] and scoped["verified_records"]==1
+    whole=system_archive.verify_command(SimpleNamespace(collection=[],hydration=False))
+    assert whole["status"]=="failed" and whole["scope"]=="entire-archive"
+    assert any("stored-size mismatch" in failure for failure in whole["failures"])
+
+
+def test_verify_rejects_unknown_collection(monkeypatch: pytest.MonkeyPatch) -> None:
+    monkeypatch.setattr(system_archive,"collection_map",lambda:{"moonshots":{"id":"moonshots"}})
+    with pytest.raises(ArchiveError,match="unknown collection"): system_archive.verify_command(SimpleNamespace(collection=["missing"],hydration=False))

@@ -68,6 +68,15 @@ Mira's development. The designation changes neither source truth nor identity
 authority. An autobiographical `influenced_by` edge requires an exact approved
 Journal or Continuity endpoint and an exact target source record.
 
+Before launching costly verification, resolve the command's actual selection
+scope and compare it with the objective. Use repeatable `verify --collection
+ID` arguments for bounded collection work. Whole-archive verification is an
+explicit acceptance or integrity operation, not the default proof for a narrow
+restoration. Collection-scoped verification checks selected active-record/FTS
+membership and selected object size, decompression, and hashes; unscoped
+verification additionally performs whole-catalog SQLite, foreign-key, and
+derivation-graph integrity checks.
+
 Raw objects remain primary. Indexes and context packs are derived views. Hidden
 reasoning is excluded. Model output, repetition, or confidence never promotes
 policy or identity. No operation authorizes commit, push, publication, rename,

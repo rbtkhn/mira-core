@@ -571,21 +571,36 @@ def hydrate_command(args: argparse.Namespace) -> dict[str,Any]:
     return {"status":"ready" if args.check else "hydrated","mutation":not args.check,"records":len(rows),"matching":matching,"would_write":would_write,"written":0 if args.check else would_write}
 
 
-def verify_catalog(archive: ArtifactStore, *, full: bool) -> list[str]:
+def verify_catalog(archive: ArtifactStore, *, full: bool, collection_ids: Sequence[str] = ()) -> list[str]:
     failures=[]
     with archive.connect() as connection:
-        integrity=connection.execute("PRAGMA integrity_check").fetchone()[0]
-        if integrity!="ok": failures.append(f"SQLite integrity check: {integrity}")
-        failures.extend(f"foreign-key violation: {tuple(row)}" for row in connection.execute("PRAGMA foreign_key_check")); failures.extend(verify_derivation_acyclic(connection))
-        for row in connection.execute("SELECT object_id,original_size,stored_size FROM objects ORDER BY object_id"):
+        if collection_ids:
+            placeholders=",".join("?" for _ in collection_ids)
+            missing=connection.execute(
+                "SELECT COUNT(*) FROM active_paths a WHERE a.collection_id IN ("+placeholders+") "
+                "AND NOT EXISTS (SELECT 1 FROM record_fts f WHERE f.record_id=a.record_id AND CAST(f.version AS INTEGER)=a.version)",
+                tuple(collection_ids),
+            ).fetchone()[0]
+            if missing: failures.append(f"selected active records missing FTS rows: {missing}")
+            object_query=("SELECT DISTINCT o.object_id,o.original_size,o.stored_size FROM objects o "
+                          "JOIN records r ON r.object_id=o.object_id "
+                          f"WHERE r.collection_id IN ({placeholders}) ORDER BY o.object_id")
+            object_rows=connection.execute(object_query,tuple(collection_ids))
+        else:
+            integrity=connection.execute("PRAGMA integrity_check").fetchone()[0]
+            if integrity!="ok": failures.append(f"SQLite integrity check: {integrity}")
+            failures.extend(f"foreign-key violation: {tuple(row)}" for row in connection.execute("PRAGMA foreign_key_check")); failures.extend(verify_derivation_acyclic(connection))
+            object_rows=connection.execute("SELECT object_id,original_size,stored_size FROM objects ORDER BY object_id")
+        for row in object_rows:
             path=archive.object_path(row["object_id"])
             if not path.is_file(): failures.append(f"missing object: {row['object_id']}")
             elif path.stat().st_size!=row["stored_size"]: failures.append(f"stored-size mismatch: {row['object_id']}")
             elif full:
                 try: archive.get_object(row["object_id"],expected_size=row["original_size"])
                 except ArchiveError as error: failures.append(str(error))
-        missing=connection.execute("SELECT COUNT(*) FROM active_paths a WHERE NOT EXISTS (SELECT 1 FROM record_fts f WHERE f.record_id=a.record_id AND CAST(f.version AS INTEGER)=a.version)").fetchone()[0]
-        if missing: failures.append(f"active records missing FTS rows: {missing}")
+        if not collection_ids:
+            missing=connection.execute("SELECT COUNT(*) FROM active_paths a WHERE NOT EXISTS (SELECT 1 FROM record_fts f WHERE f.record_id=a.record_id AND CAST(f.version AS INTEGER)=a.version)").fetchone()[0]
+            if missing: failures.append(f"active records missing FTS rows: {missing}")
     return failures
 
 
@@ -621,14 +636,19 @@ def validate_command(args: argparse.Namespace) -> dict[str,Any]:
 
 
 def verify_command(args: argparse.Namespace) -> dict[str,Any]:
-    archive=store(); failures=verify_catalog(archive,full=True)
+    selected=selected_collections(args.collection,include_explicit_default=True) if args.collection else []
+    collections=[row["id"] for row in selected]
+    archive=store(); failures=verify_catalog(archive,full=True,collection_ids=collections)
+    verified_records=0
+    with archive.connect() as connection:
+        verified_records=sum(1 for _ in iter_active_records(connection,collection_ids=collections)) if collections else connection.execute("SELECT COUNT(*) FROM active_paths").fetchone()[0]
     if args.hydration:
         with archive.connect() as connection:
-            for row in iter_active_records(connection):
+            for row in iter_active_records(connection,collection_ids=collections):
                 path=REPO_ROOT/row["logical_path"]
                 if not path.is_file(): failures.append(f"missing hydrated path: {row['logical_path']}")
                 elif sha256_bytes(path.read_bytes())!=row["object_id"]: failures.append(f"hydration mismatch: {row['logical_path']}")
-    return {"status":"passed" if not failures else "failed","failures":failures}
+    return {"status":"passed" if not failures else "failed","scope":"selected-collections" if collections else "entire-archive","collections":collections,"verified_records":verified_records,"failures":failures}
 
 
 def fts_expression(query: str) -> str:
@@ -743,7 +763,7 @@ def parser() -> argparse.ArgumentParser:
     p=sub.add_parser("ingest"); p.add_argument("--check",action="store_true"); p.add_argument("--collection",action="append",default=[]); p.add_argument("--source-root",type=Path); output(p); p.set_defaults(handler=ingest_command)
     p=sub.add_parser("hydrate"); p.add_argument("--check",action="store_true"); p.add_argument("--collection",action="append",default=[]); output(p); p.set_defaults(handler=hydrate_command)
     p=sub.add_parser("validate"); p.add_argument("--git-only",action="store_true"); p.add_argument("--full",action="store_true"); output(p); p.set_defaults(handler=validate_command)
-    p=sub.add_parser("verify"); p.add_argument("--hydration",action="store_true"); output(p); p.set_defaults(handler=verify_command)
+    p=sub.add_parser("verify"); p.add_argument("--collection",action="append",default=[]); p.add_argument("--hydration",action="store_true"); output(p); p.set_defaults(handler=verify_command)
     p=sub.add_parser("search"); p.add_argument("--query",required=True); p.add_argument("--collection",action="append",default=[]); p.add_argument("--as-of"); p.add_argument("--limit",type=int,default=20); output(p); p.set_defaults(handler=search_command)
     p=sub.add_parser("get"); p.add_argument("--collection",required=True); p.add_argument("--path",required=True); p.add_argument("--output",type=Path,required=True); output(p); p.set_defaults(handler=get_command)
     p=sub.add_parser("lineage"); p.add_argument("--record",required=True); p.add_argument("--version",type=int); p.add_argument("--direction",choices=("in","out","both"),default="both"); output(p); p.set_defaults(handler=lineage_command)
