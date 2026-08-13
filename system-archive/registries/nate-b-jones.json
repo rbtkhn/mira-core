@@ -1,0 +1,386 @@
+{
+  "auxiliary_paths": [
+    "projects/singularity-science/nate-b-jones-clean-setup-lane-implications-memo.md",
+    "system-archive/singularity-science/recurrence-reviews/2026-07-24-backfill-nate-b-jones-coordination-substrate.md",
+    "system-archive/singularity-science/recurrence-reviews/2026-07-24-backfill-nate-b-jones-multi-agent-verification.md",
+    "system-archive/singularity-science/recurrence-reviews/2026-07-24-backfill-nate-b-jones-problem-selection.md"
+  ],
+  "collection_id": "nate-b-jones",
+  "document_count": 23,
+  "documents": [
+    {
+      "capture_date": null,
+      "derived_from": [
+        "system-archive/singularity-science/nate-b-jones/source-notes/2026-07-17-fable-5-and-gpt-5-6-dont-need-better-prompts-they-need-a-clean-setup.source-note.md"
+      ],
+      "document_type": "derived-analysis",
+      "lineage_resolution_receipts": [
+        {
+          "alias_id": "nate-b-jones-historical-archive-relocation-v1",
+          "normalized_original_path": "projects/singularity-science/archive/nate-b-jones/source-notes/2026-07-17-fable-5-and-gpt-5-6-dont-need-better-prompts-they-need-a-clean-setup.source-note.md",
+          "original_reference": "archive/nate-b-jones/source-notes/2026-07-17-fable-5-and-gpt-5-6-dont-need-better-prompts-they-need-a-clean-setup.source-note.md",
+          "resolution": "reviewed-prefix-relocation",
+          "resolved_target": "system-archive/singularity-science/nate-b-jones/source-notes/2026-07-17-fable-5-and-gpt-5-6-dont-need-better-prompts-they-need-a-clean-setup.source-note.md"
+        }
+      ],
+      "logical_path": "external-corpora/nate-b-jones/derived/nate-b-jones-clean-setup-lane-implications-memo.md",
+      "publication_date": null,
+      "rights_policy": "internal-research-only-review-required",
+      "rights_status": "internal-analysis-rights-review-required",
+      "sha256": "f736d3d3052547756406948fda310dd9a968397053b823b0b89afb6e13f1bf8b",
+      "size": 10297,
+      "title": "Nate B. Jones Clean Setup Lane Implications Memo",
+      "upstream_path": "projects/singularity-science/nate-b-jones-clean-setup-lane-implications-memo.md"
+    },
+    {
+      "capture_date": null,
+      "derived_from": [],
+      "document_type": "archive-readme",
+      "logical_path": "external-corpora/nate-b-jones/README.md",
+      "publication_date": null,
+      "rights_policy": "internal-research-only-review-required",
+      "rights_status": "internal-analysis-rights-review-required",
+      "sha256": "901cf54ac4aa229f1b475ee8265992477d49c2f2ca6748857a2d21da7f35c7b6",
+      "size": 2098,
+      "title": "Nate B. Jones Archive",
+      "upstream_path": "system-archive/singularity-science/nate-b-jones/README.md"
+    },
+    {
+      "capture_date": "2026-07-09",
+      "derived_from": [
+        "system-archive/singularity-science/nate-b-jones/source-notes/2026-07-09-claude-fable-5-bossed-20-cheap-ai-agents-site-cost-8.source-note.md",
+        "system-archive/singularity-science/nate-b-jones/transcripts/2026-07-09-claude-fable-5-bossed-20-cheap-ai-agents-site-cost-8.md"
+      ],
+      "document_type": "analysis",
+      "logical_path": "external-corpora/nate-b-jones/analyses/2026-07-09-claude-fable-5-bossed-20-cheap-ai-agents-site-cost-8.analysis.md",
+      "publication_date": null,
+      "rights_policy": "internal-research-only-review-required",
+      "rights_status": "internal-analysis-rights-review-required",
+      "sha256": "a9b8cf0847bee3b09a65dc330145d4f25c9c40a926f52d0830c139ed808fd1c5",
+      "size": 8334,
+      "title": "Nate B. Jones Analysis",
+      "upstream_path": "system-archive/singularity-science/nate-b-jones/analyses/2026-07-09-claude-fable-5-bossed-20-cheap-ai-agents-site-cost-8.analysis.md"
+    },
+    {
+      "capture_date": "2026-07-17",
+      "derived_from": [
+        "system-archive/singularity-science/nate-b-jones/source-notes/2026-07-17-codex-vs-fable-which-ai-agent-picked-the-better-problem.source-note.md",
+        "system-archive/singularity-science/nate-b-jones/transcripts/2026-07-17-captured-codex-vs-fable-which-ai-agent-picked-the-better-problem.md"
+      ],
+      "document_type": "analysis",
+      "logical_path": "external-corpora/nate-b-jones/analyses/2026-07-17-codex-vs-fable-which-ai-agent-picked-the-better-problem.analysis.md",
+      "publication_date": null,
+      "rights_policy": "internal-research-only-review-required",
+      "rights_status": "internal-analysis-rights-review-required",
+      "sha256": "d8cfe1d60dc73b1c5ce1ff0a9b2e4a6af710b004bf5d31d48c22b26c30641eda",
+      "size": 10571,
+      "title": "Nate B. Jones Analysis",
+      "upstream_path": "system-archive/singularity-science/nate-b-jones/analyses/2026-07-17-codex-vs-fable-which-ai-agent-picked-the-better-problem.analysis.md"
+    },
+    {
+      "capture_date": "2026-07-17",
+      "derived_from": [
+        "system-archive/singularity-science/nate-b-jones/source-notes/2026-07-17-fable-5-and-gpt-5-6-dont-need-better-prompts-they-need-a-clean-setup.source-note.md",
+        "system-archive/singularity-science/nate-b-jones/transcripts/2026-07-17-captured-fable-5-and-gpt-5-6-dont-need-better-prompts-they-need-a-clean-setup.md"
+      ],
+      "document_type": "analysis",
+      "logical_path": "external-corpora/nate-b-jones/analyses/2026-07-17-fable-5-and-gpt-5-6-dont-need-better-prompts-they-need-a-clean-setup.analysis.md",
+      "publication_date": null,
+      "rights_policy": "internal-research-only-review-required",
+      "rights_status": "internal-analysis-rights-review-required",
+      "sha256": "5cb12052a985cd5101e449f8cfa51dafaafb9b9a9dc4a8a14cf86b3bdbcc303d",
+      "size": 10868,
+      "title": "Nate B. Jones Analysis",
+      "upstream_path": "system-archive/singularity-science/nate-b-jones/analyses/2026-07-17-fable-5-and-gpt-5-6-dont-need-better-prompts-they-need-a-clean-setup.analysis.md"
+    },
+    {
+      "capture_date": "2026-07-17",
+      "derived_from": [
+        "system-archive/singularity-science/nate-b-jones/source-notes/2026-07-17-your-roadmap-is-why-youre-losing-to-ai-native-teams.source-note.md",
+        "system-archive/singularity-science/nate-b-jones/transcripts/2026-07-17-captured-your-roadmap-is-why-youre-losing-to-ai-native-teams.md"
+      ],
+      "document_type": "analysis",
+      "logical_path": "external-corpora/nate-b-jones/analyses/2026-07-17-your-roadmap-is-why-youre-losing-to-ai-native-teams.analysis.md",
+      "publication_date": null,
+      "rights_policy": "internal-research-only-review-required",
+      "rights_status": "internal-analysis-rights-review-required",
+      "sha256": "dd0896dbaacab21639162f27e5f15d0983662c8ff71f270a7a39befe7060a2db",
+      "size": 11020,
+      "title": "Nate B. Jones Analysis",
+      "upstream_path": "system-archive/singularity-science/nate-b-jones/analyses/2026-07-17-your-roadmap-is-why-youre-losing-to-ai-native-teams.analysis.md"
+    },
+    {
+      "capture_date": "2026-08-01",
+      "derived_from": [
+        "system-archive/singularity-science/nate-b-jones/source-notes/2026-08-01-i-stopped-installing-claude-skills-heres-what-i-do-instead.source-note.md",
+        "system-archive/singularity-science/nate-b-jones/transcripts/2026-08-01-i-stopped-installing-claude-skills-heres-what-i-do-instead.md"
+      ],
+      "document_type": "analysis",
+      "logical_path": "external-corpora/nate-b-jones/analyses/2026-08-01-i-stopped-installing-claude-skills-heres-what-i-do-instead.analysis.md",
+      "publication_date": "2026-08-01",
+      "rights_policy": "internal-research-only-review-required",
+      "rights_status": "internal-analysis-rights-review-required",
+      "sha256": "3af91a16422d3dba31e5a9ebf4bfe85f645ad12c5e900640a4746075fdff18ec",
+      "size": 14073,
+      "title": "Nate B. Jones Analysis: Govern Skill Adoption as Capability Transfer",
+      "upstream_path": "system-archive/singularity-science/nate-b-jones/analyses/2026-08-01-i-stopped-installing-claude-skills-heres-what-i-do-instead.analysis.md"
+    },
+    {
+      "capture_date": null,
+      "derived_from": [],
+      "document_type": "template",
+      "logical_path": "external-corpora/nate-b-jones/analysis-template.md",
+      "publication_date": null,
+      "rights_policy": "internal-research-only-review-required",
+      "rights_status": "internal-analysis-rights-review-required",
+      "sha256": "4de813057c4179642beadb34649e4534b6d0cd173901284ba17aebf5e173ac79",
+      "size": 3617,
+      "title": "Analysis Template",
+      "upstream_path": "system-archive/singularity-science/nate-b-jones/analysis-template.md"
+    },
+    {
+      "capture_date": null,
+      "derived_from": [],
+      "document_type": "research-ledger",
+      "logical_path": "external-corpora/nate-b-jones/roi-ledger.md",
+      "publication_date": null,
+      "rights_policy": "internal-research-only-review-required",
+      "rights_status": "internal-analysis-rights-review-required",
+      "sha256": "b49b79c48cb56ea26e7f6c6b13084dcd55bccf60dbb02e34e6847ffec6a946ba",
+      "size": 20523,
+      "title": "Nate B. Jones ROI Ledger",
+      "upstream_path": "system-archive/singularity-science/nate-b-jones/roi-ledger.md"
+    },
+    {
+      "capture_date": null,
+      "derived_from": [],
+      "document_type": "template",
+      "logical_path": "external-corpora/nate-b-jones/source-note-template.md",
+      "publication_date": null,
+      "rights_policy": "internal-research-only-review-required",
+      "rights_status": "internal-analysis-rights-review-required",
+      "sha256": "9cfcfa89954beb167b6b2bd4fbaf8ef269b96e24028d0d5328f435582cd72b1b",
+      "size": 1445,
+      "title": "Source Note Template",
+      "upstream_path": "system-archive/singularity-science/nate-b-jones/source-note-template.md"
+    },
+    {
+      "capture_date": "2026-07-09",
+      "derived_from": [
+        "system-archive/singularity-science/nate-b-jones/transcripts/2026-07-09-claude-fable-5-bossed-20-cheap-ai-agents-site-cost-8.md"
+      ],
+      "document_type": "source-note",
+      "logical_path": "external-corpora/nate-b-jones/source-notes/2026-07-09-claude-fable-5-bossed-20-cheap-ai-agents-site-cost-8.source-note.md",
+      "publication_date": null,
+      "rights_policy": "internal-research-only-review-required",
+      "rights_status": "internal-commit-approved",
+      "sha256": "f1c83047950e16566667fffb4706a8d382490b94965b1ae155ad50ca59859daf",
+      "size": 4747,
+      "title": "Nate B. Jones Source Note",
+      "upstream_path": "system-archive/singularity-science/nate-b-jones/source-notes/2026-07-09-claude-fable-5-bossed-20-cheap-ai-agents-site-cost-8.source-note.md"
+    },
+    {
+      "capture_date": "2026-07-17",
+      "derived_from": [
+        "system-archive/singularity-science/nate-b-jones/transcripts/2026-07-17-captured-codex-vs-fable-which-ai-agent-picked-the-better-problem.md"
+      ],
+      "document_type": "source-note",
+      "logical_path": "external-corpora/nate-b-jones/source-notes/2026-07-17-codex-vs-fable-which-ai-agent-picked-the-better-problem.source-note.md",
+      "publication_date": null,
+      "rights_policy": "internal-research-only-review-required",
+      "rights_status": "internal-commit-approved",
+      "sha256": "7b4e4a018f57543edcc184f6043056aa3735de4532906eedf4772a0dc5f899de",
+      "size": 5014,
+      "title": "Nate B. Jones Source Note",
+      "upstream_path": "system-archive/singularity-science/nate-b-jones/source-notes/2026-07-17-codex-vs-fable-which-ai-agent-picked-the-better-problem.source-note.md"
+    },
+    {
+      "capture_date": "2026-07-17",
+      "derived_from": [
+        "system-archive/singularity-science/nate-b-jones/transcripts/2026-07-17-captured-fable-5-and-gpt-5-6-dont-need-better-prompts-they-need-a-clean-setup.md"
+      ],
+      "document_type": "source-note",
+      "logical_path": "external-corpora/nate-b-jones/source-notes/2026-07-17-fable-5-and-gpt-5-6-dont-need-better-prompts-they-need-a-clean-setup.source-note.md",
+      "publication_date": null,
+      "rights_policy": "internal-research-only-review-required",
+      "rights_status": "internal-commit-approved",
+      "sha256": "aac517f8736c49a35dc32a652c34cc4e985ae35765ac9ef86e8c605d2baa60ad",
+      "size": 4543,
+      "title": "Nate B. Jones Source Note",
+      "upstream_path": "system-archive/singularity-science/nate-b-jones/source-notes/2026-07-17-fable-5-and-gpt-5-6-dont-need-better-prompts-they-need-a-clean-setup.source-note.md"
+    },
+    {
+      "capture_date": "2026-07-17",
+      "derived_from": [
+        "system-archive/singularity-science/nate-b-jones/transcripts/2026-07-17-captured-your-roadmap-is-why-youre-losing-to-ai-native-teams.md"
+      ],
+      "document_type": "source-note",
+      "logical_path": "external-corpora/nate-b-jones/source-notes/2026-07-17-your-roadmap-is-why-youre-losing-to-ai-native-teams.source-note.md",
+      "publication_date": null,
+      "rights_policy": "internal-research-only-review-required",
+      "rights_status": "internal-commit-approved",
+      "sha256": "775718a73d657b1917acf654fcb6ebae9f3629f883002a200aa5fb08a4c05db8",
+      "size": 4581,
+      "title": "Nate B. Jones Source Note",
+      "upstream_path": "system-archive/singularity-science/nate-b-jones/source-notes/2026-07-17-your-roadmap-is-why-youre-losing-to-ai-native-teams.source-note.md"
+    },
+    {
+      "capture_date": "2026-08-01",
+      "derived_from": [
+        "system-archive/singularity-science/nate-b-jones/transcripts/2026-08-01-i-stopped-installing-claude-skills-heres-what-i-do-instead.md"
+      ],
+      "document_type": "source-note",
+      "logical_path": "external-corpora/nate-b-jones/source-notes/2026-08-01-i-stopped-installing-claude-skills-heres-what-i-do-instead.source-note.md",
+      "publication_date": "2026-08-01",
+      "rights_policy": "internal-research-only-review-required",
+      "rights_status": "Operator-supplied transcript; internal research only; publication and reuse rights not established",
+      "sha256": "1758c4e5e4a13e8ae6c786419f16a67a74b61875c8c825f524639709b4050efe",
+      "size": 5311,
+      "title": "Nate B. Jones Source Note",
+      "upstream_path": "system-archive/singularity-science/nate-b-jones/source-notes/2026-08-01-i-stopped-installing-claude-skills-heres-what-i-do-instead.source-note.md"
+    },
+    {
+      "body_status": "body-present",
+      "capture_date": "2026-07-09",
+      "completeness_status": "not-independently-verified",
+      "derived_from": [],
+      "document_type": "transcript",
+      "logical_path": "external-corpora/nate-b-jones/transcripts/2026-07-09-claude-fable-5-bossed-20-cheap-ai-agents-site-cost-8.md",
+      "publication_date": null,
+      "rights_policy": "internal-research-only-review-required",
+      "rights_status": "internal-commit-approved",
+      "sha256": "5d7906c4a3a222792464f8d55060360ca2f27a566805a845127e226f0eccecf9",
+      "size": 20726,
+      "title": "Claude Fable 5 Bossed 20 Cheap AI Agents. The Whole Site Cost $8.",
+      "upstream_path": "system-archive/singularity-science/nate-b-jones/transcripts/2026-07-09-claude-fable-5-bossed-20-cheap-ai-agents-site-cost-8.md"
+    },
+    {
+      "body_status": "body-present",
+      "capture_date": "2026-07-17",
+      "completeness_status": "not-independently-verified",
+      "derived_from": [],
+      "document_type": "transcript",
+      "logical_path": "external-corpora/nate-b-jones/transcripts/2026-07-17-captured-codex-vs-fable-which-ai-agent-picked-the-better-problem.md",
+      "publication_date": null,
+      "rights_policy": "internal-research-only-review-required",
+      "rights_status": "internal-commit-approved",
+      "sha256": "9265d60687437a9057001fb45158d16c52b7a7e270b7abf949931f087bb4b2f2",
+      "size": 12740,
+      "title": "Codex vs Fable: Which AI Agent Picked the Better Problem?",
+      "upstream_path": "system-archive/singularity-science/nate-b-jones/transcripts/2026-07-17-captured-codex-vs-fable-which-ai-agent-picked-the-better-problem.md"
+    },
+    {
+      "body_status": "body-present",
+      "capture_date": "2026-07-17",
+      "completeness_status": "not-independently-verified",
+      "derived_from": [],
+      "document_type": "transcript",
+      "logical_path": "external-corpora/nate-b-jones/transcripts/2026-07-17-captured-fable-5-and-gpt-5-6-dont-need-better-prompts-they-need-a-clean-setup.md",
+      "publication_date": null,
+      "rights_policy": "internal-research-only-review-required",
+      "rights_status": "internal-commit-approved",
+      "sha256": "a29fe407b3a99caa25ec27fc73b89e5e8b46be113a10847689a5dd91fa82a59a",
+      "size": 18429,
+      "title": "Fable 5 And GPT-5.6 Don't Need Better Prompts. They Need A Clean Setup.",
+      "upstream_path": "system-archive/singularity-science/nate-b-jones/transcripts/2026-07-17-captured-fable-5-and-gpt-5-6-dont-need-better-prompts-they-need-a-clean-setup.md"
+    },
+    {
+      "body_status": "body-present",
+      "capture_date": "2026-07-17",
+      "completeness_status": "not-independently-verified",
+      "derived_from": [],
+      "document_type": "transcript",
+      "logical_path": "external-corpora/nate-b-jones/transcripts/2026-07-17-captured-your-roadmap-is-why-youre-losing-to-ai-native-teams.md",
+      "publication_date": null,
+      "rights_policy": "internal-research-only-review-required",
+      "rights_status": "internal-commit-approved",
+      "sha256": "4d7962b996cf42d10d7cca6709519a9ef93348dd374e8e26ae79fbdc4a641fcd",
+      "size": 20010,
+      "title": "Your Roadmap Is Why You're Losing to AI-Native Teams.",
+      "upstream_path": "system-archive/singularity-science/nate-b-jones/transcripts/2026-07-17-captured-your-roadmap-is-why-youre-losing-to-ai-native-teams.md"
+    },
+    {
+      "body_status": "body-present",
+      "capture_date": "2026-08-01",
+      "completeness_status": "not-independently-verified",
+      "derived_from": [],
+      "document_type": "transcript",
+      "logical_path": "external-corpora/nate-b-jones/transcripts/2026-08-01-i-stopped-installing-claude-skills-heres-what-i-do-instead.md",
+      "publication_date": "2026-08-01",
+      "rights_policy": "internal-research-only-review-required",
+      "rights_status": "Operator-supplied transcript; internal research only; publication and reuse rights not established",
+      "sha256": "91b731173190da2f44888a3c54647243ffc0b418c1d36ea2bd84222d25679b1a",
+      "size": 18480,
+      "title": "I Stopped Installing Claude Skills. Here's What I Do Instead. â€” Transcript",
+      "upstream_path": "system-archive/singularity-science/nate-b-jones/transcripts/2026-08-01-i-stopped-installing-claude-skills-heres-what-i-do-instead.md"
+    },
+    {
+      "capture_date": "2026-07-24",
+      "derived_from": [
+        "system-archive/singularity-science/nate-b-jones/analyses/2026-07-17-your-roadmap-is-why-youre-losing-to-ai-native-teams.analysis.md",
+        "system-archive/singularity-science/nate-b-jones/roi-ledger.md"
+      ],
+      "document_type": "recurrence-review",
+      "logical_path": "external-corpora/nate-b-jones/recurrence-reviews/2026-07-24-backfill-nate-b-jones-coordination-substrate.md",
+      "publication_date": null,
+      "rights_policy": "internal-research-only-review-required",
+      "rights_status": "internal-analysis-rights-review-required",
+      "sha256": "bf23e9e34cf50a25fc0a4fc0cf225cf7678adafc7076ab211df3507278087a8c",
+      "size": 2295,
+      "title": "Singularity Recurrence Review â€” Historical Backfill",
+      "upstream_path": "system-archive/singularity-science/recurrence-reviews/2026-07-24-backfill-nate-b-jones-coordination-substrate.md"
+    },
+    {
+      "capture_date": "2026-07-24",
+      "derived_from": [
+        "system-archive/singularity-science/nate-b-jones/analyses/2026-07-09-claude-fable-5-bossed-20-cheap-ai-agents-site-cost-8.analysis.md",
+        "system-archive/singularity-science/nate-b-jones/roi-ledger.md"
+      ],
+      "document_type": "recurrence-review",
+      "logical_path": "external-corpora/nate-b-jones/recurrence-reviews/2026-07-24-backfill-nate-b-jones-multi-agent-verification.md",
+      "publication_date": null,
+      "rights_policy": "internal-research-only-review-required",
+      "rights_status": "internal-analysis-rights-review-required",
+      "sha256": "aeb5d725e3c2fb44d2a0fb2394a85f80eab889c8e54081078667aacca8a5943b",
+      "size": 1938,
+      "title": "Singularity Recurrence Review â€” Historical Backfill",
+      "upstream_path": "system-archive/singularity-science/recurrence-reviews/2026-07-24-backfill-nate-b-jones-multi-agent-verification.md"
+    },
+    {
+      "capture_date": "2026-07-24",
+      "derived_from": [
+        "system-archive/singularity-science/nate-b-jones/analyses/2026-07-17-codex-vs-fable-which-ai-agent-picked-the-better-problem.analysis.md",
+        "system-archive/singularity-science/nate-b-jones/roi-ledger.md"
+      ],
+      "document_type": "recurrence-review",
+      "logical_path": "external-corpora/nate-b-jones/recurrence-reviews/2026-07-24-backfill-nate-b-jones-problem-selection.md",
+      "publication_date": null,
+      "rights_policy": "internal-research-only-review-required",
+      "rights_status": "internal-analysis-rights-review-required",
+      "sha256": "f56fd127e7263473692e90b84ca02f1d06865d82ec71ad1892bc116d657065c8",
+      "size": 2242,
+      "title": "Singularity Recurrence Review â€” Historical Backfill",
+      "upstream_path": "system-archive/singularity-science/recurrence-reviews/2026-07-24-backfill-nate-b-jones-problem-selection.md"
+    }
+  ],
+  "excluded_paths": [],
+  "imported_at": "2026-08-11",
+  "object_byte_count": 213902,
+  "reference_aliases": [
+    {
+      "allowed_source_prefix": "projects/singularity-science/nate-b-jones-",
+      "allowed_target_prefix": "system-archive/singularity-science/nate-b-jones/",
+      "from_prefix": "projects/singularity-science/archive/nate-b-jones/",
+      "id": "nate-b-jones-historical-archive-relocation-v1",
+      "relation_type": "derived_from",
+      "scope": "lineage-resolution-only",
+      "status": "reviewed-historical-relocation",
+      "to_prefix": "system-archive/singularity-science/nate-b-jones/"
+    }
+  ],
+  "schema_version": 2,
+  "source_commit": "940f354e00e2f49af2f340dd4ef1c1bc6e8ded77",
+  "source_prefix": "system-archive/singularity-science/nate-b-jones",
+  "source_repository": "https://github.com/rbtkhn/anyang-intelligence"
+}
+

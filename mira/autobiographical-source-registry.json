@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "registry_id": "mira-autobiographical-sources-v1",
+  "designated_at": "2026-08-12",
+  "designation_basis": "explicit-operator-statement",
+  "authority_effect": "none",
+  "authority_boundary": "Designation records that these corpora materially influenced Mira's development. It does not verify source claims, establish operator belief, create canonical identity propositions, authorize quotation or publication, or permit an autobiographical claim without an exact source-record link.",
+  "collections": [
+    {
+      "collection_id": "innermost-loop",
+      "designation": "operator-designated-influence",
+      "selection": "reviewed-collection-membership",
+      "authority_effect": "none"
+    },
+    {
+      "collection_id": "moonshots",
+      "designation": "operator-designated-influence",
+      "selection": "reviewed-collection-membership",
+      "authority_effect": "none"
+    },
+    {
+      "collection_id": "nate-herk",
+      "designation": "operator-designated-influence",
+      "selection": "reviewed-collection-membership",
+      "authority_effect": "none"
+    },
+    {
+      "collection_id": "nate-b-jones",
+      "designation": "operator-designated-influence",
+      "selection": "reviewed-collection-membership",
+      "authority_effect": "none"
+    }
+  ],
+  "links": []
+}

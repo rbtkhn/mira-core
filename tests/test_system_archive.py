@@ -316,16 +316,20 @@ def test_moonshots_manifest_is_pinned_complete_and_bounded() -> None:
     repo = Path(__file__).resolve().parent.parent
     manifest = json.loads((repo / "system-archive" / "registries" / "moonshots.json").read_text(encoding="utf-8"))
     assert manifest["schema_version"] == 2
-    assert manifest["source_commit"] == "940f354e00e2f49af2f340dd4ef1c1bc6e8ded77"
-    assert manifest["document_count"] == len(manifest["documents"]) == 29
-    assert manifest["object_byte_count"] == sum(row["size"] for row in manifest["documents"]) == 683276
+    assert manifest["source_commit"] == "6e28c49750b4506bd951536b7f3046ab0d7fa138"
+    assert manifest["document_count"] == len(manifest["documents"]) == 31
+    assert manifest["object_byte_count"] == sum(row["size"] for row in manifest["documents"]) == 842055
     counts: dict[str, int] = {}
     for document in manifest["documents"]:
         counts[document["document_type"]] = counts.get(document["document_type"], 0) + 1
         assert document["logical_path"].startswith("external-corpora/moonshots/")
         assert len(document["sha256"]) == 64
-        assert document["publication_date"] is None
-    assert counts == {"analysis": 8, "archive-readme": 1, "derived-analysis": 4, "research-ledger": 1, "source-note": 8, "template": 2, "transcript": 5}
+        if document["title"].startswith("Moonshots #278"):
+            assert document["publication_date"] == "2026-08-12"
+            assert document["publication_date_status"] == "provisional-from-operator-capture-date"
+        else:
+            assert document["publication_date"] is None
+    assert counts == {"analysis": 8, "archive-readme": 1, "derived-analysis": 4, "research-ledger": 1, "source-note": 9, "template": 2, "transcript": 6}
     assert len(manifest["excluded_paths"]) == 3
     assert sum(row["size"] for row in manifest["excluded_paths"]) == 6868
     assert sum(row.get("source_body_availability") == "not-present-in-collection" for row in manifest["documents"]) == 6
@@ -333,7 +337,7 @@ def test_moonshots_manifest_is_pinned_complete_and_bounded() -> None:
 
 def test_moonshots_lineage_and_alias_receipts_are_exact() -> None:
     manifest = json.loads((Path(__file__).resolve().parent.parent / "system-archive" / "registries" / "moonshots.json").read_text(encoding="utf-8"))
-    assert sum(len(row.get("derived_from", [])) for row in manifest["documents"]) == 26
+    assert sum(len(row.get("derived_from", [])) for row in manifest["documents"]) == 27
     receipts = [receipt for row in manifest["documents"] for receipt in row.get("lineage_resolution_receipts", [])]
     assert len(receipts) == 5
     assert {row["alias_id"] for row in receipts} == {"moonshots-historical-archive-relocation-v1"}
@@ -350,6 +354,12 @@ def test_external_record_prefix_is_schema_isolated() -> None:
     assert system_archive.external_record_id({**identity, "record_id_prefix": "SAR-MS"}, upstream).startswith("SAR-MS-")
     with pytest.raises(ArchiveError, match="record id prefix"):
         system_archive.external_record_id({**identity, "record_id_prefix": "unsafe"}, upstream)
+
+
+def test_external_record_identity_can_remain_stable_across_source_commits() -> None:
+    collection={"source_repository":"https://example.test/anyang","source_commit":"b"*40,"record_identity_commit":"a"*40,"record_id_prefix":"SAR-MS"}
+    evolved={**collection,"source_commit":"c"*40}
+    assert system_archive.external_record_id(collection,"lane/example.md")==system_archive.external_record_id(evolved,"lane/example.md")
 
 
 def test_discovered_body_keeps_v1_paths_and_v2_bytes_distinct(tmp_path: Path) -> None:
@@ -376,7 +386,7 @@ def test_moonshots_is_excluded_unless_explicitly_selected() -> None:
     [
         (lambda manifest: manifest["documents"][1].__setitem__("logical_path", manifest["documents"][0]["logical_path"]), "duplicate external corpus logical path"),
         (lambda manifest: manifest.__setitem__("object_byte_count", 1), "object byte count mismatch"),
-        (lambda manifest: manifest["documents"][1]["lineage_resolution_receipts"][0].__setitem__("alias_id", "missing"), "invalid lineage resolution receipt"),
+        (lambda manifest: next(row for row in manifest["documents"] if row.get("lineage_resolution_receipts"))["lineage_resolution_receipts"][0].__setitem__("alias_id", "missing"), "invalid lineage resolution receipt"),
         (lambda manifest: manifest["auxiliary_paths"].pop(), "documents differ from auxiliary allowlist"),
         (lambda manifest: manifest["excluded_paths"][0].pop("sha256"), "invalid external corpus exclusions"),
         (lambda manifest: manifest["excluded_paths"][0].__setitem__("reason", ""), "invalid external corpus exclusions"),
@@ -391,3 +401,99 @@ def test_moonshots_manifest_v2_fails_closed(
     monkeypatch.setattr(system_archive, "load_json", lambda _: broken)
     with pytest.raises(ArchiveError, match=message):
         system_archive.external_manifest(collection)
+
+
+@pytest.mark.parametrize(
+    ("collection_id", "records", "byte_count", "type_counts", "edge_count"),
+    [
+        ("nate-b-jones", 23, 213902, {"analysis": 5, "archive-readme": 1, "derived-analysis": 1, "recurrence-review": 3, "research-ledger": 1, "source-note": 5, "template": 2, "transcript": 5}, 22),
+        ("nate-herk", 18, 212703, {"analysis": 4, "archive-readme": 1, "recurrence-review": 2, "research-ledger": 1, "source-note": 4, "template": 2, "transcript": 4}, 19),
+    ],
+)
+def test_nate_manifests_are_pinned_complete_and_bounded(
+    collection_id: str, records: int, byte_count: int, type_counts: dict[str, int], edge_count: int
+) -> None:
+    collection = system_archive.collection_map()[collection_id]
+    manifest = system_archive.external_manifest(collection)
+    assert manifest["schema_version"] == 2
+    assert manifest["source_commit"] == "940f354e00e2f49af2f340dd4ef1c1bc6e8ded77"
+    assert manifest["document_count"] == len(manifest["documents"]) == records
+    assert manifest["object_byte_count"] == sum(row["size"] for row in manifest["documents"]) == byte_count
+    counts: dict[str, int] = {}
+    for document in manifest["documents"]:
+        counts[document["document_type"]] = counts.get(document["document_type"], 0) + 1
+        assert document["logical_path"].startswith(f"external-corpora/{collection_id}/")
+        assert len(document["sha256"]) == 64
+        if document["document_type"] == "transcript":
+            assert document["body_status"] == "body-present"
+            assert document["completeness_status"] == "not-independently-verified"
+    assert counts == type_counts
+    assert sum(len(row.get("derived_from", [])) for row in manifest["documents"]) == edge_count
+
+
+def test_nate_collection_boundaries_and_stable_identifiers() -> None:
+    default_ids = {row["id"] for row in system_archive.selected_collections([])}
+    assert not {"nate-b-jones", "nate-herk"} & default_ids
+    assert [row["id"] for row in system_archive.selected_collections(["nate-b-jones", "nate-herk"])] == ["nate-b-jones", "nate-herk"]
+    collections = system_archive.collection_map()
+    assert system_archive.external_record_id(collections["nate-b-jones"], "example.md").startswith("SAR-NBJ-")
+    assert system_archive.external_record_id(collections["nate-herk"], "example.md").startswith("SAR-NH-")
+
+
+def test_private_configuration_precedence(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+    config=tmp_path/"config.json"; config.write_text(json.dumps({"schema_version":1,"canonical_root":str(tmp_path/"canonical"),"replica_root":str(tmp_path/"replica")}),encoding="utf-8")
+    monkeypatch.delenv(system_archive.ARCHIVE_ROOT_ENV,raising=False); monkeypatch.setenv(system_archive.CONFIG_PATH_ENV,str(config))
+    root,source=system_archive.configured_root_resolution(system_archive.ARCHIVE_ROOT_ENV)
+    assert root==tmp_path/"canonical" and source==f"config:{config.resolve()}"
+    monkeypatch.setenv(system_archive.ARCHIVE_ROOT_ENV,str(tmp_path/"override"))
+    root,source=system_archive.configured_root_resolution(system_archive.ARCHIVE_ROOT_ENV)
+    assert root==tmp_path/"override" and source==f"environment:{system_archive.ARCHIVE_ROOT_ENV}"
+
+
+def test_private_configuration_missing_fails_closed(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+    monkeypatch.delenv(system_archive.ARCHIVE_ROOT_ENV,raising=False); monkeypatch.delenv(system_archive.CONFIG_PATH_ENV,raising=False); monkeypatch.setattr(system_archive,"DEFAULT_CONFIG_PATH",tmp_path/"missing.json")
+    with pytest.raises(ArchiveError,match="no valid private storage configuration"): system_archive.configured_root_resolution(system_archive.ARCHIVE_ROOT_ENV)
+
+
+def test_get_is_explicit_hash_verified_and_outside_git(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+    repo=tmp_path/"repo"; repo.mkdir(); archive_root=tmp_path/"archive"; output_root=tmp_path/"output"; archive=ArtifactStore(archive_root,repo,create=True)
+    body=b"autobiographical source transcript\n"; item=RecordInput("SAR-X", "transcript", "external-corpora/moonshots/transcripts/example.md", "moonshots", "registry", "research", "external-repository", "source", "2026-08-12T00:00:00Z", None, None, {}, body.decode())
+    with archive.connect(create=True) as connection: ingest_record(connection,archive,item,body); connection.commit()
+    monkeypatch.setattr(system_archive,"REPO_ROOT",repo); monkeypatch.setenv(system_archive.ARCHIVE_ROOT_ENV,str(archive_root)); monkeypatch.setattr(system_archive,"collection_map",lambda:{"moonshots":{"id":"moonshots","logical_root":"external-corpora/moonshots"}})
+    args=SimpleNamespace(collection="moonshots",path=item.logical_path,output=(output_root/"example.md").resolve())
+    receipt=system_archive.get_command(args)
+    assert receipt["hash_verified"] is True and args.output.read_bytes()==body
+    assert system_archive.get_command(args)["written"] is False
+    with pytest.raises(ArchiveError,match="outside collection"): system_archive.get_command(SimpleNamespace(collection="moonshots",path="external-corpora/other/example.md",output=(output_root/"other.md").resolve()))
+    with pytest.raises(ArchiveError,match="outside Git"): system_archive.get_command(SimpleNamespace(collection="moonshots",path=item.logical_path,output=(repo/"leak.md").resolve()))
+    archive.object_path(receipt["object_id"]).write_bytes(b"corrupt")
+    with pytest.raises(ArchiveError,match="invalid Zstandard object"): system_archive.get_command(SimpleNamespace(collection="moonshots",path=item.logical_path,output=(output_root/"corrupt.md").resolve()))
+
+
+def test_autobiographical_registry_is_bounded_and_links_are_exact(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+    registry=system_archive.autobiographical_source_registry()
+    assert {row["collection_id"] for row in registry["collections"]}=={"innermost-loop","moonshots","nate-herk","nate-b-jones"}
+    assert registry["authority_effect"]=="none" and registry["links"]==[]
+    broken=copy.deepcopy(registry); broken["collections"][0]["authority_effect"]="promote"
+    path=tmp_path/"broken.json"; path.write_text(json.dumps(broken),encoding="utf-8")
+    with pytest.raises(ArchiveError,match="designation"): system_archive.autobiographical_source_registry(path)
+
+
+def test_doctor_detects_missing_collection_and_stale_replica(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+    repo=tmp_path/"repo"; repo.mkdir(); canonical_root=tmp_path/"canonical"; replica_root=tmp_path/"replica"
+    collections=("innermost-loop","moonshots","nate-herk","nate-b-jones")
+    for root in (canonical_root,replica_root):
+        archive=ArtifactStore(root,repo,create=True)
+        with archive.connect(create=True) as connection:
+            for index,collection_id in enumerate(collections):
+                body=f"{collection_id}\n".encode(); item=RecordInput(f"REC-{index}","transcript",f"external-corpora/{collection_id}/transcripts/example.md",collection_id,"registry","research","test","fixture","2026-08-12T00:00:00Z",None,None,{},body.decode())
+                ingest_record(connection,archive,item,body)
+            connection.commit()
+    monkeypatch.setattr(system_archive,"REPO_ROOT",repo); monkeypatch.setenv(system_archive.ARCHIVE_ROOT_ENV,str(canonical_root)); monkeypatch.setenv(system_archive.REPLICA_ROOT_ENV,str(replica_root)); monkeypatch.setattr(system_archive,"autobiographical_source_registry",lambda:{"collections":[{"collection_id":item} for item in collections],"links":[]})
+    assert system_archive.doctor_command(SimpleNamespace(full=True))["status"]=="healthy"
+    with ArtifactStore(replica_root,repo).connect() as connection:
+        connection.execute("DELETE FROM active_paths WHERE collection_id='moonshots'"); connection.commit()
+    result=system_archive.doctor_command(SimpleNamespace(full=False))
+    assert result["status"]=="unhealthy"
+    assert "replica missing autobiographical collection: moonshots" in result["failures"]
+    assert "replica catalog fingerprint differs" in result["failures"]

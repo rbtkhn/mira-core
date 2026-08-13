@@ -28,3 +28,9 @@ Mira Daily Journal records are an explicit-only collection with evidence class
 autobiographical-interpretation. Their provenance edges may point to Continuity
 records and repository events, but graph traversal never transfers the source
 node's authority or converts a reflection into corroboration.
+
+Operator-designated autobiographical source collections remain external
+research evidence classes. Collection designation records influence scope;
+only exact `collection:mira-autobiography:influenced_by` edges connect approved
+Journal or Continuity records to exact source records, with authority effect
+`none`.

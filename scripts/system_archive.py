@@ -22,8 +22,11 @@ from system_archive_store import ArchiveError, ArtifactStore, RecordInput, add_e
 REPO_ROOT = Path(__file__).resolve().parent.parent
 SYSTEM_ROOT = REPO_ROOT / "system-archive"
 COLLECTIONS_PATH = SYSTEM_ROOT / "collections.json"
+AUTOBIOGRAPHICAL_SOURCES_PATH = REPO_ROOT / "mira" / "autobiographical-source-registry.json"
 ARCHIVE_ROOT_ENV = "NARRATIVE_SYSTEM_ARCHIVE_ROOT"
 REPLICA_ROOT_ENV = "NARRATIVE_SYSTEM_ARCHIVE_REPLICA_ROOT"
+CONFIG_PATH_ENV = "NARRATIVE_SYSTEM_ARCHIVE_CONFIG"
+DEFAULT_CONFIG_PATH = Path(r"C:\private\narrative-system-archive-config.json")
 COMPILER_VERSION = "system-archive-context-compiler-v1"
 REPLAY_VERSION = "system-archive-replay-plan-v1"
 TOKEN_RE = re.compile(r"[\w'-]+",re.UNICODE)
@@ -46,12 +49,30 @@ def external_output(path: Path) -> Path:
     raise ArchiveError(f"generated System Archive output must be outside Git: {resolved}")
 
 
-def configured_root(variable: str, *, required: bool=True) -> Path | None:
+def storage_config() -> tuple[dict[str,Any] | None,Path]:
+    configured=os.environ.get(CONFIG_PATH_ENV)
+    path=Path(configured).expanduser() if configured else DEFAULT_CONFIG_PATH
+    if not path.is_file(): return None,path
+    document=load_json(path)
+    if document.get("schema_version")!=1: raise ArchiveError(f"invalid System Archive storage configuration: {path}")
+    for key in ("canonical_root","replica_root"):
+        value=document.get(key)
+        if not isinstance(value,str) or not value.strip() or not Path(value).expanduser().is_absolute(): raise ArchiveError(f"invalid System Archive storage configuration: {key}")
+    if Path(document["canonical_root"]).resolve()==Path(document["replica_root"]).resolve(): raise ArchiveError("canonical and replica roots must differ")
+    return document,path.resolve()
+
+
+def configured_root_resolution(variable: str, *, required: bool=True) -> tuple[Path | None,str | None]:
     value=os.environ.get(variable)
-    if not value:
-        if required: raise ArchiveError(f"{variable} is not configured")
-        return None
-    return Path(value)
+    if value: return Path(value),f"environment:{variable}"
+    document,path=storage_config(); key={ARCHIVE_ROOT_ENV:"canonical_root",REPLICA_ROOT_ENV:"replica_root"}.get(variable)
+    if document is not None and key is not None: return Path(document[key]),f"config:{path}"
+    if required: raise ArchiveError(f"{variable} is not configured and no valid private storage configuration was found")
+    return None,None
+
+
+def configured_root(variable: str, *, required: bool=True) -> Path | None:
+    return configured_root_resolution(variable,required=required)[0]
 
 
 def store(*,create: bool=False) -> ArtifactStore:
@@ -202,7 +223,23 @@ def external_manifest(collection: Mapping[str,Any]) -> dict[str,Any]:
             receipts=document.get("lineage_resolution_receipts",[])
             if not isinstance(receipts,list): raise ArchiveError(f"invalid lineage resolution receipts: {document['upstream_path']}")
             for receipt in receipts:
-                if not isinstance(receipt,dict) or receipt.get("alias_id") not in alias_ids or safe_logical_path(str(receipt.get("resolved_target",""))) not in set(document.get("derived_from",[])): raise ArchiveError(f"invalid lineage resolution receipt: {document['upstream_path']}")
+                if not isinstance(receipt,dict) or safe_logical_path(str(receipt.get("resolved_target",""))) not in set(document.get("derived_from",[])): raise ArchiveError(f"invalid lineage resolution receipt: {document['upstream_path']}")
+                resolution=receipt.get("resolution")
+                if resolution=="reviewed-prefix-relocation":
+                    if receipt.get("alias_id") not in alias_ids: raise ArchiveError(f"invalid lineage resolution receipt: {document['upstream_path']}")
+                elif resolution=="reviewed-lane-root-reference":
+                    if safe_logical_path(str(receipt.get("reference_base",""))).rstrip("/")!=source_prefix.rstrip("/") or not str(receipt.get("original_reference","")).strip(): raise ArchiveError(f"invalid lineage resolution receipt: {document['upstream_path']}")
+                else: raise ArchiveError(f"invalid lineage resolution receipt: {document['upstream_path']}")
+            cross_references=document.get("cross_collection_references",[])
+            if not isinstance(cross_references,list): raise ArchiveError(f"invalid cross-collection references: {document['upstream_path']}")
+            cross_seen=set()
+            for reference in cross_references:
+                if not isinstance(reference,dict) or reference.get("authority_effect")!="none" or not str(reference.get("original_reference","")).strip(): raise ArchiveError(f"invalid cross-collection reference: {document['upstream_path']}")
+                related=str(reference.get("related_collection","")); target=safe_logical_path(str(reference.get("target_upstream_path",""))); relation=str(reference.get("relation","")); identity=(related,target,relation)
+                if not related or related==collection.get("id") or related not in collection_map() or not relation or identity in cross_seen: raise ArchiveError(f"invalid cross-collection reference: {document['upstream_path']}")
+                cross_seen.add(identity)
+                related_collection=collection_map()[related]; related_manifest=load_json(REPO_ROOT/str(related_collection["registry_path"])); related_paths={safe_logical_path(str(row.get("upstream_path",""))) for row in related_manifest.get("documents",[]) if isinstance(row,dict)}
+                if target not in related_paths: raise ArchiveError(f"unresolved cross-collection reference: {target}")
     return manifest
 
 
@@ -220,7 +257,9 @@ def external_source_root(collection: Mapping[str,Any],source_root: Path | None) 
 
 
 def external_record_id(collection: Mapping[str,Any],upstream_path: str) -> str:
-    identity=f"{collection['source_repository']}@{collection['source_commit']}:{upstream_path}"
+    identity_commit=str(collection.get("record_identity_commit",collection["source_commit"]))
+    if not re.fullmatch(r"[0-9a-f]{40}",identity_commit): raise ArchiveError("invalid external record identity commit")
+    identity=f"{collection['source_repository']}@{identity_commit}:{upstream_path}"
     prefix=str(collection.get("record_id_prefix","SAR-IL"))
     if not re.fullmatch(r"SAR-[A-Z0-9]{2,8}",prefix): raise ArchiveError(f"invalid external corpus record id prefix: {prefix}")
     return stable_record_id(prefix,identity)
@@ -276,16 +315,24 @@ def discover_external_corpus_v2(collection: Mapping[str,Any],manifest: Mapping[s
         if len(body)!=document["size"] or sha256_bytes(body)!=document["sha256"]: raise ArchiveError(f"external corpus hash mismatch: {upstream}")
         text=body.decode("utf-8",errors="replace")
         for receipt in document.get("lineage_resolution_receipts",[]):
-            original=str(receipt["original_reference"]); alias=aliases[str(receipt["alias_id"])]
+            original=str(receipt["original_reference"])
             if original not in text: raise ArchiveError(f"lineage receipt reference absent from source: {upstream}")
-            normalized=safe_logical_path(str(receipt["normalized_original_path"])); from_prefix=safe_logical_path(str(alias["from_prefix"])).rstrip("/")+"/"; to_prefix=safe_logical_path(str(alias["to_prefix"])).rstrip("/")+"/"
-            expected_normalized=safe_logical_path(posixpath.normpath(posixpath.join(posixpath.dirname(upstream),original)))
-            allowed_source=safe_logical_path(str(alias["allowed_source_prefix"])); allowed_target=safe_logical_path(str(alias["allowed_target_prefix"])).rstrip("/")+"/"
-            if normalized!=expected_normalized or not upstream.startswith(allowed_source) or not normalized.startswith(from_prefix): raise ArchiveError(f"lineage receipt is outside alias source: {upstream}")
-            resolved=to_prefix+normalized[len(from_prefix):]
-            if resolved!=safe_logical_path(str(receipt["resolved_target"])) or not resolved.startswith(allowed_target): raise ArchiveError(f"lineage receipt target mismatch: {upstream}")
+            if receipt["resolution"]=="reviewed-prefix-relocation":
+                alias=aliases[str(receipt["alias_id"])]
+                normalized=safe_logical_path(str(receipt["normalized_original_path"])); from_prefix=safe_logical_path(str(alias["from_prefix"])).rstrip("/")+"/"; to_prefix=safe_logical_path(str(alias["to_prefix"])).rstrip("/")+"/"
+                expected_normalized=safe_logical_path(posixpath.normpath(posixpath.join(posixpath.dirname(upstream),original)))
+                allowed_source=safe_logical_path(str(alias["allowed_source_prefix"])); allowed_target=safe_logical_path(str(alias["allowed_target_prefix"])).rstrip("/")+"/"
+                if normalized!=expected_normalized or not upstream.startswith(allowed_source) or not normalized.startswith(from_prefix): raise ArchiveError(f"lineage receipt is outside alias source: {upstream}")
+                resolved=to_prefix+normalized[len(from_prefix):]
+                if resolved!=safe_logical_path(str(receipt["resolved_target"])) or not resolved.startswith(allowed_target): raise ArchiveError(f"lineage receipt target mismatch: {upstream}")
+            else:
+                base=safe_logical_path(str(receipt["reference_base"])).rstrip("/"); resolved=safe_logical_path(posixpath.normpath(posixpath.join(base,original)))
+                if base!=source_prefix or resolved!=safe_logical_path(str(receipt["resolved_target"])): raise ArchiveError(f"lineage receipt target mismatch: {upstream}")
+        for reference in document.get("cross_collection_references",[]):
+            original=str(reference["original_reference"]); occurrences=int(reference.get("occurrences",1))
+            if occurrences<1 or text.count(original)<occurrences: raise ArchiveError(f"cross-collection reference absent from source: {upstream}")
         publication=document.get("publication_date")
-        metadata={"title":document.get("title"),"document_type":document["document_type"],"genre":collection.get("genre"),"upstream_path":upstream,"source_repository":collection["source_repository"],"source_commit":collection["source_commit"],"rights_status":document["rights_status"],"rights_policy":document.get("rights_policy"),"retrieval_policy":collection.get("retrieval_policy"),"hydration_policy":collection.get("hydration_policy"),"body_status":document.get("body_status"),"completeness_status":document.get("completeness_status"),"source_body_availability":document.get("source_body_availability"),"may_promote":False,"may_quote":False,"may_republish":False,"may_route_to_customer":False,"manifest":str(collection["registry_path"])}
+        metadata={"title":document.get("title"),"document_type":document["document_type"],"genre":collection.get("genre"),"upstream_path":upstream,"source_repository":collection["source_repository"],"source_commit":collection["source_commit"],"rights_status":document["rights_status"],"rights_policy":document.get("rights_policy"),"retrieval_policy":collection.get("retrieval_policy"),"hydration_policy":collection.get("hydration_policy"),"body_status":document.get("body_status"),"completeness_status":document.get("completeness_status"),"source_body_availability":document.get("source_body_availability"),"cross_collection_references":document.get("cross_collection_references",[]),"may_promote":False,"may_quote":False,"may_republish":False,"may_route_to_customer":False,"manifest":str(collection["registry_path"])}
         yield RecordInput(external_record_id(collection,upstream),str(document["document_type"]),safe_logical_path(str(document["logical_path"])),str(collection["id"]),authority,str(collection["evidence_class"]),"external-repository",f"{collection['source_repository']}@{collection['source_commit']}",observed,day_timestamp(str(publication)) if publication else None,None,metadata,text),body
 
 
@@ -329,8 +376,11 @@ def add_external_corpus_lineage(connection: sqlite3.Connection,collection: Mappi
             metadata={"manifest":str(collection["registry_path"])}
             if manifest.get("schema_version")==2:
                 receipt=next((row for row in document.get("lineage_resolution_receipts",[]) if row.get("resolved_target")==target_path),None)
-                metadata={**metadata,"resolution":"reviewed-historical-relocation" if receipt else "literal"}
-                if receipt: metadata.update({"alias_id":receipt["alias_id"],"original_reference":receipt["original_reference"]})
+                metadata={**metadata,"resolution":str(receipt["resolution"]) if receipt else "literal"}
+                if receipt:
+                    metadata.update({"original_reference":receipt["original_reference"]})
+                    if receipt.get("alias_id"): metadata["alias_id"]=receipt["alias_id"]
+                    if receipt.get("reference_base"): metadata["reference_base"]=receipt["reference_base"]
             add_edge(connection,source=(source_id,int(source_version)),target=(target_id,int(target_version)),relation_type="derived_from",metadata=metadata)
             added+=int(connection.execute("SELECT COUNT(*) FROM edges").fetchone()[0]>before)
     return added
@@ -391,6 +441,52 @@ def add_journal_lineage(connection: sqlite3.Connection) -> int:
     return added
 
 
+def autobiographical_source_registry(path: Path=AUTOBIOGRAPHICAL_SOURCES_PATH) -> dict[str,Any]:
+    registry=load_json(path)
+    if registry.get("schema_version")!=1 or registry.get("authority_effect")!="none": raise ArchiveError("invalid autobiographical source registry")
+    designations=registry.get("collections"); links=registry.get("links")
+    if not isinstance(designations,list) or not isinstance(links,list): raise ArchiveError("invalid autobiographical source registry")
+    expected={"innermost-loop","moonshots","nate-herk","nate-b-jones"}; observed=set()
+    for row in designations:
+        identifier=str(row.get("collection_id","")) if isinstance(row,dict) else ""
+        if identifier in observed or identifier not in expected or row.get("designation")!="operator-designated-influence" or row.get("authority_effect")!="none": raise ArchiveError("invalid autobiographical source designation")
+        observed.add(identifier)
+    if observed!=expected: raise ArchiveError("autobiographical source registry collection mismatch")
+    seen=set()
+    for link in links:
+        if not isinstance(link,dict) or link.get("authority_effect")!="none": raise ArchiveError("invalid autobiographical source link")
+        source_id=str(link.get("source_record_id","")); source_version=link.get("source_version"); target_collection=str(link.get("target_collection","")); target_path=safe_logical_path(str(link.get("target_upstream_path","")))
+        identity=(source_id,source_version,target_collection,target_path)
+        if not source_id or not isinstance(source_version,int) or source_version<1 or target_collection not in expected or identity in seen or not str(link.get("basis_record_ref","")).strip(): raise ArchiveError("invalid autobiographical source link")
+        seen.add(identity)
+    return registry
+
+
+def add_autobiographical_source_lineage(connection: sqlite3.Connection) -> int:
+    registry=autobiographical_source_registry(); collections=collection_map(); added=0
+    for link in registry["links"]:
+        source=(str(link["source_record_id"]),int(link["source_version"]))
+        source_row=connection.execute("SELECT collection_id FROM records WHERE record_id=? AND version=?",source).fetchone()
+        if source_row is None or source_row["collection_id"] not in {"mira-journal","mira-continuity"}: raise ArchiveError(f"unresolved autobiographical source endpoint: {source[0]}-v{source[1]}")
+        collection=collections[str(link["target_collection"])]
+        target_id=external_record_id(collection,safe_logical_path(str(link["target_upstream_path"])))
+        target_version=connection.execute("SELECT MAX(version) FROM records WHERE record_id=?",(target_id,)).fetchone()[0]
+        if target_version is None: raise ArchiveError(f"unresolved autobiographical target: {link['target_upstream_path']}")
+        before=connection.execute("SELECT COUNT(*) FROM edges").fetchone()[0]
+        add_edge(connection,source=source,target=(target_id,int(target_version)),relation_type="collection:mira-autobiography:influenced_by",metadata={"registry":str(AUTOBIOGRAPHICAL_SOURCES_PATH.relative_to(REPO_ROOT)),"basis_record_ref":link["basis_record_ref"],"authority_effect":"none"})
+        added+=int(connection.execute("SELECT COUNT(*) FROM edges").fetchone()[0]>before)
+    return added
+
+
+def external_import_receipts(collections: Sequence[Mapping[str,Any]]) -> list[dict[str,Any]]:
+    receipts=[]
+    for collection in collections:
+        if collection.get("kind")!="external-corpus-manifest": continue
+        path=REPO_ROOT/str(collection["registry_path"]); manifest=external_manifest(collection)
+        receipts.append({"collection_id":collection["id"],"source_repository":collection["source_repository"],"source_commit":collection["source_commit"],"registry_path":str(collection["registry_path"]),"registry_sha256":sha256_bytes(path.read_bytes()),"record_count":manifest["document_count"],"byte_count":manifest.get("object_byte_count",sum(int(row["size"]) for row in manifest["documents"]))})
+    return receipts
+
+
 def ingest_command(args: argparse.Namespace) -> dict[str,Any]:
     collections=selected_collections(args.collection,include_explicit_default=True)
     if not args.collection: collections=[row for row in collections if row.get("kind")!="external-corpus-manifest"]
@@ -404,14 +500,58 @@ def ingest_command(args: argparse.Namespace) -> dict[str,Any]:
         lineage_edges=add_journal_lineage(connection) if any(row.get("id")=="mira-journal" for row in collections) else 0
         for collection in collections:
             if collection.get("kind")=="external-corpus-manifest": lineage_edges+=add_external_corpus_lineage(connection,collection)
-        connection.commit(); return {"status":"ingested","mutation":True,"added_versions":added,"unchanged":unchanged,"lineage_edges_added":lineage_edges,"catalog":catalog_counts(connection),"catalog_fingerprint":catalog_fingerprint(connection),**planned}
+        lineage_edges+=add_autobiographical_source_lineage(connection)
+        connection.commit(); return {"status":"ingested","mutation":True,"added_versions":added,"unchanged":unchanged,"lineage_edges_added":lineage_edges,"import_receipts":external_import_receipts(collections),"catalog":catalog_counts(connection),"catalog_fingerprint":catalog_fingerprint(connection),**planned}
 
 
 def status_command(_: argparse.Namespace) -> dict[str,Any]:
-    configured=configured_root(ARCHIVE_ROOT_ENV,required=False)
-    if configured is None: return {"status":"unconfigured","environment":ARCHIVE_ROOT_ENV}
+    configured,source=configured_root_resolution(ARCHIVE_ROOT_ENV,required=False)
+    if configured is None: return {"status":"unconfigured","environment":ARCHIVE_ROOT_ENV,"config_path":str(storage_config()[1])}
     archive=ArtifactStore(configured,REPO_ROOT)
-    with archive.connect() as connection: return {"status":"available","root":str(archive.root),"catalog":catalog_counts(connection),"catalog_fingerprint":catalog_fingerprint(connection)}
+    with archive.connect() as connection: return {"status":"available","root":str(archive.root),"configuration_source":source,"catalog":catalog_counts(connection),"catalog_fingerprint":catalog_fingerprint(connection)}
+
+
+def collection_active_counts(connection: sqlite3.Connection) -> dict[str,int]:
+    return {str(row[0]):int(row[1]) for row in connection.execute("SELECT collection_id,COUNT(*) FROM active_paths GROUP BY collection_id ORDER BY collection_id")}
+
+
+def doctor_command(args: argparse.Namespace) -> dict[str,Any]:
+    canonical_root,canonical_source=configured_root_resolution(ARCHIVE_ROOT_ENV); replica_root,replica_source=configured_root_resolution(REPLICA_ROOT_ENV)
+    assert canonical_root is not None and replica_root is not None
+    canonical=ArtifactStore(canonical_root,REPO_ROOT); replica=ArtifactStore(replica_root,REPO_ROOT)
+    expected={row["collection_id"] for row in autobiographical_source_registry()["collections"]}
+    with canonical.connect() as left:
+        canonical_counts=collection_active_counts(left); canonical_fp=catalog_fingerprint(left)
+    with replica.connect() as right:
+        replica_counts=collection_active_counts(right); replica_fp=catalog_fingerprint(right)
+    failures=[]
+    failures.extend(f"canonical archive missing autobiographical collection: {item}" for item in sorted(expected-set(canonical_counts)))
+    failures.extend(f"replica missing autobiographical collection: {item}" for item in sorted(expected-set(replica_counts)))
+    if canonical_fp!=replica_fp: failures.append("replica catalog fingerprint differs")
+    if canonical_counts!=replica_counts: failures.append("replica collection counts differ")
+    if args.full:
+        failures.extend(f"canonical: {item}" for item in verify_catalog(canonical,full=True))
+        failures.extend(f"replica: {item}" for item in verify_catalog(replica,full=True))
+    return {"status":"healthy" if not failures else "unhealthy","canonical_root":str(canonical.root),"canonical_configuration_source":canonical_source,"replica_root":str(replica.root),"replica_configuration_source":replica_source,"canonical_fingerprint":canonical_fp,"replica_fingerprint":replica_fp,"canonical_collections":canonical_counts,"replica_collections":replica_counts,"expected_autobiographical_collections":sorted(expected),"failures":failures}
+
+
+def get_command(args: argparse.Namespace) -> dict[str,Any]:
+    collection=collection_map().get(args.collection)
+    if collection is None: raise ArchiveError(f"unknown collection: {args.collection}")
+    logical=safe_logical_path(str(args.path)); root=safe_logical_path(str(collection.get("logical_root",""))).rstrip("/")+"/"
+    if not logical.startswith(root): raise ArchiveError(f"path is outside collection {args.collection}: {logical}")
+    if not args.output.is_absolute(): raise ArchiveError("System Archive get output must be an absolute path")
+    output=external_output(args.output); archive=store()
+    with archive.connect() as connection:
+        row=connection.execute("SELECT r.object_id,o.original_size FROM active_paths a JOIN records r ON r.record_id=a.record_id AND r.version=a.version JOIN objects o ON o.object_id=r.object_id WHERE a.collection_id=? AND a.logical_path=?",(args.collection,logical)).fetchone()
+        if row is None: raise ArchiveError(f"System Archive path is not active: {logical}")
+        body=archive.get_object(row["object_id"],expected_size=int(row["original_size"]))
+    if output.exists():
+        if output.read_bytes()!=body: raise ArchiveError(f"System Archive get refuses to overwrite different content: {output}")
+        written=False
+    else:
+        output.parent.mkdir(parents=True,exist_ok=True); temporary=output.with_name(f".{output.name}.get-{os.getpid()}"); temporary.write_bytes(body); temporary.replace(output); written=True
+    return {"status":"retrieved","collection_id":args.collection,"logical_path":logical,"output":str(output),"object_id":row["object_id"],"bytes":len(body),"hash_verified":True,"written":written}
 
 
 def hydrate_command(args: argparse.Namespace) -> dict[str,Any]:
@@ -450,7 +590,7 @@ def verify_catalog(archive: ArtifactStore, *, full: bool) -> list[str]:
 
 
 def validate_repository_state(repo_root: Path=REPO_ROOT) -> list[str]:
-    failures=[]; required=("system-archive/README.md","system-archive/architecture.md","system-archive/collections.json","system-archive/context-policy.json","system-archive/schemas/context-pack.schema.json","system-archive/schemas/derivation-manifest.schema.json","system-archive/schemas/replay-plan.schema.json","system-archive/schemas/task-spec.schema.json")
+    failures=[]; required=("system-archive/README.md","system-archive/architecture.md","system-archive/collections.json","system-archive/context-policy.json","system-archive/schemas/context-pack.schema.json","system-archive/schemas/derivation-manifest.schema.json","system-archive/schemas/replay-plan.schema.json","system-archive/schemas/task-spec.schema.json","mira/autobiographical-source-registry.json")
     failures.extend(f"missing System Archive control: {path}" for path in required if not (repo_root/path).is_file())
     try:
         document=collection_document(repo_root/"system-archive"/"collections.json"); identifiers=set()
@@ -464,6 +604,8 @@ def validate_repository_state(repo_root: Path=REPO_ROOT) -> list[str]:
             if row.get("retrieval_policy") not in {None,"default","explicit-only"}: failures.append(f"collection {identifier} has invalid retrieval_policy")
             if row.get("hydration_policy") not in {None,"default","disabled"}: failures.append(f"collection {identifier} has invalid hydration_policy")
             if row.get("kind")=="external-corpus-manifest": external_manifest(row)
+    except (ArchiveError,KeyError,TypeError) as error: failures.append(str(error))
+    try: autobiographical_source_registry(repo_root/"mira"/"autobiographical-source-registry.json")
     except (ArchiveError,KeyError,TypeError) as error: failures.append(str(error))
     try:
         result=subprocess.run(["git","ls-files","-z","--","narrative-geopolitics/archive/sources","mira/continuity/captures"],cwd=repo_root,check=True,capture_output=True)
@@ -597,11 +739,13 @@ def parser() -> argparse.ArgumentParser:
     root=argparse.ArgumentParser(description="System Archive epistemic substrate"); sub=root.add_subparsers(dest="command",required=True)
     def output(p: argparse.ArgumentParser) -> None: p.add_argument("--json",action="store_true")
     p=sub.add_parser("status"); output(p); p.set_defaults(handler=status_command)
+    p=sub.add_parser("doctor"); p.add_argument("--full",action="store_true"); output(p); p.set_defaults(handler=doctor_command)
     p=sub.add_parser("ingest"); p.add_argument("--check",action="store_true"); p.add_argument("--collection",action="append",default=[]); p.add_argument("--source-root",type=Path); output(p); p.set_defaults(handler=ingest_command)
     p=sub.add_parser("hydrate"); p.add_argument("--check",action="store_true"); p.add_argument("--collection",action="append",default=[]); output(p); p.set_defaults(handler=hydrate_command)
     p=sub.add_parser("validate"); p.add_argument("--git-only",action="store_true"); p.add_argument("--full",action="store_true"); output(p); p.set_defaults(handler=validate_command)
     p=sub.add_parser("verify"); p.add_argument("--hydration",action="store_true"); output(p); p.set_defaults(handler=verify_command)
     p=sub.add_parser("search"); p.add_argument("--query",required=True); p.add_argument("--collection",action="append",default=[]); p.add_argument("--as-of"); p.add_argument("--limit",type=int,default=20); output(p); p.set_defaults(handler=search_command)
+    p=sub.add_parser("get"); p.add_argument("--collection",required=True); p.add_argument("--path",required=True); p.add_argument("--output",type=Path,required=True); output(p); p.set_defaults(handler=get_command)
     p=sub.add_parser("lineage"); p.add_argument("--record",required=True); p.add_argument("--version",type=int); p.add_argument("--direction",choices=("in","out","both"),default="both"); output(p); p.set_defaults(handler=lineage_command)
     context=sub.add_parser("context"); context_sub=context.add_subparsers(dest="context_command",required=True); p=context_sub.add_parser("build"); p.add_argument("--task",type=Path,required=True); p.add_argument("--as-of",required=True); p.add_argument("--token-budget",type=int,required=True); p.add_argument("--output",type=Path,required=True); p.add_argument("--collection",action="append",default=[]); p.add_argument("--check",action="store_true"); output(p); p.set_defaults(handler=context_command)
     replay=sub.add_parser("replay"); replay_sub=replay.add_subparsers(dest="replay_command",required=True); p=replay_sub.add_parser("plan"); p.add_argument("--task",type=Path,required=True); p.add_argument("--as-of",required=True); p.add_argument("--context-pack",required=True); p.add_argument("--output",type=Path,required=True); p.add_argument("--check",action="store_true"); output(p); p.set_defaults(handler=replay_command)

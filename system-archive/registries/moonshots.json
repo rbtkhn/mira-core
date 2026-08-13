@@ -6,8 +6,24 @@
     "projects/singularity-science/moonshots-272-singularity-implications-memo.md"
   ],
   "collection_id": "moonshots",
-  "document_count": 29,
+  "document_count": 31,
   "documents": [
+    {
+      "capture_date": "2026-08-12",
+      "derived_from": [
+        "system-archive/singularity-science/moonshots/transcripts/2026-08-12-moonshots-278-compute-trades-sergey-brin-bots-kush-bavaria.md"
+      ],
+      "document_type": "source-note",
+      "logical_path": "external-corpora/moonshots/source-notes/2026-08-12-moonshots-278-compute-trades-sergey-brin-bots-kush-bavaria.source-note.md",
+      "publication_date": "2026-08-12",
+      "publication_date_status": "provisional-from-operator-capture-date",
+      "rights_policy": "internal-research-only-review-required",
+      "rights_status": "operator-supplied transcript; internal analysis only; reuse and quotation not cleared",
+      "sha256": "064a16c91b71e25a46f8d36f80646f65138a3186f172450fc1d1ebe6034c4b1e",
+      "size": 5004,
+      "title": "Moonshots #278: Compute Trades, Sergey Brin, Bots, and Kush Bavaria",
+      "upstream_path": "system-archive/singularity-science/moonshots/source-notes/2026-08-12-moonshots-278-compute-trades-sergey-brin-bots-kush-bavaria.source-note.md"
+    },
     {
       "capture_date": null,
       "derived_from": [
@@ -22,6 +38,23 @@
       "size": 6472,
       "title": "Moonshots #272 Learning-Loop Ownership Review",
       "upstream_path": "projects/singularity-science/moonshots-272-learning-loop-ownership-review.md"
+    },
+    {
+      "body_status": "body-present",
+      "capture_date": "2026-08-12",
+      "completeness_basis": "operator-supplied-body-with-natural-ending",
+      "completeness_status": "not-independently-verified",
+      "derived_from": [],
+      "document_type": "transcript",
+      "logical_path": "external-corpora/moonshots/transcripts/2026-08-12-moonshots-278-compute-trades-sergey-brin-bots-kush-bavaria.md",
+      "publication_date": "2026-08-12",
+      "publication_date_status": "provisional-from-operator-capture-date",
+      "rights_policy": "internal-research-only-review-required",
+      "rights_status": "operator-supplied transcript; internal analysis only; reuse and quotation not cleared",
+      "sha256": "18907409bac4f326c326c8f1f0f57aa8645833336a84698aab12986f7a45b57b",
+      "size": 153775,
+      "title": "Moonshots #278: Compute Trades, Sergey Brin, Bots, and Kush Bavaria",
+      "upstream_path": "system-archive/singularity-science/moonshots/transcripts/2026-08-12-moonshots-278-compute-trades-sergey-brin-bots-kush-bavaria.md"
     },
     {
       "capture_date": null,
@@ -517,8 +550,8 @@
       "upstream_path": "system-archive/singularity-science/moonshots/transcripts/2026-07-29-moonshots-275-jensen-huang-open-ai-alliance.md"
     }
   ],
-  "imported_at": "2026-08-11",
-  "object_byte_count": 683276,
+  "imported_at": "2026-08-12",
+  "object_byte_count": 842055,
   "reference_aliases": [
     {
       "allowed_source_prefix": "projects/singularity-science/moonshots-272-",
@@ -532,7 +565,7 @@
     }
   ],
   "schema_version": 2,
-  "source_commit": "940f354e00e2f49af2f340dd4ef1c1bc6e8ded77",
+  "source_commit": "6e28c49750b4506bd951536b7f3046ab0d7fa138",
   "source_prefix": "system-archive/singularity-science/moonshots",
   "source_repository": "https://github.com/rbtkhn/anyang-intelligence",
   "source_unavailable_secondary_records": 6

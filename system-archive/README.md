@@ -11,8 +11,15 @@ Canonical bodies and SQLite catalog live outside Git under
 `NARRATIVE_SYSTEM_ARCHIVE_REPLICA_ROOT`. Existing collection paths are ignored,
 byte-identical hydrated mirrors.
 
+On the operator workstation, both roots may instead be resolved from the
+private `C:\private\narrative-system-archive-config.json` file. Direct
+environment variables take precedence, followed by
+`NARRATIVE_SYSTEM_ARCHIVE_CONFIG`, then the private default. Run
+`system-archive doctor --full` after a clean activation to prove collection,
+object, and replica availability.
+
 Use `tools/run.ps1 system-archive` with `status`, `ingest`, `hydrate`,
-`validate`, `verify`, `search`, `lineage`, `context build`, `replay plan`,
+`doctor`, `validate`, `verify`, `search`, `get`, `lineage`, `context build`, `replay plan`,
 `replica-status`, or `benchmark`. Mutation commands provide `--check`; machine
 callers add `--json`. Run `session-preflight` before writing external temporary
 outputs or benchmarks.
@@ -34,9 +41,9 @@ indexes, or doctrine.
 
 The `moonshots` collection is a separate pinned external corpus of frontier
 technology and civilizational-futures research. Its reviewed snapshot contains
-29 records from Anyang Intelligence commit
-`940f354e00e2f49af2f340dd4ef1c1bc6e8ded77`: five body-present transcripts,
-eight source notes, eight analyses, four derived analyses, two templates, one
+31 records from Anyang Intelligence commit
+`6e28c49750b4506bd951536b7f3046ab0d7fa138`: six body-present transcripts,
+nine source notes, eight analyses, four derived analyses, two templates, one
 README, and one research ledger. Three provenance-limited transcript records
 (one truncated excerpt and two attachment-only wrappers) are intentionally
 excluded; their six retained secondary records disclose that the source body
@@ -49,6 +56,17 @@ cannot alter its hashes. It is explicit-only and hydration-disabled. Run
 republish, route to customers, promote claims or doctrine, alter continuity or
 identity, or enter geopolitical synthesis. Joint retrieval must name each
 collection explicitly and transfers no authority between them.
+
+The `nate-b-jones` and `nate-herk` collections preserve separate
+practitioner-AI research lanes from the pinned Anyang Intelligence snapshot.
+They are explicit-only and hydration-disabled. Neutral historical reference
+receipts do not transfer evidentiary authority between the collections.
+
+`mira/autobiographical-source-registry.json` records the operator's designation
+of Innermost Loop, Moonshots, Nate Herk, and Nate B. Jones as influences on
+Mira's development. The designation changes neither source truth nor identity
+authority. An autobiographical `influenced_by` edge requires an exact approved
+Journal or Continuity endpoint and an exact target source record.
 
 Raw objects remain primary. Indexes and context packs are derived views. Hidden
 reasoning is excluded. Model output, repetition, or confidence never promotes

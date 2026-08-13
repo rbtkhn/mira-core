@@ -1,0 +1,308 @@
+{
+  "auxiliary_paths": [
+    "system-archive/singularity-science/recurrence-reviews/2026-07-24-backfill-nate-herk-context-harness.md",
+    "system-archive/singularity-science/recurrence-reviews/2026-08-04-nate-herk-evidence-before-authority.md"
+  ],
+  "collection_id": "nate-herk",
+  "document_count": 18,
+  "documents": [
+    {
+      "capture_date": null,
+      "derived_from": [],
+      "document_type": "archive-readme",
+      "logical_path": "external-corpora/nate-herk/README.md",
+      "publication_date": null,
+      "rights_policy": "internal-research-only-review-required",
+      "rights_status": "internal-analysis-rights-review-required",
+      "sha256": "bcb87686ab689a6aeedb7b8cd9cd3844696fe694d1cbd60432f10f2fc86cd3ff",
+      "size": 1070,
+      "title": "Nate Herk Archive",
+      "upstream_path": "system-archive/singularity-science/nate-herk/README.md"
+    },
+    {
+      "capture_date": "2026-07-22",
+      "derived_from": [
+        "system-archive/singularity-science/nate-herk/source-notes/2026-07-22-how-id-make-money-with-claude-if-my-life-depended-on-it.source-note.md",
+        "system-archive/singularity-science/nate-herk/transcripts/2026-07-22-how-id-make-money-with-claude-if-my-life-depended-on-it.md"
+      ],
+      "document_type": "analysis",
+      "logical_path": "external-corpora/nate-herk/analyses/2026-07-22-how-id-make-money-with-claude-if-my-life-depended-on-it.analysis.md",
+      "publication_date": null,
+      "rights_policy": "internal-research-only-review-required",
+      "rights_status": "internal-analysis-rights-review-required",
+      "sha256": "e1761f606b934ccb6f3fb883ef59638ac0637ea537e668a4a7127a2903cc753d",
+      "size": 10097,
+      "title": "External Interview Analysis: Test Transferable Mechanisms against Source Rhetoric",
+      "upstream_path": "system-archive/singularity-science/nate-herk/analyses/2026-07-22-how-id-make-money-with-claude-if-my-life-depended-on-it.analysis.md"
+    },
+    {
+      "capture_date": "2026-07-22",
+      "derived_from": [
+        "system-archive/singularity-science/nate-herk/source-notes/2026-07-22-how-you-can-provide-the-most-ai-value-to-businesses.source-note.md",
+        "system-archive/singularity-science/nate-herk/transcripts/2026-07-22-how-you-can-provide-the-most-ai-value-to-businesses.md"
+      ],
+      "document_type": "analysis",
+      "logical_path": "external-corpora/nate-herk/analyses/2026-07-22-how-you-can-provide-the-most-ai-value-to-businesses.analysis.md",
+      "publication_date": null,
+      "rights_policy": "internal-research-only-review-required",
+      "rights_status": "internal-analysis-rights-review-required",
+      "sha256": "d8d5f6e95424663155864cd317d24cd89a948c98cee2b2697663869704eb7e71",
+      "size": 7443,
+      "title": "Nate Herk Analysis: How You Can Provide the Most AI Value to Businesses",
+      "upstream_path": "system-archive/singularity-science/nate-herk/analyses/2026-07-22-how-you-can-provide-the-most-ai-value-to-businesses.analysis.md"
+    },
+    {
+      "capture_date": "2026-07-23",
+      "derived_from": [
+        "system-archive/singularity-science/nate-herk/source-notes/2026-07-23-steal-my-exact-ai-os-setup-5-simple-tips.source-note.md",
+        "system-archive/singularity-science/nate-herk/transcripts/2026-07-23-steal-my-exact-ai-os-setup-5-simple-tips.md"
+      ],
+      "document_type": "analysis",
+      "logical_path": "external-corpora/nate-herk/analyses/2026-07-23-steal-my-exact-ai-os-setup-5-simple-tips.analysis.md",
+      "publication_date": null,
+      "rights_policy": "internal-research-only-review-required",
+      "rights_status": "internal-analysis-rights-review-required",
+      "sha256": "3712a85555fea8210a5a8b25e6420b9a776e8c4581f65aded26e0c7f187d63b3",
+      "size": 10052,
+      "title": "Nate Herk Analysis: Steal My Exact AI OS Setup (5 Simple Tips)",
+      "upstream_path": "system-archive/singularity-science/nate-herk/analyses/2026-07-23-steal-my-exact-ai-os-setup-5-simple-tips.analysis.md"
+    },
+    {
+      "capture_date": "2026-08-04",
+      "derived_from": [
+        "system-archive/singularity-science/nate-herk/source-notes/2026-08-04-everything-ive-learned-after-5000-hours-of-building-with-ai.source-note.md",
+        "system-archive/singularity-science/nate-herk/transcripts/2026-08-04-everything-ive-learned-after-5000-hours-of-building-with-ai.md"
+      ],
+      "document_type": "analysis",
+      "logical_path": "external-corpora/nate-herk/analyses/2026-08-04-everything-ive-learned-after-5000-hours-of-building-with-ai.analysis.md",
+      "publication_date": null,
+      "rights_policy": "internal-research-only-review-required",
+      "rights_status": "internal-analysis-rights-review-required",
+      "sha256": "a6f9c7790947c001aa896f4d6977cabc39c9baa68916c98ba5884bcd573ae288",
+      "size": 15681,
+      "title": "Nate Herk Analysis: Evidence Before Authority in AI Delivery",
+      "upstream_path": "system-archive/singularity-science/nate-herk/analyses/2026-08-04-everything-ive-learned-after-5000-hours-of-building-with-ai.analysis.md"
+    },
+    {
+      "capture_date": null,
+      "derived_from": [],
+      "document_type": "template",
+      "logical_path": "external-corpora/nate-herk/analysis-template.md",
+      "publication_date": null,
+      "rights_policy": "internal-research-only-review-required",
+      "rights_status": "internal-analysis-rights-review-required",
+      "sha256": "3438e79b2f78e7036c27c3d6bfd5138d7f1a8f8bd40ba98bf23329d99fe5d651",
+      "size": 3234,
+      "title": "Analysis Template",
+      "upstream_path": "system-archive/singularity-science/nate-herk/analysis-template.md"
+    },
+    {
+      "capture_date": null,
+      "derived_from": [],
+      "document_type": "research-ledger",
+      "logical_path": "external-corpora/nate-herk/roi-ledger.md",
+      "publication_date": null,
+      "rights_policy": "internal-research-only-review-required",
+      "rights_status": "internal-analysis-rights-review-required",
+      "sha256": "18e03fd011a8c772cdd39a0be0fa835eefb9ab4eaa89a77a6115618d1bc8c273",
+      "size": 10832,
+      "title": "Nate Herk ROI Ledger",
+      "upstream_path": "system-archive/singularity-science/nate-herk/roi-ledger.md"
+    },
+    {
+      "capture_date": null,
+      "derived_from": [],
+      "document_type": "template",
+      "logical_path": "external-corpora/nate-herk/source-note-template.md",
+      "publication_date": null,
+      "rights_policy": "internal-research-only-review-required",
+      "rights_status": "internal-analysis-rights-review-required",
+      "sha256": "edeb07f66c9542a3fed0c1076e9acc579394e388fc1dea70829d9e6112309ddd",
+      "size": 786,
+      "title": "Source Note Template",
+      "upstream_path": "system-archive/singularity-science/nate-herk/source-note-template.md"
+    },
+    {
+      "capture_date": "2026-07-22",
+      "derived_from": [
+        "system-archive/singularity-science/nate-herk/transcripts/2026-07-22-how-id-make-money-with-claude-if-my-life-depended-on-it.md"
+      ],
+      "document_type": "source-note",
+      "lineage_resolution_receipts": [
+        {
+          "original_reference": "transcripts/2026-07-22-how-id-make-money-with-claude-if-my-life-depended-on-it.md",
+          "reference_base": "system-archive/singularity-science/nate-herk",
+          "resolution": "reviewed-lane-root-reference",
+          "resolved_target": "system-archive/singularity-science/nate-herk/transcripts/2026-07-22-how-id-make-money-with-claude-if-my-life-depended-on-it.md"
+        }
+      ],
+      "logical_path": "external-corpora/nate-herk/source-notes/2026-07-22-how-id-make-money-with-claude-if-my-life-depended-on-it.source-note.md",
+      "publication_date": null,
+      "rights_policy": "internal-research-only-review-required",
+      "rights_status": "Internal research preservation only; rights not independently verified",
+      "sha256": "a2d9f66692e5e157231298d22c3a91d35561d859ca7b775e4dda1801c1ff38de",
+      "size": 3978,
+      "title": "External Interview Source Note",
+      "upstream_path": "system-archive/singularity-science/nate-herk/source-notes/2026-07-22-how-id-make-money-with-claude-if-my-life-depended-on-it.source-note.md"
+    },
+    {
+      "capture_date": "2026-07-22",
+      "derived_from": [
+        "system-archive/singularity-science/nate-herk/transcripts/2026-07-22-how-you-can-provide-the-most-ai-value-to-businesses.md"
+      ],
+      "document_type": "source-note",
+      "logical_path": "external-corpora/nate-herk/source-notes/2026-07-22-how-you-can-provide-the-most-ai-value-to-businesses.source-note.md",
+      "publication_date": null,
+      "rights_policy": "internal-research-only-review-required",
+      "rights_status": "Operator-supplied transcript; internal research only; publication and reuse rights not established",
+      "sha256": "a9d9b594e7ad29b3b4408899bf9f21d23758caeac0cd88cba85d8ccbf2b02081",
+      "size": 3666,
+      "title": "Nate Herk Source Note",
+      "upstream_path": "system-archive/singularity-science/nate-herk/source-notes/2026-07-22-how-you-can-provide-the-most-ai-value-to-businesses.source-note.md"
+    },
+    {
+      "capture_date": "2026-07-23",
+      "derived_from": [
+        "system-archive/singularity-science/nate-herk/transcripts/2026-07-23-steal-my-exact-ai-os-setup-5-simple-tips.md"
+      ],
+      "document_type": "source-note",
+      "logical_path": "external-corpora/nate-herk/source-notes/2026-07-23-steal-my-exact-ai-os-setup-5-simple-tips.source-note.md",
+      "publication_date": null,
+      "rights_policy": "internal-research-only-review-required",
+      "rights_status": "Operator-supplied transcript; internal research only; publication and reuse rights not established",
+      "sha256": "c50816f4b79667632848a1ee9f0277371293594d7b93f31b55ae5e22302ba9f4",
+      "size": 4533,
+      "title": "Nate Herk Source Note",
+      "upstream_path": "system-archive/singularity-science/nate-herk/source-notes/2026-07-23-steal-my-exact-ai-os-setup-5-simple-tips.source-note.md"
+    },
+    {
+      "capture_date": "2026-08-04",
+      "derived_from": [
+        "system-archive/singularity-science/nate-herk/transcripts/2026-08-04-everything-ive-learned-after-5000-hours-of-building-with-ai.md"
+      ],
+      "document_type": "source-note",
+      "logical_path": "external-corpora/nate-herk/source-notes/2026-08-04-everything-ive-learned-after-5000-hours-of-building-with-ai.source-note.md",
+      "publication_date": null,
+      "rights_policy": "internal-research-only-review-required",
+      "rights_status": "Operator-supplied transcript; internal research only; publication and reuse rights not established",
+      "sha256": "9aba37debe7f629dd0367ebe3ef9d8b46dcb64bfcf181d1baf964e8b9c646233",
+      "size": 4897,
+      "title": "Nate Herk Source Note",
+      "upstream_path": "system-archive/singularity-science/nate-herk/source-notes/2026-08-04-everything-ive-learned-after-5000-hours-of-building-with-ai.source-note.md"
+    },
+    {
+      "body_status": "body-present",
+      "capture_date": "2026-07-22",
+      "completeness_status": "not-independently-verified",
+      "derived_from": [],
+      "document_type": "transcript",
+      "logical_path": "external-corpora/nate-herk/transcripts/2026-07-22-how-id-make-money-with-claude-if-my-life-depended-on-it.md",
+      "publication_date": null,
+      "rights_policy": "internal-research-only-review-required",
+      "rights_status": "Internal research preservation only; rights not independently verified",
+      "sha256": "180559a61f50c60304d162e564195adb8506924d837422e1d37f02b339762152",
+      "size": 11989,
+      "title": "Transcript",
+      "upstream_path": "system-archive/singularity-science/nate-herk/transcripts/2026-07-22-how-id-make-money-with-claude-if-my-life-depended-on-it.md"
+    },
+    {
+      "body_status": "body-present",
+      "capture_date": "2026-07-22",
+      "completeness_status": "not-independently-verified",
+      "derived_from": [],
+      "document_type": "transcript",
+      "logical_path": "external-corpora/nate-herk/transcripts/2026-07-22-how-you-can-provide-the-most-ai-value-to-businesses.md",
+      "publication_date": null,
+      "rights_policy": "internal-research-only-review-required",
+      "rights_status": "Operator-supplied transcript; internal research only; publication and reuse rights not established",
+      "sha256": "9fae7826a026e26b4660f563307641ad3fa733d1743ecb59b5b407c854868a89",
+      "size": 59045,
+      "title": "How You Can Provide the Most AI Value to Businesses â€” Transcript",
+      "upstream_path": "system-archive/singularity-science/nate-herk/transcripts/2026-07-22-how-you-can-provide-the-most-ai-value-to-businesses.md"
+    },
+    {
+      "body_status": "body-present",
+      "capture_date": "2026-07-23",
+      "completeness_status": "not-independently-verified",
+      "derived_from": [],
+      "document_type": "transcript",
+      "logical_path": "external-corpora/nate-herk/transcripts/2026-07-23-steal-my-exact-ai-os-setup-5-simple-tips.md",
+      "publication_date": null,
+      "rights_policy": "internal-research-only-review-required",
+      "rights_status": "Operator-supplied transcript; internal research only; publication and reuse rights not established",
+      "sha256": "ffd3d92063a20e7e4413dcec042d60b74a5db5215c69c5dc19e4f239ba309457",
+      "size": 32136,
+      "title": "Steal My Exact AI OS Setup (5 Simple Tips) â€” Transcript",
+      "upstream_path": "system-archive/singularity-science/nate-herk/transcripts/2026-07-23-steal-my-exact-ai-os-setup-5-simple-tips.md"
+    },
+    {
+      "body_status": "body-present",
+      "capture_date": "2026-08-04",
+      "completeness_status": "not-independently-verified",
+      "derived_from": [],
+      "document_type": "transcript",
+      "logical_path": "external-corpora/nate-herk/transcripts/2026-08-04-everything-ive-learned-after-5000-hours-of-building-with-ai.md",
+      "publication_date": null,
+      "rights_policy": "internal-research-only-review-required",
+      "rights_status": "Operator-supplied transcript; internal research only; publication and reuse rights not established",
+      "sha256": "6ef659d7929172cfc12cafe1f601b160abb88a964250992b49a0673701f5aefc",
+      "size": 22826,
+      "title": "Everything I've Learned After 5000 Hours of Building with AI â€” Transcript",
+      "upstream_path": "system-archive/singularity-science/nate-herk/transcripts/2026-08-04-everything-ive-learned-after-5000-hours-of-building-with-ai.md"
+    },
+    {
+      "capture_date": "2026-07-24",
+      "cross_collection_references": [
+        {
+          "authority_effect": "none",
+          "occurrences": 3,
+          "original_reference": "../nate-b-jones/analyses/2026-07-17-fable-5-and-gpt-5-6-dont-need-better-prompts-they-need-a-clean-setup.analysis.md",
+          "related_collection": "nate-b-jones",
+          "relation": "mechanism-overlap",
+          "target_upstream_path": "system-archive/singularity-science/nate-b-jones/analyses/2026-07-17-fable-5-and-gpt-5-6-dont-need-better-prompts-they-need-a-clean-setup.analysis.md"
+        }
+      ],
+      "derived_from": [
+        "system-archive/singularity-science/nate-herk/analyses/2026-07-23-steal-my-exact-ai-os-setup-5-simple-tips.analysis.md",
+        "system-archive/singularity-science/nate-herk/roi-ledger.md"
+      ],
+      "document_type": "recurrence-review",
+      "logical_path": "external-corpora/nate-herk/recurrence-reviews/2026-07-24-backfill-nate-herk-context-harness.md",
+      "publication_date": null,
+      "rights_policy": "internal-research-only-review-required",
+      "rights_status": "internal-analysis-rights-review-required",
+      "sha256": "8b9d8aaa622a44ccfc06dfb036a78e9a037d971fde3eb2c3171be91963173bcc",
+      "size": 2714,
+      "title": "Singularity Recurrence Review â€” Historical Backfill",
+      "upstream_path": "system-archive/singularity-science/recurrence-reviews/2026-07-24-backfill-nate-herk-context-harness.md"
+    },
+    {
+      "capture_date": "2026-08-04",
+      "derived_from": [
+        "system-archive/singularity-science/nate-herk/analyses/2026-08-04-everything-ive-learned-after-5000-hours-of-building-with-ai.analysis.md",
+        "system-archive/singularity-science/nate-herk/analyses/2026-07-22-how-id-make-money-with-claude-if-my-life-depended-on-it.analysis.md",
+        "system-archive/singularity-science/nate-herk/analyses/2026-07-22-how-you-can-provide-the-most-ai-value-to-businesses.analysis.md",
+        "system-archive/singularity-science/nate-herk/analyses/2026-07-23-steal-my-exact-ai-os-setup-5-simple-tips.analysis.md",
+        "system-archive/singularity-science/nate-herk/roi-ledger.md"
+      ],
+      "document_type": "recurrence-review",
+      "logical_path": "external-corpora/nate-herk/recurrence-reviews/2026-08-04-nate-herk-evidence-before-authority.md",
+      "publication_date": null,
+      "rights_policy": "internal-research-only-review-required",
+      "rights_status": "internal-analysis-rights-review-required",
+      "sha256": "8cda8a86b1309820112bcd903e388a390f81801b65a2c8445b1b3608111ca2a1",
+      "size": 7724,
+      "title": "Singularity Recurrence Review â€” Nate Herk Evidence Before Authority",
+      "upstream_path": "system-archive/singularity-science/recurrence-reviews/2026-08-04-nate-herk-evidence-before-authority.md"
+    }
+  ],
+  "excluded_paths": [],
+  "imported_at": "2026-08-11",
+  "object_byte_count": 212703,
+  "reference_aliases": [],
+  "schema_version": 2,
+  "source_commit": "940f354e00e2f49af2f340dd4ef1c1bc6e8ded77",
+  "source_prefix": "system-archive/singularity-science/nate-herk",
+  "source_repository": "https://github.com/rbtkhn/anyang-intelligence"
+}
+
