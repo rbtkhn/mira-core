@@ -144,6 +144,15 @@ calibration, skill audit, or workflow routing, read
 automatic recovery for exact menu selections, clear commands, factual receipts,
 explicit approvals, and genuinely missing evidence.
 
+Relational deference or soft assent such as `as you wish`, `sounds good`, `very
+well`, or `I defer to you` is not a clear command or explicit approval. When the
+next step would mutate state, communicate externally, or cross another
+consequential authority boundary, route the phrase through intent recovery and
+request the exact missing authorization. Do not select a recommended option on
+the operator's behalf. Continue reversible read-only reasoning already in scope
+without ceremony, and preserve the existing clear-command rule when one exact,
+visible, already-bounded action is pending.
+
 After intent recovery and before consequential elicitation or execution, run
 `tools/run.ps1 contradiction-check` when an explicit material factual premise
 may conflict with a named repository fact. Supply only the smallest relevant

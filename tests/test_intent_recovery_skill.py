@@ -54,6 +54,31 @@ def test_precise_inputs_and_menu_letters_do_not_expand_authority() -> None:
     assert "`selection_effect` matches" in skill
 
 
+def test_soft_assent_is_not_upgraded_into_action_authority() -> None:
+    skill = skill_text()
+    agents = (REPO_ROOT / "AGENTS.md").read_text(encoding="utf-8")
+
+    for phrase in ("`as you wish`", "`sounds good`", "`very well`", "`I defer to you`"):
+        assert phrase in skill
+
+    assert "not as a clear command, explicit approval, menu selection" in skill
+    assert "authority to mutate or act externally" in skill
+    assert "without selecting an option for the\n   operator" in skill
+    assert "Continue only reversible read-only reasoning already in scope" in skill
+    assert "request only the missing authorization" in skill
+    assert "Relational deference or soft assent" in agents
+    assert "is not a clear command or explicit approval" in agents
+    assert "Do not select a recommended option on\nthe operator's behalf" in agents
+
+
+def test_ambiguous_continuation_requires_one_bounded_pending_action() -> None:
+    skill = skill_text()
+
+    assert "ambiguous continuation such as `go ahead` or `do it`" in skill
+    assert "one exact, visible, already-bounded action is pending" in skill
+    assert "ask one minimal clarification\nbefore consequential action" in skill
+
+
 def test_local_composition_contracts_are_named() -> None:
     skill = skill_text()
     agents = (REPO_ROOT / "AGENTS.md").read_text(encoding="utf-8")

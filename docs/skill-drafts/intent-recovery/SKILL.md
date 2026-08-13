@@ -40,6 +40,29 @@ the visible option came from a validated elicitation action surface whose label
 begins with `Execute`, `Commit`, `Push`, or `Send` and whose
 `selection_effect` matches.
 
+## Do Not Upgrade Soft Assent
+
+Treat relational deference or soft assent such as `as you wish`, `sounds good`,
+`very well`, or `I defer to you` as agreement, preference, or conversational
+acceptance--not as a clear command, explicit approval, menu selection, or
+authority to mutate or act externally.
+
+When soft assent follows a recommendation:
+
+1. Preserve the expressed agreement without selecting an option for the
+   operator.
+2. Continue only reversible read-only reasoning already in scope.
+3. If the recommended next step would mutate state, communicate externally, or
+   cross another consequential authority boundary, name the exact proposed
+   action and request only the missing authorization.
+4. If the branch is complete, acknowledge the agreement and close rather than
+   manufacturing work.
+
+Treat an ambiguous continuation such as `go ahead` or `do it` as a clear command
+only when one exact, visible, already-bounded action is pending. When several
+actions, targets, or scopes remain plausible, ask one minimal clarification
+before consequential action.
+
 ## Preserve Authority
 
 Intent recovery is interpretive preparation. It is never approval to execute.
