@@ -139,7 +139,7 @@ Daily synthesis uses `Operational Claim Triage` as an exception gate, not a fact
 
 ## Skill Deployment
 
-The repo-owned `best-intake`, `geopolitical-synthesis`, and `reality-check`
+The repo-owned `best-intake`, `geo-strategy`, and `reality-check`
 drafts are eligible for user-level synchronization. Synchronization mirrors
 the complete registered skill directory, including `agents/openai.yaml` when
 present:

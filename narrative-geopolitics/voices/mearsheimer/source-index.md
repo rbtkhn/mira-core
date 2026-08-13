@@ -4,7 +4,7 @@ This index routes the imported first-slice parity corpus for `mearsheimer` to th
 
 Source basis: `strategy-codex/statecraft/voices/mearsheimer/mearsheimer-index.md`.
 
-Corpus: 70 local route rows across 70 central archive source files.
+Corpus: 71 local route rows across 71 central archive source files.
 
 Status: `first-slice-parity`
 
@@ -94,7 +94,8 @@ Status: `first-slice-parity`
 | `2026-07-23` | Prof John Mearsheimer: NOTHING LEFT TO HIT IN IRAN THAT MATTERS, More Damage is Meaningless | `guest` | `daniel-davis` | [source](../../archive/sources/2026-07-23/source-prof-john-mearsheimer-nothing-left-to-hit-in-iran-that-matters-more-damage-is-meaningless-2026-07-23.md) |
 | `2026-07-28` | Prof. John Mearsheimer : Trump’s Disaster | `guest` | `judging-freedom` | [source](../../archive/sources/2026-07-28/source-prof-john-mearsheimer-trump-s-disaster-2026-07-28.md) |
 | `2026-07-30` | John Mearsheimer: Ukraine Is Landlocked & Donbas Enters Endgame | `guest` | `glenn-diesen` | [source](../../archive/sources/2026-07-30/source-john-mearsheimer-ukraine-is-landlocked-donbas-enters-endgame-2026-07-30.md) |
-| `2026-08-06` | (1) Prof John Mearsheimer: Drones Can't Deliver Ukraine Victory | `host-pressure test` | `daniel-davis` | [source](../../archive/sources/2026-08-06/source-1-prof-john-mearsheimer-drones-can-t-deliver-ukraine-victory-2026-08-06.md) |
+| `2026-08-06` | (1) Prof John Mearsheimer: Drones Can't Deliver Ukraine Victory | `guest` | `daniel-davis` | [source](../../archive/sources/2026-08-06/source-1-prof-john-mearsheimer-drones-can-t-deliver-ukraine-victory-2026-08-06.md) |
+| `2026-08-11` | (2) Prof. John Mearsheimer : What Comes Next in Iran? | `guest` | `judging-freedom` | [source](../../archive/sources/2026-08-11/source-2-prof-john-mearsheimer-what-comes-next-in-iran-2026-08-11.md) |
 
 ## Judgment Continuity
 

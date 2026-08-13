@@ -100,7 +100,7 @@ as durable truth.
 
 ## Geopolitical-Synthesis Authority Envelope
 
-`geopolitical-synthesis` is explicitly date-scoped. It may read the manifest,
+`geo-strategy` is explicitly date-scoped. It may read the manifest,
 the selected date's manifest-backed archive sources, person and channel
 conditioning, and existing daily, forecast, verification, method, and template
 state. Within the guided workflow it may write only:
@@ -126,7 +126,7 @@ systems, web evidence, or Git state.
 The dynamic preflight is:
 
 ```powershell
-.\tools\run.ps1 cadence startup geopolitical-synthesis --date YYYY-MM-DD --json
+.\tools\run.ps1 cadence startup geo-strategy --date YYYY-MM-DD --json
 ```
 
 The command is read-only. A date with no manifest rows, or with missing

@@ -4,7 +4,7 @@ This index routes the transcript-bearing upstream-parity corpus for `macgregor` 
 
 Source basis: `narrative-geopolitics/archive/source-manifest.json`.
 
-Corpus: 90 local route rows across 90 central archive source files.
+Corpus: 91 local route rows across 91 central archive source files.
 
 Status: `transcript-bearing-upstream-parity`
 
@@ -112,8 +112,9 @@ Status: `transcript-bearing-upstream-parity`
 | `2026-07-29` | COL. Douglas Macgregor : Is Putin Losing Patience? | `guest` | `judging-freedom` | [source](../../archive/sources/2026-07-29/source-col-douglas-macgregor-is-putin-losing-patience-2026-07-29.md) |
 | `2026-07-31` | Douglas Macgregor: Iran Became the Graveyard of the U.S. Empire & Israel | `guest` | `glenn-diesen` | [source](../../archive/sources/2026-07-31/source-douglas-macgregor-iran-became-the-graveyard-of-the-u-s-empire-israel-2026-07-31.md) |
 | `2026-08-01` | Colonel Douglas Macgregor: America and Israel Have Lost Iran War | `guest` | `cyrus-janssen` | [source](../../archive/sources/2026-08-01/source-colonel-douglas-macgregor-america-and-israel-have-lost-iran-war-2026-08-01.md) |
-| `2026-08-05` | (1) COL. Douglas Macgregor : Trump’s Failing Foreign Policy | `host-pressure test` | `judging-freedom` | [source](../../archive/sources/2026-08-05/source-1-col-douglas-macgregor-trump-s-failing-foreign-policy-2026-08-05.md) |
-| `2026-08-06` | (1) Col Doug Macgregor: All Out War w/Iran Getting Unavoidable | `host-pressure test` | `daniel-davis` | [source](../../archive/sources/2026-08-06/source-1-col-doug-macgregor-all-out-war-w-iran-getting-unavoidable-2026-08-06.md) |
+| `2026-08-05` | (1) COL. Douglas Macgregor : Trump’s Failing Foreign Policy | `guest` | `judging-freedom` | [source](../../archive/sources/2026-08-05/source-1-col-douglas-macgregor-trump-s-failing-foreign-policy-2026-08-05.md) |
+| `2026-08-06` | (1) Col Doug Macgregor: All Out War w/Iran Getting Unavoidable | `guest` | `daniel-davis` | [source](../../archive/sources/2026-08-06/source-1-col-doug-macgregor-all-out-war-w-iran-getting-unavoidable-2026-08-06.md) |
+| `2026-08-11` | (2) Col Doug Macgregor - Iran War: THE ART OF DEFEAT / We Have No Influence Over Iran | `host-pressure test` | `daniel-davis` | [source](../../archive/sources/2026-08-11/source-2-col-doug-macgregor-iran-war-the-art-of-defeat-we-have-no-influence-over-iran-2026-08-11.md) |
 
 ## Import Boundary
 

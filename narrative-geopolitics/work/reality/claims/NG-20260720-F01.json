@@ -1,0 +1,19 @@
+{
+  "aliases": [],
+  "as_of": "2026-07-20",
+  "claim_type": "forecast",
+  "claimant_refs": [],
+  "consequence": "high",
+  "created_at": "2026-07-20T00:00:00Z",
+  "created_by": "operator",
+  "crisis_object": "Coalition access versus regional denial",
+  "empirical_eligibility": true,
+  "id": "NG-20260720-F01",
+  "kind": "claim",
+  "revision_of": null,
+  "schema_version": 1,
+  "scope": "bounded claim",
+  "source_refs": [],
+  "status": "open",
+  "text": "Over the next 7-14 days, pressure will shift toward maritime chokepoints, bases, and energy access rather than a decisive ground settlement."
+}

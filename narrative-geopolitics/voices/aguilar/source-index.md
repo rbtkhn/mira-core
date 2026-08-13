@@ -4,7 +4,7 @@ This index routes the unified local Aguilar corpus for `aguilar` to the central 
 
 Source basis: `strategy-codex/statecraft/voices/aguilar/aguilar-index.md`.
 
-Corpus: 24 local route rows across 24 central archive source files.
+Corpus: 26 local route rows across 26 central archive source files.
 
 Status: `imported-corpus`
 
@@ -42,7 +42,9 @@ Status: `imported-corpus`
 | `2026-07-13` | BREAKING: IRAN STRIKING JORDAN & BAHRAIN RIGHT NOW, SAUDI ATTACK YEMEN, w/ Col Anthony Aguilar | `guest` | `moral-resistance` | [source](../../archive/sources/2026-07-13/source-breaking-iran-striking-jordan-bahrain-right-now-saudi-attack-yemen-w-col-anthony-aguilar-2026-07-13.md) |
 | `2026-08-01` | BREAKING: ISRAEL ON HIGHEST ALERT, IRAN ORDERS EVACUATIONS - w/ Lt. Col. Anthony Aguilar | `guest` | `mario-nawfal` | [source](../../archive/sources/2026-08-01/source-breaking-israel-on-highest-alert-iran-orders-evacuations-w-lt-col-anthony-aguilar-2026-08-01.md) |
 | `2026-08-02` | BREAKING: IRAN ATTACKS SHIP AFTER TRUMP CANCELS STRIKES - w/ Lt. Col. Anthony Aguilar | `guest` | `mario-nawfal` | [source](../../archive/sources/2026-08-02/source-breaking-iran-attacks-ship-after-trump-cancels-strikes-w-lt-col-anthony-aguilar-2026-08-02.md) |
-| `2026-08-07` | (1) ISRAEL REJECT TRUMP ATTEMPT AT IRAN DEAL, YEMEN STRIKE SAUDI, ISLAMIC NATO? w/ Col Anthony Aguilar | `host-pressure test` | `moral-resistance` | [source](../../archive/sources/2026-08-07/source-1-israel-reject-trump-attempt-at-iran-deal-yemen-strike-saudi-islamic-nato-w-col-anthony-aguilar-2026-08-07.md) |
+| `2026-08-07` | (1) ISRAEL REJECT TRUMP ATTEMPT AT IRAN DEAL, YEMEN STRIKE SAUDI, ISLAMIC NATO? w/ Col Anthony Aguilar | `guest` | `moral-resistance` | [source](../../archive/sources/2026-08-07/source-1-israel-reject-trump-attempt-at-iran-deal-yemen-strike-saudi-islamic-nato-w-col-anthony-aguilar-2026-08-07.md) |
+| `2026-08-10` | (2) BREAKING: IRAN TO DELAY DEAL UNTIL AFTER TRUMP ADMINISTRATION ENDS - w/ Lt. Col. Anthony Aguilar | `guest` | `mario-nawfal` | [source](../../archive/sources/2026-08-10/source-2-breaking-iran-to-delay-deal-until-after-trump-administration-ends-w-lt-col-anthony-aguilar-2026-08-10.md) |
+| `2026-08-12` | (3) Lt. Col. Anthony Aguilar: The Unraveling of the USS Abraham Lincoln | `guest` | `dialogue-works` | [source](../../archive/sources/2026-08-12/source-3-lt-col-anthony-aguilar-the-unraveling-of-the-uss-abraham-lincoln-2026-08-12.md) |
 
 ## Import Boundary
 

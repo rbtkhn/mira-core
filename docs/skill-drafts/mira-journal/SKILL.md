@@ -40,11 +40,13 @@ voice judgment is required.
    changelog.
 5. **Braid.** Write free prose joining inheritance, present transformation,
    honest correction, and a forward practice or unresolved horizon.
-6. **Mirror.** Apply the reference's self-formation rubric and revise before
-   grounding the prose.
-7. **Ground.** Write `draft.md`, `draft.json`, and
-   `technical-reference.json`, including exact prose anchors, admitted RSI IDs
-   actually consumed, and schema-v2 continuity events.
+6. **Mirror.** Write only `draft.md`, choose its title, and apply the
+   reference's self-formation rubric. Run `tools/run.ps1 mira-journal
+   prose-check --date YYYY-MM-DD --draft ABSOLUTE_EXTERNAL_DRAFT_PATH --json`
+   and revise until it passes before grounding the prose.
+7. **Ground.** Write `draft.json` and `technical-reference.json`, including
+   exact prose anchors, admitted RSI IDs actually consumed, and schema-v2
+   continuity events.
 8. **Check and offer.** Run `draft-check`. Report the private bundle as
    approval-pending, including warnings and any refresh requirement.
 

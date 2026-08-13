@@ -426,12 +426,12 @@ def test_material_change_renders_five_minute_internal_update(bounded_repo: Path)
     assert "## Outlier or Visibility Gap" in body
     assert "## Forecast Pressure" in body
     assert "## What to Watch" in body
-    assert "**Why it matters:**" in body
-    assert "**Model impact — `complicates`:**" in body
-    assert "**Primary source:**" in body
+    assert "**Material pressure:**" in body
+    assert "**What it does to the model — `complicates`:**" in body
+    assert "**Source:**" in body
     assert "Geography / domain" not in body
     assert "Support:" not in body
-    assert "`1` valid judgment(s) and `1` accountable open forecast(s)" in body
+    assert "`1` valid judgment(s), `1` accountable open forecast(s)" in body
     assert "East Asia visibility was thinner than West Asia coverage." in body
     assert "World Monitor" not in body
     assert hashlib.sha256(stored).hexdigest() in body
@@ -1099,7 +1099,7 @@ def test_zero_judgment_baseline_is_disclosed_truthfully(bounded_repo: Path) -> N
     payload["watch"][0]["source_refs"] = [HOOK_ID]
     brief_path, _ = generate(bounded_repo, payload)
     body = brief_path.read_text(encoding="utf-8")
-    assert "`0` valid judgment(s) and `1` accountable open forecast(s)" in body
+    assert "`0` valid judgment(s), `1` accountable open forecast(s)" in body
     assert "Baseline: `0` valid judgment(s); `1` accountable open forecast(s)." in body
 
 

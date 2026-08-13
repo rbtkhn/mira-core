@@ -2,7 +2,7 @@
 
 This index routes the unified local Alkhorshid corpus to the central Narrative Geopolitics source archive.
 
-Corpus: 7 local route rows across 7 central archive source files.
+Corpus: 8 local route rows across 8 central archive source files.
 
 | Date | Source | Role | Host slug | Archive link |
 | --- | --- | --- | --- | --- |
@@ -13,3 +13,4 @@ Corpus: 7 local route rows across 7 central archive source files.
 | `2026-08-01` | REPORTS OF ISRAEL & U.S. PREPARING STRIKES ON IRAN'S INFRASTRUCTURE - w/ Nima Rostami Alkhorshid | `guest` | `mario-nawfal` | [source](../../archive/sources/2026-08-01/source-reports-of-israel-u-s-preparing-strikes-on-iran-s-infrastructure-w-nima-rostami-alkhorshid-2026-08-01.md) |
 | `2026-08-07` | (1) IRAN's LONG-RUN STRATEGY /Nima Alkhorshid & Lt Col Daniel Davis | `guest` | `daniel-davis` | [source](../../archive/sources/2026-08-07/source-1-iran-s-long-run-strategy-nima-alkhorshid-lt-col-daniel-davis-2026-08-07.md) |
 | `2026-08-09` | (2) Nima R. Alkhorshid: The Inevitable Just Happened in the Middle East | `author` | `dialogue-works` | [source](../../archive/sources/2026-08-09/source-2-nima-r-alkhorshid-the-inevitable-just-happened-in-the-middle-east-2026-08-09.md) |
+| `2026-08-10` | (2) Nima R. Alkhorshid: Iran's New Power Player: Who Is Mohsen Rezaei and What Does He Want? | `author` | `dialogue-works` | [source](../../archive/sources/2026-08-10/source-2-nima-r-alkhorshid-iran-s-new-power-player-who-is-mohsen-rezaei-and-what-does-he-want-2026-08-10.md) |

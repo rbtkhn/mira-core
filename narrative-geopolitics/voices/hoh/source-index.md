@@ -4,7 +4,7 @@ This index routes the unified local Hoh corpus for `hoh` to the central Narrativ
 
 Source basis: `strategy-codex/statecraft/voices/hoh/hoh-index.md` plus already-local matching archive rows.
 
-Corpus: 29 local route rows across 29 central archive source files.
+Corpus: 30 local route rows across 30 central archive source files.
 
 Status: `imported-corpus`
 
@@ -46,10 +46,10 @@ Status: `imported-corpus`
 | `2026-07-24` | BREAKING: Saudi Arabia Strike Yemen, Major Explosion, Trump Warns China & Russia | `guest` | `moral-resistance` | [source](../../archive/sources/2026-07-24/source-breaking-saudi-arabia-strike-yemen-major-explosion-trump-warns-china-russia-2026-07-24.md) |
 | `2026-07-28` | Matt Hoh : The Hidden Costs of Trump’s War | `guest` | `judging-freedom` | [source](../../archive/sources/2026-07-28/source-matt-hoh-the-hidden-costs-of-trump-s-war-2026-07-28.md) |
 | `2026-07-29` | Matthew Hoh: Red Sea Showdown: Saudi-Led Multinational Force Mobilizes Against Houthi Blockade | `guest` | `dialogue-works` | [source](../../archive/sources/2026-07-29/source-matthew-hoh-red-sea-showdown-saudi-led-multinational-force-mobilizes-against-houthi-blockade-2026-07-29.md) |
-| `2026-08-04` | Matt Hoh : Can the US Sustain the Iran War? | `host-pressure test` | `judging-freedom` | [source](../../archive/sources/2026-08-04/source-matt-hoh-can-the-us-sustain-the-iran-war-2026-08-04.md) |
-| `2026-08-05` | (1) Fmr. US Marine Matthew Hoh: US Runs Out of Firepower | `host-pressure test` | `dialogue-works` | [source](../../archive/sources/2026-08-05/source-1-fmr-us-marine-matthew-hoh-us-runs-out-of-firepower-2026-08-05.md) |
+| `2026-08-04` | Matt Hoh : Can the US Sustain the Iran War? | `guest` | `judging-freedom` | [source](../../archive/sources/2026-08-04/source-matt-hoh-can-the-us-sustain-the-iran-war-2026-08-04.md) |
+| `2026-08-05` | (1) Fmr. US Marine Matthew Hoh: US Runs Out of Firepower | `guest` | `dialogue-works` | [source](../../archive/sources/2026-08-05/source-1-fmr-us-marine-matthew-hoh-us-runs-out-of-firepower-2026-08-05.md) |
+| `2026-08-11` | (2) Matt Hoh : Window Closing on US Military Power | `guest` | `judging-freedom` | [source](../../archive/sources/2026-08-11/source-2-matt-hoh-window-closing-on-us-military-power-2026-08-11.md) |
 
 ## Import Boundary
 
 This import followed the strategy-codex Hoh index and copied source captures into `archive/sources/YYYY-MM-DD/` while preserving already-local matching archive rows.
-

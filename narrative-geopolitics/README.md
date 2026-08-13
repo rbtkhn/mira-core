@@ -51,7 +51,7 @@ The proven daily judgment loop is:
 best-intake through the day
 -> archive/sources/YYYY-MM-DD/source-*.md
 -> archive/source-manifest.json
--> geopolitical-synthesis
+-> geo-strategy
 -> work/daily/YYYY-MM-DD/sources.md
 -> work/daily/YYYY-MM-DD/synthesis.md
 -> work/daily/YYYY-MM-DD/daily-brief.md
@@ -133,7 +133,7 @@ Use `intake` to land same-day source truth quickly without pretending that provi
 
 See [method/intake-speedup.md](method/intake-speedup.md) for the current speedup plan and [../scripts/land_best_intake.py](../scripts/land_best_intake.py) for the first helper that automates archive-file creation plus manifest append.
 
-Once the day batch is materially real, use `geopolitical-synthesis` as the
+Once the day batch is materially real, use `geo-strategy` as the
 single evening synthesis command. It supports live and intentional
 retrospective runs. Dates without manifest-backed intake remain absent.
 

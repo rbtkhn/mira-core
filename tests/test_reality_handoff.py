@@ -474,6 +474,24 @@ def test_missing_exact_claim_blocks_investigation(
         reality_handoff.build_claim_handoff("NG-20260708-F02")
 
 
+def test_batch_handoff_deduplicates_and_reports_blocked_claims(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    def fake_handoff(claim_id: str, *, investigate: bool = False) -> dict:
+        if claim_id == "missing":
+            raise ValueError("claim not in lattice: missing")
+        return {"claim": {"id": claim_id}, "web_search": {"status": "gated and executed" if investigate else "not triggered"}, "missing_gates": []}
+
+    monkeypatch.setattr(reality_handoff, "build_claim_handoff", fake_handoff)
+    payload = reality_handoff.build_batch_handoff(
+        ["NG-20260708-F02", "NG-20260708-F02", "missing"], investigate=True
+    )
+
+    assert payload["requested_claims"] == ["NG-20260708-F02", "missing"]
+    assert payload["resolved_count"] == 1
+    assert payload["blocked"] == [{"claim_id": "missing", "reason": "claim not in lattice: missing"}]
+
+
 def test_source_quality_and_lineage_rules() -> None:
     assert reality_investigation.source_tier("https://www.imo.org/page") == "primary"
     assert reality_investigation.source_tier("https://www.reddit.com/r/example") == "discovery-only"

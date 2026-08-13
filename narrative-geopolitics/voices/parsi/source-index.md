@@ -4,7 +4,7 @@ This index routes the unified local Parsi corpus for `parsi` to the central Narr
 
 Source basis: `strategy-codex/statecraft/voices/parsi/parsi-index.md` plus already-local matching archive rows.
 
-Corpus: 66 local route rows across 66 central archive source files.
+Corpus: 67 local route rows across 67 central archive source files.
 
 Status: `imported-corpus`
 
@@ -85,6 +85,7 @@ Status: `imported-corpus`
 | `2026-08-04` | BREAKING: IRAN TO CONTROL HORMUZ - w/ Trita Parsi | `host-pressure test` | `mario-nawfal` | [source](../../archive/sources/2026-08-04/source-breaking-iran-to-control-hormuz-w-trita-parsi-2026-08-04.md) |
 | `2026-08-07` | (1) Trita Parsi: New Deals Will Change the Middle East Forever | `host-pressure test` | `glenn-diesen` | [source](../../archive/sources/2026-08-07/source-1-trita-parsi-new-deals-will-change-the-middle-east-forever-2026-08-07.md) |
 | `2026-08-07` | (1) Trita Parsi : What the US Misunderstands about Iran : LIVE - (PART TWO) | `host-pressure test` | `judging-freedom` | [source](../../archive/sources/2026-08-07/source-1-trita-parsi-what-the-us-misunderstands-about-iran-live-part-two-2026-08-07.md) |
+| `2026-08-10` | (2) Iran Demands TOTAL SURRENDER From Trump On Hormuz | `guest` | `breaking-points` | [source](../../archive/sources/2026-08-10/source-2-iran-demands-total-surrender-from-trump-on-hormuz-2026-08-10.md) |
 
 ## Import Boundary
 

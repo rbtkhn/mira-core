@@ -4,7 +4,7 @@ This index routes the unified local Sachs corpus for `sachs` to the central Narr
 
 Source basis: `strategy-codex/statecraft/voices/sachs/sachs-index.md`.
 
-Corpus: 101 local route rows across 101 central archive source files.
+Corpus: 102 local route rows across 102 central archive source files.
 
 Status: `imported-corpus`
 
@@ -120,8 +120,8 @@ Status: `imported-corpus`
 | `2026-07-27` | Prof. Jeffrey Sachs : Israel Close to Collapse | `guest` | `judging-freedom` | [source](../../archive/sources/2026-07-27/source-prof-jeffrey-sachs-israel-close-to-collapse-2026-07-27.md) |
 | `2026-07-30` | Prof. Jeffrey Sachs : Can Dr. Fauci Tell The Truth? | `guest` | `judging-freedom` | [source](../../archive/sources/2026-07-30/source-prof-jeffrey-sachs-can-dr-fauci-tell-the-truth-2026-07-30.md) |
 | `2026-08-03` | Prof. Jeffrey Sachs : LIVE @3PM - US Wants to Destroy Iran and Russia | `host-pressure test` | `judging-freedom` | [source](../../archive/sources/2026-08-03/source-prof-jeffrey-sachs-live-3pm-us-wants-to-destroy-iran-and-russia-2026-08-03.md) |
+| `2026-08-10` | (2) Prof. Jeffrey Sachs : Trump and His War Destroying US Economy | `guest` | `judging-freedom` | [source](../../archive/sources/2026-08-10/source-2-prof-jeffrey-sachs-trump-and-his-war-destroying-us-economy-2026-08-10.md) |
 
 ## Import Boundary
 
 This import followed the strategy-codex Sachs index and copied source captures into `archive/sources/YYYY-MM-DD/` while preserving already-local matching archive rows.
-

@@ -12,7 +12,9 @@ Use only in `narrative-systems`. Coffee is read-only.
 1. Run `tools/run.ps1 cadence coffee --json`.
    Start it once. If the execution remains live, resume or poll the returned
    session rather than launching a duplicate cadence command.
-2. Inspect Git status, `public/watch.md`, accountable open forecasts, the latest
+2. Inspect Git status, `narrative-geopolitics/public/watch.md`, accountable
+   open forecasts in
+   `narrative-geopolitics/work/forecasts/forecast-ledger.md`, the latest
    manifest-backed daily run, and any experiment named by the handoff.
    Inspect dirty-state counts and capped top-level groupings before requesting
    paths. Scope any later path listing to the named experiment or failed lane;

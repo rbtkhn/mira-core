@@ -4,7 +4,7 @@ This index routes the unified local Crooke corpus for `crooke` to the central Na
 
 Source basis: `strategy-codex/statecraft/voices/crooke/crooke-index.md` plus already-local 2026 Crooke archive rows.
 
-Corpus: 75 local route rows across 75 central archive source files.
+Corpus: 76 local route rows across 76 central archive source files.
 
 Status: `imported-corpus`
 
@@ -94,6 +94,7 @@ Status: `imported-corpus`
 | `2026-07-27` | Alastair Crooke: Yemen's Red Sea Siege as a New Front in Iran War | `guest` | `glenn-diesen` | [source](../../archive/sources/2026-07-27/source-alastair-crooke-yemen-s-red-sea-siege-as-a-new-front-in-iran-war-2026-07-27.md) |
 | `2026-08-03` | Alastair Crooke : LIVE @ 8AM :Trump in a Box of His Own Making | `host-pressure test` | `judging-freedom` | [source](../../archive/sources/2026-08-03/source-alastair-crooke-live-8am-trump-in-a-box-of-his-own-making-2026-08-03.md) |
 | `2026-08-07` | (1) Alastair Crooke - Iran 's ONLY Choice: Humiliate the US | `host-pressure test` | `daniel-davis` | [source](../../archive/sources/2026-08-07/source-1-alastair-crooke-iran-s-only-choice-humiliate-the-us-2026-08-07.md) |
+| `2026-08-10` | (2) Alastair Crooke : US Middle East Dominance is Ended | `guest` | `judging-freedom` | [source](../../archive/sources/2026-08-10/source-2-alastair-crooke-us-middle-east-dominance-is-ended-2026-08-10.md) |
 
 ## Judgment Continuity
 

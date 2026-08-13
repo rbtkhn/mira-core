@@ -14,7 +14,7 @@ DEPLOYABLE_SKILL_NAMES = (
     "learn-from-choices",
     "smart-intake",
     "voice-comparison",
-    "geopolitical-synthesis",
+    "geo-strategy",
     "reality-check",
     "repo-audit",
     "voice-accountability",

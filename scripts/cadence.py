@@ -70,7 +70,7 @@ GEOPOLITICAL_SYNTHESIS_AUTHORITY = {
         "manifest-backed archive sources for the selected date",
         "narrative-geopolitics/voices/ and narrative-geopolitics/channels/",
         "existing daily, forecast, and verification state",
-        "geopolitical-synthesis method and templates",
+        "geo-strategy method and templates",
     ],
     "may_write": [
         "declared alias-valued person metadata for the selected date",
@@ -585,13 +585,14 @@ def startup_state(
     }.get(mode, mode)
     if mode not in {
         "best-intake",
+        "geo-strategy",
         "geopolitical-synthesis",
         "operational-verification",
         "forecast-review",
     }:
         raise ValueError(f"unsupported startup mode: {mode}")
-    if mode == "geopolitical-synthesis" and not run_date:
-        raise ValueError("geopolitical-synthesis startup requires --date")
+    if mode in {"geo-strategy", "geopolitical-synthesis"} and not run_date:
+        raise ValueError("geo-strategy startup requires --date")
     if mode == "operational-verification" and not packet_id:
         raise ValueError("operational-verification startup requires --packet")
     if mode == "forecast-review" and not hook_id:
@@ -611,7 +612,7 @@ def startup_state(
     phase_validation: dict | None = None
     authority = BEST_INTAKE_AUTHORITY
     next_action = "wait_for_operator_source"
-    if mode == "geopolitical-synthesis":
+    if mode in {"geo-strategy", "geopolitical-synthesis"}:
         assert run_date is not None
         phase = synthesis_state(run_date)
         authority = scoped_synthesis_authority(run_date)
@@ -761,7 +762,7 @@ def print_startup(state: dict) -> None:
     print(f"latest_daily_run={state['latest_daily_run'] or 'none'}")
     print(f"handoff_status={state['cadence']['handoff_status']}")
     if state["phase"]:
-        if state["mode"] == "geopolitical-synthesis":
+        if state["mode"] in {"geo-strategy", "geopolitical-synthesis"}:
             print(f"selected_date={state['phase']['date']}")
             print(f"manifest_day_rows={state['phase']['manifest_day_rows']}")
             print(f"daily_contract_state={state['phase']['daily_contract_state']}")
@@ -1430,7 +1431,7 @@ def build_parser() -> argparse.ArgumentParser:
             "archive-intake",
             "smart-intake",
             "best-intake",
-            "geopolitical-synthesis",
+            "geo-strategy",
             "operational-verification",
             "forecast-review",
         ),

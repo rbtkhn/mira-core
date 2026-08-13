@@ -547,6 +547,8 @@ def test_skill_contract_limits_repeated_selection_chains() -> None:
     assert "continue the" in skill
     assert "selected branch" in skill
     assert "to a meaningful result" in skill
+    assert "ordinary `learn-from-choices` footer" in skill
+    assert "same settled branch" in skill
     assert "Explicit creative or preference discovery" in skill
     assert "ten-question limit" in skill
 

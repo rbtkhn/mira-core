@@ -16,6 +16,7 @@ WORKFLOWS = {
     "reality-check",
     "world-monitor",
     "intake",
+    "geo-strategy",
     "geopolitical-synthesis",
     "external-research",
 }
@@ -169,9 +170,9 @@ def classify(packet: dict[str, Any], *, claims_root: Path = CLAIMS_ROOT) -> tupl
             return "incompatible", ["intake requires a supplied source body"]
         return "ready", ["a supplied source body is available for intake"]
 
-    if workflow == "geopolitical-synthesis":
+    if workflow in {"geo-strategy", "geopolitical-synthesis"}:
         if prerequisites.get("manifest_backed_date") is not True:
-            return "incompatible", ["geopolitical synthesis requires a manifest-backed archive day"]
+            return "incompatible", ["geo-strategy requires a manifest-backed archive day"]
         return "ready", ["a manifest-backed archive day is available"]
 
     return "ready", ["no repository execution workflow fits; route to bounded external research"]

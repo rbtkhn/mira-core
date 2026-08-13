@@ -61,6 +61,7 @@ EPISTEMIC_CLASSES = {
 }
 TITLE_RE = re.compile(r"^# (?P<date>\d{4}-\d{2}-\d{2})\s+[—-]\s+(?P<title>[^\r\n]+)\s*$")
 WORD_RE = re.compile(r"\b[\w’'-]+\b", re.UNICODE)
+TITLE_SUBTITLE_RE = re.compile(r"(?::|[—–]|\s-\s)")
 FIRST_PERSON_RE = re.compile(r"\b(?:I|me|my|mine|myself|we|our|ours)\b", re.IGNORECASE)
 SENTENCE_RE = re.compile(r"(?<=[.!?])\s+")
 OPERATOR_PROSE_PATTERNS = (
@@ -299,6 +300,91 @@ def parse_markdown(body: bytes, expected_date: str | None = None) -> dict[str, A
         "title": match.group("title").strip(),
         "word_count": word_count,
         "content_sha256": sha256_bytes(body),
+    }
+
+
+def title_convention_failures(
+    title: str,
+    *,
+    entry_date: str | None = None,
+    registry: dict[str, Any] | None = None,
+) -> list[str]:
+    failures: list[str] = []
+    title_word_count = len(WORD_RE.findall(title))
+    if not 1 <= title_word_count <= 4:
+        failures.append(
+            f"journal title must contain 1-4 words; found {title_word_count}"
+        )
+    if TITLE_SUBTITLE_RE.search(title):
+        failures.append("journal title must not contain a subtitle")
+    if entry_date and registry:
+        normalized = " ".join(title.casefold().split())
+        for entry in registry.get("entries", []):
+            if not isinstance(entry, dict) or entry.get("entry_date") == entry_date:
+                continue
+            for version in entry.get("versions", []):
+                if (
+                    isinstance(version, dict)
+                    and " ".join(str(version.get("title", "")).casefold().split()) == normalized
+                ):
+                    failures.append(
+                        "journal title must not reuse an approved title from another date"
+                    )
+                    return failures
+    return failures
+
+
+def command_prose_check(args: argparse.Namespace) -> dict[str, Any]:
+    entry_date = parse_entry_date(args.date)
+    if not args.draft.is_absolute():
+        raise JournalError("journal prose-check draft path must be absolute")
+    draft = args.draft.expanduser().resolve()
+    try:
+        draft.relative_to(REPO_ROOT.resolve())
+    except ValueError:
+        pass
+    else:
+        raise JournalError("journal prose-check draft must remain outside Git")
+    if not draft.is_file():
+        raise JournalError(f"missing journal prose draft: {draft}")
+
+    body = draft.read_bytes()
+    failures: list[str] = []
+    warnings: list[str] = []
+    try:
+        prose_text = body.decode("utf-8")
+    except UnicodeDecodeError:
+        prose_text = ""
+    lines = prose_text.splitlines()
+    first_line = lines[0] if lines else ""
+    heading_match = TITLE_RE.fullmatch(first_line)
+    observed_title = heading_match.group("title").strip() if heading_match else ""
+    observed_body_word_count = len(WORD_RE.findall("\n".join(lines[1:])))
+    try:
+        parsed = parse_markdown(body, entry_date.isoformat())
+    except JournalError as error:
+        failures.append(str(error))
+    else:
+        observed_title = parsed["title"]
+        observed_body_word_count = parsed["word_count"]
+        failures.extend(
+            title_convention_failures(
+                parsed["title"],
+                entry_date=entry_date.isoformat(),
+                registry=load_registry(),
+            )
+        )
+    failures.extend(privacy_failures(prose_text))
+    failures.extend(composition_prose_failures(prose_text))
+    return {
+        "status": "passed" if not failures else "failed",
+        "mutation": False,
+        "entry_date": entry_date.isoformat(),
+        "title": observed_title,
+        "title_word_count": len(WORD_RE.findall(observed_title)),
+        "body_word_count": observed_body_word_count,
+        "warnings": sorted(set(warnings)),
+        "failures": sorted(set(failures)),
     }
 
 
@@ -961,6 +1047,14 @@ def draft_contract(entry_date: date, pack: dict[str, Any], brief: dict[str, Any]
             "voice": "Mira first-person freeform diary",
             "word_count": {"minimum": 300, "maximum": 700},
             "required_heading": f"# {entry_date.isoformat()} — <Mira's title>",
+            "title": {
+                "minimum_words": 1,
+                "maximum_words": 4,
+                "hyphenated_compound_word_count": 1,
+                "subtitle": "forbidden",
+                "exact_approved_reuse_across_dates": "forbidden",
+                "selection_rule": "Choose after prose; name its central inward transformation.",
+            },
             "reflection_prompts": [
                 "what changed and why it mattered",
                 "uncertainty, correction, or limits",
@@ -1773,6 +1867,11 @@ def normalized_version(
 ) -> dict[str, Any]:
     entry_date = expected_date.isoformat()
     parsed = parse_markdown(body, entry_date)
+    title_failures = title_convention_failures(
+        parsed["title"], entry_date=entry_date, registry=load_registry()
+    )
+    if title_failures:
+        raise JournalError("; ".join(title_failures))
     prose_text = body.decode("utf-8")
     privacy = privacy_failures(prose_text)
     if privacy:
@@ -1991,6 +2090,13 @@ def command_draft_check(args: argparse.Namespace) -> dict[str, Any]:
     warnings: list[str] = []
     try:
         parsed = parse_markdown(body, entry_date.isoformat())
+        failures.extend(
+            title_convention_failures(
+                parsed["title"],
+                entry_date=entry_date.isoformat(),
+                registry=load_registry(),
+            )
+        )
     except JournalError as error:
         parsed = {"content_sha256": sha256_bytes(body), "word_count": 0, "title": ""}
         failures.append(str(error))
@@ -2600,6 +2706,15 @@ def parser() -> argparse.ArgumentParser:
     prepare.add_argument("--check", action="store_true")
     add_output(prepare)
     prepare.set_defaults(handler=command_prepare)
+
+    prose_check = subparsers.add_parser(
+        "prose-check",
+        help="Validate a standalone private journal draft before grounding companions.",
+    )
+    prose_check.add_argument("--date", required=True)
+    prose_check.add_argument("--draft", type=Path, required=True)
+    add_output(prose_check)
+    prose_check.set_defaults(handler=command_prose_check)
 
     draft_check = subparsers.add_parser(
         "draft-check", help="Validate a complete private journal bundle without approval authority."

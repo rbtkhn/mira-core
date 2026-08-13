@@ -4,7 +4,7 @@ This index routes the unified local Baud corpus for `baud` to the central Narrat
 
 Source basis: `strategy-codex/statecraft/voices/baud/baud-index.md`.
 
-Corpus: 39 local route rows across 39 central archive source files.
+Corpus: 40 local route rows across 40 central archive source files.
 
 Status: `imported-corpus`
 
@@ -58,6 +58,7 @@ Status: `imported-corpus`
 | `2026-07-20` | Col. Jacques Baud: U.S. Hits Nuclear Plant, Iran Strikes Across the Gulf | `guest` | `dialogue-works` | [source](../../archive/sources/2026-07-20/source-col-jacques-baud-u-s-hits-nuclear-plant-iran-strikes-across-the-gulf-2026-07-20.md) |
 | `2026-07-28` | Col. Jacques Baud: Netanyahu Hands Trump Iran Strike Intel | `guest` | `dialogue-works` | [source](../../archive/sources/2026-07-28/source-col-jacques-baud-netanyahu-hands-trump-iran-strike-intel-2026-07-28.md) |
 | `2026-08-03` | Col. Jacques Baud: Iran Defies Trump, Targets Ship in Strait of Hormuz Hours After Statement | `host-pressure test` | `mario-nawfal` | [source](../../archive/sources/2026-08-03/source-col-jacques-baud-iran-defies-trump-targets-ship-in-strait-of-hormuz-hours-after-statement-2026-08-03.md) |
+| `2026-08-10` | (2) Col. Jacques Baud: "Wherever You Mass, You Get Bombed" – Yemenis Target Saudi Forces | `guest` | `dialogue-works` | [source](../../archive/sources/2026-08-10/source-2-col-jacques-baud-wherever-you-mass-you-get-bombed-yemenis-target-saudi-forces-2026-08-10.md) |
 
 ## Import Boundary
 

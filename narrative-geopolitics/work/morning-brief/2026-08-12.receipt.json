@@ -1,0 +1,482 @@
+{
+  "as_of_utc": "2026-08-12T16:30:00Z",
+  "baseline": {
+    "forecasts": [
+      {
+        "accountable": true,
+        "claim": "Within 21 days, the Lebanon-Hormuz linkage will remain explicit in Iran-facing public bargaining, with no clean return to a narrow nuclear-only negotiation frame.",
+        "crisis_object": "Lebanon-Hormuz linkage durability",
+        "due": true,
+        "hook_id": "NG-20260707-F01",
+        "impact": "unaffected",
+        "probability_band": "likely",
+        "review_date": "2026-07-28",
+        "run_date": "2026-07-07",
+        "sha256": "21336f4f9d624b95b51ff81d9475f03fba83682d843776f85ca05e2cdf6a5376",
+        "source_path": "narrative-geopolitics/work/forecasts/forecast-ledger.md",
+        "status": "open"
+      },
+      {
+        "accountable": true,
+        "claim": "Within 30 days, U.S. or Israeli public signaling will again test coercive escalation because the old transit and sanctions baseline cannot be quietly restored.",
+        "crisis_object": "Renewed coercive signaling",
+        "due": true,
+        "hook_id": "NG-20260707-F02",
+        "impact": "unaffected",
+        "probability_band": "likely",
+        "review_date": "2026-08-07",
+        "run_date": "2026-07-07",
+        "sha256": "21336f4f9d624b95b51ff81d9475f03fba83682d843776f85ca05e2cdf6a5376",
+        "source_path": "narrative-geopolitics/work/forecasts/forecast-ledger.md",
+        "status": "open"
+      },
+      {
+        "accountable": true,
+        "claim": "Within 21 days, at least one new U.S., Israeli, or Gulf-side attempt to bypass or dilute Iranian transit authority will trigger another visible coercive test.",
+        "crisis_object": "Hormuz transit governance breakdown",
+        "due": true,
+        "hook_id": "NG-20260708-F02",
+        "impact": "unaffected",
+        "probability_band": "likely",
+        "review_date": "2026-07-29",
+        "run_date": "2026-07-08",
+        "sha256": "21336f4f9d624b95b51ff81d9475f03fba83682d843776f85ca05e2cdf6a5376",
+        "source_path": "narrative-geopolitics/work/forecasts/forecast-ledger.md",
+        "status": "open"
+      },
+      {
+        "accountable": true,
+        "claim": "By `2026-08-16`, at least one major U.S., GCC, Iranian, or Ansarallah/Yemeni public statement will explicitly link Bab el-Mandeb or Red Sea security to the Hormuz/Iran war settlement rather than treating it as a separate Yemen-Saudi issue.",
+        "crisis_object": "Dual chokepoint energy-flow control",
+        "due": false,
+        "hook_id": "NG-20260716-F01",
+        "impact": "strengthens",
+        "probability_band": "likely",
+        "review_date": "2026-08-16",
+        "run_date": "2026-07-16",
+        "sha256": "21336f4f9d624b95b51ff81d9475f03fba83682d843776f85ca05e2cdf6a5376",
+        "source_path": "narrative-geopolitics/work/forecasts/forecast-ledger.md",
+        "status": "open"
+      },
+      {
+        "accountable": true,
+        "claim": "By `2026-08-19`, at least one major July follow-on source or official/regional posture signal will still frame the Iran war around U.S. regional base access, host-state exposure, or relocation/protection of U.S. assets rather than only airstrikes or nuclear bargaining.",
+        "crisis_object": "Can Washington sustain simultaneous coercive pressure against Iran and Russia when the bases, ports, corridors, and allies that carry that pressure become targets of the opposing strategy?",
+        "due": false,
+        "hook_id": "NG-20260719-F01",
+        "impact": "unaffected",
+        "probability_band": "likely",
+        "review_date": "2026-08-19",
+        "run_date": "2026-07-19",
+        "sha256": "21336f4f9d624b95b51ff81d9475f03fba83682d843776f85ca05e2cdf6a5376",
+        "source_path": "narrative-geopolitics/work/forecasts/forecast-ledger.md",
+        "status": "open"
+      },
+      {
+        "accountable": true,
+        "claim": "Over the next 7–14 days, political and military pressure will shift toward maritime chokepoints, bases, and energy access rather than a decisive ground settlement.",
+        "crisis_object": "coalition access versus regional denial",
+        "due": true,
+        "hook_id": "NG-20260720-F01",
+        "impact": "strengthens",
+        "probability_band": "likely",
+        "review_date": "2026-08-03",
+        "run_date": "2026-07-20",
+        "sha256": "21336f4f9d624b95b51ff81d9475f03fba83682d843776f85ca05e2cdf6a5376",
+        "source_path": "narrative-geopolitics/work/forecasts/forecast-ledger.md",
+        "status": "open"
+      },
+      {
+        "accountable": true,
+        "claim": "Within 14 days, the Iran conflict will show another cycle of limited strikes, threats, or pressure on bases/infrastructure without a durable settlement.",
+        "crisis_object": "Iran conflict escalation cycle",
+        "due": true,
+        "hook_id": "NG-20260721-F01",
+        "impact": "unaffected",
+        "probability_band": "likely",
+        "review_date": "2026-08-04",
+        "run_date": "2026-07-21",
+        "sha256": "21336f4f9d624b95b51ff81d9475f03fba83682d843776f85ca05e2cdf6a5376",
+        "source_path": "narrative-geopolitics/work/forecasts/forecast-ledger.md",
+        "status": "open"
+      },
+      {
+        "accountable": true,
+        "claim": "Within 30 days, Russia-Iran alignment will produce public signaling or a concrete cooperation dispute tied to U.S. pressure.",
+        "crisis_object": "Russia-Iran alignment signaling",
+        "due": false,
+        "hook_id": "NG-20260721-F02",
+        "impact": "unaffected",
+        "probability_band": "plausible",
+        "review_date": "2026-08-20",
+        "run_date": "2026-07-21",
+        "sha256": "21336f4f9d624b95b51ff81d9475f03fba83682d843776f85ca05e2cdf6a5376",
+        "source_path": "narrative-geopolitics/work/forecasts/forecast-ledger.md",
+        "status": "open"
+      },
+      {
+        "accountable": true,
+        "claim": "By `2026-08-06`, diplomatic channels will remain publicly visible while renewed strikes continue, but no durable reciprocal settlement will be implemented.",
+        "crisis_object": "Whether renewed strikes can compel concessions without widening the actor field beyond diplomatic control",
+        "due": true,
+        "hook_id": "NG-20260730-F01",
+        "impact": "strengthens",
+        "probability_band": "plausible",
+        "review_date": "2026-08-06",
+        "run_date": "2026-07-30",
+        "sha256": "21336f4f9d624b95b51ff81d9475f03fba83682d843776f85ca05e2cdf6a5376",
+        "source_path": "narrative-geopolitics/work/forecasts/forecast-ledger.md",
+        "status": "open"
+      },
+      {
+        "accountable": true,
+        "claim": "By `2026-08-19`, at least one public U.S., Iranian, Israeli, Gulf, or Yemeni posture change observable after `2026-08-06` will explicitly link Hormuz transit normalization to sanctions relief, regional infrastructure protection, Lebanon/Gaza escalation, or U.S. force-stock constraints. | A constrained pause must be defended through adjacent carriers: transit rules, sanctions, oil flow, Israel's disruption incentives, and exposed U.S./Gulf positions.",
+        "crisis_object": "Crisis object: Can Washington convert a constrained pause around Hormuz into a durable off-ramp before depleted coercive capacity and Israeli disruption pressure pull the conflict back into a hot-ceasefire cycle?",
+        "due": false,
+        "hook_id": "NG-20260805-F01",
+        "impact": "strengthens",
+        "probability_band": "likely",
+        "review_date": "2026-08-19",
+        "run_date": "2026-08-05",
+        "sha256": "21336f4f9d624b95b51ff81d9475f03fba83682d843776f85ca05e2cdf6a5376",
+        "source_path": "narrative-geopolitics/work/forecasts/forecast-ledger.md",
+        "status": "open"
+      },
+      {
+        "accountable": true,
+        "claim": "By `2026-08-21`, at least one public U.S., Iranian, Omani, Gulf, Israeli, or shipping-market signal will treat Hormuz reopening as conditional on regional authority, sanctions/blockade relief, Israeli/Lebanon/Gaza restraint, or U.S. force-posture limits rather than as a simple return to pre-war freedom of navigation. | A constrained off-ramp must be defended through the same carriers that made it necessary: recognized transit authority, sanctions and asset pressure, Israeli disruption incentives, Gulf security hedging, and scarce U.S. coercive capacity.",
+        "crisis_object": "Can a constrained U.S. exit through the attributed Iran-Oman/Hormuz channel become a credible regional settlement before Israeli disruption pressure, Gulf security hedging, and cross-theater weapons scarcity turn the off-ramp into another front of the war?",
+        "due": false,
+        "hook_id": "NG-20260807-F01",
+        "impact": "strengthens",
+        "probability_band": "likely",
+        "review_date": "2026-08-21",
+        "run_date": "2026-08-07",
+        "sha256": "21336f4f9d624b95b51ff81d9475f03fba83682d843776f85ca05e2cdf6a5376",
+        "source_path": "narrative-geopolitics/work/forecasts/forecast-ledger.md",
+        "status": "open"
+      }
+    ],
+    "judgments": [
+      {
+        "as_of": "2026-07-24",
+        "crisis_object": "Can US coercion restore negotiable regional access without triggering a connected retaliation cycle through Hormuz, Bab el-Mandeb, Gulf bases, and the Ukraine theater?",
+        "model_id": "JUDG-20260724",
+        "path": "narrative-geopolitics/work/daily/2026-07-24/judgment.md",
+        "sha256": "1f92c9fe67360e03963fe6266af28afc2cb2914765dfc116809b56473dbf12a7",
+        "summary": "The 2026-07-24 batch links Iran, Yemen, Gulf access, and Ukraine into one escalation sequence."
+      },
+      {
+        "as_of": "2026-07-25",
+        "crisis_object": "Can force reopen maritime-energy access without widening the war?",
+        "model_id": "JUDG-20260725",
+        "path": "narrative-geopolitics/work/daily/2026-07-25/judgment.md",
+        "sha256": "bf92c8091dbb5e14acf21e65da18e8d23afb83799dc6f62261289e49f0276f47",
+        "summary": "The archive now contains a cross-voice same-day convergence on maritime-energy access as the binding escalation constraint."
+      },
+      {
+        "as_of": "2026-07-26",
+        "crisis_object": "Can the United States and its partners widen pressure on Iran without exhausting defensive stocks and opening a retaliatory Gulf-Red Sea-Ukraine escalation chain?",
+        "model_id": "JUDG-20260726",
+        "path": "narrative-geopolitics/work/daily/2026-07-26/judgment.md",
+        "sha256": "7fa57a66a4f8abd1432fdc2292ab1ebfc44045ac7d3c43a3c2a254af72968836",
+        "summary": "The archive now contains a five-voice same-day convergence on widening retaliation and finite capacity as the binding escalation constraint."
+      },
+      {
+        "as_of": "2026-07-27",
+        "crisis_object": "Can coalition coercion produce an Iran settlement before material and regional constraints force an off-ramp?",
+        "model_id": "JUDG-20260727",
+        "path": "narrative-geopolitics/work/daily/2026-07-27/judgment.md",
+        "sha256": "96ce81e57f7b871be3f9f371480b09af49b507e5dc569d20c5b5772dcd9875e4",
+        "summary": "The July 27 batch turns a general “war may widen” concern into a more specific non-exit mechanism: tactical damage is not converting into political compliance while regional and material constraints accumulate."
+      },
+      {
+        "as_of": "2026-07-28",
+        "crisis_object": "Caspian strike as a bridge between the Ukraine and Iran theaters",
+        "model_id": "JUDG-20260728",
+        "path": "narrative-geopolitics/work/daily/2026-07-28/judgment.md",
+        "sha256": "95ce8ff9859aa5321e417f46855a705b1dacbedb78e07e61336f4df9703b7ba4",
+        "summary": "Two Helmer interviews on July 28 connect the Caspian incident to Russia–Iran intelligence cooperation and a possible Russian retaliation test."
+      },
+      {
+        "as_of": "2026-07-30",
+        "crisis_object": "Whether renewed strikes can compel concessions without widening the actor field beyond diplomatic control",
+        "model_id": "JUDG-20260730",
+        "path": "narrative-geopolitics/work/daily/2026-07-30/judgment.md",
+        "sha256": "5d2d270abdda8040194bf75ba318bfaedee5c6c7545ab116e7531eefd104439f",
+        "summary": "Compared with July 29, the batch clarifies the control problem linking strikes, widening participation, and diplomatic channels."
+      },
+      {
+        "as_of": "2026-08-01",
+        "crisis_object": "Can the United States and Israel sustain a wider infrastructure campaign against Iran without losing regional basing, escalation control, and economic resilience?",
+        "model_id": "JUDG-20260801",
+        "path": "narrative-geopolitics/work/daily/2026-08-01/judgment.md",
+        "sha256": "2820e2ad5dfc8ad4771e96827134e34e1ad2e11cfdd9bd753b915333d89a039d",
+        "summary": "On 2026-08-01, the source batch shifted focus from strike possibility to infrastructure escalation and coalition exposure."
+      },
+      {
+        "as_of": "2026-08-02",
+        "crisis_object": "Who can govern commercially tolerable Hormuz passage while preserving coalition access and avoiding regional infrastructure escalation?",
+        "model_id": "JUDG-20260802",
+        "path": "narrative-geopolitics/work/daily/2026-08-02/judgment.md",
+        "sha256": "b1c0d600ae5c175fac06bff93447eee8c95a629d3676fdbe2b259cac614f8d35",
+        "summary": "The August 2 batch makes infrastructure and passage governance the clearest cross-source mechanism, while adding a Ukraine logistics comparison."
+      },
+      {
+        "as_of": "2026-08-04",
+        "crisis_object": "Can commercially usable, non-discriminatory Hormuz transit survive while Iran retains coercive leverage?",
+        "model_id": "JUDG-20260804",
+        "path": "narrative-geopolitics/work/daily/2026-08-04/judgment.md",
+        "sha256": "287bcff7840d3be6c159ae9640058e7f0b54fd1224dfc91be65463136c1eee3c",
+        "summary": "The day’s archive and Grok evidence moved the analysis from “who controls Hormuz” toward “what governance arrangement can preserve usable transit under Iranian leverage.”"
+      },
+      {
+        "as_of": "2026-08-05",
+        "crisis_object": "Can Washington convert a constrained pause around Hormuz into a durable off-ramp before depleted coercive capacity and Israeli disruption pressure pull the conflict back into a hot-ceasefire cycle?",
+        "model_id": "JUDG-20260805",
+        "path": "narrative-geopolitics/work/daily/2026-08-05/judgment.md",
+        "sha256": "5e1930d7295ad729715972e405c198ee1566a4a1f3553a6ec298681079160c17",
+        "summary": "On `2026-08-05`, the source packet moved the lead from participation-control pressure to the durability of a constrained off-ramp around Hormuz."
+      },
+      {
+        "as_of": "2026-08-11",
+        "crisis_object": "Can U.S.-led coercion compel an Iranian settlement before the material and regional constraints required to sustain it force an off-ramp or widen the war beyond diplomatic control?",
+        "model_id": "JUDG-20260811",
+        "path": "narrative-geopolitics/work/daily/2026-08-11/judgment.md",
+        "sha256": "1e4d64adad6398e4e90fee67a87d68263b2511cc3e2e8d78c3ca7085c5fe0869",
+        "summary": "The batch sharpens the inherited Hormuz off-ramp problem into a capacity-and-control mechanism spanning coercion, coalition sustainability, and regional widening."
+      }
+    ],
+    "lookback_days": 30
+  },
+  "brief_date": "2026-08-12",
+  "candidates": [
+    {
+      "confidence_boundary": "Reported observation; no operating fact is adjudicated here.",
+      "discovery": {
+        "is_evidence": false,
+        "provider": "broad current search",
+        "reference": "https://apnews.com/article/870153cd1ea715829c5f15c9757f4e60"
+      },
+      "disposition": "included",
+      "domain": "maritime-energy",
+      "forecast_refs": [
+        "NG-20260716-F01",
+        "NG-20260720-F01",
+        "NG-20260805-F01",
+        "NG-20260807-F01"
+      ],
+      "geography": "West Asia",
+      "id": "OBS-01",
+      "impact": "strengthens",
+      "interpretation": "Red Sea risk is again part of the wider Hormuz settlement problem.",
+      "kind": "development",
+      "materiality": "Pressures dual-chokepoint and shipping-risk forecasts.",
+      "model_refs": [
+        "JUDG-20260724",
+        "JUDG-20260725",
+        "JUDG-20260811"
+      ],
+      "observation": "AP reported six deaths in a Houthi attack on a ship near Bab el-Mandeb, including three Pakistani nationals.",
+      "observed_at_utc": "2026-08-12T09:52:32Z",
+      "reality": {
+        "assessment_refs": [],
+        "audited_at_utc": "2026-08-12T16:30:00Z",
+        "claim_refs": [],
+        "confidence_effect": "No exact lattice claim exists for this fresh observation; interpretation remains provisional.",
+        "epistemic_state": {
+          "claims": [],
+          "status": "not-in-lattice"
+        },
+        "lattice_paths": [],
+        "match_status": "none",
+        "relationship": "context-only"
+      },
+      "related_observations": [],
+      "retrieved_at_utc": "2026-08-12T16:30:00Z",
+      "selection_reason": "Selected for material pressure on the baseline.",
+      "title": "Houthi strike kills six near Bab el-Mandeb",
+      "upstream": {
+        "freshness": "fresh",
+        "lineage_root": "ap-20260812-mideast-houthi-bab-el-mandeb",
+        "provider": "Associated Press",
+        "source_type": "wire",
+        "url": "https://apnews.com/article/870153cd1ea715829c5f15c9757f4e60"
+      }
+    },
+    {
+      "confidence_boundary": "Reported observation; no operating fact is adjudicated here.",
+      "discovery": {
+        "is_evidence": false,
+        "provider": "broad current search",
+        "reference": "https://m.economictimes.com/news/international/world-news/hormuz-to-remain-closed-unless-us-meets-irans-conditions-iranian-security-council-says/articleshow/133160301.cms"
+      },
+      "disposition": "included",
+      "domain": "diplomacy",
+      "forecast_refs": [
+        "NG-20260730-F01",
+        "NG-20260805-F01",
+        "NG-20260807-F01"
+      ],
+      "geography": "West Asia",
+      "id": "OBS-02",
+      "impact": "strengthens",
+      "interpretation": "The bargaining frame remains conditional, not a restored transit baseline.",
+      "kind": "development",
+      "materiality": "Pressures Hormuz off-ramp and diplomatic-channel hooks.",
+      "model_refs": [
+        "JUDG-20260805",
+        "JUDG-20260811"
+      ],
+      "observation": "Reuters-attributed reporting said Iran kept Hormuz reopening conditional on U.S. acceptance of Iranian terms.",
+      "observed_at_utc": "2026-08-12T09:52:32Z",
+      "reality": {
+        "assessment_refs": [],
+        "audited_at_utc": "2026-08-12T16:30:00Z",
+        "claim_refs": [],
+        "confidence_effect": "No exact lattice claim exists for this fresh observation; interpretation remains provisional.",
+        "epistemic_state": {
+          "claims": [],
+          "status": "not-in-lattice"
+        },
+        "lattice_paths": [],
+        "match_status": "none",
+        "relationship": "context-only"
+      },
+      "related_observations": [],
+      "retrieved_at_utc": "2026-08-12T16:30:00Z",
+      "selection_reason": "Selected for material pressure on the baseline.",
+      "title": "Iran keeps Hormuz reopening conditional",
+      "upstream": {
+        "freshness": "fresh",
+        "lineage_root": "reuters-20260811-iran-hormuz-conditions",
+        "provider": "Reuters-attributed Economic Times display",
+        "source_type": "attributed-reporting",
+        "url": "https://m.economictimes.com/news/international/world-news/hormuz-to-remain-closed-unless-us-meets-irans-conditions-iranian-security-council-says/articleshow/133160301.cms"
+      }
+    },
+    {
+      "confidence_boundary": "Reported observation; no operating fact is adjudicated here.",
+      "discovery": {
+        "is_evidence": false,
+        "provider": "broad current search",
+        "reference": "https://www.wsj.com/finance/commodities-futures/oil-rises-volatility-expected-amid-middle-east-developments-a9ef898a"
+      },
+      "disposition": "included",
+      "domain": "energy-markets",
+      "forecast_refs": [
+        "NG-20260805-F01",
+        "NG-20260807-F01"
+      ],
+      "geography": "United States",
+      "id": "OBS-04",
+      "impact": "strengthens",
+      "interpretation": "Markets are not treating the chokepoint problem as settled.",
+      "kind": "development",
+      "materiality": "Supports the risk-pricing side of the Hormuz model.",
+      "model_refs": [
+        "JUDG-20260802",
+        "JUDG-20260804",
+        "JUDG-20260811"
+      ],
+      "observation": "WSJ reported crude volatility around limited progress on Hormuz talks and cited an IEA demand downgrade.",
+      "observed_at_utc": "2026-08-12T14:00:00Z",
+      "reality": {
+        "assessment_refs": [],
+        "audited_at_utc": "2026-08-12T16:30:00Z",
+        "claim_refs": [],
+        "confidence_effect": "No exact lattice claim exists for this fresh observation; interpretation remains provisional.",
+        "epistemic_state": {
+          "claims": [],
+          "status": "not-in-lattice"
+        },
+        "lattice_paths": [],
+        "match_status": "none",
+        "relationship": "context-only"
+      },
+      "related_observations": [],
+      "retrieved_at_utc": "2026-08-12T16:30:00Z",
+      "selection_reason": "Selected for material pressure on the baseline.",
+      "title": "Oil markets keep pricing Hormuz risk",
+      "upstream": {
+        "freshness": "fresh",
+        "lineage_root": "wsj-20260812-crude-futures-hormuz-talks",
+        "provider": "Wall Street Journal",
+        "source_type": "attributed-reporting",
+        "url": "https://www.wsj.com/finance/commodities-futures/oil-rises-volatility-expected-amid-middle-east-developments-a9ef898a"
+      }
+    }
+  ],
+  "coverage": {
+    "domains": [
+      "military-capacity",
+      "maritime-energy",
+      "diplomacy",
+      "energy-markets"
+    ],
+    "geographies": [
+      "Eastern Europe",
+      "West Asia",
+      "United States",
+      "Europe",
+      "Indo-Pacific"
+    ],
+    "limitations": [
+      "World Monitor unavailable locally; broad current search supplied leads.",
+      "No operational claim is adjudicated."
+    ],
+    "lineage_roots_reviewed": 3,
+    "retrieval_status": "healthy",
+    "scope": "selective-global",
+    "upstream_sources_reviewed": 3
+  },
+  "gaps": [
+    {
+      "consequence": "Do not infer Indo-Pacific calm from its absence in this selective brief.",
+      "description": "No source-recovered Indo-Pacific development cleared the materiality threshold for the active Hormuz-Ukraine-capacity baseline.",
+      "disposition": "selected",
+      "domain": "diplomacy",
+      "geography": "Indo-Pacific",
+      "id": "GAP-01",
+      "type": "thin"
+    }
+  ],
+  "material_change": true,
+  "morning_judgment": "August 12 keeps the off-ramp problem under pressure: Hormuz remains conditional, Bab el-Mandeb is visibly lethal again, and energy markets are still pricing chokepoint risk rather than a settled transit baseline.",
+  "renderer_version": "2.1",
+  "research": {
+    "geography": "global",
+    "mode": "scan",
+    "output": "five-minute-selective-global-update",
+    "retrieved_at_utc": "2026-08-12T16:30:00Z",
+    "stop_condition": "Four material developments plus one outlier or visibility gap, or documented exhaustion of qualifying candidates."
+  },
+  "schema_version": "2.1",
+  "selected_development_ids": [
+    "OBS-01",
+    "OBS-02",
+    "OBS-04"
+  ],
+  "selected_outlier_or_gap": {
+    "id": "GAP-01",
+    "kind": "gap"
+  },
+  "watch": [
+    {
+      "id": "WATCH-01",
+      "observable": "Official or attributable language making Hormuz or Bab el-Mandeb access conditional on sanctions, blockade relief, force posture, or regional restraint.",
+      "source_refs": [
+        "OBS-01",
+        "OBS-02",
+        "OBS-04",
+        "NG-20260807-F01"
+      ],
+      "timing": "Through 2026-08-21"
+    }
+  ],
+  "window": {
+    "end_utc": "2026-08-12T16:30:00Z",
+    "hours": 24,
+    "start_utc": "2026-08-11T16:30:00Z"
+  }
+}

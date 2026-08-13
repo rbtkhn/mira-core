@@ -4,7 +4,7 @@ This index routes the local external-interview corpus for `jiang` to the central
 
 Source basis: `strategy-codex/statecraft/voices/jiang/jiang-index.md` plus one existing local intake.
 
-Corpus: 70 local route rows across 70 central archive source files.
+Corpus: 71 local route rows across 71 central archive source files.
 
 Status: `imported-corpus`
 
@@ -90,6 +90,7 @@ Status: `imported-corpus`
 | `2026-07-01` | Jiang Xueqin: Trump's World Order & Normalising Insanity | `guest` | `glenn-diesen` | [source](../../archive/sources/2026-07-01/source-jiang-xueqin-trump-s-world-order-normalising-insanity-2026-07-01.md) |
 | `2026-07-11` | Professor Jiang Xueqin: America Will Invade Iran Next! | `guest` | `cyrus-janssen` | [source](../../archive/sources/2026-07-11/source-professor-jiang-xueqin-america-will-invade-iran-next-2026-07-11.md) |
 | `2026-07-19` | Emergency Discussion #1: Spain Wins World Cup, US Plans Ground Invasion of Iran | `guest` | `predictive-history` | [source](../../archive/sources/2026-07-19/source-emergency-discussion-1-spain-wins-world-cup-us-plans-ground-invasion-of-iran-2026-07-19.md) |
+| `2026-08-11` | (2) Jiang Xueqin: Breaking Point - Why the West Is Falling Apart | `guest` | `glenn-diesen` | [source](../../archive/sources/2026-08-11/source-2-jiang-xueqin-breaking-point-why-the-west-is-falling-apart-2026-08-11.md) |
 
 ## Import Boundary
 

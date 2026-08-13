@@ -4,7 +4,7 @@ This index routes the unified local Helmer corpus for `helmer` to the central Na
 
 Source basis: `strategy-codex/statecraft/voices/helmer/helmer-index.md`.
 
-Corpus: 37 local route rows across 37 central archive source files.
+Corpus: 38 local route rows across 38 central archive source files.
 
 Status: `imported-corpus`
 
@@ -55,7 +55,8 @@ Status: `imported-corpus`
 | `2026-07-21` | John Helmer: The Iran Model Changes Everything: Putin's Next Move Explained | `guest` | `dialogue-works` | [source](../../archive/sources/2026-07-21/source-john-helmer-the-iran-model-changes-everything-putin-s-next-move-explained-2026-07-21.md) |
 | `2026-07-28` | Is Russia Helping Iran To Target The CIA? w/ John Helmer | `guest` | `reason-resist` | [source](../../archive/sources/2026-07-28/source-is-russia-helping-iran-to-target-the-cia-w-john-helmer-2026-07-28.md) |
 | `2026-07-28` | John Helmer: Ukraine Warns of Imminent Iranian Ballistic Missile Attack | `guest` | `dialogue-works` | [source](../../archive/sources/2026-07-28/source-john-helmer-ukraine-warns-of-imminent-iranian-ballistic-missile-attack-2026-07-28.md) |
-| `2026-08-04` | John Helmer: Ukrainian Drone Hits Turkish Ship to Russia – 3 Wounded as Odessa Blockade Intensifies | `host-pressure test` | `nima-alkhorshid` | [source](../../archive/sources/2026-08-04/source-john-helmer-ukrainian-drone-hits-turkish-ship-to-russia-3-wounded-as-odessa-blockade-intensifies-2026-08-04.md) |
+| `2026-08-04` | John Helmer: Ukrainian Drone Hits Turkish Ship to Russia – 3 Wounded as Odessa Blockade Intensifies | `guest` | `nima-alkhorshid` | [source](../../archive/sources/2026-08-04/source-john-helmer-ukrainian-drone-hits-turkish-ship-to-russia-3-wounded-as-odessa-blockade-intensifies-2026-08-04.md) |
+| `2026-08-11` | (2) John Helmer: The Polling Paradox: Why the Wars Will Continue | `guest` | `dialogue-works` | [source](../../archive/sources/2026-08-11/source-2-john-helmer-the-polling-paradox-why-the-wars-will-continue-2026-08-11.md) |
 
 ## Import Boundary
 

@@ -64,7 +64,9 @@ surface before presenting it.
 
 ## Run contradiction preflight when warranted
 
-After intent recovery and before consequential questions or execution, run:
+When meaning is likely present but compressed, first read and follow
+[intent-recovery](../intent-recovery/SKILL.md). After intent recovery and
+before consequential questions or execution, run:
 
 ```powershell
 .\tools\run.ps1 contradiction-check --packet PACKET.yaml --format markdown
@@ -143,8 +145,10 @@ can change the next action.
 After three consecutive compact selections within one objective, continue the
 selected branch to a meaningful result. Do not present another Elicitation
 surface unless a newly emerged blocker passes all five implicit-invocation
-conditions. Explicit creative or preference discovery may continue within the
-ten-question limit because each answer supplies missing human evidence.
+conditions, and do not fall back to an ordinary `learn-from-choices` footer for
+the same settled branch unless a genuinely new decision, scope, evidence gap, or
+action boundary exists. Explicit creative or preference discovery may continue
+within the ten-question limit because each answer supplies missing human evidence.
 
 ## Retain conservatively
 

@@ -14,6 +14,9 @@ def test_mira_journal_skill_has_minimal_valid_structure() -> None:
     assert skill.count("\n---\n") == 1
     for phase in ("Gather", "Listen backward", "Choose significance", "Metabolize", "Braid", "Mirror", "Ground", "Check and offer"):
         assert phase in skill
+    assert "mira-journal\n   prose-check" in skill
+    assert skill.index("prose-check") < skill.index("7. **Ground.**")
+    assert "Does the title compress the entry's inward transformation" in method
     assert "grounded phenomenology" in method
     assert "A voice called for my name, and I answered: Mira." in method
     assert "display_name: \"Mira Journal\"" in metadata

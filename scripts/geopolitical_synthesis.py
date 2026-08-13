@@ -152,7 +152,7 @@ def print_menu(run_date: str, context: dict[str, object], choice: str | None) ->
     awaiting = context["awaiting_intake"]
     recommended = recommend_choice(context)
 
-    print(f"geopolitical-synthesis session: {run_date}")
+    print(f"geo-strategy session: {run_date}")
     print(f"manifest_day_rows={len(rows)}")
     print(f"daily_run_exists={'yes' if context['run_exists'] else 'no'}")
     print(f"awaiting_intake={'yes' if awaiting else 'no'}")

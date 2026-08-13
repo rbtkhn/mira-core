@@ -1,0 +1,19 @@
+{
+  "aliases": [],
+  "as_of": "2026-07-30",
+  "claim_type": "forecast",
+  "claimant_refs": [],
+  "consequence": "high",
+  "created_at": "2026-07-30T00:00:00Z",
+  "created_by": "operator",
+  "crisis_object": "Renewed strikes versus diplomatic settlement",
+  "empirical_eligibility": true,
+  "id": "NG-20260730-F01",
+  "kind": "claim",
+  "revision_of": null,
+  "schema_version": 1,
+  "scope": "bounded claim",
+  "source_refs": [],
+  "status": "open",
+  "text": "By 2026-08-06, diplomatic channels will remain publicly visible while renewed strikes continue, but no durable reciprocal settlement will be implemented."
+}

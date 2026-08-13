@@ -2,7 +2,7 @@
   "manifest_id": "narrative-geopolitics-source-manifest-v1",
   "source_basis": "central archive with completed historical strategy-codex imports",
   "imported_at": "2026-07-09",
-  "source_count": 2084,
+  "source_count": 2118,
   "boundary": {
     "archive": "source truth",
     "voices": "voice continuity and routing",
@@ -56802,6 +56802,785 @@
       "host_slug": "moral-resistance",
       "source_identity": "youtube:DVKtD1bKlDY",
       "source_url": "https://www.youtube.com/watch?v=DVKtD1bKlDY",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-10",
+      "title": "(2) Russia Blasts Odessa Energy System Cuts Road Rail Links Sea Assault Coming; Russia Holds 30% Orekhov",
+      "local_path": "narrative-geopolitics/archive/sources/2026-08-10/source-2-russia-blasts-odessa-energy-system-cuts-road-rail-links-sea-assault-coming-russia-holds-30-orekhov-2026-08-10.md",
+      "voice_index_path": "../../archive/sources/2026-08-10/source-2-russia-blasts-odessa-energy-system-cuts-road-rail-links-sea-assault-coming-russia-holds-30-orekhov-2026-08-10.md",
+      "upstream_path": "operator-paste://2026-08-10/2-russia-blasts-odessa-energy-system-cuts-road-rail-links-sea-assault-coming-russia-holds-30-orekhov",
+      "source_class": "host monologue",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "alexander-mercouris",
+      "source_identity": "youtube:IPGZWo2YplA",
+      "source_url": "https://www.youtube.com/watch?v=IPGZWo2YplA",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-10",
+      "title": "(2) TRUMP DEMANDS REPARATIONS FROM IRAN",
+      "local_path": "narrative-geopolitics/archive/sources/2026-08-10/source-2-trump-demands-reparations-from-iran-2026-08-10.md",
+      "voice_index_path": "../../archive/sources/2026-08-10/source-2-trump-demands-reparations-from-iran-2026-08-10.md",
+      "upstream_path": "operator-paste://2026-08-10/2-trump-demands-reparations-from-iran",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "weichert"
+      ],
+      "host_slug": "mario-nawfal",
+      "source_identity": "youtube:KLwwR7U19Og",
+      "source_url": "https://www.youtube.com/watch?v=KLwwR7U19Og",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-10",
+      "title": "(2) Iran Demands TOTAL SURRENDER From Trump On Hormuz",
+      "local_path": "narrative-geopolitics/archive/sources/2026-08-10/source-2-iran-demands-total-surrender-from-trump-on-hormuz-2026-08-10.md",
+      "voice_index_path": "../../archive/sources/2026-08-10/source-2-iran-demands-total-surrender-from-trump-on-hormuz-2026-08-10.md",
+      "upstream_path": "operator-paste://2026-08-10/2-iran-demands-total-surrender-from-trump-on-hormuz",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "parsi"
+      ],
+      "host_slug": "breaking-points",
+      "source_identity": "youtube:btRqJ2U8dZg",
+      "source_url": "https://www.youtube.com/watch?v=btRqJ2U8dZg",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-10",
+      "title": "(2) Alastair Crooke : US Middle East Dominance is Ended",
+      "local_path": "narrative-geopolitics/archive/sources/2026-08-10/source-2-alastair-crooke-us-middle-east-dominance-is-ended-2026-08-10.md",
+      "voice_index_path": "../../archive/sources/2026-08-10/source-2-alastair-crooke-us-middle-east-dominance-is-ended-2026-08-10.md",
+      "upstream_path": "operator-paste://2026-08-10/2-alastair-crooke-us-middle-east-dominance-is-ended",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "crooke"
+      ],
+      "host_slug": "judging-freedom",
+      "source_identity": "youtube:bliS6A0mBkA",
+      "source_url": "https://www.youtube.com/watch?v=bliS6A0mBkA",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-10",
+      "title": "(2) Col. Jacques Baud: \"Wherever You Mass, You Get Bombed\" – Yemenis Target Saudi Forces",
+      "local_path": "narrative-geopolitics/archive/sources/2026-08-10/source-2-col-jacques-baud-wherever-you-mass-you-get-bombed-yemenis-target-saudi-forces-2026-08-10.md",
+      "voice_index_path": "../../archive/sources/2026-08-10/source-2-col-jacques-baud-wherever-you-mass-you-get-bombed-yemenis-target-saudi-forces-2026-08-10.md",
+      "upstream_path": "operator-paste://2026-08-10/2-col-jacques-baud-wherever-you-mass-you-get-bombed-yemenis-target-saudi-forces",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "baud"
+      ],
+      "host_slug": "dialogue-works",
+      "source_identity": "youtube:q9CQUZVI0rI",
+      "source_url": "https://www.youtube.com/watch?v=q9CQUZVI0rI",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-10",
+      "title": "(2) Stanislav Krapivnik: Russia's Ukraine Strategy & Preparations for War with Europe",
+      "local_path": "narrative-geopolitics/archive/sources/2026-08-10/source-2-stanislav-krapivnik-russia-s-ukraine-strategy-preparations-for-war-with-europe-2026-08-10.md",
+      "voice_index_path": "../../archive/sources/2026-08-10/source-2-stanislav-krapivnik-russia-s-ukraine-strategy-preparations-for-war-with-europe-2026-08-10.md",
+      "upstream_path": "operator-paste://2026-08-10/2-stanislav-krapivnik-russia-s-ukraine-strategy-preparations-for-war-with-europe",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "krapivnik"
+      ],
+      "host_slug": "glenn-diesen",
+      "source_identity": "youtube:GrvgnQ4bXKA",
+      "source_url": "https://www.youtube.com/watch?v=GrvgnQ4bXKA",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-10",
+      "title": "(2) Prof. Jeffrey Sachs : Trump and His War Destroying US Economy",
+      "local_path": "narrative-geopolitics/archive/sources/2026-08-10/source-2-prof-jeffrey-sachs-trump-and-his-war-destroying-us-economy-2026-08-10.md",
+      "voice_index_path": "../../archive/sources/2026-08-10/source-2-prof-jeffrey-sachs-trump-and-his-war-destroying-us-economy-2026-08-10.md",
+      "upstream_path": "operator-paste://2026-08-10/2-prof-jeffrey-sachs-trump-and-his-war-destroying-us-economy",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "sachs"
+      ],
+      "host_slug": "judging-freedom",
+      "source_identity": "youtube:6EYADWPyAmU",
+      "source_url": "https://www.youtube.com/watch?v=6EYADWPyAmU",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-10",
+      "title": "(2) Nima R. Alkhorshid: Iran's New Power Player: Who Is Mohsen Rezaei and What Does He Want?",
+      "local_path": "narrative-geopolitics/archive/sources/2026-08-10/source-2-nima-r-alkhorshid-iran-s-new-power-player-who-is-mohsen-rezaei-and-what-does-he-want-2026-08-10.md",
+      "voice_index_path": "../../archive/sources/2026-08-10/source-2-nima-r-alkhorshid-iran-s-new-power-player-who-is-mohsen-rezaei-and-what-does-he-want-2026-08-10.md",
+      "upstream_path": "operator-paste://2026-08-10/2-nima-r-alkhorshid-iran-s-new-power-player-who-is-mohsen-rezaei-and-what-does-he-want",
+      "source_class": "author",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "alkhorshid"
+      ],
+      "host_slug": "dialogue-works",
+      "source_identity": "youtube:Mw33yooaI90",
+      "source_url": "https://www.youtube.com/watch?v=Mw33yooaI90",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-10",
+      "title": "(2) BREAKING: IRAN TO DELAY DEAL UNTIL AFTER TRUMP ADMINISTRATION ENDS - w/ Lt. Col. Anthony Aguilar",
+      "local_path": "narrative-geopolitics/archive/sources/2026-08-10/source-2-breaking-iran-to-delay-deal-until-after-trump-administration-ends-w-lt-col-anthony-aguilar-2026-08-10.md",
+      "voice_index_path": "../../archive/sources/2026-08-10/source-2-breaking-iran-to-delay-deal-until-after-trump-administration-ends-w-lt-col-anthony-aguilar-2026-08-10.md",
+      "upstream_path": "operator-paste://2026-08-10/2-breaking-iran-to-delay-deal-until-after-trump-administration-ends-w-lt-col-anthony-aguilar",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "aguilar"
+      ],
+      "host_slug": "mario-nawfal",
+      "source_identity": "youtube:4maKBy5ywhY",
+      "source_url": "https://www.youtube.com/watch?v=4maKBy5ywhY",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-10",
+      "title": "(2) Russia Hits Odessa As Black Sea Standoff Risks Wider War",
+      "local_path": "narrative-geopolitics/archive/sources/2026-08-10/source-2-russia-hits-odessa-as-black-sea-standoff-risks-wider-war-2026-08-10.md",
+      "voice_index_path": "../../archive/sources/2026-08-10/source-2-russia-hits-odessa-as-black-sea-standoff-risks-wider-war-2026-08-10.md",
+      "upstream_path": "operator-paste://2026-08-10/2-russia-hits-odessa-as-black-sea-standoff-risks-wider-war",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "the-duran",
+      "source_identity": "youtube:n1P7g5oKYLQ",
+      "source_url": "https://www.youtube.com/watch?v=n1P7g5oKYLQ",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-10",
+      "title": "(2) Larry Johnson: Trump Flips the Script: U.S. Now Demands BILLIONS in Reparations from Iran",
+      "local_path": "narrative-geopolitics/archive/sources/2026-08-10/source-2-larry-johnson-trump-flips-the-script-u-s-now-demands-billions-in-reparations-from-iran-2026-08-10.md",
+      "voice_index_path": "../../archive/sources/2026-08-10/source-2-larry-johnson-trump-flips-the-script-u-s-now-demands-billions-in-reparations-from-iran-2026-08-10.md",
+      "upstream_path": "operator-paste://2026-08-10/2-larry-johnson-trump-flips-the-script-u-s-now-demands-billions-in-reparations-from-iran",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "johnson"
+      ],
+      "host_slug": "dialogue-works",
+      "source_identity": "youtube:ly2Kb5CernQ",
+      "source_url": "https://www.youtube.com/watch?v=ly2Kb5CernQ",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-11",
+      "title": "(2) Russian Missile Output Surge Kiev Struck Russia Outflanks Donbass Cities; West Without Plan; Orekhov",
+      "local_path": "narrative-geopolitics/archive/sources/2026-08-11/source-2-russian-missile-output-surge-kiev-struck-russia-outflanks-donbass-cities-west-without-plan-orekhov-2026-08-11.md",
+      "voice_index_path": "../../archive/sources/2026-08-11/source-2-russian-missile-output-surge-kiev-struck-russia-outflanks-donbass-cities-west-without-plan-orekhov-2026-08-11.md",
+      "upstream_path": "operator-paste://2026-08-11/2-russian-missile-output-surge-kiev-struck-russia-outflanks-donbass-cities-west-without-plan-orekhov",
+      "source_class": "host monologue",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "alexander-mercouris",
+      "source_identity": "youtube:d2eyVt7lhGI",
+      "source_url": "https://www.youtube.com/watch?v=d2eyVt7lhGI",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-11",
+      "title": "(2) Col Doug Macgregor - Iran War: THE ART OF DEFEAT / We Have No Influence Over Iran",
+      "local_path": "narrative-geopolitics/archive/sources/2026-08-11/source-2-col-doug-macgregor-iran-war-the-art-of-defeat-we-have-no-influence-over-iran-2026-08-11.md",
+      "voice_index_path": "../../archive/sources/2026-08-11/source-2-col-doug-macgregor-iran-war-the-art-of-defeat-we-have-no-influence-over-iran-2026-08-11.md",
+      "upstream_path": "operator-paste://2026-08-11/2-col-doug-macgregor-iran-war-the-art-of-defeat-we-have-no-influence-over-iran",
+      "source_class": "host-pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "macgregor"
+      ],
+      "host_slug": "daniel-davis",
+      "source_identity": "youtube:DOZ_f6j352k",
+      "source_url": "https://www.youtube.com/watch?v=DOZ_f6j352k",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-11",
+      "title": "(2) Col. Larry Wilkerson: Yemen Just Struck a Major Blow Against the Saudis - Trump in Denial",
+      "local_path": "narrative-geopolitics/archive/sources/2026-08-11/source-2-col-larry-wilkerson-yemen-just-struck-a-major-blow-against-the-saudis-trump-in-denial-2026-08-11.md",
+      "voice_index_path": "../../archive/sources/2026-08-11/source-2-col-larry-wilkerson-yemen-just-struck-a-major-blow-against-the-saudis-trump-in-denial-2026-08-11.md",
+      "upstream_path": "operator-paste://2026-08-11/2-col-larry-wilkerson-yemen-just-struck-a-major-blow-against-the-saudis-trump-in-denial",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "wilkerson"
+      ],
+      "host_slug": "dialogue-works",
+      "source_identity": "youtube:gyKyYBnzoUU",
+      "source_url": "https://www.youtube.com/watch?v=gyKyYBnzoUU",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-11",
+      "title": "(2) Scott Ritter : US is Out of Ammo and Oil",
+      "local_path": "narrative-geopolitics/archive/sources/2026-08-11/source-2-scott-ritter-us-is-out-of-ammo-and-oil-2026-08-11.md",
+      "voice_index_path": "../../archive/sources/2026-08-11/source-2-scott-ritter-us-is-out-of-ammo-and-oil-2026-08-11.md",
+      "upstream_path": "operator-paste://2026-08-11/2-scott-ritter-us-is-out-of-ammo-and-oil",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "ritter"
+      ],
+      "host_slug": "judging-freedom",
+      "source_identity": "youtube:AawimWDEuT4",
+      "source_url": "https://www.youtube.com/watch?v=AawimWDEuT4",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-11",
+      "title": "(2) BREAKING: IRAN SAYS IT WILL OUTLAST TRUMP — NO DEAL COMING – w/ Prof. Robert Pape",
+      "local_path": "narrative-geopolitics/archive/sources/2026-08-11/source-2-breaking-iran-says-it-will-outlast-trump-no-deal-coming-w-prof-robert-pape-2026-08-11.md",
+      "voice_index_path": "../../archive/sources/2026-08-11/source-2-breaking-iran-says-it-will-outlast-trump-no-deal-coming-w-prof-robert-pape-2026-08-11.md",
+      "upstream_path": "operator-paste://2026-08-11/2-breaking-iran-says-it-will-outlast-trump-no-deal-coming-w-prof-robert-pape",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "pape"
+      ],
+      "host_slug": "mario-nawfal",
+      "source_identity": "youtube:8qIsQM1RsmQ",
+      "source_url": "https://www.youtube.com/watch?v=8qIsQM1RsmQ",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-11",
+      "title": "(2) Aaron Maté : Their Blood, Our Bullets",
+      "local_path": "narrative-geopolitics/archive/sources/2026-08-11/source-2-aaron-mat-their-blood-our-bullets-2026-08-11.md",
+      "voice_index_path": "../../archive/sources/2026-08-11/source-2-aaron-mat-their-blood-our-bullets-2026-08-11.md",
+      "upstream_path": "operator-paste://2026-08-11/2-aaron-mat-their-blood-our-bullets",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mate"
+      ],
+      "host_slug": "judging-freedom",
+      "source_identity": "youtube:ISAbaxo32Iw",
+      "source_url": "https://www.youtube.com/watch?v=ISAbaxo32Iw",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-11",
+      "title": "(2) John Helmer: The Polling Paradox: Why the Wars Will Continue",
+      "local_path": "narrative-geopolitics/archive/sources/2026-08-11/source-2-john-helmer-the-polling-paradox-why-the-wars-will-continue-2026-08-11.md",
+      "voice_index_path": "../../archive/sources/2026-08-11/source-2-john-helmer-the-polling-paradox-why-the-wars-will-continue-2026-08-11.md",
+      "upstream_path": "operator-paste://2026-08-11/2-john-helmer-the-polling-paradox-why-the-wars-will-continue",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "helmer"
+      ],
+      "host_slug": "dialogue-works",
+      "source_identity": "youtube:B3kc3NAsiRc",
+      "source_url": "https://www.youtube.com/watch?v=B3kc3NAsiRc",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-11",
+      "title": "(2) Prof. John Mearsheimer : What Comes Next in Iran?",
+      "local_path": "narrative-geopolitics/archive/sources/2026-08-11/source-2-prof-john-mearsheimer-what-comes-next-in-iran-2026-08-11.md",
+      "voice_index_path": "../../archive/sources/2026-08-11/source-2-prof-john-mearsheimer-what-comes-next-in-iran-2026-08-11.md",
+      "upstream_path": "operator-paste://2026-08-11/2-prof-john-mearsheimer-what-comes-next-in-iran",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mearsheimer"
+      ],
+      "host_slug": "judging-freedom",
+      "source_identity": "youtube:NAf82r7Tedw",
+      "source_url": "https://www.youtube.com/watch?v=NAf82r7Tedw",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-11",
+      "title": "(2) AMB. Chas Freeman : New Middle East Alliance a Threat to Israel",
+      "local_path": "narrative-geopolitics/archive/sources/2026-08-11/source-2-amb-chas-freeman-new-middle-east-alliance-a-threat-to-israel-2026-08-11.md",
+      "voice_index_path": "../../archive/sources/2026-08-11/source-2-amb-chas-freeman-new-middle-east-alliance-a-threat-to-israel-2026-08-11.md",
+      "upstream_path": "operator-paste://2026-08-11/2-amb-chas-freeman-new-middle-east-alliance-a-threat-to-israel",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "freeman"
+      ],
+      "host_slug": "judging-freedom",
+      "source_identity": "youtube:iUkqHDaHWkc",
+      "source_url": "https://www.youtube.com/watch?v=iUkqHDaHWkc",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-11",
+      "title": "(2) Seyed M. Marandi: US Preparing for Imminent Attacks – Gulf States Hammered by Hormuz & Bab al-Mandab",
+      "local_path": "narrative-geopolitics/archive/sources/2026-08-11/source-2-seyed-m-marandi-us-preparing-for-imminent-attacks-gulf-states-hammered-by-hormuz-bab-al-mandab-2026-08-11.md",
+      "voice_index_path": "../../archive/sources/2026-08-11/source-2-seyed-m-marandi-us-preparing-for-imminent-attacks-gulf-states-hammered-by-hormuz-bab-al-mandab-2026-08-11.md",
+      "upstream_path": "operator-paste://2026-08-11/2-seyed-m-marandi-us-preparing-for-imminent-attacks-gulf-states-hammered-by-hormuz-bab-al-mandab",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "marandi"
+      ],
+      "host_slug": "dialogue-works",
+      "source_identity": "youtube:Vaz5tFQPMqs",
+      "source_url": "https://www.youtube.com/watch?v=Vaz5tFQPMqs",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-11",
+      "title": "(2) Jiang Xueqin: Breaking Point - Why the West Is Falling Apart",
+      "local_path": "narrative-geopolitics/archive/sources/2026-08-11/source-2-jiang-xueqin-breaking-point-why-the-west-is-falling-apart-2026-08-11.md",
+      "voice_index_path": "../../archive/sources/2026-08-11/source-2-jiang-xueqin-breaking-point-why-the-west-is-falling-apart-2026-08-11.md",
+      "upstream_path": "operator-paste://2026-08-11/2-jiang-xueqin-breaking-point-why-the-west-is-falling-apart",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "jiang"
+      ],
+      "host_slug": "glenn-diesen",
+      "source_identity": "youtube:QEysVg7ftWk",
+      "source_url": "https://www.youtube.com/watch?v=QEysVg7ftWk",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-11",
+      "title": "(2) Matt Hoh : Window Closing on US Military Power",
+      "local_path": "narrative-geopolitics/archive/sources/2026-08-11/source-2-matt-hoh-window-closing-on-us-military-power-2026-08-11.md",
+      "voice_index_path": "../../archive/sources/2026-08-11/source-2-matt-hoh-window-closing-on-us-military-power-2026-08-11.md",
+      "upstream_path": "operator-paste://2026-08-11/2-matt-hoh-window-closing-on-us-military-power",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "hoh"
+      ],
+      "host_slug": "judging-freedom",
+      "source_identity": "youtube:udpGED3f7gs",
+      "source_url": "https://www.youtube.com/watch?v=udpGED3f7gs",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-11",
+      "title": "Trump’s Unilateral Demands, Iran Doubles Down on Hard Power — A Collision Course",
+      "local_path": "narrative-geopolitics/archive/sources/2026-08-11/source-trump-s-unilateral-demands-iran-doubles-down-on-hard-power-a-collision-course-2026-08-11.md",
+      "voice_index_path": "../../archive/sources/2026-08-11/source-trump-s-unilateral-demands-iran-doubles-down-on-hard-power-a-collision-course-2026-08-11.md",
+      "upstream_path": "operator-paste://2026-08-11/trump-s-unilateral-demands-iran-doubles-down-on-hard-power-a-collision-course",
+      "source_class": "authored",
+      "modality": "source-text",
+      "voice_slugs": [
+        "pape"
+      ],
+      "host_slug": "upstream-unresolved",
+      "source_identity": "https://escalationtrap.substack.com/p/trumps-unilateral-demands-iran-doubles",
+      "source_url": "https://escalationtrap.substack.com/p/trumps-unilateral-demands-iran-doubles",
+      "title_source": "operator",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-11",
+      "title": "(2) Robert Barnes: Russia’s Missiles Rain on Kiev - Iran & Yemen Strike Multiple Vessels",
+      "local_path": "narrative-geopolitics/archive/sources/2026-08-11/source-2-robert-barnes-russia-s-missiles-rain-on-kiev-iran-yemen-strike-multiple-vessels-2026-08-11.md",
+      "voice_index_path": "../../archive/sources/2026-08-11/source-2-robert-barnes-russia-s-missiles-rain-on-kiev-iran-yemen-strike-multiple-vessels-2026-08-11.md",
+      "upstream_path": "operator-paste://2026-08-11/2-robert-barnes-russia-s-missiles-rain-on-kiev-iran-yemen-strike-multiple-vessels",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "barnes"
+      ],
+      "host_slug": "dialogue-works",
+      "source_identity": "youtube:nFW5k6F0OI4",
+      "source_url": "https://www.youtube.com/watch?v=nFW5k6F0OI4",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-11",
+      "title": "(2) Larry Johnson: US 10x Surge in THAAD & PAC-3 Ammo, Yemeni Rockets Hit Saudi Command",
+      "local_path": "narrative-geopolitics/archive/sources/2026-08-11/source-2-larry-johnson-us-10x-surge-in-thaad-pac-3-ammo-yemeni-rockets-hit-saudi-command-2026-08-11.md",
+      "voice_index_path": "../../archive/sources/2026-08-11/source-2-larry-johnson-us-10x-surge-in-thaad-pac-3-ammo-yemeni-rockets-hit-saudi-command-2026-08-11.md",
+      "upstream_path": "operator-paste://2026-08-11/2-larry-johnson-us-10x-surge-in-thaad-pac-3-ammo-yemeni-rockets-hit-saudi-command",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "johnson"
+      ],
+      "host_slug": "dialogue-works",
+      "source_identity": "youtube:yYmfPnRae3U",
+      "source_url": "https://www.youtube.com/watch?v=yYmfPnRae3U",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-12",
+      "title": "(3) Scott Ritter: Russia Ukraine MENTAL WARFARE, Societal Pressures Rising",
+      "local_path": "narrative-geopolitics/archive/sources/2026-08-12/source-3-scott-ritter-russia-ukraine-mental-warfare-societal-pressures-rising-2026-08-12.md",
+      "voice_index_path": "../../archive/sources/2026-08-12/source-3-scott-ritter-russia-ukraine-mental-warfare-societal-pressures-rising-2026-08-12.md",
+      "upstream_path": "operator-paste://2026-08-12/3-scott-ritter-russia-ukraine-mental-warfare-societal-pressures-rising",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "ritter"
+      ],
+      "host_slug": "daniel-davis",
+      "source_identity": "youtube:yL9zLst-5os",
+      "source_url": "https://www.youtube.com/watch?v=yL9zLst-5os",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-12",
+      "title": "(3) Larry Johnson: Will Trump Declare Victory Against Iran & Walk Away Without a Nuclear Deal?",
+      "local_path": "narrative-geopolitics/archive/sources/2026-08-12/source-3-larry-johnson-will-trump-declare-victory-against-iran-walk-away-without-a-nuclear-deal-2026-08-12.md",
+      "voice_index_path": "../../archive/sources/2026-08-12/source-3-larry-johnson-will-trump-declare-victory-against-iran-walk-away-without-a-nuclear-deal-2026-08-12.md",
+      "upstream_path": "operator-paste://2026-08-12/3-larry-johnson-will-trump-declare-victory-against-iran-walk-away-without-a-nuclear-deal",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "johnson"
+      ],
+      "host_slug": "glenn-diesen",
+      "source_identity": "youtube:iwRRJkWRVyo",
+      "source_url": "https://www.youtube.com/watch?v=iwRRJkWRVyo",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-12",
+      "title": "(3) Robert Barnes: Nobody's Pushing Back on Trump in the Admin re: IRAN WAR",
+      "local_path": "narrative-geopolitics/archive/sources/2026-08-12/source-3-robert-barnes-nobody-s-pushing-back-on-trump-in-the-admin-re-iran-war-2026-08-12.md",
+      "voice_index_path": "../../archive/sources/2026-08-12/source-3-robert-barnes-nobody-s-pushing-back-on-trump-in-the-admin-re-iran-war-2026-08-12.md",
+      "upstream_path": "operator-paste://2026-08-12/3-robert-barnes-nobody-s-pushing-back-on-trump-in-the-admin-re-iran-war",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "barnes"
+      ],
+      "host_slug": "daniel-davis",
+      "source_identity": "youtube:kcmRV2ciP1s",
+      "source_url": "https://www.youtube.com/watch?v=kcmRV2ciP1s",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-12",
+      "title": "(3) COL. Lawrence Wilkerson : Is the US a Republic or an Empire?",
+      "local_path": "narrative-geopolitics/archive/sources/2026-08-12/source-3-col-lawrence-wilkerson-is-the-us-a-republic-or-an-empire-2026-08-12.md",
+      "voice_index_path": "../../archive/sources/2026-08-12/source-3-col-lawrence-wilkerson-is-the-us-a-republic-or-an-empire-2026-08-12.md",
+      "upstream_path": "operator-paste://2026-08-12/3-col-lawrence-wilkerson-is-the-us-a-republic-or-an-empire",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "wilkerson"
+      ],
+      "host_slug": "judging-freedom",
+      "source_identity": "youtube:GegcA2vMPeE",
+      "source_url": "https://www.youtube.com/watch?v=GegcA2vMPeE",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-12",
+      "title": "(3) Chas Freeman: How U.S. Decline Reshapes the Middle East",
+      "local_path": "narrative-geopolitics/archive/sources/2026-08-12/source-3-chas-freeman-how-u-s-decline-reshapes-the-middle-east-2026-08-12.md",
+      "voice_index_path": "../../archive/sources/2026-08-12/source-3-chas-freeman-how-u-s-decline-reshapes-the-middle-east-2026-08-12.md",
+      "upstream_path": "operator-paste://2026-08-12/3-chas-freeman-how-u-s-decline-reshapes-the-middle-east",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "freeman"
+      ],
+      "host_slug": "glenn-diesen",
+      "source_identity": "youtube:83XXuBB9MJY",
+      "source_url": "https://www.youtube.com/watch?v=83XXuBB9MJY",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-12",
+      "title": "(3) Putin Orders Retaliatory Seizures By Russian Navy Of EU Ships; Orekhov Crisis Kiev Brigade Trapped",
+      "local_path": "narrative-geopolitics/archive/sources/2026-08-12/source-3-putin-orders-retaliatory-seizures-by-russian-navy-of-eu-ships-orekhov-crisis-kiev-brigade-trapped-2026-08-12.md",
+      "voice_index_path": "../../archive/sources/2026-08-12/source-3-putin-orders-retaliatory-seizures-by-russian-navy-of-eu-ships-orekhov-crisis-kiev-brigade-trapped-2026-08-12.md",
+      "upstream_path": "operator-paste://2026-08-12/3-putin-orders-retaliatory-seizures-by-russian-navy-of-eu-ships-orekhov-crisis-kiev-brigade-trapped",
+      "source_class": "host monologue",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "alexander-mercouris",
+      "source_identity": "youtube:Evn1988aYKU",
+      "source_url": "https://www.youtube.com/watch?v=Evn1988aYKU",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-12",
+      "title": "(3) Lt. Col. Anthony Aguilar: The Unraveling of the USS Abraham Lincoln",
+      "local_path": "narrative-geopolitics/archive/sources/2026-08-12/source-3-lt-col-anthony-aguilar-the-unraveling-of-the-uss-abraham-lincoln-2026-08-12.md",
+      "voice_index_path": "../../archive/sources/2026-08-12/source-3-lt-col-anthony-aguilar-the-unraveling-of-the-uss-abraham-lincoln-2026-08-12.md",
+      "upstream_path": "operator-paste://2026-08-12/3-lt-col-anthony-aguilar-the-unraveling-of-the-uss-abraham-lincoln",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "aguilar"
+      ],
+      "host_slug": "dialogue-works",
+      "source_identity": "youtube:r71yQDT80ao",
+      "source_url": "https://www.youtube.com/watch?v=r71yQDT80ao",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-12",
+      "title": "(3) LIVE from Russia Stanislav Krapivnik",
+      "local_path": "narrative-geopolitics/archive/sources/2026-08-12/source-3-live-from-russia-stanislav-krapivnik-2026-08-12.md",
+      "voice_index_path": "../../archive/sources/2026-08-12/source-3-live-from-russia-stanislav-krapivnik-2026-08-12.md",
+      "upstream_path": "operator-paste://2026-08-12/3-live-from-russia-stanislav-krapivnik",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "krapivnik"
+      ],
+      "host_slug": "daniel-davis",
+      "source_identity": "youtube:eF9cBMNxDaM",
+      "source_url": "https://www.youtube.com/watch?v=eF9cBMNxDaM",
       "title_source": "transcript",
       "date_basis": "operator-supplied",
       "inference_basis": [

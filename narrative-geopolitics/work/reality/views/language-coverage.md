@@ -1,4 +1,4 @@
-<!-- reality-lattice-v1 records-sha256: a1ceccc6bc17ff8bfa01be88685813ea8c3b5c2f47fc286c9101ef8ee4c29ff9 -->
+<!-- reality-lattice-v1 records-sha256: ba77d6c7cb19643b97117511fb526f9a8c8c5e4f611d6e62bebbfc4e0fea6697 -->
 <!-- Generated from structured reality records. Do not edit directly. -->
 
 # Multilingual Coverage
@@ -36,8 +36,13 @@
 | `CLM-20260804-014` | 3 | none | 3 | 0 | `False` | `False` |
 | `CLM-20260804-015` | 3 | none | 3 | 0 | `False` | `False` |
 | `CLM-20260804-016` | 3 | none | 3 | 0 | `False` | `False` |
+| `NG-20260707-F01` | 3 | none | 3 | 0 | `False` | `False` |
+| `NG-20260707-F02` | 3 | none | 3 | 0 | `False` | `False` |
 | `NG-20260708-F01` | 3 | none | 3 | 0 | `False` | `False` |
 | `NG-20260708-F02` | 3 | none | 3 | 0 | `False` | `False` |
+| `NG-20260720-F01` | 3 | none | 3 | 0 | `False` | `False` |
+| `NG-20260721-F01` | 3 | none | 3 | 0 | `False` | `False` |
+| `NG-20260730-F01` | 3 | none | 3 | 0 | `False` | `False` |
 | `OPC-20260710-02` | 3 | none | 3 | 0 | `False` | `True` |
 | `OPC-20260714-01` | 3 | none | 3 | 0 | `False` | `False` |
 | `OPC-20260714-02` | 3 | ar, en, fa, fr | 3 | 7 | `True` | `True` |

@@ -1,0 +1,19 @@
+{
+  "aliases": [],
+  "as_of": "2026-07-21",
+  "claim_type": "forecast",
+  "claimant_refs": [],
+  "consequence": "high",
+  "created_at": "2026-07-21T00:00:00Z",
+  "created_by": "operator",
+  "crisis_object": "Iran conflict escalation cycle",
+  "empirical_eligibility": true,
+  "id": "NG-20260721-F01",
+  "kind": "claim",
+  "revision_of": null,
+  "schema_version": 1,
+  "scope": "bounded claim",
+  "source_refs": [],
+  "status": "open",
+  "text": "Within 14 days, the Iran conflict will show another cycle of limited strikes, threats, or pressure on bases/infrastructure without a durable settlement."
+}

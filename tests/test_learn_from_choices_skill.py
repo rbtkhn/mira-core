@@ -158,6 +158,20 @@ def test_private_choice_store_example_matches_repository_guidance() -> None:
     assert r"C:\private\choice-history.sqlite3" not in skill
 
 
+def test_substantial_artifact_handoff_has_explicit_persistence_states() -> None:
+    skill = (SKILL_ROOT / "SKILL.md").read_text(encoding="utf-8")
+    normalized = " ".join(skill.split())
+    for phrase in (
+        "saved and verified",
+        "not saved",
+        "intentionally conversational",
+        "privacy/status label",
+        "Working-tree presence is distinct",
+        "repository admission, staging, commit, push, and publication",
+    ):
+        assert phrase in normalized
+
+
 def test_coffee_and_dream_composition_is_bounded() -> None:
     coffee = (REPO_ROOT / "docs" / "skill-drafts" / "coffee" / "SKILL.md").read_text(
         encoding="utf-8"

@@ -4,7 +4,7 @@ This index routes the unified local Freeman corpus for `freeman` to the central 
 
 Source basis: `strategy-codex/statecraft/voices/freeman/freeman-index.md` plus already-local matching archive rows.
 
-Corpus: 160 local route rows across 160 central archive source files.
+Corpus: 162 local route rows across 162 central archive source files.
 
 Status: `imported-corpus`
 
@@ -177,8 +177,10 @@ Status: `imported-corpus`
 | `2026-07-30` | How Ukraine Could Pull the US Into a Bigger War \| Chas Freeman | `guest` | `india-global-left` | [source](../../archive/sources/2026-07-30/source-how-ukraine-could-pull-the-us-into-a-bigger-war-chas-freeman-2026-07-30.md) |
 | `2026-07-31` | Amb. Chas Freeman: 40,000 Storm Spain In 24 Hours — Israel's Agenda COLLAPSES | `guest` | `dialogue-works` | [source](../../archive/sources/2026-07-31/source-amb-chas-freeman-40-000-storm-spain-in-24-hours-israel-s-agenda-collapses-2026-07-31.md) |
 | `2026-08-01` | Chas Freeman: Middle East in Transition & a New World Order | `guest` | `glenn-diesen` | [source](../../archive/sources/2026-08-01/source-chas-freeman-middle-east-in-transition-a-new-world-order-2026-08-01.md) |
-| `2026-08-04` | AMB. Chas Freeman : Netanyahu Leaves Trump Empty Handed | `host-pressure test` | `judging-freedom` | [source](../../archive/sources/2026-08-04/source-amb-chas-freeman-netanyahu-leaves-trump-empty-handed-2026-08-04.md) |
-| `2026-08-07` | (1) Amb. Chas Freeman: BREAKING: Saudi, Pakistan, Turkiye Just Signed a Joint Defense Pact | `host-pressure test` | `dialogue-works` | [source](../../archive/sources/2026-08-07/source-1-amb-chas-freeman-breaking-saudi-pakistan-turkiye-just-signed-a-joint-defense-pact-2026-08-07.md) |
+| `2026-08-04` | AMB. Chas Freeman : Netanyahu Leaves Trump Empty Handed | `guest` | `judging-freedom` | [source](../../archive/sources/2026-08-04/source-amb-chas-freeman-netanyahu-leaves-trump-empty-handed-2026-08-04.md) |
+| `2026-08-07` | (1) Amb. Chas Freeman: BREAKING: Saudi, Pakistan, Turkiye Just Signed a Joint Defense Pact | `guest` | `dialogue-works` | [source](../../archive/sources/2026-08-07/source-1-amb-chas-freeman-breaking-saudi-pakistan-turkiye-just-signed-a-joint-defense-pact-2026-08-07.md) |
+| `2026-08-11` | (2) AMB. Chas Freeman : New Middle East Alliance a Threat to Israel | `guest` | `judging-freedom` | [source](../../archive/sources/2026-08-11/source-2-amb-chas-freeman-new-middle-east-alliance-a-threat-to-israel-2026-08-11.md) |
+| `2026-08-12` | (3) Chas Freeman: How U.S. Decline Reshapes the Middle East | `guest` | `glenn-diesen` | [source](../../archive/sources/2026-08-12/source-3-chas-freeman-how-u-s-decline-reshapes-the-middle-east-2026-08-12.md) |
 
 ## Import Boundary
 

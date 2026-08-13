@@ -221,6 +221,33 @@ def build_claim_handoff(claim_id: str, *, investigate: bool = False) -> dict:
     return result
 
 
+def build_batch_handoff(claim_ids: list[str], *, investigate: bool = False) -> dict:
+    """Resolve a bounded claim set once and return one consolidated handoff."""
+    if not claim_ids:
+        raise ValueError("at least one claim is required")
+    unique_ids = list(dict.fromkeys(claim_ids))
+    items = []
+    blocked = []
+    for claim_id in unique_ids:
+        try:
+            items.append(build_claim_handoff(claim_id, investigate=investigate))
+        except ValueError as error:
+            blocked.append({"claim_id": claim_id, "reason": str(error)})
+    return {
+        "mode": "batch claim-first handoff",
+        "requested_claims": unique_ids,
+        "resolved_count": len(items),
+        "blocked_count": len(blocked),
+        "resolved": items,
+        "blocked": blocked,
+        "friction": [
+            "Claims are resolved and planned in one bounded pass.",
+            "Blocked ledger-only identifiers are reported without lexical fallback or mutation.",
+            "No evidence, assessment, signoff, publication authorization, or forecast scoring changes.",
+        ],
+    }
+
+
 def build(date: str) -> dict:
     date = validate_date(date)
     daily = DAILY_ROOT / date
@@ -271,12 +298,18 @@ def main() -> int:
     target.add_argument("--date", type=date_argument)
     target.add_argument("--claim")
     target.add_argument("--hook")
+    target.add_argument("--claims", nargs="+")
     parser.add_argument("--investigate", action="store_true", help="Represent the selected Investigate gate for the exact claim.")
     parser.add_argument("--json", action="store_true")
     args = parser.parse_args()
-    if args.investigate and not (args.claim or args.hook):
-        parser.error("--investigate requires --claim or --hook")
-    if args.claim or args.hook:
+    if args.investigate and not (args.claim or args.hook or args.claims):
+        parser.error("--investigate requires --claim, --hook, or --claims")
+    if args.claims:
+        try:
+            payload = build_batch_handoff(args.claims, investigate=args.investigate)
+        except ValueError as error:
+            parser.error(str(error))
+    elif args.claim or args.hook:
         claim_id = args.claim or args.hook
         try:
             payload = build_claim_handoff(claim_id, investigate=args.investigate)
@@ -287,7 +320,14 @@ def main() -> int:
     if args.json:
         print(json.dumps(payload, indent=2))
     else:
-        if "claim" in payload:
+        if "resolved" in payload:
+            print(f"mode={payload['mode']} resolved={payload['resolved_count']} blocked={payload['blocked_count']}")
+            for item in payload["resolved"]:
+                claim = item["claim"]
+                print(f"{claim['id']} | {item['web_search']['status']} | missing={','.join(item['missing_gates']) or 'none'}")
+            for item in payload["blocked"]:
+                print(f"{item['claim_id']} | blocked | {item['reason']}")
+        elif "claim" in payload:
             claim = payload["claim"]
             print(f"claim={claim['id']} mode={payload['mode']} web_search={payload['web_search']['status']}")
             print(f"text={claim['text']}")

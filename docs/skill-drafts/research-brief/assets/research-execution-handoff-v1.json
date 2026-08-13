@@ -19,7 +19,7 @@
     "stop_condition": "<completion bar and unresolved-gap rule>"
   },
   "destination": {
-    "workflow": "<morning-brief | reality-check | world-monitor | intake | geopolitical-synthesis | external-research>",
+    "workflow": "<morning-brief | reality-check | world-monitor | intake | geo-strategy | external-research>",
     "reason": "<why this workflow fits>",
     "compatibility": "<ready | needs-scope-normalization | needs-claim-resolution | incompatible>",
     "reasons": ["<deterministic compatibility reason>"]

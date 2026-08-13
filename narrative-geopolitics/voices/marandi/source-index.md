@@ -4,7 +4,7 @@ This index routes the imported first-slice parity corpus for `marandi` to the ce
 
 Source basis: `strategy-codex/statecraft/voices/marandi/marandi-index.md`.
 
-Corpus: 91 local route rows across 91 central archive source files.
+Corpus: 92 local route rows across 92 central archive source files.
 
 Status: `first-slice-parity`
 
@@ -115,6 +115,7 @@ Status: `first-slice-parity`
 | `2026-08-06` | (1) Prof. Mohammad Marandi : Who Started this War? | `guest` | `judging-freedom` | [source](../../archive/sources/2026-08-06/source-1-prof-mohammad-marandi-who-started-this-war-2026-08-06.md) |
 | `2026-08-08` | (2) Seyed M. Marandi: Iran's Strikes Hit Emirati Oil Tanker & Kurdish HQ in Iraq, New Hormuz Order | `guest` | `nima-alkhorshid` | [source](../../archive/sources/2026-08-08/source-2-seyed-m-marandi-iran-s-strikes-hit-emirati-oil-tanker-kurdish-hq-in-iraq-new-hormuz-order-2026-08-08.md) |
 | `2026-08-09` | (2) Seyed M. Marandi: Iran-Oman Hormuz Deal Almost Reached & the Saudi-Turkey-Pakistan Defence Pact | `guest` | `glenn-diesen` | [source](../../archive/sources/2026-08-09/source-2-seyed-m-marandi-iran-oman-hormuz-deal-almost-reached-the-saudi-turkey-pakistan-defence-pact-2026-08-09.md) |
+| `2026-08-11` | (2) Seyed M. Marandi: US Preparing for Imminent Attacks – Gulf States Hammered by Hormuz & Bab al-Mandab | `guest` | `dialogue-works` | [source](../../archive/sources/2026-08-11/source-2-seyed-m-marandi-us-preparing-for-imminent-attacks-gulf-states-hammered-by-hormuz-bab-al-mandab-2026-08-11.md) |
 
 ## Import Boundary
 

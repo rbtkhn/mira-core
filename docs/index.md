@@ -10,6 +10,8 @@ This directory holds working notes for the research side of the project. The not
 
 - [Model substitution readiness](model-substitution-readiness.md)
 
+- [Evolution of Repo Audit](repo-audit-evolution.md)
+
 - [Working vocabulary](working-vocabulary.md)
 
 ## Project Surfaces

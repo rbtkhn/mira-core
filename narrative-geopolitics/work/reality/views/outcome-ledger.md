@@ -1,4 +1,4 @@
-<!-- reality-lattice-v1 records-sha256: a1ceccc6bc17ff8bfa01be88685813ea8c3b5c2f47fc286c9101ef8ee4c29ff9 -->
+<!-- reality-lattice-v1 records-sha256: ba77d6c7cb19643b97117511fb526f9a8c8c5e4f611d6e62bebbfc4e0fea6697 -->
 <!-- Generated from structured reality records. Do not edit directly. -->
 
 # Reality Outcome Ledger
@@ -36,8 +36,13 @@
 | `CLM-20260804-014` | `operational_factual` | `high` | `unassessed` | `unassessed` | none | 0 |
 | `CLM-20260804-015` | `operational_factual` | `high` | `unassessed` | `unassessed` | none | 0 |
 | `CLM-20260804-016` | `interpretive` | `high` | `unassessed` | `unassessed` | none | 0 |
+| `NG-20260707-F01` | `forecast` | `high` | `unassessed` | `unassessed` | none | 0 |
+| `NG-20260707-F02` | `forecast` | `high` | `unassessed` | `unassessed` | none | 0 |
 | `NG-20260708-F01` | `forecast` | `high` | `unassessed` | `unassessed` | none | 0 |
 | `NG-20260708-F02` | `forecast` | `high` | `unassessed` | `unassessed` | none | 0 |
+| `NG-20260720-F01` | `forecast` | `high` | `unassessed` | `unassessed` | none | 0 |
+| `NG-20260721-F01` | `forecast` | `high` | `unassessed` | `unassessed` | none | 0 |
+| `NG-20260730-F01` | `forecast` | `high` | `unassessed` | `unassessed` | none | 0 |
 | `OPC-20260710-02` | `operational_factual` | `high` | `contested` | `provisional_assessed` | none | 0 |
 | `OPC-20260714-01` | `operational_factual` | `high` | `unassessed` | `unassessed` | none | 0 |
 | `OPC-20260714-02` | `operational_factual` | `high` | `contested` | `canonical_assessed` | ar, en, fa, fr | 7 |

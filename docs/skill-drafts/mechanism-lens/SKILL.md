@@ -14,13 +14,13 @@ coding templates.
 
 Mechanism Lens does not land sources, repair metadata, create daily synthesis,
 or verify claims. It prepares structured claim maps for later
-`geopolitical-synthesis`, `historical-reference`, or `reality-check`.
+`geo-strategy`, `historical-reference`, or `reality-check`.
 
 Use another workflow when the task is mainly:
 
 - source landing: `archive-intake`;
 - inventory or path lookup: `archive-query`;
-- daily judgment synthesis: `geopolitical-synthesis`;
+- daily judgment synthesis: `geo-strategy`;
 - claim verification: `reality-check`;
 - historical-reference extraction: `historical-reference`;
 - metadata, ASR, sectioning, or manifest repair: `archive-repair`.

@@ -95,6 +95,25 @@ from Morning Brief research.
 
 ## Select and interpret
 
+When multiple operating priorities compete, rank them by organizational
+consequence first, then urgency, dependency, evidence quality, reversibility,
+and human authority. A technically closable task does not outrank a more
+consequential blocked path merely because it is easier to finish. Translate a
+blocked consequential path into its narrowest internal decision or review and
+give the technical task an explicit disposition.
+
+Use this compact frame when the ranking is contested:
+
+```text
+Priority:
+Organizational consequence:
+Current dependency:
+Narrowest decision available now:
+Why delay is justified:
+Owner now:
+Owner later:
+```
+
 - Select at most four fresh developments that materially pressure a named
   inherited judgment or accountable open forecast.
 - Label provisional impact `strengthens`, `weakens`, `complicates`, or

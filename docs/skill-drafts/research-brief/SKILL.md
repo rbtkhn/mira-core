@@ -129,7 +129,7 @@ Set the requested destination to one of:
 - `reality-check` only for adjudication of an existing canonical claim;
 - `world-monitor` for current-signal discovery or coverage-gap work;
 - `intake` for a supplied source body;
-- `geopolitical-synthesis` for a manifest-backed archive day;
+- `geo-strategy` for a manifest-backed archive day;
 - `external-research` when actual investigation is needed but no repository
   execution workflow fits.
 
@@ -175,7 +175,7 @@ Route later execution according to its object:
 - selective current global update -> `morning-brief`;
 - canonical claim adjudication -> `reality-check`;
 - supplied source landing -> `intake`;
-- manifest-backed daily interpretation -> `geopolitical-synthesis`.
+- manifest-backed daily interpretation -> `geo-strategy`.
 
 Do not silently change from planning into any execution workflow.
 

@@ -4,7 +4,7 @@ This index routes the unified local Wilkerson corpus for `wilkerson` to the cent
 
 Source basis: `strategy-codex/statecraft/voices/wilkerson/wilkerson-index.md` plus already-local matching archive rows.
 
-Corpus: 107 local route rows across 107 central archive source files.
+Corpus: 109 local route rows across 109 central archive source files.
 
 Status: `imported-corpus`
 
@@ -123,11 +123,12 @@ Status: `imported-corpus`
 | `2026-07-30` | COL. Lawrence Wilkerson : Does Trump Know He Lost His War? | `guest` | `judging-freedom` | [source](../../archive/sources/2026-07-30/source-col-lawrence-wilkerson-does-trump-know-he-lost-his-war-2026-07-30.md) |
 | `2026-07-31` | BREAKING: CENTCOM PLANS MASSIVE 2-WEEK BOMBING CAMPAIGN - w/ Col. Larry Wilkerson | `guest` | `mario-nawfal` | [source](../../archive/sources/2026-07-31/source-breaking-centcom-plans-massive-2-week-bombing-campaign-w-col-larry-wilkerson-2026-07-31.md) |
 | `2026-07-31` | Col. Larry Wilkerson: Iran Strikes U.S.-Escorted Tankers in Hormuz; 2 Hit, 4 Forced to Retreat | `guest` | `dialogue-works` | [source](../../archive/sources/2026-07-31/source-col-larry-wilkerson-iran-strikes-u-s-escorted-tankers-in-hormuz-2-hit-4-forced-to-retreat-2026-07-31.md) |
-| `2026-08-04` | Col. Larry Wilkerson: Breaking: Yemen Strikes Saudi Airport – “Sensitive Target” Hit | `host-pressure test` | `nima-alkhorshid` | [source](../../archive/sources/2026-08-04/source-col-larry-wilkerson-breaking-yemen-strikes-saudi-airport-sensitive-target-hit-2026-08-04.md) |
-| `2026-08-05` | (1) Lawrence Wilkerson: Trump Sacrifices the Republic to Preserve the Empire | `host-pressure test` | `glenn-diesen` | [source](../../archive/sources/2026-08-05/source-1-lawrence-wilkerson-trump-sacrifices-the-republic-to-preserve-the-empire-2026-08-05.md) |
-| `2026-08-07` | (1) Larry Johnson & Col. Larry Wilkerson: The Old Middle East Is DEAD | `host-pressure test` | `dialogue-works` | [source](../../archive/sources/2026-08-07/source-1-larry-johnson-col-larry-wilkerson-the-old-middle-east-is-dead-2026-08-07.md) |
+| `2026-08-04` | Col. Larry Wilkerson: Breaking: Yemen Strikes Saudi Airport – “Sensitive Target” Hit | `guest` | `nima-alkhorshid` | [source](../../archive/sources/2026-08-04/source-col-larry-wilkerson-breaking-yemen-strikes-saudi-airport-sensitive-target-hit-2026-08-04.md) |
+| `2026-08-05` | (1) Lawrence Wilkerson: Trump Sacrifices the Republic to Preserve the Empire | `guest` | `glenn-diesen` | [source](../../archive/sources/2026-08-05/source-1-lawrence-wilkerson-trump-sacrifices-the-republic-to-preserve-the-empire-2026-08-05.md) |
+| `2026-08-07` | (1) Larry Johnson & Col. Larry Wilkerson: The Old Middle East Is DEAD | `guest` | `dialogue-works` | [source](../../archive/sources/2026-08-07/source-1-larry-johnson-col-larry-wilkerson-the-old-middle-east-is-dead-2026-08-07.md) |
+| `2026-08-11` | (2) Col. Larry Wilkerson: Yemen Just Struck a Major Blow Against the Saudis - Trump in Denial | `guest` | `dialogue-works` | [source](../../archive/sources/2026-08-11/source-2-col-larry-wilkerson-yemen-just-struck-a-major-blow-against-the-saudis-trump-in-denial-2026-08-11.md) |
+| `2026-08-12` | (3) COL. Lawrence Wilkerson : Is the US a Republic or an Empire? | `guest` | `judging-freedom` | [source](../../archive/sources/2026-08-12/source-3-col-lawrence-wilkerson-is-the-us-a-republic-or-an-empire-2026-08-12.md) |
 
 ## Import Boundary
 
 This import followed the strategy-codex Wilkerson index and copied source captures into `archive/sources/YYYY-MM-DD/` while preserving already-local matching archive rows.
-

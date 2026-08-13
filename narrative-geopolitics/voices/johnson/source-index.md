@@ -4,7 +4,7 @@ This index routes the imported first-slice parity corpus for `johnson` to the ce
 
 Source basis: `narrative-geopolitics/archive/source-manifest.json`.
 
-Corpus: 117 local route rows across 117 central archive source files.
+Corpus: 120 local route rows across 120 central archive source files.
 
 Status: `first-slice-parity`
 
@@ -141,6 +141,9 @@ Status: `first-slice-parity`
 | `2026-08-07` | (1) Larry Johnson & Col. Larry Wilkerson: The Old Middle East Is DEAD | `guest` | `dialogue-works` | [source](../../archive/sources/2026-08-07/source-1-larry-johnson-col-larry-wilkerson-the-old-middle-east-is-dead-2026-08-07.md) |
 | `2026-08-08` | (2) Larry Johnson: Top U.S. General Just Privately Broke With Trump Over Iran | `guest` | `dialogue-works` | [source](../../archive/sources/2026-08-08/source-2-larry-johnson-top-u-s-general-just-privately-broke-with-trump-over-iran-2026-08-08.md) |
 | `2026-08-09` | (2) NETANYAHU REFUSES TRUMP'S DEMANDS TO LEAVE IRAN, LEBANON AND GAZA w/ CIA Larry Johnson | `guest` | `moral-resistance` | [source](../../archive/sources/2026-08-09/source-2-netanyahu-refuses-trump-s-demands-to-leave-iran-lebanon-and-gaza-w-cia-larry-johnson-2026-08-09.md) |
+| `2026-08-10` | (2) Larry Johnson: Trump Flips the Script: U.S. Now Demands BILLIONS in Reparations from Iran | `guest` | `dialogue-works` | [source](../../archive/sources/2026-08-10/source-2-larry-johnson-trump-flips-the-script-u-s-now-demands-billions-in-reparations-from-iran-2026-08-10.md) |
+| `2026-08-11` | (2) Larry Johnson: US 10x Surge in THAAD & PAC-3 Ammo, Yemeni Rockets Hit Saudi Command | `guest` | `dialogue-works` | [source](../../archive/sources/2026-08-11/source-2-larry-johnson-us-10x-surge-in-thaad-pac-3-ammo-yemeni-rockets-hit-saudi-command-2026-08-11.md) |
+| `2026-08-12` | (3) Larry Johnson: Will Trump Declare Victory Against Iran & Walk Away Without a Nuclear Deal? | `guest` | `glenn-diesen` | [source](../../archive/sources/2026-08-12/source-3-larry-johnson-will-trump-declare-victory-against-iran-walk-away-without-a-nuclear-deal-2026-08-12.md) |
 
 ## Judgment Continuity
 

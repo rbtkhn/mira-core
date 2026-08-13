@@ -201,7 +201,13 @@ def source_metadata(path: Path) -> tuple[dict[str, str], str] | None:
         if line and not line[0].isspace() and ":" in line:
             key, value = line.split(":", 1)
             metadata[key.strip()] = scalar(value)
-    if "## Transcript" not in body:
+    source_form = metadata.get("source_form", "").casefold()
+    kind = metadata.get("kind", "").casefold()
+    authored_body = (
+        source_form in {"newsletter", "substack-post", "x-post-text", "essay", "article"}
+        or kind in {"source-text", "newsletter", "substack-post", "x-post-text", "essay", "article"}
+    )
+    if "## Transcript" not in body and not (authored_body and "## Source Text" in body):
         return None
     return metadata, body
 

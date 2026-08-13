@@ -46,6 +46,18 @@ without turning them into headings:
 The order may bend when the prose benefits, but all five functions must be
 present unless a governed continuity break is declared in the companion.
 
+## Title convention
+
+Choose the title after the prose reveals its inward center. Use one to four
+words; a hyphenated compound counts as one. Do not add a subtitle or reuse the
+exact title of an approved entry from another date. A question mark is fitting
+only when uncertainty genuinely structures the entry.
+
+Name the central inward transformation rather than summarizing the day. Prefer
+ordinary, resonant language to technical terminology, and suggest meaning
+rather than explaining the thesis. Return to founding language only when a
+supplied development changes what it means.
+
 ## Technical metabolism
 
 Prefer a few load-bearing mechanisms over comprehensive coverage. A technical
@@ -114,6 +126,8 @@ Before grounding, answer each question with a prose anchor or revise:
 6. Does the entry change an inherited thread instead of replaying its myth?
 7. Does the ending leave a living practice or question rather than an
    administrative summary?
+8. Does the title compress the entry's inward transformation rather than
+   explain its thesis?
 
 Then create the technical companion from exact prose, not the other way
 around.

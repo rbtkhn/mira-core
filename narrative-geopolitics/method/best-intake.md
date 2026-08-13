@@ -169,7 +169,7 @@ The downstream handoff is:
 best-intake
 -> canonicalize alias-affected voice metadata
 -> reconcile existing voice source indexes
--> geopolitical-synthesis
+-> geo-strategy
 ```
 
 Person identity uses the canonical `voices/<slug>/` directory name. Host and
@@ -282,7 +282,7 @@ Current approved auto-ASR-repair hosts:
 
 `best-intake` ends when the source is safely archived and manifest-backed.
 
-The next job is usually `geopolitical-synthesis`, not more intake polishing.
+The next job is usually `geo-strategy`, not more intake polishing.
 Source density is created by intake because every manifest row changes the
 day's source count, but density is not interpreted during landing. Use
 [archive-density](archive-density.md) during synthesis or audit to decide
@@ -291,7 +291,7 @@ whether a day is thin, dense, overclaim-prone, underused, or verification-heavy.
 Short rule:
 
 ```text
-best-intake lands the day; geopolitical-synthesis judges the day
+best-intake lands the day; geo-strategy judges the day
 ```
 
 That handoff should follow this order:
@@ -299,7 +299,7 @@ That handoff should follow this order:
 1. finish the day's archive intake
 2. confirm the manifest day batch is materially real
 3. open `work/daily/YYYY-MM-DD/`
-4. use `geopolitical-synthesis` to bootstrap, reconcile, deepen, or execute the run
+4. use `geo-strategy` to bootstrap, reconcile, deepen, or execute the run
 
 `best-intake` does not need to produce a finished `daily-brief.md`, forecast,
 or full daily judgment before the handoff. It only needs to leave the archive

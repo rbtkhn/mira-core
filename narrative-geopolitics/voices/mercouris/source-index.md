@@ -4,7 +4,7 @@ This index routes the transcript-bearing upstream-parity corpus for `mercouris` 
 
 Source basis: `strategy-codex/statecraft/voices/mercouris/mercouris-index.md`, `strategy-codex/statecraft/channels/alexander-mercouris/alexander-mercouris-channel-index.md`, and subsequent local intake.
 
-Corpus: 382 local route rows across 382 central archive source files.
+Corpus: 386 local route rows across 386 central archive source files.
 
 Status: `transcript-bearing-upstream-parity`
 
@@ -406,6 +406,10 @@ Status: `transcript-bearing-upstream-parity`
 | `2026-08-07` | (1) West Kiev Panic As Patriots Run Out, Russia Hammers Odessa, Dobropiliya Breakthrough; Merz In Crisis | `guest` | `alexander-mercouris` | [source](../../archive/sources/2026-08-07/source-1-west-kiev-panic-as-patriots-run-out-russia-hammers-odessa-dobropiliya-breakthrough-merz-in-crisis-2026-08-07.md) |
 | `2026-08-08` | (2) Russia Wins Air War; Bombs Kiev Army HQs Jams Starlink Starts Rassvet; Kiev Drone Offensive Flopped | `host monologue` | `alexander-mercouris` | [source](../../archive/sources/2026-08-08/source-2-russia-wins-air-war-bombs-kiev-army-hqs-jams-starlink-starts-rassvet-kiev-drone-offensive-flopped-2026-08-08.md) |
 | `2026-08-09` | (2) Russia Makes Biggest Odessa Attack; Rejects Turkey Truce Call; Captures Key Donbas Defences; Orekhov | `host monologue` | `alexander-mercouris` | [source](../../archive/sources/2026-08-09/source-2-russia-makes-biggest-odessa-attack-rejects-turkey-truce-call-captures-key-donbas-defences-orekhov-2026-08-09.md) |
+| `2026-08-10` | (2) Russia Blasts Odessa Energy System Cuts Road Rail Links Sea Assault Coming; Russia Holds 30% Orekhov | `host monologue` | `alexander-mercouris` | [source](../../archive/sources/2026-08-10/source-2-russia-blasts-odessa-energy-system-cuts-road-rail-links-sea-assault-coming-russia-holds-30-orekhov-2026-08-10.md) |
+| `2026-08-10` | (2) Russia Hits Odessa As Black Sea Standoff Risks Wider War | `guest` | `the-duran` | [source](../../archive/sources/2026-08-10/source-2-russia-hits-odessa-as-black-sea-standoff-risks-wider-war-2026-08-10.md) |
+| `2026-08-11` | (2) Russian Missile Output Surge Kiev Struck Russia Outflanks Donbass Cities; West Without Plan; Orekhov | `host monologue` | `alexander-mercouris` | [source](../../archive/sources/2026-08-11/source-2-russian-missile-output-surge-kiev-struck-russia-outflanks-donbass-cities-west-without-plan-orekhov-2026-08-11.md) |
+| `2026-08-12` | (3) Putin Orders Retaliatory Seizures By Russian Navy Of EU Ships; Orekhov Crisis Kiev Brigade Trapped | `host monologue` | `alexander-mercouris` | [source](../../archive/sources/2026-08-12/source-3-putin-orders-retaliatory-seizures-by-russian-navy-of-eu-ships-orekhov-crisis-kiev-brigade-trapped-2026-08-12.md) |
 
 ## Judgment Continuity
 

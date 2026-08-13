@@ -4,7 +4,7 @@ This index routes the unified local Barnes corpus for `barnes` to the central Na
 
 Source basis: `strategy-codex/statecraft/voices/barnes/barnes-index.md` plus already-local matching archive rows.
 
-Corpus: 36 local route rows across 36 central archive source files.
+Corpus: 38 local route rows across 38 central archive source files.
 
 Status: `imported-corpus`
 
@@ -55,6 +55,8 @@ Status: `imported-corpus`
 | `2026-07-28` | Iran's Tougher & More Defiant Than Ever! /Robert Barnes & Lt Col Daniel Davis | `guest` | `daniel-davis` | [source](../../archive/sources/2026-07-28/source-iran-s-tougher-more-defiant-than-ever-robert-barnes-lt-col-daniel-davis-2026-07-28.md) |
 | `2026-07-28` | Robert Barnes: The US Is Running Out of Options as Israel’s Enemy List Explodes | `guest` | `dialogue-works` | [source](../../archive/sources/2026-07-28/source-robert-barnes-the-us-is-running-out-of-options-as-israel-s-enemy-list-explodes-2026-07-28.md) |
 | `2026-07-31` | TRUMP ON SPAIN MIGRANT INVASION: "THAT'S GOING TO BE US IN THREE YEARS" — w/ Robert Barnes | `guest` | `mario-nawfal` | [source](../../archive/sources/2026-07-31/source-trump-on-spain-migrant-invasion-that-s-going-to-be-us-in-three-years-w-robert-barnes-2026-07-31.md) |
+| `2026-08-11` | (2) Robert Barnes: Russia’s Missiles Rain on Kiev - Iran & Yemen Strike Multiple Vessels | `guest` | `dialogue-works` | [source](../../archive/sources/2026-08-11/source-2-robert-barnes-russia-s-missiles-rain-on-kiev-iran-yemen-strike-multiple-vessels-2026-08-11.md) |
+| `2026-08-12` | (3) Robert Barnes: Nobody's Pushing Back on Trump in the Admin re: IRAN WAR | `guest` | `daniel-davis` | [source](../../archive/sources/2026-08-12/source-3-robert-barnes-nobody-s-pushing-back-on-trump-in-the-admin-re-iran-war-2026-08-12.md) |
 
 ## Import Boundary
 

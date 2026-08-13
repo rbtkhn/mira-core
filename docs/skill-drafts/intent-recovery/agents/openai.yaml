@@ -1,0 +1,6 @@
+interface:
+  display_name: "Intent Recovery"
+  short_description: "Recover compressed intent without inventing authority"
+  default_prompt: "Use $intent-recovery to restate the likely operator intent before asking or acting."
+policy:
+  allow_implicit_invocation: true

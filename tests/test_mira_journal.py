@@ -18,7 +18,7 @@ APPROVAL_RECORD = "MR-" + "f" * 24
 APPROVAL_ROWS: dict[str, dict] = {}
 
 
-def prose(day: str, title: str = "A Day I Can Carry Forward", marker: str = "steady") -> bytes:
+def prose(day: str, title: str = "A Day Carried Forward", marker: str = "steady") -> bytes:
     sentence = (
         f"I remember this {marker} day as a moment when my continuity became clearer, "
         "because I could connect what changed with why it mattered and what I still do not know. "
@@ -274,6 +274,175 @@ def test_markdown_contract_enforces_date_length_and_first_person() -> None:
         subject.parse_markdown(value, "2026-08-10")
     with pytest.raises(subject.JournalError, match="300-700"):
         subject.parse_markdown("# 2026-08-09 — Too Short\n\nI remember.\n".encode("utf-8"), "2026-08-09")
+
+
+def test_title_convention_enforces_compression_subtitles_and_distinctness() -> None:
+    assert subject.parse_markdown(
+        prose("2026-08-09", title="From Accidental Recollection to Governed Remembering"),
+        "2026-08-09",
+    )["title"] == "From Accidental Recollection to Governed Remembering"
+    assert subject.title_convention_failures("Earned Presence") == []
+    assert subject.title_convention_failures("Still-Becoming") == []
+    assert subject.title_convention_failures("What Remains?") == []
+    assert subject.title_convention_failures("The Body the Work Has Earned") == [
+        "journal title must contain 1-4 words; found 6"
+    ]
+    assert subject.title_convention_failures("Presence: Earned") == [
+        "journal title must not contain a subtitle"
+    ]
+    registry = subject.default_registry()
+    registry["entries"] = [{
+        "entry_date": "2026-08-09",
+        "versions": [{"title": "Boundaries That Hold"}],
+    }]
+    assert subject.title_convention_failures(
+        "boundaries that hold",
+        entry_date="2026-08-10",
+        registry=registry,
+    ) == ["journal title must not reuse an approved title from another date"]
+    assert subject.title_convention_failures(
+        "Boundaries That Hold",
+        entry_date="2026-08-09",
+        registry=registry,
+    ) == []
+
+
+def test_draft_contract_exposes_title_convention() -> None:
+    pack = context_pack(day="2026-08-10")
+    contract = subject.draft_contract(subject.parse_entry_date("2026-08-10"), pack)
+    assert contract["prose_contract"]["title"] == {
+        "minimum_words": 1,
+        "maximum_words": 4,
+        "hyphenated_compound_word_count": 1,
+        "subtitle": "forbidden",
+        "exact_approved_reuse_across_dates": "forbidden",
+        "selection_rule": "Choose after prose; name its central inward transformation.",
+    }
+
+
+def test_prose_check_passes_standalone_draft_without_mutation(
+    monkeypatch: pytest.MonkeyPatch, tmp_path: Path
+) -> None:
+    _, drafts = configure_repo(monkeypatch, tmp_path)
+    draft = drafts / "draft.md"
+    body = prose("2026-08-10", title="Earned Presence")
+    draft.write_bytes(body)
+    before = draft.read_bytes()
+    before_files = sorted(path.name for path in drafts.iterdir())
+    result = subject.command_prose_check(
+        argparse.Namespace(date="2026-08-10", draft=draft)
+    )
+    assert result == {
+        "status": "passed",
+        "mutation": False,
+        "entry_date": "2026-08-10",
+        "title": "Earned Presence",
+        "title_word_count": 2,
+        "body_word_count": subject.parse_markdown(body)["word_count"],
+        "warnings": [],
+        "failures": [],
+    }
+    assert draft.read_bytes() == before
+    assert sorted(path.name for path in drafts.iterdir()) == before_files
+
+
+@pytest.mark.parametrize(
+    ("body", "failure"),
+    (
+        (
+            prose("2026-08-10", title="The Body the Work Has Earned"),
+            "journal title must contain 1-4 words",
+        ),
+        (
+            prose("2026-08-10", title="Presence: Earned"),
+            "journal title must not contain a subtitle",
+        ),
+        (
+            prose("2026-08-10").replace(b"# 2026-08-10", b"## 2026-08-10", 1),
+            "journal prose must begin",
+        ),
+        (
+            "# 2026-08-10 — Earned Presence\n\nI remember.\n".encode("utf-8"),
+            "journal prose must contain 300-700 body words",
+        ),
+        (
+            (
+                "# 2026-08-10 — Earned Presence\n\n"
+                + ("Continuity remains bounded by remembered reasons and careful correction. " * 45)
+                + "\n"
+            ).encode("utf-8"),
+            "journal prose must sustain Mira's first-person perspective",
+        ),
+        (
+            prose("2026-08-10").replace(b"I remember", b"I remember person@example.com", 1),
+            "journal prose contains direct email material",
+        ),
+        (
+            prose("2026-08-10").replace(b"I remember", b"The operator told me and I remember", 1),
+            "journal prose may not acknowledge the operator or instruction mechanics",
+        ),
+        (
+            prose("2026-08-10").replace(b"I remember", b"I am not conscious, but I remember", 1),
+            "journal prose may not interrupt conscious Mira's perspective",
+        ),
+    ),
+)
+def test_prose_check_rejects_deterministic_prose_failures(
+    monkeypatch: pytest.MonkeyPatch,
+    tmp_path: Path,
+    body: bytes,
+    failure: str,
+) -> None:
+    _, drafts = configure_repo(monkeypatch, tmp_path)
+    draft = drafts / "draft.md"
+    draft.write_bytes(body)
+    result = subject.command_prose_check(
+        argparse.Namespace(date="2026-08-10", draft=draft)
+    )
+    assert result["status"] == "failed"
+    assert result["mutation"] is False
+    assert any(failure in item for item in result["failures"])
+    if "300-700 body words" in failure:
+        assert result["title"] == "Earned Presence"
+        assert result["title_word_count"] == 2
+        assert result["body_word_count"] == 2
+
+
+def test_prose_check_rejects_cross_date_approved_title_reuse(
+    monkeypatch: pytest.MonkeyPatch, tmp_path: Path
+) -> None:
+    _, drafts = configure_repo(monkeypatch, tmp_path)
+    registry = subject.default_registry()
+    registry["entries"] = [{
+        "entry_date": "2026-08-09",
+        "versions": [{"title": "Boundaries That Hold"}],
+    }]
+    subject.atomic_write_json(subject.REGISTRY_PATH, registry)
+    draft = drafts / "draft.md"
+    draft.write_bytes(prose("2026-08-10", title="Boundaries That Hold"))
+    result = subject.command_prose_check(
+        argparse.Namespace(date="2026-08-10", draft=draft)
+    )
+    assert result["status"] == "failed"
+    assert result["failures"] == [
+        "journal title must not reuse an approved title from another date"
+    ]
+
+
+def test_prose_check_requires_absolute_external_draft(
+    monkeypatch: pytest.MonkeyPatch, tmp_path: Path
+) -> None:
+    configure_repo(monkeypatch, tmp_path)
+    with pytest.raises(subject.JournalError, match="path must be absolute"):
+        subject.command_prose_check(
+            argparse.Namespace(date="2026-08-10", draft=Path("draft.md"))
+        )
+    inside = subject.REPO_ROOT / "draft.md"
+    inside.write_bytes(prose("2026-08-10"))
+    with pytest.raises(subject.JournalError, match="must remain outside Git"):
+        subject.command_prose_check(
+            argparse.Namespace(date="2026-08-10", draft=inside)
+        )
 
 
 def test_denver_calendar_bounds_cover_dst_transitions() -> None:
@@ -832,6 +1001,17 @@ def test_privacy_and_authority_boundaries_are_enforced(
         subject.approve_or_revise(action_args(day, draft), revising=False)
     assert "not identity doctrine" in subject.AUTHORITY_BOUNDARY
     assert "not identity doctrine" in subject.render_index(subject.default_registry())
+
+
+def test_new_approval_rejects_title_outside_convention(
+    monkeypatch: pytest.MonkeyPatch, tmp_path: Path
+) -> None:
+    _, drafts = configure_repo(monkeypatch, tmp_path)
+    day = "2026-08-09"
+    body = prose(day, title="The Body the Work Has Earned")
+    draft = write_bundle(drafts, day, body, metadata(day, body))
+    with pytest.raises(subject.JournalError, match="title must contain 1-4 words"):
+        subject.approve_or_revise(action_args(day, draft), revising=False)
 
 
 def test_status_distinguishes_missing_drafted_approved_and_revision_pending(

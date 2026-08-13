@@ -1,0 +1,19 @@
+{
+  "aliases": [],
+  "as_of": "2026-07-07",
+  "claim_type": "forecast",
+  "claimant_refs": [],
+  "consequence": "high",
+  "created_at": "2026-07-07T00:00:00Z",
+  "created_by": "operator",
+  "crisis_object": "Lebanon-Hormuz bargaining linkage",
+  "empirical_eligibility": true,
+  "id": "NG-20260707-F01",
+  "kind": "claim",
+  "revision_of": null,
+  "schema_version": 1,
+  "scope": "bounded claim",
+  "source_refs": [],
+  "status": "open",
+  "text": "Within 21 days, at least one major Iran-facing public line will continue to present Lebanon and Hormuz as linked bargaining gates, rather than allowing the file to collapse back into a narrow nuclear-only frame."
+}

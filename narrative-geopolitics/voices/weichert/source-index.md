@@ -4,7 +4,7 @@ This index routes the unified local Weichert corpus for `weichert` to the centra
 
 Source basis: `strategy-codex/statecraft/voices/weichert/weichert-index.md`.
 
-Corpus: 28 local route rows across 28 central archive source files.
+Corpus: 29 local route rows across 29 central archive source files.
 
 Status: `imported-corpus`
 
@@ -47,6 +47,7 @@ Status: `imported-corpus`
 | `2026-08-01` | BREAKING: U.S. ISSUES SECURITY ALERT, TRUMP PLANS TO HAMMER IRAN HARD THIS WEEKEND! | `guest` | `mario-nawfal` | [source](../../archive/sources/2026-08-01/source-breaking-u-s-issues-security-alert-trump-plans-to-hammer-iran-hard-this-weekend-2026-08-01.md) |
 | `2026-08-02` | TRUMP: IRAN BEGGED HIM NOT TO STRIKE AS THEY ARE READY FOR DEAL | `guest` | `mario-nawfal` | [source](../../archive/sources/2026-08-02/source-trump-iran-begged-him-not-to-strike-as-they-are-ready-for-deal-2026-08-02.md) |
 | `2026-08-08` | (2) IRAN BOARDS SHIP IN HORMUZ, TRUMP'S TOP GENERAL CALLS FOR END OF IRAN WAR | `guest` | `mario-nawfal` | [source](../../archive/sources/2026-08-08/source-2-iran-boards-ship-in-hormuz-trump-s-top-general-calls-for-end-of-iran-war-2026-08-08.md) |
+| `2026-08-10` | (2) TRUMP DEMANDS REPARATIONS FROM IRAN | `guest` | `mario-nawfal` | [source](../../archive/sources/2026-08-10/source-2-trump-demands-reparations-from-iran-2026-08-10.md) |
 
 ## Import Boundary
 

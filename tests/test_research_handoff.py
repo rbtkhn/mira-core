@@ -169,7 +169,8 @@ def test_reality_check_requires_an_existing_canonical_claim(tmp_path: Path) -> N
     [
         ("world-monitor", "world_monitor_objective must be current-signal-discovery or coverage-gap"),
         ("intake", "intake requires a supplied source body"),
-        ("geopolitical-synthesis", "geopolitical synthesis requires a manifest-backed archive day"),
+        ("geo-strategy", "geo-strategy requires a manifest-backed archive day"),
+        ("geopolitical-synthesis", "geo-strategy requires a manifest-backed archive day"),
     ],
 )
 def test_repository_destinations_fail_closed(workflow: str, invalid_reason: str) -> None:

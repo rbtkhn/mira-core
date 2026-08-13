@@ -78,7 +78,7 @@ def test_research_brief_preserves_evidence_and_workflow_boundaries() -> None:
         "morning-brief",
         "reality-check",
         "intake",
-        "geopolitical-synthesis",
+        "geo-strategy",
         "6e5545081c888b89576a620d9b2e54e9a6590f68",
     ):
         assert required in value

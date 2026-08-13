@@ -33,7 +33,7 @@ publish a daily brief.
    voice-index routing.
 9. Mark unresolved metadata provisional instead of stalling on enrichment.
 10. Stop when the archive batch is grounded; hand judgment to
-    `geopolitical-synthesis`.
+    `geo-strategy`.
 
 ## Voice and host attribution
 
@@ -66,6 +66,14 @@ Use explicit `--pub-date`, `--ingest-date`, `--voice-slug`, `--host-slug`, and
 `--source-form` overrides when inference is ambiguous. The implementation
 engine remains `scripts/land_best_intake.py`; its name is internal
 compatibility state, not the public skill name.
+
+After landing, inspect the bounded diff for generated voice-index side
+effects, not just the newly routed voice. If the helper refreshed adjacent
+voice shelves, verify that pre-existing role labels such as
+`host-pressure test`, `cross-host pressure test`, `stream-sequence spine`,
+`host monologue`, `author`, and `panelist` were not normalized to `guest`.
+Restore unintended role-label drift while preserving the newly landed source,
+manifest row, corpus count updates, and intended route additions.
 
 ## Boundaries
 

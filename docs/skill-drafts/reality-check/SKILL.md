@@ -93,6 +93,18 @@ carry assessment authority. Expand it only after the operator selects it and
 Research Brief confirms the commissioning details. Do not emit seeds for
 governance-only gaps or date-based lexical candidates.
 
+For a bounded set of exact claims, use one batch handoff instead of repeating
+single-claim startup and validation:
+
+```powershell
+.\tools\run.ps1 reality-handoff --claims NG-YYYYMMDD-FNN NG-YYYYMMDD-FNN --investigate --json
+```
+
+The batch result separates resolved claims from blocked identifiers, preserves
+one investigation plan per resolved claim, and does not fall back to lexical
+matching or mutate lattice state. Use the batch path whenever the operator has
+already supplied a bounded claim set.
+
 ## Gated automatic investigation
 
 Selecting `Investigate` invokes the standing-authority web connector:

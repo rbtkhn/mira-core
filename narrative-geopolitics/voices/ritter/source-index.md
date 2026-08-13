@@ -4,7 +4,7 @@ This index routes the imported Ritter corpus for `ritter` to the central Narrati
 
 Source basis: `strategy-codex/statecraft/voices/ritter/ritter-index.md`.
 
-Corpus: 122 local route rows across 122 central archive source files.
+Corpus: 124 local route rows across 124 central archive source files.
 
 Status: `imported-corpus`
 
@@ -139,8 +139,10 @@ Status: `imported-corpus`
 | `2026-07-28` | Scott Ritter : Russia’s Ukraine Strategy | `guest` | `judging-freedom` | [source](../../archive/sources/2026-07-28/source-scott-ritter-russia-s-ukraine-strategy-2026-07-28.md) |
 | `2026-07-29` | Scott Ritter: Iran Strikes U.S. Airbase & Command Center in Jordan with Ballistic Missiles | `guest` | `dialogue-works` | [source](../../archive/sources/2026-07-29/source-scott-ritter-iran-strikes-u-s-airbase-command-center-in-jordan-with-ballistic-missiles-2026-07-29.md) |
 | `2026-08-02` | 🚨 LIVE: Scott Ritter - Iran and Russia Wars Now Entering Most Dangerous Phase | `guest` | `cyrus-janssen` | [source](../../archive/sources/2026-08-02/source-live-scott-ritter-iran-and-russia-wars-now-entering-most-dangerous-phase-2026-08-02.md) |
-| `2026-08-03` | Scott Ritter : LIVE @2PM - Russia Winning Decisively | `host-pressure test` | `judging-freedom` | [source](../../archive/sources/2026-08-03/source-scott-ritter-live-2pm-russia-winning-decisively-2026-08-03.md) |
-| `2026-08-05` | (1) Scott Ritter: Yemen Strike Saudi Oil Tanker "Wafa" – U.S. Munitions Depleted, Trump Cornered | `host-pressure test` | `dialogue-works` | [source](../../archive/sources/2026-08-05/source-1-scott-ritter-yemen-strike-saudi-oil-tanker-wafa-u-s-munitions-depleted-trump-cornered-2026-08-05.md) |
+| `2026-08-03` | Scott Ritter : LIVE @2PM - Russia Winning Decisively | `guest` | `judging-freedom` | [source](../../archive/sources/2026-08-03/source-scott-ritter-live-2pm-russia-winning-decisively-2026-08-03.md) |
+| `2026-08-05` | (1) Scott Ritter: Yemen Strike Saudi Oil Tanker "Wafa" – U.S. Munitions Depleted, Trump Cornered | `guest` | `dialogue-works` | [source](../../archive/sources/2026-08-05/source-1-scott-ritter-yemen-strike-saudi-oil-tanker-wafa-u-s-munitions-depleted-trump-cornered-2026-08-05.md) |
+| `2026-08-11` | (2) Scott Ritter : US is Out of Ammo and Oil | `guest` | `judging-freedom` | [source](../../archive/sources/2026-08-11/source-2-scott-ritter-us-is-out-of-ammo-and-oil-2026-08-11.md) |
+| `2026-08-12` | (3) Scott Ritter: Russia Ukraine MENTAL WARFARE, Societal Pressures Rising | `guest` | `daniel-davis` | [source](../../archive/sources/2026-08-12/source-3-scott-ritter-russia-ukraine-mental-warfare-societal-pressures-rising-2026-08-12.md) |
 
 ## Import Boundary
 

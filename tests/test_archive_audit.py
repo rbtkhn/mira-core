@@ -43,6 +43,24 @@ def source_text(
     )
 
 
+def authored_source_text(*, pub_date: str, url: str) -> str:
+    return (
+        "---\n"
+        f"pub_date: {pub_date}\n"
+        "kind: source-text\n"
+        "source_form: substack-post\n"
+        f"source_url: \"{url}\"\n"
+        "routing_state: confirmed\n"
+        "section_count: 0\n"
+        "transcript_curation: preserved_unsectioned\n"
+        "asr_repair_applied: false\n"
+        "---\n"
+        "# Source\n\n"
+        "## Source Text\n\n"
+        "Body.\n"
+    )
+
+
 def archive_fixture(tmp_path: Path) -> tuple[Path, Path, Path, list[dict]]:
     repo = tmp_path / "repo"
     sources = repo / "narrative-geopolitics" / "archive" / "sources"
@@ -174,6 +192,44 @@ def test_structural_and_repair_findings_are_classified(tmp_path: Path) -> None:
     assert "landing-time provisional" in provisional["detail"]
     assert "not by itself an unresolved routing defect" in provisional["detail"]
     assert payload["disposition"] == "fail"
+
+
+def test_authored_source_text_marker_is_valid_body(tmp_path: Path) -> None:
+    repo, sources, manifest_path, rows = archive_fixture(tmp_path)
+    run_date = "2026-01-25"
+    day = sources / run_date
+    day.mkdir(parents=True, exist_ok=True)
+    path = day / "source-authored.md"
+    relative = path.relative_to(repo).as_posix()
+    url = "https://example.substack.com/p/source"
+    path.write_text(authored_source_text(pub_date=run_date, url=url), encoding="utf-8", newline="\n")
+    rows.append(
+        {
+            "date": run_date,
+            "title": "authored",
+            "local_path": relative,
+            "source_url": url,
+            "voice_slugs": ["voice-a"],
+            "host_slug": "upstream-unresolved",
+        }
+    )
+    manifest_path.write_text(
+        json.dumps({"source_count": len(rows), "sources": rows}),
+        encoding="utf-8",
+        newline="\n",
+    )
+
+    payload = archive_audit.build_audit(
+        archive_audit.parse_args(["--month", "2026-01"]),
+        repo_root=repo,
+        sources_root=sources,
+        manifest_path=manifest_path,
+    )
+
+    authored_findings = [
+        item for item in payload["findings"] if item["path"] == relative
+    ]
+    assert "source.malformed" not in {item["rule_id"] for item in authored_findings}
 
 
 def test_duran_mercouris_provisional_blank_host_metadata_is_flagged(tmp_path: Path) -> None:

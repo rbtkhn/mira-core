@@ -163,7 +163,7 @@ Use two passes:
 - expand voice continuity when warranted
 - open channel shelves only for synthesis-relevant items
 - create the daily run after the archive batch is complete
-- hand off to `geopolitical-synthesis` for guided bootstrap, reconciliation, or execution
+- hand off to `geo-strategy` for guided bootstrap, reconciliation, or execution
 
 Sectioning is no longer purely deferred enrichment. For approved hosts it now
 belongs to landing when the transcript has strong structural cues; otherwise the

@@ -63,6 +63,14 @@ def test_contract_preserves_ordered_voice_controls() -> None:
     ):
         assert required in skill
 
+    normalized = " ".join(skill.split())
+    for required in (
+        "express ambition and preference directly",
+        "need, entitlement, ownership, destiny",
+        "factual, interpretive, expressive, relational, or authority-related",
+    ):
+        assert required in normalized
+
 
 def test_fixture_inventory_is_complete_and_auditable() -> None:
     fixtures = (SKILL_ROOT / "references" / "validation-fixtures.md").read_text(

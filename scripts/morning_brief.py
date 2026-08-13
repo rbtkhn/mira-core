@@ -1157,12 +1157,13 @@ def render_markdown(payload: dict[str, Any], receipt_hash: str) -> bytes:
         "",
         "Status: `experimental-internal-morning-update`",
         "",
-        "## Observation Contract",
+        "## Frame",
         "",
-        f"As of `{payload['as_of_utc']}` (`{local_as_of}`) · window "
+        f"Read this as a selective five-minute internal update, frozen at "
+        f"`{payload['as_of_utc']}` (`{local_as_of}`). The observation window runs "
         f"`{payload['window']['start_utc']}` to `{payload['window']['end_utc']}` · "
-        f"coverage `selective-global` · receipt `{receipt_hash}` · baseline "
-        f"`{judgment_count}` valid judgment(s) and `{forecast_count}` accountable open forecast(s).",
+        f"coverage `selective-global`; receipt `{receipt_hash}`; baseline "
+        f"`{judgment_count}` valid judgment(s), `{forecast_count}` accountable open forecast(s).",
         "",
         "## Morning Judgment",
         "",
@@ -1192,13 +1193,13 @@ def render_markdown(payload: dict[str, Any], receipt_hash: str) -> bytes:
                     "",
                     markdown_text(row["observation"]),
                     "",
-                    f"**Why it matters:** {markdown_text(row['materiality'])}",
+                    f"**Material pressure:** {markdown_text(row['materiality'])}",
                     "",
-                    f"**Model impact — `{row['impact']}`:** {markdown_text(row['interpretation'])}",
+                    f"**What it does to the model — `{row['impact']}`:** {markdown_text(row['interpretation'])}",
                     "",
-                    f"**Confidence boundary:** {markdown_text(row['confidence_boundary'])}",
+                    f"**Boundary:** {markdown_text(row['confidence_boundary'])}",
                     "",
-                    f"**Primary source:** [{markdown_text(upstream['provider'])}](<{upstream['url']}>) "
+                    f"**Source:** [{markdown_text(upstream['provider'])}](<{upstream['url']}>) "
                     f"(`{upstream['source_type']}`).",
                 ]
             )
@@ -1218,9 +1219,9 @@ def render_markdown(payload: dict[str, Any], receipt_hash: str) -> bytes:
                 "",
                 f"**Consequential potential:** {markdown_text(row['materiality'])}",
                 "",
-                f"**Confidence boundary:** {markdown_text(row['confidence_boundary'])}",
+                f"**Boundary:** {markdown_text(row['confidence_boundary'])}",
                 "",
-                f"**Primary source:** [{markdown_text(upstream['provider'])}](<{upstream['url']}>) "
+                f"**Source:** [{markdown_text(upstream['provider'])}](<{upstream['url']}>) "
                 f"(`{upstream['source_type']}`).",
             ]
         )
@@ -1357,9 +1358,9 @@ def render_markdown(payload: dict[str, Any], receipt_hash: str) -> bytes:
             "",
             "## Evidence Boundary",
             "",
-            "This is a provisional internal update from a frozen research receipt. Discovery surfaces are leads, not evidence; included observations link to recovered upstream sources. Model-impact labels do not revise canonical judgment.",
+            "This is a provisional internal update from a frozen research receipt. Discovery surfaces are leads, not evidence; included observations link to recovered upstream sources. Model-impact labels are pressure readings, not revisions to canonical judgment.",
             "",
-            "This brief does not admit archive evidence, alter synthesis or judgment, register or resolve forecasts, create verification packets, authorize publication, or establish operational truth.",
+            "It does not admit archive evidence, alter synthesis or judgment, register or resolve forecasts, create verification packets, authorize publication, or establish operational truth.",
             "",
         ]
     )

@@ -57,6 +57,22 @@ the stop path may occupy the `recommended` role; include a separate
 `pause-or-deepen` option only when it changes the commitment or depth rather
 than duplicating that recommendation.
 
+## Permanent-artifact handoff
+
+For every substantial document, state exactly one persistence status:
+
+- saved and verified, with a clickable path and privacy/status label;
+- not saved, with one bounded save option and proposed permanent path; or
+- intentionally conversational, with an explicit statement that no durable
+  artifact was promised.
+
+Before offering or executing a save, identify whether the destination is a
+repository or private store, whether saving crosses a privacy or authority
+boundary, and whether the action is limited to the exact path and content
+named. Working-tree presence is distinct from repository admission, staging,
+commit, push, and publication. A selected save option carries only its exact
+bounded save scope when the action-ready contract is satisfied.
+
 ## End open branches with possibilities
 
 End with three or four concise, meaningfully distinct possibilities:

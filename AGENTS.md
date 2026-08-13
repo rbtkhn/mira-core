@@ -31,6 +31,45 @@ repeat the same availability probe unless its path, environment, credentials,
 permissions, or other external state changes, or the operator explicitly asks
 for a retry.
 
+## Repository Identity and Mutation Safety
+
+Resolve and state the absolute Git repository root before inspecting or
+modifying a repository other than the current workspace. Treat an external
+repository as read-only unless the operator explicitly authorizes one bounded
+mutation against an exact path. Before any write or deletion, re-check the
+target repository's Git status and exact target path. If the active workspace
+and inspected repository differ and the requested target is ambiguous, stop
+and ask rather than infer the destination.
+
+When work touches another repository, include a concise scope line stating the
+repository root, read/write status, and whether any mutation occurred. If an
+accidental cross-repository write occurs, contain it immediately, verify the
+exact affected path and remaining status, disclose the incident, and do not
+repair unrelated state without explicit authorization.
+
+## Consequence-Based Prioritization
+
+For executive briefs, project reviews, and commercial recommendations, rank
+candidate work by organizational consequence first, then urgency, dependency,
+evidence quality, reversibility, and human authority. Distinguish a
+technically closable loop from an organizationally important one. When they
+compete, compare the consequence explicitly; do not defer a consequential path
+merely because an external action is blocked. Convert it into the narrowest
+available internal decision or review, while giving technically bounded work
+an explicit disposition.
+
+Use this compact decision frame when priority is contested:
+
+```text
+Priority:
+Organizational consequence:
+Current dependency:
+Narrowest decision available now:
+Why delay is justified:
+Owner now:
+Owner later:
+```
+
 When the operator says `coffee`, read
 `docs/skill-drafts/coffee/SKILL.md` completely and follow it.
 
@@ -129,6 +168,14 @@ review a Mira Journal entry, read `docs/skill-drafts/mira-journal/SKILL.md`
 completely and follow it. This whole-workflow route composes through the
 repository-local skill while `tools/run.ps1 mira-journal` retains deterministic
 validation and governance authority.
+
+When the operator says `mira-work` or asks Mira to conduct bounded,
+consequential, multi-step work across domains, read
+`docs/skill-drafts/mira-work/SKILL.md` completely and follow it. This is a
+repository-local operating-mode contract: it composes with Mira Voice, domain
+workflows, and Learn From Choices, but does not replace them or create standing
+authority. Do not activate it for ordinary factual answers or simple one-step
+edits.
 
 At the start of every workspace session, after loading `AGENTS.md` and before
 producing any user-facing response, read
