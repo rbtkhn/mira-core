@@ -16,8 +16,9 @@ from typing import Any, Iterable
 
 
 PROVENANCE_STATUSES = {"observed", "supplied", "inferred", "generated", "confirmed"}
-REVIEW_STATUSES = {"review_required", "reviewed", "rejected"}
+REVIEW_STATUSES = {"review_required", "reviewed", "rejected", "contradicted"}
 PRIVACY_CLASSES = {"private", "project", "shareable"}
+LINEAGE_TYPES = {"supersedes", "corrected-by", "confirmed-by", "contradicted-by"}
 
 
 class ProvenanceError(ValueError):
@@ -91,6 +92,22 @@ class ProvenanceStore:
                 query TEXT NOT NULL,
                 reason TEXT NOT NULL,
                 selected_at TEXT NOT NULL
+            );
+            CREATE TABLE IF NOT EXISTS lineage (
+                id TEXT PRIMARY KEY,
+                from_record_id TEXT NOT NULL REFERENCES records(id),
+                to_record_id TEXT NOT NULL REFERENCES records(id),
+                relation TEXT NOT NULL,
+                reference TEXT,
+                created_at TEXT NOT NULL
+            );
+            CREATE TABLE IF NOT EXISTS review_events (
+                id TEXT PRIMARY KEY,
+                record_id TEXT NOT NULL REFERENCES records(id),
+                reviewer TEXT NOT NULL,
+                status TEXT NOT NULL,
+                note TEXT NOT NULL,
+                created_at TEXT NOT NULL
             );
             CREATE TABLE IF NOT EXISTS measurements (
                 id TEXT PRIMARY KEY,
@@ -187,13 +204,95 @@ class ProvenanceStore:
         self.connection.commit()
         return record
 
-    def review(self, record_id: str, status: str) -> None:
+    def review(self, record_id: str, status: str, *, reviewer: str = "human-review", note: str = "") -> None:
         if status not in REVIEW_STATUSES:
             raise ProvenanceError(f"invalid review_status: {status}")
+        if not reviewer.strip():
+            raise ProvenanceError("reviewer is required")
         cursor = self.connection.execute("UPDATE records SET review_status = ? WHERE id = ?", (status, record_id))
         if cursor.rowcount == 0:
             raise ProvenanceError(f"record not found: {record_id}")
+        self.connection.execute(
+            "INSERT INTO review_events VALUES (?, ?, ?, ?, ?, ?)",
+            (str(uuid.uuid4()), record_id, reviewer, status, note, utc_now()),
+        )
         self.connection.commit()
+
+    def link(
+        self,
+        from_record_id: str,
+        to_record_id: str,
+        relation: str,
+        *,
+        reference: str | None = None,
+    ) -> None:
+        if relation not in LINEAGE_TYPES:
+            raise ProvenanceError(f"invalid lineage relation: {relation}")
+        if from_record_id == to_record_id:
+            raise ProvenanceError("a record cannot link to itself")
+        count = self.connection.execute(
+            "SELECT COUNT(*) FROM records WHERE id IN (?, ?)", (from_record_id, to_record_id)
+        ).fetchone()[0]
+        if count != 2:
+            raise ProvenanceError("both lineage records must exist")
+        self.connection.execute(
+            "INSERT INTO lineage VALUES (?, ?, ?, ?, ?, ?)",
+            (str(uuid.uuid4()), from_record_id, to_record_id, relation, reference, utc_now()),
+        )
+        self.connection.commit()
+
+    def lineage(self, record_id: str) -> list[dict[str, Any]]:
+        rows = self.connection.execute(
+            """SELECT * FROM lineage WHERE from_record_id = ? OR to_record_id = ?
+               ORDER BY created_at""", (record_id, record_id)
+        ).fetchall()
+        return [dict(row) for row in rows]
+
+    def review_queue(self, *, project: str | None = None, lane: str | None = None) -> list[dict[str, Any]]:
+        clauses = ["(review_status IN ('review_required', 'rejected', 'contradicted') OR source_ref = '')"]
+        params: list[str] = []
+        if project is not None:
+            clauses.append("project = ?")
+            params.append(project)
+        if lane is not None:
+            clauses.append("lane = ?")
+            params.append(lane)
+        rows = self.connection.execute(
+            f"SELECT * FROM records WHERE {' AND '.join(clauses)} ORDER BY created_at DESC", params
+        ).fetchall()
+        return [dict(row) for row in rows]
+
+    def recall_report(
+        self,
+        *,
+        query: str,
+        project: str,
+        lane: str,
+        include_excluded: bool = False,
+        **kwargs: Any,
+    ) -> dict[str, Any]:
+        results = self.recall(query=query, project=project, lane=lane, **kwargs)
+        report: dict[str, Any] = {
+            "scope": {"project": project, "lane": lane},
+            "query": query,
+            "selected": results,
+            "exclusions": [],
+        }
+        if include_excluded:
+            candidates = self.connection.execute(
+                "SELECT * FROM records WHERE project = ? AND lane = ? AND content LIKE ?",
+                (project, lane, f"%{query}%"),
+            ).fetchall()
+            selected_ids = {item["id"] for item in results}
+            for row in candidates:
+                if row["id"] not in selected_ids:
+                    reasons = []
+                    if row["review_status"] != "reviewed":
+                        reasons.append(f"review_status={row['review_status']}")
+                    if row["freshness_until"] and row["freshness_until"] < utc_now():
+                        reasons.append("stale")
+                    report["exclusions"].append({"id": row["id"], "reasons": reasons or ["limit"]})
+        return report
 
     def recall(
         self,
@@ -277,4 +376,67 @@ def summarize_measurements(rows: Iterable[dict[str, Any]]) -> dict[str, float | 
         "preparation_minutes": sum(float(r["preparation_minutes"]) for r in data) / len(data),
         "reconstruction_minutes": sum(float(r["reconstruction_minutes"]) for r in data) / len(data),
         "confidence": sum(float(r["confidence"]) for r in data) / len(data),
+    }
+
+
+def record_source_packet(store: ProvenanceStore, *, content: str, source_ref: str, source_date: str,
+                         project: str, lane: str, confidence: float = 1.0,
+                         privacy_class: str = "private", freshness_until: str | None = None) -> MemoryRecord:
+    """Explicit adapter for a supplied, privacy-reviewed source packet."""
+    return store.write_record(content=content, source_ref=source_ref, source_date=source_date,
+                              project=project, lane=lane, provenance_status="supplied",
+                              confidence=confidence, privacy_class=privacy_class,
+                              freshness_until=freshness_until)
+
+
+def attach_brief_claim(store: ProvenanceStore, *, claim: str, source_ref: str, source_date: str,
+                       project: str, lane: str = "executive-brief", confidence: float = 0.5) -> MemoryRecord:
+    """Explicit adapter for a claim used in a brief; generated claims need review."""
+    return store.write_record(content=claim, source_ref=source_ref, source_date=source_date,
+                              project=project, lane=lane, provenance_status="generated",
+                              confidence=confidence, decision_ref=f"brief:{project}")
+
+
+def link_meeting_decision(store: ProvenanceStore, *, claim_id: str, decision_id: str,
+                          decision_ref: str) -> None:
+    store.link(claim_id, decision_id, "confirmed-by", reference=decision_ref)
+
+
+def record_forecast_outcome(store: ProvenanceStore, *, forecast_id: str, outcome_id: str,
+                            outcome_ref: str, contradicted: bool = False) -> None:
+    store.link(forecast_id, outcome_id, "contradicted-by" if contradicted else "confirmed-by", reference=outcome_ref)
+
+
+def pilot_scorecard(baseline: Iterable[dict[str, Any]], pilot: Iterable[dict[str, Any]],
+                    *, provenance_complete: float, stale_recall_rate: float,
+                    review_overhead_ratio: float, workflows_reused: int,
+                    privacy_incidents: int) -> dict[str, Any]:
+    """Return deterministic pilot gates; values are measurements, not forecasts."""
+    base = list(baseline)
+    run = list(pilot)
+    if not base or not run:
+        raise ProvenanceError("baseline and pilot measurements are required")
+
+    def median(rows: list[dict[str, Any]], key: str) -> float:
+        values = sorted(float(row[key]) for row in rows)
+        middle = len(values) // 2
+        return values[middle] if len(values) % 2 else (values[middle - 1] + values[middle]) / 2
+
+    baseline_total = median(base, "preparation_minutes") + median(base, "reconstruction_minutes")
+    pilot_total = median(run, "preparation_minutes") + median(run, "reconstruction_minutes")
+    reduction = 0.0 if baseline_total == 0 else (baseline_total - pilot_total) / baseline_total
+    gates = {
+        "time_reduction": reduction >= 0.20,
+        "provenance_completeness": provenance_complete >= 0.80,
+        "review_overhead": review_overhead_ratio < 0.25,
+        "workflow_reuse": workflows_reused >= 2,
+        "privacy": privacy_incidents == 0,
+    }
+    return {
+        "baseline_median_minutes": baseline_total,
+        "pilot_median_minutes": pilot_total,
+        "time_reduction": reduction,
+        "stale_recall_rate": stale_recall_rate,
+        "gates": gates,
+        "eligible_for_expansion": all(gates.values()),
     }

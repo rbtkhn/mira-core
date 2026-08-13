@@ -27,6 +27,16 @@ decision/outcome reference are stored together. Valid provenance statuses are:
 Recall returns a compact trace containing the scope, query match, and review
 state. This is a trace of selection, not proof that the record is true.
 
+Correction and outcome links use `supersedes`, `corrected-by`, `confirmed-by`,
+and `contradicted-by`. Contradicted records remain historical but are excluded
+from ordinary reviewed recall. Review events include an explicit reviewer and
+note. `recall_report(..., include_excluded=True)` can show why matching records
+were withheld.
+
+The explicit adapters `record_source_packet`, `attach_brief_claim`,
+`link_meeting_decision`, and `record_forecast_outcome` support bounded workflow
+use. They require project and lane context and do not capture conversations.
+
 ## Measurement contract
 
 Record five baseline tasks before changing workflow behavior, then comparable
@@ -35,6 +45,11 @@ checks, corrections, evidence gaps, repeated work, and confidence. The pilot
 earns expansion only if median preparation/reconciliation time falls by 20%,
 80% of recalled items have traceable provenance, review overhead is below 25%
 of saved time, no privacy incident occurs, and two workflows reuse the layer.
+
+`pilot_scorecard(...)` calculates these gates from measured baseline and pilot
+rows. It returns the measured time reduction, stale-recall rate, each gate, and
+an `eligible_for_expansion` decision; it does not estimate ROI or grant rollout
+authority.
 
 ## Example
 
