@@ -4,7 +4,7 @@
     "system-archive/singularity-science/recurrence-reviews/2026-08-04-nate-herk-evidence-before-authority.md"
   ],
   "collection_id": "nate-herk",
-  "document_count": 18,
+  "document_count": 21,
   "documents": [
     {
       "capture_date": null,
@@ -104,10 +104,56 @@
       "publication_date": null,
       "rights_policy": "internal-research-only-review-required",
       "rights_status": "internal-analysis-rights-review-required",
-      "sha256": "18e03fd011a8c772cdd39a0be0fa835eefb9ab4eaa89a77a6115618d1bc8c273",
-      "size": 10832,
+      "sha256": "ab3f7db99505803adfbdb6f32dbd743785828cc32a391941f021c319a243fb27",
+      "size": 13252,
       "title": "Nate Herk ROI Ledger",
       "upstream_path": "system-archive/singularity-science/nate-herk/roi-ledger.md"
+    },
+    {
+      "capture_date": "2026-08-13",
+      "derived_from": [
+        "system-archive/singularity-science/nate-herk/source-notes/2026-08-13-codex-browser-use-automates-literally-anything.source-note.md",
+        "system-archive/singularity-science/nate-herk/transcripts/2026-08-13-captured-codex-browser-use-automates-literally-anything.md"
+      ],
+      "document_type": "analysis",
+      "logical_path": "external-corpora/nate-herk/analyses/2026-08-13-codex-browser-use-automates-literally-anything.analysis.md",
+      "publication_date": null,
+      "rights_policy": "internal-research-only-review-required",
+      "rights_status": "internal-analysis-rights-review-required",
+      "sha256": "ef6c00838d69d87551b093c5a856ec50f0e0b63d2be793718eb12d849bd4d35c",
+      "size": 14370,
+      "title": "Nate Herk Analysis: Promote Browser Automation by Evidence",
+      "upstream_path": "system-archive/singularity-science/nate-herk/analyses/2026-08-13-codex-browser-use-automates-literally-anything.analysis.md"
+    },
+    {
+      "capture_date": "2026-08-13",
+      "derived_from": [
+        "system-archive/singularity-science/nate-herk/transcripts/2026-08-13-captured-codex-browser-use-automates-literally-anything.md"
+      ],
+      "document_type": "source-note",
+      "logical_path": "external-corpora/nate-herk/source-notes/2026-08-13-codex-browser-use-automates-literally-anything.source-note.md",
+      "publication_date": null,
+      "rights_policy": "internal-research-only-review-required",
+      "rights_status": "internal-analysis-rights-review-required",
+      "sha256": "37e4cd81974e501044ea5119b239e179050e8f0ee6766f889fad51b77dcf8cb8",
+      "size": 5753,
+      "title": "Nate Herk Source Note",
+      "upstream_path": "system-archive/singularity-science/nate-herk/source-notes/2026-08-13-codex-browser-use-automates-literally-anything.source-note.md"
+    },
+    {
+      "body_status": "body-present",
+      "capture_date": "2026-08-13",
+      "completeness_status": "not-independently-verified",
+      "derived_from": [],
+      "document_type": "transcript",
+      "logical_path": "external-corpora/nate-herk/transcripts/2026-08-13-captured-codex-browser-use-automates-literally-anything.md",
+      "publication_date": null,
+      "rights_policy": "internal-research-only-review-required",
+      "rights_status": "Operator-supplied transcript; internal research only; publication and reuse rights not established",
+      "sha256": "18adc0ab448d829d27be7d999ec3e6e092db082f5da22297ea0592417c228a1b",
+      "size": 23115,
+      "title": "Codex's Browser Use Automates Literally Anything — Transcript",
+      "upstream_path": "system-archive/singularity-science/nate-herk/transcripts/2026-08-13-captured-codex-browser-use-automates-literally-anything.md"
     },
     {
       "capture_date": null,
@@ -297,12 +343,11 @@
     }
   ],
   "excluded_paths": [],
-  "imported_at": "2026-08-11",
-  "object_byte_count": 212703,
+  "imported_at": "2026-08-13",
+  "object_byte_count": 258361,
   "reference_aliases": [],
   "schema_version": 2,
-  "source_commit": "940f354e00e2f49af2f340dd4ef1c1bc6e8ded77",
+  "source_commit": "0adf4da929d0214cabf740ab7c71472660ac95a1",
   "source_prefix": "system-archive/singularity-science/nate-herk",
   "source_repository": "https://github.com/rbtkhn/anyang-intelligence"
 }
-

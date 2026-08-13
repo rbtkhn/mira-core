@@ -404,19 +404,19 @@ def test_moonshots_manifest_v2_fails_closed(
 
 
 @pytest.mark.parametrize(
-    ("collection_id", "records", "byte_count", "type_counts", "edge_count"),
+    ("collection_id", "source_commit", "records", "byte_count", "type_counts", "edge_count"),
     [
-        ("nate-b-jones", 23, 213902, {"analysis": 5, "archive-readme": 1, "derived-analysis": 1, "recurrence-review": 3, "research-ledger": 1, "source-note": 5, "template": 2, "transcript": 5}, 22),
-        ("nate-herk", 18, 212703, {"analysis": 4, "archive-readme": 1, "recurrence-review": 2, "research-ledger": 1, "source-note": 4, "template": 2, "transcript": 4}, 19),
+        ("nate-b-jones", "940f354e00e2f49af2f340dd4ef1c1bc6e8ded77", 23, 213902, {"analysis": 5, "archive-readme": 1, "derived-analysis": 1, "recurrence-review": 3, "research-ledger": 1, "source-note": 5, "template": 2, "transcript": 5}, 22),
+        ("nate-herk", "0adf4da929d0214cabf740ab7c71472660ac95a1", 21, 258361, {"analysis": 5, "archive-readme": 1, "recurrence-review": 2, "research-ledger": 1, "source-note": 5, "template": 2, "transcript": 5}, 22),
     ],
 )
 def test_nate_manifests_are_pinned_complete_and_bounded(
-    collection_id: str, records: int, byte_count: int, type_counts: dict[str, int], edge_count: int
+    collection_id: str, source_commit: str, records: int, byte_count: int, type_counts: dict[str, int], edge_count: int
 ) -> None:
     collection = system_archive.collection_map()[collection_id]
     manifest = system_archive.external_manifest(collection)
     assert manifest["schema_version"] == 2
-    assert manifest["source_commit"] == "940f354e00e2f49af2f340dd4ef1c1bc6e8ded77"
+    assert manifest["source_commit"] == source_commit
     assert manifest["document_count"] == len(manifest["documents"]) == records
     assert manifest["object_byte_count"] == sum(row["size"] for row in manifest["documents"]) == byte_count
     counts: dict[str, int] = {}
