@@ -83,10 +83,6 @@ or explicitly directs admission to the recursive-learning ledger, read
 to read-only assessment; only exact digest-bound admission may mutate the
 canonical ledger.
 
-When the operator says `world-monitor`, asks for a World Monitor scan, or asks
-to use World Monitor as a Narrative Systems source, read
-`docs/skill-drafts/world-monitor/SKILL.md` completely and follow it.
-
 When the operator says exact `research-brief`, asks for a research plan or
 research assignment, asks to design an investigation or source strategy, or
 asks what a researcher should investigate, read

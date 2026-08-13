@@ -1,4 +1,0 @@
-interface:
-  display_name: "World Monitor"
-  short_description: "Scan global signals with provenance guardrails"
-  default_prompt: "Use $world-monitor to scan current signals and produce a source-bounded Narrative Geopolitics handoff."

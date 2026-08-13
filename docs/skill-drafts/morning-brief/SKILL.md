@@ -41,10 +41,9 @@ but it never changes or resolves that hook.
 
 ## Gather fresh observations
 
-Use World Monitor and broad current search for discovery. Follow the complete
-World Monitor contract when that surface is used. Recover an official,
-primary, wire, or clearly attributed upstream source before retaining an
-observation in the brief.
+Use broad current search and other non-evidentiary discovery surfaces to find
+candidate observations. Recover an official, primary, wire, or clearly
+attributed upstream source before retaining an observation in the brief.
 
 For every considered candidate, record observation and retrieval time,
 geography, domain, discovery surface, upstream provider and URL, source type,

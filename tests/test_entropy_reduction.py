@@ -377,7 +377,7 @@ def test_only_portable_skills_are_deployable() -> None:
     }
 
 
-@pytest.mark.parametrize("skill_name", ["coffee", "dream", "world-monitor"])
+@pytest.mark.parametrize("skill_name", ["coffee", "dream"])
 def test_local_skill_frontmatter_is_minimal(skill_name: str) -> None:
     text = (
         REPO_ROOT / "docs" / "skill-drafts" / skill_name / "SKILL.md"

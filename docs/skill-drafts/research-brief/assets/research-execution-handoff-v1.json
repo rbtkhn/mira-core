@@ -19,14 +19,13 @@
     "stop_condition": "<completion bar and unresolved-gap rule>"
   },
   "destination": {
-    "workflow": "<morning-brief | reality-check | world-monitor | intake | geo-strategy | external-research>",
+    "workflow": "<morning-brief | reality-check | intake | geo-strategy | geopolitical-synthesis | external-research>",
     "reason": "<why this workflow fits>",
     "compatibility": "<ready | needs-scope-normalization | needs-claim-resolution | incompatible>",
     "reasons": ["<deterministic compatibility reason>"]
   },
   "prerequisites": {
     "canonical_claim_id": null,
-    "world_monitor_objective": null,
     "supplied_source_body": false,
     "manifest_backed_date": false,
     "explicit_execution_request": false

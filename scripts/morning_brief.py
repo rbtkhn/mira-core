@@ -463,9 +463,6 @@ def validate_upstream(value: Any, label: str, *, required: bool) -> dict[str, An
         raise BriefError(f"{label}.freshness is invalid")
     if required and freshness != "fresh":
         raise BriefError(f"{label} must be fresh for inclusion")
-    upstream_identity = re.sub(r"[^a-z0-9]", "", (provider + parsed.netloc).lower())
-    if required and "worldmonitor" in upstream_identity:
-        raise BriefError("World Monitor discovery cannot be used as upstream evidence")
     return row
 
 

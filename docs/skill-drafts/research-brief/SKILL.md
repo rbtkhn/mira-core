@@ -127,7 +127,6 @@ Set the requested destination to one of:
 
 - `morning-brief` only for a global, trailing-24-hour, five-minute briefing;
 - `reality-check` only for adjudication of an existing canonical claim;
-- `world-monitor` for current-signal discovery or coverage-gap work;
 - `intake` for a supplied source body;
 - `geo-strategy` for a manifest-backed archive day;
 - `external-research` when actual investigation is needed but no repository
@@ -171,7 +170,8 @@ state change.
 
 Route later execution according to its object:
 
-- current signal discovery -> `world-monitor`;
+- current signal discovery -> `external-research` unless the request matches
+  the fixed `morning-brief` scope;
 - selective current global update -> `morning-brief`;
 - canonical claim adjudication -> `reality-check`;
 - supplied source landing -> `intake`;

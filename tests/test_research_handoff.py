@@ -45,7 +45,6 @@ def packet(workflow: str = "external-research") -> dict:
         },
         "prerequisites": {
             "canonical_claim_id": None,
-            "world_monitor_objective": None,
             "supplied_source_body": False,
             "manifest_backed_date": False,
             "explicit_execution_request": False,
@@ -60,7 +59,7 @@ def packet(workflow: str = "external-research") -> dict:
     }
 
 
-def seed(producer: str = "world-monitor") -> dict:
+def seed(producer: str = "continuity-triage") -> dict:
     return {
         "schema": "research-brief-seed-v1",
         "producer": {
@@ -167,7 +166,6 @@ def test_reality_check_requires_an_existing_canonical_claim(tmp_path: Path) -> N
 @pytest.mark.parametrize(
     ("workflow", "invalid_reason"),
     [
-        ("world-monitor", "world_monitor_objective must be current-signal-discovery or coverage-gap"),
         ("intake", "intake requires a supplied source body"),
         ("geo-strategy", "geo-strategy requires a manifest-backed archive day"),
         ("geopolitical-synthesis", "geo-strategy requires a manifest-backed archive day"),
@@ -183,12 +181,6 @@ def test_repository_destinations_fail_closed(workflow: str, invalid_reason: str)
 @pytest.mark.parametrize(
     ("workflow", "prerequisite", "ready_value", "ready_reason"),
     [
-        (
-            "world-monitor",
-            "world_monitor_objective",
-            "current-signal-discovery",
-            "World Monitor supports current-signal-discovery",
-        ),
         (
             "intake",
             "supplied_source_body",
@@ -211,6 +203,13 @@ def test_repository_destinations_accept_only_their_prerequisites(
     set_classification(value, "ready", [ready_reason])
 
     assert research_handoff.validate_packet(value)["disposition"] == "ready"
+
+
+def test_legacy_world_monitor_destination_is_rejected() -> None:
+    value = packet("world-monitor")
+
+    with pytest.raises(ValueError, match="destination.workflow must name a supported workflow"):
+        research_handoff.validate_packet(value)
 
 
 def test_authority_or_execution_request_is_rejected() -> None:
@@ -244,7 +243,7 @@ def test_cli_emits_a_read_only_projection(tmp_path: Path, capsys) -> None:
 
 
 @pytest.mark.parametrize(
-    "producer", ["reality-handoff", "world-monitor", "continuity-triage"]
+    "producer", ["reality-handoff", "continuity-triage"]
 )
 def test_seed_validation_accepts_each_supported_producer(producer: str) -> None:
     value = seed(producer)
@@ -255,6 +254,13 @@ def test_seed_validation_accepts_each_supported_producer(producer: str) -> None:
     assert result["producer"] == producer
     assert result["authority_effect"] == "none"
     assert result["execution_triggered"] is False
+
+
+def test_legacy_world_monitor_seed_producer_is_rejected() -> None:
+    value = seed("world-monitor")
+
+    with pytest.raises(ValueError, match="producer.workflow must name a supported seed producer"):
+        research_handoff.validate_seed(value)
 
 
 @pytest.mark.parametrize(
@@ -310,7 +316,7 @@ def test_seed_builder_returns_the_validated_inline_shape() -> None:
 def test_completed_handoff_accepts_only_bounded_seed_origin() -> None:
     value = packet()
     value["origin_seed"] = {
-        "producer": "world-monitor",
+        "producer": "continuity-triage",
         "item_id": "candidate-001",
     }
     assert research_handoff.validate_packet(value)["valid"] is True
