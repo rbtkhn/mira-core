@@ -54,6 +54,15 @@ Owner later:
 ### Act
 
 - Prepare analysis, drafts, packets, plans, or bounded changes within scope.
+- Before launching a potentially costly verification, inspect the command's
+  help or implementation and compare its actual selection scope with the
+  objective. Record the intended target, unrelated workload included by the
+  command, the narrowest sufficient check, and why any broader verification is
+  necessary. Do not run repository-wide, archive-wide, or cross-lane
+  verification for a bounded objective merely because a plan says `full`.
+- Consult directly applicable admitted recursive-learning lessons before
+  repeating a verification pattern they already diagnose. Treat failure to
+  consume an applicable lesson as a regression signal, not as new learning.
 - Treat recommendations, drafts, test results, and discussion as non-
   authoritative unless a controlling workflow says otherwise.
 - Require exact explicit authority for mutation, communication, spending,
