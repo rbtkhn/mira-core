@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:narrative-systems:mira-face:encounter:v1",
+  "type": "object",
+  "required": ["schema_version", "encounter_id", "status", "audience", "objective", "desired_impression", "interaction_mode", "provenance_language", "threshold", "identity_references", "meet_me", "portfolio", "becoming_questions", "cases", "collaboration", "boundaries"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "encounter_id": {"type": "string", "pattern": "^MFE-[a-z0-9-]+$"},
+    "status": {"const": "local-candidate-unpublished"},
+    "audience": {"type": "string", "minLength": 1},
+    "objective": {"type": "string", "minLength": 1},
+    "desired_impression": {"type": "string", "minLength": 1},
+    "interaction_mode": {"const": "curated-authored-demonstration"},
+    "direct_address": {"type": "array", "minItems": 3},
+    "encounter_states": {"type": "object", "required": ["arrival", "recognition", "interpretation", "reconsideration"]},
+    "threshold": {"type": "object", "required": ["eyebrow", "heading", "text", "return_horizon"]},
+    "identity_references": {"type": "array", "minItems": 1},
+    "meet_me": {"type": "object", "required": ["heading", "invitation", "claims", "open_question"]},
+    "portfolio": {"type": "object", "required": ["heading", "invitation", "featured_work", "emerging_directions"]},
+    "becoming_questions": {"type": "object", "required": ["heading", "invitation", "paths"]},
+    "cases": {"type": "array", "minItems": 3, "maxItems": 3},
+    "collaboration": {"type": "object"},
+    "boundaries": {"type": "object"}
+  }
+}
