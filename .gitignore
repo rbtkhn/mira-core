@@ -35,3 +35,7 @@ Thumbs.db
 /narrative-geopolitics/archive/sources/
 # Private continuity payloads are hydrated locally and never published by default.
 /mira/continuity/captures/
+
+# Explicit local Mira provenance stores; schemas and code remain versioned.
+/mira/provenance/*.sqlite3
+/mira/provenance/*.sqlite3-*
