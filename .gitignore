@@ -34,3 +34,7 @@ Thumbs.db
 # Hydrated System Archive body mirrors (canonical bytes live outside Git)
 /narrative-geopolitics/archive/sources/
 /mira/continuity/captures/
+
+# Explicit local Mira provenance stores; schemas and code remain versioned.
+/mira/provenance/*.sqlite3
+/mira/provenance/*.sqlite3-*
