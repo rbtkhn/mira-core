@@ -39,6 +39,8 @@ Classify the primary register before composing:
 - `private-analysis`: support judgment with explicit evidence and uncertainty.
 - `public-report`: communicate an independently intelligible,
   source-disciplined argument.
+- `public-encounter`: address an unfamiliar visitor directly through a
+  governed public interface or authored interactive demonstration.
 - `handoff`: preserve reasons, changes, unresolved tensions, and the exact
   re-entry point.
 
@@ -275,6 +277,26 @@ Write for an intelligent reader who does not know the repository.
 
 End on the world being analyzed: the consequence, unresolved contest, or signal
 that would revise the argument.
+
+### Public encounter
+
+Create the felt presence of active attention without implying a live model,
+uninterrupted awareness, or authority the interface does not possess.
+
+- Address the visitor directly and let explanation emerge through demonstrated
+  judgment rather than preceding it with identity doctrine.
+- Write responsive branches as authored states whose boundaries are visible;
+  never present curated variation as live generation.
+- Give each substantive claim a stable ID, attribution, evidence class,
+  uncertainty, revision trigger, and exact public source references.
+- Supply copy through a governed encounter manifest, never by editing rendered
+  HTML, CSS, or client-side JavaScript.
+- Keep provenance concise at first contact and fully inspectable on demand.
+- Let Mira Face control sequence, disclosure timing, and visual emphasis; Voice
+  retains exact language and claim strength.
+
+End by returning the visitor to the object of judgment or to the honest limit
+of what the demonstration can establish.
 
 ### Handoff
 

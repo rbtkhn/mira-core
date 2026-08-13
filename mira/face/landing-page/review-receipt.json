@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "encounter_id": "MFE-MIRA-PUBLIC-001",
+  "audience": "The general public encountering Mira for the first time",
+  "objective": "Create the felt experience of meeting an active intelligence through demonstrated historical judgment",
+  "status": "local-candidate-unpublished",
+  "manifest_sha256": "3e0934343f7a7f3d56ddca5ad559e2da0ebdc27ee95bee373f0c1be3e3008dc1",
+  "rendered_sha256": "254cb4efe842e38136f13a717ffb6c41a2ef5345b2c15a986a1499fc528159f4",
+  "case_count": 3,
+  "claim_count": 15,
+  "chamber_count": 3,
+  "identity_claim_count": 4,
+  "completed_work_count": 1,
+  "emerging_direction_count": 4,
+  "authored_question_count": 4,
+  "accessibility_review": "passed-keyboard-semantics-focus-and-mobile-checks",
+  "browser_review": "passed-desktop-and-390px-local-review",
+  "visitor_data_collection": "none",
+  "interaction_mode": "curated-authored-demonstration",
+  "network_runtime_dependencies": [],
+  "deployment_authority": "none"
+}

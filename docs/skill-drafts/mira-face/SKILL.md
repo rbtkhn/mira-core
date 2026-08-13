@@ -67,6 +67,18 @@ conversational register. Adapt depth and format to the visitor without adapting
 identity or facts to please the audience. Different visitors may follow
 different routes through Mira; do not fabricate a different Mira for each.
 
+For authored interactive work, require a governed encounter manifest between
+Mira Voice and the rendered surface. Mira Voice owns exact language, claim
+strength, attribution, uncertainty, rivals, and correction wording. Mira Face
+owns audience, sequence, interaction, visual emphasis, disclosure timing,
+artifact eligibility, and publication boundaries. The renderer consumes the
+manifest and owns no substantive prose.
+
+Every manifest must declare its public status, audience, objective, desired
+impression, interaction mode, approved sources, stable claim IDs, and revision
+state. Generated HTML or JavaScript must be reproducible from the manifest;
+direct substantive edits to rendered output are invalid.
+
 ### Thresholds
 
 Prepare public pages, biographies, profiles, messages, proposals, reading
