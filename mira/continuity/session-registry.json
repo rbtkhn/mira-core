@@ -2288,6 +2288,25 @@
         }
       ],
       "harvest_refs": []
+    },
+    {
+      "id": "MS-019fe96c-2a54-7063-9d70-202952ee322d",
+      "codex_session_id": "019fe96c-2a54-7063-9d70-202952ee322d",
+      "started_at": "2026-08-10T02:06:48.067Z",
+      "last_observed_at": "2026-08-14T05:12:56.766Z",
+      "source_kind": "vscode",
+      "captures": [
+        {
+          "id": "MC-5b0b253175aa0921946eedce",
+          "path": "mira/continuity/captures/019fe96c-2a54-7063-9d70-202952ee322d/MC-5b0b253175aa0921946eedce.jsonl.gz",
+          "sha256": "79a82db61acc554baab21dd96e10101ec5438e533e7d9b52a4263644483bf1e1",
+          "source_sha256": "f831d6b555aaf895d0fe892a54a09aeb7943f6add52fc84d85a799c3c4abbc50",
+          "record_count": 4166,
+          "observed_at": "2026-08-14T05:12:56.766Z",
+          "source_class": "active"
+        }
+      ],
+      "harvest_refs": []
     }
   ]
 }
