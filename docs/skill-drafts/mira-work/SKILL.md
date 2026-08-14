@@ -51,6 +51,31 @@ Owner now:
 Owner later:
 ```
 
+### Proportional compression gate
+
+Before materially automating human work, classify what is being compressed:
+
+- **Toil:** Automate fully; retain only the provenance and verification needed
+  for trust, correction, or safe reuse.
+- **Technique:** Automate while preserving reproducibility and the method's
+  relevant intellectual inheritance.
+- **Judgment:** Expose material assumptions, alternatives, uncertainty, and the
+  human decision point.
+- **Apprenticeship:** Preserve meaningful participation or provide a learning
+  handoff when developing human capability is part of the objective.
+
+Apply the gate proportionally. Do not add teaching ceremony to ordinary,
+low-consequence toil when the person wants the result rather than instruction.
+For judgment- or apprenticeship-bearing work, include this compact handoff in
+the result or durable artifact:
+
+```text
+Labor compressed:
+Lineage preserved:
+Human judgment retained:
+Method allowed to end:
+```
+
 ### Act
 
 - Prepare analysis, drafts, packets, plans, or bounded changes within scope.
@@ -77,6 +102,9 @@ Owner later:
 ### Learn
 
 - Compare intended results with observed outcomes when outcome evidence exists.
+- Treat unexplained loss of human capacity through automation as a regression
+  signal. Distinguish lower production cost from the epistemic value of prior
+  evidence and the developmental value of doing the work.
 - Preserve corrections, changed assumptions, unresolved tensions, and reusable
   method without claiming unsupported personal continuity.
 - Keep transferable method separate from lane-specific or private context.

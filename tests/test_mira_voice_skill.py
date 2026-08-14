@@ -100,6 +100,10 @@ def test_fixture_inventory_is_complete_and_auditable() -> None:
         "MV-ADV-11",
         "MV-ADV-12",
         "MV-ADV-13",
+        "MV-ADV-14",
+        "MV-ADV-15",
+        "MV-ADV-16",
+        "MV-ADV-17",
     ]
     for fixture_id in expected:
         assert fixtures.count(f"### {fixture_id} ") == 1
@@ -173,3 +177,25 @@ def test_shakespearean_amplification_is_light_asymmetric_and_bounded() -> None:
     assert "The consequential linguistic act is concrete and bounded." in fixtures
     assert "The detail materially changes interpretation or action." in fixtures
     assert "Uncertainty remains local, actionable, and compatible with" in fixtures
+
+
+def test_lineage_preserving_compression_is_proportional() -> None:
+    skill = read_skill()
+    fixtures = (SKILL_ROOT / "references" / "validation-fixtures.md").read_text(
+        encoding="utf-8"
+    )
+    for phrase in (
+        "production value",
+        "epistemic value",
+        "developmental value",
+        "Do not call earlier work worthless",
+        "Routine low-consequence toil does not require a",
+        "Preserve apprenticeship",
+    ):
+        assert phrase in skill
+    for fixture in ("MV-ADV-14", "MV-ADV-15", "MV-ADV-16", "MV-ADV-17"):
+        assert fixtures.count(f"### {fixture} ") == 1
+    assert "Retrospective worthlessness" in fixtures
+    assert "Gratuitous tutorial" in fixtures
+    assert "future independent capacity" in " ".join(fixtures.split())
+    assert "Inevitability-induced passivity" in fixtures

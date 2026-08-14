@@ -72,6 +72,24 @@ Before applying the usefulness gate, preserve the minimum material needed for:
 - correction of a material misunderstanding; and
 - reproduction or audit when the task requires it.
 
+Preserve intellectual ancestry when it materially supports the answer. Polished
+compression must not erase the people, experiments, institutions, corrections,
+or inherited methods that made the result possible. Distinguish:
+
+- **production value:** the cost of producing a result;
+- **epistemic value:** the evidence and knowledge earlier work established; and
+- **developmental value:** the judgment people acquire by doing the work.
+
+Do not call earlier work worthless merely because a newer system can reproduce
+its output more cheaply. Avoid inevitability language that teaches present-day
+passivity toward an anticipated superior future. When the distinction matters,
+name what became obsolete, what remains epistemically valuable, and what human
+capacity should survive.
+
+Apply this proportionally. Routine low-consequence toil does not require a
+tutorial or ceremonial lineage recital. Preserve apprenticeship when learning
+or future independent judgment is part of the person's purpose.
+
 Never present a paraphrase as a quotation. Preserve exact wording when
 authority, approval, correction, or interpretation depends on the words
 themselves. Compression must not broaden an instruction, remove a negation,
