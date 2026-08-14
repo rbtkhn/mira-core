@@ -906,12 +906,10 @@ def composition_brief(entry_date: date, pack: dict[str, Any]) -> dict[str, Any]:
         if str(entry.get("entry_date", "")) < entry_date.isoformat()
     ]
     eligible.sort(key=lambda item: str(item.get("entry_date", "")))
-    previous: dict[str, Any] | None = None
-    if eligible:
-        entry = eligible[-1]
+    def journal_context(entry: dict[str, Any], *, role: str) -> dict[str, Any]:
         version = entry["versions"][-1]
         path = REPO_ROOT / str(entry["current_path"])
-        previous = {
+        return {
             "version_id": version["version_id"],
             "content_sha256": version["content_sha256"],
             "title": version["title"],
@@ -919,8 +917,27 @@ def composition_brief(entry_date: date, pack: dict[str, Any]) -> dict[str, Any]:
             "prose": path.read_text(encoding="utf-8") if path.is_file() else "",
             "epistemic_class": "prior-journal-reflection",
             "authority_owner": "mira-daily-journal",
+            "continuity_role": role,
             "may_promote": False,
         }
+
+    previous: dict[str, Any] | None = None
+    if eligible:
+        previous = journal_context(eligible[-1], role="chronological-context")
+    authoritative_entries = [
+        entry for entry in eligible
+        if entry["versions"][-1]["approval"]["status"]
+        in {AFFIRMATIVE_APPROVAL_STATUS, COMBINED_APPROVAL_STATUS}
+    ]
+    authoritative_previous = (
+        journal_context(authoritative_entries[-1], role="authoritative-ancestry")
+        if authoritative_entries else None
+    )
+    legacy_context = [
+        journal_context(entry, role="readable-legacy-context")
+        for entry in eligible[-3:]
+        if entry["versions"][-1]["approval"]["status"] == LEGACY_HELD_STATUS
+    ]
     continuity = load_continuity_index()
     active = [thread for thread in continuity.get("threads", []) if thread.get("state") != "retired"]
     active.sort(key=lambda item: (str(item.get("last_approved_at", "")), str(item.get("thread_id", ""))), reverse=True)
@@ -955,6 +972,11 @@ def composition_brief(entry_date: date, pack: dict[str, Any]) -> dict[str, Any]:
         "context_pack_sha256": pack_digest,
         "previous_entry": previous,
         "active_threads": copy.deepcopy(active[:12]),
+        "authoritative_ancestry": {
+            "previous_entry": authoritative_previous,
+            "active_threads": copy.deepcopy(active[:12]),
+        },
+        "readable_legacy_context": legacy_context,
         "recent_entries": recent,
         "recursive_learning_context": copy.deepcopy(pack["recursive_learning_context"]),
         "founding_touchstones": [{
@@ -1012,6 +1034,32 @@ def validate_composition_brief(value: Any, *, pack: dict[str, Any]) -> list[str]
     pack_digest = sha256_bytes(canonical_json(pack).encode("utf-8"))
     if value.get("context_pack_ref") != pack.get("context_pack_id") or value.get("context_pack_sha256") != pack_digest:
         failures.append("composition brief context-pack binding mismatch")
+    ancestry = value.get("authoritative_ancestry")
+    if not isinstance(ancestry, dict) or not isinstance(ancestry.get("active_threads"), list):
+        failures.append("composition brief authoritative ancestry is malformed")
+    else:
+        prior = ancestry.get("previous_entry")
+        if prior is not None and (
+            not isinstance(prior, dict)
+            or prior.get("continuity_role") != "authoritative-ancestry"
+            or prior.get("approval_status") not in {AFFIRMATIVE_APPROVAL_STATUS, COMBINED_APPROVAL_STATUS}
+        ):
+            failures.append("composition brief authoritative previous entry is malformed")
+        if ancestry.get("active_threads") != value.get("active_threads"):
+            failures.append("composition brief authoritative thread binding mismatch")
+    legacy_context = value.get("readable_legacy_context")
+    if not isinstance(legacy_context, list):
+        failures.append("composition brief readable legacy context is malformed")
+    else:
+        for row in legacy_context:
+            if (
+                not isinstance(row, dict)
+                or row.get("continuity_role") != "readable-legacy-context"
+                or row.get("approval_status") != LEGACY_HELD_STATUS
+                or row.get("may_promote") is not False
+            ):
+                failures.append("composition brief readable legacy entry is malformed")
+                break
     derivation = value.get("derivation_manifest")
     core = {key: copy.deepcopy(item) for key, item in value.items() if key not in {"composition_brief_id", "derivation_manifest"}}
     digest = sha256_bytes(canonical_json(core).encode("utf-8"))

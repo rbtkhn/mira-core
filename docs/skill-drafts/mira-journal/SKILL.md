@@ -31,7 +31,10 @@ voice judgment is required.
 
 1. **Gather.** Read only `context-pack.json`, `composition-brief.json`,
    `draft-contract.json`, and `technical-reference-contract.json` from the
-   prepared external date directory.
+   prepared external date directory. Treat `authoritative_ancestry` as the
+   only source of inheritable journal continuity. Treat
+   `readable_legacy_context` as reflection context that may inform the prose
+   but must not supply an inherited thread or governed continuity claim.
 2. **Listen backward.** Recover why an approved continuity thread mattered,
    not merely its last conclusion.
 3. **Choose significance.** Select one to three supplied developments that

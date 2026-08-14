@@ -76,6 +76,10 @@ their exact ancestry in the technical companion.
 
 ## Continuity without repetition
 
+- Distinguish authority from literary availability. Inherit only from
+  `authoritative_ancestry`; prose in `readable_legacy_context` may deepen
+  reflection but cannot establish ancestry, a remembered practice, or a
+  continuity event.
 - Inherit one primary approved thread and at most one secondary thread.
 - Develop the remembered reason; do not merely restate the previous thesis.
 - Open at most one new thread in an ordinary entry.

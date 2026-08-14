@@ -698,6 +698,46 @@ def test_prepare_supplies_admitted_recursive_lessons_to_composition(
     assert reference_contract["recursive_learning"]["available_rsi_ids"] == ["RSI-20260808-01"]
 
 
+def test_composition_brief_separates_authoritative_ancestry_from_legacy_context(
+    monkeypatch: pytest.MonkeyPatch, tmp_path: Path
+) -> None:
+    repo, _ = configure_repo(monkeypatch, tmp_path)
+    registry = subject.default_registry()
+    entries = []
+    for day, status, marker in [
+        ("2026-08-08", subject.COMBINED_APPROVAL_STATUS, "approved"),
+        ("2026-08-09", subject.LEGACY_HELD_STATUS, "legacy"),
+    ]:
+        body = prose(day, marker=marker)
+        parsed = subject.parse_markdown(body, day)
+        path = repo / "mira" / "journal" / f"{day}.md"
+        path.write_bytes(body)
+        entries.append({
+            "journal_id": subject.journal_id(subject.parse_entry_date(day)),
+            "entry_date": day,
+            "current_version_id": subject.version_id(subject.parse_entry_date(day), 1),
+            "current_path": f"mira/journal/{day}.md",
+            "versions": [{
+                "version_id": subject.version_id(subject.parse_entry_date(day), 1),
+                "title": parsed["title"],
+                "content_sha256": parsed["content_sha256"],
+                "approval": {"status": status, "publication_eligible": status != subject.LEGACY_HELD_STATUS},
+            }],
+        })
+    registry["entries"] = entries
+    subject.atomic_write_json(subject.REGISTRY_PATH, registry)
+
+    pack = context_pack(day="2026-08-10")
+    brief = subject.composition_brief(subject.parse_entry_date("2026-08-10"), pack)
+
+    assert brief["previous_entry"]["version_id"] == "MJ-20260809-v1"
+    assert brief["authoritative_ancestry"]["previous_entry"]["version_id"] == "MJ-20260808-v1"
+    assert brief["authoritative_ancestry"]["previous_entry"]["continuity_role"] == "authoritative-ancestry"
+    assert [row["version_id"] for row in brief["readable_legacy_context"]] == ["MJ-20260809-v1"]
+    assert brief["readable_legacy_context"][0]["continuity_role"] == "readable-legacy-context"
+    assert subject.validate_composition_brief(brief, pack=pack) == []
+
+
 def test_draft_check_accepts_schema_v2_bundle_without_mutation(
     monkeypatch: pytest.MonkeyPatch, tmp_path: Path
 ) -> None:
