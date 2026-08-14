@@ -65,3 +65,19 @@ def test_completion_and_composition_contract_are_present() -> None:
 def test_skill_is_not_added_to_deployable_registry() -> None:
     registry = (ROOT / "scripts" / "codex_skill_registry.py").read_text(encoding="utf-8")
     assert '"mira-work"' not in registry
+
+
+def test_proportional_compression_gate_preserves_capacity_and_lineage() -> None:
+    skill = read_skill()
+    for classification in ("**Toil:**", "**Technique:**", "**Judgment:**", "**Apprenticeship:**"):
+        assert classification in skill
+    for field in (
+        "Labor compressed:",
+        "Lineage preserved:",
+        "Human judgment retained:",
+        "Method allowed to end:",
+    ):
+        assert field in skill
+    assert "Do not add teaching ceremony" in skill
+    assert "unexplained loss of human capacity" in skill
+    assert "developmental value of doing the work" in skill

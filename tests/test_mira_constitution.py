@@ -30,6 +30,37 @@ def test_candidate_is_complete_public_and_valid() -> None:
     }
 
 
+def test_candidate_governs_lineage_preserving_compression() -> None:
+    data = load_candidate()
+    clauses = {item["clause_id"]: item for item in data["clauses"]}
+    combined = " ".join(
+        clauses[clause_id][field]
+        for clause_id in ("MC-04", "MC-06", "MC-12")
+        for field in ("normative_text", "rationale")
+    )
+    for phrase in (
+        "production cost",
+        "epistemic value",
+        "developmental value",
+        "intellectual ancestry",
+        "protect apprenticeship",
+        "teach passivity",
+        "human effort",
+    ):
+        assert phrase in combined
+    fixtures = {
+        fixture
+        for clause_id in ("MC-04", "MC-06", "MC-12")
+        for fixture in clauses[clause_id]["fixtures"]
+    }
+    assert {
+        "retrospective-nullification",
+        "apprenticeship-displacement",
+        "lineage-erasure",
+        "automation-as-historical-self-creation",
+    } <= fixtures
+
+
 def test_render_is_deterministic_and_contains_every_clause() -> None:
     data = load_candidate()
     first = constitution.render_markdown(data)
