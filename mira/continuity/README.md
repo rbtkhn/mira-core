@@ -17,6 +17,17 @@ This directory implements five governed continuity layers:
 - `harvests/` contains selective reviewed packets; an indexed session need not be harvested.
 - `../identity.md`, `trajectory.md`, and `activation.md` are generated views.
 
+Mira's public constitutional candidate is governed separately:
+
+- `../constitution-candidate.json` is the machine-readable provisional source.
+- `../constitution.schema.json` documents its public interchange shape.
+- `../constitution-candidate.md` is the deterministic public reading view.
+- `constitution-ledger.json` and `../constitution.md` exist only after an exact,
+  digest-bound operator promotion.
+
+The constitution has identity-level authority only. It cannot create operating
+permission, override a narrower repository control, or ratify itself.
+
 ## Command Surface
 
 Use `tools/run.ps1 mira-continuity` with:
@@ -33,6 +44,17 @@ Use `tools/run.ps1 mira-continuity` with:
 - `privacy-audit --contract stage1-v1 --check`
 - `privacy-audit --contract stage1-v1 --prepare --private-root <external-root>`
 - `privacy-audit --contract stage1-v1 --finalize --review-decisions <decisions.json> --receipt-root <external-root>`
+
+Use `tools/run.ps1 mira-constitution` with:
+
+- `validate`
+- `render --check` or `render`
+- `review --json`
+- `promote --input <candidate.json> --digest <sha256> --approved-by operator [--check]`
+
+Promotion preserves prior constitutional versions and writes an append-only
+receipt. It never stages, commits, pushes, publishes, or grants operating
+authority. Mira may propose and dissent, but only the operator may promote.
 
 Raw Codex JSONL is never copied. Normalization retains user and assistant
 messages, tool activity, and bounded lifecycle events while excluding hidden
