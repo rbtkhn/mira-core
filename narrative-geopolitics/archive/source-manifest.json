@@ -2,7 +2,7 @@
   "manifest_id": "narrative-geopolitics-source-manifest-v1",
   "source_basis": "central archive with completed historical strategy-codex imports",
   "imported_at": "2026-07-09",
-  "source_count": 2118,
+  "source_count": 2131,
   "boundary": {
     "archive": "source truth",
     "voices": "voice continuity and routing",
@@ -57586,6 +57586,303 @@
       "inference_basis": [
         "wrapper-normalized",
         "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-13",
+      "title": "Iran's Endgame: Wait Out Trump",
+      "local_path": "narrative-geopolitics/archive/sources/2026-08-13/source-iran-s-endgame-wait-out-trump-2026-08-13.md",
+      "voice_index_path": "../../archive/sources/2026-08-13/source-iran-s-endgame-wait-out-trump-2026-08-13.md",
+      "upstream_path": "operator-paste://2026-08-13/iran-s-endgame-wait-out-trump",
+      "source_class": "authored",
+      "modality": "source-text",
+      "voice_slugs": [
+        "pape"
+      ],
+      "host_slug": "upstream-unresolved",
+      "source_identity": "https://escalationtrap.substack.com/p/irans-endgame-wait-out-trump",
+      "source_url": "https://escalationtrap.substack.com/p/irans-endgame-wait-out-trump",
+      "title_source": "operator",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-13",
+      "title": "(3) Russia Plans Ukraine Land Blockade Strikes Road Rail Links; Russian A50 AWACS Defeat Ukraine Drones",
+      "local_path": "narrative-geopolitics/archive/sources/2026-08-13/source-3-russia-plans-ukraine-land-blockade-strikes-road-rail-links-russian-a50-awacs-defeat-ukraine-drones-2026-08-13.md",
+      "voice_index_path": "../../archive/sources/2026-08-13/source-3-russia-plans-ukraine-land-blockade-strikes-road-rail-links-russian-a50-awacs-defeat-ukraine-drones-2026-08-13.md",
+      "upstream_path": "operator-paste://2026-08-13/3-russia-plans-ukraine-land-blockade-strikes-road-rail-links-russian-a50-awacs-defeat-ukraine-drones",
+      "source_class": "host monologue",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "alexander-mercouris",
+      "source_identity": "youtube:NGuz4pr6r6o",
+      "source_url": "https://www.youtube.com/watch?v=NGuz4pr6r6o",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-13",
+      "title": "(3) Why We Can't Win Anymore /Lt Col Daniel Davis",
+      "local_path": "narrative-geopolitics/archive/sources/2026-08-13/source-3-why-we-can-t-win-anymore-lt-col-daniel-davis-2026-08-13.md",
+      "voice_index_path": "../../archive/sources/2026-08-13/source-3-why-we-can-t-win-anymore-lt-col-daniel-davis-2026-08-13.md",
+      "upstream_path": "operator-paste://2026-08-13/3-why-we-can-t-win-anymore-lt-col-daniel-davis",
+      "source_class": "authored",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "davis"
+      ],
+      "host_slug": "daniel-davis",
+      "source_identity": "youtube:FlzDuR6Bhtk",
+      "source_url": "https://www.youtube.com/watch?v=FlzDuR6Bhtk",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-13",
+      "title": "(3) Alex Krainer: The Balance Of Power Just COLLAPSED",
+      "local_path": "narrative-geopolitics/archive/sources/2026-08-13/source-3-alex-krainer-the-balance-of-power-just-collapsed-2026-08-13.md",
+      "voice_index_path": "../../archive/sources/2026-08-13/source-3-alex-krainer-the-balance-of-power-just-collapsed-2026-08-13.md",
+      "upstream_path": "operator-paste://2026-08-13/3-alex-krainer-the-balance-of-power-just-collapsed",
+      "source_class": "guest",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "krainer"
+      ],
+      "host_slug": "dialogue-works",
+      "source_identity": "youtube:zKicaxenp2w",
+      "source_url": "https://www.youtube.com/watch?v=zKicaxenp2w",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-13",
+      "title": "(3) Prof. Glenn Diesen : NATO Taunting Putin",
+      "local_path": "narrative-geopolitics/archive/sources/2026-08-13/source-3-prof-glenn-diesen-nato-taunting-putin-2026-08-13.md",
+      "voice_index_path": "../../archive/sources/2026-08-13/source-3-prof-glenn-diesen-nato-taunting-putin-2026-08-13.md",
+      "upstream_path": "operator-paste://2026-08-13/3-prof-glenn-diesen-nato-taunting-putin",
+      "source_class": "guest",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "diesen"
+      ],
+      "host_slug": "judging-freedom",
+      "source_identity": "youtube:E9EVPhjRmvg",
+      "source_url": "https://www.youtube.com/watch?v=E9EVPhjRmvg",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-13",
+      "title": "(3) Alastair Crooke: Iran & Russia Give Up on Diplomacy & Go on the Offensive",
+      "local_path": "narrative-geopolitics/archive/sources/2026-08-13/source-3-alastair-crooke-iran-russia-give-up-on-diplomacy-go-on-the-offensive-2026-08-13.md",
+      "voice_index_path": "../../archive/sources/2026-08-13/source-3-alastair-crooke-iran-russia-give-up-on-diplomacy-go-on-the-offensive-2026-08-13.md",
+      "upstream_path": "operator-paste://2026-08-13/3-alastair-crooke-iran-russia-give-up-on-diplomacy-go-on-the-offensive",
+      "source_class": "guest",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "crooke"
+      ],
+      "host_slug": "glenn-diesen",
+      "source_identity": "youtube:rbopXjaKbC8",
+      "source_url": "https://www.youtube.com/watch?v=rbopXjaKbC8",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-13",
+      "title": "(3) fmr CIA Analyst Larry Johnson: We're Trapped, How the MIC Ruined the US",
+      "local_path": "narrative-geopolitics/archive/sources/2026-08-13/source-3-fmr-cia-analyst-larry-johnson-we-re-trapped-how-the-mic-ruined-the-us-2026-08-13.md",
+      "voice_index_path": "../../archive/sources/2026-08-13/source-3-fmr-cia-analyst-larry-johnson-we-re-trapped-how-the-mic-ruined-the-us-2026-08-13.md",
+      "upstream_path": "operator-paste://2026-08-13/3-fmr-cia-analyst-larry-johnson-we-re-trapped-how-the-mic-ruined-the-us",
+      "source_class": "guest",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "johnson"
+      ],
+      "host_slug": "daniel-davis",
+      "source_identity": "youtube:IRj5jfeDSa0",
+      "source_url": "https://www.youtube.com/watch?v=IRj5jfeDSa0",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-13",
+      "title": "(3) Max Blumenthal : Israel manipulates Trump once again",
+      "local_path": "narrative-geopolitics/archive/sources/2026-08-13/source-3-max-blumenthal-israel-manipulates-trump-once-again-2026-08-13.md",
+      "voice_index_path": "../../archive/sources/2026-08-13/source-3-max-blumenthal-israel-manipulates-trump-once-again-2026-08-13.md",
+      "upstream_path": "operator-paste://2026-08-13/3-max-blumenthal-israel-manipulates-trump-once-again",
+      "source_class": "guest",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "blumenthal"
+      ],
+      "host_slug": "judging-freedom",
+      "source_identity": "youtube:4Vgtrr8WSj8",
+      "source_url": "https://www.youtube.com/watch?v=4Vgtrr8WSj8",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-13",
+      "title": "(3) COL. Douglas Macgregor : Trump’s Dwindling Options",
+      "local_path": "narrative-geopolitics/archive/sources/2026-08-13/source-3-col-douglas-macgregor-trump-s-dwindling-options-2026-08-13.md",
+      "voice_index_path": "../../archive/sources/2026-08-13/source-3-col-douglas-macgregor-trump-s-dwindling-options-2026-08-13.md",
+      "upstream_path": "operator-paste://2026-08-13/3-col-douglas-macgregor-trump-s-dwindling-options",
+      "source_class": "guest",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "macgregor"
+      ],
+      "host_slug": "judging-freedom",
+      "source_identity": "youtube:m61V-FwB5Sw",
+      "source_url": "https://www.youtube.com/watch?v=m61V-FwB5Sw",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-13",
+      "title": "(3) John Mearsheimer: U.S. Grand Strategy in a New World Order",
+      "local_path": "narrative-geopolitics/archive/sources/2026-08-13/source-3-john-mearsheimer-u-s-grand-strategy-in-a-new-world-order-2026-08-13.md",
+      "voice_index_path": "../../archive/sources/2026-08-13/source-3-john-mearsheimer-u-s-grand-strategy-in-a-new-world-order-2026-08-13.md",
+      "upstream_path": "operator-paste://2026-08-13/3-john-mearsheimer-u-s-grand-strategy-in-a-new-world-order",
+      "source_class": "guest",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mearsheimer"
+      ],
+      "host_slug": "glenn-diesen",
+      "source_identity": "youtube:j3Gb3o68JF4",
+      "source_url": "https://www.youtube.com/watch?v=j3Gb3o68JF4",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-13",
+      "title": "(3) BREAKING: CENTCOM TELLS ISRAEL TO PREPARE FOR WAR",
+      "local_path": "narrative-geopolitics/archive/sources/2026-08-13/source-3-breaking-centcom-tells-israel-to-prepare-for-war-2026-08-13.md",
+      "voice_index_path": "../../archive/sources/2026-08-13/source-3-breaking-centcom-tells-israel-to-prepare-for-war-2026-08-13.md",
+      "upstream_path": "operator-paste://2026-08-13/3-breaking-centcom-tells-israel-to-prepare-for-war",
+      "source_class": "guest",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "weichert"
+      ],
+      "host_slug": "mario-nawfal",
+      "source_identity": "youtube:j3TpOg5MMeU",
+      "source_url": "https://www.youtube.com/watch?v=j3TpOg5MMeU",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-13",
+      "title": "(3) Andrei Martyanov: it's OVER! Iran Goes ALL IN — Wiping Out Every Threat",
+      "local_path": "narrative-geopolitics/archive/sources/2026-08-13/source-3-andrei-martyanov-it-s-over-iran-goes-all-in-wiping-out-every-threat-2026-08-13.md",
+      "voice_index_path": "../../archive/sources/2026-08-13/source-3-andrei-martyanov-it-s-over-iran-goes-all-in-wiping-out-every-threat-2026-08-13.md",
+      "upstream_path": "operator-paste://2026-08-13/3-andrei-martyanov-it-s-over-iran-goes-all-in-wiping-out-every-threat",
+      "source_class": "guest",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "martyanov"
+      ],
+      "host_slug": "dialogue-works",
+      "source_identity": "youtube:4TADdxqiNBs",
+      "source_url": "https://www.youtube.com/watch?v=4TADdxqiNBs",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-13",
+      "title": "(3) More Than A Red Line, Russian Policy To Mirror Attacks on Shadow Fleet",
+      "local_path": "narrative-geopolitics/archive/sources/2026-08-13/source-3-more-than-a-red-line-russian-policy-to-mirror-attacks-on-shadow-fleet-2026-08-13.md",
+      "voice_index_path": "../../archive/sources/2026-08-13/source-3-more-than-a-red-line-russian-policy-to-mirror-attacks-on-shadow-fleet-2026-08-13.md",
+      "upstream_path": "operator-paste://2026-08-13/3-more-than-a-red-line-russian-policy-to-mirror-attacks-on-shadow-fleet",
+      "source_class": "guest",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "the-duran",
+      "source_identity": "youtube:4jQsapD_bmY",
+      "source_url": "https://www.youtube.com/watch?v=4jQsapD_bmY",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
         "explicit-date-alias"
       ],
       "import_status": "imported"

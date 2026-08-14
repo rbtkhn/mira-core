@@ -4,7 +4,7 @@ This index routes the transcript-bearing upstream-parity corpus for `macgregor` 
 
 Source basis: `narrative-geopolitics/archive/source-manifest.json`.
 
-Corpus: 91 local route rows across 91 central archive source files.
+Corpus: 92 local route rows across 92 central archive source files.
 
 Status: `transcript-bearing-upstream-parity`
 
@@ -115,6 +115,7 @@ Status: `transcript-bearing-upstream-parity`
 | `2026-08-05` | (1) COL. Douglas Macgregor : Trump’s Failing Foreign Policy | `guest` | `judging-freedom` | [source](../../archive/sources/2026-08-05/source-1-col-douglas-macgregor-trump-s-failing-foreign-policy-2026-08-05.md) |
 | `2026-08-06` | (1) Col Doug Macgregor: All Out War w/Iran Getting Unavoidable | `guest` | `daniel-davis` | [source](../../archive/sources/2026-08-06/source-1-col-doug-macgregor-all-out-war-w-iran-getting-unavoidable-2026-08-06.md) |
 | `2026-08-11` | (2) Col Doug Macgregor - Iran War: THE ART OF DEFEAT / We Have No Influence Over Iran | `host-pressure test` | `daniel-davis` | [source](../../archive/sources/2026-08-11/source-2-col-doug-macgregor-iran-war-the-art-of-defeat-we-have-no-influence-over-iran-2026-08-11.md) |
+| `2026-08-13` | (3) COL. Douglas Macgregor : Trump’s Dwindling Options | `guest` | `judging-freedom` | [source](../../archive/sources/2026-08-13/source-3-col-douglas-macgregor-trump-s-dwindling-options-2026-08-13.md) |
 
 ## Import Boundary
 

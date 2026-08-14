@@ -4,7 +4,7 @@ This index routes the unified local Weichert corpus for `weichert` to the centra
 
 Source basis: `strategy-codex/statecraft/voices/weichert/weichert-index.md`.
 
-Corpus: 29 local route rows across 29 central archive source files.
+Corpus: 30 local route rows across 30 central archive source files.
 
 Status: `imported-corpus`
 
@@ -48,6 +48,7 @@ Status: `imported-corpus`
 | `2026-08-02` | TRUMP: IRAN BEGGED HIM NOT TO STRIKE AS THEY ARE READY FOR DEAL | `guest` | `mario-nawfal` | [source](../../archive/sources/2026-08-02/source-trump-iran-begged-him-not-to-strike-as-they-are-ready-for-deal-2026-08-02.md) |
 | `2026-08-08` | (2) IRAN BOARDS SHIP IN HORMUZ, TRUMP'S TOP GENERAL CALLS FOR END OF IRAN WAR | `guest` | `mario-nawfal` | [source](../../archive/sources/2026-08-08/source-2-iran-boards-ship-in-hormuz-trump-s-top-general-calls-for-end-of-iran-war-2026-08-08.md) |
 | `2026-08-10` | (2) TRUMP DEMANDS REPARATIONS FROM IRAN | `guest` | `mario-nawfal` | [source](../../archive/sources/2026-08-10/source-2-trump-demands-reparations-from-iran-2026-08-10.md) |
+| `2026-08-13` | (3) BREAKING: CENTCOM TELLS ISRAEL TO PREPARE FOR WAR | `guest` | `mario-nawfal` | [source](../../archive/sources/2026-08-13/source-3-breaking-centcom-tells-israel-to-prepare-for-war-2026-08-13.md) |
 
 ## Import Boundary
 

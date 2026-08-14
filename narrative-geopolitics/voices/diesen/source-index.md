@@ -4,7 +4,7 @@ This index routes the imported first-slice parity corpus for `diesen` to the cen
 
 Source basis: `strategy-codex/statecraft/voices/diesen/diesen-index.md`.
 
-Corpus: 11 local route rows across 11 central archive source files.
+Corpus: 12 local route rows across 12 central archive source files.
 
 Status: `first-slice-parity`
 
@@ -34,7 +34,8 @@ Status: `first-slice-parity`
 | `2026-07-23` | Prof. Glenn Diesen: Will Putin Attack His NATO Tormentors? | `guest` | `judging-freedom` | [source](../../archive/sources/2026-07-23/source-prof-glenn-diesen-will-putin-attack-his-nato-tormentors-2026-07-23.md) |
 | `2026-07-24` | US Contradictions on Iran Exposed: Glenn Diesen & Lt Col Daniel Davis | `guest` | `daniel-davis` | [source](../../archive/sources/2026-07-24/source-us-contradictions-on-iran-exposed-glenn-diesen-lt-col-daniel-davis-2026-07-24.md) |
 | `2026-07-30` | BREAKING: RUSSIAN KH-101 CRUISE MISSILE STRIKES NATO'S POLAND - w/ Prof. Glenn Diesen | `guest` | `mario-nawfal` | [source](../../archive/sources/2026-07-30/source-breaking-russian-kh-101-cruise-missile-strikes-nato-s-poland-w-prof-glenn-diesen-2026-07-30.md) |
-| `2026-08-07` | (1) BREAKING: TURKEY, SAUDI & PAKISTAN SIGN MUTUAL DEFENSE PACT — w/ Prof. Glenn Diesen | `host-pressure test` | `mario-nawfal` | [source](../../archive/sources/2026-08-07/source-1-breaking-turkey-saudi-pakistan-sign-mutual-defense-pact-w-prof-glenn-diesen-2026-08-07.md) |
+| `2026-08-07` | (1) BREAKING: TURKEY, SAUDI & PAKISTAN SIGN MUTUAL DEFENSE PACT — w/ Prof. Glenn Diesen | `guest` | `mario-nawfal` | [source](../../archive/sources/2026-08-07/source-1-breaking-turkey-saudi-pakistan-sign-mutual-defense-pact-w-prof-glenn-diesen-2026-08-07.md) |
+| `2026-08-13` | (3) Prof. Glenn Diesen : NATO Taunting Putin | `guest` | `judging-freedom` | [source](../../archive/sources/2026-08-13/source-3-prof-glenn-diesen-nato-taunting-putin-2026-08-13.md) |
 
 ## Import Boundary
 
