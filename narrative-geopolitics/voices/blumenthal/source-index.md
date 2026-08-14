@@ -4,7 +4,7 @@ This index routes the unified local Blumenthal corpus for `blumenthal` to the ce
 
 Source basis: `strategy-codex/statecraft/voices/blumenthal/blumenthal-index.md` plus already-local matching archive rows.
 
-Corpus: 20 local route rows across 20 central archive source files.
+Corpus: 21 local route rows across 21 central archive source files.
 
 Status: `imported-corpus`
 
@@ -37,8 +37,9 @@ Status: `imported-corpus`
 | `2026-07-20` | Max Blumenthal: How the US Suppresses Truth in the Iran War | `guest` | `judging-freedom` | [source](../../archive/sources/2026-07-20/source-max-blumenthal-how-the-us-suppresses-truth-in-the-iran-war-2026-07-20.md) |
 | `2026-07-21` | Press Freedom US-Israeli Partnership Threatens US Press Freedom | `guest` | `glenn-diesen` | [source](../../archive/sources/2026-07-21/source-press-freedom-us-israeli-partnership-threatens-us-press-freedom-2026-07-21.md) |
 | `2026-07-30` | Max Blumenthal : Why Netanyahu Is Desperate | `guest` | `judging-freedom` | [source](../../archive/sources/2026-07-30/source-max-blumenthal-why-netanyahu-is-desperate-2026-07-30.md) |
-| `2026-08-06` | (1) Max Blumenthal : Why Trump Hates Press Freedom | `host-pressure test` | `judging-freedom` | [source](../../archive/sources/2026-08-06/source-1-max-blumenthal-why-trump-hates-press-freedom-2026-08-06.md) |
-| `2026-08-07` | (1) REUTERS: ONLY 35% OF AMERICANS SUPPORT THE IRAN WAR — w/ Max Blumenthal | `host-pressure test` | `mario-nawfal` | [source](../../archive/sources/2026-08-07/source-1-reuters-only-35-of-americans-support-the-iran-war-w-max-blumenthal-2026-08-07.md) |
+| `2026-08-06` | (1) Max Blumenthal : Why Trump Hates Press Freedom | `guest` | `judging-freedom` | [source](../../archive/sources/2026-08-06/source-1-max-blumenthal-why-trump-hates-press-freedom-2026-08-06.md) |
+| `2026-08-07` | (1) REUTERS: ONLY 35% OF AMERICANS SUPPORT THE IRAN WAR — w/ Max Blumenthal | `guest` | `mario-nawfal` | [source](../../archive/sources/2026-08-07/source-1-reuters-only-35-of-americans-support-the-iran-war-w-max-blumenthal-2026-08-07.md) |
+| `2026-08-13` | (3) Max Blumenthal : Israel manipulates Trump once again | `guest` | `judging-freedom` | [source](../../archive/sources/2026-08-13/source-3-max-blumenthal-israel-manipulates-trump-once-again-2026-08-13.md) |
 
 ## Import Boundary
 

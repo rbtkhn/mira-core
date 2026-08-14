@@ -4,7 +4,7 @@ This index routes the unified local Krainer corpus for `krainer` to the central 
 
 Source basis: `strategy-codex/statecraft/voices/krainer/krainer-index.md` plus already-local matching archive rows.
 
-Corpus: 24 local route rows across 24 central archive source files.
+Corpus: 25 local route rows across 25 central archive source files.
 
 Status: `imported-corpus`
 
@@ -43,6 +43,7 @@ Status: `imported-corpus`
 | `2026-07-23` | Alex Krainer: A Major Military Comeback Is Reshaping the Map—Right Now | `guest` | `dialogue-works` | [source](../../archive/sources/2026-07-23/source-alex-krainer-a-major-military-comeback-is-reshaping-the-map-right-now-2026-07-23.md) |
 | `2026-07-28` | Alex Krainer: Energy Wars, Dollar Endgame & Banking Crisis | `guest` | `glenn-diesen` | [source](../../archive/sources/2026-07-28/source-alex-krainer-energy-wars-dollar-endgame-banking-crisis-2026-07-28.md) |
 | `2026-07-30` | Alex Krainer: The Inevitable Just Happened: MASSIVE Middle East Shifts | `guest` | `dialogue-works` | [source](../../archive/sources/2026-07-30/source-alex-krainer-the-inevitable-just-happened-massive-middle-east-shifts-2026-07-30.md) |
+| `2026-08-13` | (3) Alex Krainer: The Balance Of Power Just COLLAPSED | `guest` | `dialogue-works` | [source](../../archive/sources/2026-08-13/source-3-alex-krainer-the-balance-of-power-just-collapsed-2026-08-13.md) |
 
 ## Import Boundary
 

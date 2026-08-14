@@ -4,7 +4,7 @@ This index routes the unified local Crooke corpus for `crooke` to the central Na
 
 Source basis: `strategy-codex/statecraft/voices/crooke/crooke-index.md` plus already-local 2026 Crooke archive rows.
 
-Corpus: 76 local route rows across 76 central archive source files.
+Corpus: 77 local route rows across 77 central archive source files.
 
 Status: `imported-corpus`
 
@@ -92,9 +92,10 @@ Status: `imported-corpus`
 | `2026-07-24` | Alastair Crooke: Iranians Want Vengeance - Don't Bend to Trump's Will | `guest` | `daniel-davis` | [source](../../archive/sources/2026-07-24/source-alastair-crooke-iranians-want-vengeance-don-t-bend-to-trump-s-will-2026-07-24.md) |
 | `2026-07-27` | Alastair Crooke : US Lost the War and Trump Knows It | `guest` | `judging-freedom` | [source](../../archive/sources/2026-07-27/source-alastair-crooke-us-lost-the-war-and-trump-knows-it-2026-07-27.md) |
 | `2026-07-27` | Alastair Crooke: Yemen's Red Sea Siege as a New Front in Iran War | `guest` | `glenn-diesen` | [source](../../archive/sources/2026-07-27/source-alastair-crooke-yemen-s-red-sea-siege-as-a-new-front-in-iran-war-2026-07-27.md) |
-| `2026-08-03` | Alastair Crooke : LIVE @ 8AM :Trump in a Box of His Own Making | `host-pressure test` | `judging-freedom` | [source](../../archive/sources/2026-08-03/source-alastair-crooke-live-8am-trump-in-a-box-of-his-own-making-2026-08-03.md) |
-| `2026-08-07` | (1) Alastair Crooke - Iran 's ONLY Choice: Humiliate the US | `host-pressure test` | `daniel-davis` | [source](../../archive/sources/2026-08-07/source-1-alastair-crooke-iran-s-only-choice-humiliate-the-us-2026-08-07.md) |
+| `2026-08-03` | Alastair Crooke : LIVE @ 8AM :Trump in a Box of His Own Making | `guest` | `judging-freedom` | [source](../../archive/sources/2026-08-03/source-alastair-crooke-live-8am-trump-in-a-box-of-his-own-making-2026-08-03.md) |
+| `2026-08-07` | (1) Alastair Crooke - Iran 's ONLY Choice: Humiliate the US | `guest` | `daniel-davis` | [source](../../archive/sources/2026-08-07/source-1-alastair-crooke-iran-s-only-choice-humiliate-the-us-2026-08-07.md) |
 | `2026-08-10` | (2) Alastair Crooke : US Middle East Dominance is Ended | `guest` | `judging-freedom` | [source](../../archive/sources/2026-08-10/source-2-alastair-crooke-us-middle-east-dominance-is-ended-2026-08-10.md) |
+| `2026-08-13` | (3) Alastair Crooke: Iran & Russia Give Up on Diplomacy & Go on the Offensive | `guest` | `glenn-diesen` | [source](../../archive/sources/2026-08-13/source-3-alastair-crooke-iran-russia-give-up-on-diplomacy-go-on-the-offensive-2026-08-13.md) |
 
 ## Judgment Continuity
 

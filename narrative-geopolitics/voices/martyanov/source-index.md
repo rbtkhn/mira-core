@@ -4,7 +4,7 @@ This index routes the unified local Martyanov corpus for `martyanov` to the cent
 
 Source basis: `strategy-codex/statecraft/voices/martyanov/martyanov-index.md` plus already-local matching archive rows.
 
-Corpus: 37 local route rows across 37 central archive source files.
+Corpus: 38 local route rows across 38 central archive source files.
 
 Status: `imported-corpus`
 
@@ -55,7 +55,8 @@ Status: `imported-corpus`
 | `2026-06-18` | Andrei Martyanov: Israel Just Dealt a Defeat to the US | `guest` | `dialogue-works` | [source](../../archive/sources/2026-06-18/source-dialogue-works-andrei-martyanov-israel-just-dealt-defeat-to-us-2026-06-18.md) |
 | `2026-07-09` | Andrei Martyanov: IRAN BOMBSHELL: Hypersonic Missile Hit U.S. Targets in 6 Minutes - Trump WARNED! | `guest` | `dialogue-works` | [source](../../archive/sources/2026-07-09/source-andrei-martyanov-iran-bombshell-hypersonic-missile-hit-u-s-targets-in-6-minutes-trump-warned-2026-07-09.md) |
 | `2026-07-29` | Andrei Martyanov: We are in WW3 | `guest` | `dialogue-works` | [source](../../archive/sources/2026-07-29/source-andrei-martyanov-we-are-in-ww3-2026-07-29.md) |
-| `2026-08-06` | (1) Andrei Martyanov: Strategic Nightmare: Iran’s Unthinkable Move Leaves U.S. With Zero Options | `host-pressure test` | `dialogue-works` | [source](../../archive/sources/2026-08-06/source-1-andrei-martyanov-strategic-nightmare-iran-s-unthinkable-move-leaves-u-s-with-zero-options-2026-08-06.md) |
+| `2026-08-06` | (1) Andrei Martyanov: Strategic Nightmare: Iran’s Unthinkable Move Leaves U.S. With Zero Options | `guest` | `dialogue-works` | [source](../../archive/sources/2026-08-06/source-1-andrei-martyanov-strategic-nightmare-iran-s-unthinkable-move-leaves-u-s-with-zero-options-2026-08-06.md) |
+| `2026-08-13` | (3) Andrei Martyanov: it's OVER! Iran Goes ALL IN — Wiping Out Every Threat | `guest` | `dialogue-works` | [source](../../archive/sources/2026-08-13/source-3-andrei-martyanov-it-s-over-iran-goes-all-in-wiping-out-every-threat-2026-08-13.md) |
 
 ## Import Boundary
 

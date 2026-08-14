@@ -4,7 +4,7 @@ This index routes the imported first-slice parity corpus for `mearsheimer` to th
 
 Source basis: `strategy-codex/statecraft/voices/mearsheimer/mearsheimer-index.md`.
 
-Corpus: 71 local route rows across 71 central archive source files.
+Corpus: 72 local route rows across 72 central archive source files.
 
 Status: `first-slice-parity`
 
@@ -96,6 +96,7 @@ Status: `first-slice-parity`
 | `2026-07-30` | John Mearsheimer: Ukraine Is Landlocked & Donbas Enters Endgame | `guest` | `glenn-diesen` | [source](../../archive/sources/2026-07-30/source-john-mearsheimer-ukraine-is-landlocked-donbas-enters-endgame-2026-07-30.md) |
 | `2026-08-06` | (1) Prof John Mearsheimer: Drones Can't Deliver Ukraine Victory | `guest` | `daniel-davis` | [source](../../archive/sources/2026-08-06/source-1-prof-john-mearsheimer-drones-can-t-deliver-ukraine-victory-2026-08-06.md) |
 | `2026-08-11` | (2) Prof. John Mearsheimer : What Comes Next in Iran? | `guest` | `judging-freedom` | [source](../../archive/sources/2026-08-11/source-2-prof-john-mearsheimer-what-comes-next-in-iran-2026-08-11.md) |
+| `2026-08-13` | (3) John Mearsheimer: U.S. Grand Strategy in a New World Order | `guest` | `glenn-diesen` | [source](../../archive/sources/2026-08-13/source-3-john-mearsheimer-u-s-grand-strategy-in-a-new-world-order-2026-08-13.md) |
 
 ## Judgment Continuity
 

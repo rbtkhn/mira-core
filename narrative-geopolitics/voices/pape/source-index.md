@@ -4,7 +4,7 @@ This index routes Robert Pape voice work to the central Narrative Geopolitics so
 
 Source basis: `strategy-codex/statecraft/voices/pape/pape-index.md`.
 
-Corpus: 71 authored sources, 30 guest appearances, 101 total imported sources.
+Corpus: 72 authored sources, 30 guest appearances, 102 total imported sources.
 
 ## Reading Rule
 
@@ -140,5 +140,6 @@ Corpus: 71 authored sources, 30 guest appearances, 101 total imported sources.
 - [2026-08-07 — (1) Professor Robert Pape: Iran War is a Trap and America Has No Way Out!](../../archive/sources/2026-08-07/source-1-professor-robert-pape-iran-war-is-a-trap-and-america-has-no-way-out-2026-08-07.md) — **guest** · cleaned-transcript · host: `cyrus-janssen`
 - [2026-08-11 — (2) BREAKING: IRAN SAYS IT WILL OUTLAST TRUMP — NO DEAL COMING – w/ Prof. Robert Pape](../../archive/sources/2026-08-11/source-2-breaking-iran-says-it-will-outlast-trump-no-deal-coming-w-prof-robert-pape-2026-08-11.md) — **guest** · cleaned-transcript · host: `mario-nawfal`
 - [2026-08-11 — Trump’s Unilateral Demands, Iran Doubles Down on Hard Power — A Collision Course](../../archive/sources/2026-08-11/source-trump-s-unilateral-demands-iran-doubles-down-on-hard-power-a-collision-course-2026-08-11.md) — **authored** · source-text
+- [2026-08-13 — Iran's Endgame: Wait Out Trump](../../archive/sources/2026-08-13/source-iran-s-endgame-wait-out-trump-2026-08-13.md) — **authored** · source-text
 
 Canonical external-voice reading surface: [judgment-ledger.md](judgment-ledger.md). It records governed expressed judgments and separately canonical self-revisions without establishing factual truth.

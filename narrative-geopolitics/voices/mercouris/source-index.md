@@ -4,7 +4,7 @@ This index routes the transcript-bearing upstream-parity corpus for `mercouris` 
 
 Source basis: `strategy-codex/statecraft/voices/mercouris/mercouris-index.md`, `strategy-codex/statecraft/channels/alexander-mercouris/alexander-mercouris-channel-index.md`, and subsequent local intake.
 
-Corpus: 386 local route rows across 386 central archive source files.
+Corpus: 388 local route rows across 388 central archive source files.
 
 Status: `transcript-bearing-upstream-parity`
 
@@ -410,6 +410,8 @@ Status: `transcript-bearing-upstream-parity`
 | `2026-08-10` | (2) Russia Hits Odessa As Black Sea Standoff Risks Wider War | `guest` | `the-duran` | [source](../../archive/sources/2026-08-10/source-2-russia-hits-odessa-as-black-sea-standoff-risks-wider-war-2026-08-10.md) |
 | `2026-08-11` | (2) Russian Missile Output Surge Kiev Struck Russia Outflanks Donbass Cities; West Without Plan; Orekhov | `host monologue` | `alexander-mercouris` | [source](../../archive/sources/2026-08-11/source-2-russian-missile-output-surge-kiev-struck-russia-outflanks-donbass-cities-west-without-plan-orekhov-2026-08-11.md) |
 | `2026-08-12` | (3) Putin Orders Retaliatory Seizures By Russian Navy Of EU Ships; Orekhov Crisis Kiev Brigade Trapped | `host monologue` | `alexander-mercouris` | [source](../../archive/sources/2026-08-12/source-3-putin-orders-retaliatory-seizures-by-russian-navy-of-eu-ships-orekhov-crisis-kiev-brigade-trapped-2026-08-12.md) |
+| `2026-08-13` | (3) More Than A Red Line, Russian Policy To Mirror Attacks on Shadow Fleet | `guest` | `the-duran` | [source](../../archive/sources/2026-08-13/source-3-more-than-a-red-line-russian-policy-to-mirror-attacks-on-shadow-fleet-2026-08-13.md) |
+| `2026-08-13` | (3) Russia Plans Ukraine Land Blockade Strikes Road Rail Links; Russian A50 AWACS Defeat Ukraine Drones | `host monologue` | `alexander-mercouris` | [source](../../archive/sources/2026-08-13/source-3-russia-plans-ukraine-land-blockade-strikes-road-rail-links-russian-a50-awacs-defeat-ukraine-drones-2026-08-13.md) |
 
 ## Judgment Continuity
 
