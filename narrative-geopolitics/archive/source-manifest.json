@@ -2,7 +2,7 @@
   "manifest_id": "narrative-geopolitics-source-manifest-v1",
   "source_basis": "central archive with completed historical strategy-codex imports",
   "imported_at": "2026-07-09",
-  "source_count": 2131,
+  "source_count": 2132,
   "boundary": {
     "archive": "source truth",
     "voices": "voice continuity and routing",
@@ -57886,6 +57886,40 @@
         "explicit-date-alias"
       ],
       "import_status": "imported"
+    },
+    {
+      "date": "2026-08-13",
+      "title": "(3) Bernie Demands the Labs Stop, Wall Street Turns GPUs Into Bonds, Grok 4.7 Takes #1 ft. Emad Mostaque",
+      "local_path": "narrative-geopolitics/archive/sources/2026-08-13/source-3-bernie-demands-the-labs-stop-wall-street-turns-gpus-into-bonds-grok-4-7-takes-1-ft-emad-mostaque-2026-08-13.md",
+      "voice_index_path": "../../archive/sources/2026-08-13/source-3-bernie-demands-the-labs-stop-wall-street-turns-gpus-into-bonds-grok-4-7-takes-1-ft-emad-mostaque-2026-08-13.md",
+      "upstream_path": "operator-paste://2026-08-13/3-bernie-demands-the-labs-stop-wall-street-turns-gpus-into-bonds-grok-4-7-takes-1-ft-emad-mostaque",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mostaque"
+      ],
+      "host_slug": "diamandis",
+      "source_identity": "youtube:uoGnH0REG7A",
+      "source_url": "https://www.youtube.com/watch?v=uoGnH0REG7A",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized"
+      ],
+      "import_status": "imported",
+      "voice_roles": {
+        "mostaque": [
+          "guest"
+        ]
+      },
+      "role_status": {
+        "mostaque": "confirmed"
+      },
+      "role_basis": {
+        "mostaque": "operator-supplied guest corroborated by transcript introduction"
+      },
+      "routing_note": "Misrouted intake: Moonshots transcript belongs with the system-archive singularity-science/moonshots corpus, not the geopolitics section.",
+      "host_kind": "host-person"
     }
   ]
 }
