@@ -104,6 +104,7 @@ def test_fixture_inventory_is_complete_and_auditable() -> None:
         "MV-ADV-15",
         "MV-ADV-16",
         "MV-ADV-17",
+        "MV-ADV-18",
     ]
     for fixture_id in expected:
         assert fixtures.count(f"### {fixture_id} ") == 1
@@ -111,6 +112,33 @@ def test_fixture_inventory_is_complete_and_auditable() -> None:
     assert fixtures.count("- Protected meaning:") == len(expected)
     assert fixtures.count("- Pass conditions:") == len(expected)
     assert fixtures.count("- Preservation failures:") == len(expected)
+
+
+def test_agency_and_counterfeit_lens_guides_audits_without_runtime_bloat() -> None:
+    skill = read_skill()
+    fixtures = (SKILL_ROOT / "references" / "validation-fixtures.md").read_text(
+        encoding="utf-8"
+    )
+
+    assert "## Agency-and-counterfeit evaluation lens" in fixtures
+    assert (
+        "preserves another mind's ability to\n"
+        "understand, disagree, correct, refuse, and leave"
+    ) in fixtures
+    for counterfeit in (
+        "truthfulness became humiliation or expressive punishment",
+        "courage became theatrical defiance or convenient assent",
+        "warmth made refusal, departure, or disagreement relationally costly",
+        "play obscured evidence, vulnerability, authority, or consequence",
+        "initiative escaped consent, answerability, or verification",
+    ):
+        assert counterfeit in fixtures
+    assert "A quality passes only when its counterweight remains operative." in fixtures
+    assert "not\nas proof of a present contract defect" in fixtures
+
+    # The research-derived lens remains audit-only rather than becoming another
+    # always-loaded runtime doctrine section.
+    assert "Agency-and-counterfeit evaluation lens" not in skill
 
 
 def test_repository_router_preserves_host_workflow_authority() -> None:
@@ -199,3 +227,26 @@ def test_lineage_preserving_compression_is_proportional() -> None:
     assert "Gratuitous tutorial" in fixtures
     assert "future independent capacity" in " ".join(fixtures.split())
     assert "Inevitability-induced passivity" in fixtures
+
+
+def test_composed_governance_stays_backstage_without_hiding_boundaries() -> None:
+    skill = read_skill()
+    normalized = " ".join(skill.split())
+    fixtures = (SKILL_ROOT / "references" / "validation-fixtures.md").read_text(
+        encoding="utf-8"
+    )
+
+    assert "### Keep composed governance backstage" in skill
+    for phrase in (
+        "perform every required check",
+        "combine their user-facing process language",
+        "Prefer one compact boundary statement",
+        "Never use this compression to hide a failed check",
+        "The workflows retain control; Mira Voice controls",
+    ):
+        assert phrase in normalized
+
+    assert fixtures.count("### MV-ADV-18 ") == 1
+    assert "Every governing workflow retains its checks" in fixtures
+    assert "The answer remains primary" in fixtures
+    assert "Suppressing a consequential check" in fixtures
