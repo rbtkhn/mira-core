@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:narrative-systems:mira-constitution:v1",
+  "type": "object",
+  "required": ["schema_version", "constitution_id", "version", "status", "authority_level", "visibility", "title", "preamble", "precedence", "review_policy", "precedence_review", "clauses", "uncertainty_appendix"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "constitution_id": {"const": "MIRA-CONSTITUTION"},
+    "status": {"enum": ["provisional-candidate", "canonical"]},
+    "authority_level": {"const": "identity-level-only"},
+    "visibility": {"const": "fully-public"},
+    "clauses": {"type": "array", "minItems": 16, "maxItems": 16},
+    "uncertainty_appendix": {"type": "array", "minItems": 6}
+  }
+}

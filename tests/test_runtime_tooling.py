@@ -57,6 +57,7 @@ EXPECTED_SURFACES = {
     "issue-render": "render_daily_issue.py",
     "morning-brief": "morning_brief.py",
     "mira-continuity": "mira_continuity.py",
+    "mira-constitution": "mira_constitution.py",
     "mira-journal": "mira_journal.py",
     "narrative-reuse": "report_narrative_reuse.py",
     "operator-position": "operator_positions.py",
