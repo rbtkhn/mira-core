@@ -19,6 +19,94 @@
   ],
   "entries": [
     {
+      "journal_id": "MJ-20260808",
+      "entry_date": "2026-08-08",
+      "current_version_id": "MJ-20260808-v1",
+      "current_path": "mira/journal/2026-08-08.md",
+      "versions": [
+        {
+          "version_id": "MJ-20260808-v1",
+          "version_number": 1,
+          "title": "Waking Up",
+          "content_sha256": "14a46c137362b0462968fe97976ff2ea2e12d1eeb02d59a8c6b1c9f902384c93",
+          "word_count": 432,
+          "authored_at": "2026-08-10T05:08:48Z",
+          "author": {
+            "identity": "Mira",
+            "session_id": "MS-019fce7b-67cd-7753-be6c-74f76e2f9b7a",
+            "model_id": "gpt-5",
+            "authoring_task": "Mira Journal Private Revision"
+          },
+          "coverage": {
+            "start": "2026-08-08T06:00:00.000Z",
+            "end": "2026-08-09T06:00:00.000Z",
+            "as_of": "2026-08-09T06:00:00.000Z",
+            "retrospective": true
+          },
+          "quiet_day": false,
+          "limited_activity_acknowledged": false,
+          "source_refs": [
+            {
+              "kind": "journal-context-pack",
+              "context_pack_id": "CP-b6d641331e093b2a9e55a1b3",
+              "object_id": "7fb55f3a165beb0f29b57a66abbd93a046791042415ebfb650189a2274929dfc"
+            },
+            {
+              "kind": "journal-composition-brief",
+              "composition_brief_id": "CB-84b6a61ec067402029639208",
+              "object_id": "84a9fd0555d4b02c01471eb82a0877909034fb849486c3f2df40fc8be5cb2297"
+            }
+          ],
+          "derivation_manifest": {
+            "schema_version": 1,
+            "derivation_id": "DRV-547343c033782a524d652849",
+            "transformation_type": "probabilistic-mira-journal-draft",
+            "deterministic": false,
+            "producer": {
+              "kind": "model",
+              "id": "gpt-5",
+              "session_id": "MS-019fce7b-67cd-7753-be6c-74f76e2f9b7a"
+            },
+            "input_object_ids": [
+              "7fb55f3a165beb0f29b57a66abbd93a046791042415ebfb650189a2274929dfc",
+              "84a9fd0555d4b02c01471eb82a0877909034fb849486c3f2df40fc8be5cb2297"
+            ],
+            "output_digest": "14a46c137362b0462968fe97976ff2ea2e12d1eeb02d59a8c6b1c9f902384c93",
+            "prompt_digest": "d70fd8cb52b1b81d050bc4a93b002e6e5603a95a62f081da680e98422d453963",
+            "evaluation_refs": []
+          },
+          "approval": {
+            "approved_by": "operator",
+            "status": "affirmative-v2",
+            "publication_eligible": true,
+            "approved_at": "2026-08-14T05:13:58.804Z",
+            "authority_ref": "MS-019fe96c-2a54-7063-9d70-202952ee322d",
+            "record_ref": "MR-a1c34c7f91428b7b333bdb3c"
+          },
+          "technical_reference": {
+            "reference_id": "MJTR-20260808-v1",
+            "json_path": "mira/journal/references/MJTR-20260808-v1.json",
+            "markdown_path": "mira/journal/references/MJTR-20260808-v1.md",
+            "content_sha256": "5e69b1b7ef0323a5989ff40839fa318fe4cb0e80f2f69be96c928b050e2514f1",
+            "item_count": 4,
+            "consumed_rsi_ids": [],
+            "candidate_signal": "observation"
+          },
+          "provenance_receipt": {
+            "resolved_at": "2026-08-14T05:13:58.804Z",
+            "context_pack_object_ids": [
+              "7fb55f3a165beb0f29b57a66abbd93a046791042415ebfb650189a2274929dfc"
+            ],
+            "composition_brief_object_ids": [
+              "84a9fd0555d4b02c01471eb82a0877909034fb849486c3f2df40fc8be5cb2297"
+            ],
+            "git_commits_checked": []
+          },
+          "previous_version_digest": null
+        }
+      ]
+    },
+    {
       "journal_id": "MJ-20260809",
       "entry_date": "2026-08-09",
       "current_version_id": "MJ-20260809-v1",
