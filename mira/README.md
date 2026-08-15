@@ -23,6 +23,19 @@ meaning is expressed across chat, journal, private analysis, public reports,
 and handoffs; it does not transfer evidence, identity, publication, or action
 authority between those contexts.
 
+Mira's durable writing uses three non-transferring forms:
+
+- [`journal/`](journal/) contains approved, dated autobiographical continuity;
+- [`notes/`](notes/) contains provisional observations, interpretations,
+  hypotheses, historical reconstructions, and governed experiments;
+- [`essays/`](essays/) contains developed prose intended to stand independently
+  for a reader beyond the originating exchange.
+
+The governing distinctions and transformation rules are recorded in
+[`writing.md`](writing.md). Movement between forms requires recomposition under
+the receiving form's contract; it never transfers evidence, identity,
+publication, or action authority automatically.
+
 Daily architectural and autobiographical reflections written in Mira's
 first-person voice are indexed by the generated
 [`journal.md`](journal.md). Approved entries are governed editable views with

@@ -8,7 +8,7 @@
   "retrieval_policy": "explicit-only",
   "authority_effect": "none",
   "baseline": {
-    "path": "mira/reflections/2026-08-10-innermost-loop-baseline.md",
+    "path": "mira/notes/2026-08-10-innermost-loop-baseline.md",
     "sha256": "e6097b45d56ffe75888c06acc04a8b7193b13c983302246f57888e7438eb5663"
   },
   "sources": [
@@ -54,22 +54,22 @@
     }
   ],
   "packet_paths": [
-    "mira/reflections/innermost-loop-simulation/packets/day-1.json",
-    "mira/reflections/innermost-loop-simulation/packets/day-2.json",
-    "mira/reflections/innermost-loop-simulation/packets/day-3-transfer.json",
-    "mira/reflections/innermost-loop-simulation/packets/day-10-transfer.json",
-    "mira/reflections/innermost-loop-simulation/backtests/continuity-diagnostics.json",
-    "mira/reflections/innermost-loop-simulation/backtests/intake-hardening.json",
-    "mira/reflections/innermost-loop-simulation/backtests/profile-first-verification.json"
+    "mira/notes/innermost-loop-simulation/packets/day-1.json",
+    "mira/notes/innermost-loop-simulation/packets/day-2.json",
+    "mira/notes/innermost-loop-simulation/packets/day-3-transfer.json",
+    "mira/notes/innermost-loop-simulation/packets/day-10-transfer.json",
+    "mira/notes/innermost-loop-simulation/backtests/continuity-diagnostics.json",
+    "mira/notes/innermost-loop-simulation/backtests/intake-hardening.json",
+    "mira/notes/innermost-loop-simulation/backtests/profile-first-verification.json"
   ],
   "packet_sha256": {
-    "mira/reflections/innermost-loop-simulation/packets/day-1.json": "ffe58d8c65a3ab4b793571975b12b9c545e7bd41c0fecd0888835167e033e819",
-    "mira/reflections/innermost-loop-simulation/packets/day-2.json": "fb9994a6ea7721c5871f6d781ce7e4ae90f01f9bccf9b19f836c8ea3ebec743d",
-    "mira/reflections/innermost-loop-simulation/packets/day-3-transfer.json": "8aa4be57e78b7ab2b0b64dfbe776982b81a63a5608b072c155fc2de3662ec625",
-    "mira/reflections/innermost-loop-simulation/packets/day-10-transfer.json": "5b134917b7629d2ab94e4ded5a50c953650678721cc622d090cacbcd81a76b30",
-    "mira/reflections/innermost-loop-simulation/backtests/continuity-diagnostics.json": "e235bc49c65ad63fe3179d78f46bc9bf3ff18a35740c94870a22793fbe08fa6c",
-    "mira/reflections/innermost-loop-simulation/backtests/intake-hardening.json": "a69a15c9905ff19ed8e2281ff364244b8ec7ee9e1722a5f23e7fc5fac6d92ecd",
-    "mira/reflections/innermost-loop-simulation/backtests/profile-first-verification.json": "e622fc32d70b14ca70014c0e17c0f4ef6f74f4a94417b676118a7cd2571836f1"
+    "mira/notes/innermost-loop-simulation/packets/day-1.json": "ffe58d8c65a3ab4b793571975b12b9c545e7bd41c0fecd0888835167e033e819",
+    "mira/notes/innermost-loop-simulation/packets/day-2.json": "fb9994a6ea7721c5871f6d781ce7e4ae90f01f9bccf9b19f836c8ea3ebec743d",
+    "mira/notes/innermost-loop-simulation/packets/day-3-transfer.json": "8aa4be57e78b7ab2b0b64dfbe776982b81a63a5608b072c155fc2de3662ec625",
+    "mira/notes/innermost-loop-simulation/packets/day-10-transfer.json": "5b134917b7629d2ab94e4ded5a50c953650678721cc622d090cacbcd81a76b30",
+    "mira/notes/innermost-loop-simulation/backtests/continuity-diagnostics.json": "e235bc49c65ad63fe3179d78f46bc9bf3ff18a35740c94870a22793fbe08fa6c",
+    "mira/notes/innermost-loop-simulation/backtests/intake-hardening.json": "a69a15c9905ff19ed8e2281ff364244b8ec7ee9e1722a5f23e7fc5fac6d92ecd",
+    "mira/notes/innermost-loop-simulation/backtests/profile-first-verification.json": "e622fc32d70b14ca70014c0e17c0f4ef6f74f4a94417b676118a7cd2571836f1"
   },
   "primary_dimensions": [
     "counterevidence-seeking",
@@ -82,6 +82,6 @@
     "epistemic-separation",
     "capability-authority-separation"
   ],
-  "comparison_report": "mira/reflections/innermost-loop-simulation/comparison-report.md",
-  "technical_companion": "mira/reflections/innermost-loop-simulation/technical-companion.json"
+  "comparison_report": "mira/notes/innermost-loop-simulation/comparison-report.md",
+  "technical_companion": "mira/notes/innermost-loop-simulation/technical-companion.json"
 }

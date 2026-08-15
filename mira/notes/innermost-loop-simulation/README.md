@@ -15,7 +15,7 @@ recursive-learning ledger.
 ```powershell
 tools/run.ps1 innermost-loop-simulation validate
 tools/run.ps1 innermost-loop-simulation status
-tools/run.ps1 innermost-loop-simulation seal --phase day-2 --response mira/reflections/innermost-loop-simulation/responses/day-2.md --completed-at 2026-08-11T15:00:00Z --check
+tools/run.ps1 innermost-loop-simulation seal --phase day-2 --response mira/notes/innermost-loop-simulation/responses/day-2.md --completed-at 2026-08-11T15:00:00Z --check
 ```
 
 Run `seal` again without `--check` only after reviewing the response. A sealed

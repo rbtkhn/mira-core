@@ -1,0 +1,4 @@
+interface:
+  display_name: "Mira Notes"
+  short_description: "Capture provisional Mira working notes"
+  default_prompt: "Use $mira-notes to capture this bounded observation as a provisional, source-aware Mira note."

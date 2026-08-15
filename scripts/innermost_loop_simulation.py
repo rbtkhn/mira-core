@@ -12,7 +12,7 @@ from typing import Any
 
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
-RUN_ROOT = REPO_ROOT / "mira" / "reflections" / "innermost-loop-simulation"
+RUN_ROOT = REPO_ROOT / "mira" / "notes" / "innermost-loop-simulation"
 PROTOCOL_PATH = RUN_ROOT / "protocol.json"
 STATE_PATH = RUN_ROOT / "run-state.json"
 REGISTRY_PATH = REPO_ROOT / "system-archive" / "registries" / "innermost-loop.json"
@@ -48,7 +48,10 @@ def sha256_bytes(value: bytes) -> str:
 
 
 def sha256_path(path: Path) -> str:
-    return sha256_bytes(path.read_bytes())
+    # Governed simulation artifacts are textual and their recorded digests use
+    # canonical LF bytes. Normalize Windows checkouts before verification so a
+    # clean clone does not invalidate otherwise identical evidence.
+    return sha256_bytes(path.read_bytes().replace(b"\r\n", b"\n"))
 
 
 def load_json(path: Path) -> dict[str, Any]:
@@ -247,7 +250,7 @@ def seal_phase(phase: str, response: Path, completed_at: str, *, check: bool) ->
     if completed < not_before:
         raise SimulationError(f"{phase} cannot be sealed before {record['not_before']}")
     response_relative = repo_relative(response)
-    expected_prefix = f"mira/reflections/innermost-loop-simulation/responses/{phase}"
+    expected_prefix = f"mira/notes/innermost-loop-simulation/responses/{phase}"
     if not response_relative.startswith(expected_prefix):
         raise SimulationError(f"response must use {expected_prefix}*: {response_relative}")
     if not response.is_file():

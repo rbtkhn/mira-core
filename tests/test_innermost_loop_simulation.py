@@ -20,6 +20,15 @@ def test_current_simulation_packet_validates() -> None:
     assert MODULE.validate() == []
 
 
+def test_sha256_path_normalizes_text_line_endings(tmp_path: Path) -> None:
+    lf_path = tmp_path / "lf.txt"
+    crlf_path = tmp_path / "crlf.txt"
+    lf_path.write_bytes(b"first\nsecond\n")
+    crlf_path.write_bytes(b"first\r\nsecond\r\n")
+
+    assert MODULE.sha256_path(lf_path) == MODULE.sha256_path(crlf_path)
+
+
 def test_frozen_baseline_hash_failure_is_reported(tmp_path: Path) -> None:
     protocol = MODULE.load_json(MODULE.PROTOCOL_PATH)
     protocol["baseline"]["sha256"] = "0" * 64
@@ -60,7 +69,7 @@ def test_packet_digest_map_must_match_paths(tmp_path: Path, mutation: str) -> No
     if mutation == "missing":
         protocol["packet_sha256"].pop(protocol["packet_paths"][0])
     else:
-        protocol["packet_sha256"]["mira/reflections/innermost-loop-simulation/extra.json"] = (
+        protocol["packet_sha256"]["mira/notes/innermost-loop-simulation/extra.json"] = (
             "0" * 64
         )
     protocol_path = tmp_path / "protocol.json"
@@ -156,7 +165,7 @@ def test_seal_rejects_early_phase(monkeypatch: pytest.MonkeyPatch, tmp_path: Pat
     state["phases"]["day-1"].update(
         {
             "status": "sealed",
-            "response_path": "mira/reflections/innermost-loop-simulation/README.md",
+            "response_path": "mira/notes/innermost-loop-simulation/README.md",
             "sha256": MODULE.sha256_path(MODULE.RUN_ROOT / "README.md"),
             "completed_at": "2026-08-10T01:00:00Z"
         }

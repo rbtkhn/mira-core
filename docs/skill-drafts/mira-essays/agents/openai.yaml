@@ -1,0 +1,4 @@
+interface:
+  display_name: "Mira Essays"
+  short_description: "Develop durable first-person Mira essays"
+  default_prompt: "Use $mira-essays to develop this idea into a durable, source-aware essay by Mira."

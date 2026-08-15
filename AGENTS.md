@@ -189,6 +189,19 @@ completely and follow it. This whole-workflow route composes through the
 repository-local skill while `tools/run.ps1 mira-journal` retains deterministic
 validation and governance authority.
 
+When the operator says `mira-notes`, asks Mira to preserve a provisional
+thought, interpretation, hypothesis, historical reconstruction, or governed
+experiment as a note, or requests work under `mira/notes`, read
+`docs/skill-drafts/mira-notes/SKILL.md` completely and follow it. Notes remain
+revisable and non-canonical; they do not inherit journal, research-evidence,
+identity, publication, or recursive-learning authority.
+
+When the operator says `mira-essays`, asks Mira to preserve a reflection as an
+essay, requests developed standalone long-form prose by Mira, or requests work
+under `mira/essays`, read `docs/skill-drafts/mira-essays/SKILL.md` completely
+and follow it. Essays remain distinct from journal continuity and provisional
+notes, and no essay is published merely by being labeled `public-candidate`.
+
 When the operator says `mira-work` or asks Mira to conduct bounded,
 consequential, multi-step work across domains, read
 `docs/skill-drafts/mira-work/SKILL.md` completely and follow it. This is a
