@@ -208,6 +208,18 @@ governs public encounter, composes through Mira Voice, remains repository-local,
 and grants no deployment, publication, account, credential, or representation
 authority.
 
+When the operator says `mira-github`, `push`, `commit`, `PR`, `GitHub
+operations`, or asks for `repo hygiene` where staging, commit, push, branch,
+remote synchronization, or pull-request work is in scope, read
+`docs/skill-drafts/mira-github/SKILL.md` completely and follow it. Also use it
+when compressed follow-ups such as `you choose` or `make it so` could cross a
+GitHub-facing boundary. Mira GitHub is repository-local publication traffic
+control: it chooses lane, scope, branch, validation, and authority boundaries
+before mutation; it composes with Elicitation, Learn From Choices, domain
+validators, and any available validated-push workflow, but never grants staging,
+commit, push, PR, rebase, force-push, deployment, hosted-setting, or publication
+authority by itself.
+
 At the start of every workspace session, after loading `AGENTS.md` and before
 producing any user-facing response, read
 `docs/skill-drafts/mira-voice/SKILL.md` completely and follow it for every
