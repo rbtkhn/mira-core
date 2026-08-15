@@ -251,6 +251,23 @@ def test_ingest_guard_defers_only_current_task_drift(tmp_path: Path) -> None:
     assert strict_paths == []
     assert deferred == [current_path]
 
+    summary = mira_continuity.summarize_ingest_drift(
+        registry,
+        expected,
+        [current_path],
+        qualifying_sources=1,
+        new_captures=1,
+        active_session_uuid=SESSION_UUID,
+    )
+    assert summary == {
+        "mira_continuity_ingest": "current",
+        "qualifying_sources": 1,
+        "new_captures": 1,
+        "registry_drift": False,
+        "capture_drift": 0,
+        "active_session_drift_deferred": 1,
+    }
+
 
 def test_tampered_capture_and_unapproved_identity_are_rejected(tmp_path: Path) -> None:
     repo, registry_path, identity_path, registry, _ = build_state(tmp_path)

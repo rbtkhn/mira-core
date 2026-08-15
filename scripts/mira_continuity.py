@@ -1278,6 +1278,34 @@ def classify_ingest_drift(
     return pretty_json(current) != pretty_json(adjusted), strict_paths, deferred_paths
 
 
+def summarize_ingest_drift(
+    current: dict[str, Any],
+    expected: dict[str, Any],
+    changed_capture_paths: list[Path],
+    *,
+    qualifying_sources: int,
+    new_captures: int,
+    active_session_uuid: str = "",
+) -> dict[str, Any]:
+    """Return the shared, side-effect-free continuity ingestion health projection."""
+    strict_registry_drift, strict_capture_drift, active_deferred = classify_ingest_drift(
+        current,
+        expected,
+        changed_capture_paths,
+        active_session_uuid=active_session_uuid,
+    )
+    return {
+        "mira_continuity_ingest": (
+            "drift" if strict_registry_drift or strict_capture_drift else "current"
+        ),
+        "qualifying_sources": qualifying_sources,
+        "new_captures": new_captures,
+        "registry_drift": strict_registry_drift,
+        "capture_drift": len(strict_capture_drift),
+        "active_session_drift_deferred": len(active_deferred),
+    }
+
+
 def identity_entries(ledger: dict[str, Any]) -> list[dict[str, Any]]:
     return sorted(
         (item for item in ledger.get("entries", []) if isinstance(item, dict)),
@@ -1927,25 +1955,16 @@ def command_ingest(args: argparse.Namespace) -> int:
         path for path, content in captures.items() if not path.is_file() or path.read_bytes() != content
     ]
     if args.check:
-        strict_registry_drift, strict_capture_drift, active_deferred = classify_ingest_drift(
+        report = summarize_ingest_drift(
             registry,
             expected,
             missing_or_changed,
+            qualifying_sources=len(sources),
+            new_captures=len(added),
             active_session_uuid=os.environ.get("CODEX_THREAD_ID", ""),
         )
-        has_strict_drift = strict_registry_drift or bool(strict_capture_drift)
-        _format_report(
-            {
-                "mira_continuity_ingest": "current" if not has_strict_drift else "drift",
-                "qualifying_sources": len(sources),
-                "new_captures": len(added),
-                "registry_drift": strict_registry_drift,
-                "capture_drift": len(strict_capture_drift),
-                "active_session_drift_deferred": len(active_deferred),
-            },
-            args.format,
-        )
-        return 1 if has_strict_drift else 0
+        _format_report(report, args.format)
+        return 1 if report["mira_continuity_ingest"] == "drift" else 0
     for path, content in captures.items():
         write_bytes_if_missing(path, content)
     write_text(REGISTRY_PATH, pretty_json(expected))
