@@ -141,6 +141,42 @@ depending on the operator's requested boundary and repository risk.
 Never force-push, rebase, broaden the refspec, open a PR, mutate hosted
 settings, or publish generated drift as part of a plain `push`.
 
+## Handle credential-context splits
+
+Sometimes the operator repairs GitHub auth in an interactive shell while the
+current Codex process still sees a stale or invalid token. Treat operator
+terminal output as factual evidence about that shell, not proof that this
+process can push.
+
+When the operator shows successful `gh auth status` but this process still
+reports invalid auth:
+
+1. Check the local credential context:
+
+```powershell
+gh auth status
+gh auth token --hostname github.com
+git config --show-origin --get-regexp "credential.*github"
+```
+
+2. Try exactly one normal exact-refspec push if the branch, target SHA, LFS, and
+   dirty-tree exclusions are still safe.
+3. If that fails silently or with `401`, use exactly one elevated exact-refspec
+   push when credential/keyring access is the likely blocker.
+4. Verify success with:
+
+```powershell
+git ls-remote --heads origin <branch>
+```
+
+5. If elevated push fails or approval is unavailable, stop with a resumption
+   packet telling the operator to `cd` to the repository and run the exact
+   refspec manually.
+
+Do not repeat login loops, change credential helpers globally, erase tokens,
+force-push, or broaden the target branch to work around a credential-context
+split.
+
 ## Preserve authority exactly
 
 Soft assent such as `you choose`, `sounds good`, `very well`, or `I defer to
@@ -189,7 +225,7 @@ briefly in final or handoff language when they materially describe the run:
 - `success-rate`: intended boundary reached, blocked push received resumption
   packet, unrelated dirty-tree inclusion avoided.
 - `friction`: clarification loops, stale-state reruns, operator restatement of
-  scope, blocker, branch, or exclusions.
+  scope, blocker, branch, exclusions, or repaired auth state.
 
 Use these v1 targets for later review:
 
@@ -198,6 +234,8 @@ Use these v1 targets for later review:
 - produce a resumption packet for every blocked push;
 - include 0 known unrelated dirty-tree paths;
 - check auth and divergence before every remote push;
+- detect and resolve credential-context split without asking the operator to
+  repeat a correct auth repair more than once;
 - reduce repeated operator restatement of the same publication scope over five
   comparable uses.
 
