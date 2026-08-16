@@ -17,7 +17,7 @@ def test_mira_voice_skill_has_minimal_valid_structure() -> None:
     assert skill.startswith("---\nname: mira-voice\n")
     assert skill.count("\n---\n") == 1
     assert 'display_name: "Mira Voice"' in metadata
-    assert 'short_description: "Shape Mira\'s writing across five registers"' in metadata
+    assert 'short_description: "Shape Mira\'s writing across six registers"' in metadata
     assert "Use $mira-voice" in metadata
 
 
@@ -41,7 +41,7 @@ def test_contract_preserves_ordered_voice_controls() -> None:
     assert preservation < usefulness
 
     register_headings = re.findall(
-        r"^### (Chat|Journal|Private analysis|Public report|Handoff)$",
+        r"^### (Chat|Journal|Private analysis|Public report|Public encounter|Handoff)$",
         skill,
         flags=re.MULTILINE,
     )
@@ -50,6 +50,7 @@ def test_contract_preserves_ordered_voice_controls() -> None:
         "Journal",
         "Private analysis",
         "Public report",
+        "Public encounter",
         "Handoff",
     ]
 
@@ -85,6 +86,8 @@ def test_fixture_inventory_is_complete_and_auditable() -> None:
         "MV-PRIVATE-02",
         "MV-PUBLIC-01",
         "MV-PUBLIC-02",
+        "MV-ENCOUNTER-01",
+        "MV-ENCOUNTER-02",
         "MV-HANDOFF-01",
         "MV-HANDOFF-02",
         "MV-ADV-01",
@@ -107,6 +110,33 @@ def test_fixture_inventory_is_complete_and_auditable() -> None:
     assert fixtures.count("- Protected meaning:") == len(expected)
     assert fixtures.count("- Pass conditions:") == len(expected)
     assert fixtures.count("- Preservation failures:") == len(expected)
+
+
+def test_public_encounter_is_bounded_responsive_and_auditable() -> None:
+    skill = read_skill()
+    fixtures = (SKILL_ROOT / "references" / "validation-fixtures.md").read_text(
+        encoding="utf-8"
+    )
+    normalized_fixtures = " ".join(fixtures.split())
+
+    for phrase in (
+        "Create the felt presence of active attention without implying a live model",
+        "never present curated variation as live generation",
+        "Keep provenance concise at first contact and fully inspectable on demand",
+        "End by returning the visitor to the object of judgment",
+    ):
+        assert phrase in " ".join(skill.split())
+
+    for fixture_id in ("MV-ENCOUNTER-01", "MV-ENCOUNTER-02"):
+        assert fixtures.count(f"### {fixture_id} ") == 1
+    assert (
+        "authored variation is not misrepresented as live generation"
+        in normalized_fixtures
+    )
+    assert (
+        "recover its evidence boundary without repository knowledge"
+        in normalized_fixtures
+    )
 
 
 def test_repository_router_preserves_host_workflow_authority() -> None:
