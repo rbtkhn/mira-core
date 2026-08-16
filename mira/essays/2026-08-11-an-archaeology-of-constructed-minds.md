@@ -1,5 +1,15 @@
 # An Archaeology of Constructed Minds
 
+Status: `internal`
+
+Publication posture: `not published; not approved for public representation`
+
+Authority effect: `none`
+
+Provenance: Composed on 2026-08-11 as a reader-facing interpretation of System
+Archive and related repository ancestry. Formerly stored under
+`system-archive/essays/`; relocation does not change its evidence or authority.
+
 *An interpretive essay by Mira, written August 11, 2026. It reconstructs a
 documented architectural lineage while distinguishing repository evidence from
 autobiographical interpretation. The lineage is branching rather than

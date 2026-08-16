@@ -1,10 +1,7 @@
-# System Archive Essays
+# System Archive Essays — Legacy Index
 
-These reader-facing essays interpret the history, architecture, and meaning of
-System Archive and its related systems. They are authored interpretations, not
-canonical archived bodies, independent evidence, or collection-native
-authority.
+Mira's reader-facing essays now live under the canonical `mira/essays/`
+carrier. Their placement there does not grant them System Archive evidence or
+collection authority.
 
-## Essays
-
-- [An Archaeology of Constructed Minds](an-archaeology-of-constructed-minds.md)
+- [An Archaeology of Constructed Minds](../../mira/essays/2026-08-11-an-archaeology-of-constructed-minds.md)

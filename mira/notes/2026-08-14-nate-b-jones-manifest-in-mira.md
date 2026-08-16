@@ -1,8 +1,10 @@
 # Nate B. Jones Mechanisms Manifest in Mira
 
 Date: 2026-08-14
+Class: `interpretive-note`
 Status: interpretive analysis
 Repository status: private working-tree note; not canonical identity proof
+Authority effect: `none`
 
 ## Scope
 

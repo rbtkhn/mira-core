@@ -1,5 +1,13 @@
 # Evolution of Repo Audit
 
+Date: `2026-08-11`
+
+Class: `historical-note`
+
+Status: `working`
+
+Authority effect: `none`
+
 During the August 11, 2026 session, `repo-audit` evolved from a general
 external-repository inspection workflow into a portable, self-applicable, and
 evidence-bounded audit discipline.

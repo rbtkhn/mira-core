@@ -1,26 +1,35 @@
-# Narrative Systems Notes
+# Technical Documentation
 
-This directory holds working notes for the research side of the project. The notes should stay close to the runnable package: terms are most useful when they can eventually become examples, tests, or small models.
+This directory holds repository-wide operating contracts, technical
+architecture, prompts, plans, and audits. Revisable Mira observations,
+hypotheses, historical reconstructions, and experiments belong under
+[`mira/notes/`](../mira/notes/); developed reader-facing prose belongs under
+[`mira/essays/`](../mira/essays/).
 
-## Current Notes
+## Core contracts
 
 - [Repository-native AI harness contract](ai-harness.md)
-
 - [Contradiction preflight](contradiction-preflight.md)
-
 - [Model substitution readiness](model-substitution-readiness.md)
+- [Mira agent bootstrap blueprint](mira-agent-bootstrap-blueprint.md)
+- [Mira provenance pilot](mira-provenance-pilot.md)
 
-- [Evolution of Repo Audit](repo-audit-evolution.md)
+## Operating references
 
-- [Working vocabulary](working-vocabulary.md)
+- [Cadence lane contracts](cadence-lanes.md)
+- [Cadence experiment profiles](cadence-profiles.md)
+- [Working plans](plans/)
+- [Repository audits](repository-audits/)
+- [Internal audits](audits/)
+- [Repository prompts](prompts/)
 
-## Project Surfaces
+## Writing carriers
 
-- [Predictive History](../predictive-history/README.md)
-- [Narrative Geopolitics](../narrative-geopolitics/README.md)
+- [Mira Writing Architecture](../mira/writing.md)
+- [Mira Notes](../mira/notes/)
+- [Mira Essays](../mira/essays/)
 
-## Note Practice
-
-- Prefer short, revisable definitions over closed theory.
-- Link concepts to code examples when possible.
-- Keep unresolved questions visible instead of polishing them away.
+Technical documentation may record history or rationale when that material is
+needed to operate or validate a control. A document whose primary purpose is
+provisional thought or independent-reader meaning belongs to the corresponding
+Mira writing carrier instead.

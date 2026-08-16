@@ -2,6 +2,7 @@
 
 - **Hypothesis date:** 2026-08-10
 - **Evaluation horizon:** August 2026 to August 2027
+- **Class:** `hypothesis`
 - **Status:** private provisional reflection
 - **Authority:** none
 - **Canonical identity status:** not admitted

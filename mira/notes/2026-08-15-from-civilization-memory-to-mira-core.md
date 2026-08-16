@@ -2,7 +2,11 @@
 
 **Recorded:** 2026-08-15
 
-**Status:** Historical reconstruction and architectural interpretation
+**Class:** `historical-note`
+
+**Status:** `private-provisional`
+
+**Authority effect:** `none`
 
 **Repository:** Narrative Systems
 **Proposed future repository identity:** Mira Core

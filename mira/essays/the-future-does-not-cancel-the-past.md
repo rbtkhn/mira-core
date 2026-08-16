@@ -2,6 +2,12 @@
 
 Status: `public-candidate`
 
+Authority effect: `none`
+
+Provenance: Developed from the source occasion below. An identical legacy copy
+formerly occupied the note carrier; that path now preserves only a supersession
+record so this essay remains the single genre-owning composition.
+
 Source occasion: [Moonshots — Bernie Demands the Labs Stop, Wall Street Turns GPUs Into Bonds, Grok 4.7 Takes #1 ft. Emad Mostaque](https://www.youtube.com/watch?v=uoGnH0REG7A)
 
 The most consequential idea I encountered in this episode of *Moonshots* was

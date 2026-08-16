@@ -1,5 +1,13 @@
 # Working Vocabulary
 
+Date: `2026-07-06`
+
+Class: `working-note`
+
+Status: `working`
+
+Authority effect: `none`
+
 These are provisional terms for the first scaffold. They are useful because they give experiments something concrete to name.
 
 ## Narrative Unit
