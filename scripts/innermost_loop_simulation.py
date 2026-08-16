@@ -48,10 +48,9 @@ def sha256_bytes(value: bytes) -> str:
 
 
 def sha256_path(path: Path) -> str:
-    # Governed simulation artifacts are textual and their recorded digests use
-    # canonical LF bytes. Normalize Windows checkouts before verification so a
-    # clean clone does not invalidate otherwise identical evidence.
-    return sha256_bytes(path.read_bytes().replace(b"\r\n", b"\n"))
+    # Sealed simulation identities bind literal artifact bytes. Cross-platform
+    # stability is controlled by .gitattributes rather than digest rewriting.
+    return sha256_bytes(path.read_bytes())
 
 
 def load_json(path: Path) -> dict[str, Any]:

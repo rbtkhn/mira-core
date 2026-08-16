@@ -20,13 +20,24 @@ def test_current_simulation_packet_validates() -> None:
     assert MODULE.validate() == []
 
 
-def test_sha256_path_normalizes_text_line_endings(tmp_path: Path) -> None:
+def test_sha256_path_binds_literal_bytes(tmp_path: Path) -> None:
     lf_path = tmp_path / "lf.txt"
     crlf_path = tmp_path / "crlf.txt"
     lf_path.write_bytes(b"first\nsecond\n")
     crlf_path.write_bytes(b"first\r\nsecond\r\n")
 
-    assert MODULE.sha256_path(lf_path) == MODULE.sha256_path(crlf_path)
+    assert MODULE.sha256_path(lf_path) != MODULE.sha256_path(crlf_path)
+
+
+def test_sealed_response_digests_preserve_durable_identity() -> None:
+    state = MODULE.load_json(MODULE.STATE_PATH)
+    companion = MODULE.load_json(MODULE.RUN_ROOT / "technical-companion.json")
+
+    for phase in ("day-1", "day-2"):
+        response = MODULE.resolve_repo_path(state["phases"][phase]["response_path"])
+        expected = state["phases"][phase]["sha256"]
+        assert MODULE.sha256_path(response) == expected
+        assert companion["phases"][phase]["sha256"] == expected
 
 
 def test_frozen_baseline_hash_failure_is_reported(tmp_path: Path) -> None:
