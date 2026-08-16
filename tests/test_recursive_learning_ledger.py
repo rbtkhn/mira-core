@@ -6,6 +6,7 @@ import json
 import sys
 from datetime import timezone
 from pathlib import Path
+from types import SimpleNamespace
 
 import pytest
 
@@ -269,6 +270,43 @@ def test_assessment_entrypoint_runs_the_full_companion_validator(tmp_path: Path)
 
     with pytest.raises(MODULE.LearningError, match="technical reference"):
         MODULE.validated_reference(reference_path)
+
+
+def test_validated_reference_supplies_pre_version_continuity_projection(
+    monkeypatch: pytest.MonkeyPatch, tmp_path: Path
+) -> None:
+    import mira_journal_references
+
+    prose_path = tmp_path / "draft.md"
+    prose_path.write_text("# 2026-08-09 — Continuity Test\n\nI remember why this test matters.\n", encoding="utf-8")
+    value = reference("observation", include_inputs=False)
+    value.update(
+        {
+            "journal_version_id": "MJ-20260809-v2",
+            "journal_content_sha256": MODULE.sha256_bytes(prose_path.read_bytes()),
+            "entry_date": "2026-08-09",
+        }
+    )
+    reference_path = tmp_path / "technical-reference.json"
+    reference_path.write_text(json.dumps(value), encoding="utf-8")
+    projection = {"threads": [{"thread_id": "MJT-20260808-01"}]}
+    journal = SimpleNamespace(
+        load_registry=lambda: {"entries": []},
+        continuity_index_before_version=lambda registry, version_id, repo_root: projection,
+    )
+    observed: dict = {}
+
+    def validate(*args, **kwargs):
+        observed.update(kwargs)
+        return []
+
+    monkeypatch.setitem(sys.modules, "mira_journal", journal)
+    monkeypatch.setattr(mira_journal_references, "validate_reference", validate)
+    monkeypatch.setattr(MODULE, "load_ledger", lambda: {"entries": []})
+
+    assert MODULE.validated_reference(reference_path) == value
+    assert observed["continuity_index"] is projection
+    assert observed["version_id"] == "MJ-20260809-v2"
 
 
 def configure_empty_ledger(monkeypatch: pytest.MonkeyPatch, tmp_path: Path) -> tuple[Path, Path]:

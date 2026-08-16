@@ -667,9 +667,10 @@ def candidate_from_reference(reference: dict[str, Any]) -> dict[str, Any]:
 def validated_reference(path: Path) -> dict[str, Any]:
     reference = load_reference(path)
     try:
+        import mira_journal
         import mira_journal_references
     except ImportError as error:
-        raise LearningError("journal technical-reference validator is unavailable") from error
+        raise LearningError("journal or technical-reference validator is unavailable") from error
     digest = str(reference.get("journal_content_sha256", ""))
     entry_date = str(reference.get("entry_date", ""))
     candidates = [path.expanduser().resolve().parent / "draft.md"]
@@ -685,13 +686,20 @@ def validated_reference(path: Path) -> dict[str, Any]:
     if prose_path is None:
         raise LearningError("journal technical reference prose does not resolve by digest")
     ledger = load_ledger()
+    version_id = str(reference.get("journal_version_id", ""))
+    continuity_index = mira_journal.continuity_index_before_version(
+        mira_journal.load_registry(),
+        version_id,
+        repo_root=REPO_ROOT,
+    )
     failures = mira_journal_references.validate_reference(
         reference,
         prose=prose_path.read_text(encoding="utf-8"),
         prose_sha256=digest,
-        version_id=str(reference.get("journal_version_id", "")),
+        version_id=version_id,
         ledger=ledger,
         repo_root=REPO_ROOT,
+        continuity_index=continuity_index,
     )
     if failures:
         raise LearningError("; ".join(failures))

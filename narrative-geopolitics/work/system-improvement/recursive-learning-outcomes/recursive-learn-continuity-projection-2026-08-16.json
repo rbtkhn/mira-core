@@ -1,0 +1,92 @@
+{
+  "schema_version": 1,
+  "receipt_id": "RLOR-20260815-MJTR-20260815-v1",
+  "status": "internal-verification",
+  "subject": "recursive-learn-assessment",
+  "observed_at": "2026-08-16T14:41:49Z",
+  "baseline_ref": "docs/audits/2026-08-16-recursive-learn-continuity-projection.md",
+  "input": {
+    "reference_id": "MJTR-20260815-v1",
+    "reference_sha256": "077ef25f73982a141db6256edf60ca024975275eda03a37065bdafb6db29f097",
+    "journal_context_only": true
+  },
+  "implementation": {
+    "source_sha256": {
+      "docs/skill-drafts/recursive-learn/SKILL.md": "28f1008f4ec4d65317ab38bf7ec8d7b470b5af2601b258b490bf6c3362b1dc57",
+      "scripts/recursive_learning_ledger.py": "bda567411acaf0388a73e7e6178e4d6d8fbbc64a98a1a8178f0277e4fc199605",
+      "tests/test_recursive_learning_ledger.py": "1d246a50ae79e91d5d17e953e663f82241107a773b067011ee06a8e7aa4e0ce2"
+    }
+  },
+  "assessment": {
+    "status": "observation-only",
+    "reference_id": "MJTR-20260815-v1",
+    "candidate_signal": "observation",
+    "represented_by": null,
+    "candidate_entry_id": null,
+    "stage_map": {
+      "observation": [],
+      "diagnosis": [],
+      "intervention": [],
+      "validation": [],
+      "outcome": []
+    },
+    "stage_dispositions": {
+      "observation": {
+        "status": "context-only",
+        "reason": "journal observation is interpretive context, not admissible stage evidence"
+      },
+      "diagnosis": {
+        "status": "missing",
+        "reason": "no admissible diagnosis stage was supplied"
+      },
+      "intervention": {
+        "status": "missing",
+        "reason": "no admissible intervention stage was supplied"
+      },
+      "validation": {
+        "status": "missing",
+        "reason": "no admissible validation stage was supplied"
+      },
+      "outcome": {
+        "status": "missing",
+        "reason": "no admissible outcome stage was supplied"
+      }
+    },
+    "evidence_read_scope": {
+      "mode": "reference-validation-only",
+      "stage_evidence_paths": [],
+      "technical_grounding_reinspection_required": false
+    },
+    "failures": [],
+    "authority_effect": "none"
+  },
+  "observed_measures": {
+    "assessment_status": "observation-only",
+    "stage_dispositions_reported": 5,
+    "stage_disposition_statuses": {
+      "observation": "context-only",
+      "diagnosis": "missing",
+      "intervention": "missing",
+      "validation": "missing",
+      "outcome": "missing"
+    },
+    "evidence_read_scope_mode": "reference-validation-only",
+    "stage_evidence_path_count": 0,
+    "technical_grounding_reinspection_required": false,
+    "candidate_emitted": false,
+    "authority_effect": "none",
+    "ledger_unchanged": true
+  },
+  "ledger_integrity": {
+    "path": "narrative-geopolitics/work/system-improvement/recursive-learning-ledger.json",
+    "sha256_before": "9f1db4eb2aea57e57899a617f20ba267864997dd6d1734f282bc99d09c99c31b",
+    "sha256_after": "9f1db4eb2aea57e57899a617f20ba267864997dd6d1734f282bc99d09c99c31b",
+    "mutation": false
+  },
+  "limitations": [
+    "This receipt records one post-intervention assessment and does not establish longitudinal persistence.",
+    "The journal reference is context input only and supplies no recursive-learning stage evidence.",
+    "This receipt does not establish RSI closure or grant admission authority."
+  ],
+  "authority_effect": "none"
+}
