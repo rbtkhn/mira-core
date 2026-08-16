@@ -94,6 +94,18 @@ def density_labels(
     return labels
 
 
+def percentage(numerator: int, denominator: int) -> float:
+    if denominator <= 0:
+        return 0.0
+    return round((numerator / denominator) * 100, 1)
+
+
+def concentration_share(counter: Counter[str], total: int, limit: int) -> float:
+    if total <= 0:
+        return 0.0
+    return percentage(sum(count for _, count in counter.most_common(limit)), total)
+
+
 def load_manifest_counts(path: Path = MANIFEST_PATH) -> dict[str, int]:
     _, rows = load_manifest(path)
     counts: Counter[str] = Counter()
@@ -421,6 +433,118 @@ def coverage(rows: list[dict[str, Any]], scope: AuditScope) -> tuple[dict[str, A
     )
 
 
+def benchmark_snapshot(
+    rows: list[dict[str, Any]],
+    findings: list[dict[str, str]],
+    scope: AuditScope,
+) -> dict[str, Any]:
+    dates = [value for row in rows if (value := row_date(row)) is not None]
+    daily_counts = Counter(value.isoformat() for value in dates)
+    requested_days = (
+        (scope.requested_end - scope.requested_start).days + 1
+        if scope.requested_end >= scope.requested_start
+        else 0
+    )
+    effective_days = (
+        (scope.effective_end - scope.effective_start).days + 1
+        if scope.effective_end >= scope.effective_start
+        else 0
+    )
+    future_unlanded_days = 0
+    if scope.requested_end > scope.effective_end:
+        future_start = max(scope.requested_start, scope.effective_end + timedelta(days=1))
+        if scope.requested_end >= future_start:
+            future_unlanded_days = (scope.requested_end - future_start).days + 1
+    landed_days_with_rows = sum(
+        1
+        for value in _iter_dates(scope.effective_start, scope.effective_end)
+        if daily_counts[value.isoformat()] > 0
+    ) if effective_days else 0
+    counts = [daily_counts[value.isoformat()] for value in _iter_dates(scope.effective_start, scope.effective_end)] if effective_days else []
+    sorted_counts = sorted(counts)
+    if sorted_counts:
+        middle = len(sorted_counts) // 2
+        median = (
+            sorted_counts[middle]
+            if len(sorted_counts) % 2
+            else (sorted_counts[middle - 1] + sorted_counts[middle]) / 2
+        )
+    else:
+        median = 0
+    density_distribution = Counter(density_class(count) for count in counts)
+    very_dense_days = sum(1 for count in counts if count >= 13)
+    warning_distribution = Counter(
+        item["rule_id"] for item in findings if item.get("severity") == "warning"
+    )
+    repair_candidate_warnings = sum(
+        count
+        for rule_id, count in warning_distribution.items()
+        if rule_id.startswith("repair.") or rule_id == "routing.duran_mercouris_metadata_weak"
+    )
+    provisional_routing_warnings = warning_distribution.get("routing.provisional", 0)
+    manifest_file_missing = sum(1 for item in findings if item["rule_id"] == "manifest.file_missing")
+    routed_rows = 0
+    voice_counter: Counter[str] = Counter()
+    host_counter: Counter[str] = Counter()
+    modality_counter: Counter[str] = Counter()
+    for row in rows:
+        voices = row.get("voice_slugs")
+        if isinstance(voices, list) and any(isinstance(value, str) and value for value in voices):
+            routed_rows += 1
+            for voice in voices:
+                if isinstance(voice, str) and voice:
+                    voice_counter[voice] += 1
+        host = row.get("host_slug")
+        if isinstance(host, str) and host:
+            host_counter[host] += 1
+        modality = row.get("kind") or row.get("source_form") or row.get("modality")
+        if isinstance(modality, str) and modality:
+            modality_counter[modality] += 1
+    source_count = len(rows)
+    labels: list[str] = []
+    if source_count <= 3:
+        labels.append("thin-source-base")
+    if very_dense_days:
+        labels.append("very-dense-review")
+    elif any(count >= 7 for count in counts):
+        labels.append("dense-review")
+    if repair_candidate_warnings:
+        labels.append("repair-candidate-review")
+    if provisional_routing_warnings:
+        labels.append("provisional-routing-debt")
+    if future_unlanded_days:
+        labels.append("future-unlanded-not-gap")
+    return {
+        "requested_days": requested_days,
+        "effective_landed_days": effective_days,
+        "future_unlanded_days": future_unlanded_days,
+        "landed_days_with_rows": landed_days_with_rows,
+        "landed_horizon_completeness_pct": percentage(landed_days_with_rows, effective_days),
+        "calendar_scope_completeness_pct": percentage(landed_days_with_rows, requested_days),
+        "file_presence_pct": percentage(source_count - manifest_file_missing, source_count),
+        "routing_completeness_pct": percentage(routed_rows, source_count),
+        "source_count": source_count,
+        "mean_sources_per_landed_day": round(sum(counts) / len(counts), 1) if counts else 0.0,
+        "median_sources_per_landed_day": median,
+        "max_sources_per_landed_day": max(counts) if counts else 0,
+        "density_distribution": {
+            "thin": density_distribution.get("thin", 0),
+            "normal": density_distribution.get("normal", 0),
+            "dense": density_distribution.get("dense", 0),
+            "very_dense_overlay": very_dense_days,
+        },
+        "warning_distribution": dict(sorted(warning_distribution.items())),
+        "provisional_routing_warnings": provisional_routing_warnings,
+        "repair_candidate_warnings": repair_candidate_warnings,
+        "top_voice_share_pct": concentration_share(voice_counter, source_count, 1),
+        "top_3_voice_share_pct": concentration_share(voice_counter, source_count, 3),
+        "top_host_share_pct": concentration_share(host_counter, source_count, 1),
+        "top_3_host_share_pct": concentration_share(host_counter, source_count, 3),
+        "modality_distribution": dict(sorted(modality_counter.items())),
+        "advisory_labels": labels,
+    }
+
+
 def build_audit(
     args: argparse.Namespace,
     *,
@@ -446,6 +570,7 @@ def build_audit(
     if not rows:
         findings.append(finding("scope.no_matches", "warning", "scope", "valid scope contains no matching manifest rows"))
     findings = sorted(findings, key=lambda item: (item["rule_id"], item["path"], item["detail"]))
+    benchmarks = benchmark_snapshot(rows, findings, scope)
     error_count = sum(item["severity"] == "error" for item in findings)
     warning_count = sum(item["severity"] == "warning" for item in findings)
     return {
@@ -461,6 +586,7 @@ def build_audit(
         },
         "findings": findings,
         "coverage": coverage_payload,
+        "benchmarks": benchmarks,
         "authority_effect": "none",
         "capability_token": False,
         "notice": "Archive audit is read-only and grants no repair authority.",
@@ -494,6 +620,24 @@ def render_markdown(payload: dict[str, Any]) -> str:
             lines.append(f"| `{item['rule_id']}` | `{item['severity']}` | `{path}` | {detail} |")
     else:
         lines.append("No findings.")
+    benchmarks = payload["benchmarks"]
+    lines += [
+        "",
+        "## Benchmarks",
+        "",
+        f"- Landed-horizon completeness: `{benchmarks['landed_horizon_completeness_pct']}%`",
+        f"- Calendar-scope completeness: `{benchmarks['calendar_scope_completeness_pct']}%`",
+        f"- Future/unlanded days: `{benchmarks['future_unlanded_days']}`",
+        f"- Mean sources per landed day: `{benchmarks['mean_sources_per_landed_day']}`",
+        f"- Median sources per landed day: `{benchmarks['median_sources_per_landed_day']}`",
+        f"- Max sources per landed day: `{benchmarks['max_sources_per_landed_day']}`",
+        f"- Density distribution: `thin={benchmarks['density_distribution']['thin']}`, `normal={benchmarks['density_distribution']['normal']}`, `dense={benchmarks['density_distribution']['dense']}`, `very_dense_overlay={benchmarks['density_distribution']['very_dense_overlay']}`",
+        f"- Provisional routing warnings: `{benchmarks['provisional_routing_warnings']}`",
+        f"- Repair-candidate warnings: `{benchmarks['repair_candidate_warnings']}`",
+        f"- Top voice share: `{benchmarks['top_voice_share_pct']}%`; top 3 voice share: `{benchmarks['top_3_voice_share_pct']}%`",
+        f"- Top host share: `{benchmarks['top_host_share_pct']}%`; top 3 host share: `{benchmarks['top_3_host_share_pct']}%`",
+        f"- Advisory labels: `{', '.join(benchmarks['advisory_labels']) or 'none'}`",
+    ]
     lines += ["", "## Coverage", ""]
     coverage_payload = payload["coverage"]
     lines.append(f"- Landed boundary: `{coverage_payload['landed_boundary']['start']}` through `{coverage_payload['landed_boundary']['end']}`")

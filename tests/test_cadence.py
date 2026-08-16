@@ -758,6 +758,20 @@ def configure_synthesis_startup(monkeypatch, phase: dict, validation: dict) -> N
     )
     monkeypatch.setattr(cadence, "synthesis_state", lambda run_date: phase)
     monkeypatch.setattr(cadence, "validate_synthesis_date", lambda run_date: validation)
+    monkeypatch.setattr(
+        cadence,
+        "archive_benchmark_state",
+        lambda run_date: {
+            "available": True,
+            "source_count": phase["manifest_day_rows"],
+            "density_class": "normal",
+            "advisory_labels": [],
+            "repair_candidate_warnings": 0,
+            "future_unlanded_days": 0,
+            "landed_horizon_completeness_pct": 100.0,
+            "structural_failures": 0,
+        },
+    )
 
 
 def test_synthesis_startup_scopes_authority_and_recommends_clean_entry(
@@ -780,6 +794,7 @@ def test_synthesis_startup_scopes_authority_and_recommends_clean_entry(
     assert state["ready"] is True
     assert state["next_action"] == "open_guided_synthesis_choice_C"
     assert state["blockers"] == []
+    assert state["phase"]["archive_benchmarks"]["density_class"] == "normal"
     assert "narrative-geopolitics/work/daily/2026-07-13/synthesis.md" in state[
         "authority"
     ]["may_write"]
@@ -834,6 +849,44 @@ def test_synthesis_startup_routes_validation_failures_to_reconciliation(
     assert state["ready"] is True
     assert state["next_action"] == "open_guided_synthesis_choice_B"
     assert "synthesis_validation_requires_reconciliation" in state["warnings"]
+
+
+def test_synthesis_startup_archive_benchmarks_are_advisory(monkeypatch) -> None:
+    phase = {
+        "date": "2026-07-13",
+        "manifest_day_rows": 13,
+        "missing_archive_sources": [],
+        "daily_directory_exists": True,
+        "daily_files": {name: True for name in ("sources.md", "synthesis.md", "forecast.md", "daily-brief.md")},
+        "daily_contract_state": "complete",
+    }
+    configure_synthesis_startup(
+        monkeypatch,
+        phase,
+        {"passed": True, "returncode": 0, "failures": [], "warnings": []},
+    )
+    monkeypatch.setattr(
+        cadence,
+        "archive_benchmark_state",
+        lambda run_date: {
+            "available": True,
+            "source_count": 13,
+            "density_class": "dense",
+            "advisory_labels": ["very-dense-review", "repair-candidate-review"],
+            "repair_candidate_warnings": 1,
+            "future_unlanded_days": 0,
+            "landed_horizon_completeness_pct": 100.0,
+            "structural_failures": 0,
+        },
+    )
+
+    state = cadence.startup_state("geopolitical-synthesis", "2026-07-13")
+
+    assert state["ready"] is True
+    assert state["blockers"] == []
+    assert state["next_action"] == "open_guided_synthesis_choice_C"
+    assert "archive_day_dense_review" in state["warnings"]
+    assert "archive_repair_candidates_present" in state["warnings"]
 
 
 def test_synthesis_startup_requires_explicit_date() -> None:

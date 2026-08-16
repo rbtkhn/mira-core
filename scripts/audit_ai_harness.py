@@ -196,6 +196,21 @@ def build_controls(
     )
     controls.append(
         control(
+            "archive-audit-benchmarks",
+            "chooses-help",
+            "Archive-audit benchmark advisory wiring",
+            "scripts/archive_audit.py",
+            "Expose read-only completeness, fullness, density, and warning-mix signals at archive and geo-strategy decision surfaces.",
+            "Only when archive-audit, geo-strategy, or cadence asks for advisory state",
+            "Targeted archive-audit, cadence, and harness tests",
+            "VERIFIED",
+            "AVAILABLE_READ_ONLY",
+            "KEEP",
+            "Harness confirms the capability boundary; it does not run a month archive audit.",
+        )
+    )
+    controls.append(
+        control(
             "repository-integrity",
             "proves-done",
             "Repository integrity validator",

@@ -19,6 +19,7 @@ SCRIPTS_ROOT = Path(__file__).resolve().parent
 if str(SCRIPTS_ROOT) not in sys.path:
     sys.path.insert(0, str(SCRIPTS_ROOT))
 
+import archive_audit
 import triage_forecast_ledger as forecast_triage
 import verification as verification_packets
 import reality
@@ -417,6 +418,36 @@ def validate_synthesis_date(run_date: str) -> dict:
     }
 
 
+def archive_benchmark_state(run_date: str) -> dict:
+    try:
+        payload = archive_audit.build_audit(
+            archive_audit.parse_args(["--start-date", run_date, "--end-date", run_date])
+        )
+    except Exception as error:
+        return {
+            "available": False,
+            "error": str(error),
+            "source_count": 0,
+            "density_class": "unknown",
+            "advisory_labels": ["archive_benchmarks_unavailable"],
+            "repair_candidate_warnings": 0,
+            "future_unlanded_days": 0,
+            "landed_horizon_completeness_pct": 0.0,
+            "structural_failures": 0,
+        }
+    benchmarks = payload["benchmarks"]
+    return {
+        "available": True,
+        "source_count": benchmarks["source_count"],
+        "density_class": archive_audit.density_class(benchmarks["source_count"]),
+        "advisory_labels": benchmarks["advisory_labels"],
+        "repair_candidate_warnings": benchmarks["repair_candidate_warnings"],
+        "future_unlanded_days": benchmarks["future_unlanded_days"],
+        "landed_horizon_completeness_pct": benchmarks["landed_horizon_completeness_pct"],
+        "structural_failures": payload["summary"]["structural_failures"],
+    }
+
+
 def scoped_synthesis_authority(run_date: str) -> dict:
     return {
         key: [value.format(date=run_date) for value in values]
@@ -614,11 +645,21 @@ def startup_state(
     if mode in {"geo-strategy", "geopolitical-synthesis"}:
         assert run_date is not None
         phase = synthesis_state(run_date)
+        phase["archive_benchmarks"] = archive_benchmark_state(run_date)
         authority = scoped_synthesis_authority(run_date)
         if phase["manifest_day_rows"] == 0:
             blockers.append("no_manifest_rows_for_selected_date")
         if phase["missing_archive_sources"]:
             blockers.append("selected_date_archive_sources_missing")
+        benchmark_labels = set(phase["archive_benchmarks"]["advisory_labels"])
+        if "archive_benchmarks_unavailable" in benchmark_labels:
+            warnings.append("archive_benchmarks_unavailable")
+        if phase["archive_benchmarks"]["density_class"] == "thin" and phase["manifest_day_rows"]:
+            warnings.append("archive_day_thin")
+        if {"dense-review", "very-dense-review"}.intersection(benchmark_labels):
+            warnings.append("archive_day_dense_review")
+        if phase["archive_benchmarks"]["repair_candidate_warnings"]:
+            warnings.append("archive_repair_candidates_present")
         contract_state = phase["daily_contract_state"]
         if contract_state == "absent":
             warnings.append("daily_contract_absent")

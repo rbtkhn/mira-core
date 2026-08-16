@@ -191,6 +191,9 @@ def test_structural_and_repair_findings_are_classified(tmp_path: Path) -> None:
     provisional = next(item for item in payload["findings"] if item["rule_id"] == "routing.provisional")
     assert "landing-time provisional" in provisional["detail"]
     assert "not by itself an unresolved routing defect" in provisional["detail"]
+    assert payload["benchmarks"]["warning_distribution"]["routing.provisional"] == 1
+    assert payload["benchmarks"]["provisional_routing_warnings"] == 1
+    assert payload["benchmarks"]["repair_candidate_warnings"] == 1
     assert payload["disposition"] == "fail"
 
 
@@ -289,6 +292,25 @@ def test_missing_months_stop_at_manifest_as_of(tmp_path: Path) -> None:
     )
     assert payload["scope"]["effective_end"] == "2026-03-05"
     assert payload["coverage"]["missing_months"] == ["2026-02"]
+    assert payload["benchmarks"]["future_unlanded_days"] == 301
+
+
+def test_benchmark_json_and_markdown_are_additive(tmp_path: Path) -> None:
+    payload = build(tmp_path, ["--month", "2026-01"])
+
+    assert payload["schema_version"] == "1.0"
+    assert payload["benchmarks"]["requested_days"] == 31
+    assert payload["benchmarks"]["effective_landed_days"] == 31
+    assert payload["benchmarks"]["landed_days_with_rows"] == 2
+    assert payload["benchmarks"]["landed_horizon_completeness_pct"] == 6.5
+    assert payload["benchmarks"]["file_presence_pct"] == 100.0
+    assert payload["benchmarks"]["routing_completeness_pct"] == 100.0
+    assert payload["benchmarks"]["density_distribution"]["thin"] == 31
+    assert payload["benchmarks"]["density_distribution"]["very_dense_overlay"] == 0
+
+    rendered = archive_audit.render_markdown(payload)
+    assert "## Benchmarks" in rendered
+    assert "Future/unlanded days" in rendered
 
 
 def test_results_are_deterministic_under_manifest_reordering(tmp_path: Path) -> None:

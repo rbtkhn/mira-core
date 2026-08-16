@@ -125,6 +125,16 @@ def test_audit_json_has_stable_top_level_contract_and_expected_gap_labels(
     assert {item["evidence_state"] for item in payload["coverage_gaps"]} == {
         "INACCESSIBLE"
     }
+    controls = [
+        control
+        for station in payload["stations"]
+        for control in station["controls"]
+    ]
+    benchmark = next(
+        item for item in controls if item["control_id"] == "archive-audit-benchmarks"
+    )
+    assert benchmark["status"] == "AVAILABLE_READ_ONLY"
+    assert "does not run a month archive audit" in benchmark["detail"]
     audit_ai_harness.reject_private_paths(payload)
 
 

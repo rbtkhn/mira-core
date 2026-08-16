@@ -13,6 +13,8 @@ into facts. It helps decide where to spend review effort.
 - `thin`: `0` to `3` manifest sources.
 - `normal`: `4` to `6` manifest sources.
 - `dense`: `7` or more manifest sources.
+- `very_dense`: overlay for `13` or more manifest sources; the primary density
+  class remains `dense`.
 - `forecast_hooks`: unique hook IDs visible in the daily stack.
 - `same_day_hooks`: hook IDs whose date matches the run date.
 - `carried_hooks`: hook IDs whose date predates or differs from the run date.
@@ -34,6 +36,32 @@ absence of sources is an intake state, not an analytical denominator.
 These labels are prompts, not verdicts. A thin day may be correct and pivotal;
 a dense day may still have one clear object.
 
+## Benchmark Signals
+
+`archive-audit` also reports benchmark signals for scoped archive health:
+
+- `landed_horizon_completeness_pct`: share of non-future scoped days with at
+  least one manifest row.
+- `calendar_scope_completeness_pct`: same count divided by the requested
+  calendar span, including future/unlanded days.
+- `future_unlanded_days`: requested days beyond the manifest horizon; these are
+  not coverage gaps.
+- `file_presence_pct`: scoped manifest rows whose source files are present.
+- `routing_completeness_pct`: scoped rows with at least one voice route.
+- `warning_distribution`: warning counts by rule ID.
+- `provisional_routing_warnings`: landing-time enrichment debt; not a defect by
+  itself.
+- `repair_candidate_warnings`: higher-signal warnings such as section metadata
+  mismatch or weak Duran/Mercouris provisional metadata.
+- `top_voice_share_pct` and `top_3_voice_share_pct`: concentration checks for
+  voice balance.
+- `top_host_share_pct` and `top_3_host_share_pct`: concentration checks for
+  host balance.
+
+Use completeness and fullness to decide review attention, not truth. A complete
+and dense day may still be analytically wrong; a thin day may still capture the
+decisive object.
+
 ## Operating Use
 
 Use density after source-accounting validation and before synthesis deepening.
@@ -41,7 +69,13 @@ Use density after source-accounting validation and before synthesis deepening.
 - Thin days: check caveat language, hook necessity, and whether issue copy asks too much of the source base.
 - Normal days: use density as context, not as an action trigger.
 - Dense days: check whether voice comparison, issue selection, and held-story decisions are explicit enough.
+- Very dense days: treat the dense-day review as mandatory before deepening,
+  especially issue selection and voice triangulation.
 - `OPC-*` days: treat density as prioritization only; packet support still controls public factual use and forecast resolution.
+- Repair-candidate warnings: reconcile archive/accounting quality before using
+  the day as a stable benchmark.
+- Provisional routing: track as fullness debt unless another finding names a
+  concrete repair candidate.
 
 Run density as part of the canonical archive audit:
 

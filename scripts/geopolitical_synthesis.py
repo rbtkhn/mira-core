@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse
 from datetime import date, timedelta
 
+import archive_audit
 import process_daily_stack as stack
 import verification
 
@@ -94,12 +95,17 @@ def gather_context(run_date: str) -> dict[str, object]:
     validation: dict[str, object] = {"failures": [], "warnings": []}
     if run_exists:
         validation = stack.run_validation(run_date)
+    audit = archive_audit.build_audit(
+        archive_audit.parse_args(["--start-date", run_date, "--end-date", run_date])
+    )
     return {
         "rows": rows,
         "run_exists": run_exists,
         "awaiting_intake": not rows,
         "validation": validation,
         "verification": verification.day_payload(run_date),
+        "archive_benchmarks": audit["benchmarks"],
+        "archive_structural_failures": audit["summary"]["structural_failures"],
     }
 
 
@@ -111,6 +117,9 @@ def recommend_choice(context: dict[str, object]) -> str:
     validation = context["validation"]
     if context["awaiting_intake"] or not context["run_exists"]:
         return "A"
+    benchmarks = context.get("archive_benchmarks", {})
+    if context.get("archive_structural_failures") or benchmarks.get("repair_candidate_warnings", 0):
+        return "B"
     if validation["failures"] or validation["warnings"]:
         return "B"
     verification_state = context["verification"]
@@ -151,9 +160,14 @@ def print_menu(run_date: str, context: dict[str, object], choice: str | None) ->
     warnings = validation["warnings"]
     awaiting = context["awaiting_intake"]
     recommended = recommend_choice(context)
+    benchmarks = context["archive_benchmarks"]
+    density = archive_audit.density_class(benchmarks["source_count"])
 
     print(f"geo-strategy session: {run_date}")
     print(f"manifest_day_rows={len(rows)}")
+    print(f"archive_density={density}")
+    print(f"archive_source_count={benchmarks['source_count']}")
+    print(f"archive_advisory_labels={','.join(benchmarks['advisory_labels']) or 'none'}")
     print(f"daily_run_exists={'yes' if context['run_exists'] else 'no'}")
     print(f"awaiting_intake={'yes' if awaiting else 'no'}")
     print(f"validation_failures={len(failures)}")

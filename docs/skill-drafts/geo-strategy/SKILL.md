@@ -76,7 +76,8 @@ Month and range modes process only dates with manifest rows. The deprecated
 ## Density Triage
 
 After validation and before deepening, use archive density as a review guide.
-Run a range or day check when source load may affect judgment:
+The guided menu and cadence startup may surface archive-audit benchmark
+advisories directly. When more detail is needed, run a range or day check:
 
 ```powershell
 .\tools\run.ps1 archive-audit --start-date YYYY-MM-DD --end-date YYYY-MM-DD --format markdown
@@ -87,8 +88,13 @@ rules this way:
 
 - thin days: check overclaim risk, hook necessity, and caveat language;
 - dense days: check voice triangulation, issue selection, and held-story logic;
+- `very_dense` overlay days: treat dense-day review as mandatory before
+  deepening;
 - `OPC-*` days: prioritize verification review, but do not assign operational truth;
 - carried-hook days: avoid duplicate forecasts unless a new wager is genuinely created.
+- provisional routing warnings: treat as landing-time enrichment debt unless a
+  separate repair-candidate warning is present.
+- repair-candidate warnings: favor reconciliation before deepening.
 
 ## Source-Anchor Coverage
 
