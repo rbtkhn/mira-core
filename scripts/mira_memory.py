@@ -13,6 +13,7 @@ from typing import Any
 REPO_ROOT = Path(__file__).resolve().parent.parent
 SCHEMA_VERSION = 2
 CHOICE_ENV = "NARRATIVE_CHOICE_DB"
+MENTORSHIP_ENV = "MIRA_MENTORSHIP_DB"
 ARCHIVE_ROOT_ENV = "NARRATIVE_SYSTEM_ARCHIVE_ROOT"
 ARCHIVE_CONFIG_ENV = "NARRATIVE_SYSTEM_ARCHIVE_CONFIG"
 DEFAULT_ARCHIVE_CONFIG = Path(r"C:\private\narrative-system-archive-config.json")
@@ -307,6 +308,37 @@ def choice_carrier() -> dict[str, Any]:
     )
 
 
+def mentorship_carrier() -> dict[str, Any]:
+    raw = os.environ.get(MENTORSHIP_ENV)
+    if not raw:
+        return carrier(
+            "private-mentorship-history", ["relational", "procedural"],
+            "private consent-bound mentorship continuity", [], [],
+            "tools/run.ps1 mira-mentor", "unavailable",
+            f"private mentorship store is not configured; set {MENTORSHIP_ENV}",
+            "recorded", "unavailable", authority_flags(), "unavailable",
+        )
+    path = Path(raw).expanduser()
+    if not path.is_absolute() or path.resolve(strict=False).is_relative_to(REPO_ROOT.resolve()):
+        availability, freshness, validation = "degraded", "invalid", "mentorship store must be an absolute path outside Git"
+    elif not path.is_file():
+        availability, freshness, validation = "unavailable", "unavailable", "configured private mentorship store does not exist"
+    else:
+        try:
+            with sqlite3.connect(f"file:{path.as_posix()}?mode=ro", uri=True) as connection:
+                connection.execute("PRAGMA query_only=ON")
+                integrity = connection.execute("PRAGMA quick_check").fetchone()[0]
+            availability, freshness, validation = ("available", "valid", "read-only SQLite quick_check: ok") if integrity == "ok" else ("degraded", "invalid", f"read-only SQLite quick_check: {integrity}")
+        except sqlite3.Error as error:
+            availability, freshness, validation = "degraded", "invalid", f"read-only SQLite check failed: {error.__class__.__name__}"
+    return carrier(
+        "private-mentorship-history", ["relational", "procedural"],
+        "private consent-bound mentorship continuity", [path], [],
+        "tools/run.ps1 mira-mentor", freshness, validation, "recorded", "private",
+        authority_flags(), availability,
+    )
+
+
 ROUTING_RULES = [
     ({"score", "forecast"}, "epistemic", "forecast-review", 100, "explicit forecast scoring"),
     ({"resolve", "forecast"}, "epistemic", "forecast-review", 100, "explicit forecast resolution"),
@@ -317,6 +349,7 @@ ROUTING_RULES = [
     ({"recover", "session"}, "relational", "mira-continuity", 100, "explicit session recovery"),
     ({"retrieve", "lineage"}, "epistemic", "system-archive", 100, "explicit lineage retrieval"),
     ({"review", "choice"}, "relational", "learn-from-choices", 100, "explicit choice review"),
+    ({"review", "mentorship"}, "relational", "mira-mentor", 100, "explicit mentorship review"),
     ({"forecast"}, "epistemic", "forecast-review", 50, "forecast object"),
     ({"claim"}, "epistemic", "reality-check", 50, "claim object"),
     ({"source"}, "epistemic", "archive-query", 50, "source object"),
@@ -325,6 +358,8 @@ ROUTING_RULES = [
     ({"learn"}, "procedural", "recursive-learn", 50, "learning object"),
     ({"process"}, "procedural", "recursive-learn", 50, "process object"),
     ({"choice"}, "relational", "learn-from-choices", 50, "choice object"),
+    ({"mentor"}, "relational", "mira-mentor", 50, "mentorship object"),
+    ({"mentorship"}, "relational", "mira-mentor", 50, "mentorship object"),
     ({"identity"}, "identity", "mira-continuity", 50, "identity object"),
     ({"session"}, "relational", "mira-continuity", 50, "session object"),
     ({"continuity"}, "relational", "mira-continuity", 50, "continuity object"),
@@ -489,7 +524,7 @@ def status(focus: str | None, as_of: str) -> dict[str, Any]:
     carriers = [
         continuity_carrier(inspect_sources=inspect_continuity), journal_carrier(),
         recursive_carrier(), system_archive_carrier(inspect_catalog=inspect_archive),
-        geopolitics_carrier(), choice_carrier(),
+        geopolitics_carrier(), choice_carrier(), mentorship_carrier(),
     ]
     for row in carriers:
         if row["availability"] == "unavailable":

@@ -32,7 +32,7 @@ Strongest counterevidence or dissent: The archive day is clustered around skepti
 
 Reality-verification dependencies: none admitted.
 
-Forecast hooks: NG-20260812-F01 is drafted in the daily forecast file but not admitted to the formal forecast ledger in this pass.
+Forecast hooks: NG-20260812-F01 was drafted in the daily pass and admitted to the formal forecast ledger on 2026-08-15 with its original review window and evidence boundary preserved.
 
 Operational dependencies: none for internal synthesis; public use held.
 

@@ -1,0 +1,14 @@
+{
+  "as_of": "2026-08-13",
+  "created_at": "2026-08-13T00:00:00Z",
+  "created_by": "operator",
+  "from_id": "EVD-20260813-001",
+  "id": "REL-20260813-003",
+  "kind": "relation",
+  "relation_type": "supports",
+  "revision_of": null,
+  "schema_version": 1,
+  "scope": "Supports that Trump was moved from the expected Air Force One path and departed on another government aircraft.",
+  "status": "active",
+  "to_id": "OBS-20260813-003"
+}

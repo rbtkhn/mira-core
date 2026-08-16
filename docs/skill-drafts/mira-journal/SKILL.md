@@ -35,6 +35,8 @@ voice judgment is required.
    only source of inheritable journal continuity. Treat
    `readable_legacy_context` as reflection context that may inform the prose
    but must not supply an inherited thread or governed continuity claim.
+   Review every row in `daily_session_coverage` before choosing significance;
+   its census proves consideration only, not importance or truth.
 2. **Listen backward.** Recover why an approved continuity thread mattered,
    not merely its last conclusion.
 3. **Choose significance.** Select one to three supplied developments that
@@ -49,7 +51,10 @@ voice judgment is required.
    and revise until it passes before grounding the prose.
 7. **Ground.** Write `draft.json` and `technical-reference.json`, including
    exact prose anchors, admitted RSI IDs actually consumed, and schema-v2
-   continuity events.
+   continuity events. Disposition every qualifying session in
+   `session_coverage`; bind `selected` and `technical-only` sessions to the
+   grounding items they informed, and give every `not-selected` session a
+   concise reason.
 8. **Check and offer.** Run `draft-check`. Report the private bundle as
    approval-pending, including warnings and any refresh requirement.
 

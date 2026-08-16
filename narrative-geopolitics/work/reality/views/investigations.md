@@ -1,4 +1,4 @@
-<!-- reality-lattice-v1 records-sha256: ba77d6c7cb19643b97117511fb526f9a8c8c5e4f611d6e62bebbfc4e0fea6697 -->
+<!-- reality-lattice-v1 records-sha256: f208f3d0253c56d9e8651918f38757dbcc883b1e3455cdd577e1ddd2c6714748 -->
 <!-- Generated from structured reality records. Do not edit directly. -->
 
 # Reality Investigations
@@ -27,3 +27,4 @@
 | `VER-20260804-07` | `requested` | `CLM-20260804-008` | `OBS-20260804-017`, `OBS-20260804-018`, `OBS-20260804-019` | Memorandum authenticity, parties, stated obligations, and Hormuz provisions; implementation is excluded. |
 | `VER-20260804-08` | `requested` | `CLM-20260804-008`, `CLM-20260804-009`, `CLM-20260804-010` | `OBS-20260804-017`, `OBS-20260804-018`, `OBS-20260804-019`, `OBS-20260804-020`, `OBS-20260804-021`, `OBS-20260804-022`, `OBS-20260804-023` | Formal termination and practical collapse assessed separately, with CLM-20260804-008 as the prerequisite document claim. |
 | `VER-20260804-10` | `requested` | `CLM-20260804-014`, `CLM-20260804-015`, `CLM-20260804-016` | `OBS-20260804-030`, `OBS-20260804-031`, `OBS-20260804-032`, `OBS-20260804-033`, `OBS-20260804-034`, `OBS-20260804-035` | Coalition operational access, Iranian denial capacity, and localized air superiority over Tehran and documented western-Iran strike corridors from March 4 through April 7; theater-wide air supremacy is excluded. |
+| `VER-20260813-01` | `requested` | `CLM-20260813-001` | `OBS-20260813-001`, `OBS-20260813-002`, `OBS-20260813-003`, `OBS-20260813-004` | Verify the reported warning-and-aircraft-deception event after the July 8, 2026 Ankara NATO summit. Boundary: establish warning existence, reported intelligence lineage, aircraft switch, and decoy/deception chronology only; do not assess whether Iran or proxies had a feasible plot, whether Israeli intelligence was manipulative, or whether CIA confidence was low except as contextual leads for separate claims. |

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Mira Mentor"
+  short_description: "Develop human-agent capability through real work"
+  default_prompt: "Use $mira-mentor to guide a person, AI agent, or working pair through bounded real work while preserving authority, authorship, and independent judgment."

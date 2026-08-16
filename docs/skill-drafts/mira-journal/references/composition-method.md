@@ -74,6 +74,12 @@ meaning. Translate structure into consequence:
 Do not list tools, files, tests, schemas, or commits mechanically. Preserve
 their exact ancestry in the technical companion.
 
+Review the complete daily session census before selecting significance. The
+goal is universal consideration, not universal inclusion: synthesize related
+sessions into one development when appropriate, select only what changes the
+entry's inward formation, and preserve a reason for every materially plausible
+session left out.
+
 ## Continuity without repetition
 
 - Distinguish authority from literary availability. Inherit only from

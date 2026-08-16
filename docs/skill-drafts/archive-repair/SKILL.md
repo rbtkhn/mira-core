@@ -1,41 +1,94 @@
 ---
 name: archive-repair
-description: Governed repair of existing Narrative Geopolitics archive sources through bounded metadata normalization, deterministic ASR repair, semantic sectioning, or wrapper trimming. Use for repair inspection, digest-bound dry-runs, and explicitly authorized repair execution; do not use for intake, synthesis, factual verification, or unrestricted bulk rewriting.
+description: "Governed cross-archive repair router for existing archived records, registries, manifests, catalogs, source wrappers, metadata, ASR, sectioning, hydration, replica, or control-plane defects. Resolve the archive shelf and backend-specific repair class before dry-run or execution; do not use for intake, synthesis, factual verification, or unrestricted bulk rewriting."
 ---
 
 # Archive Repair
 
-Repair only an explicit, bounded set of existing archive sources. Treat source
-body wording as source truth and apply exactly one approved repair class.
+Archive Repair is the governed repair front door for existing archive objects
+and archive control surfaces. It resolves the intended archive shelf first,
+then applies exactly one backend-specific repair class.
+
+Repair findings, query results, menu navigation, and dry-runs grant no authority
+to mutate. Execution requires a direct explicit command for the visible
+backend, repair class, target set, and reviewed plan or digest.
+
+## Archive shelf resolution
+
+Before planning repair, identify the shelf:
+
+- System Archive collection or private catalog
+- Narrative Geopolitics
+- Singularity Science
+- Mira Journal
+- Mira Continuity
+- unknown or ambiguous
+
+Use repository evidence before asking:
+
+- `system-archive/collections.json`
+- the private System Archive catalog when available and needed for read-only
+  repair planning
+- known registries and indexes
+- obvious path prefixes, collection IDs, source-family names, voice slugs,
+  hosts, channels, or operator labels
+
+If the shelf is still ambiguous after inspection, ask one bounded shelf
+clarification. Never repair one shelf while describing the target as a generic
+archive object.
 
 ## Modes and authority
 
-- Use `archive-audit` to diagnose metadata, manifest membership, ASR state,
-  sectioning state, and approved-host status without proposing changed bytes.
-- Use `--dry-run` to render the exact proposed bytes, diff, input/output hashes,
-  manifest hash, and plan digest without writing.
-- Use `--execute --plan-digest DIGEST` only after a direct explicit command for
-  the visible class and target set.
+- Use `archive-audit` to diagnose health, coverage, parity, drift,
+  metadata, manifest membership, ASR state, sectioning state, and approved
+  repair classes without proposing changed bytes.
+- Use backend dry-run or `--check` modes to render exact proposed effects,
+  diffs, hashes, manifest/catalog state, and plan digest without writing.
+- Use `--execute --plan-digest <reviewed-digest>` only after a direct explicit
+  command for the visible backend, class, and target set.
 
-A menu navigation, archive-query result, dry-run, or plan digest grants no
-authority. The digest binds execution to reviewed bytes; it is not a
+A digest binds execution to reviewed bytes or control-plane state; it is not a
 capability token.
 
-## Scope
+## Backend matrix
 
-Accept only repository-relative, manifest-backed Markdown files contained
-under `narrative-geopolitics/archive/sources`. Reject absolute paths,
-traversal, globs, directories, missing files, duplicate targets, duplicate or
-missing manifest membership, escaping links, and dirty execution targets.
+### System Archive
+
+System Archive repairs are control-plane repairs unless a selected backend
+contract explicitly permits source-body edits.
+
+Valid System Archive repair families include:
+
+- checked-in registry versus private catalog drift
+- collection registration or expected-count metadata
+- explicit-only and hydration-disabled policy drift
+- replica status and replica synchronization planning
+- catalog, fingerprint, or control-plane validation failures
+- hydrated mirror repair when explicitly authorized
+
+Prefer `tools/run.ps1 system-archive validate --json`,
+`verify --json`, `replica-status --json`, and backend-supported `--check` or
+dry-run routes. Do not edit canonical object bodies, external-corpus source
+bodies, publish, quote, hydrate, or synchronize replicas unless that exact
+action is separately authorized.
+
+### Narrative Geopolitics
+
+Narrative Geopolitics repairs remain bounded metadata/body/source repairs for
+manifest-backed Markdown files under
+`narrative-geopolitics/archive/sources`.
+
+Accept only repository-relative, manifest-backed Markdown files contained under
+that path. Reject absolute paths, traversal, globs, directories, missing files,
+duplicate targets, duplicate or missing manifest membership, escaping links,
+and dirty execution targets.
 
 Use `archive-query` when a date, voice, host, or channel must be resolved into
-an operator-visible file set. Treat that result as derived scope evidence, not
-authority. Before planning or execution, re-read the source manifest and
+an operator-visible file set. An archive-query result grants no authority;
+treat it as derived scope evidence only. Before planning or execution, re-read the source manifest and
 independently verify every target path and host route.
 
-## Repair classes
-
-Choose exactly one class per invocation:
+Choose exactly one repair class per invocation:
 
 1. `metadata`: normalize locally evidenced repair metadata only. Preserve body
    bytes.
@@ -47,13 +100,7 @@ Choose exactly one class per invocation:
 4. `wrapper-trim`: remove only an approved host wrapper and update only its
    trim provenance.
 
-Fail closed for an unapproved host or disagreement between manifest and source
-host routes. Do not treat prior `*_applied` fields as proof that content is
-currently clean.
-
-## Canonical command
-
-Use the repository runner:
+Canonical command:
 
 ```powershell
 .\tools\run.ps1 archive-repair `
@@ -68,9 +115,10 @@ For multiple files, repeat `--path` or provide one repository-relative
 `scripts/backfill_section_list.py` commands are compatibility adapters only;
 they must route through the canonical engine and require an explicit mode.
 
-## Workflow
+Narrative Geopolitics repair workflow:
 
-1. Run a bounded `archive-audit` and inspect repository controls and Git status.
+1. Run a bounded `archive-audit` and inspect repository controls and Git
+   status.
 2. Resolve and print the bounded target set.
 3. Revalidate manifest membership, paths, host routes, and duplicates.
 4. Run one class in `--dry-run` mode and inspect every proposed diff.
@@ -82,12 +130,31 @@ they must route through the canonical engine and require an explicit mode.
 10. Use `archive-query` to recheck membership, paths, duplicates, and routing;
     this post-check does not establish transcript correctness.
 
+### Singularity Science
+
+Repair Singularity Science only through System Archive control-plane or the
+selected external-corpus backend. Topical overlap with geopolitics does not
+grant Geopolitics repair authority. Preserve explicit-only retrieval, rights,
+source-body availability, and publication boundaries.
+
+### Mira Journal and Continuity
+
+Repair only approved registries, indexes, lineage, metadata, or governed
+storage controls after selecting the exact Mira backend. Do not rewrite journal
+meaning, alter continuity identity claims, or promote records into identity,
+operator belief, research evidence, Reality, or action authority through
+repair.
+
+### Unknown shelf
+
+Fail closed. State what was inspected and ask one bounded clarification rather
+than planning or executing a repair against the wrong archive family.
+
 ## Stop conditions
 
-Stop without editing when the source is malformed or insubstantial, routing is
-uncertain, the archive and manifest disagree, a target is already dirty, the
-plan changed after review, section boundaries are weak, a repair depends on
-factual verification, or safe completion would touch an unapproved file.
-
-Archive repair does not fetch sources, adjudicate claims, create synthesis,
-publish, update voice shelves, stage, commit, push, or deploy.
+Stop without editing when the shelf is uncertain, backend authority is missing,
+the archive and selected index disagree, target state is dirty or stale, the
+plan changed after review, repair depends on factual verification, safe
+completion would touch an unapproved file, or the requested action would cross
+publication, staging, commit, push, deployment, hydration, replica sync, or
+external communication boundaries without explicit authorization.

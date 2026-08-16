@@ -59,6 +59,17 @@ EPISTEMIC_CLASSES = {
     "prior-journal-reflection",
     "unresolved-material",
 }
+SESSION_DISPOSITIONS = {
+    "represented", "not-material", "duplicate", "administrative-only",
+    "unreadable", "cutoff-excluded",
+}
+SESSION_INFLUENCE_VALUES = {"selected", "technical-only", "not-selected"}
+SESSION_SYNOPSIS_TEXT_LIMIT = 700
+SESSION_SYNOPSIS_NONCONTENT_PREFIXES = (
+    "<environment_context>",
+    "<recommended_plugins>",
+    "# agents.md instructions",
+)
 TITLE_RE = re.compile(r"^# (?P<date>\d{4}-\d{2}-\d{2})\s+[—-]\s+(?P<title>[^\r\n]+)\s*$")
 WORD_RE = re.compile(r"\b[\w’'-]+\b", re.UNICODE)
 TITLE_SUBTITLE_RE = re.compile(r"(?::|[—–]|\s-\s)")
@@ -660,6 +671,7 @@ def collect_activity(
         raise JournalError("as-of time precedes the requested journal date")
     candidates: dict[str, dict[str, Any]] = {}
     source_refs: dict[tuple[str, str], dict[str, Any]] = {}
+    census: list[dict[str, Any]] = []
     for source in sources if sources is not None else session_sources_since(start):
         try:
             source_start = parse_timestamp(source.started_at, label="session started_at")
@@ -668,8 +680,28 @@ def collect_activity(
             continue
         if source_end < start or source_start >= cutoff:
             continue
-        capture_id, object_id, rows = normalized_rows(source)
+        try:
+            capture_id, object_id, rows = normalized_rows(source)
+        except (OSError, ValueError, json.JSONDecodeError, gzip.BadGzipFile, mira_continuity.ContinuityError) as error:
+            census.append({
+                "session_id": source.session_id,
+                "source_kind": str(getattr(source, "source_kind", "unknown")),
+                "source_class": str(getattr(source, "source_class", "unknown")),
+                "started_at": utc_text(source_start),
+                "last_observed_at": utc_text(source_end),
+                "capture_id": None,
+                "object_id": None,
+                "eligible_record_count": 0,
+                "disposition": "unreadable",
+                "reason": f"capture normalization failed: {type(error).__name__}",
+                "synopsis": "",
+                "synopsis_record_ids": [],
+                "estimated_tokens": 40,
+                "may_promote": False,
+            })
+            continue
         selected_ids: list[str] = []
+        eligible_rows: list[dict[str, Any]] = []
         for row in rows:
             timestamp_text = str(row.get("timestamp", ""))
             if not timestamp_text:
@@ -684,7 +716,7 @@ def collect_activity(
             if not RECORD_ID_RE.fullmatch(record_id):
                 continue
             selected_ids.append(record_id)
-            candidates[record_id] = {
+            candidate = {
                 "record_id": record_id,
                 "session_id": source.session_id,
                 "capture_id": capture_id,
@@ -694,6 +726,61 @@ def collect_activity(
                 "text": row_text(row),
                 **epistemic_metadata(row),
             }
+            candidates[record_id] = candidate
+            eligible_rows.append(candidate)
+        substantive = [
+            row for row in eligible_rows
+            if row.get("kind") == "message"
+            and row.get("role") in {"user", "assistant"}
+            and str(row.get("text", "")).strip()
+            and not str(row.get("text", "")).strip().casefold().startswith(
+                SESSION_SYNOPSIS_NONCONTENT_PREFIXES
+            )
+        ]
+        synopsis_rows = []
+        if substantive:
+            synopsis_rows = [substantive[0]]
+            if substantive[-1]["record_id"] != substantive[0]["record_id"]:
+                synopsis_rows.append(substantive[-1])
+        if len(synopsis_rows) == 2:
+            first_limit = SESSION_SYNOPSIS_TEXT_LIMIT // 2 - 2
+            last_limit = SESSION_SYNOPSIS_TEXT_LIMIT - first_limit - 2
+            parts = []
+            for row, limit in zip(synopsis_rows, (first_limit, last_limit), strict=True):
+                part = str(row["text"]).strip()
+                if len(part) > limit:
+                    part = part[: limit - 1].rstrip() + "…"
+                parts.append(part)
+            synopsis = "\n\n".join(parts)
+        else:
+            synopsis = "\n\n".join(str(row["text"]).strip() for row in synopsis_rows)
+            if len(synopsis) > SESSION_SYNOPSIS_TEXT_LIMIT:
+                synopsis = synopsis[: SESSION_SYNOPSIS_TEXT_LIMIT - 1].rstrip() + "…"
+        disposition = (
+            "represented" if substantive else
+            "administrative-only" if eligible_rows else
+            "cutoff-excluded"
+        )
+        synopsis_tokens = 40 + max(1, (len(synopsis) + 3) // 4)
+        census.append({
+            "session_id": source.session_id,
+            "source_kind": str(getattr(source, "source_kind", "unknown")),
+            "source_class": str(getattr(source, "source_class", "unknown")),
+            "started_at": utc_text(source_start),
+            "last_observed_at": utc_text(source_end),
+            "capture_id": capture_id,
+            "object_id": object_id,
+            "eligible_record_count": len(eligible_rows),
+            "disposition": disposition,
+            "reason": (
+                "bounded synopsis and source capture are available" if disposition == "represented"
+                else "no substantive user or assistant message was observed before cutoff"
+            ),
+            "synopsis": synopsis,
+            "synopsis_record_ids": [str(row["record_id"]) for row in synopsis_rows],
+            "estimated_tokens": synopsis_tokens,
+            "may_promote": False,
+        })
         if selected_ids:
             source_refs[(source.session_id, capture_id)] = {
                 "kind": "mira-session-capture",
@@ -702,14 +789,24 @@ def collect_activity(
                 "object_id": object_id,
                 "record_ids": sorted(set(selected_ids)),
             }
+    census.sort(key=lambda item: (item["started_at"], item["session_id"]))
+    census_tokens = sum(int(row["estimated_tokens"]) for row in census)
+    if census_tokens > token_budget:
+        raise JournalError(
+            f"session census requires {census_tokens} tokens, exceeding the {token_budget}-token activity budget"
+        )
     ordered = sorted(candidates.values(), key=lambda item: (item["timestamp"], item["record_id"]))
     selected: list[dict[str, Any]] = []
     omissions: list[dict[str, str]] = []
-    remaining = token_budget
+    remaining = token_budget - census_tokens
     for row in ordered:
         estimate = 40 + max(1, (len(str(row["text"])) + 3) // 4)
         if estimate > remaining:
-            omissions.append({"record_id": row["record_id"], "reason": "token-budget"})
+            omissions.append({
+                "record_id": row["record_id"],
+                "session_id": row["session_id"],
+                "reason": "token-budget-detail-omitted; session synopsis retained",
+            })
             continue
         selected.append({**row, "estimated_tokens": estimate})
         remaining -= estimate
@@ -717,10 +814,13 @@ def collect_activity(
     for row in selected:
         selected_by_source.setdefault((row["session_id"], row["capture_id"]), []).append(row["record_id"])
     bounded_source_refs: list[dict[str, Any]] = []
+    synopsis_ids = {
+        (str(row.get("session_id")), str(row.get("capture_id"))): list(row.get("synopsis_record_ids", []))
+        for row in census if row.get("capture_id")
+    }
     for key, ref in sorted(source_refs.items()):
-        record_ids = selected_by_source.get(key, [])
-        if record_ids:
-            bounded_source_refs.append({**ref, "record_ids": record_ids})
+        record_ids = sorted(set(selected_by_source.get(key, [])) | set(synopsis_ids.get(key, [])))
+        bounded_source_refs.append({**ref, "record_ids": record_ids})
     commits = git_commits(start, cutoff)
     for commit in commits:
         commit.update(
@@ -748,6 +848,7 @@ def collect_activity(
             "retrospective": as_of >= end,
         },
         "selected_records": selected,
+        "session_census": census,
         "commits": commits,
         "source_refs": [*bounded_source_refs, *git_refs],
         "input_object_ids": input_ids,
@@ -783,6 +884,7 @@ def context_pack(
         "estimated_tokens": activity["estimated_tokens"] + learning_tokens,
         "coverage": activity["coverage"],
         "selected_records": activity["selected_records"],
+        "session_census": copy.deepcopy(activity.get("session_census", [])),
         "commits": activity["commits"],
         "source_refs": activity["source_refs"],
         "omissions": activity["omissions"],
@@ -847,6 +949,25 @@ def validate_context_pack(value: dict[str, Any]) -> list[str]:
             failures.append("journal context record lacks authority owner")
         if row.get("may_promote") is not False:
             failures.append("journal context record may not carry promotion authority")
+    census = value.get("session_census", [])
+    if "session_census" in value and not isinstance(census, list):
+        failures.append("journal context session census is malformed")
+        census = []
+    seen_sessions: set[str] = set()
+    for row in census:
+        if not isinstance(row, dict) or not SESSION_ID_RE.fullmatch(str(row.get("session_id", ""))):
+            failures.append("journal session census row is malformed")
+            continue
+        session_id = str(row["session_id"])
+        if session_id in seen_sessions:
+            failures.append(f"journal session census duplicates session: {session_id}")
+        seen_sessions.add(session_id)
+        if row.get("disposition") not in SESSION_DISPOSITIONS:
+            failures.append(f"journal session census has invalid disposition: {session_id}")
+        if row.get("may_promote") is not False:
+            failures.append(f"journal session census grants promotion authority: {session_id}")
+        if not isinstance(row.get("synopsis_record_ids"), list) or not isinstance(row.get("estimated_tokens"), int):
+            failures.append(f"journal session census accounting is malformed: {session_id}")
     for commit in value.get("commits", []):
         if not isinstance(commit, dict) or commit.get("epistemic_class") != "repository-event":
             failures.append("journal context commit lacks repository-event classification")
@@ -964,6 +1085,10 @@ def composition_brief(entry_date: date, pack: dict[str, Any]) -> dict[str, Any]:
     pack_digest = sha256_bytes(canonical_json(pack).encode("utf-8"))
     registry_digest = sha256_bytes(canonical_json(registry).encode("utf-8"))
     continuity_digest = sha256_bytes(canonical_json(continuity).encode("utf-8"))
+    census = copy.deepcopy(pack.get("session_census", []))
+    census_digest = sha256_bytes(canonical_json(census).encode("utf-8"))
+    represented = sum(row.get("disposition") == "represented" for row in census if isinstance(row, dict))
+    dispositioned = sum(row.get("disposition") in SESSION_DISPOSITIONS for row in census if isinstance(row, dict))
     core = {
         "schema_version": 1,
         "contract": COMPOSITION_VERSION,
@@ -977,6 +1102,26 @@ def composition_brief(entry_date: date, pack: dict[str, Any]) -> dict[str, Any]:
             "active_threads": copy.deepcopy(active[:12]),
         },
         "readable_legacy_context": legacy_context,
+        "daily_session_coverage": {
+            "coverage": copy.deepcopy(pack.get("coverage")),
+            "qualifying_session_count": len(census),
+            "represented_session_count": represented,
+            "dispositioned_session_count": dispositioned,
+            "budget_disappeared_session_count": 0,
+            "census_sha256": census_digest,
+            "sessions": [
+                {
+                    **row,
+                    "candidate_development": row.get("synopsis", ""),
+                    "selection_disposition": "available-for-review",
+                }
+                for row in census
+            ],
+            "authority_boundary": (
+                "Session coverage proves consideration, not literary significance, factual truth, "
+                "recursive learning, or journal ancestry."
+            ),
+        },
         "recent_entries": recent,
         "recursive_learning_context": copy.deepcopy(pack["recursive_learning_context"]),
         "founding_touchstones": [{
@@ -1060,6 +1205,28 @@ def validate_composition_brief(value: Any, *, pack: dict[str, Any]) -> list[str]
             ):
                 failures.append("composition brief readable legacy entry is malformed")
                 break
+    daily = value.get("daily_session_coverage")
+    census = pack.get("session_census", [])
+    if not isinstance(daily, dict):
+        if "session_census" in pack:
+            failures.append("composition brief lacks daily session coverage")
+    else:
+        expected_sessions = [
+            {**row, "candidate_development": row.get("synopsis", ""), "selection_disposition": "available-for-review"}
+            for row in census
+        ]
+        if daily.get("coverage") != pack.get("coverage"):
+            failures.append("composition brief session coverage cutoff mismatch")
+        if daily.get("qualifying_session_count") != len(census):
+            failures.append("composition brief qualifying session count mismatch")
+        if daily.get("dispositioned_session_count") != len(census):
+            failures.append("composition brief has undispositioned sessions")
+        if daily.get("budget_disappeared_session_count") != 0:
+            failures.append("composition brief permits budget-caused session disappearance")
+        if daily.get("census_sha256") != sha256_bytes(canonical_json(census).encode("utf-8")):
+            failures.append("composition brief session census digest mismatch")
+        if daily.get("sessions") != expected_sessions:
+            failures.append("composition brief session census projection mismatch")
     derivation = value.get("derivation_manifest")
     core = {key: copy.deepcopy(item) for key, item in value.items() if key not in {"composition_brief_id", "derivation_manifest"}}
     digest = sha256_bytes(canonical_json(core).encode("utf-8"))
@@ -1190,6 +1357,17 @@ def technical_reference_contract(
             "ordinary_new_thread_maximum": 1,
             "continuity_break_requires_reason": True,
             "naming_recurrence": "changed-meaning-only",
+        },
+        "session_coverage": {
+            "required_session_ids": [
+                row["session_id"]
+                for row in (brief or {}).get("daily_session_coverage", {}).get("sessions", [])
+            ],
+            "prose_influence_values": sorted(SESSION_INFLUENCE_VALUES),
+            "selection_rule": (
+                "Disposition every qualifying session after review; selected and technical-only sessions "
+                "must resolve through grounding-item session_ids."
+            ),
         },
         "approval": "combined-prose-and-reference",
         "authority_boundary": mira_journal_references.AUTHORITY_BOUNDARY,
@@ -1900,6 +2078,44 @@ def load_draft_reference(draft: Path) -> dict[str, Any]:
     return load_json(path)
 
 
+def reference_session_coverage_failures(
+    reference: dict[str, Any], required_sessions: set[str]
+) -> list[str]:
+    failures: list[str] = []
+    session_selection = reference.get("session_coverage")
+    if not required_sessions:
+        return failures
+    if not isinstance(session_selection, list):
+        return ["technical reference lacks daily session selection dispositions"]
+    grounded_session_ids = {
+        str(session_id)
+        for item in reference.get("items", []) if isinstance(item, dict)
+        for session_id in item.get("session_ids", [])
+    }
+    seen_selection: set[str] = set()
+    for row in session_selection:
+        if not isinstance(row, dict):
+            failures.append("technical reference session selection must be an object")
+            continue
+        session_id = str(row.get("session_id", ""))
+        influence = row.get("prose_influence")
+        if session_id in seen_selection:
+            failures.append(f"technical reference duplicates session selection: {session_id}")
+        seen_selection.add(session_id)
+        if session_id not in required_sessions:
+            failures.append(f"technical reference selects unknown session: {session_id}")
+        if influence not in SESSION_INFLUENCE_VALUES:
+            failures.append(f"technical reference has invalid session influence: {session_id}")
+        if influence in {"selected", "technical-only"} and session_id not in grounded_session_ids:
+            failures.append(f"technical reference session lacks grounding item: {session_id}")
+        elif influence == "not-selected" and not str(row.get("reason", "")).strip():
+            failures.append(f"technical reference unselected session lacks reason: {session_id}")
+    missing_sessions = sorted(required_sessions - seen_selection)
+    if missing_sessions:
+        failures.append("technical reference leaves sessions undispositioned: " + ", ".join(missing_sessions))
+    return failures
+
+
 def normalized_version(
     body: bytes,
     metadata: dict[str, Any],
@@ -1931,7 +2147,22 @@ def normalized_version(
     expected_journal = journal_id(expected_date)
     expected_version = version_id(expected_date, expected_number)
     ledger = mira_journal_references.load_ledger(LEARNING_LEDGER_PATH)
-    reference_failures = mira_journal_references.validate_reference(
+    if technical_reference.get("schema_version") == 2:
+        brief_path = draft_directory / "composition-brief.json"
+        if not brief_path.is_file():
+            raise JournalError("schema-v2 journal approval requires its composition brief")
+        brief = load_json(brief_path)
+        required_sessions = {
+            str(row.get("session_id"))
+            for row in brief.get("daily_session_coverage", {}).get("sessions", [])
+            if isinstance(row, dict)
+        }
+        reference_failures = reference_session_coverage_failures(
+            technical_reference, required_sessions
+        )
+    else:
+        reference_failures = []
+    reference_failures.extend(mira_journal_references.validate_reference(
         technical_reference,
         prose=prose_text,
         prose_sha256=parsed["content_sha256"],
@@ -1940,7 +2171,7 @@ def normalized_version(
         repo_root=REPO_ROOT,
         expected_cutoff_at=str(metadata.get("coverage", {}).get("as_of", "")),
         continuity_index=load_continuity_index(),
-    )
+    ))
     if reference_failures:
         raise JournalError("; ".join(reference_failures))
     technical_reference_digest = mira_journal_references.reference_digest(technical_reference)
@@ -2200,6 +2431,12 @@ def command_draft_check(args: argparse.Namespace) -> dict[str, Any]:
         expected_cutoff_at=str((coverage or {}).get("as_of", "")),
         continuity_index=load_continuity_index(),
     ))
+    required_sessions = {
+        str(row.get("session_id"))
+        for row in brief.get("daily_session_coverage", {}).get("sessions", [])
+        if isinstance(row, dict)
+    }
+    failures.extend(reference_session_coverage_failures(reference, required_sessions))
     refrains = {
         sentence_key(str(item.get("prose_anchor", "")))
         for item in reference.get("continuity", {}).get("deliberate_refrains", [])
@@ -2308,6 +2545,11 @@ def command_prepare(args: argparse.Namespace) -> dict[str, Any]:
         "composition_brief_id": brief["composition_brief_id"],
         "composition_brief_sha256": sha256_bytes(canonical_json(brief).encode("utf-8")),
         "selected_records": len(pack["selected_records"]),
+        "qualifying_sessions": len(pack["session_census"]),
+        "dispositioned_sessions": sum(
+            row.get("disposition") in SESSION_DISPOSITIONS for row in pack["session_census"]
+        ),
+        "budget_disappeared_sessions": 0,
         "commits": len(pack["commits"]),
         "omissions": len(pack["omissions"]),
         "quiet_day": contract["prose_contract"]["quiet_day"],

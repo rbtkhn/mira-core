@@ -74,8 +74,7 @@ Evidence that would close or reduce the finding:
 - an explicit declaration that Pages is retired; or
 - evidence that another hosted path is the actual public study edition.
 
-Recommended route: reproduce
-`python scripts/build_study_edition.py --all-parts` at the pinned revision,
+Recommended route: reproduce the complete study-edition build at the pinned revision,
 repair the first deterministic failure, then validate every declared part
 before checking hosted deployment.
 
@@ -170,7 +169,7 @@ The repository contains meaningful tests for:
 - transcript structure;
 - patterns and CLI behavior.
 
-`AGENTS.md` also names `python -m pytest` and the CLI validator as useful
+`AGENTS.md` also names the test suite and the CLI validator as useful
 checks. Yet the only workflow found is the Pages deployment workflow, and it
 does not run the pytest suite or the main repository validator.
 

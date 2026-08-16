@@ -1,0 +1,31 @@
+{
+  "as_of": "2026-08-13",
+  "claim_ids": [
+    "CLM-20260813-001"
+  ],
+  "created_at": "2026-08-13T00:00:00Z",
+  "created_by": "operator",
+  "domain_profile": "DOMAIN-MILITARY-ACTIVITY",
+  "id": "OBS-20260813-004",
+  "kind": "observable",
+  "possible_results": [
+    "observed",
+    "not_observed",
+    "contested",
+    "unavailable"
+  ],
+  "question": "Did reporting establish that the expected or public aircraft movement served as a decoy or deception while Trump traveled separately?",
+  "required_language_environments": [
+    "affected_or_claimant_region",
+    "external_or_challenged",
+    "third_independent_environment"
+  ],
+  "resolution_rule": "Resolve only the deception/decoy element through event-specific reporting; do not infer presidential intent or threat reality from the aircraft pattern alone.",
+  "revision_of": null,
+  "schema_version": 1,
+  "status": "open",
+  "window": {
+    "end": "2026-08-14",
+    "start": "2026-08-13"
+  }
+}

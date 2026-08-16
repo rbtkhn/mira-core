@@ -4,7 +4,7 @@ This index routes the unified local Aguilar corpus for `aguilar` to the central 
 
 Source basis: `strategy-codex/statecraft/voices/aguilar/aguilar-index.md`.
 
-Corpus: 26 local route rows across 26 central archive source files.
+Corpus: 27 local route rows across 27 central archive source files.
 
 Status: `imported-corpus`
 
@@ -45,6 +45,7 @@ Status: `imported-corpus`
 | `2026-08-07` | (1) ISRAEL REJECT TRUMP ATTEMPT AT IRAN DEAL, YEMEN STRIKE SAUDI, ISLAMIC NATO? w/ Col Anthony Aguilar | `guest` | `moral-resistance` | [source](../../archive/sources/2026-08-07/source-1-israel-reject-trump-attempt-at-iran-deal-yemen-strike-saudi-islamic-nato-w-col-anthony-aguilar-2026-08-07.md) |
 | `2026-08-10` | (2) BREAKING: IRAN TO DELAY DEAL UNTIL AFTER TRUMP ADMINISTRATION ENDS - w/ Lt. Col. Anthony Aguilar | `guest` | `mario-nawfal` | [source](../../archive/sources/2026-08-10/source-2-breaking-iran-to-delay-deal-until-after-trump-administration-ends-w-lt-col-anthony-aguilar-2026-08-10.md) |
 | `2026-08-12` | (3) Lt. Col. Anthony Aguilar: The Unraveling of the USS Abraham Lincoln | `guest` | `dialogue-works` | [source](../../archive/sources/2026-08-12/source-3-lt-col-anthony-aguilar-the-unraveling-of-the-uss-abraham-lincoln-2026-08-12.md) |
+| `2026-08-15` | (4) CENTCOM PUSHES TRUMP FOR MORE WAR AS CEASEFIRE EXPIRES MONDAY - w/ Lt. Col. Anthony Aguilar | `host-pressure test` | `mario-nawfal` | [source](../../archive/sources/2026-08-15/source-4-centcom-pushes-trump-for-more-war-as-ceasefire-expires-monday-w-lt-col-anthony-aguilar-2026-08-15.md) |
 
 ## Import Boundary
 

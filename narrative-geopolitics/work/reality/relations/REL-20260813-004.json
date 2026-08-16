@@ -1,0 +1,14 @@
+{
+  "as_of": "2026-08-13",
+  "created_at": "2026-08-13T00:00:00Z",
+  "created_by": "operator",
+  "from_id": "EVD-20260813-001",
+  "id": "REL-20260813-004",
+  "kind": "relation",
+  "relation_type": "supports",
+  "revision_of": null,
+  "schema_version": 1,
+  "scope": "Supports the decoy/deception chronology involving the original aircraft and press/staff movement.",
+  "status": "active",
+  "to_id": "OBS-20260813-004"
+}

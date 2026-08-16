@@ -1014,11 +1014,120 @@ def test_activity_contract_selects_or_explicitly_omits_every_daily_record(
         row["record_id"] for row in activity["omissions"]
     }
     assert accounted == {row["record_id"] for row in rows}
-    assert activity["omissions"] == [{"record_id": "MR-" + "b" * 24, "reason": "token-budget"}]
-    selected = activity["selected_records"][0]
-    assert selected["epistemic_class"] == "operator-direction"
-    assert selected["authority_owner"] == "operator"
-    assert selected["may_promote"] is False
+    assert {row["record_id"] for row in activity["omissions"]} == {
+        "MR-" + "b" * 24
+    }
+    assert all(row["session_id"] == SESSION for row in activity["omissions"])
+    assert activity["session_census"][0]["disposition"] == "represented"
+    assert activity["session_census"][0]["synopsis_record_ids"] == [
+        "MR-" + "a" * 24, "MR-" + "b" * 24
+    ]
+    assert activity["session_census"][0]["synopsis"].endswith("…")
+    assert "â€¦" not in activity["session_census"][0]["synopsis"]
+    assert activity["session_census"][0]["may_promote"] is False
+
+
+def test_schema_v2_approval_rejects_missing_session_disposition(
+    monkeypatch: pytest.MonkeyPatch, tmp_path: Path
+) -> None:
+    _, drafts = configure_repo(monkeypatch, tmp_path)
+    day = "2026-08-09"
+    body = prose(day)
+    draft = write_v2_bundle(drafts, day, body, metadata(day, body))
+    brief_path = draft.parent / "composition-brief.json"
+    brief = json.loads(brief_path.read_text(encoding="utf-8"))
+    brief["daily_session_coverage"]["sessions"] = [{"session_id": SESSION}]
+    brief["daily_session_coverage"]["qualifying_session_count"] = 1
+    brief["daily_session_coverage"]["dispositioned_session_count"] = 1
+    brief_path.write_text(json.dumps(brief), encoding="utf-8")
+    brief_digest = subject.sha256_bytes(subject.canonical_json(brief).encode("utf-8"))
+    draft_metadata = json.loads(draft.with_suffix(".json").read_text(encoding="utf-8"))
+    draft_metadata["source_refs"][1]["object_id"] = brief_digest
+    draft_metadata["derivation_manifest"]["input_object_ids"][1] = brief_digest
+    draft.with_suffix(".json").write_text(json.dumps(draft_metadata), encoding="utf-8")
+    with pytest.raises(subject.JournalError, match="lacks daily session selection dispositions"):
+        subject.approve_or_revise(action_args(day, draft), revising=False)
+
+
+def test_activity_census_preserves_later_session_after_early_budget_exhaustion(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    early = SimpleNamespace(
+        session_id="MS-11111111-1111-1111-1111-111111111111",
+        started_at="2026-08-09T06:30:00Z", last_observed_at="2026-08-09T07:30:00Z",
+        source_kind="vscode", source_class="active",
+    )
+    later = SimpleNamespace(
+        session_id="MS-22222222-2222-2222-2222-222222222222",
+        started_at="2026-08-09T08:30:00Z", last_observed_at="2026-08-09T09:30:00Z",
+        source_kind="subagent", source_class="active",
+    )
+    rows = {
+        early.session_id: [{
+            "record_id": "MR-" + "a" * 24, "timestamp": "2026-08-09T07:00:00Z",
+            "kind": "message", "role": "assistant",
+            "content": [{"type": "text", "text": "early " * 3000}],
+        }],
+        later.session_id: [{
+            "record_id": "MR-" + "b" * 24, "timestamp": "2026-08-09T09:00:00Z",
+            "kind": "message", "role": "user",
+            "content": [{"type": "text", "text": "A later consequential correction."}],
+        }],
+    }
+    monkeypatch.setattr(
+        subject, "normalized_rows",
+        lambda source: ("MC-" + source.session_id[-24:], source.session_id[-1] * 64, rows[source.session_id]),
+    )
+    monkeypatch.setattr(subject, "git_commits", lambda start, end: [])
+    activity = subject.collect_activity(
+        subject.parse_entry_date("2026-08-09"),
+        as_of=datetime(2026, 8, 9, 10, tzinfo=timezone.utc),
+        token_budget=700,
+        sources=[early, later],
+    )
+    assert [row["session_id"] for row in activity["session_census"]] == [early.session_id, later.session_id]
+    assert {row["session_id"] for row in activity["source_refs"]} == {early.session_id, later.session_id}
+    assert all(row["disposition"] == "represented" for row in activity["session_census"])
+    assert activity["session_census"][1]["synopsis"] == "A later consequential correction."
+
+
+def test_activity_census_skips_injected_controls_and_preserves_opening_and_close(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    rows = [
+        {
+            "record_id": "MR-" + "a" * 24,
+            "timestamp": "2026-08-09T07:00:00Z",
+            "kind": "message", "role": "user",
+            "content": [{"type": "text", "text": "<recommended_plugins>metadata only"}],
+        },
+        {
+            "record_id": "MR-" + "b" * 24,
+            "timestamp": "2026-08-09T07:01:00Z",
+            "kind": "message", "role": "user",
+            "content": [{"type": "text", "text": "Investigate whether every session is represented."}],
+        },
+        {
+            "record_id": "MR-" + "c" * 24,
+            "timestamp": "2026-08-09T07:02:00Z",
+            "kind": "message", "role": "assistant",
+            "content": [{"type": "text", "text": "The outcome preserved every session and exposed one corrective limit."}],
+        },
+    ]
+    source = SimpleNamespace(
+        session_id=SESSION, started_at="2026-08-09T06:30:00Z",
+        last_observed_at="2026-08-09T08:30:00Z", source_kind="vscode", source_class="active",
+    )
+    monkeypatch.setattr(subject, "normalized_rows", lambda value: ("MC-" + "d" * 24, "e" * 64, rows))
+    monkeypatch.setattr(subject, "git_commits", lambda start, end: [])
+    activity = subject.collect_activity(
+        subject.parse_entry_date("2026-08-09"),
+        as_of=datetime(2026, 8, 9, 9, tzinfo=timezone.utc), token_budget=700, sources=[source],
+    )
+    synopsis = activity["session_census"][0]["synopsis"]
+    assert synopsis.startswith("Investigate whether every session is represented.")
+    assert synopsis.endswith("The outcome preserved every session and exposed one corrective limit.")
+    assert "recommended_plugins" not in synopsis
 
 
 def test_draft_bundle_inside_git_is_rejected(monkeypatch: pytest.MonkeyPatch, tmp_path: Path) -> None:

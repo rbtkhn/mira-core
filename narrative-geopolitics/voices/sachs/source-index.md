@@ -119,7 +119,7 @@ Status: `imported-corpus`
 | `2026-07-19` | Jeffrey Sachs: U.S. Imperial Strategy - Destroy Russia, Iran & China | `guest` | `glenn-diesen` | [source](../../archive/sources/2026-07-19/source-jeffrey-sachs-u-s-imperial-strategy-destroy-russia-iran-china-2026-07-19.md) |
 | `2026-07-27` | Prof. Jeffrey Sachs : Israel Close to Collapse | `guest` | `judging-freedom` | [source](../../archive/sources/2026-07-27/source-prof-jeffrey-sachs-israel-close-to-collapse-2026-07-27.md) |
 | `2026-07-30` | Prof. Jeffrey Sachs : Can Dr. Fauci Tell The Truth? | `guest` | `judging-freedom` | [source](../../archive/sources/2026-07-30/source-prof-jeffrey-sachs-can-dr-fauci-tell-the-truth-2026-07-30.md) |
-| `2026-08-03` | Prof. Jeffrey Sachs : LIVE @3PM - US Wants to Destroy Iran and Russia | `host-pressure test` | `judging-freedom` | [source](../../archive/sources/2026-08-03/source-prof-jeffrey-sachs-live-3pm-us-wants-to-destroy-iran-and-russia-2026-08-03.md) |
+| `2026-08-03` | Prof. Jeffrey Sachs : LIVE @3PM - US Wants to Destroy Iran and Russia | `guest` | `judging-freedom` | [source](../../archive/sources/2026-08-03/source-prof-jeffrey-sachs-live-3pm-us-wants-to-destroy-iran-and-russia-2026-08-03.md) |
 | `2026-08-10` | (2) Prof. Jeffrey Sachs : Trump and His War Destroying US Economy | `guest` | `judging-freedom` | [source](../../archive/sources/2026-08-10/source-2-prof-jeffrey-sachs-trump-and-his-war-destroying-us-economy-2026-08-10.md) |
 
 ## Import Boundary

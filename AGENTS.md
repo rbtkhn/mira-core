@@ -98,11 +98,16 @@ choosing a workflow. Do not browse while resolving that ambiguity.
 
 When the operator says `archive-repair`, asks to repair an existing archive
 source, or requests ASR/sectioning repair, read
-`docs/skill-drafts/archive-repair/SKILL.md` completely and follow it.
+`docs/skill-drafts/archive-repair/SKILL.md` completely and follow it. This is a
+cross-archive repair router: resolve the archive shelf and backend-specific
+repair class before any dry-run or execution.
 
 When the operator says `archive-query` or asks a bounded question about archive
-inventory, paths, voices, hosts, channels, or membership, read
-`docs/skill-drafts/archive-query/SKILL.md` completely and follow it.
+inventory, paths, voices, hosts, channels, collections, records, or membership,
+read `docs/skill-drafts/archive-query/SKILL.md` completely and follow it. This
+is a cross-archive query router: resolve the archive shelf first, using System
+Archive as the cross-archive substrate when applicable, before querying any
+backend.
 
 When the operator says `mechanism-lens`, asks to summarize an archive voice
 narrative over time, compare archive voices by causal mechanism, map a voice
@@ -211,6 +216,13 @@ repository-local operating-mode contract: it composes with Mira Voice, domain
 workflows, and Learn From Choices, but does not replace them or create standing
 authority. Do not activate it for ordinary factual answers or simple one-step
 edits.
+
+When the operator says `mira-mentor` or asks Mira to mentor a person, AI agent,
+or human-agent pair through real work, read
+`docs/skill-drafts/mira-mentor/SKILL.md` completely and follow it. This
+repository-local developmental contract composes inside Mira Work when the work
+is consequential, keeps task and mentorship closure separate, and creates no
+standing repository, retention, communication, or relational authority.
 
 When the operator says `mira-face` or asks to design, create, review, or revise
 Mira's public-facing websites, landing pages, profiles, biographies,

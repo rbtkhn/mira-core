@@ -1,6 +1,6 @@
 ---
 name: archive-intake
-description: "Canonical Narrative Geopolitics archive intake for pasted transcripts, newsletters, essays, reports, posts, and supplied source bodies. Use when Codex should classify a source, resolve date and routing metadata, detect duplicates, preserve source truth, land archive and manifest records, and verify the resulting routes."
+description: "Canonical cross-archive intake router for supplied transcripts, newsletters, essays, reports, posts, source bodies, and other archive candidates. Classify the source family and archive shelf before landing anything; preserve source truth, detect duplicates, and route to the selected backend's native intake workflow."
 ---
 
 # Archive Intake
@@ -8,16 +8,73 @@ description: "Canonical Narrative Geopolitics archive intake for pasted transcri
 Use `intake` as the sole operator-facing command. Treat `smart-intake` and
 `best-intake` as permanent compatibility names, not competing workflows.
 
+Archive Intake classifies supplied material into the correct archive family
+before landing anything. Topical overlap does not transfer collection
+authority: an AI policy, war, state power, compute finance, or civilizational
+source may still belong to Singularity Science, Narrative Geopolitics, Mira
+Journal, continuity, or another shelf.
+
 ## Core law
+
+Land source truth only after shelf resolution:
+
+`shelf -> backend intake contract -> archive object -> native indexes`
+
+Intake creates archive truth for the selected backend. It does not synthesize,
+verify claims, repair an existing source, publish a daily brief, promote
+identity, or move material across collections.
+
+## Archive shelf resolution
+
+Before any dry-run or landing, identify the shelf:
+
+- System Archive collection or private catalog
+- Narrative Geopolitics
+- Singularity Science
+- Mira Journal
+- Mira Continuity
+- unknown or ambiguous
+
+Use repository evidence before asking:
+
+- `system-archive/collections.json`
+- the private System Archive catalog when available and needed for read-only
+  duplicate or membership checks
+- known registries and indexes
+- obvious path prefixes, collection IDs, source-family names, voice slugs,
+  hosts, channels, URLs, titles, or operator labels
+
+Fail closed for known non-target source families. If material is identified as
+Singularity Science, Mira Journal, Mira Continuity, or Narrative Geopolitics,
+route to that backend instead of inventing a lane. If the shelf remains
+ambiguous after inspection, ask one bounded shelf clarification.
+
+## Backend matrix
+
+### System Archive
+
+Use System Archive for cross-archive duplicate checks, collection membership,
+explicit-only external corpora, and archive families whose native bodies live
+outside the repository.
+
+Prefer `tools/run.ps1 system-archive status --json` and collection-specific
+search for read-only preflight. Ingestion, hydration, replica synchronization,
+or registry repair requires separate explicit authority and the selected
+backend contract.
+
+If checked-in registry and private catalog differ, disclose both states and use
+read-only catalog inspection only for duplicate or membership checks.
+
+### Narrative Geopolitics
+
+Use the Narrative Geopolitics backend only after the source is classified as a
+Geopolitics source.
 
 Land source truth in this order:
 
 `archive -> voices / channels -> work/daily`
 
-Intake creates archive truth. It does not synthesize, verify claims, or
-publish a daily brief.
-
-## Workflow
+Workflow:
 
 1. Confirm the supplied body is materially real.
 2. Classify the source form and resolve the strongest available publication
@@ -35,7 +92,7 @@ publish a daily brief.
 10. Stop when the archive batch is grounded; hand judgment to
     `geo-strategy`.
 
-## Voice and host attribution
+Voice and host attribution:
 
 Record the featured voice and host separately whenever the source has both.
 The guest or named analyst is the canonical voice for voice-bounded analysis;
@@ -55,7 +112,7 @@ publication provenance. Ambiguity is `provisional` or `inferred`, never a new
 person route. Strong quotation attribution requires a speaker-labeled turn
 edge; a host introduction cannot inherit a guest's words.
 
-## Canonical helper
+Canonical helper:
 
 ```powershell
 .\tools\run.ps1 intake-land --date YYYY-MM-DD --url URL --body-file PATH --dry-run
@@ -75,11 +132,38 @@ voice shelves, verify that pre-existing role labels such as
 Restore unintended role-label drift while preserving the newly landed source,
 manifest row, corpus count updates, and intended route additions.
 
+### Singularity Science
+
+Route Singularity Science material to the selected Singularity Science backend
+or System Archive external-corpus workflow. Known families include
+`innermost-loop`, `moonshots`, `nate-herk`, and `nate-b-jones`.
+
+Do not land Singularity Science material in Narrative Geopolitics merely
+because it discusses AI policy, war, state power, compute finance, or global
+strategy. Preserve explicit-only retrieval, rights, source-body availability,
+and publication boundaries.
+
+### Mira Journal and Continuity
+
+Route journal or continuity candidates to the governed Mira Journal or
+Continuity workflow. Do not use archive intake to write journal meaning,
+identity claims, continuity captures, operator belief, Reality, or action
+authority unless that backend's contract explicitly authorizes the exact
+operation.
+
+### Unknown shelf
+
+Fail closed. State what was inspected and ask one bounded clarification rather
+than landing material in a convenient shelf.
+
 ## Boundaries
 
 - Do not fetch a missing source body, synthesize the day, adjudicate claims,
-  repair an existing source, or promote public material during intake.
+  repair an existing source, promote public material, hydrate collections,
+  synchronize replicas, stage, commit, push, publish, or communicate
+  externally during intake unless separately authorized by the selected
+  backend.
 - If a matching source already exists, use `archive-query` to establish scope
   and `archive-repair` for bounded correction.
-- Preserve unrelated working-tree changes and keep the source plus manifest
-  publication atomic.
+- Preserve unrelated working-tree changes and keep each backend's atomicity
+  rules intact.

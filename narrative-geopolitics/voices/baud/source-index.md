@@ -57,7 +57,7 @@ Status: `imported-corpus`
 | `2026-07-13` | Col. Jacques Baud: U.S. Strikes Iran's Nuclear Plant Ã¢â‚¬â€ Iran Unleashes Massive Gulf Retaliation | `guest` | `dialogue-works` | [source](../../archive/sources/2026-07-13/source-col-jacques-baud-u-s-strikes-iran-s-nuclear-plant-iran-unleashes-massive-gulf-retaliation-2026-07-13.md) |
 | `2026-07-20` | Col. Jacques Baud: U.S. Hits Nuclear Plant, Iran Strikes Across the Gulf | `guest` | `dialogue-works` | [source](../../archive/sources/2026-07-20/source-col-jacques-baud-u-s-hits-nuclear-plant-iran-strikes-across-the-gulf-2026-07-20.md) |
 | `2026-07-28` | Col. Jacques Baud: Netanyahu Hands Trump Iran Strike Intel | `guest` | `dialogue-works` | [source](../../archive/sources/2026-07-28/source-col-jacques-baud-netanyahu-hands-trump-iran-strike-intel-2026-07-28.md) |
-| `2026-08-03` | Col. Jacques Baud: Iran Defies Trump, Targets Ship in Strait of Hormuz Hours After Statement | `host-pressure test` | `mario-nawfal` | [source](../../archive/sources/2026-08-03/source-col-jacques-baud-iran-defies-trump-targets-ship-in-strait-of-hormuz-hours-after-statement-2026-08-03.md) |
+| `2026-08-03` | Col. Jacques Baud: Iran Defies Trump, Targets Ship in Strait of Hormuz Hours After Statement | `guest` | `mario-nawfal` | [source](../../archive/sources/2026-08-03/source-col-jacques-baud-iran-defies-trump-targets-ship-in-strait-of-hormuz-hours-after-statement-2026-08-03.md) |
 | `2026-08-10` | (2) Col. Jacques Baud: "Wherever You Mass, You Get Bombed" – Yemenis Target Saudi Forces | `guest` | `dialogue-works` | [source](../../archive/sources/2026-08-10/source-2-col-jacques-baud-wherever-you-mass-you-get-bombed-yemenis-target-saudi-forces-2026-08-10.md) |
 
 ## Import Boundary

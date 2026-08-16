@@ -4,7 +4,7 @@ This index routes the imported seeded corpus for `krapivnik` to the central Narr
 
 Source basis: `strategy-codex/source-archive/statecraft` plus local July 2026 intake.
 
-Corpus: 23 local route rows across 23 central archive source files.
+Corpus: 24 local route rows across 24 central archive source files.
 
 Status: `seeded`
 
@@ -42,6 +42,7 @@ Status: `seeded`
 | `2026-08-09` | (2) Stanislav Krapivnik: Russia Just Crippled Ukraine’s Supply Lines in Odessa and Nikolaev | `guest` | `dialogue-works` | [source](../../archive/sources/2026-08-09/source-2-stanislav-krapivnik-russia-just-crippled-ukraine-s-supply-lines-in-odessa-and-nikolaev-2026-08-09.md) |
 | `2026-08-10` | (2) Stanislav Krapivnik: Russia's Ukraine Strategy & Preparations for War with Europe | `guest` | `glenn-diesen` | [source](../../archive/sources/2026-08-10/source-2-stanislav-krapivnik-russia-s-ukraine-strategy-preparations-for-war-with-europe-2026-08-10.md) |
 | `2026-08-12` | (3) LIVE from Russia Stanislav Krapivnik | `guest` | `daniel-davis` | [source](../../archive/sources/2026-08-12/source-3-live-from-russia-stanislav-krapivnik-2026-08-12.md) |
+| `2026-08-14` | (3) Ukraine's Fortress Belt Under Siege As Odessa Blockade Tightens w/ Stanislav Krapivnik | `guest` | `the-duran` | [source](../../archive/sources/2026-08-14/source-3-ukraine-s-fortress-belt-under-siege-as-odessa-blockade-tightens-w-stanislav-krapivnik-2026-08-14.md) |
 
 ## Import Boundary
 

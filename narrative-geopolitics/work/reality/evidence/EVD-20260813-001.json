@@ -1,0 +1,23 @@
+{
+  "access_language": "en",
+  "as_of": "2026-08-13",
+  "created_at": "2026-08-13T00:00:00Z",
+  "created_by": "operator",
+  "event_time": "2026-07-08",
+  "evidence_role": "professional_reporting",
+  "geopolitical_environment": "western_independent",
+  "id": "EVD-20260813-001",
+  "kind": "evidence",
+  "limitation": "Professional reporting and Trump acknowledgement establish reported event chronology; they do not prove the underlying Iranian/proxy plot was feasible or genuine.",
+  "observation": "AP reports that Trump said the Secret Service and military moved him to a different plane in Turkey because of a threat; AP describes a catering-vehicle transfer, a smaller government jet departure, and the original aircraft carrying staff and reporters as a decoy.",
+  "origin_language": "en",
+  "originating_chain": "CHAIN-AP-TRUMP-SECRET-FLIGHT-TURKEY",
+  "representation_sha256": "93f4564d89a88a33fd03e463ecdffdf876f0ea2ffb8654f0410dc6290696217e",
+  "retrieved_at": "2026-08-14",
+  "revision_of": null,
+  "schema_version": 1,
+  "source_id": "VSRC-RPT-AP",
+  "status": "active",
+  "translation_provenance": "not_required",
+  "url": "https://apnews.com/article/d23a6454d1410cc8461368007db6ca25"
+}

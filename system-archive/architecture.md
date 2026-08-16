@@ -28,3 +28,9 @@ Mira Daily Journal records are an explicit-only collection with evidence class
 autobiographical-interpretation. Their provenance edges may point to Continuity
 records and repository events, but graph traversal never transfers the source
 node's authority or converts a reflection into corroboration.
+
+Repository process evidence uses a separate explicit-only
+`repository-artifact-manifest` adapter. Each record identity binds its source
+path and content digest, so changed bytes append immutable history instead of
+overwriting an archived observation. Repository controls remain authoritative;
+System Archive supplies storage, lineage, replication, and bounded retrieval.

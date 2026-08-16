@@ -1,0 +1,40 @@
+{
+  "access": "open",
+  "access_languages": [
+    "en"
+  ],
+  "appropriate_uses": "U.S. professional reporting on official claims, security chronology, and attributed national-security accounts.",
+  "as_of": "2026-08-14",
+  "canonical_url": "https://www.cbsnews.com/",
+  "created_at": "2026-08-14T00:00:00Z",
+  "created_by": "operator",
+  "domain": "professional_reporting",
+  "evidence_class": "independent_professional_reporting",
+  "geography": "United States",
+  "geopolitical_environment": "western_independent",
+  "id": "VSRC-RPT-CBS",
+  "inappropriate_uses": "Treating anonymous official sourcing as direct proof, or counting CBS rewrites and partner republication as independent chains.",
+  "kind": "source",
+  "known_failure_modes": "Anonymous official-source dependence; security-context compression; follow-up updates can alter article framing.",
+  "latency": "minutes-hours",
+  "name": "CBS News",
+  "observables": "reported official claims, security chronology, U.S. policy and national-security reporting",
+  "open_fallback": "self",
+  "order": 91,
+  "origin_languages": [
+    "en"
+  ],
+  "originating_chain_rule": "Treat each CBS article as one chain unless separate original reporting and source access are documented; CBS partner syndications do not add independence.",
+  "perspective": "western_independent",
+  "review_history": [
+    {
+      "date": "2026-08-14",
+      "note": "Added for VER-20260813-01 Air Force One warning/deception packet; use is limited to attributed reporting and event chronology.",
+      "reviewer": "operator"
+    }
+  ],
+  "revision_of": null,
+  "schema_version": 1,
+  "status": "active",
+  "translation_provenance": "not_required"
+}

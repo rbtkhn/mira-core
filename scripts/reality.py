@@ -103,6 +103,23 @@ EVIDENCE_ROLES = {"observational", "official_position", "professional_reporting"
 NON_SUPPORTING_EVIDENCE_ROLES = {"context_only", "derived_editorial"}
 CANONICAL_REVIEWER = "operator"
 REQUIRED_SIGNOFFS = 1
+REGIONAL_ENVIRONMENT_MARKERS = {
+    "gulf_state",
+    "iranian_state",
+    "israeli_state",
+    "middle_east_regional",
+    "turkish_state_affiliated",
+    "ukrainian_state",
+}
+EXTERNAL_ENVIRONMENT_MARKERS = {
+    "chinese_state_affiliated",
+    "commercial",
+    "european_independent",
+    "multilateral",
+    "russian_state_affiliated",
+    "western_independent",
+    "western_state",
+}
 COMMON_REQUIRED = {"schema_version", "id", "kind", "created_at", "created_by", "as_of", "status", "revision_of"}
 SOURCE_FIELDS = {
     "name", "canonical_url", "domain", "observables", "evidence_class", "perspective",
@@ -122,6 +139,14 @@ LEGACY_EVIDENCE_RE = re.compile(
 
 class RealityError(ValueError):
     pass
+
+
+def has_regional_environment(environments: Iterable[str]) -> bool:
+    return bool(set(environments).intersection(REGIONAL_ENVIRONMENT_MARKERS))
+
+
+def has_external_environment(environments: Iterable[str]) -> bool:
+    return bool(set(environments).intersection(EXTERNAL_ENVIRONMENT_MARKERS))
 
 
 if yaml is not None:
@@ -1202,8 +1227,8 @@ def audit_payload(claim_id: str, root: Path = REALITY_ROOT) -> dict[str, Any]:
         }
     )
     language_audit = assessment.get("language_audit", {}) if assessment else {}
-    regional_present = bool(language_audit.get("regional_environment_present"))
-    external_present = bool(language_audit.get("external_environment_present"))
+    regional_present = bool(language_audit.get("regional_environment_present")) or has_regional_environment(environments)
+    external_present = bool(language_audit.get("external_environment_present")) or has_external_environment(environments)
     empirical = bool(claim.get("empirical_eligibility"))
     required_coverage = 3 if claim.get("consequence") == "high" else 2
     required_languages = required_coverage if empirical else 0

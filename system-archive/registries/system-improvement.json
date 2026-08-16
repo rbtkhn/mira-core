@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "collection_id": "system-improvement",
+  "manifest_id": "system-improvement-artifacts-v1",
+  "authority_boundary": "System-improvement artifacts preserve observed process evidence but do not establish truth, identity, recursive-learning closure, or action authority.",
+  "document_count": 1,
+  "documents": [
+    {
+      "path": "docs/audits/2026-08-14-mira-journal-session-coverage.md",
+      "sha256": "bc9409fafbbe9f384ee4549923b691520052b9354b99c89bba6328cdfb34d0d9",
+      "size": 2691,
+      "document_type": "baseline-audit",
+      "observed_at": "2026-08-14T16:43:36.819Z",
+      "derived_from": [],
+      "may_promote": false
+    }
+  ]
+}

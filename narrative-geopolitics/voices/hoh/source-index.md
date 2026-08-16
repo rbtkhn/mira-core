@@ -4,7 +4,7 @@ This index routes the unified local Hoh corpus for `hoh` to the central Narrativ
 
 Source basis: `strategy-codex/statecraft/voices/hoh/hoh-index.md` plus already-local matching archive rows.
 
-Corpus: 30 local route rows across 30 central archive source files.
+Corpus: 31 local route rows across 31 central archive source files.
 
 Status: `imported-corpus`
 
@@ -49,6 +49,7 @@ Status: `imported-corpus`
 | `2026-08-04` | Matt Hoh : Can the US Sustain the Iran War? | `guest` | `judging-freedom` | [source](../../archive/sources/2026-08-04/source-matt-hoh-can-the-us-sustain-the-iran-war-2026-08-04.md) |
 | `2026-08-05` | (1) Fmr. US Marine Matthew Hoh: US Runs Out of Firepower | `guest` | `dialogue-works` | [source](../../archive/sources/2026-08-05/source-1-fmr-us-marine-matthew-hoh-us-runs-out-of-firepower-2026-08-05.md) |
 | `2026-08-11` | (2) Matt Hoh : Window Closing on US Military Power | `guest` | `judging-freedom` | [source](../../archive/sources/2026-08-11/source-2-matt-hoh-window-closing-on-us-military-power-2026-08-11.md) |
+| `2026-08-14` | (3) Matthew Hoh: Pentagon Leak: Military Brass Sound Alarm on Troop ‘Burnout’ in Iran War | `guest` | `dialogue-works` | [source](../../archive/sources/2026-08-14/source-3-matthew-hoh-pentagon-leak-military-brass-sound-alarm-on-troop-burnout-in-iran-war-2026-08-14.md) |
 
 ## Import Boundary
 

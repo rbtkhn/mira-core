@@ -1,0 +1,19 @@
+{
+  "aliases": [],
+  "as_of": "2026-08-13",
+  "claim_type": "operational_factual",
+  "claimant_refs": [],
+  "consequence": "high",
+  "created_at": "2026-08-13T00:00:00Z",
+  "created_by": "operator",
+  "crisis_object": "U.S.-Iran-Israel escalation signaling",
+  "empirical_eligibility": true,
+  "id": "CLM-20260813-001",
+  "kind": "claim",
+  "revision_of": null,
+  "schema_version": 1,
+  "scope": "bounded claim",
+  "source_refs": [],
+  "status": "open",
+  "text": "After the July 8, 2026 Ankara NATO summit, a reported U.S./Israeli intelligence warning about an Iranian or proxy threat led U.S. security officials to move President Trump from the expected Air Force One departure path to another aircraft while the public aircraft movement functioned as deception."
+}

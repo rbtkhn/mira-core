@@ -1,4 +1,4 @@
-<!-- reality-lattice-v1 records-sha256: ba77d6c7cb19643b97117511fb526f9a8c8c5e4f611d6e62bebbfc4e0fea6697 -->
+<!-- reality-lattice-v1 records-sha256: f208f3d0253c56d9e8651918f38757dbcc883b1e3455cdd577e1ddd2c6714748 -->
 <!-- Generated from structured reality records. Do not edit directly. -->
 
 # Reality Outcome Ledger
@@ -36,6 +36,7 @@
 | `CLM-20260804-014` | `operational_factual` | `high` | `unassessed` | `unassessed` | none | 0 |
 | `CLM-20260804-015` | `operational_factual` | `high` | `unassessed` | `unassessed` | none | 0 |
 | `CLM-20260804-016` | `interpretive` | `high` | `unassessed` | `unassessed` | none | 0 |
+| `CLM-20260813-001` | `operational_factual` | `high` | `unassessed` | `unassessed` | none | 0 |
 | `NG-20260707-F01` | `forecast` | `high` | `unassessed` | `unassessed` | none | 0 |
 | `NG-20260707-F02` | `forecast` | `high` | `unassessed` | `unassessed` | none | 0 |
 | `NG-20260708-F01` | `forecast` | `high` | `unassessed` | `unassessed` | none | 0 |

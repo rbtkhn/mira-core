@@ -18,6 +18,89 @@ import system_archive
 from system_archive_store import ArchiveError, ArtifactStore, RecordInput, add_edge, catalog_counts, ingest_record, safe_logical_path, verify_derivation_acyclic
 
 
+def test_private_storage_config_fallback_and_environment_precedence(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    repo = tmp_path / "repo"; repo.mkdir()
+    canonical = tmp_path / "canonical"; canonical.mkdir()
+    replica = tmp_path / "replica"; replica.mkdir()
+    configured = tmp_path / "configured"; configured.mkdir()
+    config = tmp_path / "archive-config.json"
+    config.write_text(json.dumps({
+        "schema_version": 1,
+        "canonical_root": str(canonical),
+        "replica_root": str(replica),
+    }), encoding="utf-8")
+    monkeypatch.setattr(system_archive, "REPO_ROOT", repo)
+    monkeypatch.setattr(system_archive, "DEFAULT_CONFIG_PATH", config)
+    monkeypatch.delenv(system_archive.ARCHIVE_ROOT_ENV, raising=False)
+    assert system_archive.configured_root_resolution(system_archive.ARCHIVE_ROOT_ENV) == (
+        canonical, f"config:{config.resolve()}"
+    )
+    monkeypatch.setenv(system_archive.ARCHIVE_ROOT_ENV, str(configured))
+    assert system_archive.configured_root_resolution(system_archive.ARCHIVE_ROOT_ENV) == (
+        configured, f"environment:{system_archive.ARCHIVE_ROOT_ENV}"
+    )
+
+
+def test_environment_roots_must_remain_distinct(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    repo = tmp_path / "repo"; repo.mkdir()
+    shared = tmp_path / "shared"; shared.mkdir()
+    monkeypatch.setattr(system_archive, "REPO_ROOT", repo)
+    monkeypatch.setenv(system_archive.ARCHIVE_ROOT_ENV, str(shared))
+    monkeypatch.setenv(system_archive.REPLICA_ROOT_ENV, str(shared))
+    with pytest.raises(ArchiveError, match="canonical and replica roots must differ"):
+        system_archive.configured_root_resolution(system_archive.ARCHIVE_ROOT_ENV)
+
+
+def test_repository_artifact_manifest_is_digest_bound_and_explicit_only(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    repo = tmp_path / "repo"; audit = repo / "docs" / "audits" / "baseline.md"
+    audit.parent.mkdir(parents=True); audit.write_text("Observed selection bias.\n", encoding="utf-8")
+    body = audit.read_bytes(); registry = repo / "system-archive" / "registries" / "system-improvement.json"
+    registry.parent.mkdir(parents=True)
+    registry.write_text(json.dumps({
+        "schema_version": 1,
+        "collection_id": "system-improvement",
+        "manifest_id": "test-system-improvement-v1",
+        "authority_boundary": "storage only",
+        "document_count": 1,
+        "documents": [{
+            "path": "docs/audits/baseline.md",
+            "sha256": system_archive.sha256_bytes(body),
+            "size": len(body),
+            "document_type": "baseline-audit",
+            "observed_at": "2026-08-14T00:00:00Z",
+            "derived_from": [],
+            "may_promote": False,
+        }],
+    }), encoding="utf-8")
+    collection = {
+        "id": "system-improvement",
+        "kind": "repository-artifact-manifest",
+        "registry_path": "system-archive/registries/system-improvement.json",
+        "logical_root": "repository-artifacts/system-improvement",
+        "authority_owner": "system-archive/registries/system-improvement.json",
+        "evidence_class": "system-improvement-evidence",
+        "retrieval_policy": "explicit-only",
+    }
+    monkeypatch.setattr(system_archive, "REPO_ROOT", repo)
+    record_input, path = list(system_archive.discover([collection]))[0]
+    assert path == audit
+    assert record_input.metadata["may_promote"] is False
+    assert record_input.logical_path.startswith("repository-artifacts/system-improvement/")
+    monkeypatch.setattr(system_archive, "collection_map", lambda: {
+        "ordinary": {"id": "ordinary"}, "system-improvement": collection,
+    })
+    assert [row["id"] for row in system_archive.selected_collections([])] == ["ordinary"]
+    audit.write_text("Changed bytes.\n", encoding="utf-8")
+    with pytest.raises(ArchiveError, match="bytes differ"):
+        system_archive.repository_artifact_manifest(collection)
+
+
 def record(path: str = "collection/source.md", observed: str = "2026-01-02T00:00:00Z") -> RecordInput:
     return RecordInput("REC-001", "source", path, "test-collection", "test-manifest.json", "test-source", "import-process", "test-import", observed, "2026-01-01T00:00:00Z", None, {"title": "Test"}, "A maritime settlement and contrary escalation evidence.")
 

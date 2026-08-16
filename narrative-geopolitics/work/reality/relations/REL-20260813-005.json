@@ -1,0 +1,14 @@
+{
+  "as_of": "2026-08-13",
+  "created_at": "2026-08-13T00:00:00Z",
+  "created_by": "operator",
+  "from_id": "EVD-20260813-002",
+  "id": "REL-20260813-005",
+  "kind": "relation",
+  "relation_type": "contextualizes",
+  "revision_of": null,
+  "schema_version": 1,
+  "scope": "Contextualizes the aircraft-security concern and old-plane recommendation; does not independently support the reported threat, warning lineage, or decoy chronology.",
+  "status": "active",
+  "to_id": "CLM-20260813-001"
+}

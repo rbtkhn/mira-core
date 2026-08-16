@@ -438,6 +438,34 @@ def test_audit_reports_unassessed_claim_without_mutating_records(tmp_path: Path)
     assert before == after
 
 
+def test_audit_derives_environment_gates_for_unassessed_claims(tmp_path: Path) -> None:
+    records = graph(
+        tmp_path,
+        ["en", "en", "en"],
+        ["CHAIN-WEST-ONE", "CHAIN-WEST-TWO", "CHAIN-REGIONAL"],
+    )
+    for evidence_id, environment in (
+        ("EVD-20260715-001", "western_independent"),
+        ("EVD-20260715-002", "western_independent"),
+        ("EVD-20260715-003", "middle_east_regional"),
+    ):
+        item = records[evidence_id]
+        item["geopolitical_environment"] = environment
+        replace_record(tmp_path, item)
+    reality.record_path("assessment", "ADJ-20260715-001", tmp_path).unlink()
+
+    payload = reality.audit_payload("OPC-20260715-01", tmp_path)
+
+    assert payload["coverage"]["regional_environment_present"] is True
+    assert payload["coverage"]["external_environment_present"] is True
+    assert payload["coverage"]["lineage_gate_satisfied"] is True
+    assert payload["coverage"]["language_gate_satisfied"] is False
+    assert "assessment" in payload["missing_gates"]
+    assert "origin_language_coverage" in payload["missing_gates"]
+    assert "regional_environment" not in payload["missing_gates"]
+    assert "external_environment" not in payload["missing_gates"]
+
+
 def test_audit_reports_provisional_language_lineage_and_signoff_gaps(tmp_path: Path) -> None:
     records = graph(tmp_path, ["en", "zh"], ["CHAIN-EN", "CHAIN-ZH"])
     item = records["ADJ-20260715-001"]

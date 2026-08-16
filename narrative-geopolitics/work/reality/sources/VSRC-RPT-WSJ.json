@@ -1,0 +1,40 @@
+{
+  "access": "open_limited",
+  "access_languages": [
+    "en"
+  ],
+  "appropriate_uses": "U.S. professional reporting on official deliberation, intelligence attribution, business/security context, and event chronology when article text is recoverable.",
+  "as_of": "2026-08-14",
+  "canonical_url": "https://www.wsj.com/",
+  "created_at": "2026-08-14T00:00:00Z",
+  "created_by": "operator",
+  "domain": "professional_reporting",
+  "evidence_class": "independent_professional_reporting",
+  "geography": "United States and global",
+  "geopolitical_environment": "western_independent",
+  "id": "VSRC-RPT-WSJ",
+  "inappropriate_uses": "Treating paywalled or snippet-only access as complete evidence; treating anonymous official accounts as direct proof of underlying events.",
+  "kind": "source",
+  "known_failure_modes": "Paywall and excerpt access; anonymous official-source dependence; intelligence and business framing may compress uncertainty.",
+  "latency": "minutes-hours",
+  "name": "The Wall Street Journal",
+  "observables": "reported official claims, intelligence attribution, security chronology, business and geopolitical reporting",
+  "open_fallback": "self",
+  "order": 92,
+  "origin_languages": [
+    "en"
+  ],
+  "originating_chain_rule": "Treat each WSJ article as one chain unless separate original reporting and source access are documented; excerpts, search snippets, and syndications do not add independence.",
+  "perspective": "western_independent",
+  "review_history": [
+    {
+      "date": "2026-08-14",
+      "note": "Added for VER-20260813-01 Air Force One warning/deception packet; use is limited by available article text and anonymous official-source caveats.",
+      "reviewer": "operator"
+    }
+  ],
+  "revision_of": null,
+  "schema_version": 1,
+  "status": "active",
+  "translation_provenance": "not_required"
+}

@@ -1,0 +1,14 @@
+{
+  "as_of": "2026-08-13",
+  "created_at": "2026-08-13T00:00:00Z",
+  "created_by": "operator",
+  "from_id": "EVD-20260813-005",
+  "id": "REL-20260813-014",
+  "kind": "relation",
+  "relation_type": "supports",
+  "revision_of": null,
+  "schema_version": 1,
+  "scope": "Supports only the reported Israeli-warning-transfer component of the bounded claim; does not support the aircraft-switch/decoy chronology beyond cited external reporting and does not prove plot feasibility.",
+  "status": "active",
+  "to_id": "CLM-20260813-001"
+}

@@ -1,0 +1,23 @@
+{
+  "access_language": "en",
+  "as_of": "2026-08-13",
+  "created_at": "2026-08-13T00:00:00Z",
+  "created_by": "operator",
+  "event_time": "2026-07-10",
+  "evidence_role": "context_only",
+  "geopolitical_environment": "turkish_state_affiliated",
+  "id": "EVD-20260813-002",
+  "kind": "evidence",
+  "limitation": "State-affiliated Turkish/regional reporting that cites external reporting; contextualizes the aircraft-security concern but is not independent confirmation of the specific threat warning, decoy operation, or plot feasibility.",
+  "observation": "Anadolu reports, citing The New York Times and U.S. officials, that Trump's new Air Force One lacked some defensive systems found on the previous presidential aircraft and that Secret Service reportedly urged Trump to return from Turkiye on the older Air Force One.",
+  "origin_language": "tr",
+  "originating_chain": "CHAIN-ANADOLU-NYT-AIR-FORCE-ONE-DEFENSES",
+  "representation_sha256": "e4313da806573e129447529f3fcaa623376ce61d8a6400d6746500fc51115792",
+  "retrieved_at": "2026-08-14",
+  "revision_of": null,
+  "schema_version": 1,
+  "source_id": "VSRC-RPT-ANADOLU",
+  "status": "active",
+  "translation_provenance": "official_edition",
+  "url": "https://www.aa.com.tr/en/americas/trump-s-new-air-force-one-lacks-defensive-countermeasures-report/3993893"
+}

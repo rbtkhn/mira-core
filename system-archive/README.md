@@ -11,11 +11,21 @@ Canonical bodies and SQLite catalog live outside Git under
 `NARRATIVE_SYSTEM_ARCHIVE_REPLICA_ROOT`. Existing collection paths are ignored,
 byte-identical hydrated mirrors.
 
-Use `tools/run.ps1 system-archive` with `status`, `ingest`, `hydrate`,
-`validate`, `verify`, `search`, `lineage`, `context build`, `replay plan`,
-`replica-status`, or `benchmark`. Mutation commands provide `--check`; machine
-callers add `--json`. Run `session-preflight` before writing external temporary
-outputs or benchmarks.
+Environment variables take precedence over the private fallback configuration
+at `C:\private\narrative-system-archive-config.json`. Canonical and replica
+roots must be distinct, writable, and outside Git.
+
+Use `tools/run.ps1 system-archive` with `status`, `collections`, `ingest`,
+`hydrate`, `validate`, `verify`, `search`, `lineage`, `context build`,
+`replay plan`, `replica-status`, or `benchmark`. Mutation commands provide
+`--check`; machine callers add `--json`. Run `session-preflight` before
+writing external temporary outputs or benchmarks.
+
+`status` and `collections` are read-only visibility commands. They compare the
+checked-in collection registry with the active catalog and disclose
+registry-only, catalog-only, and shared collection IDs. Catalog-only visibility
+is inventory evidence only: it does not repair registries, hydrate bodies,
+verify claims, publish, or promote records across collections.
 
 The mira-journal collection stores approved MJ-* bytes as
 autobiographical-interpretation. It is excluded from default search and context
@@ -54,6 +64,12 @@ Raw objects remain primary. Indexes and context packs are derived views. Hidden
 reasoning is excluded. Model output, repetition, or confidence never promotes
 policy or identity. No operation authorizes commit, push, publication, rename,
 or external action.
+
+The explicit-only `system-improvement` collection preserves immutable,
+manifest-bound baseline audits, validation receipts, and outcome measurements.
+It excludes private plans, drafts, hidden reasoning, and the mutable recursive-
+learning ledger. Retrieval does not establish that an improvement occurred or
+that a recursive-learning loop is closed.
 
 Reader-facing interpretations of the archive's history and architecture live
 under [`essays/`](essays/README.md). They are authored prose, not canonical

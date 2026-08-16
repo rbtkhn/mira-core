@@ -24,6 +24,8 @@ SYSTEM_ROOT = REPO_ROOT / "system-archive"
 COLLECTIONS_PATH = SYSTEM_ROOT / "collections.json"
 ARCHIVE_ROOT_ENV = "NARRATIVE_SYSTEM_ARCHIVE_ROOT"
 REPLICA_ROOT_ENV = "NARRATIVE_SYSTEM_ARCHIVE_REPLICA_ROOT"
+CONFIG_PATH_ENV = "NARRATIVE_SYSTEM_ARCHIVE_CONFIG"
+DEFAULT_CONFIG_PATH = Path(r"C:\private\narrative-system-archive-config.json")
 COMPILER_VERSION = "system-archive-context-compiler-v1"
 REPLAY_VERSION = "system-archive-replay-plan-v1"
 TOKEN_RE = re.compile(r"[\w'-]+",re.UNICODE)
@@ -46,12 +48,56 @@ def external_output(path: Path) -> Path:
     raise ArchiveError(f"generated System Archive output must be outside Git: {resolved}")
 
 
+def storage_config() -> tuple[dict[str,Any] | None,Path]:
+    configured=os.environ.get(CONFIG_PATH_ENV)
+    path=Path(configured).expanduser() if configured else DEFAULT_CONFIG_PATH
+    if not path.is_file(): return None,path
+    document=load_json(path)
+    if document.get("schema_version")!=1: raise ArchiveError(f"invalid System Archive storage configuration: {path}")
+    for key in ("canonical_root","replica_root"):
+        value=document.get(key)
+        if not isinstance(value,str) or not value.strip() or not Path(value).expanduser().is_absolute():
+            raise ArchiveError(f"invalid System Archive storage configuration: {key}")
+    canonical=Path(document["canonical_root"]).expanduser().resolve(); replica=Path(document["replica_root"]).expanduser().resolve()
+    if canonical==replica: raise ArchiveError("canonical and replica roots must differ")
+    for root in (canonical,replica): validate_storage_root(root)
+    return document,path.resolve()
+
+
+def validate_storage_root(root: Path) -> Path:
+    resolved=root.expanduser().resolve()
+    try: resolved.relative_to(REPO_ROOT.resolve())
+    except ValueError: pass
+    else: raise ArchiveError(f"System Archive storage root must remain outside Git: {resolved}")
+    if not resolved.is_dir(): raise ArchiveError(f"System Archive storage root does not exist: {resolved}")
+    if not os.access(resolved,os.W_OK): raise ArchiveError(f"System Archive storage root is not writable: {resolved}")
+    return resolved
+
+
+def configured_root_resolution(variable: str, *, required: bool=True) -> tuple[Path | None,str | None]:
+    environment_values={
+        ARCHIVE_ROOT_ENV: os.environ.get(ARCHIVE_ROOT_ENV),
+        REPLICA_ROOT_ENV: os.environ.get(REPLICA_ROOT_ENV),
+    }
+    document: dict[str,Any] | None=None; path=DEFAULT_CONFIG_PATH
+    if not all(environment_values.values()): document,path=storage_config()
+    keys={ARCHIVE_ROOT_ENV:"canonical_root",REPLICA_ROOT_ENV:"replica_root"}
+    resolved: dict[str,tuple[Path,str]]={}
+    for name,key in keys.items():
+        value=environment_values[name]
+        if value:
+            resolved[name]=(validate_storage_root(Path(value)),f"environment:{name}")
+        elif document is not None:
+            resolved[name]=(validate_storage_root(Path(document[key])),f"config:{path}")
+    if ARCHIVE_ROOT_ENV in resolved and REPLICA_ROOT_ENV in resolved and resolved[ARCHIVE_ROOT_ENV][0]==resolved[REPLICA_ROOT_ENV][0]:
+        raise ArchiveError("canonical and replica roots must differ")
+    if variable in resolved: return resolved[variable]
+    if required: raise ArchiveError(f"{variable} is not configured and no valid private storage configuration was found")
+    return None,None
+
+
 def configured_root(variable: str, *, required: bool=True) -> Path | None:
-    value=os.environ.get(variable)
-    if not value:
-        if required: raise ArchiveError(f"{variable} is not configured")
-        return None
-    return Path(value)
+    return configured_root_resolution(variable,required=required)[0]
 
 
 def store(*,create: bool=False) -> ArtifactStore:
@@ -295,16 +341,81 @@ def discover_external_corpus(collection: Mapping[str,Any],source_root: Path | No
     else: yield from discover_external_corpus_v2(collection,manifest,source_root)
 
 
+REPOSITORY_ARTIFACT_PREFIXES = (
+    "docs/audits/",
+    "narrative-geopolitics/work/system-improvement/mira-journal-outcomes/",
+)
+REPOSITORY_ARTIFACT_TYPES = {"baseline-audit","validation-receipt","outcome-measurement"}
+
+
+def repository_artifact_manifest(collection: Mapping[str,Any]) -> dict[str,Any]:
+    manifest=load_json(REPO_ROOT/str(collection["registry_path"])); documents=manifest.get("documents")
+    if manifest.get("schema_version")!=1 or manifest.get("collection_id")!=collection.get("id") or not isinstance(documents,list):
+        raise ArchiveError("invalid repository artifact manifest")
+    if manifest.get("document_count")!=len(documents): raise ArchiveError("repository artifact document count mismatch")
+    paths=[]
+    for document in documents:
+        if not isinstance(document,dict): raise ArchiveError("repository artifact document is malformed")
+        required=("path","sha256","size","document_type","observed_at","derived_from","may_promote")
+        if any(field not in document for field in required): raise ArchiveError("repository artifact document is incomplete")
+        logical=safe_logical_path(str(document["path"])); paths.append(logical)
+        if not logical.startswith(REPOSITORY_ARTIFACT_PREFIXES): raise ArchiveError(f"repository artifact path is outside the allowlist: {logical}")
+        if document["document_type"] not in REPOSITORY_ARTIFACT_TYPES: raise ArchiveError(f"unsupported repository artifact type: {document['document_type']}")
+        if not re.fullmatch(r"[0-9a-f]{64}",str(document["sha256"])) or not isinstance(document["size"],int) or document["size"]<0:
+            raise ArchiveError(f"repository artifact digest or size is malformed: {logical}")
+        if document["may_promote"] is not False: raise ArchiveError(f"repository artifact may not promote: {logical}")
+        parse_time(str(document["observed_at"]),label="repository artifact observed_at",required=True)
+        if not isinstance(document["derived_from"],list): raise ArchiveError(f"repository artifact lineage is malformed: {logical}")
+        body=REPO_ROOT/logical
+        if not body.is_file(): raise ArchiveError(f"missing repository artifact: {logical}")
+        value=body.read_bytes()
+        if sha256_bytes(value)!=document["sha256"] or len(value)!=document["size"]:
+            raise ArchiveError(f"repository artifact bytes differ from manifest: {logical}")
+    if len(set(paths))!=len(paths): raise ArchiveError("duplicate repository artifact path")
+    known=set(paths)
+    for document in documents:
+        for target in document["derived_from"]:
+            if safe_logical_path(str(target)) not in known: raise ArchiveError(f"unresolved repository artifact lineage: {target}")
+    return manifest
+
+
+def repository_artifact_record_id(document: Mapping[str,Any]) -> str:
+    identity=f"{safe_logical_path(str(document['path']))}\n{document['sha256']}"
+    return stable_record_id("SAR-SI",identity)
+
+
+def discover_repository_artifacts(collection: Mapping[str,Any]) -> Iterator[tuple[RecordInput,Path]]:
+    manifest=repository_artifact_manifest(collection); logical_root=safe_logical_path(str(collection["logical_root"]))
+    for document in manifest["documents"]:
+        source=safe_logical_path(str(document["path"])); digest=str(document["sha256"])
+        logical=f"{logical_root}/{digest[:16]}/{source}"
+        yield RecordInput(
+            repository_artifact_record_id(document),str(document["document_type"]),logical,str(collection["id"]),
+            str(collection["authority_owner"]),str(collection["evidence_class"]),"repository-process",
+            str(manifest["manifest_id"]),str(document["observed_at"]),str(document["observed_at"]),None,
+            {"source_path":source,"source_sha256":digest,"retrieval_policy":collection.get("retrieval_policy"),
+             "may_promote":False,"manifest":str(collection["registry_path"])},
+            (REPO_ROOT/source).read_text(encoding="utf-8",errors="replace"),
+        ),REPO_ROOT/source
+
+
 def read_discovered_body(source: Path|bytes) -> bytes: return source if isinstance(source,bytes) else source.read_bytes()
+
+
+COLLECTION_ADAPTERS = {
+    "narrative-geopolitics-source-manifest": lambda collection,source_root: discover_archive(collection),
+    "mira-session-registry": lambda collection,source_root: discover_mira(collection),
+    "mira-journal-registry": lambda collection,source_root: discover_journal(collection),
+    "external-corpus-manifest": lambda collection,source_root: discover_external_corpus(collection,source_root),
+    "repository-artifact-manifest": lambda collection,source_root: discover_repository_artifacts(collection),
+}
 
 
 def discover(collections: Sequence[Mapping[str,Any]],source_root: Path | None=None) -> Iterator[tuple[RecordInput,Path|bytes]]:
     for collection in collections:
-        if collection.get("kind")=="narrative-geopolitics-source-manifest": yield from discover_archive(collection)
-        elif collection.get("kind")=="mira-session-registry": yield from discover_mira(collection)
-        elif collection.get("kind")=="mira-journal-registry": yield from discover_journal(collection)
-        elif collection.get("kind")=="external-corpus-manifest": yield from discover_external_corpus(collection,source_root)
-        else: raise ArchiveError(f"unsupported collection kind: {collection.get('kind')}")
+        adapter=COLLECTION_ADAPTERS.get(str(collection.get("kind")))
+        if adapter is None: raise ArchiveError(f"unsupported collection kind: {collection.get('kind')}")
+        yield from adapter(collection,source_root)
 
 
 def inventory(collections: Sequence[Mapping[str,Any]],source_root: Path | None=None) -> dict[str,Any]:
@@ -332,6 +443,24 @@ def add_external_corpus_lineage(connection: sqlite3.Connection,collection: Mappi
                 metadata={**metadata,"resolution":"reviewed-historical-relocation" if receipt else "literal"}
                 if receipt: metadata.update({"alias_id":receipt["alias_id"],"original_reference":receipt["original_reference"]})
             add_edge(connection,source=(source_id,int(source_version)),target=(target_id,int(target_version)),relation_type="derived_from",metadata=metadata)
+            added+=int(connection.execute("SELECT COUNT(*) FROM edges").fetchone()[0]>before)
+    return added
+
+
+def add_repository_artifact_lineage(connection: sqlite3.Connection,collection: Mapping[str,Any]) -> int:
+    manifest=repository_artifact_manifest(collection); by_path={str(row["path"]):row for row in manifest["documents"]}; added=0
+    for document in manifest["documents"]:
+        source_id=repository_artifact_record_id(document); source_version=connection.execute(
+            "SELECT MAX(version) FROM records WHERE record_id=?",(source_id,)
+        ).fetchone()[0]
+        if source_version is None: raise ArchiveError(f"missing repository artifact lineage source: {document['path']}")
+        for target_path in document["derived_from"]:
+            target=by_path[str(target_path)]; target_id=repository_artifact_record_id(target); target_version=connection.execute(
+                "SELECT MAX(version) FROM records WHERE record_id=?",(target_id,)
+            ).fetchone()[0]
+            if target_version is None: raise ArchiveError(f"missing repository artifact lineage target: {target_path}")
+            before=connection.execute("SELECT COUNT(*) FROM edges").fetchone()[0]
+            add_edge(connection,source=(source_id,int(source_version)),target=(target_id,int(target_version)),relation_type="derived_from",metadata={"manifest":str(collection["registry_path"])})
             added+=int(connection.execute("SELECT COUNT(*) FROM edges").fetchone()[0]>before)
     return added
 
@@ -393,7 +522,11 @@ def add_journal_lineage(connection: sqlite3.Connection) -> int:
 
 def ingest_command(args: argparse.Namespace) -> dict[str,Any]:
     collections=selected_collections(args.collection,include_explicit_default=True)
-    if not args.collection: collections=[row for row in collections if row.get("kind")!="external-corpus-manifest"]
+    if not args.collection:
+        collections=[
+            row for row in collections
+            if row.get("kind") not in {"external-corpus-manifest","repository-artifact-manifest"}
+        ]
     if args.source_root and not any(row.get("kind")=="external-corpus-manifest" for row in collections): raise ArchiveError("--source-root requires an external corpus collection")
     planned=inventory(collections,args.source_root)
     if args.check: return {"status":"ready","mutation":False,**planned}
@@ -404,14 +537,56 @@ def ingest_command(args: argparse.Namespace) -> dict[str,Any]:
         lineage_edges=add_journal_lineage(connection) if any(row.get("id")=="mira-journal" for row in collections) else 0
         for collection in collections:
             if collection.get("kind")=="external-corpus-manifest": lineage_edges+=add_external_corpus_lineage(connection,collection)
+            elif collection.get("kind")=="repository-artifact-manifest": lineage_edges+=add_repository_artifact_lineage(connection,collection)
         connection.commit(); return {"status":"ingested","mutation":True,"added_versions":added,"unchanged":unchanged,"lineage_edges_added":lineage_edges,"catalog":catalog_counts(connection),"catalog_fingerprint":catalog_fingerprint(connection),**planned}
 
 
 def status_command(_: argparse.Namespace) -> dict[str,Any]:
-    configured=configured_root(ARCHIVE_ROOT_ENV,required=False)
-    if configured is None: return {"status":"unconfigured","environment":ARCHIVE_ROOT_ENV}
+    configured,source=configured_root_resolution(ARCHIVE_ROOT_ENV,required=False)
+    if configured is None: return {"status":"unconfigured","environment":ARCHIVE_ROOT_ENV,"config_path":str(storage_config()[1])}
     archive=ArtifactStore(configured,REPO_ROOT)
-    with archive.connect() as connection: return {"status":"available","root":str(archive.root),"catalog":catalog_counts(connection),"catalog_fingerprint":catalog_fingerprint(connection)}
+    with archive.connect() as connection:
+        collections=collection_visibility(connection)
+        return {"status":"available","root":str(archive.root),"configuration_source":source,"catalog":catalog_counts(connection),"catalog_fingerprint":catalog_fingerprint(connection),"collections":collections}
+
+
+def catalog_collection_counts(connection: sqlite3.Connection) -> dict[str,int]:
+    return {str(row["collection_id"]):int(row["count"]) for row in connection.execute("SELECT collection_id,COUNT(*) AS count FROM active_paths GROUP BY collection_id ORDER BY collection_id")}
+
+
+def collection_visibility(connection: sqlite3.Connection) -> dict[str,Any]:
+    registry=collection_map(); catalog=catalog_collection_counts(connection); catalog_metadata=catalog_collection_metadata(connection); identifiers=sorted(set(registry)|set(catalog))
+    rows=[]
+    for identifier in identifiers:
+        registered=registry.get(identifier,{}); catalog_row=catalog_metadata.get(identifier,{})
+        rows.append({
+            "id":identifier,
+            "registry_present":identifier in registry,
+            "catalog_present":identifier in catalog,
+            "active_records":catalog.get(identifier,0),
+            "kind":registered.get("kind"),
+            "retrieval_policy":registered.get("retrieval_policy"),
+            "hydration_policy":registered.get("hydration_policy"),
+            "registry_path":registered.get("registry_path") or catalog_row.get("manifest"),
+            "authority_owner":registered.get("authority_owner") or catalog_row.get("authority_owner"),
+            "evidence_class":registered.get("evidence_class") or catalog_row.get("evidence_class"),
+        })
+    registry_ids=set(registry); catalog_ids=set(catalog)
+    return {"registered":len(registry_ids),"catalog":len(catalog_ids),"shared":sorted(registry_ids&catalog_ids),"registry_only":sorted(registry_ids-catalog_ids),"catalog_only":sorted(catalog_ids-registry_ids),"items":rows}
+
+
+def catalog_collection_metadata(connection: sqlite3.Connection) -> dict[str,dict[str,Any]]:
+    result={}
+    for row in connection.execute("SELECT collection_id,authority_owner,evidence_class,metadata_json FROM records WHERE (collection_id,version) IN (SELECT collection_id,MAX(version) FROM records GROUP BY collection_id) ORDER BY collection_id"):
+        metadata=json.loads(row["metadata_json"])
+        result[str(row["collection_id"])]={"authority_owner":row["authority_owner"],"evidence_class":row["evidence_class"],"manifest":metadata.get("manifest")}
+    return result
+
+
+def collections_command(_: argparse.Namespace) -> dict[str,Any]:
+    archive=store()
+    with archive.connect() as connection: collections=collection_visibility(connection); fingerprint=catalog_fingerprint(connection)
+    return {"status":"ok","catalog_fingerprint":fingerprint,"collections":collections,"authority_boundary":"Collection visibility is inventory evidence only; it does not repair registries, hydrate bodies, verify claims, publish, or promote records across collections."}
 
 
 def hydrate_command(args: argparse.Namespace) -> dict[str,Any]:
@@ -450,7 +625,7 @@ def verify_catalog(archive: ArtifactStore, *, full: bool) -> list[str]:
 
 
 def validate_repository_state(repo_root: Path=REPO_ROOT) -> list[str]:
-    failures=[]; required=("system-archive/README.md","system-archive/architecture.md","system-archive/collections.json","system-archive/context-policy.json","system-archive/schemas/context-pack.schema.json","system-archive/schemas/derivation-manifest.schema.json","system-archive/schemas/replay-plan.schema.json","system-archive/schemas/task-spec.schema.json")
+    failures=[]; required=("system-archive/README.md","system-archive/architecture.md","system-archive/collections.json","system-archive/context-policy.json","system-archive/schemas/context-pack.schema.json","system-archive/schemas/derivation-manifest.schema.json","system-archive/schemas/replay-plan.schema.json","system-archive/schemas/task-spec.schema.json","system-archive/schemas/repository-artifact-manifest.schema.json")
     failures.extend(f"missing System Archive control: {path}" for path in required if not (repo_root/path).is_file())
     try:
         document=collection_document(repo_root/"system-archive"/"collections.json"); identifiers=set()
@@ -463,7 +638,12 @@ def validate_repository_state(repo_root: Path=REPO_ROOT) -> list[str]:
                 if not isinstance(row.get(field),str) or not row[field].strip(): failures.append(f"collection {identifier} missing {field}")
             if row.get("retrieval_policy") not in {None,"default","explicit-only"}: failures.append(f"collection {identifier} has invalid retrieval_policy")
             if row.get("hydration_policy") not in {None,"default","disabled"}: failures.append(f"collection {identifier} has invalid hydration_policy")
-            if row.get("kind")=="external-corpus-manifest": external_manifest(row)
+            if row.get("kind") not in COLLECTION_ADAPTERS: failures.append(f"unsupported collection kind: {row.get('kind')}")
+            elif row.get("kind")=="external-corpus-manifest": external_manifest(row)
+            elif row.get("kind")=="repository-artifact-manifest": repository_artifact_manifest(row)
+        policy=load_json(repo_root/"system-archive"/"context-policy.json")
+        derived=sorted(str(row["id"]) for row in document["collections"] if row.get("retrieval_policy")=="explicit-only")
+        if policy.get("explicit_only_collections")!=derived: failures.append("System Archive explicit-only policy drifts from collection registry")
     except (ArchiveError,KeyError,TypeError) as error: failures.append(str(error))
     try:
         result=subprocess.run(["git","ls-files","-z","--","narrative-geopolitics/archive/sources","mira/continuity/captures"],cwd=repo_root,check=True,capture_output=True)
@@ -508,9 +688,18 @@ def row_summary(row: sqlite3.Row) -> dict[str,Any]:
 
 
 def search_command(args: argparse.Namespace) -> dict[str,Any]:
-    archive=store(); collections=[row["id"] for row in selected_collections(args.collection)]
-    with archive.connect() as connection: rows=search_rows(connection,query=args.query,collections=collections,as_of=args.as_of,limit=args.limit)
+    archive=store()
+    with archive.connect() as connection:
+        collections=search_collection_ids(args.collection,connection)
+        rows=search_rows(connection,query=args.query,collections=collections,as_of=args.as_of,limit=args.limit)
     return {"status":"ok","query":args.query,"as_of":parse_time(args.as_of,label="as_of") if args.as_of else None,"results":[{**row_summary(row),"rank":row["rank"]} for row in rows]}
+
+
+def search_collection_ids(values: Sequence[str], connection: sqlite3.Connection) -> list[str]:
+    if not values: return [row["id"] for row in selected_collections(values)]
+    registry=set(collection_map()); catalog=set(catalog_collection_counts(connection)); unknown=sorted(set(values)-registry-catalog)
+    if unknown: raise ArchiveError(f"unknown collection(s): {', '.join(unknown)}")
+    return list(values)
 
 
 def lineage_command(args: argparse.Namespace) -> dict[str,Any]:
@@ -597,6 +786,7 @@ def parser() -> argparse.ArgumentParser:
     root=argparse.ArgumentParser(description="System Archive epistemic substrate"); sub=root.add_subparsers(dest="command",required=True)
     def output(p: argparse.ArgumentParser) -> None: p.add_argument("--json",action="store_true")
     p=sub.add_parser("status"); output(p); p.set_defaults(handler=status_command)
+    p=sub.add_parser("collections"); output(p); p.set_defaults(handler=collections_command)
     p=sub.add_parser("ingest"); p.add_argument("--check",action="store_true"); p.add_argument("--collection",action="append",default=[]); p.add_argument("--source-root",type=Path); output(p); p.set_defaults(handler=ingest_command)
     p=sub.add_parser("hydrate"); p.add_argument("--check",action="store_true"); p.add_argument("--collection",action="append",default=[]); output(p); p.set_defaults(handler=hydrate_command)
     p=sub.add_parser("validate"); p.add_argument("--git-only",action="store_true"); p.add_argument("--full",action="store_true"); output(p); p.set_defaults(handler=validate_command)

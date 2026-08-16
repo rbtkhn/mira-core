@@ -1,0 +1,14 @@
+{
+  "as_of": "2026-08-13",
+  "created_at": "2026-08-13T00:00:00Z",
+  "created_by": "operator",
+  "from_id": "EVD-20260813-005",
+  "id": "REL-20260813-012",
+  "kind": "relation",
+  "relation_type": "supports",
+  "revision_of": null,
+  "schema_version": 1,
+  "scope": "Supports that Israeli intelligence was publicly reported and official-position-confirmed as a warning source shared with U.S. officials.",
+  "status": "active",
+  "to_id": "OBS-20260813-002"
+}

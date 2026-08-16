@@ -1,0 +1,40 @@
+{
+  "access": "open",
+  "access_languages": [
+    "en"
+  ],
+  "appropriate_uses": "Israeli and regional professional reporting, especially Israeli official-position access, Israeli security framing, and reported regional reactions.",
+  "as_of": "2026-08-14",
+  "canonical_url": "https://www.timesofisrael.com/",
+  "created_at": "2026-08-14T00:00:00Z",
+  "created_by": "operator",
+  "domain": "professional_reporting",
+  "evidence_class": "independent_professional_reporting",
+  "geography": "Israel and Middle East",
+  "geopolitical_environment": "middle_east_regional",
+  "id": "VSRC-RPT-TOI",
+  "inappropriate_uses": "Treating Israeli official or U.S. ambassador claims as independent proof, or treating liveblog summaries as full upstream reporting when they cite other outlets.",
+  "kind": "source",
+  "known_failure_modes": "Israeli security-state proximity; liveblog compression; dependence on U.S. and Israeli official claims; regional conflict framing.",
+  "latency": "minutes-hours",
+  "name": "The Times of Israel",
+  "observables": "Israeli official statements, regional security claims, reported intelligence-attribution claims, and public diplomatic positioning",
+  "open_fallback": "self",
+  "order": 93,
+  "origin_languages": [
+    "en"
+  ],
+  "originating_chain_rule": "Treat each Times of Israel item as one chain; liveblog references to WSJ, Fox, or other outlets do not create independent lineage for those upstream claims.",
+  "perspective": "middle_east_regional",
+  "review_history": [
+    {
+      "date": "2026-08-14",
+      "note": "Added for VER-20260813-01 to capture a regional report carrying Israeli-warning confirmation and caveats around credibility and denial.",
+      "reviewer": "operator"
+    }
+  ],
+  "revision_of": null,
+  "schema_version": 1,
+  "status": "active",
+  "translation_provenance": "not_required"
+}

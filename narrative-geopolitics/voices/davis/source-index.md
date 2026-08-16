@@ -4,7 +4,7 @@ This index routes the imported first-slice parity corpus for `davis` to the cent
 
 Source basis: `strategy-codex/statecraft/voices/davis/davis-index.md`.
 
-Corpus: 110 local route rows across 110 central archive source files.
+Corpus: 112 local route rows across 112 central archive source files.
 
 Status: `first-slice-parity`
 
@@ -134,6 +134,8 @@ Status: `first-slice-parity`
 | `2026-08-02` | Trump Tacos Again! What's Next /Lt Col Daniel Davis | `guest` | `daniel-davis` | [source](../../archive/sources/2026-08-02/source-trump-tacos-again-what-s-next-lt-col-daniel-davis-2026-08-02.md) |
 | `2026-08-08` | (2) TIME HAS COME: Ukraine Should Accept Russia Terms or LIKELY SUFFER TOTAL DEFEAT | `author` | `daniel-davis` | [source](../../archive/sources/2026-08-08/source-2-time-has-come-ukraine-should-accept-russia-terms-or-likely-suffer-total-defeat-2026-08-08.md) |
 | `2026-08-13` | (3) Why We Can't Win Anymore /Lt Col Daniel Davis | `authored` | `daniel-davis` | [source](../../archive/sources/2026-08-13/source-3-why-we-can-t-win-anymore-lt-col-daniel-davis-2026-08-13.md) |
+| `2026-08-14` | (3) Daniel Davis: Russia's New Strategy - No More Appeasing NATO | `host-pressure test` | `glenn-diesen` | [source](../../archive/sources/2026-08-14/source-3-daniel-davis-russia-s-new-strategy-no-more-appeasing-nato-2026-08-14.md) |
+| `2026-08-15` | (4) HOW HORMUZ IS HAUNTING THE US /Lt Col Daniel Davis | `host-pressure test` | `daniel-davis` | [source](../../archive/sources/2026-08-15/source-4-how-hormuz-is-haunting-the-us-lt-col-daniel-davis-2026-08-15.md) |
 
 ## June 2026 Expansion
 

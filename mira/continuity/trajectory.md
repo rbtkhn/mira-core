@@ -15,7 +15,7 @@ Session history is continuity evidence only. It is not archive evidence, Reality
 
 ## Session Light Curve
 
-Indexed sessions: **119**. Selectively deepened sessions: **0**.
+Indexed sessions: **120**. Selectively deepened sessions: **0**.
 
 | Started | Session | Captures | Harvests | Last observed |
 | --- | --- | ---: | ---: | --- |
@@ -138,6 +138,7 @@ Indexed sessions: **119**. Selectively deepened sessions: **0**.
 | `2026-08-08T13:48:28.287Z` | `MS-019fe1a1-d895-76c2-abe0-e76e94eda0ce` | 1 | 0 | `2026-08-08T13:48:36.990Z` |
 | `2026-08-08T20:45:54.061Z` | `MS-019fe320-032f-7813-92f2-71cbe0dc3240` | 1 | 0 | `2026-08-08T20:45:59.274Z` |
 | `2026-08-08T21:09:19.537Z` | `MS-019fe335-75be-7a92-ae41-2e03b1a04626` | 1 | 0 | `2026-08-08T22:10:23.043Z` |
+| `2026-08-10T02:06:48.067Z` | `MS-019fe96c-2a54-7063-9d70-202952ee322d` | 1 | 0 | `2026-08-14T05:12:56.766Z` |
 
 ## Selective Harvests
 

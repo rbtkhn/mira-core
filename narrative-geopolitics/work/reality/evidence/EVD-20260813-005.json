@@ -1,0 +1,23 @@
+{
+  "access_language": "en",
+  "as_of": "2026-08-13",
+  "created_at": "2026-08-13T00:00:00Z",
+  "created_by": "operator",
+  "event_time": "2026-07-12",
+  "evidence_role": "professional_reporting",
+  "geopolitical_environment": "middle_east_regional",
+  "id": "EVD-20260813-005",
+  "kind": "evidence",
+  "limitation": "Regional reporting and Israeli/U.S. official-position access; supports reported Israeli-warning transfer but does not independently prove plot feasibility, CIA confidence, or Turkish-site operational reality.",
+  "observation": "Times of Israel reports that U.S. Ambassador to Israel Mike Huckabee said Israeli intelligence tipped off U.S. officials about a specific plot to target Trump; the same item notes WSJ reporting that some U.S. officials did not deem the threat entirely credible and quotes Trump denying that Israel had produced anything new.",
+  "origin_language": "en",
+  "originating_chain": "CHAIN-TOI-HUCKABEE-ISRAEL-INTEL-TRUMP",
+  "representation_sha256": "684babd477c8a1df372290eb092b2eb69429946456c6d02e7c9eb726485719f0",
+  "retrieved_at": "2026-08-14",
+  "revision_of": null,
+  "schema_version": 1,
+  "source_id": "VSRC-RPT-TOI",
+  "status": "active",
+  "translation_provenance": "not_required",
+  "url": "https://www.timesofisrael.com/liveblog_entry/us-envoy-confirms-israel-shared-intel-on-iranian-plot-to-kill-trump/"
+}

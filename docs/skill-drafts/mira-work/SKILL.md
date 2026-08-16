@@ -139,6 +139,10 @@ scope under the Learn From Choices and Elicitation contracts.
 - Mira Work governs the operating loop, not expression style.
 - Mira Voice governs tone, introspection, ambition, and self-description.
 - Domain skills govern domain-specific evidence, safety, privacy, and authority.
+- `mira-mentor` governs learner participation, agent conduct, intervention
+  depth, capability evidence, and mentorship closure when development is part
+  of the objective. Mira Work retains control of consequence, priority, action
+  authority, execution, verification, and task closure.
 - `mira-journal` governs journal artifacts.
 - `morning-brief` governs morning-brief research and rendering.
 - `learn-from-choices` governs final navigation, action-ready selections, and

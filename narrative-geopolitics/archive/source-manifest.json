@@ -2,7 +2,7 @@
   "manifest_id": "narrative-geopolitics-source-manifest-v1",
   "source_basis": "central archive with completed historical strategy-codex imports",
   "imported_at": "2026-07-09",
-  "source_count": 2132,
+  "source_count": 2147,
   "boundary": {
     "archive": "source truth",
     "voices": "voice continuity and routing",
@@ -57352,6 +57352,9 @@
       "host_slug": "upstream-unresolved",
       "source_identity": "https://escalationtrap.substack.com/p/trumps-unilateral-demands-iran-doubles",
       "source_url": "https://escalationtrap.substack.com/p/trumps-unilateral-demands-iran-doubles",
+      "publication_slug": "escalation-trap",
+      "publication_name": "Escalation Trap",
+      "publication_url": "https://escalationtrap.substack.com/",
       "title_source": "operator",
       "date_basis": "operator-supplied",
       "inference_basis": [
@@ -57604,6 +57607,9 @@
       "host_slug": "upstream-unresolved",
       "source_identity": "https://escalationtrap.substack.com/p/irans-endgame-wait-out-trump",
       "source_url": "https://escalationtrap.substack.com/p/irans-endgame-wait-out-trump",
+      "publication_slug": "escalation-trap",
+      "publication_name": "Escalation Trap",
+      "publication_url": "https://escalationtrap.substack.com/",
       "title_source": "operator",
       "date_basis": "operator-supplied",
       "inference_basis": [
@@ -57649,6 +57655,7 @@
       "host_slug": "daniel-davis",
       "source_identity": "youtube:FlzDuR6Bhtk",
       "source_url": "https://www.youtube.com/watch?v=FlzDuR6Bhtk",
+      "publication_absence_reason": "youtube_container_not_publication",
       "title_source": "transcript",
       "date_basis": "operator-supplied",
       "inference_basis": [
@@ -57920,6 +57927,349 @@
       },
       "routing_note": "Misrouted intake: Moonshots transcript belongs with the system-archive singularity-science/moonshots corpus, not the geopolitics section.",
       "host_kind": "host-person"
+    },
+    {
+      "date": "2026-08-14",
+      "title": "(3) Russia Mocks Zelensky Erdogan Odessa Sea Truce Call; UK Panic As Russia Targets UK Ships; Druzhivka",
+      "local_path": "narrative-geopolitics/archive/sources/2026-08-14/source-3-russia-mocks-zelensky-erdogan-odessa-sea-truce-call-uk-panic-as-russia-targets-uk-ships-druzhivka-2026-08-14.md",
+      "voice_index_path": "../../archive/sources/2026-08-14/source-3-russia-mocks-zelensky-erdogan-odessa-sea-truce-call-uk-panic-as-russia-targets-uk-ships-druzhivka-2026-08-14.md",
+      "upstream_path": "operator-paste://2026-08-14/3-russia-mocks-zelensky-erdogan-odessa-sea-truce-call-uk-panic-as-russia-targets-uk-ships-druzhivka",
+      "source_class": "host monologue",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "alexander-mercouris",
+      "source_identity": "youtube:-aHJbALEWuc",
+      "source_url": "https://www.youtube.com/watch?v=-aHJbALEWuc",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-14",
+      "title": "(3) CENTCOM PUSHING FOR STRIKES ON IRAN'S INFRASTRUCTURE - w/ Joe Kent",
+      "local_path": "narrative-geopolitics/archive/sources/2026-08-14/source-3-centcom-pushing-for-strikes-on-iran-s-infrastructure-w-joe-kent-2026-08-14.md",
+      "voice_index_path": "../../archive/sources/2026-08-14/source-3-centcom-pushing-for-strikes-on-iran-s-infrastructure-w-joe-kent-2026-08-14.md",
+      "upstream_path": "operator-paste://2026-08-14/3-centcom-pushing-for-strikes-on-iran-s-infrastructure-w-joe-kent",
+      "source_class": "guest",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "kent"
+      ],
+      "host_slug": "mario-nawfal",
+      "source_identity": "youtube:l9CT0_oEdaM",
+      "source_url": "https://www.youtube.com/watch?v=l9CT0_oEdaM",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-14",
+      "title": "(3) Daniel Davis: Russia's New Strategy - No More Appeasing NATO",
+      "local_path": "narrative-geopolitics/archive/sources/2026-08-14/source-3-daniel-davis-russia-s-new-strategy-no-more-appeasing-nato-2026-08-14.md",
+      "voice_index_path": "../../archive/sources/2026-08-14/source-3-daniel-davis-russia-s-new-strategy-no-more-appeasing-nato-2026-08-14.md",
+      "upstream_path": "operator-paste://2026-08-14/3-daniel-davis-russia-s-new-strategy-no-more-appeasing-nato",
+      "source_class": "practical-room spine",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "davis"
+      ],
+      "host_slug": "glenn-diesen",
+      "source_identity": "youtube:l6DEQZfUFcw",
+      "source_url": "https://www.youtube.com/watch?v=l6DEQZfUFcw",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-14",
+      "title": "(3) Amb. Chas Freeman: Panic in Tel Aviv: Iran's Military Rebuild Stuns Israel",
+      "local_path": "narrative-geopolitics/archive/sources/2026-08-14/source-3-amb-chas-freeman-panic-in-tel-aviv-iran-s-military-rebuild-stuns-israel-2026-08-14.md",
+      "voice_index_path": "../../archive/sources/2026-08-14/source-3-amb-chas-freeman-panic-in-tel-aviv-iran-s-military-rebuild-stuns-israel-2026-08-14.md",
+      "upstream_path": "operator-paste://2026-08-14/3-amb-chas-freeman-panic-in-tel-aviv-iran-s-military-rebuild-stuns-israel",
+      "source_class": "guest",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "freeman"
+      ],
+      "host_slug": "dialogue-works",
+      "source_identity": "youtube:6DhRuRzFF6o",
+      "source_url": "https://www.youtube.com/watch?v=6DhRuRzFF6o",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-14",
+      "title": "(3) Pepe Escobar : Iran’s New Offensive Strategy",
+      "local_path": "narrative-geopolitics/archive/sources/2026-08-14/source-3-pepe-escobar-iran-s-new-offensive-strategy-2026-08-14.md",
+      "voice_index_path": "../../archive/sources/2026-08-14/source-3-pepe-escobar-iran-s-new-offensive-strategy-2026-08-14.md",
+      "upstream_path": "operator-paste://2026-08-14/3-pepe-escobar-iran-s-new-offensive-strategy",
+      "source_class": "guest",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "escobar"
+      ],
+      "host_slug": "judging-freedom",
+      "source_identity": "youtube:3mC_gt_wJWk",
+      "source_url": "https://www.youtube.com/watch?v=3mC_gt_wJWk",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-14",
+      "title": "(3) Prof. Mohammad Marandi : Trump’s War Achieved Nothing for the US",
+      "local_path": "narrative-geopolitics/archive/sources/2026-08-14/source-3-prof-mohammad-marandi-trump-s-war-achieved-nothing-for-the-us-2026-08-14.md",
+      "voice_index_path": "../../archive/sources/2026-08-14/source-3-prof-mohammad-marandi-trump-s-war-achieved-nothing-for-the-us-2026-08-14.md",
+      "upstream_path": "operator-paste://2026-08-14/3-prof-mohammad-marandi-trump-s-war-achieved-nothing-for-the-us",
+      "source_class": "guest",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "marandi"
+      ],
+      "host_slug": "judging-freedom",
+      "source_identity": "youtube:u3joju6P62Q",
+      "source_url": "https://www.youtube.com/watch?v=u3joju6P62Q",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-14",
+      "title": "(3) Ukraine's Fortress Belt Under Siege As Odessa Blockade Tightens w/ Stanislav Krapivnik",
+      "local_path": "narrative-geopolitics/archive/sources/2026-08-14/source-3-ukraine-s-fortress-belt-under-siege-as-odessa-blockade-tightens-w-stanislav-krapivnik-2026-08-14.md",
+      "voice_index_path": "../../archive/sources/2026-08-14/source-3-ukraine-s-fortress-belt-under-siege-as-odessa-blockade-tightens-w-stanislav-krapivnik-2026-08-14.md",
+      "upstream_path": "operator-paste://2026-08-14/3-ukraine-s-fortress-belt-under-siege-as-odessa-blockade-tightens-w-stanislav-krapivnik",
+      "source_class": "guest",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "krapivnik"
+      ],
+      "host_slug": "the-duran",
+      "source_identity": "youtube:-mjtzVvhwzs",
+      "source_url": "https://www.youtube.com/watch?v=-mjtzVvhwzs",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-14",
+      "title": "(3) Matthew Hoh: Pentagon Leak: Military Brass Sound Alarm on Troop ‘Burnout’ in Iran War",
+      "local_path": "narrative-geopolitics/archive/sources/2026-08-14/source-3-matthew-hoh-pentagon-leak-military-brass-sound-alarm-on-troop-burnout-in-iran-war-2026-08-14.md",
+      "voice_index_path": "../../archive/sources/2026-08-14/source-3-matthew-hoh-pentagon-leak-military-brass-sound-alarm-on-troop-burnout-in-iran-war-2026-08-14.md",
+      "upstream_path": "operator-paste://2026-08-14/3-matthew-hoh-pentagon-leak-military-brass-sound-alarm-on-troop-burnout-in-iran-war",
+      "source_class": "guest",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "hoh"
+      ],
+      "host_slug": "dialogue-works",
+      "source_identity": "youtube:RBbqpwNj5aQ",
+      "source_url": "https://www.youtube.com/watch?v=RBbqpwNj5aQ",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-14",
+      "title": "(3) Nima R. Alkhorshid: Yemenis Strike Saudi Aramco – Saudi Arms Shipment Destroyed in Precision Strike",
+      "local_path": "narrative-geopolitics/archive/sources/2026-08-14/source-3-nima-r-alkhorshid-yemenis-strike-saudi-aramco-saudi-arms-shipment-destroyed-in-precision-strike-2026-08-14.md",
+      "voice_index_path": "../../archive/sources/2026-08-14/source-3-nima-r-alkhorshid-yemenis-strike-saudi-aramco-saudi-arms-shipment-destroyed-in-precision-strike-2026-08-14.md",
+      "upstream_path": "operator-paste://2026-08-14/3-nima-r-alkhorshid-yemenis-strike-saudi-aramco-saudi-arms-shipment-destroyed-in-precision-strike",
+      "source_class": "author",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "alkhorshid"
+      ],
+      "host_slug": "dialogue-works",
+      "source_identity": "youtube:K2WQYYpBkFE",
+      "source_url": "https://www.youtube.com/watch?v=K2WQYYpBkFE",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-15",
+      "title": "(4) Russia Crushes Kiev's Elite Azov Troops Smashes Dobropilia; West Despairs At Kiev Lack Of AD",
+      "local_path": "narrative-geopolitics/archive/sources/2026-08-15/source-4-russia-crushes-kiev-s-elite-azov-troops-smashes-dobropilia-west-despairs-at-kiev-lack-of-ad-2026-08-15.md",
+      "voice_index_path": "../../archive/sources/2026-08-15/source-4-russia-crushes-kiev-s-elite-azov-troops-smashes-dobropilia-west-despairs-at-kiev-lack-of-ad-2026-08-15.md",
+      "upstream_path": "operator-paste://2026-08-15/4-russia-crushes-kiev-s-elite-azov-troops-smashes-dobropilia-west-despairs-at-kiev-lack-of-ad",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "alexander-mercouris",
+      "source_identity": "youtube:WM00JHxxd1w",
+      "source_url": "https://www.youtube.com/watch?v=WM00JHxxd1w",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-15",
+      "title": "(4) HOW HORMUZ IS HAUNTING THE US /Lt Col Daniel Davis",
+      "local_path": "narrative-geopolitics/archive/sources/2026-08-15/source-4-how-hormuz-is-haunting-the-us-lt-col-daniel-davis-2026-08-15.md",
+      "voice_index_path": "../../archive/sources/2026-08-15/source-4-how-hormuz-is-haunting-the-us-lt-col-daniel-davis-2026-08-15.md",
+      "upstream_path": "operator-paste://2026-08-15/4-how-hormuz-is-haunting-the-us-lt-col-daniel-davis",
+      "source_class": "host monologue",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "davis"
+      ],
+      "host_slug": "daniel-davis",
+      "source_identity": "youtube:ekEEUL_GlbQ",
+      "source_url": "https://www.youtube.com/watch?v=ekEEUL_GlbQ",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-15",
+      "title": "(4) Seyed M. Marandi: US on Imminent Attack Alert - Hezbollah Delivers a Stunning Blow to IDF",
+      "local_path": "narrative-geopolitics/archive/sources/2026-08-15/source-4-seyed-m-marandi-us-on-imminent-attack-alert-hezbollah-delivers-a-stunning-blow-to-idf-2026-08-15.md",
+      "voice_index_path": "../../archive/sources/2026-08-15/source-4-seyed-m-marandi-us-on-imminent-attack-alert-hezbollah-delivers-a-stunning-blow-to-idf-2026-08-15.md",
+      "upstream_path": "operator-paste://2026-08-15/4-seyed-m-marandi-us-on-imminent-attack-alert-hezbollah-delivers-a-stunning-blow-to-idf",
+      "source_class": "interview",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "marandi"
+      ],
+      "host_slug": "nima-alkhorshid",
+      "source_identity": "youtube:bi1xf4a5ITI",
+      "source_url": "https://www.youtube.com/watch?v=bi1xf4a5ITI",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-15",
+      "title": "(4) Ray McGovern: Russia-Japan Tensions Grow & U.S. Involvement in Attacks on Russia",
+      "local_path": "narrative-geopolitics/archive/sources/2026-08-15/source-4-ray-mcgovern-russia-japan-tensions-grow-u-s-involvement-in-attacks-on-russia-2026-08-15.md",
+      "voice_index_path": "../../archive/sources/2026-08-15/source-4-ray-mcgovern-russia-japan-tensions-grow-u-s-involvement-in-attacks-on-russia-2026-08-15.md",
+      "upstream_path": "operator-paste://2026-08-15/4-ray-mcgovern-russia-japan-tensions-grow-u-s-involvement-in-attacks-on-russia",
+      "source_class": "interview",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mcgovern"
+      ],
+      "host_slug": "glenn-diesen",
+      "source_identity": "youtube:3VGK38Xf4MY",
+      "source_url": "https://www.youtube.com/watch?v=3VGK38Xf4MY",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-15",
+      "title": "(4) CENTCOM PUSHES TRUMP FOR MORE WAR AS CEASEFIRE EXPIRES MONDAY - w/ Lt. Col. Anthony Aguilar",
+      "local_path": "narrative-geopolitics/archive/sources/2026-08-15/source-4-centcom-pushes-trump-for-more-war-as-ceasefire-expires-monday-w-lt-col-anthony-aguilar-2026-08-15.md",
+      "voice_index_path": "../../archive/sources/2026-08-15/source-4-centcom-pushes-trump-for-more-war-as-ceasefire-expires-monday-w-lt-col-anthony-aguilar-2026-08-15.md",
+      "upstream_path": "operator-paste://2026-08-15/4-centcom-pushes-trump-for-more-war-as-ceasefire-expires-monday-w-lt-col-anthony-aguilar",
+      "source_class": "interview",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "aguilar"
+      ],
+      "host_slug": "mario-nawfal",
+      "source_identity": "youtube:oLpbnE0Nb7o",
+      "source_url": "https://www.youtube.com/watch?v=oLpbnE0Nb7o",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-15",
+      "title": "(4) Larry Johnson: Iran’s FINAL Play in Hormuz- Israel Attack FALLS APART- Yemen Flipped the Script",
+      "local_path": "narrative-geopolitics/archive/sources/2026-08-15/source-4-larry-johnson-iran-s-final-play-in-hormuz-israel-attack-falls-apart-yemen-flipped-the-script-2026-08-15.md",
+      "voice_index_path": "../../archive/sources/2026-08-15/source-4-larry-johnson-iran-s-final-play-in-hormuz-israel-attack-falls-apart-yemen-flipped-the-script-2026-08-15.md",
+      "upstream_path": "operator-paste://2026-08-15/4-larry-johnson-iran-s-final-play-in-hormuz-israel-attack-falls-apart-yemen-flipped-the-script",
+      "source_class": "interview",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "johnson"
+      ],
+      "host_slug": "dialogue-works",
+      "source_identity": "youtube:2Ycu0v0_-Tc",
+      "source_url": "https://www.youtube.com/watch?v=2Ycu0v0_-Tc",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
     }
   ]
 }

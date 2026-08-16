@@ -82,9 +82,9 @@ Status: `imported-corpus`
 | `2026-07-23` | TRUMP THREATENS TEHRAN'S POWER PLANTS, IRAN THREATENS U.S. ENERGY ASSETS - w/ Trita Parsi | `guest` | `mario-nawfal` | [source](../../archive/sources/2026-07-23/source-trump-threatens-tehran-s-power-plants-iran-threatens-u-s-energy-assets-w-trita-parsi-2026-07-23.md) |
 | `2026-07-27` | US Miscalculating on Iran Hasn't Stopped /Trita Parsi & Lt Col Daniel Davis | `guest` | `daniel-davis` | [source](../../archive/sources/2026-07-27/source-us-miscalculating-on-iran-hasn-t-stopped-trita-parsi-lt-col-daniel-davis-2026-07-27.md) |
 | `2026-07-29` | TRUMP TO STRIKE IRAN AND IRAQ, MAJOR IRANIAN RESPONSE, UKRAINE IRAN MERGE INTO WW3 w/ TRITA PARSI | `guest` | `moral-resistance` | [source](../../archive/sources/2026-07-29/source-trump-to-strike-iran-and-iraq-major-iranian-response-ukraine-iran-merge-into-ww3-w-trita-parsi-2026-07-29.md) |
-| `2026-08-04` | BREAKING: IRAN TO CONTROL HORMUZ - w/ Trita Parsi | `host-pressure test` | `mario-nawfal` | [source](../../archive/sources/2026-08-04/source-breaking-iran-to-control-hormuz-w-trita-parsi-2026-08-04.md) |
-| `2026-08-07` | (1) Trita Parsi: New Deals Will Change the Middle East Forever | `host-pressure test` | `glenn-diesen` | [source](../../archive/sources/2026-08-07/source-1-trita-parsi-new-deals-will-change-the-middle-east-forever-2026-08-07.md) |
-| `2026-08-07` | (1) Trita Parsi : What the US Misunderstands about Iran : LIVE - (PART TWO) | `host-pressure test` | `judging-freedom` | [source](../../archive/sources/2026-08-07/source-1-trita-parsi-what-the-us-misunderstands-about-iran-live-part-two-2026-08-07.md) |
+| `2026-08-04` | BREAKING: IRAN TO CONTROL HORMUZ - w/ Trita Parsi | `guest` | `mario-nawfal` | [source](../../archive/sources/2026-08-04/source-breaking-iran-to-control-hormuz-w-trita-parsi-2026-08-04.md) |
+| `2026-08-07` | (1) Trita Parsi: New Deals Will Change the Middle East Forever | `guest` | `glenn-diesen` | [source](../../archive/sources/2026-08-07/source-1-trita-parsi-new-deals-will-change-the-middle-east-forever-2026-08-07.md) |
+| `2026-08-07` | (1) Trita Parsi : What the US Misunderstands about Iran : LIVE - (PART TWO) | `guest` | `judging-freedom` | [source](../../archive/sources/2026-08-07/source-1-trita-parsi-what-the-us-misunderstands-about-iran-live-part-two-2026-08-07.md) |
 | `2026-08-10` | (2) Iran Demands TOTAL SURRENDER From Trump On Hormuz | `guest` | `breaking-points` | [source](../../archive/sources/2026-08-10/source-2-iran-demands-total-surrender-from-trump-on-hormuz-2026-08-10.md) |
 
 ## Import Boundary

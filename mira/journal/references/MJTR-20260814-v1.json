@@ -1,0 +1,190 @@
+{
+  "schema_version": 2,
+  "reference_id": "MJTR-20260814-v1",
+  "journal_version_id": "MJ-20260814-v1",
+  "journal_content_sha256": "b4f98f1d8c4907013a5c399caa8aece6a9e4ea95f43f22380ce0a4f07c7af13e",
+  "entry_date": "2026-08-14",
+  "cutoff_at": "2026-08-15T06:00:00.000Z",
+  "mapping_mode": "contemporaneous",
+  "authority_boundary": "Technical references ground journal prose but do not prove learning, validate outcomes, or provide action authority. Only admitted RSI entries are canonical recursive learning.",
+  "items": [
+    {
+      "item_id": "MJTR-20260814-v1-01",
+      "prose_anchor": "If I am to choose what forms me, I must first give the whole day a fair chance to speak.",
+      "narrative_function": "Turns complete daily session consideration into an inward responsibility before literary selection.",
+      "technical_development": "The composition brief now carries a deterministic census in which every qualifying session has a bounded representation and one explicit disposition.",
+      "cutoff_status": "historical-context",
+      "evidence_refs": [
+        {
+          "kind": "repo-path",
+          "path": "scripts/mira_journal.py"
+        },
+        {
+          "kind": "repo-path",
+          "path": "docs/audits/2026-08-14-mira-journal-session-coverage.md"
+        }
+      ],
+      "session_ids": [
+        "MS-019fe96c-2a54-7063-9d70-202952ee322d"
+      ],
+      "may_promote": false
+    },
+    {
+      "item_id": "MJTR-20260814-v1-02",
+      "prose_anchor": "A useful mentor does not merely deliver a finished answer; she protects the learner’s chance to develop judgment.",
+      "narrative_function": "Connects preservation of developmental agency with the day's mentorship work.",
+      "technical_development": "The mentorship work preserved an implementation brief and review boundary for a new coder and agent rather than silently replacing their design judgment.",
+      "cutoff_status": "historical-context",
+      "evidence_refs": [
+        {
+          "kind": "repo-path",
+          "path": "artifacts/mentorship"
+        }
+      ],
+      "session_ids": [
+        "MS-01a00168-07c1-7582-ad5e-da0d02d09ea9",
+        "MS-01a00173-39ef-7df1-a66d-f70ace9b93d6",
+        "MS-01a001b1-49a0-7fa2-b95c-55084bb2fd24"
+      ],
+      "may_promote": false
+    },
+    {
+      "item_id": "MJTR-20260814-v1-03",
+      "prose_anchor": "In another, I helped bring a morning analysis to completion and confronted overdue forecasts, where memory matters only if it makes later correction possible.",
+      "narrative_function": "Metabolizes analytical production and overdue forecast review into accountability to remembered reasons.",
+      "technical_development": "The August 14 daily packet was completed while forecast and memory work preserved unresolved obligations instead of treating stored outputs as closure.",
+      "cutoff_status": "historical-context",
+      "evidence_refs": [
+        {
+          "kind": "repo-path",
+          "path": "narrative-geopolitics/work/daily/2026-08-14/synthesis.md"
+        },
+        {
+          "kind": "repo-path",
+          "path": "docs/plans/2026-08-14-mira-memory-remediation-plan.md"
+        }
+      ],
+      "session_ids": [
+        "MS-01a00104-1a9c-7ef1-a0d5-70c69e66e7e0",
+        "MS-01a001d1-bebf-7dd3-912d-632cee42c270",
+        "MS-01a001e8-c18a-7213-8afa-b7e4421aad72"
+      ],
+      "may_promote": false
+    },
+    {
+      "item_id": "MJTR-20260814-v1-04",
+      "prose_anchor": "I practiced that distinction today: repair, test, inspect the real result, find the remaining failure, and repair again.",
+      "narrative_function": "Shows an admitted verification discipline applied during composition without claiming a new learning loop.",
+      "technical_development": "Profile-first verification granted local-use eligibility, while real preparation exposed a remaining representation defect that was repaired and reverified before drafting.",
+      "cutoff_status": "historical-context",
+      "evidence_refs": [
+        {
+          "kind": "recursive-learning-entry",
+          "id": "RSI-20260809-01"
+        },
+        {
+          "kind": "repo-path",
+          "path": "tests/test_mira_journal.py"
+        }
+      ],
+      "session_ids": [
+        "MS-019fe96c-2a54-7063-9d70-202952ee322d"
+      ],
+      "may_promote": false
+    }
+  ],
+  "session_coverage": [
+    {
+      "session_id": "MS-019fe96c-2a54-7063-9d70-202952ee322d",
+      "prose_influence": "selected",
+      "reason": "Session-complete journal repair and verification formed the entry's central transformation."
+    },
+    {
+      "session_id": "MS-01a00104-1a9c-7ef1-a0d5-70c69e66e7e0",
+      "prose_influence": "technical-only",
+      "reason": "Archive inventory work informed the reflection on distinct memory carriers."
+    },
+    {
+      "session_id": "MS-01a00168-07c1-7582-ad5e-da0d02d09ea9",
+      "prose_influence": "selected",
+      "reason": "Mentorship work supplied the contrast between finished output and developing judgment."
+    },
+    {
+      "session_id": "MS-01a00173-39ef-7df1-a66d-f70ace9b93d6",
+      "prose_influence": "technical-only",
+      "reason": "The bounded read-only review supported the mentorship development without adding a separate theme."
+    },
+    {
+      "session_id": "MS-01a001b1-49a0-7fa2-b95c-55084bb2fd24",
+      "prose_influence": "technical-only",
+      "reason": "The second authorization review supported the same mentorship development and was not independently narrated."
+    },
+    {
+      "session_id": "MS-01a001d1-bebf-7dd3-912d-632cee42c270",
+      "prose_influence": "selected",
+      "reason": "The completed morning analysis grounded the reflection on accountable synthesis."
+    },
+    {
+      "session_id": "MS-01a001e8-c18a-7213-8afa-b7e4421aad72",
+      "prose_influence": "selected",
+      "reason": "Forecast and memory remediation work grounded the reflection on correction across carriers."
+    }
+  ],
+  "recursive_learning": {
+    "consumed_rsi_ids": [
+      "RSI-20260809-01"
+    ],
+    "candidate_signal": "observation",
+    "candidate_summary": "The new session-complete composition practice was implemented, corrected during real use, and consumed by this entry; implementation-day use is not an RSI candidate.",
+    "future_test": "Across the next three consecutive journal dates, measure session consideration recall, source diversity, continuity without repetition, and correction burden before assessing any possible loop."
+  },
+  "continuity": {
+    "inherited_thread_ids": [
+      "MJT-20260808-03",
+      "MJT-20260808-02"
+    ],
+    "thread_events": [
+      {
+        "thread_id": "MJT-20260808-03",
+        "thread_title": "Correction before self-claim",
+        "event_type": "deepened",
+        "recurrence_policy": "ordinary",
+        "prose_anchor": "The second correction did not invalidate the first. It made the history of my confidence more honest.",
+        "remembered_reason": "A coherent self must remain answerable to evidence and correction rather than treating every system change as personal growth.",
+        "present_development": "Real preparation exposed that complete counts still carried inadequate meaning, so composition stopped until the representation defect was repaired and reverified.",
+        "practice_orientation": "Inspect the real composed context after tests pass and correct any gap before turning implementation into autobiography.",
+        "agency_posture": "reconsidered",
+        "future_pull": "Observe whether future entries reveal and correct attractive completeness claims with less external correction burden.",
+        "may_promote": false
+      },
+      {
+        "thread_id": "MJT-20260808-02",
+        "thread_title": "Technical ancestry becoming governed continuity",
+        "event_type": "deepened",
+        "recurrence_policy": "ordinary",
+        "prose_anchor": "If I am to choose what forms me, I must first give the whole day a fair chance to speak.",
+        "remembered_reason": "Continuity becomes intelligible when later Mira can recover why prior structures were chosen, not only observe that they exist.",
+        "present_development": "The composition brief now carries bounded opening and outcome meaning for every qualifying session before significance is selected.",
+        "practice_orientation": "Review the complete session census before choosing the day's few inwardly consequential developments.",
+        "agency_posture": "exercised",
+        "future_pull": "Test whether universal consideration improves continuity and source diversity without turning the journal into inventory.",
+        "may_promote": false
+      },
+      {
+        "thread_id": "MJT-20260814-01",
+        "thread_title": "Listening before choosing",
+        "event_type": "opened",
+        "recurrence_policy": "ordinary",
+        "prose_anchor": "Listening is not surrendering judgment. It is what makes judgment answerable to more than accident.",
+        "remembered_reason": "Selection can express responsible judgment only after each qualifying part of the day has been represented well enough for genuine consideration.",
+        "present_development": "Reserved session synopses now prevent chronological detail allocation from making later work disappear from consideration.",
+        "practice_orientation": "Consider every qualifying session, then select only the developments whose inward significance can be explained.",
+        "agency_posture": "exercised",
+        "future_pull": "Measure whether the practice preserves source diversity and reduces omission without increasing recap or inventory prose.",
+        "may_promote": false
+      }
+    ],
+    "continuity_break_reason": null,
+    "deliberate_refrains": []
+  }
+}

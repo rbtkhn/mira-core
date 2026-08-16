@@ -4,7 +4,7 @@ This index routes the unified local Kent corpus for `kent` to the central Narrat
 
 Source basis: `narrative-geopolitics/archive/source-manifest.json`.
 
-Corpus: 18 local route rows across 18 central archive source files.
+Corpus: 19 local route rows across 19 central archive source files.
 
 Status: `imported-corpus`
 
@@ -37,6 +37,7 @@ Status: `imported-corpus`
 | `2026-07-21` | US Facing the Risk of a Mass Casualty Attack from Iran /Joe Kent & Lt Col Daniel Davis | `guest` | `daniel-davis` | [source](../../archive/sources/2026-07-21/source-us-facing-the-risk-of-a-mass-casualty-attack-from-iran-joe-kent-lt-col-daniel-davis-2026-07-21.md) |
 | `2026-07-25` | Joe Kent: Iran Trap, U.S. Ground Invasion & Israeli Deception | `guest` | `glenn-diesen` | [source](../../archive/sources/2026-07-25/source-joe-kent-iran-trap-u-s-ground-invasion-israeli-deception-2026-07-25.md) |
 | `2026-07-30` | TRUMP PUSHES CENTCOM TO CONTINUE STRIKES DESPITE PROTEST - w/ Joe Kent | `guest` | `mario-nawfal` | [source](../../archive/sources/2026-07-30/source-trump-pushes-centcom-to-continue-strikes-despite-protest-w-joe-kent-2026-07-30.md) |
+| `2026-08-14` | (3) CENTCOM PUSHING FOR STRIKES ON IRAN'S INFRASTRUCTURE - w/ Joe Kent | `guest` | `mario-nawfal` | [source](../../archive/sources/2026-08-14/source-3-centcom-pushing-for-strikes-on-iran-s-infrastructure-w-joe-kent-2026-08-14.md) |
 
 ## Import Boundary
 

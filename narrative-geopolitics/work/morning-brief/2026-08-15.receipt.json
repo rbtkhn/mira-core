@@ -1,0 +1,674 @@
+{
+  "as_of_utc": "2026-08-15T15:00:00Z",
+  "baseline": {
+    "forecasts": [
+      {
+        "accountable": true,
+        "claim": "Within 30 days, U.S. or Israeli public signaling will again test coercive escalation because the old transit and sanctions baseline cannot be quietly restored.",
+        "crisis_object": "Renewed coercive signaling",
+        "due": true,
+        "hook_id": "NG-20260707-F02",
+        "impact": "unaffected",
+        "probability_band": "likely",
+        "review_date": "2026-08-07",
+        "run_date": "2026-07-07",
+        "sha256": "d623f4f4ed5141aca84ed4248b490246e4d31d271180e03c92cc1935c80b1c86",
+        "source_path": "narrative-geopolitics/work/forecasts/forecast-ledger.md",
+        "status": "open"
+      },
+      {
+        "accountable": true,
+        "claim": "Within 21 days, at least one new U.S., Israeli, or Gulf-side attempt to bypass or dilute Iranian transit authority will trigger another visible coercive test.",
+        "crisis_object": "Hormuz transit governance breakdown",
+        "due": true,
+        "hook_id": "NG-20260708-F02",
+        "impact": "strengthens",
+        "probability_band": "likely",
+        "review_date": "2026-07-29",
+        "run_date": "2026-07-08",
+        "sha256": "d623f4f4ed5141aca84ed4248b490246e4d31d271180e03c92cc1935c80b1c86",
+        "source_path": "narrative-geopolitics/work/forecasts/forecast-ledger.md",
+        "status": "open"
+      },
+      {
+        "accountable": true,
+        "claim": "By `2026-08-16`, at least one major U.S., GCC, Iranian, or Ansarallah/Yemeni public statement will explicitly link Bab el-Mandeb or Red Sea security to the Hormuz/Iran war settlement rather than treating it as a separate Yemen-Saudi issue.",
+        "crisis_object": "Dual chokepoint energy-flow control",
+        "due": false,
+        "hook_id": "NG-20260716-F01",
+        "impact": "unaffected",
+        "probability_band": "likely",
+        "review_date": "2026-08-16",
+        "run_date": "2026-07-16",
+        "sha256": "d623f4f4ed5141aca84ed4248b490246e4d31d271180e03c92cc1935c80b1c86",
+        "source_path": "narrative-geopolitics/work/forecasts/forecast-ledger.md",
+        "status": "open"
+      },
+      {
+        "accountable": true,
+        "claim": "By `2026-08-19`, at least one major July follow-on source or official/regional posture signal will still frame the Iran war around U.S. regional base access, host-state exposure, or relocation/protection of U.S. assets rather than only airstrikes or nuclear bargaining.",
+        "crisis_object": "Can Washington sustain simultaneous coercive pressure against Iran and Russia when the bases, ports, corridors, and allies that carry that pressure become targets of the opposing strategy?",
+        "due": false,
+        "hook_id": "NG-20260719-F01",
+        "impact": "unaffected",
+        "probability_band": "likely",
+        "review_date": "2026-08-19",
+        "run_date": "2026-07-19",
+        "sha256": "d623f4f4ed5141aca84ed4248b490246e4d31d271180e03c92cc1935c80b1c86",
+        "source_path": "narrative-geopolitics/work/forecasts/forecast-ledger.md",
+        "status": "open"
+      },
+      {
+        "accountable": true,
+        "claim": "Over the next 7–14 days, political and military pressure will shift toward maritime chokepoints, bases, and energy access rather than a decisive ground settlement.",
+        "crisis_object": "coalition access versus regional denial",
+        "due": true,
+        "hook_id": "NG-20260720-F01",
+        "impact": "unaffected",
+        "probability_band": "likely",
+        "review_date": "2026-08-03",
+        "run_date": "2026-07-20",
+        "sha256": "d623f4f4ed5141aca84ed4248b490246e4d31d271180e03c92cc1935c80b1c86",
+        "source_path": "narrative-geopolitics/work/forecasts/forecast-ledger.md",
+        "status": "open"
+      },
+      {
+        "accountable": true,
+        "claim": "Within 14 days, the Iran conflict will show another cycle of limited strikes, threats, or pressure on bases/infrastructure without a durable settlement.",
+        "crisis_object": "Iran conflict escalation cycle",
+        "due": true,
+        "hook_id": "NG-20260721-F01",
+        "impact": "unaffected",
+        "probability_band": "likely",
+        "review_date": "2026-08-04",
+        "run_date": "2026-07-21",
+        "sha256": "d623f4f4ed5141aca84ed4248b490246e4d31d271180e03c92cc1935c80b1c86",
+        "source_path": "narrative-geopolitics/work/forecasts/forecast-ledger.md",
+        "status": "open"
+      },
+      {
+        "accountable": true,
+        "claim": "Within 30 days, Russia-Iran alignment will produce public signaling or a concrete cooperation dispute tied to U.S. pressure.",
+        "crisis_object": "Russia-Iran alignment signaling",
+        "due": false,
+        "hook_id": "NG-20260721-F02",
+        "impact": "unaffected",
+        "probability_band": "plausible",
+        "review_date": "2026-08-20",
+        "run_date": "2026-07-21",
+        "sha256": "d623f4f4ed5141aca84ed4248b490246e4d31d271180e03c92cc1935c80b1c86",
+        "source_path": "narrative-geopolitics/work/forecasts/forecast-ledger.md",
+        "status": "open"
+      },
+      {
+        "accountable": true,
+        "claim": "By `2026-08-06`, diplomatic channels will remain publicly visible while renewed strikes continue, but no durable reciprocal settlement will be implemented.",
+        "crisis_object": "Whether renewed strikes can compel concessions without widening the actor field beyond diplomatic control",
+        "due": true,
+        "hook_id": "NG-20260730-F01",
+        "impact": "unaffected",
+        "probability_band": "plausible",
+        "review_date": "2026-08-06",
+        "run_date": "2026-07-30",
+        "sha256": "d623f4f4ed5141aca84ed4248b490246e4d31d271180e03c92cc1935c80b1c86",
+        "source_path": "narrative-geopolitics/work/forecasts/forecast-ledger.md",
+        "status": "open"
+      },
+      {
+        "accountable": true,
+        "claim": "By `2026-08-19`, at least one public U.S., Iranian, Israeli, Gulf, or Yemeni posture change observable after `2026-08-06` will explicitly link Hormuz transit normalization to sanctions relief, regional infrastructure protection, Lebanon/Gaza escalation, or U.S. force-stock constraints. | A constrained pause must be defended through adjacent carriers: transit rules, sanctions, oil flow, Israel's disruption incentives, and exposed U.S./Gulf positions.",
+        "crisis_object": "Crisis object: Can Washington convert a constrained pause around Hormuz into a durable off-ramp before depleted coercive capacity and Israeli disruption pressure pull the conflict back into a hot-ceasefire cycle?",
+        "due": false,
+        "hook_id": "NG-20260805-F01",
+        "impact": "unaffected",
+        "probability_band": "likely",
+        "review_date": "2026-08-19",
+        "run_date": "2026-08-05",
+        "sha256": "d623f4f4ed5141aca84ed4248b490246e4d31d271180e03c92cc1935c80b1c86",
+        "source_path": "narrative-geopolitics/work/forecasts/forecast-ledger.md",
+        "status": "open"
+      },
+      {
+        "accountable": true,
+        "claim": "By `2026-08-21`, at least one public U.S., Iranian, Omani, Gulf, Israeli, or shipping-market signal will treat Hormuz reopening as conditional on regional authority, sanctions/blockade relief, Israeli/Lebanon/Gaza restraint, or U.S. force-posture limits rather than as a simple return to pre-war freedom of navigation. | A constrained off-ramp must be defended through the same carriers that made it necessary: recognized transit authority, sanctions and asset pressure, Israeli disruption incentives, Gulf security hedging, and scarce U.S. coercive capacity.",
+        "crisis_object": "Can a constrained U.S. exit through the attributed Iran-Oman/Hormuz channel become a credible regional settlement before Israeli disruption pressure, Gulf security hedging, and cross-theater weapons scarcity turn the off-ramp into another front of the war?",
+        "due": false,
+        "hook_id": "NG-20260807-F01",
+        "impact": "strengthens",
+        "probability_band": "likely",
+        "review_date": "2026-08-21",
+        "run_date": "2026-08-07",
+        "sha256": "d623f4f4ed5141aca84ed4248b490246e4d31d271180e03c92cc1935c80b1c86",
+        "source_path": "narrative-geopolitics/work/forecasts/forecast-ledger.md",
+        "status": "open"
+      },
+      {
+        "accountable": true,
+        "claim": "By `2026-08-27`, at least one later source lane, official statement, or policy move will frame U.S. Iran/Gulf pressure as burden management, force rotation, sanctions fallback, partner restraint, or containment rather than clean victory settlement. | If ambiguity management is replacing decisive coercion, public language and policy signals should shift toward managing costs rather than claiming closure.",
+        "crisis_object": "Can the United States keep multiple partners and adversaries inside ambiguity management when Israel, Iran, Russia, Ukraine, and NATO are all approaching thresholds where delay itself becomes costly?",
+        "due": false,
+        "hook_id": "NG-20260813-F01",
+        "impact": "strengthens",
+        "probability_band": "plausible",
+        "review_date": "2026-08-27",
+        "run_date": "2026-08-13",
+        "sha256": "d623f4f4ed5141aca84ed4248b490246e4d31d271180e03c92cc1935c80b1c86",
+        "source_path": "narrative-geopolitics/work/forecasts/forecast-ledger.md",
+        "status": "open"
+      }
+    ],
+    "judgments": [
+      {
+        "as_of": "2026-07-24",
+        "crisis_object": "Can US coercion restore negotiable regional access without triggering a connected retaliation cycle through Hormuz, Bab el-Mandeb, Gulf bases, and the Ukraine theater?",
+        "model_id": "JUDG-20260724",
+        "path": "narrative-geopolitics/work/daily/2026-07-24/judgment.md",
+        "sha256": "1f92c9fe67360e03963fe6266af28afc2cb2914765dfc116809b56473dbf12a7",
+        "summary": "The 2026-07-24 batch links Iran, Yemen, Gulf access, and Ukraine into one escalation sequence."
+      },
+      {
+        "as_of": "2026-07-25",
+        "crisis_object": "Can force reopen maritime-energy access without widening the war?",
+        "model_id": "JUDG-20260725",
+        "path": "narrative-geopolitics/work/daily/2026-07-25/judgment.md",
+        "sha256": "bf92c8091dbb5e14acf21e65da18e8d23afb83799dc6f62261289e49f0276f47",
+        "summary": "The archive now contains a cross-voice same-day convergence on maritime-energy access as the binding escalation constraint."
+      },
+      {
+        "as_of": "2026-07-26",
+        "crisis_object": "Can the United States and its partners widen pressure on Iran without exhausting defensive stocks and opening a retaliatory Gulf-Red Sea-Ukraine escalation chain?",
+        "model_id": "JUDG-20260726",
+        "path": "narrative-geopolitics/work/daily/2026-07-26/judgment.md",
+        "sha256": "7fa57a66a4f8abd1432fdc2292ab1ebfc44045ac7d3c43a3c2a254af72968836",
+        "summary": "The archive now contains a five-voice same-day convergence on widening retaliation and finite capacity as the binding escalation constraint."
+      },
+      {
+        "as_of": "2026-07-27",
+        "crisis_object": "Can coalition coercion produce an Iran settlement before material and regional constraints force an off-ramp?",
+        "model_id": "JUDG-20260727",
+        "path": "narrative-geopolitics/work/daily/2026-07-27/judgment.md",
+        "sha256": "96ce81e57f7b871be3f9f371480b09af49b507e5dc569d20c5b5772dcd9875e4",
+        "summary": "The July 27 batch turns a general “war may widen” concern into a more specific non-exit mechanism: tactical damage is not converting into political compliance while regional and material constraints accumulate."
+      },
+      {
+        "as_of": "2026-07-28",
+        "crisis_object": "Caspian strike as a bridge between the Ukraine and Iran theaters",
+        "model_id": "JUDG-20260728",
+        "path": "narrative-geopolitics/work/daily/2026-07-28/judgment.md",
+        "sha256": "95ce8ff9859aa5321e417f46855a705b1dacbedb78e07e61336f4df9703b7ba4",
+        "summary": "Two Helmer interviews on July 28 connect the Caspian incident to Russia–Iran intelligence cooperation and a possible Russian retaliation test."
+      },
+      {
+        "as_of": "2026-07-30",
+        "crisis_object": "Whether renewed strikes can compel concessions without widening the actor field beyond diplomatic control",
+        "model_id": "JUDG-20260730",
+        "path": "narrative-geopolitics/work/daily/2026-07-30/judgment.md",
+        "sha256": "5d2d270abdda8040194bf75ba318bfaedee5c6c7545ab116e7531eefd104439f",
+        "summary": "Compared with July 29, the batch clarifies the control problem linking strikes, widening participation, and diplomatic channels."
+      },
+      {
+        "as_of": "2026-08-01",
+        "crisis_object": "Can the United States and Israel sustain a wider infrastructure campaign against Iran without losing regional basing, escalation control, and economic resilience?",
+        "model_id": "JUDG-20260801",
+        "path": "narrative-geopolitics/work/daily/2026-08-01/judgment.md",
+        "sha256": "2820e2ad5dfc8ad4771e96827134e34e1ad2e11cfdd9bd753b915333d89a039d",
+        "summary": "On 2026-08-01, the source batch shifted focus from strike possibility to infrastructure escalation and coalition exposure."
+      },
+      {
+        "as_of": "2026-08-02",
+        "crisis_object": "Who can govern commercially tolerable Hormuz passage while preserving coalition access and avoiding regional infrastructure escalation?",
+        "model_id": "JUDG-20260802",
+        "path": "narrative-geopolitics/work/daily/2026-08-02/judgment.md",
+        "sha256": "b1c0d600ae5c175fac06bff93447eee8c95a629d3676fdbe2b259cac614f8d35",
+        "summary": "The August 2 batch makes infrastructure and passage governance the clearest cross-source mechanism, while adding a Ukraine logistics comparison."
+      },
+      {
+        "as_of": "2026-08-04",
+        "crisis_object": "Can commercially usable, non-discriminatory Hormuz transit survive while Iran retains coercive leverage?",
+        "model_id": "JUDG-20260804",
+        "path": "narrative-geopolitics/work/daily/2026-08-04/judgment.md",
+        "sha256": "287bcff7840d3be6c159ae9640058e7f0b54fd1224dfc91be65463136c1eee3c",
+        "summary": "The day’s archive and Grok evidence moved the analysis from “who controls Hormuz” toward “what governance arrangement can preserve usable transit under Iranian leverage.”"
+      },
+      {
+        "as_of": "2026-08-05",
+        "crisis_object": "Can Washington convert a constrained pause around Hormuz into a durable off-ramp before depleted coercive capacity and Israeli disruption pressure pull the conflict back into a hot-ceasefire cycle?",
+        "model_id": "JUDG-20260805",
+        "path": "narrative-geopolitics/work/daily/2026-08-05/judgment.md",
+        "sha256": "5e1930d7295ad729715972e405c198ee1566a4a1f3553a6ec298681079160c17",
+        "summary": "On `2026-08-05`, the source packet moved the lead from participation-control pressure to the durability of a constrained off-ramp around Hormuz."
+      },
+      {
+        "as_of": "2026-08-11",
+        "crisis_object": "Can U.S.-led coercion compel an Iranian settlement before the material and regional constraints required to sustain it force an off-ramp or widen the war beyond diplomatic control?",
+        "model_id": "JUDG-20260811",
+        "path": "narrative-geopolitics/work/daily/2026-08-11/judgment.md",
+        "sha256": "1e4d64adad6398e4e90fee67a87d68263b2511cc3e2e8d78c3ca7085c5fe0869",
+        "summary": "The batch sharpens the inherited Hormuz off-ramp problem into a capacity-and-control mechanism spanning coercion, coalition sustainability, and regional widening."
+      },
+      {
+        "as_of": "2026-08-12",
+        "crisis_object": "U.S. Force-Strain / Iran-Hormuz",
+        "model_id": "JUDG-20260812",
+        "path": "narrative-geopolitics/work/daily/2026-08-12/judgment.md",
+        "sha256": "f5b81f18896684f0738e8544ad22cb1d8b83946031981f20fff88f97f8aa6468",
+        "summary": "The August 12 batch converts the Iran/Hormuz object from a narrow escalation file into a broader U.S. force-strain object."
+      },
+      {
+        "as_of": "2026-08-13",
+        "crisis_object": "U.S. Force-Strain / Ambiguity Management",
+        "model_id": "JUDG-20260813",
+        "path": "narrative-geopolitics/work/daily/2026-08-13/judgment.md",
+        "sha256": "da0d7d6d0b3161e670e3d5aa7db62cd1bbcedf151d8961549bd11a9f56cbf2a5",
+        "summary": "August 13 turns August 12's U.S. force-strain object into an ambiguity-management problem: delay may now be costly for multiple actors at once."
+      },
+      {
+        "as_of": "2026-08-14",
+        "crisis_object": "Can the coercive war systems sustain pressure once crews, chokepoints, ports, munitions, exports, and infrastructure become the bill?",
+        "model_id": "JUDG-20260814",
+        "path": "narrative-geopolitics/work/daily/2026-08-14/judgment.md",
+        "sha256": "0a81d0392636483f0e553e356e7607f3c7399dfa450d0029c68ddd16096e62b2",
+        "summary": "On `2026-08-14`, the archive moved the August 12-13 force-strain/ambiguity sequence into a more concrete endurance object spanning U.S. crews and carriers, Hormuz bargaining, Gulf infrastructure exposure, and Ukraine logistics."
+      }
+    ],
+    "lookback_days": 30
+  },
+  "brief_date": "2026-08-15",
+  "candidates": [
+    {
+      "confidence_boundary": "Recovered upstream reporting supports the narrow observation; this brief does not independently verify attribution, operational effects, or downstream coercive causality.",
+      "discovery": {
+        "is_evidence": false,
+        "provider": "broad current search",
+        "reference": "https://apnews.com/article/ba738b9fb8803f28313a19df8bbcac19"
+      },
+      "disposition": "included",
+      "domain": "maritime-security",
+      "forecast_refs": [
+        "NG-20260708-F02",
+        "NG-20260807-F01"
+      ],
+      "geography": "Strait of Hormuz / UAE / Iran",
+      "id": "OBS-01",
+      "impact": "strengthens",
+      "interpretation": "This strengthens the inherited Hormuz governance and ambiguity-management baseline: passage remains an instrument of pressure rather than a restored common-carrier lane.",
+      "kind": "development",
+      "materiality": "It directly pressures open forecasts on renewed coercive signaling, Hormuz governance breakdown, force strain, and conditional reopening.",
+      "model_refs": [
+        "JUDG-20260802",
+        "JUDG-20260804",
+        "JUDG-20260805",
+        "JUDG-20260812",
+        "JUDG-20260813",
+        "JUDG-20260814"
+      ],
+      "observation": "AP reported that the UAE accused Iran of attacking another ADNOC tanker in the Strait of Hormuz, the third such incident within a week.",
+      "observed_at_utc": "2026-08-15T15:00:00Z",
+      "reality": {
+        "assessment_refs": [],
+        "audited_at_utc": "2026-08-15T15:00:00Z",
+        "claim_refs": [],
+        "confidence_effect": "No exact same-observable lattice claim was located during this brief run; interpretation remains provisional and source-bound.",
+        "epistemic_state": {
+          "claims": [],
+          "status": "not-in-lattice"
+        },
+        "lattice_paths": [],
+        "match_status": "none",
+        "relationship": "context-only"
+      },
+      "related_observations": [],
+      "retrieved_at_utc": "2026-08-15T15:00:00Z",
+      "selection_reason": "Selected as the strongest same-object pressure on the active Hormuz and force-strain baseline.",
+      "title": "Another UAE-linked tanker attack keeps Hormuz in coercive control rather than clean transit",
+      "upstream": {
+        "freshness": "fresh",
+        "lineage_root": "ap-mideast-hormuz-adnoc-2026-08-15",
+        "provider": "Associated Press",
+        "source_type": "wire",
+        "url": "https://apnews.com/article/ba738b9fb8803f28313a19df8bbcac19"
+      }
+    },
+    {
+      "confidence_boundary": "Recovered upstream reporting supports the narrow observation; this brief does not independently verify attribution, operational effects, or downstream coercive causality.",
+      "discovery": {
+        "is_evidence": false,
+        "provider": "broad current search",
+        "reference": "https://www.wsj.com/world/middle-east/iran-war-economic-pressure-738b52cf"
+      },
+      "disposition": "included",
+      "domain": "energy-markets",
+      "forecast_refs": [
+        "NG-20260807-F01",
+        "NG-20260813-F01"
+      ],
+      "geography": "United States / Iran / global energy markets",
+      "id": "OBS-02",
+      "impact": "strengthens",
+      "interpretation": "This strengthens the August 13-14 burden-management read: the visible language is shifting from clean victory settlement toward sanctions fallback, containment, and transit leverage.",
+      "kind": "development",
+      "materiality": "It ties market pressure, sanctions, naval posture, and Iranian transit claims into one public operating frame.",
+      "model_refs": [
+        "JUDG-20260805",
+        "JUDG-20260812",
+        "JUDG-20260813",
+        "JUDG-20260814"
+      ],
+      "observation": "WSJ reported that the U.S.-Iran conflict is being framed around economic pressure, sanctions, naval pressure, Iranian attacks on UAE-affiliated vessels, and reduced shipping traffic through Hormuz.",
+      "observed_at_utc": "2026-08-15T15:00:00Z",
+      "reality": {
+        "assessment_refs": [],
+        "audited_at_utc": "2026-08-15T15:00:00Z",
+        "claim_refs": [],
+        "confidence_effect": "No exact same-observable lattice claim was located during this brief run; interpretation remains provisional and source-bound.",
+        "epistemic_state": {
+          "claims": [],
+          "status": "not-in-lattice"
+        },
+        "lattice_paths": [],
+        "match_status": "none",
+        "relationship": "context-only"
+      },
+      "related_observations": [],
+      "retrieved_at_utc": "2026-08-15T15:00:00Z",
+      "selection_reason": "Selected because it names the pressure-management frame the forecast ledger is watching.",
+      "title": "U.S.-Iran standoff is framed as economic pressure and shipping control",
+      "upstream": {
+        "freshness": "fresh",
+        "lineage_root": "wsj-iran-economic-pressure-2026-08-15",
+        "provider": "Wall Street Journal",
+        "source_type": "attributed-reporting",
+        "url": "https://www.wsj.com/world/middle-east/iran-war-economic-pressure-738b52cf"
+      }
+    },
+    {
+      "confidence_boundary": "Recovered upstream reporting supports the narrow observation; this brief does not independently verify attribution, operational effects, or downstream coercive causality.",
+      "discovery": {
+        "is_evidence": false,
+        "provider": "broad current search",
+        "reference": "https://apnews.com/article/1124fd2bd0b7ed76b0e97683dddbcaad"
+      },
+      "disposition": "excluded",
+      "domain": "regional-security",
+      "forecast_refs": [
+        "NG-20260707-F02",
+        "NG-20260805-F01",
+        "NG-20260807-F01"
+      ],
+      "geography": "Lebanon / Israel",
+      "id": "OBS-03",
+      "impact": "strengthens",
+      "interpretation": "This strengthens the Lebanon/Gaza disruption carrier inside the Hormuz off-ramp problem: adjacent fronts are not staying quiet while the Iran file is bargained.",
+      "kind": "development",
+      "materiality": "It pressures forecasts that expected settlement durability to depend on Lebanon/Gaza restraint and regional infrastructure protection.",
+      "model_refs": [
+        "JUDG-20260724",
+        "JUDG-20260805",
+        "JUDG-20260811",
+        "JUDG-20260813",
+        "JUDG-20260814"
+      ],
+      "observation": "AP reported Israeli airstrikes in southern Lebanon killed 11 people, including civilians, after Hezbollah drone pressure on Israeli soldiers.",
+      "observed_at_utc": "2026-08-15T15:00:00Z",
+      "reality": {
+        "assessment_refs": [],
+        "audited_at_utc": "2026-08-15T15:00:00Z",
+        "claim_refs": [],
+        "confidence_effect": "No exact same-observable lattice claim was located during this brief run; interpretation remains provisional and source-bound.",
+        "epistemic_state": {
+          "claims": [],
+          "status": "not-in-lattice"
+        },
+        "lattice_paths": [],
+        "match_status": "none",
+        "relationship": "context-only"
+      },
+      "related_observations": [],
+      "retrieved_at_utc": "2026-08-15T15:00:00Z",
+      "selection_reason": "Selected as adjacent-front pressure on the active off-ramp and ambiguity-management object.",
+      "title": "Israeli strikes in southern Lebanon test the June truce",
+      "upstream": {
+        "freshness": "fresh",
+        "lineage_root": "ap-lebanon-israel-strikes-2026-08-15",
+        "provider": "Associated Press",
+        "source_type": "wire",
+        "url": "https://apnews.com/article/1124fd2bd0b7ed76b0e97683dddbcaad"
+      }
+    },
+    {
+      "confidence_boundary": "Recovered upstream reporting supports the narrow observation; this brief does not independently verify attribution, operational effects, or downstream coercive causality.",
+      "discovery": {
+        "is_evidence": false,
+        "provider": "broad current search",
+        "reference": "https://apnews.com/article/4e0ec548753451b1611e3123202850ea"
+      },
+      "disposition": "excluded",
+      "domain": "military-industrial-capacity",
+      "forecast_refs": [
+        "NG-20260719-F01",
+        "NG-20260721-F02",
+        "NG-20260813-F01"
+      ],
+      "geography": "Ukraine / Russia / Black Sea",
+      "id": "OBS-04",
+      "impact": "complicates",
+      "interpretation": "This complicates the Iran-centered brief by keeping Ukraine/Russia inside the same force-strain ledger: ports, missiles, air defense, and infrastructure are consuming bandwidth at the same time.",
+      "kind": "development",
+      "materiality": "It pressures the August 12-14 force-strain baseline even though it is not the same crisis object as Hormuz.",
+      "model_refs": [
+        "JUDG-20260728",
+        "JUDG-20260811",
+        "JUDG-20260812",
+        "JUDG-20260813",
+        "JUDG-20260814"
+      ],
+      "observation": "AP reported Ukrainian missile strikes on Russian industrial infrastructure in Samara while Russia launched large drone attacks, including port strikes in Odesa, Izmail, and Yuzhnyi, and a fatal strike in Marhanets.",
+      "observed_at_utc": "2026-08-15T15:00:00Z",
+      "reality": {
+        "assessment_refs": [],
+        "audited_at_utc": "2026-08-15T15:00:00Z",
+        "claim_refs": [],
+        "confidence_effect": "No exact same-observable lattice claim was located during this brief run; interpretation remains provisional and source-bound.",
+        "epistemic_state": {
+          "claims": [],
+          "status": "not-in-lattice"
+        },
+        "lattice_paths": [],
+        "match_status": "none",
+        "relationship": "context-only"
+      },
+      "related_observations": [],
+      "retrieved_at_utc": "2026-08-15T15:00:00Z",
+      "selection_reason": "Selected to preserve the cross-theater force-strain pressure rather than treating Hormuz as isolated.",
+      "title": "Ukraine expands long-range strikes while Russia hits ports and civilians",
+      "upstream": {
+        "freshness": "fresh",
+        "lineage_root": "ap-ukraine-samara-ports-2026-08-15",
+        "provider": "Associated Press",
+        "source_type": "wire",
+        "url": "https://apnews.com/article/4e0ec548753451b1611e3123202850ea"
+      }
+    },
+    {
+      "confidence_boundary": "Recovered upstream reporting supports the narrow observation; this brief does not independently verify attribution, operational effects, or downstream coercive causality.",
+      "discovery": {
+        "is_evidence": false,
+        "provider": "broad current search",
+        "reference": "https://apnews.com/article/ba738b9fb8803f28313a19df8bbcac19"
+      },
+      "disposition": "excluded",
+      "domain": "regional-security",
+      "forecast_refs": [
+        "NG-20260716-F01",
+        "NG-20260720-F01",
+        "NG-20260805-F01"
+      ],
+      "geography": "Yemen / Red Sea",
+      "id": "OBS-05",
+      "impact": "no-material-effect",
+      "interpretation": "This reinforces, but does not independently prove, the dual-chokepoint forecast that Bab el-Mandeb and Red Sea security remain tied to the Iran/Hormuz settlement lane.",
+      "kind": "development",
+      "materiality": "It was reviewed for the outlier/gap slot and retained as context, but the selected Lebanon item gave cleaner adjacent-front pressure.",
+      "model_refs": [
+        "JUDG-20260724",
+        "JUDG-20260725",
+        "JUDG-20260726",
+        "JUDG-20260805",
+        "JUDG-20260814"
+      ],
+      "observation": "AP reported that Iranian-backed Houthi rebels attacked the government-controlled Red Sea port of Mokha, killing at least three and suspending operations.",
+      "observed_at_utc": "2026-08-15T15:00:00Z",
+      "reality": {
+        "assessment_refs": [],
+        "audited_at_utc": "2026-08-15T15:00:00Z",
+        "claim_refs": [],
+        "confidence_effect": "No exact same-observable lattice claim was located during this brief run; interpretation remains provisional and source-bound.",
+        "epistemic_state": {
+          "claims": [],
+          "status": "not-in-lattice"
+        },
+        "lattice_paths": [],
+        "match_status": "none",
+        "relationship": "context-only"
+      },
+      "related_observations": [],
+      "retrieved_at_utc": "2026-08-15T15:00:00Z",
+      "selection_reason": "Reviewed but excluded from selected development slots to preserve five-minute readability.",
+      "title": "Houthi attack suspends operations at Mokha port",
+      "upstream": {
+        "freshness": "fresh",
+        "lineage_root": "ap-mideast-yemen-mokha-2026-08-15",
+        "provider": "Associated Press",
+        "source_type": "wire",
+        "url": "https://apnews.com/article/ba738b9fb8803f28313a19df8bbcac19"
+      }
+    },
+    {
+      "confidence_boundary": "Recovered upstream reporting supports the narrow observation; this brief does not independently verify attribution, operational effects, or downstream coercive causality.",
+      "discovery": {
+        "is_evidence": false,
+        "provider": "broad current search",
+        "reference": "https://www.theguardian.com/world/2026/aug/15/ukraine-war-briefing-zelenskyy-warns-egypt-of-food-supply-threat-caused-by-russian-strikes-in-black-sea"
+      },
+      "disposition": "excluded",
+      "domain": "food-security",
+      "forecast_refs": [
+        "NG-20260813-F01"
+      ],
+      "geography": "Black Sea / Egypt / Ukraine",
+      "id": "OBS-06",
+      "impact": "no-material-effect",
+      "interpretation": "This is a consequential outlier to the Iran/Hormuz frame: maritime coercion is also pressing food-security lanes outside the Gulf.",
+      "kind": "development",
+      "materiality": "It widens the shipping-infrastructure pressure map but was kept out of selected developments because the source is secondary to the strongest baseline hooks.",
+      "model_refs": [
+        "JUDG-20260812",
+        "JUDG-20260813",
+        "JUDG-20260814"
+      ],
+      "observation": "The Guardian reported Zelenskyy warning Egypt that Russian strikes threaten Black Sea cargo shipping and Ukrainian grain supply.",
+      "observed_at_utc": "2026-08-15T15:00:00Z",
+      "reality": {
+        "assessment_refs": [],
+        "audited_at_utc": "2026-08-15T15:00:00Z",
+        "claim_refs": [],
+        "confidence_effect": "No exact same-observable lattice claim was located during this brief run; interpretation remains provisional and source-bound.",
+        "epistemic_state": {
+          "claims": [],
+          "status": "not-in-lattice"
+        },
+        "lattice_paths": [],
+        "match_status": "none",
+        "relationship": "context-only"
+      },
+      "related_observations": [],
+      "retrieved_at_utc": "2026-08-15T15:00:00Z",
+      "selection_reason": "Reviewed as outlier context; selected gap covers the verification limit instead.",
+      "title": "Black Sea grain and shipping risk remains visible",
+      "upstream": {
+        "freshness": "fresh",
+        "lineage_root": "guardian-ukraine-egypt-black-sea-2026-08-15",
+        "provider": "The Guardian",
+        "source_type": "attributed-reporting",
+        "url": "https://www.theguardian.com/world/2026/aug/15/ukraine-war-briefing-zelenskyy-warns-egypt-of-food-supply-threat-caused-by-russian-strikes-in-black-sea"
+      }
+    }
+  ],
+  "coverage": {
+    "domains": [
+      "maritime-security",
+      "energy-markets",
+      "regional-security",
+      "military-industrial-capacity",
+      "food-security",
+      "verification"
+    ],
+    "geographies": [
+      "Strait of Hormuz / UAE / Iran",
+      "United States / Iran / global energy markets",
+      "Lebanon / Israel",
+      "Ukraine / Russia / Black Sea",
+      "Yemen / Red Sea",
+      "Black Sea / Egypt / Ukraine",
+      "Reality Check / source verification"
+    ],
+    "limitations": [
+      "Discovery surfaces were treated as leads, not evidence.",
+      "No exact same-observable Reality Check assessment was located or mutated.",
+      "Reuters direct recovery was thin in this scan; selected observations rely on AP, WSJ, and Guardian upstream or attributed reporting.",
+      "Operational attribution and damage effects remain source-bound; the brief does not verify them independently."
+    ],
+    "lineage_roots_reviewed": 6,
+    "retrieval_status": "healthy",
+    "scope": "selective-global",
+    "upstream_sources_reviewed": 3
+  },
+  "gaps": [
+    {
+      "consequence": "Treat all model-impact labels as provisional source pressure, not verified fact or forecast resolution.",
+      "description": "No exact same-observable Reality Check lattice match was recovered for the selected August 15 observations, and no new verification packet was created.",
+      "disposition": "selected",
+      "domain": "verification",
+      "geography": "Reality Check / source verification",
+      "id": "GAP-01",
+      "type": "thin"
+    }
+  ],
+  "material_change": true,
+  "morning_judgment": "August 15 keeps the August 14 endurance object under direct Hormuz pressure: tanker-attack reporting and economic-pressure language make the conflict look like burden management through sanctions, transit leverage, and shipping risk rather than clean settlement.",
+  "renderer_version": "2.1",
+  "research": {
+    "geography": "global",
+    "mode": "scan",
+    "output": "five-minute-selective-global-update",
+    "retrieved_at_utc": "2026-08-15T15:00:00Z",
+    "stop_condition": "Four material developments plus one outlier or visibility gap, or documented exhaustion of qualifying candidates."
+  },
+  "schema_version": "2.1",
+  "selected_development_ids": [
+    "OBS-01",
+    "OBS-02"
+  ],
+  "selected_outlier_or_gap": {
+    "id": "GAP-01",
+    "kind": "gap"
+  },
+  "watch": [
+    {
+      "id": "WATCH-01",
+      "observable": "Whether official U.S., Gulf, Iranian, Israeli, Lebanese, Yemeni, or shipping-market language shifts toward sanctions fallback, transit conditions, partner restraint, force rotation, or containment rather than victory settlement.",
+      "source_refs": [
+        "OBS-01",
+        "OBS-02",
+        "NG-20260807-F01",
+        "NG-20260813-F01"
+      ],
+      "timing": "Through the August 19, August 21, and August 27 review windows."
+    }
+  ],
+  "window": {
+    "end_utc": "2026-08-15T15:00:00Z",
+    "hours": 24,
+    "start_utc": "2026-08-14T15:00:00Z"
+  }
+}

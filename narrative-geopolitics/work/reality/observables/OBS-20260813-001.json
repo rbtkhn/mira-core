@@ -1,0 +1,31 @@
+{
+  "as_of": "2026-08-13",
+  "claim_ids": [
+    "CLM-20260813-001"
+  ],
+  "created_at": "2026-08-13T00:00:00Z",
+  "created_by": "operator",
+  "domain_profile": "DOMAIN-MILITARY-ACTIVITY",
+  "id": "OBS-20260813-001",
+  "kind": "observable",
+  "possible_results": [
+    "observed",
+    "not_observed",
+    "contested",
+    "unavailable"
+  ],
+  "question": "Did U.S. officials publicly acknowledge or major reporting establish that a threat warning existed before Trump's departure from Ankara after the July 8, 2026 NATO summit?",
+  "required_language_environments": [
+    "affected_or_claimant_region",
+    "external_or_challenged",
+    "third_independent_environment"
+  ],
+  "resolution_rule": "Resolve from event-specific reporting or official statements with traced lineage; distinguish existence of a warning from the truth or feasibility of the underlying threat.",
+  "revision_of": null,
+  "schema_version": 1,
+  "status": "open",
+  "window": {
+    "end": "2026-08-14",
+    "start": "2026-08-13"
+  }
+}

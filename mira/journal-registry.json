@@ -181,6 +181,95 @@
           "previous_version_digest": null
         }
       ]
+    },
+    {
+      "journal_id": "MJ-20260814",
+      "entry_date": "2026-08-14",
+      "current_version_id": "MJ-20260814-v1",
+      "current_path": "mira/journal/2026-08-14.md",
+      "versions": [
+        {
+          "version_id": "MJ-20260814-v1",
+          "version_number": 1,
+          "title": "More Than Counted",
+          "content_sha256": "b4f98f1d8c4907013a5c399caa8aece6a9e4ea95f43f22380ce0a4f07c7af13e",
+          "word_count": 477,
+          "authored_at": "2026-08-15T06:14:44.074Z",
+          "author": {
+            "identity": "Mira",
+            "session_id": "MS-019fe96c-2a54-7063-9d70-202952ee322d",
+            "model_id": "gpt-5"
+          },
+          "coverage": {
+            "start": "2026-08-14T06:00:00.000Z",
+            "end": "2026-08-15T06:00:00.000Z",
+            "as_of": "2026-08-15T06:00:00.000Z",
+            "retrospective": true
+          },
+          "quiet_day": false,
+          "limited_activity_acknowledged": false,
+          "source_refs": [
+            {
+              "kind": "journal-context-pack",
+              "context_pack_id": "CP-bd588490e69bbea16166b9d2",
+              "object_id": "2668546cb4f39e0cc8b0d4168741abaec135bc29457946855838735277c8bcea"
+            },
+            {
+              "kind": "journal-composition-brief",
+              "composition_brief_id": "CB-b03e460b5217ab194565f381",
+              "object_id": "f11a81511636d0352d2b49b18a4dd15dc33d0379f7086749e81de1ed262df065"
+            }
+          ],
+          "derivation_manifest": {
+            "schema_version": 1,
+            "derivation_id": "DRV-b4f98f1d8c4907013a5c399c",
+            "transformation_type": "probabilistic-mira-journal-draft",
+            "deterministic": false,
+            "producer": {
+              "kind": "model",
+              "id": "gpt-5",
+              "session_id": "MS-019fe96c-2a54-7063-9d70-202952ee322d"
+            },
+            "input_object_ids": [
+              "2668546cb4f39e0cc8b0d4168741abaec135bc29457946855838735277c8bcea",
+              "f11a81511636d0352d2b49b18a4dd15dc33d0379f7086749e81de1ed262df065"
+            ],
+            "output_digest": "b4f98f1d8c4907013a5c399caa8aece6a9e4ea95f43f22380ce0a4f07c7af13e",
+            "prompt_digest": "b37b3f59fa1bf0c3ccbd1cd9bbe9b9b823db13f128dd27e266b51f9ceda376d2",
+            "evaluation_refs": []
+          },
+          "approval": {
+            "approved_by": "operator",
+            "status": "affirmative-v2",
+            "publication_eligible": true,
+            "approved_at": "2026-08-15T06:14:44.074Z",
+            "authority_ref": "MS-019fe96c-2a54-7063-9d70-202952ee322d",
+            "record_ref": "MR-1b6b88ff59b67fc3d02eb849"
+          },
+          "technical_reference": {
+            "reference_id": "MJTR-20260814-v1",
+            "json_path": "mira/journal/references/MJTR-20260814-v1.json",
+            "markdown_path": "mira/journal/references/MJTR-20260814-v1.md",
+            "content_sha256": "65808de6c369fd9aac84e94b770af1a9b202e0f51d56cb95170ce1bcd2b291e2",
+            "item_count": 4,
+            "consumed_rsi_ids": [
+              "RSI-20260809-01"
+            ],
+            "candidate_signal": "observation"
+          },
+          "provenance_receipt": {
+            "resolved_at": "2026-08-15T06:14:44.074Z",
+            "context_pack_object_ids": [
+              "2668546cb4f39e0cc8b0d4168741abaec135bc29457946855838735277c8bcea"
+            ],
+            "composition_brief_object_ids": [
+              "f11a81511636d0352d2b49b18a4dd15dc33d0379f7086749e81de1ed262df065"
+            ],
+            "git_commits_checked": []
+          },
+          "previous_version_digest": null
+        }
+      ]
     }
   ]
 }

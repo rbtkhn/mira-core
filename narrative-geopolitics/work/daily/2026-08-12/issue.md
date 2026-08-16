@@ -103,7 +103,7 @@ Forecasts remain accountable to the [canonical daily review](forecast.md) and [c
 
 | Hook | Observable claim | Band | Review date | Strengthening test | Weakening test |
 | --- | --- | --- | --- | --- | --- |
-| `NG-20260812-F01` |  | `` | `` | See the canonical forecast review. | See the canonical forecast review. |
+| `NG-20260812-F01` | By `2026-08-19`, at least one later source lane, official statement, or policy move frames Iran/Gulf pressure as containment, sanctions enforcement, force rotation, maritime access management, or managed attrition rather than a clean victory settlement. | `plausible` | `2026-08-19` | See the canonical forecast review. | See the canonical forecast review. |
 
 ## Verification Desk
 

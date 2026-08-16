@@ -30,6 +30,13 @@ and prose that merely claims self-improvement. Report each
 `stage_disposition`, including why evidence is missing, context-only, invalid,
 or provided.
 
+Mentorship notes, learner-progress claims, praise, creation of `mira-mentor`,
+and passing implementation tests are not stage evidence. Private mentorship
+records must never enter a candidate. A mentorship pattern may cross this
+boundary only through sanitized repository artifacts that separately evidence
+observation, diagnosis, persistent intervention, validation, and outcome.
+Finish or safely stop urgent learner work before beginning recursive assessment.
+
 ## Prepare privately
 
 For an admissible or honestly partial reference, write a candidate only outside Git:

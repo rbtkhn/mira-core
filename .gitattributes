@@ -1,4 +1,10 @@
 mira/journal/2026-08-09.md whitespace=-blank-at-eof
+mira/journal/continuity-index.md whitespace=-blank-at-eol
+artifacts/mentorship/hannah-biographical-career-landing-page-implementation-brief.md whitespace=-blank-at-eol
+artifacts/mentorship/hannah-trial-session-01.md whitespace=-blank-at-eol
+docs/audits/2026-08-14-mira-journal-session-coverage.md whitespace=-blank-at-eol
+mira/journal/references/MJTR-20260814-v1.md whitespace=-blank-at-eol
+mira/mentorship/charter-candidate.md whitespace=-blank-at-eol
 mira/reflections/2026-08-10-innermost-loop-baseline.md text eol=lf
 mira/reflections/innermost-loop-simulation/** text eol=lf
 mira/reflections/innermost-loop-simulation/responses/day-2.md -text -eol whitespace=-blank-at-eol

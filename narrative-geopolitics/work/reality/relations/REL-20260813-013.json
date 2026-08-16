@@ -1,0 +1,14 @@
+{
+  "as_of": "2026-08-13",
+  "created_at": "2026-08-13T00:00:00Z",
+  "created_by": "operator",
+  "from_id": "EVD-20260813-005",
+  "id": "REL-20260813-013",
+  "kind": "relation",
+  "relation_type": "contextualizes",
+  "revision_of": null,
+  "schema_version": 1,
+  "scope": "Contextualizes regional/Israeli warning-transfer reporting and credibility caveats; does not by itself support the full aircraft-deception chronology or plot feasibility.",
+  "status": "active",
+  "to_id": "CLM-20260813-001"
+}

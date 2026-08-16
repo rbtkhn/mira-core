@@ -125,11 +125,11 @@ Do not force a chain when sources merely share a topic.
 
 ## Checklist Helper
 
-Use `scripts/mechanism_lens_checklist.py` when a fillable Markdown worksheet
+Use the governed runner when a fillable Markdown worksheet
 would reduce repeated setup:
 
 ```powershell
-python scripts/mechanism_lens_checklist.py `
+.\tools\run.ps1 mechanism-lens-checklist `
   --start-date 2026-07-13 `
   --end-date 2026-08-09 `
   --voices mercouris,ritter,mearsheimer,helmer `
