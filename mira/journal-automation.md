@@ -7,7 +7,7 @@ requires separate operator authorization.
 ## Schedule
 
 - Run every calendar day at 10:30 PM in `America/Denver`.
-- Run locally against the `narrative-systems` project.
+- Run locally against the `mira-core` project.
 - Notify the operator when a private draft is ready for review or when the run
   fails.
 
@@ -19,7 +19,7 @@ requires separate operator authorization.
 2. Run `tools/run.ps1 mira-journal prepare --date <local-date>`.
 3. Read only the external `context-pack.json`, `composition-brief.json`,
    `draft-contract.json`, and `technical-reference-contract.json` produced
-   under `NARRATIVE_MIRA_JOURNAL_DRAFT_ROOT`.
+   under `MIRA_CORE_JOURNAL_DRAFT_ROOT`.
 4. Write `draft.md`, sibling `draft.json`, and schema-v2
    `technical-reference.json` in that private date directory. The prose must
    be 300-700 words, freeform, and written from Mira's first-person perspective.

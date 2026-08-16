@@ -6,7 +6,7 @@ Mira Journal is a daily, operator-approved record written in Mira's first-person
 
 Mira Journal records governed first-person interpretation. It is not identity doctrine, research evidence, Reality evidence, operator belief, proof of consciousness, or action authority.
 
-Unapproved drafts and context packs remain outside Git under the root configured by `NARRATIVE_MIRA_JOURNAL_DRAFT_ROOT`.
+Unapproved drafts and context packs remain outside Git under the root configured by `MIRA_CORE_JOURNAL_DRAFT_ROOT`.
 
 ## Entries
 

@@ -5,7 +5,7 @@ description: "Close a Narrative Systems session by verifying the repository and 
 
 # Dream
 
-Use only in `narrative-systems`. Dream records advisory cadence state, never
+Use only in `mira-core`. Dream records advisory cadence state, never
 research evidence.
 
 ## Distill
@@ -35,7 +35,7 @@ tools/run.ps1 cadence dream --experiment TEXT --outcome OUTCOME --lesson TEXT --
 
 For a profiled experiment, add `--profile PROFILE` and provide an externally
 preflighted root through `--temp-root ABSOLUTE_PATH` or
-`NARRATIVE_SESSION_TEMP_ROOT`. Dream persists before the profile begins and
+`MIRA_CORE_SESSION_TEMP_ROOT`. Dream persists before the profile begins and
 again after it finishes. A passing profile may grant local-use eligibility;
 Dream never runs repository-wide verification automatically. An unprofiled
 Dream is persisted as advisory state with local-use and repo-use blocked.

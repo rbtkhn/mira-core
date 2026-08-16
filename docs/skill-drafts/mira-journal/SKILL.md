@@ -5,7 +5,7 @@ description: "Prepare, compose, revise, check, or review Mira's governed first-p
 
 # Mira Journal
 
-Use only in `narrative-systems`. Treat journal prose as autobiographical
+Use only in `mira-core`. Treat journal prose as autobiographical
 interpretation, never research evidence, proof of consciousness, operator
 belief, or action authority.
 

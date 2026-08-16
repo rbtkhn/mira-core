@@ -3,9 +3,9 @@ requires = ["setuptools>=68"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "narrative-systems"
+name = "mira-core"
 version = "0.1.0"
-description = "An archive-first, source-grounded dialogical workbench for geopolitical judgment."
+description = "Mira's integrated, archive-first monorepo for governed memory, research, and judgment."
 readme = "README.md"
 requires-python = ">=3.11"
 authors = [

@@ -7,8 +7,8 @@ context assembly. It is not a factual adjudicator: collection-native controls
 retain membership, routing, continuity, adjudication, and identity authority.
 
 Canonical bodies and SQLite catalog live outside Git under
-`NARRATIVE_SYSTEM_ARCHIVE_ROOT`; an independent replica uses
-`NARRATIVE_SYSTEM_ARCHIVE_REPLICA_ROOT`. Existing collection paths are ignored,
+`MIRA_CORE_SYSTEM_ARCHIVE_ROOT`; an independent replica uses
+`MIRA_CORE_SYSTEM_ARCHIVE_REPLICA_ROOT`. Existing collection paths are ignored,
 byte-identical hydrated mirrors.
 
 Environment variables take precedence over the private fallback configuration

@@ -5,7 +5,7 @@ description: "Reorient Narrative Systems from repository state and the last veri
 
 # Coffee
 
-Use only in `narrative-systems`. Coffee is read-only.
+Use only in `mira-core`. Coffee is read-only.
 
 ## Orient
 
@@ -35,14 +35,14 @@ Use only in `narrative-systems`. Coffee is read-only.
 4. Never treat the handoff as archive evidence. Verify its lesson against the
    named experiment, `evidence_summary`, and every `artifact_ref`. If a
    reference no longer resolves, treat the handoff as stale.
-5. When `NARRATIVE_CHOICE_DB` is configured, run
+5. When `MIRA_CORE_CHOICE_DB` is configured, run
    `tools/run.ps1 choice --format json review` and inspect the deterministic
    unresolved queue through `choice context`. Surface at most one lightweight
    unresolved-outcome prompt or staged five-to-ten choice review; ordinary
    work remains uninterrupted when the store is absent.
 6. Before running a test profile that writes temporary files, run
    `tools/run.ps1 session-preflight --temp-root ABSOLUTE_PATH --json`, then pass
-   that root through `--temp-root` or `NARRATIVE_SESSION_TEMP_ROOT`. Start
+   that root through `--temp-root` or `MIRA_CORE_SESSION_TEMP_ROOT`. Start
    each verifier once and resume its live process until completion. A missing
    output chunk is not evidence that the verifier failed or should be relaunched.
 

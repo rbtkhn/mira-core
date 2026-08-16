@@ -210,7 +210,7 @@ when the operator explicitly requests another probe.
 Configure private state only with an absolute path outside Git:
 
 ```powershell
-$env:NARRATIVE_CHOICE_DB = "C:\private\narrative-choice-history.sqlite3"
+$env:MIRA_CORE_CHOICE_DB = "C:\private\mira-core-choice-history.sqlite3"
 .\tools\run.ps1 choice select ...
 ```
 

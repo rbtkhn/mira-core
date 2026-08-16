@@ -46,7 +46,7 @@ def trim_args(host_slug: str | None, mode: str = "auto") -> SimpleNamespace:
 
 
 def make_local_temp_dir() -> Path:
-    return Path(tempfile.mkdtemp(prefix="narrative-systems-trim-"))
+    return Path(tempfile.mkdtemp(prefix="mira-core-trim-"))
 
 
 def build_fast_args(pub_date: str, url: str, title: str, body_text: str) -> SimpleNamespace:

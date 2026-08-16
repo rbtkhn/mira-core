@@ -79,7 +79,7 @@ def control(
         "station": station,
         "label": label,
         "source_path": source_path,
-        "owner": "narrative-systems repository",
+        "owner": "mira-core repository",
         "job": job,
         "load_timing": load_timing,
         "enforcement": enforcement,

@@ -1467,7 +1467,7 @@ def unavailable_payload(
 
 def add_scope(parser: argparse.ArgumentParser) -> None:
     parser.add_argument("--tenant", default="local-operator")
-    parser.add_argument("--workspace", default="narrative-systems")
+    parser.add_argument("--workspace", default="mira-core")
     parser.add_argument("--lane", default="repository")
 
 

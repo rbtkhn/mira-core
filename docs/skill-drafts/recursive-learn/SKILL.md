@@ -5,7 +5,7 @@ description: "Assess and explicitly admit evidence-backed Narrative Systems recu
 
 # Recursive Learn
 
-Use only in `narrative-systems`. Read
+Use only in `mira-core`. Read
 `narrative-geopolitics/method/recursive-learning-ledger.md`, the canonical JSON
 ledger, and the named MJTR companion. Run full companion validation first.
 Follow the returned `evidence_read_scope`: do not reread ordinary grounding

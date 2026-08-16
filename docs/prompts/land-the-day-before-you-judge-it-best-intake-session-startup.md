@@ -8,7 +8,7 @@ engine names are implementation details.
 ```text
 Use the `intake` front door and continue recent-day Narrative Geopolitics intake in:
 
-C:\dev\narrative-systems
+C:\dev\mira-core
 
 Startup contract:
 

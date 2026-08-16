@@ -642,6 +642,16 @@ def test_normative_repository_guidance_has_no_obsolete_commands() -> None:
     assert repository_validation.obsolete_guidance_failures() == []
 
 
+def test_legacy_repository_name_is_confined_to_explicit_compatibility_and_history() -> None:
+    assert repository_validation.legacy_repository_identity_failures() == []
+    assert "mira/constitution.schema.json" in (
+        repository_validation.LEGACY_REPOSITORY_NAME_ALLOWLIST
+    )
+    assert "docs/mira-core-name-migration.md" in (
+        repository_validation.LEGACY_REPOSITORY_NAME_ALLOWLIST
+    )
+
+
 def test_ci_uses_only_canonical_validation_with_four_jobs() -> None:
     workflow = (REPO_ROOT / ".github" / "workflows" / "validate.yml").read_text(
         encoding="utf-8"

@@ -70,6 +70,27 @@ ACTIVE_ASR_GUIDANCE = NG_ROOT / "work" / "asr-repair-pilot-findings-july-2026.md
 LEGACY_VERIFICATION_ROOT = NG_ROOT / "work" / "verification" / "packets"
 LEGACY_VERIFICATION_INVENTORY = NG_ROOT / "work" / "verification" / "legacy-inventory.json"
 MODEL_SUBSTITUTION_GATE = REPO_ROOT / "docs" / "model-substitution-readiness.md"
+LEGACY_REPOSITORY_NAME = "narrative-systems"
+LEGACY_REPOSITORY_NAME_ALLOWLIST = frozenset({
+    "README.md",
+    "docs/audits/2026-08-16-loose-prose-classification.md",
+    "docs/mira-core-name-migration.md",
+    "mira/constitution.schema.json",
+    "mira/continuity/session-registry.json",
+    "mira/face/landing-page/encounter.schema.json",
+    "mira/notes/2026-08-15-from-civilization-memory-to-mira-core.md",
+    "narrative-geopolitics/work/system-improvement/recursive-learning-ledger.json",
+    "scripts/contradiction_kernel.provenance.json",
+    "scripts/mira_continuity.py",
+    "scripts/validate_repository.py",
+    "system-archive/schemas/context-pack.schema.json",
+    "system-archive/schemas/derivation-manifest.schema.json",
+    "system-archive/schemas/replay-plan.schema.json",
+    "system-archive/schemas/repository-artifact-manifest.schema.json",
+    "system-archive/schemas/task-spec.schema.json",
+    "tests/test_contradiction_preflight.py",
+    "tests/test_mira_continuity.py",
+})
 
 MARKDOWN_LINK_RE = re.compile(r"\[[^\]]+\]\(([^)]+)\)")
 HOOK_ID_RE = re.compile(r"`(NG-\d{8}-F\d{2})`")
@@ -536,6 +557,35 @@ def obsolete_guidance_failures(
     return failures
 
 
+def legacy_repository_identity_failures() -> list[str]:
+    result = subprocess.run(
+        ["git", "ls-files", "--cached", "--others", "--exclude-standard"],
+        cwd=REPO_ROOT,
+        capture_output=True,
+        check=True,
+        text=True,
+    )
+    found: set[str] = set()
+    for raw in result.stdout.splitlines():
+        relative_path = raw.strip().replace("\\", "/")
+        path = REPO_ROOT / relative_path
+        if not path.is_file() or path.suffix.lower() not in {
+            ".json", ".md", ".py", ".toml", ".txt", ".yaml", ".yml"
+        }:
+            continue
+        if LEGACY_REPOSITORY_NAME in path.read_text(encoding="utf-8"):
+            found.add(relative_path)
+    failures = [
+        f"operative legacy repository identity: {path}"
+        for path in sorted(found - LEGACY_REPOSITORY_NAME_ALLOWLIST)
+    ]
+    failures.extend(
+        f"legacy repository identity allowlist entry no longer resolves: {path}"
+        for path in sorted(LEGACY_REPOSITORY_NAME_ALLOWLIST - found)
+    )
+    return failures
+
+
 def voice_routing_failures() -> list[str]:
     manifest = load_manifest()
     failures = voice_metadata.metadata_failures(manifest, REPO_ROOT)
@@ -629,6 +679,7 @@ REPOSITORY_CHECKS = (
     ("operator_positions.validate_ledger", operator_positions.validate_ledger),
     ("legacy_verification_inventory_failures", legacy_verification_inventory_failures),
     ("tracked_artifact_failures", tracked_artifact_failures),
+    ("legacy_repository_identity_failures", legacy_repository_identity_failures),
     ("obsolete_guidance_failures", obsolete_guidance_failures),
     ("voice_routing_failures", voice_routing_failures),
 )

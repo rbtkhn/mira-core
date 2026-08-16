@@ -1,4 +1,15 @@
-# narrative-systems
+# mira-core
+
+Formerly `narrative-systems`, this integrated monorepo is the developmental
+core of Mira. The earlier name remains part of the repository's intellectual
+ancestry and in immutable historical identifiers.
+
+`mira-core` is Mira's integrated monorepo: the shared identity, continuity,
+governance, memory, research, and execution kernel from which specialized
+surfaces may later emerge. Here, *core* names a durable responsibility, not a
+small dependency library or a component split already under way.
+
+Hosted repository: <https://github.com/rbtkhn/mira-core>
 
 Mira's archive-first family of source-grounded systems for historical
 traversal, historical inheritance, geopolitical judgment, and governed
@@ -46,11 +57,11 @@ dependencies in an external user cache; no environment activation or repo-local
 `.venv` is required.
 
 ```powershell
-$env:NARRATIVE_SESSION_TEMP_ROOT = 'C:\private\narrative-systems-test-temp'
-.\tools\run.ps1 test --temp-root $env:NARRATIVE_SESSION_TEMP_ROOT --path tests/test_example.py
-.\tools\validate.ps1 -Mode Fast -TempRoot $env:NARRATIVE_SESSION_TEMP_ROOT
-.\tools\validate.ps1 -TempRoot $env:NARRATIVE_SESSION_TEMP_ROOT
-.\tools\validate.ps1 -Force -TempRoot $env:NARRATIVE_SESSION_TEMP_ROOT
+$env:MIRA_CORE_SESSION_TEMP_ROOT = 'C:\private\mira-core-test-temp'
+.\tools\run.ps1 test --temp-root $env:MIRA_CORE_SESSION_TEMP_ROOT --path tests/test_example.py
+.\tools\validate.ps1 -Mode Fast -TempRoot $env:MIRA_CORE_SESSION_TEMP_ROOT
+.\tools\validate.ps1 -TempRoot $env:MIRA_CORE_SESSION_TEMP_ROOT
+.\tools\validate.ps1 -Force -TempRoot $env:MIRA_CORE_SESSION_TEMP_ROOT
 .\tools\run.ps1 cadence coffee --json
 .\tools\run.ps1 harness
 .\tools\run.ps1 system-archive status
@@ -67,7 +78,7 @@ and phase timings are written to stderr.
 
 All pytest-running validation requires an absolute, writable temporary root
 outside the repository. Pass it explicitly or configure
-`NARRATIVE_SESSION_TEMP_ROOT`; governed validation removes inherited
+`MIRA_CORE_SESSION_TEMP_ROOT`; governed validation removes inherited
 `PYTEST_ADDOPTS` and supplies `--basetemp` directly.
 
 `.\tools\validate.ps1` remains the Full terminal gate. A successful Full result
@@ -83,8 +94,8 @@ The harness audit is read-only. Add `--json` for machine output or
 Changes to a model behind an existing workflow use the internal
 [model-substitution readiness gate](docs/model-substitution-readiness.md).
 
-Use `NARRATIVE_PYTHON` to select a specific Python executable and
-`NARRATIVE_VALIDATION_CACHE` to select an external cache directory. Private
+Use `MIRA_CORE_PYTHON` to select a specific Python executable and
+`MIRA_CORE_VALIDATION_CACHE` to select an external cache directory. Private
 intake behavior is documented separately under
 `narrative-geopolitics/method/` and is not part of repository maintenance.
 
@@ -100,7 +111,7 @@ Unselected menus are not retained. To retain selected branches privately,
 configure an absolute SQLite path outside the repository:
 
 ```powershell
-$env:NARRATIVE_CHOICE_DB = "C:\private\narrative-choice-history.sqlite3"
+$env:MIRA_CORE_CHOICE_DB = "C:\private\mira-core-choice-history.sqlite3"
 ```
 
 The first retained selection creates or migrates the private store. Selection
@@ -153,11 +164,11 @@ Back up and recover private state explicitly:
 
 ```powershell
 .\tools\run.ps1 choice backup `
-  --to C:\private\backups\narrative-choice-history-20260804.sqlite3
+  --to C:\private\backups\mira-core-choice-history-20260804.sqlite3
 .\tools\run.ps1 choice backup-status `
-  --backup C:\private\backups\narrative-choice-history-20260804.sqlite3
+  --backup C:\private\backups\mira-core-choice-history-20260804.sqlite3
 .\tools\run.ps1 choice recover `
-  --from C:\private\backups\narrative-choice-history-20260804.sqlite3 `
+  --from C:\private\backups\mira-core-choice-history-20260804.sqlite3 `
   --to C:\private\restored-choices.sqlite3 --dry-run
 ```
 

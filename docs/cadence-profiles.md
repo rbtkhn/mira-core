@@ -12,7 +12,7 @@ timeout:
 .\tools\run.ps1 cadence profile list --json
 .\tools\run.ps1 cadence profile show smart-intake-routing --json
 .\tools\run.ps1 cadence dream --profile smart-intake-routing `
-  --temp-root C:\private\narrative-systems-test-temp ...
+  --temp-root C:\private\mira-core-test-temp ...
 ```
 
 `mira-journal-composition` verifies the repository-local skill, journal and
@@ -26,7 +26,7 @@ repository use explicitly through:
 
 ```powershell
 .\tools\run.ps1 cadence promote `
-  --temp-root C:\private\narrative-systems-test-temp --json
+  --temp-root C:\private\mira-core-test-temp --json
 ```
 
 Promotion reuses an exact content-addressed Full result unless `--force` is

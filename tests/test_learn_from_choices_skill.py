@@ -152,7 +152,7 @@ def test_closure_is_quiet_lifecycle_state_not_outcome_evidence() -> None:
 def test_private_choice_store_example_matches_repository_guidance() -> None:
     skill = (SKILL_ROOT / "SKILL.md").read_text(encoding="utf-8")
     readme = (REPO_ROOT / "README.md").read_text(encoding="utf-8")
-    canonical = r"C:\private\narrative-choice-history.sqlite3"
+    canonical = r"C:\private\mira-core-choice-history.sqlite3"
     assert canonical in skill
     assert canonical in readme
     assert r"C:\private\choice-history.sqlite3" not in skill

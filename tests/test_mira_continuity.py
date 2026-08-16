@@ -13,6 +13,22 @@ from scripts import mira_continuity
 SESSION_UUID = "019fce7b-67cd-7753-be6c-74f76e2f9b7a"
 
 
+def test_repository_label_writer_and_compatibility_reader(tmp_path: Path) -> None:
+    assert mira_continuity.empty_registry()["scope"]["repository"] == "mira-core"
+    for label in ("mira-core", "narrative-systems"):
+        registry = mira_continuity.empty_registry()
+        registry["scope"]["repository"] = label
+        path = tmp_path / f"{label}.json"
+        path.write_text(json.dumps(registry), encoding="utf-8")
+        assert mira_continuity.load_registry(path)["scope"]["repository"] == label
+
+    registry["scope"]["repository"] = "other-repository"
+    invalid = tmp_path / "invalid.json"
+    invalid.write_text(json.dumps(registry), encoding="utf-8")
+    with pytest.raises(mira_continuity.ContinuityError, match="unsupported repository label"):
+        mira_continuity.load_registry(invalid)
+
+
 def write_session(path: Path, cwd: Path, *, resumed: bool = False) -> None:
     rows = [
         {

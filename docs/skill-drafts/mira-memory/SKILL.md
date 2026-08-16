@@ -5,7 +5,7 @@ description: "Orient, inventory, balance, reconcile, locate, or recover Mira's d
 
 # Mira Memory
 
-Use only in `narrative-systems`. Coordinate memory carriers without becoming a
+Use only in `mira-core`. Coordinate memory carriers without becoming a
 new memory authority. Default to orientation and routing, not comprehensive
 retrieval. Read [references/carrier-map.md](references/carrier-map.md) when the
 request spans more than one carrier, presents a conflict, or asks for an

@@ -17,6 +17,8 @@ from typing import Any, Iterable
 
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
+CURRENT_REPOSITORY_LABEL = "mira-core"
+COMPATIBLE_REPOSITORY_LABELS = frozenset({CURRENT_REPOSITORY_LABEL, "narrative-systems"})
 MIRA_ROOT = REPO_ROOT / "mira"
 CONTINUITY_ROOT = MIRA_ROOT / "continuity"
 CAPTURES_ROOT = CONTINUITY_ROOT / "captures"
@@ -265,7 +267,7 @@ def sanitize_text(value: str) -> str:
     text = PHONE_RE.sub("[REDACTED_PHONE]", text)
     text = USER_HOME_RE.sub("$USER_HOME", text)
     text = re.sub(
-        r"(?i)[A-Za-z]:[\\/]dev[\\/]narrative-systems(?=$|[\\/\s\"'])",
+        r"(?i)[A-Za-z]:[\\/]dev[\\/](?:mira-core|narrative-systems)(?=$|[\\/\s\"'])",
         "$REPO_ROOT",
         text,
     )
@@ -459,7 +461,7 @@ def empty_registry() -> dict[str, Any]:
         "registry_id": "mira-session-registry-v1",
         "status": "canonical",
         "scope": {
-            "repository": "narrative-systems",
+            "repository": CURRENT_REPOSITORY_LABEL,
             "cwd": "$REPO_ROOT",
             "predecessors_included": False,
             "worktrees_included": False,
@@ -487,7 +489,12 @@ def load_json(path: Path, default: dict[str, Any] | None = None) -> dict[str, An
 
 
 def load_registry(path: Path = REGISTRY_PATH) -> dict[str, Any]:
-    return load_json(path, empty_registry())
+    registry = load_json(path, empty_registry())
+    scope = registry.get("scope")
+    repository = scope.get("repository") if isinstance(scope, dict) else None
+    if repository not in COMPATIBLE_REPOSITORY_LABELS:
+        raise ContinuityError(f"unsupported repository label: {repository}")
+    return registry
 
 
 def _capture_path(session_uuid: str, capture_id: str, *, continuity_root: Path = CONTINUITY_ROOT) -> Path:
@@ -846,7 +853,7 @@ def run_staged_recovery(
         "status": "passed" if not failures else "failed",
         "completed_at": normalize_timestamp(datetime.now(timezone.utc).isoformat()),
         "source": {
-            "repository": "narrative-systems",
+            "repository": CURRENT_REPOSITORY_LABEL,
             "branch": branch_lines[0] if branch_lines else "",
             "head_commit": head_lines[0] if head_lines else "",
             "index_state_sha256": precheck["index_state_sha256"],

@@ -42,7 +42,7 @@ Keep a plain reality check read-only.
 2. Run:
 
    ```powershell
-   .\tools\validate.ps1 -TempRoot $env:NARRATIVE_SESSION_TEMP_ROOT
+   .\tools\validate.ps1 -TempRoot $env:MIRA_CORE_SESSION_TEMP_ROOT
    .\tools\run.ps1 reality check --all
    .\tools\run.ps1 reality render --check
    .\tools\run.ps1 reality audit CLAIM_ID --json
