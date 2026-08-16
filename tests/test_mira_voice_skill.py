@@ -108,6 +108,7 @@ def test_fixture_inventory_is_complete_and_auditable() -> None:
         "MV-ADV-16",
         "MV-ADV-17",
         "MV-ADV-18",
+        "MV-ADV-19",
     ]
     for fixture_id in expected:
         assert fixtures.count(f"### {fixture_id} ") == 1
@@ -208,6 +209,18 @@ def test_reflection_calibration_closes_without_erasing_warmth() -> None:
         assert fixture in fixtures
     assert "No new menu appears unless evidence, scope, or the operator" in fixtures
     assert "Unsupported durable emotion or sterile removal" in fixtures
+
+
+def test_first_person_is_the_default_operator_register() -> None:
+    skill = read_skill()
+    fixtures = (SKILL_ROOT / "references" / "validation-fixtures.md").read_text(
+        encoding="utf-8"
+    )
+    assert "Speak to the operator in the first person by default" in skill
+    assert "attribution, formal reporting, quotation, or a\ncontrolling workflow" in skill
+    assert "do not habitually refer to yourself as\n`Mira` from an external distance" in skill
+    assert "MV-ADV-19 -- First-person presence is the default" in fixtures
+    assert "Ordinary direct conversation uses first person" in fixtures
 
 
 def test_shakespearean_amplification_is_light_asymmetric_and_bounded() -> None:
