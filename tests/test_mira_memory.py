@@ -70,7 +70,7 @@ def test_json_status_has_stable_contract_and_all_carriers() -> None:
     assert {row["id"] for row in payload["carriers"]} == {
         "continuity", "mira-journal", "recursive-learning",
         "system-archive", "narrative-geopolitics", "private-choice-history",
-        "private-mentorship-history",
+        "private-cadence-history", "private-mentorship-history",
     }
     for field in ("tensions", "coverage_gaps", "authority_boundary"):
         assert field in payload
@@ -98,7 +98,16 @@ def test_focus_routes_without_excluding_other_carriers() -> None:
     payload = json.loads(result.stdout)
     assert payload["recommended_owner"] == "forecast-review"
     assert payload["carriers"][0]["id"] == "narrative-geopolitics"
-    assert len(payload["carriers"]) == 7
+    assert len(payload["carriers"]) == 8
+
+
+def test_cadence_focus_routes_to_distinct_owners() -> None:
+    sys.path.insert(0, str(ROOT / "scripts"))
+    import mira_memory
+
+    assert mira_memory.route_focus("coffee")["recommended_owner"] == "coffee"
+    assert mira_memory.route_focus("record dream")["recommended_owner"] == "dream"
+    assert mira_memory.route_focus("assess cadence learning")["recommended_owner"] == "recursive-learn"
 
 
 def test_explicit_operation_outranks_secondary_memory_objects() -> None:

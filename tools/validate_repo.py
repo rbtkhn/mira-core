@@ -30,7 +30,11 @@ from runtime_names import remove_environment_pair, resolve_environment  # noqa: 
 from session_preflight import probe_temp_root  # noqa: E402
 
 
-PRIVATE_VALIDATION_ENVIRONMENT_KEYS = ("MIRA_CORE_CHOICE_DB", "PYTEST_ADDOPTS")
+PRIVATE_VALIDATION_ENVIRONMENT_KEYS = (
+    "MIRA_CORE_CHOICE_DB",
+    "MIRA_CORE_CADENCE_DB",
+    "PYTEST_ADDOPTS",
+)
 TEMP_ROOT_ENV = "MIRA_CORE_SESSION_TEMP_ROOT"
 STRUCTURAL_TIMEOUT_SECONDS = 180
 PYTEST_TIMEOUT_SECONDS = 600

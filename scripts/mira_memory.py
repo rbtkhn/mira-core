@@ -16,6 +16,7 @@ from runtime_names import resolve_environment
 REPO_ROOT = Path(__file__).resolve().parent.parent
 SCHEMA_VERSION = 2
 CHOICE_ENV = "MIRA_CORE_CHOICE_DB"
+CADENCE_ENV = "MIRA_CORE_CADENCE_DB"
 MENTORSHIP_ENV = "MIRA_MENTORSHIP_DB"
 ARCHIVE_ROOT_ENV = "MIRA_CORE_SYSTEM_ARCHIVE_ROOT"
 ARCHIVE_CONFIG_ENV = "MIRA_CORE_SYSTEM_ARCHIVE_CONFIG"
@@ -319,6 +320,25 @@ def choice_carrier() -> dict[str, Any]:
     )
 
 
+def cadence_carrier() -> dict[str, Any]:
+    import cadence_ledger
+
+    status = cadence_ledger.private_status(resolve_environment(CADENCE_ENV))
+    result = carrier(
+        "private-cadence-history", ["procedural"],
+        "private advisory method-experiment memory",
+        [Path("private-external-path")] if status["availability"] != "unavailable" else [],
+        [], "tools/run.ps1 cadence", status["freshness"], status["validation"],
+        "recorded", "private" if status["availability"] != "unavailable" else "unavailable",
+        authority_flags(process=True), status["availability"],
+    )
+    result["bounded_status"] = {
+        "counts": status.get("counts", {}),
+        "latest_event_at": status.get("latest_event_at"),
+    }
+    return result
+
+
 def mentorship_carrier() -> dict[str, Any]:
     raw = os.environ.get(MENTORSHIP_ENV)
     if not raw:
@@ -351,6 +371,14 @@ def mentorship_carrier() -> dict[str, Any]:
 
 
 ROUTING_RULES = [
+    ({"assess", "cadence", "learning"}, "procedural", "recursive-learn", 120, "explicit cadence learning assessment"),
+    ({"admit", "recursive", "learning"}, "procedural", "recursive-learn", 120, "explicit recursive-learning admission"),
+    ({"rsi", "candidate"}, "procedural", "recursive-learn", 120, "explicit RSI candidate request"),
+    ({"record", "dream"}, "procedural", "dream", 110, "explicit Dream closeout"),
+    ({"close", "session", "learning"}, "procedural", "dream", 110, "explicit method closeout"),
+    ({"coffee"}, "procedural", "coffee", 100, "explicit Coffee re-entry"),
+    ({"cadence", "lesson"}, "procedural", "coffee", 100, "cadence lesson recovery"),
+    ({"dream", "handoff"}, "procedural", "coffee", 100, "Dream handoff recovery"),
     ({"score", "forecast"}, "epistemic", "forecast-review", 100, "explicit forecast scoring"),
     ({"resolve", "forecast"}, "epistemic", "forecast-review", 100, "explicit forecast resolution"),
     ({"verify"}, "epistemic", "reality-check", 90, "explicit verification"),
@@ -453,6 +481,19 @@ def make_tension(
 def operational_tensions(carriers: list[dict[str, Any]], route: dict[str, Any]) -> list[dict[str, Any]]:
     tensions: list[dict[str, Any]] = []
     for row in carriers:
+        if row["id"] == "private-cadence-history" and row.get("bounded_status", {}).get("counts", {}).get("unresolved_rsi_correspondence", 0):
+            tensions.append(tension(
+                "TENSION-CADENCE-RSI-CORRESPONDENCE",
+                "registry-catalog-mismatch",
+                [{
+                    "carrier": "private-cadence-history", "reporting_verb": "recorded",
+                    "detail": "A private represented event names an RSI entry absent from the canonical ledger.",
+                    "provenance_refs": ["private-cadence-status", "narrative-geopolitics/work/system-improvement/recursive-learning-ledger.json"],
+                }],
+                resolution_owner="tools/run.ps1 recursive-learn",
+                resolution_condition="reconcile the private correspondence against canonical RSI admission history",
+                must_remain_separate=True,
+            ))
         if row["freshness"] == "stale":
             tensions.append(make_tension(
                 f"TENSION-{row['id'].upper()}-DERIVED-VIEW", "stale-derived-view",
@@ -535,7 +576,7 @@ def status(focus: str | None, as_of: str) -> dict[str, Any]:
     carriers = [
         continuity_carrier(inspect_sources=inspect_continuity), journal_carrier(),
         recursive_carrier(), system_archive_carrier(inspect_catalog=inspect_archive),
-        geopolitics_carrier(), choice_carrier(), mentorship_carrier(),
+        geopolitics_carrier(), choice_carrier(), cadence_carrier(), mentorship_carrier(),
     ]
     for row in carriers:
         if row["availability"] == "unavailable":

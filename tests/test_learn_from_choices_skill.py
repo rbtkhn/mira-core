@@ -42,7 +42,8 @@ def test_universal_contract_has_stable_roles_and_navigation_boundary() -> None:
 
 def test_action_ready_choices_require_machine_validated_elicitation() -> None:
     skill = (SKILL_ROOT / "SKILL.md").read_text(encoding="utf-8")
-    assert "Ordinary possibility menus are navigation-only" in skill
+    assert "Every possibility menu has an actionability floor" in skill
+    assert "include at least one" in skill
     assert "machine-checked `selection_effect`" in skill
     for verb in ("Execute", "Commit", "Push", "Send"):
         assert f"`{verb}`" in skill
@@ -197,3 +198,17 @@ def test_review_contract_is_staged_and_terminal() -> None:
         "selection frequency was excluded",
     ):
         assert phrase in skill
+
+
+def test_system_wide_actionability_floor_is_explicit() -> None:
+    skill = (SKILL_ROOT / "SKILL.md").read_text(encoding="utf-8")
+    router = (REPO_ROOT / "AGENTS.md").read_text(encoding="utf-8")
+    elicitation_skill = (
+        REPO_ROOT / "docs" / "skill-drafts" / "elicitation" / "SKILL.md"
+    ).read_text(encoding="utf-8")
+    for contract in (skill, router, elicitation_skill):
+        normalized = " ".join(contract.split())
+        assert "at least one actionable option" in normalized
+        assert "blocked_action" in normalized or "blocked-action" in normalized
+    assert "Do not present consecutive navigation-only menus" in skill
+    assert "Do not present consecutive navigation-only menus" in router

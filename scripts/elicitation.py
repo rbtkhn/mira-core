@@ -24,7 +24,6 @@ ALL_NAVIGATION_REASONS = (
     "no-bounded-action",
     "material-choice-unresolved",
     "operator-requested-read-only",
-    "action-complete",
 )
 ACTION_LABEL_RE = re.compile(
     r"^\s*(execute|commit|push|send)(?=\s|:|$)", re.IGNORECASE
@@ -105,19 +104,39 @@ def _validate_action_readiness(
         )
 
     all_navigation_reason = raw.get("all_navigation_reason")
+    blocked_action = raw.get("blocked_action")
     if executable_keys:
         if all_navigation_reason is not None:
             raise ElicitationError(
                 "action-ready surfaces must not assign an all-navigation reason"
             )
+        if blocked_action is not None:
+            raise ElicitationError(
+                "action-ready surfaces must not assign a blocked_action"
+            )
     elif all_navigation_reason not in ALL_NAVIGATION_REASONS:
         raise ElicitationError(
             "all-navigation surfaces require a recognized all_navigation_reason"
         )
+    elif not isinstance(blocked_action, dict):
+        raise ElicitationError(
+            "all-navigation surfaces require a concrete blocked_action audit"
+        )
+
+    normalized_blocked_action = None
+    if not executable_keys:
+        normalized_blocked_action = {
+            "action": _text(blocked_action.get("action"), label="blocked_action.action"),
+            "blocker": _text(blocked_action.get("blocker"), label="blocked_action.blocker"),
+            "ready_when": _text(
+                blocked_action.get("ready_when"), label="blocked_action.ready_when"
+            ),
+        }
 
     return {
         "ready_option_keys": normalized_ready_keys,
         "all_navigation_reason": all_navigation_reason,
+        "blocked_action": normalized_blocked_action,
     }
 
 

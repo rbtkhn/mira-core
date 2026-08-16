@@ -6,11 +6,12 @@ import json
 import os
 import re
 import shutil
+import sqlite3
 import subprocess
 import sys
 import time
 import uuid
-from datetime import date, datetime, timezone
+from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any, Callable
 
@@ -19,6 +20,7 @@ SCRIPTS_ROOT = Path(__file__).resolve().parent
 if str(SCRIPTS_ROOT) not in sys.path:
     sys.path.insert(0, str(SCRIPTS_ROOT))
 
+import cadence_ledger
 import archive_audit
 from archive_membership import source_reference_available
 import triage_forecast_ledger as forecast_triage
@@ -916,6 +918,7 @@ def validation_environment() -> dict[str, str]:
     environment = os.environ.copy()
     environment.pop("PYTEST_ADDOPTS", None)
     remove_environment_pair("MIRA_CORE_CHOICE_DB", environment)
+    remove_environment_pair("MIRA_CORE_CADENCE_DB", environment)
     existing = environment.get("PYTHONPATH")
     scripts = str(SCRIPTS_ROOT)
     environment["PYTHONPATH"] = scripts if not existing else os.pathsep.join((scripts, existing))
@@ -1466,6 +1469,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         description="Local startup, coffee, and dream continuity tooling."
     )
+    parser.add_argument("--db", type=Path, help="Absolute private cadence SQLite path; alternatively set MIRA_CORE_CADENCE_DB.")
     subparsers = parser.add_subparsers(dest="command", required=True)
     startup = subparsers.add_parser(
         "startup", help="Read dynamic session context and bounded authority."
@@ -1487,8 +1491,10 @@ def build_parser() -> argparse.ArgumentParser:
     startup.add_argument("--hook")
     startup.add_argument("--as-of")
     startup.add_argument("--json", action="store_true")
-    coffee = subparsers.add_parser("coffee", help="Read the last learning handoff.")
+    coffee = subparsers.add_parser("coffee", help="Read a private cadence candidate without mutation.")
     coffee.add_argument("--json", action="store_true")
+    coffee.add_argument("--format", choices=("json", "markdown"))
+    coffee.add_argument("--episode-id")
     profile = subparsers.add_parser("profile", help="Inspect experiment profiles.")
     profile.add_argument("action", choices=("list", "show"))
     profile.add_argument("name", nargs="?")
@@ -1506,8 +1512,31 @@ def build_parser() -> argparse.ArgumentParser:
     dream.add_argument("--improvement", required=True)
     dream.add_argument("--evidence-summary", required=True)
     dream.add_argument("--artifact-ref", action="append", required=True)
+    dream.add_argument("--artifact-relationship", action="append", choices=tuple(sorted(cadence_ledger.RELATIONSHIPS)), default=[])
     dream.add_argument("--tomorrow-inherits", required=True)
     dream.add_argument("--measurement-json", help="Optional JSON measurement payload for retrieval/rework benchmarking.")
+    dream.add_argument("--series-id")
+    dream.add_argument("--episode-id")
+    dream.add_argument("--observation")
+    dream.add_argument("--diagnosis")
+    dream.add_argument("--expected-observable")
+    dream.add_argument("--observable-unit")
+    dream.add_argument("--observable-baseline")
+    dream.add_argument("--success-threshold")
+    dream.add_argument("--observation-source")
+    dream.add_argument("--falsifier")
+    dream.add_argument("--next-use")
+    dream.add_argument("--task-class")
+    dream.add_argument("--expires-at")
+    dream.add_argument("--method-version-digest")
+    dream.add_argument("--intervention-commit", action="append", default=[])
+    dream.add_argument("--idempotency-key")
+    dream.add_argument("--workspace-id")
+    dream.add_argument("--operator-id")
+    dream.add_argument("--dream-date")
+    dream.add_argument("--timezone")
+    dream.add_argument("--coverage-status", choices=("complete", "partial"))
+    dream.add_argument("--session-coverage-json")
     dream.add_argument("--json", action="store_true")
     promote = subparsers.add_parser(
         "promote", help="Explicitly promote the current Dream through repository validation."
@@ -1515,7 +1544,134 @@ def build_parser() -> argparse.ArgumentParser:
     promote.add_argument("--temp-root", type=Path)
     promote.add_argument("--force", action="store_true")
     promote.add_argument("--json", action="store_true")
+    promote.add_argument("--episode-id")
+    promote.add_argument("--idempotency-key")
+    promote.add_argument("--expected-version", type=int)
+    history = subparsers.add_parser("history", help="Read bounded private cadence history.")
+    history.add_argument("--limit", type=int, default=50)
+    history.add_argument("--json", action="store_true")
+    show = subparsers.add_parser("show", help="Read one private cadence episode.")
+    show.add_argument("--episode-id", required=True)
+    show.add_argument("--json", action="store_true")
+    subparsers.add_parser("verify-ledger", help="Verify private cadence integrity and event chains.")
+    disposition = subparsers.add_parser("disposition", help="Append an explicit cadence disposition.")
+    disposition.add_argument("--episode-id", required=True)
+    disposition.add_argument("--decision", choices=tuple(sorted(cadence_ledger.DISPOSITIONS)), required=True)
+    disposition.add_argument("--reason", required=True)
+    disposition.add_argument("--idempotency-key", required=True)
+    disposition.add_argument("--expected-version", type=int, required=True)
+    repeat = subparsers.add_parser("repeat", help="Append a comparable later-use measurement.")
+    repeat.add_argument("--episode-id", required=True)
+    repeat.add_argument("--measurement-json", required=True)
+    repeat.add_argument("--idempotency-key", required=True)
+    repeat.add_argument("--expected-version", type=int, required=True)
+    supplement = subparsers.add_parser("dream-supplement", help="Append one late session coverage receipt without rewriting the daily Dream.")
+    supplement.add_argument("--episode-id", required=True)
+    supplement.add_argument("--session-coverage-json", required=True)
+    supplement.add_argument("--idempotency-key", required=True)
+    supplement.add_argument("--expected-version", type=int, required=True)
+    reconcile = subparsers.add_parser("reconcile-rsi", help="Import a digest-bound private RSI correspondence receipt.")
+    reconcile.add_argument("--receipt", type=Path, required=True)
+    reconcile.add_argument("--idempotency-key", required=True)
+    reconcile.add_argument("--expected-version", type=int, required=True)
+    scorecard = subparsers.add_parser("scorecard", help="Report bounded cadence performance denominators.")
+    scorecard.add_argument("--json", action="store_true")
+    export = subparsers.add_parser("export-learning-reference", help="Export a private digest-bound process-learning packet.")
+    export.add_argument("--episode-id", required=True)
+    export.add_argument("--output", type=Path, required=True)
+    export.add_argument("--check", action="store_true")
+    migrate = subparsers.add_parser("migrate-legacy", help="Import the surviving legacy handoff explicitly.")
+    migrate.add_argument("--idempotency-key", required=True)
+    backup = subparsers.add_parser("backup", help="Copy the private cadence database to an operator-controlled external path.")
+    backup.add_argument("--output", type=Path, required=True)
+    backup.add_argument("--check", action="store_true")
     return parser
+
+
+def _ledger_connection(args: argparse.Namespace, *, write: bool) -> sqlite3.Connection:
+    resolution = cadence_ledger.resolve_store(args.db, require_exists=not write)
+    if resolution.path is None:
+        raise cadence_ledger.CadenceLedgerError(resolution.reason or "cadence store unavailable")
+    return cadence_ledger.connect(resolution.path) if write else cadence_ledger.connect_read_only(resolution.path)
+
+
+def _require_dream_ledger_fields(args: argparse.Namespace) -> None:
+    required = {
+        "series_id": args.series_id, "episode_id": args.episode_id,
+        "observation": args.observation, "diagnosis": args.diagnosis,
+        "expected_observable": args.expected_observable, "observable_unit": args.observable_unit,
+        "observable_baseline": args.observable_baseline, "success_threshold": args.success_threshold,
+        "observation_source": args.observation_source, "falsifier": args.falsifier,
+        "next_use": args.next_use, "task_class": args.task_class, "expires_at": args.expires_at,
+        "method_version_digest": args.method_version_digest, "idempotency_key": args.idempotency_key,
+        "workspace_id": args.workspace_id, "operator_id": args.operator_id,
+        "dream_date": args.dream_date, "timezone": args.timezone,
+        "coverage_status": args.coverage_status,
+        "session_coverage_json": args.session_coverage_json,
+    }
+    missing = [f"--{key.replace('_', '-')}" for key, value in required.items() if not value]
+    if missing:
+        raise cadence_ledger.CadenceLedgerError(f"private Dream requires: {', '.join(missing)}")
+
+
+def write_ledger_dream(args: argparse.Namespace) -> dict[str, Any]:
+    _require_dream_ledger_fields(args)
+    verification = initial_verification(args.profile)
+    if args.profile:
+        resolved_temp = resolve_temp_root(args.temp_root)
+        result = run_profile_verification(args.profile, resolved_temp)
+        verification["experiment"] = result
+        if result.get("passed"):
+            verification["inheritance"]["local-use"] = "eligible"
+        refresh_structured_verification(verification)
+    now = datetime.now().astimezone().isoformat()
+    profile_spec = EXPERIMENT_PROFILES.get(args.profile) if args.profile else None
+    if args.artifact_relationship and len(args.artifact_relationship) != len(args.artifact_ref):
+        raise cadence_ledger.CadenceLedgerError("--artifact-relationship must be omitted or repeated once per --artifact-ref")
+    relationships = args.artifact_relationship or ["implementation"] * len(args.artifact_ref)
+    artifacts = [
+        {"ref": ref, "relationship": relationship, "captured_at": now}
+        for ref, relationship in zip(args.artifact_ref, relationships, strict=True)
+    ]
+    episode = {
+        "episode_id": args.episode_id, "series_id": args.series_id, "created_at": now,
+        "workspace_id": args.workspace_id, "operator_id": args.operator_id,
+        "dream_date": args.dream_date, "timezone": args.timezone,
+        "coverage_status": args.coverage_status,
+        "session_coverage": json.loads(args.session_coverage_json),
+        "observation": args.observation, "diagnosis": args.diagnosis,
+        "intervention": args.improvement, "method_version_digest": args.method_version_digest,
+        "intervention_commits": args.intervention_commit,
+        "profile": {
+            "name": args.profile or "unprofiled",
+            "version": str(profile_spec["version"]) if profile_spec else "none",
+            "command_digest": command_digest(profile_spec["command"]) if profile_spec else "none",
+        },
+        "observable": {
+            "name": args.expected_observable, "unit": args.observable_unit,
+            "baseline": args.observable_baseline, "success_threshold": args.success_threshold,
+            "source": args.observation_source,
+        },
+        "falsifier": args.falsifier, "next_use": args.next_use, "task_class": args.task_class,
+        "expires_at": args.expires_at, "artifacts": artifacts,
+        "relevant_paths": list(dict.fromkeys(args.artifact_ref)),
+        "evidence_summary": args.evidence_summary, "tomorrow_inherits": args.tomorrow_inherits,
+        "verification": verification,
+        "measurements": json.loads(args.measurement_json) if args.measurement_json else {},
+    }
+    connection = _ledger_connection(args, write=True)
+    try:
+        projection = cadence_ledger.create_episode(connection, episode, idempotency_key=args.idempotency_key)
+        if args.profile:
+            projection = cadence_ledger.append_event(
+                connection, args.episode_id, "verification_completed",
+                {"passed": verification["experiment"].get("passed") is True, "verification": verification},
+                idempotency_key=f"{args.idempotency_key}:verification",
+                expected_version=projection["lifecycle_version"],
+            )
+        return projection
+    finally:
+        connection.close()
 
 
 def main() -> None:
@@ -1540,11 +1696,128 @@ def main() -> None:
         return
 
     if args.command == "coffee":
-        state = coffee_state()
-        if args.json:
-            print(json.dumps(coffee_view(state), indent=2))
+        if args.db or os.environ.get(cadence_ledger.DB_ENV):
+            try:
+                connection = _ledger_connection(args, write=False)
+                context = cadence_ledger.coffee_context(connection, episode_id=args.episode_id)
+                connection.close()
+            except (cadence_ledger.CadenceLedgerError, OSError, sqlite3.Error) as error:
+                raise SystemExit(str(error)) from error
+            if args.format == "markdown" or (not args.json and args.format != "json"):
+                print(cadence_ledger.render_coffee_markdown(context), end="")
+            else:
+                print(json.dumps(context, indent=2))
         else:
-            print_coffee(state)
+            state = coffee_state()
+            if args.json or args.format == "json":
+                print(json.dumps(coffee_view(state), indent=2))
+            else:
+                print_coffee(state)
+        return
+
+    if args.command in {"history", "show", "verify-ledger", "disposition", "repeat", "dream-supplement", "reconcile-rsi", "scorecard", "export-learning-reference", "migrate-legacy", "backup"}:
+        try:
+            if args.command == "backup":
+                resolution = cadence_ledger.resolve_store(args.db, require_exists=True)
+                if resolution.path is None:
+                    raise cadence_ledger.CadenceLedgerError(resolution.reason or "cadence store unavailable")
+                payload = cadence_ledger.backup_store(resolution.path, args.output, check=args.check)
+            elif args.command == "history":
+                connection = _ledger_connection(args, write=False)
+                payload = cadence_ledger.list_history(connection, limit=args.limit)
+                connection.close()
+            elif args.command == "show":
+                connection = _ledger_connection(args, write=False)
+                payload = cadence_ledger.project_episode(connection, args.episode_id)
+                connection.close()
+            elif args.command == "verify-ledger":
+                connection = _ledger_connection(args, write=False)
+                payload = cadence_ledger.verify_ledger(connection)
+                connection.close()
+            elif args.command == "scorecard":
+                connection = _ledger_connection(args, write=False)
+                payload = cadence_ledger.scorecard(connection)
+                connection.close()
+            elif args.command == "export-learning-reference":
+                connection = _ledger_connection(args, write=False)
+                projection = cadence_ledger.project_episode(connection, args.episode_id)
+                connection.close()
+                payload = cadence_ledger.export_learning_reference(projection, args.output, check=args.check)
+            elif args.command == "disposition":
+                connection = _ledger_connection(args, write=True)
+                payload = cadence_ledger.record_disposition(
+                    connection, args.episode_id, args.decision, args.reason,
+                    idempotency_key=args.idempotency_key, expected_version=args.expected_version,
+                )
+                connection.close()
+            elif args.command == "repeat":
+                measurement = json.loads(args.measurement_json)
+                if not isinstance(measurement, dict):
+                    raise cadence_ledger.CadenceLedgerError("--measurement-json must decode to an object")
+                connection = _ledger_connection(args, write=True)
+                payload = cadence_ledger.record_repetition(
+                    connection, args.episode_id, measurement,
+                    idempotency_key=args.idempotency_key, expected_version=args.expected_version,
+                )
+                connection.close()
+            elif args.command == "dream-supplement":
+                receipt = json.loads(args.session_coverage_json)
+                connection = _ledger_connection(args, write=True)
+                payload = cadence_ledger.append_session_supplement(
+                    connection, args.episode_id, receipt,
+                    idempotency_key=args.idempotency_key,
+                    expected_version=args.expected_version,
+                )
+                connection.close()
+            elif args.command == "reconcile-rsi":
+                receipt_path = cadence_ledger.require_private_path(args.receipt, label="RSI correspondence receipt")
+                receipt = json.loads(receipt_path.read_text(encoding="utf-8"))
+                connection = _ledger_connection(args, write=True)
+                episode_id = str(receipt.get("correspondence", {}).get("source_episode_id", ""))
+                payload = cadence_ledger.reconcile_rsi(
+                    connection, receipt, idempotency_key=args.idempotency_key,
+                    expected_version=args.expected_version,
+                )
+                connection.close()
+            else:
+                handoff = load_handoff()
+                if handoff is None:
+                    raise cadence_ledger.CadenceLedgerError("no surviving legacy Dream handoff exists")
+                learning = handoff.get("learning", {})
+                now = str(handoff.get("timestamp") or datetime.now(timezone.utc).isoformat())
+                refs = list(learning.get("artifact_refs") or [])
+                if not refs:
+                    raise cadence_ledger.CadenceLedgerError("legacy Dream has no resolvable artifacts")
+                raw = {
+                    "episode_id": f"legacy-{cadence_ledger.digest(handoff)[:20]}",
+                    "series_id": "legacy-surviving-handoff", "created_at": now,
+                    "workspace_id": "mira-core", "operator_id": "legacy-unknown",
+                    "dream_date": datetime.fromisoformat(cadence_ledger.validate_timestamp(now)).date().isoformat(),
+                    "timezone": "UTC", "coverage_status": "partial",
+                    "session_coverage": [{"session_id": "legacy-survivor", "status": "unavailable", "reason": "Legacy migration cannot reconstruct complete daily session coverage.", "observed_at": now}],
+                    "observation": learning.get("lesson") or learning.get("experiment"),
+                    "diagnosis": "Historical cadence context before this surviving handoff is unavailable.",
+                    "intervention": learning.get("method_change_candidate") or "Retain the legacy method candidate.",
+                    "method_version_digest": cadence_ledger.digest(learning.get("method_change_candidate", "legacy")),
+                    "profile": {"name": "legacy", "version": "3", "command_digest": "legacy"},
+                    "observable": {"name": "legacy reported improvement", "unit": "legacy-report", "baseline": "unknown", "success_threshold": "requires later comparable use", "source": refs[0]},
+                    "falsifier": "A later comparable use fails to reproduce the reported improvement.",
+                    "next_use": learning.get("tomorrow_inherits") or "the next comparable task",
+                    "task_class": "legacy-unspecified", "expires_at": (datetime.now(timezone.utc) + timedelta(days=30)).isoformat(),
+                    "artifacts": [{"ref": ref, "relationship": "verification", "captured_at": now} for ref in refs],
+                    "relevant_paths": refs, "evidence_summary": learning.get("evidence_summary") or "Legacy evidence summary unavailable.",
+                    "tomorrow_inherits": learning.get("tomorrow_inherits") or "Reassess before inheritance.",
+                    "verification": handoff.get("verification", {}), "measurements": handoff.get("measurement", {}),
+                }
+                connection = _ledger_connection(args, write=True)
+                payload = cadence_ledger.create_episode(
+                    connection, raw, idempotency_key=args.idempotency_key,
+                    historical_completeness="latest-survivor-only",
+                )
+                connection.close()
+        except (cadence_ledger.CadenceLedgerError, OSError, sqlite3.Error, json.JSONDecodeError) as error:
+            raise SystemExit(str(error)) from error
+        print(json.dumps(payload, indent=2))
         return
 
     if args.command == "profile":
@@ -1569,6 +1842,29 @@ def main() -> None:
         return
 
     if args.command == "promote":
+        if args.episode_id:
+            if args.idempotency_key is None or args.expected_version is None:
+                raise SystemExit("ledger promotion requires --idempotency-key and --expected-version")
+            try:
+                connection = _ledger_connection(args, write=True)
+                projection = cadence_ledger.project_episode(connection, args.episode_id)
+                change = cadence_ledger.repository_change(projection)
+                if change["status"] != "unchanged":
+                    raise cadence_ledger.CadenceLedgerError("cadence episode relevant state changed; reconcile before promotion")
+                temp_root = resolve_temp_root(args.temp_root)
+                result = run_repository_validator(temp_root, force=args.force)
+                payload = cadence_ledger.append_event(
+                    connection, args.episode_id, "repository_promoted",
+                    {"passed": result.get("passed") is True, "repository": result},
+                    idempotency_key=args.idempotency_key, expected_version=args.expected_version,
+                )
+                connection.close()
+            except (cadence_ledger.CadenceLedgerError, OSError, sqlite3.Error, ValueError) as error:
+                raise SystemExit(str(error)) from error
+            print(json.dumps(payload, indent=2) if args.json else f"promotion_status={result.get('status')}")
+            if not result.get("passed"):
+                raise SystemExit(1)
+            return
         try:
             temp_root = resolve_temp_root(args.temp_root)
             payload = promote_dream(temp_root=temp_root, force=args.force)
@@ -1582,6 +1878,16 @@ def main() -> None:
             print(f"cache_status={repository.get('cache_status', 'unavailable')}")
             print(f"repo_use={payload['verification']['inheritance']['repo-use']}")
         if not verification_passed(payload["verification"]):
+            raise SystemExit(1)
+        return
+
+    if args.db or os.environ.get(cadence_ledger.DB_ENV):
+        try:
+            payload = write_ledger_dream(args)
+        except (cadence_ledger.CadenceLedgerError, OSError, sqlite3.Error, ValueError, json.JSONDecodeError) as error:
+            raise SystemExit(str(error)) from error
+        print(json.dumps(payload, indent=2) if args.json else f"dream_written={payload['episode']['episode_id']}")
+        if args.profile and payload["lifecycle_state"] != "locally_verified":
             raise SystemExit(1)
         return
 

@@ -48,6 +48,7 @@ EXPECTED_SURFACES = {
     "continuity": "continuity.py",
     "contradiction-check": "contradiction_check.py",
     "daily-validate": "validate_daily_run.py",
+    "dream": "dream_eod.py",
     "elicitation": "elicitation.py",
     "forecast-sync": "sync_forecast_ledger.py",
     "forecast-triage": "triage_forecast_ledger.py",
@@ -764,6 +765,8 @@ def test_validator_uses_one_interpreter_and_runs_both_checks(monkeypatch, tmp_pa
     monkeypatch.setattr(validator, "resolve_validation_python", lambda repo: python)
     monkeypatch.setenv("MIRA_CORE_CHOICE_DB", r"C:\private\real-choice.sqlite3")
     monkeypatch.setenv("NARRATIVE_CHOICE_DB", r"C:\private\real-choice.sqlite3")
+    monkeypatch.setenv("MIRA_CORE_CADENCE_DB", r"C:\private\real-cadence.sqlite3")
+    monkeypatch.setenv("NARRATIVE_CADENCE_DB", r"C:\private\real-cadence.sqlite3")
     monkeypatch.setenv("PYTEST_ADDOPTS", r"--basetemp C:\unsafe\pytest")
     monkeypatch.setenv("VALIDATION_SENTINEL", "preserved")
 
@@ -785,6 +788,8 @@ def test_validator_uses_one_interpreter_and_runs_both_checks(monkeypatch, tmp_pa
     assert str(tmp_path) in commands[1][commands[1].index("--basetemp") + 1]
     assert all("MIRA_CORE_CHOICE_DB" not in item for item in environments)
     assert all("NARRATIVE_CHOICE_DB" not in item for item in environments)
+    assert all("MIRA_CORE_CADENCE_DB" not in item for item in environments)
+    assert all("NARRATIVE_CADENCE_DB" not in item for item in environments)
     assert all("PYTEST_ADDOPTS" not in item for item in environments)
     assert all(item["VALIDATION_SENTINEL"] == "preserved" for item in environments)
     assert os.environ["NARRATIVE_CHOICE_DB"] == r"C:\private\real-choice.sqlite3"
@@ -902,6 +907,8 @@ def test_bootstrap_failure_reports_timing_without_execution(monkeypatch, capsys,
 
 def test_validation_environment_removes_private_and_unsafe_pytest_bindings() -> None:
     source = {
+        "MIRA_CORE_CADENCE_DB": r"C:\private\real-cadence.sqlite3",
+        "NARRATIVE_CADENCE_DB": r"C:\private\real-cadence.sqlite3",
         "MIRA_CORE_CHOICE_DB": r"C:\private\real-choice.sqlite3",
         "NARRATIVE_CHOICE_DB": r"C:\private\real-choice.sqlite3",
         "PYTEST_ADDOPTS": r"--basetemp C:\unsafe\pytest",
@@ -909,6 +916,8 @@ def test_validation_environment_removes_private_and_unsafe_pytest_bindings() -> 
     }
     sanitized = validator.validation_environment(source)
     assert sanitized == {"PRESERVED": "yes"}
+    assert source["MIRA_CORE_CADENCE_DB"] == r"C:\private\real-cadence.sqlite3"
+    assert source["NARRATIVE_CADENCE_DB"] == r"C:\private\real-cadence.sqlite3"
     assert source["NARRATIVE_CHOICE_DB"] == r"C:\private\real-choice.sqlite3"
     assert source["MIRA_CORE_CHOICE_DB"] == r"C:\private\real-choice.sqlite3"
 

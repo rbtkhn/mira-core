@@ -10,6 +10,7 @@ Authority is question-specific, not a single global ranking:
 | Session continuity | `mira/continuity/session-registry.json` and immutable captures | System Archive replicas, activation and trajectory views | `mira-continuity` |
 | Autobiographical | `mira/journal-registry.json` and approved `MJ-*` bytes | journal indexes and explicit-only System Archive collection | `mira-journal` |
 | Procedural learning | canonical Recursive Learning JSON ledger | generated Markdown and explicit-only System Archive outcomes | `recursive-learn` |
+| Provisional method experiments | configured private cadence database | bounded Coffee and scorecard projections | `coffee` / `dream` / `cadence` |
 | Epistemic / geopolitical | archive manifest and source bodies; named judgment, forecast, verification, and Reality records | derived voices, channels, views, and System Archive copies | owning domain workflow |
 | Relational choices | configured private choice database | projections returned by `choice context/show/review` | `learn-from-choices` |
 | Storage and lineage | collection-native canonical sources | System Archive object store, catalog, replica, contexts, and replay plans | `system-archive` |
@@ -53,6 +54,10 @@ exact digest-bound operator promotion creates the constitutional ledger.
 - Name explicit-only System Archive collections; never widen retrieval silently.
 - Do not expose private choice content in repository artifacts or ordinary
   memory summaries.
+- Do not expose private cadence bodies or database paths. Cadence records
+  provisional method experiments; canonical Recursive Learning alone supports
+  admitted process learning. Missing cadence configuration is a coverage gap,
+  not proof that no Dream occurred.
 - Treat absent configuration, stale views, and incomplete validation as
   coverage gaps.
 - Stop after one usable orientation and one recommended owner unless the

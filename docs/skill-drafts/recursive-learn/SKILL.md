@@ -20,6 +20,19 @@ Run:
 tools/run.ps1 recursive-learn assess --reference PATH
 ```
 
+For a cadence-originated experiment, export a digest-bound private process
+reference outside Git and assess the packet instead:
+
+```text
+tools/run.ps1 cadence export-learning-reference --episode-id ID --output ABSOLUTE_EXTERNAL_PATH --check
+tools/run.ps1 cadence export-learning-reference --episode-id ID --output ABSOLUTE_EXTERNAL_PATH
+tools/run.ps1 recursive-learn assess --process-reference ABSOLUTE_EXTERNAL_PATH
+```
+
+Cadence prose and events are orientation and provenance only. Recursive Learn
+alone maps repository artifacts into the five stages. Implementation tests are
+validation, never outcome; later use must be separately observed.
+
 Classify the reference as `non-candidate`, `observation-only`,
 `partial-candidate`, `admissible`, or `already-represented`. A journal entry or
 technical companion supplies interpretive context, never stage evidence.
@@ -48,6 +61,8 @@ tools/run.ps1 recursive-learn candidate --reference PATH --output ABSOLUTE_EXTER
 
 Candidate creation grants no ledger authority. Keep honest missing measurements
 in `partial-feedback-loop` / `partial` entries; never manufacture closure.
+Use `--process-reference` instead of `--reference` for an exported cadence
+packet.
 
 ## Preserve an assessor outcome
 

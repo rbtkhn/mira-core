@@ -56,6 +56,15 @@ def decision_surface(
             "all_navigation_reason": (
                 None if executable_keys else all_navigation_reason
             ),
+            "blocked_action": (
+                None
+                if executable_keys
+                else {
+                    "action": "Execute the bounded next step",
+                    "blocker": "No safe target is bounded from current evidence",
+                    "ready_when": "A concrete target and verification step are known",
+                }
+            ),
         },
         "options": [
             {
@@ -93,6 +102,11 @@ def test_decision_surface_accepts_three_or_four_options(count: int) -> None:
     assert normalized["action_readiness"] == {
         "ready_option_keys": [],
         "all_navigation_reason": "no-bounded-action",
+        "blocked_action": {
+            "action": "Execute the bounded next step",
+            "blocker": "No safe target is bounded from current evidence",
+            "ready_when": "A concrete target and verification step are known",
+        },
     }
 
 
@@ -219,6 +233,7 @@ def test_mixed_surface_requires_ready_keys_to_match_executable_options() -> None
     assert normalized["action_readiness"] == {
         "ready_option_keys": ["path-0"],
         "all_navigation_reason": None,
+        "blocked_action": None,
     }
 
     omitted = decision_surface(
@@ -247,12 +262,23 @@ def test_all_navigation_surface_requires_a_bounded_reason() -> None:
         "no-bounded-action",
         "material-choice-unresolved",
         "operator-requested-read-only",
-        "action-complete",
     ):
         normalized = elicitation.validate_elicitation_surface(
             decision_surface(all_navigation_reason=reason)
         )
         assert normalized["action_readiness"]["all_navigation_reason"] == reason
+
+
+def test_all_navigation_surface_requires_concrete_blocked_action_audit() -> None:
+    missing = decision_surface()
+    del missing["action_readiness"]["blocked_action"]
+    with pytest.raises(elicitation.ElicitationError, match="blocked_action audit"):
+        elicitation.validate_elicitation_surface(missing)
+
+    incomplete = decision_surface()
+    incomplete["action_readiness"]["blocked_action"]["ready_when"] = ""
+    with pytest.raises(elicitation.ElicitationError, match="ready_when"):
+        elicitation.validate_elicitation_surface(incomplete)
 
 
 def test_action_ready_surface_rejects_all_navigation_reason() -> None:

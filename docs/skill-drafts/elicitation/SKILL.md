@@ -44,7 +44,8 @@ Every `decision-navigation` surface must include:
 {
   "action_readiness": {
     "ready_option_keys": ["apply-bounded-change"],
-    "all_navigation_reason": null
+    "all_navigation_reason": null,
+    "blocked_action": null
   }
 }
 ```
@@ -53,14 +54,20 @@ Every `decision-navigation` surface must include:
 `selection_effect` is `execute`, `commit`, `push`, or `send`. When every option
 is navigational, the list must be empty and `all_navigation_reason` must be one
 of `no-bounded-action`, `material-choice-unresolved`,
-`operator-requested-read-only`, or `action-complete`.
+or `operator-requested-read-only`. It must also include a `blocked_action`
+object naming the concrete action considered, its present blocker, and the
+condition that would make it ready. This audit prevents a generic navigation
+label from concealing work the agent could already perform.
 
 Treat an action as ready when its exact action, target, and verification step
 are bounded, no material human choice remains unresolved, and authority is the
 only blocker. If that action is the recommended next path, the recommended
 option must be executable. Do not substitute a request to settle, confirm,
 adopt, or approve a scope that is already bounded. Validate the complete mixed
-surface before presenting it.
+surface before presenting it. Every decision surface must contain at least one
+actionable option unless the complete blocked-action audit proves why none can
+be safely bounded. Do the available read-only scoping first; do not transfer
+avoidable cognitive load back to the operator.
 
 ## Run contradiction preflight when warranted
 

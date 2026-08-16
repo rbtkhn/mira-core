@@ -9,7 +9,9 @@ Use only in `mira-core`. Coffee is read-only.
 
 ## Orient
 
-1. Run `tools/run.ps1 cadence coffee --json`.
+1. Run `tools/run.ps1 cadence coffee --format markdown` with the configured
+   private cadence store. Return its deterministic four-action menu verbatim;
+   do not remove, reorder, rename, replace, or hand-compose actions.
    Start it once. If the execution remains live, resume or poll the returned
    session rather than launching a duplicate cadence command.
 2. Inspect Git status, `narrative-geopolitics/public/watch.md`, accountable
@@ -50,7 +52,9 @@ Use only in `mira-core`. Coffee is read-only.
 
 Briefly state what was learned, the bounded evidence supporting it, whether it
 is safe to inherit, and what remains unverified. Offer exactly four grounded
-actions:
+actions. At least one must be action-ready with `selection_effect: execute`, a
+visible label beginning `Execute:`, an exact read-only source, and a stated
+verification result:
 
 - `A. Confirm` (`recommended`) — validate a claimed improvement before adopting it.
 - `B. Test` (`alternative`) — run a discriminating falsifier or comparison.
@@ -59,5 +63,12 @@ actions:
 
 Recommend one action and stop on the menu. Each action must name an artifact,
 forecast, crisis object, observable, or method change.
+
+If the renderer reports `insufficient_grounding`, fail closed and report that
+no honest four-action Coffee packet can be formed. Never invent filler actions.
+Selecting a navigation-only letter develops that branch. Selecting the
+validated action-ready letter authorizes only its exact read-only comparison;
+disposition, testing, promotion, RSI assessment, and admission remain
+separately authorized.
 
 Do not mutate intake, archive evidence, forecasts, publication, or Git state.

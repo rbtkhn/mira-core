@@ -149,18 +149,22 @@ present:
 .\tools\run.ps1 skills-sync --dry-run
 ```
 
-Coffee and dream are local operator contracts. They are not globally deployed.
-They close one advisory learning loop through an ignored local handoff:
+Coffee and Dream are local operator contracts. They are not globally deployed.
+They close advisory learning loops through a configured append-only private
+SQLite ledger outside Git:
 
 ```powershell
-.\tools\run.ps1 cadence coffee --json
-.\tools\run.ps1 cadence dream --experiment "TEXT" --outcome improved --lesson "TEXT" --improvement "TEXT" --evidence-summary "TEXT" --artifact-ref "PATH" --tomorrow-inherits "TEXT" --json
+$env:MIRA_CORE_CADENCE_DB = 'C:\private\mira-core-cadence.sqlite3'
+.\tools\run.ps1 cadence coffee --format markdown
+.\tools\run.ps1 cadence dream --help
 ```
 
-Dream verifies the repository before recording one experiment, its bounded
-evidence, supporting repository artifacts, and a candidate method change.
-Coffee inherits it only when verification passed and the Git worktree still
-matches. The handoff is never archive evidence or a research ledger.
+Dream records one falsifiable experiment, its bounded evidence handles,
+verification receipts, observable, expiry, and candidate method change.
+Coffee reads the oldest actionable candidate and deterministically returns
+exactly four grounded, navigation-only actions. Relevant state changes require
+reconciliation; unrelated Git movement does not invalidate local applicability.
+Cadence is never archive evidence or the canonical Recursive Learning ledger.
 
 ## System Improvement
 

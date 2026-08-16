@@ -107,7 +107,11 @@ Treat a bare letter as “enter and develop this branch.” Continue read-only
 investigation already in scope. Do not infer authority to mutate, execute,
 spend, publish, communicate, act on customers, stage, commit, push, or deploy.
 
-Ordinary possibility menus are navigation-only. An action-ready option must be
+Every possibility menu has an actionability floor: include at least one
+actionable option whenever a safe bounded action can be made ready from the
+current evidence. Do the reversible read-only scoping needed to identify its
+exact action, target, and verification step instead of making the operator
+repeat or reconstruct that scope. An action-ready option must be
 composed and validated by `elicitation` as `decision-navigation`, with a
 machine-checked `selection_effect` matching the label's first token. Only
 `Execute`, `Commit`, `Push`, and `Send` can authorize the exact visible bounded
@@ -121,9 +125,18 @@ option independently. If an exact action, target, and verification step are
 ready, no material choice remains unresolved, and authority is the only
 blocker, use a validated mixed `decision-navigation` surface and declare that
 option in `action_readiness.ready_option_keys`. Other options may remain
-navigational. Never replace the ready action with a request to settle, confirm,
+navigational. Never replace the ready action with a request to inspect, settle, confirm,
 adopt, or approve its already-bounded scope. For an all-navigation surface,
-record the bounded `all_navigation_reason` required by Elicitation.
+record the bounded `all_navigation_reason` and concrete `blocked_action` audit
+required by Elicitation. Navigation-only is exceptional: it is valid only when
+no safe action is bounded, a material human choice remains unresolved, or the
+operator explicitly requested read-only work. A completed action closes the
+branch; it is not a reason to manufacture another navigation-only menu.
+
+Do not present consecutive navigation-only menus for the same objective. After
+one navigation-only selection, the next response must deliver the developed
+result and either include an actionable option, close the branch, or ask the
+single factual question that blocks action readiness.
 
 The universal possibility footer is not automatically an Elicitation surface.
 Apply Elicitation's implicit-invocation gate independently. Only a

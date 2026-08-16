@@ -26,6 +26,7 @@ ASSESSOR_IMPLEMENTATION_PATHS = (
 ENTRY_ID_RE = re.compile(r"^RSI-\d{8}-\d{2}$")
 COMMIT_RE = re.compile(r"^[0-9a-f]{7,40}$")
 REFERENCE_ID_RE = re.compile(r"^MJTR-\d{8}-v[1-9]\d*$")
+PROCESS_REFERENCE_ID_RE = re.compile(r"^CPR-[A-Za-z0-9._:-]{1,100}$")
 REQUIRED_STAGES = ("observation", "diagnosis", "intervention", "validation", "outcome")
 ALLOWED_CLASSES = {
     "closed-feedback-loop",
@@ -169,6 +170,28 @@ def persist_outcome_receipt(path: Path, encoded: bytes, *, check: bool) -> tuple
 
 def admission_statement(entry_id: str, candidate_digest: str) -> str:
     return f"Admit recursive learning entry {entry_id} with digest {candidate_digest}."
+
+
+def write_correspondence_receipt(
+    *, process_reference: Path, output: Path, entry_id: str,
+    candidate_sha256: str, admission_digest: str,
+) -> dict[str, Any]:
+    packet = load_process_reference(process_reference)
+    target = external_output(output)
+    body = {
+        "source_episode_id": packet["source_episode_id"],
+        "process_reference_sha256": sha256_bytes(process_reference.expanduser().resolve().read_bytes()),
+        "rsi_id": entry_id,
+        "candidate_sha256": candidate_sha256,
+        "admission_digest": admission_digest,
+    }
+    receipt = {
+        "schema_version": 1,
+        "correspondence": body,
+        "correspondence_sha256": sha256_bytes(canonical_json(body).encode("utf-8")),
+    }
+    atomic_write_json(target, receipt)
+    return {"output": str(target), "correspondence_sha256": receipt["correspondence_sha256"]}
 
 
 def load_ledger(path: Path | None = None) -> dict[str, Any]:
@@ -706,6 +729,151 @@ def validated_reference(path: Path) -> dict[str, Any]:
     return reference
 
 
+def load_process_reference(path: Path) -> dict[str, Any]:
+    resolved = external_output(path)
+    try:
+        packet = json.loads(resolved.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as error:
+        raise LearningError(f"could not read process-learning reference: {error}") from error
+    if not isinstance(packet, dict) or packet.get("reference_kind") != "cadence-process-learning":
+        raise LearningError("process-learning reference has an invalid kind")
+    if packet.get("schema_version") != 1:
+        raise LearningError("process-learning reference has an unsupported schema")
+    if not PROCESS_REFERENCE_ID_RE.fullmatch(str(packet.get("reference_id", ""))):
+        raise LearningError("process-learning reference has a malformed reference_id")
+    if not re.fullmatch(r"[0-9a-f]{64}", str(packet.get("event_chain_digest", ""))):
+        raise LearningError("process-learning reference lacks a valid event-chain digest")
+    artifacts = packet.get("artifacts")
+    if not isinstance(artifacts, list) or not artifacts:
+        raise LearningError("process-learning reference lacks artifact evidence handles")
+    chronology = packet.get("chronology")
+    if not isinstance(chronology, list) or not chronology:
+        raise LearningError("process-learning reference lacks chronology")
+    previous_time: datetime | None = None
+    previous_digest: str | None = None
+    for event in chronology:
+        if not isinstance(event, dict):
+            raise LearningError("process-learning chronology rows must be objects")
+        observed = parse_observed_at(str(event.get("occurred_at", "")))
+        if previous_time and observed < previous_time:
+            raise LearningError("process-learning chronology is not ordered")
+        previous_time = observed
+        body = {
+            "event_id": event.get("event_id"),
+            "episode_id": packet.get("source_episode_id"),
+            "event_type": event.get("event_type"),
+            "occurred_at": event.get("occurred_at"),
+            "lifecycle_version": event.get("lifecycle_version"),
+            "payload": event.get("payload"),
+            "previous_event_sha256": previous_digest,
+        }
+        if event.get("previous_event_sha256") != previous_digest or event.get("event_sha256") != sha256_bytes(canonical_json(body).encode("utf-8")):
+            raise LearningError("process-learning event chain does not validate")
+        previous_digest = str(event.get("event_sha256"))
+    if previous_digest != packet.get("event_chain_digest"):
+        raise LearningError("process-learning terminal event-chain digest does not match")
+    for artifact in artifacts:
+        if not isinstance(artifact, dict):
+            raise LearningError("process-learning artifact handles must be objects")
+        path = str(artifact.get("ref", "")).split("#", 1)[0]
+        if Path(path).is_absolute() or ".." in Path(path).parts or not (REPO_ROOT / path).exists():
+            raise LearningError(f"process-learning artifact does not resolve: {path}")
+        if _is_journal_path(path):
+            raise LearningError("journal context cannot serve as process-learning evidence")
+    return packet
+
+
+def process_candidate_id(packet: dict[str, Any], ledger: dict[str, Any]) -> str:
+    chronology = packet["chronology"]
+    date_text = parse_observed_at(str(chronology[0]["occurred_at"])).strftime("%Y%m%d")
+    used = {str(entry.get("id")) for entry in ledger.get("entries", [])}
+    start = int(sha256_bytes(str(packet["reference_id"]).encode("utf-8"))[:4], 16) % 90 + 10
+    for offset in range(90):
+        value = 10 + ((start - 10 + offset) % 90)
+        candidate = f"RSI-{date_text}-{value:02d}"
+        if candidate not in used:
+            return candidate
+    raise LearningError(f"no available recursive-learning ID remains for {date_text}")
+
+
+def process_stage_paths(packet: dict[str, Any], relationship: str) -> list[str]:
+    return sorted(
+        {
+            str(item["ref"]).split("#", 1)[0]
+            for item in packet["artifacts"]
+            if item.get("relationship") == relationship
+        }
+    )
+
+
+def candidate_from_process_reference(
+    packet: dict[str, Any], *, ledger: dict[str, Any] | None = None
+) -> dict[str, Any]:
+    current = ledger or load_ledger()
+    claims = packet.get("claims") or {}
+    observation_paths = process_stage_paths(packet, "behavior-observation")
+    intervention_paths = process_stage_paths(packet, "implementation")
+    validation_paths = process_stage_paths(packet, "verification")
+    outcome_paths = process_stage_paths(packet, "later-use")
+    later_use = claims.get("outcome") if isinstance(claims.get("outcome"), dict) else None
+    commits = [str(value) for value in packet.get("intervention_commits", []) if COMMIT_RE.fullmatch(str(value))]
+    partial = not all((observation_paths, intervention_paths, validation_paths, outcome_paths, later_use, commits))
+    measure = (
+        canonical_json(later_use.get("observed"))
+        if later_use and later_use.get("observed") is not None
+        else "Comparable post-intervention measurement pending."
+    )
+    return {
+        "id": process_candidate_id(packet, current),
+        "date": parse_observed_at(str(packet["chronology"][0]["occurred_at"])).date().isoformat(),
+        "title": str(claims.get("intervention") or "Cadence process-learning candidate"),
+        "class": "partial-feedback-loop" if partial else "closed-feedback-loop",
+        "closure_state": "partial" if partial else "measured",
+        "journal_context_refs": [],
+        "observation": {"summary": str(claims.get("observation") or "Cadence observed system behavior."), "evidence_paths": observation_paths},
+        "diagnosis": {"summary": str(claims.get("diagnosis") or "The process weakness remains to be diagnosed."), "evidence_paths": observation_paths},
+        "intervention": {"summary": str(claims.get("intervention") or "A persistent intervention remains to be evidenced."), "commits": commits, "evidence_paths": intervention_paths},
+        "validation": {"summary": "Separate verification exercised the intervention." if validation_paths else "Separate validation remains pending.", "evidence_paths": validation_paths},
+        "outcome": {"summary": "A comparable later use was observed." if later_use else "A comparable later-use outcome remains pending.", "measure": measure, "evidence_paths": outcome_paths},
+        "next_measure": "Observe one comparable later use with the same method, metric, unit, and task class." if partial else "Compare the next eligible repetition for regression or boundary drift.",
+    }
+
+
+def assess_process_reference(packet: dict[str, Any], *, ledger: dict[str, Any] | None = None) -> dict[str, Any]:
+    current = ledger or load_ledger()
+    candidate = candidate_from_process_reference(packet, ledger=current)
+    represented = any(
+        str(entry.get("title", "")) == candidate["title"]
+        and str(entry.get("date", "")) == candidate["date"]
+        for entry in current.get("entries", [])
+    )
+    stage_disposition = {}
+    for stage in REQUIRED_STAGES:
+        paths = candidate[stage].get("evidence_paths", [])
+        stage_disposition[stage] = {
+            "status": "provided" if paths else "missing",
+            "evidence_paths": paths,
+            "reason": "repository evidence supplied" if paths else "no repository evidence supplied",
+        }
+    failures = validate_entry(candidate)
+    status = "already-represented" if represented else (
+        "admissible" if not failures and candidate["closure_state"] != "partial" else
+        ("observation-only" if stage_disposition["observation"]["status"] == "provided" and all(stage_disposition[name]["status"] == "missing" for name in REQUIRED_STAGES[1:]) else "partial-candidate")
+    )
+    return {
+        "status": status,
+        "reference_id": packet["reference_id"],
+        "candidate_entry_id": candidate["id"],
+        "stage_dispositions": stage_disposition,
+        "evidence_read_scope": {
+            "mode": "full-stage-evidence",
+            "stage_evidence_paths": sorted({path for stage in REQUIRED_STAGES for path in candidate[stage].get("evidence_paths", [])}),
+        },
+        "failures": failures,
+        "private_context_is_stage_evidence": False,
+    }
+
+
 def admit_candidate(
     candidate: dict[str, Any],
     *,
@@ -770,10 +938,14 @@ def parser() -> argparse.ArgumentParser:
     root.add_argument("--write", action="store_true", help=argparse.SUPPRESS)
     root.add_argument("--check", action="store_true", help=argparse.SUPPRESS)
     subparsers = root.add_subparsers(dest="command")
-    assess = subparsers.add_parser("assess", help="Assess a journal technical reference read-only.")
-    assess.add_argument("--reference", type=Path, required=True)
+    assess = subparsers.add_parser("assess", help="Assess a journal or private process-learning reference read-only.")
+    assess_source = assess.add_mutually_exclusive_group(required=True)
+    assess_source.add_argument("--reference", type=Path)
+    assess_source.add_argument("--process-reference", type=Path)
     candidate = subparsers.add_parser("candidate", help="Build a private candidate from an admissible reference.")
-    candidate.add_argument("--reference", type=Path, required=True)
+    candidate_source = candidate.add_mutually_exclusive_group(required=True)
+    candidate_source.add_argument("--reference", type=Path)
+    candidate_source.add_argument("--process-reference", type=Path)
     candidate.add_argument("--output", type=Path, required=True)
     candidate.add_argument("--check", action="store_true")
     receipt = subparsers.add_parser(
@@ -790,6 +962,8 @@ def parser() -> argparse.ArgumentParser:
     admit.add_argument("--authority-ref", required=True)
     admit.add_argument("--approval-record-ref", required=True)
     admit.add_argument("--check", action="store_true")
+    admit.add_argument("--process-reference", type=Path)
+    admit.add_argument("--correspondence-output", type=Path)
     render = subparsers.add_parser("render", help="Render the canonical Markdown view.")
     render.add_argument("--check", action="store_true")
     subparsers.add_parser("validate", help="Validate the canonical ledger and Markdown view.")
@@ -804,9 +978,20 @@ def main(arguments: list[str] | None = None) -> int:
     args = parse_args(arguments)
     try:
         if args.command == "assess":
-            result = assess_reference(validated_reference(args.reference))
+            result = (
+                assess_process_reference(load_process_reference(args.process_reference))
+                if args.process_reference
+                else assess_reference(validated_reference(args.reference))
+            )
         elif args.command == "candidate":
-            candidate = candidate_from_reference(validated_reference(args.reference))
+            if args.process_reference:
+                packet = load_process_reference(args.process_reference)
+                assessment = assess_process_reference(packet)
+                if assessment["status"] not in {"admissible", "partial-candidate"}:
+                    raise LearningError(f"process-learning reference is not a candidate: {assessment['status']}")
+                candidate = candidate_from_process_reference(packet)
+            else:
+                candidate = candidate_from_reference(validated_reference(args.reference))
             output = external_output(args.output)
             if not args.check:
                 atomic_write_json(output, candidate)
@@ -833,6 +1018,15 @@ def main(arguments: list[str] | None = None) -> int:
                 approval_record_ref=args.approval_record_ref,
                 check=args.check,
             )
+            if args.correspondence_output and not args.process_reference:
+                raise LearningError("--correspondence-output requires --process-reference")
+            if args.process_reference and args.correspondence_output and not args.check:
+                result["correspondence"] = write_correspondence_receipt(
+                    process_reference=args.process_reference,
+                    output=args.correspondence_output,
+                    entry_id=result["entry_id"], candidate_sha256=result["candidate_sha256"],
+                    admission_digest=sha256_bytes(canonical_json(result).encode("utf-8")),
+                )
         elif args.command == "render":
             expected = render_markdown(load_ledger())
             matches = LEDGER_MD_PATH.is_file() and LEDGER_MD_PATH.read_text(encoding="utf-8") == expected

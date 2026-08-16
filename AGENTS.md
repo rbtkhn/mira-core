@@ -315,13 +315,22 @@ as `Recommended`; stable possibility roles belong after the executable verb.
 
 Before presenting any possibility footer, classify action readiness for each
 option independently. A decision surface may mix executable and navigational
-options. When an exact bounded action, target, and verification step are ready,
+options. Every possibility menu must contain at least one actionable option
+whenever a safe bounded action can be made ready from current evidence. Perform
+the reversible read-only scoping needed to make that option exact; do not make
+the operator repeat scope the system can recover. When an exact bounded action,
+target, and verification step are ready,
 no material choice remains unresolved, and authority is the only blocker, the
 surface must declare that option ready, give it the matching executable
 `selection_effect`, and pass `elicitation validate`. Do not replace a ready
 action with a navigational request to settle, confirm, adopt, or approve an
-already-bounded scope. An all-navigation surface must declare the bounded
-reason no action is ready.
+already-bounded scope. An all-navigation surface is exceptional and must
+declare both the bounded reason no action is ready and a concrete blocked-action
+audit naming the action considered, its blocker, and what would make it ready.
+A completed action closes the branch rather than justifying a new
+navigation-only menu. Do not present consecutive navigation-only menus for the
+same objective: the next response must deliver the developed result and either
+offer an actionable option, close, or ask the single blocking factual question.
 
 Selection closure and idempotence: after a branch is confirmed, paused, or
 otherwise settled, a repeated selection of the same stable option is a no-op.

@@ -62,7 +62,8 @@ $env:MIRA_CORE_SESSION_TEMP_ROOT = 'C:\private\mira-core-test-temp'
 .\tools\validate.ps1 -Mode Fast -TempRoot $env:MIRA_CORE_SESSION_TEMP_ROOT
 .\tools\validate.ps1 -TempRoot $env:MIRA_CORE_SESSION_TEMP_ROOT
 .\tools\validate.ps1 -Force -TempRoot $env:MIRA_CORE_SESSION_TEMP_ROOT
-.\tools\run.ps1 cadence coffee --json
+$env:MIRA_CORE_CADENCE_DB = 'C:\private\mira-core-cadence.sqlite3'
+.\tools\run.ps1 cadence coffee --format markdown
 .\tools\run.ps1 harness
 .\tools\run.ps1 system-archive status
 ```
