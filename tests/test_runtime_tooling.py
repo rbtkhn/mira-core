@@ -71,6 +71,7 @@ EXPECTED_SURFACES = {
     "reality-handoff": "reality_handoff.py",
     "recursive-learn": "recursive_learning_ledger.py",
     "research-handoff": "research_handoff.py",
+    "runtime-bootstrap": "runtime_bootstrap.py",
     "session-preflight": "session_preflight.py",
     "skills-check": "check_codex_skills_sync.py",
     "skills-sync": "sync_codex_skills.py",
@@ -752,6 +753,25 @@ def test_full_result_fingerprint_is_content_based(tmp_path: Path) -> None:
     ) != first
 
 
+def test_full_result_fingerprint_changes_with_runtime_and_dependencies(
+    tmp_path: Path,
+) -> None:
+    write_pyproject(tmp_path, 'test = ["pytest>=8"]')
+    (tmp_path / "tracked.txt").write_text("same content\n", encoding="utf-8")
+    paths = ["pyproject.toml", "tracked.txt"]
+    first = validator.full_result_fingerprint(tmp_path / "python-a", tmp_path, paths=paths)
+
+    assert (
+        validator.full_result_fingerprint(tmp_path / "python-b", tmp_path, paths=paths)
+        != first
+    )
+    write_pyproject(tmp_path, 'test = ["pytest>=9"]')
+    assert (
+        validator.full_result_fingerprint(tmp_path / "python-a", tmp_path, paths=paths)
+        != first
+    )
+
+
 def test_successful_full_result_cache_rejects_failure_and_wrong_fingerprint(
     tmp_path: Path,
 ) -> None:
@@ -1031,3 +1051,25 @@ def test_compatibility_shim_no_longer_requires_dot_venv() -> None:
     assert "DEPRECATED" in shim
     assert ".venv" not in shim
     assert "runtime_bootstrap.py" in shim
+
+
+def test_runtime_bootstrap_returns_validation_python_with_declared_dependencies() -> None:
+    python = bootstrap.resolve_validation_python()
+    probe = subprocess.run(
+        [
+            str(python),
+            "-c",
+            (
+                "import yaml,zstandard;"
+                "from zoneinfo import ZoneInfo;"
+                "ZoneInfo('America/Denver');"
+                "print('ready')"
+            ),
+        ],
+        check=True,
+        capture_output=True,
+        text=True,
+    )
+    assert probe.stdout.strip() == "ready"
+    readme = (REPO_ROOT / "README.md").read_text(encoding="utf-8")
+    assert ".\\tools\\run.ps1 runtime-bootstrap --print-python" in readme
