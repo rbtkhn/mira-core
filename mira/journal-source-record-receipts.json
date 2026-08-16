@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "receipt_set_id": "mira-journal-source-record-receipts-v1",
+  "authority_effect": "none",
+  "records": [
+    {
+      "session_id": "MS-019fce7b-67cd-7753-be6c-74f76e2f9b7a",
+      "record_ref": "MR-1cc1374e45a6a43dc41b7215",
+      "text_sha256": "48be682c72ebcda3a6dfe41db82c624b03f00a671df93ad04d3427b713e8fe13"
+    },
+    {
+      "session_id": "MS-019fce7b-67cd-7753-be6c-74f76e2f9b7a",
+      "record_ref": "MR-66a692f400ec06f904975313",
+      "text_sha256": "0a78a22d56f9566fed0d8bcbdd5d0fabbdaa3856821f24a8b84b47fdbe23eff7"
+    },
+    {
+      "session_id": "MS-019fce7b-67cd-7753-be6c-74f76e2f9b7a",
+      "record_ref": "MR-ee29da5f8def0e151451fa9f",
+      "text_sha256": "a36e7a6fd0870d4d64542de80c0e247f798aa68411e5e471a95403728cdd425f"
+    }
+  ]
+}

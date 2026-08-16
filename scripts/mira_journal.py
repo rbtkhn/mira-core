@@ -51,6 +51,14 @@ MAINTENANCE_ID_RE = re.compile(r"^MJM-[0-9]{4}$")
 AFFIRMATIVE_APPROVAL_STATUS = "affirmative-v1"
 COMBINED_APPROVAL_STATUS = "affirmative-v2"
 LEGACY_HELD_STATUS = "legacy-held"
+APPROVAL_RECEIPT_SCHEMA_VERSION = 1
+APPROVAL_RECEIPT_SET_ID = "mira-journal-approval-receipts-v1"
+APPROVAL_RECEIPT_FIELDS = {
+    "version_id", "authority_ref", "record_ref", "kind", "role", "timestamp", "text_sha256"
+}
+SOURCE_RECEIPT_SCHEMA_VERSION = 1
+SOURCE_RECEIPT_SET_ID = "mira-journal-source-record-receipts-v1"
+SOURCE_RECEIPT_FIELDS = {"session_id", "record_ref", "text_sha256"}
 EPISTEMIC_CLASSES = {
     "operator-direction",
     "agent-interpretation",
@@ -604,6 +612,149 @@ def row_text(row: dict[str, Any]) -> str:
     if row.get("kind") == "operation":
         return str(row.get("event", ""))
     return canonical_json({key: value for key, value in row.items() if key not in {"schema_version"}})
+
+
+def approval_receipts_path(repo_root: Path | None = None) -> Path:
+    return (repo_root or REPO_ROOT) / "mira" / "journal-approval-receipts.json"
+
+
+def empty_approval_receipts() -> dict[str, Any]:
+    return {
+        "schema_version": APPROVAL_RECEIPT_SCHEMA_VERSION,
+        "receipt_set_id": APPROVAL_RECEIPT_SET_ID,
+        "authority_effect": "none",
+        "records": [],
+    }
+
+
+def load_approval_receipts(repo_root: Path | None = None) -> dict[str, Any]:
+    path = approval_receipts_path(repo_root)
+    return load_json(path) if path.is_file() else empty_approval_receipts()
+
+
+def approval_receipt_map(
+    repo_root: Path | None = None,
+) -> tuple[dict[str, dict[str, Any]], list[str]]:
+    root = repo_root or REPO_ROOT
+    failures: list[str] = []
+    try:
+        ledger = load_approval_receipts(root)
+    except JournalError as error:
+        return {}, [str(error)]
+    if set(ledger) != {"schema_version", "receipt_set_id", "authority_effect", "records"}:
+        failures.append("journal approval receipt ledger fields mismatch")
+    if ledger.get("schema_version") != APPROVAL_RECEIPT_SCHEMA_VERSION:
+        failures.append("journal approval receipt schema_version mismatch")
+    if ledger.get("receipt_set_id") != APPROVAL_RECEIPT_SET_ID:
+        failures.append("journal approval receipt_set_id mismatch")
+    if ledger.get("authority_effect") != "none":
+        failures.append("journal approval receipts must have no authority effect")
+    records = ledger.get("records")
+    if not isinstance(records, list):
+        return {}, failures + ["journal approval receipt records must be a list"]
+    result: dict[str, dict[str, Any]] = {}
+    seen_records: set[str] = set()
+    for record in records:
+        if not isinstance(record, dict) or set(record) != APPROVAL_RECEIPT_FIELDS:
+            failures.append("journal approval receipt fields mismatch")
+            continue
+        version_id = str(record.get("version_id", ""))
+        authority_ref = str(record.get("authority_ref", ""))
+        record_ref = str(record.get("record_ref", ""))
+        if not VERSION_ID_RE.fullmatch(version_id) or version_id in result:
+            failures.append(f"invalid or duplicate journal approval receipt version: {version_id}")
+            continue
+        if not SESSION_ID_RE.fullmatch(authority_ref):
+            failures.append(f"journal approval receipt has malformed authority: {version_id}")
+        if not RECORD_ID_RE.fullmatch(record_ref) or record_ref in seen_records:
+            failures.append(f"invalid or duplicate journal approval receipt record: {version_id}")
+        seen_records.add(record_ref)
+        if record.get("kind") != "message" or record.get("role") != "user":
+            failures.append(f"journal approval receipt is not a user message: {version_id}")
+        try:
+            parse_timestamp(str(record.get("timestamp", "")), label="approval receipt timestamp")
+        except JournalError:
+            failures.append(f"journal approval receipt has invalid timestamp: {version_id}")
+        if not SHA256_RE.fullmatch(str(record.get("text_sha256", ""))):
+            failures.append(f"journal approval receipt has invalid text digest: {version_id}")
+        result[version_id] = record
+    return result, failures
+
+
+def approval_receipt(
+    version_id: str,
+    authority_ref: str,
+    record_ref: str,
+    row: dict[str, Any],
+) -> dict[str, Any]:
+    return {
+        "version_id": version_id,
+        "authority_ref": authority_ref,
+        "record_ref": record_ref,
+        "kind": str(row.get("kind", "")),
+        "role": str(row.get("role", "")),
+        "timestamp": str(row.get("timestamp", "")),
+        "text_sha256": sha256_bytes(row_text(row).strip().encode("utf-8")),
+    }
+
+
+def with_approval_receipt(
+    ledger: dict[str, Any], receipt: dict[str, Any]
+) -> dict[str, Any]:
+    updated = copy.deepcopy(ledger)
+    records = [
+        record
+        for record in updated.setdefault("records", [])
+        if record.get("version_id") != receipt["version_id"]
+    ]
+    records.append(receipt)
+    records.sort(key=lambda record: record["version_id"])
+    updated["records"] = records
+    return updated
+
+
+def source_record_receipts_path(repo_root: Path | None = None) -> Path:
+    return (repo_root or REPO_ROOT) / "mira" / "journal-source-record-receipts.json"
+
+
+def source_record_receipt_map(
+    repo_root: Path | None = None,
+) -> tuple[dict[tuple[str, str], dict[str, Any]], list[str]]:
+    path = source_record_receipts_path(repo_root)
+    if not path.is_file():
+        return {}, []
+    try:
+        ledger = load_json(path)
+    except JournalError as error:
+        return {}, [str(error)]
+    failures: list[str] = []
+    if set(ledger) != {"schema_version", "receipt_set_id", "authority_effect", "records"}:
+        failures.append("journal source receipt ledger fields mismatch")
+    if ledger.get("schema_version") != SOURCE_RECEIPT_SCHEMA_VERSION:
+        failures.append("journal source receipt schema_version mismatch")
+    if ledger.get("receipt_set_id") != SOURCE_RECEIPT_SET_ID:
+        failures.append("journal source receipt_set_id mismatch")
+    if ledger.get("authority_effect") != "none":
+        failures.append("journal source receipts must have no authority effect")
+    records = ledger.get("records")
+    if not isinstance(records, list):
+        return {}, failures + ["journal source receipt records must be a list"]
+    result: dict[tuple[str, str], dict[str, Any]] = {}
+    for record in records:
+        if not isinstance(record, dict) or set(record) != SOURCE_RECEIPT_FIELDS:
+            failures.append("journal source receipt fields mismatch")
+            continue
+        session_id = str(record.get("session_id", ""))
+        record_ref = str(record.get("record_ref", ""))
+        key = (session_id, record_ref)
+        if not SESSION_ID_RE.fullmatch(session_id):
+            failures.append(f"journal source receipt has malformed session: {record_ref}")
+        if not RECORD_ID_RE.fullmatch(record_ref) or key in result:
+            failures.append(f"invalid or duplicate journal source receipt: {record_ref}")
+        if not SHA256_RE.fullmatch(str(record.get("text_sha256", ""))):
+            failures.append(f"journal source receipt has invalid text digest: {record_ref}")
+        result[key] = record
+    return result, failures
 
 
 def epistemic_metadata(row: dict[str, Any]) -> dict[str, Any]:
@@ -1657,6 +1808,10 @@ def validate_registry(
     index_path: Path | None = None,
 ) -> list[str]:
     failures: list[str] = []
+    approval_receipts, receipt_failures = approval_receipt_map(repo_root)
+    failures.extend(receipt_failures)
+    source_receipts, source_receipt_failures = source_record_receipt_map(repo_root)
+    failures.extend(source_receipt_failures)
     expected_continuity = build_continuity_index(registry, repo_root=repo_root)
     known_captures: dict[tuple[str, str], dict[str, Any]] = {}
     known_sessions: set[str] = set()
@@ -1756,34 +1911,68 @@ def validate_registry(
                 if not RECORD_ID_RE.fullmatch(approval_record_ref):
                     failures.append(f"journal version lacks exact operator approval record: {expected_version}")
                 else:
+                    approval_status = approval.get("status")
+                    publication_eligible = approval.get("publication_eligible")
+                    expected_statement: str | None = None
+                    if approval_status == AFFIRMATIVE_APPROVAL_STATUS:
+                        expected_statement = version_approval_statement(
+                            expected_version, str(version.get("content_sha256", ""))
+                        )
+                    elif approval_status == COMBINED_APPROVAL_STATUS:
+                        reference = version.get("technical_reference")
+                        expected_statement = combined_approval_statement(
+                            expected_version,
+                            str(version.get("content_sha256", "")),
+                            str(reference.get("reference_id", "")) if isinstance(reference, dict) else "",
+                            str(reference.get("content_sha256", "")) if isinstance(reference, dict) else "",
+                        )
+                    receipt = approval_receipts.get(expected_version)
+                    receipt_valid = receipt is not None
+                    if receipt is not None and (
+                        receipt.get("authority_ref") != authority_ref
+                        or receipt.get("record_ref") != approval_record_ref
+                    ):
+                        failures.append(f"journal approval receipt reference mismatch: {expected_version}")
+                        receipt_valid = False
+                    if (
+                        receipt is not None
+                        and expected_statement is not None
+                        and receipt.get("text_sha256")
+                        != sha256_bytes(expected_statement.encode("utf-8"))
+                    ):
+                        failures.append(f"journal approval receipt statement mismatch: {expected_version}")
+                        receipt_valid = False
                     authority_records = resolved_records_for_session(
                         authority_ref,
                         repo_root=repo_root,
                         required_record_ids={approval_record_ref},
                     )
                     approval_row = authority_records.get(approval_record_ref)
+                    if approval_row is not None and receipt is not None:
+                        observed_receipt = approval_receipt(
+                            expected_version, authority_ref, approval_record_ref, approval_row
+                        )
+                        if observed_receipt != receipt:
+                            failures.append(f"journal approval receipt differs from authority record: {expected_version}")
+                    if approval_row is None and receipt_valid and receipt is not None:
+                        approval_row = {
+                            "record_id": approval_record_ref,
+                            "kind": "message",
+                            "role": "user",
+                            "timestamp": receipt["timestamp"],
+                            "content": ([{"type": "text", "text": expected_statement}]
+                                        if expected_statement is not None else []),
+                        }
                     if approval_row is None:
                         failures.append(f"journal version has unresolved operator approval record: {expected_version}")
                     else:
                         approval_text = row_text(approval_row)
-                        approval_status = approval.get("status")
-                        publication_eligible = approval.get("publication_eligible")
                         if approval_status == AFFIRMATIVE_APPROVAL_STATUS:
-                            expected_statement = version_approval_statement(
-                                expected_version, str(version.get("content_sha256", ""))
-                            )
                             if approval_row.get("role") != "user" or approval_text.strip() != expected_statement:
                                 failures.append(f"journal approval record is not the exact digest-bound instruction: {expected_version}")
                             if publication_eligible is not True:
                                 failures.append(f"affirmative journal version is not publication eligible: {expected_version}")
                         elif approval_status == COMBINED_APPROVAL_STATUS:
-                            reference = version.get("technical_reference")
-                            expected_statement = combined_approval_statement(
-                                expected_version,
-                                str(version.get("content_sha256", "")),
-                                str(reference.get("reference_id", "")) if isinstance(reference, dict) else "",
-                                str(reference.get("content_sha256", "")) if isinstance(reference, dict) else "",
-                            )
                             if approval_row.get("role") != "user" or approval_text.strip() != expected_statement:
                                 failures.append(f"journal approval record does not bind prose and technical reference: {expected_version}")
                             if publication_eligible is not True:
@@ -1849,6 +2038,41 @@ def validate_registry(
                         available_records.update(str(row.get("record_id", "")) for row in rows if isinstance(row, dict))
                     if required_records - available_records and repo_root.resolve() == REPO_ROOT.resolve():
                         available_records.update(raw_records_for_session(session_id))
+                    receipt_records = {
+                        record_ref
+                        for receipt_session, record_ref in source_receipts
+                        if receipt_session == session_id
+                    }
+                    receipt_records.update(
+                        str(receipt.get("record_ref"))
+                        for receipt in approval_receipts.values()
+                        if receipt.get("authority_ref") == session_id
+                    )
+                    available_records.update(receipt_records)
+                    if receipt_records and repo_root.resolve() == REPO_ROOT.resolve():
+                        observed_rows = resolved_records_for_session(
+                            session_id,
+                            repo_root=repo_root,
+                            required_record_ids=required_records & receipt_records,
+                        )
+                        for record_ref, row in observed_rows.items():
+                            source_receipt = source_receipts.get((session_id, record_ref))
+                            approval_receipt_row = next(
+                                (
+                                    receipt
+                                    for receipt in approval_receipts.values()
+                                    if receipt.get("authority_ref") == session_id
+                                    and receipt.get("record_ref") == record_ref
+                                ),
+                                None,
+                            )
+                            receipt = source_receipt or approval_receipt_row
+                            if receipt is not None and receipt.get("text_sha256") != sha256_bytes(
+                                row_text(row).strip().encode("utf-8")
+                            ):
+                                failures.append(
+                                    f"{expected_version}: journal source receipt differs from authority record: {record_ref}"
+                                )
                     if session_id not in known_sessions and not available_records:
                         failures.append(f"{expected_version}: unresolved Mira session reference: {session_id}")
                     missing_records = sorted(required_records - available_records)
@@ -2617,6 +2841,25 @@ def approve_or_revise(args: argparse.Namespace, *, revising: bool) -> dict[str, 
         previous_digest=previous,
         draft_directory=args.draft.expanduser().resolve().parent,
     )
+    receipt_ledger = load_approval_receipts()
+    _, receipt_failures = approval_receipt_map()
+    if receipt_failures:
+        raise JournalError("; ".join(receipt_failures))
+    approval_row = resolved_records_for_session(
+        args.authority_ref,
+        required_record_ids={args.approval_record_ref},
+    ).get(args.approval_record_ref)
+    if approval_row is None:
+        raise JournalError("operator approval record does not resolve for receipt retention")
+    updated_receipts = with_approval_receipt(
+        receipt_ledger,
+        approval_receipt(
+            version["version_id"],
+            args.authority_ref,
+            args.approval_record_ref,
+            approval_row,
+        ),
+    )
     updated = copy.deepcopy(registry)
     updated_entry = next((item for item in updated.get("entries", []) if item.get("journal_id") == journal_id(entry_date)), None)
     relative = f"mira/journal/{entry_date.isoformat()}.md"
@@ -2648,6 +2891,7 @@ def approve_or_revise(args: argparse.Namespace, *, revising: bool) -> dict[str, 
             REPO_ROOT / reference_metadata["json_path"]: pretty_json(technical_reference).encode("utf-8"),
             REPO_ROOT / reference_metadata["markdown_path"]: mira_journal_references.render_reference(technical_reference).encode("utf-8"),
             REGISTRY_PATH: pretty_json(updated).encode("utf-8"),
+            approval_receipts_path(): pretty_json(updated_receipts).encode("utf-8"),
             INDEX_PATH: render_index(updated).encode("utf-8"),
             CONTINUITY_INDEX_JSON_PATH: pretty_json(continuity).encode("utf-8"),
             CONTINUITY_INDEX_MD_PATH: continuity_markdown.encode("utf-8"),

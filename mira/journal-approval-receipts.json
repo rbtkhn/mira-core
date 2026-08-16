@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "receipt_set_id": "mira-journal-approval-receipts-v1",
+  "authority_effect": "none",
+  "records": [
+    {
+      "version_id": "MJ-20260808-v1",
+      "authority_ref": "MS-019fe96c-2a54-7063-9d70-202952ee322d",
+      "record_ref": "MR-a1c34c7f91428b7b333bdb3c",
+      "kind": "message",
+      "role": "user",
+      "timestamp": "2026-08-14T05:10:19.044Z",
+      "text_sha256": "e8807f6ed084fc7c790cdfaf146fd8623fdd67b1526f847dcf21db81dc78796a"
+    },
+    {
+      "version_id": "MJ-20260809-v1",
+      "authority_ref": "MS-019fce7b-67cd-7753-be6c-74f76e2f9b7a",
+      "record_ref": "MR-ee9f4f321513a143e71a7b56",
+      "kind": "message",
+      "role": "user",
+      "timestamp": "2026-08-09T15:07:59.791Z",
+      "text_sha256": "7dbda749867592342029bd2209fa658f6ce8817cf0cd07725b7fcdda471c4316"
+    },
+    {
+      "version_id": "MJ-20260814-v1",
+      "authority_ref": "MS-019fe96c-2a54-7063-9d70-202952ee322d",
+      "record_ref": "MR-1b6b88ff59b67fc3d02eb849",
+      "kind": "message",
+      "role": "user",
+      "timestamp": "2026-08-15T06:14:44.074Z",
+      "text_sha256": "ce6cdf5931ffdd8c27ca655aeb88e41b6c1ee9cff52542a11f9a579ef344b07a"
+    },
+    {
+      "version_id": "MJ-20260815-v1",
+      "authority_ref": "MS-019fe96c-2a54-7063-9d70-202952ee322d",
+      "record_ref": "MR-f3bd7bda7f5f86c0279681b1",
+      "kind": "message",
+      "role": "user",
+      "timestamp": "2026-08-16T14:12:24.053Z",
+      "text_sha256": "0ac9bfa0c20280e840c755831639fd21e19f93c13c7c4fa71e24c8bfedbdd59d"
+    }
+  ]
+}

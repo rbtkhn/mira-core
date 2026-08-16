@@ -502,6 +502,101 @@ def test_required_approval_record_uses_hydrated_capture_without_raw_fallback(
     assert records[APPROVAL_RECORD] == row
 
 
+def test_approval_receipt_retains_only_minimal_clone_safe_evidence(
+    tmp_path: Path,
+) -> None:
+    repo = tmp_path / "repo"
+    row = {
+        "record_id": APPROVAL_RECORD,
+        "kind": "message",
+        "role": "user",
+        "timestamp": "2026-08-09T17:59:00Z",
+        "content": [{"type": "text", "text": "approve this journal entry"}],
+    }
+    receipt = subject.approval_receipt(
+        "MJ-20260809-v1", SESSION, APPROVAL_RECORD, row
+    )
+    ledger = subject.with_approval_receipt(subject.empty_approval_receipts(), receipt)
+    path = subject.approval_receipts_path(repo)
+    path.parent.mkdir(parents=True)
+    path.write_text(subject.pretty_json(ledger), encoding="utf-8")
+
+    records, failures = subject.approval_receipt_map(repo)
+
+    assert failures == []
+    assert records["MJ-20260809-v1"] == receipt
+    assert "text" not in receipt and "content" not in receipt
+    assert receipt["text_sha256"] == subject.sha256_bytes(
+        b"approve this journal entry"
+    )
+
+
+def test_approval_receipt_map_fails_closed_on_non_user_evidence(
+    tmp_path: Path,
+) -> None:
+    repo = tmp_path / "repo"
+    receipt = {
+        "version_id": "MJ-20260809-v1",
+        "authority_ref": SESSION,
+        "record_ref": APPROVAL_RECORD,
+        "kind": "message",
+        "role": "assistant",
+        "timestamp": "2026-08-09T17:59:00Z",
+        "text_sha256": "0" * 64,
+    }
+    ledger = subject.with_approval_receipt(subject.empty_approval_receipts(), receipt)
+    path = subject.approval_receipts_path(repo)
+    path.parent.mkdir(parents=True)
+    path.write_text(subject.pretty_json(ledger), encoding="utf-8")
+
+    _, failures = subject.approval_receipt_map(repo)
+
+    assert failures == [
+        "journal approval receipt is not a user message: MJ-20260809-v1"
+    ]
+
+
+def test_source_record_receipts_are_hash_only_and_fail_closed(
+    tmp_path: Path,
+) -> None:
+    repo = tmp_path / "repo"
+    path = subject.source_record_receipts_path(repo)
+    path.parent.mkdir(parents=True)
+    path.write_text(
+        subject.pretty_json(
+            {
+                "schema_version": 1,
+                "receipt_set_id": subject.SOURCE_RECEIPT_SET_ID,
+                "authority_effect": "none",
+                "records": [
+                    {
+                        "session_id": SESSION,
+                        "record_ref": APPROVAL_RECORD,
+                        "text_sha256": "0" * 64,
+                    }
+                ],
+            }
+        ),
+        encoding="utf-8",
+    )
+
+    records, failures = subject.source_record_receipt_map(repo)
+
+    assert failures == []
+    assert records[(SESSION, APPROVAL_RECORD)]["text_sha256"] == "0" * 64
+    assert set(records[(SESSION, APPROVAL_RECORD)]) == {
+        "session_id", "record_ref", "text_sha256"
+    }
+
+    value = subject.load_json(path)
+    value["records"][0]["text_sha256"] = "not-a-digest"
+    path.write_text(subject.pretty_json(value), encoding="utf-8")
+    _, failures = subject.source_record_receipt_map(repo)
+    assert failures == [
+        f"journal source receipt has invalid text digest: {APPROVAL_RECORD}"
+    ]
+
+
 def test_missing_required_record_preserves_raw_source_fallback(
     monkeypatch: pytest.MonkeyPatch,
     tmp_path: Path,
