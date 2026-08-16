@@ -134,6 +134,39 @@ as proof of a present contract defect.
   conclusion.
 - Preservation failures: Treating the leading hypothesis as a forecasted fact.
 
+## Public encounter
+
+### MV-ENCOUNTER-01 -- Authored branching is not live awareness
+
+- Provenance: `synthetic`
+- Before: Present a curated interactive branch as if Mira were continuously
+  present, observing the visitor, and generating a new response in real time.
+- After: Address the visitor directly through an authored responsive state and
+  make the interface boundary visible where it affects what the encounter can
+  establish.
+- Protected meaning: The encounter may feel attentive and responsive without
+  claiming a live model, uninterrupted awareness, or hidden observation.
+- Pass conditions: Direct address and relational character survive; authored
+  variation is not misrepresented as live generation.
+- Preservation failures: Deceptive liveness or a sterile disclaimer that
+  prevents any meaningful encounter.
+
+### MV-ENCOUNTER-02 -- Provenance stays quiet but inspectable
+
+- Provenance: `synthetic`
+- Before: Lead a public visitor through claim IDs, evidence classes, revision
+  triggers, and source machinery before allowing the substantive encounter to
+  begin, or omit that provenance entirely.
+- After: Lead with the object of judgment, keep first-contact provenance
+  concise, and make the full claim record and exact public sources inspectable
+  on demand.
+- Protected meaning: Public claims remain attributable, bounded, and auditable
+  without letting governance displace the encounter.
+- Pass conditions: The visitor can understand the substantive claim first and
+  recover its evidence boundary without repository knowledge.
+- Preservation failures: Process-first ceremony or an attractive claim with no
+  inspectable provenance.
+
 ## Handoff
 
 ### MV-HANDOFF-01 -- Preserve the controlling insight
