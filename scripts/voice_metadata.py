@@ -106,6 +106,9 @@ def inspect_metadata(
 ) -> dict[str, Any]:
     changes: list[dict[str, Any]] = []
     failures: list[str] = []
+    sources_hydrated = (
+        repo_root / "narrative-geopolitics" / "archive" / "sources"
+    ).is_dir()
     for row in selected_rows(manifest, run_date):
         before = list(row.get("voice_slugs") or [])
         after = canonicalize_slugs(before)
@@ -114,9 +117,9 @@ def inspect_metadata(
         if before != after:
             row_change["manifest_voice_slugs"] = {"before": before, "after": after}
         target = repo_root / local_path
-        if not target.exists():
+        if sources_hydrated and not target.exists():
             failures.append(f"missing archive source file: {local_path}")
-        else:
+        elif target.exists():
             original = target.read_bytes()
             _, frontmatter_changes, preserved = canonicalize_frontmatter_bytes(original)
             if frontmatter_changes:

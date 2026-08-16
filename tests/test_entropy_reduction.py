@@ -135,6 +135,76 @@ def test_manifest_count_mismatch_is_detected(monkeypatch, tmp_path: Path) -> Non
     ]
 
 
+def test_archive_manifest_accepts_absent_ignored_hydration(monkeypatch, tmp_path: Path) -> None:
+    archive = tmp_path / "narrative-geopolitics" / "archive"
+    archive.mkdir(parents=True)
+    manifest = {
+        "source_count": 1,
+        "sources": [
+            {
+                "date": "2026-07-09",
+                "local_path": "narrative-geopolitics/archive/sources/2026-07-09/source-a.md",
+            }
+        ],
+    }
+    manifest_path = archive / "source-manifest.json"
+    manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
+    monkeypatch.setattr(integrity, "REPO_ROOT", tmp_path)
+    monkeypatch.setattr(integrity, "ARCHIVE_SOURCES", archive / "sources")
+    monkeypatch.setattr(integrity, "MANIFEST_PATH", manifest_path)
+
+    assert integrity.archive_manifest_failures() == []
+
+
+def test_archive_manifest_rejects_partial_hydration(monkeypatch, tmp_path: Path) -> None:
+    archive = tmp_path / "narrative-geopolitics" / "archive"
+    (archive / "sources").mkdir(parents=True)
+    manifest = {
+        "source_count": 1,
+        "sources": [
+            {
+                "date": "2026-07-09",
+                "local_path": "narrative-geopolitics/archive/sources/2026-07-09/source-a.md",
+            }
+        ],
+    }
+    manifest_path = archive / "source-manifest.json"
+    manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
+    monkeypatch.setattr(integrity, "REPO_ROOT", tmp_path)
+    monkeypatch.setattr(integrity, "ARCHIVE_SOURCES", archive / "sources")
+    monkeypatch.setattr(integrity, "MANIFEST_PATH", manifest_path)
+
+    assert integrity.archive_manifest_failures() == [
+        "manifest path missing file: narrative-geopolitics/archive/sources/2026-07-09/source-a.md"
+    ]
+
+
+def test_markdown_archive_links_use_manifest_when_hydration_is_absent(
+    monkeypatch, tmp_path: Path
+) -> None:
+    docs = tmp_path / "docs"
+    docs.mkdir()
+    note = docs / "note.md"
+    valid = "narrative-geopolitics/archive/sources/2026-07-09/source-a.md"
+    note.write_text(f"[valid](../{valid})\n[invalid](../narrative-geopolitics/archive/sources/missing.md)\n")
+    monkeypatch.setattr(integrity, "REPO_ROOT", tmp_path)
+    monkeypatch.setattr(
+        integrity,
+        "ARCHIVE_SOURCES",
+        tmp_path / "narrative-geopolitics" / "archive" / "sources",
+    )
+    monkeypatch.setattr(integrity, "markdown_files", lambda: [note])
+    monkeypatch.setattr(
+        integrity,
+        "load_manifest",
+        lambda: {"source_count": 1, "sources": [{"local_path": valid}]},
+    )
+
+    assert integrity.markdown_link_failures() == [
+        "broken Markdown link: docs/note.md -> ../narrative-geopolitics/archive/sources/missing.md"
+    ]
+
+
 def test_forecast_triage_mismatch_is_detected(monkeypatch, tmp_path: Path) -> None:
     ledger = tmp_path / "forecast-ledger.md"
     ledger.write_text(

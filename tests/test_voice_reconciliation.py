@@ -41,6 +41,23 @@ def manifest_row(path: str, slug: str, *, host: str = "dialogue-works", title: s
     }
 
 
+def test_metadata_accepts_absent_ignored_hydration(tmp_path: Path) -> None:
+    rel = "narrative-geopolitics/archive/sources/2026-07-10/source.md"
+    manifest = {"sources": [manifest_row(rel, "johnson")]}
+
+    assert voice_metadata.metadata_failures(manifest, tmp_path) == []
+
+
+def test_metadata_rejects_missing_file_in_partial_hydration(tmp_path: Path) -> None:
+    rel = "narrative-geopolitics/archive/sources/2026-07-10/source.md"
+    (tmp_path / "narrative-geopolitics" / "archive" / "sources").mkdir(parents=True)
+    manifest = {"sources": [manifest_row(rel, "johnson")]}
+
+    assert voice_metadata.metadata_failures(manifest, tmp_path) == [
+        f"missing archive source file: {rel}"
+    ]
+
+
 def test_alias_metadata_is_canonicalized_without_body_or_host_change(tmp_path: Path) -> None:
     rel = "narrative-geopolitics/archive/sources/2026-07-10/source.md"
     target = tmp_path / rel

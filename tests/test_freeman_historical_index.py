@@ -4,6 +4,8 @@ import importlib.util
 import sys
 from pathlib import Path
 
+import pytest
+
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 SCRIPT = REPO_ROOT / "scripts" / "build_freeman_historical_index.py"
@@ -30,6 +32,10 @@ def test_attribution_confidence_is_explicit() -> None:
     assert module.attribution("This is a historical comparison.", "") == ("provisional", "transcript turn is not explicitly speaker-labeled")
 
 
+@pytest.mark.skipif(
+    not (REPO_ROOT / "narrative-geopolitics" / "archive" / "sources").is_dir(),
+    reason="requires hydrated archive transcript bodies",
+)
 def test_render_is_deterministic_and_contains_required_surfaces() -> None:
     module = load_module()
     analysis = module.build_analysis()

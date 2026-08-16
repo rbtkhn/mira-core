@@ -56,10 +56,16 @@ def valid_seed_ledger() -> dict:
     return copy.deepcopy(voice_accountability.load_ledger())
 
 
-def validate_tmp(tmp_path: Path, ledger: dict, **kwargs) -> list[str]:
+def validate_tmp(
+    tmp_path: Path,
+    ledger: dict,
+    *,
+    repo_root: Path = REPO_ROOT,
+    **kwargs,
+) -> list[str]:
     md, js, near = write_tracker(tmp_path, ledger, **kwargs)
     return voice_accountability.validate_ledger(
-        repo_root=REPO_ROOT,
+        repo_root=repo_root,
         markdown_path=md,
         json_path=js,
         near_misses_path=near,
@@ -154,7 +160,10 @@ def test_missing_source_paths_and_bad_lines_are_rejected(tmp_path: Path) -> None
 
     ledger = valid_seed_ledger()
     ledger["entries"][0]["line"] = 999999
-    failures = validate_tmp(tmp_path, ledger)
+    source = tmp_path / ledger["entries"][0]["source_path"]
+    source.parent.mkdir(parents=True)
+    source.write_text("one\ntwo\n", encoding="utf-8")
+    failures = validate_tmp(tmp_path, ledger, repo_root=tmp_path)
     assert any("line reference out of range" in failure for failure in failures)
 
 

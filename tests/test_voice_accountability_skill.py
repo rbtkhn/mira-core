@@ -5,6 +5,8 @@ import subprocess
 import sys
 from pathlib import Path
 
+import pytest
+
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 SKILL_ROOT = REPO_ROOT / "docs" / "skill-drafts" / "voice-accountability"
@@ -139,6 +141,10 @@ def test_finder_rejects_reversed_date_range(tmp_path: Path) -> None:
     assert result.stdout == ""
 
 
+@pytest.mark.skipif(
+    not (REPO_ROOT / "narrative-geopolitics" / "archive" / "sources").is_dir(),
+    reason="requires hydrated archive transcript bodies",
+)
 def test_july_known_explicit_admissions_are_retrieved() -> None:
     result = run_finder(
         REPO_ROOT,

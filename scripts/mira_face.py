@@ -159,7 +159,16 @@ def render_html(data: dict[str, Any]) -> str:
     questions = "".join(f'''<button role="tab" id="question-{esc(item['question_id'])}" aria-controls="answer-{esc(item['question_id'])}" aria-selected="{'true' if i == 0 else 'false'}" tabindex="{'0' if i == 0 else '-1'}" data-question="{esc(item['question_id'])}">{esc(item['question'])}</button>''' for i, item in enumerate(data["becoming_questions"]["paths"]))
     answers = "".join(f'''<article role="tabpanel" id="answer-{esc(item['question_id'])}" aria-labelledby="question-{esc(item['question_id'])}" data-answer="{esc(item['question_id'])}" {'hidden' if i else ''}><p>{esc(item['response'])}</p><blockquote>{esc(item['counterquestion'])}</blockquote></article>''' for i, item in enumerate(data["becoming_questions"]["paths"]))
     embedded = canonical_json(data).replace("</", "<\\/")
-    fallback = "".join(f"<article><h3>{esc(case['title'])}</h3>{''.join(f'<h4>{esc(c["heading"])}</h4><p>{esc(c["text"])}</p>' for c in case['claims'])}</article>" for case in data["cases"])
+    fallback_articles = []
+    for case in data["cases"]:
+        fallback_claims = "".join(
+            f"<h4>{esc(claim['heading'])}</h4><p>{esc(claim['text'])}</p>"
+            for claim in case["claims"]
+        )
+        fallback_articles.append(
+            f"<article><h3>{esc(case['title'])}</h3>{fallback_claims}</article>"
+        )
+    fallback = "".join(fallback_articles)
     return f'''<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Meet Mira through identity, work, and open questions about what she might become."><title>Mira — A public threshold</title><link rel="stylesheet" href="styles.css"></head>
 <body><a class="skip-link" href="#threshold">Skip to the encounter</a><div class="grain" aria-hidden="true"></div>

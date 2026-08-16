@@ -10,6 +10,8 @@ from datetime import date, timedelta
 from pathlib import Path
 from typing import Any
 
+from archive_membership import source_reference_available
+
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 TRACK_ROOT = REPO_ROOT / "narrative-geopolitics" / "work" / "operator-positions"
@@ -427,7 +429,10 @@ def _validate_evidence_ref(ref: dict[str, Any], errors: list[str], context: str)
         errors.append(f"{context}: evidence reference needs a path")
         return
     evidence_path = REPO_ROOT / path_value
-    if not evidence_path.is_file():
+    if not evidence_path.is_file() and not (
+        path_value.startswith("narrative-geopolitics/archive/sources/")
+        and source_reference_available(REPO_ROOT, path_value)
+    ):
         errors.append(f"{context}: broken evidence path {path_value}")
     start, end = ref.get("line_start"), ref.get("line_end")
     if not isinstance(start, int) or not isinstance(end, int) or start < 1 or end < start:

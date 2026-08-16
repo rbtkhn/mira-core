@@ -9,6 +9,8 @@ from datetime import date, timedelta
 from pathlib import Path
 from typing import Any
 
+from archive_membership import registered_source_paths, source_reference_available
+
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 NG_ROOT = REPO_ROOT / "narrative-geopolitics"
@@ -108,6 +110,7 @@ def validate_registry(
     forecast_path: Path = FORECAST_LEDGER,
 ) -> list[str]:
     failures: list[str] = []
+    registered_sources = registered_source_paths(repo_root)
     if registry is None:
         if not REGISTRY_PATH.exists():
             return [f"voice judgment registry missing: {relative(REGISTRY_PATH)}"]
@@ -214,7 +217,9 @@ def validate_registry(
             for source in sources:
                 if not isinstance(source, str) or not source.startswith("narrative-geopolitics/archive/sources/"):
                     failures.append(f"{version_id}: source is not a canonical archive path: {source}")
-                elif "SRC-" in source or not (repo_root / source).is_file():
+                elif "SRC-" in source or not source_reference_available(
+                    repo_root, source, registered=registered_sources
+                ):
                     failures.append(f"{version_id}: source path does not resolve: {source}")
 
             daily_refs = version.get("daily_refs", [])

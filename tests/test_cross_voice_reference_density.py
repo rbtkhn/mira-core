@@ -4,6 +4,8 @@ import importlib.util
 import sys
 from pathlib import Path
 
+import pytest
+
 REPO_ROOT = Path(__file__).resolve().parents[1]
 SCRIPT = REPO_ROOT / "scripts" / "report_cross_voice_reference_density.py"
 
@@ -27,6 +29,10 @@ def test_manifest_routes_are_deduplicated_and_normalized() -> None:
     assert {row["voice_slug"] for row in selected} == {"freeman", "diesen"}
 
 
+@pytest.mark.skipif(
+    not (REPO_ROOT / "narrative-geopolitics" / "archive" / "sources").is_dir(),
+    reason="requires hydrated archive transcript bodies",
+)
 def test_report_contains_comparison_surfaces_and_is_deterministic() -> None:
     module = load_module()
     records, coverage = module.build_records("freeman")

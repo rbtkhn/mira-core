@@ -5,6 +5,8 @@ import json
 import sys
 from pathlib import Path
 
+import pytest
+
 ROOT = Path(__file__).resolve().parents[1]
 SCRIPT = ROOT / ".codex" / "skills" / "historical-reference" / "scripts" / "analyze.py"
 
@@ -13,6 +15,10 @@ def load():
     assert spec and spec.loader
     module = importlib.util.module_from_spec(spec); sys.modules[spec.name] = module; spec.loader.exec_module(module); return module
 
+@pytest.mark.skipif(
+    not (ROOT / "narrative-geopolitics" / "archive" / "sources").is_dir(),
+    reason="requires hydrated archive transcript bodies",
+)
 def test_explicit_voice_selection_and_stable_patterns():
     module = load()
     rows = module.source_rows({"freeman"}, None)

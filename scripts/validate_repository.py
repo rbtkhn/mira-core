@@ -170,7 +170,12 @@ def archive_manifest_failures() -> list[str]:
     manifest = load_manifest()
     rows = manifest.get("sources", [])
     row_paths = [row.get("local_path", "") for row in rows]
-    file_paths = sorted(relative(path) for path in ARCHIVE_SOURCES.rglob("*.md"))
+    sources_hydrated = ARCHIVE_SOURCES.is_dir()
+    file_paths = (
+        sorted(relative(path) for path in ARCHIVE_SOURCES.rglob("*.md"))
+        if sources_hydrated
+        else []
+    )
     failures: list[str] = []
 
     if manifest.get("source_count") != len(rows):
@@ -185,7 +190,7 @@ def archive_manifest_failures() -> list[str]:
             )
     if len(row_paths) != len(set(row_paths)):
         failures.append("manifest contains duplicate local_path rows")
-    if sorted(row_paths) != file_paths:
+    if sources_hydrated and sorted(row_paths) != file_paths:
         missing = sorted(set(row_paths) - set(file_paths))
         extra = sorted(set(file_paths) - set(row_paths))
         failures.extend(f"manifest path missing file: {path}" for path in missing)
@@ -265,6 +270,10 @@ def markdown_files() -> list[Path]:
 
 def markdown_link_failures() -> list[str]:
     failures: list[str] = []
+    manifest_paths = {
+        str(row.get("local_path", "")) for row in load_manifest().get("sources", [])
+    }
+    sources_hydrated = ARCHIVE_SOURCES.is_dir()
     for path in markdown_files():
         text = path.read_text(encoding="utf-8")
         for match in MARKDOWN_LINK_RE.finditer(text):
@@ -278,6 +287,16 @@ def markdown_link_failures() -> list[str]:
             resolved = path.parent / target
             if not resolved.exists() and target.replace("\\", "/").startswith("narrative-geopolitics/"):
                 resolved = REPO_ROOT / target.replace("/", "\\")
+            if not resolved.exists() and not sources_hydrated:
+                try:
+                    repository_target = resolved.resolve().relative_to(REPO_ROOT.resolve()).as_posix()
+                except ValueError:
+                    repository_target = ""
+                if repository_target in manifest_paths or any(
+                    path.startswith(repository_target.rstrip("/") + "/")
+                    for path in manifest_paths
+                ):
+                    continue
             if not resolved.exists():
                 failures.append(f"broken Markdown link: {relative(path)} -> {raw_target}")
     return failures

@@ -599,9 +599,6 @@ def model_failures(
         for _, target in links:
             if target.startswith("../../../archive/sources/"):
                 resolved = (daily_root / model.run_date / target).resolve()
-                if not resolved.exists():
-                    failures.append(f"{source_id}: archive link does not resolve {target}")
-                    continue
                 manifest_path = daily_root.parents[1] / "archive" / "source-manifest.json"
                 if context is not None:
                     manifest_paths = context.manifest_paths
@@ -617,7 +614,12 @@ def model_failures(
                     repo_root = daily_root.parents[2]
                     local_path = resolved.relative_to(repo_root).as_posix()
                     if local_path not in manifest_paths:
-                        failures.append(f"{source_id}: archive link has no manifest row {local_path}")
+                        if not resolved.exists():
+                            failures.append(f"{source_id}: archive link does not resolve {target}")
+                        else:
+                            failures.append(f"{source_id}: archive link has no manifest row {local_path}")
+                elif not resolved.exists():
+                    failures.append(f"{source_id}: archive link does not resolve {target}")
     return failures
 
 

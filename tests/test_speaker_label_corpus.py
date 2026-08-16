@@ -66,10 +66,22 @@ def test_selector_is_deterministic() -> None:
     assert MODULE.select_rows(manifest, 2) == MODULE.select_rows(manifest, 2)
 
 
-def test_derivative_does_not_change_raw(tmp_path: Path) -> None:
-    source = ROOT / "narrative-geopolitics/archive/sources/2025-05-31/source-glenn-diesen-chas-freeman-the-collapse-of-american-diplomacy-2025-05-31.md"
+def speaker_fixture(tmp_path: Path, monkeypatch) -> tuple[Path, str]:
+    rel = "narrative-geopolitics/archive/sources/2025-05-31/source.md"
+    source = tmp_path / rel
+    source.parent.mkdir(parents=True)
+    source.write_text(
+        "---\nhost: Glenn Diesen\nguest: Chas Freeman\n---\n## Transcript\n\nGlenn: Welcome.\n\nChas Freeman: Thank you.\n",
+        encoding="utf-8",
+    )
+    monkeypatch.setattr(MODULE, "REPO_ROOT", tmp_path)
+    return source, rel
+
+
+def test_derivative_does_not_change_raw(tmp_path: Path, monkeypatch) -> None:
+    source, rel = speaker_fixture(tmp_path, monkeypatch)
     before = hashlib.sha256(source.read_bytes()).hexdigest()
-    row = {"local_path": str(source.relative_to(ROOT)).replace("\\", "/"), "voice_slugs": ["freeman"]}
+    row = {"local_path": rel, "voice_slugs": ["freeman"]}
     target, result = MODULE.derivative(row, tmp_path)
     target.parent.mkdir(parents=True)
     target.write_text(result["text"], encoding="utf-8")
@@ -79,8 +91,9 @@ def test_derivative_does_not_change_raw(tmp_path: Path) -> None:
     assert provenance["labeling_method"]
 
 
-def test_marker_boundary_provenance_withholds_attribution(tmp_path: Path) -> None:
-    row = {"local_path": "narrative-geopolitics/archive/sources/2025-05-31/source-glenn-diesen-chas-freeman-the-collapse-of-american-diplomacy-2025-05-31.md", "voice_slugs": ["freeman"]}
+def test_marker_boundary_provenance_withholds_attribution(tmp_path: Path, monkeypatch) -> None:
+    _, rel = speaker_fixture(tmp_path, monkeypatch)
+    row = {"local_path": rel, "voice_slugs": ["freeman"]}
     _, result = MODULE.derivative(row, tmp_path)
     # This fixture is explicit-marker based; the assertion protects the
     # provenance contract for the uncertain marker path through label_body.

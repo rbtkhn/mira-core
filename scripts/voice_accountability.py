@@ -9,6 +9,8 @@ from datetime import date
 from pathlib import Path
 from typing import Any
 
+from archive_membership import registered_source_paths, source_reference_available
+
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 NG_ROOT = REPO_ROOT / "narrative-geopolitics"
@@ -153,6 +155,7 @@ def validate_ledger(
 
     markdown_text = markdown_path.read_text(encoding="utf-8")
     near_misses_text = near_misses_path.read_text(encoding="utf-8")
+    registered_sources = registered_source_paths(repo_root)
     try:
         ledger = json.loads(json_path.read_text(encoding="utf-8"))
     except json.JSONDecodeError as error:
@@ -229,15 +232,21 @@ def validate_ledger(
         if not isinstance(source_value, str) or not source_value:
             continue
         source_path = repo_root / source_value
-        if not source_path.is_file():
+        if not source_reference_available(
+            repo_root, source_value, registered=registered_sources
+        ):
             failures.append(f"voice-revision source path missing: {label} -> {source_value}")
             continue
         line = entry.get("line")
         if not isinstance(line, int) or line < 1:
             failures.append(f"voice-revision line reference invalid: {label} -> {line}")
             continue
-        line_count = len(source_path.read_text(encoding="utf-8-sig", errors="replace").splitlines())
-        if line > line_count:
+        line_count = (
+            len(source_path.read_text(encoding="utf-8-sig", errors="replace").splitlines())
+            if source_path.is_file()
+            else None
+        )
+        if line_count is not None and line > line_count:
             failures.append(
                 f"voice-revision line reference out of range: {label} -> {source_value}:{line}"
             )

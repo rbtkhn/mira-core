@@ -20,6 +20,7 @@ if str(SCRIPTS_ROOT) not in sys.path:
     sys.path.insert(0, str(SCRIPTS_ROOT))
 
 import archive_audit
+from archive_membership import source_reference_available
 import triage_forecast_ledger as forecast_triage
 import verification as verification_packets
 import reality
@@ -992,7 +993,10 @@ def normalize_artifact_refs(values: list[str]) -> list[str]:
             resolved.relative_to(root)
         except ValueError as error:
             raise ValueError(f"artifact reference escapes repository: {value}") from error
-        if not resolved.exists():
+        if not resolved.exists() and not (
+            path_text.startswith("narrative-geopolitics/archive/sources/")
+            and source_reference_available(REPO_ROOT, path_text)
+        ):
             raise ValueError(f"artifact reference does not exist: {value}")
         if ref not in normalized:
             normalized.append(ref)
