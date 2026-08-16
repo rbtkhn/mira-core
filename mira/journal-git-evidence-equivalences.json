@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "authority_effect": "none",
+  "records": [
+    {
+      "historical_commit": "e90540e21d1d6af9a97bed002c2be552754ad4c3",
+      "landed_commit": "8d0d57ee0ef31f79e0d8874d381672f929e92cbe",
+      "reason": "The historical reference names the pre-rebase commit; the cited paths landed with identical Git blobs.",
+      "path_blobs": {
+        "docs/skill-drafts/mira-memory/SKILL.md": "5437a524a0f8f57166e2952f63e8dd0ca4bbb4b0",
+        "docs/skill-drafts/mira-memory/references/carrier-map.md": "84e128f5744b7400b955147da2474ddf10062dc7",
+        "scripts/mira_memory.py": "3df6996d10ff04b3df8d7983898b19a198187185"
+      }
+    },
+    {
+      "historical_commit": "e74f6f62e8c3372eef823d640e2c2c34117f2ffa",
+      "landed_commit": "bb277b9006b08a55a1587dade8713fdf716d1135",
+      "reason": "The historical reference names the pre-rebase commit; the cited paths landed with identical Git blobs.",
+      "path_blobs": {
+        "narrative-geopolitics/work/forecasts/forecast-ledger.md": "5e91fd395726fa3174fa0d8109eca164e49da815",
+        "narrative-geopolitics/work/reality/claims/NG-20260707-F01.json": "0201ac86b02d9f1a27eea1657a0bbc491dd64863",
+        "narrative-geopolitics/work/verification/packets/VER-20260806-01-july-07-lebanon-hormuz-linkage-review/README.md": "c47d0687a38f148bc017b866693f0a3564066eab"
+      }
+    },
+    {
+      "historical_commit": "d66a5d0d514548b7950e5c7c16d643d0416e2de1",
+      "landed_commit": "36650afbbfc7a9633135dda78e8df4c78a6876ea",
+      "reason": "The historical reference names the pre-rebase commit; the cited paths landed with identical Git blobs.",
+      "path_blobs": {
+        "docs/skill-drafts/mira-notes/SKILL.md": "eb76dffd876e993a7baada403454fd287fec1504",
+        "docs/skill-drafts/mira-essays/SKILL.md": "54d954489c8567ac4e4d8cfe73f52fe410119193",
+        "mira/README.md": "8754b7b497cf0e9284763ddc660aed0125244369"
+      }
+    },
+    {
+      "historical_commit": "71047eb5d9b147a017164682e0f3fd2745567b3b",
+      "landed_commit": "32372282b9f990345dd0d7c0d074b34d2844a42e",
+      "reason": "The historical reference names the pre-rebase commit; the cited path landed with the identical Git blob.",
+      "path_blobs": {
+        "docs/audits/2026-08-15-mira-github-credential-context.md": "3a4621f7183e387e6ca49a431ec9c910c5308128"
+      }
+    }
+  ]
+}

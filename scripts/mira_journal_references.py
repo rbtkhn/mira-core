@@ -22,6 +22,7 @@ AUTHORITY_BOUNDARY = (
     "Technical references ground journal prose but do not prove learning, validate outcomes, "
     "or provide action authority. Only admitted RSI entries are canonical recursive learning."
 )
+GIT_EVIDENCE_EQUIVALENCE_PATH = Path("mira/journal-git-evidence-equivalences.json")
 
 
 class ReferenceError(RuntimeError):
@@ -234,6 +235,52 @@ def _git_commit_resolves(repo_root: Path, commit: str) -> bool:
     return result.returncode == 0
 
 
+def _git_blob(repo_root: Path, commit: str, path: str) -> str | None:
+    result = subprocess.run(
+        ["git", "rev-parse", f"{commit}:{path}"],
+        cwd=repo_root, text=True, encoding="utf-8", errors="replace",
+        capture_output=True, check=False,
+    )
+    value = result.stdout.strip()
+    return value if result.returncode == 0 and re.fullmatch(r"[0-9a-f]{40}", value) else None
+
+
+def _equivalent_git_commit(
+    repo_root: Path, commit: str, paths: list[str]
+) -> str | None:
+    if _git_commit_resolves(repo_root, commit):
+        return commit
+    ledger_path = repo_root / GIT_EVIDENCE_EQUIVALENCE_PATH
+    try:
+        ledger = json.loads(ledger_path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return None
+    if not isinstance(ledger, dict) or ledger.get("schema_version") != 1:
+        return None
+    if ledger.get("authority_effect") != "none" or not isinstance(ledger.get("records"), list):
+        return None
+    matches = [
+        record for record in ledger["records"]
+        if isinstance(record, dict) and record.get("historical_commit") == commit
+    ]
+    if len(matches) != 1:
+        return None
+    record = matches[0]
+    landed = str(record.get("landed_commit", ""))
+    blobs = record.get("path_blobs")
+    if not re.fullmatch(r"[0-9a-f]{40}", landed) or not isinstance(blobs, dict):
+        return None
+    if not _git_commit_resolves(repo_root, landed):
+        return None
+    for path in paths:
+        expected = blobs.get(path)
+        if not isinstance(expected, str) or not re.fullmatch(r"[0-9a-f]{40}", expected):
+            return None
+        if _git_blob(repo_root, landed, path) != expected:
+            return None
+    return landed
+
+
 def _git_commit_details(repo_root: Path, commit: str) -> tuple[datetime | None, set[str]]:
     timestamp_result = subprocess.run(
         ["git", "show", "-s", "--format=%cI", commit],
@@ -333,17 +380,22 @@ def validate_reference(
             elif kind == "git-commit":
                 commit = str(ref.get("commit", ""))
                 paths = ref.get("paths")
-                if not re.fullmatch(r"[0-9a-f]{40}", commit) or not _git_commit_resolves(repo_root, commit):
-                    failures.append(f"{label} Git evidence does not resolve: {commit}")
-                    continue
                 if not isinstance(paths, list) or not paths or any(not isinstance(path, str) or not path for path in paths):
                     failures.append(f"{label} Git evidence requires touched paths: {commit}")
                     continue
-                commit_time, touched_paths = _git_commit_details(repo_root, commit)
+                resolved_commit = (
+                    _equivalent_git_commit(repo_root, commit, paths)
+                    if re.fullmatch(r"[0-9a-f]{40}", commit)
+                    else None
+                )
+                if resolved_commit is None:
+                    failures.append(f"{label} Git evidence does not resolve: {commit}")
+                    continue
+                commit_time, touched_paths = _git_commit_details(repo_root, resolved_commit)
                 for raw in paths:
                     normalized = raw.replace("\\", "/")
                     if normalized not in touched_paths:
-                        failures.append(f"{label} Git evidence path was not touched by {commit}: {raw}")
+                        failures.append(f"{label} Git evidence path was not touched by {resolved_commit}: {raw}")
                 if item.get("cutoff_status") == "observed-by-cutoff" and (
                     cutoff is None or commit_time is None or commit_time > cutoff
                 ):

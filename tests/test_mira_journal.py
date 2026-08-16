@@ -1125,6 +1125,40 @@ def test_observed_technical_evidence_is_cutoff_and_path_bound() -> None:
     assert "technical reference cutoff does not match journal coverage" in failures
 
 
+def test_git_evidence_equivalence_requires_matching_landed_blobs(
+    monkeypatch: pytest.MonkeyPatch, tmp_path: Path
+) -> None:
+    ledger_path = tmp_path / "mira" / "journal-git-evidence-equivalences.json"
+    ledger_path.parent.mkdir(parents=True)
+    ledger_path.write_text(json.dumps({
+        "schema_version": 1,
+        "authority_effect": "none",
+        "records": [{
+            "historical_commit": "a" * 40,
+            "landed_commit": "b" * 40,
+            "reason": "rebased",
+            "path_blobs": {"evidence.md": "c" * 40},
+        }],
+    }), encoding="utf-8")
+    monkeypatch.setattr(
+        subject.mira_journal_references,
+        "_git_commit_resolves",
+        lambda _root, commit: commit == "b" * 40,
+    )
+    monkeypatch.setattr(
+        subject.mira_journal_references,
+        "_git_blob",
+        lambda _root, commit, path: "c" * 40 if (commit, path) == ("b" * 40, "evidence.md") else None,
+    )
+
+    assert subject.mira_journal_references._equivalent_git_commit(
+        tmp_path, "a" * 40, ["evidence.md"]
+    ) == "b" * 40
+    assert subject.mira_journal_references._equivalent_git_commit(
+        tmp_path, "a" * 40, ["other.md"]
+    ) is None
+
+
 def test_activity_contract_selects_or_explicitly_omits_every_daily_record(
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
