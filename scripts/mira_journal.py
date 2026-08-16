@@ -310,7 +310,7 @@ def parse_markdown(body: bytes, expected_date: str | None = None) -> dict[str, A
     return {
         "title": match.group("title").strip(),
         "word_count": word_count,
-        "content_sha256": sha256_bytes(body),
+        "content_sha256": sha256_bytes(body.replace(b"\r\n", b"\n").replace(b"\r", b"\n")),
     }
 
 
@@ -2020,11 +2020,13 @@ def latest_activity_after(
     until: datetime,
     excluded_sessions: set[str],
     excluded_records: set[str] | None = None,
+    user_only_sessions: set[str] | None = None,
 ) -> list[str]:
     _, end = day_bounds(entry_date)
     cutoff = min(until, end)
     latest: list[str] = []
     excluded_records = excluded_records or set()
+    user_only_sessions = user_only_sessions or set()
     for source in session_sources_since(after):
         if source.session_id in excluded_sessions:
             continue
@@ -2037,6 +2039,8 @@ def latest_activity_after(
             continue
         _, _, rows = normalized_rows(source)
         for row in rows:
+            if source.session_id in user_only_sessions and row.get("role") != "user":
+                continue
             timestamp_text = str(row.get("timestamp", ""))
             if not timestamp_text:
                 continue
@@ -2291,6 +2295,7 @@ def normalized_version(
         until=approved_time,
         excluded_sessions={str(author.get("session_id"))} - {authority_ref},
         excluded_records={approval_record_ref},
+        user_only_sessions={authority_ref},
     )
     if late:
         raise JournalError(f"draft requires refresh for {len(late)} later activity record(s)")
@@ -2675,7 +2680,7 @@ def validate_registry_candidate(registry: dict[str, Any], changed_date: date, bo
         if other["entry_date"] == changed_date.isoformat():
             continue
         path = temporary_root / other["current_path"]
-        if not path.is_file() or sha256_bytes(path.read_bytes()) != other["versions"][-1]["content_sha256"]:
+        if not path.is_file() or parse_markdown(path.read_bytes(), other["entry_date"])["content_sha256"] != other["versions"][-1]["content_sha256"]:
             failures.append(f"existing journal entry drift: {other['entry_date']}")
     return failures
 

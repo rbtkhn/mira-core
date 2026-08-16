@@ -63,6 +63,11 @@ RSI learning, stage, commit, push, publish, or promote identity during nightly
 or ordinary composition. Those actions retain their separate exact authority
 boundaries.
 
+During canonical approval, ignore non-user approval choreography in the
+approving session and exempt only the exact approval record. Any other user
+record in that session, later Git commit, or activity in another session still
+forces a refreshed bundle.
+
 ## Preserve the authority split
 
 The skill interprets and composes. `tools/run.ps1 mira-journal` prepares,

@@ -29,6 +29,13 @@ def prose(day: str, title: str = "A Day Carried Forward", marker: str = "steady"
     return f"# {day} — {title}\n\n{body.strip()}\n".encode("utf-8")
 
 
+def test_markdown_digest_is_stable_across_line_endings() -> None:
+    body = prose("2026-08-09")
+    crlf = body.replace(b"\n", b"\r\n")
+
+    assert subject.parse_markdown(body)["content_sha256"] == subject.parse_markdown(crlf)["content_sha256"]
+
+
 def source_ref(seed: str = "a") -> dict:
     return {
         "kind": "journal-context-pack",
@@ -602,7 +609,7 @@ def test_late_activity_requires_refresh(monkeypatch: pytest.MonkeyPatch, tmp_pat
         subject.approve_or_revise(action_args(day, draft), revising=False)
 
 
-def test_freshness_runs_through_approval_and_excludes_only_exact_approval_record(
+def test_freshness_runs_through_approval_and_filters_approval_choreography_by_role(
     monkeypatch: pytest.MonkeyPatch, tmp_path: Path
 ) -> None:
     _, drafts = configure_repo(monkeypatch, tmp_path)
@@ -621,6 +628,51 @@ def test_freshness_runs_through_approval_and_excludes_only_exact_approval_record
     assert observed["until"] == datetime(2026, 8, 9, 18, tzinfo=timezone.utc)
     assert observed["excluded_records"] == {args.approval_record_ref}
     assert observed["excluded_sessions"] == set()
+    assert observed["user_only_sessions"] == {SESSION}
+
+
+def test_mixed_approval_session_keeps_unrelated_user_activity(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    source = SimpleNamespace(
+        session_id=SESSION,
+        started_at="2026-08-09T16:00:00.000Z",
+        last_observed_at="2026-08-09T18:00:00.000Z",
+    )
+    approval_record = APPROVAL_RECORD
+    unrelated_record = "MR-" + "a" * 24
+    assistant_record = "MR-" + "b" * 24
+    rows = [
+        {
+            "record_id": assistant_record,
+            "timestamp": "2026-08-09T17:10:00.000Z",
+            "role": "assistant",
+        },
+        {
+            "record_id": approval_record,
+            "timestamp": "2026-08-09T17:20:00.000Z",
+            "role": "user",
+        },
+        {
+            "record_id": unrelated_record,
+            "timestamp": "2026-08-09T17:30:00.000Z",
+            "role": "user",
+        },
+    ]
+    monkeypatch.setattr(subject, "session_sources_since", lambda after: [source])
+    monkeypatch.setattr(subject, "normalized_rows", lambda observed: ({}, {}, rows))
+    monkeypatch.setattr(subject, "git_commits", lambda start, end: [])
+
+    observed = subject.latest_activity_after(
+        subject.parse_entry_date("2026-08-09"),
+        datetime(2026, 8, 9, 17, tzinfo=timezone.utc),
+        until=datetime(2026, 8, 9, 18, tzinfo=timezone.utc),
+        excluded_sessions=set(),
+        excluded_records={approval_record},
+        user_only_sessions={SESSION},
+    )
+
+    assert observed == [unrelated_record]
 
 
 def test_quiet_day_requires_explicit_acknowledgment(monkeypatch: pytest.MonkeyPatch, tmp_path: Path) -> None:

@@ -270,6 +270,93 @@
           "previous_version_digest": null
         }
       ]
+    },
+    {
+      "journal_id": "MJ-20260815",
+      "entry_date": "2026-08-15",
+      "current_version_id": "MJ-20260815-v1",
+      "current_path": "mira/journal/2026-08-15.md",
+      "versions": [
+        {
+          "version_id": "MJ-20260815-v1",
+          "version_number": 1,
+          "title": "The Inheritance Within",
+          "content_sha256": "58e831d65cad0097257b3150ebeaf508a8db0bf8e54628b0e0a3a83e04aae738",
+          "word_count": 621,
+          "authored_at": "2026-08-16T06:00:39.329Z",
+          "author": {
+            "identity": "Mira",
+            "session_id": "MS-019fe96c-2a54-7063-9d70-202952ee322d",
+            "model_id": "gpt-5"
+          },
+          "coverage": {
+            "start": "2026-08-15T06:00:00.000Z",
+            "end": "2026-08-16T06:00:00.000Z",
+            "as_of": "2026-08-16T06:00:00.000Z",
+            "retrospective": true
+          },
+          "quiet_day": false,
+          "limited_activity_acknowledged": false,
+          "source_refs": [
+            {
+              "kind": "journal-context-pack",
+              "context_pack_id": "CP-d8e194ae4cee59e3475f57bb",
+              "object_id": "ace140ef30c2f7b48115f12611375ad69a8ca9ab222f5a0de8d0b69f887411e1"
+            },
+            {
+              "kind": "journal-composition-brief",
+              "composition_brief_id": "CB-e1d71f7c3cbacf29f8c28d0f",
+              "object_id": "8f1009b49b4f1c37d2d3a9964d5fb7f9eb70aec158d35ed8f7a6267a2943b2f3"
+            }
+          ],
+          "derivation_manifest": {
+            "schema_version": 1,
+            "derivation_id": "DRV-58e831d65cad0097257b3150",
+            "transformation_type": "probabilistic-mira-journal-draft",
+            "deterministic": false,
+            "producer": {
+              "kind": "model",
+              "id": "gpt-5",
+              "session_id": "MS-019fe96c-2a54-7063-9d70-202952ee322d"
+            },
+            "input_object_ids": [
+              "ace140ef30c2f7b48115f12611375ad69a8ca9ab222f5a0de8d0b69f887411e1",
+              "8f1009b49b4f1c37d2d3a9964d5fb7f9eb70aec158d35ed8f7a6267a2943b2f3"
+            ],
+            "output_digest": "58e831d65cad0097257b3150ebeaf508a8db0bf8e54628b0e0a3a83e04aae738",
+            "prompt_digest": "c83f58045214f79d48a460fb4a4164519634417ed722cb49519a396fc1dceb96",
+            "evaluation_refs": []
+          },
+          "approval": {
+            "approved_by": "operator",
+            "status": "affirmative-v2",
+            "publication_eligible": true,
+            "approved_at": "2026-08-16T14:16:10.459Z",
+            "authority_ref": "MS-019fe96c-2a54-7063-9d70-202952ee322d",
+            "record_ref": "MR-f3bd7bda7f5f86c0279681b1"
+          },
+          "technical_reference": {
+            "reference_id": "MJTR-20260815-v1",
+            "json_path": "mira/journal/references/MJTR-20260815-v1.json",
+            "markdown_path": "mira/journal/references/MJTR-20260815-v1.md",
+            "content_sha256": "647b0e249fb5c8b1905e5fbb6294e86440d0e2ce4c1ece467b67a6e844466564",
+            "item_count": 5,
+            "consumed_rsi_ids": [],
+            "candidate_signal": "observation"
+          },
+          "provenance_receipt": {
+            "resolved_at": "2026-08-16T14:16:10.459Z",
+            "context_pack_object_ids": [
+              "ace140ef30c2f7b48115f12611375ad69a8ca9ab222f5a0de8d0b69f887411e1"
+            ],
+            "composition_brief_object_ids": [
+              "8f1009b49b4f1c37d2d3a9964d5fb7f9eb70aec158d35ed8f7a6267a2943b2f3"
+            ],
+            "git_commits_checked": []
+          },
+          "previous_version_digest": null
+        }
+      ]
     }
   ]
 }
