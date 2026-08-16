@@ -4,7 +4,7 @@ This index routes the unified local Weichert corpus for `weichert` to the centra
 
 Source basis: `strategy-codex/statecraft/voices/weichert/weichert-index.md`.
 
-Corpus: 30 local route rows across 30 central archive source files.
+Corpus: 31 local route rows across 31 central archive source files.
 
 Status: `imported-corpus`
 
@@ -49,6 +49,7 @@ Status: `imported-corpus`
 | `2026-08-08` | (2) IRAN BOARDS SHIP IN HORMUZ, TRUMP'S TOP GENERAL CALLS FOR END OF IRAN WAR | `guest` | `mario-nawfal` | [source](../../archive/sources/2026-08-08/source-2-iran-boards-ship-in-hormuz-trump-s-top-general-calls-for-end-of-iran-war-2026-08-08.md) |
 | `2026-08-10` | (2) TRUMP DEMANDS REPARATIONS FROM IRAN | `guest` | `mario-nawfal` | [source](../../archive/sources/2026-08-10/source-2-trump-demands-reparations-from-iran-2026-08-10.md) |
 | `2026-08-13` | (3) BREAKING: CENTCOM TELLS ISRAEL TO PREPARE FOR WAR | `guest` | `mario-nawfal` | [source](../../archive/sources/2026-08-13/source-3-breaking-centcom-tells-israel-to-prepare-for-war-2026-08-13.md) |
+| `2026-08-16` | (4) IRAN WON'T PERMIT U.S. BASES TO RETURN TO GULF | `guest` | `mario-nawfal` | [source](../../archive/sources/2026-08-16/source-4-iran-won-t-permit-u-s-bases-to-return-to-gulf-2026-08-16.md) |
 
 ## Import Boundary
 

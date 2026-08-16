@@ -4,7 +4,7 @@ This index routes the transcript-bearing upstream-parity corpus for `mercouris` 
 
 Source basis: `strategy-codex/statecraft/voices/mercouris/mercouris-index.md`, `strategy-codex/statecraft/channels/alexander-mercouris/alexander-mercouris-channel-index.md`, and subsequent local intake.
 
-Corpus: 390 local route rows across 390 central archive source files.
+Corpus: 392 local route rows across 392 central archive source files.
 
 Status: `transcript-bearing-upstream-parity`
 
@@ -414,6 +414,8 @@ Status: `transcript-bearing-upstream-parity`
 | `2026-08-13` | (3) Russia Plans Ukraine Land Blockade Strikes Road Rail Links; Russian A50 AWACS Defeat Ukraine Drones | `host monologue` | `alexander-mercouris` | [source](../../archive/sources/2026-08-13/source-3-russia-plans-ukraine-land-blockade-strikes-road-rail-links-russian-a50-awacs-defeat-ukraine-drones-2026-08-13.md) |
 | `2026-08-14` | (3) Russia Mocks Zelensky Erdogan Odessa Sea Truce Call; UK Panic As Russia Targets UK Ships; Druzhivka | `host monologue` | `alexander-mercouris` | [source](../../archive/sources/2026-08-14/source-3-russia-mocks-zelensky-erdogan-odessa-sea-truce-call-uk-panic-as-russia-targets-uk-ships-druzhivka-2026-08-14.md) |
 | `2026-08-15` | (4) Russia Crushes Kiev's Elite Azov Troops Smashes Dobropilia; West Despairs At Kiev Lack Of AD | `guest` | `alexander-mercouris` | [source](../../archive/sources/2026-08-15/source-4-russia-crushes-kiev-s-elite-azov-troops-smashes-dobropilia-west-despairs-at-kiev-lack-of-ad-2026-08-15.md) |
+| `2026-08-16` | (4) Demand Destruction: The Real Energy Crisis Hitting Europe and Japan | `guest` | `the-duran` | [source](../../archive/sources/2026-08-16/source-4-demand-destruction-the-real-energy-crisis-hitting-europe-and-japan-2026-08-16.md) |
+| `2026-08-16` | (4) Russian Strikes Devastate Ukraine; Key Ukraine Refinery Smash Orekhov Falling; Zelensky UK/EU Panic | `guest` | `alexander-mercouris` | [source](../../archive/sources/2026-08-16/source-4-russian-strikes-devastate-ukraine-key-ukraine-refinery-smash-orekhov-falling-zelensky-uk-eu-panic-2026-08-16.md) |
 
 ## Judgment Continuity
 

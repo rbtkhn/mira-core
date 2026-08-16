@@ -2,7 +2,7 @@
   "manifest_id": "narrative-geopolitics-source-manifest-v1",
   "source_basis": "central archive with completed historical strategy-codex imports",
   "imported_at": "2026-07-09",
-  "source_count": 2147,
+  "source_count": 2154,
   "boundary": {
     "archive": "source truth",
     "voices": "voice continuity and routing",
@@ -58264,6 +58264,165 @@
       "source_url": "https://www.youtube.com/watch?v=2Ycu0v0_-Tc",
       "title_source": "transcript",
       "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-16",
+      "title": "(4) Russian Strikes Devastate Ukraine; Key Ukraine Refinery Smash Orekhov Falling; Zelensky UK/EU Panic",
+      "local_path": "narrative-geopolitics/archive/sources/2026-08-16/source-4-russian-strikes-devastate-ukraine-key-ukraine-refinery-smash-orekhov-falling-zelensky-uk-eu-panic-2026-08-16.md",
+      "voice_index_path": "../../archive/sources/2026-08-16/source-4-russian-strikes-devastate-ukraine-key-ukraine-refinery-smash-orekhov-falling-zelensky-uk-eu-panic-2026-08-16.md",
+      "upstream_path": "operator-paste://2026-08-16/4-russian-strikes-devastate-ukraine-key-ukraine-refinery-smash-orekhov-falling-zelensky-uk-eu-panic",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "alexander-mercouris",
+      "source_identity": "youtube:0ykbAAaQEck",
+      "source_url": "https://www.youtube.com/watch?v=0ykbAAaQEck",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-16",
+      "title": "(4) Seyed M. Marandi: Iran & Yemen Unleash a New Offensive Strategy",
+      "local_path": "narrative-geopolitics/archive/sources/2026-08-16/source-4-seyed-m-marandi-iran-yemen-unleash-a-new-offensive-strategy-2026-08-16.md",
+      "voice_index_path": "../../archive/sources/2026-08-16/source-4-seyed-m-marandi-iran-yemen-unleash-a-new-offensive-strategy-2026-08-16.md",
+      "upstream_path": "operator-paste://2026-08-16/4-seyed-m-marandi-iran-yemen-unleash-a-new-offensive-strategy",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "marandi"
+      ],
+      "host_slug": "glenn-diesen",
+      "source_identity": "youtube:PG3eNI9nNFc",
+      "source_url": "https://www.youtube.com/watch?v=PG3eNI9nNFc",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-16",
+      "title": "(4) Demand Destruction: The Real Energy Crisis Hitting Europe and Japan",
+      "local_path": "narrative-geopolitics/archive/sources/2026-08-16/source-4-demand-destruction-the-real-energy-crisis-hitting-europe-and-japan-2026-08-16.md",
+      "voice_index_path": "../../archive/sources/2026-08-16/source-4-demand-destruction-the-real-energy-crisis-hitting-europe-and-japan-2026-08-16.md",
+      "upstream_path": "operator-paste://2026-08-16/4-demand-destruction-the-real-energy-crisis-hitting-europe-and-japan",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "the-duran",
+      "source_identity": "youtube:xCGJp4O8vD8",
+      "source_url": "https://www.youtube.com/watch?v=xCGJp4O8vD8",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-13",
+      "title": "Netanyahu's Reprise of the 'Iraq WMD Deceit' - Re-launched to Promote War on Iran",
+      "local_path": "narrative-geopolitics/archive/sources/2026-08-13/source-netanyahu-s-reprise-of-the-iraq-wmd-deceit-re-launched-to-promote-war-on-iran-2026-08-13.md",
+      "voice_index_path": "../../archive/sources/2026-08-13/source-netanyahu-s-reprise-of-the-iraq-wmd-deceit-re-launched-to-promote-war-on-iran-2026-08-13.md",
+      "upstream_path": "operator-paste://2026-08-13/netanyahu-s-reprise-of-the-iraq-wmd-deceit-re-launched-to-promote-war-on-iran",
+      "source_class": "author",
+      "modality": "article",
+      "voice_slugs": [
+        "crooke"
+      ],
+      "host_slug": "crooke",
+      "source_identity": "https://conflictsforum.substack.com/p/netanyahus-reprise-of-the-iraq-wmd",
+      "source_url": "https://conflictsforum.substack.com/p/netanyahus-reprise-of-the-iraq-wmd",
+      "title_source": "operator",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-16",
+      "title": "(4) IRAN WON'T PERMIT U.S. BASES TO RETURN TO GULF",
+      "local_path": "narrative-geopolitics/archive/sources/2026-08-16/source-4-iran-won-t-permit-u-s-bases-to-return-to-gulf-2026-08-16.md",
+      "voice_index_path": "../../archive/sources/2026-08-16/source-4-iran-won-t-permit-u-s-bases-to-return-to-gulf-2026-08-16.md",
+      "upstream_path": "operator-paste://2026-08-16/4-iran-won-t-permit-u-s-bases-to-return-to-gulf",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "weichert"
+      ],
+      "host_slug": "mario-nawfal",
+      "source_identity": "youtube:Eo7uioe9u54",
+      "source_url": "https://www.youtube.com/watch?v=Eo7uioe9u54",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-16",
+      "title": "(4) Stanislav Krapivnik: Europe Begs U.S. to Call Russia NOW—Fear of ‘Catastrophic’ Winter Strikes",
+      "local_path": "narrative-geopolitics/archive/sources/2026-08-16/source-4-stanislav-krapivnik-europe-begs-u-s-to-call-russia-now-fear-of-catastrophic-winter-strikes-2026-08-16.md",
+      "voice_index_path": "../../archive/sources/2026-08-16/source-4-stanislav-krapivnik-europe-begs-u-s-to-call-russia-now-fear-of-catastrophic-winter-strikes-2026-08-16.md",
+      "upstream_path": "operator-paste://2026-08-16/4-stanislav-krapivnik-europe-begs-u-s-to-call-russia-now-fear-of-catastrophic-winter-strikes",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "krapivnik"
+      ],
+      "host_slug": "dialogue-works",
+      "source_identity": "youtube:BJP0DC-ETqY",
+      "source_url": "https://www.youtube.com/watch?v=BJP0DC-ETqY",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-16",
+      "title": "(4) 🚨ESCALATION: Trade War Gets Worse, Iran War Extends to Ukraine | Stas Krapivnik",
+      "local_path": "narrative-geopolitics/archive/sources/2026-08-16/source-4-escalation-trade-war-gets-worse-iran-war-extends-to-ukraine-stas-krapivnik-2026-08-16.md",
+      "voice_index_path": "../../archive/sources/2026-08-16/source-4-escalation-trade-war-gets-worse-iran-war-extends-to-ukraine-stas-krapivnik-2026-08-16.md",
+      "upstream_path": "operator-paste://2026-08-16/4-escalation-trade-war-gets-worse-iran-war-extends-to-ukraine-stas-krapivnik",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "krapivnik"
+      ],
+      "host_slug": "neutrality-studies",
+      "source_identity": "youtube:CPh1RtRfmF0",
+      "source_url": "https://www.youtube.com/watch?v=CPh1RtRfmF0",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
       "inference_basis": [
         "wrapper-normalized",
         "explicit-host",
