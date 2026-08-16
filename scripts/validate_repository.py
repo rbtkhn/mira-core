@@ -51,6 +51,7 @@ LOCAL_SKILLS = {
     "mechanism-lens",
     "mira-face",
     "mira-journal",
+    "mira-memory",
     "mira-voice",
     "mira-work",
     "morning-brief",

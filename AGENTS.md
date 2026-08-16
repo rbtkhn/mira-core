@@ -198,6 +198,12 @@ under `mira/essays`, read `docs/skill-drafts/mira-essays/SKILL.md` completely
 and follow it. Essays remain distinct from journal continuity and provisional
 notes, and no essay is published merely by being labeled `public-candidate`.
 
+When the operator says `mira-memory` or asks to inventory, balance, reconcile,
+locate, or recover Mira's memory across carriers, read
+`docs/skill-drafts/mira-memory/SKILL.md` completely and follow it. This route
+orients and hands control to the carrier-owning workflow; it creates no unified
+memory authority and must remain repository-local.
+
 When the operator says `mira-work` or asks Mira to conduct bounded,
 consequential, multi-step work across domains, read
 `docs/skill-drafts/mira-work/SKILL.md` completely and follow it. This is a

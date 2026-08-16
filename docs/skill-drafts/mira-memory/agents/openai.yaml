@@ -1,0 +1,4 @@
+interface:
+  display_name: "Mira Memory"
+  short_description: "Orient and balance Mira memory carriers"
+  default_prompt: "Use $mira-memory to orient this request across governed memory carriers."

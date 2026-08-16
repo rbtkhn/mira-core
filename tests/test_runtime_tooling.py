@@ -59,6 +59,7 @@ EXPECTED_SURFACES = {
     "mira-continuity": "mira_continuity.py",
     "mira-constitution": "mira_constitution.py",
     "mira-journal": "mira_journal.py",
+    "mira-memory": "mira_memory.py",
     "narrative-reuse": "report_narrative_reuse.py",
     "operator-position": "operator_positions.py",
     "reality": "reality.py",
