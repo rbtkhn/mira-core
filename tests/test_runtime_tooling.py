@@ -654,6 +654,15 @@ def test_powershell_validator_exposes_fast_full_and_force() -> None:
     assert launcher.count("@validatorArguments") == 4
 
 
+def test_hosted_validation_checkout_retains_git_evidence_history() -> None:
+    workflow = (REPO_ROOT / ".github" / "workflows" / "validate.yml").read_text(
+        encoding="utf-8"
+    )
+
+    assert "uses: actions/checkout@v4" in workflow
+    assert "fetch-depth: 0" in workflow
+
+
 def test_validator_uses_one_interpreter_and_runs_both_checks(monkeypatch, tmp_path: Path) -> None:
     python = Path("resolved-python")
     commands: list[list[str]] = []

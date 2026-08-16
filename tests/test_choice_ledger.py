@@ -1220,6 +1220,17 @@ def test_mutation_dry_run_needs_no_store_and_writes_nothing(capsys) -> None:
     assert payload["retained"] is False
 
 
+def test_inline_json_survives_filesystem_probe_errors(monkeypatch) -> None:
+    def unavailable(_path) -> bool:
+        raise OSError("inline JSON is not a filesystem path")
+
+    monkeypatch.setattr(choice_ledger.Path, "is_file", unavailable)
+
+    assert choice_ledger.parse_json_argument('{"kind":"inline"}') == {
+        "kind": "inline"
+    }
+
+
 def test_unresolved_review_order_is_deterministic(tmp_path: Path) -> None:
     db = connection(tmp_path / "choices.sqlite3")
     select(db, "later", selected_at="2026-07-30T00:00:00+00:00")

@@ -196,7 +196,11 @@ def sanitize_options(raw: Any) -> list[dict[str, str]]:
 
 def parse_json_argument(value: str) -> Any:
     candidate = Path(value)
-    if candidate.is_file():
+    try:
+        is_file = candidate.is_file()
+    except OSError:
+        is_file = False
+    if is_file:
         return json.loads(candidate.read_text(encoding="utf-8"))
     return json.loads(value)
 
