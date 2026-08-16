@@ -5,14 +5,30 @@ description: "Consolidate one local day of mira-core sessions into a private adv
 
 # Dream
 
-Use only in `mira-core`. Run one canonical Dream consolidation per
-operator, workspace, and local calendar day. Individual sessions contribute
-bounded closeout receipts; Dream consolidates all sessions active that day.
-Dream records advisory cadence state in the
-configured private append-only ledger, never research evidence. It does not
-overwrite prior episodes.
+Use only in `mira-core`. Bare `dream` is the daily-close conductor: it
+finalizes Geo-Strategy, then Mira Journal, then the private cadence ledger.
+Run one canonical Dream consolidation per operator, workspace, and local
+calendar day. Individual sessions contribute bounded closeout receipts; Dream
+consolidates all sessions active that day. Dream records advisory cadence state
+in the configured private append-only ledger, never research evidence. It does
+not overwrite prior episodes.
 
 ## Distill
+
+Start or resume the conductor with:
+
+```text
+tools/run.ps1 dream --date YYYY-MM-DD --json
+tools/run.ps1 dream --resume DCR-ID --date YYYY-MM-DD --json
+```
+
+Use `--check` for a read-only readiness projection. Completed stages are
+immutable. A date without manifest-backed Geo sources records `no_geo_run`; a
+failed evidence-backed Geo packet blocks Journal. Dream may sign a fully
+validated `dream-eod-v1` journal bundle without an operator approval record,
+but that version remains publication-ineligible. When the tool returns a
+composition handoff, complete the prepared private bundle and resume. Finish
+with a private `--dream-json` candidate or `--no-candidate REASON`.
 
 Inventory the day's active sessions first. Give every known session an explicit
 `included`, `excluded`, or `unavailable` coverage receipt with a reason and
@@ -35,6 +51,9 @@ unit/baseline/threshold/source, falsifier, intended next-use task class,
 timezone-aware expiry, claimed artifact relationships, and relevant paths. If
 no meaningful experiment occurred, record `no_cadence_worthy_experiment`
 without manufacturing a candidate.
+
+The corresponding low-level receipt is `cadence dream-closeout`; it records a
+daily closeout without creating a candidate episode.
 
 The daily key is `(workspace_id, operator_id, dream_date)` in the named IANA
 timezone. Repeating an identical command is idempotent. A second canonical

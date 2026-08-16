@@ -665,6 +665,39 @@ def test_approve_check_is_non_mutating_and_approve_registers_entry(
     assert subject.validate_registry(registry, repo_root=subject.REPO_ROOT, index_path=subject.INDEX_PATH) == []
 
 
+def test_dream_eod_finalizes_canonical_non_public_continuity_without_operator_approval(
+    monkeypatch: pytest.MonkeyPatch, tmp_path: Path
+) -> None:
+    _, drafts = configure_repo(monkeypatch, tmp_path)
+    day = "2026-08-09"
+    body = prose(day)
+    bundle = write_v2_bundle(drafts, day, body, metadata(day, body)).parent
+    monkeypatch.setattr(subject, "latest_activity_after", lambda *args, **kwargs: [])
+    result = subject.command_eod_finalize(argparse.Namespace(
+        date=day, bundle=bundle, dream_run_id="DCR-20260809-test",
+        finalized_at="2026-08-09T10:00:00+00:00", check=False,
+    ))
+    assert result["status"] == "finalized"
+    assert result["publication_eligible"] is False
+    approval = subject.load_registry()["entries"][0]["versions"][0]["approval"]
+    assert approval == {
+        "approved_by": "dream-eod-conductor",
+        "status": subject.DREAM_EOD_STATUS,
+        "publication_eligible": False,
+        "approved_at": "2026-08-09T10:00:00+00:00",
+        "dream_run_id": "DCR-20260809-test",
+        "method_digest": subject.sha256_bytes(b"dream-eod-v1"),
+        "finalization_digest": approval["finalization_digest"],
+    }
+    assert len(approval["finalization_digest"]) == 64
+    registry = subject.load_registry()
+    assert subject.validate_registry(registry, repo_root=subject.REPO_ROOT, index_path=subject.INDEX_PATH) == []
+    registry["entries"][0]["versions"][0]["approval"]["finalization_digest"] = "0" * 64
+    assert any("finalization digest mismatch" in failure for failure in subject.validate_registry(
+        registry, repo_root=subject.REPO_ROOT, index_path=subject.INDEX_PATH
+    ))
+
+
 def test_revision_replaces_current_view_and_preserves_digest_chain(
     monkeypatch: pytest.MonkeyPatch, tmp_path: Path
 ) -> None:

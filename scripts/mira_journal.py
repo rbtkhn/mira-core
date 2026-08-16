@@ -36,6 +36,15 @@ DRAFT_ROOT_ENV = "MIRA_CORE_JOURNAL_DRAFT_ROOT"
 DEFAULT_DRAFT_ROOT = Path(r"C:\private\mira-journal-drafts")
 TIMEZONE_NAME = "America/Denver"
 TIMEZONE = ZoneInfo(TIMEZONE_NAME)
+FRESHNESS_REPLAY_BASE_REF = "a19f5d1^"
+FRESHNESS_REPLAY_DEVELOPMENT_VERSION = "MJ-20260815-v1"
+FRESHNESS_REPLAY_CADENCE = {
+    "series_id": "legacy-surviving-handoff",
+    "method_version_digest": "6cac5331fc9ba5bdb64cbb4e5e4877412a1c5128be154ec46cd010d95b11103a",
+    "observable_name": "legacy reported improvement",
+    "unit": "legacy-report",
+    "task_class": "legacy-unspecified",
+}
 SCHEMA_VERSION = 1
 CONTEXT_VERSION = "mira-journal-context-v1"
 COMPOSITION_VERSION = "mira-journal-composition-v1"
@@ -51,6 +60,7 @@ DERIVATION_ID_RE = re.compile(r"^DRV-[0-9a-f]{24}$")
 MAINTENANCE_ID_RE = re.compile(r"^MJM-[0-9]{4}$")
 AFFIRMATIVE_APPROVAL_STATUS = "affirmative-v1"
 COMBINED_APPROVAL_STATUS = "affirmative-v2"
+DREAM_EOD_STATUS = "dream-eod-v1"
 LEGACY_HELD_STATUS = "legacy-held"
 APPROVAL_RECEIPT_SCHEMA_VERSION = 1
 APPROVAL_RECEIPT_SET_ID = "mira-journal-approval-receipts-v1"
@@ -82,6 +92,16 @@ SESSION_SYNOPSIS_NONCONTENT_PREFIXES = (
 TITLE_RE = re.compile(r"^# (?P<date>\d{4}-\d{2}-\d{2})\s+[—-]\s+(?P<title>[^\r\n]+)\s*$")
 WORD_RE = re.compile(r"\b[\w’'-]+\b", re.UNICODE)
 TITLE_SUBTITLE_RE = re.compile(r"(?::|[—–]|\s-\s)")
+
+
+def dream_eod_digest(*, run_id: str, prose_digest: str, reference_digest: str,
+                     coverage: dict[str, Any], context_ids: list[str], composition_ids: list[str]) -> str:
+    return sha256_bytes(canonical_json({
+        "method": DREAM_EOD_STATUS, "run_id": run_id, "prose_digest": prose_digest,
+        "reference_digest": reference_digest, "coverage": coverage,
+        "context_pack_object_ids": sorted(context_ids),
+        "composition_brief_object_ids": sorted(composition_ids),
+    }).encode("utf-8"))
 FIRST_PERSON_RE = re.compile(r"\b(?:I|me|my|mine|myself|we|our|ours)\b", re.IGNORECASE)
 SENTENCE_RE = re.compile(r"(?<=[.!?])\s+")
 OPERATOR_PROSE_PATTERNS = (
@@ -1200,7 +1220,7 @@ def composition_brief(entry_date: date, pack: dict[str, Any]) -> dict[str, Any]:
     authoritative_entries = [
         entry for entry in eligible
         if entry["versions"][-1]["approval"]["status"]
-        in {AFFIRMATIVE_APPROVAL_STATUS, COMBINED_APPROVAL_STATUS}
+        in {AFFIRMATIVE_APPROVAL_STATUS, COMBINED_APPROVAL_STATUS, DREAM_EOD_STATUS}
     ]
     authoritative_previous = (
         journal_context(authoritative_entries[-1], role="authoritative-ancestry")
@@ -1339,7 +1359,7 @@ def validate_composition_brief(value: Any, *, pack: dict[str, Any]) -> list[str]
         if prior is not None and (
             not isinstance(prior, dict)
             or prior.get("continuity_role") != "authoritative-ancestry"
-            or prior.get("approval_status") not in {AFFIRMATIVE_APPROVAL_STATUS, COMBINED_APPROVAL_STATUS}
+            or prior.get("approval_status") not in {AFFIRMATIVE_APPROVAL_STATUS, COMBINED_APPROVAL_STATUS, DREAM_EOD_STATUS}
         ):
             failures.append("composition brief authoritative previous entry is malformed")
         if ancestry.get("active_threads") != value.get("active_threads"):
@@ -1898,9 +1918,37 @@ def validate_registry(
             if number > 1 and version.get("previous_version_digest") != versions[number - 2].get("content_sha256"):
                 failures.append(f"journal revision chain mismatch: {expected_version}")
             approval = version.get("approval")
-            if not isinstance(approval, dict) or approval.get("approved_by") != "operator":
-                failures.append(f"journal version lacks operator approval: {expected_version}")
-            else:
+            if not isinstance(approval, dict):
+                failures.append(f"journal version lacks finalization authority: {expected_version}")
+            elif approval.get("status") == DREAM_EOD_STATUS:
+                if approval.get("approved_by") != "dream-eod-conductor":
+                    failures.append(f"Dream EOD journal authority is malformed: {expected_version}")
+                if approval.get("publication_eligible") is not False:
+                    failures.append(f"Dream EOD journal version must remain publication-ineligible: {expected_version}")
+                if not re.fullmatch(r"DCR-[A-Za-z0-9._:-]+", str(approval.get("dream_run_id", ""))):
+                    failures.append(f"Dream EOD journal version lacks its close-run binding: {expected_version}")
+                if approval.get("method_digest") != sha256_bytes(b"dream-eod-v1"):
+                    failures.append(f"Dream EOD journal method digest mismatch: {expected_version}")
+                receipt = version.get("provenance_receipt", {})
+                reference = version.get("technical_reference", {})
+                expected_finalization = dream_eod_digest(
+                    run_id=str(approval.get("dream_run_id", "")),
+                    prose_digest=str(version.get("content_sha256", "")),
+                    reference_digest=str(reference.get("content_sha256", "")),
+                    coverage=version.get("coverage", {}) if isinstance(version.get("coverage"), dict) else {},
+                    context_ids=receipt.get("context_pack_object_ids", []) if isinstance(receipt, dict) else [],
+                    composition_ids=receipt.get("composition_brief_object_ids", []) if isinstance(receipt, dict) else [],
+                )
+                if approval.get("finalization_digest") != expected_finalization:
+                    failures.append(f"Dream EOD journal finalization digest mismatch: {expected_version}")
+                try:
+                    approved_time = parse_timestamp(str(approval.get("approved_at", "")), label="approved_at")
+                    authored_time = parse_timestamp(str(version.get("authored_at", "")), label="authored_at")
+                    if approved_time < authored_time:
+                        failures.append(f"journal finalization predates draft authorship: {expected_version}")
+                except JournalError:
+                    failures.append(f"Dream EOD journal version has invalid finalization time: {expected_version}")
+            elif approval.get("approved_by") == "operator":
                 try:
                     parse_timestamp(str(approval.get("approved_at", "")), label="approved_at")
                 except JournalError:
@@ -1997,6 +2045,8 @@ def validate_registry(
                         failures.append(f"journal approval predates draft authorship: {expected_version}")
                 except JournalError:
                     failures.append(f"journal version has invalid authorship time: {expected_version}")
+            else:
+                failures.append(f"journal version has unsupported finalization authority: {expected_version}")
             provenance_receipt = version.get("provenance_receipt")
             if not isinstance(provenance_receipt, dict):
                 failures.append(f"journal version lacks provenance receipt: {expected_version}")
@@ -2006,8 +2056,8 @@ def validate_registry(
                     not SHA256_RE.fullmatch(str(item)) for item in context_ids
                 ):
                     failures.append(f"journal version has malformed context-pack receipt: {expected_version}")
-                elif approval.get("status") in {AFFIRMATIVE_APPROVAL_STATUS, COMBINED_APPROVAL_STATUS} and not context_ids:
-                    failures.append(f"affirmative journal version lacks context-pack provenance: {expected_version}")
+                elif approval.get("status") in {AFFIRMATIVE_APPROVAL_STATUS, COMBINED_APPROVAL_STATUS, DREAM_EOD_STATUS} and not context_ids:
+                    failures.append(f"canonical journal version lacks context-pack provenance: {expected_version}")
                 git_checked = provenance_receipt.get("git_commits_checked")
                 if not isinstance(git_checked, list) or any(
                     not re.fullmatch(r"[0-9a-f]{40}", str(item)) for item in git_checked
@@ -2112,8 +2162,8 @@ def validate_registry(
                 )
             )
             reference = version.get("technical_reference")
-            if approval.get("status") == COMBINED_APPROVAL_STATUS and not isinstance(reference, dict):
-                failures.append(f"combined journal version lacks technical reference: {expected_version}")
+            if approval.get("status") in {COMBINED_APPROVAL_STATUS, DREAM_EOD_STATUS} and not isinstance(reference, dict):
+                failures.append(f"canonical journal version lacks technical reference: {expected_version}")
             if isinstance(reference, dict):
                 expected_reference_id = mira_journal_references.reference_id(expected_version)
                 if reference.get("reference_id") != expected_reference_id:
@@ -2284,6 +2334,291 @@ def latest_activity_after(
     return sorted(set(latest))
 
 
+def _private_output_path(value: Path) -> Path:
+    if not value.is_absolute():
+        raise JournalError("freshness replay output must be an absolute path")
+    resolved = value.resolve(strict=False)
+    try:
+        resolved.relative_to(REPO_ROOT.resolve())
+    except ValueError:
+        return resolved
+    raise JournalError("freshness replay output must remain outside Git")
+
+
+def _git_blob(ref: str, path: str) -> bytes:
+    result = subprocess.run(
+        ["git", "show", f"{ref}:{path}"], cwd=REPO_ROOT,
+        capture_output=True, check=False,
+    )
+    if result.returncode:
+        raise JournalError(f"could not resolve replay policy source at {ref}")
+    return result.stdout
+
+
+def _rate(numerator: int, denominator: int) -> float | None:
+    return numerator / denominator if denominator else None
+
+
+def _policy_counts(events: list[dict[str, Any]], *, current: bool) -> dict[str, Any]:
+    predicted: set[int] = set()
+    expected: set[int] = set()
+    for index, event in enumerate(events):
+        category = event["category"]
+        if event["expected_refresh"]:
+            expected.add(index)
+        if category == "authority-approval":
+            continue
+        if current and category == "authority-choreography":
+            continue
+        predicted.add(index)
+    tp = len(predicted & expected)
+    fp = len(predicted - expected)
+    fn = len(expected - predicted)
+    tn = len(events) - tp - fp - fn
+    return {
+        "refresh_required": bool(predicted),
+        "true_positive": tp, "false_positive": fp,
+        "false_negative": fn, "true_negative": tn,
+    }
+
+
+def evaluate_freshness_manifest(manifest: dict[str, Any]) -> dict[str, Any]:
+    events = list(manifest.get("events", []))
+    old = _policy_counts(events, current=False)
+    current = _policy_counts(events, current=True)
+    categories = {
+        name: [event for event in events if event["category"] == name]
+        for name in (
+            "authority-approval", "authority-choreography", "authority-user",
+            "other-session", "git",
+        )
+    }
+    ignorable = categories["authority-approval"] + categories["authority-choreography"]
+    required = [event for event in events if event["expected_refresh"]]
+    sensitivities = {}
+    component_categories = {
+        "remove-approval-filtering": {"authority-approval", "authority-choreography"},
+        "remove-same-session-user-detection": {"authority-user"},
+        "remove-cross-session-detection": {"other-session"},
+        "remove-git-detection": {"git"},
+    }
+    for name, removed in component_categories.items():
+        detected = [event for event in required if event["category"] not in removed]
+        false_refresh = sum(
+            event["category"] in removed and not event["expected_refresh"]
+            for event in events
+        ) if name == "remove-approval-filtering" else 0
+        sensitivities[name] = {
+            "kind": "counterfactual-mechanism-test",
+            "required_detected": len(detected),
+            "required_total": len(required),
+            "missed": len(required) - len(detected),
+            "false_refreshes": false_refresh,
+        }
+    return {
+        "old_policy": old,
+        "current_policy": current,
+        "decision_delta": old["refresh_required"] != current["refresh_required"],
+        "metrics": {
+            "approval_choreography_specificity": _rate(len(ignorable), len(ignorable)),
+            "same_session_user_recall": _rate(len(categories["authority-user"]), len(categories["authority-user"])),
+            "cross_session_recall": _rate(len(categories["other-session"]), len(categories["other-session"])),
+            "git_activity_recall": _rate(len(categories["git"]), len(categories["git"])),
+        },
+        "sensitivity": sensitivities,
+    }
+
+
+def _freshness_episode_manifest(
+    entry: dict[str, Any], version: dict[str, Any], sources: list[mira_continuity.SessionSource]
+) -> dict[str, Any]:
+    coverage = version.get("coverage", {})
+    approval = version.get("approval", {})
+    authority = str(approval.get("authority_ref", ""))
+    approval_record = str(approval.get("record_ref", ""))
+    after = parse_timestamp(str(coverage.get("as_of", "")), label="coverage as_of")
+    approved = parse_timestamp(str(approval.get("approved_at", "")), label="approved_at")
+    _, day_end = day_bounds(parse_entry_date(str(entry.get("entry_date", ""))))
+    cutoff = min(approved, day_end)
+    events: list[dict[str, Any]] = []
+    source_receipts: list[dict[str, Any]] = []
+    found_sessions: set[str] = set()
+    available_sessions = {source.session_id for source in sources}
+    for source in sources:
+        try:
+            source_start = parse_timestamp(source.started_at, label="session started_at")
+            source_end = parse_timestamp(source.last_observed_at, label="session last_observed_at")
+        except JournalError:
+            continue
+        if source_end <= after or source_start >= cutoff:
+            continue
+        capture_id, capture_digest, rows = normalized_rows(source)
+        found_sessions.add(source.session_id)
+        source_receipts.append({
+            "session_digest": sha256_bytes(source.session_id.encode("utf-8")),
+            "capture_id": capture_id, "capture_sha256": capture_digest,
+        })
+        for row in rows:
+            record_id = str(row.get("record_id", ""))
+            if not RECORD_ID_RE.fullmatch(record_id):
+                continue
+            try:
+                timestamp = parse_timestamp(str(row.get("timestamp", "")), label="record timestamp")
+            except JournalError:
+                continue
+            if not after < timestamp <= cutoff:
+                continue
+            if source.session_id == authority:
+                if record_id == approval_record:
+                    category = "authority-approval"
+                elif row.get("role") == "user":
+                    category = "authority-user"
+                else:
+                    category = "authority-choreography"
+            else:
+                category = "other-session"
+            events.append({
+                "event_digest": sha256_bytes(record_id.encode("utf-8")),
+                "category": category,
+                "expected_refresh": category in {"authority-user", "other-session"},
+            })
+    events.extend({
+        "event_digest": sha256_bytes(str(row["commit"]).encode("utf-8")),
+        "category": "git", "expected_refresh": True,
+    } for row in git_commits(after, cutoff))
+
+    failures: list[str] = []
+    approval_rows = resolved_records_for_session(authority, required_record_ids={approval_record})
+    if approval_record not in approval_rows:
+        failures.append("approval-record-unavailable")
+    reference = version.get("technical_reference") or {}
+    reference_id = str(reference.get("reference_id", ""))
+    reference_path = REFERENCE_ROOT / f"{reference_id}.json"
+    required_sessions: set[str] = set()
+    if not reference_id or not reference_path.is_file():
+        failures.append("technical-reference-unavailable")
+    else:
+        reference_value = load_json(reference_path)
+        expected_digest = str(reference.get("content_sha256", ""))
+        if expected_digest and mira_journal_references.reference_digest(reference_value) != expected_digest:
+            failures.append("technical-reference-digest-mismatch")
+        required_sessions = {
+            str(row.get("session_id", ""))
+            for row in reference_value.get("session_coverage", [])
+            if isinstance(row, dict) and SESSION_ID_RE.fullmatch(str(row.get("session_id", "")))
+        }
+    missing_sessions = required_sessions - available_sessions - {authority}
+    if missing_sessions:
+        failures.append(f"session-coverage-unavailable:{len(missing_sessions)}")
+    manifest = {
+        "version_id": str(version.get("version_id", "")),
+        "window": {"after": utc_text(after), "until": utc_text(cutoff)},
+        "coverage": "complete" if not failures else "partial",
+        "coverage_gaps": failures,
+        "journal_content_sha256": str(version.get("content_sha256", "")),
+        "technical_reference_sha256": str(reference.get("content_sha256", "")) or None,
+        "approval_record_resolved": approval_record in approval_rows,
+        "source_receipts": sorted(source_receipts, key=lambda row: (row["session_digest"], row["capture_id"])),
+        "events": sorted(events, key=lambda row: (row["category"], row["event_digest"])),
+    }
+    manifest["manifest_sha256"] = sha256_bytes(canonical_json(manifest).encode("utf-8"))
+    return manifest
+
+
+def build_freshness_replay(
+    *, from_date: str, to_date: str, excluded_versions: set[str]
+) -> dict[str, Any]:
+    start = parse_entry_date(from_date)
+    end = parse_entry_date(to_date)
+    if start > end:
+        raise JournalError("freshness replay start date must not follow end date")
+    if FRESHNESS_REPLAY_DEVELOPMENT_VERSION not in excluded_versions:
+        raise JournalError(f"freshness replay must exclude {FRESHNESS_REPLAY_DEVELOPMENT_VERSION}")
+    old_source = _git_blob(FRESHNESS_REPLAY_BASE_REF, "scripts/mira_journal.py")
+    current_policy = canonical_json({
+        "approval_record": "ignore", "authority_non_user": "ignore",
+        "authority_user": "refresh", "other_session": "refresh", "git": "refresh",
+    }).encode("utf-8")
+    sources = session_sources()
+    episodes = []
+    for entry in load_registry().get("entries", []):
+        entry_date = parse_entry_date(str(entry.get("entry_date", "")))
+        if not start <= entry_date <= end:
+            continue
+        for version in entry.get("versions", []):
+            version_id = str(version.get("version_id", ""))
+            if version_id in excluded_versions or not version.get("approval", {}).get("approved_at"):
+                continue
+            manifest = _freshness_episode_manifest(entry, version, sources)
+            episodes.append({"manifest": manifest, "evaluation": evaluate_freshness_manifest(manifest)})
+    complete = [item for item in episodes if item["manifest"]["coverage"] == "complete"]
+    informative_complete = [
+        item for item in complete
+        if item["manifest"].get("events")
+        and any(event["expected_refresh"] for event in item["manifest"]["events"])
+        and any(not event["expected_refresh"] for event in item["manifest"]["events"])
+    ]
+    totals = {
+        "episodes": len(episodes), "complete": len(complete),
+        "complete_discriminating": len(informative_complete),
+        "partial": len(episodes) - len(complete),
+        "old_false_refreshes": sum(item["evaluation"]["old_policy"]["false_positive"] for item in episodes),
+        "current_false_refreshes": sum(item["evaluation"]["current_policy"]["false_positive"] for item in episodes),
+        "current_missed_refreshes": sum(item["evaluation"]["current_policy"]["false_negative"] for item in episodes),
+        "decision_deltas": sum(item["evaluation"]["decision_delta"] for item in episodes),
+    }
+    comparable = bool(informative_complete) and all(
+        item["evaluation"]["current_policy"]["false_positive"] == 0
+        and item["evaluation"]["current_policy"]["false_negative"] == 0
+        for item in informative_complete
+    )
+    comparability_reason = (
+        "complete-held-out-success"
+        if comparable
+        else "no-complete-discriminating-held-out-episode"
+    )
+    packet: dict[str, Any] = {
+        "schema_version": 1, "kind": "retrospective-replay",
+        "cohort": {"from": start.isoformat(), "to": end.isoformat(), "excluded_versions": sorted(excluded_versions)},
+        "policies": {
+            "old": {"ref": FRESHNESS_REPLAY_BASE_REF, "source_sha256": sha256_bytes(old_source)},
+            "current": {"method_sha256": sha256_bytes(current_policy)},
+            "shared_manifest_required": True,
+        },
+        "episodes": episodes, "aggregate": totals,
+        "comparability": {"passed": comparable, "reason": comparability_reason},
+        "privacy": {"raw_session_bodies": False, "source_paths": False, "database_paths": False},
+        "authority": "read-only; no journal, cadence, or recursive-learning mutation",
+    }
+    if comparable:
+        packet["cadence_measurement"] = {
+            **FRESHNESS_REPLAY_CADENCE, "observed": totals,
+            "environment_differences": "Retrospective held-out replay rather than prospective live approval; frozen historical session and Git windows.",
+            "rework_required": totals["current_false_refreshes"] > 0 or totals["current_missed_refreshes"] > 0,
+            "rework_count": totals["current_false_refreshes"] + totals["current_missed_refreshes"],
+            "regression": totals["current_missed_refreshes"] > 0, "reversal": False,
+        }
+    packet["packet_sha256"] = sha256_bytes(canonical_json(packet).encode("utf-8"))
+    return packet
+
+
+def command_freshness_replay(args: argparse.Namespace) -> dict[str, Any]:
+    output = _private_output_path(args.output)
+    packet = build_freshness_replay(
+        from_date=args.from_date, to_date=args.to_date,
+        excluded_versions=set(args.exclude_version or []),
+    )
+    if not args.check:
+        output.parent.mkdir(parents=True, exist_ok=True)
+        atomic_write_json(output, packet)
+    return {
+        "status": "ready" if args.check else "written",
+        "output": str(output), "packet_sha256": packet["packet_sha256"],
+        "aggregate": packet["aggregate"], "comparability": packet["comparability"],
+        "cadence_measurement": packet.get("cadence_measurement"), "mutation": False,
+    }
+
+
 def load_draft_bundle(draft: Path) -> tuple[bytes, dict[str, Any]]:
     resolved = draft.expanduser().resolve()
     try:
@@ -2357,6 +2692,8 @@ def normalized_version(
     approved_at: str,
     previous_digest: str | None,
     draft_directory: Path,
+    finalization_mode: str = "operator",
+    dream_run_id: str | None = None,
 ) -> dict[str, Any]:
     entry_date = expected_date.isoformat()
     parsed = parse_markdown(body, entry_date)
@@ -2439,34 +2776,36 @@ def normalized_version(
         raise JournalError("; ".join(derivation_failures))
     if previous_digest != metadata.get("previous_version_digest"):
         raise JournalError("draft previous-version digest mismatch")
-    if not SESSION_ID_RE.fullmatch(authority_ref):
-        raise JournalError("operator authority reference must be an MS session ID")
-    if not RECORD_ID_RE.fullmatch(approval_record_ref):
-        raise JournalError("operator approval requires an exact MR record reference")
-    approval_records = resolved_records_for_session(
-        authority_ref,
-        required_record_ids={approval_record_ref},
-    )
-    approval_row = approval_records.get(approval_record_ref)
-    if approval_row is None:
-        raise JournalError("operator approval record does not resolve")
-    expected_approval = combined_approval_statement(
-        expected_version,
-        parsed["content_sha256"],
-        str(technical_reference["reference_id"]),
-        technical_reference_digest,
-    )
-    if approval_row.get("role") != "user" or row_text(approval_row).strip() != expected_approval:
-        raise JournalError("operator approval record is not the exact digest-bound instruction")
     approved_time = parse_timestamp(approved_at, label="approved_at")
     authored_at = parse_timestamp(str(metadata.get("authored_at", "")), label="authored_at")
     if approved_time < authored_at:
         raise JournalError("approved_at precedes draft authorship")
     if approved_time > datetime.now(timezone.utc).replace(microsecond=0) + timedelta(minutes=5):
         raise JournalError("approved_at is implausibly in the future")
-    approval_record_time = parse_timestamp(str(approval_row.get("timestamp", "")), label="approval record timestamp")
-    if approval_record_time > approved_time:
-        raise JournalError("approved_at precedes the approval record")
+    if finalization_mode == "operator":
+        if not SESSION_ID_RE.fullmatch(authority_ref):
+            raise JournalError("operator authority reference must be an MS session ID")
+        if not RECORD_ID_RE.fullmatch(approval_record_ref):
+            raise JournalError("operator approval requires an exact MR record reference")
+        approval_row = resolved_records_for_session(
+            authority_ref, required_record_ids={approval_record_ref},
+        ).get(approval_record_ref)
+        if approval_row is None:
+            raise JournalError("operator approval record does not resolve")
+        expected_approval = combined_approval_statement(
+            expected_version, parsed["content_sha256"], str(technical_reference["reference_id"]),
+            technical_reference_digest,
+        )
+        if approval_row.get("role") != "user" or row_text(approval_row).strip() != expected_approval:
+            raise JournalError("operator approval record is not the exact digest-bound instruction")
+        approval_record_time = parse_timestamp(str(approval_row.get("timestamp", "")), label="approval record timestamp")
+        if approval_record_time > approved_time:
+            raise JournalError("approved_at precedes the approval record")
+    elif finalization_mode == "dream-eod":
+        if not dream_run_id or not re.fullmatch(r"DCR-[A-Za-z0-9._:-]+", dream_run_id):
+            raise JournalError("Dream EOD finalization requires a valid daily-close run ID")
+    else:
+        raise JournalError("unsupported journal finalization mode")
     context_pack_ids = []
     composition_brief_ids = []
     consumed_ids = set(technical_reference["recursive_learning"]["consumed_rsi_ids"])
@@ -2518,9 +2857,9 @@ def normalized_version(
         expected_date,
         as_of,
         until=approved_time,
-        excluded_sessions={str(author.get("session_id"))} - {authority_ref},
-        excluded_records={approval_record_ref},
-        user_only_sessions={authority_ref},
+        excluded_sessions={str(author.get("session_id"))} - ({authority_ref} if finalization_mode == "operator" else set()),
+        excluded_records={approval_record_ref} if finalization_mode == "operator" else set(),
+        user_only_sessions={authority_ref} if finalization_mode == "operator" else set(),
     )
     if late:
         raise JournalError(f"draft requires refresh for {len(late)} later activity record(s)")
@@ -2537,14 +2876,21 @@ def normalized_version(
         "limited_activity_acknowledged": bool(metadata.get("limited_activity_acknowledged")),
         "source_refs": copy.deepcopy(metadata.get("source_refs")),
         "derivation_manifest": copy.deepcopy(metadata.get("derivation_manifest")),
-        "approval": {
-            "approved_by": "operator",
-            "status": COMBINED_APPROVAL_STATUS,
-            "publication_eligible": True,
-            "approved_at": approved_at,
-            "authority_ref": authority_ref,
-            "record_ref": approval_record_ref,
-        },
+        "approval": ({
+            "approved_by": "operator", "status": COMBINED_APPROVAL_STATUS,
+            "publication_eligible": True, "approved_at": approved_at,
+            "authority_ref": authority_ref, "record_ref": approval_record_ref,
+        } if finalization_mode == "operator" else {
+            "approved_by": "dream-eod-conductor", "status": DREAM_EOD_STATUS,
+            "publication_eligible": False, "approved_at": approved_at,
+            "dream_run_id": dream_run_id,
+            "method_digest": sha256_bytes(b"dream-eod-v1"),
+            "finalization_digest": dream_eod_digest(
+                run_id=str(dream_run_id), prose_digest=parsed["content_sha256"],
+                reference_digest=technical_reference_digest, coverage=copy.deepcopy(coverage),
+                context_ids=context_pack_ids, composition_ids=composition_brief_ids,
+            ),
+        }),
         "technical_reference": {
             "reference_id": technical_reference["reference_id"],
             "json_path": f"mira/journal/references/{technical_reference['reference_id']}.json",
@@ -2909,6 +3255,51 @@ def approve_or_revise(args: argparse.Namespace, *, revising: bool) -> dict[str, 
     }
 
 
+def command_eod_finalize(args: argparse.Namespace) -> dict[str, Any]:
+    entry_date = parse_entry_date(args.date)
+    body, metadata = load_draft_bundle(args.bundle / "draft.md")
+    technical_reference = load_draft_reference(args.bundle / "draft.md")
+    registry = load_registry()
+    if any(item.get("entry_date") == entry_date.isoformat() for item in registry.get("entries", [])):
+        raise JournalError("journal date already exists; Dream EOD never rewrites canonical continuity")
+    finalized_at = args.finalized_at or utc_text(datetime.now(timezone.utc))
+    version = normalized_version(
+        body, metadata, technical_reference, expected_date=entry_date, expected_number=1,
+        authority_ref="", approval_record_ref="", approved_at=finalized_at,
+        previous_digest=None, draft_directory=args.bundle.expanduser().resolve(),
+        finalization_mode="dream-eod", dream_run_id=args.dream_run_id,
+    )
+    updated = copy.deepcopy(registry)
+    relative = f"mira/journal/{entry_date.isoformat()}.md"
+    updated.setdefault("entries", []).append({
+        "journal_id": journal_id(entry_date), "entry_date": entry_date.isoformat(),
+        "current_version_id": version["version_id"], "current_path": relative, "versions": [version],
+    })
+    updated["entries"].sort(key=lambda item: item["entry_date"])
+    failures = validate_registry_candidate(updated, entry_date, body)
+    if failures:
+        raise JournalError("; ".join(failures))
+    reference_metadata = version["technical_reference"]
+    continuity = build_continuity_index(
+        updated, reference_overrides={str(technical_reference["reference_id"]): technical_reference},
+    )
+    if not args.check:
+        atomic_write_many({
+            entry_path(entry_date): body,
+            REPO_ROOT / reference_metadata["json_path"]: pretty_json(technical_reference).encode("utf-8"),
+            REPO_ROOT / reference_metadata["markdown_path"]: mira_journal_references.render_reference(technical_reference).encode("utf-8"),
+            REGISTRY_PATH: pretty_json(updated).encode("utf-8"),
+            INDEX_PATH: render_index(updated).encode("utf-8"),
+            CONTINUITY_INDEX_JSON_PATH: pretty_json(continuity).encode("utf-8"),
+            CONTINUITY_INDEX_MD_PATH: render_continuity_index(continuity).encode("utf-8"),
+        })
+    return {"status": "ready" if args.check else "finalized", "mutation": not args.check,
+            "journal_id": journal_id(entry_date), "version_id": version["version_id"],
+            "content_sha256": version["content_sha256"], "approval_status": DREAM_EOD_STATUS,
+            "publication_eligible": False, "dream_run_id": args.dream_run_id,
+            "technical_reference_sha256": version["technical_reference"]["content_sha256"]}
+
+
 def validate_registry_candidate(registry: dict[str, Any], changed_date: date, body: bytes) -> list[str]:
     temporary_root = REPO_ROOT
     failures: list[str] = []
@@ -3270,6 +3661,30 @@ def parser() -> argparse.ArgumentParser:
     status.add_argument("--draft-root", type=Path)
     add_output(status)
     status.set_defaults(handler=command_status)
+
+    replay = subparsers.add_parser(
+        "freshness-replay",
+        help="Replay historical approval freshness policies without mutating journal or cadence state.",
+    )
+    replay.add_argument("--from", dest="from_date", required=True)
+    replay.add_argument("--to", dest="to_date", required=True)
+    replay.add_argument("--exclude-version", action="append", default=[])
+    replay.add_argument(
+        "--output", type=Path,
+        default=Path(r"C:\private\mira-journal-freshness-replay-20260816.json"),
+    )
+    replay.add_argument("--check", action="store_true")
+    add_output(replay)
+    replay.set_defaults(handler=command_freshness_replay)
+
+    eod = subparsers.add_parser("eod-finalize", help="Canonically finalize a validated bundle under Dream's daily-close authority.")
+    eod.add_argument("--date", required=True)
+    eod.add_argument("--bundle", type=Path, required=True)
+    eod.add_argument("--dream-run-id", required=True)
+    eod.add_argument("--finalized-at")
+    eod.add_argument("--check", action="store_true")
+    add_output(eod)
+    eod.set_defaults(handler=command_eod_finalize)
 
     for name, revising in (("approve", False), ("revise", True)):
         action = subparsers.add_parser(name, help=f"{'Revise' if revising else 'Approve'} a private journal draft.")

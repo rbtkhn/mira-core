@@ -18,7 +18,7 @@ from runtime_names import resolve_environment
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 DB_ENV = "MIRA_CORE_CADENCE_DB"
-SCHEMA_VERSION = 2
+SCHEMA_VERSION = 3
 PROJECTION_VERSION = "1.0"
 SQLITE_HEADER = b"SQLite format 3\x00"
 TERMINAL_STATES = frozenset({"rejected", "superseded", "expired"})
@@ -204,6 +204,191 @@ def migrate(connection: sqlite3.Connection) -> None:
                 PRAGMA user_version = 2;
                 """
             )
+        version = 2
+    if version == 2:
+        with connection:
+            connection.executescript(
+                """
+                CREATE TABLE daily_close_runs (
+                    run_id TEXT PRIMARY KEY,
+                    workspace_id TEXT NOT NULL,
+                    operator_id TEXT NOT NULL,
+                    close_date TEXT NOT NULL,
+                    timezone TEXT NOT NULL,
+                    created_at TEXT NOT NULL,
+                    created_at_utc_us INTEGER NOT NULL,
+                    lifecycle_version INTEGER NOT NULL DEFAULT 0,
+                    UNIQUE(workspace_id, operator_id, close_date)
+                );
+                CREATE TABLE daily_close_events (
+                    event_id TEXT PRIMARY KEY,
+                    run_id TEXT NOT NULL REFERENCES daily_close_runs(run_id),
+                    event_type TEXT NOT NULL,
+                    occurred_at TEXT NOT NULL,
+                    occurred_at_utc_us INTEGER NOT NULL,
+                    lifecycle_version INTEGER NOT NULL,
+                    idempotency_key TEXT NOT NULL UNIQUE,
+                    payload_json TEXT NOT NULL,
+                    previous_event_sha256 TEXT,
+                    event_sha256 TEXT NOT NULL
+                );
+                CREATE INDEX daily_close_event_order
+                    ON daily_close_events(run_id, occurred_at_utc_us, event_id);
+                CREATE TABLE daily_dream_closeouts (
+                    closeout_id TEXT PRIMARY KEY,
+                    workspace_id TEXT NOT NULL,
+                    operator_id TEXT NOT NULL,
+                    dream_date TEXT NOT NULL,
+                    timezone TEXT NOT NULL,
+                    occurred_at TEXT NOT NULL,
+                    occurred_at_utc_us INTEGER NOT NULL,
+                    coverage_status TEXT NOT NULL,
+                    payload_json TEXT NOT NULL,
+                    payload_sha256 TEXT NOT NULL,
+                    idempotency_key TEXT NOT NULL UNIQUE,
+                    UNIQUE(workspace_id, operator_id, dream_date)
+                );
+                PRAGMA user_version = 3;
+                """
+            )
+
+
+DAILY_CLOSE_STAGES = ("geo", "journal", "dream")
+
+
+def _close_event_rows(connection: sqlite3.Connection, run_id: str) -> list[sqlite3.Row]:
+    return list(connection.execute(
+        "SELECT * FROM daily_close_events WHERE run_id=? ORDER BY occurred_at_utc_us, event_id",
+        (run_id,),
+    ))
+
+
+def project_daily_close(connection: sqlite3.Connection, run_id: str) -> dict[str, Any]:
+    row = connection.execute("SELECT * FROM daily_close_runs WHERE run_id=?", (run_id,)).fetchone()
+    if row is None:
+        raise CadenceLedgerError(f"unknown daily close run: {run_id}")
+    stages = {stage: "pending" for stage in DAILY_CLOSE_STAGES}
+    events = []
+    for event in _close_event_rows(connection, run_id):
+        payload = json.loads(event["payload_json"])
+        events.append({"event_id": event["event_id"], "event_type": event["event_type"],
+                       "occurred_at": event["occurred_at"], "lifecycle_version": event["lifecycle_version"],
+                       "payload": payload, "event_sha256": event["event_sha256"]})
+        stage = payload.get("stage")
+        if stage in stages:
+            stages[stage] = {"stage_completed": "completed", "stage_skipped": "skipped",
+                             "stage_failed": "failed"}.get(event["event_type"], stages[stage])
+    return {"schema_version": 1, "run_id": run_id, "workspace_id": row["workspace_id"],
+            "operator_id": row["operator_id"], "close_date": row["close_date"],
+            "timezone": row["timezone"], "created_at": row["created_at"],
+            "lifecycle_version": row["lifecycle_version"],
+            "state": "completed" if any(e["event_type"] == "daily_close_completed" for e in events) else "open",
+            "stages": stages, "events": events}
+
+
+def append_daily_close_event(connection: sqlite3.Connection, run_id: str, event_type: str,
+                             payload: dict[str, Any], *, idempotency_key: str,
+                             expected_version: int, in_transaction: bool = False) -> dict[str, Any]:
+    duplicate = connection.execute("SELECT run_id FROM daily_close_events WHERE idempotency_key=?", (idempotency_key,)).fetchone()
+    if duplicate:
+        if duplicate["run_id"] != run_id:
+            raise CadenceLedgerError("daily close idempotency key belongs to another run")
+        return project_daily_close(connection, run_id)
+    current = connection.execute("SELECT lifecycle_version FROM daily_close_runs WHERE run_id=?", (run_id,)).fetchone()
+    if current is None or int(current[0]) != expected_version:
+        found = "missing" if current is None else str(current[0])
+        raise CadenceLedgerError(f"daily close lifecycle conflict: expected {expected_version}, found {found}")
+    allowed = {"daily_close_opened", "stage_completed", "stage_skipped", "stage_failed",
+               "daily_close_completed", "daily_close_superseded"}
+    if event_type not in allowed:
+        raise CadenceLedgerError(f"unsupported daily close event: {event_type}")
+    clean = {}
+    for key, value in payload.items():
+        if key in {"stage", "status", "reason", "artifact_ref", "digest", "coverage_status",
+                   "episode_id", "closeout_id", "journal_version_id"}:
+            clean[key] = sanitize_text(value, limit=1000)
+    if clean.get("stage") and clean["stage"] not in DAILY_CLOSE_STAGES:
+        raise CadenceLedgerError("daily close event has invalid stage")
+    previous = connection.execute(
+        "SELECT event_sha256 FROM daily_close_events WHERE run_id=? ORDER BY occurred_at_utc_us DESC, event_id DESC LIMIT 1",
+        (run_id,),
+    ).fetchone()
+    now = utc_now()
+    next_version = expected_version + 1
+    event_id = f"DCE-{uuid.uuid4()}"
+    body = {"event_id": event_id, "run_id": run_id, "event_type": event_type,
+            "occurred_at": now, "lifecycle_version": next_version, "payload": clean,
+            "previous_event_sha256": previous[0] if previous else None}
+    def write() -> None:
+        connection.execute(
+            "INSERT INTO daily_close_events VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+            (event_id, run_id, event_type, now, timestamp_us(now), next_version, idempotency_key,
+             canonical_json(clean), body["previous_event_sha256"], digest(body)),
+        )
+        connection.execute("UPDATE daily_close_runs SET lifecycle_version=? WHERE run_id=?", (next_version, run_id))
+    if in_transaction:
+        write()
+    else:
+        with connection:
+            write()
+    return project_daily_close(connection, run_id)
+
+
+def open_daily_close(connection: sqlite3.Connection, *, run_id: str, workspace_id: str,
+                     operator_id: str, close_date: str, timezone_name: str,
+                     idempotency_key: str) -> dict[str, Any]:
+    if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", close_date):
+        raise CadenceLedgerError("daily close date must use YYYY-MM-DD")
+    values = tuple(sanitize_text(v, limit=200) for v in (run_id, workspace_id, operator_id, timezone_name))
+    existing = connection.execute(
+        "SELECT run_id FROM daily_close_runs WHERE workspace_id=? AND operator_id=? AND close_date=?",
+        (values[1], values[2], close_date),
+    ).fetchone()
+    if existing:
+        return project_daily_close(connection, str(existing["run_id"]))
+    now = utc_now()
+    with connection:
+        connection.execute("INSERT INTO daily_close_runs VALUES (?, ?, ?, ?, ?, ?, ?, 0)",
+                           (values[0], values[1], values[2], close_date, values[3], now, timestamp_us(now)))
+        append_daily_close_event(connection, values[0], "daily_close_opened", {},
+                                 idempotency_key=idempotency_key, expected_version=0, in_transaction=True)
+    return project_daily_close(connection, values[0])
+
+
+def record_dream_closeout(connection: sqlite3.Connection, payload: dict[str, Any], *, idempotency_key: str) -> dict[str, Any]:
+    required = ("closeout_id", "workspace_id", "operator_id", "dream_date", "timezone", "coverage_status")
+    if any(not str(payload.get(key, "")).strip() for key in required):
+        raise CadenceLedgerError("Dream closeout is incomplete")
+    if payload["coverage_status"] not in {"complete", "partial"}:
+        raise CadenceLedgerError("Dream closeout coverage_status must be complete or partial")
+    clean = {key: sanitize_text(payload[key], limit=1000) for key in required}
+    for key in ("reason", "session_coverage_digest"):
+        if payload.get(key):
+            clean[key] = sanitize_text(payload[key], limit=1000)
+    clean["disposition"] = "no_cadence_worthy_experiment"
+    candidate = connection.execute(
+        "SELECT episode_id FROM cadence_episodes WHERE workspace_id=? AND operator_id=? AND dream_date=?",
+        (clean["workspace_id"], clean["operator_id"], clean["dream_date"]),
+    ).fetchone()
+    if candidate:
+        raise CadenceLedgerError(f"daily Dream already has a candidate: {candidate['episode_id']}")
+    existing = connection.execute(
+        "SELECT payload_json FROM daily_dream_closeouts WHERE workspace_id=? AND operator_id=? AND dream_date=?",
+        (clean["workspace_id"], clean["operator_id"], clean["dream_date"]),
+    ).fetchone()
+    if existing:
+        if json.loads(existing[0]) == clean:
+            return clean
+        raise CadenceLedgerError("daily Dream already has a different closeout")
+    now = utc_now()
+    with connection:
+        connection.execute(
+            "INSERT INTO daily_dream_closeouts VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+            (clean["closeout_id"], clean["workspace_id"], clean["operator_id"], clean["dream_date"],
+             clean["timezone"], now, timestamp_us(now), clean["coverage_status"], canonical_json(clean),
+             digest(clean), idempotency_key),
+        )
+    return clean
 
 
 def normalize_repo_ref(value: str) -> str:
@@ -398,6 +583,12 @@ def create_episode(
             "daily Dream already exists for workspace, operator, and local date: "
             f"{daily['episode_id']}"
         )
+    closeout = connection.execute(
+        "SELECT closeout_id FROM daily_dream_closeouts WHERE workspace_id=? AND operator_id=? AND dream_date=?",
+        (payload["workspace_id"], payload["operator_id"], payload["dream_date"]),
+    ).fetchone()
+    if closeout:
+        raise CadenceLedgerError(f"daily Dream already has a no-candidate closeout: {closeout['closeout_id']}")
     relevant = content_digest(payload["relevant_paths"])
     with connection:
         connection.execute(
@@ -884,6 +1075,19 @@ def verify_ledger(connection: sqlite3.Connection) -> dict[str, Any]:
             if stored["previous_event_sha256"] != previous or stored["event_sha256"] != digest(body):
                 failures.append(f"{row[0]}: event chain mismatch at {stored['event_id']}")
             previous = stored["event_sha256"]
+    for row in connection.execute("SELECT run_id FROM daily_close_runs"):
+        previous = None
+        for stored in _close_event_rows(connection, row[0]):
+            body = {"event_id": stored["event_id"], "run_id": stored["run_id"],
+                    "event_type": stored["event_type"], "occurred_at": stored["occurred_at"],
+                    "lifecycle_version": stored["lifecycle_version"],
+                    "payload": json.loads(stored["payload_json"]), "previous_event_sha256": previous}
+            if stored["previous_event_sha256"] != previous or stored["event_sha256"] != digest(body):
+                failures.append(f"{row[0]}: daily close event chain mismatch at {stored['event_id']}")
+            previous = stored["event_sha256"]
+    for stored in connection.execute("SELECT closeout_id, payload_json, payload_sha256 FROM daily_dream_closeouts"):
+        if digest(json.loads(stored["payload_json"])) != stored["payload_sha256"]:
+            failures.append(f"{stored['closeout_id']}: Dream closeout digest mismatch")
     return {"schema_version": SCHEMA_VERSION, "integrity": integrity, "failures": failures, "valid": integrity == "ok" and not failures}
 
 
@@ -912,7 +1116,9 @@ def private_status(raw_path: str | Path | None = None) -> dict[str, Any]:
             canonical = json.loads(canonical_path.read_text(encoding="utf-8"))
             canonical_ids = {str(item.get("id")) for item in canonical.get("entries", []) if isinstance(item, dict)}
         unresolved = len(represented_ids - canonical_ids)
-        latest = connection.execute("SELECT MAX(occurred_at) FROM cadence_events").fetchone()[0]
+        latest = connection.execute(
+            "SELECT MAX(value) FROM (SELECT occurred_at AS value FROM cadence_events UNION ALL SELECT occurred_at FROM daily_close_events)"
+        ).fetchone()[0]
         connection.close()
         valid = verification["valid"]
         return {

@@ -17,6 +17,11 @@ voice judgment is required.
 
 ## Choose the operation
 
+- **Dream EOD finalize:** run `tools/run.ps1 mira-journal eod-finalize --date
+  YYYY-MM-DD --bundle ABSOLUTE_EXTERNAL_DIRECTORY --dream-run-id DCR-ID
+  --check --json`, then omit `--check` to write the canonical version. This
+  requires no operator approval record, uses status `dream-eod-v1`, and is
+  always `publication_eligible: false`.
 - **Prepare and compose:** run `tools/run.ps1 mira-journal prepare --date
   YYYY-MM-DD`, then use the private bundle contracts.
 - **Revise:** prepare the next version for the date, preserve the registered
@@ -26,8 +31,21 @@ voice judgment is required.
   without weakening them.
 - **Status:** run `tools/run.ps1 mira-journal status` with the requested date
   bounds.
+- **Retrospective freshness replay:** run `tools/run.ps1 mira-journal
+  freshness-replay --from YYYY-MM-DD --to YYYY-MM-DD --exclude-version
+  MJ-YYYYMMDD-vN --output ABSOLUTE_EXTERNAL_PATH --check --json` first, then
+  repeat without `--check` only when the private packet should be written.
+  The replay is read-only, excludes the development episode, compares the
+  digest-bound pre-fix and current policies over identical frozen manifests,
+  and emits no raw session bodies or local source paths. A cadence-compatible
+  measurement is advisory output only; importing it remains a separate exact
+  `cadence repeat` authorization.
 
 ## Compose the private bundle
+
+For a sparse day, compose an honest quiet-day or coverage-gap reflection from
+the available session census. Do not invent activity, conclusions, or emotional
+events merely to fill the entry.
 
 1. **Gather.** Read only `context-pack.json`, `composition-brief.json`,
    `draft-contract.json`, and `technical-reference-contract.json` from the

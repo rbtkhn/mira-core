@@ -81,6 +81,49 @@ def test_episode_is_append_only_and_idempotent(tmp_path: Path) -> None:
     connection.close()
 
 
+def test_daily_close_run_is_append_only_resumable_and_conflict_checked(tmp_path: Path) -> None:
+    connection = database(tmp_path)
+    run = cadence_ledger.open_daily_close(
+        connection, run_id="DCR-20260816-test", workspace_id="narrative-systems",
+        operator_id="operator-test", close_date="2026-08-16", timezone_name="America/Denver",
+        idempotency_key="close-open",
+    )
+    assert run["lifecycle_version"] == 1
+    same = cadence_ledger.open_daily_close(
+        connection, run_id="DCR-ignored", workspace_id="narrative-systems",
+        operator_id="operator-test", close_date="2026-08-16", timezone_name="America/Denver",
+        idempotency_key="close-open-again",
+    )
+    assert same["run_id"] == run["run_id"]
+    completed = cadence_ledger.append_daily_close_event(
+        connection, run["run_id"], "stage_completed", {"stage": "geo", "status": "finalized", "digest": "a" * 64},
+        idempotency_key="close-geo", expected_version=1,
+    )
+    assert completed["stages"]["geo"] == "completed"
+    with pytest.raises(cadence_ledger.CadenceLedgerError, match="lifecycle conflict"):
+        cadence_ledger.append_daily_close_event(
+            connection, run["run_id"], "stage_completed", {"stage": "journal", "status": "finalized"},
+            idempotency_key="close-journal", expected_version=1,
+        )
+    connection.close()
+
+
+def test_no_candidate_closeout_is_unique_and_contains_no_episode(tmp_path: Path) -> None:
+    connection = database(tmp_path)
+    payload = {
+        "closeout_id": "DCO-20260816-test", "workspace_id": "narrative-systems",
+        "operator_id": "operator-test", "dream_date": "2026-08-16", "timezone": "America/Denver",
+        "coverage_status": "partial", "reason": "No defensible method experiment was observed.",
+        "session_coverage_digest": "b" * 64,
+    }
+    first = cadence_ledger.record_dream_closeout(connection, payload, idempotency_key="closeout-1")
+    second = cadence_ledger.record_dream_closeout(connection, payload, idempotency_key="closeout-1")
+    assert first == second
+    assert first["disposition"] == "no_cadence_worthy_experiment"
+    assert connection.execute("SELECT COUNT(*) FROM cadence_episodes").fetchone()[0] == 0
+    connection.close()
+
+
 def test_daily_dream_is_unique_and_session_coverage_is_explicit(tmp_path: Path) -> None:
     connection = database(tmp_path)
     cadence_ledger.create_episode(connection, episode(), idempotency_key="dream-1")

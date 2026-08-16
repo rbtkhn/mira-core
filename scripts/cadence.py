@@ -1570,6 +1570,17 @@ def build_parser() -> argparse.ArgumentParser:
     supplement.add_argument("--session-coverage-json", required=True)
     supplement.add_argument("--idempotency-key", required=True)
     supplement.add_argument("--expected-version", type=int, required=True)
+    closeout = subparsers.add_parser("dream-closeout", help="Record a daily no-cadence-worthy-experiment receipt.")
+    closeout.add_argument("--closeout-id", required=True)
+    closeout.add_argument("--workspace-id", required=True)
+    closeout.add_argument("--operator-id", required=True)
+    closeout.add_argument("--dream-date", required=True)
+    closeout.add_argument("--timezone", required=True)
+    closeout.add_argument("--coverage-status", choices=("complete", "partial"), required=True)
+    closeout.add_argument("--reason", required=True)
+    closeout.add_argument("--session-coverage-digest", required=True)
+    closeout.add_argument("--idempotency-key", required=True)
+    closeout.add_argument("--json", action="store_true")
     reconcile = subparsers.add_parser("reconcile-rsi", help="Import a digest-bound private RSI correspondence receipt.")
     reconcile.add_argument("--receipt", type=Path, required=True)
     reconcile.add_argument("--idempotency-key", required=True)
@@ -1715,7 +1726,7 @@ def main() -> None:
                 print_coffee(state)
         return
 
-    if args.command in {"history", "show", "verify-ledger", "disposition", "repeat", "dream-supplement", "reconcile-rsi", "scorecard", "export-learning-reference", "migrate-legacy", "backup"}:
+    if args.command in {"history", "show", "verify-ledger", "disposition", "repeat", "dream-supplement", "dream-closeout", "reconcile-rsi", "scorecard", "export-learning-reference", "migrate-legacy", "backup"}:
         try:
             if args.command == "backup":
                 resolution = cadence_ledger.resolve_store(args.db, require_exists=True)
@@ -1768,6 +1779,15 @@ def main() -> None:
                     idempotency_key=args.idempotency_key,
                     expected_version=args.expected_version,
                 )
+                connection.close()
+            elif args.command == "dream-closeout":
+                connection = _ledger_connection(args, write=True)
+                payload = cadence_ledger.record_dream_closeout(connection, {
+                    "closeout_id": args.closeout_id, "workspace_id": args.workspace_id,
+                    "operator_id": args.operator_id, "dream_date": args.dream_date,
+                    "timezone": args.timezone, "coverage_status": args.coverage_status,
+                    "reason": args.reason, "session_coverage_digest": args.session_coverage_digest,
+                }, idempotency_key=args.idempotency_key)
                 connection.close()
             elif args.command == "reconcile-rsi":
                 receipt_path = cadence_ledger.require_private_path(args.receipt, label="RSI correspondence receipt")
