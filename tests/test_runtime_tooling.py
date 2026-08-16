@@ -651,6 +651,33 @@ def test_legacy_repository_name_is_confined_to_explicit_compatibility_and_histor
     assert "docs/mira-core-name-migration.md" in (
         repository_validation.LEGACY_REPOSITORY_NAME_ALLOWLIST
     )
+    assert "docs/plans/2026-08-13-system-archive-membrane-repair.md" in (
+        repository_validation.LEGACY_REPOSITORY_DISPLAY_NAME_ALLOWLIST
+    )
+
+
+def test_legacy_repository_display_name_is_rejected_outside_allowlist(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    operative = tmp_path / "operative.md"
+    operative.write_text("# Narrative Systems operating contract\n", encoding="utf-8")
+    monkeypatch.setattr(repository_validation, "REPO_ROOT", tmp_path)
+    monkeypatch.setattr(
+        repository_validation,
+        "LEGACY_REPOSITORY_IDENTITIES",
+        ((repository_validation.LEGACY_REPOSITORY_DISPLAY_NAME, frozenset()),),
+    )
+    monkeypatch.setattr(
+        repository_validation.subprocess,
+        "run",
+        lambda *args, **kwargs: subprocess.CompletedProcess(
+            args[0], 0, stdout="operative.md\n", stderr=""
+        ),
+    )
+
+    assert repository_validation.legacy_repository_identity_failures() == [
+        "operative legacy repository identity 'Narrative Systems': operative.md"
+    ]
 
 
 def test_ci_uses_only_canonical_validation_with_four_jobs() -> None:

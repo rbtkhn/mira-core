@@ -1,6 +1,6 @@
 ---
 name: coffee
-description: "Reorient Narrative Systems from repository state and the last verified dream handoff. Use when the operator says coffee or asks what bounded learning move should happen next."
+description: "Reorient Mira Core from repository state and the last verified dream handoff. Use when the operator says coffee or asks what bounded learning move should happen next."
 ---
 
 # Coffee

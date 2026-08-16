@@ -1,6 +1,6 @@
 ---
 name: mira-github
-description: "Repository-local publication traffic control for GitHub-facing work in Narrative Systems. Use when the operator says push, commit, PR, GitHub operations, repo hygiene with staging/commit/push/branch/remote scope, or compressed follow-ups such as you choose or make it so when they could cross staging, commit, branch publication, PR, or main synchronization boundaries. Choose lane, scope, branch, validation, and authority boundaries before any GitHub-facing mutation."
+description: "Repository-local publication traffic control for GitHub-facing work in Mira Core. Use when the operator says push, commit, PR, GitHub operations, repo hygiene with staging/commit/push/branch/remote scope, or compressed follow-ups such as you choose or make it so when they could cross staging, commit, branch publication, PR, or main synchronization boundaries. Choose lane, scope, branch, validation, and authority boundaries before any GitHub-facing mutation."
 ---
 
 # Mira GitHub

@@ -4,7 +4,7 @@ Status: `canonical-operating-contract`
 
 ## Principle
 
-Narrative Systems uses **contractual continuity under bounded agency**. The
+Mira Core uses **contractual continuity under bounded agency**. The
 repository holds durable memory, authority, provenance, and review state. An
 agent receives a temporary mandate to perform one phase of work without
 silently redefining the system.

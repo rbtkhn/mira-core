@@ -1,6 +1,6 @@
 ---
 name: recursive-learn
-description: "Assess and explicitly admit evidence-backed Narrative Systems recursive-learning loops. Use when the operator says recursive-learn, asks whether a Mira Journal technical reference demonstrates learning, requests a private RSI candidate, or explicitly directs admission to the canonical recursive-learning ledger."
+description: "Assess and explicitly admit evidence-backed Mira Core recursive-learning loops. Use when the operator says recursive-learn, asks whether a Mira Journal technical reference demonstrates learning, requests a private RSI candidate, or explicitly directs admission to the canonical recursive-learning ledger."
 ---
 
 # Recursive Learn

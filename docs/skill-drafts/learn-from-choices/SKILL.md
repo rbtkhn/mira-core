@@ -5,7 +5,7 @@ description: "Turn final user-facing responses into outcome-aware possibility ma
 
 # Learn From Choices
 
-Use this contract in Narrative Systems for every final response. Do not apply
+Use this contract in Mira Core for every final response. Do not apply
 the footer to intermediate progress commentary.
 
 ## Classify branch closure separately from new-path navigation

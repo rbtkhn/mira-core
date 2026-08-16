@@ -1,6 +1,6 @@
 # Recursive Learning Ledger
 
-The recursive learning ledger records cases where Narrative Systems observes
+The recursive learning ledger records cases where Mira Core observes
 its own behavior, diagnoses a weakness, changes the process that produced that
 behavior, validates the change, and states the resulting outcome without
 inflating ordinary feature work into learning.

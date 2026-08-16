@@ -182,5 +182,5 @@ Do not silently change from planning into any execution workflow.
 This contract adapts the research-framing pattern from David Ondrej's
 [`research-prompt`](https://github.com/davidondrej/skills/blob/6e5545081c888b89576a620d9b2e54e9a6590f68/skills/research-and-web/research-prompt/SKILL.md)
 at upstream commit `6e5545081c888b89576a620d9b2e54e9a6590f68` while replacing
-its DeepAPI and single-paragraph assumptions with Narrative Systems evidence
+its DeepAPI and single-paragraph assumptions with Mira Core evidence
 and authority boundaries.

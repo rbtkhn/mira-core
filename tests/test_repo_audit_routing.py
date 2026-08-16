@@ -10,10 +10,10 @@ ROOT = Path(__file__).resolve().parents[1]
 CANONICAL = ROOT / "docs" / "skill-drafts" / "repo-audit" / "SKILL.md"
 
 
-def test_agents_routes_narrative_repo_audit_through_canonical_contract() -> None:
+def test_agents_routes_mira_core_repo_audit_through_canonical_contract() -> None:
     agents = (ROOT / "AGENTS.md").read_text(encoding="utf-8")
 
-    assert "When `repo-audit` targets Narrative Systems" in agents
+    assert "When `repo-audit` targets Mira Core" in agents
     assert "docs/skill-drafts/repo-audit/SKILL.md" in agents
     assert "deployable mirror, not a second authority" in agents
     assert "archive-audit" in agents

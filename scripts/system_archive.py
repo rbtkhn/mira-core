@@ -263,7 +263,7 @@ def external_source_root(collection: Mapping[str,Any],source_root: Path | None) 
     if not root.is_dir(): raise ArchiveError(f"external corpus source root is not a directory: {root}")
     try: root.relative_to(REPO_ROOT.resolve())
     except ValueError: pass
-    else: raise ArchiveError("external corpus source root must be outside the Narrative Systems repository")
+    else: raise ArchiveError("external corpus source root must be outside the Mira Core repository")
     result=subprocess.run(["git","-c",f"safe.directory={root.as_posix()}","-C",str(root),"rev-parse","HEAD"],capture_output=True,text=True)
     if result.returncode or result.stdout.strip()!=collection.get("source_commit"):
         raise ArchiveError(f"external corpus source commit mismatch: expected {collection.get('source_commit')}")

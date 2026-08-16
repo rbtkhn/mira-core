@@ -95,6 +95,25 @@ LEGACY_REPOSITORY_NAME_ALLOWLIST = frozenset({
     "tests/test_dream_eod.py",
     "tests/test_mira_continuity.py",
 })
+LEGACY_REPOSITORY_DISPLAY_NAME = "Narrative Systems"
+LEGACY_REPOSITORY_DISPLAY_NAME_ALLOWLIST = frozenset({
+    "docs/audits/2026-08-12-mira-voice-cross-thread-performance.md",
+    "docs/audits/2026-08-14-mira-journal-session-coverage.md",
+    "docs/plans/2026-08-13-system-archive-membrane-repair.md",
+    "mira/essays/2026-08-11-an-archaeology-of-constructed-minds.md",
+    "mira/notes/2026-08-10-innermost-loop-baseline.md",
+    "mira/notes/2026-08-10-one-year-developmental-hypothesis.md",
+    "mira/notes/2026-08-11-evolution-of-repo-audit.md",
+    "mira/notes/2026-08-15-from-civilization-memory-to-mira-core.md",
+    "narrative-geopolitics/work/system-improvement/recursive-learning-ledger.json",
+    "narrative-geopolitics/work/system-improvement/recursive-learning-ledger.md",
+    "scripts/validate_repository.py",
+    "tests/test_runtime_tooling.py",
+})
+LEGACY_REPOSITORY_IDENTITIES = (
+    (LEGACY_REPOSITORY_NAME, LEGACY_REPOSITORY_NAME_ALLOWLIST),
+    (LEGACY_REPOSITORY_DISPLAY_NAME, LEGACY_REPOSITORY_DISPLAY_NAME_ALLOWLIST),
+)
 
 MARKDOWN_LINK_RE = re.compile(r"\[[^\]]+\]\(([^)]+)\)")
 HOOK_ID_RE = re.compile(r"`(NG-\d{8}-F\d{2})`")
@@ -569,7 +588,9 @@ def legacy_repository_identity_failures() -> list[str]:
         check=True,
         text=True,
     )
-    found: set[str] = set()
+    found_by_identity: dict[str, set[str]] = {
+        identity: set() for identity, _allowlist in LEGACY_REPOSITORY_IDENTITIES
+    }
     for raw in result.stdout.splitlines():
         relative_path = raw.strip().replace("\\", "/")
         path = REPO_ROOT / relative_path
@@ -577,16 +598,21 @@ def legacy_repository_identity_failures() -> list[str]:
             ".json", ".md", ".py", ".toml", ".txt", ".yaml", ".yml"
         }:
             continue
-        if LEGACY_REPOSITORY_NAME in path.read_text(encoding="utf-8"):
-            found.add(relative_path)
-    failures = [
-        f"operative legacy repository identity: {path}"
-        for path in sorted(found - LEGACY_REPOSITORY_NAME_ALLOWLIST)
-    ]
-    failures.extend(
-        f"legacy repository identity allowlist entry no longer resolves: {path}"
-        for path in sorted(LEGACY_REPOSITORY_NAME_ALLOWLIST - found)
-    )
+        text = path.read_text(encoding="utf-8")
+        for identity, _allowlist in LEGACY_REPOSITORY_IDENTITIES:
+            if identity in text:
+                found_by_identity[identity].add(relative_path)
+    failures: list[str] = []
+    for identity, allowlist in LEGACY_REPOSITORY_IDENTITIES:
+        found = found_by_identity[identity]
+        failures.extend(
+            f"operative legacy repository identity {identity!r}: {path}"
+            for path in sorted(found - allowlist)
+        )
+        failures.extend(
+            f"legacy repository identity {identity!r} allowlist entry no longer resolves: {path}"
+            for path in sorted(allowlist - found)
+        )
     return failures
 
 

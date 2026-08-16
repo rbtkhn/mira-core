@@ -1,7 +1,7 @@
 # Audit Routing
 
 This note defines how repository-level, archive-domain, and skill-contract
-audits compose in Narrative Systems. It is a routing control, not a replacement
+audits compose in Mira Core. It is a routing control, not a replacement
 for any auditor's governing skill.
 
 ## Authority Model

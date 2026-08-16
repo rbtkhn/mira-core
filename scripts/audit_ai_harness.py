@@ -310,7 +310,7 @@ def build_audit() -> dict[str, Any]:
 
 def render_console(payload: dict[str, Any]) -> str:
     lines = [
-        "Narrative Systems AI Harness Audit",
+        "Mira Core AI Harness Audit",
         "mode=READ_ONLY",
         f"repository_check={payload['repository_check']['status']}",
         f"strict_findings={payload['summary']['strict_findings']}",

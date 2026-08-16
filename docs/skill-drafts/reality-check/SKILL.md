@@ -5,7 +5,7 @@ description: "Audit Narrative Geopolitics Reality Verification Lattice claims an
 
 # Reality Check
 
-Operate only inside the Narrative Systems repository. Treat
+Operate only inside the Mira Core repository. Treat
 `scripts/reality.py` and `narrative-geopolitics/work/reality/` as canonical;
 do not reproduce their schemas in the skill.
 

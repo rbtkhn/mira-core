@@ -1,4 +1,4 @@
-# Narrative Systems Local Cadence
+# Mira Core Local Cadence
 
 At genuine decision points, lead with one reasoned recommendation. Present
 alternatives only when the tradeoff remains genuinely unsettled or the
@@ -136,7 +136,7 @@ statecraft source-intake workflow from the bare word, even for YouTube.
 Use the statecraft source-intake workflow only when the operator explicitly
 says `source-intake`, `statecraft source intake`, or `statecraft daily intake`.
 
-When `repo-audit` targets Narrative Systems, read
+When `repo-audit` targets Mira Core, read
 `docs/skill-drafts/repo-audit/SKILL.md` completely and apply that canonical
 contract together with all repository-local controls in this file. Compose
 through `archive-audit` when archive health is materially in scope; do not
