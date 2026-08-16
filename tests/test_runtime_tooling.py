@@ -567,7 +567,11 @@ def test_ci_uses_only_canonical_validation_with_four_jobs() -> None:
     assert workflow.count("python tools/validate_repo.py") == 1
     assert "pytest" not in workflow
     assert "validate_repository.py" not in workflow
-    assert "NARRATIVE_SESSION_TEMP_ROOT: ${{ runner.temp }}" in workflow
+    validation_step = """      - run: python tools/validate_repo.py
+        env:
+          NARRATIVE_SESSION_TEMP_ROOT: ${{ runner.temp }}"""
+    assert validation_step in workflow
+    assert "    env:\n      NARRATIVE_SESSION_TEMP_ROOT: ${{ runner.temp }}" not in workflow
 
 
 def test_validation_mode_defaults_to_full_and_accepts_force() -> None:
