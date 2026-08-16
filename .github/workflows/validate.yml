@@ -23,4 +23,4 @@ jobs:
           cache-dependency-path: pyproject.toml
       - run: python tools/validate_repo.py
         env:
-          NARRATIVE_SESSION_TEMP_ROOT: ${{ runner.temp }}
+          MIRA_CORE_SESSION_TEMP_ROOT: ${{ runner.temp }}

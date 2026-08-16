@@ -3,7 +3,7 @@
   "registry_id": "mira-daily-journal-v1",
   "status": "canonical",
   "timezone": "America/Denver",
-  "draft_root_environment": "NARRATIVE_MIRA_JOURNAL_DRAFT_ROOT",
+  "draft_root_environment": "MIRA_CORE_JOURNAL_DRAFT_ROOT",
   "authority_boundary": "Mira Journal records governed first-person interpretation. It is not identity doctrine, research evidence, Reality evidence, operator belief, proof of consciousness, or action authority.",
   "namespace_boundary": "MJ-* identifies Mira Daily Journal autobiography; JRN-* identifies the separately governed Operator Position Journal. References never transfer authority between them.",
   "maintenance_events": [

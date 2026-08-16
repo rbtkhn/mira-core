@@ -14,12 +14,14 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Iterable
 
+from runtime_names import resolve_environment
+
 
 SCHEMA_VERSION = 3
 READABLE_SCHEMA_VERSIONS = frozenset({1, 2, SCHEMA_VERSION})
 PROJECTION_VERSION = "1.1"
 REVIEW_PROJECTION_VERSION = "2.0"
-DB_ENV = "NARRATIVE_CHOICE_DB"
+DB_ENV = "MIRA_CORE_CHOICE_DB"
 GRACEFUL_CONNECTION_FAILURE_COMMANDS = frozenset(
     {"context", "review", "select", "close"}
 )
@@ -117,7 +119,7 @@ def require_private_path(raw_path: str | Path, *, label: str) -> Path:
 
 
 def resolve_store(raw_path: str | Path | None, *, require_exists: bool = False) -> StoreResolution:
-    configured = raw_path or os.environ.get(DB_ENV)
+    configured = raw_path or resolve_environment(DB_ENV)
     if not configured:
         return StoreResolution(None, f"private choice store is not configured; set {DB_ENV} or pass --db")
     try:

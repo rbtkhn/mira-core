@@ -16,6 +16,7 @@ from zoneinfo import ZoneInfo
 
 import mira_continuity
 import mira_journal_references
+from runtime_names import resolve_environment
 
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
@@ -31,7 +32,7 @@ LEARNING_LEDGER_PATH = (
     REPO_ROOT / "narrative-geopolitics" / "work" / "system-improvement" / "recursive-learning-ledger.json"
 )
 
-DRAFT_ROOT_ENV = "NARRATIVE_MIRA_JOURNAL_DRAFT_ROOT"
+DRAFT_ROOT_ENV = "MIRA_CORE_JOURNAL_DRAFT_ROOT"
 DEFAULT_DRAFT_ROOT = Path(r"C:\private\mira-journal-drafts")
 TIMEZONE_NAME = "America/Denver"
 TIMEZONE = ZoneInfo(TIMEZONE_NAME)
@@ -285,7 +286,7 @@ def atomic_write_many(files: dict[Path, bytes]) -> None:
 
 
 def external_draft_root(value: Path | None = None, *, repo_root: Path = REPO_ROOT) -> Path:
-    candidate = value or Path(os.environ.get(DRAFT_ROOT_ENV, str(DEFAULT_DRAFT_ROOT)))
+    candidate = value or Path(resolve_environment(DRAFT_ROOT_ENV) or str(DEFAULT_DRAFT_ROOT))
     resolved = candidate.expanduser().resolve()
     try:
         resolved.relative_to(repo_root.resolve())

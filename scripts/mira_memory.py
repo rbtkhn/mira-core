@@ -5,18 +5,22 @@ import json
 import os
 import re
 import sqlite3
+import sys
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
+from runtime_names import resolve_environment
+
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 SCHEMA_VERSION = 2
-CHOICE_ENV = "NARRATIVE_CHOICE_DB"
+CHOICE_ENV = "MIRA_CORE_CHOICE_DB"
 MENTORSHIP_ENV = "MIRA_MENTORSHIP_DB"
-ARCHIVE_ROOT_ENV = "NARRATIVE_SYSTEM_ARCHIVE_ROOT"
-ARCHIVE_CONFIG_ENV = "NARRATIVE_SYSTEM_ARCHIVE_CONFIG"
-DEFAULT_ARCHIVE_CONFIG = Path(r"C:\private\narrative-system-archive-config.json")
+ARCHIVE_ROOT_ENV = "MIRA_CORE_SYSTEM_ARCHIVE_ROOT"
+ARCHIVE_CONFIG_ENV = "MIRA_CORE_SYSTEM_ARCHIVE_CONFIG"
+DEFAULT_ARCHIVE_CONFIG = Path(r"C:\private\mira-core-system-archive-config.json")
+LEGACY_ARCHIVE_CONFIG = Path(r"C:\private\narrative-system-archive-config.json")
 TENSION_KINDS = {
     "stale-derived-view",
     "canonical-source-drift",
@@ -212,8 +216,15 @@ def recursive_carrier() -> dict[str, Any]:
 def system_archive_carrier(*, inspect_catalog: bool = False) -> dict[str, Any]:
     registry = REPO_ROOT / "system-archive/collections.json"
     state, validation = json_state(registry)
-    config = Path(os.environ.get(ARCHIVE_CONFIG_ENV, str(DEFAULT_ARCHIVE_CONFIG)))
-    configured = bool(os.environ.get(ARCHIVE_ROOT_ENV)) or config.is_file()
+    configured_path = resolve_environment(ARCHIVE_CONFIG_ENV)
+    config = Path(configured_path) if configured_path else DEFAULT_ARCHIVE_CONFIG
+    if not configured_path and not config.is_file() and LEGACY_ARCHIVE_CONFIG.is_file():
+        print(
+            f"{LEGACY_ARCHIVE_CONFIG} is deprecated; use {DEFAULT_ARCHIVE_CONFIG}",
+            file=sys.stderr,
+        )
+        config = LEGACY_ARCHIVE_CONFIG
+    configured = bool(resolve_environment(ARCHIVE_ROOT_ENV)) or config.is_file()
     result = carrier(
         "system-archive",
         ["epistemic", "autobiographical", "procedural", "relational"],
@@ -280,7 +291,7 @@ def geopolitics_carrier() -> dict[str, Any]:
 
 
 def choice_carrier() -> dict[str, Any]:
-    raw = os.environ.get(CHOICE_ENV)
+    raw = resolve_environment(CHOICE_ENV)
     if not raw:
         return carrier(
             "private-choice-history", ["relational", "procedural"],

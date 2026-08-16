@@ -12,6 +12,8 @@ from types import SimpleNamespace
 
 import pytest
 
+import runtime_names
+
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 SCRIPTS_ROOT = REPO_ROOT / "scripts"
@@ -130,6 +132,88 @@ def test_environment_key_is_deterministic_and_uses_base_interpreter() -> None:
     assert bootstrap.environment_key(("pytest>=9",), first) != bootstrap.environment_key(
         ("pytest>=8",), first
     )
+
+
+@pytest.mark.parametrize("canonical,legacy", runtime_names.ENVIRONMENT_ALIASES.items())
+def test_environment_name_compatibility(canonical: str, legacy: str) -> None:
+    warnings: list[str] = []
+    runtime_names._WARNED_LEGACY_NAMES.clear()
+    assert runtime_names.resolve_environment(canonical, {canonical: "new"}, warn=warnings.append) == "new"
+    assert warnings == []
+    assert runtime_names.resolve_environment(
+        canonical, {canonical: "new", legacy: ""}, warn=warnings.append
+    ) == "new"
+    assert runtime_names.resolve_environment(canonical, {legacy: "old"}, warn=warnings.append) == "old"
+    assert runtime_names.resolve_environment(canonical, {legacy: "old"}, warn=warnings.append) == "old"
+    assert warnings == [f"{legacy} is deprecated; use {canonical}"]
+    warnings.clear()
+    assert runtime_names.resolve_environment(
+        canonical, {canonical: "same", legacy: "same"}, warn=warnings.append
+    ) == "same"
+    assert warnings == []
+    with pytest.raises(runtime_names.EnvironmentNameConflict, match=f"{canonical} and {legacy}"):
+        runtime_names.resolve_environment(
+            canonical, {canonical: "new", legacy: "old"}, warn=warnings.append
+        )
+
+
+@pytest.mark.skipif(sys.platform != "win32", reason="PowerShell compatibility is Windows-specific")
+@pytest.mark.parametrize("canonical,legacy", runtime_names.ENVIRONMENT_ALIASES.items())
+def test_powershell_environment_name_compatibility(
+    canonical: str, legacy: str
+) -> None:
+    powershell = Path(
+        r"C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe"
+    )
+    command = rf"""
+$script:warningCount = 0
+function Write-Warning {{ param([string] $Message) $script:warningCount += 1 }}
+. .\tools\runtime-env.ps1
+[Environment]::SetEnvironmentVariable('{canonical}', $null, 'Process')
+[Environment]::SetEnvironmentVariable('{legacy}', $null, 'Process')
+$none = Resolve-MiraCoreEnvironment -Canonical '{canonical}' -Legacy '{legacy}'
+[Environment]::SetEnvironmentVariable('{canonical}', 'new', 'Process')
+$current = Resolve-MiraCoreEnvironment -Canonical '{canonical}' -Legacy '{legacy}'
+[Environment]::SetEnvironmentVariable('{canonical}', $null, 'Process')
+[Environment]::SetEnvironmentVariable('{legacy}', 'old', 'Process')
+$oldFirst = Resolve-MiraCoreEnvironment -Canonical '{canonical}' -Legacy '{legacy}'
+$oldSecond = Resolve-MiraCoreEnvironment -Canonical '{canonical}' -Legacy '{legacy}'
+[Environment]::SetEnvironmentVariable('{canonical}', 'same', 'Process')
+[Environment]::SetEnvironmentVariable('{legacy}', 'same', 'Process')
+$equal = Resolve-MiraCoreEnvironment -Canonical '{canonical}' -Legacy '{legacy}'
+[Environment]::SetEnvironmentVariable('{canonical}', '', 'Process')
+[Environment]::SetEnvironmentVariable('{legacy}', '', 'Process')
+$empty = Resolve-MiraCoreEnvironment -Canonical '{canonical}' -Legacy '{legacy}'
+[Environment]::SetEnvironmentVariable('{canonical}', 'new', 'Process')
+[Environment]::SetEnvironmentVariable('{legacy}', 'old', 'Process')
+$conflict = try {{
+    Resolve-MiraCoreEnvironment -Canonical '{canonical}' -Legacy '{legacy}'
+    ''
+}} catch {{ $_.Exception.Message }}
+[ordered]@{{
+    none = $none; current = $current; oldFirst = $oldFirst; oldSecond = $oldSecond
+    equal = $equal; empty = $empty; warningCount = $script:warningCount
+    conflict = $conflict
+}} | ConvertTo-Json -Compress
+"""
+    result = subprocess.run(
+        [str(powershell), "-NoProfile", "-Command", command],
+        cwd=REPO_ROOT,
+        capture_output=True,
+        text=True,
+    )
+    assert result.returncode == 0, result.stderr
+    observed = json.loads(result.stdout.strip().splitlines()[-1])
+    assert observed == {
+        "none": None,
+        "current": "new",
+        "oldFirst": "old",
+        "oldSecond": "old",
+        "equal": "same",
+        "empty": None,
+        "warningCount": 1,
+        "conflict": f"Conflicting environment variables: {canonical} and {legacy}",
+    }
 
 
 def test_rejects_repo_local_cache(tmp_path: Path) -> None:
@@ -438,7 +522,7 @@ def test_powershell_runner_transport_contract(tmp_path: Path) -> None:
         r"""[CmdletBinding()]
 param([Parameter(ValueFromRemainingArguments = $true)][string[]] $Arguments)
 $serialized = [Environment]::GetEnvironmentVariable(
-    'NARRATIVE_RUN_ARGUMENTS_JSON',
+    'MIRA_CORE_RUN_ARGUMENTS_JSON',
     [EnvironmentVariableTarget]::Process
 )
 [IO.File]::AppendAllText(
@@ -459,8 +543,8 @@ exit [int]$env:TEST_CHILD_EXIT
         newline="\n",
     )
     command = r"""
-$env:NARRATIVE_PYTHON = $env:TEST_BOOTSTRAP_STUB
-$env:NARRATIVE_RUN_ARGUMENTS_JSON = 'pre-existing'
+$env:MIRA_CORE_PYTHON = $env:TEST_BOOTSTRAP_STUB
+$env:MIRA_CORE_RUN_ARGUMENTS_JSON = 'pre-existing'
 $surface = [ordered]@{
     type = 'neutral-evidence'
     options = @(
@@ -472,13 +556,13 @@ $surfaceJson = $surface | ConvertTo-Json -Depth 4 -Compress
 $env:TEST_CHILD_EXIT = '0'
 .\tools\run.ps1 elicitation validate --surface-json $surfaceJson
 $firstCode = $LASTEXITCODE
-$firstRestored = $env:NARRATIVE_RUN_ARGUMENTS_JSON
+$firstRestored = $env:MIRA_CORE_RUN_ARGUMENTS_JSON
 $env:TEST_CHILD_EXIT = '19'
 .\tools\run.ps1 test `
   --path tests/test_elicitation.py `
   --path tests/test_learn_from_choices_skill.py
 $secondCode = $LASTEXITCODE
-$secondRestored = $env:NARRATIVE_RUN_ARGUMENTS_JSON
+$secondRestored = $env:MIRA_CORE_RUN_ARGUMENTS_JSON
 Write-Output (
     'STATUS=' + $firstCode + ':' + $firstRestored + '|' +
     $secondCode + ':' + $secondRestored
@@ -569,9 +653,9 @@ def test_ci_uses_only_canonical_validation_with_four_jobs() -> None:
     assert "validate_repository.py" not in workflow
     validation_step = """      - run: python tools/validate_repo.py
         env:
-          NARRATIVE_SESSION_TEMP_ROOT: ${{ runner.temp }}"""
+          MIRA_CORE_SESSION_TEMP_ROOT: ${{ runner.temp }}"""
     assert validation_step in workflow
-    assert "    env:\n      NARRATIVE_SESSION_TEMP_ROOT: ${{ runner.temp }}" not in workflow
+    assert "    env:\n      MIRA_CORE_SESSION_TEMP_ROOT: ${{ runner.temp }}" not in workflow
 
 
 def test_validation_mode_defaults_to_full_and_accepts_force() -> None:
@@ -649,7 +733,7 @@ def test_powershell_validator_exposes_fast_full_and_force() -> None:
     assert "[ValidateSet('Full', 'Fast')]" in launcher
     assert "$validatorArguments = @('--mode', $Mode.ToLowerInvariant())" in launcher
     assert "$validatorArguments += '--force'" in launcher
-    assert "NARRATIVE_SESSION_TEMP_ROOT" in launcher
+    assert "MIRA_CORE_SESSION_TEMP_ROOT" in launcher
     assert "@('--temp-root', $TempRoot)" in launcher
     assert launcher.count("@validatorArguments") == 4
 
@@ -668,6 +752,7 @@ def test_validator_uses_one_interpreter_and_runs_both_checks(monkeypatch, tmp_pa
     commands: list[list[str]] = []
     environments: list[dict[str, str]] = []
     monkeypatch.setattr(validator, "resolve_validation_python", lambda repo: python)
+    monkeypatch.setenv("MIRA_CORE_CHOICE_DB", r"C:\private\real-choice.sqlite3")
     monkeypatch.setenv("NARRATIVE_CHOICE_DB", r"C:\private\real-choice.sqlite3")
     monkeypatch.setenv("PYTEST_ADDOPTS", r"--basetemp C:\unsafe\pytest")
     monkeypatch.setenv("VALIDATION_SENTINEL", "preserved")
@@ -688,10 +773,12 @@ def test_validator_uses_one_interpreter_and_runs_both_checks(monkeypatch, tmp_pa
     assert commands[1][marker_index - 1 : marker_index + 1] == ["-m", "not repository_integrity"]
     assert "--basetemp" in commands[1]
     assert str(tmp_path) in commands[1][commands[1].index("--basetemp") + 1]
+    assert all("MIRA_CORE_CHOICE_DB" not in item for item in environments)
     assert all("NARRATIVE_CHOICE_DB" not in item for item in environments)
     assert all("PYTEST_ADDOPTS" not in item for item in environments)
     assert all(item["VALIDATION_SENTINEL"] == "preserved" for item in environments)
     assert os.environ["NARRATIVE_CHOICE_DB"] == r"C:\private\real-choice.sqlite3"
+    assert os.environ["MIRA_CORE_CHOICE_DB"] == r"C:\private\real-choice.sqlite3"
 
 
 def test_full_validator_reports_ordered_phase_timings(monkeypatch, capsys, tmp_path: Path) -> None:
@@ -805,6 +892,7 @@ def test_bootstrap_failure_reports_timing_without_execution(monkeypatch, capsys,
 
 def test_validation_environment_removes_private_and_unsafe_pytest_bindings() -> None:
     source = {
+        "MIRA_CORE_CHOICE_DB": r"C:\private\real-choice.sqlite3",
         "NARRATIVE_CHOICE_DB": r"C:\private\real-choice.sqlite3",
         "PYTEST_ADDOPTS": r"--basetemp C:\unsafe\pytest",
         "PRESERVED": "yes",
@@ -812,6 +900,7 @@ def test_validation_environment_removes_private_and_unsafe_pytest_bindings() -> 
     sanitized = validator.validation_environment(source)
     assert sanitized == {"PRESERVED": "yes"}
     assert source["NARRATIVE_CHOICE_DB"] == r"C:\private\real-choice.sqlite3"
+    assert source["MIRA_CORE_CHOICE_DB"] == r"C:\private\real-choice.sqlite3"
 
 
 def test_focused_validator_uses_same_interpreter_and_only_pytest(monkeypatch, tmp_path: Path) -> None:
@@ -819,6 +908,7 @@ def test_focused_validator_uses_same_interpreter_and_only_pytest(monkeypatch, tm
     commands: list[list[str]] = []
     environments: list[dict[str, str]] = []
     monkeypatch.setattr(validator, "resolve_validation_python", lambda repo: python)
+    monkeypatch.setenv("MIRA_CORE_CHOICE_DB", r"C:\private\real-choice.sqlite3")
     monkeypatch.setenv("NARRATIVE_CHOICE_DB", r"C:\private\real-choice.sqlite3")
     monkeypatch.setattr(
         validator.subprocess,
@@ -847,6 +937,7 @@ def test_focused_validator_uses_same_interpreter_and_only_pytest(monkeypatch, tm
     assert str(tmp_path) in commands[0][9]
     assert commands[0][-2:] == ["tests/test_elicitation.py", "tests/test_runtime_tooling.py"]
     assert len(environments) == 1
+    assert "MIRA_CORE_CHOICE_DB" not in environments[0]
     assert "NARRATIVE_CHOICE_DB" not in environments[0]
 
 

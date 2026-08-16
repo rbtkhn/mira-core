@@ -8,7 +8,14 @@ from pathlib import Path
 
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
-ARGUMENTS_ENV = "NARRATIVE_RUN_ARGUMENTS_JSON"
+sys.path.insert(0, str(REPO_ROOT / "scripts"))
+from runtime_names import (  # noqa: E402
+    EnvironmentNameConflict,
+    pop_environment,
+    remove_environment_pair,
+)
+
+ARGUMENTS_ENV = "MIRA_CORE_RUN_ARGUMENTS_JSON"
 ARGUMENTS_ENV_FLAG = "--arguments-env"
 SURFACES = {
     "archive-audit": REPO_ROOT / "scripts" / "archive_audit.py",
@@ -67,7 +74,7 @@ def resolve_arguments(
     if values != [ARGUMENTS_ENV_FLAG]:
         raise ValueError(f"{ARGUMENTS_ENV_FLAG} must be the only command-line argument")
     source = os.environ if environment is None else environment
-    raw = source.pop(ARGUMENTS_ENV, None)
+    raw = pop_environment(ARGUMENTS_ENV, source)
     if raw is None:
         raise ValueError(f"{ARGUMENTS_ENV_FLAG} requires {ARGUMENTS_ENV}")
     try:
@@ -84,7 +91,7 @@ def resolve_arguments(
 def main(arguments: list[str] | None = None) -> int:
     try:
         values = resolve_arguments(arguments)
-    except ValueError as error:
+    except (ValueError, EnvironmentNameConflict) as error:
         print(f"argument transport error: {error}", file=sys.stderr)
         return 2
     if not values or values[0] not in SURFACES:
@@ -93,7 +100,7 @@ def main(arguments: list[str] | None = None) -> int:
         return 2
     surface, *forwarded = values
     environment = os.environ.copy()
-    environment.pop(ARGUMENTS_ENV, None)
+    remove_environment_pair(ARGUMENTS_ENV, environment)
     scripts = str(REPO_ROOT / "scripts")
     existing = environment.get("PYTHONPATH")
     environment["PYTHONPATH"] = scripts if not existing else os.pathsep.join((scripts, existing))

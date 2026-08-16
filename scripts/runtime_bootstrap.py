@@ -15,6 +15,8 @@ from contextlib import contextmanager
 from pathlib import Path
 from typing import Callable, Iterator, Mapping, Sequence
 
+from runtime_names import EnvironmentNameConflict, resolve_environment
+
 
 MINIMUM_PYTHON = (3, 11)
 SCHEMA_VERSION = 1
@@ -47,17 +49,17 @@ def default_cache_root(environment: Mapping[str, str] = os.environ) -> Path:
     if os.name == "nt":
         base = environment.get("LOCALAPPDATA")
         root = Path(base) if base else Path.home() / "AppData" / "Local"
-        return root / "NarrativeSystems" / "validation"
+        return root / "MiraCore" / "validation"
     base = environment.get("XDG_CACHE_HOME")
     root = Path(base) if base else Path.home() / ".cache"
-    return root / "narrative-systems" / "validation"
+    return root / "mira-core" / "validation"
 
 
 def cache_root(
     repo_root: Path = REPO_ROOT,
     environment: Mapping[str, str] = os.environ,
 ) -> Path:
-    configured = environment.get("NARRATIVE_VALIDATION_CACHE")
+    configured = resolve_environment("MIRA_CORE_VALIDATION_CACHE", environment)
     result = Path(configured).expanduser() if configured else default_cache_root(environment)
     resolved = result.resolve()
     repository = repo_root.resolve()
@@ -82,11 +84,11 @@ def interpreter_candidates(
     environment: Mapping[str, str] = os.environ,
 ) -> list[list[str]]:
     candidates: list[list[str]] = []
-    override = environment.get("NARRATIVE_PYTHON")
+    override = resolve_environment("MIRA_CORE_PYTHON", environment)
     if override:
         command = _command_for(override)
         if not command:
-            raise BootstrapUnavailable(f"NARRATIVE_PYTHON was not found: {override}")
+            raise BootstrapUnavailable(f"MIRA_CORE_PYTHON was not found: {override}")
         return [command]
     for value in (
         getattr(sys, "_base_executable", None),
@@ -147,7 +149,7 @@ def select_interpreter(
             return command, probe_interpreter(command, run)
         except BootstrapUnavailable as error:
             failures.append(str(error))
-            if environment.get("NARRATIVE_PYTHON"):
+            if resolve_environment("MIRA_CORE_PYTHON", environment):
                 break
     detail = "; ".join(failures) or "no Python interpreter was found"
     raise BootstrapUnavailable(detail)
@@ -241,7 +243,7 @@ def resolve_validation_python(
         if target.exists():
             shutil.rmtree(target)
         temporary = root / f"env-{key}.tmp-{os.getpid()}-{uuid.uuid4().hex}"
-        print(f"Preparing Narrative Systems validation environment {key}...", file=sys.stderr)
+        print(f"Preparing Mira Core validation environment {key}...", file=sys.stderr)
         try:
             run(
                 [*base_command, "-m", "venv", str(temporary)],
@@ -278,7 +280,7 @@ def main() -> None:
     args = parser.parse_args()
     try:
         python = resolve_validation_python()
-    except BootstrapUnavailable as error:
+    except (BootstrapUnavailable, EnvironmentNameConflict) as error:
         print(f"runtime bootstrap unavailable: {error}", file=sys.stderr)
         raise SystemExit(1) from error
     if args.print_python:

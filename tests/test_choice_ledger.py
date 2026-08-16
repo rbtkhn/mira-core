@@ -25,6 +25,12 @@ OPTIONS = [
 ]
 
 
+@pytest.fixture(autouse=True)
+def isolate_choice_store_environment(monkeypatch: pytest.MonkeyPatch) -> None:
+    monkeypatch.delenv("MIRA_CORE_CHOICE_DB", raising=False)
+    monkeypatch.delenv("NARRATIVE_CHOICE_DB", raising=False)
+
+
 def connection(path: Path) -> sqlite3.Connection:
     return choice_ledger.connect(path)
 

@@ -26,11 +26,12 @@ from runtime_bootstrap import (  # noqa: E402
     dependency_declarations,
     resolve_validation_python,
 )
+from runtime_names import remove_environment_pair, resolve_environment  # noqa: E402
 from session_preflight import probe_temp_root  # noqa: E402
 
 
-PRIVATE_VALIDATION_ENVIRONMENT_KEYS = ("NARRATIVE_CHOICE_DB", "PYTEST_ADDOPTS")
-TEMP_ROOT_ENV = "NARRATIVE_SESSION_TEMP_ROOT"
+PRIVATE_VALIDATION_ENVIRONMENT_KEYS = ("MIRA_CORE_CHOICE_DB", "PYTEST_ADDOPTS")
+TEMP_ROOT_ENV = "MIRA_CORE_SESSION_TEMP_ROOT"
 STRUCTURAL_TIMEOUT_SECONDS = 180
 PYTEST_TIMEOUT_SECONDS = 600
 FULL_RESULT_SCHEMA = 1
@@ -156,7 +157,10 @@ def validation_environment(
 ) -> dict[str, str]:
     environment = dict(os.environ if source is None else source)
     for key in PRIVATE_VALIDATION_ENVIRONMENT_KEYS:
-        environment.pop(key, None)
+        if key == "PYTEST_ADDOPTS":
+            environment.pop(key, None)
+        else:
+            remove_environment_pair(key, environment)
     return environment
 
 
@@ -196,8 +200,9 @@ def resolve_temp_root(
 ) -> Path:
     source = os.environ if environment is None else environment
     candidate = value
-    if candidate is None and source.get(TEMP_ROOT_ENV):
-        candidate = Path(source[TEMP_ROOT_ENV])
+    configured = resolve_environment(TEMP_ROOT_ENV, source)
+    if candidate is None and configured:
+        candidate = Path(configured)
     if candidate is None:
         raise ValueError(f"--temp-root or {TEMP_ROOT_ENV} is required")
     report = probe_temp_root(candidate, repo_root=repo_root)

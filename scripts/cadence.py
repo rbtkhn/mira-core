@@ -26,6 +26,7 @@ import verification as verification_packets
 import reality
 from cadence_results import aggregate as aggregate_results, command_result
 from runtime_bootstrap import BootstrapUnavailable, resolve_validation_python
+from runtime_names import remove_environment_pair, resolve_environment
 from session_preflight import probe_temp_root
 
 
@@ -35,7 +36,7 @@ HANDOFF_PATH = (
 )
 BASELINE_ROOT = REPO_ROOT / "narrative-geopolitics" / "work" / "cadence" / "baselines"
 VALIDATOR_PATH = REPO_ROOT / "tools" / "validate_repo.py"
-TEMP_ROOT_ENV = "NARRATIVE_SESSION_TEMP_ROOT"
+TEMP_ROOT_ENV = "MIRA_CORE_SESSION_TEMP_ROOT"
 HEARTBEAT_SECONDS = 30
 DAILY_ROOT = REPO_ROOT / "narrative-geopolitics" / "work" / "daily"
 MANIFEST_PATH = REPO_ROOT / "narrative-geopolitics" / "archive" / "source-manifest.json"
@@ -892,8 +893,9 @@ def initial_verification(profile: str | None) -> dict:
 
 def resolve_temp_root(value: Path | None) -> Path:
     candidate = value
-    if candidate is None and os.environ.get(TEMP_ROOT_ENV):
-        candidate = Path(os.environ[TEMP_ROOT_ENV])
+    configured_temp = resolve_environment(TEMP_ROOT_ENV)
+    if candidate is None and configured_temp:
+        candidate = Path(configured_temp)
     if candidate is None:
         raise ValueError(f"--temp-root or {TEMP_ROOT_ENV} is required")
     report = probe_temp_root(candidate, repo_root=REPO_ROOT)
@@ -913,7 +915,7 @@ def cleanup_owned_temp(path: Path | None, *, root: Path | None) -> None:
 def validation_environment() -> dict[str, str]:
     environment = os.environ.copy()
     environment.pop("PYTEST_ADDOPTS", None)
-    environment.pop("NARRATIVE_CHOICE_DB", None)
+    remove_environment_pair("MIRA_CORE_CHOICE_DB", environment)
     existing = environment.get("PYTHONPATH")
     scripts = str(SCRIPTS_ROOT)
     environment["PYTHONPATH"] = scripts if not existing else os.pathsep.join((scripts, existing))

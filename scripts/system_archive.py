@@ -17,15 +17,17 @@ from pathlib import Path
 from typing import Any, Iterator, Mapping, Sequence
 
 from system_archive_store import ArchiveError, ArtifactStore, RecordInput, add_edge, canonical_json, catalog_counts, catalog_fingerprint, ingest_record, iter_active_records, parse_time, safe_logical_path, sha256_bytes, verify_derivation_acyclic
+from runtime_names import resolve_environment
 
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 SYSTEM_ROOT = REPO_ROOT / "system-archive"
 COLLECTIONS_PATH = SYSTEM_ROOT / "collections.json"
-ARCHIVE_ROOT_ENV = "NARRATIVE_SYSTEM_ARCHIVE_ROOT"
-REPLICA_ROOT_ENV = "NARRATIVE_SYSTEM_ARCHIVE_REPLICA_ROOT"
-CONFIG_PATH_ENV = "NARRATIVE_SYSTEM_ARCHIVE_CONFIG"
-DEFAULT_CONFIG_PATH = Path(r"C:\private\narrative-system-archive-config.json")
+ARCHIVE_ROOT_ENV = "MIRA_CORE_SYSTEM_ARCHIVE_ROOT"
+REPLICA_ROOT_ENV = "MIRA_CORE_SYSTEM_ARCHIVE_REPLICA_ROOT"
+CONFIG_PATH_ENV = "MIRA_CORE_SYSTEM_ARCHIVE_CONFIG"
+DEFAULT_CONFIG_PATH = Path(r"C:\private\mira-core-system-archive-config.json")
+LEGACY_CONFIG_PATH = Path(r"C:\private\narrative-system-archive-config.json")
 COMPILER_VERSION = "system-archive-context-compiler-v1"
 REPLAY_VERSION = "system-archive-replay-plan-v1"
 TOKEN_RE = re.compile(r"[\w'-]+",re.UNICODE)
@@ -49,8 +51,11 @@ def external_output(path: Path) -> Path:
 
 
 def storage_config() -> tuple[dict[str,Any] | None,Path]:
-    configured=os.environ.get(CONFIG_PATH_ENV)
+    configured=resolve_environment(CONFIG_PATH_ENV)
     path=Path(configured).expanduser() if configured else DEFAULT_CONFIG_PATH
+    if not configured and not path.is_file() and LEGACY_CONFIG_PATH.is_file():
+        print(f"{LEGACY_CONFIG_PATH} is deprecated; use {DEFAULT_CONFIG_PATH}",file=sys.stderr)
+        path=LEGACY_CONFIG_PATH
     if not path.is_file(): return None,path
     document=load_json(path)
     if document.get("schema_version")!=1: raise ArchiveError(f"invalid System Archive storage configuration: {path}")
@@ -76,8 +81,8 @@ def validate_storage_root(root: Path) -> Path:
 
 def configured_root_resolution(variable: str, *, required: bool=True) -> tuple[Path | None,str | None]:
     environment_values={
-        ARCHIVE_ROOT_ENV: os.environ.get(ARCHIVE_ROOT_ENV),
-        REPLICA_ROOT_ENV: os.environ.get(REPLICA_ROOT_ENV),
+        ARCHIVE_ROOT_ENV: resolve_environment(ARCHIVE_ROOT_ENV),
+        REPLICA_ROOT_ENV: resolve_environment(REPLICA_ROOT_ENV),
     }
     document: dict[str,Any] | None=None; path=DEFAULT_CONFIG_PATH
     if not all(environment_values.values()): document,path=storage_config()
