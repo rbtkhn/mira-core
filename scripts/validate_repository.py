@@ -286,7 +286,7 @@ def markdown_link_failures() -> list[str]:
                 continue
             resolved = path.parent / target
             if not resolved.exists() and target.replace("\\", "/").startswith("narrative-geopolitics/"):
-                resolved = REPO_ROOT / target.replace("/", "\\")
+                resolved = REPO_ROOT / Path(target.replace("\\", "/"))
             if not resolved.exists() and not sources_hydrated:
                 try:
                     repository_target = resolved.resolve().relative_to(REPO_ROOT.resolve()).as_posix()

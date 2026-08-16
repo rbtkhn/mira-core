@@ -205,6 +205,30 @@ def test_markdown_archive_links_use_manifest_when_hydration_is_absent(
     ]
 
 
+def test_root_relative_archive_links_use_portable_path_separators(
+    monkeypatch, tmp_path: Path
+) -> None:
+    docs = tmp_path / "docs"
+    docs.mkdir()
+    note = docs / "note.md"
+    valid = "narrative-geopolitics/archive/sources/2026-07-09/source-a.md"
+    note.write_text(f"[valid]({valid}:12)\n", encoding="utf-8")
+    monkeypatch.setattr(integrity, "REPO_ROOT", tmp_path)
+    monkeypatch.setattr(
+        integrity,
+        "ARCHIVE_SOURCES",
+        tmp_path / "narrative-geopolitics" / "archive" / "sources",
+    )
+    monkeypatch.setattr(integrity, "markdown_files", lambda: [note])
+    monkeypatch.setattr(
+        integrity,
+        "load_manifest",
+        lambda: {"source_count": 1, "sources": [{"local_path": valid}]},
+    )
+
+    assert integrity.markdown_link_failures() == []
+
+
 def test_forecast_triage_mismatch_is_detected(monkeypatch, tmp_path: Path) -> None:
     ledger = tmp_path / "forecast-ledger.md"
     ledger.write_text(
