@@ -74,11 +74,13 @@ LEGACY_REPOSITORY_NAME = "narrative-systems"
 LEGACY_REPOSITORY_NAME_ALLOWLIST = frozenset({
     "README.md",
     "docs/audits/2026-08-16-loose-prose-classification.md",
+    "docs/audits/2026-08-16-repository-system-audit.md",
     "docs/mira-core-name-migration.md",
     "mira/constitution.schema.json",
     "mira/continuity/session-registry.json",
     "mira/face/landing-page/encounter.schema.json",
     "mira/notes/2026-08-15-from-civilization-memory-to-mira-core.md",
+    "mira/notes/2026-08-16-recent-architectural-changes.md",
     "narrative-geopolitics/work/system-improvement/recursive-learning-ledger.json",
     "scripts/contradiction_kernel.provenance.json",
     "scripts/mira_continuity.py",
@@ -89,6 +91,8 @@ LEGACY_REPOSITORY_NAME_ALLOWLIST = frozenset({
     "system-archive/schemas/repository-artifact-manifest.schema.json",
     "system-archive/schemas/task-spec.schema.json",
     "tests/test_contradiction_preflight.py",
+    "tests/test_cadence_ledger.py",
+    "tests/test_dream_eod.py",
     "tests/test_mira_continuity.py",
 })
 
