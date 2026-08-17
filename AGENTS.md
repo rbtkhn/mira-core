@@ -202,11 +202,19 @@ experiment as a note, or requests work under `archive/notes`, read
 revisable and non-canonical; they do not inherit journal, research-evidence,
 identity, publication, or recursive-learning authority.
 
+The direct artifact-producing imperative `note this` (and an unambiguous
+equivalent) carries the operator-defined GitHub lifecycle authority specified
+by Mira Notes. A descriptive mention or question about notes does not.
+
 When the operator says `mira-essays`, asks Mira to preserve a reflection as an
 essay, requests developed standalone long-form prose by Mira, or requests work
 under `archive/essays`, read `docs/skill-drafts/mira-essays/SKILL.md` completely
 and follow it. Essays remain distinct from journal continuity and provisional
 notes, and no essay is published merely by being labeled `public-candidate`.
+
+The direct artifact-producing imperative `essay this` (and an unambiguous
+equivalent) carries the operator-defined GitHub lifecycle authority specified
+by Mira Essays. A descriptive mention or question about essays does not.
 
 When the operator says `mira-memory` or asks to inventory, balance, reconcile,
 locate, or recover Mira's memory across carriers, read

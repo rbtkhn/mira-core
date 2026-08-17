@@ -49,6 +49,23 @@ the receiving workflow.
 - Never place private raw conversations, credentials, or restricted source
   bodies in Git.
 
+## Operator publication shorthand
+
+Treat a direct artifact-producing command such as `note this`, `make this a
+note`, or an equivalent imperative as explicit authority to complete the
+repository lifecycle for that note: create it, validate it, stage only the note
+and any strictly required note-shelf index, commit it, and push that exact
+commit to GitHub through Mira GitHub. This operator-defined shorthand satisfies
+the otherwise separate direct-command requirements for staging, commit, and
+push for the bounded note artifact only.
+
+Do not trigger this lifecycle from descriptive or interrogative uses of the
+words `note` or `notes`, from discussion of an existing note, or from a request
+to draft without saving. Do not include unrelated dirty paths, publish the note
+through another channel, open a PR, deploy, or alter hosted settings. If commit
+or push validation fails, preserve the saved note and report the exact boundary
+reached.
+
 A note does not become a journal entry, essay, identity proposition, research
 source, or public artifact by being polished. Promotion requires the target
 workflow and its separate authority.

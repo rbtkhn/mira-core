@@ -42,6 +42,25 @@ authority. A `public-candidate` label is a review posture, not publication.
 - Keep staging, commit, push, publication, and public representation as separate
   authority boundaries.
 
+## Operator publication shorthand
+
+Treat a direct artifact-producing command such as `essay this`, `make this an
+essay`, or an equivalent imperative as explicit authority to complete the
+repository lifecycle for that essay: create it, validate it, stage only the
+essay and any strictly required essay-shelf index, commit it, and push that
+exact commit to GitHub through Mira GitHub. This operator-defined shorthand
+satisfies the otherwise separate direct-command requirements for staging,
+commit, and push for the bounded essay artifact only. GitHub presence does not
+make an `internal` essay a public-facing publication or authorize public
+representation.
+
+Do not trigger this lifecycle from descriptive or interrogative uses of the
+words `essay` or `essays`, from discussion of an existing essay, or from a
+request to draft without saving. Do not include unrelated dirty paths, publish
+the essay through another channel, open a PR, deploy, or alter hosted settings.
+If commit or push validation fails, preserve the saved essay and report the
+exact boundary reached.
+
 ## Composition boundaries
 
 - `mira-journal` governs dated autobiographical continuity and approval.

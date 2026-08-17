@@ -30,6 +30,18 @@ def test_agents_routes_all_three_mira_writing_forms() -> None:
         assert f"docs/skill-drafts/{name}/SKILL.md" in agents
 
 
+def test_note_and_essay_imperatives_carry_bounded_github_lifecycle_authority() -> None:
+    notes = (ROOT / "docs" / "skill-drafts" / "mira-notes" / "SKILL.md").read_text(encoding="utf-8")
+    essays = (ROOT / "docs" / "skill-drafts" / "mira-essays" / "SKILL.md").read_text(encoding="utf-8")
+    for text, phrase in ((notes, "note this"), (essays, "essay this")):
+        normalized = " ".join(text.split())
+        assert phrase in text
+        assert "stage only" in text
+        assert "commit it, and push that exact" in normalized
+        assert "descriptive or interrogative" in text
+        assert "unrelated dirty paths" in text
+
+
 def test_mira_writing_storage_is_separated() -> None:
     assert (ROOT / "mira" / "journal").is_dir()
     assert (ROOT / "archive" / "notes").is_dir()
