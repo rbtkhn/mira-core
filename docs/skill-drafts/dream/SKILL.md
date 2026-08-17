@@ -23,10 +23,16 @@ tools/run.ps1 dream --resume DCR-ID --date YYYY-MM-DD --json
 ```
 
 Use `--check` for a read-only readiness projection. Completed stages are
-immutable. A date without manifest-backed Geo sources records `no_geo_run`; a
-failed evidence-backed Geo packet blocks Journal. Dream may sign a fully
-validated `dream-eod-v1` journal bundle without an operator approval record,
-but that version remains publication-ineligible. When the tool returns a
+immutable. When the date's Geo-Strategy packet already exists, passes
+`validate_daily_run --stage issue`, and has either been committed or explicitly
+accepted by the operator, Dream certifies the Geo-Strategy stage as complete
+from those receipts. It must not regenerate, reinterpret, or revise the packet
+unless the operator explicitly requests a Geo-Strategy revision. The
+certification names the packet date, validation stage, artifact refs, and commit
+or acceptance basis. A date without manifest-backed Geo sources records
+`no_geo_run`; a failed evidence-backed Geo packet blocks Journal. Dream may sign
+a fully validated `dream-eod-v1` journal bundle without an operator approval
+record, but that version remains publication-ineligible. When the tool returns a
 composition handoff, complete the prepared private bundle and resume. Finish
 with a private `--dream-json` candidate or `--no-candidate REASON`.
 
