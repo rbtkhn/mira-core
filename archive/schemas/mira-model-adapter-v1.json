@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:mira:model-adapter:v1",
+  "title": "Mira Model Adapter v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["provider", "base_url", "model", "context_window", "stable_multi_turn_tools"],
+  "properties": {
+    "provider": {"enum": ["kimi", "deepseek", "generic-openai"]},
+    "base_url": {"type": "string", "minLength": 1},
+    "model": {"type": "string", "minLength": 1},
+    "context_window": {"type": "integer", "minimum": 32768},
+    "stable_multi_turn_tools": {"const": true},
+    "thinking_mode": {"type": "boolean"}
+  }
+}

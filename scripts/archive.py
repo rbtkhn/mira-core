@@ -18,6 +18,7 @@ from typing import Any, Iterator, Mapping, Sequence
 
 from archive_store import ArchiveError, ArtifactStore, RecordInput, add_edge, canonical_json, catalog_counts, catalog_fingerprint, ingest_record, iter_active_records, parse_time, safe_logical_path, sha256_bytes, verify_derivation_acyclic
 from runtime_names import resolve_environment
+from portable_paths import PRIVATE_ROOT, require_private_path
 
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
@@ -26,7 +27,8 @@ COLLECTIONS_PATH = ARCHIVE_CONTROL_ROOT / "collections.json"
 ARCHIVE_ROOT_ENV = "MIRA_CORE_ARCHIVE_ROOT"
 REPLICA_ROOT_ENV = "MIRA_CORE_ARCHIVE_REPLICA_ROOT"
 CONFIG_PATH_ENV = "MIRA_CORE_ARCHIVE_CONFIG"
-DEFAULT_CONFIG_PATH = Path(r"C:\private\mira-core-archive-config.json")
+DEFAULT_CONFIG_PATH = PRIVATE_ROOT / "archive" / "config.json"
+EXTERNAL_CONFIG_PATH = Path(r"C:\private\mira-core-archive-config.json")
 FORMER_CONFIG_PATH = Path(r"C:\private\mira-core-system-archive-config.json")
 LEGACY_CONFIG_PATH = Path(r"C:\private\narrative-system-archive-config.json")
 COMPILER_VERSION = "system-archive-context-compiler-v1"
@@ -55,7 +57,7 @@ def storage_config() -> tuple[dict[str,Any] | None,Path]:
     configured=resolve_environment(CONFIG_PATH_ENV)
     path=Path(configured).expanduser() if configured else DEFAULT_CONFIG_PATH
     if not configured and not path.is_file():
-        for fallback in (FORMER_CONFIG_PATH, LEGACY_CONFIG_PATH):
+        for fallback in (EXTERNAL_CONFIG_PATH, FORMER_CONFIG_PATH, LEGACY_CONFIG_PATH):
             if fallback.is_file():
                 print(f"{fallback} is deprecated; use {DEFAULT_CONFIG_PATH}",file=sys.stderr)
                 path=fallback
@@ -65,9 +67,12 @@ def storage_config() -> tuple[dict[str,Any] | None,Path]:
     if document.get("schema_version")!=1: raise ArchiveError(f"invalid Mira Archive storage configuration: {path}")
     for key in ("canonical_root","replica_root"):
         value=document.get(key)
-        if not isinstance(value,str) or not value.strip() or not Path(value).expanduser().is_absolute():
+        if not isinstance(value,str) or not value.strip():
             raise ArchiveError(f"invalid Mira Archive storage configuration: {key}")
-    canonical=Path(document["canonical_root"]).expanduser().resolve(); replica=Path(document["replica_root"]).expanduser().resolve()
+    def config_root(value: str) -> Path:
+        candidate=Path(value).expanduser()
+        return candidate.resolve() if candidate.is_absolute() else (path.parent/candidate).resolve()
+    canonical=config_root(document["canonical_root"]); replica=config_root(document["replica_root"])
     if canonical==replica: raise ArchiveError("canonical and replica roots must differ")
     for root in (canonical,replica): validate_storage_root(root)
     return document,path.resolve()
@@ -75,9 +80,8 @@ def storage_config() -> tuple[dict[str,Any] | None,Path]:
 
 def validate_storage_root(root: Path) -> Path:
     resolved=root.expanduser().resolve()
-    try: resolved.relative_to(REPO_ROOT.resolve())
-    except ValueError: pass
-    else: raise ArchiveError(f"Mira Archive storage root must remain outside Git: {resolved}")
+    try: require_private_path(resolved, label="Mira Archive storage root", repo_root=REPO_ROOT)
+    except ValueError as error: raise ArchiveError(str(error)) from error
     if not resolved.is_dir(): raise ArchiveError(f"Mira Archive storage root does not exist: {resolved}")
     if not os.access(resolved,os.W_OK): raise ArchiveError(f"Mira Archive storage root is not writable: {resolved}")
     return resolved
@@ -97,7 +101,9 @@ def configured_root_resolution(variable: str, *, required: bool=True) -> tuple[P
         if value:
             resolved[name]=(validate_storage_root(Path(value)),f"environment:{name}")
         elif document is not None:
-            resolved[name]=(validate_storage_root(Path(document[key])),f"config:{path}")
+            candidate=Path(document[key]).expanduser()
+            if not candidate.is_absolute(): candidate=path.parent/candidate
+            resolved[name]=(validate_storage_root(candidate),f"config:{path}")
     if ARCHIVE_ROOT_ENV in resolved and REPLICA_ROOT_ENV in resolved and resolved[ARCHIVE_ROOT_ENV][0]==resolved[REPLICA_ROOT_ENV][0]:
         raise ArchiveError("canonical and replica roots must differ")
     if variable in resolved: return resolved[variable]

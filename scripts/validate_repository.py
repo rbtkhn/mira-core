@@ -94,7 +94,6 @@ LEGACY_REPOSITORY_NAME_ALLOWLIST = frozenset({
     "archive/schemas/task-spec.schema.json",
     "tests/test_contradiction_preflight.py",
     "tests/test_cadence_ledger.py",
-    "tests/test_dream_eod.py",
     "tests/test_mira_continuity.py",
 })
 LEGACY_REPOSITORY_DISPLAY_NAME = "Narrative Systems"
@@ -144,6 +143,7 @@ LEGACY_ARCHIVE_COMPATIBILITY_FILES = frozenset({
     "tests/test_mira_memory.py",
     "tests/test_runtime_tooling.py",
     "tools/run_repo.py",
+    "tools/mira_portable.py",
 })
 LEGACY_ARCHIVE_HISTORICAL_PREFIXES = (
     "archive/schemas/",

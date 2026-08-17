@@ -12,6 +12,7 @@ from pathlib import Path
 from typing import Any, Iterator, Mapping, Sequence
 
 import zstandard
+from portable_paths import require_private_path
 
 
 SCHEMA_VERSION = 1
@@ -65,11 +66,9 @@ def safe_logical_path(value: str) -> str:
 def ensure_external_root(root: Path, repo_root: Path, *, create: bool) -> Path:
     resolved, repository = root.expanduser().resolve(), repo_root.resolve()
     try:
-        resolved.relative_to(repository)
-    except ValueError:
-        pass
-    else:
-        raise ArchiveError(f"Mira Archive root must be outside the repository: {resolved}")
+        require_private_path(resolved, label="Mira Archive root", repo_root=repository)
+    except ValueError as error:
+        raise ArchiveError(str(error)) from error
     if create:
         resolved.mkdir(parents=True, exist_ok=True)
     if not resolved.is_dir():

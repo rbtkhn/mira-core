@@ -20,7 +20,8 @@ CADENCE_ENV = "MIRA_CORE_CADENCE_DB"
 MENTORSHIP_ENV = "MIRA_MENTORSHIP_DB"
 ARCHIVE_ROOT_ENV = "MIRA_CORE_ARCHIVE_ROOT"
 ARCHIVE_CONFIG_ENV = "MIRA_CORE_ARCHIVE_CONFIG"
-DEFAULT_ARCHIVE_CONFIG = Path(r"C:\private\mira-core-archive-config.json")
+DEFAULT_ARCHIVE_CONFIG = REPO_ROOT / ".mira-private" / "archive" / "config.json"
+EXTERNAL_ARCHIVE_CONFIG = Path(r"C:\private\mira-core-archive-config.json")
 FORMER_ARCHIVE_CONFIG = Path(r"C:\private\mira-core-system-archive-config.json")
 LEGACY_ARCHIVE_CONFIG = Path(r"C:\private\narrative-system-archive-config.json")
 TENSION_KINDS = {
@@ -221,7 +222,7 @@ def archive_carrier(*, inspect_catalog: bool = False) -> dict[str, Any]:
     configured_path = resolve_environment(ARCHIVE_CONFIG_ENV)
     config = Path(configured_path) if configured_path else DEFAULT_ARCHIVE_CONFIG
     if not configured_path and not config.is_file():
-        for fallback in (FORMER_ARCHIVE_CONFIG, LEGACY_ARCHIVE_CONFIG):
+        for fallback in (EXTERNAL_ARCHIVE_CONFIG, FORMER_ARCHIVE_CONFIG, LEGACY_ARCHIVE_CONFIG):
             if fallback.is_file():
                 print(
                     f"{fallback} is deprecated; use {DEFAULT_ARCHIVE_CONFIG}",

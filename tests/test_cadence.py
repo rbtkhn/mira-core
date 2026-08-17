@@ -24,18 +24,19 @@ def load_module():
 cadence = load_module()
 
 
-def test_formatted_coffee_fails_closed_without_private_ledger(monkeypatch) -> None:
+def test_formatted_coffee_fails_closed_without_private_ledger(monkeypatch, tmp_path: Path) -> None:
     args = SimpleNamespace(
         command="coffee", db=None, format="markdown", episode_id=None, json=False,
     )
     monkeypatch.delenv("MIRA_CORE_CADENCE_DB", raising=False)
     monkeypatch.delenv("NARRATIVE_CADENCE_DB", raising=False)
+    monkeypatch.setattr(cadence.cadence_ledger, "DEFAULT_DB_PATH", tmp_path / "missing.sqlite3")
     monkeypatch.setattr(cadence, "build_parser", lambda: SimpleNamespace(parse_args=lambda: args))
 
     try:
         cadence.main()
     except SystemExit as error:
-        assert "private cadence store is not configured" in str(error)
+        assert "private cadence store does not exist" in str(error)
     else:
         raise AssertionError("formatted Coffee silently used the legacy JSON handoff")
 

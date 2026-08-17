@@ -14,10 +14,12 @@ from pathlib import Path
 from typing import Any, Iterable
 
 from runtime_names import resolve_environment
+from portable_paths import PortablePathError, require_private_path as portable_private_path
 
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 DB_ENV = "MIRA_CORE_CADENCE_DB"
+DEFAULT_DB_PATH = REPO_ROOT / ".mira-private" / "state" / "cadence.sqlite3"
 SCHEMA_VERSION = 3
 PROJECTION_VERSION = "1.0"
 SQLITE_HEADER = b"SQLite format 3\x00"
@@ -105,19 +107,14 @@ def sanitize_artifact_ref(value: Any, *, limit: int = 1000) -> str:
 
 
 def require_private_path(raw: str | Path, *, label: str) -> Path:
-    path = Path(raw).expanduser()
-    if not path.is_absolute():
-        raise CadenceLedgerError(f"{label} path must be absolute")
-    resolved = path.resolve(strict=False)
-    if resolved == REPO_ROOT.resolve() or resolved.is_relative_to(REPO_ROOT.resolve()):
-        raise CadenceLedgerError(f"{label} path must be outside the repository")
-    return resolved
+    try:
+        return portable_private_path(raw, label=label, repo_root=REPO_ROOT)
+    except PortablePathError as error:
+        raise CadenceLedgerError(str(error)) from error
 
 
 def resolve_store(raw: str | Path | None, *, require_exists: bool = False) -> StoreResolution:
-    configured = raw or resolve_environment(DB_ENV)
-    if not configured:
-        return StoreResolution(None, f"private cadence store is not configured; set {DB_ENV} or pass --db")
+    configured = raw or resolve_environment(DB_ENV) or DEFAULT_DB_PATH
     try:
         path = require_private_path(configured, label="private cadence store")
     except CadenceLedgerError as error:

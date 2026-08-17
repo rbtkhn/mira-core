@@ -68,6 +68,7 @@ EXPECTED_SURFACES = {
     "mechanism-lens-checklist": "mechanism_lens_checklist.py",
     "narrative-reuse": "report_narrative_reuse.py",
     "operator-position": "operator_positions.py",
+    "portability": "mira_portable.py",
     "reality": "reality.py",
     "reality-handoff": "reality_handoff.py",
     "recursive-learn": "recursive_learning_ledger.py",
@@ -430,7 +431,7 @@ def test_registry_is_complete_unique_and_bounded_to_scripts() -> None:
     scripts_root = (REPO_ROOT / "scripts").resolve()
     for name, target in runner.SURFACES.items():
         assert target.is_file()
-        expected_parent = (REPO_ROOT / "tools").resolve() if name == "test" else scripts_root
+        expected_parent = (REPO_ROOT / "tools").resolve() if name in {"test", "portability"} else scripts_root
         assert target.resolve().parent == expected_parent
 
 
@@ -765,6 +766,52 @@ def test_validation_mode_defaults_to_full_and_accepts_force() -> None:
     assert (default.mode, default.force) == ("full", False)
     assert (forced.mode, forced.force) == ("full", True)
     assert default.temp_root is None
+    assert default.explain_route is False
+
+
+def test_explain_route_is_json_only_and_skips_bootstrap(monkeypatch, capsys) -> None:
+    changes = [validator.Change(" M", "tools/validate_repo.py")]
+    monkeypatch.setattr(validator, "changed_paths", lambda: changes)
+    monkeypatch.setattr(
+        validator,
+        "resolve_validation_python",
+        lambda repo: (_ for _ in ()).throw(AssertionError("bootstrap must not run")),
+    )
+
+    assert validator.main(["--mode", "fast", "--explain-route"]) == 0
+    payload = json.loads(capsys.readouterr().out)
+    assert payload == {
+        "changed_path_count": 1,
+        "effective_mode": "full",
+        "reasons": ["outside_fast_allowlist:tools/validate_repo.py"],
+        "requested_mode": "fast",
+        "tests": [],
+    }
+
+
+@pytest.mark.parametrize(
+    "arguments",
+    (
+        ["--explain-route"],
+        ["--mode", "fast", "--explain-route", "--force"],
+        ["--mode", "fast", "--explain-route", "--path", "tests"],
+        ["--mode", "fast", "--explain-route", "--temp-root", "C:/temp"],
+    ),
+)
+def test_explain_route_rejects_execution_arguments(arguments, capsys) -> None:
+    assert validator.main(arguments) == 2
+    assert "--explain-route requires --mode fast" in capsys.readouterr().err
+
+
+def test_explain_route_reports_clean_tree_without_running_validation(
+    monkeypatch, capsys
+) -> None:
+    monkeypatch.setattr(validator, "changed_paths", lambda: [])
+    assert validator.main(["--mode", "fast", "--explain-route"]) == 0
+    payload = json.loads(capsys.readouterr().out)
+    assert payload["changed_path_count"] == 0
+    assert payload["effective_mode"] == "full"
+    assert payload["reasons"] == ["no_changes_requires_full_or_cache"]
 
 
 def test_fast_route_selects_tests_for_narrow_allowlisted_changes() -> None:
@@ -796,6 +843,22 @@ def test_fast_route_fails_closed_for_risky_or_unknown_changes(change) -> None:
     route = validator.fast_route([change])
     assert route.effective_mode == "full"
     assert route.reasons
+    assert route.tests == ()
+
+
+def test_fast_route_fails_closed_when_selected_tests_are_missing(
+    monkeypatch, tmp_path: Path
+) -> None:
+    monkeypatch.setattr(validator, "REPO_ROOT", tmp_path)
+    route = validator.fast_route(
+        [
+            validator.Change(
+                " M", "archive/sources/geopolitics/sources/2026-08-03/example.md"
+            )
+        ]
+    )
+    assert route.effective_mode == "full"
+    assert route.reasons == ("no_existing_tests_for_fast_route",)
     assert route.tests == ()
 
 

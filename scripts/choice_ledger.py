@@ -15,6 +15,7 @@ from pathlib import Path
 from typing import Any, Iterable
 
 from runtime_names import resolve_environment
+from portable_paths import PortablePathError, require_private_path as portable_private_path
 
 
 SCHEMA_VERSION = 3
@@ -27,6 +28,7 @@ GRACEFUL_CONNECTION_FAILURE_COMMANDS = frozenset(
 )
 READ_ONLY_COMMANDS = frozenset({"context", "review", "show", "verify"})
 REPO_ROOT = Path(__file__).resolve().parent.parent
+DEFAULT_DB_PATH = REPO_ROOT / ".mira-private" / "state" / "choice-history.sqlite3"
 SQLITE_HEADER = b"SQLite format 3\x00"
 AUTHORITY_EFFECT = "none"
 ROLES = ("recommended", "alternative", "overlooked", "pause-or-deepen")
@@ -108,20 +110,14 @@ def digest(value: Any) -> str:
 
 
 def require_private_path(raw_path: str | Path, *, label: str) -> Path:
-    path = Path(raw_path).expanduser()
-    if not path.is_absolute():
-        raise ChoiceError(f"{label} path must be absolute")
-    resolved = path.resolve(strict=False)
-    repository = REPO_ROOT.resolve()
-    if resolved == repository or resolved.is_relative_to(repository):
-        raise ChoiceError(f"{label} path must be outside the repository")
-    return resolved
+    try:
+        return portable_private_path(raw_path, label=label, repo_root=REPO_ROOT)
+    except PortablePathError as error:
+        raise ChoiceError(str(error)) from error
 
 
 def resolve_store(raw_path: str | Path | None, *, require_exists: bool = False) -> StoreResolution:
-    configured = raw_path or resolve_environment(DB_ENV)
-    if not configured:
-        return StoreResolution(None, f"private choice store is not configured; set {DB_ENV} or pass --db")
+    configured = raw_path or resolve_environment(DB_ENV) or DEFAULT_DB_PATH
     try:
         path = require_private_path(configured, label="private choice store")
     except ChoiceError as error:

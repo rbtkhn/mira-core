@@ -33,7 +33,8 @@ LEARNING_LEDGER_PATH = (
 )
 
 DRAFT_ROOT_ENV = "MIRA_CORE_JOURNAL_DRAFT_ROOT"
-DEFAULT_DRAFT_ROOT = Path(r"C:\private\mira-journal-drafts")
+DEFAULT_DRAFT_ROOT = REPO_ROOT / ".mira-private" / "journal" / "drafts"
+LEGACY_DRAFT_ROOT = Path(r"C:\private\mira-journal-drafts")
 TIMEZONE_NAME = "America/Denver"
 TIMEZONE = ZoneInfo(TIMEZONE_NAME)
 FRESHNESS_REPLAY_BASE_REF = "a19f5d1^"
@@ -306,13 +307,17 @@ def atomic_write_many(files: dict[Path, bytes]) -> None:
 
 
 def external_draft_root(value: Path | None = None, *, repo_root: Path = REPO_ROOT) -> Path:
-    candidate = value or Path(resolve_environment(DRAFT_ROOT_ENV) or str(DEFAULT_DRAFT_ROOT))
+    configured = resolve_environment(DRAFT_ROOT_ENV)
+    candidate = value or Path(configured or str(DEFAULT_DRAFT_ROOT))
+    if value is None and not configured and not candidate.exists() and LEGACY_DRAFT_ROOT.exists():
+        candidate = LEGACY_DRAFT_ROOT
     resolved = candidate.expanduser().resolve()
-    try:
-        resolved.relative_to(repo_root.resolve())
-    except ValueError:
-        return resolved
-    raise JournalError(f"journal draft root must be outside Git: {resolved}")
+    private = (repo_root / ".mira-private" / "journal").resolve()
+    try: resolved.relative_to(repo_root.resolve())
+    except ValueError: return resolved
+    try: resolved.relative_to(private)
+    except ValueError as error: raise JournalError(f"journal draft root must be external or within {private}: {resolved}") from error
+    return resolved
 
 
 def entry_path(value: date, *, journal_root: Path | None = None) -> Path:

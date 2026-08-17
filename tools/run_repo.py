@@ -47,6 +47,7 @@ SURFACES = {
     "mira-mentor": REPO_ROOT / "scripts" / "mentorship_ledger.py",
     "narrative-reuse": REPO_ROOT / "scripts" / "report_narrative_reuse.py",
     "operator-position": REPO_ROOT / "scripts" / "operator_positions.py",
+    "portability": REPO_ROOT / "tools" / "mira_portable.py",
     "reality": REPO_ROOT / "scripts" / "reality.py",
     "reality-handoff": REPO_ROOT / "scripts" / "reality_handoff.py",
     "recursive-learn": REPO_ROOT / "scripts" / "recursive_learning_ledger.py",

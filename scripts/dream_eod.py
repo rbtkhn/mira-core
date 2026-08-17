@@ -81,7 +81,10 @@ def journal_entry(run_date: str) -> dict | None:
 
 
 def journal_bundle(args, run_date: str) -> Path:
-    return (args.journal_bundle or Path(r"C:\private\mira-journal-drafts") / run_date).resolve()
+    canonical = REPO_ROOT / ".mira-private" / "journal" / "drafts"
+    legacy = Path(r"C:\private\mira-journal-drafts")
+    root = canonical if canonical.exists() or not legacy.exists() else legacy
+    return (args.journal_bundle or root / run_date).resolve()
 
 
 def validate_journal_bundle(run_date: str, bundle: Path) -> tuple[dict | None, str | None]:

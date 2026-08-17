@@ -1062,9 +1062,10 @@ def test_privacy_scan_redacts_contacts_and_rejects_secrets() -> None:
 
 
 def test_missing_store_fallback_does_not_block_navigation(
-    capsys, monkeypatch
+    tmp_path, capsys, monkeypatch
 ) -> None:
     monkeypatch.delenv(choice_ledger.DB_ENV, raising=False)
+    monkeypatch.setattr(choice_ledger, "DEFAULT_DB_PATH", tmp_path / "missing.sqlite3")
     assert choice_ledger.main(["context"]) == 0
     payload = json.loads(capsys.readouterr().out)
     assert payload["available"] is False
