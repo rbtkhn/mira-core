@@ -30,10 +30,12 @@ from those receipts. It must not regenerate, reinterpret, or revise the packet
 unless the operator explicitly requests a Geo-Strategy revision. The
 certification names the packet date, validation stage, artifact refs, and commit
 or acceptance basis. A date without manifest-backed Geo sources records
-`no_geo_run`; a failed evidence-backed Geo packet blocks Journal. Dream may sign
-a fully validated `dream-eod-v1` journal bundle without an operator approval
-record, but that version remains publication-ineligible. When the tool returns a
-composition handoff, complete the prepared private bundle and resume. Finish
+`no_geo_run`; a failed evidence-backed Geo packet blocks Journal. Dream may
+certify a fully validated `dream-eod-v1` journal bundle without an operator
+approval record, but it must not canonicalize, approve, or publish the entry.
+The receipt preserves both version digests, records `canonicalized: false`, and
+leaves `approval_status: pending`. When the tool returns a composition handoff,
+complete the prepared private bundle and resume. Finish
 with a private `--dream-json` candidate or `--no-candidate REASON`.
 
 Inventory the day's active sessions first. Give every known session an explicit

@@ -1707,9 +1707,13 @@ def main() -> None:
         return
 
     if args.command == "coffee":
-        if args.db or os.environ.get(cadence_ledger.DB_ENV):
+        resolution = cadence_ledger.resolve_store(args.db, require_exists=True)
+        ledger_required = args.format is not None or args.episode_id is not None
+        if resolution.path is not None or ledger_required:
+            if resolution.path is None:
+                raise SystemExit(resolution.reason or "private cadence store is unavailable")
             try:
-                connection = _ledger_connection(args, write=False)
+                connection = cadence_ledger.connect_read_only(resolution.path)
                 context = cadence_ledger.coffee_context(connection, episode_id=args.episode_id)
                 connection.close()
             except (cadence_ledger.CadenceLedgerError, OSError, sqlite3.Error) as error:

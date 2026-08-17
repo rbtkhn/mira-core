@@ -24,6 +24,52 @@ def load_module():
 cadence = load_module()
 
 
+def test_formatted_coffee_fails_closed_without_private_ledger(monkeypatch) -> None:
+    args = SimpleNamespace(
+        command="coffee", db=None, format="markdown", episode_id=None, json=False,
+    )
+    monkeypatch.delenv("MIRA_CORE_CADENCE_DB", raising=False)
+    monkeypatch.delenv("NARRATIVE_CADENCE_DB", raising=False)
+    monkeypatch.setattr(cadence, "build_parser", lambda: SimpleNamespace(parse_args=lambda: args))
+
+    try:
+        cadence.main()
+    except SystemExit as error:
+        assert "private cadence store is not configured" in str(error)
+    else:
+        raise AssertionError("formatted Coffee silently used the legacy JSON handoff")
+
+
+def test_formatted_coffee_renders_governed_menu_from_explicit_store(
+    monkeypatch, tmp_path: Path, capsys
+) -> None:
+    store = tmp_path / "cadence.sqlite3"
+    cadence.cadence_ledger.connect(store).close()
+    args = SimpleNamespace(
+        command="coffee", db=store, format="markdown", episode_id=None, json=False,
+    )
+    monkeypatch.setattr(cadence, "build_parser", lambda: SimpleNamespace(parse_args=lambda: args))
+
+    cadence.main()
+
+    rendered = capsys.readouterr().out
+    assert "A. Execute: Confirm" in rendered
+    assert "B. Test:" in rendered
+    assert "C. Deepen:" in rendered
+    assert "D. Reframe:" in rendered
+
+
+def test_coffee_skill_requires_explicit_private_store_resolution() -> None:
+    skill = (REPO_ROOT / "docs" / "skill-drafts" / "coffee" / "SKILL.md").read_text(
+        encoding="utf-8"
+    )
+
+    assert "MIRA_CORE_CADENCE_DB" in skill
+    assert "NARRATIVE_CADENCE_DB" in skill
+    assert "--db ABSOLUTE_STORE coffee --format markdown" in skill
+    assert "do not create, copy, or migrate a store implicitly" in skill
+
+
 def verified(value: bool = True) -> dict:
     return {
         "integrity": {

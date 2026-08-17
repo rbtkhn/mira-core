@@ -9,8 +9,13 @@ Use only in `mira-core`. Coffee is read-only.
 
 ## Orient
 
-1. Run `tools/run.ps1 cadence coffee --format markdown` with the configured
-   private cadence store. Return its deterministic four-action menu verbatim;
+1. Resolve the private cadence store before running Coffee. Prefer
+   `MIRA_CORE_CADENCE_DB`, then compatibility variable `NARRATIVE_CADENCE_DB`.
+   In this workspace, when both are unset and the existing compatibility store
+   `C:\private\narrative-cadence.sqlite3` resolves, pass it explicitly with
+   `--db`; do not create, copy, or migrate a store implicitly. Run
+   `tools/run.ps1 cadence --db ABSOLUTE_STORE coffee --format markdown`.
+   Return its deterministic four-action menu verbatim;
    do not remove, reorder, rename, replace, or hand-compose actions.
    Start it once. If the execution remains live, resume or poll the returned
    session rather than launching a duplicate cadence command.
