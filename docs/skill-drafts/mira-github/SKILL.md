@@ -61,6 +61,22 @@ prove the blocker. Do not retry blind pushes.
 
 ## Choose the lane first
 
+Resolve the operator's requested publication endpoint before choosing the safe
+route. A safety default may change the route used to reach that endpoint; it
+must never silently replace the endpoint itself. In particular:
+
+- If the operator explicitly requests `main`, treat a branch push as an
+  intermediate state only. Keep the requested main landing visibly open until
+  `main` is updated or the operation stops with a named blocker.
+- If the endpoint is genuinely ambiguous, ask one minimal target question
+  before publishing. Do not infer that the safer branch default is the
+  operator's desired final state.
+- If a previously requested endpoint remains active across repository or
+  branch repair, carry it forward unless the operator changes it.
+- Never report publication complete merely because an intermediate branch was
+  pushed. Name both the reached boundary and any requested landing still
+  pending.
+
 Classify the next safe lane before staging or publishing:
 
 - `inspect-only`: read-only diagnosis, audit, or planning.
@@ -281,6 +297,7 @@ End by stating which boundary was reached:
 - commit complete, push not requested;
 - commit complete, push blocked with resumption packet;
 - branch pushed and verified;
+- branch pushed and verified; requested main landing still pending;
 - PR-ready;
 - main synchronization requires a separate plan;
 - remote publication unavailable.

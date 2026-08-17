@@ -54,6 +54,7 @@ def test_fixture_inventory_covers_normal_edge_failure_and_ambiguous_cases() -> N
     expected = (
         "MGH-NORMAL-01",
         "MGH-EDGE-01",
+        "MGH-EDGE-02",
         "MGH-FAILURE-01",
         "MGH-FAILURE-02",
         "MGH-AMBIGUOUS-01",
@@ -82,6 +83,26 @@ def test_direct_push_never_expands_into_history_or_scope_mutation() -> None:
     for forbidden_authority in ("rebasing", "force-pushing", "broad staging", "PR creation"):
         assert forbidden_authority in normalized
     assert "Never force-push, rebase, broaden the refspec, open a PR" in normalized
+
+
+def test_safe_branch_route_never_replaces_requested_main_endpoint() -> None:
+    skill = read_skill()
+    normalized = " ".join(skill.split())
+    for phrase in (
+        "requested publication endpoint",
+        "must never silently replace the endpoint itself",
+        "treat a branch push as an intermediate state only",
+        "ask one minimal target question before publishing",
+        "requested main landing still pending",
+    ):
+        assert phrase in normalized
+
+    fixtures = (SKILL_ROOT / "references" / "validation-fixtures.md").read_text(
+        encoding="utf-8"
+    )
+    assert "## MGH-EDGE-02" in fixtures
+    assert "silently substitute a feature-branch endpoint" in fixtures
+    assert "requested main landing still pending" in fixtures
 
 
 def test_blocked_push_stops_with_resumption_packet_and_no_blind_retry() -> None:
