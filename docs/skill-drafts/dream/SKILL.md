@@ -88,6 +88,11 @@ tools/run.ps1 cadence dream-supplement --episode-id ID --session-coverage-json J
 
 Do not call a change `improved` merely because tests pass. It must improve a
 named judgment, quality, reliability, or efficiency criterion.
+Journal certification records completion only. Canonical approval remains a
+separate exact digest-bound Mira Journal action; certification never mutates
+the journal registry, canonical prose, technical-reference companions, or
+continuity indexes.
+
 Do not solicit or record unresolved choice outcomes during closeout. Route
 them through the next `coffee` re-entry instead.
 
