@@ -1,6 +1,6 @@
 ---
 name: mira-github
-description: "Repository-local publication traffic control for GitHub-facing work in Mira Core. Use when the operator says push, commit, PR, GitHub operations, repo hygiene with staging/commit/push/branch/remote scope, or compressed follow-ups such as you choose or make it so when they could cross staging, commit, branch publication, PR, or main synchronization boundaries. Choose lane, scope, branch, validation, and authority boundaries before any GitHub-facing mutation."
+description: "Repository-local publication traffic control for GitHub-facing work in Mira Core. Use when the operator says push, commit, synchronize, PR, GitHub operations, repo hygiene with staging/commit/push/branch/remote scope, local-main reconciliation, or compressed follow-ups such as you choose or make it so when they could cross staging, commit, branch publication, PR, or main synchronization boundaries. Choose lane, scope, branch, validation, publication proof, reconciliation, and authority boundaries before any GitHub-facing mutation."
 ---
 
 # Mira GitHub
@@ -112,6 +112,30 @@ codex/forecast-lebanon-hormuz-review-20260815
 codex/mira-github-skill-20260815
 codex/archive-aug14-intake-cleanup-20260815
 ```
+
+## Keep primary main as an integration reference
+
+Treat the primary checkout's `main` as an integration reference, not a durable
+working branch. Do not begin new implementation commits directly on a dirty or
+diverged primary `main`. Route bounded work to a `codex/...` branch or an
+isolated worktree created from a freshly fetched `origin/main`.
+
+Before choosing an isolated publication path, distinguish:
+
+- unpublished local commits that must still be integrated;
+- commits already represented upstream under different SHAs because they were
+  rebased, amended, cherry-picked, or published through another worktree; and
+- unrelated uncommitted files that must remain untouched.
+
+Use subjects, affected paths, patch comparison, and repository receipts as
+evidence. Commit-message similarity alone does not prove equivalence. Never
+replay every commit in a diverged range merely because `git cherry` marks its
+SHA as unique; that can duplicate changes already represented upstream.
+
+When an isolated worktree publishes a rebased or reconstructed equivalent of a
+local commit, record both the local source SHA and the published SHA in the
+final receipt. Publication of the equivalent commit does not by itself align
+the primary local branch.
 
 ## Triage dirty work before staging
 
@@ -231,6 +255,49 @@ wildcards, abbreviated SHAs, multiple refs, and non-fast-forward publication.
 Never force-push, rebase, broaden the refspec, open a PR, mutate hosted
 settings, or publish generated drift as part of a plain `push`.
 
+## Close synchronization explicitly
+
+Treat remote publication and local-main reconciliation as separate completion
+conditions:
+
+1. **Remote publication:** the exact target SHA is verified at the requested
+   remote ref.
+2. **Primary reconciliation:** the primary checkout's `main` points to the
+   intended upstream history without losing unpublished commits or dirty work.
+
+Do not say `synchronized` without qualifying which condition was reached. If
+only the remote ref is current, say `origin/main updated; primary main remains
+diverged`.
+
+After a successful main push, return to the primary checkout and re-run:
+
+```powershell
+git fetch origin
+git status -sb
+git log --oneline --left-right --decorate origin/main...main -20
+```
+
+Then choose the narrowest safe reconciliation:
+
+- If primary `main` is clean, has no unpublished unique commits, and can
+  fast-forward, use `git merge --ff-only origin/main`.
+- If local commits are represented upstream under different SHAs, do not
+  rebase or replay them automatically. Prepare an exact preservation-and-align
+  plan that names the old local tip, its upstream equivalents, a recoverable
+  preservation ref, and the proposed new tip. Repointing or resetting `main`
+  requires explicit authority even when the working tree is clean.
+- If the primary checkout is dirty, preserve it unchanged. Do not stash,
+  autostash, reset, switch branches, or rewrite the pointer merely to produce a
+  clean status. State that local reconciliation remains open and identify the
+  bounded disposition needed for the dirty work.
+- If another actor advances the remote during validation, refresh once,
+  integrate only the genuinely unpublished commit set onto the new tip,
+  revalidate, and mint a new digest-bound receipt. Never push a stale receipt.
+
+Remove an isolated worktree only after its exact published SHA is verified and
+the worktree is clean. Temporary-worktree cleanup does not satisfy primary
+reconciliation.
+
 ## Handle credential-context splits
 
 Sometimes the operator repairs GitHub auth in an interactive shell while the
@@ -346,7 +413,8 @@ briefly in final or handoff language when they materially describe the run:
 - `speed`: time to lane classification, time to bounded next action, repeated
   rediscovery avoided.
 - `success-rate`: intended boundary reached, blocked push received resumption
-  packet, unrelated dirty-tree inclusion avoided.
+  packet, unrelated dirty-tree inclusion avoided, primary reconciliation
+  either completed or explicitly retained as open.
 - `friction`: clarification loops, stale-state reruns, operator restatement of
   scope, blocker, branch, exclusions, or repaired auth state.
 
@@ -357,6 +425,8 @@ Use these v1 targets for later review:
 - produce a resumption packet for every blocked push;
 - include 0 known unrelated dirty-tree paths;
 - check auth and divergence before every remote push;
+- never describe remote-only publication as full synchronization;
+- leave no unexplained local-main divergence after a main publication;
 - detect and resolve credential-context split without asking the operator to
   repeat a correct auth repair more than once;
 - reduce repeated operator restatement of the same publication scope over five
@@ -375,6 +445,8 @@ End by stating which boundary was reached:
 - commit complete, push blocked with resumption packet;
 - branch pushed and verified;
 - branch pushed and verified; requested main landing still pending;
+- origin/main updated, primary main reconciliation open;
+- origin/main and primary main synchronized;
 - PR-ready;
 - main synchronization requires a separate plan;
 - remote publication unavailable.

@@ -57,9 +57,11 @@ def test_fixture_inventory_covers_normal_edge_failure_and_ambiguous_cases() -> N
         "MGH-NORMAL-02",
         "MGH-EDGE-01",
         "MGH-EDGE-02",
+        "MGH-EDGE-03",
         "MGH-FAILURE-01",
         "MGH-FAILURE-02",
         "MGH-AMBIGUOUS-01",
+        "MGH-NORMAL-03",
     )
     for fixture_id in expected:
         assert fixtures.count(f"## {fixture_id} ") == 1
@@ -146,3 +148,47 @@ def test_skill_main_workflow_requires_exact_stale_lock_proof() -> None:
         "remove only that literal file",
     ):
         assert phrase in normalized
+
+
+def test_primary_main_is_an_integration_reference_not_a_dirty_work_branch() -> None:
+    skill = read_skill()
+    normalized = " ".join(skill.split())
+    for phrase in (
+        "Treat the primary checkout's `main` as an integration reference",
+        "Do not begin new implementation commits directly on a dirty or diverged primary `main`",
+        "isolated worktree created from a freshly fetched `origin/main`",
+        "Commit-message similarity alone does not prove equivalence",
+        "Never replay every commit in a diverged range",
+    ):
+        assert phrase in normalized
+
+
+def test_remote_publication_and_local_reconciliation_close_separately() -> None:
+    skill = read_skill()
+    normalized = " ".join(skill.split())
+    for phrase in (
+        "remote publication and local-main reconciliation as separate completion conditions",
+        "origin/main updated; primary main remains diverged",
+        "git merge --ff-only origin/main",
+        "Repointing or resetting `main` requires explicit authority",
+        "If the primary checkout is dirty, preserve it unchanged",
+        "Never push a stale receipt",
+        "Temporary-worktree cleanup does not satisfy primary reconciliation",
+    ):
+        assert phrase.lower() in normalized.lower()
+
+
+def test_rebased_equivalent_publication_retains_sha_lineage() -> None:
+    skill = read_skill()
+    normalized = " ".join(skill.split())
+    assert "record both the local source SHA and the published SHA" in normalized
+    assert "does not by itself align the primary local branch" in normalized
+    assert "origin/main updated, primary main reconciliation open" in skill
+    assert "origin/main and primary main synchronized" in skill
+
+    fixtures = (SKILL_ROOT / "references" / "validation-fixtures.md").read_text(
+        encoding="utf-8"
+    )
+    assert "## MGH-EDGE-03" in fixtures
+    assert "## MGH-NORMAL-03" in fixtures
+    assert "reporting full synchronization" in fixtures
