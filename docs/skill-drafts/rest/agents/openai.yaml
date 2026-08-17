@@ -1,0 +1,4 @@
+interface:
+  display_name: "Rest"
+  short_description: "Close a Mira Core session without requiring permanent finality"
+  default_prompt: "Use $rest to close this session with a bounded private continuity receipt and no continuation pressure."

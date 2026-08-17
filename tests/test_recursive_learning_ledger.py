@@ -26,6 +26,13 @@ def test_current_recursive_learning_ledger_validates() -> None:
     assert MODULE.validate_ledger() == []
 
 
+def test_rest_receipts_do_not_supply_recursive_learning_stages() -> None:
+    skill = (REPO_ROOT / "docs/skill-drafts/recursive-learn/SKILL.md").read_text(encoding="utf-8")
+    assert "Rest receipts" in skill
+    assert "supply no recursive-learning stage" in skill
+    assert "exported cadence process reference" in skill
+
+
 def test_rendered_markdown_exposes_all_five_stages() -> None:
     rendered = MODULE.render_markdown(MODULE.load_ledger())
     for heading in ("### Observation", "### Diagnosis", "### Intervention", "### Validation", "### Outcome"):

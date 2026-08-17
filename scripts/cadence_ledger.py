@@ -151,12 +151,18 @@ def connect_read_only(path: Path) -> sqlite3.Connection:
     connection.execute("PRAGMA foreign_keys = ON")
     connection.execute("PRAGMA query_only = ON")
     version = int(connection.execute("PRAGMA user_version").fetchone()[0])
-    if version != SCHEMA_VERSION:
+    if version not in {2, SCHEMA_VERSION}:
         connection.close()
         raise CadenceLedgerError(
-            f"cadence store schema {version} is not readable; expected {SCHEMA_VERSION}"
+            f"cadence store schema {version} is not readable; supported versions are 2 and {SCHEMA_VERSION}"
         )
     return connection
+
+
+def table_exists(connection: sqlite3.Connection, name: str) -> bool:
+    return connection.execute(
+        "SELECT 1 FROM sqlite_master WHERE type='table' AND name=?", (name,)
+    ).fetchone() is not None
 
 
 def migrate(connection: sqlite3.Connection) -> None:
@@ -462,6 +468,26 @@ def normalize_artifacts(values: Iterable[dict[str, Any]]) -> list[dict[str, str]
     return result
 
 
+def normalize_closure_metadata(receipt: dict[str, Any]) -> dict[str, Any]:
+    supplied = any(key in receipt for key in ("closure_state", "rest_event_refs", "closure_observed_at"))
+    if not supplied:
+        return {}
+    state = str(receipt.get("closure_state", ""))
+    if state not in {"active", "rested", "resumed", "unavailable"}:
+        raise CadenceLedgerError("invalid session closure state")
+    raw_refs = receipt.get("rest_event_refs", [])
+    if not isinstance(raw_refs, list) or any(
+        not re.fullmatch(r"RSTE-[0-9a-f]{24}", str(value)) for value in raw_refs
+    ):
+        raise CadenceLedgerError("invalid Rest event reference")
+    observed = receipt.get("closure_observed_at")
+    return {
+        "closure_state": state,
+        "rest_event_refs": sorted(set(map(str, raw_refs))),
+        "closure_observed_at": validate_timestamp(str(observed)) if observed else None,
+    }
+
+
 def normalize_episode(raw: dict[str, Any]) -> dict[str, Any]:
     episode_id = sanitize_text(raw.get("episode_id", ""), limit=100)
     series_id = sanitize_text(raw.get("series_id", ""), limit=100)
@@ -512,6 +538,7 @@ def normalize_episode(raw: dict[str, Any]) -> dict[str, Any]:
             "status": status,
             "reason": sanitize_text(receipt.get("reason", ""), limit=1000),
             "observed_at": validate_timestamp(str(receipt.get("observed_at", ""))),
+            **normalize_closure_metadata(receipt),
         })
     coverage_status = str(raw.get("coverage_status", ""))
     expected_coverage = (
@@ -645,6 +672,7 @@ def append_session_supplement(
         "status": str(receipt.get("status", "")),
         "reason": sanitize_text(receipt.get("reason", ""), limit=1000),
         "observed_at": validate_timestamp(str(receipt.get("observed_at", ""))),
+        **normalize_closure_metadata(receipt),
     }
     if normalized["status"] not in {"included", "excluded", "unavailable"}:
         raise CadenceLedgerError(f"invalid session coverage status: {normalized['status']}")
@@ -953,7 +981,15 @@ def validate_actions(actions: list[dict[str, Any]]) -> None:
         raise CadenceLedgerError("Coffee requires at least one actionable option")
 
 
-def coffee_context(connection: sqlite3.Connection, *, episode_id: str | None = None) -> dict[str, Any]:
+def coffee_context(
+    connection: sqlite3.Connection,
+    *,
+    episode_id: str | None = None,
+    rest_coverage_status: str = "unavailable",
+) -> dict[str, Any]:
+    allowed_rest = {"covered-current", "missing-dream", "late-terminal-only", "late-substantive", "unavailable"}
+    if rest_coverage_status not in allowed_rest:
+        raise CadenceLedgerError("invalid Rest coverage status")
     projection = selected_episode(connection, episode_id)
     if projection is None:
         actions = build_cold_start_actions()
@@ -970,6 +1006,7 @@ def coffee_context(connection: sqlite3.Connection, *, episode_id: str | None = N
                 "tomorrow_inherits": "No cadence lesson until a falsifiable experiment is recorded.",
             },
             "actions": actions, "recommendation_key": "A", "mutation_performed": False,
+            "rest_coverage_status": rest_coverage_status,
         }
     actions = build_actions(projection)
     change = repository_change(projection)
@@ -989,6 +1026,7 @@ def coffee_context(connection: sqlite3.Connection, *, episode_id: str | None = N
         },
         "actions": actions,
         "recommendation_key": "A",
+        "rest_coverage_status": rest_coverage_status,
         "mutation_performed": False,
     }
 
@@ -1003,6 +1041,7 @@ def render_coffee_markdown(context: dict[str, Any]) -> str:
         f"Evidence: {learning['evidence_summary']}",
         f"Safe to inherit: {'yes' if context['inheritance_safe'] else 'no'}.",
         f"Remaining uncertainty: {learning['diagnosis']}",
+        f"Rest coverage: {context.get('rest_coverage_status', 'unavailable')}.",
         "",
     ]
     for action in context["actions"]:
@@ -1078,6 +1117,7 @@ def reconcile_rsi(
 
 
 def verify_ledger(connection: sqlite3.Connection) -> dict[str, Any]:
+    store_version = int(connection.execute("PRAGMA user_version").fetchone()[0])
     integrity = connection.execute("PRAGMA integrity_check").fetchone()[0]
     failures: list[str] = []
     for row in connection.execute("SELECT episode_id FROM cadence_episodes"):
@@ -1094,20 +1134,23 @@ def verify_ledger(connection: sqlite3.Connection) -> dict[str, Any]:
             if stored["previous_event_sha256"] != previous or stored["event_sha256"] != digest(body):
                 failures.append(f"{row[0]}: event chain mismatch at {stored['event_id']}")
             previous = stored["event_sha256"]
-    for row in connection.execute("SELECT run_id FROM daily_close_runs"):
-        previous = None
-        for stored in _close_event_rows(connection, row[0]):
-            body = {"event_id": stored["event_id"], "run_id": stored["run_id"],
-                    "event_type": stored["event_type"], "occurred_at": stored["occurred_at"],
-                    "lifecycle_version": stored["lifecycle_version"],
-                    "payload": json.loads(stored["payload_json"]), "previous_event_sha256": previous}
-            if stored["previous_event_sha256"] != previous or stored["event_sha256"] != digest(body):
-                failures.append(f"{row[0]}: daily close event chain mismatch at {stored['event_id']}")
-            previous = stored["event_sha256"]
-    for stored in connection.execute("SELECT closeout_id, payload_json, payload_sha256 FROM daily_dream_closeouts"):
-        if digest(json.loads(stored["payload_json"])) != stored["payload_sha256"]:
-            failures.append(f"{stored['closeout_id']}: Dream closeout digest mismatch")
-    return {"schema_version": SCHEMA_VERSION, "integrity": integrity, "failures": failures, "valid": integrity == "ok" and not failures}
+    if table_exists(connection, "daily_close_runs"):
+        for row in connection.execute("SELECT run_id FROM daily_close_runs"):
+            previous = None
+            for stored in _close_event_rows(connection, row[0]):
+                body = {"event_id": stored["event_id"], "run_id": stored["run_id"],
+                        "event_type": stored["event_type"], "occurred_at": stored["occurred_at"],
+                        "lifecycle_version": stored["lifecycle_version"],
+                        "payload": json.loads(stored["payload_json"]), "previous_event_sha256": previous}
+                if stored["previous_event_sha256"] != previous or stored["event_sha256"] != digest(body):
+                    failures.append(f"{row[0]}: daily close event chain mismatch at {stored['event_id']}")
+                previous = stored["event_sha256"]
+    if table_exists(connection, "daily_dream_closeouts"):
+        for stored in connection.execute("SELECT closeout_id, payload_json, payload_sha256 FROM daily_dream_closeouts"):
+            if digest(json.loads(stored["payload_json"])) != stored["payload_sha256"]:
+                failures.append(f"{stored['closeout_id']}: Dream closeout digest mismatch")
+    return {"schema_version": store_version, "reader_schema_version": SCHEMA_VERSION,
+            "integrity": integrity, "failures": failures, "valid": integrity == "ok" and not failures}
 
 
 def private_status(raw_path: str | Path | None = None) -> dict[str, Any]:
@@ -1135,9 +1178,13 @@ def private_status(raw_path: str | Path | None = None) -> dict[str, Any]:
             canonical = json.loads(canonical_path.read_text(encoding="utf-8"))
             canonical_ids = {str(item.get("id")) for item in canonical.get("entries", []) if isinstance(item, dict)}
         unresolved = len(represented_ids - canonical_ids)
-        latest = connection.execute(
-            "SELECT MAX(value) FROM (SELECT occurred_at AS value FROM cadence_events UNION ALL SELECT occurred_at FROM daily_close_events)"
-        ).fetchone()[0]
+        latest = (
+            connection.execute(
+                "SELECT MAX(value) FROM (SELECT occurred_at AS value FROM cadence_events UNION ALL SELECT occurred_at FROM daily_close_events)"
+            ).fetchone()[0]
+            if table_exists(connection, "daily_close_events")
+            else connection.execute("SELECT MAX(occurred_at) FROM cadence_events").fetchone()[0]
+        )
         connection.close()
         valid = verification["valid"]
         return {

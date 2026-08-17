@@ -14,7 +14,7 @@ from runtime_names import resolve_environment
 
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
-SCHEMA_VERSION = 2
+SCHEMA_VERSION = 4
 CHOICE_ENV = "MIRA_CORE_CHOICE_DB"
 CADENCE_ENV = "MIRA_CORE_CADENCE_DB"
 MENTORSHIP_ENV = "MIRA_MENTORSHIP_DB"
@@ -132,6 +132,34 @@ def constitution_candidate_surface() -> dict[str, Any]:
     }
 
 
+def rest_surface() -> tuple[dict[str, Any], dict[str, Any]]:
+    import mira_continuity
+    import rest_receipts
+
+    surface = {
+        "id": "rest-inbox", "authority_status": "private-provisional",
+        "canonical_identity": False, "availability": "unavailable",
+        "canonical_source": None, "generated_view": None,
+        "reporting_verb": "records", "validation_state": "private Rest inbox is not configured",
+        "owning_command": "tools/run.ps1 rest",
+    }
+    closure = {
+        "availability": "unavailable", "recorded_state": "unknown",
+        "current_state": "unknown", "derived_resume": False, "event_count": 0,
+        "latest_event_id": None, "closure_debt": [], "requested_reviews": [],
+        "mutation_performed": False,
+    }
+    try:
+        inbox = rest_receipts.resolve_inbox(None)
+        session = rest_receipts.session_uuid()
+        source = mira_continuity.find_session_source(session)
+        closure = rest_receipts.projection(inbox, session, source)
+        surface.update({"availability": "available", "validation_state": "exact-session private receipt chain validates"})
+    except (OSError, ValueError, rest_receipts.RestError) as error:
+        surface["validation_state"] = str(error)
+    return surface, closure
+
+
 def continuity_carrier(*, inspect_sources: bool = False) -> dict[str, Any]:
     import mira_continuity
 
@@ -141,13 +169,14 @@ def continuity_carrier(*, inspect_sources: bool = False) -> dict[str, Any]:
     expected = mira_continuity.expected_views()
     freshness, note = generated_state(generated, {path: expected[path] for path in generated})
     valid = all(state == "valid" for state, _ in states)
+    rest, _ = rest_surface()
     result = carrier(
         "continuity", ["identity", "relational"],
         "canonical identity and session-continuity authority", canonical, generated,
         "tools/run.ps1 mira-continuity", freshness if valid else "invalid",
         "; ".join([message for _, message in states] + [note]), "recorded", "canonical",
         authority_flags(identity=True), "available" if valid else "degraded",
-        [constitution_candidate_surface()],
+        [constitution_candidate_surface(), rest],
     )
     if inspect_sources and valid:
         try:
@@ -376,6 +405,7 @@ def mentorship_carrier() -> dict[str, Any]:
 
 
 ROUTING_RULES = [
+    ({"rest"}, "mixed", "rest", 130, "explicit terminal session closure"),
     ({"assess", "cadence", "learning"}, "procedural", "recursive-learn", 120, "explicit cadence learning assessment"),
     ({"admit", "recursive", "learning"}, "procedural", "recursive-learn", 120, "explicit recursive-learning admission"),
     ({"rsi", "candidate"}, "procedural", "recursive-learn", 120, "explicit RSI candidate request"),
@@ -437,6 +467,8 @@ def route_focus(focus: str | None) -> dict[str, Any]:
             "routing_state": "needs-decomposition",
         }
     classes = sorted({row["memory_class"] for row in candidates})
+    if "rest" in matches:
+        classes = sorted((set(classes) - {"mixed"}) | {"procedural", "relational"})
     top = [row for row in candidates if row["priority"] == candidates[0]["priority"]]
     if len(top) > 1:
         owner = "mira-memory"
@@ -447,7 +479,10 @@ def route_focus(focus: str | None) -> dict[str, Any]:
         reason = top[0]["reason"]
         routing_state = "routed"
     return {
-        "memory_class": top[0]["memory_class"] if routing_state == "routed" else "mixed",
+        "memory_class": (
+            "mixed" if top[0]["workflow"] == "rest"
+            else top[0]["memory_class"] if routing_state == "routed" else "mixed"
+        ),
         "memory_classes": classes,
         "owner_candidates": candidates,
         "recommended_owner": owner,
@@ -563,21 +598,24 @@ def operational_tensions(carriers: list[dict[str, Any]], route: dict[str, Any]) 
     return tensions
 
 
-def status(focus: str | None, as_of: str) -> dict[str, Any]:
+def status(focus: str | None, as_of: str, counterchecks: str = "auto") -> dict[str, Any]:
+    if counterchecks not in {"auto", "skip"}:
+        raise ValueError("counterchecks must be auto or skip")
     route = route_focus(focus)
     focus_classes = set(route["memory_classes"])
     candidate_workflows = {row["workflow"] for row in route["owner_candidates"]}
-    inspect_continuity = (
+    inspect_continuity = counterchecks == "auto" and (
         route["recommended_owner"] == "mira-continuity"
         or (
             route["routing_state"] == "needs-decomposition"
             and "mira-continuity" in candidate_workflows
         )
     )
-    inspect_archive = (
+    inspect_archive = counterchecks == "auto" and (
         route["recommended_owner"] == "archive"
         or bool(focus_classes & {"epistemic", "autobiographical", "procedural", "relational"})
     )
+    _, session_closure = rest_surface()
     carriers = [
         continuity_carrier(inspect_sources=inspect_continuity), journal_carrier(),
         recursive_carrier(), archive_carrier(inspect_catalog=inspect_archive),
@@ -594,6 +632,8 @@ def status(focus: str | None, as_of: str) -> dict[str, Any]:
     return {
         "schema_version": SCHEMA_VERSION,
         "as_of": as_of,
+        "countercheck_mode": counterchecks,
+        "session_closure": session_closure,
         "focus": {
             "text": focus,
             "memory_class": route["memory_class"],
@@ -616,6 +656,8 @@ def render_markdown(payload: dict[str, Any]) -> str:
         "# Mira Memory Status", "", f"- As of: `{payload['as_of']}`",
         f"- Focus class: `{payload['focus']['memory_class']}`",
         f"- Focus classes: `{', '.join(payload['focus']['memory_classes'])}`",
+        f"- Counterchecks: `{payload['countercheck_mode']}`",
+        f"- Session closure: `{payload['session_closure']['current_state']}`",
         f"- Routing state: `{payload['routing_state']}`",
         f"- Recommended owner: `{payload['recommended_owner']}`",
         f"- Routing reason: {payload['recommended_owner_reason']}",
@@ -650,6 +692,7 @@ def build_parser() -> argparse.ArgumentParser:
     commands = root.add_subparsers(dest="command", required=True)
     command = commands.add_parser("status", help="Report carrier availability, freshness, and ownership.")
     command.add_argument("--focus")
+    command.add_argument("--counterchecks", choices=("auto", "skip"), default="auto")
     command.add_argument("--as-of")
     command.add_argument("--json", action="store_true")
     return root
@@ -658,7 +701,7 @@ def build_parser() -> argparse.ArgumentParser:
 def main(arguments: list[str] | None = None) -> int:
     args = build_parser().parse_args(arguments)
     try:
-        payload = status(args.focus, parse_as_of(args.as_of))
+        payload = status(args.focus, parse_as_of(args.as_of), args.counterchecks)
     except (OSError, ValueError) as error:
         print(f"mira-memory error: {error}")
         return 1

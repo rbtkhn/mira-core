@@ -73,6 +73,8 @@ EXPECTED_SURFACES = {
     "reality-handoff": "reality_handoff.py",
     "recursive-learn": "recursive_learning_ledger.py",
     "research-handoff": "research_handoff.py",
+    "runtime-bootstrap": "runtime_bootstrap.py",
+    "rest": "rest.py",
     "session-preflight": "session_preflight.py",
     "skills-check": "check_codex_skills_sync.py",
     "skills-sync": "sync_codex_skills.py",
@@ -1157,3 +1159,23 @@ def test_compatibility_shim_no_longer_requires_dot_venv() -> None:
     assert "DEPRECATED" in shim
     assert ".venv" not in shim
     assert "runtime_bootstrap.py" in shim
+
+
+def test_runtime_bootstrap_returns_validation_python_with_declared_dependencies() -> None:
+    python = bootstrap.resolve_validation_python()
+    probe = subprocess.run(
+        [
+            str(python),
+            "-c",
+            (
+                "import yaml,zstandard;"
+                "from zoneinfo import ZoneInfo;"
+                "ZoneInfo('America/Denver');"
+                "print('ready')"
+            ),
+        ],
+        check=True,
+        capture_output=True,
+        text=True,
+    )
+    assert probe.stdout.strip() == "ready"

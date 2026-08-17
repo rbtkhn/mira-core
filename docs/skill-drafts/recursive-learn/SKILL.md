@@ -50,6 +50,11 @@ boundary only through sanitized repository artifacts that separately evidence
 observation, diagnosis, persistent intervention, validation, and outcome.
 Finish or safely stop urgent learner work before beginning recursive assessment.
 
+Rest receipts, Rest review queues, Journal interpretation of resting, and
+passing Rest implementation tests supply no recursive-learning stage. Route a
+Rest-related method claim only through a qualifying journal technical reference
+or exported cadence process reference with separately observed later use.
+
 ## Prepare privately
 
 For an admissible or honestly partial reference, write a candidate only outside Git:

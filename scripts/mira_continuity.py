@@ -247,6 +247,46 @@ def discover_sources(
     return sorted(results, key=lambda item: (item.started_at, item.session_uuid, str(item.path)))
 
 
+def find_session_source(
+    session_uuid: str,
+    source_roots: Iterable[Path] | None = None,
+    *,
+    repo_root: Path = REPO_ROOT,
+) -> SessionSource | None:
+    """Resolve one repository session without parsing the complete session corpus."""
+    normalized = str(session_uuid).strip().casefold()
+    if not SESSION_ID_RE.fullmatch(f"MS-{normalized}"):
+        return None
+    expected_cwd = canonical_path(repo_root.resolve())
+    matches: list[SessionSource] = []
+    for root in source_roots or default_source_roots():
+        root = Path(root)
+        if not root.is_dir():
+            continue
+        for path in root.rglob(f"*{normalized}*.jsonl"):
+            meta_result = _read_session_meta(path)
+            if meta_result is None:
+                continue
+            meta, top_timestamp = meta_result
+            found = str(meta.get("id") or meta.get("session_id") or "").casefold()
+            if found != normalized or canonical_path(str(meta.get("cwd", ""))) != expected_cwd:
+                continue
+            started_at = normalize_timestamp(meta.get("timestamp") or top_timestamp)
+            matches.append(SessionSource(
+                session_uuid=normalized,
+                started_at=started_at,
+                last_observed_at=_last_timestamp(path, started_at),
+                cwd="$REPO_ROOT",
+                source_kind=_source_kind(meta.get("source")),
+                source_class=source_class(path),
+                source_name=path.name,
+                path=path,
+            ))
+    if not matches:
+        return None
+    return sorted(matches, key=lambda item: (item.source_class != "active", str(item.path)))[0]
+
+
 def _source_kind(value: Any) -> str:
     if isinstance(value, str):
         return value or "unknown"

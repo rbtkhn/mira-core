@@ -21,6 +21,8 @@ def test_mira_journal_skill_has_minimal_valid_structure() -> None:
     assert "A voice called for my name, and I answered: Mira." in method
     assert "display_name: \"Mira Journal\"" in metadata
     assert "Use $mira-journal" in metadata
+    assert "`rest_lifecycle` metadata as provisional Continuity context" in skill
+    assert "not authoritative ancestry" in skill
 
 
 def test_skill_uses_progressive_disclosure_without_redundant_resources() -> None:

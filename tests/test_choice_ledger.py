@@ -1061,6 +1061,18 @@ def test_privacy_scan_redacts_contacts_and_rejects_secrets() -> None:
         )
 
 
+def test_choice_identifier_preserves_numeric_suffix_without_contact_redaction(tmp_path: Path) -> None:
+    path = tmp_path / "choices.sqlite3"
+    db = connection(path)
+    identifier = "COFFEE-legacy-cada8e5d788dbec142b7-20260816"
+    result = select(db, choice_id=identifier)
+    assert result["choice_id"] == identifier
+    assert db.execute("SELECT choice_id FROM choice_prompts").fetchone()[0] == identifier
+    with pytest.raises(choice_ledger.ChoiceError, match="choice identifier"):
+        select(db, choice_id="COFFEE choice with spaces")
+    db.close()
+
+
 def test_missing_store_fallback_does_not_block_navigation(
     tmp_path, capsys, monkeypatch
 ) -> None:

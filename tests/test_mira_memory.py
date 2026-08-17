@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 import os
+import sqlite3
 import subprocess
 import sys
 from pathlib import Path
@@ -63,7 +64,9 @@ def test_json_status_has_stable_contract_and_all_carriers() -> None:
     result = run_status("--focus", "recover journal continuity", "--as-of", "2026-08-14T12:00:00-06:00", "--json")
     assert result.returncode == 0, result.stderr
     payload = json.loads(result.stdout)
-    assert payload["schema_version"] == 2
+    assert payload["schema_version"] == 4
+    assert payload["countercheck_mode"] == "auto"
+    assert "session_closure" in payload
     assert payload["as_of"] == "2026-08-14T18:00:00Z"
     assert payload["focus"]["memory_class"] == "autobiographical"
     assert payload["focus"]["memory_classes"] == ["autobiographical", "relational"]
@@ -177,6 +180,79 @@ def test_status_does_not_change_tracked_carrier_bytes() -> None:
     result = run_status("--focus", "process learning", "--as-of", "2026-08-14T18:00:00Z", "--json")
     assert result.returncode == 0
     assert before == {path: path.read_bytes() for path in tracked}
+
+
+def test_skip_counterchecks_avoids_live_continuity_and_archive_probes(monkeypatch) -> None:
+    sys.path.insert(0, str(ROOT / "scripts"))
+    import mira_continuity
+    import mira_memory
+    import system_archive
+
+    monkeypatch.setattr(
+        mira_continuity,
+        "discover_sources",
+        lambda: (_ for _ in ()).throw(AssertionError("continuity discovery must be skipped")),
+    )
+    monkeypatch.setattr(
+        system_archive,
+        "status_command",
+        lambda _args: (_ for _ in ()).throw(AssertionError("archive catalog must be skipped")),
+    )
+    payload = mira_memory.status(
+        "recover session identity",
+        "2026-08-15T18:00:00Z",
+        counterchecks="skip",
+    )
+    assert payload["schema_version"] == 4
+    assert payload["countercheck_mode"] == "skip"
+    assert payload["recommended_owner"] == "mira-continuity"
+    assert payload["mutation_performed"] is False
+    assert all("countercheck" not in row for row in payload["carriers"])
+
+
+def test_skip_counterchecks_is_available_in_markdown_and_cli() -> None:
+    result = run_status(
+        "--focus", "recover session identity", "--counterchecks", "skip",
+        "--as-of", "2026-08-15T18:00:00Z",
+    )
+    assert result.returncode == 0
+    assert "Counterchecks: `skip`" in result.stdout
+
+
+def test_skip_counterchecks_does_not_change_private_choice_store(monkeypatch, tmp_path) -> None:
+    sys.path.insert(0, str(ROOT / "scripts"))
+    import mira_memory
+
+    database = tmp_path / "choices.sqlite3"
+    with sqlite3.connect(database) as connection:
+        connection.execute("CREATE TABLE marker(value TEXT)")
+        connection.execute("INSERT INTO marker VALUES ('unchanged')")
+    before = database.read_bytes()
+    monkeypatch.setenv("NARRATIVE_CHOICE_DB", str(database))
+    payload = mira_memory.status(
+        "review choice history",
+        "2026-08-15T18:00:00Z",
+        counterchecks="skip",
+    )
+    assert payload["mutation_performed"] is False
+    assert database.read_bytes() == before
+
+
+def test_rest_routes_as_mixed_and_remains_a_continuity_sub_surface(monkeypatch) -> None:
+    sys.path.insert(0, str(ROOT / "scripts"))
+    import mira_memory
+
+    monkeypatch.delenv("MIRA_CORE_CONTINUITY_INBOX", raising=False)
+    route = mira_memory.route_focus("rest")
+    assert route["recommended_owner"] == "rest"
+    assert route["memory_class"] == "mixed"
+    assert route["memory_classes"] == ["procedural", "relational"]
+    payload = mira_memory.status("rest", "2026-08-17T00:00:00Z", counterchecks="skip")
+    continuity = next(row for row in payload["carriers"] if row["id"] == "continuity")
+    surface = next(row for row in continuity["sub_surfaces"] if row["id"] == "rest-inbox")
+    assert surface["authority_status"] == "private-provisional"
+    assert surface["canonical_identity"] is False
+    assert payload["session_closure"]["mutation_performed"] is False
 
 
 def test_stale_generated_view_is_visible(tmp_path) -> None:

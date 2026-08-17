@@ -1260,6 +1260,36 @@ def test_activity_contract_selects_or_explicitly_omits_every_daily_record(
     assert activity["session_census"][0]["may_promote"] is False
 
 
+def test_activity_census_attaches_provisional_rest_context(
+    monkeypatch: pytest.MonkeyPatch, tmp_path: Path
+) -> None:
+    rows = [{
+        "record_id": "MR-" + "a" * 24, "timestamp": "2026-08-09T07:00:00Z",
+        "kind": "message", "role": "user",
+        "content": [{"type": "text", "text": "A bounded session."}],
+    }]
+    source = SimpleNamespace(
+        session_id=SESSION, started_at="2026-08-09T06:30:00Z",
+        last_observed_at="2026-08-09T08:30:00Z", source_kind="vscode", source_class="active",
+    )
+    monkeypatch.setattr(subject, "normalized_rows", lambda value: ("MC-" + "c" * 24, "d" * 64, rows))
+    monkeypatch.setattr(subject, "git_commits", lambda start, end: [])
+    monkeypatch.setattr(subject.rest_receipts, "resolve_inbox", lambda value: tmp_path)
+    monkeypatch.setattr(subject.rest_receipts, "projection", lambda *args: {
+        "event_count": 1, "current_state": "rested", "latest_event_id": "RSTE-" + "e" * 24,
+        "closure_debt": ["uncommitted-work"],
+        "requested_reviews": [{"owner": "mira-journal", "state": "pending-consideration"}],
+    })
+    activity = subject.collect_activity(
+        subject.parse_entry_date("2026-08-09"),
+        as_of=datetime(2026, 8, 9, 9, tzinfo=timezone.utc), token_budget=700, sources=[source],
+    )
+    lifecycle = activity["session_census"][0]["rest_lifecycle"]
+    assert lifecycle["closure_state"] == "rested"
+    assert lifecycle["latest_event_ref"].startswith("RSTE-")
+    assert "not ancestry" in lifecycle["authority_boundary"]
+
+
 def test_schema_v2_approval_rejects_missing_session_disposition(
     monkeypatch: pytest.MonkeyPatch, tmp_path: Path
 ) -> None:

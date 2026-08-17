@@ -122,6 +122,22 @@ def write_session(path: Path, cwd: Path, *, resumed: bool = False) -> None:
     path.write_text("".join(json.dumps(row) + "\n" for row in rows), encoding="utf-8")
 
 
+def test_find_session_source_reads_only_exact_session(tmp_path: Path) -> None:
+    root = tmp_path / "sessions"
+    root.mkdir()
+    target = root / f"rollout-{SESSION_UUID}.jsonl"
+    write_session(target, tmp_path)
+    other = root / "rollout-11111111-1111-1111-1111-111111111111.jsonl"
+    other.write_text("not-json\n", encoding="utf-8")
+    found = mira_continuity.find_session_source(
+        SESSION_UUID, [root], repo_root=tmp_path
+    )
+    assert found is not None
+    assert found.path == target
+    assert found.session_id == f"MS-{SESSION_UUID}"
+    assert mira_continuity.find_session_source("malformed", [root], repo_root=tmp_path) is None
+
+
 def identity_ledger() -> dict:
     return {
         "schema_version": "1.0",

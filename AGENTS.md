@@ -76,6 +76,11 @@ When the operator says `coffee`, read
 When the operator says `dream`, read
 `docs/skill-drafts/dream/SKILL.md` completely and follow it.
 
+When the operator says bare `rest` or explicitly instructs Mira to run Rest,
+read `docs/skill-drafts/rest/SKILL.md` completely and follow it. Mentions of
+rest in planning, quotation, explanation, or conditional language do not
+authorize the private lifecycle receipt.
+
 When the operator says `recursive-learn`, asks whether a Mira Journal
 technical reference demonstrates recursive learning, requests an RSI candidate,
 or explicitly directs admission to the recursive-learning ledger, read

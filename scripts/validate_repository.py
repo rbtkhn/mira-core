@@ -61,6 +61,7 @@ LOCAL_SKILLS = {
     "mira-work",
     "morning-brief",
     "recursive-learn",
+    "rest",
     "research-brief",
     "skill-audit",
 }

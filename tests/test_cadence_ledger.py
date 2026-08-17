@@ -160,7 +160,16 @@ def test_no_candidate_closeout_is_unique_and_contains_no_episode(tmp_path: Path)
 
 def test_daily_dream_is_unique_and_session_coverage_is_explicit(tmp_path: Path) -> None:
     connection = database(tmp_path)
-    cadence_ledger.create_episode(connection, episode(), idempotency_key="dream-1")
+    value = episode()
+    value["session_coverage"][0].update({
+        "closure_state": "rested",
+        "rest_event_refs": ["RSTE-" + "a" * 24],
+        "closure_observed_at": value["created_at"],
+    })
+    first = cadence_ledger.create_episode(connection, value, idempotency_key="dream-1")
+    closure = first["episode"]["session_coverage"][0]
+    assert closure["closure_state"] == "rested"
+    assert closure["rest_event_refs"] == ["RSTE-" + "a" * 24]
     second = episode(episode_id="CD-20260816-02")
     with pytest.raises(cadence_ledger.CadenceLedgerError, match="daily Dream already exists"):
         cadence_ledger.create_episode(connection, second, idempotency_key="dream-2")
@@ -204,14 +213,16 @@ def test_late_session_receipt_is_append_only_supplement(tmp_path: Path) -> None:
 def test_coffee_has_exact_grounded_navigation_contract(tmp_path: Path) -> None:
     connection = database(tmp_path)
     cadence_ledger.create_episode(connection, episode(), idempotency_key="dream-1")
-    context = cadence_ledger.coffee_context(connection)
+    context = cadence_ledger.coffee_context(connection, rest_coverage_status="covered-current")
     assert [(row["key"], row["verb"], row["role"]) for row in context["actions"]] == list(cadence_ledger.ACTION_SHAPE)
     assert len(context["actions"]) == 4
     assert [row["selection_effect"] for row in context["actions"]] == ["execute", "navigate", "navigate", "navigate"]
     assert context["actions"][0]["label"].startswith("Execute:")
     assert context["actions"][0]["execution"]["mutation"] is False
+    assert context["rest_coverage_status"] == "covered-current"
     markdown = cadence_ledger.render_coffee_markdown(context)
     assert "A. Execute: Confirm" in markdown
+    assert "Rest coverage: covered-current." in markdown
     assert all(f"{key}. {verb}:" in markdown for key, verb, _ in cadence_ledger.ACTION_SHAPE[1:])
     assert markdown.rstrip().endswith("Recommendation: A. Confirm the claimed improvement before adoption.")
     connection.close()
@@ -305,6 +316,31 @@ def test_integrity_and_private_status_are_bounded(tmp_path: Path) -> None:
     assert status["availability"] == "available"
     assert status["counts"] == {"episodes": 1, "active_candidates": 1, "represented": 0, "unresolved_rsi_correspondence": 0}
     assert str(path) not in json.dumps(status)
+
+
+def test_schema_two_store_remains_readable_for_coffee_without_migration(tmp_path: Path) -> None:
+    path = tmp_path / "cadence-v2.sqlite3"
+    writable = cadence_ledger.connect(path)
+    cadence_ledger.create_episode(writable, episode(), idempotency_key="dream-v2")
+    writable.execute("DROP TABLE daily_close_events")
+    writable.execute("DROP TABLE daily_close_runs")
+    writable.execute("DROP TABLE daily_dream_closeouts")
+    writable.execute("PRAGMA user_version = 2")
+    writable.commit()
+    writable.close()
+    before = path.read_bytes()
+
+    readonly = cadence_ledger.connect_read_only(path)
+    assert readonly.execute("PRAGMA user_version").fetchone()[0] == 2
+    verification = cadence_ledger.verify_ledger(readonly)
+    context = cadence_ledger.coffee_context(readonly)
+    readonly.close()
+
+    assert verification["valid"] is True
+    assert verification["schema_version"] == 2
+    assert verification["reader_schema_version"] == cadence_ledger.SCHEMA_VERSION
+    assert len(context["actions"]) == 4
+    assert path.read_bytes() == before
 
 
 def test_scorecard_reports_recursion_denominators_and_telemetry_gaps(tmp_path: Path) -> None:

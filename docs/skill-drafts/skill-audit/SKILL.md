@@ -102,6 +102,12 @@ Do not edit from an audit result alone. A later explicit repair command may
 authorize a bounded patch, but staging, committing, pushing, publication, and
 global skill synchronization remain separate authority boundaries.
 
+For repository-local validation, use `tools/run.ps1 test` for focused tests.
+Before invoking an external validator such as the skill quick-validator, obtain
+the canonical dependency runtime once with
+`tools/run.ps1 runtime-bootstrap --print-python`; do not probe multiple Python
+installations after the repository runtime is available.
+
 ## Output shape
 
 Use:

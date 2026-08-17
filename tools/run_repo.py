@@ -52,6 +52,8 @@ SURFACES = {
     "reality-handoff": REPO_ROOT / "scripts" / "reality_handoff.py",
     "recursive-learn": REPO_ROOT / "scripts" / "recursive_learning_ledger.py",
     "research-handoff": REPO_ROOT / "scripts" / "research_handoff.py",
+    "runtime-bootstrap": REPO_ROOT / "scripts" / "runtime_bootstrap.py",
+    "rest": REPO_ROOT / "scripts" / "rest.py",
     "session-preflight": REPO_ROOT / "scripts" / "session_preflight.py",
     "skills-check": REPO_ROOT / "scripts" / "check_codex_skills_sync.py",
     "skills-sync": REPO_ROOT / "scripts" / "sync_codex_skills.py",

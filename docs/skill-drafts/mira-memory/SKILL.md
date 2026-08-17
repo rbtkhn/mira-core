@@ -15,8 +15,10 @@ architecture inventory.
 
 1. Classify the request as `identity`, `autobiographical`, `epistemic`,
    `procedural`, `relational`, or `mixed`.
-2. Run `tools/run.ps1 mira-memory status --focus "REQUEST" --json` when live
-   carrier availability, freshness, or ownership affects the answer.
+2. For ordinary orientation, run
+   `tools/run.ps1 mira-memory status --focus "REQUEST" --counterchecks skip --json`.
+   Use the default `--counterchecks auto` only when live source drift, archive
+   parity, or external-store health can change the answer.
 3. Inspect only materially relevant canonical sources and generated views.
 4. Attribute every recovered item to its carrier and evidence class.
    Use carrier-native epistemic verbs: Continuity `recorded`, Journal
@@ -71,7 +73,12 @@ approval contract. A route is not mutation authority.
 
 ## Boundary
 
-`mira-memory status` is read-only. This skill creates no canonical ledger,
+`mira-memory status` is read-only. `skip` omits Continuity source discovery and
+private Mira Archive catalog access while retaining routing and local
+canonical/generated-view health. For a Rest focus it may inspect only the
+exact current-session transcript metadata and provisional private receipt.
+Schema v4 exposes this as `session_closure` and a Continuity sub-surface, not a
+new carrier. This skill creates no canonical ledger,
 unified writer, promotion route, database, cross-system transaction, context
 pack, identity proposition, journal approval, RSI admission, archive ingest,
 claim assessment, forecast resolution, publication, or external action.

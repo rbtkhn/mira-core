@@ -90,3 +90,23 @@ def test_validation_route_is_previewed_before_broad_execution() -> None:
     assert "If it reports Full because of unrelated state" in normalized
     assert "use explicit focused test paths" in normalized
     assert "preview is read-only" in normalized
+
+
+def test_execution_envelope_and_profile_first_validation_are_required() -> None:
+    skill = read_skill()
+    normalized = " ".join(skill.split())
+    for phrase in (
+        "internal execution envelope",
+        "objective and mutation boundary",
+        "canonical runtime and external temporary root",
+        "cheapest sufficient validation profile",
+        "controlling terminal session ID",
+        "applicable admitted recursive-learning lesson or explicit `none`",
+        "publication lane",
+        "pure functions, fixture-based checks, focused suite",
+        "one live forward check",
+        "repository-wide validation only when materially required",
+        "tools/run.ps1 runtime-bootstrap --print-python",
+        "`mira-github` governs staging, commit, push, branch, PR, and main-sync lanes",
+    ):
+        assert phrase in normalized

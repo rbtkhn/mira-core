@@ -21,6 +21,7 @@ if str(SCRIPTS_ROOT) not in sys.path:
     sys.path.insert(0, str(SCRIPTS_ROOT))
 
 import cadence_ledger
+import rest_receipts
 import archive_audit
 from archive_membership import source_reference_available
 import triage_forecast_ledger as forecast_triage
@@ -1714,7 +1715,18 @@ def main() -> None:
                 raise SystemExit(resolution.reason or "private cadence store is unavailable")
             try:
                 connection = cadence_ledger.connect_read_only(resolution.path)
-                context = cadence_ledger.coffee_context(connection, episode_id=args.episode_id)
+                try:
+                    rest_inbox = rest_receipts.resolve_inbox(None)
+                    selected = cadence_ledger.selected_episode(connection, args.episode_id)
+                    rest_status = rest_receipts.coffee_coverage(
+                        rest_inbox, selected["episode"] if selected else None
+                    )
+                except (OSError, rest_receipts.RestError):
+                    rest_status = "unavailable"
+                context = cadence_ledger.coffee_context(
+                    connection, episode_id=args.episode_id,
+                    rest_coverage_status=rest_status,
+                )
                 connection.close()
             except (cadence_ledger.CadenceLedgerError, OSError, sqlite3.Error) as error:
                 raise SystemExit(str(error)) from error

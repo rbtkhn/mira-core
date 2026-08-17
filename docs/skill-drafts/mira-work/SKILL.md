@@ -78,6 +78,18 @@ Method allowed to end:
 
 ### Act
 
+- Before costly tools in a consequential multi-step task, form a compact
+  internal execution envelope: objective and mutation boundary; canonical
+  runtime and external temporary root; cheapest sufficient validation profile;
+  permitted live probes and their scope; the controlling terminal session ID
+  when a wrapper returns nested identifiers; an applicable admitted
+  recursive-learning lesson or explicit `none`; and the publication lane when
+  GitHub-facing work appears. Surface it only when a blocker, authority
+  boundary, or verification distinction affects the operator.
+- Validate in this order: pure functions, fixture-based checks, focused suite,
+  one live forward check, then repository-wide validation only when materially
+  required. Use `tools/run.ps1 runtime-bootstrap --print-python` for external
+  validators and `tools/run.ps1 test` for repository tests.
 - Prepare analysis, drafts, packets, plans, or bounded changes within scope.
 - Before launching a potentially costly verification, inspect the command's
   help or implementation and compare its actual selection scope with the
@@ -150,6 +162,7 @@ scope under the Learn From Choices and Elicitation contracts.
   authority, execution, verification, and task closure.
 - `mira-journal` governs journal artifacts.
 - `morning-brief` governs morning-brief research and rendering.
+- `mira-github` governs staging, commit, push, branch, PR, and main-sync lanes.
 - `learn-from-choices` governs final navigation, action-ready selections, and
   closure.
 - The stricter authority, privacy, safety, or evidence rule controls.

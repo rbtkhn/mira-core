@@ -39,6 +39,10 @@ Use only in `mira-core`. Coffee is read-only.
    - `verification_failed`: repair before inheriting any lesson;
    - `stale`: reconcile current Git state with the handoff;
    - `current`: use `next_mode` to choose the next test.
+   Keep `rest_coverage_status` separate. Rest context may be
+   `covered-current`, `missing-dream`, `late-terminal-only`,
+   `late-substantive`, or `unavailable`; it never substitutes for the Dream
+   handoff or changes Coffee's read-only authority.
 4. Never treat the handoff as archive evidence. Verify its lesson against the
    named experiment, `evidence_summary`, and every `artifact_ref`. If a
    reference no longer resolves, treat the handoff as stale.

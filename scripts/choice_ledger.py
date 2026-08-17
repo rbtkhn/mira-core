@@ -61,6 +61,7 @@ SECRET_RE = re.compile(
     r"(?i)(?:api[_-]?key|access[_-]?token|password|secret)\s*[:=]\s*\S+"
 )
 CONTROL_RE = re.compile(r"[\x00-\x08\x0b\x0c\x0e-\x1f\x7f]")
+IDENTIFIER_RE = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._:-]{0,119}$")
 
 
 class ChoiceError(ValueError):
@@ -135,6 +136,14 @@ def sanitize_text(value: Any, *, limit: int = 2000) -> str:
     text = PHONE_RE.sub("[redacted-contact]", text)
     if len(text) > limit:
         raise ChoiceError(f"private choice text exceeds {limit} characters")
+    return text
+
+
+def sanitize_identifier(value: Any) -> str:
+    """Validate an opaque identifier without treating its digits as contact data."""
+    text = str(value).strip()
+    if CONTROL_RE.search(text) or not IDENTIFIER_RE.fullmatch(text):
+        raise ChoiceError("choice identifier must use 1-120 letters, digits, dots, colons, underscores, or hyphens")
     return text
 
 
@@ -645,7 +654,7 @@ def select_branch(
         raise ChoiceError("selected key is not present in the possibility set")
     recommended_key = next(item["key"] for item in sanitized if item["role"] == "recommended")
     prompt = {
-        "choice_id": sanitize_text(choice_id, limit=120),
+        "choice_id": sanitize_identifier(choice_id),
         "tenant": sanitize_text(tenant, limit=120),
         "workspace": sanitize_text(workspace, limit=240),
         "lane": sanitize_text(lane, limit=120),
@@ -1587,7 +1596,7 @@ def main(arguments: list[str] | None = None) -> int:
         payload = {
             "dry_run": True,
             "retained": False,
-            "choice_id": sanitize_text(args.choice_id, limit=120),
+            "choice_id": sanitize_identifier(args.choice_id),
             "event_type": "branch_closed",
             "reason": args.reason,
             "observation": (

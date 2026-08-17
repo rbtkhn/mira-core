@@ -55,6 +55,9 @@ events merely to fill the entry.
    but must not supply an inherited thread or governed continuity claim.
    Review every row in `daily_session_coverage` before choosing significance;
    its census proves consideration only, not importance or truth.
+   Treat any `rest_lifecycle` metadata as provisional Continuity context. It
+   may inform session disposition but is not authoritative ancestry,
+   recursive-learning evidence, or automatic autobiographical significance.
 2. **Listen backward.** Recover why an approved continuity thread mattered,
    not merely its last conclusion.
 3. **Choose significance.** Select one to three supplied developments that

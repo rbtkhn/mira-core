@@ -15,6 +15,7 @@ from typing import Any, Iterable
 from zoneinfo import ZoneInfo
 
 import mira_continuity
+import rest_receipts
 import mira_journal_references
 from runtime_names import resolve_environment
 
@@ -849,7 +850,9 @@ def collect_activity(
     candidates: dict[str, dict[str, Any]] = {}
     source_refs: dict[tuple[str, str], dict[str, Any]] = {}
     census: list[dict[str, Any]] = []
-    for source in sources if sources is not None else session_sources_since(start):
+    source_values = list(sources if sources is not None else session_sources_since(start))
+    sources_by_id = {source.session_id: source for source in source_values}
+    for source in source_values:
         try:
             source_start = parse_timestamp(source.started_at, label="session started_at")
             source_end = parse_timestamp(source.last_observed_at, label="session last_observed_at")
@@ -966,6 +969,31 @@ def collect_activity(
                 "object_id": object_id,
                 "record_ids": sorted(set(selected_ids)),
             }
+    try:
+        rest_inbox = rest_receipts.resolve_inbox(None)
+    except rest_receipts.RestError:
+        rest_inbox = None
+    if rest_inbox is not None:
+        for row in census:
+            session_id = str(row.get("session_id", ""))
+            if not session_id.startswith("MS-"):
+                continue
+            try:
+                closure = rest_receipts.projection(
+                    rest_inbox, session_id[3:], sources_by_id.get(session_id)
+                )
+            except (OSError, rest_receipts.RestError):
+                row["rest_lifecycle"] = {"availability": "degraded"}
+                continue
+            if closure["event_count"]:
+                row["rest_lifecycle"] = {
+                    "availability": "available",
+                    "closure_state": closure["current_state"],
+                    "latest_event_ref": closure["latest_event_id"],
+                    "closure_debt": closure["closure_debt"],
+                    "review_requests": closure["requested_reviews"],
+                    "authority_boundary": "continuity context only; not ancestry, recursive-learning evidence, or action authority",
+                }
     census.sort(key=lambda item: (item["started_at"], item["session_id"]))
     census_tokens = sum(int(row["estimated_tokens"]) for row in census)
     if census_tokens > token_budget:
