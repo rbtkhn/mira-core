@@ -242,7 +242,7 @@ def parse_issue_copy(daily_brief: str) -> dict[str, str]:
     section = extract_section(daily_brief, "Issue Copy")
     if not section:
         raise IssueError("daily-brief.md is missing Issue Copy")
-    matches = list(re.finditer(r"^###\s+(NGI-\d{8}-S\d{2})\s+[â€”-]\s+.+$", section, re.MULTILINE))
+    matches = list(re.finditer(r"^###\s+(NGI-\d{8}-S\d{2})\s+[—-]\s+.+$", section, re.MULTILINE))
     copy: dict[str, str] = {}
     for index, match in enumerate(matches):
         end = matches[index + 1].start() if index + 1 < len(matches) else len(section)
@@ -670,7 +670,7 @@ def validate_issue(
     )
     failures.extend(model_failures(model, ledger_text, daily_root, context=context))
     prose = re.sub(r"(?m)^\|.*$|`[^`]+`|\[[^\]]+\]\([^)]+\)|<!--.*?-->", " ", actual)
-    words = re.findall(r"\b[\wâ€™'-]+\b", prose)
+    words = re.findall(r"\b[\w’'-]+\b", prose)
     if not 1500 <= len(words) <= 2500:
         warnings.append(f"issue.md editorial prose word count outside 1500-2500 target: {len(words)}")
     return failures, warnings

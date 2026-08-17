@@ -6,7 +6,7 @@ source_form: solo
 thread: mercouris
 show: Alexander Mercouris
 host: Alexander Mercouris
-title: India Pakistan Conflict; Russiaâ€™s Kherson Bridgehead; Kiev Drones Aim To Disrupt 9 May
+title: India Pakistan Conflict; Russia’s Kherson Bridgehead; Kiev Drones Aim To Disrupt 9 May
 channel_url: https://www.youtube.com/@AlexanderMercourisReal/videos
 channel_slug: alexander-mercouris
 source_url: https://www.youtube.com/watch?v=KHST9DEbRDo
@@ -17,7 +17,7 @@ quality_note: English caption fetch via repo YouTube transcript pipeline; adjace
 speaker_labeling: provisional
 speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sources/2025-05-07/source-alexander-mercouris-india-pakistan-conflict-russia-s-kherson-bridgehead-kiev-drones-aim-to-disrupt-9-may-2025-05-07.md", "source_sha256": "6cdae5ac8773b6b76fb2494cd552bb9477b924dd22a62ab1b616dd108cbcfc89", "labeling_method": "metadata-plus-explicit-markers-v1", "confidence_policy": "explicit-marker-only; unknown otherwise", "turn_count": 1, "labeled_turn_count": 1, "unknown_turn_count": 0, "candidate_speakers": ["Alexander Mercouris"], "solo_format": "single-label-continuous"}
 ---
-**Alexander Mercouris**: # India Pakistan Conflict; Russiaâ€™s Kherson Bridgehead; Kiev Drones Aim To Disrupt 9 May
+**Alexander Mercouris**: # India Pakistan Conflict; Russia’s Kherson Bridgehead; Kiev Drones Aim To Disrupt 9 May
 
 Good day. Today is Wednesday, 7th May
 2025 and the big news over the last 24

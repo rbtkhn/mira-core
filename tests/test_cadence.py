@@ -689,7 +689,7 @@ def test_saved_best_intake_prompt_uses_dynamic_context_not_frozen_state() -> Non
         / "land-the-day-before-you-judge-it-best-intake-session-startup.md"
     ).read_text(encoding="utf-8")
     assert "tools\\run.ps1 cadence startup intake --json" in prompt
-    assert "Treat the command outputâ€”not this promptâ€”as authoritative" in prompt
+    assert "Treat the command output—not this prompt—as authoritative" in prompt
     assert "commit: `" not in prompt
     assert "archive and manifest: 1,532" not in prompt
 

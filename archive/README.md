@@ -36,7 +36,7 @@ is inventory evidence only: it does not repair registries, hydrate bodies,
 verify claims, publish, or promote records across collections.
 
 Narrative Geopolitics source truth lives under
-[`geopolitics/`](geopolitics/README.md). Its manifest governs membership and
+[`sources/geopolitics/`](sources/geopolitics/README.md). Its manifest governs membership and
 routing. The private catalog retains its established
 `narrative-geopolitics/archive/sources/...` logical identities while repository
 files resolve under `archive/sources/geopolitics/sources/...`; this compatibility

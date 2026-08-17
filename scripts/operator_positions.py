@@ -747,7 +747,7 @@ def render_report(data: dict[str, Any]) -> str:
         "",
         f"*{ledger['subtitle']}*",
         "",
-        f"Artifact: **Judgment Ledger** â€” {ledger['short_name']}.",
+        f"Artifact: **Judgment Ledger** — {ledger['short_name']}.",
         "",
         f"> {data['boundary']}",
         "",
@@ -867,7 +867,7 @@ def render_report(data: dict[str, Any]) -> str:
                 f"- **{layer['label']}** (`{layer['layer_type']}`; confidence: "
                 f"{layer['confidence']}): {layer['claim']}",
                 f"  - **Evidence standard:** {layer['evidence_standard']}",
-                f"  - **Falsifier status:** `{layer['falsifier_status']}` â€” "
+                f"  - **Falsifier status:** `{layer['falsifier_status']}` — "
                 f"{layer['falsifier_or_limitation']}",
             ]
         lines += [
@@ -1011,7 +1011,7 @@ def render_report(data: dict[str, Any]) -> str:
         lines += ["", "No overall score is calculated.", "", "#### Relations and findings", ""]
         for relation in version["comparison"]["relations"]:
             lines.append(
-                f"- **{relation['display_name']} on {layer_labels[relation['layer_id']]} â€” "
+                f"- **{relation['display_name']} on {layer_labels[relation['layer_id']]} — "
                 f"{relation['relation'].replace('_', ' ')}:** "
                 f"{relation['rationale']}"
             )

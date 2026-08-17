@@ -163,7 +163,7 @@ HOOK_ID_RE = re.compile(r"`(NG-\d{8}-F\d{2})`")
 H1_RE = re.compile(r"^# (?P<title>.+?)\s*$", re.MULTILINE)
 TITLE_RATIONALE_RE = re.compile(r"^Title rationale:\s*`?(?P<value>.+?)`?\s*$", re.MULTILINE)
 ADMIN_TITLE_RE = re.compile(
-    r"^(?:untitled|draft|analysis|essay|report|notes?|daily brief|working paper)(?:\s*[:â€”-].*)?$",
+    r"^(?:untitled|draft|analysis|essay|report|notes?|daily brief|working paper)(?:\s*[:—-].*)?$",
     re.IGNORECASE,
 )
 PLACEHOLDER_TITLE_RE = re.compile(r"\[[^\]]+\]|<[^>]+>|YYYY(?:-MM-DD)?", re.IGNORECASE)

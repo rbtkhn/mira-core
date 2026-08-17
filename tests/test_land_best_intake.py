@@ -435,8 +435,8 @@ def stale_section_transcript_creates_show_open_and_segments_for_clear_dialogue_w
     assert curation == "curated_sectioned"
     assert section_count >= 2
     assert skip_reason == ""
-    assert rewritten.startswith("### Show Open â€” ")
-    assert "\n### Segment 2 â€” " in rewritten
+    assert rewritten.startswith("### Show Open — ")
+    assert "\n### Segment 2 — " in rewritten
     assert "White House" in rewritten or "Shipping" in rewritten
 
 
@@ -790,7 +790,7 @@ def test_retrofit_source_sections_clear_eligible_transcript() -> None:
         assert result.startswith("TRIMMED")
         assert "transcript_curation: curated_sectioned" in text
         assert "section_count: 2" in text or "section_count: 3" in text
-        assert "### Show Open â€” " in text
+        assert "### Show Open — " in text
         assert "source-section pass 2026-07-09" in text
     finally:
         shutil.rmtree(tmp_dir)
@@ -850,11 +850,11 @@ def test_retrofit_source_preserves_existing_sectioned_body_without_force() -> No
             "\n"
             "## Transcript\n"
             "\n"
-            "### Show Open â€” Existing\n"
+            "### Show Open — Existing\n"
             "\n"
             "Already sectioned block.\n"
             "\n"
-            "### Segment 2 â€” Existing Turn\n"
+            "### Segment 2 — Existing Turn\n"
             "\n"
             "Second block.\n"
         )
@@ -865,7 +865,7 @@ def test_retrofit_source_preserves_existing_sectioned_body_without_force() -> No
 
         assert result is not None
         assert result.startswith("NORMALIZED") or result.startswith("UNCHANGED")
-        assert "### Show Open â€” Existing" in text
+        assert "### Show Open — Existing" in text
         assert text.count("### ") == 2
     finally:
         shutil.rmtree(tmp_dir)

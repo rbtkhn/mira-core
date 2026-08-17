@@ -245,7 +245,7 @@ def anchor_quality_warnings(sources_text: str, landed_count: int) -> list[str]:
     warnings: list[str] = []
     source_rows = re.findall(r"\|\s*`(SRC-[A-Z0-9-]+)`\s*\|", sources_text)
     source_ids = set(source_rows)
-    quote_rows = re.findall(r"\|\s*`(SRC-[A-Z0-9-]+)`\s*\|\s*[â€œ\"]([^|]+)[â€\"]\s*\|", sources_text)
+    quote_rows = re.findall(r"\|\s*`(SRC-[A-Z0-9-]+)`\s*\|\s*[“\"]([^|]+)[”\"]\s*\|", sources_text)
     quote_ids = {item[0] for item in quote_rows}
     if landed_count and len(source_ids) < landed_count:
         warnings.append(f"source-anchor coverage below minimum: {len(source_ids)} SRC anchors for {landed_count} landed sources")
@@ -263,7 +263,7 @@ def anchor_quality_warnings(sources_text: str, landed_count: int) -> list[str]:
     if anchor_count >= 40:
         warnings.append(f"anchor count is {anchor_count}: confirm each anchor has a distinct analytic job before treating 40 as justified")
     elif landed_count and anchor_count > 30:
-        warnings.append(f"anchor count is {anchor_count}: above the normal 24â€“30 working range; review for redundancy")
+        warnings.append(f"anchor count is {anchor_count}: above the normal 24–30 working range; review for redundancy")
     return warnings
 
 

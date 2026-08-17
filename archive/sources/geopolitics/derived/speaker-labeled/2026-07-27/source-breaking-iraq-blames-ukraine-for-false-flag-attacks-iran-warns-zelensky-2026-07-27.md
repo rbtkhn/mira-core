@@ -75,7 +75,7 @@ speaker_labeling_provenance: {"source_path": "narrative-geopolitics/archive/sour
 
 **Unknown**: So, usually whenever I have a guest I disagree with, I always do it in a respectful way.
 
-**Unknown**: I wouldn't say like, "Okay, man. What the [Â __Â ] are you talking about?" I would not do that. So, um, I wanted to react that way when you talked about the Ukraine Iran war emerging in a way.
+**Unknown**: I wouldn't say like, "Okay, man. What the [ __ ] are you talking about?" I would not do that. So, um, I wanted to react that way when you talked about the Ukraine Iran war emerging in a way.
 
 **Unknown**: I knew you did. I knew you did. [laughter]
 
@@ -386,7 +386,7 @@ So, that's all they care about. And um the Americans are the ones left holding t
 **Unknown**: Iran has been weakened a lot and I hope it'll be weakened even more. We won't accept the existence of a regime that threatens to destroy us. Um, and then you have Netanyahu statement.
  I'm on my way to Washington for a meeting with our friend, the president of the United States, Donald Trump. This is my eighth meeting. Uh let me read it. It's a bit a lot of nothing but let me read it. This is my eighth meeting with him since he was elected president. More than any other international leader.
  It is a great privilege but is also a great responsibility. In my experience as prime minister, one must act in these complex times with both great determination and great wisdom. We will discuss all the topics on the agenda headed by Iran. I am setting out this mission with one clear goal to ensure the security, strength, and future of our dear state of Israel.
-Um yeah, so we'll see. I think all eyes are on that meeting. Previous meetings have not ended too well. Um in other other news, there's some Naftali Bennett did an interview and said all that crazy [Â __Â ] Napali Bennett was the [laughter] He upset me because when I did an interview with him, he was a lot more pragmatic in the things he said and now he's talking about as soon as he
+Um yeah, so we'll see. I think all eyes are on that meeting. Previous meetings have not ended too well. Um in other other news, there's some Naftali Bennett did an interview and said all that crazy [ __ ] Napali Bennett was the [laughter] He upset me because when I did an interview with him, he was a lot more pragmatic in the things he said and now he's talking about as soon as he
 
 **Unknown**: he's also running for election.
  He's
@@ -396,8 +396,8 @@ Um yeah, so we'll see. I think all eyes are on that meeting. Previous meetings h
 **Unknown**: because he's talking too crazy.
 
 **Unknown**: Yeah. Well, he's talking about now not crazy enough. The Israelis want more crazy. Netanyahu calls he says he says if he's prime minister, Qatar will immediately be labeled as an enemy, a full-fledged enemy that wants to destroy us. Um, so that's that's Napali Bennett.
-Qatar is a rabbit rabid anti-semitic cancer that sends its horde hordes to the entire west. Qatar and their leaders of Qatar have a name of raising the state of Israel. Period. Just talking [Â __Â ] Absolute [Â __Â ] Um, but I think he's just trying to he's he's dropping in the polls and he's just trying to get more support. He's not doing too well.
-And unfortunately in Israel to get more support you talk [Â __Â ] Like Ben Ben was proud to today was talking about the crocodiles he wants to put around the prison. He's talking about it proudly like it's a good thing and how prisoners hanging themselves.
+Qatar is a rabbit rabid anti-semitic cancer that sends its horde hordes to the entire west. Qatar and their leaders of Qatar have a name of raising the state of Israel. Period. Just talking [ __ ] Absolute [ __ ] Um, but I think he's just trying to he's he's dropping in the polls and he's just trying to get more support. He's not doing too well.
+And unfortunately in Israel to get more support you talk [ __ ] Like Ben Ben was proud to today was talking about the crocodiles he wants to put around the prison. He's talking about it proudly like it's a good thing and how prisoners hanging themselves.
 
 **Unknown**: Yeah.
 

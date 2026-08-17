@@ -140,7 +140,7 @@ def record(path: str = "collection/source.md", observed: str = "2026-01-02T00:00
 
 
 def test_deterministic_object_round_trip(tmp_path: Path) -> None:
-    repo = tmp_path / "repo"; repo.mkdir(); archive = ArtifactStore(tmp_path / "external", repo, create=True); body = "Mira remembers Ï€.\n".encode()
+    repo = tmp_path / "repo"; repo.mkdir(); archive = ArtifactStore(tmp_path / "external", repo, create=True); body = "Mira remembers π.\n".encode()
     digest, size = archive.put_object(body); encoded = archive.object_path(digest).read_bytes()
     assert archive.put_object(body) == (digest, size)
     assert archive.object_path(digest).read_bytes() == encoded

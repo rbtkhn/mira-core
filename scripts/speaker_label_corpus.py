@@ -182,7 +182,7 @@ def main() -> int:
         qa_rows = rows[:20]
         qa_path = cli.output_root / "qa-packet.md"
         qa_path.parent.mkdir(parents=True, exist_ok=True)
-        lines = ["# Speaker Labeling Pilot â€” Manual QA Packet", "", "Complete one row per source after reviewing the raw and labeled derivative.", "", "| # | Source | Turns reviewed | Correct | Incorrect | Unknown | Host/guest confusion | Raw review min | Labeled review min | Notes |", "|---:|---|---:|---:|---:|---:|---:|---:|---:|---|"]
+        lines = ["# Speaker Labeling Pilot — Manual QA Packet", "", "Complete one row per source after reviewing the raw and labeled derivative.", "", "| # | Source | Turns reviewed | Correct | Incorrect | Unknown | Host/guest confusion | Raw review min | Labeled review min | Notes |", "|---:|---|---:|---:|---:|---:|---:|---:|---:|---|"]
         for index, row in enumerate(qa_rows, 1):
             path = str(row.get("local_path", "")).replace("|", "\\|")
             lines.append(f"| {index} | `{path}` |  |  |  |  |  |  |  |  |")

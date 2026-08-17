@@ -110,7 +110,7 @@ Title rationale: `Names the mechanism that separates normalization from continue
 
 ## Issue Copy
 
-### NGI-20260709-S01 â€” Passage Rules Remain the Discriminating Test
+### NGI-20260709-S01 — Passage Rules Remain the Discriminating Test
 
 {body}
 

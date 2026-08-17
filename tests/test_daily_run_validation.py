@@ -44,7 +44,7 @@ def configure_fixture(monkeypatch, tmp_path: Path, sources_text: str) -> None:
     for name in ("synthesis.md", "forecast.md", "daily-brief.md"):
         (run_dir / name).write_text("Status: `draft`\n", encoding="utf-8")
     (run_dir / "judgment.md").write_text(
-        """# Accountable Judgment â€” 2026-07-09
+        """# Accountable Judgment — 2026-07-09
 
 Status: `draft`
 As-of: `2026-07-09`

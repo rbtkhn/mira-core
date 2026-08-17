@@ -17,7 +17,7 @@ Startup contract:
 
    `.\tools\run.ps1 cadence startup intake --json`
 
-3. Treat the command outputâ€”not this promptâ€”as authoritative for the current:
+3. Treat the command output—not this prompt—as authoritative for the current:
    - Git commit, branch, upstream divergence, and dirty paths;
    - archive file, manifest-row, and manifest-header counts;
    - latest and recent intake dates;

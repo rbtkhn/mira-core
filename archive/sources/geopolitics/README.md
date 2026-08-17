@@ -1,4 +1,4 @@
-﻿# Narrative Geopolitics Archive
+# Narrative Geopolitics Archive
 
 `archive/sources/geopolitics/` owns imported source truth for Narrative Geopolitics.
 

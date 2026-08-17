@@ -38,13 +38,13 @@ The governing rule is:
 
 Every operational session must make seven things legible before mutation:
 
-1. **Objective** â€” the bounded outcome of this phase.
-2. **Authoritative inputs** â€” which repository surfaces may be trusted.
-3. **Permitted reads and writes** â€” the capability envelope.
-4. **Protected surfaces** â€” what requires explicit additional authorization.
-5. **Invariants** â€” what must remain true when the phase ends.
-6. **Stop condition** â€” when adequate work becomes unauthorized expansion.
-7. **Handoff** â€” the validated state inherited by the next phase.
+1. **Objective** — the bounded outcome of this phase.
+2. **Authoritative inputs** — which repository surfaces may be trusted.
+3. **Permitted reads and writes** — the capability envelope.
+4. **Protected surfaces** — what requires explicit additional authorization.
+5. **Invariants** — what must remain true when the phase ends.
+6. **Stop condition** — when adequate work becomes unauthorized expansion.
+7. **Handoff** — the validated state inherited by the next phase.
 
 Agents may make conservative, reversible assumptions inside the envelope.
 They must stop when an ambiguity would change identity, provenance, public
@@ -249,8 +249,8 @@ smallest invariant boundary:
 5. Record unresolved ambiguity instead of inventing provenance.
 6. Resume only when the phase input and output contract is again explicit.
 
-For intake, an archive file without its manifest rowâ€”or a manifest row without
-its archive fileâ€”is blocking. Staleness in downstream synthesis is reported as
+For intake, an archive file without its manifest row—or a manifest row without
+its archive file—is blocking. Staleness in downstream synthesis is reported as
 `stale-after-intake` and remains nonblocking during source landing.
 
 ## Handoff Law

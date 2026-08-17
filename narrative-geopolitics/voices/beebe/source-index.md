@@ -6,7 +6,7 @@ Corpus: 10 local route rows across 10 central archive source files.
 
 | Date | Source | Role | Host slug | Archive link |
 | --- | --- | --- | --- | --- |
-| `2025-04-16` | George Beebe: What USâ€“Russia Reconciliation Means for Europe and Ukraine | `guest` | `glenn-diesen` | [source](../../../archive/sources/geopolitics/sources/2025-04-16/source-glenn-diesen-george-beebe-what-us-russia-reconciliation-means-for-europe-and-ukraine-2025-04-16.md) |
+| `2025-04-16` | George Beebe: What US–Russia Reconciliation Means for Europe and Ukraine | `guest` | `glenn-diesen` | [source](../../../archive/sources/geopolitics/sources/2025-04-16/source-glenn-diesen-george-beebe-what-us-russia-reconciliation-means-for-europe-and-ukraine-2025-04-16.md) |
 | `2025-06-02` | George Beebe: Negotiations & Attack on Russia's Nuclear Forces (fmr CIA Director of Russia Analysis) | `guest` | `glenn-diesen` | [source](../../../archive/sources/geopolitics/sources/2025-06-02/source-glenn-diesen-george-beebe-negotiations-attack-on-russia-s-nuclear-forces-2025-06-02.md) |
 | `2025-07-22` | George Beebe: Ending NATO Expansion is Required for Peace in Ukraine | `guest` | `glenn-diesen` | [source](../../../archive/sources/geopolitics/sources/2025-07-22/source-glenn-diesen-george-beebe-ending-nato-expansion-is-required-for-peace-in-ukraine-2025-07-22.md) |
 | `2025-08-21` | George Beebe: The End of Russia's Exclusion From Europe | `guest` | `glenn-diesen` | [source](../../../archive/sources/geopolitics/sources/2025-08-21/source-glenn-diesen-george-beebe-the-end-of-russia-s-exclusion-from-europe-2025-08-21.md) |
