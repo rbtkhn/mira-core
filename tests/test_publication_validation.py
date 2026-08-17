@@ -1,0 +1,88 @@
+from __future__ import annotations
+
+from pathlib import Path
+
+import publication_validation as routing
+
+
+def make_tree(root: Path) -> None:
+    for relative in (
+        "archive/notes/2026-08-17-note.md",
+        "archive/essays/2026-08-17-essay.md",
+        "docs/skill-drafts/mira-github/SKILL.md",
+        "scripts/example.py",
+        "tools/example.py",
+        "tests/test_example.py",
+        "AGENTS.md",
+        "unknown/file.md",
+    ):
+        path = root / relative
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text("fixture\n", encoding="utf-8")
+    owning_test = root / "tests/test_mira_github_skill.py"
+    owning_test.write_text("fixture\n", encoding="utf-8")
+
+
+def test_router_resolves_initial_artifact_classes(tmp_path: Path) -> None:
+    make_tree(tmp_path)
+    report = routing.build_report(
+        [
+            "archive/notes/2026-08-17-note.md",
+            "archive/essays/2026-08-17-essay.md",
+            "docs/skill-drafts/mira-github/SKILL.md",
+            "scripts/example.py",
+            "tools/example.py",
+            "tests/test_example.py",
+            "AGENTS.md",
+        ],
+        repo_root=tmp_path,
+    )
+    assert report["status"] == "manual-required"
+    assert report["owners"] == [
+        "mira-notes",
+        "mira-essays",
+        "skill/control",
+        "repo-structural",
+    ]
+    assert report["validation_classes"] == ["domain-governed", "repo-structural"]
+    assert report["commands"] == [
+        "tools/run.ps1 test --path tests/test_mira_github_skill.py",
+        "tools/run.ps1 test --mode fast --explain-route",
+        "tools/run.ps1 test --path tests/test_example.py",
+    ]
+    assert len(report["manual_checks"]) == 3
+    assert report["blockers"] == []
+
+
+def test_router_blocks_unknown_duplicate_and_unsafe_paths(tmp_path: Path) -> None:
+    make_tree(tmp_path)
+    outside = tmp_path.parent / "outside-publication-validation.md"
+    outside.write_text("fixture\n", encoding="utf-8")
+    try:
+        report = routing.build_report(
+            [
+                "unknown/file.md",
+                "AGENTS.md",
+                "AGENTS.md",
+                "../outside-publication-validation.md",
+                "tests/test_*.py",
+                str(outside),
+            ],
+            repo_root=tmp_path,
+        )
+    finally:
+        outside.unlink(missing_ok=True)
+    assert report["status"] == "blocked"
+    assert any("no deterministic" in blocker for blocker in report["blockers"])
+    assert any("duplicate path" in blocker for blocker in report["blockers"])
+    assert any("traversal" in blocker for blocker in report["blockers"])
+    assert any("globbed" in blocker for blocker in report["blockers"])
+    assert any("outside repository" in blocker for blocker in report["blockers"])
+
+
+def test_router_rejects_missing_paths(tmp_path: Path) -> None:
+    make_tree(tmp_path)
+    report = routing.build_report(["archive/notes/missing.md"], repo_root=tmp_path)
+    assert report["status"] == "blocked"
+    assert report["paths"] == []
+    assert report["blockers"] == ["path does not exist: archive/notes/missing.md"]

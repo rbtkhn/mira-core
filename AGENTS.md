@@ -258,6 +258,12 @@ validators, and any available validated-push workflow, but never grants staging,
 commit, push, PR, rebase, force-push, deployment, hosted-setting, or publication
 authority by itself.
 
+For Mira Core only, when the operator asks whether anything is ready to stage,
+commit, or push, Codex may perform read-only cross-session/task context review
+and local Git inspection to recommend a publication boundary. This grants no
+authority to stage, commit, push, open PRs, publish, deploy, or mutate other
+repositories.
+
 At the start of every workspace session, after loading `AGENTS.md` and before
 producing any user-facing response, read
 `docs/skill-drafts/mira-voice/SKILL.md` completely and follow it for every

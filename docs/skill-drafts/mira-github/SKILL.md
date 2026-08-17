@@ -28,6 +28,7 @@ is at most 200 or an exact repair requires them:
 git rev-parse --show-toplevel
 git branch --show-current
 git remote -v
+git fetch --no-tags origin main
 git log --oneline --left-right --decorate origin/main...HEAD -20
 $status = @(git status --porcelain=v1 --untracked-files=all)
 $status.Count
@@ -42,6 +43,13 @@ most 200 entries, or restrict it to the exact named paths under review.
 
 If the target remote or base branch is not `origin/main`, substitute the
 declared target and state that substitution explicitly.
+
+The exact-target fetch must succeed before using a remote-tracking ref for push
+or PR lane classification. If fetch or equivalent exact remote verification is
+unavailable, local inspection and commit work may continue, but remote
+publication must stop with a publication resumption packet. `git ls-remote`
+after a push proves the reached SHA; it does not replace this pre-publication
+freshness check.
 
 For remote actions only, run:
 
@@ -121,6 +129,18 @@ In a dirty tree, classify candidate paths before staging:
 If dirty-tree scope cannot be recovered safely, stop with a bounded commit plan
 instead of staging.
 
+Before staging a governed publication candidate, resolve every candidate path
+through the deterministic router:
+
+```powershell
+tools/run.ps1 publication-validation --path <path> --json
+```
+
+Run every returned validator and complete every returned manual check. Proceed
+only when every path has an owner and every requirement has an explicit pass.
+Treat `blocked`, an unknown path, ambiguous ownership, or an incomplete mixed
+route as a staging blocker rather than guessing the owning validator.
+
 ### Dry-check broad staging
 
 Before `git add -A` or any repository-wide staging command:
@@ -184,6 +204,30 @@ is absent, do not pretend proof publication is available; either use ordinary
 Git branch publication after the above checks or stop with a resumption packet,
 depending on the operator's requested boundary and repository risk.
 
+In Mira Core, create the digest-bound check receipt under the preflighted
+external session temporary root, supplied through
+`MIRA_CORE_SESSION_TEMP_ROOT` or `--temp-root`, then use the returned absolute
+receipt path for the push:
+
+```powershell
+tools/run.ps1 validated-push check `
+  --repo <absolute-repository-root> `
+  --remote <remote> `
+  --source-sha <full-commit-sha> `
+  --target-ref refs/heads/<branch> `
+  --validation-status passed `
+  --json
+
+tools/run.ps1 validated-push push --receipt <absolute-receipt-path> --json
+```
+
+The check receipt has `authority_effect: none`. Invoke `push` only after a
+direct bounded push command, an operator-defined note or essay lifecycle
+shorthand, or a validated Elicitation option whose visible label begins with
+`Push:` and whose effect is `push`. The command supports one new branch or one
+fast-forward branch update; it rejects changed remote state, tags, deletion,
+wildcards, abbreviated SHAs, multiple refs, and non-fast-forward publication.
+
 Never force-push, rebase, broaden the refspec, open a PR, mutate hosted
 settings, or publish generated drift as part of a plain `push`.
 
@@ -201,9 +245,16 @@ reports invalid auth:
 
 ```powershell
 gh auth status
-gh auth token --hostname github.com
+& gh auth token --hostname github.com *> $null
+$tokenState = if ($LASTEXITCODE -eq 0) { 'present' } else { 'unavailable' }
+$tokenState
 git config --show-origin --get-regexp "credential.*github"
 ```
+
+The token command must redirect every output stream and only its exit code may
+be inspected. Never capture, interpolate, or print token content. Report only
+`present` or `unavailable`; do not claim to distinguish a missing token from an
+inaccessible credential store.
 
 2. Try exactly one normal exact-refspec push if the branch, target SHA, LFS, and
    dirty-tree exclusions are still safe.
@@ -222,6 +273,32 @@ git ls-remote --heads origin <branch>
 Do not repeat login loops, change credential helpers globally, erase tokens,
 force-push, or broaden the target branch to work around a credential-context
 split.
+
+## Handle Git index locks
+
+Resolve the exact Git directory before handling a lock:
+
+```powershell
+$gitDir = (git rev-parse --path-format=absolute --git-dir).Trim()
+$indexLock = [IO.Path]::GetFullPath((Join-Path $gitDir 'index.lock'))
+```
+
+If the exact lock exists, fail closed unless all of these checks pass:
+
+1. Enumerate `git.exe` and `git-lfs.exe` through `Get-CimInstance
+   Win32_Process`; stop if enumeration fails or either process is present.
+2. Capture the lock's length and UTC modification time, wait two seconds, and
+   stop if either value changes or the lock disappears unexpectedly.
+3. Open the exact lock with `[IO.File]::Open` using `FileMode::Open`,
+   `FileAccess::ReadWrite`, and `FileShare::None`; stop if exclusive access
+   cannot be obtained, then close the handle before removal.
+4. Reconfirm the resolved lock is exactly `<resolved-git-dir>/index.lock`, then
+   remove only that literal file with `Remove-Item -LiteralPath`.
+
+Report the exact stale lock removed and resume only the original bounded Git
+operation. Preserve the lock and stop whenever ownership, stability, exclusive
+access, or exact path remains uncertain. Never remove another `.lock` file or
+recursively alter the Git directory.
 
 ## Preserve authority exactly
 

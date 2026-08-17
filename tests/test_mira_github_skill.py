@@ -39,6 +39,7 @@ def test_push_preflight_checks_divergence_auth_and_exact_refspec() -> None:
     skill = read_skill()
     normalized = " ".join(skill.split())
     for phrase in (
+        "git fetch --no-tags origin main",
         "git log --oneline --left-right --decorate origin/main...HEAD -20",
         "gh auth status",
         "Confirm the target branch and refspec",
@@ -53,6 +54,7 @@ def test_fixture_inventory_covers_normal_edge_failure_and_ambiguous_cases() -> N
     )
     expected = (
         "MGH-NORMAL-01",
+        "MGH-NORMAL-02",
         "MGH-EDGE-01",
         "MGH-EDGE-02",
         "MGH-FAILURE-01",
@@ -71,7 +73,8 @@ def test_publication_and_lock_fixtures_fail_closed() -> None:
         encoding="utf-8"
     )
     assert "force-push, implicit rebase, broadened refspec" in fixtures
-    assert "verify that no Git or Git LFS process owns the lock" in fixtures
+    assert "no Git/Git LFS process is present" in fixtures
+    assert "FileShare.None" in fixtures
     assert "an active lock is preserved" in fixtures
     assert "the index remains unchanged until an explicit staging command" in fixtures
 
@@ -118,3 +121,28 @@ def test_blocked_push_stops_with_resumption_packet_and_no_blind_retry() -> None:
         assert field in skill
     assert "Do not retry blind pushes" in normalized
     assert "produce a resumption packet for every blocked push" in normalized
+
+
+def test_skill_uses_non_printing_token_check_and_deterministic_publication_tools() -> None:
+    skill = read_skill()
+    normalized = " ".join(skill.split())
+    assert "gh auth token --hostname github.com *> $null" in skill
+    assert "only its exit code may be inspected" in normalized
+    assert "Never capture, interpolate, or print token content" in normalized
+    assert "tools/run.ps1 publication-validation" in skill
+    assert "tools/run.ps1 validated-push check" in skill
+    assert "tools/run.ps1 validated-push push" in skill
+
+
+def test_skill_main_workflow_requires_exact_stale_lock_proof() -> None:
+    skill = read_skill()
+    normalized = " ".join(skill.split())
+    for phrase in (
+        "git rev-parse --path-format=absolute --git-dir",
+        "Get-CimInstance Win32_Process",
+        "wait two seconds",
+        "FileShare::None",
+        "Remove-Item -LiteralPath",
+        "remove only that literal file",
+    ):
+        assert phrase in normalized
