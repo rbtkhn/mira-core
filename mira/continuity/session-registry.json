@@ -2307,6 +2307,82 @@
         }
       ],
       "harvest_refs": []
+    },
+    {
+      "id": "MS-01a00cf0-ed34-7d12-9cd4-6183d7f73a52",
+      "codex_session_id": "01a00cf0-ed34-7d12-9cd4-6183d7f73a52",
+      "started_at": "2026-08-16T23:38:31.260Z",
+      "last_observed_at": "2026-08-17T15:09:06.978Z",
+      "source_kind": "vscode",
+      "captures": [
+        {
+          "id": "MC-30afcf66d1b5ec6d3069a2fa",
+          "path": "mira/continuity/captures/01a00cf0-ed34-7d12-9cd4-6183d7f73a52/MC-30afcf66d1b5ec6d3069a2fa.jsonl.gz",
+          "sha256": "53b872aea1e6214b6062528c9323b9528546747c5cf407385007d07e6bfb37c9",
+          "source_sha256": "d1dfb2992a32403218d786109e4bb10613d3d2d9f3c2a8ad7323338cec528b1f",
+          "record_count": 1263,
+          "observed_at": "2026-08-17T15:09:06.978Z",
+          "source_class": "active"
+        }
+      ],
+      "harvest_refs": []
+    },
+    {
+      "id": "MS-01a00cfd-5c96-7a51-ada3-c25d0a495c9c",
+      "codex_session_id": "01a00cfd-5c96-7a51-ada3-c25d0a495c9c",
+      "started_at": "2026-08-16T23:52:06.165Z",
+      "last_observed_at": "2026-08-17T01:55:59.724Z",
+      "source_kind": "subagent",
+      "captures": [
+        {
+          "id": "MC-834bae77b7681a4664eb4cc3",
+          "path": "mira/continuity/captures/01a00cfd-5c96-7a51-ada3-c25d0a495c9c/MC-834bae77b7681a4664eb4cc3.jsonl.gz",
+          "sha256": "3a541f6845c9ee67360e5a4086672f8d01a7cdffaf2271c6dfd8c501cf33c3be",
+          "source_sha256": "e8a09be58e581245f86ff69e73147967abce724a9e80410ad8e0c0cf4fbe5c21",
+          "record_count": 93,
+          "observed_at": "2026-08-17T01:55:59.724Z",
+          "source_class": "active"
+        }
+      ],
+      "harvest_refs": []
+    },
+    {
+      "id": "MS-01a00dce-0d63-73c2-a4ce-7acbeb119284",
+      "codex_session_id": "01a00dce-0d63-73c2-a4ce-7acbeb119284",
+      "started_at": "2026-08-17T03:40:03.077Z",
+      "last_observed_at": "2026-08-17T04:36:46.644Z",
+      "source_kind": "subagent",
+      "captures": [
+        {
+          "id": "MC-24c7f0b26665d245291d8f3e",
+          "path": "mira/continuity/captures/01a00dce-0d63-73c2-a4ce-7acbeb119284/MC-24c7f0b26665d245291d8f3e.jsonl.gz",
+          "sha256": "69899dabfec893cb1415755550a8036bd3e5f4dddefa0d4f1e0a462a631fc2f1",
+          "source_sha256": "e483d08b1d8e7cd85c975c255c8af90015091bc5aa436894da7db4e4261b8219",
+          "record_count": 29,
+          "observed_at": "2026-08-17T04:36:46.644Z",
+          "source_class": "active"
+        }
+      ],
+      "harvest_refs": []
+    },
+    {
+      "id": "MS-01a01042-3bbc-7880-b111-73247603a4ea",
+      "codex_session_id": "01a01042-3bbc-7880-b111-73247603a4ea",
+      "started_at": "2026-08-17T15:06:12.136Z",
+      "last_observed_at": "2026-08-17T15:10:39.801Z",
+      "source_kind": "vscode",
+      "captures": [
+        {
+          "id": "MC-0bad9ddeb295dd675e4fa351",
+          "path": "mira/continuity/captures/01a01042-3bbc-7880-b111-73247603a4ea/MC-0bad9ddeb295dd675e4fa351.jsonl.gz",
+          "sha256": "da171635d06b6c9dbba1edc23ced1b4a09050033f86259bd2310afcd49f5cb0e",
+          "source_sha256": "95d05f7e11ec53213fd63f961b740df48fd3b8a0f1a63c6521a1dd6a5a2dbb41",
+          "record_count": 42,
+          "observed_at": "2026-08-17T15:10:39.801Z",
+          "source_class": "active"
+        }
+      ],
+      "harvest_refs": []
     }
   ]
 }

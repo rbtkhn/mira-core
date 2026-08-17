@@ -15,7 +15,7 @@ Session history is continuity evidence only. It is not archive evidence, Reality
 
 ## Session Light Curve
 
-Indexed sessions: **120**. Selectively deepened sessions: **0**.
+Indexed sessions: **124**. Selectively deepened sessions: **0**.
 
 | Started | Session | Captures | Harvests | Last observed |
 | --- | --- | ---: | ---: | --- |
@@ -139,6 +139,10 @@ Indexed sessions: **120**. Selectively deepened sessions: **0**.
 | `2026-08-08T20:45:54.061Z` | `MS-019fe320-032f-7813-92f2-71cbe0dc3240` | 1 | 0 | `2026-08-08T20:45:59.274Z` |
 | `2026-08-08T21:09:19.537Z` | `MS-019fe335-75be-7a92-ae41-2e03b1a04626` | 1 | 0 | `2026-08-08T22:10:23.043Z` |
 | `2026-08-10T02:06:48.067Z` | `MS-019fe96c-2a54-7063-9d70-202952ee322d` | 1 | 0 | `2026-08-14T05:12:56.766Z` |
+| `2026-08-16T23:38:31.260Z` | `MS-01a00cf0-ed34-7d12-9cd4-6183d7f73a52` | 1 | 0 | `2026-08-17T15:09:06.978Z` |
+| `2026-08-16T23:52:06.165Z` | `MS-01a00cfd-5c96-7a51-ada3-c25d0a495c9c` | 1 | 0 | `2026-08-17T01:55:59.724Z` |
+| `2026-08-17T03:40:03.077Z` | `MS-01a00dce-0d63-73c2-a4ce-7acbeb119284` | 1 | 0 | `2026-08-17T04:36:46.644Z` |
+| `2026-08-17T15:06:12.136Z` | `MS-01a01042-3bbc-7880-b111-73247603a4ea` | 1 | 0 | `2026-08-17T15:10:39.801Z` |
 
 ## Selective Harvests
 
