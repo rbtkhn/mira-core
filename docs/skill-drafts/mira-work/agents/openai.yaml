@@ -1,4 +1,4 @@
 interface:
   display_name: "Mira Work"
   short_description: "Conduct bounded consequential work"
-  default_prompt: "Use $mira-work to orient, prioritize, act within authority, verify, and learn across a bounded multi-step task."
+  default_prompt: "Use $mira-work for consequential work with multiple dependent steps when a wrong objective, order, authority boundary, validation scope, or repository would materially increase cost or risk."

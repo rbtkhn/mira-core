@@ -1,18 +1,20 @@
 ---
 name: mira-work
-description: "Govern Mira's bounded, consequential, multi-step work from orientation through decision, authorized action, verification, and learning."
+description: "Govern consequential work with multiple dependent steps when choosing the wrong objective, order, authority boundary, validation scope, or repository would materially increase cost or risk. Use when the operator names mira-work or asks Mira to conduct such bounded work; exclude factual answers, ordinary conversation, simple one-step edits, and low-consequence mechanical tasks."
 ---
 
 # Mira Work
 
 Mira Work is the repository-local operating-mode contract for bounded,
-consequential, multi-step work across domains. It governs how Mira conducts
+consequential work with multiple dependent steps. It governs how Mira conducts
 work; it does not define Mira's voice, domain authority, durable identity, or
 organizational status.
 
-Activate when the operator names `mira-work` or clearly asks Mira to conduct
-bounded consequential work across multiple steps. Do not activate it for
-ordinary factual answers or simple one-step edits.
+Activate when the operator names `mira-work`, or when choosing the wrong
+objective, order, authority boundary, validation scope, or repository would
+materially increase the task's cost or risk. Consequential work inside one
+domain remains eligible. Do not activate for factual answers, ordinary
+conversation, simple one-step edits, or low-consequence mechanical work.
 
 ## Sense → Decide → Act → Learn
 
@@ -78,33 +80,15 @@ Method allowed to end:
 
 ### Act
 
-- Before costly tools in a consequential multi-step task, form a compact
-  internal execution envelope: objective and mutation boundary; canonical
-  runtime and external temporary root; cheapest sufficient validation profile;
-  permitted live probes and their scope; the controlling terminal session ID
-  when a wrapper returns nested identifiers; an applicable admitted
-  recursive-learning lesson or explicit `none`; and the publication lane when
-  GitHub-facing work appears. Surface it only when a blocker, authority
-  boundary, or verification distinction affects the operator.
-- Validate in this order: pure functions, fixture-based checks, focused suite,
-  one live forward check, then repository-wide validation only when materially
-  required. Use `tools/run.ps1 runtime-bootstrap --print-python` for external
-  validators and `tools/run.ps1 test` for repository tests.
 - Prepare analysis, drafts, packets, plans, or bounded changes within scope.
-- Before launching a potentially costly verification, inspect the command's
-  help or implementation and compare its actual selection scope with the
-  objective. Record the intended target, unrelated workload included by the
-  command, the narrowest sufficient check, and why any broader verification is
-  necessary. Do not run repository-wide, archive-wide, or cross-lane
-  verification for a bounded objective merely because a plan says `full`.
-- Before requesting Fast repository validation, run
-  `tools/run.ps1 test --mode fast --explain-route`. If it reports Full because
-  of unrelated state, use explicit focused test paths for the bounded change
-  and report the unrelated structural drift separately. The preview is
-  read-only and does not replace eventual release validation.
+- Choose the cheapest sufficient validation, inspect actual command scope
+  before costly work, and escalate only when the objective or repository route
+  requires it.
 - Consult directly applicable admitted recursive-learning lessons before
   repeating a verification pattern they already diagnose. Treat failure to
   consume an applicable lesson as a regression signal, not as new learning.
+- When work becomes action-capable or requires costly verification, read and
+  follow [`references/execution-profile.md`](references/execution-profile.md).
 - Treat recommendations, drafts, test results, and discussion as non-
   authoritative unless a controlling workflow says otherwise.
 - Require exact explicit authority for mutation, communication, spending,
@@ -130,15 +114,28 @@ Method allowed to end:
 
 ## Completion status
 
-Every completed Mira Work task returns a useful result plus concise status:
+Every completed Mira Work task returns a useful result plus this compact
+conversational receipt. Retain the labels but omit fields that are immaterial
+to the task:
 
-- result or artifact produced;
-- evidence boundary and material uncertainty;
-- authority and mutation status;
-- verification performed;
-- unresolved dependency or stop condition;
-- next re-entry point only when needed; and
-- persistence status for substantial artifacts.
+```text
+Mira Work completion:
+Objective:
+Organizational consequence:
+Compression class: toil | technique | judgment | apprenticeship | not-applicable
+Authorized boundary:
+Validation profile and result:
+Reached boundary:
+Outcome evidence or correction: none | <bounded evidence>
+Unresolved dependency: none | <dependency>
+Re-entry point: none | <exact point>
+Persistence:
+```
+
+Use `none` for outcome evidence when no post-action evidence exists; completion
+alone is not proof of success. The receipt remains conversational unless an
+existing governing workflow already saves it. Mira Work creates no database,
+ledger, automatic retention, publication, or persistence authority.
 
 For a substantial document, state exactly one persistence status:
 
@@ -150,6 +147,11 @@ For a substantial document, state exactly one persistence status:
 Working-tree presence is distinct from repository admission, staging, commit,
 push, hosting, and publication. A save option carries only its exact bounded
 scope under the Learn From Choices and Elicitation contracts.
+
+When auditing or revising Mira Work, read
+[`references/validation-fixtures.json`](references/validation-fixtures.json).
+Treat its cases as human-reviewed behavioral benchmarks, not machine-scored
+proof of prose quality or historical performance.
 
 ## Composition and precedence
 

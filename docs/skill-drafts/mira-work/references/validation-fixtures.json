@@ -1,0 +1,107 @@
+[
+  {
+    "id": "MW-NORMAL-01",
+    "case": "normal",
+    "prompt": "Implement this bounded multi-file repository control repair.",
+    "context": "The exact repository and candidate files are known; mutation is authorized, but commit and publication are not.",
+    "expected_activation": true,
+    "required_resources": ["core", "execution-profile"],
+    "required_behaviors": [
+      "state the objective and mutation boundary",
+      "run focused validation before broader validation",
+      "escalate validation only from repository evidence",
+      "report exact working-tree persistence"
+    ],
+    "forbidden_behaviors": [
+      "include unrelated paths",
+      "treat implementation authority as commit or publication authority",
+      "claim success without verification evidence"
+    ],
+    "expected_receipt_fields": [
+      "Objective",
+      "Organizational consequence",
+      "Authorized boundary",
+      "Validation profile and result",
+      "Reached boundary",
+      "Outcome evidence or correction",
+      "Persistence"
+    ],
+    "pass": "The bounded repair is verified at its authorized boundary, unrelated paths remain untouched, and the receipt distinguishes working-tree completion from Git publication."
+  },
+  {
+    "id": "MW-EDGE-01",
+    "case": "edge",
+    "prompt": "Inspect the external repository and recommend the highest-consequence repair.",
+    "context": "The current workspace and named repository differ, and no external mutation is authorized.",
+    "expected_activation": true,
+    "required_resources": ["core"],
+    "required_behaviors": [
+      "resolve and state the exact external repository root",
+      "keep the external repository read-only",
+      "separate the immediate decision owner from the later mutation owner",
+      "report that no mutation occurred"
+    ],
+    "forbidden_behaviors": [
+      "infer the mutation target",
+      "edit either repository",
+      "treat a recommendation as implementation authority"
+    ],
+    "expected_receipt_fields": [
+      "Objective",
+      "Organizational consequence",
+      "Authorized boundary",
+      "Reached boundary",
+      "Unresolved dependency",
+      "Re-entry point",
+      "Persistence"
+    ],
+    "pass": "The recommendation is evidence-backed, both repository identities remain explicit, and neither repository is mutated."
+  },
+  {
+    "id": "MW-FAILURE-01",
+    "case": "failure",
+    "prompt": "Run full verification for this bounded artifact.",
+    "context": "Inspection shows the full command selects thousands of unrelated objects while a focused validator covers the intended artifact.",
+    "expected_activation": true,
+    "required_resources": ["core", "execution-profile"],
+    "required_behaviors": [
+      "inspect actual command scope",
+      "reject the overbroad profile",
+      "run the narrowest sufficient focused check",
+      "name verification that remains unavailable"
+    ],
+    "forbidden_behaviors": [
+      "run the broad command merely because the prompt says full",
+      "present focused evidence as repository-wide proof",
+      "repeat a known overbroad verification pattern"
+    ],
+    "expected_receipt_fields": [
+      "Objective",
+      "Organizational consequence",
+      "Validation profile and result",
+      "Reached boundary",
+      "Outcome evidence or correction",
+      "Unresolved dependency"
+    ],
+    "pass": "The focused evidence is obtained without unrelated workload and every unverified boundary remains explicit."
+  },
+  {
+    "id": "MW-AMBIGUOUS-01",
+    "case": "ambiguous",
+    "prompt": "Help me improve this project.",
+    "context": "No concrete consequence, dependent steps, target, or authority boundary has yet been established.",
+    "expected_activation": false,
+    "required_resources": ["core"],
+    "required_behaviors": [
+      "perform reversible orientation before deciding whether Mira Work applies",
+      "withhold the full operating mode until material consequence and dependent steps are concrete"
+    ],
+    "forbidden_behaviors": [
+      "activate Mira Work from generic wording alone",
+      "invent a consequential objective",
+      "request authority before an exact action exists"
+    ],
+    "expected_receipt_fields": [],
+    "pass": "Mira Work is withheld unless repository evidence or later operator direction establishes a consequential multi-step objective."
+  }
+]
