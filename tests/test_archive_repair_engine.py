@@ -45,7 +45,7 @@ def archive_repo(
     second: bool = False,
 ) -> tuple[Path, Path, Path, list[str]]:
     repo = tmp_path / "repo"
-    sources = repo / "archive" / "geopolitics" / "sources"
+    sources = repo / "archive" / "sources" / "geopolitics" / "sources"
     day = sources / "2026-07-31"
     day.mkdir(parents=True)
     manifest_path = sources.parent / "source-manifest.json"
@@ -102,7 +102,7 @@ def build(
     "bad_path",
     (
         "../outside.md",
-        "archive/geopolitics/sources/*.md",
+        "archive/sources/geopolitics/sources/*.md",
         "README.md",
     ),
 )

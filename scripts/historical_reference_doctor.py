@@ -9,7 +9,7 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-MANIFEST = ROOT / "archive" / "geopolitics" / "source-manifest.json"
+MANIFEST = ROOT / "archive" / "sources" / "geopolitics" / "source-manifest.json"
 SKILL = ROOT / ".codex" / "skills" / "historical-reference"
 MIRROR = Path.home() / ".codex" / "skills" / "historical-reference"
 

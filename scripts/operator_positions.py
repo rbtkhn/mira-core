@@ -432,7 +432,7 @@ def _validate_evidence_ref(ref: dict[str, Any], errors: list[str], context: str)
     canonical_path = canonical_repository_path(path_value)
     evidence_path = resolve_repository_path(REPO_ROOT, path_value)
     if not evidence_path.is_file() and not (
-        canonical_path.startswith("archive/geopolitics/sources/")
+        canonical_path.startswith("archive/sources/geopolitics/sources/")
         and source_reference_available(REPO_ROOT, path_value)
     ):
         errors.append(f"{context}: broken evidence path {path_value}")
@@ -747,7 +747,7 @@ def render_report(data: dict[str, Any]) -> str:
         "",
         f"*{ledger['subtitle']}*",
         "",
-        f"Artifact: **Judgment Ledger** — {ledger['short_name']}.",
+        f"Artifact: **Judgment Ledger** â€” {ledger['short_name']}.",
         "",
         f"> {data['boundary']}",
         "",
@@ -867,7 +867,7 @@ def render_report(data: dict[str, Any]) -> str:
                 f"- **{layer['label']}** (`{layer['layer_type']}`; confidence: "
                 f"{layer['confidence']}): {layer['claim']}",
                 f"  - **Evidence standard:** {layer['evidence_standard']}",
-                f"  - **Falsifier status:** `{layer['falsifier_status']}` — "
+                f"  - **Falsifier status:** `{layer['falsifier_status']}` â€” "
                 f"{layer['falsifier_or_limitation']}",
             ]
         lines += [
@@ -1011,7 +1011,7 @@ def render_report(data: dict[str, Any]) -> str:
         lines += ["", "No overall score is calculated.", "", "#### Relations and findings", ""]
         for relation in version["comparison"]["relations"]:
             lines.append(
-                f"- **{relation['display_name']} on {layer_labels[relation['layer_id']]} — "
+                f"- **{relation['display_name']} on {layer_labels[relation['layer_id']]} â€” "
                 f"{relation['relation'].replace('_', ' ')}:** "
                 f"{relation['rationale']}"
             )

@@ -37,8 +37,8 @@ from role_aware_archive import validate_row as validate_role_row
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 NG_ROOT = REPO_ROOT / "narrative-geopolitics"
-ARCHIVE_SOURCES = NG_ROOT.parent / "archive" / "geopolitics" / "sources"
-MANIFEST_PATH = NG_ROOT.parent / "archive" / "geopolitics" / "source-manifest.json"
+ARCHIVE_SOURCES = NG_ROOT.parent / "archive" / "sources" / "geopolitics" / "sources"
+MANIFEST_PATH = NG_ROOT.parent / "archive" / "sources" / "geopolitics" / "source-manifest.json"
 DAILY_ROOT = NG_ROOT / "work" / "daily"
 LEDGER_PATH = NG_ROOT / "work" / "forecasts" / "forecast-ledger.md"
 LOCAL_SKILLS = {
@@ -152,8 +152,8 @@ LEGACY_ARCHIVE_HISTORICAL_PREFIXES = (
     "archive/essays/",
     "mira/journal/",
     "archive/notes/",
-    "archive/geopolitics/source-manifest.json",
-    "archive/geopolitics/sources/",
+    "archive/sources/geopolitics/source-manifest.json",
+    "archive/sources/geopolitics/sources/",
     "narrative-geopolitics/voices/",
     "narrative-geopolitics/work/",
 )
@@ -163,7 +163,7 @@ HOOK_ID_RE = re.compile(r"`(NG-\d{8}-F\d{2})`")
 H1_RE = re.compile(r"^# (?P<title>.+?)\s*$", re.MULTILINE)
 TITLE_RATIONALE_RE = re.compile(r"^Title rationale:\s*`?(?P<value>.+?)`?\s*$", re.MULTILINE)
 ADMIN_TITLE_RE = re.compile(
-    r"^(?:untitled|draft|analysis|essay|report|notes?|daily brief|working paper)(?:\s*[:—-].*)?$",
+    r"^(?:untitled|draft|analysis|essay|report|notes?|daily brief|working paper)(?:\s*[:â€”-].*)?$",
     re.IGNORECASE,
 )
 PLACEHOLDER_TITLE_RE = re.compile(r"\[[^\]]+\]|<[^>]+>|YYYY(?:-MM-DD)?", re.IGNORECASE)

@@ -8,7 +8,7 @@ from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 NG_ROOT = REPO_ROOT / "narrative-geopolitics"
-MANIFEST = NG_ROOT.parent / "archive" / "geopolitics" / "source-manifest.json"
+MANIFEST = NG_ROOT.parent / "archive" / "sources" / "geopolitics" / "source-manifest.json"
 OUT_ROOT = NG_ROOT / "work" / "comparisons"
 
 

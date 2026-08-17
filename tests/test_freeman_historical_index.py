@@ -33,7 +33,7 @@ def test_attribution_confidence_is_explicit() -> None:
 
 
 @pytest.mark.skipif(
-    not (REPO_ROOT / "archive" / "geopolitics" / "sources").is_dir(),
+    not (REPO_ROOT / "archive" / "sources" / "geopolitics" / "sources").is_dir(),
     reason="requires hydrated archive transcript bodies",
 )
 def test_render_is_deterministic_and_contains_required_surfaces() -> None:

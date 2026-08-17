@@ -162,7 +162,7 @@ def test_research_brief_commissioning_profile_is_bounded() -> None:
     assert "scripts/research_handoff.py" in spec["paths"]
     assert "scripts/reality_handoff.py" in spec["paths"]
     assert "scripts/continuity.py" in spec["paths"]
-    assert "archive/geopolitics/source-manifest.json" not in spec["paths"]
+    assert "archive/sources/geopolitics/source-manifest.json" not in spec["paths"]
     assert spec["command"][-3:] == ["-q", "-p", "no:cacheprovider"]
     assert set(spec["command"][2:-3]) == {
         "tests/test_research_handoff.py",
@@ -539,7 +539,7 @@ def test_reconstruction_keeps_decisive_scope_and_artifacts(
         ),
         artifact_refs=[
             "narrative-geopolitics/work/experiments/2026-07-value-test/ukraine-official-terms-baseline.md",
-            "archive/geopolitics/sources/2026-06-05/source-daniel-davis-zelensky-s-letter-to-putin-lt-col-daniel-davis-2026-06-05.md",
+            "archive/sources/geopolitics/sources/2026-06-05/source-daniel-davis-zelensky-s-letter-to-putin-lt-col-daniel-davis-2026-06-05.md",
         ],
         tomorrow_inherits="wait for a party-owned terms record",
         path=path,
@@ -646,7 +646,7 @@ def test_best_intake_startup_exposes_live_state_and_bounded_authority(
     assert "narrative-geopolitics/voices/" in state["authority"][
         "must_not_write_without_explicit_authorization"
     ]
-    assert "archive/geopolitics/source-manifest.json" in state[
+    assert "archive/sources/geopolitics/source-manifest.json" in state[
         "authority"
     ]["may_write"]
 
@@ -689,7 +689,7 @@ def test_saved_best_intake_prompt_uses_dynamic_context_not_frozen_state() -> Non
         / "land-the-day-before-you-judge-it-best-intake-session-startup.md"
     ).read_text(encoding="utf-8")
     assert "tools\\run.ps1 cadence startup intake --json" in prompt
-    assert "Treat the command output—not this prompt—as authoritative" in prompt
+    assert "Treat the command outputâ€”not this promptâ€”as authoritative" in prompt
     assert "commit: `" not in prompt
     assert "archive and manifest: 1,532" not in prompt
 

@@ -10,7 +10,7 @@ from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 NG_ROOT = REPO_ROOT / "narrative-geopolitics"
-MANIFEST_PATH = NG_ROOT.parent / "archive" / "geopolitics" / "source-manifest.json"
+MANIFEST_PATH = NG_ROOT.parent / "archive" / "sources" / "geopolitics" / "source-manifest.json"
 OUTPUT_PATH = NG_ROOT / "voices" / "freeman" / "historical-references.md"
 MECHANISM_REGISTRY_PATH = NG_ROOT / "voices" / "freeman" / "mechanism-registry.json"
 MECHANISM_REVIEW_PATH = NG_ROOT / "voices" / "freeman" / "mechanism-review.json"

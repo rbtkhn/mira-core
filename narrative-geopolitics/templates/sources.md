@@ -8,8 +8,8 @@ Status: `template`
 
 Primary source basis:
 
-- `archive/geopolitics/source-manifest.json`
-- `archive/geopolitics/sources/YYYY-MM-DD/source-*.md`
+- `archive/sources/geopolitics/source-manifest.json`
+- `archive/sources/geopolitics/sources/YYYY-MM-DD/source-*.md`
 
 ## Intake Batch
 
@@ -18,7 +18,7 @@ Use this section to account for what was imported before synthesis.
 
 | Source File | Source Type | Intake Status | Manifest Row | Voice Route | Channel Route | Notes |
 | --- | --- | --- | --- | --- | --- | --- |
-| `archive/geopolitics/sources/YYYY-MM-DD/source-example.md` | transcript/article/essay/report/post | `imported` | `yes` |  |  |  |
+| `archive/sources/geopolitics/sources/YYYY-MM-DD/source-example.md` | transcript/article/essay/report/post | `imported` | `yes` |  |  |  |
 
 If this is a retrospective run using already-imported sources, mark the intake
 status as `already-imported` and explain why the run is being reconstructed.

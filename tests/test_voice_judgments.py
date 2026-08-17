@@ -188,7 +188,7 @@ def test_pape_renderer_preserves_judgment_navigation(tmp_path: Path) -> None:
         "## 2026-07\n"
     )
     row = {
-        "local_path": "archive/geopolitics/sources/2026-07-10/source.md",
+        "local_path": "archive/sources/geopolitics/sources/2026-07-10/source.md",
         "date": "2026-07-10",
         "title": "Pape renderer fixture",
         "modality": "essay",

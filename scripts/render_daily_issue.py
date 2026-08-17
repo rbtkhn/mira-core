@@ -72,7 +72,7 @@ def load_validation_context(
     ledger_path: Path = LEDGER_PATH,
     reality_root: Path = reality.REALITY_ROOT,
 ) -> IssueValidationContext:
-    manifest_path = daily_root.parents[2] / "archive" / "geopolitics" / "source-manifest.json"
+    manifest_path = daily_root.parents[2] / "archive" / "sources" / "geopolitics" / "source-manifest.json"
     manifest = json.loads(manifest_path.read_text(encoding="utf-8-sig"))
     return IssueValidationContext(
         ledger_text=ledger_path.read_text(encoding="utf-8"),
@@ -242,7 +242,7 @@ def parse_issue_copy(daily_brief: str) -> dict[str, str]:
     section = extract_section(daily_brief, "Issue Copy")
     if not section:
         raise IssueError("daily-brief.md is missing Issue Copy")
-    matches = list(re.finditer(r"^###\s+(NGI-\d{8}-S\d{2})\s+[—-]\s+.+$", section, re.MULTILINE))
+    matches = list(re.finditer(r"^###\s+(NGI-\d{8}-S\d{2})\s+[â€”-]\s+.+$", section, re.MULTILINE))
     copy: dict[str, str] = {}
     for index, match in enumerate(matches):
         end = matches[index + 1].start() if index + 1 < len(matches) else len(section)
@@ -597,9 +597,9 @@ def model_failures(
         if not links:
             failures.append(f"{source_id}: selected source has no archive link")
         for _, target in links:
-            if target.startswith("../../../../archive/geopolitics/sources/"):
+            if target.startswith("../../../../archive/sources/geopolitics/sources/"):
                 resolved = (daily_root / model.run_date / target).resolve()
-                manifest_path = daily_root.parents[2] / "archive" / "geopolitics" / "source-manifest.json"
+                manifest_path = daily_root.parents[2] / "archive" / "sources" / "geopolitics" / "source-manifest.json"
                 if context is not None:
                     manifest_paths = context.manifest_paths
                 elif manifest_path.exists():
@@ -670,7 +670,7 @@ def validate_issue(
     )
     failures.extend(model_failures(model, ledger_text, daily_root, context=context))
     prose = re.sub(r"(?m)^\|.*$|`[^`]+`|\[[^\]]+\]\([^)]+\)|<!--.*?-->", " ", actual)
-    words = re.findall(r"\b[\w’'-]+\b", prose)
+    words = re.findall(r"\b[\wâ€™'-]+\b", prose)
     if not 1500 <= len(words) <= 2500:
         warnings.append(f"issue.md editorial prose word count outside 1500-2500 target: {len(words)}")
     return failures, warnings

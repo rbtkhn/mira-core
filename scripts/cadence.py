@@ -41,22 +41,22 @@ VALIDATOR_PATH = REPO_ROOT / "tools" / "validate_repo.py"
 TEMP_ROOT_ENV = "MIRA_CORE_SESSION_TEMP_ROOT"
 HEARTBEAT_SECONDS = 30
 DAILY_ROOT = REPO_ROOT / "narrative-geopolitics" / "work" / "daily"
-MANIFEST_PATH = REPO_ROOT / "archive" / "geopolitics" / "source-manifest.json"
-ARCHIVE_SOURCES_ROOT = REPO_ROOT / "archive" / "geopolitics" / "sources"
+MANIFEST_PATH = REPO_ROOT / "archive" / "sources" / "geopolitics" / "source-manifest.json"
+ARCHIVE_SOURCES_ROOT = REPO_ROOT / "archive" / "sources" / "geopolitics" / "sources"
 BOUNDED_AGENCY_CONTRACT = (
     "narrative-geopolitics/method/bounded-agency-contract.md"
 )
 BEST_INTAKE_AUTHORITY = {
     "may_read": [
         "repository Git state",
-        "archive/geopolitics/source-manifest.json",
+        "archive/sources/geopolitics/source-manifest.json",
         "existing archive sources for duplicate detection",
         "voice and channel records for provisional canonical routing",
         "best-intake method and metadata contracts",
     ],
     "may_write": [
-        "archive/geopolitics/sources/YYYY-MM-DD/source-*.md",
-        "archive/geopolitics/source-manifest.json",
+        "archive/sources/geopolitics/sources/YYYY-MM-DD/source-*.md",
+        "archive/sources/geopolitics/source-manifest.json",
     ],
     "must_not_write_without_explicit_authorization": [
         "narrative-geopolitics/voices/",
@@ -71,7 +71,7 @@ BEST_INTAKE_AUTHORITY = {
 GEOPOLITICAL_SYNTHESIS_AUTHORITY = {
     "may_read": [
         "repository Git state",
-        "archive/geopolitics/source-manifest.json",
+        "archive/sources/geopolitics/source-manifest.json",
         "manifest-backed archive sources for the selected date",
         "narrative-geopolitics/voices/ and narrative-geopolitics/channels/",
         "existing daily, forecast, and verification state",
@@ -216,7 +216,7 @@ EXPERIMENT_PROFILES = {
             "tests/test_smart_intake.py",
             "tests/test_land_best_intake.py",
             "tests/test_intake_observability.py",
-            "archive/geopolitics/source-manifest.json",
+            "archive/sources/geopolitics/source-manifest.json",
         ],
         "command": ["-m", "pytest", "tests/test_smart_intake.py", "tests/test_land_best_intake.py", "tests/test_intake_observability.py", "-q", "-p", "no:cacheprovider"],
     },
@@ -999,7 +999,7 @@ def normalize_artifact_refs(values: list[str]) -> list[str]:
         except ValueError as error:
             raise ValueError(f"artifact reference escapes repository: {value}") from error
         if not resolved.exists() and not (
-            path_text.startswith("archive/geopolitics/sources/")
+            path_text.startswith("archive/sources/geopolitics/sources/")
             and source_reference_available(REPO_ROOT, path_text)
         ):
             raise ValueError(f"artifact reference does not exist: {value}")

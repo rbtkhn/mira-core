@@ -53,7 +53,7 @@ def test_archive_repair_routes_inspection_to_audit() -> None:
 
 def test_archive_readme_keeps_manifest_as_the_only_index_authority() -> None:
     value = (
-        ROOT / "archive" / "geopolitics" / "README.md"
+        ROOT / "archive" / "sources" / "geopolitics" / "README.md"
     ).read_text(encoding="utf-8")
 
     assert "source-manifest.json" in value

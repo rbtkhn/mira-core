@@ -11,7 +11,7 @@ from pathlib import Path
 from role_aware_archive import canonical_slug, load_manifest
 
 ROOT = Path(__file__).resolve().parent.parent
-DERIVED = ROOT / "archive" / "geopolitics" / "derived" / "speaker-labeled"
+DERIVED = ROOT / "archive" / "sources" / "geopolitics" / "derived" / "speaker-labeled"
 
 
 def scalar(text: str, key: str) -> str:

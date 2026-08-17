@@ -20,7 +20,7 @@ import voice_indexes
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 NG_ROOT = REPO_ROOT / "narrative-geopolitics"
-ARCHIVE_ROOT = NG_ROOT.parent / "archive" / "geopolitics"
+ARCHIVE_ROOT = NG_ROOT.parent / "archive" / "sources" / "geopolitics"
 MANIFEST_PATH = ARCHIVE_ROOT / "source-manifest.json"
 ARCHIVE_SOURCES_ROOT = ARCHIVE_ROOT / "sources"
 METADATA_SUFFIXES = (".txt", ".md")
@@ -668,7 +668,7 @@ def build_manifest_row(
         "date": args.pub_date,
         "title": args.title,
         "local_path": rel_local,
-        "voice_index_path": f"../../../archive/geopolitics/sources/{args.pub_date}/{source_path.name}",
+        "voice_index_path": f"../../../archive/sources/geopolitics/sources/{args.pub_date}/{source_path.name}",
         "upstream_path": upstream_path,
         "source_class": args.source_class,
         "modality": args.modality,
@@ -1873,7 +1873,7 @@ def source_plan(args: SimpleNamespace) -> tuple[Path, str, str]:
     expected_parent = day_dir.resolve()
     sources_root = ARCHIVE_SOURCES_ROOT.resolve()
     if expected_parent.parent != sources_root or source_path.resolve().parent != expected_parent:
-        raise ValueError("generated source path must stay under archive/geopolitics/sources/YYYY-MM-DD")
+        raise ValueError("generated source path must stay under archive/sources/geopolitics/sources/YYYY-MM-DD")
     upstream_path = args.upstream_path or f"operator-paste://{args.ingest_date}/{title_core_slug}"
     return source_path, title_slug, upstream_path
 

@@ -30,7 +30,7 @@ def narrative_geopolitics_contract(repo_root: Path, run_checks: Callable[[], lis
         version=1,
         state_root=repo_root / "narrative-geopolitics" / "work" / "cadence",
         authority_surfaces=(
-            "archive/geopolitics/",
+            "archive/sources/geopolitics/",
             "narrative-geopolitics/work/daily/",
             "narrative-geopolitics/work/forecasts/",
             "narrative-geopolitics/work/reality/",

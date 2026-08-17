@@ -62,7 +62,7 @@ class FastRoute:
 
 FAST_PATH_RULES = (
     (
-        re.compile(r"^archive/geopolitics/sources/.+\.md$"),
+        re.compile(r"^archive/sources/geopolitics/sources/.+\.md$"),
         (
             "tests/test_smart_intake.py",
             "tests/test_land_best_intake.py",

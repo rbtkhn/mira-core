@@ -4,7 +4,7 @@ from pathlib import Path
 
 
 LEGACY_GEOPOLITICS_ARCHIVE_ROOT = "narrative-geopolitics/archive"
-GEOPOLITICS_ARCHIVE_ROOT = "archive/geopolitics"
+GEOPOLITICS_ARCHIVE_ROOT = "archive/sources/geopolitics"
 
 
 def canonical_repository_path(value: str) -> str:

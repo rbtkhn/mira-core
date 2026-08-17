@@ -7,11 +7,11 @@ import json
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-MANIFEST = ROOT / "archive" / "geopolitics" / "source-manifest.json"
+MANIFEST = ROOT / "archive" / "sources" / "geopolitics" / "source-manifest.json"
 TARGETS = {
-    "archive/geopolitics/sources/2026-06-22/source-duran-mercouris-us-iran-ceasefire-talks-conflict-round-3-2026-06-22.md",
-    "archive/geopolitics/sources/2026-06-23/source-duran-mercouris-rubicon-crossed-zelensky-targets-belarus-2026-06-23.md",
-    "archive/geopolitics/sources/2026-06-27/source-duran-mercouris-russia-frontline-advance-putin-messaging-woes-lavrov-ww3-warning-ignored-2026-06-27.md",
+    "archive/sources/geopolitics/sources/2026-06-22/source-duran-mercouris-us-iran-ceasefire-talks-conflict-round-3-2026-06-22.md",
+    "archive/sources/geopolitics/sources/2026-06-23/source-duran-mercouris-rubicon-crossed-zelensky-targets-belarus-2026-06-23.md",
+    "archive/sources/geopolitics/sources/2026-06-27/source-duran-mercouris-russia-frontline-advance-putin-messaging-woes-lavrov-ww3-warning-ignored-2026-06-27.md",
 }
 
 

@@ -140,7 +140,7 @@ def record(path: str = "collection/source.md", observed: str = "2026-01-02T00:00
 
 
 def test_deterministic_object_round_trip(tmp_path: Path) -> None:
-    repo = tmp_path / "repo"; repo.mkdir(); archive = ArtifactStore(tmp_path / "external", repo, create=True); body = "Mira remembers π.\n".encode()
+    repo = tmp_path / "repo"; repo.mkdir(); archive = ArtifactStore(tmp_path / "external", repo, create=True); body = "Mira remembers Ï€.\n".encode()
     digest, size = archive.put_object(body); encoded = archive.object_path(digest).read_bytes()
     assert archive.put_object(body) == (digest, size)
     assert archive.object_path(digest).read_bytes() == encoded
@@ -402,12 +402,12 @@ def test_external_corpus_hydration_is_disabled(monkeypatch: pytest.MonkeyPatch) 
 def test_geopolitics_discovery_preserves_catalog_identity_after_repository_move(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:
-    repository_path = "archive/geopolitics/sources/2026-08-16/source-example.md"
+    repository_path = "archive/sources/geopolitics/sources/2026-08-16/source-example.md"
     logical_path = "narrative-geopolitics/archive/sources/2026-08-16/source-example.md"
     source = tmp_path / repository_path
     source.parent.mkdir(parents=True)
     source.write_bytes(b"# Example\n")
-    manifest = tmp_path / "archive" / "geopolitics" / "source-manifest.json"
+    manifest = tmp_path / "archive" / "sources" / "geopolitics" / "source-manifest.json"
     manifest.write_text(
         json.dumps(
             {
@@ -426,10 +426,10 @@ def test_geopolitics_discovery_preserves_catalog_identity_after_repository_move(
     )
     collection = {
         "id": "narrative-geopolitics-archive",
-        "registry_path": "archive/geopolitics/source-manifest.json",
-        "repository_root": "archive/geopolitics/sources",
+        "registry_path": "archive/sources/geopolitics/source-manifest.json",
+        "repository_root": "archive/sources/geopolitics/sources",
         "logical_root": "narrative-geopolitics/archive/sources",
-        "authority_owner": "archive/geopolitics/source-manifest.json",
+        "authority_owner": "archive/sources/geopolitics/source-manifest.json",
         "evidence_class": "imported-archive-source",
     }
     monkeypatch.setattr(system_archive, "REPO_ROOT", tmp_path)

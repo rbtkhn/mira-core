@@ -39,7 +39,7 @@ Narrative Geopolitics source truth lives under
 [`geopolitics/`](geopolitics/README.md). Its manifest governs membership and
 routing. The private catalog retains its established
 `narrative-geopolitics/archive/sources/...` logical identities while repository
-files resolve under `archive/geopolitics/sources/...`; this compatibility
+files resolve under `archive/sources/geopolitics/sources/...`; this compatibility
 mapping preserves record IDs and object hashes without retaining a legacy
 repository directory.
 

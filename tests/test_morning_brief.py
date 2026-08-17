@@ -646,7 +646,7 @@ def test_generation_does_not_mutate_repository_evidence_or_state(bounded_repo: P
         bounded_repo / "narrative-geopolitics" / "work" / "daily" / JUDGMENT_DATE / "judgment.md",
         bounded_repo / "narrative-geopolitics" / "work" / "forecasts" / "forecast-ledger.md",
     ]
-    archive_manifest = bounded_repo / "archive" / "geopolitics" / "source-manifest.json"
+    archive_manifest = bounded_repo / "archive" / "sources" / "geopolitics" / "source-manifest.json"
     archive_manifest.parent.mkdir(parents=True)
     archive_manifest.write_text('{"source_count": 0, "sources": []}\n', encoding="utf-8")
     protected.append(archive_manifest)

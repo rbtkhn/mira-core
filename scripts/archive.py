@@ -678,7 +678,7 @@ def validate_repository_state(repo_root: Path=REPO_ROOT) -> list[str]:
         if policy.get("explicit_only_collections")!=derived: failures.append("Mira Archive explicit-only policy drifts from collection registry")
     except (ArchiveError,KeyError,TypeError) as error: failures.append(str(error))
     try:
-        result=subprocess.run(["git","ls-files","-z","--","archive/geopolitics/sources","mira/continuity/captures"],cwd=repo_root,check=True,capture_output=True)
+        result=subprocess.run(["git","ls-files","-z","--","archive/sources/geopolitics/sources","mira/continuity/captures"],cwd=repo_root,check=True,capture_output=True)
         failures.extend(f"tracked corpus body: {item.decode(errors='replace')}" for item in result.stdout.split(b"\0") if item)
     except (OSError,subprocess.CalledProcessError) as error: failures.append(f"could not inspect tracked corpus bodies: {error}")
     return failures

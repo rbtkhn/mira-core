@@ -154,7 +154,7 @@ def test_invalid_class_and_status_are_rejected(tmp_path: Path) -> None:
 
 def test_missing_source_paths_and_bad_lines_are_rejected(tmp_path: Path) -> None:
     ledger = valid_seed_ledger()
-    ledger["entries"][0]["source_path"] = "archive/geopolitics/sources/missing.md"
+    ledger["entries"][0]["source_path"] = "archive/sources/geopolitics/sources/missing.md"
     failures = validate_tmp(tmp_path, ledger)
     assert any("source path missing" in failure for failure in failures)
 

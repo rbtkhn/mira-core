@@ -16,8 +16,8 @@ import land_best_intake
 
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
-ARCHIVE_SOURCES_ROOT = REPO_ROOT / "archive" / "geopolitics" / "sources"
-MANIFEST_PATH = REPO_ROOT / "archive" / "geopolitics" / "source-manifest.json"
+ARCHIVE_SOURCES_ROOT = REPO_ROOT / "archive" / "sources" / "geopolitics" / "sources"
+MANIFEST_PATH = REPO_ROOT / "archive" / "sources" / "geopolitics" / "source-manifest.json"
 REPAIR_CLASSES = ("metadata", "asr", "sectioning", "wrapper-trim", "heading-only", "body-merge")
 MAX_TARGETS = 100
 

@@ -20,7 +20,7 @@ STANDARD_ROW_RE = re.compile(
     r"^\| `(?P<date>[^`]+)` \| (?P<title>.*?) \| `(?P<role>[^`]*)` \| `(?P<host>[^`]*)` \| \[source\]\((?P<link>[^)]+)\) \|$"
 )
 PAPE_ROW_RE = re.compile(
-    r"^- \[(?P<date>\d{4}-\d{2}-\d{2}) — (?P<title>.*?)\]\((?P<link>[^)]+)\) — \*\*(?P<role>authored|guest)\*\* · (?P<modality>[^·\r\n]+?)(?: · host: `(?P<host>[^`]+)`)?$"
+    r"^- \[(?P<date>\d{4}-\d{2}-\d{2}) â€” (?P<title>.*?)\]\((?P<link>[^)]+)\) â€” \*\*(?P<role>authored|guest)\*\* Â· (?P<modality>[^Â·\r\n]+?)(?: Â· host: `(?P<host>[^`]+)`)?$"
 )
 COUNT_RE = re.compile(r"^Corpus: .*?$", re.MULTILINE)
 JUDGMENT_LEDGER_NAVIGATION = (
@@ -29,7 +29,7 @@ JUDGMENT_LEDGER_NAVIGATION = (
     "judgments and separately canonical self-revisions without establishing factual truth."
 )
 LEGACY_SOURCE_BASIS = "narrative-geopolitics/archive/source-manifest.json"
-SOURCE_BASIS = "archive/geopolitics/source-manifest.json"
+SOURCE_BASIS = "archive/sources/geopolitics/source-manifest.json"
 
 
 def load_manifest(path: Path = voice_metadata.MANIFEST_PATH) -> dict[str, Any]:
@@ -273,8 +273,8 @@ def render_pape(
         )
         role = pape_display_role(source_role)
         host = row.get("host_slug") or ""
-        host_suffix = f" · host: `{host}`" if role == "guest" and host else ""
-        line = f"- [{row['date']} — {row.get('title', '')}]({archive_link(local_path)}) — **{role}** · {row.get('modality', '')}{host_suffix}"
+        host_suffix = f" Â· host: `{host}`" if role == "guest" and host else ""
+        line = f"- [{row['date']} â€” {row.get('title', '')}]({archive_link(local_path)}) â€” **{role}** Â· {row.get('modality', '')}{host_suffix}"
         authored += role == "authored"
         guest += role == "guest"
         by_month[row["date"][:7]].append(line)

@@ -10,7 +10,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 NG = ROOT / "narrative-geopolitics"
-MANIFEST = NG.parent / "archive" / "geopolitics" / "source-manifest.json"
+MANIFEST = NG.parent / "archive" / "sources" / "geopolitics" / "source-manifest.json"
 INVENTORY = NG / "work" / "backfill-2026" / "inventory.json"
 OUT = NG / "work" / "backfill-2026"
 

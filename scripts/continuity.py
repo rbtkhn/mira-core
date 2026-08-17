@@ -16,7 +16,7 @@ import voice_judgments
 ROOT = Path(__file__).resolve().parent.parent
 NG = ROOT / "narrative-geopolitics"
 VOICES = NG / "voices"
-MANIFEST = NG.parent / "archive" / "geopolitics" / "source-manifest.json"
+MANIFEST = NG.parent / "archive" / "sources" / "geopolitics" / "source-manifest.json"
 DAILY = NG / "work" / "daily"
 DESCRIPTOR_PATH = VOICES / "comparisons" / "voice-descriptors.json"
 STATES = {"new", "persistent", "revised", "abandoned", "unclear"}

@@ -456,7 +456,7 @@ def test_runner_preserves_archive_repair_authority_binding(monkeypatch) -> None:
         "run",
         lambda command, **kwargs: commands.append(command) or SimpleNamespace(returncode=0),
     )
-    target = "archive/geopolitics/sources/2026-07-31/source-example.md"
+    target = "archive/sources/geopolitics/sources/2026-07-31/source-example.md"
     digest = "a" * 64
     assert runner.main(
         [
@@ -490,7 +490,7 @@ def test_environment_argument_transport_is_exact_and_consumed() -> None:
         "elicitation",
         "validate",
         "--surface-json",
-        '{"type":"neutral-evidence","label":"Quoted \\"value\\" and Καλημέρα"}',
+        '{"type":"neutral-evidence","label":"Quoted \\"value\\" and ÎšÎ±Î»Î·Î¼Î­ÏÎ±"}',
         "",
     ]
     environment = {
@@ -606,7 +606,7 @@ $surface = [ordered]@{
     type = 'neutral-evidence'
     options = @(
         [ordered]@{ key = 'yes'; label = 'Yes with spaces' },
-        [ordered]@{ key = 'no'; label = 'Καλημέρα "quoted"' }
+        [ordered]@{ key = 'no'; label = 'ÎšÎ±Î»Î·Î¼Î­ÏÎ± "quoted"' }
     )
 }
 $surfaceJson = $surface | ConvertTo-Json -Depth 4 -Compress
@@ -646,7 +646,7 @@ if ($firstCode -ne 0 -or $secondCode -ne 19) { exit 1 }
     assert transported[0][:3] == ["elicitation", "validate", "--surface-json"]
     payload = json.loads(transported[0][3])
     assert payload["options"][0]["label"] == "Yes with spaces"
-    assert payload["options"][1]["label"] == 'Καλημέρα "quoted"'
+    assert payload["options"][1]["label"] == 'ÎšÎ±Î»Î·Î¼Î­ÏÎ± "quoted"'
     assert transported[1] == [
         "test",
         "--path",
@@ -772,7 +772,7 @@ def test_fast_route_selects_tests_for_narrow_allowlisted_changes() -> None:
         [
             validator.Change(
                 " M",
-                "archive/geopolitics/sources/2026-08-03/example.md",
+                "archive/sources/geopolitics/sources/2026-08-03/example.md",
             ),
             validator.Change(" M", "tests/test_runtime_tooling.py"),
         ]
@@ -789,7 +789,7 @@ def test_fast_route_selects_tests_for_narrow_allowlisted_changes() -> None:
         validator.Change(" M", "tools/validate_repo.py"),
         validator.Change("R ", "old.md -> new.md"),
         validator.Change("??", "tests/test_new_contract.py"),
-        validator.Change(" M", "archive/geopolitics/manifest.json"),
+        validator.Change(" M", "archive/sources/geopolitics/manifest.json"),
     ),
 )
 def test_fast_route_fails_closed_for_risky_or_unknown_changes(change) -> None:

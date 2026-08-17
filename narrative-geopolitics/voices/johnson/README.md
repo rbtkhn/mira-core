@@ -9,7 +9,7 @@ Status: `internal`
 | Name | Larry Johnson |
 | Slug | `johnson` |
 | Role | Intelligence-network / elite-signal / material-shortage warning voice |
-| Source basis | `archive/geopolitics/source-manifest.json` |
+| Source basis | `archive/sources/geopolitics/source-manifest.json` |
 | Public summary status | `none` |
 | Parity status | `first-slice-parity` |
 | Last reviewed | `2026-07-08` |

@@ -10,8 +10,8 @@ from pathlib import Path
 from typing import Any
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
-MANIFEST = REPO_ROOT / "archive" / "geopolitics" / "source-manifest.json"
-DERIVED_ROOT = REPO_ROOT / "archive" / "geopolitics" / "derived" / "speaker-labeled"
+MANIFEST = REPO_ROOT / "archive" / "sources" / "geopolitics" / "source-manifest.json"
+DERIVED_ROOT = REPO_ROOT / "archive" / "sources" / "geopolitics" / "derived" / "speaker-labeled"
 @dataclass(frozen=True)
 class Candidate:
     name: str
@@ -153,7 +153,7 @@ def derivative(row: dict[str, Any], output_root: Path) -> tuple[Path, dict[str, 
     fields, body = frontmatter(text)
     labeled, stats = label_body(body, row, fields)
     source_hash = hashlib.sha256(raw).hexdigest()
-    relative = Path(str(row["local_path"])).relative_to("archive/geopolitics/sources")
+    relative = Path(str(row["local_path"])).relative_to("archive/sources/geopolitics/sources")
     target = output_root / relative
     marker_labeling = stats.get("turn_labeling")
     meta = {
@@ -182,7 +182,7 @@ def main() -> int:
         qa_rows = rows[:20]
         qa_path = cli.output_root / "qa-packet.md"
         qa_path.parent.mkdir(parents=True, exist_ok=True)
-        lines = ["# Speaker Labeling Pilot — Manual QA Packet", "", "Complete one row per source after reviewing the raw and labeled derivative.", "", "| # | Source | Turns reviewed | Correct | Incorrect | Unknown | Host/guest confusion | Raw review min | Labeled review min | Notes |", "|---:|---|---:|---:|---:|---:|---:|---:|---:|---|"]
+        lines = ["# Speaker Labeling Pilot â€” Manual QA Packet", "", "Complete one row per source after reviewing the raw and labeled derivative.", "", "| # | Source | Turns reviewed | Correct | Incorrect | Unknown | Host/guest confusion | Raw review min | Labeled review min | Notes |", "|---:|---|---:|---:|---:|---:|---:|---:|---:|---|"]
         for index, row in enumerate(qa_rows, 1):
             path = str(row.get("local_path", "")).replace("|", "\\|")
             lines.append(f"| {index} | `{path}` |  |  |  |  |  |  |  |  |")

@@ -42,7 +42,7 @@ If that does not happen, later enrichment has nothing durable to work on.
 
 A `best-intake` source is adequate when it has:
 
-- a real archive file under `archive/geopolitics/sources/YYYY-MM-DD/`
+- a real archive file under `archive/sources/geopolitics/sources/YYYY-MM-DD/`
 - a working source title
 - a source URL when available
 - the pasted body preserved
@@ -101,7 +101,7 @@ not need retroactive header rewrites when their manifest routes are complete.
 
 `best-intake` should:
 
-1. Create the source file in `archive/geopolitics/sources/YYYY-MM-DD/`.
+1. Create the source file in `archive/sources/geopolitics/sources/YYYY-MM-DD/`.
 2. Infer title, host, guest, channel, and source shape when the signals are strong enough.
 3. Preserve the pasted source body with minimal rewriting.
 4. Apply approved deterministic wrapper trim when the host rule matches.
@@ -421,7 +421,7 @@ When a landed batch predates saved receipts, establish a source-state baseline
 without inventing attempt outcomes:
 
 ```powershell
-.\tools\run.ps1 intake-outcomes --source-baseline archive\geopolitics\sources\YYYY-MM-DD --json
+.\tools\run.ps1 intake-outcomes --source-baseline archive\sources\geopolitics\sources\YYYY-MM-DD --json
 ```
 
 This reconstruction may measure landed sources, provenance bases, aliases, and

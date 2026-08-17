@@ -30,7 +30,7 @@ def test_manifest_routes_are_deduplicated_and_normalized() -> None:
 
 
 @pytest.mark.skipif(
-    not (REPO_ROOT / "archive" / "geopolitics" / "sources").is_dir(),
+    not (REPO_ROOT / "archive" / "sources" / "geopolitics" / "sources").is_dir(),
     reason="requires hydrated archive transcript bodies",
 )
 def test_report_contains_comparison_surfaces_and_is_deterministic() -> None:

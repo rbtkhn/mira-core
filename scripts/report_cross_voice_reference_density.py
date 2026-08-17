@@ -11,7 +11,7 @@ from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 NG_ROOT = REPO_ROOT / "narrative-geopolitics"
-MANIFEST_PATH = NG_ROOT.parent / "archive" / "geopolitics" / "source-manifest.json"
+MANIFEST_PATH = NG_ROOT.parent / "archive" / "sources" / "geopolitics" / "source-manifest.json"
 OUTPUT_PATH = NG_ROOT / "analytics" / "cross-voice-historical-reference-density.md"
 VOICE_LEDGER_DIR = NG_ROOT / "analytics" / "historical-reference-ledgers"
 REVIEW_OVERRIDES_PATH = NG_ROOT / "analytics" / "historical-reference-review-overrides.json"

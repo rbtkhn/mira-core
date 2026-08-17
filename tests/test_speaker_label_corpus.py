@@ -67,7 +67,7 @@ def test_selector_is_deterministic() -> None:
 
 
 def speaker_fixture(tmp_path: Path, monkeypatch) -> tuple[Path, str]:
-    rel = "archive/geopolitics/sources/2025-05-31/source.md"
+    rel = "archive/sources/geopolitics/sources/2025-05-31/source.md"
     source = tmp_path / rel
     source.parent.mkdir(parents=True)
     source.write_text(

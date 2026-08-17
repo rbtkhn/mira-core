@@ -49,8 +49,8 @@ The proven daily judgment loop is:
 
 ```text
 best-intake through the day
--> archive/geopolitics/sources/YYYY-MM-DD/source-*.md
--> archive/geopolitics/source-manifest.json
+-> archive/sources/geopolitics/sources/YYYY-MM-DD/source-*.md
+-> archive/sources/geopolitics/source-manifest.json
 -> geo-strategy
 -> work/daily/YYYY-MM-DD/sources.md
 -> work/daily/YYYY-MM-DD/synthesis.md
@@ -86,35 +86,35 @@ that it adds value without sacrificing fidelity.
 
 ```text
 narrative-geopolitics/
-├── README.md
-├── archive/
-│   ├── README.md
-│   ├── source-manifest.json
-│   └── sources/
-├── channels/
-│   ├── README.md
-│   ├── channel-index.md
-│   └── _template.md
-├── method/
-│   ├── narrative-statecraft.md
-│   └── voice-continuity.md
-├── public/
-│   ├── README.md
-│   └── briefs/
-│       └── daily/
-├── templates/
-│   ├── sources.md
-│   ├── synthesis.md
-│   ├── daily-brief.md
-│   └── forecast.md
-├── voices/
-│   ├── README.md
-│   └── _template.md
-└── work/
-    ├── README.md
-    ├── daily/
-    └── forecasts/
-        └── forecast-ledger.md
+â”œâ”€â”€ README.md
+â”œâ”€â”€ archive/
+â”‚   â”œâ”€â”€ README.md
+â”‚   â”œâ”€â”€ source-manifest.json
+â”‚   â””â”€â”€ sources/
+â”œâ”€â”€ channels/
+â”‚   â”œâ”€â”€ README.md
+â”‚   â”œâ”€â”€ channel-index.md
+â”‚   â””â”€â”€ _template.md
+â”œâ”€â”€ method/
+â”‚   â”œâ”€â”€ narrative-statecraft.md
+â”‚   â””â”€â”€ voice-continuity.md
+â”œâ”€â”€ public/
+â”‚   â”œâ”€â”€ README.md
+â”‚   â””â”€â”€ briefs/
+â”‚       â””â”€â”€ daily/
+â”œâ”€â”€ templates/
+â”‚   â”œâ”€â”€ sources.md
+â”‚   â”œâ”€â”€ synthesis.md
+â”‚   â”œâ”€â”€ daily-brief.md
+â”‚   â””â”€â”€ forecast.md
+â”œâ”€â”€ voices/
+â”‚   â”œâ”€â”€ README.md
+â”‚   â””â”€â”€ _template.md
+â””â”€â”€ work/
+    â”œâ”€â”€ README.md
+    â”œâ”€â”€ daily/
+    â””â”€â”€ forecasts/
+        â””â”€â”€ forecast-ledger.md
 ```
 
 ## Source Basis

@@ -97,7 +97,7 @@ def build_fast_args(pub_date: str, url: str, title: str, body_text: str) -> Simp
 
 
 def configure_transaction_root(monkeypatch, tmp_path: Path) -> tuple[Path, Path]:
-    archive = tmp_path / "archive" / "geopolitics"
+    archive = tmp_path / "archive" / "sources" / "geopolitics"
     sources = archive / "sources"
     sources.mkdir(parents=True)
     manifest_path = archive / "source-manifest.json"
@@ -435,8 +435,8 @@ def stale_section_transcript_creates_show_open_and_segments_for_clear_dialogue_w
     assert curation == "curated_sectioned"
     assert section_count >= 2
     assert skip_reason == ""
-    assert rewritten.startswith("### Show Open — ")
-    assert "\n### Segment 2 — " in rewritten
+    assert rewritten.startswith("### Show Open â€” ")
+    assert "\n### Segment 2 â€” " in rewritten
     assert "White House" in rewritten or "Shipping" in rewritten
 
 
@@ -790,7 +790,7 @@ def test_retrofit_source_sections_clear_eligible_transcript() -> None:
         assert result.startswith("TRIMMED")
         assert "transcript_curation: curated_sectioned" in text
         assert "section_count: 2" in text or "section_count: 3" in text
-        assert "### Show Open — " in text
+        assert "### Show Open â€” " in text
         assert "source-section pass 2026-07-09" in text
     finally:
         shutil.rmtree(tmp_dir)
@@ -850,11 +850,11 @@ def test_retrofit_source_preserves_existing_sectioned_body_without_force() -> No
             "\n"
             "## Transcript\n"
             "\n"
-            "### Show Open — Existing\n"
+            "### Show Open â€” Existing\n"
             "\n"
             "Already sectioned block.\n"
             "\n"
-            "### Segment 2 — Existing Turn\n"
+            "### Segment 2 â€” Existing Turn\n"
             "\n"
             "Second block.\n"
         )
@@ -865,7 +865,7 @@ def test_retrofit_source_preserves_existing_sectioned_body_without_force() -> No
 
         assert result is not None
         assert result.startswith("NORMALIZED") or result.startswith("UNCHANGED")
-        assert "### Show Open — Existing" in text
+        assert "### Show Open â€” Existing" in text
         assert text.count("### ") == 2
     finally:
         shutil.rmtree(tmp_dir)
@@ -1649,7 +1649,7 @@ def test_preflight_reports_video_identity_and_duplicate_warning(monkeypatch, tmp
         json.dumps({
             "source_count": 1,
             "sources": [{
-                "local_path": "archive/geopolitics/sources/2026-07-24/source-existing.md",
+                "local_path": "archive/sources/geopolitics/sources/2026-07-24/source-existing.md",
                 "source_identity": "youtube:abc123XYZ_1",
                 "source_url": "https://www.youtube.com/watch?v=abc123XYZ_1",
             }],
@@ -1680,7 +1680,7 @@ def test_manifest_row_carries_identity_and_date_basis() -> None:
     args.host_slug = "audit-host"
     args.voice_slugs = ["audit-voice"]
     normalized = land_best_intake.normalize_args(args)
-    path = REPO_ROOT / "archive" / "geopolitics" / "sources" / "2026-07-24" / "source-a-title-2026-07-24.md"
+    path = REPO_ROOT / "archive" / "sources" / "geopolitics" / "sources" / "2026-07-24" / "source-a-title-2026-07-24.md"
     row = land_best_intake.build_manifest_row(normalized, path, "operator-paste://2026-07-24/a-title")
     assert row["source_identity"] == "youtube:abc123XYZ_1"
     assert row["date_basis"] == "operator-supplied"

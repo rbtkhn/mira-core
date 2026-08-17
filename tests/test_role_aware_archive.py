@@ -79,7 +79,7 @@ def test_publication_render_is_provenance_not_voice_claim() -> None:
     text = MODULE.render_publication(
         "example",
         "Example Publication",
-        [{"date": "2026-07-01", "title": "Essay", "voice_slugs": ["pape"], "local_path": "archive/geopolitics/sources/2026-07-01/a.md"}],
+        [{"date": "2026-07-01", "title": "Essay", "voice_slugs": ["pape"], "local_path": "archive/sources/geopolitics/sources/2026-07-01/a.md"}],
     )
     assert "manifest-derived" in text
     assert "not a person voice record" in text

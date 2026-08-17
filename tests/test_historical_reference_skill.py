@@ -16,7 +16,7 @@ def load():
     module = importlib.util.module_from_spec(spec); sys.modules[spec.name] = module; spec.loader.exec_module(module); return module
 
 @pytest.mark.skipif(
-    not (ROOT / "archive" / "geopolitics" / "sources").is_dir(),
+    not (ROOT / "archive" / "sources" / "geopolitics" / "sources").is_dir(),
     reason="requires hydrated archive transcript bodies",
 )
 def test_explicit_voice_selection_and_stable_patterns():

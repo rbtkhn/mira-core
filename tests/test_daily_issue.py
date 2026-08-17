@@ -29,7 +29,7 @@ def fixture_tree(tmp_path: Path, *, hook_in_day: bool = True, placeholder: bool 
     ng_root = tmp_path / "narrative-geopolitics"
     daily_root = ng_root / "work" / "daily"
     run_dir = daily_root / RUN_DATE
-    archive_root = tmp_path / "archive" / "geopolitics"
+    archive_root = tmp_path / "archive" / "sources" / "geopolitics"
     archive_dir = archive_root / "sources" / RUN_DATE
     ledger_path = ng_root / "work" / "forecasts" / "forecast-ledger.md"
     run_dir.mkdir(parents=True)
@@ -39,7 +39,7 @@ def fixture_tree(tmp_path: Path, *, hook_in_day: bool = True, placeholder: bool 
     archive_path = archive_dir / "source-a.md"
     archive_path.write_text("# Source A\n", encoding="utf-8")
     manifest = {
-        "sources": [{"date": RUN_DATE, "local_path": f"archive/geopolitics/sources/{RUN_DATE}/source-a.md"}]
+        "sources": [{"date": RUN_DATE, "local_path": f"archive/sources/geopolitics/sources/{RUN_DATE}/source-a.md"}]
     }
     (archive_root / "source-manifest.json").write_text(json.dumps(manifest), encoding="utf-8")
 
@@ -52,7 +52,7 @@ Date: `{RUN_DATE}`
 
 | Source ID | Voice | Archive Path | Why It Matters |
 | --- | --- | --- | --- |
-| `SRC-01` | Analyst | [source](../../../../archive/geopolitics/sources/{RUN_DATE}/source-a.md) | Mechanism evidence. |
+| `SRC-01` | Analyst | [source](../../../../archive/sources/geopolitics/sources/{RUN_DATE}/source-a.md) | Mechanism evidence. |
 
 ## Missing Observables
 
@@ -110,7 +110,7 @@ Title rationale: `Names the mechanism that separates normalization from continue
 
 ## Issue Copy
 
-### NGI-20260709-S01 — Passage Rules Remain the Discriminating Test
+### NGI-20260709-S01 â€” Passage Rules Remain the Discriminating Test
 
 {body}
 
@@ -142,7 +142,7 @@ def test_render_is_deterministic_and_selects_declared_sources(tmp_path: Path) ->
     assert first == second
     assert "daily-issue-v1 inputs-sha256:" in first
     assert "Passage Rules Remain the Discriminating Test" in first
-    assert "[source](../../../../archive/geopolitics/sources/2026-07-09/source-a.md)" in first
+    assert "[source](../../../../archive/sources/geopolitics/sources/2026-07-09/source-a.md)" in first
     assert set(issue.REQUIRED_ISSUE_SECTIONS) <= set(name for level, name in issue.HEADING_RE.findall(first) if level == "##")
 
 
