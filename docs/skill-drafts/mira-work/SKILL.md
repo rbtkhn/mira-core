@@ -148,6 +148,26 @@ Working-tree presence is distinct from repository admission, staging, commit,
 push, hosting, and publication. A save option carries only its exact bounded
 scope under the Learn From Choices and Elicitation contracts.
 
+### Publication handoff
+
+When a task changes repository files or leaves publication-relevant work,
+include this compact handoff in the completion status:
+
+```text
+Publication handoff:
+Changed paths:
+Validation run/result:
+Suggested commit message:
+Excluded dirty paths:
+Recommended boundary:
+Authority used:
+```
+
+The handoff is conversational unless another governing workflow saves it. It
+does not authorize staging, commit, push, PR creation, publication, deployment,
+or hosted-state change; it gives Mira GitHub enough evidence to run the
+publication lane without rediscovering the implementation session.
+
 When auditing or revising Mira Work, read
 [`references/validation-fixtures.json`](references/validation-fixtures.json).
 Treat its cases as human-reviewed behavioral benchmarks, not machine-scored

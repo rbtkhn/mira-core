@@ -167,6 +167,24 @@ def test_completion_receipt_is_observable_but_not_retained_automatically() -> No
     assert "existing governing workflow already saves it" in skill
 
 
+def test_publication_handoff_fields_are_required_for_repository_changes() -> None:
+    skill = read_skill()
+    normalized = " ".join(skill.split())
+    for field in (
+        "Publication handoff:",
+        "Changed paths:",
+        "Validation run/result:",
+        "Suggested commit message:",
+        "Excluded dirty paths:",
+        "Recommended boundary:",
+        "Authority used:",
+    ):
+        assert field in skill
+    assert "changes repository files" in normalized
+    assert "conversational unless another governing workflow saves it" in normalized
+    assert "does not authorize staging, commit, push" in normalized
+
+
 def test_behavioral_fixture_inventory_is_complete_and_human_reviewed() -> None:
     cases = fixtures()
     assert [case["id"] for case in cases] == [

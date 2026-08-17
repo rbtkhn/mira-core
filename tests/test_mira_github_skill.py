@@ -134,6 +134,17 @@ def test_skill_uses_non_printing_token_check_and_deterministic_publication_tools
     assert "tools/run.ps1 validated-push push" in skill
 
 
+def test_skill_defines_quiet_routine_readiness_scan() -> None:
+    skill = read_skill()
+    normalized = " ".join(skill.split())
+    for field in ("Dirty:", "Staged:", "Ahead:", "Behind:", "Remote:", "Boundary:"):
+        assert field in skill
+    assert "tools/run.ps1 publication-status --json" in skill
+    assert "advisory only" in normalized
+    assert "Surface detailed commentary only when" in normalized
+    assert "do not rely on session summaries alone" in normalized
+
+
 def test_skill_main_workflow_requires_exact_stale_lock_proof() -> None:
     skill = read_skill()
     normalized = " ".join(skill.split())

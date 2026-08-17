@@ -51,6 +51,33 @@ publication must stop with a publication resumption packet. `git ls-remote`
 after a push proves the reached SHA; it does not replace this pre-publication
 freshness check.
 
+### Routine readiness scan
+
+For repeated questions such as `anything pending`, `anything pending push`, or
+`anything pending stage commit or push`, prefer a compact publication console:
+
+```text
+Dirty:
+Staged:
+Ahead:
+Behind:
+Remote:
+Boundary:
+```
+
+Use the read-only helper when available:
+
+```powershell
+tools/run.ps1 publication-status --json
+```
+
+The helper is advisory only. It never stages, commits, fetches with mutation,
+pushes, opens PRs, or replaces `publication-validation` or `validated-push`.
+Use fresh Git truth and remote SHA verification for publication decisions; do
+not rely on session summaries alone. Surface detailed commentary only when a
+blocker, dirty publication candidate, validation requirement, remote mismatch,
+or authority boundary changes the operator's decision.
+
 For remote actions only, run:
 
 ```powershell
