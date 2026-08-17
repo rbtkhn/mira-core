@@ -17,7 +17,7 @@ backend, repair class, target set, and reviewed plan or digest.
 
 Before planning repair, identify the shelf:
 
-- System Archive collection or private catalog
+- Mira Archive collection or private catalog
 - Narrative Geopolitics
 - Singularity Science
 - Mira Journal
@@ -26,8 +26,8 @@ Before planning repair, identify the shelf:
 
 Use repository evidence before asking:
 
-- `system-archive/collections.json`
-- the private System Archive catalog when available and needed for read-only
+- `archive/collections.json`
+- the private Mira Archive catalog when available and needed for read-only
   repair planning
 - known registries and indexes
 - obvious path prefixes, collection IDs, source-family names, voice slugs,
@@ -52,12 +52,12 @@ capability token.
 
 ## Backend matrix
 
-### System Archive
+### Mira Archive
 
-System Archive repairs are control-plane repairs unless a selected backend
+Mira Archive repairs are control-plane repairs unless a selected backend
 contract explicitly permits source-body edits.
 
-Valid System Archive repair families include:
+Valid Mira Archive repair families include:
 
 - checked-in registry versus private catalog drift
 - collection registration or expected-count metadata
@@ -66,7 +66,7 @@ Valid System Archive repair families include:
 - catalog, fingerprint, or control-plane validation failures
 - hydrated mirror repair when explicitly authorized
 
-Prefer `tools/run.ps1 system-archive validate --json`,
+Prefer `tools/run.ps1 archive validate --json`,
 `verify --json`, `replica-status --json`, and backend-supported `--check` or
 dry-run routes. Do not edit canonical object bodies, external-corpus source
 bodies, publish, quote, hydrate, or synchronize replicas unless that exact
@@ -132,7 +132,7 @@ Narrative Geopolitics repair workflow:
 
 ### Singularity Science
 
-Repair Singularity Science only through System Archive control-plane or the
+Repair Singularity Science only through Mira Archive control-plane or the
 selected external-corpus backend. Topical overlap with geopolitics does not
 grant Geopolitics repair authority. Preserve explicit-only retrieval, rights,
 source-body availability, and publication boundaries.

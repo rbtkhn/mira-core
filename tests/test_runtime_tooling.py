@@ -39,6 +39,7 @@ repository_validation = load_module(
 
 
 EXPECTED_SURFACES = {
+    "archive": "archive.py",
     "archive-audit": "archive_audit.py",
     "archive-density": "report_archive_density.py",
     "archive-repair": "archive_repair.py",
@@ -84,6 +85,61 @@ EXPECTED_SURFACES = {
     "voice-sync": "sync_voice_indexes.py",
     "voice-comparison": "voice_comparison.py",
 }
+
+
+@pytest.mark.parametrize(
+    "canonical,aliases",
+    runtime_names.ENVIRONMENT_ALIAS_CHAINS.items(),
+)
+def test_environment_alias_chain_compatibility(
+    canonical: str, aliases: tuple[str, ...]
+) -> None:
+    former, legacy = aliases
+    warnings: list[str] = []
+    runtime_names._WARNED_LEGACY_NAMES.clear()
+    assert runtime_names.resolve_environment(
+        canonical, {canonical: "current"}, warn=warnings.append
+    ) == "current"
+    assert runtime_names.resolve_environment(
+        canonical, {former: "former"}, warn=warnings.append
+    ) == "former"
+    assert runtime_names.resolve_environment(
+        canonical, {legacy: "legacy"}, warn=warnings.append
+    ) == "legacy"
+    assert warnings == [
+        f"{former} is deprecated; use {canonical}",
+        f"{legacy} is deprecated; use {canonical}",
+    ]
+
+    warnings.clear()
+    runtime_names._WARNED_LEGACY_NAMES.clear()
+    equal = {canonical: "same", former: "same", legacy: "same"}
+    assert runtime_names.resolve_environment(
+        canonical, equal, warn=warnings.append
+    ) == "same"
+    assert warnings == [
+        f"{former} is deprecated; use {canonical}",
+        f"{legacy} is deprecated; use {canonical}",
+    ]
+    assert runtime_names.resolve_environment(
+        canonical, equal, warn=warnings.append
+    ) == "same"
+    assert len(warnings) == 2
+
+    for environment in (
+        {canonical: "one", former: "two"},
+        {canonical: "one", legacy: "two"},
+        {former: "one", legacy: "two"},
+        {canonical: "one", former: "two", legacy: "three"},
+    ):
+        with pytest.raises(runtime_names.EnvironmentNameConflict):
+            runtime_names.resolve_environment(canonical, environment)
+
+    environment = {canonical: "", former: "", legacy: ""}
+    assert runtime_names.resolve_environment(canonical, environment) is None
+    environment = {canonical: "same", former: "same", legacy: "same"}
+    assert runtime_names.pop_environment(canonical, environment) == "same"
+    assert environment == {}
 
 
 def write_pyproject(root: Path, dependencies: str = 'test = ["pytest>=8"]') -> None:
@@ -651,9 +707,16 @@ def test_legacy_repository_name_is_confined_to_explicit_compatibility_and_histor
     assert "docs/mira-core-name-migration.md" in (
         repository_validation.LEGACY_REPOSITORY_NAME_ALLOWLIST
     )
+    assert "docs/plans/2026-08-16-mira-archive-name-migration.md" in (
+        repository_validation.LEGACY_REPOSITORY_NAME_ALLOWLIST
+    )
     assert "docs/plans/2026-08-13-system-archive-membrane-repair.md" in (
         repository_validation.LEGACY_REPOSITORY_DISPLAY_NAME_ALLOWLIST
     )
+
+
+def test_legacy_archive_name_is_confined_to_compatibility_and_history() -> None:
+    assert repository_validation.legacy_archive_name_failures() == []
 
 
 def test_legacy_repository_display_name_is_rejected_outside_allowlist(

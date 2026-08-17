@@ -77,7 +77,7 @@ architecture.
 Classify it as an `internal` essay and move it to
 `mira/essays/2026-08-11-an-archaeology-of-constructed-minds.md`. Preserve its
 System Archive ancestry in a provenance note. Retire the legacy shelf or turn
-its [README](../../system-archive/essays/README.md) into a bounded pointer to
+its [README](../../archive/essays/README.md) into a bounded pointer to
 the canonical essay location.
 
 The credible rival is that a domain essay belongs beside its subject. That

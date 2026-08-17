@@ -72,7 +72,17 @@ def test_every_claim_resolves_to_approved_case_source() -> None:
             assert set(claim["sources"]) <= source_ids
 
 
-@pytest.mark.parametrize("token", ["system-archive", "mira/journal", "OPENAI_API_KEY", "C:\\private"])
+@pytest.mark.parametrize(
+    "token",
+    [
+        "system-archive",
+        "MIRA_CORE_ARCHIVE_ROOT",
+        "mira-core-archive-config",
+        "mira/journal",
+        "OPENAI_API_KEY",
+        "C:\\private",
+    ],
+)
 def test_public_manifest_rejects_private_or_credential_tokens(token: str) -> None:
     data = mira_face.load_manifest()
     data["objective"] += token

@@ -21,6 +21,7 @@ SURFACES = {
     "archive-audit": REPO_ROOT / "scripts" / "archive_audit.py",
     "archive-density": REPO_ROOT / "scripts" / "report_archive_density.py",
     "archive-repair": REPO_ROOT / "scripts" / "archive_repair.py",
+    "archive": REPO_ROOT / "scripts" / "archive.py",
     "asr-repair": REPO_ROOT / "scripts" / "run_asr_repair_pilot.py",
     "cadence": REPO_ROOT / "scripts" / "cadence.py",
     "choice": REPO_ROOT / "scripts" / "choice_ledger.py",

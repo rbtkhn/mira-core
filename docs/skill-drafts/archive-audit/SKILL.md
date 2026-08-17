@@ -17,7 +17,7 @@ cross-collection authority.
 
 Before auditing, identify the shelf:
 
-- System Archive collection or private catalog
+- Mira Archive collection or private catalog
 - Narrative Geopolitics
 - Singularity Science
 - Mira Journal
@@ -26,8 +26,8 @@ Before auditing, identify the shelf:
 
 Use repository evidence before asking:
 
-- `system-archive/collections.json`
-- the private System Archive catalog when available and needed for read-only
+- `archive/collections.json`
+- the private Mira Archive catalog when available and needed for read-only
   audit evidence
 - known registries and indexes
 - obvious path prefixes, collection IDs, source-family names, voice slugs,
@@ -50,9 +50,9 @@ global archive assessment.
 
 ## Backend matrix
 
-### System Archive
+### Mira Archive
 
-Audit System Archive when the target is a cross-archive substrate concern,
+Audit Mira Archive when the target is a cross-archive substrate concern,
 explicit-only collection, private catalog state, registry/catalog parity, or
 replica/hydration boundary.
 
@@ -66,8 +66,8 @@ Assess only the requested scope:
 - catalog fingerprints and replica status when requested
 - rights, promotion, and authority-boundary metadata where present
 
-Prefer `tools/run.ps1 system-archive status --json`,
-`tools/run.ps1 system-archive validate --json`, `verify --json`, and
+Prefer `tools/run.ps1 archive status --json`,
+`tools/run.ps1 archive validate --json`, `verify --json`, and
 `replica-status --json` when they cover the requested audit. If the checked-in
 registry is stale but a private canonical catalog is available, use read-only
 catalog inspection for the audit and disclose the mismatch.
@@ -103,7 +103,7 @@ Interpretation:
 
 ### Singularity Science
 
-Audit Singularity Science through its System Archive collections. Check
+Audit Singularity Science through its Mira Archive collections. Check
 collection count parity, explicit-only status, hydration-disabled status,
 rights boundaries, source-body availability metadata, and registry/catalog
 drift. Do not route findings into Narrative Geopolitics, public quotation,

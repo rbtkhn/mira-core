@@ -1,25 +1,33 @@
-# System Archive
+# Mira Archive
 
-System Archive is Mira's model-independent, auditable memory and learning
+Mira Archive is Mira's model-independent, auditable memory and learning
 substrate. It preserves immutable bodies, cross-collection inventory,
 bitemporal records, neutral provenance, reproducible derivations, and bounded
 context assembly. It is not a factual adjudicator: collection-native controls
 retain membership, routing, continuity, adjudication, and identity authority.
 
 Canonical bodies and SQLite catalog live outside Git under
-`MIRA_CORE_SYSTEM_ARCHIVE_ROOT`; an independent replica uses
-`MIRA_CORE_SYSTEM_ARCHIVE_REPLICA_ROOT`. Existing collection paths are ignored,
+`MIRA_CORE_ARCHIVE_ROOT`; an independent replica uses
+`MIRA_CORE_ARCHIVE_REPLICA_ROOT`. Existing collection paths are ignored,
 byte-identical hydrated mirrors.
 
 Environment variables take precedence over the private fallback configuration
-at `C:\private\narrative-system-archive-config.json`. Canonical and replica
+at `C:\private\mira-core-archive-config.json`. The former configuration paths
+remain deprecated fallbacks during the
+compatibility cycle. Canonical and replica
 roots must be distinct, writable, and outside Git.
 
-Use `tools/run.ps1 system-archive` with `status`, `collections`, `ingest`,
+Use `tools/run.ps1 archive` with `status`, `collections`, `ingest`,
 `hydrate`, `validate`, `verify`, `search`, `lineage`, `context build`,
 `replay plan`, `replica-status`, or `benchmark`. Mutation commands provide
 `--check`; machine callers add `--json`. Run `session-preflight` before
 writing external temporary outputs or benchmarks.
+
+During the compatibility cycle, `tools/run.ps1 system-archive` remains a
+deprecated alias and emits one warning per process. The former archive
+environment variables remain ordered aliases of the
+canonical `MIRA_CORE_ARCHIVE_*` variables; conflicting populated values fail
+closed. Alias removal requires a separately authorized migration.
 
 `status` and `collections` are read-only visibility commands. They compare the
 checked-in collection registry with the active catalog and disclose
@@ -37,7 +45,7 @@ The `innermost-loop` collection is a pinned external corpus of frontier-AI and
 technology research. It is separate from Narrative Geopolitics, explicit-only
 for retrieval, and disabled for repository hydration. Ingest it from the pinned
 Anyang Intelligence checkout with
-`system-archive ingest --collection innermost-loop --source-root PATH`.
+`archive ingest --collection innermost-loop --source-root PATH`.
 Storage and retrieval do not verify Innermost Loop claims, transfer publication
 rights, or promote the collection into geopolitical evidence, synthesis, voice
 indexes, or doctrine.
@@ -54,7 +62,7 @@ is not present in the collection.
 
 Moonshots uses pinned Git-object bytes so checkout line-ending conversion
 cannot alter its hashes. It is explicit-only and hydration-disabled. Run
-`system-archive ingest --collection moonshots --source-root PATH` or add
+`archive ingest --collection moonshots --source-root PATH` or add
 `--check` for a dry run. Storage and retrieval grant no authority to quote,
 republish, route to customers, promote claims or doctrine, alter continuity or
 identity, or enter geopolitical synthesis. Joint retrieval must name each

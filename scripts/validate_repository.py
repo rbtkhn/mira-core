@@ -30,7 +30,7 @@ import recursive_learning_ledger
 import mira_continuity
 import mira_journal
 import operator_positions
-import system_archive
+import archive
 from role_aware_archive import validate_row as validate_role_row
 
 
@@ -76,6 +76,7 @@ LEGACY_REPOSITORY_NAME_ALLOWLIST = frozenset({
     "docs/audits/2026-08-16-loose-prose-classification.md",
     "docs/audits/2026-08-16-repository-system-audit.md",
     "docs/mira-core-name-migration.md",
+    "docs/plans/2026-08-16-mira-archive-name-migration.md",
     "mira/constitution.schema.json",
     "mira/continuity/session-registry.json",
     "mira/face/landing-page/encounter.schema.json",
@@ -85,11 +86,11 @@ LEGACY_REPOSITORY_NAME_ALLOWLIST = frozenset({
     "scripts/contradiction_kernel.provenance.json",
     "scripts/mira_continuity.py",
     "scripts/validate_repository.py",
-    "system-archive/schemas/context-pack.schema.json",
-    "system-archive/schemas/derivation-manifest.schema.json",
-    "system-archive/schemas/replay-plan.schema.json",
-    "system-archive/schemas/repository-artifact-manifest.schema.json",
-    "system-archive/schemas/task-spec.schema.json",
+    "archive/schemas/context-pack.schema.json",
+    "archive/schemas/derivation-manifest.schema.json",
+    "archive/schemas/replay-plan.schema.json",
+    "archive/schemas/repository-artifact-manifest.schema.json",
+    "archive/schemas/task-spec.schema.json",
     "tests/test_contradiction_preflight.py",
     "tests/test_cadence_ledger.py",
     "tests/test_dream_eod.py",
@@ -113,6 +114,46 @@ LEGACY_REPOSITORY_DISPLAY_NAME_ALLOWLIST = frozenset({
 LEGACY_REPOSITORY_IDENTITIES = (
     (LEGACY_REPOSITORY_NAME, LEGACY_REPOSITORY_NAME_ALLOWLIST),
     (LEGACY_REPOSITORY_DISPLAY_NAME, LEGACY_REPOSITORY_DISPLAY_NAME_ALLOWLIST),
+)
+
+LEGACY_ARCHIVE_TOKENS = (
+    "system-archive",
+    "System Archive",
+    "SYSTEM_ARCHIVE",
+    "system_archive",
+    "narrative-system-archive",
+)
+LEGACY_ARCHIVE_COMPATIBILITY_FILES = frozenset({
+    "archive/README.md",
+    "archive/context-policy.json",
+    "archive/essays/README.md",
+    "archive/registries/innermost-loop.json",
+    "archive/registries/moonshots.json",
+    "scripts/archive.py",
+    "scripts/archive_store.py",
+    "scripts/mira_constitution.py",
+    "scripts/mira_face.py",
+    "scripts/mira_memory.py",
+    "scripts/runtime_names.py",
+    "scripts/system_archive.py",
+    "scripts/system_archive_store.py",
+    "scripts/validate_repository.py",
+    "tests/test_archive.py",
+    "tests/test_mira_face.py",
+    "tests/test_mira_memory.py",
+    "tests/test_runtime_tooling.py",
+    "tools/run_repo.py",
+})
+LEGACY_ARCHIVE_HISTORICAL_PREFIXES = (
+    "archive/schemas/",
+    "docs/audits/",
+    "docs/plans/",
+    "mira/essays/",
+    "mira/journal/",
+    "mira/notes/",
+    "narrative-geopolitics/archive/source-manifest.json",
+    "narrative-geopolitics/voices/",
+    "narrative-geopolitics/work/",
 )
 
 MARKDOWN_LINK_RE = re.compile(r"\[[^\]]+\]\(([^)]+)\)")
@@ -616,6 +657,37 @@ def legacy_repository_identity_failures() -> list[str]:
     return failures
 
 
+def legacy_archive_name_failures() -> list[str]:
+    result = subprocess.run(
+        ["git", "ls-files", "--cached", "--others", "--exclude-standard"],
+        cwd=REPO_ROOT,
+        capture_output=True,
+        check=True,
+        text=True,
+    )
+    failures: list[str] = []
+    for raw in result.stdout.splitlines():
+        relative_path = raw.strip().replace("\\", "/")
+        path = REPO_ROOT / relative_path
+        if not path.is_file() or path.suffix.lower() not in {
+            ".json", ".md", ".py", ".toml", ".txt", ".yaml", ".yml"
+        }:
+            continue
+        text = path.read_text(encoding="utf-8")
+        if not any(token in text for token in LEGACY_ARCHIVE_TOKENS):
+            continue
+        allowed = (
+            relative_path in LEGACY_ARCHIVE_COMPATIBILITY_FILES
+            or any(
+                relative_path.startswith(prefix)
+                for prefix in LEGACY_ARCHIVE_HISTORICAL_PREFIXES
+            )
+        )
+        if not allowed:
+            failures.append(f"operative legacy archive name: {relative_path}")
+    return sorted(failures)
+
+
 def voice_routing_failures() -> list[str]:
     manifest = load_manifest()
     failures = voice_metadata.metadata_failures(manifest, REPO_ROOT)
@@ -705,11 +777,12 @@ REPOSITORY_CHECKS = (
     ("recursive_learning_ledger.validate_ledger", recursive_learning_ledger.validate_ledger),
     ("mira_continuity.validate_control_plane_state", mira_continuity.validate_control_plane_state),
     ("mira_journal.validate_repository_state", mira_journal.validate_repository_state),
-    ("system_archive.validate_repository_state", system_archive.validate_repository_state),
+    ("archive.validate_repository_state", archive.validate_repository_state),
     ("operator_positions.validate_ledger", operator_positions.validate_ledger),
     ("legacy_verification_inventory_failures", legacy_verification_inventory_failures),
     ("tracked_artifact_failures", tracked_artifact_failures),
     ("legacy_repository_identity_failures", legacy_repository_identity_failures),
+    ("legacy_archive_name_failures", legacy_archive_name_failures),
     ("obsolete_guidance_failures", obsolete_guidance_failures),
     ("voice_routing_failures", voice_routing_failures),
 )

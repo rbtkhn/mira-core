@@ -17,7 +17,7 @@ collections.
 
 Before querying, identify the shelf:
 
-- System Archive collection or private catalog
+- Mira Archive collection or private catalog
 - Narrative Geopolitics
 - Singularity Science
 - Mira Journal
@@ -26,8 +26,8 @@ Before querying, identify the shelf:
 
 Use repository evidence before asking:
 
-- `system-archive/collections.json`
-- the private System Archive catalog when available and needed for read-only
+- `archive/collections.json`
+- the private Mira Archive catalog when available and needed for read-only
   inventory or search
 - known registries and indexes
 - obvious path prefixes, collection IDs, source-family names, voice slugs,
@@ -40,13 +40,13 @@ scoped the whole question to that shelf.
 
 ## Backend matrix
 
-### System Archive
+### Mira Archive
 
-Use System Archive as the cross-archive substrate when the target is a
+Use Mira Archive as the cross-archive substrate when the target is a
 collection, explicit-only corpus, Mira surface, or cross-shelf archive lookup.
 
-- Prefer `tools/run.ps1 system-archive status --json` and
-  `tools/run.ps1 system-archive search --collection COLLECTION --query QUERY
+- Prefer `tools/run.ps1 archive status --json` and
+  `tools/run.ps1 archive search --collection COLLECTION --query QUERY
   --json` when the collection is registered.
 - If the checked-in registry is stale but a private canonical catalog is
   available, use read-only catalog inspection only for inventory or search and
@@ -77,7 +77,7 @@ voice inventory.
 
 ### Singularity Science
 
-Route Singularity Science sources through System Archive collections such as
+Route Singularity Science sources through Mira Archive collections such as
 `innermost-loop`, `moonshots`, `nate-herk`, and `nate-b-jones`.
 
 Keep explicit-only and rights boundaries visible. Do not promote Singularity
@@ -86,7 +86,7 @@ doctrine, identity, customer routing, or publication.
 
 ### Mira Journal and Continuity
 
-Use approved registries, indexes, or System Archive metadata only. Retrieval
+Use approved registries, indexes, or Mira Archive metadata only. Retrieval
 does not promote journal prose or continuity records into canonical identity,
 operator belief, research evidence, Reality, or action authority.
 

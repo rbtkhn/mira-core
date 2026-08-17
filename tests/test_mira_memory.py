@@ -15,8 +15,12 @@ SCRIPT = ROOT / "scripts" / "mira_memory.py"
 def run_status(*arguments: str, environment: dict[str, str] | None = None) -> subprocess.CompletedProcess[str]:
     if environment is None:
         environment = os.environ.copy()
+        environment.pop("MIRA_CORE_ARCHIVE_ROOT", None)
+        environment.pop("MIRA_CORE_SYSTEM_ARCHIVE_ROOT", None)
         environment.pop("NARRATIVE_SYSTEM_ARCHIVE_ROOT", None)
-        environment["NARRATIVE_SYSTEM_ARCHIVE_CONFIG"] = str(ROOT / "missing-private-config.json")
+        environment.pop("MIRA_CORE_SYSTEM_ARCHIVE_CONFIG", None)
+        environment.pop("NARRATIVE_SYSTEM_ARCHIVE_CONFIG", None)
+        environment["MIRA_CORE_ARCHIVE_CONFIG"] = str(ROOT / "missing-private-config.json")
     return subprocess.run(
         [sys.executable, str(SCRIPT), "status", *arguments],
         cwd=ROOT,
@@ -69,7 +73,7 @@ def test_json_status_has_stable_contract_and_all_carriers() -> None:
     assert payload["mutation_performed"] is False
     assert {row["id"] for row in payload["carriers"]} == {
         "continuity", "mira-journal", "recursive-learning",
-        "system-archive", "narrative-geopolitics", "private-choice-history",
+        "archive", "narrative-geopolitics", "private-choice-history",
         "private-cadence-history", "private-mentorship-history",
     }
     for field in ("tensions", "coverage_gaps", "authority_boundary"):
@@ -84,13 +88,17 @@ def test_json_status_has_stable_contract_and_all_carriers() -> None:
 def test_missing_optional_configuration_is_unavailable() -> None:
     environment = os.environ.copy()
     environment.pop("NARRATIVE_CHOICE_DB", None)
+    environment.pop("MIRA_CORE_ARCHIVE_ROOT", None)
+    environment.pop("MIRA_CORE_SYSTEM_ARCHIVE_ROOT", None)
     environment.pop("NARRATIVE_SYSTEM_ARCHIVE_ROOT", None)
-    environment["NARRATIVE_SYSTEM_ARCHIVE_CONFIG"] = str(ROOT / "missing-private-config.json")
+    environment.pop("MIRA_CORE_SYSTEM_ARCHIVE_CONFIG", None)
+    environment.pop("NARRATIVE_SYSTEM_ARCHIVE_CONFIG", None)
+    environment["MIRA_CORE_ARCHIVE_CONFIG"] = str(ROOT / "missing-private-config.json")
     result = run_status("--as-of", "2026-08-14T18:00:00Z", "--json", environment=environment)
     assert result.returncode == 0
     carriers = {row["id"]: row for row in json.loads(result.stdout)["carriers"]}
     assert carriers["private-choice-history"]["availability"] == "unavailable"
-    assert carriers["system-archive"]["availability"] == "unavailable"
+    assert carriers["archive"]["availability"] == "unavailable"
 
 
 def test_focus_routes_without_excluding_other_carriers() -> None:
@@ -108,6 +116,13 @@ def test_cadence_focus_routes_to_distinct_owners() -> None:
     assert mira_memory.route_focus("coffee")["recommended_owner"] == "coffee"
     assert mira_memory.route_focus("record dream")["recommended_owner"] == "dream"
     assert mira_memory.route_focus("assess cadence learning")["recommended_owner"] == "recursive-learn"
+
+
+def test_former_archive_carrier_name_routes_to_canonical_owner() -> None:
+    sys.path.insert(0, str(ROOT / "scripts"))
+    import mira_memory
+
+    assert mira_memory.route_focus("system-archive lineage")["recommended_owner"] == "archive"
 
 
 def test_explicit_operation_outranks_secondary_memory_objects() -> None:
@@ -156,7 +171,7 @@ def test_status_does_not_change_tracked_carrier_bytes() -> None:
         ROOT / "mira/continuity/session-registry.json",
         ROOT / "mira/journal-registry.json",
         ROOT / "narrative-geopolitics/work/system-improvement/recursive-learning-ledger.json",
-        ROOT / "system-archive/collections.json",
+        ROOT / "archive/collections.json",
     ]
     before = {path: path.read_bytes() for path in tracked}
     result = run_status("--focus", "process learning", "--as-of", "2026-08-14T18:00:00Z", "--json")
@@ -233,13 +248,13 @@ def test_supported_tensions_preserve_attribution() -> None:
         assert tension["observations"][0]["carrier"] == "a"
 
 
-def test_system_archive_countercheck_reports_parity_and_zero_records(monkeypatch) -> None:
+def test_archive_countercheck_reports_parity_and_zero_records(monkeypatch) -> None:
     sys.path.insert(0, str(ROOT / "scripts"))
     import mira_memory
-    import system_archive
+    import archive
 
-    monkeypatch.setenv("NARRATIVE_SYSTEM_ARCHIVE_ROOT", str(ROOT / "private-placeholder"))
-    monkeypatch.setattr(system_archive, "status_command", lambda _args: {
+    monkeypatch.setenv("MIRA_CORE_ARCHIVE_ROOT", str(ROOT / "private-placeholder"))
+    monkeypatch.setattr(archive, "status_command", lambda _args: {
         "status": "available",
         "collections": {
             "registry_only": ["system-improvement"],
@@ -250,7 +265,7 @@ def test_system_archive_countercheck_reports_parity_and_zero_records(monkeypatch
             ],
         },
     })
-    row = mira_memory.system_archive_carrier(inspect_catalog=True)
+    row = mira_memory.archive_carrier(inspect_catalog=True)
     assert row["availability"] == "degraded"
     assert row["freshness"] == "drift"
     assert row["countercheck"] == {

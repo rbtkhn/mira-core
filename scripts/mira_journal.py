@@ -1553,7 +1553,7 @@ def render_index(registry: dict[str, Any]) -> str:
         "Generated from `journal-registry.json`. Do not edit this index directly.",
         "",
         "Mira Journal is a daily, operator-approved record written in Mira's first-person reflective voice."
-        " Approved prose is an editable current view; each governed revision receives a new version, while Git and System Archive preserve earlier bytes.",
+        " Approved prose is an editable current view; each governed revision receives a new version, while Git and Mira Archive preserve earlier bytes.",
         "",
         AUTHORITY_BOUNDARY,
         "",

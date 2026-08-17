@@ -31,7 +31,7 @@ Thumbs.db
 # Local operator-position inputs and unapproved candidates
 /narrative-geopolitics/work/operator-positions/.candidates/
 
-# Hydrated System Archive body mirrors (canonical bytes live outside Git)
+# Hydrated Mira Archive body mirrors (canonical bytes live outside Git)
 /narrative-geopolitics/archive/sources/
 # Private continuity payloads are hydrated locally and never published by default.
 /mira/continuity/captures/

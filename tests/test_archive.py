@@ -4,6 +4,7 @@ import json
 import gzip
 import copy
 import sqlite3
+import subprocess
 import sys
 from pathlib import Path
 from types import SimpleNamespace
@@ -14,8 +15,8 @@ SCRIPTS = Path(__file__).resolve().parent.parent / "scripts"
 if str(SCRIPTS) not in sys.path:
     sys.path.insert(0, str(SCRIPTS))
 
-import system_archive
-from system_archive_store import ArchiveError, ArtifactStore, RecordInput, add_edge, catalog_counts, ingest_record, safe_logical_path, verify_derivation_acyclic
+import archive as system_archive
+from archive_store import ArchiveError, ArtifactStore, RecordInput, add_edge, catalog_counts, ingest_record, safe_logical_path, verify_derivation_acyclic
 
 
 def test_private_storage_config_fallback_and_environment_precedence(
@@ -43,6 +44,39 @@ def test_private_storage_config_fallback_and_environment_precedence(
     )
 
 
+def test_private_config_fallback_precedence(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, capsys: pytest.CaptureFixture[str]
+) -> None:
+    repo = tmp_path / "repo"; repo.mkdir()
+    canonical = tmp_path / "canonical"; canonical.mkdir()
+    replica = tmp_path / "replica"; replica.mkdir()
+    current = tmp_path / "current.json"
+    former = tmp_path / "former.json"
+    legacy = tmp_path / "legacy.json"
+    document = json.dumps({
+        "schema_version": 1,
+        "canonical_root": str(canonical),
+        "replica_root": str(replica),
+    })
+    former.write_text(document, encoding="utf-8")
+    legacy.write_text(document, encoding="utf-8")
+    monkeypatch.setattr(system_archive, "REPO_ROOT", repo)
+    monkeypatch.setattr(system_archive, "DEFAULT_CONFIG_PATH", current)
+    monkeypatch.setattr(system_archive, "FORMER_CONFIG_PATH", former)
+    monkeypatch.setattr(system_archive, "LEGACY_CONFIG_PATH", legacy)
+    for name in (
+        system_archive.CONFIG_PATH_ENV,
+        "MIRA_CORE_SYSTEM_ARCHIVE_CONFIG",
+        "NARRATIVE_SYSTEM_ARCHIVE_CONFIG",
+    ):
+        monkeypatch.delenv(name, raising=False)
+    assert system_archive.storage_config()[1] == former.resolve()
+    assert str(former) in capsys.readouterr().err
+    former.unlink()
+    assert system_archive.storage_config()[1] == legacy.resolve()
+    assert str(legacy) in capsys.readouterr().err
+
+
 def test_environment_roots_must_remain_distinct(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:
@@ -60,7 +94,7 @@ def test_repository_artifact_manifest_is_digest_bound_and_explicit_only(
 ) -> None:
     repo = tmp_path / "repo"; audit = repo / "docs" / "audits" / "baseline.md"
     audit.parent.mkdir(parents=True); audit.write_text("Observed selection bias.\n", encoding="utf-8")
-    body = audit.read_bytes(); registry = repo / "system-archive" / "registries" / "system-improvement.json"
+    body = audit.read_bytes(); registry = repo / "archive" / "registries" / "system-improvement.json"
     registry.parent.mkdir(parents=True)
     registry.write_text(json.dumps({
         "schema_version": 1,
@@ -81,9 +115,9 @@ def test_repository_artifact_manifest_is_digest_bound_and_explicit_only(
     collection = {
         "id": "system-improvement",
         "kind": "repository-artifact-manifest",
-        "registry_path": "system-archive/registries/system-improvement.json",
+        "registry_path": "archive/registries/system-improvement.json",
         "logical_root": "repository-artifacts/system-improvement",
-        "authority_owner": "system-archive/registries/system-improvement.json",
+        "authority_owner": "archive/registries/system-improvement.json",
         "evidence_class": "system-improvement-evidence",
         "retrieval_policy": "explicit-only",
     }
@@ -289,7 +323,7 @@ def test_journal_lineage_links_sources_and_exact_approval(
 
 def test_innermost_loop_manifest_is_pinned_and_complete() -> None:
     manifest = json.loads(
-        (Path(__file__).resolve().parent.parent / "system-archive" / "registries" / "innermost-loop.json").read_text(encoding="utf-8")
+        (Path(__file__).resolve().parent.parent / "archive" / "registries" / "innermost-loop.json").read_text(encoding="utf-8")
     )
     assert manifest["source_commit"] == "940f354e00e2f49af2f340dd4ef1c1bc6e8ded77"
     assert manifest["document_count"] == len(manifest["documents"]) == 193
@@ -397,7 +431,7 @@ def test_external_corpus_lineage_is_neutral_and_idempotent(
 
 def test_moonshots_manifest_is_pinned_complete_and_bounded() -> None:
     repo = Path(__file__).resolve().parent.parent
-    manifest = json.loads((repo / "system-archive" / "registries" / "moonshots.json").read_text(encoding="utf-8"))
+    manifest = json.loads((repo / "archive" / "registries" / "moonshots.json").read_text(encoding="utf-8"))
     assert manifest["schema_version"] == 2
     assert manifest["source_commit"] == "940f354e00e2f49af2f340dd4ef1c1bc6e8ded77"
     assert manifest["document_count"] == len(manifest["documents"]) == 29
@@ -415,7 +449,7 @@ def test_moonshots_manifest_is_pinned_complete_and_bounded() -> None:
 
 
 def test_moonshots_lineage_and_alias_receipts_are_exact() -> None:
-    manifest = json.loads((Path(__file__).resolve().parent.parent / "system-archive" / "registries" / "moonshots.json").read_text(encoding="utf-8"))
+    manifest = json.loads((Path(__file__).resolve().parent.parent / "archive" / "registries" / "moonshots.json").read_text(encoding="utf-8"))
     assert sum(len(row.get("derived_from", [])) for row in manifest["documents"]) == 26
     receipts = [receipt for row in manifest["documents"] for receipt in row.get("lineage_resolution_receipts", [])]
     assert len(receipts) == 5
@@ -474,3 +508,51 @@ def test_moonshots_manifest_v2_fails_closed(
     monkeypatch.setattr(system_archive, "load_json", lambda _: broken)
     with pytest.raises(ArchiveError, match=message):
         system_archive.external_manifest(collection)
+
+
+def test_active_registry_uses_archive_paths_and_preserves_upstream_paths() -> None:
+    registry = system_archive.collection_document()
+    assert registry["registry_id"] == "archive-collections-v2"
+    assert registry["authority_boundary"].startswith("Mira Archive governs")
+    for collection in registry["collections"]:
+        if collection["id"] in {"innermost-loop", "moonshots", "system-improvement"}:
+            assert collection["registry_path"].startswith("archive/registries/")
+            assert collection["authority_owner"].startswith("archive/registries/")
+    manifest = system_archive.load_json(
+        Path(__file__).resolve().parent.parent
+        / "archive"
+        / "registries"
+        / "innermost-loop.json"
+    )
+    assert manifest["source_prefix"].startswith("system-archive/singularity-science/")
+
+
+def test_deprecated_cli_wrapper_matches_canonical_git_validation() -> None:
+    root = Path(__file__).resolve().parent.parent
+    canonical = subprocess.run(
+        [sys.executable, str(root / "scripts" / "archive.py"), "validate", "--git-only", "--json"],
+        cwd=root,
+        text=True,
+        capture_output=True,
+        check=False,
+    )
+    deprecated = subprocess.run(
+        [sys.executable, str(root / "scripts" / "system_archive.py"), "validate", "--git-only", "--json"],
+        cwd=root,
+        text=True,
+        capture_output=True,
+        check=False,
+    )
+    assert canonical.returncode == deprecated.returncode == 0
+    assert json.loads(canonical.stdout) == json.loads(deprecated.stdout)
+    assert deprecated.stderr.count("system-archive is deprecated; use archive") == 1
+
+
+def test_legacy_python_modules_export_canonical_archive_behavior() -> None:
+    import archive
+    import archive_store
+    import system_archive
+    import system_archive_store
+
+    assert system_archive.status_command is archive.status_command
+    assert system_archive_store.ArtifactStore is archive_store.ArtifactStore

@@ -14,7 +14,7 @@ This directory implements five governed continuity layers:
 - `identity-ledger.json` is the canonical identity authority.
 - `captures/` contains private, byte-identical locally hydrated views of
   immutable deterministic `.jsonl.gz` snapshots stored by the root
-  [System Archive](../../system-archive/README.md). The directory is excluded
+  [Mira Archive](../../archive/README.md). The directory is excluded
   from Git.
 - `harvests/` contains selective reviewed packets; an indexed session need not be harvested.
 - `../identity.md`, `trajectory.md`, and `activation.md` are generated views.
@@ -72,7 +72,7 @@ authority reference. Earlier versions are preserved.
 
 Session history is continuity evidence only. It is not archive evidence,
 Reality evidence, automatic operator belief, or permission to act.
-System Archive storage and retrieval do not change this authority boundary.
+Mira Archive storage and retrieval do not change this authority boundary.
 
 Mira's daily first-person reflections are separately governed by
 `tools/run.ps1 mira-journal`. The journal may cite continuity records but is

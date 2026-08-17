@@ -15,7 +15,15 @@ MANIFEST_PATH = PAGE_ROOT / "encounter.json"
 OUTPUT_PATH = PAGE_ROOT / "index.html"
 RECEIPT_PATH = PAGE_ROOT / "review-receipt.json"
 ALLOWED_HOSTS = {"history.state.gov", "www.nationalarchives.gov.uk", "www.bundestag.de"}
-FORBIDDEN_TEXT = ("system-archive", "mira/journal", "c:\\private", "api_key", "openai_api_key")
+FORBIDDEN_TEXT = (
+    "system-archive",
+    "mira_core_archive",
+    "mira-core-archive-config",
+    "mira/journal",
+    "c:\\private",
+    "api_key",
+    "openai_api_key",
+)
 CLAIM_KINDS = {"opening_judgment", "historical_inheritance", "actor_constraints", "strongest_rival", "bounded_conclusion"}
 
 

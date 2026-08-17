@@ -18,9 +18,10 @@ SCHEMA_VERSION = 2
 CHOICE_ENV = "MIRA_CORE_CHOICE_DB"
 CADENCE_ENV = "MIRA_CORE_CADENCE_DB"
 MENTORSHIP_ENV = "MIRA_MENTORSHIP_DB"
-ARCHIVE_ROOT_ENV = "MIRA_CORE_SYSTEM_ARCHIVE_ROOT"
-ARCHIVE_CONFIG_ENV = "MIRA_CORE_SYSTEM_ARCHIVE_CONFIG"
-DEFAULT_ARCHIVE_CONFIG = Path(r"C:\private\mira-core-system-archive-config.json")
+ARCHIVE_ROOT_ENV = "MIRA_CORE_ARCHIVE_ROOT"
+ARCHIVE_CONFIG_ENV = "MIRA_CORE_ARCHIVE_CONFIG"
+DEFAULT_ARCHIVE_CONFIG = Path(r"C:\private\mira-core-archive-config.json")
+FORMER_ARCHIVE_CONFIG = Path(r"C:\private\mira-core-system-archive-config.json")
 LEGACY_ARCHIVE_CONFIG = Path(r"C:\private\narrative-system-archive-config.json")
 TENSION_KINDS = {
     "stale-derived-view",
@@ -214,25 +215,28 @@ def recursive_carrier() -> dict[str, Any]:
     )
 
 
-def system_archive_carrier(*, inspect_catalog: bool = False) -> dict[str, Any]:
-    registry = REPO_ROOT / "system-archive/collections.json"
+def archive_carrier(*, inspect_catalog: bool = False) -> dict[str, Any]:
+    registry = REPO_ROOT / "archive/collections.json"
     state, validation = json_state(registry)
     configured_path = resolve_environment(ARCHIVE_CONFIG_ENV)
     config = Path(configured_path) if configured_path else DEFAULT_ARCHIVE_CONFIG
-    if not configured_path and not config.is_file() and LEGACY_ARCHIVE_CONFIG.is_file():
-        print(
-            f"{LEGACY_ARCHIVE_CONFIG} is deprecated; use {DEFAULT_ARCHIVE_CONFIG}",
-            file=sys.stderr,
-        )
-        config = LEGACY_ARCHIVE_CONFIG
+    if not configured_path and not config.is_file():
+        for fallback in (FORMER_ARCHIVE_CONFIG, LEGACY_ARCHIVE_CONFIG):
+            if fallback.is_file():
+                print(
+                    f"{fallback} is deprecated; use {DEFAULT_ARCHIVE_CONFIG}",
+                    file=sys.stderr,
+                )
+                config = fallback
+                break
     configured = bool(resolve_environment(ARCHIVE_ROOT_ENV)) or config.is_file()
     result = carrier(
-        "system-archive",
+        "archive",
         ["epistemic", "autobiographical", "procedural", "relational"],
         "model-independent storage and lineage; collection-native authority retained",
         [registry],
         [],
-        "tools/run.ps1 system-archive",
+        "tools/run.ps1 archive",
         state if configured else "unavailable",
         f"{validation}; " + ("private storage configuration present (catalog not opened)" if configured else "private storage is not configured"),
         "preserves",
@@ -242,9 +246,9 @@ def system_archive_carrier(*, inspect_catalog: bool = False) -> dict[str, Any]:
     )
     if inspect_catalog and configured and state == "valid":
         try:
-            import system_archive
+            import archive
 
-            archive_status = system_archive.status_command(argparse.Namespace())
+            archive_status = archive.status_command(argparse.Namespace())
             visibility = archive_status.get("collections", {})
             zero_records = sorted(
                 row["id"] for row in visibility.get("items", [])
@@ -265,7 +269,7 @@ def system_archive_carrier(*, inspect_catalog: bool = False) -> dict[str, Any]:
                 f"catalog-only={len(result['countercheck']['catalog_only'])}; "
                 f"zero-record={len(zero_records)}"
             )
-        except (OSError, ValueError, sqlite3.Error, system_archive.ArchiveError) as error:
+        except (OSError, ValueError, sqlite3.Error, archive.ArchiveError) as error:
             result["countercheck"] = {
                 "status": "unavailable",
                 "detail": f"read-only catalog check failed: {error.__class__.__name__}",
@@ -386,7 +390,7 @@ ROUTING_RULES = [
     ({"review", "journal"}, "autobiographical", "mira-journal", 100, "explicit journal review"),
     ({"draft", "journal"}, "autobiographical", "mira-journal", 100, "explicit journal drafting"),
     ({"recover", "session"}, "relational", "mira-continuity", 100, "explicit session recovery"),
-    ({"retrieve", "lineage"}, "epistemic", "system-archive", 100, "explicit lineage retrieval"),
+    ({"retrieve", "lineage"}, "epistemic", "archive", 100, "explicit lineage retrieval"),
     ({"review", "choice"}, "relational", "learn-from-choices", 100, "explicit choice review"),
     ({"review", "mentorship"}, "relational", "mira-mentor", 100, "explicit mentorship review"),
     ({"forecast"}, "epistemic", "forecast-review", 50, "forecast object"),
@@ -402,8 +406,8 @@ ROUTING_RULES = [
     ({"identity"}, "identity", "mira-continuity", 50, "identity object"),
     ({"session"}, "relational", "mira-continuity", 50, "session object"),
     ({"continuity"}, "relational", "mira-continuity", 50, "continuity object"),
-    ({"lineage"}, "epistemic", "system-archive", 50, "lineage object"),
-    ({"archive"}, "epistemic", "system-archive", 50, "archive object"),
+    ({"lineage"}, "epistemic", "archive", 50, "lineage object"),
+    ({"archive"}, "epistemic", "archive", 50, "archive object"),
 ]
 
 
@@ -524,21 +528,21 @@ def operational_tensions(carriers: list[dict[str, Any]], route: dict[str, Any]) 
                 resolution_condition="strict registry and capture drift are zero; active work may remain deferred",
                 must_remain_separate=False,
             ))
-        if row["id"] == "system-archive" and (
+        if row["id"] == "archive" and (
             countercheck.get("registry_only") or countercheck.get("catalog_only")
         ):
             tensions.append(make_tension(
                 "TENSION-SYSTEM-ARCHIVE-COLLECTION-PARITY", "registry-catalog-mismatch",
                 [{
-                    "carrier": "system-archive", "reporting_verb": "preserves",
+                    "carrier": "archive", "reporting_verb": "preserves",
                     "detail": {
                         "registry_only": countercheck.get("registry_only", []),
                         "catalog_only": countercheck.get("catalog_only", []),
                         "zero_record_collections": countercheck.get("zero_record_collections", []),
                     },
-                    "provenance_refs": ["system-archive/collections.json", "private-catalog-read-only"],
+                    "provenance_refs": ["archive/collections.json", "private-catalog-read-only"],
                 }],
-                resolution_owner="tools/run.ps1 system-archive",
+                resolution_owner="tools/run.ps1 archive",
                 resolution_condition="registry/catalog differences receive collection-native disposition",
                 must_remain_separate=False,
             ))
@@ -570,12 +574,12 @@ def status(focus: str | None, as_of: str) -> dict[str, Any]:
         )
     )
     inspect_archive = (
-        route["recommended_owner"] == "system-archive"
+        route["recommended_owner"] == "archive"
         or bool(focus_classes & {"epistemic", "autobiographical", "procedural", "relational"})
     )
     carriers = [
         continuity_carrier(inspect_sources=inspect_continuity), journal_carrier(),
-        recursive_carrier(), system_archive_carrier(inspect_catalog=inspect_archive),
+        recursive_carrier(), archive_carrier(inspect_catalog=inspect_archive),
         geopolitics_carrier(), choice_carrier(), cadence_carrier(), mentorship_carrier(),
     ]
     for row in carriers:

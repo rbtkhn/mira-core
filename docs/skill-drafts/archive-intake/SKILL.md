@@ -28,7 +28,7 @@ identity, or move material across collections.
 
 Before any dry-run or landing, identify the shelf:
 
-- System Archive collection or private catalog
+- Mira Archive collection or private catalog
 - Narrative Geopolitics
 - Singularity Science
 - Mira Journal
@@ -37,8 +37,8 @@ Before any dry-run or landing, identify the shelf:
 
 Use repository evidence before asking:
 
-- `system-archive/collections.json`
-- the private System Archive catalog when available and needed for read-only
+- `archive/collections.json`
+- the private Mira Archive catalog when available and needed for read-only
   duplicate or membership checks
 - known registries and indexes
 - obvious path prefixes, collection IDs, source-family names, voice slugs,
@@ -51,13 +51,13 @@ ambiguous after inspection, ask one bounded shelf clarification.
 
 ## Backend matrix
 
-### System Archive
+### Mira Archive
 
-Use System Archive for cross-archive duplicate checks, collection membership,
+Use Mira Archive for cross-archive duplicate checks, collection membership,
 explicit-only external corpora, and archive families whose native bodies live
 outside the repository.
 
-Prefer `tools/run.ps1 system-archive status --json` and collection-specific
+Prefer `tools/run.ps1 archive status --json` and collection-specific
 search for read-only preflight. Ingestion, hydration, replica synchronization,
 or registry repair requires separate explicit authority and the selected
 backend contract.
@@ -135,7 +135,7 @@ manifest row, corpus count updates, and intended route additions.
 ### Singularity Science
 
 Route Singularity Science material to the selected Singularity Science backend
-or System Archive external-corpus workflow. Known families include
+or Mira Archive external-corpus workflow. Known families include
 `innermost-loop`, `moonshots`, `nate-herk`, and `nate-b-jones`.
 
 Do not land Singularity Science material in Narrative Geopolitics merely

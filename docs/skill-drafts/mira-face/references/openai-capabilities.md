@@ -40,7 +40,7 @@ Require:
 
 Search only a reviewed public corpus. Project approved artifacts and metadata
 into a separate public index. Do not connect public retrieval directly to the
-canonical private System Archive, private journals, continuity records, or raw
+canonical private Mira Archive, private journals, continuity records, or raw
 operator materials.
 
 ### Web search

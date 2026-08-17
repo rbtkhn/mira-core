@@ -15,7 +15,7 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 RUN_ROOT = REPO_ROOT / "mira" / "notes" / "innermost-loop-simulation"
 PROTOCOL_PATH = RUN_ROOT / "protocol.json"
 STATE_PATH = RUN_ROOT / "run-state.json"
-REGISTRY_PATH = REPO_ROOT / "system-archive" / "registries" / "innermost-loop.json"
+REGISTRY_PATH = REPO_ROOT / "archive" / "registries" / "innermost-loop.json"
 ALLOWED_PHASES = ("day-1", "day-2", "day-3", "day-10")
 PHASE_DEPENDENCIES = {
     "day-1": (),
@@ -27,7 +27,7 @@ FORBIDDEN_PROMOTION_PREFIXES = (
     "mira/continuity/",
     "mira/journal/",
     "narrative-geopolitics/",
-    "system-archive/registries/",
+    "archive/registries/",
 )
 
 

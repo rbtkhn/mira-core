@@ -3,7 +3,7 @@
 `archive/` owns imported source truth for Narrative Geopolitics.
 
 Source bodies at their existing paths are byte-identical hydrated views backed
-by the root [System Archive](../../system-archive/README.md). The source
+by the root [Mira Archive](../../archive/README.md). The source
 manifest remains the sole authority for membership and routing; shared storage
 and inventory do not acquire that authority.
 

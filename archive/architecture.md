@@ -1,6 +1,6 @@
-# System Archive Epistemic Architecture
+# Mira Archive Epistemic Architecture
 
-System Archive has five layers: immutable SHA-256/Zstandard objects; typed and
+Mira Archive has five layers: immutable SHA-256/Zstandard objects; typed and
 versioned records; append-only events; neutral typed provenance relationships;
 and reproducible views. SQLite stores indexed typed edges while preserving a
 future graph-export boundary.
@@ -33,4 +33,4 @@ Repository process evidence uses a separate explicit-only
 `repository-artifact-manifest` adapter. Each record identity binds its source
 path and content digest, so changed bytes append immutable history instead of
 overwriting an archived observation. Repository controls remain authoritative;
-System Archive supplies storage, lineage, replication, and bounded retrieval.
+Mira Archive supplies storage, lineage, replication, and bounded retrieval.

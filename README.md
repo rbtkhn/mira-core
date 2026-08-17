@@ -15,7 +15,7 @@ Mira's archive-first family of source-grounded systems for historical
 traversal, historical inheritance, geopolitical judgment, and governed
 recursive learning.
 
-[System Archive](system-archive/README.md) is the shared durable substrate for
+[Mira Archive](archive/README.md) is the shared durable substrate for
 immutable bodies, cross-collection inventory, provenance, temporal retrieval,
 and bounded context assembly. It does not replace collection-native authority.
 
@@ -41,7 +41,7 @@ independent evidence for the sources from which they descend.
 
 ```text
 .
-├── system-archive/         Shared storage, provenance, time, and context governance
+├── archive/                Shared storage, provenance, time, and context governance
 ├── narrative-geopolitics/  Archive, continuity, work, forecasts, and public output
 ├── predictive-history/     Sibling public-system study
 ├── historical-entropy/     Governed historical inheritance and long-memory study
@@ -65,7 +65,7 @@ $env:MIRA_CORE_SESSION_TEMP_ROOT = 'C:\private\mira-core-test-temp'
 $env:MIRA_CORE_CADENCE_DB = 'C:\private\mira-core-cadence.sqlite3'
 .\tools\run.ps1 cadence coffee --format markdown
 .\tools\run.ps1 harness
-.\tools\run.ps1 system-archive status
+.\tools\run.ps1 archive status
 ```
 
 Repeat `--path` to run multiple focused test files or directories. Focused
@@ -197,7 +197,7 @@ index rather than one query per choice.
 ## Operating Boundary
 
 - `archive/` owns source truth.
-- `system-archive/` owns shared storage and cross-collection inventory; it does
+- `archive/` owns shared storage and cross-collection inventory; it does
   not adjudicate collection membership or truth.
 - `voices/` and `channels/` own continuity and conditioning.
 - `work/` owns internal dialogue, judgment, experiments, and forecast review.

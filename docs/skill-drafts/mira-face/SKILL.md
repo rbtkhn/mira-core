@@ -143,7 +143,7 @@ Narrow tool-bearing or MCP-connected experience
 ```
 
 Do not add generative interaction merely because it is available. Never attach
-the canonical private System Archive directly to a public application. Build a
+the canonical private Mira Archive directly to a public application. Build a
 separately reviewed publication projection containing only approved artifacts
 and public metadata.
 

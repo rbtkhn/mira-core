@@ -30,6 +30,10 @@ archive roots.
 
 ## Compatibility cycle
 
+The compatibility cycle begins with the implementation of this contract on
+2026-08-16. It has no automatic expiry: removal requires the separately
+authorized evidence gate below.
+
 For one explicit compatibility cycle:
 
 - `system-archive` remains a deprecated command alias;

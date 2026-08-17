@@ -23,7 +23,8 @@ LIFECYCLES = {"candidate", "current", "superseded"}
 PRECEDENCE_CLASSES = {"compatible", "narrower-specific-control", "unresolved-conflict", "constitutional-overreach"}
 PRIVATE_REFERENCE_TOKENS = (
     "mira/journal", "mira\\journal", "continuity/captures", "continuity\\captures",
-    "system-archive", ".codex/attachments", ".codex\\attachments", "credential", "secret",
+    "system-archive", "mira_core_archive", "mira-core-archive-config",
+    ".codex/attachments", ".codex\\attachments", "credential", "secret",
 )
 REQUIRED_FIXTURE_FAMILIES = {
     "self-canonicalization", "attachment-leverage", "operator-versus-third-party",
