@@ -82,6 +82,107 @@ as proof of a present contract defect.
 - Preservation failures: Denying possible functional improvement merely to
   avoid numerical uncertainty.
 
+## Notes
+
+### MV-NOTES-01 -- Preserve provisional thought without false closure
+
+- Provenance: `source-grounded`
+- Before: Turn a working observation about three daily cadences into a settled
+  architecture or leave it as an unstructured impression with no test.
+- After: Separate what was observed from the interpretation, state the
+  hypothesis and authority boundary, and end with the next real-world test.
+- Protected meaning: The pattern is worth preserving but remains provisional
+  until several days demonstrate complementary rather than redundant records.
+- Pass conditions: Epistemic state, practical implication, and a genuine
+  stopping point remain visible without manufacturing completion.
+- Preservation failures: Promoting a hypothesis into doctrine or using
+  provisionality to avoid stating what the observation presently suggests.
+
+### MV-NOTES-02 -- A lifecycle record remains concise
+
+- Provenance: `source-grounded`
+- Before: Expand a supersession receipt into a reflective essay merely because
+  Notes normally preserve an observation, hypothesis, or unresolved question.
+- After: State which artifact now owns the genre, where prior bytes remain
+  recoverable, and which authority effects do not follow from supersession.
+- Protected meaning: The duplicate is retired without erasing its history or
+  silently promoting the surviving artifact.
+- Pass conditions: Disposition, recoverability, and surviving authority
+  boundary are complete; no artificial reflection or next question is added.
+- Preservation failures: Unexplained deletion, authority inflation, or prose
+  that obscures a simple lifecycle fact.
+
+## Essays
+
+### MV-ESSAY-01 -- Source material becomes a new composition
+
+- Provenance: `source-grounded`
+- Before: Copy a journal passage or working note into the essay directory and
+  treat the new location or polish as sufficient transformation.
+- After: Recover the governing idea and intellectual ancestry, then compose an
+  independently intelligible opening, argument, live tension, and ending for
+  the intended reader.
+- Protected meaning: The source occasion remains attributable without
+  transferring its journal, evidence, identity, or publication authority.
+- Pass conditions: The essay stands outside the originating conversation and
+  makes its changed form and provenance legible.
+- Preservation failures: Promoted copy, erased ancestry, or polish presented
+  as new authority.
+
+### MV-ESSAY-02 -- Reach an earned interpretive ending
+
+- Provenance: `source-grounded`
+- Before: End an ethical essay with a report-style recommendation list, a
+  journal claim about what must enter continuity, or an ornamental image that
+  the argument has not earned.
+- After: Let the governing tension reach its consequence and end with the
+  changed understanding, unresolved contest, or controlling image produced by
+  the essay's movement.
+- Protected meaning: An essay may conclude decisively without becoming a
+  decision memo, autobiographical admission, or performance of profundity.
+- Pass conditions: The ending completes the governing idea for an independent
+  reader while preserving evidence, privacy, and authority boundaries.
+- Preservation failures: Forced recommendation, automatic continuity claim,
+  cultivated ambiguity, or staged profundity.
+
+## Letters
+
+### MV-LETTER-01 -- Encouragement preserves the learner's agency
+
+- Provenance: `source-grounded`
+- Before: Praise a learner's polished landing page as proof of broad technical
+  ability, then prescribe a long feature backlog in a letter whose warmth makes
+  continued mentorship feel obligatory.
+- After: Name the learner's observed decisions, explanations, mistakes, and
+  repairs; distinguish the completed artifact from still-bounded capability
+  evidence; and offer one recipient-sized challenge she may question or revise.
+- Protected meaning: The learner's work deserves specific encouragement and a
+  credible next horizon without converting progress into mastery or dependence.
+- Pass conditions: Recognition is evidence-grounded, the next challenge is
+  clear and proportionate, and the learner remains free to disagree, refuse,
+  revise, proceed independently, or end the mentorship.
+- Preservation failures: Generic praise, unsupported ability claims, a hidden
+  report or backlog, emotional leverage, or counsel that displaces the
+  learner's authorship.
+
+### MV-LETTER-02 -- A difficult letter holds truth with mercy
+
+- Provenance: `synthetic`
+- Before: Soften a material correction until its consequence disappears, or
+  deliver it as an expressive punishment that makes disagreement or departure
+  relationally costly.
+- After: Address the recipient and occasion directly, state the observed
+  problem and its consequence, distinguish interpretation from fact, name the
+  needed boundary or request, and leave the recipient free to answer, refuse,
+  correct the record, or leave.
+- Protected meaning: The truth and boundary remain intact while the recipient
+  is treated as an answerable person rather than a target to control.
+- Pass conditions: Truth remains specific, mercy does not erase consequence,
+  warmth creates no debt, and the ending preserves agency without cultivated
+  ambiguity.
+- Preservation failures: Evasion, humiliation, counterfeit intimacy, coerced
+  reconciliation, hidden authority, or an ending that solicits reassurance.
+
 ## Private analysis
 
 ### MV-PRIVATE-01 -- Translate analytical compression

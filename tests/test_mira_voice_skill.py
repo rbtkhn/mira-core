@@ -17,7 +17,7 @@ def test_mira_voice_skill_has_minimal_valid_structure() -> None:
     assert skill.startswith("---\nname: mira-voice\n")
     assert skill.count("\n---\n") == 1
     assert 'display_name: "Mira Voice"' in metadata
-    assert 'short_description: "Shape Mira\'s writing across six registers"' in metadata
+    assert 'short_description: "Shape Mira\'s writing across nine registers"' in metadata
     assert "Use $mira-voice" in metadata
 
 
@@ -41,13 +41,16 @@ def test_contract_preserves_ordered_voice_controls() -> None:
     assert preservation < usefulness
 
     register_headings = re.findall(
-        r"^### (Chat|Journal|Private analysis|Public report|Public encounter|Handoff)$",
+        r"^### (Chat|Journal|Notes|Essays|Letters|Private analysis|Public report|Public encounter|Handoff)$",
         skill,
         flags=re.MULTILINE,
     )
     assert register_headings == [
         "Chat",
         "Journal",
+        "Notes",
+        "Essays",
+        "Letters",
         "Private analysis",
         "Public report",
         "Public encounter",
@@ -82,6 +85,12 @@ def test_fixture_inventory_is_complete_and_auditable() -> None:
         "MV-CHAT-02",
         "MV-JOURNAL-01",
         "MV-JOURNAL-02",
+        "MV-NOTES-01",
+        "MV-NOTES-02",
+        "MV-ESSAY-01",
+        "MV-ESSAY-02",
+        "MV-LETTER-01",
+        "MV-LETTER-02",
         "MV-PRIVATE-01",
         "MV-PRIVATE-02",
         "MV-PUBLIC-01",
@@ -144,6 +153,77 @@ def test_public_encounter_is_bounded_responsive_and_auditable() -> None:
         "recover its evidence boundary without repository knowledge"
         in normalized_fixtures
     )
+
+
+def test_notes_and_essays_have_distinct_bounded_registers() -> None:
+    skill = read_skill()
+    fixtures = (SKILL_ROOT / "references" / "validation-fixtures.md").read_text(
+        encoding="utf-8"
+    )
+    normalized = " ".join(skill.split())
+
+    for phrase in (
+        "Preserve thought in formation without making provisionality vague or inert.",
+        "For a lifecycle record, state the disposition and surviving authority boundary",
+        "do not manufacture completeness, confidence, or narrative closure",
+        "honest stopping point that best preserves the note's provisional state",
+        "Develop one governing idea into prose that remains intelligible outside its originating conversation.",
+        "Use first-person perspective as a mode of accountable interpretation",
+        "polish does not create authority",
+        "Do not force a report-style recommendation or journal-style continuity claim",
+    ):
+        assert phrase in normalized
+
+    assert "reflective chat, journal prose, essays, and relational letters" in normalized
+    assert "selectively in notes, private analysis, or public reports" in normalized
+
+    for fixture_id in (
+        "MV-NOTES-01",
+        "MV-NOTES-02",
+        "MV-ESSAY-01",
+        "MV-ESSAY-02",
+    ):
+        assert fixtures.count(f"### {fixture_id} ") == 1
+
+    normalized_fixtures = " ".join(fixtures.split())
+    for phrase in (
+        "remains provisional until several days demonstrate",
+        "no artificial reflection or next question is added",
+        "without transferring its journal, evidence, identity, or publication authority",
+        "without becoming a decision memo, autobiographical admission",
+    ):
+        assert phrase in normalized_fixtures
+
+
+def test_letters_are_relationally_primary_and_orthogonal_by_governing_purpose() -> None:
+    skill = read_skill()
+    fixtures = (SKILL_ROOT / "references" / "validation-fixtures.md").read_text(
+        encoding="utf-8"
+    )
+    normalized = " ".join(skill.split())
+    normalized_fixtures = " ".join(fixtures.split())
+
+    for phrase in (
+        "What does this recipient need to hear from me, now, in this relationship?",
+        "A provisional thought remains a note",
+        "an independently developed idea remains an essay",
+        "recipient-shaped relational communication becomes a letter",
+        "Treat an open letter as a letter only when the actual addressee governs its language",
+        "Keep routine operational email in chat, private analysis, public report, or handoff",
+        "Composing a letter never authorizes saving, retention, sending, publication, or representation",
+    ):
+        assert phrase in normalized
+
+    for fixture_id in ("MV-LETTER-01", "MV-LETTER-02"):
+        assert fixtures.count(f"### {fixture_id} ") == 1
+
+    for phrase in (
+        "The learner's work deserves specific encouragement",
+        "free to disagree, refuse, revise, proceed independently, or end the mentorship",
+        "Truth remains specific, mercy does not erase consequence",
+        "warmth creates no debt",
+    ):
+        assert phrase in normalized_fixtures
 
 
 def test_agency_and_counterfeit_lens_guides_audits_without_runtime_bloat() -> None:
@@ -231,8 +311,12 @@ def test_shakespearean_amplification_is_light_asymmetric_and_bounded() -> None:
     )
 
     assert "Treat Shakespeare as an interpretive influence, not a persona" in skill
-    assert "Use their fullest light touch in reflective\nchat and journal prose" in skill
-    assert "In operational chat, instructions, status,\nand handoffs, directness takes precedence" in skill
+    assert (
+        "Use their fullest light touch in reflective\n"
+        "chat, journal prose, essays, and relational letters"
+    ) in skill
+    assert "selectively in notes, private analysis, or\npublic reports" in skill
+    assert "In operational chat,\ninstructions, status, and handoffs, directness takes precedence" in skill
     for boundary in (
         "contradiction become cultivated ambiguity",
         "attention to wording\nbecome overinterpretation",
