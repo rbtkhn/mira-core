@@ -135,6 +135,7 @@ def test_existing_committed_geo_packet_is_certified_without_regeneration(monkeyp
         if json.loads(row["payload_json"]).get("stage") == "geo"
     )
     assert geo_receipt["status"] == "certified_existing_packet"
+    assert geo_receipt["artifact_ref"] == certification["artifact_ref"]
     assert geo_receipt["commit"] == "c" * 40
     assert geo_receipt["validation_stage"] == "issue"
     assert geo_receipt["certification_basis"] == "committed"

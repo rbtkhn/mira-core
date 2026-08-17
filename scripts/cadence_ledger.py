@@ -88,6 +88,22 @@ def sanitize_text(value: Any, *, limit: int = 4000) -> str:
     return text
 
 
+def sanitize_artifact_ref(value: Any, *, limit: int = 1000) -> str:
+    text = CONTROL_RE.sub("", str(value)).strip().replace("\\", "/")
+    if not text:
+        raise CadenceLedgerError("cadence artifact reference must not be empty")
+    if SECRET_RE.search(text):
+        raise CadenceLedgerError("cadence artifact reference appears to contain a credential or secret")
+    if EMAIL_RE.search(text):
+        raise CadenceLedgerError("cadence artifact reference appears to contain contact data")
+    path = Path(text)
+    if path.is_absolute() or ".." in path.parts:
+        raise CadenceLedgerError("cadence artifact reference must be repository-relative")
+    if len(text) > limit:
+        raise CadenceLedgerError(f"cadence artifact reference exceeds {limit} characters")
+    return text
+
+
 def require_private_path(raw: str | Path, *, label: str) -> Path:
     path = Path(raw).expanduser()
     if not path.is_absolute():
@@ -304,7 +320,9 @@ def append_daily_close_event(connection: sqlite3.Connection, run_id: str, event_
         raise CadenceLedgerError(f"unsupported daily close event: {event_type}")
     clean = {}
     for key, value in payload.items():
-        if key in {"stage", "status", "reason", "artifact_ref", "digest", "coverage_status",
+        if key == "artifact_ref":
+            clean[key] = sanitize_artifact_ref(value)
+        elif key in {"stage", "status", "reason", "digest", "coverage_status",
                    "episode_id", "closeout_id", "journal_version_id", "technical_reference_id",
                    "technical_reference_digest", "validated_at", "validation_status",
                    "approval_status", "commit", "validation_stage", "certification_basis"}:

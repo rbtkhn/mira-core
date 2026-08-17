@@ -108,6 +108,40 @@ def test_daily_close_run_is_append_only_resumable_and_conflict_checked(tmp_path:
     connection.close()
 
 
+def test_daily_close_preserves_dated_repository_artifact_reference(tmp_path: Path) -> None:
+    connection = database(tmp_path)
+    run = cadence_ledger.open_daily_close(
+        connection, run_id="DCR-20260816-path", workspace_id="mira-core",
+        operator_id="operator-test", close_date="2026-08-16", timezone_name="America/Denver",
+        idempotency_key="close-path-open",
+    )
+    artifact_ref = "narrative-geopolitics/work/daily/2026-08-16/issue.md"
+    projected = cadence_ledger.append_daily_close_event(
+        connection, run["run_id"], "stage_completed",
+        {"stage": "geo", "status": "certified_existing_packet", "artifact_ref": artifact_ref},
+        idempotency_key="close-path-geo", expected_version=1,
+    )
+    receipt = next(event for event in projected["events"] if event["event_type"] == "stage_completed")
+    assert receipt["payload"]["artifact_ref"] == artifact_ref
+    connection.close()
+
+
+def test_daily_close_rejects_contact_data_in_artifact_reference(tmp_path: Path) -> None:
+    connection = database(tmp_path)
+    run = cadence_ledger.open_daily_close(
+        connection, run_id="DCR-20260816-private-path", workspace_id="mira-core",
+        operator_id="operator-test", close_date="2026-08-16", timezone_name="America/Denver",
+        idempotency_key="close-private-path-open",
+    )
+    with pytest.raises(cadence_ledger.CadenceLedgerError, match="contact data"):
+        cadence_ledger.append_daily_close_event(
+            connection, run["run_id"], "stage_completed",
+            {"stage": "geo", "status": "invalid", "artifact_ref": "private/person@example.com.md"},
+            idempotency_key="close-private-path-geo", expected_version=1,
+        )
+    connection.close()
+
+
 def test_no_candidate_closeout_is_unique_and_contains_no_episode(tmp_path: Path) -> None:
     connection = database(tmp_path)
     payload = {
