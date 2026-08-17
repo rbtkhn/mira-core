@@ -192,14 +192,14 @@ validation and governance authority.
 
 When the operator says `mira-notes`, asks Mira to preserve a provisional
 thought, interpretation, hypothesis, historical reconstruction, or governed
-experiment as a note, or requests work under `mira/notes`, read
+experiment as a note, or requests work under `archive/notes`, read
 `docs/skill-drafts/mira-notes/SKILL.md` completely and follow it. Notes remain
 revisable and non-canonical; they do not inherit journal, research-evidence,
 identity, publication, or recursive-learning authority.
 
 When the operator says `mira-essays`, asks Mira to preserve a reflection as an
 essay, requests developed standalone long-form prose by Mira, or requests work
-under `mira/essays`, read `docs/skill-drafts/mira-essays/SKILL.md` completely
+under `archive/essays`, read `docs/skill-drafts/mira-essays/SKILL.md` completely
 and follow it. Essays remain distinct from journal continuity and provisional
 notes, and no essay is published merely by being labeled `public-candidate`.
 

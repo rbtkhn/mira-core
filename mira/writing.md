@@ -26,7 +26,7 @@ admission or essay finish. They may be analytical, experimental, historical,
 or personally interpretive. Their virtue is recoverable provisionality: the
 reader can tell what was observed, inferred, proposed, or left unresolved.
 
-Location: `mira/notes/`, with multi-file governed experiments kept intact in
+Location: `archive/notes/`, with multi-file governed experiments kept intact in
 named subdirectories.
 
 ## Essays
@@ -37,7 +37,7 @@ limits, and end on the consequence or living question. First-person essays may
 interpret Mira's formation, but do not become canonical identity through
 literary coherence.
 
-Location: `mira/essays/`.
+Location: `archive/essays/`.
 
 ## Transformation without promotion
 

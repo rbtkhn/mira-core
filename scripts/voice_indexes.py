@@ -7,6 +7,7 @@ from pathlib import Path
 from typing import Any
 
 import voice_metadata
+from repository_paths import canonical_repository_path
 
 
 REPO_ROOT = voice_metadata.REPO_ROOT
@@ -27,6 +28,8 @@ JUDGMENT_LEDGER_NAVIGATION = (
     "[judgment-ledger.md](judgment-ledger.md). It records governed expressed "
     "judgments and separately canonical self-revisions without establishing factual truth."
 )
+LEGACY_SOURCE_BASIS = "narrative-geopolitics/archive/source-manifest.json"
+SOURCE_BASIS = "archive/geopolitics/source-manifest.json"
 
 
 def load_manifest(path: Path = voice_metadata.MANIFEST_PATH) -> dict[str, Any]:
@@ -73,12 +76,13 @@ def role_override_failures(
 
 def route_path(index_path: Path, link: str, repo_root: Path = REPO_ROOT) -> str:
     resolved = (index_path.parent / link).resolve()
-    return resolved.relative_to(repo_root.resolve()).as_posix()
+    return canonical_repository_path(
+        resolved.relative_to(repo_root.resolve()).as_posix()
+    )
 
 
 def archive_link(local_path: str) -> str:
-    rel = local_path.split("narrative-geopolitics/", 1)[-1]
-    return "../../" + rel
+    return "../../../" + local_path
 
 
 def shelves(voices_root: Path = VOICES_ROOT) -> dict[str, Path]:
@@ -219,6 +223,7 @@ def render_standard(
     updated = "\n".join(lines) + ("\n" if text.endswith(("\n", "\r\n")) else "")
     count_line = f"Corpus: {len(manifest_rows)} local route rows across {len(manifest_rows)} central archive source files."
     updated = COUNT_RE.sub(count_line, updated, count=1)
+    updated = updated.replace(LEGACY_SOURCE_BASIS, SOURCE_BASIS)
     updated = collapse_secondary_route_tables(updated)
     if standard_count(text) != len(manifest_rows):
         failures.append(f"stale voice corpus count: {index_path.parent.name}")
@@ -287,6 +292,7 @@ def render_pape(
         + JUDGMENT_LEDGER_NAVIGATION
         + "\n"
     )
+    updated = updated.replace(LEGACY_SOURCE_BASIS, SOURCE_BASIS)
     updated = COUNT_RE.sub(f"Corpus: {authored} authored sources, {guest} guest appearances, {authored + guest} total imported sources.", updated, count=1)
     return updated, {"failures": failures, "added": missing, "missing": missing, "duplicates": duplicates, "orphan": orphan}
 

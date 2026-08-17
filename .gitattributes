@@ -5,8 +5,8 @@ artifacts/mentorship/hannah-trial-session-01.md whitespace=-blank-at-eol
 docs/audits/2026-08-14-mira-journal-session-coverage.md text eol=lf whitespace=-blank-at-eol
 mira/journal/references/MJTR-20260814-v1.md whitespace=-blank-at-eol
 mira/mentorship/charter-candidate.md whitespace=-blank-at-eol
-mira/notes/2026-08-10-innermost-loop-baseline.md text eol=lf
-mira/notes/innermost-loop-simulation/** text eol=lf
-mira/notes/innermost-loop-simulation/responses/day-2.md -text -eol whitespace=-blank-at-eol
+archive/notes/2026-08-10-innermost-loop-baseline.md text eol=lf
+archive/notes/innermost-loop-simulation/** text eol=lf
+archive/notes/innermost-loop-simulation/responses/day-2.md -text -eol whitespace=-blank-at-eol
 # Provenance-bound source must hash identically across platforms.
 scripts/contradiction_kernel.py text eol=lf

@@ -19,7 +19,7 @@ The governing rule is:
 | Surface | Architectural role |
 | --- | --- |
 | `archive/` | Preserved source truth and provenance. |
-| `archive/source-manifest.json` | Authoritative source membership and person/channel routing. |
+| `archive/geopolitics/source-manifest.json` | Authoritative source membership and person/channel routing. |
 | `voices/` | Derived whole-person continuity. Never a second transcript archive. |
 | `channels/` | Derived host and format conditioning. Never independent confirmation. |
 | `work/daily/` | Date-bounded synthesis state derived from manifest-backed sources. |
@@ -78,8 +78,8 @@ external actions, or human approval authority.
 for duplicate detection, routing records, and intake method documents. It may
 write only:
 
-- `archive/sources/YYYY-MM-DD/source-*.md` for an operator-supplied source;
-- the corresponding row in `archive/source-manifest.json`.
+- `archive/geopolitics/sources/YYYY-MM-DD/source-*.md` for an operator-supplied source;
+- the corresponding row in `archive/geopolitics/source-manifest.json`.
 
 Without explicit authorization it does not write voice shelves, channel
 shelves, daily synthesis, forecasts, verification packets, public documents,

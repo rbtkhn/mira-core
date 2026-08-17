@@ -8,6 +8,8 @@ from datetime import date, datetime, timezone
 from pathlib import Path
 from typing import Any
 
+from repository_paths import resolve_repository_path
+
 
 REFERENCE_ID_RE = re.compile(r"^MJTR-(?P<date>\d{8})-v(?P<version>[1-9]\d*)$")
 RSI_ID_RE = re.compile(r"^RSI-\d{8}-\d{2}$")
@@ -23,10 +25,20 @@ AUTHORITY_BOUNDARY = (
     "or provide action authority. Only admitted RSI entries are canonical recursive learning."
 )
 GIT_EVIDENCE_EQUIVALENCE_PATH = Path("mira/journal-git-evidence-equivalences.json")
+REPO_EVIDENCE_PATH_ALIASES = {
+    "mira/notes/2026-08-15-from-civilization-memory-to-mira-core.md":
+        "archive/notes/2026-08-15-from-civilization-memory-to-mira-core.md",
+}
 
 
 class ReferenceError(RuntimeError):
     pass
+
+
+def resolve_repo_evidence_path(repo_root: Path, raw: str) -> Path:
+    normalized = raw.replace("\\", "/")
+    aliased = REPO_EVIDENCE_PATH_ALIASES.get(normalized, normalized)
+    return resolve_repository_path(repo_root, aliased)
 
 
 def canonical_json(value: Any) -> str:
@@ -373,7 +385,7 @@ def validate_reference(
             kind = ref.get("kind")
             if kind == "repo-path":
                 raw = str(ref.get("path", ""))
-                if raw.replace("\\", "/").startswith("mira/journal/") or not (repo_root / raw).exists():
+                if raw.replace("\\", "/").startswith("mira/journal/") or not resolve_repo_evidence_path(repo_root, raw).exists():
                     failures.append(f"{label} repo evidence does not resolve: {raw}")
                 if item.get("cutoff_status") == "observed-by-cutoff":
                     failures.append(f"{label} observed evidence must be version-bound, not a mutable repo path: {raw}")

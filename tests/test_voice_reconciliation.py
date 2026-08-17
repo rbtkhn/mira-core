@@ -33,7 +33,7 @@ def manifest_row(path: str, slug: str, *, host: str = "dialogue-works", title: s
         "date": "2026-07-10",
         "title": title,
         "local_path": path,
-        "voice_index_path": "../../archive/sources/2026-07-10/source.md",
+        "voice_index_path": "../../../archive/geopolitics/sources/2026-07-10/source.md",
         "source_class": "geopolitical commentary",
         "modality": "youtube-transcript",
         "voice_slugs": [slug],
@@ -42,15 +42,15 @@ def manifest_row(path: str, slug: str, *, host: str = "dialogue-works", title: s
 
 
 def test_metadata_accepts_absent_ignored_hydration(tmp_path: Path) -> None:
-    rel = "narrative-geopolitics/archive/sources/2026-07-10/source.md"
+    rel = "archive/geopolitics/sources/2026-07-10/source.md"
     manifest = {"sources": [manifest_row(rel, "johnson")]}
 
     assert voice_metadata.metadata_failures(manifest, tmp_path) == []
 
 
 def test_metadata_rejects_missing_file_in_partial_hydration(tmp_path: Path) -> None:
-    rel = "narrative-geopolitics/archive/sources/2026-07-10/source.md"
-    (tmp_path / "narrative-geopolitics" / "archive" / "sources").mkdir(parents=True)
+    rel = "archive/geopolitics/sources/2026-07-10/source.md"
+    (tmp_path / "archive" / "geopolitics" / "sources").mkdir(parents=True)
     manifest = {"sources": [manifest_row(rel, "johnson")]}
 
     assert voice_metadata.metadata_failures(manifest, tmp_path) == [
@@ -59,7 +59,7 @@ def test_metadata_rejects_missing_file_in_partial_hydration(tmp_path: Path) -> N
 
 
 def test_alias_metadata_is_canonicalized_without_body_or_host_change(tmp_path: Path) -> None:
-    rel = "narrative-geopolitics/archive/sources/2026-07-10/source.md"
+    rel = "archive/geopolitics/sources/2026-07-10/source.md"
     target = tmp_path / rel
     target.parent.mkdir(parents=True)
     original = source_document(thread="larry-johnson", host="dialogue-works")
@@ -78,7 +78,7 @@ def test_alias_metadata_is_canonicalized_without_body_or_host_change(tmp_path: P
 
 
 def test_existing_canonical_thread_is_untouched_while_manifest_changes(tmp_path: Path) -> None:
-    rel = "narrative-geopolitics/archive/sources/2026-07-10/source.md"
+    rel = "archive/geopolitics/sources/2026-07-10/source.md"
     target = tmp_path / rel
     target.parent.mkdir(parents=True)
     original = source_document(thread="ritter", host="garland-nixon")
@@ -93,7 +93,7 @@ def test_existing_canonical_thread_is_untouched_while_manifest_changes(tmp_path:
 
 
 def test_host_slug_is_not_canonicalized_and_existing_voice_slug_is(tmp_path: Path) -> None:
-    rel = "narrative-geopolitics/archive/sources/2026-07-10/source.md"
+    rel = "archive/geopolitics/sources/2026-07-10/source.md"
     target = tmp_path / rel
     target.parent.mkdir(parents=True)
     target.write_bytes(source_document(thread="alexander-mercouris", host="alexander-mercouris", include_voice_slug=True))
@@ -137,9 +137,9 @@ def test_standard_shelf_sync_is_idempotent_and_preserves_role(monkeypatch, tmp_p
     ng_root, voices_root = configure_voice_roots(monkeypatch, tmp_path)
     index = voices_root / "johnson" / "source-index.md"
     index.parent.mkdir(parents=True)
-    first_rel = "narrative-geopolitics/archive/sources/2026-07-09/a.md"
-    second_rel = "narrative-geopolitics/archive/sources/2026-07-10/b.md"
-    existing = "| `2026-07-09` | A | `guest interview pressure test` | `dialogue-works` | [source](../../archive/sources/2026-07-09/a.md) |\n"
+    first_rel = "archive/geopolitics/sources/2026-07-09/a.md"
+    second_rel = "archive/geopolitics/sources/2026-07-10/b.md"
+    existing = "| `2026-07-09` | A | `guest interview pressure test` | `dialogue-works` | [source](../../../archive/geopolitics/sources/2026-07-09/a.md) |\n"
     index.write_text(standard_index(1, existing), encoding="utf-8")
     for rel in (first_rel, second_rel):
         target = tmp_path / rel
@@ -178,7 +178,7 @@ def test_standard_shelf_sync_is_idempotent_and_preserves_role(monkeypatch, tmp_p
 
 def test_shelf_less_voice_is_reported_not_failed(monkeypatch, tmp_path: Path) -> None:
     _, voices_root = configure_voice_roots(monkeypatch, tmp_path)
-    rel = "narrative-geopolitics/archive/sources/2026-07-10/x.md"
+    rel = "archive/geopolitics/sources/2026-07-10/x.md"
     target = tmp_path / rel
     target.parent.mkdir(parents=True)
     target.write_text("source\n")
@@ -196,11 +196,11 @@ def test_role_override_registry_rejects_orphan_path() -> None:
     manifest = {"sources": []}
     failures = voice_indexes.role_override_failures(
         manifest,
-        {("johnson", "narrative-geopolitics/archive/sources/missing.md"): "curated"},
+        {("johnson", "archive/geopolitics/sources/missing.md"): "curated"},
     )
     assert failures == [
         "voice-role override path absent from manifest: "
-        "narrative-geopolitics/archive/sources/missing.md"
+        "archive/geopolitics/sources/missing.md"
     ]
 
 
@@ -208,7 +208,7 @@ def test_pape_renderer_maps_canonical_author_to_authored(tmp_path: Path) -> None
     index = tmp_path / "narrative-geopolitics" / "voices" / "pape" / "source-index.md"
     index.parent.mkdir(parents=True)
     text = "# Pape Source Index\n\nCorpus: 0 authored sources, 0 guest appearances, 0 total imported sources.\n\n## 2026-07\n"
-    rel = "narrative-geopolitics/archive/sources/2026-07-10/source.md"
+    rel = "archive/geopolitics/sources/2026-07-10/source.md"
     row = {
         **manifest_row(rel, "pape"),
         "voice_roles": {"pape": ["author"]},
@@ -221,7 +221,7 @@ def test_pape_renderer_maps_canonical_author_to_authored(tmp_path: Path) -> None
 
 
 def test_pape_override_registry_rejects_non_binary_display_role() -> None:
-    rel = "narrative-geopolitics/archive/sources/2026-07-10/source.md"
+    rel = "archive/geopolitics/sources/2026-07-10/source.md"
     manifest = {"sources": [manifest_row(rel, "pape")]}
 
     failures = voice_indexes.role_override_failures(

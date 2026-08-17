@@ -21,7 +21,7 @@ import run_asr_repair_pilot
 
 def fake_plan() -> engine.ArchiveRepairPlan:
     file_plan = engine.FileRepairPlan(
-        path="narrative-geopolitics/archive/sources/2026-07-31/source.md",
+        path="archive/geopolitics/sources/2026-07-31/source.md",
         host_slug="daniel-davis",
         repair_class="asr",
         input_sha256="1" * 64,
@@ -77,7 +77,7 @@ def test_dry_run_emits_stable_json(monkeypatch: pytest.MonkeyPatch, capsys) -> N
             "--class",
             "asr",
             "--path",
-            "narrative-geopolitics/archive/sources/2026-07-31/source.md",
+            "archive/geopolitics/sources/2026-07-31/source.md",
             "--dry-run",
             "--format",
             "json",
@@ -104,7 +104,7 @@ def test_execute_passes_reviewed_digest(monkeypatch: pytest.MonkeyPatch, capsys)
             "--class",
             "asr",
             "--path",
-            "narrative-geopolitics/archive/sources/2026-07-31/source.md",
+            "archive/geopolitics/sources/2026-07-31/source.md",
             "--execute",
             "--plan-digest",
             plan.plan_digest,

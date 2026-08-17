@@ -10,7 +10,7 @@ from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 NG_ROOT = REPO_ROOT / "narrative-geopolitics"
-MANIFEST_PATH = NG_ROOT / "archive" / "source-manifest.json"
+MANIFEST_PATH = NG_ROOT.parent / "archive" / "geopolitics" / "source-manifest.json"
 OUTPUT_PATH = NG_ROOT / "voices" / "freeman" / "historical-references.md"
 MECHANISM_REGISTRY_PATH = NG_ROOT / "voices" / "freeman" / "mechanism-registry.json"
 MECHANISM_REVIEW_PATH = NG_ROOT / "voices" / "freeman" / "mechanism-review.json"
@@ -394,7 +394,7 @@ def render(analysis: HistoricalIndexAnalysis | None = None) -> str:
             lines += [
                 f"#### {oid} — {occurrence['date']} — {occurrence['title']}",
                 "",
-                f"- Source: `{occurrence['source_id']}` · host/channel `{occurrence['host']}` · [archive source](../../archive/{occurrence['path'].split('archive/', 1)[-1]})",
+                f"- Source: `{occurrence['source_id']}` · host/channel `{occurrence['host']}` · [archive source](../../../{occurrence['path']})",
                 f"- Domain: `{historical_domain(rule)}` · function: `{occurrence['function']}` · Freeman question: `{repertoire_question(rule)}`",
                 f"- Attribution: `{occurrence['confidence']}` ({occurrence['note']})",
                 *( [f"- Manual turn review: `{occurrence['manual_review_status']}` · speaker `{occurrence['manual_speaker']}` · raw lines `{occurrence['manual_raw_lines']}`"] if occurrence.get("manual_review_status") else [] ),

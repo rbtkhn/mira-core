@@ -3,8 +3,8 @@
 This directory holds repository-wide operating contracts, technical
 architecture, prompts, plans, and audits. Revisable Mira observations,
 hypotheses, historical reconstructions, and experiments belong under
-[`mira/notes/`](../mira/notes/); developed reader-facing prose belongs under
-[`mira/essays/`](../mira/essays/).
+[`archive/notes/`](../archive/notes/); developed reader-facing prose belongs under
+[`archive/essays/`](../archive/essays/).
 
 ## Core contracts
 
@@ -26,8 +26,8 @@ hypotheses, historical reconstructions, and experiments belong under
 ## Writing carriers
 
 - [Mira Writing Architecture](../mira/writing.md)
-- [Mira Notes](../mira/notes/)
-- [Mira Essays](../mira/essays/)
+- [Mira Notes](../archive/notes/)
+- [Mira Essays](../archive/essays/)
 
 Technical documentation may record history or rationale when that material is
 needed to operate or validate a control. A document whose primary purpose is

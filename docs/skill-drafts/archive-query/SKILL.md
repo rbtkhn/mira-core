@@ -58,7 +58,7 @@ collection, explicit-only corpus, Mira surface, or cross-shelf archive lookup.
 
 ### Narrative Geopolitics
 
-Use `narrative-geopolitics/archive/source-manifest.json` for manifest-backed
+Use `archive/geopolitics/source-manifest.json` for manifest-backed
 voice, date, title, host, channel, duplicate, membership, and path lookups.
 
 For complete inventories:

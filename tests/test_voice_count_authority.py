@@ -7,7 +7,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 VOICES = ROOT / "narrative-geopolitics" / "voices"
-MANIFEST = ROOT / "narrative-geopolitics" / "archive" / "source-manifest.json"
+MANIFEST = ROOT / "archive" / "geopolitics" / "source-manifest.json"
 
 
 def manifest_sources() -> list[dict[str, object]]:

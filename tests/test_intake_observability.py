@@ -43,7 +43,7 @@ def source_text(
 
 
 def configure(monkeypatch, tmp_path: Path) -> Path:
-    archive = tmp_path / "narrative-geopolitics" / "archive"
+    archive = tmp_path / "archive" / "geopolitics"
     sources = archive / "sources" / "2026-07-07"
     sources.mkdir(parents=True)
     first = sources / "source-a.md"
@@ -64,12 +64,12 @@ def configure(monkeypatch, tmp_path: Path) -> Path:
     manifest = {
         "sources": [
             {
-                "local_path": "narrative-geopolitics/archive/sources/2026-07-07/source-a.md",
+                "local_path": "archive/geopolitics/sources/2026-07-07/source-a.md",
                 "host_slug": "dialogue-works",
                 "voice_slugs": ["barnes"],
             },
             {
-                "local_path": "narrative-geopolitics/archive/sources/2026-07-07/source-b.md",
+                "local_path": "archive/geopolitics/sources/2026-07-07/source-b.md",
                 "host_slug": "daniel-davis",
                 "voice_slugs": ["davis"],
             },

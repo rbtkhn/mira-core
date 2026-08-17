@@ -72,7 +72,7 @@ def load_validation_context(
     ledger_path: Path = LEDGER_PATH,
     reality_root: Path = reality.REALITY_ROOT,
 ) -> IssueValidationContext:
-    manifest_path = daily_root.parents[1] / "archive" / "source-manifest.json"
+    manifest_path = daily_root.parents[2] / "archive" / "geopolitics" / "source-manifest.json"
     manifest = json.loads(manifest_path.read_text(encoding="utf-8-sig"))
     return IssueValidationContext(
         ledger_text=ledger_path.read_text(encoding="utf-8"),
@@ -597,9 +597,9 @@ def model_failures(
         if not links:
             failures.append(f"{source_id}: selected source has no archive link")
         for _, target in links:
-            if target.startswith("../../../archive/sources/"):
+            if target.startswith("../../../../archive/geopolitics/sources/"):
                 resolved = (daily_root / model.run_date / target).resolve()
-                manifest_path = daily_root.parents[1] / "archive" / "source-manifest.json"
+                manifest_path = daily_root.parents[2] / "archive" / "geopolitics" / "source-manifest.json"
                 if context is not None:
                     manifest_paths = context.manifest_paths
                 elif manifest_path.exists():

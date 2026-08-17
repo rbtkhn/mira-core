@@ -35,6 +35,14 @@ registry-only, catalog-only, and shared collection IDs. Catalog-only visibility
 is inventory evidence only: it does not repair registries, hydrate bodies,
 verify claims, publish, or promote records across collections.
 
+Narrative Geopolitics source truth lives under
+[`geopolitics/`](geopolitics/README.md). Its manifest governs membership and
+routing. The private catalog retains its established
+`narrative-geopolitics/archive/sources/...` logical identities while repository
+files resolve under `archive/geopolitics/sources/...`; this compatibility
+mapping preserves record IDs and object hashes without retaining a legacy
+repository directory.
+
 The mira-journal collection stores approved MJ-* bytes as
 autobiographical-interpretation. It is excluded from default search and context
 compilation; callers must name it explicitly. Storage, lineage, or retrieval
@@ -79,6 +87,15 @@ It excludes private plans, drafts, hidden reasoning, and the mutable recursive-
 learning ledger. Retrieval does not establish that an improvement occurred or
 that a recursive-learning loop is closed.
 
-Reader-facing interpretations of the archive's history and architecture live
-under [`essays/`](essays/README.md). They are authored prose, not canonical
-archived bodies, independent evidence, or collection-native authority.
+## Authored shelves
+
+Mira's durable provisional notes live under [`notes/`](notes/), and developed
+standalone prose lives under [`essays/`](essays/). Their placement keeps Mira's
+retained writing together under the archive control surface, but does not make
+either shelf an archive collection or automatically ingest its contents into
+the external catalog.
+
+Notes remain revisable and noncanonical. Essays remain authored prose with
+their declared private, internal, or public-candidate status. Physical
+placement grants neither shelf research-evidence, identity, journal,
+publication, or action authority.

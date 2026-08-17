@@ -6,7 +6,7 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parents[4]
-MANIFEST = REPO / "narrative-geopolitics" / "archive" / "source-manifest.json"
+MANIFEST = REPO / "archive" / "geopolitics" / "source-manifest.json"
 CALIBRATION = Path(__file__).resolve().parents[1] / "references" / "calibration.json"
 VERSIONS = {"schema": "2", "taxonomy": "2", "detector": "3", "mechanism": "1"}
 

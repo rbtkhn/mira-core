@@ -110,7 +110,7 @@ def test_default_repository_checks_share_one_validation_context(
 
 
 def test_manifest_count_mismatch_is_detected(monkeypatch, tmp_path: Path) -> None:
-    archive = tmp_path / "narrative-geopolitics" / "archive"
+    archive = tmp_path / "archive" / "geopolitics"
     source_dir = archive / "sources" / "2026-07-09"
     source_dir.mkdir(parents=True)
     source = source_dir / "source-a.md"
@@ -120,7 +120,7 @@ def test_manifest_count_mismatch_is_detected(monkeypatch, tmp_path: Path) -> Non
         "sources": [
             {
                 "date": "2026-07-09",
-                "local_path": "narrative-geopolitics/archive/sources/2026-07-09/source-a.md",
+                "local_path": "archive/geopolitics/sources/2026-07-09/source-a.md",
             }
         ],
     }
@@ -136,14 +136,14 @@ def test_manifest_count_mismatch_is_detected(monkeypatch, tmp_path: Path) -> Non
 
 
 def test_archive_manifest_accepts_absent_ignored_hydration(monkeypatch, tmp_path: Path) -> None:
-    archive = tmp_path / "narrative-geopolitics" / "archive"
+    archive = tmp_path / "archive" / "geopolitics"
     archive.mkdir(parents=True)
     manifest = {
         "source_count": 1,
         "sources": [
             {
                 "date": "2026-07-09",
-                "local_path": "narrative-geopolitics/archive/sources/2026-07-09/source-a.md",
+                "local_path": "archive/geopolitics/sources/2026-07-09/source-a.md",
             }
         ],
     }
@@ -157,14 +157,14 @@ def test_archive_manifest_accepts_absent_ignored_hydration(monkeypatch, tmp_path
 
 
 def test_archive_manifest_rejects_partial_hydration(monkeypatch, tmp_path: Path) -> None:
-    archive = tmp_path / "narrative-geopolitics" / "archive"
+    archive = tmp_path / "archive" / "geopolitics"
     (archive / "sources").mkdir(parents=True)
     manifest = {
         "source_count": 1,
         "sources": [
             {
                 "date": "2026-07-09",
-                "local_path": "narrative-geopolitics/archive/sources/2026-07-09/source-a.md",
+                "local_path": "archive/geopolitics/sources/2026-07-09/source-a.md",
             }
         ],
     }
@@ -175,7 +175,7 @@ def test_archive_manifest_rejects_partial_hydration(monkeypatch, tmp_path: Path)
     monkeypatch.setattr(integrity, "MANIFEST_PATH", manifest_path)
 
     assert integrity.archive_manifest_failures() == [
-        "manifest path missing file: narrative-geopolitics/archive/sources/2026-07-09/source-a.md"
+        "manifest path missing file: archive/geopolitics/sources/2026-07-09/source-a.md"
     ]
 
 
@@ -185,13 +185,13 @@ def test_markdown_archive_links_use_manifest_when_hydration_is_absent(
     docs = tmp_path / "docs"
     docs.mkdir()
     note = docs / "note.md"
-    valid = "narrative-geopolitics/archive/sources/2026-07-09/source-a.md"
-    note.write_text(f"[valid](../{valid})\n[invalid](../narrative-geopolitics/archive/sources/missing.md)\n")
+    valid = "archive/geopolitics/sources/2026-07-09/source-a.md"
+    note.write_text(f"[valid](../{valid})\n[invalid](../archive/geopolitics/sources/missing.md)\n")
     monkeypatch.setattr(integrity, "REPO_ROOT", tmp_path)
     monkeypatch.setattr(
         integrity,
         "ARCHIVE_SOURCES",
-        tmp_path / "narrative-geopolitics" / "archive" / "sources",
+        tmp_path / "archive" / "geopolitics" / "sources",
     )
     monkeypatch.setattr(integrity, "markdown_files", lambda: [note])
     monkeypatch.setattr(
@@ -201,7 +201,7 @@ def test_markdown_archive_links_use_manifest_when_hydration_is_absent(
     )
 
     assert integrity.markdown_link_failures() == [
-        "broken Markdown link: docs/note.md -> ../narrative-geopolitics/archive/sources/missing.md"
+        "broken Markdown link: docs/note.md -> ../archive/geopolitics/sources/missing.md"
     ]
 
 
@@ -211,13 +211,13 @@ def test_root_relative_archive_links_use_portable_path_separators(
     docs = tmp_path / "docs"
     docs.mkdir()
     note = docs / "note.md"
-    valid = "narrative-geopolitics/archive/sources/2026-07-09/source-a.md"
+    valid = "archive/geopolitics/sources/2026-07-09/source-a.md"
     note.write_text(f"[valid]({valid}:12)\n", encoding="utf-8")
     monkeypatch.setattr(integrity, "REPO_ROOT", tmp_path)
     monkeypatch.setattr(
         integrity,
         "ARCHIVE_SOURCES",
-        tmp_path / "narrative-geopolitics" / "archive" / "sources",
+        tmp_path / "archive" / "geopolitics" / "sources",
     )
     monkeypatch.setattr(integrity, "markdown_files", lambda: [note])
     monkeypatch.setattr(

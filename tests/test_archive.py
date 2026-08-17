@@ -399,6 +399,53 @@ def test_external_corpus_hydration_is_disabled(monkeypatch: pytest.MonkeyPatch) 
         system_archive.hydrate_command(SimpleNamespace(collection=["innermost-loop"], check=True))
 
 
+def test_geopolitics_discovery_preserves_catalog_identity_after_repository_move(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    repository_path = "archive/geopolitics/sources/2026-08-16/source-example.md"
+    logical_path = "narrative-geopolitics/archive/sources/2026-08-16/source-example.md"
+    source = tmp_path / repository_path
+    source.parent.mkdir(parents=True)
+    source.write_bytes(b"# Example\n")
+    manifest = tmp_path / "archive" / "geopolitics" / "source-manifest.json"
+    manifest.write_text(
+        json.dumps(
+            {
+                "manifest_id": "example",
+                "imported_at": "2026-08-16",
+                "source_count": 1,
+                "sources": [
+                    {
+                        "date": "2026-08-16",
+                        "local_path": repository_path,
+                    }
+                ],
+            }
+        ),
+        encoding="utf-8",
+    )
+    collection = {
+        "id": "narrative-geopolitics-archive",
+        "registry_path": "archive/geopolitics/source-manifest.json",
+        "repository_root": "archive/geopolitics/sources",
+        "logical_root": "narrative-geopolitics/archive/sources",
+        "authority_owner": "archive/geopolitics/source-manifest.json",
+        "evidence_class": "imported-archive-source",
+    }
+    monkeypatch.setattr(system_archive, "REPO_ROOT", tmp_path)
+
+    record, discovered = list(system_archive.discover_archive(collection))[0]
+
+    assert discovered == source
+    assert record.logical_path == logical_path
+    assert record.record_id == system_archive.stable_record_id("SAR-NG", logical_path)
+    assert system_archive.repository_path_for_logical(
+        logical_path,
+        collection["id"],
+        collections={collection["id"]: collection},
+    ) == source
+
+
 def test_external_corpus_lineage_is_neutral_and_idempotent(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:

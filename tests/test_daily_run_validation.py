@@ -26,16 +26,17 @@ def configure_fixture(monkeypatch, tmp_path: Path, sources_text: str) -> None:
     ng_root = tmp_path / "narrative-geopolitics"
     daily_root = ng_root / "work" / "daily"
     ledger_path = ng_root / "work" / "forecasts" / "forecast-ledger.md"
-    manifest_path = ng_root / "archive" / "source-manifest.json"
+    archive_root = tmp_path / "archive" / "geopolitics"
+    manifest_path = archive_root / "source-manifest.json"
     run_dir = daily_root / "2026-07-09"
-    source_dir = ng_root / "archive" / "sources" / "2026-07-09"
+    source_dir = archive_root / "sources" / "2026-07-09"
     run_dir.mkdir(parents=True)
     source_dir.mkdir(parents=True)
     ledger_path.parent.mkdir(parents=True)
 
     rows = []
     for name in ("source-a.md", "source-b.md"):
-        local_path = f"narrative-geopolitics/archive/sources/2026-07-09/{name}"
+        local_path = f"archive/geopolitics/sources/2026-07-09/{name}"
         rows.append({"date": "2026-07-09", "local_path": local_path})
         (source_dir / name).write_text("source\n", encoding="utf-8")
     manifest_path.write_text(json.dumps({"sources": rows}), encoding="utf-8")
@@ -110,17 +111,17 @@ def complete_sources_text(selected_subset: bool = False) -> str:
         "\n## Run Source Set\n"
         "| Source ID | Archive Path |\n"
         "| --- | --- |\n"
-        "| `SRC-01` | [A](../../../archive/sources/2026-07-09/source-a.md) |\n"
+        "| `SRC-01` | [A](../../../../archive/geopolitics/sources/2026-07-09/source-a.md) |\n"
         if selected_subset
-        else "\n## Run Source Set\n| Source ID | Archive Path |\n| --- | --- |\n| `SRC-01` | [A](../../../archive/sources/2026-07-09/source-a.md) |\n"
+        else "\n## Run Source Set\n| Source ID | Archive Path |\n| --- | --- |\n| `SRC-01` | [A](../../../../archive/geopolitics/sources/2026-07-09/source-a.md) |\n"
     )
     return (
         "Status: `live-intake-first`\n\n"
         "## Intake Batch\n"
         "| Source File | Type |\n"
         "| --- | --- |\n"
-        "| `archive/sources/2026-07-09/source-a.md` | transcript |\n"
-        "| `archive/sources/2026-07-09/source-b.md` | transcript |\n"
+        "| `archive/geopolitics/sources/2026-07-09/source-a.md` | transcript |\n"
+        "| `archive/geopolitics/sources/2026-07-09/source-b.md` | transcript |\n"
         + selected
     )
 

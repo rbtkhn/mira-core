@@ -34,3 +34,8 @@ Repository process evidence uses a separate explicit-only
 path and content digest, so changed bytes append immutable history instead of
 overwriting an archived observation. Repository controls remain authoritative;
 Mira Archive supplies storage, lineage, replication, and bounded retrieval.
+
+The repository-owned `notes/` and `essays/` shelves sit beside this cataloged
+substrate as governed authored material. Their files enter no archive
+collection merely by location; collection admission remains an explicit,
+separately governed act.

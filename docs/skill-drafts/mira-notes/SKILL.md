@@ -1,11 +1,11 @@
 ---
 name: mira-notes
-description: "Create, revise, classify, or organize Mira's provisional working notes, interpretive analyses, hypotheses, research observations, and governed experiments. Use when the operator says mira-notes, asks Mira to preserve a thought without journal admission, or requests work on files under mira/notes. Do not use for approved autobiographical continuity, polished standalone essays, domain evidence, or canonical identity claims."
+description: "Create, revise, classify, or organize Mira's provisional working notes, interpretive analyses, hypotheses, research observations, and governed experiments. Use when the operator says mira-notes, asks Mira to preserve a thought without journal admission, or requests work on files under archive/notes. Do not use for approved autobiographical continuity, polished standalone essays, domain evidence, or canonical identity claims."
 ---
 
 # Mira Notes
 
-Use `mira/notes/` for durable thinking that should remain revisable and
+Use `archive/notes/` for durable thinking that should remain revisable and
 explicitly non-canonical. Notes preserve useful formation without requiring the
 daily autobiographical and approval machinery of `mira-journal` or the
 independent-reader finish of `mira-essays`.
@@ -42,8 +42,8 @@ the receiving workflow.
 
 ## Storage and lifecycle
 
-- Store ordinary notes as `mira/notes/YYYY-MM-DD-descriptive-slug.md`.
-- Store governed multi-file experiments under `mira/notes/<experiment-name>/`.
+- Store ordinary notes as `archive/notes/YYYY-MM-DD-descriptive-slug.md`.
+- Store governed multi-file experiments under `archive/notes/<experiment-name>/`.
 - Use status values such as `private-provisional`, `working`, `superseded`, or
   `closed`; explain any specialized lifecycle locally.
 - Never place private raw conversations, credentials, or restricted source

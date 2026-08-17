@@ -42,7 +42,7 @@ For each supplied source:
 3. Use canonical person slugs already established in the repository.
 4. Keep person identity separate from host/channel identity.
 5. Land the source under:
-   `narrative-geopolitics/archive/sources/YYYY-MM-DD/`
+   `archive/geopolitics/sources/YYYY-MM-DD/`
 6. Use `scripts/land_best_intake.py` and the repository Python wrapper:
    `.\tools\run.ps1 intake-land`
 7. Preserve the supplied source body with minimal rewriting.

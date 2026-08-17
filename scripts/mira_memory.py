@@ -279,7 +279,7 @@ def archive_carrier(*, inspect_catalog: bool = False) -> dict[str, Any]:
 
 
 def geopolitics_carrier() -> dict[str, Any]:
-    canonical = [REPO_ROOT / "narrative-geopolitics/archive/source-manifest.json", REPO_ROOT / "narrative-geopolitics/work/forecasts/forecast-ledger.md"]
+    canonical = [REPO_ROOT / "archive/geopolitics/source-manifest.json", REPO_ROOT / "narrative-geopolitics/work/forecasts/forecast-ledger.md"]
     generated = [REPO_ROOT / "narrative-geopolitics/work/reality/views/outcome-ledger.md"]
     state, validation = json_state(canonical[0])
     missing = [relative(path) for path in canonical[1:] if not path.is_file()]

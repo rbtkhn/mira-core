@@ -154,13 +154,15 @@ def test_invalid_class_and_status_are_rejected(tmp_path: Path) -> None:
 
 def test_missing_source_paths_and_bad_lines_are_rejected(tmp_path: Path) -> None:
     ledger = valid_seed_ledger()
-    ledger["entries"][0]["source_path"] = "narrative-geopolitics/archive/sources/missing.md"
+    ledger["entries"][0]["source_path"] = "archive/geopolitics/sources/missing.md"
     failures = validate_tmp(tmp_path, ledger)
     assert any("source path missing" in failure for failure in failures)
 
     ledger = valid_seed_ledger()
     ledger["entries"][0]["line"] = 999999
-    source = tmp_path / ledger["entries"][0]["source_path"]
+    source = voice_accountability.resolve_repository_path(
+        tmp_path, ledger["entries"][0]["source_path"]
+    )
     source.parent.mkdir(parents=True)
     source.write_text("one\ntwo\n", encoding="utf-8")
     failures = validate_tmp(tmp_path, ledger, repo_root=tmp_path)

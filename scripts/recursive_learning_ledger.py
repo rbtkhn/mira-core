@@ -10,6 +10,8 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any
 
+from repository_paths import resolve_repository_path
+
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 TRACKER_ROOT = REPO_ROOT / "narrative-geopolitics" / "work" / "system-improvement"
@@ -320,7 +322,7 @@ def validate_entry(entry: Any, *, repo_root: Path = REPO_ROOT) -> list[str]:
                 if _is_journal_path(raw_text):
                     failures.append(f"{entry_id}: journal context cannot serve as {stage_name} evidence: {raw_text}")
                     continue
-                path = repo_root / raw_text
+                path = resolve_repository_path(repo_root, raw_text)
                 if not path.exists():
                     failures.append(f"{entry_id}: missing evidence path: {raw_text}")
         if stage_name == "intervention":
@@ -474,7 +476,7 @@ def stage_dispositions(
             raw_text = str(raw_path)
             if _is_journal_path(raw_text):
                 invalid_reasons.append(f"journal context is inadmissible evidence: {raw_text}")
-            elif not (repo_root / raw_text).exists():
+            elif not resolve_repository_path(repo_root, raw_text).exists():
                 invalid_reasons.append(f"evidence path does not resolve: {raw_text}")
         if stage_name == "intervention":
             commits = stage.get("commits")
@@ -776,7 +778,7 @@ def load_process_reference(path: Path) -> dict[str, Any]:
         if not isinstance(artifact, dict):
             raise LearningError("process-learning artifact handles must be objects")
         path = str(artifact.get("ref", "")).split("#", 1)[0]
-        if Path(path).is_absolute() or ".." in Path(path).parts or not (REPO_ROOT / path).exists():
+        if Path(path).is_absolute() or ".." in Path(path).parts or not resolve_repository_path(REPO_ROOT, path).exists():
             raise LearningError(f"process-learning artifact does not resolve: {path}")
         if _is_journal_path(path):
             raise LearningError("journal context cannot serve as process-learning evidence")

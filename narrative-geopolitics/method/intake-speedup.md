@@ -9,7 +9,7 @@ that repeated for every source:
 
 1. read enough of each pasted transcript to infer title, date, host, guest, and routing
 2. write a custom archive file by hand
-3. hand-edit `archive/source-manifest.json`
+3. hand-edit `archive/geopolitics/source-manifest.json`
 4. re-check voice and channel continuity during landing
 5. verify the new source manually
 
@@ -69,7 +69,7 @@ single-source path.
 It automates the slowest repeated operations:
 
 - slugging the source title
-- creating `archive/sources/YYYY-MM-DD/source-*.md`
+- creating `archive/geopolitics/sources/YYYY-MM-DD/source-*.md`
 - writing standard frontmatter
 - appending a manifest row
 - incrementing manifest `source_count`

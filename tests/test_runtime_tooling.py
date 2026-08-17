@@ -456,7 +456,7 @@ def test_runner_preserves_archive_repair_authority_binding(monkeypatch) -> None:
         "run",
         lambda command, **kwargs: commands.append(command) or SimpleNamespace(returncode=0),
     )
-    target = "narrative-geopolitics/archive/sources/2026-07-31/source-example.md"
+    target = "archive/geopolitics/sources/2026-07-31/source-example.md"
     digest = "a" * 64
     assert runner.main(
         [
@@ -772,7 +772,7 @@ def test_fast_route_selects_tests_for_narrow_allowlisted_changes() -> None:
         [
             validator.Change(
                 " M",
-                "narrative-geopolitics/archive/sources/2026-08-03/example.md",
+                "archive/geopolitics/sources/2026-08-03/example.md",
             ),
             validator.Change(" M", "tests/test_runtime_tooling.py"),
         ]
@@ -789,7 +789,7 @@ def test_fast_route_selects_tests_for_narrow_allowlisted_changes() -> None:
         validator.Change(" M", "tools/validate_repo.py"),
         validator.Change("R ", "old.md -> new.md"),
         validator.Change("??", "tests/test_new_contract.py"),
-        validator.Change(" M", "narrative-geopolitics/archive/manifest.json"),
+        validator.Change(" M", "archive/geopolitics/manifest.json"),
     ),
 )
 def test_fast_route_fails_closed_for_risky_or_unknown_changes(change) -> None:

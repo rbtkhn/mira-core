@@ -32,12 +32,14 @@ def test_agents_routes_all_three_mira_writing_forms() -> None:
 
 def test_mira_writing_storage_is_separated() -> None:
     assert (ROOT / "mira" / "journal").is_dir()
-    assert (ROOT / "mira" / "notes").is_dir()
-    assert (ROOT / "mira" / "essays").is_dir()
+    assert (ROOT / "archive" / "notes").is_dir()
+    assert (ROOT / "archive" / "essays").is_dir()
+    assert not (ROOT / "mira" / "notes").exists()
+    assert not (ROOT / "mira" / "essays").exists()
     assert not (ROOT / "mira" / "reflections").exists()
 
-    history = ROOT / "mira" / "notes" / "2026-08-15-from-civilization-memory-to-mira-core.md"
-    essay = ROOT / "mira" / "essays" / "2026-08-15-the-responsible-custody-of-inheritance.md"
+    history = ROOT / "archive" / "notes" / "2026-08-15-from-civilization-memory-to-mira-core.md"
+    essay = ROOT / "archive" / "essays" / "2026-08-15-the-responsible-custody-of-inheritance.md"
     assert history.is_file()
     assert essay.is_file()
     assert "../notes/2026-08-15-from-civilization-memory-to-mira-core.md" in essay.read_text(
@@ -47,13 +49,13 @@ def test_mira_writing_storage_is_separated() -> None:
 
 def test_innermost_loop_paths_follow_notes_migration() -> None:
     governed = (
-        ROOT / "mira" / "notes" / "innermost-loop-simulation" / "protocol.json"
+        ROOT / "archive" / "notes" / "innermost-loop-simulation" / "protocol.json"
     ).read_text(encoding="utf-8")
     implementation = (ROOT / "scripts" / "innermost_loop_simulation.py").read_text(
         encoding="utf-8"
     )
 
-    assert "mira/notes/innermost-loop-simulation" in governed
+    assert "archive/notes/innermost-loop-simulation" in governed
     assert "mira/reflections" not in governed
-    assert "mira/notes/innermost-loop-simulation" in implementation
+    assert "archive/notes/innermost-loop-simulation" in implementation
     assert "mira/reflections" not in implementation

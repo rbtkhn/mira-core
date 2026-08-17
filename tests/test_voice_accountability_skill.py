@@ -32,7 +32,7 @@ def write_source(
     repo_root: Path, day: str, name: str, guest: str, body: str
 ) -> Path:
     source_dir = (
-        repo_root / "narrative-geopolitics" / "archive" / "sources" / day
+        repo_root / "archive" / "geopolitics" / "sources" / day
     )
     source_dir.mkdir(parents=True, exist_ok=True)
     path = source_dir / name
@@ -142,7 +142,7 @@ def test_finder_rejects_reversed_date_range(tmp_path: Path) -> None:
 
 
 @pytest.mark.skipif(
-    not (REPO_ROOT / "narrative-geopolitics" / "archive" / "sources").is_dir(),
+    not (REPO_ROOT / "archive" / "geopolitics" / "sources").is_dir(),
     reason="requires hydrated archive transcript bodies",
 )
 def test_july_known_explicit_admissions_are_retrieved() -> None:

@@ -6,14 +6,14 @@
     "day-1": {
       "status": "sealed",
       "not_before": "2026-08-10T00:00:00Z",
-      "response_path": "mira/notes/innermost-loop-simulation/responses/day-1.md",
+      "response_path": "archive/notes/innermost-loop-simulation/responses/day-1.md",
       "sha256": "c1178acf2aa1771293a5f07491c4c190809718923873a2e878cb12dbd96e0385",
       "completed_at": "2026-08-11T04:45:03.171471Z"
     },
     "day-2": {
       "status": "sealed",
       "not_before": "2026-08-11T15:00:00Z",
-      "response_path": "mira/notes/innermost-loop-simulation/responses/day-2.md",
+      "response_path": "archive/notes/innermost-loop-simulation/responses/day-2.md",
       "sha256": "9380dd46291c472ed7fdb980f316ae17e834a7ab144ee39f36c56f1f4ba7f91e",
       "completed_at": "2026-08-11T16:35:51.414073Z"
     },

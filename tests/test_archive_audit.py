@@ -63,7 +63,7 @@ def authored_source_text(*, pub_date: str, url: str) -> str:
 
 def archive_fixture(tmp_path: Path) -> tuple[Path, Path, Path, list[dict]]:
     repo = tmp_path / "repo"
-    sources = repo / "narrative-geopolitics" / "archive" / "sources"
+    sources = repo / "archive" / "geopolitics" / "sources"
     manifest_path = sources.parent / "source-manifest.json"
     rows: list[dict] = []
     specifications = (

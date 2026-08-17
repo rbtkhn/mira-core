@@ -3,11 +3,11 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
+from repository_paths import canonical_repository_path, resolve_repository_path
+
 
 def registered_source_paths(repo_root: Path) -> frozenset[str]:
-    manifest_path = (
-        repo_root / "narrative-geopolitics" / "archive" / "source-manifest.json"
-    )
+    manifest_path = repo_root / "archive" / "geopolitics" / "source-manifest.json"
     if not manifest_path.is_file():
         return frozenset()
     manifest = json.loads(manifest_path.read_text(encoding="utf-8-sig"))
@@ -22,7 +22,8 @@ def source_reference_available(
     *,
     registered: frozenset[str] | None = None,
 ) -> bool:
-    if (repo_root / source_path).is_file():
+    canonical = canonical_repository_path(source_path)
+    if resolve_repository_path(repo_root, source_path).is_file():
         return True
     paths = registered if registered is not None else registered_source_paths(repo_root)
-    return source_path in paths
+    return canonical in paths

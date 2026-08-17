@@ -3,1137 +3,1137 @@
   "overrides": [
     {
       "voice_slug": "aguilar",
-      "local_path": "narrative-geopolitics/archive/sources/2026-02-27/source-kiriakou-anthony-aguilar-gaza-whistleblower-death-by-design-2026-02-27.md",
+      "local_path": "archive/geopolitics/sources/2026-02-27/source-kiriakou-anthony-aguilar-gaza-whistleblower-death-by-design-2026-02-27.md",
       "role": "cross-voice panel"
     },
     {
       "voice_slug": "barnes",
-      "local_path": "narrative-geopolitics/archive/sources/2026-03-04/source-duran-mercouris-barnes-open-ended-iran-war-2026-03-04.md",
+      "local_path": "archive/geopolitics/sources/2026-03-04/source-duran-mercouris-barnes-open-ended-iran-war-2026-03-04.md",
       "role": "cross-voice panel"
     },
     {
       "voice_slug": "barnes",
-      "local_path": "narrative-geopolitics/archive/sources/2026-04-17/source-barnes-2026-04-17.md",
+      "local_path": "archive/geopolitics/sources/2026-04-17/source-barnes-2026-04-17.md",
       "role": "post"
     },
     {
       "voice_slug": "barnes",
-      "local_path": "narrative-geopolitics/archive/sources/2026-04-18/source-barnes-2026-04-18.md",
+      "local_path": "archive/geopolitics/sources/2026-04-18/source-barnes-2026-04-18.md",
       "role": "post"
     },
     {
       "voice_slug": "barnes",
-      "local_path": "narrative-geopolitics/archive/sources/2026-04-21/source-barnes-kent-exit-ramp-qt-2026-04-21.md",
+      "local_path": "archive/geopolitics/sources/2026-04-21/source-barnes-kent-exit-ramp-qt-2026-04-21.md",
       "role": "solo"
     },
     {
       "voice_slug": "barnes",
-      "local_path": "narrative-geopolitics/archive/sources/2026-04-23/source-duran-mercouris-barnes-fractured-iran-trump-2026-04-23.md",
+      "local_path": "archive/geopolitics/sources/2026-04-23/source-duran-mercouris-barnes-fractured-iran-trump-2026-04-23.md",
       "role": "cross-voice panel"
     },
     {
       "voice_slug": "barnes",
-      "local_path": "narrative-geopolitics/archive/sources/2026-05-28/source-barnes-mario-nawfal-reports-iran-attacks-u-s-ships-2026-05-28.md",
+      "local_path": "archive/geopolitics/sources/2026-05-28/source-barnes-mario-nawfal-reports-iran-attacks-u-s-ships-2026-05-28.md",
       "role": "authored interview"
     },
     {
       "voice_slug": "barnes",
-      "local_path": "narrative-geopolitics/archive/sources/2026-06-03/source-barnes-trump-informed-iran-may-have-nukes-2026-06-03.md",
+      "local_path": "archive/geopolitics/sources/2026-06-03/source-barnes-trump-informed-iran-may-have-nukes-2026-06-03.md",
       "role": "authored interview"
     },
     {
       "voice_slug": "baud",
-      "local_path": "narrative-geopolitics/archive/sources/2025-12-17/source-alexander-mercouris-russia-winning-big-victory-huiliaipole-collapse-eu-in-panic-sanctions-ba-2025-12-17.md",
+      "local_path": "archive/geopolitics/sources/2025-12-17/source-alexander-mercouris-russia-winning-big-victory-huiliaipole-collapse-eu-in-panic-sanctions-ba-2025-12-17.md",
       "role": "solo"
     },
     {
       "voice_slug": "baud",
-      "local_path": "narrative-geopolitics/archive/sources/2026-03-12/source-daniel-davis-baud-irans-unwavering-attacks-2026-03-12.md",
+      "local_path": "archive/geopolitics/sources/2026-03-12/source-daniel-davis-baud-irans-unwavering-attacks-2026-03-12.md",
       "role": "post"
     },
     {
       "voice_slug": "baud",
-      "local_path": "narrative-geopolitics/archive/sources/2026-03-31/source-daniel-davis-baud-iran-war-latest-2026-03-31.md",
+      "local_path": "archive/geopolitics/sources/2026-03-31/source-daniel-davis-baud-iran-war-latest-2026-03-31.md",
       "role": "post"
     },
     {
       "voice_slug": "crooke",
-      "local_path": "narrative-geopolitics/archive/sources/2026-01-08/source-crooke-the-rubican-crossed-team-trumps-nihilistic-2026-01-08.md",
+      "local_path": "archive/geopolitics/sources/2026-01-08/source-crooke-the-rubican-crossed-team-trumps-nihilistic-2026-01-08.md",
       "role": "authored newsletter"
     },
     {
       "voice_slug": "crooke",
-      "local_path": "narrative-geopolitics/archive/sources/2026-01-15/source-crooke-deciphering-trumps-externalised-internal-2026-01-15.md",
+      "local_path": "archive/geopolitics/sources/2026-01-15/source-crooke-deciphering-trumps-externalised-internal-2026-01-15.md",
       "role": "authored newsletter"
     },
     {
       "voice_slug": "crooke",
-      "local_path": "narrative-geopolitics/archive/sources/2026-01-21/source-crooke-what-may-be-the-greenland-endgame-2026-01-21.md",
+      "local_path": "archive/geopolitics/sources/2026-01-21/source-crooke-what-may-be-the-greenland-endgame-2026-01-21.md",
       "role": "authored newsletter"
     },
     {
       "voice_slug": "crooke",
-      "local_path": "narrative-geopolitics/archive/sources/2026-01-24/source-crooke-will-he-wont-he-taco-on-iran-2026-01-24.md",
+      "local_path": "archive/geopolitics/sources/2026-01-24/source-crooke-will-he-wont-he-taco-on-iran-2026-01-24.md",
       "role": "authored newsletter"
     },
     {
       "voice_slug": "crooke",
-      "local_path": "narrative-geopolitics/archive/sources/2026-01-28/source-crooke-gaza-reconstruction-ukraine-reconstruction-2026-01-28.md",
+      "local_path": "archive/geopolitics/sources/2026-01-28/source-crooke-gaza-reconstruction-ukraine-reconstruction-2026-01-28.md",
       "role": "authored newsletter"
     },
     {
       "voice_slug": "crooke",
-      "local_path": "narrative-geopolitics/archive/sources/2026-01-31/source-crooke-trump-dithers-to-find-an-exploitable-2026-01-31.md",
+      "local_path": "archive/geopolitics/sources/2026-01-31/source-crooke-trump-dithers-to-find-an-exploitable-2026-01-31.md",
       "role": "authored newsletter"
     },
     {
       "voice_slug": "crooke",
-      "local_path": "narrative-geopolitics/archive/sources/2026-02-05/source-crooke-the-slow-epstein-earthquake-the-rupture-2026-02-05.md",
+      "local_path": "archive/geopolitics/sources/2026-02-05/source-crooke-the-slow-epstein-earthquake-the-rupture-2026-02-05.md",
       "role": "authored newsletter"
     },
     {
       "voice_slug": "crooke",
-      "local_path": "narrative-geopolitics/archive/sources/2026-02-07/source-crooke-trapping-trump-into-an-iran-strike-2026-02-07.md",
+      "local_path": "archive/geopolitics/sources/2026-02-07/source-crooke-trapping-trump-into-an-iran-strike-2026-02-07.md",
       "role": "authored newsletter"
     },
     {
       "voice_slug": "crooke",
-      "local_path": "narrative-geopolitics/archive/sources/2026-02-12/source-crooke-trump-kabuki-theatre-in-ukraine-nothing-2026-02-12.md",
+      "local_path": "archive/geopolitics/sources/2026-02-12/source-crooke-trump-kabuki-theatre-in-ukraine-nothing-2026-02-12.md",
       "role": "authored newsletter"
     },
     {
       "voice_slug": "crooke",
-      "local_path": "narrative-geopolitics/archive/sources/2026-02-18/source-crooke-who-can-halt-the-america-first-ambition-2026-02-18.md",
+      "local_path": "archive/geopolitics/sources/2026-02-18/source-crooke-who-can-halt-the-america-first-ambition-2026-02-18.md",
       "role": "authored newsletter"
     },
     {
       "voice_slug": "crooke",
-      "local_path": "narrative-geopolitics/archive/sources/2026-02-28/source-crooke-the-end-to-deceptive-trumpian-diplomacy-2026-02-28.md",
+      "local_path": "archive/geopolitics/sources/2026-02-28/source-crooke-the-end-to-deceptive-trumpian-diplomacy-2026-02-28.md",
       "role": "authored newsletter"
     },
     {
       "voice_slug": "crooke",
-      "local_path": "narrative-geopolitics/archive/sources/2026-03-03/source-crooke-if-iran-survives-and-stays-steadfast-2026-03-03.md",
+      "local_path": "archive/geopolitics/sources/2026-03-03/source-crooke-if-iran-survives-and-stays-steadfast-2026-03-03.md",
       "role": "authored newsletter"
     },
     {
       "voice_slug": "crooke",
-      "local_path": "narrative-geopolitics/archive/sources/2026-03-12/source-crooke-is-having-no-war-plan-trumps-plan-2026-03-12.md",
+      "local_path": "archive/geopolitics/sources/2026-03-12/source-crooke-is-having-no-war-plan-trumps-plan-2026-03-12.md",
       "role": "authored newsletter"
     },
     {
       "voice_slug": "crooke",
-      "local_path": "narrative-geopolitics/archive/sources/2026-03-13/source-daniel-davis-crooke-irans-asymmetrical-war-2026-03-13.md",
+      "local_path": "archive/geopolitics/sources/2026-03-13/source-daniel-davis-crooke-irans-asymmetrical-war-2026-03-13.md",
       "role": "post"
     },
     {
       "voice_slug": "crooke",
-      "local_path": "narrative-geopolitics/archive/sources/2026-03-19/source-crooke-as-the-wheels-come-off-the-iran-conflict-2026-03-19.md",
+      "local_path": "archive/geopolitics/sources/2026-03-19/source-crooke-as-the-wheels-come-off-the-iran-conflict-2026-03-19.md",
       "role": "authored newsletter"
     },
     {
       "voice_slug": "crooke",
-      "local_path": "narrative-geopolitics/archive/sources/2026-03-23/source-crooke-irans-audacious-strategic-moves-declared-2026-03-23.md",
+      "local_path": "archive/geopolitics/sources/2026-03-23/source-crooke-irans-audacious-strategic-moves-declared-2026-03-23.md",
       "role": "authored newsletter"
     },
     {
       "voice_slug": "crooke",
-      "local_path": "narrative-geopolitics/archive/sources/2026-03-26/source-crooke-are-there-or-will-there-be-us-negotiations-2026-03-26.md",
+      "local_path": "archive/geopolitics/sources/2026-03-26/source-crooke-are-there-or-will-there-be-us-negotiations-2026-03-26.md",
       "role": "authored newsletter"
     },
     {
       "voice_slug": "crooke",
-      "local_path": "narrative-geopolitics/archive/sources/2026-04-02/source-crooke-claiming-victory-whilst-admitting-2026-04-02.md",
+      "local_path": "archive/geopolitics/sources/2026-04-02/source-crooke-claiming-victory-whilst-admitting-2026-04-02.md",
       "role": "authored newsletter"
     },
     {
       "voice_slug": "crooke",
-      "local_path": "narrative-geopolitics/archive/sources/2026-04-08/source-crooke-the-10-point-iranian-framework-and-2026-04-08.md",
+      "local_path": "archive/geopolitics/sources/2026-04-08/source-crooke-the-10-point-iranian-framework-and-2026-04-08.md",
       "role": "authored newsletter"
     },
     {
       "voice_slug": "crooke",
-      "local_path": "narrative-geopolitics/archive/sources/2026-04-10/source-crooke-irans-determination-to-breakout-from-2026-04-10.md",
+      "local_path": "archive/geopolitics/sources/2026-04-10/source-crooke-irans-determination-to-breakout-from-2026-04-10.md",
       "role": "authored newsletter"
     },
     {
       "voice_slug": "crooke",
-      "local_path": "narrative-geopolitics/archive/sources/2026-04-18/source-crooke-markets-prematurely-may-celebrate-2026-04-18.md",
+      "local_path": "archive/geopolitics/sources/2026-04-18/source-crooke-markets-prematurely-may-celebrate-2026-04-18.md",
       "role": "authored newsletter"
     },
     {
       "voice_slug": "crooke",
-      "local_path": "narrative-geopolitics/archive/sources/2026-04-23/source-crooke-the-mechanistic-fallacy-why-the-west-2026-04-23.md",
+      "local_path": "archive/geopolitics/sources/2026-04-23/source-crooke-the-mechanistic-fallacy-why-the-west-2026-04-23.md",
       "role": "authored newsletter"
     },
     {
       "voice_slug": "crooke",
-      "local_path": "narrative-geopolitics/archive/sources/2026-04-23/source-daniel-davis-crooke-iranians-only-getting-tougher-2026-04-23.md",
+      "local_path": "archive/geopolitics/sources/2026-04-23/source-daniel-davis-crooke-iranians-only-getting-tougher-2026-04-23.md",
       "role": "solo"
     },
     {
       "voice_slug": "crooke",
-      "local_path": "narrative-geopolitics/archive/sources/2026-05-02/source-crooke-a-negotiated-settlement-for-a-sovereign-2026-05-02.md",
+      "local_path": "archive/geopolitics/sources/2026-05-02/source-crooke-a-negotiated-settlement-for-a-sovereign-2026-05-02.md",
       "role": "authored newsletter"
     },
     {
       "voice_slug": "crooke",
-      "local_path": "narrative-geopolitics/archive/sources/2026-05-09/source-crooke-ways-of-war-are-in-metamorphosis-lessons-from-the-iran-war-2026-05-09.md",
+      "local_path": "archive/geopolitics/sources/2026-05-09/source-crooke-ways-of-war-are-in-metamorphosis-lessons-from-the-iran-war-2026-05-09.md",
       "role": "authored newsletter"
     },
     {
       "voice_slug": "crooke",
-      "local_path": "narrative-geopolitics/archive/sources/2026-05-14/source-crooke-israels-war-to-the-root-may-unravel-america-2026-05-14.md",
+      "local_path": "archive/geopolitics/sources/2026-05-14/source-crooke-israels-war-to-the-root-may-unravel-america-2026-05-14.md",
       "role": "authored newsletter"
     },
     {
       "voice_slug": "crooke",
-      "local_path": "narrative-geopolitics/archive/sources/2026-05-20/source-crooke-paradoxically-fear-is-the-foundation-of-stability-deterrence-works-2026-05-20.md",
+      "local_path": "archive/geopolitics/sources/2026-05-20/source-crooke-paradoxically-fear-is-the-foundation-of-stability-deterrence-works-2026-05-20.md",
       "role": "authored newsletter"
     },
     {
       "voice_slug": "crooke",
-      "local_path": "narrative-geopolitics/archive/sources/2026-05-28/source-crooke-iran-war-effect-marks-the-resetting-2026-05-28.md",
+      "local_path": "archive/geopolitics/sources/2026-05-28/source-crooke-iran-war-effect-marks-the-resetting-2026-05-28.md",
       "role": "authored newsletter"
     },
     {
       "voice_slug": "crooke",
-      "local_path": "narrative-geopolitics/archive/sources/2026-06-04/source-crooke-iran-takes-its-chances-with-war-2026-06-04.md",
+      "local_path": "archive/geopolitics/sources/2026-06-04/source-crooke-iran-takes-its-chances-with-war-2026-06-04.md",
       "role": "authored newsletter"
     },
     {
       "voice_slug": "crooke",
-      "local_path": "narrative-geopolitics/archive/sources/2026-06-12/source-crooke-post-iran-war-end-of-an-era-not-decline-2026-06-12.md",
+      "local_path": "archive/geopolitics/sources/2026-06-12/source-crooke-post-iran-war-end-of-an-era-not-decline-2026-06-12.md",
       "role": "authored newsletter"
     },
     {
       "voice_slug": "crooke",
-      "local_path": "narrative-geopolitics/archive/sources/2026-06-18/source-crooke-israel-picking-up-pieces-deep-seated-hubris-2026-06-18.md",
+      "local_path": "archive/geopolitics/sources/2026-06-18/source-crooke-israel-picking-up-pieces-deep-seated-hubris-2026-06-18.md",
       "role": "authored newsletter"
     },
     {
       "voice_slug": "crooke",
-      "local_path": "narrative-geopolitics/archive/sources/2026-06-25/source-crooke-russia-hearing-the-european-clamour-2026-06-25.md",
+      "local_path": "archive/geopolitics/sources/2026-06-25/source-crooke-russia-hearing-the-european-clamour-2026-06-25.md",
       "role": "authored newsletter"
     },
     {
       "voice_slug": "davis",
-      "local_path": "narrative-geopolitics/archive/sources/2025-08-18/source-glenn-diesen-daniel-davis-trump-pushes-zelensky-europe-on-peace-deal-2025-08-18.md",
+      "local_path": "archive/geopolitics/sources/2025-08-18/source-glenn-diesen-daniel-davis-trump-pushes-zelensky-europe-on-peace-deal-2025-08-18.md",
       "role": "practical-room spine"
     },
     {
       "voice_slug": "davis",
-      "local_path": "narrative-geopolitics/archive/sources/2026-02-07/source-glenn-diesen-daniel-davis-iran-knife-edge-2026-02-07.md",
+      "local_path": "archive/geopolitics/sources/2026-02-07/source-glenn-diesen-daniel-davis-iran-knife-edge-2026-02-07.md",
       "role": "practical-room spine"
     },
     {
       "voice_slug": "davis",
-      "local_path": "narrative-geopolitics/archive/sources/2026-03-01/source-glenn-diesen-daniel-davis-iran-miscalculation-2026-03-01.md",
+      "local_path": "archive/geopolitics/sources/2026-03-01/source-glenn-diesen-daniel-davis-iran-miscalculation-2026-03-01.md",
       "role": "practical-room spine"
     },
     {
       "voice_slug": "davis",
-      "local_path": "narrative-geopolitics/archive/sources/2026-03-18/source-glenn-diesen-daniel-davis-military-options-kent-2026-03-18.md",
+      "local_path": "archive/geopolitics/sources/2026-03-18/source-glenn-diesen-daniel-davis-military-options-kent-2026-03-18.md",
       "role": "practical-room spine"
     },
     {
       "voice_slug": "davis",
-      "local_path": "narrative-geopolitics/archive/sources/2026-03-25/source-dialogue-works-lt-col-daniel-davis-iran-s-trap-is-already-set-and-the-u-s-is-2026-03-25.md",
+      "local_path": "archive/geopolitics/sources/2026-03-25/source-dialogue-works-lt-col-daniel-davis-iran-s-trap-is-already-set-and-the-u-s-is-2026-03-25.md",
       "role": "practical-room spine"
     },
     {
       "voice_slug": "davis",
-      "local_path": "narrative-geopolitics/archive/sources/2026-04-02/source-glenn-diesen-daniel-davis-trump-war-speech-2026-04-02.md",
+      "local_path": "archive/geopolitics/sources/2026-04-02/source-glenn-diesen-daniel-davis-trump-war-speech-2026-04-02.md",
       "role": "practical-room spine"
     },
     {
       "voice_slug": "diesen",
-      "local_path": "narrative-geopolitics/archive/sources/2026-03-11/source-daniel-davis-diesen-iranian-hatred-for-their-gov-overblown-2026-03-11.md",
+      "local_path": "archive/geopolitics/sources/2026-03-11/source-daniel-davis-diesen-iranian-hatred-for-their-gov-overblown-2026-03-11.md",
       "role": "multipolar-order spine"
     },
     {
       "voice_slug": "diesen",
-      "local_path": "narrative-geopolitics/archive/sources/2026-05-31/source-mario-nawfal-diesen-breaking-iran-collects-tolls-from-28-ships-in-past-24-hours-2026-05-31.md",
+      "local_path": "archive/geopolitics/sources/2026-05-31/source-mario-nawfal-diesen-breaking-iran-collects-tolls-from-28-ships-in-past-24-hours-2026-05-31.md",
       "role": "multipolar-order spine"
     },
     {
       "voice_slug": "diesen",
-      "local_path": "narrative-geopolitics/archive/sources/2026-06-24/source-judging-freedom-diesen-europe-preparing-war-2026-06-24.md",
+      "local_path": "archive/geopolitics/sources/2026-06-24/source-judging-freedom-diesen-europe-preparing-war-2026-06-24.md",
       "role": "multipolar-order spine"
     },
     {
       "voice_slug": "freeman",
-      "local_path": "narrative-geopolitics/archive/sources/2025-01-19/source-dialogue-works-can-trump-outdo-biden-s-worst-amb-chas-freeman-richard-d-wolff-michael-h-2025-01-19.md",
+      "local_path": "archive/geopolitics/sources/2025-01-19/source-dialogue-works-can-trump-outdo-biden-s-worst-amb-chas-freeman-richard-d-wolff-michael-h-2025-01-19.md",
       "role": "solo"
     },
     {
       "voice_slug": "freeman",
-      "local_path": "narrative-geopolitics/archive/sources/2025-04-04/source-dialogue-works-mohammad-marandi-larry-wilkerson-and-chas-freeman-on-middle-east-erupts-iran-challenges-ultimatum-2025-04-04.md",
+      "local_path": "archive/geopolitics/sources/2025-04-04/source-dialogue-works-mohammad-marandi-larry-wilkerson-and-chas-freeman-on-middle-east-erupts-iran-challenges-ultimatum-2025-04-04.md",
       "role": "cross-voice panel"
     },
     {
       "voice_slug": "freeman",
-      "local_path": "narrative-geopolitics/archive/sources/2025-04-18/source-dialogue-works-mohammad-marandi-larry-wilkerson-and-chas-freeman-talks-or-total-war-clock-ticks-for-iran-and-u-s-2025-04-18.md",
+      "local_path": "archive/geopolitics/sources/2025-04-18/source-dialogue-works-mohammad-marandi-larry-wilkerson-and-chas-freeman-talks-or-total-war-clock-ticks-for-iran-and-u-s-2025-04-18.md",
       "role": "cross-voice panel"
     },
     {
       "voice_slug": "freeman",
-      "local_path": "narrative-geopolitics/archive/sources/2025-05-02/source-dialogue-works-mohammad-marandi-and-amb-chas-freeman-ticking-toward-war-u-s-and-iran-at-a-dangerous-crossroads-2025-05-02.md",
+      "local_path": "archive/geopolitics/sources/2025-05-02/source-dialogue-works-mohammad-marandi-and-amb-chas-freeman-ticking-toward-war-u-s-and-iran-at-a-dangerous-crossroads-2025-05-02.md",
       "role": "cross-voice panel"
     },
     {
       "voice_slug": "freeman",
-      "local_path": "narrative-geopolitics/archive/sources/2025-05-09/source-dialogue-works-amb-chas-freeman-and-trita-parsi-trump-s-wake-up-call-yemen-s-chaos-forcing-a-deal-with-iran-2025-05-09.md",
+      "local_path": "archive/geopolitics/sources/2025-05-09/source-dialogue-works-amb-chas-freeman-and-trita-parsi-trump-s-wake-up-call-yemen-s-chaos-forcing-a-deal-with-iran-2025-05-09.md",
       "role": "cross-voice panel"
     },
     {
       "voice_slug": "freeman",
-      "local_path": "narrative-geopolitics/archive/sources/2025-06-14/source-dialogue-works-col-larry-wilkerson-and-chas-freeman-israel-s-attack-on-iran-and-its-devastating-consequences-2025-06-14.md",
+      "local_path": "archive/geopolitics/sources/2025-06-14/source-dialogue-works-col-larry-wilkerson-and-chas-freeman-israel-s-attack-on-iran-and-its-devastating-consequences-2025-06-14.md",
       "role": "cross-voice panel"
     },
     {
       "voice_slug": "freeman",
-      "local_path": "narrative-geopolitics/archive/sources/2025-06-22/source-dialogue-works-col-larry-wilkerson-amb-chas-freeman-and-trita-parsi-the-us-could-face-a-war-it-can-t-win-2025-06-22.md",
+      "local_path": "archive/geopolitics/sources/2025-06-22/source-dialogue-works-col-larry-wilkerson-amb-chas-freeman-and-trita-parsi-the-us-could-face-a-war-it-can-t-win-2025-06-22.md",
       "role": "cross-voice panel"
     },
     {
       "voice_slug": "freeman",
-      "local_path": "narrative-geopolitics/archive/sources/2025-07-18/source-dialogue-works-col-larry-wilkerson-and-chas-freeman-ww3-imminent-shocking-signs-we-re-on-the-brink-of-global-war-2025-07-18.md",
+      "local_path": "archive/geopolitics/sources/2025-07-18/source-dialogue-works-col-larry-wilkerson-and-chas-freeman-ww3-imminent-shocking-signs-we-re-on-the-brink-of-global-war-2025-07-18.md",
       "role": "cross-voice panel"
     },
     {
       "voice_slug": "freeman",
-      "local_path": "narrative-geopolitics/archive/sources/2025-07-26/source-dialogue-works-amb-chas-freeman-and-trita-parsi-how-the-iran-israel-war-changed-everything-overnight-2025-07-26.md",
+      "local_path": "archive/geopolitics/sources/2025-07-26/source-dialogue-works-amb-chas-freeman-and-trita-parsi-how-the-iran-israel-war-changed-everything-overnight-2025-07-26.md",
       "role": "cross-voice panel"
     },
     {
       "voice_slug": "freeman",
-      "local_path": "narrative-geopolitics/archive/sources/2025-08-15/source-dialogue-works-amb-chas-freeman-and-trita-parsi-the-next-israel-iran-war-is-coming-2025-08-15.md",
+      "local_path": "archive/geopolitics/sources/2025-08-15/source-dialogue-works-amb-chas-freeman-and-trita-parsi-the-next-israel-iran-war-is-coming-2025-08-15.md",
       "role": "cross-voice panel"
     },
     {
       "voice_slug": "freeman",
-      "local_path": "narrative-geopolitics/archive/sources/2025-12-12/source-dialogue-works-wilkerson-freeman-chain-reaction-2025-12-12.md",
+      "local_path": "archive/geopolitics/sources/2025-12-12/source-dialogue-works-wilkerson-freeman-chain-reaction-2025-12-12.md",
       "role": "cross-voice panel"
     },
     {
       "voice_slug": "freeman",
-      "local_path": "narrative-geopolitics/archive/sources/2025-12-19/source-dialogue-works-freeman-parsi-middle-east-you-knew-disappearing-2025-12-19.md",
+      "local_path": "archive/geopolitics/sources/2025-12-19/source-dialogue-works-freeman-parsi-middle-east-you-knew-disappearing-2025-12-19.md",
       "role": "cross-voice panel"
     },
     {
       "voice_slug": "freeman",
-      "local_path": "narrative-geopolitics/archive/sources/2026-01-06/source-judging-freedom-freeman-china-and-russia-view-trump-as-a-kidnapper-2026-01-06.md",
+      "local_path": "archive/geopolitics/sources/2026-01-06/source-judging-freedom-freeman-china-and-russia-view-trump-as-a-kidnapper-2026-01-06.md",
       "role": "authored analysis"
     },
     {
       "voice_slug": "freeman",
-      "local_path": "narrative-geopolitics/archive/sources/2026-03-03/source-judging-freedom-freeman-what-makes-a-war-just-2026-03-03.md",
+      "local_path": "archive/geopolitics/sources/2026-03-03/source-judging-freedom-freeman-what-makes-a-war-just-2026-03-03.md",
       "role": "authored analysis"
     },
     {
       "voice_slug": "helmer",
-      "local_path": "narrative-geopolitics/archive/sources/2026-07-07/source-dialogue-works-john-helmer-trump-signs-nato-escalation-putins-demilitarization-order-to-poland-2026-07-07.md",
+      "local_path": "archive/geopolitics/sources/2026-07-07/source-dialogue-works-john-helmer-trump-signs-nato-escalation-putins-demilitarization-order-to-poland-2026-07-07.md",
       "role": "guest interview pressure test"
     },
     {
       "voice_slug": "henningsen",
-      "local_path": "narrative-geopolitics/archive/sources/2026-06-10/source-glenn-diesen-patrick-henningsen-us-defeat-makes-iran-world-power-2026-06-10.md",
+      "local_path": "archive/geopolitics/sources/2026-06-10/source-glenn-diesen-patrick-henningsen-us-defeat-makes-iran-world-power-2026-06-10.md",
       "role": "cross-host pressure test"
     },
     {
       "voice_slug": "johnson",
-      "local_path": "narrative-geopolitics/archive/sources/2026-06-01/source-dialogue-works-johnson-strait-of-hormuz-ticking-time-bomb-us-iran-threw-down-2026-06-01.md",
+      "local_path": "archive/geopolitics/sources/2026-06-01/source-dialogue-works-johnson-strait-of-hormuz-ticking-time-bomb-us-iran-threw-down-2026-06-01.md",
       "role": "guest interview pressure test"
     },
     {
       "voice_slug": "johnson",
-      "local_path": "narrative-geopolitics/archive/sources/2026-06-02/source-mario-nawfal-larry-johnson-breaking-iran-attacks-kuwait-2026-06-02.md",
+      "local_path": "archive/geopolitics/sources/2026-06-02/source-mario-nawfal-larry-johnson-breaking-iran-attacks-kuwait-2026-06-02.md",
       "role": "guest interview pressure test"
     },
     {
       "voice_slug": "johnson",
-      "local_path": "narrative-geopolitics/archive/sources/2026-06-03/source-judging-freedom-johnson-does-iran-have-the-bomb-part-2-2026-06-03.md",
+      "local_path": "archive/geopolitics/sources/2026-06-03/source-judging-freedom-johnson-does-iran-have-the-bomb-part-2-2026-06-03.md",
       "role": "guest interview pressure test"
     },
     {
       "voice_slug": "johnson",
-      "local_path": "narrative-geopolitics/archive/sources/2026-06-05/source-dialogue-works-johnson-wilkerson-iran-fires-missiles-at-us-destroyers-us-ships-flee-to-indian-ocean-2026-06-05.md",
+      "local_path": "archive/geopolitics/sources/2026-06-05/source-dialogue-works-johnson-wilkerson-iran-fires-missiles-at-us-destroyers-us-ships-flee-to-indian-ocean-2026-06-05.md",
       "role": "guest interview pressure test"
     },
     {
       "voice_slug": "johnson",
-      "local_path": "narrative-geopolitics/archive/sources/2026-06-05/source-judging-freedom-johnson-mcgovern-intel-roundtable-weekly-wrap-5-june-2026-06-05.md",
+      "local_path": "archive/geopolitics/sources/2026-06-05/source-judging-freedom-johnson-mcgovern-intel-roundtable-weekly-wrap-5-june-2026-06-05.md",
       "role": "guest interview pressure test"
     },
     {
       "voice_slug": "johnson",
-      "local_path": "narrative-geopolitics/archive/sources/2026-06-08/source-dialogue-works-larry-johnson-iran-missiles-rain-down-northern-israel-massive-strikes-2026-06-08.md",
+      "local_path": "archive/geopolitics/sources/2026-06-08/source-dialogue-works-larry-johnson-iran-missiles-rain-down-northern-israel-massive-strikes-2026-06-08.md",
       "role": "guest interview pressure test"
     },
     {
       "voice_slug": "johnson",
-      "local_path": "narrative-geopolitics/archive/sources/2026-06-10/source-dialogue-works-larry-johnson-breaking-american-attack-on-iran-has-begun-2026-06-10.md",
+      "local_path": "archive/geopolitics/sources/2026-06-10/source-dialogue-works-larry-johnson-breaking-american-attack-on-iran-has-begun-2026-06-10.md",
       "role": "guest interview pressure test"
     },
     {
       "voice_slug": "johnson",
-      "local_path": "narrative-geopolitics/archive/sources/2026-06-11/source-dialogue-works-larry-johnson-iran-forces-trump-into-concession-2026-06-11.md",
+      "local_path": "archive/geopolitics/sources/2026-06-11/source-dialogue-works-larry-johnson-iran-forces-trump-into-concession-2026-06-11.md",
       "role": "guest interview pressure test"
     },
     {
       "voice_slug": "johnson",
-      "local_path": "narrative-geopolitics/archive/sources/2026-06-12/source-dialogue-works-johnson-wilkerson-iran-fired-us-guided-ships-trump-final-decision-2026-06-12.md",
+      "local_path": "archive/geopolitics/sources/2026-06-12/source-dialogue-works-johnson-wilkerson-iran-fired-us-guided-ships-trump-final-decision-2026-06-12.md",
       "role": "guest interview pressure test"
     },
     {
       "voice_slug": "johnson",
-      "local_path": "narrative-geopolitics/archive/sources/2026-06-12/source-glenn-diesen-larry-johnson-end-of-war-us-iran-close-to-a-deal-2026-06-12.md",
+      "local_path": "archive/geopolitics/sources/2026-06-12/source-glenn-diesen-larry-johnson-end-of-war-us-iran-close-to-a-deal-2026-06-12.md",
       "role": "guest interview pressure test"
     },
     {
       "voice_slug": "johnson",
-      "local_path": "narrative-geopolitics/archive/sources/2026-06-12/source-judging-freedom-johnson-mcgovern-intel-roundtable-weekly-wrap-12-june-2026-06-12.md",
+      "local_path": "archive/geopolitics/sources/2026-06-12/source-judging-freedom-johnson-mcgovern-intel-roundtable-weekly-wrap-12-june-2026-06-12.md",
       "role": "guest interview pressure test"
     },
     {
       "voice_slug": "johnson",
-      "local_path": "narrative-geopolitics/archive/sources/2026-06-14/source-dialogue-works-johnson-marandi-us-iran-reach-deal-full-details-2026-06-14.md",
+      "local_path": "archive/geopolitics/sources/2026-06-14/source-dialogue-works-johnson-marandi-us-iran-reach-deal-full-details-2026-06-14.md",
       "role": "guest interview pressure test"
     },
     {
       "voice_slug": "johnson",
-      "local_path": "narrative-geopolitics/archive/sources/2026-06-15/source-dialogue-works-johnson-israel-sabotage-backfires-trump-last-move-2026-06-15.md",
+      "local_path": "archive/geopolitics/sources/2026-06-15/source-dialogue-works-johnson-israel-sabotage-backfires-trump-last-move-2026-06-15.md",
       "role": "guest interview pressure test"
     },
     {
       "voice_slug": "johnson",
-      "local_path": "narrative-geopolitics/archive/sources/2026-06-15/source-judging-freedom-johnson-is-this-any-way-to-negotiate-2026-06-15.md",
+      "local_path": "archive/geopolitics/sources/2026-06-15/source-judging-freedom-johnson-is-this-any-way-to-negotiate-2026-06-15.md",
       "role": "guest interview pressure test"
     },
     {
       "voice_slug": "johnson",
-      "local_path": "narrative-geopolitics/archive/sources/2026-06-16/source-dialogue-works-larry-johnson-breaking-150-billion-iran-300b-reparations-already-spent-2026-06-16.md",
+      "local_path": "archive/geopolitics/sources/2026-06-16/source-dialogue-works-larry-johnson-breaking-150-billion-iran-300b-reparations-already-spent-2026-06-16.md",
       "role": "guest interview pressure test"
     },
     {
       "voice_slug": "johnson",
-      "local_path": "narrative-geopolitics/archive/sources/2026-06-17/source-dialogue-works-larry-johnson-marandi-white-house-full-14-point-mou-2026-06-17.md",
+      "local_path": "archive/geopolitics/sources/2026-06-17/source-dialogue-works-larry-johnson-marandi-white-house-full-14-point-mou-2026-06-17.md",
       "role": "guest interview pressure test"
     },
     {
       "voice_slug": "johnson",
-      "local_path": "narrative-geopolitics/archive/sources/2026-06-17/source-dialogue-works-larry-johnson-trump-surrender-document-total-iranian-victory-2026-06-17.md",
+      "local_path": "archive/geopolitics/sources/2026-06-17/source-dialogue-works-larry-johnson-trump-surrender-document-total-iranian-victory-2026-06-17.md",
       "role": "guest interview pressure test"
     },
     {
       "voice_slug": "johnson",
-      "local_path": "narrative-geopolitics/archive/sources/2026-06-18/source-dialogue-works-larry-johnson-iran-cancels-negotiations-israel-bombs-lebanon-2026-06-18.md",
+      "local_path": "archive/geopolitics/sources/2026-06-18/source-dialogue-works-larry-johnson-iran-cancels-negotiations-israel-bombs-lebanon-2026-06-18.md",
       "role": "guest interview pressure test"
     },
     {
       "voice_slug": "johnson",
-      "local_path": "narrative-geopolitics/archive/sources/2026-06-18/source-dialogue-works-larry-johnson-jd-vance-slams-netanyahu-government-2026-06-18.md",
+      "local_path": "archive/geopolitics/sources/2026-06-18/source-dialogue-works-larry-johnson-jd-vance-slams-netanyahu-government-2026-06-18.md",
       "role": "guest interview pressure test"
     },
     {
       "voice_slug": "johnson",
-      "local_path": "narrative-geopolitics/archive/sources/2026-06-19/source-judging-freedom-johnson-mcgovern-intel-roundtable-weekly-wrap-19-june-2026-06-19.md",
+      "local_path": "archive/geopolitics/sources/2026-06-19/source-judging-freedom-johnson-mcgovern-intel-roundtable-weekly-wrap-19-june-2026-06-19.md",
       "role": "guest interview pressure test"
     },
     {
       "voice_slug": "johnson",
-      "local_path": "narrative-geopolitics/archive/sources/2026-06-20/source-dialogue-works-larry-johnson-iran-closes-hormuz-ends-israel-combat-ops-us-rushes-talks-2026-06-20.md",
+      "local_path": "archive/geopolitics/sources/2026-06-20/source-dialogue-works-larry-johnson-iran-closes-hormuz-ends-israel-combat-ops-us-rushes-talks-2026-06-20.md",
       "role": "guest interview pressure test"
     },
     {
       "voice_slug": "johnson",
-      "local_path": "narrative-geopolitics/archive/sources/2026-06-22/source-judging-freedom-johnson-why-iran-still-controls-hormuz-2026-06-22.md",
+      "local_path": "archive/geopolitics/sources/2026-06-22/source-judging-freedom-johnson-why-iran-still-controls-hormuz-2026-06-22.md",
       "role": "guest interview pressure test"
     },
     {
       "voice_slug": "johnson",
-      "local_path": "narrative-geopolitics/archive/sources/2026-06-24/source-dialogue-works-johnson-israel-next-war-preparing-bomb-yemen-2026-06-24.md",
+      "local_path": "archive/geopolitics/sources/2026-06-24/source-dialogue-works-johnson-israel-next-war-preparing-bomb-yemen-2026-06-24.md",
       "role": "guest interview pressure test"
     },
     {
       "voice_slug": "johnson",
-      "local_path": "narrative-geopolitics/archive/sources/2026-06-25/source-dialogue-works-larry-johnson-us-directly-calling-iran-vance-switzerland-bombshell-2026-06-25.md",
+      "local_path": "archive/geopolitics/sources/2026-06-25/source-dialogue-works-larry-johnson-us-directly-calling-iran-vance-switzerland-bombshell-2026-06-25.md",
       "role": "guest interview pressure test"
     },
     {
       "voice_slug": "johnson",
-      "local_path": "narrative-geopolitics/archive/sources/2026-06-26/source-judging-freedom-johnson-mcgovern-intel-roundtable-weekly-wrap-26-june-2026-06-26.md",
+      "local_path": "archive/geopolitics/sources/2026-06-26/source-judging-freedom-johnson-mcgovern-intel-roundtable-weekly-wrap-26-june-2026-06-26.md",
       "role": "guest interview pressure test"
     },
     {
       "voice_slug": "johnson",
-      "local_path": "narrative-geopolitics/archive/sources/2026-06-27/source-dialogue-works-larry-johnson-us-bombs-iran-near-sirik-tehran-counterstrike-us-bases-regional-war-2026-06-27.md",
+      "local_path": "archive/geopolitics/sources/2026-06-27/source-dialogue-works-larry-johnson-us-bombs-iran-near-sirik-tehran-counterstrike-us-bases-regional-war-2026-06-27.md",
       "role": "guest interview pressure test"
     },
     {
       "voice_slug": "johnson",
-      "local_path": "narrative-geopolitics/archive/sources/2026-06-27/source-glenn-diesen-larry-johnson-putin-warns-west-russia-ready-war-2026-06-27.md",
+      "local_path": "archive/geopolitics/sources/2026-06-27/source-glenn-diesen-larry-johnson-putin-warns-west-russia-ready-war-2026-06-27.md",
       "role": "guest interview pressure test"
     },
     {
       "voice_slug": "johnson",
-      "local_path": "narrative-geopolitics/archive/sources/2026-06-29/source-judging-freedom-johnson-trump-mou-unraveling-2026-06-29.md",
+      "local_path": "archive/geopolitics/sources/2026-06-29/source-judging-freedom-johnson-trump-mou-unraveling-2026-06-29.md",
       "role": "guest interview pressure test"
     },
     {
       "voice_slug": "johnson",
-      "local_path": "narrative-geopolitics/archive/sources/2026-07-03/source-larry-johnson-iran-rejects-hormuz-deal-us-surges-forces-israel-expands-targets-2026-07-03.md",
+      "local_path": "archive/geopolitics/sources/2026-07-03/source-larry-johnson-iran-rejects-hormuz-deal-us-surges-forces-israel-expands-targets-2026-07-03.md",
       "role": "guest interview pressure test"
     },
     {
       "voice_slug": "johnson",
-      "local_path": "narrative-geopolitics/archive/sources/2026-07-04/source-larry-johnson-iran-s-qhalibaf-fires-back-at-trump-not-a-proclamation-it-s-a-projection-2026-07-04.md",
+      "local_path": "archive/geopolitics/sources/2026-07-04/source-larry-johnson-iran-s-qhalibaf-fires-back-at-trump-not-a-proclamation-it-s-a-projection-2026-07-04.md",
       "role": "guest interview pressure test"
     },
     {
       "voice_slug": "johnson",
-      "local_path": "narrative-geopolitics/archive/sources/2026-07-05/source-larry-johnson-8-us-a-10-warthogs-deploy-to-jordan-ground-war-next-2026-07-05.md",
+      "local_path": "archive/geopolitics/sources/2026-07-05/source-larry-johnson-8-us-a-10-warthogs-deploy-to-jordan-ground-war-next-2026-07-05.md",
       "role": "guest interview pressure test"
     },
     {
       "voice_slug": "karaganov",
-      "local_path": "narrative-geopolitics/archive/sources/2023-01-14/source-glenn-diesen-mercouris-karaganov-greater-europe-greater-eurasia-2023-01-14.md",
+      "local_path": "archive/geopolitics/sources/2023-01-14/source-glenn-diesen-mercouris-karaganov-greater-europe-greater-eurasia-2023-01-14.md",
       "role": "cross-voice panel"
     },
     {
       "voice_slug": "karaganov",
-      "local_path": "narrative-geopolitics/archive/sources/2024-01-28/source-glenn-diesen-mercouris-karaganov-lowering-nuclear-threshold-age-of-war-2024-01-28.md",
+      "local_path": "archive/geopolitics/sources/2024-01-28/source-glenn-diesen-mercouris-karaganov-lowering-nuclear-threshold-age-of-war-2024-01-28.md",
       "role": "cross-voice panel"
     },
     {
       "voice_slug": "karaganov",
-      "local_path": "narrative-geopolitics/archive/sources/2024-10-21/source-glenn-diesen-mercouris-karaganov-russia-changes-nuclear-doctrine-2024-10-21.md",
+      "local_path": "archive/geopolitics/sources/2024-10-21/source-glenn-diesen-mercouris-karaganov-russia-changes-nuclear-doctrine-2024-10-21.md",
       "role": "cross-voice panel"
     },
     {
       "voice_slug": "karaganov",
-      "local_path": "narrative-geopolitics/archive/sources/2026-06-13/source-glenn-diesen-mearsheimer-karaganov-nuclear-strike-europe-restore-deterrence-2026-06-13.md",
+      "local_path": "archive/geopolitics/sources/2026-06-13/source-glenn-diesen-mearsheimer-karaganov-nuclear-strike-europe-restore-deterrence-2026-06-13.md",
       "role": "cross-voice panel"
     },
     {
       "voice_slug": "kent",
-      "local_path": "narrative-geopolitics/archive/sources/2026-04-02/source-glenn-diesen-joe-kent-iran-war-israeli-influence-creating-isis-2026-04-02.md",
+      "local_path": "archive/geopolitics/sources/2026-04-02/source-glenn-diesen-joe-kent-iran-war-israeli-influence-creating-isis-2026-04-02.md",
       "role": "cross-host pressure test"
     },
     {
       "voice_slug": "krapivnik",
-      "local_path": "narrative-geopolitics/archive/sources/2026-07-05/source-stanislav-krapivnik-geran-4-obliterates-ukraine-fuel-storage-in-seconds-2026-07-05.md",
+      "local_path": "archive/geopolitics/sources/2026-07-05/source-stanislav-krapivnik-geran-4-obliterates-ukraine-fuel-storage-in-seconds-2026-07-05.md",
       "role": "guest interview pressure test"
     },
     {
       "voice_slug": "krapivnik",
-      "local_path": "narrative-geopolitics/archive/sources/2026-07-08/source-live-from-russia-stanislav-krapivnik-latest-on-the-war-w-ukraine-2026-07-08.md",
+      "local_path": "archive/geopolitics/sources/2026-07-08/source-live-from-russia-stanislav-krapivnik-latest-on-the-war-w-ukraine-2026-07-08.md",
       "role": "guest interview pressure test"
     },
     {
       "voice_slug": "marandi",
-      "local_path": "narrative-geopolitics/archive/sources/2026-02-17/source-dialogue-works-mohammad-marandi-iran-just-closed-the-strait-of-hormuz-wiped-out-iran-pl-2026-02-17.md",
+      "local_path": "archive/geopolitics/sources/2026-02-17/source-dialogue-works-mohammad-marandi-iran-just-closed-the-strait-of-hormuz-wiped-out-iran-pl-2026-02-17.md",
       "role": "regional-red-line spine"
     },
     {
       "voice_slug": "marandi",
-      "local_path": "narrative-geopolitics/archive/sources/2026-03-24/source-dialogue-works-seyed-m-marandi-israel-hits-iran-energy-sites-iran-s-next-move-israel-s-2026-03-24.md",
+      "local_path": "archive/geopolitics/sources/2026-03-24/source-dialogue-works-seyed-m-marandi-israel-hits-iran-energy-sites-iran-s-next-move-israel-s-2026-03-24.md",
       "role": "regional-red-line spine"
     },
     {
       "voice_slug": "marandi",
-      "local_path": "narrative-geopolitics/archive/sources/2026-04-07/source-dialogue-works-seyed-m-marandi-iran-slams-trump-s-ultimatum-w-counter-ultimatum-war-hea-2026-04-07.md",
+      "local_path": "archive/geopolitics/sources/2026-04-07/source-dialogue-works-seyed-m-marandi-iran-slams-trump-s-ultimatum-w-counter-ultimatum-war-hea-2026-04-07.md",
       "role": "regional-red-line spine"
     },
     {
       "voice_slug": "marandi",
-      "local_path": "narrative-geopolitics/archive/sources/2026-04-13/source-dialogue-works-seyed-m-marandi-us-blockade-on-iran-just-triggered-iran-s-harshest-respo-2026-04-13.md",
+      "local_path": "archive/geopolitics/sources/2026-04-13/source-dialogue-works-seyed-m-marandi-us-blockade-on-iran-just-triggered-iran-s-harshest-respo-2026-04-13.md",
       "role": "regional-red-line spine"
     },
     {
       "voice_slug": "marandi",
-      "local_path": "narrative-geopolitics/archive/sources/2026-04-18/source-dialogue-works-seyed-m-marandi-iran-just-put-the-strait-of-hormuz-on-limited-mode-signs-2026-04-18.md",
+      "local_path": "archive/geopolitics/sources/2026-04-18/source-dialogue-works-seyed-m-marandi-iran-just-put-the-strait-of-hormuz-on-limited-mode-signs-2026-04-18.md",
       "role": "regional-red-line spine"
     },
     {
       "voice_slug": "marandi",
-      "local_path": "narrative-geopolitics/archive/sources/2026-05-05/source-dialogue-works-marandi-hormuz-uae-china-2026-05-05.md",
+      "local_path": "archive/geopolitics/sources/2026-05-05/source-dialogue-works-marandi-hormuz-uae-china-2026-05-05.md",
       "role": "regional-red-line spine"
     },
     {
       "voice_slug": "marandi",
-      "local_path": "narrative-geopolitics/archive/sources/2026-05-09/source-dialogue-works-marandi-hormuz-uae-ceasefire-occupied-country-2026-05-09.md",
+      "local_path": "archive/geopolitics/sources/2026-05-09/source-dialogue-works-marandi-hormuz-uae-ceasefire-occupied-country-2026-05-09.md",
       "role": "regional-red-line spine"
     },
     {
       "voice_slug": "marandi",
-      "local_path": "narrative-geopolitics/archive/sources/2026-06-23/source-dialogue-works-marandi-new-hormuz-mechanism-iaea-access-put-on-hold-2026-06-23.md",
+      "local_path": "archive/geopolitics/sources/2026-06-23/source-dialogue-works-marandi-new-hormuz-mechanism-iaea-access-put-on-hold-2026-06-23.md",
       "role": "regional-red-line spine"
     },
     {
       "voice_slug": "mearsheimer",
-      "local_path": "narrative-geopolitics/archive/sources/2025-02-15/source-diesen-mearsheimer-mercouris-trump-to-force-ukraine-peace-on-europe-2025-02-15.md",
+      "local_path": "archive/geopolitics/sources/2025-02-15/source-diesen-mearsheimer-mercouris-trump-to-force-ukraine-peace-on-europe-2025-02-15.md",
       "role": "structural-realism spine"
     },
     {
       "voice_slug": "mearsheimer",
-      "local_path": "narrative-geopolitics/archive/sources/2025-06-20/source-diesen-mearsheimer-mercouris-israel-has-walked-off-a-cliff-2025-06-20.md",
+      "local_path": "archive/geopolitics/sources/2025-06-20/source-diesen-mearsheimer-mercouris-israel-has-walked-off-a-cliff-2025-06-20.md",
       "role": "structural-realism spine"
     },
     {
       "voice_slug": "mearsheimer",
-      "local_path": "narrative-geopolitics/archive/sources/2026-02-25/source-diesen-mearsheimer-case-for-nuclear-iran-2026-02-25.md",
+      "local_path": "archive/geopolitics/sources/2026-02-25/source-diesen-mearsheimer-case-for-nuclear-iran-2026-02-25.md",
       "role": "structural-realism spine"
     },
     {
       "voice_slug": "mearsheimer",
-      "local_path": "narrative-geopolitics/archive/sources/2026-03-10/source-diesen-mearsheimer-us-already-lost-no-offramp-2026-03-10.md",
+      "local_path": "archive/geopolitics/sources/2026-03-10/source-diesen-mearsheimer-us-already-lost-no-offramp-2026-03-10.md",
       "role": "structural-realism spine"
     },
     {
       "voice_slug": "mearsheimer",
-      "local_path": "narrative-geopolitics/archive/sources/2026-04-10/source-diesen-mearsheimer-world-changed-forever-2026-04-10.md",
+      "local_path": "archive/geopolitics/sources/2026-04-10/source-diesen-mearsheimer-world-changed-forever-2026-04-10.md",
       "role": "structural-realism spine"
     },
     {
       "voice_slug": "mearsheimer",
-      "local_path": "narrative-geopolitics/archive/sources/2026-05-04/source-diesen-mearsheimer-world-order-ending-risk-nuclear-war-2026-05-04.md",
+      "local_path": "archive/geopolitics/sources/2026-05-04/source-diesen-mearsheimer-world-order-ending-risk-nuclear-war-2026-05-04.md",
       "role": "structural-realism spine"
     },
     {
       "voice_slug": "mearsheimer",
-      "local_path": "narrative-geopolitics/archive/sources/2026-05-18/source-glenn-diesen-john-mearsheimer-toward-all-out-war-with-both-russia-and-iran-2026-05-18.md",
+      "local_path": "archive/geopolitics/sources/2026-05-18/source-glenn-diesen-john-mearsheimer-toward-all-out-war-with-both-russia-and-iran-2026-05-18.md",
       "role": "structural-realism spine"
     },
     {
       "voice_slug": "mearsheimer",
-      "local_path": "narrative-geopolitics/archive/sources/2026-06-13/source-glenn-diesen-mearsheimer-karaganov-nuclear-strike-europe-restore-deterrence-2026-06-13.md",
+      "local_path": "archive/geopolitics/sources/2026-06-13/source-glenn-diesen-mearsheimer-karaganov-nuclear-strike-europe-restore-deterrence-2026-06-13.md",
       "role": "structural-realism spine"
     },
     {
       "voice_slug": "mercouris",
-      "local_path": "narrative-geopolitics/archive/sources/2025-01-16/source-daniel-davis-the-duran-s-alexander-mercouris-nato-preparing-for-war-w-russia-2025-01-16.md",
+      "local_path": "archive/geopolitics/sources/2025-01-16/source-daniel-davis-the-duran-s-alexander-mercouris-nato-preparing-for-war-w-russia-2025-01-16.md",
       "role": "cross-host pressure test"
     },
     {
       "voice_slug": "mercouris",
-      "local_path": "narrative-geopolitics/archive/sources/2025-02-07/source-duran-mercouris-trumps-ukraine-dilemma-escalate-or-walk-away-2025-02-07.md",
+      "local_path": "archive/geopolitics/sources/2025-02-07/source-duran-mercouris-trumps-ukraine-dilemma-escalate-or-walk-away-2025-02-07.md",
       "role": "stream-sequence spine"
     },
     {
       "voice_slug": "mercouris",
-      "local_path": "narrative-geopolitics/archive/sources/2025-02-10/source-duran-mercouris-us-carrot-and-stick-offer-to-russia-2025-02-10.md",
+      "local_path": "archive/geopolitics/sources/2025-02-10/source-duran-mercouris-us-carrot-and-stick-offer-to-russia-2025-02-10.md",
       "role": "stream-sequence spine"
     },
     {
       "voice_slug": "mercouris",
-      "local_path": "narrative-geopolitics/archive/sources/2025-02-15/source-diesen-mearsheimer-mercouris-trump-to-force-ukraine-peace-on-europe-2025-02-15.md",
+      "local_path": "archive/geopolitics/sources/2025-02-15/source-diesen-mearsheimer-mercouris-trump-to-force-ukraine-peace-on-europe-2025-02-15.md",
       "role": "cross-host pressure test"
     },
     {
       "voice_slug": "mercouris",
-      "local_path": "narrative-geopolitics/archive/sources/2025-02-21/source-duran-mercouris-uk-eu-take-ownership-of-project-ukraine-preemptive-coup-2025-02-21.md",
+      "local_path": "archive/geopolitics/sources/2025-02-21/source-duran-mercouris-uk-eu-take-ownership-of-project-ukraine-preemptive-coup-2025-02-21.md",
       "role": "stream-sequence spine"
     },
     {
       "voice_slug": "mercouris",
-      "local_path": "narrative-geopolitics/archive/sources/2025-03-08/source-diesen-mearsheimer-mercouris-the-us-push-for-peace-and-europe-panics-2025-03-08.md",
+      "local_path": "archive/geopolitics/sources/2025-03-08/source-diesen-mearsheimer-mercouris-the-us-push-for-peace-and-europe-panics-2025-03-08.md",
       "role": "cross-host pressure test"
     },
     {
       "voice_slug": "mercouris",
-      "local_path": "narrative-geopolitics/archive/sources/2025-04-10/source-daniel-davis-russian-realism-european-dreams-ukraine-defeat-2025-04-10.md",
+      "local_path": "archive/geopolitics/sources/2025-04-10/source-daniel-davis-russian-realism-european-dreams-ukraine-defeat-2025-04-10.md",
       "role": "cross-host pressure test"
     },
     {
       "voice_slug": "mercouris",
-      "local_path": "narrative-geopolitics/archive/sources/2025-05-29/source-diesen-mearsheimer-mercouris-russia-won-the-war-2025-05-29.md",
+      "local_path": "archive/geopolitics/sources/2025-05-29/source-diesen-mearsheimer-mercouris-russia-won-the-war-2025-05-29.md",
       "role": "cross-host pressure test"
     },
     {
       "voice_slug": "mercouris",
-      "local_path": "narrative-geopolitics/archive/sources/2025-06-17/source-duran-mercouris-berletic-trump-on-the-brink-of-iran-war-live-2025-06-17.md",
+      "local_path": "archive/geopolitics/sources/2025-06-17/source-duran-mercouris-berletic-trump-on-the-brink-of-iran-war-live-2025-06-17.md",
       "role": "stream-sequence spine"
     },
     {
       "voice_slug": "mercouris",
-      "local_path": "narrative-geopolitics/archive/sources/2025-06-20/source-diesen-mearsheimer-mercouris-israel-has-walked-off-a-cliff-2025-06-20.md",
+      "local_path": "archive/geopolitics/sources/2025-06-20/source-diesen-mearsheimer-mercouris-israel-has-walked-off-a-cliff-2025-06-20.md",
       "role": "cross-host pressure test"
     },
     {
       "voice_slug": "mercouris",
-      "local_path": "narrative-geopolitics/archive/sources/2025-12-19/source-diesen-mearsheimer-mercouris-fake-diplomacy-and-permanent-conflict-2025-12-19.md",
+      "local_path": "archive/geopolitics/sources/2025-12-19/source-diesen-mearsheimer-mercouris-fake-diplomacy-and-permanent-conflict-2025-12-19.md",
       "role": "cross-host pressure test"
     },
     {
       "voice_slug": "mercouris",
-      "local_path": "narrative-geopolitics/archive/sources/2026-04-25/source-duran-mercouris-cristoforu-sea-blockade-iran-2026-04-25.md",
+      "local_path": "archive/geopolitics/sources/2026-04-25/source-duran-mercouris-cristoforu-sea-blockade-iran-2026-04-25.md",
       "role": "stream-sequence spine"
     },
     {
       "voice_slug": "mercouris",
-      "local_path": "narrative-geopolitics/archive/sources/2026-05-26/source-duran-mercouris-pressure-to-walk-away-from-a-good-iran-deal-2026-05-26.md",
+      "local_path": "archive/geopolitics/sources/2026-05-26/source-duran-mercouris-pressure-to-walk-away-from-a-good-iran-deal-2026-05-26.md",
       "role": "stream-sequence spine"
     },
     {
       "voice_slug": "mercouris",
-      "local_path": "narrative-geopolitics/archive/sources/2026-05-27/source-daniel-davis-ukraine-russia-war-expansion-the-duran-s-alexander-mercouris-lt-col-daniel-davis-2026-05-27.md",
+      "local_path": "archive/geopolitics/sources/2026-05-27/source-daniel-davis-ukraine-russia-war-expansion-the-duran-s-alexander-mercouris-lt-col-daniel-davis-2026-05-27.md",
       "role": "cross-host pressure test"
     },
     {
       "voice_slug": "mercouris",
-      "local_path": "narrative-geopolitics/archive/sources/2026-06-02/source-duran-mercouris-konstantinovka-is-falling-wests-ukraine-narrative-is-crumbling-2026-06-02.md",
+      "local_path": "archive/geopolitics/sources/2026-06-02/source-duran-mercouris-konstantinovka-is-falling-wests-ukraine-narrative-is-crumbling-2026-06-02.md",
       "role": "stream-sequence spine"
     },
     {
       "voice_slug": "mercouris",
-      "local_path": "narrative-geopolitics/archive/sources/2026-06-22/source-duran-mercouris-us-iran-ceasefire-talks-conflict-round-3-2026-06-22.md",
+      "local_path": "archive/geopolitics/sources/2026-06-22/source-duran-mercouris-us-iran-ceasefire-talks-conflict-round-3-2026-06-22.md",
       "role": "stream-sequence spine"
     },
     {
       "voice_slug": "mercouris",
-      "local_path": "narrative-geopolitics/archive/sources/2026-07-07/source-mercouris-russia-destroys-arms-dump-zelensky-begs-patriots-2026-07-07.md",
+      "local_path": "archive/geopolitics/sources/2026-07-07/source-mercouris-russia-destroys-arms-dump-zelensky-begs-patriots-2026-07-07.md",
       "role": "stream-sequence spine"
     },
     {
       "voice_slug": "parsi",
-      "local_path": "narrative-geopolitics/archive/sources/2025-05-09/source-dialogue-works-amb-chas-freeman-and-trita-parsi-trump-s-wake-up-call-yemen-s-chaos-forcing-a-deal-with-iran-2025-05-09.md",
+      "local_path": "archive/geopolitics/sources/2025-05-09/source-dialogue-works-amb-chas-freeman-and-trita-parsi-trump-s-wake-up-call-yemen-s-chaos-forcing-a-deal-with-iran-2025-05-09.md",
       "role": "cross-voice panel"
     },
     {
       "voice_slug": "parsi",
-      "local_path": "narrative-geopolitics/archive/sources/2025-06-22/source-dialogue-works-col-larry-wilkerson-amb-chas-freeman-and-trita-parsi-the-us-could-face-a-war-it-can-t-win-2025-06-22.md",
+      "local_path": "archive/geopolitics/sources/2025-06-22/source-dialogue-works-col-larry-wilkerson-amb-chas-freeman-and-trita-parsi-the-us-could-face-a-war-it-can-t-win-2025-06-22.md",
       "role": "cross-voice panel"
     },
     {
       "voice_slug": "parsi",
-      "local_path": "narrative-geopolitics/archive/sources/2025-07-26/source-dialogue-works-amb-chas-freeman-and-trita-parsi-how-the-iran-israel-war-changed-everything-overnight-2025-07-26.md",
+      "local_path": "archive/geopolitics/sources/2025-07-26/source-dialogue-works-amb-chas-freeman-and-trita-parsi-how-the-iran-israel-war-changed-everything-overnight-2025-07-26.md",
       "role": "cross-voice panel"
     },
     {
       "voice_slug": "parsi",
-      "local_path": "narrative-geopolitics/archive/sources/2025-08-15/source-dialogue-works-amb-chas-freeman-and-trita-parsi-the-next-israel-iran-war-is-coming-2025-08-15.md",
+      "local_path": "archive/geopolitics/sources/2025-08-15/source-dialogue-works-amb-chas-freeman-and-trita-parsi-the-next-israel-iran-war-is-coming-2025-08-15.md",
       "role": "cross-voice panel"
     },
     {
       "voice_slug": "parsi",
-      "local_path": "narrative-geopolitics/archive/sources/2025-12-19/source-dialogue-works-freeman-parsi-middle-east-you-knew-disappearing-2025-12-19.md",
+      "local_path": "archive/geopolitics/sources/2025-12-19/source-dialogue-works-freeman-parsi-middle-east-you-knew-disappearing-2025-12-19.md",
       "role": "cross-voice panel"
     },
     {
       "voice_slug": "parsi",
-      "local_path": "narrative-geopolitics/archive/sources/2026-01-09/source-parsi-as-tehran-cracks-down-trumps-likely-instincts-are-to-stay-out-2026-01-09.md",
+      "local_path": "archive/geopolitics/sources/2026-01-09/source-parsi-as-tehran-cracks-down-trumps-likely-instincts-are-to-stay-out-2026-01-09.md",
       "role": "authored analysis"
     },
     {
       "voice_slug": "parsi",
-      "local_path": "narrative-geopolitics/archive/sources/2026-02-07/source-parsi-irans-despair-is-us-policy-2026-02-07.md",
+      "local_path": "archive/geopolitics/sources/2026-02-07/source-parsi-irans-despair-is-us-policy-2026-02-07.md",
       "role": "authored newsletter"
     },
     {
       "voice_slug": "parsi",
-      "local_path": "narrative-geopolitics/archive/sources/2026-02-20/source-parsi-no-even-a-small-attack-on-iran-will-lead-to-war-2026-02-20.md",
+      "local_path": "archive/geopolitics/sources/2026-02-20/source-parsi-no-even-a-small-attack-on-iran-will-lead-to-war-2026-02-20.md",
       "role": "authored newsletter"
     },
     {
       "voice_slug": "parsi",
-      "local_path": "narrative-geopolitics/archive/sources/2026-03-04/source-parsi-further-thoughts-on-trump-and-israels-war-of-choice-with-iran-2026-03-04.md",
+      "local_path": "archive/geopolitics/sources/2026-03-04/source-parsi-further-thoughts-on-trump-and-israels-war-of-choice-with-iran-2026-03-04.md",
       "role": "authored newsletter"
     },
     {
       "voice_slug": "parsi",
-      "local_path": "narrative-geopolitics/archive/sources/2026-03-08/source-parsi-why-the-iranian-theocracy-will-likely-survive-2026-03-08.md",
+      "local_path": "archive/geopolitics/sources/2026-03-08/source-parsi-why-the-iranian-theocracy-will-likely-survive-2026-03-08.md",
       "role": "authored newsletter"
     },
     {
       "voice_slug": "parsi",
-      "local_path": "narrative-geopolitics/archive/sources/2026-03-09/source-parsi-can-trump-declare-unilateral-victory-and-end-the-iran-war-2026-03-09.md",
+      "local_path": "archive/geopolitics/sources/2026-03-09/source-parsi-can-trump-declare-unilateral-victory-and-end-the-iran-war-2026-03-09.md",
       "role": "authored newsletter"
     },
     {
       "voice_slug": "parsi",
-      "local_path": "narrative-geopolitics/archive/sources/2026-03-17/source-parsi-why-was-larijani-targeted-2026-03-17.md",
+      "local_path": "archive/geopolitics/sources/2026-03-17/source-parsi-why-was-larijani-targeted-2026-03-17.md",
       "role": "authored newsletter"
     },
     {
       "voice_slug": "parsi",
-      "local_path": "narrative-geopolitics/archive/sources/2026-04-01/source-parsi-limited-us-ground-operations-in-iran-will-not-shift-the-wars-balance-2026-04-01.md",
+      "local_path": "archive/geopolitics/sources/2026-04-01/source-parsi-limited-us-ground-operations-in-iran-will-not-shift-the-wars-balance-2026-04-01.md",
       "role": "authored newsletter"
     },
     {
       "voice_slug": "parsi",
-      "local_path": "narrative-geopolitics/archive/sources/2026-04-08/source-parsi-what-on-earth-just-happened-trump-iran-and-the-unlikely-ceasefire-2026-04-08.md",
+      "local_path": "archive/geopolitics/sources/2026-04-08/source-parsi-what-on-earth-just-happened-trump-iran-and-the-unlikely-ceasefire-2026-04-08.md",
       "role": "authored newsletter"
     },
     {
       "voice_slug": "parsi",
-      "local_path": "narrative-geopolitics/archive/sources/2026-04-12/source-parsi-bluster-or-genuine-economic-suicide-trumps-naval-blockade-threat-against-iran-2026-04-12.md",
+      "local_path": "archive/geopolitics/sources/2026-04-12/source-parsi-bluster-or-genuine-economic-suicide-trumps-naval-blockade-threat-against-iran-2026-04-12.md",
       "role": "authored newsletter"
     },
     {
       "voice_slug": "parsi",
-      "local_path": "narrative-geopolitics/archive/sources/2026-04-14/source-parsi-why-the-iran-ceasefire-may-have-shifted-the-dynamics-back-in-trumps-favor-2026-04-14.md",
+      "local_path": "archive/geopolitics/sources/2026-04-14/source-parsi-why-the-iran-ceasefire-may-have-shifted-the-dynamics-back-in-trumps-favor-2026-04-14.md",
       "role": "authored newsletter"
     },
     {
       "voice_slug": "parsi",
-      "local_path": "narrative-geopolitics/archive/sources/2026-04-17/source-parsi-2026-04-17.md",
+      "local_path": "archive/geopolitics/sources/2026-04-17/source-parsi-2026-04-17.md",
       "role": "signal capture"
     },
     {
       "voice_slug": "parsi",
-      "local_path": "narrative-geopolitics/archive/sources/2026-04-18/source-parsi-2026-04-18.md",
+      "local_path": "archive/geopolitics/sources/2026-04-18/source-parsi-2026-04-18.md",
       "role": "signal capture"
     },
     {
       "voice_slug": "parsi",
-      "local_path": "narrative-geopolitics/archive/sources/2026-04-20/source-x-bundle-2026-04-20.md",
+      "local_path": "archive/geopolitics/sources/2026-04-20/source-x-bundle-2026-04-20.md",
       "role": "signal capture"
     },
     {
       "voice_slug": "parsi",
-      "local_path": "narrative-geopolitics/archive/sources/2026-05-01/source-parsi-trumps-blockade-snatches-defeat-from-the-jaws-of-victory-2026-05-01.md",
+      "local_path": "archive/geopolitics/sources/2026-05-01/source-parsi-trumps-blockade-snatches-defeat-from-the-jaws-of-victory-2026-05-01.md",
       "role": "authored newsletter"
     },
     {
       "voice_slug": "parsi",
-      "local_path": "narrative-geopolitics/archive/sources/2026-05-02/source-parsi-trumps-war-has-destroyed-the-illusion-of-us-military-supremacy-2026-05-02.md",
+      "local_path": "archive/geopolitics/sources/2026-05-02/source-parsi-trumps-war-has-destroyed-the-illusion-of-us-military-supremacy-2026-05-02.md",
       "role": "authored newsletter"
     },
     {
       "voice_slug": "parsi",
-      "local_path": "narrative-geopolitics/archive/sources/2026-05-03/source-parsi-a-few-observations-on-irans-latest-proposal-to-trump-2026-05-03.md",
+      "local_path": "archive/geopolitics/sources/2026-05-03/source-parsi-a-few-observations-on-irans-latest-proposal-to-trump-2026-05-03.md",
       "role": "authored newsletter"
     },
     {
       "voice_slug": "parsi",
-      "local_path": "narrative-geopolitics/archive/sources/2026-05-25/source-parsi-a-new-regional-logic-if-israel-strikes-lebanon-iran-strikes-back-at-the-uae-2026-05-25.md",
+      "local_path": "archive/geopolitics/sources/2026-05-25/source-parsi-a-new-regional-logic-if-israel-strikes-lebanon-iran-strikes-back-at-the-uae-2026-05-25.md",
       "role": "authored newsletter"
     },
     {
       "voice_slug": "parsi",
-      "local_path": "narrative-geopolitics/archive/sources/2026-06-01/source-parsi-why-trump-may-actually-have-told-netanyahu-everybody-hates-you-2026-06-01.md",
+      "local_path": "archive/geopolitics/sources/2026-06-01/source-parsi-why-trump-may-actually-have-told-netanyahu-everybody-hates-you-2026-06-01.md",
       "role": "authored newsletter"
     },
     {
       "voice_slug": "parsi",
-      "local_path": "narrative-geopolitics/archive/sources/2026-06-07/source-parsi-after-israel-strikes-beirut-iran-whats-trumps-next-move-2026-06-07.md",
+      "local_path": "archive/geopolitics/sources/2026-06-07/source-parsi-after-israel-strikes-beirut-iran-whats-trumps-next-move-2026-06-07.md",
       "role": "authored newsletter"
     },
     {
       "voice_slug": "parsi",
-      "local_path": "narrative-geopolitics/archive/sources/2026-06-07/source-parsi-netanyahu-defies-trump-and-strikes-back-at-iran-2026-06-07.md",
+      "local_path": "archive/geopolitics/sources/2026-06-07/source-parsi-netanyahu-defies-trump-and-strikes-back-at-iran-2026-06-07.md",
       "role": "authored newsletter"
     },
     {
       "voice_slug": "parsi",
-      "local_path": "narrative-geopolitics/archive/sources/2026-06-07/source-parsi-the-profound-geopolitical-implications-of-irans-strikes-on-israel-2026-06-07.md",
+      "local_path": "archive/geopolitics/sources/2026-06-07/source-parsi-the-profound-geopolitical-implications-of-irans-strikes-on-israel-2026-06-07.md",
       "role": "authored newsletter"
     },
     {
       "voice_slug": "parsi",
-      "local_path": "narrative-geopolitics/archive/sources/2026-06-08/source-parsi-did-iran-establish-a-new-equation-2026-06-08.md",
+      "local_path": "archive/geopolitics/sources/2026-06-08/source-parsi-did-iran-establish-a-new-equation-2026-06-08.md",
       "role": "authored newsletter"
     },
     {
       "voice_slug": "parsi",
-      "local_path": "narrative-geopolitics/archive/sources/2026-06-13/source-parsi-so-they-tried-to-deport-me-2026-06-13.md",
+      "local_path": "archive/geopolitics/sources/2026-06-13/source-parsi-so-they-tried-to-deport-me-2026-06-13.md",
       "role": "authored newsletter"
     },
     {
       "voice_slug": "parsi",
-      "local_path": "narrative-geopolitics/archive/sources/2026-06-14/source-parsi-with-one-strike-netanyahu-tries-to-kill-two-peace-deals-2026-06-14.md",
+      "local_path": "archive/geopolitics/sources/2026-06-14/source-parsi-with-one-strike-netanyahu-tries-to-kill-two-peace-deals-2026-06-14.md",
       "role": "authored newsletter"
     },
     {
       "voice_slug": "parsi",
-      "local_path": "narrative-geopolitics/archive/sources/2026-06-17/source-parsi-trump-democrats-courage-end-failed-war-2026-06-17.md",
+      "local_path": "archive/geopolitics/sources/2026-06-17/source-parsi-trump-democrats-courage-end-failed-war-2026-06-17.md",
       "role": "authored newsletter"
     },
     {
       "voice_slug": "ritter",
-      "local_path": "narrative-geopolitics/archive/sources/2025-01-12/source-dialogue-works-israel-is-blind-its-strategic-defeat-becomes-clearer-with-time-larry-c-j-2025-01-12.md",
+      "local_path": "archive/geopolitics/sources/2025-01-12/source-dialogue-works-israel-is-blind-its-strategic-defeat-becomes-clearer-with-time-larry-c-j-2025-01-12.md",
       "role": "solo"
     },
     {
       "voice_slug": "ritter",
-      "local_path": "narrative-geopolitics/archive/sources/2025-11-04/source-judging-freedom-ritter-natos-ukraine-strategy-is-collapsing-2025-11-04.md",
+      "local_path": "archive/geopolitics/sources/2025-11-04/source-judging-freedom-ritter-natos-ukraine-strategy-is-collapsing-2025-11-04.md",
       "role": "article"
     },
     {
       "voice_slug": "ritter",
-      "local_path": "narrative-geopolitics/archive/sources/2025-12-01/source-judging-freedom-ritter-did-hegseth-order-murders-2025-12-01.md",
+      "local_path": "archive/geopolitics/sources/2025-12-01/source-judging-freedom-ritter-did-hegseth-order-murders-2025-12-01.md",
       "role": "article"
     },
     {
       "voice_slug": "ritter",
-      "local_path": "narrative-geopolitics/archive/sources/2026-01-03/source-ritter-russia-dark-sage-karaganov-2026-01-03.md",
+      "local_path": "archive/geopolitics/sources/2026-01-03/source-ritter-russia-dark-sage-karaganov-2026-01-03.md",
       "role": "authored newsletter"
     },
     {
       "voice_slug": "ritter",
-      "local_path": "narrative-geopolitics/archive/sources/2026-01-05/source-ritter-the-sanctions-shield-2026-01-05.md",
+      "local_path": "archive/geopolitics/sources/2026-01-05/source-ritter-the-sanctions-shield-2026-01-05.md",
       "role": "authored newsletter"
     },
     {
       "voice_slug": "ritter",
-      "local_path": "narrative-geopolitics/archive/sources/2026-01-06/source-ritter-the-battle-of-new-york-2026-01-06.md",
+      "local_path": "archive/geopolitics/sources/2026-01-06/source-ritter-the-battle-of-new-york-2026-01-06.md",
       "role": "authored newsletter"
     },
     {
       "voice_slug": "ritter",
-      "local_path": "narrative-geopolitics/archive/sources/2026-01-09/source-ritter-the-camels-bloody-nose-2026-01-09.md",
+      "local_path": "archive/geopolitics/sources/2026-01-09/source-ritter-the-camels-bloody-nose-2026-01-09.md",
       "role": "authored newsletter"
     },
     {
       "voice_slug": "ritter",
-      "local_path": "narrative-geopolitics/archive/sources/2026-01-10/source-ritter-the-end-of-a-dream-2026-01-10.md",
+      "local_path": "archive/geopolitics/sources/2026-01-10/source-ritter-the-end-of-a-dream-2026-01-10.md",
       "role": "authored newsletter"
     },
     {
       "voice_slug": "ritter",
-      "local_path": "narrative-geopolitics/archive/sources/2026-01-12/source-judging-freedom-ritter-how-close-is-putin-to-escalation-2026-01-12.md",
+      "local_path": "archive/geopolitics/sources/2026-01-12/source-judging-freedom-ritter-how-close-is-putin-to-escalation-2026-01-12.md",
       "role": "article"
     },
     {
       "voice_slug": "ritter",
-      "local_path": "narrative-geopolitics/archive/sources/2026-01-12/source-ritter-iranian-resilience-2026-01-12.md",
+      "local_path": "archive/geopolitics/sources/2026-01-12/source-ritter-iranian-resilience-2026-01-12.md",
       "role": "authored newsletter"
     },
     {
       "voice_slug": "ritter",
-      "local_path": "narrative-geopolitics/archive/sources/2026-01-13/source-ritter-losing-the-republic-2026-01-13.md",
+      "local_path": "archive/geopolitics/sources/2026-01-13/source-ritter-losing-the-republic-2026-01-13.md",
       "role": "authored newsletter"
     },
     {
       "voice_slug": "ritter",
-      "local_path": "narrative-geopolitics/archive/sources/2026-01-16/source-ritter-back-to-the-future-2026-01-16.md",
+      "local_path": "archive/geopolitics/sources/2026-01-16/source-ritter-back-to-the-future-2026-01-16.md",
       "role": "authored newsletter"
     },
     {
       "voice_slug": "ritter",
-      "local_path": "narrative-geopolitics/archive/sources/2026-01-16/source-ritter-reflections-on-a-war-2026-01-16.md",
+      "local_path": "archive/geopolitics/sources/2026-01-16/source-ritter-reflections-on-a-war-2026-01-16.md",
       "role": "authored newsletter"
     },
     {
       "voice_slug": "ritter",
-      "local_path": "narrative-geopolitics/archive/sources/2026-01-18/source-ritter-dont-drink-the-water-2026-01-18.md",
+      "local_path": "archive/geopolitics/sources/2026-01-18/source-ritter-dont-drink-the-water-2026-01-18.md",
       "role": "authored newsletter"
     },
     {
       "voice_slug": "ritter",
-      "local_path": "narrative-geopolitics/archive/sources/2026-01-20/source-ritter-getting-it-wrong-on-russia-2026-01-20.md",
+      "local_path": "archive/geopolitics/sources/2026-01-20/source-ritter-getting-it-wrong-on-russia-2026-01-20.md",
       "role": "authored newsletter"
     },
     {
       "voice_slug": "ritter",
-      "local_path": "narrative-geopolitics/archive/sources/2026-02-05/source-ritter-alas-babylon-2026-02-05.md",
+      "local_path": "archive/geopolitics/sources/2026-02-05/source-ritter-alas-babylon-2026-02-05.md",
       "role": "authored newsletter"
     },
     {
       "voice_slug": "ritter",
-      "local_path": "narrative-geopolitics/archive/sources/2026-02-20/source-ritter-dead-at-27-2026-02-20.md",
+      "local_path": "archive/geopolitics/sources/2026-02-20/source-ritter-dead-at-27-2026-02-20.md",
       "role": "authored newsletter"
     },
     {
       "voice_slug": "ritter",
-      "local_path": "narrative-geopolitics/archive/sources/2026-02-22/source-ritter-the-flamingo-effect-2026-02-22.md",
+      "local_path": "archive/geopolitics/sources/2026-02-22/source-ritter-the-flamingo-effect-2026-02-22.md",
       "role": "authored newsletter"
     },
     {
       "voice_slug": "ritter",
-      "local_path": "narrative-geopolitics/archive/sources/2026-03-01/source-ritter-regime-change-double-edged-sword-2026-03-01.md",
+      "local_path": "archive/geopolitics/sources/2026-03-01/source-ritter-regime-change-double-edged-sword-2026-03-01.md",
       "role": "authored newsletter"
     },
     {
       "voice_slug": "ritter",
-      "local_path": "narrative-geopolitics/archive/sources/2026-03-14/source-ritter-the-backpack-girls-2026-03-14.md",
+      "local_path": "archive/geopolitics/sources/2026-03-14/source-ritter-the-backpack-girls-2026-03-14.md",
       "role": "authored newsletter"
     },
     {
       "voice_slug": "ritter",
-      "local_path": "narrative-geopolitics/archive/sources/2026-03-18/source-ritter-zionism-human-parasitoid-revisited-2026-03-18.md",
+      "local_path": "archive/geopolitics/sources/2026-03-18/source-ritter-zionism-human-parasitoid-revisited-2026-03-18.md",
       "role": "authored newsletter"
     },
     {
       "voice_slug": "ritter",
-      "local_path": "narrative-geopolitics/archive/sources/2026-03-25/source-ritter-chechen-miracle-path-redemption-2026-03-25.md",
+      "local_path": "archive/geopolitics/sources/2026-03-25/source-ritter-chechen-miracle-path-redemption-2026-03-25.md",
       "role": "authored newsletter"
     },
     {
       "voice_slug": "ritter",
-      "local_path": "narrative-geopolitics/archive/sources/2026-04-01/source-ritter-why-i-no-longer-stand-with-israel-redux-2026-04-01.md",
+      "local_path": "archive/geopolitics/sources/2026-04-01/source-ritter-why-i-no-longer-stand-with-israel-redux-2026-04-01.md",
       "role": "authored newsletter"
     },
     {
       "voice_slug": "ritter",
-      "local_path": "narrative-geopolitics/archive/sources/2026-04-03/source-ritter-combat-search-and-rescue-prequel-2026-04-03.md",
+      "local_path": "archive/geopolitics/sources/2026-04-03/source-ritter-combat-search-and-rescue-prequel-2026-04-03.md",
       "role": "authored newsletter"
     },
     {
       "voice_slug": "ritter",
-      "local_path": "narrative-geopolitics/archive/sources/2026-04-13/source-ritter-blasphemy-american-style-2026-04-13.md",
+      "local_path": "archive/geopolitics/sources/2026-04-13/source-ritter-blasphemy-american-style-2026-04-13.md",
       "role": "authored newsletter"
     },
     {
       "voice_slug": "ritter",
-      "local_path": "narrative-geopolitics/archive/sources/2026-04-20/source-rant-shorting-america-7pXI52jKcOU-2026-04-20.md",
+      "local_path": "archive/geopolitics/sources/2026-04-20/source-rant-shorting-america-7pXI52jKcOU-2026-04-20.md",
       "role": "solo"
     },
     {
       "voice_slug": "ritter",
-      "local_path": "narrative-geopolitics/archive/sources/2026-04-27/source-ritter-new-middle-eastern-power-paradigm-2026-04-27.md",
+      "local_path": "archive/geopolitics/sources/2026-04-27/source-ritter-new-middle-eastern-power-paradigm-2026-04-27.md",
       "role": "authored newsletter"
     },
     {
       "voice_slug": "ritter",
-      "local_path": "narrative-geopolitics/archive/sources/2026-05-03/source-ritter-fifth-year-russia-smo-2026-05-03.md",
+      "local_path": "archive/geopolitics/sources/2026-05-03/source-ritter-fifth-year-russia-smo-2026-05-03.md",
       "role": "authored newsletter"
     },
     {
       "voice_slug": "ritter",
-      "local_path": "narrative-geopolitics/archive/sources/2026-06-01/source-ritter-the-revenge-tour-2026-2026-06-01.md",
+      "local_path": "archive/geopolitics/sources/2026-06-01/source-ritter-the-revenge-tour-2026-2026-06-01.md",
       "role": "authored newsletter"
     },
     {
       "voice_slug": "ritter",
-      "local_path": "narrative-geopolitics/archive/sources/2026-06-10/source-ritter-shoot-the-dog-2026-06-10.md",
+      "local_path": "archive/geopolitics/sources/2026-06-10/source-ritter-shoot-the-dog-2026-06-10.md",
       "role": "authored newsletter"
     },
     {
       "voice_slug": "ritter",
-      "local_path": "narrative-geopolitics/archive/sources/2026-06-19/source-ritter-a-trail-of-tears-2026-06-19.md",
+      "local_path": "archive/geopolitics/sources/2026-06-19/source-ritter-a-trail-of-tears-2026-06-19.md",
       "role": "authored newsletter"
     },
     {
       "voice_slug": "ritter",
-      "local_path": "narrative-geopolitics/archive/sources/2026-07-01/source-scott-ritter-trump-briefed-on-all-out-war-scenario-in-iran-2026-07-01.md",
+      "local_path": "archive/geopolitics/sources/2026-07-01/source-scott-ritter-trump-briefed-on-all-out-war-scenario-in-iran-2026-07-01.md",
       "role": "guest interview pressure test"
     },
     {
       "voice_slug": "ritter",
-      "local_path": "narrative-geopolitics/archive/sources/2026-07-12/source-live-scott-ritter-russia-ukraine-now-enters-the-most-dangerous-phase-2026-07-12.md",
+      "local_path": "archive/geopolitics/sources/2026-07-12/source-live-scott-ritter-russia-ukraine-now-enters-the-most-dangerous-phase-2026-07-12.md",
       "role": "guest interview pressure test"
     },
     {
       "voice_slug": "sachs",
-      "local_path": "narrative-geopolitics/archive/sources/2025-02-19/source-sachs-speech-at-the-eu-parliament-2025-02-19.md",
+      "local_path": "archive/geopolitics/sources/2025-02-19/source-sachs-speech-at-the-eu-parliament-2025-02-19.md",
       "role": "authored lecture"
     },
     {
       "voice_slug": "sachs",
-      "local_path": "narrative-geopolitics/archive/sources/2025-04-08/source-sachs-reimagining-growth-through-sustainable-development-2025-04-08.md",
+      "local_path": "archive/geopolitics/sources/2025-04-08/source-sachs-reimagining-growth-through-sustainable-development-2025-04-08.md",
       "role": "authored lecture"
     },
     {
       "voice_slug": "sachs",
-      "local_path": "narrative-geopolitics/archive/sources/2025-04-09/source-sachs-an-evening-with-professor-jeffrey-d-sachs-2025-04-09.md",
+      "local_path": "archive/geopolitics/sources/2025-04-09/source-sachs-an-evening-with-professor-jeffrey-d-sachs-2025-04-09.md",
       "role": "authored lecture"
     },
     {
       "voice_slug": "sachs",
-      "local_path": "narrative-geopolitics/archive/sources/2025-05-03/source-sachs-global-order-in-transition-2025-05-03.md",
+      "local_path": "archive/geopolitics/sources/2025-05-03/source-sachs-global-order-in-transition-2025-05-03.md",
       "role": "authored lecture"
     },
     {
       "voice_slug": "sachs",
-      "local_path": "narrative-geopolitics/archive/sources/2025-07-21/source-sachs-doomsday-clock-is-ticking-us-foreign-policy-and-the-global-crisis-2025-07-21.md",
+      "local_path": "archive/geopolitics/sources/2025-07-21/source-sachs-doomsday-clock-is-ticking-us-foreign-policy-and-the-global-crisis-2025-07-21.md",
       "role": "authored lecture"
     },
     {
       "voice_slug": "sachs",
-      "local_path": "narrative-geopolitics/archive/sources/2026-03-25/source-glenn-diesen-jeffrey-sachs-iran-is-the-graveyard-of-american-hegemony-2026-03-25.md",
+      "local_path": "archive/geopolitics/sources/2026-03-25/source-glenn-diesen-jeffrey-sachs-iran-is-the-graveyard-of-american-hegemony-2026-03-25.md",
       "role": "solo"
     },
     {
       "voice_slug": "sachs",
-      "local_path": "narrative-geopolitics/archive/sources/2026-06-01/source-diesen-sachs-germany-is-leading-europe-toward-world-war-three-2026-06-01.md",
+      "local_path": "archive/geopolitics/sources/2026-06-01/source-diesen-sachs-germany-is-leading-europe-toward-world-war-three-2026-06-01.md",
       "role": "authored analysis"
     },
     {
       "voice_slug": "sachs",
-      "local_path": "narrative-geopolitics/archive/sources/2026-06-02/source-sachs-an-open-letter-to-chancellor-friedrich-merz-2026-06-02.md",
+      "local_path": "archive/geopolitics/sources/2026-06-02/source-sachs-an-open-letter-to-chancellor-friedrich-merz-2026-06-02.md",
       "role": "authored analysis"
     },
     {
       "voice_slug": "sachs",
-      "local_path": "narrative-geopolitics/archive/sources/2026-06-03/source-diesen-sachs-european-leaders-do-nothing-to-create-peace-2026-06-03.md",
+      "local_path": "archive/geopolitics/sources/2026-06-03/source-diesen-sachs-european-leaders-do-nothing-to-create-peace-2026-06-03.md",
       "role": "authored analysis"
     },
     {
       "voice_slug": "weichert",
-      "local_path": "narrative-geopolitics/archive/sources/2026-05-31/source-mario-nawfal-weichert-iran-us-rearming-for-war-2026-05-31.cleaned.md",
+      "local_path": "archive/geopolitics/sources/2026-05-31/source-mario-nawfal-weichert-iran-us-rearming-for-war-2026-05-31.cleaned.md",
       "role": "imported voice source"
     },
     {
       "voice_slug": "weichert",
-      "local_path": "narrative-geopolitics/archive/sources/2026-07-07/source-mario-nawfal-brandon-weichert-breaking-trump-strikes-irans-kharg-island-for-first-time-since-ceasefire-2026-07-07.md",
+      "local_path": "archive/geopolitics/sources/2026-07-07/source-mario-nawfal-brandon-weichert-breaking-trump-strikes-irans-kharg-island-for-first-time-since-ceasefire-2026-07-07.md",
       "role": "guest interview pressure test"
     },
     {
       "voice_slug": "weichert",
-      "local_path": "narrative-geopolitics/archive/sources/2026-07-12/source-breaking-u-s-heavily-bombing-iran-now-w-geopolitical-analyst-brandon-weichert-2026-07-12.md",
+      "local_path": "archive/geopolitics/sources/2026-07-12/source-breaking-u-s-heavily-bombing-iran-now-w-geopolitical-analyst-brandon-weichert-2026-07-12.md",
       "role": "guest interview pressure test"
     },
     {
       "voice_slug": "weichert",
-      "local_path": "narrative-geopolitics/archive/sources/2026-07-20/source-u-s-out-of-oil-yemeni-houthis-close-bab-el-mandab-ground-invasion-w-brandon-weichert-2026-07-20.md",
+      "local_path": "archive/geopolitics/sources/2026-07-20/source-u-s-out-of-oil-yemeni-houthis-close-bab-el-mandab-ground-invasion-w-brandon-weichert-2026-07-20.md",
       "role": "guest interview pressure test"
     },
     {
       "voice_slug": "wilkerson",
-      "local_path": "narrative-geopolitics/archive/sources/2025-04-04/source-dialogue-works-mohammad-marandi-larry-wilkerson-and-chas-freeman-on-middle-east-erupts-iran-challenges-ultimatum-2025-04-04.md",
+      "local_path": "archive/geopolitics/sources/2025-04-04/source-dialogue-works-mohammad-marandi-larry-wilkerson-and-chas-freeman-on-middle-east-erupts-iran-challenges-ultimatum-2025-04-04.md",
       "role": "cross-voice panel"
     },
     {
       "voice_slug": "wilkerson",
-      "local_path": "narrative-geopolitics/archive/sources/2025-04-05/source-dialogue-works-yemeni-missiles-slam-us-navy-iran-us-tension-skyrockets-col-larry-wilkerson-larry-c-johnson-2025-04-05.md",
+      "local_path": "archive/geopolitics/sources/2025-04-05/source-dialogue-works-yemeni-missiles-slam-us-navy-iran-us-tension-skyrockets-col-larry-wilkerson-larry-c-johnson-2025-04-05.md",
       "role": "cross-voice panel"
     },
     {
       "voice_slug": "wilkerson",
-      "local_path": "narrative-geopolitics/archive/sources/2025-04-18/source-dialogue-works-mohammad-marandi-larry-wilkerson-and-chas-freeman-talks-or-total-war-clock-ticks-for-iran-and-u-s-2025-04-18.md",
+      "local_path": "archive/geopolitics/sources/2025-04-18/source-dialogue-works-mohammad-marandi-larry-wilkerson-and-chas-freeman-talks-or-total-war-clock-ticks-for-iran-and-u-s-2025-04-18.md",
       "role": "cross-voice panel"
     },
     {
       "voice_slug": "wilkerson",
-      "local_path": "narrative-geopolitics/archive/sources/2025-05-16/source-dialogue-works-larry-c-johnson-col-larry-wilkerson-trumps-bold-middle-east-gambit-russia-ukraine-collapse-2025-05-16.md",
+      "local_path": "archive/geopolitics/sources/2025-05-16/source-dialogue-works-larry-c-johnson-col-larry-wilkerson-trumps-bold-middle-east-gambit-russia-ukraine-collapse-2025-05-16.md",
       "role": "cross-voice panel"
     },
     {
       "voice_slug": "wilkerson",
-      "local_path": "narrative-geopolitics/archive/sources/2025-06-14/source-dialogue-works-col-larry-wilkerson-and-chas-freeman-israel-s-attack-on-iran-and-its-devastating-consequences-2025-06-14.md",
+      "local_path": "archive/geopolitics/sources/2025-06-14/source-dialogue-works-col-larry-wilkerson-and-chas-freeman-israel-s-attack-on-iran-and-its-devastating-consequences-2025-06-14.md",
       "role": "cross-voice panel"
     },
     {
       "voice_slug": "wilkerson",
-      "local_path": "narrative-geopolitics/archive/sources/2025-06-22/source-dialogue-works-col-larry-wilkerson-amb-chas-freeman-and-trita-parsi-the-us-could-face-a-war-it-can-t-win-2025-06-22.md",
+      "local_path": "archive/geopolitics/sources/2025-06-22/source-dialogue-works-col-larry-wilkerson-amb-chas-freeman-and-trita-parsi-the-us-could-face-a-war-it-can-t-win-2025-06-22.md",
       "role": "cross-voice panel"
     },
     {
       "voice_slug": "wilkerson",
-      "local_path": "narrative-geopolitics/archive/sources/2025-07-18/source-dialogue-works-col-larry-wilkerson-and-chas-freeman-ww3-imminent-shocking-signs-we-re-on-the-brink-of-global-war-2025-07-18.md",
+      "local_path": "archive/geopolitics/sources/2025-07-18/source-dialogue-works-col-larry-wilkerson-and-chas-freeman-ww3-imminent-shocking-signs-we-re-on-the-brink-of-global-war-2025-07-18.md",
       "role": "cross-voice panel"
     },
     {
       "voice_slug": "wilkerson",
-      "local_path": "narrative-geopolitics/archive/sources/2025-11-28/source-dialogue-works-larry-c-johnson-col-larry-wilkerson-russia-ready-to-go-all-the-way-iran-slams-israel-2025-11-28.md",
+      "local_path": "archive/geopolitics/sources/2025-11-28/source-dialogue-works-larry-c-johnson-col-larry-wilkerson-russia-ready-to-go-all-the-way-iran-slams-israel-2025-11-28.md",
       "role": "cross-voice panel"
     },
     {
       "voice_slug": "wilkerson",
-      "local_path": "narrative-geopolitics/archive/sources/2025-12-12/source-dialogue-works-wilkerson-freeman-chain-reaction-2025-12-12.md",
+      "local_path": "archive/geopolitics/sources/2025-12-12/source-dialogue-works-wilkerson-freeman-chain-reaction-2025-12-12.md",
       "role": "cross-voice panel"
     },
     {
       "voice_slug": "wilkerson",
-      "local_path": "narrative-geopolitics/archive/sources/2026-01-22/source-judging-freedom-wilkerson-the-rules-based-order-was-a-lie-2026-01-22.md",
+      "local_path": "archive/geopolitics/sources/2026-01-22/source-judging-freedom-wilkerson-the-rules-based-order-was-a-lie-2026-01-22.md",
       "role": "authored analysis"
     },
     {
       "voice_slug": "wilkerson",
-      "local_path": "narrative-geopolitics/archive/sources/2026-04-30/source-wilkerson-judging-freedom-iran-new-friend-2026-04-30.md",
+      "local_path": "archive/geopolitics/sources/2026-04-30/source-wilkerson-judging-freedom-iran-new-friend-2026-04-30.md",
       "role": "authored interview"
     }
   ]

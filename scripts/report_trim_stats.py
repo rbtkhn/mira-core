@@ -9,8 +9,8 @@ from typing import Any
 
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
-ARCHIVE_SOURCES_ROOT = REPO_ROOT / "narrative-geopolitics" / "archive" / "sources"
-MANIFEST_PATH = REPO_ROOT / "narrative-geopolitics" / "archive" / "source-manifest.json"
+ARCHIVE_SOURCES_ROOT = REPO_ROOT / "archive" / "geopolitics" / "sources"
+MANIFEST_PATH = REPO_ROOT / "archive" / "geopolitics" / "source-manifest.json"
 HOST_SLUG_ALIASES: dict[str, str] = {}
 TRANSCRIPT_WRAPPER_RE = re.compile(r"(?m)^Transcripts:\s*$")
 YOUTUBE_TITLE_WRAPPER_RE = re.compile(r"(?m)^.+ - YouTube\s*$")

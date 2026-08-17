@@ -11,7 +11,7 @@ from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 NG_ROOT = REPO_ROOT / "narrative-geopolitics"
-MANIFEST_PATH = NG_ROOT / "archive" / "source-manifest.json"
+MANIFEST_PATH = NG_ROOT.parent / "archive" / "geopolitics" / "source-manifest.json"
 OUTPUT_PATH = NG_ROOT / "analytics" / "cross-voice-historical-reference-density.md"
 VOICE_LEDGER_DIR = NG_ROOT / "analytics" / "historical-reference-ledgers"
 REVIEW_OVERRIDES_PATH = NG_ROOT / "analytics" / "historical-reference-review-overrides.json"
@@ -188,7 +188,7 @@ def render_report(
     for item in sorted(records, key=lambda r: (r["date"], r["voice"], r["source_id"])):
         for occurrence in sorted(item["occurrences"], key=lambda o: (o["paragraph"], o["key"])):
             occurrence_number += 1
-            archive_link = "../" + item["path"].split("narrative-geopolitics/", 1)[-1]
+            archive_link = "../../" + item["path"]
             lines += [
                 f"### CV-HR-{occurrence_number:04d} — {occurrence['label']}",
                 "",
@@ -239,7 +239,7 @@ def render_voice_ledger(records: list[dict], voice: str) -> str:
     for number, ((source_id, _), (record, items)) in enumerate(sorted(clusters.items(), key=lambda pair: (pair[1][0]["date"], pair[0][0], pair[0][1])), start=1):
         mix = Counter(item["review_status"] for item in items)
         mix_text = ", ".join(f"{status}:{count}" for status, count in sorted(mix.items()))
-        archive_link = "../../" + record["path"].split("narrative-geopolitics/", 1)[-1]
+        archive_link = "../../../" + record["path"]
         lines.append(f"| `{voice.upper()}-CL-{number:04d}` | {record['date']} | `{source_id}` | {items[0]['label']} | {len(items)} | {mix_text} | [{record['path']}]({archive_link}) |")
     lines += [
         "",
@@ -252,7 +252,7 @@ def render_voice_ledger(records: list[dict], voice: str) -> str:
         sorted(((record, occurrence) for record in selected for occurrence in record["occurrences"]), key=lambda pair: (pair[0]["date"], pair[0]["source_id"], pair[1]["paragraph"], pair[1]["key"])),
         start=1,
     ):
-        archive_link = "../../" + record["path"].split("narrative-geopolitics/", 1)[-1]
+        archive_link = "../../../" + record["path"]
         ledger_id = f"{voice.upper()}-HR-{number:04d}"
         lines.append(f"| `{ledger_id}` | {occurrence['label']} | {record['date']} | `{record['source_id']}` | `{record['host']}` | `{occurrence['function']}` | `{occurrence['confidence']}` | `{occurrence['review_status']}` | [{record['path']}]({archive_link}) | {occurrence['quote']} |")
     lines += ["", "## Coverage", "", *[f"- `{record['source_id']}` — {record['date']} — {record['title']}" for record in selected], ""]
@@ -302,7 +302,7 @@ def render_review_queue(records: list[dict]) -> str:
     for number, ((voice, source_id, _), (record, items)) in enumerate(sorted(clusters.items(), key=lambda pair: (status_order.get(pair[1][1][0]["review_status"], 9), pair[0][0], pair[0][1], pair[0][2])), start=1):
         mix = Counter(item["review_status"] for item in items)
         mix_text = ", ".join(f"{status}:{count}" for status, count in sorted(mix.items()))
-        archive_link = "../" + record["path"].split("narrative-geopolitics/", 1)[-1]
+        archive_link = "../../" + record["path"]
         lines.append(f"| `RV-CL-{number:04d}` | `{voice}` | {record['date']} | `{source_id}` | {items[0]['label']} | {len(items)} | {mix_text} | [{record['path']}]({archive_link}) |")
     number = 0
     for status in ("needs-review", "unreviewed", "voice-supported", "excluded-context"):
@@ -313,7 +313,7 @@ def render_review_queue(records: list[dict]) -> str:
         for record, occurrence in subset:
             number += 1
             queue_id = f"RV-HR-{number:04d}"
-            archive_link = "../" + record["path"].split("narrative-geopolitics/", 1)[-1]
+            archive_link = "../../" + record["path"]
             lines.append(f"| `{queue_id}` | `{record['voice']}` | {record['date']} | {occurrence['label']} | `{record['source_id']}` | `{occurrence['confidence']}` | [{record['path']}]({archive_link}) | {occurrence['quote']} |")
     lines.append("")
     return "\n".join(lines)

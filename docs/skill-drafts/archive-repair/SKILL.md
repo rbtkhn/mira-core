@@ -76,7 +76,7 @@ action is separately authorized.
 
 Narrative Geopolitics repairs remain bounded metadata/body/source repairs for
 manifest-backed Markdown files under
-`narrative-geopolitics/archive/sources`.
+`archive/geopolitics/sources`.
 
 Accept only repository-relative, manifest-backed Markdown files contained under
 that path. Reject absolute paths, traversal, globs, directories, missing files,
@@ -105,7 +105,7 @@ Canonical command:
 ```powershell
 .\tools\run.ps1 archive-repair `
   --class asr `
-  --path narrative-geopolitics/archive/sources/YYYY-MM-DD/source-example.md `
+  --path archive/geopolitics/sources/YYYY-MM-DD/source-example.md `
   --dry-run `
   --format markdown
 ```

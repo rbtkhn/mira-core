@@ -10,6 +10,7 @@ from pathlib import Path
 from typing import Any
 
 from archive_membership import registered_source_paths, source_reference_available
+from repository_paths import canonical_repository_path
 
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
@@ -215,7 +216,10 @@ def validate_registry(
                 failures.append(f"{version_id}: source_refs must be a non-empty list")
                 sources = []
             for source in sources:
-                if not isinstance(source, str) or not source.startswith("narrative-geopolitics/archive/sources/"):
+                canonical_source = (
+                    canonical_repository_path(source) if isinstance(source, str) else ""
+                )
+                if not canonical_source.startswith("archive/geopolitics/sources/"):
                     failures.append(f"{version_id}: source is not a canonical archive path: {source}")
                 elif "SRC-" in source or not source_reference_available(
                     repo_root, source, registered=registered_sources
@@ -300,11 +304,11 @@ def daily_source_map(day: str) -> dict[str, tuple[str, str]]:
             continue
         source_id = clean_cell(cells[0])
         voice = cells[1].strip().lower().replace(" ", "-")
-        match = re.search(r"\(([^)]+archive/sources/[^)]+)\)", cells[4])
+        match = re.search(r"\(([^)]+archive/geopolitics/sources/[^)]+)\)", cells[4])
         if not match:
             continue
         target = match.group(1).replace("\\", "/")
-        marker = "archive/sources/"
+        marker = "archive/geopolitics/sources/"
         archive_path = "narrative-geopolitics/" + target[target.index(marker) :]
         result[source_id] = (voice, archive_path)
     return result

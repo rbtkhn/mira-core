@@ -20,7 +20,7 @@ REPO_ROOT = Path(__file__).resolve().parents[1]
 UPSTREAM_ROOT = Path(r"C:\dev\strategy-codex\source-archive\statecraft")
 BACKFILL_ROOT = REPO_ROOT / "narrative-geopolitics" / "work" / "backfill-2026"
 VOICE_ROOT = REPO_ROOT / "narrative-geopolitics" / "voices"
-MANIFEST_PATH = REPO_ROOT / "narrative-geopolitics" / "archive" / "source-manifest.json"
+MANIFEST_PATH = REPO_ROOT / "archive" / "geopolitics" / "source-manifest.json"
 
 
 def frontmatter_and_body(path: Path) -> tuple[dict[str, str], str]:
@@ -81,7 +81,7 @@ def title(fields: dict[str, str], path: Path) -> str:
 
 def local_target_exists(source_title: str, pub_date: str) -> bool:
     slug = re.sub(r"[^a-z0-9]+", "-", source_title.lower()).strip("-")
-    return (REPO_ROOT / "narrative-geopolitics" / "archive" / "sources" / pub_date / f"source-{slug}-{pub_date}.md").exists()
+    return (REPO_ROOT / "archive" / "geopolitics" / "sources" / pub_date / f"source-{slug}-{pub_date}.md").exists()
 
 
 def source_files() -> list[Path]:

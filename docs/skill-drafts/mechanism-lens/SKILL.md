@@ -29,7 +29,7 @@ Use another workflow when the task is mainly:
 
 1. Define the bounded scope: date range, topic, voice or voices, and archive
    boundary.
-2. Query `narrative-geopolitics/archive/source-manifest.json` for matching
+2. Query `archive/geopolitics/source-manifest.json` for matching
    rows. Report date, title, host, and local path for the source set.
 3. Read enough of each selected source to identify the claim structure. Do not
    infer a missing claim from the title alone.

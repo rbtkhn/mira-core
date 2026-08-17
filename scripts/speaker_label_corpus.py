@@ -10,8 +10,8 @@ from pathlib import Path
 from typing import Any
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
-MANIFEST = REPO_ROOT / "narrative-geopolitics" / "archive" / "source-manifest.json"
-DERIVED_ROOT = REPO_ROOT / "narrative-geopolitics" / "archive" / "derived" / "speaker-labeled"
+MANIFEST = REPO_ROOT / "archive" / "geopolitics" / "source-manifest.json"
+DERIVED_ROOT = REPO_ROOT / "archive" / "geopolitics" / "derived" / "speaker-labeled"
 @dataclass(frozen=True)
 class Candidate:
     name: str
@@ -153,7 +153,7 @@ def derivative(row: dict[str, Any], output_root: Path) -> tuple[Path, dict[str, 
     fields, body = frontmatter(text)
     labeled, stats = label_body(body, row, fields)
     source_hash = hashlib.sha256(raw).hexdigest()
-    relative = Path(str(row["local_path"])).relative_to("narrative-geopolitics/archive/sources")
+    relative = Path(str(row["local_path"])).relative_to("archive/geopolitics/sources")
     target = output_root / relative
     marker_labeling = stats.get("turn_labeling")
     meta = {

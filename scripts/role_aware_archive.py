@@ -8,7 +8,7 @@ from typing import Any
 
 ROOT = Path(__file__).resolve().parent.parent
 NG = ROOT / "narrative-geopolitics"
-MANIFEST = NG / "archive" / "source-manifest.json"
+MANIFEST = NG.parent / "archive" / "geopolitics" / "source-manifest.json"
 PUBLICATIONS = NG / "publications"
 ALLOWED_ROLES = {"author", "guest", "host", "co-host", "panelist"}
 ALLOWED_STATUS = {"confirmed", "provisional", "inferred"}

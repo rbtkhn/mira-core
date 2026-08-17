@@ -19,14 +19,14 @@ import render_daily_issue as daily_issue
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 NG_ROOT = REPO_ROOT / "narrative-geopolitics"
-MANIFEST_PATH = NG_ROOT / "archive" / "source-manifest.json"
+MANIFEST_PATH = NG_ROOT.parent / "archive" / "geopolitics" / "source-manifest.json"
 DAILY_ROOT = NG_ROOT / "work" / "daily"
 LEDGER_PATH = NG_ROOT / "work" / "forecasts" / "forecast-ledger.md"
 
 
 HOOK_RE = re.compile(r"`(NG-\d{8}-F\d{2})`")
-ARCHIVE_LINK_RE = re.compile(r"\((\.\./\.\./\.\./archive/sources/[^)]+\.md)\)")
-INTAKE_ROW_RE = re.compile(r"\|\s*`(archive/sources/[^`]+\.md)`\s*\|")
+ARCHIVE_LINK_RE = re.compile(r"\((\.\./\.\./\.\./\.\./archive/geopolitics/sources/[^)]+\.md)\)")
+INTAKE_ROW_RE = re.compile(r"\|\s*`(archive/geopolitics/sources/[^`]+\.md)`\s*\|")
 STATUS_RE = re.compile(r"Status:\s*`([^`]+)`")
 PLACEHOLDER_RE = re.compile(r"awaiting intake", re.IGNORECASE)
 DELTA_CONTRACT = "Synthesis contract: `delta-v1`"

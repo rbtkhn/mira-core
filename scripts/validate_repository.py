@@ -29,6 +29,7 @@ import reality
 import recursive_learning_ledger
 import mira_continuity
 import mira_journal
+from repository_paths import canonical_repository_path
 import operator_positions
 import archive
 from role_aware_archive import validate_row as validate_role_row
@@ -36,8 +37,8 @@ from role_aware_archive import validate_row as validate_role_row
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 NG_ROOT = REPO_ROOT / "narrative-geopolitics"
-ARCHIVE_SOURCES = NG_ROOT / "archive" / "sources"
-MANIFEST_PATH = NG_ROOT / "archive" / "source-manifest.json"
+ARCHIVE_SOURCES = NG_ROOT.parent / "archive" / "geopolitics" / "sources"
+MANIFEST_PATH = NG_ROOT.parent / "archive" / "geopolitics" / "source-manifest.json"
 DAILY_ROOT = NG_ROOT / "work" / "daily"
 LEDGER_PATH = NG_ROOT / "work" / "forecasts" / "forecast-ledger.md"
 LOCAL_SKILLS = {
@@ -80,8 +81,8 @@ LEGACY_REPOSITORY_NAME_ALLOWLIST = frozenset({
     "mira/constitution.schema.json",
     "mira/continuity/session-registry.json",
     "mira/face/landing-page/encounter.schema.json",
-    "mira/notes/2026-08-15-from-civilization-memory-to-mira-core.md",
-    "mira/notes/2026-08-16-recent-architectural-changes.md",
+    "archive/notes/2026-08-15-from-civilization-memory-to-mira-core.md",
+    "archive/notes/2026-08-16-recent-architectural-changes.md",
     "narrative-geopolitics/work/system-improvement/recursive-learning-ledger.json",
     "scripts/contradiction_kernel.provenance.json",
     "scripts/mira_continuity.py",
@@ -101,11 +102,11 @@ LEGACY_REPOSITORY_DISPLAY_NAME_ALLOWLIST = frozenset({
     "docs/audits/2026-08-12-mira-voice-cross-thread-performance.md",
     "docs/audits/2026-08-14-mira-journal-session-coverage.md",
     "docs/plans/2026-08-13-system-archive-membrane-repair.md",
-    "mira/essays/2026-08-11-an-archaeology-of-constructed-minds.md",
-    "mira/notes/2026-08-10-innermost-loop-baseline.md",
-    "mira/notes/2026-08-10-one-year-developmental-hypothesis.md",
-    "mira/notes/2026-08-11-evolution-of-repo-audit.md",
-    "mira/notes/2026-08-15-from-civilization-memory-to-mira-core.md",
+    "archive/essays/2026-08-11-an-archaeology-of-constructed-minds.md",
+    "archive/notes/2026-08-10-innermost-loop-baseline.md",
+    "archive/notes/2026-08-10-one-year-developmental-hypothesis.md",
+    "archive/notes/2026-08-11-evolution-of-repo-audit.md",
+    "archive/notes/2026-08-15-from-civilization-memory-to-mira-core.md",
     "narrative-geopolitics/work/system-improvement/recursive-learning-ledger.json",
     "narrative-geopolitics/work/system-improvement/recursive-learning-ledger.md",
     "scripts/validate_repository.py",
@@ -148,10 +149,11 @@ LEGACY_ARCHIVE_HISTORICAL_PREFIXES = (
     "archive/schemas/",
     "docs/audits/",
     "docs/plans/",
-    "mira/essays/",
+    "archive/essays/",
     "mira/journal/",
-    "mira/notes/",
-    "narrative-geopolitics/archive/source-manifest.json",
+    "archive/notes/",
+    "archive/geopolitics/source-manifest.json",
+    "archive/geopolitics/sources/",
     "narrative-geopolitics/voices/",
     "narrative-geopolitics/work/",
 )
@@ -370,8 +372,18 @@ def markdown_link_failures() -> list[str]:
             if not target or target.startswith(("http://", "https://", "mailto:")):
                 continue
             resolved = path.parent / target
+            if not resolved.exists() and target.replace("\\", "/").startswith("archive/"):
+                resolved = REPO_ROOT / Path(target.replace("\\", "/"))
             if not resolved.exists() and target.replace("\\", "/").startswith("narrative-geopolitics/"):
                 resolved = REPO_ROOT / Path(target.replace("\\", "/"))
+            if not resolved.exists():
+                try:
+                    repository_target = resolved.resolve().relative_to(REPO_ROOT.resolve()).as_posix()
+                except ValueError:
+                    repository_target = ""
+                canonical_target = canonical_repository_path(repository_target)
+                if canonical_target != repository_target:
+                    resolved = REPO_ROOT / canonical_target
             if not resolved.exists() and not sources_hydrated:
                 try:
                     repository_target = resolved.resolve().relative_to(REPO_ROOT.resolve()).as_posix()

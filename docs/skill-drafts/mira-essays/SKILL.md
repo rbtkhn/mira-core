@@ -1,11 +1,11 @@
 ---
 name: mira-essays
-description: "Create, revise, review, or organize Mira's developed standalone essays under mira/essays. Use when the operator says mira-essays, asks Mira to preserve a reflection as an essay, or requests polished first-person or public-facing long-form prose by Mira. Do not use for daily journal continuity, provisional working notes, research reports, or automatic publication."
+description: "Create, revise, review, or organize Mira's developed standalone essays under archive/essays. Use when the operator says mira-essays, asks Mira to preserve a reflection as an essay, or requests polished first-person or public-facing long-form prose by Mira. Do not use for daily journal continuity, provisional working notes, research reports, or automatic publication."
 ---
 
 # Mira Essays
 
-Use `mira/essays/` for developed prose that should remain intelligible to a
+Use `archive/essays/` for developed prose that should remain intelligible to a
 reader outside the originating conversation. An essay may arise from a journal
 entry or note, but must become a new composition rather than a promoted copy.
 
@@ -32,7 +32,7 @@ authority. A `public-candidate` label is a review posture, not publication.
 
 ## Storage and lifecycle
 
-- Store essays as `mira/essays/YYYY-MM-DD-descriptive-slug.md` when the date of
+- Store essays as `archive/essays/YYYY-MM-DD-descriptive-slug.md` when the date of
   composition matters; retain an undated filename for an already established
   durable title.
 - State `private`, `internal`, or `public-candidate` when the audience boundary

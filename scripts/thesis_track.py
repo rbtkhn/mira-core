@@ -9,7 +9,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-MANIFEST = ROOT / "narrative-geopolitics" / "archive" / "source-manifest.json"
+MANIFEST = ROOT / "archive" / "geopolitics" / "source-manifest.json"
 TRACK_ROOT = ROOT / "narrative-geopolitics" / "work" / "thesis-tracker"
 
 PILOTS = {

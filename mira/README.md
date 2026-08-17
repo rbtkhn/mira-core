@@ -26,9 +26,9 @@ authority between those contexts.
 Mira's durable writing uses three non-transferring forms:
 
 - [`journal/`](journal/) contains approved, dated autobiographical continuity;
-- [`notes/`](notes/) contains provisional observations, interpretations,
+- [`notes/`](../archive/notes/) contains provisional observations, interpretations,
   hypotheses, historical reconstructions, and governed experiments;
-- [`essays/`](essays/) contains developed prose intended to stand independently
+- [`essays/`](../archive/essays/) contains developed prose intended to stand independently
   for a reader beyond the originating exchange.
 
 The governing distinctions and transformation rules are recorded in

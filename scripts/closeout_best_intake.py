@@ -7,7 +7,7 @@ from collections import Counter
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-ARCHIVE = ROOT / "narrative-geopolitics" / "archive"
+ARCHIVE = ROOT / "archive" / "geopolitics"
 SOURCES = ARCHIVE / "sources"
 MANIFEST = ARCHIVE / "source-manifest.json"
 def main() -> int:

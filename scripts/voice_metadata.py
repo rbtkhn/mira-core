@@ -9,7 +9,7 @@ from typing import Any
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 NG_ROOT = REPO_ROOT / "narrative-geopolitics"
-MANIFEST_PATH = NG_ROOT / "archive" / "source-manifest.json"
+MANIFEST_PATH = NG_ROOT.parent / "archive" / "geopolitics" / "source-manifest.json"
 
 VOICE_ALIASES = {
     "larry-johnson": "johnson",
@@ -106,9 +106,7 @@ def inspect_metadata(
 ) -> dict[str, Any]:
     changes: list[dict[str, Any]] = []
     failures: list[str] = []
-    sources_hydrated = (
-        repo_root / "narrative-geopolitics" / "archive" / "sources"
-    ).is_dir()
+    sources_hydrated = (repo_root / "archive" / "geopolitics" / "sources").is_dir()
     for row in selected_rows(manifest, run_date):
         before = list(row.get("voice_slugs") or [])
         after = canonicalize_slugs(before)

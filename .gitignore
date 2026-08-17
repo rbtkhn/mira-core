@@ -32,7 +32,7 @@ Thumbs.db
 /narrative-geopolitics/work/operator-positions/.candidates/
 
 # Hydrated Mira Archive body mirrors (canonical bytes live outside Git)
-/narrative-geopolitics/archive/sources/
+/archive/geopolitics/sources/
 # Private continuity payloads are hydrated locally and never published by default.
 /mira/continuity/captures/
 

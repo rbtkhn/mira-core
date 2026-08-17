@@ -12,7 +12,7 @@ from typing import Any, Iterable
 
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
-ARCHIVE_ROOT = REPO_ROOT / "narrative-geopolitics" / "archive"
+ARCHIVE_ROOT = REPO_ROOT / "archive" / "geopolitics"
 SOURCES_ROOT = ARCHIVE_ROOT / "sources"
 MANIFEST_PATH = ARCHIVE_ROOT / "source-manifest.json"
 DATE_IN_PATH = re.compile(r"(?:^|/)(\d{4}-\d{2}-\d{2})(?:/|$)")

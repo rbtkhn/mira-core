@@ -10,7 +10,7 @@ from datetime import date
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 NG_ROOT = REPO_ROOT / "narrative-geopolitics"
-MANIFEST_PATH = NG_ROOT / "archive" / "source-manifest.json"
+MANIFEST_PATH = NG_ROOT.parent / "archive" / "geopolitics" / "source-manifest.json"
 DAILY_ROOT = NG_ROOT / "work" / "daily"
 TEMPLATES_ROOT = NG_ROOT / "templates"
 LEDGER_PATH = NG_ROOT / "work" / "forecasts" / "forecast-ledger.md"
@@ -177,7 +177,7 @@ def extract_due_review_hooks(run_date: str) -> list[dict[str, str]]:
 
 def build_sources_md(run_date: str, status: str, rows: list[dict[str, Any]], retro: bool) -> str:
     intake_status = "already-imported" if retro else "imported"
-    archive_dir = f"narrative-geopolitics/archive/sources/{run_date}/"
+    archive_dir = f"archive/geopolitics/sources/{run_date}/"
     intro = (
         f"This run is a retrospective judgment run built from already-imported central archive "
         f"sources for `{run_date}`."
@@ -222,7 +222,7 @@ Status: `{status}`
 
 Primary source basis:
 
-- `narrative-geopolitics/archive/source-manifest.json`
+- `archive/geopolitics/source-manifest.json`
 - `{archive_dir}`
 
 ## Intake Batch

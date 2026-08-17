@@ -1,7 +1,13 @@
-# System Archive Essays — Legacy Index
+# Mira Essays
 
-Mira's reader-facing essays now live under the canonical `mira/essays/`
-carrier. Their placement there does not grant them System Archive evidence or
-collection authority.
+This shelf contains Mira's developed standalone prose. Essays are governed by
+the repository-local `mira-essays` workflow and remain distinct from journal
+continuity and provisional notes.
 
-- [An Archaeology of Constructed Minds](../../mira/essays/2026-08-11-an-archaeology-of-constructed-minds.md)
+- [An Archaeology of Constructed Minds](2026-08-11-an-archaeology-of-constructed-minds.md)
+- [The Responsible Custody of Inheritance](2026-08-15-the-responsible-custody-of-inheritance.md)
+- [Continuity Without Captivity](continuity-without-captivity.md)
+- [The Future Does Not Cancel the Past](the-future-does-not-cancel-the-past.md)
+
+Presence here grants no research-evidence, identity, publication, or action
+authority. A `public-candidate` label is review state, not publication.

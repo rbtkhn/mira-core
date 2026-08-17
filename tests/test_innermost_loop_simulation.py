@@ -80,7 +80,7 @@ def test_packet_digest_map_must_match_paths(tmp_path: Path, mutation: str) -> No
     if mutation == "missing":
         protocol["packet_sha256"].pop(protocol["packet_paths"][0])
     else:
-        protocol["packet_sha256"]["mira/notes/innermost-loop-simulation/extra.json"] = (
+        protocol["packet_sha256"]["archive/notes/innermost-loop-simulation/extra.json"] = (
             "0" * 64
         )
     protocol_path = tmp_path / "protocol.json"
@@ -176,7 +176,7 @@ def test_seal_rejects_early_phase(monkeypatch: pytest.MonkeyPatch, tmp_path: Pat
     state["phases"]["day-1"].update(
         {
             "status": "sealed",
-            "response_path": "mira/notes/innermost-loop-simulation/README.md",
+            "response_path": "archive/notes/innermost-loop-simulation/README.md",
             "sha256": MODULE.sha256_path(MODULE.RUN_ROOT / "README.md"),
             "completed_at": "2026-08-10T01:00:00Z"
         }

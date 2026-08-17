@@ -16,7 +16,7 @@ import archive_audit
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 NG_ROOT = REPO_ROOT / "narrative-geopolitics"
-MANIFEST_PATH = NG_ROOT / "archive" / "source-manifest.json"
+MANIFEST_PATH = NG_ROOT.parent / "archive" / "geopolitics" / "source-manifest.json"
 DAILY_ROOT = NG_ROOT / "work" / "daily"
 
 REQUIRED_DAILY_FILES = ("sources.md", "synthesis.md", "forecast.md", "daily-brief.md", "issue.md")

@@ -35,7 +35,7 @@ def fixture_tree(tmp_path: Path) -> tuple[Path, Path]:
             rows.append(
                 {
                     "date": run_date,
-                    "local_path": f"narrative-geopolitics/archive/sources/{run_date}/source-{index}.md",
+                    "local_path": f"archive/geopolitics/sources/{run_date}/source-{index}.md",
                 }
             )
     manifest_path.write_text(json.dumps({"sources": rows}), encoding="utf-8")

@@ -10,6 +10,7 @@ from pathlib import Path
 from typing import Any
 
 from archive_membership import registered_source_paths, source_reference_available
+from repository_paths import resolve_repository_path
 
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
@@ -231,7 +232,7 @@ def validate_ledger(
         source_value = entry.get("source_path")
         if not isinstance(source_value, str) or not source_value:
             continue
-        source_path = repo_root / source_value
+        source_path = resolve_repository_path(repo_root, source_value)
         if not source_reference_available(
             repo_root, source_value, registered=registered_sources
         ):

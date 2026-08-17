@@ -82,7 +82,7 @@ Workflow:
 3. Resolve canonical voice and host routing without inventing a lane.
 4. Preflight duplicate URL, identity, and path state.
 5. Run the canonical helper in dry-run mode and inspect inferred metadata.
-6. Land one real `archive/sources/YYYY-MM-DD/source-*.md` object while
+6. Land one real `archive/geopolitics/sources/YYYY-MM-DD/source-*.md` object while
    preserving the supplied body with minimal rewriting.
 7. Apply only approved deterministic trim, ASR repair, and sectioning, in that
    order.

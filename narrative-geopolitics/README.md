@@ -49,8 +49,8 @@ The proven daily judgment loop is:
 
 ```text
 best-intake through the day
--> archive/sources/YYYY-MM-DD/source-*.md
--> archive/source-manifest.json
+-> archive/geopolitics/sources/YYYY-MM-DD/source-*.md
+-> archive/geopolitics/source-manifest.json
 -> geo-strategy
 -> work/daily/YYYY-MM-DD/sources.md
 -> work/daily/YYYY-MM-DD/synthesis.md

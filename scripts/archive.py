@@ -139,6 +139,24 @@ def selected_collections(values: Sequence[str], *, include_explicit_default: boo
     return [available[item] for item in selected]
 
 
+def repository_path_for_logical(
+    logical_path: str,
+    collection_id: str,
+    *,
+    collections: Mapping[str,Mapping[str,Any]] | None=None,
+) -> Path:
+    logical=safe_logical_path(logical_path)
+    collection=(collections or collection_map()).get(collection_id)
+    if not collection or not collection.get("repository_root"):
+        return REPO_ROOT/logical
+    logical_root=safe_logical_path(str(collection["logical_root"])).rstrip("/")
+    prefix=logical_root+"/"
+    if not logical.startswith(prefix):
+        raise ArchiveError(f"collection logical path escapes logical root: {logical}")
+    repository_root=safe_logical_path(str(collection["repository_root"])).rstrip("/")
+    return REPO_ROOT/repository_root/logical.removeprefix(prefix)
+
+
 def stable_record_id(prefix: str,path: str) -> str: return f"{prefix}-{sha256_bytes(path.encode())[:20]}"
 def day_timestamp(value: str) -> str: return parse_time(f"{value}T00:00:00Z",label="date",required=True) or ""
 
@@ -158,9 +176,14 @@ def capture_search_text(body: bytes) -> str:
 def discover_archive(collection: Mapping[str,Any]) -> Iterator[tuple[RecordInput,Path]]:
     manifest=load_json(REPO_ROOT/str(collection["registry_path"])); sources=manifest.get("sources")
     if not isinstance(sources,list) or manifest.get("source_count")!=len(sources): raise ArchiveError("Narrative Geopolitics source manifest count mismatch")
+    repository_root=safe_logical_path(str(collection.get("repository_root",collection["logical_root"]))).rstrip("/")
+    logical_root=safe_logical_path(str(collection["logical_root"])).rstrip("/")
     for source in sources:
-        logical=safe_logical_path(str(source.get("local_path",""))); path=REPO_ROOT/logical
-        if not path.is_file(): raise ArchiveError(f"missing collection body: {logical}")
+        repository_path=safe_logical_path(str(source.get("local_path","")))
+        prefix=repository_root+"/"
+        if not repository_path.startswith(prefix): raise ArchiveError(f"Narrative Geopolitics source escapes repository root: {repository_path}")
+        logical=safe_logical_path(logical_root+"/"+repository_path.removeprefix(prefix)); path=REPO_ROOT/repository_path
+        if not path.is_file(): raise ArchiveError(f"missing collection body: {repository_path}")
         body=path.read_bytes()
         yield RecordInput(stable_record_id("SAR-NG",logical),"source",logical,str(collection["id"]),str(collection["authority_owner"]),str(collection["evidence_class"]),"import-process",str(manifest.get("manifest_id","source-manifest")),day_timestamp(str(manifest.get("imported_at",""))),day_timestamp(str(source.get("date",""))),None,{"title":source.get("title"),"source_class":source.get("source_class"),"modality":source.get("modality"),"voice_slugs":source.get("voice_slugs",[]),"host_slug":source.get("host_slug"),"manifest":str(collection["registry_path"])},body.decode("utf-8",errors="replace")),path
 
@@ -603,11 +626,11 @@ def hydrate_command(args: argparse.Namespace) -> dict[str,Any]:
     disabled=[row["id"] for row in selected if row.get("hydration_policy")=="disabled"]
     if args.collection and disabled: raise ArchiveError(f"hydration disabled for collection(s): {', '.join(disabled)}")
     selected=[row for row in selected if row.get("hydration_policy")!="disabled"]
-    archive=store(); collections=[row["id"] for row in selected]; matching=would_write=0
+    archive=store(); collections=[row["id"] for row in selected]; collection_by_id={str(row["id"]):row for row in selected}; matching=would_write=0
     with archive.connect() as connection:
         rows=list(iter_active_records(connection,collection_ids=collections))
         for row in rows:
-            target=REPO_ROOT/row["logical_path"]; body=archive.get_object(row["object_id"])
+            target=repository_path_for_logical(row["logical_path"],row["collection_id"],collections=collection_by_id); body=archive.get_object(row["object_id"])
             if target.is_file() and target.read_bytes()==body: matching+=1; continue
             would_write+=1
             if not args.check:
@@ -655,7 +678,7 @@ def validate_repository_state(repo_root: Path=REPO_ROOT) -> list[str]:
         if policy.get("explicit_only_collections")!=derived: failures.append("Mira Archive explicit-only policy drifts from collection registry")
     except (ArchiveError,KeyError,TypeError) as error: failures.append(str(error))
     try:
-        result=subprocess.run(["git","ls-files","-z","--","narrative-geopolitics/archive/sources","mira/continuity/captures"],cwd=repo_root,check=True,capture_output=True)
+        result=subprocess.run(["git","ls-files","-z","--","archive/geopolitics/sources","mira/continuity/captures"],cwd=repo_root,check=True,capture_output=True)
         failures.extend(f"tracked corpus body: {item.decode(errors='replace')}" for item in result.stdout.split(b"\0") if item)
     except (OSError,subprocess.CalledProcessError) as error: failures.append(f"could not inspect tracked corpus bodies: {error}")
     return failures
@@ -670,9 +693,10 @@ def validate_command(args: argparse.Namespace) -> dict[str,Any]:
 def verify_command(args: argparse.Namespace) -> dict[str,Any]:
     archive=store(); failures=verify_catalog(archive,full=True)
     if args.hydration:
+        collections=collection_map()
         with archive.connect() as connection:
             for row in iter_active_records(connection):
-                path=REPO_ROOT/row["logical_path"]
+                path=repository_path_for_logical(row["logical_path"],row["collection_id"],collections=collections)
                 if not path.is_file(): failures.append(f"missing hydrated path: {row['logical_path']}")
                 elif sha256_bytes(path.read_bytes())!=row["object_id"]: failures.append(f"hydration mismatch: {row['logical_path']}")
     return {"status":"passed" if not failures else "failed","failures":failures}

@@ -61,7 +61,7 @@ def main() -> int:
     args = parse_args()
     if args.date_from > args.date_to:
         raise SystemExit("--from must not be later than --to")
-    archive = args.repo_root.resolve() / "narrative-geopolitics" / "archive" / "sources"
+    archive = args.repo_root.resolve() / "archive" / "geopolitics" / "sources"
     if not archive.is_dir():
         raise SystemExit(f"archive source directory not found: {archive}")
 

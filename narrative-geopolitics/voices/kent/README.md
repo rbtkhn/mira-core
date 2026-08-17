@@ -9,7 +9,7 @@ Status: `internal`
 | Name | Joe Kent |
 | Slug | `kent` |
 | Role | Tests U.S. and Israeli escalation choices against counterterrorism experience, restraint leverage, and enforceable settlement conditions. |
-| Source basis | `narrative-geopolitics/archive/source-manifest.json` |
+| Source basis | `archive/geopolitics/source-manifest.json` |
 | Public summary status | `none` |
 | First added | `2026-07-14` |
 | Last reviewed | `2026-07-14` |

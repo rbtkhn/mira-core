@@ -48,11 +48,11 @@ placement even though `mira/notes` is now the canonical carrier for revisable,
 non-canonical thought:
 
 - Working Vocabulary, formerly at `docs/working-vocabulary.md` and now at
-  [`mira/notes/2026-07-06-working-vocabulary.md`](../../mira/notes/2026-07-06-working-vocabulary.md), explicitly contains
+  [`mira/notes/2026-07-06-working-vocabulary.md`](../../archive/notes/2026-07-06-working-vocabulary.md), explicitly contains
   provisional terms and open questions. Classify it as `working-note` and move
   it to `mira/notes/2026-07-06-working-vocabulary.md`.
 - Evolution of Repo Audit, formerly at `docs/repo-audit-evolution.md` and now at
-  [`mira/notes/2026-08-11-evolution-of-repo-audit.md`](../../mira/notes/2026-08-11-evolution-of-repo-audit.md), reconstructs what
+  [`mira/notes/2026-08-11-evolution-of-repo-audit.md`](../../archive/notes/2026-08-11-evolution-of-repo-audit.md), reconstructs what
   changed during a specific session. Classify it as `historical-note` and move
   it to `mira/notes/2026-08-11-evolution-of-repo-audit.md`.
 
@@ -69,7 +69,7 @@ links.
 
 Classification: confirmed low-severity organization debt; high confidence.
 
-[An Archaeology of Constructed Minds](../../mira/essays/2026-08-11-an-archaeology-of-constructed-minds.md)
+[An Archaeology of Constructed Minds](../../archive/essays/2026-08-11-an-archaeology-of-constructed-minds.md)
 is explicitly an interpretive essay by Mira. Its former
 `system-archive/essays` location predated the canonical Mira Essays
 architecture.
@@ -92,8 +92,8 @@ Recommended route: `mira-essays`, with link verification after the move.
 
 Classification: confirmed low-severity genre inconsistency; high confidence.
 
-[The Future Does Not Cancel the Past — note](../../mira/notes/the-future-does-not-cancel-the-past.md)
-and [the essay copy](../../mira/essays/the-future-does-not-cancel-the-past.md)
+[The Future Does Not Cancel the Past — note](../../archive/notes/the-future-does-not-cancel-the-past.md)
+and [the essay copy](../../archive/essays/the-future-does-not-cancel-the-past.md)
 are textually identical after line-ending normalization. The essay is the
 correct durable genre: it is independently intelligible and already marked
 `public-candidate`.
@@ -116,7 +116,7 @@ published.
 
 Classification: confirmed low-severity metadata debt; high confidence.
 
-[The Responsible Custody of Inheritance](../../mira/essays/2026-08-15-the-responsible-custody-of-inheritance.md)
+[The Responsible Custody of Inheritance](../../archive/essays/2026-08-15-the-responsible-custody-of-inheritance.md)
 is correctly located but lacks the audience, status, publication posture, and
 provenance fields required by the current essay contract.
 
@@ -140,10 +140,10 @@ must not be edited during its active experiment:
 
 | Document | Recommended class |
 | --- | --- |
-| [Innermost Loop Reflection Baseline](../../mira/notes/2026-08-10-innermost-loop-baseline.md) | `experiment`; record externally because the baseline bytes are frozen |
-| [Mira One-Year Developmental Hypothesis](../../mira/notes/2026-08-10-one-year-developmental-hypothesis.md) | `hypothesis` |
-| [Nate B. Jones Mechanisms Manifest in Mira](../../mira/notes/2026-08-14-nate-b-jones-manifest-in-mira.md) | `interpretive-note` |
-| [From Civilization Memory to Mira Core](../../mira/notes/2026-08-15-from-civilization-memory-to-mira-core.md) | `historical-note` |
+| [Innermost Loop Reflection Baseline](../../archive/notes/2026-08-10-innermost-loop-baseline.md) | `experiment`; record externally because the baseline bytes are frozen |
+| [Mira One-Year Developmental Hypothesis](../../archive/notes/2026-08-10-one-year-developmental-hypothesis.md) | `hypothesis` |
+| [Nate B. Jones Mechanisms Manifest in Mira](../../archive/notes/2026-08-14-nate-b-jones-manifest-in-mira.md) | `interpretive-note` |
+| [From Civilization Memory to Mira Core](../../archive/notes/2026-08-15-from-civilization-memory-to-mira-core.md) | `historical-note` |
 
 ## Supporting index repair
 

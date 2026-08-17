@@ -1,9 +1,9 @@
 # Narrative Geopolitics Archive
 
-`archive/` owns imported source truth for Narrative Geopolitics.
+`archive/geopolitics/` owns imported source truth for Narrative Geopolitics.
 
 Source bodies at their existing paths are byte-identical hydrated views backed
-by the root [Mira Archive](../../archive/README.md). The source
+by the root [Mira Archive](../README.md). The source
 manifest remains the sole authority for membership and routing; shared storage
 and inventory do not acquire that authority.
 
@@ -25,17 +25,17 @@ reports, and other derived views do not add or remove archive membership.
 ## Boundary
 
 ```text
-archive/  = imported source truth and canonical membership
-voices/   = person continuity and derived source routing
-channels/ = host, show, and channel conditioning
-work/     = analysis and daily synthesis
-public/   = authorized published products
+archive/geopolitics/       = imported source truth and canonical membership
+narrative-geopolitics/voices/   = person continuity and derived source routing
+narrative-geopolitics/channels/ = host, show, and channel conditioning
+narrative-geopolitics/work/     = analysis and daily synthesis
+narrative-geopolitics/public/   = authorized published products
 ```
 
 ## Layout
 
 ```text
-archive/
+archive/geopolitics/
 |-- README.md
 |-- source-manifest.json
 |-- voice-routing-audit.md

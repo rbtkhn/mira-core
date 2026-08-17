@@ -11,6 +11,7 @@ from pathlib import Path
 from typing import Any
 
 from archive_membership import source_reference_available
+from repository_paths import canonical_repository_path, resolve_repository_path
 
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
@@ -428,9 +429,10 @@ def _validate_evidence_ref(ref: dict[str, Any], errors: list[str], context: str)
     if not isinstance(path_value, str) or not path_value:
         errors.append(f"{context}: evidence reference needs a path")
         return
-    evidence_path = REPO_ROOT / path_value
+    canonical_path = canonical_repository_path(path_value)
+    evidence_path = resolve_repository_path(REPO_ROOT, path_value)
     if not evidence_path.is_file() and not (
-        path_value.startswith("narrative-geopolitics/archive/sources/")
+        canonical_path.startswith("archive/geopolitics/sources/")
         and source_reference_available(REPO_ROOT, path_value)
     ):
         errors.append(f"{context}: broken evidence path {path_value}")

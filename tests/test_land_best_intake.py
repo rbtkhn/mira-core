@@ -97,7 +97,7 @@ def build_fast_args(pub_date: str, url: str, title: str, body_text: str) -> Simp
 
 
 def configure_transaction_root(monkeypatch, tmp_path: Path) -> tuple[Path, Path]:
-    archive = tmp_path / "narrative-geopolitics" / "archive"
+    archive = tmp_path / "archive" / "geopolitics"
     sources = archive / "sources"
     sources.mkdir(parents=True)
     manifest_path = archive / "source-manifest.json"
@@ -1649,7 +1649,7 @@ def test_preflight_reports_video_identity_and_duplicate_warning(monkeypatch, tmp
         json.dumps({
             "source_count": 1,
             "sources": [{
-                "local_path": "narrative-geopolitics/archive/sources/2026-07-24/source-existing.md",
+                "local_path": "archive/geopolitics/sources/2026-07-24/source-existing.md",
                 "source_identity": "youtube:abc123XYZ_1",
                 "source_url": "https://www.youtube.com/watch?v=abc123XYZ_1",
             }],
@@ -1680,7 +1680,7 @@ def test_manifest_row_carries_identity_and_date_basis() -> None:
     args.host_slug = "audit-host"
     args.voice_slugs = ["audit-voice"]
     normalized = land_best_intake.normalize_args(args)
-    path = REPO_ROOT / "narrative-geopolitics" / "archive" / "sources" / "2026-07-24" / "source-a-title-2026-07-24.md"
+    path = REPO_ROOT / "archive" / "geopolitics" / "sources" / "2026-07-24" / "source-a-title-2026-07-24.md"
     row = land_best_intake.build_manifest_row(normalized, path, "operator-paste://2026-07-24/a-title")
     assert row["source_identity"] == "youtube:abc123XYZ_1"
     assert row["date_basis"] == "operator-supplied"

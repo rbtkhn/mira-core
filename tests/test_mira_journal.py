@@ -1114,6 +1114,25 @@ def test_technical_reference_rejects_unknown_consumed_lesson(
     assert "technical reference consumes an unknown RSI entry" in failures
 
 
+def test_technical_reference_resolves_migrated_note_alias(tmp_path: Path) -> None:
+    successor = (
+        tmp_path
+        / "archive"
+        / "notes"
+        / "2026-08-15-from-civilization-memory-to-mira-core.md"
+    )
+    successor.parent.mkdir(parents=True)
+    successor.write_text("preserved note", encoding="utf-8")
+
+    resolved = subject.mira_journal_references.resolve_repo_evidence_path(
+        tmp_path,
+        "mira/notes/2026-08-15-from-civilization-memory-to-mira-core.md",
+    )
+
+    assert resolved == successor
+    assert resolved.is_file()
+
+
 def test_technical_reference_markdown_is_deterministic() -> None:
     body = prose("2026-08-09")
     value = technical_reference("2026-08-09", body)
