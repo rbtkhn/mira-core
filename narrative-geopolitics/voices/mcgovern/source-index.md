@@ -4,7 +4,7 @@ This index routes the unified local McGovern corpus for `mcgovern` to the centra
 
 Source basis: `strategy-codex/statecraft/voices/mcgovern/mcgovern-index.md` plus already-local matching archive rows.
 
-Corpus: 32 local route rows across 32 central archive source files.
+Corpus: 33 local route rows across 33 central archive source files.
 
 Status: `imported-corpus`
 
@@ -51,6 +51,7 @@ Status: `imported-corpus`
 | `2026-07-26` | Ray McGovern: Yemen Strikes on Saudi Are Rocking Across the Gulf | `guest` | `dialogue-works` | [source](../../../archive/geopolitics/sources/2026-07-26/source-ray-mcgovern-yemen-strikes-on-saudi-are-rocking-across-the-gulf-2026-07-26.md) |
 | `2026-08-02` | Ray McGovern: IRAN'S GULF SHOCKWAVE: How 'Precision' Strikes Just Collapsed the War Strategy | `guest` | `dialogue-works` | [source](../../../archive/geopolitics/sources/2026-08-02/source-ray-mcgovern-iran-s-gulf-shockwave-how-precision-strikes-just-collapsed-the-war-strategy-2026-08-02.md) |
 | `2026-08-15` | (4) Ray McGovern: Russia-Japan Tensions Grow & U.S. Involvement in Attacks on Russia | `host-pressure test` | `glenn-diesen` | [source](../../../archive/geopolitics/sources/2026-08-15/source-4-ray-mcgovern-russia-japan-tensions-grow-u-s-involvement-in-attacks-on-russia-2026-08-15.md) |
+| `2026-08-16` | (4) Ray McGovern: Israel Suffers WORST Military Defeat – New Front Opens | `guest` | `dialogue-works` | [source](../../../archive/geopolitics/sources/2026-08-16/source-4-ray-mcgovern-israel-suffers-worst-military-defeat-new-front-opens-2026-08-16.md) |
 
 ## Import Boundary
 

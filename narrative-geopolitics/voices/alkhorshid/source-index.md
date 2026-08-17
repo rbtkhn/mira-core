@@ -2,7 +2,7 @@
 
 This index routes the unified local Alkhorshid corpus to the central Narrative Geopolitics source archive.
 
-Corpus: 9 local route rows across 9 central archive source files.
+Corpus: 10 local route rows across 10 central archive source files.
 
 | Date | Source | Role | Host slug | Archive link |
 | --- | --- | --- | --- | --- |
@@ -15,3 +15,4 @@ Corpus: 9 local route rows across 9 central archive source files.
 | `2026-08-09` | (2) Nima R. Alkhorshid: The Inevitable Just Happened in the Middle East | `author` | `dialogue-works` | [source](../../../archive/geopolitics/sources/2026-08-09/source-2-nima-r-alkhorshid-the-inevitable-just-happened-in-the-middle-east-2026-08-09.md) |
 | `2026-08-10` | (2) Nima R. Alkhorshid: Iran's New Power Player: Who Is Mohsen Rezaei and What Does He Want? | `author` | `dialogue-works` | [source](../../../archive/geopolitics/sources/2026-08-10/source-2-nima-r-alkhorshid-iran-s-new-power-player-who-is-mohsen-rezaei-and-what-does-he-want-2026-08-10.md) |
 | `2026-08-14` | (3) Nima R. Alkhorshid: Yemenis Strike Saudi Aramco – Saudi Arms Shipment Destroyed in Precision Strike | `author` | `dialogue-works` | [source](../../../archive/geopolitics/sources/2026-08-14/source-3-nima-r-alkhorshid-yemenis-strike-saudi-aramco-saudi-arms-shipment-destroyed-in-precision-strike-2026-08-14.md) |
+| `2026-08-16` | (4) Nima R. Alkhorshid: Trump Discusses NUCLEAR OPTION on Iran in Secret White House Talks | `author` | `dialogue-works` | [source](../../../archive/geopolitics/sources/2026-08-16/source-4-nima-r-alkhorshid-trump-discusses-nuclear-option-on-iran-in-secret-white-house-talks-2026-08-16.md) |

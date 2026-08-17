@@ -2,7 +2,7 @@
   "manifest_id": "narrative-geopolitics-source-manifest-v1",
   "source_basis": "central archive with completed historical strategy-codex imports",
   "imported_at": "2026-07-09",
-  "source_count": 2154,
+  "source_count": 2156,
   "boundary": {
     "archive": "source truth",
     "voices": "voice continuity and routing",
@@ -58429,6 +58429,52 @@
         "explicit-date-alias"
       ],
       "import_status": "imported"
+    },
+    {
+        "date": "2026-08-16",
+        "title": "(4) Nima R. Alkhorshid: Trump Discusses NUCLEAR OPTION on Iran in Secret White House Talks",
+        "local_path": "archive/geopolitics/sources/2026-08-16/source-4-nima-r-alkhorshid-trump-discusses-nuclear-option-on-iran-in-secret-white-house-talks-2026-08-16.md",
+        "voice_index_path": "../../../archive/geopolitics/sources/2026-08-16/source-4-nima-r-alkhorshid-trump-discusses-nuclear-option-on-iran-in-secret-white-house-talks-2026-08-16.md",
+        "upstream_path": "operator-paste://2026-08-16/4-nima-r-alkhorshid-trump-discusses-nuclear-option-on-iran-in-secret-white-house-talks",
+        "source_class": "author",
+        "modality": "cleaned-transcript",
+        "voice_slugs": [
+            "alkhorshid"
+        ],
+        "host_slug": "dialogue-works",
+        "source_identity": "youtube:dFPy6YltmkU",
+        "source_url": "https://www.youtube.com/watch?v=dFPy6YltmkU",
+        "title_source": "transcript",
+        "date_basis": "transcript-self-date",
+        "inference_basis": [
+            "wrapper-normalized",
+            "explicit-host",
+            "explicit-date-alias"
+        ],
+        "import_status": "imported"
+    },
+    {
+        "date": "2026-08-16",
+        "title": "(4) Ray McGovern: Israel Suffers WORST Military Defeat – New Front Opens",
+        "local_path": "archive/geopolitics/sources/2026-08-16/source-4-ray-mcgovern-israel-suffers-worst-military-defeat-new-front-opens-2026-08-16.md",
+        "voice_index_path": "../../../archive/geopolitics/sources/2026-08-16/source-4-ray-mcgovern-israel-suffers-worst-military-defeat-new-front-opens-2026-08-16.md",
+        "upstream_path": "operator-paste://2026-08-16/4-ray-mcgovern-israel-suffers-worst-military-defeat-new-front-opens",
+        "source_class": "guest interview pressure test",
+        "modality": "cleaned-transcript",
+        "voice_slugs": [
+            "mcgovern"
+        ],
+        "host_slug": "dialogue-works",
+        "source_identity": "youtube:u5XlJvIL5Xc",
+        "source_url": "https://www.youtube.com/watch?v=u5XlJvIL5Xc",
+        "title_source": "transcript",
+        "date_basis": "transcript-self-date",
+        "inference_basis": [
+            "wrapper-normalized",
+            "explicit-host",
+            "explicit-date-alias"
+        ],
+        "import_status": "imported"
     }
   ]
 }
