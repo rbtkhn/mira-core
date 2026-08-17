@@ -6,6 +6,7 @@ from pathlib import Path
 import pytest
 
 import mira_continuity
+import rest
 import rest_receipts
 
 
@@ -32,12 +33,71 @@ def source(tmp_path: Path, messages: list[tuple[str, str]]) -> mira_continuity.S
     )
 
 
-def test_private_inbox_rejects_relative_and_repository_paths(tmp_path: Path) -> None:
+def test_private_inbox_defaults_to_portable_root_and_rejects_other_repository_paths(tmp_path: Path) -> None:
+    repo = tmp_path / "Mira Core"
+    repo.mkdir()
+    expected = repo / ".mira-private" / "sessions" / "rest"
+    assert rest_receipts.resolve_inbox(None, {}, repo_root=repo) == expected.resolve()
+    assert not expected.exists()
     with pytest.raises(rest_receipts.RestError):
-        rest_receipts.resolve_inbox("relative")
+        rest_receipts.resolve_inbox("relative", {}, repo_root=repo)
     with pytest.raises(rest_receipts.RestError):
-        rest_receipts.resolve_inbox(rest_receipts.REPO_ROOT / "tmp")
-    assert rest_receipts.resolve_inbox(tmp_path) == tmp_path.resolve()
+        rest_receipts.resolve_inbox(repo / "tmp", {}, repo_root=repo)
+
+
+def test_external_inbox_warns_and_conflicts_with_populated_canonical(tmp_path: Path) -> None:
+    repo=tmp_path/"repo"; repo.mkdir(); external=tmp_path/"external"; warnings=[]
+    assert rest_receipts.resolve_inbox(external, {}, repo_root=repo, warn=warnings.append) == external.resolve()
+    assert warnings and "deprecated" in warnings[0]
+    canonical=repo/".mira-private/sessions/rest/mira-core/session"
+    canonical.mkdir(parents=True); (canonical/"event.json").write_text("{}",encoding="utf-8")
+    with pytest.raises(rest_receipts.RestError,match="conflicts"):
+        rest_receipts.resolve_inbox(external, {}, repo_root=repo, warn=warnings.append)
+    assert rest_receipts.resolve_inbox(repo/".mira-private/sessions/rest", {}, repo_root=repo) == (repo/".mira-private/sessions/rest").resolve()
+
+
+def test_workspace_identity_is_stable_across_relocation() -> None:
+    candidates=(Path(r"C:\dev\mira-core"),Path(r"D:\USB Drive\mira-core"),Path("/home/mira/mira-core"),Path("/Volumes/Mira USB/mira-core"))
+    assert {rest_receipts.workspace_id(path) for path in candidates} == {"mira-core"}
+    inbox=Path("portable-inbox")
+    assert {rest_receipts.session_dir(inbox,SESSION,path) for path in candidates} == {inbox/"mira-core"/SESSION}
+
+
+def test_environment_override_precedes_default_and_equal_canonical_is_quiet(tmp_path: Path) -> None:
+    repo=tmp_path/"repo"; repo.mkdir(); external=tmp_path/"external"; warnings=[]
+    environment={rest_receipts.INBOX_ENV:str(external)}
+    assert rest_receipts.resolve_inbox(None,environment,repo_root=repo,warn=warnings.append) == external.resolve()
+    assert len(warnings) == 1
+    warnings.clear(); canonical=repo/".mira-private/sessions/rest"
+    assert rest_receipts.resolve_inbox(None,{rest_receipts.INBOX_ENV:str(canonical)},repo_root=repo,warn=warnings.append) == canonical.resolve()
+    assert warnings == []
+
+
+def test_write_creates_canonical_inbox_but_projection_does_not(tmp_path: Path, monkeypatch) -> None:
+    repo=tmp_path/"repo"; repo.mkdir(); inbox=rest_receipts.resolve_inbox(None,{},repo_root=repo)
+    assert rest_receipts.projection(inbox,SESSION)["event_count"] == 0
+    assert not inbox.exists()
+    monkeypatch.setattr(rest_receipts,"REPO_ROOT",repo)
+    event={"sequence":1,"event_id":"REST-test","event_type":"rested","event_sha256":"bad"}
+    rest_receipts.write_events(inbox,SESSION,[event])
+    assert next(inbox.rglob("*.json")).is_file()
+
+
+def test_cli_check_is_read_only_and_write_creates_one_chained_receipt(tmp_path: Path, monkeypatch, capsys) -> None:
+    repo=tmp_path/"repo"; repo.mkdir(); inbox=repo/".mira-private/sessions/rest"
+    current=source(tmp_path,[('2026-08-17T10:01:00Z','rest')])
+    monkeypatch.setattr(rest,"current_source",lambda:(SESSION,current))
+    monkeypatch.setattr(rest_receipts,"REPO_ROOT",repo)
+    monkeypatch.setattr(rest_receipts,"git_state",lambda:{"status":"available","head":"abc","branch":"main","dirty_count":0,"tracked_count":0,"untracked_count":0,"staged_count":0,"ahead":0,"behind":0})
+    assert rest.main(["--check","--json"]) == 0
+    assert not inbox.exists()
+    capsys.readouterr()
+    assert rest.main(["--json"]) == 0
+    files=list(inbox.rglob("*.json"))
+    assert len(files) == 1
+    event=json.loads(files[0].read_text(encoding="utf-8"))
+    assert event["previous_event_sha256"] is None
+    assert event["event_sha256"] == rest_receipts.digest({key:value for key,value in event.items() if key!="event_sha256"})
 
 
 def test_exact_rest_trigger_rejects_discussion(tmp_path: Path) -> None:

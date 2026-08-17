@@ -22,3 +22,9 @@ no authority. Kimi and DeepSeek use the same `mira-model-adapter-v1` pass criter
 The completion states are independent: root calibration, dependency closure,
 bundle verification, adapter-contract verification, and live Kimi and DeepSeek
 operational verification must never be conflated.
+
+Private Rest lifecycle receipts use `.mira-private/sessions/rest/` and the
+relocation-stable workspace identity `mira-core`. External inboxes remain
+warning compatibility overrides. Portability preparation inventories each Rest
+receipt as active private continuity state; read-only Rest checks never create
+the inbox.

@@ -11,8 +11,10 @@ terminal response.
 
 ## Close
 
-1. Resolve the private Continuity inbox from `MIRA_CORE_CONTINUITY_INBOX` or an
-   exact operator-supplied absolute path outside Git.
+1. Resolve the private Continuity inbox at the canonical portable path
+   `.mira-private/sessions/rest/`. Accept `MIRA_CORE_CONTINUITY_INBOX` or an
+   exact operator-supplied absolute path only as a warning compatibility
+   override; fail closed when it conflicts with populated canonical state.
 2. Run `tools/run.ps1 rest --check --json` and inspect bounded closure debt.
 3. Run `tools/run.ps1 rest --json` once. Resume a returned live process rather
    than launching another.

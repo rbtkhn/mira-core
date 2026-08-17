@@ -4,6 +4,7 @@ import hashlib
 import json
 import os
 import subprocess
+import sys
 import time
 from contextlib import contextmanager
 from datetime import datetime, timezone
@@ -12,10 +13,13 @@ from typing import Any, Iterator, Mapping
 from zoneinfo import ZoneInfo
 
 import mira_continuity
+from portable_paths import PortablePathError, require_private_path
 
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 INBOX_ENV = "MIRA_CORE_CONTINUITY_INBOX"
+DEFAULT_INBOX = REPO_ROOT / ".mira-private" / "sessions" / "rest"
+WORKSPACE_ID = "mira-core"
 SCHEMA_VERSION = 1
 LOCAL_TIMEZONE = "America/Denver"
 DEBT_CLASSES = {
@@ -46,17 +50,37 @@ def local_date(timestamp: str) -> str:
     return value.astimezone(ZoneInfo(LOCAL_TIMEZONE)).date().isoformat()
 
 
-def resolve_inbox(raw: str | Path | None, environment: Mapping[str, str] = os.environ) -> Path:
-    value = raw or environment.get(INBOX_ENV)
-    if not value:
-        raise RestError(f"private Rest inbox is not configured; pass --inbox or set {INBOX_ENV}")
-    candidate = Path(value).expanduser()
-    if not candidate.is_absolute():
-        raise RestError("private Rest inbox must be an absolute path")
-    resolved = candidate.resolve(strict=False)
-    repository = REPO_ROOT.resolve()
-    if resolved == repository or resolved.is_relative_to(repository):
-        raise RestError("private Rest inbox must remain outside Git")
+def _populated(path: Path) -> bool:
+    return path.is_dir() and any(path.rglob("*.json"))
+
+
+def resolve_inbox(
+    raw: str | Path | None,
+    environment: Mapping[str, str] = os.environ,
+    *,
+    repo_root: Path | None = None,
+    warn=None,
+) -> Path:
+    repository = (repo_root or REPO_ROOT).resolve()
+    canonical = repository / ".mira-private" / "sessions" / "rest"
+    configured = raw if raw is not None else environment.get(INBOX_ENV)
+    candidate = Path(configured).expanduser() if configured else canonical
+    try:
+        resolved = require_private_path(
+            candidate, label="private Rest inbox", repo_root=repository,
+            private_root=repository / ".mira-private",
+        )
+    except PortablePathError as error:
+        raise RestError(str(error)) from error
+    canonical_resolved = canonical.resolve(strict=False)
+    if configured and resolved != canonical_resolved:
+        if _populated(canonical_resolved):
+            raise RestError(
+                f"external Rest inbox conflicts with populated canonical inbox: {canonical_resolved}"
+            )
+        message=f"external Rest inbox {resolved} is deprecated; use {canonical_resolved}"
+        if warn is None: print(message, file=sys.stderr)
+        else: warn(message)
     return resolved
 
 
@@ -98,7 +122,7 @@ def exact_rest(text: str) -> bool:
 
 
 def workspace_id(repo_root: Path = REPO_ROOT) -> str:
-    return "mira-core-" + hashlib.sha256(str(repo_root.resolve()).casefold().encode()).hexdigest()[:12]
+    return WORKSPACE_ID
 
 
 def session_dir(inbox: Path, session: str, repo_root: Path = REPO_ROOT) -> Path:

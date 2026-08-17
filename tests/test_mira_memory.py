@@ -252,6 +252,8 @@ def test_rest_routes_as_mixed_and_remains_a_continuity_sub_surface(monkeypatch) 
     surface = next(row for row in continuity["sub_surfaces"] if row["id"] == "rest-inbox")
     assert surface["authority_status"] == "private-provisional"
     assert surface["canonical_identity"] is False
+    assert surface["canonical_source"] == ".mira-private/sessions/rest"
+    assert surface["availability"] == "available"
     assert payload["session_closure"]["mutation_performed"] is False
 
 

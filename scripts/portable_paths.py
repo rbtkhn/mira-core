@@ -31,12 +31,22 @@ def require_private_path(
     path = Path(raw_path).expanduser()
     if not path.is_absolute():
         raise PortablePathError(f"{label} path must be absolute")
+    lexical = path.absolute()
+    lexical_repository = repo_root.absolute()
+    lexical_designated = (private_root or (repo_root / ".mira-private")).absolute()
     resolved = path.resolve(strict=False)
     repository = repo_root.resolve(strict=False)
     designated = (private_root or (repo_root / ".mira-private")).resolve(strict=False)
     if resolved == repository:
         raise PortablePathError(f"{label} path cannot be the repository root")
-    if is_within(resolved, repository) and not is_within(resolved, designated):
+    if is_within(lexical, lexical_repository):
+        if not is_within(lexical, lexical_designated):
+            raise PortablePathError(
+                f"{label} path must be outside the repository or within {lexical_designated}"
+            )
+        if not is_within(designated, repository) or not is_within(resolved, designated):
+            raise PortablePathError(f"{label} path escapes the designated private root")
+    elif is_within(resolved, repository):
         raise PortablePathError(
             f"{label} path must be outside the repository or within {designated}"
         )

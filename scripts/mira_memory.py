@@ -151,10 +151,12 @@ def rest_surface() -> tuple[dict[str, Any], dict[str, Any]]:
     }
     try:
         inbox = rest_receipts.resolve_inbox(None)
+        surface["canonical_source"] = relative(inbox)
         session = rest_receipts.session_uuid()
         source = mira_continuity.find_session_source(session)
         closure = rest_receipts.projection(inbox, session, source)
-        surface.update({"availability": "available", "validation_state": "exact-session private receipt chain validates"})
+        state = "exact-session private receipt chain validates" if closure["event_count"] else "canonical portable inbox ready; no receipt recorded"
+        surface.update({"availability": "available", "validation_state": state})
     except (OSError, ValueError, rest_receipts.RestError) as error:
         surface["validation_state"] = str(error)
     return surface, closure

@@ -28,7 +28,7 @@ ALLOWED = {
     "exclude-secret-or-credential", "exclude-machine-cache",
 }
 DIRS = ("state", "archive/canonical", "archive/replica", "sessions/raw",
-        "sessions/attachments", "journal/drafts", "journal/revisions", "legacy",
+        "sessions/attachments", "sessions/rest", "journal/drafts", "journal/revisions", "legacy",
         "recovery", "runtime/skills", "runtime/automations", "runtime/runtimes",
         "portability")
 PLATFORMS = ("windows-x64", "linux-x64", "macos-arm64")
@@ -222,6 +222,16 @@ def repository_dispositions() -> list[dict[str, Any]]:
     return rows
 
 
+def rest_dispositions() -> list[dict[str, Any]]:
+    root=PRIVATE/"sessions/rest"
+    rows=[]
+    if not root.is_dir(): return rows
+    for path in sorted(root.rglob("*.json")):
+        relative=path.relative_to(REPO_ROOT).as_posix()
+        rows.append(disposition(relative,"include-private-active","private provisional Rest lifecycle receipt",relative,sha(path),"private-provisional"))
+    return rows
+
+
 def status() -> dict[str, Any]:
     canonical, replica, config=archive_sources()
     wt=worktrees()
@@ -237,6 +247,7 @@ def status() -> dict[str, Any]:
             "dirty_primary_root":next((not row["clean"] for row in wt if Path(row["worktree"]).resolve()==REPO_ROOT.resolve()),False),
             "unclean_linked_worktree_count":sum(not row["clean"] for row in linked),
             "dependency_gates":gates,
+            "rest_receipt_count":len(rest_dispositions()),
             "runtime_platforms": {p: runtime_pack_state(p) for p in PLATFORMS},
             "confidentiality": "none"}
 
@@ -292,6 +303,7 @@ def prepare() -> dict[str, Any]:
     if any(not row["clean"] for row in linked): raise PortabilityError("linked worktree is dirty; refusing recovery bundle")
     bundle=PRIVATE/"recovery/repository.bundle"; run("git", "bundle", "create", str(bundle), "--all")
     run("git", "bundle", "verify", str(bundle)); rows.append(disposition("git:all-local-branches-and-tags", "include-recovery", "all-ref recovery bundle", bundle.relative_to(REPO_ROOT).as_posix(), sha(bundle), "recovery-only"))
+    rows.extend(rest_dispositions())
     rows.extend(repository_dispositions())
     required_missing=[row["source"] for row in rows if row["disposition"].startswith("include-") and row["destination_or_reconstruction"] and not (REPO_ROOT/row["destination_or_reconstruction"]).exists()]
     ledger={"schema_version":1, "generated_at":utc(), "root":str(REPO_ROOT), "confidentiality":"none", "dispositions":rows,

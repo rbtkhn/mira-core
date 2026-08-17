@@ -68,3 +68,14 @@ def test_manifest_schema_and_confidentiality_are_explicit():
     schema=json.loads((Path(__file__).resolve().parents[1]/"archive/schemas/mira-model-adapter-v1.json").read_text(encoding="utf-8"))
     assert schema["$id"] == "urn:mira:model-adapter:v1"
     assert "kimi" in schema["properties"]["provider"]["enum"]
+
+
+def test_rest_receipts_are_active_private_portability_objects(tmp_path, monkeypatch):
+    root=tmp_path/"repo"; receipt=root/".mira-private/sessions/rest/mira-core/session/event.json"
+    receipt.parent.mkdir(parents=True); receipt.write_text('{"event":"rested"}',encoding="utf-8")
+    monkeypatch.setattr(portable,"REPO_ROOT",root); monkeypatch.setattr(portable,"PRIVATE",root/".mira-private")
+    rows=portable.rest_dispositions()
+    assert len(rows) == 1
+    assert rows[0]["disposition"] == "include-private-active"
+    assert rows[0]["authority_status"] == "private-provisional"
+    assert rows[0]["destination_or_reconstruction"] == ".mira-private/sessions/rest/mira-core/session/event.json"
