@@ -16,6 +16,10 @@ MANUAL_ESSAY_CHECK = (
     "Validate essay privacy, evidence boundaries, provenance, links, detached-title "
     "accuracy, and Markdown integrity through mira-essays."
 )
+MANUAL_GRACE_GEMS_CHECK = (
+    "Validate Grace Gems provenance, privacy exclusions, stewardship-versus-ownership "
+    "boundaries, CEO authority, and absence of copied upstream or private evidence."
+)
 
 
 class RoutingError(ValueError):
@@ -61,6 +65,13 @@ def _focused_skill_command(path: str, *, repo_root: Path) -> str:
 
 
 def route_path(path: str, *, repo_root: Path = REPO_ROOT) -> dict[str, Any]:
+    if path.startswith("projects/grace-gems/"):
+        return {
+            "owner": "grace-gems/stewardship",
+            "validation_class": "domain-governed",
+            "commands": [],
+            "manual_checks": [MANUAL_GRACE_GEMS_CHECK],
+        }
     if path.startswith("archive/notes/"):
         return {
             "owner": "mira-notes",

@@ -9,6 +9,7 @@ def make_tree(root: Path) -> None:
     for relative in (
         "archive/notes/2026-08-17-note.md",
         "archive/essays/2026-08-17-essay.md",
+        "projects/grace-gems/README.md",
         "docs/skill-drafts/mira-github/SKILL.md",
         "scripts/example.py",
         "tools/example.py",
@@ -29,6 +30,7 @@ def test_router_resolves_initial_artifact_classes(tmp_path: Path) -> None:
         [
             "archive/notes/2026-08-17-note.md",
             "archive/essays/2026-08-17-essay.md",
+            "projects/grace-gems/README.md",
             "docs/skill-drafts/mira-github/SKILL.md",
             "scripts/example.py",
             "tools/example.py",
@@ -41,6 +43,7 @@ def test_router_resolves_initial_artifact_classes(tmp_path: Path) -> None:
     assert report["owners"] == [
         "mira-notes",
         "mira-essays",
+        "grace-gems/stewardship",
         "skill/control",
         "repo-structural",
     ]
@@ -50,7 +53,27 @@ def test_router_resolves_initial_artifact_classes(tmp_path: Path) -> None:
         "tools/run.ps1 test --mode fast --explain-route",
         "tools/run.ps1 test --path tests/test_example.py",
     ]
-    assert len(report["manual_checks"]) == 3
+    assert len(report["manual_checks"]) == 4
+    assert report["blockers"] == []
+
+
+def test_router_resolves_grace_gems_files_to_stewardship_review(
+    tmp_path: Path,
+) -> None:
+    make_tree(tmp_path)
+    matrix = tmp_path / "projects/grace-gems/admission-matrix.md"
+    matrix.write_text("fixture\n", encoding="utf-8")
+
+    report = routing.build_report(
+        ["projects/grace-gems/README.md", "projects/grace-gems/admission-matrix.md"],
+        repo_root=tmp_path,
+    )
+
+    assert report["status"] == "manual-required"
+    assert report["owners"] == ["grace-gems/stewardship"]
+    assert report["validation_classes"] == ["domain-governed"]
+    assert report["commands"] == []
+    assert report["manual_checks"] == [routing.MANUAL_GRACE_GEMS_CHECK]
     assert report["blockers"] == []
 
 

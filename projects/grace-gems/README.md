@@ -64,7 +64,7 @@ admission, and only when its governing workflow and owner authority permit it.
 
 ## Persistence
 
-This README is the complete initial local scaffold. No upstream Grace Gems
-document bodies, client records, or private evidence are included. Any future
-addition requires a separate bounded decision; there is no automatic import,
-sync, publication, or operational lifecycle.
+This local scaffold consists of this README and `admission-matrix.md`. No
+upstream Grace Gems document bodies, client records, or private evidence are
+included. Any future addition requires a separate bounded decision; there is
+no automatic import, sync, publication, or operational lifecycle.
