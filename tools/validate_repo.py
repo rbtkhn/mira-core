@@ -193,6 +193,11 @@ def parse_args(arguments: list[str] | None = None) -> argparse.Namespace:
         type=Path,
         help=f"absolute external pytest root; defaults to {TEMP_ROOT_ENV}",
     )
+    parser.add_argument(
+        "--explain-route",
+        action="store_true",
+        help="report the fast-validation route as JSON without bootstrapping or running validation",
+    )
     return parser.parse_args(arguments)
 
 
@@ -396,6 +401,36 @@ def main(
     temp_root: Path | None = None
     try:
         args = parse_args(arguments)
+        if args.explain_route:
+            if args.mode != "fast" or args.force or args.paths or args.temp_root:
+                print(
+                    "validation argument error: --explain-route requires --mode fast "
+                    "and cannot be combined with --force, --path, or --temp-root",
+                    file=sys.stderr,
+                )
+                return 2
+            try:
+                changes = changed_paths()
+            except subprocess.CalledProcessError as error:
+                print(
+                    f"validation routing unavailable: git status exited {error.returncode}",
+                    file=sys.stderr,
+                )
+                return 1
+            route = fast_route(changes)
+            print(
+                json.dumps(
+                    {
+                        "requested_mode": "fast",
+                        "effective_mode": route.effective_mode,
+                        "changed_path_count": len(changes),
+                        "reasons": list(route.reasons),
+                        "tests": list(route.tests),
+                    },
+                    sort_keys=True,
+                )
+            )
+            return 0
         try:
             temp_root = resolve_temp_root(args.temp_root)
         except ValueError as error:

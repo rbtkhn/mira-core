@@ -109,6 +109,7 @@ def test_fixture_inventory_is_complete_and_auditable() -> None:
         "MV-ADV-17",
         "MV-ADV-18",
         "MV-ADV-19",
+        "MV-ADV-20",
     ]
     for fixture_id in expected:
         assert fixtures.count(f"### {fixture_id} ") == 1
@@ -293,3 +294,6 @@ def test_composed_governance_stays_backstage_without_hiding_boundaries() -> None
     assert "Every governing workflow retains its checks" in fixtures
     assert "The answer remains primary" in fixtures
     assert "Suppressing a consequential check" in fixtures
+    assert fixtures.count("### MV-ADV-20 ") == 1
+    assert "combine all skills\nknown at task start" in skill
+    assert "materially new authority, evidence,\nprivacy, or execution boundary" in skill

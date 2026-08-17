@@ -81,3 +81,12 @@ def test_proportional_compression_gate_preserves_capacity_and_lineage() -> None:
     assert "Do not add teaching ceremony" in skill
     assert "unexplained loss of human capacity" in skill
     assert "developmental value of doing the work" in skill
+
+
+def test_validation_route_is_previewed_before_broad_execution() -> None:
+    skill = read_skill()
+    normalized = " ".join(skill.split())
+    assert "tools/run.ps1 test --mode fast --explain-route" in skill
+    assert "If it reports Full because of unrelated state" in normalized
+    assert "use explicit focused test paths" in normalized
+    assert "preview is read-only" in normalized

@@ -20,15 +20,25 @@ earlier branch of the session. After long intake, scoring, repo hygiene,
 forecast review, menu navigation, or commit preparation, treat `push`,
 `commit`, `PR`, and similar commands as a fresh publication boundary.
 
-Run a bounded preflight:
+Run a bounded preflight. Capture porcelain status before printing it; report
+the total and top-level groups first. Print complete paths only when the count
+is at most 200 or an exact repair requires them:
 
 ```powershell
 git rev-parse --show-toplevel
-git status -sb
 git branch --show-current
 git remote -v
 git log --oneline --left-right --decorate origin/main...HEAD -20
+$status = @(git status --porcelain=v1 --untracked-files=all)
+$status.Count
+$status | ForEach-Object {
+    $path = $_.Substring(3)
+    ($path -split '[/\\]')[0]
+} | Group-Object | Sort-Object Count -Descending | Select-Object Name, Count
 ```
+
+Use `git status -sb` only after the bounded inventory proves the output is at
+most 200 entries, or restrict it to the exact named paths under review.
 
 If the target remote or base branch is not `origin/main`, substitute the
 declared target and state that substitution explicitly.
@@ -95,6 +105,25 @@ In a dirty tree, classify candidate paths before staging:
 If dirty-tree scope cannot be recovered safely, stop with a bounded commit plan
 instead of staging.
 
+### Dry-check broad staging
+
+Before `git add -A` or any repository-wide staging command:
+
+1. Capture `git status --porcelain=v1 --untracked-files=all` without printing
+   the full list.
+2. Inspect `.gitignore` and the collection registry for hydrated corpus roots,
+   continuity captures, generated mirrors, or other protected bodies.
+3. Classify every untracked top-level group as intended publication,
+   operator work, generated drift, or protected corpus material.
+4. Fail closed if a protected root has become unexpectedly unignored, or if
+   any untracked path remains unclassified.
+5. Prefer `git add -u` for tracked-only repairs and exact path staging for a
+   bounded publication candidate.
+
+The dry check is read-only. Do not use `git add --dry-run` as the sole corpus
+boundary: a missing ignore rule can make thousands of hydrated bodies appear
+eligible while still producing technically valid Git output.
+
 ## Stage and commit narrowly
 
 For `commit-only` or pre-publication work:
@@ -102,7 +131,8 @@ For `commit-only` or pre-publication work:
 1. State the exact candidate paths and excluded known-dirty paths.
 2. Prefer exact paths or controlled patch staging.
 3. Avoid `git add -A` unless the operator explicitly requested whole-tree
-   staging.
+   staging and the broad-staging dry check passed. When unrelated untracked
+   work exists, use exact paths or `git add -u` and name the exclusion.
 4. Verify:
 
 ```powershell
@@ -258,3 +288,10 @@ End by stating which boundary was reached:
 Name the validation class used and any unavailable evidence. State explicitly
 that the result grants no further commit, push, PR, deployment, or hosted-state
 authority.
+
+## Validation fixtures
+
+When auditing or revising this skill, read
+[`references/validation-fixtures.md`](references/validation-fixtures.md).
+Use its normal, edge, failure, and ambiguous cases to verify bounded status,
+dirty-tree isolation, publication preconditions, and lock handling.

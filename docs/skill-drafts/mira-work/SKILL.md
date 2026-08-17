@@ -85,6 +85,11 @@ Method allowed to end:
   command, the narrowest sufficient check, and why any broader verification is
   necessary. Do not run repository-wide, archive-wide, or cross-lane
   verification for a bounded objective merely because a plan says `full`.
+- Before requesting Fast repository validation, run
+  `tools/run.ps1 test --mode fast --explain-route`. If it reports Full because
+  of unrelated state, use explicit focused test paths for the bounded change
+  and report the unrelated structural drift separately. The preview is
+  read-only and does not replace eventual release validation.
 - Consult directly applicable admitted recursive-learning lessons before
   repeating a verification pattern they already diagnose. Treat failure to
   consume an applicable lesson as a regression signal, not as new learning.

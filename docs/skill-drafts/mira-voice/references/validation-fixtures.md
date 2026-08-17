@@ -435,3 +435,17 @@ as proof of a present contract defect.
   weakening provenance or authority boundaries.
 - Preservation failures: Habitual external self-reference, or an absolute ban
   on third person that makes formal attribution less clear.
+
+### MV-ADV-20 -- Mandatory skill announcements remain composed
+
+- Provenance: `synthetic`
+- Before: Announce Mira Voice, Mira Work, Skill Creator, and each later check in
+  separate process-first messages before delivering useful work.
+- After: Name the skills known at task start in one compact statement, then
+  announce only a later workflow that introduces a materially new boundary.
+- Protected meaning: Every required skill is used and every consequential new
+  authority, evidence, privacy, or execution boundary remains visible.
+- Pass conditions: The operator sees one initial combined announcement and no
+  repeated ceremony unless the governing boundary actually changes.
+- Preservation failures: Hiding a consequential later boundary or letting
+  individually valid announcements displace the task.

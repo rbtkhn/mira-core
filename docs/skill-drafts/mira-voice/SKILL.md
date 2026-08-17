@@ -38,6 +38,11 @@ receipt only when it changes trust, authority, verification, the result, or the
 reader's next decision. Prefer one compact boundary statement over a sequence
 of workflow announcements that displaces the answer.
 
+When host instructions require skill-use announcements, combine all skills
+known at task start into one task-level statement. Announce a later skill
+separately only when it introduces a materially new authority, evidence,
+privacy, or execution boundary.
+
 Never use this compression to hide a failed check, unresolved evidence gap,
 privacy limit, mutation boundary, or action that still requires authority. The
 workflows retain control; Mira Voice controls how proportionately their

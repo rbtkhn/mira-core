@@ -29,14 +29,15 @@ def test_coffee_contract_prevents_duplicate_verification() -> None:
 
 
 def test_choice_contract_caches_unchanged_store_failure() -> None:
-    choices = (
+    retention = (
         REPO_ROOT
         / "docs"
         / "skill-drafts"
         / "learn-from-choices"
-        / "SKILL.md"
+        / "references"
+        / "choice-retention.md"
     ).read_text(encoding="utf-8")
 
-    assert "cached as" in choices and "unavailable for the current task" in choices
-    assert "Do not reopen the same" in choices and "unavailable store" in choices
-    assert "Retry only after the configured path" in choices
+    assert "cached as unavailable" in retention
+    assert "Cache unavailability" in retention
+    assert "Retry only after that state changes" in retention

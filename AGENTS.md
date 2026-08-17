@@ -269,100 +269,19 @@ bounded advisory continuity only: it is not research evidence, operator belief,
 or action authority, and explicit current operator direction always controls.
 
 For every final user-facing response, read and follow
-`docs/skill-drafts/learn-from-choices/SKILL.md`. Do not apply its footer to
-intermediate progress commentary. Before constructing a footer, determine
-whether the selected branch is settled: its complete visible promise was
-delivered and no new decision, evidence gap, scope change, or executable action
-remains. Close a settled branch honestly, then classify the wider conversation
-separately. When at least two credible directions begin genuinely different
-objectives, evidence searches, or commitments, offer them under `New paths`;
-selecting one creates a new choice identity and never reopens the closed branch.
-Suppress that footer after an explicit stop, when saturation applies to the
-wider conversation, when no credible paths exist, or when the options would be
-manufactured busywork. Otherwise, end an open branch with three or four concise,
-meaningfully distinct next possibilities using the stable roles `recommended`,
-`alternative`, `overlooked`, and `pause-or-deepen`; omit a fourth option when
-it would create fake diversity. Explain the recommendation in one
-evidence-grounded sentence and preserve a credible overlooked path when one
-exists. A bare letter enters and develops that branch; it never silently
-authorizes mutation, execution, spending, publication, communication,
-customer action, commit, push, or deployment. A later explicit command
-supersedes the pending menu.
+`docs/skill-drafts/learn-from-choices/SKILL.md`. Keep its core authority rules
+controlling: classify closure before navigation; do not manufacture options;
+treat every option's action readiness independently and allow mixed executable
+and navigational surfaces; never replace a ready action with a request to
+settle, confirm, adopt, or approve its already-bounded scope; require an
+`all_navigation_reason` and concrete `blocked_action` for all-navigation;
+treat a bare letter as navigation unless a machine-validated visible option
+begins with `Execute`, `Commit`, `Push`, or `Send`; require direct commands for
+staging, publication, and deployment; and keep save, repository admission,
+commit, push, and publication distinct.
 
-Before declaring closure, run a closure-debt audit. Closure debt is an
-obligation introduced by the current response or its visible promise that
-still requires saving, material evidence, operator judgment, authority, or
-execution. An unsaved substantial document, a material evidence gap, an
-unresolved result-changing choice, a bounded recommended action awaiting only
-authority, or unfinished promised verification keeps the branch open. Merely
-imaginable adjacent work is not closure debt: a complete factual answer may
-close despite optional deeper analysis, and a completed verified commit may
-close when push or publication was not requested.
-
-Menu usability: every action-bearing possibility must state the complete
-bounded action and target in its visible label. When the operator selects
-that possibility by letter, carry the selected action and scope forward;
-never make the operator retype the command merely to restate the choice.
-If a consequential authorization boundary still applies, ask only for the
-minimal confirmation at the exact action point, preserving the selected
-scope.
-
-Action-ready menu grammar: when a possibility is intended to authorize a
-bounded action, its visible label must begin with the governing executable
-verb (`Execute`, `Commit`, `Push`, or `Send`), followed immediately by the
-action and target. Do not hide an executable action behind a role label such
-as `Recommended`; stable possibility roles belong after the executable verb.
-
-Before presenting any possibility footer, classify action readiness for each
-option independently. A decision surface may mix executable and navigational
-options. Every possibility menu must contain at least one actionable option
-whenever a safe bounded action can be made ready from current evidence. Perform
-the reversible read-only scoping needed to make that option exact; do not make
-the operator repeat scope the system can recover. When an exact bounded action,
-target, and verification step are ready,
-no material choice remains unresolved, and authority is the only blocker, the
-surface must declare that option ready, give it the matching executable
-`selection_effect`, and pass `elicitation validate`. Do not replace a ready
-action with a navigational request to settle, confirm, adopt, or approve an
-already-bounded scope. An all-navigation surface is exceptional and must
-declare both the bounded reason no action is ready and a concrete blocked-action
-audit naming the action considered, its blocker, and what would make it ready.
-A completed action closes the branch rather than justifying a new
-navigation-only menu. Do not present consecutive navigation-only menus for the
-same objective: the next response must deliver the developed result and either
-offer an actionable option, close, or ask the single blocking factual question.
-
-Selection closure and idempotence: after a branch is confirmed, paused, or
-otherwise settled, a repeated selection of the same stable option is a no-op.
-Acknowledge the settled state once and close the branch; do not regenerate the
-same possibility menu. Only present a new menu when a genuinely new decision,
-scope, evidence gap, or action is available.
-
-## Permanent Document Delivery
-
-Whenever Codex produces a substantial document such as an essay, report,
-brief, journal draft, source note, or formal evaluation, state explicitly
-whether it was saved permanently. If it was not saved, include a genuine
-possibility-menu option to save it, with a proposed permanent path and the
-applicable privacy, repository, or publication status. When the path and action
-are fully bounded, make that option action-ready under the existing
-`learn-from-choices` and Elicitation contracts rather than hiding it in prose.
-
-After saving, report a clickable path, status, and verification result. Keep
-private storage, repository admission, staging, commit, push, and external
-publication as distinct authority boundaries. Do not describe a working-tree
-file as publicly available until the required commit, push, and hosting state
-actually exist.
-
-Saturation is closure, not another menu. After two consecutive navigation-only
-selections deepen the same objective, default to closing unless the latest turn
-adds new evidence, resolves a material contradiction, or exposes a genuinely
-new decision or action. Do not offer options that merely analyze, rewrite,
-compare, or audit the answer just produced. Saturation of one objective does not
-forbid independently eligible new paths, but saturation of the wider
-conversation does. When a selected branch settles and
-the private choice store is available, append a quiet `branch_closed` event
-with reason `completed`, `paused`, or `saturated`; closure records lifecycle
-only and must not infer an outcome. Surface only retention failure, an invalid
-lifecycle transition, or a material authority, privacy, safety, or lane
-incident.
+Load the skill's choice-retention reference only after an offered branch is
+selected or closed. Load its outcome-review reference only when recording an
+outcome, using retained outcomes, or running five-to-ten review. A completed
+action closes its branch, repeated settled selections are no-ops, and
+substantial artifacts must report their exact persistence status.

@@ -555,13 +555,17 @@ def test_host_and_choice_contract_require_option_level_readiness() -> None:
         REPO_ROOT / "docs" / "skill-drafts" / "learn-from-choices" / "SKILL.md"
     ).read_text(encoding="utf-8")
     for contract in (agents, choices):
-        assert "classify action readiness" in contract.casefold() or (
-            "classify every" in contract.casefold()
+        normalized = " ".join(contract.split()).casefold()
+        assert "independently" in normalized
+        assert (
+            "mixed executable and navigational" in normalized
+            or "mix executable and navigational" in normalized
         )
+        assert "settle, confirm" in normalized
+        assert "all-navigation" in normalized
+        assert "blocked_action" in contract
+        assert "all_navigation_reason" in contract
         assert "independently" in contract
-        assert "all-navigation" in contract
-        assert "settle, confirm" in contract
-    assert "A decision surface may mix executable and navigational" in agents
     assert "validated mixed `decision-navigation`" in choices
 
 
