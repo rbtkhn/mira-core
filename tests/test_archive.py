@@ -63,18 +63,15 @@ def test_private_config_fallback_precedence(
     monkeypatch.setattr(system_archive, "REPO_ROOT", repo)
     monkeypatch.setattr(system_archive, "DEFAULT_CONFIG_PATH", current)
     monkeypatch.setattr(system_archive, "FORMER_CONFIG_PATH", former)
-    monkeypatch.setattr(system_archive, "LEGACY_CONFIG_PATH", legacy)
     for name in (
         system_archive.CONFIG_PATH_ENV,
         "MIRA_CORE_SYSTEM_ARCHIVE_CONFIG",
-        "NARRATIVE_SYSTEM_ARCHIVE_CONFIG",
     ):
         monkeypatch.delenv(name, raising=False)
     assert system_archive.storage_config()[1] == former.resolve()
     assert str(former) in capsys.readouterr().err
     former.unlink()
-    assert system_archive.storage_config()[1] == legacy.resolve()
-    assert str(legacy) in capsys.readouterr().err
+    assert system_archive.storage_config()[1] == system_archive.DEFAULT_CONFIG_PATH
 
 
 def test_environment_roots_must_remain_distinct(

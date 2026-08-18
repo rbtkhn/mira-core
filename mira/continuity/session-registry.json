@@ -3,7 +3,7 @@
   "registry_id": "mira-session-registry-v1",
   "status": "canonical",
   "scope": {
-    "repository": "narrative-systems",
+    "repository": "mira-core",
     "cwd": "$REPO_ROOT",
     "predecessors_included": false,
     "worktrees_included": false

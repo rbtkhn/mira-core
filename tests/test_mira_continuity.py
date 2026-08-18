@@ -13,20 +13,35 @@ from scripts import mira_continuity
 SESSION_UUID = "019fce7b-67cd-7753-be6c-74f76e2f9b7a"
 
 
-def test_repository_label_writer_and_compatibility_reader(tmp_path: Path) -> None:
+def test_repository_label_writer_and_reader(tmp_path: Path) -> None:
     assert mira_continuity.empty_registry()["scope"]["repository"] == "mira-core"
-    for label in ("mira-core", "narrative-systems"):
-        registry = mira_continuity.empty_registry()
-        registry["scope"]["repository"] = label
-        path = tmp_path / f"{label}.json"
-        path.write_text(json.dumps(registry), encoding="utf-8")
-        assert mira_continuity.load_registry(path)["scope"]["repository"] == label
+    registry = mira_continuity.empty_registry()
+    current = tmp_path / "mira-core.json"
+    current.write_text(json.dumps(registry), encoding="utf-8")
+    assert mira_continuity.load_registry(current)["scope"]["repository"] == "mira-core"
+
+    registry["scope"]["repository"] = "narrative-systems"
+    legacy = tmp_path / "narrative-systems.json"
+    legacy.write_text(json.dumps(registry), encoding="utf-8")
+    with pytest.raises(mira_continuity.ContinuityError, match="unsupported repository label"):
+        mira_continuity.load_registry(legacy)
 
     registry["scope"]["repository"] = "other-repository"
     invalid = tmp_path / "invalid.json"
     invalid.write_text(json.dumps(registry), encoding="utf-8")
     with pytest.raises(mira_continuity.ContinuityError, match="unsupported repository label"):
         mira_continuity.load_registry(invalid)
+
+
+def test_sanitize_text_separates_current_and_legacy_repository_roots() -> None:
+    text = (
+        r"C:\dev\mira-core\mira\continuity and "
+        r"C:\dev\narrative-systems\mira\continuity"
+    )
+    assert mira_continuity.sanitize_text(text) == (
+        r"$REPO_ROOT\mira\continuity and "
+        r"$LEGACY_REPOSITORY_ROOT\mira\continuity"
+    )
 
 
 def write_session(path: Path, cwd: Path, *, resumed: bool = False) -> None:

@@ -28,19 +28,19 @@ with the core, separate release or deployment needs, distinct governance or
 access boundaries, and enough internal coherence to operate independently.
 Until then, those names describe regions of `mira-core`, not promised splits.
 
-## Compatibility cycle
+## Deprecated compatibility cycle
 
-Current documentation and generators use `MIRA_CORE_*` environment variables.
-During this compatibility cycle, each former `NARRATIVE_*` variable remains an
-accepted alias. A legacy-only value emits a deprecation warning once per
-variable and process. Equal canonical and legacy values are accepted;
-conflicting values fail closed. Empty values are treated as unset. Removing the
-aliases requires a separately authorized migration.
+Current documentation, generators, launchers, and runtime resolvers use
+`MIRA_CORE_*` environment variables only. Former `NARRATIVE_*` variables are no
+longer accepted as operational aliases. Private environment scrubbers may still
+remove those old names from subprocess environments so stale developer shells do
+not leak local paths, but the values no longer configure Mira Core.
 
 Existing `urn:narrative-systems:*:v1` schema IDs, durable ledger IDs, provenance
 IDs, journal and note prose, audits, and immutable session records do not change.
 New schema versions use the `urn:mira-core:*` namespace.
 
-Readers accept historical and current repository labels during this cycle.
-Writers emit `mira-core` in newly generated mutable metadata. The resulting
-mixture is intentional historical stratigraphy, not incomplete normalization.
+Readers and writers accept `mira-core` as the only active repository label in
+mutable control-plane metadata. The earlier name may still appear as historical
+stratigraphy, immutable provenance, or explicit migration history; it must not
+be used as a current repository identity.

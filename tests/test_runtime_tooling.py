@@ -12,13 +12,12 @@ from types import SimpleNamespace
 
 import pytest
 
-import runtime_names
-
-
 REPO_ROOT = Path(__file__).resolve().parent.parent
 SCRIPTS_ROOT = REPO_ROOT / "scripts"
 if str(SCRIPTS_ROOT) not in sys.path:
     sys.path.insert(0, str(SCRIPTS_ROOT))
+
+import runtime_names
 
 
 def load_module(name: str, path: Path):
@@ -98,9 +97,9 @@ EXPECTED_SURFACES = {
 
 @pytest.mark.parametrize(
     "canonical,aliases",
-    runtime_names.ENVIRONMENT_ALIAS_CHAINS.items(),
+    runtime_names.DEPRECATED_ENVIRONMENT_ALIAS_CHAINS.items(),
 )
-def test_environment_alias_chain_compatibility(
+def test_environment_alias_chain_is_no_longer_runtime_compatibility(
     canonical: str, aliases: tuple[str, ...]
 ) -> None:
     former, legacy = aliases
@@ -109,15 +108,11 @@ def test_environment_alias_chain_compatibility(
     assert runtime_names.resolve_environment(
         canonical, {canonical: "current"}, warn=warnings.append
     ) == "current"
-    assert runtime_names.resolve_environment(
-        canonical, {former: "former"}, warn=warnings.append
-    ) == "former"
-    assert runtime_names.resolve_environment(
-        canonical, {legacy: "legacy"}, warn=warnings.append
-    ) == "legacy"
+    assert runtime_names.resolve_environment(canonical, {former: "former"}, warn=warnings.append) is None
+    assert runtime_names.resolve_environment(canonical, {legacy: "legacy"}, warn=warnings.append) is None
     assert warnings == [
-        f"{former} is deprecated; use {canonical}",
-        f"{legacy} is deprecated; use {canonical}",
+        f"{former} is no longer supported; use {canonical}",
+        f"{legacy} is no longer supported; use {canonical}",
     ]
 
     warnings.clear()
@@ -126,23 +121,11 @@ def test_environment_alias_chain_compatibility(
     assert runtime_names.resolve_environment(
         canonical, equal, warn=warnings.append
     ) == "same"
-    assert warnings == [
-        f"{former} is deprecated; use {canonical}",
-        f"{legacy} is deprecated; use {canonical}",
-    ]
+    assert warnings == []
     assert runtime_names.resolve_environment(
         canonical, equal, warn=warnings.append
     ) == "same"
-    assert len(warnings) == 2
-
-    for environment in (
-        {canonical: "one", former: "two"},
-        {canonical: "one", legacy: "two"},
-        {former: "one", legacy: "two"},
-        {canonical: "one", former: "two", legacy: "three"},
-    ):
-        with pytest.raises(runtime_names.EnvironmentNameConflict):
-            runtime_names.resolve_environment(canonical, environment)
+    assert warnings == []
 
     environment = {canonical: "", former: "", legacy: ""}
     assert runtime_names.resolve_environment(canonical, environment) is None
@@ -200,8 +183,8 @@ def test_environment_key_is_deterministic_and_uses_base_interpreter() -> None:
     )
 
 
-@pytest.mark.parametrize("canonical,legacy", runtime_names.ENVIRONMENT_ALIASES.items())
-def test_environment_name_compatibility(canonical: str, legacy: str) -> None:
+@pytest.mark.parametrize("canonical,legacy", runtime_names.DEPRECATED_ENVIRONMENT_ALIASES.items())
+def test_environment_name_alias_is_no_longer_runtime_compatibility(canonical: str, legacy: str) -> None:
     warnings: list[str] = []
     runtime_names._WARNED_LEGACY_NAMES.clear()
     assert runtime_names.resolve_environment(canonical, {canonical: "new"}, warn=warnings.append) == "new"
@@ -209,23 +192,22 @@ def test_environment_name_compatibility(canonical: str, legacy: str) -> None:
     assert runtime_names.resolve_environment(
         canonical, {canonical: "new", legacy: ""}, warn=warnings.append
     ) == "new"
-    assert runtime_names.resolve_environment(canonical, {legacy: "old"}, warn=warnings.append) == "old"
-    assert runtime_names.resolve_environment(canonical, {legacy: "old"}, warn=warnings.append) == "old"
-    assert warnings == [f"{legacy} is deprecated; use {canonical}"]
+    assert runtime_names.resolve_environment(canonical, {legacy: "old"}, warn=warnings.append) is None
+    assert runtime_names.resolve_environment(canonical, {legacy: "old"}, warn=warnings.append) is None
+    assert warnings == [f"{legacy} is no longer supported; use {canonical}"]
     warnings.clear()
     assert runtime_names.resolve_environment(
         canonical, {canonical: "same", legacy: "same"}, warn=warnings.append
     ) == "same"
     assert warnings == []
-    with pytest.raises(runtime_names.EnvironmentNameConflict, match=f"{canonical} and {legacy}"):
-        runtime_names.resolve_environment(
-            canonical, {canonical: "new", legacy: "old"}, warn=warnings.append
-        )
+    assert runtime_names.resolve_environment(
+        canonical, {canonical: "new", legacy: "old"}, warn=warnings.append
+    ) == "new"
 
 
 @pytest.mark.skipif(sys.platform != "win32", reason="PowerShell compatibility is Windows-specific")
-@pytest.mark.parametrize("canonical,legacy", runtime_names.ENVIRONMENT_ALIASES.items())
-def test_powershell_environment_name_compatibility(
+@pytest.mark.parametrize("canonical,legacy", runtime_names.DEPRECATED_ENVIRONMENT_ALIASES.items())
+def test_powershell_environment_name_alias_is_no_longer_runtime_compatibility(
     canonical: str, legacy: str
 ) -> None:
     powershell = Path(
@@ -252,14 +234,13 @@ $equal = Resolve-MiraCoreEnvironment -Canonical '{canonical}' -Legacy '{legacy}'
 $empty = Resolve-MiraCoreEnvironment -Canonical '{canonical}' -Legacy '{legacy}'
 [Environment]::SetEnvironmentVariable('{canonical}', 'new', 'Process')
 [Environment]::SetEnvironmentVariable('{legacy}', 'old', 'Process')
-$conflict = try {{
+$canonicalWins = try {{
     Resolve-MiraCoreEnvironment -Canonical '{canonical}' -Legacy '{legacy}'
-    ''
 }} catch {{ $_.Exception.Message }}
 [ordered]@{{
     none = $none; current = $current; oldFirst = $oldFirst; oldSecond = $oldSecond
     equal = $equal; empty = $empty; warningCount = $script:warningCount
-    conflict = $conflict
+    canonicalWins = $canonicalWins
 }} | ConvertTo-Json -Compress
 """
     result = subprocess.run(
@@ -273,12 +254,12 @@ $conflict = try {{
     assert observed == {
         "none": None,
         "current": "new",
-        "oldFirst": "old",
-        "oldSecond": "old",
+        "oldFirst": None,
+        "oldSecond": None,
         "equal": "same",
         "empty": None,
-        "warningCount": 1,
-        "conflict": f"Conflicting environment variables: {canonical} and {legacy}",
+        "warningCount": 0,
+        "canonicalWins": "new",
     }
 
 
@@ -286,7 +267,7 @@ def test_rejects_repo_local_cache(tmp_path: Path) -> None:
     with pytest.raises(bootstrap.BootstrapUnavailable, match="outside the repository"):
         bootstrap.cache_root(
             tmp_path,
-            {"NARRATIVE_VALIDATION_CACHE": str(tmp_path / ".cache")},
+            {"MIRA_CORE_VALIDATION_CACHE": str(tmp_path / ".cache")},
         )
 
 
@@ -332,7 +313,7 @@ def test_bootstrap_recovers_partial_environment_and_reuses_completed_cache(
     partial.mkdir(parents=True)
     (partial / "broken").write_text("partial", encoding="utf-8")
     calls: list[list[str]] = []
-    environment = {"NARRATIVE_VALIDATION_CACHE": str(cache)}
+    environment = {"MIRA_CORE_VALIDATION_CACHE": str(cache)}
 
     first = bootstrap.resolve_validation_python(repo, environment, run=fake_bootstrap_run(calls))
     assert first.is_file()
@@ -353,7 +334,7 @@ def test_failed_install_removes_temporary_environment(tmp_path: Path, monkeypatc
     with pytest.raises(bootstrap.BootstrapUnavailable, match="bootstrap failed"):
         bootstrap.resolve_validation_python(
             repo,
-            {"NARRATIVE_VALIDATION_CACHE": str(cache)},
+            {"MIRA_CORE_VALIDATION_CACHE": str(cache)},
             run=fake_bootstrap_run([], fail_install=True),
         )
     assert not list(cache.glob("*.tmp-*"))
@@ -396,7 +377,7 @@ def test_concurrent_first_creation_installs_once(tmp_path: Path, monkeypatch) ->
             results.append(
                 bootstrap.resolve_validation_python(
                     repo,
-                    {"NARRATIVE_VALIDATION_CACHE": str(cache)},
+                    {"MIRA_CORE_VALIDATION_CACHE": str(cache)},
                     run=slow_run,
                 )
             )

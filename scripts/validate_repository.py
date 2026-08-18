@@ -81,7 +81,6 @@ LEGACY_REPOSITORY_NAME_ALLOWLIST = frozenset({
     "docs/mira-core-name-migration.md",
     "docs/plans/2026-08-16-mira-archive-name-migration.md",
     "mira/constitution.schema.json",
-    "mira/continuity/session-registry.json",
     "mira/face/landing-page/encounter.schema.json",
     "archive/notes/2026-08-15-from-civilization-memory-to-mira-core.md",
     "archive/notes/2026-08-16-recent-architectural-changes.md",

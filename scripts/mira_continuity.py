@@ -18,7 +18,6 @@ from typing import Any, Iterable
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 CURRENT_REPOSITORY_LABEL = "mira-core"
-COMPATIBLE_REPOSITORY_LABELS = frozenset({CURRENT_REPOSITORY_LABEL, "narrative-systems"})
 MIRA_ROOT = REPO_ROOT / "mira"
 CONTINUITY_ROOT = MIRA_ROOT / "continuity"
 CAPTURES_ROOT = CONTINUITY_ROOT / "captures"
@@ -307,8 +306,13 @@ def sanitize_text(value: str) -> str:
     text = PHONE_RE.sub("[REDACTED_PHONE]", text)
     text = USER_HOME_RE.sub("$USER_HOME", text)
     text = re.sub(
-        r"(?i)[A-Za-z]:[\\/]dev[\\/](?:mira-core|narrative-systems)(?=$|[\\/\s\"'])",
+        r"(?i)[A-Za-z]:[\\/]dev[\\/]mira-core(?=$|[\\/\s\"'])",
         "$REPO_ROOT",
+        text,
+    )
+    text = re.sub(
+        r"(?i)[A-Za-z]:[\\/]dev[\\/]narrative-systems(?=$|[\\/\s\"'])",
+        "$LEGACY_REPOSITORY_ROOT",
         text,
     )
     return text
@@ -532,7 +536,7 @@ def load_registry(path: Path = REGISTRY_PATH) -> dict[str, Any]:
     registry = load_json(path, empty_registry())
     scope = registry.get("scope")
     repository = scope.get("repository") if isinstance(scope, dict) else None
-    if repository not in COMPATIBLE_REPOSITORY_LABELS:
+    if repository != CURRENT_REPOSITORY_LABEL:
         raise ContinuityError(f"unsupported repository label: {repository}")
     return registry
 

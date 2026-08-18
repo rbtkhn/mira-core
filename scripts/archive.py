@@ -30,7 +30,6 @@ CONFIG_PATH_ENV = "MIRA_CORE_ARCHIVE_CONFIG"
 DEFAULT_CONFIG_PATH = PRIVATE_ROOT / "archive" / "config.json"
 EXTERNAL_CONFIG_PATH = Path(r"C:\private\mira-core-archive-config.json")
 FORMER_CONFIG_PATH = Path(r"C:\private\mira-core-system-archive-config.json")
-LEGACY_CONFIG_PATH = Path(r"C:\private\narrative-system-archive-config.json")
 COMPILER_VERSION = "system-archive-context-compiler-v1"
 REPLAY_VERSION = "system-archive-replay-plan-v1"
 TOKEN_RE = re.compile(r"[\w'-]+",re.UNICODE)
@@ -57,7 +56,7 @@ def storage_config() -> tuple[dict[str,Any] | None,Path]:
     configured=resolve_environment(CONFIG_PATH_ENV)
     path=Path(configured).expanduser() if configured else DEFAULT_CONFIG_PATH
     if not configured and not path.is_file():
-        for fallback in (EXTERNAL_CONFIG_PATH, FORMER_CONFIG_PATH, LEGACY_CONFIG_PATH):
+        for fallback in (EXTERNAL_CONFIG_PATH, FORMER_CONFIG_PATH):
             if fallback.is_file():
                 print(f"{fallback} is deprecated; use {DEFAULT_CONFIG_PATH}",file=sys.stderr)
                 path=fallback

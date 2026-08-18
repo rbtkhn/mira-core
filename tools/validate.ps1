@@ -10,8 +10,7 @@ $repoRoot = Split-Path -Parent $PSScriptRoot
 $runtimeEnvironment = Join-Path $PSScriptRoot 'runtime-env.ps1'
 . $runtimeEnvironment
 if (-not $TempRoot) {
-    $TempRoot = Resolve-MiraCoreEnvironment `
-        -Canonical 'MIRA_CORE_SESSION_TEMP_ROOT' -Legacy 'NARRATIVE_SESSION_TEMP_ROOT'
+    $TempRoot = Resolve-MiraCoreEnvironment -Canonical 'MIRA_CORE_SESSION_TEMP_ROOT'
 }
 $validator = Join-Path $repoRoot 'tools\validate_repo.py'
 $validatorArguments = @('--mode', $Mode.ToLowerInvariant())
@@ -27,8 +26,7 @@ $pyLauncher = @(
         -ErrorAction SilentlyContinue
 )[0]
 
-$pythonOverride = Resolve-MiraCoreEnvironment `
-    -Canonical 'MIRA_CORE_PYTHON' -Legacy 'NARRATIVE_PYTHON'
+$pythonOverride = Resolve-MiraCoreEnvironment -Canonical 'MIRA_CORE_PYTHON'
 if ($pythonOverride) {
     & $pythonOverride $validator @validatorArguments
 } elseif ($pyLauncher) {

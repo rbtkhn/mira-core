@@ -10,19 +10,11 @@ $bootstrap = Join-Path $repoRoot 'scripts\runtime_bootstrap.py'
 $runtimeEnvironment = Join-Path $PSScriptRoot 'runtime-env.ps1'
 . $runtimeEnvironment
 $argumentsEnvironment = 'MIRA_CORE_RUN_ARGUMENTS_JSON'
-$legacyArgumentsEnvironment = 'NARRATIVE_RUN_ARGUMENTS_JSON'
 $hadPreviousArguments = Test-Path "Env:$argumentsEnvironment"
-$hadPreviousLegacyArguments = Test-Path "Env:$legacyArgumentsEnvironment"
 $previousArguments = [Environment]::GetEnvironmentVariable(
     $argumentsEnvironment,
     [EnvironmentVariableTarget]::Process
 )
-$previousLegacyArguments = [Environment]::GetEnvironmentVariable(
-    $legacyArgumentsEnvironment,
-    [EnvironmentVariableTarget]::Process
-)
-$null = Resolve-MiraCoreEnvironment `
-    -Canonical $argumentsEnvironment -Legacy $legacyArgumentsEnvironment
 $serializedArguments = ConvertTo-Json -Compress -InputObject @($RunArguments)
 $pyLauncher = @(
     Get-Command py.exe `
@@ -34,15 +26,9 @@ $pyLauncher = @(
     $serializedArguments,
     [EnvironmentVariableTarget]::Process
 )
-[Environment]::SetEnvironmentVariable(
-    $legacyArgumentsEnvironment,
-    $null,
-    [EnvironmentVariableTarget]::Process
-)
 
 try {
-    $pythonOverride = Resolve-MiraCoreEnvironment `
-        -Canonical 'MIRA_CORE_PYTHON' -Legacy 'NARRATIVE_PYTHON'
+    $pythonOverride = Resolve-MiraCoreEnvironment -Canonical 'MIRA_CORE_PYTHON'
     if ($pythonOverride) {
         $python = & $pythonOverride $bootstrap --print-python
     } elseif ($pyLauncher) {
@@ -73,19 +59,6 @@ try {
     } else {
         [Environment]::SetEnvironmentVariable(
             $argumentsEnvironment,
-            $null,
-            [EnvironmentVariableTarget]::Process
-        )
-    }
-    if ($hadPreviousLegacyArguments) {
-        [Environment]::SetEnvironmentVariable(
-            $legacyArgumentsEnvironment,
-            $previousLegacyArguments,
-            [EnvironmentVariableTarget]::Process
-        )
-    } else {
-        [Environment]::SetEnvironmentVariable(
-            $legacyArgumentsEnvironment,
             $null,
             [EnvironmentVariableTarget]::Process
         )

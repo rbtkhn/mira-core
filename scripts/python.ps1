@@ -17,8 +17,7 @@ $pyLauncher = @(
     'DEPRECATED: scripts/python.ps1 is a compatibility shim; use tools/run.ps1 or tools/validate.ps1.'
 )
 
-$pythonOverride = Resolve-MiraCoreEnvironment `
-    -Canonical 'MIRA_CORE_PYTHON' -Legacy 'NARRATIVE_PYTHON'
+$pythonOverride = Resolve-MiraCoreEnvironment -Canonical 'MIRA_CORE_PYTHON'
 if ($pythonOverride) {
     $python = & $pythonOverride $bootstrap --print-python
 } elseif ($pyLauncher) {

@@ -28,34 +28,32 @@ archive roots.
 | Configuration variable | `MIRA_CORE_ARCHIVE_CONFIG` |
 | Default private configuration | `C:\private\mira-core-archive-config.json` |
 
-## Compatibility cycle
+## Deprecated compatibility cycle
 
-The compatibility cycle begins with the implementation of this contract on
-2026-08-16. It has no automatic expiry: removal requires the separately
-authorized evidence gate below.
+The compatibility cycle began with the implementation of this contract on
+2026-08-16. The active runtime alias portion ended with the Mira Core legacy
+repository-name deprecation pass.
 
-For one explicit compatibility cycle:
+Historical notes about that cycle:
 
 - `system-archive` remains a deprecated command alias;
 - `scripts/system_archive.py` becomes a thin compatibility wrapper;
-- `MIRA_CORE_SYSTEM_ARCHIVE_*` remains accepted with one warning per variable
-  and process;
-- existing `NARRATIVE_SYSTEM_ARCHIVE_*` aliases remain accepted at the
-  outermost legacy layer;
-- equal values are accepted and conflicting non-empty values fail closed;
-- former private configuration paths remain readable fallbacks; and
+- `MIRA_CORE_SYSTEM_ARCHIVE_*` and the older narrative-prefixed archive
+  environment variables are no longer accepted as runtime configuration;
+- former `mira-core-system-archive` private configuration paths remain readable
+  fallbacks for one additional transition; and
 - writers emit only the new canonical names.
 
-Alias precedence is:
+Current supported environment variables are:
 
 ```text
-MIRA_CORE_ARCHIVE_*
--> MIRA_CORE_SYSTEM_ARCHIVE_*
--> NARRATIVE_SYSTEM_ARCHIVE_*
+MIRA_CORE_ARCHIVE_ROOT
+MIRA_CORE_ARCHIVE_REPLICA_ROOT
+MIRA_CORE_ARCHIVE_CONFIG
 ```
 
-Removing any compatibility alias requires a later, separately authorized
-migration.
+The older narrative-prefixed archive names may remain in immutable prose,
+receipts, and migration history, but they are not active configuration names.
 
 ## Immutable historical identifiers
 

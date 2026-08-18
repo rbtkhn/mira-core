@@ -20,6 +20,9 @@ def make_tree(root: Path) -> None:
         "narrative-geopolitics/work/morning-brief/2026-08-17.md",
         "narrative-geopolitics/work/morning-brief/2026-08-17.receipt.json",
         "docs/skill-drafts/mira-github/SKILL.md",
+        "docs/mira-core-name-migration.md",
+        "docs/plans/2026-08-16-mira-archive-name-migration.md",
+        "mira/continuity/session-registry.json",
         "scripts/example.py",
         "tools/example.py",
         "tests/test_example.py",
@@ -63,6 +66,28 @@ def test_router_resolves_initial_artifact_classes(tmp_path: Path) -> None:
         "tools/run.ps1 test --path tests/test_example.py",
     ]
     assert len(report["manual_checks"]) == 4
+    assert report["blockers"] == []
+
+
+def test_router_resolves_mira_control_plane_paths(tmp_path: Path) -> None:
+    make_tree(tmp_path)
+    report = routing.build_report(
+        [
+            "docs/mira-core-name-migration.md",
+            "docs/plans/2026-08-16-mira-archive-name-migration.md",
+            "mira/continuity/session-registry.json",
+        ],
+        repo_root=tmp_path,
+    )
+
+    assert report["status"] == "manual-required"
+    assert report["owners"] == ["mira-control-plane"]
+    assert report["validation_classes"] == ["repo-structural"]
+    assert report["commands"] == ["tools/run.ps1 test --mode fast --explain-route"]
+    assert report["manual_checks"] == [
+        "Verify Mira control-plane semantics, authority boundaries, and historical "
+        "provenance preservation remain coherent."
+    ]
     assert report["blockers"] == []
 
 

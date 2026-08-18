@@ -29,6 +29,11 @@ MANUAL_NARRATIVE_GEOPOLITICS_CHECK = (
     "Validate Narrative Geopolitics provenance, source/voice routing, bounded-analysis "
     "posture, verification boundaries, and absence of unsupported public factual use."
 )
+MIRA_CONTROL_PATHS = frozenset({
+    "docs/mira-core-name-migration.md",
+    "docs/plans/2026-08-16-mira-archive-name-migration.md",
+    "mira/continuity/session-registry.json",
+})
 DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 
 
@@ -167,6 +172,16 @@ def route_path(path: str, *, repo_root: Path = REPO_ROOT) -> dict[str, Any]:
             "manual_checks": [
                 "Read through the controlling instructions and verify trigger, authority, "
                 "composition, and reference coherence."
+            ],
+        }
+    if path in MIRA_CONTROL_PATHS:
+        return {
+            "owner": "mira-control-plane",
+            "validation_class": "repo-structural",
+            "commands": ["tools/run.ps1 test --mode fast --explain-route"],
+            "manual_checks": [
+                "Verify Mira control-plane semantics, authority boundaries, and historical "
+                "provenance preservation remain coherent."
             ],
         }
     if path.startswith("tests/"):

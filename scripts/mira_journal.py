@@ -321,6 +321,21 @@ def external_draft_root(value: Path | None = None, *, repo_root: Path = REPO_ROO
     return resolved
 
 
+def private_draft_path(value: Path, *, label: str, repo_root: Path | None = None) -> Path:
+    root = repo_root or REPO_ROOT
+    resolved = value.expanduser().resolve()
+    private = (root / ".mira-private" / "journal").resolve()
+    try:
+        resolved.relative_to(root.resolve())
+    except ValueError:
+        return resolved
+    try:
+        resolved.relative_to(private)
+    except ValueError as error:
+        raise JournalError(f"{label} must remain outside Git or within {private}") from error
+    return resolved
+
+
 def entry_path(value: date, *, journal_root: Path | None = None) -> Path:
     return (journal_root or JOURNAL_ROOT) / f"{value.isoformat()}.md"
 
@@ -384,13 +399,7 @@ def command_prose_check(args: argparse.Namespace) -> dict[str, Any]:
     entry_date = parse_entry_date(args.date)
     if not args.draft.is_absolute():
         raise JournalError("journal prose-check draft path must be absolute")
-    draft = args.draft.expanduser().resolve()
-    try:
-        draft.relative_to(REPO_ROOT.resolve())
-    except ValueError:
-        pass
-    else:
-        raise JournalError("journal prose-check draft must remain outside Git")
+    draft = private_draft_path(args.draft, label="journal prose-check draft")
     if not draft.is_file():
         raise JournalError(f"missing journal prose draft: {draft}")
 
@@ -2653,13 +2662,7 @@ def command_freshness_replay(args: argparse.Namespace) -> dict[str, Any]:
 
 
 def load_draft_bundle(draft: Path) -> tuple[bytes, dict[str, Any]]:
-    resolved = draft.expanduser().resolve()
-    try:
-        resolved.relative_to(REPO_ROOT.resolve())
-    except ValueError:
-        pass
-    else:
-        raise JournalError("journal drafts must remain outside Git")
+    resolved = private_draft_path(draft, label="journal drafts")
     if not resolved.is_file():
         raise JournalError(f"missing journal draft: {resolved}")
     metadata_path = resolved.with_suffix(".json")
@@ -2949,13 +2952,7 @@ def normalized_version(
 
 def command_draft_check(args: argparse.Namespace) -> dict[str, Any]:
     entry_date = parse_entry_date(args.date)
-    bundle = args.bundle.expanduser().resolve()
-    try:
-        bundle.relative_to(REPO_ROOT.resolve())
-    except ValueError:
-        pass
-    else:
-        raise JournalError("journal draft bundle must remain outside Git")
+    bundle = private_draft_path(args.bundle, label="journal draft bundle")
     required = {
         name: bundle / name
         for name in (
