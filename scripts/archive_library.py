@@ -50,7 +50,7 @@ TEXT_CHROME_PATTERNS = (
     re.compile(r"^Search (Swaveda|Wikisource)$", re.IGNORECASE),
     re.compile(r"^This page was last edited", re.IGNORECASE),
     re.compile(r"^Retrieved from ", re.IGNORECASE),
-    re.compile(r"^(Page|Discussion|Read|Edit|View history|Tools|Print/export|Download EPUB|Download PDF)$", re.IGNORECASE),
+    re.compile(r"^(Discussion|Read|Edit|View history|Tools|Print/export|Download EPUB|Download PDF)$", re.IGNORECASE),
 )
 BODY_REQUIRED_FIELDS = {
     "body_id",

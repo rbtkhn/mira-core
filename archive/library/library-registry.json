@@ -1259,7 +1259,41 @@
       },
       "status": "stub",
       "notes": "Rome and France ARC source for Roman expansion and Gallic interface.",
-      "text_status": "missing"
+      "text_status": "available",
+      "text_bodies": [
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-029-POLYBIUS-HISTORIES-VOL-1-SHUCKBURGH",
+          "work_title": "The Histories of Polybius, Volume 1 of 2",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-029-POLYBIUS-HISTORIES-VOL-1-SHUCKBURGH.txt",
+          "text_sha256": "5877226cb1aa431e0b7faff933f22fc02cf92a8ce21fefe0e93509a909b7bea7",
+          "text_bytes": 1543242,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "Evelyn S. Shuckburgh",
+          "editor": "",
+          "edition_label": "Project Gutenberg #44125, Evelyn S. Shuckburgh English translation, volume 1 of 2",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg identifies this ebook as public domain in the USA.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-029-POLYBIUS-HISTORIES-VOL-2-SHUCKBURGH",
+          "work_title": "The Histories of Polybius, Volume 2 of 2",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-029-POLYBIUS-HISTORIES-VOL-2-SHUCKBURGH.txt",
+          "text_sha256": "8342147f7eb2d0325c3df4b80d56adcac72f5a0f45a2499cab9db44315d78c26",
+          "text_bytes": 1471835,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "Evelyn S. Shuckburgh",
+          "editor": "",
+          "edition_label": "Project Gutenberg #44126, Evelyn S. Shuckburgh English translation, volume 2 of 2",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg identifies this ebook as public domain in the USA.",
+          "status": "available"
+        }
+      ],
+      "coverage_status": "principal-work",
+      "coverage_notes": "Portable store includes both Project Gutenberg volumes of Evelyn S. Shuckburgh English translation of The Histories of Polybius, the principal work represented by this source-authority record."
     },
     {
       "source_id": "LIB-ANCIENT-AUTHOR-030-DIODORUS-SICULUS",
@@ -1455,7 +1489,26 @@
       },
       "status": "stub",
       "notes": "Rome ARC source with dedicated historical MEM object.",
-      "text_status": "missing"
+      "text_status": "available",
+      "text_bodies": [
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-036-SALLUST-CATILINE-JUGURTHINE-WATSON",
+          "work_title": "Conspiracy of Catiline and the Jugurthine War",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-036-SALLUST-CATILINE-JUGURTHINE-WATSON.txt",
+          "text_sha256": "bdfc9cf09db2305b271f79c9df6c66d347701a34017acd4dd9fc5e26dd56b34f",
+          "text_bytes": 585842,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "J. S. Watson",
+          "editor": "",
+          "edition_label": "Project Gutenberg #7990, J. S. Watson English translation",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg identifies this ebook as public domain in the USA.",
+          "status": "available"
+        }
+      ],
+      "coverage_status": "principal-works",
+      "coverage_notes": "Portable store includes Project Gutenberg #7990, J. S. Watson English translation of Conspiracy of Catiline and the Jugurthine War, the principal works named by this source-authority record."
     },
     {
       "source_id": "LIB-ANCIENT-AUTHOR-037-PLINY-THE-ELDER",
@@ -1516,7 +1569,26 @@
       },
       "status": "stub",
       "notes": "Rome and France ARC authority with dedicated historical MEM object.",
-      "text_status": "missing"
+      "text_status": "available",
+      "text_bodies": [
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-038-SUETONIUS-TWELVE-CAESARS-THOMSON-FORESTER",
+          "work_title": "The Lives of the Twelve Caesars, Complete",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-038-SUETONIUS-TWELVE-CAESARS-THOMSON-FORESTER.txt",
+          "text_sha256": "8e870abd4dcc216a3fcb26d414eed74681f855202f41b591dc014f46cd35cf90",
+          "text_bytes": 1423094,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "Alexander Thomson",
+          "editor": "",
+          "edition_label": "Project Gutenberg #6400, Alexander Thomson translation edited by Thomas Forester",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg identifies this ebook as public domain in the USA.",
+          "status": "available"
+        }
+      ],
+      "coverage_status": "principal-work",
+      "coverage_notes": "Portable store includes Project Gutenberg #6400, The Lives of the Twelve Caesars, Complete, the principal work represented by this source-authority record."
     },
     {
       "source_id": "LIB-ANCIENT-AUTHOR-039-HOMER",
@@ -2506,7 +2578,26 @@
       },
       "status": "stub",
       "notes": "Rome ARC late ancient imperial summary source.",
-      "text_status": "missing"
+      "text_status": "available",
+      "text_bodies": [
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-050-EUTROPIUS-BREVIARIUM-HAZZARD",
+          "work_title": "Eutropius / Breviarium",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-050-EUTROPIUS-BREVIARIUM-HAZZARD.txt",
+          "text_sha256": "dde781a89d23925058cb3de0c6eabcb486fa742b5e72f08023c725fcfd99edcb",
+          "text_bytes": 629448,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "",
+          "editor": "",
+          "edition_label": "Project Gutenberg #50808, J. C. Hazzard school edition",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg identifies this ebook as public domain in the USA.",
+          "status": "available"
+        }
+      ],
+      "coverage_status": "principal-work",
+      "coverage_notes": "Portable store includes Project Gutenberg #50808, an English J. C. Hazzard school edition of Eutropius / Breviarium, the principal work represented by this source-authority record. This is not a raw Latin critical text claim."
     }
   ]
 }
