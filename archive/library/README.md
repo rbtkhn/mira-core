@@ -9,7 +9,8 @@ surface, not a private Archive catalog collection and not a wholesale mirror of
 Civilization Memory.
 
 The machine authority is [`library-registry.json`](library-registry.json).
-Era `index.md` files are human-facing navigation surfaces only.
+[`text-sources-index.md`](text-sources-index.md) lists admitted local/private
+text bodies. Era `index.md` files are human-facing navigation surfaces only.
 
 ## Era Taxonomy
 

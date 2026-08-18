@@ -1376,8 +1376,25 @@
         "body_imported": false
       },
       "status": "stub",
-      "notes": "Rome ARC source and Persia ARC [3] for Artaxerxes/Alexander interface.",
-      "text_status": "missing"
+      "notes": "Rome ARC source and Persia ARC [3] for Artaxerxes/Alexander interface. Portable store includes Project Gutenberg #674, the Clough-edited Dryden English translation of Plutarch's Lives. This is a principal Lives body, not a complete Plutarch corpus claim.",
+      "text_status": "available",
+      "text_bodies": [
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-032-PLUTARCH-LIVES-CLOUGH-GUTENBERG-674",
+          "work_title": "Plutarch: Lives of the noble Grecians and Romans",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-032-PLUTARCH-LIVES-CLOUGH-GUTENBERG-674.txt",
+          "text_sha256": "e849186d3483c1779053a5f70c8ae477316c019907c740f878de0d2c788975f8",
+          "text_bytes": 4324016,
+          "text_encoding": "utf-8",
+          "language": "English",
+          "translator": "",
+          "editor": "Arthur Hugh Clough",
+          "edition_label": "Project Gutenberg #674; Arthur Hugh Clough edited Dryden translation",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg public-domain text in the United States",
+          "status": "available"
+        }
+      ]
     },
     {
       "source_id": "LIB-ANCIENT-AUTHOR-033-ARRIAN",
@@ -1461,8 +1478,70 @@
         "body_imported": false
       },
       "status": "stub",
-      "notes": "Rome and France ARC authority for early Rome and Gallic-Roman contact.",
-      "text_status": "missing"
+      "notes": "Rome and France ARC authority for early Rome and Gallic-Roman contact. Portable store includes Project Gutenberg volumes for The History of Rome, Books 01-08, 09-26, 27-36, and 37 to the End, covering the extant Ab Urbe Condita books represented by this source-authority record.",
+      "text_status": "available",
+      "text_bodies": [
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-035-LIVY-HISTORY-ROME-BOOKS-37-END-MCDEVITTE-GUTENBERG-44318",
+          "work_title": "The History of Rome, Books 37 to the End",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-035-LIVY-HISTORY-ROME-BOOKS-37-END-MCDEVITTE-GUTENBERG-44318.txt",
+          "text_sha256": "4565d71890235bc13761637831e2e5e32c2b4361e760b1c1a6e3d841b0e29e87",
+          "text_bytes": 1729737,
+          "text_encoding": "utf-8",
+          "language": "English",
+          "translator": "W. A. McDevitte",
+          "editor": "",
+          "edition_label": "Project Gutenberg #44318; W. A. McDevitte translation",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg public-domain text in the United States",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-035-LIVY-HISTORY-ROME-BOOKS-01-08-SPILLAN-GUTENBERG-19725",
+          "work_title": "The History of Rome, Books 01 to 08",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-035-LIVY-HISTORY-ROME-BOOKS-01-08-SPILLAN-GUTENBERG-19725.txt",
+          "text_sha256": "299dc9b79f6e2c8f626600683443c2d5f90ff935dba49d22dc9eb193c2b48702",
+          "text_bytes": 1392101,
+          "text_encoding": "utf-8",
+          "language": "English",
+          "translator": "D. Spillan",
+          "editor": "",
+          "edition_label": "Project Gutenberg #19725; D. Spillan translation",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg public-domain text in the United States",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-035-LIVY-HISTORY-ROME-BOOKS-27-36-EDMONDS-GUTENBERG-12582",
+          "work_title": "The History of Rome, Books 27 to 36",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-035-LIVY-HISTORY-ROME-BOOKS-27-36-EDMONDS-GUTENBERG-12582.txt",
+          "text_sha256": "161bacf235fecb4dcbd6d0c3df72c671ca3c10128a786e48f7593800306c78b2",
+          "text_bytes": 1402040,
+          "text_encoding": "utf-8",
+          "language": "English",
+          "translator": "Cyrus R. Edmonds",
+          "editor": "",
+          "edition_label": "Project Gutenberg #12582; Cyrus R. Edmonds translation",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg public-domain text in the United States",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-035-LIVY-HISTORY-ROME-BOOKS-09-26-EDMONDS-SPILLAN-GUTENBERG-10907",
+          "work_title": "The History of Rome, Books 09 to 26",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-035-LIVY-HISTORY-ROME-BOOKS-09-26-EDMONDS-SPILLAN-GUTENBERG-10907.txt",
+          "text_sha256": "f9fbcc96c84f6fd138a332979030102fd9c6f550c7f732539fd4c17e21c725d5",
+          "text_bytes": 1305879,
+          "text_encoding": "utf-8",
+          "language": "English",
+          "translator": "Cyrus R. Edmonds; D. Spillan",
+          "editor": "",
+          "edition_label": "Project Gutenberg #10907; Cyrus R. Edmonds and D. Spillan translation",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg public-domain text in the United States",
+          "status": "available"
+        }
+      ]
     },
     {
       "source_id": "LIB-ANCIENT-AUTHOR-036-SALLUST",
@@ -2499,8 +2578,40 @@
         "body_imported": false
       },
       "status": "stub",
-      "notes": "Rome ARC late-antique/ancient source for Judean-Roman interface.",
-      "text_status": "missing"
+      "notes": "Rome ARC late-antique/ancient source for Judean-Roman interface. Portable store includes Project Gutenberg #2848 Antiquities of the Jews and #2850 The Wars of the Jews in William Whiston's English translation. This covers the registry's principal Josephus works, not the complete Josephus corpus.",
+      "text_status": "available",
+      "text_bodies": [
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-047-JOSEPHUS-ANTIQUITIES-WHISTON-GUTENBERG-2848",
+          "work_title": "Antiquities of the Jews",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-047-JOSEPHUS-ANTIQUITIES-WHISTON-GUTENBERG-2848.txt",
+          "text_sha256": "bb2e32da8ba3adc109b7694e6a8f2f11570462af2bedd55798da70b754c6e440",
+          "text_bytes": 3067150,
+          "text_encoding": "utf-8",
+          "language": "English",
+          "translator": "William Whiston",
+          "editor": "",
+          "edition_label": "Project Gutenberg #2848; William Whiston translation",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg public-domain text in the United States",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-047-JOSEPHUS-WARS-WHISTON-GUTENBERG-2850",
+          "work_title": "The Wars of the Jews; Or, The History of the Destruction of Jerusalem",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-047-JOSEPHUS-WARS-WHISTON-GUTENBERG-2850.txt",
+          "text_sha256": "9a72663aefa6b22bb4398d5f878bb027c6b6de839e7cbe744a34240505fd8d20",
+          "text_bytes": 1342785,
+          "text_encoding": "utf-8",
+          "language": "English",
+          "translator": "William Whiston",
+          "editor": "",
+          "edition_label": "Project Gutenberg #2850; William Whiston translation",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg public-domain text in the United States",
+          "status": "available"
+        }
+      ]
     },
     {
       "source_id": "LIB-ANCIENT-AUTHOR-048-EUSEBIUS-OF-CAESAREA",
@@ -2525,7 +2636,7 @@
         "body_imported": false
       },
       "status": "stub",
-      "notes": "Rome ARC source for Christian imperial memory before the 476 boundary.",
+      "notes": "Rome ARC source for Christian imperial memory before the 476 boundary. No clean public-domain text body was admitted in the 2026-08-18 historian batch; keep text_status missing until a stable Ecclesiastical History body is inspected.",
       "text_status": "missing"
     },
     {
