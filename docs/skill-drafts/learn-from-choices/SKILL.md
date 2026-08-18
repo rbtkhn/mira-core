@@ -163,3 +163,18 @@ When a selected branch closes, use the retention reference to append a quiet
 `branch_closed` lifecycle event when available. Closure is not outcome evidence.
 Surface only retention failure, invalid lifecycle transition, or a material
 authority, privacy, safety, or lane incident.
+
+## Keep Options Specific
+
+For active artifact, repository, archive, library, publication, or governed
+workflow branches, do not fall back to the generic `Close`, `Correct`, `Deepen`,
+and `New task` controls while concrete next decisions remain. Name the real
+next boundaries instead: verify, inspect, correct metadata, admit the next
+bounded batch, stage and commit, push, clean private duplicates, or pause. Use
+generic response controls only when the work is genuinely settled or when fewer
+than four honest work-specific choices exist.
+
+When a final response reports changed files, admitted records, commits, private
+payloads, or validation results, at least two options should preserve the
+actual operational shape of the branch. Avoid menus that force the operator to
+translate a real next action back out of generic conversational labels.

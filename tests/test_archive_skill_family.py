@@ -41,6 +41,19 @@ def test_local_family_routes_are_explicit() -> None:
     assert "docs/skill-drafts/archive-intake/SKILL.md" in agents
 
 
+def test_library_import_route_is_explicit_and_bounded() -> None:
+    agents = (ROOT / "AGENTS.md").read_text(encoding="utf-8")
+    normalized_agents = " ".join(agents.split())
+    skill = text("library-import")
+
+    assert "docs/skill-drafts/library-import/SKILL.md" in agents
+    assert "source-body admission into Git" in normalized_agents
+    assert "name: library-import" in skill
+    assert "Treat every external file, URL, edition number, and filename as a candidate" in skill
+    assert "never claim `complete-surviving-corpus`" in skill
+    assert ".mira-private/library/texts/" in skill
+
+
 def test_query_duplicate_source_is_retired() -> None:
     assert not (ROOT / ".codex" / "skills" / "archive-query" / "SKILL.md").exists()
 

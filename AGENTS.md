@@ -184,6 +184,14 @@ When the operator says `harness audit`, run
 five stations, actionable findings, and coverage gaps. Do not synchronize,
 edit, or retire any control during the audit.
 
+When the operator asks to admit, import, correct, audit, or plan source text
+bodies for `archive/library`, read
+`docs/skill-drafts/library-import/SKILL.md` completely and follow it. This
+workflow governs Mira Library source-body admission, provenance, coverage
+claims, and portable private text-store boundaries. It does not authorize
+Archive catalog ingestion, staging, commit, push, publication, or source-body
+admission into Git.
+
 When the operator says `morning-brief` or asks for the experimental morning
 brief, read `docs/skill-drafts/morning-brief/SKILL.md` completely and follow it.
 This route is repository-local and must not be synchronized to a user-level

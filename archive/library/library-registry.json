@@ -70,7 +70,26 @@
       },
       "status": "stub",
       "notes": "Ranked highest from Civilization Memory because India ARC gives Ashoka Edicts ARC-T-ANCIENT with [10] uses and Mauryan MEMs use the edicts as direct governance evidence.",
-      "text_status": "missing"
+      "text_status": "available",
+      "text_bodies": [
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-001-ASHOKA-ROCK-PILLAR-EDICTS-SMITH",
+          "work_title": "Rock and Pillar Edicts",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-001-ASHOKA-ROCK-PILLAR-EDICTS-SMITH.txt",
+          "text_sha256": "a2f5ba5b76a2a466b79a46fa4925e9281a82988ed6c9bf91d2535e67ff1bf583",
+          "text_bytes": 149389,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "",
+          "editor": "",
+          "edition_label": "Wikisource rendering of Vincent Arthur Smith, Asoka - the Buddhist Emperor of India, 1920, chapters 4-5",
+          "license_status": "public-domain",
+          "license_notes": "Wikisource marks source work public domain; chapters derive from pre-1931 publication.",
+          "status": "available"
+        }
+      ],
+      "coverage_status": "principal-works",
+      "coverage_notes": "Portable store includes Smith/Wikisource rendered chapters containing rock and pillar edicts; not a critical complete inscription corpus."
     },
     {
       "source_id": "LIB-ANCIENT-AUTHOR-002-KAUTILYA",
@@ -310,7 +329,26 @@
       },
       "status": "stub",
       "notes": "China ARC source and dedicated Kongzi MEM object; foundational Confucian source authority.",
-      "text_status": "missing"
+      "text_status": "available",
+      "text_bodies": [
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-008-CONFUCIUS-ANALECTS-LEGGE",
+          "work_title": "Analects",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-008-CONFUCIUS-ANALECTS-LEGGE.txt",
+          "text_sha256": "ea6d381842afaa2dc2f0665b8007e9d6fd47081afada9b311128099c08a3e3e6",
+          "text_bytes": 191672,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "James Legge",
+          "editor": "",
+          "edition_label": "Project Gutenberg #3330; James Legge translation",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg states public domain in the USA.",
+          "status": "available"
+        }
+      ],
+      "coverage_status": "principal-work",
+      "coverage_notes": "Portable store includes the Analects in the James Legge Project Gutenberg public-domain text; other Confucian-attributed classics remain separate source authorities."
     },
     {
       "source_id": "LIB-ANCIENT-AUTHOR-009-LAOZI",
@@ -364,7 +402,26 @@
       },
       "status": "stub",
       "notes": "China ARC source and dedicated Sunzi MEM object for strategic memory.",
-      "text_status": "missing"
+      "text_status": "available",
+      "text_bodies": [
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-010-SUNZI-ART-OF-WAR-GILES",
+          "work_title": "The Art of War",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-010-SUNZI-ART-OF-WAR-GILES.txt",
+          "text_sha256": "9401b1d084d74a5ec349a6aa04a9be412f273c8b318c6a0029cc74f8b2fde1af",
+          "text_bytes": 83746,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "Lionel Giles",
+          "editor": "",
+          "edition_label": "Project Gutenberg #17405; Lionel Giles translation without extended annotations",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg states public domain in the USA.",
+          "status": "available"
+        }
+      ],
+      "coverage_status": "principal-work",
+      "coverage_notes": "Portable store includes The Art of War in the Lionel Giles Project Gutenberg public-domain text."
     },
     {
       "source_id": "LIB-ANCIENT-AUTHOR-011-VEDIC-SEER-TRADITION",
@@ -524,7 +581,26 @@
       },
       "status": "stub",
       "notes": "Persia ARC gives Cyrus Cylinder [6]; dedicated Cyrus MEM preserves the Achaemenid authority.",
-      "text_status": "missing"
+      "text_status": "available",
+      "text_bodies": [
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-016-CYRUS-II-CYRUS-CYLINDER-ROGERS",
+          "work_title": "Cyrus Cylinder",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-016-CYRUS-II-CYRUS-CYLINDER-ROGERS.txt",
+          "text_sha256": "6ac0102a534c90a4b94d1e1bed31808c2d5c3a5e75731b1a82501e93709cc165",
+          "text_bytes": 7945,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "Robert William Rogers",
+          "editor": "",
+          "edition_label": "Wikisource; Robert William Rogers translation from Cuneiform Parallels to the Old Testament, 1912",
+          "license_status": "public-domain",
+          "license_notes": "Wikisource marks translation public domain in the United States because published before 1931.",
+          "status": "available"
+        }
+      ],
+      "coverage_status": "principal-work",
+      "coverage_notes": "Portable store includes the Cyrus Cylinder in the Rogers/Wikisource public-domain translation."
     },
     {
       "source_id": "LIB-ANCIENT-AUTHOR-017-MENCIUS-MENGZI",

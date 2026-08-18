@@ -45,6 +45,9 @@ def test_core_retains_nonnegotiable_authority_and_terminal_forms() -> None:
         "Working-tree presence is distinct",
         "Do not present consecutive navigation-only menus",
         "closure-debt audit",
+        "Keep Options Specific",
+        "do not fall back to the generic `Close`, `Correct`, `Deepen`",
+        "at least two options should preserve the actual operational shape",
     ):
         assert phrase in normalized
 
