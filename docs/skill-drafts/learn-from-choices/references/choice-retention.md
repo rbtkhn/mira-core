@@ -17,9 +17,14 @@ authority.
    not inspect one environment variable and infer that retention is
    unavailable; only the compatibility-aware command result may establish
    availability.
-4. State only when material that retention granted no authority; executable
+4. Use the stable workspace identifier `mira-core`; never pass a repository
+   path as `--workspace`. Preserve the operational lane. For consequential
+   natural-use tasks being measured prospectively, bind the selection to
+   `--review-cohort mira-core-natural-use-v1`. Do not assign a cohort to a
+   historical selection or infer one from its lane.
+5. State only when material that retention granted no authority; executable
    authority came from the validated visible `selection_effect`.
-5. If the store is unavailable, continue and disclose that the selection was
+6. If the store is unavailable, continue and disclose that the selection was
    not retained.
 
 Do not retain an unselected footer. Never store raw evidence bodies, secrets,
@@ -51,7 +56,8 @@ private path; if both variables are populated with different paths, preserve
 the conflict and stop rather than choosing one.
 
 Cache unavailability by resolved store path and relevant environment state for
-the task. Retry only after that state changes or the operator explicitly asks.
+the task; treat the unchanged failure as cached as unavailable.
+Retry only after that state changes or the operator explicitly asks.
 
 ## Close a selected branch
 
@@ -59,4 +65,10 @@ Run `choice close` with reason `completed`, `paused`, or `saturated`. Closure
 removes the branch from unresolved review without creating success,
 cognitive-load, momentum, or discovery evidence. Do not close after an outcome
 has already resolved it, and do not reconstruct historical selections from
-memory. Successful closure retention stays quiet.
+memory. Successful closure retention stays quiet. Its machine-readable state
+may identify the choice as a later observation candidate, but do not solicit an
+outcome immediately or treat candidacy as evidence. For an enrolled choice the
+receipt reports `observation_status: pending`, its cohort, and the default
+24-hour `observation_eligible_after`; an unenrolled choice reports
+`not-enrolled` and no eligibility time. Both report
+`candidate_is_not_observation: true`.

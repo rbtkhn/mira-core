@@ -92,9 +92,13 @@ def test_decision_fixture_is_complete_and_authority_bounded(
         "direct-command-only",
         "unavailable-retention",
         "saturation",
+        "normal-delayed-observation",
+        "unobservable-outcome",
+        "conflicting-scope",
+        "historical-backfill",
     }
     assert case["expected_terminal"]
-    assert case["required_resource"] in {"core", "choice-retention"}
+    assert case["required_resource"] in {"core", "choice-retention", "outcome-review"}
     assert isinstance(case["allowed"], list) and case["allowed"]
     assert isinstance(case["forbidden"], list) and case["forbidden"]
 
@@ -109,8 +113,25 @@ def test_fixture_inventory_covers_required_runtime_decisions() -> None:
         "direct-command-only",
         "unavailable-retention",
         "saturation",
+        "normal-delayed-observation",
+        "unobservable-outcome",
+        "conflicting-scope",
+        "historical-backfill",
     }
-    assert len(fixtures()) == 8
+    assert len(fixtures()) == 12
+
+
+def test_outcome_fixtures_preserve_observation_and_scope_boundaries() -> None:
+    indexed = {item["id"]: item for item in fixtures()}
+    assert "infer success from closure" in indexed["LFC-OUTCOME-DUE-01"]["forbidden"]
+    assert any(
+        "choice ID alone" in behavior
+        for behavior in indexed["LFC-COHORT-SCOPE-FAILURE-01"]["forbidden"]
+    )
+    assert "infer cohort membership" in indexed["LFC-HISTORICAL-BACKFILL-01"]["forbidden"]
+    assert "treat candidate status as observation" in indexed["LFC-OUTCOME-DUE-01"]["forbidden"]
+    assert "default missing outcome scope" in indexed["LFC-COHORT-SCOPE-FAILURE-01"]["forbidden"]
+    assert "represent a legacy store as an empty cohort" in indexed["LFC-HISTORICAL-BACKFILL-01"]["forbidden"]
 
 
 def test_unavailable_retention_fixture_forbids_single_variable_inference() -> None:

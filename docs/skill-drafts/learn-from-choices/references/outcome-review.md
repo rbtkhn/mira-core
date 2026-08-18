@@ -21,6 +21,26 @@ Classify it as lower for at most one clarification and no rework; same for
 ordinary steering or one correction; higher for repeated steering, reopened
 work, method correction, or extra bookkeeping; otherwise `Missing`.
 
+Supply the exact retained tenant, canonical workspace, operational lane, and
+cohort disposition to `choice outcome`; a choice ID alone is insufficient. Use
+`--review-cohort COHORT` for an enrolled selection or the explicit
+`--no-review-cohort` flag for a legacy or unenrolled selection. Keep
+`mira-core-natural-use-v1` prospective and limited to consequential natural-use
+tasks. Never backfill its membership or outcomes from memory, completion,
+praise, or passing tests.
+
+Use `choice due --review-cohort mira-core-natural-use-v1 --limit 1 --json` to
+find at most one closed candidate after the observation delay. A due candidate
+is not an observable outcome. Record `not_observable` with honest `Missing`
+dimensions only when a later review needs that disposition; otherwise wait for
+bounded post-action evidence. Use `choice health` for content-free lifecycle,
+coverage, timestamp, scope-variant, and cohort-progress diagnostics.
+On schema versions below v4, cohort-backed read-only commands return
+`migration-required`; they do not migrate or imitate an empty cohort. The next
+authorized writable choice operation may perform the existing schema migration.
+Health may report content-free legacy null-cohort and path-shaped workspace
+counts, but it never merges or rewrites those identities.
+
 Use `corrected` and `superseded` events instead of rewriting history. Use
 `review_deferred` when an unresolved outcome returns through review.
 
@@ -30,8 +50,9 @@ Read `choice context` before using retained history. One or two comparable
 outcomes are thin evidence and do not reorder recommendations. After at least
 three comparable resolved outcomes, two consistent results without material
 contradiction may influence ordering. Never use selection frequency. Preserve
-a credible overlooked path, isolate tenant and lane learning, and require
-sanitized operator-approved promotion across lanes. Never promote repository
+a credible overlooked path, isolate tenant and workspace learning, and require
+an explicit review cohort before measurement crosses operational lanes.
+Require sanitized operator-approved promotion across cohorts. Never promote repository
 doctrine automatically.
 
 ## Review through coffee

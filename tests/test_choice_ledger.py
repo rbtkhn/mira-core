@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import os
 import sqlite3
 import subprocess
 import sys
@@ -131,6 +132,7 @@ def select(
     selected_at: str = "2026-07-29T12:00:00+00:00",
     options=OPTIONS,
     idempotency_key: str | None = None,
+    review_cohort: str | None = None,
 ) -> dict:
     return choice_ledger.select_branch(
         db,
@@ -150,6 +152,7 @@ def select(
         learning_refs=["ref:bounded"],
         success_signals=["clearer next step"],
         risk_signals=["authority ambiguity"],
+        review_cohort=review_cohort,
     )
 
 
@@ -382,7 +385,10 @@ def test_schema_one_migration_adds_utc_ordering_without_changing_history(
     ]
     migrated = connection(legacy_path)
     after = choice_ledger.inspect_store(legacy_path)
-    assert migrated.execute("PRAGMA user_version").fetchone()[0] == 3
+    assert migrated.execute("PRAGMA user_version").fetchone()[0] == choice_ledger.SCHEMA_VERSION
+    assert migrated.execute(
+        "SELECT review_cohort FROM choice_prompts"
+    ).fetchone()[0] is None
     assert migrated.execute(
         "SELECT selected_at_utc_us FROM choice_prompts"
     ).fetchone()[0] == choice_ledger.timestamp_order_key(
@@ -418,7 +424,10 @@ def test_schema_two_is_readable_and_migrates_event_constraint_transactionally(
     readonly.close()
 
     migrated = connection(path)
-    assert migrated.execute("PRAGMA user_version").fetchone()[0] == 3
+    assert migrated.execute("PRAGMA user_version").fetchone()[0] == choice_ledger.SCHEMA_VERSION
+    assert migrated.execute(
+        "SELECT review_cohort FROM choice_prompts"
+    ).fetchone()[0] is None
     assert [tuple(row) for row in migrated.execute(
         "SELECT * FROM choice_events ORDER BY sequence"
     ).fetchall()] == before_events
@@ -1193,6 +1202,13 @@ def test_configured_unavailable_store_remains_hard_for_explicit_operations(
                 "CHOICE-UNAVAILABLE",
                 "--idempotency-key",
                 "unavailable-outcome",
+                "--tenant",
+                "tenant-a",
+                "--workspace",
+                "workspace-a",
+                "--lane",
+                "lane-a",
+                "--no-review-cohort",
             ]
         )
 
@@ -1662,3 +1678,315 @@ def test_json_and_markdown_projections(tmp_path: Path) -> None:
     )
     assert "# Choice Projection" in result.stdout
     assert "Receipt retention grants no authority" in result.stdout
+
+
+def test_review_cohort_crosses_lanes_but_not_workspace_or_tenant(tmp_path: Path) -> None:
+    db = connection(tmp_path / "cohort.sqlite3")
+    for index, lane in enumerate(("notes", "essays", "repository")):
+        choice_id = f"COHORT-{index}"
+        select(
+            db,
+            choice_id,
+            lane=lane,
+            review_cohort="mira-core-natural-use-v1",
+            selected_at=f"2026-08-{10 + index:02d}T12:00:00+00:00",
+        )
+        outcome(db, choice_id)
+    select(
+        db,
+        "OTHER-TENANT",
+        tenant="tenant-b",
+        review_cohort="mira-core-natural-use-v1",
+    )
+    outcome(db, "OTHER-TENANT")
+    review = choice_ledger.review_scorecard(
+        db,
+        tenant="tenant-a",
+        workspace="workspace-a",
+        review_cohort="mira-core-natural-use-v1",
+    )
+    assert review["eligible_resolved"] == 3
+    assert review["scope"]["lane"] is None
+    assert "OTHER-TENANT" not in review["cohort_choice_ids"]
+    db.close()
+
+
+def test_closure_receipt_exposes_delayed_observation_without_claiming_evidence(
+    tmp_path: Path,
+) -> None:
+    db = connection(tmp_path / "closure-observation.sqlite3")
+    select(db, review_cohort="mira-core-natural-use-v1")
+    receipt = close(db)
+    assert receipt["review_cohort"] == "mira-core-natural-use-v1"
+    assert receipt["observation_status"] == "pending"
+    assert receipt["observation_eligible_after"] == "2026-07-31T11:00:00+00:00"
+    assert receipt["candidate_is_not_observation"] is True
+
+    select(db, "UNENROLLED")
+    unenrolled = close(db, "UNENROLLED")
+    assert unenrolled["review_cohort"] is None
+    assert unenrolled["observation_status"] == "not-enrolled"
+    assert unenrolled["observation_eligible_after"] is None
+    db.close()
+
+
+def test_new_selection_rejects_path_workspace_and_conflicting_cohort_retry(
+    tmp_path: Path,
+) -> None:
+    db = connection(tmp_path / "identity.sqlite3")
+    with pytest.raises(choice_ledger.ChoiceError, match="stable identifier"):
+        select(db, workspace=r"C:\dev\mira-core")
+    select(db, review_cohort="mira-core-natural-use-v1")
+    with pytest.raises(choice_ledger.ChoiceError, match="immutable prompt differs"):
+        select(
+            db,
+            idempotency_key="select-CHOICE-001",
+            review_cohort="different-cohort",
+        )
+    db.close()
+
+
+def test_outcome_requires_matching_supplied_scope_and_cohort(tmp_path: Path) -> None:
+    db = connection(tmp_path / "scope.sqlite3")
+    select(db, review_cohort="mira-core-natural-use-v1")
+    with pytest.raises(choice_ledger.ChoiceError, match="outside the requested scope"):
+        choice_ledger.append_choice_event(
+            db,
+            choice_id="CHOICE-001",
+            event_type="outcome_recorded",
+            idempotency_key="wrong-scope",
+            occurred_at="2026-08-12T12:00:00+00:00",
+            result="not_observable",
+            tenant="tenant-a",
+            workspace="workspace-a",
+            lane="lane-a",
+            review_cohort="wrong-cohort",
+        )
+    recorded = choice_ledger.append_choice_event(
+        db,
+        choice_id="CHOICE-001",
+        event_type="outcome_recorded",
+        idempotency_key="matching-scope",
+        occurred_at="2026-08-12T12:00:00+00:00",
+        result="not_observable",
+        tenant="tenant-a",
+        workspace="workspace-a",
+        lane="lane-a",
+        review_cohort="mira-core-natural-use-v1",
+    )
+    assert recorded["created"] is True
+    projected = choice_ledger.project_choice(db, "CHOICE-001")
+    assert projected["outcome"]["cognitive_load"] == "Missing"
+    db.close()
+
+
+def test_due_and_health_are_content_free_and_lifecycle_accurate(tmp_path: Path) -> None:
+    db = connection(tmp_path / "health.sqlite3")
+    select(db, "DUE", lane="notes", review_cohort="mira-core-natural-use-v1")
+    close(db, "DUE")
+    select(db, "OPEN", lane="essays", review_cohort="mira-core-natural-use-v1")
+    select(db, "DONE", lane="repository", review_cohort="mira-core-natural-use-v1")
+    outcome(db, "DONE")
+    due = choice_ledger.due_outcomes(
+        db,
+        tenant="tenant-a",
+        workspace="workspace-a",
+        review_cohort="mira-core-natural-use-v1",
+        minimum_age_hours=24,
+        limit=1,
+        as_of="2026-08-02T12:00:00+00:00",
+    )
+    assert [item["choice_id"] for item in due["candidates"]] == ["DUE"]
+    assert due["candidate_is_not_observation"] is True
+    health = choice_ledger.choice_health(
+        db,
+        tenant="tenant-a",
+        workspace="workspace-a",
+        review_cohort="mira-core-natural-use-v1",
+        as_of="2026-08-02T12:00:00+00:00",
+    )
+    assert health["lifecycle_counts"] == {
+        "selected": 3,
+        "unresolved": 1,
+        "closed": 1,
+        "resolved": 1,
+        "superseded": 0,
+    }
+    assert health["outcome_coverage"] == {
+        "numerator": 1,
+        "denominator": 2,
+        "ratio": 0.5,
+    }
+    assert health["contains_private_prose"] is False
+    serialized = json.dumps(health)
+    assert "Decision DUE" not in serialized
+    assert "Inspect the bounded evidence" not in serialized
+    db.close()
+
+
+@pytest.mark.parametrize("command", ["context", "review", "due", "health"])
+def test_legacy_cohort_diagnostics_require_migration_without_writing(
+    tmp_path: Path, capsys: pytest.CaptureFixture[str], command: str
+) -> None:
+    path = tmp_path / f"legacy-{command}.sqlite3"
+    db = connection(path)
+    select(db)
+    db.execute("PRAGMA user_version = 3")
+    db.commit()
+    db.close()
+    before = (path.read_bytes(), path.stat().st_mtime_ns)
+    arguments = ["--db", str(path), command, "--review-cohort", "mira-core-natural-use-v1"]
+    if command in {"due", "health"}:
+        arguments.append("--json")
+    assert choice_ledger.main(arguments) == 0
+    payload = json.loads(capsys.readouterr().out)
+    assert payload["status"] == "migration-required"
+    assert payload["current_schema_version"] == 3
+    assert payload["required_schema_version"] == 4
+    assert payload["store_changed"] is False
+    assert (path.read_bytes(), path.stat().st_mtime_ns) == before
+
+    writable = connection(path)
+    assert writable.execute("PRAGMA user_version").fetchone()[0] == 4
+    assert writable.execute(
+        "SELECT review_cohort FROM choice_prompts WHERE choice_id='CHOICE-001'"
+    ).fetchone()[0] is None
+    writable.close()
+
+
+def test_health_reports_legacy_workspace_variants_without_merging(tmp_path: Path) -> None:
+    db = connection(tmp_path / "legacy-health.sqlite3")
+    select(db, "CANONICAL", workspace="mira-core", lane="repository")
+    select(db, "PATH-ALIAS", workspace="temporary", lane="notes")
+    db.execute("DROP TRIGGER choice_prompts_no_update")
+    db.execute(
+        r"UPDATE choice_prompts SET workspace='C:\dev\mira-core' WHERE choice_id='PATH-ALIAS'"
+    )
+    db.execute(
+        "CREATE TRIGGER choice_prompts_no_update BEFORE UPDATE ON choice_prompts "
+        "BEGIN SELECT RAISE(ABORT, 'choice prompts are immutable'); END"
+    )
+    db.commit()
+    health = choice_ledger.choice_health(
+        db,
+        tenant="tenant-a",
+        workspace="mira-core",
+        review_cohort="mira-core-natural-use-v1",
+        as_of="2026-08-02T12:00:00+00:00",
+    )
+    legacy = health["legacy_scope_diagnostics"]
+    assert legacy["null_cohort_count"] == 2
+    assert legacy["variants_merged_or_rewritten"] is False
+    assert {item["workspace"] for item in legacy["scope_variants"]} == {
+        "mira-core",
+        r"C:\dev\mira-core",
+    }
+    assert legacy["contains_private_prose"] is False
+    db.close()
+
+
+def test_outcome_cli_requires_explicit_scope_and_cohort_disposition() -> None:
+    base = ["outcome", "--choice-id", "CHOICE-001", "--idempotency-key", "event-1"]
+    with pytest.raises(SystemExit):
+        choice_ledger.parse_args(base)
+    scoped = base + [
+        "--tenant", "tenant-a", "--workspace", "workspace-a", "--lane", "lane-a"
+    ]
+    with pytest.raises(SystemExit):
+        choice_ledger.parse_args(scoped)
+    assert choice_ledger.parse_args(scoped + ["--no-review-cohort"]).review_cohort is None
+    assert choice_ledger.parse_args(
+        scoped + ["--review-cohort", "mira-core-natural-use-v1"]
+    ).review_cohort == "mira-core-natural-use-v1"
+    with pytest.raises(SystemExit):
+        choice_ledger.parse_args(
+            scoped
+            + ["--review-cohort", "mira-core-natural-use-v1", "--no-review-cohort"]
+        )
+
+
+def test_public_powershell_due_health_and_outcome_commands(tmp_path: Path) -> None:
+    path = tmp_path / "public-command.sqlite3"
+    db = connection(path)
+    select(
+        db,
+        "PUBLIC-DUE",
+        workspace="mira-core",
+        lane="notes",
+        review_cohort="mira-core-natural-use-v1",
+    )
+    close(db, "PUBLIC-DUE")
+    select(
+        db,
+        "PUBLIC-OUTCOME",
+        workspace="mira-core",
+        lane="essays",
+        review_cohort="mira-core-natural-use-v1",
+    )
+    db.close()
+    runner = REPO_ROOT / "tools" / "run.ps1"
+    command_environment = os.environ.copy()
+    command_environment[choice_ledger.DB_ENV] = str(path)
+    command_environment.pop("NARRATIVE_CHOICE_DB", None)
+
+    def run_choice(*arguments: str) -> subprocess.CompletedProcess[str]:
+        return subprocess.run(
+            [
+                "powershell.exe",
+                "-NoProfile",
+                "-ExecutionPolicy",
+                "Bypass",
+                "-File",
+                str(runner),
+                "choice",
+                *arguments,
+            ],
+            cwd=REPO_ROOT,
+            capture_output=True,
+            text=True,
+            check=False,
+            env=command_environment,
+        )
+
+    before = path.read_bytes()
+    due = run_choice(
+        "due",
+        "--tenant", "tenant-a",
+        "--workspace", "mira-core",
+        "--review-cohort", "mira-core-natural-use-v1",
+        "--minimum-age-hours", "24",
+        "--limit", "1",
+        "--as-of", "2026-08-02T12:00:00+00:00",
+        "--json",
+    )
+    assert due.returncode == 0, due.stderr
+    assert json.loads(due.stdout)["candidates"][0]["choice_id"] == "PUBLIC-DUE"
+    health = run_choice(
+        "health",
+        "--tenant", "tenant-a",
+        "--workspace", "mira-core",
+        "--review-cohort", "mira-core-natural-use-v1",
+        "--as-of", "2026-08-02T12:00:00+00:00",
+        "--json",
+    )
+    assert health.returncode == 0, health.stderr
+    health_payload = json.loads(health.stdout)
+    assert health_payload["contains_private_prose"] is False
+    assert path.read_bytes() == before
+
+    recorded = run_choice(
+        "outcome",
+        "--choice-id", "PUBLIC-OUTCOME",
+        "--idempotency-key", "public-command-outcome",
+        "--occurred-at", "2026-08-02T12:00:00+00:00",
+        "--result", "not_observable",
+        "--tenant", "tenant-a",
+        "--workspace", "mira-core",
+        "--lane", "essays",
+        "--review-cohort", "mira-core-natural-use-v1",
+    )
+    assert recorded.returncode == 0, recorded.stderr
+    payload = json.loads(recorded.stdout)
+    assert payload["event_type"] == "outcome_recorded"
+    assert "Inspect the bounded evidence" not in recorded.stdout
+    assert "Decision PUBLIC-OUTCOME" not in recorded.stdout

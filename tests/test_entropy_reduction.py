@@ -510,7 +510,10 @@ def test_coffee_delegates_choice_store_compatibility_to_runtime() -> None:
         REPO_ROOT / "docs" / "skill-drafts" / "coffee" / "SKILL.md"
     ).read_text(encoding="utf-8")
     normalized = " ".join(coffee.split())
+    assert "tools/run.ps1 choice due" in coffee
+    assert "--review-cohort" in coffee
     assert "tools/run.ps1 choice --format json review" in coffee
+    assert "due item is only a candidate" in normalized
     assert "deprecated `NARRATIVE_CHOICE_DB` compatibility variable" in normalized
     assert "Never declare choice retention unavailable" in normalized
     assert "canonical variable is empty" in normalized

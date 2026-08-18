@@ -10,7 +10,7 @@ import sqlite3
 import sys
 import tempfile
 from dataclasses import dataclass
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any, Iterable
 
@@ -18,19 +18,20 @@ from runtime_names import resolve_environment
 from portable_paths import PortablePathError, require_private_path as portable_private_path
 
 
-SCHEMA_VERSION = 3
-READABLE_SCHEMA_VERSIONS = frozenset({1, 2, SCHEMA_VERSION})
+SCHEMA_VERSION = 4
+READABLE_SCHEMA_VERSIONS = frozenset({1, 2, 3, SCHEMA_VERSION})
 PROJECTION_VERSION = "1.1"
 REVIEW_PROJECTION_VERSION = "2.0"
 DB_ENV = "MIRA_CORE_CHOICE_DB"
 GRACEFUL_CONNECTION_FAILURE_COMMANDS = frozenset(
-    {"context", "review", "select", "close"}
+    {"context", "review", "due", "health", "select", "close"}
 )
-READ_ONLY_COMMANDS = frozenset({"context", "review", "show", "verify"})
+READ_ONLY_COMMANDS = frozenset({"context", "review", "due", "health", "show", "verify"})
 REPO_ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_DB_PATH = REPO_ROOT / ".mira-private" / "state" / "choice-history.sqlite3"
 SQLITE_HEADER = b"SQLite format 3\x00"
 AUTHORITY_EFFECT = "none"
+DEFAULT_OBSERVATION_DELAY_HOURS = 24
 ROLES = ("recommended", "alternative", "overlooked", "pause-or-deepen")
 EVENT_TYPES = (
     "branch_selected",
@@ -62,10 +63,43 @@ SECRET_RE = re.compile(
 )
 CONTROL_RE = re.compile(r"[\x00-\x08\x0b\x0c\x0e-\x1f\x7f]")
 IDENTIFIER_RE = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._:-]{0,119}$")
+PATH_SHAPED_WORKSPACE_RE = re.compile(r"(?:^[A-Za-z]:[\\/]|[\\/])")
 
 
 class ChoiceError(ValueError):
     pass
+
+
+def canonical_workspace(value: str) -> str:
+    workspace = sanitize_text(value, limit=120)
+    if PATH_SHAPED_WORKSPACE_RE.search(workspace):
+        raise ChoiceError("workspace must be a stable identifier, not a filesystem path")
+    return workspace
+
+
+def add_hours(value: str, hours: int) -> str:
+    timestamp = datetime.fromisoformat(validate_timestamp(value).replace("Z", "+00:00"))
+    return (timestamp + timedelta(hours=hours)).isoformat()
+
+
+def migration_required_payload(
+    connection: sqlite3.Connection, *, command: str, review_cohort: str
+) -> dict[str, Any] | None:
+    version = int(connection.execute("PRAGMA user_version").fetchone()[0])
+    if version >= 4:
+        return None
+    return {
+        "projection_kind": "choice-migration-required",
+        "projection_version": PROJECTION_VERSION,
+        "status": "migration-required",
+        "command": command,
+        "review_cohort": sanitize_identifier(review_cohort),
+        "current_schema_version": version,
+        "required_schema_version": 4,
+        "migration_trigger": "the next authorized writable choice operation",
+        "store_changed": False,
+        "authority_effect": AUTHORITY_EFFECT,
+    }
 
 
 @dataclass(frozen=True)
@@ -282,6 +316,7 @@ def migrate(connection: sqlite3.Connection) -> None:
                     tenant TEXT NOT NULL,
                     workspace TEXT NOT NULL,
                     lane TEXT NOT NULL,
+                    review_cohort TEXT,
                     choice_kind TEXT NOT NULL,
                     consequence_level TEXT NOT NULL,
                     decision_summary TEXT NOT NULL,
@@ -325,6 +360,10 @@ def migrate(connection: sqlite3.Connection) -> None:
                 CREATE INDEX IF NOT EXISTS choice_prompts_scope_selected
                     ON choice_prompts(
                         tenant, workspace, lane, selected_at_utc_us, choice_id
+                    );
+                CREATE INDEX IF NOT EXISTS choice_prompts_cohort_selected
+                    ON choice_prompts(
+                        tenant, workspace, review_cohort, selected_at_utc_us, choice_id
                     );
                 CREATE TRIGGER IF NOT EXISTS choice_events_no_update
                     BEFORE UPDATE ON choice_events BEGIN
@@ -422,6 +461,29 @@ def migrate(connection: sqlite3.Connection) -> None:
                     SELECT RAISE(ABORT, 'choice events are append-only'); END"""
             )
             connection.execute("PRAGMA user_version = 3")
+    version = int(connection.execute("PRAGMA user_version").fetchone()[0])
+    if version == 3:
+        with connection:
+            connection.execute("BEGIN IMMEDIATE")
+            connection.execute("DROP TRIGGER IF EXISTS choice_prompts_no_update")
+            columns = {
+                row[1] for row in connection.execute("PRAGMA table_info(choice_prompts)")
+            }
+            if "review_cohort" not in columns:
+                connection.execute(
+                    "ALTER TABLE choice_prompts ADD COLUMN review_cohort TEXT"
+                )
+            connection.execute(
+                "CREATE TRIGGER choice_prompts_no_update "
+                "BEFORE UPDATE ON choice_prompts BEGIN "
+                "SELECT RAISE(ABORT, 'choice prompts are immutable'); END"
+            )
+            connection.execute(
+                "CREATE INDEX IF NOT EXISTS choice_prompts_cohort_selected "
+                "ON choice_prompts(tenant, workspace, review_cohort, "
+                "selected_at_utc_us, choice_id)"
+            )
+            connection.execute("PRAGMA user_version = 4")
 
 
 def create_backup(path: Path, destination: Path) -> Path:
@@ -472,10 +534,16 @@ def inspect_store(path: Path) -> dict[str, Any]:
     connection.row_factory = sqlite3.Row
     try:
         integrity = str(connection.execute("PRAGMA integrity_check").fetchone()[0])
+        prompt_columns = {
+            row[1] for row in connection.execute("PRAGMA table_info(choice_prompts)")
+        }
+        cohort_projection = (
+            "review_cohort" if "review_cohort" in prompt_columns else "NULL AS review_cohort"
+        )
         prompt_rows = [
             dict(row)
             for row in connection.execute(
-                "SELECT choice_id, tenant, workspace, lane, choice_kind, "
+                f"SELECT choice_id, tenant, workspace, lane, {cohort_projection}, choice_kind, "
                 "consequence_level, decision_summary, actor, presented_at, "
                 "selected_at, options_json, options_hash, recommended_key, "
                 "selected_key, learning_refs_json, success_signals_json, "
@@ -643,6 +711,7 @@ def select_branch(
     presented_at: str,
     selected_at: str,
     idempotency_key: str,
+    review_cohort: str | None = None,
     learning_refs: Iterable[Any] | None = None,
     success_signals: Iterable[Any] | None = None,
     risk_signals: Iterable[Any] | None = None,
@@ -656,8 +725,11 @@ def select_branch(
     prompt = {
         "choice_id": sanitize_identifier(choice_id),
         "tenant": sanitize_text(tenant, limit=120),
-        "workspace": sanitize_text(workspace, limit=240),
+        "workspace": canonical_workspace(workspace),
         "lane": sanitize_text(lane, limit=120),
+        "review_cohort": (
+            sanitize_identifier(review_cohort) if review_cohort else None
+        ),
         "choice_kind": sanitize_text(choice_kind, limit=120),
         "consequence_level": sanitize_text(consequence_level, limit=80),
         "decision_summary": sanitize_text(decision_summary),
@@ -718,7 +790,12 @@ def select_branch(
                 "options_hash": prompt["options_hash"],
                 "authority_effect": AUTHORITY_EFFECT,
                 "no_execution_authority": NO_AUTHORITY,
-            },
+            }
+            | (
+                {"review_cohort": prompt["review_cohort"]}
+                if prompt["review_cohort"]
+                else {}
+            ),
         )
     return {
         "retained": True,
@@ -794,11 +871,28 @@ def append_choice_event(
     safety_incident: bool = False,
     lane_incident: bool = False,
     supersedes_event_id: str | None = None,
+    tenant: str | None = None,
+    workspace: str | None = None,
+    lane: str | None = None,
+    review_cohort: str | None = None,
 ) -> dict[str, Any]:
-    if not connection.execute(
-        "SELECT 1 FROM choice_prompts WHERE choice_id=?", (choice_id,)
-    ).fetchone():
+    prompt = connection.execute(
+        "SELECT tenant, workspace, lane, review_cohort FROM choice_prompts WHERE choice_id=?",
+        (choice_id,),
+    ).fetchone()
+    if not prompt:
         raise ChoiceError("choice does not exist")
+    supplied_scope = (
+        sanitize_text(tenant, limit=120) if tenant is not None else None,
+        canonical_workspace(workspace) if workspace is not None else None,
+        sanitize_text(lane, limit=120) if lane is not None else None,
+        sanitize_identifier(review_cohort) if review_cohort else None,
+    )
+    expected_scope = (
+        prompt["tenant"], prompt["workspace"], prompt["lane"], prompt["review_cohort"]
+    )
+    if any(value is not None for value in supplied_scope) and supplied_scope != expected_scope:
+        raise ChoiceError("choice is outside the requested scope or review cohort")
     if event_type == "outcome_recorded" and result not in RESULTS:
         raise ChoiceError("outcome_recorded requires a bounded result")
     if cognitive_load not in COGNITIVE_LOAD:
@@ -864,20 +958,27 @@ def close_branch(
     tenant: str | None = None,
     workspace: str | None = None,
     lane: str | None = None,
+    review_cohort: str | None = None,
 ) -> dict[str, Any]:
     if reason not in CLOSURE_REASONS:
         raise ChoiceError("branch closure requires a bounded reason")
     prompt = connection.execute(
-        "SELECT tenant, workspace, lane FROM choice_prompts WHERE choice_id=?",
+        "SELECT tenant, workspace, lane, review_cohort FROM choice_prompts WHERE choice_id=?",
         (choice_id,),
     ).fetchone()
     if not prompt:
         raise ChoiceError("choice does not exist")
-    supplied_scope = (tenant, workspace, lane)
+    supplied_scope = (
+        tenant,
+        canonical_workspace(workspace) if workspace is not None else None,
+        lane,
+        sanitize_identifier(review_cohort) if review_cohort else None,
+    )
     if any(value is not None for value in supplied_scope) and supplied_scope != (
         prompt["tenant"],
         prompt["workspace"],
         prompt["lane"],
+        prompt["review_cohort"],
     ):
         raise ChoiceError("choice is outside the requested scope")
     payload = {
@@ -904,12 +1005,13 @@ def close_branch(
             raise ChoiceError("choice branch is already closed")
         if _current_outcome(_events(connection, choice_id)):
             raise ChoiceError("resolved choice cannot be closed")
+    closed_at = validate_timestamp(occurred_at)
     with connection:
         event, created = _append_event(
             connection,
             choice_id=choice_id,
             event_type="branch_closed",
-            occurred_at=validate_timestamp(occurred_at),
+            occurred_at=closed_at,
             idempotency_key=idempotency_key,
             payload=payload,
         )
@@ -920,6 +1022,16 @@ def close_branch(
         "event_id": event["event_id"],
         "event_type": "branch_closed",
         "reason": reason,
+        "review_cohort": prompt["review_cohort"],
+        "observation_status": (
+            "pending" if prompt["review_cohort"] else "not-enrolled"
+        ),
+        "observation_eligible_after": (
+            add_hours(closed_at, DEFAULT_OBSERVATION_DELAY_HOURS)
+            if prompt["review_cohort"]
+            else None
+        ),
+        "candidate_is_not_observation": True,
         "authority_effect": AUTHORITY_EFFECT,
     }
 
@@ -976,6 +1088,9 @@ def _project_choice_rows(
             "tenant": row["tenant"],
             "workspace": row["workspace"],
             "lane": row["lane"],
+            "review_cohort": (
+                row["review_cohort"] if "review_cohort" in row.keys() else None
+            ),
             "choice_kind": row["choice_kind"],
             "consequence_level": row["consequence_level"],
             "decision_summary": row["decision_summary"],
@@ -1143,19 +1258,32 @@ def verify_choice(connection: sqlite3.Connection, choice_id: str) -> dict[str, A
 
 
 def scoped_choices(
-    connection: sqlite3.Connection, *, tenant: str, workspace: str, lane: str
+    connection: sqlite3.Connection,
+    *,
+    tenant: str,
+    workspace: str,
+    lane: str | None = None,
+    review_cohort: str | None = None,
 ) -> list[dict[str, Any]]:
     version = int(connection.execute("PRAGMA user_version").fetchone()[0])
+    if review_cohort is not None and version < 4:
+        return []
     order = (
         "selected_at_utc_us, choice_id"
         if version >= 2
         else "choice_id"
     )
+    if review_cohort is not None:
+        where = "tenant=? AND workspace=? AND review_cohort=?"
+        parameters = (tenant, workspace, review_cohort)
+    elif lane is not None:
+        where = "tenant=? AND workspace=? AND lane=?"
+        parameters = (tenant, workspace, lane)
+    else:
+        raise ChoiceError("scope requires either lane or review cohort")
     prompts = connection.execute(
-        "SELECT * FROM choice_prompts "
-        "WHERE tenant=? AND workspace=? AND lane=? "
-        f"ORDER BY {order}",
-        (tenant, workspace, lane),
+        f"SELECT * FROM choice_prompts WHERE {where} ORDER BY {order}",
+        parameters,
     ).fetchall()
     if version == 1:
         prompts = sorted(
@@ -1165,9 +1293,9 @@ def scoped_choices(
     event_rows = connection.execute(
         "SELECT choice_events.* FROM choice_events "
         "JOIN choice_prompts USING(choice_id) "
-        "WHERE tenant=? AND workspace=? AND lane=? "
+        f"WHERE {where} "
         "ORDER BY choice_events.choice_id, choice_events.sequence",
-        (tenant, workspace, lane),
+        parameters,
     ).fetchall()
     events_by_choice: dict[str, list[dict[str, Any]]] = {
         row["choice_id"]: [] for row in prompts
@@ -1186,10 +1314,17 @@ def learning_context(
     tenant: str,
     workspace: str,
     lane: str,
+    review_cohort: str | None = None,
     choice_kind: str | None = None,
     consequence_level: str | None = None,
 ) -> dict[str, Any]:
-    choices = scoped_choices(connection, tenant=tenant, workspace=workspace, lane=lane)
+    choices = scoped_choices(
+        connection,
+        tenant=tenant,
+        workspace=canonical_workspace(workspace),
+        lane=None if review_cohort else lane,
+        review_cohort=review_cohort,
+    )
     comparable = [
         item
         for item in choices
@@ -1230,7 +1365,12 @@ def learning_context(
             }
     return {
         "projection_version": PROJECTION_VERSION,
-        "scope": {"tenant": tenant, "workspace": workspace, "lane": lane},
+        "scope": {
+            "tenant": tenant,
+            "workspace": canonical_workspace(workspace),
+            "lane": None if review_cohort else lane,
+            "review_cohort": review_cohort,
+        },
         "comparable_resolved_count": len(comparable),
         "evidence_strength": "thin" if len(comparable) < 3 else "eligible",
         "recommendation_influence": influence,
@@ -1249,9 +1389,20 @@ def learning_context(
 
 
 def review_scorecard(
-    connection: sqlite3.Connection, *, tenant: str, workspace: str, lane: str
+    connection: sqlite3.Connection,
+    *,
+    tenant: str,
+    workspace: str,
+    lane: str | None = None,
+    review_cohort: str | None = None,
 ) -> dict[str, Any]:
-    choices = scoped_choices(connection, tenant=tenant, workspace=workspace, lane=lane)
+    choices = scoped_choices(
+        connection,
+        tenant=tenant,
+        workspace=workspace,
+        lane=lane,
+        review_cohort=review_cohort,
+    )
     resolved = [item for item in choices if item["current_state"] == "resolved"]
     pilot = resolved[:5]
 
@@ -1364,6 +1515,12 @@ def review_scorecard(
         "eligible_resolved": len(cohort),
         "needed": max(cohort_target - len(cohort), 0),
         "cohort_choice_ids": cohort_choice_ids,
+        "scope": {
+            "tenant": tenant,
+            "workspace": workspace,
+            "lane": None if review_cohort else lane,
+            "review_cohort": review_cohort,
+        },
         "primary_measures": primary,
         "observation_gaps": observation_gaps,
         "extension_trigger_gaps": extension_trigger_gaps,
@@ -1381,6 +1538,194 @@ def review_scorecard(
             "Descriptive pilot evidence; comparable-outcome thresholds separately "
             "control recommendation changes."
         ),
+    }
+
+
+def due_outcomes(
+    connection: sqlite3.Connection,
+    *,
+    tenant: str,
+    workspace: str,
+    review_cohort: str,
+    minimum_age_hours: int,
+    limit: int,
+    as_of: str,
+) -> dict[str, Any]:
+    if minimum_age_hours < 0:
+        raise ChoiceError("minimum age hours cannot be negative")
+    if limit < 1 or limit > 100:
+        raise ChoiceError("due limit must be between 1 and 100")
+    cutoff = datetime.fromisoformat(validate_timestamp(as_of).replace("Z", "+00:00")) - timedelta(
+        hours=minimum_age_hours
+    )
+    choices = scoped_choices(
+        connection,
+        tenant=tenant,
+        workspace=canonical_workspace(workspace),
+        review_cohort=sanitize_identifier(review_cohort),
+    )
+    candidates = []
+    for item in choices:
+        if item["current_state"] != "closed":
+            continue
+        closed_at = datetime.fromisoformat(
+            item["closure"]["occurred_at"].replace("Z", "+00:00")
+        )
+        if closed_at > cutoff:
+            continue
+        candidates.append(
+            {
+                "choice_id": item["choice"]["choice_id"],
+                "lane": item["choice"]["lane"],
+                "closed_at": item["closure"]["occurred_at"],
+                "closure_reason": item["closure"]["reason"],
+                "candidate_only": True,
+            }
+        )
+    candidates.sort(key=lambda item: (item["closed_at"], item["choice_id"]))
+    return {
+        "projection_kind": "choice-outcome-due",
+        "projection_version": PROJECTION_VERSION,
+        "scope": {
+            "tenant": tenant,
+            "workspace": canonical_workspace(workspace),
+            "review_cohort": review_cohort,
+        },
+        "as_of": validate_timestamp(as_of),
+        "minimum_age_hours": minimum_age_hours,
+        "due_count": len(candidates),
+        "candidates": candidates[:limit],
+        "candidate_is_not_observation": True,
+        "authority_effect": AUTHORITY_EFFECT,
+    }
+
+
+def legacy_scope_diagnostics(
+    connection: sqlite3.Connection, *, canonical_workspace_id: str
+) -> dict[str, Any]:
+    version = int(connection.execute("PRAGMA user_version").fetchone()[0])
+    if version < 4:
+        return {
+            "available": False,
+            "reason": "migration-required",
+            "variants_merged_or_rewritten": False,
+        }
+    canonical = canonical_workspace(canonical_workspace_id)
+    rows = connection.execute(
+        "SELECT tenant, workspace, lane, COUNT(*) AS choices "
+        "FROM choice_prompts WHERE review_cohort IS NULL "
+        "GROUP BY tenant, workspace, lane ORDER BY tenant, workspace, lane"
+    ).fetchall()
+    variants = []
+    for row in rows:
+        workspace = str(row["workspace"])
+        path_shaped = bool(PATH_SHAPED_WORKSPACE_RE.search(workspace))
+        basename = re.split(r"[\\/]", workspace.rstrip("\\/"))[-1]
+        if workspace.casefold() != canonical.casefold() and not (
+            path_shaped and basename.casefold() == canonical.casefold()
+        ):
+            continue
+        variants.append(
+            {
+                "tenant": row["tenant"],
+                "workspace": workspace,
+                "lane": row["lane"],
+                "choices": row["choices"],
+                "path_shaped_workspace": path_shaped,
+            }
+        )
+    return {
+        "available": True,
+        "canonical_workspace": canonical,
+        "null_cohort_count": sum(item["choices"] for item in variants),
+        "scope_variants": variants,
+        "variants_merged_or_rewritten": False,
+        "contains_private_prose": False,
+    }
+
+
+def choice_health(
+    connection: sqlite3.Connection,
+    *,
+    tenant: str,
+    workspace: str,
+    review_cohort: str,
+    as_of: str,
+    minimum_age_hours: int = 24,
+) -> dict[str, Any]:
+    workspace = canonical_workspace(workspace)
+    review_cohort = sanitize_identifier(review_cohort)
+    choices = scoped_choices(
+        connection,
+        tenant=tenant,
+        workspace=workspace,
+        review_cohort=review_cohort,
+    )
+    states = {name: 0 for name in ("unresolved", "closed", "resolved", "superseded")}
+    for item in choices:
+        states[item["current_state"]] += 1
+    due = due_outcomes(
+        connection,
+        tenant=tenant,
+        workspace=workspace,
+        review_cohort=review_cohort,
+        minimum_age_hours=minimum_age_hours,
+        limit=1,
+        as_of=as_of,
+    )
+    timestamps = {"selection": [], "closure": [], "outcome": []}
+    for item in choices:
+        timestamps["selection"].append(item["choice"]["selected_at"])
+        if item["closure"]:
+            timestamps["closure"].append(item["closure"]["occurred_at"])
+        if item["outcome"]:
+            timestamps["outcome"].append(item["outcome"]["occurred_at"])
+    version = int(connection.execute("PRAGMA user_version").fetchone()[0])
+    variants = (
+        [
+            dict(row)
+            for row in connection.execute(
+                "SELECT tenant, workspace, lane, COUNT(*) AS choices "
+                "FROM choice_prompts WHERE review_cohort=? "
+                "GROUP BY tenant, workspace, lane ORDER BY tenant, workspace, lane",
+                (review_cohort,),
+            ).fetchall()
+        ]
+        if version >= 4
+        else []
+    )
+    observed = states["resolved"]
+    denominator = states["closed"] + observed
+    return {
+        "projection_kind": "choice-health",
+        "projection_version": PROJECTION_VERSION,
+        "scope": {
+            "tenant": tenant,
+            "workspace": workspace,
+            "review_cohort": review_cohort,
+        },
+        "lifecycle_counts": {"selected": len(choices), **states},
+        "outcome_coverage": {
+            "numerator": observed,
+            "denominator": denominator,
+            "ratio": (observed / denominator) if denominator else None,
+        },
+        "last_event_at": {
+            name: max(values) if values else None for name, values in timestamps.items()
+        },
+        "due_count": due["due_count"],
+        "cohort_progress": review_scorecard(
+            connection,
+            tenant=tenant,
+            workspace=workspace,
+            review_cohort=review_cohort,
+        ),
+        "scope_variants": variants,
+        "legacy_scope_diagnostics": legacy_scope_diagnostics(
+            connection, canonical_workspace_id=workspace
+        ),
+        "contains_private_prose": False,
+        "authority_effect": AUTHORITY_EFFECT,
     }
 
 
@@ -1470,10 +1815,12 @@ def unavailable_payload(
     }
 
 
-def add_scope(parser: argparse.ArgumentParser) -> None:
+def add_scope(parser: argparse.ArgumentParser, *, include_cohort: bool = True) -> None:
     parser.add_argument("--tenant", default="local-operator")
     parser.add_argument("--workspace", default="mira-core")
     parser.add_argument("--lane", default="repository")
+    if include_cohort:
+        parser.add_argument("--review-cohort")
 
 
 def parse_args(arguments: list[str] | None = None) -> argparse.Namespace:
@@ -1505,6 +1852,12 @@ def parse_args(arguments: list[str] | None = None) -> argparse.Namespace:
     select.add_argument("--dry-run", action="store_true")
 
     outcome = subparsers.add_parser("outcome", help="Append an outcome or lifecycle event.")
+    outcome.add_argument("--tenant", required=True)
+    outcome.add_argument("--workspace", required=True)
+    outcome.add_argument("--lane", required=True)
+    outcome_cohort = outcome.add_mutually_exclusive_group(required=True)
+    outcome_cohort.add_argument("--review-cohort")
+    outcome_cohort.add_argument("--no-review-cohort", action="store_true")
     outcome.add_argument("--choice-id", required=True)
     outcome.add_argument("--event-type", choices=EVENT_TYPES[1:], default="outcome_recorded")
     outcome.add_argument("--idempotency-key", required=True)
@@ -1538,6 +1891,27 @@ def parse_args(arguments: list[str] | None = None) -> argparse.Namespace:
         "review", help="Read the deterministic staged five-to-ten scorecard."
     )
     add_scope(review)
+
+    due = subparsers.add_parser(
+        "due", help="List closed choices that are candidates for later observation."
+    )
+    due.add_argument("--tenant", default="local-operator")
+    due.add_argument("--workspace", default="mira-core")
+    due.add_argument("--review-cohort", required=True)
+    due.add_argument("--minimum-age-hours", type=int, default=24)
+    due.add_argument("--limit", type=int, default=1)
+    due.add_argument("--as-of")
+    due.add_argument("--json", action="store_true")
+
+    health = subparsers.add_parser(
+        "health", help="Report content-free lifecycle and cohort diagnostics."
+    )
+    health.add_argument("--tenant", default="local-operator")
+    health.add_argument("--workspace", default="mira-core")
+    health.add_argument("--review-cohort", required=True)
+    health.add_argument("--minimum-age-hours", type=int, default=24)
+    health.add_argument("--as-of")
+    health.add_argument("--json", action="store_true")
 
     show = subparsers.add_parser("show", help="Project one choice and its event history.")
     show.add_argument("--choice-id", required=True)
@@ -1616,7 +1990,7 @@ def main(arguments: list[str] | None = None) -> int:
     resolution = resolve_store(
         args.db,
         require_exists=args.command
-        in {"context", "review", "show", "verify", "backup", "backup-status", "close"},
+        in {"context", "review", "due", "health", "show", "verify", "backup", "backup-status", "close"},
     )
     if args.command == "recover":
         payload = {"would_recover": args.dry_run, "from": args.source, "to": args.to}
@@ -1636,7 +2010,7 @@ def main(arguments: list[str] | None = None) -> int:
             }.get(args.command, "choice event"),
         )
         print(json.dumps(payload, indent=2))
-        return 0 if args.command in {"context", "review", "select", "close"} else 2
+        return 0 if args.command in {"context", "review", "due", "health", "select", "close"} else 2
     if args.command == "backup":
         destination = create_backup(resolution.path, Path(args.to))
         status = compare_backup(resolution.path, destination)
@@ -1678,12 +2052,23 @@ def main(arguments: list[str] | None = None) -> int:
         print(json.dumps(payload, indent=2))
         return 0
     try:
-        if args.command == "context":
+        payload = None
+        review_cohort = getattr(args, "review_cohort", None)
+        if args.command in {"context", "review", "due", "health"} and review_cohort:
+            payload = migration_required_payload(
+                connection,
+                command=args.command,
+                review_cohort=review_cohort,
+            )
+        if payload is not None:
+            pass
+        elif args.command == "context":
             payload = learning_context(
                 connection,
                 tenant=args.tenant,
                 workspace=args.workspace,
                 lane=args.lane,
+                review_cohort=args.review_cohort,
                 choice_kind=args.choice_kind,
                 consequence_level=args.consequence_level,
             )
@@ -1706,6 +2091,7 @@ def main(arguments: list[str] | None = None) -> int:
                 learning_refs=args.learning_ref,
                 success_signals=args.success_signal,
                 risk_signals=args.risk_signal,
+                review_cohort=args.review_cohort,
             )
         elif args.command == "outcome":
             payload = append_choice_event(
@@ -1726,6 +2112,10 @@ def main(arguments: list[str] | None = None) -> int:
                 safety_incident=args.safety_incident,
                 lane_incident=args.lane_incident,
                 supersedes_event_id=args.supersedes_event_id,
+                tenant=args.tenant,
+                workspace=args.workspace,
+                lane=args.lane,
+                review_cohort=args.review_cohort,
             )
         elif args.command == "close":
             payload = close_branch(
@@ -1738,13 +2128,34 @@ def main(arguments: list[str] | None = None) -> int:
                 tenant=args.tenant,
                 workspace=args.workspace,
                 lane=args.lane,
+                review_cohort=args.review_cohort,
             )
         elif args.command == "review":
             payload = review_scorecard(
                 connection,
                 tenant=args.tenant,
+                workspace=canonical_workspace(args.workspace),
+                lane=None if args.review_cohort else args.lane,
+                review_cohort=args.review_cohort,
+            )
+        elif args.command == "due":
+            payload = due_outcomes(
+                connection,
+                tenant=args.tenant,
                 workspace=args.workspace,
-                lane=args.lane,
+                review_cohort=args.review_cohort,
+                minimum_age_hours=args.minimum_age_hours,
+                limit=args.limit,
+                as_of=args.as_of or utc_now(),
+            )
+        elif args.command == "health":
+            payload = choice_health(
+                connection,
+                tenant=args.tenant,
+                workspace=args.workspace,
+                review_cohort=args.review_cohort,
+                minimum_age_hours=args.minimum_age_hours,
+                as_of=args.as_of or utc_now(),
             )
         elif args.command == "show":
             payload = project_choice(connection, args.choice_id)
@@ -1791,6 +2202,8 @@ def main(arguments: list[str] | None = None) -> int:
         title = {
             "context": "Choice Learning Context",
             "review": "Staged Five-to-Ten Review",
+            "due": "Choice Outcome Candidates",
+            "health": "Choice Learning Health",
             "show": "Choice Projection",
             "verify": "Choice Chain Verification",
         }.get(args.command, "Choice Ledger Result")

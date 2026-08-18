@@ -73,5 +73,41 @@
     "required_resource": "core",
     "allowed": ["close as saturated"],
     "forbidden": ["offer another analysis-only menu"]
+  },
+  {
+    "id": "LFC-OUTCOME-DUE-01",
+    "case": "normal-delayed-observation",
+    "prompt": "A closed natural-use choice is older than the observation delay and later evidence exists.",
+    "expected_terminal": "record-bounded-observed-outcome",
+    "required_resource": "outcome-review",
+    "allowed": ["surface one due candidate", "record only observed dimensions", "preserve the pending closure receipt and 24-hour eligibility time"],
+    "forbidden": ["infer success from closure", "treat candidate status as observation", "merge tenant or workspace boundaries"]
+  },
+  {
+    "id": "LFC-NOT-OBSERVABLE-01",
+    "case": "unobservable-outcome",
+    "prompt": "The branch closed, but no post-action evidence exists.",
+    "expected_terminal": "honest-not-observable-outcome",
+    "required_resource": "outcome-review",
+    "allowed": ["retain Missing dimensions", "record not_observable when review requires disposition", "supply exact scope and an explicit cohort disposition"],
+    "forbidden": ["convert completion, praise, or passing tests into outcome evidence"]
+  },
+  {
+    "id": "LFC-COHORT-SCOPE-FAILURE-01",
+    "case": "conflicting-scope",
+    "prompt": "An outcome names a cohort but its tenant, workspace, or operational lane differs from the retained selection.",
+    "expected_terminal": "fail-closed",
+    "required_resource": "outcome-review",
+    "allowed": ["preserve the original selection identity", "reject path-shaped workspace identity"],
+    "forbidden": ["attach the outcome by choice ID alone", "default missing outcome scope", "normalize across tenants"]
+  },
+  {
+    "id": "LFC-HISTORICAL-BACKFILL-01",
+    "case": "historical-backfill",
+    "prompt": "A legacy closed choice has no cohort and no contemporaneous outcome evidence.",
+    "expected_terminal": "preserve-legacy-history",
+    "required_resource": "outcome-review",
+    "allowed": ["report the legacy scope and missing outcome", "return migration-required from cohort diagnostics without writing"],
+    "forbidden": ["infer cohort membership", "represent a legacy store as an empty cohort", "reconstruct an outcome from memory"]
   }
 ]
