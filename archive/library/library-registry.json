@@ -232,7 +232,56 @@
       },
       "status": "stub",
       "notes": "Repeated ARC authority across Persia [13], Russia [14], Rome, France, Germany, and India interface.",
-      "text_status": "missing"
+      "text_status": "available",
+      "text_bodies": [
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-004-STRABO-GEOGRAPHY-VOL-1-HAMILTON-FALCONER",
+          "work_title": "The Geography of Strabo, Volume 1 of 3",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-004-STRABO-GEOGRAPHY-VOL-1-HAMILTON-FALCONER.txt",
+          "text_sha256": "2359fdb2bcdb0133416c7eac8d07a58eae6f55408c77747921ac8c07e53e2162",
+          "text_bytes": 1337344,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "H. C. Hamilton and W. Falconer",
+          "editor": "",
+          "edition_label": "Project Gutenberg #44884, Hamilton/Falconer English translation, volume 1 of 3",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg identifies this ebook as public domain in the USA.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-004-STRABO-GEOGRAPHY-VOL-2-HAMILTON-FALCONER",
+          "work_title": "The Geography of Strabo, Volume 2 of 3",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-004-STRABO-GEOGRAPHY-VOL-2-HAMILTON-FALCONER.txt",
+          "text_sha256": "5101a92a1c09ef14dd455890afd7d77bc4033e74e1ca9ed4eadbb189b5700198",
+          "text_bytes": 991447,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "H. C. Hamilton and W. Falconer",
+          "editor": "",
+          "edition_label": "Project Gutenberg #44885, Hamilton/Falconer English translation, volume 2 of 3",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg identifies this ebook as public domain in the USA.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-004-STRABO-GEOGRAPHY-VOL-3-HAMILTON-FALCONER",
+          "work_title": "The Geography of Strabo, Volume 3 of 3",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-004-STRABO-GEOGRAPHY-VOL-3-HAMILTON-FALCONER.txt",
+          "text_sha256": "25ce4d3bef0565d3c3b333d1efa8fc59480b6a476ed2481f0f608eaaa6d9d7b9",
+          "text_bytes": 1193335,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "H. C. Hamilton and W. Falconer",
+          "editor": "",
+          "edition_label": "Project Gutenberg #44886, Hamilton/Falconer English translation, volume 3 of 3",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg identifies this ebook as public domain in the USA.",
+          "status": "available"
+        }
+      ],
+      "coverage_status": "complete-surviving-corpus",
+      "coverage_notes": "Portable store includes all three Project Gutenberg volumes of the Hamilton/Falconer English translation of The Geography of Strabo, covering the surviving Geography corpus represented by this source-authority record."
     },
     {
       "source_id": "LIB-ANCIENT-AUTHOR-005-DARIUS-I",
@@ -308,7 +357,26 @@
       },
       "status": "stub",
       "notes": "Direct Roman witness and recurrent ARC authority for Rome, Gaul/France, Germany, and Anglia frontier memory.",
-      "text_status": "missing"
+      "text_status": "available",
+      "text_bodies": [
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-006-JULIUS-CAESAR-COMMENTARIES-MCDEVITTE",
+          "work_title": "De Bello Gallico and Other Commentaries",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-006-JULIUS-CAESAR-COMMENTARIES-MCDEVITTE.txt",
+          "text_sha256": "7e1a58776d28d7385752c4be7931f80ad385d6aad28309f56e28f4bcd38f4789",
+          "text_bytes": 964554,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "W. A. McDevitte",
+          "editor": "",
+          "edition_label": "Project Gutenberg #10657, W. A. McDevitte English translation",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg identifies this ebook as public domain in the USA.",
+          "status": "available"
+        }
+      ],
+      "coverage_status": "principal-works",
+      "coverage_notes": "Portable store includes Project Gutenberg #10657, W. A. McDevitte English translation of De Bello Gallico and Other Commentaries, covering the Gallic War and Civil War commentaries represented by this source-authority record."
     },
     {
       "source_id": "LIB-ANCIENT-AUTHOR-007-TACITUS",
@@ -340,7 +408,71 @@
       },
       "status": "stub",
       "notes": "Major cross-civilizational imperial and frontier witness; Russia ARC gives [9] and Germany/France/Rome cite him directly.",
-      "text_status": "missing"
+      "text_status": "available",
+      "text_bodies": [
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-007-TACITUS-GERMANY-AGRICOLA",
+          "work_title": "The Germany and the Agricola of Tacitus",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-007-TACITUS-GERMANY-AGRICOLA.txt",
+          "text_sha256": "0e611d82cc35baa3fe1f6381ffc6e7aa20cc7f3f3d51c3e62ff93cd7b0f38b81",
+          "text_bytes": 314021,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "",
+          "editor": "",
+          "edition_label": "Project Gutenberg #7524 English edition",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg identifies this ebook as public domain in the USA.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-007-TACITUS-ANNALS-FIRST-SIX-GORDON",
+          "work_title": "The Reign of Tiberius, out of the First Six Annals of Tacitus",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-007-TACITUS-ANNALS-FIRST-SIX-GORDON.txt",
+          "text_sha256": "d702716cba1deefe61e5845ca8bd78bd1c7fb50e5f2a37d0bc6bb7aef4892e39",
+          "text_bytes": 646970,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "Thomas Gordon",
+          "editor": "",
+          "edition_label": "Project Gutenberg #7959, Thomas Gordon English translation, first six Annals",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg identifies this ebook as public domain in the USA.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-007-TACITUS-HISTORIES-FYFE",
+          "work_title": "Tacitus: The Histories, Volumes I and II",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-007-TACITUS-HISTORIES-FYFE.txt",
+          "text_sha256": "82e607ea2cc71ad3872d55c02597015f09a79a5c35c3172a0286b0396caf5d85",
+          "text_bytes": 744367,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "W. Hamilton Fyfe",
+          "editor": "",
+          "edition_label": "Project Gutenberg #16927, W. Hamilton Fyfe English translation",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg identifies this ebook as public domain in the USA.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-007-TACITUS-DIALOGUE-ORATORY-MURPHY",
+          "work_title": "A Dialogue Concerning Oratory",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-007-TACITUS-DIALOGUE-ORATORY-MURPHY.txt",
+          "text_sha256": "015194f5650c6609e880eccca9c882752b059507d6683c8eeee56e264da23725",
+          "text_bytes": 439627,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "",
+          "editor": "",
+          "edition_label": "Project Gutenberg #15017, Arthur Murphy English edition",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg identifies this ebook as public domain in the USA.",
+          "status": "available"
+        }
+      ],
+      "coverage_status": "selected-works",
+      "coverage_notes": "Portable store includes Project Gutenberg bodies for Germany/Agricola, the first six Annals as The Reign of Tiberius, Histories, and Dialogue Concerning Oratory. This is a strong selected-works set, not a complete surviving Tacitean corpus claim."
     },
     {
       "source_id": "LIB-ANCIENT-AUTHOR-008-CONFUCIUS-KONGZI",
@@ -413,7 +545,26 @@
       },
       "status": "stub",
       "notes": "China ARC source and dedicated Laozi MEM object for Daoist civilizational memory.",
-      "text_status": "missing"
+      "text_status": "available",
+      "text_bodies": [
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-009-LAOZI-TAO-TEH-KING-LEGGE",
+          "work_title": "The Tao Teh King, or the Tao and its Characteristics",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-009-LAOZI-TAO-TEH-KING-LEGGE.txt",
+          "text_sha256": "041568f8dfef3ac6c2deb7699756f9d26d6aa8669647f4ce611b0ed4a95b0db6",
+          "text_bytes": 80552,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "James Legge",
+          "editor": "",
+          "edition_label": "Project Gutenberg #216, James Legge English translation",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg identifies this ebook as public domain in the USA.",
+          "status": "available"
+        }
+      ],
+      "coverage_status": "principal-work",
+      "coverage_notes": "Portable store includes Project Gutenberg #216, James Legge English translation of The Tao Teh King / Tao Te Ching, the principal work represented by this source-authority record."
     },
     {
       "source_id": "LIB-ANCIENT-AUTHOR-010-SUNZI",
@@ -665,7 +816,26 @@
       },
       "status": "stub",
       "notes": "China ARC source and dedicated Mengzi MEM object.",
-      "text_status": "missing"
+      "text_status": "available",
+      "text_bodies": [
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-017-MENCIUS-MENGZI-CHINESE-GUTENBERG",
+          "work_title": "Mencius / Mengzi",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-017-MENCIUS-MENGZI-CHINESE-GUTENBERG.txt",
+          "text_sha256": "b473e52b00f0f77ba8eb982e5ca03d0358457c7efe0c0d10b8b7206ba8bad0d1",
+          "text_bytes": 163166,
+          "text_encoding": "utf-8",
+          "language": "chinese",
+          "translator": "",
+          "editor": "",
+          "edition_label": "Project Gutenberg #24178 Chinese text",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg identifies this ebook as public domain in the USA.",
+          "status": "available"
+        }
+      ],
+      "coverage_status": "principal-work",
+      "coverage_notes": "Portable store includes Project Gutenberg #24178 Chinese text of Mengzi / Mencius, the principal work represented by this source-authority record. No English translation is admitted in this body."
     },
     {
       "source_id": "LIB-ANCIENT-AUTHOR-018-ZHUANGZI",
@@ -691,7 +861,26 @@
       },
       "status": "stub",
       "notes": "China ARC admits Zhuangzi as ARC-T-ANCIENT source authority.",
-      "text_status": "missing"
+      "text_status": "available",
+      "text_bodies": [
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-018-ZHUANGZI-CHUANG-TZU-GILES",
+          "work_title": "Chuang Tzu: Mystic, Moralist, and Social Reformer",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-018-ZHUANGZI-CHUANG-TZU-GILES.txt",
+          "text_sha256": "71e7d719aa5b75b4cf234fcf02e38e5aa15a327c257ed77950504bfb758ca6c8",
+          "text_bytes": 685168,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "Herbert Allen Giles",
+          "editor": "",
+          "edition_label": "Project Gutenberg #59709, Herbert A. Giles English translation",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg identifies this ebook as public domain in the USA.",
+          "status": "available"
+        }
+      ],
+      "coverage_status": "principal-work",
+      "coverage_notes": "Portable store includes Project Gutenberg #59709, Herbert A. Giles English translation of Chuang Tzu, the principal work represented by this source-authority record."
     },
     {
       "source_id": "LIB-ANCIENT-AUTHOR-019-HAN-FEIZI",
@@ -717,7 +906,26 @@
       },
       "status": "stub",
       "notes": "China ARC admits Han Feizi as ARC-T-ANCIENT Legalist corpus.",
-      "text_status": "missing"
+      "text_status": "available",
+      "text_bodies": [
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-019-HAN-FEIZI-CHINESE-GUTENBERG",
+          "work_title": "Han Feizi",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-019-HAN-FEIZI-CHINESE-GUTENBERG.txt",
+          "text_sha256": "9f39689204b6105ccb95e501451d744dbb58c2ea97d8188f9d988e6bfa7da13a",
+          "text_bytes": 424103,
+          "text_encoding": "utf-8",
+          "language": "chinese",
+          "translator": "",
+          "editor": "",
+          "edition_label": "Project Gutenberg #24049 Chinese text",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg identifies this ebook as public domain in the USA.",
+          "status": "available"
+        }
+      ],
+      "coverage_status": "principal-work",
+      "coverage_notes": "Portable store includes Project Gutenberg #24049 Chinese text of Han Feizi, the principal work represented by this source-authority record. No English translation is admitted in this body."
     },
     {
       "source_id": "LIB-ANCIENT-AUTHOR-020-SIMA-QIAN",
@@ -974,7 +1182,56 @@
       },
       "status": "stub",
       "notes": "Persia ARC gives [5] for Cyropaedia/Anabasis; Rome ARC admits Hellenica/Anabasis.",
-      "text_status": "missing"
+      "text_status": "available",
+      "text_bodies": [
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-028-XENOPHON-ANABASIS-DAKYNS",
+          "work_title": "Anabasis",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-028-XENOPHON-ANABASIS-DAKYNS.txt",
+          "text_sha256": "48785a24a81d7aacd7a59593d2846ed2208e30242f5fe2e7f0a596282d710b87",
+          "text_bytes": 558580,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "Henry Graham Dakyns",
+          "editor": "",
+          "edition_label": "Project Gutenberg #1170, H. G. Dakyns English translation",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg identifies this ebook as public domain in the USA.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-028-XENOPHON-HELLENICA-DAKYNS",
+          "work_title": "Hellenica",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-028-XENOPHON-HELLENICA-DAKYNS.txt",
+          "text_sha256": "3dd4cd2bdf94b3eb79bff1fa01430618a3a195cc1db71b52ad9f26a910d80711",
+          "text_bytes": 759596,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "Henry Graham Dakyns",
+          "editor": "",
+          "edition_label": "Project Gutenberg #1174, H. G. Dakyns English translation",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg identifies this ebook as public domain in the USA.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-028-XENOPHON-CYROPAEDIA-DAKYNS-STAWELL",
+          "work_title": "Cyropaedia: The Education of Cyrus",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-028-XENOPHON-CYROPAEDIA-DAKYNS-STAWELL.txt",
+          "text_sha256": "bc4cce39e27ef1b43be758d63be853f7a8cd0c28332673061c5395cacd85637e",
+          "text_bytes": 668006,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "Henry Graham Dakyns",
+          "editor": "",
+          "edition_label": "Project Gutenberg #2085, H. G. Dakyns English translation revised by F. M. Stawell",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg identifies this ebook as public domain in the USA.",
+          "status": "available"
+        }
+      ],
+      "coverage_status": "principal-works",
+      "coverage_notes": "Portable store includes Project Gutenberg English translations of Anabasis, Hellenica, and Cyropaedia, the principal works named by this source-authority record. This is not a complete Xenophontic corpus claim."
     },
     {
       "source_id": "LIB-ANCIENT-AUTHOR-029-POLYBIUS",
