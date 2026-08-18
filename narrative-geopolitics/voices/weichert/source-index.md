@@ -4,7 +4,7 @@ This index routes the unified local Weichert corpus for `weichert` to the centra
 
 Source basis: `strategy-codex/statecraft/voices/weichert/weichert-index.md`.
 
-Corpus: 31 local route rows across 31 central archive source files.
+Corpus: 32 local route rows across 32 central archive source files.
 
 Status: `imported-corpus`
 
@@ -50,6 +50,7 @@ Status: `imported-corpus`
 | `2026-08-10` | (2) TRUMP DEMANDS REPARATIONS FROM IRAN | `guest` | `mario-nawfal` | [source](../../../archive/sources/geopolitics/sources/2026-08-10/source-2-trump-demands-reparations-from-iran-2026-08-10.md) |
 | `2026-08-13` | (3) BREAKING: CENTCOM TELLS ISRAEL TO PREPARE FOR WAR | `guest` | `mario-nawfal` | [source](../../../archive/sources/geopolitics/sources/2026-08-13/source-3-breaking-centcom-tells-israel-to-prepare-for-war-2026-08-13.md) |
 | `2026-08-16` | (4) IRAN WON'T PERMIT U.S. BASES TO RETURN TO GULF | `guest` | `mario-nawfal` | [source](../../../archive/sources/geopolitics/sources/2026-08-16/source-4-iran-won-t-permit-u-s-bases-to-return-to-gulf-2026-08-16.md) |
+| `2026-08-17` | (4) BREAKING: IRAN PROMISES WAR IF BLOCKADE NOT LIFTED | `guest` | `mario-nawfal` | [source](../../../archive/sources/geopolitics/sources/2026-08-17/source-4-breaking-iran-promises-war-if-blockade-not-lifted-2026-08-17.md) |
 
 ## Import Boundary
 

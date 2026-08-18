@@ -4,7 +4,7 @@ This index routes the unified local Crooke corpus for `crooke` to the central Na
 
 Source basis: `strategy-codex/statecraft/voices/crooke/crooke-index.md` plus already-local 2026 Crooke archive rows.
 
-Corpus: 78 local route rows across 78 central archive source files.
+Corpus: 80 local route rows across 80 central archive source files.
 
 Status: `imported-corpus`
 
@@ -97,6 +97,8 @@ Status: `imported-corpus`
 | `2026-08-10` | (2) Alastair Crooke : US Middle East Dominance is Ended | `guest` | `judging-freedom` | [source](../../../archive/sources/geopolitics/sources/2026-08-10/source-2-alastair-crooke-us-middle-east-dominance-is-ended-2026-08-10.md) |
 | `2026-08-13` | (3) Alastair Crooke: Iran & Russia Give Up on Diplomacy & Go on the Offensive | `guest` | `glenn-diesen` | [source](../../../archive/sources/geopolitics/sources/2026-08-13/source-3-alastair-crooke-iran-russia-give-up-on-diplomacy-go-on-the-offensive-2026-08-13.md) |
 | `2026-08-13` | Netanyahu's Reprise of the 'Iraq WMD Deceit' - Re-launched to Promote War on Iran | `author` | `crooke` | [source](../../../archive/sources/geopolitics/sources/2026-08-13/source-netanyahu-s-reprise-of-the-iraq-wmd-deceit-re-launched-to-promote-war-on-iran-2026-08-13.md) |
+| `2026-08-17` | (4) Alastair Crooke : The Consequence of More Netanyahu Lies | `guest` | `judging-freedom` | [source](../../../archive/sources/geopolitics/sources/2026-08-17/source-4-alastair-crooke-the-consequence-of-more-netanyahu-lies-2026-08-17.md) |
+| `2026-08-17` | (4) Alastair Crooke: Trump’s Card Just Broke the Status Quo | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2026-08-17/source-4-alastair-crooke-trump-s-card-just-broke-the-status-quo-2026-08-17.md) |
 
 ## Judgment Continuity
 

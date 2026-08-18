@@ -6,7 +6,7 @@ This index routes the unified local Henningsen corpus for `henningsen` to the ce
 
 Source basis: `archive/sources/geopolitics/source-manifest.json`.
 
-Corpus: 20 local route rows across 20 central archive source files.
+Corpus: 21 local route rows across 21 central archive source files.
 
 Status: `imported-corpus`
 
@@ -41,6 +41,7 @@ Status: `imported-corpus`
 | `2026-07-28` | Patrick Henningsen: Satellite Imagery Confirms Direct Yemeni Strike on Saudi Arabia's Yanbu Refinery | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2026-07-28/source-patrick-henningsen-satellite-imagery-confirms-direct-yemeni-strike-on-saudi-arabia-s-yanbu-refinery-2026-07-28.md) |
 | `2026-07-31` | IRAN WAR DRAGS IN UKRAINE, EGYPT, GULF — w/ Patrick Henningsen | `guest` | `mario-nawfal` | [source](../../../archive/sources/geopolitics/sources/2026-07-31/source-iran-war-drags-in-ukraine-egypt-gulf-w-patrick-henningsen-2026-07-31.md) |
 | `2026-08-05` | (1) Another CRUSHING Defeat: US Out Of Options In Iran \| Patrick Hennings | `guest` | `neutrality-studies` | [source](../../../archive/sources/geopolitics/sources/2026-08-05/source-1-another-crushing-defeat-us-out-of-options-in-iran-patrick-hennings-2026-08-05.md) |
+| `2026-08-17` | (4) Iran Breaking the Back of US Empire /Patrick Henningsen | `guest` | `daniel-davis` | [source](../../../archive/sources/geopolitics/sources/2026-08-17/source-4-iran-breaking-the-back-of-us-empire-patrick-henningsen-2026-08-17.md) |
 
 ## Import Boundary
 
