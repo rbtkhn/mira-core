@@ -1,0 +1,4 @@
+interface:
+  display_name: "Mira Sessions"
+  short_description: "Curate inactive session memorials"
+  default_prompt: "Use $mira-sessions to compose and validate a privacy-reviewed memorial of this canonical Continuity session."

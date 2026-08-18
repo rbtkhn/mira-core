@@ -1,5 +1,9 @@
 # Mira Archive
 
+Curated Mira-authored shelves include [`sessions/`](sessions/) for inactive,
+explicit-only session memorials. Its authored registry controls admission;
+private Archive catalog ingestion remains a separate operation.
+
 Mira Archive is Mira's model-independent, auditable memory and learning
 substrate. It preserves immutable bodies, cross-collection inventory,
 bitemporal records, neutral provenance, reproducible derivations, and bounded

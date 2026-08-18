@@ -9,6 +9,8 @@ def make_tree(root: Path) -> None:
     for relative in (
         "archive/notes/2026-08-17-note.md",
         "archive/essays/2026-08-17-essay.md",
+        "archive/sessions/registry.json",
+        "archive/schemas/session-memorial.schema.json",
         "projects/grace-gems/README.md",
         "archive/sources/geopolitics/source-manifest.json",
         "archive/sources/geopolitics/sources/2026-08-17/source-example.md",
@@ -115,6 +117,15 @@ def test_router_resolves_grace_gems_files_to_stewardship_review(
     assert report["commands"] == []
     assert report["manual_checks"] == [routing.MANUAL_GRACE_GEMS_CHECK]
     assert report["blockers"] == []
+
+
+def test_router_assigns_session_memorials_to_governing_validator(tmp_path: Path) -> None:
+    make_tree(tmp_path)
+    report = routing.build_report(["archive/sessions/registry.json", "archive/schemas/session-memorial.schema.json"], repo_root=tmp_path)
+    assert report["status"] == "manual-required"
+    assert report["owners"] == ["mira-sessions"]
+    assert report["commands"] == ["tools/run.ps1 mira-sessions validate"]
+    assert report["manual_checks"] == [routing.MANUAL_SESSION_MEMORIAL_CHECK]
 
 
 def test_router_blocks_unknown_duplicate_and_unsafe_paths(tmp_path: Path) -> None:

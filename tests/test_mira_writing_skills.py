@@ -5,7 +5,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def test_mira_writing_skills_have_minimal_metadata_and_ui_prompts() -> None:
-    for name in ("mira-notes", "mira-essays", "mira-letters"):
+    for name in ("mira-notes", "mira-essays", "mira-letters", "mira-sessions"):
         skill_root = ROOT / "docs" / "skill-drafts" / name
         text = (skill_root / "SKILL.md").read_text(encoding="utf-8")
         frontmatter = [
@@ -26,7 +26,7 @@ def test_mira_writing_skills_have_minimal_metadata_and_ui_prompts() -> None:
 def test_agents_routes_all_four_mira_writing_forms() -> None:
     agents = (ROOT / "AGENTS.md").read_text(encoding="utf-8")
 
-    for name in ("mira-journal", "mira-notes", "mira-essays", "mira-letters"):
+    for name in ("mira-journal", "mira-notes", "mira-essays", "mira-letters", "mira-sessions"):
         assert f"docs/skill-drafts/{name}/SKILL.md" in agents
 
 
@@ -47,6 +47,7 @@ def test_mira_writing_storage_is_separated() -> None:
     assert (ROOT / "archive" / "notes").is_dir()
     assert (ROOT / "archive" / "essays").is_dir()
     assert (ROOT / "archive" / "letters").is_dir()
+    assert (ROOT / "archive" / "sessions").is_dir()
     assert not (ROOT / "mira" / "notes").exists()
     assert not (ROOT / "mira" / "essays").exists()
     assert not (ROOT / "mira" / "letters").exists()

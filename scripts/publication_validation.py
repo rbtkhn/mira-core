@@ -17,6 +17,10 @@ MANUAL_ESSAY_CHECK = (
     "Validate essay privacy, evidence boundaries, provenance, links, detached-title "
     "accuracy, and Markdown integrity through mira-essays."
 )
+MANUAL_SESSION_MEMORIAL_CHECK = (
+    "Validate the memorial pair, exact Continuity lineage, paraphrase-only privacy, "
+    "manual privacy receipt, inactive posture, attribution, omissions, and version chain through mira-sessions."
+)
 MANUAL_GRACE_GEMS_CHECK = (
     "Validate Grace Gems provenance, privacy exclusions, stewardship-versus-ownership "
     "boundaries, CEO authority, and absence of copied upstream or private evidence."
@@ -95,6 +99,13 @@ def route_path(path: str, *, repo_root: Path = REPO_ROOT) -> dict[str, Any]:
             "validation_class": "domain-governed",
             "commands": [],
             "manual_checks": [MANUAL_NOTE_CHECK],
+        }
+    if path.startswith("archive/sessions/") or path == "archive/schemas/session-memorial.schema.json":
+        return {
+            "owner": "mira-sessions",
+            "validation_class": "domain-governed",
+            "commands": ["tools/run.ps1 mira-sessions validate"],
+            "manual_checks": [MANUAL_SESSION_MEMORIAL_CHECK],
         }
     if path.startswith("archive/essays/"):
         return {

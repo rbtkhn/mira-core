@@ -65,6 +65,7 @@ EXPECTED_SURFACES = {
     "mira-constitution": "mira_constitution.py",
     "mira-journal": "mira_journal.py",
     "mira-memory": "mira_memory.py",
+    "mira-sessions": "mira_sessions.py",
     "mechanism-lens-checklist": "mechanism_lens_checklist.py",
     "narrative-reuse": "report_narrative_reuse.py",
     "operator-position": "operator_positions.py",

@@ -231,6 +231,24 @@ def discover_journal(collection: Mapping[str,Any]) -> Iterator[tuple[RecordInput
         yield RecordInput(str(current.get("version_id")),"journal-entry",logical,str(collection["id"]),str(collection["authority_owner"]),str(collection["evidence_class"]),"model",str(current.get("author",{}).get("model_id","unknown")),str(approval.get("approved_at")),day_timestamp(str(entry.get("entry_date"))),None,metadata,body.decode("utf-8",errors="replace")),path
 
 
+def discover_session_memorials(collection: Mapping[str,Any]) -> Iterator[tuple[RecordInput,Path]]:
+    from mira_sessions import validate_pair
+    registry=load_json(REPO_ROOT/str(collection["registry_path"])); memorials=registry.get("memorials")
+    if not isinstance(memorials,list): raise ArchiveError("invalid Mira session memorial registry")
+    for memorial in memorials:
+        for version in memorial.get("versions",[]):
+            logical=safe_logical_path(str(version.get("markdown_path",""))); path=REPO_ROOT/logical
+            sidecar_path=REPO_ROOT/safe_logical_path(str(version.get("sidecar_path","")))
+            if not path.is_file() or not sidecar_path.is_file(): raise ArchiveError(f"missing memorial pair: {version.get('version_id')}")
+            validation=validate_pair(path,sidecar_path,repo_root=REPO_ROOT)
+            if validation["failures"]: raise ArchiveError(f"invalid memorial {version.get('version_id')}: {validation['failures'][0]}")
+            sidecar=load_json(sidecar_path); body=path.read_bytes()
+            if sha256_bytes(body)!=version.get("markdown_sha256"): raise ArchiveError(f"memorial registry hash mismatch: {logical}")
+            producer=sidecar.get("producer",{})
+            metadata={"memorial_id":sidecar.get("memorial_id"),"version_id":sidecar.get("version_id"),"session_id":sidecar.get("session_id"),"capture_refs":sidecar.get("capture_refs",[]),"record_refs":sidecar.get("record_refs",[]),"activation_posture":"inactive","counter_memory_refs":sidecar.get("counter_memory_refs",[]),"reopening_conditions":sidecar.get("reopening_conditions",[]),"omissions":sidecar.get("omissions"),"authority_boundary":sidecar.get("authority_boundary"),"retrieval_policy":"explicit-only","may_promote":False,"manifest":str(collection["registry_path"])}
+            yield RecordInput(str(sidecar["version_id"]),"session-memorial",logical,str(collection["id"]),str(collection["authority_owner"]),str(collection["evidence_class"]),str(producer.get("kind","model")),str(producer.get("runtime","unknown")),str(sidecar.get("admitted_at")),day_timestamp(str(sidecar.get("entry_date"))),None,metadata,body.decode("utf-8",errors="replace")),path
+
+
 def external_manifest(collection: Mapping[str,Any]) -> dict[str,Any]:
     registry_path=REPO_ROOT/str(collection["registry_path"]); manifest=load_json(registry_path); documents=manifest.get("documents")
     version=manifest.get("schema_version")
@@ -444,6 +462,7 @@ COLLECTION_ADAPTERS = {
     "narrative-geopolitics-source-manifest": lambda collection,source_root: discover_archive(collection),
     "mira-session-registry": lambda collection,source_root: discover_mira(collection),
     "mira-journal-registry": lambda collection,source_root: discover_journal(collection),
+    "mira-session-memorial-registry": lambda collection,source_root: discover_session_memorials(collection),
     "external-corpus-manifest": lambda collection,source_root: discover_external_corpus(collection,source_root),
     "repository-artifact-manifest": lambda collection,source_root: discover_repository_artifacts(collection),
 }
@@ -558,12 +577,36 @@ def add_journal_lineage(connection: sqlite3.Connection) -> int:
     return added
 
 
+def add_session_memorial_lineage(connection: sqlite3.Connection, collection: Mapping[str,Any]) -> int:
+    registry=load_json(REPO_ROOT/str(collection["registry_path"])); added=0
+    for memorial in registry.get("memorials",[]):
+        previous_id=None
+        for version in memorial.get("versions",[]):
+            sidecar=load_json(REPO_ROOT/str(version["sidecar_path"])); source_id=str(version["version_id"])
+            source_version=connection.execute("SELECT MAX(version) FROM records WHERE record_id=?",(source_id,)).fetchone()[0]
+            if source_version is None: raise ArchiveError(f"missing memorial lineage source: {source_id}")
+            for capture_id in sidecar.get("capture_refs",[]):
+                target_version=connection.execute("SELECT MAX(version) FROM records WHERE record_id=?",(capture_id,)).fetchone()[0]
+                if target_version is None: raise ArchiveError(f"missing memorial Continuity lineage target: {capture_id}; ingest mira-continuity first")
+                before=connection.execute("SELECT COUNT(*) FROM edges").fetchone()[0]
+                add_edge(connection,source=(source_id,int(source_version)),target=(capture_id,int(target_version)),relation_type="derived_from",metadata={"record_ids":sorted(sidecar.get("record_refs",[])),"activation_posture":"inactive"})
+                added+=int(connection.execute("SELECT COUNT(*) FROM edges").fetchone()[0]>before)
+            if previous_id:
+                target_version=connection.execute("SELECT MAX(version) FROM records WHERE record_id=?",(previous_id,)).fetchone()[0]
+                if target_version is None: raise ArchiveError(f"missing memorial supersession target: {previous_id}")
+                before=connection.execute("SELECT COUNT(*) FROM edges").fetchone()[0]
+                add_edge(connection,source=(source_id,int(source_version)),target=(previous_id,int(target_version)),relation_type="supersedes",metadata={"activation_posture":"inactive"})
+                added+=int(connection.execute("SELECT COUNT(*) FROM edges").fetchone()[0]>before)
+            previous_id=source_id
+    return added
+
+
 def ingest_command(args: argparse.Namespace) -> dict[str,Any]:
     collections=selected_collections(args.collection,include_explicit_default=True)
     if not args.collection:
         collections=[
             row for row in collections
-            if row.get("kind") not in {"external-corpus-manifest","repository-artifact-manifest"}
+            if row.get("kind") not in {"external-corpus-manifest","repository-artifact-manifest","mira-session-memorial-registry"}
         ]
     if args.source_root and not any(row.get("kind")=="external-corpus-manifest" for row in collections): raise ArchiveError("--source-root requires an external corpus collection")
     planned=inventory(collections,args.source_root)
@@ -576,6 +619,7 @@ def ingest_command(args: argparse.Namespace) -> dict[str,Any]:
         for collection in collections:
             if collection.get("kind")=="external-corpus-manifest": lineage_edges+=add_external_corpus_lineage(connection,collection)
             elif collection.get("kind")=="repository-artifact-manifest": lineage_edges+=add_repository_artifact_lineage(connection,collection)
+            elif collection.get("kind")=="mira-session-memorial-registry": lineage_edges+=add_session_memorial_lineage(connection,collection)
         connection.commit(); return {"status":"ingested","mutation":True,"added_versions":added,"unchanged":unchanged,"lineage_edges_added":lineage_edges,"catalog":catalog_counts(connection),"catalog_fingerprint":catalog_fingerprint(connection),**planned}
 
 
@@ -663,7 +707,7 @@ def verify_catalog(archive: ArtifactStore, *, full: bool) -> list[str]:
 
 
 def validate_repository_state(repo_root: Path=REPO_ROOT) -> list[str]:
-    failures=[]; required=("archive/README.md","archive/architecture.md","archive/collections.json","archive/context-policy.json","archive/schemas/context-pack.schema.json","archive/schemas/derivation-manifest.schema.json","archive/schemas/replay-plan.schema.json","archive/schemas/task-spec.schema.json","archive/schemas/repository-artifact-manifest.schema.json")
+    failures=[]; required=("archive/README.md","archive/architecture.md","archive/collections.json","archive/context-policy.json","archive/schemas/context-pack.schema.json","archive/schemas/derivation-manifest.schema.json","archive/schemas/replay-plan.schema.json","archive/schemas/task-spec.schema.json","archive/schemas/repository-artifact-manifest.schema.json","archive/schemas/session-memorial.schema.json")
     failures.extend(f"missing Mira Archive control: {path}" for path in required if not (repo_root/path).is_file())
     try:
         document=collection_document(repo_root/"archive"/"collections.json"); identifiers=set()

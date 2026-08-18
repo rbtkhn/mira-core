@@ -57,6 +57,7 @@ LOCAL_SKILLS = {
     "mira-memory",
     "mira-mentor",
     "mira-notes",
+    "mira-sessions",
     "mira-voice",
     "mira-work",
     "morning-brief",

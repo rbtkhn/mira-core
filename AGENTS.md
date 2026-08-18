@@ -230,6 +230,16 @@ locate, or recover Mira's memory across carriers, read
 orients and hands control to the carrier-owning workflow; it creates no unified
 memory authority and must remain repository-local.
 
+When the operator says `mira-sessions`, says `memorialize this session`, asks
+to compose, validate, admit, correct, or retrieve a Mira session memorial, or
+requests work under `archive/sessions`, read
+`docs/skill-drafts/mira-sessions/SKILL.md` completely and follow it. Memorials
+are explicit-only, inactive reflective interpretations bound to Continuity;
+they are not transcripts, evidence, identity, total recall, or standing action
+authority. The direct memorialization command authorizes local composition,
+validation, and eligible local admission only. Staging, commit, push, Archive
+ingestion, publication, and activation remain separately authorized.
+
 When the operator says `mira-work` or asks Mira to conduct bounded,
 consequential, multi-step work across domains, read
 `docs/skill-drafts/mira-work/SKILL.md` completely and follow it. This is a
