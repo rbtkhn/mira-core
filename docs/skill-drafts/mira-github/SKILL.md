@@ -272,9 +272,13 @@ tools/run.ps1 validated-push check `
   --source-sha <full-commit-sha> `
   --target-ref refs/heads/<branch> `
   --validation-status passed `
+  --temp-root <absolute-temp-root> `
   --json
 
-tools/run.ps1 validated-push push --receipt <absolute-receipt-path> --json
+tools/run.ps1 validated-push push `
+  --receipt <absolute-receipt-path> `
+  --temp-root <absolute-temp-root> `
+  --json
 ```
 
 The check receipt has `authority_effect: none`. Invoke `push` only after a
@@ -286,6 +290,20 @@ wildcards, abbreviated SHAs, multiple refs, and non-fast-forward publication.
 
 Never force-push, rebase, broaden the refspec, open a PR, mutate hosted
 settings, or publish generated drift as part of a plain `push`.
+
+### Windows main-merge friction
+
+When a clean temporary worktree is needed for a `main` merge and archive paths
+may exceed Windows defaults, create it with long-path support:
+
+```powershell
+git -c core.longpaths=true worktree add <absolute-temp-worktree> main
+```
+
+If post-push `git fetch` is blocked by a local `.git/FETCH_HEAD` permission
+split after a validated push, use `git ls-remote --heads origin <branch>` as
+the final remote SHA proof. Do not treat the fetch failure as a failed push
+when the validated-push receipt and `ls-remote` agree on the exact target SHA.
 
 ## Handle credential-context splits
 

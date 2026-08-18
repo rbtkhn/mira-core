@@ -92,6 +92,13 @@ Workflow:
 10. Stop when the archive batch is grounded; hand judgment to
     `geo-strategy`.
 
+If the operator asks an analytical follow-up about the same date after a
+Narrative Geopolitics intake has landed, do not answer from remembered partial
+corpus. Route the follow-up through `geo-strategy`, or use
+`source-topic-scan` for a bounded issue/term retrieval pass across the same
+date's manifest rows. This preserves intake's boundary: intake still does not
+synthesize, verify, or promote issue membership.
+
 Voice and host attribution:
 
 Record the featured voice and host separately whenever the source has both.

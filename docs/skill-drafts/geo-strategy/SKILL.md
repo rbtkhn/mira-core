@@ -94,6 +94,23 @@ Use the output as an advisory prompt to compare invariant voice claims against
 host pressure fields. It is not evidence, verification, a mandatory synthesis
 gate, or a routing repair signal.
 
+## Current-Day Issue Scan
+
+Before answering an issue-focused question after multiple same-day intakes,
+scan the full manifest-backed source set for that date unless the operator
+explicitly narrows the scope. This applies to prompts such as `focus on X`,
+`what did [voice] say`, `check all today's transcripts`, and issue questions
+that arrive after fresh intake has landed for the date.
+
+Use:
+
+```powershell
+.\tools\run.ps1 source-topic-scan --date YYYY-MM-DD --query "topic terms" --format markdown
+```
+
+Treat the scan as retrieval coverage only. It does not verify claims, promote
+issue membership, create a daily synthesis, or override source judgment.
+
 Use [archive audit and density](../../../narrative-geopolitics/method/archive-density.md)
 rules this way:
 

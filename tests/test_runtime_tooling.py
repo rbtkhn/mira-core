@@ -80,6 +80,7 @@ EXPECTED_SURFACES = {
     "session-preflight": "session_preflight.py",
     "skills-check": "check_codex_skills_sync.py",
     "skills-sync": "sync_codex_skills.py",
+    "source-topic-scan": "source_topic_scan.py",
     "synthesis": "geopolitical_synthesis.py",
     "system-archive": "system_archive.py",
     "test": "validate_repo.py",

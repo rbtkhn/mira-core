@@ -74,3 +74,12 @@ def test_archive_readme_keeps_manifest_as_the_only_index_authority() -> None:
         value,
         re.IGNORECASE,
     )
+
+
+def test_archive_intake_hands_same_day_analysis_to_scan_or_geo_strategy() -> None:
+    value = text("archive-intake")
+    normalized = " ".join(value.split())
+    assert "same date" in normalized
+    assert "geo-strategy" in value
+    assert "source-topic-scan" in value
+    assert "remembered partial corpus" in normalized

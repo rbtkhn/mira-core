@@ -135,6 +135,18 @@ def test_skill_uses_non_printing_token_check_and_deterministic_publication_tools
     assert "tools/run.ps1 validated-push push" in skill
 
 
+def test_skill_documents_windows_long_paths_and_temp_root_push_receipts() -> None:
+    skill = read_skill()
+    normalized = " ".join(skill.split())
+    assert "git -c core.longpaths=true worktree add" in skill
+    assert "--temp-root" in skill
+    assert "tools/run.ps1 validated-push push" in skill
+    assert "--receipt <absolute-receipt-path>" in skill
+    assert "git ls-remote" in skill
+    assert "FETCH_HEAD" in skill
+    assert "final remote SHA proof" in normalized
+
+
 def test_skill_defines_quiet_routine_readiness_scan() -> None:
     skill = read_skill()
     normalized = " ".join(skill.split())
