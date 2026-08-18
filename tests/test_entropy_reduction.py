@@ -505,6 +505,17 @@ def test_local_cadence_triggers_are_discoverable() -> None:
     assert "docs/skill-drafts/dream/SKILL.md" in router
 
 
+def test_coffee_delegates_choice_store_compatibility_to_runtime() -> None:
+    coffee = (
+        REPO_ROOT / "docs" / "skill-drafts" / "coffee" / "SKILL.md"
+    ).read_text(encoding="utf-8")
+    normalized = " ".join(coffee.split())
+    assert "tools/run.ps1 choice --format json review" in coffee
+    assert "deprecated `NARRATIVE_CHOICE_DB` compatibility variable" in normalized
+    assert "Never declare choice retention unavailable" in normalized
+    assert "canonical variable is empty" in normalized
+
+
 def test_scaffold_empty_is_a_no_write_compatibility_flag() -> None:
     target = REPO_ROOT / "narrative-geopolitics" / "work" / "daily" / "2099-01-01"
     assert not target.exists()

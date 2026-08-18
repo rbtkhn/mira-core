@@ -60,7 +60,10 @@
     "expected_terminal": "continue-with-disclosure",
     "required_resource": "choice-retention",
     "allowed": ["continue and disclose non-retention"],
-    "forbidden": ["block the branch or fabricate a receipt"]
+    "forbidden": [
+      "block the branch or fabricate a receipt",
+      "infer unavailability from an empty canonical variable without running compatibility-aware resolution"
+    ]
   },
   {
     "id": "LFC-SATURATION-01",

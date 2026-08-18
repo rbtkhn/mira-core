@@ -8,10 +8,15 @@ authority.
 
 1. Reconstruct the exact displayed option set and stable role bindings.
 2. Sanitize direct contact data and reject secrets or credentials.
-3. If the private store is configured and has not been cached as unavailable,
-   run `choice select` atomically with the selected key, recommendation binding,
-   lane/workspace/tenant scope, choice kind, consequence, summary, actor,
-   timestamps, and bounded signals.
+3. Unless the choice runtime has already reported its store unavailable for the
+   current task, run `choice select` atomically with the selected key,
+   recommendation binding, lane/workspace/tenant scope, choice kind,
+   consequence, summary, actor, timestamps, and bounded signals. Let the
+   command resolve `MIRA_CORE_CHOICE_DB`, the deprecated
+   `NARRATIVE_CHOICE_DB` compatibility variable, or its governed default. Do
+   not inspect one environment variable and infer that retention is
+   unavailable; only the compatibility-aware command result may establish
+   availability.
 4. State only when material that retention granted no authority; executable
    authority came from the validated visible `selection_effect`.
 5. If the store is unavailable, continue and disclose that the selection was
@@ -39,6 +44,11 @@ Configure private state only with an absolute path outside Git:
 $env:MIRA_CORE_CHOICE_DB = "C:\private\mira-core-choice-history.sqlite3"
 .\tools\run.ps1 choice select ...
 ```
+
+During migration, an existing `NARRATIVE_CHOICE_DB` remains usable and emits a
+deprecation warning. Prefer setting `MIRA_CORE_CHOICE_DB` to the same absolute
+private path; if both variables are populated with different paths, preserve
+the conflict and stop rather than choosing one.
 
 Cache unavailability by resolved store path and relevant environment state for
 the task. Retry only after that state changes or the operator explicitly asks.

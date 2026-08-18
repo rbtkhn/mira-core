@@ -46,11 +46,15 @@ Use only in `mira-core`. Coffee is read-only.
 4. Never treat the handoff as archive evidence. Verify its lesson against the
    named experiment, `evidence_summary`, and every `artifact_ref`. If a
    reference no longer resolves, treat the handoff as stale.
-5. When `MIRA_CORE_CHOICE_DB` is configured, run
-   `tools/run.ps1 choice --format json review` and inspect the deterministic
+5. Run `tools/run.ps1 choice --format json review` once and let the choice
+   runtime resolve its store. It checks `MIRA_CORE_CHOICE_DB`, accepts the
+   deprecated `NARRATIVE_CHOICE_DB` compatibility variable, and reports an
+   unavailable or conflicting store without requiring a manual environment
+   probe. Never declare choice retention unavailable merely because the
+   canonical variable is empty. When review resolves, inspect the deterministic
    unresolved queue through `choice context`. Surface at most one lightweight
    unresolved-outcome prompt or staged five-to-ten choice review; ordinary
-   work remains uninterrupted when the store is absent.
+   work remains uninterrupted when the runtime reports the store unavailable.
 6. Before running a test profile that writes temporary files, run
    `tools/run.ps1 session-preflight --temp-root ABSOLUTE_PATH --json`, then pass
    that root through `--temp-root` or `MIRA_CORE_SESSION_TEMP_ROOT`. Start

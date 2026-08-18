@@ -61,6 +61,15 @@ def test_deferred_material_is_not_duplicated_in_core() -> None:
     assert "selection frequency" in review
 
 
+def test_retention_uses_compatibility_aware_store_resolution() -> None:
+    retention = read("references/choice-retention.md")
+    normalized = " ".join(retention.split())
+    assert "`MIRA_CORE_CHOICE_DB`" in retention
+    assert "`NARRATIVE_CHOICE_DB` compatibility variable" in normalized
+    assert "Do not inspect one environment variable" in normalized
+    assert "only the compatibility-aware command result" in normalized
+
+
 def test_agents_router_is_compact_and_preserves_core_boundaries() -> None:
     agents = (ROOT / "AGENTS.md").read_text(encoding="utf-8")
     route = "docs/skill-drafts/learn-from-choices/SKILL.md"
@@ -102,3 +111,13 @@ def test_fixture_inventory_covers_required_runtime_decisions() -> None:
         "saturation",
     }
     assert len(fixtures()) == 8
+
+
+def test_unavailable_retention_fixture_forbids_single_variable_inference() -> None:
+    case = next(
+        item for item in fixtures() if item["id"] == "LFC-RETENTION-FAILURE-01"
+    )
+    assert any(
+        "empty canonical variable" in behavior
+        for behavior in case["forbidden"]
+    )
