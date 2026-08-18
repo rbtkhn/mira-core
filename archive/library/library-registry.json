@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "registry_id": "mira-library-v1",
+  "authority_boundary": "Mira Library governs repository-local source-library shelving and retrieval metadata only. It does not verify claims, grant quotation rights, ingest records into the private Archive catalog, publish sources, or import external corpora.",
+  "era_definitions": [
+    {
+      "id": "ancient",
+      "label": "Ancient",
+      "range": "BC to 476 AD",
+      "start_year": null,
+      "end_year": 476,
+      "description": "Operational shelf for classical, foundational, and ancient subject periods up to the 476 AD boundary."
+    },
+    {
+      "id": "medieval",
+      "label": "Medieval",
+      "range": "476 AD to 1453 AD",
+      "start_year": 476,
+      "end_year": 1453,
+      "description": "Operational shelf for medieval subject periods, transmission chains, religious-political orders, and civilizational continuity from 476 AD to 1453 AD."
+    },
+    {
+      "id": "colonial",
+      "label": "Colonial",
+      "range": "1453 AD to 1815 AD",
+      "start_year": 1453,
+      "end_year": 1815,
+      "description": "Operational shelf for early-modern subject periods from 1453 AD to 1815 AD, including imperial, maritime, gunpowder-state, confessional, company-rule, and pre-industrial global systems; not limited to European colonial history."
+    },
+    {
+      "id": "industrial",
+      "label": "Industrial",
+      "range": "1815 AD to 1991 AD",
+      "start_year": 1815,
+      "end_year": 1991,
+      "description": "Operational shelf for industrial subject periods from 1815 AD to 1991 AD, including industrial states, mass politics, late empire, world wars, Cold War order, and modern state capacity."
+    },
+    {
+      "id": "digital",
+      "label": "Digital",
+      "range": "1991 AD to present",
+      "start_year": 1991,
+      "end_year": null,
+      "description": "Operational shelf for digital-era subject periods from 1991 AD to present, including post-Cold War order, internet-scale information systems, platform media, globalization, precision warfare, AI, and digital state capacity."
+    }
+  ],
+  "sources": []
+}

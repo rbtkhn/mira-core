@@ -184,6 +184,16 @@ def route_path(path: str, *, repo_root: Path = REPO_ROOT) -> dict[str, Any]:
                 "provenance preservation remain coherent."
             ],
         }
+    if path.startswith("archive/library/"):
+        return {
+            "owner": "mira-library",
+            "validation_class": "repo-structural",
+            "commands": [
+                "tools/run.ps1 library validate --json",
+                "tools/run.ps1 test --path tests/test_archive_library.py",
+            ],
+            "manual_checks": [],
+        }
     if path.startswith("tests/"):
         suffix = Path(path).suffix.lower()
         if suffix != ".py":

@@ -29,6 +29,7 @@ import reality
 import recursive_learning_ledger
 import mira_continuity
 import mira_journal
+import archive_library
 from repository_paths import canonical_repository_path
 import operator_positions
 import archive
@@ -790,6 +791,7 @@ REPOSITORY_CHECKS = (
     ("recursive_learning_ledger.validate_ledger", recursive_learning_ledger.validate_ledger),
     ("mira_continuity.validate_control_plane_state", mira_continuity.validate_control_plane_state),
     ("mira_journal.validate_repository_state", mira_journal.validate_repository_state),
+    ("archive_library.validate_scaffold", archive_library.validate_scaffold),
     ("archive.validate_repository_state", archive.validate_repository_state),
     ("operator_positions.validate_ledger", operator_positions.validate_ledger),
     ("legacy_verification_inventory_failures", legacy_verification_inventory_failures),

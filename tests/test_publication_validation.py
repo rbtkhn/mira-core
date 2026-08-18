@@ -23,6 +23,9 @@ def make_tree(root: Path) -> None:
         "docs/mira-core-name-migration.md",
         "docs/plans/2026-08-16-mira-archive-name-migration.md",
         "mira/continuity/session-registry.json",
+        "archive/library/README.md",
+        "archive/library/library-registry.json",
+        "archive/library/ancient/index.md",
         "scripts/example.py",
         "tools/example.py",
         "tests/test_example.py",
@@ -88,6 +91,28 @@ def test_router_resolves_mira_control_plane_paths(tmp_path: Path) -> None:
         "Verify Mira control-plane semantics, authority boundaries, and historical "
         "provenance preservation remain coherent."
     ]
+    assert report["blockers"] == []
+
+
+def test_router_resolves_mira_library_paths(tmp_path: Path) -> None:
+    make_tree(tmp_path)
+    report = routing.build_report(
+        [
+            "archive/library/README.md",
+            "archive/library/library-registry.json",
+            "archive/library/ancient/index.md",
+        ],
+        repo_root=tmp_path,
+    )
+
+    assert report["status"] == "resolved"
+    assert report["owners"] == ["mira-library"]
+    assert report["validation_classes"] == ["repo-structural"]
+    assert report["commands"] == [
+        "tools/run.ps1 library validate --json",
+        "tools/run.ps1 test --path tests/test_archive_library.py",
+    ]
+    assert report["manual_checks"] == []
     assert report["blockers"] == []
 
 
