@@ -83,11 +83,23 @@ advisories directly. When more detail is needed, run a range or day check:
 .\tools\run.ps1 archive-audit --start-date YYYY-MM-DD --end-date YYYY-MM-DD --format markdown
 ```
 
+For dense or voice-heavy days, optionally surface same-day multi-channel
+triangulation candidates:
+
+```powershell
+.\tools\run.ps1 triangulation-candidates --start-date YYYY-MM-DD --end-date YYYY-MM-DD --format markdown
+```
+
+Use the output as an advisory prompt to compare invariant voice claims against
+host pressure fields. It is not evidence, verification, a mandatory synthesis
+gate, or a routing repair signal.
+
 Use [archive audit and density](../../../narrative-geopolitics/method/archive-density.md)
 rules this way:
 
 - thin days: check overclaim risk, hook necessity, and caveat language;
-- dense days: check voice triangulation, issue selection, and held-story logic;
+- dense days: check voice triangulation, same-day multi-channel candidates,
+  issue selection, and held-story logic;
 - `very_dense` overlay days: treat dense-day review as mandatory before
   deepening;
 - `OPC-*` days: prioritize verification review, but do not assign operational truth;

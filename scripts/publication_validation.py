@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 from pathlib import Path, PurePosixPath
 from typing import Any, Iterable
 
@@ -20,6 +21,11 @@ MANUAL_GRACE_GEMS_CHECK = (
     "Validate Grace Gems provenance, privacy exclusions, stewardship-versus-ownership "
     "boundaries, CEO authority, and absence of copied upstream or private evidence."
 )
+MANUAL_NARRATIVE_GEOPOLITICS_CHECK = (
+    "Validate Narrative Geopolitics provenance, source/voice routing, bounded-analysis "
+    "posture, verification boundaries, and absence of unsupported public factual use."
+)
+DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 
 
 class RoutingError(ValueError):
@@ -64,6 +70,17 @@ def _focused_skill_command(path: str, *, repo_root: Path) -> str:
     return "tools/run.ps1 test --mode fast --explain-route"
 
 
+def _daily_validate_command(path: str) -> str | None:
+    parts = PurePosixPath(path).parts
+    if (
+        len(parts) >= 4
+        and parts[:3] == ("narrative-geopolitics", "work", "daily")
+        and DATE_RE.match(parts[3])
+    ):
+        return f"tools/run.ps1 daily-validate --date {parts[3]} --stage issue"
+    return None
+
+
 def route_path(path: str, *, repo_root: Path = REPO_ROOT) -> dict[str, Any]:
     if path.startswith("projects/grace-gems/"):
         return {
@@ -85,6 +102,51 @@ def route_path(path: str, *, repo_root: Path = REPO_ROOT) -> dict[str, Any]:
             "validation_class": "domain-governed",
             "commands": [],
             "manual_checks": [MANUAL_ESSAY_CHECK],
+        }
+    if path == "archive/sources/geopolitics/source-manifest.json":
+        return {
+            "owner": "narrative-geopolitics/archive",
+            "validation_class": "domain-governed",
+            "commands": ["tools/run.ps1 test --path tests/test_voice_count_authority.py"],
+            "manual_checks": [MANUAL_NARRATIVE_GEOPOLITICS_CHECK],
+        }
+    if (
+        path.startswith("archive/sources/geopolitics/sources/")
+        or (
+            path.startswith("narrative-geopolitics/voices/")
+            and path.endswith("/source-index.md")
+        )
+    ):
+        return {
+            "owner": "narrative-geopolitics/archive",
+            "validation_class": "domain-governed",
+            "commands": ["tools/run.ps1 test --path tests/test_voice_count_authority.py"],
+            "manual_checks": [MANUAL_NARRATIVE_GEOPOLITICS_CHECK],
+        }
+    daily_command = _daily_validate_command(path)
+    if daily_command:
+        return {
+            "owner": "geo-strategy",
+            "validation_class": "domain-governed",
+            "commands": [daily_command],
+            "manual_checks": [MANUAL_NARRATIVE_GEOPOLITICS_CHECK],
+        }
+    if path == "narrative-geopolitics/work/forecasts/forecast-ledger.md":
+        return {
+            "owner": "geo-strategy/forecast-ledger",
+            "validation_class": "domain-governed",
+            "commands": [],
+            "manual_checks": [MANUAL_NARRATIVE_GEOPOLITICS_CHECK],
+        }
+    if (
+        path.startswith("narrative-geopolitics/work/morning-brief/")
+        and (path.endswith(".md") or path.endswith(".receipt.json"))
+    ):
+        return {
+            "owner": "morning-brief",
+            "validation_class": "domain-governed",
+            "commands": ["tools/run.ps1 test --path tests/test_morning_brief.py"],
+            "manual_checks": [MANUAL_NARRATIVE_GEOPOLITICS_CHECK],
         }
     if path == "AGENTS.md" or path.startswith("docs/skill-drafts/"):
         return {

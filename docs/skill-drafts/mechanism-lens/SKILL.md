@@ -31,6 +31,15 @@ Use another workflow when the task is mainly:
    boundary.
 2. Query `archive/sources/geopolitics/source-manifest.json` for matching
    rows. Report date, title, host, and local path for the source set.
+   For same-day multi-channel work, optionally use:
+
+   ```powershell
+   .\tools\run.ps1 triangulation-candidates --month YYYY-MM --format markdown
+   ```
+
+   Treat returned rows as comparison prompts only. A candidate means the same
+   voice appears on the same day across distinct hosts; it does not verify the
+   claims or require synthesis.
 3. Read enough of each selected source to identify the claim structure. Do not
    infer a missing claim from the title alone.
 4. Classify each voice's analytical function before assigning domains:
@@ -79,6 +88,12 @@ actor -> enabling system -> instrument -> target -> intended pressure
 
 This is especially important when the source attributes local action to a
 larger proxy, funding, intelligence, logistics, or targeting structure.
+
+For same-day multi-channel recurrence, compare the invariant claim against the
+channel pressure field. Identify what changes across venues: controlled thesis,
+strategic synthesis, legal/accountability pressure, live stress-test, or
+recurring co-host division of labor. Preserve useful tension instead of
+collapsing the sources into one summary.
 
 ## Output Forms
 
