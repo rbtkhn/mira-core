@@ -53,6 +53,25 @@ Future source entries in `library-registry.json` use:
 `edition_era` records the era of the edition, translation, URL, database, or
 digital object when relevant.
 
+## Original And English Text Policy
+
+For ancient source-authority records, the preferred portable library target is
+to carry both:
+
+1. an original-language text body when a lawful, clean, stable source can be
+   located; and
+2. an English text body when a lawful, clean, stable translation can be located.
+
+These bodies should be admitted separately in `text_bodies`, with distinct
+`body_id`, `language`, edition, translator/editor, hash, byte count, and license
+metadata. Original-language bodies anchor philological precision and retrieval;
+English bodies support immediate reading and cross-civilizational comparison.
+
+Do not force this pairing when the available source is copyrighted, unstable,
+scrape-heavy, facsimile-only, OCR-messy, or otherwise not clean enough for the
+portable text store. A source may remain partially covered, translation-only, or
+original-only, but `coverage_notes` should say that explicitly.
+
 ## Portable Text Store
 
 Git tracks the registry, era indexes, validation code, and source metadata.
