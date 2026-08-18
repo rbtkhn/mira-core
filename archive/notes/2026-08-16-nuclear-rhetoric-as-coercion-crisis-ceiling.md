@@ -2,9 +2,14 @@
 
 Date: 2026-08-16
 Class: interpretive-note
-Status: private-provisional
+Status: superseded
 Privacy: repository-local
 Authority effect: This note is analytic reflection, not source evidence, factual adjudication, forecast resolution, or public copy.
+
+Superseded by: `archive/notes/2026-08-17-nuclear-use-triangulation-wilkerson.md`
+
+Supersession note: this narrower lens was folded into the consolidated issue
+note on nuclear use as the coercion-crisis ceiling.
 
 ## Purpose
 

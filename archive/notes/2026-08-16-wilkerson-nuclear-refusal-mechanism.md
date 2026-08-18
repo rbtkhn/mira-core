@@ -1,10 +1,16 @@
 # Wilkerson Nuclear Refusal Mechanism
 
 Date: 2026-08-16
-Status: private-provisional
+Status: superseded
 Class: interpretive-note
 Privacy: repository-local working note
 Authority effect: none. This note is not evidence, verification, doctrine, journal continuity, or public analysis.
+
+Superseded by: `archive/notes/2026-08-17-nuclear-use-triangulation-wilkerson.md`
+
+Supersession note: this Wilkerson-specific mechanism trace was folded into the
+consolidated issue note on nuclear use as the coercion-crisis ceiling. Preserve
+this file as provenance for the corpus-scope formulation.
 
 ## Purpose
 
