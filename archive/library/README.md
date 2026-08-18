@@ -52,6 +52,109 @@ Future source entries in `library-registry.json` use:
 `edition_era` records the era of the edition, translation, URL, database, or
 digital object when relevant.
 
+## Portable Text Store
+
+Git tracks the registry, era indexes, validation code, and source metadata.
+Source bodies live outside Git by default in a portable private text store:
+
+1. `MIRA_CORE_LIBRARY_TEXT_ROOT` when set.
+2. `.mira-private/library/texts/` inside this repository.
+
+The registry may point to local text bodies with `library-text://...` logical
+URIs. Text admission records hashes, byte counts, encoding, edition metadata,
+and license posture, but it does not ingest the body into the private Archive
+catalog and does not mark the source reviewed.
+
+Supported text bodies for the initial portable store are plain `.txt`, `.md`,
+and `.xml` files. PDFs, scans, OCR images, facsimiles, and edition bundles
+remain external/private unless a later governed pass admits them explicitly.
+
+Optional text fields:
+
+- `text_status`: `missing`, `available`, `verified`, or `needs-review`
+- `coverage_status`: `unknown`, `selected-works`, `principal-work`,
+  `principal-works`, or `complete-surviving-corpus`
+- `coverage_notes`
+- `text_location`
+- `text_sha256`
+- `text_bytes`
+- `text_encoding`
+- `language`
+- `translator`
+- `editor`
+- `edition_label`
+- `license_status`: `public-domain`, `open-license`, `permissioned`,
+  `unknown`, or `restricted`
+- `license_notes`
+
+For author or source-authority records that need more than one work, volume, or
+edition, prefer `text_bodies` over the single-text fields:
+
+- `body_id`
+- `work_title`
+- `text_location`
+- `text_sha256`
+- `text_bytes`
+- `text_encoding`
+- `language`
+- `translator`
+- `editor`
+- `edition_label`
+- `license_status`
+- `license_notes`
+- `status`: `available`, `verified`, or `needs-review`
+
+The single-text fields remain valid for simple one-body records. New multi-work
+or multi-volume admissions should use `text_bodies` so author/source authority
+records such as Homer, Herodotus, Plato, Aristotle, Cicero, and Tacitus can
+carry multiple local text bodies without overwriting each other.
+
+`coverage_status` describes how much of an author/source authority is actually
+present in the portable text store. It is not inferred from `text_status`.
+Prefer conservative values: use `selected-works` for partial corpora,
+`principal-work` or `principal-works` for deliberately representative core
+holdings, and `complete-surviving-corpus` only when the admitted bodies cover
+the known surviving corpus represented by the source-authority record.
+
+## Source Admission Workflow
+
+Admitting a text is a local/private act. It copies a known local text file into
+the portable text store and updates only the registry metadata needed to locate
+and verify that file. It does not download sources, ingest Archive records,
+publish anything, or convert a source to reviewed status.
+
+Use this sequence for the first public-domain texts:
+
+1. Identify the target `source_id` with `tools\run.ps1 library search`.
+2. Place the candidate `.txt`, `.md`, or `.xml` file in a temporary local path.
+3. Confirm the edition and license basis outside the tool; use only
+   `public-domain`, `open-license`, or `permissioned` for admission.
+4. Run a dry check:
+
+   ```powershell
+   tools\run.ps1 library admit-text --source-id SOURCE_ID --file C:\path\text.txt --edition "Edition label" --license-status public-domain --check --json
+   ```
+
+5. Run the write only after the dry check is clean:
+
+   ```powershell
+   tools\run.ps1 library admit-text --source-id SOURCE_ID --file C:\path\text.txt --edition "Edition label" --license-status public-domain --json
+   tools\run.ps1 library verify-texts --json
+   ```
+
+6. Treat any later staging, commit, push, Archive ingestion, or publication as a
+   separate authority boundary.
+
+`admit-text` refuses `unknown` and `restricted` license statuses. Those values
+may remain in metadata for unresolved or inaccessible sources, but they cannot
+be used to admit a local text body.
+
+For multi-body records, include a stable body ID and work title:
+
+```powershell
+tools\run.ps1 library admit-text --source-id LIB-ANCIENT-AUTHOR-039-HOMER --body-id LIB-ANCIENT-AUTHOR-039-HOMER-ILIAD-BUTLER --work-title "Iliad" --file C:\path\iliad.txt --edition "Project Gutenberg; Samuel Butler translation" --license-status public-domain --check --json
+```
+
 ## Civilization Memory Crosswalk
 
 Civilization Memory's `ARC-T-*` taxonomy classifies authors and sources by

@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import copy
+import hashlib
 import json
 import subprocess
 import sys
@@ -106,6 +107,59 @@ def test_invalid_registry_values_are_reported() -> None:
     assert "BAD-DATES date range is inverted" in failures
 
 
+def test_text_metadata_validation() -> None:
+    registry = base_registry()
+    registry["sources"] = [
+        source(source_id="OK-MISSING", text_status="missing"),
+        source(source_id="BAD-TEXT-STATUS", text_status="ready"),
+        source(source_id="BAD-COVERAGE", coverage_status="complete-ish"),
+        source(source_id="BAD-COVERAGE-NOTES", coverage_notes=["partial"]),
+        source(source_id="BAD-LICENSE", license_status="copyleft-ish"),
+        source(source_id="BAD-HASH", text_sha256="abc"),
+        source(source_id="BAD-BYTES", text_bytes=-1),
+        source(source_id="AVAILABLE-MISSING", text_status="available"),
+    ]
+    failures = archive_library.validate_registry(registry)
+    assert "BAD-TEXT-STATUS has invalid text_status: ready" in failures
+    assert "BAD-COVERAGE has invalid coverage_status: complete-ish" in failures
+    assert "BAD-COVERAGE-NOTES coverage_notes must be a string or null" in failures
+    assert "BAD-LICENSE has invalid license_status: copyleft-ish" in failures
+    assert "BAD-HASH has invalid text_sha256" in failures
+    assert "BAD-BYTES text_bytes must be a non-negative integer or null" in failures
+    assert "AVAILABLE-MISSING text_status available requires text_location" in failures
+    assert "AVAILABLE-MISSING text_status available requires text_sha256" in failures
+
+
+def test_text_body_metadata_validation() -> None:
+    digest = "a" * 64
+    registry = base_registry()
+    registry["sources"] = [
+        source(
+            source_id="MULTI",
+            text_bodies=[
+                {
+                    "body_id": "BODY-1",
+                    "work_title": "Iliad",
+                    "text_location": "library-text://BODY-1.txt",
+                    "text_sha256": digest,
+                    "text_bytes": 10,
+                    "text_encoding": "utf-8",
+                    "license_status": "public-domain",
+                    "status": "available",
+                },
+                {"body_id": "BODY-1", "work_title": "", "text_sha256": "bad", "text_bytes": -1, "status": "ready"},
+            ],
+        )
+    ]
+    failures = archive_library.validate_registry(registry)
+    assert "duplicate library text body_id: BODY-1" in failures
+    assert "MULTI text body BODY-1 has blank work_title" in failures
+    assert "MULTI text body BODY-1 missing required field: license_status" in failures
+    assert "MULTI text body BODY-1 has invalid status: ready" in failures
+    assert "MULTI text body BODY-1 has invalid text_sha256" in failures
+    assert "MULTI text body BODY-1 text_bytes must be a non-negative integer" in failures
+
+
 def test_missing_required_field_is_reported() -> None:
     registry = base_registry()
     row = source()
@@ -145,6 +199,282 @@ def test_cli_validate_list_and_search(tmp_path: Path, monkeypatch, capsys) -> No
     assert archive_library.main(["search", "--query", "senate", "--civilization", "rome", "--type", "classical", "--json"]) == 0
     searched = json.loads(capsys.readouterr().out)
     assert [row["source_id"] for row in searched["sources"]] == ["ROME"]
+
+
+def test_locate_and_verify_texts(tmp_path: Path, monkeypatch, capsys) -> None:
+    text_root = tmp_path / "texts"
+    text_root.mkdir()
+    body = text_root / "livy.txt"
+    body.write_text("Rome remembers.\n", encoding="utf-8")
+    digest = hashlib.sha256(body.read_bytes()).hexdigest()
+    registry = base_registry()
+    registry["sources"] = [
+        source(
+            text_status="available",
+            text_location=str(body),
+            text_sha256=digest,
+            text_bytes=body.stat().st_size,
+            text_encoding="utf-8",
+            license_status="public-domain",
+        )
+    ]
+    write_scaffold(tmp_path, registry)
+    monkeypatch.setattr(archive_library, "REPO_ROOT", tmp_path)
+    monkeypatch.setattr(archive_library, "LIBRARY_ROOT", tmp_path / "archive" / "library")
+    monkeypatch.setattr(archive_library, "REGISTRY_PATH", tmp_path / "archive" / "library" / "library-registry.json")
+
+    assert archive_library.main(["locate", "LIB-ROME-LIVY", "--json"]) == 0
+    located = json.loads(capsys.readouterr().out)
+    assert located["text_exists"] is True
+    assert archive_library.main(["verify-texts", "--json"]) == 0
+    verified = json.loads(capsys.readouterr().out)
+    assert verified["status"] == "passed"
+    body.write_text("changed\n", encoding="utf-8")
+    assert archive_library.main(["verify-texts", "--json"]) == 1
+    failed = json.loads(capsys.readouterr().out)
+    assert failed["status"] == "failed"
+    assert failed["failures"] == ["LIB-ROME-LIVY: text byte count mismatch", "LIB-ROME-LIVY: text sha256 mismatch"]
+
+
+def test_locate_and_verify_multiple_text_bodies(tmp_path: Path, monkeypatch, capsys) -> None:
+    text_root = tmp_path / ".mira-private" / "library" / "texts"
+    text_root.mkdir(parents=True)
+    iliad = text_root / "HOMER-ILIAD.txt"
+    odyssey = text_root / "HOMER-ODYSSEY.txt"
+    iliad.write_text("Sing, goddess.\n", encoding="utf-8")
+    odyssey.write_text("Tell me, muse.\n", encoding="utf-8")
+    registry = base_registry()
+    registry["sources"] = [
+        source(
+            source_id="HOMER",
+            text_status="available",
+            text_bodies=[
+                {
+                    "body_id": "HOMER-ILIAD",
+                    "work_title": "Iliad",
+                    "text_location": "library-text://HOMER-ILIAD.txt",
+                    "text_sha256": hashlib.sha256(iliad.read_bytes()).hexdigest(),
+                    "text_bytes": iliad.stat().st_size,
+                    "text_encoding": "utf-8",
+                    "language": "english",
+                    "translator": "Samuel Butler",
+                    "editor": "",
+                    "edition_label": "test Iliad",
+                    "license_status": "public-domain",
+                    "license_notes": "",
+                    "status": "available",
+                },
+                {
+                    "body_id": "HOMER-ODYSSEY",
+                    "work_title": "Odyssey",
+                    "text_location": "library-text://HOMER-ODYSSEY.txt",
+                    "text_sha256": hashlib.sha256(odyssey.read_bytes()).hexdigest(),
+                    "text_bytes": odyssey.stat().st_size,
+                    "text_encoding": "utf-8",
+                    "language": "english",
+                    "translator": "Samuel Butler",
+                    "editor": "",
+                    "edition_label": "test Odyssey",
+                    "license_status": "public-domain",
+                    "license_notes": "",
+                    "status": "available",
+                },
+            ],
+        )
+    ]
+    write_scaffold(tmp_path, registry)
+    monkeypatch.setenv("MIRA_CORE_LIBRARY_TEXT_ROOT", str(text_root))
+    monkeypatch.setattr(archive_library, "REPO_ROOT", tmp_path)
+    monkeypatch.setattr(archive_library, "LIBRARY_ROOT", tmp_path / "archive" / "library")
+    monkeypatch.setattr(archive_library, "REGISTRY_PATH", tmp_path / "archive" / "library" / "library-registry.json")
+
+    assert archive_library.main(["locate", "HOMER", "--json"]) == 0
+    located = json.loads(capsys.readouterr().out)
+    assert [item["body"]["body_id"] for item in located["text_bodies"]] == ["HOMER-ILIAD", "HOMER-ODYSSEY"]
+    assert all(item["text_exists"] for item in located["text_bodies"])
+    assert archive_library.main(["verify-texts", "--json"]) == 0
+    verified = json.loads(capsys.readouterr().out)
+    assert verified["checked"] == 2
+    assert verified["missing"] == 0
+
+
+def test_admit_text_into_private_root(tmp_path: Path, monkeypatch, capsys) -> None:
+    registry = base_registry()
+    registry["sources"] = [source(text_status="missing")]
+    write_scaffold(tmp_path, registry)
+    private_root = tmp_path / ".mira-private" / "library" / "texts"
+    source_file = tmp_path / "input.txt"
+    source_file.write_text("Ab urbe condita.\n", encoding="utf-8")
+    monkeypatch.setenv("MIRA_CORE_LIBRARY_TEXT_ROOT", str(private_root))
+    monkeypatch.setattr(archive_library, "REPO_ROOT", tmp_path)
+    monkeypatch.setattr(archive_library, "LIBRARY_ROOT", tmp_path / "archive" / "library")
+    monkeypatch.setattr(archive_library, "REGISTRY_PATH", tmp_path / "archive" / "library" / "library-registry.json")
+
+    assert archive_library.main([
+        "admit-text",
+        "--source-id",
+        "LIB-ROME-LIVY",
+        "--file",
+        str(source_file),
+        "--edition",
+        "test edition",
+        "--license-status",
+        "public-domain",
+        "--language",
+        "latin",
+        "--json",
+    ]) == 0
+    admitted = json.loads(capsys.readouterr().out)
+    assert admitted["body_imported_to_archive"] is False
+    updated = json.loads((tmp_path / "archive" / "library" / "library-registry.json").read_text(encoding="utf-8"))
+    row = updated["sources"][0]
+    assert row["text_status"] == "available"
+    assert row["text_location"] == "library-text://LIB-ROME-LIVY.txt"
+    assert row["edition_label"] == "test edition"
+    assert row["language"] == "latin"
+    assert (private_root / "LIB-ROME-LIVY.txt").read_text(encoding="utf-8") == "Ab urbe condita.\n"
+
+
+def test_admit_text_check_does_not_copy_or_update_registry(tmp_path: Path, monkeypatch, capsys) -> None:
+    registry = base_registry()
+    registry["sources"] = [source(text_status="missing")]
+    write_scaffold(tmp_path, registry)
+    private_root = tmp_path / ".mira-private" / "library" / "texts"
+    source_file = tmp_path / "input.txt"
+    source_file.write_text("Ab urbe condita.\n", encoding="utf-8")
+    monkeypatch.setenv("MIRA_CORE_LIBRARY_TEXT_ROOT", str(private_root))
+    monkeypatch.setattr(archive_library, "REPO_ROOT", tmp_path)
+    monkeypatch.setattr(archive_library, "LIBRARY_ROOT", tmp_path / "archive" / "library")
+    monkeypatch.setattr(archive_library, "REGISTRY_PATH", tmp_path / "archive" / "library" / "library-registry.json")
+
+    assert archive_library.main([
+        "admit-text",
+        "--source-id",
+        "LIB-ROME-LIVY",
+        "--file",
+        str(source_file),
+        "--edition",
+        "test edition",
+        "--license-status",
+        "public-domain",
+        "--check",
+        "--json",
+    ]) == 0
+    checked = json.loads(capsys.readouterr().out)
+    assert checked["registry_updated"] is False
+    assert checked["would_copy"] is True
+    assert not (private_root / "LIB-ROME-LIVY.txt").exists()
+    unchanged = json.loads((tmp_path / "archive" / "library" / "library-registry.json").read_text(encoding="utf-8"))
+    assert unchanged["sources"][0]["text_status"] == "missing"
+
+
+def test_admit_multiple_text_bodies_without_overwriting(tmp_path: Path, monkeypatch, capsys) -> None:
+    registry = base_registry()
+    registry["sources"] = [source(source_id="HOMER", title="Iliad; Odyssey", author="Homer", text_status="missing")]
+    write_scaffold(tmp_path, registry)
+    private_root = tmp_path / ".mira-private" / "library" / "texts"
+    iliad = tmp_path / "iliad.txt"
+    odyssey = tmp_path / "odyssey.txt"
+    iliad.write_text("Sing, goddess.\n", encoding="utf-8")
+    odyssey.write_text("Tell me, muse.\n", encoding="utf-8")
+    monkeypatch.setenv("MIRA_CORE_LIBRARY_TEXT_ROOT", str(private_root))
+    monkeypatch.setattr(archive_library, "REPO_ROOT", tmp_path)
+    monkeypatch.setattr(archive_library, "LIBRARY_ROOT", tmp_path / "archive" / "library")
+    monkeypatch.setattr(archive_library, "REGISTRY_PATH", tmp_path / "archive" / "library" / "library-registry.json")
+
+    assert archive_library.main([
+        "admit-text",
+        "--source-id",
+        "HOMER",
+        "--body-id",
+        "HOMER-ILIAD",
+        "--work-title",
+        "Iliad",
+        "--file",
+        str(iliad),
+        "--edition",
+        "test Iliad",
+        "--license-status",
+        "public-domain",
+        "--json",
+    ]) == 0
+    capsys.readouterr()
+    assert archive_library.main([
+        "admit-text",
+        "--source-id",
+        "HOMER",
+        "--body-id",
+        "HOMER-ODYSSEY",
+        "--work-title",
+        "Odyssey",
+        "--file",
+        str(odyssey),
+        "--edition",
+        "test Odyssey",
+        "--license-status",
+        "public-domain",
+        "--json",
+    ]) == 0
+    updated = json.loads((tmp_path / "archive" / "library" / "library-registry.json").read_text(encoding="utf-8"))
+    bodies = updated["sources"][0]["text_bodies"]
+    assert [body["body_id"] for body in bodies] == ["HOMER-ILIAD", "HOMER-ODYSSEY"]
+    assert updated["sources"][0]["text_status"] == "available"
+    assert (private_root / "HOMER-ILIAD.txt").exists()
+    assert (private_root / "HOMER-ODYSSEY.txt").exists()
+
+
+def test_admit_text_rejects_unknown_or_restricted_license(tmp_path: Path, monkeypatch, capsys) -> None:
+    registry = base_registry()
+    registry["sources"] = [source(text_status="missing")]
+    write_scaffold(tmp_path, registry)
+    private_root = tmp_path / ".mira-private" / "library" / "texts"
+    source_file = tmp_path / "input.txt"
+    source_file.write_text("text\n", encoding="utf-8")
+    monkeypatch.setenv("MIRA_CORE_LIBRARY_TEXT_ROOT", str(private_root))
+    monkeypatch.setattr(archive_library, "REPO_ROOT", tmp_path)
+    monkeypatch.setattr(archive_library, "LIBRARY_ROOT", tmp_path / "archive" / "library")
+    monkeypatch.setattr(archive_library, "REGISTRY_PATH", tmp_path / "archive" / "library" / "library-registry.json")
+
+    assert archive_library.main([
+        "admit-text",
+        "--source-id",
+        "LIB-ROME-LIVY",
+        "--file",
+        str(source_file),
+        "--edition",
+        "test edition",
+        "--license-status",
+        "unknown",
+        "--json",
+    ]) == 1
+    assert "cannot admit text with license_status: unknown" in capsys.readouterr().err
+
+
+def test_admit_text_rejects_non_private_root(tmp_path: Path, monkeypatch, capsys) -> None:
+    registry = base_registry()
+    registry["sources"] = [source(text_status="missing")]
+    write_scaffold(tmp_path, registry)
+    source_file = tmp_path / "input.txt"
+    source_file.write_text("text\n", encoding="utf-8")
+    monkeypatch.setenv("MIRA_CORE_LIBRARY_TEXT_ROOT", str(tmp_path / "public-texts"))
+    monkeypatch.setattr(archive_library, "REPO_ROOT", tmp_path)
+    monkeypatch.setattr(archive_library, "LIBRARY_ROOT", tmp_path / "archive" / "library")
+    monkeypatch.setattr(archive_library, "REGISTRY_PATH", tmp_path / "archive" / "library" / "library-registry.json")
+    monkeypatch.setattr(archive_library, "private_text_root_allowed", lambda root: False)
+
+    assert archive_library.main([
+        "admit-text",
+        "--source-id",
+        "LIB-ROME-LIVY",
+        "--file",
+        str(source_file),
+        "--edition",
+        "test edition",
+        "--license-status",
+        "public-domain",
+        "--json",
+    ]) == 1
+    assert "library text root must be inside .mira-private or C:/private" in capsys.readouterr().err
 
 
 def test_run_repo_exposes_library_surface() -> None:

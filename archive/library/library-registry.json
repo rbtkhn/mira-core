@@ -44,5 +44,2098 @@
       "description": "Operational shelf for digital-era subject periods from 1991 AD to present, including post-Cold War order, internet-scale information systems, platform media, globalization, precision warfare, AI, and digital state capacity."
     }
   ],
-  "sources": []
+  "sources": [
+    {
+      "source_id": "LIB-ANCIENT-AUTHOR-001-ASHOKA",
+      "title": "Rock and Pillar Edicts",
+      "author": "Ashoka",
+      "subject_era": "ancient",
+      "source_composition_era": "ancient",
+      "edition_era": "digital",
+      "secondary_eras": [],
+      "date_start": -269,
+      "date_end": -232,
+      "date_label": "3rd c. BCE",
+      "era_basis": "composition_period",
+      "civilization_tags": [
+        "india"
+      ],
+      "source_type": "primary",
+      "location": {
+        "civilization_memory_refs": [
+          "civilization_memory://content/civilizations/INDIA/CIV-ARC-INDIA.md:52",
+          "civilization_memory://content/civilizations/INDIA/MEM-INDIA-DYNASTY-MAURYA.md:141"
+        ],
+        "body_imported": false
+      },
+      "status": "stub",
+      "notes": "Ranked highest from Civilization Memory because India ARC gives Ashoka Edicts ARC-T-ANCIENT with [10] uses and Mauryan MEMs use the edicts as direct governance evidence.",
+      "text_status": "missing"
+    },
+    {
+      "source_id": "LIB-ANCIENT-AUTHOR-002-KAUTILYA",
+      "title": "Arthashastra",
+      "author": "Kautilya / Chanakya",
+      "subject_era": "ancient",
+      "source_composition_era": "ancient",
+      "edition_era": "digital",
+      "secondary_eras": [],
+      "date_start": -400,
+      "date_end": -200,
+      "date_label": "4th-3rd c. BCE",
+      "era_basis": "composition_period",
+      "civilization_tags": [
+        "india"
+      ],
+      "source_type": "legal",
+      "location": {
+        "civilization_memory_refs": [
+          "civilization_memory://content/civilizations/INDIA/CIV-ARC-INDIA.md:52",
+          "civilization_memory://content/civilizations/INDIA/MEM-INDIA-LIT-ARTHASHASTRA.md"
+        ],
+        "body_imported": false
+      },
+      "status": "stub",
+      "notes": "India ARC gives Arthashastra ARC-T-ANCIENT with [9] uses; India memory treats Kautilyan realism as a statecraft core.",
+      "text_status": "missing"
+    },
+    {
+      "source_id": "LIB-ANCIENT-AUTHOR-003-HERODOTUS",
+      "title": "Histories",
+      "author": "Herodotus",
+      "subject_era": "ancient",
+      "source_composition_era": "ancient",
+      "edition_era": "digital",
+      "secondary_eras": [],
+      "date_start": -499,
+      "date_end": -400,
+      "date_label": "5th c. BCE",
+      "era_basis": "composition_period",
+      "civilization_tags": [
+        "persia",
+        "rome",
+        "russia"
+      ],
+      "source_type": "classical",
+      "location": {
+        "civilization_memory_refs": [
+          "civilization_memory://content/civilizations/PERSIA/CIV-ARC-PERSIA.md:45",
+          "civilization_memory://content/civilizations/ROME/CIV-ARC-ROME.md:135",
+          "civilization_memory://content/civilizations/RUSSIA/CIV-ARC-RUSSIA.md:172"
+        ],
+        "body_imported": false
+      },
+      "status": "stub",
+      "notes": "Strongest cross-civilizational ancient historian in the repo: Persia [22], Russia [17], and Rome ARC authority.",
+      "text_status": "available",
+      "text_bodies": [
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-003-HERODOTUS-HISTORIES-VOL-1-MACAULAY",
+          "work_title": "Histories, Volume 1",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-003-HERODOTUS-HISTORIES-VOL-1-MACAULAY.txt",
+          "text_sha256": "58a5b0e154f69cf17404a353328f34eb0c1a8241d275e0e68d4eb34c7b8bd4a6",
+          "text_bytes": 896008,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "G. C. Macaulay",
+          "editor": "",
+          "edition_label": "Project Gutenberg #2707; G. C. Macaulay translation",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg states public domain in the USA.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-003-HERODOTUS-HISTORIES-VOL-2-MACAULAY",
+          "work_title": "Histories, Volume 2",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-003-HERODOTUS-HISTORIES-VOL-2-MACAULAY.txt",
+          "text_sha256": "2d37bd70c29c822d13fc6de78f4e1448a26476a868f3a30c718cefeef751b465",
+          "text_bytes": 836493,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "G. C. Macaulay",
+          "editor": "",
+          "edition_label": "Project Gutenberg #2456; G. C. Macaulay translation",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg states public domain in the USA.",
+          "status": "available"
+        }
+      ]
+    },
+    {
+      "source_id": "LIB-ANCIENT-AUTHOR-004-STRABO",
+      "title": "Geographica",
+      "author": "Strabo",
+      "subject_era": "ancient",
+      "source_composition_era": "ancient",
+      "edition_era": "digital",
+      "secondary_eras": [],
+      "date_start": -64,
+      "date_end": 24,
+      "date_label": "1st c. BCE-1st c. CE",
+      "era_basis": "composition_period",
+      "civilization_tags": [
+        "persia",
+        "rome",
+        "france",
+        "germany",
+        "russia",
+        "india"
+      ],
+      "source_type": "classical",
+      "location": {
+        "civilization_memory_refs": [
+          "civilization_memory://content/civilizations/PERSIA/CIV-ARC-PERSIA.md:56",
+          "civilization_memory://content/civilizations/ROME/CIV-ARC-ROME.md:141",
+          "civilization_memory://content/civilizations/FRANCE/CIV-ARC-FRANCE.md:203",
+          "civilization_memory://content/civilizations/GERMANY/CIV-ARC-GERMANY.md:134",
+          "civilization_memory://content/civilizations/RUSSIA/CIV-ARC-RUSSIA.md:172"
+        ],
+        "body_imported": false
+      },
+      "status": "stub",
+      "notes": "Repeated ARC authority across Persia [13], Russia [14], Rome, France, Germany, and India interface.",
+      "text_status": "missing"
+    },
+    {
+      "source_id": "LIB-ANCIENT-AUTHOR-005-DARIUS-I",
+      "title": "Behistun Inscription",
+      "author": "Darius I",
+      "subject_era": "ancient",
+      "source_composition_era": "ancient",
+      "edition_era": "digital",
+      "secondary_eras": [],
+      "date_start": -522,
+      "date_end": -522,
+      "date_label": "522 BCE",
+      "era_basis": "composition_period",
+      "civilization_tags": [
+        "persia"
+      ],
+      "source_type": "primary",
+      "location": {
+        "civilization_memory_refs": [
+          "civilization_memory://content/civilizations/PERSIA/CIV-ARC-PERSIA.md:51"
+        ],
+        "body_imported": false
+      },
+      "status": "stub",
+      "notes": "Persia ARC gives Behistun ARC-T-ANCIENT with [12] uses; direct Achaemenid imperial self-account.",
+      "text_status": "missing"
+    },
+    {
+      "source_id": "LIB-ANCIENT-AUTHOR-006-JULIUS-CAESAR",
+      "title": "Commentarii, especially Commentarii de Bello Gallico",
+      "author": "Julius Caesar",
+      "subject_era": "ancient",
+      "source_composition_era": "ancient",
+      "edition_era": "digital",
+      "secondary_eras": [],
+      "date_start": -58,
+      "date_end": -44,
+      "date_label": "1st c. BCE",
+      "era_basis": "composition_period",
+      "civilization_tags": [
+        "rome",
+        "france",
+        "germany",
+        "anglia"
+      ],
+      "source_type": "primary",
+      "location": {
+        "civilization_memory_refs": [
+          "civilization_memory://content/civilizations/ROME/CIV-ARC-ROME.md:151",
+          "civilization_memory://content/civilizations/FRANCE/CIV-ARC-FRANCE.md:200",
+          "civilization_memory://content/civilizations/GERMANY/CIV-ARC-GERMANY.md:131"
+        ],
+        "body_imported": false
+      },
+      "status": "stub",
+      "notes": "Direct Roman witness and recurrent ARC authority for Rome, Gaul/France, Germany, and Anglia frontier memory.",
+      "text_status": "missing"
+    },
+    {
+      "source_id": "LIB-ANCIENT-AUTHOR-007-TACITUS",
+      "title": "Annals; Histories; Germania",
+      "author": "Tacitus",
+      "subject_era": "ancient",
+      "source_composition_era": "ancient",
+      "edition_era": "digital",
+      "secondary_eras": [],
+      "date_start": 56,
+      "date_end": 120,
+      "date_label": "1st-2nd c. CE",
+      "era_basis": "composition_period",
+      "civilization_tags": [
+        "rome",
+        "germany",
+        "france",
+        "russia"
+      ],
+      "source_type": "classical",
+      "location": {
+        "civilization_memory_refs": [
+          "civilization_memory://content/civilizations/ROME/CIV-ARC-ROME.md:156",
+          "civilization_memory://content/civilizations/GERMANY/CIV-ARC-GERMANY.md:133",
+          "civilization_memory://content/civilizations/FRANCE/CIV-ARC-FRANCE.md:215",
+          "civilization_memory://content/civilizations/RUSSIA/CIV-ARC-RUSSIA.md:172"
+        ],
+        "body_imported": false
+      },
+      "status": "stub",
+      "notes": "Major cross-civilizational imperial and frontier witness; Russia ARC gives [9] and Germany/France/Rome cite him directly.",
+      "text_status": "missing"
+    },
+    {
+      "source_id": "LIB-ANCIENT-AUTHOR-008-CONFUCIUS-KONGZI",
+      "title": "Analects; Spring and Autumn Annals attribution",
+      "author": "Confucius / Kongzi",
+      "subject_era": "ancient",
+      "source_composition_era": "ancient",
+      "edition_era": "digital",
+      "secondary_eras": [],
+      "date_start": -551,
+      "date_end": -479,
+      "date_label": "551-479 BCE",
+      "era_basis": "composition_period",
+      "civilization_tags": [
+        "china"
+      ],
+      "source_type": "classical",
+      "location": {
+        "civilization_memory_refs": [
+          "civilization_memory://content/civilizations/CHINA/CIV-ARC-CHINA.md:54",
+          "civilization_memory://content/civilizations/CHINA/MEM-CHINA-LIT-KONGZI.md"
+        ],
+        "body_imported": false
+      },
+      "status": "stub",
+      "notes": "China ARC source and dedicated Kongzi MEM object; foundational Confucian source authority.",
+      "text_status": "missing"
+    },
+    {
+      "source_id": "LIB-ANCIENT-AUTHOR-009-LAOZI",
+      "title": "Dao De Jing",
+      "author": "Laozi",
+      "subject_era": "ancient",
+      "source_composition_era": "ancient",
+      "edition_era": "digital",
+      "secondary_eras": [],
+      "date_start": -600,
+      "date_end": -400,
+      "date_label": "6th-5th c. BCE",
+      "era_basis": "composition_period",
+      "civilization_tags": [
+        "china"
+      ],
+      "source_type": "classical",
+      "location": {
+        "civilization_memory_refs": [
+          "civilization_memory://content/civilizations/CHINA/CIV-ARC-CHINA.md:56",
+          "civilization_memory://content/civilizations/CHINA/MEM-CHINA-LIT-LAOZI.md"
+        ],
+        "body_imported": false
+      },
+      "status": "stub",
+      "notes": "China ARC source and dedicated Laozi MEM object for Daoist civilizational memory.",
+      "text_status": "missing"
+    },
+    {
+      "source_id": "LIB-ANCIENT-AUTHOR-010-SUNZI",
+      "title": "The Art of War",
+      "author": "Sunzi",
+      "subject_era": "ancient",
+      "source_composition_era": "ancient",
+      "edition_era": "digital",
+      "secondary_eras": [],
+      "date_start": -500,
+      "date_end": -400,
+      "date_label": "5th c. BCE",
+      "era_basis": "composition_period",
+      "civilization_tags": [
+        "china"
+      ],
+      "source_type": "classical",
+      "location": {
+        "civilization_memory_refs": [
+          "civilization_memory://content/civilizations/CHINA/CIV-ARC-CHINA.md:57",
+          "civilization_memory://content/civilizations/CHINA/MEM-CHINA-LIT-SUNZI.md"
+        ],
+        "body_imported": false
+      },
+      "status": "stub",
+      "notes": "China ARC source and dedicated Sunzi MEM object for strategic memory.",
+      "text_status": "missing"
+    },
+    {
+      "source_id": "LIB-ANCIENT-AUTHOR-011-VEDIC-SEER-TRADITION",
+      "title": "Vedas",
+      "author": "Vedic seer tradition",
+      "subject_era": "ancient",
+      "source_composition_era": "ancient",
+      "edition_era": "digital",
+      "secondary_eras": [],
+      "date_start": null,
+      "date_end": null,
+      "date_label": "Vedic period",
+      "era_basis": "composition_period",
+      "civilization_tags": [
+        "india"
+      ],
+      "source_type": "religious",
+      "location": {
+        "civilization_memory_refs": [
+          "civilization_memory://content/civilizations/INDIA/CIV-ARC-INDIA.md:34",
+          "civilization_memory://content/civilizations/INDIA/MEM-INDIA-LIT-VEDAS.md"
+        ],
+        "body_imported": false
+      },
+      "status": "stub",
+      "notes": "Corporate textual authority; India MEM describes the Vedas as ritual and liturgical foundation.",
+      "text_status": "missing"
+    },
+    {
+      "source_id": "LIB-ANCIENT-AUTHOR-012-UPANISHADIC-TRADITION",
+      "title": "Principal Upanishads",
+      "author": "Upanishadic tradition",
+      "subject_era": "ancient",
+      "source_composition_era": "ancient",
+      "edition_era": "digital",
+      "secondary_eras": [],
+      "date_start": null,
+      "date_end": null,
+      "date_label": "Late Vedic and early post-Vedic period",
+      "era_basis": "composition_period",
+      "civilization_tags": [
+        "india"
+      ],
+      "source_type": "religious",
+      "location": {
+        "civilization_memory_refs": [
+          "civilization_memory://content/civilizations/INDIA/MEM-INDIA-LIT-UPANISHADS.md"
+        ],
+        "body_imported": false
+      },
+      "status": "stub",
+      "notes": "Corporate textual authority; India MEM treats the Upanishads as philosophical-soteriological core.",
+      "text_status": "missing"
+    },
+    {
+      "source_id": "LIB-ANCIENT-AUTHOR-013-VYASA-MAHABHARATA-TRADITION",
+      "title": "Mahabharata; Bhagavad Gita",
+      "author": "Vyasa / Mahabharata tradition",
+      "subject_era": "ancient",
+      "source_composition_era": "ancient",
+      "edition_era": "digital",
+      "secondary_eras": [],
+      "date_start": null,
+      "date_end": null,
+      "date_label": "Ancient epic tradition",
+      "era_basis": "composition_period",
+      "civilization_tags": [
+        "india"
+      ],
+      "source_type": "literary",
+      "location": {
+        "civilization_memory_refs": [
+          "civilization_memory://content/civilizations/INDIA/MEM-INDIA-LIT-BHAGAVAD-GITA.md",
+          "civilization_memory://content/civilizations/INDIA/MEM-INDIA-LIT-UPANISHADS.md:101"
+        ],
+        "body_imported": false
+      },
+      "status": "stub",
+      "notes": "Dedicated Gita/Mahabharata memory surfaces; central dharma and action frame in India memory.",
+      "text_status": "missing"
+    },
+    {
+      "source_id": "LIB-ANCIENT-AUTHOR-014-VALMIKI",
+      "title": "Ramayana",
+      "author": "Valmiki",
+      "subject_era": "ancient",
+      "source_composition_era": "ancient",
+      "edition_era": "digital",
+      "secondary_eras": [],
+      "date_start": null,
+      "date_end": null,
+      "date_label": "Ancient epic tradition",
+      "era_basis": "composition_period",
+      "civilization_tags": [
+        "india"
+      ],
+      "source_type": "literary",
+      "location": {
+        "civilization_memory_refs": [
+          "civilization_memory://content/civilizations/INDIA/MEM-INDIA-LIT-UPANISHADS.md:107",
+          "civilization_memory://content/civilizations/INDIA/SCAN-MEM-INDIA-INDIGENOUS-QUOTE-OPPORTUNITIES.md:23"
+        ],
+        "body_imported": false
+      },
+      "status": "stub",
+      "notes": "Ramayana appears as India literary memory and ideal kingship/dharma frame.",
+      "text_status": "missing"
+    },
+    {
+      "source_id": "LIB-ANCIENT-AUTHOR-015-AVESTAN-GATHIC-TRADITION",
+      "title": "Avesta; Gathas",
+      "author": "Avestan / Gathic Zoroastrian tradition",
+      "subject_era": "ancient",
+      "source_composition_era": "ancient",
+      "edition_era": "digital",
+      "secondary_eras": [],
+      "date_start": null,
+      "date_end": null,
+      "date_label": "Ancient Zoroastrian corpus",
+      "era_basis": "composition_period",
+      "civilization_tags": [
+        "persia"
+      ],
+      "source_type": "religious",
+      "location": {
+        "civilization_memory_refs": [
+          "civilization_memory://content/civilizations/PERSIA/CIV-ARC-PERSIA.md:50"
+        ],
+        "body_imported": false
+      },
+      "status": "stub",
+      "notes": "Corporate textual authority; Persia ARC admits Avesta/Gathas as ARC-T-ANCIENT sacred texts.",
+      "text_status": "missing"
+    },
+    {
+      "source_id": "LIB-ANCIENT-AUTHOR-016-CYRUS-II-ACHAEMENID-CHANCERY",
+      "title": "Cyrus Cylinder",
+      "author": "Cyrus II / Achaemenid imperial chancery",
+      "subject_era": "ancient",
+      "source_composition_era": "ancient",
+      "edition_era": "digital",
+      "secondary_eras": [],
+      "date_start": -539,
+      "date_end": -539,
+      "date_label": "539 BCE",
+      "era_basis": "composition_period",
+      "civilization_tags": [
+        "persia"
+      ],
+      "source_type": "primary",
+      "location": {
+        "civilization_memory_refs": [
+          "civilization_memory://content/civilizations/PERSIA/CIV-ARC-PERSIA.md:52",
+          "civilization_memory://content/civilizations/PERSIA/MEM-PERSIA-ACHAEMENID-CYRUS-II.md"
+        ],
+        "body_imported": false
+      },
+      "status": "stub",
+      "notes": "Persia ARC gives Cyrus Cylinder [6]; dedicated Cyrus MEM preserves the Achaemenid authority.",
+      "text_status": "missing"
+    },
+    {
+      "source_id": "LIB-ANCIENT-AUTHOR-017-MENCIUS-MENGZI",
+      "title": "Mencius",
+      "author": "Mencius / Mengzi",
+      "subject_era": "ancient",
+      "source_composition_era": "ancient",
+      "edition_era": "digital",
+      "secondary_eras": [],
+      "date_start": -372,
+      "date_end": -289,
+      "date_label": "372-289 BCE",
+      "era_basis": "composition_period",
+      "civilization_tags": [
+        "china"
+      ],
+      "source_type": "classical",
+      "location": {
+        "civilization_memory_refs": [
+          "civilization_memory://content/civilizations/CHINA/CIV-ARC-CHINA.md:58",
+          "civilization_memory://content/civilizations/CHINA/MEM-CHINA-LIT-MENGZI.md"
+        ],
+        "body_imported": false
+      },
+      "status": "stub",
+      "notes": "China ARC source and dedicated Mengzi MEM object.",
+      "text_status": "missing"
+    },
+    {
+      "source_id": "LIB-ANCIENT-AUTHOR-018-ZHUANGZI",
+      "title": "Zhuangzi",
+      "author": "Zhuangzi",
+      "subject_era": "ancient",
+      "source_composition_era": "ancient",
+      "edition_era": "digital",
+      "secondary_eras": [],
+      "date_start": -369,
+      "date_end": -286,
+      "date_label": "369-286 BCE",
+      "era_basis": "composition_period",
+      "civilization_tags": [
+        "china"
+      ],
+      "source_type": "classical",
+      "location": {
+        "civilization_memory_refs": [
+          "civilization_memory://content/civilizations/CHINA/CIV-ARC-CHINA.md:59"
+        ],
+        "body_imported": false
+      },
+      "status": "stub",
+      "notes": "China ARC admits Zhuangzi as ARC-T-ANCIENT source authority.",
+      "text_status": "missing"
+    },
+    {
+      "source_id": "LIB-ANCIENT-AUTHOR-019-HAN-FEIZI",
+      "title": "Han Feizi",
+      "author": "Han Feizi",
+      "subject_era": "ancient",
+      "source_composition_era": "ancient",
+      "edition_era": "digital",
+      "secondary_eras": [],
+      "date_start": -280,
+      "date_end": -233,
+      "date_label": "c. 280-233 BCE",
+      "era_basis": "composition_period",
+      "civilization_tags": [
+        "china"
+      ],
+      "source_type": "classical",
+      "location": {
+        "civilization_memory_refs": [
+          "civilization_memory://content/civilizations/CHINA/CIV-ARC-CHINA.md:60"
+        ],
+        "body_imported": false
+      },
+      "status": "stub",
+      "notes": "China ARC admits Han Feizi as ARC-T-ANCIENT Legalist corpus.",
+      "text_status": "missing"
+    },
+    {
+      "source_id": "LIB-ANCIENT-AUTHOR-020-SIMA-QIAN",
+      "title": "Shiji / Records of the Grand Historian",
+      "author": "Sima Qian",
+      "subject_era": "ancient",
+      "source_composition_era": "ancient",
+      "edition_era": "digital",
+      "secondary_eras": [],
+      "date_start": -145,
+      "date_end": -86,
+      "date_label": "145-86 BCE",
+      "era_basis": "composition_period",
+      "civilization_tags": [
+        "china"
+      ],
+      "source_type": "chronicle",
+      "location": {
+        "civilization_memory_refs": [
+          "civilization_memory://content/civilizations/CHINA/CIV-ARC-CHINA.md:61"
+        ],
+        "body_imported": false
+      },
+      "status": "stub",
+      "notes": "China ARC dynastic historical authority.",
+      "text_status": "missing"
+    },
+    {
+      "source_id": "LIB-ANCIENT-AUTHOR-021-BAN-GU",
+      "title": "Hanshu / Book of Han",
+      "author": "Ban Gu",
+      "subject_era": "ancient",
+      "source_composition_era": "ancient",
+      "edition_era": "digital",
+      "secondary_eras": [],
+      "date_start": 32,
+      "date_end": 92,
+      "date_label": "32-92 CE",
+      "era_basis": "composition_period",
+      "civilization_tags": [
+        "china"
+      ],
+      "source_type": "chronicle",
+      "location": {
+        "civilization_memory_refs": [
+          "civilization_memory://content/civilizations/CHINA/CIV-ARC-CHINA.md:62"
+        ],
+        "body_imported": false
+      },
+      "status": "stub",
+      "notes": "China ARC dynastic historical authority.",
+      "text_status": "missing"
+    },
+    {
+      "source_id": "LIB-ANCIENT-AUTHOR-022-FAN-YE",
+      "title": "Hou Hanshu / Book of the Later Han",
+      "author": "Fan Ye",
+      "subject_era": "ancient",
+      "source_composition_era": "ancient",
+      "edition_era": "digital",
+      "secondary_eras": [],
+      "date_start": 398,
+      "date_end": 445,
+      "date_label": "398-445 CE",
+      "era_basis": "composition_period",
+      "civilization_tags": [
+        "china"
+      ],
+      "source_type": "chronicle",
+      "location": {
+        "civilization_memory_refs": [
+          "civilization_memory://content/civilizations/CHINA/CIV-ARC-CHINA.md:63"
+        ],
+        "body_imported": false
+      },
+      "status": "stub",
+      "notes": "China ARC Later Han source; within Mira Ancient boundary.",
+      "text_status": "missing"
+    },
+    {
+      "source_id": "LIB-ANCIENT-AUTHOR-023-CHEN-SHOU",
+      "title": "Sanguozhi / Records of the Three Kingdoms",
+      "author": "Chen Shou",
+      "subject_era": "ancient",
+      "source_composition_era": "ancient",
+      "edition_era": "digital",
+      "secondary_eras": [],
+      "date_start": 233,
+      "date_end": 297,
+      "date_label": "233-297 CE",
+      "era_basis": "composition_period",
+      "civilization_tags": [
+        "china"
+      ],
+      "source_type": "chronicle",
+      "location": {
+        "civilization_memory_refs": [
+          "civilization_memory://content/civilizations/CHINA/CIV-ARC-CHINA.md:64",
+          "civilization_memory://content/civilizations/CHINA/MEM-CHINA-LIT-ROMANCE-THREE-KINGDOMS.md:178"
+        ],
+        "body_imported": false
+      },
+      "status": "stub",
+      "notes": "China ARC source; Romance MEM explicitly depends on Sanguozhi as ancient historical source.",
+      "text_status": "missing"
+    },
+    {
+      "source_id": "LIB-ANCIENT-AUTHOR-024-YIJING-TRADITION",
+      "title": "Yijing / Book of Changes",
+      "author": "Yijing tradition",
+      "subject_era": "ancient",
+      "source_composition_era": "ancient",
+      "edition_era": "digital",
+      "secondary_eras": [],
+      "date_start": null,
+      "date_end": null,
+      "date_label": "Traditional; Zhou period",
+      "era_basis": "composition_period",
+      "civilization_tags": [
+        "china"
+      ],
+      "source_type": "classical",
+      "location": {
+        "civilization_memory_refs": [
+          "civilization_memory://content/civilizations/CHINA/CIV-ARC-CHINA.md:65"
+        ],
+        "body_imported": false
+      },
+      "status": "stub",
+      "notes": "Corporate textual authority; China ARC admits Book of Changes as Zhou/classical source.",
+      "text_status": "missing"
+    },
+    {
+      "source_id": "LIB-ANCIENT-AUTHOR-025-SHUJING-TRADITION",
+      "title": "Shujing / Book of Documents",
+      "author": "Shujing tradition",
+      "subject_era": "ancient",
+      "source_composition_era": "ancient",
+      "edition_era": "digital",
+      "secondary_eras": [],
+      "date_start": null,
+      "date_end": null,
+      "date_label": "Classical period",
+      "era_basis": "composition_period",
+      "civilization_tags": [
+        "china"
+      ],
+      "source_type": "classical",
+      "location": {
+        "civilization_memory_refs": [
+          "civilization_memory://content/civilizations/CHINA/CIV-ARC-CHINA.md:66",
+          "civilization_memory://content/civilizations/CHINA/MEM-CHINA-DYNASTY-ZHOU.md:152"
+        ],
+        "body_imported": false
+      },
+      "status": "stub",
+      "notes": "Corporate textual authority; China ARC and Zhou MEM preserve Book of Documents.",
+      "text_status": "missing"
+    },
+    {
+      "source_id": "LIB-ANCIENT-AUTHOR-026-SHIJING-TRADITION",
+      "title": "Shijing / Book of Odes",
+      "author": "Shijing tradition",
+      "subject_era": "ancient",
+      "source_composition_era": "ancient",
+      "edition_era": "digital",
+      "secondary_eras": [],
+      "date_start": null,
+      "date_end": null,
+      "date_label": "Classical period",
+      "era_basis": "composition_period",
+      "civilization_tags": [
+        "china"
+      ],
+      "source_type": "literary",
+      "location": {
+        "civilization_memory_refs": [
+          "civilization_memory://content/civilizations/CHINA/CIV-ARC-CHINA.md:67"
+        ],
+        "body_imported": false
+      },
+      "status": "stub",
+      "notes": "Corporate textual authority; China ARC admits Book of Odes as classical source.",
+      "text_status": "missing"
+    },
+    {
+      "source_id": "LIB-ANCIENT-AUTHOR-027-THUCYDIDES",
+      "title": "History of the Peloponnesian War",
+      "author": "Thucydides",
+      "subject_era": "ancient",
+      "source_composition_era": "ancient",
+      "edition_era": "digital",
+      "secondary_eras": [],
+      "date_start": -460,
+      "date_end": -400,
+      "date_label": "5th c. BCE",
+      "era_basis": "composition_period",
+      "civilization_tags": [
+        "rome",
+        "persia"
+      ],
+      "source_type": "classical",
+      "location": {
+        "civilization_memory_refs": [
+          "civilization_memory://content/civilizations/ROME/CIV-ARC-ROME.md:136",
+          "civilization_memory://content/civilizations/PERSIA/CIV-ARC-PERSIA.md:47"
+        ],
+        "body_imported": false
+      },
+      "status": "stub",
+      "notes": "Rome ARC and Persia ARC authority for Greek-Persian/Roman-interfacing history.",
+      "text_status": "available",
+      "text_bodies": [
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-027-THUCYDIDES-PELOPONNESIAN-WAR-CRAWLEY",
+          "work_title": "History of the Peloponnesian War",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-027-THUCYDIDES-PELOPONNESIAN-WAR-CRAWLEY.txt",
+          "text_sha256": "b7df28eabde17b252e38e808c5d9c287ac69d9503e2958ba74bd316922963b14",
+          "text_bytes": 1217310,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "Richard Crawley",
+          "editor": "",
+          "edition_label": "Project Gutenberg #7142; Richard Crawley translation",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg states public domain in the USA.",
+          "status": "available"
+        }
+      ]
+    },
+    {
+      "source_id": "LIB-ANCIENT-AUTHOR-028-XENOPHON",
+      "title": "Anabasis; Cyropaedia; Hellenica",
+      "author": "Xenophon",
+      "subject_era": "ancient",
+      "source_composition_era": "ancient",
+      "edition_era": "digital",
+      "secondary_eras": [],
+      "date_start": -430,
+      "date_end": -354,
+      "date_label": "430-354 BCE",
+      "era_basis": "composition_period",
+      "civilization_tags": [
+        "persia",
+        "rome"
+      ],
+      "source_type": "classical",
+      "location": {
+        "civilization_memory_refs": [
+          "civilization_memory://content/civilizations/PERSIA/CIV-ARC-PERSIA.md:48",
+          "civilization_memory://content/civilizations/ROME/CIV-ARC-ROME.md:137"
+        ],
+        "body_imported": false
+      },
+      "status": "stub",
+      "notes": "Persia ARC gives [5] for Cyropaedia/Anabasis; Rome ARC admits Hellenica/Anabasis.",
+      "text_status": "missing"
+    },
+    {
+      "source_id": "LIB-ANCIENT-AUTHOR-029-POLYBIUS",
+      "title": "Histories",
+      "author": "Polybius",
+      "subject_era": "ancient",
+      "source_composition_era": "ancient",
+      "edition_era": "digital",
+      "secondary_eras": [],
+      "date_start": -200,
+      "date_end": -118,
+      "date_label": "2nd c. BCE",
+      "era_basis": "composition_period",
+      "civilization_tags": [
+        "rome",
+        "france"
+      ],
+      "source_type": "classical",
+      "location": {
+        "civilization_memory_refs": [
+          "civilization_memory://content/civilizations/ROME/CIV-ARC-ROME.md:138",
+          "civilization_memory://content/civilizations/FRANCE/CIV-ARC-FRANCE.md:207"
+        ],
+        "body_imported": false
+      },
+      "status": "stub",
+      "notes": "Rome and France ARC source for Roman expansion and Gallic interface.",
+      "text_status": "missing"
+    },
+    {
+      "source_id": "LIB-ANCIENT-AUTHOR-030-DIODORUS-SICULUS",
+      "title": "Bibliotheca Historica",
+      "author": "Diodorus Siculus",
+      "subject_era": "ancient",
+      "source_composition_era": "ancient",
+      "edition_era": "digital",
+      "secondary_eras": [],
+      "date_start": -90,
+      "date_end": -30,
+      "date_label": "1st c. BCE",
+      "era_basis": "composition_period",
+      "civilization_tags": [
+        "rome",
+        "persia",
+        "france"
+      ],
+      "source_type": "classical",
+      "location": {
+        "civilization_memory_refs": [
+          "civilization_memory://content/civilizations/ROME/CIV-ARC-ROME.md:139",
+          "civilization_memory://content/civilizations/PERSIA/CIV-ARC-PERSIA.md:55",
+          "civilization_memory://content/civilizations/FRANCE/CIV-ARC-FRANCE.md:209"
+        ],
+        "body_imported": false
+      },
+      "status": "stub",
+      "notes": "ARC authority across Rome, Persia, and France/Gaul memory.",
+      "text_status": "missing"
+    },
+    {
+      "source_id": "LIB-ANCIENT-AUTHOR-031-DIONYSIUS-OF-HALICARNASSUS",
+      "title": "Roman Antiquities",
+      "author": "Dionysius of Halicarnassus",
+      "subject_era": "ancient",
+      "source_composition_era": "ancient",
+      "edition_era": "digital",
+      "secondary_eras": [],
+      "date_start": -60,
+      "date_end": 7,
+      "date_label": "1st c. BCE",
+      "era_basis": "composition_period",
+      "civilization_tags": [
+        "rome"
+      ],
+      "source_type": "classical",
+      "location": {
+        "civilization_memory_refs": [
+          "civilization_memory://content/civilizations/ROME/CIV-ARC-ROME.md:140"
+        ],
+        "body_imported": false
+      },
+      "status": "stub",
+      "notes": "Rome ARC source for Roman antiquarian memory.",
+      "text_status": "missing"
+    },
+    {
+      "source_id": "LIB-ANCIENT-AUTHOR-032-PLUTARCH",
+      "title": "Parallel Lives; Life of Artaxerxes; Life of Alexander",
+      "author": "Plutarch",
+      "subject_era": "ancient",
+      "source_composition_era": "ancient",
+      "edition_era": "digital",
+      "secondary_eras": [],
+      "date_start": 46,
+      "date_end": 120,
+      "date_label": "1st-2nd c. CE",
+      "era_basis": "composition_period",
+      "civilization_tags": [
+        "rome",
+        "persia"
+      ],
+      "source_type": "classical",
+      "location": {
+        "civilization_memory_refs": [
+          "civilization_memory://content/civilizations/ROME/CIV-ARC-ROME.md:142",
+          "civilization_memory://content/civilizations/PERSIA/CIV-ARC-PERSIA.md:53"
+        ],
+        "body_imported": false
+      },
+      "status": "stub",
+      "notes": "Rome ARC source and Persia ARC [3] for Artaxerxes/Alexander interface.",
+      "text_status": "missing"
+    },
+    {
+      "source_id": "LIB-ANCIENT-AUTHOR-033-ARRIAN",
+      "title": "Anabasis of Alexander; Indica",
+      "author": "Arrian",
+      "subject_era": "ancient",
+      "source_composition_era": "ancient",
+      "edition_era": "digital",
+      "secondary_eras": [],
+      "date_start": 86,
+      "date_end": 146,
+      "date_label": "2nd c. CE",
+      "era_basis": "composition_period",
+      "civilization_tags": [
+        "persia",
+        "india",
+        "rome"
+      ],
+      "source_type": "classical",
+      "location": {
+        "civilization_memory_refs": [
+          "civilization_memory://content/civilizations/PERSIA/CIV-ARC-PERSIA.md:54",
+          "civilization_memory://content/civilizations/INDIA/CIV-ARC-INDIA.md:58",
+          "civilization_memory://content/civilizations/ROME/CIV-ARC-ROME.md:145"
+        ],
+        "body_imported": false
+      },
+      "status": "stub",
+      "notes": "Persia ARC [5], India ARC, and Rome ARC source for Alexander and India interface.",
+      "text_status": "missing"
+    },
+    {
+      "source_id": "LIB-ANCIENT-AUTHOR-034-CICERO",
+      "title": "Orations; Letters; Philosophical Works",
+      "author": "Cicero",
+      "subject_era": "ancient",
+      "source_composition_era": "ancient",
+      "edition_era": "digital",
+      "secondary_eras": [],
+      "date_start": -106,
+      "date_end": -43,
+      "date_label": "1st c. BCE",
+      "era_basis": "composition_period",
+      "civilization_tags": [
+        "rome"
+      ],
+      "source_type": "classical",
+      "location": {
+        "civilization_memory_refs": [
+          "civilization_memory://content/civilizations/ROME/CIV-ARC-ROME.md:152",
+          "civilization_memory://content/civilizations/ROME/MEM-ROME-CICERO.md"
+        ],
+        "body_imported": false
+      },
+      "status": "stub",
+      "notes": "Rome ARC authority with dedicated Cicero MEM object.",
+      "text_status": "missing"
+    },
+    {
+      "source_id": "LIB-ANCIENT-AUTHOR-035-LIVY",
+      "title": "Ab Urbe Condita",
+      "author": "Livy",
+      "subject_era": "ancient",
+      "source_composition_era": "ancient",
+      "edition_era": "digital",
+      "secondary_eras": [],
+      "date_start": -59,
+      "date_end": 17,
+      "date_label": "1st c. BCE-1st c. CE",
+      "era_basis": "composition_period",
+      "civilization_tags": [
+        "rome",
+        "france"
+      ],
+      "source_type": "chronicle",
+      "location": {
+        "civilization_memory_refs": [
+          "civilization_memory://content/civilizations/ROME/CIV-ARC-ROME.md:153",
+          "civilization_memory://content/civilizations/FRANCE/CIV-ARC-FRANCE.md:205"
+        ],
+        "body_imported": false
+      },
+      "status": "stub",
+      "notes": "Rome and France ARC authority for early Rome and Gallic-Roman contact.",
+      "text_status": "missing"
+    },
+    {
+      "source_id": "LIB-ANCIENT-AUTHOR-036-SALLUST",
+      "title": "Bellum Catilinae; Bellum Jugurthinum",
+      "author": "Sallust",
+      "subject_era": "ancient",
+      "source_composition_era": "ancient",
+      "edition_era": "digital",
+      "secondary_eras": [],
+      "date_start": -86,
+      "date_end": -35,
+      "date_label": "1st c. BCE",
+      "era_basis": "composition_period",
+      "civilization_tags": [
+        "rome"
+      ],
+      "source_type": "classical",
+      "location": {
+        "civilization_memory_refs": [
+          "civilization_memory://content/civilizations/ROME/CIV-ARC-ROME.md:150",
+          "civilization_memory://content/civilizations/ROME/MEM-ROME-HIST-SALLUST.md"
+        ],
+        "body_imported": false
+      },
+      "status": "stub",
+      "notes": "Rome ARC source with dedicated historical MEM object.",
+      "text_status": "missing"
+    },
+    {
+      "source_id": "LIB-ANCIENT-AUTHOR-037-PLINY-THE-ELDER",
+      "title": "Naturalis Historia / Natural History",
+      "author": "Pliny the Elder",
+      "subject_era": "ancient",
+      "source_composition_era": "ancient",
+      "edition_era": "digital",
+      "secondary_eras": [],
+      "date_start": 23,
+      "date_end": 79,
+      "date_label": "1st c. CE",
+      "era_basis": "composition_period",
+      "civilization_tags": [
+        "rome",
+        "france",
+        "germany",
+        "russia"
+      ],
+      "source_type": "reference",
+      "location": {
+        "civilization_memory_refs": [
+          "civilization_memory://content/civilizations/ROME/CIV-ARC-ROME.md:155",
+          "civilization_memory://content/civilizations/FRANCE/CIV-ARC-FRANCE.md:213",
+          "civilization_memory://content/civilizations/GERMANY/CIV-ARC-GERMANY.md:135",
+          "civilization_memory://content/civilizations/RUSSIA/CIV-ARC-RUSSIA.md:172"
+        ],
+        "body_imported": false
+      },
+      "status": "stub",
+      "notes": "Cross-civilizational ancient reference authority in Rome, France, Germany, and Russia ARC lists.",
+      "text_status": "missing"
+    },
+    {
+      "source_id": "LIB-ANCIENT-AUTHOR-038-SUETONIUS",
+      "title": "De Vita Caesarum / Lives of the Caesars",
+      "author": "Suetonius",
+      "subject_era": "ancient",
+      "source_composition_era": "ancient",
+      "edition_era": "digital",
+      "secondary_eras": [],
+      "date_start": 69,
+      "date_end": 122,
+      "date_label": "2nd c. CE",
+      "era_basis": "composition_period",
+      "civilization_tags": [
+        "rome",
+        "france"
+      ],
+      "source_type": "classical",
+      "location": {
+        "civilization_memory_refs": [
+          "civilization_memory://content/civilizations/ROME/CIV-ARC-ROME.md:157",
+          "civilization_memory://content/civilizations/FRANCE/CIV-ARC-FRANCE.md:217",
+          "civilization_memory://content/civilizations/ROME/MEM-ROME-HIST-SUETONIUS.md"
+        ],
+        "body_imported": false
+      },
+      "status": "stub",
+      "notes": "Rome and France ARC authority with dedicated historical MEM object.",
+      "text_status": "missing"
+    },
+    {
+      "source_id": "LIB-ANCIENT-AUTHOR-039-HOMER",
+      "title": "Iliad; Odyssey",
+      "author": "Homer",
+      "subject_era": "ancient",
+      "source_composition_era": "ancient",
+      "edition_era": "digital",
+      "secondary_eras": [],
+      "date_start": null,
+      "date_end": null,
+      "date_label": "Ancient Greek epic tradition",
+      "era_basis": "composition_period",
+      "civilization_tags": [
+        "rome"
+      ],
+      "source_type": "literary",
+      "location": {
+        "civilization_memory_refs": [
+          "civilization_memory://content/civilizations/ROME/MEM-ROME-GREEK-LIT-HOMER.md"
+        ],
+        "body_imported": false
+      },
+      "status": "stub",
+      "notes": "Dedicated Rome-Greek MEM object frames Homer as foundational epic authority.",
+      "text_status": "available",
+      "text_bodies": [
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-039-HOMER-ILIAD-BUTLER",
+          "work_title": "Iliad",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-039-HOMER-ILIAD-BUTLER.txt",
+          "text_sha256": "a7a39e3467305472fcd5ee0e42fc93d069449171cf1758f2a42cfae8b2da2774",
+          "text_bytes": 929005,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "Samuel Butler",
+          "editor": "",
+          "edition_label": "Project Gutenberg #2199; Samuel Butler translation",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg states public domain in the USA.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-039-HOMER-ODYSSEY-BUTLER",
+          "work_title": "Odyssey",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-039-HOMER-ODYSSEY-BUTLER.txt",
+          "text_sha256": "ffbdb29c3dda284b65c11243db1a98167826a70c81bca2ed4b6232f86c905fb9",
+          "text_bytes": 717784,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "Samuel Butler",
+          "editor": "",
+          "edition_label": "Project Gutenberg #1727; Samuel Butler translation",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg states public domain in the USA.",
+          "status": "available"
+        }
+      ]
+    },
+    {
+      "source_id": "LIB-ANCIENT-AUTHOR-040-PLATO",
+      "title": "Republic; dialogues",
+      "author": "Plato",
+      "subject_era": "ancient",
+      "source_composition_era": "ancient",
+      "edition_era": "digital",
+      "secondary_eras": [],
+      "date_start": -428,
+      "date_end": -347,
+      "date_label": "c. 375 BCE for Republic",
+      "era_basis": "composition_period",
+      "civilization_tags": [
+        "rome"
+      ],
+      "source_type": "classical",
+      "location": {
+        "civilization_memory_refs": [
+          "civilization_memory://content/civilizations/ROME/MEM-ROME-GREEK-LIT-PLATO.md"
+        ],
+        "body_imported": false
+      },
+      "status": "stub",
+      "notes": "Dedicated Rome-Greek MEM object for ideal order, philosophic authority, and political distance.",
+      "text_status": "available",
+      "text_bodies": [
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-REPUBLIC-JOWETT",
+          "work_title": "Republic",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-040-PLATO-REPUBLIC-JOWETT.txt",
+          "text_sha256": "8a30ff0c9c6384c218e28298aee340fea0fea820f81b59bb63e5f640d27a7460",
+          "text_bytes": 1457534,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "Benjamin Jowett",
+          "editor": "",
+          "edition_label": "Project Gutenberg #55201; Benjamin Jowett translation",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg states public domain in the USA.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-CHARMIDES-JOWETT",
+          "work_title": "Charmides",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-040-PLATO-CHARMIDES-JOWETT.txt",
+          "text_sha256": "215ae680ac0086f18009b563663812046b03f5c04d87f9a76cf896df5127faa9",
+          "text_bytes": 143818,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "Benjamin Jowett",
+          "editor": "",
+          "edition_label": "Project Gutenberg #1580; Benjamin Jowett translation",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg states public domain in the USA.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-CRATYLUS-JOWETT",
+          "work_title": "Cratylus",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-040-PLATO-CRATYLUS-JOWETT.txt",
+          "text_sha256": "e5fe819c38e449ac686945b92aca54f3d4917e04ab1d47c576c54c9072e40acc",
+          "text_bytes": 326450,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "Benjamin Jowett",
+          "editor": "",
+          "edition_label": "Project Gutenberg #1616; Benjamin Jowett translation",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg states public domain in the USA.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-CRITO-JOWETT",
+          "work_title": "Crito",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-040-PLATO-CRITO-JOWETT.txt",
+          "text_sha256": "be298bb76ea80a78f2c6ad60c11ecd2f51f01eae90493c88b9de58ba558bc75e",
+          "text_bytes": 56122,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "Benjamin Jowett",
+          "editor": "",
+          "edition_label": "Project Gutenberg #1657; Benjamin Jowett translation",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg states public domain in the USA.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-EUTHYPHRO-JOWETT",
+          "work_title": "Euthyphro",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-040-PLATO-EUTHYPHRO-JOWETT.txt",
+          "text_sha256": "8b00a7a1caa91a58c7b64e50b9322fa0089f34ca9e5938fd9b8216df868f5849",
+          "text_bytes": 71308,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "Benjamin Jowett",
+          "editor": "",
+          "edition_label": "Project Gutenberg #1642; Benjamin Jowett translation",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg states public domain in the USA.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-GORGIAS-JOWETT",
+          "work_title": "Gorgias",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-040-PLATO-GORGIAS-JOWETT.txt",
+          "text_sha256": "379f2abb140332a49d5f86fd78f008f47de0e4fecb53a0a42b2b4cf6bfa4c133",
+          "text_bytes": 355837,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "Benjamin Jowett",
+          "editor": "",
+          "edition_label": "Project Gutenberg #1672; Benjamin Jowett translation",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg states public domain in the USA.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-ION-JOWETT",
+          "work_title": "Ion",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-040-PLATO-ION-JOWETT.txt",
+          "text_sha256": "a432c98e3a8b3e2e461522dd01b41b904de1e03d55caad50f2f80b8880a13895",
+          "text_bytes": 56012,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "Benjamin Jowett",
+          "editor": "",
+          "edition_label": "Project Gutenberg #1635; Benjamin Jowett translation",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg states public domain in the USA.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-LACHES-JOWETT",
+          "work_title": "Laches",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-040-PLATO-LACHES-JOWETT.txt",
+          "text_sha256": "d3205813ac313991c998bbe84a39f4d115641c5ac880a8562b933f1a87c19417",
+          "text_bytes": 87782,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "Benjamin Jowett",
+          "editor": "",
+          "edition_label": "Project Gutenberg #1584; Benjamin Jowett translation",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg states public domain in the USA.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-LYSIS-JOWETT",
+          "work_title": "Lysis",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-040-PLATO-LYSIS-JOWETT.txt",
+          "text_sha256": "6ad2d81332ba07cf1e55418baf0fb963548a65e9f7c30c21848dc8fe22d70646",
+          "text_bytes": 87878,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "Benjamin Jowett",
+          "editor": "",
+          "edition_label": "Project Gutenberg #1579; Benjamin Jowett translation",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg states public domain in the USA.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-MENO-JOWETT",
+          "work_title": "Meno",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-040-PLATO-MENO-JOWETT.txt",
+          "text_sha256": "b8cd2549571ca710684b781462ab0a0d141da485b982c55d63a399a35b12cbfb",
+          "text_bytes": 145456,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "Benjamin Jowett",
+          "editor": "",
+          "edition_label": "Project Gutenberg #1643; Benjamin Jowett translation",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg states public domain in the USA.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-PHAEDO-JOWETT",
+          "work_title": "Phaedo",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-040-PLATO-PHAEDO-JOWETT.txt",
+          "text_sha256": "164533dde5628e7cd2e51442c29367a132fc470271f0d7e77a2ef06170a008ca",
+          "text_bytes": 257103,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "Benjamin Jowett",
+          "editor": "",
+          "edition_label": "Project Gutenberg #1658; Benjamin Jowett translation",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg states public domain in the USA.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-PHAEDRUS-JOWETT",
+          "work_title": "Phaedrus",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-040-PLATO-PHAEDRUS-JOWETT.txt",
+          "text_sha256": "ce41cbe9eb5750163ef9084d253d7786d13c24968ae7f5079be3abda53114734",
+          "text_bytes": 235362,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "Benjamin Jowett",
+          "editor": "",
+          "edition_label": "Project Gutenberg #1636; Benjamin Jowett translation",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg states public domain in the USA.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-PROTAGORAS-JOWETT",
+          "work_title": "Protagoras",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-040-PLATO-PROTAGORAS-JOWETT.txt",
+          "text_sha256": "7eb0299f5b11d13cb96ed1a1822c12c83f627c2488648d2013ac2e81eb5ab3ea",
+          "text_bytes": 176202,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "Benjamin Jowett",
+          "editor": "",
+          "edition_label": "Project Gutenberg #1591; Benjamin Jowett translation",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg states public domain in the USA.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-SYMPOSIUM-JOWETT",
+          "work_title": "Symposium",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-040-PLATO-SYMPOSIUM-JOWETT.txt",
+          "text_sha256": "8b5c599ea734ff0f5e8d83f399dead8c796800897b107c8d53fa909f74a05d6f",
+          "text_bytes": 200974,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "Benjamin Jowett",
+          "editor": "",
+          "edition_label": "Project Gutenberg #1600; Benjamin Jowett translation",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg states public domain in the USA.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-APOLOGY-JOWETT",
+          "work_title": "Apology",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-040-PLATO-APOLOGY-JOWETT.txt",
+          "text_sha256": "f4cc548bd8c8b59e14effdbaab9df97f29bd48f317a466fe8c3c63ad288b964c",
+          "text_bytes": 107485,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "Benjamin Jowett",
+          "editor": "",
+          "edition_label": "Project Gutenberg #1656; Benjamin Jowett translation",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg states public domain in the USA.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-CRITIAS-JOWETT",
+          "work_title": "Critias",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-040-PLATO-CRITIAS-JOWETT.txt",
+          "text_sha256": "4aad577c3e6f97fd30458026417a3ff0cd7569889e2d4fc1aa93bb331ee25e76",
+          "text_bytes": 75789,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "Benjamin Jowett",
+          "editor": "",
+          "edition_label": "Project Gutenberg #1571; Benjamin Jowett translation",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg states public domain in the USA.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-THEAETETUS-JOWETT",
+          "work_title": "Theaetetus",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-040-PLATO-THEAETETUS-JOWETT.txt",
+          "text_sha256": "3d819c9137f018f31993ea6c340847e73a2e70db665fad5af12d841bcd50dfa8",
+          "text_bytes": 397545,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "Benjamin Jowett",
+          "editor": "",
+          "edition_label": "Project Gutenberg #1726; Benjamin Jowett translation",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg states public domain in the USA.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-TIMAEUS-JOWETT",
+          "work_title": "Timaeus",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-040-PLATO-TIMAEUS-JOWETT.txt",
+          "text_sha256": "4f839b423198a80be946aeb7d4b0baef30862d12702a6026b2479be9718342d9",
+          "text_bytes": 475689,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "Benjamin Jowett",
+          "editor": "",
+          "edition_label": "Project Gutenberg #1572; Benjamin Jowett translation",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg states public domain in the USA.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-STATESMAN-JOWETT",
+          "work_title": "Statesman",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-040-PLATO-STATESMAN-JOWETT.txt",
+          "text_sha256": "171c09697bde2a26ad7cd4775929e780b0bc218ea47c4b4755cabe437610d3f4",
+          "text_bytes": 252962,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "Benjamin Jowett",
+          "editor": "",
+          "edition_label": "Project Gutenberg #1738; Benjamin Jowett translation",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg states public domain in the USA.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-PHILEBUS-JOWETT",
+          "work_title": "Philebus",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-040-PLATO-PHILEBUS-JOWETT.txt",
+          "text_sha256": "f224a1bdbb919332313d0ffd81341cc580537fa1f05ed70b6dcac7217790149a",
+          "text_bytes": 286898,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "Benjamin Jowett",
+          "editor": "",
+          "edition_label": "Project Gutenberg #1744; Benjamin Jowett translation",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg states public domain in the USA.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-LAWS-JOWETT",
+          "work_title": "Laws",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-040-PLATO-LAWS-JOWETT.txt",
+          "text_sha256": "9a6ea73161956a622d0aba13d70b82c076feed7d37d257d26e458671b26dc8c9",
+          "text_bytes": 1364421,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "Benjamin Jowett",
+          "editor": "",
+          "edition_label": "Project Gutenberg #1750; Benjamin Jowett translation",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg states public domain in the USA.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-PARMENIDES-JOWETT",
+          "work_title": "Parmenides",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-040-PLATO-PARMENIDES-JOWETT.txt",
+          "text_sha256": "6a87d9c6c9e6526cee0bd0f70eacf1a5a9b3255936137b2029789977869bfd32",
+          "text_bytes": 221868,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "Benjamin Jowett",
+          "editor": "",
+          "edition_label": "Project Gutenberg #1687; Benjamin Jowett translation",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg states public domain in the USA.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-SOPHIST-JOWETT",
+          "work_title": "Sophist",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-040-PLATO-SOPHIST-JOWETT.txt",
+          "text_sha256": "bd88e451d82d3e519c04ced512d006e51a2076ac0f1a99b1b11cb9b7b28dd1e3",
+          "text_bytes": 286674,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "Benjamin Jowett",
+          "editor": "",
+          "edition_label": "Project Gutenberg #1735; Benjamin Jowett translation",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg states public domain in the USA.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-EUTHYDEMUS-JOWETT",
+          "work_title": "Euthydemus",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-040-PLATO-EUTHYDEMUS-JOWETT.txt",
+          "text_sha256": "38ea17250f158dfe4ec0398ebde239d4e2b5a47f98ed8616acf60441b0b68556",
+          "text_bytes": 136680,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "Benjamin Jowett",
+          "editor": "",
+          "edition_label": "Project Gutenberg #1598; Benjamin Jowett translation",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg states public domain in the USA.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-MENEXENUS-JOWETT",
+          "work_title": "Menexenus",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-040-PLATO-MENEXENUS-JOWETT.txt",
+          "text_sha256": "1a34580bfcb9aec8c9badf3f3812fffef65310a7950b3781a436733246339690",
+          "text_bytes": 77852,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "Benjamin Jowett",
+          "editor": "",
+          "edition_label": "Project Gutenberg #1682; Benjamin Jowett translation",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg states public domain in the USA.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-LESSER-HIPPIAS-JOWETT",
+          "work_title": "Lesser Hippias",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-040-PLATO-LESSER-HIPPIAS-JOWETT.txt",
+          "text_sha256": "52df684dd14fa9f30fd616423defbfb9695b4c865253d78caab21007d5bd2525",
+          "text_bytes": 74421,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "Benjamin Jowett",
+          "editor": "",
+          "edition_label": "Project Gutenberg #1673; Benjamin Jowett translation; Gutenberg marks Plato attribution as dubious",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg states public domain in the USA.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-ALCIBIADES-I-JOWETT",
+          "work_title": "Alcibiades I",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-040-PLATO-ALCIBIADES-I-JOWETT.txt",
+          "text_sha256": "ec76b1c61c6d915ff125478627380c8a4124a8553bcc54048b20b862ca9b6457",
+          "text_bytes": 129492,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "Benjamin Jowett",
+          "editor": "",
+          "edition_label": "Project Gutenberg #1676; Benjamin Jowett translation; Gutenberg marks Plato attribution as dubious",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg states public domain in the USA.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-ALCIBIADES-II-JOWETT",
+          "work_title": "Alcibiades II",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-040-PLATO-ALCIBIADES-II-JOWETT.txt",
+          "text_sha256": "c72e47d6df19a85d97f0f32323195ee8d12a7a74496dbaa1bfc80a3f63005f93",
+          "text_bytes": 54031,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "Benjamin Jowett",
+          "editor": "",
+          "edition_label": "Project Gutenberg #1677; Benjamin Jowett translation; Gutenberg marks Plato attribution as dubious",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg states public domain in the USA.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-ERYXIAS-JOWETT",
+          "work_title": "Eryxias",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-040-PLATO-ERYXIAS-JOWETT.txt",
+          "text_sha256": "59b9570ce14b98008b724beb7ba2f2366eb3ceb369666f2f20a36882f75820bf",
+          "text_bytes": 59724,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "Benjamin Jowett",
+          "editor": "",
+          "edition_label": "Project Gutenberg #1681; Benjamin Jowett translation; Gutenberg marks Plato attribution as dubious",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg states public domain in the USA.",
+          "status": "available"
+        }
+      ],
+      "coverage_status": "selected-works",
+      "coverage_notes": "Portable store includes a fuller Project Gutenberg/Jowett Plato shelf plus selected pseudo-Platonic works marked dubious in edition labels; this remains selected works, not a complete scholarly Plato corpus."
+    },
+    {
+      "source_id": "LIB-ANCIENT-AUTHOR-041-ARISTOTLE",
+      "title": "Politics; Nicomachean Ethics",
+      "author": "Aristotle",
+      "subject_era": "ancient",
+      "source_composition_era": "ancient",
+      "edition_era": "digital",
+      "secondary_eras": [],
+      "date_start": -384,
+      "date_end": -322,
+      "date_label": "4th c. BCE",
+      "era_basis": "composition_period",
+      "civilization_tags": [
+        "rome"
+      ],
+      "source_type": "classical",
+      "location": {
+        "civilization_memory_refs": [
+          "civilization_memory://content/civilizations/ROME/MEM-ROME-GREEK-LIT-ARISTOTLE.md"
+        ],
+        "body_imported": false
+      },
+      "status": "stub",
+      "notes": "Dedicated Rome-Greek MEM object for empirical order, mixed regimes, and practical reason.",
+      "text_status": "available",
+      "text_bodies": [
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-041-ARISTOTLE-POLITICS-ELLIS",
+          "work_title": "Politics",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-041-ARISTOTLE-POLITICS-ELLIS.txt",
+          "text_sha256": "4b5f5d1bc2859780ba5954f5e98b5a8ebf0a0945ace77c861d5b164454155e9f",
+          "text_bytes": 604414,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "William Ellis",
+          "editor": "",
+          "edition_label": "Project Gutenberg #6762; William Ellis translation",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg states public domain in the USA.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-041-ARISTOTLE-NICOMACHEAN-ETHICS",
+          "work_title": "Nicomachean Ethics",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-041-ARISTOTLE-NICOMACHEAN-ETHICS.txt",
+          "text_sha256": "a68264a6537bb58b899ed68e25d1c7d8ea1bcb3e9544b4d1b464f74d99c3d059",
+          "text_bytes": 671555,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "",
+          "editor": "",
+          "edition_label": "Project Gutenberg #8438; public-domain English edition",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg states public domain in the USA.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-041-ARISTOTLE-CATEGORIES-EDGHILL",
+          "work_title": "Categories",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-041-ARISTOTLE-CATEGORIES-EDGHILL.txt",
+          "text_sha256": "6f72c36779ee90b0687e2f594cffbc80886d531b8c2043fa88a303ad03a68e54",
+          "text_bytes": 103373,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "E. M. Edghill",
+          "editor": "",
+          "edition_label": "Project Gutenberg #2412; E. M. Edghill translation",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg states public domain in the USA.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-041-ARISTOTLE-POETICS-BUTCHER",
+          "work_title": "Poetics",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-041-ARISTOTLE-POETICS-BUTCHER.txt",
+          "text_sha256": "3d0100ec20b93c814b07e0032b94582e649f4e7508b77959cb1d08a4fa6bb470",
+          "text_bytes": 108514,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "S. H. Butcher",
+          "editor": "",
+          "edition_label": "Project Gutenberg #1974; S. H. Butcher translation",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg states public domain in the USA.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-041-ARISTOTLE-ATHENIAN-CONSTITUTION-KENYON",
+          "work_title": "Athenian Constitution",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-041-ARISTOTLE-ATHENIAN-CONSTITUTION-KENYON.txt",
+          "text_sha256": "e7b95d4d2fe35c1f6ab09899c3781a0b9622983571b71c5f4e2b9b49ae88690b",
+          "text_bytes": 164555,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "Frederic G. Kenyon",
+          "editor": "",
+          "edition_label": "Project Gutenberg #26095; Frederic G. Kenyon translation",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg states public domain in the USA.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-041-ARISTOTLE-HISTORY-OF-ANIMALS-CRESSWELL",
+          "work_title": "History of Animals",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-041-ARISTOTLE-HISTORY-OF-ANIMALS-CRESSWELL.txt",
+          "text_sha256": "44c371cec84aa3c1f057ca75ca7d04fadb89e1e19b14dc43e612985ebb975127",
+          "text_bytes": 794873,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "Richard Cresswell",
+          "editor": "",
+          "edition_label": "Project Gutenberg #59058; Richard Cresswell translation",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg states public domain in the USA.",
+          "status": "available"
+        }
+      ],
+      "coverage_status": "selected-works",
+      "coverage_notes": "Portable store includes selected public-domain English Aristotle works; not a complete surviving Aristotelian corpus."
+    },
+    {
+      "source_id": "LIB-ANCIENT-AUTHOR-042-SOPHOCLES",
+      "title": "Antigone; Oedipus Rex",
+      "author": "Sophocles",
+      "subject_era": "ancient",
+      "source_composition_era": "ancient",
+      "edition_era": "digital",
+      "secondary_eras": [],
+      "date_start": -496,
+      "date_end": -406,
+      "date_label": "5th c. BCE",
+      "era_basis": "composition_period",
+      "civilization_tags": [
+        "rome"
+      ],
+      "source_type": "literary",
+      "location": {
+        "civilization_memory_refs": [
+          "civilization_memory://content/civilizations/ROME/MEM-ROME-GREEK-LIT-SOPHOCLES.md"
+        ],
+        "body_imported": false
+      },
+      "status": "stub",
+      "notes": "Dedicated Rome-Greek MEM object for tragedy, law, and irreversible error.",
+      "text_status": "available",
+      "text_bodies": [
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-042-SOPHOCLES-OEDIPUS-TRILOGY-STORR",
+          "work_title": "Oedipus Trilogy",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-042-SOPHOCLES-OEDIPUS-TRILOGY-STORR.txt",
+          "text_sha256": "b820141c4c725006b1307965f65fb60027765a921d9b2c714d0329e813a0d631",
+          "text_bytes": 244784,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "F. Storr",
+          "editor": "",
+          "edition_label": "Project Gutenberg #31; F. Storr translation",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg states public domain in the USA.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-042-SOPHOCLES-SEVEN-PLAYS-CAMPBELL",
+          "work_title": "Seven Plays in English Verse",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-042-SOPHOCLES-SEVEN-PLAYS-CAMPBELL.txt",
+          "text_sha256": "8899d0c146c0d15a77e491d7e695601f2a46cde304cac6ad3af1315b90e4e56b",
+          "text_bytes": 567010,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "Lewis Campbell",
+          "editor": "",
+          "edition_label": "Project Gutenberg #14484; Lewis Campbell translation",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg states public domain in the USA.",
+          "status": "available"
+        }
+      ],
+      "coverage_status": "complete-surviving-corpus",
+      "coverage_notes": "Portable store includes a seven-play English edition covering the standard complete surviving Sophoclean plays, plus the earlier Oedipus Trilogy edition."
+    },
+    {
+      "source_id": "LIB-ANCIENT-AUTHOR-043-VIRGIL",
+      "title": "Aeneid",
+      "author": "Virgil",
+      "subject_era": "ancient",
+      "source_composition_era": "ancient",
+      "edition_era": "digital",
+      "secondary_eras": [],
+      "date_start": -70,
+      "date_end": -19,
+      "date_label": "1st c. BCE",
+      "era_basis": "composition_period",
+      "civilization_tags": [
+        "rome"
+      ],
+      "source_type": "literary",
+      "location": {
+        "civilization_memory_refs": [
+          "civilization_memory://content/civilizations/ROME/MEM-ROME-LIT-VIRGIL.md"
+        ],
+        "body_imported": false
+      },
+      "status": "stub",
+      "notes": "Dedicated Rome literature MEM object; Roman adaptation of epic memory for imperial ideology.",
+      "text_status": "available",
+      "text_bodies": [
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-043-VIRGIL-AENEID-DRYDEN",
+          "work_title": "Aeneid",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-043-VIRGIL-AENEID-DRYDEN.txt",
+          "text_sha256": "398117fc34d7876e681e1feae1ebabfc72485be17f819779796d3dcfe886a504",
+          "text_bytes": 746759,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "John Dryden",
+          "editor": "",
+          "edition_label": "Project Gutenberg #228; John Dryden translation",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg states public domain in the USA.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-043-VIRGIL-GEORGICS-RHOADES",
+          "work_title": "Georgics",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-043-VIRGIL-GEORGICS-RHOADES.txt",
+          "text_sha256": "a64ab48c6931329cb2b3aab84cd9a9091ec618260999b51a5456b42cabebc16b",
+          "text_bytes": 145286,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "James Rhoades",
+          "editor": "",
+          "edition_label": "Project Gutenberg #232; James Rhoades translation",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg states public domain in the USA.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-043-VIRGIL-BUCOLICS-ECLOGUES",
+          "work_title": "Bucolics and Eclogues",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-043-VIRGIL-BUCOLICS-ECLOGUES.txt",
+          "text_sha256": "43e7901aaefcfc2f8a4bb388ba916f3306dce45b1f6d7fe9955cb706ea13820d",
+          "text_bytes": 68375,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "",
+          "editor": "",
+          "edition_label": "Project Gutenberg #230; public-domain English edition",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg states public domain in the USA.",
+          "status": "available"
+        }
+      ],
+      "coverage_status": "complete-surviving-corpus",
+      "coverage_notes": "Portable store includes Aeneid, Georgics, and Bucolics/Eclogues, covering Virgilian major surviving works represented by this source-authority record."
+    },
+    {
+      "source_id": "LIB-ANCIENT-AUTHOR-044-LUCRETIUS",
+      "title": "De Rerum Natura / On the Nature of Things",
+      "author": "Lucretius",
+      "subject_era": "ancient",
+      "source_composition_era": "ancient",
+      "edition_era": "digital",
+      "secondary_eras": [],
+      "date_start": -99,
+      "date_end": -55,
+      "date_label": "1st c. BCE",
+      "era_basis": "composition_period",
+      "civilization_tags": [
+        "rome"
+      ],
+      "source_type": "literary",
+      "location": {
+        "civilization_memory_refs": [
+          "civilization_memory://content/civilizations/ROME/MEM-ROME-LIT-LUCRETIUS.md"
+        ],
+        "body_imported": false
+      },
+      "status": "stub",
+      "notes": "Dedicated Rome literature MEM object for Epicurean philosophy and anti-superstition.",
+      "text_status": "available",
+      "text_bodies": [
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-044-LUCRETIUS-NATURE-LEONARD",
+          "work_title": "On the Nature of Things",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-044-LUCRETIUS-NATURE-LEONARD.txt",
+          "text_sha256": "de777331b920c8b6f713cbb6b86ed8e68076904ba12a867ed13a11f0c5e00af4",
+          "text_bytes": 496561,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "William Ellery Leonard",
+          "editor": "",
+          "edition_label": "Project Gutenberg #785; William Ellery Leonard translation",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg states public domain in the USA.",
+          "status": "available"
+        }
+      ],
+      "coverage_status": "complete-surviving-corpus",
+      "coverage_notes": "Portable store includes De Rerum Natura / On the Nature of Things, the principal surviving Lucretian corpus represented by this source-authority record."
+    },
+    {
+      "source_id": "LIB-ANCIENT-AUTHOR-045-PTOLEMY",
+      "title": "Geography",
+      "author": "Ptolemy",
+      "subject_era": "ancient",
+      "source_composition_era": "ancient",
+      "edition_era": "digital",
+      "secondary_eras": [],
+      "date_start": 100,
+      "date_end": 170,
+      "date_label": "2nd c. CE",
+      "era_basis": "composition_period",
+      "civilization_tags": [
+        "germany",
+        "russia",
+        "rome"
+      ],
+      "source_type": "reference",
+      "location": {
+        "civilization_memory_refs": [
+          "civilization_memory://content/civilizations/GERMANY/CIV-ARC-GERMANY.md:136",
+          "civilization_memory://content/civilizations/RUSSIA/CIV-ARC-RUSSIA.md:172"
+        ],
+        "body_imported": false
+      },
+      "status": "stub",
+      "notes": "Germany and Russia ARC authority for ancient geographic knowledge.",
+      "text_status": "missing"
+    },
+    {
+      "source_id": "LIB-ANCIENT-AUTHOR-046-AMMIANUS-MARCELLINUS",
+      "title": "Res Gestae",
+      "author": "Ammianus Marcellinus",
+      "subject_era": "ancient",
+      "source_composition_era": "ancient",
+      "edition_era": "digital",
+      "secondary_eras": [],
+      "date_start": 330,
+      "date_end": 395,
+      "date_label": "4th c. CE",
+      "era_basis": "composition_period",
+      "civilization_tags": [
+        "rome",
+        "persia",
+        "france",
+        "germany",
+        "russia"
+      ],
+      "source_type": "chronicle",
+      "location": {
+        "civilization_memory_refs": [
+          "civilization_memory://content/civilizations/ROME/CIV-ARC-ROME.md:161",
+          "civilization_memory://content/civilizations/PERSIA/CIV-ARC-PERSIA.md:58",
+          "civilization_memory://content/civilizations/FRANCE/CIV-ARC-FRANCE.md:223",
+          "civilization_memory://content/civilizations/GERMANY/CIV-ARC-GERMANY.md:138",
+          "civilization_memory://content/civilizations/RUSSIA/CIV-ARC-RUSSIA.md:172"
+        ],
+        "body_imported": false
+      },
+      "status": "stub",
+      "notes": "Late ancient source recurring across Rome, Persia, France, Germany, and Russia ARC lists; within 476 boundary.",
+      "text_status": "missing"
+    },
+    {
+      "source_id": "LIB-ANCIENT-AUTHOR-047-JOSEPHUS",
+      "title": "Jewish War; Antiquities",
+      "author": "Josephus",
+      "subject_era": "ancient",
+      "source_composition_era": "ancient",
+      "edition_era": "digital",
+      "secondary_eras": [],
+      "date_start": 37,
+      "date_end": 100,
+      "date_label": "1st c. CE",
+      "era_basis": "composition_period",
+      "civilization_tags": [
+        "rome"
+      ],
+      "source_type": "chronicle",
+      "location": {
+        "civilization_memory_refs": [
+          "civilization_memory://content/civilizations/ROME/CIV-ARC-ROME.md:160"
+        ],
+        "body_imported": false
+      },
+      "status": "stub",
+      "notes": "Rome ARC late-antique/ancient source for Judean-Roman interface.",
+      "text_status": "missing"
+    },
+    {
+      "source_id": "LIB-ANCIENT-AUTHOR-048-EUSEBIUS-OF-CAESAREA",
+      "title": "Ecclesiastical History",
+      "author": "Eusebius of Caesarea",
+      "subject_era": "ancient",
+      "source_composition_era": "ancient",
+      "edition_era": "digital",
+      "secondary_eras": [],
+      "date_start": 260,
+      "date_end": 340,
+      "date_label": "4th c. CE",
+      "era_basis": "composition_period",
+      "civilization_tags": [
+        "rome"
+      ],
+      "source_type": "chronicle",
+      "location": {
+        "civilization_memory_refs": [
+          "civilization_memory://content/civilizations/ROME/CIV-ARC-ROME.md:162"
+        ],
+        "body_imported": false
+      },
+      "status": "stub",
+      "notes": "Rome ARC source for Christian imperial memory before the 476 boundary.",
+      "text_status": "missing"
+    },
+    {
+      "source_id": "LIB-ANCIENT-AUTHOR-049-AURELIUS-VICTOR",
+      "title": "De Caesaribus",
+      "author": "Aurelius Victor",
+      "subject_era": "ancient",
+      "source_composition_era": "ancient",
+      "edition_era": "digital",
+      "secondary_eras": [],
+      "date_start": 320,
+      "date_end": 390,
+      "date_label": "4th c. CE",
+      "era_basis": "composition_period",
+      "civilization_tags": [
+        "rome"
+      ],
+      "source_type": "chronicle",
+      "location": {
+        "civilization_memory_refs": [
+          "civilization_memory://content/civilizations/ROME/CIV-ARC-ROME.md:163"
+        ],
+        "body_imported": false
+      },
+      "status": "stub",
+      "notes": "Rome ARC late ancient imperial source.",
+      "text_status": "missing"
+    },
+    {
+      "source_id": "LIB-ANCIENT-AUTHOR-050-EUTROPIUS",
+      "title": "Breviarium",
+      "author": "Eutropius",
+      "subject_era": "ancient",
+      "source_composition_era": "ancient",
+      "edition_era": "digital",
+      "secondary_eras": [],
+      "date_start": 320,
+      "date_end": 390,
+      "date_label": "4th c. CE",
+      "era_basis": "composition_period",
+      "civilization_tags": [
+        "rome"
+      ],
+      "source_type": "chronicle",
+      "location": {
+        "civilization_memory_refs": [
+          "civilization_memory://content/civilizations/ROME/CIV-ARC-ROME.md:164"
+        ],
+        "body_imported": false
+      },
+      "status": "stub",
+      "notes": "Rome ARC late ancient imperial summary source.",
+      "text_status": "missing"
+    }
+  ]
 }
