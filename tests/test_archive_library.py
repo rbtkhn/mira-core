@@ -130,6 +130,40 @@ def test_text_metadata_validation() -> None:
     assert "AVAILABLE-MISSING text_status available requires text_sha256" in failures
 
 
+def test_complete_surviving_corpus_requires_supported_scope_claim() -> None:
+    digest = "a" * 64
+    registry = base_registry()
+    registry["sources"] = [
+        source(
+            source_id="OVERCLAIM",
+            text_status="available",
+            coverage_status="complete-surviving-corpus",
+            coverage_notes="Everything important is here.",
+            text_bodies=[
+                {
+                    "body_id": "OVERCLAIM-BODY",
+                    "work_title": "One Work",
+                    "text_location": "library-text://OVERCLAIM-BODY.txt",
+                    "text_sha256": digest,
+                    "text_bytes": 10,
+                    "text_encoding": "utf-8",
+                    "license_status": "public-domain",
+                    "status": "available",
+                }
+            ],
+        ),
+        source(
+            source_id="NO-BODY",
+            text_status="missing",
+            coverage_status="complete-surviving-corpus",
+            coverage_notes="Portable store covers the surviving corpus represented by this source-authority record.",
+        ),
+    ]
+    failures = archive_library.validate_registry(registry)
+    assert "OVERCLAIM complete-surviving-corpus requires coverage_notes naming the surviving corpus represented" in failures
+    assert "NO-BODY complete-surviving-corpus requires at least one available or verified text body" in failures
+
+
 def test_text_body_metadata_validation() -> None:
     digest = "a" * 64
     registry = base_registry()
@@ -234,6 +268,32 @@ def test_locate_and_verify_texts(tmp_path: Path, monkeypatch, capsys) -> None:
     failed = json.loads(capsys.readouterr().out)
     assert failed["status"] == "failed"
     assert failed["failures"] == ["LIB-ROME-LIVY: text byte count mismatch", "LIB-ROME-LIVY: text sha256 mismatch"]
+
+
+def test_verify_texts_reports_probable_site_chrome(tmp_path: Path, monkeypatch, capsys) -> None:
+    text_root = tmp_path / "texts"
+    text_root.mkdir()
+    body = text_root / "livy.txt"
+    body.write_text("Ab urbe condita.\nView history\n", encoding="utf-8")
+    registry = base_registry()
+    registry["sources"] = [
+        source(
+            text_status="available",
+            text_location=str(body),
+            text_sha256=hashlib.sha256(body.read_bytes()).hexdigest(),
+            text_bytes=body.stat().st_size,
+            text_encoding="utf-8",
+            license_status="public-domain",
+        )
+    ]
+    write_scaffold(tmp_path, registry)
+    monkeypatch.setattr(archive_library, "REPO_ROOT", tmp_path)
+    monkeypatch.setattr(archive_library, "LIBRARY_ROOT", tmp_path / "archive" / "library")
+    monkeypatch.setattr(archive_library, "REGISTRY_PATH", tmp_path / "archive" / "library" / "library-registry.json")
+
+    assert archive_library.main(["verify-texts", "--json"]) == 1
+    failed = json.loads(capsys.readouterr().out)
+    assert failed["failures"] == ["LIB-ROME-LIVY: probable site chrome on line 2: View history"]
 
 
 def test_locate_and_verify_multiple_text_bodies(tmp_path: Path, monkeypatch, capsys) -> None:

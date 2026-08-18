@@ -45,6 +45,13 @@ LICENSE_STATUSES = {
 }
 TEXT_EXTENSIONS = {".txt", ".md", ".xml"}
 BODY_STATUSES = {"available", "verified", "needs-review"}
+TEXT_CHROME_PATTERNS = (
+    re.compile(r"^Jump to (navigation|search)$", re.IGNORECASE),
+    re.compile(r"^Search (Swaveda|Wikisource)$", re.IGNORECASE),
+    re.compile(r"^This page was last edited", re.IGNORECASE),
+    re.compile(r"^Retrieved from ", re.IGNORECASE),
+    re.compile(r"^(Page|Discussion|Read|Edit|View history|Tools|Print/export|Download EPUB|Download PDF)$", re.IGNORECASE),
+)
 BODY_REQUIRED_FIELDS = {
     "body_id",
     "work_title",
@@ -371,6 +378,12 @@ def validate_source(source: Any, seen: set[str], index: int) -> list[str]:
         failures.append(f"{label} has invalid coverage_status: {source.get('coverage_status')}")
     if "coverage_notes" in source and source.get("coverage_notes") is not None and not isinstance(source.get("coverage_notes"), str):
         failures.append(f"{label} coverage_notes must be a string or null")
+    if coverage_status == "complete-surviving-corpus":
+        notes = text(source.get("coverage_notes")).casefold()
+        if "surviving" not in notes or not any(marker in notes for marker in ("represented", "covering", "covers")):
+            failures.append(f"{label} complete-surviving-corpus requires coverage_notes naming the surviving corpus represented")
+        if text_status not in {"available", "verified"} or not (source_text_bodies(source) or single_body_from_source(source)):
+            failures.append(f"{label} complete-surviving-corpus requires at least one available or verified text body")
     license_status = text(source.get("license_status"))
     if license_status and license_status not in LICENSE_STATUSES:
         failures.append(f"{label} has invalid license_status: {source.get('license_status')}")
@@ -566,9 +579,23 @@ def verify_body_text(source_id: str, body: Mapping[str, Any]) -> list[str]:
     encoding = text(body.get("text_encoding"))
     if encoding:
         try:
-            data.decode(encoding)
+            decoded = data.decode(encoding)
         except (LookupError, UnicodeDecodeError):
             failures.append(f"{body_id}: text is not readable as {encoding}")
+        else:
+            failures.extend(verify_text_body_hygiene(body_id, decoded))
+    return failures
+
+
+def verify_text_body_hygiene(body_id: str, decoded: str) -> list[str]:
+    failures: list[str] = []
+    for line_number, line in enumerate(decoded.splitlines(), start=1):
+        stripped = line.strip()
+        if not stripped:
+            continue
+        if any(pattern.search(stripped) for pattern in TEXT_CHROME_PATTERNS):
+            failures.append(f"{body_id}: probable site chrome on line {line_number}: {stripped[:80]}")
+            break
     return failures
 
 

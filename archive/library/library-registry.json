@@ -116,7 +116,26 @@
       },
       "status": "stub",
       "notes": "India ARC gives Arthashastra ARC-T-ANCIENT with [9] uses; India memory treats Kautilyan realism as a statecraft core.",
-      "text_status": "missing"
+      "text_status": "available",
+      "text_bodies": [
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-002-KAUTILYA-ARTHASHASTRA-SHAMASASTRY-SWAVEDA",
+          "work_title": "Arthashastra",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-002-KAUTILYA-ARTHASHASTRA-SHAMASASTRY-SWAVEDA.txt",
+          "text_sha256": "bfb28e3a38aeac1105a760b3d1f9978858f4bfc8547336f7feac6decd1d688f2",
+          "text_bytes": 896826,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "R. Shamasastry",
+          "editor": "",
+          "edition_label": "Swaveda English-only extraction of R. Shamasastry 1915 public-domain translation",
+          "license_status": "public-domain",
+          "license_notes": "Swaveda states R. Shamasastry's 1915 translation is public domain; body extracted from rendered chapter HTML and retains English translation paragraphs only.",
+          "status": "available"
+        }
+      ],
+      "coverage_status": "principal-work",
+      "coverage_notes": "Portable store includes an English-only Swaveda extraction of the R. Shamasastry 1915 public-domain translation of the Arthashastra across 150 chapter pages. Sanskrit text and site chrome were omitted; body remains available rather than reviewed until spot-checked against a facsimile or critical edition."
     },
     {
       "source_id": "LIB-ANCIENT-AUTHOR-003-HERODOTUS",
@@ -239,7 +258,26 @@
       },
       "status": "stub",
       "notes": "Persia ARC gives Behistun ARC-T-ANCIENT with [12] uses; direct Achaemenid imperial self-account.",
-      "text_status": "missing"
+      "text_status": "available",
+      "text_bodies": [
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-005-DARIUS-I-BEHISTUN-PERSIAN-TEXT-KING-THOMPSON",
+          "work_title": "Behistun Inscription: Persian Text",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-005-DARIUS-I-BEHISTUN-PERSIAN-TEXT-KING-THOMPSON.txt",
+          "text_sha256": "5c3f9b7e2031bb24c9011668b123d747706ac2b6d91f4bd4da7b338d11945394",
+          "text_bytes": 26987,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "L. W. King and R. C. Thompson",
+          "editor": "",
+          "edition_label": "Wikisource transcluded Persian Text from L. W. King and R. C. Thompson 1907 translation",
+          "license_status": "public-domain",
+          "license_notes": "Wikisource identifies the 1907 King and Thompson translation as public domain; extracted from the transcluded Persian Text page only.",
+          "status": "available"
+        }
+      ],
+      "coverage_status": "principal-work",
+      "coverage_notes": "Portable store includes the Wikisource transcluded Persian Text of the Behistun Inscription in the L. W. King and R. C. Thompson 1907 English translation. This is a principal inscription body for Darius I, scoped to the Persian Text rather than the full 1907 volume or all Achaemenid inscriptions."
     },
     {
       "source_id": "LIB-ANCIENT-AUTHOR-006-JULIUS-CAESAR",
