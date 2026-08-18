@@ -212,7 +212,8 @@ def test_late_session_receipt_is_append_only_supplement(tmp_path: Path) -> None:
 
 def test_coffee_has_exact_grounded_navigation_contract(tmp_path: Path) -> None:
     connection = database(tmp_path)
-    cadence_ledger.create_episode(connection, episode(), idempotency_key="dream-1")
+    value = episode()
+    cadence_ledger.create_episode(connection, value, idempotency_key="dream-1")
     context = cadence_ledger.coffee_context(connection, rest_coverage_status="covered-current")
     assert [(row["key"], row["verb"], row["role"]) for row in context["actions"]] == list(cadence_ledger.ACTION_SHAPE)
     assert len(context["actions"]) == 4
@@ -220,11 +221,89 @@ def test_coffee_has_exact_grounded_navigation_contract(tmp_path: Path) -> None:
     assert context["actions"][0]["label"].startswith("Execute:")
     assert context["actions"][0]["execution"]["mutation"] is False
     assert context["rest_coverage_status"] == "covered-current"
+    assert context["selection"] == {
+        "basis": "automatic",
+        "selected_dream_date": value["dream_date"],
+        "newest_eligible_episode_id": "CD-20260816-01",
+    }
     markdown = cadence_ledger.render_coffee_markdown(context)
     assert "A. Execute: Confirm" in markdown
     assert "Rest coverage: covered-current." in markdown
+    assert "Authority boundary: Execute only the named read-only comparison; tests, writes, and disposition remain separate." in markdown
     assert all(f"{key}. {verb}:" in markdown for key, verb, _ in cadence_ledger.ACTION_SHAPE[1:])
     assert markdown.rstrip().endswith("Recommendation: A. Confirm the claimed improvement before adoption.")
+    connection.close()
+
+
+def dated_episode(episode_id: str, created_at: datetime, *, expires_at: datetime | None = None) -> dict:
+    value = episode(episode_id=episode_id)
+    value["created_at"] = created_at.isoformat()
+    value["dream_date"] = created_at.date().isoformat()
+    value["session_coverage"][0]["observed_at"] = created_at.isoformat()
+    value["expires_at"] = (expires_at or created_at + timedelta(days=30)).isoformat()
+    return value
+
+
+def test_coffee_automatically_selects_newest_eligible_episode(tmp_path: Path) -> None:
+    connection = database(tmp_path)
+    now = datetime.now(timezone.utc)
+    cadence_ledger.create_episode(connection, dated_episode("CD-old", now - timedelta(days=1)), idempotency_key="dream-old")
+    cadence_ledger.create_episode(connection, dated_episode("CD-new", now), idempotency_key="dream-new")
+
+    context = cadence_ledger.coffee_context(connection)
+
+    assert context["episode_id"] == "CD-new"
+    assert context["selection"] == {
+        "basis": "automatic",
+        "selected_dream_date": now.date().isoformat(),
+        "newest_eligible_episode_id": "CD-new",
+    }
+    connection.close()
+
+
+@pytest.mark.parametrize("newest_state", ["superseded", "expired"])
+def test_coffee_skips_ineligible_newest_episode(tmp_path: Path, newest_state: str) -> None:
+    connection = database(tmp_path)
+    now = datetime.now(timezone.utc)
+    cadence_ledger.create_episode(connection, dated_episode("CD-old", now - timedelta(days=2)), idempotency_key="dream-old")
+    if newest_state == "expired":
+        newest = dated_episode(
+            "CD-new", now - timedelta(days=1), expires_at=now - timedelta(hours=1)
+        )
+        cadence_ledger.create_episode(connection, newest, idempotency_key="dream-new")
+    else:
+        newest = cadence_ledger.create_episode(
+            connection, dated_episode("CD-new", now), idempotency_key="dream-new"
+        )
+        cadence_ledger.record_disposition(
+            connection, "CD-new", "superseded", "Regression fixture.",
+            idempotency_key="dispose-new", expected_version=newest["lifecycle_version"],
+        )
+
+    assert cadence_ledger.coffee_context(connection)["episode_id"] == "CD-old"
+    connection.close()
+
+
+def test_explicit_stale_coffee_episode_fails_closed(tmp_path: Path) -> None:
+    connection = database(tmp_path)
+    now = datetime.now(timezone.utc)
+    cadence_ledger.create_episode(connection, dated_episode("CD-old", now - timedelta(days=1)), idempotency_key="dream-old")
+    cadence_ledger.create_episode(connection, dated_episode("CD-new", now), idempotency_key="dream-new")
+
+    with pytest.raises(cadence_ledger.CadenceLedgerError, match="CD-old is stale; newer eligible episode CD-new"):
+        cadence_ledger.coffee_context(connection, episode_id="CD-old")
+    connection.close()
+
+
+def test_explicit_coffee_episode_without_newer_peer_renders(tmp_path: Path) -> None:
+    connection = database(tmp_path)
+    cadence_ledger.create_episode(connection, episode(), idempotency_key="dream-1")
+
+    context = cadence_ledger.coffee_context(connection, episode_id="CD-20260816-01")
+
+    assert context["episode_id"] == "CD-20260816-01"
+    assert context["selection"]["basis"] == "explicit"
+    assert "Authority boundary:" in cadence_ledger.render_coffee_markdown(context)
     connection.close()
 
 

@@ -21,7 +21,7 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 DB_ENV = "MIRA_CORE_CADENCE_DB"
 DEFAULT_DB_PATH = REPO_ROOT / ".mira-private" / "state" / "cadence.sqlite3"
 SCHEMA_VERSION = 3
-PROJECTION_VERSION = "1.0"
+PROJECTION_VERSION = "1.1"
 SQLITE_HEADER = b"SQLite format 3\x00"
 TERMINAL_STATES = frozenset({"rejected", "superseded", "expired"})
 DISPOSITIONS = frozenset({"inherit", "retest", "reconcile", *TERMINAL_STATES})
@@ -817,12 +817,34 @@ def list_history(connection: sqlite3.Connection, *, limit: int = 50) -> list[dic
     return [project_episode(connection, row[0]) for row in rows]
 
 
+def episode_is_eligible(projection: dict[str, Any], *, now_utc_us: int | None = None) -> bool:
+    observed_now = timestamp_us(utc_now()) if now_utc_us is None else now_utc_us
+    expired = timestamp_us(projection["episode"]["expires_at"]) <= observed_now
+    return not expired and projection["lifecycle_state"] not in TERMINAL_STATES | {"represented"}
+
+
 def selected_episode(connection: sqlite3.Connection, episode_id: str | None = None) -> dict[str, Any] | None:
+    history = list_history(connection, limit=200)
+    observed_now = timestamp_us(utc_now())
     if episode_id:
-        return project_episode(connection, episode_id)
-    for item in reversed(list_history(connection, limit=200)):
-        expired = timestamp_us(item["episode"]["expires_at"]) <= timestamp_us(utc_now())
-        if not expired and item["lifecycle_state"] not in TERMINAL_STATES | {"represented"}:
+        selected = project_episode(connection, episode_id)
+        selected_episode_data = selected["episode"]
+        for item in history:
+            candidate = item["episode"]
+            if candidate["episode_id"] == episode_id:
+                break
+            same_scope = (
+                candidate["workspace_id"] == selected_episode_data["workspace_id"]
+                and candidate["operator_id"] == selected_episode_data["operator_id"]
+            )
+            if same_scope and episode_is_eligible(item, now_utc_us=observed_now):
+                raise CadenceLedgerError(
+                    f"Coffee episode {episode_id} is stale; newer eligible episode "
+                    f"{candidate['episode_id']} must be used"
+                )
+        return selected
+    for item in history:
+        if episode_is_eligible(item, now_utc_us=observed_now):
             return item
     return None
 
@@ -991,6 +1013,12 @@ def coffee_context(
     if rest_coverage_status not in allowed_rest:
         raise CadenceLedgerError("invalid Rest coverage status")
     projection = selected_episode(connection, episode_id)
+    newest = selected_episode(connection)
+    selection = {
+        "basis": "explicit" if episode_id else "automatic",
+        "selected_dream_date": projection["episode"]["dream_date"] if projection else None,
+        "newest_eligible_episode_id": newest["episode"]["episode_id"] if newest else None,
+    }
     if projection is None:
         actions = build_cold_start_actions()
         return {
@@ -1007,6 +1035,7 @@ def coffee_context(
             },
             "actions": actions, "recommendation_key": "A", "mutation_performed": False,
             "rest_coverage_status": rest_coverage_status,
+            "selection": selection,
         }
     actions = build_actions(projection)
     change = repository_change(projection)
@@ -1028,6 +1057,7 @@ def coffee_context(
         "recommendation_key": "A",
         "rest_coverage_status": rest_coverage_status,
         "mutation_performed": False,
+        "selection": selection,
     }
 
 
@@ -1036,6 +1066,7 @@ def render_coffee_markdown(context: dict[str, Any]) -> str:
     learning = context["learning"]
     lines = [
         f"Coffee recovered `{context['episode_id']}` in `{context['lifecycle_state']}` state.",
+        f"Selection: {context['selection']['basis']} from Dream date `{context['selection']['selected_dream_date']}`; newest eligible `{context['selection']['newest_eligible_episode_id']}`.",
         "",
         f"Learned: {learning['observation']}",
         f"Evidence: {learning['evidence_summary']}",
@@ -1048,6 +1079,7 @@ def render_coffee_markdown(context: dict[str, Any]) -> str:
         if action["selection_effect"] == "execute":
             executable = action["label"].split(":", 1)[1].strip()
             lines.append(f"{action['key']}. Execute: {action['verb']} - {executable} Target: `{action['target_type']}`.")
+            lines.append(f"   Authority boundary: {action['next_boundary']}")
         else:
             lines.append(f"{action['key']}. {action['verb']}: {action['label']} Target: `{action['target_type']}`.")
     lines.extend(["", "Recommendation: A. Confirm the claimed improvement before adoption."])

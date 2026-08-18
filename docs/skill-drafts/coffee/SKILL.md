@@ -15,7 +15,12 @@ Use only in `mira-core`. Coffee is read-only.
    `C:\private\narrative-cadence.sqlite3` resolves, pass it explicitly with
    `--db`; do not create, copy, or migrate a store implicitly. Run
    `tools/run.ps1 cadence --db ABSOLUTE_STORE coffee --format markdown`.
-   Return its deterministic four-action menu verbatim;
+   Confirm that the renderer selected the newest eligible Dream candidate for
+   the current workspace and operator. Current ledger state outranks inherited
+   prose and any stale `next_use` description. Return the renderer's
+   deterministic four-action menu verbatim only after candidate freshness,
+   artifact grounding, and material factual premises pass their controlling
+   checks;
    do not remove, reorder, rename, replace, or hand-compose actions.
    Start it once. If the execution remains live, resume or poll the returned
    session rather than launching a duplicate cadence command.
@@ -87,7 +92,8 @@ If the renderer reports `insufficient_grounding`, fail closed and report that
 no honest four-action Coffee packet can be formed. Never invent filler actions.
 Selecting a navigation-only letter develops that branch. Selecting the
 validated action-ready letter authorizes only its exact read-only comparison;
-disposition, testing, promotion, RSI assessment, and admission remain
-separately authorized.
+the displayed authority boundary remains controlling after selection.
+Disposition, test execution, writes, promotion, RSI assessment, admission, and
+every other follow-on action remain separately authorized.
 
 Do not mutate intake, archive evidence, forecasts, publication, or Git state.
