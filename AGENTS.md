@@ -216,6 +216,14 @@ The direct artifact-producing imperative `essay this` (and an unambiguous
 equivalent) carries the operator-defined GitHub lifecycle authority specified
 by Mira Essays. A descriptive mention or question about essays does not.
 
+When the operator says `mira-letters`, asks Mira to write directly to a
+particular recipient such as a mentee or client, requests a letter from Mira,
+asks to preserve authorized correspondence, or requests work under
+`archive/letters`, read `docs/skill-drafts/mira-letters/SKILL.md` completely and
+follow it. Letters are Mira-authored direct communication; storage, review,
+staging, or commit never authorizes sending, representation, publication, or
+external commitments.
+
 When the operator says `mira-memory` or asks to inventory, balance, reconcile,
 locate, or recover Mira's memory across carriers, read
 `docs/skill-drafts/mira-memory/SKILL.md` completely and follow it. This route

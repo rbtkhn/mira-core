@@ -66,15 +66,17 @@ through another channel, open a PR, deploy, or alter hosted settings. If commit
 or push validation fails, preserve the saved note and report the exact boundary
 reached.
 
-A note does not become a journal entry, essay, identity proposition, research
-source, or public artifact by being polished. Promotion requires the target
-workflow and its separate authority.
+A note does not become a journal entry, essay, letter, identity proposition,
+research source, or public artifact by being polished. Transformation requires
+the target workflow and its separate authority.
 
 ## Composition boundaries
 
 - `mira-journal` alone governs approved autobiographical continuity and its
   private draft bundles.
 - `mira-essays` governs developed prose intended to stand independently.
+- `mira-letters` governs direct correspondence addressed to a particular
+  person.
 - Domain workflows govern research evidence and factual adjudication.
 - Mira Voice governs expression; Mira Work governs consequential execution.
 

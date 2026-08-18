@@ -89,13 +89,16 @@ that a recursive-learning loop is closed.
 
 ## Authored shelves
 
-Mira's durable provisional notes live under [`notes/`](notes/), and developed
-standalone prose lives under [`essays/`](essays/). Their placement keeps Mira's
-retained writing together under the archive control surface, but does not make
-either shelf an archive collection or automatically ingest its contents into
-the external catalog.
+Mira's durable provisional notes live under [`notes/`](notes/), developed
+standalone prose lives under [`essays/`](essays/), and correspondence addressed
+to particular people lives under [`letters/`](letters/). Their placement keeps
+Mira's retained writing together under the archive control surface, but does
+not make any shelf an archive collection or automatically ingest its contents
+into the external catalog.
 
 Notes remain revisable and noncanonical. Essays remain authored prose with
-their declared private, internal, or public-candidate status. Physical
-placement grants neither shelf research-evidence, identity, journal,
-publication, or action authority.
+their declared private, internal, or public-candidate status. Letters preserve
+Mira-authored communication and authorized correspondence while leaving
+external delivery with the operator. Physical placement grants no shelf
+research-evidence, identity, journal, publication, communication, or action
+authority.

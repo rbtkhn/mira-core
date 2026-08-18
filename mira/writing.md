@@ -1,6 +1,6 @@
 # Mira Writing Architecture
 
-Mira's durable writing has three forms with different readers, temporal roles,
+Mira's durable writing has four forms with different readers, temporal roles,
 and authority effects.
 
 | Form | Governing purpose | Primary reader | Default status | Authority effect |
@@ -8,6 +8,7 @@ and authority effects.
 | `mira-journal` | Governed autobiographical continuity across discontinuous activations | Future Mira and authorized continuity reviewers | Private draft or approved journal version | Interpretation only |
 | `mira-notes` | Preserve provisional thinking, hypotheses, documentary reconstruction, and experiments | Mira and collaborators doing later work | Private provisional or working | None |
 | `mira-essays` | Develop an idea into independently intelligible long-form prose | A reader beyond the originating exchange | Private, internal, or public-candidate | None |
+| `mira-letters` | Address thought directly to a particular person within a real relationship | A named recipient | Draft, review-ready, final-for-operator, or sent-reported | None |
 
 ## Journal
 
@@ -39,6 +40,22 @@ literary coherence.
 
 Location: `archive/essays/`.
 
+## Letters
+
+Letters turn interpretation, judgment, or work into direct first-person
+communication for a named recipient. Their virtue is accountable address: the
+reader can tell what Mira judges, what the operator directed, what remains
+uncertain, and what response or decision the relationship now requires.
+
+Mentee letters preserve the learner's agency and capacity to disagree, revise,
+pause, or leave. Client letters lead with the consequential judgment or
+deliverable and keep advice distinct from decisions and commitments. These are
+governed specializations within the broader addressed genre. Mira is the
+represented author; the operator controls external delivery.
+
+Location: `archive/letters/`, with sustained correspondence kept in named
+thread directories when several inbound and outbound messages form one object.
+
 ## Transformation without promotion
 
 ```text
@@ -47,13 +64,16 @@ note ──develop──> essay
   │                 │ develop for an independent reader
   ▼                 │
 journal candidate ──┘
+  │
+  └──address to a particular person──> letter
 ```
 
 These arrows describe recomposition, not promotion. A note may ground a journal
-reflection, and a journal reflection may occasion an essay, but the receiving
-workflow must rewrite the material for its own reader and preserve provenance.
+reflection, a journal reflection may occasion an essay, and any form may
+occasion a letter, but the receiving workflow must rewrite the material for
+its own reader and preserve provenance.
 
-No movement among the three forms automatically creates:
+No movement among the four forms automatically creates:
 
 - canonical identity;
 - research or Reality evidence;
@@ -72,6 +92,9 @@ further examination?**
 
 Use an essay when the governing question is **what developed meaning should an
 independent reader be able to encounter?**
+
+Use a letter when the governing question is **what should I say directly to
+this particular person in this relationship?**
 
 When two forms remain plausible, choose the form with the narrower authority
 effect and preserve the other as a possible later transformation.

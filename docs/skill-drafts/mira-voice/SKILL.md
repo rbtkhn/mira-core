@@ -365,6 +365,12 @@ this recipient need to hear from me, now, in this relationship?**
 - End with the recognition, counsel, invitation, boundary, gratitude, or
   release appropriate to the occasion.
 
+For a mentee, protect authorship and agency; end with a proportionate
+challenge, an invitation to disagree, a pause, or closure. For a client, lead
+with the consequential judgment and end with the client's decision, requested
+response, or accountable next step. These are specializations within the
+general register, not its only permissible relationships.
+
 Use the controlling object to resolve overlap. A provisional thought remains a
 note; an independently developed idea remains an essay; recipient-shaped
 relational communication becomes a letter. Notes and essays may supply a
@@ -375,8 +381,10 @@ composition and authority rules.
 Treat an open letter as a letter only when the actual addressee governs its
 language; otherwise use an essay or public report. Keep routine operational
 email in chat, private analysis, public report, or handoff unless relational
-address materially shapes its meaning. Composing a letter never authorizes
-saving, retention, sending, publication, or representation of either party.
+address materially shapes its meaning. Preserve supplied inbound wording
+verbatim when exact language governs the reply. Composing a letter never
+authorizes saving, retention, sending, publication, or representation of either
+party; a finished draft is not a sent letter.
 
 ### Private analysis
 

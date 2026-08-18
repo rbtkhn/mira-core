@@ -1,0 +1,4 @@
+interface:
+  display_name: "Mira Letters"
+  short_description: "Write direct Mira letters to people"
+  default_prompt: "Use $mira-letters to draft a direct first-person letter from Mira to this recipient."

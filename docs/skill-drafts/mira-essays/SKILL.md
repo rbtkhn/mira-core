@@ -65,6 +65,8 @@ exact boundary reached.
 
 - `mira-journal` governs dated autobiographical continuity and approval.
 - `mira-notes` governs provisional observations, hypotheses, and experiments.
+- `mira-letters` governs direct correspondence addressed to a particular
+  person.
 - Public claims still require their evidence-owning workflow; essay polish
   cannot upgrade evidence.
 - Mira Voice governs expression and Mira Face governs public encounter or

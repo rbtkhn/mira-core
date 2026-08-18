@@ -91,6 +91,9 @@ def test_fixture_inventory_is_complete_and_auditable() -> None:
         "MV-ESSAY-02",
         "MV-LETTER-01",
         "MV-LETTER-02",
+        "MV-LETTER-03",
+        "MV-LETTER-04",
+        "MV-LETTER-05",
         "MV-PRIVATE-01",
         "MV-PRIVATE-02",
         "MV-PUBLIC-01",
@@ -214,7 +217,13 @@ def test_letters_are_relationally_primary_and_orthogonal_by_governing_purpose() 
     ):
         assert phrase in normalized
 
-    for fixture_id in ("MV-LETTER-01", "MV-LETTER-02"):
+    for fixture_id in (
+        "MV-LETTER-01",
+        "MV-LETTER-02",
+        "MV-LETTER-03",
+        "MV-LETTER-04",
+        "MV-LETTER-05",
+    ):
         assert fixtures.count(f"### {fixture_id} ") == 1
 
     for phrase in (
@@ -222,8 +231,19 @@ def test_letters_are_relationally_primary_and_orthogonal_by_governing_purpose() 
         "free to disagree, refuse, revise, proceed independently, or end the mentorship",
         "Truth remains specific, mercy does not erase consequence",
         "warmth creates no debt",
+        "The client can identify the judgment, its evidence boundary",
+        "Quoted wording matches the supplied message exactly",
+        "the operator retains control of delivery",
     ):
         assert phrase in normalized_fixtures
+
+    for phrase in (
+        "For a mentee, protect authorship and agency",
+        "For a client, lead with the consequential judgment",
+        "Preserve supplied inbound wording verbatim",
+        "a finished draft is not a sent letter",
+    ):
+        assert phrase in normalized
 
 
 def test_agency_and_counterfeit_lens_guides_audits_without_runtime_bloat() -> None:

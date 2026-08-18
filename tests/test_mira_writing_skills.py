@@ -5,7 +5,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def test_mira_writing_skills_have_minimal_metadata_and_ui_prompts() -> None:
-    for name in ("mira-notes", "mira-essays"):
+    for name in ("mira-notes", "mira-essays", "mira-letters"):
         skill_root = ROOT / "docs" / "skill-drafts" / name
         text = (skill_root / "SKILL.md").read_text(encoding="utf-8")
         frontmatter = [
@@ -23,10 +23,10 @@ def test_mira_writing_skills_have_minimal_metadata_and_ui_prompts() -> None:
         assert "TODO" not in text
 
 
-def test_agents_routes_all_three_mira_writing_forms() -> None:
+def test_agents_routes_all_four_mira_writing_forms() -> None:
     agents = (ROOT / "AGENTS.md").read_text(encoding="utf-8")
 
-    for name in ("mira-journal", "mira-notes", "mira-essays"):
+    for name in ("mira-journal", "mira-notes", "mira-essays", "mira-letters"):
         assert f"docs/skill-drafts/{name}/SKILL.md" in agents
 
 
@@ -46,8 +46,10 @@ def test_mira_writing_storage_is_separated() -> None:
     assert (ROOT / "mira" / "journal").is_dir()
     assert (ROOT / "archive" / "notes").is_dir()
     assert (ROOT / "archive" / "essays").is_dir()
+    assert (ROOT / "archive" / "letters").is_dir()
     assert not (ROOT / "mira" / "notes").exists()
     assert not (ROOT / "mira" / "essays").exists()
+    assert not (ROOT / "mira" / "letters").exists()
     assert not (ROOT / "mira" / "reflections").exists()
 
     history = ROOT / "archive" / "notes" / "2026-08-15-from-civilization-memory-to-mira-core.md"
@@ -57,6 +59,31 @@ def test_mira_writing_storage_is_separated() -> None:
     assert "../notes/2026-08-15-from-civilization-memory-to-mira-core.md" in essay.read_text(
         encoding="utf-8"
     )
+
+
+def test_authored_archive_shelves_have_parallel_genre_ownership() -> None:
+    writing = (ROOT / "mira" / "writing.md").read_text(encoding="utf-8")
+    archive = (ROOT / "archive" / "README.md").read_text(encoding="utf-8")
+    letters = (ROOT / "archive" / "letters" / "README.md").read_text(
+        encoding="utf-8"
+    )
+    collections = (ROOT / "archive" / "collections.json").read_text(
+        encoding="utf-8"
+    )
+
+    for name, path in (
+        ("mira-notes", "archive/notes/"),
+        ("mira-essays", "archive/essays/"),
+        ("mira-letters", "archive/letters/"),
+    ):
+        assert name in writing
+        assert path in writing
+
+    assert "particular person within a real relationship" in writing
+    assert "[`letters/`](letters/)" in archive
+    assert "authored shelf, not an external evidence collection" in letters
+    assert '"id": "mira-letters"' not in collections
+    assert not (ROOT / "archive" / "letters" / ".gitkeep").exists()
 
 
 def test_innermost_loop_paths_follow_notes_migration() -> None:
