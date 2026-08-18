@@ -55,6 +55,7 @@ def test_fixture_inventory_covers_normal_edge_failure_and_ambiguous_cases() -> N
     expected = (
         "MGH-NORMAL-01",
         "MGH-NORMAL-02",
+        "MGH-NORMAL-03",
         "MGH-EDGE-01",
         "MGH-EDGE-02",
         "MGH-FAILURE-01",
@@ -143,6 +144,31 @@ def test_skill_defines_quiet_routine_readiness_scan() -> None:
     assert "advisory only" in normalized
     assert "Surface detailed commentary only when" in normalized
     assert "do not rely on session summaries alone" in normalized
+
+
+def test_skill_exposes_remote_blockers_early_without_blocking_local_work() -> None:
+    skill = read_skill()
+    normalized = " ".join(skill.split())
+
+    for phrase in (
+        "At the first explicit `commit`, `push`, `PR`, or end-to-end publication request",
+        "before substantial publication work or completion language",
+        "finish it within roughly one minute",
+        "a remote readiness failure does not block the commit",
+        "fail the remote step early",
+        "Do not run this gate for ordinary implementation",
+        "Cache a stable unavailable state for the current task",
+    ):
+        assert phrase in normalized
+
+    fixtures = (SKILL_ROOT / "references" / "validation-fixtures.md").read_text(
+        encoding="utf-8"
+    )
+    assert "## MGH-NORMAL-03" in fixtures
+    assert "continue the separately authorized local commit" in " ".join(
+        fixtures.split()
+    )
+    assert "without attempting login or push" in " ".join(fixtures.split())
 
 
 def test_skill_main_workflow_requires_exact_stale_lock_proof() -> None:

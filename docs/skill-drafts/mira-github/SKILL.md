@@ -78,6 +78,35 @@ not rely on session summaries alone. Surface detailed commentary only when a
 blocker, dirty publication candidate, validation requirement, remote mismatch,
 or authority boundary changes the operator's decision.
 
+### Expose publication readiness early
+
+At the first explicit `commit`, `push`, `PR`, or end-to-end publication request,
+run a compact readiness gate before substantial publication work or completion
+language. Reuse the bounded Git inventory above, then check only the parts
+relevant to the requested endpoint:
+
+- resolve the exact repository, source commit or candidate scope, remote, and
+  requested target;
+- refresh the exact remote target when remote publication is requested or is
+  an explicit later step in the same request;
+- check GitHub authentication and required Git LFS support before describing a
+  remote endpoint as reachable; and
+- preflight the intended external temporary root before validators or a
+  digest-bound push receipt will need it.
+
+Keep the gate non-authorizing and finish it within roughly one minute when the
+environment responds normally. For a local-only commit request, a remote
+readiness failure does not block the commit; disclose it once as a likely later
+publication blocker. For a request that includes push or PR, fail the remote
+step early and preserve any separately authorized local work that can still be
+completed safely.
+
+Do not run this gate for ordinary implementation, read-only inspection, or a
+local edit with no Git lifecycle request. Cache a stable unavailable state for
+the current task and do not repeat the same probe unless credentials,
+permissions, paths, requested endpoint, or other external state changes, or
+the operator explicitly asks for a retry.
+
 For remote actions only, run:
 
 ```powershell
