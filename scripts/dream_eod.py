@@ -8,7 +8,7 @@ import re
 import subprocess
 import sys
 import uuid
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
@@ -110,7 +110,7 @@ def journal_certification(bundle: Path, validated: dict) -> dict:
         "digest": hashlib.sha256((bundle / "draft.md").read_bytes()).hexdigest(),
         "technical_reference_id": reference["reference_id"],
         "technical_reference_digest": mira_journal_references.reference_digest(reference),
-        "validated_at": datetime.now(ZoneInfo("UTC")).isoformat(),
+        "validated_at": datetime.now(timezone.utc).isoformat(),
         "validation_status": "passed", "canonicalized": False, "approval_status": "pending",
     }
 
@@ -124,7 +124,7 @@ def append_stage(connection, projection, event_type: str, stage: str, status: st
     )
 
 
-def check_projection(args, run_date: str) -> dict:
+def prerequisite_projection(args, run_date: str) -> dict:
     try:
         geo = geo_certification(run_date)
     except cadence_ledger.CadenceLedgerError as error:
@@ -138,24 +138,61 @@ def check_projection(args, run_date: str) -> dict:
         validated, journal_failure = validate_journal_bundle(run_date, bundle)
         journal_ready = validated is not None
         journal_status = "certification_ready" if journal_ready else "validation_failed"
-    dream_ready = bool(args.dream_json or args.no_candidate)
     geo_ready = geo["status"] in {"ready", "no_geo_run"}
+    incomplete = []
+    if not geo_ready:
+        incomplete.append("Geo-Strategy")
+    if not journal_ready:
+        incomplete.append("Mira Journal")
+    prompt = None
+    if incomplete:
+        names = " and ".join(incomplete)
+        prompt = f"{names} is incomplete for {run_date}. Do you want to finish it before Dream continues?"
+        if len(incomplete) > 1:
+            prompt = f"{names} are incomplete for {run_date}. Do you want to finish them before Dream continues?"
     return {
-        "status": "ready" if geo_ready and journal_ready and dream_ready else "blocked",
-        "mutation": False, "date": run_date,
+        "ready": geo_ready and journal_ready,
         "stages": {
             "geo": geo,
             "journal": {"status": journal_status, **({"failure_tail": journal_failure} if journal_failure else {})},
+        },
+        "incomplete_stages": incomplete,
+        "prompt": prompt,
+    }
+
+
+def check_projection(args, run_date: str) -> dict:
+    prerequisites = prerequisite_projection(args, run_date)
+    dream_ready = bool(args.dream_json or args.no_candidate)
+    ready = prerequisites["ready"] and dream_ready
+    return {
+        "status": "ready" if ready else ("paused" if not prerequisites["ready"] else "blocked"),
+        "mutation": False, "date": run_date,
+        "stages": {
+            **prerequisites["stages"],
             "dream": {"status": "ready" if dream_ready else "assessment_required"},
         },
-        "next_action": None if geo_ready and journal_ready and dream_ready else (
-            "Complete the validated journal bundle, then supply --dream-json or --no-candidate and resume."
+        "incomplete_stages": prerequisites["incomplete_stages"],
+        "prompt": prerequisites["prompt"],
+        "next_action": None if ready else (
+            "Answer the prerequisite prompt; Dream will remain paused until both daily lanes are complete."
+            if not prerequisites["ready"] else
+            "Supply --dream-json or --no-candidate and resume."
         ),
     }
 
 
 def execute(args, run_date: str) -> dict:
-    geo = geo_certification(run_date)
+    prerequisites = prerequisite_projection(args, run_date)
+    if not prerequisites["ready"]:
+        return {
+            "status": "paused", "mutation": False, "date": run_date,
+            "stages": prerequisites["stages"],
+            "incomplete_stages": prerequisites["incomplete_stages"],
+            "prompt": prerequisites["prompt"],
+            "next_action": "Answer the prerequisite prompt; Dream will remain paused until both daily lanes are complete.",
+        }
+    geo = prerequisites["stages"]["geo"]
     resolution = cadence_ledger.resolve_store(args.db)
     if resolution.path is None:
         raise cadence_ledger.CadenceLedgerError(resolution.reason or "private cadence store unavailable")
@@ -194,10 +231,9 @@ def execute(args, run_date: str) -> dict:
             else:
                 bundle = journal_bundle(args, run_date)
                 if not (bundle / "draft.md").is_file():
-                    prepared = run_tool("mira-journal", "prepare", "--date", run_date, "--output-root", str(bundle.parent), "--json")
-                    return {"status": "blocked", "mutation": True, "run": projection,
-                            "next_action": "Compose the bounded journal draft and technical reference in the prepared bundle, then resume.",
-                            "journal_prepare": json.loads(prepared.stdout) if prepared.returncode == 0 else {"status": "failed"}}
+                    raise cadence_ledger.CadenceLedgerError(
+                        "Mira Journal prerequisite changed after readiness passed; rerun Dream"
+                    )
                 validated, failure_tail = validate_journal_bundle(run_date, bundle)
                 if validated is None:
                     projection = append_stage(connection, projection, "stage_failed", "journal", "validation_failed",
@@ -289,7 +325,11 @@ def main(arguments: list[str] | None = None) -> int:
     except (ValueError, OSError, json.JSONDecodeError, subprocess.SubprocessError, cadence_ledger.CadenceLedgerError) as error:
         print(f"dream error: {error}", file=sys.stderr)
         return 1
-    print(json.dumps(result, indent=2) if args.json else f"dream_status={result['status']}\nnext_action={result.get('next_action')}")
+    print(
+        json.dumps(result, indent=2)
+        if args.json else
+        f"dream_status={result['status']}\nprompt={result.get('prompt')}\nnext_action={result.get('next_action')}"
+    )
     return 0 if result["status"] in {"ready", "completed"} else 1
 
 

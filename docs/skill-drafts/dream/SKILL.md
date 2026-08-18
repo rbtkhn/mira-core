@@ -5,8 +5,14 @@ description: "Consolidate one local day of mira-core sessions into a private adv
 
 # Dream
 
-Use only in `mira-core`. Bare `dream` is the daily-close conductor: it
-finalizes Geo-Strategy, then Mira Journal, then the private cadence ledger.
+Use only in `mira-core`. Bare `dream` is the daily-close conductor. Before it
+opens or resumes the private daily-close ledger, it performs a read-only
+prerequisite gate for the selected date: Geo-Strategy must have a validated,
+committed issue packet (or an honest `no_geo_run` result), and Mira Journal
+must already be finalized or have a current, fully validated private bundle.
+When both are complete, Dream continues automatically. When either is
+incomplete, Dream pauses without preparing, composing, or mutating either lane
+and asks the operator whether to finish the named missing work first.
 Run one canonical Dream consolidation per operator, workspace, and local
 calendar day. Individual sessions contribute bounded closeout receipts; Dream
 consolidates all sessions active that day. Dream records advisory cadence state
@@ -37,6 +43,11 @@ The receipt preserves both version digests, records `canonicalized: false`, and
 leaves `approval_status: pending`. When the tool returns a composition handoff,
 complete the prepared private bundle and resume. Finish
 with a private `--dream-json` candidate or `--no-candidate REASON`.
+
+The prerequisite prompt grants no authority to complete either lane. If the
+operator says yes, invoke the owning Geo-Strategy or Mira Journal workflow for
+only the missing date-bound work, then rerun Dream; do not continue the Dream
+ledger from an incomplete preflight.
 
 Inventory the day's active sessions first. Give every known session an explicit
 `included`, `excluded`, or `unavailable` coverage receipt with a reason and

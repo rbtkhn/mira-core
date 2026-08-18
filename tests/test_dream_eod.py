@@ -42,7 +42,10 @@ def test_check_is_read_only_and_reports_composition_blocker(monkeypatch, tmp_pat
     result = dream_eod.check_projection(arguments(tmp_path), "2026-08-16")
     assert result["mutation"] is False
     assert result["stages"]["geo"]["status"] == "no_geo_run"
+    assert result["status"] == "paused"
     assert result["stages"]["journal"]["status"] == "composition_required"
+    assert result["incomplete_stages"] == ["Mira Journal"]
+    assert "Do you want to finish it" in result["prompt"]
     assert not (tmp_path / "cadence.sqlite3").exists()
 
 
@@ -71,7 +74,7 @@ def test_check_validates_ready_bundle_without_canonicalizing(monkeypatch, tmp_pa
     assert all("eod-finalize" not in call for call in calls)
 
 
-def test_empty_geo_day_stops_at_precise_journal_handoff(monkeypatch, tmp_path: Path) -> None:
+def test_empty_geo_day_pauses_before_ledger_or_journal_preparation(monkeypatch, tmp_path: Path) -> None:
     monkeypatch.setattr(dream_eod, "manifest_rows", lambda _date: 0)
     monkeypatch.setattr(dream_eod, "journal_entry", lambda _date: None)
     monkeypatch.setattr(
@@ -79,10 +82,32 @@ def test_empty_geo_day_stops_at_precise_journal_handoff(monkeypatch, tmp_path: P
         lambda *args: SimpleNamespace(returncode=0, stdout='{"status":"prepared"}', stderr=""),
     )
     result = dream_eod.execute(arguments(tmp_path), "2026-08-16")
-    assert result["status"] == "blocked"
-    assert result["run"]["stages"]["geo"] == "skipped"
-    assert result["run"]["stages"]["journal"] == "pending"
-    assert "Compose" in result["next_action"]
+    assert result["status"] == "paused"
+    assert result["mutation"] is False
+    assert result["incomplete_stages"] == ["Mira Journal"]
+    assert "Do you want to finish it" in result["prompt"]
+    assert not (tmp_path / "cadence.sqlite3").exists()
+
+
+def test_both_incomplete_lanes_pause_with_combined_prompt(monkeypatch, tmp_path: Path) -> None:
+    monkeypatch.setattr(
+        dream_eod, "geo_certification",
+        lambda _date: (_ for _ in ()).throw(
+            dream_eod.cadence_ledger.CadenceLedgerError("Geo packet is incomplete")
+        ),
+    )
+    monkeypatch.setattr(dream_eod, "journal_entry", lambda _date: None)
+
+    result = dream_eod.execute(arguments(tmp_path), "2026-08-16")
+
+    assert result["status"] == "paused"
+    assert result["mutation"] is False
+    assert result["incomplete_stages"] == ["Geo-Strategy", "Mira Journal"]
+    assert result["prompt"] == (
+        "Geo-Strategy and Mira Journal are incomplete for 2026-08-16. "
+        "Do you want to finish them before Dream continues?"
+    )
+    assert not (tmp_path / "cadence.sqlite3").exists()
 
 
 def test_existing_journal_can_complete_no_candidate_close(monkeypatch, tmp_path: Path) -> None:
@@ -146,12 +171,18 @@ def test_geo_failure_precedes_private_ledger_mutation(monkeypatch, tmp_path: Pat
         raise dream_eod.cadence_ledger.CadenceLedgerError("packet validation failed")
 
     monkeypatch.setattr(dream_eod, "geo_certification", fail)
-    try:
-        dream_eod.execute(arguments(tmp_path), "2026-08-16")
-    except dream_eod.cadence_ledger.CadenceLedgerError as error:
-        assert "packet validation failed" in str(error)
-    else:
-        raise AssertionError("invalid Geo packet did not block Dream")
+    monkeypatch.setattr(
+        dream_eod, "journal_entry",
+        lambda _date: {"versions": [{"version_id": "MJ-20260816-v1", "content_sha256": "a" * 64}]},
+    )
+
+    result = dream_eod.execute(arguments(tmp_path), "2026-08-16")
+
+    assert result["status"] == "paused"
+    assert result["mutation"] is False
+    assert result["incomplete_stages"] == ["Geo-Strategy"]
+    assert result["stages"]["geo"]["reason"] == "packet validation failed"
+    assert "Do you want to finish it" in result["prompt"]
     assert not (tmp_path / "cadence.sqlite3").exists()
 
 
