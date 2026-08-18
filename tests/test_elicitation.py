@@ -33,6 +33,8 @@ def decision_surface(
     *,
     all_navigation_reason: str = "no-bounded-action",
     ready_option_keys: list[str] | None = None,
+    learning_eligibility: tuple[str, ...] | None = None,
+    final_response: bool | None = None,
 ) -> dict:
     roles = (
         "recommended",
@@ -48,6 +50,7 @@ def decision_surface(
     ]
     return {
         "type": "decision-navigation",
+        **({"final_response": final_response} if final_response is not None else {}),
         "presented_at": PRESENTED_AT,
         "action_readiness": {
             "ready_option_keys": (
@@ -72,6 +75,11 @@ def decision_surface(
                 "role": roles[index],
                 "label": label,
                 "selection_effect": effects[index],
+                **(
+                    {"learning_eligibility": learning_eligibility[index]}
+                    if learning_eligibility is not None
+                    else {}
+                ),
             }
             for index, label in enumerate(labels)
         ],
@@ -96,6 +104,10 @@ def test_decision_surface_accepts_three_or_four_options(count: int) -> None:
     assert len(normalized["options"]) == count
     assert all(
         option["selection_effect"] == "navigate"
+        for option in normalized["options"]
+    )
+    assert all(
+        option["learning_eligibility"] == "eligible"
         for option in normalized["options"]
     )
     assert normalized["authority_effect"] == "none"
@@ -155,6 +167,64 @@ def test_neutral_surface_rejects_roles_and_action_labels() -> None:
     effect_surface["options"][0]["selection_effect"] = "navigate"
     with pytest.raises(elicitation.ElicitationError, match="selection_effect"):
         elicitation.validate_elicitation_surface(effect_surface)
+    learning_surface = neutral_surface()
+    learning_surface["options"][0]["learning_eligibility"] = "none"
+    with pytest.raises(elicitation.ElicitationError, match="learning_eligibility"):
+        elicitation.validate_elicitation_surface(learning_surface)
+
+
+def test_learning_eligibility_is_optional_but_strict_when_present() -> None:
+    normalized = elicitation.validate_elicitation_surface(decision_surface())
+    assert {item["learning_eligibility"] for item in normalized["options"]} == {
+        "eligible"
+    }
+
+    transient = decision_surface(
+        learning_eligibility=("none", "none", "none", "none")
+    )
+    normalized = elicitation.validate_elicitation_surface(transient)
+    assert {item["learning_eligibility"] for item in normalized["options"]} == {
+        "none"
+    }
+
+    invalid = decision_surface()
+    invalid["options"][0]["learning_eligibility"] = "automatic"
+    with pytest.raises(elicitation.ElicitationError, match="eligible or none"):
+        elicitation.validate_elicitation_surface(invalid)
+
+
+def test_final_response_requires_four_explicitly_classified_options() -> None:
+    final = decision_surface(
+        learning_eligibility=("eligible", "eligible", "none", "none"),
+        final_response=True,
+    )
+    normalized = elicitation.validate_elicitation_surface(final)
+    assert normalized["final_response"] is True
+    assert len(normalized["options"]) == 4
+
+    three = decision_surface(
+        learning_eligibility=("eligible", "eligible", "none", "none"),
+        final_response=True,
+    )
+    three["options"] = three["options"][:3]
+    with pytest.raises(elicitation.ElicitationError, match="exactly four"):
+        elicitation.validate_elicitation_surface(three)
+
+    implicit = decision_surface(final_response=True)
+    with pytest.raises(elicitation.ElicitationError, match="explicit"):
+        elicitation.validate_elicitation_surface(implicit)
+
+
+def test_final_response_flag_is_decision_only_and_strictly_boolean() -> None:
+    neutral = neutral_surface()
+    neutral["final_response"] = True
+    with pytest.raises(elicitation.ElicitationError, match="neutral evidence"):
+        elicitation.validate_elicitation_surface(neutral)
+
+    invalid = decision_surface()
+    invalid["final_response"] = "yes"
+    with pytest.raises(elicitation.ElicitationError, match="true or false"):
+        elicitation.validate_elicitation_surface(invalid)
 
 
 def test_decision_surface_requires_known_machine_checked_effects() -> None:
@@ -308,6 +378,37 @@ def test_single_exploratory_letter_authorizes_no_action() -> None:
     assert result["ordered_selected_branches"][0]["action_authorized"] is False
     assert result["authority_effect"] == "none"
     assert result["receipt_count"] == 1
+    assert result["ordered_selected_branches"][0]["retention_effect"] == (
+        "choice-select-eligible"
+    )
+
+
+def test_transient_response_control_emits_no_retention_directive(tmp_path: Path) -> None:
+    surface = decision_surface(
+        ("Close", "Correct", "Deepen", "New task"),
+        learning_eligibility=("none", "none", "none", "none"),
+    )
+    interpretation = elicitation.interpret_elicitation_response(surface, "A")
+    assert interpretation["receipt_count"] == 0
+    assert interpretation["receipt_directives"] == []
+    assert interpretation["ordered_selected_branches"][0]["retention_effect"] == "none"
+
+    db = choice_ledger.connect(tmp_path / "choices.sqlite3")
+    assert db.execute("SELECT COUNT(*) FROM choice_prompts").fetchone()[0] == 0
+
+
+def test_mixed_surface_retains_only_learning_eligible_selection() -> None:
+    surface = decision_surface(
+        ("Inspect evidence", "Compare", "Correct", "Close"),
+        learning_eligibility=("eligible", "eligible", "none", "none"),
+    )
+    interpretation = elicitation.interpret_elicitation_response(surface, "A,C")
+    assert [item["selected_key"] for item in interpretation["receipt_directives"]] == [
+        "path-0"
+    ]
+    directive = interpretation["receipt_directives"][0]
+    assert directive["choice_kind"] == "menu-contract-decision-v1"
+    assert directive["recommended_review_cohort"] == "menu-contract-natural-use-v1"
 
 
 @pytest.mark.parametrize("verb", ("execute", "COMMIT", "Push", "sEnD"))
@@ -473,6 +574,21 @@ def test_action_failure_stops_and_reports_unexecuted_branches() -> None:
     assert failure["stop"] is True
 
 
+def test_compound_failure_emits_no_outcome_for_transient_controls() -> None:
+    result = elicitation.interpret_elicitation_response(
+        decision_surface(
+            ("Execute first", "Correct", "Compare"),
+            ("execute", "navigate", "navigate"),
+            learning_eligibility=("eligible", "none", "eligible"),
+        ),
+        "A,B,C",
+    )
+    failure = elicitation.report_compound_failure(result, "B")
+    assert failure["outcome_directives"] == [
+        {"selected_key": "path-2", "result": "no_action"}
+    ]
+
+
 def test_native_and_text_batching_and_question_limit() -> None:
     questions = [neutral_surface() for _ in range(7)]
     native = elicitation.batch_elicitation_questions(questions, "native")
@@ -577,8 +693,9 @@ def test_skill_contract_limits_repeated_selection_chains() -> None:
     assert "continue the" in skill
     assert "selected branch" in skill
     assert "to a meaningful result" in skill
-    assert "ordinary `learn-from-choices` footer" in skill
-    assert "same settled branch" in skill
+    assert "mandatory Learn From Choices A-D response" in skill
+    assert "learning_eligibility: none" in skill
+    assert "do not reopen the branch" in skill
     assert "Explicit creative or preference discovery" in skill
     assert "ten-question limit" in skill
 
@@ -604,6 +721,35 @@ def test_cli_validates_and_interprets_without_mutation() -> None:
     assert payload["mode"] == "ranked"
     assert payload["receipt_count"] == 0
     assert payload["authority_effect"] == "none"
+
+
+def test_cli_transient_control_returns_no_retention_or_outcome_authority() -> None:
+    surface = decision_surface(
+        ("Close", "Correct", "Deepen", "New task"),
+        learning_eligibility=("none", "none", "none", "none"),
+        final_response=True,
+    )
+    result = subprocess.run(
+        [
+            sys.executable,
+            str(SCRIPTS_ROOT / "elicitation.py"),
+            "interpret",
+            "--surface-json",
+            json.dumps(surface),
+            "--response",
+            "A",
+        ],
+        cwd=REPO_ROOT,
+        check=True,
+        capture_output=True,
+        text=True,
+    )
+    payload = json.loads(result.stdout)
+    assert payload["receipt_count"] == 0
+    assert payload["receipt_directives"] == []
+    assert payload["ordered_selected_branches"][0]["retention_effect"] == "none"
+    assert payload["authority_effect"] == "none"
+    assert payload["final_response"] is True
 
 
 def test_cli_json_is_console_safe_and_round_trips_unicode() -> None:

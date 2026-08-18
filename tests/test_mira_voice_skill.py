@@ -36,6 +36,7 @@ def test_skill_uses_progressive_disclosure_without_extra_resources() -> None:
 
 def test_contract_preserves_ordered_voice_controls() -> None:
     skill = read_skill()
+    normalized_skill = " ".join(skill.split())
     preservation = skill.index("## Preserve before compressing")
     usefulness = skill.index("## Apply the usefulness gate")
     assert preservation < usefulness
@@ -64,8 +65,10 @@ def test_contract_preserves_ordered_voice_controls() -> None:
         "A correction should increase historical intelligibility",
         "Do not impose universal brevity.",
         "relational character",
+        "required Learn From Choices A-D surface",
+        "Do not duplicate a four-option surface",
     ):
-        assert required in skill
+        assert required in normalized_skill
 
     normalized = " ".join(skill.split())
     for required in (

@@ -50,6 +50,21 @@ Every `decision-navigation` surface must include:
 }
 ```
 
+Every option may include `learning_eligibility: eligible | none`. Omitted
+values normalize to `eligible` for backward compatibility. Generic final
+response controls must set `none`; neutral-evidence options cannot set the
+field. The interpreter emits retention directives only for eligible selected
+branches, using `menu-contract-decision-v1` and the prospective
+`menu-contract-natural-use-v1` cohort hint. Eligibility never changes action
+readiness or authority.
+
+Set `final_response: true` on the decision-navigation surface used as the
+response's terminal A-D menu. Validation then requires exactly four options and
+an explicit `learning_eligibility` on every option. Non-final decision surfaces
+retain backward-compatible three-or-four option support and default missing
+eligibility to `eligible`. Neutral-evidence surfaces cannot set
+`final_response`.
+
 `ready_option_keys` must exactly equal the keys of options whose
 `selection_effect` is `execute`, `commit`, `push`, or `send`. When every option
 is navigational, the list must be empty and `all_navigation_reason` must be one
@@ -150,11 +165,11 @@ batches immediately on an explicit controlling `Hold`. Ask only questions that
 can change the next action.
 
 After three consecutive compact selections within one objective, continue the
-selected branch to a meaningful result. Do not present another Elicitation
-surface unless a newly emerged blocker passes all five implicit-invocation
-conditions, and do not fall back to an ordinary `learn-from-choices` footer for
-the same settled branch unless a genuinely new decision, scope, evidence gap, or
-action boundary exists. Explicit creative or preference discovery may continue
+selected branch to a meaningful result. Do not present another substantive
+Elicitation surface unless a newly emerged blocker passes all five
+implicit-invocation conditions. The mandatory Learn From Choices A-D response
+controls still appear after settlement, carry `learning_eligibility: none`, and
+do not reopen the branch. Explicit creative or preference discovery may continue
 within the ten-question limit because each answer supplies missing human evidence.
 
 ## Retain conservatively

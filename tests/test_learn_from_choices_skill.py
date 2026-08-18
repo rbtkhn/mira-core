@@ -96,6 +96,9 @@ def test_decision_fixture_is_complete_and_authority_bounded(
         "unobservable-outcome",
         "conflicting-scope",
         "historical-backfill",
+        "explicit-stop",
+        "repeated-selection",
+        "workflow-owned-menu",
     }
     assert case["expected_terminal"]
     assert case["required_resource"] in {"core", "choice-retention", "outcome-review"}
@@ -117,8 +120,40 @@ def test_fixture_inventory_covers_required_runtime_decisions() -> None:
         "unobservable-outcome",
         "conflicting-scope",
         "historical-backfill",
+        "explicit-stop",
+        "repeated-selection",
+        "workflow-owned-menu",
     }
-    assert len(fixtures()) == 12
+    assert len(fixtures()) == 15
+
+
+def test_every_terminal_fixture_requires_one_four_option_surface() -> None:
+    indexed = {item["id"]: item for item in fixtures()}
+    for fixture_id in (
+        "LFC-SETTLED-01",
+        "LFC-SATURATION-01",
+        "LFC-STOP-01",
+        "LFC-REPEATED-SELECTION-01",
+    ):
+        fixture = indexed[fixture_id]
+        combined = " ".join(fixture["allowed"] + fixture["forbidden"])
+        assert "four" in combined.casefold() or "A-D" in combined
+    assert "append a second generic A-D menu" in indexed[
+        "LFC-WORKFLOW-MENU-01"
+    ]["forbidden"]
+
+
+def test_core_requires_universal_menu_and_transient_control_isolation() -> None:
+    core = read("SKILL.md")
+    retention = read("references/choice-retention.md")
+    agents = (ROOT / "AGENTS.md").read_text(encoding="utf-8")
+    for contract in (core, agents):
+        assert "exactly one four-option A-D surface" in contract
+        assert "learning_eligibility" in contract
+        assert "final_response: true" in contract
+    assert "menu-contract-decision-v1" in retention
+    assert "menu-contract-natural-use-v1" in retention
+    assert "no `choice select`" in " ".join(retention.split())
 
 
 def test_outcome_fixtures_preserve_observation_and_scope_boundaries() -> None:
@@ -132,6 +167,18 @@ def test_outcome_fixtures_preserve_observation_and_scope_boundaries() -> None:
     assert "treat candidate status as observation" in indexed["LFC-OUTCOME-DUE-01"]["forbidden"]
     assert "default missing outcome scope" in indexed["LFC-COHORT-SCOPE-FAILURE-01"]["forbidden"]
     assert "represent a legacy store as an empty cohort" in indexed["LFC-HISTORICAL-BACKFILL-01"]["forbidden"]
+
+
+def test_menu_contract_review_is_prospective_and_not_recursive_proof() -> None:
+    review = read("references/outcome-review.md")
+    normalized = " ".join(review.split())
+    assert "menu-contract-natural-use-v1" in review
+    assert "first five later natural uses" in normalized
+    assert "zero retained transient controls" in normalized
+    assert "zero compressed- selection authority incidents" in normalized
+    assert "passing tests" in normalized
+    assert "do not close a feedback loop" in normalized
+    assert "ledger admission remain separate governed actions" in normalized
 
 
 def test_unavailable_retention_fixture_forbids_single_variable_inference() -> None:

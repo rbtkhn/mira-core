@@ -20,6 +20,9 @@ DECISION_ROLES = (
 )
 RESERVED_VERBS = ("execute", "commit", "push", "send")
 SELECTION_EFFECTS = ("navigate", *RESERVED_VERBS)
+LEARNING_ELIGIBILITY = ("eligible", "none")
+LEARNING_CHOICE_KIND = "menu-contract-decision-v1"
+LEARNING_REVIEW_COHORT = "menu-contract-natural-use-v1"
 ALL_NAVIGATION_REASONS = (
     "no-bounded-action",
     "material-choice-unresolved",
@@ -148,10 +151,28 @@ def validate_elicitation_surface(surface: Any) -> dict[str, Any]:
         raise ElicitationError(
             "surface type must be decision-navigation or neutral-evidence"
         )
+    final_response_present = "final_response" in surface
+    final_response = surface.get("final_response", False)
+    if final_response_present and not isinstance(final_response, bool):
+        raise ElicitationError("final_response must be true or false")
+    if interaction_type == "neutral-evidence" and final_response_present:
+        raise ElicitationError(
+            "neutral evidence surfaces must not assign final_response"
+        )
     raw_options = surface.get("options")
     expected_counts = (3, 4) if interaction_type == "decision-navigation" else (2, 3, 4)
+    if interaction_type == "decision-navigation" and final_response:
+        expected_counts = (4,)
     if not isinstance(raw_options, list) or len(raw_options) not in expected_counts:
-        counts = "three or four" if interaction_type == "decision-navigation" else "two to four"
+        counts = (
+            "exactly four"
+            if interaction_type == "decision-navigation" and final_response
+            else (
+                "three or four"
+                if interaction_type == "decision-navigation"
+                else "two to four"
+            )
+        )
         raise ElicitationError(f"{interaction_type} requires {counts} options")
 
     options: list[dict[str, Any]] = []
@@ -197,6 +218,16 @@ def validate_elicitation_surface(surface: Any) -> dict[str, Any]:
                     "action selection_effect must match the label's first verb"
                 )
             normalized["selection_effect"] = selection_effect
+            if final_response and "learning_eligibility" not in raw:
+                raise ElicitationError(
+                    "final-response options require explicit learning_eligibility"
+                )
+            learning_eligibility = raw.get("learning_eligibility", "eligible")
+            if learning_eligibility not in LEARNING_ELIGIBILITY:
+                raise ElicitationError(
+                    "learning_eligibility must be eligible or none"
+                )
+            normalized["learning_eligibility"] = learning_eligibility
             if "control" in raw:
                 raise ElicitationError("decision options do not accept intake controls")
         else:
@@ -205,6 +236,10 @@ def validate_elicitation_surface(surface: Any) -> dict[str, Any]:
             if "selection_effect" in raw:
                 raise ElicitationError(
                     "neutral evidence options must not assign selection_effect"
+                )
+            if "learning_eligibility" in raw:
+                raise ElicitationError(
+                    "neutral evidence options must not assign learning_eligibility"
                 )
             if _reserved_verb(label):
                 raise ElicitationError(
@@ -246,6 +281,8 @@ def validate_elicitation_surface(surface: Any) -> dict[str, Any]:
         normalized_surface["presented_at"] = presented_at
     if action_readiness is not None:
         normalized_surface["action_readiness"] = action_readiness
+    if final_response_present:
+        normalized_surface["final_response"] = final_response
     return normalized_surface
 
 
@@ -279,6 +316,12 @@ def _branch(option: dict[str, Any], *, allow_action: bool) -> dict[str, Any]:
         "role": option.get("role"),
         "visible_label": option["label"],
         "selection_effect": selection_effect,
+        "learning_eligibility": option.get("learning_eligibility"),
+        "retention_effect": (
+            "choice-select-eligible"
+            if option.get("learning_eligibility") == "eligible"
+            else "none"
+        ),
         "action_authorized": verb is not None,
         "normalized_reserved_verb": verb,
         "exact_bounded_action_label": option["label"] if verb else None,
@@ -371,9 +414,13 @@ def interpret_elicitation_response(surface: Any, response: Any) -> dict[str, Any
             "options_hash": option_hash,
             "presented_at": presented_at,
             "requires_presentation_timestamp": presented_at is None,
+            "choice_kind": LEARNING_CHOICE_KIND,
+            "recommended_review_cohort": LEARNING_REVIEW_COHORT,
             "authority_effect": AUTHORITY_EFFECT,
+            "final_response": normalized.get("final_response", False),
         }
         for branch in branches
+        if branch["learning_eligibility"] == "eligible"
     ]
     return {
         "mode": mode,
@@ -385,6 +432,7 @@ def interpret_elicitation_response(surface: Any, response: Any) -> dict[str, Any
         "receipt_directives": directives,
         "stop_on_failure": mode == "compound",
         "authority_effect": AUTHORITY_EFFECT,
+        "final_response": normalized.get("final_response", False),
     }
 
 
@@ -453,10 +501,15 @@ def report_compound_failure(
         "completed_branches": branches[:index],
         "unexecuted_branches": unexecuted,
         "outcome_directives": [
-            {"selected_key": failed["option_key"], "result": failed_result},
+            *(
+                [{"selected_key": failed["option_key"], "result": failed_result}]
+                if failed["learning_eligibility"] == "eligible"
+                else []
+            ),
             *[
                 {"selected_key": branch["option_key"], "result": "no_action"}
                 for branch in unexecuted
+                if branch["learning_eligibility"] == "eligible"
             ],
         ],
         "stop": True,

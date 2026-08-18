@@ -29,6 +29,20 @@ cohort disposition to `choice outcome`; a choice ID alone is insufficient. Use
 tasks. Never backfill its membership or outcomes from memory, completion,
 praise, or passing tests.
 
+Use the separate `menu-contract-natural-use-v1` cohort for the first five later
+natural uses of learning-eligible universal-menu decisions. Generic response
+controls never enter this cohort. Require 100 percent A-D coverage across the
+five sampled final responses, zero retained transient controls, zero compressed-
+selection authority incidents, and at least three observations for every
+primary measure before interpreting performance. Preserve `Missing` and
+`not_observable` honestly.
+
+This prospective review may supply later outcome evidence for a Recursive Learn
+assessment, but selection frequency, implementation, passing tests, and menu
+coverage alone do not close a feedback loop. Create a bounded process reference
+only after the five-use review. Recursive-learning assessment and canonical
+ledger admission remain separate governed actions.
+
 Use `choice due --review-cohort mira-core-natural-use-v1 --limit 1 --json` to
 find at most one closed candidate after the observation delay. A due candidate
 is not an observable outcome. Record `not_observable` with honest `Missing`

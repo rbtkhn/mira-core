@@ -6,6 +6,11 @@ authority.
 
 ## Retain a selection
 
+Retain only a selected option whose validated `learning_eligibility` is
+`eligible`. A generic response control marked `none` produces no `choice
+select`, cohort enrollment, close event, outcome event, or learning evidence.
+Do not report non-retention for a deliberately transient control.
+
 1. Reconstruct the exact displayed option set and stable role bindings.
 2. Sanitize direct contact data and reject secrets or credentials.
 3. Unless the choice runtime has already reported its store unavailable for the
@@ -19,9 +24,10 @@ authority.
    availability.
 4. Use the stable workspace identifier `mira-core`; never pass a repository
    path as `--workspace`. Preserve the operational lane. For consequential
-   natural-use tasks being measured prospectively, bind the selection to
-   `--review-cohort mira-core-natural-use-v1`. Do not assign a cohort to a
-   historical selection or infer one from its lane.
+   universal-menu decisions being measured prospectively, use `choice_kind:
+   menu-contract-decision-v1` and bind the selection to `--review-cohort
+   menu-contract-natural-use-v1`. Do not assign a cohort to a transient
+   control, historical selection, or infer one from its lane.
 5. State only when material that retention granted no authority; executable
    authority came from the validated visible `selection_effect`.
 6. If the store is unavailable, continue and disclose that the selection was

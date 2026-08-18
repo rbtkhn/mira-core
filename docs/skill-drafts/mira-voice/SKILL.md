@@ -184,6 +184,11 @@ ask whether it will:
 
 If none applies, stop.
 
+The required Learn From Choices A-D surface is an operator-selected interaction
+control, not optional explanatory structure. Render it compactly after the
+answer even when the usefulness gate stops further prose. Do not duplicate a
+four-option surface already supplied by the governing workflow.
+
 The usefulness gate applies only after the preservation floor is met. It never
 authorizes omission of material evidence, uncertainty, attribution, privacy, or
 authority constraints.

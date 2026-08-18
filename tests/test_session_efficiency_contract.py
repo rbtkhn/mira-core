@@ -41,3 +41,19 @@ def test_choice_contract_caches_unchanged_store_failure() -> None:
     assert "cached as unavailable" in retention
     assert "Cache unavailability" in retention
     assert "Retry only after that state changes" in retention
+
+
+def test_universal_menu_contract_avoids_duplicate_or_retained_controls() -> None:
+    agents = (REPO_ROOT / "AGENTS.md").read_text(encoding="utf-8")
+    choices = (
+        REPO_ROOT
+        / "docs"
+        / "skill-drafts"
+        / "learn-from-choices"
+        / "SKILL.md"
+    ).read_text(encoding="utf-8")
+    assert "exactly one four-option A-D surface" in agents
+    assert "without duplication" in agents
+    assert "never append a duplicate menu" in choices
+    assert "learning_eligibility: none" in agents
+    assert "final_response: true" in agents

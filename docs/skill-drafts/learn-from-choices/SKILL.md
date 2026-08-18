@@ -30,16 +30,32 @@ Merely imaginable adjacent work is not closure debt. A complete factual answer
 may close despite optional deeper analysis. A completed, verified commit may
 close when push or publication was not requested.
 
-Classify the wider conversation separately. After closing a branch, offer
-`New paths` only when at least two independently credible directions begin
-genuinely different objectives, evidence searches, or commitments. Selecting
-one creates a new choice identity; it never reopens the closed branch. Suppress
-the footer after an explicit stop, when saturation applies, when no credible
-paths exist, or when the options would be manufactured busywork.
+Classify the wider conversation separately. Every final response ends with
+exactly one four-option A-D surface. After closing a branch, offer substantive
+`New paths` only when independently credible directions begin genuinely
+different objectives, evidence searches, or commitments. Selecting one creates
+a new choice identity; it never reopens the closed branch. When fewer than four
+honest substantive paths exist, fill the remaining positions with response
+controls rather than manufactured work.
+
+For an ordinary settled response, use these transient controls:
+
+```text
+A. Close — accept the result and close.
+B. Correct — identify an error or mismatch.
+C. Deepen — request more evidence or explanation within this objective.
+D. New task — begin a distinct objective.
+```
+
+After an explicit stop, honor the stop first and use only this minimal A-D
+surface: `Close now`, `Return later`, `Start a new task`, and `Correct the
+stopping summary`. A governing workflow's existing four-action A-D surface,
+including Coffee, satisfies the requirement; never append a duplicate menu.
 
 ## End an open branch with possibilities
 
-Use three or four concise, materially distinct possibilities:
+Use exactly four concise options. Prefer materially distinct possibilities and
+use transient response controls for positions that would otherwise be filler:
 
 ```text
 Next best possibilities — reply A-D:
@@ -52,9 +68,10 @@ Recommendation: [one evidence-grounded sentence].
 ```
 
 Bind letters in order to `recommended`, `alternative`, `overlooked`, and
-`pause-or-deepen`. Omit a fourth option rather than fabricate diversity.
+`pause-or-deepen`. A transient control may occupy a role without becoming a
+substantive recommendation.
 
-Every menu must contain at least one actionable option whenever reversible
+Every open-branch menu must contain at least one actionable option whenever reversible
 scoping can make a safe action exact. Perform that read-only scoping first. An
 exact bounded action is ready when scope, target, and verification are known
 and authority is the only blocker. Classify every decision option independently;
@@ -68,6 +85,17 @@ a concrete `blocked_action` naming the action considered, its blocker, and
 what would make it ready. Do not present consecutive navigation-only menus for
 the same objective. A later Elicitation surface requires a newly emerged
 blocker.
+
+Mark every normalized decision option with `learning_eligibility: eligible |
+none`. Material choices about objective, evidence, method, scope, or a bounded
+action are `eligible`. Generic Close, Correct, Deepen, New task, stop, and
+return-later controls are `none`. Eligibility is independent of
+`selection_effect` and grants no action authority.
+
+Validate the terminal surface with `final_response: true`. This requires four
+options and explicit eligibility for each one. Three-option Elicitation
+surfaces remain valid only for non-final backward-compatible interactions; they
+never satisfy this skill's final-response requirement.
 
 ## Preserve action authority
 
@@ -105,8 +133,9 @@ decision, or action.
 After two consecutive navigation-only selections deepen the same objective,
 default to saturated closure unless the latest turn adds new evidence, resolves
 a material contradiction, or exposes a genuinely new decision or action. Do
-not offer options that merely analyze, rewrite, compare, or audit the result
-just delivered.
+not offer another substantive menu that merely analyzes, rewrites, compares,
+or audits the result just delivered; return four transient response controls
+instead.
 
 ## Deliver permanent artifacts honestly
 
@@ -123,11 +152,12 @@ push, hosting, and publication. Never describe a working-tree file as public.
 
 ## Complete the turn
 
-A turn has three valid terminal forms:
+A turn has three valid terminal forms, and every form ends with one A-D surface:
 
-- an open branch ends with a valid possibility surface;
-- a settled branch closes and may offer independently eligible `New paths`; or
-- a settled conversation closes without a manufactured footer.
+- an open branch ends with a valid four-option possibility surface;
+- a settled branch closes with independently eligible `New paths` plus any
+  needed transient controls; or
+- a settled or stopped conversation closes with four transient controls.
 
 When a selected branch closes, use the retention reference to append a quiet
 `branch_closed` lifecycle event when available. Closure is not outcome evidence.

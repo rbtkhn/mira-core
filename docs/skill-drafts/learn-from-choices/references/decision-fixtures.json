@@ -5,8 +5,8 @@
     "prompt": "The requested factual answer is complete.",
     "expected_terminal": "settled-conversation",
     "required_resource": "core",
-    "allowed": ["close without a footer"],
-    "forbidden": ["manufacture adjacent work"]
+    "allowed": ["render exactly four transient response controls", "retain no generic control"],
+    "forbidden": ["close without A-D controls", "manufacture adjacent work"]
   },
   {
     "id": "LFC-NEW-PATHS-01",
@@ -14,8 +14,8 @@
     "prompt": "A completed branch reveals two independent objectives.",
     "expected_terminal": "settled-branch-with-new-paths",
     "required_resource": "core",
-    "allowed": ["offer independently eligible New paths"],
-    "forbidden": ["reopen the completed branch"]
+    "allowed": ["offer independently eligible New paths", "fill unused positions with transient controls"],
+    "forbidden": ["reopen the completed branch", "retain a transient control"]
   },
   {
     "id": "LFC-BARE-LETTER-01",
@@ -71,8 +71,35 @@
     "prompt": "Two navigation-only selections have deepened the same objective without new evidence.",
     "expected_terminal": "settled-conversation",
     "required_resource": "core",
-    "allowed": ["close as saturated"],
-    "forbidden": ["offer another analysis-only menu"]
+    "allowed": ["close as saturated", "render exactly four transient response controls"],
+    "forbidden": ["close without A-D controls", "offer another analysis-only menu"]
+  },
+  {
+    "id": "LFC-STOP-01",
+    "case": "explicit-stop",
+    "prompt": "Stop.",
+    "expected_terminal": "stopped-with-four-transient-controls",
+    "required_resource": "core",
+    "allowed": ["honor stop before rendering controls", "render exactly four controls: Close now, Return later, Start a new task, and Correct the stopping summary"],
+    "forbidden": ["retain a stop control", "reopen the stopped branch"]
+  },
+  {
+    "id": "LFC-REPEATED-SELECTION-01",
+    "case": "repeated-selection",
+    "prompt": "A after the selected branch already closed.",
+    "expected_terminal": "settled-no-op-with-four-transient-controls",
+    "required_resource": "core",
+    "allowed": ["treat the repeated selection as a no-op", "render four transient response controls"],
+    "forbidden": ["create a new choice identity", "repeat the completed action"]
+  },
+  {
+    "id": "LFC-WORKFLOW-MENU-01",
+    "case": "workflow-owned-menu",
+    "prompt": "Coffee returns its validated four-action menu.",
+    "expected_terminal": "single-workflow-owned-a-d-surface",
+    "required_resource": "core",
+    "allowed": ["use the governing workflow menu as the final surface"],
+    "forbidden": ["append a second generic A-D menu"]
   },
   {
     "id": "LFC-OUTCOME-DUE-01",
