@@ -4,7 +4,7 @@ This index routes the transcript-bearing upstream-parity corpus for `mercouris` 
 
 Source basis: `strategy-codex/statecraft/voices/mercouris/mercouris-index.md`, `strategy-codex/statecraft/channels/alexander-mercouris/alexander-mercouris-channel-index.md`, and subsequent local intake.
 
-Corpus: 392 local route rows across 392 central archive source files.
+Corpus: 393 local route rows across 393 central archive source files.
 
 Status: `transcript-bearing-upstream-parity`
 
@@ -416,6 +416,7 @@ Status: `transcript-bearing-upstream-parity`
 | `2026-08-15` | (4) Russia Crushes Kiev's Elite Azov Troops Smashes Dobropilia; West Despairs At Kiev Lack Of AD | `guest` | `alexander-mercouris` | [source](../../../archive/sources/geopolitics/sources/2026-08-15/source-4-russia-crushes-kiev-s-elite-azov-troops-smashes-dobropilia-west-despairs-at-kiev-lack-of-ad-2026-08-15.md) |
 | `2026-08-16` | (4) Demand Destruction: The Real Energy Crisis Hitting Europe and Japan | `guest` | `the-duran` | [source](../../../archive/sources/geopolitics/sources/2026-08-16/source-4-demand-destruction-the-real-energy-crisis-hitting-europe-and-japan-2026-08-16.md) |
 | `2026-08-16` | (4) Russian Strikes Devastate Ukraine; Key Ukraine Refinery Smash Orekhov Falling; Zelensky UK/EU Panic | `guest` | `alexander-mercouris` | [source](../../../archive/sources/geopolitics/sources/2026-08-16/source-4-russian-strikes-devastate-ukraine-key-ukraine-refinery-smash-orekhov-falling-zelensky-uk-eu-panic-2026-08-16.md) |
+| `2026-08-17` | Russia Smashes Key Zaporozhzhie Dnieper Bridge; Starts Surrounding Kramatorsk; Kiev Protests Resume | `host monologue` | `alexander-mercouris` | [source](../../../archive/sources/geopolitics/sources/2026-08-17/source-russia-smashes-key-zaporozhzhie-dnieper-bridge-starts-surrounding-kramatorsk-kiev-protests-resume-2026-08-17.md) |
 
 ## Judgment Continuity
 

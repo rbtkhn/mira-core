@@ -2,7 +2,7 @@
   "manifest_id": "narrative-geopolitics-source-manifest-v1",
   "source_basis": "central archive with completed historical strategy-codex imports",
   "imported_at": "2026-07-09",
-  "source_count": 2156,
+  "source_count": 2167,
   "boundary": {
     "archive": "source truth",
     "voices": "voice continuity and routing",
@@ -58431,50 +58431,303 @@
       "import_status": "imported"
     },
     {
-        "date": "2026-08-16",
-        "title": "(4) Nima R. Alkhorshid: Trump Discusses NUCLEAR OPTION on Iran in Secret White House Talks",
-        "local_path": "archive/sources/geopolitics/sources/2026-08-16/source-4-nima-r-alkhorshid-trump-discusses-nuclear-option-on-iran-in-secret-white-house-talks-2026-08-16.md",
-        "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-16/source-4-nima-r-alkhorshid-trump-discusses-nuclear-option-on-iran-in-secret-white-house-talks-2026-08-16.md",
-        "upstream_path": "operator-paste://2026-08-16/4-nima-r-alkhorshid-trump-discusses-nuclear-option-on-iran-in-secret-white-house-talks",
-        "source_class": "author",
-        "modality": "cleaned-transcript",
-        "voice_slugs": [
-            "alkhorshid"
-        ],
-        "host_slug": "dialogue-works",
-        "source_identity": "youtube:dFPy6YltmkU",
-        "source_url": "https://www.youtube.com/watch?v=dFPy6YltmkU",
-        "title_source": "transcript",
-        "date_basis": "transcript-self-date",
-        "inference_basis": [
-            "wrapper-normalized",
-            "explicit-host",
-            "explicit-date-alias"
-        ],
-        "import_status": "imported"
+      "date": "2026-08-16",
+      "title": "(4) Nima R. Alkhorshid: Trump Discusses NUCLEAR OPTION on Iran in Secret White House Talks",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-16/source-4-nima-r-alkhorshid-trump-discusses-nuclear-option-on-iran-in-secret-white-house-talks-2026-08-16.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-16/source-4-nima-r-alkhorshid-trump-discusses-nuclear-option-on-iran-in-secret-white-house-talks-2026-08-16.md",
+      "upstream_path": "operator-paste://2026-08-16/4-nima-r-alkhorshid-trump-discusses-nuclear-option-on-iran-in-secret-white-house-talks",
+      "source_class": "author",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "alkhorshid"
+      ],
+      "host_slug": "dialogue-works",
+      "source_identity": "youtube:dFPy6YltmkU",
+      "source_url": "https://www.youtube.com/watch?v=dFPy6YltmkU",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
     },
     {
-        "date": "2026-08-16",
-        "title": "(4) Ray McGovern: Israel Suffers WORST Military Defeat – New Front Opens",
-        "local_path": "archive/sources/geopolitics/sources/2026-08-16/source-4-ray-mcgovern-israel-suffers-worst-military-defeat-new-front-opens-2026-08-16.md",
-        "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-16/source-4-ray-mcgovern-israel-suffers-worst-military-defeat-new-front-opens-2026-08-16.md",
-        "upstream_path": "operator-paste://2026-08-16/4-ray-mcgovern-israel-suffers-worst-military-defeat-new-front-opens",
-        "source_class": "guest interview pressure test",
-        "modality": "cleaned-transcript",
-        "voice_slugs": [
-            "mcgovern"
-        ],
-        "host_slug": "dialogue-works",
-        "source_identity": "youtube:u5XlJvIL5Xc",
-        "source_url": "https://www.youtube.com/watch?v=u5XlJvIL5Xc",
-        "title_source": "transcript",
-        "date_basis": "transcript-self-date",
-        "inference_basis": [
-            "wrapper-normalized",
-            "explicit-host",
-            "explicit-date-alias"
-        ],
-        "import_status": "imported"
+      "date": "2026-08-16",
+      "title": "(4) Ray McGovern: Israel Suffers WORST Military Defeat – New Front Opens",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-16/source-4-ray-mcgovern-israel-suffers-worst-military-defeat-new-front-opens-2026-08-16.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-16/source-4-ray-mcgovern-israel-suffers-worst-military-defeat-new-front-opens-2026-08-16.md",
+      "upstream_path": "operator-paste://2026-08-16/4-ray-mcgovern-israel-suffers-worst-military-defeat-new-front-opens",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mcgovern"
+      ],
+      "host_slug": "dialogue-works",
+      "source_identity": "youtube:u5XlJvIL5Xc",
+      "source_url": "https://www.youtube.com/watch?v=u5XlJvIL5Xc",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-17",
+      "title": "Russia Smashes Key Zaporozhzhie Dnieper Bridge; Starts Surrounding Kramatorsk; Kiev Protests Resume",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-17/source-russia-smashes-key-zaporozhzhie-dnieper-bridge-starts-surrounding-kramatorsk-kiev-protests-resume-2026-08-17.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-17/source-russia-smashes-key-zaporozhzhie-dnieper-bridge-starts-surrounding-kramatorsk-kiev-protests-resume-2026-08-17.md",
+      "upstream_path": "operator-paste://2026-08-17/russia-smashes-key-zaporozhzhie-dnieper-bridge-starts-surrounding-kramatorsk-kiev-protests-resume",
+      "source_class": "host monologue",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "alexander-mercouris",
+      "source_identity": "youtube:7sg5ypoCDuk",
+      "source_url": "https://www.youtube.com/watch?v=7sg5ypoCDuk",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-17",
+      "title": "(4) Iran Breaking the Back of US Empire /Patrick Henningsen",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-17/source-4-iran-breaking-the-back-of-us-empire-patrick-henningsen-2026-08-17.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-17/source-4-iran-breaking-the-back-of-us-empire-patrick-henningsen-2026-08-17.md",
+      "upstream_path": "operator-paste://2026-08-17/4-iran-breaking-the-back-of-us-empire-patrick-henningsen",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "henningsen"
+      ],
+      "host_slug": "daniel-davis",
+      "source_identity": "youtube:0Tvk5y4uB9I",
+      "source_url": "https://www.youtube.com/watch?v=0Tvk5y4uB9I",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-17",
+      "title": "(4) Alastair Crooke: Trump’s Card Just Broke the Status Quo",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-17/source-4-alastair-crooke-trump-s-card-just-broke-the-status-quo-2026-08-17.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-17/source-4-alastair-crooke-trump-s-card-just-broke-the-status-quo-2026-08-17.md",
+      "upstream_path": "operator-paste://2026-08-17/4-alastair-crooke-trump-s-card-just-broke-the-status-quo",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "crooke"
+      ],
+      "host_slug": "dialogue-works",
+      "source_identity": "youtube:gpMCCzLkUJ0",
+      "source_url": "https://www.youtube.com/watch?v=gpMCCzLkUJ0",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-17",
+      "title": "(4) Col. Jacques Baud: The Oval Office’s Final Move That Has Israel on Edge",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-17/source-4-col-jacques-baud-the-oval-office-s-final-move-that-has-israel-on-edge-2026-08-17.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-17/source-4-col-jacques-baud-the-oval-office-s-final-move-that-has-israel-on-edge-2026-08-17.md",
+      "upstream_path": "operator-paste://2026-08-17/4-col-jacques-baud-the-oval-office-s-final-move-that-has-israel-on-edge",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "baud"
+      ],
+      "host_slug": "dialogue-works",
+      "source_identity": "youtube:VofnMtBEuk8",
+      "source_url": "https://www.youtube.com/watch?v=VofnMtBEuk8",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-17",
+      "title": "(4) Alastair Crooke : The Consequence of More Netanyahu Lies",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-17/source-4-alastair-crooke-the-consequence-of-more-netanyahu-lies-2026-08-17.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-17/source-4-alastair-crooke-the-consequence-of-more-netanyahu-lies-2026-08-17.md",
+      "upstream_path": "operator-paste://2026-08-17/4-alastair-crooke-the-consequence-of-more-netanyahu-lies",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "crooke"
+      ],
+      "host_slug": "judging-freedom",
+      "source_identity": "youtube:_miBMMA_Ad0",
+      "source_url": "https://www.youtube.com/watch?v=_miBMMA_Ad0",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-17",
+      "title": "(4) Scott Ritter :Pentagon Did No Due Diligence",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-17/source-4-scott-ritter-pentagon-did-no-due-diligence-2026-08-17.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-17/source-4-scott-ritter-pentagon-did-no-due-diligence-2026-08-17.md",
+      "upstream_path": "operator-paste://2026-08-17/4-scott-ritter-pentagon-did-no-due-diligence",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "ritter"
+      ],
+      "host_slug": "judging-freedom",
+      "source_identity": "youtube:CVv0WqO0YgY",
+      "source_url": "https://www.youtube.com/watch?v=CVv0WqO0YgY",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-17",
+      "title": "(4) Lt. Col. Anthony Aguilar: Iran to Break US Naval Blockade By Force as Trump Demands Total Surrender",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-17/source-4-lt-col-anthony-aguilar-iran-to-break-us-naval-blockade-by-force-as-trump-demands-total-surrender-2026-08-17.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-17/source-4-lt-col-anthony-aguilar-iran-to-break-us-naval-blockade-by-force-as-trump-demands-total-surrender-2026-08-17.md",
+      "upstream_path": "operator-paste://2026-08-17/4-lt-col-anthony-aguilar-iran-to-break-us-naval-blockade-by-force-as-trump-demands-total-surrender",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "aguilar"
+      ],
+      "host_slug": "dialogue-works",
+      "source_identity": "youtube:b012bZ1VFpE",
+      "source_url": "https://www.youtube.com/watch?v=b012bZ1VFpE",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-17",
+      "title": "(4) Prof. Jeffrey Sachs : NATO Is Toothless; Fauci Latest",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-17/source-4-prof-jeffrey-sachs-nato-is-toothless-fauci-latest-2026-08-17.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-17/source-4-prof-jeffrey-sachs-nato-is-toothless-fauci-latest-2026-08-17.md",
+      "upstream_path": "operator-paste://2026-08-17/4-prof-jeffrey-sachs-nato-is-toothless-fauci-latest",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "sachs"
+      ],
+      "host_slug": "judging-freedom",
+      "source_identity": "youtube:AtGeEI8vFSY",
+      "source_url": "https://www.youtube.com/watch?v=AtGeEI8vFSY",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-17",
+      "title": "(4) BREAKING: IRAN PROMISES WAR IF BLOCKADE NOT LIFTED",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-17/source-4-breaking-iran-promises-war-if-blockade-not-lifted-2026-08-17.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-17/source-4-breaking-iran-promises-war-if-blockade-not-lifted-2026-08-17.md",
+      "upstream_path": "operator-paste://2026-08-17/4-breaking-iran-promises-war-if-blockade-not-lifted",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "weichert"
+      ],
+      "host_slug": "mario-nawfal",
+      "source_identity": "youtube:rFXhjprM3Sk",
+      "source_url": "https://www.youtube.com/watch?v=rFXhjprM3Sk",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-17",
+      "title": "(4) Larry Johnson : How Poorly US Treats Its Own Troops",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-17/source-4-larry-johnson-how-poorly-us-treats-its-own-troops-2026-08-17.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-17/source-4-larry-johnson-how-poorly-us-treats-its-own-troops-2026-08-17.md",
+      "upstream_path": "operator-paste://2026-08-17/4-larry-johnson-how-poorly-us-treats-its-own-troops",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "johnson"
+      ],
+      "host_slug": "judging-freedom",
+      "source_identity": "youtube:eBdhRgUZDE0",
+      "source_url": "https://www.youtube.com/watch?v=eBdhRgUZDE0",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-17",
+      "title": "(4) TRUMP THREATENS TO \"BOMB THE SHIT OUT\" OF OMAN TOO - w/ Robert Barnes",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-17/source-4-trump-threatens-to-bomb-the-shit-out-of-oman-too-w-robert-barnes-2026-08-17.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-17/source-4-trump-threatens-to-bomb-the-shit-out-of-oman-too-w-robert-barnes-2026-08-17.md",
+      "upstream_path": "operator-paste://2026-08-17/4-trump-threatens-to-bomb-the-shit-out-of-oman-too-w-robert-barnes",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "barnes"
+      ],
+      "host_slug": "mario-nawfal",
+      "source_identity": "youtube:MT_vuAUONXA",
+      "source_url": "https://www.youtube.com/watch?v=MT_vuAUONXA",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
     }
   ]
 }

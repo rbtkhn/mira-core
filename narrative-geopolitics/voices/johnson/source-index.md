@@ -4,7 +4,7 @@ This index routes the imported first-slice parity corpus for `johnson` to the ce
 
 Source basis: `archive/sources/geopolitics/source-manifest.json`.
 
-Corpus: 122 local route rows across 122 central archive source files.
+Corpus: 123 local route rows across 123 central archive source files.
 
 Status: `first-slice-parity`
 
@@ -146,6 +146,7 @@ Status: `first-slice-parity`
 | `2026-08-12` | (3) Larry Johnson: Will Trump Declare Victory Against Iran & Walk Away Without a Nuclear Deal? | `guest` | `glenn-diesen` | [source](../../../archive/sources/geopolitics/sources/2026-08-12/source-3-larry-johnson-will-trump-declare-victory-against-iran-walk-away-without-a-nuclear-deal-2026-08-12.md) |
 | `2026-08-13` | (3) fmr CIA Analyst Larry Johnson: We're Trapped, How the MIC Ruined the US | `guest` | `daniel-davis` | [source](../../../archive/sources/geopolitics/sources/2026-08-13/source-3-fmr-cia-analyst-larry-johnson-we-re-trapped-how-the-mic-ruined-the-us-2026-08-13.md) |
 | `2026-08-15` | (4) Larry Johnson: Iran’s FINAL Play in Hormuz- Israel Attack FALLS APART- Yemen Flipped the Script | `host-pressure test` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2026-08-15/source-4-larry-johnson-iran-s-final-play-in-hormuz-israel-attack-falls-apart-yemen-flipped-the-script-2026-08-15.md) |
+| `2026-08-17` | (4) Larry Johnson : How Poorly US Treats Its Own Troops | `guest` | `judging-freedom` | [source](../../../archive/sources/geopolitics/sources/2026-08-17/source-4-larry-johnson-how-poorly-us-treats-its-own-troops-2026-08-17.md) |
 
 ## Judgment Continuity
 
