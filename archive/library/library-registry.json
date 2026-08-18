@@ -662,8 +662,25 @@
         "body_imported": false
       },
       "status": "stub",
-      "notes": "Corporate textual authority; India MEM treats the Upanishads as philosophical-soteriological core.",
-      "text_status": "missing"
+      "notes": "Corporate textual authority; India MEM treats the Upanishads as philosophical-soteriological core. Portable store includes Project Gutenberg #3283, Swami Paramananda's English translation of The Upanishads. This is a principal Upanishads body, not a complete Upanishadic corpus claim.",
+      "text_status": "available",
+      "text_bodies": [
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-012-UPANISHADS-PARAMANANDA-GUTENBERG-3283",
+          "work_title": "The Upanishads",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-012-UPANISHADS-PARAMANANDA-GUTENBERG-3283.txt",
+          "text_sha256": "2ffc941173d8fd10c16eea7bfb4ab2ace13cf9e734228c71f367402f9236aa46",
+          "text_bytes": 125461,
+          "text_encoding": "utf-8",
+          "language": "English",
+          "translator": "Swami Paramananda",
+          "editor": "",
+          "edition_label": "Project Gutenberg #3283; Swami Paramananda translation",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg public-domain text in the United States",
+          "status": "available"
+        }
+      ]
     },
     {
       "source_id": "LIB-ANCIENT-AUTHOR-013-VYASA-MAHABHARATA-TRADITION",
@@ -689,8 +706,25 @@
         "body_imported": false
       },
       "status": "stub",
-      "notes": "Dedicated Gita/Mahabharata memory surfaces; central dharma and action frame in India memory.",
-      "text_status": "missing"
+      "notes": "Dedicated Gita/Mahabharata memory surfaces; central dharma and action frame in India memory. Portable store includes Project Gutenberg #2388, Sir Edwin Arnold's English translation The Song Celestial / Bhagavad-Gita from the Mahabharata. This is a principal-work admission for the Gita, not a full Mahabharata corpus claim.",
+      "text_status": "available",
+      "text_bodies": [
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-013-MAHABHARATA-BHAGAVAD-GITA-ARNOLD-GUTENBERG-2388",
+          "work_title": "The Song Celestial; Or, Bhagavad-Gita",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-013-MAHABHARATA-BHAGAVAD-GITA-ARNOLD-GUTENBERG-2388.txt",
+          "text_sha256": "85b22401a9d256179f9a2e407215eb516da9b8213f23c32e03d66709d839a9e0",
+          "text_bytes": 147501,
+          "text_encoding": "utf-8",
+          "language": "English",
+          "translator": "Sir Edwin Arnold",
+          "editor": "",
+          "edition_label": "Project Gutenberg #2388; Sir Edwin Arnold translation from the Mahabharata",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg public-domain text in the United States",
+          "status": "available"
+        }
+      ]
     },
     {
       "source_id": "LIB-ANCIENT-AUTHOR-014-VALMIKI",
@@ -716,8 +750,25 @@
         "body_imported": false
       },
       "status": "stub",
-      "notes": "Ramayana appears as India literary memory and ideal kingship/dharma frame.",
-      "text_status": "missing"
+      "notes": "Ramayana appears as India literary memory and ideal kingship/dharma frame. Portable store includes Project Gutenberg #24869, Ralph T. H. Griffith's English verse translation of The Ramayan of Valmiki, covering the principal work represented by this source-authority record.",
+      "text_status": "available",
+      "text_bodies": [
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-014-VALMIKI-RAMAYANA-GRIFFITH-GUTENBERG-24869",
+          "work_title": "The Ramayan of Valmiki",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-014-VALMIKI-RAMAYANA-GRIFFITH-GUTENBERG-24869.txt",
+          "text_sha256": "4310b710a9c6942490bf8270a8a6620f314dcc2adf7b413833596ca9aaebca6f",
+          "text_bytes": 2395956,
+          "text_encoding": "utf-8",
+          "language": "English",
+          "translator": "Ralph T. H. Griffith",
+          "editor": "",
+          "edition_label": "Project Gutenberg #24869; Ralph T. H. Griffith English verse translation",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg public-domain text in the United States",
+          "status": "available"
+        }
+      ]
     },
     {
       "source_id": "LIB-ANCIENT-AUTHOR-015-AVESTAN-GATHIC-TRADITION",
