@@ -274,6 +274,14 @@ def test_relevant_delta_resets_repeat_escalation_and_unrelated_change_does_not(t
     changed=cadence_ledger.coffee_context(connection)
     assert changed["presentation"]["mode"]=="delta"
     assert changed["presentation"]["changed_components"]==["path:scripts/cadence.py"]
+    execution=changed["actions"][0]["execution"]
+    assert changed["actions"][0]["target_type"]=="presentation_context"
+    assert changed["actions"][0]["target"]==f'{changed["presentation"]["prior_context_digest"]}->{changed["presentation"]["context_digest"]}'
+    assert execution["kind"]=="read-only-context-digest-comparison"
+    assert execution["source"].startswith("coffee_presentations:CPF-")
+    assert execution["baseline"]==changed["presentation"]["prior_context_digest"]
+    assert execution["threshold"]==changed["presentation"]["context_digest"]
+    assert execution["changed_components"]==["path:scripts/cadence.py"]
     cadence_ledger.record_coffee_presentation(connection,changed,cadence_ledger.render_coffee_markdown(changed))
     assert cadence_ledger.coffee_context(connection)["presentation"]["mode"]=="repeat-checkpoint"
     connection.close()
@@ -312,6 +320,21 @@ def test_concurrent_relevant_change_rejects_presentation_receipt(tmp_path: Path,
     with pytest.raises(cadence_ledger.CadenceLedgerError,match="changed concurrently"):
         cadence_ledger.record_coffee_presentation(connection,context,rendered)
     assert connection.execute("SELECT COUNT(*) FROM coffee_presentations").fetchone()[0]==0
+    connection.close()
+
+
+def test_presentation_head_is_checked_inside_immediate_transaction(tmp_path: Path,monkeypatch: pytest.MonkeyPatch) -> None:
+    connection,_=isolated_episode_store(tmp_path,monkeypatch)
+    context=cadence_ledger.coffee_context(connection); rendered=cadence_ledger.render_coffee_markdown(context)
+    original=cadence_ledger.latest_presentation
+    transaction_states=[]
+    def observed_latest(*args,**kwargs):
+        transaction_states.append(connection.in_transaction)
+        return original(*args,**kwargs)
+    monkeypatch.setattr(cadence_ledger,"latest_presentation",observed_latest)
+    cadence_ledger.record_coffee_presentation(connection,context,rendered)
+    assert transaction_states==[True]
+    assert cadence_ledger.verify_ledger(connection)["valid"] is True
     connection.close()
 
 

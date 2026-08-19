@@ -29,7 +29,7 @@ RELATIONSHIPS = frozenset(
     {"behavior-observation", "implementation", "verification", "later-use"}
 )
 TARGET_TYPES = frozenset(
-    {"artifact", "forecast", "crisis_object", "observable", "method_change"}
+    {"artifact", "forecast", "crisis_object", "observable", "method_change", "presentation_context"}
 )
 CONTROL_RE = re.compile(r"[\x00-\x08\x0b\x0c\x0e-\x1f\x7f]")
 EMAIL_RE = re.compile(r"(?<![\w.+-])[\w.+-]+@[\w.-]+\.[A-Za-z]{2,}")
@@ -961,6 +961,8 @@ ACTION_SHAPE = (
 def build_actions(
     projection: dict[str, Any], *, mode: str="initial", repeat_depth: int=0,
     changed_components: list[str] | None=None,
+    context_digest: str | None=None, prior_context_digest: str | None=None,
+    prior_presentation_id: str | None=None,
 ) -> list[dict[str, Any]]:
     episode = projection["episode"]
     episode_id = episode["episode_id"]
@@ -991,19 +993,36 @@ def build_actions(
         b_label=f"Test one concrete next-use falsifier before revisiting {observable['name']}: {episode['falsifier']}"
         c_label=f"Deepen the unresolved blockage at {first_artifact}."
         d_label=f"Reframe toward defer, supersede, reject, or retest for {episode['intervention']}."
-    execution_source=observable["source"] if mode=="initial" else first_artifact
+    if mode == "initial":
+        execution_target_type = "observable"
+        execution_target = observable
+        execution = {
+            "kind": "read-only-observable-comparison",
+            "source": observable["source"], "baseline": observable["baseline"],
+            "threshold": observable["success_threshold"], "mutation": False,
+            "verification": "Report whether the named source supports, contradicts, or cannot resolve the threshold comparison.",
+        }
+    else:
+        if not context_digest or not prior_context_digest or not prior_presentation_id:
+            raise CadenceLedgerError("contextual Coffee actions require prior and current presentation grounding")
+        execution_target_type = "presentation_context"
+        execution_target = f"{prior_context_digest}->{context_digest}"
+        execution = {
+            "kind": "read-only-context-digest-comparison",
+            "source": f"coffee_presentations:{prior_presentation_id}",
+            "baseline": prior_context_digest,
+            "threshold": context_digest,
+            "changed_components": changes,
+            "mutation": False,
+            "verification": "Compare the prior and current context digests and report the exact changed relevant components, or confirm that none changed.",
+        }
     actions = [
         {
             "key": "A", "verb": "Confirm", "role": "recommended",
             "label": a_label,
-            "target_type": "observable", "target": observable, "reason": episode["evidence_summary"],
+            "target_type": execution_target_type, "target": execution_target, "reason": episode["evidence_summary"],
             "candidate_id": episode_id, "selection_effect": "execute",
-            "execution": {
-                "kind": "read-only-observable-comparison",
-                "source": execution_source, "baseline": observable["baseline"],
-                "threshold": observable["success_threshold"], "mutation": False,
-                "verification": "Report whether the named source supports, contradicts, or cannot resolve the threshold comparison.",
-            },
+            "execution": execution,
             "next_boundary": "Execute only the named read-only comparison; tests, writes, and disposition remain separate.",
         },
         {
@@ -1172,7 +1191,12 @@ def coffee_context(
             "selection": selection,
             "presentation":presentation,
         }
-    actions = build_actions(projection,mode=mode,repeat_depth=repeat_depth,changed_components=changed)
+    actions = build_actions(
+        projection, mode=mode, repeat_depth=repeat_depth,
+        changed_components=changed, context_digest=context_sha,
+        prior_context_digest=presentation["prior_context_digest"],
+        prior_presentation_id=presentation["prior_presentation_id"],
+    )
     change = repository_change(projection)
     episode = projection["episode"]
     return {
@@ -1237,37 +1261,42 @@ def record_coffee_presentation(connection: sqlite3.Connection, context: dict[str
     components=presentation["components"]
     episode_id=context["episode_id"]
     workspace_id="mira-core"; operator_id="operator"
-    if episode_id:
-        projected=project_episode(connection,episode_id)
-        workspace_id=projected["episode"]["workspace_id"]; operator_id=projected["episode"]["operator_id"]
-        newest=selected_episode(connection)
-        fresh_selection={**components["selection"],"newest_eligible_episode_id":newest["episode"]["episode_id"] if newest else None}
-        fresh_components=presentation_components(projected,fresh_selection,components["rest_coverage_status"])
-        if digest(fresh_components)!=presentation["context_digest"]:
-            raise CadenceLedgerError("Coffee relevant context changed concurrently; rerun Coffee")
-    elif selected_episode(connection) is not None:
-        raise CadenceLedgerError("Coffee candidate selection changed concurrently; rerun Coffee")
-    latest=latest_presentation(connection,episode_id,workspace_id,operator_id)
-    latest_id=latest["presentation_id"] if latest else None
-    if latest_id!=presentation["prior_presentation_id"]:
-        raise CadenceLedgerError("Coffee presentation context changed concurrently; rerun Coffee")
-    when=validate_timestamp(utc_now()); presentation_id=f"CPF-{uuid.uuid4().hex}"
-    previous=latest["receipt_sha256"] if latest else None
-    body={
-        "presentation_id":presentation_id,"episode_id":episode_id,"workspace_id":workspace_id,
-        "operator_id":operator_id,"occurred_at":when,"lifecycle_version":context["lifecycle_version"],
-        "presentation_mode":presentation["mode"],"repeat_depth":presentation["repeat_depth"],
-        "context_components":components,"context_digest":presentation["context_digest"],
-        "menu_digest":digest(rendered),"prior_presentation_id":latest_id,"previous_receipt_sha256":previous,
-    }
-    receipt_sha=digest(body)
-    with connection:
+    try:
+        connection.execute("BEGIN IMMEDIATE")
+        if episode_id:
+            projected=project_episode(connection,episode_id)
+            workspace_id=projected["episode"]["workspace_id"]; operator_id=projected["episode"]["operator_id"]
+            newest=selected_episode(connection)
+            fresh_selection={**components["selection"],"newest_eligible_episode_id":newest["episode"]["episode_id"] if newest else None}
+            fresh_components=presentation_components(projected,fresh_selection,components["rest_coverage_status"])
+            if digest(fresh_components)!=presentation["context_digest"]:
+                raise CadenceLedgerError("Coffee relevant context changed concurrently; rerun Coffee")
+        elif selected_episode(connection) is not None:
+            raise CadenceLedgerError("Coffee candidate selection changed concurrently; rerun Coffee")
+        latest=latest_presentation(connection,episode_id,workspace_id,operator_id)
+        latest_id=latest["presentation_id"] if latest else None
+        if latest_id!=presentation["prior_presentation_id"]:
+            raise CadenceLedgerError("Coffee presentation context changed concurrently; rerun Coffee")
+        when=validate_timestamp(utc_now()); presentation_id=f"CPF-{uuid.uuid4().hex}"
+        previous=latest["receipt_sha256"] if latest else None
+        body={
+            "presentation_id":presentation_id,"episode_id":episode_id,"workspace_id":workspace_id,
+            "operator_id":operator_id,"occurred_at":when,"lifecycle_version":context["lifecycle_version"],
+            "presentation_mode":presentation["mode"],"repeat_depth":presentation["repeat_depth"],
+            "context_components":components,"context_digest":presentation["context_digest"],
+            "menu_digest":digest(rendered),"prior_presentation_id":latest_id,"previous_receipt_sha256":previous,
+        }
+        receipt_sha=digest(body)
         connection.execute(
             "INSERT INTO coffee_presentations VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
             (presentation_id,episode_id,workspace_id,operator_id,when,timestamp_us(when),context["lifecycle_version"],
              presentation["mode"],presentation["repeat_depth"],canonical_json(components),presentation["context_digest"],
              body["menu_digest"],latest_id,previous,receipt_sha),
         )
+        connection.commit()
+    except Exception:
+        connection.rollback()
+        raise
     return {"presentation_id":presentation_id,"presentation_mode":presentation["mode"],"context_digest":presentation["context_digest"],"menu_digest":body["menu_digest"],"receipt_sha256":receipt_sha,"authority_effect":"private-presentation-receipt-only"}
 
 
