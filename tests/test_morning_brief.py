@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-import copy
 import hashlib
 import importlib.util
 import json
@@ -1099,30 +1098,28 @@ def test_zero_judgment_baseline_is_disclosed_truthfully(bounded_repo: Path) -> N
     assert "Baseline: `0` valid judgment(s); `1` accountable open forecast(s)." in body
 
 
-def test_rendered_word_ceiling_accepts_boundary_and_fails_before_output(
-    bounded_repo: Path, monkeypatch: pytest.MonkeyPatch
+def test_long_forecast_administration_does_not_block_render(
+    bounded_repo: Path,
 ) -> None:
+    for index in range(12):
+        add_accountable_forecast(
+            bounded_repo,
+            f"NG-20260802-F{index + 10:02d}",
+            review_date="2026-08-02",
+            claim=(
+                "A deliberately long due-only fixture claim remains open and "
+                "retains enough words to exercise accumulated forecast "
+                "administration without becoming a material development."
+            ),
+        )
     payload = receipt(bounded_repo)
-    validated = morning_brief.validate_receipt(
-        copy.deepcopy(payload),
-        date=DATE,
-        as_of=AS_OF,
-        repo_root=bounded_repo,
-        daily_root=bounded_repo / "narrative-geopolitics" / "work" / "daily",
-        ledger_path=bounded_repo
-        / "narrative-geopolitics"
-        / "work"
-        / "forecasts"
-        / "forecast-ledger.md",
-        reality_root=bounded_repo / "narrative-geopolitics" / "work" / "reality",
-    )
-    rendered = morning_brief.render_markdown(validated, "0" * 64)
-    words = morning_brief.readable_word_count(rendered.decode("utf-8"))
-    monkeypatch.setattr(morning_brief, "MAX_RENDERED_WORDS", words)
-    assert morning_brief.render_markdown(validated, "0" * 64) == rendered
-    brief_path, receipt_path = generate(bounded_repo, payload, output_name="word-limit")
-    original = (brief_path.read_bytes(), receipt_path.read_bytes())
-    monkeypatch.setattr(morning_brief, "MAX_RENDERED_WORDS", words - 1)
-    with pytest.raises(morning_brief.BriefError, match="five-minute ceiling"):
-        generate(bounded_repo, payload, output_name="word-limit", overwrite=True)
-    assert (brief_path.read_bytes(), receipt_path.read_bytes()) == original
+    for row in payload["baseline"]["forecasts"]:
+        if row["hook_id"] != HOOK_ID:
+            row["impact"] = "unaffected"
+
+    brief_path, _ = generate(bounded_repo, payload, output_name="long-forecast-admin")
+    body = brief_path.read_text(encoding="utf-8")
+
+    assert "## Forecast Pressure" in body
+    assert "### Due, unpressured" in body
+    assert "NG-20260802-F21" in body

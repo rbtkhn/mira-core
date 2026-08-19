@@ -32,7 +32,6 @@ SCHEMA_VERSION = "2.1"
 RENDERER_VERSION = "2.1"
 MAX_RECEIPT_BYTES = 512 * 1024
 MAX_DEVELOPMENTS = 4
-MAX_RENDERED_WORDS = 1_000
 LOOKBACK_DAYS = 30
 PROTECTED_CANONICAL_DATES = {"2026-08-02"}
 IMPACTS = {"strengthens", "weakens", "complicates", "no-material-effect"}
@@ -1100,11 +1099,6 @@ def markdown_text(value: str) -> str:
     return value.replace("\\", "\\\\").replace("[", "\\[").replace("]", "\\]")
 
 
-def readable_word_count(markdown: str) -> int:
-    without_urls = re.sub(r"\]\(<[^>]+>\)", "]", markdown)
-    return len(re.findall(r"\b[\w]+(?:[’'-][\w]+)*\b", without_urls, re.UNICODE))
-
-
 def reality_note(row: dict[str, Any]) -> str:
     block = row.get("reality")
     if block is None:
@@ -1362,11 +1356,6 @@ def render_markdown(payload: dict[str, Any], receipt_hash: str) -> bytes:
         ]
     )
     rendered = "\n".join(lines)
-    words = readable_word_count(rendered)
-    if words > MAX_RENDERED_WORDS:
-        raise BriefError(
-            f"rendered brief exceeds {MAX_RENDERED_WORDS}-word five-minute ceiling: {words}"
-        )
     return rendered.encode("utf-8")
 
 

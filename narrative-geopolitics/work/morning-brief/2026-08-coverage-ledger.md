@@ -39,7 +39,7 @@ paired receipt.
 | `2026-08-16` | no | no | `missing` | No morning-brief artifact present. |
 | `2026-08-17` | no | no | `missing` | No morning-brief artifact present. |
 | `2026-08-18` | no | no | `missing` | No morning-brief artifact present. |
-| `2026-08-19` | no | no | `missing` | No morning-brief artifact present. |
+| `2026-08-19` | yes | yes | `paired-current-workflow` | Schema/renderer `2.1`; explicit 24-hour observation window. |
 | `2026-08-20` | no | no | `missing` | No morning-brief artifact present. |
 | `2026-08-21` | no | no | `missing` | No morning-brief artifact present. |
 | `2026-08-22` | no | no | `missing` | No morning-brief artifact present. |
@@ -55,9 +55,9 @@ paired receipt.
 
 ## Summary Counts
 
-- Complete receipt-paired artifacts: `7` (`2026-08-03` through `2026-08-09`).
+- Complete receipt-paired artifacts: `8` (`2026-08-03` through `2026-08-09`, plus `2026-08-19`).
 - Markdown-only historical specimen: `1` (`2026-08-02`).
-- Missing morning-brief markdown: `23` (`2026-08-01` and `2026-08-10` through `2026-08-31`).
+- Missing morning-brief markdown: `22` (`2026-08-01`, `2026-08-10` through `2026-08-18`, and `2026-08-20` through `2026-08-31`).
 - Dates with reconstruction caveats: `5` (`2026-08-05` through `2026-08-09`).
 
 ## Audit Notes

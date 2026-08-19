@@ -155,8 +155,10 @@ Valid output is labeled `experimental-internal-morning-update` and reported as
 `Generated`, never `Published`. The renderer leads with reader-facing
 observation, materiality, model impact, confidence, and source prose; it moves
 IDs, Reality Check state, coverage limitations, lineage metadata, and watch
-support references into the Analyst's Note. A rendered brief above 1,000 words
-fails closed before either canonical file changes.
+support references into the Analyst's Note. Keep the brief readable as a
+five-minute selective update, but do not fail an otherwise valid render solely
+because accumulated forecast administration pushes it above a fixed word
+count.
 
 Forecast rendering separates observation pressure from review administration
 without changing receipt schema `2.1`. Every forecast whose impact is not
