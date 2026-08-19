@@ -519,6 +519,224 @@ def markdown_cell(value: Any) -> str:
     return str(value if value is not None else "").replace("|", "/")
 
 
+def body_language(body: Mapping[str, Any]) -> str:
+    return text(body.get("language")).casefold()
+
+
+def is_english_body(body: Mapping[str, Any]) -> bool:
+    language = body_language(body)
+    return language == "english" or "english" in {part.strip() for part in language.split(";")}
+
+
+def is_original_language_body(body: Mapping[str, Any]) -> bool:
+    language = body_language(body)
+    if not language or is_english_body(body):
+        return False
+    return True
+
+
+def source_modeling_flags(source: Mapping[str, Any]) -> list[str]:
+    flags: set[str] = set()
+    haystack = " ".join(
+        text(source.get(key))
+        for key in ("title", "author", "source_type", "notes", "coverage_status", "coverage_notes", "era_basis")
+    ).casefold()
+    author = text(source.get("author")).casefold()
+    title = text(source.get("title")).casefold()
+    if text(source.get("source_type")) == "religious" or any(
+        marker in haystack
+        for marker in ("sacred", "scripture", "biblical", "bible", "veda", "avesta", "buddhist", "jain")
+    ):
+        flags.add("sacred_corpus")
+    if text(source.get("source_type")) == "religious" and any(
+        marker in haystack for marker in ("canon", "canonical", "testament", "tripitaka", "vulgate", "septuagint")
+    ):
+        flags.add("canonical_collection")
+    if any(marker in author for marker in ("tradition", "anonymous", "textual")) or any(
+        marker in title for marker in ("tradition", "inscriptions")
+    ):
+        flags.add("anonymous_tradition")
+    if text(source.get("coverage_status")) == "fragmentary":
+        flags.add("fragmentary_author")
+    if len(source.get("secondary_eras", []) or []) > 1 or text(source.get("era_basis")) == "multi_period":
+        flags.add("multi_witness")
+    if any(marker in haystack for marker in ("redaction", "recension", "transmitted", "manuscript")):
+        flags.add("later_redaction")
+    if any(marker in haystack for marker in ("colonial", "missionary", "company rule")):
+        flags.add("colonial_archive")
+    if any(marker in haystack for marker in ("newspaper", "pamphlet", "state paper", "scientific")):
+        flags.add("industrial_print")
+    if text(source.get("source_type")) in {"database", "digital-born"} or any(
+        marker in haystack for marker in ("dataset", "software", "platform", "web")
+    ):
+        flags.add("digital_record")
+    return sorted(flags)
+
+
+def audit_sources(sources: Iterable[Mapping[str, Any]], era: str | None = None) -> dict[str, Any]:
+    rows = [source for source in sources if isinstance(source, dict)]
+    if era:
+        rows = matching_sources(rows, era=era)
+    else:
+        rows = sorted(rows, key=lambda item: text(item.get("source_id")))
+    summary = {
+        "total_sources": len(rows),
+        "with_text_bodies": 0,
+        "without_text_bodies": 0,
+        "english_available": 0,
+        "original_language_available": 0,
+        "bilingual_available": 0,
+        "verified_bodies": 0,
+        "available_bodies": 0,
+        "needs_review_bodies": 0,
+        "missing_text_sources": 0,
+        "stub_sources": 0,
+    }
+    by_era = {era_id: 0 for era_id in ERA_IDS}
+    by_source_type: dict[str, int] = {}
+    by_coverage_status: dict[str, int] = {}
+    by_text_status: dict[str, int] = {}
+    by_civilization: dict[str, int] = {}
+    missing_english: list[dict[str, str]] = []
+    missing_original_language: list[dict[str, str]] = []
+    stubbed: list[dict[str, str]] = []
+    special_modeling: list[dict[str, Any]] = []
+    next_candidates: list[dict[str, Any]] = []
+    for source in rows:
+        source_id = text(source.get("source_id"))
+        subject_era = text(source.get("subject_era"))
+        if subject_era in by_era:
+            by_era[subject_era] += 1
+        by_source_type[text(source.get("source_type")) or "unknown"] = by_source_type.get(text(source.get("source_type")) or "unknown", 0) + 1
+        coverage = text(source.get("coverage_status")) or "unset"
+        by_coverage_status[coverage] = by_coverage_status.get(coverage, 0) + 1
+        text_status = text(source.get("text_status")) or "unset"
+        by_text_status[text_status] = by_text_status.get(text_status, 0) + 1
+        for tag in source.get("civilization_tags", []) or []:
+            key = text(tag).casefold()
+            by_civilization[key] = by_civilization.get(key, 0) + 1
+        bodies = all_text_bodies(source)
+        if bodies:
+            summary["with_text_bodies"] += 1
+        else:
+            summary["without_text_bodies"] += 1
+        english = any(is_english_body(body) for body in bodies)
+        original = any(is_original_language_body(body) for body in bodies)
+        if english:
+            summary["english_available"] += 1
+        else:
+            missing_english.append({"source_id": source_id, "author": text(source.get("author")), "title": text(source.get("title"))})
+        if original:
+            summary["original_language_available"] += 1
+        else:
+            missing_original_language.append({"source_id": source_id, "author": text(source.get("author")), "title": text(source.get("title"))})
+        if english and original:
+            summary["bilingual_available"] += 1
+        if text_status in {"missing", "unset"} or not bodies:
+            summary["missing_text_sources"] += 1
+        if text(source.get("status")) == "stub":
+            summary["stub_sources"] += 1
+            stubbed.append({"source_id": source_id, "author": text(source.get("author")), "title": text(source.get("title"))})
+        body_statuses = [text(body.get("status")) or text(body.get("text_status")) for body in bodies]
+        summary["verified_bodies"] += sum(1 for status in body_statuses if status == "verified")
+        summary["available_bodies"] += sum(1 for status in body_statuses if status == "available")
+        summary["needs_review_bodies"] += sum(1 for status in body_statuses if status == "needs-review")
+        flags = source_modeling_flags(source)
+        if flags:
+            special_modeling.append(
+                {
+                    "source_id": source_id,
+                    "author": text(source.get("author")),
+                    "title": text(source.get("title")),
+                    "flags": flags,
+                }
+            )
+        if (not bodies) or (not english) or (not original) or coverage in {"metadata-only", "unknown", "unset", "principal-work", "principal-works", "fragmentary"}:
+            next_candidates.append(
+                {
+                    "source_id": source_id,
+                    "author": text(source.get("author")),
+                    "title": text(source.get("title")),
+                    "needs": [
+                        need
+                        for need, present in (
+                            ("text-body", bool(bodies)),
+                            ("english", english),
+                            ("original-language", original),
+                            ("coverage-review", coverage not in {"metadata-only", "unknown", "unset", "principal-work", "principal-works", "fragmentary"}),
+                        )
+                        if not present
+                    ],
+                    "modeling_flags": flags,
+                }
+            )
+    return {
+        "era": era,
+        "summary": summary,
+        "by_era": {key: value for key, value in by_era.items() if value or era is None},
+        "by_source_type": dict(sorted(by_source_type.items())),
+        "by_text_status": dict(sorted(by_text_status.items())),
+        "by_coverage_status": dict(sorted(by_coverage_status.items())),
+        "by_civilization": dict(sorted(by_civilization.items())),
+        "missing_english": missing_english,
+        "missing_original_language": missing_original_language,
+        "stubbed_sources": stubbed,
+        "special_modeling_required": special_modeling,
+        "recommended_next_admissions": next_candidates[:20],
+    }
+
+
+def render_audit_markdown(registry: Mapping[str, Any], audit: Mapping[str, Any]) -> str:
+    era = audit.get("era")
+    label = "Whole Library" if not era else next(
+        (text(item.get("label")) for item in registry.get("era_definitions", []) if isinstance(item, dict) and item.get("id") == era),
+        str(era).title(),
+    )
+    summary = audit.get("summary", {})
+    lines = [
+        f"# {label} Library Audit",
+        "",
+        "Read-only coverage audit generated from `archive/library/library-registry.json`.",
+        "",
+        "## Summary",
+        "",
+        f"- Sources: {summary.get('total_sources', 0)}",
+        f"- With text bodies: {summary.get('with_text_bodies', 0)}",
+        f"- Missing text bodies: {summary.get('without_text_bodies', 0)}",
+        f"- English available: {summary.get('english_available', 0)}",
+        f"- Original-language available: {summary.get('original_language_available', 0)}",
+        f"- English and original available: {summary.get('bilingual_available', 0)}",
+        f"- Stub sources: {summary.get('stub_sources', 0)}",
+        "",
+        "## Coverage By Text Status",
+        "",
+    ]
+    for key, value in audit.get("by_text_status", {}).items():
+        lines.append(f"- `{key}`: {value}")
+    lines.extend(["", "## Missing English Texts", ""])
+    for row in audit.get("missing_english", [])[:20]:
+        lines.append(f"- `{row['source_id']}`: {row['author']} - {row['title']}")
+    if not audit.get("missing_english"):
+        lines.append("- None.")
+    lines.extend(["", "## Missing Original-Language Texts", ""])
+    for row in audit.get("missing_original_language", [])[:20]:
+        lines.append(f"- `{row['source_id']}`: {row['author']} - {row['title']}")
+    if not audit.get("missing_original_language"):
+        lines.append("- None.")
+    lines.extend(["", "## Special Modeling Required", ""])
+    for row in audit.get("special_modeling_required", [])[:20]:
+        lines.append(f"- `{row['source_id']}`: {', '.join(row['flags'])}")
+    if not audit.get("special_modeling_required"):
+        lines.append("- None.")
+    lines.extend(["", "## Recommended Next Admissions", ""])
+    for row in audit.get("recommended_next_admissions", [])[:20]:
+        needs = ", ".join(row.get("needs", [])) or "review"
+        lines.append(f"- `{row['source_id']}`: {needs}")
+    if not audit.get("recommended_next_admissions"):
+        lines.append("- None.")
+    return "\n".join(lines) + "\n"
+
+
 def render_text_sources_index(registry: Mapping[str, Any]) -> str:
     rows: list[dict[str, Any]] = []
     for source in registry.get("sources", []):
@@ -594,6 +812,21 @@ def search_command(args: argparse.Namespace) -> dict[str, Any]:
         "type": args.type,
         "count": len(sources),
         "sources": sources,
+    }
+
+
+def audit_command(args: argparse.Namespace) -> dict[str, Any]:
+    registry = load_registry()
+    failures = validate_registry(registry)
+    if failures:
+        raise LibraryError("; ".join(failures))
+    audit = audit_sources(registry.get("sources", []), era=args.era)
+    return {
+        "status": "ok",
+        "registry_id": registry.get("registry_id"),
+        "authority_effect": "none",
+        "audit": audit,
+        "markdown": render_audit_markdown(registry, audit) if args.format == "markdown" else None,
     }
 
 
@@ -852,6 +1085,11 @@ def parser() -> argparse.ArgumentParser:
     search.add_argument("--type", choices=sorted(SOURCE_TYPES))
     search.add_argument("--json", action="store_true")
     search.set_defaults(handler=search_command)
+    audit = sub.add_parser("audit")
+    audit.add_argument("--era", choices=ERA_IDS)
+    audit.add_argument("--format", choices=("json", "markdown"), default="json")
+    audit.add_argument("--json", action="store_true")
+    audit.set_defaults(handler=audit_command)
     render_index = sub.add_parser("render-index")
     render_index.add_argument("--check", action="store_true")
     render_index.add_argument("--json", action="store_true")
@@ -893,6 +1131,8 @@ def main(arguments: list[str] | None = None) -> int:
         return 1
     if getattr(args, "json", False):
         print(json.dumps(result, ensure_ascii=True, sort_keys=True, separators=(",", ":")))
+    elif getattr(args, "format", None) == "markdown" and "markdown" in result:
+        print(result["markdown"], end="")
     else:
         print(f"library_status={result.get('status', 'unknown')}")
         for key, value in result.items():

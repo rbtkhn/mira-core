@@ -266,6 +266,114 @@ def test_cli_validate_list_and_search(tmp_path: Path, monkeypatch, capsys) -> No
     assert [row["source_id"] for row in searched["sources"]] == ["ROME"]
 
 
+def test_library_audit_reports_all_eras_and_witness_gaps(tmp_path: Path, monkeypatch, capsys) -> None:
+    digest = "a" * 64
+    registry = base_registry()
+    registry["sources"] = [
+        source(
+            source_id="ANCIENT-BILINGUAL",
+            text_status="available",
+            text_bodies=[
+                {
+                    "body_id": "ANCIENT-BILINGUAL-EN",
+                    "work_title": "Histories",
+                    "text_location": "library-text://ANCIENT-BILINGUAL-EN.txt",
+                    "text_sha256": digest,
+                    "text_bytes": 10,
+                    "text_encoding": "utf-8",
+                    "language": "english",
+                    "license_status": "public-domain",
+                    "status": "available",
+                },
+                {
+                    "body_id": "ANCIENT-BILINGUAL-GRC",
+                    "work_title": "Histories",
+                    "text_location": "library-text://ANCIENT-BILINGUAL-GRC.xml",
+                    "text_sha256": digest,
+                    "text_bytes": 10,
+                    "text_encoding": "utf-8",
+                    "language": "ancient greek",
+                    "license_status": "open-license",
+                    "status": "available",
+                },
+            ],
+        ),
+        source(
+            source_id="MEDIEVAL-STUB",
+            subject_era="medieval",
+            title="Chronicle",
+            author="Medieval compiler",
+            source_type="chronicle",
+            civilization_tags=["france"],
+            text_status="missing",
+            notes="manuscript tradition fixture",
+        ),
+        source(
+            source_id="DIGITAL-DB",
+            subject_era="digital",
+            title="Dataset",
+            author="Platform archive",
+            source_type="database",
+            civilization_tags=["america"],
+            text_status="missing",
+            status="located",
+            notes="digital platform dataset fixture",
+        ),
+    ]
+    write_scaffold(tmp_path, registry)
+    monkeypatch.setattr(archive_library, "REPO_ROOT", tmp_path)
+    monkeypatch.setattr(archive_library, "LIBRARY_ROOT", tmp_path / "archive" / "library")
+    monkeypatch.setattr(archive_library, "REGISTRY_PATH", tmp_path / "archive" / "library" / "library-registry.json")
+
+    assert archive_library.main(["audit", "--json"]) == 0
+    audited = json.loads(capsys.readouterr().out)
+    audit = audited["audit"]
+    assert audit["summary"]["total_sources"] == 3
+    assert audit["summary"]["bilingual_available"] == 1
+    assert audit["by_era"]["ancient"] == 1
+    assert audit["by_era"]["medieval"] == 1
+    assert audit["by_era"]["digital"] == 1
+    assert [row["source_id"] for row in audit["missing_english"]] == ["DIGITAL-DB", "MEDIEVAL-STUB"]
+    flags = {row["source_id"]: row["flags"] for row in audit["special_modeling_required"]}
+    assert "digital_record" in flags["DIGITAL-DB"]
+
+
+def test_library_audit_filters_by_any_era_and_renders_markdown(tmp_path: Path, monkeypatch, capsys) -> None:
+    registry = base_registry()
+    registry["sources"] = [
+        source(source_id="ANCIENT", subject_era="ancient", text_status="missing"),
+        source(
+            source_id="MEDIEVAL",
+            subject_era="medieval",
+            title="Commentary Chain",
+            author="Medieval textual tradition",
+            source_type="religious",
+            civilization_tags=["persia"],
+            era_basis="multi_period",
+            secondary_eras=["colonial"],
+            text_status="missing",
+            notes="canonical manuscript tradition",
+        ),
+    ]
+    write_scaffold(tmp_path, registry)
+    monkeypatch.setattr(archive_library, "REPO_ROOT", tmp_path)
+    monkeypatch.setattr(archive_library, "LIBRARY_ROOT", tmp_path / "archive" / "library")
+    monkeypatch.setattr(archive_library, "REGISTRY_PATH", tmp_path / "archive" / "library" / "library-registry.json")
+
+    assert archive_library.main(["audit", "--era", "medieval", "--json"]) == 0
+    audited = json.loads(capsys.readouterr().out)
+    assert audited["audit"]["era"] == "medieval"
+    assert audited["audit"]["summary"]["total_sources"] == 1
+    assert audited["audit"]["missing_original_language"][0]["source_id"] == "MEDIEVAL"
+    assert audited["authority_effect"] == "none"
+
+    assert archive_library.main(["audit", "--era", "medieval", "--format", "markdown"]) == 0
+    markdown = capsys.readouterr().out
+    assert markdown.startswith("# Medieval Library Audit")
+    assert "`MEDIEVAL`" in markdown
+    assert "Special Modeling Required" in markdown
+
+
 def test_locate_and_verify_texts(tmp_path: Path, monkeypatch, capsys) -> None:
     text_root = tmp_path / "texts"
     text_root.mkdir()
