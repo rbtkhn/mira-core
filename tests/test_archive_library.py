@@ -130,6 +130,24 @@ def test_text_metadata_validation() -> None:
     assert "AVAILABLE-MISSING text_status available requires text_sha256" in failures
 
 
+def test_expanded_source_coverage_values_are_valid() -> None:
+    registry = base_registry()
+    registry["sources"] = [
+        source(source_id=f"COVERAGE-{index}", coverage_status=status, coverage_notes=f"{status} fixture.")
+        for index, status in enumerate(
+            [
+                "representative-selection",
+                "major-works-complete",
+                "partial-work",
+                "fragmentary",
+                "metadata-only",
+            ],
+            start=1,
+        )
+    ]
+    assert archive_library.validate_registry(registry) == []
+
+
 def test_complete_surviving_corpus_requires_supported_scope_claim() -> None:
     digest = "a" * 64
     registry = base_registry()
@@ -180,8 +198,18 @@ def test_text_body_metadata_validation() -> None:
                     "text_encoding": "utf-8",
                     "license_status": "public-domain",
                     "status": "available",
+                    "coverage_status": "complete-work",
+                    "coverage_notes": "Complete work body fixture.",
                 },
-                {"body_id": "BODY-1", "work_title": "", "text_sha256": "bad", "text_bytes": -1, "status": "ready"},
+                {
+                    "body_id": "BODY-1",
+                    "work_title": "",
+                    "text_sha256": "bad",
+                    "text_bytes": -1,
+                    "status": "ready",
+                    "coverage_status": "complete-ish",
+                    "coverage_notes": ["bad"],
+                },
             ],
         )
     ]
@@ -190,6 +218,8 @@ def test_text_body_metadata_validation() -> None:
     assert "MULTI text body BODY-1 has blank work_title" in failures
     assert "MULTI text body BODY-1 missing required field: license_status" in failures
     assert "MULTI text body BODY-1 has invalid status: ready" in failures
+    assert "MULTI text body BODY-1 has invalid coverage_status: complete-ish" in failures
+    assert "MULTI text body BODY-1 coverage_notes must be a string or null" in failures
     assert "MULTI text body BODY-1 has invalid text_sha256" in failures
     assert "MULTI text body BODY-1 text_bytes must be a non-negative integer" in failures
 
@@ -456,6 +486,10 @@ def test_admit_multiple_text_bodies_without_overwriting(tmp_path: Path, monkeypa
         "test Iliad",
         "--license-status",
         "public-domain",
+        "--coverage-status",
+        "complete-work",
+        "--coverage-notes",
+        "Complete test body.",
         "--json",
     ]) == 0
     capsys.readouterr()
@@ -478,6 +512,10 @@ def test_admit_multiple_text_bodies_without_overwriting(tmp_path: Path, monkeypa
     updated = json.loads((tmp_path / "archive" / "library" / "library-registry.json").read_text(encoding="utf-8"))
     bodies = updated["sources"][0]["text_bodies"]
     assert [body["body_id"] for body in bodies] == ["HOMER-ILIAD", "HOMER-ODYSSEY"]
+    assert bodies[0]["coverage_status"] == "complete-work"
+    assert bodies[0]["coverage_notes"] == "Complete test body."
+    assert bodies[1]["coverage_status"] == "unknown"
+    assert bodies[1]["coverage_notes"] == ""
     assert updated["sources"][0]["text_status"] == "available"
     assert (private_root / "HOMER-ILIAD.txt").exists()
     assert (private_root / "HOMER-ODYSSEY.txt").exists()

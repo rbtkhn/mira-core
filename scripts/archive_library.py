@@ -32,9 +32,21 @@ TEXT_STATUSES = {"missing", "available", "verified", "needs-review"}
 COVERAGE_STATUSES = {
     "unknown",
     "selected-works",
+    "representative-selection",
     "principal-work",
     "principal-works",
+    "major-works-complete",
     "complete-surviving-corpus",
+    "partial-work",
+    "fragmentary",
+    "metadata-only",
+}
+BODY_COVERAGE_STATUSES = {
+    "unknown",
+    "complete-work",
+    "partial-work",
+    "selected-passages",
+    "fragmentary",
 }
 LICENSE_STATUSES = {
     "public-domain",
@@ -283,6 +295,8 @@ def source_text(source: Mapping[str, Any]) -> str:
             "edition_label",
             "license_status",
             "license_notes",
+            "coverage_status",
+            "coverage_notes",
         ):
             parts.append(text(body.get(key)))
     for key in ("civilization_tags", "secondary_eras"):
@@ -321,6 +335,11 @@ def validate_text_body(body: Any, source_label: str, seen_body_ids: set[str], in
     status = text(body.get("status"))
     if status and status not in BODY_STATUSES:
         failures.append(f"{label} has invalid status: {body.get('status')}")
+    coverage_status = text(body.get("coverage_status"))
+    if coverage_status and coverage_status not in BODY_COVERAGE_STATUSES:
+        failures.append(f"{label} has invalid coverage_status: {body.get('coverage_status')}")
+    if "coverage_notes" in body and body.get("coverage_notes") is not None and not isinstance(body.get("coverage_notes"), str):
+        failures.append(f"{label} coverage_notes must be a string or null")
     license_status = text(body.get("license_status"))
     if license_status and license_status not in LICENSE_STATUSES:
         failures.append(f"{label} has invalid license_status: {body.get('license_status')}")
@@ -329,7 +348,7 @@ def validate_text_body(body: Any, source_label: str, seen_body_ids: set[str], in
     value = body.get("text_bytes")
     if value is not None and (not isinstance(value, int) or value < 0):
         failures.append(f"{label} text_bytes must be a non-negative integer")
-    for field in ("language", "translator", "editor", "edition_label", "license_notes"):
+    for field in ("language", "translator", "editor", "edition_label", "license_notes", "coverage_notes"):
         if field in body and body.get(field) is not None and not isinstance(body.get(field), str):
             failures.append(f"{label} {field} must be a string or null")
     return failures
@@ -702,6 +721,8 @@ def admit_text_command(args: argparse.Namespace) -> dict[str, Any]:
         "edition_label": args.edition,
         "license_status": args.license_status,
         "license_notes": args.license_notes or "",
+        "coverage_status": args.coverage_status,
+        "coverage_notes": args.coverage_notes or "",
         "status": "available",
     }
     if existing_bodies or args.body_id or args.work_title:
@@ -770,6 +791,8 @@ def parser() -> argparse.ArgumentParser:
     admit.add_argument("--edition", required=True)
     admit.add_argument("--license-status", required=True, choices=sorted(LICENSE_STATUSES))
     admit.add_argument("--license-notes", default="")
+    admit.add_argument("--coverage-status", default="unknown", choices=sorted(BODY_COVERAGE_STATUSES))
+    admit.add_argument("--coverage-notes", default="")
     admit.add_argument("--encoding", default="utf-8")
     admit.add_argument("--language")
     admit.add_argument("--translator")

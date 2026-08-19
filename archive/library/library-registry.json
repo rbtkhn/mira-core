@@ -85,7 +85,9 @@
           "edition_label": "Wikisource rendering of Vincent Arthur Smith, Asoka - the Buddhist Emperor of India, 1920, chapters 4-5",
           "license_status": "public-domain",
           "license_notes": "Wikisource marks source work public domain; chapters derive from pre-1931 publication.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         }
       ],
       "coverage_status": "principal-works",
@@ -131,7 +133,9 @@
           "edition_label": "Swaveda English-only extraction of R. Shamasastry 1915 public-domain translation",
           "license_status": "public-domain",
           "license_notes": "Swaveda states R. Shamasastry's 1915 translation is public domain; body extracted from rendered chapter HTML and retains English translation paragraphs only.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         }
       ],
       "coverage_status": "principal-work",
@@ -180,7 +184,9 @@
           "edition_label": "Project Gutenberg #2707; G. C. Macaulay translation",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg states public domain in the USA.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "partial-work",
+          "coverage_notes": "Body-level coverage is conservative: this admitted file is a volume, part, fragment, excerpt, or otherwise partial work body."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-003-HERODOTUS-HISTORIES-VOL-2-MACAULAY",
@@ -195,7 +201,9 @@
           "edition_label": "Project Gutenberg #2456; G. C. Macaulay translation",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg states public domain in the USA.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "partial-work",
+          "coverage_notes": "Body-level coverage is conservative: this admitted file is a volume, part, fragment, excerpt, or otherwise partial work body."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-003-HERODOTUS-HISTORIES-GREEK-PERSEUS-GRC2",
@@ -210,7 +218,9 @@
           "edition_label": "Perseus canonical GreekLit tlg0016.tlg001.perseus-grc2; A. D. Godley Greek edition",
           "license_status": "open-license",
           "license_notes": "Perseus canonical-greekLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         }
       ],
       "coverage_status": "complete-surviving-corpus",
@@ -264,7 +274,9 @@
           "edition_label": "Project Gutenberg #44884, Hamilton/Falconer English translation, volume 1 of 3",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg identifies this ebook as public domain in the USA.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "partial-work",
+          "coverage_notes": "Body-level coverage is conservative: this admitted file is a volume, part, fragment, excerpt, or otherwise partial work body."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-004-STRABO-GEOGRAPHY-VOL-2-HAMILTON-FALCONER",
@@ -279,7 +291,9 @@
           "edition_label": "Project Gutenberg #44885, Hamilton/Falconer English translation, volume 2 of 3",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg identifies this ebook as public domain in the USA.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "partial-work",
+          "coverage_notes": "Body-level coverage is conservative: this admitted file is a volume, part, fragment, excerpt, or otherwise partial work body."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-004-STRABO-GEOGRAPHY-VOL-3-HAMILTON-FALCONER",
@@ -294,7 +308,9 @@
           "edition_label": "Project Gutenberg #44886, Hamilton/Falconer English translation, volume 3 of 3",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg identifies this ebook as public domain in the USA.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "partial-work",
+          "coverage_notes": "Body-level coverage is conservative: this admitted file is a volume, part, fragment, excerpt, or otherwise partial work body."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-004-STRABO-STRABO-GEOGRAPHY-GREEK-PERSEUS-GRC2",
@@ -309,7 +325,9 @@
           "edition_label": "Perseus canonical GreekLit tlg0099.tlg001.perseus-grc2; August Meinecke Greek edition",
           "license_status": "open-license",
           "license_notes": "Perseus canonical-greekLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         }
       ],
       "coverage_status": "complete-surviving-corpus",
@@ -354,7 +372,9 @@
           "edition_label": "Wikisource transcluded Persian Text from L. W. King and R. C. Thompson 1907 translation",
           "license_status": "public-domain",
           "license_notes": "Wikisource identifies the 1907 King and Thompson translation as public domain; extracted from the transcluded Persian Text page only.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         }
       ],
       "coverage_status": "principal-work",
@@ -404,7 +424,9 @@
           "edition_label": "Project Gutenberg #10657, W. A. McDevitte English translation",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg identifies this ebook as public domain in the USA.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-006-JULIUS-CAESAR-DE-BELLO-GALLICO-LATIN-GUTENBERG-218",
@@ -419,7 +441,9 @@
           "edition_label": "Project Gutenberg #218; Latin text of De Bello Gallico Books I-IV",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg identifies this ebook as public domain in the USA.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "partial-work",
+          "coverage_notes": "Body-level coverage is conservative: this admitted file is a volume, part, fragment, excerpt, or otherwise partial work body."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-006-JULIUS-CAESAR-DE-BELLO-GALLICO-LATIN-PERSEUS-LAT2",
@@ -434,7 +458,9 @@
           "edition_label": "Perseus canonical LatinLit phi0448.phi001.perseus-lat2; T. Rice Holmes Latin edition",
           "license_status": "open-license",
           "license_notes": "Perseus canonical-latinLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-006-JULIUS-CAESAR-DE-BELLO-CIVILI-LATIN-PERSEUS-LAT2",
@@ -449,7 +475,9 @@
           "edition_label": "Perseus canonical LatinLit phi0448.phi002.perseus-lat2; Renatus du Pontet Latin edition",
           "license_status": "open-license",
           "license_notes": "Perseus canonical-latinLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         }
       ],
       "coverage_status": "principal-works",
@@ -500,7 +528,9 @@
           "edition_label": "Project Gutenberg #7524 English edition",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg identifies this ebook as public domain in the USA.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-007-TACITUS-ANNALS-FIRST-SIX-GORDON",
@@ -515,7 +545,9 @@
           "edition_label": "Project Gutenberg #7959, Thomas Gordon English translation, first six Annals",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg identifies this ebook as public domain in the USA.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-007-TACITUS-HISTORIES-FYFE",
@@ -530,7 +562,9 @@
           "edition_label": "Project Gutenberg #16927, W. Hamilton Fyfe English translation",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg identifies this ebook as public domain in the USA.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-007-TACITUS-DIALOGUE-ORATORY-MURPHY",
@@ -545,7 +579,9 @@
           "edition_label": "Project Gutenberg #15017, Arthur Murphy English edition",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg identifies this ebook as public domain in the USA.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-007-TACITUS-AGRICOLA-LATIN-PERSEUS-LAT1",
@@ -560,7 +596,9 @@
           "edition_label": "Perseus canonical LatinLit phi1351.phi001.perseus-lat1; Henry Furneaux Latin edition",
           "license_status": "open-license",
           "license_notes": "Perseus canonical-latinLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-007-TACITUS-GERMANIA-LATIN-PERSEUS-LAT1",
@@ -575,7 +613,9 @@
           "edition_label": "Perseus canonical LatinLit phi1351.phi002.perseus-lat1; Henry Furneaux Latin edition",
           "license_status": "open-license",
           "license_notes": "Perseus canonical-latinLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-007-TACITUS-DIALOGUS-LATIN-PERSEUS-LAT1",
@@ -590,7 +630,9 @@
           "edition_label": "Perseus canonical LatinLit phi1351.phi003.perseus-lat1; Henry Furneaux Latin edition",
           "license_status": "open-license",
           "license_notes": "Perseus canonical-latinLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-007-TACITUS-HISTORIAE-LATIN-PERSEUS-LAT2",
@@ -605,7 +647,9 @@
           "edition_label": "Perseus canonical LatinLit phi1351.phi004.perseus-lat2; Latin edition",
           "license_status": "open-license",
           "license_notes": "Perseus canonical-latinLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-007-TACITUS-ANNALES-LATIN-PERSEUS-LAT1-NORMALIZED",
@@ -620,7 +664,9 @@
           "edition_label": "Perseus canonical LatinLit phi1351.phi005.perseus-lat1; Charles Dennis Fisher Latin edition; local normalization replaced 10 dagger and 3 mdash entity references with Unicode characters",
           "license_status": "open-license",
           "license_notes": "Perseus canonical-latinLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated; local normalization changed only unresolved typographic entity references.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         }
       ],
       "coverage_status": "principal-works",
@@ -666,7 +712,9 @@
           "edition_label": "Project Gutenberg #3330; James Legge translation",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg states public domain in the USA.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         }
       ],
       "coverage_status": "principal-work",
@@ -712,7 +760,9 @@
           "edition_label": "Project Gutenberg #216, James Legge English translation",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg identifies this ebook as public domain in the USA.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         }
       ],
       "coverage_status": "principal-work",
@@ -758,7 +808,9 @@
           "edition_label": "Project Gutenberg #17405; Lionel Giles translation without extended annotations",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg states public domain in the USA.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         }
       ],
       "coverage_status": "principal-work",
@@ -804,7 +856,9 @@
           "edition_label": "Project Gutenberg #12894, Sacred Books of the East, edited by Epiphanius Wilson, 1900; updated 2024",
           "license_status": "public-domain",
           "license_notes": "",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "selected-passages",
+          "coverage_notes": "Body-level coverage is conservative: this admitted file is a selected-passages or anthology body, not a complete source-authority corpus."
         }
       ],
       "coverage_status": "selected-works",
@@ -849,7 +903,9 @@
           "edition_label": "Project Gutenberg #3283; Swami Paramananda translation",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg public-domain text in the United States",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         }
       ],
       "coverage_status": "principal-work",
@@ -895,7 +951,9 @@
           "edition_label": "Project Gutenberg #2388; Sir Edwin Arnold translation from the Mahabharata",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg public-domain text in the United States",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         }
       ],
       "coverage_status": "principal-work",
@@ -941,7 +999,9 @@
           "edition_label": "Project Gutenberg #24869; Ralph T. H. Griffith English verse translation",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg public-domain text in the United States",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         }
       ],
       "coverage_status": "complete-surviving-corpus",
@@ -986,7 +1046,9 @@
           "edition_label": "Project Gutenberg #12894, Sacred Books of the East, edited by Epiphanius Wilson, 1900; updated 2024",
           "license_status": "public-domain",
           "license_notes": "",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "selected-passages",
+          "coverage_notes": "Body-level coverage is conservative: this admitted file is a selected-passages or anthology body, not a complete source-authority corpus."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-015-AVESTAN-GATHIC-TRADITION-ZEND-AVESTA-PART-1-VENDIDAD-DARMESTETER-SACRED-TEXTS",
@@ -1002,7 +1064,9 @@
           "license_status": "public-domain",
           "license_notes": "Sacred Texts page states the underlying 1880 public-domain text is public domain in the United States and asks attribution/non-commercial reuse; retained here as local/private portable reading text with provenance note.",
           "status": "available",
-          "notes": "Cleaned local body: stripped Sacred Texts navigation/header/footer residue while preserving text, notes, and local source-page provenance."
+          "notes": "Cleaned local body: stripped Sacred Texts navigation/header/footer residue while preserving text, notes, and local source-page provenance.",
+          "coverage_status": "partial-work",
+          "coverage_notes": "Body-level coverage is conservative: this admitted file is a volume, part, fragment, excerpt, or otherwise partial work body."
         }
       ],
       "coverage_status": "selected-works",
@@ -1048,7 +1112,9 @@
           "edition_label": "Wikisource; Robert William Rogers translation from Cuneiform Parallels to the Old Testament, 1912",
           "license_status": "public-domain",
           "license_notes": "Wikisource marks translation public domain in the United States because published before 1931.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         }
       ],
       "coverage_status": "principal-work",
@@ -1094,7 +1160,9 @@
           "edition_label": "Project Gutenberg #24178 Chinese text",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg identifies this ebook as public domain in the USA.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         }
       ],
       "coverage_status": "principal-work",
@@ -1139,7 +1207,9 @@
           "edition_label": "Project Gutenberg #59709, Herbert A. Giles English translation",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg identifies this ebook as public domain in the USA.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         }
       ],
       "coverage_status": "principal-work",
@@ -1184,7 +1254,9 @@
           "edition_label": "Project Gutenberg #24049 Chinese text",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg identifies this ebook as public domain in the USA.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         }
       ],
       "coverage_status": "principal-work",
@@ -1229,7 +1301,9 @@
           "edition_label": "Project Gutenberg #24226; Chinese text",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg public-domain text in the United States",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         }
       ],
       "coverage_status": "complete-surviving-corpus",
@@ -1274,7 +1348,9 @@
           "edition_label": "Project Gutenberg #23841; Chinese text with Yan Shigu commentary",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg public-domain text in the United States",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         }
       ],
       "coverage_status": "complete-surviving-corpus",
@@ -1319,7 +1395,9 @@
           "edition_label": "zh.Wikisource 後漢書 linked subpages, raw wikitext extraction, original Chinese, CC BY-SA text",
           "license_status": "open-license",
           "license_notes": "zh.Wikisource text available under CC BY-SA terms; underlying premodern text is public domain. Extracted from linked raw wikitext subpages for local/private portable reading.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         }
       ],
       "coverage_status": "principal-work",
@@ -1365,7 +1443,9 @@
           "edition_label": "Project Gutenberg #25606; Chinese text with Pei Songzhi commentary",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg public-domain text in the United States",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         }
       ],
       "coverage_status": "complete-surviving-corpus",
@@ -1410,7 +1490,9 @@
           "edition_label": "Project Gutenberg #25501; Chinese text",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg public-domain text in the United States",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         }
       ],
       "coverage_status": "principal-work",
@@ -1456,7 +1538,9 @@
           "edition_label": "zh.Wikisource 尚書 linked subpages, raw wikitext extraction, original Chinese, CC BY-SA text",
           "license_status": "open-license",
           "license_notes": "zh.Wikisource text available under CC BY-SA terms; underlying ancient text is public domain. Extracted from linked raw wikitext subpages for local/private portable reading.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         }
       ],
       "coverage_status": "principal-work",
@@ -1501,7 +1585,9 @@
           "edition_label": "Project Gutenberg #9394; James Legge English translation from Sacred Books of the East Volume 3",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg public-domain text in the United States",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "partial-work",
+          "coverage_notes": "Body-level coverage is conservative: this admitted file is a volume, part, fragment, excerpt, or otherwise partial work body."
         }
       ],
       "coverage_status": "principal-work",
@@ -1548,7 +1634,9 @@
           "edition_label": "Project Gutenberg #7142; Richard Crawley translation",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg states public domain in the USA.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-027-THUCYDIDES-HISTORY-GREEK-PERSEUS-GRC2",
@@ -1563,7 +1651,9 @@
           "edition_label": "Perseus canonical GreekLit tlg0003.tlg001.perseus-grc2; Henry Stuart Jones Greek edition",
           "license_status": "open-license",
           "license_notes": "Perseus canonical-greekLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated; file header also declares CC BY-SA 4.0.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         }
       ],
       "coverage_status": "complete-surviving-corpus",
@@ -1610,7 +1700,9 @@
           "edition_label": "Project Gutenberg #1170, H. G. Dakyns English translation",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg identifies this ebook as public domain in the USA.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-028-XENOPHON-HELLENICA-DAKYNS",
@@ -1625,7 +1717,9 @@
           "edition_label": "Project Gutenberg #1174, H. G. Dakyns English translation",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg identifies this ebook as public domain in the USA.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-028-XENOPHON-CYROPAEDIA-DAKYNS-STAWELL",
@@ -1640,7 +1734,9 @@
           "edition_label": "Project Gutenberg #2085, H. G. Dakyns English translation revised by F. M. Stawell",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg identifies this ebook as public domain in the USA.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-028-XENOPHON-XENOPHON-HELLENICA-GREEK-PERSEUS-GRC2",
@@ -1655,7 +1751,9 @@
           "edition_label": "Perseus canonical GreekLit tlg0032.tlg001.perseus-grc2; E. C. Marchant Greek edition",
           "license_status": "open-license",
           "license_notes": "Perseus canonical-greekLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-028-XENOPHON-XENOPHON-ANABASIS-GREEK-PERSEUS-GRC2",
@@ -1670,7 +1768,9 @@
           "edition_label": "Perseus canonical GreekLit tlg0032.tlg006.perseus-grc2; E. C. Marchant Greek edition",
           "license_status": "open-license",
           "license_notes": "Perseus canonical-greekLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-028-XENOPHON-XENOPHON-CYROPAEDIA-GREEK-PERSEUS-GRC2",
@@ -1685,7 +1785,9 @@
           "edition_label": "Perseus canonical GreekLit tlg0032.tlg007.perseus-grc2; E. C. Marchant Greek edition",
           "license_status": "open-license",
           "license_notes": "Perseus canonical-greekLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         }
       ],
       "coverage_status": "principal-works",
@@ -1732,7 +1834,9 @@
           "edition_label": "Project Gutenberg #44125, Evelyn S. Shuckburgh English translation, volume 1 of 2",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg identifies this ebook as public domain in the USA.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "partial-work",
+          "coverage_notes": "Body-level coverage is conservative: this admitted file is a volume, part, fragment, excerpt, or otherwise partial work body."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-029-POLYBIUS-HISTORIES-VOL-2-SHUCKBURGH",
@@ -1747,7 +1851,9 @@
           "edition_label": "Project Gutenberg #44126, Evelyn S. Shuckburgh English translation, volume 2 of 2",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg identifies this ebook as public domain in the USA.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "partial-work",
+          "coverage_notes": "Body-level coverage is conservative: this admitted file is a volume, part, fragment, excerpt, or otherwise partial work body."
         }
       ],
       "coverage_status": "principal-work",
@@ -1796,7 +1902,9 @@
           "edition_label": "Perseus canonical-greekLit tlg0060.tlg001.perseus-grc5, Greek TEI XML, CC BY-SA 4.0",
           "license_status": "open-license",
           "license_notes": "",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "partial-work",
+          "coverage_notes": "Body-level coverage is conservative: this admitted file is a volume, part, fragment, excerpt, or otherwise partial work body."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-030-DIODORUS-SICULUS-BIBLIOTHECA-HISTORICA-BOOKS-11-17-GREEK-PERSEUS-GRC4",
@@ -1811,7 +1919,9 @@
           "edition_label": "Perseus canonical-greekLit tlg0060.tlg001.perseus-grc4, Greek TEI XML, CC BY-SA 4.0",
           "license_status": "open-license",
           "license_notes": "",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "partial-work",
+          "coverage_notes": "Body-level coverage is conservative: this admitted file is a volume, part, fragment, excerpt, or otherwise partial work body."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-030-DIODORUS-SICULUS-BIBLIOTHECA-HISTORICA-BOOKS-18-20-GREEK-PERSEUS-GRC6",
@@ -1826,7 +1936,9 @@
           "edition_label": "Perseus canonical-greekLit tlg0060.tlg001.perseus-grc6, Greek TEI XML, CC BY-SA 4.0",
           "license_status": "open-license",
           "license_notes": "",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "partial-work",
+          "coverage_notes": "Body-level coverage is conservative: this admitted file is a volume, part, fragment, excerpt, or otherwise partial work body."
         }
       ],
       "coverage_status": "principal-work",
@@ -1871,7 +1983,9 @@
           "edition_label": "Perseus canonical-greekLit tlg0081.tlg001.perseus-grc2, Greek TEI XML, CC BY-SA 4.0",
           "license_status": "open-license",
           "license_notes": "",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         }
       ],
       "coverage_status": "principal-work",
@@ -1918,7 +2032,9 @@
           "edition_label": "Project Gutenberg #674; Arthur Hugh Clough edited Dryden translation",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg public-domain text in the United States",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         }
       ],
       "coverage_status": "principal-work",
@@ -1967,7 +2083,9 @@
           "edition_label": "Project Gutenberg #46976; E. J. Chinnock translation",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg public-domain text in the United States",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-033-ARRIAN-INDICA-GREEK-PERSEUS-GRC1",
@@ -1982,7 +2100,9 @@
           "edition_label": "Perseus Greek text; Arriani Nicomediensis Scripta Minora, Hercher/Eberhard, Teubner 1885",
           "license_status": "open-license",
           "license_notes": "Perseus open-license Greek text; generated as local chapter concatenation from Perseus xmlchunk retrieval for portable offline use.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         }
       ],
       "coverage_status": "principal-works",
@@ -2028,7 +2148,9 @@
           "edition_label": "Project Gutenberg #226; Latin text",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg public-domain text in the United States",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-034-CICERO-BRUTUS-ORATOR-JONES-GUTENBERG-9776",
@@ -2043,7 +2165,9 @@
           "edition_label": "Project Gutenberg #9776; E. Jones translation",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg public-domain text in the United States",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-034-CICERO-FRIENDSHIP-OLD-AGE-SHUCKBURGH-GUTENBERG-2808",
@@ -2058,7 +2182,9 @@
           "edition_label": "Project Gutenberg #2808; Evelyn S. Shuckburgh translation",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg public-domain text in the United States",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-034-CICERO-LETTERS-SHUCKBURGH-GUTENBERG-2812",
@@ -2073,7 +2199,9 @@
           "edition_label": "Project Gutenberg #2812; Evelyn S. Shuckburgh translation",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg public-domain text in the United States",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-034-CICERO-ORATIONS-VOL-4-YONGE-GUTENBERG-11080",
@@ -2088,7 +2216,9 @@
           "edition_label": "Project Gutenberg #11080; Charles Duke Yonge translation, volume 4",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg public-domain text in the United States",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "partial-work",
+          "coverage_notes": "Body-level coverage is conservative: this admitted file is a volume, part, fragment, excerpt, or otherwise partial work body."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-034-CICERO-LETTERS-VOL-1-SHUCKBURGH-GUTENBERG-21200",
@@ -2103,7 +2233,9 @@
           "edition_label": "Project Gutenberg #21200; Evelyn S. Shuckburgh translation, volume 1",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg public-domain text in the United States",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "partial-work",
+          "coverage_notes": "Body-level coverage is conservative: this admitted file is a volume, part, fragment, excerpt, or otherwise partial work body."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-034-CICERO-TUSCULAN-DISPUTATIONS-YONGE-GUTENBERG-14988",
@@ -2118,7 +2250,9 @@
           "edition_label": "Project Gutenberg #14988; Charles Duke Yonge translation",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg public-domain text in the United States",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-034-CICERO-ACADEMIC-DE-FINIBUS-TUSCULAN-YONGE-GUTENBERG-29247",
@@ -2133,7 +2267,9 @@
           "edition_label": "Project Gutenberg #29247; Charles Duke Yonge translation",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg public-domain text in the United States",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-034-CICERO-LETTERS-ATTICUS-VOL-1-WINSTEDT-GUTENBERG-58418",
@@ -2148,7 +2284,9 @@
           "edition_label": "Project Gutenberg #58418; Eric Otto Winstedt translation, volume 1 of 3",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg public-domain text in the United States",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "partial-work",
+          "coverage_notes": "Body-level coverage is conservative: this admitted file is a volume, part, fragment, excerpt, or otherwise partial work body."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-034-CICERO-DE-OFFICIIS-MILLER-GUTENBERG-47001",
@@ -2163,7 +2301,9 @@
           "edition_label": "Project Gutenberg #47001; Walter Miller translation, bilingual English/Latin",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg public-domain text in the United States",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-034-CICERO-REPUBLIC-FRANCIS-BARHAM-GUTENBERG-54161",
@@ -2178,7 +2318,9 @@
           "edition_label": "Project Gutenberg #54161; G. W. Featherstonhaugh edition from Francis Barham translation",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg public-domain text in the United States",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-034-CICERO-LETTERS-ATTICUS-VOL-2-WINSTEDT-GUTENBERG-50692",
@@ -2193,7 +2335,9 @@
           "edition_label": "Project Gutenberg #50692; Eric Otto Winstedt translation, volume 2 of 3",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg public-domain text in the United States",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "partial-work",
+          "coverage_notes": "Body-level coverage is conservative: this admitted file is a volume, part, fragment, excerpt, or otherwise partial work body."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-034-CICERO-LETTERS-ATTICUS-VOL-3-WINSTEDT-GUTENBERG-51403",
@@ -2208,7 +2352,9 @@
           "edition_label": "Project Gutenberg #51403; Eric Otto Winstedt translation, volume 3 of 3",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg public-domain text in the United States",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "partial-work",
+          "coverage_notes": "Body-level coverage is conservative: this admitted file is a volume, part, fragment, excerpt, or otherwise partial work body."
         }
       ],
       "coverage_status": "selected-works",
@@ -2255,7 +2401,9 @@
           "edition_label": "Project Gutenberg #44318; W. A. McDevitte translation",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg public-domain text in the United States",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "partial-work",
+          "coverage_notes": "Body-level coverage is conservative: this admitted file is a volume, part, fragment, excerpt, or otherwise partial work body."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-035-LIVY-HISTORY-ROME-BOOKS-01-08-SPILLAN-GUTENBERG-19725",
@@ -2270,7 +2418,9 @@
           "edition_label": "Project Gutenberg #19725; D. Spillan translation",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg public-domain text in the United States",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "partial-work",
+          "coverage_notes": "Body-level coverage is conservative: this admitted file is a volume, part, fragment, excerpt, or otherwise partial work body."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-035-LIVY-HISTORY-ROME-BOOKS-27-36-EDMONDS-GUTENBERG-12582",
@@ -2285,7 +2435,9 @@
           "edition_label": "Project Gutenberg #12582; Cyrus R. Edmonds translation",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg public-domain text in the United States",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "partial-work",
+          "coverage_notes": "Body-level coverage is conservative: this admitted file is a volume, part, fragment, excerpt, or otherwise partial work body."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-035-LIVY-HISTORY-ROME-BOOKS-09-26-EDMONDS-SPILLAN-GUTENBERG-10907",
@@ -2300,7 +2452,9 @@
           "edition_label": "Project Gutenberg #10907; Cyrus R. Edmonds and D. Spillan translation",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg public-domain text in the United States",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "partial-work",
+          "coverage_notes": "Body-level coverage is conservative: this admitted file is a volume, part, fragment, excerpt, or otherwise partial work body."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-035-LIVY-AB-URBE-CONDITA-LATIN-PERSEUS-LAT2",
@@ -2315,7 +2469,9 @@
           "edition_label": "Perseus canonical LatinLit phi0914.phi001.perseus-lat2; Weissenborn and Muller Latin edition",
           "license_status": "open-license",
           "license_notes": "Perseus canonical-latinLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         }
       ],
       "coverage_status": "complete-surviving-corpus",
@@ -2361,7 +2517,9 @@
           "edition_label": "Project Gutenberg #7990, J. S. Watson English translation",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg identifies this ebook as public domain in the USA.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-036-SALLUST-CATILINE-JUGURTHINE-LATIN-SCHMITZ-ZUMPT-GUTENBERG-7402",
@@ -2376,7 +2534,9 @@
           "edition_label": "Project Gutenberg #7402; Latin text with English notes, Schmitz and Zumpt editors",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg identifies this ebook as public domain in the USA.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         }
       ],
       "coverage_status": "principal-works",
@@ -2427,7 +2587,9 @@
           "edition_label": "Project Gutenberg #57493; John Bostock and Henry T. Riley translation, volume 1 of 6",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg public-domain text in the United States",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "partial-work",
+          "coverage_notes": "Body-level coverage is conservative: this admitted file is a volume, part, fragment, excerpt, or otherwise partial work body."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-037-PLINY-NATURAL-HISTORY-VOL-3-BOSTOCK-RILEY-GUTENBERG-59131",
@@ -2442,7 +2604,9 @@
           "edition_label": "Project Gutenberg #59131; John Bostock and Henry T. Riley translation, volume 3 of 6",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg public-domain text in the United States",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "partial-work",
+          "coverage_notes": "Body-level coverage is conservative: this admitted file is a volume, part, fragment, excerpt, or otherwise partial work body."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-037-PLINY-NATURAL-HISTORY-VOL-4-BOSTOCK-RILEY-GUTENBERG-61113",
@@ -2457,7 +2621,9 @@
           "edition_label": "Project Gutenberg #61113; John Bostock and Henry T. Riley translation, volume 4 of 6",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg public-domain text in the United States",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "partial-work",
+          "coverage_notes": "Body-level coverage is conservative: this admitted file is a volume, part, fragment, excerpt, or otherwise partial work body."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-037-PLINY-NATURAL-HISTORY-VOL-2-BOSTOCK-RILEY-GUTENBERG-60230",
@@ -2472,7 +2638,9 @@
           "edition_label": "Project Gutenberg #60230; John Bostock and Henry T. Riley translation, volume 2 of 6",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg public-domain text in the United States",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "partial-work",
+          "coverage_notes": "Body-level coverage is conservative: this admitted file is a volume, part, fragment, excerpt, or otherwise partial work body."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-037-PLINY-NATURAL-HISTORY-VOL-6-BOSTOCK-RILEY-GUTENBERG-62704",
@@ -2487,7 +2655,9 @@
           "edition_label": "Project Gutenberg #62704; John Bostock and Henry T. Riley translation, volume 6 of 6",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg public-domain text in the United States",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "partial-work",
+          "coverage_notes": "Body-level coverage is conservative: this admitted file is a volume, part, fragment, excerpt, or otherwise partial work body."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-037-PLINY-NATURAL-HISTORY-VOL-5-BOSTOCK-RILEY-GUTENBERG-60688",
@@ -2502,7 +2672,9 @@
           "edition_label": "Project Gutenberg #60688; John Bostock and Henry T. Riley translation, volume 5 of 6",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg public-domain text in the United States",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "partial-work",
+          "coverage_notes": "Body-level coverage is conservative: this admitted file is a volume, part, fragment, excerpt, or otherwise partial work body."
         }
       ],
       "coverage_status": "complete-surviving-corpus",
@@ -2550,7 +2722,9 @@
           "edition_label": "Project Gutenberg #6400, Alexander Thomson translation edited by Thomas Forester",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg identifies this ebook as public domain in the USA.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         }
       ],
       "coverage_status": "principal-work",
@@ -2595,7 +2769,9 @@
           "edition_label": "Project Gutenberg #2199; Samuel Butler translation",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg states public domain in the USA.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-039-HOMER-ODYSSEY-BUTLER",
@@ -2610,7 +2786,9 @@
           "edition_label": "Project Gutenberg #1727; Samuel Butler translation",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg states public domain in the USA.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-039-HOMER-ILIAD-GREEK-PERSEUS-GRC2",
@@ -2625,7 +2803,9 @@
           "edition_label": "Perseus canonical GreekLit tlg0012.tlg001.perseus-grc2; Monro and Allen Homeri Opera Greek edition",
           "license_status": "open-license",
           "license_notes": "Perseus canonical-greekLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-039-HOMER-ODYSSEY-GREEK-PERSEUS-GRC2",
@@ -2640,7 +2820,9 @@
           "edition_label": "Perseus canonical GreekLit tlg0012.tlg002.perseus-grc2; A. T. Murray Greek edition",
           "license_status": "open-license",
           "license_notes": "Perseus canonical-greekLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         }
       ],
       "coverage_status": "complete-surviving-corpus",
@@ -2685,7 +2867,9 @@
           "edition_label": "Project Gutenberg #55201; Benjamin Jowett translation",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg states public domain in the USA.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-CHARMIDES-JOWETT",
@@ -2700,7 +2884,9 @@
           "edition_label": "Project Gutenberg #1580; Benjamin Jowett translation",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg states public domain in the USA.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-CRATYLUS-JOWETT",
@@ -2715,7 +2901,9 @@
           "edition_label": "Project Gutenberg #1616; Benjamin Jowett translation",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg states public domain in the USA.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-CRITO-JOWETT",
@@ -2730,7 +2918,9 @@
           "edition_label": "Project Gutenberg #1657; Benjamin Jowett translation",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg states public domain in the USA.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-EUTHYPHRO-JOWETT",
@@ -2745,7 +2935,9 @@
           "edition_label": "Project Gutenberg #1642; Benjamin Jowett translation",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg states public domain in the USA.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-GORGIAS-JOWETT",
@@ -2760,7 +2952,9 @@
           "edition_label": "Project Gutenberg #1672; Benjamin Jowett translation",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg states public domain in the USA.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-ION-JOWETT",
@@ -2775,7 +2969,9 @@
           "edition_label": "Project Gutenberg #1635; Benjamin Jowett translation",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg states public domain in the USA.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-LACHES-JOWETT",
@@ -2790,7 +2986,9 @@
           "edition_label": "Project Gutenberg #1584; Benjamin Jowett translation",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg states public domain in the USA.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-LYSIS-JOWETT",
@@ -2805,7 +3003,9 @@
           "edition_label": "Project Gutenberg #1579; Benjamin Jowett translation",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg states public domain in the USA.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-MENO-JOWETT",
@@ -2820,7 +3020,9 @@
           "edition_label": "Project Gutenberg #1643; Benjamin Jowett translation",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg states public domain in the USA.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-PHAEDO-JOWETT",
@@ -2835,7 +3037,9 @@
           "edition_label": "Project Gutenberg #1658; Benjamin Jowett translation",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg states public domain in the USA.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-PHAEDRUS-JOWETT",
@@ -2850,7 +3054,9 @@
           "edition_label": "Project Gutenberg #1636; Benjamin Jowett translation",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg states public domain in the USA.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-PROTAGORAS-JOWETT",
@@ -2865,7 +3071,9 @@
           "edition_label": "Project Gutenberg #1591; Benjamin Jowett translation",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg states public domain in the USA.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-SYMPOSIUM-JOWETT",
@@ -2880,7 +3088,9 @@
           "edition_label": "Project Gutenberg #1600; Benjamin Jowett translation",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg states public domain in the USA.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-APOLOGY-JOWETT",
@@ -2895,7 +3105,9 @@
           "edition_label": "Project Gutenberg #1656; Benjamin Jowett translation",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg states public domain in the USA.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-CRITIAS-JOWETT",
@@ -2910,7 +3122,9 @@
           "edition_label": "Project Gutenberg #1571; Benjamin Jowett translation",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg states public domain in the USA.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-THEAETETUS-JOWETT",
@@ -2925,7 +3139,9 @@
           "edition_label": "Project Gutenberg #1726; Benjamin Jowett translation",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg states public domain in the USA.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-TIMAEUS-JOWETT",
@@ -2940,7 +3156,9 @@
           "edition_label": "Project Gutenberg #1572; Benjamin Jowett translation",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg states public domain in the USA.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-STATESMAN-JOWETT",
@@ -2955,7 +3173,9 @@
           "edition_label": "Project Gutenberg #1738; Benjamin Jowett translation",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg states public domain in the USA.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-PHILEBUS-JOWETT",
@@ -2970,7 +3190,9 @@
           "edition_label": "Project Gutenberg #1744; Benjamin Jowett translation",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg states public domain in the USA.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-LAWS-JOWETT",
@@ -2985,7 +3207,9 @@
           "edition_label": "Project Gutenberg #1750; Benjamin Jowett translation",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg states public domain in the USA.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-PARMENIDES-JOWETT",
@@ -3000,7 +3224,9 @@
           "edition_label": "Project Gutenberg #1687; Benjamin Jowett translation",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg states public domain in the USA.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-SOPHIST-JOWETT",
@@ -3015,7 +3241,9 @@
           "edition_label": "Project Gutenberg #1735; Benjamin Jowett translation",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg states public domain in the USA.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-EUTHYDEMUS-JOWETT",
@@ -3030,7 +3258,9 @@
           "edition_label": "Project Gutenberg #1598; Benjamin Jowett translation",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg states public domain in the USA.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-MENEXENUS-JOWETT",
@@ -3045,7 +3275,9 @@
           "edition_label": "Project Gutenberg #1682; Benjamin Jowett translation",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg states public domain in the USA.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-LESSER-HIPPIAS-JOWETT",
@@ -3060,7 +3292,9 @@
           "edition_label": "Project Gutenberg #1673; Benjamin Jowett translation; Gutenberg marks Plato attribution as dubious",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg states public domain in the USA.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-ALCIBIADES-I-JOWETT",
@@ -3075,7 +3309,9 @@
           "edition_label": "Project Gutenberg #1676; Benjamin Jowett translation; Gutenberg marks Plato attribution as dubious",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg states public domain in the USA.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-ALCIBIADES-II-JOWETT",
@@ -3090,7 +3326,9 @@
           "edition_label": "Project Gutenberg #1677; Benjamin Jowett translation; Gutenberg marks Plato attribution as dubious",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg states public domain in the USA.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-ERYXIAS-JOWETT",
@@ -3105,7 +3343,9 @@
           "edition_label": "Project Gutenberg #1681; Benjamin Jowett translation; Gutenberg marks Plato attribution as dubious",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg states public domain in the USA.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-PLATO-EUTHYPHRO-GREEK-PERSEUS-GRC1",
@@ -3120,7 +3360,9 @@
           "edition_label": "Perseus canonical GreekLit tlg0059.tlg001.perseus-grc1; John Burnet Greek edition",
           "license_status": "open-license",
           "license_notes": "Perseus canonical-greekLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-PLATO-APOLOGY-GREEK-PERSEUS-GRC2",
@@ -3135,7 +3377,9 @@
           "edition_label": "Perseus canonical GreekLit tlg0059.tlg002.perseus-grc2; John Burnet Greek edition",
           "license_status": "open-license",
           "license_notes": "Perseus canonical-greekLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-PLATO-CRITO-GREEK-PERSEUS-GRC2",
@@ -3150,7 +3394,9 @@
           "edition_label": "Perseus canonical GreekLit tlg0059.tlg003.perseus-grc2; John Burnet Greek edition",
           "license_status": "open-license",
           "license_notes": "Perseus canonical-greekLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-PLATO-PHAEDO-GREEK-PERSEUS-GRC2",
@@ -3165,7 +3411,9 @@
           "edition_label": "Perseus canonical GreekLit tlg0059.tlg004.perseus-grc2; John Burnet Greek edition",
           "license_status": "open-license",
           "license_notes": "Perseus canonical-greekLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-PLATO-CRATYLUS-GREEK-PERSEUS-GRC2",
@@ -3180,7 +3428,9 @@
           "edition_label": "Perseus canonical GreekLit tlg0059.tlg005.perseus-grc2; John Burnet Greek edition",
           "license_status": "open-license",
           "license_notes": "Perseus canonical-greekLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-PLATO-THEAETETUS-GREEK-PERSEUS-GRC2",
@@ -3195,7 +3445,9 @@
           "edition_label": "Perseus canonical GreekLit tlg0059.tlg006.perseus-grc2; John Burnet Greek edition",
           "license_status": "open-license",
           "license_notes": "Perseus canonical-greekLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-PLATO-SOPHIST-GREEK-PERSEUS-GRC2",
@@ -3210,7 +3462,9 @@
           "edition_label": "Perseus canonical GreekLit tlg0059.tlg007.perseus-grc2; John Burnet Greek edition",
           "license_status": "open-license",
           "license_notes": "Perseus canonical-greekLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-PLATO-STATESMAN-GREEK-PERSEUS-GRC2",
@@ -3225,7 +3479,9 @@
           "edition_label": "Perseus canonical GreekLit tlg0059.tlg008.perseus-grc2; John Burnet Greek edition",
           "license_status": "open-license",
           "license_notes": "Perseus canonical-greekLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-PLATO-PARMENIDES-GREEK-PERSEUS-GRC2",
@@ -3240,7 +3496,9 @@
           "edition_label": "Perseus canonical GreekLit tlg0059.tlg009.perseus-grc2; John Burnet Greek edition",
           "license_status": "open-license",
           "license_notes": "Perseus canonical-greekLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-PLATO-PHILEBUS-GREEK-PERSEUS-GRC2",
@@ -3255,7 +3513,9 @@
           "edition_label": "Perseus canonical GreekLit tlg0059.tlg010.perseus-grc2; John Burnet Greek edition",
           "license_status": "open-license",
           "license_notes": "Perseus canonical-greekLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-PLATO-SYMPOSIUM-GREEK-PERSEUS-GRC2",
@@ -3270,7 +3530,9 @@
           "edition_label": "Perseus canonical GreekLit tlg0059.tlg011.perseus-grc2; John Burnet Greek edition",
           "license_status": "open-license",
           "license_notes": "Perseus canonical-greekLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-PLATO-PHAEDRUS-GREEK-PERSEUS-GRC2",
@@ -3285,7 +3547,9 @@
           "edition_label": "Perseus canonical GreekLit tlg0059.tlg012.perseus-grc2; John Burnet Greek edition",
           "license_status": "open-license",
           "license_notes": "Perseus canonical-greekLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-PLATO-ALCIBIADES-I-GREEK-PERSEUS-GRC2",
@@ -3300,7 +3564,9 @@
           "edition_label": "Perseus canonical GreekLit tlg0059.tlg013.perseus-grc2; John Burnet Greek edition",
           "license_status": "open-license",
           "license_notes": "Perseus canonical-greekLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-PLATO-ALCIBIADES-II-GREEK-PERSEUS-GRC2",
@@ -3315,7 +3581,9 @@
           "edition_label": "Perseus canonical GreekLit tlg0059.tlg014.perseus-grc2; John Burnet Greek edition",
           "license_status": "open-license",
           "license_notes": "Perseus canonical-greekLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-PLATO-CHARMIDES-GREEK-PERSEUS-GRC2",
@@ -3330,7 +3598,9 @@
           "edition_label": "Perseus canonical GreekLit tlg0059.tlg018.perseus-grc2; John Burnet Greek edition",
           "license_status": "open-license",
           "license_notes": "Perseus canonical-greekLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-PLATO-LACHES-GREEK-PERSEUS-GRC2",
@@ -3345,7 +3615,9 @@
           "edition_label": "Perseus canonical GreekLit tlg0059.tlg019.perseus-grc2; John Burnet Greek edition",
           "license_status": "open-license",
           "license_notes": "Perseus canonical-greekLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-PLATO-LYSIS-GREEK-PERSEUS-GRC2",
@@ -3360,7 +3632,9 @@
           "edition_label": "Perseus canonical GreekLit tlg0059.tlg020.perseus-grc2; John Burnet Greek edition",
           "license_status": "open-license",
           "license_notes": "Perseus canonical-greekLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-PLATO-EUTHYDEMUS-GREEK-PERSEUS-GRC2",
@@ -3375,7 +3649,9 @@
           "edition_label": "Perseus canonical GreekLit tlg0059.tlg021.perseus-grc2; John Burnet Greek edition",
           "license_status": "open-license",
           "license_notes": "Perseus canonical-greekLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-PLATO-PROTAGORAS-GREEK-PERSEUS-GRC2",
@@ -3390,7 +3666,9 @@
           "edition_label": "Perseus canonical GreekLit tlg0059.tlg022.perseus-grc2; John Burnet Greek edition",
           "license_status": "open-license",
           "license_notes": "Perseus canonical-greekLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-PLATO-GORGIAS-GREEK-PERSEUS-GRC2",
@@ -3405,7 +3683,9 @@
           "edition_label": "Perseus canonical GreekLit tlg0059.tlg023.perseus-grc2; John Burnet Greek edition",
           "license_status": "open-license",
           "license_notes": "Perseus canonical-greekLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-PLATO-MENO-GREEK-PERSEUS-GRC2",
@@ -3420,7 +3700,9 @@
           "edition_label": "Perseus canonical GreekLit tlg0059.tlg024.perseus-grc2; John Burnet Greek edition",
           "license_status": "open-license",
           "license_notes": "Perseus canonical-greekLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-PLATO-LESSER-HIPPIAS-GREEK-PERSEUS-GRC2",
@@ -3435,7 +3717,9 @@
           "edition_label": "Perseus canonical GreekLit tlg0059.tlg026.perseus-grc2; John Burnet Greek edition",
           "license_status": "open-license",
           "license_notes": "Perseus canonical-greekLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-PLATO-ION-GREEK-PERSEUS-GRC2",
@@ -3450,7 +3734,9 @@
           "edition_label": "Perseus canonical GreekLit tlg0059.tlg027.perseus-grc2; John Burnet Greek edition",
           "license_status": "open-license",
           "license_notes": "Perseus canonical-greekLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-PLATO-MENEXENUS-GREEK-PERSEUS-GRC2",
@@ -3465,7 +3751,9 @@
           "edition_label": "Perseus canonical GreekLit tlg0059.tlg028.perseus-grc2; John Burnet Greek edition",
           "license_status": "open-license",
           "license_notes": "Perseus canonical-greekLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-PLATO-REPUBLIC-GREEK-PERSEUS-GRC2",
@@ -3480,7 +3768,9 @@
           "edition_label": "Perseus canonical GreekLit tlg0059.tlg030.perseus-grc2; John Burnet Greek edition",
           "license_status": "open-license",
           "license_notes": "Perseus canonical-greekLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-PLATO-TIMAEUS-GREEK-PERSEUS-GRC2",
@@ -3495,7 +3785,9 @@
           "edition_label": "Perseus canonical GreekLit tlg0059.tlg031.perseus-grc2; John Burnet Greek edition",
           "license_status": "open-license",
           "license_notes": "Perseus canonical-greekLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-PLATO-CRITIAS-GREEK-PERSEUS-GRC2",
@@ -3510,7 +3802,9 @@
           "edition_label": "Perseus canonical GreekLit tlg0059.tlg032.perseus-grc2; John Burnet Greek edition",
           "license_status": "open-license",
           "license_notes": "Perseus canonical-greekLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-PLATO-LAWS-GREEK-PERSEUS-GRC2",
@@ -3525,7 +3819,9 @@
           "edition_label": "Perseus canonical GreekLit tlg0059.tlg034.perseus-grc2; John Burnet Greek edition",
           "license_status": "open-license",
           "license_notes": "Perseus canonical-greekLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         }
       ],
       "coverage_status": "selected-works",
@@ -3570,7 +3866,9 @@
           "edition_label": "Project Gutenberg #6762; William Ellis translation",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg states public domain in the USA.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-041-ARISTOTLE-NICOMACHEAN-ETHICS",
@@ -3585,7 +3883,9 @@
           "edition_label": "Project Gutenberg #8438; public-domain English edition",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg states public domain in the USA.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-041-ARISTOTLE-CATEGORIES-EDGHILL",
@@ -3600,7 +3900,9 @@
           "edition_label": "Project Gutenberg #2412; E. M. Edghill translation",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg states public domain in the USA.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-041-ARISTOTLE-POETICS-BUTCHER",
@@ -3615,7 +3917,9 @@
           "edition_label": "Project Gutenberg #1974; S. H. Butcher translation",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg states public domain in the USA.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-041-ARISTOTLE-ATHENIAN-CONSTITUTION-KENYON",
@@ -3630,7 +3934,9 @@
           "edition_label": "Project Gutenberg #26095; Frederic G. Kenyon translation",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg states public domain in the USA.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-041-ARISTOTLE-HISTORY-OF-ANIMALS-CRESSWELL",
@@ -3645,7 +3951,9 @@
           "edition_label": "Project Gutenberg #59058; Richard Cresswell translation",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg states public domain in the USA.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-041-ARISTOTLE-ARISTOTLE-ATHENIAN-CONSTITUTION-GREEK-PERSEUS-GRC2",
@@ -3660,7 +3968,9 @@
           "edition_label": "Perseus canonical GreekLit tlg0086.tlg003.perseus-grc2; F. G. Kenyon Greek edition",
           "license_status": "open-license",
           "license_notes": "Perseus canonical-greekLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-041-ARISTOTLE-ARISTOTLE-NICOMACHEAN-ETHICS-GREEK-PERSEUS-GRC2",
@@ -3675,7 +3985,9 @@
           "edition_label": "Perseus canonical GreekLit tlg0086.tlg010.perseus-grc2; Ingram Bywater Greek edition",
           "license_status": "open-license",
           "license_notes": "Perseus canonical-greekLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-041-ARISTOTLE-ARISTOTLE-POETICS-GREEK-PERSEUS-GRC2",
@@ -3690,7 +4002,9 @@
           "edition_label": "Perseus canonical GreekLit tlg0086.tlg034.perseus-grc2; Rudolf Kassel Greek edition",
           "license_status": "open-license",
           "license_notes": "Perseus canonical-greekLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-041-ARISTOTLE-ARISTOTLE-POLITICS-GREEK-PERSEUS-GRC2",
@@ -3705,7 +4019,9 @@
           "edition_label": "Perseus canonical GreekLit tlg0086.tlg035.perseus-grc2; W. D. Ross Greek edition",
           "license_status": "open-license",
           "license_notes": "Perseus canonical-greekLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         }
       ],
       "coverage_status": "selected-works",
@@ -3750,7 +4066,9 @@
           "edition_label": "Project Gutenberg #31; F. Storr translation",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg states public domain in the USA.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-042-SOPHOCLES-SEVEN-PLAYS-CAMPBELL",
@@ -3765,7 +4083,9 @@
           "edition_label": "Project Gutenberg #14484; Lewis Campbell translation",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg states public domain in the USA.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-042-SOPHOCLES-SOPHOCLES-TRACHINIAE-GREEK-PERSEUS-GRC2",
@@ -3780,7 +4100,9 @@
           "edition_label": "Perseus canonical GreekLit tlg0011.tlg001.perseus-grc2; Francis Storr Greek edition",
           "license_status": "open-license",
           "license_notes": "Perseus canonical-greekLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-042-SOPHOCLES-SOPHOCLES-ANTIGONE-GREEK-PERSEUS-GRC2",
@@ -3795,7 +4117,9 @@
           "edition_label": "Perseus canonical GreekLit tlg0011.tlg002.perseus-grc2; Francis Storr Greek edition",
           "license_status": "open-license",
           "license_notes": "Perseus canonical-greekLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-042-SOPHOCLES-SOPHOCLES-AJAX-GREEK-PERSEUS-GRC2",
@@ -3810,7 +4134,9 @@
           "edition_label": "Perseus canonical GreekLit tlg0011.tlg003.perseus-grc2; Francis Storr Greek edition",
           "license_status": "open-license",
           "license_notes": "Perseus canonical-greekLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-042-SOPHOCLES-SOPHOCLES-OEDIPUS-TYRANNUS-GREEK-PERSEUS-GRC2",
@@ -3825,7 +4151,9 @@
           "edition_label": "Perseus canonical GreekLit tlg0011.tlg004.perseus-grc2; Francis Storr Greek edition",
           "license_status": "open-license",
           "license_notes": "Perseus canonical-greekLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-042-SOPHOCLES-SOPHOCLES-ELECTRA-GREEK-PERSEUS-GRC2",
@@ -3840,7 +4168,9 @@
           "edition_label": "Perseus canonical GreekLit tlg0011.tlg005.perseus-grc2; Francis Storr Greek edition",
           "license_status": "open-license",
           "license_notes": "Perseus canonical-greekLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-042-SOPHOCLES-SOPHOCLES-PHILOCTETES-GREEK-PERSEUS-GRC2",
@@ -3855,7 +4185,9 @@
           "edition_label": "Perseus canonical GreekLit tlg0011.tlg006.perseus-grc2; Francis Storr Greek edition",
           "license_status": "open-license",
           "license_notes": "Perseus canonical-greekLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-042-SOPHOCLES-SOPHOCLES-OEDIPUS-AT-COLONUS-GREEK-PERSEUS-GRC2",
@@ -3870,7 +4202,9 @@
           "edition_label": "Perseus canonical GreekLit tlg0011.tlg007.perseus-grc2; Francis Storr Greek edition",
           "license_status": "open-license",
           "license_notes": "Perseus canonical-greekLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         }
       ],
       "coverage_status": "complete-surviving-corpus",
@@ -3915,7 +4249,9 @@
           "edition_label": "Project Gutenberg #228; John Dryden translation",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg states public domain in the USA.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-043-VIRGIL-GEORGICS-RHOADES",
@@ -3930,7 +4266,9 @@
           "edition_label": "Project Gutenberg #232; James Rhoades translation",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg states public domain in the USA.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-043-VIRGIL-BUCOLICS-ECLOGUES",
@@ -3945,7 +4283,9 @@
           "edition_label": "Project Gutenberg #230; public-domain English edition",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg states public domain in the USA.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-043-VIRGIL-AENEID-LATIN-GUTENBERG-227",
@@ -3960,7 +4300,9 @@
           "edition_label": "Project Gutenberg #227; Latin text of the Aeneid",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg identifies this ebook as public domain in the USA.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-043-VIRGIL-ECLOGUES-LATIN-PERSEUS-LAT2",
@@ -3975,7 +4317,9 @@
           "edition_label": "Perseus canonical LatinLit phi0690.phi001.perseus-lat2; J. B. Greenough Latin edition",
           "license_status": "open-license",
           "license_notes": "Perseus canonical-latinLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-043-VIRGIL-GEORGICS-LATIN-PERSEUS-LAT2",
@@ -3990,7 +4334,9 @@
           "edition_label": "Perseus canonical LatinLit phi0690.phi002.perseus-lat2; J. B. Greenough Latin edition",
           "license_status": "open-license",
           "license_notes": "Perseus canonical-latinLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-043-VIRGIL-AENEID-LATIN-PERSEUS-LAT2",
@@ -4005,7 +4351,9 @@
           "edition_label": "Perseus canonical LatinLit phi0690.phi003.perseus-lat2; J. B. Greenough Latin edition",
           "license_status": "open-license",
           "license_notes": "Perseus canonical-latinLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         }
       ],
       "coverage_status": "principal-works",
@@ -4050,7 +4398,9 @@
           "edition_label": "Project Gutenberg #785; William Ellery Leonard translation",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg states public domain in the USA.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-044-LUCRETIUS-DE-RERUM-NATURA-LATIN-PERSEUS-LAT1",
@@ -4065,7 +4415,9 @@
           "edition_label": "Perseus canonical LatinLit phi0550.phi001.perseus-lat1; Latin edition",
           "license_status": "open-license",
           "license_notes": "Perseus canonical-latinLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         }
       ],
       "coverage_status": "complete-surviving-corpus",
@@ -4115,7 +4467,9 @@
           "edition_label": "LacusCurtius public-domain transcription of Edward Luther Stevenson translation, 1932; partial Books II-V",
           "license_status": "public-domain",
           "license_notes": "LacusCurtius marks single-star Ptolemy Geography pages as public domain; transcription is partial and carries the site editor's warning about Stevenson translation quality.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "partial-work",
+          "coverage_notes": "Body-level coverage is conservative: this admitted file is a volume, part, fragment, excerpt, or otherwise partial work body."
         }
       ]
     },
@@ -4166,7 +4520,9 @@
           "edition_label": "Project Gutenberg #28587; Charles Duke Yonge translation",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg public-domain text in the United States",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         }
       ],
       "coverage_status": "principal-work",
@@ -4211,7 +4567,9 @@
           "edition_label": "Project Gutenberg #2848; William Whiston translation",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg public-domain text in the United States",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-047-JOSEPHUS-WARS-WHISTON-GUTENBERG-2850",
@@ -4226,7 +4584,9 @@
           "edition_label": "Project Gutenberg #2850; William Whiston translation",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg public-domain text in the United States",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         }
       ],
       "coverage_status": "principal-works",
@@ -4271,7 +4631,9 @@
           "edition_label": "Perseus canonical-greekLit tlg2018.tlg002.perseus-grc2, Greek TEI XML, CC BY-SA 4.0",
           "license_status": "open-license",
           "license_notes": "",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         }
       ],
       "coverage_status": "principal-work",
@@ -4316,7 +4678,9 @@
           "edition_label": "Latin Wikisource Liber de Caesaribus; editio incognita; fons incognitus; CC BY-SA text, provenance-limited",
           "license_status": "open-license",
           "license_notes": "Latin Wikisource text available under CC BY-SA terms; the source page states editio incognita and fons incognitus, so this is provenance-limited and not a verified critical edition.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         }
       ],
       "coverage_status": "principal-work",
@@ -4361,7 +4725,9 @@
           "edition_label": "Project Gutenberg #50808, J. C. Hazzard school edition",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg identifies this ebook as public domain in the USA.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         }
       ],
       "coverage_status": "principal-work",
@@ -4409,7 +4775,9 @@
           "edition_label": "Project Gutenberg #30, The Bible, King James Version, Complete; 66-book public-domain KJV text, updated 2024",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg public-domain text in the United States; preserve Gutenberg license/header when redistributing.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-051-BIBLICAL-TRADITION-WLC-HEBREW-BIBLE-TEXT-ONLY-EBIBLE",
@@ -4424,7 +4792,9 @@
           "edition_label": "eBible hboWLC USFM package, text-only derivative prepared by Mira Core; inline Strong's and x-morph annotations removed",
           "license_status": "public-domain",
           "license_notes": "eBible identifies the WLC text as public domain; Mira Core admitted a text-only derivative with inline Strong's and x-morph annotations removed so morphology data is not treated as public-domain text.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-051-BIBLICAL-TRADITION-SBLGNT-GREEK-NEW-TESTAMENT",
@@ -4439,7 +4809,9 @@
           "edition_label": "LogosBible/SBLGNT GitHub source files, v1.2 as listed in README, assembled from data/sblgnt/text with CC BY 4.0 attribution retained",
           "license_status": "open-license",
           "license_notes": "SBLGNT is licensed CC BY 4.0; retain attribution to the Society of Biblical Literature and Logos Bible Software and the CC BY 4.0 license notice.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-051-BIBLICAL-TRADITION-LATVUC-CLEMENTINE-VULGATE-EBIBLE",
@@ -4454,7 +4826,9 @@
           "edition_label": "eBible latVUC readaloud plain-text chapter files; Clementine Vulgate of 1598 with Glossa Ordinaria Migne edition 1880; public domain",
           "license_status": "public-domain",
           "license_notes": "eBible latVUC package identifies the Clementine Vulgate text as Public Domain; body was assembled from the package's plain-text readaloud chapter files with source/license notice retained.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         },
         {
           "body_id": "LIB-ANCIENT-AUTHOR-051-BIBLICAL-TRADITION-GRCLXX-SEPTUAGINT-EBIBLE",
@@ -4469,7 +4843,9 @@
           "edition_label": "eBible grclxx readaloud plain-text chapter files; Ancient Greek Septuagint; public domain package statement retained",
           "license_status": "public-domain",
           "license_notes": "eBible grclxx package identifies the text as Public Domain; body was assembled from the package's plain-text readaloud chapter files with source/license notice retained.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         }
       ],
       "coverage_status": "principal-works",
@@ -4516,7 +4892,9 @@
           "edition_label": "Project Gutenberg #2017; F. Max Muller translation from Pali; Sacred Books of the East Volume X Part I",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg identifies this ebook as public domain in the United States.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "partial-work",
+          "coverage_notes": "Body-level coverage is conservative: this admitted file is a volume, part, fragment, excerpt, or otherwise partial work body."
         }
       ]
     },
@@ -4562,7 +4940,9 @@
           "license_status": "public-domain",
           "license_notes": "Internet Sacred Text Archive source page states the 1884 text is public domain in the United States because it was published prior to 1923.",
           "status": "available",
-          "notes": "Cleaned local body: stripped Sacred Texts navigation/header/footer residue while preserving text, notes, and local source provenance."
+          "notes": "Cleaned local body: stripped Sacred Texts navigation/header/footer residue while preserving text, notes, and local source provenance.",
+          "coverage_status": "partial-work",
+          "coverage_notes": "Body-level coverage is conservative: this admitted file is a volume, part, fragment, excerpt, or otherwise partial work body."
         }
       ]
     },
@@ -4606,7 +4986,9 @@
           "edition_label": "Project Gutenberg #7145; E. A. Wallis Budge edition/translation",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg identifies this ebook as public domain in the United States.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         }
       ]
     },
@@ -4650,7 +5032,9 @@
           "edition_label": "Internet Sacred Text Archive; L. W. King translation from The Seven Tablets of Creation, London 1902",
           "license_status": "public-domain",
           "license_notes": "Public-domain-era English translation hosted by Internet Sacred Text Archive; source publication date 1902.",
-          "status": "available"
+          "status": "available",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Body-level coverage records this admitted file as the complete named work or edition body; source-authority completeness is governed separately by the source coverage_status."
         }
       ]
     },
@@ -4696,7 +5080,9 @@
           "license_status": "public-domain",
           "license_notes": "Public-domain-era English translation hosted by Internet Sacred Text Archive; source publication date 1886.",
           "status": "available",
-          "notes": "Cleaned local body: stripped Sacred Texts navigation/header/footer residue while preserving text, notes, and local source provenance."
+          "notes": "Cleaned local body: stripped Sacred Texts navigation/header/footer residue while preserving text, notes, and local source provenance.",
+          "coverage_status": "partial-work",
+          "coverage_notes": "Body-level coverage is conservative: this admitted file is a volume, part, fragment, excerpt, or otherwise partial work body."
         }
       ]
     }

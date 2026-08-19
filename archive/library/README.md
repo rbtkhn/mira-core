@@ -117,7 +117,9 @@ Optional text fields:
 
 - `text_status`: `missing`, `available`, `verified`, or `needs-review`
 - `coverage_status`: `unknown`, `selected-works`, `principal-work`,
-  `principal-works`, or `complete-surviving-corpus`
+  `principal-works`, `major-works-complete`, `complete-surviving-corpus`,
+  `representative-selection`, `partial-work`, `fragmentary`, or
+  `metadata-only`
 - `coverage_notes`
 - `text_location`
 - `text_sha256`
@@ -146,6 +148,9 @@ edition, prefer `text_bodies` over the single-text fields:
 - `edition_label`
 - `license_status`
 - `license_notes`
+- `coverage_status`: `unknown`, `complete-work`, `partial-work`,
+  `selected-passages`, or `fragmentary`
+- `coverage_notes`
 - `status`: `available`, `verified`, or `needs-review`
 
 The single-text fields remain valid for simple one-body records. New multi-work
@@ -153,12 +158,23 @@ or multi-volume admissions should use `text_bodies` so author/source authority
 records such as Homer, Herodotus, Plato, Aristotle, Cicero, and Tacitus can
 carry multiple local text bodies without overwriting each other.
 
-`coverage_status` describes how much of an author/source authority is actually
-present in the portable text store. It is not inferred from `text_status`.
-Prefer conservative values: use `selected-works` for partial corpora,
-`principal-work` or `principal-works` for deliberately representative core
-holdings, and `complete-surviving-corpus` only when the admitted bodies cover
-the known surviving corpus represented by the source-authority record.
+Source-level `coverage_status` describes how much of an author/source authority
+is actually present in the portable text store. It is not inferred from
+`text_status`. Prefer conservative values: use `selected-works` or
+`representative-selection` for partial corpora, `principal-work`,
+`principal-works`, or `major-works-complete` for deliberately representative
+core holdings, and `complete-surviving-corpus` only when the admitted bodies
+cover the known surviving corpus represented by the source-authority record.
+Use `partial-work`, `fragmentary`, or `metadata-only` when even the
+source-authority-level claim must remain lower than a principal-work claim.
+
+Body-level `coverage_status` describes the admitted file itself. Use
+`complete-work` only for a body that contains the named work or edition body in
+full, `partial-work` for a volume, book range, excerpt, or incomplete
+extraction, `selected-passages` for deliberate selections, and `fragmentary`
+for texts whose surviving or admitted form is inherently fragmentary. When the
+body has not been inspected closely enough, use `unknown` and explain the
+remaining uncertainty in `coverage_notes`.
 
 ## Source Admission Workflow
 
