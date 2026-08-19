@@ -6,6 +6,8 @@ import sys
 from pathlib import Path
 from types import SimpleNamespace
 
+import pytest
+
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 SCRIPT_PATH = REPO_ROOT / "scripts" / "cadence.py"
@@ -58,6 +60,30 @@ def test_formatted_coffee_renders_governed_menu_from_explicit_store(
     assert "B. Test:" in rendered
     assert "C. Deepen:" in rendered
     assert "D. Reframe:" in rendered
+    connection=cadence.cadence_ledger.connect_read_only(store)
+    assert connection.execute("SELECT COUNT(*) FROM coffee_presentations").fetchone()[0]==1
+    connection.close()
+
+
+def test_coffee_receipt_failure_prints_no_actionable_menu(monkeypatch,tmp_path: Path,capsys) -> None:
+    store=tmp_path/"cadence.sqlite3"; cadence.cadence_ledger.connect(store).close()
+    args=SimpleNamespace(command="coffee",db=store,format="markdown",episode_id=None,json=False,check=False)
+    monkeypatch.setattr(cadence,"build_parser",lambda:SimpleNamespace(parse_args=lambda:args))
+    monkeypatch.setattr(cadence.cadence_ledger,"record_coffee_presentation",lambda *_: (_ for _ in ()).throw(cadence.cadence_ledger.CadenceLedgerError("receipt failure")))
+    with pytest.raises(SystemExit,match="receipt failure"):
+        cadence.main()
+    assert "A. Execute:" not in capsys.readouterr().out
+
+
+def test_coffee_check_keeps_schema_three_store_byte_identical(monkeypatch,tmp_path: Path,capsys) -> None:
+    store=tmp_path/"cadence-v3.sqlite3"; connection=cadence.cadence_ledger.connect(store)
+    connection.execute("DROP TABLE coffee_presentations"); connection.execute("PRAGMA user_version=3"); connection.commit(); connection.close()
+    before=store.read_bytes()
+    args=SimpleNamespace(command="coffee",db=store,format="markdown",episode_id=None,json=False,check=True)
+    monkeypatch.setattr(cadence,"build_parser",lambda:SimpleNamespace(parse_args=lambda:args))
+    cadence.main()
+    assert "Presentation: initial" in capsys.readouterr().out
+    assert store.read_bytes()==before
 
 
 def test_coffee_skill_requires_explicit_private_store_resolution() -> None:
@@ -68,7 +94,8 @@ def test_coffee_skill_requires_explicit_private_store_resolution() -> None:
     assert "MIRA_CORE_CADENCE_DB" in skill
     assert "NARRATIVE_CADENCE_DB" in skill
     assert "--db ABSOLUTE_STORE coffee --format markdown" in skill
-    assert "do not create, copy, or migrate a store implicitly" in skill
+    assert "one digest-only presentation receipt" in skill
+    assert "coffee --check" in skill
 
 
 def verified(value: bool = True) -> dict:

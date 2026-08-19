@@ -1492,10 +1492,11 @@ def build_parser() -> argparse.ArgumentParser:
     startup.add_argument("--hook")
     startup.add_argument("--as-of")
     startup.add_argument("--json", action="store_true")
-    coffee = subparsers.add_parser("coffee", help="Read a private cadence candidate without mutation.")
+    coffee = subparsers.add_parser("coffee", help="Render a candidate and retain one private presentation receipt.")
     coffee.add_argument("--json", action="store_true")
     coffee.add_argument("--format", choices=("json", "markdown"))
     coffee.add_argument("--episode-id")
+    coffee.add_argument("--check", action="store_true", help="Preview without migration or presentation receipt.")
     profile = subparsers.add_parser("profile", help="Inspect experiment profiles.")
     profile.add_argument("action", choices=("list", "show"))
     profile.add_argument("name", nargs="?")
@@ -1714,7 +1715,8 @@ def main() -> None:
             if resolution.path is None:
                 raise SystemExit(resolution.reason or "private cadence store is unavailable")
             try:
-                connection = cadence_ledger.connect_read_only(resolution.path)
+                check=bool(getattr(args,"check",False))
+                connection = cadence_ledger.connect_read_only(resolution.path) if check else cadence_ledger.connect(resolution.path)
                 try:
                     rest_inbox = rest_receipts.resolve_inbox(None)
                     selected = cadence_ledger.selected_episode(connection, args.episode_id)
@@ -1727,11 +1729,14 @@ def main() -> None:
                     connection, episode_id=args.episode_id,
                     rest_coverage_status=rest_status,
                 )
+                rendered=cadence_ledger.render_coffee_markdown(context)
+                if not check:
+                    context["presentation_receipt"]=cadence_ledger.record_coffee_presentation(connection,context,rendered)
                 connection.close()
             except (cadence_ledger.CadenceLedgerError, OSError, sqlite3.Error) as error:
                 raise SystemExit(str(error)) from error
             if args.format == "markdown" or (not args.json and args.format != "json"):
-                print(cadence_ledger.render_coffee_markdown(context), end="")
+                print(rendered, end="")
             else:
                 print(json.dumps(context, indent=2))
         else:

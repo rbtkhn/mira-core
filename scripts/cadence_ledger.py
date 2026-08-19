@@ -20,8 +20,8 @@ from portable_paths import PortablePathError, require_private_path as portable_p
 REPO_ROOT = Path(__file__).resolve().parent.parent
 DB_ENV = "MIRA_CORE_CADENCE_DB"
 DEFAULT_DB_PATH = REPO_ROOT / ".mira-private" / "state" / "cadence.sqlite3"
-SCHEMA_VERSION = 3
-PROJECTION_VERSION = "1.1"
+SCHEMA_VERSION = 4
+PROJECTION_VERSION = "1.2"
 SQLITE_HEADER = b"SQLite format 3\x00"
 TERMINAL_STATES = frozenset({"rejected", "superseded", "expired"})
 DISPOSITIONS = frozenset({"inherit", "retest", "reconcile", *TERMINAL_STATES})
@@ -151,10 +151,10 @@ def connect_read_only(path: Path) -> sqlite3.Connection:
     connection.execute("PRAGMA foreign_keys = ON")
     connection.execute("PRAGMA query_only = ON")
     version = int(connection.execute("PRAGMA user_version").fetchone()[0])
-    if version not in {2, SCHEMA_VERSION}:
+    if version not in {2, 3, SCHEMA_VERSION}:
         connection.close()
         raise CadenceLedgerError(
-            f"cadence store schema {version} is not readable; supported versions are 2 and {SCHEMA_VERSION}"
+            f"cadence store schema {version} is not readable; supported versions are 2, 3, and {SCHEMA_VERSION}"
         )
     return connection
 
@@ -268,6 +268,34 @@ def migrate(connection: sqlite3.Connection) -> None:
                     UNIQUE(workspace_id, operator_id, dream_date)
                 );
                 PRAGMA user_version = 3;
+                """
+            )
+        version = 3
+    if version == 3:
+        with connection:
+            connection.executescript(
+                """
+                CREATE TABLE coffee_presentations (
+                    presentation_id TEXT PRIMARY KEY,
+                    episode_id TEXT REFERENCES cadence_episodes(episode_id),
+                    workspace_id TEXT NOT NULL,
+                    operator_id TEXT NOT NULL,
+                    occurred_at TEXT NOT NULL,
+                    occurred_at_utc_us INTEGER NOT NULL,
+                    lifecycle_version INTEGER,
+                    presentation_mode TEXT NOT NULL,
+                    repeat_depth INTEGER NOT NULL,
+                    context_components_json TEXT NOT NULL,
+                    context_digest TEXT NOT NULL,
+                    menu_digest TEXT NOT NULL,
+                    prior_presentation_id TEXT REFERENCES coffee_presentations(presentation_id),
+                    previous_receipt_sha256 TEXT,
+                    receipt_sha256 TEXT NOT NULL
+                );
+                CREATE INDEX coffee_presentation_order
+                    ON coffee_presentations(workspace_id, operator_id, episode_id,
+                                            occurred_at_utc_us, presentation_id);
+                PRAGMA user_version = 4;
                 """
             )
 
@@ -860,6 +888,68 @@ def repository_change(projection: dict[str, Any]) -> dict[str, Any]:
     return {"status": "unchanged", "paths": []}
 
 
+def relevant_path_components(refs: Iterable[str]) -> list[dict[str, str]]:
+    components=[]
+    for ref in sorted(set(refs)):
+        normalized=sanitize_text(ref,limit=500).replace("\\","/")
+        path=REPO_ROOT/normalized.split("#",1)[0]
+        if not path.exists():
+            components.append({"path":normalized,"status":"missing","sha256":"none"})
+            continue
+        try: value=content_digest([normalized])
+        except CadenceLedgerError:
+            components.append({"path":normalized,"status":"invalid","sha256":"none"})
+            continue
+        components.append({"path":normalized,"status":"present","sha256":value})
+    return components
+
+
+def presentation_components(
+    projection: dict[str,Any] | None, selection: dict[str,Any], rest_coverage_status: str,
+) -> dict[str,Any]:
+    if projection is None:
+        return {"episode":None,"paths":[],"rest_coverage_status":rest_coverage_status,"verification":{},"selection":selection}
+    episode=projection["episode"]
+    verification=episode.get("verification",{})
+    return {
+        "episode":{"episode_id":episode["episode_id"],"lifecycle_state":projection["lifecycle_state"],"lifecycle_version":projection["lifecycle_version"],"method_version_digest":episode["method_version_digest"]},
+        "paths":relevant_path_components(episode["relevant_paths"]),
+        "rest_coverage_status":rest_coverage_status,
+        "verification":{"status":verification.get("status"),"local_use_eligible":verification.get("local_use_eligible"),"repo_use_eligible":verification.get("repo_use_eligible"),"profile":episode.get("profile",{})},
+        "selection":selection,
+    }
+
+
+def latest_presentation(connection: sqlite3.Connection, episode_id: str | None, workspace_id: str, operator_id: str) -> dict[str,Any] | None:
+    if not table_exists(connection,"coffee_presentations"): return None
+    row=connection.execute(
+        """SELECT * FROM coffee_presentations WHERE workspace_id=? AND operator_id=?
+           ORDER BY occurred_at_utc_us DESC,presentation_id DESC LIMIT 1""",
+        (workspace_id,operator_id),
+    ).fetchone()
+    if row is None: return None
+    return {key:row[key] for key in row.keys()} | {"context_components":json.loads(row["context_components_json"])}
+
+
+def presentation_delta(current: dict[str,Any], prior: dict[str,Any] | None) -> list[str]:
+    if prior is None: return []
+    previous=prior["context_components"]
+    changed=[]
+    for key in ("episode","rest_coverage_status","verification","selection"):
+        if current.get(key)!=previous.get(key): changed.append(key)
+    before={item["path"]:item for item in previous.get("paths",[])}
+    after={item["path"]:item for item in current.get("paths",[])}
+    changed.extend(f"path:{path}" for path in sorted(set(before)|set(after)) if before.get(path)!=after.get(path))
+    return changed
+
+
+def presentation_mode(context_digest: str, prior: dict[str,Any] | None) -> tuple[str,int]:
+    if prior is None: return "initial",0
+    if prior["context_digest"]!=context_digest: return "delta",0
+    if prior["presentation_mode"] in {"initial","delta"}: return "repeat-checkpoint",1
+    return "saturated",int(prior["repeat_depth"])+1
+
+
 ACTION_SHAPE = (
     ("A", "Confirm", "recommended"),
     ("B", "Test", "alternative"),
@@ -868,22 +958,49 @@ ACTION_SHAPE = (
 )
 
 
-def build_actions(projection: dict[str, Any]) -> list[dict[str, Any]]:
+def build_actions(
+    projection: dict[str, Any], *, mode: str="initial", repeat_depth: int=0,
+    changed_components: list[str] | None=None,
+) -> list[dict[str, Any]]:
     episode = projection["episode"]
     episode_id = episode["episode_id"]
-    first_artifact = episode["artifacts"][0]["ref"]
+    changes=changed_components or []
+    changed_paths={item.removeprefix("path:") for item in changes if item.startswith("path:")}
+    authored_changed=[item["ref"] for item in episode["artifacts"] if item["ref"] in changed_paths]
+    first_artifact = authored_changed[0] if authored_changed else (sorted(changed_paths)[0] if changed_paths else episode["artifacts"][0]["ref"])
     method_target = f"{episode_id}:{episode['method_version_digest']}"
     observable = episode["observable"]
     falsifier_target = {**observable, "test": episode["falsifier"]}
+    a_label=f"Execute: confirm {observable['name']} against {episode['next_use']}."
+    b_label=f"Test the falsifier for {observable['name']}: {episode['falsifier']}"
+    c_label=f"Deepen the evidence at {first_artifact}."
+    d_label=f"Reframe the method change {episode['intervention']}."
+    if mode=="delta":
+        delta_label=", ".join(changes)
+        a_label=f"Execute: confirm the relevant-lane delta ({delta_label}) against {episode['next_use']}."
+        b_label=f"Test whether the delta changes the falsifier for {observable['name']}: {episode['falsifier']}"
+        c_label=f"Deepen the changed evidence at {first_artifact}."
+        d_label=f"Reframe {episode['intervention']} after the relevant-lane delta."
+    elif mode=="repeat-checkpoint":
+        a_label=f"Execute: confirm that no relevant-lane evidence changed since the prior Coffee presentation for {observable['name']}."
+        b_label=f"Test the next evidence checkpoint for {observable['name']}: {episode['falsifier']}"
+        c_label=f"Deepen the blocking evidence at {first_artifact}."
+        d_label=f"Reframe whether to defer or retest {episode['intervention']}."
+    elif mode=="saturated":
+        a_label=f"Execute: confirm evidence stagnation after {repeat_depth} unchanged Coffee presentations for {observable['name']}."
+        b_label=f"Test one concrete next-use falsifier before revisiting {observable['name']}: {episode['falsifier']}"
+        c_label=f"Deepen the unresolved blockage at {first_artifact}."
+        d_label=f"Reframe toward defer, supersede, reject, or retest for {episode['intervention']}."
+    execution_source=observable["source"] if mode=="initial" else first_artifact
     actions = [
         {
             "key": "A", "verb": "Confirm", "role": "recommended",
-            "label": f"Execute: confirm {observable['name']} against {episode['next_use']}.",
+            "label": a_label,
             "target_type": "observable", "target": observable, "reason": episode["evidence_summary"],
             "candidate_id": episode_id, "selection_effect": "execute",
             "execution": {
                 "kind": "read-only-observable-comparison",
-                "source": observable["source"], "baseline": observable["baseline"],
+                "source": execution_source, "baseline": observable["baseline"],
                 "threshold": observable["success_threshold"], "mutation": False,
                 "verification": "Report whether the named source supports, contradicts, or cannot resolve the threshold comparison.",
             },
@@ -891,21 +1008,21 @@ def build_actions(projection: dict[str, Any]) -> list[dict[str, Any]]:
         },
         {
             "key": "B", "verb": "Test", "role": "alternative",
-            "label": f"Test the falsifier for {observable['name']}: {episode['falsifier']}",
+            "label": b_label,
             "target_type": "observable", "target": falsifier_target, "reason": "A discriminating result can reject the claimed improvement.",
             "candidate_id": episode_id, "selection_effect": "navigate",
             "next_boundary": "Design the bounded comparison; running it remains separately authorized.",
         },
         {
             "key": "C", "verb": "Deepen", "role": "overlooked",
-            "label": f"Deepen the evidence at {first_artifact}.",
+            "label": c_label,
             "target_type": "artifact", "target": first_artifact, "reason": "The named artifact is the first bounded provenance handle.",
             "candidate_id": episode_id, "selection_effect": "navigate",
             "next_boundary": "Inspect only the named artifact and identify the highest-consequence missing observation.",
         },
         {
             "key": "D", "verb": "Reframe", "role": "pause-or-deepen",
-            "label": f"Reframe the method change {episode['intervention']}.",
+            "label": d_label,
             "target_type": "method_change", "target": method_target, "reason": "The method may need narrowing, retirement, or replacement.",
             "candidate_id": episode_id, "selection_effect": "navigate",
             "next_boundary": "Develop the bounded reframe; disposition remains separately authorized.",
@@ -1019,6 +1136,23 @@ def coffee_context(
         "selected_dream_date": projection["episode"]["dream_date"] if projection else None,
         "newest_eligible_episode_id": newest["episode"]["episode_id"] if newest else None,
     }
+    workspace_id=projection["episode"]["workspace_id"] if projection else "mira-core"
+    operator_id=projection["episode"]["operator_id"] if projection else "operator"
+    components=presentation_components(projection,selection,rest_coverage_status)
+    invalid_paths=[item["path"] for item in components["paths"] if item["status"]!="present"]
+    if invalid_paths:
+        raise CadenceLedgerError(f"Coffee grounding failed for relevant path(s): {', '.join(invalid_paths)}")
+    context_sha=digest(components)
+    prior=latest_presentation(connection,projection["episode"]["episode_id"] if projection else None,workspace_id,operator_id)
+    mode,repeat_depth=presentation_mode(context_sha,prior)
+    changed=presentation_delta(components,prior) if mode=="delta" else []
+    presentation={
+        "mode":mode,"repeat_depth":repeat_depth,"context_digest":context_sha,
+        "prior_presentation_id":prior["presentation_id"] if prior else None,
+        "prior_context_digest":prior["context_digest"] if prior else None,
+        "changed_components":changed,"tracking_available":table_exists(connection,"coffee_presentations"),
+        "components":components,
+    }
     if projection is None:
         actions = build_cold_start_actions()
         return {
@@ -1036,8 +1170,9 @@ def coffee_context(
             "actions": actions, "recommendation_key": "A", "mutation_performed": False,
             "rest_coverage_status": rest_coverage_status,
             "selection": selection,
+            "presentation":presentation,
         }
-    actions = build_actions(projection)
+    actions = build_actions(projection,mode=mode,repeat_depth=repeat_depth,changed_components=changed)
     change = repository_change(projection)
     episode = projection["episode"]
     return {
@@ -1058,6 +1193,7 @@ def coffee_context(
         "rest_coverage_status": rest_coverage_status,
         "mutation_performed": False,
         "selection": selection,
+        "presentation":presentation,
     }
 
 
@@ -1073,6 +1209,8 @@ def render_coffee_markdown(context: dict[str, Any]) -> str:
         f"Safe to inherit: {'yes' if context['inheritance_safe'] else 'no'}.",
         f"Remaining uncertainty: {learning['diagnosis']}",
         f"Rest coverage: {context.get('rest_coverage_status', 'unavailable')}.",
+        f"Presentation: {context['presentation']['mode']}; repeat depth {context['presentation']['repeat_depth']}; context `{context['presentation']['context_digest'][:12]}`.",
+        f"Changed relevant components: {', '.join(context['presentation']['changed_components']) if context['presentation']['changed_components'] else 'none'}.",
         "",
     ]
     for action in context["actions"]:
@@ -1082,8 +1220,55 @@ def render_coffee_markdown(context: dict[str, Any]) -> str:
             lines.append(f"   Authority boundary: {action['next_boundary']}")
         else:
             lines.append(f"{action['key']}. {action['verb']}: {action['label']} Target: `{action['target_type']}`.")
-    lines.extend(["", "Recommendation: A. Confirm the claimed improvement before adoption."])
+    recommendations={
+        "initial":"A. Confirm the claimed improvement before adoption.",
+        "delta":"A. Confirm the relevant-lane delta before changing the candidate's disposition.",
+        "repeat-checkpoint":"A. Confirm the absence of relevant progress before designing another test.",
+        "saturated":"A. Confirm evidence stagnation before developing a terminal disposition.",
+    }
+    lines.extend(["",f"Recommendation: {recommendations.get(context['presentation']['mode'],recommendations['initial'])}"])
     return "\n".join(lines) + "\n"
+
+
+def record_coffee_presentation(connection: sqlite3.Connection, context: dict[str,Any], rendered: str) -> dict[str,Any]:
+    if not table_exists(connection,"coffee_presentations"):
+        raise CadenceLedgerError("Coffee presentation tracking requires cadence schema 4")
+    presentation=context["presentation"]
+    components=presentation["components"]
+    episode_id=context["episode_id"]
+    workspace_id="mira-core"; operator_id="operator"
+    if episode_id:
+        projected=project_episode(connection,episode_id)
+        workspace_id=projected["episode"]["workspace_id"]; operator_id=projected["episode"]["operator_id"]
+        newest=selected_episode(connection)
+        fresh_selection={**components["selection"],"newest_eligible_episode_id":newest["episode"]["episode_id"] if newest else None}
+        fresh_components=presentation_components(projected,fresh_selection,components["rest_coverage_status"])
+        if digest(fresh_components)!=presentation["context_digest"]:
+            raise CadenceLedgerError("Coffee relevant context changed concurrently; rerun Coffee")
+    elif selected_episode(connection) is not None:
+        raise CadenceLedgerError("Coffee candidate selection changed concurrently; rerun Coffee")
+    latest=latest_presentation(connection,episode_id,workspace_id,operator_id)
+    latest_id=latest["presentation_id"] if latest else None
+    if latest_id!=presentation["prior_presentation_id"]:
+        raise CadenceLedgerError("Coffee presentation context changed concurrently; rerun Coffee")
+    when=validate_timestamp(utc_now()); presentation_id=f"CPF-{uuid.uuid4().hex}"
+    previous=latest["receipt_sha256"] if latest else None
+    body={
+        "presentation_id":presentation_id,"episode_id":episode_id,"workspace_id":workspace_id,
+        "operator_id":operator_id,"occurred_at":when,"lifecycle_version":context["lifecycle_version"],
+        "presentation_mode":presentation["mode"],"repeat_depth":presentation["repeat_depth"],
+        "context_components":components,"context_digest":presentation["context_digest"],
+        "menu_digest":digest(rendered),"prior_presentation_id":latest_id,"previous_receipt_sha256":previous,
+    }
+    receipt_sha=digest(body)
+    with connection:
+        connection.execute(
+            "INSERT INTO coffee_presentations VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+            (presentation_id,episode_id,workspace_id,operator_id,when,timestamp_us(when),context["lifecycle_version"],
+             presentation["mode"],presentation["repeat_depth"],canonical_json(components),presentation["context_digest"],
+             body["menu_digest"],latest_id,previous,receipt_sha),
+        )
+    return {"presentation_id":presentation_id,"presentation_mode":presentation["mode"],"context_digest":presentation["context_digest"],"menu_digest":body["menu_digest"],"receipt_sha256":receipt_sha,"authority_effect":"private-presentation-receipt-only"}
 
 
 def record_disposition(
@@ -1181,6 +1366,19 @@ def verify_ledger(connection: sqlite3.Connection) -> dict[str, Any]:
         for stored in connection.execute("SELECT closeout_id, payload_json, payload_sha256 FROM daily_dream_closeouts"):
             if digest(json.loads(stored["payload_json"])) != stored["payload_sha256"]:
                 failures.append(f"{stored['closeout_id']}: Dream closeout digest mismatch")
+    if table_exists(connection,"coffee_presentations"):
+        scopes=connection.execute("SELECT DISTINCT workspace_id,operator_id FROM coffee_presentations")
+        for scope in scopes:
+            previous=None; previous_id=None
+            rows=connection.execute(
+                """SELECT * FROM coffee_presentations WHERE workspace_id=? AND operator_id=?
+                   ORDER BY occurred_at_utc_us,presentation_id""",tuple(scope)
+            )
+            for stored in rows:
+                body={"presentation_id":stored["presentation_id"],"episode_id":stored["episode_id"],"workspace_id":stored["workspace_id"],"operator_id":stored["operator_id"],"occurred_at":stored["occurred_at"],"lifecycle_version":stored["lifecycle_version"],"presentation_mode":stored["presentation_mode"],"repeat_depth":stored["repeat_depth"],"context_components":json.loads(stored["context_components_json"]),"context_digest":stored["context_digest"],"menu_digest":stored["menu_digest"],"prior_presentation_id":stored["prior_presentation_id"],"previous_receipt_sha256":stored["previous_receipt_sha256"]}
+                if stored["previous_receipt_sha256"]!=previous or stored["prior_presentation_id"]!=previous_id or stored["receipt_sha256"]!=digest(body):
+                    failures.append(f"Coffee presentation chain mismatch at {stored['presentation_id']}")
+                previous=stored["receipt_sha256"]; previous_id=stored["presentation_id"]
     return {"schema_version": store_version, "reader_schema_version": SCHEMA_VERSION,
             "integrity": integrity, "failures": failures, "valid": integrity == "ok" and not failures}
 
@@ -1217,13 +1415,14 @@ def private_status(raw_path: str | Path | None = None) -> dict[str, Any]:
             if table_exists(connection, "daily_close_events")
             else connection.execute("SELECT MAX(occurred_at) FROM cadence_events").fetchone()[0]
         )
+        presentations=connection.execute("SELECT COUNT(*) FROM coffee_presentations").fetchone()[0] if table_exists(connection,"coffee_presentations") else 0
         connection.close()
         valid = verification["valid"]
         return {
             "availability": "available" if valid else "degraded",
             "freshness": "valid" if valid else "invalid",
             "validation": "read-only SQLite integrity and event-chain verification passed" if valid else "; ".join(verification["failures"]),
-            "counts": {"episodes": episode_count, "active_candidates": active, "represented": represented, "unresolved_rsi_correspondence": unresolved},
+            "counts": {"episodes": episode_count, "active_candidates": active, "represented": represented, "unresolved_rsi_correspondence": unresolved,"coffee_presentations":presentations},
             "latest_event_at": latest,
         }
     except (OSError, sqlite3.Error, CadenceLedgerError) as error:
@@ -1336,8 +1535,8 @@ def scorecard(connection: sqlite3.Connection) -> dict[str, Any]:
         median_disposition_seconds = median_us / 1_000_000
 
     unavailable = {
-        "actionable_menu_rate": "Coffee is read-only and records no invocation receipt.",
-        "navigation_only_exception_rate": "Coffee is read-only and records no invocation receipt.",
+        "actionable_menu_rate": "Coffee presentation receipts retain menu digests, not selections or outcomes.",
+        "navigation_only_exception_rate": "Coffee presentation receipts retain menu digests, not selections or outcomes.",
         "median_turns_coffee_to_authorized_test": "The cadence ledger records neither conversation turns nor authorization selections.",
         "operator_scope_restatement_rate": "No scope-restatement telemetry is retained.",
         "recursive_assessment_rate": "Assessment is authoritative in recursive-learn and no assessment correspondence receipt is imported.",

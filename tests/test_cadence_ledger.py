@@ -63,6 +63,16 @@ def database(tmp_path: Path):
     return cadence_ledger.connect(tmp_path / "cadence.sqlite3")
 
 
+def isolated_episode_store(tmp_path: Path, monkeypatch: pytest.MonkeyPatch):
+    repo=tmp_path/"repo"
+    for relative in ("scripts/cadence.py","tests/test_cadence.py"):
+        path=repo/relative; path.parent.mkdir(parents=True,exist_ok=True); path.write_text(relative,encoding="utf-8")
+    monkeypatch.setattr(cadence_ledger,"REPO_ROOT",repo)
+    connection=cadence_ledger.connect(tmp_path/"cadence.sqlite3")
+    cadence_ledger.create_episode(connection,episode(),idempotency_key="dream-presentations")
+    return connection,repo
+
+
 def test_private_store_rejects_repository_path() -> None:
     with pytest.raises(cadence_ledger.CadenceLedgerError, match="outside the repository"):
         cadence_ledger.require_private_path(ROOT / "cadence.sqlite3", label="test")
@@ -235,6 +245,76 @@ def test_coffee_has_exact_grounded_navigation_contract(tmp_path: Path) -> None:
     connection.close()
 
 
+def test_coffee_presentations_escalate_and_preserve_episode_lifecycle(tmp_path: Path,monkeypatch: pytest.MonkeyPatch) -> None:
+    connection,_=isolated_episode_store(tmp_path,monkeypatch)
+    lifecycle=cadence_ledger.project_episode(connection,"CD-20260816-01")["lifecycle_version"]
+    modes=[]
+    for _ in range(4):
+        context=cadence_ledger.coffee_context(connection,rest_coverage_status="covered-current")
+        rendered=cadence_ledger.render_coffee_markdown(context)
+        cadence_ledger.record_coffee_presentation(connection,context,rendered)
+        modes.append(context["presentation"]["mode"])
+    assert modes==["initial","repeat-checkpoint","saturated","saturated"]
+    assert cadence_ledger.project_episode(connection,"CD-20260816-01")["lifecycle_version"]==lifecycle
+    assert cadence_ledger.verify_ledger(connection)["valid"] is True
+    stored=" ".join(row[0] for row in connection.execute("SELECT context_components_json FROM coffee_presentations"))
+    assert "Profile-first verification reduced" not in stored
+    connection.close()
+
+
+def test_relevant_delta_resets_repeat_escalation_and_unrelated_change_does_not(tmp_path: Path,monkeypatch: pytest.MonkeyPatch) -> None:
+    connection,repo=isolated_episode_store(tmp_path,monkeypatch)
+    first=cadence_ledger.coffee_context(connection)
+    cadence_ledger.record_coffee_presentation(connection,first,cadence_ledger.render_coffee_markdown(first))
+    unrelated=repo/"unrelated.txt"; unrelated.write_text("new",encoding="utf-8")
+    unchanged=cadence_ledger.coffee_context(connection)
+    assert unchanged["presentation"]["mode"]=="repeat-checkpoint"
+    cadence_ledger.record_coffee_presentation(connection,unchanged,cadence_ledger.render_coffee_markdown(unchanged))
+    (repo/"scripts/cadence.py").write_text("changed",encoding="utf-8")
+    changed=cadence_ledger.coffee_context(connection)
+    assert changed["presentation"]["mode"]=="delta"
+    assert changed["presentation"]["changed_components"]==["path:scripts/cadence.py"]
+    cadence_ledger.record_coffee_presentation(connection,changed,cadence_ledger.render_coffee_markdown(changed))
+    assert cadence_ledger.coffee_context(connection)["presentation"]["mode"]=="repeat-checkpoint"
+    connection.close()
+
+
+def test_new_selected_candidate_and_rest_change_are_relevant_deltas(tmp_path: Path,monkeypatch: pytest.MonkeyPatch) -> None:
+    connection,_=isolated_episode_store(tmp_path,monkeypatch)
+    first=cadence_ledger.coffee_context(connection,rest_coverage_status="missing-dream")
+    cadence_ledger.record_coffee_presentation(connection,first,cadence_ledger.render_coffee_markdown(first))
+    rest_delta=cadence_ledger.coffee_context(connection,rest_coverage_status="covered-current")
+    assert rest_delta["presentation"]["mode"]=="delta"
+    assert rest_delta["presentation"]["changed_components"]==["rest_coverage_status"]
+    cadence_ledger.record_coffee_presentation(connection,rest_delta,cadence_ledger.render_coffee_markdown(rest_delta))
+    newer=dated_episode("CD-new",datetime.now(timezone.utc)+timedelta(days=1))
+    cadence_ledger.create_episode(connection,newer,idempotency_key="dream-new-selection")
+    selected_delta=cadence_ledger.coffee_context(connection,rest_coverage_status="covered-current")
+    assert selected_delta["episode_id"]=="CD-new"
+    assert selected_delta["presentation"]["mode"]=="delta"
+    assert "selection" in selected_delta["presentation"]["changed_components"]
+    connection.close()
+
+
+def test_missing_relevant_artifact_fails_before_presentation(tmp_path: Path,monkeypatch: pytest.MonkeyPatch) -> None:
+    connection,repo=isolated_episode_store(tmp_path,monkeypatch)
+    (repo/"scripts/cadence.py").unlink()
+    with pytest.raises(cadence_ledger.CadenceLedgerError,match="grounding failed"):
+        cadence_ledger.coffee_context(connection)
+    assert connection.execute("SELECT COUNT(*) FROM coffee_presentations").fetchone()[0]==0
+    connection.close()
+
+
+def test_concurrent_relevant_change_rejects_presentation_receipt(tmp_path: Path,monkeypatch: pytest.MonkeyPatch) -> None:
+    connection,repo=isolated_episode_store(tmp_path,monkeypatch)
+    context=cadence_ledger.coffee_context(connection); rendered=cadence_ledger.render_coffee_markdown(context)
+    (repo/"scripts/cadence.py").write_text("changed after render",encoding="utf-8")
+    with pytest.raises(cadence_ledger.CadenceLedgerError,match="changed concurrently"):
+        cadence_ledger.record_coffee_presentation(connection,context,rendered)
+    assert connection.execute("SELECT COUNT(*) FROM coffee_presentations").fetchone()[0]==0
+    connection.close()
+
+
 def dated_episode(episode_id: str, created_at: datetime, *, expires_at: datetime | None = None) -> dict:
     value = episode(episode_id=episode_id)
     value["created_at"] = created_at.isoformat()
@@ -393,7 +473,7 @@ def test_integrity_and_private_status_are_bounded(tmp_path: Path) -> None:
     connection.close()
     status = cadence_ledger.private_status(path)
     assert status["availability"] == "available"
-    assert status["counts"] == {"episodes": 1, "active_candidates": 1, "represented": 0, "unresolved_rsi_correspondence": 0}
+    assert status["counts"] == {"episodes": 1, "active_candidates": 1, "represented": 0, "unresolved_rsi_correspondence": 0,"coffee_presentations":0}
     assert str(path) not in json.dumps(status)
 
 
@@ -420,6 +500,18 @@ def test_schema_two_store_remains_readable_for_coffee_without_migration(tmp_path
     assert verification["reader_schema_version"] == cadence_ledger.SCHEMA_VERSION
     assert len(context["actions"]) == 4
     assert path.read_bytes() == before
+
+
+def test_schema_three_store_remains_readable_and_normal_connect_migrates(tmp_path: Path) -> None:
+    path=tmp_path/"cadence-v3.sqlite3"; writable=cadence_ledger.connect(path)
+    writable.execute("DROP TABLE coffee_presentations"); writable.execute("PRAGMA user_version=3"); writable.commit(); writable.close()
+    before=path.read_bytes(); readonly=cadence_ledger.connect_read_only(path)
+    assert cadence_ledger.coffee_context(readonly)["presentation"]["tracking_available"] is False
+    readonly.close(); assert path.read_bytes()==before
+    migrated=cadence_ledger.connect(path)
+    assert migrated.execute("PRAGMA user_version").fetchone()[0]==4
+    assert cadence_ledger.table_exists(migrated,"coffee_presentations")
+    migrated.close()
 
 
 def test_scorecard_reports_recursion_denominators_and_telemetry_gaps(tmp_path: Path) -> None:

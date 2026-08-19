@@ -5,7 +5,9 @@ description: "Reorient Mira Core from repository state and the last verified dre
 
 # Coffee
 
-Use only in `mira-core`. Coffee is read-only.
+Use only in `mira-core`. Coffee is repository-read-only. Bare `coffee`
+authorizes only a deterministic private cadence-schema migration when needed
+and one digest-only presentation receipt after a grounded menu validates.
 
 ## Orient
 
@@ -13,15 +15,20 @@ Use only in `mira-core`. Coffee is read-only.
    `MIRA_CORE_CADENCE_DB`, then compatibility variable `NARRATIVE_CADENCE_DB`.
    In this workspace, when both are unset and the existing compatibility store
    `C:\private\narrative-cadence.sqlite3` resolves, pass it explicitly with
-   `--db`; do not create, copy, or migrate a store implicitly. Run
+   `--db`; do not create or copy a store implicitly. Run
    `tools/run.ps1 cadence --db ABSOLUTE_STORE coffee --format markdown`.
+   This command may migrate the resolved private cadence store and append one
+   presentation receipt. Use `coffee --check` only for a mutation-free preview.
    Confirm that the renderer selected the newest eligible Dream candidate for
    the current workspace and operator. Current ledger state outranks inherited
    prose and any stale `next_use` description. Return the renderer's
    deterministic four-action menu verbatim only after candidate freshness,
    artifact grounding, and material factual premises pass their controlling
    checks;
-   do not remove, reorder, rename, replace, or hand-compose actions.
+   do not remove, reorder, rename, replace, or hand-compose actions. Confirm
+   its presentation mode is `initial`, `delta`, `repeat-checkpoint`, or
+   `saturated`; relevant-lane delta is limited to candidate lifecycle,
+   declared paths, verification posture, Rest coverage, and selection identity.
    Start it once. If the execution remains live, resume or poll the returned
    session rather than launching a duplicate cadence command.
 2. Inspect Git status, `narrative-geopolitics/public/watch.md`, accountable
@@ -95,5 +102,9 @@ validated action-ready letter authorizes only its exact read-only comparison;
 the displayed authority boundary remains controlling after selection.
 Disposition, test execution, writes, promotion, RSI assessment, admission, and
 every other follow-on action remain separately authorized.
+
+Presentation receipts retain identifiers, timestamps, component and menu
+digests, bounded path status, and a receipt chain only. They are not evidence,
+selection, outcome, disposition, identity, belief, or follow-on authority.
 
 Do not mutate intake, archive evidence, forecasts, publication, or Git state.
