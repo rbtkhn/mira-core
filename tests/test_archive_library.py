@@ -59,6 +59,7 @@ def write_scaffold(root: Path, registry: dict) -> None:
     library.mkdir(parents=True)
     (library / "README.md").write_text("# Mira Library\n", encoding="utf-8")
     (library / "library-registry.json").write_text(json.dumps(registry), encoding="utf-8")
+    (library / "text-sources-index.md").write_text(archive_library.render_text_sources_index(registry), encoding="utf-8")
     for era in archive_library.ERA_IDS:
         target = library / era
         target.mkdir()
@@ -573,6 +574,81 @@ def test_admit_text_rejects_non_private_root(tmp_path: Path, monkeypatch, capsys
         "--json",
     ]) == 1
     assert "library text root must be inside .mira-private or C:/private" in capsys.readouterr().err
+
+
+def test_render_index_command_writes_and_checks_drift(tmp_path: Path, monkeypatch, capsys) -> None:
+    digest = "a" * 64
+    registry = base_registry()
+    registry["sources"] = [
+        source(
+            source_id="HOMER",
+            title="Iliad",
+            author="Homer",
+            text_status="available",
+            coverage_status="principal-work",
+            coverage_notes="Principal work fixture.",
+            text_bodies=[
+                {
+                    "body_id": "HOMER-ILIAD",
+                    "work_title": "Iliad",
+                    "text_location": "library-text://HOMER-ILIAD.txt",
+                    "text_sha256": digest,
+                    "text_bytes": 10,
+                    "text_encoding": "utf-8",
+                    "language": "english",
+                    "translator": "Samuel Butler",
+                    "editor": "",
+                    "edition_label": "test Iliad",
+                    "license_status": "public-domain",
+                    "license_notes": "",
+                    "coverage_status": "complete-work",
+                    "coverage_notes": "Complete named work fixture.",
+                    "status": "available",
+                }
+            ],
+        )
+    ]
+    write_scaffold(tmp_path, registry)
+    index = tmp_path / "archive" / "library" / "text-sources-index.md"
+    index.write_text("stale\n", encoding="utf-8")
+    monkeypatch.setattr(archive_library, "REPO_ROOT", tmp_path)
+    monkeypatch.setattr(archive_library, "LIBRARY_ROOT", tmp_path / "archive" / "library")
+    monkeypatch.setattr(archive_library, "REGISTRY_PATH", tmp_path / "archive" / "library" / "library-registry.json")
+    monkeypatch.setattr(archive_library, "TEXT_SOURCES_INDEX_PATH", index)
+
+    assert archive_library.main(["render-index", "--check", "--json"]) == 1
+    checked = json.loads(capsys.readouterr().out)
+    assert checked["status"] == "failed"
+    assert checked["would_update"] is True
+    assert index.read_text(encoding="utf-8") == "stale\n"
+
+    assert archive_library.main(["render-index", "--json"]) == 0
+    rendered = json.loads(capsys.readouterr().out)
+    assert rendered["index_updated"] is True
+    assert rendered["text_bodies_indexed"] == 1
+    assert "Source coverage" in index.read_text(encoding="utf-8")
+    assert "complete-work" in index.read_text(encoding="utf-8")
+
+    assert archive_library.main(["render-index", "--check", "--json"]) == 0
+    current = json.loads(capsys.readouterr().out)
+    assert current["status"] == "passed"
+    assert current["would_update"] is False
+
+
+def test_validate_scaffold_fails_on_stale_text_sources_index(tmp_path: Path, monkeypatch) -> None:
+    registry = base_registry()
+    registry["sources"] = [source(source_id="LIB-ROME-LIVY", text_status="missing")]
+    write_scaffold(tmp_path, registry)
+    index = tmp_path / "archive" / "library" / "text-sources-index.md"
+    index.write_text("stale\n", encoding="utf-8")
+    monkeypatch.setattr(archive_library, "REPO_ROOT", tmp_path)
+    monkeypatch.setattr(archive_library, "LIBRARY_ROOT", tmp_path / "archive" / "library")
+    monkeypatch.setattr(archive_library, "REGISTRY_PATH", tmp_path / "archive" / "library" / "library-registry.json")
+    monkeypatch.setattr(archive_library, "TEXT_SOURCES_INDEX_PATH", index)
+
+    assert archive_library.validate_scaffold(tmp_path) == [
+        "library text sources index is stale: archive/library/text-sources-index.md"
+    ]
 
 
 def test_run_repo_exposes_library_surface() -> None:

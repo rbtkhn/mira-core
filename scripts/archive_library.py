@@ -14,6 +14,7 @@ from typing import Any, Iterable, Mapping
 REPO_ROOT = Path(__file__).resolve().parent.parent
 LIBRARY_ROOT = REPO_ROOT / "archive" / "library"
 REGISTRY_PATH = LIBRARY_ROOT / "library-registry.json"
+TEXT_SOURCES_INDEX_PATH = LIBRARY_ROOT / "text-sources-index.md"
 ERA_IDS = ("ancient", "medieval", "colonial", "industrial", "digital")
 SOURCE_TYPES = {
     "primary",
@@ -467,7 +468,7 @@ def validate_registry(registry: Mapping[str, Any]) -> list[str]:
 def validate_scaffold(repo_root: Path = REPO_ROOT) -> list[str]:
     failures: list[str] = []
     root = repo_root / "archive" / "library"
-    required = [root / "README.md", root / "library-registry.json"]
+    required = [root / "README.md", root / "library-registry.json", root / "text-sources-index.md"]
     required.extend(root / era / "index.md" for era in ERA_IDS)
     failures.extend(f"missing library scaffold file: {relative(path)}" for path in required if not path.is_file())
     if failures:
@@ -477,6 +478,9 @@ def validate_scaffold(repo_root: Path = REPO_ROOT) -> list[str]:
     except LibraryError as error:
         return [str(error)]
     failures.extend(validate_registry(registry))
+    text_sources_index = root / "text-sources-index.md"
+    if text_sources_index.is_file() and text_sources_index.read_text(encoding="utf-8") != render_text_sources_index(registry):
+        failures.append(f"library text sources index is stale: {relative(text_sources_index)}")
     for era in ERA_IDS:
         index = root / era / "index.md"
         content = index.read_text(encoding="utf-8")
@@ -509,6 +513,51 @@ def matching_sources(
             continue
         result.append(source)
     return sorted(result, key=lambda item: text(item.get("source_id")))
+
+
+def markdown_cell(value: Any) -> str:
+    return str(value if value is not None else "").replace("|", "/")
+
+
+def render_text_sources_index(registry: Mapping[str, Any]) -> str:
+    rows: list[dict[str, Any]] = []
+    for source in registry.get("sources", []):
+        if not isinstance(source, dict):
+            continue
+        for body in source_text_bodies(source):
+            rows.append(
+                {
+                    "source_id": source.get("source_id", ""),
+                    "author": source.get("author", ""),
+                    "title": source.get("title", ""),
+                    "source_coverage": source.get("coverage_status", ""),
+                    "work": body.get("work_title", ""),
+                    "body_coverage": body.get("coverage_status", ""),
+                    "edition": body.get("edition_label", ""),
+                    "language": body.get("language", ""),
+                    "license": body.get("license_status", ""),
+                    "bytes": body.get("text_bytes", ""),
+                    "uri": body.get("text_location", ""),
+                }
+            )
+    rows.sort(key=lambda row: (text(row["source_id"]), text(row["work"]), text(row["edition"]), text(row["uri"])))
+    lines = [
+        "# Library Text Sources Index",
+        "",
+        "This index lists source text bodies admitted in `archive/library/library-registry.json`. The source bodies themselves are private/local payloads, normally stored under `.mira-private/library/texts/`; this file records only metadata and logical text URIs.",
+        "",
+        "- Registry: `library-registry.json`",
+        f"- Text bodies indexed: {len(rows)}",
+        f"- Registry ID: `{registry.get('registry_id', '')}`",
+        "",
+        "| Source ID | Author | Registry title | Source coverage | Work / body | Body coverage | Edition | Language | License | Bytes | Text URI |",
+        "| --- | --- | --- | --- | --- | --- | --- | --- | --- | ---: | --- |",
+    ]
+    for row in rows:
+        lines.append(
+            f"| `{markdown_cell(row['source_id'])}` | {markdown_cell(row['author'])} | {markdown_cell(row['title'])} | {markdown_cell(row['source_coverage'])} | {markdown_cell(row['work'])} | {markdown_cell(row['body_coverage'])} | {markdown_cell(row['edition'])} | {markdown_cell(row['language'])} | {markdown_cell(row['license'])} | {markdown_cell(row['bytes'])} | `{markdown_cell(row['uri'])}` |"
+        )
+    return "\n".join(lines) + "\n"
 
 
 def validate_command(args: argparse.Namespace) -> dict[str, Any]:
@@ -545,6 +594,33 @@ def search_command(args: argparse.Namespace) -> dict[str, Any]:
         "type": args.type,
         "count": len(sources),
         "sources": sources,
+    }
+
+
+def render_index_command(args: argparse.Namespace) -> dict[str, Any]:
+    registry = load_registry()
+    failures = validate_registry(registry)
+    if failures:
+        raise LibraryError("; ".join(failures))
+    content = render_text_sources_index(registry)
+    path = TEXT_SOURCES_INDEX_PATH
+    existing = path.read_text(encoding="utf-8") if path.exists() else ""
+    would_update = existing != content
+    if args.check:
+        return {
+            "status": "passed" if not would_update else "failed",
+            "path": relative(path),
+            "text_bodies_indexed": content.count("\n| `"),
+            "would_update": would_update,
+            "index_updated": False,
+        }
+    path.write_text(content, encoding="utf-8")
+    return {
+        "status": "ok",
+        "path": relative(path),
+        "text_bodies_indexed": content.count("\n| `"),
+        "would_update": would_update,
+        "index_updated": would_update,
     }
 
 
@@ -776,6 +852,10 @@ def parser() -> argparse.ArgumentParser:
     search.add_argument("--type", choices=sorted(SOURCE_TYPES))
     search.add_argument("--json", action="store_true")
     search.set_defaults(handler=search_command)
+    render_index = sub.add_parser("render-index")
+    render_index.add_argument("--check", action="store_true")
+    render_index.add_argument("--json", action="store_true")
+    render_index.set_defaults(handler=render_index_command)
     locate = sub.add_parser("locate")
     locate.add_argument("source_id")
     locate.add_argument("--json", action="store_true")

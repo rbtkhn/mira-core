@@ -66,7 +66,7 @@ After every admission or correction, run:
 ```powershell
 tools\run.ps1 library verify-texts --json
 tools\run.ps1 library validate --json
-python -m pytest tests/test_archive_library.py
+tools\run.ps1 test --path tests/test_archive_library.py
 ```
 
 When staging or committing library work, compose through `mira-github` and stage

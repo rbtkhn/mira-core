@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import os
 import re
 import subprocess
 import sys
@@ -11,6 +12,16 @@ from typing import Callable, TextIO
 SCRIPTS_ROOT = Path(__file__).resolve().parent
 if str(SCRIPTS_ROOT) not in sys.path:
     sys.path.insert(0, str(SCRIPTS_ROOT))
+
+if __name__ == "__main__" and os.environ.get("MIRA_CORE_VALIDATION_BOOTSTRAPPED") != "1":
+    import runtime_bootstrap
+
+    python = runtime_bootstrap.resolve_validation_python()
+    if Path(sys.executable).resolve() != python.resolve():
+        environment = os.environ.copy()
+        environment["MIRA_CORE_VALIDATION_BOOTSTRAPPED"] = "1"
+        completed = subprocess.run([str(python), str(Path(__file__).resolve()), *sys.argv[1:]], env=environment)
+        raise SystemExit(completed.returncode)
 
 from codex_skill_registry import (
     DEPLOYABLE_SKILL_NAMES,

@@ -58,6 +58,7 @@ EXPECTED_SURFACES = {
     "intake-stats": "report_trim_stats.py",
     "innermost-loop-simulation": "innermost_loop_simulation.py",
     "issue-render": "render_daily_issue.py",
+    "library": "archive_library.py",
     "morning-brief": "morning_brief.py",
     "mira-continuity": "mira_continuity.py",
     "mira-mentor": "mentorship_ledger.py",
@@ -80,6 +81,7 @@ EXPECTED_SURFACES = {
     "session-preflight": "session_preflight.py",
     "skills-check": "check_codex_skills_sync.py",
     "skills-sync": "sync_codex_skills.py",
+    "skill-ablation": "skill_ablation.py",
     "source-topic-scan": "source_topic_scan.py",
     "synthesis": "geopolitical_synthesis.py",
     "system-archive": "system_archive.py",
@@ -1166,3 +1168,12 @@ def test_runtime_bootstrap_returns_validation_python_with_declared_dependencies(
         text=True,
     )
     assert probe.stdout.strip() == "ready"
+
+
+def test_direct_repository_validator_self_bootstraps_before_timezone_imports() -> None:
+    validator = (REPO_ROOT / "scripts" / "validate_repository.py").read_text(encoding="utf-8")
+    bootstrap_index = validator.index("runtime_bootstrap.resolve_validation_python")
+    journal_import_index = validator.index("import mira_journal")
+    assert bootstrap_index < journal_import_index
+    assert "MIRA_CORE_VALIDATION_BOOTSTRAPPED" in validator
+    assert "subprocess.run([str(python), str(Path(__file__).resolve()), *sys.argv[1:]], env=environment)" in validator
