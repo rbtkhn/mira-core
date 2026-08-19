@@ -4,7 +4,7 @@ This index routes the transcript-bearing upstream-parity corpus for `macgregor` 
 
 Source basis: `archive/sources/geopolitics/source-manifest.json`.
 
-Corpus: 92 local route rows across 92 central archive source files.
+Corpus: 93 local route rows across 93 central archive source files.
 
 Status: `transcript-bearing-upstream-parity`
 
@@ -116,6 +116,7 @@ Status: `transcript-bearing-upstream-parity`
 | `2026-08-06` | (1) Col Doug Macgregor: All Out War w/Iran Getting Unavoidable | `guest` | `daniel-davis` | [source](../../../archive/sources/geopolitics/sources/2026-08-06/source-1-col-doug-macgregor-all-out-war-w-iran-getting-unavoidable-2026-08-06.md) |
 | `2026-08-11` | (2) Col Doug Macgregor - Iran War: THE ART OF DEFEAT / We Have No Influence Over Iran | `host-pressure test` | `daniel-davis` | [source](../../../archive/sources/geopolitics/sources/2026-08-11/source-2-col-doug-macgregor-iran-war-the-art-of-defeat-we-have-no-influence-over-iran-2026-08-11.md) |
 | `2026-08-13` | (3) COL. Douglas Macgregor : Trump’s Dwindling Options | `guest` | `judging-freedom` | [source](../../../archive/sources/geopolitics/sources/2026-08-13/source-3-col-douglas-macgregor-trump-s-dwindling-options-2026-08-13.md) |
+| `2026-08-18` | (4) Col Douglas Macgregor: The Collision Course w/Iran, We're Making No Attempt to Avoid | `guest` | `daniel-davis` | [source](../../../archive/sources/geopolitics/sources/2026-08-18/source-4-col-douglas-macgregor-the-collision-course-w-iran-we-re-making-no-attempt-to-avoid-2026-08-18.md) |
 
 ## Import Boundary
 

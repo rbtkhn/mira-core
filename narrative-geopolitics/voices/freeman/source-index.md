@@ -4,7 +4,7 @@ This index routes the unified local Freeman corpus for `freeman` to the central 
 
 Source basis: `strategy-codex/statecraft/voices/freeman/freeman-index.md` plus already-local matching archive rows.
 
-Corpus: 163 local route rows across 163 central archive source files.
+Corpus: 164 local route rows across 164 central archive source files.
 
 Status: `imported-corpus`
 
@@ -182,6 +182,7 @@ Status: `imported-corpus`
 | `2026-08-11` | (2) AMB. Chas Freeman : New Middle East Alliance a Threat to Israel | `guest` | `judging-freedom` | [source](../../../archive/sources/geopolitics/sources/2026-08-11/source-2-amb-chas-freeman-new-middle-east-alliance-a-threat-to-israel-2026-08-11.md) |
 | `2026-08-12` | (3) Chas Freeman: How U.S. Decline Reshapes the Middle East | `guest` | `glenn-diesen` | [source](../../../archive/sources/geopolitics/sources/2026-08-12/source-3-chas-freeman-how-u-s-decline-reshapes-the-middle-east-2026-08-12.md) |
 | `2026-08-14` | (3) Amb. Chas Freeman: Panic in Tel Aviv: Iran's Military Rebuild Stuns Israel | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2026-08-14/source-3-amb-chas-freeman-panic-in-tel-aviv-iran-s-military-rebuild-stuns-israel-2026-08-14.md) |
+| `2026-08-18` | (4) AMB Chas Freeman : Is Israel’s Military Collapsing? | `guest` | `judging-freedom` | [source](../../../archive/sources/geopolitics/sources/2026-08-18/source-4-amb-chas-freeman-is-israel-s-military-collapsing-2026-08-18.md) |
 
 ## Import Boundary
 

@@ -4,7 +4,7 @@ This index routes the unified local Wilkerson corpus for `wilkerson` to the cent
 
 Source basis: `strategy-codex/statecraft/voices/wilkerson/wilkerson-index.md` plus already-local matching archive rows.
 
-Corpus: 109 local route rows across 109 central archive source files.
+Corpus: 110 local route rows across 110 central archive source files.
 
 Status: `imported-corpus`
 
@@ -128,6 +128,7 @@ Status: `imported-corpus`
 | `2026-08-07` | (1) Larry Johnson & Col. Larry Wilkerson: The Old Middle East Is DEAD | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2026-08-07/source-1-larry-johnson-col-larry-wilkerson-the-old-middle-east-is-dead-2026-08-07.md) |
 | `2026-08-11` | (2) Col. Larry Wilkerson: Yemen Just Struck a Major Blow Against the Saudis - Trump in Denial | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2026-08-11/source-2-col-larry-wilkerson-yemen-just-struck-a-major-blow-against-the-saudis-trump-in-denial-2026-08-11.md) |
 | `2026-08-12` | (3) COL. Lawrence Wilkerson : Is the US a Republic or an Empire? | `guest` | `judging-freedom` | [source](../../../archive/sources/geopolitics/sources/2026-08-12/source-3-col-lawrence-wilkerson-is-the-us-a-republic-or-an-empire-2026-08-12.md) |
+| `2026-08-18` | (4) Col. Larry Wilkerson: Iran Just Abandoned Its Defense Strategy–US Discussed NUCLEAR Option on Iran | `guest` | `nima-alkhorshid` | [source](../../../archive/sources/geopolitics/sources/2026-08-18/source-4-col-larry-wilkerson-iran-just-abandoned-its-defense-strategy-us-discussed-nuclear-option-on-iran-2026-08-18.md) |
 
 ## Import Boundary
 

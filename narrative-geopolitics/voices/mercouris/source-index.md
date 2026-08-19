@@ -4,7 +4,7 @@ This index routes the transcript-bearing upstream-parity corpus for `mercouris` 
 
 Source basis: `strategy-codex/statecraft/voices/mercouris/mercouris-index.md`, `strategy-codex/statecraft/channels/alexander-mercouris/alexander-mercouris-channel-index.md`, and subsequent local intake.
 
-Corpus: 393 local route rows across 393 central archive source files.
+Corpus: 395 local route rows across 395 central archive source files.
 
 Status: `transcript-bearing-upstream-parity`
 
@@ -417,6 +417,8 @@ Status: `transcript-bearing-upstream-parity`
 | `2026-08-16` | (4) Demand Destruction: The Real Energy Crisis Hitting Europe and Japan | `guest` | `the-duran` | [source](../../../archive/sources/geopolitics/sources/2026-08-16/source-4-demand-destruction-the-real-energy-crisis-hitting-europe-and-japan-2026-08-16.md) |
 | `2026-08-16` | (4) Russian Strikes Devastate Ukraine; Key Ukraine Refinery Smash Orekhov Falling; Zelensky UK/EU Panic | `guest` | `alexander-mercouris` | [source](../../../archive/sources/geopolitics/sources/2026-08-16/source-4-russian-strikes-devastate-ukraine-key-ukraine-refinery-smash-orekhov-falling-zelensky-uk-eu-panic-2026-08-16.md) |
 | `2026-08-17` | Russia Smashes Key Zaporozhzhie Dnieper Bridge; Starts Surrounding Kramatorsk; Kiev Protests Resume | `host monologue` | `alexander-mercouris` | [source](../../../archive/sources/geopolitics/sources/2026-08-17/source-russia-smashes-key-zaporozhzhie-dnieper-bridge-starts-surrounding-kramatorsk-kiev-protests-resume-2026-08-17.md) |
+| `2026-08-18` | (4) Kiev Reels; Russia Storms Both Orekhov Dobropilia;; Shoots Down 'Nearly All' Flamingoes; Wins Sky | `host monologue` | `alexander-mercouris` | [source](../../../archive/sources/geopolitics/sources/2026-08-18/source-4-kiev-reels-russia-storms-both-orekhov-dobropilia-shoots-down-nearly-all-flamingoes-wins-sky-2026-08-18.md) |
+| `2026-08-18` | (4) Ukraine Loses Black Sea Ports and Air Defense Options | `guest` | `the-duran` | [source](../../../archive/sources/geopolitics/sources/2026-08-18/source-4-ukraine-loses-black-sea-ports-and-air-defense-options-2026-08-18.md) |
 
 ## Judgment Continuity
 

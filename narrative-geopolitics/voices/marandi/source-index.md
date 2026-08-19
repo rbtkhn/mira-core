@@ -4,7 +4,7 @@ This index routes the imported first-slice parity corpus for `marandi` to the ce
 
 Source basis: `strategy-codex/statecraft/voices/marandi/marandi-index.md`.
 
-Corpus: 95 local route rows across 95 central archive source files.
+Corpus: 96 local route rows across 96 central archive source files.
 
 Status: `first-slice-parity`
 
@@ -119,6 +119,7 @@ Status: `first-slice-parity`
 | `2026-08-14` | (3) Prof. Mohammad Marandi : Trump’s War Achieved Nothing for the US | `guest` | `judging-freedom` | [source](../../../archive/sources/geopolitics/sources/2026-08-14/source-3-prof-mohammad-marandi-trump-s-war-achieved-nothing-for-the-us-2026-08-14.md) |
 | `2026-08-15` | (4) Seyed M. Marandi: US on Imminent Attack Alert - Hezbollah Delivers a Stunning Blow to IDF | `host-pressure test` | `nima-alkhorshid` | [source](../../../archive/sources/geopolitics/sources/2026-08-15/source-4-seyed-m-marandi-us-on-imminent-attack-alert-hezbollah-delivers-a-stunning-blow-to-idf-2026-08-15.md) |
 | `2026-08-16` | (4) Seyed M. Marandi: Iran & Yemen Unleash a New Offensive Strategy | `guest` | `glenn-diesen` | [source](../../../archive/sources/geopolitics/sources/2026-08-16/source-4-seyed-m-marandi-iran-yemen-unleash-a-new-offensive-strategy-2026-08-16.md) |
+| `2026-08-18` | (4) Seyed M. Marandi: 60-Day Deadline FAILS: Iran & US on the Brink of a NEW War | `host-pressure test` | `nima-alkhorshid` | [source](../../../archive/sources/geopolitics/sources/2026-08-18/source-4-seyed-m-marandi-60-day-deadline-fails-iran-us-on-the-brink-of-a-new-war-2026-08-18.md) |
 
 ## Import Boundary
 

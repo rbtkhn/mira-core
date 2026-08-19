@@ -2,7 +2,7 @@
   "manifest_id": "narrative-geopolitics-source-manifest-v1",
   "source_basis": "central archive with completed historical strategy-codex imports",
   "imported_at": "2026-07-09",
-  "source_count": 2167,
+  "source_count": 2178,
   "boundary": {
     "archive": "source truth",
     "voices": "voice continuity and routing",
@@ -58725,6 +58725,253 @@
       "inference_basis": [
         "wrapper-normalized",
         "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-18",
+      "title": "Iran's Strategy for the U.S. Midterms: Maximum Political Pressure on Trump",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-18/source-iran-s-strategy-for-the-u-s-midterms-maximum-political-pressure-on-trump-2026-08-18.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-18/source-iran-s-strategy-for-the-u-s-midterms-maximum-political-pressure-on-trump-2026-08-18.md",
+      "upstream_path": "operator-paste://2026-08-18/iran-s-strategy-for-the-u-s-midterms-maximum-political-pressure-on-trump",
+      "source_class": "authored",
+      "modality": "source-text",
+      "voice_slugs": [
+        "pape"
+      ],
+      "host_slug": "escalation-trap",
+      "source_identity": "https://escalationtrap.substack.com/p/irans-strategy-for-the-us-midterms",
+      "source_url": "https://escalationtrap.substack.com/p/irans-strategy-for-the-us-midterms",
+      "title_source": "operator",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-18",
+      "title": "(4) Kiev Reels; Russia Storms Both Orekhov Dobropilia;; Shoots Down 'Nearly All' Flamingoes; Wins Sky",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-18/source-4-kiev-reels-russia-storms-both-orekhov-dobropilia-shoots-down-nearly-all-flamingoes-wins-sky-2026-08-18.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-18/source-4-kiev-reels-russia-storms-both-orekhov-dobropilia-shoots-down-nearly-all-flamingoes-wins-sky-2026-08-18.md",
+      "upstream_path": "operator-paste://2026-08-18/4-kiev-reels-russia-storms-both-orekhov-dobropilia-shoots-down-nearly-all-flamingoes-wins-sky",
+      "source_class": "host monologue",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "alexander-mercouris",
+      "source_identity": "youtube:djqvxI5OGOE",
+      "source_url": "https://www.youtube.com/watch?v=djqvxI5OGOE",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-18",
+      "title": "(4) AMB Chas Freeman : Is Israel’s Military Collapsing?",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-18/source-4-amb-chas-freeman-is-israel-s-military-collapsing-2026-08-18.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-18/source-4-amb-chas-freeman-is-israel-s-military-collapsing-2026-08-18.md",
+      "upstream_path": "operator-paste://2026-08-18/4-amb-chas-freeman-is-israel-s-military-collapsing",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "freeman"
+      ],
+      "host_slug": "judging-freedom",
+      "source_identity": "youtube:cCO0GQHogGI",
+      "source_url": "https://www.youtube.com/watch?v=cCO0GQHogGI",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-18",
+      "title": "(4) Seyed M. Marandi: 60-Day Deadline FAILS: Iran & US on the Brink of a NEW War",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-18/source-4-seyed-m-marandi-60-day-deadline-fails-iran-us-on-the-brink-of-a-new-war-2026-08-18.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-18/source-4-seyed-m-marandi-60-day-deadline-fails-iran-us-on-the-brink-of-a-new-war-2026-08-18.md",
+      "upstream_path": "operator-paste://2026-08-18/4-seyed-m-marandi-60-day-deadline-fails-iran-us-on-the-brink-of-a-new-war",
+      "source_class": "host-pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "marandi"
+      ],
+      "host_slug": "nima-alkhorshid",
+      "source_identity": "youtube:nzwqpgpyAfo",
+      "source_url": "https://www.youtube.com/watch?v=nzwqpgpyAfo",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-18",
+      "title": "(4) Ukraine Loses Black Sea Ports and Air Defense Options",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-18/source-4-ukraine-loses-black-sea-ports-and-air-defense-options-2026-08-18.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-18/source-4-ukraine-loses-black-sea-ports-and-air-defense-options-2026-08-18.md",
+      "upstream_path": "operator-paste://2026-08-18/4-ukraine-loses-black-sea-ports-and-air-defense-options",
+      "source_class": "guest",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "the-duran",
+      "source_identity": "youtube:I0vyEpVgvxE",
+      "source_url": "https://www.youtube.com/watch?v=I0vyEpVgvxE",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-18",
+      "title": "(4) Prof. John Mearsheimer : Is Putin’s Patience Paying Off?",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-18/source-4-prof-john-mearsheimer-is-putin-s-patience-paying-off-2026-08-18.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-18/source-4-prof-john-mearsheimer-is-putin-s-patience-paying-off-2026-08-18.md",
+      "upstream_path": "operator-paste://2026-08-18/4-prof-john-mearsheimer-is-putin-s-patience-paying-off",
+      "source_class": "guest",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mearsheimer"
+      ],
+      "host_slug": "judging-freedom",
+      "source_identity": "youtube:a3EUFz_wpRI",
+      "source_url": "https://www.youtube.com/watch?v=a3EUFz_wpRI",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-18",
+      "title": "(4) Col. Larry Wilkerson: Iran Just Abandoned Its Defense Strategy–US Discussed NUCLEAR Option on Iran",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-18/source-4-col-larry-wilkerson-iran-just-abandoned-its-defense-strategy-us-discussed-nuclear-option-on-iran-2026-08-18.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-18/source-4-col-larry-wilkerson-iran-just-abandoned-its-defense-strategy-us-discussed-nuclear-option-on-iran-2026-08-18.md",
+      "upstream_path": "operator-paste://2026-08-18/4-col-larry-wilkerson-iran-just-abandoned-its-defense-strategy-us-discussed-nuclear-option-on-iran",
+      "source_class": "guest",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "wilkerson"
+      ],
+      "host_slug": "nima-alkhorshid",
+      "source_identity": "youtube:QhbeeXRykkY",
+      "source_url": "https://www.youtube.com/watch?v=QhbeeXRykkY",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-18",
+      "title": "(4) John Helmer: From \"Special Operation\" to a \"Full-Scale War\" in Ukraine",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-18/source-4-john-helmer-from-special-operation-to-a-full-scale-war-in-ukraine-2026-08-18.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-18/source-4-john-helmer-from-special-operation-to-a-full-scale-war-in-ukraine-2026-08-18.md",
+      "upstream_path": "operator-paste://2026-08-18/4-john-helmer-from-special-operation-to-a-full-scale-war-in-ukraine",
+      "source_class": "guest",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "helmer"
+      ],
+      "host_slug": "nima-alkhorshid",
+      "source_identity": "youtube:vVn_DdiBARM",
+      "source_url": "https://www.youtube.com/watch?v=vVn_DdiBARM",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-18",
+      "title": "(4) Col Douglas Macgregor: The Collision Course w/Iran, We're Making No Attempt to Avoid",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-18/source-4-col-douglas-macgregor-the-collision-course-w-iran-we-re-making-no-attempt-to-avoid-2026-08-18.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-18/source-4-col-douglas-macgregor-the-collision-course-w-iran-we-re-making-no-attempt-to-avoid-2026-08-18.md",
+      "upstream_path": "operator-paste://2026-08-18/4-col-douglas-macgregor-the-collision-course-w-iran-we-re-making-no-attempt-to-avoid",
+      "source_class": "guest",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "macgregor"
+      ],
+      "host_slug": "daniel-davis",
+      "source_identity": "youtube:Xsb7c4Htx20",
+      "source_url": "https://www.youtube.com/watch?v=Xsb7c4Htx20",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-18",
+      "title": "(4) BREAKING: IRAN STRIKE DUBAI? UAE STOP ALL FINANCIAL TRANSACTIONS WITH IRAN w/ Larry Johnson",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-18/source-4-breaking-iran-strike-dubai-uae-stop-all-financial-transactions-with-iran-w-larry-johnson-2026-08-18.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-18/source-4-breaking-iran-strike-dubai-uae-stop-all-financial-transactions-with-iran-w-larry-johnson-2026-08-18.md",
+      "upstream_path": "operator-paste://2026-08-18/4-breaking-iran-strike-dubai-uae-stop-all-financial-transactions-with-iran-w-larry-johnson",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "johnson"
+      ],
+      "host_slug": "moral-resistance",
+      "source_identity": "youtube:Lj-U_APJWxA",
+      "source_url": "https://www.youtube.com/watch?v=Lj-U_APJWxA",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-18",
+      "title": "Artificial Intelligence versus the OODA Loop",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-18/source-artificial-intelligence-versus-the-ooda-loop-2026-08-18.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-18/source-artificial-intelligence-versus-the-ooda-loop-2026-08-18.md",
+      "upstream_path": "operator-paste://2026-08-18/artificial-intelligence-versus-the-ooda-loop",
+      "source_class": "authored newsletter",
+      "modality": "substack-post",
+      "voice_slugs": [
+        "ritter"
+      ],
+      "host_slug": "ritter",
+      "source_identity": "https://scottritter.substack.com/p/artificial-intelligence-versus-the",
+      "source_url": "https://scottritter.substack.com/p/artificial-intelligence-versus-the",
+      "title_source": "operator",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
         "explicit-date-alias"
       ],
       "import_status": "imported"
