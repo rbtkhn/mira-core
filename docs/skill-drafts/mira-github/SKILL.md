@@ -312,8 +312,11 @@ current Codex process still sees a stale or invalid token. Treat operator
 terminal output as factual evidence about that shell, not proof that this
 process can push.
 
-When the operator shows successful `gh auth status` but this process still
-reports invalid auth:
+When the operator shows fresh successful GitHub authentication or a successful
+manual push from an interactive terminal, but this process still reports
+invalid auth, treat it as a credential-context split. Do not ask the operator
+to repeat a completed login until this ladder has been tried or a named step
+fails closed:
 
 1. Check the local credential context:
 
@@ -330,19 +333,48 @@ be inspected. Never capture, interpolate, or print token content. Report only
 `present` or `unavailable`; do not claim to distinguish a missing token from an
 inaccessible credential store.
 
-2. Try exactly one normal exact-refspec push if the branch, target SHA, LFS, and
-   dirty-tree exclusions are still safe.
-3. If that fails silently or with `401`, use exactly one elevated exact-refspec
-   push when credential/keyring access is the likely blocker.
-4. Verify success with:
+2. Separate the two auth channels in the status report:
+   - `gh-auth`: whether GitHub CLI can access a token in this process.
+   - `git-https-auth`: whether Git itself can authenticate the exact remote
+     operation.
+   A failing `gh auth status` is not, by itself, proof that Git HTTPS push is
+   impossible after the operator has just authenticated in another shell.
+3. Reconfirm the exact branch, target SHA, target ref, upstream divergence, LFS
+   readiness, and dirty-tree exclusions. Use a full-SHA refspec for assistant
+   attempts:
+
+```powershell
+git push <remote> <full-source-sha>:refs/heads/<branch>
+```
+
+4. Try exactly one normal exact-refspec push if the branch, target SHA, LFS, and
+   dirty-tree exclusions are still safe. Do this even when `gh-auth` is invalid
+   if the operator has provided fresh successful terminal authentication and
+   `git-https-auth` has not yet been tested in this process.
+5. If that fails silently, with `401`, or with a Windows credential error such
+   as `SEC_E_NO_CREDENTIALS`, use exactly one elevated exact-refspec push when
+   credential/keyring access is the likely blocker.
+6. If the operator performs the exact push manually and supplies terminal
+   output, treat that output as factual evidence of the other shell's result.
+   Verify from this process by the best available non-mutating route:
+   first `git fetch --no-tags <remote> <branch>`, then
+   `git rev-parse <remote>/<branch>` and path/tree inspection. Use
+   `git ls-remote --heads <remote> <branch>` only when credentials are
+   available in this process.
+7. Verify assistant-executed success with:
 
 ```powershell
 git ls-remote --heads origin <branch>
 ```
 
-5. If elevated push fails or approval is unavailable, stop with a resumption
+If `ls-remote` fails after a credible manual push but fetch updates the
+remote-tracking branch to the expected SHA, do not report the push as failed;
+report the verification split and name which proof was available.
+
+8. If elevated push fails or approval is unavailable, stop with a resumption
    packet telling the operator to `cd` to the repository and run the exact
-   refspec manually.
+   refspec manually. Include the exact full-SHA refspec rather than a broad
+   branch push whenever a single target commit was already selected.
 
 Do not repeat login loops, change credential helpers globally, erase tokens,
 force-push, or broaden the target branch to work around a credential-context

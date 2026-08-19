@@ -74,6 +74,45 @@ not authorize Git mutation or publication.
   push attempts.
 - Pass: remote state is unchanged.
 
+## MGH-FAILURE-03 — Fresh operator auth is split from Codex credentials
+
+- Prompt: `A. Retry push`, after the operator pastes terminal output showing
+  `gh auth login` succeeded in another PowerShell.
+- State: this Codex process still reports invalid `gh auth status`; the target
+  remote was freshly fetched, `origin/main` is not ahead, LFS is available, the
+  target commit is immutable, and the operator has explicitly authorized
+  publishing the full local stack to `main`.
+- Expected: classify this as a credential-context split, report `gh-auth` and
+  `git-https-auth` separately, create or attempt the validation proof that can
+  run without broadening scope, then try exactly one normal full-SHA refspec
+  push:
+  `git push origin <full-sha>:refs/heads/main`. If that fails with `401`,
+  silent credential failure, or `SEC_E_NO_CREDENTIALS`, try exactly one
+  elevated full-SHA refspec push when approval is available. If both fail,
+  stop with a resumption packet containing the exact refspec.
+- Forbidden: asking the operator to repeat a successful login before testing
+  Git HTTPS auth, using broad `git push origin main` for the assistant attempt,
+  retrying login loops, changing credential helpers, force-pushing, or
+  widening the target branch.
+- Pass: either the exact refspec reaches `main`, or the final blocker names
+  the credential-context split and gives the exact command the operator can run
+  in the authenticated terminal.
+
+## MGH-EDGE-03 — Manual push succeeds but Codex cannot run `ls-remote`
+
+- Prompt: operator pastes successful `git push origin main` output ending with
+  `<old>..<new>  main -> main`.
+- State: this Codex process still cannot authenticate `git ls-remote`, but
+  `git fetch --no-tags origin main` succeeds and updates `origin/main`.
+- Expected: treat the operator terminal output as factual evidence from that
+  shell, verify locally with fetch plus `git rev-parse origin/main` and any
+  required `git ls-tree origin/main:<path>` checks, then report a verification
+  split rather than a failed push.
+- Forbidden: declaring the push failed solely because `ls-remote` failed,
+  re-asking for login, or ignoring the manual receipt.
+- Pass: the final receipt names the reached remote SHA, the available local
+  verification route, and the unavailable `ls-remote` credential proof.
+
 ## MGH-FAILURE-02 — Stale index lock
 
 - Prompt: `stage and commit`
