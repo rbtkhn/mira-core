@@ -623,8 +623,8 @@
           "status": "available"
         }
       ],
-      "coverage_status": "selected-works",
-      "coverage_notes": "Portable store includes Project Gutenberg English bodies for Germany/Agricola, the first six Annals as The Reign of Tiberius, Histories, and Dialogue Concerning Oratory, plus Perseus canonical LatinLit Latin XML bodies for Agricola, Germania, Dialogus, Historiae, and a locally normalized Annales body whose unresolved dagger and mdash entity references were replaced with Unicode characters. This is a strong selected-works set, not a complete surviving Tacitean corpus claim."
+      "coverage_status": "principal-works",
+      "coverage_notes": "Portable store includes the registry-principal Tacitus works Annals, Histories, and Germania in public-domain English where available, plus Latin bodies for Agricola, Germania, Dialogus, Historiae, and Annales. This is sufficient principal-works coverage for the current source-authority record, not a complete Tacitean corpus claim."
     },
     {
       "source_id": "LIB-ANCIENT-AUTHOR-008-CONFUCIUS-KONGZI",
@@ -789,7 +789,26 @@
       },
       "status": "stub",
       "notes": "Corporate textual authority; India MEM describes the Vedas as ritual and liturgical foundation.",
-      "text_status": "missing"
+      "text_status": "available",
+      "text_bodies": [
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-011-VEDIC-SEER-TRADITION-VEDIC-HYMNS-SELECTIONS-GUTENBERG-12894",
+          "work_title": "Vedic Hymns (Selections)",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-011-VEDIC-SEER-TRADITION-VEDIC-HYMNS-SELECTIONS-GUTENBERG-12894.txt",
+          "text_sha256": "7e2a7bb1a9d1d1047c8a96904d2929369cfb249da9f89042cd458899f4b5a64b",
+          "text_bytes": 1048522,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "",
+          "editor": "",
+          "edition_label": "Project Gutenberg #12894, Sacred Books of the East, edited by Epiphanius Wilson, 1900; updated 2024",
+          "license_status": "public-domain",
+          "license_notes": "",
+          "status": "available"
+        }
+      ],
+      "coverage_status": "selected-works",
+      "coverage_notes": "Portable store includes Project Gutenberg #12894, Sacred Books of the East, containing English selections from the Vedic Hymns. A clean single-file full Rig Veda candidate was not admitted in this pass; this remains useful seed coverage only, not sufficient principal-work coverage for the Vedas as a source-authority record."
     },
     {
       "source_id": "LIB-ANCIENT-AUTHOR-012-UPANISHADIC-TRADITION",
@@ -951,8 +970,43 @@
         "body_imported": false
       },
       "status": "stub",
-      "notes": "Corporate textual authority; Persia ARC admits Avesta/Gathas as ARC-T-ANCIENT sacred texts.",
-      "text_status": "missing"
+      "notes": "Corporate textual authority; Persia ARC admits Avesta/Gathas as ARC-T-ANCIENT sacred texts. Portable store includes anthology selections plus Zend-Avesta Part I / Vendidad; broader Avesta coverage remains incomplete.",
+      "text_status": "available",
+      "text_bodies": [
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-015-AVESTAN-GATHIC-TRADITION-ZEND-AVESTA-SELECTIONS-GUTENBERG-12894",
+          "work_title": "Zend-Avesta (Selections)",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-015-AVESTAN-GATHIC-TRADITION-ZEND-AVESTA-SELECTIONS-GUTENBERG-12894.txt",
+          "text_sha256": "7e2a7bb1a9d1d1047c8a96904d2929369cfb249da9f89042cd458899f4b5a64b",
+          "text_bytes": 1048522,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "",
+          "editor": "",
+          "edition_label": "Project Gutenberg #12894, Sacred Books of the East, edited by Epiphanius Wilson, 1900; updated 2024",
+          "license_status": "public-domain",
+          "license_notes": "",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-015-AVESTAN-GATHIC-TRADITION-ZEND-AVESTA-PART-1-VENDIDAD-DARMESTETER-SACRED-TEXTS",
+          "work_title": "The Zend-Avesta, Part I: The Vendidad",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-015-AVESTAN-GATHIC-TRADITION-ZEND-AVESTA-PART-1-VENDIDAD-DARMESTETER-SACRED-TEXTS.txt",
+          "text_sha256": "4c0db6d9977cc906ef00077c8266b07a359d8a88e823a39eeeb530b66fc00822",
+          "text_bytes": 608143,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "James Darmesteter",
+          "editor": "Internet Sacred Text Archive transcription",
+          "edition_label": "Internet Sacred Text Archive transcription; James Darmesteter translation; Sacred Books of the East Volume 4",
+          "license_status": "public-domain",
+          "license_notes": "Sacred Texts page states the underlying 1880 public-domain text is public domain in the United States and asks attribution/non-commercial reuse; retained here as local/private portable reading text with provenance note.",
+          "status": "available",
+          "notes": "Cleaned local body: stripped Sacred Texts navigation/header/footer residue while preserving text, notes, and local source-page provenance."
+        }
+      ],
+      "coverage_status": "selected-works",
+      "coverage_notes": "Portable store includes Project Gutenberg #12894 selections from the Zend-Avesta and the Sacred Texts transcription of James Darmesteter's Zend-Avesta Part I / Vendidad from Sacred Books of the East Volume 4. Because the Avesta record is broader than Vendidad and a separate Zarathustra/Gathas record carries Gathas coverage, this remains improved selected Avesta coverage, not complete Avesta or full Gathic-tradition coverage."
     },
     {
       "source_id": "LIB-ANCIENT-AUTHOR-016-CYRUS-II-ACHAEMENID-CHANCERY",
@@ -1250,7 +1304,26 @@
       },
       "status": "stub",
       "notes": "China ARC Later Han source; within Mira Ancient boundary.",
-      "text_status": "missing"
+      "text_status": "available",
+      "text_bodies": [
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-022-FAN-YE-HOU-HANSHU-CHINESE-ZH-WIKISOURCE",
+          "work_title": "Hou Hanshu / Book of the Later Han",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-022-FAN-YE-HOU-HANSHU-CHINESE-ZH-WIKISOURCE.txt",
+          "text_sha256": "efacd617fcc49878235bbd25f8dbf50ec43d6a15df464f989b8f4a4a73d3ab0a",
+          "text_bytes": 3044943,
+          "text_encoding": "utf-8",
+          "language": "chinese",
+          "translator": "",
+          "editor": "",
+          "edition_label": "zh.Wikisource 後漢書 linked subpages, raw wikitext extraction, original Chinese, CC BY-SA text",
+          "license_status": "open-license",
+          "license_notes": "zh.Wikisource text available under CC BY-SA terms; underlying premodern text is public domain. Extracted from linked raw wikitext subpages for local/private portable reading.",
+          "status": "available"
+        }
+      ],
+      "coverage_status": "principal-work",
+      "coverage_notes": "Portable store includes an original-language Chinese zh.Wikisource Hou Hanshu body built from the main 後漢書 table of contents and 131 linked subpages, through raw wikitext extraction. This is a complete Wikisource table-of-contents capture including traditional appended treatises where present, but it is not a modern critical edition or English translation claim."
     },
     {
       "source_id": "LIB-ANCIENT-AUTHOR-023-CHEN-SHOU",
@@ -1339,7 +1412,9 @@
           "license_notes": "Project Gutenberg public-domain text in the United States",
           "status": "available"
         }
-      ]
+      ],
+      "coverage_status": "principal-work",
+      "coverage_notes": "Portable store includes the Project Gutenberg Chinese text of the Yijing / Book of Changes, the principal work represented by this source-authority record. English translation remains missing."
     },
     {
       "source_id": "LIB-ANCIENT-AUTHOR-025-SHUJING-TRADITION",
@@ -1366,7 +1441,26 @@
       },
       "status": "stub",
       "notes": "Corporate textual authority; China ARC and Zhou MEM preserve Book of Documents.",
-      "text_status": "missing"
+      "text_status": "available",
+      "text_bodies": [
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-025-SHUJING-TRADITION-SHUJING-CHINESE-ZH-WIKISOURCE",
+          "work_title": "Shujing / Shang Shu / Book of Documents",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-025-SHUJING-TRADITION-SHUJING-CHINESE-ZH-WIKISOURCE.txt",
+          "text_sha256": "a2689556f3fe9f8db7c2a3fb61321af808ca38bfbf69838c978169dfcde2eca4",
+          "text_bytes": 126907,
+          "text_encoding": "utf-8",
+          "language": "chinese",
+          "translator": "",
+          "editor": "",
+          "edition_label": "zh.Wikisource 尚書 linked subpages, raw wikitext extraction, original Chinese, CC BY-SA text",
+          "license_status": "open-license",
+          "license_notes": "zh.Wikisource text available under CC BY-SA terms; underlying ancient text is public domain. Extracted from linked raw wikitext subpages for local/private portable reading.",
+          "status": "available"
+        }
+      ],
+      "coverage_status": "principal-work",
+      "coverage_notes": "Portable store includes an original-language Chinese zh.Wikisource Shujing/Shang Shu body built from the main 尚書 table of contents and 68 linked subpages, through raw wikitext extraction. This is a principal-work Chinese reading body with later textual layers represented by the Wikisource table of contents, not an English translation or critical edition claim."
     },
     {
       "source_id": "LIB-ANCIENT-AUTHOR-026-SHIJING-TRADITION",
@@ -1409,7 +1503,9 @@
           "license_notes": "Project Gutenberg public-domain text in the United States",
           "status": "available"
         }
-      ]
+      ],
+      "coverage_status": "principal-work",
+      "coverage_notes": "Portable store includes James Legge's English translation of the Shijing / Book of Odes, the principal work represented by this source-authority record. Original Chinese coverage remains missing."
     },
     {
       "source_id": "LIB-ANCIENT-AUTHOR-027-THUCYDIDES",
@@ -1685,7 +1781,56 @@
       },
       "status": "stub",
       "notes": "ARC authority across Rome, Persia, and France/Gaul memory.",
-      "text_status": "missing"
+      "text_status": "available",
+      "text_bodies": [
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-030-DIODORUS-SICULUS-BIBLIOTHECA-HISTORICA-BOOKS-1-5-GREEK-PERSEUS-GRC5",
+          "work_title": "Bibliotheca Historica, Books 1-5",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-030-DIODORUS-SICULUS-BIBLIOTHECA-HISTORICA-BOOKS-1-5-GREEK-PERSEUS-GRC5.xml",
+          "text_sha256": "6649e29314c780bcb89580e17fe9d6984e8f9c74cbebf5f8ada4ef43e935c76a",
+          "text_bytes": 1951966,
+          "text_encoding": "utf-8",
+          "language": "ancient greek",
+          "translator": "",
+          "editor": "",
+          "edition_label": "Perseus canonical-greekLit tlg0060.tlg001.perseus-grc5, Greek TEI XML, CC BY-SA 4.0",
+          "license_status": "open-license",
+          "license_notes": "",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-030-DIODORUS-SICULUS-BIBLIOTHECA-HISTORICA-BOOKS-11-17-GREEK-PERSEUS-GRC4",
+          "work_title": "Bibliotheca Historica, Books 11-17",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-030-DIODORUS-SICULUS-BIBLIOTHECA-HISTORICA-BOOKS-11-17-GREEK-PERSEUS-GRC4.xml",
+          "text_sha256": "c09e8888d52a4c0504a3a9f9985644f2d03927bacfd4bb5e6aec6307f5b1bc8c",
+          "text_bytes": 3066599,
+          "text_encoding": "utf-8",
+          "language": "ancient greek",
+          "translator": "",
+          "editor": "",
+          "edition_label": "Perseus canonical-greekLit tlg0060.tlg001.perseus-grc4, Greek TEI XML, CC BY-SA 4.0",
+          "license_status": "open-license",
+          "license_notes": "",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-030-DIODORUS-SICULUS-BIBLIOTHECA-HISTORICA-BOOKS-18-20-GREEK-PERSEUS-GRC6",
+          "work_title": "Bibliotheca Historica, Books 18-20",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-030-DIODORUS-SICULUS-BIBLIOTHECA-HISTORICA-BOOKS-18-20-GREEK-PERSEUS-GRC6.xml",
+          "text_sha256": "f82a67cfe993696e726e822947c44d34ae43a93109a7647bae0069732814b145",
+          "text_bytes": 1330609,
+          "text_encoding": "utf-8",
+          "language": "ancient greek",
+          "translator": "",
+          "editor": "",
+          "edition_label": "Perseus canonical-greekLit tlg0060.tlg001.perseus-grc6, Greek TEI XML, CC BY-SA 4.0",
+          "license_status": "open-license",
+          "license_notes": "",
+          "status": "available"
+        }
+      ],
+      "coverage_status": "principal-work",
+      "coverage_notes": "Portable store includes Perseus canonical GreekLit Greek XML bodies for Bibliotheca Historica Books 1-5, 11-17, and 18-20, the major surviving book ranges represented in this source-authority record. This is not a complete original forty-book corpus claim."
     },
     {
       "source_id": "LIB-ANCIENT-AUTHOR-031-DIONYSIUS-OF-HALICARNASSUS",
@@ -1711,7 +1856,26 @@
       },
       "status": "stub",
       "notes": "Rome ARC source for Roman antiquarian memory.",
-      "text_status": "missing"
+      "text_status": "available",
+      "text_bodies": [
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-031-DIONYSIUS-OF-HALICARNASSUS-ROMAN-ANTIQUITIES-GREEK-PERSEUS-GRC2",
+          "work_title": "Roman Antiquities",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-031-DIONYSIUS-OF-HALICARNASSUS-ROMAN-ANTIQUITIES-GREEK-PERSEUS-GRC2.xml",
+          "text_sha256": "d038f079b5aeb57d85d0da26517c749a88a659092d3d1619a7eee083bbe38f22",
+          "text_bytes": 4424283,
+          "text_encoding": "utf-8",
+          "language": "ancient greek",
+          "translator": "",
+          "editor": "",
+          "edition_label": "Perseus canonical-greekLit tlg0081.tlg001.perseus-grc2, Greek TEI XML, CC BY-SA 4.0",
+          "license_status": "open-license",
+          "license_notes": "",
+          "status": "available"
+        }
+      ],
+      "coverage_status": "principal-work",
+      "coverage_notes": "Portable store includes Perseus canonical GreekLit Greek XML for Roman Antiquities, the principal work represented by this source-authority record."
     },
     {
       "source_id": "LIB-ANCIENT-AUTHOR-032-PLUTARCH",
@@ -1756,7 +1920,9 @@
           "license_notes": "Project Gutenberg public-domain text in the United States",
           "status": "available"
         }
-      ]
+      ],
+      "coverage_status": "principal-work",
+      "coverage_notes": "Portable store includes Plutarch's Lives in the Clough-edited Dryden English translation. This covers the principal Parallel Lives body used for the source-authority record, not Plutarch's complete surviving corpus."
     },
     {
       "source_id": "LIB-ANCIENT-AUTHOR-033-ARRIAN",
@@ -1785,7 +1951,7 @@
         "body_imported": false
       },
       "status": "stub",
-      "notes": "Persia ARC [5], India ARC, and Rome ARC source for Alexander and India interface. Portable store includes Project Gutenberg #46976, E. J. Chinnock's English translation of The Anabasis of Alexander. This is a principal-work admission; Indica remains missing.",
+      "notes": "Persia ARC [5], India ARC, and Rome ARC source for Alexander and India interface. Portable store includes Anabasis in English and Indica in Greek, covering the registry-principal works for this source-authority record.",
       "text_status": "available",
       "text_bodies": [
         {
@@ -1802,8 +1968,25 @@
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg public-domain text in the United States",
           "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-033-ARRIAN-INDICA-GREEK-PERSEUS-GRC1",
+          "work_title": "Indica",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-033-ARRIAN-INDICA-GREEK-PERSEUS-GRC1.xml",
+          "text_sha256": "6481cd6e02592a5b1a6b681f53d98a8b0ee9c240f3369a3a435c3393c421a58e",
+          "text_bytes": 192478,
+          "text_encoding": "utf-8",
+          "language": "ancient greek",
+          "translator": "",
+          "editor": "Rudolf Hercher; Alfred Eberhard",
+          "edition_label": "Perseus Greek text; Arriani Nicomediensis Scripta Minora, Hercher/Eberhard, Teubner 1885",
+          "license_status": "open-license",
+          "license_notes": "Perseus open-license Greek text; generated as local chapter concatenation from Perseus xmlchunk retrieval for portable offline use.",
+          "status": "available"
         }
-      ]
+      ],
+      "coverage_status": "principal-works",
+      "coverage_notes": "Portable store includes Anabasis of Alexander in E. J. Chinnock's public-domain English translation and Indica in Perseus Greek text from Arriani Nicomediensis Scripta Minora. This now covers the registry-principal Arrian works, while remaining short of a complete Arrian corpus claim."
     },
     {
       "source_id": "LIB-ANCIENT-AUTHOR-034-CICERO",
@@ -2027,7 +2210,9 @@
           "license_notes": "Project Gutenberg public-domain text in the United States",
           "status": "available"
         }
-      ]
+      ],
+      "coverage_status": "selected-works",
+      "coverage_notes": "Portable store includes a strong selected-works Cicero shelf across orations, letters, and philosophical/political works, with both Latin and English bodies. This is sufficient seed coverage for offline use, but not a complete surviving Cicero corpus claim."
     },
     {
       "source_id": "LIB-ANCIENT-AUTHOR-035-LIVY",
@@ -2319,7 +2504,9 @@
           "license_notes": "Project Gutenberg public-domain text in the United States",
           "status": "available"
         }
-      ]
+      ],
+      "coverage_status": "complete-surviving-corpus",
+      "coverage_notes": "Portable store includes all six Project Gutenberg volumes of the Bostock/Riley English translation of Natural History, covering the complete surviving Natural History corpus represented by this source-authority record. Original Latin coverage remains missing."
     },
     {
       "source_id": "LIB-ANCIENT-AUTHOR-038-SUETONIUS",
@@ -3342,7 +3529,7 @@
         }
       ],
       "coverage_status": "selected-works",
-      "coverage_notes": "Portable store includes a fuller Project Gutenberg/Jowett English Plato shelf plus Perseus canonical GreekLit Greek XML bodies for the mirrored selected-dialogue set, including Republic, Laws, Timaeus, Critias, Phaedo, Symposium, Phaedrus, Gorgias, Meno, and related dialogues. This remains selected works, not a complete scholarly Plato corpus."
+      "coverage_notes": "Portable store includes a large Jowett English and Burnet Greek selected-dialogue shelf, including Republic, Laws, Timaeus, Critias, Phaedo, Symposium, Phaedrus, Gorgias, Meno, and related dialogues. This is sufficient seed coverage for offline use, while remaining selected works rather than a complete scholarly Plato corpus."
     },
     {
       "source_id": "LIB-ANCIENT-AUTHOR-041-ARISTOTLE",
@@ -3522,7 +3709,7 @@
         }
       ],
       "coverage_status": "selected-works",
-      "coverage_notes": "Portable store includes selected public-domain English Aristotle works plus Perseus canonical GreekLit Greek XML bodies for Politics, Nicomachean Ethics, Poetics, and Constitution of the Athenians. This is selected works, not a complete surviving Aristotelian corpus."
+      "coverage_notes": "Portable store includes selected public-domain English Aristotle works plus Greek bodies for Politics, Nicomachean Ethics, Poetics, and Constitution of the Athenians. This is sufficient seed coverage for offline use, while remaining selected works rather than a complete surviving Aristotelian corpus."
     },
     {
       "source_id": "LIB-ANCIENT-AUTHOR-042-SOPHOCLES",
@@ -3910,8 +4097,27 @@
         "body_imported": false
       },
       "status": "stub",
-      "notes": "Germany and Russia ARC authority for ancient geographic knowledge.",
-      "text_status": "missing"
+      "notes": "Germany and Russia ARC authority for ancient geographic knowledge. Portable store now includes partial public-domain English Geography coverage from LacusCurtius/Stevenson; full clean Geography coverage remains a future target.",
+      "text_status": "available",
+      "coverage_status": "selected-works",
+      "coverage_notes": "Portable store includes a LacusCurtius public-domain transcription of Edward Luther Stevenson's 1932 English translation for partial Geography Books II-V chapter coverage. A clean full Geography body was not located in this pass; the rejected full IA OCR candidate was too noisy. This remains selected/partial coverage only and is explicitly not a reliable scholarly translation.",
+      "text_bodies": [
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-045-PTOLEMY-GEOGRAPHY-PARTIAL-STEVENSON-LACUSCURTIUS",
+          "work_title": "Geography (partial Books II-V)",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-045-PTOLEMY-GEOGRAPHY-PARTIAL-STEVENSON-LACUSCURTIUS.txt",
+          "text_sha256": "37ed59ab165724a56249cdbd2ed511f1087df372315dc6711e79af34cc5f6e34",
+          "text_bytes": 85742,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "Edward Luther Stevenson",
+          "editor": "Bill Thayer / LacusCurtius transcription",
+          "edition_label": "LacusCurtius public-domain transcription of Edward Luther Stevenson translation, 1932; partial Books II-V",
+          "license_status": "public-domain",
+          "license_notes": "LacusCurtius marks single-star Ptolemy Geography pages as public domain; transcription is partial and carries the site editor's warning about Stevenson translation quality.",
+          "status": "available"
+        }
+      ]
     },
     {
       "source_id": "LIB-ANCIENT-AUTHOR-046-AMMIANUS-MARCELLINUS",
@@ -3962,7 +4168,9 @@
           "license_notes": "Project Gutenberg public-domain text in the United States",
           "status": "available"
         }
-      ]
+      ],
+      "coverage_status": "principal-work",
+      "coverage_notes": "Portable store includes Charles Duke Yonge's English translation of The Roman History of Ammianus Marcellinus, covering the extant Res Gestae body represented by this source-authority record. Original Latin coverage remains missing."
     },
     {
       "source_id": "LIB-ANCIENT-AUTHOR-047-JOSEPHUS",
@@ -4020,7 +4228,9 @@
           "license_notes": "Project Gutenberg public-domain text in the United States",
           "status": "available"
         }
-      ]
+      ],
+      "coverage_status": "principal-works",
+      "coverage_notes": "Portable store includes William Whiston's English translations of Antiquities of the Jews and The Wars of the Jews, the registry's principal Josephus works. This is not a complete Josephus corpus claim."
     },
     {
       "source_id": "LIB-ANCIENT-AUTHOR-048-EUSEBIUS-OF-CAESAREA",
@@ -4046,7 +4256,26 @@
       },
       "status": "stub",
       "notes": "Rome ARC source for Christian imperial memory before the 476 boundary. No clean public-domain text body was admitted in the 2026-08-18 historian batch; keep text_status missing until a stable Ecclesiastical History body is inspected.",
-      "text_status": "missing"
+      "text_status": "available",
+      "text_bodies": [
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-048-EUSEBIUS-OF-CAESAREA-ECCLESIASTICAL-HISTORY-GREEK-PERSEUS-GRC2",
+          "work_title": "Ecclesiastical History",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-048-EUSEBIUS-OF-CAESAREA-ECCLESIASTICAL-HISTORY-GREEK-PERSEUS-GRC2.xml",
+          "text_sha256": "cfca94f0d62ca0981606882a20e8038aaafbf8d0bb91bae18d3e0a977ad0a573",
+          "text_bytes": 1678894,
+          "text_encoding": "utf-8",
+          "language": "ancient greek",
+          "translator": "",
+          "editor": "",
+          "edition_label": "Perseus canonical-greekLit tlg2018.tlg002.perseus-grc2, Greek TEI XML, CC BY-SA 4.0",
+          "license_status": "open-license",
+          "license_notes": "",
+          "status": "available"
+        }
+      ],
+      "coverage_status": "principal-work",
+      "coverage_notes": "Portable store includes Perseus canonical GreekLit Greek XML for Ecclesiastical History, the principal work represented by this source-authority record."
     },
     {
       "source_id": "LIB-ANCIENT-AUTHOR-049-AURELIUS-VICTOR",
@@ -4072,7 +4301,26 @@
       },
       "status": "stub",
       "notes": "Rome ARC late ancient imperial source.",
-      "text_status": "missing"
+      "text_status": "available",
+      "text_bodies": [
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-049-AURELIUS-VICTOR-LIBER-DE-CAESARIBUS-LATIN-WIKISOURCE-PROVENANCE-LIMITED",
+          "work_title": "Liber de Caesaribus",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-049-AURELIUS-VICTOR-LIBER-DE-CAESARIBUS-LATIN-WIKISOURCE-PROVENANCE-LIMITED.txt",
+          "text_sha256": "d80e253f083ddbe446e326dc82cfd46ccc3505ff5205c9520719f0b3cd78db3a",
+          "text_bytes": 82327,
+          "text_encoding": "utf-8",
+          "language": "latin",
+          "translator": "",
+          "editor": "",
+          "edition_label": "Latin Wikisource Liber de Caesaribus; editio incognita; fons incognitus; CC BY-SA text, provenance-limited",
+          "license_status": "open-license",
+          "license_notes": "Latin Wikisource text available under CC BY-SA terms; the source page states editio incognita and fons incognitus, so this is provenance-limited and not a verified critical edition.",
+          "status": "available"
+        }
+      ],
+      "coverage_status": "principal-work",
+      "coverage_notes": "Portable store includes Latin Wikisource Liber de Caesaribus fetched through MediaWiki API wikitext. The source page states editio incognita and fons incognitus; this body is useful for portable reading but remains provenance-limited, not a verified critical edition or a complete Aurelius Victor corpus claim."
     },
     {
       "source_id": "LIB-ANCIENT-AUTHOR-050-EUTROPIUS",
@@ -4118,6 +4366,339 @@
       ],
       "coverage_status": "principal-work",
       "coverage_notes": "Portable store includes Project Gutenberg #50808, an English J. C. Hazzard school edition of Eutropius / Breviarium, the principal work represented by this source-authority record. This is not a raw Latin critical text claim."
+    },
+    {
+      "source_id": "LIB-ANCIENT-AUTHOR-051-BIBLICAL-TRADITION",
+      "title": "Hebrew Bible / Old Testament; New Testament",
+      "author": "Biblical textual tradition",
+      "subject_era": "ancient",
+      "source_composition_era": "ancient",
+      "edition_era": "digital",
+      "secondary_eras": [
+        "medieval",
+        "colonial",
+        "industrial",
+        "digital"
+      ],
+      "date_start": -1200,
+      "date_end": 150,
+      "date_label": "Composite ancient textual tradition, with later canonization and transmission",
+      "era_basis": "multi_period",
+      "civilization_tags": [
+        "israel",
+        "levant",
+        "rome",
+        "greece"
+      ],
+      "source_type": "religious",
+      "location": "Curated Mira Library source-authority; body-level provenance required",
+      "status": "stub",
+      "notes": "Corporate textual authority for biblical canon and transmission; body records must distinguish canon, language, edition, and textual witness.",
+      "text_status": "available",
+      "text_bodies": [
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-051-BIBLICAL-TRADITION-KJV-COMPLETE-GUTENBERG-30",
+          "work_title": "The Bible, King James Version, Complete",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-051-BIBLICAL-TRADITION-KJV-COMPLETE-GUTENBERG-30.txt",
+          "text_sha256": "dfed950e8e6719a2536a9e70a171a4addb3093e024acc1cfc0c7d3bdc7ed9d76",
+          "text_bytes": 4644737,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "",
+          "editor": "",
+          "edition_label": "Project Gutenberg #30, The Bible, King James Version, Complete; 66-book public-domain KJV text, updated 2024",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg public-domain text in the United States; preserve Gutenberg license/header when redistributing.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-051-BIBLICAL-TRADITION-WLC-HEBREW-BIBLE-TEXT-ONLY-EBIBLE",
+          "work_title": "Hebrew Bible / Westminster Leningrad Codex",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-051-BIBLICAL-TRADITION-WLC-HEBREW-BIBLE-TEXT-ONLY-EBIBLE.txt",
+          "text_sha256": "106ec27d0de5332ba08335ea192246447f0d2676177cabab2acd95032c1381f5",
+          "text_bytes": 5468063,
+          "text_encoding": "utf-8",
+          "language": "hebrew; biblical aramaic",
+          "translator": "",
+          "editor": "",
+          "edition_label": "eBible hboWLC USFM package, text-only derivative prepared by Mira Core; inline Strong's and x-morph annotations removed",
+          "license_status": "public-domain",
+          "license_notes": "eBible identifies the WLC text as public domain; Mira Core admitted a text-only derivative with inline Strong's and x-morph annotations removed so morphology data is not treated as public-domain text.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-051-BIBLICAL-TRADITION-SBLGNT-GREEK-NEW-TESTAMENT",
+          "work_title": "The Greek New Testament: SBL Edition",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-051-BIBLICAL-TRADITION-SBLGNT-GREEK-NEW-TESTAMENT.txt",
+          "text_sha256": "43cb9c96bfef7bac78107f8914f84cd0498bc72e192aaaf6513bfd77c260d8be",
+          "text_bytes": 1797354,
+          "text_encoding": "utf-8",
+          "language": "koine greek",
+          "translator": "",
+          "editor": "Michael W. Holmes",
+          "edition_label": "LogosBible/SBLGNT GitHub source files, v1.2 as listed in README, assembled from data/sblgnt/text with CC BY 4.0 attribution retained",
+          "license_status": "open-license",
+          "license_notes": "SBLGNT is licensed CC BY 4.0; retain attribution to the Society of Biblical Literature and Logos Bible Software and the CC BY 4.0 license notice.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-051-BIBLICAL-TRADITION-LATVUC-CLEMENTINE-VULGATE-EBIBLE",
+          "work_title": "Bibbia Vulgata Clementina na 1598",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-051-BIBLICAL-TRADITION-LATVUC-CLEMENTINE-VULGATE-EBIBLE.txt",
+          "text_sha256": "313d501b25a8fc3df6c57a1c4f474fa2794802be4ffa7ab47e772db2d3679216",
+          "text_bytes": 3932624,
+          "text_encoding": "utf-8",
+          "language": "latin",
+          "translator": "Jerome",
+          "editor": "",
+          "edition_label": "eBible latVUC readaloud plain-text chapter files; Clementine Vulgate of 1598 with Glossa Ordinaria Migne edition 1880; public domain",
+          "license_status": "public-domain",
+          "license_notes": "eBible latVUC package identifies the Clementine Vulgate text as Public Domain; body was assembled from the package's plain-text readaloud chapter files with source/license notice retained.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-051-BIBLICAL-TRADITION-GRCLXX-SEPTUAGINT-EBIBLE",
+          "work_title": "Septuagint / Η Παλαιά Διαθήκη κατά τη μετάφραση των εβδομήκοντα",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-051-BIBLICAL-TRADITION-GRCLXX-SEPTUAGINT-EBIBLE.txt",
+          "text_sha256": "5f4c5bd6fdaeb977444d9e43411f45485d2c82fa541f9c07cb8f3045d3ae31f5",
+          "text_bytes": 6871110,
+          "text_encoding": "utf-8",
+          "language": "ancient greek; koine greek",
+          "translator": "",
+          "editor": "",
+          "edition_label": "eBible grclxx readaloud plain-text chapter files; Ancient Greek Septuagint; public domain package statement retained",
+          "license_status": "public-domain",
+          "license_notes": "eBible grclxx package identifies the text as Public Domain; body was assembled from the package's plain-text readaloud chapter files with source/license notice retained.",
+          "status": "available"
+        }
+      ],
+      "coverage_status": "principal-works",
+      "coverage_notes": "Portable store includes Project Gutenberg #30, The Bible, King James Version, Complete, as a 66-book English KJV baseline; a text-only derivative of the eBible hboWLC Westminster Leningrad Codex USFM package covering the 39-book Hebrew Bible; the eBible grclxx Septuagint plain-text chapter files as an Ancient Greek Old Testament witness; the SBL Greek New Testament assembled from official LogosBible/SBLGNT per-book text files with CC BY 4.0 attribution retained; and the eBible latVUC Clementine Vulgate plain-text chapter files as a Latin Vulgate witness. This is a strong principal-witness set, not full manuscript-tradition coverage."
+    },
+    {
+      "source_id": "LIB-ANCIENT-AUTHOR-052-BUDDHIST-DHAMMAPADA-TRADITION",
+      "title": "Dhammapada",
+      "author": "Buddhist textual tradition",
+      "subject_era": "ancient",
+      "source_composition_era": "ancient",
+      "edition_era": "digital",
+      "secondary_eras": [
+        "medieval",
+        "colonial",
+        "industrial",
+        "digital"
+      ],
+      "date_start": -300,
+      "date_end": 100,
+      "date_label": "Early Buddhist canonical anthology, transmitted through later manuscript and edition traditions",
+      "era_basis": "multi_period",
+      "civilization_tags": [
+        "india"
+      ],
+      "source_type": "religious",
+      "location": "Curated Mira Library sacred-traditions seed; body-level provenance required",
+      "status": "stub",
+      "notes": "Sacred Traditions Batch 1 stub for Buddhist ethical, monastic, and wisdom literature. Intended first text-body candidate: Dhammapada. Do not treat as a full Tripitaka/Pali Canon claim.",
+      "text_status": "available",
+      "coverage_status": "principal-work",
+      "coverage_notes": "Portable store includes Project Gutenberg #2017, F. Max Muller's English translation of the Dhammapada from Sacred Books of the East Volume X Part I. This is principal-work Buddhist coverage, not Tripitaka/Pali Canon coverage.",
+      "text_bodies": [
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-052-BUDDHIST-DHAMMAPADA-TRADITION-DHAMMAPADA-MULLER-GUTENBERG-2017",
+          "work_title": "Dhammapada",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-052-BUDDHIST-DHAMMAPADA-TRADITION-DHAMMAPADA-MULLER-GUTENBERG-2017.txt",
+          "text_sha256": "39f409317292caa2e0c4b1439964a271357bca66ae65c03f9502dc5b3abb5ee4",
+          "text_bytes": 87832,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "F. Max Muller",
+          "editor": "",
+          "edition_label": "Project Gutenberg #2017; F. Max Muller translation from Pali; Sacred Books of the East Volume X Part I",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg identifies this ebook as public domain in the United States.",
+          "status": "available"
+        }
+      ]
+    },
+    {
+      "source_id": "LIB-ANCIENT-AUTHOR-053-JAIN-ACARANGA-TRADITION",
+      "title": "Acaranga Sutra",
+      "author": "Jain textual tradition",
+      "subject_era": "ancient",
+      "source_composition_era": "ancient",
+      "edition_era": "digital",
+      "secondary_eras": [
+        "medieval",
+        "colonial",
+        "industrial",
+        "digital"
+      ],
+      "date_start": -500,
+      "date_end": -200,
+      "date_label": "Early Jain canonical stratum, with later transmission and edition history",
+      "era_basis": "multi_period",
+      "civilization_tags": [
+        "india"
+      ],
+      "source_type": "religious",
+      "location": "Curated Mira Library sacred-traditions seed; body-level provenance required",
+      "status": "stub",
+      "notes": "Sacred Traditions Batch 1 stub for Jain ascetic, ethical, and nonviolence traditions. Intended first text-body candidate: Acaranga Sutra or another cleanly sourced early Jain canonical work.",
+      "text_status": "available",
+      "coverage_status": "principal-work",
+      "coverage_notes": "Portable store includes an English Hermann Jacobi translation of the Acaranga Sutra extracted from Internet Sacred Text Archive's Jaina Sutras Part I, Sacred Books of the East Volume 22. This is principal-work Jain coverage, not complete Jain canon coverage.",
+      "text_bodies": [
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-053-JAIN-ACARANGA-TRADITION-ACARANGA-SUTRA-JACOBI-SBE22-SACRED-TEXTS",
+          "work_title": "Acaranga Sutra",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-053-JAIN-ACARANGA-TRADITION-ACARANGA-SUTRA-JACOBI-SBE22-SACRED-TEXTS.txt",
+          "text_sha256": "7628e5de6006be0b9653c125231d2ff243dfa516130357e165c7835051616b9c",
+          "text_bytes": 326977,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "Hermann Jacobi",
+          "editor": "",
+          "edition_label": "Internet Sacred Text Archive; Jaina Sutras Part I, Sacred Books of the East Volume 22; Hermann Jacobi translation, 1884; Acaranga section extraction",
+          "license_status": "public-domain",
+          "license_notes": "Internet Sacred Text Archive source page states the 1884 text is public domain in the United States because it was published prior to 1923.",
+          "status": "available",
+          "notes": "Cleaned local body: stripped Sacred Texts navigation/header/footer residue while preserving text, notes, and local source provenance."
+        }
+      ]
+    },
+    {
+      "source_id": "LIB-ANCIENT-AUTHOR-054-EGYPTIAN-MORTUARY-TRADITION",
+      "title": "Book of the Dead; Pyramid Texts",
+      "author": "Egyptian mortuary textual tradition",
+      "subject_era": "ancient",
+      "source_composition_era": "ancient",
+      "edition_era": "digital",
+      "secondary_eras": [
+        "colonial",
+        "industrial",
+        "digital"
+      ],
+      "date_start": -2400,
+      "date_end": -300,
+      "date_label": "Ancient Egyptian mortuary and ritual textual traditions, with modern edition/translation witnesses",
+      "era_basis": "multi_period",
+      "civilization_tags": [
+        "egypt"
+      ],
+      "source_type": "religious",
+      "location": "Curated Mira Library sacred-traditions seed; body-level provenance required",
+      "status": "stub",
+      "notes": "Sacred Traditions Batch 1 stub for Egyptian ritual, mortuary, and afterlife texts. Intended first text-body candidate: Book of the Dead, followed only by Pyramid Texts or Coffin Texts if source quality is strong.",
+      "text_status": "available",
+      "coverage_status": "principal-work",
+      "coverage_notes": "Portable store includes Project Gutenberg #7145, E. A. Wallis Budge's English Book of the Dead edition/translation. This is representative principal-work Egyptian mortuary coverage, not complete Pyramid Texts, Coffin Texts, or full mortuary corpus coverage.",
+      "text_bodies": [
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-054-EGYPTIAN-MORTUARY-TRADITION-BOOK-OF-THE-DEAD-BUDGE-GUTENBERG-7145",
+          "work_title": "The Book of the Dead",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-054-EGYPTIAN-MORTUARY-TRADITION-BOOK-OF-THE-DEAD-BUDGE-GUTENBERG-7145.txt",
+          "text_sha256": "b7175d3af2dc95492e25eedc96916bf26843ee25a1c85f2052a5d387339bc6fa",
+          "text_bytes": 91361,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "E. A. Wallis Budge",
+          "editor": "",
+          "edition_label": "Project Gutenberg #7145; E. A. Wallis Budge edition/translation",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg identifies this ebook as public domain in the United States.",
+          "status": "available"
+        }
+      ]
+    },
+    {
+      "source_id": "LIB-ANCIENT-AUTHOR-055-MESOPOTAMIAN-COSMOLOGICAL-TRADITION",
+      "title": "Enuma Elish; hymns and laments",
+      "author": "Mesopotamian sacred and cosmological textual tradition",
+      "subject_era": "ancient",
+      "source_composition_era": "ancient",
+      "edition_era": "digital",
+      "secondary_eras": [
+        "colonial",
+        "industrial",
+        "digital"
+      ],
+      "date_start": -1800,
+      "date_end": -500,
+      "date_label": "Ancient Sumerian/Akkadian sacred, cosmological, hymnic, and lament traditions",
+      "era_basis": "multi_period",
+      "civilization_tags": [
+        "mesopotamia"
+      ],
+      "source_type": "religious",
+      "location": "Curated Mira Library sacred-traditions seed; body-level provenance required",
+      "status": "stub",
+      "notes": "Sacred Traditions Batch 1 stub for Mesopotamian cosmology, ritual imagination, hymns, and laments. Intended first text-body candidate: Enuma Elish; classify Gilgamesh separately if admitted as literary-religious epic.",
+      "text_status": "available",
+      "coverage_status": "principal-work",
+      "coverage_notes": "Portable store includes L. W. King's English Enuma Elish / Epic of Creation text from Internet Sacred Text Archive, derived from The Seven Tablets of Creation (London, 1902). This is principal-work Mesopotamian cosmological coverage, not complete hymnic, lament, incantation, or epic corpus coverage.",
+      "text_bodies": [
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-055-MESOPOTAMIAN-COSMOLOGICAL-TRADITION-ENUMA-ELISH-KING-SACRED-TEXTS",
+          "work_title": "Enuma Elish / The Epic of Creation",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-055-MESOPOTAMIAN-COSMOLOGICAL-TRADITION-ENUMA-ELISH-KING-SACRED-TEXTS.txt",
+          "text_sha256": "224ad038c7bc1708c19cbf2f10bfd47b34d9e00468a8831db3fa868e52a82f49",
+          "text_bytes": 39147,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "L. W. King",
+          "editor": "",
+          "edition_label": "Internet Sacred Text Archive; L. W. King translation from The Seven Tablets of Creation, London 1902",
+          "license_status": "public-domain",
+          "license_notes": "Public-domain-era English translation hosted by Internet Sacred Text Archive; source publication date 1902.",
+          "status": "available"
+        }
+      ]
+    },
+    {
+      "source_id": "LIB-ANCIENT-AUTHOR-056-ZARATHUSTRA-GATHAS",
+      "title": "Gathas",
+      "author": "Zarathustra / Zoroaster",
+      "subject_era": "ancient",
+      "source_composition_era": "ancient",
+      "edition_era": "digital",
+      "secondary_eras": [
+        "medieval",
+        "colonial",
+        "industrial",
+        "digital"
+      ],
+      "date_start": null,
+      "date_end": null,
+      "date_label": "Ancient Gathic Zoroastrian hymns, traditionally attributed to Zarathustra/Zoroaster",
+      "era_basis": "multi_period",
+      "civilization_tags": [
+        "persia"
+      ],
+      "source_type": "religious",
+      "location": "Curated Mira Library sacred-traditions seed; body-level provenance required",
+      "status": "stub",
+      "notes": "Sacred Traditions Batch 1 stub making Zarathustra/Zoroaster visible as a source-authority distinct from the existing corporate Avesta/Gathic tradition record. This should point future import toward the Gathas specifically, not a complete Avesta claim.",
+      "text_status": "available",
+      "coverage_status": "principal-work",
+      "coverage_notes": "Portable store includes the Gathas section from Internet Sacred Text Archive's The Zend Avesta Part III, Sacred Books of the East Volume 31, translated by Lawrence H. Mills. This makes Zarathustra/Gathas visible as a principal-work authority while avoiding a complete Avesta claim.",
+      "text_bodies": [
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-056-ZARATHUSTRA-GATHAS-MILLS-SBE31-SACRED-TEXTS",
+          "work_title": "The Gathas",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-056-ZARATHUSTRA-GATHAS-MILLS-SBE31-SACRED-TEXTS.txt",
+          "text_sha256": "d79875f0deec45d5caeb5365713a101be05521b08deed9a175697feb77e5fedd",
+          "text_bytes": 417099,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "Lawrence H. Mills",
+          "editor": "",
+          "edition_label": "Internet Sacred Text Archive; The Zend Avesta Part III, Sacred Books of the East Volume 31; Lawrence H. Mills translation, 1886; Gathas section extraction",
+          "license_status": "public-domain",
+          "license_notes": "Public-domain-era English translation hosted by Internet Sacred Text Archive; source publication date 1886.",
+          "status": "available",
+          "notes": "Cleaned local body: stripped Sacred Texts navigation/header/footer residue while preserving text, notes, and local source provenance."
+        }
+      ]
     }
   ]
 }

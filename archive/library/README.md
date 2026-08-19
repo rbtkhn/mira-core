@@ -72,6 +72,30 @@ scrape-heavy, facsimile-only, OCR-messy, or otherwise not clean enough for the
 portable text store. A source may remain partially covered, translation-only, or
 original-only, but `coverage_notes` should say that explicitly.
 
+## Ancient Library Maturity Ladder
+
+The Ancient shelf is governed by curated portability rather than maximal
+accumulation. A source-authority record is mature only when its offline text
+coverage, edition metadata, license posture, and coverage claim can be defended
+from the registry and local text store.
+
+Use this ladder when auditing Ancient records:
+
+| Level | Label | Standard |
+| --- | --- | --- |
+| 0 | Stub only | The authority is represented in metadata, but no local text body is admitted. |
+| 1 | Located source candidate | A lawful candidate has been identified, but the body has not been admitted and verified. |
+| 2 | Admitted readable English body | At least one readable local/private text body is admitted and verifiable. |
+| 3 | Verified principal-work coverage | The registry makes a conservative coverage claim such as `selected-works`, `principal-work`, or `principal-works`, and the admitted bodies support that claim. |
+| 4 | Cleaned text with edition/license notes | Text bodies are readable, stable, and sufficiently clean for offline use, with edition, translator/editor, hash, byte count, encoding, and license metadata. |
+| 5 | English plus original-language coverage | The authority has both English and original-language coverage where lawful, available, and useful. |
+| 6 | Mature authority record | The record honestly models complete, selected, fragmentary, multi-work, translation, and edition limits for the source authority. |
+
+Do not advance a record by implication. `text_status`, `coverage_status`, and
+`text_bodies` describe different things: local availability, corpus coverage,
+and admitted physical/logical bodies. When they disagree, prefer the lower
+curatorial claim until a focused audit resolves the gap.
+
 ## Portable Text Store
 
 Git tracks the registry, era indexes, validation code, and source metadata.
