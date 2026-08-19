@@ -196,8 +196,25 @@
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg states public domain in the USA.",
           "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-003-HERODOTUS-HISTORIES-GREEK-PERSEUS-GRC2",
+          "work_title": "Histories",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-003-HERODOTUS-HISTORIES-GREEK-PERSEUS-GRC2.xml",
+          "text_sha256": "03836a4c33ad93a72391bac4bb945137752fefd2a3ae2e954b631f1ee1f39ada",
+          "text_bytes": 2949667,
+          "text_encoding": "utf-8",
+          "language": "ancient greek",
+          "translator": "",
+          "editor": "A. D. Godley",
+          "edition_label": "Perseus canonical GreekLit tlg0016.tlg001.perseus-grc2; A. D. Godley Greek edition",
+          "license_status": "open-license",
+          "license_notes": "Perseus canonical-greekLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
+          "status": "available"
         }
-      ]
+      ],
+      "coverage_status": "complete-surviving-corpus",
+      "coverage_notes": "Portable store includes both English Macaulay volumes from Project Gutenberg plus Perseus canonical GreekLit tlg0016.tlg001.perseus-grc2 for the Greek Histories, covering the surviving Herodotean corpus represented by this source-authority record."
     },
     {
       "source_id": "LIB-ANCIENT-AUTHOR-004-STRABO",
@@ -278,10 +295,25 @@
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg identifies this ebook as public domain in the USA.",
           "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-004-STRABO-STRABO-GEOGRAPHY-GREEK-PERSEUS-GRC2",
+          "work_title": "Geography",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-004-STRABO-STRABO-GEOGRAPHY-GREEK-PERSEUS-GRC2.xml",
+          "text_sha256": "69d7a3865c633e8c85008ed8e6ec211cc664ddbed9d15d6e4ea31458937ef95a",
+          "text_bytes": 3782525,
+          "text_encoding": "utf-8",
+          "language": "ancient greek",
+          "translator": "",
+          "editor": "August Meinecke",
+          "edition_label": "Perseus canonical GreekLit tlg0099.tlg001.perseus-grc2; August Meinecke Greek edition",
+          "license_status": "open-license",
+          "license_notes": "Perseus canonical-greekLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
+          "status": "available"
         }
       ],
       "coverage_status": "complete-surviving-corpus",
-      "coverage_notes": "Portable store includes all three Project Gutenberg volumes of the Hamilton/Falconer English translation of The Geography of Strabo, covering the surviving Geography corpus represented by this source-authority record."
+      "coverage_notes": "Portable store includes all three Project Gutenberg volumes of the Hamilton/Falconer English translation of The Geography of Strabo, plus Perseus canonical GreekLit tlg0099.tlg001.perseus-grc2 for the Greek Geography, covering the surviving Geography corpus represented by this source-authority record."
     },
     {
       "source_id": "LIB-ANCIENT-AUTHOR-005-DARIUS-I",
@@ -373,10 +405,55 @@
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg identifies this ebook as public domain in the USA.",
           "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-006-JULIUS-CAESAR-DE-BELLO-GALLICO-LATIN-GUTENBERG-218",
+          "work_title": "C. Iuli Caesaris De Bello Gallico, I-IV",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-006-JULIUS-CAESAR-DE-BELLO-GALLICO-LATIN-GUTENBERG-218.txt",
+          "text_sha256": "84ac8411841a4d8f5f4a49b6a2cd1f466917c6a5af72916d5e0b2b1ecb2f659c",
+          "text_bytes": 169899,
+          "text_encoding": "utf-8",
+          "language": "latin",
+          "translator": "",
+          "editor": "",
+          "edition_label": "Project Gutenberg #218; Latin text of De Bello Gallico Books I-IV",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg identifies this ebook as public domain in the USA.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-006-JULIUS-CAESAR-DE-BELLO-GALLICO-LATIN-PERSEUS-LAT2",
+          "work_title": "De bello Gallico",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-006-JULIUS-CAESAR-DE-BELLO-GALLICO-LATIN-PERSEUS-LAT2.xml",
+          "text_sha256": "d1a330891be6983f8f00fe07c6a857873355cc4c0cc22fe1a33ceaeb9d2e1079",
+          "text_bytes": 691463,
+          "text_encoding": "utf-8",
+          "language": "latin",
+          "translator": "",
+          "editor": "T. Rice Holmes",
+          "edition_label": "Perseus canonical LatinLit phi0448.phi001.perseus-lat2; T. Rice Holmes Latin edition",
+          "license_status": "open-license",
+          "license_notes": "Perseus canonical-latinLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-006-JULIUS-CAESAR-DE-BELLO-CIVILI-LATIN-PERSEUS-LAT2",
+          "work_title": "De Bello Civili",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-006-JULIUS-CAESAR-DE-BELLO-CIVILI-LATIN-PERSEUS-LAT2.xml",
+          "text_sha256": "d14f00b56e6251e19ff52be8bf4dddf243cb597153c82b7f94b15adbe144d18b",
+          "text_bytes": 331194,
+          "text_encoding": "utf-8",
+          "language": "latin",
+          "translator": "",
+          "editor": "Renatus du Pontet",
+          "edition_label": "Perseus canonical LatinLit phi0448.phi002.perseus-lat2; Renatus du Pontet Latin edition",
+          "license_status": "open-license",
+          "license_notes": "Perseus canonical-latinLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
+          "status": "available"
         }
       ],
       "coverage_status": "principal-works",
-      "coverage_notes": "Portable store includes Project Gutenberg #10657, W. A. McDevitte English translation of De Bello Gallico and Other Commentaries, covering the Gallic War and Civil War commentaries represented by this source-authority record."
+      "coverage_notes": "Portable store includes Project Gutenberg #10657, W. A. McDevitte English translation of De Bello Gallico and Other Commentaries, Project Gutenberg #218 Latin text for De Bello Gallico Books I-IV, and Perseus canonical LatinLit Latin XML bodies for De bello Gallico and De Bello Civili. This covers the principal Caesarian commentaries represented by this source-authority record."
     },
     {
       "source_id": "LIB-ANCIENT-AUTHOR-007-TACITUS",
@@ -469,10 +546,85 @@
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg identifies this ebook as public domain in the USA.",
           "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-007-TACITUS-AGRICOLA-LATIN-PERSEUS-LAT1",
+          "work_title": "De Vita Iulii Agricolae",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-007-TACITUS-AGRICOLA-LATIN-PERSEUS-LAT1.xml",
+          "text_sha256": "a4b1804057d970c3ea959663f67d34c5f0be40833003c8a2978ddd1203b11fbb",
+          "text_bytes": 68561,
+          "text_encoding": "utf-8",
+          "language": "latin",
+          "translator": "",
+          "editor": "Henry Furneaux",
+          "edition_label": "Perseus canonical LatinLit phi1351.phi001.perseus-lat1; Henry Furneaux Latin edition",
+          "license_status": "open-license",
+          "license_notes": "Perseus canonical-latinLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-007-TACITUS-GERMANIA-LATIN-PERSEUS-LAT1",
+          "work_title": "de Origine et Situ Germanorum Liber",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-007-TACITUS-GERMANIA-LATIN-PERSEUS-LAT1.xml",
+          "text_sha256": "461bc73f202a5adc8f9491d014ab0610a00230590cb85d1a53817a7fafcf38eb",
+          "text_bytes": 56535,
+          "text_encoding": "utf-8",
+          "language": "latin",
+          "translator": "",
+          "editor": "Henry Furneaux",
+          "edition_label": "Perseus canonical LatinLit phi1351.phi002.perseus-lat1; Henry Furneaux Latin edition",
+          "license_status": "open-license",
+          "license_notes": "Perseus canonical-latinLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-007-TACITUS-DIALOGUS-LATIN-PERSEUS-LAT1",
+          "work_title": "Dialogus de Oratoribus",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-007-TACITUS-DIALOGUS-LATIN-PERSEUS-LAT1.xml",
+          "text_sha256": "6e8e09d76500104bfd088b78f6ef0e030eb249b07aec38f2f963d007e7368b56",
+          "text_bytes": 79789,
+          "text_encoding": "utf-8",
+          "language": "latin",
+          "translator": "",
+          "editor": "Henry Furneaux",
+          "edition_label": "Perseus canonical LatinLit phi1351.phi003.perseus-lat1; Henry Furneaux Latin edition",
+          "license_status": "open-license",
+          "license_notes": "Perseus canonical-latinLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-007-TACITUS-HISTORIAE-LATIN-PERSEUS-LAT2",
+          "work_title": "Historiae",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-007-TACITUS-HISTORIAE-LATIN-PERSEUS-LAT2.xml",
+          "text_sha256": "7713de94981888e72fa555fe445280fe40fe1544ce4496d8e09c49db815f87bd",
+          "text_bytes": 442971,
+          "text_encoding": "utf-8",
+          "language": "latin",
+          "translator": "",
+          "editor": "",
+          "edition_label": "Perseus canonical LatinLit phi1351.phi004.perseus-lat2; Latin edition",
+          "license_status": "open-license",
+          "license_notes": "Perseus canonical-latinLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-007-TACITUS-ANNALES-LATIN-PERSEUS-LAT1-NORMALIZED",
+          "work_title": "Annales",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-007-TACITUS-ANNALES-LATIN-PERSEUS-LAT1-NORMALIZED.xml",
+          "text_sha256": "1c5d6b2259e1ef65af46fc9320fe9ba79460346dd68579b144fa3ed1276756f6",
+          "text_bytes": 711129,
+          "text_encoding": "utf-8",
+          "language": "latin",
+          "translator": "",
+          "editor": "Charles Dennis Fisher",
+          "edition_label": "Perseus canonical LatinLit phi1351.phi005.perseus-lat1; Charles Dennis Fisher Latin edition; local normalization replaced 10 dagger and 3 mdash entity references with Unicode characters",
+          "license_status": "open-license",
+          "license_notes": "Perseus canonical-latinLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated; local normalization changed only unresolved typographic entity references.",
+          "status": "available"
         }
       ],
       "coverage_status": "selected-works",
-      "coverage_notes": "Portable store includes Project Gutenberg bodies for Germany/Agricola, the first six Annals as The Reign of Tiberius, Histories, and Dialogue Concerning Oratory. This is a strong selected-works set, not a complete surviving Tacitean corpus claim."
+      "coverage_notes": "Portable store includes Project Gutenberg English bodies for Germany/Agricola, the first six Annals as The Reign of Tiberius, Histories, and Dialogue Concerning Oratory, plus Perseus canonical LatinLit Latin XML bodies for Agricola, Germania, Dialogus, Historiae, and a locally normalized Annales body whose unresolved dagger and mdash entity references were replaced with Unicode characters. This is a strong selected-works set, not a complete surviving Tacitean corpus claim."
     },
     {
       "source_id": "LIB-ANCIENT-AUTHOR-008-CONFUCIUS-KONGZI",
@@ -680,7 +832,9 @@
           "license_notes": "Project Gutenberg public-domain text in the United States",
           "status": "available"
         }
-      ]
+      ],
+      "coverage_status": "principal-work",
+      "coverage_notes": "Portable store includes Project Gutenberg #3283, Swami Paramananda's English translation of The Upanishads. This is a principal Upanishads body, not a complete Upanishadic corpus claim."
     },
     {
       "source_id": "LIB-ANCIENT-AUTHOR-013-VYASA-MAHABHARATA-TRADITION",
@@ -724,7 +878,9 @@
           "license_notes": "Project Gutenberg public-domain text in the United States",
           "status": "available"
         }
-      ]
+      ],
+      "coverage_status": "principal-work",
+      "coverage_notes": "Portable store includes Project Gutenberg #2388, Sir Edwin Arnold's English translation The Song Celestial / Bhagavad-Gita from the Mahabharata. This is a principal-work admission for the Gita, not a full Mahabharata corpus claim."
     },
     {
       "source_id": "LIB-ANCIENT-AUTHOR-014-VALMIKI",
@@ -768,7 +924,9 @@
           "license_notes": "Project Gutenberg public-domain text in the United States",
           "status": "available"
         }
-      ]
+      ],
+      "coverage_status": "complete-surviving-corpus",
+      "coverage_notes": "Portable store includes Project Gutenberg #24869, Ralph T. H. Griffith's English verse translation of The Ramayan of Valmiki, covering the surviving Ramayana corpus represented by this source-authority record."
     },
     {
       "source_id": "LIB-ANCIENT-AUTHOR-015-AVESTAN-GATHIC-TRADITION",
@@ -1019,7 +1177,9 @@
           "license_notes": "Project Gutenberg public-domain text in the United States",
           "status": "available"
         }
-      ]
+      ],
+      "coverage_status": "complete-surviving-corpus",
+      "coverage_notes": "Portable store includes Project Gutenberg #24226 Chinese text of Shiji / Records of the Grand Historian, covering the surviving Shiji corpus represented by this source-authority record. No English translation is admitted in this body."
     },
     {
       "source_id": "LIB-ANCIENT-AUTHOR-021-BAN-GU",
@@ -1062,7 +1222,9 @@
           "license_notes": "Project Gutenberg public-domain text in the United States",
           "status": "available"
         }
-      ]
+      ],
+      "coverage_status": "complete-surviving-corpus",
+      "coverage_notes": "Portable store includes Project Gutenberg #23841 Chinese text of Hanshu / Book of Han with Yan Shigu commentary, covering the surviving Hanshu corpus represented by this source-authority record. No English translation is admitted in this body."
     },
     {
       "source_id": "LIB-ANCIENT-AUTHOR-022-FAN-YE",
@@ -1132,7 +1294,9 @@
           "license_notes": "Project Gutenberg public-domain text in the United States",
           "status": "available"
         }
-      ]
+      ],
+      "coverage_status": "complete-surviving-corpus",
+      "coverage_notes": "Portable store includes Project Gutenberg #25606 Chinese text of Sanguozhi / Records of the Three Kingdoms with Pei Songzhi commentary, covering the surviving Sanguozhi corpus represented by this source-authority record. No English translation is admitted in this body."
     },
     {
       "source_id": "LIB-ANCIENT-AUTHOR-024-YIJING-TRADITION",
@@ -1289,8 +1453,25 @@
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg states public domain in the USA.",
           "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-027-THUCYDIDES-HISTORY-GREEK-PERSEUS-GRC2",
+          "work_title": "History of the Peloponnesian War",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-027-THUCYDIDES-HISTORY-GREEK-PERSEUS-GRC2.xml",
+          "text_sha256": "0565b20acd3fa78e5738ba33853a34abad616c93c8dc89804dd282ae25fec976",
+          "text_bytes": 2837879,
+          "text_encoding": "utf-8",
+          "language": "ancient greek",
+          "translator": "",
+          "editor": "Henry Stuart Jones",
+          "edition_label": "Perseus canonical GreekLit tlg0003.tlg001.perseus-grc2; Henry Stuart Jones Greek edition",
+          "license_status": "open-license",
+          "license_notes": "Perseus canonical-greekLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated; file header also declares CC BY-SA 4.0.",
+          "status": "available"
         }
-      ]
+      ],
+      "coverage_status": "complete-surviving-corpus",
+      "coverage_notes": "Portable store includes the Richard Crawley English translation from Project Gutenberg plus Perseus canonical GreekLit tlg0003.tlg001.perseus-grc2 for the Greek History of the Peloponnesian War, covering the surviving Thucydidean corpus represented by this source-authority record."
     },
     {
       "source_id": "LIB-ANCIENT-AUTHOR-028-XENOPHON",
@@ -1364,10 +1545,55 @@
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg identifies this ebook as public domain in the USA.",
           "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-028-XENOPHON-XENOPHON-HELLENICA-GREEK-PERSEUS-GRC2",
+          "work_title": "Hellenica",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-028-XENOPHON-XENOPHON-HELLENICA-GREEK-PERSEUS-GRC2.xml",
+          "text_sha256": "90d24ea32662a503f72823d1ee254a56e5fc27eb499479840af185835db61040",
+          "text_bytes": 986964,
+          "text_encoding": "utf-8",
+          "language": "ancient greek",
+          "translator": "",
+          "editor": "Edgar Cardew Marchant",
+          "edition_label": "Perseus canonical GreekLit tlg0032.tlg001.perseus-grc2; E. C. Marchant Greek edition",
+          "license_status": "open-license",
+          "license_notes": "Perseus canonical-greekLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-028-XENOPHON-XENOPHON-ANABASIS-GREEK-PERSEUS-GRC2",
+          "work_title": "Anabasis",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-028-XENOPHON-XENOPHON-ANABASIS-GREEK-PERSEUS-GRC2.xml",
+          "text_sha256": "34447b3d99ede3f13e57219984b783be31080d8ee4707a39a6a5304d51dc54fc",
+          "text_bytes": 886602,
+          "text_encoding": "utf-8",
+          "language": "ancient greek",
+          "translator": "",
+          "editor": "Edgar Carew Marchant",
+          "edition_label": "Perseus canonical GreekLit tlg0032.tlg006.perseus-grc2; E. C. Marchant Greek edition",
+          "license_status": "open-license",
+          "license_notes": "Perseus canonical-greekLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-028-XENOPHON-XENOPHON-CYROPAEDIA-GREEK-PERSEUS-GRC2",
+          "work_title": "Cyropaedia",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-028-XENOPHON-XENOPHON-CYROPAEDIA-GREEK-PERSEUS-GRC2.xml",
+          "text_sha256": "21437b74d3b2f1278b63d931751bc483a2f3a02083b3278728ebff7302e7ed53",
+          "text_bytes": 1125811,
+          "text_encoding": "utf-8",
+          "language": "ancient greek",
+          "translator": "",
+          "editor": "Edgar Carew Marchant",
+          "edition_label": "Perseus canonical GreekLit tlg0032.tlg007.perseus-grc2; E. C. Marchant Greek edition",
+          "license_status": "open-license",
+          "license_notes": "Perseus canonical-greekLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
+          "status": "available"
         }
       ],
       "coverage_status": "principal-works",
-      "coverage_notes": "Portable store includes Project Gutenberg English translations of Anabasis, Hellenica, and Cyropaedia, the principal works named by this source-authority record. This is not a complete Xenophontic corpus claim."
+      "coverage_notes": "Portable store includes Project Gutenberg English translations and Perseus canonical GreekLit Greek XML bodies for Anabasis, Hellenica, and Cyropaedia, the principal works named by this source-authority record. This is not a complete Xenophontic corpus claim."
     },
     {
       "source_id": "LIB-ANCIENT-AUTHOR-029-POLYBIUS",
@@ -1890,8 +2116,25 @@
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg public-domain text in the United States",
           "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-035-LIVY-AB-URBE-CONDITA-LATIN-PERSEUS-LAT2",
+          "work_title": "Ab urbe condita",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-035-LIVY-AB-URBE-CONDITA-LATIN-PERSEUS-LAT2.xml",
+          "text_sha256": "392003af1853b1e8392aefde35fa20885b7f19c6c1df71ebba9b7965b27a5739",
+          "text_bytes": 7196223,
+          "text_encoding": "utf-8",
+          "language": "latin",
+          "translator": "",
+          "editor": "Wilhelm Weissenborn; Moritz Muller",
+          "edition_label": "Perseus canonical LatinLit phi0914.phi001.perseus-lat2; Weissenborn and Muller Latin edition",
+          "license_status": "open-license",
+          "license_notes": "Perseus canonical-latinLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
+          "status": "available"
         }
-      ]
+      ],
+      "coverage_status": "complete-surviving-corpus",
+      "coverage_notes": "Portable store includes Project Gutenberg English translation volumes for The History of Rome and Perseus canonical LatinLit phi0914.phi001.perseus-lat2 for Ab urbe condita, covering the surviving Livian corpus represented by this source-authority record."
     },
     {
       "source_id": "LIB-ANCIENT-AUTHOR-036-SALLUST",
@@ -1934,10 +2177,25 @@
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg identifies this ebook as public domain in the USA.",
           "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-036-SALLUST-CATILINE-JUGURTHINE-LATIN-SCHMITZ-ZUMPT-GUTENBERG-7402",
+          "work_title": "C. Sallusti Crispi De Bello Catilinario Et Jugurthino",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-036-SALLUST-CATILINE-JUGURTHINE-LATIN-SCHMITZ-ZUMPT-GUTENBERG-7402.txt",
+          "text_sha256": "3e0ee5ce940c036aed8a9af13ae5b121a39fdc7518ab2d49110a6e4d4140e5ca",
+          "text_bytes": 503378,
+          "text_encoding": "utf-8",
+          "language": "latin",
+          "translator": "",
+          "editor": "Leonhard Schmitz; Karl Gottlob Zumpt",
+          "edition_label": "Project Gutenberg #7402; Latin text with English notes, Schmitz and Zumpt editors",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg identifies this ebook as public domain in the USA.",
+          "status": "available"
         }
       ],
       "coverage_status": "principal-works",
-      "coverage_notes": "Portable store includes Project Gutenberg #7990, J. S. Watson English translation of Conspiracy of Catiline and the Jugurthine War, the principal works named by this source-authority record."
+      "coverage_notes": "Portable store includes Project Gutenberg #7990, J. S. Watson English translation of Conspiracy of Catiline and the Jugurthine War, plus Project Gutenberg #7402 Latin text with English notes for De Bello Catilinario et Jugurthino. This covers the principal works named by this source-authority record."
     },
     {
       "source_id": "LIB-ANCIENT-AUTHOR-037-PLINY-THE-ELDER",
@@ -2166,8 +2424,40 @@
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg states public domain in the USA.",
           "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-039-HOMER-ILIAD-GREEK-PERSEUS-GRC2",
+          "work_title": "Iliad",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-039-HOMER-ILIAD-GREEK-PERSEUS-GRC2.xml",
+          "text_sha256": "ebbdfdd7b6ebd52c4ecdfdb92c17cef4447ccbb5114f7fb00cd34f434dd8521b",
+          "text_bytes": 2060459,
+          "text_encoding": "utf-8",
+          "language": "ancient greek",
+          "translator": "",
+          "editor": "David B. Monro; Thomas W. Allen",
+          "edition_label": "Perseus canonical GreekLit tlg0012.tlg001.perseus-grc2; Monro and Allen Homeri Opera Greek edition",
+          "license_status": "open-license",
+          "license_notes": "Perseus canonical-greekLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-039-HOMER-ODYSSEY-GREEK-PERSEUS-GRC2",
+          "work_title": "Odyssey",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-039-HOMER-ODYSSEY-GREEK-PERSEUS-GRC2.xml",
+          "text_sha256": "184fa4fc598f0cd9d2964b17eaabe36bd9c61d44c2eae264c4b016feacf28530",
+          "text_bytes": 1560139,
+          "text_encoding": "utf-8",
+          "language": "ancient greek",
+          "translator": "",
+          "editor": "Augustus Taber Murray",
+          "edition_label": "Perseus canonical GreekLit tlg0012.tlg002.perseus-grc2; A. T. Murray Greek edition",
+          "license_status": "open-license",
+          "license_notes": "Perseus canonical-greekLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
+          "status": "available"
         }
-      ]
+      ],
+      "coverage_status": "complete-surviving-corpus",
+      "coverage_notes": "Portable store includes English Butler translations and Perseus canonical GreekLit Greek XML bodies for both Iliad and Odyssey, covering the surviving Homeric corpus represented by this source-authority record."
     },
     {
       "source_id": "LIB-ANCIENT-AUTHOR-040-PLATO",
@@ -2629,10 +2919,430 @@
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg states public domain in the USA.",
           "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-PLATO-EUTHYPHRO-GREEK-PERSEUS-GRC1",
+          "work_title": "Euthyphro",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-040-PLATO-PLATO-EUTHYPHRO-GREEK-PERSEUS-GRC1.xml",
+          "text_sha256": "451503e2c63b2d04fd22794b2d95e3a1e09231408799ee7dcd7c2fe5aa6824db",
+          "text_bytes": 87746,
+          "text_encoding": "utf-8",
+          "language": "ancient greek",
+          "translator": "",
+          "editor": "John Burnet",
+          "edition_label": "Perseus canonical GreekLit tlg0059.tlg001.perseus-grc1; John Burnet Greek edition",
+          "license_status": "open-license",
+          "license_notes": "Perseus canonical-greekLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-PLATO-APOLOGY-GREEK-PERSEUS-GRC2",
+          "work_title": "Apology",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-040-PLATO-PLATO-APOLOGY-GREEK-PERSEUS-GRC2.xml",
+          "text_sha256": "eeb130acb6146e1a8ee3c8f3d5de9a70fda6aef849f4f2200360fa811a302aaa",
+          "text_bytes": 119597,
+          "text_encoding": "utf-8",
+          "language": "ancient greek",
+          "translator": "",
+          "editor": "John Burnet",
+          "edition_label": "Perseus canonical GreekLit tlg0059.tlg002.perseus-grc2; John Burnet Greek edition",
+          "license_status": "open-license",
+          "license_notes": "Perseus canonical-greekLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-PLATO-CRITO-GREEK-PERSEUS-GRC2",
+          "work_title": "Crito",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-040-PLATO-PLATO-CRITO-GREEK-PERSEUS-GRC2.xml",
+          "text_sha256": "6ea953bd4e89b3141f02a6646ad2418dd1708f8f1aa7f98df9e64d7244c2da53",
+          "text_bytes": 65753,
+          "text_encoding": "utf-8",
+          "language": "ancient greek",
+          "translator": "",
+          "editor": "John Burnet",
+          "edition_label": "Perseus canonical GreekLit tlg0059.tlg003.perseus-grc2; John Burnet Greek edition",
+          "license_status": "open-license",
+          "license_notes": "Perseus canonical-greekLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-PLATO-PHAEDO-GREEK-PERSEUS-GRC2",
+          "work_title": "Phaedo",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-040-PLATO-PLATO-PHAEDO-GREEK-PERSEUS-GRC2.xml",
+          "text_sha256": "4c9dca94a11ed9a9b4f2f24d0a65f1cefb2b8b794f23b6997b5a33a355e13e9a",
+          "text_bytes": 465849,
+          "text_encoding": "utf-8",
+          "language": "ancient greek",
+          "translator": "",
+          "editor": "John Burnet",
+          "edition_label": "Perseus canonical GreekLit tlg0059.tlg004.perseus-grc2; John Burnet Greek edition",
+          "license_status": "open-license",
+          "license_notes": "Perseus canonical-greekLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-PLATO-CRATYLUS-GREEK-PERSEUS-GRC2",
+          "work_title": "Cratylus",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-040-PLATO-PLATO-CRATYLUS-GREEK-PERSEUS-GRC2.xml",
+          "text_sha256": "c3332c9b18dd929ad225a244353b397f6011a0274d968b14775be4241c8baf1e",
+          "text_bytes": 292726,
+          "text_encoding": "utf-8",
+          "language": "ancient greek",
+          "translator": "",
+          "editor": "John Burnet",
+          "edition_label": "Perseus canonical GreekLit tlg0059.tlg005.perseus-grc2; John Burnet Greek edition",
+          "license_status": "open-license",
+          "license_notes": "Perseus canonical-greekLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-PLATO-THEAETETUS-GREEK-PERSEUS-GRC2",
+          "work_title": "Theaetetus",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-040-PLATO-PLATO-THEAETETUS-GREEK-PERSEUS-GRC2.xml",
+          "text_sha256": "87594a9b47bbb0011b377d56e77f2a56a01bdf8e3c52094fd487b34f34bde96e",
+          "text_bytes": 382627,
+          "text_encoding": "utf-8",
+          "language": "ancient greek",
+          "translator": "",
+          "editor": "John Burnet",
+          "edition_label": "Perseus canonical GreekLit tlg0059.tlg006.perseus-grc2; John Burnet Greek edition",
+          "license_status": "open-license",
+          "license_notes": "Perseus canonical-greekLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-PLATO-SOPHIST-GREEK-PERSEUS-GRC2",
+          "work_title": "Sophist",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-040-PLATO-PLATO-SOPHIST-GREEK-PERSEUS-GRC2.xml",
+          "text_sha256": "5f77096d05f13d62bfdc5cffa588e46ab6576beb63fa7c1b1af835e3abf82d3b",
+          "text_bytes": 286927,
+          "text_encoding": "utf-8",
+          "language": "ancient greek",
+          "translator": "",
+          "editor": "John Burnet",
+          "edition_label": "Perseus canonical GreekLit tlg0059.tlg007.perseus-grc2; John Burnet Greek edition",
+          "license_status": "open-license",
+          "license_notes": "Perseus canonical-greekLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-PLATO-STATESMAN-GREEK-PERSEUS-GRC2",
+          "work_title": "Statesman",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-040-PLATO-PLATO-STATESMAN-GREEK-PERSEUS-GRC2.xml",
+          "text_sha256": "74c507549b04ecc26dba0c6e115f3dd33835eeda0aa1cfe356b0b0d752a26a1b",
+          "text_bytes": 297623,
+          "text_encoding": "utf-8",
+          "language": "ancient greek",
+          "translator": "",
+          "editor": "John Burnet",
+          "edition_label": "Perseus canonical GreekLit tlg0059.tlg008.perseus-grc2; John Burnet Greek edition",
+          "license_status": "open-license",
+          "license_notes": "Perseus canonical-greekLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-PLATO-PARMENIDES-GREEK-PERSEUS-GRC2",
+          "work_title": "Parmenides",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-040-PLATO-PLATO-PARMENIDES-GREEK-PERSEUS-GRC2.xml",
+          "text_sha256": "2136b83bd8913ab60cf591e1a5342bff2608ca5288d1d13968633fe8fa212e0a",
+          "text_bytes": 202282,
+          "text_encoding": "utf-8",
+          "language": "ancient greek",
+          "translator": "",
+          "editor": "John Burnet",
+          "edition_label": "Perseus canonical GreekLit tlg0059.tlg009.perseus-grc2; John Burnet Greek edition",
+          "license_status": "open-license",
+          "license_notes": "Perseus canonical-greekLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-PLATO-PHILEBUS-GREEK-PERSEUS-GRC2",
+          "work_title": "Philebus",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-040-PLATO-PLATO-PHILEBUS-GREEK-PERSEUS-GRC2.xml",
+          "text_sha256": "fdb4ac57f6d1d898704334e5713f7213f0a17a5d8123f30f0f0ab10259b06f4e",
+          "text_bytes": 323080,
+          "text_encoding": "utf-8",
+          "language": "ancient greek",
+          "translator": "",
+          "editor": "John Burnet",
+          "edition_label": "Perseus canonical GreekLit tlg0059.tlg010.perseus-grc2; John Burnet Greek edition",
+          "license_status": "open-license",
+          "license_notes": "Perseus canonical-greekLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-PLATO-SYMPOSIUM-GREEK-PERSEUS-GRC2",
+          "work_title": "Symposium",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-040-PLATO-PLATO-SYMPOSIUM-GREEK-PERSEUS-GRC2.xml",
+          "text_sha256": "4378dee4cb07a0b5f9aa1d14f48d6da81d962b6feed8d4ad42c3072666761e5c",
+          "text_bytes": 245542,
+          "text_encoding": "utf-8",
+          "language": "ancient greek",
+          "translator": "",
+          "editor": "John Burnet",
+          "edition_label": "Perseus canonical GreekLit tlg0059.tlg011.perseus-grc2; John Burnet Greek edition",
+          "license_status": "open-license",
+          "license_notes": "Perseus canonical-greekLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-PLATO-PHAEDRUS-GREEK-PERSEUS-GRC2",
+          "work_title": "Phaedrus",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-040-PLATO-PLATO-PHAEDRUS-GREEK-PERSEUS-GRC2.xml",
+          "text_sha256": "093ffd99183cf5c54d966328f869f5a130bc38f4ec656b6f91b9ba7ed54b3e57",
+          "text_bytes": 255634,
+          "text_encoding": "utf-8",
+          "language": "ancient greek",
+          "translator": "",
+          "editor": "John Burnet",
+          "edition_label": "Perseus canonical GreekLit tlg0059.tlg012.perseus-grc2; John Burnet Greek edition",
+          "license_status": "open-license",
+          "license_notes": "Perseus canonical-greekLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-PLATO-ALCIBIADES-I-GREEK-PERSEUS-GRC2",
+          "work_title": "Alcibiades I",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-040-PLATO-PLATO-ALCIBIADES-I-GREEK-PERSEUS-GRC2.xml",
+          "text_sha256": "1fd0f174b5267d7792adb383359444e5721ce8d9fd84db1e279ac89304c6610e",
+          "text_bytes": 232007,
+          "text_encoding": "utf-8",
+          "language": "ancient greek",
+          "translator": "",
+          "editor": "John Burnet",
+          "edition_label": "Perseus canonical GreekLit tlg0059.tlg013.perseus-grc2; John Burnet Greek edition",
+          "license_status": "open-license",
+          "license_notes": "Perseus canonical-greekLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-PLATO-ALCIBIADES-II-GREEK-PERSEUS-GRC2",
+          "work_title": "Alcibiades II",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-040-PLATO-PLATO-ALCIBIADES-II-GREEK-PERSEUS-GRC2.xml",
+          "text_sha256": "45877fc9bea70443a19f6b3804e0adee4ea4cd6d5d12569a5c3db0f39bc2d255",
+          "text_bytes": 72715,
+          "text_encoding": "utf-8",
+          "language": "ancient greek",
+          "translator": "",
+          "editor": "John Burnet",
+          "edition_label": "Perseus canonical GreekLit tlg0059.tlg014.perseus-grc2; John Burnet Greek edition",
+          "license_status": "open-license",
+          "license_notes": "Perseus canonical-greekLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-PLATO-CHARMIDES-GREEK-PERSEUS-GRC2",
+          "work_title": "Charmides",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-040-PLATO-PLATO-CHARMIDES-GREEK-PERSEUS-GRC2.xml",
+          "text_sha256": "9504a2be48facd559a98d9978ee9feb0ebd3d723be9a1fc974051809e8aabda4",
+          "text_bytes": 119013,
+          "text_encoding": "utf-8",
+          "language": "ancient greek",
+          "translator": "",
+          "editor": "John Burnet",
+          "edition_label": "Perseus canonical GreekLit tlg0059.tlg018.perseus-grc2; John Burnet Greek edition",
+          "license_status": "open-license",
+          "license_notes": "Perseus canonical-greekLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-PLATO-LACHES-GREEK-PERSEUS-GRC2",
+          "work_title": "Laches",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-040-PLATO-PLATO-LACHES-GREEK-PERSEUS-GRC2.xml",
+          "text_sha256": "89091b573e02033a53043a4668dde6263aedce284945175bddd9834eb6cbb5e1",
+          "text_bytes": 117966,
+          "text_encoding": "utf-8",
+          "language": "ancient greek",
+          "translator": "",
+          "editor": "John Burnet",
+          "edition_label": "Perseus canonical GreekLit tlg0059.tlg019.perseus-grc2; John Burnet Greek edition",
+          "license_status": "open-license",
+          "license_notes": "Perseus canonical-greekLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-PLATO-LYSIS-GREEK-PERSEUS-GRC2",
+          "work_title": "Lysis",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-040-PLATO-PLATO-LYSIS-GREEK-PERSEUS-GRC2.xml",
+          "text_sha256": "7c7a7b9dc8c6281d5f2fb90f199288ee2e3075477f6e4c681705ff544cf83e7f",
+          "text_bytes": 105685,
+          "text_encoding": "utf-8",
+          "language": "ancient greek",
+          "translator": "",
+          "editor": "John Burnet",
+          "edition_label": "Perseus canonical GreekLit tlg0059.tlg020.perseus-grc2; John Burnet Greek edition",
+          "license_status": "open-license",
+          "license_notes": "Perseus canonical-greekLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-PLATO-EUTHYDEMUS-GREEK-PERSEUS-GRC2",
+          "work_title": "Euthydemus",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-040-PLATO-PLATO-EUTHYDEMUS-GREEK-PERSEUS-GRC2.xml",
+          "text_sha256": "1355ded66b3181932141f19fc5f018cc210bfad2c4a719d5529df37c51d8e071",
+          "text_bytes": 203444,
+          "text_encoding": "utf-8",
+          "language": "ancient greek",
+          "translator": "",
+          "editor": "John Burnet",
+          "edition_label": "Perseus canonical GreekLit tlg0059.tlg021.perseus-grc2; John Burnet Greek edition",
+          "license_status": "open-license",
+          "license_notes": "Perseus canonical-greekLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-PLATO-PROTAGORAS-GREEK-PERSEUS-GRC2",
+          "work_title": "Protagoras",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-040-PLATO-PLATO-PROTAGORAS-GREEK-PERSEUS-GRC2.xml",
+          "text_sha256": "1a78b4b0055f083db3c63bdb5c0fddbd77ab377b049eeaa4c74e5dbaa618aed9",
+          "text_bytes": 258830,
+          "text_encoding": "utf-8",
+          "language": "ancient greek",
+          "translator": "",
+          "editor": "John Burnet",
+          "edition_label": "Perseus canonical GreekLit tlg0059.tlg022.perseus-grc2; John Burnet Greek edition",
+          "license_status": "open-license",
+          "license_notes": "Perseus canonical-greekLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-PLATO-GORGIAS-GREEK-PERSEUS-GRC2",
+          "work_title": "Gorgias",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-040-PLATO-PLATO-GORGIAS-GREEK-PERSEUS-GRC2.xml",
+          "text_sha256": "b025415cd8ab17a49c8ff4762cba05e58bb221e3477393e4d1ea120e665e0b33",
+          "text_bytes": 413487,
+          "text_encoding": "utf-8",
+          "language": "ancient greek",
+          "translator": "",
+          "editor": "John Burnet",
+          "edition_label": "Perseus canonical GreekLit tlg0059.tlg023.perseus-grc2; John Burnet Greek edition",
+          "license_status": "open-license",
+          "license_notes": "Perseus canonical-greekLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-PLATO-MENO-GREEK-PERSEUS-GRC2",
+          "work_title": "Meno",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-040-PLATO-PLATO-MENO-GREEK-PERSEUS-GRC2.xml",
+          "text_sha256": "03c5cc32c05c81d291df98c6fde488e74cb49dea13e76cc1ec91b0a9144260eb",
+          "text_bytes": 162344,
+          "text_encoding": "utf-8",
+          "language": "ancient greek",
+          "translator": "",
+          "editor": "John Burnet",
+          "edition_label": "Perseus canonical GreekLit tlg0059.tlg024.perseus-grc2; John Burnet Greek edition",
+          "license_status": "open-license",
+          "license_notes": "Perseus canonical-greekLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-PLATO-LESSER-HIPPIAS-GREEK-PERSEUS-GRC2",
+          "work_title": "Lesser Hippias",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-040-PLATO-PLATO-LESSER-HIPPIAS-GREEK-PERSEUS-GRC2.xml",
+          "text_sha256": "db44a8d3a7e8b187388f8ee49d468a562e09f7911a76b09c6a239f85ec46fc90",
+          "text_bytes": 72175,
+          "text_encoding": "utf-8",
+          "language": "ancient greek",
+          "translator": "",
+          "editor": "John Burnet",
+          "edition_label": "Perseus canonical GreekLit tlg0059.tlg026.perseus-grc2; John Burnet Greek edition",
+          "license_status": "open-license",
+          "license_notes": "Perseus canonical-greekLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-PLATO-ION-GREEK-PERSEUS-GRC2",
+          "work_title": "Ion",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-040-PLATO-PLATO-ION-GREEK-PERSEUS-GRC2.xml",
+          "text_sha256": "87f43d0dfa10ee965de883fe5e9af6bdce4e1b8447279a47c388e544cd6e0248",
+          "text_bytes": 67670,
+          "text_encoding": "utf-8",
+          "language": "ancient greek",
+          "translator": "",
+          "editor": "John Burnet",
+          "edition_label": "Perseus canonical GreekLit tlg0059.tlg027.perseus-grc2; John Burnet Greek edition",
+          "license_status": "open-license",
+          "license_notes": "Perseus canonical-greekLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-PLATO-MENEXENUS-GREEK-PERSEUS-GRC2",
+          "work_title": "Menexenus",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-040-PLATO-PLATO-MENEXENUS-GREEK-PERSEUS-GRC2.xml",
+          "text_sha256": "ad78d37a6f38da6d28aafece98672edbb527f83c386cd3398610eed69be0966c",
+          "text_bytes": 71785,
+          "text_encoding": "utf-8",
+          "language": "ancient greek",
+          "translator": "",
+          "editor": "John Burnet",
+          "edition_label": "Perseus canonical GreekLit tlg0059.tlg028.perseus-grc2; John Burnet Greek edition",
+          "license_status": "open-license",
+          "license_notes": "Perseus canonical-greekLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-PLATO-REPUBLIC-GREEK-PERSEUS-GRC2",
+          "work_title": "Republic",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-040-PLATO-PLATO-REPUBLIC-GREEK-PERSEUS-GRC2.xml",
+          "text_sha256": "da2bfcf943497bb147fc49ae4b47bf0919e1db790bcf7de830dc259e76379d4f",
+          "text_bytes": 1302882,
+          "text_encoding": "utf-8",
+          "language": "ancient greek",
+          "translator": "",
+          "editor": "John Burnet",
+          "edition_label": "Perseus canonical GreekLit tlg0059.tlg030.perseus-grc2; John Burnet Greek edition",
+          "license_status": "open-license",
+          "license_notes": "Perseus canonical-greekLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-PLATO-TIMAEUS-GREEK-PERSEUS-GRC2",
+          "work_title": "Timaeus",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-040-PLATO-PLATO-TIMAEUS-GREEK-PERSEUS-GRC2.xml",
+          "text_sha256": "9280b741ab6e430b710d3cea58979e0b2b117b1762074798ece640e099858289",
+          "text_bytes": 324484,
+          "text_encoding": "utf-8",
+          "language": "ancient greek",
+          "translator": "",
+          "editor": "John Burnet",
+          "edition_label": "Perseus canonical GreekLit tlg0059.tlg031.perseus-grc2; John Burnet Greek edition",
+          "license_status": "open-license",
+          "license_notes": "Perseus canonical-greekLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-PLATO-CRITIAS-GREEK-PERSEUS-GRC2",
+          "work_title": "Critias",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-040-PLATO-PLATO-CRITIAS-GREEK-PERSEUS-GRC2.xml",
+          "text_sha256": "381a66b13e409af620225f86f57c04b919cdd5856c6d931243522dc30911291e",
+          "text_bytes": 70387,
+          "text_encoding": "utf-8",
+          "language": "ancient greek",
+          "translator": "",
+          "editor": "John Burnet",
+          "edition_label": "Perseus canonical GreekLit tlg0059.tlg032.perseus-grc2; John Burnet Greek edition",
+          "license_status": "open-license",
+          "license_notes": "Perseus canonical-greekLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-040-PLATO-PLATO-LAWS-GREEK-PERSEUS-GRC2",
+          "work_title": "Laws",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-040-PLATO-PLATO-LAWS-GREEK-PERSEUS-GRC2.xml",
+          "text_sha256": "5684a3c60efafb4f2410d6c98902e0371a22ec32eb60ebe1644987eb7961a20e",
+          "text_bytes": 1511908,
+          "text_encoding": "utf-8",
+          "language": "ancient greek",
+          "translator": "",
+          "editor": "John Burnet",
+          "edition_label": "Perseus canonical GreekLit tlg0059.tlg034.perseus-grc2; John Burnet Greek edition",
+          "license_status": "open-license",
+          "license_notes": "Perseus canonical-greekLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
+          "status": "available"
         }
       ],
       "coverage_status": "selected-works",
-      "coverage_notes": "Portable store includes a fuller Project Gutenberg/Jowett Plato shelf plus selected pseudo-Platonic works marked dubious in edition labels; this remains selected works, not a complete scholarly Plato corpus."
+      "coverage_notes": "Portable store includes a fuller Project Gutenberg/Jowett English Plato shelf plus Perseus canonical GreekLit Greek XML bodies for the mirrored selected-dialogue set, including Republic, Laws, Timaeus, Critias, Phaedo, Symposium, Phaedrus, Gorgias, Meno, and related dialogues. This remains selected works, not a complete scholarly Plato corpus."
     },
     {
       "source_id": "LIB-ANCIENT-AUTHOR-041-ARISTOTLE",
@@ -2749,10 +3459,70 @@
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg states public domain in the USA.",
           "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-041-ARISTOTLE-ARISTOTLE-ATHENIAN-CONSTITUTION-GREEK-PERSEUS-GRC2",
+          "work_title": "Constitution of the Athenians",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-041-ARISTOTLE-ARISTOTLE-ATHENIAN-CONSTITUTION-GREEK-PERSEUS-GRC2.xml",
+          "text_sha256": "b15b3635616043abe5099e6b935cf51c09eb0bcb3e4f26cde4bbd3a31ec1cb3a",
+          "text_bytes": 263686,
+          "text_encoding": "utf-8",
+          "language": "ancient greek",
+          "translator": "",
+          "editor": "Frederic G Kenyon",
+          "edition_label": "Perseus canonical GreekLit tlg0086.tlg003.perseus-grc2; F. G. Kenyon Greek edition",
+          "license_status": "open-license",
+          "license_notes": "Perseus canonical-greekLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-041-ARISTOTLE-ARISTOTLE-NICOMACHEAN-ETHICS-GREEK-PERSEUS-GRC2",
+          "work_title": "Nicomachean Ethics",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-041-ARISTOTLE-ARISTOTLE-NICOMACHEAN-ETHICS-GREEK-PERSEUS-GRC2.xml",
+          "text_sha256": "1589cf781efb47bcf3118beb54e23284a29c5b3a99213fcc12793aaef439c648",
+          "text_bytes": 747722,
+          "text_encoding": "utf-8",
+          "language": "ancient greek",
+          "translator": "",
+          "editor": "Ingram Bywater",
+          "edition_label": "Perseus canonical GreekLit tlg0086.tlg010.perseus-grc2; Ingram Bywater Greek edition",
+          "license_status": "open-license",
+          "license_notes": "Perseus canonical-greekLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-041-ARISTOTLE-ARISTOTLE-POETICS-GREEK-PERSEUS-GRC2",
+          "work_title": "Poetics",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-041-ARISTOTLE-ARISTOTLE-POETICS-GREEK-PERSEUS-GRC2.xml",
+          "text_sha256": "3e7ffc0a1f95f0cf289ff5baf1d57877c6782a6fbb528aaa256840dfc68fde59",
+          "text_bytes": 187403,
+          "text_encoding": "utf-8",
+          "language": "ancient greek",
+          "translator": "",
+          "editor": "Rudolf Kassel",
+          "edition_label": "Perseus canonical GreekLit tlg0086.tlg034.perseus-grc2; Rudolf Kassel Greek edition",
+          "license_status": "open-license",
+          "license_notes": "Perseus canonical-greekLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-041-ARISTOTLE-ARISTOTLE-POLITICS-GREEK-PERSEUS-GRC2",
+          "work_title": "Politics",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-041-ARISTOTLE-ARISTOTLE-POLITICS-GREEK-PERSEUS-GRC2.xml",
+          "text_sha256": "118c41b80e3b074e542cf44fb688f5128009c91cf47c5db496d75f272ec0c048",
+          "text_bytes": 918423,
+          "text_encoding": "utf-8",
+          "language": "ancient greek",
+          "translator": "",
+          "editor": "William David Ross",
+          "edition_label": "Perseus canonical GreekLit tlg0086.tlg035.perseus-grc2; W. D. Ross Greek edition",
+          "license_status": "open-license",
+          "license_notes": "Perseus canonical-greekLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
+          "status": "available"
         }
       ],
       "coverage_status": "selected-works",
-      "coverage_notes": "Portable store includes selected public-domain English Aristotle works; not a complete surviving Aristotelian corpus."
+      "coverage_notes": "Portable store includes selected public-domain English Aristotle works plus Perseus canonical GreekLit Greek XML bodies for Politics, Nicomachean Ethics, Poetics, and Constitution of the Athenians. This is selected works, not a complete surviving Aristotelian corpus."
     },
     {
       "source_id": "LIB-ANCIENT-AUTHOR-042-SOPHOCLES",
@@ -2809,10 +3579,115 @@
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg states public domain in the USA.",
           "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-042-SOPHOCLES-SOPHOCLES-TRACHINIAE-GREEK-PERSEUS-GRC2",
+          "work_title": "Trachiniae",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-042-SOPHOCLES-SOPHOCLES-TRACHINIAE-GREEK-PERSEUS-GRC2.xml",
+          "text_sha256": "c8dcd29a425cfa50403b396dc4c1b0cdf8effb3da5306ed41b16c21b432fd579",
+          "text_bytes": 180657,
+          "text_encoding": "utf-8",
+          "language": "ancient greek",
+          "translator": "",
+          "editor": "Francis Storr",
+          "edition_label": "Perseus canonical GreekLit tlg0011.tlg001.perseus-grc2; Francis Storr Greek edition",
+          "license_status": "open-license",
+          "license_notes": "Perseus canonical-greekLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-042-SOPHOCLES-SOPHOCLES-ANTIGONE-GREEK-PERSEUS-GRC2",
+          "work_title": "Antigone",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-042-SOPHOCLES-SOPHOCLES-ANTIGONE-GREEK-PERSEUS-GRC2.xml",
+          "text_sha256": "18cb825a18eec000e7630d3758462a050185a9323f570a2eb9d0acaedba921d9",
+          "text_bytes": 183074,
+          "text_encoding": "utf-8",
+          "language": "ancient greek",
+          "translator": "",
+          "editor": "Francis Storr",
+          "edition_label": "Perseus canonical GreekLit tlg0011.tlg002.perseus-grc2; Francis Storr Greek edition",
+          "license_status": "open-license",
+          "license_notes": "Perseus canonical-greekLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-042-SOPHOCLES-SOPHOCLES-AJAX-GREEK-PERSEUS-GRC2",
+          "work_title": "Ajax",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-042-SOPHOCLES-SOPHOCLES-AJAX-GREEK-PERSEUS-GRC2.xml",
+          "text_sha256": "4178a9416068732baffdfe3ba3a58b313694b52fd2e236ac4de1e5a72c6e2432",
+          "text_bytes": 178281,
+          "text_encoding": "utf-8",
+          "language": "ancient greek",
+          "translator": "",
+          "editor": "Francis Storr",
+          "edition_label": "Perseus canonical GreekLit tlg0011.tlg003.perseus-grc2; Francis Storr Greek edition",
+          "license_status": "open-license",
+          "license_notes": "Perseus canonical-greekLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-042-SOPHOCLES-SOPHOCLES-OEDIPUS-TYRANNUS-GREEK-PERSEUS-GRC2",
+          "work_title": "Oedipus Tyrannus",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-042-SOPHOCLES-SOPHOCLES-OEDIPUS-TYRANNUS-GREEK-PERSEUS-GRC2.xml",
+          "text_sha256": "74e4bd65d67b0a38917dadb57cce36dcc587c6c74c13abb7a7ea7a75172d638a",
+          "text_bytes": 206201,
+          "text_encoding": "utf-8",
+          "language": "ancient greek",
+          "translator": "",
+          "editor": "Francis Storr",
+          "edition_label": "Perseus canonical GreekLit tlg0011.tlg004.perseus-grc2; Francis Storr Greek edition",
+          "license_status": "open-license",
+          "license_notes": "Perseus canonical-greekLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-042-SOPHOCLES-SOPHOCLES-ELECTRA-GREEK-PERSEUS-GRC2",
+          "work_title": "Electra",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-042-SOPHOCLES-SOPHOCLES-ELECTRA-GREEK-PERSEUS-GRC2.xml",
+          "text_sha256": "de899cf841268912b17e49db717329dbc9e69a3d4227b53f3cc6ba28a0aa1140",
+          "text_bytes": 198639,
+          "text_encoding": "utf-8",
+          "language": "ancient greek",
+          "translator": "",
+          "editor": "Francis Storr",
+          "edition_label": "Perseus canonical GreekLit tlg0011.tlg005.perseus-grc2; Francis Storr Greek edition",
+          "license_status": "open-license",
+          "license_notes": "Perseus canonical-greekLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-042-SOPHOCLES-SOPHOCLES-PHILOCTETES-GREEK-PERSEUS-GRC2",
+          "work_title": "Philoctetes",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-042-SOPHOCLES-SOPHOCLES-PHILOCTETES-GREEK-PERSEUS-GRC2.xml",
+          "text_sha256": "2782cf40facd29515c3924d6116f4a94cdc5333887be35135c6529c26cd974b0",
+          "text_bytes": 196344,
+          "text_encoding": "utf-8",
+          "language": "ancient greek",
+          "translator": "",
+          "editor": "Francis Storr",
+          "edition_label": "Perseus canonical GreekLit tlg0011.tlg006.perseus-grc2; Francis Storr Greek edition",
+          "license_status": "open-license",
+          "license_notes": "Perseus canonical-greekLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-042-SOPHOCLES-SOPHOCLES-OEDIPUS-AT-COLONUS-GREEK-PERSEUS-GRC2",
+          "work_title": "Oedipus at Colonus",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-042-SOPHOCLES-SOPHOCLES-OEDIPUS-AT-COLONUS-GREEK-PERSEUS-GRC2.xml",
+          "text_sha256": "fb4a5ff472a664d6066665791c5dafea6d1c699fd41b37f9df34fbb79fed4540",
+          "text_bytes": 238796,
+          "text_encoding": "utf-8",
+          "language": "ancient greek",
+          "translator": "",
+          "editor": "Francis Storr",
+          "edition_label": "Perseus canonical GreekLit tlg0011.tlg007.perseus-grc2; Francis Storr Greek edition",
+          "license_status": "open-license",
+          "license_notes": "Perseus canonical-greekLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
+          "status": "available"
         }
       ],
       "coverage_status": "complete-surviving-corpus",
-      "coverage_notes": "Portable store includes a seven-play English edition covering the standard complete surviving Sophoclean plays, plus the earlier Oedipus Trilogy edition."
+      "coverage_notes": "Portable store includes a seven-play English edition and Perseus canonical GreekLit Greek XML bodies covering the seven standard complete surviving Sophoclean plays, plus the earlier Oedipus Trilogy edition."
     },
     {
       "source_id": "LIB-ANCIENT-AUTHOR-043-VIRGIL",
@@ -2884,10 +3759,70 @@
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg states public domain in the USA.",
           "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-043-VIRGIL-AENEID-LATIN-GUTENBERG-227",
+          "work_title": "Aeneidos",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-043-VIRGIL-AENEID-LATIN-GUTENBERG-227.txt",
+          "text_sha256": "2620ba82c00964d1a1f0458c8cf171946f158a06de0d0e764594170602c4c7b8",
+          "text_bytes": 495876,
+          "text_encoding": "utf-8",
+          "language": "latin",
+          "translator": "",
+          "editor": "",
+          "edition_label": "Project Gutenberg #227; Latin text of the Aeneid",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg identifies this ebook as public domain in the USA.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-043-VIRGIL-ECLOGUES-LATIN-PERSEUS-LAT2",
+          "work_title": "Eclogues",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-043-VIRGIL-ECLOGUES-LATIN-PERSEUS-LAT2.xml",
+          "text_sha256": "41eaf6cdc83658fb6d723a5881691695202c173ce171ac1bdee52aefde3b9607",
+          "text_bytes": 76263,
+          "text_encoding": "utf-8",
+          "language": "latin",
+          "translator": "",
+          "editor": "J. B. Greenough",
+          "edition_label": "Perseus canonical LatinLit phi0690.phi001.perseus-lat2; J. B. Greenough Latin edition",
+          "license_status": "open-license",
+          "license_notes": "Perseus canonical-latinLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-043-VIRGIL-GEORGICS-LATIN-PERSEUS-LAT2",
+          "work_title": "Georgics",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-043-VIRGIL-GEORGICS-LATIN-PERSEUS-LAT2.xml",
+          "text_sha256": "7d4c7a8c592b5cc99185466a75a78fcca7530a2de993a9dc39d162f91fc43146",
+          "text_bytes": 175603,
+          "text_encoding": "utf-8",
+          "language": "latin",
+          "translator": "",
+          "editor": "J. B. Greenough",
+          "edition_label": "Perseus canonical LatinLit phi0690.phi002.perseus-lat2; J. B. Greenough Latin edition",
+          "license_status": "open-license",
+          "license_notes": "Perseus canonical-latinLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-043-VIRGIL-AENEID-LATIN-PERSEUS-LAT2",
+          "work_title": "Aeneid",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-043-VIRGIL-AENEID-LATIN-PERSEUS-LAT2.xml",
+          "text_sha256": "4cd661fdd9f9d54d71bc0273880f154266e18d44f74609a5f313e424e6158a0c",
+          "text_bytes": 694454,
+          "text_encoding": "utf-8",
+          "language": "latin",
+          "translator": "",
+          "editor": "J. B. Greenough",
+          "edition_label": "Perseus canonical LatinLit phi0690.phi003.perseus-lat2; J. B. Greenough Latin edition",
+          "license_status": "open-license",
+          "license_notes": "Perseus canonical-latinLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
+          "status": "available"
         }
       ],
-      "coverage_status": "complete-surviving-corpus",
-      "coverage_notes": "Portable store includes Aeneid, Georgics, and Bucolics/Eclogues, covering Virgilian major surviving works represented by this source-authority record."
+      "coverage_status": "principal-works",
+      "coverage_notes": "Portable store includes English Aeneid, Georgics, and Bucolics/Eclogues bodies, Project Gutenberg #227 Latin Aeneid, and Perseus canonical LatinLit Latin XML bodies for Eclogues, Georgics, and Aeneid. This covers the principal surviving Virgilian corpus represented by this source-authority record."
     },
     {
       "source_id": "LIB-ANCIENT-AUTHOR-044-LUCRETIUS",
@@ -2929,10 +3864,25 @@
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg states public domain in the USA.",
           "status": "available"
+        },
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-044-LUCRETIUS-DE-RERUM-NATURA-LATIN-PERSEUS-LAT1",
+          "work_title": "De Rerum Natura",
+          "text_location": "library-text://LIB-ANCIENT-AUTHOR-044-LUCRETIUS-DE-RERUM-NATURA-LATIN-PERSEUS-LAT1.xml",
+          "text_sha256": "6d87b29764f1e4e589807663604dda08afea35d7a19738d446470c1ee79026a9",
+          "text_bytes": 459405,
+          "text_encoding": "utf-8",
+          "language": "latin",
+          "translator": "",
+          "editor": "",
+          "edition_label": "Perseus canonical LatinLit phi0550.phi001.perseus-lat1; Latin edition",
+          "license_status": "open-license",
+          "license_notes": "Perseus canonical-latinLit README states repository contents are licensed CC BY-SA 4.0 unless otherwise indicated.",
+          "status": "available"
         }
       ],
       "coverage_status": "complete-surviving-corpus",
-      "coverage_notes": "Portable store includes De Rerum Natura / On the Nature of Things, the principal surviving Lucretian corpus represented by this source-authority record."
+      "coverage_notes": "Portable store includes the William Ellery Leonard English translation and Perseus canonical LatinLit phi0550.phi001.perseus-lat1 Latin XML for De Rerum Natura, covering the surviving Lucretian corpus represented by this source-authority record."
     },
     {
       "source_id": "LIB-ANCIENT-AUTHOR-045-PTOLEMY",
