@@ -83,7 +83,7 @@ def add_hours(value: str, hours: int) -> str:
 
 
 def migration_required_payload(
-    connection: sqlite3.Connection, *, command: str, review_cohort: str
+    connection: sqlite3.Connection, *, command: str, review_cohort: str, store_path: Path | None = None
 ) -> dict[str, Any] | None:
     version = int(connection.execute("PRAGMA user_version").fetchone()[0])
     if version >= 4:
@@ -97,6 +97,12 @@ def migration_required_payload(
         "current_schema_version": version,
         "required_schema_version": 4,
         "migration_trigger": "the next authorized writable choice operation",
+        "migration_command": (
+            f"tools/run.ps1 choice --db {store_path} migrate-store --json"
+            if store_path is not None
+            else "tools/run.ps1 choice migrate-store --json"
+        ),
+        "store_path": str(store_path) if store_path is not None else None,
         "store_changed": False,
         "authority_effect": AUTHORITY_EFFECT,
     }
@@ -301,6 +307,14 @@ def connect_read_only(path: Path) -> sqlite3.Connection:
         connection.close()
         raise
     return connection
+
+
+def schema_version_at(path: Path) -> int:
+    connection = sqlite3.connect(path)
+    try:
+        return int(connection.execute("PRAGMA user_version").fetchone()[0])
+    finally:
+        connection.close()
 
 
 def migrate(connection: sqlite3.Connection) -> None:
@@ -1931,6 +1945,10 @@ def parse_args(arguments: list[str] | None = None) -> argparse.Namespace:
     recover.add_argument("--from", dest="source", required=True)
     recover.add_argument("--to", required=True)
     recover.add_argument("--dry-run", action="store_true")
+    migrate_store = subparsers.add_parser(
+        "migrate-store", help="Explicitly migrate the private choice store schema."
+    )
+    migrate_store.add_argument("--json", action="store_true")
     return parser.parse_args(arguments)
 
 
@@ -1990,7 +2008,7 @@ def main(arguments: list[str] | None = None) -> int:
     resolution = resolve_store(
         args.db,
         require_exists=args.command
-        in {"context", "review", "due", "health", "show", "verify", "backup", "backup-status", "close"},
+        in {"context", "review", "due", "health", "show", "verify", "backup", "backup-status", "close", "migrate-store"},
     )
     if args.command == "recover":
         payload = {"would_recover": args.dry_run, "from": args.source, "to": args.to}
@@ -1998,6 +2016,25 @@ def main(arguments: list[str] | None = None) -> int:
             recover_backup(Path(args.source), Path(args.to))
             payload["recovered"] = True
         print(json.dumps(payload, indent=2))
+        return 0
+    if args.command == "migrate-store":
+        previous_version = schema_version_at(resolution.path)
+        connection = connect(resolution.path)
+        try:
+            current_version = int(connection.execute("PRAGMA user_version").fetchone()[0])
+            payload = {
+                "projection_kind": "choice-store-migration",
+                "projection_version": PROJECTION_VERSION,
+                "status": "migrated" if previous_version < SCHEMA_VERSION else "current",
+                "previous_schema_version": previous_version,
+                "current_schema_version": current_version,
+                "store_path": str(resolution.path),
+                "store_changed": previous_version < SCHEMA_VERSION,
+                "authority_effect": AUTHORITY_EFFECT,
+            }
+        finally:
+            connection.close()
+        print(json.dumps(payload, indent=2, ensure_ascii=False))
         return 0
     if resolution.path is None:
         payload = unavailable_payload(
@@ -2059,6 +2096,7 @@ def main(arguments: list[str] | None = None) -> int:
                 connection,
                 command=args.command,
                 review_cohort=review_cohort,
+                store_path=resolution.path,
             )
         if payload is not None:
             pass

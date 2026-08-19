@@ -104,6 +104,10 @@ def boundary_label(
     return "inspected only: clean and synchronized"
 
 
+def push_target_clean(*, ahead: int | None, behind: int | None, upstream: str | None) -> bool:
+    return upstream is not None and ahead is not None and behind == 0 and ahead > 0
+
+
 def build_report(repo: Path = REPO_ROOT) -> dict[str, Any]:
     repository = repo.resolve()
     lines = porcelain(repository)
@@ -122,9 +126,12 @@ def build_report(repo: Path = REPO_ROOT) -> dict[str, Any]:
         "upstream_sha": upstream_sha,
         "ahead": ahead,
         "behind": behind,
+        "unpushed_commit_count": ahead,
         "dirty_count": dirty_count,
         "dirty_groups": dirty_groups(lines),
         "staged_count": staged,
+        "push_target_clean": push_target_clean(ahead=ahead, behind=behind, upstream=upstream),
+        "dirty_blocks_push": False if push_target_clean(ahead=ahead, behind=behind, upstream=upstream) else bool(dirty_count),
         "recommended_boundary": boundary_label(
             dirty_count=dirty_count,
             staged=staged,
@@ -156,6 +163,8 @@ def main(arguments: list[str] | None = None) -> int:
         print(f"Ahead: {report['ahead']}")
         print(f"Behind: {report['behind']}")
         print(f"Remote: {report['upstream_sha'] or 'unavailable'}")
+        print(f"Push target clean: {str(report['push_target_clean']).lower()}")
+        print(f"Dirty blocks push: {str(report['dirty_blocks_push']).lower()}")
         print(f"Boundary: {report['recommended_boundary']}")
     return 0
 

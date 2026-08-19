@@ -1843,6 +1843,8 @@ def test_legacy_cohort_diagnostics_require_migration_without_writing(
     assert payload["status"] == "migration-required"
     assert payload["current_schema_version"] == 3
     assert payload["required_schema_version"] == 4
+    assert payload["migration_command"] == f"tools/run.ps1 choice --db {path} migrate-store --json"
+    assert payload["store_path"] == str(path)
     assert payload["store_changed"] is False
     assert (path.read_bytes(), path.stat().st_mtime_ns) == before
 
@@ -1852,6 +1854,30 @@ def test_legacy_cohort_diagnostics_require_migration_without_writing(
         "SELECT review_cohort FROM choice_prompts WHERE choice_id='CHOICE-001'"
     ).fetchone()[0] is None
     writable.close()
+
+
+def test_authorized_migrate_store_unblocks_cohort_review(
+    tmp_path: Path, capsys: pytest.CaptureFixture[str]
+) -> None:
+    path = tmp_path / "legacy-migrate.sqlite3"
+    db = connection(path)
+    select(db)
+    db.execute("PRAGMA user_version = 3")
+    db.commit()
+    db.close()
+
+    assert choice_ledger.main(["--db", str(path), "migrate-store", "--json"]) == 0
+    migrated = json.loads(capsys.readouterr().out)
+    assert migrated["status"] == "migrated"
+    assert migrated["previous_schema_version"] == 3
+    assert migrated["current_schema_version"] == 4
+    assert migrated["store_changed"] is True
+
+    assert choice_ledger.main([
+        "--db", str(path), "due", "--review-cohort", "mira-core-natural-use-v1", "--json"
+    ]) == 0
+    payload = json.loads(capsys.readouterr().out)
+    assert payload["projection_kind"] == "choice-outcome-due"
 
 
 def test_health_reports_legacy_workspace_variants_without_merging(tmp_path: Path) -> None:

@@ -445,7 +445,7 @@ def record_dream_closeout(connection: sqlite3.Connection, payload: dict[str, Any
 
 
 def normalize_repo_ref(value: str) -> str:
-    ref = sanitize_text(value, limit=500).replace("\\", "/")
+    ref = sanitize_artifact_ref(value, limit=500)
     path_text = ref.split("#", 1)[0]
     candidate = Path(path_text)
     if candidate.is_absolute() or ".." in candidate.parts:

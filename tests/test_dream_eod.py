@@ -5,6 +5,8 @@ import json
 from pathlib import Path
 from types import SimpleNamespace
 
+import pytest
+
 
 ROOT = Path(__file__).resolve().parents[1]
 SCRIPTS = ROOT / "scripts"
@@ -34,6 +36,77 @@ def arguments(tmp_path: Path, **changes):
     }
     values.update(changes)
     return SimpleNamespace(**values)
+
+
+VALID_SESSION = "MS-01a01585-46ad-7271-b912-fa3eb851041d"
+OTHER_VALID_SESSION = "MS-01a01585-46ad-7271-b0b6-d97b1390eb11"
+
+
+def write_bundle(bundle: Path, *, required_sessions: list[str] | None = None) -> None:
+    bundle.mkdir(parents=True)
+    (bundle / "draft.md").write_bytes(b"# 2026-08-16 \xe2\x80\x94 Return\n\nPrivate prose.\n")
+    (bundle / "technical-reference.json").write_text(
+        json.dumps({"reference_id": "MJTR-20260816-v1", "journal_version_id": "MJ-20260816-v1"}),
+        encoding="utf-8",
+    )
+    (bundle / "composition-brief.json").write_text(
+        json.dumps({
+            "daily_session_coverage": {
+                "sessions": [
+                    {"session_id": session_id}
+                    for session_id in (required_sessions or [VALID_SESSION])
+                ]
+            }
+        }),
+        encoding="utf-8",
+    )
+
+
+def dream_candidate(path: Path, *, session_id: str = VALID_SESSION) -> Path:
+    payload = {
+        "episode_id": "CD-20260816-01",
+        "series_id": "SERIES-DREAM-TEST",
+        "created_at": "2026-08-16T12:00:00+00:00",
+        "workspace_id": "mira-core",
+        "operator_id": "operator-test",
+        "dream_date": "2026-08-16",
+        "timezone": "UTC",
+        "coverage_status": "complete",
+        "session_coverage": [{
+            "session_id": session_id,
+            "status": "included",
+            "reason": "Represented in the journal census.",
+            "observed_at": "2026-08-16T12:00:00+00:00",
+        }],
+        "observation": "A bounded observation.",
+        "diagnosis": "A bounded diagnosis.",
+        "intervention": "A bounded intervention.",
+        "method_version_digest": "a" * 64,
+        "profile": {"name": "test", "version": "1", "command_digest": "b" * 64},
+        "observable": {
+            "name": "stale records",
+            "unit": "count",
+            "baseline": "1",
+            "success_threshold": "0",
+            "source": "tests/test_dream_eod.py",
+        },
+        "falsifier": "A comparable run fails.",
+        "next_use": "the next Dream test",
+        "task_class": "daily-close-governance",
+        "expires_at": "2026-09-16T00:00:00+00:00",
+        "artifacts": [{
+            "ref": "tests/test_dream_eod.py",
+            "relationship": "verification",
+            "captured_at": "2026-08-16T12:00:00+00:00",
+        }],
+        "relevant_paths": ["tests/test_dream_eod.py"],
+        "evidence_summary": "A focused Dream test.",
+        "tomorrow_inherits": "Retest the guard.",
+        "verification": {},
+        "measurements": {},
+    }
+    path.write_text(json.dumps(payload), encoding="utf-8")
+    return path
 
 
 def test_check_is_read_only_and_reports_composition_blocker(monkeypatch, tmp_path: Path) -> None:
@@ -232,3 +305,69 @@ def test_private_bundle_is_certified_without_journal_mutation(monkeypatch, tmp_p
     assert journal_receipt["canonicalized"] is False
     assert journal_receipt["approval_status"] == "pending"
     assert journal_receipt["digest"] == dream_eod.hashlib.sha256(prose).hexdigest()
+
+
+def test_dream_candidate_rejects_unknown_journal_session_before_ledger_write(
+    monkeypatch, tmp_path: Path
+) -> None:
+    bundle = tmp_path / "journal" / "2026-08-16"
+    write_bundle(bundle, required_sessions=[VALID_SESSION])
+    candidate = dream_candidate(tmp_path / "candidate.json", session_id=OTHER_VALID_SESSION)
+    monkeypatch.setattr(dream_eod, "manifest_rows", lambda _date: 0)
+    monkeypatch.setattr(dream_eod, "journal_entry", lambda _date: None)
+    monkeypatch.setattr(dream_eod.mira_journal_references, "reference_digest", lambda _value: "b" * 64)
+    monkeypatch.setattr(
+        dream_eod,
+        "run_tool",
+        lambda *args: SimpleNamespace(
+            returncode=0,
+            stdout='{"status":"passed","refresh_required":false,"version_id":"MJ-20260816-v1"}',
+            stderr="",
+        ),
+    )
+
+    with pytest.raises(dream_eod.cadence_ledger.CadenceLedgerError, match="unknown journal sessions"):
+        dream_eod.execute(
+            arguments(tmp_path, timezone="UTC", journal_bundle=bundle, dream_json=candidate),
+            "2026-08-16",
+        )
+
+    connection = dream_eod.cadence_ledger.connect(tmp_path / "cadence.sqlite3")
+    try:
+        assert connection.execute("SELECT COUNT(*) FROM cadence_episodes").fetchone()[0] == 0
+    finally:
+        connection.close()
+
+
+def test_journal_refresh_block_reports_exact_resume_guidance(monkeypatch, tmp_path: Path) -> None:
+    bundle = tmp_path / "journal" / "2026-08-16"
+    bundle.mkdir(parents=True)
+    (bundle / "draft.md").write_text("# 2026-08-16 — Return\n\nPrivate prose.\n", encoding="utf-8")
+    monkeypatch.setattr(dream_eod, "manifest_rows", lambda _date: 0)
+    monkeypatch.setattr(dream_eod, "journal_entry", lambda _date: None)
+    checks = iter([
+        SimpleNamespace(
+            returncode=0,
+            stdout='{"status":"passed","refresh_required":false,"version_id":"MJ-20260816-v1"}',
+            stderr="",
+        ),
+        SimpleNamespace(
+            returncode=1,
+            stdout='{"status":"failed","refresh_required":true,"failures":["draft requires refresh for 1 later activity record(s)"]}',
+            stderr="",
+        ),
+    ])
+    monkeypatch.setattr(dream_eod, "run_tool", lambda *args: next(checks))
+
+    result = dream_eod.execute(arguments(tmp_path, journal_bundle=bundle), "2026-08-16")
+
+    assert result["status"] == "blocked"
+    assert result["run"]["stages"]["geo"] == "skipped"
+    assert result["run"]["stages"]["journal"] == "failed"
+    assert result["refresh_guidance"]["prepare"] == (
+        f"tools/run.ps1 mira-journal prepare --date 2026-08-16 --output-root {bundle.parent} --json"
+    )
+    assert result["refresh_guidance"]["draft_check"] == (
+        f"tools/run.ps1 mira-journal draft-check --date 2026-08-16 --bundle {bundle} --json"
+    )
+    assert f"tools/run.ps1 dream --resume {result['run']['run_id']}" in result["refresh_guidance"]["resume"]

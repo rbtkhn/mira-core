@@ -20,6 +20,9 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_TIMEZONE = "America/Denver"
 DEFAULT_WORKSPACE = "mira-core"
 DEFAULT_OPERATOR = "operator"
+SESSION_ID_RE = re.compile(
+    r"^MS-[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+)
 
 
 def run_tool(*arguments: str) -> subprocess.CompletedProcess[str]:
@@ -103,6 +106,18 @@ def validate_journal_bundle(run_date: str, bundle: Path) -> tuple[dict | None, s
     return validated, None
 
 
+def refresh_guidance(args, run_date: str, bundle: Path, run_id: str | None) -> dict[str, str | None]:
+    base = f"tools/run.ps1 mira-journal prepare --date {run_date} --output-root {bundle.parent} --json"
+    check = f"tools/run.ps1 mira-journal draft-check --date {run_date} --bundle {bundle} --json"
+    resume = (
+        f"tools/run.ps1 dream --resume {run_id} --date {run_date} --journal-bundle {bundle}"
+        + (f" --db {args.db}" if args.db else "")
+        + " --json"
+        if run_id else None
+    )
+    return {"prepare": base, "draft_check": check, "resume": resume}
+
+
 def journal_certification(bundle: Path, validated: dict) -> dict:
     reference = json.loads((bundle / "technical-reference.json").read_text(encoding="utf-8"))
     return {
@@ -113,6 +128,45 @@ def journal_certification(bundle: Path, validated: dict) -> dict:
         "validated_at": datetime.now(timezone.utc).isoformat(),
         "validation_status": "passed", "canonicalized": False, "approval_status": "pending",
     }
+
+
+def journal_required_sessions(bundle: Path) -> set[str]:
+    brief_path = bundle / "composition-brief.json"
+    if not brief_path.is_file():
+        return set()
+    brief = json.loads(brief_path.read_text(encoding="utf-8"))
+    return {
+        str(row.get("session_id", ""))
+        for row in brief.get("daily_session_coverage", {}).get("sessions", [])
+        if isinstance(row, dict)
+    }
+
+
+def validate_dream_candidate_sessions(episode: dict, *, required_sessions: set[str]) -> list[str]:
+    coverage = episode.get("session_coverage")
+    if not isinstance(coverage, list):
+        return ["Dream candidate lacks session_coverage"]
+    failures: list[str] = []
+    seen: set[str] = set()
+    for row in coverage:
+        if not isinstance(row, dict):
+            failures.append("Dream candidate session coverage rows must be objects")
+            continue
+        session_id = str(row.get("session_id", ""))
+        if not SESSION_ID_RE.fullmatch(session_id):
+            failures.append(f"Dream candidate has malformed session_id: {session_id}")
+            continue
+        if session_id in seen:
+            failures.append(f"Dream candidate duplicates session_id: {session_id}")
+        seen.add(session_id)
+    if required_sessions:
+        missing = sorted(required_sessions - seen)
+        unknown = sorted(seen - required_sessions)
+        if missing:
+            failures.append("Dream candidate is missing journal session coverage: " + ", ".join(missing))
+        if unknown:
+            failures.append("Dream candidate references unknown journal sessions: " + ", ".join(unknown))
+    return failures
 
 
 def append_stage(connection, projection, event_type: str, stage: str, status: str, **values):
@@ -239,7 +293,8 @@ def execute(args, run_date: str) -> dict:
                     projection = append_stage(connection, projection, "stage_failed", "journal", "validation_failed",
                                               reason="Private Mira Journal bundle failed certification validation.")
                     return {"status": "blocked", "mutation": True, "run": projection,
-                            "next_action": "Repair or refresh the journal bundle and resume this run.",
+                            "next_action": "Refresh the journal bundle and resume this run.",
+                            "refresh_guidance": refresh_guidance(args, run_date, bundle, projection["run_id"]),
                             "failure_tail": failure_tail}
                 projection = append_stage(
                     connection, projection, "stage_completed", "journal", "certified_private_bundle",
@@ -262,6 +317,11 @@ def execute(args, run_date: str) -> dict:
                     raise cadence_ledger.CadenceLedgerError(
                         "Dream candidate does not match daily-close scope: " + ", ".join(mismatches)
                     )
+                failures = validate_dream_candidate_sessions(
+                    episode, required_sessions=journal_required_sessions(journal_bundle(args, run_date))
+                )
+                if failures:
+                    raise cadence_ledger.CadenceLedgerError("; ".join(failures))
                 dream = cadence_ledger.create_episode(connection, episode, idempotency_key=f"{projection['run_id']}:dream:candidate")
                 projection = append_stage(connection, projection, "stage_completed", "dream", "candidate_recorded",
                                           episode_id=dream["episode"]["episode_id"])

@@ -73,6 +73,31 @@ def isolated_episode_store(tmp_path: Path, monkeypatch: pytest.MonkeyPatch):
     return connection,repo
 
 
+def test_normalize_repo_ref_preserves_dated_paths(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+    repo = tmp_path / "repo"
+    target = repo / "narrative-geopolitics" / "work" / "daily" / "2026-08-18" / "issue.md"
+    target.parent.mkdir(parents=True)
+    target.write_text("issue", encoding="utf-8")
+    monkeypatch.setattr(cadence_ledger, "REPO_ROOT", repo)
+
+    ref = "narrative-geopolitics/work/daily/2026-08-18/issue.md"
+    assert cadence_ledger.normalize_repo_ref(ref) == ref
+
+
+def test_normalize_repo_ref_rejects_contact_absolute_and_escaping_refs(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    repo = tmp_path / "repo"
+    repo.mkdir()
+    monkeypatch.setattr(cadence_ledger, "REPO_ROOT", repo)
+    with pytest.raises(cadence_ledger.CadenceLedgerError, match="contact data"):
+        cadence_ledger.normalize_repo_ref("private/person@example.com.md")
+    with pytest.raises(cadence_ledger.CadenceLedgerError, match="repository-relative"):
+        cadence_ledger.normalize_repo_ref(str((tmp_path / "outside.md").resolve()))
+    with pytest.raises(cadence_ledger.CadenceLedgerError, match="repository-relative"):
+        cadence_ledger.normalize_repo_ref("../outside.md")
+
+
 def test_private_store_rejects_repository_path() -> None:
     with pytest.raises(cadence_ledger.CadenceLedgerError, match="outside the repository"):
         cadence_ledger.require_private_path(ROOT / "cadence.sqlite3", label="test")
