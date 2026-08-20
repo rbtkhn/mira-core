@@ -643,6 +643,194 @@ def test_prune_queue_json_reports_removed_rows(tmp_path: Path, capsys) -> None:
     assert output["removed"][0]["title"] == "Old discovered"
 
 
+def test_browser_triage_prints_queue_only_checklist(tmp_path: Path, capsys) -> None:
+    queue_root = tmp_path / "queue"
+    youtube_capture.write_queue(
+        queue_root / "2026-08-20.jsonl",
+        [
+            youtube_capture.normalize_row(
+                capture_date="2026-08-20",
+                url="https://www.youtube.com/watch?v=must123",
+                channel="Must Channel",
+                disposition="must-land",
+            ),
+            youtube_capture.normalize_row(
+                capture_date="2026-08-20",
+                url="https://www.youtube.com/watch?v=watch123",
+                channel="Watch Channel",
+                disposition="watch",
+            ),
+            youtube_capture.normalize_index_row(
+                capture_date="2026-08-20",
+                row={
+                    "channel_url": "https://www.youtube.com/@Example",
+                    "slug": "example",
+                    "label": "Example",
+                    "capture_cadence": "daily",
+                    "status": "active",
+                },
+            ),
+        ],
+    )
+
+    result = youtube_capture.main(
+        [
+            "browser-triage",
+            "--date",
+            "2026-08-20",
+            "--queue-root",
+            str(queue_root),
+            "--disposition",
+            "must-land",
+        ]
+    )
+
+    assert result == 0
+    output = capsys.readouterr().out
+    assert "BROWSER_TRIAGE_MODE=manual-browser-observation-stub" in output
+    assert "TRIAGE_CANDIDATES=1" in output
+    assert "EXPORTER_FAILURE_RULE=manual-needed unless page observation proves transcript is absent" in output
+    assert "exporter failure or hidden transcript UI -> manual-needed" in output
+    assert "HIDDEN_TRANSCRIPT_UI_RULE=manual-needed when transcript controls exist but are hidden or not interactable" in output
+    assert "hidden transcript UI -> manual-needed" in output
+    assert "must123" in output
+    assert "watch123" not in output
+    assert "youtube.com/@Example" not in output
+    assert "ALLOWED_QUEUE_FIELDS=title,channel,published_at,transcript_status,next_action,notes" in output
+    assert "no archive landing" in output
+
+
+def test_browser_triage_json_can_include_resolved_rows(tmp_path: Path, capsys) -> None:
+    queue_root = tmp_path / "queue"
+    youtube_capture.write_queue(
+        queue_root / "2026-08-20.jsonl",
+        [
+            youtube_capture.normalize_row(
+                capture_date="2026-08-20",
+                url="https://www.youtube.com/watch?v=available123",
+                transcript_status="available",
+                disposition="must-land",
+            ),
+            youtube_capture.normalize_row(
+                capture_date="2026-08-20",
+                url="https://www.youtube.com/watch?v=defer123",
+                transcript_status="defer",
+                disposition="possible",
+            ),
+        ],
+    )
+
+    assert (
+        youtube_capture.main(
+            [
+                "browser-triage",
+                "--date",
+                "2026-08-20",
+                "--queue-root",
+                str(queue_root),
+                "--include-resolved",
+                "--json",
+            ]
+        )
+        == 0
+    )
+
+    output = json.loads(capsys.readouterr().out)
+    assert output["mode"] == "browser-triage-stub"
+    assert output["candidate_count"] == 2
+    assert {row["video_id"] for row in output["candidates"]} == {"available123", "defer123"}
+    assert output["allowed_queue_fields"] == [
+        "title",
+        "channel",
+        "published_at",
+        "transcript_status",
+        "next_action",
+        "notes",
+    ]
+
+
+def test_attach_transcript_marks_queue_row_available(tmp_path: Path, capsys) -> None:
+    queue_root = tmp_path / "queue"
+    transcript_file = tmp_path / "transcript.txt"
+    transcript_file.write_text("0:00 Opening line\n0:05 Second line\n", encoding="utf-8")
+    youtube_capture.write_queue(
+        queue_root / "2026-08-20.jsonl",
+        [
+            youtube_capture.normalize_row(
+                capture_date="2026-08-20",
+                url="https://www.youtube.com/watch?v=must123",
+                transcript_status="manual-needed",
+                disposition="must-land",
+            )
+        ],
+    )
+
+    result = youtube_capture.main(
+        [
+            "attach-transcript",
+            "--date",
+            "2026-08-20",
+            "--queue-root",
+            str(queue_root),
+            "--url",
+            "https://www.youtube.com/watch?v=must123",
+            "--transcript-file",
+            str(transcript_file),
+            "--notes",
+            "visible panel copied",
+        ]
+    )
+
+    assert result == 0
+    output = capsys.readouterr().out
+    assert "ATTACH_TRANSCRIPT_MODE=queue-metadata-only" in output
+    assert "TRANSCRIPT_STATUS=available" in output
+    assert "no archive landing" in output
+    row = read_jsonl(queue_root / "2026-08-20.jsonl")[0]
+    assert row["transcript_status"] == "available"
+    assert row["transcript_path"] == str(transcript_file)
+    assert row["next_action"] == "route transcript file through governed intake"
+    assert "browser-panel transcript captured for governed intake" in row["notes"]
+    assert "visible panel copied" in row["notes"]
+
+
+def test_attach_transcript_rejects_empty_file(tmp_path: Path, capsys) -> None:
+    queue_root = tmp_path / "queue"
+    transcript_file = tmp_path / "empty.txt"
+    transcript_file.write_text("", encoding="utf-8")
+    youtube_capture.write_queue(
+        queue_root / "2026-08-20.jsonl",
+        [
+            youtube_capture.normalize_row(
+                capture_date="2026-08-20",
+                url="https://www.youtube.com/watch?v=must123",
+                transcript_status="manual-needed",
+                disposition="must-land",
+            )
+        ],
+    )
+
+    result = youtube_capture.main(
+        [
+            "attach-transcript",
+            "--date",
+            "2026-08-20",
+            "--queue-root",
+            str(queue_root),
+            "--url",
+            "https://www.youtube.com/watch?v=must123",
+            "--transcript-file",
+            str(transcript_file),
+        ]
+    )
+
+    assert result == 2
+    assert "transcript file is empty" in capsys.readouterr().err
+    row = read_jsonl(queue_root / "2026-08-20.jsonl")[0]
+    assert row["transcript_status"] == "manual-needed"
+    assert "transcript_path" not in row
+
+
 def test_mark_updates_review_fields_only(tmp_path: Path) -> None:
     queue_root = tmp_path / "queue"
     assert youtube_capture.main(["add", "--date", "2026-08-20", "--queue-root", str(queue_root), "--url", "https://youtube.com/watch?v=abc123"]) == 0

@@ -767,6 +767,118 @@ def prune_queue_command(args: argparse.Namespace) -> int:
     return 0
 
 
+def attach_transcript_to_queue(
+    *,
+    capture_date: str,
+    url: str,
+    transcript_file: Path,
+    queue_root: Path = QUEUE_ROOT,
+    notes: str = "",
+) -> dict[str, str]:
+    if not transcript_file.exists() or not transcript_file.is_file():
+        raise CaptureError(f"transcript file not found: {transcript_file}")
+    if transcript_file.stat().st_size == 0:
+        raise CaptureError(f"transcript file is empty: {transcript_file}")
+
+    path = queue_path(capture_date, queue_root)
+    identity = f"youtube:{extract_video_id(url)}"
+    rows = read_queue(path)
+    for row in rows:
+        if row.get("source_identity") != identity:
+            continue
+        row["transcript_status"] = "available"
+        row["transcript_path"] = str(transcript_file)
+        row["next_action"] = "route transcript file through governed intake"
+        extra_note = "browser-panel transcript captured for governed intake"
+        if notes:
+            extra_note = f"{extra_note}; {notes}"
+        existing_notes = row.get("notes", "")
+        row["notes"] = f"{existing_notes}; {extra_note}" if existing_notes else extra_note
+        write_queue(path, rows)
+        return row
+    raise CaptureError(f"URL not found in queue for {capture_date}: {url}")
+
+
+def browser_triage_command(args: argparse.Namespace) -> int:
+    rows = read_queue(queue_path(args.date, args.queue_root))
+    candidates = [
+        row
+        for row in rows
+        if row.get("source_identity", "").startswith("youtube:")
+        and (not args.disposition or row.get("disposition") in set(args.disposition))
+        and (args.include_resolved or row.get("transcript_status", "defer") == "defer")
+    ]
+    if args.json:
+        print(
+            json.dumps(
+                {
+                    "mode": "browser-triage-stub",
+                    "date": args.date,
+                    "candidates": candidates,
+                    "candidate_count": len(candidates),
+                    "allowed_queue_fields": [
+                        "title",
+                        "channel",
+                        "published_at",
+                        "transcript_status",
+                        "next_action",
+                        "notes",
+                    ],
+                    "transcript_statuses": sorted(TRANSCRIPT_STATUSES),
+                },
+                indent=2,
+                ensure_ascii=False,
+            )
+        )
+    else:
+        print(QUEUE_ONLY_NOTICE)
+        print("BROWSER_TRIAGE_MODE=manual-browser-observation-stub")
+        print(f"TRIAGE_DATE={args.date}")
+        print(f"TRIAGE_CANDIDATES={len(candidates)}")
+        print("ALLOWED_QUEUE_FIELDS=title,channel,published_at,transcript_status,next_action,notes")
+        print("TRANSCRIPT_STATUS_RULES=available|manual-needed|missing|defer")
+        print("EXPORTER_FAILURE_RULE=manual-needed unless page observation proves transcript is absent")
+        print("HIDDEN_TRANSCRIPT_UI_RULE=manual-needed when transcript controls exist but are hidden or not interactable")
+        print(
+            "| URL | Channel | Current Transcript | Disposition | Browser Observation Needed | Allowed Queue Update |"
+        )
+        print("| --- | --- | --- | --- | --- | --- |")
+        for row in candidates:
+            print(
+                "| "
+                + " | ".join(
+                    [
+                        row.get("url", ""),
+                        row.get("channel", ""),
+                        row.get("transcript_status", ""),
+                        row.get("disposition", ""),
+                        "title/channel/date/transcript surface; distinguish hidden UI/exporter failure from source absence",
+                        "metadata and transcript_status only; exporter failure or hidden transcript UI -> manual-needed",
+                    ]
+                )
+                + " |"
+            )
+        print(AUTHORITY_NOTICE)
+    return 0
+
+
+def attach_transcript_command(args: argparse.Namespace) -> int:
+    row = attach_transcript_to_queue(
+        capture_date=args.date,
+        url=args.url,
+        transcript_file=args.transcript_file,
+        queue_root=args.queue_root,
+        notes=args.notes,
+    )
+    print(QUEUE_ONLY_NOTICE)
+    print("ATTACH_TRANSCRIPT_MODE=queue-metadata-only")
+    print(f"URL={row.get('url', '')}")
+    print(f"TRANSCRIPT_STATUS={row.get('transcript_status', '')}")
+    print(f"TRANSCRIPT_PATH={row.get('transcript_path', '')}")
+    print(AUTHORITY_NOTICE)
+    return 0
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="Queue-only YouTube source capture")
     subparsers = parser.add_subparsers(dest="command", required=True)
@@ -847,6 +959,20 @@ def build_parser() -> argparse.ArgumentParser:
     prune.add_argument("--discovery-since-days", type=parse_nonnegative_int)
     prune.add_argument("--json", action="store_true")
     prune.set_defaults(handler=prune_queue_command)
+
+    triage = subparsers.add_parser("browser-triage", help="Print queue-only browser triage checklist")
+    add_common(triage)
+    triage.add_argument("--disposition", action="append", choices=sorted(DISPOSITIONS))
+    triage.add_argument("--include-resolved", action="store_true")
+    triage.add_argument("--json", action="store_true")
+    triage.set_defaults(handler=browser_triage_command)
+
+    attach = subparsers.add_parser("attach-transcript", help="Attach a browser-panel transcript file to one queue row")
+    add_common(attach)
+    attach.add_argument("--url", required=True)
+    attach.add_argument("--transcript-file", type=Path, required=True)
+    attach.add_argument("--notes", default="")
+    attach.set_defaults(handler=attach_transcript_command)
     return parser
 
 
