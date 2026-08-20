@@ -29,6 +29,10 @@ different.
 Daily synthesis and public briefs are important operating modes, but they are
 not the whole product. The central long-term capability is disciplined inquiry
 across voices without flattening their disagreements into a house view.
+For sustainable daily operation, use the
+[Sustainable Geo-Strategy Cadence](method/sustainable-cadence.md): the default
+daily invariant is 15-minute capture-only source continuity, while full
+geo-strategy packets are twice-weekly or threshold-driven work.
 
 Internal corpus analytics are collected under [analytics/](analytics/), including
 the [cross-voice historical-reference density report](analytics/cross-voice-historical-reference-density.md).
@@ -136,6 +140,9 @@ See [method/intake-speedup.md](method/intake-speedup.md) for the current speedup
 Once the day batch is materially real, use `geo-strategy` as the
 single evening synthesis command. It supports live and intentional
 retrospective runs. Dates without manifest-backed intake remain absent.
+Daily synthesis is not required. When the available source batch adds no
+substantive delta, keep the disposition `archive-only`; when time is scarce,
+preserve the source queue and leave synthesis for a packet day.
 
 ## Voice Continuity
 

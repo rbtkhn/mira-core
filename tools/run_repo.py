@@ -73,6 +73,7 @@ SURFACES = {
     "voice-canonicalize": REPO_ROOT / "scripts" / "canonicalize_voice_metadata.py",
     "voice-sync": REPO_ROOT / "scripts" / "sync_voice_indexes.py",
     "voice-comparison": REPO_ROOT / "scripts" / "voice_comparison.py",
+    "youtube-capture": REPO_ROOT / "scripts" / "youtube_capture.py",
 }
 
 

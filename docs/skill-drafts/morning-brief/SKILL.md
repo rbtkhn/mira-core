@@ -9,6 +9,11 @@ Use `morning-brief` as a local, opt-in research workflow for the Narrative
 Geopolitics operator. It is a selective global update, not a comprehensive news
 digest, daily synthesis, publication, or automatic cadence handoff.
 
+Morning brief is optional deepening under the sustainable cadence contract. It
+must not become the daily floor. When the operator has limited time, preserve
+capture-only source continuity first and leave current-signal scans for
+explicit selection.
+
 The human operator is the primary audience. Stable fields and provenance make
 the artifact legible to a successor Codex session without turning it into an
 agent-state dump.

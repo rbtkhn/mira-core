@@ -36,6 +36,19 @@ archive -> voices/channels -> work/daily
 This skill does not replace `archive-intake` and never creates a daily directory
 for a date without manifest rows.
 
+## Sustainable Cadence
+
+Compose with
+[`narrative-geopolitics/method/sustainable-cadence.md`](../../../narrative-geopolitics/method/sustainable-cadence.md)
+when daily workload is in view. The default daily invariant is `15 minutes` of
+capture-only source continuity, not a daily packet. Transcript capture is toil;
+archive intake is governed source truth; synthesis is judgment.
+
+Do not treat a missed day, a captured-only day, or an unlanded transcript queue
+as a mandate to manufacture `geo-strategy`. Full packets are twice-weekly by
+default or threshold-driven when landed material creates a substantive delta.
+Missed capture days route to weekly catch-up.
+
 ## Daily Contract
 
 Canonical:

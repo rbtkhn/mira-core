@@ -94,6 +94,7 @@ EXPECTED_SURFACES = {
     "voice-canonicalize": "canonicalize_voice_metadata.py",
     "voice-sync": "sync_voice_indexes.py",
     "voice-comparison": "voice_comparison.py",
+    "youtube-capture": "youtube_capture.py",
 }
 
 
