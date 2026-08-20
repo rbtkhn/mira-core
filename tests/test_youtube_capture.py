@@ -831,6 +831,118 @@ def test_attach_transcript_rejects_empty_file(tmp_path: Path, capsys) -> None:
     assert "transcript_path" not in row
 
 
+def test_roi_receipt_measures_queue_cadence(tmp_path: Path, capsys) -> None:
+    queue_root = tmp_path / "queue"
+    youtube_capture.write_queue(
+        queue_root / "2026-08-19.jsonl",
+        [
+            youtube_capture.normalize_row(
+                capture_date="2026-08-19",
+                url="https://www.youtube.com/watch?v=must123",
+                transcript_status="manual-needed",
+                disposition="must-land",
+            ),
+            youtube_capture.normalize_row(
+                capture_date="2026-08-19",
+                url="https://www.youtube.com/watch?v=watch123",
+                transcript_status="defer",
+                disposition="watch",
+            ),
+        ],
+    )
+    youtube_capture.write_queue(
+        queue_root / "2026-08-20.jsonl",
+        [
+            {
+                **youtube_capture.normalize_row(
+                    capture_date="2026-08-20",
+                    url="https://www.youtube.com/watch?v=available123",
+                    transcript_status="available",
+                    disposition="must-land",
+                ),
+                "transcript_path": str(tmp_path / "available.txt"),
+            }
+        ],
+    )
+
+    result = youtube_capture.main(
+        [
+            "roi-receipt",
+            "--date",
+            "2026-08-19",
+            "--date",
+            "2026-08-20",
+            "--queue-root",
+            str(queue_root),
+            "--baseline-minutes",
+            "300",
+            "--minutes-spent",
+            "75",
+            "--manual-transcript-minutes-avoided",
+            "30",
+            "--intended-capture-days",
+            "5",
+            "--packet-days",
+            "1",
+            "--json",
+        ]
+    )
+
+    assert result == 0
+    output = json.loads(capsys.readouterr().out)
+    assert output["mode"] == "youtube-capture-roi-receipt"
+    assert output["authority"] == "measurement-only"
+    assert output["capture_days"] == 2
+    assert output["packet_days"] == 1
+    assert output["queue_rows"] == 3
+    assert output["video_rows"] == 3
+    assert output["must_land_rows"] == 2
+    assert output["manual_needed_rows"] == 1
+    assert output["available_rows"] == 1
+    assert output["defer_rows"] == 1
+    assert output["estimated_time_saved_minutes"] == 255.0
+    assert output["estimated_time_saved_hours"] == 4.25
+    assert output["reliability"] == 0.4
+    assert "no archive landing" in output["boundary"]
+
+
+def test_roi_receipt_can_write_optional_receipt_file(tmp_path: Path, capsys) -> None:
+    queue_root = tmp_path / "queue"
+    receipt_path = tmp_path / "receipts" / "roi.json"
+    youtube_capture.write_queue(
+        queue_root / "2026-08-20.jsonl",
+        [
+            youtube_capture.normalize_row(
+                capture_date="2026-08-20",
+                url="https://www.youtube.com/watch?v=must123",
+            )
+        ],
+    )
+
+    result = youtube_capture.main(
+        [
+            "roi-receipt",
+            "--date",
+            "2026-08-20",
+            "--queue-root",
+            str(queue_root),
+            "--minutes-spent",
+            "15",
+            "--receipt",
+            str(receipt_path),
+        ]
+    )
+
+    assert result == 0
+    output = capsys.readouterr().out
+    assert "ROI_RECEIPT_MODE=measurement-only" in output
+    assert f"RECEIPT_PATH={receipt_path}" in output
+    written = json.loads(receipt_path.read_text(encoding="utf-8"))
+    assert written["capture_days"] == 1
+    assert written["estimated_time_saved_minutes"] == 285.0
+    assert written["authority"] == "measurement-only"
+
+
 def test_mark_updates_review_fields_only(tmp_path: Path) -> None:
     queue_root = tmp_path / "queue"
     assert youtube_capture.main(["add", "--date", "2026-08-20", "--queue-root", str(queue_root), "--url", "https://youtube.com/watch?v=abc123"]) == 0

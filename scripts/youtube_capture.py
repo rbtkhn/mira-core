@@ -60,6 +60,16 @@ def parse_nonnegative_int(value: str) -> int:
     return parsed
 
 
+def parse_nonnegative_float(value: str) -> float:
+    try:
+        parsed = float(value)
+    except ValueError as error:
+        raise argparse.ArgumentTypeError("value must be a number") from error
+    if parsed < 0:
+        raise argparse.ArgumentTypeError("value must be nonnegative")
+    return parsed
+
+
 def queue_path(capture_date: str, queue_root: Path = QUEUE_ROOT) -> Path:
     return queue_root / f"{capture_date}.jsonl"
 
@@ -879,6 +889,100 @@ def attach_transcript_command(args: argparse.Namespace) -> int:
     return 0
 
 
+def build_roi_receipt(
+    *,
+    dates: list[str],
+    queue_root: Path = QUEUE_ROOT,
+    baseline_minutes: float = 300.0,
+    minutes_spent: float = 0.0,
+    manual_transcript_minutes_avoided: float = 0.0,
+    intended_capture_days: int = 5,
+    packet_days: int = 0,
+) -> dict[str, object]:
+    date_rows: list[dict[str, object]] = []
+    all_rows: list[dict[str, str]] = []
+    capture_days = 0
+    for capture_date in dates:
+        rows = read_queue(queue_path(capture_date, queue_root))
+        if rows:
+            capture_days += 1
+        all_rows.extend(rows)
+        date_rows.append(
+            {
+                "date": capture_date,
+                "queue_rows": len(rows),
+                "video_rows": sum(1 for row in rows if row.get("source_identity", "").startswith("youtube:")),
+                "must_land_rows": sum(1 for row in rows if row.get("disposition") == "must-land"),
+                "manual_needed_rows": sum(1 for row in rows if row.get("transcript_status") == "manual-needed"),
+                "available_rows": sum(1 for row in rows if row.get("transcript_status") == "available"),
+                "defer_rows": sum(1 for row in rows if row.get("transcript_status") == "defer"),
+            }
+        )
+    time_saved = baseline_minutes + manual_transcript_minutes_avoided - minutes_spent
+    reliability = capture_days / intended_capture_days if intended_capture_days else 0.0
+    return {
+        "mode": "youtube-capture-roi-receipt",
+        "authority": "measurement-only",
+        "dates": dates,
+        "baseline_minutes": baseline_minutes,
+        "minutes_spent": minutes_spent,
+        "manual_transcript_minutes_avoided": manual_transcript_minutes_avoided,
+        "estimated_time_saved_minutes": time_saved,
+        "estimated_time_saved_hours": round(time_saved / 60, 2),
+        "intended_capture_days": intended_capture_days,
+        "capture_days": capture_days,
+        "packet_days": packet_days,
+        "reliability": round(reliability, 3),
+        "queue_rows": len(all_rows),
+        "video_rows": sum(1 for row in all_rows if row.get("source_identity", "").startswith("youtube:")),
+        "must_land_rows": sum(1 for row in all_rows if row.get("disposition") == "must-land"),
+        "manual_needed_rows": sum(1 for row in all_rows if row.get("transcript_status") == "manual-needed"),
+        "available_rows": sum(1 for row in all_rows if row.get("transcript_status") == "available"),
+        "defer_rows": sum(1 for row in all_rows if row.get("transcript_status") == "defer"),
+        "date_rows": date_rows,
+        "boundary": AUTHORITY_NOTICE,
+    }
+
+
+def roi_receipt_command(args: argparse.Namespace) -> int:
+    receipt = build_roi_receipt(
+        dates=args.date,
+        queue_root=args.queue_root,
+        baseline_minutes=args.baseline_minutes,
+        minutes_spent=args.minutes_spent,
+        manual_transcript_minutes_avoided=args.manual_transcript_minutes_avoided,
+        intended_capture_days=args.intended_capture_days,
+        packet_days=args.packet_days,
+    )
+    if args.receipt:
+        args.receipt.parent.mkdir(parents=True, exist_ok=True)
+        args.receipt.write_text(json.dumps(receipt, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    if args.json:
+        print(json.dumps(receipt, indent=2, ensure_ascii=False))
+    else:
+        print(QUEUE_ONLY_NOTICE)
+        print("ROI_RECEIPT_MODE=measurement-only")
+        print(f"DATES={','.join(args.date)}")
+        print(f"CAPTURE_DAYS={receipt['capture_days']}/{receipt['intended_capture_days']}")
+        print(f"PACKET_DAYS={receipt['packet_days']}")
+        print(f"QUEUE_ROWS={receipt['queue_rows']}")
+        print(f"VIDEO_ROWS={receipt['video_rows']}")
+        print(f"MUST_LAND_ROWS={receipt['must_land_rows']}")
+        print(f"MANUAL_NEEDED_ROWS={receipt['manual_needed_rows']}")
+        print(f"AVAILABLE_ROWS={receipt['available_rows']}")
+        print(f"DEFER_ROWS={receipt['defer_rows']}")
+        print(f"BASELINE_MINUTES={receipt['baseline_minutes']}")
+        print(f"MINUTES_SPENT={receipt['minutes_spent']}")
+        print(f"MANUAL_TRANSCRIPT_MINUTES_AVOIDED={receipt['manual_transcript_minutes_avoided']}")
+        print(f"ESTIMATED_TIME_SAVED_MINUTES={receipt['estimated_time_saved_minutes']}")
+        print(f"ESTIMATED_TIME_SAVED_HOURS={receipt['estimated_time_saved_hours']}")
+        print(f"RELIABILITY={receipt['reliability']}")
+        if args.receipt:
+            print(f"RECEIPT_PATH={args.receipt}")
+        print(AUTHORITY_NOTICE)
+    return 0
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="Queue-only YouTube source capture")
     subparsers = parser.add_subparsers(dest="command", required=True)
@@ -973,6 +1077,18 @@ def build_parser() -> argparse.ArgumentParser:
     attach.add_argument("--transcript-file", type=Path, required=True)
     attach.add_argument("--notes", default="")
     attach.set_defaults(handler=attach_transcript_command)
+
+    roi = subparsers.add_parser("roi-receipt", help="Measure queue-cadence ROI without changing archive state")
+    roi.add_argument("--date", action="append", required=True, type=parse_capture_date)
+    roi.add_argument("--queue-root", type=Path, default=QUEUE_ROOT, help=argparse.SUPPRESS)
+    roi.add_argument("--baseline-minutes", type=parse_nonnegative_float, default=300.0)
+    roi.add_argument("--minutes-spent", type=parse_nonnegative_float, required=True)
+    roi.add_argument("--manual-transcript-minutes-avoided", type=parse_nonnegative_float, default=0.0)
+    roi.add_argument("--intended-capture-days", type=parse_nonnegative_int, default=5)
+    roi.add_argument("--packet-days", type=parse_nonnegative_int, default=0)
+    roi.add_argument("--receipt", type=Path)
+    roi.add_argument("--json", action="store_true")
+    roi.set_defaults(handler=roi_receipt_command)
     return parser
 
 
