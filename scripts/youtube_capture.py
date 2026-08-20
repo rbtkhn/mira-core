@@ -726,12 +726,12 @@ def audit_duplicates_command(args: argparse.Namespace) -> int:
         )
     else:
         print(QUEUE_ONLY_NOTICE)
-        print("AUDIT_MODE=read-only-manifest-url-match")
-        print(f"ALREADY_LANDED={len(landed)}")
-        print(f"NOT_FOUND={len(not_found)}")
+        print("AUDIT_MODE=read-only-queue-url-match-against-manifest")
+        print(f"QUEUE_ROWS_ALREADY_LANDED={len(landed)}")
+        print(f"QUEUE_ROWS_NOT_FOUND_IN_MANIFEST={len(not_found)}")
         for row in landed:
             print(
-                "LANDED "
+                "QUEUE_ROW_ALREADY_LANDED "
                 f"queue_dates={','.join(row.get('queue_dates', []))} "
                 f"archive_date={row.get('archive_date', '')} "
                 f"url={row.get('url', '')} "

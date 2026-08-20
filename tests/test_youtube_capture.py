@@ -513,9 +513,9 @@ def test_audit_duplicates_reports_compact_text(tmp_path: Path, capsys) -> None:
         == 0
     )
     output = capsys.readouterr().out
-    assert "AUDIT_MODE=read-only-manifest-url-match" in output
-    assert "ALREADY_LANDED=1" in output
-    assert "NOT_FOUND=0" in output
+    assert "AUDIT_MODE=read-only-queue-url-match-against-manifest" in output
+    assert "QUEUE_ROWS_ALREADY_LANDED=1" in output
+    assert "QUEUE_ROWS_NOT_FOUND_IN_MANIFEST=0" in output
     assert "AUTHORITY_BOUNDARY=no archive landing" in output
 
 
