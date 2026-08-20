@@ -18,9 +18,15 @@ from urllib.parse import parse_qs, urlparse
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 QUEUE_ROOT = REPO_ROOT / "narrative-geopolitics" / "work" / "capture" / "youtube"
+CHANNEL_INDEX_PATH = REPO_ROOT / "narrative-geopolitics" / "channels" / "channel-index.md"
 
 TRANSCRIPT_STATUSES = {"available", "missing", "manual-needed", "defer"}
 DISPOSITIONS = {"must-land", "possible", "skip", "watch"}
+CHANNEL_EXPECTED_VOICE = {
+    "alexander-mercouris": "mercouris",
+    "daniel-davis": "davis",
+    "glenn-diesen": "diesen",
+}
 QUEUE_ONLY_NOTICE = "YOUTUBE_CAPTURE_MODE=queue-draft-only"
 AUTHORITY_NOTICE = (
     "AUTHORITY_BOUNDARY=no archive landing, manifest mutation, synthesis, "
@@ -62,6 +68,16 @@ def extract_video_id(url: str) -> str:
     raise CaptureError(f"unsupported YouTube URL: {url}")
 
 
+def youtube_source_identity(url: str, fallback_slug: str = "") -> tuple[str, str]:
+    try:
+        video_id = extract_video_id(url)
+    except CaptureError:
+        if fallback_slug:
+            return "", f"youtube-channel:{fallback_slug}"
+        raise
+    return video_id, f"youtube:{video_id}"
+
+
 def normalize_row(
     *,
     capture_date: str,
@@ -79,7 +95,7 @@ def normalize_row(
         raise CaptureError(f"invalid transcript status: {transcript_status}")
     if disposition not in DISPOSITIONS:
         raise CaptureError(f"invalid disposition: {disposition}")
-    video_id = extract_video_id(url)
+    video_id, source_identity = youtube_source_identity(url)
     return {
         "date": capture_date,
         "url": url.strip(),
@@ -92,7 +108,29 @@ def normalize_row(
         "disposition": disposition,
         "next_action": next_action.strip() or "review",
         "notes": notes.strip(),
-        "source_identity": f"youtube:{video_id}",
+        "source_identity": source_identity,
+    }
+
+
+def normalize_index_row(*, capture_date: str, row: dict[str, str]) -> dict[str, str]:
+    url = row["channel_url"]
+    slug = row["slug"]
+    video_id, source_identity = youtube_source_identity(url, slug)
+    cadence = row.get("capture_cadence", "")
+    status = row.get("status", "")
+    return {
+        "date": capture_date,
+        "url": url,
+        "video_id": video_id,
+        "title": "",
+        "channel": row.get("label", ""),
+        "published_at": "",
+        "expected_voice": CHANNEL_EXPECTED_VOICE.get(slug, "unknown"),
+        "transcript_status": "defer",
+        "disposition": "watch",
+        "next_action": "open public channel and add substantive new video URLs",
+        "notes": f"scan-index cadence={cadence}; narrative_status={status}; channel_slug={slug}",
+        "source_identity": source_identity,
     }
 
 
@@ -160,6 +198,58 @@ def load_watchlist(path: Path) -> list[dict[str, str]]:
     return [{"url": line.strip()} for line in raw.splitlines() if line.strip() and not line.strip().startswith("#")]
 
 
+def markdown_link_url(value: str) -> str:
+    match = re.search(r"\]\(([^)]+)\)", value)
+    return match.group(1) if match else value
+
+
+def parse_channel_index(path: Path = CHANNEL_INDEX_PATH) -> list[dict[str, str]]:
+    rows: list[dict[str, str]] = []
+    for line in path.read_text(encoding="utf-8").splitlines():
+        if not line.startswith("| `"):
+            continue
+        cells = [cell.strip() for cell in line.strip().strip("|").split("|")]
+        if len(cells) != 11 or cells[0] == "Channel slug":
+            continue
+        slug = cells[0].strip("`")
+        url = markdown_link_url(cells[8])
+        if not url.startswith(("https://www.youtube.com/", "https://youtube.com/", "https://youtu.be/")):
+            continue
+        rows.append(
+            {
+                "slug": slug,
+                "label": cells[1],
+                "status": cells[2].strip("`"),
+                "routing_role": cells[3],
+                "capture_cadence": cells[7].strip("`").lower(),
+                "channel_url": url,
+            }
+        )
+    return rows
+
+
+def select_channel_index_rows(
+    rows: list[dict[str, str]],
+    *,
+    cadences: set[str],
+    channels: set[str],
+    include_active: bool,
+    include_candidate: bool,
+) -> list[dict[str, str]]:
+    selected: list[dict[str, str]] = []
+    for row in rows:
+        slug = row["slug"]
+        status = row["status"]
+        cadence = row["capture_cadence"]
+        if channels and slug not in channels:
+            continue
+        if not channels and cadence not in cadences:
+            if not (include_active and status == "active") and not (include_candidate and status == "candidate"):
+                continue
+        selected.append(row)
+    return selected
+
+
 def add_command(args: argparse.Namespace) -> int:
     path = queue_path(args.date, args.queue_root)
     row = normalize_row(
@@ -208,6 +298,31 @@ def scan_command(args: argparse.Namespace) -> int:
     write_queue(path, rows)
     print(QUEUE_ONLY_NOTICE)
     print(f"QUEUE_PATH={path.relative_to(REPO_ROOT).as_posix() if path.is_relative_to(REPO_ROOT) else path}")
+    print(f"ROWS_ADDED={added}")
+    print(f"ROWS_UPDATED={updated}")
+    print(AUTHORITY_NOTICE)
+    return 0
+
+
+def scan_index_command(args: argparse.Namespace) -> int:
+    path = queue_path(args.date, args.queue_root)
+    cadences = {item.lower() for item in (args.cadence or ["daily"])}
+    channels = {item.strip() for item in args.channel}
+    source_rows = parse_channel_index(args.channel_index)
+    selected = select_channel_index_rows(
+        source_rows,
+        cadences=cadences,
+        channels=channels,
+        include_active=args.include_active,
+        include_candidate=args.include_candidate,
+    )
+    incoming = [normalize_index_row(capture_date=args.date, row=row) for row in selected]
+    rows, added, updated = upsert_rows(read_queue(path), incoming)
+    write_queue(path, rows)
+    print(QUEUE_ONLY_NOTICE)
+    print("SCAN_INDEX_MODE=public-channel-checks-only")
+    print(f"CHANNEL_INDEX={args.channel_index}")
+    print(f"CHANNEL_ROWS_SELECTED={len(selected)}")
     print(f"ROWS_ADDED={added}")
     print(f"ROWS_UPDATED={updated}")
     print(AUTHORITY_NOTICE)
@@ -306,6 +421,15 @@ def build_parser() -> argparse.ArgumentParser:
     add_common(scan)
     scan.add_argument("--watchlist", type=Path, required=True)
     scan.set_defaults(handler=scan_command)
+
+    scan_index = subparsers.add_parser("scan-index", help="Create channel-check rows from the channel index")
+    add_common(scan_index)
+    scan_index.add_argument("--channel-index", type=Path, default=CHANNEL_INDEX_PATH)
+    scan_index.add_argument("--cadence", action="append", choices=["daily", "weekly", "manual", "off"])
+    scan_index.add_argument("--channel", action="append", default=[])
+    scan_index.add_argument("--include-active", action="store_true")
+    scan_index.add_argument("--include-candidate", action="store_true")
+    scan_index.set_defaults(handler=scan_index_command)
 
     list_rows = subparsers.add_parser("list", help="List queue rows for a date")
     add_common(list_rows)

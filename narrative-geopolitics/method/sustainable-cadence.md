@@ -117,6 +117,11 @@ V1 is intentionally queue-local and does not fetch transcripts or call YouTube.
 Transcript retrieval can be added later as an explicit private-cache option
 without changing the archive authority boundary.
 
+Workflow insight: Hannah proposed using the browser as a YouTube workflow aid.
+That exposed the lower-risk no-login path: use the existing channel index as
+the capture roster, and reserve browser assistance for explicit public-page
+checks rather than account-dependent discovery.
+
 ## Scenario Rules
 
 - Ordinary busy day: update capture rows only.

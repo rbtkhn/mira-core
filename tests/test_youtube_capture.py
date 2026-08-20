@@ -125,6 +125,103 @@ def test_scan_imports_watchlist_without_fetching_transcripts(tmp_path: Path) -> 
     assert {row["disposition"] for row in rows} == {"watch"}
 
 
+def test_scan_index_defaults_to_daily_channel_checks(tmp_path: Path) -> None:
+    queue_root = tmp_path / "queue"
+    channel_index = tmp_path / "channel-index.md"
+    channel_index.write_text(
+        "\n".join(
+            [
+                "| Channel slug | Label | Narrative status | Routing role | Local shelf / required next step | Upstream files | Upstream days | Capture cadence | Channel URL | First day | Last day |",
+                "| --- | --- | --- | --- | --- | ---: | ---: | --- | --- | --- | --- |",
+                "| `alexander-mercouris` | Alexander Mercouris | `watchlist` | Solo analyst channel. | Create lightweight shelf before synthesis. | 333 | 331 | `daily` | [open](https://www.youtube.com/@AlexMercouris) | `2025-01-03` | `2026-06-27` |",
+                "| `redacted-news` | Redacted News | `active` | Crisis-media register. | [redacted-news/](redacted-news/README.md) | 5 | 4 | `weekly` | [open](https://www.youtube.com/@RedactedNews) | `2026-04-20` | `2026-06-16` |",
+                "| `tucker-carlson` | Tucker Carlson | `candidate` | Long-form elite interview frame. | Create lightweight shelf before synthesis. | 7 | 7 | `manual` | [open](https://www.youtube.com/@TuckerCarlson) | `2025-03-11` | `2026-06-24` |",
+            ]
+        ),
+        encoding="utf-8",
+    )
+
+    result = youtube_capture.main(
+        [
+            "scan-index",
+            "--date",
+            "2026-08-20",
+            "--queue-root",
+            str(queue_root),
+            "--channel-index",
+            str(channel_index),
+        ]
+    )
+
+    assert result == 0
+    rows = read_jsonl(queue_root / "2026-08-20.jsonl")
+    assert len(rows) == 1
+    assert rows[0]["source_identity"] == "youtube-channel:alexander-mercouris"
+    assert rows[0]["url"] == "https://www.youtube.com/@AlexMercouris"
+    assert rows[0]["channel"] == "Alexander Mercouris"
+    assert rows[0]["expected_voice"] == "mercouris"
+    assert rows[0]["next_action"] == "open public channel and add substantive new video URLs"
+    assert "cadence=daily" in rows[0]["notes"]
+
+
+def test_scan_index_can_select_weekly_and_explicit_channels(tmp_path: Path) -> None:
+    queue_root = tmp_path / "queue"
+    channel_index = tmp_path / "channel-index.md"
+    channel_index.write_text(
+        "\n".join(
+            [
+                "| Channel slug | Label | Narrative status | Routing role | Local shelf / required next step | Upstream files | Upstream days | Capture cadence | Channel URL | First day | Last day |",
+                "| --- | --- | --- | --- | --- | ---: | ---: | --- | --- | --- | --- |",
+                "| `mario-nawfal` | Mario Nawfal | `active` | Breaking-headline frame. | [mario-nawfal/](mario-nawfal/README.md) | 60 | 38 | `daily` | [open](https://www.youtube.com/channel/UCTWBp-39z6tvz4-LQB-Z_QA) | `2026-05-12` | `2026-07-14` |",
+                "| `redacted-news` | Redacted News | `active` | Crisis-media register. | [redacted-news/](redacted-news/README.md) | 5 | 4 | `weekly` | [open](https://www.youtube.com/@RedactedNews) | `2026-04-20` | `2026-06-16` |",
+            ]
+        ),
+        encoding="utf-8",
+    )
+
+    assert (
+        youtube_capture.main(
+            [
+                "scan-index",
+                "--date",
+                "2026-08-20",
+                "--queue-root",
+                str(queue_root),
+                "--channel-index",
+                str(channel_index),
+                "--cadence",
+                "weekly",
+            ]
+        )
+        == 0
+    )
+    rows = read_jsonl(queue_root / "2026-08-20.jsonl")
+    assert [row["source_identity"] for row in rows] == ["youtube-channel:redacted-news"]
+    assert rows[0]["expected_voice"] == "unknown"
+
+    assert (
+        youtube_capture.main(
+            [
+                "scan-index",
+                "--date",
+                "2026-08-20",
+                "--queue-root",
+                str(queue_root),
+                "--channel-index",
+                str(channel_index),
+                "--channel",
+                "mario-nawfal",
+            ]
+        )
+        == 0
+    )
+    rows = read_jsonl(queue_root / "2026-08-20.jsonl")
+    assert {row["source_identity"] for row in rows} == {
+        "youtube-channel:mario-nawfal",
+        "youtube-channel:redacted-news",
+    }
+
+
 def test_mark_updates_review_fields_only(tmp_path: Path) -> None:
     queue_root = tmp_path / "queue"
     assert youtube_capture.main(["add", "--date", "2026-08-20", "--queue-root", str(queue_root), "--url", "https://youtube.com/watch?v=abc123"]) == 0
