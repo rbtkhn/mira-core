@@ -11,14 +11,18 @@ import argparse
 import json
 import re
 import sys
-from datetime import date
+import urllib.error
+import urllib.request
+from datetime import date, datetime, time, timedelta, timezone
 from pathlib import Path
 from urllib.parse import parse_qs, urlparse
+from xml.etree import ElementTree
 
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 QUEUE_ROOT = REPO_ROOT / "narrative-geopolitics" / "work" / "capture" / "youtube"
 CHANNEL_INDEX_PATH = REPO_ROOT / "narrative-geopolitics" / "channels" / "channel-index.md"
+MANIFEST_PATH = REPO_ROOT / "archive" / "sources" / "geopolitics" / "source-manifest.json"
 
 TRANSCRIPT_STATUSES = {"available", "missing", "manual-needed", "defer"}
 DISPOSITIONS = {"must-land", "possible", "skip", "watch"}
@@ -32,6 +36,7 @@ AUTHORITY_NOTICE = (
     "AUTHORITY_BOUNDARY=no archive landing, manifest mutation, synthesis, "
     "forecast, Reality, publication, staging, commit, push, or deployment"
 )
+USER_AGENT = "mira-core-youtube-capture/1.0"
 
 
 class CaptureError(ValueError):
@@ -43,6 +48,16 @@ def parse_capture_date(value: str) -> str:
         return date.fromisoformat(value).isoformat()
     except ValueError as error:
         raise argparse.ArgumentTypeError("date must be YYYY-MM-DD") from error
+
+
+def parse_nonnegative_int(value: str) -> int:
+    try:
+        parsed = int(value)
+    except ValueError as error:
+        raise argparse.ArgumentTypeError("value must be an integer") from error
+    if parsed < 0:
+        raise argparse.ArgumentTypeError("value must be nonnegative")
+    return parsed
 
 
 def queue_path(capture_date: str, queue_root: Path = QUEUE_ROOT) -> Path:
@@ -134,11 +149,37 @@ def normalize_index_row(*, capture_date: str, row: dict[str, str]) -> dict[str, 
     }
 
 
+def normalize_discovered_video_row(
+    *,
+    capture_date: str,
+    channel_row: dict[str, str],
+    video: dict[str, str],
+) -> dict[str, str]:
+    url = video["url"]
+    video_id, source_identity = youtube_source_identity(url)
+    slug = channel_row["slug"]
+    cadence = channel_row.get("capture_cadence", "")
+    return {
+        "date": capture_date,
+        "url": url,
+        "video_id": video_id,
+        "title": video.get("title", ""),
+        "channel": video.get("channel") or channel_row.get("label", ""),
+        "published_at": video.get("published_at", ""),
+        "expected_voice": CHANNEL_EXPECTED_VOICE.get(slug, "unknown"),
+        "transcript_status": "defer",
+        "disposition": "watch",
+        "next_action": "review video and mark must-land/possible/skip",
+        "notes": f"discover-public cadence={cadence}; channel_slug={slug}",
+        "source_identity": source_identity,
+    }
+
+
 def read_queue(path: Path) -> list[dict[str, str]]:
     if not path.exists():
         return []
     rows: list[dict[str, str]] = []
-    for line_number, line in enumerate(path.read_text(encoding="utf-8").splitlines(), 1):
+    for line_number, line in enumerate(path.read_text(encoding="utf-8-sig").splitlines(), 1):
         if not line.strip():
             continue
         try:
@@ -155,6 +196,113 @@ def write_queue(path: Path, rows: list[dict[str, str]]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     text = "".join(json.dumps(row, sort_keys=True) + "\n" for row in rows)
     path.write_text(text, encoding="utf-8", newline="\n")
+
+
+def load_manifest_by_url(path: Path = MANIFEST_PATH) -> dict[str, dict[str, object]]:
+    manifest = json.loads(path.read_text(encoding="utf-8-sig"))
+    sources = manifest.get("sources", [])
+    if not isinstance(sources, list):
+        raise CaptureError("manifest sources must be a list")
+    by_url: dict[str, dict[str, object]] = {}
+    for source in sources:
+        if not isinstance(source, dict):
+            continue
+        url = source.get("source_url")
+        if isinstance(url, str) and url:
+            by_url[url] = source
+    return by_url
+
+
+def audit_queue_duplicates(
+    *,
+    dates: list[str],
+    queue_root: Path = QUEUE_ROOT,
+    manifest_path: Path = MANIFEST_PATH,
+    dispositions: set[str] | None = None,
+) -> tuple[list[dict[str, object]], list[dict[str, object]]]:
+    manifest = load_manifest_by_url(manifest_path)
+    seen: dict[str, dict[str, object]] = {}
+    for capture_date in dates:
+        for row in read_queue(queue_path(capture_date, queue_root)):
+            if dispositions and row.get("disposition") not in dispositions:
+                continue
+            url = row.get("url", "")
+            if not url or row.get("source_identity", "").startswith("youtube-channel:"):
+                continue
+            item = seen.setdefault(
+                url,
+                {
+                    "queue_dates": [],
+                    "disposition": row.get("disposition", ""),
+                    "title": row.get("title", ""),
+                    "channel": row.get("channel", ""),
+                    "url": url,
+                },
+            )
+            queue_dates = item["queue_dates"]
+            if isinstance(queue_dates, list):
+                queue_dates.append(capture_date)
+
+    landed: list[dict[str, object]] = []
+    not_found: list[dict[str, object]] = []
+    for url, row in sorted(seen.items(), key=lambda item: str(item[1].get("title", "")).casefold()):
+        queue_dates = row.get("queue_dates", [])
+        if isinstance(queue_dates, list):
+            row["queue_dates"] = sorted(set(str(item) for item in queue_dates))
+        source = manifest.get(url)
+        if source:
+            landed.append(
+                {
+                    **row,
+                    "archive_date": source.get("date", ""),
+                    "archive_title": source.get("title", ""),
+                    "host_slug": source.get("host_slug", ""),
+                    "voice_slugs": source.get("voice_slugs", []),
+                    "local_path": source.get("local_path", ""),
+                }
+            )
+        else:
+            not_found.append(row)
+    return landed, not_found
+
+
+def published_in_window(row: dict[str, str], *, capture_date: str, since_days: int) -> bool:
+    published = parse_rss_datetime(row.get("published_at", ""))
+    if published is None:
+        return True
+    capture_day = date.fromisoformat(capture_date)
+    start = datetime.combine(capture_day - timedelta(days=since_days), time.min, tzinfo=timezone.utc)
+    end = datetime.combine(capture_day, time.max, tzinfo=timezone.utc)
+    return start <= published <= end
+
+
+def prune_queue_rows(
+    *,
+    capture_date: str,
+    queue_root: Path = QUEUE_ROOT,
+    manifest_path: Path = MANIFEST_PATH,
+    remove_landed: bool = False,
+    discovery_since_days: int | None = None,
+) -> tuple[list[dict[str, str]], list[dict[str, str]]]:
+    manifest = load_manifest_by_url(manifest_path)
+    kept: list[dict[str, str]] = []
+    removed: list[dict[str, str]] = []
+    for row in read_queue(queue_path(capture_date, queue_root)):
+        url = row.get("url", "")
+        source_identity = row.get("source_identity", "")
+        is_video = source_identity.startswith("youtube:")
+        is_discovered = "discover-public" in row.get("notes", "")
+        landed = bool(url and manifest.get(url))
+        stale = (
+            discovery_since_days is not None
+            and is_discovered
+            and not published_in_window(row, capture_date=capture_date, since_days=discovery_since_days)
+        )
+        if is_video and ((remove_landed and landed) or stale):
+            removed.append(row)
+        else:
+            kept.append(row)
+    return kept, removed
 
 
 def upsert_rows(existing: list[dict[str, str]], incoming: list[dict[str, str]]) -> tuple[list[dict[str, str]], int, int]:
@@ -250,6 +398,111 @@ def select_channel_index_rows(
     return selected
 
 
+def fetch_text(url: str, timeout: int = 20) -> str:
+    request = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
+    try:
+        with urllib.request.urlopen(request, timeout=timeout) as response:
+            return response.read().decode("utf-8", errors="replace")
+    except urllib.error.URLError as error:
+        raise CaptureError(f"public fetch failed for {url}: {error}") from error
+
+
+def extract_channel_id(text: str) -> str:
+    patterns = [
+        r'"channelId":"(UC[^"]+)"',
+        r'"externalId":"(UC[^"]+)"',
+        r'<meta itemprop="channelId" content="(UC[^"]+)">',
+        r'https://www\.youtube\.com/channel/(UC[0-9A-Za-z_-]+)',
+    ]
+    for pattern in patterns:
+        match = re.search(pattern, text)
+        if match:
+            return match.group(1)
+    raise CaptureError("could not resolve public channel id")
+
+
+def channel_id_from_url(url: str, fetcher=None) -> str:
+    fetcher = fetch_text if fetcher is None else fetcher
+    parsed = urlparse(url)
+    match = re.match(r"^/channel/(UC[0-9A-Za-z_-]+)", parsed.path)
+    if match:
+        return match.group(1)
+    return extract_channel_id(fetcher(url.rstrip("/") + "/videos"))
+
+
+def parse_youtube_rss(text: str, *, limit: int) -> list[dict[str, str]]:
+    try:
+        root = ElementTree.fromstring(text)
+    except ElementTree.ParseError as error:
+        raise CaptureError("invalid YouTube RSS response") from error
+    ns = {
+        "atom": "http://www.w3.org/2005/Atom",
+        "yt": "http://www.youtube.com/xml/schemas/2015",
+    }
+    videos: list[dict[str, str]] = []
+    for entry in root.findall("atom:entry", ns):
+        video_id = (entry.findtext("yt:videoId", default="", namespaces=ns) or "").strip()
+        title = (entry.findtext("atom:title", default="", namespaces=ns) or "").strip()
+        published_at = (entry.findtext("atom:published", default="", namespaces=ns) or "").strip()
+        channel = (entry.findtext("atom:author/atom:name", default="", namespaces=ns) or "").strip()
+        link = entry.find("atom:link", ns)
+        url = link.attrib.get("href", "") if link is not None else ""
+        if not url and video_id:
+            url = f"https://www.youtube.com/watch?v={video_id}"
+        if not video_id or not url:
+            continue
+        videos.append(
+            {
+                "video_id": video_id,
+                "url": url,
+                "title": title,
+                "published_at": published_at,
+                "channel": channel,
+            }
+        )
+        if len(videos) >= limit:
+            break
+    return videos
+
+
+def parse_rss_datetime(value: str) -> datetime | None:
+    if not value:
+        return None
+    try:
+        parsed = datetime.fromisoformat(value.replace("Z", "+00:00"))
+    except ValueError:
+        return None
+    if parsed.tzinfo is None:
+        return parsed.replace(tzinfo=timezone.utc)
+    return parsed.astimezone(timezone.utc)
+
+
+def filter_videos_since(
+    videos: list[dict[str, str]],
+    *,
+    capture_date: str,
+    since_days: int | None,
+) -> list[dict[str, str]]:
+    if since_days is None:
+        return videos
+    capture_day = date.fromisoformat(capture_date)
+    start = datetime.combine(capture_day - timedelta(days=since_days), time.min, tzinfo=timezone.utc)
+    end = datetime.combine(capture_day, time.max, tzinfo=timezone.utc)
+    filtered: list[dict[str, str]] = []
+    for video in videos:
+        published = parse_rss_datetime(video.get("published_at", ""))
+        if published is not None and start <= published <= end:
+            filtered.append(video)
+    return filtered
+
+
+def discover_public_videos(row: dict[str, str], *, limit: int, fetcher=None) -> list[dict[str, str]]:
+    fetcher = fetch_text if fetcher is None else fetcher
+    channel_id = channel_id_from_url(row["channel_url"], fetcher=fetcher)
+    rss_url = f"https://www.youtube.com/feeds/videos.xml?channel_id={channel_id}"
+    return parse_youtube_rss(fetcher(rss_url), limit=limit)
+
+
 def add_command(args: argparse.Namespace) -> int:
     path = queue_path(args.date, args.queue_root)
     row = normalize_row(
@@ -329,6 +582,60 @@ def scan_index_command(args: argparse.Namespace) -> int:
     return 0
 
 
+def discover_public_command(args: argparse.Namespace) -> int:
+    path = queue_path(args.date, args.queue_root)
+    cadences = {item.lower() for item in (args.cadence or ["daily"])}
+    channels = {item.strip() for item in args.channel}
+    source_rows = parse_channel_index(args.channel_index)
+    selected = select_channel_index_rows(
+        source_rows,
+        cadences=cadences,
+        channels=channels,
+        include_active=args.include_active,
+        include_candidate=args.include_candidate,
+    )
+    incoming: list[dict[str, str]] = []
+    videos_found = 0
+    failures = 0
+    for row in selected:
+        try:
+            videos = filter_videos_since(
+                discover_public_videos(row, limit=args.limit_per_channel),
+                capture_date=args.date,
+                since_days=args.since_days,
+            )
+        except CaptureError as error:
+            fallback = normalize_index_row(capture_date=args.date, row=row)
+            fallback["notes"] = f"{fallback['notes']}; discover-public failed: {error}"
+            incoming.append(fallback)
+            failures += 1
+            continue
+        if not videos:
+            fallback = normalize_index_row(capture_date=args.date, row=row)
+            fallback["notes"] = f"{fallback['notes']}; discover-public found no public videos"
+            incoming.append(fallback)
+            failures += 1
+            continue
+        videos_found += len(videos)
+        incoming.extend(
+            normalize_discovered_video_row(capture_date=args.date, channel_row=row, video=video)
+            for video in videos
+        )
+    rows, added, updated = upsert_rows(read_queue(path), incoming)
+    write_queue(path, rows)
+    print(QUEUE_ONLY_NOTICE)
+    print("DISCOVER_PUBLIC_MODE=public-metadata-only")
+    print(f"CHANNEL_INDEX={args.channel_index}")
+    print(f"CHANNEL_ROWS_SELECTED={len(selected)}")
+    print(f"VIDEOS_FOUND={videos_found}")
+    print(f"SINCE_DAYS={args.since_days if args.since_days is not None else 'none'}")
+    print(f"DISCOVERY_FAILURES={failures}")
+    print(f"ROWS_ADDED={added}")
+    print(f"ROWS_UPDATED={updated}")
+    print(AUTHORITY_NOTICE)
+    return 0
+
+
 def list_command(args: argparse.Namespace) -> int:
     rows = read_queue(queue_path(args.date, args.queue_root))
     if args.json:
@@ -396,6 +703,70 @@ def export_intake_command(args: argparse.Namespace) -> int:
     return 0
 
 
+def audit_duplicates_command(args: argparse.Namespace) -> int:
+    dispositions = set(args.disposition) if args.disposition else None
+    landed, not_found = audit_queue_duplicates(
+        dates=args.date,
+        queue_root=args.queue_root,
+        manifest_path=args.manifest,
+        dispositions=dispositions,
+    )
+    if args.json:
+        print(
+            json.dumps(
+                {
+                    "already_landed": landed,
+                    "not_found": not_found,
+                    "already_landed_count": len(landed),
+                    "not_found_count": len(not_found),
+                },
+                indent=2,
+                ensure_ascii=False,
+            )
+        )
+    else:
+        print(QUEUE_ONLY_NOTICE)
+        print("AUDIT_MODE=read-only-manifest-url-match")
+        print(f"ALREADY_LANDED={len(landed)}")
+        print(f"NOT_FOUND={len(not_found)}")
+        for row in landed:
+            print(
+                "LANDED "
+                f"queue_dates={','.join(row.get('queue_dates', []))} "
+                f"archive_date={row.get('archive_date', '')} "
+                f"url={row.get('url', '')} "
+                f"title={row.get('title', '')}"
+            )
+        print(AUTHORITY_NOTICE)
+    return 0
+
+
+def prune_queue_command(args: argparse.Namespace) -> int:
+    total_removed: list[dict[str, str]] = []
+    for capture_date in args.date:
+        kept, removed = prune_queue_rows(
+            capture_date=capture_date,
+            queue_root=args.queue_root,
+            manifest_path=args.manifest,
+            remove_landed=args.remove_landed,
+            discovery_since_days=args.discovery_since_days,
+        )
+        write_queue(queue_path(capture_date, args.queue_root), kept)
+        total_removed.extend({"date": capture_date, **row} for row in removed)
+    if args.json:
+        print(json.dumps({"removed": total_removed, "removed_count": len(total_removed)}, indent=2, ensure_ascii=False))
+    else:
+        print(QUEUE_ONLY_NOTICE)
+        print("PRUNE_MODE=queue-only")
+        print(f"REMOVE_LANDED={bool(args.remove_landed)}")
+        print(f"DISCOVERY_SINCE_DAYS={args.discovery_since_days if args.discovery_since_days is not None else 'none'}")
+        print(f"ROWS_REMOVED={len(total_removed)}")
+        for row in total_removed:
+            print(f"REMOVED date={row.get('date', '')} url={row.get('url', '')} title={row.get('title', '')}")
+        print(AUTHORITY_NOTICE)
+    return 0
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="Queue-only YouTube source capture")
     subparsers = parser.add_subparsers(dest="command", required=True)
@@ -431,6 +802,17 @@ def build_parser() -> argparse.ArgumentParser:
     scan_index.add_argument("--include-candidate", action="store_true")
     scan_index.set_defaults(handler=scan_index_command)
 
+    discover = subparsers.add_parser("discover-public", help="Discover public video rows from channel-index URLs")
+    add_common(discover)
+    discover.add_argument("--channel-index", type=Path, default=CHANNEL_INDEX_PATH)
+    discover.add_argument("--cadence", action="append", choices=["daily", "weekly", "manual", "off"])
+    discover.add_argument("--channel", action="append", default=[])
+    discover.add_argument("--include-active", action="store_true")
+    discover.add_argument("--include-candidate", action="store_true")
+    discover.add_argument("--limit-per-channel", type=int, default=5)
+    discover.add_argument("--since-days", type=parse_nonnegative_int)
+    discover.set_defaults(handler=discover_public_command)
+
     list_rows = subparsers.add_parser("list", help="List queue rows for a date")
     add_common(list_rows)
     list_rows.add_argument("--json", action="store_true")
@@ -448,6 +830,23 @@ def build_parser() -> argparse.ArgumentParser:
     export = subparsers.add_parser("export-intake", help="Print intake dry-run suggestions for must-land rows")
     add_common(export)
     export.set_defaults(handler=export_intake_command)
+
+    audit = subparsers.add_parser("audit-duplicates", help="Read-only URL match of queue rows against the source manifest")
+    audit.add_argument("--date", action="append", required=True, type=parse_capture_date)
+    audit.add_argument("--queue-root", type=Path, default=QUEUE_ROOT, help=argparse.SUPPRESS)
+    audit.add_argument("--manifest", type=Path, default=MANIFEST_PATH)
+    audit.add_argument("--disposition", action="append", choices=sorted(DISPOSITIONS))
+    audit.add_argument("--json", action="store_true")
+    audit.set_defaults(handler=audit_duplicates_command)
+
+    prune = subparsers.add_parser("prune-queue", help="Remove queue-only duplicate or stale discovered video rows")
+    prune.add_argument("--date", action="append", required=True, type=parse_capture_date)
+    prune.add_argument("--queue-root", type=Path, default=QUEUE_ROOT, help=argparse.SUPPRESS)
+    prune.add_argument("--manifest", type=Path, default=MANIFEST_PATH)
+    prune.add_argument("--remove-landed", action="store_true")
+    prune.add_argument("--discovery-since-days", type=parse_nonnegative_int)
+    prune.add_argument("--json", action="store_true")
+    prune.set_defaults(handler=prune_queue_command)
     return parser
 
 
