@@ -4,7 +4,7 @@ This index routes the unified local Wilkerson corpus for `wilkerson` to the cent
 
 Source basis: `strategy-codex/statecraft/voices/wilkerson/wilkerson-index.md` plus already-local matching archive rows.
 
-Corpus: 110 local route rows across 110 central archive source files.
+Corpus: 112 local route rows across 112 central archive source files.
 
 Status: `imported-corpus`
 
@@ -129,6 +129,8 @@ Status: `imported-corpus`
 | `2026-08-11` | (2) Col. Larry Wilkerson: Yemen Just Struck a Major Blow Against the Saudis - Trump in Denial | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2026-08-11/source-2-col-larry-wilkerson-yemen-just-struck-a-major-blow-against-the-saudis-trump-in-denial-2026-08-11.md) |
 | `2026-08-12` | (3) COL. Lawrence Wilkerson : Is the US a Republic or an Empire? | `guest` | `judging-freedom` | [source](../../../archive/sources/geopolitics/sources/2026-08-12/source-3-col-lawrence-wilkerson-is-the-us-a-republic-or-an-empire-2026-08-12.md) |
 | `2026-08-18` | (4) Col. Larry Wilkerson: Iran Just Abandoned Its Defense Strategy–US Discussed NUCLEAR Option on Iran | `guest` | `nima-alkhorshid` | [source](../../../archive/sources/geopolitics/sources/2026-08-18/source-4-col-larry-wilkerson-iran-just-abandoned-its-defense-strategy-us-discussed-nuclear-option-on-iran-2026-08-18.md) |
+| `2026-08-19` | (4) COL. Lawrence Wilkerson : Is Trump Considering Nuclear? | `guest` | `judging-freedom` | [source](../../../archive/sources/geopolitics/sources/2026-08-19/source-4-col-lawrence-wilkerson-is-trump-considering-nuclear-2026-08-19.md) |
+| `2026-08-19` | (4) Lawrence Wilkerson: U.S. Considers Nuclear Strike Against Iran | `guest` | `glenn-diesen` | [source](../../../archive/sources/geopolitics/sources/2026-08-19/source-4-lawrence-wilkerson-u-s-considers-nuclear-strike-against-iran-2026-08-19.md) |
 
 ## Import Boundary
 

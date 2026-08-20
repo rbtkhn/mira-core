@@ -4,7 +4,7 @@ This index routes the imported Ritter corpus for `ritter` to the central Narrati
 
 Source basis: `strategy-codex/statecraft/voices/ritter/ritter-index.md`.
 
-Corpus: 126 local route rows across 126 central archive source files.
+Corpus: 127 local route rows across 127 central archive source files.
 
 Status: `imported-corpus`
 
@@ -145,6 +145,7 @@ Status: `imported-corpus`
 | `2026-08-12` | (3) Scott Ritter: Russia Ukraine MENTAL WARFARE, Societal Pressures Rising | `guest` | `daniel-davis` | [source](../../../archive/sources/geopolitics/sources/2026-08-12/source-3-scott-ritter-russia-ukraine-mental-warfare-societal-pressures-rising-2026-08-12.md) |
 | `2026-08-17` | (4) Scott Ritter :Pentagon Did No Due Diligence | `guest` | `judging-freedom` | [source](../../../archive/sources/geopolitics/sources/2026-08-17/source-4-scott-ritter-pentagon-did-no-due-diligence-2026-08-17.md) |
 | `2026-08-18` | Artificial Intelligence versus the OODA Loop | `authored` | `ritter` | [source](../../../archive/sources/geopolitics/sources/2026-08-18/source-artificial-intelligence-versus-the-ooda-loop-2026-08-18.md) |
+| `2026-08-19` | (4) Scott Ritter: Yemen’s Military: We Now Dictating Terms - The Crippling Moment: US and Iran Dig In | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2026-08-19/source-4-scott-ritter-yemen-s-military-we-now-dictating-terms-the-crippling-moment-us-and-iran-dig-in-2026-08-19.md) |
 
 ## Import Boundary
 

@@ -4,7 +4,7 @@ This index routes the imported first-slice parity corpus for `johnson` to the ce
 
 Source basis: `archive/sources/geopolitics/source-manifest.json`.
 
-Corpus: 124 local route rows across 124 central archive source files.
+Corpus: 125 local route rows across 125 central archive source files.
 
 Status: `first-slice-parity`
 
@@ -148,6 +148,7 @@ Status: `first-slice-parity`
 | `2026-08-15` | (4) Larry Johnson: Iran’s FINAL Play in Hormuz- Israel Attack FALLS APART- Yemen Flipped the Script | `host-pressure test` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2026-08-15/source-4-larry-johnson-iran-s-final-play-in-hormuz-israel-attack-falls-apart-yemen-flipped-the-script-2026-08-15.md) |
 | `2026-08-17` | (4) Larry Johnson : How Poorly US Treats Its Own Troops | `guest` | `judging-freedom` | [source](../../../archive/sources/geopolitics/sources/2026-08-17/source-4-larry-johnson-how-poorly-us-treats-its-own-troops-2026-08-17.md) |
 | `2026-08-18` | (4) BREAKING: IRAN STRIKE DUBAI? UAE STOP ALL FINANCIAL TRANSACTIONS WITH IRAN w/ Larry Johnson | `guest` | `moral-resistance` | [source](../../../archive/sources/geopolitics/sources/2026-08-18/source-4-breaking-iran-strike-dubai-uae-stop-all-financial-transactions-with-iran-w-larry-johnson-2026-08-18.md) |
+| `2026-08-19` | (4) TRUMP 'BEGINS' MAJOR ECONOMIC WAR ON IRAN, ISRAEL SEND WARNING TO TURKEY AND SYRIA w/ Larry Johnson | `guest` | `moral-resistance` | [source](../../../archive/sources/geopolitics/sources/2026-08-19/source-4-trump-begins-major-economic-war-on-iran-israel-send-warning-to-turkey-and-syria-w-larry-johnson-2026-08-19.md) |
 
 ## Judgment Continuity
 

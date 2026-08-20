@@ -4,7 +4,7 @@ This index routes the transcript-bearing upstream-parity corpus for `macgregor` 
 
 Source basis: `archive/sources/geopolitics/source-manifest.json`.
 
-Corpus: 93 local route rows across 93 central archive source files.
+Corpus: 95 local route rows across 95 central archive source files.
 
 Status: `transcript-bearing-upstream-parity`
 
@@ -117,6 +117,8 @@ Status: `transcript-bearing-upstream-parity`
 | `2026-08-11` | (2) Col Doug Macgregor - Iran War: THE ART OF DEFEAT / We Have No Influence Over Iran | `host-pressure test` | `daniel-davis` | [source](../../../archive/sources/geopolitics/sources/2026-08-11/source-2-col-doug-macgregor-iran-war-the-art-of-defeat-we-have-no-influence-over-iran-2026-08-11.md) |
 | `2026-08-13` | (3) COL. Douglas Macgregor : Trump’s Dwindling Options | `guest` | `judging-freedom` | [source](../../../archive/sources/geopolitics/sources/2026-08-13/source-3-col-douglas-macgregor-trump-s-dwindling-options-2026-08-13.md) |
 | `2026-08-18` | (4) Col Douglas Macgregor: The Collision Course w/Iran, We're Making No Attempt to Avoid | `guest` | `daniel-davis` | [source](../../../archive/sources/geopolitics/sources/2026-08-18/source-4-col-douglas-macgregor-the-collision-course-w-iran-we-re-making-no-attempt-to-avoid-2026-08-18.md) |
+| `2026-08-19` | (4) BARRACK: ISRAEL'S SYRIA STRIKE RISKED A WAR WITH TURKEY - w/ Col. Macgregor | `guest` | `mario-nawfal` | [source](../../../archive/sources/geopolitics/sources/2026-08-19/source-4-barrack-israel-s-syria-strike-risked-a-war-with-turkey-w-col-macgregor-2026-08-19.md) |
+| `2026-08-19` | (4) Col. Macgregor: "We've Already Lost This War, It's Over" Iran Warn Disaster Unfolding | `guest` | `redacted-news` | [source](../../../archive/sources/geopolitics/sources/2026-08-19/source-4-col-macgregor-we-ve-already-lost-this-war-it-s-over-iran-warn-disaster-unfolding-2026-08-19.md) |
 
 ## Import Boundary
 

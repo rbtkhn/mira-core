@@ -4,7 +4,7 @@ This index routes the unified local Barnes corpus for `barnes` to the central Na
 
 Source basis: `strategy-codex/statecraft/voices/barnes/barnes-index.md` plus already-local matching archive rows.
 
-Corpus: 39 local route rows across 39 central archive source files.
+Corpus: 40 local route rows across 40 central archive source files.
 
 Status: `imported-corpus`
 
@@ -58,6 +58,7 @@ Status: `imported-corpus`
 | `2026-08-11` | (2) Robert Barnes: Russia’s Missiles Rain on Kiev - Iran & Yemen Strike Multiple Vessels | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2026-08-11/source-2-robert-barnes-russia-s-missiles-rain-on-kiev-iran-yemen-strike-multiple-vessels-2026-08-11.md) |
 | `2026-08-12` | (3) Robert Barnes: Nobody's Pushing Back on Trump in the Admin re: IRAN WAR | `guest` | `daniel-davis` | [source](../../../archive/sources/geopolitics/sources/2026-08-12/source-3-robert-barnes-nobody-s-pushing-back-on-trump-in-the-admin-re-iran-war-2026-08-12.md) |
 | `2026-08-17` | (4) TRUMP THREATENS TO "BOMB THE SHIT OUT" OF OMAN TOO - w/ Robert Barnes | `guest` | `mario-nawfal` | [source](../../../archive/sources/geopolitics/sources/2026-08-17/source-4-trump-threatens-to-bomb-the-shit-out-of-oman-too-w-robert-barnes-2026-08-17.md) |
+| `2026-08-19` | (4) Robert Barnes: No More Bluffing: US and Iran Harden Positions | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2026-08-19/source-4-robert-barnes-no-more-bluffing-us-and-iran-harden-positions-2026-08-19.md) |
 
 ## Import Boundary
 

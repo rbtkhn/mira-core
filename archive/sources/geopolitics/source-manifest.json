@@ -2,7 +2,7 @@
   "manifest_id": "narrative-geopolitics-source-manifest-v1",
   "source_basis": "central archive with completed historical strategy-codex imports",
   "imported_at": "2026-07-09",
-  "source_count": 2178,
+  "source_count": 2190,
   "boundary": {
     "archive": "source truth",
     "voices": "voice continuity and routing",
@@ -58969,6 +58969,280 @@
       "source_identity": "https://scottritter.substack.com/p/artificial-intelligence-versus-the",
       "source_url": "https://scottritter.substack.com/p/artificial-intelligence-versus-the",
       "title_source": "operator",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-19",
+      "title": "(4) Russia 'Destroys' Kiev Orekhov Troops; Moscow AD Impenetrable To Kiev Drones; Kiev Economy Collapses",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-19/source-4-russia-destroys-kiev-orekhov-troops-moscow-ad-impenetrable-to-kiev-drones-kiev-economy-collapses-2026-08-19.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-19/source-4-russia-destroys-kiev-orekhov-troops-moscow-ad-impenetrable-to-kiev-drones-kiev-economy-collapses-2026-08-19.md",
+      "upstream_path": "operator-paste://2026-08-19/4-russia-destroys-kiev-orekhov-troops-moscow-ad-impenetrable-to-kiev-drones-kiev-economy-collapses",
+      "source_class": "host monologue",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "alexander-mercouris",
+      "source_identity": "youtube:pH3nE9_9VW0",
+      "source_url": "https://www.youtube.com/watch?v=pH3nE9_9VW0",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-19",
+      "title": "(4) UKRAINE: Under Siege From Every Front /Lt Col Daniel Davis",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-19/source-4-ukraine-under-siege-from-every-front-lt-col-daniel-davis-2026-08-19.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-19/source-4-ukraine-under-siege-from-every-front-lt-col-daniel-davis-2026-08-19.md",
+      "upstream_path": "operator-paste://2026-08-19/4-ukraine-under-siege-from-every-front-lt-col-daniel-davis",
+      "source_class": "host monologue",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "davis"
+      ],
+      "host_slug": "daniel-davis",
+      "source_identity": "youtube:bNP5G_3ckSk",
+      "source_url": "https://www.youtube.com/watch?v=bNP5G_3ckSk",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-19",
+      "title": "(4) Lawrence Wilkerson: U.S. Considers Nuclear Strike Against Iran",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-19/source-4-lawrence-wilkerson-u-s-considers-nuclear-strike-against-iran-2026-08-19.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-19/source-4-lawrence-wilkerson-u-s-considers-nuclear-strike-against-iran-2026-08-19.md",
+      "upstream_path": "operator-paste://2026-08-19/4-lawrence-wilkerson-u-s-considers-nuclear-strike-against-iran",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "wilkerson"
+      ],
+      "host_slug": "glenn-diesen",
+      "source_identity": "youtube:PjG-zfGY5PY",
+      "source_url": "https://www.youtube.com/watch?v=PjG-zfGY5PY",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-19",
+      "title": "(4) Global Food Shortage Warning, Sanctions and Fertilizer Crisis",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-19/source-4-global-food-shortage-warning-sanctions-and-fertilizer-crisis-2026-08-19.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-19/source-4-global-food-shortage-warning-sanctions-and-fertilizer-crisis-2026-08-19.md",
+      "upstream_path": "operator-paste://2026-08-19/4-global-food-shortage-warning-sanctions-and-fertilizer-crisis",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "the-duran",
+      "source_identity": "youtube:8Uv89yNcYFc",
+      "source_url": "https://www.youtube.com/watch?v=8Uv89yNcYFc",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-19",
+      "title": "(4) Scott Ritter: Yemen’s Military: We Now Dictating Terms - The Crippling Moment: US and Iran Dig In",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-19/source-4-scott-ritter-yemen-s-military-we-now-dictating-terms-the-crippling-moment-us-and-iran-dig-in-2026-08-19.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-19/source-4-scott-ritter-yemen-s-military-we-now-dictating-terms-the-crippling-moment-us-and-iran-dig-in-2026-08-19.md",
+      "upstream_path": "operator-paste://2026-08-19/4-scott-ritter-yemen-s-military-we-now-dictating-terms-the-crippling-moment-us-and-iran-dig-in",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "ritter"
+      ],
+      "host_slug": "dialogue-works",
+      "source_identity": "youtube:FaHdNWUfRuk",
+      "source_url": "https://www.youtube.com/watch?v=FaHdNWUfRuk",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-19",
+      "title": "(4) COL. Lawrence Wilkerson : Is Trump Considering Nuclear?",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-19/source-4-col-lawrence-wilkerson-is-trump-considering-nuclear-2026-08-19.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-19/source-4-col-lawrence-wilkerson-is-trump-considering-nuclear-2026-08-19.md",
+      "upstream_path": "operator-paste://2026-08-19/4-col-lawrence-wilkerson-is-trump-considering-nuclear",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "wilkerson"
+      ],
+      "host_slug": "judging-freedom",
+      "source_identity": "youtube:Lf9_C8K16A0",
+      "source_url": "https://www.youtube.com/watch?v=Lf9_C8K16A0",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-19",
+      "title": "(4) Robert Barnes: No More Bluffing: US and Iran Harden Positions",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-19/source-4-robert-barnes-no-more-bluffing-us-and-iran-harden-positions-2026-08-19.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-19/source-4-robert-barnes-no-more-bluffing-us-and-iran-harden-positions-2026-08-19.md",
+      "upstream_path": "operator-paste://2026-08-19/4-robert-barnes-no-more-bluffing-us-and-iran-harden-positions",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "barnes"
+      ],
+      "host_slug": "dialogue-works",
+      "source_identity": "youtube:auFXkDojgpM",
+      "source_url": "https://www.youtube.com/watch?v=auFXkDojgpM",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-19",
+      "title": "(4) IRAN THREATENS TO STRIKE TARGETS IN EUROPE!",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-19/source-4-iran-threatens-to-strike-targets-in-europe-2026-08-19.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-19/source-4-iran-threatens-to-strike-targets-in-europe-2026-08-19.md",
+      "upstream_path": "operator-paste://2026-08-19/4-iran-threatens-to-strike-targets-in-europe",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "weichert"
+      ],
+      "host_slug": "mario-nawfal",
+      "source_identity": "youtube:YSV1jY12mcA",
+      "source_url": "https://www.youtube.com/watch?v=YSV1jY12mcA",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-19",
+      "title": "(4) BARRACK: ISRAEL'S SYRIA STRIKE RISKED A WAR WITH TURKEY - w/ Col. Macgregor",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-19/source-4-barrack-israel-s-syria-strike-risked-a-war-with-turkey-w-col-macgregor-2026-08-19.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-19/source-4-barrack-israel-s-syria-strike-risked-a-war-with-turkey-w-col-macgregor-2026-08-19.md",
+      "upstream_path": "operator-paste://2026-08-19/4-barrack-israel-s-syria-strike-risked-a-war-with-turkey-w-col-macgregor",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "macgregor"
+      ],
+      "host_slug": "mario-nawfal",
+      "source_identity": "youtube:HTDQft0gIYQ",
+      "source_url": "https://www.youtube.com/watch?v=HTDQft0gIYQ",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-19",
+      "title": "Matthew Hoh: US Boosts Aerial Ops as Iran-Standoff Intensifies",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-19/source-matthew-hoh-us-boosts-aerial-ops-as-iran-standoff-intensifies-2026-08-19.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-19/source-matthew-hoh-us-boosts-aerial-ops-as-iran-standoff-intensifies-2026-08-19.md",
+      "upstream_path": "operator-paste://2026-08-19/matthew-hoh-us-boosts-aerial-ops-as-iran-standoff-intensifies",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "hoh"
+      ],
+      "host_slug": "dialogue-works",
+      "source_identity": "youtube:l3zaX_jRbd0",
+      "source_url": "https://www.youtube.com/watch?v=l3zaX_jRbd0",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-19",
+      "title": "(4) TRUMP 'BEGINS' MAJOR ECONOMIC WAR ON IRAN, ISRAEL SEND WARNING TO TURKEY AND SYRIA w/ Larry Johnson",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-19/source-4-trump-begins-major-economic-war-on-iran-israel-send-warning-to-turkey-and-syria-w-larry-johnson-2026-08-19.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-19/source-4-trump-begins-major-economic-war-on-iran-israel-send-warning-to-turkey-and-syria-w-larry-johnson-2026-08-19.md",
+      "upstream_path": "operator-paste://2026-08-19/4-trump-begins-major-economic-war-on-iran-israel-send-warning-to-turkey-and-syria-w-larry-johnson",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "johnson"
+      ],
+      "host_slug": "moral-resistance",
+      "source_identity": "youtube:KXHMfQZI0E4",
+      "source_url": "https://www.youtube.com/watch?v=KXHMfQZI0E4",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-19",
+      "title": "(4) Col. Macgregor: \"We've Already Lost This War, It's Over\" Iran Warn Disaster Unfolding",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-19/source-4-col-macgregor-we-ve-already-lost-this-war-it-s-over-iran-warn-disaster-unfolding-2026-08-19.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-19/source-4-col-macgregor-we-ve-already-lost-this-war-it-s-over-iran-warn-disaster-unfolding-2026-08-19.md",
+      "upstream_path": "operator-paste://2026-08-19/4-col-macgregor-we-ve-already-lost-this-war-it-s-over-iran-warn-disaster-unfolding",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "macgregor"
+      ],
+      "host_slug": "redacted-news",
+      "source_identity": "youtube:-CeVRY0DsbQ",
+      "source_url": "https://www.youtube.com/watch?v=-CeVRY0DsbQ",
+      "title_source": "transcript",
       "date_basis": "operator-supplied",
       "inference_basis": [
         "wrapper-normalized",
