@@ -21,6 +21,9 @@ conversation, simple one-step edits, or low-consequence mechanical work.
 ### Sense
 
 - Establish the objective, audience, scope, lane, and evidence boundary.
+- Design the receipt before acting: name the primary user or stakeholder, the
+  process or decision the work should improve, the observable proof that would
+  show usefulness, and any human review or handoff point.
 - Separate observed, supplied, inferred, missing, stale, and contradictory
   information.
 - Resolve and state the active repository root before inspecting or modifying
@@ -81,6 +84,12 @@ Method allowed to end:
 ### Act
 
 - Prepare analysis, drafts, packets, plans, or bounded changes within scope.
+- Keep the receipt target visible while acting. Do not let a technically
+  complete artifact displace the human process, decision, or observable proof
+  that made the work worth doing.
+- Preserve handoff quality while acting: track what changed, which evidence or
+  artifacts were used, which decisions were made, and which risks or limits
+  the next human or agent must not rediscover from scratch.
 - Choose the cheapest sufficient validation, inspect actual command scope
   before costly work, and escalate only when the objective or repository route
   requires it.
@@ -103,6 +112,12 @@ Method allowed to end:
 ### Learn
 
 - Compare intended results with observed outcomes when outcome evidence exists.
+- Compare the completed work against the receipt target. If the target was
+  missed, state whether the miss is a validation gap, outcome gap, authority
+  blocker, changed objective, or evidence still awaiting observation.
+- Check whether the next owner can act without rediscovery. If not, state the
+  missing evidence, decision, artifact, access, or authority boundary instead
+  of treating the handoff as complete.
 - Treat unexplained loss of human capacity through automation as a regression
   signal. Distinguish lower production cost from the epistemic value of prior
   evidence and the developmental value of doing the work.
@@ -122,6 +137,17 @@ to the task:
 Mira Work completion:
 Objective:
 Organizational consequence:
+Receipt target:
+Primary user or stakeholder:
+Process or decision improved:
+Observable proof of usefulness:
+Human review or handoff point:
+Handoff quality:
+What changed:
+Evidence or artifacts used:
+Decisions made:
+Risks or limits:
+Next owner can act without rediscovery: yes | no | not-applicable
 Compression class: toil | technique | judgment | apprenticeship | not-applicable
 Authorized boundary:
 Validation profile and result:

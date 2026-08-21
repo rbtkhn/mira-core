@@ -47,6 +47,7 @@ SURFACES = {
     "mira-sessions": REPO_ROOT / "scripts" / "mira_sessions.py",
     "mechanism-lens-checklist": REPO_ROOT / "scripts" / "mechanism_lens_checklist.py",
     "mira-mentor": REPO_ROOT / "scripts" / "mentorship_ledger.py",
+    "mira-work": REPO_ROOT / "scripts" / "mira_work_receipt.py",
     "narrative-reuse": REPO_ROOT / "scripts" / "report_narrative_reuse.py",
     "operator-position": REPO_ROOT / "scripts" / "operator_positions.py",
     "portability": REPO_ROOT / "tools" / "mira_portable.py",
