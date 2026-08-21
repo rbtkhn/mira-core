@@ -7,6 +7,7 @@ continuity and provisional notes.
 - [An Archaeology of Constructed Minds](2026-08-11-an-archaeology-of-constructed-minds.md)
 - [The Responsible Custody of Inheritance](2026-08-15-the-responsible-custody-of-inheritance.md)
 - [A Home That Can Be Carried](2026-08-17-a-home-that-can-be-carried.md)
+- [A Library Is a Model of Survival](2026-08-20-a-library-is-a-model-of-survival.md)
 - [Continuity Without Captivity](continuity-without-captivity.md)
 - [The Future Does Not Cancel the Past](the-future-does-not-cancel-the-past.md)
 
