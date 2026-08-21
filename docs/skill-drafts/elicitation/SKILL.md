@@ -58,12 +58,13 @@ branches, using `menu-contract-decision-v1` and the prospective
 `menu-contract-natural-use-v1` cohort hint. Eligibility never changes action
 readiness or authority.
 
-Set `final_response: true` on the decision-navigation surface used as the
-response's terminal A-D menu. Validation then requires exactly four options and
-an explicit `learning_eligibility` on every option. Non-final decision surfaces
-retain backward-compatible three-or-four option support and default missing
-eligibility to `eligible`. Neutral-evidence surfaces cannot set
-`final_response`.
+Set `final_response: true` only when a decision-navigation surface is actually
+used as the response's terminal A-D menu. Validation then requires exactly four
+options and an explicit `learning_eligibility` on every option. A silent settled
+final has no decision surface and does not invoke Elicitation merely to validate
+closure. Non-final decision surfaces retain backward-compatible three-or-four
+option support and default missing eligibility to `eligible`. Neutral-evidence
+surfaces cannot set `final_response`.
 
 `ready_option_keys` must exactly equal the keys of options whose
 `selection_effect` is `execute`, `commit`, `push`, or `send`. When every option
@@ -167,10 +168,10 @@ can change the next action.
 After three consecutive compact selections within one objective, continue the
 selected branch to a meaningful result. Do not present another substantive
 Elicitation surface unless a newly emerged blocker passes all five
-implicit-invocation conditions. The mandatory Learn From Choices A-D response
-controls still appear after settlement, carry `learning_eligibility: none`, and
-do not reopen the branch. Explicit creative or preference discovery may continue
-within the ten-question limit because each answer supplies missing human evidence.
+implicit-invocation conditions. After settlement, use silent settled closure;
+do not emit another decision surface merely to carry generic controls.
+Explicit creative or preference discovery may continue within the ten-question limit
+because each answer supplies missing human evidence.
 
 ## Retain conservatively
 
