@@ -354,6 +354,134 @@ def test_discover_public_writes_video_rows_from_public_rss(tmp_path: Path, monke
     ]
 
 
+def test_discovered_video_row_filters_shorts_to_skip() -> None:
+    row = youtube_capture.normalize_discovered_video_row(
+        capture_date="2026-08-20",
+        channel_row={
+            "slug": "judging-freedom",
+            "label": "Judge Napolitano - Judging Freedom",
+            "capture_cadence": "daily",
+        },
+        video={
+            "url": "https://www.youtube.com/shorts/abc123",
+            "title": "Gaza Ceasefire Lies: Israel Ignores Deal, Kills Children #shorts",
+            "published_at": "2026-08-20T18:02:59+00:00",
+            "channel": "Judge Napolitano - Judging Freedom",
+        },
+    )
+
+    assert row["disposition"] == "skip"
+    assert row["next_action"] == "short-form video; skip unless operator explicitly selects"
+    assert "auto-filter=shorts" in row["notes"]
+
+
+def test_discovered_video_row_demotes_segment_titles_but_preserves_named_guests() -> None:
+    segment = youtube_capture.normalize_discovered_video_row(
+        capture_date="2026-08-20",
+        channel_row={
+            "slug": "judging-freedom",
+            "label": "Judge Napolitano - Judging Freedom",
+            "capture_cadence": "daily",
+        },
+        video={
+            "url": "https://www.youtube.com/watch?v=D-syqxWYPnk",
+            "title": "Gaza Ceasefire Resolution Fails: Why Florida Politicians Are Fighting",
+            "published_at": "2026-08-20T20:00:15+00:00",
+            "channel": "Judge Napolitano - Judging Freedom",
+        },
+    )
+    named_guest = youtube_capture.normalize_discovered_video_row(
+        capture_date="2026-08-20",
+        channel_row={
+            "slug": "judging-freedom",
+            "label": "Judge Napolitano - Judging Freedom",
+            "capture_cadence": "daily",
+        },
+        video={
+            "url": "https://www.youtube.com/watch?v=Xi9geicm3Iw",
+            "title": "Prof. Jeffrey Sachs  :  Foreign Agents Fund 254 Congressional Races",
+            "published_at": "2026-08-20T20:29:40+00:00",
+            "channel": "Judge Napolitano - Judging Freedom",
+        },
+    )
+
+    assert segment["disposition"] == "possible"
+    assert segment["next_action"] == "review topical segment before transcript retrieval"
+    assert "auto-filter=segment-candidate" in segment["notes"]
+    assert named_guest["disposition"] == "watch"
+    assert "auto-filter" not in named_guest["notes"]
+
+
+def test_discover_public_preserves_existing_review_state(tmp_path: Path, monkeypatch) -> None:
+    queue_root = tmp_path / "queue"
+    channel_index = tmp_path / "channel-index.md"
+    channel_index.write_text(
+        "\n".join(
+            [
+                "| Channel slug | Label | Narrative status | Routing role | Local shelf / required next step | Upstream files | Upstream days | Capture cadence | Channel URL | First day | Last day |",
+                "| --- | --- | --- | --- | --- | ---: | ---: | --- | --- | --- | --- |",
+                "| `judging-freedom` | Judge Napolitano - Judging Freedom | `active` | Host pressure. | [judging-freedom/](judging-freedom/README.md) | 1 | 1 | `daily` | [open](https://www.youtube.com/@judgingfreedom) | `2026-08-20` | `2026-08-20` |",
+            ]
+        ),
+        encoding="utf-8",
+    )
+    youtube_capture.write_queue(
+        queue_root / "2026-08-20.jsonl",
+        [
+            youtube_capture.normalize_row(
+                capture_date="2026-08-20",
+                url="https://www.youtube.com/watch?v=Xi9geicm3Iw",
+                title="Prof. Jeffrey Sachs : Foreign Agents Fund 254 Congressional Races",
+                channel="Judge Napolitano - Judging Freedom",
+                published_at="2026-08-20T20:29:40+00:00",
+                transcript_status="available",
+                disposition="must-land",
+                next_action="landed in archive source",
+                notes="discover-public cadence=daily; channel_slug=judging-freedom; archive_path=archive/source.md",
+            )
+        ],
+    )
+    channel_page = '{"channelId":"UCjudging"}'
+    rss = """<feed xmlns="http://www.w3.org/2005/Atom" xmlns:yt="http://www.youtube.com/xml/schemas/2015">
+  <entry>
+    <yt:videoId>Xi9geicm3Iw</yt:videoId>
+    <title>Prof. Jeffrey Sachs  :  The political collapse of AIPAC - American Voters Reject Israel Lobby</title>
+    <published>2026-08-20T20:29:40+00:00</published>
+    <author><name>Judge Napolitano - Judging Freedom</name></author>
+    <link rel="alternate" href="https://www.youtube.com/watch?v=Xi9geicm3Iw" />
+  </entry>
+</feed>"""
+
+    def fake_fetch(url: str, timeout: int = 20) -> str:
+        if url.endswith("/videos"):
+            return channel_page
+        if "feeds/videos.xml" in url:
+            return rss
+        raise AssertionError(url)
+
+    monkeypatch.setattr(youtube_capture, "fetch_text", fake_fetch)
+
+    assert youtube_capture.main(
+        [
+            "discover-public",
+            "--date",
+            "2026-08-20",
+            "--queue-root",
+            str(queue_root),
+            "--channel-index",
+            str(channel_index),
+            "--channel",
+            "judging-freedom",
+        ]
+    ) == 0
+
+    row = read_jsonl(queue_root / "2026-08-20.jsonl")[0]
+    assert row["title"] == "Prof. Jeffrey Sachs  :  The political collapse of AIPAC - American Voters Reject Israel Lobby"
+    assert row["transcript_status"] == "available"
+    assert row["disposition"] == "must-land"
+    assert row["next_action"] == "landed in archive source"
+
+
 def test_discover_public_falls_back_to_channel_check_on_failure(tmp_path: Path, monkeypatch) -> None:
     queue_root = tmp_path / "queue"
     channel_index = tmp_path / "channel-index.md"
@@ -977,6 +1105,8 @@ def test_mark_updates_review_fields_only(tmp_path: Path) -> None:
 
 def test_export_intake_prints_dry_run_suggestions_only(tmp_path: Path, capsys) -> None:
     queue_root = tmp_path / "queue"
+    transcript_file = tmp_path / "must.txt"
+    transcript_file.write_text("Transcript body", encoding="utf-8")
     assert youtube_capture.main(
         [
             "add",
@@ -986,8 +1116,31 @@ def test_export_intake_prints_dry_run_suggestions_only(tmp_path: Path, capsys) -
             str(queue_root),
             "--url",
             "https://youtube.com/watch?v=must123",
+            "--title",
+            "Must Land Source",
+            "--channel",
+            "Dialogue Works",
+            "--expected-voice",
+            "johnson",
+            "--transcript-status",
+            "available",
             "--disposition",
             "must-land",
+            "--notes",
+            "discover-public cadence=daily; channel_slug=dialogue-works",
+        ]
+    ) == 0
+    assert youtube_capture.main(
+        [
+            "attach-transcript",
+            "--date",
+            "2026-08-20",
+            "--queue-root",
+            str(queue_root),
+            "--url",
+            "https://youtube.com/watch?v=must123",
+            "--transcript-file",
+            str(transcript_file),
         ]
     ) == 0
     assert youtube_capture.main(
@@ -999,6 +1152,8 @@ def test_export_intake_prints_dry_run_suggestions_only(tmp_path: Path, capsys) -
             str(queue_root),
             "--url",
             "https://youtube.com/watch?v=watch123",
+            "--transcript-status",
+            "available",
             "--disposition",
             "watch",
         ]
@@ -1008,9 +1163,263 @@ def test_export_intake_prints_dry_run_suggestions_only(tmp_path: Path, capsys) -
     assert youtube_capture.main(["export-intake", "--date", "2026-08-20", "--queue-root", str(queue_root)]) == 0
 
     output = capsys.readouterr().out
-    assert "EXPORT_MODE=dry-run-suggestions-only" in output
-    assert "intake-land --no-confidence-gate --dry-run" in output
+    assert "EXPORT_MODE=command-draft-only" in output
+    assert "python\" \"scripts\\\\land_best_intake.py" in output
+    assert "--preflight" in output
+    assert "--host-slug\" \"dialogue-works" in output
+    assert "--voice-slug\" \"johnson" in output
     assert "must123" in output
     assert "watch123" not in output
-    assert "<operator-provided-transcript-path>" in output
+    assert json.dumps(str(transcript_file)) in output
     assert "no archive landing" in output
+
+
+def test_export_intake_json_preserves_uncertainty_and_placeholder(tmp_path: Path, capsys) -> None:
+    queue_root = tmp_path / "queue"
+    youtube_capture.write_queue(
+        queue_root / "2026-08-20.jsonl",
+        [
+            youtube_capture.normalize_row(
+                capture_date="2026-08-20",
+                url="https://youtube.com/watch?v=unknown123",
+                title="Unknown voice source",
+                channel="Unknown Channel",
+                transcript_status="available",
+                disposition="must-land",
+                expected_voice="unknown",
+                notes="discover-public cadence=weekly; channel_slug=unknown-channel",
+            )
+        ],
+    )
+
+    assert (
+        youtube_capture.main(
+            [
+                "export-intake",
+                "--date",
+                "2026-08-20",
+                "--queue-root",
+                str(queue_root),
+                "--execute-shape",
+                "landing",
+                "--json",
+            ]
+        )
+        == 0
+    )
+
+    output = json.loads(capsys.readouterr().out)
+    draft = output["drafts"][0]
+    argv = draft["command_argv"]
+    assert output["mode"] == "youtube-capture-intake-draft"
+    assert output["execute_shape"] == "landing"
+    assert "--preflight" not in argv
+    assert "--host-slug" in argv
+    assert "unknown-channel" in argv
+    assert "--voice-slug" not in argv
+    assert "<operator-provided-transcript-path>" in argv
+    assert "expected_voice unknown" in " ".join(draft["warnings"])
+    assert "missing transcript_path" in " ".join(draft["warnings"])
+    assert "no archive landing" in output["authority"]
+
+
+def test_status_json_reports_landed_rows_by_manifest_url(tmp_path: Path, capsys) -> None:
+    queue_root = tmp_path / "queue"
+    manifest = tmp_path / "source-manifest.json"
+    manifest.write_text(
+        json.dumps(
+            {
+                "sources": [
+                    {
+                        "source_url": "https://www.youtube.com/watch?v=landed123",
+                        "date": "2026-08-19",
+                        "local_path": "archive/source.md",
+                    }
+                ]
+            }
+        ),
+        encoding="utf-8",
+    )
+    youtube_capture.write_queue(
+        queue_root / "2026-08-20.jsonl",
+        [
+            {
+                **youtube_capture.normalize_row(
+                    capture_date="2026-08-20",
+                    url="https://www.youtube.com/watch?v=landed123",
+                    title="Already landed",
+                    transcript_status="available",
+                    disposition="must-land",
+                    notes="discover-public cadence=daily; channel_slug=dialogue-works",
+                ),
+                "transcript_path": str(tmp_path / "landed.txt"),
+            },
+            youtube_capture.normalize_row(
+                capture_date="2026-08-20",
+                url="https://www.youtube.com/watch?v=fresh123",
+                title="Fresh",
+                transcript_status="manual-needed",
+                disposition="possible",
+                notes="discover-public cadence=weekly; channel_slug=redacted-news",
+            ),
+        ],
+    )
+
+    assert (
+        youtube_capture.main(
+            [
+                "status",
+                "--date",
+                "2026-08-20",
+                "--queue-root",
+                str(queue_root),
+                "--manifest",
+                str(manifest),
+                "--json",
+            ]
+        )
+        == 0
+    )
+
+    output = json.loads(capsys.readouterr().out)
+    assert output["counts"]["queue_rows"] == 2
+    assert output["counts"]["landed_rows"] == 1
+    assert output["counts"]["available_rows"] == 1
+    assert output["counts"]["manual_needed_rows"] == 1
+    landed = [row for row in output["rows"] if row["landed"]]
+    assert landed[0]["archive_path"] == "archive/source.md"
+    assert landed[0]["has_transcript_path"] is True
+
+
+def test_status_text_can_filter_by_cadence_channel_and_disposition(tmp_path: Path, capsys) -> None:
+    queue_root = tmp_path / "queue"
+    manifest = tmp_path / "source-manifest.json"
+    manifest.write_text(json.dumps({"sources": []}), encoding="utf-8")
+    youtube_capture.write_queue(
+        queue_root / "2026-08-20.jsonl",
+        [
+            youtube_capture.normalize_row(
+                capture_date="2026-08-20",
+                url="https://www.youtube.com/watch?v=dialogue123",
+                title="Dialogue ready",
+                channel="Dialogue Works",
+                transcript_status="available",
+                disposition="must-land",
+                notes="discover-public cadence=daily; channel_slug=dialogue-works",
+            ),
+            youtube_capture.normalize_row(
+                capture_date="2026-08-20",
+                url="https://www.youtube.com/watch?v=redacted123",
+                title="Redacted watch",
+                channel="Redacted",
+                transcript_status="defer",
+                disposition="watch",
+                notes="discover-public cadence=weekly; channel_slug=redacted-news",
+            ),
+        ],
+    )
+
+    assert (
+        youtube_capture.main(
+            [
+                "status",
+                "--date",
+                "2026-08-20",
+                "--queue-root",
+                str(queue_root),
+                "--manifest",
+                str(manifest),
+                "--cadence",
+                "daily",
+                "--channel",
+                "dialogue-works",
+                "--disposition",
+                "must-land",
+            ]
+        )
+        == 0
+    )
+
+    output = capsys.readouterr().out
+    assert "STATUS_MODE=queue-and-manifest-only" in output
+    assert "QUEUE_ROWS=1" in output
+    assert "Dialogue Works" in output
+    assert "Dialogue ready" in output
+    assert "https://www.youtube.com/watch?v=dialogue123" in output
+    assert "available" in output
+    assert "must-land" in output
+    assert "review" in output
+    assert "redacted123" not in output
+    assert "no archive landing" in output
+
+
+def test_catch_up_groups_ready_needs_transcript_and_landed(tmp_path: Path, capsys) -> None:
+    queue_root = tmp_path / "queue"
+    manifest = tmp_path / "source-manifest.json"
+    transcript_file = tmp_path / "ready.txt"
+    transcript_file.write_text("ready", encoding="utf-8")
+    manifest.write_text(
+        json.dumps(
+            {
+                "sources": [
+                    {
+                        "source_url": "https://www.youtube.com/watch?v=landed123",
+                        "date": "2026-08-19",
+                    }
+                ]
+            }
+        ),
+        encoding="utf-8",
+    )
+    youtube_capture.write_queue(
+        queue_root / "2026-08-20.jsonl",
+        [
+            {
+                **youtube_capture.normalize_row(
+                    capture_date="2026-08-20",
+                    url="https://www.youtube.com/watch?v=ready123",
+                    title="Ready",
+                    transcript_status="available",
+                    disposition="must-land",
+                ),
+                "transcript_path": str(transcript_file),
+            },
+            youtube_capture.normalize_row(
+                capture_date="2026-08-20",
+                url="https://www.youtube.com/watch?v=needed123",
+                title="Needs transcript",
+                transcript_status="manual-needed",
+                disposition="possible",
+            ),
+            youtube_capture.normalize_row(
+                capture_date="2026-08-20",
+                url="https://www.youtube.com/watch?v=landed123",
+                title="Already landed",
+                transcript_status="available",
+                disposition="must-land",
+            ),
+        ],
+    )
+
+    assert (
+        youtube_capture.main(
+            [
+                "catch-up",
+                "--date",
+                "2026-08-20",
+                "--queue-root",
+                str(queue_root),
+                "--manifest",
+                str(manifest),
+                "--json",
+            ]
+        )
+        == 0
+    )
+
+    output = json.loads(capsys.readouterr().out)
+    assert output["mode"] == "youtube-capture-catch-up"
+    assert [row["video_id"] for row in output["ready_for_intake"]] == ["ready123"]
+    assert [row["video_id"] for row in output["needs_transcript"]] == ["needed123"]
+    assert [row["video_id"] for row in output["already_landed_or_stale"]] == ["landed123"]
+    assert "no archive landing" in output["authority"]

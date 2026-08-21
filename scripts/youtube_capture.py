@@ -31,6 +31,16 @@ CHANNEL_EXPECTED_VOICE = {
     "daniel-davis": "davis",
     "glenn-diesen": "diesen",
 }
+NAMED_GUEST_TITLE_RE = re.compile(
+    r"\b(?:w/|with|Prof\.|Professor|COL\.|Col\.|Lt Col|CPT\.|Capt\.|Amb\.|Aaron Mat[eé]|"
+    r"Pepe Escobar|Larry Johnson|Scott Ritter|Douglas Macgregor|Jeffrey Sachs|Glenn Diesen)\b",
+    re.IGNORECASE,
+)
+SEGMENT_TITLE_RE = re.compile(
+    r"\b(?:fails|exposed|claims|warning|lies|plot|jaw-dropping|shocking|crisis|"
+    r"destroy our rights|threaten|kills children|ignores deal)\b",
+    re.IGNORECASE,
+)
 QUEUE_ONLY_NOTICE = "YOUTUBE_CAPTURE_MODE=queue-draft-only"
 AUTHORITY_NOTICE = (
     "AUTHORITY_BOUNDARY=no archive landing, manifest mutation, synthesis, "
@@ -159,6 +169,20 @@ def normalize_index_row(*, capture_date: str, row: dict[str, str]) -> dict[str, 
     }
 
 
+def discovered_triage(url: str, title: str) -> tuple[str, str, str]:
+    normalized_title = title.strip()
+    parsed = urlparse(url.strip())
+    if parsed.path.startswith("/shorts/"):
+        return "skip", "short-form video; skip unless operator explicitly selects", "auto-filter=shorts"
+    if SEGMENT_TITLE_RE.search(normalized_title) and not NAMED_GUEST_TITLE_RE.search(normalized_title):
+        return (
+            "possible",
+            "review topical segment before transcript retrieval",
+            "auto-filter=segment-candidate",
+        )
+    return "watch", "review video and mark must-land/possible/skip", ""
+
+
 def normalize_discovered_video_row(
     *,
     capture_date: str,
@@ -169,18 +193,23 @@ def normalize_discovered_video_row(
     video_id, source_identity = youtube_source_identity(url)
     slug = channel_row["slug"]
     cadence = channel_row.get("capture_cadence", "")
+    title = video.get("title", "")
+    disposition, next_action, filter_note = discovered_triage(url, title)
+    notes = f"discover-public cadence={cadence}; channel_slug={slug}"
+    if filter_note:
+        notes = f"{notes}; {filter_note}"
     return {
         "date": capture_date,
         "url": url,
         "video_id": video_id,
-        "title": video.get("title", ""),
+        "title": title,
         "channel": video.get("channel") or channel_row.get("label", ""),
         "published_at": video.get("published_at", ""),
         "expected_voice": CHANNEL_EXPECTED_VOICE.get(slug, "unknown"),
         "transcript_status": "defer",
-        "disposition": "watch",
-        "next_action": "review video and mark must-land/possible/skip",
-        "notes": f"discover-public cadence={cadence}; channel_slug={slug}",
+        "disposition": disposition,
+        "next_action": next_action,
+        "notes": notes,
         "source_identity": source_identity,
     }
 
@@ -315,7 +344,16 @@ def prune_queue_rows(
     return kept, removed
 
 
-def upsert_rows(existing: list[dict[str, str]], incoming: list[dict[str, str]]) -> tuple[list[dict[str, str]], int, int]:
+DISCOVERY_PRESERVE_FIELDS = {"transcript_status", "disposition", "next_action"}
+PLACEHOLDER_TRANSCRIPT_PATH = "<operator-provided-transcript-path>"
+
+
+def upsert_rows(
+    existing: list[dict[str, str]],
+    incoming: list[dict[str, str]],
+    *,
+    preserve_review_state: bool = False,
+) -> tuple[list[dict[str, str]], int, int]:
     rows = list(existing)
     index = {row.get("source_identity", ""): position for position, row in enumerate(rows)}
     added = 0
@@ -325,6 +363,10 @@ def upsert_rows(existing: list[dict[str, str]], incoming: list[dict[str, str]]) 
         if identity in index:
             merged = dict(rows[index[identity]])
             merged.update({key: value for key, value in row.items() if value != ""})
+            if preserve_review_state:
+                for key in DISCOVERY_PRESERVE_FIELDS:
+                    if rows[index[identity]].get(key, ""):
+                        merged[key] = rows[index[identity]][key]
             rows[index[identity]] = merged
             updated += 1
         else:
@@ -631,7 +673,7 @@ def discover_public_command(args: argparse.Namespace) -> int:
             normalize_discovered_video_row(capture_date=args.date, channel_row=row, video=video)
             for video in videos
         )
-    rows, added, updated = upsert_rows(read_queue(path), incoming)
+    rows, added, updated = upsert_rows(read_queue(path), incoming, preserve_review_state=True)
     write_queue(path, rows)
     print(QUEUE_ONLY_NOTICE)
     print("DISCOVER_PUBLIC_MODE=public-metadata-only")
@@ -696,20 +738,278 @@ def mark_command(args: argparse.Namespace) -> int:
     raise CaptureError(f"URL not found in queue for {args.date}: {args.url}")
 
 
+def channel_slug_from_notes(notes: str) -> str:
+    match = re.search(r"(?:^|;\s*)channel_slug=([^;]+)", notes)
+    return match.group(1).strip() if match else ""
+
+
+def queue_row_matches_filters(
+    row: dict[str, str],
+    *,
+    cadences: set[str] | None = None,
+    channels: set[str] | None = None,
+    dispositions: set[str] | None = None,
+) -> bool:
+    notes = row.get("notes", "")
+    if cadences:
+        cadence_match = re.search(r"(?:^|;\s*)(?:discover-public|scan-index) cadence=([^;]+)", notes)
+        if not cadence_match or cadence_match.group(1).strip() not in cadences:
+            return False
+    if channels and channel_slug_from_notes(notes) not in channels:
+        return False
+    if dispositions and row.get("disposition") not in dispositions:
+        return False
+    return True
+
+
+def build_intake_draft(
+    row: dict[str, str],
+    *,
+    execute_shape: str,
+) -> dict[str, object]:
+    warnings: list[str] = []
+    transcript_path = row.get("transcript_path", "").strip()
+    if not transcript_path:
+        transcript_path = PLACEHOLDER_TRANSCRIPT_PATH
+        warnings.append("missing transcript_path; replace placeholder before running intake")
+
+    argv = [
+        "python",
+        "scripts\\land_best_intake.py",
+        "--date",
+        row.get("date", ""),
+        "--quick",
+    ]
+    if row.get("title"):
+        argv.extend(["--title", row["title"]])
+    if row.get("url"):
+        argv.extend(["--url", row["url"]])
+    host_slug = channel_slug_from_notes(row.get("notes", ""))
+    if host_slug:
+        argv.extend(["--host-slug", host_slug])
+    else:
+        warnings.append("missing channel_slug in notes; host_slug not inferred")
+    expected_voice = row.get("expected_voice", "").strip()
+    if expected_voice and expected_voice != "unknown":
+        argv.extend(["--voice-slug", expected_voice])
+    else:
+        warnings.append("expected_voice unknown; voice_slug not inferred")
+    if row.get("published_at"):
+        argv.extend(["--pub-date", row["published_at"][:10]])
+    argv.extend(
+        [
+            "--source-form",
+            "interview",
+            "--source-class",
+            "guest interview pressure test",
+            "--body-file",
+            transcript_path,
+            "--trim-opening",
+            "auto",
+            "--asr-repair",
+            "auto",
+            "--sectioning",
+            "none",
+        ]
+    )
+    if execute_shape == "preflight":
+        argv.append("--preflight")
+    argv.append("--json")
+    return {
+        "row": row,
+        "command_argv": argv,
+        "command_text": " ".join(json.dumps(part) for part in argv),
+        "warnings": warnings,
+    }
+
+
 def export_intake_command(args: argparse.Namespace) -> int:
     rows = read_queue(queue_path(args.date, args.queue_root))
-    candidates = [row for row in rows if row.get("disposition") == "must-land"]
-    print(QUEUE_ONLY_NOTICE)
-    print("EXPORT_MODE=dry-run-suggestions-only")
-    for row in candidates:
+    candidates = [
+        row
+        for row in rows
+        if row.get("disposition") == "must-land" and row.get("transcript_status") == "available"
+    ]
+    drafts = [build_intake_draft(row, execute_shape=args.execute_shape) for row in candidates]
+    if args.json:
         print(
-            ".\\tools\\run.ps1 intake-land --no-confidence-gate --dry-run "
-            f"--url {json.dumps(row.get('url', ''))} "
-            f"--pub-date {json.dumps(row.get('published_at') or row.get('date', ''))} "
-            "--body-file <operator-provided-transcript-path>"
+            json.dumps(
+                {
+                    "mode": "youtube-capture-intake-draft",
+                    "date": args.date,
+                    "execute_shape": args.execute_shape,
+                    "drafts": drafts,
+                    "draft_count": len(drafts),
+                    "authority": AUTHORITY_NOTICE,
+                },
+                indent=2,
+                ensure_ascii=False,
+            )
         )
-    print(f"INTAKE_SUGGESTIONS={len(candidates)}")
-    print(AUTHORITY_NOTICE)
+    else:
+        print(QUEUE_ONLY_NOTICE)
+        print("EXPORT_MODE=command-draft-only")
+        print(f"EXECUTE_SHAPE={args.execute_shape}")
+        for draft in drafts:
+            row = draft["row"]
+            print(f"INTAKE_DRAFT url={row.get('url', '')} title={row.get('title', '')}")
+            for warning in draft["warnings"]:
+                print(f"WARNING {row.get('url', '')}: {warning}")
+            print(draft["command_text"])
+        print(f"INTAKE_SUGGESTIONS={len(drafts)}")
+        print(AUTHORITY_NOTICE)
+    return 0
+
+
+def queue_status_rows(
+    *,
+    dates: list[str],
+    queue_root: Path,
+    manifest_path: Path,
+    cadences: set[str] | None = None,
+    channels: set[str] | None = None,
+    dispositions: set[str] | None = None,
+) -> list[dict[str, object]]:
+    manifest = load_manifest_by_url(manifest_path)
+    status_rows: list[dict[str, object]] = []
+    for capture_date in dates:
+        for row in read_queue(queue_path(capture_date, queue_root)):
+            if not queue_row_matches_filters(row, cadences=cadences, channels=channels, dispositions=dispositions):
+                continue
+            source = manifest.get(row.get("url", ""))
+            status_rows.append(
+                {
+                    **row,
+                    "landed": bool(source),
+                    "archive_date": source.get("date", "") if source else "",
+                    "archive_path": source.get("local_path", "") if source else "",
+                    "has_transcript_path": bool(row.get("transcript_path", "").strip()),
+                }
+            )
+    return status_rows
+
+
+def queue_status_counts(rows: list[dict[str, object]]) -> dict[str, int]:
+    return {
+        "queue_rows": len(rows),
+        "video_rows": sum(1 for row in rows if str(row.get("source_identity", "")).startswith("youtube:")),
+        "landed_rows": sum(1 for row in rows if row.get("landed")),
+        "available_rows": sum(1 for row in rows if row.get("transcript_status") == "available"),
+        "manual_needed_rows": sum(1 for row in rows if row.get("transcript_status") == "manual-needed"),
+        "defer_rows": sum(1 for row in rows if row.get("transcript_status") == "defer"),
+        "must_land_rows": sum(1 for row in rows if row.get("disposition") == "must-land"),
+    }
+
+
+def status_command(args: argparse.Namespace) -> int:
+    rows = queue_status_rows(
+        dates=args.date,
+        queue_root=args.queue_root,
+        manifest_path=args.manifest,
+        cadences=set(args.cadence) if args.cadence else None,
+        channels=set(args.channel) if args.channel else None,
+        dispositions=set(args.disposition) if args.disposition else None,
+    )
+    counts = queue_status_counts(rows)
+    if args.json:
+        print(
+            json.dumps(
+                {
+                    "mode": "youtube-capture-status",
+                    "dates": args.date,
+                    "counts": counts,
+                    "rows": rows,
+                    "authority": AUTHORITY_NOTICE,
+                },
+                indent=2,
+                ensure_ascii=False,
+            )
+        )
+    else:
+        print(QUEUE_ONLY_NOTICE)
+        print("STATUS_MODE=queue-and-manifest-only")
+        for key, value in counts.items():
+            print(f"{key.upper()}={value}")
+        print("| Date | Channel | Title | URL | Transcript | Disposition | Landed | Transcript File | Next Action |")
+        print("| --- | --- | --- | --- | --- | --- | --- | --- | --- |")
+        for row in rows:
+            print(
+                "| "
+                + " | ".join(
+                    [
+                        str(row.get("date", "")),
+                        str(row.get("channel", "")),
+                        str(row.get("title", "")),
+                        str(row.get("url", "")),
+                        str(row.get("transcript_status", "")),
+                        str(row.get("disposition", "")),
+                        "yes" if row.get("landed") else "no",
+                        "yes" if row.get("has_transcript_path") else "no",
+                        str(row.get("next_action", "")),
+                    ]
+                )
+                + " |"
+            )
+        print(AUTHORITY_NOTICE)
+    return 0
+
+
+def catch_up_command(args: argparse.Namespace) -> int:
+    rows = queue_status_rows(
+        dates=args.date,
+        queue_root=args.queue_root,
+        manifest_path=args.manifest,
+    )
+    ready = [
+        row
+        for row in rows
+        if not row.get("landed")
+        and row.get("disposition") == "must-land"
+        and row.get("transcript_status") == "available"
+        and row.get("has_transcript_path")
+    ]
+    needs_transcript = [
+        row
+        for row in rows
+        if not row.get("landed")
+        and row.get("disposition") in {"must-land", "possible"}
+        and row.get("transcript_status") in {"manual-needed", "defer"}
+    ]
+    landed_or_stale = [row for row in rows if row.get("landed")]
+    if args.include_landed:
+        remaining_rows = rows
+    else:
+        remaining_rows = [row for row in rows if not row.get("landed")]
+    counts = queue_status_counts(remaining_rows)
+    payload = {
+        "mode": "youtube-capture-catch-up",
+        "dates": args.date,
+        "counts": counts,
+        "ready_for_intake": ready,
+        "needs_transcript": needs_transcript,
+        "already_landed_or_stale": landed_or_stale,
+        "authority": AUTHORITY_NOTICE,
+    }
+    if args.json:
+        print(json.dumps(payload, indent=2, ensure_ascii=False))
+    else:
+        print(QUEUE_ONLY_NOTICE)
+        print("CATCH_UP_MODE=queue-and-manifest-only")
+        print(f"READY_FOR_INTAKE={len(ready)}")
+        print(f"NEEDS_TRANSCRIPT={len(needs_transcript)}")
+        print(f"ALREADY_LANDED_OR_STALE={len(landed_or_stale)}")
+        for label, group in (
+            ("READY", ready),
+            ("NEEDS_TRANSCRIPT", needs_transcript),
+            ("LANDED_OR_STALE", landed_or_stale),
+        ):
+            print(f"## {label}")
+            for row in group:
+                print(
+                    f"- {row.get('date', '')} {row.get('channel', '')}: "
+                    f"{row.get('title', '')} {row.get('url', '')}"
+                )
+        print(AUTHORITY_NOTICE)
     return 0
 
 
@@ -1043,9 +1343,29 @@ def build_parser() -> argparse.ArgumentParser:
     mark.add_argument("--notes")
     mark.set_defaults(handler=mark_command)
 
-    export = subparsers.add_parser("export-intake", help="Print intake dry-run suggestions for must-land rows")
+    export = subparsers.add_parser("export-intake", help="Print governed intake command drafts for ready rows")
     add_common(export)
+    export.add_argument("--execute-shape", choices=["preflight", "landing"], default="preflight")
+    export.add_argument("--json", action="store_true")
     export.set_defaults(handler=export_intake_command)
+
+    status = subparsers.add_parser("status", help="Show queue rows with manifest landed status")
+    status.add_argument("--date", action="append", required=True, type=parse_capture_date)
+    status.add_argument("--queue-root", type=Path, default=QUEUE_ROOT, help=argparse.SUPPRESS)
+    status.add_argument("--manifest", type=Path, default=MANIFEST_PATH)
+    status.add_argument("--cadence", action="append", choices=["daily", "weekly", "manual", "off"])
+    status.add_argument("--channel", action="append", default=[])
+    status.add_argument("--disposition", action="append", choices=sorted(DISPOSITIONS))
+    status.add_argument("--json", action="store_true")
+    status.set_defaults(handler=status_command)
+
+    catch_up = subparsers.add_parser("catch-up", help="Group queue rows for weekly catch-up")
+    catch_up.add_argument("--date", action="append", required=True, type=parse_capture_date)
+    catch_up.add_argument("--queue-root", type=Path, default=QUEUE_ROOT, help=argparse.SUPPRESS)
+    catch_up.add_argument("--manifest", type=Path, default=MANIFEST_PATH)
+    catch_up.add_argument("--include-landed", action="store_true")
+    catch_up.add_argument("--json", action="store_true")
+    catch_up.set_defaults(handler=catch_up_command)
 
     audit = subparsers.add_parser("audit-duplicates", help="Read-only URL match of queue rows against the source manifest")
     audit.add_argument("--date", action="append", required=True, type=parse_capture_date)
