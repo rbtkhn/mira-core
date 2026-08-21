@@ -2,7 +2,7 @@
   "manifest_id": "narrative-geopolitics-source-manifest-v1",
   "source_basis": "central archive with completed historical strategy-codex imports",
   "imported_at": "2026-07-09",
-  "source_count": 2190,
+  "source_count": 2199,
   "boundary": {
     "archive": "source truth",
     "voices": "voice continuity and routing",
@@ -59246,6 +59246,214 @@
       "date_basis": "operator-supplied",
       "inference_basis": [
         "wrapper-normalized",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-20",
+      "title": "(4) Russia Massive Kiev Strike More Coming; Orekhov Troops Panic; Dobropilia Falling; Ukraine Crisis",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-20/source-4-russia-massive-kiev-strike-more-coming-orekhov-troops-panic-dobropilia-falling-ukraine-crisis-2026-08-20.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-20/source-4-russia-massive-kiev-strike-more-coming-orekhov-troops-panic-dobropilia-falling-ukraine-crisis-2026-08-20.md",
+      "upstream_path": "operator-paste://2026-08-20/4-russia-massive-kiev-strike-more-coming-orekhov-troops-panic-dobropilia-falling-ukraine-crisis",
+      "source_class": "host monologue",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "alexander-mercouris",
+      "source_identity": "youtube:s6cPE4lXO6k",
+      "source_url": "https://www.youtube.com/watch?v=s6cPE4lXO6k",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-20",
+      "title": "COL. Douglas Macgregor : Is Putin Losing Patience?",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-20/source-col-douglas-macgregor-is-putin-losing-patience-2026-08-20.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-20/source-col-douglas-macgregor-is-putin-losing-patience-2026-08-20.md",
+      "upstream_path": "operator-paste://2026-08-20/col-douglas-macgregor-is-putin-losing-patience",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "macgregor"
+      ],
+      "host_slug": "judging-freedom",
+      "source_identity": "youtube:reaDKExgGmc",
+      "source_url": "https://www.youtube.com/watch?v=reaDKExgGmc",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-20",
+      "title": "(4) Prof. Jeffrey Sachs : Foreign Agents Fund 254 Congressional Races",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-20/source-4-prof-jeffrey-sachs-foreign-agents-fund-254-congressional-races-2026-08-20.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-20/source-4-prof-jeffrey-sachs-foreign-agents-fund-254-congressional-races-2026-08-20.md",
+      "upstream_path": "operator-paste://2026-08-20/4-prof-jeffrey-sachs-foreign-agents-fund-254-congressional-races",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "sachs"
+      ],
+      "host_slug": "judging-freedom",
+      "source_identity": "youtube:Xi9geicm3Iw",
+      "source_url": "https://www.youtube.com/watch?v=Xi9geicm3Iw",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-20",
+      "title": "(4) Gaza Ceasefire Resolution Fails: Why Florida Politicians Are Fighting",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-20/source-4-gaza-ceasefire-resolution-fails-why-florida-politicians-are-fighting-2026-08-20.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-20/source-4-gaza-ceasefire-resolution-fails-why-florida-politicians-are-fighting-2026-08-20.md",
+      "upstream_path": "operator-paste://2026-08-20/4-gaza-ceasefire-resolution-fails-why-florida-politicians-are-fighting",
+      "source_class": "host clip / guest commentary",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mate"
+      ],
+      "host_slug": "judging-freedom",
+      "source_identity": "youtube:D-syqxWYPnk",
+      "source_url": "https://www.youtube.com/watch?v=D-syqxWYPnk",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-20",
+      "title": "Andrei Martyanov: No Deal, More Pain: Why Trump is Walking Away from the Iran Table",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-20/source-andrei-martyanov-no-deal-more-pain-why-trump-is-walking-away-from-the-iran-table-2026-08-20.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-20/source-andrei-martyanov-no-deal-more-pain-why-trump-is-walking-away-from-the-iran-table-2026-08-20.md",
+      "upstream_path": "operator-paste://2026-08-20/andrei-martyanov-no-deal-more-pain-why-trump-is-walking-away-from-the-iran-table",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "martyanov"
+      ],
+      "host_slug": "dialogue-works",
+      "source_identity": "youtube:moj8BZraPM8",
+      "source_url": "https://www.youtube.com/watch?v=moj8BZraPM8",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-20",
+      "title": "Pepe Escobar: Trump Made a Move on Iran’s General—Tehran Just Wiped Out His Entire Strategy",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-20/source-pepe-escobar-trump-made-a-move-on-iran-s-general-tehran-just-wiped-out-his-entire-strategy-2026-08-20.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-20/source-pepe-escobar-trump-made-a-move-on-iran-s-general-tehran-just-wiped-out-his-entire-strategy-2026-08-20.md",
+      "upstream_path": "operator-paste://2026-08-20/pepe-escobar-trump-made-a-move-on-iran-s-general-tehran-just-wiped-out-his-entire-strategy",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "escobar"
+      ],
+      "host_slug": "dialogue-works",
+      "source_identity": "youtube:gnTJDebvb-E",
+      "source_url": "https://www.youtube.com/watch?v=gnTJDebvb-E",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-20",
+      "title": "(4) US Driving Iran into China's Arms /fmr CIA Analyst Larry Johnson & Lt Col Daniel Davis",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-20/source-4-us-driving-iran-into-china-s-arms-fmr-cia-analyst-larry-johnson-lt-col-daniel-davis-2026-08-20.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-20/source-4-us-driving-iran-into-china-s-arms-fmr-cia-analyst-larry-johnson-lt-col-daniel-davis-2026-08-20.md",
+      "upstream_path": "operator-paste://2026-08-20/4-us-driving-iran-into-china-s-arms-fmr-cia-analyst-larry-johnson-lt-col-daniel-davis",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "davis",
+        "johnson"
+      ],
+      "host_slug": "daniel-davis",
+      "source_identity": "youtube:KZeZ6Bod6rg",
+      "source_url": "https://www.youtube.com/watch?v=KZeZ6Bod6rg",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-20",
+      "title": "(4) Prof. Glenn Diesen : Why Putin Threatened the UK",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-20/source-4-prof-glenn-diesen-why-putin-threatened-the-uk-2026-08-20.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-20/source-4-prof-glenn-diesen-why-putin-threatened-the-uk-2026-08-20.md",
+      "upstream_path": "operator-paste://2026-08-20/4-prof-glenn-diesen-why-putin-threatened-the-uk",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "diesen"
+      ],
+      "host_slug": "judging-freedom",
+      "source_identity": "youtube:zVI8tA6VFTk",
+      "source_url": "https://www.youtube.com/watch?v=zVI8tA6VFTk",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-20",
+      "title": "Larry Johnson: Bessent: \"We Will COLLAPSE the Iranian Regime\" as China REJECTS U.S. Sanctions",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-20/source-larry-johnson-bessent-we-will-collapse-the-iranian-regime-as-china-rejects-u-s-sanctions-2026-08-20.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-20/source-larry-johnson-bessent-we-will-collapse-the-iranian-regime-as-china-rejects-u-s-sanctions-2026-08-20.md",
+      "upstream_path": "operator-paste://2026-08-20/larry-johnson-bessent-we-will-collapse-the-iranian-regime-as-china-rejects-u-s-sanctions",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "johnson"
+      ],
+      "host_slug": "dialogue-works",
+      "source_identity": "youtube:zTQJITsfg7I",
+      "source_url": "https://www.youtube.com/watch?v=zTQJITsfg7I",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
         "explicit-date-alias"
       ],
       "import_status": "imported"

@@ -4,7 +4,7 @@ This index routes the imported first-slice parity corpus for `johnson` to the ce
 
 Source basis: `archive/sources/geopolitics/source-manifest.json`.
 
-Corpus: 125 local route rows across 125 central archive source files.
+Corpus: 127 local route rows across 127 central archive source files.
 
 Status: `first-slice-parity`
 
@@ -149,6 +149,8 @@ Status: `first-slice-parity`
 | `2026-08-17` | (4) Larry Johnson : How Poorly US Treats Its Own Troops | `guest` | `judging-freedom` | [source](../../../archive/sources/geopolitics/sources/2026-08-17/source-4-larry-johnson-how-poorly-us-treats-its-own-troops-2026-08-17.md) |
 | `2026-08-18` | (4) BREAKING: IRAN STRIKE DUBAI? UAE STOP ALL FINANCIAL TRANSACTIONS WITH IRAN w/ Larry Johnson | `guest` | `moral-resistance` | [source](../../../archive/sources/geopolitics/sources/2026-08-18/source-4-breaking-iran-strike-dubai-uae-stop-all-financial-transactions-with-iran-w-larry-johnson-2026-08-18.md) |
 | `2026-08-19` | (4) TRUMP 'BEGINS' MAJOR ECONOMIC WAR ON IRAN, ISRAEL SEND WARNING TO TURKEY AND SYRIA w/ Larry Johnson | `guest` | `moral-resistance` | [source](../../../archive/sources/geopolitics/sources/2026-08-19/source-4-trump-begins-major-economic-war-on-iran-israel-send-warning-to-turkey-and-syria-w-larry-johnson-2026-08-19.md) |
+| `2026-08-20` | (4) US Driving Iran into China's Arms /fmr CIA Analyst Larry Johnson & Lt Col Daniel Davis | `guest` | `daniel-davis` | [source](../../../archive/sources/geopolitics/sources/2026-08-20/source-4-us-driving-iran-into-china-s-arms-fmr-cia-analyst-larry-johnson-lt-col-daniel-davis-2026-08-20.md) |
+| `2026-08-20` | Larry Johnson: Bessent: "We Will COLLAPSE the Iranian Regime" as China REJECTS U.S. Sanctions | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2026-08-20/source-larry-johnson-bessent-we-will-collapse-the-iranian-regime-as-china-rejects-u-s-sanctions-2026-08-20.md) |
 
 ## Judgment Continuity
 
