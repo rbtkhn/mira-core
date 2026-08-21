@@ -1,12 +1,14 @@
 ---
 name: learn-from-choices
-description: "Turn final user-facing responses into outcome-aware possibility maps and learn from explicitly selected branches without expanding action authority. Use implicitly for every final response, when a user replies with a menu letter, and when choice outcomes or staged five-to-ten reviews should be retained or examined."
+description: "Turn genuine user decisions into outcome-aware possibility maps and learn from explicitly selected branches without expanding action authority. Use when a material choice or bounded action remains, when a user replies with a menu letter, or when choice outcomes or staged five-to-ten reviews should be retained or examined; settled responses may close silently."
 ---
 
 # Learn From Choices
 
-Use this core contract for every final response. Do not apply its footer to
-intermediate commentary. Load lifecycle references only at their named trigger:
+Use this core contract to classify every final response, but render a choice
+surface only when a genuine decision or action boundary remains. Settled
+responses may close silently. Do not apply choice footers to intermediate
+commentary. Load lifecycle references only at their named trigger:
 
 - After a user selects an offered branch, or when that selected branch closes,
   read [`references/choice-retention.md`](references/choice-retention.md).
@@ -30,15 +32,29 @@ Merely imaginable adjacent work is not closure debt. A complete factual answer
 may close despite optional deeper analysis. A completed, verified commit may
 close when push or publication was not requested.
 
-Classify the wider conversation separately. Every final response ends with
-exactly one four-option A-D surface. After closing a branch, offer substantive
-`New paths` only when independently credible directions begin genuinely
-different objectives, evidence searches, or commitments. Selecting one creates
-a new choice identity; it never reopens the closed branch. When fewer than four
-honest substantive paths exist, fill the remaining positions with response
-controls rather than manufactured work.
+Classify the wider conversation separately. Render a terminal A-D surface only
+when at least one of these is true:
 
-For an ordinary settled response, use these transient controls:
+- a material decision remains;
+- an exact bounded action is awaiting authority;
+- independently credible new objectives begin genuinely different work; or
+- the operator explicitly requested choices or structured navigation.
+
+Otherwise use **silent settled closure**: deliver the result or acknowledgement
+without an appended menu. This is the default for completed factual answers,
+simple thanks or acknowledgements, explicit stops, completed actions with no
+remaining boundary, repeated settled selections, and saturated navigation-only
+branches. Silent closure retains nothing and creates no choice identity.
+
+After closing a branch, offer substantive `New paths` only when independently
+credible directions begin genuinely different objectives, evidence searches,
+or commitments. Selecting one creates a new choice identity; it never reopens
+the closed branch. When a real four-option surface has fewer than four honest
+substantive paths, fill unused positions with transient response controls rather
+than manufactured work.
+
+When the operator explicitly requests navigation after an ordinary settled
+response, these transient controls are available:
 
 ```text
 A. Close — accept the result and close.
@@ -47,14 +63,15 @@ C. Deepen — request more evidence or explanation within this objective.
 D. New task — begin a distinct objective.
 ```
 
-After an explicit stop, honor the stop first and use only this minimal A-D
-surface: `Close now`, `Return later`, `Start a new task`, and `Correct the
-stopping summary`. A governing workflow's existing four-action A-D surface,
-including Coffee, satisfies the requirement; never append a duplicate menu.
+After an explicit stop, stop silently unless the operator requested navigation.
+If navigation was requested, use only `Close now`, `Return later`, `Start a new
+task`, and `Correct the stopping summary`. A governing workflow's existing
+four-action A-D surface, including Coffee, satisfies the need; never append a
+duplicate menu.
 
 ## End an open branch with possibilities
 
-Use exactly four concise options. Prefer materially distinct possibilities and
+When a terminal surface is warranted, use exactly four concise options. Prefer materially distinct possibilities and
 use transient response controls for positions that would otherwise be filler:
 
 ```text
@@ -80,6 +97,16 @@ keys in `ready_option_keys` and use a validated mixed `decision-navigation`
 surface. Do not replace a ready action with a request to settle, confirm, adopt,
 or approve an already-bounded scope.
 
+Task or thread creation is action-ready when the target project, initial prompt,
+environment, and verification boundary are known. Present it as an executable
+option such as `Execute: Create the bounded task ...`; do not label it
+navigation-only and then require the operator to repeat the same command.
+
+When a domain workflow establishes a durable batch authority envelope, continue
+all reversible in-scope rows until its declared review boundary. Do not emit an
+intermediate choice surface for routine row completion, isolated row failure,
+or unchanged constraints.
+
 An all-navigation surface is exceptional: provide `all_navigation_reason` and
 a concrete `blocked_action` naming the action considered, its blocker, and
 what would make it ready. Do not present consecutive navigation-only menus for
@@ -92,10 +119,10 @@ action are `eligible`. Generic Close, Correct, Deepen, New task, stop, and
 return-later controls are `none`. Eligibility is independent of
 `selection_effect` and grants no action authority.
 
-Validate the terminal surface with `final_response: true`. This requires four
-options and explicit eligibility for each one. Three-option Elicitation
-surfaces remain valid only for non-final backward-compatible interactions; they
-never satisfy this skill's final-response requirement.
+When a terminal surface is rendered, validate it with `final_response: true`.
+This requires four options and explicit eligibility for each one. Three-option
+Elicitation surfaces remain valid only for non-final backward-compatible
+interactions. Silent settled closure has no surface to validate.
 
 ## Preserve action authority
 
@@ -131,11 +158,10 @@ same menu. Present a new choice only for genuinely new evidence, scope,
 decision, or action.
 
 After two consecutive navigation-only selections deepen the same objective,
-default to saturated closure unless the latest turn adds new evidence, resolves
-a material contradiction, or exposes a genuinely new decision or action. Do
-not offer another substantive menu that merely analyzes, rewrites, compares,
-or audits the result just delivered; return four transient response controls
-instead.
+default to silent saturated closure unless the latest turn adds new evidence,
+resolves a material contradiction, or exposes a genuinely new decision or
+action. Do not offer another substantive or transient menu that merely
+analyzes, rewrites, compares, or audits the result just delivered.
 
 ## Deliver permanent artifacts honestly
 
@@ -152,12 +178,13 @@ push, hosting, and publication. Never describe a working-tree file as public.
 
 ## Complete the turn
 
-A turn has three valid terminal forms, and every form ends with one A-D surface:
+A turn has four valid terminal forms:
 
-- an open branch ends with a valid four-option possibility surface;
-- a settled branch closes with independently eligible `New paths` plus any
-  needed transient controls; or
-- a settled or stopped conversation closes with four transient controls.
+- an open branch with a genuine decision ends with a valid four-option surface;
+- a settled branch with independently credible new work may end with eligible
+  `New paths` plus transient fillers;
+- a settled or stopped conversation closes silently; or
+- a governing workflow supplies its own validated interaction surface.
 
 When a selected branch closes, use the retention reference to append a quiet
 `branch_closed` lifecycle event when available. Closure is not outcome evidence.

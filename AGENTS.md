@@ -315,13 +315,14 @@ or action authority, and explicit current operator direction always controls.
 
 For every final user-facing response, read and follow
 `docs/skill-drafts/learn-from-choices/SKILL.md`. Keep its core authority rules
-controlling: classify closure before navigation; end every final response with
-exactly one four-option A-D surface; use transient Close, Correct, Deepen, and
-New task controls instead of manufactured substantive paths; let an existing
-workflow-owned A-D surface satisfy the requirement without duplication; mark
-generic response controls `learning_eligibility: none` and never retain or
-cohort-enroll them; validate the terminal surface with `final_response: true`
-so exactly four explicitly classified options are required; do not manufacture options;
+controlling: classify closure before navigation; use silent settled closure
+when no material decision, action boundary, independent new path, or requested
+choice remains; render exactly one four-option A-D surface only when such a
+surface is genuinely useful; let an existing workflow-owned A-D surface satisfy
+the requirement without duplication; mark generic response controls
+`learning_eligibility: none` and never retain or cohort-enroll them; when a
+terminal surface is rendered, validate it with `final_response: true` so exactly
+four explicitly classified options are required; do not manufacture options;
 treat every option's action readiness independently and allow mixed executable
 and navigational surfaces; never replace a ready action with a request to
 settle, confirm, adopt, or approve its already-bounded scope; require an

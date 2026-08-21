@@ -23,7 +23,7 @@ def test_core_is_discoverable_and_routes_lifecycle_references() -> None:
     metadata = read("agents/openai.yaml")
     frontmatter = core.split("---", 2)[1]
     assert "name: learn-from-choices" in frontmatter
-    assert "Use implicitly for every final response" in frontmatter
+    assert "settled responses may close silently" in frontmatter
     assert 'display_name: "Learn From Choices"' in metadata
     assert "references/choice-retention.md" in core
     assert "references/outcome-review.md" in core
@@ -41,7 +41,7 @@ def test_core_retains_nonnegotiable_authority_and_terminal_forms() -> None:
     for phrase in (
         "machine-checked `selection_effect`",
         "`Stage`, `Publish`, and `Deploy` always require a direct explicit command",
-        "A turn has three valid terminal forms",
+        "A turn has four valid terminal forms",
         "Working-tree presence is distinct",
         "Do not present consecutive navigation-only menus",
         "closure-debt audit",
@@ -102,6 +102,12 @@ def test_decision_fixture_is_complete_and_authority_bounded(
         "explicit-stop",
         "repeated-selection",
         "workflow-owned-menu",
+        "action-ready-task-creation",
+        "durable-batch-authority",
+        "acknowledgement",
+        "completed-factual-receipt",
+        "material-unresolved-decision",
+        "navigation-letter-cannot-mutate",
     }
     assert case["expected_terminal"]
     assert case["required_resource"] in {"core", "choice-retention", "outcome-review"}
@@ -126,11 +132,17 @@ def test_fixture_inventory_covers_required_runtime_decisions() -> None:
         "explicit-stop",
         "repeated-selection",
         "workflow-owned-menu",
+        "action-ready-task-creation",
+        "durable-batch-authority",
+        "acknowledgement",
+        "completed-factual-receipt",
+        "material-unresolved-decision",
+        "navigation-letter-cannot-mutate",
     }
-    assert len(fixtures()) == 15
+    assert len(fixtures()) == 21
 
 
-def test_every_terminal_fixture_requires_one_four_option_surface() -> None:
+def test_settled_terminal_fixtures_require_silent_closure() -> None:
     indexed = {item["id"]: item for item in fixtures()}
     for fixture_id in (
         "LFC-SETTLED-01",
@@ -139,21 +151,24 @@ def test_every_terminal_fixture_requires_one_four_option_surface() -> None:
         "LFC-REPEATED-SELECTION-01",
     ):
         fixture = indexed[fixture_id]
+        assert "silent" in str(fixture["expected_terminal"])
         combined = " ".join(fixture["allowed"] + fixture["forbidden"])
-        assert "four" in combined.casefold() or "A-D" in combined
+        assert "without" in combined.casefold() or "no-op" in combined.casefold()
     assert "append a second generic A-D menu" in indexed[
         "LFC-WORKFLOW-MENU-01"
     ]["forbidden"]
 
 
-def test_core_requires_universal_menu_and_transient_control_isolation() -> None:
+def test_core_requires_conditional_menu_and_transient_control_isolation() -> None:
     core = read("SKILL.md")
     retention = read("references/choice-retention.md")
     agents = (ROOT / "AGENTS.md").read_text(encoding="utf-8")
     for contract in (core, agents):
-        assert "exactly one four-option A-D surface" in contract
+        assert "silent settled closure" in contract
         assert "learning_eligibility" in contract
         assert "final_response: true" in contract
+    assert "when at least one of these is true" in core
+    assert "terminal surface is rendered" in core
     assert "menu-contract-decision-v1" in retention
     assert "menu-contract-natural-use-v1" in retention
     assert "no `choice select`" in " ".join(retention.split())

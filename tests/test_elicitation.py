@@ -685,6 +685,46 @@ def test_host_and_choice_contract_require_option_level_readiness() -> None:
     assert "validated mixed `decision-navigation`" in choices
 
 
+def test_host_and_choice_contract_allow_silent_settled_closure() -> None:
+    agents = (REPO_ROOT / "AGENTS.md").read_text(encoding="utf-8")
+    choices = (
+        REPO_ROOT / "docs" / "skill-drafts" / "learn-from-choices" / "SKILL.md"
+    ).read_text(encoding="utf-8")
+    elicitation_skill = (
+        REPO_ROOT / "docs" / "skill-drafts" / "elicitation" / "SKILL.md"
+    ).read_text(encoding="utf-8")
+
+    assert "silent settled closure" in agents
+    assert "silent settled closure" in choices
+    assert "completed factual answers" in choices
+    assert "simple thanks or acknowledgements" in choices
+    assert "explicit stops" in choices
+    assert "does not invoke Elicitation merely to validate" in elicitation_skill
+
+
+def test_choice_contract_makes_bounded_task_creation_executable() -> None:
+    choices = (
+        REPO_ROOT / "docs" / "skill-drafts" / "learn-from-choices" / "SKILL.md"
+    ).read_text(encoding="utf-8")
+    normalized = " ".join(choices.split())
+
+    assert "Task or thread creation is action-ready" in normalized
+    assert "target project, initial prompt, environment, and verification boundary" in normalized
+    assert "do not label it navigation-only" in normalized
+
+
+def test_choice_contract_respects_durable_batch_authority() -> None:
+    choices = (
+        REPO_ROOT / "docs" / "skill-drafts" / "learn-from-choices" / "SKILL.md"
+    ).read_text(encoding="utf-8")
+    normalized = " ".join(choices.split())
+
+    assert "durable batch authority envelope" in normalized
+    assert "until its declared review boundary" in normalized
+    assert "routine row completion" in normalized
+    assert "isolated row failure" in normalized
+
+
 def test_skill_contract_limits_repeated_selection_chains() -> None:
     skill = (
         REPO_ROOT / "docs" / "skill-drafts" / "elicitation" / "SKILL.md"
@@ -693,9 +733,8 @@ def test_skill_contract_limits_repeated_selection_chains() -> None:
     assert "continue the" in skill
     assert "selected branch" in skill
     assert "to a meaningful result" in skill
-    assert "mandatory Learn From Choices A-D response" in skill
-    assert "learning_eligibility: none" in skill
-    assert "do not reopen the branch" in skill
+    assert "silent settled closure" in skill
+    assert "do not emit another decision surface" in skill
     assert "Explicit creative or preference discovery" in skill
     assert "ten-question limit" in skill
 
