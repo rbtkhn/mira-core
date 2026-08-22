@@ -465,7 +465,8 @@ def validate_registry(registry: Mapping[str, Any]) -> list[str]:
     return failures
 
 
-def validate_scaffold(repo_root: Path = REPO_ROOT) -> list[str]:
+def validate_scaffold(repo_root: Path | None = None) -> list[str]:
+    repo_root = REPO_ROOT if repo_root is None else repo_root
     failures: list[str] = []
     root = repo_root / "archive" / "library"
     required = [root / "README.md", root / "library-registry.json", root / "text-sources-index.md"]
@@ -484,10 +485,8 @@ def validate_scaffold(repo_root: Path = REPO_ROOT) -> list[str]:
     for era in ERA_IDS:
         index = root / era / "index.md"
         content = index.read_text(encoding="utf-8")
-        if f"Era: `{era}`" not in content:
-            failures.append(f"library index missing era marker: {relative(index)}")
-        if "No sources admitted yet." not in content and not registry.get("sources"):
-            failures.append(f"empty library index missing scaffold notice: {relative(index)}")
+        if content != render_era_index(registry, era):
+            failures.append(f"library era index is stale: {relative(index)}")
     return failures
 
 
@@ -778,6 +777,74 @@ def render_text_sources_index(registry: Mapping[str, Any]) -> str:
     return "\n".join(lines) + "\n"
 
 
+def era_definition(registry: Mapping[str, Any], era: str) -> Mapping[str, Any]:
+    for item in registry.get("era_definitions", []):
+        if isinstance(item, dict) and text(item.get("id")) == era:
+            return item
+    raise LibraryError(f"missing library era definition: {era}")
+
+
+def primary_era_sources(registry: Mapping[str, Any], era: str) -> list[Mapping[str, Any]]:
+    return sorted(
+        (
+            source
+            for source in registry.get("sources", [])
+            if isinstance(source, dict) and text(source.get("subject_era")) == era
+        ),
+        key=lambda source: text(source.get("source_id")),
+    )
+
+
+def render_era_index(registry: Mapping[str, Any], era: str) -> str:
+    if era not in ERA_IDS:
+        raise LibraryError(f"unknown library era: {era}")
+    definition = era_definition(registry, era)
+    sources = primary_era_sources(registry, era)
+    lines = [
+        f"# {text(definition.get('label'))} Library Index",
+        "",
+        f"Era: `{era}`",
+        f"Range: {text(definition.get('range'))}",
+        f"Status: `{'active' if sources else 'scaffold'}`",
+        "",
+        "## Sources",
+        "",
+    ]
+    if not sources:
+        lines.append("No sources admitted yet.")
+    else:
+        lines.extend(
+            [
+                "Generated from `../library-registry.json`. Do not edit this source list directly.",
+                "",
+                "| Source ID | Authority | Title | Dates | Type | Record status | Text status | Coverage |",
+                "| --- | --- | --- | --- | --- | --- | --- | --- |",
+            ]
+        )
+        for source in sources:
+            lines.append(
+                f"| `{markdown_cell(source.get('source_id'))}` | {markdown_cell(source.get('author'))} | {markdown_cell(source.get('title'))} | {markdown_cell(source.get('date_label'))} | {markdown_cell(source.get('source_type'))} | {markdown_cell(source.get('status'))} | {markdown_cell(source.get('text_status') or 'missing')} | {markdown_cell(source.get('coverage_status') or 'unknown')} |"
+            )
+    lines.extend(
+        [
+            "",
+            "## Notes",
+            "",
+            "This shelf is for source records whose primary subject period belongs to the",
+            f"{text(definition.get('label'))} era. It is a retrieval shelf, not a universal historical ontology.",
+        ]
+    )
+    if era == "colonial":
+        lines.extend(
+            [
+                "",
+                "In Mira Library, `colonial` is a broad early-modern shelf and is not limited to",
+                "European colonial history.",
+            ]
+        )
+    return "\n".join(lines) + "\n"
+
+
 def validate_command(args: argparse.Namespace) -> dict[str, Any]:
     failures = validate_scaffold()
     return {"status": "passed" if not failures else "failed", "failures": failures}
@@ -835,23 +902,31 @@ def render_index_command(args: argparse.Namespace) -> dict[str, Any]:
     failures = validate_registry(registry)
     if failures:
         raise LibraryError("; ".join(failures))
-    content = render_text_sources_index(registry)
-    path = TEXT_SOURCES_INDEX_PATH
-    existing = path.read_text(encoding="utf-8") if path.exists() else ""
-    would_update = existing != content
+    rendered = {TEXT_SOURCES_INDEX_PATH: render_text_sources_index(registry)}
+    rendered.update({LIBRARY_ROOT / era / "index.md": render_era_index(registry, era) for era in ERA_IDS})
+    stale_paths = [path for path, content in rendered.items() if not path.is_file() or path.read_text(encoding="utf-8") != content]
+    would_update = bool(stale_paths)
     if args.check:
         return {
             "status": "passed" if not would_update else "failed",
-            "path": relative(path),
-            "text_bodies_indexed": content.count("\n| `"),
+            "path": relative(TEXT_SOURCES_INDEX_PATH),
+            "paths": [relative(path) for path in rendered],
+            "stale_paths": [relative(path) for path in stale_paths],
+            "text_bodies_indexed": rendered[TEXT_SOURCES_INDEX_PATH].count("\n| `"),
+            "era_sources_indexed": {era: len(primary_era_sources(registry, era)) for era in ERA_IDS},
             "would_update": would_update,
             "index_updated": False,
         }
-    path.write_text(content, encoding="utf-8")
+    for path in stale_paths:
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(rendered[path], encoding="utf-8")
     return {
         "status": "ok",
-        "path": relative(path),
-        "text_bodies_indexed": content.count("\n| `"),
+        "path": relative(TEXT_SOURCES_INDEX_PATH),
+        "paths": [relative(path) for path in rendered],
+        "stale_paths": [relative(path) for path in stale_paths],
+        "text_bodies_indexed": rendered[TEXT_SOURCES_INDEX_PATH].count("\n| `"),
+        "era_sources_indexed": {era: len(primary_era_sources(registry, era)) for era in ERA_IDS},
         "would_update": would_update,
         "index_updated": would_update,
     }
@@ -925,6 +1000,110 @@ def verify_text_body_hygiene(body_id: str, decoded: str) -> list[str]:
             failures.append(f"{body_id}: probable site chrome on line {line_number}: {stripped[:80]}")
             break
     return failures
+
+
+def registry_text_body_rows(registry: Mapping[str, Any]) -> list[dict[str, Any]]:
+    rows: list[dict[str, Any]] = []
+    for source in registry.get("sources", []):
+        if not isinstance(source, dict):
+            continue
+        era = text(source.get("subject_era")) or "unknown"
+        source_id = text(source.get("source_id"))
+        for body in all_text_bodies(source):
+            body_id = text(body.get("body_id")) or source_id
+            status = text(body.get("status")) or text(body.get("text_status")) or "missing"
+            location = text(body.get("text_location"))
+            path = resolve_text_location(location)
+            rows.append(
+                {
+                    "era": era,
+                    "source_id": source_id,
+                    "body_id": body_id,
+                    "status": status,
+                    "text_location": location,
+                    "resolved_text_path": str(path) if path else "",
+                    "path": path,
+                    "is_reference_body": status in {"available", "verified"},
+                }
+            )
+    return rows
+
+
+def empty_census_row(era: str) -> dict[str, Any]:
+    return {
+        "era": era,
+        "authority_count": 0,
+        "registry_represented_authorities": 0,
+        "registry_body_count": 0,
+        "referenced_body_count": 0,
+        "physical_payload_count": 0,
+        "missing_payload_count": 0,
+        "representative_missing_body_ids": [],
+    }
+
+
+def census_texts_command(args: argparse.Namespace) -> dict[str, Any]:
+    registry = load_registry()
+    failures = validate_registry(registry)
+    if failures:
+        raise LibraryError("; ".join(failures))
+    text_root = resolve_text_root()
+    rows = registry_text_body_rows(registry)
+    eras = list(ERA_IDS) + ["unknown"]
+    by_era = {era: empty_census_row(era) for era in eras}
+    represented: dict[str, set[str]] = {era: set() for era in eras}
+    for source in registry.get("sources", []):
+        if not isinstance(source, dict):
+            continue
+        era = text(source.get("subject_era")) or "unknown"
+        by_era.setdefault(era, empty_census_row(era))
+        represented.setdefault(era, set())
+        by_era[era]["authority_count"] += 1
+    for row in rows:
+        era = row["era"]
+        by_era.setdefault(era, empty_census_row(era))
+        represented.setdefault(era, set())
+        by_era[era]["registry_body_count"] += 1
+        represented[era].add(row["source_id"])
+        if row["is_reference_body"]:
+            by_era[era]["referenced_body_count"] += 1
+            path = row["path"]
+            if path and path.is_file():
+                by_era[era]["physical_payload_count"] += 1
+            else:
+                by_era[era]["missing_payload_count"] += 1
+                missing = by_era[era]["representative_missing_body_ids"]
+                if len(missing) < args.limit:
+                    missing.append(row["body_id"])
+    eras_output = []
+    totals = empty_census_row("all")
+    for era in ERA_IDS:
+        item = by_era[era]
+        item["registry_represented_authorities"] = len(represented.get(era, set()))
+        eras_output.append(item)
+        for key in (
+            "authority_count",
+            "registry_represented_authorities",
+            "registry_body_count",
+            "referenced_body_count",
+            "physical_payload_count",
+            "missing_payload_count",
+        ):
+            totals[key] += item[key]
+        for missing in item["representative_missing_body_ids"]:
+            if len(totals["representative_missing_body_ids"]) < args.limit:
+                totals["representative_missing_body_ids"].append(missing)
+    status = "passed" if totals["missing_payload_count"] == 0 else "failed"
+    result = {
+        "status": status,
+        "resolved_private_text_root": str(text_root.resolve()),
+        "private_text_root_exists": text_root.exists(),
+        "library_wide": totals,
+        "eras": eras_output,
+    }
+    if args.era:
+        result["eras"] = [item for item in eras_output if item["era"] == args.era]
+    return result
 
 
 def verify_texts_command(args: argparse.Namespace) -> dict[str, Any]:
@@ -1101,6 +1280,11 @@ def parser() -> argparse.ArgumentParser:
     verify_texts = sub.add_parser("verify-texts")
     verify_texts.add_argument("--json", action="store_true")
     verify_texts.set_defaults(handler=verify_texts_command)
+    census_texts = sub.add_parser("census-texts")
+    census_texts.add_argument("--era", choices=ERA_IDS)
+    census_texts.add_argument("--limit", type=int, default=10)
+    census_texts.add_argument("--json", action="store_true")
+    census_texts.set_defaults(handler=census_texts_command)
     admit = sub.add_parser("admit-text")
     admit.add_argument("--source-id", required=True)
     admit.add_argument("--file", required=True)
