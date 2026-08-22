@@ -1,0 +1,118 @@
+{
+  "title": "Colonial Library Body Admission Batch 014 Russia Lane Receipt",
+  "date": "2026-08-22",
+  "status": "completed",
+  "authority_boundary": {
+    "metadata_registry_mutation": true,
+    "download": true,
+    "body_admission": true,
+    "coverage_registry_mutation": true,
+    "index_regeneration": true,
+    "git_staging": false,
+    "git_commit": false,
+    "git_push": false,
+    "archive_ingestion": false,
+    "publication": false
+  },
+  "counts": {
+    "new_metadata_authorities_added": 5,
+    "authorities_attempted_for_body_admission": 5,
+    "authorities_newly_represented": 1,
+    "bodies_downloaded_or_derived_for_inspection": 1,
+    "bodies_admitted": 1,
+    "authorities_deferred_before_body_admission": 4,
+    "archive_ingestions": 0
+  },
+  "new_authorities": [
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-073-SOBORNOE-ULOZHENIE",
+      "title": "Sobornoye Ulozhenie / Muscovite law code, 1649",
+      "status": "missing",
+      "coverage_status": "metadata-only"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-074-PETER-TABLE-RANKS",
+      "title": "Peter the Great, Table of Ranks and Petrine service-state decrees",
+      "status": "missing",
+      "coverage_status": "metadata-only"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-075-CATHERINE-NAKAZ",
+      "title": "Catherine II, Nakaz / Instruction to the Legislative Commission",
+      "status": "missing",
+      "coverage_status": "metadata-only"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-076-RUSSIAN-LITERARY-ANTHOLOGY",
+      "title": "Russian early-modern literary voices: Lomonosov, Derzhavin, historical songs",
+      "status": "available",
+      "coverage_status": "selected-works"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-077-RUSSIAN-SIBERIAN-EXPANSION",
+      "title": "Russian Siberian and steppe expansion document tradition",
+      "status": "missing",
+      "coverage_status": "metadata-only"
+    }
+  ],
+  "admitted_bodies": [
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-076-RUSSIAN-LITERARY-ANTHOLOGY",
+      "body_id": "LIB-COLONIAL-AUTHORITY-076-RUSSIAN-LITERARY-ANTHOLOGY-PART1-WIENER-PG71933",
+      "bytes": 949862,
+      "sha256": "217a61e74d17c2b8e28a77dbb726dd0d23d0eb7c67e8aba0d7c3bea929c36867",
+      "language": "English",
+      "source_coverage_status": "selected-works",
+      "body_coverage_status": "complete-work",
+      "provenance": "Project Gutenberg #71933; Leo Wiener anthology, G. P. Putnam's Sons, 1902; public-domain English translations and selections"
+    }
+  ],
+  "deferred_rows": [
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-073-SOBORNOE-ULOZHENIE",
+      "disposition": "Metadata-ready/body-research-incomplete; needs Russian original or vetted public-domain translation/OCR."
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-074-PETER-TABLE-RANKS",
+      "disposition": "Metadata-ready/body-research-incomplete; needs clean text of the 1722 Table of Ranks or Petrine decree packet."
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-075-CATHERINE-NAKAZ",
+      "disposition": "Metadata-ready/body-research-incomplete; 1768 English Grand Instructions bibliographic leads exist but no clean body recovered."
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-077-RUSSIAN-SIBERIAN-EXPANSION",
+      "disposition": "Metadata-ready/body-research-incomplete; needs exact Siberian/steppe document packet."
+    }
+  ],
+  "post_batch_metrics": {
+    "authorities": 77,
+    "represented_authority_count": 53,
+    "represented_authority_ratio": 0.6883116883116883,
+    "available_authority_count": 53,
+    "available_authority_ratio": 0.6883116883116883,
+    "registered_body_count": 65,
+    "available_body_count": 65,
+    "available_bodies_per_authority": 0.8441558441558441,
+    "non_metadata_only_coverage_count": 51,
+    "non_metadata_only_coverage_ratio": 0.6623376623376623,
+    "missing_authority_count": 24
+  },
+  "validation": {
+    "session_preflight": "passed",
+    "render_index": "passed",
+    "library_validate": "passed",
+    "render_index_check": "passed",
+    "focused_tests": "passed: 24 tests"
+  },
+  "sealability": {
+    "status": "not-sealable",
+    "note": "Roster became more globally balanced but less percentage-complete because five Russia authorities were added and one was admitted.",
+    "dominant_blockers": [
+      "Russia legal-administrative body recovery",
+      "Japanese and Indo-Persian literary source recovery",
+      "Qing/Tokugawa/Ottoman/Safavid legal-administrative gaps",
+      "Leyes Nuevas and Meherrin Petition source-body recovery"
+    ]
+  }
+}

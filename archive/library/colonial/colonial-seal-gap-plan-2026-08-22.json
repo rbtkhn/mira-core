@@ -1,0 +1,99 @@
+{
+  "title": "Colonial Library Seal Gap Plan",
+  "date": "2026-08-22",
+  "status": "planning-complete",
+  "standard_id": "MIRA-LIBRARY-ERA-SUFFICIENCY-V1",
+  "profile_id": "BOUNDED-HISTORICAL-SHELF-V1",
+  "current_metrics": {
+    "authority_count": 77,
+    "represented_authority_count": 53,
+    "represented_authority_ratio": 0.6883116883116883,
+    "available_body_count": 65,
+    "available_bodies_per_authority": 0.8441558441558441,
+    "available_authority_ratio": 0.6883116883116883,
+    "non_metadata_only_coverage_count": 51,
+    "non_metadata_only_coverage_ratio": 0.6623376623376623,
+    "missing_authority_count": 24
+  },
+  "profile_gaps": {
+    "represented_authorities_needed_for_90_percent": 17,
+    "represented_authorities_needed_for_mass_floor": 3,
+    "represented_authorities_needed_for_70_percent_available_ratio": 1,
+    "available_bodies_needed_for_100_body_floor": 35,
+    "available_bodies_needed_for_1_7_density": 66
+  },
+  "working_targets": {
+    "additional_represented_authorities": 18,
+    "additional_available_bodies": 40,
+    "reason": "One-authority and five-body slack against late rejection or integrity failure."
+  },
+  "recommended_batches": [
+    {
+      "batch": "015",
+      "name": "Russia Recovery",
+      "target_source_ids": [
+        "LIB-COLONIAL-AUTHORITY-073-SOBORNOE-ULOZHENIE",
+        "LIB-COLONIAL-AUTHORITY-074-PETER-TABLE-RANKS",
+        "LIB-COLONIAL-AUTHORITY-075-CATHERINE-NAKAZ",
+        "LIB-COLONIAL-AUTHORITY-077-RUSSIAN-SIBERIAN-EXPANSION"
+      ],
+      "represented_authority_goal": "3-4",
+      "body_goal": "4-8"
+    },
+    {
+      "batch": "016",
+      "name": "Company / Indigenous / Spanish America",
+      "target_source_ids": [
+        "LIB-COLONIAL-AUTHORITY-040-CLIVE-PLASSEY",
+        "LIB-COLONIAL-AUTHORITY-041-BENGAL-REVENUE-SETTLEMENT",
+        "LIB-COLONIAL-AUTHORITY-049-GB-INDIAN-DEPARTMENT-PAPERS",
+        "LIB-COLONIAL-AUTHORITY-050-MEHERRIN-PETITION",
+        "LIB-COLONIAL-AUTHORITY-052-LEYES-NUEVAS",
+        "LIB-COLONIAL-AUTHORITY-017-INCA-GARCILASO"
+      ],
+      "represented_authority_goal": "5-6",
+      "body_goal": "8-12"
+    },
+    {
+      "batch": "017",
+      "name": "Qing / Jesuit / Diplomatic China",
+      "target_source_ids": [
+        "LIB-COLONIAL-AUTHORITY-055-MATTEO-RICCI",
+        "LIB-COLONIAL-AUTHORITY-057-QING-IMPERIAL-EDICTS",
+        "LIB-COLONIAL-AUTHORITY-059-QIANLONG-MACARTNEY",
+        "LIB-COLONIAL-AUTHORITY-060-QINGSHIGAO"
+      ],
+      "represented_authority_goal": "3-4",
+      "body_goal": "6-10"
+    },
+    {
+      "batch": "018",
+      "name": "Literature and Hard Asian/Ottoman Recovery",
+      "target_source_ids": [
+        "LIB-COLONIAL-AUTHORITY-027-BASHO",
+        "LIB-COLONIAL-AUTHORITY-028-SAIKAKU",
+        "LIB-COLONIAL-AUTHORITY-029-CHIKAMATSU",
+        "LIB-COLONIAL-AUTHORITY-030-UEDA-AKINARI",
+        "LIB-COLONIAL-AUTHORITY-031-TAKUAN-SOHO",
+        "LIB-COLONIAL-AUTHORITY-035-MIR-TAQI-MIR",
+        "LIB-COLONIAL-AUTHORITY-061-TOKUGAWA-EDICTS",
+        "LIB-COLONIAL-AUTHORITY-062-TOKUGAWA-IEYASU-PUBLICATION",
+        "LIB-COLONIAL-AUTHORITY-070-OTTOMAN-KANUN",
+        "LIB-COLONIAL-AUTHORITY-071-SAFAVID-COURT-CHRONICLE"
+      ],
+      "represented_authority_goal": "6-8",
+      "body_goal": "12-18"
+    }
+  ],
+  "sealing_acceptance_tests": [
+    "at least 70 of 77 authorities represented",
+    "at least 100 available Colonial bodies",
+    "library validate passes",
+    "library render-index --check passes",
+    "focused archive-library tests pass",
+    "verify-texts passes for configured Colonial text root or cross-era private-store limitation is resolved",
+    "all remaining missing authorities listed as explicit debt",
+    "no artificial body splitting"
+  ],
+  "recommendation": "Proceed with Batch 015 Russia Recovery first; if Russia stalls after one bounded pass, switch to Batch 016 for faster authority-count progress."
+}

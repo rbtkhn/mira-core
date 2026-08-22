@@ -1,0 +1,106 @@
+{
+  "schema_version": "1.0",
+  "target": [
+    "MIRA-LIBRARY-ERA-SUFFICIENCY-V1",
+    "BOUNDED-HISTORICAL-SHELF-V1"
+  ],
+  "inspection_root": "C:\\private\\mira-library-inspection\\colonial\\seal-readiness-run-2026-08-22-batch-next",
+  "mutation_boundary": {
+    "registry_and_private_text_admissions_authorized": true,
+    "source_bodies_admitted_to_git": false,
+    "git_staged": false,
+    "git_committed": false,
+    "git_pushed": false,
+    "published": false,
+    "private_archive_ingested": false
+  },
+  "counts": {
+    "starting": {
+      "colonial_authorities": 77,
+      "represented_authorities": 61,
+      "available_bodies": 74
+    },
+    "final": {
+      "colonial_authorities": 77,
+      "represented_authorities": 70,
+      "available_bodies": 83
+    },
+    "minimum_target": {
+      "represented_authorities": 70,
+      "available_bodies": 100
+    },
+    "remaining_minimum_debt": {
+      "represented_authorities": 0,
+      "available_bodies": 17
+    }
+  },
+  "admitted": [
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-073-SOBORNOE-ULOZHENIE",
+      "body_id": "LIB-COLONIAL-AUTHORITY-073-SOBORNOE-ULOZHENIE-SELECTED-RU-WIKISOURCE",
+      "coverage_status": "partial-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-017-INCA-GARCILASO",
+      "body_id": "LIB-COLONIAL-AUTHORITY-017-COMENTARIOS-REALES-TOMO1-SELECTED-ES-WIKISOURCE",
+      "coverage_status": "partial-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-059-QIANLONG-MACARTNEY",
+      "body_id": "LIB-COLONIAL-AUTHORITY-059-ANDERSON-BRITISH-EMBASSY-CHINA-1795-IA",
+      "coverage_status": "partial-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-040-CLIVE-PLASSEY",
+      "body_id": "LIB-COLONIAL-AUTHORITY-040-MALCOLM-LIFE-CLIVE-VOL1-PG",
+      "coverage_status": "partial-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-029-CHIKAMATSU",
+      "body_id": "LIB-COLONIAL-AUTHORITY-029-BATTLES-OF-KOKUSENYA-EN-WIKISOURCE",
+      "coverage_status": "partial-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-075-CATHERINE-NAKAZ",
+      "body_id": "LIB-COLONIAL-AUTHORITY-075-GRAND-INSTRUCTIONS-1768-IA",
+      "coverage_status": "partial-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-077-RUSSIAN-SIBERIAN-EXPANSION",
+      "body_id": "LIB-COLONIAL-AUTHORITY-077-COXE-RUSSIAN-DISCOVERIES-PG",
+      "coverage_status": "partial-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-050-MEHERRIN-PETITION",
+      "body_id": "LIB-COLONIAL-AUTHORITY-050-MEHERRIN-PETITION-1723-ACCESS-COPY",
+      "coverage_status": "selected-passages"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-049-GB-INDIAN-DEPARTMENT-PAPERS",
+      "body_id": "LIB-COLONIAL-AUTHORITY-049-FORT-HARMAR-TREATY-1789-AVALON",
+      "coverage_status": "selected-passages"
+    }
+  ],
+  "deferred": [
+    "LIB-COLONIAL-AUTHORITY-028-SAIKAKU",
+    "LIB-COLONIAL-AUTHORITY-030-UEDA-AKINARI",
+    "LIB-COLONIAL-AUTHORITY-031-TAKUAN-SOHO",
+    "LIB-COLONIAL-AUTHORITY-035-MIR-TAQI-MIR",
+    "LIB-COLONIAL-AUTHORITY-061-TOKUGAWA-EDICTS",
+    "LIB-COLONIAL-AUTHORITY-062-TOKUGAWA-IEYASU-PUBLICATION",
+    "LIB-COLONIAL-AUTHORITY-071-SAFAVID-COURT-CHRONICLE"
+  ],
+  "validation": {
+    "session_preflight": "passed",
+    "render_index": "passed_updated_indexes",
+    "library_validate": "passed",
+    "render_index_check": "passed",
+    "verify_texts": "failed_global_cross_era_private_store_missing_ancient_medieval_texts",
+    "focused_tests": "passed_24"
+  },
+  "seal_readiness": false,
+  "seal_readiness_blockers": [
+    "available_bodies_below_minimum_100",
+    "global_verify_texts_fails_due_cross_era_private_store"
+  ]
+}

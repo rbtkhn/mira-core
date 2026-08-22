@@ -61,11 +61,13 @@ LOCAL_SKILLS = {
     "dream",
     "geopolitical-synthesis",
     "intent-recovery",
+    "library-import",
     "mechanism-lens",
     "mira-essays",
     "mira-face",
     "mira-github",
     "mira-journal",
+    "mira-letters",
     "mira-memory",
     "mira-mentor",
     "mira-notes",
@@ -77,6 +79,7 @@ LOCAL_SKILLS = {
     "rest",
     "research-brief",
     "skill-audit",
+    "youtube-capture",
 }
 LOCAL_ROUTER_PATH = REPO_ROOT / "AGENTS.md"
 REQUIRED_DAILY_FILES = {"sources.md", "synthesis.md", "forecast.md", "judgment.md", "daily-brief.md"}
