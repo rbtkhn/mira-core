@@ -44,10 +44,10 @@ or prune the queue row, then use `archive-query` or the landed source path.
 For today's channel check, run from the repository root:
 
 ```powershell
-python scripts\youtube_capture.py scan-index --date YYYY-MM-DD --include-active --include-candidate
-python scripts\youtube_capture.py discover-public --date YYYY-MM-DD --include-active --include-candidate --limit-per-channel 3 --since-days 7
-python scripts\youtube_capture.py status --date YYYY-MM-DD
-python scripts\youtube_capture.py audit-duplicates --date YYYY-MM-DD
+tools\run.ps1 youtube-capture scan-index --date YYYY-MM-DD --include-active --include-candidate
+tools\run.ps1 youtube-capture discover-public --date YYYY-MM-DD --include-active --include-candidate --limit-per-channel 3 --since-days 7
+tools\run.ps1 youtube-capture status --date YYYY-MM-DD
+tools\run.ps1 youtube-capture audit-duplicates --date YYYY-MM-DD
 ```
 
 Use the current local date unless the operator supplies another date. Keep
@@ -58,8 +58,8 @@ If Windows console encoding fails on titles, rerun status or duplicate audit
 with UTF-8 output forced:
 
 ```powershell
-$env:PYTHONIOENCODING='utf-8'; python scripts\youtube_capture.py status --date YYYY-MM-DD
-$env:PYTHONIOENCODING='utf-8'; python scripts\youtube_capture.py audit-duplicates --date YYYY-MM-DD --json
+$env:PYTHONIOENCODING='utf-8'; tools\run.ps1 youtube-capture status --date YYYY-MM-DD
+$env:PYTHONIOENCODING='utf-8'; tools\run.ps1 youtube-capture audit-duplicates --date YYYY-MM-DD --json
 ```
 
 ## Triage
@@ -77,7 +77,7 @@ Use queue dispositions consistently:
 Update rows with:
 
 ```powershell
-python scripts\youtube_capture.py mark --date YYYY-MM-DD --url URL --disposition must-land --next-action "retrieve transcript or manual transcript capture, then export intake draft" --notes "reason"
+tools\run.ps1 youtube-capture mark --date YYYY-MM-DD --url URL --disposition must-land --next-action "retrieve transcript or manual transcript capture, then export intake draft" --notes "reason"
 ```
 
 Do not treat title relevance as source truth. A `must-land` mark means the row
@@ -89,13 +89,13 @@ When the operator supplies a transcript or browser capture, attach it to the
 matching queue row:
 
 ```powershell
-python scripts\youtube_capture.py attach-transcript --date YYYY-MM-DD --url URL --transcript-file PATH --notes "operator-pasted transcript attached"
+tools\run.ps1 youtube-capture attach-transcript --date YYYY-MM-DD --url URL --transcript-file PATH --notes "operator-pasted transcript attached"
 ```
 
 After attachment, run:
 
 ```powershell
-python scripts\youtube_capture.py export-intake --date YYYY-MM-DD --json
+tools\run.ps1 youtube-capture export-intake --date YYYY-MM-DD --json
 ```
 
 Inspect the draft. A clean draft should include the appropriate `--host-slug`

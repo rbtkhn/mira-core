@@ -192,6 +192,14 @@ claims, and portable private text-store boundaries. It does not authorize
 Archive catalog ingestion, staging, commit, push, publication, or source-body
 admission into Git.
 
+When the operator says `youtube-capture`, asks to check today's YouTube
+channels, discover recent channel videos, triage YouTube queue rows, attach a
+YouTube transcript, or export YouTube intake drafts, read
+`docs/skill-drafts/youtube-capture/SKILL.md` completely and follow it. This is
+the repository-local queue front door for YouTube source discovery; it does not
+authorize archive landing, synthesis, factual verification, staging, commit,
+push, or publication.
+
 When the operator says `morning-brief` or asks for the experimental morning
 brief, read `docs/skill-drafts/morning-brief/SKILL.md` completely and follow it.
 This route is repository-local and must not be synchronized to a user-level

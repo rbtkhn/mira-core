@@ -1,0 +1,67 @@
+{
+  "schema": "mira-skill-ablation-source-fidelity-v1",
+  "source_video": "https://www.youtube.com/watch?v=XNQBCRcwXV4",
+  "supplied_transcript_sha256": "74166e355e8e106d69051c4b4bcdbb7c68a322aba1bec3717ca6eef5445ba22c",
+  "transcript_status": "operator-supplied-claim-source-unadmitted",
+  "observation_cutoff": "2026-08-18T23:59:59-06:00",
+  "claims": [
+    {
+      "id": "LSA-CLAIM-01",
+      "proposition": "Claude Code removed more than 80 percent of a system prompt for a newer model.",
+      "status": "supported",
+      "reason": "Anthropic's July 24, 2026 context-engineering article states that more than 80 percent of Claude Code's system prompt was removed for models including Opus 5 and Fable 5, with no measurable loss on its coding evaluations. The underlying prompt diff and evaluation data were not published."
+    },
+    {
+      "id": "LSA-CLAIM-02",
+      "proposition": "Boris Cherny recommended periodically removing CLAUDE.md, skills, and hooks to observe current-model behavior.",
+      "status": "inconclusive",
+      "reason": "Present in the supplied secondary transcript and independently attributed to the recovered YC interview URL at approximately 6:57, but the primary recording's timestamped transcript was not independently retrievable in this environment."
+    },
+    {
+      "id": "LSA-CLAIM-03",
+      "proposition": "Overly restrictive system-prompt instructions can reduce model quality and should be evaluated per model.",
+      "status": "supported",
+      "reason": "Anthropic's April 23, 2026 postmortem reports a prompt instruction that caused a measured 3 percent evaluation drop and commits to per-model prompt ablations."
+    },
+    {
+      "id": "LSA-CLAIM-04",
+      "proposition": "Specialized skills and progressive disclosure can improve performance when they supply needed procedural or organizational context.",
+      "status": "supported",
+      "reason": "Anthropic's Agent Skills guidance explicitly recommends representative evaluation, incremental skill construction, progressive disclosure, and observation-driven iteration."
+    },
+    {
+      "id": "LSA-CLAIM-05",
+      "proposition": "Verification is more valuable than detailed step-by-step prompting for modern agents.",
+      "status": "mixed",
+      "reason": "Official sources support deterministic tools, evaluation, and self-checking, but the comparative superiority claim has not been independently established."
+    }
+  ],
+  "primary_sources": [
+    {
+      "url": "https://claude.com/blog/the-new-rules-of-context-engineering-for-claude-5-generation-models",
+      "lineage": "anthropic-official",
+      "supports": ["LSA-CLAIM-01", "LSA-CLAIM-03", "LSA-CLAIM-04", "LSA-CLAIM-05"]
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=qyPCVqFUyDo",
+      "lineage": "y-combinator-primary-recording-uninspected-transcript",
+      "supports": []
+    },
+    {
+      "url": "https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills",
+      "lineage": "anthropic-official",
+      "supports": ["LSA-CLAIM-04", "LSA-CLAIM-05"]
+    },
+    {
+      "url": "https://www.anthropic.com/engineering/april-23-postmortem",
+      "lineage": "anthropic-official",
+      "supports": ["LSA-CLAIM-03"]
+    }
+  ],
+  "unresolved": [
+    "Inspect and preserve the original Y Combinator interview transcript around 6:57 and every other attributed quotation timestamp.",
+    "Determine whether the 80 percent statement refers to prompt tokens, lines, sections, or another measure.",
+    "Recover the exact context and model version for the delete-every-six-months advice."
+  ],
+  "authority_effect": "none"
+}
