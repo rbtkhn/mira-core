@@ -1,0 +1,70 @@
+{
+  "schema_version": "1.0",
+  "target": [
+    "MIRA-LIBRARY-ERA-SUFFICIENCY-V1",
+    "BOUNDED-HISTORICAL-SHELF-V1"
+  ],
+  "inspection_root": "C:\\private\\mira-library-inspection\\colonial\\balance-depth-batch-2026-08-22",
+  "mutation_boundary": {
+    "registry_and_private_text_admissions_authorized": true,
+    "source_bodies_admitted_to_git": false,
+    "git_staged": false,
+    "git_committed": false,
+    "git_pushed": false,
+    "published": false,
+    "private_archive_ingested": false,
+    "temporary_helper_removed": true
+  },
+  "counts": {
+    "starting": {
+      "colonial_authorities": 77,
+      "represented_authorities": 70,
+      "available_bodies": 101
+    },
+    "final": {
+      "colonial_authorities": 77,
+      "represented_authorities": 70,
+      "available_bodies": 131,
+      "available_bodies_per_authority": 1.7012987012987013
+    },
+    "minimum_target": {
+      "represented_authorities": 70,
+      "available_bodies": 100,
+      "available_bodies_per_authority": 1.7
+    },
+    "private_payload_census": {
+      "colonial_referenced_bodies": 131,
+      "colonial_physical_payloads": 131,
+      "colonial_missing_payloads": 0,
+      "library_wide_referenced_bodies": 433,
+      "library_wide_physical_payloads": 433,
+      "library_wide_missing_payloads": 0
+    }
+  },
+  "admitted_count": 30,
+  "admitted_groups": {
+    "indigenous_treaty_diplomacy": 12,
+    "jesuit_global_catholic_mission_letters": 14,
+    "qing_mughal_company_rule_administration": 4
+  },
+  "deferred": [
+    {
+      "candidate": "Treaty With The Cherokee, 1785",
+      "reason": "accessible Avalon page yielded only sparse carrier body through extractor"
+    },
+    {
+      "candidate": "lettresdifiant_q25jesu",
+      "reason": "Internet Archive server error during OCR retrieval"
+    }
+  ],
+  "validation": {
+    "census_texts_colonial": "passed",
+    "render_index": "passed_updated_indexes",
+    "library_validate": "passed",
+    "render_index_check": "passed",
+    "verify_texts": "passed_433_checked_0_failures_24_declared_missing",
+    "focused_tests": "passed_26",
+    "session_preflight": "passed"
+  },
+  "seal_readiness_impact": "Colonial now meets represented-authority, body-mass, body-density, live private-payload, validation, and index-coherence gates for sufficiency seal preparation."
+}

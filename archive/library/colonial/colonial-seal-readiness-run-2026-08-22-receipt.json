@@ -1,0 +1,206 @@
+{
+  "schema_version": "1.1",
+  "receipt_id": "colonial-seal-readiness-run-2026-08-22",
+  "status": "seal-ready-not-formal-seal",
+  "target": [
+    "MIRA-LIBRARY-ERA-SUFFICIENCY-V1",
+    "BOUNDED-HISTORICAL-SHELF-V1"
+  ],
+  "inspection_root": "C:\\private\\mira-library-inspection\\colonial\\seal-readiness-run-2026-08-22",
+  "meaning": "Readiness receipt for a later deterministic Colonial era sufficiency seal; not a complete-corpus, publication, Git, or Archive-ingestion claim.",
+  "counts": {
+    "starting": {
+      "colonial_authorities": 77,
+      "represented_authorities": 53,
+      "available_bodies": 65
+    },
+    "final": {
+      "colonial_authorities": 77,
+      "represented_authorities": 71,
+      "available_bodies": 132,
+      "non_metadata_authorities": 51
+    },
+    "ratios": {
+      "represented_authority_fullness": 0.9221,
+      "available_body_density": 1.7143,
+      "available_authority_ratio": 0.9221,
+      "coverage_resolution_ratio": 0.6623
+    },
+    "coverage_status": {
+      "principal-works": 5,
+      "selected-works": 19,
+      "principal-work": 26,
+      "metadata-only": 26,
+      "representative-selection": 1
+    },
+    "unrepresented_authorities": 6
+  },
+  "profile_criteria": [
+    {
+      "criterion": "authority_scale",
+      "minimum": 56,
+      "observed": 77,
+      "unit": "authorities",
+      "passed": true
+    },
+    {
+      "criterion": "represented_authority_fullness",
+      "minimum": 0.9,
+      "observed": 0.9221,
+      "unit": "ratio",
+      "passed": true
+    },
+    {
+      "criterion": "represented_authority_mass",
+      "minimum": 56,
+      "observed": 71,
+      "unit": "authorities",
+      "passed": true
+    },
+    {
+      "criterion": "available_body_mass",
+      "minimum": 100,
+      "observed": 132,
+      "unit": "available_bodies",
+      "passed": true
+    },
+    {
+      "criterion": "available_body_density",
+      "minimum": 1.7,
+      "observed": 1.7143,
+      "unit": "available_bodies_per_authority",
+      "passed": true
+    },
+    {
+      "criterion": "available_authority_ratio",
+      "minimum": 0.7,
+      "observed": 0.9221,
+      "unit": "ratio",
+      "passed": true
+    },
+    {
+      "criterion": "coverage_resolution_ratio",
+      "minimum": 0.4,
+      "observed": 0.6623,
+      "unit": "non_metadata_only_ratio",
+      "passed": true
+    },
+    {
+      "criterion": "integrity",
+      "minimum": 1,
+      "observed": 1,
+      "unit": "boolean",
+      "passed": true
+    }
+  ],
+  "digests": {
+    "colonial_registry_slice_canonical_sha256": "5de68dcc3f6d1f7041963105a10eaaede1ed9a92357cb1ff63a46ae04a8fdfcc",
+    "colonial_body_inventory_canonical_sha256": "774a69f407589bc371529af1d2c579595164f455d99ac718cbf5cc7e48fdd87d",
+    "full_registry_file_sha256": "6add4ab0ad1c5bc62ca21575f67461a3cc43294d64980d93f0d2f80335c88a80",
+    "colonial_index_file_sha256": "e4a15e4638c7261f132aa53efb85b13111b1d678ced6a4d66f1b23b01ad8f986",
+    "text_sources_index_file_sha256": "5bb7b54b2c0ec06fb599c293bb857cead281e6266c2f291aafe7e4f4c03d4480"
+  },
+  "validation": {
+    "session_preflight": "passed earlier in run against C:\\private\\mira-core-session-temp",
+    "library_render_index": "passed_updated_indexes",
+    "library_validate": {
+      "status": "passed",
+      "failures": 0
+    },
+    "library_verify_texts": {
+      "status": "passed",
+      "checked": 434,
+      "failures": 0,
+      "missing_declared": 23
+    },
+    "library_render_index_check": {
+      "status": "passed",
+      "stale_paths": []
+    },
+    "library_census_texts_colonial": {
+      "status": "passed",
+      "authority_count": 77,
+      "registry_represented_authorities": 71,
+      "registry_body_count": 132,
+      "physical_payload_count": 132,
+      "missing_payload_count": 0
+    },
+    "tests_test_archive_library_py": {
+      "status": "passed",
+      "passed": 26
+    }
+  },
+  "remaining_debt": [
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-028-SAIKAKU",
+      "authority": "Ihara Saikaku",
+      "title": "Ihara Saikaku, selected prose: pleasure and merchant worlds",
+      "text_status": "missing",
+      "coverage_status": "metadata-only",
+      "coverage_notes": "Planning metadata only. No body downloaded, inspected, admitted, or represented as available. Edition, rights, language, and body coverage require later Library Import gates."
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-030-UEDA-AKINARI",
+      "authority": "Ueda Akinari",
+      "title": "Ueda Akinari, Ugetsu Monogatari",
+      "text_status": "missing",
+      "coverage_status": "metadata-only",
+      "coverage_notes": "Planning metadata only. No body downloaded, inspected, admitted, or represented as available. Edition, rights, language, and body coverage require later Library Import gates."
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-031-TAKUAN-SOHO",
+      "authority": "Takuan Soho",
+      "title": "Takuan Soho, early Edo Zen teachings",
+      "text_status": "missing",
+      "coverage_status": "metadata-only",
+      "coverage_notes": "Planning metadata only. No body downloaded, inspected, admitted, or represented as available. Edition, rights, language, and body coverage require later Library Import gates."
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-035-MIR-TAQI-MIR",
+      "authority": "Mir Taqi Mir",
+      "title": "Mir Taqi Mir, selected ghazals and Zikr-i-Mir boundary",
+      "text_status": "missing",
+      "coverage_status": "metadata-only",
+      "coverage_notes": "Planning metadata only. No body downloaded, inspected, admitted, or represented as available. Edition, rights, language, and body coverage require later Library Import gates."
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-062-TOKUGAWA-IEYASU-PUBLICATION",
+      "authority": "Tokugawa/Ieyasu publication corpus",
+      "title": "Tokugawa/Ieyasu publication corpus",
+      "text_status": "missing",
+      "coverage_status": "metadata-only",
+      "coverage_notes": "Planning metadata only. No body downloaded, inspected, admitted, or represented as available. Edition, rights, language, and body coverage require later Library Import gates."
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-071-SAFAVID-COURT-CHRONICLE",
+      "authority": "Eskandar Beg Monshi",
+      "title": "Eskandar Beg Monshi, Alam ara-ye Abbasi",
+      "text_status": "missing",
+      "coverage_status": "metadata-only",
+      "coverage_notes": "Planning metadata only. No body downloaded, inspected, admitted, or represented as available. Edition, rights, language, and body coverage require later Library Import gates."
+    }
+  ],
+  "included_terminal_receipts": [
+    "archive/library/colonial/body-depth-batch-015-literary-civic-depth-receipt.md",
+    "archive/library/colonial/body-depth-batch-016-global-balance-depth-receipt.md",
+    "archive/library/colonial/hard-debt-recovery-tokugawa-2026-08-22-receipt.md"
+  ],
+  "boundaries": {
+    "registry_updated": true,
+    "generated_indexes_updated": true,
+    "private_text_store_updated": true,
+    "git_staged": false,
+    "git_committed": false,
+    "git_pushed": false,
+    "published": false,
+    "archive_ingested": false,
+    "formal_version_seal_created": false
+  },
+  "reopen_conditions": [
+    "any Colonial registry source or body field changes",
+    "archive/library/colonial/index.md changes",
+    "a Colonial private payload is missing or changes hash",
+    "coverage, rights, edition, language, or maturity judgment changes",
+    "the sufficiency standard or profile changes materially"
+  ]
+}

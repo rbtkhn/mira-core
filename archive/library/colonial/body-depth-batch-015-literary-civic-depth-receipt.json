@@ -1,0 +1,77 @@
+{
+  "schema_version": "1.0",
+  "target": [
+    "MIRA-LIBRARY-ERA-SUFFICIENCY-V1",
+    "BOUNDED-HISTORICAL-SHELF-V1"
+  ],
+  "inspection_root": "C:\\private\\mira-library-inspection\\colonial\\body-depth-batch-2026-08-22",
+  "mutation_boundary": {
+    "registry_and_private_text_admissions_authorized": true,
+    "source_bodies_admitted_to_git": false,
+    "git_staged": false,
+    "git_committed": false,
+    "git_pushed": false,
+    "published": false,
+    "private_archive_ingested": false
+  },
+  "counts": {
+    "starting": {
+      "colonial_authorities": 77,
+      "represented_authorities": 70,
+      "available_bodies": 83
+    },
+    "final": {
+      "colonial_authorities": 77,
+      "represented_authorities": 70,
+      "available_bodies": 101
+    },
+    "minimum_target": {
+      "represented_authorities": 70,
+      "available_bodies": 100
+    },
+    "private_payload_census": {
+      "colonial_referenced_bodies": 101,
+      "colonial_physical_payloads": 101,
+      "colonial_missing_payloads": 0,
+      "library_wide_referenced_bodies": 403,
+      "library_wide_physical_payloads": 403,
+      "library_wide_missing_payloads": 0
+    }
+  },
+  "admitted": [
+    "LIB-COLONIAL-AUTHORITY-002-MILTON-AREOPAGITICA-PG608",
+    "LIB-COLONIAL-AUTHORITY-002-MILTON-PARADISE-REGAINED-PG58",
+    "LIB-COLONIAL-AUTHORITY-005-DEFOE-MOLL-FLANDERS-PG370",
+    "LIB-COLONIAL-AUTHORITY-005-DEFOE-JOURNAL-PLAGUE-YEAR-PG376",
+    "LIB-COLONIAL-AUTHORITY-009-PAINE-AMERICAN-CRISIS-PG3741",
+    "LIB-COLONIAL-AUTHORITY-009-PAINE-RIGHTS-MAN-PG3742",
+    "LIB-COLONIAL-AUTHORITY-009-PAINE-AGE-REASON-PG3743",
+    "LIB-COLONIAL-AUTHORITY-025-GOETHE-SORROWS-WERTHER-PG2527",
+    "LIB-COLONIAL-AUTHORITY-026-SCHILLER-WILHELM-TELL-PG6788",
+    "LIB-COLONIAL-AUTHORITY-026-SCHILLER-ROBBERS-PG6782",
+    "LIB-COLONIAL-AUTHORITY-006-SWIFT-TALE-TUB-PG4737",
+    "LIB-COLONIAL-AUTHORITY-006-SWIFT-BATTLE-BOOKS-PG623",
+    "LIB-COLONIAL-AUTHORITY-037-LOCKE-HUMANE-UNDERSTANDING-VOL1-PG10615",
+    "LIB-COLONIAL-AUTHORITY-024-ROUSSEAU-CONFESSIONS-PG3913",
+    "LIB-COLONIAL-AUTHORITY-014-CERVANTES-EXEMPLARY-NOVELS-PG14420",
+    "LIB-COLONIAL-AUTHORITY-010-FRANKLIN-WAY-WEALTH-PG43855",
+    "LIB-COLONIAL-AUTHORITY-008-BLAKE-MARRIAGE-HEAVEN-HELL-PG45315",
+    "LIB-COLONIAL-AUTHORITY-023-VOLTAIRE-ZADIG-PG18972"
+  ],
+  "skipped": [
+    {
+      "body_id": "LIB-COLONIAL-AUTHORITY-025-GOETHE-FAUST-PART1-PG3023",
+      "reason": "already present; not overwritten"
+    }
+  ],
+  "validation": {
+    "census_texts_colonial": "passed",
+    "render_index": "passed_updated_indexes",
+    "library_validate": "passed",
+    "render_index_check": "passed",
+    "session_preflight": "passed",
+    "verify_texts": "passed_403_checked_0_failures_24_declared_missing",
+    "focused_tests": "passed_26"
+  },
+  "seal_readiness_impact": "Colonial now meets the represented-authority floor, body-count floor, and live private-payload verification gate for seal-readiness review."
+}
