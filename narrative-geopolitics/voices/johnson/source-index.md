@@ -4,7 +4,7 @@ This index routes the imported first-slice parity corpus for `johnson` to the ce
 
 Source basis: `archive/sources/geopolitics/source-manifest.json`.
 
-Corpus: 128 local route rows across 128 central archive source files.
+Corpus: 130 local route rows across 130 central archive source files.
 
 Status: `first-slice-parity`
 
@@ -151,7 +151,9 @@ Status: `first-slice-parity`
 | `2026-08-19` | (4) TRUMP 'BEGINS' MAJOR ECONOMIC WAR ON IRAN, ISRAEL SEND WARNING TO TURKEY AND SYRIA w/ Larry Johnson | `guest` | `moral-resistance` | [source](../../../archive/sources/geopolitics/sources/2026-08-19/source-4-trump-begins-major-economic-war-on-iran-israel-send-warning-to-turkey-and-syria-w-larry-johnson-2026-08-19.md) |
 | `2026-08-20` | (4) US Driving Iran into China's Arms /fmr CIA Analyst Larry Johnson & Lt Col Daniel Davis | `guest` | `daniel-davis` | [source](../../../archive/sources/geopolitics/sources/2026-08-20/source-4-us-driving-iran-into-china-s-arms-fmr-cia-analyst-larry-johnson-lt-col-daniel-davis-2026-08-20.md) |
 | `2026-08-20` | Larry Johnson: Bessent: "We Will COLLAPSE the Iranian Regime" as China REJECTS U.S. Sanctions | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2026-08-20/source-larry-johnson-bessent-we-will-collapse-the-iranian-regime-as-china-rejects-u-s-sanctions-2026-08-20.md) |
+| `2026-08-21` | (4) ISRAEL TO STRIKE TURKEY, TRUMP'S ECONOMIC WAR AGAINST IRAN w/ Larry Johnson | `guest` | `moral-resistance` | [source](../../../archive/sources/geopolitics/sources/2026-08-21/source-4-israel-to-strike-turkey-trump-s-economic-war-against-iran-w-larry-johnson-2026-08-21.md) |
 | `2026-08-21` | INTEL Roundtable w/ Larry Johnson & Scott Ritter : Weekly Wrap - 21 AUGUST | `guest` | `judging-freedom` | [source](../../../archive/sources/geopolitics/sources/2026-08-21/source-intel-roundtable-w-larry-johnson-scott-ritter-weekly-wrap-21-august-2026-08-21.md) |
+| `2026-08-21` | Larry Johnson: The Trap is Set: America’s Confrontation with Iran is Unwinnable, Iran Quits NPT? | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2026-08-21/source-larry-johnson-the-trap-is-set-america-s-confrontation-with-iran-is-unwinnable-iran-quits-npt-2026-08-21.md) |
 
 ## Judgment Continuity
 

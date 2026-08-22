@@ -2,7 +2,7 @@
   "manifest_id": "narrative-geopolitics-source-manifest-v1",
   "source_basis": "central archive with completed historical strategy-codex imports",
   "imported_at": "2026-07-09",
-  "source_count": 2205,
+  "source_count": 2207,
   "boundary": {
     "archive": "source truth",
     "voices": "voice continuity and routing",
@@ -59594,6 +59594,52 @@
       "date_basis": "operator-supplied",
       "inference_basis": [
         "wrapper-normalized",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-21",
+      "title": "Larry Johnson: The Trap is Set: America’s Confrontation with Iran is Unwinnable, Iran Quits NPT?",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-21/source-larry-johnson-the-trap-is-set-america-s-confrontation-with-iran-is-unwinnable-iran-quits-npt-2026-08-21.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-21/source-larry-johnson-the-trap-is-set-america-s-confrontation-with-iran-is-unwinnable-iran-quits-npt-2026-08-21.md",
+      "upstream_path": "operator-paste://2026-08-21/larry-johnson-the-trap-is-set-america-s-confrontation-with-iran-is-unwinnable-iran-quits-npt",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "johnson"
+      ],
+      "host_slug": "dialogue-works",
+      "source_identity": "youtube:DhavGL2yU9Q",
+      "source_url": "https://www.youtube.com/watch?v=DhavGL2yU9Q",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-21",
+      "title": "(4) ISRAEL TO STRIKE TURKEY, TRUMP'S ECONOMIC WAR AGAINST IRAN w/ Larry Johnson",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-21/source-4-israel-to-strike-turkey-trump-s-economic-war-against-iran-w-larry-johnson-2026-08-21.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-21/source-4-israel-to-strike-turkey-trump-s-economic-war-against-iran-w-larry-johnson-2026-08-21.md",
+      "upstream_path": "operator-paste://2026-08-21/4-israel-to-strike-turkey-trump-s-economic-war-against-iran-w-larry-johnson",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "johnson"
+      ],
+      "host_slug": "moral-resistance",
+      "source_identity": "youtube:eLDajGF5Bs0",
+      "source_url": "https://www.youtube.com/watch?v=eLDajGF5Bs0",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
         "explicit-date-alias"
       ],
       "import_status": "imported"
