@@ -4,7 +4,7 @@ This index routes the transcript-bearing upstream-parity corpus for `macgregor` 
 
 Source basis: `archive/sources/geopolitics/source-manifest.json`.
 
-Corpus: 95 local route rows across 95 central archive source files.
+Corpus: 96 local route rows across 96 central archive source files.
 
 Status: `transcript-bearing-upstream-parity`
 
@@ -119,6 +119,7 @@ Status: `transcript-bearing-upstream-parity`
 | `2026-08-18` | (4) Col Douglas Macgregor: The Collision Course w/Iran, We're Making No Attempt to Avoid | `guest` | `daniel-davis` | [source](../../../archive/sources/geopolitics/sources/2026-08-18/source-4-col-douglas-macgregor-the-collision-course-w-iran-we-re-making-no-attempt-to-avoid-2026-08-18.md) |
 | `2026-08-19` | (4) BARRACK: ISRAEL'S SYRIA STRIKE RISKED A WAR WITH TURKEY - w/ Col. Macgregor | `guest` | `mario-nawfal` | [source](../../../archive/sources/geopolitics/sources/2026-08-19/source-4-barrack-israel-s-syria-strike-risked-a-war-with-turkey-w-col-macgregor-2026-08-19.md) |
 | `2026-08-19` | (4) Col. Macgregor: "We've Already Lost This War, It's Over" Iran Warn Disaster Unfolding | `guest` | `redacted-news` | [source](../../../archive/sources/geopolitics/sources/2026-08-19/source-4-col-macgregor-we-ve-already-lost-this-war-it-s-over-iran-warn-disaster-unfolding-2026-08-19.md) |
+| `2026-08-20` | COL. Douglas Macgregor : Is Putin Losing Patience? | `guest` | `judging-freedom` | [source](../../../archive/sources/geopolitics/sources/2026-08-20/source-col-douglas-macgregor-is-putin-losing-patience-2026-08-20.md) |
 
 ## Import Boundary
 

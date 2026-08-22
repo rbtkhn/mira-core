@@ -4,7 +4,7 @@ This index routes the imported lightweight corpus for `escobar` to the central N
 
 Source basis: `archive/sources/geopolitics/source-manifest.json`.
 
-Corpus: 16 local route rows across 16 central archive source files.
+Corpus: 17 local route rows across 17 central archive source files.
 
 Status: `lightweight`
 
@@ -34,3 +34,4 @@ Status: `lightweight`
 | `2026-08-03` | BREAKING: IRAN CLAIMS U.S. CONCEDED ON HORMUZ - w/ Pepe Escobar | `guest` | `mario-nawfal` | [source](../../../archive/sources/geopolitics/sources/2026-08-03/source-breaking-iran-claims-u-s-conceded-on-hormuz-w-pepe-escobar-2026-08-03.md) |
 | `2026-08-07` | (1) Pepe Escobar: A Secret Diplomatic Deal Taking Shape in Iran | `guest` | `glenn-diesen` | [source](../../../archive/sources/geopolitics/sources/2026-08-07/source-1-pepe-escobar-a-secret-diplomatic-deal-taking-shape-in-iran-2026-08-07.md) |
 | `2026-08-14` | (3) Pepe Escobar : Iran’s New Offensive Strategy | `guest` | `judging-freedom` | [source](../../../archive/sources/geopolitics/sources/2026-08-14/source-3-pepe-escobar-iran-s-new-offensive-strategy-2026-08-14.md) |
+| `2026-08-20` | Pepe Escobar: Trump Made a Move on Iran’s General—Tehran Just Wiped Out His Entire Strategy | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2026-08-20/source-pepe-escobar-trump-made-a-move-on-iran-s-general-tehran-just-wiped-out-his-entire-strategy-2026-08-20.md) |

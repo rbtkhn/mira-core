@@ -4,7 +4,7 @@ This index routes the unified local Mate corpus for `mate` to the central Narrat
 
 Source basis: `strategy-codex/statecraft/voices/mate/mate-index.md` plus already-local matching archive rows.
 
-Corpus: 17 local route rows across 17 central archive source files.
+Corpus: 18 local route rows across 18 central archive source files.
 
 Status: `imported-corpus`
 
@@ -36,6 +36,7 @@ Status: `imported-corpus`
 | `2026-07-28` | "WE WANT TO STRIKE IRAN'S ENERGY" - ISRAEL'S DEFENCE MINISTER - w/ Aaron Mate | `guest` | `mario-nawfal` | [source](../../../archive/sources/geopolitics/sources/2026-07-28/source-we-want-to-strike-iran-s-energy-israel-s-defence-minister-w-aaron-mate-2026-07-28.md) |
 | `2026-08-04` | Aaron Maté : Is There a Rift Between the US and Israel? | `guest` | `judging-freedom` | [source](../../../archive/sources/geopolitics/sources/2026-08-04/source-aaron-mat-is-there-a-rift-between-the-us-and-israel-2026-08-04.md) |
 | `2026-08-11` | (2) Aaron Maté : Their Blood, Our Bullets | `guest` | `judging-freedom` | [source](../../../archive/sources/geopolitics/sources/2026-08-11/source-2-aaron-mat-their-blood-our-bullets-2026-08-11.md) |
+| `2026-08-20` | (4) Gaza Ceasefire Resolution Fails: Why Florida Politicians Are Fighting | `host-pressure test` | `judging-freedom` | [source](../../../archive/sources/geopolitics/sources/2026-08-20/source-4-gaza-ceasefire-resolution-fails-why-florida-politicians-are-fighting-2026-08-20.md) |
 
 ## Import Boundary
 
