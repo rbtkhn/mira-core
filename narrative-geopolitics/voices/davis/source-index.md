@@ -4,7 +4,7 @@ This index routes the imported first-slice parity corpus for `davis` to the cent
 
 Source basis: `strategy-codex/statecraft/voices/davis/davis-index.md`.
 
-Corpus: 114 local route rows across 114 central archive source files.
+Corpus: 115 local route rows across 115 central archive source files.
 
 Status: `first-slice-parity`
 
@@ -138,6 +138,7 @@ Status: `first-slice-parity`
 | `2026-08-15` | (4) HOW HORMUZ IS HAUNTING THE US /Lt Col Daniel Davis | `host-pressure test` | `daniel-davis` | [source](../../../archive/sources/geopolitics/sources/2026-08-15/source-4-how-hormuz-is-haunting-the-us-lt-col-daniel-davis-2026-08-15.md) |
 | `2026-08-19` | (4) UKRAINE: Under Siege From Every Front /Lt Col Daniel Davis | `host-pressure test` | `daniel-davis` | [source](../../../archive/sources/geopolitics/sources/2026-08-19/source-4-ukraine-under-siege-from-every-front-lt-col-daniel-davis-2026-08-19.md) |
 | `2026-08-20` | (4) US Driving Iran into China's Arms /fmr CIA Analyst Larry Johnson & Lt Col Daniel Davis | `guest` | `daniel-davis` | [source](../../../archive/sources/geopolitics/sources/2026-08-20/source-4-us-driving-iran-into-china-s-arms-fmr-cia-analyst-larry-johnson-lt-col-daniel-davis-2026-08-20.md) |
+| `2026-08-21` | (4) Iran Knows: THE WEST MUST FEEL PAIN /Alastair Crooke & Lt Col Daniel Davis | `guest` | `daniel-davis` | [source](../../../archive/sources/geopolitics/sources/2026-08-21/source-4-iran-knows-the-west-must-feel-pain-alastair-crooke-lt-col-daniel-davis-2026-08-21.md) |
 
 ## June 2026 Expansion
 

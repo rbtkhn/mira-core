@@ -4,7 +4,7 @@ This index routes the transcript-bearing upstream-parity corpus for `mercouris` 
 
 Source basis: `strategy-codex/statecraft/voices/mercouris/mercouris-index.md`, `strategy-codex/statecraft/channels/alexander-mercouris/alexander-mercouris-channel-index.md`, and subsequent local intake.
 
-Corpus: 397 local route rows across 397 central archive source files.
+Corpus: 399 local route rows across 399 central archive source files.
 
 Status: `transcript-bearing-upstream-parity`
 
@@ -421,6 +421,8 @@ Status: `transcript-bearing-upstream-parity`
 | `2026-08-18` | (4) Ukraine Loses Black Sea Ports and Air Defense Options | `guest` | `the-duran` | [source](../../../archive/sources/geopolitics/sources/2026-08-18/source-4-ukraine-loses-black-sea-ports-and-air-defense-options-2026-08-18.md) |
 | `2026-08-19` | (4) Global Food Shortage Warning, Sanctions and Fertilizer Crisis | `guest` | `the-duran` | [source](../../../archive/sources/geopolitics/sources/2026-08-19/source-4-global-food-shortage-warning-sanctions-and-fertilizer-crisis-2026-08-19.md) |
 | `2026-08-19` | (4) Russia 'Destroys' Kiev Orekhov Troops; Moscow AD Impenetrable To Kiev Drones; Kiev Economy Collapses | `host monologue` | `alexander-mercouris` | [source](../../../archive/sources/geopolitics/sources/2026-08-19/source-4-russia-destroys-kiev-orekhov-troops-moscow-ad-impenetrable-to-kiev-drones-kiev-economy-collapses-2026-08-19.md) |
+| `2026-08-20` | (4) Russia Massive Kiev Strike More Coming; Orekhov Troops Panic; Dobropilia Falling; Ukraine Crisis | `host monologue` | `alexander-mercouris` | [source](../../../archive/sources/geopolitics/sources/2026-08-20/source-4-russia-massive-kiev-strike-more-coming-orekhov-troops-panic-dobropilia-falling-ukraine-crisis-2026-08-20.md) |
+| `2026-08-21` | (4) Trump's Economic Siege on Iran, China and BRICS Stand in the Way | `guest` | `the-duran` | [source](../../../archive/sources/geopolitics/sources/2026-08-21/source-4-trump-s-economic-siege-on-iran-china-and-brics-stand-in-the-way-2026-08-21.md) |
 
 ## Judgment Continuity
 

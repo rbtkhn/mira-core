@@ -4,7 +4,7 @@ This index routes the unified local Crooke corpus for `crooke` to the central Na
 
 Source basis: `strategy-codex/statecraft/voices/crooke/crooke-index.md` plus already-local 2026 Crooke archive rows.
 
-Corpus: 80 local route rows across 80 central archive source files.
+Corpus: 81 local route rows across 81 central archive source files.
 
 Status: `imported-corpus`
 
@@ -99,6 +99,7 @@ Status: `imported-corpus`
 | `2026-08-13` | Netanyahu's Reprise of the 'Iraq WMD Deceit' - Re-launched to Promote War on Iran | `author` | `crooke` | [source](../../../archive/sources/geopolitics/sources/2026-08-13/source-netanyahu-s-reprise-of-the-iraq-wmd-deceit-re-launched-to-promote-war-on-iran-2026-08-13.md) |
 | `2026-08-17` | (4) Alastair Crooke : The Consequence of More Netanyahu Lies | `guest` | `judging-freedom` | [source](../../../archive/sources/geopolitics/sources/2026-08-17/source-4-alastair-crooke-the-consequence-of-more-netanyahu-lies-2026-08-17.md) |
 | `2026-08-17` | (4) Alastair Crooke: Trump’s Card Just Broke the Status Quo | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2026-08-17/source-4-alastair-crooke-trump-s-card-just-broke-the-status-quo-2026-08-17.md) |
+| `2026-08-21` | (4) Iran Knows: THE WEST MUST FEEL PAIN /Alastair Crooke & Lt Col Daniel Davis | `guest` | `daniel-davis` | [source](../../../archive/sources/geopolitics/sources/2026-08-21/source-4-iran-knows-the-west-must-feel-pain-alastair-crooke-lt-col-daniel-davis-2026-08-21.md) |
 
 ## Judgment Continuity
 

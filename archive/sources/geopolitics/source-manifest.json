@@ -2,7 +2,7 @@
   "manifest_id": "narrative-geopolitics-source-manifest-v1",
   "source_basis": "central archive with completed historical strategy-codex imports",
   "imported_at": "2026-07-09",
-  "source_count": 2199,
+  "source_count": 2205,
   "boundary": {
     "archive": "source truth",
     "voices": "voice continuity and routing",
@@ -59454,6 +59454,146 @@
       "inference_basis": [
         "wrapper-normalized",
         "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-21",
+      "title": "Amb. Chas Freeman: Israel in PANIC – Emergency Security Summit Called as Turkey Rushes Arms to Syria",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-21/source-amb-chas-freeman-israel-in-panic-emergency-security-summit-called-as-turkey-rushes-arms-to-syria-2026-08-21.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-21/source-amb-chas-freeman-israel-in-panic-emergency-security-summit-called-as-turkey-rushes-arms-to-syria-2026-08-21.md",
+      "upstream_path": "operator-paste://2026-08-21/amb-chas-freeman-israel-in-panic-emergency-security-summit-called-as-turkey-rushes-arms-to-syria",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "freeman"
+      ],
+      "host_slug": "dialogue-works",
+      "source_identity": "youtube:1RQobK48VFk",
+      "source_url": "https://www.youtube.com/watch?v=1RQobK48VFk",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-21",
+      "title": "(4) Iran Knows: THE WEST MUST FEEL PAIN /Alastair Crooke & Lt Col Daniel Davis",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-21/source-4-iran-knows-the-west-must-feel-pain-alastair-crooke-lt-col-daniel-davis-2026-08-21.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-21/source-4-iran-knows-the-west-must-feel-pain-alastair-crooke-lt-col-daniel-davis-2026-08-21.md",
+      "upstream_path": "operator-paste://2026-08-21/4-iran-knows-the-west-must-feel-pain-alastair-crooke-lt-col-daniel-davis",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "davis",
+        "crooke"
+      ],
+      "host_slug": "daniel-davis",
+      "source_identity": "youtube:Jbdi4upsQRQ",
+      "source_url": "https://www.youtube.com/watch?v=Jbdi4upsQRQ",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-21",
+      "title": "(4) Chas Freeman: Israel-Turkey Conflict Could Explode Into War",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-21/source-4-chas-freeman-israel-turkey-conflict-could-explode-into-war-2026-08-21.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-21/source-4-chas-freeman-israel-turkey-conflict-could-explode-into-war-2026-08-21.md",
+      "upstream_path": "operator-paste://2026-08-21/4-chas-freeman-israel-turkey-conflict-could-explode-into-war",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "freeman"
+      ],
+      "host_slug": "glenn-diesen",
+      "source_identity": "youtube:4bhyaZXOUOY",
+      "source_url": "https://www.youtube.com/watch?v=4bhyaZXOUOY",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-21",
+      "title": "INTEL Roundtable w/ Larry Johnson & Scott Ritter : Weekly Wrap - 21 AUGUST",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-21/source-intel-roundtable-w-larry-johnson-scott-ritter-weekly-wrap-21-august-2026-08-21.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-21/source-intel-roundtable-w-larry-johnson-scott-ritter-weekly-wrap-21-august-2026-08-21.md",
+      "upstream_path": "operator-paste://2026-08-21/intel-roundtable-w-larry-johnson-scott-ritter-weekly-wrap-21-august",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "johnson",
+        "ritter"
+      ],
+      "host_slug": "judging-freedom",
+      "source_identity": "youtube:KSSFkIw-_Z0",
+      "source_url": "https://www.youtube.com/watch?v=KSSFkIw-_Z0",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-21",
+      "title": "(4) Nima R. Alkhorshid: \"ALL BETS ARE OFF\" – Syria to join the Mecca Joint Defense Pact & a Path To Iran",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-21/source-4-nima-r-alkhorshid-all-bets-are-off-syria-to-join-the-mecca-joint-defense-pact-a-path-to-iran-2026-08-21.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-21/source-4-nima-r-alkhorshid-all-bets-are-off-syria-to-join-the-mecca-joint-defense-pact-a-path-to-iran-2026-08-21.md",
+      "upstream_path": "operator-paste://2026-08-21/4-nima-r-alkhorshid-all-bets-are-off-syria-to-join-the-mecca-joint-defense-pact-a-path-to-iran",
+      "source_class": "host monologue",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "alkhorshid"
+      ],
+      "host_slug": "dialogue-works",
+      "source_identity": "youtube:PupyqqMFmV4",
+      "source_url": "https://www.youtube.com/watch?v=PupyqqMFmV4",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-21",
+      "title": "(4) Trump's Economic Siege on Iran, China and BRICS Stand in the Way",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-21/source-4-trump-s-economic-siege-on-iran-china-and-brics-stand-in-the-way-2026-08-21.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-21/source-4-trump-s-economic-siege-on-iran-china-and-brics-stand-in-the-way-2026-08-21.md",
+      "upstream_path": "operator-paste://2026-08-21/4-trump-s-economic-siege-on-iran-china-and-brics-stand-in-the-way",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mercouris",
+        "cristoforou"
+      ],
+      "host_slug": "the-duran",
+      "source_identity": "youtube:ZgC0A0ws6D0",
+      "source_url": "https://www.youtube.com/watch?v=ZgC0A0ws6D0",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
         "explicit-date-alias"
       ],
       "import_status": "imported"

@@ -4,7 +4,7 @@ This index routes the imported Ritter corpus for `ritter` to the central Narrati
 
 Source basis: `strategy-codex/statecraft/voices/ritter/ritter-index.md`.
 
-Corpus: 127 local route rows across 127 central archive source files.
+Corpus: 128 local route rows across 128 central archive source files.
 
 Status: `imported-corpus`
 
@@ -146,6 +146,7 @@ Status: `imported-corpus`
 | `2026-08-17` | (4) Scott Ritter :Pentagon Did No Due Diligence | `guest` | `judging-freedom` | [source](../../../archive/sources/geopolitics/sources/2026-08-17/source-4-scott-ritter-pentagon-did-no-due-diligence-2026-08-17.md) |
 | `2026-08-18` | Artificial Intelligence versus the OODA Loop | `authored` | `ritter` | [source](../../../archive/sources/geopolitics/sources/2026-08-18/source-artificial-intelligence-versus-the-ooda-loop-2026-08-18.md) |
 | `2026-08-19` | (4) Scott Ritter: Yemen’s Military: We Now Dictating Terms - The Crippling Moment: US and Iran Dig In | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2026-08-19/source-4-scott-ritter-yemen-s-military-we-now-dictating-terms-the-crippling-moment-us-and-iran-dig-in-2026-08-19.md) |
+| `2026-08-21` | INTEL Roundtable w/ Larry Johnson & Scott Ritter : Weekly Wrap - 21 AUGUST | `guest` | `judging-freedom` | [source](../../../archive/sources/geopolitics/sources/2026-08-21/source-intel-roundtable-w-larry-johnson-scott-ritter-weekly-wrap-21-august-2026-08-21.md) |
 
 ## Import Boundary
 

@@ -2,7 +2,7 @@
 
 This shelf is the canonical person route for `cristoforou`.
 
-Corpus: 8 local route rows across 8 central archive source files.
+Corpus: 9 local route rows across 9 central archive source files.
 
 Status: `canonical-person-seed`
 
@@ -20,3 +20,4 @@ container-conditioned material.
 | `2026-06-23` | Rubicon Crossed, Permanent Conflict on Russia. Zelensky Targets Belarus Next | `host` | `the-duran` | [source](../../../archive/sources/geopolitics/sources/2026-06-23/source-duran-mercouris-rubicon-crossed-zelensky-targets-belarus-2026-06-23.md) |
 | `2026-06-27` | Russia Frontline Advance. Putin's Messaging Woes as Lavrov's WW3 Warning Ignored | `host` | `the-duran` | [source](../../../archive/sources/geopolitics/sources/2026-06-27/source-duran-mercouris-russia-frontline-advance-putin-messaging-woes-lavrov-ww3-warning-ignored-2026-06-27.md) |
 | `2026-07-22` | ISRAEL TO JOIN WAR AS TRUMP ESCALATES - w/ Duran's Alex Christoforou | `guest` | `mario-nawfal` | [source](../../../archive/sources/geopolitics/sources/2026-07-22/source-israel-to-join-war-as-trump-escalates-w-duran-s-alex-christoforou-2026-07-22.md) |
+| `2026-08-21` | (4) Trump's Economic Siege on Iran, China and BRICS Stand in the Way | `guest` | `the-duran` | [source](../../../archive/sources/geopolitics/sources/2026-08-21/source-4-trump-s-economic-siege-on-iran-china-and-brics-stand-in-the-way-2026-08-21.md) |
