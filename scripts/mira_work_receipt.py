@@ -25,10 +25,41 @@ REQUIRED_FIELDS = (
     "Next owner can act without rediscovery",
 )
 
+PREFLIGHT_FIELDS = (
+    "Receipt target",
+    "Primary user or stakeholder",
+    "Role",
+    "Authority boundary",
+    "Worker or model lane",
+    "Model/provider trust level",
+    "Trusted instruction sources",
+    "Credential or external-system exposure",
+    "Data sensitivity and exclusions",
+    "Validation plan",
+    "Stop or rollback path",
+    "Chunking and retry threshold",
+    "Human review or handoff point",
+)
+
+CHECKS = {
+    "receipt": {
+        "block_start": "Mira Work completion",
+        "fields": REQUIRED_FIELDS,
+        "output_prefix": "mira_work_receipt",
+    },
+    "preflight": {
+        "block_start": "Mira Work preflight",
+        "fields": PREFLIGHT_FIELDS,
+        "output_prefix": "mira_work_preflight",
+    },
+}
+
 KNOWN_RECEIPT_LABELS = frozenset(
     REQUIRED_FIELDS
+    + PREFLIGHT_FIELDS
     + (
         "Mira Work completion",
+        "Mira Work preflight",
         "Objective",
         "Organizational consequence",
         "Compression class",
@@ -71,13 +102,13 @@ def split_label(line: str) -> tuple[str, str] | None:
     return label, value.strip()
 
 
-def is_receipt_start(line: str) -> bool:
+def is_block_start(line: str, block_start: str) -> bool:
     parsed = split_label(line)
-    return parsed is not None and parsed[0].casefold() == "mira work completion"
+    return parsed is not None and parsed[0].casefold() == block_start.casefold()
 
 
-def parse_receipt_fields(text: str) -> dict[str, str]:
-    required_by_key = {field.casefold(): field for field in REQUIRED_FIELDS}
+def parse_fields(text: str, required_fields: tuple[str, ...], block_start: str) -> dict[str, str]:
+    required_by_key = {field.casefold(): field for field in required_fields}
     known_keys = {field.casefold() for field in KNOWN_RECEIPT_LABELS}
     values: dict[str, list[str]] = {}
     current_field: str | None = None
@@ -116,7 +147,7 @@ def parse_receipt_fields(text: str) -> dict[str, str]:
             continue
 
         if in_fence and not parse_fence:
-            if is_receipt_start(line):
+            if is_block_start(line, block_start):
                 parse_fence = True
                 current_field = None
             continue
@@ -125,6 +156,10 @@ def parse_receipt_fields(text: str) -> dict[str, str]:
             consume(line)
 
     return {field: "\n".join(parts).strip() for field, parts in values.items() if "\n".join(parts).strip()}
+
+
+def parse_receipt_fields(text: str) -> dict[str, str]:
+    return parse_fields(text, REQUIRED_FIELDS, "Mira Work completion")
 
 
 def resolve_markdown_file(path: Path) -> Path:
@@ -146,74 +181,98 @@ def resolve_markdown_file(path: Path) -> Path:
     return resolved
 
 
-def check_receipt(path: Path) -> dict[str, Any]:
+def check_markdown(path: Path, check_type: str) -> dict[str, Any]:
     resolved = resolve_markdown_file(path)
     try:
         text = resolved.read_text(encoding="utf-8")
     except OSError as exc:
         raise ReceiptError(f"could not read file: {path}") from exc
 
-    fields = parse_receipt_fields(text)
-    present_fields = [field for field in REQUIRED_FIELDS if field in fields]
-    missing_fields = [field for field in REQUIRED_FIELDS if field not in fields]
+    check = CHECKS[check_type]
+    required_fields = check["fields"]
+    fields = parse_fields(text, required_fields, check["block_start"])
+    present_fields = [field for field in required_fields if field in fields]
+    missing_fields = [field for field in required_fields if field not in fields]
     status = "pass" if not missing_fields else "fail"
     return {
         "schema_version": SCHEMA_VERSION,
         "status": status,
         "file": resolved.relative_to(REPO_ROOT.resolve()).as_posix(),
-        "required_fields": list(REQUIRED_FIELDS),
+        "check_type": check_type,
+        "required_fields": list(required_fields),
         "present_fields": present_fields,
         "missing_fields": missing_fields,
         "authority_effect": "none",
     }
 
 
+def check_receipt(path: Path) -> dict[str, Any]:
+    result = check_markdown(path, "receipt")
+    result.pop("check_type")
+    return result
+
+
+def check_preflight(path: Path) -> dict[str, Any]:
+    return check_markdown(path, "preflight")
+
+
 def build_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(description="Check Mira Work completion receipt structure.")
+    parser = argparse.ArgumentParser(description="Check Mira Work planning and completion structure.")
     subparsers = parser.add_subparsers(dest="command", required=True)
     receipt_check = subparsers.add_parser("receipt-check", help="Check a Markdown Mira Work completion note.")
     receipt_check.add_argument("--file", required=True, type=Path, help="Markdown file inside this repository.")
     receipt_check.add_argument("--json", action="store_true", help="Emit machine-readable JSON.")
+    preflight_check = subparsers.add_parser("preflight-check", help="Check a Markdown Mira Work preflight note.")
+    preflight_check.add_argument("--file", required=True, type=Path, help="Markdown file inside this repository.")
+    preflight_check.add_argument("--json", action="store_true", help="Emit machine-readable JSON.")
     return parser
 
 
-def emit_text(result: dict[str, Any]) -> None:
-    print(f"mira_work_receipt={result['status']}")
+def emit_text(result: dict[str, Any], output_prefix: str) -> None:
+    print(f"{output_prefix}={result['status']}")
     for field in result["missing_fields"]:
         print(f"missing_field={field}")
+
+
+def error_result(path: Path, check_type: str) -> dict[str, Any]:
+    required_fields = CHECKS[check_type]["fields"]
+    result: dict[str, Any] = {
+        "schema_version": SCHEMA_VERSION,
+        "status": "error",
+        "file": str(path),
+        "required_fields": list(required_fields),
+        "present_fields": [],
+        "missing_fields": list(required_fields),
+        "authority_effect": "none",
+    }
+    if check_type != "receipt":
+        result["check_type"] = check_type
+    return result
 
 
 def main(arguments: list[str] | None = None) -> int:
     parser = build_parser()
     args = parser.parse_args(arguments)
+    check_type = "preflight" if args.command == "preflight-check" else "receipt"
+    output_prefix = CHECKS[check_type]["output_prefix"]
 
     try:
-        result = check_receipt(args.file)
+        result = check_markdown(args.file, check_type)
+        if check_type == "receipt":
+            result.pop("check_type")
     except ReceiptError as exc:
         if getattr(args, "json", False):
-            print(
-                json.dumps(
-                    {
-                        "schema_version": SCHEMA_VERSION,
-                        "status": "error",
-                        "file": str(args.file),
-                        "required_fields": list(REQUIRED_FIELDS),
-                        "present_fields": [],
-                        "missing_fields": list(REQUIRED_FIELDS),
-                        "authority_effect": "none",
-                        "error": str(exc),
-                    },
-                    indent=2,
-                )
-            )
+            result = error_result(args.file, check_type)
+            result["error"] = str(exc)
+            print(json.dumps(result, indent=2))
         else:
-            print(f"mira_work_receipt_error={exc}", file=sys.stderr)
+            print(f"{output_prefix}_error={exc}", file=sys.stderr)
         return 2
 
     if args.json:
         print(json.dumps(result, indent=2))
     else:
-        emit_text(result)
+        emit_text(result, output_prefix)
     return 0 if result["status"] == "pass" else 1
 
 

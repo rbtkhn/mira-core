@@ -129,6 +129,30 @@ Method allowed to end:
 
 ## Completion status
 
+For consequential planning notes, use this advisory preflight when it would
+make the work safer or easier to hand off. It is a planning aid only: it does
+not authorize execution, persistence, delegation, communication, spending,
+publication, deployment, commit, push, or external account access.
+Cheap, free, or unknown workers are suitable only for bounded,
+low-sensitivity, reviewable work with an explicit stop threshold.
+
+```text
+Mira Work preflight:
+Receipt target:
+Primary user or stakeholder:
+Role:
+Authority boundary:
+Worker or model lane:
+Model/provider trust level:
+Trusted instruction sources:
+Credential or external-system exposure:
+Data sensitivity and exclusions:
+Validation plan:
+Stop or rollback path:
+Chunking and retry threshold:
+Human review or handoff point:
+```
+
 Every completed Mira Work task returns a useful result plus this compact
 conversational receipt. Retain the labels but omit fields that are immaterial
 to the task:
