@@ -16839,10 +16839,45 @@
       },
       "status": "stub",
       "notes": "Industrial metadata Batch 005. Function: mass-politics-ideology. Boundary: metadata-only registry stub for Reform or Revolution; The Junius Pamphlet. Rights/body gate: public-domain posture varies by edition/translation; review required.",
-      "text_status": "missing",
+      "text_status": "available",
       "coverage_status": "principal-works",
       "coverage_notes": "Metadata-only Industrial Batch 005 record. No body downloaded, inspected, admitted, or represented as available. Coverage ceiling from design packet: principal-works.",
-      "text_bodies": []
+      "text_bodies": [
+        {
+          "body_id": "LIB-INDUSTRIAL-AUTHORITY-054-LUXEMBURG-REFORM-REVOLUTION-MIA",
+          "work_title": "Reform or Revolution",
+          "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-054-LUXEMBURG-REFORM-REVOLUTION-MIA.txt",
+          "text_sha256": "694a18bb90d85c2b0023bfdebbeba3ff0c3031074635c61ed151246c9214f755",
+          "text_bytes": 160893,
+          "text_encoding": "utf-8",
+          "language": "English",
+          "translator": "Integer",
+          "editor": "",
+          "edition_label": "Marxists Internet Archive HTML component pages, Social Reform or Revolution, Militant Publications 1986 source; private-reading derivative, accessed 2026-08-23",
+          "license_status": "permissioned",
+          "license_notes": "private-reading-online-source; no redistribution; MIA index states 1986 no copyright",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Complete MIA component sequence: index, introduction, chapters 1-10.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-INDUSTRIAL-AUTHORITY-054-LUXEMBURG-JUNIUS-PAMPHLET-MIA",
+          "work_title": "The Junius Pamphlet: The Crisis of German Social Democracy",
+          "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-054-LUXEMBURG-JUNIUS-PAMPHLET-MIA.txt",
+          "text_sha256": "72aa920ee29cc756f7a498f529f9b31bc91acf4c88d5de704440e6f1817924f9",
+          "text_bytes": 261068,
+          "text_encoding": "utf-8",
+          "language": "English",
+          "translator": "Dave Hollis",
+          "editor": "",
+          "edition_label": "Marxists Internet Archive HTML component pages; Dave Hollis translation; GFDL copy/distribution statement; private-reading derivative, accessed 2026-08-23",
+          "license_status": "open-license",
+          "license_notes": "private-reading-online-source; MIA page states copying/distribution under GNU Free Documentation License",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Complete MIA component sequence: index plus chapters 1-8.",
+          "status": "available"
+        }
+      ]
     },
     {
       "source_id": "LIB-INDUSTRIAL-AUTHORITY-033-WEBER",
@@ -16867,10 +16902,28 @@
       },
       "status": "stub",
       "notes": "Industrial metadata Batch 006. Function: industrial-political-economy. Boundary: metadata-only registry stub for The Protestant Ethic; political essays. Rights/body gate: translation rights and German/English separation required.",
-      "text_status": "missing",
+      "text_status": "available",
       "coverage_status": "selected-works",
       "coverage_notes": "Metadata-only Industrial Batch 006 record. No body downloaded, inspected, admitted, or represented as available. Coverage ceiling from design packet: selected-works.",
-      "text_bodies": []
+      "text_bodies": [
+        {
+          "body_id": "LIB-INDUSTRIAL-AUTHORITY-033-WEBER-PROTESTANT-ETHIC-WIKISOURCE-DERIVED",
+          "work_title": "The Protestant Ethic and the Spirit of Capitalism",
+          "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-033-WEBER-PROTESTANT-ETHIC-WIKISOURCE-DERIVED.txt",
+          "text_sha256": "0ab0d7f25520352e615c113426ee8ba706059c979be16217b1621851e5f36ec0",
+          "text_bytes": 604903,
+          "text_encoding": "utf-8",
+          "language": "English",
+          "translator": "Talcott Parsons",
+          "editor": "",
+          "edition_label": "English Wikisource component HTML pages for 1930 Talcott Parsons translation with R. H. Tawney foreword; private-reading derivative, accessed 2026-08-23",
+          "license_status": "permissioned",
+          "license_notes": "private-reading-online-source; no redistribution; Wikisource page metadata includes public-domain tags and separate translation-status warning",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Complete Wikisource component sequence: translator preface, foreword, author introduction, parts, chapters 1-5, and notes.",
+          "status": "available"
+        }
+      ]
     },
     {
       "source_id": "LIB-INDUSTRIAL-AUTHORITY-034-DURKHEIM",

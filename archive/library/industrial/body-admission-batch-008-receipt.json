@@ -1,0 +1,113 @@
+{
+  "batch_id": "industrial-body-admission-batch-008",
+  "date": "2026-08-23",
+  "authority_boundary": {
+    "private_reading_text_bodies_only": true,
+    "private_text_root": "C:\\private\\mira-library-texts",
+    "registry_mutated": true,
+    "human_indexes_rendered": true,
+    "staged": false,
+    "committed": false,
+    "pushed": false,
+    "published": false,
+    "archive_ingested": false,
+    "git_source_bodies_admitted": false
+  },
+  "counts": {
+    "authorities_attempted": 2,
+    "bodies_attempted": 3,
+    "bodies_downloaded_or_derived_before_admission": 3,
+    "bodies_inspected": 3,
+    "bodies_admitted": 3,
+    "authorities_newly_registry_represented": 2,
+    "deferred_industrial_authorities_remaining_missing": 2
+  },
+  "admitted_bodies": [
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-054-LUXEMBURG",
+      "authority": "Rosa Luxemburg",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-054-LUXEMBURG-REFORM-REVOLUTION-MIA",
+      "work_title": "Reform or Revolution",
+      "edition_label": "Marxists Internet Archive HTML component pages, Social Reform or Revolution, Militant Publications 1986 source; private-reading derivative, accessed 2026-08-23",
+      "license_status": "permissioned",
+      "license_notes": "private-reading-online-source; no redistribution; MIA index states 1986 no copyright",
+      "coverage_status": "complete-work",
+      "coverage_notes": "Complete MIA component sequence: index, introduction, chapters 1-10.",
+      "language": "English",
+      "translator": "Integer",
+      "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-054-LUXEMBURG-REFORM-REVOLUTION-MIA.txt",
+      "text_bytes": 160893,
+      "text_sha256": "694a18bb90d85c2b0023bfdebbeba3ff0c3031074635c61ed151246c9214f755",
+      "body_imported_to_archive": false
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-054-LUXEMBURG",
+      "authority": "Rosa Luxemburg",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-054-LUXEMBURG-JUNIUS-PAMPHLET-MIA",
+      "work_title": "The Junius Pamphlet: The Crisis of German Social Democracy",
+      "edition_label": "Marxists Internet Archive HTML component pages; Dave Hollis translation; GFDL copy/distribution statement; private-reading derivative, accessed 2026-08-23",
+      "license_status": "open-license",
+      "license_notes": "private-reading-online-source; MIA page states copying/distribution under GNU Free Documentation License",
+      "coverage_status": "complete-work",
+      "coverage_notes": "Complete MIA component sequence: index plus chapters 1-8.",
+      "language": "English",
+      "translator": "Dave Hollis",
+      "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-054-LUXEMBURG-JUNIUS-PAMPHLET-MIA.txt",
+      "text_bytes": 261068,
+      "text_sha256": "72aa920ee29cc756f7a498f529f9b31bc91acf4c88d5de704440e6f1817924f9",
+      "body_imported_to_archive": false
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-033-WEBER",
+      "authority": "Max Weber",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-033-WEBER-PROTESTANT-ETHIC-WIKISOURCE-DERIVED",
+      "work_title": "The Protestant Ethic and the Spirit of Capitalism",
+      "edition_label": "English Wikisource component HTML pages for 1930 Talcott Parsons translation with R. H. Tawney foreword; private-reading derivative, accessed 2026-08-23",
+      "license_status": "permissioned",
+      "license_notes": "private-reading-online-source; no redistribution; Wikisource page metadata includes public-domain tags and separate translation-status warning",
+      "coverage_status": "complete-work",
+      "coverage_notes": "Complete Wikisource component sequence: translator preface, foreword, author introduction, parts, chapters 1-5, and notes.",
+      "language": "English",
+      "translator": "Talcott Parsons",
+      "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-033-WEBER-PROTESTANT-ETHIC-WIKISOURCE-DERIVED.txt",
+      "text_bytes": 604903,
+      "text_sha256": "0ab0d7f25520352e615c113426ee8ba706059c979be16217b1621851e5f36ec0",
+      "body_imported_to_archive": false
+    }
+  ],
+  "deferred": [
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-051-FUKUZAWA",
+      "authority": "Fukuzawa Yukichi",
+      "reason": "Not in Batch 008 scope; no source route downloaded, derived, or admitted."
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-078-CARSON",
+      "authority": "Rachel Carson",
+      "reason": "Not in Batch 008 scope; no source route downloaded, derived, or admitted."
+    }
+  ],
+  "validation": {
+    "library_validate_json": "passed",
+    "library_render_index_check_json": "passed",
+    "tests_test_archive_library_py": "passed: 26 tests",
+    "direct_private_store_hash_readback": "passed",
+    "library_wide_live_reproducibility_claimed": false,
+    "library_wide_note": "census-texts reports missing private payloads in other eras under the active private text root; scoped Industrial payload presence is complete."
+  },
+  "industrial_census_after_batch": {
+    "authority_count": 68,
+    "registry_represented_authorities": 66,
+    "registry_body_count": 114,
+    "referenced_body_count": 114,
+    "physical_payload_count": 114,
+    "missing_payload_count": 0
+  },
+  "reentry_point": {
+    "next_candidates": [
+      "LIB-INDUSTRIAL-AUTHORITY-051-FUKUZAWA",
+      "LIB-INDUSTRIAL-AUTHORITY-078-CARSON"
+    ],
+    "recommended_next": "Research and inspect Fukuzawa first; treat Carson as a later modern online-edition inspection case with no redistribution claim."
+  }
+}
