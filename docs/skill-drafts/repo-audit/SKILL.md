@@ -139,6 +139,20 @@ For each material control, record coverage as `enforced`, `sampled`, `manual`,
 `declared-only`, `bypassed`, `unavailable`, or `not-applicable` across the
 relevant planes.
 
+## Declare a validation budget
+
+Before recommending or executing audit validation, name the materially
+distinct claims and the cheapest sufficient evidence for each. Focused checks
+may establish change-time behavior; one uncached Full gate may establish the
+final landed corpus; provider results establish hosted state. Coverage across
+those planes does not require repeated execution of equivalent checks.
+
+Require one check per materially distinct claim. Prohibit duplicate gates
+unless repository bytes, runtime or dependency inputs, relevant environment,
+or result clarity changed, or separate planes genuinely require different
+evidence. A matching successful Full fingerprint is reusable landed-corpus
+evidence; it cannot replace hosted-state verification.
+
 ## Classify evidence
 
 Use these evidence classes:

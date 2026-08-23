@@ -59,6 +59,8 @@ def test_fixture_inventory_covers_normal_edge_failure_and_ambiguous_cases() -> N
         "MGH-EDGE-01",
         "MGH-EDGE-02",
         "MGH-FAILURE-01",
+        "MGH-FAILURE-03",
+        "MGH-EDGE-03",
         "MGH-FAILURE-02",
         "MGH-AMBIGUOUS-01",
     )
@@ -195,3 +197,38 @@ def test_skill_main_workflow_requires_exact_stale_lock_proof() -> None:
         "remove only that literal file",
     ):
         assert phrase in normalized
+
+
+def test_commit_reuses_matching_full_fingerprint() -> None:
+    skill = " ".join(read_skill().split())
+    for phrase in (
+        "exactly one uncached Full gate",
+        "same fingerprint with a cache hit",
+        "evidence as reused rather than newly executed",
+        "without repeating Full validation",
+    ):
+        assert phrase in skill
+    for changed_input in (
+        "repository bytes",
+        "runtime or dependency inputs",
+        "relevant environment",
+        "result clarity",
+    ):
+        assert changed_input in skill
+
+
+def test_hosted_state_is_distinct_and_uses_one_compact_watcher() -> None:
+    skill = " ".join(read_skill().split())
+    assert "hosted workflow state remains a separate claim" in skill
+    assert "gh run watch <run-id> --repo OWNER/REPO --compact --exit-status --interval 15" in skill
+    assert "Do not start parallel watchers" in skill
+    assert "one structured `gh run view` query" in skill
+    assert "exactly four jobs must pass" in skill
+
+
+def test_powershell_refspec_examples_are_exact_and_unambiguous() -> None:
+    skill = read_skill()
+    assert "HEAD:refs/heads/<branch>" in skill
+    assert "${sha}:refs/heads/<branch>" in skill
+    assert "never write `$sha:refs/...`" in skill
+    assert "Verify the resulting remote SHA" in skill

@@ -289,6 +289,20 @@ git diff --cached -- <scoped paths>
 Do not describe a working-tree file as published or public. Keep save, stage,
 commit, push, PR, deployment, and hosted settings as separate boundaries.
 
+## Reuse validation evidence
+
+Before commit, require the validation appropriate to the change. For a final
+tree requiring Full validation, run exactly one uncached Full gate and record
+its successful fingerprint. After committing unchanged bytes, invoke Full once
+without force and require the same fingerprint with a cache hit; report the
+evidence as reused rather than newly executed.
+
+Before push, refresh Git status, authentication, target, and divergence without
+repeating Full validation. Rerun Full only when repository bytes, executable
+bits, runtime or dependency inputs, relevant environment, or result clarity
+changed. A local fingerprint proves landed-corpus equivalence only; hosted
+workflow state remains a separate claim.
+
 ## Publish only when proven safe
 
 Before any push or PR:
@@ -298,6 +312,11 @@ Before any push or PR:
 3. Confirm LFS readiness when hooks require it.
 4. Confirm the target branch and refspec.
 5. Confirm validation results and their scope.
+
+Use PowerShell-safe exact refspecs. Prefer `HEAD:refs/heads/<branch>` after
+verifying `HEAD` is the intended immutable commit. For a stored SHA, delimit the
+variable as `${sha}:refs/heads/<branch>`; never write `$sha:refs/...`, which
+PowerShell interprets as a scoped variable. Verify the resulting remote SHA.
 
 If a `validated-push` workflow is present in the current repository, use it for
 proof and exact target-SHA publication once an immutable commit exists. If it
@@ -335,6 +354,18 @@ wildcards, abbreviated SHAs, multiple refs, and non-fast-forward publication.
 
 Never force-push, rebase, broaden the refspec, open a PR, mutate hosted
 settings, or publish generated drift as part of a plain `push`.
+
+For hosted validation, locate the run by exact head SHA, then start one watcher:
+
+```powershell
+gh run watch <run-id> --repo OWNER/REPO --compact --exit-status --interval 15
+```
+
+Resume that watcher by its returned process identifier until terminal. Do not
+start parallel watchers or emit repeated full job snapshots. After completion,
+use one structured `gh run view` query to require the expected head SHA,
+successful conclusion, and exact job count; for the current validation matrix,
+exactly four jobs must pass.
 
 ### Windows main-merge friction
 

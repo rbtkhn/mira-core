@@ -7,6 +7,14 @@ dependencies, tradeoffs, and consequences explicit.
 
 ## Efficient Tool Execution
 
+Before costly tools in a consequential multi-step task, form one compact
+internal execution envelope: objective and mutation boundary; canonical runtime
+and absolute external temporary root; cheapest sufficient validation profile;
+active terminal session or cell identifiers; any established repository
+ownership or permission context; and the publication lane. Reuse the envelope
+until one of those inputs changes. Surface it only when a blocker, authority
+boundary, or verification distinction affects the operator.
+
 Bound diagnostic output before expanding it. For a dirty repository, inspect
 counts and capped top-level groupings first. Do not print a complete status or
 path inventory when more than 200 entries are present unless the operator or a
@@ -30,6 +38,34 @@ Cache an optional service's unavailable state for the current task. Do not
 repeat the same availability probe unless its path, environment, credentials,
 permissions, or other external state changes, or the operator explicitly asks
 for a retry.
+
+When an exact repository has already produced a Git ownership or permission
+failure in one execution context and a permitted context succeeds, reuse the
+successful context for that repository during the current task. Do not repeat
+the known-failing probe unless ownership, permissions, identity, or target path
+changes.
+
+For bulk transfer work, keep mutation, parity verification, and receipt
+creation as separately observable phases. Each phase must be idempotent or
+reconstructable from final state, emit an explicit terminal result, and stop
+before the next phase on mismatch. A missing receipt never proves that the
+transfer failed or succeeded; verify state directly before retrying.
+
+## Validation Evidence Budget
+
+Run focused diagnostics while changing the tree. On the final working tree,
+run exactly one uncached Full gate and record its successful content and
+environment fingerprint. After committing unchanged bytes, invoke Full once
+without force and require an identical-fingerprint cache hit with no structural
+or pytest execution. Rerun Full only when repository bytes, executable bits,
+runtime or declared dependencies, relevant environment, or result clarity
+changed. Never rerun merely because commit metadata, branch name, or `HEAD`
+changed.
+
+Change-time, landed-corpus, and hosted-state checks establish different claims.
+Use one sufficient check per materially distinct claim; do not repeat a local
+gate to substitute for hosted evidence or repeat equivalent evidence inside one
+plane.
 
 ## Repository Identity and Mutation Safety
 

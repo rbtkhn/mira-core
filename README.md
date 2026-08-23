@@ -58,6 +58,7 @@ dependencies in an external user cache; no environment activation or repo-local
 
 ```powershell
 $env:MIRA_CORE_SESSION_TEMP_ROOT = 'C:\private\mira-core-test-temp'
+.\tools\run.ps1 runtime-bootstrap --print-python
 .\tools\run.ps1 test --temp-root $env:MIRA_CORE_SESSION_TEMP_ROOT --path tests/test_example.py
 .\tools\validate.ps1 -Mode Fast -TempRoot $env:MIRA_CORE_SESSION_TEMP_ROOT
 .\tools\validate.ps1 -TempRoot $env:MIRA_CORE_SESSION_TEMP_ROOT
