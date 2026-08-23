@@ -1,0 +1,1752 @@
+{
+  "schema": "mira-library-era-sufficiency-seal-v1",
+  "standard_id": "MIRA-LIBRARY-ERA-SUFFICIENCY-V1",
+  "profile_id": "BOUNDED-HISTORICAL-SHELF-V1",
+  "seal_id": "COLONIAL-2026-08-22-2dbca571f3aa-98882a08ae2f",
+  "sealed_at": "2026-08-22",
+  "era": "colonial",
+  "seal_status": "passed",
+  "meaning": "Normative shelf-sufficiency certification plus reproducible closure snapshot for the Colonial / early-modern global shelf; not a complete-surviving-corpus, publication, Archive-ingestion, or immutability claim.",
+  "authority_boundary": {
+    "admission_performed": false,
+    "download_performed": false,
+    "staged": false,
+    "committed": false,
+    "pushed": false,
+    "published": false,
+    "private_archive_ingested": false
+  },
+  "universal_gate_results": {
+    "session_preflight": "passed",
+    "library_validate": "passed",
+    "library_render_index_check": "passed",
+    "library_verify_texts": "passed",
+    "tests_test_archive_library_py": "passed"
+  },
+  "profile_threshold_results": [
+    {
+      "criterion": "authority_scale",
+      "minimum": 56,
+      "observed": 77,
+      "unit": "authorities",
+      "passed": true,
+      "basis": "bounded historical shelf authority floor"
+    },
+    {
+      "criterion": "represented_authority_fullness",
+      "minimum": 0.9,
+      "observed": 0.9221,
+      "unit": "ratio",
+      "passed": true,
+      "basis": "at least ninety percent of authorities have a registered body"
+    },
+    {
+      "criterion": "represented_authority_mass",
+      "minimum": 56,
+      "observed": 71,
+      "unit": "authorities",
+      "passed": true,
+      "basis": "at least 56 represented authorities"
+    },
+    {
+      "criterion": "available_body_mass",
+      "minimum": 100,
+      "observed": 132,
+      "unit": "available_bodies",
+      "passed": true,
+      "basis": "three-digit available source-body shelf"
+    },
+    {
+      "criterion": "available_body_density",
+      "minimum": 1.7,
+      "observed": 1.7143,
+      "unit": "available_bodies_per_authority",
+      "passed": true,
+      "basis": "at least 1.70 available bodies per authority"
+    },
+    {
+      "criterion": "available_authority_ratio",
+      "minimum": 0.7,
+      "observed": 0.9221,
+      "unit": "ratio",
+      "passed": true,
+      "basis": "clear majority of authorities are immediately represented"
+    },
+    {
+      "criterion": "coverage_resolution_ratio",
+      "minimum": 0.4,
+      "observed": 0.6623,
+      "unit": "non_metadata_only_ratio",
+      "passed": true,
+      "basis": "at least forty percent have work-level rather than metadata-only coverage ceilings"
+    },
+    {
+      "criterion": "integrity",
+      "minimum": 1,
+      "observed": 1,
+      "unit": "boolean",
+      "passed": true,
+      "basis": "session preflight, body verification, registry validation, index drift check, and focused tests all pass"
+    }
+  ],
+  "counts": {
+    "authorities": 77,
+    "authorities_with_bodies": 71,
+    "bodies": 132,
+    "source_text_status": {
+      "available": 71,
+      "missing": 6
+    },
+    "body_status": {
+      "available": 132
+    },
+    "source_coverage_status": {
+      "metadata-only": 26,
+      "principal-work": 26,
+      "principal-works": 5,
+      "representative-selection": 1,
+      "selected-works": 19
+    },
+    "unresolved_authorities": 6
+  },
+  "sufficiency_standard": {
+    "standard_id": "MIRA-LIBRARY-ERA-SUFFICIENCY-V1",
+    "profile_id": "BOUNDED-HISTORICAL-SHELF-V1",
+    "passed": true,
+    "criteria": [
+      {
+        "criterion": "authority_scale",
+        "minimum": 56,
+        "observed": 77,
+        "unit": "authorities",
+        "passed": true,
+        "basis": "bounded historical shelf authority floor"
+      },
+      {
+        "criterion": "represented_authority_fullness",
+        "minimum": 0.9,
+        "observed": 0.9221,
+        "unit": "ratio",
+        "passed": true,
+        "basis": "at least ninety percent of authorities have a registered body"
+      },
+      {
+        "criterion": "represented_authority_mass",
+        "minimum": 56,
+        "observed": 71,
+        "unit": "authorities",
+        "passed": true,
+        "basis": "at least 56 represented authorities"
+      },
+      {
+        "criterion": "available_body_mass",
+        "minimum": 100,
+        "observed": 132,
+        "unit": "available_bodies",
+        "passed": true,
+        "basis": "three-digit available source-body shelf"
+      },
+      {
+        "criterion": "available_body_density",
+        "minimum": 1.7,
+        "observed": 1.7143,
+        "unit": "available_bodies_per_authority",
+        "passed": true,
+        "basis": "at least 1.70 available bodies per authority"
+      },
+      {
+        "criterion": "available_authority_ratio",
+        "minimum": 0.7,
+        "observed": 0.9221,
+        "unit": "ratio",
+        "passed": true,
+        "basis": "clear majority of authorities are immediately represented"
+      },
+      {
+        "criterion": "coverage_resolution_ratio",
+        "minimum": 0.4,
+        "observed": 0.6623,
+        "unit": "non_metadata_only_ratio",
+        "passed": true,
+        "basis": "at least forty percent have work-level rather than metadata-only coverage ceilings"
+      },
+      {
+        "criterion": "integrity",
+        "minimum": 1,
+        "observed": 1,
+        "unit": "boolean",
+        "passed": true,
+        "basis": "session preflight, body verification, registry validation, index drift check, and focused tests all pass"
+      }
+    ],
+    "completeness_boundary": "Shelf-level structural sufficiency only. Authority-level and body-level coverage ceilings remain controlling, and unresolved records remain explicit."
+  },
+  "digests": {
+    "registry_slice_sha256": "2dbca571f3aaa7d9374d157a1b0280c984ed10938bb8ccb3c0920a512260c945",
+    "body_inventory_sha256": "98882a08ae2f61c7ba60e2f325750a6d292bd0a24bdfb111db59d4129d41cc82",
+    "registry_file_sha256": "6add4ab0ad1c5bc62ca21575f67461a3cc43294d64980d93f0d2f80335c88a80",
+    "era_index_sha256": "e4a15e4638c7261f132aa53efb85b13111b1d678ced6a4d66f1b23b01ad8f986",
+    "text_sources_index_sha256": "5bb7b54b2c0ec06fb599c293bb857cead281e6266c2f291aafe7e4f4c03d4480",
+    "colonial_registry_slice_canonical_sha256": "2dbca571f3aaa7d9374d157a1b0280c984ed10938bb8ccb3c0920a512260c945",
+    "colonial_body_inventory_canonical_sha256": "98882a08ae2f61c7ba60e2f325750a6d292bd0a24bdfb111db59d4129d41cc82",
+    "full_registry_file_sha256": "6add4ab0ad1c5bc62ca21575f67461a3cc43294d64980d93f0d2f80335c88a80",
+    "colonial_index_file_sha256": "e4a15e4638c7261f132aa53efb85b13111b1d678ced6a4d66f1b23b01ad8f986",
+    "text_sources_index_file_sha256": "5bb7b54b2c0ec06fb599c293bb857cead281e6266c2f291aafe7e4f4c03d4480"
+  },
+  "registry_slice_sha256": "2dbca571f3aaa7d9374d157a1b0280c984ed10938bb8ccb3c0920a512260c945",
+  "body_inventory_sha256": "98882a08ae2f61c7ba60e2f325750a6d292bd0a24bdfb111db59d4129d41cc82",
+  "registry_file_sha256": "6add4ab0ad1c5bc62ca21575f67461a3cc43294d64980d93f0d2f80335c88a80",
+  "era_index_sha256": "e4a15e4638c7261f132aa53efb85b13111b1d678ced6a4d66f1b23b01ad8f986",
+  "source_status_counts": {
+    "available": 71,
+    "missing": 6
+  },
+  "body_status_counts": {
+    "available": 132
+  },
+  "unresolved_authorities": [
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-028-SAIKAKU",
+      "authority": "Ihara Saikaku",
+      "title": "Ihara Saikaku, selected prose: pleasure and merchant worlds",
+      "text_status": "missing",
+      "coverage_status": "metadata-only",
+      "notes": "No-mutation proposal generated from Colonial metadata packet. Function: urban commerce, pleasure, money, social theater. Boundary: selected prose packet, likely Life of an Amorous Man/Woman and/or Eternal Storehouse of Japan. Language posture: Japanese original authority; translation likely first feasible.",
+      "coverage_notes": "Planning metadata only. No body downloaded, inspected, admitted, or represented as available. Edition, rights, language, and body coverage require later Library Import gates."
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-030-UEDA-AKINARI",
+      "authority": "Ueda Akinari",
+      "title": "Ueda Akinari, Ugetsu Monogatari",
+      "text_status": "missing",
+      "coverage_status": "metadata-only",
+      "notes": "No-mutation proposal generated from Colonial metadata packet. Function: ghost story, social order, memory. Boundary: principal work. Language posture: Japanese original authority; translation feasible.",
+      "coverage_notes": "Planning metadata only. No body downloaded, inspected, admitted, or represented as available. Edition, rights, language, and body coverage require later Library Import gates."
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-031-TAKUAN-SOHO",
+      "authority": "Takuan Soho",
+      "title": "Takuan Soho, early Edo Zen teachings",
+      "text_status": "missing",
+      "coverage_status": "metadata-only",
+      "notes": "No-mutation proposal generated from Colonial metadata packet. Function: sacred order, discipline, sword/attention. Boundary: selected teachings; exact source boundary unresolved. Language posture: Japanese original authority; translation likely first feasible.",
+      "coverage_notes": "Planning metadata only. No body downloaded, inspected, admitted, or represented as available. Edition, rights, language, and body coverage require later Library Import gates."
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-035-MIR-TAQI-MIR",
+      "authority": "Mir Taqi Mir",
+      "title": "Mir Taqi Mir, selected ghazals and Zikr-i-Mir boundary",
+      "text_status": "missing",
+      "coverage_status": "metadata-only",
+      "notes": "No-mutation proposal generated from Colonial metadata packet. Function: Persianate/Urdu interiority. Boundary: selected ghazals with memoir boundary noted; exact edition unresolved. Language posture: Urdu/Persianate original authority; translation uncertain.",
+      "coverage_notes": "Planning metadata only. No body downloaded, inspected, admitted, or represented as available. Edition, rights, language, and body coverage require later Library Import gates."
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-062-TOKUGAWA-IEYASU-PUBLICATION",
+      "authority": "Tokugawa/Ieyasu publication corpus",
+      "title": "Tokugawa/Ieyasu publication corpus",
+      "text_status": "missing",
+      "coverage_status": "metadata-only",
+      "notes": "No-mutation proposal generated from Colonial metadata packet. Function: legibility and world-picture. Boundary: publication/command corpus; exact boundary unresolved. Language posture: Japanese original authority; translation uncertain.",
+      "coverage_notes": "Planning metadata only. No body downloaded, inspected, admitted, or represented as available. Edition, rights, language, and body coverage require later Library Import gates."
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-071-SAFAVID-COURT-CHRONICLE",
+      "authority": "Eskandar Beg Monshi",
+      "title": "Eskandar Beg Monshi, Alam ara-ye Abbasi",
+      "text_status": "missing",
+      "coverage_status": "metadata-only",
+      "notes": "No-mutation proposal generated from Colonial metadata packet. Function: court memory and command. Boundary: named Safavid court chronicle centered on Shah Abbas I. Language posture: Persian original authority; translation uncertain.",
+      "coverage_notes": "Planning metadata only. No body downloaded, inspected, admitted, or represented as available. Edition, rights, language, and body coverage require later Library Import gates."
+    }
+  ],
+  "body_inventory": [
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-001-SHAKESPEARE",
+      "body_id": "LIB-COLONIAL-AUTHORITY-001-SHAKESPEARE-COMPLETE-WORKS-PG100",
+      "work_title": "The Complete Works of William Shakespeare",
+      "language": "",
+      "status": "available",
+      "text_bytes": 5422620,
+      "text_sha256": "bfb5a5764506115cbae33bfdf66014697ef69d06339f001db209d3f2a56c83fc",
+      "license_status": "public-domain",
+      "coverage_status": "unknown"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-002-MILTON",
+      "body_id": "LIB-COLONIAL-AUTHORITY-002-MILTON-PARADISE-LOST-PG26",
+      "work_title": "Paradise Lost",
+      "language": "",
+      "status": "available",
+      "text_bytes": 460863,
+      "text_sha256": "60a4e1148fc405de0eb553ef06cac7c2a1c99be2edb3a2cefd84aa6d48c61095",
+      "license_status": "public-domain",
+      "coverage_status": "unknown"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-002-MILTON",
+      "body_id": "LIB-COLONIAL-AUTHORITY-002-MILTON-AREOPAGITICA-PG608",
+      "work_title": "Areopagitica",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 125618,
+      "text_sha256": "99ee55dc780dacd4acb0bfecd42ca79610ba703ab9abaf1f4b1d77e990a1e856",
+      "license_status": "public-domain",
+      "coverage_status": "partial-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-002-MILTON",
+      "body_id": "LIB-COLONIAL-AUTHORITY-002-MILTON-PARADISE-REGAINED-PG58",
+      "work_title": "Paradise Regained",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 116284,
+      "text_sha256": "6e0c6660bbfe1ff04b2683f7bc4483efb438135e6a57705fe52a63e72f5a9a04",
+      "license_status": "public-domain",
+      "coverage_status": "partial-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-009-PAINE",
+      "body_id": "LIB-COLONIAL-AUTHORITY-009-PAINE-COMMON-SENSE-PG147",
+      "work_title": "Common Sense",
+      "language": "",
+      "status": "available",
+      "text_bytes": 128745,
+      "text_sha256": "14328122fd13889ee263fca0a0154e8215f49d31870e722d73b0cdcb5a9737d0",
+      "license_status": "public-domain",
+      "coverage_status": "unknown"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-009-PAINE",
+      "body_id": "LIB-COLONIAL-AUTHORITY-009-PAINE-AMERICAN-CRISIS-PG3741",
+      "work_title": "The Writings of Thomas Paine Volume 1: The American Crisis",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 479216,
+      "text_sha256": "2d4943ce9a176b44c8338bafd5c3fb337d4d97912ed4d2bbfac5f9016cd3a7ee",
+      "license_status": "public-domain",
+      "coverage_status": "partial-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-009-PAINE",
+      "body_id": "LIB-COLONIAL-AUTHORITY-009-PAINE-RIGHTS-MAN-PG3742",
+      "work_title": "The Writings of Thomas Paine Volume 2: The Rights of Man",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 582808,
+      "text_sha256": "6f5b9f8d25b7e940b69400bb196b819873d752a50e3cc5d681f2ca86a7787e92",
+      "license_status": "public-domain",
+      "coverage_status": "partial-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-009-PAINE",
+      "body_id": "LIB-COLONIAL-AUTHORITY-009-PAINE-AGE-REASON-PG3743",
+      "work_title": "The Writings of Thomas Paine Volume 4: The Age of Reason",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 443021,
+      "text_sha256": "0ffd5be9eb13ebe756e6a2bd40bf3de5cc1476bd9a54ba07cace79a2e949e7a7",
+      "license_status": "public-domain",
+      "coverage_status": "partial-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-019-MONTAIGNE-ESSAIS",
+      "body_id": "LIB-COLONIAL-AUTHORITY-019-MONTAIGNE-ESSAYS-COTTON-PG3600",
+      "work_title": "The Essays of Montaigne, Complete",
+      "language": "",
+      "status": "available",
+      "text_bytes": 3033150,
+      "text_sha256": "594c35e3fb3230ab0ce22cba19ef4a892f2ef2ac0bcfc8930320ce0abdb77ee8",
+      "license_status": "public-domain",
+      "coverage_status": "unknown"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-023-VOLTAIRE",
+      "body_id": "LIB-COLONIAL-AUTHORITY-023-VOLTAIRE-CANDIDE-PG19942",
+      "work_title": "Candide",
+      "language": "",
+      "status": "available",
+      "text_bytes": 205525,
+      "text_sha256": "ee78d05ce6983cc669b8745e9e8c2a45cfa0db0eab6e22ad797411d52d79ac65",
+      "license_status": "public-domain",
+      "coverage_status": "unknown"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-023-VOLTAIRE",
+      "body_id": "LIB-COLONIAL-AUTHORITY-023-VOLTAIRE-ZADIG-PG18972",
+      "work_title": "Zadig; Or, The Book of Fate",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 203992,
+      "text_sha256": "679a7b09c2e4381e6163a1c15e38478fc4be1cda55e2d39099f0073541108df0",
+      "license_status": "public-domain",
+      "coverage_status": "partial-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-034-BABURNAMA",
+      "body_id": "LIB-COLONIAL-AUTHORITY-034-BABURNAMA-BEVERIDGE-PG44608",
+      "work_title": "The Babur-nama in English",
+      "language": "",
+      "status": "available",
+      "text_bytes": 2684581,
+      "text_sha256": "288899d0e4564f52345524ffeacdb431ec0866e53309a3f0184eb13fb8c1cf0f",
+      "license_status": "public-domain",
+      "coverage_status": "unknown"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-038-ADAM-SMITH",
+      "body_id": "LIB-COLONIAL-AUTHORITY-038-ADAM-SMITH-WEALTH-NATIONS-PG3300",
+      "work_title": "An Inquiry into the Nature and Causes of the Wealth of Nations",
+      "language": "",
+      "status": "available",
+      "text_bytes": 2448983,
+      "text_sha256": "c87dd929783fb6579532220071407e2d9df4d4bfc8aa6acc2c377bbc3785e05f",
+      "license_status": "public-domain",
+      "coverage_status": "unknown"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-044-DECLARATION-INDEPENDENCE",
+      "body_id": "LIB-COLONIAL-AUTHORITY-044-DECLARATION-INDEPENDENCE-NARA-TRANSCRIPT",
+      "work_title": "Declaration of Independence: A Transcription",
+      "language": "",
+      "status": "available",
+      "text_bytes": 8869,
+      "text_sha256": "e814b8cc60b4907aa7e7f6bad052fb96ab2dd7d2014cdf8e58014ffb2440f32e",
+      "license_status": "public-domain",
+      "coverage_status": "unknown"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-045-US-CONSTITUTION-BILL-RIGHTS",
+      "body_id": "LIB-COLONIAL-AUTHORITY-045-US-CONSTITUTION-NARA-TRANSCRIPT",
+      "work_title": "The Constitution of the United States: A Transcription",
+      "language": "",
+      "status": "available",
+      "text_bytes": 28151,
+      "text_sha256": "a72fd01d286e44168a4f5315c4df063fe252c45a626cd14ed292f88236438bcf",
+      "license_status": "public-domain",
+      "coverage_status": "unknown"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-045-US-CONSTITUTION-BILL-RIGHTS",
+      "body_id": "LIB-COLONIAL-AUTHORITY-045-BILL-RIGHTS-NARA-TRANSCRIPT",
+      "work_title": "The Bill of Rights: A Transcription",
+      "language": "",
+      "status": "available",
+      "text_bytes": 9648,
+      "text_sha256": "6a8dfbb4c7ec94217fabad89317257da72a5a16f136c3938da405efeb167682c",
+      "license_status": "public-domain",
+      "coverage_status": "unknown"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-048-AMERICAN-INDIAN-TREATIES",
+      "body_id": "LIB-COLONIAL-AUTHORITY-048-TREATY-DELAWARES-1778-KAPPLER-AVALON",
+      "work_title": "Treaty With the Delawares, 1778",
+      "language": "English",
+      "status": "available",
+      "text_bytes": 8526,
+      "text_sha256": "228d92d2adbbda847b75418d9e9f110f7dfa611505c31c36c1ed972755a3a108",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-048-AMERICAN-INDIAN-TREATIES",
+      "body_id": "LIB-COLONIAL-AUTHORITY-048-TREATY-SIX-NATIONS-1794-KAPPLER-AVALON",
+      "work_title": "Treaty With the Six Nations, 1794",
+      "language": "English",
+      "status": "available",
+      "text_bytes": 10709,
+      "text_sha256": "cd3b64e961e934daed8ef8743ef8d42d6e3abaa84f301375b935900e449d3698",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-048-AMERICAN-INDIAN-TREATIES",
+      "body_id": "LIB-COLONIAL-AUTHORITY-048-TREATY-GREENVILLE-1795-KAPPLER-AVALON",
+      "work_title": "Treaty of Greenville, 1795",
+      "language": "English",
+      "status": "available",
+      "text_bytes": 21573,
+      "text_sha256": "0d548db8f7bc325651439fde328d008387b7688f22b88f2dc8dc98152c54d1a2",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-048-AMERICAN-INDIAN-TREATIES",
+      "body_id": "LIB-COLONIAL-AUTHORITY-048-TREATY-SIX-NATIONS-1784-KAPPLER-AVALON",
+      "work_title": "Treaty With the Six Nations, 1784",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 5210,
+      "text_sha256": "ad0f79e70394db9bad20cf522770c00231207e1771aa05808004852d4fb940c8",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-048-AMERICAN-INDIAN-TREATIES",
+      "body_id": "LIB-COLONIAL-AUTHORITY-048-TREATY-WYANDOT-1785-KAPPLER-AVALON",
+      "work_title": "Treaty With the Wyandot, etc., 1785",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 7459,
+      "text_sha256": "9cf4432f03fd5036bd51e25997f25faac374ed74d66be25c664e2fb4d2e689a9",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-048-AMERICAN-INDIAN-TREATIES",
+      "body_id": "LIB-COLONIAL-AUTHORITY-048-CHICKASAW-PEACE-FEELER-1782-KAPPLER-AVALON",
+      "work_title": "Chickasaw Peace Treaty Feeler, 1782",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 4234,
+      "text_sha256": "f120180a622b93c1212c594f7a098668551aa78c92953d04321a8f2b8c453a18",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-048-AMERICAN-INDIAN-TREATIES",
+      "body_id": "LIB-COLONIAL-AUTHORITY-048-TREATY-CHOCTAW-1786-KAPPLER-AVALON",
+      "work_title": "Treaty With the Chocktaw, 1786",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 9890,
+      "text_sha256": "263a70a5db9fc3f031f5a5cab54ec38875f64eb16d88deaf1a33d27714750a7f",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-048-AMERICAN-INDIAN-TREATIES",
+      "body_id": "LIB-COLONIAL-AUTHORITY-048-TREATY-CHICKASAW-1786-KAPPLER-AVALON",
+      "work_title": "Treaty With the Chickasaw, 1786",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 8700,
+      "text_sha256": "97a5e77ce9bc55ed16a9dc2c5ea1f501e4495603a29dc1f0dd18a84acd353cb6",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-048-AMERICAN-INDIAN-TREATIES",
+      "body_id": "LIB-COLONIAL-AUTHORITY-048-TREATY-SHAWNEE-1786-KAPPLER-AVALON",
+      "work_title": "Treaty With the Shawnee, 1786",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 6408,
+      "text_sha256": "d2cb619c031bcf172c9d969d641bc30e86059ead148e700ae1c411efd09c91e5",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-048-AMERICAN-INDIAN-TREATIES",
+      "body_id": "LIB-COLONIAL-AUTHORITY-048-TREATY-SIX-NATIONS-1789-KAPPLER-AVALON",
+      "work_title": "Treaty With the Six Nations, 1789",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 9213,
+      "text_sha256": "dc7aa7b6e0825f870561ea76044bcdb62e72e69ca9074cbc111247d991a2a9ee",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-048-AMERICAN-INDIAN-TREATIES",
+      "body_id": "LIB-COLONIAL-AUTHORITY-048-TREATY-CREEKS-1790-KAPPLER-AVALON",
+      "work_title": "Treaty With the Creeks, 1790",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 13371,
+      "text_sha256": "19e4825b8f551fbe5b84c9b3ce8f3f0aa39a45e8d94adc09f52c254c3f583c2c",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-048-AMERICAN-INDIAN-TREATIES",
+      "body_id": "LIB-COLONIAL-AUTHORITY-048-TREATY-CHEROKEE-1791-KAPPLER-AVALON",
+      "work_title": "Treaty With the Cherokee, 1791",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 15149,
+      "text_sha256": "7e8c99cd170f9bf4e8fd39360c2f6990d934e8cbeb6d4885c5ccd74f6f215563",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-048-AMERICAN-INDIAN-TREATIES",
+      "body_id": "LIB-COLONIAL-AUTHORITY-048-TREATY-CHEROKEE-1794-KAPPLER-AVALON",
+      "work_title": "Treaty With the Cherokee, 1794",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 5633,
+      "text_sha256": "8bd79ba38a8f1de9e5e59f6dc6fa0570e12c8bc6ae974bca31ba2317a60572f5",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-048-AMERICAN-INDIAN-TREATIES",
+      "body_id": "LIB-COLONIAL-AUTHORITY-048-TREATY-ONEIDA-1794-KAPPLER-AVALON",
+      "work_title": "Treaty With the Oneida, etc., 1794",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 6283,
+      "text_sha256": "3e8ec1bbc2a7195659666851e142e3a7a490976da973dbd7027522c45a6b4015",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-048-AMERICAN-INDIAN-TREATIES",
+      "body_id": "LIB-COLONIAL-AUTHORITY-048-TREATY-CHICKASAW-1805-KAPPLER-AVALON",
+      "work_title": "Chickasaw Treaty, 1805",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 6837,
+      "text_sha256": "8cf3043f3d4ccd12be2119979aebddcd0c05ee78593d893452c9e019b2eae3d2",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-052-LEYES-NUEVAS",
+      "body_id": "LIB-COLONIAL-AUTHORITY-052-LEYES-NUEVAS-1542-1923-IA-OCR",
+      "work_title": "Leyes y ordenanzas nuevamente hechas para la gobernacion de las Indias, 1542-1543",
+      "language": "spanish",
+      "status": "available",
+      "text_bytes": 137782,
+      "text_sha256": "2958b39c3f87eb07314902b788851d2e611f9ef2d9f0ddab43e5552c3265f7b3",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-072-AIN-I-AKBARI",
+      "body_id": "LIB-COLONIAL-AUTHORITY-072-AIN-I-AKBARI-VOL1-BLOCHMANN-IA",
+      "work_title": "The Ain i Akbari, Volume I",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 2363672,
+      "text_sha256": "c9b77f74b8fe809772f17d1adc83cffaaf8e8f2bd8cc72db0f7899777d5bda42",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-072-AIN-I-AKBARI",
+      "body_id": "LIB-COLONIAL-AUTHORITY-072-AIN-I-AKBARI-VOL2-JARRETT-IA",
+      "work_title": "The Ain i Akbari, Volume II",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 1624709,
+      "text_sha256": "ad45fc2331ee2d4c6f496f0b8bede000f685915861251af84775d1403e99b1dc",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-072-AIN-I-AKBARI",
+      "body_id": "LIB-COLONIAL-AUTHORITY-072-AIN-I-AKBARI-VOL3-IA",
+      "work_title": "The Ain i Akbari, Volume III",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 1143360,
+      "text_sha256": "d26785bdcecbc524126532be16c81e326ebb203d5532ba2a5543a19be2bffd20",
+      "license_status": "public-domain",
+      "coverage_status": "partial-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-003-BUNYAN",
+      "body_id": "LIB-COLONIAL-AUTHORITY-003-BUNYAN-PILGRIMS-PROGRESS-PG131",
+      "work_title": "The Pilgrim's Progress",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 305241,
+      "text_sha256": "8d67af06f71bc97d6c1c78bd3079b063e88867e70235a853794ed38aab91e656",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-004-BEHN-OROONOKO",
+      "body_id": "LIB-COLONIAL-AUTHORITY-004-BEHN-OROONOKO-UVA-1688",
+      "work_title": "Oroonoko, or, The Royal Slave: A True History",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 157190,
+      "text_sha256": "c26bfff4fa0293d9381cc5d90cdcc1a2cf1eb4d2d4316f3036b3bafbd230e0cf",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-005-DEFOE-ROBINSON-CRUSOE",
+      "body_id": "LIB-COLONIAL-AUTHORITY-005-DEFOE-ROBINSON-CRUSOE-PG70841",
+      "work_title": "Robinson Crusoe",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 583167,
+      "text_sha256": "e57635083bd1cf4f8860bebff77192313b3c7579f286e8a2ec534856f04b6512",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-005-DEFOE-ROBINSON-CRUSOE",
+      "body_id": "LIB-COLONIAL-AUTHORITY-005-DEFOE-MOLL-FLANDERS-PG370",
+      "work_title": "The Fortunes and Misfortunes of the Famous Moll Flanders",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 756008,
+      "text_sha256": "a9d8753da538b86863768b8b3fa4d7cba27bc8c4aed96ec745313ef97afb0ee4",
+      "license_status": "public-domain",
+      "coverage_status": "partial-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-005-DEFOE-ROBINSON-CRUSOE",
+      "body_id": "LIB-COLONIAL-AUTHORITY-005-DEFOE-JOURNAL-PLAGUE-YEAR-PG376",
+      "work_title": "A Journal of the Plague Year",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 612482,
+      "text_sha256": "9144b9b9344b776f066a59ea2046e2620a6ea2cf40550079cc3d9f4bd514bce2",
+      "license_status": "public-domain",
+      "coverage_status": "partial-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-006-SWIFT-GULLIVER",
+      "body_id": "LIB-COLONIAL-AUTHORITY-006-SWIFT-GULLIVERS-TRAVELS-PG829",
+      "work_title": "Gulliver's Travels",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 584471,
+      "text_sha256": "4b6e5d5cc29fdf742b596e050062f9a4e452de4e99c7aefcf11470f6d4c7ab7d",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-006-SWIFT-GULLIVER",
+      "body_id": "LIB-COLONIAL-AUTHORITY-006-SWIFT-TALE-TUB-PG4737",
+      "work_title": "A Tale of a Tub",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 297339,
+      "text_sha256": "716a21302f6ba39123c9c6ca86563e026724a7b201f2688f23d128eb5190f676",
+      "license_status": "public-domain",
+      "coverage_status": "partial-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-006-SWIFT-GULLIVER",
+      "body_id": "LIB-COLONIAL-AUTHORITY-006-SWIFT-BATTLE-BOOKS-PG623",
+      "work_title": "The Battle of the Books, and other Short Pieces",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 257883,
+      "text_sha256": "280e35bc15ba17d221d5bb75b61b9042c2e30f7d06349e143ebe6b65bf248ba8",
+      "license_status": "public-domain",
+      "coverage_status": "partial-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-007-JOHNSON",
+      "body_id": "LIB-COLONIAL-AUTHORITY-007-JOHNSON-RASSELAS-PG652",
+      "work_title": "Rasselas",
+      "language": "",
+      "status": "available",
+      "text_bytes": 222163,
+      "text_sha256": "98315d0d1917aaaa1e51282c3535d34136acc0b927de6d916874105f0ca0b238",
+      "license_status": "public-domain",
+      "coverage_status": "unknown"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-008-BLAKE",
+      "body_id": "LIB-COLONIAL-AUTHORITY-008-BLAKE-SONGS-PG1934",
+      "work_title": "Songs of Innocence and of Experience",
+      "language": "",
+      "status": "available",
+      "text_bytes": 31374,
+      "text_sha256": "274ab67f9dff1a8378bad0553aad106d7da4fc007faab4211442d31f49173aa3",
+      "license_status": "public-domain",
+      "coverage_status": "unknown"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-008-BLAKE",
+      "body_id": "LIB-COLONIAL-AUTHORITY-008-BLAKE-MARRIAGE-HEAVEN-HELL-PG45315",
+      "work_title": "The Marriage of Heaven and Hell",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 48172,
+      "text_sha256": "3803ccbd811fe1882a11db4777a8d999451670315f4ea260c8d05da9d239456a",
+      "license_status": "public-domain",
+      "coverage_status": "partial-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-011-WHEATLEY",
+      "body_id": "LIB-COLONIAL-AUTHORITY-011-WHEATLEY-POEMS-PG409",
+      "work_title": "Poems on Various Subjects, Religious and Moral",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 89019,
+      "text_sha256": "22ef78ed04715ee8ace99e6fcf9b35b9f04d0aca72fb2fd307aa6cccfe18ec3a",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-012-EQUIANO",
+      "body_id": "LIB-COLONIAL-AUTHORITY-012-EQUIANO-NARRATIVE-PG15399",
+      "work_title": "The Interesting Narrative of the Life of Olaudah Equiano",
+      "language": "",
+      "status": "available",
+      "text_bytes": 459118,
+      "text_sha256": "58a78b0c04a614df94f128712b98850ad94824c893a152a2f6bf19a2316755c7",
+      "license_status": "public-domain",
+      "coverage_status": "unknown"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-013-CUGOANO",
+      "body_id": "LIB-COLONIAL-AUTHORITY-013-CUGOANO-THOUGHTS-SENTIMENTS-ECCO-TCP-K046227",
+      "work_title": "Thoughts and Sentiments on the Evil of Slavery",
+      "language": "",
+      "status": "available",
+      "text_bytes": 251405,
+      "text_sha256": "9d773db22338901a9f4f7ea31ae100041d41ed56eb71e977a162a55f390d417d",
+      "license_status": "public-domain",
+      "coverage_status": "unknown"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-014-CERVANTES-DON-QUIXOTE",
+      "body_id": "LIB-COLONIAL-AUTHORITY-014-CERVANTES-DON-QUIXOTE-PG996",
+      "work_title": "The History of Don Quixote",
+      "language": "",
+      "status": "available",
+      "text_bytes": 2371889,
+      "text_sha256": "1bbdfa1e71e4fc6941eef048edfc315557b8808bb68ed9142f594609385654c5",
+      "license_status": "public-domain",
+      "coverage_status": "unknown"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-014-CERVANTES-DON-QUIXOTE",
+      "body_id": "LIB-COLONIAL-AUTHORITY-014-CERVANTES-EXEMPLARY-NOVELS-PG14420",
+      "work_title": "The Exemplary Novels of Cervantes",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 1070279,
+      "text_sha256": "c851c71c5d8b254c80f75c6104e72b9f9c5c507bf8bb1a02577ee797ca6607c1",
+      "license_status": "public-domain",
+      "coverage_status": "partial-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-015-CAMOES-LUSIADS",
+      "body_id": "LIB-COLONIAL-AUTHORITY-015-CAMOES-LUSIADS-PG32528",
+      "work_title": "The Lusiad; or The Discovery of India",
+      "language": "",
+      "status": "available",
+      "text_bytes": 1025564,
+      "text_sha256": "813c2e957abb50b50d92cdd3ead44c6594c249d0e192075bbc8ae63959685d0d",
+      "license_status": "public-domain",
+      "coverage_status": "unknown"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-016-SOR-JUANA",
+      "body_id": "LIB-COLONIAL-AUTHORITY-016-SOR-JUANA-OBRAS-SELECTAS-PG74087",
+      "work_title": "Obras selectas de la celebre monja de Mejico, sor Juana Ines de la Cruz",
+      "language": "spanish",
+      "status": "available",
+      "text_bytes": 507245,
+      "text_sha256": "7126a6091af1dc4ed260ea26bb069b8e1cd3adc17523a641dc376336f1fe99d0",
+      "license_status": "public-domain",
+      "coverage_status": "partial-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-017-INCA-GARCILASO",
+      "body_id": "LIB-COLONIAL-AUTHORITY-017-COMENTARIOS-REALES-TOMO1-SELECTED-ES-WIKISOURCE",
+      "work_title": "Comentarios Reales Tomo I selected chapters",
+      "language": "spanish",
+      "status": "available",
+      "text_bytes": 45656,
+      "text_sha256": "46b3fb9f78437919158eba189de3ed8ac25da2d195d536791600b243da94791f",
+      "license_status": "public-domain",
+      "coverage_status": "partial-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-018-CALDERON",
+      "body_id": "LIB-COLONIAL-AUTHORITY-018-CALDERON-LIFE-IS-A-DREAM-PG2587",
+      "work_title": "Life Is a Dream",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 135570,
+      "text_sha256": "a07d9c4a6da944dca21c8ef920fa0bc93cbf2961b37cc0e64cb283efa92133b4",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-020-MOLIERE",
+      "body_id": "LIB-COLONIAL-AUTHORITY-020-MOLIERE-OEUVRES-T1-PG40086",
+      "work_title": "Moliere - Oeuvres completes, Tome 1",
+      "language": "french",
+      "status": "available",
+      "text_bytes": 608425,
+      "text_sha256": "ce368561da9ee0aa0943074ec90d2cb27935fe0f31bcb9f98bc15743f5e2192a",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-020-MOLIERE",
+      "body_id": "LIB-COLONIAL-AUTHORITY-020-MOLIERE-OEUVRES-T2-PG43535",
+      "work_title": "Moliere - Oeuvres completes, Tome 2",
+      "language": "french",
+      "status": "available",
+      "text_bytes": 559659,
+      "text_sha256": "1742c269def694163069517229ce5b85bc8eabb24e9da8f91e1414f858ec4159",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-020-MOLIERE",
+      "body_id": "LIB-COLONIAL-AUTHORITY-020-MOLIERE-OEUVRES-T3-PG50173",
+      "work_title": "Moliere - Oeuvres completes, Tome 3",
+      "language": "french",
+      "status": "available",
+      "text_bytes": 632860,
+      "text_sha256": "217ccc3909c5dbea783c87ae21e4ff76cbcb2a546081a7da38a2afd37f164f8c",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-020-MOLIERE",
+      "body_id": "LIB-COLONIAL-AUTHORITY-020-MOLIERE-OEUVRES-T4-PG57270",
+      "work_title": "Moliere - Oeuvres completes, Tome 4",
+      "language": "french",
+      "status": "available",
+      "text_bytes": 558834,
+      "text_sha256": "bfb1f867c408df98ec35aed9452686406109373b7112ddbce6775234c3fcf3c8",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-021-RACINE",
+      "body_id": "LIB-COLONIAL-AUTHORITY-021-RACINE-PHAEDRA-PG1977",
+      "work_title": "Phaedra",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 120276,
+      "text_sha256": "2f210ff0c5322ddca2ca571ed407102f27a35cbc82e759065f7e25086b3e5f6d",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-021-RACINE",
+      "body_id": "LIB-COLONIAL-AUTHORITY-021-RACINE-ATHALIAH-PG21967",
+      "work_title": "Athaliah: A Tragedy",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 127080,
+      "text_sha256": "c10744f61314a38f2ac7c90f31380ea3debbcbc10e16b422df71b360f658e517",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-022-LA-FONTAINE",
+      "body_id": "LIB-COLONIAL-AUTHORITY-022-LA-FONTAINE-FABLES-PG56327",
+      "work_title": "Fables de La Fontaine",
+      "language": "french",
+      "status": "available",
+      "text_bytes": 559548,
+      "text_sha256": "a7f3a493ec2220760c1eedff981e125307922e1dfdf896e1e0fbe70a0f173db4",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-024-ROUSSEAU",
+      "body_id": "LIB-COLONIAL-AUTHORITY-024-ROUSSEAU-SOCIAL-CONTRACT-PG46333",
+      "work_title": "The Social Contract and Discourses",
+      "language": "",
+      "status": "available",
+      "text_bytes": 709592,
+      "text_sha256": "13fc0b936e892c4c82c7af88a3281b4758674617feece619638ea23b5d8328a0",
+      "license_status": "public-domain",
+      "coverage_status": "unknown"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-024-ROUSSEAU",
+      "body_id": "LIB-COLONIAL-AUTHORITY-024-ROUSSEAU-CONFESSIONS-PG3913",
+      "work_title": "The Confessions of Jean Jacques Rousseau, Complete",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 1611082,
+      "text_sha256": "0851dd27f8a5f23e18633fc5cc090f2a17ac1e81e3d70f210d6dc084741e1031",
+      "license_status": "public-domain",
+      "coverage_status": "partial-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-025-GOETHE",
+      "body_id": "LIB-COLONIAL-AUTHORITY-025-GOETHE-FAUST-PART1-PG3023",
+      "work_title": "Faust - Part 1",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 226324,
+      "text_sha256": "c2d31eb6ffc93f389feebe4434a5dfcbc8b03e33f15e54f56c58173a457336a1",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-025-GOETHE",
+      "body_id": "LIB-COLONIAL-AUTHORITY-025-GOETHE-SORROWS-WERTHER-PG2527",
+      "work_title": "The Sorrows of Young Werther",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 264413,
+      "text_sha256": "1a04b56106bc0ea50fb55795a1911b18eef34fe829c35bb60a0bb04ec0892213",
+      "license_status": "public-domain",
+      "coverage_status": "partial-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-026-SCHILLER",
+      "body_id": "LIB-COLONIAL-AUTHORITY-026-SCHILLER-WORKS-PG6800",
+      "work_title": "The Project Gutenberg Works of Frederick Schiller in English",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 5602288,
+      "text_sha256": "d2879691b7bcf0640515aacbdbb5aeabb509b90d926171929cdb383ca639cdb2",
+      "license_status": "public-domain",
+      "coverage_status": "partial-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-026-SCHILLER",
+      "body_id": "LIB-COLONIAL-AUTHORITY-026-SCHILLER-WILHELM-TELL-PG6788",
+      "work_title": "Wilhelm Tell",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 219242,
+      "text_sha256": "707eeb2e4bdc0d22591e50fcd303d87b06756ce8d112c25430f05eceb050414e",
+      "license_status": "public-domain",
+      "coverage_status": "partial-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-026-SCHILLER",
+      "body_id": "LIB-COLONIAL-AUTHORITY-026-SCHILLER-ROBBERS-PG6782",
+      "work_title": "The Robbers",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 316985,
+      "text_sha256": "aaf6cf11e6bacbb10309cb9905e19e1fd7b1a7b8953eb07d9fe2f027fe8bce95",
+      "license_status": "public-domain",
+      "coverage_status": "partial-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-027-BASHO",
+      "body_id": "LIB-COLONIAL-AUTHORITY-027-BASHO-OKU-NO-HOSOMICHI-JA-WIKISOURCE",
+      "work_title": "Oku no Hosomichi",
+      "language": "japanese",
+      "status": "available",
+      "text_bytes": 36143,
+      "text_sha256": "d2fbdae12e873020827072b8dc18b5480c2c2054d7bcabe4b6b39086e43dcbb4",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-029-CHIKAMATSU",
+      "body_id": "LIB-COLONIAL-AUTHORITY-029-BATTLES-OF-KOKUSENYA-EN-WIKISOURCE",
+      "work_title": "The Battles of Kokusenya",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 46477,
+      "text_sha256": "5cca4ca5c7121dbebd2240c93b3323c5bfb04c0f4a47bdc2723d5e2ab582ce4c",
+      "license_status": "public-domain",
+      "coverage_status": "partial-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-032-CAO-XUEQIN",
+      "body_id": "LIB-COLONIAL-AUTHORITY-032-CAO-XUEQIN-HUNG-LOU-MENG-BOOK1-JOLY-PG9603",
+      "work_title": "Hung Lou Meng, or, The Dream of the Red Chamber, Book I",
+      "language": "English",
+      "status": "available",
+      "text_bytes": 1065939,
+      "text_sha256": "6b5e6a539ea6c1a9c4712ad2a1ab307d55006d6ca770b6f47bdc7a729ec0489b",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-032-CAO-XUEQIN",
+      "body_id": "LIB-COLONIAL-AUTHORITY-032-CAO-XUEQIN-HUNG-LOU-MENG-BOOK2-JOLY-PG9604",
+      "work_title": "Hung Lou Meng, or, The Dream of the Red Chamber, Book II",
+      "language": "English",
+      "status": "available",
+      "text_bytes": 1486905,
+      "text_sha256": "40e6cb8aa64b1d3e7d6efe40c7dde1f1d9ecb15ed2c5c212ed6a0238fdee020f",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-033-PU-SONGLING",
+      "body_id": "LIB-COLONIAL-AUTHORITY-033-PU-SONGLING-STRANGE-STORIES-PG43627",
+      "work_title": "Strange Stories from a Chinese Studio, volume 1",
+      "language": "",
+      "status": "available",
+      "text_bytes": 687556,
+      "text_sha256": "78025708bedf3e6285d6b61a5c030397db80553686864d0065227cfd711e21ac",
+      "license_status": "public-domain",
+      "coverage_status": "unknown"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-033-PU-SONGLING",
+      "body_id": "LIB-COLONIAL-AUTHORITY-033-PU-SONGLING-STRANGE-STORIES-PG43629",
+      "work_title": "Strange Stories from a Chinese Studio, volume 2",
+      "language": "",
+      "status": "available",
+      "text_bytes": 1260826,
+      "text_sha256": "5f936747304f63b2b51bacf2cef8d39008f0b067caefb8b43b3fbd6c9b57dd80",
+      "license_status": "public-domain",
+      "coverage_status": "unknown"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-036-HAITIAN-REVOLUTIONARY-DECLARATIONS",
+      "body_id": "LIB-COLONIAL-AUTHORITY-036-HAITIAN-INDEPENDENCE-ACTE-FR-WIKISOURCE-1804",
+      "work_title": "Acte de l'Independance de la Republique d'Haiti",
+      "language": "",
+      "status": "available",
+      "text_bytes": 10833,
+      "text_sha256": "bfdd9f0e96ef05986584ff7ce38c5e58e32cd3f686832e0e98cb70bfbdb5653d",
+      "license_status": "public-domain",
+      "coverage_status": "unknown"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-057-QING-IMPERIAL-EDICTS",
+      "body_id": "LIB-COLONIAL-AUTHORITY-057-KANGXI-SACRED-EDICT-MILNE-1817-IA",
+      "work_title": "The Sacred Edict",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 430993,
+      "text_sha256": "52f319d7814ceeca66f3b911ec084e7d5ef81203c8c052b01f1d8d9c0bf3efd4",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-057-QING-IMPERIAL-EDICTS",
+      "body_id": "LIB-COLONIAL-AUTHORITY-057-DA-QING-LU-LI-ZH-WIKISOURCE",
+      "work_title": "Da Qing Lu Li / Great Qing Code selected legal corpus",
+      "language": "chinese",
+      "status": "available",
+      "text_bytes": 917871,
+      "text_sha256": "004dfac47190fed00fae5e3ec5e459a91fd9708ae692ce00a1f5b044a807e0e3",
+      "license_status": "public-domain",
+      "coverage_status": "partial-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-058-KANGXI-EDICTS",
+      "body_id": "LIB-COLONIAL-AUTHORITY-058-KANGXI-SACRED-EDICT-MILNE-1817-IA",
+      "work_title": "The Sacred Edict",
+      "language": "",
+      "status": "available",
+      "text_bytes": 367211,
+      "text_sha256": "cb114a1855484e1108e7890166bacd6ec0978bb746df1329b144a89db98009a0",
+      "license_status": "public-domain",
+      "coverage_status": "unknown"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-059-QIANLONG-MACARTNEY",
+      "body_id": "LIB-COLONIAL-AUTHORITY-059-ANDERSON-BRITISH-EMBASSY-CHINA-1795-IA",
+      "work_title": "A narrative of the British embassy to China in the years 1792, 1793, and 1794",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 709787,
+      "text_sha256": "0d4b71d2f245b8c4ba3b5ccf12faff5bfce213d6d25c8cf4b3ef99e1a955d986",
+      "license_status": "public-domain",
+      "coverage_status": "partial-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-060-QINGSHIGAO",
+      "body_id": "LIB-COLONIAL-AUTHORITY-060-QINGSHIGAO-SELECTED-ANNALS-ZH-WIKISOURCE",
+      "work_title": "Qing Shigao selected annals",
+      "language": "chinese",
+      "status": "available",
+      "text_bytes": 227785,
+      "text_sha256": "b1c28fe62cc6419e38b58454eee865c091ade159c0f28d92ab6543c885c82f87",
+      "license_status": "public-domain",
+      "coverage_status": "partial-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-061-TOKUGAWA-EDICTS",
+      "body_id": "LIB-COLONIAL-AUTHORITY-061-TOKUGAWA-EDICTS-BUKE-SHOHATTO-GENNA-JA",
+      "work_title": "Buke Shohatto (Genna令 / Laws for the Military Houses, 1615)",
+      "language": "ja",
+      "status": "available",
+      "text_bytes": 3750,
+      "text_sha256": "055465da78063ee6a0ffa87d13fba2e07e136973ba160c7f6a61582815d132c3",
+      "license_status": "public-domain",
+      "coverage_status": "partial-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-070-OTTOMAN-KANUN",
+      "body_id": "LIB-COLONIAL-AUTHORITY-070-FATIH-KANUNNAMESI-TR-WIKISOURCE",
+      "work_title": "Fatih Kanunnamesi",
+      "language": "ottoman-turkish",
+      "status": "available",
+      "text_bytes": 3505,
+      "text_sha256": "c1160178072442b75e1bed45e9fa6d1935ab07fd24e66ac8f557bf45e1497d28",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-037-LOCKE",
+      "body_id": "LIB-COLONIAL-AUTHORITY-037-LOCKE-SECOND-TREATISE-PG7370",
+      "work_title": "Second Treatise of Government",
+      "language": "",
+      "status": "available",
+      "text_bytes": 313988,
+      "text_sha256": "33bfd1ea6bec42cca8783107a601cda0169c27ae801f32bb5679d9153455f54e",
+      "license_status": "public-domain",
+      "coverage_status": "unknown"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-037-LOCKE",
+      "body_id": "LIB-COLONIAL-AUTHORITY-037-LOCKE-HUMANE-UNDERSTANDING-VOL1-PG10615",
+      "work_title": "An Essay Concerning Humane Understanding, Volume 1",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 884938,
+      "text_sha256": "9255a19e1a724a06fb9a79f5d420ca1c6ced298a13855469226602d32896e01f",
+      "license_status": "public-domain",
+      "coverage_status": "partial-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-039-EIC-CHARTERS",
+      "body_id": "LIB-COLONIAL-AUTHORITY-039-EIC-CHARTERS-1601-1774-IA",
+      "work_title": "Charters Granted to the East-India Company, from 1601",
+      "language": "",
+      "status": "available",
+      "text_bytes": 1032224,
+      "text_sha256": "b9d9d7155d01e35c8975ac49ac54a9f023485b07f5cf36b5fedc1997946d6c43",
+      "license_status": "public-domain",
+      "coverage_status": "unknown"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-040-CLIVE-PLASSEY",
+      "body_id": "LIB-COLONIAL-AUTHORITY-040-MALCOLM-LIFE-CLIVE-VOL1-PG",
+      "work_title": "The Life of Robert, Lord Clive, Vol. I",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 589973,
+      "text_sha256": "6596c92e07afd676224e5847b3de0ab8b8da4d8a38ac96f4d6a9b1602df6ae41",
+      "license_status": "public-domain",
+      "coverage_status": "partial-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-041-BENGAL-REVENUE-SETTLEMENT",
+      "body_id": "LIB-COLONIAL-AUTHORITY-041-ZEMINDARY-SETTLEMENT-BENGAL-VOL1-IA",
+      "work_title": "The Zemindary Settlement of Bengal, Volume I",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 3008811,
+      "text_sha256": "dc955a09e60a19b3e9d0046faa5c04236a26ba990a9e6fe1961d9c661dd5341d",
+      "license_status": "public-domain",
+      "coverage_status": "partial-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-041-BENGAL-REVENUE-SETTLEMENT",
+      "body_id": "LIB-COLONIAL-AUTHORITY-041-ZEMINDARY-SETTLEMENT-BENGAL-VOL2-IA",
+      "work_title": "The Zemindary Settlement of Bengal, Volume II",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 1736586,
+      "text_sha256": "431f4b907cb5df0c54527e0b615450ab347d9010936fa8e4596bcf202054465f",
+      "license_status": "public-domain",
+      "coverage_status": "partial-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-042-BRITISH-SLAVERY-LAW",
+      "body_id": "LIB-COLONIAL-AUTHORITY-042-SLAVE-TRADE-ACT-1807-WS",
+      "work_title": "Slave Trade Act, 1807",
+      "language": "English",
+      "status": "available",
+      "text_bytes": 32000,
+      "text_sha256": "5c3d04c46737ce2053806989adc482ae0eee336221403a23a9b3b49f1c36b6f0",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-043-WILBERFORCE",
+      "body_id": "LIB-COLONIAL-AUTHORITY-043-WILBERFORCE-LETTER-ABOLITION-PG63974",
+      "work_title": "A Letter on the Abolition of the Slave Trade",
+      "language": "English",
+      "status": "available",
+      "text_bytes": 543303,
+      "text_sha256": "2e0bc042c8f8876b41b5af613206e75327208b15ea393eeb37b3e1a9ace70b35",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-046-FEDERALIST-PAPERS",
+      "body_id": "LIB-COLONIAL-AUTHORITY-046-FEDERALIST-PAPERS-PG18",
+      "work_title": "The Federalist Papers",
+      "language": "",
+      "status": "available",
+      "text_bytes": 1193613,
+      "text_sha256": "712abd0a5fc265ad700b9250ffd98b375de349171ebe1e45d4eaa6335523459d",
+      "license_status": "public-domain",
+      "coverage_status": "unknown"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-047-TREATY-PARIS-AMERICAN-INDEPENDENCE",
+      "body_id": "LIB-COLONIAL-AUTHORITY-047-TREATY-PARIS-1783-AVALON",
+      "work_title": "Definitive Treaty of Peace, Paris, 1783",
+      "language": "English",
+      "status": "available",
+      "text_bytes": 12231,
+      "text_sha256": "b045939074b678f2118c93bf56fa5b77577208cb756bd52f9ec08a08c9fa385f",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-049-GB-INDIAN-DEPARTMENT-PAPERS",
+      "body_id": "LIB-COLONIAL-AUTHORITY-049-FORT-HARMAR-TREATY-1789-AVALON",
+      "work_title": "Treaty With the Wyandot, etc., 1789",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 18970,
+      "text_sha256": "cf1f285bfd5b072f652f1575e2c08d9d1221e7a30b3f46988a01c392e7bfcaac",
+      "license_status": "public-domain",
+      "coverage_status": "selected-passages"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-050-MEHERRIN-PETITION",
+      "body_id": "LIB-COLONIAL-AUTHORITY-050-MEHERRIN-PETITION-1723-ACCESS-COPY",
+      "work_title": "Petition of the Meherrin Indians to the Governor of Virginia, Sept. 9, 1723",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 55905,
+      "text_sha256": "57ae2e3d4b0a28d8144056eba626867f7b896a88701e1368c69803b75b69c084",
+      "license_status": "public-domain",
+      "coverage_status": "selected-passages"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-051-LAS-CASAS",
+      "body_id": "LIB-COLONIAL-AUTHORITY-051-LAS-CASAS-DESTRUCTION-PG20321",
+      "work_title": "A Brief Account of the Destruction of the Indies",
+      "language": "",
+      "status": "available",
+      "text_bytes": 184435,
+      "text_sha256": "17645072002b6ccd854878bd510fae0fec8eb6d17e6da01305cfe162b8ab9fb9",
+      "license_status": "public-domain",
+      "coverage_status": "unknown"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-053-PORTUGUESE-GOA-ESTADO-INDIA",
+      "body_id": "LIB-COLONIAL-AUTHORITY-053-DOCUMENTOS-REMETTIDOS-INDIA-TOMO1-MACAUDATA",
+      "work_title": "Documentos remettidos da India ou Livros das Monções, Tomo I",
+      "language": "Portuguese",
+      "status": "available",
+      "text_bytes": 1124241,
+      "text_sha256": "c231d628f7ff4768223dd6a00fd25b4ad5f8a7faf2386116e210b509ea241e35",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-054-JESUIT-MISSION-LETTERS",
+      "body_id": "LIB-COLONIAL-AUTHORITY-054-LETTRES-EDIFIANTES-RECUEIL-1713-IA",
+      "work_title": "Lettres edifiantes et curieuses, recueil",
+      "language": "french",
+      "status": "available",
+      "text_bytes": 438598,
+      "text_sha256": "e97fe4a702bed93e74cf564047775067367fd94365ffde2340b63b6e67a8365e",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-054-JESUIT-MISSION-LETTERS",
+      "body_id": "LIB-COLONIAL-AUTHORITY-054-LETTRES-EDIFIANTES-TOME6-1819-IA",
+      "work_title": "Lettres edifiantes et curieuses, Tome VI, Memoires des Indes",
+      "language": "french",
+      "status": "available",
+      "text_bytes": 1148141,
+      "text_sha256": "8fc33ef10ab2d4e2e06fc6a0727bc79e65ad3a8b872c9f5cbdcb34dec01756ee",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-054-JESUIT-MISSION-LETTERS",
+      "body_id": "LIB-COLONIAL-AUTHORITY-054-LETTRES-EDIFIANTES-LETTRESDIFIANTES01JESU-0-IA",
+      "work_title": "Lettres edifiantes et curieuses mission-letter volume: lettresdifiantes01jesu_0",
+      "language": "french",
+      "status": "available",
+      "text_bytes": 667139,
+      "text_sha256": "e2209e0b887b59be1dbc7c937f7afe0211d3740c748b803d6ba44b364b280fcb",
+      "license_status": "public-domain",
+      "coverage_status": "partial-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-054-JESUIT-MISSION-LETTERS",
+      "body_id": "LIB-COLONIAL-AUTHORITY-054-LETTRES-EDIFIANTES-LETTRESEDIFIANTE03TOUL-IA",
+      "work_title": "Lettres edifiantes et curieuses mission-letter volume: lettresedifiante03toul",
+      "language": "french",
+      "status": "available",
+      "text_bytes": 695237,
+      "text_sha256": "1adaa7cc0044d30065c60660b402089a180a5a2a2cca35c764c880dbc69c1d93",
+      "license_status": "public-domain",
+      "coverage_status": "partial-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-054-JESUIT-MISSION-LETTERS",
+      "body_id": "LIB-COLONIAL-AUTHORITY-054-LETTRES-EDIFIANTES-LETTRESDIFIANTES05JESU-0-IA",
+      "work_title": "Lettres edifiantes et curieuses mission-letter volume: lettresdifiantes05jesu_0",
+      "language": "french",
+      "status": "available",
+      "text_bytes": 776293,
+      "text_sha256": "92812d9b2dc47b1f6b925fcc2e0b9e28d28f6d2d20e1f6e61d13b63a24ce76fa",
+      "license_status": "public-domain",
+      "coverage_status": "partial-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-054-JESUIT-MISSION-LETTERS",
+      "body_id": "LIB-COLONIAL-AUTHORITY-054-LETTRES-EDIFIANTES-LETTRESDIFIANTES07JESU-0-IA",
+      "work_title": "Lettres edifiantes et curieuses mission-letter volume: lettresdifiantes07jesu_0",
+      "language": "french",
+      "status": "available",
+      "text_bytes": 662205,
+      "text_sha256": "ec89816bcdaae0ebcdc5d680a2dc11b5fdc3c17693728d902363ef35897e5269",
+      "license_status": "public-domain",
+      "coverage_status": "partial-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-054-JESUIT-MISSION-LETTERS",
+      "body_id": "LIB-COLONIAL-AUTHORITY-054-LETTRES-EDIFIANTES-LETTRESDIFIANTE14JESUGOOG-IA",
+      "work_title": "Lettres edifiantes et curieuses mission-letter volume: lettresdifiante14jesugoog",
+      "language": "french",
+      "status": "available",
+      "text_bytes": 541296,
+      "text_sha256": "2dc36c81bfb1ca3df186a253551fcb8b306f758e05b695f95837933fef9b37d5",
+      "license_status": "public-domain",
+      "coverage_status": "partial-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-054-JESUIT-MISSION-LETTERS",
+      "body_id": "LIB-COLONIAL-AUTHORITY-054-LETTRES-EDIFIANTES-LETTRESEDIFIANTE16JESU-IA",
+      "work_title": "Lettres edifiantes et curieuses mission-letter volume: lettresedifiante16jesu",
+      "language": "french",
+      "status": "available",
+      "text_bytes": 446066,
+      "text_sha256": "c93b6473c478ed3b971378b027a2438a28cdc864e4be10f59f5f2d829df611da",
+      "license_status": "public-domain",
+      "coverage_status": "partial-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-054-JESUIT-MISSION-LETTERS",
+      "body_id": "LIB-COLONIAL-AUTHORITY-054-LETTRES-EDIFIANTES-LETTRESDIFIANTES16JESU-0-IA",
+      "work_title": "Lettres edifiantes et curieuses mission-letter volume: lettresdifiantes16jesu_0",
+      "language": "french",
+      "status": "available",
+      "text_bytes": 678070,
+      "text_sha256": "48c0441d24a348ea9e72a8fde3bc0084d232a2a3bbcd7d4d3899268b5a216345",
+      "license_status": "public-domain",
+      "coverage_status": "partial-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-054-JESUIT-MISSION-LETTERS",
+      "body_id": "LIB-COLONIAL-AUTHORITY-054-LETTRES-EDIFIANTES-LETTRESEDIFIANTE17JESU-IA",
+      "work_title": "Lettres edifiantes et curieuses mission-letter volume: lettresedifiante17jesu",
+      "language": "french",
+      "status": "available",
+      "text_bytes": 501543,
+      "text_sha256": "333d474c9f89cb428404578098ab6d1ea784218ef94555ef552fa158d9949d33",
+      "license_status": "public-domain",
+      "coverage_status": "partial-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-054-JESUIT-MISSION-LETTERS",
+      "body_id": "LIB-COLONIAL-AUTHORITY-054-LETTRES-EDIFIANTES-LETTRESDIFIANTES20JESU-IA",
+      "work_title": "Lettres edifiantes et curieuses mission-letter volume: lettresdifiantes20jesu",
+      "language": "french",
+      "status": "available",
+      "text_bytes": 670279,
+      "text_sha256": "c1b9edafff8dbfb863fba2a80a9019c3296a64da06e75807a3beef8960176744",
+      "license_status": "public-domain",
+      "coverage_status": "partial-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-054-JESUIT-MISSION-LETTERS",
+      "body_id": "LIB-COLONIAL-AUTHORITY-054-LETTRES-EDIFIANTES-LETTRESDIFIANTES23JESU-IA",
+      "work_title": "Lettres edifiantes et curieuses mission-letter volume: lettresdifiantes23jesu",
+      "language": "french",
+      "status": "available",
+      "text_bytes": 896192,
+      "text_sha256": "b567c615e1e8fcc3a056a46570260d0dc1afb454cbfc7c59a5c257b80d3f9f2c",
+      "license_status": "public-domain",
+      "coverage_status": "partial-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-054-JESUIT-MISSION-LETTERS",
+      "body_id": "LIB-COLONIAL-AUTHORITY-054-LETTRES-EDIFIANTES-LETTRESEDIFIANTE24JESU-IA",
+      "work_title": "Lettres edifiantes et curieuses mission-letter volume: lettresedifiante24jesu",
+      "language": "french",
+      "status": "available",
+      "text_bytes": 500226,
+      "text_sha256": "b520f1581dba459f7f493f72daeb16dd3d10b0dff5c3ec8b1e2b54377240f14c",
+      "license_status": "public-domain",
+      "coverage_status": "partial-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-054-JESUIT-MISSION-LETTERS",
+      "body_id": "LIB-COLONIAL-AUTHORITY-054-LETTRES-EDIFIANTES-LETTRESDIFIANTE33GOBIGOOG-IA",
+      "work_title": "Lettres edifiantes et curieuses mission-letter volume: lettresdifiante33gobigoog",
+      "language": "french",
+      "status": "available",
+      "text_bytes": 522736,
+      "text_sha256": "72ed1e64a0cbbb077dfcee6ee962c8b8cedb6583ede3e183683b2d6206afbce8",
+      "license_status": "public-domain",
+      "coverage_status": "partial-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-054-JESUIT-MISSION-LETTERS",
+      "body_id": "LIB-COLONIAL-AUTHORITY-054-LETTRES-EDIFIANTES-CIHM-50097-IA",
+      "work_title": "Lettres edifiantes et curieuses mission-letter volume: cihm_50097",
+      "language": "french",
+      "status": "available",
+      "text_bytes": 1166904,
+      "text_sha256": "a15a017ebaedf85a2d9c55bb10f5b36fc9c1c5996447018856be9f770f08db97",
+      "license_status": "public-domain",
+      "coverage_status": "partial-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-054-JESUIT-MISSION-LETTERS",
+      "body_id": "LIB-COLONIAL-AUTHORITY-054-LETTRES-EDIFIANTES-CIHM-50110-IA",
+      "work_title": "Lettres edifiantes et curieuses mission-letter volume: cihm_50110",
+      "language": "french",
+      "status": "available",
+      "text_bytes": 1332617,
+      "text_sha256": "370ead8f48384760bc1bc7978fcf96db558a476b6f8b8995e759cfbfac67dfc8",
+      "license_status": "public-domain",
+      "coverage_status": "partial-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-055-MATTEO-RICCI",
+      "body_id": "LIB-COLONIAL-AUTHORITY-055-DE-CHRISTIANA-EXPEDITIONE-1615-IA",
+      "work_title": "De Christiana expeditione apud Sinas suscepta ab Societate Iesu",
+      "language": "latin",
+      "status": "available",
+      "text_bytes": 1420695,
+      "text_sha256": "38ed83d492c0745b8b10847955469515acde15218e1a1e1d7302ec9b5fb29c79",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-056-DU-HALDE-CHINA",
+      "body_id": "LIB-COLONIAL-AUTHORITY-056-DU-HALDE-CHINA-VOL1-1738-IA",
+      "work_title": "A Description of the Empire of China and Chinese-Tartary, Volume I",
+      "language": "",
+      "status": "available",
+      "text_bytes": 4116792,
+      "text_sha256": "96a4f6afc7e1118acec43ba09f61845a6ce79c211b7db17b3c95b46265d18e24",
+      "license_status": "public-domain",
+      "coverage_status": "unknown"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-056-DU-HALDE-CHINA",
+      "body_id": "LIB-COLONIAL-AUTHORITY-056-DU-HALDE-CHINA-VOL2-1741-IA",
+      "work_title": "A Description of the Empire of China and Chinese-Tartary, Volume II",
+      "language": "",
+      "status": "available",
+      "text_bytes": 2792734,
+      "text_sha256": "4ae13b44ccddc059766cce95ead88e7b1491383da82bdf0fca58aaf3a153444d",
+      "license_status": "public-domain",
+      "coverage_status": "unknown"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-056-DU-HALDE-CHINA",
+      "body_id": "LIB-COLONIAL-AUTHORITY-056-DU-HALDE-GENERAL-HISTORY-CHINA-VOL3-IA",
+      "work_title": "The General History of China, Volume III",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 1073953,
+      "text_sha256": "b328edf00ba4800e7784f1bfba85cdb42489cd5a0e38ca07fdf64a57b045ffae",
+      "license_status": "public-domain",
+      "coverage_status": "partial-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-056-DU-HALDE-CHINA",
+      "body_id": "LIB-COLONIAL-AUTHORITY-056-DU-HALDE-GENERAL-HISTORY-CHINA-VOL4-IA",
+      "work_title": "The General History of China, Volume IV",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 1069772,
+      "text_sha256": "22cc51a2d004bfe932396b6d940c96c0a7065bdef1e07dc8699be4a0b7a986d9",
+      "license_status": "public-domain",
+      "coverage_status": "partial-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-063-VOC-CHARTERS",
+      "body_id": "LIB-COLONIAL-AUTHORITY-063-VOC-CHARTER-NL-WS",
+      "work_title": "Octrooi van de VOC",
+      "language": "dutch",
+      "status": "available",
+      "text_bytes": 24529,
+      "text_sha256": "891183e04d1b4f2ed201d187b781622aea2add315a5279ccc275e502476ba93e",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-064-DUTCH-ACT-ABJURATION",
+      "body_id": "LIB-COLONIAL-AUTHORITY-064-DUTCH-ACT-ABJURATION-NL-WS",
+      "work_title": "Plakkaat van Verlatinghe",
+      "language": "dutch",
+      "status": "available",
+      "text_bytes": 34411,
+      "text_sha256": "0fd16e16b5ed9dde9963ba3f9aae3f6f4b1445242dfb2e37eaa26b011cdcf307",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-065-GROTIUS-MARE-LIBERUM",
+      "body_id": "LIB-COLONIAL-AUTHORITY-065-GROTIUS-MARE-LIBERUM-LATIN-WIKISOURCE",
+      "work_title": "Mare liberum",
+      "language": "",
+      "status": "available",
+      "text_bytes": 108488,
+      "text_sha256": "f5fd4847ecb3e2b8d83ef41c8f788d5f7a0fca2326fa2e6f6d4de37192c64c33",
+      "license_status": "public-domain",
+      "coverage_status": "unknown"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-066-LUTHER",
+      "body_id": "LIB-COLONIAL-AUTHORITY-066-LUTHER-WORKS-VOL-I-PG31604",
+      "work_title": "Works of Martin Luther: selected Reformation writings, Volume I",
+      "language": "English",
+      "status": "available",
+      "text_bytes": 802770,
+      "text_sha256": "37428cfaf7e51bc78ef21fa8cead6b642f1cca8f58f4f69fe6c49ca490ad9d1c",
+      "license_status": "public-domain",
+      "coverage_status": "selected-passages"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-067-AUGSBURG-CONFESSION",
+      "body_id": "LIB-COLONIAL-AUTHORITY-067-AUGSBURG-CONFESSION-PG275-EN",
+      "work_title": "The Augsburg Confession",
+      "language": "",
+      "status": "available",
+      "text_bytes": 83447,
+      "text_sha256": "41183a1c05fa0a6cd35b8e90bf84802eda40b0acae25feb92fa5027ec44d8cbf",
+      "license_status": "public-domain",
+      "coverage_status": "unknown"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-068-PEACE-WESTPHALIA",
+      "body_id": "LIB-COLONIAL-AUTHORITY-068-PEACE-WESTPHALIA-AVALON",
+      "work_title": "Treaty of Westphalia: Peace Treaty between the Holy Roman Emperor and the King of France and their respective Allies",
+      "language": "English",
+      "status": "available",
+      "text_bytes": 88863,
+      "text_sha256": "f5dd1eb6d19f15dc260f58ff72c7363a981b6626ea73d76f5d8db4028371a994",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-069-NAPOLEONIC-CODE",
+      "body_id": "LIB-COLONIAL-AUTHORITY-069-CODE-CIVIL-FRANCAIS-1804-FRWS",
+      "work_title": "Code civil des Français, 1804",
+      "language": "French",
+      "status": "available",
+      "text_bytes": 693443,
+      "text_sha256": "c62a947d2c856b314f0781b3310d835f339a5a34ee53895b7b619a6c961ab008",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-010-FRANKLIN",
+      "body_id": "LIB-COLONIAL-AUTHORITY-010-FRANKLIN-AUTOBIOGRAPHY-PG20203",
+      "work_title": "Autobiography of Benjamin Franklin",
+      "language": "",
+      "status": "available",
+      "text_bytes": 439023,
+      "text_sha256": "69e8b1d5e718617ac4ed618127ce6a42b0ceb3fd139b9de4c95ad647963a2eb4",
+      "license_status": "public-domain",
+      "coverage_status": "unknown"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-010-FRANKLIN",
+      "body_id": "LIB-COLONIAL-AUTHORITY-010-FRANKLIN-WAY-WEALTH-PG43855",
+      "work_title": "Franklin's Way to Wealth; or, Poor Richard Improved",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 42670,
+      "text_sha256": "09a465712234e9243cda75b4a672dd7c0f759311889e592269c5cee2de580dea",
+      "license_status": "public-domain",
+      "coverage_status": "partial-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-073-SOBORNOE-ULOZHENIE",
+      "body_id": "LIB-COLONIAL-AUTHORITY-073-SOBORNOE-ULOZHENIE-SELECTED-RU-WIKISOURCE",
+      "work_title": "Sobornoye Ulozhenie selected chapters",
+      "language": "russian",
+      "status": "available",
+      "text_bytes": 30801,
+      "text_sha256": "04b2f662e25f79d18a2711cb0d13d1d51a426655f11827974abc5d6d481d2c2d",
+      "license_status": "public-domain",
+      "coverage_status": "partial-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-074-PETER-TABLE-RANKS",
+      "body_id": "LIB-COLONIAL-AUTHORITY-074-PETER-TABLE-RANKS-RU-WIKISOURCE",
+      "work_title": "Table of Ranks",
+      "language": "russian",
+      "status": "available",
+      "text_bytes": 20038,
+      "text_sha256": "86cf63ea1bf609007b7b013d135ee639397e4cbb27a40da6d95de0301b937fdd",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-075-CATHERINE-NAKAZ",
+      "body_id": "LIB-COLONIAL-AUTHORITY-075-GRAND-INSTRUCTIONS-1768-IA",
+      "work_title": "The Grand Instructions to the Commissioners Appointed to Frame a New Code of Laws for the Russian Empire",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 381244,
+      "text_sha256": "c84cf76ac9708539145dc6fa3c500cc878d4aea84ef4680e3255585fd7a7af85",
+      "license_status": "public-domain",
+      "coverage_status": "partial-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-076-RUSSIAN-LITERARY-ANTHOLOGY",
+      "body_id": "LIB-COLONIAL-AUTHORITY-076-RUSSIAN-LITERARY-ANTHOLOGY-PART1-WIENER-PG71933",
+      "work_title": "Anthology of Russian Literature, Part I: From the Tenth Century to the Close of the Eighteenth Century",
+      "language": "English",
+      "status": "available",
+      "text_bytes": 949862,
+      "text_sha256": "217a61e74d17c2b8e28a77dbb726dd0d23d0eb7c67e8aba0d7c3bea929c36867",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-COLONIAL-AUTHORITY-077-RUSSIAN-SIBERIAN-EXPANSION",
+      "body_id": "LIB-COLONIAL-AUTHORITY-077-COXE-RUSSIAN-DISCOVERIES-PG",
+      "work_title": "Account of the Russian Discoveries between Asia and America",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 536742,
+      "text_sha256": "8435c452d32bbab176f937ace33915eefa917c13b9be51c82d8e17b02f4c0694",
+      "license_status": "public-domain",
+      "coverage_status": "partial-work"
+    }
+  ],
+  "validation": {
+    "session_preflight": {
+      "status": "passed",
+      "temp_root": "C:\\private\\mira-core-session-temp"
+    },
+    "library_validate": {
+      "status": "passed",
+      "failures": 0
+    },
+    "library_render_index_check": {
+      "status": "passed",
+      "stale_paths": [],
+      "colonial_sources_indexed": 77,
+      "text_bodies_indexed_all_eras": 448
+    },
+    "library_verify_texts": {
+      "status": "passed",
+      "checked": 434,
+      "failures": 0,
+      "missing_declared": 23
+    },
+    "tests_test_archive_library_py": {
+      "status": "passed",
+      "passed": 26
+    }
+  },
+  "reopen_conditions": [
+    "any Colonial source or body registry field changes",
+    "the Colonial human index changes",
+    "a Colonial body is admitted, corrected, removed, or changes hash",
+    "a missing authority is resolved",
+    "coverage, rights, edition, language, or maturity judgment changes",
+    "the sufficiency standard or profile changes materially"
+  ],
+  "basis_receipt": "archive/library/colonial/colonial-seal-readiness-run-2026-08-22-receipt.json"
+}
