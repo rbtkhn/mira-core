@@ -36,6 +36,7 @@ SURFACES = {
     "intake-land": REPO_ROOT / "scripts" / "smart_intake.py",
     "intake-outcomes": REPO_ROOT / "scripts" / "report_intake_outcomes.py",
     "intake-stats": REPO_ROOT / "scripts" / "report_trim_stats.py",
+    "interaction-context": REPO_ROOT / "scripts" / "interaction_context.py",
     "library": REPO_ROOT / "scripts" / "archive_library.py",
     "innermost-loop-simulation": REPO_ROOT / "scripts" / "innermost_loop_simulation.py",
     "issue-render": REPO_ROOT / "scripts" / "render_daily_issue.py",

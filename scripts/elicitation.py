@@ -9,6 +9,7 @@ from pathlib import Path
 from typing import Any, Iterable
 
 import choice_ledger
+import interaction_context
 
 
 INTERACTION_TYPES = {"decision-navigation", "neutral-evidence"}
@@ -281,6 +282,29 @@ def validate_elicitation_surface(surface: Any) -> dict[str, Any]:
         normalized_surface["presented_at"] = presented_at
     if action_readiness is not None:
         normalized_surface["action_readiness"] = action_readiness
+    raw_action_context = surface.get("action_context")
+    if raw_action_context is not None:
+        if interaction_type != "decision-navigation":
+            raise ElicitationError(
+                "neutral evidence surfaces must not assign action_context"
+            )
+        normalized_surface["action_context"] = raw_action_context
+    try:
+        capsule = interaction_context.capsule_from_normalized_surface(
+            normalized_surface
+        )
+    except interaction_context.InteractionContextError as error:
+        raise ElicitationError(str(error)) from error
+    if raw_action_context is not None:
+        normalized_surface["action_context"] = {
+            action["action_id"]: {
+                "target": action["target"],
+                "verification": action["verification"],
+                "required_authority": action["required_authority"],
+            }
+            for action in capsule["pending_actions"]
+        }
+    normalized_surface["context_capsule"] = capsule
     if final_response_present:
         normalized_surface["final_response"] = final_response
     return normalized_surface
@@ -360,6 +384,9 @@ def interpret_elicitation_response(surface: Any, response: Any) -> dict[str, Any
                 "receipt_directives": [],
                 "stop_on_failure": False,
                 "authority_effect": AUTHORITY_EFFECT,
+                "context_capsule": interaction_context.capsule_from_normalized_surface(
+                    normalized, state="selected", selected_letters=letters
+                ),
             }
         return {
             "mode": "freeform",
@@ -372,6 +399,7 @@ def interpret_elicitation_response(surface: Any, response: Any) -> dict[str, Any
             "receipt_directives": [],
             "stop_on_failure": False,
             "authority_effect": AUTHORITY_EFFECT,
+            "context_capsule": normalized["context_capsule"],
         }
 
     separator = ">" if ">" in text else ("," if "," in text else None)
@@ -400,6 +428,7 @@ def interpret_elicitation_response(surface: Any, response: Any) -> dict[str, Any
             "receipt_directives": [],
             "stop_on_failure": False,
             "authority_effect": AUTHORITY_EFFECT,
+            "context_capsule": normalized["context_capsule"],
         }
 
     branches = [_branch(option, allow_action=True) for option in selected_options]
@@ -433,6 +462,9 @@ def interpret_elicitation_response(surface: Any, response: Any) -> dict[str, Any
         "stop_on_failure": mode == "compound",
         "authority_effect": AUTHORITY_EFFECT,
         "final_response": normalized.get("final_response", False),
+        "context_capsule": interaction_context.capsule_from_normalized_surface(
+            normalized, state="selected", selected_letters=letters
+        ),
     }
 
 

@@ -215,6 +215,13 @@ current controls to named-authority resolution. Skip this preflight for exact
 menu selections, ordinary preferences, and clear commands without a factual
 conflict. The result reports contradictions but grants no authority.
 
+For a compressed follow-up with a current validated option or pending-action
+surface, resolve only against its silent digest-bound interaction-context
+capsule. Exact cadence and direct domain commands supersede the capsule; soft
+assent grants no action authority; stale or multiply plausible context requires
+one minimal clarification. Never persist the capsule or reconstruct it from
+choice history.
+
 When the operator says `harness audit`, run
 `tools/run.ps1 harness` read-only and summarize the
 five stations, actionable findings, and coverage gaps. Do not synchronize,

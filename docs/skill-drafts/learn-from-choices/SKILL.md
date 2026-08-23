@@ -182,6 +182,14 @@ same selection is a no-op. Acknowledge closure once and do not regenerate the
 same menu. Present a new choice only for genuinely new evidence, scope,
 decision, or action.
 
+Create or refresh the silent interaction-context capsule whenever presenting a
+validated decision surface. Resolve a compact response only against the
+current digest-bound capsule. Retire the capsule when the branch closes or a
+direct later command supersedes it; a response bound to an older option set
+requires one minimal clarification. The capsule is conversational and
+transient: do not save it to the choice ledger, infer preferences from it, or
+display it routinely.
+
 After two consecutive navigation-only selections deepen the same objective,
 default to silent saturated closure unless the latest turn adds new evidence,
 resolves a material contradiction, or exposes a genuinely new decision or

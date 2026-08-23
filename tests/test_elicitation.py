@@ -739,6 +739,22 @@ def test_skill_contract_limits_repeated_selection_chains() -> None:
     assert "ten-question limit" in skill
 
 
+def test_skill_contract_exposes_transient_context_and_exact_action_metadata() -> None:
+    skill = (
+        REPO_ROOT / "docs" / "skill-drafts" / "elicitation" / "SKILL.md"
+    ).read_text(encoding="utf-8")
+    for phrase in (
+        "`action_context`",
+        "exact `target`",
+        "`verification`",
+        "`required_authority`",
+        "`context_capsule`",
+        "interaction-context resolve",
+        "Soft assent carries agreement only",
+    ):
+        assert phrase in skill
+
+
 def test_cli_validates_and_interprets_without_mutation() -> None:
     surface = json.dumps(decision_surface())
     result = subprocess.run(

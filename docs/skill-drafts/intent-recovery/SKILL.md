@@ -17,6 +17,14 @@ Read only the current request and the smallest recent context needed. Separate:
 - `uncertainty`: what remains genuinely unresolved;
 - `next-boundary`: whether action, evidence, preference, or authority is still missing.
 
+Before interpreting a compressed follow-up, consult the current transient
+interaction-context capsule when one exists. Verify its digest and distinguish
+an exact selection, cadence invocation, explicit direct command, one bounded
+continuation, soft assent, stale context, and genuinely free-form language.
+Keep the capsule silent unless ambiguity, an authority boundary, or diagnostics
+make its state material. Never reconstruct a missing capsule from retained
+choice history.
+
 Use this receipt only when the recovery materially affects the next step:
 
 ```text
@@ -62,6 +70,12 @@ Treat an ambiguous continuation such as `go ahead` or `do it` as a clear command
 only when one exact, visible, already-bounded action is pending. When several
 actions, targets, or scopes remain plausible, ask one minimal clarification
 before consequential action.
+
+Use `interaction-context resolve` for this distinction. A vague imperative can
+carry only one exact `execute` action with a named target and verification step.
+It cannot carry staging, commit, push, send, publication, deployment, spending,
+or external-communication authority. An exact direct command supersedes the
+capsule and routes through the controlling domain workflow.
 
 ## Preserve Authority
 

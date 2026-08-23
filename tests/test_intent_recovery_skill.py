@@ -92,3 +92,16 @@ def test_local_composition_contracts_are_named() -> None:
     assert "read" in agents
     assert "`docs/skill-drafts/intent-recovery/SKILL.md`" in agents
     assert "[intent-recovery](../intent-recovery/SKILL.md)" in elicitation
+
+
+def test_transient_context_capsule_precedes_compressed_interpretation() -> None:
+    skill = skill_text()
+    for phrase in (
+        "interaction-context capsule",
+        "Verify its digest",
+        "Keep the capsule silent",
+        "Never reconstruct a missing capsule",
+        "only one exact `execute` action",
+        "An exact direct command supersedes",
+    ):
+        assert phrase in skill

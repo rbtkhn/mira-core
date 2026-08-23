@@ -66,6 +66,12 @@ closure. Non-final decision surfaces retain backward-compatible three-or-four
 option support and default missing eligibility to `eligible`. Neutral-evidence
 surfaces cannot set `final_response`.
 
+When a ready action may be carried through a later compressed imperative, add
+an `action_context` entry keyed by its option key with the exact `target`,
+`verification`, and `required_authority`. Existing surfaces without this
+metadata remain valid, but compressed imperatives fail closed rather than
+reconstructing the missing action.
+
 `ready_option_keys` must exactly equal the keys of options whose
 `selection_effect` is `execute`, `commit`, `push`, or `send`. When every option
 is navigational, the list must be empty and `all_navigation_reason` must be one
@@ -130,6 +136,14 @@ Validate and interpret structured surfaces through:
 .\tools\run.ps1 elicitation interpret --surface-json SURFACE --response RESPONSE
 ```
 
+Both commands return a silent, digest-bound `context_capsule`. The capsule is a
+transient projection of the validated surface; it grants no authority and is
+never written to the choice ledger. Resolve later compressed responses through:
+
+```powershell
+.\tools\run.ps1 interaction-context resolve --capsule-json CAPSULE --response RESPONSE --json
+```
+
 ## Interpret compact responses
 
 Map letters in presentation order. Treat `A` as one selection, `A,C` as an
@@ -153,6 +167,12 @@ Reject missing, unknown, or mismatched effects before presentation. A
 evidence accepts no `selection_effect`. `Stage`, `Publish`, and `Deploy`
 require a direct explicit command. Ordinary `learn-from-choices` menus are
 navigation-only. A direct later command supersedes a pending menu.
+
+Exact cadence commands bypass the capsule and route to their governing skill.
+Soft assent carries agreement only. A vague imperative may carry one exact
+open `execute` action only when its target, verification, and required
+authority are present; it never carries commit, push, send, stage,
+publication, deployment, spending, or communication authority.
 
 Process compound branches left to right. Stop on an action failure, report the
 failed branch and every unexecuted branch, and never retry or skip ahead

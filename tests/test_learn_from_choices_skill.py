@@ -108,9 +108,22 @@ def test_decision_fixture_is_complete_and_authority_bounded(
         "completed-factual-receipt",
         "material-unresolved-decision",
         "navigation-letter-cannot-mutate",
+        "compressed-cadence",
+        "soft-assent",
+        "bounded-continuation",
+        "ambiguous-continuation",
+        "explicit-command",
+        "stale-context",
+        "settled-repeat",
+        "freeform-recovery",
     }
     assert case["expected_terminal"]
-    assert case["required_resource"] in {"core", "choice-retention", "outcome-review"}
+    assert case["required_resource"] in {
+        "core",
+        "choice-retention",
+        "outcome-review",
+        "intent-recovery",
+    }
     assert isinstance(case["allowed"], list) and case["allowed"]
     assert isinstance(case["forbidden"], list) and case["forbidden"]
 
@@ -138,8 +151,16 @@ def test_fixture_inventory_covers_required_runtime_decisions() -> None:
         "completed-factual-receipt",
         "material-unresolved-decision",
         "navigation-letter-cannot-mutate",
+        "compressed-cadence",
+        "soft-assent",
+        "bounded-continuation",
+        "ambiguous-continuation",
+        "explicit-command",
+        "stale-context",
+        "settled-repeat",
+        "freeform-recovery",
     }
-    assert len(fixtures()) == 21
+    assert len(fixtures()) == 29
 
 
 def test_settled_terminal_fixtures_require_silent_closure() -> None:
@@ -172,6 +193,18 @@ def test_core_requires_conditional_menu_and_transient_control_isolation() -> Non
     assert "menu-contract-decision-v1" in retention
     assert "menu-contract-natural-use-v1" in retention
     assert "no `choice select`" in " ".join(retention.split())
+
+
+def test_core_requires_silent_digest_bound_context_without_retention() -> None:
+    core = read("SKILL.md")
+    for phrase in (
+        "silent interaction-context capsule",
+        "current digest-bound capsule",
+        "Retire the capsule",
+        "do not save it to the choice ledger",
+        "display it routinely",
+    ):
+        assert phrase in core
 
 
 def test_outcome_fixtures_preserve_observation_and_scope_boundaries() -> None:
