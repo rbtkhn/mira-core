@@ -1,0 +1,64 @@
+{
+  "batch_id": "industrial-body-admission-batch-009-fukuzawa",
+  "date": "2026-08-23",
+  "authority_boundary": {
+    "private_reading_text_body_only": true,
+    "private_text_root": "C:\\private\\mira-library-texts",
+    "registry_mutated": true,
+    "human_indexes_rendered": true,
+    "staged": false,
+    "committed": false,
+    "pushed": false,
+    "published": false,
+    "archive_ingested": false,
+    "git_source_bodies_admitted": false
+  },
+  "admitted_body": {
+    "source_id": "LIB-INDUSTRIAL-AUTHORITY-051-FUKUZAWA",
+    "authority": "Fukuzawa Yukichi",
+    "body_id": "LIB-INDUSTRIAL-AUTHORITY-051-FUKUZAWA-GAKUMON-NO-SUSUME-AOZORA",
+    "work_title": "学問のすすめ / Gakumon no susume",
+    "edition_label": "Aozora Bunko #47061 ruby text, Shift-JIS source decoded to UTF-8; base text: 日本の名著 33 福沢諭吉, Chuo Koronsha Chuko Backs, 1984; parent text: 福沢諭吉全集 第三巻, Iwanami Shoten, 1959; private-reading derivative, accessed 2026-08-23",
+    "license_status": "public-domain",
+    "license_notes": "Aozora/NDL metadata states copyright protection period expired; preserve Aozora input/correction attribution and production note for any outward boundary.",
+    "coverage_status": "complete-work",
+    "coverage_notes": "Complete Aozora text includes 初編 through 十七編; source-authority coverage remains selected works because civilization essays beyond Gakumon no susume remain absent.",
+    "language": "japanese",
+    "translator": "",
+    "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-051-FUKUZAWA-GAKUMON-NO-SUSUME-AOZORA.txt",
+    "text_bytes": 282406,
+    "text_sha256": "f652906848497c5dc2805fdf95b91849e001f5c44fc14a5c616370aba6e10b71",
+    "body_imported_to_archive": false
+  },
+  "source_route_provenance": {
+    "selected_text_route": "Aozora Bunko #47061 decoded UTF-8 text",
+    "facsimile_witness_route": "Keio University Digital Collections IIIF/PDF sequence",
+    "research_receipts": [
+      "archive/library/industrial/body-research-batch-009-fukuzawa-receipt.md",
+      "archive/library/industrial/body-research-batch-009-fukuzawa-receipt.json"
+    ]
+  },
+  "validation": {
+    "library_validate_json": "passed",
+    "library_render_index_check_json": "passed",
+    "tests_test_archive_library_py": "passed: 26 tests",
+    "direct_private_store_hash_readback": "passed"
+  },
+  "industrial_state_after_batch": {
+    "authority_count": 68,
+    "registry_represented_authorities": 67,
+    "missing_body_authorities": 1,
+    "registry_body_count": 115,
+    "remaining_missing_authorities": [
+      {
+        "source_id": "LIB-INDUSTRIAL-AUTHORITY-078-CARSON",
+        "authority": "Rachel Carson",
+        "title": "Silent Spring"
+      }
+    ]
+  },
+  "reentry_point": {
+    "next_candidate": "LIB-INDUSTRIAL-AUTHORITY-078-CARSON",
+    "recommended_next_gate": "modern online-edition route inspection before any admission decision"
+  }
+}

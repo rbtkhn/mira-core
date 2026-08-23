@@ -15130,9 +15130,28 @@
       },
       "status": "stub",
       "notes": "Industrial metadata Batch 003. Function: international-order-decolonization. Boundary: metadata-only registry stub for Encouragement of Learning; civilization essays. Rights/body gate: translation rights review required.",
-      "text_status": "missing",
+      "text_status": "available",
       "coverage_status": "selected-works",
-      "coverage_notes": "Metadata-only Industrial Batch 003 record. No body downloaded, inspected, admitted, or represented as available. Coverage ceiling from design packet: selected-works."
+      "coverage_notes": "Metadata-only Industrial Batch 003 record. No body downloaded, inspected, admitted, or represented as available. Coverage ceiling from design packet: selected-works.",
+      "text_bodies": [
+        {
+          "body_id": "LIB-INDUSTRIAL-AUTHORITY-051-FUKUZAWA-GAKUMON-NO-SUSUME-AOZORA",
+          "work_title": "\u5b66\u554f\u306e\u3059\u3059\u3081 / Gakumon no susume",
+          "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-051-FUKUZAWA-GAKUMON-NO-SUSUME-AOZORA.txt",
+          "text_sha256": "f652906848497c5dc2805fdf95b91849e001f5c44fc14a5c616370aba6e10b71",
+          "text_bytes": 282406,
+          "text_encoding": "utf-8",
+          "language": "japanese",
+          "translator": "",
+          "editor": "",
+          "edition_label": "Aozora Bunko #47061 ruby text, Shift-JIS source decoded to UTF-8; base text: \u65e5\u672c\u306e\u540d\u8457 33 \u798f\u6ca2\u8aed\u5409, Chuo Koronsha Chuko Backs, 1984; parent text: \u798f\u6ca2\u8aed\u5409\u5168\u96c6 \u7b2c\u4e09\u5dfb, Iwanami Shoten, 1959; private-reading derivative, accessed 2026-08-23",
+          "license_status": "public-domain",
+          "license_notes": "Aozora/NDL metadata states copyright protection period expired; preserve Aozora input/correction attribution and production note for any outward boundary.",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Complete Aozora text includes \u521d\u7de8 through \u5341\u4e03\u7de8; source-authority coverage remains selected works because civilization essays beyond Gakumon no susume remain absent.",
+          "status": "available"
+        }
+      ]
     },
     {
       "source_id": "LIB-INDUSTRIAL-AUTHORITY-046-GANDHI",

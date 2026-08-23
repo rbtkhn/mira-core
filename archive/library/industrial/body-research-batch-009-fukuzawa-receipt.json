@@ -1,0 +1,98 @@
+{
+  "batch_id": "industrial-body-research-batch-009-fukuzawa",
+  "date": "2026-08-23",
+  "authority_boundary": {
+    "body_research_only": true,
+    "private_inspection_root": "C:\\private\\mira-library-texts\\inspection\\industrial-batch-009-fukuzawa",
+    "registry_mutated": false,
+    "body_admitted": false,
+    "staged": false,
+    "committed": false,
+    "pushed": false,
+    "published": false,
+    "archive_ingested": false,
+    "version_seal_created": false
+  },
+  "registry_target": {
+    "source_id": "LIB-INDUSTRIAL-AUTHORITY-051-FUKUZAWA",
+    "authority": "Fukuzawa Yukichi",
+    "registry_title": "Encouragement of Learning; civilization essays",
+    "status_before_batch": "stub",
+    "text_status_before_batch": "missing",
+    "gate_reached": "admission-ready-candidate"
+  },
+  "source_routes": [
+    {
+      "route_id": "keio-digital-collections-facsimile",
+      "source": "Keio University Digital Collections: Digital Library of Yukichi Fukuzawa's Work",
+      "landing_url": "https://dcollections.lib.keio.ac.jp/en/fukuzawa/a15/42",
+      "downloaded_node_range": "a15/43 through a15/60",
+      "html_pages_downloaded": 18,
+      "iiif_manifests_downloaded": 18,
+      "pdfs_downloaded": 18,
+      "private_manifest_file": "fukuzawa-keio-download-manifest.json",
+      "private_manifest_sha256": "f3a97f28697c8f0057a6b097e23969f43702efc244f1ebb06b2563a5f3d5061d",
+      "disposition": "facsimile-witness-not-text-admission-ready",
+      "inspection_notes": "Bundled pypdf opened the PDFs, but text extraction is not usable as a clean reading body: most volumes return whitespace, and the first volume returns mojibake with Japanese encoding warnings."
+    },
+    {
+      "route_id": "aozora-bunko-text",
+      "source": "Aozora Bunko",
+      "card_url": "https://www.aozora.gr.jp/cards/000296/card47061.html",
+      "zip_url": "https://www.aozora.gr.jp/cards/000296/files/47061_ruby_28378.zip",
+      "xhtml_url": "https://www.aozora.gr.jp/cards/000296/files/47061_29420.html",
+      "downloaded_files": [
+        {
+          "file": "aozora-card47061.html",
+          "bytes": 9237,
+          "sha256": "78315391b70260ecf4800fac2b86edd8a1f07d60bc70acf673db3314fd6ece44"
+        },
+        {
+          "file": "aozora-47061-ruby.zip",
+          "bytes": 81836,
+          "sha256": "aeaa2fffa2de412163da8a4267550e5f23b5fc75a5ef321a73e7fe5d570a3b54"
+        },
+        {
+          "file": "aozora-47061.html",
+          "bytes": 247854,
+          "sha256": "eadefe2a29af47ea08efc01eafa6cb827170f3235bc659c51212040f00db1d00"
+        },
+        {
+          "file": "aozora-extracted-gakumonno_susume.utf8.txt",
+          "bytes": 282406,
+          "sha256": "f652906848497c5dc2805fdf95b91849e001f5c44fc14a5c616370aba6e10b71"
+        }
+      ],
+      "private_manifest_file": "fukuzawa-aozora-download-manifest.json",
+      "private_manifest_sha256": "74c2bb1c5d629a2ed222da4271e03e3f8604e935a3dd107209dca6e806c66b2c",
+      "disposition": "admission-ready-candidate",
+      "inspection_notes": "Decoded Shift-JIS ruby text to UTF-8; readable text includes 初編 through 十七編 and bottom metadata for base text, parent text, inputter, corrector, and Aozora production."
+    }
+  ],
+  "proposed_admission": {
+    "body_id": "LIB-INDUSTRIAL-AUTHORITY-051-FUKUZAWA-GAKUMON-NO-SUSUME-AOZORA",
+    "work_title": "学問のすすめ / Gakumon no susume",
+    "candidate_file": "C:\\private\\mira-library-texts\\inspection\\industrial-batch-009-fukuzawa\\aozora-extracted-gakumonno_susume.utf8.txt",
+    "edition_label": "Aozora Bunko #47061 ruby text, Shift-JIS source decoded to UTF-8; base text: 日本の名著 33 福沢諭吉, Chuo Koronsha Chuko Backs, 1984; parent text: 福沢諭吉全集 第三巻, Iwanami Shoten, 1959; private-reading derivative, accessed 2026-08-23",
+    "license_status": "public-domain",
+    "license_notes": "Aozora/NDL metadata states copyright protection period expired; preserve Aozora input/correction attribution and production note for any outward boundary.",
+    "coverage_status": "complete-work",
+    "coverage_notes": "Complete Aozora text includes 初編 through 十七編; source-authority coverage remains selected works because civilization essays beyond Gakumon no susume remain absent.",
+    "language": "japanese",
+    "translator": ""
+  },
+  "not_recommended": [
+    {
+      "route_id": "keio-pdf-direct-text-body",
+      "reason": "Current library body tooling expects text payloads; Keio PDFs are facsimile witnesses and need OCR or a facsimile-body schema before direct admission."
+    },
+    {
+      "route_id": "modern-english-commercial-translation-first",
+      "reason": "Useful for later reading support, but less aligned with original-era source preservation than the Japanese Aozora text plus Keio facsimile route."
+    }
+  ],
+  "reentry_point": {
+    "next_action": "admit Aozora decoded UTF-8 text as the Fukuzawa body candidate",
+    "expected_effect_if_authorized": "LIB-INDUSTRIAL-AUTHORITY-051-FUKUZAWA becomes available; Rachel Carson remains the only missing Industrial authority."
+  }
+}

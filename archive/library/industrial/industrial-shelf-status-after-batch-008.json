@@ -1,0 +1,104 @@
+{
+  "receipt_id": "industrial-shelf-status-after-batch-008",
+  "date": "2026-08-23",
+  "authority_boundary": {
+    "audit_navigation_artifact_only": true,
+    "private_text_root": "C:\\private\\mira-library-texts",
+    "downloads_performed": false,
+    "body_admissions_performed": false,
+    "registry_mutated": false,
+    "staged": false,
+    "committed": false,
+    "pushed": false,
+    "published": false,
+    "archive_ingested": false,
+    "new_version_seal_created": false
+  },
+  "industrial_state": {
+    "era_range": "1815-1991",
+    "authority_count": 68,
+    "registry_represented_authorities": 66,
+    "missing_body_authorities": 2,
+    "registry_body_count": 114,
+    "referenced_private_body_count": 114,
+    "physical_private_payload_count": 114,
+    "missing_private_payload_count": 0,
+    "hash_checked_private_payload_count": 114,
+    "hash_missing_count": 0,
+    "hash_mismatch_count": 0
+  },
+  "registry_distribution": {
+    "source_text_status": {
+      "available": 66,
+      "missing": 2
+    },
+    "record_status": {
+      "stub": 64,
+      "located": 4
+    },
+    "source_type": {
+      "literary": 32,
+      "primary": 34,
+      "legal": 2
+    },
+    "authority_coverage_status": {
+      "principal-work": 18,
+      "principal-works": 20,
+      "selected-works": 30
+    },
+    "body_coverage_status": {
+      "complete-work": 109,
+      "partial-work": 5
+    },
+    "body_license_status": {
+      "public-domain": 104,
+      "permissioned": 9,
+      "open-license": 1
+    },
+    "body_language_values_as_recorded": {
+      "english": 72,
+      "English": 16,
+      "french": 8,
+      "French": 1,
+      "spanish": 4,
+      "chinese": 7,
+      "hindi": 1,
+      "norwegian": 2,
+      "portuguese": 2,
+      "German": 1
+    },
+    "normalization_note": "Mixed capitalization in language values is registry-normalization debt, not a current payload failure."
+  },
+  "remaining_missing_authorities": [
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-051-FUKUZAWA",
+      "authority": "Fukuzawa Yukichi",
+      "title": "Encouragement of Learning; civilization essays",
+      "next_gate": "body-research-inspection"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-078-CARSON",
+      "authority": "Rachel Carson",
+      "title": "Silent Spring",
+      "next_gate": "modern-online-edition-route-inspection"
+    }
+  ],
+  "validation": {
+    "library_validate_json": "passed",
+    "library_render_index_check_json": "passed",
+    "tests_test_archive_library_py": "passed: 26 tests",
+    "industrial_direct_private_store_hash_audit": "passed: 114 checked, 0 missing, 0 mismatched",
+    "library_wide_census_texts_json": "failed due non-Industrial private payload absence under active text root",
+    "library_wide_live_reproducibility_claimed": false
+  },
+  "seal_status": {
+    "new_industrial_version_seal_created": false,
+    "seal_ready_claimed": false,
+    "reason": "This receipt is scoped status after Batches 001-008; Fukuzawa and Carson remain missing, and no explicit version-seal review was authorized."
+  },
+  "recommended_reentry": {
+    "next_batch": "Industrial Batch 009",
+    "recommended_target": "LIB-INDUSTRIAL-AUTHORITY-051-FUKUZAWA",
+    "reason": "Fukuzawa is one of two remaining missing authorities and is likely a more tractable edition/translation route than Carson's modern online-edition case."
+  }
+}
