@@ -19,9 +19,21 @@ Generated from `../library-registry.json`. Do not edit this source list directly
 | `LIB-INDUSTRIAL-AUTHORITY-025-DU-BOIS` | W. E. B. Du Bois | The Souls of Black Folk | 1903 principal-work lane; exact edition dates require body-level review | primary | stub | available | principal-work |
 | `LIB-INDUSTRIAL-AUTHORITY-026-DOUGLASS` | Frederick Douglass | Narrative; selected speeches | 1845-1895 selected narrative and speech lane; exact edition dates require body-level review | primary | stub | available | principal-works |
 | `LIB-INDUSTRIAL-AUTHORITY-027-JACOBS` | Harriet Jacobs | Incidents in the Life of a Slave Girl | 1861 principal-work lane; exact edition dates require body-level review | primary | stub | available | principal-work |
+| `LIB-INDUSTRIAL-AUTHORITY-029-MARX` | Karl Marx | Capital; Communist Manifesto | 1848-1883 principal-works lane; exact editions and translations require body-level review | primary | stub | available | principal-works |
+| `LIB-INDUSTRIAL-AUTHORITY-030-ENGELS` | Friedrich Engels | Condition of the Working Class in England | 1845 principal-work lane; exact edition and translation require body-level review | primary | stub | available | principal-work |
+| `LIB-INDUSTRIAL-AUTHORITY-031-MILL` | John Stuart Mill | On Liberty; Subjection of Women | 1859-1869 principal-works lane; exact editions require body-level review | primary | stub | available | principal-works |
+| `LIB-INDUSTRIAL-AUTHORITY-032-TOCQUEVILLE` | Alexis de Tocqueville | Democracy in America; Old Regime | 1835-1856 principal-works lane; exact editions and translations require body-level review | primary | stub | available | principal-works |
+| `LIB-INDUSTRIAL-AUTHORITY-038-DARWIN` | Charles Darwin | Origin of Species; Descent of Man | 1859-1871 principal-works lane; exact editions require body-level review | primary | stub | available | principal-works |
+| `LIB-INDUSTRIAL-AUTHORITY-039-WALLACE` | Alfred Russel Wallace | Malay Archipelago | 1869 principal-work lane; exact edition requires body-level review | primary | stub | available | principal-work |
+| `LIB-INDUSTRIAL-AUTHORITY-041-BABBAGE` | Charles Babbage | Economy of Machinery and Manufactures | 1832 principal-work lane; exact edition requires body-level review | primary | stub | available | principal-work |
+| `LIB-INDUSTRIAL-AUTHORITY-042-NIGHTINGALE` | Florence Nightingale | Notes on Nursing; sanitary reports | 1859-1863 selected works lane; exact report boundary requires body-level review | primary | stub | available | selected-works |
+| `LIB-INDUSTRIAL-AUTHORITY-043-THOREAU` | Henry David Thoreau | Civil Disobedience; Walden | 1849-1854 principal-works lane; exact editions require body-level review | literary | stub | available | principal-works |
+| `LIB-INDUSTRIAL-AUTHORITY-044-RUSKIN` | John Ruskin | Unto This Last | 1860-1862 principal-work lane; exact edition requires body-level review | primary | stub | available | principal-work |
+| `LIB-INDUSTRIAL-AUTHORITY-045-MORRIS` | William Morris | News from Nowhere; essays | 1884-1890 selected works lane; exact essay boundary requires body-level review | literary | stub | available | selected-works |
 | `LIB-INDUSTRIAL-AUTHORITY-061-ZOLA` | Emile Zola | Germinal; J'accuse | 1885-1898 selected literary and civic witness lane; exact edition dates require body-level review | literary | stub | available | principal-works |
 | `LIB-INDUSTRIAL-AUTHORITY-062-HARDY` | Thomas Hardy | Tess; Jude the Obscure | 1891-1895 principal-works lane; exact edition dates require body-level review | literary | stub | available | principal-works |
 | `LIB-INDUSTRIAL-AUTHORITY-063-WILDE` | Oscar Wilde | plays; De Profundis | 1891-1897 selected works lane; exact edition dates require body-level review | literary | stub | available | selected-works |
+| `LIB-INDUSTRIAL-AUTHORITY-083-WELLS` | Ida B. Wells | anti-lynching pamphlets | 1892-1900 selected pamphlet lane; exact pamphlet sequence requires body-level review | primary | stub | available | selected-works |
 
 ## Notes
 

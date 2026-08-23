@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0",
+  "proposal_id": "industrial-body-admission-batch-002-proposal",
+  "status": "operator-review-before-body-admission",
+  "era": "industrial",
+  "batch_id": "industrial-body-admission-batch-002",
+  "inspection_receipt": "archive/library/industrial/body-research-batch-002-inspection-receipt.md",
+  "private_inspection_root": "C:\\private\\mira-library-inspection\\industrial-batch002",
+  "proposed_private_text_root": "C:\\private\\mira-library-texts",
+  "counts": {
+    "authorities": 12,
+    "proposed_body_admissions": 20
+  },
+  "unresolved_targets": [
+    "Karl Marx: Capital",
+    "Alexis de Tocqueville: Old Regime",
+    "William Morris: essays beyond News from Nowhere"
+  ],
+  "boundary": {
+    "source_bodies_admitted": false,
+    "private_archive_ingested": false,
+    "staged": false,
+    "committed": false,
+    "pushed": false,
+    "published": false
+  },
+  "acceptance_tests": [
+    "library validate passes",
+    "render-index check passes",
+    "focused library tests pass",
+    "20/20 Industrial Batch 002 private payloads present with matching hashes and byte counts after admission"
+  ]
+}

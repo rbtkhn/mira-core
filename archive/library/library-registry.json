@@ -14206,6 +14206,698 @@
           "status": "available"
         }
       ]
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-029-MARX",
+      "title": "Capital; Communist Manifesto",
+      "author": "Karl Marx",
+      "subject_era": "industrial",
+      "source_composition_era": "industrial",
+      "edition_era": "digital",
+      "secondary_eras": [],
+      "date_start": 1867,
+      "date_end": 1883,
+      "date_label": "1848-1883 principal-works lane; exact editions and translations require body-level review",
+      "era_basis": "composition_period",
+      "civilization_tags": [
+        "Germany",
+        "Britain"
+      ],
+      "source_type": "primary",
+      "location": {
+        "civilization_memory_refs": [],
+        "body_imported": false,
+        "metadata_packet": "archive/library/industrial/metadata-batch-design-v0.1.md"
+      },
+      "status": "stub",
+      "notes": "Industrial metadata Batch 002. Function: industrial-political-economy. Boundary: metadata-only registry stub for Capital; Communist Manifesto. Rights/body gate: public-domain originals; translation review required.",
+      "text_status": "available",
+      "coverage_status": "principal-works",
+      "coverage_notes": "metadata-only Industrial Batch 002 record. No body downloaded, inspected, admitted, or represented as available. Coverage ceiling from design packet: principal-works.",
+      "text_bodies": [
+        {
+          "body_id": "LIB-INDUSTRIAL-AUTHORITY-029-MARX-MANIFESTO-PG61",
+          "work_title": "The Communist Manifesto",
+          "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-029-MARX-MANIFESTO-PG61.txt",
+          "text_sha256": "ba4623f09e411351ad4f34488289c70eceda8fb9d7977c1db64f0f01ed80cb59",
+          "text_bytes": 94315,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "",
+          "editor": "",
+          "edition_label": "Project Gutenberg #61: The Communist Manifesto",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg candidate inspected in Industrial Body Research Batch 002; public-domain/U.S. copyright-unprotected collection language and Project Gutenberg license observed before admission.",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Complete Project Gutenberg file for the named coauthored body work; Marx authority coverage remains selected/principal works and Capital remains unresolved.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-INDUSTRIAL-AUTHORITY-029-MARX-CONTRIBUTION-PG46423",
+          "work_title": "A Contribution to the Critique of Political Economy",
+          "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-029-MARX-CONTRIBUTION-PG46423.txt",
+          "text_sha256": "d01f83d5c8d1d726406fa583d282b709402aae156c1940252e370ca856fade9c",
+          "text_bytes": 541130,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "N. I. Stone",
+          "editor": "",
+          "edition_label": "Project Gutenberg #46423: A Contribution to the Critique of Political Economy",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg candidate inspected in Industrial Body Research Batch 002; public-domain/U.S. copyright-unprotected collection language and Project Gutenberg license observed before admission.",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Complete Project Gutenberg file for the named supplemental political-economy body work; not a substitute for Capital.",
+          "status": "available"
+        }
+      ]
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-030-ENGELS",
+      "title": "Condition of the Working Class in England",
+      "author": "Friedrich Engels",
+      "subject_era": "industrial",
+      "source_composition_era": "industrial",
+      "edition_era": "digital",
+      "secondary_eras": [],
+      "date_start": 1845,
+      "date_end": 1845,
+      "date_label": "1845 principal-work lane; exact edition and translation require body-level review",
+      "era_basis": "composition_period",
+      "civilization_tags": [
+        "Germany",
+        "Britain"
+      ],
+      "source_type": "primary",
+      "location": {
+        "civilization_memory_refs": [],
+        "body_imported": false,
+        "metadata_packet": "archive/library/industrial/metadata-batch-design-v0.1.md"
+      },
+      "status": "stub",
+      "notes": "Industrial metadata Batch 002. Function: industrial-political-economy. Boundary: metadata-only registry stub for Condition of the Working Class in England. Rights/body gate: public-domain likely.",
+      "text_status": "available",
+      "coverage_status": "principal-work",
+      "coverage_notes": "metadata-only Industrial Batch 002 record. No body downloaded, inspected, admitted, or represented as available. Coverage ceiling from design packet: principal-work.",
+      "text_bodies": [
+        {
+          "body_id": "LIB-INDUSTRIAL-AUTHORITY-030-ENGELS-CONDITION-PG17306",
+          "work_title": "The Condition of the Working-Class in England in 1844",
+          "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-030-ENGELS-CONDITION-PG17306.txt",
+          "text_sha256": "25ff9b6ba4bef75632145e785f86acfaeeb0b437fd7f8f5409bf103eed7ae93b",
+          "text_bytes": 736497,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "Florence Kelley",
+          "editor": "",
+          "edition_label": "Project Gutenberg #17306: The Condition of the Working-Class in England in 1844",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg candidate inspected in Industrial Body Research Batch 002; public-domain/U.S. copyright-unprotected collection language and Project Gutenberg license observed before admission.",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Complete Project Gutenberg file for the named body work; source-authority coverage remains governed by the Industrial Batch 002 proposal and is not complete corpus coverage.",
+          "status": "available"
+        }
+      ]
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-031-MILL",
+      "title": "On Liberty; Subjection of Women",
+      "author": "John Stuart Mill",
+      "subject_era": "industrial",
+      "source_composition_era": "industrial",
+      "edition_era": "digital",
+      "secondary_eras": [],
+      "date_start": 1859,
+      "date_end": 1869,
+      "date_label": "1859-1869 principal-works lane; exact editions require body-level review",
+      "era_basis": "composition_period",
+      "civilization_tags": [
+        "Britain"
+      ],
+      "source_type": "primary",
+      "location": {
+        "civilization_memory_refs": [],
+        "body_imported": false,
+        "metadata_packet": "archive/library/industrial/metadata-batch-design-v0.1.md"
+      },
+      "status": "stub",
+      "notes": "Industrial metadata Batch 002. Function: state-law-constitution. Boundary: metadata-only registry stub for On Liberty; Subjection of Women. Rights/body gate: public-domain likely.",
+      "text_status": "available",
+      "coverage_status": "principal-works",
+      "coverage_notes": "metadata-only Industrial Batch 002 record. No body downloaded, inspected, admitted, or represented as available. Coverage ceiling from design packet: principal-works.",
+      "text_bodies": [
+        {
+          "body_id": "LIB-INDUSTRIAL-AUTHORITY-031-MILL-ON-LIBERTY-PG34901",
+          "work_title": "On Liberty",
+          "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-031-MILL-ON-LIBERTY-PG34901.txt",
+          "text_sha256": "cfc8de9ac48709ef8e66922b32bac51335c883082e4da24251e1290816df904c",
+          "text_bytes": 331189,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "",
+          "editor": "",
+          "edition_label": "Project Gutenberg #34901: On Liberty",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg candidate inspected in Industrial Body Research Batch 002; public-domain/U.S. copyright-unprotected collection language and Project Gutenberg license observed before admission.",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Complete Project Gutenberg file for the named body work; source-authority coverage remains governed by the Industrial Batch 002 proposal and is not complete corpus coverage.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-INDUSTRIAL-AUTHORITY-031-MILL-SUBJECTION-PG27083",
+          "work_title": "The Subjection of Women",
+          "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-031-MILL-SUBJECTION-PG27083.txt",
+          "text_sha256": "ed7238e072be4c3c4a0478c725d6d1b27698b786c0b46958e501a679fd605319",
+          "text_bytes": 278619,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "",
+          "editor": "",
+          "edition_label": "Project Gutenberg #27083: The Subjection of Women",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg candidate inspected in Industrial Body Research Batch 002; public-domain/U.S. copyright-unprotected collection language and Project Gutenberg license observed before admission.",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Complete Project Gutenberg file for the named body work; source-authority coverage remains governed by the Industrial Batch 002 proposal and is not complete corpus coverage.",
+          "status": "available"
+        }
+      ]
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-032-TOCQUEVILLE",
+      "title": "Democracy in America; Old Regime",
+      "author": "Alexis de Tocqueville",
+      "subject_era": "industrial",
+      "source_composition_era": "industrial",
+      "edition_era": "digital",
+      "secondary_eras": [],
+      "date_start": 1835,
+      "date_end": 1856,
+      "date_label": "1835-1856 principal-works lane; exact editions and translations require body-level review",
+      "era_basis": "composition_period",
+      "civilization_tags": [
+        "France",
+        "United States"
+      ],
+      "source_type": "primary",
+      "location": {
+        "civilization_memory_refs": [],
+        "body_imported": false,
+        "metadata_packet": "archive/library/industrial/metadata-batch-design-v0.1.md"
+      },
+      "status": "stub",
+      "notes": "Industrial metadata Batch 002. Function: industrial-political-economy. Boundary: metadata-only registry stub for Democracy in America; Old Regime. Rights/body gate: translation rights review required.",
+      "text_status": "available",
+      "coverage_status": "principal-works",
+      "coverage_notes": "metadata-only Industrial Batch 002 record. No body downloaded, inspected, admitted, or represented as available. Coverage ceiling from design packet: principal-works.",
+      "text_bodies": [
+        {
+          "body_id": "LIB-INDUSTRIAL-AUTHORITY-032-TOCQUEVILLE-DEMOCRACY-V1-PG815",
+          "work_title": "Democracy in America, Volume 1",
+          "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-032-TOCQUEVILLE-DEMOCRACY-V1-PG815.txt",
+          "text_sha256": "734b3b0352dc2ec312a6b2b9e9165aac054439eee2d6e8d83d1fd9a35d1c9e2d",
+          "text_bytes": 1151189,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "Henry Reeve",
+          "editor": "",
+          "edition_label": "Project Gutenberg #815: Democracy in America Volume 1",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg candidate inspected in Industrial Body Research Batch 002; public-domain/U.S. copyright-unprotected collection language and Project Gutenberg license observed before admission.",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Complete Project Gutenberg file for the named volume; Old Regime remains unresolved.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-INDUSTRIAL-AUTHORITY-032-TOCQUEVILLE-DEMOCRACY-V2-PG816",
+          "work_title": "Democracy in America, Volume 2",
+          "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-032-TOCQUEVILLE-DEMOCRACY-V2-PG816.txt",
+          "text_sha256": "1c9c747231b90370f0cd79bf0758be5df7dcb33d0354a050467328c679d0ccf4",
+          "text_bytes": 866238,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "Henry Reeve",
+          "editor": "",
+          "edition_label": "Project Gutenberg #816: Democracy in America Volume 2",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg candidate inspected in Industrial Body Research Batch 002; public-domain/U.S. copyright-unprotected collection language and Project Gutenberg license observed before admission.",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Complete Project Gutenberg file for the named volume; Old Regime remains unresolved.",
+          "status": "available"
+        }
+      ]
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-038-DARWIN",
+      "title": "Origin of Species; Descent of Man",
+      "author": "Charles Darwin",
+      "subject_era": "industrial",
+      "source_composition_era": "industrial",
+      "edition_era": "digital",
+      "secondary_eras": [],
+      "date_start": 1859,
+      "date_end": 1871,
+      "date_label": "1859-1871 principal-works lane; exact editions require body-level review",
+      "era_basis": "composition_period",
+      "civilization_tags": [
+        "Britain"
+      ],
+      "source_type": "primary",
+      "location": {
+        "civilization_memory_refs": [],
+        "body_imported": false,
+        "metadata_packet": "archive/library/industrial/metadata-batch-design-v0.1.md"
+      },
+      "status": "stub",
+      "notes": "Industrial metadata Batch 002. Function: science-technology-system. Boundary: metadata-only registry stub for Origin of Species; Descent of Man. Rights/body gate: public-domain likely.",
+      "text_status": "available",
+      "coverage_status": "principal-works",
+      "coverage_notes": "metadata-only Industrial Batch 002 record. No body downloaded, inspected, admitted, or represented as available. Coverage ceiling from design packet: principal-works.",
+      "text_bodies": [
+        {
+          "body_id": "LIB-INDUSTRIAL-AUTHORITY-038-DARWIN-ORIGIN-PG2009",
+          "work_title": "On the Origin of Species",
+          "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-038-DARWIN-ORIGIN-PG2009.txt",
+          "text_sha256": "27c02feed0b90e0163811a35a7565d03611dc1d3f86703d6bec4ae73d2d612b8",
+          "text_bytes": 1303005,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "",
+          "editor": "",
+          "edition_label": "Project Gutenberg #2009: On the Origin of Species",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg candidate inspected in Industrial Body Research Batch 002; public-domain/U.S. copyright-unprotected collection language and Project Gutenberg license observed before admission.",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Complete Project Gutenberg file for the named body work; source-authority coverage remains governed by the Industrial Batch 002 proposal and is not complete corpus coverage.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-INDUSTRIAL-AUTHORITY-038-DARWIN-DESCENT-PG2300",
+          "work_title": "The Descent of Man",
+          "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-038-DARWIN-DESCENT-PG2300.txt",
+          "text_sha256": "2911dfcc2b0b498fe92ad9bd7e2c712046edb448eb6fe3bd669bcf9629adf8fd",
+          "text_bytes": 1909144,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "",
+          "editor": "",
+          "edition_label": "Project Gutenberg #2300: The Descent of Man",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg candidate inspected in Industrial Body Research Batch 002; public-domain/U.S. copyright-unprotected collection language and Project Gutenberg license observed before admission.",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Complete Project Gutenberg file for the named body work; source-authority coverage remains governed by the Industrial Batch 002 proposal and is not complete corpus coverage.",
+          "status": "available"
+        }
+      ]
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-039-WALLACE",
+      "title": "Malay Archipelago",
+      "author": "Alfred Russel Wallace",
+      "subject_era": "industrial",
+      "source_composition_era": "industrial",
+      "edition_era": "digital",
+      "secondary_eras": [],
+      "date_start": 1869,
+      "date_end": 1869,
+      "date_label": "1869 principal-work lane; exact edition requires body-level review",
+      "era_basis": "composition_period",
+      "civilization_tags": [
+        "Britain",
+        "Malay Archipelago"
+      ],
+      "source_type": "primary",
+      "location": {
+        "civilization_memory_refs": [],
+        "body_imported": false,
+        "metadata_packet": "archive/library/industrial/metadata-batch-design-v0.1.md"
+      },
+      "status": "stub",
+      "notes": "Industrial metadata Batch 002. Function: science-technology-system. Boundary: metadata-only registry stub for Malay Archipelago. Rights/body gate: public-domain likely.",
+      "text_status": "available",
+      "coverage_status": "principal-work",
+      "coverage_notes": "metadata-only Industrial Batch 002 record. No body downloaded, inspected, admitted, or represented as available. Coverage ceiling from design packet: principal-work.",
+      "text_bodies": [
+        {
+          "body_id": "LIB-INDUSTRIAL-AUTHORITY-039-WALLACE-MALAY-PG2530",
+          "work_title": "The Malay Archipelago",
+          "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-039-WALLACE-MALAY-PG2530.txt",
+          "text_sha256": "d4b343bde8af87ea34810f86d64743f0d75de78617ab12fe95e04157a7efa206",
+          "text_bytes": 676092,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "",
+          "editor": "",
+          "edition_label": "Project Gutenberg #2530: The Malay Archipelago",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg candidate inspected in Industrial Body Research Batch 002; public-domain/U.S. copyright-unprotected collection language and Project Gutenberg license observed before admission.",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Complete Project Gutenberg file for the named body work; source-authority coverage remains governed by the Industrial Batch 002 proposal and is not complete corpus coverage.",
+          "status": "available"
+        }
+      ]
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-041-BABBAGE",
+      "title": "Economy of Machinery and Manufactures",
+      "author": "Charles Babbage",
+      "subject_era": "industrial",
+      "source_composition_era": "industrial",
+      "edition_era": "digital",
+      "secondary_eras": [],
+      "date_start": 1832,
+      "date_end": 1832,
+      "date_label": "1832 principal-work lane; exact edition requires body-level review",
+      "era_basis": "composition_period",
+      "civilization_tags": [
+        "Britain"
+      ],
+      "source_type": "primary",
+      "location": {
+        "civilization_memory_refs": [],
+        "body_imported": false,
+        "metadata_packet": "archive/library/industrial/metadata-batch-design-v0.1.md"
+      },
+      "status": "stub",
+      "notes": "Industrial metadata Batch 002. Function: science-technology-system. Boundary: metadata-only registry stub for Economy of Machinery and Manufactures. Rights/body gate: public-domain likely.",
+      "text_status": "available",
+      "coverage_status": "principal-work",
+      "coverage_notes": "metadata-only Industrial Batch 002 record. No body downloaded, inspected, admitted, or represented as available. Coverage ceiling from design packet: principal-work.",
+      "text_bodies": [
+        {
+          "body_id": "LIB-INDUSTRIAL-AUTHORITY-041-BABBAGE-ECONOMY-PG4238",
+          "work_title": "On the Economy of Machinery and Manufactures",
+          "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-041-BABBAGE-ECONOMY-PG4238.txt",
+          "text_sha256": "08cfd812da8c31ceb2085f7a01cb54c3073c84dd2f7dd5a65285c3f1d3358ace",
+          "text_bytes": 645369,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "",
+          "editor": "",
+          "edition_label": "Project Gutenberg #4238: On the Economy of Machinery and Manufactures",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg candidate inspected in Industrial Body Research Batch 002; public-domain/U.S. copyright-unprotected collection language and Project Gutenberg license observed before admission.",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Complete Project Gutenberg file for the named body work; source-authority coverage remains governed by the Industrial Batch 002 proposal and is not complete corpus coverage.",
+          "status": "available"
+        }
+      ]
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-042-NIGHTINGALE",
+      "title": "Notes on Nursing; sanitary reports",
+      "author": "Florence Nightingale",
+      "subject_era": "industrial",
+      "source_composition_era": "industrial",
+      "edition_era": "digital",
+      "secondary_eras": [],
+      "date_start": 1859,
+      "date_end": 1863,
+      "date_label": "1859-1863 selected works lane; exact report boundary requires body-level review",
+      "era_basis": "composition_period",
+      "civilization_tags": [
+        "Britain"
+      ],
+      "source_type": "primary",
+      "location": {
+        "civilization_memory_refs": [],
+        "body_imported": false,
+        "metadata_packet": "archive/library/industrial/metadata-batch-design-v0.1.md"
+      },
+      "status": "stub",
+      "notes": "Industrial metadata Batch 002. Function: labor-social-question. Boundary: metadata-only registry stub for Notes on Nursing; sanitary reports. Rights/body gate: public-domain likely; report boundary required.",
+      "text_status": "available",
+      "coverage_status": "selected-works",
+      "coverage_notes": "metadata-only Industrial Batch 002 record. No body downloaded, inspected, admitted, or represented as available. Coverage ceiling from design packet: selected-works.",
+      "text_bodies": [
+        {
+          "body_id": "LIB-INDUSTRIAL-AUTHORITY-042-NIGHTINGALE-NOTES-NURSING-PG17366",
+          "work_title": "Notes on Nursing",
+          "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-042-NIGHTINGALE-NOTES-NURSING-PG17366.txt",
+          "text_sha256": "6b013673690bfa5f4f8f80e842eb92adc7292d1dff717077cc38e9655d62af06",
+          "text_bytes": 286169,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "",
+          "editor": "",
+          "edition_label": "Project Gutenberg #17366: Notes on Nursing",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg candidate inspected in Industrial Body Research Batch 002; public-domain/U.S. copyright-unprotected collection language and Project Gutenberg license observed before admission.",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Complete Project Gutenberg file for the named work; Nightingale authority coverage remains selected works.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-INDUSTRIAL-AUTHORITY-042-NIGHTINGALE-SANITARY-STATS-PG52653",
+          "work_title": "Sanitary Statistics of Native Colonial Schools and Hospitals",
+          "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-042-NIGHTINGALE-SANITARY-STATS-PG52653.txt",
+          "text_sha256": "924b6dc4082d8238a808b8aec98bbc9033294613beb5310ff00f907f6d43e360",
+          "text_bytes": 404160,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "",
+          "editor": "",
+          "edition_label": "Project Gutenberg #52653: Sanitary Statistics of Native Colonial Schools and Hospitals",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg candidate inspected in Industrial Body Research Batch 002; public-domain/U.S. copyright-unprotected collection language and Project Gutenberg license observed before admission.",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Complete Project Gutenberg file for the named report; Nightingale authority coverage remains selected works.",
+          "status": "available"
+        }
+      ]
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-043-THOREAU",
+      "title": "Civil Disobedience; Walden",
+      "author": "Henry David Thoreau",
+      "subject_era": "industrial",
+      "source_composition_era": "industrial",
+      "edition_era": "digital",
+      "secondary_eras": [],
+      "date_start": 1849,
+      "date_end": 1854,
+      "date_label": "1849-1854 principal-works lane; exact editions require body-level review",
+      "era_basis": "composition_period",
+      "civilization_tags": [
+        "United States"
+      ],
+      "source_type": "literary",
+      "location": {
+        "civilization_memory_refs": [],
+        "body_imported": false,
+        "metadata_packet": "archive/library/industrial/metadata-batch-design-v0.1.md"
+      },
+      "status": "stub",
+      "notes": "Industrial metadata Batch 002. Function: environment-extraction-infrastructure. Boundary: metadata-only registry stub for Civil Disobedience; Walden. Rights/body gate: public-domain likely.",
+      "text_status": "available",
+      "coverage_status": "principal-works",
+      "coverage_notes": "metadata-only Industrial Batch 002 record. No body downloaded, inspected, admitted, or represented as available. Coverage ceiling from design packet: principal-works.",
+      "text_bodies": [
+        {
+          "body_id": "LIB-INDUSTRIAL-AUTHORITY-043-THOREAU-CIVIL-DISOBEDIENCE-PG71",
+          "work_title": "Civil Disobedience",
+          "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-043-THOREAU-CIVIL-DISOBEDIENCE-PG71.txt",
+          "text_sha256": "88310a64ab17a33347228deb109dc67f089c7313ef30e97d7870449612a77c98",
+          "text_bytes": 72261,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "",
+          "editor": "",
+          "edition_label": "Project Gutenberg #71: Civil Disobedience",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg candidate inspected in Industrial Body Research Batch 002; public-domain/U.S. copyright-unprotected collection language and Project Gutenberg license observed before admission.",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Complete Project Gutenberg file for the named body work; source-authority coverage remains governed by the Industrial Batch 002 proposal and is not complete corpus coverage.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-INDUSTRIAL-AUTHORITY-043-THOREAU-WALDEN-PG205",
+          "work_title": "Walden",
+          "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-043-THOREAU-WALDEN-PG205.txt",
+          "text_sha256": "2d9a76a2e3e8195c69430516ebd33c4d0757a53ad432ff6186b7b794e6fe99f9",
+          "text_bytes": 667957,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "",
+          "editor": "",
+          "edition_label": "Project Gutenberg #205: Walden",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg candidate inspected in Industrial Body Research Batch 002; public-domain/U.S. copyright-unprotected collection language and Project Gutenberg license observed before admission.",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Complete Project Gutenberg file for the named body work; source-authority coverage remains governed by the Industrial Batch 002 proposal and is not complete corpus coverage.",
+          "status": "available"
+        }
+      ]
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-044-RUSKIN",
+      "title": "Unto This Last",
+      "author": "John Ruskin",
+      "subject_era": "industrial",
+      "source_composition_era": "industrial",
+      "edition_era": "digital",
+      "secondary_eras": [],
+      "date_start": 1860,
+      "date_end": 1862,
+      "date_label": "1860-1862 principal-work lane; exact edition requires body-level review",
+      "era_basis": "composition_period",
+      "civilization_tags": [
+        "Britain"
+      ],
+      "source_type": "primary",
+      "location": {
+        "civilization_memory_refs": [],
+        "body_imported": false,
+        "metadata_packet": "archive/library/industrial/metadata-batch-design-v0.1.md"
+      },
+      "status": "stub",
+      "notes": "Industrial metadata Batch 002. Function: industrial-political-economy. Boundary: metadata-only registry stub for Unto This Last. Rights/body gate: public-domain likely.",
+      "text_status": "available",
+      "coverage_status": "principal-work",
+      "coverage_notes": "metadata-only Industrial Batch 002 record. No body downloaded, inspected, admitted, or represented as available. Coverage ceiling from design packet: principal-work.",
+      "text_bodies": [
+        {
+          "body_id": "LIB-INDUSTRIAL-AUTHORITY-044-RUSKIN-UNTO-THIS-LAST-PG36541",
+          "work_title": "Unto This Last, and Other Essays on Political Economy",
+          "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-044-RUSKIN-UNTO-THIS-LAST-PG36541.txt",
+          "text_sha256": "3407c93e8ab6818646140fde715f90cbfed000f9342619aeb2157dad9c33bf72",
+          "text_bytes": 737417,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "",
+          "editor": "",
+          "edition_label": "Project Gutenberg #36541: Unto This Last, and Other Essays on Political Economy",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg candidate inspected in Industrial Body Research Batch 002; public-domain/U.S. copyright-unprotected collection language and Project Gutenberg license observed before admission.",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Complete Project Gutenberg file for the named edition scope; source target centers Unto This Last.",
+          "status": "available"
+        }
+      ]
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-045-MORRIS",
+      "title": "News from Nowhere; essays",
+      "author": "William Morris",
+      "subject_era": "industrial",
+      "source_composition_era": "industrial",
+      "edition_era": "digital",
+      "secondary_eras": [],
+      "date_start": 1884,
+      "date_end": 1890,
+      "date_label": "1884-1890 selected works lane; exact essay boundary requires body-level review",
+      "era_basis": "composition_period",
+      "civilization_tags": [
+        "Britain"
+      ],
+      "source_type": "literary",
+      "location": {
+        "civilization_memory_refs": [],
+        "body_imported": false,
+        "metadata_packet": "archive/library/industrial/metadata-batch-design-v0.1.md"
+      },
+      "status": "stub",
+      "notes": "Industrial metadata Batch 002. Function: labor-social-question. Boundary: metadata-only registry stub for News from Nowhere; essays. Rights/body gate: public-domain likely; essay boundary required.",
+      "text_status": "available",
+      "coverage_status": "selected-works",
+      "coverage_notes": "metadata-only Industrial Batch 002 record. No body downloaded, inspected, admitted, or represented as available. Coverage ceiling from design packet: selected-works.",
+      "text_bodies": [
+        {
+          "body_id": "LIB-INDUSTRIAL-AUTHORITY-045-MORRIS-NEWS-NOWHERE-PG3261",
+          "work_title": "News from Nowhere",
+          "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-045-MORRIS-NEWS-NOWHERE-PG3261.txt",
+          "text_sha256": "350beb623c7574515535a283adf7d2a78de4230c9b4b1e8f238b8b9a252661b1",
+          "text_bytes": 450589,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "",
+          "editor": "",
+          "edition_label": "Project Gutenberg #3261: News from Nowhere",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg candidate inspected in Industrial Body Research Batch 002; public-domain/U.S. copyright-unprotected collection language and Project Gutenberg license observed before admission.",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Complete Project Gutenberg file for the named work; Morris essay expansion remains unresolved.",
+          "status": "available"
+        }
+      ]
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-083-WELLS",
+      "title": "anti-lynching pamphlets",
+      "author": "Ida B. Wells",
+      "subject_era": "industrial",
+      "source_composition_era": "industrial",
+      "edition_era": "digital",
+      "secondary_eras": [],
+      "date_start": 1892,
+      "date_end": 1900,
+      "date_label": "1892-1900 selected pamphlet lane; exact pamphlet sequence requires body-level review",
+      "era_basis": "composition_period",
+      "civilization_tags": [
+        "United States"
+      ],
+      "source_type": "primary",
+      "location": {
+        "civilization_memory_refs": [],
+        "body_imported": false,
+        "metadata_packet": "archive/library/industrial/metadata-batch-design-v0.1.md"
+      },
+      "status": "stub",
+      "notes": "Industrial metadata Batch 002. Function: indigenous-colonized-witness. Boundary: metadata-only registry stub for anti-lynching pamphlets. Rights/body gate: public-domain likely; pamphlet sequence required.",
+      "text_status": "available",
+      "coverage_status": "selected-works",
+      "coverage_notes": "metadata-only Industrial Batch 002 record. No body downloaded, inspected, admitted, or represented as available. Coverage ceiling from design packet: selected-works.",
+      "text_bodies": [
+        {
+          "body_id": "LIB-INDUSTRIAL-AUTHORITY-083-WELLS-SOUTHERN-HORRORS-PG14975",
+          "work_title": "Southern Horrors",
+          "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-083-WELLS-SOUTHERN-HORRORS-PG14975.txt",
+          "text_sha256": "aed82d6ba21e6b54622dc2ae6b8895e0528e09fc2f9afdce90d24cce7a5b69d5",
+          "text_bytes": 77101,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "",
+          "editor": "",
+          "edition_label": "Project Gutenberg #14975: Southern Horrors",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg candidate inspected in Industrial Body Research Batch 002; public-domain/U.S. copyright-unprotected collection language and Project Gutenberg license observed before admission.",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Complete Project Gutenberg file for the named anti-lynching pamphlet; Wells coverage remains selected pamphlets.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-INDUSTRIAL-AUTHORITY-083-WELLS-RED-RECORD-PG14977",
+          "work_title": "The Red Record",
+          "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-083-WELLS-RED-RECORD-PG14977.txt",
+          "text_sha256": "2fdfd650c9da72e36ef5c5d06a682f045d5b84fc57c207a2a0ea1d9bd88bf722",
+          "text_bytes": 221004,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "",
+          "editor": "",
+          "edition_label": "Project Gutenberg #14977: The Red Record",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg candidate inspected in Industrial Body Research Batch 002; public-domain/U.S. copyright-unprotected collection language and Project Gutenberg license observed before admission.",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Complete Project Gutenberg file for the named anti-lynching pamphlet; Wells coverage remains selected pamphlets.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-INDUSTRIAL-AUTHORITY-083-WELLS-MOB-RULE-PG14976",
+          "work_title": "Mob Rule in New Orleans",
+          "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-083-WELLS-MOB-RULE-PG14976.txt",
+          "text_sha256": "fd4ee9bcea3af29063f3c7c92c22c2ac0d580000fbe9c45ea3401498de67c6d1",
+          "text_bytes": 145179,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "",
+          "editor": "",
+          "edition_label": "Project Gutenberg #14976: Mob Rule in New Orleans",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg candidate inspected in Industrial Body Research Batch 002; public-domain/U.S. copyright-unprotected collection language and Project Gutenberg license observed before admission.",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Complete Project Gutenberg file for the named anti-lynching pamphlet; Wells coverage remains selected pamphlets.",
+          "status": "available"
+        }
+      ]
     }
   ]
 }

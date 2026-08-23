@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "industrial-body-research-batch-002-inspection-receipt",
+  "status": "inspection-complete-admission-proposal-ready",
+  "era": "industrial",
+  "batch_id": "industrial-body-research-batch-002",
+  "metadata_batch": "archive/library/industrial/metadata-batch-design-v0.1.md",
+  "private_inspection_root": "C:\\private\\mira-library-inspection\\industrial-batch002",
+  "counts": {
+    "authorities_covered": 12,
+    "candidate_files_attempted": 20,
+    "candidate_files_downloaded": 20,
+    "gutenberg_header_detected": 20,
+    "mechanically_passing": 20
+  },
+  "caveats": [
+    "Capital remains unresolved; A Contribution to the Critique of Political Economy is supplemental and not a substitute for Capital.",
+    "The Communist Manifesto is coauthored by Marx and Engels and must preserve coauthorship if admitted.",
+    "Tocqueville Old Regime remains unresolved.",
+    "Nightingale and Morris remain selected-works lanes, not complete corpora."
+  ],
+  "boundary": {
+    "metadata_registry_mutated_locally": true,
+    "source_bodies_downloaded_for_inspection": true,
+    "source_bodies_admitted": false,
+    "private_archive_ingested": false,
+    "staged": false,
+    "committed": false,
+    "pushed": false,
+    "published": false
+  }
+}

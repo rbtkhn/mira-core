@@ -1,0 +1,202 @@
+[
+  {
+    "body_id": "LIB-INDUSTRIAL-AUTHORITY-029-MARX-MANIFESTO-PG61",
+    "body_imported_to_archive": false,
+    "registry_updated": true,
+    "source_id": "LIB-INDUSTRIAL-AUTHORITY-029-MARX",
+    "status": "ok",
+    "text_bytes": 94315,
+    "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-029-MARX-MANIFESTO-PG61.txt",
+    "text_sha256": "ba4623f09e411351ad4f34488289c70eceda8fb9d7977c1db64f0f01ed80cb59"
+  },
+  {
+    "body_id": "LIB-INDUSTRIAL-AUTHORITY-029-MARX-CONTRIBUTION-PG46423",
+    "body_imported_to_archive": false,
+    "registry_updated": true,
+    "source_id": "LIB-INDUSTRIAL-AUTHORITY-029-MARX",
+    "status": "ok",
+    "text_bytes": 541130,
+    "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-029-MARX-CONTRIBUTION-PG46423.txt",
+    "text_sha256": "d01f83d5c8d1d726406fa583d282b709402aae156c1940252e370ca856fade9c"
+  },
+  {
+    "body_id": "LIB-INDUSTRIAL-AUTHORITY-030-ENGELS-CONDITION-PG17306",
+    "body_imported_to_archive": false,
+    "registry_updated": true,
+    "source_id": "LIB-INDUSTRIAL-AUTHORITY-030-ENGELS",
+    "status": "ok",
+    "text_bytes": 736497,
+    "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-030-ENGELS-CONDITION-PG17306.txt",
+    "text_sha256": "25ff9b6ba4bef75632145e785f86acfaeeb0b437fd7f8f5409bf103eed7ae93b"
+  },
+  {
+    "body_id": "LIB-INDUSTRIAL-AUTHORITY-031-MILL-ON-LIBERTY-PG34901",
+    "body_imported_to_archive": false,
+    "registry_updated": true,
+    "source_id": "LIB-INDUSTRIAL-AUTHORITY-031-MILL",
+    "status": "ok",
+    "text_bytes": 331189,
+    "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-031-MILL-ON-LIBERTY-PG34901.txt",
+    "text_sha256": "cfc8de9ac48709ef8e66922b32bac51335c883082e4da24251e1290816df904c"
+  },
+  {
+    "body_id": "LIB-INDUSTRIAL-AUTHORITY-031-MILL-SUBJECTION-PG27083",
+    "body_imported_to_archive": false,
+    "registry_updated": true,
+    "source_id": "LIB-INDUSTRIAL-AUTHORITY-031-MILL",
+    "status": "ok",
+    "text_bytes": 278619,
+    "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-031-MILL-SUBJECTION-PG27083.txt",
+    "text_sha256": "ed7238e072be4c3c4a0478c725d6d1b27698b786c0b46958e501a679fd605319"
+  },
+  {
+    "body_id": "LIB-INDUSTRIAL-AUTHORITY-032-TOCQUEVILLE-DEMOCRACY-V1-PG815",
+    "body_imported_to_archive": false,
+    "registry_updated": true,
+    "source_id": "LIB-INDUSTRIAL-AUTHORITY-032-TOCQUEVILLE",
+    "status": "ok",
+    "text_bytes": 1151189,
+    "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-032-TOCQUEVILLE-DEMOCRACY-V1-PG815.txt",
+    "text_sha256": "734b3b0352dc2ec312a6b2b9e9165aac054439eee2d6e8d83d1fd9a35d1c9e2d"
+  },
+  {
+    "body_id": "LIB-INDUSTRIAL-AUTHORITY-032-TOCQUEVILLE-DEMOCRACY-V2-PG816",
+    "body_imported_to_archive": false,
+    "registry_updated": true,
+    "source_id": "LIB-INDUSTRIAL-AUTHORITY-032-TOCQUEVILLE",
+    "status": "ok",
+    "text_bytes": 866238,
+    "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-032-TOCQUEVILLE-DEMOCRACY-V2-PG816.txt",
+    "text_sha256": "1c9c747231b90370f0cd79bf0758be5df7dcb33d0354a050467328c679d0ccf4"
+  },
+  {
+    "body_id": "LIB-INDUSTRIAL-AUTHORITY-038-DARWIN-ORIGIN-PG2009",
+    "body_imported_to_archive": false,
+    "registry_updated": true,
+    "source_id": "LIB-INDUSTRIAL-AUTHORITY-038-DARWIN",
+    "status": "ok",
+    "text_bytes": 1303005,
+    "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-038-DARWIN-ORIGIN-PG2009.txt",
+    "text_sha256": "27c02feed0b90e0163811a35a7565d03611dc1d3f86703d6bec4ae73d2d612b8"
+  },
+  {
+    "body_id": "LIB-INDUSTRIAL-AUTHORITY-038-DARWIN-DESCENT-PG2300",
+    "body_imported_to_archive": false,
+    "registry_updated": true,
+    "source_id": "LIB-INDUSTRIAL-AUTHORITY-038-DARWIN",
+    "status": "ok",
+    "text_bytes": 1909144,
+    "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-038-DARWIN-DESCENT-PG2300.txt",
+    "text_sha256": "2911dfcc2b0b498fe92ad9bd7e2c712046edb448eb6fe3bd669bcf9629adf8fd"
+  },
+  {
+    "body_id": "LIB-INDUSTRIAL-AUTHORITY-039-WALLACE-MALAY-PG2530",
+    "body_imported_to_archive": false,
+    "registry_updated": true,
+    "source_id": "LIB-INDUSTRIAL-AUTHORITY-039-WALLACE",
+    "status": "ok",
+    "text_bytes": 676092,
+    "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-039-WALLACE-MALAY-PG2530.txt",
+    "text_sha256": "d4b343bde8af87ea34810f86d64743f0d75de78617ab12fe95e04157a7efa206"
+  },
+  {
+    "body_id": "LIB-INDUSTRIAL-AUTHORITY-041-BABBAGE-ECONOMY-PG4238",
+    "body_imported_to_archive": false,
+    "registry_updated": true,
+    "source_id": "LIB-INDUSTRIAL-AUTHORITY-041-BABBAGE",
+    "status": "ok",
+    "text_bytes": 645369,
+    "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-041-BABBAGE-ECONOMY-PG4238.txt",
+    "text_sha256": "08cfd812da8c31ceb2085f7a01cb54c3073c84dd2f7dd5a65285c3f1d3358ace"
+  },
+  {
+    "body_id": "LIB-INDUSTRIAL-AUTHORITY-042-NIGHTINGALE-NOTES-NURSING-PG17366",
+    "body_imported_to_archive": false,
+    "registry_updated": true,
+    "source_id": "LIB-INDUSTRIAL-AUTHORITY-042-NIGHTINGALE",
+    "status": "ok",
+    "text_bytes": 286169,
+    "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-042-NIGHTINGALE-NOTES-NURSING-PG17366.txt",
+    "text_sha256": "6b013673690bfa5f4f8f80e842eb92adc7292d1dff717077cc38e9655d62af06"
+  },
+  {
+    "body_id": "LIB-INDUSTRIAL-AUTHORITY-042-NIGHTINGALE-SANITARY-STATS-PG52653",
+    "body_imported_to_archive": false,
+    "registry_updated": true,
+    "source_id": "LIB-INDUSTRIAL-AUTHORITY-042-NIGHTINGALE",
+    "status": "ok",
+    "text_bytes": 404160,
+    "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-042-NIGHTINGALE-SANITARY-STATS-PG52653.txt",
+    "text_sha256": "924b6dc4082d8238a808b8aec98bbc9033294613beb5310ff00f907f6d43e360"
+  },
+  {
+    "body_id": "LIB-INDUSTRIAL-AUTHORITY-043-THOREAU-CIVIL-DISOBEDIENCE-PG71",
+    "body_imported_to_archive": false,
+    "registry_updated": true,
+    "source_id": "LIB-INDUSTRIAL-AUTHORITY-043-THOREAU",
+    "status": "ok",
+    "text_bytes": 72261,
+    "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-043-THOREAU-CIVIL-DISOBEDIENCE-PG71.txt",
+    "text_sha256": "88310a64ab17a33347228deb109dc67f089c7313ef30e97d7870449612a77c98"
+  },
+  {
+    "body_id": "LIB-INDUSTRIAL-AUTHORITY-043-THOREAU-WALDEN-PG205",
+    "body_imported_to_archive": false,
+    "registry_updated": true,
+    "source_id": "LIB-INDUSTRIAL-AUTHORITY-043-THOREAU",
+    "status": "ok",
+    "text_bytes": 667957,
+    "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-043-THOREAU-WALDEN-PG205.txt",
+    "text_sha256": "2d9a76a2e3e8195c69430516ebd33c4d0757a53ad432ff6186b7b794e6fe99f9"
+  },
+  {
+    "body_id": "LIB-INDUSTRIAL-AUTHORITY-044-RUSKIN-UNTO-THIS-LAST-PG36541",
+    "body_imported_to_archive": false,
+    "registry_updated": true,
+    "source_id": "LIB-INDUSTRIAL-AUTHORITY-044-RUSKIN",
+    "status": "ok",
+    "text_bytes": 737417,
+    "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-044-RUSKIN-UNTO-THIS-LAST-PG36541.txt",
+    "text_sha256": "3407c93e8ab6818646140fde715f90cbfed000f9342619aeb2157dad9c33bf72"
+  },
+  {
+    "body_id": "LIB-INDUSTRIAL-AUTHORITY-045-MORRIS-NEWS-NOWHERE-PG3261",
+    "body_imported_to_archive": false,
+    "registry_updated": true,
+    "source_id": "LIB-INDUSTRIAL-AUTHORITY-045-MORRIS",
+    "status": "ok",
+    "text_bytes": 450589,
+    "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-045-MORRIS-NEWS-NOWHERE-PG3261.txt",
+    "text_sha256": "350beb623c7574515535a283adf7d2a78de4230c9b4b1e8f238b8b9a252661b1"
+  },
+  {
+    "body_id": "LIB-INDUSTRIAL-AUTHORITY-083-WELLS-SOUTHERN-HORRORS-PG14975",
+    "body_imported_to_archive": false,
+    "registry_updated": true,
+    "source_id": "LIB-INDUSTRIAL-AUTHORITY-083-WELLS",
+    "status": "ok",
+    "text_bytes": 77101,
+    "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-083-WELLS-SOUTHERN-HORRORS-PG14975.txt",
+    "text_sha256": "aed82d6ba21e6b54622dc2ae6b8895e0528e09fc2f9afdce90d24cce7a5b69d5"
+  },
+  {
+    "body_id": "LIB-INDUSTRIAL-AUTHORITY-083-WELLS-RED-RECORD-PG14977",
+    "body_imported_to_archive": false,
+    "registry_updated": true,
+    "source_id": "LIB-INDUSTRIAL-AUTHORITY-083-WELLS",
+    "status": "ok",
+    "text_bytes": 221004,
+    "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-083-WELLS-RED-RECORD-PG14977.txt",
+    "text_sha256": "2fdfd650c9da72e36ef5c5d06a682f045d5b84fc57c207a2a0ea1d9bd88bf722"
+  },
+  {
+    "body_id": "LIB-INDUSTRIAL-AUTHORITY-083-WELLS-MOB-RULE-PG14976",
+    "body_imported_to_archive": false,
+    "registry_updated": true,
+    "source_id": "LIB-INDUSTRIAL-AUTHORITY-083-WELLS",
+    "status": "ok",
+    "text_bytes": 145179,
+    "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-083-WELLS-MOB-RULE-PG14976.txt",
+    "text_sha256": "fd4ee9bcea3af29063f3c7c92c22c2ac0d580000fbe9c45ea3401498de67c6d1"
+  }
+]
