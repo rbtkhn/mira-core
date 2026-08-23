@@ -1,0 +1,92 @@
+{
+  "schema_version": "1.0",
+  "packet_id": "industrial-body-download-batch-006-churchill-private-reading-receipt",
+  "status": "downloaded-inspected-private-reading",
+  "era": "industrial",
+  "date": "2026-08-23",
+  "authority": "LIB-INDUSTRIAL-AUTHORITY-057-CHURCHILL",
+  "input_receipt": "archive/library/industrial/body-research-batch-006-inspection-receipt.md",
+  "private_inspection_root": "C:\\private\\mira-library-texts\\inspection\\industrial-batch-006-churchill",
+  "gate": "operator-review-before-registry-admission",
+  "authority_boundary": {
+    "operator_clarified_private_reading": true,
+    "web_lookup_performed": true,
+    "source_bodies_downloaded": true,
+    "source_bodies_inspected": true,
+    "source_bodies_admitted": false,
+    "registry_mutated": false,
+    "index_generated": false,
+    "private_archive_ingested": false,
+    "staged": false,
+    "committed": false,
+    "pushed": false,
+    "published": false,
+    "redistributed": false
+  },
+  "summary": {
+    "authorities_reviewed": 1,
+    "candidates_downloaded": 4,
+    "candidates_locally_inspected": 4,
+    "candidates_ready_for_private_reading_admission_review": 4,
+    "registry_bodies_admitted": 0
+  },
+  "downloads": [
+    {
+      "candidate_id": "IND-BODY-006-005C",
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-057-CHURCHILL",
+      "authority": "Winston Churchill",
+      "work_title": "The Story of the Malakand Field Force: An Episode of Frontier War",
+      "upstream": "Project Gutenberg #9404",
+      "url": "https://www.gutenberg.org/ebooks/9404",
+      "download_url": "https://www.gutenberg.org/cache/epub/9404/pg9404.txt",
+      "local_file": "C:\\private\\mira-library-texts\\inspection\\industrial-batch-006-churchill\\churchill-malakand-field-force-pg9404.txt",
+      "bytes": 545609,
+      "sha256": "F8EDD77A202898E910FD2EBE530E3AED19F877D5B8B1959600471E280A53A612",
+      "inspection_result": "Header matched title, author, release date, language, and PG start marker.",
+      "current_state": "downloaded-inspected-private-reading"
+    },
+    {
+      "candidate_id": "IND-BODY-006-005D",
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-057-CHURCHILL",
+      "authority": "Winston Churchill",
+      "work_title": "The River War: An Account of the Reconquest of the Sudan",
+      "upstream": "Project Gutenberg #4943",
+      "url": "https://www.gutenberg.org/ebooks/4943",
+      "download_url": "https://www.gutenberg.org/cache/epub/4943/pg4943.txt",
+      "local_file": "C:\\private\\mira-library-texts\\inspection\\industrial-batch-006-churchill\\churchill-river-war-pg4943.txt",
+      "bytes": 784351,
+      "sha256": "0176D9305DFC29B7B92ADFEAF223BA21D17E2803E5C5259F79A4BA74EE17CF46",
+      "inspection_result": "Header matched title, author, release date, language, and PG start marker.",
+      "current_state": "downloaded-inspected-private-reading"
+    },
+    {
+      "candidate_id": "IND-BODY-006-005E",
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-057-CHURCHILL",
+      "authority": "Winston Churchill",
+      "work_title": "The World Crisis, Volume 1 (of 6)",
+      "upstream": "Project Gutenberg #59794",
+      "url": "https://www.gutenberg.org/ebooks/59794",
+      "download_url": "https://www.gutenberg.org/cache/epub/59794/pg59794.txt",
+      "local_file": "C:\\private\\mira-library-texts\\inspection\\industrial-batch-006-churchill\\churchill-world-crisis-vol-1-pg59794.txt",
+      "bytes": 1317310,
+      "sha256": "CA4451A818C18CDCB7135C7C66D7566BB914B85A1043539112E0A0A592FF3F75",
+      "inspection_result": "Header matched title, author, release date, language, and PG start marker.",
+      "current_state": "downloaded-inspected-private-reading"
+    },
+    {
+      "candidate_id": "IND-BODY-006-005F",
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-057-CHURCHILL",
+      "authority": "Winston Churchill",
+      "work_title": "Liberalism and the Social Problem",
+      "upstream": "Project Gutenberg #18419",
+      "url": "https://www.gutenberg.org/ebooks/18419",
+      "download_url": "https://www.gutenberg.org/cache/epub/18419/pg18419.txt",
+      "local_file": "C:\\private\\mira-library-texts\\inspection\\industrial-batch-006-churchill\\churchill-liberalism-social-problem-pg18419.txt",
+      "bytes": 517570,
+      "sha256": "0894FC8499B424287E8AA120DC02DDF236D004B46F3D8443D295C20A562226FC",
+      "inspection_result": "Header matched title, author, release date, language, and PG start marker.",
+      "current_state": "downloaded-inspected-private-reading"
+    }
+  ],
+  "re_entry_point": "Private-reading registry admission review for the four Project Gutenberg Churchill bodies, or a separate search for later Churchill speeches and broadcasts under the same private-reading boundary."
+}

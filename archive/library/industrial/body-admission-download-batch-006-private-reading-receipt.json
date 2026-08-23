@@ -1,0 +1,169 @@
+{
+  "schema_version": "1.0",
+  "packet_id": "industrial-body-admission-download-batch-006-private-reading-receipt",
+  "status": "admitted-and-downloaded-private-reading",
+  "era": "industrial",
+  "date": "2026-08-23",
+  "gate": "operator-review-before-next-admission",
+  "private_text_root": "C:\\private\\mira-library-texts",
+  "private_inspection_root": "C:\\private\\mira-library-texts\\inspection\\industrial-batch-006-online",
+  "authority_boundary": {
+    "registry_mutated": true,
+    "registry_mutation_scope": "Churchill only",
+    "source_bodies_downloaded": true,
+    "source_bodies_admitted": true,
+    "admitted_body_count": 4,
+    "private_archive_ingested": false,
+    "staged": false,
+    "committed": false,
+    "pushed": false,
+    "published": false,
+    "redistributed": false
+  },
+  "summary": {
+    "authorities_touched": 9,
+    "churchill_bodies_admitted": 4,
+    "additional_online_candidate_files_downloaded": 9,
+    "additional_lenin_component_files_downloaded": 12,
+    "failed_download_routes": 1,
+    "indexes_regenerated": true
+  },
+  "churchill_admissions": [
+    {
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-057-CHURCHILL-MALAKAND-PG9404",
+      "work_title": "The Story of the Malakand Field Force: An Episode of Frontier War",
+      "source": "Project Gutenberg #9404",
+      "bytes": 545609,
+      "sha256": "f8edd77a202898e910fd2ebe530e3aed19f877d5b8b1959600471e280a53a612",
+      "status": "admitted-hash-matched"
+    },
+    {
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-057-CHURCHILL-RIVER-WAR-PG4943",
+      "work_title": "The River War: An Account of the Reconquest of the Sudan",
+      "source": "Project Gutenberg #4943",
+      "bytes": 784351,
+      "sha256": "0176d9305dfc29b7b92adfeaf223ba21d17e2803e5c5259f79a4ba74ee17cf46",
+      "status": "admitted-hash-matched"
+    },
+    {
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-057-CHURCHILL-WORLD-CRISIS-VOL-1-PG59794",
+      "work_title": "The World Crisis, Volume 1 (of 6)",
+      "source": "Project Gutenberg #59794",
+      "bytes": 1317310,
+      "sha256": "ca4451a818c18cdcb7135c7c66d7566bb914b85a1043539112e0a0a592ff3f75",
+      "status": "admitted-hash-matched"
+    },
+    {
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-057-CHURCHILL-LIBERALISM-SOCIAL-PROBLEM-PG18419",
+      "work_title": "Liberalism and the Social Problem",
+      "source": "Project Gutenberg #18419",
+      "bytes": 517570,
+      "sha256": "0894fc8499b424287e8aa120dc02ddf236d004b46f3d8443d295c20a562226fc",
+      "status": "admitted-hash-matched"
+    }
+  ],
+  "downloaded_candidates": [
+    {
+      "authority": "Emile Durkheim",
+      "work_title": "Le Suicide: Etude de Sociologie",
+      "local_file": "C:\\private\\mira-library-texts\\inspection\\industrial-batch-006-online\\durkheim-le-suicide-pg40489.txt",
+      "bytes": 1122589,
+      "sha256": "7B170FE725C164EBBFC6BB83B758B0302C3504003D5E1ADF0EE5582FE4B538D3",
+      "disposition": "full PG text; header matched"
+    },
+    {
+      "authority": "Sigmund Freud",
+      "work_title": "Civilization and its discontents",
+      "local_file": "C:\\private\\mira-library-texts\\inspection\\industrial-batch-006-online\\freud-civilization-discontents-pg78221.txt",
+      "bytes": 208244,
+      "sha256": "5BD503CFF493B952E487DF18AAAFB578BAAFE277BDB8D63735803B8314536665",
+      "disposition": "full PG text; header matched"
+    },
+    {
+      "authority": "Albert Einstein",
+      "work_title": "Relativity: The Special and General Theory",
+      "local_file": "C:\\private\\mira-library-texts\\inspection\\industrial-batch-006-online\\einstein-relativity-pg30155.txt",
+      "bytes": 210653,
+      "sha256": "86ED8156239455CBB6ED33E06097707D3AB7C40D46E9AA5FF32D3C3F94EF68FD",
+      "disposition": "full PG text; header matched"
+    },
+    {
+      "authority": "Albert Einstein",
+      "work_title": "Über die spezielle und die allgemeine Relativitätstheorie",
+      "local_file": "C:\\private\\mira-library-texts\\inspection\\industrial-batch-006-online\\einstein-ueber-relativitaet-pg77850.txt",
+      "bytes": 165241,
+      "sha256": "39F90EE5619FB88C563A731EDF1E666DFC26B7CD0E0DAAE90E7973879D4F643B",
+      "disposition": "full PG text; header matched"
+    },
+    {
+      "authority": "Vladimir Lenin",
+      "work_title": "Imperialism, the Highest Stage of Capitalism",
+      "local_file": "C:\\private\\mira-library-texts\\inspection\\industrial-batch-006-online\\lenin-imperialism-mia-index.html",
+      "bytes": 11985,
+      "sha256": "93324AE0EAC9567C4E5308F14418D2A6B756C8B077FE71EB23D5D2704225D73C",
+      "disposition": "index page; component pages downloaded separately"
+    },
+    {
+      "authority": "Rachel Carson",
+      "work_title": "Silent Spring",
+      "local_file": "C:\\private\\mira-library-texts\\inspection\\industrial-batch-006-online\\carson-silent-spring-fadedpage.html",
+      "bytes": 21567,
+      "sha256": "A4D8BDA10F68C39F631671A135601C66754B7F3D15F200EC3C6ECEF034701B62",
+      "disposition": "landing/details page observed; not a confirmed full body"
+    },
+    {
+      "authority": "Universal Declaration of Human Rights drafting tradition",
+      "work_title": "Universal Declaration of Human Rights final text",
+      "local_file": "C:\\private\\mira-library-texts\\inspection\\industrial-batch-006-online\\udhr-un-page.html",
+      "bytes": 105813,
+      "sha256": "2015ACD3FFD39A8750307EE5C0E19A8FD315EC6057D57FE844B5CB13478E6A2D",
+      "disposition": "official page downloaded; HTML source candidate"
+    },
+    {
+      "authority": "United Nations Charter / San Francisco conference tradition",
+      "work_title": "United Nations Charter final text",
+      "local_file": "C:\\private\\mira-library-texts\\inspection\\industrial-batch-006-online\\un-charter-un-page.html",
+      "bytes": 150983,
+      "sha256": "D16948227E71190640856DC908808E44313833AE7397F1EC576C97573B6DFAE2",
+      "disposition": "official page downloaded; HTML source candidate"
+    },
+    {
+      "authority": "Nelson Mandela",
+      "work_title": "I am prepared to die",
+      "local_file": "C:\\private\\mira-library-texts\\inspection\\industrial-batch-006-online\\mandela-i-am-prepared-to-die-nmf.html",
+      "bytes": 32884,
+      "sha256": "56870E05547A1FF42874943B6CF1080E84B5F84FB57C9563F0E150BCC6F569FF",
+      "disposition": "online article downloaded; contains speech excerpt/provenance"
+    }
+  ],
+  "lenin_component_files": [
+    "pref01.htm",
+    "pref02.htm",
+    "ch01.htm",
+    "ch02.htm",
+    "ch03.htm",
+    "ch04.htm",
+    "ch05.htm",
+    "ch06.htm",
+    "ch07.htm",
+    "ch08.htm",
+    "ch09.htm",
+    "ch10.htm"
+  ],
+  "failed_downloads": [
+    {
+      "authority": "Nelson Mandela",
+      "route": "South African History Online",
+      "url": "https://www.sahistory.org.za/archive/statement-dock-opening-defence-case-rivonia-trial-pretoria-supreme-court-20-april-1964",
+      "failure": "HTTP 404"
+    }
+  ],
+  "validation": {
+    "library_validate": "passed",
+    "render_index_check": "passed",
+    "focused_tests": "26 passed",
+    "churchill_hash_check": "4 of 4 matched",
+    "full_verify_texts": "not run; verifier is global-only and older unrelated private-store gaps are known"
+  },
+  "re_entry_point": "Admission review for Durkheim, Freud, Einstein English, and Einstein German; multi-file admission decision for Lenin; fuller text route for Carson if current Faded Page file remains only a detail page; HTML-body or extracted-text decision for UDHR, UN Charter, and Mandela."
+}

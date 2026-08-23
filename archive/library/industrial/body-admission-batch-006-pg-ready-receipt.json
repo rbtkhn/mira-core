@@ -1,0 +1,82 @@
+{
+  "schema_version": "1.0",
+  "packet_id": "industrial-body-admission-batch-006-pg-ready-receipt",
+  "status": "admitted",
+  "era": "industrial",
+  "date": "2026-08-23",
+  "gate": "operator-review-before-next-admission",
+  "private_text_root": "C:\\private\\mira-library-texts",
+  "input_inspection_root": "C:\\private\\mira-library-texts\\inspection\\industrial-batch-006-online",
+  "authority_boundary": {
+    "registry_mutated": true,
+    "registry_mutation_scope": "Durkheim, Freud, Einstein",
+    "source_bodies_admitted": true,
+    "admitted_body_count": 4,
+    "private_archive_ingested": false,
+    "staged": false,
+    "committed": false,
+    "pushed": false,
+    "published": false,
+    "redistributed": false
+  },
+  "summary": {
+    "authorities_admitted": 3,
+    "bodies_admitted": 4,
+    "indexes_regenerated": true
+  },
+  "admissions": [
+    {
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-034-DURKHEIM-LE-SUICIDE-PG40489",
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-034-DURKHEIM",
+      "authority": "Emile Durkheim",
+      "work_title": "Le Suicide: Etude de Sociologie",
+      "source": "Project Gutenberg #40489",
+      "bytes": 1122589,
+      "sha256": "7b170fe725c164ebbfc6bb83b758b0302c3504003d5e1adf0ee5582fe4b538d3",
+      "status": "admitted"
+    },
+    {
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-035-FREUD-CIVILIZATION-DISCONTENTS-PG78221",
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-035-FREUD",
+      "authority": "Sigmund Freud",
+      "work_title": "Civilization and its discontents",
+      "source": "Project Gutenberg #78221; Joan Riviere translation",
+      "bytes": 208244,
+      "sha256": "5bd503cff493b952e487df18aaafb578baafe277bdb8d63735803b8314536665",
+      "status": "admitted"
+    },
+    {
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-079-EINSTEIN-RELATIVITY-LAWSON-PG30155",
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-079-EINSTEIN",
+      "authority": "Albert Einstein",
+      "work_title": "Relativity: The Special and General Theory",
+      "source": "Project Gutenberg #30155; Robert W. Lawson translation",
+      "bytes": 210653,
+      "sha256": "86ed8156239455cbb6ed33e06097707d3ab7c40d46e9aa5ff32d3c3f94ef68fd",
+      "status": "admitted"
+    },
+    {
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-079-EINSTEIN-UEBER-RELATIVITAET-PG77850",
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-079-EINSTEIN",
+      "authority": "Albert Einstein",
+      "work_title": "Über die spezielle und die allgemeine Relativitätstheorie",
+      "source": "Project Gutenberg #77850; Karl Scheel editor",
+      "bytes": 165241,
+      "sha256": "39f90ee5619fb88c563a731edf1e666dfc26b7cd0e0daae90e7973879d4f643b",
+      "status": "admitted"
+    }
+  ],
+  "source_level_corrections": [
+    "Durkheim is located with Le Suicide admitted; Division of Labor remains a future exact-route candidate.",
+    "Freud is located with Civilization and its discontents admitted; selected psychoanalytic writings remain future exact-route candidates.",
+    "Einstein is located with English and German Relativity bodies admitted; nuclear-era letters remain future exact-route candidates."
+  ],
+  "validation": {
+    "library_validate": "passed",
+    "render_index_check": "passed",
+    "focused_tests": "26 passed",
+    "hash_check": "4 of 4 matched",
+    "full_verify_texts": "not run; verifier is global-only and older unrelated private-store gaps are known"
+  },
+  "re_entry_point": "Non-PG admission decision: Lenin multi-file HTML, UDHR/UN Charter HTML-body handling, Mandela text extraction, and Carson fuller route inspection."
+}

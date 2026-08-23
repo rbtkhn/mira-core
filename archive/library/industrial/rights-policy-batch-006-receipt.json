@@ -1,0 +1,123 @@
+{
+  "schema_version": "1.0",
+  "packet_id": "industrial-rights-policy-batch-006-receipt",
+  "status": "private-reading-policy-reviewed",
+  "era": "industrial",
+  "date": "2026-08-23",
+  "scope": [
+    "Winston Churchill",
+    "Nelson Mandela",
+    "Rachel Carson",
+    "Universal Declaration of Human Rights drafting tradition",
+    "United Nations Charter / San Francisco conference tradition"
+  ],
+  "input_receipt": "archive/library/industrial/body-research-batch-006-inspection-receipt.md",
+  "gate": "operator-review-before-download-or-admission",
+  "authority_boundary": {
+    "web_lookup_performed": true,
+    "source_bodies_downloaded": false,
+    "source_bodies_admitted": false,
+    "registry_mutated": false,
+    "index_generated": false,
+    "private_archive_ingested": false,
+    "staged": false,
+    "committed": false,
+    "pushed": false,
+    "published": false
+  },
+  "summary": {
+    "authorities_reviewed": 5,
+    "candidates_reviewed": 7,
+    "private_reading_blocked": 0,
+    "private_reading_eligible": 7,
+    "body_research_incomplete": 5,
+    "body_research_ready_advanced_by_this_pass": 2,
+    "downloaded": 0,
+    "inspected_locally": 0,
+    "admitted": 0
+  },
+  "dispositions": [
+    {
+      "candidate_id": "IND-BODY-006-005A",
+      "authority": "Winston Churchill",
+      "work_title": "wartime speeches / literary works",
+      "policy_sources": [
+        "https://winstonchurchill.org/resources/reference/the-churchill-copyright/",
+        "https://discoveries.curtisbrowncreative.co.uk/"
+      ],
+      "state": "body-research-incomplete",
+      "admission_consequence": "Select exact online texts before admission; preserve outward-boundary notes where needed."
+    },
+    {
+      "candidate_id": "IND-BODY-006-005B",
+      "authority": "Winston Churchill",
+      "work_title": "public-domain archival broadcasts",
+      "policy_sources": [
+        "https://winstonchurchill.org/resources/speeches/churchill-speeches/"
+      ],
+      "state": "body-research-incomplete",
+      "admission_consequence": "Inspect exact Internet Archive items before download/admission."
+    },
+    {
+      "candidate_id": "IND-BODY-006-006A",
+      "authority": "Nelson Mandela",
+      "work_title": "I am prepared to die",
+      "policy_sources": [
+        "https://archive.nelsonmandela.org/index.php/requests",
+        "https://www.nelsonmandela.org/news/entry/i-am-prepared-to-die"
+      ],
+      "state": "body-research-incomplete",
+      "admission_consequence": "Eligible for private reading once a stable file route is inspected. Preserve source and no-redistribution notes if admitted."
+    },
+    {
+      "candidate_id": "IND-BODY-006-006B",
+      "authority": "Nelson Mandela",
+      "work_title": "I am prepared to die",
+      "policy_sources": [
+        "https://www.sahistory.org.za/archive/statement-dock-opening-defence-case-rivonia-trial-pretoria-supreme-court-20-april-1964"
+      ],
+      "state": "body-research-incomplete",
+      "admission_consequence": "Keep as fallback/provenance evidence or inspect as alternate private-reading route."
+    },
+    {
+      "candidate_id": "IND-BODY-006-008A",
+      "authority": "Universal Declaration of Human Rights drafting tradition",
+      "work_title": "Universal Declaration of Human Rights final text",
+      "policy_sources": [
+        "https://www.un.org/en/about-us/universal-declaration-of-human-rights",
+        "https://www.un.org/en/about-us/copyright",
+        "https://www.un.org/en/about-us/terms-of-use"
+      ],
+      "state": "body-research-ready",
+      "admission_consequence": "Eligible for private-reading download/inspection from the official UN page or document route."
+    },
+    {
+      "candidate_id": "IND-BODY-006-009A",
+      "authority": "United Nations Charter / San Francisco conference tradition",
+      "work_title": "United Nations Charter final text",
+      "policy_sources": [
+        "https://www.un.org/en/about-us/un-charter/full-text",
+        "https://www.un.org/en/about-us/copyright",
+        "https://www.un.org/en/about-us/terms-of-use",
+        "https://treaties.un.org/Pages/Content.aspx?path=DB%2FUNTS%2FpageIntro_en.xml"
+      ],
+      "state": "body-research-ready",
+      "admission_consequence": "Eligible for private-reading download/inspection; prefer official UNTS/document route if convenient."
+    },
+    {
+      "candidate_id": "IND-BODY-006-010A",
+      "authority": "Rachel Carson",
+      "work_title": "Silent Spring",
+      "policy_sources": [
+        "https://www.rachelcarson.org/copyright",
+        "https://www.environmentandsociety.org/rights",
+        "https://www.environmentandsociety.org/exhibitions/rachel-carsons-silent-spring/copyright-information"
+      ],
+      "state": "body-research-ready",
+      "admission_consequence": "Eligible for private-reading download/inspection; preserve outward-boundary note if admitted."
+    }
+  ],
+  "correction_note": "This receipt supersedes the earlier public-distribution framing. The Mira Library is for personal reading. If a text is available online, it is authorized for private reading download, inspection, and private text-store admission. Reuse notes are retained only to prevent later publication, redistribution, Git source-body admission, or private Archive exposure.",
+  "next_low_risk_body_operation": "Bundle online-available private-reading candidates instead of excluding modern or institutionally hosted texts for publication reasons.",
+  "next_route_operation": "Select exact Churchill speeches/broadcasts, Mandela, UDHR, UN Charter, and Carson file routes before admission."
+}

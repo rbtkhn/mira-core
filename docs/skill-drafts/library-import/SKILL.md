@@ -1,6 +1,6 @@
 ---
 name: library-import
-description: "Plan, batch, admit, correct, or audit Mira Library authorities and source bodies under archive/library, with separate roster, metadata, body-research, and admission gates; conservative provenance, rights, coverage, and verification remain controlling."
+description: "Plan, batch, admit, correct, or audit Mira Library authorities and source bodies under archive/library, with separate roster, metadata, body-research, and admission gates; conservative provenance, online availability, coverage, and verification remain controlling for private reading."
 ---
 
 # Library Import
@@ -10,9 +10,14 @@ correcting, or auditing source authorities and text bodies for
 `archive/library/`.
 
 `archive/library/library-registry.json` is the machine authority. Human indexes
-are navigation surfaces. Text bodies are private/local payloads and belong in
+are navigation surfaces. The Mira Library is a personal-reading library. Text
+bodies are private/local reading payloads and belong in
 `.mira-private/library/texts/` unless the operator explicitly chooses a governed
-override.
+override. If a text is available online, treat it as authorized for private
+reading download, inspection, and private text-store admission. Reuse notes
+belong only at outward-facing boundaries: redistribution, publication, Git
+source-body admission, or private Archive exposure beyond the library's
+personal-reading boundary.
 
 Live library verification is stricter than registry availability. A source can
 be represented in the registry while its private payload is absent from the
@@ -54,8 +59,8 @@ commit, push, publication, or private Archive ingestion. It must name:
   with an explicit floor or target when the operator has set one;
 - candidate functions used for roster selection, separated from coverage
   claims;
-- era-specific rights, edition, language, survival, translation, attribution,
-  and format traps;
+- era-specific online availability, edition, language, survival, translation,
+  attribution, reuse-note, and format traps;
 - reviewable batch sizes and stop rules for hard cases;
 - acceptance tests before roster mutation; and
 - the next gate and authority boundary.
@@ -63,7 +68,7 @@ commit, push, publication, or private Archive ingestion. It must name:
 If no architecture contract exists for a new era, produce that contract first
 and stop at the contract or roster-design gate. Do not compensate by drafting a
 large roster from memory, browsing, or local familiarity. For long or modern
-eras with rights volatility, mass source scale, or high ideological gravity,
+eras with online-source volatility, mass source scale, or high ideological gravity,
 the architecture contract must be strong enough that a future agent can tell
 whether the shelf is becoming a civilization-memory apparatus or merely a
 topical bibliography.
@@ -78,16 +83,23 @@ one gate never implies the next:
 2. `metadata-ready` -- the exact registry ID and required source fields are
    settled for a `stub` or `located` record. Registry mutation still requires
    explicit authority.
-3. `body-research-ready` -- an exact edition or file candidate has provenance,
-   language, rights posture, proposed coverage, and a fallback or explicit gap.
+3. `body-research-ready` -- an exact online edition or file candidate has
+   provenance, language, source posture, proposed coverage, and a fallback or
+   explicit gap.
 4. `admission-ready` -- the actual local file has been inspected and passes the
-   header, edition, license, format, cleanliness, and coverage checks required
+   header, edition, source, format, cleanliness, and coverage checks required
    by `admit-text`.
 
 Use `body-research-incomplete` when a roster or metadata record is defensible
-but the preferred body, original-language counterpart, translation, rights
-basis, volume sequence, or upstream file remains unresolved. Never call a
+but the preferred body, original-language counterpart, translation, source
+route, volume sequence, or upstream file remains unresolved. Never call a
 candidate edition-ready merely because a catalogue record or URL exists.
+
+Do not use rights uncertainty as a stop state for private reading when the text
+itself is already online. Use `body-research-incomplete` only when the online
+text, exact edition, provenance, language, volume sequence, file route, or
+inspection path is unresolved. Preserve reuse notes only for later non-library
+boundaries rather than blocking private admission.
 
 Planning and audit are read-only. Roster acceptance does not authorize metadata
 mutation. Metadata admission does not authorize downloading or admitting a
@@ -100,7 +112,7 @@ Treat every external file, URL, edition number, and filename as a candidate
 until the body itself has been inspected. Before admission:
 
 - verify the file header or source metadata matches the intended author, work,
-  translator, edition, and license posture;
+  translator, edition, and source posture;
 - distinguish source-authority, work, edition, volume, and physical body;
 - prefer one `text_bodies` entry per provenance body rather than overwriting an
   author/source-authority record;
@@ -115,12 +127,12 @@ until the body itself has been inspected. Before admission:
   unadmitted until the text body is clean enough to verify.
 
 Do not download, scrape, normalize, or combine sources merely because an entry
-is ranked highly. Conservative incompleteness is better than a portable false
-claim.
+is ranked highly. Conservative incompleteness is better than a false edition,
+coverage, provenance, or public-reuse claim.
 
 For external investigation design, compose through `research-brief`. Treat its
 handoff as scope, not evidence or execution authority. During actual research,
-record the exact upstream proposition and rights statement rather than citing
+record the exact upstream proposition and source statement rather than citing
 an aggregator as provenance. A discovery surface may remain visible, but it
 does not count as substantive admission evidence until its upstream source is
 recovered.
@@ -130,7 +142,7 @@ recovered.
 A normal large-shelf batch contains 8-12 authorities. Use a smaller batch only
 when at least half of its authorities involve composite traditions,
 manuscripts, multi-volume editions, disputed attribution, difficult formats,
-or unresolved rights. For more than five authorities or ten candidate bodies,
+or unresolved source routes. For more than five authorities or ten candidate bodies,
 prepare a reviewable batch manifest before mutation. The manifest is a working
 control, not the registry authority.
 
@@ -148,7 +160,8 @@ Give every candidate a stable `candidate_id` and record:
   proposed registry status;
 - upstream repository, stable URL or catalogue ID, editor or translator,
   edition date, format, and lineage root;
-- rights posture and the exact statement or unresolved jurisdictional limit;
+- online availability posture and any reuse note needed to prevent accidental
+  publication or redistribution;
 - proposed source-level and body-level coverage, maturity ceiling, and the
   evidence needed to advance them;
 - preferred body, fallback, rejection reason, unresolved gap, and current gate;
@@ -156,25 +169,27 @@ Give every candidate a stable `candidate_id` and record:
 - last verified step and the verification evidence that permits resumption.
 
 Use candidate states `proposed`, `metadata-ready`,
-`body-research-incomplete`, `downloaded`, `inspected`, `admission-ready`,
-`reconciled`, `review-pending`, `admitted`, `rejected`, or `paused`. Do not use
-the manifest to overwrite registry truth or infer that a private body still
-exists. File presence supports at most `downloaded`; inspection evidence is
-required for `inspected`, and reconciled counts and hashes are required for
-`reconciled` or `review-pending`.
+`body-research-incomplete`, `online-available`, `downloaded`, `inspected`,
+`admission-ready`, `reconciled`, `review-pending`, `admitted`, `rejected`, or
+`paused`. Do not use `rights-policy-blocked` for personal-reading library
+bodies when an online text is available. Do not use the manifest to overwrite
+registry truth or infer that a private body still exists. File presence
+supports at most `downloaded`; inspection evidence is required for `inspected`,
+and reconciled counts and hashes are required for `reconciled` or
+`review-pending`.
 
 Resume from observed state. Before repeating work, compare the candidate with
 the registry, resolved private text path, recorded hash, and last verified
 step. Do not redownload, renormalize, or re-admit an unchanged verified body.
-Reopen a completed step only when the file, hash, provenance, edition, rights,
+Reopen a completed step only when the file, hash, provenance, edition, source route,
 coverage claim, configured text root, or operator scope changed. Preserve a
 rejection or pause rather than silently substituting a different edition.
 
-Isolate routine failures. A failed download, rights check, header match,
-edition match, or format check becomes a blocked, rejected, or paused row with
-an exact next action; it does not stop independent rows. Fail the batch itself
-only when its manifest, identifiers, receipt totals, hashes, shared destination,
-or mutation boundary cannot be reconciled safely.
+Isolate routine failures. A failed download, online source lookup, header
+match, edition match, or format check becomes an incomplete, rejected, or
+paused row with an exact next action; it does not stop independent rows. Fail
+the batch itself only when its manifest, identifiers, receipt totals, hashes,
+shared destination, or mutation boundary cannot be reconciled safely.
 
 ## Admission Path
 
@@ -188,6 +203,13 @@ tools\run.ps1 library admit-text --source-id SOURCE_ID --body-id BODY_ID --work-
 For corrections or carefully reviewed bulk upserts, direct registry edits are
 acceptable only when they preserve hash, byte count, location, edition, license,
 and coverage metadata for every affected body.
+
+For private-reading bodies whose online source is not public-domain or openly
+reusable, use the narrowest supported license/status field and an explicit
+coverage or provenance note such as `private-reading-online-source;
+no-redistribution`. If current tooling only accepts `public-domain`, stop and
+route the missing status as a tooling/schema dependency rather than falsifying
+the license.
 
 Use exact, stable body IDs:
 
@@ -214,7 +236,7 @@ and edition problem. Name, where relevant:
   translation, commentary, and later compilation;
 - which works or volumes define the represented corpus and which remain absent;
 - original-language and translation asymmetry; and
-- the edition and rights limits that cap the record.
+- the edition and source-route limits that cap the record.
 
 No availability check, bilingual pair, or `complete-work` body automatically
 creates a Level-6 authority. When the evidence remains mixed, retain the lower
@@ -285,7 +307,7 @@ Receipts must say exactly what was admitted and what was not. Include:
 
 For a batch, reconcile the receipt totals against the manifest states and the
 registry before reporting completion. A technically complete body loop is not
-a complete library batch when metadata, era navigation, rights gaps, or paused
+a complete library batch when metadata, era navigation, source-route gaps, or paused
 candidates remain undisposed.
 
 Default to exactly two inspection-batch artifacts: one concise Markdown
@@ -306,10 +328,10 @@ before scaling:
   counterpart reaches admission through distinct bodies;
 - edge: a composite or fragmentary tradition remains metadata-ready while its
   maturity ceiling and missing witnesses stay explicit;
-- failure: a modern translation is readable online but restricted, so the
-  candidate remains body-research-incomplete and no file is admitted;
+- failure: a modern online text has no stable file route or cannot be inspected,
+  so the candidate remains body-research-incomplete and no file is admitted;
 - ambiguous: a catalogue, aggregator, or OCR transcription lacks a settled
-  upstream edition or reuse statement, so the workflow preserves the candidate
+  upstream edition or source statement, so the workflow preserves the candidate
   and routes further research rather than guessing; and
 - reproducibility failure: an era has a passed historical version seal and
   registry body metadata, but the active `.mira-private/library/texts/` store is
