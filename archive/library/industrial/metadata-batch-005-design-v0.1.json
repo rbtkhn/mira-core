@@ -1,0 +1,140 @@
+{
+  "schema_version": "1.0",
+  "packet_id": "industrial-metadata-batch-005-design-v0.1",
+  "status": "metadata-batch-design",
+  "era": "industrial",
+  "date_start": 1815,
+  "date_end": 1991,
+  "roster_packet": "archive/library/industrial/roster-design-v0.1.md",
+  "gate": "operator-review-before-registry-mutation",
+  "authority_boundary": {
+    "registry_mutated": false,
+    "index_generated": false,
+    "source_bodies_downloaded": false,
+    "source_bodies_admitted": false,
+    "private_archive_ingested": false,
+    "staged": false,
+    "committed": false,
+    "pushed": false,
+    "published": false
+  },
+  "batch": {
+    "batch_id": "industrial-metadata-batch-005",
+    "purpose": "Public-domain literature and social witness expansion",
+    "candidate_count": 10,
+    "sequencing_note": "Winston Churchill remains essential in the Industrial roster and is deferred only because speech and edition rights require a separate review path.",
+    "candidates": [
+      {
+        "candidate_id": "IND-META-005-001",
+        "proposed_source_id": "LIB-INDUSTRIAL-AUTHORITY-019-MACHADO-DE-ASSIS",
+        "authority": "Machado de Assis",
+        "target_title": "Dom Casmurro; Posthumous Memoirs of Bras Cubas",
+        "primary_function": "civilization-memory-literature",
+        "proposed_registry_status": "stub",
+        "coverage_ceiling": "principal-works",
+        "rights_body_gate": "public-domain originals likely; translation review required"
+      },
+      {
+        "candidate_id": "IND-META-005-002",
+        "proposed_source_id": "LIB-INDUSTRIAL-AUTHORITY-028-SOJOURNER-TRUTH",
+        "authority": "Sojourner Truth textual tradition",
+        "target_title": "speeches and dictated/narrated testimony",
+        "primary_function": "indigenous-colonized-witness",
+        "proposed_registry_status": "stub",
+        "coverage_ceiling": "selected-works",
+        "rights_body_gate": "speech/textual tradition requires edition and attribution review"
+      },
+      {
+        "candidate_id": "IND-META-005-003",
+        "proposed_source_id": "LIB-INDUSTRIAL-AUTHORITY-040-FARADAY",
+        "authority": "Michael Faraday",
+        "target_title": "lectures and experimental writings",
+        "primary_function": "science-technology-system",
+        "proposed_registry_status": "stub",
+        "coverage_ceiling": "selected-works",
+        "rights_body_gate": "public-domain likely; lecture/collection boundary review required"
+      },
+      {
+        "candidate_id": "IND-META-005-004",
+        "proposed_source_id": "LIB-INDUSTRIAL-AUTHORITY-064-CONRAD",
+        "authority": "Joseph Conrad",
+        "target_title": "Heart of Darkness; Lord Jim",
+        "primary_function": "civilization-memory-literature",
+        "proposed_registry_status": "stub",
+        "coverage_ceiling": "principal-works",
+        "rights_body_gate": "public-domain likely; edition review required"
+      },
+      {
+        "candidate_id": "IND-META-005-005",
+        "proposed_source_id": "LIB-INDUSTRIAL-AUTHORITY-081-SCHREINER",
+        "authority": "Olive Schreiner",
+        "target_title": "The Story of an African Farm; selected political writings",
+        "primary_function": "civilization-memory-literature",
+        "proposed_registry_status": "stub",
+        "coverage_ceiling": "selected-works",
+        "rights_body_gate": "public-domain likely; edition review required"
+      },
+      {
+        "candidate_id": "IND-META-005-006",
+        "proposed_source_id": "LIB-INDUSTRIAL-AUTHORITY-082-STANTON",
+        "authority": "Elizabeth Cady Stanton",
+        "target_title": "Seneca Falls materials; speeches",
+        "primary_function": "gender-family-education",
+        "proposed_registry_status": "stub",
+        "coverage_ceiling": "selected-works",
+        "rights_body_gate": "public-domain likely; convention-document attribution review required"
+      },
+      {
+        "candidate_id": "IND-META-005-007",
+        "proposed_source_id": "LIB-INDUSTRIAL-AUTHORITY-084-ZITKALA-SA",
+        "authority": "Zitkala-Sa",
+        "target_title": "American Indian Stories; selected essays",
+        "primary_function": "civilization-memory-literature",
+        "proposed_registry_status": "stub",
+        "coverage_ceiling": "selected-works",
+        "rights_body_gate": "public-domain likely; periodical/collection edition review required"
+      },
+      {
+        "candidate_id": "IND-META-005-008",
+        "proposed_source_id": "LIB-INDUSTRIAL-AUTHORITY-093-WASHINGTON",
+        "authority": "Booker T. Washington",
+        "target_title": "Up from Slavery; Atlanta Exposition address",
+        "primary_function": "labor-social-question",
+        "proposed_registry_status": "stub",
+        "coverage_ceiling": "selected-works",
+        "rights_body_gate": "public-domain likely; speech/text edition review required"
+      },
+      {
+        "candidate_id": "IND-META-005-009",
+        "proposed_source_id": "LIB-INDUSTRIAL-AUTHORITY-036-NIETZSCHE",
+        "authority": "Friedrich Nietzsche",
+        "target_title": "On the Genealogy of Morals; Thus Spake Zarathustra",
+        "primary_function": "religion-moral-order",
+        "proposed_registry_status": "stub",
+        "coverage_ceiling": "principal-works",
+        "rights_body_gate": "public-domain originals likely; translation rights review required"
+      },
+      {
+        "candidate_id": "IND-META-005-010",
+        "proposed_source_id": "LIB-INDUSTRIAL-AUTHORITY-054-LUXEMBURG",
+        "authority": "Rosa Luxemburg",
+        "target_title": "Reform or Revolution; The Junius Pamphlet",
+        "primary_function": "mass-politics-ideology",
+        "proposed_registry_status": "stub",
+        "coverage_ceiling": "principal-works",
+        "rights_body_gate": "public-domain posture varies by edition/translation; review required"
+      }
+    ]
+  },
+  "acceptance_tests": [
+    "exactly 10 metadata candidates are present",
+    "every row has a stable candidate ID and proposed source ID",
+    "every row remains proposed stub only",
+    "literature remains central while at least five distinct representation lanes are present",
+    "every row has a conservative coverage ceiling",
+    "speech, translation, collection, and edition-sensitive rows retain explicit rights/body gates",
+    "Churchill remains present in the roster and is deferred only for rights and edition sequencing, not removed",
+    "no registry, index, source body, private Archive, staging, commit, push, or publication action is authorized"
+  ],
+  "next_gate": "operator-review-before-metadata-mutation"
+}

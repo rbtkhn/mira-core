@@ -16342,6 +16342,292 @@
           "status": "available"
         }
       ]
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-019-MACHADO-DE-ASSIS",
+      "title": "Dom Casmurro; Posthumous Memoirs of Bras Cubas",
+      "author": "Machado de Assis",
+      "subject_era": "industrial",
+      "source_composition_era": "industrial",
+      "edition_era": "digital",
+      "secondary_eras": [],
+      "date_start": 1881,
+      "date_end": 1899,
+      "date_label": "1881-1899 principal-works lane; Portuguese originals and translations require body-level review",
+      "era_basis": "composition_period",
+      "civilization_tags": [
+        "Brazil"
+      ],
+      "source_type": "literary",
+      "location": {
+        "civilization_memory_refs": [],
+        "body_imported": false,
+        "metadata_packet": "archive/library/industrial/metadata-batch-005-design-v0.1.md"
+      },
+      "status": "stub",
+      "notes": "Industrial metadata Batch 005. Function: civilization-memory-literature. Boundary: metadata-only registry stub for Dom Casmurro; Posthumous Memoirs of Bras Cubas. Rights/body gate: public-domain originals likely; translation review required.",
+      "text_status": "missing",
+      "coverage_status": "principal-works",
+      "coverage_notes": "Metadata-only Industrial Batch 005 record. No body downloaded, inspected, admitted, or represented as available. Coverage ceiling from design packet: principal-works.",
+      "text_bodies": []
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-028-SOJOURNER-TRUTH",
+      "title": "speeches and dictated/narrated testimony",
+      "author": "Sojourner Truth textual tradition",
+      "subject_era": "industrial",
+      "source_composition_era": "industrial",
+      "edition_era": "digital",
+      "secondary_eras": [],
+      "date_start": 1850,
+      "date_end": 1883,
+      "date_label": "1850-1883 selected speech and testimony lane; transcription, attribution, and edition variants require body-level review",
+      "era_basis": "composition_period",
+      "civilization_tags": [
+        "United States",
+        "Black Atlantic"
+      ],
+      "source_type": "primary",
+      "location": {
+        "civilization_memory_refs": [],
+        "body_imported": false,
+        "metadata_packet": "archive/library/industrial/metadata-batch-005-design-v0.1.md"
+      },
+      "status": "stub",
+      "notes": "Industrial metadata Batch 005. Function: indigenous-colonized-witness. Boundary: metadata-only registry stub for speeches and dictated/narrated testimony. Rights/body gate: speech/textual tradition requires edition and attribution review.",
+      "text_status": "missing",
+      "coverage_status": "selected-works",
+      "coverage_notes": "Metadata-only Industrial Batch 005 record. No body downloaded, inspected, admitted, or represented as available. Coverage ceiling from design packet: selected-works; speech and dictated testimony witnesses must remain textually distinct.",
+      "text_bodies": []
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-040-FARADAY",
+      "title": "lectures and experimental writings",
+      "author": "Michael Faraday",
+      "subject_era": "industrial",
+      "source_composition_era": "industrial",
+      "edition_era": "digital",
+      "secondary_eras": [],
+      "date_start": 1827,
+      "date_end": 1860,
+      "date_label": "1827-1860 selected public-science and experimental-writing lane; collection boundary requires body-level review",
+      "era_basis": "composition_period",
+      "civilization_tags": [
+        "Britain",
+        "science"
+      ],
+      "source_type": "primary",
+      "location": {
+        "civilization_memory_refs": [],
+        "body_imported": false,
+        "metadata_packet": "archive/library/industrial/metadata-batch-005-design-v0.1.md"
+      },
+      "status": "stub",
+      "notes": "Industrial metadata Batch 005. Function: science-technology-system. Boundary: metadata-only registry stub for lectures and experimental writings. Rights/body gate: public-domain likely; lecture/collection boundary review required.",
+      "text_status": "missing",
+      "coverage_status": "selected-works",
+      "coverage_notes": "Metadata-only Industrial Batch 005 record. No body downloaded, inspected, admitted, or represented as available. Coverage ceiling from design packet: selected-works.",
+      "text_bodies": []
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-064-CONRAD",
+      "title": "Heart of Darkness; Lord Jim",
+      "author": "Joseph Conrad",
+      "subject_era": "industrial",
+      "source_composition_era": "industrial",
+      "edition_era": "digital",
+      "secondary_eras": [],
+      "date_start": 1899,
+      "date_end": 1900,
+      "date_label": "1899-1900 principal-works lane; edition review required before body admission",
+      "era_basis": "composition_period",
+      "civilization_tags": [
+        "Britain",
+        "empire"
+      ],
+      "source_type": "literary",
+      "location": {
+        "civilization_memory_refs": [],
+        "body_imported": false,
+        "metadata_packet": "archive/library/industrial/metadata-batch-005-design-v0.1.md"
+      },
+      "status": "stub",
+      "notes": "Industrial metadata Batch 005. Function: civilization-memory-literature. Boundary: metadata-only registry stub for Heart of Darkness; Lord Jim. Rights/body gate: public-domain likely; edition review required.",
+      "text_status": "missing",
+      "coverage_status": "principal-works",
+      "coverage_notes": "Metadata-only Industrial Batch 005 record. No body downloaded, inspected, admitted, or represented as available. Coverage ceiling from design packet: principal-works.",
+      "text_bodies": []
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-081-SCHREINER",
+      "title": "The Story of an African Farm; selected political writings",
+      "author": "Olive Schreiner",
+      "subject_era": "industrial",
+      "source_composition_era": "industrial",
+      "edition_era": "digital",
+      "secondary_eras": [],
+      "date_start": 1883,
+      "date_end": 1926,
+      "date_label": "1883-1926 selected literary and political-witness lane; edition review required before body admission",
+      "era_basis": "composition_period",
+      "civilization_tags": [
+        "South Africa"
+      ],
+      "source_type": "literary",
+      "location": {
+        "civilization_memory_refs": [],
+        "body_imported": false,
+        "metadata_packet": "archive/library/industrial/metadata-batch-005-design-v0.1.md"
+      },
+      "status": "stub",
+      "notes": "Industrial metadata Batch 005. Function: civilization-memory-literature. Boundary: metadata-only registry stub for The Story of an African Farm; selected political writings. Rights/body gate: public-domain likely; edition review required.",
+      "text_status": "missing",
+      "coverage_status": "selected-works",
+      "coverage_notes": "Metadata-only Industrial Batch 005 record. No body downloaded, inspected, admitted, or represented as available. Coverage ceiling from design packet: selected-works.",
+      "text_bodies": []
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-082-STANTON",
+      "title": "Seneca Falls materials; speeches",
+      "author": "Elizabeth Cady Stanton",
+      "subject_era": "industrial",
+      "source_composition_era": "industrial",
+      "edition_era": "digital",
+      "secondary_eras": [],
+      "date_start": 1848,
+      "date_end": 1902,
+      "date_label": "1848-1902 selected reform and speech lane; convention-document attribution requires body-level review",
+      "era_basis": "composition_period",
+      "civilization_tags": [
+        "United States"
+      ],
+      "source_type": "primary",
+      "location": {
+        "civilization_memory_refs": [],
+        "body_imported": false,
+        "metadata_packet": "archive/library/industrial/metadata-batch-005-design-v0.1.md"
+      },
+      "status": "stub",
+      "notes": "Industrial metadata Batch 005. Function: gender-family-education. Boundary: metadata-only registry stub for Seneca Falls materials; speeches. Rights/body gate: public-domain likely; convention-document attribution review required.",
+      "text_status": "missing",
+      "coverage_status": "selected-works",
+      "coverage_notes": "Metadata-only Industrial Batch 005 record. No body downloaded, inspected, admitted, or represented as available. Coverage ceiling from design packet: selected-works; collective convention documents must not become a single-author corpus claim.",
+      "text_bodies": []
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-084-ZITKALA-SA",
+      "title": "American Indian Stories; selected essays",
+      "author": "Zitkala-Sa",
+      "subject_era": "industrial",
+      "source_composition_era": "industrial",
+      "edition_era": "digital",
+      "secondary_eras": [],
+      "date_start": 1900,
+      "date_end": 1921,
+      "date_label": "1900-1921 selected literature and essay lane; periodical and collection edition review required",
+      "era_basis": "composition_period",
+      "civilization_tags": [
+        "Indigenous North America",
+        "United States"
+      ],
+      "source_type": "literary",
+      "location": {
+        "civilization_memory_refs": [],
+        "body_imported": false,
+        "metadata_packet": "archive/library/industrial/metadata-batch-005-design-v0.1.md"
+      },
+      "status": "stub",
+      "notes": "Industrial metadata Batch 005. Function: civilization-memory-literature. Boundary: metadata-only registry stub for American Indian Stories; selected essays. Rights/body gate: public-domain likely; periodical/collection edition review required.",
+      "text_status": "missing",
+      "coverage_status": "selected-works",
+      "coverage_notes": "Metadata-only Industrial Batch 005 record. No body downloaded, inspected, admitted, or represented as available. Coverage ceiling from design packet: selected-works.",
+      "text_bodies": []
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-093-WASHINGTON",
+      "title": "Up from Slavery; Atlanta Exposition address",
+      "author": "Booker T. Washington",
+      "subject_era": "industrial",
+      "source_composition_era": "industrial",
+      "edition_era": "digital",
+      "secondary_eras": [],
+      "date_start": 1895,
+      "date_end": 1901,
+      "date_label": "1895-1901 selected autobiography and speech lane; speech/text edition review required",
+      "era_basis": "composition_period",
+      "civilization_tags": [
+        "United States",
+        "Black Atlantic"
+      ],
+      "source_type": "primary",
+      "location": {
+        "civilization_memory_refs": [],
+        "body_imported": false,
+        "metadata_packet": "archive/library/industrial/metadata-batch-005-design-v0.1.md"
+      },
+      "status": "stub",
+      "notes": "Industrial metadata Batch 005. Function: labor-social-question. Boundary: metadata-only registry stub for Up from Slavery; Atlanta Exposition address. Rights/body gate: public-domain likely; speech/text edition review required.",
+      "text_status": "missing",
+      "coverage_status": "selected-works",
+      "coverage_notes": "Metadata-only Industrial Batch 005 record. No body downloaded, inspected, admitted, or represented as available. Coverage ceiling from design packet: selected-works.",
+      "text_bodies": []
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-036-NIETZSCHE",
+      "title": "On the Genealogy of Morals; Thus Spake Zarathustra",
+      "author": "Friedrich Nietzsche",
+      "subject_era": "industrial",
+      "source_composition_era": "industrial",
+      "edition_era": "digital",
+      "secondary_eras": [],
+      "date_start": 1883,
+      "date_end": 1887,
+      "date_label": "1883-1887 principal-works lane; German originals and translations require body-level review",
+      "era_basis": "composition_period",
+      "civilization_tags": [
+        "Germany"
+      ],
+      "source_type": "primary",
+      "location": {
+        "civilization_memory_refs": [],
+        "body_imported": false,
+        "metadata_packet": "archive/library/industrial/metadata-batch-005-design-v0.1.md"
+      },
+      "status": "stub",
+      "notes": "Industrial metadata Batch 005. Function: religion-moral-order. Boundary: metadata-only registry stub for On the Genealogy of Morals; Thus Spake Zarathustra. Rights/body gate: public-domain originals likely; translation rights review required.",
+      "text_status": "missing",
+      "coverage_status": "principal-works",
+      "coverage_notes": "Metadata-only Industrial Batch 005 record. No body downloaded, inspected, admitted, or represented as available. Coverage ceiling from design packet: principal-works.",
+      "text_bodies": []
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-054-LUXEMBURG",
+      "title": "Reform or Revolution; The Junius Pamphlet",
+      "author": "Rosa Luxemburg",
+      "subject_era": "industrial",
+      "source_composition_era": "industrial",
+      "edition_era": "digital",
+      "secondary_eras": [],
+      "date_start": 1899,
+      "date_end": 1915,
+      "date_label": "1899-1915 principal-works lane; edition and translation rights require body-level review",
+      "era_basis": "composition_period",
+      "civilization_tags": [
+        "Europe",
+        "socialism"
+      ],
+      "source_type": "primary",
+      "location": {
+        "civilization_memory_refs": [],
+        "body_imported": false,
+        "metadata_packet": "archive/library/industrial/metadata-batch-005-design-v0.1.md"
+      },
+      "status": "stub",
+      "notes": "Industrial metadata Batch 005. Function: mass-politics-ideology. Boundary: metadata-only registry stub for Reform or Revolution; The Junius Pamphlet. Rights/body gate: public-domain posture varies by edition/translation; review required.",
+      "text_status": "missing",
+      "coverage_status": "principal-works",
+      "coverage_notes": "Metadata-only Industrial Batch 005 record. No body downloaded, inspected, admitted, or represented as available. Coverage ceiling from design packet: principal-works.",
+      "text_bodies": []
     }
   ]
 }
