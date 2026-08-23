@@ -1,0 +1,65 @@
+{
+  "schema_version": "1.0",
+  "proposal_id": "industrial-body-admission-batch-001-proposal",
+  "status": "admission-proposal",
+  "date": "2026-08-23",
+  "era": "industrial",
+  "metadata_batch": "archive/library/industrial/metadata-batch-design-v0.1.md",
+  "inspection_receipt": "archive/library/industrial/body-research-batch-001-inspection-receipt.md",
+  "private_inspection_root": "C:\\private\\mira-library-inspection\\industrial-batch001",
+  "authority_boundary": {
+    "source_bodies_admitted": false,
+    "registry_body_metadata_updated": false,
+    "private_archive_ingested": false,
+    "staged": false,
+    "committed": false,
+    "pushed": false,
+    "published": false
+  },
+  "counts": {
+    "authorities": 12,
+    "proposed_bodies": 23,
+    "proposed_admissions": 23
+  },
+  "admission_policy": [
+    "Admit all 23 candidates as separate provenance bodies if later authorized",
+    "Preserve Project Gutenberg headers and file-level provenance",
+    "No complete-surviving-corpus claims",
+    "Douglass is selected narrative, speech, address, and civic prose coverage",
+    "Zola Germinal translation and French J'accuse original remain distinct"
+  ],
+  "proposed_bodies": [
+    {"source_id":"LIB-INDUSTRIAL-AUTHORITY-001-AUSTEN","body_id":"LIB-INDUSTRIAL-AUTHORITY-001-AUSTEN-PERSUASION-PG105","source_file":"AUSTEN-PERSUASION-PG105.txt","work_title":"Persuasion","language":"english","license_status":"public-domain","coverage_status":"complete-work"},
+    {"source_id":"LIB-INDUSTRIAL-AUTHORITY-002-SHELLEY","body_id":"LIB-INDUSTRIAL-AUTHORITY-002-SHELLEY-FRANKENSTEIN-1818-PG41445","source_file":"SHELLEY-FRANKENSTEIN-1818-PG41445.txt","work_title":"Frankenstein; Or, The Modern Prometheus","language":"english","license_status":"public-domain","coverage_status":"complete-work"},
+    {"source_id":"LIB-INDUSTRIAL-AUTHORITY-006-DICKENS","body_id":"LIB-INDUSTRIAL-AUTHORITY-006-DICKENS-HARD-TIMES-PG786","source_file":"DICKENS-HARD-TIMES-PG786.txt","work_title":"Hard Times","language":"english","license_status":"public-domain","coverage_status":"complete-work"},
+    {"source_id":"LIB-INDUSTRIAL-AUTHORITY-006-DICKENS","body_id":"LIB-INDUSTRIAL-AUTHORITY-006-DICKENS-BLEAK-HOUSE-PG1023","source_file":"DICKENS-BLEAK-HOUSE-PG1023.txt","work_title":"Bleak House","language":"english","license_status":"public-domain","coverage_status":"complete-work"},
+    {"source_id":"LIB-INDUSTRIAL-AUTHORITY-009-ELIOT","body_id":"LIB-INDUSTRIAL-AUTHORITY-009-ELIOT-MIDDLEMARCH-PG145","source_file":"ELIOT-MIDDLEMARCH-PG145.txt","work_title":"Middlemarch","language":"english","license_status":"public-domain","coverage_status":"complete-work"},
+    {"source_id":"LIB-INDUSTRIAL-AUTHORITY-026-DOUGLASS","body_id":"LIB-INDUSTRIAL-AUTHORITY-026-DOUGLASS-NARRATIVE-PG23","source_file":"DOUGLASS-NARRATIVE-PG23.txt","work_title":"Narrative of the Life of Frederick Douglass, an American Slave","language":"english","license_status":"public-domain","coverage_status":"complete-work"},
+    {"source_id":"LIB-INDUSTRIAL-AUTHORITY-026-DOUGLASS","body_id":"LIB-INDUSTRIAL-AUTHORITY-026-DOUGLASS-MY-BONDAGE-MY-FREEDOM-PG202","source_file":"DOUGLASS-MY-BONDAGE-MY-FREEDOM-PG202.txt","work_title":"My Bondage and My Freedom","language":"english","license_status":"public-domain","coverage_status":"complete-work"},
+    {"source_id":"LIB-INDUSTRIAL-AUTHORITY-026-DOUGLASS","body_id":"LIB-INDUSTRIAL-AUTHORITY-026-DOUGLASS-ABOLITION-FANATICISM-PG34915","source_file":"DOUGLASS-ABOLITION-FANATICISM-PG34915.txt","work_title":"Abolition Fanaticism in New York","language":"english","license_status":"public-domain","coverage_status":"complete-work"},
+    {"source_id":"LIB-INDUSTRIAL-AUTHORITY-026-DOUGLASS","body_id":"LIB-INDUSTRIAL-AUTHORITY-026-DOUGLASS-THREE-ADDRESSES-PG67919","source_file":"DOUGLASS-THREE-ADDRESSES-PG67919.txt","work_title":"Three addresses on the relations subsisting between the white and colored people of the United States","language":"english","license_status":"public-domain","coverage_status":"complete-work"},
+    {"source_id":"LIB-INDUSTRIAL-AUTHORITY-026-DOUGLASS","body_id":"LIB-INDUSTRIAL-AUTHORITY-026-DOUGLASS-WHY-NEGRO-LYNCHED-PG59116","source_file":"DOUGLASS-WHY-NEGRO-LYNCHED-PG59116.txt","work_title":"Why is the Negro Lynched?","language":"english","license_status":"public-domain","coverage_status":"complete-work"},
+    {"source_id":"LIB-INDUSTRIAL-AUTHORITY-026-DOUGLASS","body_id":"LIB-INDUSTRIAL-AUTHORITY-026-DOUGLASS-COLLECTED-ARTICLES-PG99","source_file":"DOUGLASS-COLLECTED-ARTICLES-PG99.txt","work_title":"Collected Articles of Frederick Douglass","language":"english","license_status":"public-domain","coverage_status":"complete-work"},
+    {"source_id":"LIB-INDUSTRIAL-AUTHORITY-026-DOUGLASS","body_id":"LIB-INDUSTRIAL-AUTHORITY-026-DOUGLASS-JOHN-BROWN-PG31839","source_file":"DOUGLASS-JOHN-BROWN-PG31839.txt","work_title":"John Brown: An Address at the 14th Anniversary of Storer College","language":"english","license_status":"public-domain","coverage_status":"complete-work"},
+    {"source_id":"LIB-INDUSTRIAL-AUTHORITY-027-JACOBS","body_id":"LIB-INDUSTRIAL-AUTHORITY-027-JACOBS-INCIDENTS-PG11030","source_file":"JACOBS-INCIDENTS-PG11030.txt","work_title":"Incidents in the Life of a Slave Girl, Written by Herself","language":"english","license_status":"public-domain","coverage_status":"complete-work"},
+    {"source_id":"LIB-INDUSTRIAL-AUTHORITY-025-DU-BOIS","body_id":"LIB-INDUSTRIAL-AUTHORITY-025-DU-BOIS-SOULS-PG408","source_file":"DUBOIS-SOULS-PG408.txt","work_title":"The Souls of Black Folk","language":"english","license_status":"public-domain","coverage_status":"complete-work"},
+    {"source_id":"LIB-INDUSTRIAL-AUTHORITY-023-MELVILLE","body_id":"LIB-INDUSTRIAL-AUTHORITY-023-MELVILLE-MOBY-DICK-PG2701","source_file":"MELVILLE-MOBY-DICK-PG2701.txt","work_title":"Moby Dick; Or, The Whale","language":"english","license_status":"public-domain","coverage_status":"complete-work"},
+    {"source_id":"LIB-INDUSTRIAL-AUTHORITY-024-TWAIN","body_id":"LIB-INDUSTRIAL-AUTHORITY-024-TWAIN-HUCKLEBERRY-FINN-PG76","source_file":"TWAIN-HUCKLEBERRY-FINN-PG76.txt","work_title":"Adventures of Huckleberry Finn","language":"english","license_status":"public-domain","coverage_status":"complete-work"},
+    {"source_id":"LIB-INDUSTRIAL-AUTHORITY-024-TWAIN","body_id":"LIB-INDUSTRIAL-AUTHORITY-024-TWAIN-LIFE-ON-MISSISSIPPI-PG245","source_file":"TWAIN-LIFE-ON-MISSISSIPPI-PG245.txt","work_title":"Life on the Mississippi","language":"english","license_status":"public-domain","coverage_status":"complete-work"},
+    {"source_id":"LIB-INDUSTRIAL-AUTHORITY-061-ZOLA","body_id":"LIB-INDUSTRIAL-AUTHORITY-061-ZOLA-GERMINAL-ELLIS-PG56528","source_file":"ZOLA-GERMINAL-PG56528.txt","work_title":"Germinal","language":"english","license_status":"public-domain","coverage_status":"complete-work"},
+    {"source_id":"LIB-INDUSTRIAL-AUTHORITY-061-ZOLA","body_id":"LIB-INDUSTRIAL-AUTHORITY-061-ZOLA-JACCUSE-FRENCH-PG76045","source_file":"ZOLA-JACCUSE-FRENCH-PG76045.txt","work_title":"J'accuse...!","language":"french","license_status":"public-domain","coverage_status":"complete-work"},
+    {"source_id":"LIB-INDUSTRIAL-AUTHORITY-062-HARDY","body_id":"LIB-INDUSTRIAL-AUTHORITY-062-HARDY-TESS-PG110","source_file":"HARDY-TESS-PG110.txt","work_title":"Tess of the d'Urbervilles: A Pure Woman","language":"english","license_status":"public-domain","coverage_status":"complete-work"},
+    {"source_id":"LIB-INDUSTRIAL-AUTHORITY-062-HARDY","body_id":"LIB-INDUSTRIAL-AUTHORITY-062-HARDY-JUDE-PG153","source_file":"HARDY-JUDE-PG153.txt","work_title":"Jude the Obscure","language":"english","license_status":"public-domain","coverage_status":"complete-work"},
+    {"source_id":"LIB-INDUSTRIAL-AUTHORITY-063-WILDE","body_id":"LIB-INDUSTRIAL-AUTHORITY-063-WILDE-DE-PROFUNDIS-PG921","source_file":"WILDE-DE-PROFUNDIS-PG921.txt","work_title":"De Profundis","language":"english","license_status":"public-domain","coverage_status":"complete-work"},
+    {"source_id":"LIB-INDUSTRIAL-AUTHORITY-063-WILDE","body_id":"LIB-INDUSTRIAL-AUTHORITY-063-WILDE-IMPORTANCE-EARNEST-PG844","source_file":"WILDE-IMPORTANCE-PG844.txt","work_title":"The Importance of Being Earnest","language":"english","license_status":"public-domain","coverage_status":"complete-work"}
+  ],
+  "acceptance_tests": [
+    "23 proposed bodies are listed",
+    "12 Batch 001 authorities are represented",
+    "No proposed body claims complete source-authority corpus coverage",
+    "Douglass coverage is selected/principal-works, not complete corpus",
+    "Zola translation and French original layers remain distinct",
+    "No admission, registry body mutation, staging, commit, push, publication, or Archive ingest occurred"
+  ],
+  "recommended_next_gate": "source-body-admission-into-private-library-text-store"
+}

@@ -1,0 +1,44 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "industrial-body-admission-batch-001",
+  "status": "completed-with-private-store-caveat",
+  "date": "2026-08-23",
+  "era": "industrial",
+  "proposal": "archive/library/industrial/body-admission-batch-001-proposal.md",
+  "inspection_receipt": "archive/library/industrial/body-research-batch-001-inspection-receipt.md",
+  "private_text_root_used": "C:\\private\\mira-library-texts",
+  "authority_boundary": {
+    "source_bodies_admitted": true,
+    "registry_body_metadata_updated": true,
+    "private_archive_ingested": false,
+    "staged": false,
+    "committed": false,
+    "pushed": false,
+    "published": false
+  },
+  "counts": {
+    "authorities_admitted": 12,
+    "bodies_proposed": 23,
+    "bodies_admitted": 23,
+    "registry_body_metadata_updates": 23,
+    "industrial_private_payloads_present": 23,
+    "industrial_hash_matches": 23,
+    "industrial_byte_matches": 23,
+    "archive_catalog_ingests": 0
+  },
+  "validation": {
+    "library_validate": "passed",
+    "render_index_check": "passed",
+    "focused_archive_library_tests": "passed: 26 tests",
+    "industrial_private_payload_check": "passed: 23 existing, 23 hash-matched, 23 byte-matched",
+    "global_verify_texts": "failed due to older Ancient/Colonial payloads absent from C:\\private\\mira-library-texts; Industrial admitted bodies verified in that root"
+  },
+  "coverage_summary": [
+    "No complete-surviving-corpus claim was made",
+    "Douglass is selected narrative, speech, address, and civic prose coverage, not complete corpus",
+    "Zola Germinal English translation and French J'accuse original remain distinct body layers",
+    "Jacobs preserves Linda Brent narrative persona and Lydia Maria Child editorial-history note",
+    "Twain and Wilde carry context/edition-boundary notes"
+  ],
+  "next_gate": "commit-boundary-review-or-industrial-batch-002"
+}
