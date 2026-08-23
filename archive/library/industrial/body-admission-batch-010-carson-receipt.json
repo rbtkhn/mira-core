@@ -1,0 +1,57 @@
+{
+  "batch_id": "industrial-body-admission-batch-010-carson",
+  "date": "2026-08-23",
+  "authority_boundary": {
+    "private_reading_text_body_only": true,
+    "private_text_root": "C:\\private\\mira-library-texts",
+    "registry_mutated": true,
+    "human_indexes_rendered": true,
+    "staged": true,
+    "committed": true,
+    "pushed": false,
+    "published": false,
+    "archive_ingested": false,
+    "git_source_bodies_admitted": false
+  },
+  "admitted_body": {
+    "source_id": "LIB-INDUSTRIAL-AUTHORITY-078-CARSON",
+    "authority": "Rachel Carson",
+    "body_id": "LIB-INDUSTRIAL-AUTHORITY-078-CARSON-SILENT-SPRING-TEDK-MUSE",
+    "work_title": "Silent Spring",
+    "edition_label": "The Ted K Archive plain text source (.muse) for Silent Spring, copied to .txt for library admission; Fortieth Anniversary Edition / Mariner Books edition metadata; private-reading derivative, accessed 2026-08-23",
+    "license_status": "permissioned",
+    "license_notes": "private-reading-online-source; no redistribution; source text preserves copyright and renewal notices for Rachel Carson, Linda Lear introduction, and Edward O. Wilson afterword.",
+    "coverage_status": "complete-work",
+    "coverage_notes": "Full online text includes front matter, chapters 1-17, list of principal sources, afterword, and back matter; source-authority coverage remains principal-work.",
+    "language": "english",
+    "translator": "",
+    "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-078-CARSON-SILENT-SPRING-TEDK-MUSE.txt",
+    "text_bytes": 647862,
+    "text_sha256": "d004b864177187274b0f1d72bbfa3821bda8e8e85f4ef8591caa32a0e6bf745a",
+    "body_imported_to_archive": false
+  },
+  "source_route_provenance": {
+    "selected_text_route": "The Ted K Archive .muse plain text source copied byte-for-byte to .txt for library admission",
+    "research_receipts": [
+      "archive/library/industrial/body-research-batch-010-carson-receipt.md",
+      "archive/library/industrial/body-research-batch-010-carson-receipt.json"
+    ],
+    "format_note": "admit-text rejected .muse as an unsupported extension; the .txt candidate preserved identical bytes and SHA256."
+  },
+  "validation": {
+    "library_validate_json": "passed",
+    "library_render_index_check_json": "passed",
+    "tests_test_archive_library_py": "passed: 26 tests",
+    "direct_private_store_hash_readback": "passed"
+  },
+  "industrial_state_after_batch": {
+    "authority_count": 68,
+    "registry_represented_authorities": 68,
+    "missing_body_authorities": 0,
+    "registry_body_count": 116
+  },
+  "reentry_point": {
+    "next_action": "produce final Industrial seal-readiness receipt and explicit version-seal decision",
+    "known_caveat": "library-wide private payload census remains affected by non-Industrial private-text absence under the active text root; Industrial-scoped reproducibility must be evaluated separately."
+  }
+}

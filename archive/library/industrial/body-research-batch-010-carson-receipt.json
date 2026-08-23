@@ -1,0 +1,68 @@
+{
+  "batch_id": "industrial-body-research-batch-010-carson",
+  "date": "2026-08-23",
+  "authority_boundary": {
+    "body_research_only": true,
+    "private_inspection_root": "C:\\private\\mira-library-texts\\inspection\\industrial-batch-010-carson",
+    "registry_mutated": false,
+    "body_admitted": false,
+    "staged": false,
+    "committed": false,
+    "pushed": false,
+    "published": false,
+    "archive_ingested": false,
+    "version_seal_created": false
+  },
+  "registry_target": {
+    "source_id": "LIB-INDUSTRIAL-AUTHORITY-078-CARSON",
+    "authority": "Rachel Carson",
+    "registry_title": "Silent Spring",
+    "status_before_batch": "stub",
+    "text_status_before_batch": "missing",
+    "gate_reached": "admission-ready-candidate"
+  },
+  "source_route": {
+    "route_id": "tedk-archive-muse",
+    "source": "The Ted K Archive",
+    "source_page_url": "https://www.thetedkarchive.com/library/rachel-carson-silent-spring",
+    "plain_text_source_url": "https://www.thetedkarchive.com/library/rachel-carson-silent-spring.muse",
+    "standalone_html_url": "https://www.thetedkarchive.com/library/rachel-carson-silent-spring.html",
+    "download_manifest_file": "carson-tedk-download-manifest.json",
+    "download_manifest_sha256": "8c5ad958c8b9817b77aa702a1f551a4812e9fe95362593b541d60a1750bca46c",
+    "downloaded_files": [
+      {
+        "file": "tedk-rachel-carson-silent-spring-page.html",
+        "bytes": 713745,
+        "sha256": "7acafe2088f5e37a148c629095cbc1234d92e48d583873d2fc476efce2fcb507"
+      },
+      {
+        "file": "tedk-rachel-carson-silent-spring-standalone.html",
+        "bytes": 687979,
+        "sha256": "04c2362dc571e5117880695f9bea96156b2fceefa20d434fd9e9099dc31bf10d"
+      },
+      {
+        "file": "tedk-rachel-carson-silent-spring.muse",
+        "bytes": 647862,
+        "sha256": "d004b864177187274b0f1d72bbfa3821bda8e8e85f4ef8591caa32a0e6bf745a"
+      }
+    ],
+    "disposition": "admission-ready-candidate",
+    "inspection_notes": "The .muse source includes metadata, copyright/front matter, author's note, acknowledgments, introduction, chapters 1-17, list of principal sources, afterword, and back matter."
+  },
+  "proposed_admission": {
+    "body_id": "LIB-INDUSTRIAL-AUTHORITY-078-CARSON-SILENT-SPRING-TEDK-MUSE",
+    "work_title": "Silent Spring",
+    "candidate_file": "C:\\private\\mira-library-texts\\inspection\\industrial-batch-010-carson\\tedk-rachel-carson-silent-spring.muse",
+    "edition_label": "The Ted K Archive plain text source (.muse) for Silent Spring, Fortieth Anniversary Edition / Mariner Books edition metadata; private-reading derivative, accessed 2026-08-23",
+    "license_status": "permissioned",
+    "license_notes": "private-reading-online-source; no redistribution; source text preserves copyright and renewal notices for Rachel Carson, Linda Lear introduction, and Edward O. Wilson afterword.",
+    "coverage_status": "complete-work",
+    "coverage_notes": "Full online text includes front matter, chapters 1-17, list of principal sources, afterword, and back matter; source-authority coverage remains principal-work.",
+    "language": "english",
+    "translator": ""
+  },
+  "reentry_point": {
+    "next_action": "admit Ted K Archive .muse source as Carson body candidate",
+    "expected_effect_if_authorized": "LIB-INDUSTRIAL-AUTHORITY-078-CARSON becomes available; Industrial reaches 68 of 68 authorities represented."
+  }
+}

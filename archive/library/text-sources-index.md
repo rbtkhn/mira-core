@@ -3,7 +3,7 @@
 This index lists source text bodies admitted in `archive/library/library-registry.json`. The source bodies themselves are private/local payloads, normally stored under `.mira-private/library/texts/`; this file records only metadata and logical text URIs.
 
 - Registry: `library-registry.json`
-- Text bodies indexed: 563
+- Text bodies indexed: 564
 - Registry ID: `mira-library-v1`
 
 | Source ID | Author | Registry title | Source coverage | Work / body | Body coverage | Edition | Language | License | Bytes | Text URI |
@@ -431,6 +431,7 @@ This index lists source text bodies admitted in `archive/library/library-registr
 | `LIB-INDUSTRIAL-AUTHORITY-064-CONRAD` | Joseph Conrad | Heart of Darkness; Lord Jim | principal-works | Lord Jim | complete-work | Project Gutenberg #5658: Lord Jim | english | public-domain | 751822 | `library-text://LIB-INDUSTRIAL-AUTHORITY-064-CONRAD-LORD-JIM-PG5658.txt` |
 | `LIB-INDUSTRIAL-AUTHORITY-076-MARTI` | Jose Marti | Nuestra America; selected essays | selected-works | Granos de oro | complete-work | Project Gutenberg #43861: Granos de oro | spanish | public-domain | 162017 | `library-text://LIB-INDUSTRIAL-AUTHORITY-076-MARTI-GRANOS-ORO-PG43861.txt` |
 | `LIB-INDUSTRIAL-AUTHORITY-076-MARTI` | Jose Marti | Nuestra America; selected essays | selected-works | La Edad de Oro | complete-work | Project Gutenberg #19898: La Edad de Oro | spanish | public-domain | 388927 | `library-text://LIB-INDUSTRIAL-AUTHORITY-076-MARTI-EDAD-ORO-PG19898.txt` |
+| `LIB-INDUSTRIAL-AUTHORITY-078-CARSON` | Rachel Carson | Silent Spring | principal-work | Silent Spring | complete-work | The Ted K Archive plain text source (.muse) for Silent Spring, copied to .txt for library admission; Fortieth Anniversary Edition / Mariner Books edition metadata; private-reading derivative, accessed 2026-08-23 | english | permissioned | 647862 | `library-text://LIB-INDUSTRIAL-AUTHORITY-078-CARSON-SILENT-SPRING-TEDK-MUSE.txt` |
 | `LIB-INDUSTRIAL-AUTHORITY-079-EINSTEIN` | Albert Einstein | relativity essays; nuclear-era letters | selected-works | Relativity: The Special and General Theory | complete-work | Project Gutenberg #30155; Robert W. Lawson English translation | English | public-domain | 210653 | `library-text://LIB-INDUSTRIAL-AUTHORITY-079-EINSTEIN-RELATIVITY-LAWSON-PG30155.txt` |
 | `LIB-INDUSTRIAL-AUTHORITY-079-EINSTEIN` | Albert Einstein | relativity essays; nuclear-era letters | selected-works | Über die spezielle und die allgemeine Relativitätstheorie | complete-work | Project Gutenberg #77850; German text; Karl Scheel editor | German | public-domain | 165241 | `library-text://LIB-INDUSTRIAL-AUTHORITY-079-EINSTEIN-UEBER-RELATIVITAET-PG77850.txt` |
 | `LIB-INDUSTRIAL-AUTHORITY-080-UDHR-DRAFTING` | Universal Declaration of Human Rights drafting tradition | UDHR and drafting documents | selected-works | Universal Declaration of Human Rights | complete-work | United Nations official web text, private-reading HTML extraction, accessed 2026-08-23 | English | permissioned | 11831 | `library-text://LIB-INDUSTRIAL-AUTHORITY-080-UDHR-UN-OFFICIAL.txt` |

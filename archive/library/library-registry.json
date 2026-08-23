@@ -17407,10 +17407,28 @@
       },
       "status": "stub",
       "notes": "Industrial metadata Batch 006. Function: environment-extraction-infrastructure. Boundary: metadata-only registry stub for Silent Spring. Rights/body gate: rights restricted; metadata identity only until permission/public-domain basis exists.",
-      "text_status": "missing",
+      "text_status": "available",
       "coverage_status": "principal-work",
       "coverage_notes": "Metadata-only Industrial Batch 006 record. No body downloaded, inspected, admitted, or represented as available. Coverage ceiling from design packet: principal-work.",
-      "text_bodies": []
+      "text_bodies": [
+        {
+          "body_id": "LIB-INDUSTRIAL-AUTHORITY-078-CARSON-SILENT-SPRING-TEDK-MUSE",
+          "work_title": "Silent Spring",
+          "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-078-CARSON-SILENT-SPRING-TEDK-MUSE.txt",
+          "text_sha256": "d004b864177187274b0f1d72bbfa3821bda8e8e85f4ef8591caa32a0e6bf745a",
+          "text_bytes": 647862,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "",
+          "editor": "",
+          "edition_label": "The Ted K Archive plain text source (.muse) for Silent Spring, copied to .txt for library admission; Fortieth Anniversary Edition / Mariner Books edition metadata; private-reading derivative, accessed 2026-08-23",
+          "license_status": "permissioned",
+          "license_notes": "private-reading-online-source; no redistribution; source text preserves copyright and renewal notices for Rachel Carson, Linda Lear introduction, and Edward O. Wilson afterword.",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Full online text includes front matter, chapters 1-17, list of principal sources, afterword, and back matter; source-authority coverage remains principal-work.",
+          "status": "available"
+        }
+      ]
     }
   ]
 }
