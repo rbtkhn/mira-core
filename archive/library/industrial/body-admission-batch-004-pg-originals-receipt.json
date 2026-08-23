@@ -1,0 +1,96 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "industrial-body-admission-batch-004-pg-originals",
+  "date": "2026-08-23",
+  "status": "admitted",
+  "era": "industrial",
+  "private_text_root": "C:\\private\\mira-library-texts",
+  "private_inspection_root": "C:\\private\\mira-library-inspection\\industrial-batch004-original-language",
+  "admitted_bodies": [
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-010-FLAUBERT",
+      "authority": "Gustave Flaubert",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-010-FLAUBERT-MADAME-BOVARY-FRENCH-PG14155",
+      "work_title": "Madame Bovary",
+      "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-010-FLAUBERT-MADAME-BOVARY-FRENCH-PG14155.txt",
+      "license_status": "public-domain",
+      "bytes": 751987,
+      "sha256": "93f0a2259dbaf5fde6e7b96adc22346d52f80eb1e9319336c8381a045efe40cd"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-004-BALZAC",
+      "authority": "Honore de Balzac",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-004-BALZAC-COMEDIE-HUMAINE-VOL09-PG55860",
+      "work_title": "La Comedie humaine - Volume 09. Scenes de la vie parisienne - Tome 01",
+      "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-004-BALZAC-COMEDIE-HUMAINE-VOL09-PG55860.txt",
+      "license_status": "public-domain",
+      "bytes": 1340207,
+      "sha256": "df295f9b869683c98b2a87b8cf32c261cb97acdb1b102ccdd0ab741894d643a9"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-005-HUGO",
+      "authority": "Victor Hugo",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-005-HUGO-LES-MISERABLES-FRENCH-TOME1-PG17489",
+      "work_title": "Les miserables Tome I: Fantine",
+      "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-005-HUGO-LES-MISERABLES-FRENCH-TOME1-PG17489.txt",
+      "license_status": "public-domain",
+      "bytes": 710496,
+      "sha256": "a5de514ba7b9f2e1790e7e259c4e8b7a35ae1d29e4bf9a5f8767039c58b80503"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-005-HUGO",
+      "authority": "Victor Hugo",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-005-HUGO-LES-MISERABLES-FRENCH-TOME2-PG17493",
+      "work_title": "Les miserables Tome II: Cosette",
+      "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-005-HUGO-LES-MISERABLES-FRENCH-TOME2-PG17493.txt",
+      "license_status": "public-domain",
+      "bytes": 629938,
+      "sha256": "ffddbcee83e3c537b5586bfbbaf97ea6fab2b04250b9efaa63c027ab20aaffd0"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-005-HUGO",
+      "authority": "Victor Hugo",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-005-HUGO-LES-MISERABLES-FRENCH-TOME3-PG17494",
+      "work_title": "Les miserables Tome III: Marius",
+      "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-005-HUGO-LES-MISERABLES-FRENCH-TOME3-PG17494.txt",
+      "license_status": "public-domain",
+      "bytes": 556738,
+      "sha256": "79894e327a20044dad5b93dd7d1fae0a8c06b74b86cd9f19d37bb54ffbacd44f"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-005-HUGO",
+      "authority": "Victor Hugo",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-005-HUGO-LES-MISERABLES-FRENCH-TOME4-PG17518",
+      "work_title": "Les miserables Tome IV: L'idylle rue Plumet et l'epopee rue Saint-Denis",
+      "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-005-HUGO-LES-MISERABLES-FRENCH-TOME4-PG17518.txt",
+      "license_status": "public-domain",
+      "bytes": 786691,
+      "sha256": "5ceb65a2be245776a61aaa15f311b9b31964c1826121a3ba65ddd3bfae7fa4af"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-005-HUGO",
+      "authority": "Victor Hugo",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-005-HUGO-LES-MISERABLES-FRENCH-TOME5-PG17519",
+      "work_title": "Les miserables Tome V: Jean Valjean",
+      "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-005-HUGO-LES-MISERABLES-FRENCH-TOME5-PG17519.txt",
+      "license_status": "public-domain",
+      "bytes": 675293,
+      "sha256": "d78e6ddc87cc5971b1a0107ae06f19b4cc63030553fcdfd94929c7472f0d470d"
+    }
+  ],
+  "verification": {
+    "admit_text": "passed",
+    "library_validate": "passed",
+    "render_index": "passed",
+    "manual_payload_hash_check": "passed",
+    "verify_texts_full_store": "not_rerun_known_pre_existing_store_gaps"
+  },
+  "boundary": {
+    "source_bodies_admitted": true,
+    "private_archive_ingested": false,
+    "staged": false,
+    "committed": false,
+    "pushed": false,
+    "published": false
+  }
+}

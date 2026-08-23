@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "industrial-body-admission-batch-004-english-translated",
+  "date": "2026-08-23",
+  "status": "admitted",
+  "era": "industrial",
+  "private_text_root": "C:\\private\\mira-library-texts",
+  "private_inspection_root": "C:\\private\\mira-library-inspection\\industrial-batch004",
+  "counts": {
+    "admitted_bodies": 16,
+    "indexed_text_bodies_after_render": 535
+  },
+  "admitted_body_ids": [
+    "LIB-INDUSTRIAL-AUTHORITY-003-PUSHKIN-EUGENE-ONEGIN-PG23997",
+    "LIB-INDUSTRIAL-AUTHORITY-004-BALZAC-FATHER-GORIOT-PG1237",
+    "LIB-INDUSTRIAL-AUTHORITY-005-HUGO-LES-MISERABLES-PG135",
+    "LIB-INDUSTRIAL-AUTHORITY-007-CHARLOTTE-BRONTE-JANE-EYRE-PG1260",
+    "LIB-INDUSTRIAL-AUTHORITY-008-EMILY-BRONTE-WUTHERING-HEIGHTS-PG768",
+    "LIB-INDUSTRIAL-AUTHORITY-010-FLAUBERT-MADAME-BOVARY-PG2413",
+    "LIB-INDUSTRIAL-AUTHORITY-011-DOSTOEVSKY-NOTES-UNDERGROUND-PG600",
+    "LIB-INDUSTRIAL-AUTHORITY-011-DOSTOEVSKY-BROTHERS-KARAMAZOV-PG28054",
+    "LIB-INDUSTRIAL-AUTHORITY-012-TOLSTOY-WAR-AND-PEACE-PG2600",
+    "LIB-INDUSTRIAL-AUTHORITY-012-TOLSTOY-ANNA-KARENINA-PG1399",
+    "LIB-INDUSTRIAL-AUTHORITY-013-IBSEN-DOLLS-HOUSE-PG2542",
+    "LIB-INDUSTRIAL-AUTHORITY-013-IBSEN-ENEMY-PEOPLE-PG2446",
+    "LIB-INDUSTRIAL-AUTHORITY-014-CHEKHOV-LADY-DOG-PG13415",
+    "LIB-INDUSTRIAL-AUTHORITY-014-CHEKHOV-PLAYS-SECOND-SERIES-PG7986",
+    "LIB-INDUSTRIAL-AUTHORITY-021-WHITMAN-LEAVES-GRASS-PG1322",
+    "LIB-INDUSTRIAL-AUTHORITY-022-DICKINSON-POEMS-FIRST-PG2678"
+  ],
+  "verification": {
+    "admit_text": "passed",
+    "library_validate": "passed",
+    "render_index": "passed",
+    "manual_payload_hash_check": "passed",
+    "verify_texts_full_store": "known_pre_existing_store_gaps"
+  },
+  "boundary": {
+    "source_bodies_admitted": true,
+    "private_archive_ingested": false,
+    "staged": false,
+    "committed": false,
+    "pushed": false,
+    "published": false
+  }
+}

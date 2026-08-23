@@ -1,0 +1,214 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "industrial-body-research-batch-004-original-language-supplement",
+  "date": "2026-08-23",
+  "status": "body-research-supplement",
+  "supersession_note": "After this research supplement was written, the operator explicitly stated: admit ibsen, i have the rights. The two Ibsen DraCor/HISe TEI bodies were then admitted separately as permissioned bodies in archive/library/industrial/body-admission-batch-004-ibsen-permissioned-receipt.md. This supplement's conservative Ibsen recommendation remains the pre-authorization rights triage.",
+  "era": "industrial",
+  "batch_id": "industrial-body-admission-batch-004",
+  "private_inspection_root": "C:\\private\\mira-library-inspection\\industrial-batch004-original-language",
+  "counts": {
+    "authorities_reviewed": 7,
+    "candidate_download_or_locator_attempts": 31,
+    "downloaded_or_present": 22,
+    "admission_ready": 7,
+    "rejected": 8,
+    "research_incomplete_or_rights_limited": 6,
+    "admitted": 0
+  },
+  "admission_ready_candidates": [
+    {
+      "candidate_id": "FLAUBERT-MADAME-BOVARY-FRENCH-PG14155",
+      "authority": "Gustave Flaubert",
+      "work_title": "Madame Bovary",
+      "language": "French",
+      "source": "Project Gutenberg",
+      "source_url": "https://www.gutenberg.org/ebooks/14155",
+      "download_url": "https://www.gutenberg.org/cache/epub/14155/pg14155.txt",
+      "file": "C:\\private\\mira-library-inspection\\industrial-batch004-original-language\\FLAUBERT-MADAME-BOVARY-FRENCH-PG14155.txt",
+      "bytes": 751987,
+      "sha256": "93f0a2259dbaf5fde6e7b96adc22346d52f80eb1e9319336c8381a045efe40cd",
+      "gate": "admission-ready",
+      "coverage": "complete-work"
+    },
+    {
+      "candidate_id": "BALZAC-COMEDIE-HUMAINE-VOL09-PG55860",
+      "authority": "Honore de Balzac",
+      "work_title": "La Comedie humaine - Volume 09. Scenes de la vie parisienne - Tome 01",
+      "language": "French",
+      "source": "Project Gutenberg",
+      "source_url": "https://www.gutenberg.org/ebooks/55860",
+      "download_url": "https://www.gutenberg.org/cache/epub/55860/pg55860.txt",
+      "file": "C:\\private\\mira-library-inspection\\industrial-batch004-original-language\\BALZAC-COMEDIE-HUMAINE-VOL09-PG55860.txt",
+      "bytes": 1340207,
+      "sha256": "df295f9b869683c98b2a87b8cf32c261cb97acdb1b102ccdd0ab741894d643a9",
+      "gate": "admission-ready",
+      "coverage": "volume-containing-principal-work"
+    },
+    {
+      "candidate_id": "HUGO-LES-MISERABLES-FRENCH-TOME1-PG17489",
+      "authority": "Victor Hugo",
+      "work_title": "Les miserables Tome I: Fantine",
+      "language": "French",
+      "source": "Project Gutenberg",
+      "source_url": "https://www.gutenberg.org/ebooks/17489",
+      "download_url": "https://www.gutenberg.org/cache/epub/17489/pg17489.txt",
+      "file": "C:\\private\\mira-library-inspection\\industrial-batch004-original-language\\HUGO-LES-MISERABLES-FRENCH-PROBE-PG17489.txt",
+      "bytes": 710496,
+      "sha256": "a5de514ba7b9f2e1790e7e259c4e8b7a35ae1d29e4bf9a5f8767039c58b80503",
+      "gate": "admission-ready",
+      "coverage": "partial-volume"
+    },
+    {
+      "candidate_id": "HUGO-LES-MISERABLES-FRENCH-TOME2-PG17493",
+      "authority": "Victor Hugo",
+      "work_title": "Les miserables Tome II: Cosette",
+      "language": "French",
+      "source": "Project Gutenberg",
+      "source_url": "https://www.gutenberg.org/ebooks/17493",
+      "download_url": "https://www.gutenberg.org/cache/epub/17493/pg17493.txt",
+      "file": "C:\\private\\mira-library-inspection\\industrial-batch004-original-language\\HUGO-LES-MISERABLES-FRENCH-PROBE-PG17493.txt",
+      "bytes": 629938,
+      "sha256": "ffddbcee83e3c537b5586bfbbaf97ea6fab2b04250b9efaa63c027ab20aaffd0",
+      "gate": "admission-ready",
+      "coverage": "partial-volume"
+    },
+    {
+      "candidate_id": "HUGO-LES-MISERABLES-FRENCH-TOME3-PG17494",
+      "authority": "Victor Hugo",
+      "work_title": "Les miserables Tome III: Marius",
+      "language": "French",
+      "source": "Project Gutenberg",
+      "source_url": "https://www.gutenberg.org/ebooks/17494",
+      "download_url": "https://www.gutenberg.org/cache/epub/17494/pg17494.txt",
+      "file": "C:\\private\\mira-library-inspection\\industrial-batch004-original-language\\HUGO-LES-MISERABLES-FRENCH-PROBE-PG17494.txt",
+      "bytes": 556738,
+      "sha256": "79894e327a20044dad5b93dd7d1fae0a8c06b74b86cd9f19d37bb54ffbacd44f",
+      "gate": "admission-ready",
+      "coverage": "partial-volume"
+    },
+    {
+      "candidate_id": "HUGO-LES-MISERABLES-FRENCH-TOME4-PG17518",
+      "authority": "Victor Hugo",
+      "work_title": "Les miserables Tome IV: L'idylle rue Plumet et l'epopee rue Saint-Denis",
+      "language": "French",
+      "source": "Project Gutenberg",
+      "source_url": "https://www.gutenberg.org/ebooks/17518",
+      "download_url": "https://www.gutenberg.org/cache/epub/17518/pg17518.txt",
+      "file": "C:\\private\\mira-library-inspection\\industrial-batch004-original-language\\HUGO-LES-MISERABLES-FRENCH-PROBE-PG17518.txt",
+      "bytes": 786691,
+      "sha256": "5ceb65a2be245776a61aaa15f311b9b31964c1826121a3ba65ddd3bfae7fa4af",
+      "gate": "admission-ready",
+      "coverage": "partial-volume"
+    },
+    {
+      "candidate_id": "HUGO-LES-MISERABLES-FRENCH-TOME5-PG17519",
+      "authority": "Victor Hugo",
+      "work_title": "Les miserables Tome V: Jean Valjean",
+      "language": "French",
+      "source": "Project Gutenberg",
+      "source_url": "https://www.gutenberg.org/ebooks/17519",
+      "download_url": "https://www.gutenberg.org/cache/epub/17519/pg17519.txt",
+      "file": "C:\\private\\mira-library-inspection\\industrial-batch004-original-language\\HUGO-LES-MISERABLES-FRENCH-PROBE-PG17519.txt",
+      "bytes": 675293,
+      "sha256": "d78e6ddc87cc5971b1a0107ae06f19b4cc63030553fcdfd94929c7472f0d470d",
+      "gate": "admission-ready",
+      "coverage": "partial-volume"
+    }
+  ],
+  "rejected_candidates": [
+    {
+      "candidate_id": "HUGO-LES-MISERABLES-FRENCH-PROBE-PG17490",
+      "reason": "Downloaded file is The Memorable Thoughts of Socrates, not Les miserables."
+    },
+    {
+      "candidate_id": "HUGO-LES-MISERABLES-FRENCH-PROBE-PG17491",
+      "reason": "Downloaded file is La Tribuna, not Les miserables."
+    },
+    {
+      "candidate_id": "HUGO-LES-MISERABLES-FRENCH-PROBE-PG17492",
+      "reason": "Downloaded file is Six little Bunkers at Cousin Tom's, not Les miserables."
+    },
+    {
+      "candidate_id": "BALZAC-PERE-GORIOT-FRENCH-WIKISOURCE",
+      "reason": "Raw page is a 330-byte work/edition selector, not a complete text body."
+    },
+    {
+      "candidate_id": "BALZAC-COMEDIE-HUMAINE-VOL02-PG1559",
+      "reason": "Mistaken numeric probe downloaded A Distinguished Provincial at Paris, not a French Le Pere Goriot body."
+    },
+    {
+      "candidate_id": "BALZAC-COMEDIE-HUMAINE-VOL02-PG43851",
+      "reason": "Clean French Project Gutenberg volume, but contents do not include Le Pere Goriot."
+    },
+    {
+      "candidate_id": "FLAUBERT-MADAME-BOVARY-FRENCH-WIKISOURCE",
+      "reason": "Raw page is 174 bytes and superseded by clean Project Gutenberg French text."
+    },
+    {
+      "candidate_id": "IBSEN-TEKSTLAB-PLAIN-TEXT-GUESSES",
+      "reason": "Tekstlaboratoriet lists filenames, but guessed public direct URLs returned 404."
+    }
+  ],
+  "research_incomplete_or_rights_limited": [
+    {
+      "candidate_id": "IBSEN-RUNEBERG-INDEX",
+      "authority": "Henrik Ibsen",
+      "work_title": "Et dukkehjem / En folkefiende",
+      "reason": "Runeberg index locates relevant works, but the downloaded file is not itself a clean play body."
+    },
+    {
+      "candidate_id": "IBSEN-ET-DUKKEHJEM-DRACOR-TEI",
+      "authority": "Henrik Ibsen",
+      "work_title": "Et dukkehjem",
+      "source": "DraCor Ibsen Corpus / Henrik Ibsens skrifter",
+      "source_url": "https://dracor.org/api/v1/corpora/ibs/plays/et-dukkehjem/tei",
+      "file": "C:\\private\\mira-library-inspection\\industrial-batch004-original-language\\IBSEN-ET-DUKKEHJEM-DRACOR-TEI.xml",
+      "bytes": 315459,
+      "sha256": "975471dd21ff9e8d7ad2f4f698934e5670bf34b2b404164409f172c50e64b282",
+      "reason": "Clean TEI body, but embedded source license is CC BY-NC 4.0, so it is rights-limited under the current public-domain admission rule."
+    },
+    {
+      "candidate_id": "IBSEN-EN-FOLKEFIENDE-DRACOR-TEI",
+      "authority": "Henrik Ibsen",
+      "work_title": "En folkefiende",
+      "source": "DraCor Ibsen Corpus / Henrik Ibsens skrifter",
+      "source_url": "https://dracor.org/api/v1/corpora/ibs/plays/en-folkefiende/tei",
+      "file": "C:\\private\\mira-library-inspection\\industrial-batch004-original-language\\IBSEN-EN-FOLKEFIENDE-DRACOR-TEI.xml",
+      "bytes": 387373,
+      "sha256": "7b928330b9ed231fc7373993acfdaa714d413df9234a166500342be99de3290f",
+      "reason": "Clean TEI body, but embedded source license is CC BY-NC 4.0, so it is rights-limited under the current public-domain admission rule."
+    },
+    {
+      "candidate_id": "DOSTOEVSKY-ZAPISKI-WIKISOURCE-RAW",
+      "authority": "Fyodor Dostoevsky",
+      "work_title": "Zapiski iz podpolya",
+      "source_url": "https://ru.wikisource.org/wiki/Записки_из_подполья_(Достоевский)",
+      "reason": "Russian Wikisource raw page is an index/transclusion surface, not a complete clean body."
+    },
+    {
+      "candidate_id": "TOLSTOY-WAR-PEACE-WIKISOURCE-RAW",
+      "authority": "Leo Tolstoy",
+      "work_title": "War and Peace",
+      "source_url": "https://ru.wikisource.org/wiki/Война_и_мир_(Толстой)",
+      "reason": "Russian Wikisource raw page is an index/transclusion surface, not a complete clean body."
+    },
+    {
+      "candidate_id": "CHEKHOV-CHERRY-ORCHARD-WIKISOURCE-RAW",
+      "authority": "Anton Chekhov",
+      "work_title": "The Cherry Orchard",
+      "source_url": "https://ru.wikisource.org/wiki/Вишнёвый_сад_(Чехов)",
+      "reason": "Russian Wikisource raw page locates the act structure and source note, but is not a complete clean play body."
+    }
+  ],
+  "recommended_admission_rule": "Admit the sixteen English/translated Batch 004 bodies plus clean Project Gutenberg original-language companions for Flaubert, Balzac, and Hugo if body admission is authorized. Defer Ibsen TEI because the downloaded source bodies are CC BY-NC 4.0, and defer Russian Wikisource until complete clean bodies or a governed extraction plan exists.",
+  "boundary": {
+    "source_bodies_admitted": false,
+    "registry_mutated_by_this_supplement": false,
+    "private_archive_ingested": false,
+    "staged": false,
+    "committed": false,
+    "pushed": false,
+    "published": false
+  }
+}

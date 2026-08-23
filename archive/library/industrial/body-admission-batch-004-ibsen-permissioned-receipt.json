@@ -1,0 +1,51 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "industrial-body-admission-batch-004-ibsen-permissioned",
+  "date": "2026-08-23",
+  "status": "admitted",
+  "era": "industrial",
+  "source_id": "LIB-INDUSTRIAL-AUTHORITY-013-IBSEN",
+  "authority": "Henrik Ibsen",
+  "private_text_root": "C:\\private\\mira-library-texts",
+  "rights_basis": "operator-authorized; source TEI embeds CC BY-NC 4.0 license, recorded as permissioned rather than public-domain",
+  "admitted_bodies": [
+    {
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-013-IBSEN-ET-DUKKEHJEM-DRACOR-TEI-PERMISSIONED",
+      "work_title": "Et dukkehjem",
+      "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-013-IBSEN-ET-DUKKEHJEM-DRACOR-TEI-PERMISSIONED.xml",
+      "private_file": "C:\\private\\mira-library-texts\\LIB-INDUSTRIAL-AUTHORITY-013-IBSEN-ET-DUKKEHJEM-DRACOR-TEI-PERMISSIONED.xml",
+      "source_file": "C:\\private\\mira-library-inspection\\industrial-batch004-original-language\\IBSEN-ET-DUKKEHJEM-DRACOR-TEI.xml",
+      "edition_label": "DraCor Ibsen Corpus TEI export from Henrik Ibsens skrifter; operator-authorized BY-NC source body",
+      "license_status": "permissioned",
+      "bytes": 315459,
+      "sha256": "975471dd21ff9e8d7ad2f4f698934e5670bf34b2b404164409f172c50e64b282"
+    },
+    {
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-013-IBSEN-EN-FOLKEFIENDE-DRACOR-TEI-PERMISSIONED",
+      "work_title": "En folkefiende",
+      "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-013-IBSEN-EN-FOLKEFIENDE-DRACOR-TEI-PERMISSIONED.xml",
+      "private_file": "C:\\private\\mira-library-texts\\LIB-INDUSTRIAL-AUTHORITY-013-IBSEN-EN-FOLKEFIENDE-DRACOR-TEI-PERMISSIONED.xml",
+      "source_file": "C:\\private\\mira-library-inspection\\industrial-batch004-original-language\\IBSEN-EN-FOLKEFIENDE-DRACOR-TEI.xml",
+      "edition_label": "DraCor Ibsen Corpus TEI export from Henrik Ibsens skrifter; operator-authorized BY-NC source body",
+      "license_status": "permissioned",
+      "bytes": 387373,
+      "sha256": "7b928330b9ed231fc7373993acfdaa714d413df9234a166500342be99de3290f"
+    }
+  ],
+  "verification": {
+    "admit_text": "passed",
+    "library_validate": "passed",
+    "render_index": "passed",
+    "manual_payload_hash_check": "passed",
+    "verify_texts_full_store": "failed_pre_existing_missing_payloads",
+    "verify_texts_failure_scope": "Ancient and Colonial payloads missing from C:\\private\\mira-library-texts; not an Ibsen admission failure"
+  },
+  "boundary": {
+    "source_bodies_admitted": true,
+    "private_archive_ingested": false,
+    "staged": false,
+    "committed": false,
+    "pushed": false,
+    "published": false
+  }
+}

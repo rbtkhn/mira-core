@@ -1,0 +1,135 @@
+{
+  "schema_version": "1.0",
+  "packet_id": "industrial-metadata-batch-004-design-v0.1",
+  "status": "metadata-batch-design",
+  "era": "industrial",
+  "date_start": 1815,
+  "date_end": 1991,
+  "roster_packet": "archive/library/industrial/roster-design-v0.1.md",
+  "gate": "operator-review-before-registry-mutation",
+  "authority_boundary": {
+    "registry_mutated": false,
+    "index_generated": false,
+    "source_bodies_downloaded": false,
+    "source_bodies_admitted": false,
+    "private_archive_ingested": false,
+    "staged": false,
+    "committed": false,
+    "pushed": false,
+    "published": false
+  },
+  "batch": {
+    "batch_id": "industrial-metadata-batch-004",
+    "purpose": "Nineteenth-century literary interiority spine",
+    "candidate_count": 12,
+    "primary_function": "civilization-memory-literature",
+    "candidates": [
+      {
+        "candidate_id": "IND-META-004-001",
+        "proposed_source_id": "LIB-INDUSTRIAL-AUTHORITY-003-PUSHKIN",
+        "authority": "Alexander Pushkin",
+        "target_title": "Eugene Onegin; selected poems",
+        "coverage_ceiling": "selected-works",
+        "rights_body_gate": "original/translation separation required"
+      },
+      {
+        "candidate_id": "IND-META-004-002",
+        "proposed_source_id": "LIB-INDUSTRIAL-AUTHORITY-004-BALZAC",
+        "authority": "Honore de Balzac",
+        "target_title": "Pere Goriot; selected Comedie humaine",
+        "coverage_ceiling": "selected-works",
+        "rights_body_gate": "public-domain likely; translation review required"
+      },
+      {
+        "candidate_id": "IND-META-004-003",
+        "proposed_source_id": "LIB-INDUSTRIAL-AUTHORITY-005-HUGO",
+        "authority": "Victor Hugo",
+        "target_title": "Les Miserables",
+        "coverage_ceiling": "principal-work",
+        "rights_body_gate": "public-domain likely; translation review required"
+      },
+      {
+        "candidate_id": "IND-META-004-004",
+        "proposed_source_id": "LIB-INDUSTRIAL-AUTHORITY-007-CHARLOTTE-BRONTE",
+        "authority": "Charlotte Bronte",
+        "target_title": "Jane Eyre",
+        "coverage_ceiling": "principal-work",
+        "rights_body_gate": "public-domain likely; edition review required"
+      },
+      {
+        "candidate_id": "IND-META-004-005",
+        "proposed_source_id": "LIB-INDUSTRIAL-AUTHORITY-008-EMILY-BRONTE",
+        "authority": "Emily Bronte",
+        "target_title": "Wuthering Heights",
+        "coverage_ceiling": "principal-work",
+        "rights_body_gate": "public-domain likely; edition review required"
+      },
+      {
+        "candidate_id": "IND-META-004-006",
+        "proposed_source_id": "LIB-INDUSTRIAL-AUTHORITY-010-FLAUBERT",
+        "authority": "Gustave Flaubert",
+        "target_title": "Madame Bovary",
+        "coverage_ceiling": "principal-work",
+        "rights_body_gate": "public-domain likely; translation review required"
+      },
+      {
+        "candidate_id": "IND-META-004-007",
+        "proposed_source_id": "LIB-INDUSTRIAL-AUTHORITY-011-DOSTOEVSKY",
+        "authority": "Fyodor Dostoevsky",
+        "target_title": "Notes from Underground; Brothers Karamazov",
+        "coverage_ceiling": "principal-works",
+        "rights_body_gate": "translation rights require review"
+      },
+      {
+        "candidate_id": "IND-META-004-008",
+        "proposed_source_id": "LIB-INDUSTRIAL-AUTHORITY-012-TOLSTOY",
+        "authority": "Leo Tolstoy",
+        "target_title": "War and Peace; Anna Karenina",
+        "coverage_ceiling": "principal-works",
+        "rights_body_gate": "translation rights require review"
+      },
+      {
+        "candidate_id": "IND-META-004-009",
+        "proposed_source_id": "LIB-INDUSTRIAL-AUTHORITY-013-IBSEN",
+        "authority": "Henrik Ibsen",
+        "target_title": "A Doll's House; An Enemy of the People",
+        "coverage_ceiling": "principal-works",
+        "rights_body_gate": "public-domain likely; translation review required"
+      },
+      {
+        "candidate_id": "IND-META-004-010",
+        "proposed_source_id": "LIB-INDUSTRIAL-AUTHORITY-014-CHEKHOV",
+        "authority": "Anton Chekhov",
+        "target_title": "selected plays and stories",
+        "coverage_ceiling": "selected-works",
+        "rights_body_gate": "translation rights require review"
+      },
+      {
+        "candidate_id": "IND-META-004-011",
+        "proposed_source_id": "LIB-INDUSTRIAL-AUTHORITY-021-WHITMAN",
+        "authority": "Walt Whitman",
+        "target_title": "Leaves of Grass",
+        "coverage_ceiling": "principal-work",
+        "rights_body_gate": "public-domain likely; edition history review required"
+      },
+      {
+        "candidate_id": "IND-META-004-012",
+        "proposed_source_id": "LIB-INDUSTRIAL-AUTHORITY-022-DICKINSON",
+        "authority": "Emily Dickinson",
+        "target_title": "poems",
+        "coverage_ceiling": "selected-works",
+        "rights_body_gate": "edition history requires review"
+      }
+    ]
+  },
+  "acceptance_tests": [
+    "exactly 12 metadata candidates are present",
+    "every row has a stable candidate ID and proposed source ID",
+    "every row remains proposed stub only",
+    "every row has primary function civilization-memory-literature",
+    "every row has a conservative coverage ceiling",
+    "translation and edition-sensitive rows retain explicit rights/body gates",
+    "no registry, index, source body, private Archive, staging, commit, push, or publication action is authorized"
+  ],
+  "next_gate": "operator-review-before-metadata-mutation"
+}
