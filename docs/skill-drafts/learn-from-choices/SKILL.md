@@ -105,7 +105,32 @@ navigation-only and then require the operator to repeat the same command.
 When a domain workflow establishes a durable batch authority envelope, continue
 all reversible in-scope rows until its declared review boundary. Do not emit an
 intermediate choice surface for routine row completion, isolated row failure,
-or unchanged constraints.
+unchanged constraints, or every single item in a batch. This prevents approval
+fatigue while preserving real authority boundaries.
+
+A durable batch envelope exists only when the visible option or direct command
+names the workflow, target set, allowed actions, stop boundary, and forbidden
+actions. Inside that envelope, the agent may inspect, classify, draft,
+reconcile, and report all in-scope rows without asking the operator to approve
+each row. The agent must still stop or surface a fresh decision when any of
+these changes:
+
+- the batch needs a new mutation class such as registry mutation, body
+  admission, staging, commit, push, publication, deployment, external
+  communication, spending, or private Archive ingestion;
+- the target set, destination, evidence source, rights posture, or privacy
+  boundary changes materially;
+- validation fails in a way that changes the operator's decision;
+- the batch discovers a scope conflict, contradiction, protected data issue, or
+  previously forbidden action; or
+- the declared review boundary is reached.
+
+For long library, archive, repository, or research workflows, prefer larger
+reviewable batches over one-item loops when the operator has asked for scale or
+has complained about approval friction. Batch-scale continuation does not
+broaden authority: the same forbidden actions remain forbidden, and the final
+receipt must state what was completed, deferred, rejected, blocked, and not
+attempted.
 
 An all-navigation surface is exceptional: provide `all_navigation_reason` and
 a concrete `blocked_action` naming the action considered, its blocker, and
