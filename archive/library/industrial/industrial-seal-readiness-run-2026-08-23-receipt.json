@@ -1,0 +1,168 @@
+{
+  "schema_version": "1.1",
+  "receipt_id": "industrial-seal-readiness-run-2026-08-23",
+  "status": "seal-ready-not-formal-seal",
+  "target": [
+    "MIRA-LIBRARY-ERA-SUFFICIENCY-V1",
+    "BOUNDED-HISTORICAL-SHELF-V1"
+  ],
+  "era": "industrial",
+  "meaning": "Readiness receipt for a later deterministic Industrial era sufficiency seal; not a complete-corpus, publication, Git, or Archive-ingestion claim.",
+  "private_text_root": "C:\\private\\mira-library-texts",
+  "counts": {
+    "final": {
+      "industrial_authorities": 68,
+      "represented_authorities": 68,
+      "available_authorities": 68,
+      "available_bodies": 116,
+      "registry_bodies": 116,
+      "non_metadata_authorities": 68
+    },
+    "ratios": {
+      "represented_authority_fullness": 1.0,
+      "available_body_density": 1.7059,
+      "available_authority_ratio": 1.0,
+      "coverage_resolution_ratio": 1.0
+    },
+    "coverage_status": {
+      "principal-work": 18,
+      "principal-works": 20,
+      "selected-works": 30
+    },
+    "source_text_status": {
+      "available": 68
+    },
+    "body_status": {
+      "available": 116
+    },
+    "unrepresented_authorities": 0
+  },
+  "profile_criteria": [
+    {
+      "criterion": "authority_scale",
+      "minimum": 56,
+      "observed": 68,
+      "unit": "authorities",
+      "passed": true
+    },
+    {
+      "criterion": "represented_authority_fullness",
+      "minimum": 0.9,
+      "observed": 1.0,
+      "unit": "ratio",
+      "passed": true
+    },
+    {
+      "criterion": "represented_authority_mass",
+      "minimum": 56,
+      "observed": 68,
+      "unit": "authorities",
+      "passed": true
+    },
+    {
+      "criterion": "available_body_mass",
+      "minimum": 100,
+      "observed": 116,
+      "unit": "available_bodies",
+      "passed": true
+    },
+    {
+      "criterion": "available_body_density",
+      "minimum": 1.7,
+      "observed": 1.7059,
+      "unit": "available_bodies_per_authority",
+      "passed": true
+    },
+    {
+      "criterion": "available_authority_ratio",
+      "minimum": 0.7,
+      "observed": 1.0,
+      "unit": "ratio",
+      "passed": true
+    },
+    {
+      "criterion": "coverage_resolution_ratio",
+      "minimum": 0.4,
+      "observed": 1.0,
+      "unit": "non_metadata_only_ratio",
+      "passed": true
+    },
+    {
+      "criterion": "integrity",
+      "minimum": 1,
+      "observed": 1,
+      "unit": "boolean",
+      "passed": true
+    }
+  ],
+  "digests": {
+    "industrial_registry_slice_canonical_sha256": "45e8a65cf4cbf78640b1244f17fce5d325e3434c3d714f256b37f7d3cb4a7f7b",
+    "industrial_body_inventory_canonical_sha256": "a6323e052da5eba3dfcc337071d3eb2360a10bb84947091161d4256dafc775ab",
+    "full_registry_file_sha256": "d3ea108056899bd1d20d82a18c04c84f0ab37c79ca0e3182f24b64bceb4a59d5",
+    "industrial_index_file_sha256": "3644e4d517bdafbfa568105b7a5d813f5a1bacd89e5ec4d7578107e84fed1c50",
+    "text_sources_index_file_sha256": "5a98602ad0f0d5845e370d3b4616d5772945c8a4e4e6148a8f440be3d4a99889"
+  },
+  "validation": {
+    "session_preflight": {
+      "status": "passed",
+      "temp_root": "C:\\Users\\rober\\.codex\\visualizations\\2026\\08\\23\\01a02f1e-4eda-7b00-a88a-c2bd55f176d4\\tmp"
+    },
+    "library_census_texts_industrial": {
+      "status": "industrial_slice_passed_library_wide_failed",
+      "authority_count": 68,
+      "registry_represented_authorities": 68,
+      "registry_body_count": 116,
+      "referenced_body_count": 116,
+      "physical_payload_count": 116,
+      "missing_payload_count": 0,
+      "library_wide_missing_payload_count": 434,
+      "library_wide_failure_scope": "non-industrial private payloads are not hydrated in the active text root"
+    },
+    "industrial_scoped_hash_verification": {
+      "status": "passed",
+      "checked": 116,
+      "failures": 0
+    },
+    "library_validate": {
+      "status": "passed",
+      "failures": 0
+    },
+    "library_render_index_check": {
+      "status": "passed",
+      "stale_paths": [],
+      "industrial_sources_indexed": 68,
+      "text_bodies_indexed_all_eras": 564
+    },
+    "tests_test_archive_library_py": {
+      "status": "passed",
+      "passed": 26
+    }
+  },
+  "remaining_debt": [],
+  "boundaries": {
+    "registry_updated": false,
+    "generated_indexes_updated": false,
+    "private_text_store_updated": false,
+    "source_body_downloaded": false,
+    "source_body_admitted": false,
+    "git_staged": false,
+    "git_committed": false,
+    "git_pushed": false,
+    "published": false,
+    "archive_ingested": false,
+    "formal_version_seal_created": false
+  },
+  "formal_seal_readiness": {
+    "candidate_seal_id": "INDUSTRIAL-2026-08-23-45e8a65cf4cb-a6323e052da5",
+    "status": "ready_for_operator_disposition",
+    "note": "Formal version seal remains a separate action boundary."
+  },
+  "reopen_conditions": [
+    "any Industrial source or body registry field changes",
+    "archive/library/industrial/index.md changes",
+    "archive/library/text-sources-index.md changes in a way that affects Industrial navigation",
+    "an Industrial private payload is missing or changes hash",
+    "coverage, rights, edition, language, or maturity judgment changes",
+    "the sufficiency standard or profile changes materially"
+  ]
+}

@@ -1,0 +1,105 @@
+{
+  "schema": "mira-library-era-seal-normalization-addendum-v1",
+  "addendum_id": "MEDIEVAL-2026-08-23-NORMALIZATION-ADDENDUM",
+  "status": "normalization-addendum-not-replacement-seal",
+  "created_at": "2026-08-23",
+  "era": "medieval",
+  "original_seal_path": "archive/library/medieval/version-seal-2026-08-20.json",
+  "original_seal_id": "MEDIEVAL-2026-08-20-8a759df2a7cf-51a205b9bd12",
+  "original_seal_status": "passed",
+  "normalized_standard_id": "MIRA-LIBRARY-ERA-SUFFICIENCY-V1",
+  "normalized_profile_id": "BOUNDED-HISTORICAL-SHELF-V1",
+  "lineage_status": "passed-pilot-seal-normalized-by-addendum-with-explicit-debt",
+  "meaning": "Current-standard mapping overlay for the Medieval pilot seal; not a replacement seal, live replay, registry mutation, body admission, publication, or Archive-ingestion claim.",
+  "counts": {
+    "authorities": 62,
+    "authorities_with_bodies": 56,
+    "bodies": 123,
+    "source_status_counts": {
+      "available": 45,
+      "missing": 6,
+      "needs-review": 11
+    },
+    "body_status_counts": {
+      "available": 109,
+      "needs-review": 14
+    },
+    "source_coverage_status": {
+      "metadata-only": 33,
+      "partial-work": 6,
+      "principal-work": 20,
+      "principal-works": 2,
+      "selected-works": 1
+    },
+    "unresolved_authorities": 17
+  },
+  "current_standard_field_mapping": {
+    "standard_id": "MIRA-LIBRARY-ERA-SUFFICIENCY-V1",
+    "profile_id": "BOUNDED-HISTORICAL-SHELF-V1",
+    "era": "medieval",
+    "seal_id": "MEDIEVAL-2026-08-20-8a759df2a7cf-51a205b9bd12",
+    "sealed_at": "2026-08-20",
+    "seal_status": "passed",
+    "registry_slice_sha256": "8a759df2a7cf420b4e1d6eeaf718533862178244858cc09fef643fed211b84b4",
+    "body_inventory_sha256": "51a205b9bd1239cb868ae2ae736f190327dbae1f5d8cf1d1ec486503fc30ccfe",
+    "registry_file_sha256": "b7153633573fcd2c87ff758473d196a515f8a6a7850ed7362f1c2a54b4e2b9af",
+    "era_index_sha256": "641eb4d0925157d53a93893049bde10c5f45e48731853ef0685936c4d475b934",
+    "source_status_counts": {
+      "available": 45,
+      "missing": 6,
+      "needs-review": 11
+    },
+    "body_status_counts": {
+      "available": 109,
+      "needs-review": 14
+    },
+    "unresolved_authorities_count": 17,
+    "unresolved_authorities_source": "archive/library/medieval/version-seal-2026-08-20.json"
+  },
+  "validation_lineage": {
+    "historical_seal_validation": {
+      "library_verify_texts": {
+        "status": "passed",
+        "checked": 302,
+        "missing_declared": 17,
+        "failures": 0
+      },
+      "library_validate": {
+        "status": "passed",
+        "failures": 0
+      },
+      "library_render_index_check": {
+        "status": "passed",
+        "stale_paths": [],
+        "medieval_sources_indexed": 62
+      },
+      "tests_test_archive_library_py": {
+        "status": "passed",
+        "passed": 24
+      }
+    },
+    "current_live_private_store_replay": "not_attempted_by_this_addendum"
+  },
+  "authority_boundary": {
+    "replacement_seal_created": false,
+    "registry_updated": false,
+    "generated_indexes_updated": false,
+    "private_text_store_updated": false,
+    "source_body_downloaded": false,
+    "source_body_admitted": false,
+    "git_staged": false,
+    "git_committed": false,
+    "git_pushed": false,
+    "published": false,
+    "archive_ingested": false
+  },
+  "reopen_conditions": [
+    "the original Medieval seal is superseded",
+    "any Medieval source or body registry field changes",
+    "the Medieval human index changes",
+    "a Medieval body is admitted, corrected, removed, or changes hash",
+    "a missing or needs-review authority is resolved",
+    "coverage, rights, edition, language, or maturity judgment changes",
+    "the sufficiency standard or profile changes materially"
+  ]
+}

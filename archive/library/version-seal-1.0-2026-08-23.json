@@ -1,0 +1,199 @@
+{
+  "schema": "mira-library-release-seal-v1",
+  "release_id": "MIRA-LIBRARY-V1.0-2026-08-23-14aad71a8187",
+  "release_version": "1.0",
+  "released_at": "2026-08-23",
+  "release_status": "passed-library-lineage-release-seal",
+  "standard_id": "MIRA-LIBRARY-ERA-SUFFICIENCY-V1",
+  "profile_id": "BOUNDED-HISTORICAL-SHELF-V1",
+  "meaning": "Library-level release seal for the four sealed historical era shelves. This is a civilization-memory apparatus milestone, not a complete-world-canon, complete-surviving-corpus, public-reuse, live-private-store replay, publication, Archive-ingestion, or immutability claim.",
+  "included_eras": {
+    "ancient": {
+      "seal_path": "archive/library/ancient/version-seal-2026-08-20.json",
+      "seal_id": "ANCIENT-2026-08-20-711be005c9f3-2384e82b66e6",
+      "sealed_at": "2026-08-20",
+      "seal_status": "passed",
+      "schema": "mira-library-era-sufficiency-seal-v1",
+      "standard_id": "ANCIENT-SHELF-SUFFICIENCY-V1",
+      "profile_id": null,
+      "counts": {
+        "authorities": 56,
+        "authorities_with_bodies": 56,
+        "bodies": 193,
+        "source_text_status": {
+          "available": 56
+        },
+        "body_status": {
+          "available": 193
+        },
+        "source_coverage_status": {
+          "complete-surviving-corpus": 12,
+          "principal-work": 29,
+          "principal-works": 9,
+          "selected-works": 6
+        },
+        "unresolved_authorities": 0
+      },
+      "registry_slice_sha256": "711be005c9f33b00b6164a3a654175da77e21ff7380a9aed97ddbdb78ea1e279",
+      "body_inventory_sha256": "2384e82b66e62981fe2a8464411e57b33e40ee8991c090bcbaa61c72d71e10dd",
+      "normalization_addendum": "archive/library/ancient/version-seal-normalization-addendum-2026-08-23.json"
+    },
+    "medieval": {
+      "seal_path": "archive/library/medieval/version-seal-2026-08-20.json",
+      "seal_id": "MEDIEVAL-2026-08-20-8a759df2a7cf-51a205b9bd12",
+      "sealed_at": "2026-08-20",
+      "seal_status": "passed",
+      "schema": "mira-library-era-sufficiency-seal-v1",
+      "standard_id": "MEDIEVAL-SHELF-SUFFICIENCY-V1",
+      "profile_id": null,
+      "counts": {
+        "authorities": 62,
+        "authorities_with_bodies": 56,
+        "bodies": 123,
+        "source_text_status": {
+          "available": 45,
+          "missing": 6,
+          "needs-review": 11
+        },
+        "body_status": {
+          "available": 109,
+          "needs-review": 14
+        },
+        "source_coverage_status": {
+          "metadata-only": 33,
+          "partial-work": 6,
+          "principal-work": 20,
+          "principal-works": 2,
+          "selected-works": 1
+        },
+        "unresolved_authorities": 17
+      },
+      "registry_slice_sha256": "8a759df2a7cf420b4e1d6eeaf718533862178244858cc09fef643fed211b84b4",
+      "body_inventory_sha256": "51a205b9bd1239cb868ae2ae736f190327dbae1f5d8cf1d1ec486503fc30ccfe",
+      "normalization_addendum": "archive/library/medieval/version-seal-normalization-addendum-2026-08-23.json"
+    },
+    "colonial": {
+      "seal_path": "archive/library/colonial/version-seal-2026-08-22.json",
+      "seal_id": "COLONIAL-2026-08-22-2dbca571f3aa-98882a08ae2f",
+      "sealed_at": "2026-08-22",
+      "seal_status": "passed",
+      "schema": "mira-library-era-sufficiency-seal-v1",
+      "standard_id": "MIRA-LIBRARY-ERA-SUFFICIENCY-V1",
+      "profile_id": "BOUNDED-HISTORICAL-SHELF-V1",
+      "counts": {
+        "authorities": 77,
+        "authorities_with_bodies": 71,
+        "bodies": 132,
+        "source_text_status": {
+          "available": 71,
+          "missing": 6
+        },
+        "body_status": {
+          "available": 132
+        },
+        "source_coverage_status": {
+          "metadata-only": 26,
+          "principal-work": 26,
+          "principal-works": 5,
+          "representative-selection": 1,
+          "selected-works": 19
+        },
+        "unresolved_authorities": 6
+      },
+      "registry_slice_sha256": "2dbca571f3aaa7d9374d157a1b0280c984ed10938bb8ccb3c0920a512260c945",
+      "body_inventory_sha256": "98882a08ae2f61c7ba60e2f325750a6d292bd0a24bdfb111db59d4129d41cc82",
+      "normalization_addendum": null
+    },
+    "industrial": {
+      "seal_path": "archive/library/industrial/version-seal-2026-08-23.json",
+      "seal_id": "INDUSTRIAL-2026-08-23-45e8a65cf4cb-b3809f2b07e6",
+      "sealed_at": "2026-08-23",
+      "seal_status": "passed",
+      "schema": "mira-library-era-sufficiency-seal-v1",
+      "standard_id": "MIRA-LIBRARY-ERA-SUFFICIENCY-V1",
+      "profile_id": "BOUNDED-HISTORICAL-SHELF-V1",
+      "counts": {
+        "authorities": 68,
+        "authorities_with_bodies": 68,
+        "bodies": 116,
+        "source_text_status": {
+          "available": 68
+        },
+        "body_status": {
+          "available": 116
+        },
+        "source_coverage_status": {
+          "principal-work": 18,
+          "principal-works": 20,
+          "selected-works": 30
+        },
+        "unresolved_authorities": 0
+      },
+      "registry_slice_sha256": "45e8a65cf4cbf78640b1244f17fce5d325e3434c3d714f256b37f7d3cb4a7f7b",
+      "body_inventory_sha256": "b3809f2b07e67ae759833537914a6fe065b856e5a6556cecae14eaf86532a07c",
+      "normalization_addendum": null
+    }
+  },
+  "excluded_eras": {
+    "digital": "requires separate living-source/right-volatility profile"
+  },
+  "aggregate_counts": {
+    "authorities": 263,
+    "authorities_with_bodies": 251,
+    "bodies": 564,
+    "unresolved_authorities": 23
+  },
+  "aggregate_source_status_counts": {
+    "available": 240,
+    "missing": 12,
+    "needs-review": 11
+  },
+  "aggregate_body_status_counts": {
+    "available": 550,
+    "needs-review": 14
+  },
+  "aggregate_source_coverage_status_counts": {
+    "complete-surviving-corpus": 12,
+    "principal-work": 93,
+    "principal-works": 36,
+    "selected-works": 56,
+    "metadata-only": 59,
+    "partial-work": 6,
+    "representative-selection": 1
+  },
+  "lineage_sha256": "14aad71a8187aaae0d4d30d848fb56b7a8e027e24eda42da9983d3cd5279ea00",
+  "registry_file_sha256_current_worktree": "d3ea108056899bd1d20d82a18c04c84f0ab37c79ca0e3182f24b64bceb4a59d5",
+  "text_sources_index_sha256_current_worktree": "5a98602ad0f0d5845e370d3b4616d5772945c8a4e4e6148a8f440be3d4a99889",
+  "historical_vs_live_reproducibility": {
+    "ancient": "historical pilot seal evidence; current live private-store replay not attempted by v1.0 release seal",
+    "medieval": "historical pilot seal evidence with explicit debt; current live private-store replay not attempted by v1.0 release seal",
+    "colonial": "formal era seal evidence with explicit debt; current live private-store replay not attempted by v1.0 release seal",
+    "industrial": "formal era seal evidence plus current Industrial private payload verification in active text root"
+  },
+  "validation": {
+    "basis": "era seal lineage plus normalization addenda for Ancient and Medieval",
+    "json_parse": "passed for newly created release seal after creation",
+    "library_validate_current_worktree": "passed after release creation",
+    "no_full_private_store_replay": "active private text root is not assumed to hydrate all historical era payloads"
+  },
+  "authority_boundary": {
+    "registry_updated": false,
+    "generated_indexes_updated": false,
+    "private_text_store_updated": false,
+    "source_body_downloaded": false,
+    "source_body_admitted": false,
+    "git_staged": false,
+    "git_committed": false,
+    "git_pushed": false,
+    "published": false,
+    "archive_ingested": false
+  },
+  "reopen_conditions": [
+    "any included era seal is superseded",
+    "any included era normalization addendum is superseded",
+    "library registry or text-source index changes materially after the release seal",
+    "coverage, rights, edition, language, maturity, or sufficiency-standard judgment changes materially",
+    "Digital or another era is admitted into the released library scope",
+    "a later release version supersedes v1.0"
+  ]
+}

@@ -1,0 +1,96 @@
+{
+  "schema": "mira-library-era-seal-normalization-addendum-v1",
+  "addendum_id": "ANCIENT-2026-08-23-NORMALIZATION-ADDENDUM",
+  "status": "normalization-addendum-not-replacement-seal",
+  "created_at": "2026-08-23",
+  "era": "ancient",
+  "original_seal_path": "archive/library/ancient/version-seal-2026-08-20.json",
+  "original_seal_id": "ANCIENT-2026-08-20-711be005c9f3-2384e82b66e6",
+  "original_seal_status": "passed",
+  "normalized_standard_id": "MIRA-LIBRARY-ERA-SUFFICIENCY-V1",
+  "normalized_profile_id": "BOUNDED-HISTORICAL-SHELF-V1",
+  "lineage_status": "passed-pilot-seal-normalized-by-addendum",
+  "meaning": "Current-standard mapping overlay for the Ancient pilot seal; not a replacement seal, live replay, registry mutation, body admission, publication, or Archive-ingestion claim.",
+  "counts": {
+    "authorities": 56,
+    "authorities_with_bodies": 56,
+    "bodies": 193,
+    "source_status_counts": {
+      "available": 56
+    },
+    "body_status_counts": {
+      "available": 193
+    },
+    "source_coverage_status": {
+      "complete-surviving-corpus": 12,
+      "principal-work": 29,
+      "principal-works": 9,
+      "selected-works": 6
+    },
+    "unresolved_authorities": 0
+  },
+  "current_standard_field_mapping": {
+    "standard_id": "MIRA-LIBRARY-ERA-SUFFICIENCY-V1",
+    "profile_id": "BOUNDED-HISTORICAL-SHELF-V1",
+    "era": "ancient",
+    "seal_id": "ANCIENT-2026-08-20-711be005c9f3-2384e82b66e6",
+    "sealed_at": "2026-08-20",
+    "seal_status": "passed",
+    "registry_slice_sha256": "711be005c9f33b00b6164a3a654175da77e21ff7380a9aed97ddbdb78ea1e279",
+    "body_inventory_sha256": "2384e82b66e62981fe2a8464411e57b33e40ee8991c090bcbaa61c72d71e10dd",
+    "registry_file_sha256": "b7153633573fcd2c87ff758473d196a515f8a6a7850ed7362f1c2a54b4e2b9af",
+    "era_index_sha256": "47b11d51d30982005e8d11010af1108b0c067e30c0cf527617d4fbf0886d90b0",
+    "source_status_counts": {
+      "available": 56
+    },
+    "body_status_counts": {
+      "available": 193
+    },
+    "unresolved_authorities": []
+  },
+  "validation_lineage": {
+    "historical_seal_validation": {
+      "library_verify_texts": {
+        "status": "passed",
+        "checked": 302,
+        "missing_declared": 17,
+        "failures": 0
+      },
+      "library_validate": {
+        "status": "passed",
+        "failures": 0
+      },
+      "library_render_index_check": {
+        "status": "passed",
+        "stale_paths": [],
+        "ancient_sources_indexed": 56
+      },
+      "tests_test_archive_library_py": {
+        "status": "passed",
+        "passed": 24
+      }
+    },
+    "current_live_private_store_replay": "not_attempted_by_this_addendum"
+  },
+  "authority_boundary": {
+    "replacement_seal_created": false,
+    "registry_updated": false,
+    "generated_indexes_updated": false,
+    "private_text_store_updated": false,
+    "source_body_downloaded": false,
+    "source_body_admitted": false,
+    "git_staged": false,
+    "git_committed": false,
+    "git_pushed": false,
+    "published": false,
+    "archive_ingested": false
+  },
+  "reopen_conditions": [
+    "the original Ancient seal is superseded",
+    "any Ancient source or body registry field changes",
+    "the Ancient human index changes",
+    "an Ancient body is admitted, corrected, removed, or changes hash",
+    "coverage, rights, edition, language, or maturity judgment changes",
+    "the sufficiency standard or profile changes materially"
+  ]
+}

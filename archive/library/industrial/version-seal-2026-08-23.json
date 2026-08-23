@@ -1,0 +1,1528 @@
+{
+  "schema": "mira-library-era-sufficiency-seal-v1",
+  "standard_id": "MIRA-LIBRARY-ERA-SUFFICIENCY-V1",
+  "profile_id": "BOUNDED-HISTORICAL-SHELF-V1",
+  "seal_id": "INDUSTRIAL-2026-08-23-45e8a65cf4cb-b3809f2b07e6",
+  "sealed_at": "2026-08-23",
+  "era": "industrial",
+  "seal_status": "passed",
+  "meaning": "Normative shelf-sufficiency certification plus reproducible closure snapshot for the Industrial 1815-1991 shelf; not a complete-surviving-corpus, publication, Archive-ingestion, rights-reuse, or immutability claim.",
+  "authority_boundary": {
+    "admission_performed": false,
+    "download_performed": false,
+    "staged": false,
+    "committed": false,
+    "pushed": false,
+    "published": false,
+    "private_archive_ingested": false
+  },
+  "universal_gate_results": {
+    "session_preflight": "passed",
+    "library_validate": "passed",
+    "library_render_index_check": "passed",
+    "industrial_scoped_hash_verification": "passed",
+    "tests_test_archive_library_py": "passed",
+    "library_wide_verify_texts": "not_used_for_seal_because_active_text_root_contains_industrial_payloads_only"
+  },
+  "profile_threshold_results": [
+    {
+      "criterion": "authority_scale",
+      "minimum": 56,
+      "observed": 68,
+      "unit": "authorities",
+      "passed": true,
+      "basis": "bounded historical shelf authority floor"
+    },
+    {
+      "criterion": "represented_authority_fullness",
+      "minimum": 0.9,
+      "observed": 1.0,
+      "unit": "ratio",
+      "passed": true,
+      "basis": "at least ninety percent of authorities have a registered body"
+    },
+    {
+      "criterion": "represented_authority_mass",
+      "minimum": 56,
+      "observed": 68,
+      "unit": "authorities",
+      "passed": true,
+      "basis": "at least 56 represented authorities"
+    },
+    {
+      "criterion": "available_body_mass",
+      "minimum": 100,
+      "observed": 116,
+      "unit": "available_bodies",
+      "passed": true,
+      "basis": "three-digit available source-body shelf"
+    },
+    {
+      "criterion": "available_body_density",
+      "minimum": 1.7,
+      "observed": 1.7059,
+      "unit": "available_bodies_per_authority",
+      "passed": true,
+      "basis": "at least 1.70 available bodies per authority"
+    },
+    {
+      "criterion": "available_authority_ratio",
+      "minimum": 0.7,
+      "observed": 1.0,
+      "unit": "ratio",
+      "passed": true,
+      "basis": "clear majority of authorities are immediately represented"
+    },
+    {
+      "criterion": "coverage_resolution_ratio",
+      "minimum": 0.4,
+      "observed": 1.0,
+      "unit": "non_metadata_only_ratio",
+      "passed": true,
+      "basis": "at least forty percent have work-level rather than metadata-only coverage ceilings"
+    },
+    {
+      "criterion": "integrity",
+      "minimum": 1,
+      "observed": 1,
+      "unit": "boolean",
+      "passed": true,
+      "basis": "session preflight, Industrial hash verification, registry validation, index drift check, and focused tests all pass"
+    }
+  ],
+  "counts": {
+    "authorities": 68,
+    "authorities_with_bodies": 68,
+    "bodies": 116,
+    "source_text_status": {
+      "available": 68
+    },
+    "body_status": {
+      "available": 116
+    },
+    "source_coverage_status": {
+      "principal-work": 18,
+      "principal-works": 20,
+      "selected-works": 30
+    },
+    "unresolved_authorities": 0
+  },
+  "sufficiency_standard": {
+    "standard_id": "MIRA-LIBRARY-ERA-SUFFICIENCY-V1",
+    "profile_id": "BOUNDED-HISTORICAL-SHELF-V1",
+    "passed": true,
+    "criteria": [
+      {
+        "criterion": "authority_scale",
+        "minimum": 56,
+        "observed": 68,
+        "unit": "authorities",
+        "passed": true,
+        "basis": "bounded historical shelf authority floor"
+      },
+      {
+        "criterion": "represented_authority_fullness",
+        "minimum": 0.9,
+        "observed": 1.0,
+        "unit": "ratio",
+        "passed": true,
+        "basis": "at least ninety percent of authorities have a registered body"
+      },
+      {
+        "criterion": "represented_authority_mass",
+        "minimum": 56,
+        "observed": 68,
+        "unit": "authorities",
+        "passed": true,
+        "basis": "at least 56 represented authorities"
+      },
+      {
+        "criterion": "available_body_mass",
+        "minimum": 100,
+        "observed": 116,
+        "unit": "available_bodies",
+        "passed": true,
+        "basis": "three-digit available source-body shelf"
+      },
+      {
+        "criterion": "available_body_density",
+        "minimum": 1.7,
+        "observed": 1.7059,
+        "unit": "available_bodies_per_authority",
+        "passed": true,
+        "basis": "at least 1.70 available bodies per authority"
+      },
+      {
+        "criterion": "available_authority_ratio",
+        "minimum": 0.7,
+        "observed": 1.0,
+        "unit": "ratio",
+        "passed": true,
+        "basis": "clear majority of authorities are immediately represented"
+      },
+      {
+        "criterion": "coverage_resolution_ratio",
+        "minimum": 0.4,
+        "observed": 1.0,
+        "unit": "non_metadata_only_ratio",
+        "passed": true,
+        "basis": "at least forty percent have work-level rather than metadata-only coverage ceilings"
+      },
+      {
+        "criterion": "integrity",
+        "minimum": 1,
+        "observed": 1,
+        "unit": "boolean",
+        "passed": true,
+        "basis": "session preflight, Industrial hash verification, registry validation, index drift check, and focused tests all pass"
+      }
+    ],
+    "completeness_boundary": "Shelf-level structural sufficiency only. Authority-level and body-level coverage ceilings remain controlling."
+  },
+  "digests": {
+    "registry_slice_sha256": "45e8a65cf4cbf78640b1244f17fce5d325e3434c3d714f256b37f7d3cb4a7f7b",
+    "body_inventory_sha256": "b3809f2b07e67ae759833537914a6fe065b856e5a6556cecae14eaf86532a07c",
+    "registry_file_sha256": "d3ea108056899bd1d20d82a18c04c84f0ab37c79ca0e3182f24b64bceb4a59d5",
+    "era_index_sha256": "3644e4d517bdafbfa568105b7a5d813f5a1bacd89e5ec4d7578107e84fed1c50",
+    "text_sources_index_sha256": "5a98602ad0f0d5845e370d3b4616d5772945c8a4e4e6148a8f440be3d4a99889",
+    "industrial_registry_slice_canonical_sha256": "45e8a65cf4cbf78640b1244f17fce5d325e3434c3d714f256b37f7d3cb4a7f7b",
+    "industrial_body_inventory_canonical_sha256": "b3809f2b07e67ae759833537914a6fe065b856e5a6556cecae14eaf86532a07c",
+    "full_registry_file_sha256": "d3ea108056899bd1d20d82a18c04c84f0ab37c79ca0e3182f24b64bceb4a59d5",
+    "industrial_index_file_sha256": "3644e4d517bdafbfa568105b7a5d813f5a1bacd89e5ec4d7578107e84fed1c50",
+    "text_sources_index_file_sha256": "5a98602ad0f0d5845e370d3b4616d5772945c8a4e4e6148a8f440be3d4a99889"
+  },
+  "registry_slice_sha256": "45e8a65cf4cbf78640b1244f17fce5d325e3434c3d714f256b37f7d3cb4a7f7b",
+  "body_inventory_sha256": "b3809f2b07e67ae759833537914a6fe065b856e5a6556cecae14eaf86532a07c",
+  "registry_file_sha256": "d3ea108056899bd1d20d82a18c04c84f0ab37c79ca0e3182f24b64bceb4a59d5",
+  "era_index_sha256": "3644e4d517bdafbfa568105b7a5d813f5a1bacd89e5ec4d7578107e84fed1c50",
+  "source_status_counts": {
+    "available": 68
+  },
+  "body_status_counts": {
+    "available": 116
+  },
+  "unresolved_authorities": [],
+  "body_inventory": [
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-001-AUSTEN",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-001-AUSTEN-PERSUASION-PG105",
+      "work_title": "Persuasion",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 497555,
+      "text_sha256": "64ffb821b9e9eb1040c103a44c28893c94ebe33ffbb911288b5022efaecbfefc",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-002-SHELLEY",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-002-SHELLEY-FRANKENSTEIN-1818-PG41445",
+      "work_title": "Frankenstein; Or, The Modern Prometheus",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 438114,
+      "text_sha256": "54b2faba2485a5697606ecd0e4afb574e14bab51820bef4efa72ce8c91eff787",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-006-DICKENS",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-006-DICKENS-HARD-TIMES-PG786",
+      "work_title": "Hard Times",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 626278,
+      "text_sha256": "dd239b4a0c9c1b72be40f9f7e1aabce511c022b238a8feb2a9e63f169a7436d9",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-006-DICKENS",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-006-DICKENS-BLEAK-HOUSE-PG1023",
+      "work_title": "Bleak House",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 2044802,
+      "text_sha256": "27e002dee487817b00ba884f3d5ffd8dbb821f82353e914cdc22bf33c413ba16",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-009-ELIOT",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-009-ELIOT-MIDDLEMARCH-PG145",
+      "work_title": "Middlemarch",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 1865684,
+      "text_sha256": "dc2e0107e6ae07e8e33da934b2ec4e8e600826a2e0cd48df265119cd02e5fb50",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-026-DOUGLASS",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-026-DOUGLASS-NARRATIVE-PG23",
+      "work_title": "Narrative of the Life of Frederick Douglass, an American Slave",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 249061,
+      "text_sha256": "234c15348a66919bad1d534cdd48ee8ddf91f50115a706cbefaa8edd049672fd",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-026-DOUGLASS",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-026-DOUGLASS-MY-BONDAGE-MY-FREEDOM-PG202",
+      "work_title": "My Bondage and My Freedom",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 798777,
+      "text_sha256": "d47cded1b5f559155f05184c353ea8dc51a15d15c37efc6a5eaa62930a8cf5f2",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-026-DOUGLASS",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-026-DOUGLASS-ABOLITION-FANATICISM-PG34915",
+      "work_title": "Abolition Fanaticism in New York",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 46779,
+      "text_sha256": "060f3b333f1a2a0f1bb0d6d84a37ba33c2348c60081a41deb6b42bbf16184d31",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-026-DOUGLASS",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-026-DOUGLASS-THREE-ADDRESSES-PG67919",
+      "work_title": "Three addresses on the relations subsisting between the white and colored people of the United States",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 184832,
+      "text_sha256": "8bd0cd632c83b4071a4cb5b7ed4f715ae5fe451e4d5fb771a0c4999d4e31b2ca",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-026-DOUGLASS",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-026-DOUGLASS-WHY-NEGRO-LYNCHED-PG59116",
+      "work_title": "Why is the Negro Lynched?",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 108755,
+      "text_sha256": "df7897f06887f6ea619051357402f243de1f8958d4299b602c28aff267ee5913",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-026-DOUGLASS",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-026-DOUGLASS-COLLECTED-ARTICLES-PG99",
+      "work_title": "Collected Articles of Frederick Douglass",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 66518,
+      "text_sha256": "4368565a5aef33e7842e674fcd7608ae9fd5d885f28543fae6df6cce3b0c5a89",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-026-DOUGLASS",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-026-DOUGLASS-JOHN-BROWN-PG31839",
+      "work_title": "John Brown: An Address at the 14th Anniversary of Storer College",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 78350,
+      "text_sha256": "82d460d218e26a38609564af3c1f29f0f11ac2a402d5d3452ad5cf7e331d05a8",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-027-JACOBS",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-027-JACOBS-INCIDENTS-PG11030",
+      "work_title": "Incidents in the Life of a Slave Girl, Written by Herself",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 478335,
+      "text_sha256": "a8ea7fd9177aebd3b6534d9e67f78973e01686e073f156214e54884e1b6e328a",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-025-DU-BOIS",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-025-DU-BOIS-SOULS-PG408",
+      "work_title": "The Souls of Black Folk",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 428743,
+      "text_sha256": "f5a231cbe6a8eb942369203e0c69c65090d689ce05feeb416cf05e24c5fa4da1",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-023-MELVILLE",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-023-MELVILLE-MOBY-DICK-PG2701",
+      "work_title": "Moby Dick; Or, The Whale",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 1276263,
+      "text_sha256": "9a6844ac0703853720010787c7b6c70b0020f1ab1862dcd74452fa46474d1215",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-024-TWAIN",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-024-TWAIN-HUCKLEBERRY-FINN-PG76",
+      "work_title": "Adventures of Huckleberry Finn",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 622460,
+      "text_sha256": "d617a37aa7ae1e1a93dcde2634db2bccb86824e31e29a55230bdbf77d6872d59",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-024-TWAIN",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-024-TWAIN-LIFE-ON-MISSISSIPPI-PG245",
+      "work_title": "Life on the Mississippi",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 843430,
+      "text_sha256": "91388a58a49f9c321fc5b1611560b0302d043a7e955c2f3f6c619d91befc8f01",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-061-ZOLA",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-061-ZOLA-GERMINAL-ELLIS-PG56528",
+      "work_title": "Germinal",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 1040454,
+      "text_sha256": "5419b224014248f2fb4682a89365bf65559c65e31872a3fc535d6d4e2436b4e8",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-061-ZOLA",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-061-ZOLA-JACCUSE-FRENCH-PG76045",
+      "work_title": "J'accuse...!",
+      "language": "french",
+      "status": "available",
+      "text_bytes": 50557,
+      "text_sha256": "d6fb0993c1d3d9e2259ceb6f21b7ce741e1234c9858254cfe733e732f937aa86",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-062-HARDY",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-062-HARDY-TESS-PG110",
+      "work_title": "Tess of the d'Urbervilles: A Pure Woman",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 895508,
+      "text_sha256": "503e08df0ca12fb21f4db9df75cfa97f9ba31b4d136add695b9e3e350b1699b1",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-062-HARDY",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-062-HARDY-JUDE-PG153",
+      "work_title": "Jude the Obscure",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 858807,
+      "text_sha256": "b787d4fd196efdea49dc469365593d8bb1e18494b31c39c18ded39d2c6177745",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-063-WILDE",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-063-WILDE-DE-PROFUNDIS-PG921",
+      "work_title": "De Profundis",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 115749,
+      "text_sha256": "c9470d27fc340e569b792c9c60a8bce7fe9fad8420468c64d49553d5ccf69845",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-063-WILDE",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-063-WILDE-IMPORTANCE-EARNEST-PG844",
+      "work_title": "The Importance of Being Earnest",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 141840,
+      "text_sha256": "1b8a58099bb1cdef6a845277a4bacf2f4a268702c165bde30124d4b5105d1851",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-029-MARX",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-029-MARX-MANIFESTO-PG61",
+      "work_title": "The Communist Manifesto",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 94315,
+      "text_sha256": "ba4623f09e411351ad4f34488289c70eceda8fb9d7977c1db64f0f01ed80cb59",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-029-MARX",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-029-MARX-CONTRIBUTION-PG46423",
+      "work_title": "A Contribution to the Critique of Political Economy",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 541130,
+      "text_sha256": "d01f83d5c8d1d726406fa583d282b709402aae156c1940252e370ca856fade9c",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-030-ENGELS",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-030-ENGELS-CONDITION-PG17306",
+      "work_title": "The Condition of the Working-Class in England in 1844",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 736497,
+      "text_sha256": "25ff9b6ba4bef75632145e785f86acfaeeb0b437fd7f8f5409bf103eed7ae93b",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-031-MILL",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-031-MILL-ON-LIBERTY-PG34901",
+      "work_title": "On Liberty",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 331189,
+      "text_sha256": "cfc8de9ac48709ef8e66922b32bac51335c883082e4da24251e1290816df904c",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-031-MILL",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-031-MILL-SUBJECTION-PG27083",
+      "work_title": "The Subjection of Women",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 278619,
+      "text_sha256": "ed7238e072be4c3c4a0478c725d6d1b27698b786c0b46958e501a679fd605319",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-032-TOCQUEVILLE",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-032-TOCQUEVILLE-DEMOCRACY-V1-PG815",
+      "work_title": "Democracy in America, Volume 1",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 1151189,
+      "text_sha256": "734b3b0352dc2ec312a6b2b9e9165aac054439eee2d6e8d83d1fd9a35d1c9e2d",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-032-TOCQUEVILLE",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-032-TOCQUEVILLE-DEMOCRACY-V2-PG816",
+      "work_title": "Democracy in America, Volume 2",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 866238,
+      "text_sha256": "1c9c747231b90370f0cd79bf0758be5df7dcb33d0354a050467328c679d0ccf4",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-038-DARWIN",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-038-DARWIN-ORIGIN-PG2009",
+      "work_title": "On the Origin of Species",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 1303005,
+      "text_sha256": "27c02feed0b90e0163811a35a7565d03611dc1d3f86703d6bec4ae73d2d612b8",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-038-DARWIN",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-038-DARWIN-DESCENT-PG2300",
+      "work_title": "The Descent of Man",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 1909144,
+      "text_sha256": "2911dfcc2b0b498fe92ad9bd7e2c712046edb448eb6fe3bd669bcf9629adf8fd",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-039-WALLACE",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-039-WALLACE-MALAY-PG2530",
+      "work_title": "The Malay Archipelago",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 676092,
+      "text_sha256": "d4b343bde8af87ea34810f86d64743f0d75de78617ab12fe95e04157a7efa206",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-041-BABBAGE",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-041-BABBAGE-ECONOMY-PG4238",
+      "work_title": "On the Economy of Machinery and Manufactures",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 645369,
+      "text_sha256": "08cfd812da8c31ceb2085f7a01cb54c3073c84dd2f7dd5a65285c3f1d3358ace",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-042-NIGHTINGALE",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-042-NIGHTINGALE-NOTES-NURSING-PG17366",
+      "work_title": "Notes on Nursing",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 286169,
+      "text_sha256": "6b013673690bfa5f4f8f80e842eb92adc7292d1dff717077cc38e9655d62af06",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-042-NIGHTINGALE",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-042-NIGHTINGALE-SANITARY-STATS-PG52653",
+      "work_title": "Sanitary Statistics of Native Colonial Schools and Hospitals",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 404160,
+      "text_sha256": "924b6dc4082d8238a808b8aec98bbc9033294613beb5310ff00f907f6d43e360",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-043-THOREAU",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-043-THOREAU-CIVIL-DISOBEDIENCE-PG71",
+      "work_title": "Civil Disobedience",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 72261,
+      "text_sha256": "88310a64ab17a33347228deb109dc67f089c7313ef30e97d7870449612a77c98",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-043-THOREAU",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-043-THOREAU-WALDEN-PG205",
+      "work_title": "Walden",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 667957,
+      "text_sha256": "2d9a76a2e3e8195c69430516ebd33c4d0757a53ad432ff6186b7b794e6fe99f9",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-044-RUSKIN",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-044-RUSKIN-UNTO-THIS-LAST-PG36541",
+      "work_title": "Unto This Last, and Other Essays on Political Economy",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 737417,
+      "text_sha256": "3407c93e8ab6818646140fde715f90cbfed000f9342619aeb2157dad9c33bf72",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-045-MORRIS",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-045-MORRIS-NEWS-NOWHERE-PG3261",
+      "work_title": "News from Nowhere",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 450589,
+      "text_sha256": "350beb623c7574515535a283adf7d2a78de4230c9b4b1e8f238b8b9a252661b1",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-083-WELLS",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-083-WELLS-SOUTHERN-HORRORS-PG14975",
+      "work_title": "Southern Horrors",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 77101,
+      "text_sha256": "aed82d6ba21e6b54622dc2ae6b8895e0528e09fc2f9afdce90d24cce7a5b69d5",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-083-WELLS",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-083-WELLS-RED-RECORD-PG14977",
+      "work_title": "The Red Record",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 221004,
+      "text_sha256": "2fdfd650c9da72e36ef5c5d06a682f045d5b84fc57c207a2a0ea1d9bd88bf722",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-083-WELLS",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-083-WELLS-MOB-RULE-PG14976",
+      "work_title": "Mob Rule in New Orleans",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 145179,
+      "text_sha256": "fd4ee9bcea3af29063f3c7c92c22c2ac0d580000fbe9c45ea3401498de67c6d1",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-020-RIZAL",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-020-RIZAL-SOCIAL-CANCER-PG6737",
+      "work_title": "The Social Cancer",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 1047833,
+      "text_sha256": "edaff46d61e92a7eeea5236280d2c9db7a304210379fa2d65148d097ad02b59e",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-020-RIZAL",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-020-RIZAL-NOLI-SPANISH-PG47584",
+      "work_title": "Noli me tangere",
+      "language": "spanish",
+      "status": "available",
+      "text_bytes": 895377,
+      "text_sha256": "a1e437097e5c6b86baa0db08c3d091b76d46f347db5f1e1dd14bdfb1d3f84f8e",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-020-RIZAL",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-020-RIZAL-EL-FILI-SPANISH-PG30903",
+      "work_title": "El Filibusterismo",
+      "language": "spanish",
+      "status": "available",
+      "text_bytes": 661279,
+      "text_sha256": "db839580d54d4f07cf03f45f51a3caaacb511aa08de7fd378aa0430bac852e77",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-020-RIZAL",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-020-RIZAL-REIGN-GREED-PG10676",
+      "work_title": "The Reign of Greed",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 714940,
+      "text_sha256": "db7bceada578acc26fe3e55c9e26ffd7d870f227877e9bad910d0758a7871377",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-015-TAGORE",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-015-TAGORE-GITANJALI-PG7164",
+      "work_title": "Gitanjali",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 98478,
+      "text_sha256": "665ea9b282c0a542baafc278d79151aaa53d203a5c688b3daeddf7d908311d44",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-015-TAGORE",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-015-TAGORE-NATIONALISM-PG40766",
+      "work_title": "Nationalism",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 176211,
+      "text_sha256": "077be7c3e258155349eae44359f0713ec9721884d66c9923bd4a5fdb2bf9c200",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-049-SUN-YAT-SEN",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-049-SUN-YAT-SEN-INTERNATIONAL-DEVELOPMENT-PG45188",
+      "work_title": "The International Development of China",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 389201,
+      "text_sha256": "33977063c1ba75fd02e2df64e489b85397c77859585f60c062d5ef7900988f3b",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-051-FUKUZAWA",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-051-FUKUZAWA-GAKUMON-NO-SUSUME-AOZORA",
+      "work_title": "学問のすすめ / Gakumon no susume",
+      "language": "japanese",
+      "status": "available",
+      "text_bytes": 282406,
+      "text_sha256": "f652906848497c5dc2805fdf95b91849e001f5c44fc14a5c616370aba6e10b71",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-046-GANDHI",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-046-GANDHI-HIND-SWARAJ-PG40461",
+      "work_title": "Indian Home Rule",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 189877,
+      "text_sha256": "fa2a144d2bad65991b2a9feb773ff9ad1d9d4c130a7b94c7a30eb8042d19a2d0",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-048-AMBEDKAR",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-048-AMBEDKAR-ANNIHILATION-CASTE-COLUMBIA-DERIVED",
+      "work_title": "Annihilation of Caste",
+      "language": "English",
+      "status": "available",
+      "text_bytes": 213621,
+      "text_sha256": "a27a8f18e9db92a4e06b73c047a9ebdbfb3d0273559a60acb211be99b5131d2f",
+      "license_status": "permissioned",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-076-MARTI",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-076-MARTI-EDAD-ORO-PG19898",
+      "work_title": "La Edad de Oro",
+      "language": "spanish",
+      "status": "available",
+      "text_bytes": 388927,
+      "text_sha256": "0babd5e5b2b0ba5915e63776221de2af04c84d17c22fe13280b49ccfa15da689",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-076-MARTI",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-076-MARTI-GRANOS-ORO-PG43861",
+      "work_title": "Granos de oro",
+      "language": "spanish",
+      "status": "available",
+      "text_bytes": 162017,
+      "text_sha256": "73398587c778223fcd0d522f1a64e7d9bc9d4e8fea17be32b639f134a2984d4b",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-091-QIU-JIN",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-091-QIU-JIN-WOMENS-JOURNAL-PREFACE-WIKISOURCE",
+      "work_title": "中國女報發刊詞",
+      "language": "chinese",
+      "status": "available",
+      "text_bytes": 3218,
+      "text_sha256": "9206c47a326def2f2ffc99b4cafdb2c367216023c7ce4f1da195c585a07b09f6",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-091-QIU-JIN",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-091-QIU-JIN-MANJIANGHONG-WIKISOURCE",
+      "work_title": "滿江紅",
+      "language": "chinese",
+      "status": "available",
+      "text_bytes": 490,
+      "text_sha256": "d6592fed086d0e5af15ef44a320520b8781fb7423825a9532650c30d71352064",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-091-QIU-JIN",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-091-QIU-JIN-DEATH-LETTER-WIKISOURCE",
+      "work_title": "致徐小淑絕命詞",
+      "language": "chinese",
+      "status": "available",
+      "text_bytes": 609,
+      "text_sha256": "f7766c0dbd4100607541b8ded8b1199a34fe25ed709d6fb69028773127eb2f13",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-092-KANG-LIANG",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-092-KANG-LIANG-KANG-DATONGSHU-JIABU-WIKISOURCE",
+      "work_title": "大同書/甲部",
+      "language": "chinese",
+      "status": "available",
+      "text_bytes": 103837,
+      "text_sha256": "23c33e34baeca24925f515325bbe1eb958a7fbc7e65dac4a3f16bed07b5338d5",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-092-KANG-LIANG",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-092-KANG-LIANG-LIANG-YOUNG-CHINA-WIKISOURCE",
+      "work_title": "少年中國說",
+      "language": "chinese",
+      "status": "available",
+      "text_bytes": 11642,
+      "text_sha256": "10ebc9ebfb85585af47fa582ab55cd9a6059205c4227e69fba60b8dc57182e64",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-092-KANG-LIANG",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-092-KANG-LIANG-LIANG-NEW-CITIZEN-1-WIKISOURCE",
+      "work_title": "新民說/第一節",
+      "language": "chinese",
+      "status": "available",
+      "text_bytes": 1423,
+      "text_sha256": "b5096c95ea3bd06a61804359a0d9242a566e92367311e5efd2d7df0713126eaa",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-017-SOSEKI",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-017-SOSEKI-BOTCHAN-PG8868",
+      "work_title": "Botchan",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 284916,
+      "text_sha256": "597a299522b204603917b8bc76384a438e41f839284c8af3c84f780b0669cc41",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-016-LU-XUN",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-016-LU-XUN-MADMANS-DIARY-CHINESE-PG25423",
+      "work_title": "狂人日記",
+      "language": "chinese",
+      "status": "available",
+      "text_bytes": 34354,
+      "text_sha256": "7d3490ad98f6970cf92577b6473150dbc4e25452aa9d9c53dfe0fc06f673d678",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-018-PREMCHAND",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-018-PREMCHAND-GODAN-WIKISOURCE-EXTRACTED",
+      "work_title": "Godan",
+      "language": "hindi",
+      "status": "available",
+      "text_bytes": 1953124,
+      "text_sha256": "580fcd3795241ab0639de963275d7adec7df6b5ebe72404c02ead6d641f4b0ef",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-003-PUSHKIN",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-003-PUSHKIN-EUGENE-ONEGIN-PG23997",
+      "work_title": "Eugene Onegin",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 282067,
+      "text_sha256": "3c5769f513be4317ea8d0f80ba9e8e7ad807877d55249c99489f68ade5e3e3cc",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-004-BALZAC",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-004-BALZAC-COMEDIE-HUMAINE-VOL09-PG55860",
+      "work_title": "La Comedie humaine - Volume 09. Scenes de la vie parisienne - Tome 01",
+      "language": "french",
+      "status": "available",
+      "text_bytes": 1340207,
+      "text_sha256": "df295f9b869683c98b2a87b8cf32c261cb97acdb1b102ccdd0ab741894d643a9",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-004-BALZAC",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-004-BALZAC-FATHER-GORIOT-PG1237",
+      "work_title": "Father Goriot",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 612225,
+      "text_sha256": "c4c1001259654f71aaa23585b04dbb8ca9a1b0c1ad87a49520bbc465fab3ae42",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-005-HUGO",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-005-HUGO-LES-MISERABLES-FRENCH-TOME1-PG17489",
+      "work_title": "Les miserables Tome I: Fantine",
+      "language": "french",
+      "status": "available",
+      "text_bytes": 710496,
+      "text_sha256": "a5de514ba7b9f2e1790e7e259c4e8b7a35ae1d29e4bf9a5f8767039c58b80503",
+      "license_status": "public-domain",
+      "coverage_status": "partial-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-005-HUGO",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-005-HUGO-LES-MISERABLES-FRENCH-TOME2-PG17493",
+      "work_title": "Les miserables Tome II: Cosette",
+      "language": "french",
+      "status": "available",
+      "text_bytes": 629938,
+      "text_sha256": "ffddbcee83e3c537b5586bfbbaf97ea6fab2b04250b9efaa63c027ab20aaffd0",
+      "license_status": "public-domain",
+      "coverage_status": "partial-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-005-HUGO",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-005-HUGO-LES-MISERABLES-FRENCH-TOME3-PG17494",
+      "work_title": "Les miserables Tome III: Marius",
+      "language": "french",
+      "status": "available",
+      "text_bytes": 556738,
+      "text_sha256": "79894e327a20044dad5b93dd7d1fae0a8c06b74b86cd9f19d37bb54ffbacd44f",
+      "license_status": "public-domain",
+      "coverage_status": "partial-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-005-HUGO",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-005-HUGO-LES-MISERABLES-FRENCH-TOME4-PG17518",
+      "work_title": "Les miserables Tome IV: L'idylle rue Plumet et l'epopee rue Saint-Denis",
+      "language": "french",
+      "status": "available",
+      "text_bytes": 786691,
+      "text_sha256": "5ceb65a2be245776a61aaa15f311b9b31964c1826121a3ba65ddd3bfae7fa4af",
+      "license_status": "public-domain",
+      "coverage_status": "partial-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-005-HUGO",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-005-HUGO-LES-MISERABLES-FRENCH-TOME5-PG17519",
+      "work_title": "Les miserables Tome V: Jean Valjean",
+      "language": "french",
+      "status": "available",
+      "text_bytes": 675293,
+      "text_sha256": "d78e6ddc87cc5971b1a0107ae06f19b4cc63030553fcdfd94929c7472f0d470d",
+      "license_status": "public-domain",
+      "coverage_status": "partial-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-005-HUGO",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-005-HUGO-LES-MISERABLES-PG135",
+      "work_title": "Les Miserables",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 3369207,
+      "text_sha256": "6cf3b9d6fc5e6f733737425267d3af296d7f99f9b9fd1d255a3ab7689a6346ab",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-007-CHARLOTTE-BRONTE",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-007-CHARLOTTE-BRONTE-JANE-EYRE-PG1260",
+      "work_title": "Jane Eyre",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 1084803,
+      "text_sha256": "13414dee2951c3ee731d76d2ffd822016b2479c892162760c5d0eb2aa5fa7631",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-008-EMILY-BRONTE",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-008-EMILY-BRONTE-WUTHERING-HEIGHTS-PG768",
+      "work_title": "Wuthering Heights",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 693819,
+      "text_sha256": "e533fe750589f0421d5d744576315f5c2b9b0d69e981179ea0551bbf134c5e02",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-010-FLAUBERT",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-010-FLAUBERT-MADAME-BOVARY-FRENCH-PG14155",
+      "work_title": "Madame Bovary",
+      "language": "french",
+      "status": "available",
+      "text_bytes": 751987,
+      "text_sha256": "93f0a2259dbaf5fde6e7b96adc22346d52f80eb1e9319336c8381a045efe40cd",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-010-FLAUBERT",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-010-FLAUBERT-MADAME-BOVARY-PG2413",
+      "work_title": "Madame Bovary",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 694920,
+      "text_sha256": "c5847f1c60fed60559d9396245a9196b33fed6a4ab58de9b5c7fe5fc4b2f83f8",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-011-DOSTOEVSKY",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-011-DOSTOEVSKY-NOTES-UNDERGROUND-PG600",
+      "work_title": "Notes from Underground",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 266972,
+      "text_sha256": "6ce7d6ff7288263f1fd07d7ecfc07e419735cbbb4dff5107964af1afd8b2079e",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-011-DOSTOEVSKY",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-011-DOSTOEVSKY-BROTHERS-KARAMAZOV-PG28054",
+      "work_title": "The Brothers Karamazov",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 2039159,
+      "text_sha256": "a8bda7296fbdcab50c97e3ccd6dde2c10c3bf9d5725fdfeb2b4dc78b62823ce5",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-012-TOLSTOY",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-012-TOLSTOY-WAR-AND-PEACE-PG2600",
+      "work_title": "War and Peace",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 3359610,
+      "text_sha256": "2d5bb2ad5f422765e714617e21fa31bbaf8958aa79682c86fca6660fcc5d1b2b",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-012-TOLSTOY",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-012-TOLSTOY-ANNA-KARENINA-PG1399",
+      "work_title": "Anna Karenina",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 2067952,
+      "text_sha256": "a3e29e08c15c63bb22069f4256316c2ebebd422ecb5c33462ddc00ae00b27571",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-013-IBSEN",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-013-IBSEN-ET-DUKKEHJEM-DRACOR-TEI-PERMISSIONED",
+      "work_title": "Et dukkehjem",
+      "language": "norwegian",
+      "status": "available",
+      "text_bytes": 315459,
+      "text_sha256": "975471dd21ff9e8d7ad2f4f698934e5670bf34b2b404164409f172c50e64b282",
+      "license_status": "permissioned",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-013-IBSEN",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-013-IBSEN-EN-FOLKEFIENDE-DRACOR-TEI-PERMISSIONED",
+      "work_title": "En folkefiende",
+      "language": "norwegian",
+      "status": "available",
+      "text_bytes": 387373,
+      "text_sha256": "7b928330b9ed231fc7373993acfdaa714d413df9234a166500342be99de3290f",
+      "license_status": "permissioned",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-013-IBSEN",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-013-IBSEN-DOLLS-HOUSE-PG2542",
+      "work_title": "A Doll's House",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 169080,
+      "text_sha256": "d72a481b08ca7ace73e8ca2087b2baec29fc00e0d6e493f5e877b12116bccf4f",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-013-IBSEN",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-013-IBSEN-ENEMY-PEOPLE-PG2446",
+      "work_title": "An Enemy of the People",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 204047,
+      "text_sha256": "a38988e897a473218fec4eb96f7d551e03ad68fba12a24be9299b562a980fa92",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-014-CHEKHOV",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-014-CHEKHOV-LADY-DOG-PG13415",
+      "work_title": "The Lady with the Dog and Other Stories",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 423298,
+      "text_sha256": "79eb6eeed77023b08bea36499bd1ac60ec6d84852b59714bb0b88cee21992a27",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-014-CHEKHOV",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-014-CHEKHOV-PLAYS-SECOND-SERIES-PG7986",
+      "work_title": "Plays by Anton Chekhov, Second Series",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 419036,
+      "text_sha256": "4c08d7117dcd946cdcfd42c3d56ac79a114f4b55d2e186b19978ede25947351a",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-021-WHITMAN",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-021-WHITMAN-LEAVES-GRASS-PG1322",
+      "work_title": "Leaves of Grass",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 780492,
+      "text_sha256": "77c066a8774e2b04d8bfbc570d9aa5131410355cd6062ab5962ac773240f3140",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-022-DICKINSON",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-022-DICKINSON-POEMS-FIRST-PG2678",
+      "work_title": "Poems by Emily Dickinson, First Series",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 72664,
+      "text_sha256": "824ab5c5f8269702697a36cfa21b0b530720d9d39444bb2438db09f484a1d488",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-019-MACHADO-DE-ASSIS",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-019-MACHADO-DE-ASSIS-DOM-CASMURRO-PG55752",
+      "work_title": "Dom Casmurro",
+      "language": "portuguese",
+      "status": "available",
+      "text_bytes": 418230,
+      "text_sha256": "0fc3dbf384544d81d87e5a731e67b7976ac3a57acb378f0f354d12a3b52bd0c7",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-019-MACHADO-DE-ASSIS",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-019-MACHADO-DE-ASSIS-BRAS-CUBAS-PG54829",
+      "work_title": "Memorias Posthumas de Braz Cubas",
+      "language": "portuguese",
+      "status": "available",
+      "text_bytes": 403243,
+      "text_sha256": "edfe4370698ed5716a9692b980a8d6ee77b4ff8116503bb2e08675f1d10d303a",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-028-SOJOURNER-TRUTH",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-028-SOJOURNER-TRUTH-NARRATIVE-PG1674-DERIVED",
+      "work_title": "The Narrative of Sojourner Truth",
+      "language": "English",
+      "status": "available",
+      "text_bytes": 196764,
+      "text_sha256": "91be43f4f5692a2b2f49877bad7f35941f62067a5c55f9518940bf80c0673cbd",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-040-FARADAY",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-040-FARADAY-CHEMICAL-HISTORY-CANDLE-PG14474",
+      "work_title": "The Chemical History of a Candle",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 246914,
+      "text_sha256": "c053ca4ae7880585a15001cd3ffdaf5f09cd08c3329b828ffd8c90ce335482b9",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-064-CONRAD",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-064-CONRAD-HEART-OF-DARKNESS-PG219",
+      "work_title": "Heart of Darkness",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 237072,
+      "text_sha256": "c0b0bc91c7695f9d01aacb240e82a9b559f57558f98ad0b1f167eba21f6be6f7",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-064-CONRAD",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-064-CONRAD-LORD-JIM-PG5658",
+      "work_title": "Lord Jim",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 751822,
+      "text_sha256": "e2de6f15eb867e864aa4b5e22410d6dc1c12b7c225a48e2376f6401b71a3b96e",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-081-SCHREINER",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-081-SCHREINER-STORY-AFRICAN-FARM-PG1441",
+      "work_title": "The Story of an African Farm",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 583169,
+      "text_sha256": "01d0c7fff4673ecb1f6b8fc70938fe4ccfb2139803fd3b4f30ab51f6e40c6815",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-082-STANTON",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-082-STANTON-EIGHTY-YEARS-MORE-PG11982",
+      "work_title": "Eighty Years and More; Reminiscences 1815-1897",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 816725,
+      "text_sha256": "e30e3011123135463627f9b6efe1484ffc7002855df622493bb0f0bb68dc3a69",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-084-ZITKALA-SA",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-084-ZITKALA-SA-AMERICAN-INDIAN-STORIES-PG10376",
+      "work_title": "American Indian Stories",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 201897,
+      "text_sha256": "b9934b55d2f83876ea24e3c7f1397240b02f1caf63892823bcdbb59954309252",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-093-WASHINGTON",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-093-WASHINGTON-UP-FROM-SLAVERY-PG2376",
+      "work_title": "Up from Slavery: An Autobiography",
+      "language": "English",
+      "status": "available",
+      "text_bytes": 449257,
+      "text_sha256": "084e7f54e60b9ae26ecf2ab23f1789db44d926c3b02106a984f475f9ccc7bdbe",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-036-NIETZSCHE",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-036-NIETZSCHE-GENEALOGY-MORALS-PG52319",
+      "work_title": "The Genealogy of Morals",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 358579,
+      "text_sha256": "90ab67b3c15fb8a4220f36b559514098e33f43d58e4403405575949c039c1cba",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-054-LUXEMBURG",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-054-LUXEMBURG-REFORM-REVOLUTION-MIA",
+      "work_title": "Reform or Revolution",
+      "language": "English",
+      "status": "available",
+      "text_bytes": 160893,
+      "text_sha256": "694a18bb90d85c2b0023bfdebbeba3ff0c3031074635c61ed151246c9214f755",
+      "license_status": "permissioned",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-054-LUXEMBURG",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-054-LUXEMBURG-JUNIUS-PAMPHLET-MIA",
+      "work_title": "The Junius Pamphlet: The Crisis of German Social Democracy",
+      "language": "English",
+      "status": "available",
+      "text_bytes": 261068,
+      "text_sha256": "72aa920ee29cc756f7a498f529f9b31bc91acf4c88d5de704440e6f1817924f9",
+      "license_status": "open-license",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-033-WEBER",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-033-WEBER-PROTESTANT-ETHIC-WIKISOURCE-DERIVED",
+      "work_title": "The Protestant Ethic and the Spirit of Capitalism",
+      "language": "English",
+      "status": "available",
+      "text_bytes": 604903,
+      "text_sha256": "0ab0d7f25520352e615c113426ee8ba706059c979be16217b1621851e5f36ec0",
+      "license_status": "permissioned",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-034-DURKHEIM",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-034-DURKHEIM-LE-SUICIDE-PG40489",
+      "work_title": "Le Suicide: Etude de Sociologie",
+      "language": "French",
+      "status": "available",
+      "text_bytes": 1122589,
+      "text_sha256": "7b170fe725c164ebbfc6bb83b758b0302c3504003d5e1adf0ee5582fe4b538d3",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-035-FREUD",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-035-FREUD-CIVILIZATION-DISCONTENTS-PG78221",
+      "work_title": "Civilization and its discontents",
+      "language": "English",
+      "status": "available",
+      "text_bytes": 208244,
+      "text_sha256": "5bd503cff493b952e487df18aaafb578baafe277bdb8d63735803b8314536665",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-053-LENIN",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-053-LENIN-IMPERIALISM-MIA",
+      "work_title": "Imperialism, the Highest Stage of Capitalism",
+      "language": "English",
+      "status": "available",
+      "text_bytes": 265386,
+      "text_sha256": "5f502009dd28ee787b05b3151e8cd5955830553849297261ee28cdca29badc26",
+      "license_status": "permissioned",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-057-CHURCHILL",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-057-CHURCHILL-MALAKAND-PG9404",
+      "work_title": "The Story of the Malakand Field Force: An Episode of Frontier War",
+      "language": "English",
+      "status": "available",
+      "text_bytes": 545609,
+      "text_sha256": "f8edd77a202898e910fd2ebe530e3aed19f877d5b8b1959600471e280a53a612",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-057-CHURCHILL",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-057-CHURCHILL-RIVER-WAR-PG4943",
+      "work_title": "The River War: An Account of the Reconquest of the Sudan",
+      "language": "English",
+      "status": "available",
+      "text_bytes": 784351,
+      "text_sha256": "0176d9305dfc29b7b92adfeaf223ba21d17e2803e5c5259f79a4ba74ee17cf46",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-057-CHURCHILL",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-057-CHURCHILL-WORLD-CRISIS-VOL-1-PG59794",
+      "work_title": "The World Crisis, Volume 1 (of 6)",
+      "language": "English",
+      "status": "available",
+      "text_bytes": 1317310,
+      "text_sha256": "ca4451a818c18cdcb7135c7c66d7566bb914b85a1043539112e0a0a592ff3f75",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-057-CHURCHILL",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-057-CHURCHILL-LIBERALISM-SOCIAL-PROBLEM-PG18419",
+      "work_title": "Liberalism and the Social Problem",
+      "language": "English",
+      "status": "available",
+      "text_bytes": 517570,
+      "text_sha256": "0894fc8499b424287e8aa120dc02ddf236d004b46f3d8443d295c20a562226fc",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-060-MANDELA",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-060-MANDELA-PREPARED-TO-DIE-NMF",
+      "work_title": "I Am Prepared to Die",
+      "language": "English",
+      "status": "available",
+      "text_bytes": 83970,
+      "text_sha256": "cb527c71c7ed0d1d5e395e8d989eca12c80e2aae3f53df8fb26525649d54785d",
+      "license_status": "permissioned",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-079-EINSTEIN",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-079-EINSTEIN-RELATIVITY-LAWSON-PG30155",
+      "work_title": "Relativity: The Special and General Theory",
+      "language": "English",
+      "status": "available",
+      "text_bytes": 210653,
+      "text_sha256": "86ed8156239455cbb6ed33e06097707d3ab7c40d46e9aa5ff32d3c3f94ef68fd",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-079-EINSTEIN",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-079-EINSTEIN-UEBER-RELATIVITAET-PG77850",
+      "work_title": "Über die spezielle und die allgemeine Relativitätstheorie",
+      "language": "German",
+      "status": "available",
+      "text_bytes": 165241,
+      "text_sha256": "39f90ee5619fb88c563a731edf1e666dfc26b7cd0e0daae90e7973879d4f643b",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-080-UDHR-DRAFTING",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-080-UDHR-UN-OFFICIAL",
+      "work_title": "Universal Declaration of Human Rights",
+      "language": "English",
+      "status": "available",
+      "text_bytes": 11831,
+      "text_sha256": "dcbdfc4085b9f40c6702f762ab9d775fbb2fd406e15cbbebbf4cec2532e11cfc",
+      "license_status": "permissioned",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-096-UNITED-NATIONS-CHARTER",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-096-UNITED-NATIONS-CHARTER-UN-OFFICIAL",
+      "work_title": "United Nations Charter",
+      "language": "English",
+      "status": "available",
+      "text_bytes": 57970,
+      "text_sha256": "6d6767cd5af690606d3f021becb0c2c807ecd4a1bd95bf8acfcea4aacf60206d",
+      "license_status": "permissioned",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-078-CARSON",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-078-CARSON-SILENT-SPRING-TEDK-MUSE",
+      "work_title": "Silent Spring",
+      "language": "english",
+      "status": "available",
+      "text_bytes": 647862,
+      "text_sha256": "d004b864177187274b0f1d72bbfa3821bda8e8e85f4ef8591caa32a0e6bf745a",
+      "license_status": "permissioned",
+      "coverage_status": "complete-work"
+    }
+  ],
+  "validation": {
+    "session_preflight": {
+      "status": "passed",
+      "temp_root": "C:\\Users\\rober\\.codex\\visualizations\\2026\\08\\23\\01a02f1e-4eda-7b00-a88a-c2bd55f176d4\\tmp"
+    },
+    "library_validate": {
+      "status": "passed",
+      "failures": 0
+    },
+    "library_render_index_check": {
+      "status": "passed",
+      "stale_paths": [],
+      "industrial_sources_indexed": 68,
+      "text_bodies_indexed_all_eras": 564
+    },
+    "industrial_scoped_hash_verification": {
+      "status": "passed",
+      "checked": 116,
+      "failures": 0
+    },
+    "library_census_texts_industrial": {
+      "status": "industrial_slice_passed_library_wide_failed",
+      "authority_count": 68,
+      "registry_represented_authorities": 68,
+      "registry_body_count": 116,
+      "referenced_body_count": 116,
+      "physical_payload_count": 116,
+      "missing_payload_count": 0,
+      "library_wide_missing_payload_count": 434,
+      "library_wide_failure_scope": "non-industrial private payloads are not hydrated in the active text root"
+    },
+    "tests_test_archive_library_py": {
+      "status": "passed",
+      "passed": 26
+    }
+  },
+  "reopen_conditions": [
+    "any Industrial source or body registry field changes",
+    "the Industrial human index changes",
+    "the library text-source index changes in a way that affects Industrial navigation",
+    "an Industrial body is admitted, corrected, removed, or changes hash",
+    "coverage, rights, edition, language, or maturity judgment changes",
+    "the sufficiency standard or profile changes materially"
+  ],
+  "basis_receipt": "archive/library/industrial/industrial-seal-readiness-run-2026-08-23-receipt.json"
+}
