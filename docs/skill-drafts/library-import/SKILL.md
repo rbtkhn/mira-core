@@ -31,6 +31,43 @@ A historical version seal remains evidence that a shelf passed at its sealing
 date. It is not, by itself, proof that the active worktree can reproduce that
 seal after registry changes, index changes, or private text-store drift.
 
+## Start New Eras With An Architecture Contract
+
+Before building a new era shelf beyond a minor already-governed continuation,
+create or inspect an era architecture contract under
+`archive/library/<era>/`. Do this before roster design, metadata mutation, body
+research, downloads, or source-body admission.
+
+The contract is a planning and governance artifact. It does not authorize
+registry mutation, body admission, downloads, generated index changes, staging,
+commit, push, publication, or private Archive ingestion. It must name:
+
+- the fixed era range and any internal phases, without reopening a boundary the
+  operator has already settled;
+- the target sufficiency standard and profile, including whether the profile is
+  provisional pending era-specific review;
+- the civilization-memory function of the shelf in original-era source form;
+- representation lanes and global balance floors, including regions,
+  traditions, social positions, and transnational systems that must not be
+  tokenized;
+- the intended role of literature, testimony, interiority, and cultural memory,
+  with an explicit floor or target when the operator has set one;
+- candidate functions used for roster selection, separated from coverage
+  claims;
+- era-specific rights, edition, language, survival, translation, attribution,
+  and format traps;
+- reviewable batch sizes and stop rules for hard cases;
+- acceptance tests before roster mutation; and
+- the next gate and authority boundary.
+
+If no architecture contract exists for a new era, produce that contract first
+and stop at the contract or roster-design gate. Do not compensate by drafting a
+large roster from memory, browsing, or local familiarity. For long or modern
+eras with rights volatility, mass source scale, or high ideological gravity,
+the architecture contract must be strong enough that a future agent can tell
+whether the shelf is becoming a civilization-memory apparatus or merely a
+topical bibliography.
+
 ## Keep Four Gates Separate
 
 Classify every library item at the narrowest gate its evidence supports. Passing
