@@ -1,0 +1,98 @@
+{
+  "receipt_id": "industrial-body-admission-batch-006-non-pg-private-reading",
+  "status": "partially-admitted",
+  "era": "industrial",
+  "date": "2026-08-23",
+  "gate": "operator-review-before-commit",
+  "private_text_root": "C:\\private\\mira-library-texts",
+  "input_inspection_root": "C:\\private\\mira-library-texts\\inspection\\industrial-batch-006-online",
+  "derived_inspection_root": "C:\\private\\mira-library-texts\\inspection\\industrial-batch-006-derived",
+  "authority_boundary": {
+    "registry_mutated": true,
+    "indexes_regenerated": true,
+    "archive_ingestion": false,
+    "staged": false,
+    "committed": false,
+    "pushed": false,
+    "published": false
+  },
+  "counts": {
+    "authorities_attempted": 5,
+    "authorities_admitted": 4,
+    "authorities_paused": 1,
+    "bodies_attempted": 5,
+    "bodies_admitted": 4,
+    "bodies_paused": 1
+  },
+  "admitted_bodies": [
+    {
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-053-LENIN-IMPERIALISM-MIA",
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-053-LENIN",
+      "authority": "Vladimir Lenin",
+      "work_title": "Imperialism, the Highest Stage of Capitalism",
+      "source": "Marxists Internet Archive HTML component pages",
+      "text_bytes": 265386,
+      "text_sha256": "5f502009dd28ee787b05b3151e8cd5955830553849297261ee28cdca29badc26",
+      "license_status": "permissioned",
+      "coverage_status": "complete-work"
+    },
+    {
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-060-MANDELA-PREPARED-TO-DIE-NMF",
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-060-MANDELA",
+      "authority": "Nelson Mandela",
+      "work_title": "I Am Prepared to Die",
+      "source": "Nelson Mandela Foundation PDF transcript",
+      "text_bytes": 83970,
+      "text_sha256": "cb527c71c7ed0d1d5e395e8d989eca12c80e2aae3f53df8fb26525649d54785d",
+      "license_status": "permissioned",
+      "coverage_status": "complete-work"
+    },
+    {
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-080-UDHR-UN-OFFICIAL",
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-080-UDHR-DRAFTING",
+      "authority": "Universal Declaration of Human Rights drafting tradition",
+      "work_title": "Universal Declaration of Human Rights",
+      "source": "United Nations official HTML page",
+      "text_bytes": 11831,
+      "text_sha256": "dcbdfc4085b9f40c6702f762ab9d775fbb2fd406e15cbbebbf4cec2532e11cfc",
+      "license_status": "permissioned",
+      "coverage_status": "complete-work"
+    },
+    {
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-096-UNITED-NATIONS-CHARTER-UN-OFFICIAL",
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-096-UNITED-NATIONS-CHARTER",
+      "authority": "United Nations Charter / San Francisco conference tradition",
+      "work_title": "United Nations Charter",
+      "source": "United Nations official HTML page",
+      "text_bytes": 57970,
+      "text_sha256": "6d6767cd5af690606d3f021becb0c2c807ecd4a1bd95bf8acfcea4aacf60206d",
+      "license_status": "permissioned",
+      "coverage_status": "complete-work"
+    }
+  ],
+  "paused_candidates": [
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-078-CARSON",
+      "authority": "Rachel Carson",
+      "work_title": "Silent Spring",
+      "candidate_url": "https://www.fadedpage.com/books/20151002/html.php",
+      "state": "paused",
+      "reason": "Local download returned a 21567-byte gate/detail page rather than the full HTML body; curl.exe also failed with SEC_E_NO_CREDENTIALS.",
+      "next_action": "Recover a stable local full-text file route, then inspect and admit only if the body text is present."
+    }
+  ],
+  "validation": {
+    "session_preflight": "passed",
+    "render_index": "passed",
+    "library_validate": "passed",
+    "render_index_check": "passed",
+    "focused_tests": "passed: 26 tests",
+    "new_body_hash_checks": "passed",
+    "global_verify_texts": {
+      "status": "failed",
+      "reason": "Global-only verifier encountered pre-existing Ancient/Colonial private payload gaps in C:\\private\\mira-library-texts.",
+      "batch_006_hash_failure_observed": false
+    }
+  },
+  "re_entry_point": "Decide whether to commit the Batch 006 non-PG registry, index, and receipt changes, or continue Carson source-route repair first."
+}

@@ -16933,10 +16933,28 @@
       },
       "status": "stub",
       "notes": "Industrial metadata Batch 006. Function: mass-politics-ideology. Boundary: metadata-only registry stub for Imperialism; State and Revolution. Rights/body gate: public-domain varies by edition and translation; party-edition review required.",
-      "text_status": "missing",
+      "text_status": "available",
       "coverage_status": "principal-works",
       "coverage_notes": "Metadata-only Industrial Batch 006 record. No body downloaded, inspected, admitted, or represented as available. Coverage ceiling from design packet: principal-works.",
-      "text_bodies": []
+      "text_bodies": [
+        {
+          "body_id": "LIB-INDUSTRIAL-AUTHORITY-053-LENIN-IMPERIALISM-MIA",
+          "work_title": "Imperialism, the Highest Stage of Capitalism",
+          "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-053-LENIN-IMPERIALISM-MIA.txt",
+          "text_sha256": "5f502009dd28ee787b05b3151e8cd5955830553849297261ee28cdca29badc26",
+          "text_bytes": 265386,
+          "text_encoding": "utf-8",
+          "language": "English",
+          "translator": "",
+          "editor": "",
+          "edition_label": "Marxists Internet Archive HTML component pages, combined private-reading derivative, accessed 2026-08-23",
+          "license_status": "permissioned",
+          "license_notes": "Online source available for private reading; no publication or redistribution implied.",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Complete MIA Imperialism component sequence: 1917 preface, 1920 prefaces, and chapters I-X combined from inspected HTML files; navigation labels removed; notes retained.",
+          "status": "available"
+        }
+      ]
     },
     {
       "source_id": "LIB-INDUSTRIAL-AUTHORITY-057-CHURCHILL",
@@ -17060,10 +17078,28 @@
       },
       "status": "stub",
       "notes": "Industrial metadata Batch 006. Function: international-order-decolonization. Boundary: metadata-only registry stub for trial statement; speeches. Rights/body gate: rights/source review required; modern speech reuse not assumed.",
-      "text_status": "missing",
+      "text_status": "available",
       "coverage_status": "selected-works",
       "coverage_notes": "Metadata-only Industrial Batch 006 record. No body downloaded, inspected, admitted, or represented as available. Coverage ceiling from design packet: selected-works.",
-      "text_bodies": []
+      "text_bodies": [
+        {
+          "body_id": "LIB-INDUSTRIAL-AUTHORITY-060-MANDELA-PREPARED-TO-DIE-NMF",
+          "work_title": "I Am Prepared to Die",
+          "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-060-MANDELA-PREPARED-TO-DIE-NMF.txt",
+          "text_sha256": "cb527c71c7ed0d1d5e395e8d989eca12c80e2aae3f53df8fb26525649d54785d",
+          "text_bytes": 83970,
+          "text_encoding": "utf-8",
+          "language": "English",
+          "translator": "",
+          "editor": "",
+          "edition_label": "Nelson Mandela Foundation PDF transcript, pypdf text extraction, accessed 2026-08-23",
+          "license_status": "permissioned",
+          "license_notes": "Online source available for private reading; no publication or redistribution implied.",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Nelson Mandela Foundation PDF transcript of the 20 April 1964 Rivonia Trial statement extracted in page order; no OCR correction applied.",
+          "status": "available"
+        }
+      ]
     },
     {
       "source_id": "LIB-INDUSTRIAL-AUTHORITY-079-EINSTEIN",
@@ -17151,10 +17187,28 @@
       },
       "status": "stub",
       "notes": "Industrial metadata Batch 006. Function: international-order-decolonization. Boundary: metadata-only registry stub for UDHR and drafting documents. Rights/body gate: institutional text and drafting-record source review required.",
-      "text_status": "missing",
+      "text_status": "available",
       "coverage_status": "selected-works",
       "coverage_notes": "Metadata-only Industrial Batch 006 record. No body downloaded, inspected, admitted, or represented as available. Coverage ceiling from design packet: selected-works.",
-      "text_bodies": []
+      "text_bodies": [
+        {
+          "body_id": "LIB-INDUSTRIAL-AUTHORITY-080-UDHR-UN-OFFICIAL",
+          "work_title": "Universal Declaration of Human Rights",
+          "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-080-UDHR-UN-OFFICIAL.txt",
+          "text_sha256": "dcbdfc4085b9f40c6702f762ab9d775fbb2fd406e15cbbebbf4cec2532e11cfc",
+          "text_bytes": 11831,
+          "text_encoding": "utf-8",
+          "language": "English",
+          "translator": "",
+          "editor": "",
+          "edition_label": "United Nations official web text, private-reading HTML extraction, accessed 2026-08-23",
+          "license_status": "permissioned",
+          "license_notes": "Online United Nations source available for private reading; no publication or redistribution implied.",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Official UN web text from title through Article 30, with introductory UN page paragraph retained; sidebar/navigation excluded.",
+          "status": "available"
+        }
+      ]
     },
     {
       "source_id": "LIB-INDUSTRIAL-AUTHORITY-096-UNITED-NATIONS-CHARTER",
@@ -17179,10 +17233,28 @@
       },
       "status": "stub",
       "notes": "Industrial metadata Batch 006. Function: international-order-decolonization. Boundary: metadata-only registry stub for UN Charter; conference records. Rights/body gate: institutional text, conference-record, and reuse review required.",
-      "text_status": "missing",
+      "text_status": "available",
       "coverage_status": "selected-works",
       "coverage_notes": "Metadata-only Industrial Batch 006 record. No body downloaded, inspected, admitted, or represented as available. Coverage ceiling from design packet: selected-works.",
-      "text_bodies": []
+      "text_bodies": [
+        {
+          "body_id": "LIB-INDUSTRIAL-AUTHORITY-096-UNITED-NATIONS-CHARTER-UN-OFFICIAL",
+          "work_title": "United Nations Charter",
+          "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-096-UNITED-NATIONS-CHARTER-UN-OFFICIAL.txt",
+          "text_sha256": "6d6767cd5af690606d3f021becb0c2c807ecd4a1bd95bf8acfcea4aacf60206d",
+          "text_bytes": 57970,
+          "text_encoding": "utf-8",
+          "language": "English",
+          "translator": "",
+          "editor": "",
+          "edition_label": "United Nations official Charter full-text web page, private-reading HTML extraction, accessed 2026-08-23",
+          "license_status": "permissioned",
+          "license_notes": "Online United Nations source available for private reading; no publication or redistribution implied.",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Official UN Charter web text from title through Article 111, with UN amendment note retained; footer/navigation excluded.",
+          "status": "available"
+        }
+      ]
     },
     {
       "source_id": "LIB-INDUSTRIAL-AUTHORITY-078-CARSON",
