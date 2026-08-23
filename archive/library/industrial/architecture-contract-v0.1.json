@@ -1,0 +1,160 @@
+{
+  "schema_version": "1.0",
+  "contract_id": "industrial-architecture-contract-v0.1",
+  "status": "architecture-contract",
+  "era": "industrial",
+  "date_start": 1815,
+  "date_end": 1991,
+  "target_standard": "MIRA-LIBRARY-ERA-SUFFICIENCY-V1",
+  "target_profile": {
+    "profile_id": "BOUNDED-HISTORICAL-SHELF-V1",
+    "disposition": "provisional-retain-before-industrial-rights-scale-review"
+  },
+  "purpose": "Govern Industrial Library construction as a long-industrial civilization-memory shelf in original-era source form, inheriting Ancient/Medieval/Colonial seal discipline while accounting for modern rights and scale.",
+  "era_boundary": {
+    "range_label": "1815-1991",
+    "start_basis": "post-Napoleonic settlement and consolidated industrial-imperial acceleration",
+    "end_basis": "collapse of the Soviet Union and close of the Cold War world-order frame",
+    "internal_phases": [
+      {
+        "phase_id": "1815-1870",
+        "description": "restoration, liberalism, industrial capitalism, abolition, railways, print publics, nationalism, empire after revolution, and early socialist critique"
+      },
+      {
+        "phase_id": "1870-1914",
+        "description": "high industrial empire, mass politics, global finance, professional science, labor organization, settler expansion, Meiji transformation, late Qing pressure, and imperial administrative thickening"
+      },
+      {
+        "phase_id": "1914-1945",
+        "description": "world war, revolution, fascism, communism, depression, anti-colonial acceleration, total mobilization, genocide, and literary testimony of mass violence"
+      },
+      {
+        "phase_id": "1945-1991",
+        "description": "decolonization, Cold War blocs, nuclear order, developmental states, human rights language, postcolonial literature, late socialism, neoliberal turn, media politics, and memory of industrial catastrophe"
+      }
+    ]
+  },
+  "inherited_controls": [
+    "separate roster-ready, metadata-ready, body-research-ready, admission-ready, seal-ready, and formally sealed",
+    "no source bodies in Git absent separately authorized governed override",
+    "online readability, catalogue presence, fame, citation density, or modern edition presence is not admission evidence",
+    "downloads, admissions, staging, commits, pushes, publication, and private Archive ingestion remain separately authorized",
+    "reviewable batches instead of one-authority loops",
+    "source-level and body-level coverage remain distinct",
+    "coverage claims remain conservative",
+    "missing, restricted, needs-review, language, edition, survival, attribution, and rights debt remains explicit",
+    "literature is a primary civilization-memory witness"
+  ],
+  "representation_lanes": [
+    "literary-interiority-cultural-memory",
+    "political-economy-social-theory",
+    "state-law-constitutional-transformation",
+    "science-technology-industrial-systems",
+    "labor-class-urban-life",
+    "empire-race-slavery-abolition-colonial-administration",
+    "indigenous-colonized-witness",
+    "war-revolution-coercion-mass-violence",
+    "religion-secularization-moral-order",
+    "media-propaganda-public-opinion-information-order",
+    "international-order-decolonization",
+    "gender-family-education-social-reform"
+  ],
+  "global_balance_floors": {
+    "first_full_roster_target": 96,
+    "minimum_before_seal_readiness_claim": 72,
+    "required_substantial_regions": [
+      "western-central-europe",
+      "eastern-europe-russia-soviet-worlds",
+      "ottoman-middle-eastern-north-african-worlds",
+      "south-asia",
+      "east-asia",
+      "southeast-asia-maritime-asia",
+      "sub-saharan-africa",
+      "latin-america-caribbean",
+      "north-america-including-indigenous-and-black-atlantic-witness",
+      "oceania-pacific-where-source-feasible",
+      "transnational-systems"
+    ],
+    "literature_floor_ratio": 0.4,
+    "literature_target_ratio_if_quality_supports": 0.5,
+    "tokenism_prohibited": true
+  },
+  "candidate_functions": [
+    "civilization-memory-literature",
+    "industrial-political-economy",
+    "mass-politics-ideology",
+    "state-law-constitution",
+    "science-technology-system",
+    "labor-social-question",
+    "empire-colonial-administration",
+    "indigenous-colonized-witness",
+    "war-revolution-violence",
+    "religion-moral-order",
+    "media-propaganda-public",
+    "international-order-decolonization",
+    "gender-family-education",
+    "environment-extraction-infrastructure"
+  ],
+  "rights_and_edition_traps": [
+    "post-1928 texts require source-specific rights posture",
+    "modern translations are distinct rights objects",
+    "government, party, speech, and international organization texts require source-specific rights review",
+    "newspapers, broadcasts, films, oral histories, and archival collections may have reuse limits despite online visibility",
+    "translated anti-colonial, Soviet, Chinese, Japanese, Arabic, Persian, African, and Latin American sources require edition and translator separation",
+    "corpus-heavy authorities must not be split artificially to cross body thresholds"
+  ],
+  "batch_discipline": {
+    "design_batch_authorities": "12-16",
+    "metadata_batch_authorities": "8-12",
+    "body_research_batch_authorities": "8-12 or fewer for severe rights/edition complexity",
+    "admission_batch_authorities": "8-12 or a coherent multi-volume/public-domain collection",
+    "required_receipt_states": [
+      "accepted",
+      "deferred",
+      "rejected",
+      "debt"
+    ],
+    "hard_case_rule": "Stop after one bounded source-recovery pass unless the operator explicitly authorizes deeper research."
+  },
+  "acceptance_tests_before_roster_mutation": [
+    "era range fixed at 1815-1991",
+    "representation lanes and candidate functions named",
+    "literature structurally central",
+    "Europe, war, and ideology do not dominate first draft",
+    "Indigenous, colonized, African, Asian, Latin American, Russian/Soviet, Islamic, and Atlantic/Pacific witnesses materially represented where source-feasible",
+    "rights traps identified before body research",
+    "each candidate classified no higher than evidence gate supports",
+    "first roster target and reserve logic explicit"
+  ],
+  "seal_readiness_path": {
+    "profile_review_required_before_formal_seal": true,
+    "inherited_minimums": {
+      "authority_count": 56,
+      "represented_authority_ratio": 0.9,
+      "represented_authority_count": 56,
+      "available_body_count": 100,
+      "available_bodies_per_authority": 1.7,
+      "available_authority_ratio": 0.7,
+      "non_metadata_only_coverage_ratio": 0.4,
+      "integrity_passed": true
+    },
+    "recommended_operating_buffer": {
+      "roster_authorities": 96,
+      "represented_authorities": 86,
+      "available_bodies": 150,
+      "literature_cultural_memory_testimony_ratio": "0.5 if quality candidates support it"
+    }
+  },
+  "next_gate": "industrial-roster-design",
+  "authority_boundary": {
+    "source_bodies_downloaded": false,
+    "source_bodies_admitted": false,
+    "registry_mutated": false,
+    "index_generated": false,
+    "private_archive_ingested": false,
+    "staged": false,
+    "committed": false,
+    "pushed": false,
+    "published": false
+  }
+}
