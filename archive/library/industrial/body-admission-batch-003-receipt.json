@@ -1,0 +1,170 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "industrial-body-admission-batch-003-receipt",
+  "status": "completed-partial-with-private-store-caveat",
+  "era": "industrial",
+  "batch_id": "industrial-body-admission-batch-003",
+  "admission_proposal": "archive/library/industrial/body-admission-batch-003-proposal.md",
+  "private_text_root": "C:\\private\\mira-library-texts",
+  "counts": {
+    "authorities_admitted": 6,
+    "bodies_admitted": 11,
+    "private_payloads_present": 11,
+    "hash_matches": 11,
+    "byte_matches": 11,
+    "archive_catalog_ingests": 0
+  },
+  "unresolved_targets": [
+    "Sun Yat-sen: Three Principles of the People",
+    "Fukuzawa Yukichi",
+    "B. R. Ambedkar",
+    "Qiu Jin",
+    "Kang Youwei and Liang Qichao",
+    "Natsume Soseki: Kokoro",
+    "Lu Xun",
+    "Premchand"
+  ],
+  "boundary": {
+    "source_bodies_admitted": true,
+    "registry_body_metadata_updated": true,
+    "private_archive_ingested": false,
+    "staged": false,
+    "committed": false,
+    "pushed": false,
+    "published": false
+  },
+  "body_checks": [
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-015-TAGORE",
+      "authority": "Rabindranath Tagore",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-015-TAGORE-GITANJALI-PG7164",
+      "work_title": "Gitanjali",
+      "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-015-TAGORE-GITANJALI-PG7164.txt",
+      "text_bytes": 98478,
+      "text_sha256": "665ea9b282c0a542baafc278d79151aaa53d203a5c688b3daeddf7d908311d44",
+      "exists": true,
+      "bytes_match": true,
+      "hash_match": true
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-015-TAGORE",
+      "authority": "Rabindranath Tagore",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-015-TAGORE-NATIONALISM-PG40766",
+      "work_title": "Nationalism",
+      "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-015-TAGORE-NATIONALISM-PG40766.txt",
+      "text_bytes": 176211,
+      "text_sha256": "077be7c3e258155349eae44359f0713ec9721884d66c9923bd4a5fdb2bf9c200",
+      "exists": true,
+      "bytes_match": true,
+      "hash_match": true
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-017-SOSEKI",
+      "authority": "Natsume Soseki",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-017-SOSEKI-BOTCHAN-PG8868",
+      "work_title": "Botchan",
+      "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-017-SOSEKI-BOTCHAN-PG8868.txt",
+      "text_bytes": 284916,
+      "text_sha256": "597a299522b204603917b8bc76384a438e41f839284c8af3c84f780b0669cc41",
+      "exists": true,
+      "bytes_match": true,
+      "hash_match": true
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-020-RIZAL",
+      "authority": "Jose Rizal",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-020-RIZAL-EL-FILI-SPANISH-PG30903",
+      "work_title": "El Filibusterismo",
+      "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-020-RIZAL-EL-FILI-SPANISH-PG30903.txt",
+      "text_bytes": 661279,
+      "text_sha256": "db839580d54d4f07cf03f45f51a3caaacb511aa08de7fd378aa0430bac852e77",
+      "exists": true,
+      "bytes_match": true,
+      "hash_match": true
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-020-RIZAL",
+      "authority": "Jose Rizal",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-020-RIZAL-NOLI-SPANISH-PG47584",
+      "work_title": "Noli me tangere",
+      "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-020-RIZAL-NOLI-SPANISH-PG47584.txt",
+      "text_bytes": 895377,
+      "text_sha256": "a1e437097e5c6b86baa0db08c3d091b76d46f347db5f1e1dd14bdfb1d3f84f8e",
+      "exists": true,
+      "bytes_match": true,
+      "hash_match": true
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-020-RIZAL",
+      "authority": "Jose Rizal",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-020-RIZAL-REIGN-GREED-PG10676",
+      "work_title": "The Reign of Greed",
+      "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-020-RIZAL-REIGN-GREED-PG10676.txt",
+      "text_bytes": 714940,
+      "text_sha256": "db7bceada578acc26fe3e55c9e26ffd7d870f227877e9bad910d0758a7871377",
+      "exists": true,
+      "bytes_match": true,
+      "hash_match": true
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-020-RIZAL",
+      "authority": "Jose Rizal",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-020-RIZAL-SOCIAL-CANCER-PG6737",
+      "work_title": "The Social Cancer",
+      "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-020-RIZAL-SOCIAL-CANCER-PG6737.txt",
+      "text_bytes": 1047833,
+      "text_sha256": "edaff46d61e92a7eeea5236280d2c9db7a304210379fa2d65148d097ad02b59e",
+      "exists": true,
+      "bytes_match": true,
+      "hash_match": true
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-046-GANDHI",
+      "authority": "Mohandas K. Gandhi",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-046-GANDHI-HIND-SWARAJ-PG40461",
+      "work_title": "Indian Home Rule",
+      "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-046-GANDHI-HIND-SWARAJ-PG40461.txt",
+      "text_bytes": 189877,
+      "text_sha256": "fa2a144d2bad65991b2a9feb773ff9ad1d9d4c130a7b94c7a30eb8042d19a2d0",
+      "exists": true,
+      "bytes_match": true,
+      "hash_match": true
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-049-SUN-YAT-SEN",
+      "authority": "Sun Yat-sen",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-049-SUN-YAT-SEN-INTERNATIONAL-DEVELOPMENT-PG45188",
+      "work_title": "The International Development of China",
+      "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-049-SUN-YAT-SEN-INTERNATIONAL-DEVELOPMENT-PG45188.txt",
+      "text_bytes": 389201,
+      "text_sha256": "33977063c1ba75fd02e2df64e489b85397c77859585f60c062d5ef7900988f3b",
+      "exists": true,
+      "bytes_match": true,
+      "hash_match": true
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-076-MARTI",
+      "authority": "Jose Marti",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-076-MARTI-EDAD-ORO-PG19898",
+      "work_title": "La Edad de Oro",
+      "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-076-MARTI-EDAD-ORO-PG19898.txt",
+      "text_bytes": 388927,
+      "text_sha256": "0babd5e5b2b0ba5915e63776221de2af04c84d17c22fe13280b49ccfa15da689",
+      "exists": true,
+      "bytes_match": true,
+      "hash_match": true
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-076-MARTI",
+      "authority": "Jose Marti",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-076-MARTI-GRANOS-ORO-PG43861",
+      "work_title": "Granos de oro",
+      "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-076-MARTI-GRANOS-ORO-PG43861.txt",
+      "text_bytes": 162017,
+      "text_sha256": "73398587c778223fcd0d522f1a64e7d9bc9d4e8fea17be32b639f134a2984d4b",
+      "exists": true,
+      "bytes_match": true,
+      "hash_match": true
+    }
+  ]
+}

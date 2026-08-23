@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "industrial-body-admission-batch-003-lu-xun-supplemental-receipt",
+  "status": "completed-with-private-store-caveat",
+  "era": "industrial",
+  "batch_id": "industrial-body-admission-batch-003-supplemental-lu-xun",
+  "research_receipt": "archive/library/industrial/unresolved-batch-003-research-receipt.md",
+  "private_text_root": "C:\\private\\mira-library-texts",
+  "counts": {
+    "authorities_admitted": 1,
+    "bodies_admitted": 1,
+    "private_payloads_present": 1,
+    "hash_matches": 1,
+    "byte_matches": 1,
+    "archive_catalog_ingests": 0
+  },
+  "boundary": {
+    "source_bodies_admitted": true,
+    "registry_body_metadata_updated": true,
+    "private_archive_ingested": false,
+    "staged": false,
+    "committed": false,
+    "pushed": false,
+    "published": false
+  },
+  "body_check": {
+    "source_id": "LIB-INDUSTRIAL-AUTHORITY-016-LU-XUN",
+    "authority": "Lu Xun",
+    "body_id": "LIB-INDUSTRIAL-AUTHORITY-016-LU-XUN-MADMANS-DIARY-CHINESE-PG25423",
+    "work_title": "\u72c2\u4eba\u65e5\u8a18",
+    "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-016-LU-XUN-MADMANS-DIARY-CHINESE-PG25423.txt",
+    "text_bytes": 34354,
+    "text_sha256": "7d3490ad98f6970cf92577b6473150dbc4e25452aa9d9c53dfe0fc06f673d678",
+    "exists": true,
+    "bytes_match": true,
+    "hash_match": true
+  },
+  "remaining_unresolved_targets": [
+    "Sun Yat-sen: Three Principles of the People",
+    "Fukuzawa Yukichi",
+    "B. R. Ambedkar",
+    "Qiu Jin",
+    "Kang Youwei and Liang Qichao",
+    "Natsume Soseki: Kokoro",
+    "Premchand text extraction/admission"
+  ]
+}

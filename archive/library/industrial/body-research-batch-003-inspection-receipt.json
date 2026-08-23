@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "industrial-body-research-batch-003-inspection-receipt",
+  "status": "inspection-partial-admission-proposal-ready",
+  "era": "industrial",
+  "batch_id": "industrial-body-research-batch-003",
+  "metadata_batch": "archive/library/industrial/metadata-batch-design-v0.1.md",
+  "private_inspection_root": "C:\\private\\mira-library-inspection\\industrial-batch003",
+  "counts": {
+    "metadata_authorities": 12,
+    "authorities_with_downloads": 6,
+    "candidate_files_attempted": 11,
+    "candidate_files_downloaded": 11,
+    "gutenberg_header_detected": 11,
+    "mechanically_passing": 11
+  },
+  "unresolved_targets": [
+    "Sun Yat-sen: Three Principles of the People",
+    "Fukuzawa Yukichi: Encouragement of Learning/civilization essays",
+    "B. R. Ambedkar: Annihilation of Caste/constitutional speeches",
+    "Qiu Jin: poems, essays, revolutionary writings",
+    "Kang Youwei and Liang Qichao reform textual tradition",
+    "Natsume Soseki: Kokoro",
+    "Lu Xun: A Madman's Diary/selected stories",
+    "Premchand: Godan/selected stories"
+  ],
+  "boundary": {
+    "metadata_registry_mutated_locally": true,
+    "source_bodies_downloaded_for_inspection": true,
+    "source_bodies_admitted": false,
+    "private_archive_ingested": false,
+    "staged": false,
+    "committed": false,
+    "pushed": false,
+    "published": false
+  }
+}

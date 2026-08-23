@@ -14898,6 +14898,676 @@
           "status": "available"
         }
       ]
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-020-RIZAL",
+      "title": "Noli Me Tangere; El Filibusterismo",
+      "author": "Jose Rizal",
+      "subject_era": "industrial",
+      "source_composition_era": "industrial",
+      "edition_era": "digital",
+      "secondary_eras": [],
+      "date_start": 1887,
+      "date_end": 1891,
+      "date_label": "1887-1891 principal-works lane; Spanish and translation separation require body-level review",
+      "era_basis": "composition_period",
+      "civilization_tags": [
+        "Philippines",
+        "Spain"
+      ],
+      "source_type": "literary",
+      "location": {
+        "civilization_memory_refs": [],
+        "body_imported": false,
+        "metadata_packet": "archive/library/industrial/metadata-batch-design-v0.1.md"
+      },
+      "status": "stub",
+      "notes": "Industrial metadata Batch 003. Function: civilization-memory-literature. Boundary: metadata-only registry stub for Noli Me Tangere; El Filibusterismo. Rights/body gate: public-domain likely; Spanish/translation separation required.",
+      "text_status": "available",
+      "coverage_status": "principal-works",
+      "coverage_notes": "Metadata-only Industrial Batch 003 record. No body downloaded, inspected, admitted, or represented as available. Coverage ceiling from design packet: principal-works.",
+      "text_bodies": [
+        {
+          "body_id": "LIB-INDUSTRIAL-AUTHORITY-020-RIZAL-SOCIAL-CANCER-PG6737",
+          "work_title": "The Social Cancer",
+          "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-020-RIZAL-SOCIAL-CANCER-PG6737.txt",
+          "text_sha256": "edaff46d61e92a7eeea5236280d2c9db7a304210379fa2d65148d097ad02b59e",
+          "text_bytes": 1047833,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "Charles E. Derbyshire",
+          "editor": "",
+          "edition_label": "Project Gutenberg #6737: The Social Cancer",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg candidate inspected in Industrial Body Research Batch 003; public-domain/U.S. copyright-unprotected collection language and Project Gutenberg license observed before admission.",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Complete Project Gutenberg file for the named English Noli translation; original-language and translation lanes remain separate.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-INDUSTRIAL-AUTHORITY-020-RIZAL-NOLI-SPANISH-PG47584",
+          "work_title": "Noli me tangere",
+          "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-020-RIZAL-NOLI-SPANISH-PG47584.txt",
+          "text_sha256": "a1e437097e5c6b86baa0db08c3d091b76d46f347db5f1e1dd14bdfb1d3f84f8e",
+          "text_bytes": 895377,
+          "text_encoding": "utf-8",
+          "language": "spanish",
+          "translator": "",
+          "editor": "",
+          "edition_label": "Project Gutenberg #47584: Noli me tangere",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg candidate inspected in Industrial Body Research Batch 003; public-domain/U.S. copyright-unprotected collection language and Project Gutenberg license observed before admission.",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Complete Project Gutenberg file for the named Spanish source work.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-INDUSTRIAL-AUTHORITY-020-RIZAL-EL-FILI-SPANISH-PG30903",
+          "work_title": "El Filibusterismo",
+          "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-020-RIZAL-EL-FILI-SPANISH-PG30903.txt",
+          "text_sha256": "db839580d54d4f07cf03f45f51a3caaacb511aa08de7fd378aa0430bac852e77",
+          "text_bytes": 661279,
+          "text_encoding": "utf-8",
+          "language": "spanish",
+          "translator": "",
+          "editor": "",
+          "edition_label": "Project Gutenberg #30903: El Filibusterismo",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg candidate inspected in Industrial Body Research Batch 003; public-domain/U.S. copyright-unprotected collection language and Project Gutenberg license observed before admission.",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Complete Project Gutenberg file for the named Spanish source work.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-INDUSTRIAL-AUTHORITY-020-RIZAL-REIGN-GREED-PG10676",
+          "work_title": "The Reign of Greed",
+          "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-020-RIZAL-REIGN-GREED-PG10676.txt",
+          "text_sha256": "db7bceada578acc26fe3e55c9e26ffd7d870f227877e9bad910d0758a7871377",
+          "text_bytes": 714940,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "Charles E. Derbyshire",
+          "editor": "",
+          "edition_label": "Project Gutenberg #10676: The Reign of Greed",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg candidate inspected in Industrial Body Research Batch 003; public-domain/U.S. copyright-unprotected collection language and Project Gutenberg license observed before admission.",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Complete Project Gutenberg file for the named English El Filibusterismo translation; original-language and translation lanes remain separate.",
+          "status": "available"
+        }
+      ]
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-015-TAGORE",
+      "title": "Gitanjali; Nationalism",
+      "author": "Rabindranath Tagore",
+      "subject_era": "industrial",
+      "source_composition_era": "industrial",
+      "edition_era": "digital",
+      "secondary_eras": [],
+      "date_start": 1910,
+      "date_end": 1917,
+      "date_label": "1910-1917 selected works lane; exact edition and translation require body-level review",
+      "era_basis": "composition_period",
+      "civilization_tags": [
+        "India",
+        "Bengal"
+      ],
+      "source_type": "literary",
+      "location": {
+        "civilization_memory_refs": [],
+        "body_imported": false,
+        "metadata_packet": "archive/library/industrial/metadata-batch-design-v0.1.md"
+      },
+      "status": "stub",
+      "notes": "Industrial metadata Batch 003. Function: civilization-memory-literature. Boundary: metadata-only registry stub for Gitanjali; Nationalism. Rights/body gate: mixed public-domain; edition and translation review required.",
+      "text_status": "available",
+      "coverage_status": "selected-works",
+      "coverage_notes": "Metadata-only Industrial Batch 003 record. No body downloaded, inspected, admitted, or represented as available. Coverage ceiling from design packet: selected-works.",
+      "text_bodies": [
+        {
+          "body_id": "LIB-INDUSTRIAL-AUTHORITY-015-TAGORE-GITANJALI-PG7164",
+          "work_title": "Gitanjali",
+          "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-015-TAGORE-GITANJALI-PG7164.txt",
+          "text_sha256": "665ea9b282c0a542baafc278d79151aaa53d203a5c688b3daeddf7d908311d44",
+          "text_bytes": 98478,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "Rabindranath Tagore",
+          "editor": "",
+          "edition_label": "Project Gutenberg #7164: Gitanjali",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg candidate inspected in Industrial Body Research Batch 003; public-domain/U.S. copyright-unprotected collection language and Project Gutenberg license observed before admission.",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Complete Project Gutenberg file for the named work; Tagore authority coverage remains selected works.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-INDUSTRIAL-AUTHORITY-015-TAGORE-NATIONALISM-PG40766",
+          "work_title": "Nationalism",
+          "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-015-TAGORE-NATIONALISM-PG40766.txt",
+          "text_sha256": "077be7c3e258155349eae44359f0713ec9721884d66c9923bd4a5fdb2bf9c200",
+          "text_bytes": 176211,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "",
+          "editor": "",
+          "edition_label": "Project Gutenberg #40766: Nationalism",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg candidate inspected in Industrial Body Research Batch 003; public-domain/U.S. copyright-unprotected collection language and Project Gutenberg license observed before admission.",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Complete Project Gutenberg file for the named work; Tagore authority coverage remains selected works.",
+          "status": "available"
+        }
+      ]
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-049-SUN-YAT-SEN",
+      "title": "Three Principles of the People",
+      "author": "Sun Yat-sen",
+      "subject_era": "industrial",
+      "source_composition_era": "industrial",
+      "edition_era": "digital",
+      "secondary_eras": [],
+      "date_start": 1924,
+      "date_end": 1927,
+      "date_label": "1924-1927 principal-work lane; exact edition and translation require body-level review",
+      "era_basis": "composition_period",
+      "civilization_tags": [
+        "China"
+      ],
+      "source_type": "primary",
+      "location": {
+        "civilization_memory_refs": [],
+        "body_imported": false,
+        "metadata_packet": "archive/library/industrial/metadata-batch-design-v0.1.md"
+      },
+      "status": "stub",
+      "notes": "Industrial metadata Batch 003. Function: mass-politics-ideology. Boundary: metadata-only registry stub for Three Principles of the People. Rights/body gate: edition/translation review required.",
+      "text_status": "available",
+      "coverage_status": "principal-work",
+      "coverage_notes": "Metadata-only Industrial Batch 003 record. No body downloaded, inspected, admitted, or represented as available. Coverage ceiling from design packet: principal-work.",
+      "text_bodies": [
+        {
+          "body_id": "LIB-INDUSTRIAL-AUTHORITY-049-SUN-YAT-SEN-INTERNATIONAL-DEVELOPMENT-PG45188",
+          "work_title": "The International Development of China",
+          "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-049-SUN-YAT-SEN-INTERNATIONAL-DEVELOPMENT-PG45188.txt",
+          "text_sha256": "33977063c1ba75fd02e2df64e489b85397c77859585f60c062d5ef7900988f3b",
+          "text_bytes": 389201,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "",
+          "editor": "",
+          "edition_label": "Project Gutenberg #45188: The International Development of China",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg candidate inspected in Industrial Body Research Batch 003; public-domain/U.S. copyright-unprotected collection language and Project Gutenberg license observed before admission.",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Complete Project Gutenberg file for the named supplemental Sun work; Three Principles of the People remains unresolved.",
+          "status": "available"
+        }
+      ]
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-051-FUKUZAWA",
+      "title": "Encouragement of Learning; civilization essays",
+      "author": "Fukuzawa Yukichi",
+      "subject_era": "industrial",
+      "source_composition_era": "industrial",
+      "edition_era": "digital",
+      "secondary_eras": [],
+      "date_start": 1872,
+      "date_end": 1875,
+      "date_label": "1872-1875 selected works lane; translation and textual boundary require body-level review",
+      "era_basis": "composition_period",
+      "civilization_tags": [
+        "Japan"
+      ],
+      "source_type": "primary",
+      "location": {
+        "civilization_memory_refs": [],
+        "body_imported": false,
+        "metadata_packet": "archive/library/industrial/metadata-batch-design-v0.1.md"
+      },
+      "status": "stub",
+      "notes": "Industrial metadata Batch 003. Function: international-order-decolonization. Boundary: metadata-only registry stub for Encouragement of Learning; civilization essays. Rights/body gate: translation rights review required.",
+      "text_status": "missing",
+      "coverage_status": "selected-works",
+      "coverage_notes": "Metadata-only Industrial Batch 003 record. No body downloaded, inspected, admitted, or represented as available. Coverage ceiling from design packet: selected-works."
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-046-GANDHI",
+      "title": "Hind Swaraj; speeches",
+      "author": "Mohandas K. Gandhi",
+      "subject_era": "industrial",
+      "source_composition_era": "industrial",
+      "edition_era": "digital",
+      "secondary_eras": [],
+      "date_start": 1909,
+      "date_end": 1948,
+      "date_label": "1909-1948 selected works lane; source-specific rights review required",
+      "era_basis": "composition_period",
+      "civilization_tags": [
+        "India"
+      ],
+      "source_type": "primary",
+      "location": {
+        "civilization_memory_refs": [],
+        "body_imported": false,
+        "metadata_packet": "archive/library/industrial/metadata-batch-design-v0.1.md"
+      },
+      "status": "stub",
+      "notes": "Industrial metadata Batch 003. Function: international-order-decolonization. Boundary: metadata-only registry stub for Hind Swaraj; speeches. Rights/body gate: mixed rights; source-specific review required.",
+      "text_status": "available",
+      "coverage_status": "selected-works",
+      "coverage_notes": "Metadata-only Industrial Batch 003 record. No body downloaded, inspected, admitted, or represented as available. Coverage ceiling from design packet: selected-works.",
+      "text_bodies": [
+        {
+          "body_id": "LIB-INDUSTRIAL-AUTHORITY-046-GANDHI-HIND-SWARAJ-PG40461",
+          "work_title": "Indian Home Rule",
+          "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-046-GANDHI-HIND-SWARAJ-PG40461.txt",
+          "text_sha256": "fa2a144d2bad65991b2a9feb773ff9ad1d9d4c130a7b94c7a30eb8042d19a2d0",
+          "text_bytes": 189877,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "",
+          "editor": "",
+          "edition_label": "Project Gutenberg #40461: Indian Home Rule",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg candidate inspected in Industrial Body Research Batch 003; public-domain/U.S. copyright-unprotected collection language and Project Gutenberg license observed before admission.",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Complete Project Gutenberg file for the named Hind Swaraj English lane; Gandhi authority coverage remains selected works.",
+          "status": "available"
+        }
+      ]
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-048-AMBEDKAR",
+      "title": "Annihilation of Caste; constitutional speeches",
+      "author": "B. R. Ambedkar",
+      "subject_era": "industrial",
+      "source_composition_era": "industrial",
+      "edition_era": "digital",
+      "secondary_eras": [],
+      "date_start": 1936,
+      "date_end": 1950,
+      "date_label": "1936-1950 selected works lane; rights/source review required",
+      "era_basis": "composition_period",
+      "civilization_tags": [
+        "India"
+      ],
+      "source_type": "primary",
+      "location": {
+        "civilization_memory_refs": [],
+        "body_imported": false,
+        "metadata_packet": "archive/library/industrial/metadata-batch-design-v0.1.md"
+      },
+      "status": "stub",
+      "notes": "Industrial metadata Batch 003. Function: state-law-constitution. Boundary: metadata-only registry stub for Annihilation of Caste; constitutional speeches. Rights/body gate: rights/source review required.",
+      "text_status": "missing",
+      "coverage_status": "selected-works",
+      "coverage_notes": "Metadata-only Industrial Batch 003 record. No body downloaded, inspected, admitted, or represented as available. Coverage ceiling from design packet: selected-works."
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-076-MARTI",
+      "title": "Nuestra America; selected essays",
+      "author": "Jose Marti",
+      "subject_era": "industrial",
+      "source_composition_era": "industrial",
+      "edition_era": "digital",
+      "secondary_eras": [],
+      "date_start": 1891,
+      "date_end": 1895,
+      "date_label": "1891-1895 selected essays lane; Spanish and translation separation require body-level review",
+      "era_basis": "composition_period",
+      "civilization_tags": [
+        "Cuba",
+        "Latin America"
+      ],
+      "source_type": "primary",
+      "location": {
+        "civilization_memory_refs": [],
+        "body_imported": false,
+        "metadata_packet": "archive/library/industrial/metadata-batch-design-v0.1.md"
+      },
+      "status": "stub",
+      "notes": "Industrial metadata Batch 003. Function: international-order-decolonization. Boundary: metadata-only registry stub for Nuestra America; selected essays. Rights/body gate: public-domain likely; Spanish/translation separation required.",
+      "text_status": "available",
+      "coverage_status": "selected-works",
+      "coverage_notes": "Metadata-only Industrial Batch 003 record. No body downloaded, inspected, admitted, or represented as available. Coverage ceiling from design packet: selected-works.",
+      "text_bodies": [
+        {
+          "body_id": "LIB-INDUSTRIAL-AUTHORITY-076-MARTI-EDAD-ORO-PG19898",
+          "work_title": "La Edad de Oro",
+          "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-076-MARTI-EDAD-ORO-PG19898.txt",
+          "text_sha256": "0babd5e5b2b0ba5915e63776221de2af04c84d17c22fe13280b49ccfa15da689",
+          "text_bytes": 388927,
+          "text_encoding": "utf-8",
+          "language": "spanish",
+          "translator": "",
+          "editor": "",
+          "edition_label": "Project Gutenberg #19898: La Edad de Oro",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg candidate inspected in Industrial Body Research Batch 003; public-domain/U.S. copyright-unprotected collection language and Project Gutenberg license observed before admission.",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Complete Project Gutenberg file for the named selected Spanish work; Nuestra America remains unresolved.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-INDUSTRIAL-AUTHORITY-076-MARTI-GRANOS-ORO-PG43861",
+          "work_title": "Granos de oro",
+          "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-076-MARTI-GRANOS-ORO-PG43861.txt",
+          "text_sha256": "73398587c778223fcd0d522f1a64e7d9bc9d4e8fea17be32b639f134a2984d4b",
+          "text_bytes": 162017,
+          "text_encoding": "utf-8",
+          "language": "spanish",
+          "translator": "",
+          "editor": "",
+          "edition_label": "Project Gutenberg #43861: Granos de oro",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg candidate inspected in Industrial Body Research Batch 003; public-domain/U.S. copyright-unprotected collection language and Project Gutenberg license observed before admission.",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Complete Project Gutenberg file for selected thoughts compilation; Marti authority coverage remains selected works.",
+          "status": "available"
+        }
+      ]
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-091-QIU-JIN",
+      "title": "poems, essays, revolutionary writings",
+      "author": "Qiu Jin",
+      "subject_era": "industrial",
+      "source_composition_era": "industrial",
+      "edition_era": "digital",
+      "secondary_eras": [],
+      "date_start": 1904,
+      "date_end": 1907,
+      "date_label": "1904-1907 selected writings lane; edition and translation require body-level review",
+      "era_basis": "composition_period",
+      "civilization_tags": [
+        "China"
+      ],
+      "source_type": "primary",
+      "location": {
+        "civilization_memory_refs": [],
+        "body_imported": false,
+        "metadata_packet": "archive/library/industrial/metadata-batch-design-v0.1.md"
+      },
+      "status": "stub",
+      "notes": "Industrial metadata Batch 003. Function: gender-family-education. Boundary: metadata-only registry stub for poems, essays, revolutionary writings. Rights/body gate: edition/translation review required.",
+      "text_status": "available",
+      "coverage_status": "selected-works",
+      "coverage_notes": "Metadata-only Industrial Batch 003 record. No body downloaded, inspected, admitted, or represented as available. Coverage ceiling from design packet: selected-works.",
+      "text_bodies": [
+        {
+          "body_id": "LIB-INDUSTRIAL-AUTHORITY-091-QIU-JIN-WOMENS-JOURNAL-PREFACE-WIKISOURCE",
+          "work_title": "\u4e2d\u570b\u5973\u5831\u767c\u520a\u8a5e",
+          "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-091-QIU-JIN-WOMENS-JOURNAL-PREFACE-WIKISOURCE.txt",
+          "text_sha256": "9206c47a326def2f2ffc99b4cafdb2c367216023c7ce4f1da195c585a07b09f6",
+          "text_bytes": 3218,
+          "text_encoding": "utf-8",
+          "language": "chinese",
+          "translator": "",
+          "editor": "",
+          "edition_label": "Chinese Wikisource raw text: \u4e2d\u570b\u5973\u5831\u767c\u520a\u8a5e",
+          "license_status": "public-domain",
+          "license_notes": "Chinese Wikisource raw text candidate inspected in Industrial Batch 003 unresolved follow-up; Qiu Jin author page states original works are public domain worldwide because the author died more than 100 years ago.",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Selected Qiu Jin Wikisource raw text body; authority coverage remains selected writings.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-INDUSTRIAL-AUTHORITY-091-QIU-JIN-MANJIANGHONG-WIKISOURCE",
+          "work_title": "\u6eff\u6c5f\u7d05",
+          "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-091-QIU-JIN-MANJIANGHONG-WIKISOURCE.txt",
+          "text_sha256": "d6592fed086d0e5af15ef44a320520b8781fb7423825a9532650c30d71352064",
+          "text_bytes": 490,
+          "text_encoding": "utf-8",
+          "language": "chinese",
+          "translator": "",
+          "editor": "",
+          "edition_label": "Chinese Wikisource raw text: \u6eff\u6c5f\u7d05",
+          "license_status": "public-domain",
+          "license_notes": "Chinese Wikisource raw text candidate inspected in Industrial Batch 003 unresolved follow-up; Qiu Jin author page states original works are public domain worldwide because the author died more than 100 years ago.",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Selected Qiu Jin poetry body; authority coverage remains selected writings.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-INDUSTRIAL-AUTHORITY-091-QIU-JIN-DEATH-LETTER-WIKISOURCE",
+          "work_title": "\u81f4\u5f90\u5c0f\u6dd1\u7d55\u547d\u8a5e",
+          "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-091-QIU-JIN-DEATH-LETTER-WIKISOURCE.txt",
+          "text_sha256": "f7766c0dbd4100607541b8ded8b1199a34fe25ed709d6fb69028773127eb2f13",
+          "text_bytes": 609,
+          "text_encoding": "utf-8",
+          "language": "chinese",
+          "translator": "",
+          "editor": "",
+          "edition_label": "Chinese Wikisource raw text: \u81f4\u5f90\u5c0f\u6dd1\u7d55\u547d\u8a5e",
+          "license_status": "public-domain",
+          "license_notes": "Chinese Wikisource raw text candidate inspected in Industrial Batch 003 unresolved follow-up; Qiu Jin author page states original works are public domain worldwide because the author died more than 100 years ago.",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Selected Qiu Jin revolutionary writing body; authority coverage remains selected writings.",
+          "status": "available"
+        }
+      ]
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-092-KANG-LIANG",
+      "title": "reform memorials and essays",
+      "author": "Kang Youwei and Liang Qichao reform textual tradition",
+      "subject_era": "industrial",
+      "source_composition_era": "industrial",
+      "edition_era": "digital",
+      "secondary_eras": [],
+      "date_start": 1895,
+      "date_end": 1911,
+      "date_label": "1895-1911 selected reform tradition lane; composite boundary requires body-level review",
+      "era_basis": "composition_period",
+      "civilization_tags": [
+        "China"
+      ],
+      "source_type": "primary",
+      "location": {
+        "civilization_memory_refs": [],
+        "body_imported": false,
+        "metadata_packet": "archive/library/industrial/metadata-batch-design-v0.1.md"
+      },
+      "status": "stub",
+      "notes": "Industrial metadata Batch 003. Function: state-law-constitution. Boundary: metadata-only registry stub for reform memorials and essays. Rights/body gate: composite tradition; textual boundary required.",
+      "text_status": "available",
+      "coverage_status": "selected-works",
+      "coverage_notes": "Metadata-only Industrial Batch 003 record. No body downloaded, inspected, admitted, or represented as available. Coverage ceiling from design packet: selected-works.",
+      "text_bodies": [
+        {
+          "body_id": "LIB-INDUSTRIAL-AUTHORITY-092-KANG-LIANG-KANG-DATONGSHU-JIABU-WIKISOURCE",
+          "work_title": "\u5927\u540c\u66f8/\u7532\u90e8",
+          "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-092-KANG-LIANG-KANG-DATONGSHU-JIABU-WIKISOURCE.txt",
+          "text_sha256": "23c33e34baeca24925f515325bbe1eb958a7fbc7e65dac4a3f16bed07b5338d5",
+          "text_bytes": 103837,
+          "text_encoding": "utf-8",
+          "language": "chinese",
+          "translator": "",
+          "editor": "",
+          "edition_label": "Chinese Wikisource raw text: \u5927\u540c\u66f8/\u7532\u90e8",
+          "license_status": "public-domain",
+          "license_notes": "Chinese Wikisource raw text candidate inspected in Industrial Batch 003 unresolved follow-up; public Wikisource source selected for composite reform tradition review.",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Selected Kang Youwei body for composite Kang/Liang reform textual tradition; coverage remains selected works.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-INDUSTRIAL-AUTHORITY-092-KANG-LIANG-LIANG-YOUNG-CHINA-WIKISOURCE",
+          "work_title": "\u5c11\u5e74\u4e2d\u570b\u8aaa",
+          "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-092-KANG-LIANG-LIANG-YOUNG-CHINA-WIKISOURCE.txt",
+          "text_sha256": "10ebc9ebfb85585af47fa582ab55cd9a6059205c4227e69fba60b8dc57182e64",
+          "text_bytes": 11642,
+          "text_encoding": "utf-8",
+          "language": "chinese",
+          "translator": "",
+          "editor": "",
+          "edition_label": "Chinese Wikisource raw text: \u5c11\u5e74\u4e2d\u570b\u8aaa",
+          "license_status": "public-domain",
+          "license_notes": "Chinese Wikisource raw text candidate inspected in Industrial Batch 003 unresolved follow-up; public Wikisource source selected for composite reform tradition review.",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Selected Liang Qichao body for composite Kang/Liang reform textual tradition; coverage remains selected works.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-INDUSTRIAL-AUTHORITY-092-KANG-LIANG-LIANG-NEW-CITIZEN-1-WIKISOURCE",
+          "work_title": "\u65b0\u6c11\u8aaa/\u7b2c\u4e00\u7bc0",
+          "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-092-KANG-LIANG-LIANG-NEW-CITIZEN-1-WIKISOURCE.txt",
+          "text_sha256": "b5096c95ea3bd06a61804359a0d9242a566e92367311e5efd2d7df0713126eaa",
+          "text_bytes": 1423,
+          "text_encoding": "utf-8",
+          "language": "chinese",
+          "translator": "",
+          "editor": "",
+          "edition_label": "Chinese Wikisource raw text: \u65b0\u6c11\u8aaa/\u7b2c\u4e00\u7bc0",
+          "license_status": "public-domain",
+          "license_notes": "Chinese Wikisource raw text candidate inspected in Industrial Batch 003 unresolved follow-up; public Wikisource source selected for composite reform tradition review.",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Selected Liang Qichao New Citizen body for composite Kang/Liang reform textual tradition; coverage remains selected works.",
+          "status": "available"
+        }
+      ]
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-017-SOSEKI",
+      "title": "Kokoro",
+      "author": "Natsume Soseki",
+      "subject_era": "industrial",
+      "source_composition_era": "industrial",
+      "edition_era": "digital",
+      "secondary_eras": [],
+      "date_start": 1914,
+      "date_end": 1914,
+      "date_label": "1914 principal-work lane; translation rights require body-level review",
+      "era_basis": "composition_period",
+      "civilization_tags": [
+        "Japan"
+      ],
+      "source_type": "literary",
+      "location": {
+        "civilization_memory_refs": [],
+        "body_imported": false,
+        "metadata_packet": "archive/library/industrial/metadata-batch-design-v0.1.md"
+      },
+      "status": "stub",
+      "notes": "Industrial metadata Batch 003. Function: civilization-memory-literature. Boundary: metadata-only registry stub for Kokoro. Rights/body gate: translation rights review required.",
+      "text_status": "available",
+      "coverage_status": "principal-work",
+      "coverage_notes": "Metadata-only Industrial Batch 003 record. No body downloaded, inspected, admitted, or represented as available. Coverage ceiling from design packet: principal-work.",
+      "text_bodies": [
+        {
+          "body_id": "LIB-INDUSTRIAL-AUTHORITY-017-SOSEKI-BOTCHAN-PG8868",
+          "work_title": "Botchan",
+          "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-017-SOSEKI-BOTCHAN-PG8868.txt",
+          "text_sha256": "597a299522b204603917b8bc76384a438e41f839284c8af3c84f780b0669cc41",
+          "text_bytes": 284916,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "Yasotaro Morri",
+          "editor": "",
+          "edition_label": "Project Gutenberg #8868: Botchan",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg candidate inspected in Industrial Body Research Batch 003; public-domain/U.S. copyright-unprotected collection language and Project Gutenberg license observed before admission.",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Complete Project Gutenberg file for supplemental/fallback Soseki work; Kokoro remains unresolved.",
+          "status": "available"
+        }
+      ]
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-016-LU-XUN",
+      "title": "A Madman's Diary; selected stories",
+      "author": "Lu Xun",
+      "subject_era": "industrial",
+      "source_composition_era": "industrial",
+      "edition_era": "digital",
+      "secondary_eras": [],
+      "date_start": 1918,
+      "date_end": 1926,
+      "date_label": "1918-1926 selected stories lane; rights and translation require body-level review",
+      "era_basis": "composition_period",
+      "civilization_tags": [
+        "China"
+      ],
+      "source_type": "literary",
+      "location": {
+        "civilization_memory_refs": [],
+        "body_imported": false,
+        "metadata_packet": "archive/library/industrial/metadata-batch-design-v0.1.md"
+      },
+      "status": "stub",
+      "notes": "Industrial metadata Batch 003. Function: civilization-memory-literature. Boundary: metadata-only registry stub for A Madman's Diary; selected stories. Rights/body gate: rights/translation review required.",
+      "text_status": "available",
+      "coverage_status": "selected-works",
+      "coverage_notes": "Metadata-only Industrial Batch 003 record. No body downloaded, inspected, admitted, or represented as available. Coverage ceiling from design packet: selected-works.",
+      "text_bodies": [
+        {
+          "body_id": "LIB-INDUSTRIAL-AUTHORITY-016-LU-XUN-MADMANS-DIARY-CHINESE-PG25423",
+          "work_title": "\u72c2\u4eba\u65e5\u8a18",
+          "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-016-LU-XUN-MADMANS-DIARY-CHINESE-PG25423.txt",
+          "text_sha256": "7d3490ad98f6970cf92577b6473150dbc4e25452aa9d9c53dfe0fc06f673d678",
+          "text_bytes": 34354,
+          "text_encoding": "utf-8",
+          "language": "chinese",
+          "translator": "",
+          "editor": "",
+          "edition_label": "Project Gutenberg #25423: \u72c2\u4eba\u65e5\u8a18",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg candidate inspected in Industrial Batch 003 unresolved follow-up; public-domain/U.S. copyright-unprotected collection language and Project Gutenberg license observed before admission.",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Complete Project Gutenberg file for the Chinese original of A Madman's Diary; Lu Xun authority coverage remains selected stories, not complete corpus coverage.",
+          "status": "available"
+        }
+      ]
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-018-PREMCHAND",
+      "title": "Godan; selected stories",
+      "author": "Premchand",
+      "subject_era": "industrial",
+      "source_composition_era": "industrial",
+      "edition_era": "digital",
+      "secondary_eras": [],
+      "date_start": 1916,
+      "date_end": 1936,
+      "date_label": "1916-1936 selected works lane; Hindi/Urdu and translation require body-level review",
+      "era_basis": "composition_period",
+      "civilization_tags": [
+        "India"
+      ],
+      "source_type": "literary",
+      "location": {
+        "civilization_memory_refs": [],
+        "body_imported": false,
+        "metadata_packet": "archive/library/industrial/metadata-batch-design-v0.1.md"
+      },
+      "status": "stub",
+      "notes": "Industrial metadata Batch 003. Function: civilization-memory-literature. Boundary: metadata-only registry stub for Godan; selected stories. Rights/body gate: Hindi/Urdu and translation review required.",
+      "text_status": "available",
+      "coverage_status": "selected-works",
+      "coverage_notes": "Metadata-only Industrial Batch 003 record. No body downloaded, inspected, admitted, or represented as available. Coverage ceiling from design packet: selected-works.",
+      "text_bodies": [
+        {
+          "body_id": "LIB-INDUSTRIAL-AUTHORITY-018-PREMCHAND-GODAN-WIKISOURCE-EXTRACTED",
+          "work_title": "Godan",
+          "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-018-PREMCHAND-GODAN-WIKISOURCE-EXTRACTED.txt",
+          "text_sha256": "580fcd3795241ab0639de963275d7adec7df6b5ebe72404c02ead6d641f4b0ef",
+          "text_bytes": 1953124,
+          "text_encoding": "utf-8",
+          "language": "hindi",
+          "translator": "",
+          "editor": "",
+          "edition_label": "Extracted text from Wikimedia Commons/Wikisource PDF: Godan - Premchand - Hindi Novel",
+          "license_status": "public-domain",
+          "license_notes": "Public-domain PDF scan/extracted text candidate inspected in Industrial Batch 003 unresolved follow-up; Wikimedia Commons/Wikisource page asserts public-domain status in India and the United States.",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Extracted text from the downloaded public-domain PDF scan; Premchand authority coverage remains selected works, not complete corpus coverage.",
+          "status": "available"
+        }
+      ]
     }
   ]
 }

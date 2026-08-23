@@ -1,0 +1,126 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "industrial-batch-003-unresolved-research-receipt",
+  "status": "research-complete-next-gate-required",
+  "era": "industrial",
+  "batch_id": "industrial-batch-003-unresolved",
+  "private_inspection_root": "C:\\private\\mira-library-inspection\\industrial-batch003-unresolved",
+  "improved_paths": [
+    {
+      "authority": "Lu Xun",
+      "target": "A Madman's Diary",
+      "finding": "Project Gutenberg Chinese original ebook 25423 found and downloaded.",
+      "disposition": "likely admit-ready after operator review"
+    },
+    {
+      "authority": "Premchand",
+      "target": "Godan",
+      "finding": "Wikimedia Commons/Wikisource Hindi PDF found with public-domain claims for India and the United States.",
+      "disposition": "downloaded; needs text extraction and inspection before admission"
+    },
+    {
+      "authority": "Qiu Jin",
+      "target": "selected writings",
+      "finding": "Chinese Wikisource author page and work pages found with public-domain author note.",
+      "disposition": "exact raw Wikisource candidates downloaded; admission proposal review required"
+    },
+    {
+      "authority": "Kang Youwei and Liang Qichao",
+      "target": "reform textual tradition",
+      "finding": "Chinese Wikisource work pages found for Kang and Liang reform writings.",
+      "disposition": "exact raw Wikisource candidates downloaded; composite admission proposal review required"
+    },
+    {
+      "authority": "Sun Yat-sen",
+      "target": "Three Principles of the People",
+      "finding": "Commons PDF downloaded; sampled extraction found no embedded text layer.",
+      "disposition": "OCR-gated before admission"
+    }
+  ],
+  "blocked_or_restricted": [
+    "B. R. Ambedkar: Columbia classroom text has editorial/rights uncertainty; not admit-ready.",
+    "Fukuzawa Yukichi: complete admit-ready public-domain English body not found.",
+    "Natsume Soseki Kokoro: located English translation is permissioned."
+  ],
+  "downloads": [
+    {
+      "candidate_id": "LU-XUN-MADMANS-DIARY-CHINESE-PG25423",
+      "kind": "text",
+      "bytes": 34354,
+      "sha256": "4e21c52f54a353dfb91c18dd86333bac4f17c5c62a8729fca6e8f1bb2c330a1c",
+      "status": "downloaded"
+    },
+    {
+      "candidate_id": "PREMCHAND-GODAN-WIKISOURCE-PDF",
+      "kind": "pdf",
+      "bytes": 2373688,
+      "sha256": "c63b63e3fcab79cf1614fd285703b12a0fb3c6950b6d57f7b7005ec99c8930e3",
+      "status": "downloaded"
+    },
+    {
+      "candidate_id": "PREMCHAND-GODAN-WIKISOURCE-PDF-EXTRACTED",
+      "kind": "extracted-text",
+      "bytes": 1953124,
+      "sha256": "580fcd3795241ab0639de963275d7adec7df6b5ebe72404c02ead6d641f4b0ef",
+      "status": "extracted"
+    },
+    {
+      "candidate_id": "SUN-THREE-PRINCIPLES-COMMONS-PDF",
+      "kind": "pdf",
+      "bytes": 107903450,
+      "sha256": "00876792be48ec26d2b2072d2582217b0d29bc75cf145fb070e1a65e45a968d0",
+      "status": "downloaded-ocr-gated"
+    },
+    {
+      "candidate_id": "QIU-JIN-WOMENS-JOURNAL-PREFACE",
+      "kind": "wikisource-raw-text",
+      "bytes": 3218,
+      "sha256": "9206c47a326def2f2ffc99b4cafdb2c367216023c7ce4f1da195c585a07b09f6",
+      "status": "downloaded"
+    },
+    {
+      "candidate_id": "QIU-JIN-MANJIANGHONG",
+      "kind": "wikisource-raw-text",
+      "bytes": 490,
+      "sha256": "d6592fed086d0e5af15ef44a320520b8781fb7423825a9532650c30d71352064",
+      "status": "downloaded"
+    },
+    {
+      "candidate_id": "QIU-JIN-DEATH-LETTER",
+      "kind": "wikisource-raw-text",
+      "bytes": 609,
+      "sha256": "f7766c0dbd4100607541b8ded8b1199a34fe25ed709d6fb69028773127eb2f13",
+      "status": "downloaded"
+    },
+    {
+      "candidate_id": "KANG-DATONGSHU-JIABU",
+      "kind": "wikisource-raw-text",
+      "bytes": 103837,
+      "sha256": "23c33e34baeca24925f515325bbe1eb958a7fbc7e65dac4a3f16bed07b5338d5",
+      "status": "downloaded"
+    },
+    {
+      "candidate_id": "LIANG-YOUNG-CHINA",
+      "kind": "wikisource-raw-text",
+      "bytes": 11642,
+      "sha256": "10ebc9ebfb85585af47fa582ab55cd9a6059205c4227e69fba60b8dc57182e64",
+      "status": "downloaded"
+    },
+    {
+      "candidate_id": "LIANG-NEW-CITIZEN-1",
+      "kind": "wikisource-raw-text",
+      "bytes": 1423,
+      "sha256": "b5096c95ea3bd06a61804359a0d9242a566e92367311e5efd2d7df0713126eaa",
+      "status": "downloaded"
+    }
+  ],
+  "boundary": {
+    "source_bodies_downloaded_for_inspection": true,
+    "source_bodies_admitted": false,
+    "private_archive_ingested": false,
+    "staged": false,
+    "committed": false,
+    "pushed": false,
+    "published": false
+  }
+}

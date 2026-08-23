@@ -1,0 +1,118 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "industrial-body-admission-batch-003-supplemental-receipt",
+  "status": "completed-with-private-store-caveat",
+  "era": "industrial",
+  "batch_id": "industrial-body-admission-batch-003-supplemental",
+  "admission_proposal": "archive/library/industrial/body-admission-batch-003-supplemental-proposal.md",
+  "private_text_root": "C:\\private\\mira-library-texts",
+  "counts": {
+    "authorities_admitted": 3,
+    "bodies_admitted": 7,
+    "private_payloads_present": 7,
+    "hash_matches": 7,
+    "byte_matches": 7,
+    "archive_catalog_ingests": 0
+  },
+  "boundary": {
+    "source_bodies_admitted": true,
+    "registry_body_metadata_updated": true,
+    "private_archive_ingested": false,
+    "staged": false,
+    "committed": false,
+    "pushed": false,
+    "published": false
+  },
+  "body_checks": [
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-018-PREMCHAND",
+      "authority": "Premchand",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-018-PREMCHAND-GODAN-WIKISOURCE-EXTRACTED",
+      "work_title": "Godan",
+      "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-018-PREMCHAND-GODAN-WIKISOURCE-EXTRACTED.txt",
+      "text_bytes": 1953124,
+      "text_sha256": "580fcd3795241ab0639de963275d7adec7df6b5ebe72404c02ead6d641f4b0ef",
+      "exists": true,
+      "bytes_match": true,
+      "hash_match": true
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-091-QIU-JIN",
+      "authority": "Qiu Jin",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-091-QIU-JIN-DEATH-LETTER-WIKISOURCE",
+      "work_title": "\u81f4\u5f90\u5c0f\u6dd1\u7d55\u547d\u8a5e",
+      "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-091-QIU-JIN-DEATH-LETTER-WIKISOURCE.txt",
+      "text_bytes": 609,
+      "text_sha256": "f7766c0dbd4100607541b8ded8b1199a34fe25ed709d6fb69028773127eb2f13",
+      "exists": true,
+      "bytes_match": true,
+      "hash_match": true
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-091-QIU-JIN",
+      "authority": "Qiu Jin",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-091-QIU-JIN-MANJIANGHONG-WIKISOURCE",
+      "work_title": "\u6eff\u6c5f\u7d05",
+      "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-091-QIU-JIN-MANJIANGHONG-WIKISOURCE.txt",
+      "text_bytes": 490,
+      "text_sha256": "d6592fed086d0e5af15ef44a320520b8781fb7423825a9532650c30d71352064",
+      "exists": true,
+      "bytes_match": true,
+      "hash_match": true
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-091-QIU-JIN",
+      "authority": "Qiu Jin",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-091-QIU-JIN-WOMENS-JOURNAL-PREFACE-WIKISOURCE",
+      "work_title": "\u4e2d\u570b\u5973\u5831\u767c\u520a\u8a5e",
+      "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-091-QIU-JIN-WOMENS-JOURNAL-PREFACE-WIKISOURCE.txt",
+      "text_bytes": 3218,
+      "text_sha256": "9206c47a326def2f2ffc99b4cafdb2c367216023c7ce4f1da195c585a07b09f6",
+      "exists": true,
+      "bytes_match": true,
+      "hash_match": true
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-092-KANG-LIANG",
+      "authority": "Kang Youwei and Liang Qichao reform textual tradition",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-092-KANG-LIANG-KANG-DATONGSHU-JIABU-WIKISOURCE",
+      "work_title": "\u5927\u540c\u66f8/\u7532\u90e8",
+      "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-092-KANG-LIANG-KANG-DATONGSHU-JIABU-WIKISOURCE.txt",
+      "text_bytes": 103837,
+      "text_sha256": "23c33e34baeca24925f515325bbe1eb958a7fbc7e65dac4a3f16bed07b5338d5",
+      "exists": true,
+      "bytes_match": true,
+      "hash_match": true
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-092-KANG-LIANG",
+      "authority": "Kang Youwei and Liang Qichao reform textual tradition",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-092-KANG-LIANG-LIANG-NEW-CITIZEN-1-WIKISOURCE",
+      "work_title": "\u65b0\u6c11\u8aaa/\u7b2c\u4e00\u7bc0",
+      "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-092-KANG-LIANG-LIANG-NEW-CITIZEN-1-WIKISOURCE.txt",
+      "text_bytes": 1423,
+      "text_sha256": "b5096c95ea3bd06a61804359a0d9242a566e92367311e5efd2d7df0713126eaa",
+      "exists": true,
+      "bytes_match": true,
+      "hash_match": true
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-092-KANG-LIANG",
+      "authority": "Kang Youwei and Liang Qichao reform textual tradition",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-092-KANG-LIANG-LIANG-YOUNG-CHINA-WIKISOURCE",
+      "work_title": "\u5c11\u5e74\u4e2d\u570b\u8aaa",
+      "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-092-KANG-LIANG-LIANG-YOUNG-CHINA-WIKISOURCE.txt",
+      "text_bytes": 11642,
+      "text_sha256": "10ebc9ebfb85585af47fa582ab55cd9a6059205c4227e69fba60b8dc57182e64",
+      "exists": true,
+      "bytes_match": true,
+      "hash_match": true
+    }
+  ],
+  "remaining_unresolved_targets": [
+    "Sun Yat-sen: Three Principles of the People OCR",
+    "B. R. Ambedkar rights/path",
+    "Fukuzawa Yukichi rights/path",
+    "Natsume Soseki Kokoro permissioned"
+  ]
+}

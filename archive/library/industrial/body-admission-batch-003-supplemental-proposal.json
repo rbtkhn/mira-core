@@ -1,0 +1,99 @@
+{
+  "schema_version": "1.0",
+  "proposal_id": "industrial-body-admission-batch-003-supplemental-proposal",
+  "status": "operator-review-before-body-admission",
+  "era": "industrial",
+  "batch_id": "industrial-body-admission-batch-003-supplemental",
+  "research_receipt": "archive/library/industrial/unresolved-batch-003-research-receipt.md",
+  "private_inspection_root": "C:\\private\\mira-library-inspection\\industrial-batch003-unresolved",
+  "proposed_private_text_root": "C:\\private\\mira-library-texts",
+  "counts": {
+    "authorities": 3,
+    "proposed_body_admissions": 7
+  },
+  "proposed_bodies": [
+    {
+      "candidate_id": "PREMCHAND-GODAN-WIKISOURCE-PDF-EXTRACTED",
+      "authority": "Premchand",
+      "work_title": "Godan",
+      "file": "C:\\private\\mira-library-inspection\\industrial-batch003-unresolved\\PREMCHAND-GODAN-WIKISOURCE-PDF-extracted.txt",
+      "bytes": 1953124,
+      "sha256": "580fcd3795241ab0639de963275d7adec7df6b5ebe72404c02ead6d641f4b0ef",
+      "license_review_note": "Extracted text from Wikimedia Commons/Wikisource PDF scan; PDF page asserts public-domain status for India and United States."
+    },
+    {
+      "candidate_id": "QIU-JIN-WOMENS-JOURNAL-PREFACE",
+      "authority": "Qiu Jin",
+      "work_title": "\u4e2d\u570b\u5973\u5831\u767c\u520a\u8a5e",
+      "file": "C:\\private\\mira-library-inspection\\industrial-batch003-unresolved\\QIU-JIN-WOMENS-JOURNAL-PREFACE.wikisource-raw.txt",
+      "bytes": 3218,
+      "sha256": "9206c47a326def2f2ffc99b4cafdb2c367216023c7ce4f1da195c585a07b09f6",
+      "license_review_note": "Chinese Wikisource raw text candidate; author page states Qiu Jin original works are public domain worldwide because she died more than 100 years ago."
+    },
+    {
+      "candidate_id": "QIU-JIN-MANJIANGHONG",
+      "authority": "Qiu Jin",
+      "work_title": "\u6eff\u6c5f\u7d05",
+      "file": "C:\\private\\mira-library-inspection\\industrial-batch003-unresolved\\QIU-JIN-MANJIANGHONG.wikisource-raw.txt",
+      "bytes": 490,
+      "sha256": "d6592fed086d0e5af15ef44a320520b8781fb7423825a9532650c30d71352064",
+      "license_review_note": "Chinese Wikisource raw text candidate; selected poetry lane."
+    },
+    {
+      "candidate_id": "QIU-JIN-DEATH-LETTER",
+      "authority": "Qiu Jin",
+      "work_title": "\u81f4\u5f90\u5c0f\u6dd1\u7d55\u547d\u8a5e",
+      "file": "C:\\private\\mira-library-inspection\\industrial-batch003-unresolved\\QIU-JIN-DEATH-LETTER.wikisource-raw.txt",
+      "bytes": 609,
+      "sha256": "f7766c0dbd4100607541b8ded8b1199a34fe25ed709d6fb69028773127eb2f13",
+      "license_review_note": "Chinese Wikisource raw text candidate; selected revolutionary writing lane."
+    },
+    {
+      "candidate_id": "KANG-DATONGSHU-JIABU",
+      "authority": "Kang Youwei",
+      "work_title": "\u5927\u540c\u66f8/\u7532\u90e8",
+      "file": "C:\\private\\mira-library-inspection\\industrial-batch003-unresolved\\KANG-DATONGSHU-JIABU.wikisource-raw.txt",
+      "bytes": 103837,
+      "sha256": "23c33e34baeca24925f515325bbe1eb958a7fbc7e65dac4a3f16bed07b5338d5",
+      "license_review_note": "Chinese Wikisource raw text candidate for Kang side of the reform tradition."
+    },
+    {
+      "candidate_id": "LIANG-YOUNG-CHINA",
+      "authority": "Liang Qichao",
+      "work_title": "\u5c11\u5e74\u4e2d\u570b\u8aaa",
+      "file": "C:\\private\\mira-library-inspection\\industrial-batch003-unresolved\\LIANG-YOUNG-CHINA.wikisource-raw.txt",
+      "bytes": 11642,
+      "sha256": "10ebc9ebfb85585af47fa582ab55cd9a6059205c4227e69fba60b8dc57182e64",
+      "license_review_note": "Chinese Wikisource raw text candidate for Liang reform/national-renewal lane."
+    },
+    {
+      "candidate_id": "LIANG-NEW-CITIZEN-1",
+      "authority": "Liang Qichao",
+      "work_title": "\u65b0\u6c11\u8aaa/\u7b2c\u4e00\u7bc0",
+      "file": "C:\\private\\mira-library-inspection\\industrial-batch003-unresolved\\LIANG-NEW-CITIZEN-1.wikisource-raw.txt",
+      "bytes": 1423,
+      "sha256": "b5096c95ea3bd06a61804359a0d9242a566e92367311e5efd2d7df0713126eaa",
+      "license_review_note": "Chinese Wikisource raw text candidate for Liang New Citizen tradition."
+    }
+  ],
+  "excluded_from_this_proposal": [
+    "Sun Yat-sen: Three Principles of the People remains OCR-gated.",
+    "B. R. Ambedkar remains rights/path blocked.",
+    "Fukuzawa Yukichi remains rights/path blocked.",
+    "Natsume Soseki Kokoro remains permissioned."
+  ],
+  "boundary": {
+    "source_bodies_admitted": false,
+    "private_archive_ingested": false,
+    "staged": false,
+    "committed": false,
+    "pushed": false,
+    "published": false
+  },
+  "acceptance_tests": [
+    "library validate passes",
+    "render-index check passes",
+    "focused library tests pass",
+    "7/7 supplemental private payloads present with matching hashes and byte counts after admission"
+  ]
+}

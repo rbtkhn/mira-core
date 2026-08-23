@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0",
+  "proposal_id": "industrial-body-admission-batch-003-proposal",
+  "status": "operator-review-before-body-admission",
+  "era": "industrial",
+  "batch_id": "industrial-body-admission-batch-003",
+  "inspection_receipt": "archive/library/industrial/body-research-batch-003-inspection-receipt.md",
+  "private_inspection_root": "C:\\private\\mira-library-inspection\\industrial-batch003",
+  "proposed_private_text_root": "C:\\private\\mira-library-texts",
+  "counts": {
+    "authorities": 6,
+    "proposed_body_admissions": 11
+  },
+  "unresolved_targets": [
+    "Sun Yat-sen: Three Principles of the People",
+    "Fukuzawa Yukichi",
+    "B. R. Ambedkar",
+    "Qiu Jin",
+    "Kang Youwei and Liang Qichao",
+    "Natsume Soseki: Kokoro",
+    "Lu Xun",
+    "Premchand"
+  ],
+  "boundary": {
+    "source_bodies_admitted": false,
+    "private_archive_ingested": false,
+    "staged": false,
+    "committed": false,
+    "pushed": false,
+    "published": false
+  },
+  "acceptance_tests": [
+    "library validate passes",
+    "render-index check passes",
+    "focused library tests pass",
+    "11/11 Industrial Batch 003 private payloads present with matching hashes and byte counts after admission"
+  ]
+}
