@@ -1,0 +1,217 @@
+{
+  "schema": "mira-library-era-sufficiency-standard-v1",
+  "standard_id": "MIRA-LIBRARY-ERA-SUFFICIENCY-V1",
+  "status": "active-working-tree-standard",
+  "date": "2026-08-20",
+  "purpose": "Normative shelf-sufficiency certification plus reproducible era snapshot; never an authority-level complete-corpus, admission, publication, or evidence claim.",
+  "layers": [
+    "universal-gates",
+    "era-profile"
+  ],
+  "universal_gates": [
+    {
+      "gate_id": "authority-identity",
+      "required": true,
+      "requirements": [
+        "unique stable source_id",
+        "defensible authority or textual-tradition boundary",
+        "declared era basis",
+        "explicit composite, pseudonymous, fragmentary, recension, and edition limits where applicable"
+      ]
+    },
+    {
+      "gate_id": "body-integrity",
+      "required": true,
+      "requirements": [
+        "unique body_id",
+        "edition or source label",
+        "language",
+        "rights posture",
+        "byte count",
+        "sha256",
+        "library verify-texts has zero failures"
+      ],
+      "available_exclusions": [
+        "missing",
+        "restricted",
+        "unknown",
+        "provisional",
+        "needs-review"
+      ]
+    },
+    {
+      "gate_id": "coverage-honesty",
+      "required": true,
+      "requirements": [
+        "source and body coverage remain distinct",
+        "availability does not imply complete-work or complete-surviving-corpus",
+        "availability does not imply translation equivalence, reviewed status, or maturity",
+        "unresolved survival, edition, language, rights, and coverage limits remain explicit"
+      ]
+    },
+    {
+      "gate_id": "navigation-coherence",
+      "required": true,
+      "requirements": [
+        "era index generated from registry",
+        "render-index check has zero stale paths",
+        "era index digest bound in seal"
+      ]
+    },
+    {
+      "gate_id": "registry-validity",
+      "required": true,
+      "requirements": [
+        "library validate passes",
+        "focused archive-library tests pass",
+        "canonical era registry slice digest bound",
+        "canonical body inventory digest bound"
+      ]
+    },
+    {
+      "gate_id": "reproducible-debt",
+      "required": true,
+      "requirements": [
+        "missing and needs-review sources and bodies counted",
+        "every unresolved authority listed with status and coverage notes",
+        "debt remains within selected profile floors"
+      ]
+    },
+    {
+      "gate_id": "anti-gaming",
+      "required": true,
+      "requirements": [
+        "authority representation and available-authority ratio are primary",
+        "body count and density cannot compensate for another failed gate",
+        "artificial body splitting to cross a threshold is prohibited",
+        "legitimate separate bodies retain distinct provenance and documented boundaries"
+      ]
+    },
+    {
+      "gate_id": "authority-boundary",
+      "required": true,
+      "requirements": [
+        "seal states download, admission, staging, commit, push, publication, and Archive-ingestion effects",
+        "seal creation grants none of those authorities"
+      ]
+    }
+  ],
+  "profiles": {
+    "BOUNDED-HISTORICAL-SHELF-V1": {
+      "description": "Closed historical era built as a cross-civilizational primary-source shelf.",
+      "thresholds": [
+        {
+          "metric": "authority_count",
+          "operator": ">=",
+          "value": 56
+        },
+        {
+          "metric": "represented_authority_ratio",
+          "operator": ">=",
+          "value": 0.9
+        },
+        {
+          "metric": "represented_authority_count",
+          "operator": ">=",
+          "value": 56
+        },
+        {
+          "metric": "available_body_count",
+          "operator": ">=",
+          "value": 100
+        },
+        {
+          "metric": "available_bodies_per_authority",
+          "operator": ">=",
+          "value": 1.7,
+          "supporting_only": true
+        },
+        {
+          "metric": "available_authority_ratio",
+          "operator": ">=",
+          "value": 0.7
+        },
+        {
+          "metric": "non_metadata_only_coverage_ratio",
+          "operator": ">=",
+          "value": 0.4
+        },
+        {
+          "metric": "integrity_passed",
+          "operator": "==",
+          "value": true
+        }
+      ],
+      "excluded_experimental_metrics": [
+        {
+          "metric": "ratio_to_ancient_body_count",
+          "reason": "Circular for Ancient and vulnerable to edition or volume splitting."
+        }
+      ]
+    }
+  },
+  "profile_assignments": {
+    "ancient": {
+      "profile_id": "BOUNDED-HISTORICAL-SHELF-V1",
+      "disposition": "passed-pilot-seal-2026-08-20"
+    },
+    "medieval": {
+      "profile_id": "BOUNDED-HISTORICAL-SHELF-V1",
+      "disposition": "passed-pilot-seal-2026-08-20-with-explicit-debt"
+    },
+    "colonial": {
+      "profile_id": "BOUNDED-HISTORICAL-SHELF-V1",
+      "disposition": "target-profile-shelf-not-built"
+    },
+    "industrial": {
+      "profile_id": "BOUNDED-HISTORICAL-SHELF-V1",
+      "disposition": "provisional-review-required-before-sealing"
+    },
+    "digital": {
+      "profile_id": null,
+      "disposition": "requires-living-source-rights-volatility-profile"
+    }
+  },
+  "seal_required_fields": [
+    "standard_id",
+    "profile_id",
+    "era",
+    "seal_id",
+    "sealed_at",
+    "seal_status",
+    "universal_gate_results",
+    "profile_threshold_results",
+    "registry_slice_sha256",
+    "body_inventory_sha256",
+    "registry_file_sha256",
+    "era_index_sha256",
+    "source_status_counts",
+    "body_status_counts",
+    "unresolved_authorities",
+    "body_inventory",
+    "validation",
+    "authority_boundary",
+    "reopen_conditions"
+  ],
+  "reopen_conditions": [
+    "era registry slice changes",
+    "generated era index changes",
+    "body admission, correction, removal, or digest change",
+    "source or body availability changes",
+    "coverage, rights, edition, or maturity judgment changes",
+    "governing standard or profile changes materially"
+  ],
+  "current_implementation_boundary": {
+    "pilot_seals": [
+      "archive/library/ancient/version-seal-2026-08-20.json",
+      "archive/library/medieval/version-seal-2026-08-20.json"
+    ],
+    "inventories_changed": false,
+    "deterministic_seal_command_added": false,
+    "validator_added": false,
+    "staged": false,
+    "committed": false,
+    "pushed": false,
+    "published": false
+  }
+}

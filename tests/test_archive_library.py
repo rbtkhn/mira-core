@@ -63,10 +63,7 @@ def write_scaffold(root: Path, registry: dict) -> None:
     for era in archive_library.ERA_IDS:
         target = library / era
         target.mkdir()
-        (target / "index.md").write_text(
-            f"# {era.title()} Library Index\n\nEra: `{era}`\n\nNo sources admitted yet.\n",
-            encoding="utf-8",
-        )
+        (target / "index.md").write_text(archive_library.render_era_index(registry, era), encoding="utf-8")
 
 
 def test_valid_empty_scaffold(tmp_path: Path, monkeypatch) -> None:
@@ -435,6 +432,81 @@ def test_verify_texts_reports_probable_site_chrome(tmp_path: Path, monkeypatch, 
     assert failed["failures"] == ["LIB-ROME-LIVY: probable site chrome on line 2: View history"]
 
 
+def test_census_texts_reports_private_payload_presence_by_era(tmp_path: Path, monkeypatch, capsys) -> None:
+    text_root = tmp_path / ".mira-private" / "library" / "texts"
+    text_root.mkdir(parents=True)
+    ancient_body = text_root / "ANCIENT-BODY.txt"
+    ancient_body.write_text("ancient body\n", encoding="utf-8")
+    registry = base_registry()
+    registry["sources"] = [
+        source(
+            source_id="LIB-ANCIENT",
+            subject_era="ancient",
+            text_status="available",
+            text_location="library-text://ANCIENT-BODY.txt",
+            text_sha256=hashlib.sha256(ancient_body.read_bytes()).hexdigest(),
+            text_bytes=ancient_body.stat().st_size,
+            text_encoding="utf-8",
+            license_status="public-domain",
+        ),
+        source(
+            source_id="LIB-MEDIEVAL",
+            subject_era="medieval",
+            text_status="available",
+            text_location="library-text://MISSING-MEDIEVAL-BODY.txt",
+            text_sha256="0" * 64,
+            text_bytes=12,
+            text_encoding="utf-8",
+            license_status="public-domain",
+        ),
+    ]
+    write_scaffold(tmp_path, registry)
+    monkeypatch.setattr(archive_library, "REPO_ROOT", tmp_path)
+    monkeypatch.setattr(archive_library, "LIBRARY_ROOT", tmp_path / "archive" / "library")
+    monkeypatch.setattr(archive_library, "REGISTRY_PATH", tmp_path / "archive" / "library" / "library-registry.json")
+    monkeypatch.setenv("MIRA_CORE_LIBRARY_TEXT_ROOT", str(text_root))
+
+    assert archive_library.main(["census-texts", "--json"]) == 1
+    census = json.loads(capsys.readouterr().out)
+    assert census["status"] == "failed"
+    assert census["library_wide"]["registry_body_count"] == 2
+    assert census["library_wide"]["physical_payload_count"] == 1
+    assert census["library_wide"]["missing_payload_count"] == 1
+    medieval = next(row for row in census["eras"] if row["era"] == "medieval")
+    assert medieval["representative_missing_body_ids"] == ["LIB-MEDIEVAL"]
+
+
+def test_census_texts_era_filter_preserves_library_totals(tmp_path: Path, monkeypatch, capsys) -> None:
+    text_root = tmp_path / ".mira-private" / "library" / "texts"
+    text_root.mkdir(parents=True)
+    body = text_root / "ANCIENT-BODY.txt"
+    body.write_text("ancient body\n", encoding="utf-8")
+    registry = base_registry()
+    registry["sources"] = [
+        source(
+            source_id="LIB-ANCIENT",
+            subject_era="ancient",
+            text_status="available",
+            text_location="library-text://ANCIENT-BODY.txt",
+            text_sha256=hashlib.sha256(body.read_bytes()).hexdigest(),
+            text_bytes=body.stat().st_size,
+            text_encoding="utf-8",
+            license_status="public-domain",
+        )
+    ]
+    write_scaffold(tmp_path, registry)
+    monkeypatch.setattr(archive_library, "REPO_ROOT", tmp_path)
+    monkeypatch.setattr(archive_library, "LIBRARY_ROOT", tmp_path / "archive" / "library")
+    monkeypatch.setattr(archive_library, "REGISTRY_PATH", tmp_path / "archive" / "library" / "library-registry.json")
+    monkeypatch.setenv("MIRA_CORE_LIBRARY_TEXT_ROOT", str(text_root))
+
+    assert archive_library.main(["census-texts", "--era", "ancient", "--json"]) == 0
+    census = json.loads(capsys.readouterr().out)
+    assert census["status"] == "passed"
+    assert census["library_wide"]["registry_body_count"] == 1
+    assert [row["era"] for row in census["eras"]] == ["ancient"]
+
+
 def test_locate_and_verify_multiple_text_bodies(tmp_path: Path, monkeypatch, capsys) -> None:
     text_root = tmp_path / ".mira-private" / "library" / "texts"
     text_root.mkdir(parents=True)
@@ -757,6 +829,43 @@ def test_validate_scaffold_fails_on_stale_text_sources_index(tmp_path: Path, mon
     assert archive_library.validate_scaffold(tmp_path) == [
         "library text sources index is stale: archive/library/text-sources-index.md"
     ]
+
+
+def test_render_index_detects_and_repairs_stale_medieval_index(tmp_path: Path, monkeypatch, capsys) -> None:
+    registry = base_registry()
+    registry["sources"] = [
+        source(
+            source_id="LIB-MEDIEVAL-BEDE",
+            author="Bede",
+            title="Ecclesiastical History",
+            subject_era="medieval",
+            date_start=731,
+            date_end=731,
+            date_label="731 AD",
+            source_type="chronicle",
+            text_status="missing",
+            coverage_status="principal-work",
+        )
+    ]
+    write_scaffold(tmp_path, registry)
+    medieval = tmp_path / "archive" / "library" / "medieval" / "index.md"
+    medieval.write_text("stale\n", encoding="utf-8")
+    monkeypatch.setattr(archive_library, "REPO_ROOT", tmp_path)
+    monkeypatch.setattr(archive_library, "LIBRARY_ROOT", tmp_path / "archive" / "library")
+    monkeypatch.setattr(archive_library, "REGISTRY_PATH", tmp_path / "archive" / "library" / "library-registry.json")
+    monkeypatch.setattr(archive_library, "TEXT_SOURCES_INDEX_PATH", tmp_path / "archive" / "library" / "text-sources-index.md")
+
+    assert archive_library.main(["render-index", "--check", "--json"]) == 1
+    checked = json.loads(capsys.readouterr().out)
+    assert checked["stale_paths"] == ["archive/library/medieval/index.md"]
+    assert archive_library.validate_scaffold(tmp_path) == [
+        "library era index is stale: archive/library/medieval/index.md"
+    ]
+
+    assert archive_library.main(["render-index", "--json"]) == 0
+    capsys.readouterr()
+    assert "`LIB-MEDIEVAL-BEDE`" in medieval.read_text(encoding="utf-8")
+    assert archive_library.validate_scaffold(tmp_path) == []
 
 
 def test_run_repo_exposes_library_surface() -> None:

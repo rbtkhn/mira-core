@@ -62,6 +62,7 @@ SURFACES = {
     "session-preflight": REPO_ROOT / "scripts" / "session_preflight.py",
     "skills-check": REPO_ROOT / "scripts" / "check_codex_skills_sync.py",
     "skills-sync": REPO_ROOT / "scripts" / "sync_codex_skills.py",
+    "skill-ablation": REPO_ROOT / "scripts" / "skill_ablation.py",
     "source-topic-scan": REPO_ROOT / "scripts" / "source_topic_scan.py",
     "synthesis": REPO_ROOT / "scripts" / "geopolitical_synthesis.py",
     "system-archive": REPO_ROOT / "scripts" / "system_archive.py",

@@ -10,15 +10,16 @@ Civilization Memory.
 
 The machine authority is [`library-registry.json`](library-registry.json).
 [`text-sources-index.md`](text-sources-index.md) lists admitted local/private
-text bodies. Era `index.md` files are human-facing navigation surfaces only.
-Regenerate the text-source index with:
+text bodies. Era `index.md` files are generated human-facing navigation
+surfaces for records assigned to each primary `subject_era`. Regenerate the
+text-source and era indexes with:
 
 ```powershell
 tools\run.ps1 library render-index --json
 ```
 
 Use `tools\run.ps1 library render-index --check --json` in validation paths to
-detect registry/index drift without rewriting the file.
+detect registry/index drift without rewriting any index.
 
 ## Era Taxonomy
 
