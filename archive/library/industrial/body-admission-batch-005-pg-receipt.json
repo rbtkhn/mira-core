@@ -1,0 +1,124 @@
+{
+  "schema_version": "1.0",
+  "packet_id": "industrial-body-admission-batch-005-pg-receipt",
+  "status": "admission-complete",
+  "era": "industrial",
+  "date": "2026-08-23",
+  "research_receipt": "archive/library/industrial/body-research-batch-005-inspection-receipt.md",
+  "download_receipt": "archive/library/industrial/body-download-batch-005-inspection-receipt.md",
+  "private_text_root": "C:\\private\\mira-library-texts",
+  "authority_boundary": {
+    "source_bodies_admitted": true,
+    "admitted_body_count": 9,
+    "registry_mutated": true,
+    "index_generated": true,
+    "private_archive_ingested": false,
+    "staged": false,
+    "committed": false,
+    "pushed": false,
+    "published": false,
+    "seal_claimed": false
+  },
+  "summary": {
+    "authorities_with_bodies_admitted": 7,
+    "bodies_admitted": 9,
+    "paused_candidates": 1,
+    "private_archive_ingests": 0,
+    "publication_actions": 0
+  },
+  "admitted_bodies": [
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-019-MACHADO-DE-ASSIS",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-019-MACHADO-DE-ASSIS-DOM-CASMURRO-PG55752",
+      "work_title": "Dom Casmurro",
+      "language": "portuguese",
+      "bytes": 418230,
+      "sha256": "0fc3dbf384544d81d87e5a731e67b7976ac3a57acb378f0f354d12a3b52bd0c7"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-019-MACHADO-DE-ASSIS",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-019-MACHADO-DE-ASSIS-BRAS-CUBAS-PG54829",
+      "work_title": "Memorias Posthumas de Braz Cubas",
+      "language": "portuguese",
+      "bytes": 403243,
+      "sha256": "edfe4370698ed5716a9692b980a8d6ee77b4ff8116503bb2e08675f1d10d303a"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-040-FARADAY",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-040-FARADAY-CHEMICAL-HISTORY-CANDLE-PG14474",
+      "work_title": "The Chemical History of a Candle",
+      "language": "english",
+      "bytes": 246914,
+      "sha256": "c053ca4ae7880585a15001cd3ffdaf5f09cd08c3329b828ffd8c90ce335482b9"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-064-CONRAD",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-064-CONRAD-HEART-OF-DARKNESS-PG219",
+      "work_title": "Heart of Darkness",
+      "language": "english",
+      "bytes": 237072,
+      "sha256": "c0b0bc91c7695f9d01aacb240e82a9b559f57558f98ad0b1f167eba21f6be6f7"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-064-CONRAD",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-064-CONRAD-LORD-JIM-PG5658",
+      "work_title": "Lord Jim",
+      "language": "english",
+      "bytes": 751822,
+      "sha256": "e2de6f15eb867e864aa4b5e22410d6dc1c12b7c225a48e2376f6401b71a3b96e"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-081-SCHREINER",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-081-SCHREINER-STORY-AFRICAN-FARM-PG1441",
+      "work_title": "The Story of an African Farm",
+      "language": "english",
+      "bytes": 583169,
+      "sha256": "01d0c7fff4673ecb1f6b8fc70938fe4ccfb2139803fd3b4f30ab51f6e40c6815"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-082-STANTON",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-082-STANTON-EIGHTY-YEARS-MORE-PG11982",
+      "work_title": "Eighty Years and More; Reminiscences 1815-1897",
+      "language": "english",
+      "bytes": 816725,
+      "sha256": "e30e3011123135463627f9b6efe1484ffc7002855df622493bb0f0bb68dc3a69"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-084-ZITKALA-SA",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-084-ZITKALA-SA-AMERICAN-INDIAN-STORIES-PG10376",
+      "work_title": "American Indian Stories",
+      "language": "english",
+      "bytes": 201897,
+      "sha256": "b9934b55d2f83876ea24e3c7f1397240b02f1caf63892823bcdbb59954309252"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-036-NIETZSCHE",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-036-NIETZSCHE-GENEALOGY-MORALS-PG52319",
+      "work_title": "The Genealogy of Morals",
+      "language": "english",
+      "bytes": 358579,
+      "sha256": "90ab67b3c15fb8a4220f36b559514098e33f43d58e4403405575949c039c1cba"
+    }
+  ],
+  "paused_candidates": [
+    {
+      "candidate_id": "IND-BODY-005-002A",
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-028-SOJOURNER-TRUTH",
+      "authority": "Sojourner Truth textual tradition",
+      "reason": "Downloaded IA/LOC-derived OCR is noisy and does not cleanly match the preferred LOC 1875 source route.",
+      "next_step": "Resolve cleaner LOC text/PDF extraction route before admission."
+    }
+  ],
+  "verification": {
+    "admitted_payload_hash_check": {
+      "checked": 9,
+      "matched": 9,
+      "status": "passed"
+    },
+    "library_validate_json": "passed",
+    "library_render_index_check_json": "passed",
+    "focused_archive_library_tests": "26 passed",
+    "full_verify_texts": "not used as completion gate because active private text store has known pre-existing missing payloads from older eras"
+  },
+  "next_gate": "operator-review-before-staging-or-sojourner-repair"
+}

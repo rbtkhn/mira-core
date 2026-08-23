@@ -16366,10 +16366,45 @@
       },
       "status": "stub",
       "notes": "Industrial metadata Batch 005. Function: civilization-memory-literature. Boundary: metadata-only registry stub for Dom Casmurro; Posthumous Memoirs of Bras Cubas. Rights/body gate: public-domain originals likely; translation review required.",
-      "text_status": "missing",
+      "text_status": "available",
       "coverage_status": "principal-works",
-      "coverage_notes": "Metadata-only Industrial Batch 005 record. No body downloaded, inspected, admitted, or represented as available. Coverage ceiling from design packet: principal-works.",
-      "text_bodies": []
+      "coverage_notes": "Industrial Batch 005 admitted two Project Gutenberg Portuguese bodies: Dom Casmurro and Memorias Posthumas de Braz Cubas. Source coverage remains principal works; no complete-corpus claim and no English translation equivalence claim.",
+      "text_bodies": [
+        {
+          "body_id": "LIB-INDUSTRIAL-AUTHORITY-019-MACHADO-DE-ASSIS-DOM-CASMURRO-PG55752",
+          "work_title": "Dom Casmurro",
+          "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-019-MACHADO-DE-ASSIS-DOM-CASMURRO-PG55752.txt",
+          "text_sha256": "0fc3dbf384544d81d87e5a731e67b7976ac3a57acb378f0f354d12a3b52bd0c7",
+          "text_bytes": 418230,
+          "text_encoding": "utf-8",
+          "language": "portuguese",
+          "translator": "",
+          "editor": "",
+          "edition_label": "Project Gutenberg #55752: Dom Casmurro",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg header inspected in Industrial Batch 005 download receipt; public-domain/U.S. copyright-unprotected collection language observed before admission.",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Complete Project Gutenberg file for the named Portuguese Machado body; authority coverage remains principal works.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-INDUSTRIAL-AUTHORITY-019-MACHADO-DE-ASSIS-BRAS-CUBAS-PG54829",
+          "work_title": "Memorias Posthumas de Braz Cubas",
+          "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-019-MACHADO-DE-ASSIS-BRAS-CUBAS-PG54829.txt",
+          "text_sha256": "edfe4370698ed5716a9692b980a8d6ee77b4ff8116503bb2e08675f1d10d303a",
+          "text_bytes": 403243,
+          "text_encoding": "utf-8",
+          "language": "portuguese",
+          "translator": "",
+          "editor": "",
+          "edition_label": "Project Gutenberg #54829: Memorias Posthumas de Braz Cubas",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg header inspected in Industrial Batch 005 download receipt; public-domain/U.S. copyright-unprotected collection language observed before admission.",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Complete Project Gutenberg file for the named Portuguese Machado body; authority coverage remains principal works.",
+          "status": "available"
+        }
+      ]
     },
     {
       "source_id": "LIB-INDUSTRIAL-AUTHORITY-028-SOJOURNER-TRUTH",
@@ -16424,10 +16459,28 @@
       },
       "status": "stub",
       "notes": "Industrial metadata Batch 005. Function: science-technology-system. Boundary: metadata-only registry stub for lectures and experimental writings. Rights/body gate: public-domain likely; lecture/collection boundary review required.",
-      "text_status": "missing",
+      "text_status": "available",
       "coverage_status": "selected-works",
-      "coverage_notes": "Metadata-only Industrial Batch 005 record. No body downloaded, inspected, admitted, or represented as available. Coverage ceiling from design packet: selected-works.",
-      "text_bodies": []
+      "coverage_notes": "Industrial Batch 005 admitted Project Gutenberg The Chemical History of a Candle. Source coverage remains selected works; Faraday lectures and experimental writings are not treated as a complete corpus.",
+      "text_bodies": [
+        {
+          "body_id": "LIB-INDUSTRIAL-AUTHORITY-040-FARADAY-CHEMICAL-HISTORY-CANDLE-PG14474",
+          "work_title": "The Chemical History of a Candle",
+          "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-040-FARADAY-CHEMICAL-HISTORY-CANDLE-PG14474.txt",
+          "text_sha256": "c053ca4ae7880585a15001cd3ffdaf5f09cd08c3329b828ffd8c90ce335482b9",
+          "text_bytes": 246914,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "",
+          "editor": "",
+          "edition_label": "Project Gutenberg #14474: The Chemical History of a Candle, edited by William Crookes",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg header inspected in Industrial Batch 005 download receipt; public-domain/U.S. copyright-unprotected collection language observed before admission.",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Complete Project Gutenberg file for the named Faraday lecture collection; authority coverage remains selected works.",
+          "status": "available"
+        }
+      ]
     },
     {
       "source_id": "LIB-INDUSTRIAL-AUTHORITY-064-CONRAD",
@@ -16453,10 +16506,45 @@
       },
       "status": "stub",
       "notes": "Industrial metadata Batch 005. Function: civilization-memory-literature. Boundary: metadata-only registry stub for Heart of Darkness; Lord Jim. Rights/body gate: public-domain likely; edition review required.",
-      "text_status": "missing",
+      "text_status": "available",
       "coverage_status": "principal-works",
-      "coverage_notes": "Metadata-only Industrial Batch 005 record. No body downloaded, inspected, admitted, or represented as available. Coverage ceiling from design packet: principal-works.",
-      "text_bodies": []
+      "coverage_notes": "Industrial Batch 005 admitted two Project Gutenberg bodies: Heart of Darkness and Lord Jim. Source coverage remains principal works; no complete-corpus claim.",
+      "text_bodies": [
+        {
+          "body_id": "LIB-INDUSTRIAL-AUTHORITY-064-CONRAD-HEART-OF-DARKNESS-PG219",
+          "work_title": "Heart of Darkness",
+          "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-064-CONRAD-HEART-OF-DARKNESS-PG219.txt",
+          "text_sha256": "c0b0bc91c7695f9d01aacb240e82a9b559f57558f98ad0b1f167eba21f6be6f7",
+          "text_bytes": 237072,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "",
+          "editor": "",
+          "edition_label": "Project Gutenberg #219: Heart of Darkness",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg header inspected in Industrial Batch 005 download receipt; public-domain/U.S. copyright-unprotected collection language observed before admission.",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Complete Project Gutenberg file for the named Conrad work; authority coverage remains principal works.",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-INDUSTRIAL-AUTHORITY-064-CONRAD-LORD-JIM-PG5658",
+          "work_title": "Lord Jim",
+          "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-064-CONRAD-LORD-JIM-PG5658.txt",
+          "text_sha256": "e2de6f15eb867e864aa4b5e22410d6dc1c12b7c225a48e2376f6401b71a3b96e",
+          "text_bytes": 751822,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "",
+          "editor": "",
+          "edition_label": "Project Gutenberg #5658: Lord Jim",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg header inspected in Industrial Batch 005 download receipt; public-domain/U.S. copyright-unprotected collection language observed before admission.",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Complete Project Gutenberg file for the named Conrad work; authority coverage remains principal works.",
+          "status": "available"
+        }
+      ]
     },
     {
       "source_id": "LIB-INDUSTRIAL-AUTHORITY-081-SCHREINER",
@@ -16481,10 +16569,28 @@
       },
       "status": "stub",
       "notes": "Industrial metadata Batch 005. Function: civilization-memory-literature. Boundary: metadata-only registry stub for The Story of an African Farm; selected political writings. Rights/body gate: public-domain likely; edition review required.",
-      "text_status": "missing",
+      "text_status": "available",
       "coverage_status": "selected-works",
-      "coverage_notes": "Metadata-only Industrial Batch 005 record. No body downloaded, inspected, admitted, or represented as available. Coverage ceiling from design packet: selected-works.",
-      "text_bodies": []
+      "coverage_notes": "Industrial Batch 005 admitted Project Gutenberg The Story of an African Farm. Source coverage remains selected works; selected political writings remain absent.",
+      "text_bodies": [
+        {
+          "body_id": "LIB-INDUSTRIAL-AUTHORITY-081-SCHREINER-STORY-AFRICAN-FARM-PG1441",
+          "work_title": "The Story of an African Farm",
+          "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-081-SCHREINER-STORY-AFRICAN-FARM-PG1441.txt",
+          "text_sha256": "01d0c7fff4673ecb1f6b8fc70938fe4ccfb2139803fd3b4f30ab51f6e40c6815",
+          "text_bytes": 583169,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "",
+          "editor": "",
+          "edition_label": "Project Gutenberg #1441: The Story of an African Farm",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg header inspected in Industrial Batch 005 download receipt; public-domain/U.S. copyright-unprotected collection language observed before admission.",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Complete Project Gutenberg file for the named Schreiner work; authority coverage remains selected works.",
+          "status": "available"
+        }
+      ]
     },
     {
       "source_id": "LIB-INDUSTRIAL-AUTHORITY-082-STANTON",
@@ -16509,10 +16615,28 @@
       },
       "status": "stub",
       "notes": "Industrial metadata Batch 005. Function: gender-family-education. Boundary: metadata-only registry stub for Seneca Falls materials; speeches. Rights/body gate: public-domain likely; convention-document attribution review required.",
-      "text_status": "missing",
+      "text_status": "available",
       "coverage_status": "selected-works",
-      "coverage_notes": "Metadata-only Industrial Batch 005 record. No body downloaded, inspected, admitted, or represented as available. Coverage ceiling from design packet: selected-works; collective convention documents must not become a single-author corpus claim.",
-      "text_bodies": []
+      "coverage_notes": "Industrial Batch 005 admitted Project Gutenberg Eighty Years and More. Source coverage remains selected works; Seneca Falls and convention-document materials remain absent and require separate attribution review.",
+      "text_bodies": [
+        {
+          "body_id": "LIB-INDUSTRIAL-AUTHORITY-082-STANTON-EIGHTY-YEARS-MORE-PG11982",
+          "work_title": "Eighty Years and More; Reminiscences 1815-1897",
+          "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-082-STANTON-EIGHTY-YEARS-MORE-PG11982.txt",
+          "text_sha256": "e30e3011123135463627f9b6efe1484ffc7002855df622493bb0f0bb68dc3a69",
+          "text_bytes": 816725,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "",
+          "editor": "",
+          "edition_label": "Project Gutenberg #11982: Eighty Years and More; Reminiscences 1815-1897",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg header inspected in Industrial Batch 005 download receipt; public-domain/U.S. copyright-unprotected collection language observed before admission.",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Complete Project Gutenberg file for Stanton memoir; authority coverage remains selected works and does not claim convention-document coverage.",
+          "status": "available"
+        }
+      ]
     },
     {
       "source_id": "LIB-INDUSTRIAL-AUTHORITY-084-ZITKALA-SA",
@@ -16538,10 +16662,28 @@
       },
       "status": "stub",
       "notes": "Industrial metadata Batch 005. Function: civilization-memory-literature. Boundary: metadata-only registry stub for American Indian Stories; selected essays. Rights/body gate: public-domain likely; periodical/collection edition review required.",
-      "text_status": "missing",
+      "text_status": "available",
       "coverage_status": "selected-works",
-      "coverage_notes": "Metadata-only Industrial Batch 005 record. No body downloaded, inspected, admitted, or represented as available. Coverage ceiling from design packet: selected-works.",
-      "text_bodies": []
+      "coverage_notes": "Industrial Batch 005 admitted Project Gutenberg American Indian Stories. Source coverage remains selected works; additional essays and periodical witnesses remain absent.",
+      "text_bodies": [
+        {
+          "body_id": "LIB-INDUSTRIAL-AUTHORITY-084-ZITKALA-SA-AMERICAN-INDIAN-STORIES-PG10376",
+          "work_title": "American Indian Stories",
+          "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-084-ZITKALA-SA-AMERICAN-INDIAN-STORIES-PG10376.txt",
+          "text_sha256": "b9934b55d2f83876ea24e3c7f1397240b02f1caf63892823bcdbb59954309252",
+          "text_bytes": 201897,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "",
+          "editor": "",
+          "edition_label": "Project Gutenberg #10376: American Indian Stories",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg header inspected in Industrial Batch 005 download receipt; public-domain/U.S. copyright-unprotected collection language observed before admission.",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Complete Project Gutenberg file for the named Zitkala-Sa collection; authority coverage remains selected works.",
+          "status": "available"
+        }
+      ]
     },
     {
       "source_id": "LIB-INDUSTRIAL-AUTHORITY-093-WASHINGTON",
@@ -16595,10 +16737,28 @@
       },
       "status": "stub",
       "notes": "Industrial metadata Batch 005. Function: religion-moral-order. Boundary: metadata-only registry stub for On the Genealogy of Morals; Thus Spake Zarathustra. Rights/body gate: public-domain originals likely; translation rights review required.",
-      "text_status": "missing",
+      "text_status": "available",
       "coverage_status": "principal-works",
-      "coverage_notes": "Metadata-only Industrial Batch 005 record. No body downloaded, inspected, admitted, or represented as available. Coverage ceiling from design packet: principal-works.",
-      "text_bodies": []
+      "coverage_notes": "Industrial Batch 005 admitted Project Gutenberg English translation of The Genealogy of Morals. Source coverage remains principal works; Thus Spake Zarathustra and original German bodies remain absent.",
+      "text_bodies": [
+        {
+          "body_id": "LIB-INDUSTRIAL-AUTHORITY-036-NIETZSCHE-GENEALOGY-MORALS-PG52319",
+          "work_title": "The Genealogy of Morals",
+          "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-036-NIETZSCHE-GENEALOGY-MORALS-PG52319.txt",
+          "text_sha256": "90ab67b3c15fb8a4220f36b559514098e33f43d58e4403405575949c039c1cba",
+          "text_bytes": 358579,
+          "text_encoding": "utf-8",
+          "language": "english",
+          "translator": "J. M. Kennedy; Horace Barnett Samuel",
+          "editor": "",
+          "edition_label": "Project Gutenberg #52319: The Genealogy of Morals, Complete Works Volume Thirteen, edited by Oscar Levy",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg header inspected in Industrial Batch 005 download receipt; public-domain/U.S. copyright-unprotected collection language observed before admission.",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Complete Project Gutenberg English translation file for The Genealogy of Morals; authority coverage remains principal works and original German counterpart remains absent.",
+          "status": "available"
+        }
+      ]
     },
     {
       "source_id": "LIB-INDUSTRIAL-AUTHORITY-054-LUXEMBURG",
