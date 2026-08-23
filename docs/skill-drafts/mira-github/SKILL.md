@@ -28,6 +28,7 @@ is at most 200 or an exact repair requires them:
 git rev-parse --show-toplevel
 git branch --show-current
 git remote -v
+git worktree list
 git fetch --no-tags origin main
 git log --oneline --left-right --decorate origin/main...HEAD -20
 $status = @(git status --porcelain=v1 --untracked-files=all)
@@ -50,6 +51,50 @@ unavailable, local inspection and commit work may continue, but remote
 publication must stop with a publication resumption packet. `git ls-remote`
 after a push proves the reached SHA; it does not replace this pre-publication
 freshness check.
+
+### Make side worktrees visible
+
+Side worktrees are publication state, not invisible implementation detail. At
+every fresh publication boundary, inspect `git worktree list` and surface any
+active worktree other than the current one when it is on `main`, tracks
+`origin/main`, points at a `codex/...` publication branch, or could plausibly
+land on the same target branch during the current task.
+
+Before creating a side worktree, state all of the following and wait for
+explicit operator approval unless the operator has already authorized an exact
+workflow that visibly requires that worktree:
+
+- branch name;
+- absolute worktree path;
+- purpose and scoped files or domain;
+- whether the worktree may stage, commit, push, or only inspect/edit locally;
+- expected cleanup condition; and
+- how `main` will be refreshed after the worktree lands.
+
+Do not leave worktrees as hidden infrastructure. If a created worktree remains
+after its publication or inspection purpose completes, report it in the final
+response or resumption packet with its branch, path, current SHA, and intended
+cleanup or retention reason.
+
+### Protect local `main`
+
+When the current branch is `main`, treat any non-empty
+`origin/main...HEAD` comparison as a main synchronization boundary before
+creating a new commit, staging broad changes, or reporting the repo as ready:
+
+- `origin/main` ahead only: update local `main` first, normally by
+  fast-forward, before committing on `main`.
+- local `main` ahead only: name the exact local-only commits before any
+  additional local commit or push decision.
+- both sides have commits: stop and classify `main-sync-plan`; do not create
+  another `main` commit until the operator authorizes the rebase or merge plan.
+- dirty files overlap paths changed on `origin/main`: isolate, stash, or route
+  the overlap explicitly before synchronization.
+
+Default recommendation: avoid new commits directly on `main` while any active
+side worktree exists that may publish to `origin/main`. Prefer a fresh
+`codex/...` branch or worktree, then refresh `main` immediately after the
+remote branch lands.
 
 ### Routine readiness scan
 

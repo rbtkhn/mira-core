@@ -1,0 +1,164 @@
+{
+  "schema_version": "1.0",
+  "packet_id": "industrial-roster-design-v0.1",
+  "status": "operator-review",
+  "era": "industrial",
+  "date_start": 1815,
+  "date_end": 1991,
+  "architecture_contract": "archive/library/industrial/architecture-contract-v0.1.md",
+  "authority_boundary": {
+    "registry_mutated": false,
+    "source_bodies_downloaded": false,
+    "source_bodies_admitted": false,
+    "private_archive_ingested": false,
+    "index_generated": false,
+    "staged": false,
+    "committed": false,
+    "pushed": false,
+    "published": false
+  },
+  "counts": {
+    "authorities": 96,
+    "primary_literature_authorities": 43,
+    "metadata_batches": 3,
+    "metadata_batch_authorities_each": 12
+  },
+  "lane_counts": {
+    "civilization-memory-literature": 43,
+    "industrial-political-economy": 6,
+    "mass-politics-ideology": 7,
+    "state-law-constitution": 3,
+    "science-technology-system": 5,
+    "labor-social-question": 3,
+    "empire-colonial-administration": 0,
+    "indigenous-colonized-witness": 8,
+    "war-revolution-violence": 4,
+    "religion-moral-order": 2,
+    "media-propaganda-public": 0,
+    "international-order-decolonization": 9,
+    "gender-family-education": 4,
+    "environment-extraction-infrastructure": 2
+  },
+  "essential_anchor_rule": "Do not remove essential anchors for lane-ratio tuning, body-rights convenience, or ordinary reserve substitution without explicit operator override; blocked body paths should become unresolved gates, not replacement authority rows.",
+  "essential_anchor_examples": [
+    "Winston Churchill",
+    "Karl Marx",
+    "Charles Darwin",
+    "Mahatma Gandhi",
+    "B. R. Ambedkar",
+    "Mao Zedong",
+    "Vladimir Lenin",
+    "Stalin / Soviet party-state textual tradition",
+    "Hannah Arendt",
+    "Primo Levi",
+    "Frantz Fanon",
+    "Nelson Mandela",
+    "W. E. B. Du Bois",
+    "Frederick Douglass",
+    "Booker T. Washington",
+    "Jose Rizal",
+    "Lu Xun",
+    "Chinua Achebe",
+    "Anna Akhmatova",
+    "Jorge Luis Borges",
+    "George Orwell",
+    "Universal Declaration of Human Rights drafting tradition",
+    "United Nations Charter / San Francisco conference tradition"
+  ],
+  "acceptance_tests": [
+    "96 authorities are present",
+    "era range remains fixed at 1815-1991",
+    "literature and testimony are structurally central",
+    "primary function lane counts sum to 96 in Markdown and JSON",
+    "Latin America has been tuned from 3 to 4 primary rows without expanding the roster",
+    "no registry mutation or body work occurred",
+    "every candidate has function, region/system, first-source target, and rights triage in the Markdown packet",
+    "rights-restricted twentieth-century authorities are not body-research-ready",
+    "composite traditions are identified before metadata mutation",
+    "the first three metadata batches are reviewable",
+    "BOUNDED-HISTORICAL-SHELF-V1 remains provisional for Industrial pending profile review"
+  ],
+  "balance_audit": {
+    "audit_date": "2026-08-23",
+    "primary_lane_sum": 96,
+    "corrected_faults": [
+      "empire-colonial-administration changed from 5 to 0 because no roster row uses it as a primary function",
+      "reserve duplicates removed for admitted authorities"
+    ],
+    "regional_grouping_rough_counts": {
+      "Europe": 40,
+      "Asia": 16,
+      "North America": 15,
+      "Africa/Caribbean": 8,
+      "Russia/Soviet": 7,
+      "Latin America": 4,
+      "International": 2,
+      "Transnational/Other": 4
+    },
+    "main_optional_caveat": "Resolved by substituting Jorge Luis Borges for T. S. Eliot; Latin America now has four primary rows without roster expansion."
+  },
+  "first_three_metadata_batches": [
+    {
+      "batch_id": "industrial-metadata-batch-001",
+      "purpose": "Public-domain industrial literature and social witness",
+      "authorities": [
+        "Jane Austen",
+        "Mary Shelley",
+        "Charles Dickens",
+        "George Eliot",
+        "Frederick Douglass",
+        "Harriet Jacobs",
+        "W. E. B. Du Bois",
+        "Herman Melville",
+        "Mark Twain",
+        "Emile Zola",
+        "Thomas Hardy",
+        "Oscar Wilde"
+      ]
+    },
+    {
+      "batch_id": "industrial-metadata-batch-002",
+      "purpose": "Political economy, labor, science, and reform",
+      "authorities": [
+        "Karl Marx",
+        "Friedrich Engels",
+        "John Stuart Mill",
+        "Alexis de Tocqueville",
+        "Charles Darwin",
+        "Alfred Russel Wallace",
+        "Charles Babbage",
+        "Florence Nightingale",
+        "Henry David Thoreau",
+        "John Ruskin",
+        "William Morris",
+        "Ida B. Wells"
+      ]
+    },
+    {
+      "batch_id": "industrial-metadata-batch-003",
+      "purpose": "Global modernization and anti-colonial foundations",
+      "authorities": [
+        "Jose Rizal",
+        "Rabindranath Tagore",
+        "Sun Yat-sen",
+        "Fukuzawa Yukichi",
+        "Mohandas K. Gandhi",
+        "B. R. Ambedkar",
+        "Jose Marti",
+        "Qiu Jin",
+        "Kang Youwei and Liang Qichao reform textual tradition",
+        "Natsume Soseki",
+        "Lu Xun",
+        "Premchand"
+      ]
+    }
+  ],
+  "freeze": {
+    "freeze_date": "2026-08-23",
+    "status": "frozen-for-operator-review",
+    "rule": "Further changes should be explicit substitutions or review notes, not open-ended roster growth.",
+    "registry_authority": false,
+    "body_admission_authority": false
+  },
+  "next_gate": "operator-review-before-metadata-mutation"
+}
