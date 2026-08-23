@@ -1,0 +1,139 @@
+{
+  "schema_version": "1.0",
+  "packet_id": "industrial-metadata-batch-006-design-v0.1",
+  "status": "metadata-batch-design",
+  "era": "industrial",
+  "date_start": 1815,
+  "date_end": 1991,
+  "roster_packet": "archive/library/industrial/roster-design-v0.1.md",
+  "gate": "operator-review-before-registry-mutation",
+  "authority_boundary": {
+    "registry_mutated": false,
+    "index_generated": false,
+    "source_bodies_downloaded": false,
+    "source_bodies_admitted": false,
+    "private_archive_ingested": false,
+    "staged": false,
+    "committed": false,
+    "pushed": false,
+    "published": false
+  },
+  "batch": {
+    "batch_id": "industrial-metadata-batch-006",
+    "purpose": "Twentieth-century systems, war, and world order",
+    "candidate_count": 10,
+    "sequencing_note": "This is a metadata-only high-caution batch; several rows are essential but rights-restricted or institutionally complex.",
+    "candidates": [
+      {
+        "candidate_id": "IND-META-006-001",
+        "proposed_source_id": "LIB-INDUSTRIAL-AUTHORITY-033-WEBER",
+        "authority": "Max Weber",
+        "target_title": "The Protestant Ethic; political essays",
+        "primary_function": "industrial-political-economy",
+        "proposed_registry_status": "stub",
+        "coverage_ceiling": "selected-works",
+        "rights_body_gate": "translation rights and German/English separation required"
+      },
+      {
+        "candidate_id": "IND-META-006-002",
+        "proposed_source_id": "LIB-INDUSTRIAL-AUTHORITY-034-DURKHEIM",
+        "authority": "Emile Durkheim",
+        "target_title": "Division of Labor; Suicide",
+        "primary_function": "industrial-political-economy",
+        "proposed_registry_status": "stub",
+        "coverage_ceiling": "principal-works",
+        "rights_body_gate": "translation rights and edition review required"
+      },
+      {
+        "candidate_id": "IND-META-006-003",
+        "proposed_source_id": "LIB-INDUSTRIAL-AUTHORITY-035-FREUD",
+        "authority": "Sigmund Freud",
+        "target_title": "Civilization and Its Discontents; selected psychoanalytic writings",
+        "primary_function": "religion-moral-order",
+        "proposed_registry_status": "stub",
+        "coverage_ceiling": "selected-works",
+        "rights_body_gate": "rights and translation risk; body admission likely deferred"
+      },
+      {
+        "candidate_id": "IND-META-006-004",
+        "proposed_source_id": "LIB-INDUSTRIAL-AUTHORITY-053-LENIN",
+        "authority": "Vladimir Lenin",
+        "target_title": "Imperialism; State and Revolution",
+        "primary_function": "mass-politics-ideology",
+        "proposed_registry_status": "stub",
+        "coverage_ceiling": "principal-works",
+        "rights_body_gate": "public-domain varies by edition and translation; party-edition review required"
+      },
+      {
+        "candidate_id": "IND-META-006-005",
+        "proposed_source_id": "LIB-INDUSTRIAL-AUTHORITY-057-CHURCHILL",
+        "authority": "Winston Churchill",
+        "target_title": "wartime speeches",
+        "primary_function": "war-revolution-violence",
+        "proposed_registry_status": "stub",
+        "coverage_ceiling": "selected-works",
+        "rights_body_gate": "speech, broadcast, collection, and Crown/estate rights review required"
+      },
+      {
+        "candidate_id": "IND-META-006-006",
+        "proposed_source_id": "LIB-INDUSTRIAL-AUTHORITY-060-MANDELA",
+        "authority": "Nelson Mandela",
+        "target_title": "trial statement; speeches",
+        "primary_function": "international-order-decolonization",
+        "proposed_registry_status": "stub",
+        "coverage_ceiling": "selected-works",
+        "rights_body_gate": "rights/source review required; modern speech reuse not assumed"
+      },
+      {
+        "candidate_id": "IND-META-006-007",
+        "proposed_source_id": "LIB-INDUSTRIAL-AUTHORITY-079-EINSTEIN",
+        "authority": "Albert Einstein",
+        "target_title": "relativity essays; nuclear-era letters",
+        "primary_function": "science-technology-system",
+        "proposed_registry_status": "stub",
+        "coverage_ceiling": "selected-works",
+        "rights_body_gate": "mixed rights; letters and later essays require source-specific review"
+      },
+      {
+        "candidate_id": "IND-META-006-008",
+        "proposed_source_id": "LIB-INDUSTRIAL-AUTHORITY-080-UDHR-DRAFTING",
+        "authority": "Universal Declaration of Human Rights drafting tradition",
+        "target_title": "UDHR and drafting documents",
+        "primary_function": "international-order-decolonization",
+        "proposed_registry_status": "stub",
+        "coverage_ceiling": "selected-works",
+        "rights_body_gate": "institutional text and drafting-record source review required"
+      },
+      {
+        "candidate_id": "IND-META-006-009",
+        "proposed_source_id": "LIB-INDUSTRIAL-AUTHORITY-096-UNITED-NATIONS-CHARTER",
+        "authority": "United Nations Charter / San Francisco conference tradition",
+        "target_title": "UN Charter; conference records",
+        "primary_function": "international-order-decolonization",
+        "proposed_registry_status": "stub",
+        "coverage_ceiling": "selected-works",
+        "rights_body_gate": "institutional text, conference-record, and reuse review required"
+      },
+      {
+        "candidate_id": "IND-META-006-010",
+        "proposed_source_id": "LIB-INDUSTRIAL-AUTHORITY-078-CARSON",
+        "authority": "Rachel Carson",
+        "target_title": "Silent Spring",
+        "primary_function": "environment-extraction-infrastructure",
+        "proposed_registry_status": "stub",
+        "coverage_ceiling": "principal-work",
+        "rights_body_gate": "rights restricted; metadata identity only until permission/public-domain basis exists"
+      }
+    ]
+  },
+  "acceptance_tests": [
+    "exactly 10 metadata candidates are present",
+    "every row has a stable candidate ID and proposed source ID",
+    "every row remains proposed stub only",
+    "at least six distinct representation lanes are present",
+    "every modern-rights or institutional row has an explicit rights/body gate",
+    "Churchill is included and preserved as essential, not deferred or removed",
+    "no registry, index, source body, private Archive, staging, commit, push, or publication action is authorized"
+  ],
+  "next_gate": "operator-review-before-metadata-mutation"
+}

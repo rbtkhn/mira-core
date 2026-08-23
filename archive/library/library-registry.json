@@ -16788,6 +16788,290 @@
       "coverage_status": "principal-works",
       "coverage_notes": "Metadata-only Industrial Batch 005 record. No body downloaded, inspected, admitted, or represented as available. Coverage ceiling from design packet: principal-works.",
       "text_bodies": []
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-033-WEBER",
+      "title": "The Protestant Ethic; political essays",
+      "author": "Max Weber",
+      "subject_era": "industrial",
+      "source_composition_era": "industrial",
+      "edition_era": "digital",
+      "secondary_eras": [],
+      "date_start": 1905,
+      "date_end": 1919,
+      "date_label": "1905-1919 selected sociology and political-essay lane; translation and German/English separation require body-level review",
+      "era_basis": "composition_period",
+      "civilization_tags": [
+        "Germany"
+      ],
+      "source_type": "primary",
+      "location": {
+        "civilization_memory_refs": [],
+        "body_imported": false,
+        "metadata_packet": "archive/library/industrial/metadata-batch-006-design-v0.1.md"
+      },
+      "status": "stub",
+      "notes": "Industrial metadata Batch 006. Function: industrial-political-economy. Boundary: metadata-only registry stub for The Protestant Ethic; political essays. Rights/body gate: translation rights and German/English separation required.",
+      "text_status": "missing",
+      "coverage_status": "selected-works",
+      "coverage_notes": "Metadata-only Industrial Batch 006 record. No body downloaded, inspected, admitted, or represented as available. Coverage ceiling from design packet: selected-works.",
+      "text_bodies": []
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-034-DURKHEIM",
+      "title": "Division of Labor; Suicide",
+      "author": "Emile Durkheim",
+      "subject_era": "industrial",
+      "source_composition_era": "industrial",
+      "edition_era": "digital",
+      "secondary_eras": [],
+      "date_start": 1893,
+      "date_end": 1897,
+      "date_label": "1893-1897 principal-works sociology lane; translation and edition review required",
+      "era_basis": "composition_period",
+      "civilization_tags": [
+        "France"
+      ],
+      "source_type": "primary",
+      "location": {
+        "civilization_memory_refs": [],
+        "body_imported": false,
+        "metadata_packet": "archive/library/industrial/metadata-batch-006-design-v0.1.md"
+      },
+      "status": "stub",
+      "notes": "Industrial metadata Batch 006. Function: industrial-political-economy. Boundary: metadata-only registry stub for Division of Labor; Suicide. Rights/body gate: translation rights and edition review required.",
+      "text_status": "missing",
+      "coverage_status": "principal-works",
+      "coverage_notes": "Metadata-only Industrial Batch 006 record. No body downloaded, inspected, admitted, or represented as available. Coverage ceiling from design packet: principal-works.",
+      "text_bodies": []
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-035-FREUD",
+      "title": "Civilization and Its Discontents; selected psychoanalytic writings",
+      "author": "Sigmund Freud",
+      "subject_era": "industrial",
+      "source_composition_era": "industrial",
+      "edition_era": "digital",
+      "secondary_eras": [],
+      "date_start": 1900,
+      "date_end": 1930,
+      "date_label": "1900-1930 selected psychoanalytic and civilization-critique lane; rights and translation review required",
+      "era_basis": "composition_period",
+      "civilization_tags": [
+        "Central Europe"
+      ],
+      "source_type": "primary",
+      "location": {
+        "civilization_memory_refs": [],
+        "body_imported": false,
+        "metadata_packet": "archive/library/industrial/metadata-batch-006-design-v0.1.md"
+      },
+      "status": "stub",
+      "notes": "Industrial metadata Batch 006. Function: religion-moral-order. Boundary: metadata-only registry stub for Civilization and Its Discontents; selected psychoanalytic writings. Rights/body gate: rights and translation risk; body admission likely deferred.",
+      "text_status": "missing",
+      "coverage_status": "selected-works",
+      "coverage_notes": "Metadata-only Industrial Batch 006 record. No body downloaded, inspected, admitted, or represented as available. Coverage ceiling from design packet: selected-works.",
+      "text_bodies": []
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-053-LENIN",
+      "title": "Imperialism; State and Revolution",
+      "author": "Vladimir Lenin",
+      "subject_era": "industrial",
+      "source_composition_era": "industrial",
+      "edition_era": "digital",
+      "secondary_eras": [],
+      "date_start": 1916,
+      "date_end": 1917,
+      "date_label": "1916-1917 principal-works revolutionary theory lane; edition and translation review required",
+      "era_basis": "composition_period",
+      "civilization_tags": [
+        "Russia",
+        "Soviet world"
+      ],
+      "source_type": "primary",
+      "location": {
+        "civilization_memory_refs": [],
+        "body_imported": false,
+        "metadata_packet": "archive/library/industrial/metadata-batch-006-design-v0.1.md"
+      },
+      "status": "stub",
+      "notes": "Industrial metadata Batch 006. Function: mass-politics-ideology. Boundary: metadata-only registry stub for Imperialism; State and Revolution. Rights/body gate: public-domain varies by edition and translation; party-edition review required.",
+      "text_status": "missing",
+      "coverage_status": "principal-works",
+      "coverage_notes": "Metadata-only Industrial Batch 006 record. No body downloaded, inspected, admitted, or represented as available. Coverage ceiling from design packet: principal-works.",
+      "text_bodies": []
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-057-CHURCHILL",
+      "title": "wartime speeches",
+      "author": "Winston Churchill",
+      "subject_era": "industrial",
+      "source_composition_era": "industrial",
+      "edition_era": "digital",
+      "secondary_eras": [],
+      "date_start": 1940,
+      "date_end": 1945,
+      "date_label": "1940-1945 selected wartime speech lane; speech, broadcast, collection, and rights review required",
+      "era_basis": "composition_period",
+      "civilization_tags": [
+        "Britain",
+        "empire",
+        "war"
+      ],
+      "source_type": "primary",
+      "location": {
+        "civilization_memory_refs": [],
+        "body_imported": false,
+        "metadata_packet": "archive/library/industrial/metadata-batch-006-design-v0.1.md"
+      },
+      "status": "stub",
+      "notes": "Industrial metadata Batch 006. Function: war-revolution-violence. Boundary: metadata-only registry stub for wartime speeches. Rights/body gate: speech, broadcast, collection, and Crown/estate rights review required.",
+      "text_status": "missing",
+      "coverage_status": "selected-works",
+      "coverage_notes": "Metadata-only Industrial Batch 006 record. No body downloaded, inspected, admitted, or represented as available. Coverage ceiling from design packet: selected-works.",
+      "text_bodies": []
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-060-MANDELA",
+      "title": "trial statement; speeches",
+      "author": "Nelson Mandela",
+      "subject_era": "industrial",
+      "source_composition_era": "industrial",
+      "edition_era": "digital",
+      "secondary_eras": [],
+      "date_start": 1964,
+      "date_end": 1991,
+      "date_label": "1964-1991 selected trial statement and decolonization speech lane; source-specific rights review required",
+      "era_basis": "composition_period",
+      "civilization_tags": [
+        "South Africa"
+      ],
+      "source_type": "primary",
+      "location": {
+        "civilization_memory_refs": [],
+        "body_imported": false,
+        "metadata_packet": "archive/library/industrial/metadata-batch-006-design-v0.1.md"
+      },
+      "status": "stub",
+      "notes": "Industrial metadata Batch 006. Function: international-order-decolonization. Boundary: metadata-only registry stub for trial statement; speeches. Rights/body gate: rights/source review required; modern speech reuse not assumed.",
+      "text_status": "missing",
+      "coverage_status": "selected-works",
+      "coverage_notes": "Metadata-only Industrial Batch 006 record. No body downloaded, inspected, admitted, or represented as available. Coverage ceiling from design packet: selected-works.",
+      "text_bodies": []
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-079-EINSTEIN",
+      "title": "relativity essays; nuclear-era letters",
+      "author": "Albert Einstein",
+      "subject_era": "industrial",
+      "source_composition_era": "industrial",
+      "edition_era": "digital",
+      "secondary_eras": [],
+      "date_start": 1905,
+      "date_end": 1955,
+      "date_label": "1905-1955 selected science and nuclear-era public-letter lane; mixed rights require body-level review",
+      "era_basis": "composition_period",
+      "civilization_tags": [
+        "Transnational science"
+      ],
+      "source_type": "primary",
+      "location": {
+        "civilization_memory_refs": [],
+        "body_imported": false,
+        "metadata_packet": "archive/library/industrial/metadata-batch-006-design-v0.1.md"
+      },
+      "status": "stub",
+      "notes": "Industrial metadata Batch 006. Function: science-technology-system. Boundary: metadata-only registry stub for relativity essays; nuclear-era letters. Rights/body gate: mixed rights; letters and later essays require source-specific review.",
+      "text_status": "missing",
+      "coverage_status": "selected-works",
+      "coverage_notes": "Metadata-only Industrial Batch 006 record. No body downloaded, inspected, admitted, or represented as available. Coverage ceiling from design packet: selected-works.",
+      "text_bodies": []
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-080-UDHR-DRAFTING",
+      "title": "UDHR and drafting documents",
+      "author": "Universal Declaration of Human Rights drafting tradition",
+      "subject_era": "industrial",
+      "source_composition_era": "industrial",
+      "edition_era": "digital",
+      "secondary_eras": [],
+      "date_start": 1946,
+      "date_end": 1948,
+      "date_label": "1946-1948 selected human-rights drafting lane; institutional text and drafting-record boundaries require body-level review",
+      "era_basis": "composition_period",
+      "civilization_tags": [
+        "International order"
+      ],
+      "source_type": "legal",
+      "location": {
+        "civilization_memory_refs": [],
+        "body_imported": false,
+        "metadata_packet": "archive/library/industrial/metadata-batch-006-design-v0.1.md"
+      },
+      "status": "stub",
+      "notes": "Industrial metadata Batch 006. Function: international-order-decolonization. Boundary: metadata-only registry stub for UDHR and drafting documents. Rights/body gate: institutional text and drafting-record source review required.",
+      "text_status": "missing",
+      "coverage_status": "selected-works",
+      "coverage_notes": "Metadata-only Industrial Batch 006 record. No body downloaded, inspected, admitted, or represented as available. Coverage ceiling from design packet: selected-works.",
+      "text_bodies": []
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-096-UNITED-NATIONS-CHARTER",
+      "title": "UN Charter; conference records",
+      "author": "United Nations Charter / San Francisco conference tradition",
+      "subject_era": "industrial",
+      "source_composition_era": "industrial",
+      "edition_era": "digital",
+      "secondary_eras": [],
+      "date_start": 1945,
+      "date_end": 1945,
+      "date_label": "1945 selected international-order charter and conference-record lane; institutional source review required",
+      "era_basis": "composition_period",
+      "civilization_tags": [
+        "International order"
+      ],
+      "source_type": "legal",
+      "location": {
+        "civilization_memory_refs": [],
+        "body_imported": false,
+        "metadata_packet": "archive/library/industrial/metadata-batch-006-design-v0.1.md"
+      },
+      "status": "stub",
+      "notes": "Industrial metadata Batch 006. Function: international-order-decolonization. Boundary: metadata-only registry stub for UN Charter; conference records. Rights/body gate: institutional text, conference-record, and reuse review required.",
+      "text_status": "missing",
+      "coverage_status": "selected-works",
+      "coverage_notes": "Metadata-only Industrial Batch 006 record. No body downloaded, inspected, admitted, or represented as available. Coverage ceiling from design packet: selected-works.",
+      "text_bodies": []
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-078-CARSON",
+      "title": "Silent Spring",
+      "author": "Rachel Carson",
+      "subject_era": "industrial",
+      "source_composition_era": "industrial",
+      "edition_era": "digital",
+      "secondary_eras": [],
+      "date_start": 1962,
+      "date_end": 1962,
+      "date_label": "1962 principal-work environmental danger lane; rights restricted unless permission or public-domain basis exists",
+      "era_basis": "composition_period",
+      "civilization_tags": [
+        "United States",
+        "ecology"
+      ],
+      "source_type": "primary",
+      "location": {
+        "civilization_memory_refs": [],
+        "body_imported": false,
+        "metadata_packet": "archive/library/industrial/metadata-batch-006-design-v0.1.md"
+      },
+      "status": "stub",
+      "notes": "Industrial metadata Batch 006. Function: environment-extraction-infrastructure. Boundary: metadata-only registry stub for Silent Spring. Rights/body gate: rights restricted; metadata identity only until permission/public-domain basis exists.",
+      "text_status": "missing",
+      "coverage_status": "principal-work",
+      "coverage_notes": "Metadata-only Industrial Batch 006 record. No body downloaded, inspected, admitted, or represented as available. Coverage ceiling from design packet: principal-work.",
+      "text_bodies": []
     }
   ]
 }
