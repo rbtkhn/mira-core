@@ -19,9 +19,15 @@ def make_tree(root: Path) -> None:
         "narrative-geopolitics/work/forecasts/forecast-ledger.md",
         "narrative-geopolitics/work/morning-brief/2026-08-17.md",
         "narrative-geopolitics/work/morning-brief/2026-08-17.receipt.json",
+        "narrative-geopolitics/work/capture/youtube/2026-08-22.jsonl",
+        "narrative-geopolitics/work/historical-reference/2026-08-22-run.json",
+        "narrative-geopolitics/work/historical-reference/2026-08-22-run-review-queue.json",
+        "narrative-geopolitics/work/reality/claims/OPC-20260822-01.json",
+        "narrative-geopolitics/work/reality/views/outcome-ledger.md",
         "docs/skill-drafts/mira-github/SKILL.md",
         "docs/mira-core-name-migration.md",
         "docs/plans/2026-08-16-mira-archive-name-migration.md",
+        "docs/experiments/leaner-skills/experiment.json",
         "mira/continuity/session-registry.json",
         "archive/library/README.md",
         "archive/library/library-registry.json",
@@ -94,6 +100,18 @@ def test_router_resolves_mira_control_plane_paths(tmp_path: Path) -> None:
     assert report["blockers"] == []
 
 
+def test_router_resolves_experiment_contracts(tmp_path: Path) -> None:
+    make_tree(tmp_path)
+    report = routing.build_report(
+        ["docs/experiments/leaner-skills/experiment.json"], repo_root=tmp_path
+    )
+    assert report["status"] == "manual-required"
+    assert report["owners"] == ["repo-structural"]
+    assert report["commands"] == ["tools/run.ps1 test --mode fast --explain-route"]
+    assert "frozen inputs" in report["manual_checks"][0]
+    assert report["blockers"] == []
+
+
 def test_router_resolves_mira_library_paths(tmp_path: Path) -> None:
     make_tree(tmp_path)
     report = routing.build_report(
@@ -146,6 +164,41 @@ def test_router_resolves_narrative_geopolitics_artifacts(tmp_path: Path) -> None
         "tools/run.ps1 test --path tests/test_morning_brief.py",
     ]
     assert report["manual_checks"] == [routing.MANUAL_NARRATIVE_GEOPOLITICS_CHECK]
+    assert report["blockers"] == []
+
+
+def test_router_resolves_narrative_geopolitics_work_surfaces(tmp_path: Path) -> None:
+    make_tree(tmp_path)
+    report = routing.build_report(
+        [
+            "narrative-geopolitics/work/capture/youtube/2026-08-22.jsonl",
+            "narrative-geopolitics/work/historical-reference/2026-08-22-run.json",
+            "narrative-geopolitics/work/historical-reference/2026-08-22-run-review-queue.json",
+            "narrative-geopolitics/work/reality/claims/OPC-20260822-01.json",
+            "narrative-geopolitics/work/reality/views/outcome-ledger.md",
+        ],
+        repo_root=tmp_path,
+    )
+
+    assert report["status"] == "manual-required"
+    assert report["owners"] == [
+        "youtube-capture",
+        "historical-reference",
+        "reality-check",
+    ]
+    assert report["validation_classes"] == ["domain-governed"]
+    assert report["commands"] == [
+        "python scripts/youtube_capture.py status --date 2026-08-22",
+        "python scripts/youtube_capture.py audit-duplicates --date 2026-08-22 --json",
+        "python scripts/validate_historical_reference_taxonomy.py --run "
+        "narrative-geopolitics/work/historical-reference/2026-08-22-run.json",
+        "python scripts/reality.py check",
+    ]
+    assert report["manual_checks"] == [
+        routing.MANUAL_YOUTUBE_CAPTURE_CHECK,
+        routing.MANUAL_HISTORICAL_REFERENCE_CHECK,
+        routing.MANUAL_REALITY_CHECK,
+    ]
     assert report["blockers"] == []
 
 

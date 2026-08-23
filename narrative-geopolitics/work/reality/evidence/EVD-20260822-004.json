@@ -1,0 +1,23 @@
+{
+  "access_language": "ar",
+  "as_of": "2026-08-22",
+  "created_at": "2026-08-22T00:00:00Z",
+  "created_by": "operator",
+  "event_time": "2026-08-23",
+  "evidence_role": "professional_reporting",
+  "geopolitical_environment": "arabic_regional_reporting",
+  "id": "EVD-20260822-004",
+  "kind": "evidence",
+  "limitation": "Arabic regional reporting contextualizes the deconfliction risk and Barrack dispute; it is not an independent primary source for Israeli or U.S. internal warning procedures.",
+  "observation": "Al Jazeera Arabic reports Israeli-Turkish tension after Israeli strikes on Abu Duhur, Barrack's comments about possible miscoordination and collision-avoidance mechanisms, and Israeli efforts to avoid turning Türkiye into an enemy.",
+  "origin_language": "ar",
+  "originating_chain": "CHAIN-AJ-AR-ISRAEL-TURKEY-CONTAINMENT",
+  "representation_sha256": "5f4c5c7dcd8c06cd2ec4defea4bd120d072b2127a4a006f4f812b062e7f4ae0b",
+  "retrieved_at": "2026-08-23",
+  "revision_of": null,
+  "schema_version": 1,
+  "source_id": "VSRC-RPT-AJ",
+  "status": "active",
+  "translation_provenance": "machine_assisted_disclosed",
+  "url": "https://www.aljazeera.net/amp/news/2026/8/23/%D9%82%D9%86%D9%88%D8%A7%D8%AA-%D8%A7%D8%AA%D8%B5%D8%A7%D9%84-%D8%B3%D8%B1%D9%8A%D8%A9-%D9%88%D9%86%D9%81%D9%8A-%D9%85%D8%B9%D8%A7%D8%AF%D8%A7%D8%A9-%D8%A3%D9%86%D9%82%D8%B1%D8%A9"
+}

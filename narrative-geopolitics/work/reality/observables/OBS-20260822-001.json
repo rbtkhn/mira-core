@@ -1,0 +1,29 @@
+{
+  "as_of": "2026-08-22",
+  "claim_ids": [
+    "OPC-20260822-01"
+  ],
+  "created_at": "2026-08-22T00:00:00Z",
+  "created_by": "operator",
+  "domain_profile": "DOMAIN-MILITARY-ACTIVITY",
+  "id": "OBS-20260822-001",
+  "kind": "observable",
+  "possible_results": [
+    "observed",
+    "not_observed",
+    "contested",
+    "unavailable"
+  ],
+  "question": "Did a recent Israeli strike on or near Syria's Abu Duhur air base produce both a public U.S.-Israeli prior-warning dispute and an official or security-source linkage to Turkish military presence or activity at or near the base?",
+  "required_language_environments": [
+    "multilingual"
+  ],
+  "resolution_rule": "Resolve as observed only if the warning-dispute observable and Turkey-linkage observable each have defensible source lineage; separate Israeli strike occurrence, U.S. warning claim, Israeli dispute, and Turkish-presence linkage; treat U.S., Israeli, Turkish, and Syrian officials as interested sources for contested factual resolution.",
+  "revision_of": null,
+  "schema_version": 1,
+  "status": "open",
+  "window": {
+    "end": "2026-08-23",
+    "start": "2026-08-22"
+  }
+}

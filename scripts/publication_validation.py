@@ -29,6 +29,18 @@ MANUAL_NARRATIVE_GEOPOLITICS_CHECK = (
     "Validate Narrative Geopolitics provenance, source/voice routing, bounded-analysis "
     "posture, verification boundaries, and absence of unsupported public factual use."
 )
+MANUAL_YOUTUBE_CAPTURE_CHECK = (
+    "Validate YouTube capture queue provenance, transcript attachment status, duplicate "
+    "audit state, routing warnings, and archive-intake authority boundaries."
+)
+MANUAL_HISTORICAL_REFERENCE_CHECK = (
+    "Validate historical-reference extraction scope, taxonomy routing, review posture, "
+    "source linkage, and absence of unsupported characterization promotion."
+)
+MANUAL_REALITY_CHECK = (
+    "Validate Reality lattice record integrity, evidence lineage, language/provenance "
+    "boundaries, assessment status, and rendered view freshness."
+)
 MIRA_CONTROL_PATHS = frozenset({
     "docs/mira-core-name-migration.md",
     "docs/plans/2026-08-16-mira-archive-name-migration.md",
@@ -87,6 +99,33 @@ def _daily_validate_command(path: str) -> str | None:
         and DATE_RE.match(parts[3])
     ):
         return f"tools/run.ps1 daily-validate --date {parts[3]} --stage issue"
+    return None
+
+
+def _youtube_capture_date(path: str) -> str | None:
+    parts = PurePosixPath(path).parts
+    if (
+        len(parts) == 5
+        and parts[:4] == ("narrative-geopolitics", "work", "capture", "youtube")
+        and parts[4].endswith(".jsonl")
+    ):
+        date = parts[4].removesuffix(".jsonl")
+        if DATE_RE.match(date):
+            return date
+    return None
+
+
+def _historical_reference_run_path(path: str) -> str | None:
+    parts = PurePosixPath(path).parts
+    if (
+        len(parts) == 4
+        and parts[:3] == ("narrative-geopolitics", "work", "historical-reference")
+        and parts[3].endswith(".json")
+        and "-review-" not in parts[3]
+        and not parts[3].endswith("-checkpoint.json")
+        and not parts[3].endswith("-characterizations.json")
+    ):
+        return path
     return None
 
 
@@ -164,6 +203,40 @@ def route_path(path: str, *, repo_root: Path = REPO_ROOT) -> dict[str, Any]:
             "commands": ["tools/run.ps1 test --path tests/test_morning_brief.py"],
             "manual_checks": [MANUAL_NARRATIVE_GEOPOLITICS_CHECK],
         }
+    youtube_date = _youtube_capture_date(path)
+    if youtube_date:
+        return {
+            "owner": "youtube-capture",
+            "validation_class": "domain-governed",
+            "commands": [
+                f"python scripts/youtube_capture.py status --date {youtube_date}",
+                f"python scripts/youtube_capture.py audit-duplicates --date {youtube_date} --json",
+            ],
+            "manual_checks": [MANUAL_YOUTUBE_CAPTURE_CHECK],
+        }
+    historical_run = _historical_reference_run_path(path)
+    if path.startswith("narrative-geopolitics/work/historical-reference/"):
+        commands = (
+            [
+                "python scripts/validate_historical_reference_taxonomy.py "
+                f"--run {historical_run}"
+            ]
+            if historical_run
+            else []
+        )
+        return {
+            "owner": "historical-reference",
+            "validation_class": "domain-governed",
+            "commands": commands,
+            "manual_checks": [MANUAL_HISTORICAL_REFERENCE_CHECK],
+        }
+    if path.startswith("narrative-geopolitics/work/reality/"):
+        return {
+            "owner": "reality-check",
+            "validation_class": "domain-governed",
+            "commands": ["python scripts/reality.py check"],
+            "manual_checks": [MANUAL_REALITY_CHECK],
+        }
     if path == "AGENTS.md" or path.startswith("docs/skill-drafts/"):
         return {
             "owner": "skill/control",
@@ -182,6 +255,16 @@ def route_path(path: str, *, repo_root: Path = REPO_ROOT) -> dict[str, Any]:
             "manual_checks": [
                 "Verify Mira control-plane semantics, authority boundaries, and historical "
                 "provenance preservation remain coherent."
+            ],
+        }
+    if path.startswith("docs/experiments/"):
+        return {
+            "owner": "repo-structural",
+            "validation_class": "repo-structural",
+            "commands": ["tools/run.ps1 test --mode fast --explain-route"],
+            "manual_checks": [
+                "Verify the experiment preserves frozen inputs, evidence and privacy boundaries, "
+                "decision thresholds, and separation between evaluation and mutation authority."
             ],
         }
     if path.startswith("archive/library/"):

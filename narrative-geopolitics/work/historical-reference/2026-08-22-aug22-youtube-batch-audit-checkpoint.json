@@ -1,0 +1,50 @@
+{
+  "run_id": "2026-08-22-aug22-youtube-batch-audit",
+  "sources": {
+    "archive/sources/geopolitics/sources/2026-08-22/source-breaking-iran-threatens-to-strike-countries-that-abide-by-trump-s-sanctions-w-larry-johnson-2026-08-22.md": {
+      "fingerprint": {
+        "archive_path": "archive/sources/geopolitics/sources/2026-08-22/source-breaking-iran-threatens-to-strike-countries-that-abide-by-trump-s-sanctions-w-larry-johnson-2026-08-22.md",
+        "detector_version": "3",
+        "file_hash": "5788d79f4ac431a976f9fd352993add1519c4b62364371ee0122ca955467fc7b",
+        "mechanism_version": "1",
+        "source_id": "archive/sources/geopolitics/sources/2026-08-22/source-breaking-iran-threatens-to-strike-countries-that-abide-by-trump-s-sanctions-w-larry-johnson-2026-08-22.md",
+        "taxonomy_version": "2",
+        "voice_scope": "davis,escobar,johnson"
+      },
+      "record_count": 1,
+      "status": "landed"
+    },
+    "archive/sources/geopolitics/sources/2026-08-22/source-iran-remains-fearless-lt-col-daniel-davis-2026-08-22.md": {
+      "fingerprint": {
+        "archive_path": "archive/sources/geopolitics/sources/2026-08-22/source-iran-remains-fearless-lt-col-daniel-davis-2026-08-22.md",
+        "detector_version": "3",
+        "file_hash": "b6d1d945b047a2a6e35caec452c89424826aa8d284c04577b268d7981fa99324",
+        "mechanism_version": "1",
+        "source_id": "archive/sources/geopolitics/sources/2026-08-22/source-iran-remains-fearless-lt-col-daniel-davis-2026-08-22.md",
+        "taxonomy_version": "2",
+        "voice_scope": "davis,escobar,johnson"
+      },
+      "record_count": 1,
+      "status": "landed"
+    },
+    "archive/sources/geopolitics/sources/2026-08-22/source-pepe-escobar-u-s-desperation-in-iran-bribing-the-irgc-and-preparing-for-a-nuclear-strike-2026-08-22.md": {
+      "fingerprint": {
+        "archive_path": "archive/sources/geopolitics/sources/2026-08-22/source-pepe-escobar-u-s-desperation-in-iran-bribing-the-irgc-and-preparing-for-a-nuclear-strike-2026-08-22.md",
+        "detector_version": "3",
+        "file_hash": "9c706f8d67f6c24a7b9803ae033f50829c45b347deb2176e12def6dc1d9f28ca",
+        "mechanism_version": "1",
+        "source_id": "archive/sources/geopolitics/sources/2026-08-22/source-pepe-escobar-u-s-desperation-in-iran-bribing-the-irgc-and-preparing-for-a-nuclear-strike-2026-08-22.md",
+        "taxonomy_version": "2",
+        "voice_scope": "davis,escobar,johnson"
+      },
+      "record_count": 0,
+      "status": "landed"
+    }
+  },
+  "versions": {
+    "detector": "3",
+    "mechanism": "1",
+    "schema": "2",
+    "taxonomy": "2"
+  }
+}

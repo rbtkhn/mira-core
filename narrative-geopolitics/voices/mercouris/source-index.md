@@ -4,7 +4,7 @@ This index routes the transcript-bearing upstream-parity corpus for `mercouris` 
 
 Source basis: `strategy-codex/statecraft/voices/mercouris/mercouris-index.md`, `strategy-codex/statecraft/channels/alexander-mercouris/alexander-mercouris-channel-index.md`, and subsequent local intake.
 
-Corpus: 399 local route rows across 399 central archive source files.
+Corpus: 400 local route rows across 400 central archive source files.
 
 Status: `transcript-bearing-upstream-parity`
 
@@ -423,6 +423,7 @@ Status: `transcript-bearing-upstream-parity`
 | `2026-08-19` | (4) Russia 'Destroys' Kiev Orekhov Troops; Moscow AD Impenetrable To Kiev Drones; Kiev Economy Collapses | `host monologue` | `alexander-mercouris` | [source](../../../archive/sources/geopolitics/sources/2026-08-19/source-4-russia-destroys-kiev-orekhov-troops-moscow-ad-impenetrable-to-kiev-drones-kiev-economy-collapses-2026-08-19.md) |
 | `2026-08-20` | (4) Russia Massive Kiev Strike More Coming; Orekhov Troops Panic; Dobropilia Falling; Ukraine Crisis | `host monologue` | `alexander-mercouris` | [source](../../../archive/sources/geopolitics/sources/2026-08-20/source-4-russia-massive-kiev-strike-more-coming-orekhov-troops-panic-dobropilia-falling-ukraine-crisis-2026-08-20.md) |
 | `2026-08-21` | (4) Trump's Economic Siege on Iran, China and BRICS Stand in the Way | `guest` | `the-duran` | [source](../../../archive/sources/geopolitics/sources/2026-08-21/source-4-trump-s-economic-siege-on-iran-china-and-brics-stand-in-the-way-2026-08-21.md) |
+| `2026-08-22` | Russia Pounds Odessa Encircles Dobropilia Strikes Kiev Again; Ukraine Hyperinflation Fears Return | `host monologue` | `alexander-mercouris` | [source](../../../archive/sources/geopolitics/sources/2026-08-22/source-russia-pounds-odessa-encircles-dobropilia-strikes-kiev-again-ukraine-hyperinflation-fears-return-2026-08-22.md) |
 
 ## Judgment Continuity
 

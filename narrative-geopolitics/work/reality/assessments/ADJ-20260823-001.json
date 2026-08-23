@@ -1,0 +1,44 @@
+{
+  "as_of": "2026-08-23",
+  "authorizes_forecast_scoring": false,
+  "authorizes_public": false,
+  "calibration_eligible": false,
+  "claim_id": "OPC-20260822-01",
+  "confidence_boundary": "Moderate confidence that the public U.S.-Israeli warning dispute and Israel/Turkiye linkage frame occurred as claimed. Lower confidence on the underlying factual premise that Turkish troops, radar, air-defense systems, or other military assets were actually being deployed at Abu Duhur; admitted evidence leaves that premise contested rather than supported.",
+  "created_at": "2026-08-23T00:00:00Z",
+  "created_by": "operator",
+  "evidence_ids": [
+    "EVD-20260822-001",
+    "EVD-20260822-002",
+    "EVD-20260822-003",
+    "EVD-20260822-004",
+    "EVD-20260822-005"
+  ],
+  "id": "ADJ-20260823-001",
+  "kind": "assessment",
+  "language_audit": {
+    "external_environment_present": true,
+    "missing_environments": [],
+    "origin_languages": [
+      "en",
+      "tr"
+    ],
+    "originating_chains": [
+      "CHAIN-ANADOLU-BARRACK-ABU-DUHUR",
+      "CHAIN-AP-ABU-DUHUR-WARNING",
+      "CHAIN-REUTERS-TURKEY-ISRAEL-ABU-DUHUR"
+    ],
+    "regional_environment_present": true
+  },
+  "language_search_record": "Read-only investigation covered English AP, Reuters, Axios, and Al Jazeera reporting, Turkish Anadolu and Turkish official context, Arabic Al Jazeera regional coverage, and Hebrew Israeli reporting leads. Admitted evidence includes AP, Anadolu, Axios, Al Jazeera Arabic, and Reuters/Internazionale. Hebrew reporting informed search triage but was not admitted in the minimal set because the existing source registry lacked a clean matching Hebrew outlet source ID for the inspected pages.",
+  "observable_ids": [
+    "OBS-20260822-001"
+  ],
+  "outcome": "supported",
+  "physical_evidence_exception": false,
+  "rationale": "The exact claim is assessed as supported because multiple lineages establish the public structure of the episode: AP reports Barrack's no-warning account, Israeli dispute, and the Turkish-deployment rationale; Anadolu carries Barrack-attributed statements that U.S. review found the Turkish-assets intelligence not true and that neither Washington nor Ankara was informed; Reuters independently reports the strike, Israel's Turkish-deployment rationale, and Turkey's rejection of those allegations. Axios challenges the stronger underlying deployment premise through the Syrian foreign minister's denial, and Al Jazeera Arabic contextualizes the deconfliction risk. The assessment therefore supports the public warning-dispute/linkage claim while leaving the underlying Turkish deployment truth contested.",
+  "revision_of": null,
+  "schema_version": 1,
+  "signoffs": [],
+  "status": "provisional_assessed"
+}

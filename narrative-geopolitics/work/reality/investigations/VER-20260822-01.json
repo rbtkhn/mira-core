@@ -1,0 +1,19 @@
+{
+  "affected_artifacts": [],
+  "affected_forecast_hooks": [],
+  "as_of": "2026-08-22",
+  "claim_ids": [
+    "OPC-20260822-01"
+  ],
+  "created_at": "2026-08-22T00:00:00Z",
+  "created_by": "operator",
+  "id": "VER-20260822-01",
+  "kind": "investigation",
+  "observable_ids": [
+    "OBS-20260822-001"
+  ],
+  "research_boundary": "Investigate whether the August 2026 Abu Duhur strike reporting supports the bounded claim that the event produced both a public U.S.-Israeli prior-warning dispute and a Turkey-presence linkage. Collect original AP lineage, U.S. envoy or official-language material, Israeli official or security-source dispute/linkage material, and Turkish or Arabic/Syrian environment context. Collapse syndicated copies, keep interested-source statements separate from factual corroboration, and do not assess the claim without independent lineage coverage.",
+  "revision_of": null,
+  "schema_version": 1,
+  "status": "requested"
+}

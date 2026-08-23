@@ -1,0 +1,23 @@
+{
+  "access_language": "en",
+  "as_of": "2026-08-22",
+  "created_at": "2026-08-22T00:00:00Z",
+  "created_by": "operator",
+  "event_time": "2026-08-19",
+  "evidence_role": "professional_reporting",
+  "geopolitical_environment": "western_independent",
+  "id": "EVD-20260822-005",
+  "kind": "evidence",
+  "limitation": "Reuters supplies external professional reporting on the strike and Turkey-Israel allegation dispute; it does not independently verify whether Turkish troops or assets were in fact deploying at the base.",
+  "observation": "Reuters reports Turkey rejected Israel's allegations about its military position in Syria after Israel bombed Abu al-Duhur and said Syria was close to permitting Turkish troops to deploy there; Reuters also reports Israel's stated security rationale and Turkish condemnation.",
+  "origin_language": "en",
+  "originating_chain": "CHAIN-REUTERS-TURKEY-ISRAEL-ABU-DUHUR",
+  "representation_sha256": "1f8b5b64522e71aed2bf3e8ed3a4bdd52e38ee53a66ef080073750bd1aa77267",
+  "retrieved_at": "2026-08-23",
+  "revision_of": null,
+  "schema_version": 1,
+  "source_id": "VSRC-RPT-REUTERS",
+  "status": "active",
+  "translation_provenance": "not_required",
+  "url": "https://www.internazionale.it/ultime-notizie-reuters/2026/08/19/turkey-slams-israel-s-untenable-claims-after-strikes-on-syrian-base"
+}

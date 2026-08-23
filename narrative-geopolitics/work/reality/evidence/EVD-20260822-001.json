@@ -1,0 +1,23 @@
+{
+  "access_language": "en",
+  "as_of": "2026-08-22",
+  "created_at": "2026-08-22T00:00:00Z",
+  "created_by": "operator",
+  "event_time": "2026-08-22",
+  "evidence_role": "professional_reporting",
+  "geopolitical_environment": "western_wire",
+  "id": "EVD-20260822-001",
+  "kind": "evidence",
+  "limitation": "AP establishes a professional-reporting lineage for the public warning dispute and linkage claim; it does not independently resolve whether Turkish forces or assets were actually deploying at the base.",
+  "observation": "AP reports Tom Barrack said Israel did not warn the United States before striking Syria's Abu Duhur base, and reports Israeli officials disputed the account while tying the strike to alleged Turkish deployment risk.",
+  "origin_language": "en",
+  "originating_chain": "CHAIN-AP-ABU-DUHUR-WARNING",
+  "representation_sha256": "13c8c961c45d97890cac9f649eeb1711f694d966cd8215c8bc81cadf1c83008d",
+  "retrieved_at": "2026-08-23",
+  "revision_of": null,
+  "schema_version": 1,
+  "source_id": "VSRC-RPT-AP",
+  "status": "active",
+  "translation_provenance": "not_required",
+  "url": "https://apnews.com/article/7c77c4dc90fd8aa1e87c85abc287b6fb"
+}

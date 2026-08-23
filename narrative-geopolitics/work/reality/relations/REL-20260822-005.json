@@ -1,0 +1,14 @@
+{
+  "as_of": "2026-08-22",
+  "created_at": "2026-08-22T00:00:00Z",
+  "created_by": "operator",
+  "from_id": "EVD-20260822-005",
+  "id": "REL-20260822-005",
+  "kind": "relation",
+  "relation_type": "supports",
+  "revision_of": null,
+  "schema_version": 1,
+  "scope": "Supports the public Turkey-Israel allegation dispute and external professional-reporting environment: Reuters reports Israel's stated Turkish-deployment rationale and Turkey's rejection of those allegations after the Abu Duhur strike.",
+  "status": "active",
+  "to_id": "OPC-20260822-01"
+}

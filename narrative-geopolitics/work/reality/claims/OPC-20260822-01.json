@@ -1,0 +1,19 @@
+{
+  "aliases": [],
+  "as_of": "2026-08-22",
+  "claim_type": "operational_factual",
+  "claimant_refs": [],
+  "consequence": "medium",
+  "created_at": "2026-08-22T00:00:00Z",
+  "created_by": "operator",
+  "crisis_object": "Israel-Syria-Turkey deconfliction risk",
+  "empirical_eligibility": true,
+  "id": "OPC-20260822-01",
+  "kind": "claim",
+  "revision_of": null,
+  "schema_version": 1,
+  "scope": "bounded claim",
+  "source_refs": [],
+  "status": "open",
+  "text": "A recent Israeli strike on Syria's Abu Duhur air base produced a public U.S.-Israeli warning dispute and was linked by Israeli officials or security sources to Turkish military presence or activity at or near the base."
+}

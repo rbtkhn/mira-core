@@ -1,0 +1,23 @@
+{
+  "access_language": "en",
+  "as_of": "2026-08-22",
+  "created_at": "2026-08-22T00:00:00Z",
+  "created_by": "operator",
+  "event_time": "2026-08-22",
+  "evidence_role": "professional_reporting",
+  "geopolitical_environment": "turkish_state_affiliated",
+  "id": "EVD-20260822-002",
+  "kind": "evidence",
+  "limitation": "State-affiliated Turkish reporting is useful for Barrack-attributed statements and Turkish/regional framing, but is not independent confirmation of the contested deployment facts.",
+  "observation": "Anadolu reports Barrack said Israel had intelligence that Türkiye might move military assets to Abu al-Duhur, that U.S. review found the claim not true, and that neither Washington nor Ankara was informed before the Israeli attack.",
+  "origin_language": "tr",
+  "originating_chain": "CHAIN-ANADOLU-BARRACK-ABU-DUHUR",
+  "representation_sha256": "03f10278df180956cdc5d60e0fd9390977c06034d724a0c462acadb11914da5e",
+  "retrieved_at": "2026-08-23",
+  "revision_of": null,
+  "schema_version": 1,
+  "source_id": "VSRC-RPT-ANADOLU",
+  "status": "active",
+  "translation_provenance": "official_edition",
+  "url": "https://www.aa.com.tr/en/americas/us-says-intelligence-behind-israeli-strike-on-syria-air-base-was-wrong/4034480"
+}

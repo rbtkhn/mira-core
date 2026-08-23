@@ -1,0 +1,23 @@
+{
+  "access_language": "en",
+  "as_of": "2026-08-22",
+  "created_at": "2026-08-22T00:00:00Z",
+  "created_by": "operator",
+  "event_time": "2026-08-19",
+  "evidence_role": "professional_reporting",
+  "geopolitical_environment": "western_reporting",
+  "id": "EVD-20260822-003",
+  "kind": "evidence",
+  "limitation": "Axios provides a Syrian official-position challenge to the Turkish deployment premise; it does not independently prove the absence of any Turkish visit, advisory presence, or future planning.",
+  "observation": "Axios reports Syrian Foreign Minister Asaad al-Shaibani said Syria had informed Israel there were no plans for a permanent Turkish base or Turkish military deployment at Abu Duhur and that rehabilitation was for Syrian control.",
+  "origin_language": "en",
+  "originating_chain": "CHAIN-AXIOS-SYRIA-FM-ABU-DUHUR",
+  "representation_sha256": "f26e5232e7a08ea3c28996c43ea08b803250470ac61ab90b24a28ed6175b85e8",
+  "retrieved_at": "2026-08-23",
+  "revision_of": null,
+  "schema_version": 1,
+  "source_id": "VSRC-RPT-AXIOS",
+  "status": "active",
+  "translation_provenance": "not_required",
+  "url": "https://www.axios.com/2026/08/19/syria-foreign-minister-israel-bombing-airbase"
+}

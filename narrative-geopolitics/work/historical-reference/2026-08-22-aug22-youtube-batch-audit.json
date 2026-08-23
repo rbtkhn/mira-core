@@ -1,0 +1,257 @@
+{
+  "run_id": "2026-08-22-aug22-youtube-batch-audit",
+  "state": "landed",
+  "voices": [
+    "davis",
+    "escobar",
+    "johnson"
+  ],
+  "versions": {
+    "schema": "2",
+    "taxonomy": "2",
+    "detector": "3",
+    "mechanism": "1"
+  },
+  "receipts": [
+    {
+      "source_id": "archive/sources/geopolitics/sources/2026-08-22/source-breaking-iran-threatens-to-strike-countries-that-abide-by-trump-s-sanctions-w-larry-johnson-2026-08-22.md",
+      "status": "landed",
+      "fingerprint": {
+        "source_id": "archive/sources/geopolitics/sources/2026-08-22/source-breaking-iran-threatens-to-strike-countries-that-abide-by-trump-s-sanctions-w-larry-johnson-2026-08-22.md",
+        "archive_path": "archive/sources/geopolitics/sources/2026-08-22/source-breaking-iran-threatens-to-strike-countries-that-abide-by-trump-s-sanctions-w-larry-johnson-2026-08-22.md",
+        "file_hash": "5788d79f4ac431a976f9fd352993add1519c4b62364371ee0122ca955467fc7b",
+        "taxonomy_version": "2",
+        "detector_version": "3",
+        "mechanism_version": "1",
+        "voice_scope": "davis,escobar,johnson"
+      },
+      "record_count": 1,
+      "archive_path": "archive/sources/geopolitics/sources/2026-08-22/source-breaking-iran-threatens-to-strike-countries-that-abide-by-trump-s-sanctions-w-larry-johnson-2026-08-22.md",
+      "warnings": [
+        "provisional attribution"
+      ]
+    },
+    {
+      "source_id": "archive/sources/geopolitics/sources/2026-08-22/source-iran-remains-fearless-lt-col-daniel-davis-2026-08-22.md",
+      "status": "landed",
+      "fingerprint": {
+        "source_id": "archive/sources/geopolitics/sources/2026-08-22/source-iran-remains-fearless-lt-col-daniel-davis-2026-08-22.md",
+        "archive_path": "archive/sources/geopolitics/sources/2026-08-22/source-iran-remains-fearless-lt-col-daniel-davis-2026-08-22.md",
+        "file_hash": "b6d1d945b047a2a6e35caec452c89424826aa8d284c04577b268d7981fa99324",
+        "taxonomy_version": "2",
+        "detector_version": "3",
+        "mechanism_version": "1",
+        "voice_scope": "davis,escobar,johnson"
+      },
+      "record_count": 1,
+      "archive_path": "archive/sources/geopolitics/sources/2026-08-22/source-iran-remains-fearless-lt-col-daniel-davis-2026-08-22.md",
+      "warnings": [
+        "provisional attribution"
+      ]
+    },
+    {
+      "source_id": "archive/sources/geopolitics/sources/2026-08-22/source-pepe-escobar-u-s-desperation-in-iran-bribing-the-irgc-and-preparing-for-a-nuclear-strike-2026-08-22.md",
+      "status": "landed",
+      "fingerprint": {
+        "source_id": "archive/sources/geopolitics/sources/2026-08-22/source-pepe-escobar-u-s-desperation-in-iran-bribing-the-irgc-and-preparing-for-a-nuclear-strike-2026-08-22.md",
+        "archive_path": "archive/sources/geopolitics/sources/2026-08-22/source-pepe-escobar-u-s-desperation-in-iran-bribing-the-irgc-and-preparing-for-a-nuclear-strike-2026-08-22.md",
+        "file_hash": "9c706f8d67f6c24a7b9803ae033f50829c45b347deb2176e12def6dc1d9f28ca",
+        "taxonomy_version": "2",
+        "detector_version": "3",
+        "mechanism_version": "1",
+        "voice_scope": "davis,escobar,johnson"
+      },
+      "record_count": 0,
+      "archive_path": "archive/sources/geopolitics/sources/2026-08-22/source-pepe-escobar-u-s-desperation-in-iran-bribing-the-irgc-and-preparing-for-a-nuclear-strike-2026-08-22.md",
+      "warnings": []
+    }
+  ],
+  "records": [
+    {
+      "occurrence_id": "archive/sources/geopolitics/sources/2026-08-22/source-breaking-iran-threatens-to-strike-countries-that-abide-by-trump-s-sanctions-w-larry-johnson-2026-08-22.md:jcpoa:3",
+      "voices": [
+        "johnson"
+      ],
+      "source_id": "archive/sources/geopolitics/sources/2026-08-22/source-breaking-iran-threatens-to-strike-countries-that-abide-by-trump-s-sanctions-w-larry-johnson-2026-08-22.md",
+      "archive_path": "archive/sources/geopolitics/sources/2026-08-22/source-breaking-iran-threatens-to-strike-countries-that-abide-by-trump-s-sanctions-w-larry-johnson-2026-08-22.md",
+      "date": "2026-08-22",
+      "title": "BREAKING: IRAN THREATENS TO STRIKE COUNTRIES THAT ABIDE BY TRUMP'S SANCTIONS — w/ Larry Johnson",
+      "quote": "Hey there. What are you doing? >> Not much. You >> I'm here. >> So, tell me more about how cigars are smoking. It's smoked to in today's age. >> What do you mean? >> How many fingers do you use? How many fingers do you use to hold it? >> Two. >> Two. >> Oh, okay. All right. Cool. just uh >> like Winston Church now in World War II when Winston Churchill did you know this for be for victory. >> Yeah. Remember >> remember he was told uh that's a that does uh among the working class that's an obscene expression basically means up your ass. [laughter] >> Yeah. Yeah. >> So started going oh you know >> Yeah. Yeah, it was uh he was doing it like this and it was I think someone at a train stop or tra",
+      "reference_id": "jcpoa",
+      "reference": "JCPOA / Iran nuclear diplomacy",
+      "parent_period": "historical period",
+      "attribution_confidence": "provisional",
+      "mechanism_suggestions": [
+        {
+          "id": "M-FR-002",
+          "name": "institutional memory and diplomatic credibility",
+          "basis": "native reference adapter"
+        }
+      ],
+      "crosswalk_suggestions": [
+        {
+          "target": "M-FR-002",
+          "confidence": "suggested",
+          "rationale": "native reference adapter",
+          "conflict_status": "unreviewed",
+          "review_status": "unreviewed"
+        }
+      ],
+      "risk_score": 3,
+      "review_status": "needs-review"
+    },
+    {
+      "occurrence_id": "archive/sources/geopolitics/sources/2026-08-22/source-iran-remains-fearless-lt-col-daniel-davis-2026-08-22.md:jcpoa:3",
+      "voices": [
+        "davis"
+      ],
+      "source_id": "archive/sources/geopolitics/sources/2026-08-22/source-iran-remains-fearless-lt-col-daniel-davis-2026-08-22.md",
+      "archive_path": "archive/sources/geopolitics/sources/2026-08-22/source-iran-remains-fearless-lt-col-daniel-davis-2026-08-22.md",
+      "date": "2026-08-22",
+      "title": "IRAN REMAINS FEARLESS /Lt Col Daniel Davis",
+      "quote": "President Trump seems to really feel like he's in the driver's seat now. And this whole economic fury, he thinks, is driving Iran to its knees. >> So, we went down and we stopped them. They'll never have a nuclear weapon. They want to make a deal so badly. We don't even know if we want because I view the Straight of Hormos as an American territory right now. It's an American territory. Again, there you see all this these applause because yay, we're going to just take by caveat the territory of another country. And by the way, that also includes part of Oman. I don't I don't know if we still have that uh I don't think we do. No, we don't have that graphic handy that Trump himself had posted. ",
+      "reference_id": "jcpoa",
+      "reference": "JCPOA / Iran nuclear diplomacy",
+      "parent_period": "historical period",
+      "attribution_confidence": "provisional",
+      "mechanism_suggestions": [
+        {
+          "id": "M-FR-002",
+          "name": "institutional memory and diplomatic credibility",
+          "basis": "native reference adapter"
+        }
+      ],
+      "crosswalk_suggestions": [
+        {
+          "target": "M-FR-002",
+          "confidence": "suggested",
+          "rationale": "native reference adapter",
+          "conflict_status": "unreviewed",
+          "review_status": "unreviewed"
+        }
+      ],
+      "risk_score": 3,
+      "review_status": "needs-review"
+    }
+  ],
+  "backtest": {
+    "source_ids": [],
+    "archive_paths": [],
+    "dates": [],
+    "records": []
+  },
+  "characterizations": [
+    {
+      "voice": "davis",
+      "characterization": "uses recent strategic precedent to interpret alliance dependency and escalation limits",
+      "analytical_function": "strategic-precedent",
+      "characterization_confidence": "untested",
+      "backtest_sample_count": 0,
+      "backtest_date_count": 0,
+      "date_coverage": [],
+      "coverage_gaps": [],
+      "falsifier": "A sample with repeated formal historical analogies rather than recent operational precedent would require reclassification.",
+      "forecast_linkage": [],
+      "source_ids": [],
+      "archive_paths": [],
+      "pilot_occurrence_ids": [
+        "archive/sources/geopolitics/sources/2026-08-22/source-iran-remains-fearless-lt-col-daniel-davis-2026-08-22.md:jcpoa:3"
+      ],
+      "backtest_occurrence_ids": [],
+      "backtest_status": "complete-window"
+    },
+    {
+      "voice": "escobar",
+      "characterization": "historical-reference function requires operator review",
+      "analytical_function": "other-review-required",
+      "characterization_confidence": "untested",
+      "backtest_sample_count": 0,
+      "backtest_date_count": 0,
+      "date_coverage": [],
+      "coverage_gaps": [],
+      "falsifier": "Operator review is required to define a discriminating observable.",
+      "forecast_linkage": [],
+      "source_ids": [],
+      "archive_paths": [],
+      "pilot_occurrence_ids": [],
+      "backtest_occurrence_ids": [],
+      "backtest_status": "complete-window"
+    },
+    {
+      "voice": "johnson",
+      "characterization": "uses historical references to evaluate diplomatic credibility and negotiated off-ramps under coercive pressure",
+      "analytical_function": "strategic-precedent",
+      "characterization_confidence": "untested",
+      "backtest_sample_count": 0,
+      "backtest_date_count": 0,
+      "date_coverage": [],
+      "coverage_gaps": [],
+      "falsifier": "Repeated future samples dominated by tactical battlefield analogies without negotiation, credibility, or off-ramp analysis would weaken this characterization.",
+      "forecast_linkage": [],
+      "source_ids": [],
+      "archive_paths": [],
+      "pilot_occurrence_ids": [
+        "archive/sources/geopolitics/sources/2026-08-22/source-breaking-iran-threatens-to-strike-countries-that-abide-by-trump-s-sanctions-w-larry-johnson-2026-08-22.md:jcpoa:3"
+      ],
+      "backtest_occurrence_ids": [],
+      "backtest_status": "complete-window"
+    }
+  ],
+  "characterization_review_queue": [
+    {
+      "voice": "davis",
+      "characterization": "uses recent strategic precedent to interpret alliance dependency and escalation limits",
+      "analytical_function": "strategic-precedent",
+      "characterization_confidence": "untested",
+      "backtest_sample_count": 0,
+      "backtest_date_count": 0,
+      "date_coverage": [],
+      "coverage_gaps": [],
+      "falsifier": "A sample with repeated formal historical analogies rather than recent operational precedent would require reclassification.",
+      "forecast_linkage": [],
+      "source_ids": [],
+      "archive_paths": [],
+      "pilot_occurrence_ids": [
+        "archive/sources/geopolitics/sources/2026-08-22/source-iran-remains-fearless-lt-col-daniel-davis-2026-08-22.md:jcpoa:3"
+      ],
+      "backtest_occurrence_ids": [],
+      "backtest_status": "complete-window"
+    },
+    {
+      "voice": "escobar",
+      "characterization": "historical-reference function requires operator review",
+      "analytical_function": "other-review-required",
+      "characterization_confidence": "untested",
+      "backtest_sample_count": 0,
+      "backtest_date_count": 0,
+      "date_coverage": [],
+      "coverage_gaps": [],
+      "falsifier": "Operator review is required to define a discriminating observable.",
+      "forecast_linkage": [],
+      "source_ids": [],
+      "archive_paths": [],
+      "pilot_occurrence_ids": [],
+      "backtest_occurrence_ids": [],
+      "backtest_status": "complete-window"
+    },
+    {
+      "voice": "johnson",
+      "characterization": "uses historical references to evaluate diplomatic credibility and negotiated off-ramps under coercive pressure",
+      "analytical_function": "strategic-precedent",
+      "characterization_confidence": "untested",
+      "backtest_sample_count": 0,
+      "backtest_date_count": 0,
+      "date_coverage": [],
+      "coverage_gaps": [],
+      "falsifier": "Repeated future samples dominated by tactical battlefield analogies without negotiation, credibility, or off-ramp analysis would weaken this characterization.",
+      "forecast_linkage": [],
+      "source_ids": [],
+      "archive_paths": [],
+      "pilot_occurrence_ids": [
+        "archive/sources/geopolitics/sources/2026-08-22/source-breaking-iran-threatens-to-strike-countries-that-abide-by-trump-s-sanctions-w-larry-johnson-2026-08-22.md:jcpoa:3"
+      ],
+      "backtest_occurrence_ids": [],
+      "backtest_status": "complete-window"
+    }
+  ]
+}

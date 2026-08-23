@@ -1,4 +1,4 @@
-<!-- reality-lattice-v1 records-sha256: f208f3d0253c56d9e8651918f38757dbcc883b1e3455cdd577e1ddd2c6714748 -->
+<!-- reality-lattice-v1 records-sha256: a92591b6ae7f5931380ef21a7c367494a8cb4946e67028ebeaaa006819f9149e -->
 <!-- Generated from structured reality records. Do not edit directly. -->
 
 # Multilingual Coverage
@@ -49,3 +49,5 @@
 | `OPC-20260714-02` | 3 | ar, en, fa, fr | 3 | 7 | `True` | `True` |
 | `OPC-20260714-03` | 3 | none | 3 | 0 | `False` | `False` |
 | `OPC-20260720-01` | 3 | none | 3 | 0 | `False` | `False` |
+| `OPC-20260818-01` | 3 | none | 3 | 0 | `False` | `False` |
+| `OPC-20260822-01` | 2 | en, tr | 2 | 3 | `True` | `True` |

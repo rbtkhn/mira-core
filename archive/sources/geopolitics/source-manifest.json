@@ -2,7 +2,7 @@
   "manifest_id": "narrative-geopolitics-source-manifest-v1",
   "source_basis": "central archive with completed historical strategy-codex imports",
   "imported_at": "2026-07-09",
-  "source_count": 2207,
+  "source_count": 2213,
   "boundary": {
     "archive": "source truth",
     "voices": "voice continuity and routing",
@@ -59637,6 +59637,144 @@
       "source_url": "https://www.youtube.com/watch?v=eLDajGF5Bs0",
       "title_source": "transcript",
       "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-22",
+      "title": "BREAKING: IRAN THREATENS TO STRIKE COUNTRIES THAT ABIDE BY TRUMP'S SANCTIONS — w/ Larry Johnson",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-22/source-breaking-iran-threatens-to-strike-countries-that-abide-by-trump-s-sanctions-w-larry-johnson-2026-08-22.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-22/source-breaking-iran-threatens-to-strike-countries-that-abide-by-trump-s-sanctions-w-larry-johnson-2026-08-22.md",
+      "upstream_path": "operator-paste://2026-08-22/breaking-iran-threatens-to-strike-countries-that-abide-by-trump-s-sanctions-w-larry-johnson",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "johnson"
+      ],
+      "host_slug": "mario-nawfal",
+      "source_identity": "youtube:h_W7Sj7Mi2s",
+      "source_url": "https://www.youtube.com/watch?v=h_W7Sj7Mi2s",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-22",
+      "title": "IRAN REMAINS FEARLESS /Lt Col Daniel Davis",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-22/source-iran-remains-fearless-lt-col-daniel-davis-2026-08-22.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-22/source-iran-remains-fearless-lt-col-daniel-davis-2026-08-22.md",
+      "upstream_path": "operator-paste://2026-08-22/iran-remains-fearless-lt-col-daniel-davis",
+      "source_class": "host monologue",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "davis"
+      ],
+      "host_slug": "daniel-davis",
+      "source_identity": "youtube:WVcBzCQY7qw",
+      "source_url": "https://www.youtube.com/watch?v=WVcBzCQY7qw",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-22",
+      "title": "Pepe Escobar: U.S. Desperation in Iran: Bribing the IRGC—and Preparing for a Nuclear Strike?",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-22/source-pepe-escobar-u-s-desperation-in-iran-bribing-the-irgc-and-preparing-for-a-nuclear-strike-2026-08-22.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-22/source-pepe-escobar-u-s-desperation-in-iran-bribing-the-irgc-and-preparing-for-a-nuclear-strike-2026-08-22.md",
+      "upstream_path": "operator-paste://2026-08-22/pepe-escobar-u-s-desperation-in-iran-bribing-the-irgc-and-preparing-for-a-nuclear-strike",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "escobar"
+      ],
+      "host_slug": "glenn-diesen",
+      "source_identity": "youtube:ACDwXDICn4s",
+      "source_url": "https://www.youtube.com/watch?v=ACDwXDICn4s",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-22",
+      "title": "Russia Pounds Odessa Encircles Dobropilia Strikes Kiev Again; Ukraine Hyperinflation Fears Return",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-22/source-russia-pounds-odessa-encircles-dobropilia-strikes-kiev-again-ukraine-hyperinflation-fears-return-2026-08-22.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-22/source-russia-pounds-odessa-encircles-dobropilia-strikes-kiev-again-ukraine-hyperinflation-fears-return-2026-08-22.md",
+      "upstream_path": "operator-paste://2026-08-22/russia-pounds-odessa-encircles-dobropilia-strikes-kiev-again-ukraine-hyperinflation-fears-return",
+      "source_class": "host monologue",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "alexander-mercouris",
+      "source_identity": "youtube:P2459OhWUuo",
+      "source_url": "https://www.youtube.com/watch?v=P2459OhWUuo",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-22",
+      "title": "Seyed M. Marandi: Trump to Squeeze Iran’s Economy to the Brink—But Tehran Just Doubled Its Arsenal",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-22/source-seyed-m-marandi-trump-to-squeeze-iran-s-economy-to-the-brink-but-tehran-just-doubled-its-arsenal-2026-08-22.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-22/source-seyed-m-marandi-trump-to-squeeze-iran-s-economy-to-the-brink-but-tehran-just-doubled-its-arsenal-2026-08-22.md",
+      "upstream_path": "operator-paste://2026-08-22/seyed-m-marandi-trump-to-squeeze-iran-s-economy-to-the-brink-but-tehran-just-doubled-its-arsenal",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "marandi"
+      ],
+      "host_slug": "dialogue-works",
+      "source_identity": "youtube:L8UDNXubKFs",
+      "source_url": "https://www.youtube.com/watch?v=L8UDNXubKFs",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-22",
+      "title": "Larry Johnson: Iran Just Flipped the Script: Offensive to Break the Economic Siege",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-22/source-larry-johnson-iran-just-flipped-the-script-offensive-to-break-the-economic-siege-2026-08-22.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-22/source-larry-johnson-iran-just-flipped-the-script-offensive-to-break-the-economic-siege-2026-08-22.md",
+      "upstream_path": "operator-paste://2026-08-22/larry-johnson-iran-just-flipped-the-script-offensive-to-break-the-economic-siege",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "johnson"
+      ],
+      "host_slug": "dialogue-works",
+      "source_identity": "youtube:h2SaRdsG7F0",
+      "source_url": "https://www.youtube.com/watch?v=h2SaRdsG7F0",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
       "inference_basis": [
         "wrapper-normalized",
         "explicit-host",
