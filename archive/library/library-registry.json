@@ -15203,9 +15203,28 @@
       },
       "status": "stub",
       "notes": "Industrial metadata Batch 003. Function: state-law-constitution. Boundary: metadata-only registry stub for Annihilation of Caste; constitutional speeches. Rights/body gate: rights/source review required.",
-      "text_status": "missing",
+      "text_status": "available",
       "coverage_status": "selected-works",
-      "coverage_notes": "Metadata-only Industrial Batch 003 record. No body downloaded, inspected, admitted, or represented as available. Coverage ceiling from design packet: selected-works."
+      "coverage_notes": "Metadata-only Industrial Batch 003 record. No body downloaded, inspected, admitted, or represented as available. Coverage ceiling from design packet: selected-works.",
+      "text_bodies": [
+        {
+          "body_id": "LIB-INDUSTRIAL-AUTHORITY-048-AMBEDKAR-ANNIHILATION-CASTE-COLUMBIA-DERIVED",
+          "work_title": "Annihilation of Caste",
+          "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-048-AMBEDKAR-ANNIHILATION-CASTE-COLUMBIA-DERIVED.txt",
+          "text_sha256": "a27a8f18e9db92a4e06b73c047a9ebdbfb3d0273559a60acb211be99b5131d2f",
+          "text_bytes": 213621,
+          "text_encoding": "utf-8",
+          "language": "English",
+          "translator": "",
+          "editor": "",
+          "edition_label": "Columbia University online PDF-derived text; 2004 teaching edition of Annihilation of Caste",
+          "license_status": "permissioned",
+          "license_notes": "private-reading-online-source; no redistribution; source PDF available online from Columbia University teaching project",
+          "coverage_status": "complete-work",
+          "coverage_notes": "PDF text-layer extraction with 50 page boundaries; no OCR correction; represents Annihilation of Caste as hosted in the Columbia teaching packet.",
+          "status": "available"
+        }
+      ]
     },
     {
       "source_id": "LIB-INDUSTRIAL-AUTHORITY-076-MARTI",
@@ -16430,10 +16449,28 @@
       },
       "status": "stub",
       "notes": "Industrial metadata Batch 005. Function: indigenous-colonized-witness. Boundary: metadata-only registry stub for speeches and dictated/narrated testimony. Rights/body gate: speech/textual tradition requires edition and attribution review.",
-      "text_status": "missing",
+      "text_status": "available",
       "coverage_status": "selected-works",
       "coverage_notes": "Metadata-only Industrial Batch 005 record. No body downloaded, inspected, admitted, or represented as available. Coverage ceiling from design packet: selected-works; speech and dictated testimony witnesses must remain textually distinct.",
-      "text_bodies": []
+      "text_bodies": [
+        {
+          "body_id": "LIB-INDUSTRIAL-AUTHORITY-028-SOJOURNER-TRUTH-NARRATIVE-PG1674-DERIVED",
+          "work_title": "The Narrative of Sojourner Truth",
+          "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-028-SOJOURNER-TRUTH-NARRATIVE-PG1674-DERIVED.txt",
+          "text_sha256": "91be43f4f5692a2b2f49877bad7f35941f62067a5c55f9518940bf80c0673cbd",
+          "text_bytes": 196764,
+          "text_encoding": "utf-8",
+          "language": "English",
+          "translator": "",
+          "editor": "Olive Gilbert",
+          "edition_label": "Project Gutenberg #1674 HTML-derived text; 1850 narrative edited by Olive Gilbert; BUILD-A-BOOK provenance retained",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg states public domain in the USA; private-reading library derived text with source SHA recorded in file header",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Complete PG narrative text extracted between Project Gutenberg start/end markers; dictated testimony and editorial mediation remain explicit in edition label.",
+          "status": "available"
+        }
+      ]
     },
     {
       "source_id": "LIB-INDUSTRIAL-AUTHORITY-040-FARADAY",
@@ -16709,10 +16746,28 @@
       },
       "status": "stub",
       "notes": "Industrial metadata Batch 005. Function: labor-social-question. Boundary: metadata-only registry stub for Up from Slavery; Atlanta Exposition address. Rights/body gate: public-domain likely; speech/text edition review required.",
-      "text_status": "missing",
+      "text_status": "available",
       "coverage_status": "selected-works",
       "coverage_notes": "Metadata-only Industrial Batch 005 record. No body downloaded, inspected, admitted, or represented as available. Coverage ceiling from design packet: selected-works.",
-      "text_bodies": []
+      "text_bodies": [
+        {
+          "body_id": "LIB-INDUSTRIAL-AUTHORITY-093-WASHINGTON-UP-FROM-SLAVERY-PG2376",
+          "work_title": "Up from Slavery: An Autobiography",
+          "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-093-WASHINGTON-UP-FROM-SLAVERY-PG2376.txt",
+          "text_sha256": "084e7f54e60b9ae26ecf2ab23f1789db44d926c3b02106a984f475f9ccc7bdbe",
+          "text_bytes": 449257,
+          "text_encoding": "utf-8",
+          "language": "English",
+          "translator": "",
+          "editor": "",
+          "edition_label": "Project Gutenberg #2376 plain text; release 2000, updated 2025",
+          "license_status": "public-domain",
+          "license_notes": "Project Gutenberg states public domain in the USA; private-reading library body",
+          "coverage_status": "complete-work",
+          "coverage_notes": "Complete PG text for Up from Slavery; Atlanta Exposition address is represented inside the autobiography but remains separately citable if later admitted as a speech body.",
+          "status": "available"
+        }
+      ]
     },
     {
       "source_id": "LIB-INDUSTRIAL-AUTHORITY-036-NIETZSCHE",

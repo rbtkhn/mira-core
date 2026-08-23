@@ -1,0 +1,111 @@
+{
+  "status": "admitted-private-reading",
+  "era": "industrial",
+  "date": "2026-08-23",
+  "gate": "operator-review-before-commit",
+  "private_text_root": "C:\\private\\mira-library-texts",
+  "inspection_root": "C:\\private\\mira-library-texts\\inspection\\industrial-batch-007-online",
+  "authority_boundary": {
+    "registry_mutated": true,
+    "indexes_regenerated": true,
+    "archive_ingestion": false,
+    "staged": false,
+    "committed": false,
+    "pushed": false,
+    "published": false,
+    "redistributed": false
+  },
+  "counts": {
+    "authorities_attempted": 3,
+    "authorities_admitted": 3,
+    "bodies_attempted": 3,
+    "bodies_admitted": 3,
+    "bodies_deferred": 4
+  },
+  "admitted_bodies": [
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-093-WASHINGTON",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-093-WASHINGTON-UP-FROM-SLAVERY-PG2376",
+      "authority": "Booker T. Washington",
+      "work_title": "Up from Slavery: An Autobiography",
+      "source": "Project Gutenberg #2376 plain text",
+      "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-093-WASHINGTON-UP-FROM-SLAVERY-PG2376.txt",
+      "text_bytes": 449257,
+      "text_sha256": "084e7f54e60b9ae26ecf2ab23f1789db44d926c3b02106a984f475f9ccc7bdbe",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-028-SOJOURNER-TRUTH",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-028-SOJOURNER-TRUTH-NARRATIVE-PG1674-DERIVED",
+      "authority": "Sojourner Truth textual tradition",
+      "work_title": "The Narrative of Sojourner Truth",
+      "source": "Project Gutenberg #1674 HTML-derived text",
+      "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-028-SOJOURNER-TRUTH-NARRATIVE-PG1674-DERIVED.txt",
+      "text_bytes": 196764,
+      "text_sha256": "91be43f4f5692a2b2f49877bad7f35941f62067a5c55f9518940bf80c0673cbd",
+      "license_status": "public-domain",
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-INDUSTRIAL-AUTHORITY-048-AMBEDKAR",
+      "body_id": "LIB-INDUSTRIAL-AUTHORITY-048-AMBEDKAR-ANNIHILATION-CASTE-COLUMBIA-DERIVED",
+      "authority": "B. R. Ambedkar",
+      "work_title": "Annihilation of Caste",
+      "source": "Columbia University online PDF-derived text",
+      "text_location": "library-text://LIB-INDUSTRIAL-AUTHORITY-048-AMBEDKAR-ANNIHILATION-CASTE-COLUMBIA-DERIVED.txt",
+      "text_bytes": 213621,
+      "text_sha256": "a27a8f18e9db92a4e06b73c047a9ebdbfb3d0273559a60acb211be99b5131d2f",
+      "license_status": "permissioned",
+      "license_notes": "private-reading-online-source; no redistribution",
+      "coverage_status": "complete-work"
+    }
+  ],
+  "deferred_candidates": [
+    {
+      "authority": "Rosa Luxemburg",
+      "state": "body-research-incomplete",
+      "reason": "MIA index pages downloaded; component pages not yet downloaded or combined."
+    },
+    {
+      "authority": "Max Weber",
+      "state": "body-research-incomplete",
+      "reason": "Wikisource shell downloaded; extraction and edition posture need review."
+    },
+    {
+      "authority": "Rachel Carson",
+      "state": "body-research-incomplete",
+      "reason": "Full-text route remains unresolved after prior Faded Page gate/detail page."
+    },
+    {
+      "authority": "Fukuzawa Yukichi",
+      "state": "body-research-incomplete",
+      "reason": "No clean online full-text route selected in this batch."
+    }
+  ],
+  "validation": [
+    {
+      "command": "MIRA_CORE_LIBRARY_TEXT_ROOT=C:\\private\\mira-library-texts tools\\run.ps1 library render-index --json",
+      "status": "passed"
+    },
+    {
+      "command": "MIRA_CORE_LIBRARY_TEXT_ROOT=C:\\private\\mira-library-texts tools\\run.ps1 library validate --json",
+      "status": "passed"
+    },
+    {
+      "command": "MIRA_CORE_LIBRARY_TEXT_ROOT=C:\\private\\mira-library-texts tools\\run.ps1 library render-index --check --json",
+      "status": "passed"
+    },
+    {
+      "command": "MIRA_CORE_LIBRARY_TEXT_ROOT=C:\\private\\mira-library-texts tools\\run.ps1 test --path tests/test_archive_library.py",
+      "status": "passed",
+      "tests": 26
+    },
+    {
+      "command": "direct private payload SHA-256 and byte-count comparison for newly admitted bodies",
+      "status": "passed"
+    }
+  ],
+  "full_verify_texts_status": "not-run-global-tooling-has-pre-existing-unrelated-private-payload-gaps",
+  "re_entry_point": "Commit Batch 007 registry, index, and receipt changes, or continue route work for Luxemburg, Weber, Carson, and Fukuzawa."
+}
