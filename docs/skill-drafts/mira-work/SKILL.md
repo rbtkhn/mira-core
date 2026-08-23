@@ -153,6 +153,20 @@ Chunking and retry threshold:
 Human review or handoff point:
 ```
 
+When the work is meant to improve a process, decision, workflow, handoff, or
+customer-facing outcome, add this optional constraint-proof section. It is
+planning discipline only: it is not evidence of success and grants no action
+authority.
+
+```text
+Constraint proof:
+Constraint attacked:
+Outcome bucket:
+Baseline:
+Expected after-state:
+Proof window:
+```
+
 Every completed Mira Work task returns a useful result plus this compact
 conversational receipt. Retain the labels but omit fields that are immaterial
 to the task:
@@ -222,6 +236,11 @@ When auditing or revising Mira Work, read
 [`references/validation-fixtures.json`](references/validation-fixtures.json).
 Treat its cases as human-reviewed behavioral benchmarks, not machine-scored
 proof of prose quality or historical performance.
+
+Maintain this skill by sharpening constraints, examples, evidence standards,
+and authority boundaries. Avoid generic intelligence advice, excessive
+step-by-step micromanagement, and stale compensations for capabilities the
+current system no longer lacks.
 
 ## Composition and precedence
 

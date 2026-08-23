@@ -27,6 +27,10 @@ def complete_inline_preflight() -> str:
     return "\n".join(f"{field}: filled" for field in subject.PREFLIGHT_FIELDS)
 
 
+def complete_inline_preflight_advisory() -> str:
+    return "\n".join(f"{field}: filled" for field in subject.PREFLIGHT_ADVISORY_FIELDS)
+
+
 def set_repo_root(monkeypatch, root: Path) -> Path:
     root.mkdir(parents=True, exist_ok=True)
     monkeypatch.setattr(subject, "REPO_ROOT", root)
@@ -193,6 +197,32 @@ def test_complete_multiline_preflight_passes(tmp_path, monkeypatch) -> None:
     assert result["missing_fields"] == []
 
 
+def test_preflight_passes_when_advisory_fields_are_absent(tmp_path, monkeypatch) -> None:
+    repo = set_repo_root(monkeypatch, tmp_path)
+    preflight = write_receipt(repo / "preflight.md", complete_inline_preflight())
+
+    result = subject.check_preflight(preflight)
+
+    assert result["status"] == "pass"
+    assert result["advisory_fields"] == list(subject.PREFLIGHT_ADVISORY_FIELDS)
+    assert result["present_advisory_fields"] == []
+    assert result["missing_advisory_fields"] == list(subject.PREFLIGHT_ADVISORY_FIELDS)
+
+
+def test_preflight_counts_present_inline_advisory_fields(tmp_path, monkeypatch) -> None:
+    repo = set_repo_root(monkeypatch, tmp_path)
+    preflight = write_receipt(
+        repo / "preflight.md",
+        f"{complete_inline_preflight()}\n{complete_inline_preflight_advisory()}",
+    )
+
+    result = subject.check_preflight(preflight)
+
+    assert result["status"] == "pass"
+    assert result["present_advisory_fields"] == list(subject.PREFLIGHT_ADVISORY_FIELDS)
+    assert result["missing_advisory_fields"] == []
+
+
 def test_missing_required_preflight_label_fails(tmp_path, monkeypatch) -> None:
     repo = set_repo_root(monkeypatch, tmp_path)
     body = "\n".join(f"{field}: filled" for field in subject.PREFLIGHT_FIELDS if field != "Worker or model lane")
@@ -217,6 +247,21 @@ def test_empty_required_preflight_label_fails(tmp_path, monkeypatch, capsys) -> 
     assert output == ["mira_work_preflight=fail", "missing_field=Data sensitivity and exclusions"]
 
 
+def test_preflight_advisory_label_does_not_backfill_empty_required_field(tmp_path, monkeypatch) -> None:
+    repo = set_repo_root(monkeypatch, tmp_path)
+    lines = []
+    for field in subject.PREFLIGHT_FIELDS:
+        lines.append(f"{field}:" if field == "Validation plan" else f"{field}: filled")
+    lines.append("Constraint attacked: manual rediscovery before every handoff")
+    preflight = write_receipt(repo / "preflight.md", "\n".join(lines))
+
+    result = subject.check_preflight(preflight)
+
+    assert result["status"] == "fail"
+    assert result["missing_fields"] == ["Validation plan"]
+    assert result["present_advisory_fields"] == ["Constraint attacked"]
+
+
 def test_preflight_ignores_unrelated_prose_and_non_preflight_fenced_code(tmp_path, monkeypatch) -> None:
     repo = set_repo_root(monkeypatch, tmp_path)
     preflight = write_receipt(
@@ -238,6 +283,7 @@ Chunking and retry threshold: filled
 Human review or handoff point: this code fence should not count
 ```
 Unrelated prose should not backfill the fenced field.
+Constraint attacked: parser boundary should remain visible
 """,
     )
 
@@ -245,6 +291,26 @@ Unrelated prose should not backfill the fenced field.
 
     assert result["status"] == "fail"
     assert result["missing_fields"] == ["Human review or handoff point"]
+    assert result["present_advisory_fields"] == ["Constraint attacked"]
+
+
+def test_preflight_advisory_labels_inside_unrelated_fenced_code_do_not_count(tmp_path, monkeypatch) -> None:
+    repo = set_repo_root(monkeypatch, tmp_path)
+    preflight = write_receipt(
+        repo / "preflight.md",
+        f"""
+{complete_inline_preflight()}
+```
+Constraint attacked: this code fence should not count
+Baseline: this code fence should not count
+```
+""",
+    )
+
+    result = subject.check_preflight(preflight)
+
+    assert result["status"] == "pass"
+    assert result["present_advisory_fields"] == []
 
 
 def test_parses_fenced_mira_work_preflight_template(tmp_path, monkeypatch) -> None:
@@ -255,6 +321,7 @@ def test_parses_fenced_mira_work_preflight_template(tmp_path, monkeypatch) -> No
 ```text
 Mira Work preflight:
 {complete_inline_preflight()}
+{complete_inline_preflight_advisory()}
 ```
 """,
     )
@@ -262,6 +329,7 @@ Mira Work preflight:
     result = subject.check_preflight(preflight)
 
     assert result["status"] == "pass"
+    assert result["present_advisory_fields"] == list(subject.PREFLIGHT_ADVISORY_FIELDS)
 
 
 def test_preflight_check_ignores_fenced_mira_work_completion_template(tmp_path, monkeypatch) -> None:
@@ -296,3 +364,6 @@ def test_preflight_json_output_is_parseable_and_authority_free(tmp_path, monkeyp
     assert output["required_fields"] == list(subject.PREFLIGHT_FIELDS)
     assert output["present_fields"] == list(subject.PREFLIGHT_FIELDS)
     assert output["missing_fields"] == []
+    assert output["advisory_fields"] == list(subject.PREFLIGHT_ADVISORY_FIELDS)
+    assert output["present_advisory_fields"] == []
+    assert output["missing_advisory_fields"] == list(subject.PREFLIGHT_ADVISORY_FIELDS)

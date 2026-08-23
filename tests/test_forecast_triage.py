@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import importlib.util
+import json
 import sys
 from pathlib import Path
 
@@ -36,6 +37,22 @@ def ledger_text(review_date: str = "2026-07-10", accountable: str = "yes") -> st
 | Hook ID | Authored No Later Than | Timing Provenance | Forecast Type | Resolution Status | Accountable | Review Note |
 | --- | --- | --- | --- | --- | --- | --- |
 | `NG-20260707-F01` | `2026-07-08` | `git_commit_upper_bound` | `ex_ante` | `open` | `{accountable}` | Prospective review. |
+"""
+
+
+def ledger_with_missing_and_overdue_rows() -> str:
+    return """# Ledger
+
+| Hook ID | Date | Crisis Object | Claim | Probability Band | Review Date | Source Run | Status |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| `NG-20260707-F01` | `2026-07-07` | Object | Missing triage claim | `likely` | `2026-07-20` | [run](x) | `open` |
+| `NG-20260708-F01` | `2026-07-08` | Object | Overdue claim | `likely` | `2026-07-10` | [run](y) | `open` |
+
+## Accountability Triage
+
+| Hook ID | Authored No Later Than | Timing Provenance | Forecast Type | Resolution Status | Accountable | Review Note |
+| --- | --- | --- | --- | --- | --- | --- |
+| `NG-20260708-F01` | `2026-07-08` | `git_commit_upper_bound` | `ex_ante` | `open` | `yes` | Prospective review. |
 """
 
 
@@ -202,3 +219,59 @@ def test_due_review_link_is_rebased_for_daily_forecast() -> None:
 
     assert "[2026-07-07](../2026-07-07/forecast.md)" in updated
     assert "../daily/2026-07-07/forecast.md" not in updated
+
+
+def test_triage_plan_reports_missing_rows_and_overdue_reviews_without_mutation() -> None:
+    text = ledger_with_missing_and_overdue_rows()
+
+    plan = triage.build_plan(text, "2026-07-20")
+
+    assert plan["authority_effect"] == "none"
+    assert plan["summary"] == {
+        "missing_triage_row_count": 1,
+        "overdue_accountable_forecast_count": 1,
+        "action_count": 2,
+    }
+    assert plan["missing_triage_rows"][0]["hook_id"] == "NG-20260707-F01"
+    assert (
+        "| `NG-20260707-F01` | `2026-07-07` | "
+        "`ledger_entry_run_date; human review required` | `ex_ante` | "
+        "`open` | `yes` |"
+    ) in plan["missing_triage_rows"][0]["suggested_row"]
+    assert plan["overdue_accountable_forecasts"][0]["hook_id"] == "NG-20260708-F01"
+    assert "hit" in plan["overdue_accountable_forecasts"][0]["allowed_dispositions"]
+
+
+def test_triage_plan_json_cli_is_parseable_and_authority_free(
+    tmp_path: Path, monkeypatch, capsys
+) -> None:
+    ledger_path = tmp_path / "forecast-ledger.md"
+    before = ledger_with_missing_and_overdue_rows()
+    ledger_path.write_text(before, encoding="utf-8")
+    monkeypatch.setattr(triage, "LEDGER_PATH", ledger_path)
+
+    triage.main(["plan", "--as-of", "2026-07-20", "--json"])
+
+    output = json.loads(capsys.readouterr().out)
+    assert output["mode"] == "forecast-triage-plan"
+    assert output["authority_effect"] == "none"
+    assert output["summary"]["action_count"] == 2
+    assert ledger_path.read_text(encoding="utf-8") == before
+
+
+def test_triage_validate_json_cli_preserves_failure_exit(tmp_path: Path, monkeypatch, capsys) -> None:
+    ledger_path = tmp_path / "forecast-ledger.md"
+    ledger_path.write_text(ledger_with_missing_and_overdue_rows(), encoding="utf-8")
+    monkeypatch.setattr(triage, "LEDGER_PATH", ledger_path)
+
+    try:
+        triage.main(["validate", "--as-of", "2026-07-20", "--json"])
+    except SystemExit as error:
+        assert error.code == 1
+    else:
+        raise AssertionError("validate did not fail on ledger triage debt")
+
+    output = json.loads(capsys.readouterr().out)
+    assert output["mode"] == "forecast-triage-validate"
+    assert output["authority_effect"] == "none"
+    assert "missing triage row: NG-20260707-F01" in output["failures"]

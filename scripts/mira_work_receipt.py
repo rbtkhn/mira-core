@@ -41,6 +41,14 @@ PREFLIGHT_FIELDS = (
     "Human review or handoff point",
 )
 
+PREFLIGHT_ADVISORY_FIELDS = (
+    "Constraint attacked",
+    "Outcome bucket",
+    "Baseline",
+    "Expected after-state",
+    "Proof window",
+)
+
 CHECKS = {
     "receipt": {
         "block_start": "Mira Work completion",
@@ -51,12 +59,14 @@ CHECKS = {
         "block_start": "Mira Work preflight",
         "fields": PREFLIGHT_FIELDS,
         "output_prefix": "mira_work_preflight",
+        "advisory_fields": PREFLIGHT_ADVISORY_FIELDS,
     },
 }
 
 KNOWN_RECEIPT_LABELS = frozenset(
     REQUIRED_FIELDS
     + PREFLIGHT_FIELDS
+    + PREFLIGHT_ADVISORY_FIELDS
     + (
         "Mira Work completion",
         "Mira Work preflight",
@@ -194,7 +204,7 @@ def check_markdown(path: Path, check_type: str) -> dict[str, Any]:
     present_fields = [field for field in required_fields if field in fields]
     missing_fields = [field for field in required_fields if field not in fields]
     status = "pass" if not missing_fields else "fail"
-    return {
+    result = {
         "schema_version": SCHEMA_VERSION,
         "status": status,
         "file": resolved.relative_to(REPO_ROOT.resolve()).as_posix(),
@@ -204,6 +214,17 @@ def check_markdown(path: Path, check_type: str) -> dict[str, Any]:
         "missing_fields": missing_fields,
         "authority_effect": "none",
     }
+    advisory_fields = check.get("advisory_fields")
+    if advisory_fields:
+        advisory_values = parse_fields(text, advisory_fields, check["block_start"])
+        result["advisory_fields"] = list(advisory_fields)
+        result["present_advisory_fields"] = [
+            field for field in advisory_fields if field in advisory_values
+        ]
+        result["missing_advisory_fields"] = [
+            field for field in advisory_fields if field not in advisory_values
+        ]
+    return result
 
 
 def check_receipt(path: Path) -> dict[str, Any]:
@@ -235,7 +256,8 @@ def emit_text(result: dict[str, Any], output_prefix: str) -> None:
 
 
 def error_result(path: Path, check_type: str) -> dict[str, Any]:
-    required_fields = CHECKS[check_type]["fields"]
+    check = CHECKS[check_type]
+    required_fields = check["fields"]
     result: dict[str, Any] = {
         "schema_version": SCHEMA_VERSION,
         "status": "error",
@@ -247,6 +269,11 @@ def error_result(path: Path, check_type: str) -> dict[str, Any]:
     }
     if check_type != "receipt":
         result["check_type"] = check_type
+    advisory_fields = check.get("advisory_fields")
+    if advisory_fields:
+        result["advisory_fields"] = list(advisory_fields)
+        result["present_advisory_fields"] = []
+        result["missing_advisory_fields"] = list(advisory_fields)
     return result
 
 
