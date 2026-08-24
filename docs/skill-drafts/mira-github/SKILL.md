@@ -60,6 +60,11 @@ active worktree other than the current one when it is on `main`, tracks
 `origin/main`, points at a `codex/...` publication branch, or could plausibly
 land on the same target branch during the current task.
 
+Treat hidden side-worktree use as a process failure, even when the Git result is
+technically correct. If a side worktree exists, say whether it is active,
+detached, branch-bound, publication-capable, untouched, or intentionally
+retained before asking the operator for a commit or push decision.
+
 Before creating a side worktree, state all of the following and wait for
 explicit operator approval unless the operator has already authorized an exact
 workflow that visibly requires that worktree:
@@ -75,6 +80,11 @@ Do not leave worktrees as hidden infrastructure. If a created worktree remains
 after its publication or inspection purpose completes, report it in the final
 response or resumption packet with its branch, path, current SHA, and intended
 cleanup or retention reason.
+
+Never create a side worktree merely to avoid a dirty working tree without first
+making the dirty-tree boundary, target branch, worktree path, and cleanup plan
+visible. Prefer exact-path staging in the current worktree when the requested
+publication can be isolated safely.
 
 ### Protect local `main`
 
@@ -492,6 +502,12 @@ A menu letter authorizes commit or push only when it came from a validated
 action-ready surface whose visible label begins with `Commit:` or `Push:` and
 whose effect matches that verb. Otherwise, carry the selected branch through
 read-only planning until the exact authorization boundary appears.
+
+When offering a Git action in an A-D surface, make the action boundary legible
+in the first word: `Commit:` for a local commit, `Push:` for a remote update,
+or `Execute:` for read-only inspection or reversible preparation. Do not offer
+ambiguous labels such as "Recommended path -- stage and commit" and then treat a
+bare letter as Git authority.
 
 A direct `push` authorizes only the bounded push currently proven safe. It does
 not authorize rebasing, force-pushing, broad staging, PR creation, or hosted

@@ -19,6 +19,12 @@ belong only at outward-facing boundaries: redistribution, publication, Git
 source-body admission, or private Archive exposure beyond the library's
 personal-reading boundary.
 
+Do not convert online-available personal-reading texts into rights blockers.
+When an online text can be inspected, the relevant library question is whether
+the edition, source route, language, file, coverage, and private-store payload
+are good enough. Rights or reuse cautions are boundary notes for later public,
+redistributive, Git-body, or Archive exposure decisions.
+
 Live library verification is stricter than registry availability. A source can
 be represented in the registry while its private payload is absent from the
 active worktree. Treat these as separate states:
@@ -145,6 +151,14 @@ manuscripts, multi-volume editions, disputed attribution, difficult formats,
 or unresolved source routes. For more than five authorities or ten candidate bodies,
 prepare a reviewable batch manifest before mutation. The manifest is a working
 control, not the registry authority.
+
+When the operator has asked for scale, complained about approval friction, or
+selected a batch path, continue independent reversible rows to the declared
+review boundary instead of asking per-authority permission. Stop only when the
+batch needs a new authority class: registry mutation, body admission,
+downloading outside the named private inspection root, staging, commit, push,
+publication, private Archive ingestion, or a material scope/source/privacy
+change.
 
 A visible executable batch action may bundle exact-edition research, bounded
 downloads to one named private inspection root, inspection, hashing,
