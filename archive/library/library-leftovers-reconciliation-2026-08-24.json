@@ -1,0 +1,89 @@
+{
+  "schema_version": "library-leftovers-reconciliation-receipt-v1",
+  "date": "2026-08-24",
+  "status": "review-ready",
+  "authority_effect": "none",
+  "repository": {
+    "root": "C:/dev/mira-core",
+    "branch": "main",
+    "upstream_alignment": "aligned-with-origin-main",
+    "side_worktrees": [
+      {
+        "path": "C:/Users/rober/.codex/worktrees/d851/mira-core",
+        "state": "detached",
+        "sha": "634b182",
+        "used_for_this_reconciliation": false
+      }
+    ]
+  },
+  "scope": {
+    "untracked_library_artifacts": 81,
+    "by_era": {
+      "industrial": 1,
+      "medieval": 80
+    },
+    "by_extension": {
+      "md": 41,
+      "json": 40
+    }
+  },
+  "classes": [
+    {
+      "class": "raw-command-output",
+      "paths": [
+        "archive/library/industrial/body-admission-batch-003-command-results.json"
+      ],
+      "assessment": "Records command results for already-landed Industrial admissions. Sampled body IDs are present in the registry.",
+      "recommended_disposition": "summarize-or-wrap-before-commit"
+    },
+    {
+      "class": "medieval-body-admission-receipts",
+      "path_globs": [
+        "archive/library/medieval/body-admission-batch-*-receipt.*",
+        "archive/library/medieval/*-admission-receipt.*"
+      ],
+      "assessment": "Historical receipt evidence for admitted, partial, deferred, or rejected Medieval bodies.",
+      "recommended_disposition": "preserve-as-historical-evidence-after-privacy-review"
+    },
+    {
+      "class": "medieval-research-and-inspection-packets",
+      "path_globs": [
+        "archive/library/medieval/edition-research-batch-*.*",
+        "archive/library/medieval/portable-batch-*-inspection.*",
+        "archive/library/medieval/*-inspection.*",
+        "archive/library/medieval/*-admission-proposal.*"
+      ],
+      "assessment": "Review evidence for body routes, OCR condition, source posture, unresolved gaps, and implementation readiness.",
+      "recommended_disposition": "review-before-commit"
+    },
+    {
+      "class": "medieval-roster-and-operating-context",
+      "paths": [
+        "archive/library/medieval/batch-operating-contract.md",
+        "archive/library/medieval/full-roster-candidates.json",
+        "archive/library/medieval/full-roster-research-packet.md",
+        "archive/library/medieval/carpini-rubruck-roster-expansion-proposal.json",
+        "archive/library/medieval/carpini-rubruck-roster-expansion-proposal.md",
+        "archive/library/medieval/pilot-research-packet.md"
+      ],
+      "assessment": "Build-context evidence for the Medieval roster and later expansion logic.",
+      "recommended_disposition": "preserve-or-summarize-after-duplication-review"
+    }
+  ],
+  "registry_sampling": {
+    "industrial_sample": "sampled Rizal, Tagore, Sun Yat-sen, Gandhi, Marti, and Soseki body IDs were present in archive/library/library-registry.json",
+    "medieval_sample": "sampled Michael the Syrian, al-Masudi, Secret History of the Mongols, Minhaj Siraj, and Goryeosa body IDs were present in archive/library/library-registry.json"
+  },
+  "recommended_next_boundary": "Review and create an exact commit candidate for Medieval historical-evidence artifacts; keep Industrial Batch 003 separate unless converted into a governed receipt or explicitly retained as raw command evidence.",
+  "not_done": {
+    "registry_mutated": false,
+    "body_admitted": false,
+    "private_text_store_mutated": false,
+    "files_moved_or_deleted": false,
+    "staged": false,
+    "committed": false,
+    "pushed": false,
+    "archive_ingested": false,
+    "published": false
+  }
+}
