@@ -54,6 +54,83 @@ def test_library_import_route_is_explicit_and_bounded() -> None:
     assert ".mira-private/library/texts/" in skill
 
 
+def test_library_import_separates_readiness_and_authority_gates() -> None:
+    skill = text("library-import")
+    normalized = " ".join(skill.split())
+
+    for gate in (
+        "`roster-ready`",
+        "`metadata-ready`",
+        "`body-research-ready`",
+        "`admission-ready`",
+    ):
+        assert gate in skill
+
+    assert "Roster acceptance does not authorize metadata mutation" in normalized
+    assert "Metadata admission does not authorize downloading or admitting a" in normalized
+    assert "Body admission does not authorize staging, commit, push" in normalized
+
+
+def test_library_import_large_batches_are_resumable_and_auditable() -> None:
+    skill = text("library-import")
+    normalized = " ".join(skill.split())
+
+    assert "A normal large-shelf batch contains 8-12 authorities" in skill
+    assert "For more than five authorities or ten candidate bodies" in skill
+    assert "Do not split an already authorized inspection batch into per-authority approval prompts" in normalized
+    assert "stable `candidate_id`" in skill
+    for state in (
+        "`proposed`",
+        "`metadata-ready`",
+        "`body-research-incomplete`",
+        "`downloaded`",
+        "`inspected`",
+        "`admission-ready`",
+        "`reconciled`",
+        "`review-pending`",
+        "`admitted`",
+        "`rejected`",
+        "`paused`",
+    ):
+        assert state in skill
+
+    assert "Do not redownload, renormalize, or re-admit an unchanged verified body" in skill
+    assert "last verified batch step and exact re-entry point" in skill
+    assert "it does not stop independent rows" in skill
+
+
+def test_library_import_batches_use_one_review_boundary_and_two_receipts() -> None:
+    skill = text("library-import")
+    normalized = " ".join(skill.split())
+
+    assert "one reconciled Markdown receipt and one JSON receipt" in normalized
+    assert "stop before registry mutation or body admission" in normalized
+    assert "Default to exactly two inspection-batch artifacts" in normalized
+    assert "per-authority supplement only when" in normalized
+    assert "run the full suite once after all independent authorized mutations" in normalized
+
+
+def test_library_import_requires_maturity_and_navigation_integrity() -> None:
+    skill = text("library-import")
+    normalized = " ".join(skill.split())
+
+    assert "Level 6 requires an explicit authority review" in skill
+    assert "No availability check, bilingual pair, or `complete-work` body automatically" in normalized
+    assert "text-source index and era index must both agree with the registry" in normalized
+    assert "If no deterministic era-index renderer and drift check exist" in normalized
+
+
+def test_library_import_benchmarks_fail_closed_on_rights_and_provenance() -> None:
+    skill = text("library-import")
+    normalized = " ".join(skill.split())
+
+    assert "Do not convert online-available personal-reading texts into rights blockers" in normalized
+    assert "a modern online text has no stable file route or cannot be inspected" in normalized
+    assert "no file is admitted" in normalized
+    assert "catalogue, aggregator, or OCR transcription" in normalized
+    assert "routes further research rather than guessing" in normalized
+
+
 def test_query_duplicate_source_is_retired() -> None:
     assert not (ROOT / ".codex" / "skills" / "archive-query" / "SKILL.md").exists()
 

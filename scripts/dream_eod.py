@@ -17,12 +17,16 @@ import mira_journal_references
 
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
+DAILY_ROOT = REPO_ROOT / "narrative-geopolitics" / "work" / "daily"
+FORECAST_LEDGER = REPO_ROOT / "narrative-geopolitics" / "work" / "forecasts" / "forecast-ledger.md"
 DEFAULT_TIMEZONE = "America/Denver"
 DEFAULT_WORKSPACE = "mira-core"
 DEFAULT_OPERATOR = "operator"
 SESSION_ID_RE = re.compile(
     r"^MS-[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
 )
+HOOK_RE = re.compile(r"`(NG-\d{8}-F\d+)`")
+DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 
 
 def run_tool(*arguments: str) -> subprocess.CompletedProcess[str]:
@@ -72,6 +76,100 @@ def geo_certification(run_date: str) -> dict:
         "status": "ready", "manifest_rows": rows, "artifact_ref": artifact,
         "digest": hashlib.sha256(artifact_path.read_bytes()).hexdigest(), "commit": commit,
         "validation_stage": "issue", "certification_basis": "committed",
+    }
+
+
+def substantive_daily_dates(daily_root: Path | None = None) -> list[str]:
+    daily_root = DAILY_ROOT if daily_root is None else daily_root
+    if not daily_root.is_dir():
+        return []
+    dates: list[str] = []
+    for path in daily_root.iterdir():
+        if path.is_dir() and DATE_RE.fullmatch(path.name) and (path / "issue.md").is_file():
+            dates.append(path.name)
+    return sorted(dates)
+
+
+def forecast_ledger_rows(ledger_path: Path | None = None) -> list[dict[str, str]]:
+    ledger_path = FORECAST_LEDGER if ledger_path is None else ledger_path
+    if not ledger_path.is_file():
+        return []
+    rows: list[dict[str, str]] = []
+    for line in ledger_path.read_text(encoding="utf-8").splitlines():
+        if not line.startswith("| `NG-"):
+            continue
+        cells = [cell.strip() for cell in line.strip().strip("|").split("|")]
+        if len(cells) < 9:
+            continue
+        hook = HOOK_RE.search(cells[0])
+        if not hook:
+            continue
+        rows.append({
+            "hook_id": hook.group(1),
+            "date": cells[1].strip("`"),
+            "review_date": cells[6].strip("`"),
+            "status": cells[8].strip("`"),
+            "raw": line,
+        })
+    return rows
+
+
+def due_open_forecast_rows(as_of_date: str, *, ledger_path: Path | None = None) -> list[dict[str, str]]:
+    rows: list[dict[str, str]] = []
+    for row in forecast_ledger_rows(ledger_path):
+        review_date = row["review_date"][:10]
+        if row["status"] == "open" and DATE_RE.fullmatch(review_date) and review_date <= as_of_date:
+            rows.append(row)
+    return rows
+
+
+def classify_forecast_debt(row: dict[str, str], ledger_text: str) -> str:
+    hook_id = row["hook_id"]
+    related = "\n".join(line for line in ledger_text.splitlines() if hook_id in line)
+    if re.search(r"no operational-claim dependency", related, re.I):
+        return "posture-review"
+    if re.search(r"VER-\d{8}-\d+", related):
+        return "verification-required"
+    if re.search(r"OPC-\d{8}-\d+|source assertion|operational|contested|verification packet", related, re.I):
+        return "verification-required"
+    return "posture-review"
+
+
+def geo_freshness_projection(run_date: str) -> dict:
+    later_dates = [date for date in substantive_daily_dates() if date > run_date]
+    latest_date = later_dates[-1] if later_dates else run_date
+    ledger_text = FORECAST_LEDGER.read_text(encoding="utf-8") if FORECAST_LEDGER.is_file() else ""
+    due_rows = due_open_forecast_rows(latest_date)
+    classified = {"verification-required": [], "posture-review": []}
+    for row in due_rows:
+        classified[classify_forecast_debt(row, ledger_text)].append(row["hook_id"])
+    verification = classified["verification-required"]
+    posture = classified["posture-review"]
+    if later_dates:
+        status = "needs-refresh"
+        next_action = "rerun-owning-bundle"
+    elif verification:
+        status = "blocked-by-verification"
+        next_action = "open-verification-packet"
+    elif posture:
+        status = "open-but-bracketed"
+        next_action = "posture-review"
+    else:
+        status = "current"
+        next_action = "proceed"
+    return {
+        "geo_prerequisite_status": status,
+        "latest_daily_packet": latest_date if (later_dates or (DAILY_ROOT / run_date / "issue.md").is_file()) else None,
+        "later_substantive_packets": later_dates,
+        "due_forecast_debt": {
+            "verification": len(verification),
+            "posture_review": len(posture),
+            "not_yet_due": len([row for row in forecast_ledger_rows() if row["status"] == "open" and row["review_date"][:10] > latest_date]),
+            "verification_hooks": verification,
+            "posture_review_hooks": posture,
+        },
+        "safe_to_inherit": status in {"current", "open-but-bracketed"},
+        "next_action": next_action,
     }
 
 
@@ -183,6 +281,14 @@ def prerequisite_projection(args, run_date: str) -> dict:
         geo = geo_certification(run_date)
     except cadence_ledger.CadenceLedgerError as error:
         geo = {"status": "blocked", "reason": str(error)}
+    if geo["status"] == "ready":
+        geo["freshness"] = geo_freshness_projection(run_date)
+        if not geo["freshness"]["safe_to_inherit"]:
+            geo = {
+                **geo,
+                "status": "blocked",
+                "reason": "Geo-Strategy prerequisite is not fresh enough for Dream inheritance.",
+            }
     entry = journal_entry(run_date)
     bundle = journal_bundle(args, run_date)
     journal_status = "already_finalized" if entry else "composition_required"

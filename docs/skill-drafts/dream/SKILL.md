@@ -49,6 +49,31 @@ operator says yes, invoke the owning Geo-Strategy or Mira Journal workflow for
 only the missing date-bound work, then rerun Dream; do not continue the Dream
 ledger from an incomplete preflight.
 
+Before inheriting a Geo-Strategy prerequisite, run a read-only freshness gate
+over `narrative-geopolitics/work/daily`. If any later substantive Geo packet
+exists after the prerequisite date, mark the prerequisite `needs-refresh` unless
+the owning bundle was rerun after that later packet. For due forecast hooks
+surfaced by the latest Geo packet, split debt into `verification-required`,
+`posture-review`, and `not-yet-due`:
+
+- `verification-required`: resolution depends on an operational claim, `OPC-*`,
+  `VER-*`, or contested source assertion.
+- `posture-review`: resolution depends on public, official, or later-archive
+  posture signals and no operational-claim dependency is admitted.
+- `not-yet-due`: the hook is open but outside the current review boundary.
+
+Dream may inherit only when the Geo prerequisite is `current`, no due
+`verification-required` hook is silently treated as resolved without an
+assessed packet, and any `posture-review` debt is either resolved or explicitly
+bracketed as unresolved. Report the gate in this compact form:
+
+```text
+geo_prerequisite_status: current | needs-refresh | blocked-by-verification | open-but-bracketed
+due_forecast_debt: verification=N posture_review=N not_yet_due=N
+safe_to_inherit: yes | no
+next_action: rerun-owning-bundle | open-verification-packet | posture-review | proceed
+```
+
 Inventory the day's active sessions first. Give every known session an explicit
 `included`, `excluded`, or `unavailable` coverage receipt with a reason and
 observation time. Mark the rollup `partial` whenever any session is unavailable;

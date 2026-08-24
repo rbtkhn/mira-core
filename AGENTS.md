@@ -166,6 +166,13 @@ When the operator says `archive-audit` or asks for systematic archive health,
 coverage, density, parity, routing, duplicate, or repair-candidate assessment,
 read `docs/skill-drafts/archive-audit/SKILL.md` completely and follow it.
 
+When the operator says `youtube-capture`, asks to check today's YouTube
+channels, run a channel check, discover recent channel videos, triage YouTube
+queue rows, attach a YouTube transcript, or export YouTube intake drafts, read
+`docs/skill-drafts/youtube-capture/SKILL.md` completely and follow it. This is
+the queue and transcript-capture front door only; archive landing still routes
+through `archive-intake`, and synthesis still routes through `geo-strategy`.
+
 When the operator says bare `intake`, or asks to intake a source without a
 more specific workflow qualifier, use the one canonical operator front door:
 read `docs/skill-drafts/archive-intake/SKILL.md` completely and follow it.

@@ -21,11 +21,14 @@ def configure_roots(
 ) -> tuple[Path, Path]:
     daily_root = tmp_path / "daily"
     claims_root = tmp_path / "claims"
+    observables_root = tmp_path / "observables"
     daily_root.mkdir()
     claims_root.mkdir()
+    observables_root.mkdir()
     monkeypatch.setattr(reality_handoff, "REPO_ROOT", tmp_path)
     monkeypatch.setattr(reality_handoff, "DAILY_ROOT", daily_root)
     monkeypatch.setattr(reality_handoff, "CLAIMS_ROOT", claims_root)
+    monkeypatch.setattr(reality_handoff, "OBSERVABLES_ROOT", observables_root)
     return daily_root, claims_root
 
 
@@ -45,6 +48,26 @@ def write_claim(
         "crisis_object": crisis_object,
     }
     (claims_root / f"{claim_id}.json").write_text(
+        json.dumps(payload), encoding="utf-8"
+    )
+
+
+def write_observable(
+    observables_root: Path,
+    observable_id: str,
+    claim_id: str,
+    *,
+    start: str,
+    end: str,
+) -> None:
+    payload = {
+        "id": observable_id,
+        "kind": "observable",
+        "claim_ids": [claim_id],
+        "question": "Was the bounded claim observed?",
+        "window": {"start": start, "end": end},
+    }
+    (observables_root / f"{observable_id}.json").write_text(
         json.dumps(payload), encoding="utf-8"
     )
 
@@ -362,6 +385,37 @@ def test_claim_first_investigate_gate_reports_delegated_execution(
 
     assert payload["web_search"]["status"] == "gated and executed"
     assert payload["web_search"]["execution_layer"] == "agent-tool-boundary"
+
+
+def test_claim_first_handoff_uses_canonical_observable_window(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    _, claims_root = configure_roots(tmp_path, monkeypatch)
+    observables_root = tmp_path / "observables"
+    write_claim(
+        claims_root,
+        "OPC-20260818-01",
+        "Hormuz traffic was materially constrained during the August 16-18, 2026 window.",
+    )
+    write_observable(
+        observables_root,
+        "OBS-20260818-001",
+        "OPC-20260818-01",
+        start="2026-08-16",
+        end="2026-08-18",
+    )
+    monkeypatch.setattr(reality_handoff.reality, "audit_payload", audit_payload)
+
+    payload = reality_handoff.build_claim_handoff("OPC-20260818-01")
+
+    assert payload["investigation_plan"]["observables"] == [
+        {"id": "OBS-20260818-001", "question": "Was the bounded claim observed?"}
+    ]
+    assert payload["investigation_plan"]["time_window"] == {
+        "start": "2026-08-16",
+        "end": "2026-08-18",
+        "basis": "canonical observable window",
+    }
 
 
 def test_claim_first_handoff_seeds_only_research_addressable_gaps(

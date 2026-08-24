@@ -208,6 +208,24 @@ def test_existing_committed_geo_packet_is_certified_without_regeneration(monkeyp
     }
     calls = []
     monkeypatch.setattr(dream_eod, "geo_certification", lambda _date: certification)
+    monkeypatch.setattr(
+        dream_eod,
+        "geo_freshness_projection",
+        lambda _date: {
+            "geo_prerequisite_status": "current",
+            "latest_daily_packet": "2026-08-16",
+            "later_substantive_packets": [],
+            "due_forecast_debt": {
+                "verification": 0,
+                "posture_review": 0,
+                "not_yet_due": 0,
+                "verification_hooks": [],
+                "posture_review_hooks": [],
+            },
+            "safe_to_inherit": True,
+            "next_action": "proceed",
+        },
+    )
     monkeypatch.setattr(dream_eod, "journal_entry", lambda _date: entry)
 
     def fake_run_tool(*args):
@@ -237,6 +255,62 @@ def test_existing_committed_geo_packet_is_certified_without_regeneration(monkeyp
     assert geo_receipt["commit"] == "c" * 40
     assert geo_receipt["validation_stage"] == "issue"
     assert geo_receipt["certification_basis"] == "committed"
+
+
+def test_geo_freshness_blocks_when_later_daily_packet_exists(monkeypatch, tmp_path: Path) -> None:
+    daily_root = tmp_path / "daily"
+    (daily_root / "2026-08-18").mkdir(parents=True)
+    (daily_root / "2026-08-18" / "issue.md").write_text("Aug 18", encoding="utf-8")
+    (daily_root / "2026-08-19").mkdir()
+    (daily_root / "2026-08-19" / "issue.md").write_text("Aug 19", encoding="utf-8")
+    ledger = tmp_path / "forecast-ledger.md"
+    ledger.write_text(
+        "\n".join([
+            "| `NG-20260818-F01` | `2026-08-18` | Object | Claim | Mechanism | `likely` | `2026-08-25` | [run](../daily/2026-08-18/forecast.md) | `open` |",
+            "| `NG-20260819-F01` | `2026-08-19` | Object | Claim | Mechanism | `likely` | `2026-09-02` | [run](../daily/2026-08-19/forecast.md) | `open` |",
+        ]),
+        encoding="utf-8",
+    )
+    monkeypatch.setattr(dream_eod, "DAILY_ROOT", daily_root)
+    monkeypatch.setattr(dream_eod, "FORECAST_LEDGER", ledger)
+
+    projection = dream_eod.geo_freshness_projection("2026-08-18")
+
+    assert projection["geo_prerequisite_status"] == "needs-refresh"
+    assert projection["later_substantive_packets"] == ["2026-08-19"]
+    assert projection["due_forecast_debt"]["verification"] == 0
+    assert projection["due_forecast_debt"]["posture_review"] == 0
+    assert projection["due_forecast_debt"]["not_yet_due"] == 2
+    assert projection["safe_to_inherit"] is False
+    assert projection["next_action"] == "rerun-owning-bundle"
+
+
+def test_geo_freshness_splits_due_forecast_debt(monkeypatch, tmp_path: Path) -> None:
+    daily_root = tmp_path / "daily"
+    (daily_root / "2026-08-19").mkdir(parents=True)
+    (daily_root / "2026-08-19" / "issue.md").write_text("Aug 19", encoding="utf-8")
+    ledger = tmp_path / "forecast-ledger.md"
+    ledger.write_text(
+        "\n".join([
+            "| `NG-20260708-F02` | `2026-07-08` | Object | Claim | Mechanism | `likely` | `2026-07-29` | [run](../daily/2026-07-08/forecast.md) | `open` |",
+            "| `NG-20260719-F01` | `2026-07-19` | Object | Claim | Mechanism | `likely` | `2026-08-19` | [run](../daily/2026-07-19/forecast.md) | `open` |",
+            "| `NG-20260819-F01` | `2026-08-19` | Object | Claim | Mechanism | `likely` | `2026-09-02` | [run](../daily/2026-08-19/forecast.md) | `open` |",
+            "| `NG-20260708-F02` | `2026-07-09` | `git_commit_upper_bound_plus_daily_receipt` | `ex_ante` | `open` | `yes` | Assessed `VER-20260710-01` is `operationally_contested`. |",
+            "| `NG-20260719-F01` | `2026-07-19` | `git_worktree_uncommitted` | `ex_ante` | `open` | `yes` | Contemporaneous July 19 live run; posture-based hook has no operational-claim dependency. |",
+        ]),
+        encoding="utf-8",
+    )
+    monkeypatch.setattr(dream_eod, "DAILY_ROOT", daily_root)
+    monkeypatch.setattr(dream_eod, "FORECAST_LEDGER", ledger)
+
+    projection = dream_eod.geo_freshness_projection("2026-08-19")
+
+    assert projection["geo_prerequisite_status"] == "blocked-by-verification"
+    assert projection["due_forecast_debt"]["verification_hooks"] == ["NG-20260708-F02"]
+    assert projection["due_forecast_debt"]["posture_review_hooks"] == ["NG-20260719-F01"]
+    assert projection["due_forecast_debt"]["not_yet_due"] == 1
+    assert projection["safe_to_inherit"] is False
+    assert projection["next_action"] == "open-verification-packet"
 
 
 def test_geo_failure_precedes_private_ledger_mutation(monkeypatch, tmp_path: Path) -> None:

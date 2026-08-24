@@ -78,13 +78,75 @@ There is no tracked session receipt or placeholder-day state.
 Month and range modes process only dates with manifest rows. The deprecated
 `--scaffold-empty` flag reports skipped dates and writes nothing.
 
+## Choice Acceleration Policy
+
+Use a geo-strategy option engine for follow-up menus after an archive-backed
+issue, day, or crisis object is in view. The visible user surface remains
+exactly four `A`-`D` options, but those options are selected from a larger
+internal library of 10-20 next-best epistemic moves. Optimize for faster
+judgment formation, not faster prose: every visible option must improve
+evidence, mechanism clarity, uncertainty handling, forecast leverage, or an
+explicit hold.
+
+Rank candidate moves in this order:
+
+1. crisis consequence;
+2. evidence gap;
+3. verification need;
+4. forecast leverage;
+5. decision readiness.
+
+Prefer a concrete next workflow over generic continuation language. Do not
+surface vague `continue`, `deepen`, or `explore more` options unless the label
+names the exact object and the missing judgment job. If all four options would
+be navigation-only, collapse the surface to the narrowest concrete workflow
+available now and state the blocked action.
+
+Internal move library:
+
+- intake coverage audit;
+- same-object voice comparison;
+- mechanism spine extraction;
+- competing mechanism test;
+- operational-claim triage;
+- reality-check handoff;
+- original-language source search;
+- forecast-hook extraction;
+- counterevidence pass;
+- actor constraint map;
+- escalation ladder map;
+- decision implication compression;
+- public-use boundary;
+- daily packet build;
+- verification packet draft;
+- pause/hold with explicit unresolved gate.
+
+Project the selected moves onto the four-option visible surface this way:
+
+- `A` highest-confidence next action;
+- `B` correction, coverage repair, or missing-foundation action;
+- `C` deepening move with the best judgment leverage;
+- `D` alternate object, explicit hold, verification/publication boundary, or
+  packet-disposition move.
+
+Compose with `learn-from-choices` without weakening it. Generic final-response
+controls remain `learning_eligibility: none`. Only action-ready options whose
+visible label begins with an executable verb may carry selection authority.
+`Stage`, `Commit`, `Push`, `Publish`, `Deploy`, `Send`, canonical verification
+admission, and external communication require direct explicit operator
+commands. This policy does not grant authority to browse, create verification
+packets, admit `OPC-*`/`CLM-*`/`NG-*` records, publish, or assign operational
+truth.
+
+Use the Aug. 18, 2026 Iran-Hormuz issue as the first live calibration case for
+this policy: when operational claims control public factual use, route factual
+adjudication through external-knowledge `reality-check` rather than treating
+archive testimony as verified fact.
+
 ## Guided Menu
 
-- `A` bootstrap or refresh the run;
-- `B` reconcile intake coverage and routing;
-- `C` deepen the owning crisis object and report exception-only operational-claim triage;
-- `D` sharpen forecast hooks and report their `OPC-*` dependencies;
-- `E` execute the full stack.
+The legacy five-option menu is deprecated. For new geo-strategy work, apply the
+Choice Acceleration Policy and return exactly four `A`-`D` options.
 
 ## Density Triage
 

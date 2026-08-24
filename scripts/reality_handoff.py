@@ -13,6 +13,7 @@ import research_handoff
 REPO_ROOT = Path(__file__).resolve().parent.parent
 DAILY_ROOT = REPO_ROOT / "narrative-geopolitics" / "work" / "daily"
 CLAIMS_ROOT = REPO_ROOT / "narrative-geopolitics" / "work" / "reality" / "claims"
+OBSERVABLES_ROOT = REPO_ROOT / "narrative-geopolitics" / "work" / "reality" / "observables"
 STOPWORDS = {"the", "and", "for", "with", "from", "that", "this", "whether", "into", "remain", "claim", "war"}
 DATE_RE = re.compile(r"\d{4}-\d{2}-\d{2}")
 CLAIM_ID_RE = re.compile(r"(?:OPC-\d{8}-\d{2}|NG-\d{8}-F\d{2}|CLM-\d{8}-\d{3})$")
@@ -51,6 +52,44 @@ def load_claims() -> list[dict]:
     return [json.loads(path.read_text(encoding="utf-8")) for path in sorted(CLAIMS_ROOT.glob("*.json"))]
 
 
+def load_observables_for_claim(claim_id: str) -> list[dict]:
+    if not OBSERVABLES_ROOT.exists():
+        return []
+    observables = []
+    for path in sorted(OBSERVABLES_ROOT.glob("*.json")):
+        record = json.loads(path.read_text(encoding="utf-8"))
+        if claim_id in record.get("claim_ids", []):
+            observables.append(record)
+    return observables
+
+
+def observable_window(claim: dict, observables: list[dict]) -> dict[str, str | None]:
+    starts = [
+        record.get("window", {}).get("start")
+        for record in observables
+        if record.get("window", {}).get("start")
+    ]
+    ends = [
+        record.get("window", {}).get("end")
+        for record in observables
+        if record.get("window", {}).get("end")
+    ]
+    end_date = review_date_for_claim(claim["id"])
+    if end_date is None:
+        end_date = claim.get("as_of")
+    if not starts and not ends:
+        return {
+            "start": claim.get("as_of"),
+            "end": end_date,
+            "basis": "canonical claim date through forecast review date",
+        }
+    return {
+        "start": min(starts) if starts else claim.get("as_of"),
+        "end": max(ends) if ends else end_date,
+        "basis": "canonical observable window",
+    }
+
+
 def resolve_claim(claim_id: str) -> dict:
     if CLAIM_ID_RE.fullmatch(claim_id) is None:
         raise ValueError("claim must use a canonical OPC-, NG-, or CLM- identifier")
@@ -72,7 +111,16 @@ def review_date_for_claim(claim_id: str) -> str | None:
 def investigation_plan(claim: dict) -> dict:
     text = claim.get("text", "")
     crisis = claim.get("crisis_object", "")
-    if claim.get("id") == "NG-20260708-F02":
+    lattice_observables = load_observables_for_claim(claim["id"])
+    if lattice_observables:
+        observables = [
+            {
+                "id": record.get("id"),
+                "question": record.get("question"),
+            }
+            for record in lattice_observables
+        ]
+    elif claim.get("id") == "NG-20260708-F02":
         observables = [
             {"id": "bypass_attempt", "question": "Was there a visible attempt to weaken or bypass Iranian transit authority?"},
             {"id": "coercive_response", "question": "Did a visible coercive response follow the bypass attempt?"},
@@ -83,15 +131,12 @@ def investigation_plan(claim: dict) -> dict:
         observables = [{"id": "forecast_observable", "question": f"What directly observable event would resolve this forecast: {text}"}]
     else:
         observables = [{"id": "claim_observable", "question": f"What direct observation would resolve: {text}"}]
-    end_date = review_date_for_claim(claim["id"])
-    if end_date is None:
-        end_date = claim.get("as_of")
     return {
         "claim_id": claim["id"],
         "claim_type": claim.get("claim_type"),
         "crisis_object": crisis,
         "observables": observables,
-        "time_window": {"start": claim.get("as_of"), "end": end_date, "basis": "canonical claim date through forecast review date"},
+        "time_window": observable_window(claim, lattice_observables),
         "target_languages": ["en", "fa", "ar"],
         "source_tiers": ["primary official/maritime/commercial", "independent professional reporting", "discovery-only commentary"],
         "independence_requirements": {"ordinary": 2, "high_consequence": 3, "requires_regional_and_external": True},
