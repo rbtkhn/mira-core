@@ -1,0 +1,209 @@
+{
+  "schema_version": "medieval-portable-batch-inspection-v1",
+  "batch_id": "MEDIEVAL-PORTABLE-BATCH-05",
+  "generated_on": "2026-08-19",
+  "state": "review-pending",
+  "authority_effect": "none",
+  "scope": {
+    "authorities": 5,
+    "candidate_artifacts": 15,
+    "candidate_text_bodies": 14,
+    "metadata_witnesses": 1,
+    "private_inspection_root_label": "C:\\private\\mira-core-medieval-portable-batch-05-20260819"
+  },
+  "totals": {
+    "authorities_attempted": 5,
+    "authorities_ready_for_implementation_review": 2,
+    "authorities_blocked": 3,
+    "candidate_artifacts_attempted": 15,
+    "passing_text_bodies": 3,
+    "blocked_text_bodies": 11,
+    "metadata_witnesses": 1,
+    "authorities_admitted": 0
+  },
+  "records": [
+    {
+      "candidate_id": "MED-CAND-018",
+      "proposed_source_id": "LIB-MEDIEVAL-AUTHORITY-018-DANTE-ALIGHIERI",
+      "authority": "Dante Alighieri",
+      "title": "Commedia / Divine Comedy",
+      "authority_disposition": "pass-paired-editions",
+      "source_coverage_ceiling": "principal-work",
+      "implementation_review_ready": true,
+      "bodies": [
+        {
+          "body_id": "LIB-MEDIEVAL-AUTHORITY-018-DANTE-COMMEDIA-ITALIAN-GUTENBERG-1000",
+          "work_title": "La Divina Commedia di Dante: Complete",
+          "private_path": "C:\\private\\mira-core-medieval-portable-batch-05-20260819\\dante-divina-commedia-italian-pg1000.txt",
+          "url": "https://www.gutenberg.org/cache/epub/1000/pg1000.txt",
+          "lineage_root": "gutenberg.org",
+          "bytes": 597903,
+          "sha256": "4669dcc00ee61ceffe92d871e61ea430cec87b35cbab24f19a4c0b1c7da521b2",
+          "language": "italian",
+          "edition": "Project Gutenberg eBook 1000; source file does not identify a critical editor or print-edition lineage",
+          "rights_status": "plausible-open",
+          "rights_basis": "Project Gutenberg public-domain assertion in the United States with wrapper and jurisdiction warning preserved.",
+          "body_coverage_ceiling": "complete-work",
+          "disposition": "pass"
+        },
+        {
+          "body_id": "LIB-MEDIEVAL-AUTHORITY-018-DANTE-DIVINE-COMEDY-CARY-GUTENBERG-8800",
+          "work_title": "The Divine Comedy",
+          "private_path": "C:\\private\\mira-core-medieval-portable-batch-05-20260819\\dante-divine-comedy-cary-english-pg8800.txt",
+          "url": "https://www.gutenberg.org/cache/epub/8800/pg8800.txt",
+          "lineage_root": "gutenberg.org",
+          "bytes": 656728,
+          "sha256": "3a7dd97b5fec82456c58237b33383a593480c2bfe088aeaaa4a519de2a10d39c",
+          "language": "english",
+          "editor_translator": "Henry Francis Cary",
+          "edition": "Cary translation; Project Gutenberg eBook 8800",
+          "rights_status": "plausible-open",
+          "rights_basis": "Project Gutenberg public-domain assertion in the United States with wrapper and jurisdiction warning preserved.",
+          "body_coverage_ceiling": "complete-work",
+          "disposition": "pass"
+        }
+      ],
+      "unresolved": [
+        "The Italian Gutenberg body does not expose a named critical edition or upstream print lineage.",
+        "The Cary translation is a historical English edition and is not asserted equivalent at the textual-variant level.",
+        "Principal-work coverage does not include Dante's other works."
+      ]
+    },
+    {
+      "candidate_id": "MED-CAND-012",
+      "proposed_source_id": "LIB-MEDIEVAL-AUTHORITY-012-GREGORY-TOURS",
+      "authority": "Gregory of Tours",
+      "title": "Ten Books of Histories / History of the Franks",
+      "authority_disposition": "pass-abridged-english-edition",
+      "source_coverage_ceiling": "principal-work",
+      "implementation_review_ready": true,
+      "bodies": [{
+        "body_id": "LIB-MEDIEVAL-AUTHORITY-012-GREGORY-HISTORY-FRANKS-BREHAUT-GUTENBERG-74955",
+        "work_title": "History of the Franks: Selections",
+        "private_path": "C:\\private\\mira-core-medieval-portable-batch-05-20260819\\gregory-tours-history-franks-brehaut-pg74955.txt",
+        "url": "https://www.gutenberg.org/cache/epub/74955/pg74955.txt",
+        "lineage_root": "gutenberg.org",
+        "bytes": 717726,
+        "sha256": "f285fd7b3b17b32c678ede86b951487f69c5846d632eef16b922ca29caa4f5fe",
+        "language": "english",
+        "editor_translator": "Ernest Brehaut",
+        "edition": "Selections, translated with notes; Project Gutenberg eBook 74955",
+        "rights_status": "plausible-open",
+        "rights_basis": "Project Gutenberg public-domain assertion in the United States with wrapper and jurisdiction warning preserved.",
+        "body_coverage_ceiling": "abridged-work",
+        "disposition": "pass"
+      }],
+      "unresolved": [
+        "The body explicitly omits chapters and summarizes some omissions; it cannot support a complete-work claim.",
+        "No Latin body or complete English translation was inspected.",
+        "The included selections from Gregory's miracle books must not be conflated with the Ten Books boundary."
+      ]
+    },
+    {
+      "candidate_id": "MED-CAND-020",
+      "proposed_source_id": "LIB-MEDIEVAL-AUTHORITY-020-JUDAH-HALEVI",
+      "authority": "Judah Halevi",
+      "title": "Kuzari",
+      "authority_disposition": "blocked-ocr-and-rights",
+      "source_coverage_ceiling": "principal-work",
+      "implementation_review_ready": false,
+      "bodies": [{
+        "body_id": "LIB-MEDIEVAL-AUTHORITY-020-JUDAH-HALEVI-KUZARI-HIRSCHFELD-1905-IA-OCR",
+        "work_title": "Kitab al Khazari / The Kuzari",
+        "private_path": "C:\\private\\mira-core-medieval-portable-batch-05-20260819\\judah-halevi-kuzari-hirschfeld-1905-ia-ocr.txt",
+        "url": "https://archive.org/download/judahhalleviskit00judauoft/judahhalleviskit00judauoft_djvu.txt",
+        "lineage_root": "archive.org item judahhalleviskit00judauoft",
+        "bytes": 644455,
+        "sha256": "a6846c0b06c46614aa7ed76e92613001fd29a16c75c3d09b63d10f675001028d",
+        "language": "english with scholarly Arabic and Hebrew matter",
+        "editor_translator": "Hartwig Hirschfeld",
+        "edition": "London, 1905; Internet Archive derived DjVu OCR",
+        "rights_status": "unknown",
+        "rights_basis": "Historical edition is plausibly public domain, but the inspected item supplies no explicit item-level license statement.",
+        "body_coverage_ceiling": "complete-named-translation-unverified-ocr",
+        "disposition": "blocked",
+        "blocker": "Uncorrected OCR, unstated item rights, and mixed-language scholarly apparatus require scan reconciliation and rights confirmation."
+      }],
+      "unresolved": ["No portable Judeo-Arabic original-language body was inspected.", "Five-part structure is visible, but OCR fidelity was not established."]
+    },
+    {
+      "candidate_id": "MED-CAND-019",
+      "proposed_source_id": "LIB-MEDIEVAL-AUTHORITY-019-MAIMONIDES",
+      "authority": "Moses Maimonides",
+      "title": "Guide of the Perplexed",
+      "authority_disposition": "blocked-ocr-original-witness-only",
+      "source_coverage_ceiling": "principal-work",
+      "implementation_review_ready": false,
+      "bodies": [{
+        "body_id": "LIB-MEDIEVAL-AUTHORITY-019-MAIMONIDES-GUIDE-FRIEDLANDER-1904-IA-OCR",
+        "work_title": "The Guide for the Perplexed",
+        "private_path": "C:\\private\\mira-core-medieval-portable-batch-05-20260819\\maimonides-guide-friedlander-1904-ia-ocr.txt",
+        "url": "https://archive.org/download/guideforperplexe00maimiala/guideforperplexe00maimiala_djvu.txt",
+        "lineage_root": "archive.org item guideforperplexe00maimiala",
+        "bytes": 1925677,
+        "sha256": "31aa56b50eb1ab883b6666c3edc00af977c514ead9bc3dc9fadc8ce836bf09ab",
+        "language": "english with scholarly Arabic and Hebrew matter",
+        "editor_translator": "M. Friedlander",
+        "edition": "Second edition, 1904; Internet Archive derived DjVu OCR",
+        "rights_status": "unknown",
+        "rights_basis": "Historical edition is plausibly public domain, but the inspected item supplies no explicit item-level license statement.",
+        "body_coverage_ceiling": "complete-named-translation-unverified-ocr",
+        "disposition": "blocked",
+        "blocker": "Uncorrected OCR and unstated item rights require scan reconciliation and rights confirmation."
+      }],
+      "metadata_witnesses": [{
+        "artifact_id": "LIB-MEDIEVAL-AUTHORITY-019-MAIMONIDES-GUIDE-JUDEO-ARABIC-LOC-METADATA",
+        "private_path": "C:\\private\\mira-core-medieval-portable-batch-05-20260819\\maimonides-guide-judeo-arabic-loc-metadata.json",
+        "url": "https://www.loc.gov/item/2021667527/?fo=json",
+        "lineage_root": "loc.gov item 2021667527 / World Digital Library",
+        "bytes": 405721,
+        "sha256": "c8a4641d40269a1f13e310c03bd6ce0b9c4a52cb13016365cfcb4e74231d6ff7",
+        "language": "judeo-arabic",
+        "rights_status": "plausible-open",
+        "rights_basis": "Library of Congress states it is unaware of copyright or other restrictions in the World Digital Library collection and describes the materials as free to use and reuse.",
+        "disposition": "metadata-witness-only",
+        "blocker": "The JSON describes and routes to a digitized manuscript witness; it is not a normalized searchable text body."
+      }],
+      "unresolved": ["The selected authority's wider Mishneh Torah boundary is not represented.", "No inspected original-language text body is admission-ready."]
+    },
+    {
+      "candidate_id": "MED-CAND-026",
+      "proposed_source_id": "LIB-MEDIEVAL-AUTHORITY-026-AL-MASUDI",
+      "authority": "al-Mas'udi",
+      "title": "Muruj al-dhahab / Meadows of Gold",
+      "authority_disposition": "blocked-ocr-rights-and-language",
+      "source_coverage_ceiling": "principal-work",
+      "implementation_review_ready": false,
+      "series": {
+        "edition": "Les Prairies d'or, Arabic text and French translation by C. Barbier de Meynard and Pavet de Courteille, nine volumes, 1861-1877",
+        "language": "arabic and french",
+        "rights_status": "unknown",
+        "rights_basis": "Historical volumes are plausibly public domain, but the inspected Internet Archive items supply no explicit item-level license statement.",
+        "body_coverage_ceiling": "complete-named-nine-volume-edition-unverified-ocr",
+        "disposition": "blocked",
+        "blocker": "All nine files are uncorrected derived OCR with unstated item rights; no English body was located in this batch."
+      },
+      "bodies": [
+        {"volume": 1, "private_path": "C:\\private\\mira-core-medieval-portable-batch-05-20260819\\al-masudi-prairies-or-vol01-ia-ocr.txt", "url": "https://archive.org/download/lesprairiesdor01masduoft/lesprairiesdor01masduoft_djvu.txt", "lineage_root": "archive.org item lesprairiesdor01masduoft", "bytes": 647080, "sha256": "03cf15dfe8be59a47ece38966241e58808ac84038d50106b853554df582a691e", "disposition": "blocked"},
+        {"volume": 2, "private_path": "C:\\private\\mira-core-medieval-portable-batch-05-20260819\\al-masudi-prairies-or-vol02-ia-ocr.txt", "url": "https://archive.org/download/lesprairiesdor02masuuoft/lesprairiesdor02masuuoft_djvu.txt", "lineage_root": "archive.org item lesprairiesdor02masuuoft", "bytes": 752053, "sha256": "32738395ccceb00dc544844194f423d769ac7d9308e6b4423a819f57dcada152", "disposition": "blocked"},
+        {"volume": 3, "private_path": "C:\\private\\mira-core-medieval-portable-batch-05-20260819\\al-masudi-prairies-or-vol03-ia-ocr.txt", "url": "https://archive.org/download/lesprairiesdor03masuuoft/lesprairiesdor03masuuoft_djvu.txt", "lineage_root": "archive.org item lesprairiesdor03masuuoft", "bytes": 749997, "sha256": "4e330378507f177658a9cb3cd8b15d5092f39c15f07a37293f77965cb5b71e9f", "disposition": "blocked"},
+        {"volume": 4, "private_path": "C:\\private\\mira-core-medieval-portable-batch-05-20260819\\al-masudi-prairies-or-vol04-ia-ocr.txt", "url": "https://archive.org/download/lesprairiesdor04masuuoft/lesprairiesdor04masuuoft_djvu.txt", "lineage_root": "archive.org item lesprairiesdor04masuuoft", "bytes": 760533, "sha256": "870e4fe64baa03ecbd2e679b93f9f78937a75f68045055ca6c10cea42d1e3d4e", "disposition": "blocked"},
+        {"volume": 5, "private_path": "C:\\private\\mira-core-medieval-portable-batch-05-20260819\\al-masudi-prairies-or-vol05-ia-ocr.txt", "url": "https://archive.org/download/lesprairiesdor05masuuoft/lesprairiesdor05masuuoft_djvu.txt", "lineage_root": "archive.org item lesprairiesdor05masuuoft", "bytes": 845234, "sha256": "1bd40862880f96167c5babf4b6de06517929961309772822b1dc7351ff6c61ff", "disposition": "blocked"},
+        {"volume": 6, "private_path": "C:\\private\\mira-core-medieval-portable-batch-05-20260819\\al-masudi-prairies-or-vol06-ia-ocr.txt", "url": "https://archive.org/download/lesprairiesdor06masuuoft/lesprairiesdor06masuuoft_djvu.txt", "lineage_root": "archive.org item lesprairiesdor06masuuoft", "bytes": 842188, "sha256": "3ac716c6138546ae37f4c7616ed53291ec57320ba8ce615c79d1ee3439aaf059", "disposition": "blocked"},
+        {"volume": 7, "private_path": "C:\\private\\mira-core-medieval-portable-batch-05-20260819\\al-masudi-prairies-or-vol07-ia-ocr.txt", "url": "https://archive.org/download/lesprairiesdor07masuuoft/lesprairiesdor07masuuoft_djvu.txt", "lineage_root": "archive.org item lesprairiesdor07masuuoft", "bytes": 711207, "sha256": "38f3e7e6b0902f9f66063967c0c37dc9184c1f9691502410a1a518089053f87a", "disposition": "blocked"},
+        {"volume": 8, "private_path": "C:\\private\\mira-core-medieval-portable-batch-05-20260819\\al-masudi-prairies-or-vol08-ia-ocr.txt", "url": "https://archive.org/download/lesprairiesdor08masuuoft/lesprairiesdor08masuuoft_djvu.txt", "lineage_root": "archive.org item lesprairiesdor08masuuoft", "bytes": 728725, "sha256": "ed6e9118380b9514b5c44c02c48231db2e51584f9788760f979c265a78fa31f6", "disposition": "blocked"},
+        {"volume": 9, "private_path": "C:\\private\\mira-core-medieval-portable-batch-05-20260819\\al-masudi-prairies-or-vol09-ia-ocr.txt", "url": "https://archive.org/download/lesprairiesdor09masuuoft/lesprairiesdor09masuuoft_djvu.txt", "lineage_root": "archive.org item lesprairiesdor09masuuoft", "bytes": 1127167, "sha256": "e33ee02f7dfe1827481f70c9625250d5c3691907e8b13dccfc365a059f095bc4", "disposition": "blocked"}
+      ],
+      "unresolved": ["OCR fidelity has not been reconciled against page images.", "The nine-volume named edition is not an English route and is not asserted equivalent to an authorial recension."]
+    }
+  ],
+  "persistence": {
+    "registry_changed": false,
+    "managed_private_store_changed": false,
+    "era_index_changed": false,
+    "staged": false,
+    "committed": false,
+    "pushed": false,
+    "published": false
+  }
+}

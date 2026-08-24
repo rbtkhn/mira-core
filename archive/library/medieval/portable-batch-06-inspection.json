@@ -1,0 +1,62 @@
+{
+  "schema_version": "medieval-portable-batch-inspection-v1",
+  "batch_id": "MEDIEVAL-PORTABLE-BATCH-06",
+  "generated_on": "2026-08-19",
+  "state": "review-pending",
+  "authority_effect": "none",
+  "scope": {
+    "authorities": 10,
+    "downloaded_artifacts": 25,
+    "downloaded_text_candidates": 15,
+    "downloaded_metadata_or_route_artifacts": 10,
+    "downloaded_bytes": 25076001,
+    "private_inspection_root_label": "C:\\private\\mira-core-medieval-portable-batch-06-20260819"
+  },
+  "totals": {
+    "authorities_ready_for_implementation_review": 2,
+    "authorities_blocked_or_metadata_only": 8,
+    "passing_text_bodies": 14,
+    "blocked_text_bodies": 1,
+    "authorities_admitted": 0
+  },
+  "records": [
+    {"candidate_id":"MED-CAND-004","proposed_source_id":"LIB-MEDIEVAL-AUTHORITY-004-CONSTANTINE-VII","authority":"Constantine VII Porphyrogenitus","title":"De Administrando Imperio","disposition":"metadata-only","implementation_review_ready":false,"artifacts":["constantine-vii-gredos-metadata.html"],"rights_status":"unknown","coverage_ceiling":"historical-greek-latin-edition-route-only","blocker":"The GREDOS catalog route was preserved, but no reusable text file or file-level reuse statement was resolved; the standard English translation is restricted."},
+    {"candidate_id":"MED-CAND-005","proposed_source_id":"LIB-MEDIEVAL-AUTHORITY-005-MICHAEL-PSELLOS","authority":"Michael Psellos","title":"Chronographia","disposition":"blocked-rights-and-language","implementation_review_ready":false,"artifacts":["michael-psellos-fordham-chronographia.html"],"rights_status":"unknown","coverage_ceiling":"visible-english-web-edition-only","blocker":"Fordham displays the Sewter translation but does not establish portable reuse; no Greek body was resolved."},
+    {"candidate_id":"MED-CAND-007","proposed_source_id":"LIB-MEDIEVAL-AUTHORITY-007-KEBRA-NAGAST-TRADITION","authority":"Kebra Nagast textual tradition","title":"Kebra Nagast / Glory of the Kings","disposition":"blocked-access-rights-and-original-language","implementation_review_ready":false,"artifacts":[],"rights_status":"unknown","coverage_ceiling":"english-historical-translation-route-only","blocker":"The Sacred Texts mirror returned HTTP 455 and the advertised archive returned HTTP 403; Budge 1932 rights and a Ge'ez body remain unresolved."},
+    {"candidate_id":"MED-CAND-015","proposed_source_id":"LIB-MEDIEVAL-AUTHORITY-015-DOMESDAY-BOOK-TRADITION","authority":"Domesday Book administrative tradition","title":"Great Domesday and Little Domesday","disposition":"metadata-only","implementation_review_ready":false,"artifacts":["domesday-hull-metadata.html"],"rights_status":"unknown","coverage_ceiling":"dataset-route-only","blocker":"The Hull collection route was preserved, but no dataset package, embedded license, schema, or Great/Little Domesday layer ledger was recovered."},
+    {"candidate_id":"MED-CAND-017","proposed_source_id":"LIB-MEDIEVAL-AUTHORITY-017-THOMAS-AQUINAS","authority":"Thomas Aquinas","title":"Summa Theologiae","disposition":"pass-four-english-parts-supplement-gap","implementation_review_ready":true,"artifacts":["aquinas-gutenberg-author-index.html","aquinas-summa-part-17611-pg.txt","aquinas-summa-part-17897-pg.txt","aquinas-summa-part-18755-pg.txt","aquinas-summa-part-19950-pg.txt"],"rights_status":"plausible-open","coverage_ceiling":"four-principal-parts-without-supplement","passing_body_count":4,"blocker":"The Supplement is absent, no Latin body was inspected, and English/Latin equivalence is unclaimed."},
+    {"candidate_id":"MED-CAND-003","proposed_source_id":"LIB-MEDIEVAL-AUTHORITY-003-ANNA-KOMNENE","authority":"Anna Komnene","title":"Alexiad","disposition":"metadata-route-invalid","implementation_review_ready":false,"artifacts":["anna-komnene-princeton-route.html"],"rights_status":"unknown","coverage_ceiling":"identity-route-only","blocker":"The attempted Princeton translation-record URL resolved to a generic database page rather than a stable Alexiad record; no body was downloaded."},
+    {"candidate_id":"MED-CAND-016","proposed_source_id":"LIB-MEDIEVAL-AUTHORITY-016-MAGNA-CARTA-TRADITION","authority":"Magna Carta charter tradition","title":"Magna Carta, 1215 and reissues","disposition":"blocked-rights-and-recension-boundary","implementation_review_ready":false,"artifacts":["magna-carta-avalon-1215.html"],"rights_status":"unknown","coverage_ceiling":"1215-english-web-transcription-only","blocker":"The Avalon HTML supplies one English 1215 text but no inspected file-level reuse statement, Latin witness, or reissue ledger."},
+    {"candidate_id":"MED-CAND-075","proposed_source_id":"LIB-MEDIEVAL-AUTHORITY-075-ALF-LAYLA-WA-LAYLA-TRADITION","authority":"Alf Layla wa-Layla medieval textual tradition","title":"One Thousand and One Nights / Arabian Nights","disposition":"pass-complete-burton-main-edition-only","implementation_review_ready":true,"artifacts":["arabian-nights-burton-index.html","arabian-nights-burton-main-vol-51252-pg.txt","arabian-nights-burton-main-vol-51775-pg.txt","arabian-nights-burton-main-vol-52564-pg.txt","arabian-nights-burton-main-vol-53254-pg.txt","arabian-nights-burton-main-vol-54257-pg.txt","arabian-nights-burton-main-vol-54525-pg.txt","arabian-nights-burton-main-vol-54778-pg.txt","arabian-nights-burton-main-vol-55091-pg.txt","arabian-nights-burton-main-vol-55587-pg.txt","arabian-nights-burton-main-vol-58360-pg.txt"],"rights_status":"plausible-open","coverage_ceiling":"complete-named-ten-volume-burton-main-edition","passing_body_count":10,"blocker":"No Arabic witness was inspected; Burton's edition is one late composite English translation, excludes six Supplemental Nights volumes, and cannot represent the complete medieval textual tradition."},
+    {"candidate_id":"MED-CAND-068","proposed_source_id":"LIB-MEDIEVAL-AUTHORITY-068-TALE-OF-HEIKE-TRADITION","authority":"Heike monogatari performance/textual tradition","title":"Tale of the Heike","disposition":"blocked-uncorrected-ocr","implementation_review_ready":false,"artifacts":["tale-heike-ia-search.json","tale-heike-ia-metadata.json","tale-heike-sadler-ia-ocr.txt"],"rights_status":"plausible-open","coverage_ceiling":"sadler-english-edition-unverified-ocr","blocked_body_count":1,"blocker":"The Internet Archive item asserts CC0, but the downloaded body is uncorrected derived OCR not reconciled to scans; no Japanese witness was inspected."},
+    {"candidate_id":"MED-CAND-060","proposed_source_id":"LIB-MEDIEVAL-AUTHORITY-060-ZHU-XI","authority":"Zhu Xi","title":"Commentaries on the Four Books","disposition":"metadata-witness-only","implementation_review_ready":false,"artifacts":["zhu-xi-four-books-loc-metadata.json"],"rights_status":"plausible-open","coverage_ceiling":"digitized-chinese-witness-route-only","blocker":"The LOC/WDL JSON identifies a reusable digitized Chinese witness but is metadata, not a normalized searchable text body; no lawful English body was inspected."}
+  ],
+  "file_manifest": [
+    ["anna-komnene-princeton-route.html",12264,"5c30ee5e6272d8ce06c3e1c5477f9844ccfd83f784234db3f167db3badcb04b8","https://byzantine.lib.princeton.edu/byzantine/translation/12345"],
+    ["aquinas-gutenberg-author-index.html",10463,"f40848e0e3460dccf62e89c05f23457231b1098b37d6a6349c80643609e44e89","https://www.gutenberg.org/ebooks/author/7489"],
+    ["aquinas-summa-part-17611-pg.txt",2911941,"c9443221a31768991db4bbe37e6ed035b278143a6728af64dc8ba0cf8e79154d","https://www.gutenberg.org/cache/epub/17611/pg17611.txt"],
+    ["aquinas-summa-part-17897-pg.txt",2903048,"9722b299e1a91c43f989a282ebd857c92fdde442611035cba002f94b817c2be0","https://www.gutenberg.org/cache/epub/17897/pg17897.txt"],
+    ["aquinas-summa-part-18755-pg.txt",4214842,"4fc8480443d31d54e150bc60377a3abf69665c942e4e956a578e443e64c4632f","https://www.gutenberg.org/cache/epub/18755/pg18755.txt"],
+    ["aquinas-summa-part-19950-pg.txt",2757535,"4adb238f7c98be1c4c7d71275d29d479d923d2c447d16a692365c79ada81cdb5","https://www.gutenberg.org/cache/epub/19950/pg19950.txt"],
+    ["arabian-nights-burton-index.html",394348,"526e19cda242fc1646f917bed2d9001473b5ad35d5358ae9f0772a7f1541c989","https://www.gutenberg.org/files/58722/58722-h/58722-h.htm"],
+    ["arabian-nights-burton-main-vol-51252-pg.txt",1042814,"1508927f53c7a409d69ac13ec38226547dc904b901fc492403d34dffcd2e7117","https://www.gutenberg.org/cache/epub/51252/pg51252.txt"],
+    ["arabian-nights-burton-main-vol-51775-pg.txt",915957,"5ea4970495f53e43a4fff2f2c8d0f7a95e97d3b5d6b5f473ea5d4d5ca7d28a32","https://www.gutenberg.org/cache/epub/51775/pg51775.txt"],
+    ["arabian-nights-burton-main-vol-52564-pg.txt",927073,"f9e3d5d3dc9e8ef315f29462827938524364b7962a821e3a46ea9411bed9a141","https://www.gutenberg.org/cache/epub/52564/pg52564.txt"],
+    ["arabian-nights-burton-main-vol-53254-pg.txt",811196,"290e8ccb868c7a8244442bf5a3c1db4eaa7556aacf0ee0ddd25eef5d36ad631a","https://www.gutenberg.org/cache/epub/53254/pg53254.txt"],
+    ["arabian-nights-burton-main-vol-54257-pg.txt",1054940,"e220b114c2cf7732f59d2d905d4e56956483b2bc1db86cb41f9c5f7292c582d1","https://www.gutenberg.org/cache/epub/54257/pg54257.txt"],
+    ["arabian-nights-burton-main-vol-54525-pg.txt",810192,"b8bf2f1a10917d6b780da9df86167eb2b0f74542551d5bec09794604eee691b4","https://www.gutenberg.org/cache/epub/54525/pg54525.txt"],
+    ["arabian-nights-burton-main-vol-54778-pg.txt",1009561,"bd9e4ee76dfa05144f25fc1376f92a4a91e1a7fcc08975b243b72a608b1e5f07","https://www.gutenberg.org/cache/epub/54778/pg54778.txt"],
+    ["arabian-nights-burton-main-vol-55091-pg.txt",936591,"08006f1154b72b051b1edf3e1d14d9933c5f8906a1c4dc96e9401386881213a0","https://www.gutenberg.org/cache/epub/55091/pg55091.txt"],
+    ["arabian-nights-burton-main-vol-55587-pg.txt",967521,"6a7446a1e0ae6f5324a9dcb9fe63f24273294f982f2f198af7dffeec3a119869","https://www.gutenberg.org/cache/epub/55587/pg55587.txt"],
+    ["arabian-nights-burton-main-vol-58360-pg.txt",1797704,"8415749cbcadfe6f050a3eeffdf0ef932227bed4b60d3ab9c230e381843d1e00","https://www.gutenberg.org/cache/epub/58360/pg58360.txt"],
+    ["constantine-vii-gredos-metadata.html",37565,"48830548c1c550c6e712c31273766dfedc19221b21634c377f10684a4bb67787","https://gredos.usal.es/handle/10366/42157"],
+    ["domesday-hull-metadata.html",18385,"7c6af662d3c285a57cb5c5bc9bd4e7942514c6972b6d261d21f668077107e277","https://digitalcollections.hull.ac.uk/collections/3t945r28b?locale=en"],
+    ["magna-carta-avalon-1215.html",35612,"3f56ff98d6b827c81706d2a6ebeb19408e5a2f8bad2a242e06cdc5857541f9fa","https://avalon.law.yale.edu/medieval/magna.asp"],
+    ["michael-psellos-fordham-chronographia.html",30990,"3968a1ef8eac59e8f87d902e016f3b2f38f0ee9227f8991c9086bd6c83494919","https://sourcebooks.web.fordham.edu/basis/psellus-chronographia.asp"],
+    ["tale-heike-ia-metadata.json",5254,"20660e84f672c311b50d82eea124f854976f0663ef9917c7b69e63d95a454b13","https://archive.org/metadata/TheHeikeMonogatari"],
+    ["tale-heike-ia-search.json",467,"2bea545f32b5c7efdabfbab63a09777627cc82d4d5c6227fadb2d43e89f86a2a","https://archive.org/advancedsearch.php?q=title%3A%28Heike+Monogatari%29+AND+creator%3A%28Sadler%29&output=json"],
+    ["tale-heike-sadler-ia-ocr.txt",1318046,"dc4ed91ca1fecb09e8ea1dff3694db22fb9c7fbe60995ab481c56e4f185fa83e","https://archive.org/download/TheHeikeMonogatari/HeikeMonogatari._djvu.txt"],
+    ["zhu-xi-four-books-loc-metadata.json",151692,"8792ea0efd2ea9d9991bd076dd61131d024c423a2a2d05030b94dd669dde07fa","https://www.loc.gov/item/2021666313/?fo=json"]
+  ],
+  "persistence": {"registry_changed":false,"managed_private_store_changed":false,"era_index_changed":false,"staged":false,"committed":false,"pushed":false,"published":false}
+}

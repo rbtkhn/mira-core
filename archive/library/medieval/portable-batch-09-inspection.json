@@ -1,0 +1,162 @@
+{
+  "schema_version": "medieval-portable-batch-inspection-v1",
+  "batch_id": "MEDIEVAL-PORTABLE-BATCH-09",
+  "generated_on": "2026-08-19",
+  "state": "review-pending",
+  "authority_effect": "none",
+  "scope": {
+    "authorities": 10,
+    "downloaded_artifacts": 15,
+    "text_candidates": 8,
+    "metadata_receipts": 7,
+    "private_inspection_root_label": "C:\\private\\mira-core-medieval-portable-batch-09-20260819"
+  },
+  "totals": {
+    "authorities_ready_for_implementation_review": 0,
+    "authorities_blocked_or_metadata_only": 10,
+    "passing_text_bodies": 0,
+    "blocked_text_bodies": 8,
+    "metadata_only_authorities": 5,
+    "authorities_admitted": 0
+  },
+  "records": [
+    {
+      "candidate_id": "MED-CAND-006",
+      "source_id": "LIB-MEDIEVAL-AUTHORITY-006-MICHAEL-THE-SYRIAN",
+      "authority": "Michael the Syrian",
+      "title": "Chronicle",
+      "disposition": "blocked-incomplete-sequence-ocr-rights",
+      "implementation_review_ready": false,
+      "artifacts": ["michael-chabot-vol1.txt","michael-chabot-vol4.txt","chroniquedemiche01mich-metadata.json","chroniquedemiche04mich-metadata.json"],
+      "rights_status": "unknown-item-rights",
+      "coverage_ceiling": "chabot-volumes-1-and-4-only",
+      "unresolved": "Chabot's four-volume Syriac/French edition is represented only by volumes 1 and 4. Both recovered layers are severely noisy uncorrected OCR, volumes 2-3 are absent, and the item metadata provides no explicit reuse statement."
+    },
+    {
+      "candidate_id": "MED-CAND-027",
+      "source_id": "LIB-MEDIEVAL-AUTHORITY-027-IBN-HAZM",
+      "authority": "Ibn Hazm",
+      "title": "Kitab al-Fisal",
+      "disposition": "metadata-only-modern-arabic-scan",
+      "implementation_review_ready": false,
+      "rights_status": "unknown",
+      "coverage_ceiling": "identified-modern-arabic-edition-route",
+      "evidence_routes": ["https://sites.dlib.nyu.edu/viewer/books/columbia_aco003297/1","https://islamansiklopedisi.org.tr/el-fasl"],
+      "unresolved": "Arabic Collections Online identifies a 1964 Baghdad printing but does not establish a clean text export or reusable complete English translation. The edition also binds two volumes and requires work-boundary inspection."
+    },
+    {
+      "candidate_id": "MED-CAND-028",
+      "source_id": "LIB-MEDIEVAL-AUTHORITY-028-AL-BAKRI",
+      "authority": "Abu Ubayd al-Bakri",
+      "title": "Kitab al-Masalik wa-l-Mamalik / Book of Roads and Kingdoms",
+      "disposition": "metadata-only-partial-french-route",
+      "implementation_review_ready": false,
+      "rights_status": "unknown",
+      "coverage_ceiling": "north-africa-sections-in-french-only",
+      "evidence_routes": ["https://gallica.bnf.fr/ark:/12148/bpt6k104409x","https://catalogue.bnf.fr/ark:/12148/cb39094554r"],
+      "unresolved": "De Slane's French Description de l'Afrique septentrionale is a regional extract, not the complete Book of Roads and Kingdoms. No exact complete Arabic export or reusable complete English body was resolved."
+    },
+    {
+      "candidate_id": "MED-CAND-029",
+      "source_id": "LIB-MEDIEVAL-AUTHORITY-029-AL-IDRISI",
+      "authority": "Muhammad al-Idrisi",
+      "title": "Nuzhat al-mushtaq / Tabula Rogeriana",
+      "disposition": "metadata-only-fragmentary-manuscript-witness",
+      "implementation_review_ready": false,
+      "rights_status": "unknown",
+      "coverage_ceiling": "one-damaged-manuscript-witness-with-68-of-70-maps",
+      "evidence_routes": ["https://www.loc.gov/resource/gdcwdl.wdl_18418/"],
+      "unresolved": "The Library of Congress route identifies BnF MS Arabe 2221, copied around 1325, but the witness lacks two maps and its last folio and has damaged folios. It cannot stand for the complete text-map tradition or a reusable English body."
+    },
+    {
+      "candidate_id": "MED-CAND-032",
+      "source_id": "LIB-MEDIEVAL-AUTHORITY-032-IBN-AL-ATHIR",
+      "authority": "Izz al-Din Ibn al-Athir",
+      "title": "al-Kamil fi al-tarikh / Complete History",
+      "disposition": "metadata-only-modern-arabic-and-restricted-english",
+      "implementation_review_ready": false,
+      "rights_status": "restricted-or-unknown",
+      "coverage_ceiling": "identified-multivolume-arabic-route-and-partial-modern-english",
+      "evidence_routes": ["https://sites.dlib.nyu.edu/viewer/books/columbia_aco003127/display?lang=ar","https://books.google.com/books?id=yKMEodaT-jEC"],
+      "unresolved": "The Arabic route requires a multi-volume edition and rights inspection. Richards' 2006-2008 English volumes cover only the Crusading-period selections and remain restricted; no complete English translation was established."
+    },
+    {
+      "candidate_id": "MED-CAND-042",
+      "source_id": "LIB-MEDIEVAL-AUTHORITY-042-NASIR-KHUSRAW",
+      "authority": "Nasir Khusraw",
+      "title": "Safarnama",
+      "disposition": "blocked-facsimile-restriction-and-partial-translation",
+      "implementation_review_ready": false,
+      "artifacts": ["nasir-khusraw-le-strange.txt","39020013533750-diaryofajourney-metadata.json"],
+      "rights_status": "restricted-item",
+      "coverage_ceiling": "english-syria-and-palestine-extract",
+      "unresolved": "The recovered Books on Demand facsimile explicitly prohibits further unauthorized copying. Le Strange's English body is also a Syria-and-Palestine extract, not the complete Safarnama, and the OCR is uncorrected."
+    },
+    {
+      "candidate_id": "MED-CAND-048",
+      "source_id": "LIB-MEDIEVAL-AUTHORITY-048-BHASKARA-II",
+      "authority": "Bhaskara II",
+      "title": "Lilavati; Bijaganita",
+      "disposition": "blocked-mixed-author-ocr-body",
+      "implementation_review_ready": false,
+      "artifacts": ["bhaskara-colebrooke-1817.txt","algebrawitharith00brahuoft-metadata.json"],
+      "rights_status": "unknown-item-rights",
+      "coverage_ceiling": "colebrooke-translation-containing-brahmagupta-and-bhaskara-components",
+      "unresolved": "Colebrooke's 1817 volume mixes Brahmagupta and Bhaskara works and the recovered layer is noisy uncorrected OCR. Component boundaries, Sanskrit counterparts, and item reuse terms require separate verification."
+    },
+    {
+      "candidate_id": "MED-CAND-049",
+      "source_id": "LIB-MEDIEVAL-AUTHORITY-049-JAYADEVA",
+      "authority": "Jayadeva",
+      "title": "Gita Govinda",
+      "disposition": "blocked-anthology-adaptation-and-original-ocr",
+      "implementation_review_ready": false,
+      "artifacts": ["jayadeva-arnold-pg25965.txt","jayadeva-lassen-1836.txt","gitagovindajaya00lassgoog-metadata.json"],
+      "rights_status": "public-domain-english-anthology; unknown-original-item-rights",
+      "coverage_ceiling": "arnold-adaptation-with-explicit-omissions-plus-lassen-sanskrit-latin-ocr",
+      "unresolved": "Gutenberg 25965 is a multi-work Edwin Arnold anthology. Its Gita Govinda adaptation explicitly paraphrases and omits material, so it requires extraction and selected-passages labeling. Lassen's 1836 Sanskrit/Latin edition is uncorrected OCR and lacks explicit item rights metadata."
+    },
+    {
+      "candidate_id": "MED-CAND-051",
+      "source_id": "LIB-MEDIEVAL-AUTHORITY-051-MINHAJ-SIRAJ",
+      "authority": "Minhaj-i Siraj Juzjani",
+      "title": "Tabaqat-i Nasiri",
+      "disposition": "blocked-noncommercial-no-derivatives-and-ocr",
+      "implementation_review_ready": false,
+      "artifacts": ["tabaqat-raverty-vol1.txt","tabaqat-raverty-vol2.txt","tabaqat-i-nasiri-volume-1-metadata.json","tabaqat-i-nasiri-volume-2-metadata.json"],
+      "rights_status": "cc-by-nc-nd-4.0-item",
+      "coverage_ceiling": "two-volume-raverty-english-edition-ocr",
+      "unresolved": "The two-volume sequence is present, but both items carry CC BY-NC-ND 4.0 and the text layers are noisy uncorrected OCR derived from reposted scans. No verified Persian counterpart was inspected."
+    },
+    {
+      "candidate_id": "MED-CAND-061",
+      "source_id": "LIB-MEDIEVAL-AUTHORITY-061-LI-QINGZHAO",
+      "authority": "Li Qingzhao",
+      "title": "Surviving ci poetry and prose",
+      "disposition": "metadata-only-attribution-critical-restricted-english",
+      "implementation_review_ready": false,
+      "rights_status": "restricted",
+      "coverage_ceiling": "institutional-biography-and-anthology-routes-only",
+      "evidence_routes": ["https://newarchive.ihp.sinica.edu.tw/sncaccgi/sncacFtp?ACTION=TQ%2CsncacFtpqf%2CSN%3D018180%2C2nd%2Csearch_simple","https://mhdb.mh.sinica.edu.tw/mingqing/mqww/search/details-poet.php?language=eng&poetID=155","https://tile.loc.gov/storage-services/master/gdc/gdcebookspublic/20/20/71/92/01/2020719201/2020719201.pdf"],
+      "unresolved": "The surviving corpus is fragmentary and attribution-sensitive. Institutional routes identify later anthology witnesses; the located complete modern English volume is CC BY-NC-ND and cannot be treated as an admission-ready portable body."
+    }
+  ],
+  "new_file_manifest": [
+    ["39020013533750-diaryofajourney-metadata.json",8194,"68f0df3b57e56142c4bec6ba918879d902695b4e973dfe1d1e2cebabdf36198a","https://archive.org/metadata/39020013533750-diaryofajourney"],
+    ["algebrawitharith00brahuoft-metadata.json",92417,"69430767675606ae59b95d684dba45b843f32f52b80499c7d5c7eb6f4cda2624","https://archive.org/metadata/algebrawitharith00brahuoft"],
+    ["bhaskara-colebrooke-1817.txt",1237681,"b8545c40513783252eebea9e1c389c6e58d1c4ba7a828308df3a3cd5193a1da9","https://archive.org/download/algebrawitharith00brahuoft/algebrawitharith00brahuoft_djvu.txt"],
+    ["chroniquedemiche01mich-metadata.json",92538,"4e5738c4d32a8b85b59829c3cc77f0ed387a6ce8e7910302b4c46df834c3662d","https://archive.org/metadata/chroniquedemiche01mich"],
+    ["chroniquedemiche04mich-metadata.json",140554,"ac1b51fbc4fe93bfd399b97e5d34a8cac0cb3227d4fc4a79de9083a0104136f4","https://archive.org/metadata/chroniquedemiche04mich"],
+    ["gitagovindajaya00lassgoog-metadata.json",5303,"b29ca78235e3cacdcb55b53cdf665260f78a73e06b1d9cf7c984b1a1891c9c64","https://archive.org/metadata/gitagovindajaya00lassgoog"],
+    ["jayadeva-arnold-pg25965.txt",255134,"07f4ebf8120b93ef39bf59ee9a243e02aa4ac52fce0f5ab56a12a1803c3fcda4","https://www.gutenberg.org/cache/epub/25965/pg25965.txt"],
+    ["jayadeva-lassen-1836.txt",324825,"4b15e93f3c78a4570eb84f997695f602c81d4207610ecab92d779437059502e3","https://archive.org/download/gitagovindajaya00lassgoog/gitagovindajaya00lassgoog_djvu.txt"],
+    ["michael-chabot-vol1.txt",1733131,"3442bcabf39fafc5d02c6c98ece795114059c6ae49fec64bec4dc1d587919c09","https://archive.org/download/chroniquedemiche01mich/chroniquedemiche01mich_djvu.txt"],
+    ["michael-chabot-vol4.txt",1508817,"3f83e0bd115a473f9e97dfe621f5be2d5c606ac69a05f1cca10a916242fc2338","https://archive.org/download/chroniquedemiche04mich/chroniquedemiche04mich_djvu.txt"],
+    ["nasir-khusraw-le-strange.txt",175681,"651c42e3a6c5567eabebbddc5e0824acbd8ea9d0d65d77d3694da20cbae73467","https://archive.org/download/39020013533750-diaryofajourney/HighRes_39020013533750_djvu.txt"],
+    ["tabaqat-i-nasiri-volume-1-metadata.json",10396,"767d829c41e6c92c48bea1c4b6b3021ce1d85bc3f06d77c2b04182d553443062","https://archive.org/metadata/tabaqat-i-nasiri-volume-1"],
+    ["tabaqat-i-nasiri-volume-2-metadata.json",9528,"870f7dfb703e916780f41ecbd81ebdd47ea4d2cde2ff8996cbbeea27790b3f2f","https://archive.org/metadata/tabaqat-i-nasiri-volume-2"],
+    ["tabaqat-raverty-vol1.txt",2280978,"4a0e49c7809429dec11802798321898828e2a754535378f418bae4b41ffb3e35","https://archive.org/download/tabaqat-i-nasiri-volume-1/Tabaqat-i%20Nasiri%2C%20%20Volume%201_djvu.txt"],
+    ["tabaqat-raverty-vol2.txt",2565413,"4ab5b45f067e296b3a24b0ccb5bbdda485d1db798aefb69bc1b1684e5ada826e","https://archive.org/download/tabaqat-i-nasiri-volume-2/Tabaqat-i%20Nasiri%2C%20%20Volume%202_djvu.txt"]
+  ],
+  "persistence": {"registry_changed":false,"managed_private_store_changed":false,"era_index_changed":false,"staged":false,"committed":false,"pushed":false,"published":false}
+}

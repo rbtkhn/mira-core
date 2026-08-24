@@ -1,0 +1,44 @@
+{
+  "schema_version": "medieval-portable-batch-inspection-v1",
+  "batch_id": "MEDIEVAL-PORTABLE-BATCH-07",
+  "generated_on": "2026-08-19",
+  "state": "review-pending",
+  "authority_effect": "none",
+  "scope": {
+    "authorities": 10,
+    "new_artifacts": 7,
+    "new_text_candidates": 1,
+    "incorporated_prior_text_inspections": 7,
+    "private_inspection_root_label": "C:\\private\\mira-core-medieval-portable-batch-07-20260819",
+    "prior_receipt": "archive/library/medieval/portable-batch-04-inspection.json"
+  },
+  "totals": {
+    "authorities_ready_for_implementation_review": 1,
+    "authorities_blocked_or_metadata_only": 9,
+    "passing_text_bodies": 1,
+    "blocked_prior_text_bodies": 7,
+    "authorities_admitted": 0
+  },
+  "records": [
+    {"candidate_id":"MED-CAND-001","source_id":"LIB-MEDIEVAL-AUTHORITY-001-JUSTINIANIC-LEGAL-TRADITION","authority":"Justinian I / Tribonianic legal commission","title":"Corpus Iuris Civilis","disposition":"pass-institutes-only","implementation_review_ready":true,"artifacts":["justinian-institutes-moyle-pg5983.txt","justinian-digest-grenoble-route.html"],"rights_status":"plausible-open","coverage_ceiling":"one-complete-component-institutes","passing_body_count":1,"unresolved":"Digest, Codex, and Novels remain unadmitted; the Grenoble route identifies a Latin Digest edition but file-level reuse and the four-component ledger remain unresolved."},
+    {"candidate_id":"MED-CAND-025","source_id":"LIB-MEDIEVAL-AUTHORITY-025-AL-TABARI","authority":"Muhammad ibn Jarir al-Tabari","title":"History of Prophets and Kings","disposition":"blocked-prior-ocr-rights-and-volume-gap","implementation_review_ready":false,"prior_body_count":1,"unresolved":"Batch 04 inspected one Arabic volume only; item rights were unstated, OCR uncorrected, the multi-volume Arabic sequence incomplete, and the SUNY English series restricted."},
+    {"candidate_id":"MED-CAND-037","source_id":"LIB-MEDIEVAL-AUTHORITY-037-NIZAM-AL-MULK","authority":"Nizam al-Mulk textual tradition","title":"Siyasat-nama / Book of Government","disposition":"blocked-prior-ocr-rights-and-recension","implementation_review_ready":false,"prior_body_count":1,"unresolved":"Batch 04 inspected one Schefer-derived body with unstated rights and uncorrected OCR; the disputed late-chapter boundary and lawful complete English route remain unresolved."},
+    {"candidate_id":"MED-CAND-038","source_id":"LIB-MEDIEVAL-AUTHORITY-038-AL-BIRUNI","authority":"Abu Rayhan al-Biruni","title":"Kitab al-Hind / Alberuni's India","disposition":"blocked-prior-rights-and-ocr","implementation_review_ready":false,"prior_body_count":1,"unresolved":"Batch 04's combined OCR item carries CC BY-NC-ND 4.0 and is not an admission-safe clean text; no verified Arabic body was added."},
+    {"candidate_id":"MED-CAND-033","source_id":"LIB-MEDIEVAL-AUTHORITY-033-IBN-KHALDUN","authority":"Abd al-Rahman Ibn Khaldun","title":"Muqaddimah","disposition":"blocked-prior-incomplete-ocr-rights","implementation_review_ready":false,"prior_body_count":2,"unresolved":"Batch 04 recovered an incomplete Quatremere sequence with unstated item rights and poor Arabic OCR; no reusable complete English translation exists in the inspected routes."},
+    {"candidate_id":"MED-CAND-057","source_id":"LIB-MEDIEVAL-AUTHORITY-057-SIMA-GUANG","authority":"Sima Guang and Northern Song compilation team","title":"Zizhi Tongjian","disposition":"metadata-only-restricted","implementation_review_ready":false,"prior_body_count":0,"unresolved":"No lawful complete export or complete reusable English translation was resolved; CText bulk restrictions remain controlling."},
+    {"candidate_id":"MED-CAND-046","source_id":"LIB-MEDIEVAL-AUTHORITY-046-KALHANA","authority":"Kalhana","title":"Rajatarangini","disposition":"blocked-prior-uncorrected-ocr","implementation_review_ready":false,"prior_body_count":2,"unresolved":"Batch 04 recovered two public-domain-marked Stein volumes, but both are uncorrected OCR not reconciled to scans and the Sanskrit/English layer boundary remains unverified."},
+    {"candidate_id":"MED-CAND-067","source_id":"LIB-MEDIEVAL-AUTHORITY-067-AZUMA-KAGAMI-TRADITION","authority":"Kamakura bakufu chronicle editorial tradition","title":"Azuma Kagami","disposition":"blocked-explicit-translation-restriction","implementation_review_ready":false,"artifacts":["azuma-kagami-jhti-volumes-1-5.html","azuma-kagami-nijl-usage.html"],"unresolved":"JHTI explicitly reserves the Shinoda English translation and limits it to selected 1180-1185 material; NIJL states item rights vary and permission may be required. No portable Japanese body passed."},
+    {"candidate_id":"MED-CAND-043","source_id":"LIB-MEDIEVAL-AUTHORITY-043-SECRET-HISTORY-MONGOLS-TRADITION","authority":"Anonymous Mongol court textual tradition","title":"Secret History of the Mongols","disposition":"metadata-partial-route-only","implementation_review_ready":false,"artifacts":["secret-history-pelliot-uqam-route.html"],"unresolved":"The UQAM route is Pelliot's 1949 reconstruction and French translation of chapters I-VI only; no complete received-witness body, clear reusable license, or lawful complete English translation was established."},
+    {"candidate_id":"MED-CAND-076","source_id":"LIB-MEDIEVAL-AUTHORITY-076-RUS-PRIMARY-CHRONICLE-TRADITION","authority":"Rus' Primary Chronicle textual tradition","title":"Povest' vremennykh let / Tale of Bygone Years","disposition":"metadata-witness-restricted","implementation_review_ready":false,"artifacts":["rus-laurentian-nlr-manuscript.html","rus-laurentian-nlr-project-rights.html"],"unresolved":"NLR exposes manuscript, modernized transliteration, and modern Russian translation as distinct layers; permission was granted for project use, not general redistribution, and no reusable English body was resolved."}
+  ],
+  "new_file_manifest": [
+    ["azuma-kagami-jhti-volumes-1-5.html",2949,"9353ab00e52384f629c8278deba4c5d8e97dbccfac886d23c50c87c31e2c5239","https://jhti.studentorg.berkeley.edu/texthon17.htm"],
+    ["azuma-kagami-nijl-usage.html",183458,"098c55815c09f84e1b8c24468acce25d8ca796da11ca8f77ea7973fb1f0b2c2a","https://kokusho.nijl.ac.jp/page/en/usage.html?ln=en"],
+    ["justinian-digest-grenoble-route.html",31511,"788e6f11b3fb046a0bda887ffc4928b18025dcbfd3f22896c7c049f16b5d6584","https://droitromain.univ-grenoble-alpes.fr/Corpus/digest.htm"],
+    ["justinian-institutes-moyle-pg5983.txt",494087,"f8ea7c1558e7a70353157f02bf9f69dfe5c75acaf71f65dac2ff3c3677dfd951","https://www.gutenberg.org/cache/epub/5983/pg5983.txt"],
+    ["rus-laurentian-nlr-manuscript.html",6672,"9c096aae088578094cf45f29c58950aab6600a82225042da63b9b696979385a0","https://expositions.nlr.ru/LaurentianCodex/eng/manuscript1.html"],
+    ["rus-laurentian-nlr-project-rights.html",11879,"74727157c12a6caacfa37695e2c7968112f185c2a501a6fc7b1f78c4ef77eab7","https://expositions.nlr.ru/LaurentianCodex/eng/project2.html"],
+    ["secret-history-pelliot-uqam-route.html",29680,"047c123d34e79a02773d92c6d8e83100ce4169e06e08fb86b3a77ca1a413446b","https://classiques.uqam.ca/classiques/pelliot_paul/histoire_secrete_mongols/histoire_secrete_mongols.html"]
+  ],
+  "persistence":{"registry_changed":false,"managed_private_store_changed":false,"era_index_changed":false,"staged":false,"committed":false,"pushed":false,"published":false}
+}

@@ -1,0 +1,127 @@
+{
+  "schema_version": "medieval-portable-batch-inspection-v1",
+  "batch_id": "MEDIEVAL-PORTABLE-BATCH-10",
+  "generated_on": "2026-08-19",
+  "state": "review-pending",
+  "authority_effect": "none",
+  "scope": {
+    "authorities": 8,
+    "downloaded_artifacts": 4,
+    "text_candidates": 2,
+    "metadata_receipts": 2,
+    "private_inspection_root_label": "C:\\private\\mira-core-medieval-portable-batch-10-20260819"
+  },
+  "totals": {
+    "authorities_ready_for_implementation_review": 0,
+    "authorities_blocked_or_metadata_only": 8,
+    "passing_text_bodies": 0,
+    "blocked_text_bodies": 2,
+    "metadata_only_authorities": 6,
+    "authorities_admitted": 0
+  },
+  "records": [
+    {
+      "candidate_id":"MED-CAND-040",
+      "source_id":"LIB-MEDIEVAL-AUTHORITY-040-YUSUF-KHASS-HAJIB",
+      "authority":"Yusuf Khass Hajib",
+      "title":"Kutadgu Bilig",
+      "disposition":"metadata-only-three-witness-tradition-restricted-english",
+      "implementation_review_ready":false,
+      "rights_status":"unknown-original; restricted-english",
+      "coverage_ceiling":"authority-and-manuscript-tradition-identity-only",
+      "evidence_routes":["https://www.unesco.org/en/memory-world"],
+      "unresolved":"The Vienna, Cairo, and Fergana witness tradition requires manuscript-specific provenance and rights. Dankoff's complete English translation is modern and restricted; no clean reusable original-language body was resolved."
+    },
+    {
+      "candidate_id":"MED-CAND-041",
+      "source_id":"LIB-MEDIEVAL-AUTHORITY-041-MAHMUD-AL-KASHGARI",
+      "authority":"Mahmud al-Kashgari",
+      "title":"Diwan Lughat al-Turk",
+      "disposition":"metadata-only-unique-manuscript-restricted-english",
+      "implementation_review_ready":false,
+      "rights_status":"unknown-manuscript; restricted-english",
+      "coverage_ceiling":"unique-manuscript-identity-only",
+      "evidence_routes":["https://media.unesco.org/sites/default/files/webform/mow001/turkey_compendium_eng.pdf","https://www.yek.gov.tr/Home/Index_?n_id=168"],
+      "unresolved":"UNESCO and the Turkish Manuscripts Institution identify the unique 319-folio Millet Library manuscript. No licensed portable facsimile or transcription was established, and the three-volume Dankoff/Kelly English edition remains restricted."
+    },
+    {
+      "candidate_id":"MED-CAND-047",
+      "source_id":"LIB-MEDIEVAL-AUTHORITY-047-SOMESHVARA-III",
+      "authority":"Someshvara III",
+      "title":"Manasollasa / Abhilashitartha Chintamani",
+      "disposition":"blocked-volume-1-severe-ocr",
+      "implementation_review_ready":false,
+      "artifacts":["manasollasa-vol1-shrigondekar-1925.txt","dli.bengal.10689.10038-metadata.json"],
+      "rights_status":"unknown-item-rights",
+      "coverage_ceiling":"shrigondekar-volume-1-only",
+      "unresolved":"Only volume 1 of the Shrigondekar Sanskrit edition was recovered. Its Devanagari OCR is severely corrupted, later volumes are absent, item rights are unstated, and no complete English translation was located. The similarly titled devotional Manasollasa must remain excluded."
+    },
+    {
+      "candidate_id":"MED-CAND-050",
+      "source_id":"LIB-MEDIEVAL-AUTHORITY-050-JNANESHWAR",
+      "authority":"Jnaneshwar",
+      "title":"Jnaneshwari / Bhavartha Dipika",
+      "disposition":"metadata-only-recension-and-translation-gap",
+      "implementation_review_ready":false,
+      "rights_status":"unknown-or-restricted",
+      "coverage_ceiling":"authority-and-work-identity-only",
+      "evidence_routes":["https://archive.org/search?query=title%3A%28Jnaneshwari%29"],
+      "unresolved":"Located scans are modern Marathi, Hindi, or unattributed reposts without a settled base recension and reusable rights. No complete clean public-domain English body was established."
+    },
+    {
+      "candidate_id":"MED-CAND-052",
+      "source_id":"LIB-MEDIEVAL-AUTHORITY-052-AMIR-KHUSRAU",
+      "authority":"Amir Khusrau",
+      "title":"Khaza'in al-Futuh / Treasures of Victory",
+      "disposition":"blocked-pdf-text-layer-needs-reconciliation",
+      "implementation_review_ready":false,
+      "artifacts":["amir-khusrau-mirza-1975.pdf","zenodo-3994264-metadata.json"],
+      "rights_status":"cc-by-4.0-repository-record",
+      "coverage_ceiling":"mirza-1975-english-translation-pdf",
+      "unresolved":"Zenodo records Wahid Mirza's 1975 English translation under CC BY 4.0. The 99-page payload is a scanned PDF with an extractable but imperfect OCR text layer; it requires page-to-text reconciliation and a clean UTF-8 body before admission. No Persian counterpart was inspected."
+    },
+    {
+      "candidate_id":"MED-CAND-056",
+      "source_id":"LIB-MEDIEVAL-AUTHORITY-056-DU-YOU",
+      "authority":"Du You",
+      "title":"Tongdian / Comprehensive Institutions",
+      "disposition":"metadata-only-200-juan-ocr-route",
+      "implementation_review_ready":false,
+      "rights_status":"restricted-bulk-route",
+      "coverage_ceiling":"ctext-base-edition-and-ocr-route-only",
+      "evidence_routes":["https://ctext.org/tongdian","https://ctext.org/wiki.pl?if=en&res=137286"],
+      "unresolved":"Chinese Text Project identifies a 200-juan Siku base edition and states that its matched digital text was produced through OCR. Bulk reuse is not a portable license and no complete reusable English translation exists."
+    },
+    {
+      "candidate_id":"MED-CAND-059",
+      "source_id":"LIB-MEDIEVAL-AUTHORITY-059-SU-SONG",
+      "authority":"Su Song",
+      "title":"Xin yixiang fayao",
+      "disposition":"metadata-only-diagram-text-rights-gap",
+      "implementation_review_ready":false,
+      "rights_status":"unknown-original; restricted-english",
+      "coverage_ceiling":"three-volume-text-and-diagram-route-only",
+      "evidence_routes":["https://ctext.org/wiki.pl?if=en&remap=gb&res=671381"],
+      "unresolved":"The three-volume treatise depends on diagrams as well as text. No licensed portable Chinese edition with verified diagram sequence was established, and the principal English scholarly translation is restricted."
+    },
+    {
+      "candidate_id":"MED-CAND-062",
+      "source_id":"LIB-MEDIEVAL-AUTHORITY-062-SONG-SHI-TRADITION",
+      "authority":"Song Shi Yuan editorial tradition",
+      "title":"Song Shi / History of Song",
+      "disposition":"metadata-only-496-juan-scale-and-rights-gap",
+      "implementation_review_ready":false,
+      "rights_status":"restricted-bulk-route",
+      "coverage_ceiling":"496-juan-official-history-identity-only",
+      "evidence_routes":["https://ctext.org/datawiki.pl?if=en&res=545989"],
+      "unresolved":"The official history comprises 496 juan. No reusable complete bulk export, verified base-edition sequence, or complete English translation was resolved; selected modern translations cannot represent the whole."
+    }
+  ],
+  "new_file_manifest": [
+    ["amir-khusrau-mirza-1975.pdf",2080631,"168b2d54409a9df658696a84b2cee87a079fb4461c5242ac809eea1fbfbe7753","https://zenodo.org/api/records/3994264/files/Khusrau,%20Khazain%20al-futuh%20trans.%20Mirza%201975.pdf/content"],
+    ["dli.bengal.10689.10038-metadata.json",12330,"9eb4d07708335e14a97ba97178e063d4bacc54c14053062d0733d8eeb932b670","https://archive.org/metadata/dli.bengal.10689.10038"],
+    ["manasollasa-vol1-shrigondekar-1925.txt",418400,"950ac57c4788977ea6d386f6a524f50661d088bbc2c7c5bc8e97370cce7225f1","https://archive.org/download/dli.bengal.10689.10038/10689.10038_djvu.txt"],
+    ["zenodo-3994264-metadata.json",4850,"4a3917912aab9ae503008cc77bdaa0470dd6be32de6272428bb277a7f42cf062","https://zenodo.org/api/records/3994264"]
+  ],
+  "persistence":{"registry_changed":false,"managed_private_store_changed":false,"era_index_changed":false,"staged":false,"committed":false,"pushed":false,"published":false}
+}
