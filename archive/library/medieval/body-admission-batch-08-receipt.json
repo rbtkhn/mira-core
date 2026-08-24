@@ -1,0 +1,123 @@
+{
+  "schema_version": "library-body-admission-batch-receipt-v1",
+  "batch_id": "MEDIEVAL-BODY-ADMISSION-08",
+  "date": "2026-08-19",
+  "status": "partial-success",
+  "authority_ceiling": 6,
+  "body_ceiling": 24,
+  "license_scope": "public-domain",
+  "authorities": [
+    "LIB-MEDIEVAL-AUTHORITY-001-JUSTINIANIC-LEGAL-TRADITION",
+    "LIB-MEDIEVAL-AUTHORITY-003-ANNA-KOMNENE",
+    "LIB-MEDIEVAL-AUTHORITY-012-GREGORY-TOURS",
+    "LIB-MEDIEVAL-AUTHORITY-066-MURASAKI-SHIKIBU",
+    "LIB-MEDIEVAL-AUTHORITY-073-GEOFFREY-CHAUCER",
+    "LIB-MEDIEVAL-AUTHORITY-076-POVEST-VREMENNYKH-LET-TRADITION"
+  ],
+  "candidates": [
+    {
+      "source_id": "LIB-MEDIEVAL-AUTHORITY-073-GEOFFREY-CHAUCER",
+      "body_id": "LIB-MEDIEVAL-AUTHORITY-073-CHAUCER-CANTERBURY-TALES-PURVES-GUTENBERG-2383",
+      "work_title": "The Canterbury Tales",
+      "upstream_url": "https://www.gutenberg.org/cache/epub/2383/pg2383.txt",
+      "edition": "David Laing Purves edition, 1870; Project Gutenberg ebook 2383",
+      "language": "english",
+      "coverage_status": "complete-work",
+      "disposition": "admitted",
+      "principal_risk": "The upstream collection contains other poems; the Canterbury Tales section must be isolated by explicit headings without altering its text."
+    },
+    {
+      "source_id": "LIB-MEDIEVAL-AUTHORITY-073-GEOFFREY-CHAUCER",
+      "body_id": "LIB-MEDIEVAL-AUTHORITY-073-CHAUCER-NUNS-PRIESTS-TALE-CULOS-FRIULIAN-GUTENBERG-28487",
+      "work_title": "Cjantaclar e Partelote / The Nun's Priest's Tale",
+      "upstream_url": "https://www.gutenberg.org/cache/epub/28487/pg28487.txt",
+      "edition": "Ermes Primiano Culos Friulian translation; Project Gutenberg ebook 28487",
+      "language": "friulian",
+      "coverage_status": "selected-passages",
+      "disposition": "admitted",
+      "principal_risk": "Confirm that the body is the attributed tale rather than an adaptation outside the accepted boundary."
+    },
+    {
+      "source_id": "LIB-MEDIEVAL-AUTHORITY-073-GEOFFREY-CHAUCER",
+      "body_id": "LIB-MEDIEVAL-AUTHORITY-073-CHAUCER-CANTERBURY-SELECTIONS-CHIARINI-ITALIAN-GUTENBERG-47461",
+      "work_title": "Dalle Novelle di Canterbury",
+      "upstream_url": "https://www.gutenberg.org/cache/epub/47461/pg47461.txt",
+      "edition": "Cino Chiarini Italian translation, 1905; Project Gutenberg ebook 47461",
+      "language": "italian",
+      "coverage_status": "selected-passages",
+      "disposition": "admitted",
+      "principal_risk": "The edition contains only a named selection of tales and must not be treated as complete."
+    }
+  ],
+  "admission_result": {
+    "candidate_bodies_inspected": 3,
+    "dry_runs_passed": 3,
+    "bodies_admitted": 3,
+    "bytes_added": 1597283,
+    "source_status_after": "located",
+    "source_coverage_after": "principal-work"
+  },
+  "isolated_failures": [
+    {
+      "source_id": "LIB-MEDIEVAL-AUTHORITY-001-JUSTINIANIC-LEGAL-TRADITION",
+      "disposition": "no-additional-public-domain-body",
+      "blocker": "Project Gutenberg exposes only the already-admitted Moyle Institutes. The Grenoble Digest route identifies a public-domain Mommsen-Krueger edition but supplies a site transcription without a resolved file-level public-domain statement; Codex and Novellae remain unresolved."
+    },
+    {
+      "source_id": "LIB-MEDIEVAL-AUTHORITY-003-ANNA-KOMNENE",
+      "disposition": "no-additional-public-domain-body",
+      "blocker": "The Dawes English body is already admitted under operator permission. Located Greek transcriptions are offered through open-license environments rather than a confirmed file-level public-domain route, so they fall outside this batch's license scope."
+    },
+    {
+      "source_id": "LIB-MEDIEVAL-AUTHORITY-012-GREGORY-TOURS",
+      "disposition": "no-additional-public-domain-body",
+      "blocker": "Project Gutenberg 74955 is the already-admitted Brehaut abridgment. The located Latin catalogue record does not itself establish a clean downloadable public-domain text body."
+    },
+    {
+      "source_id": "LIB-MEDIEVAL-AUTHORITY-066-MURASAKI-SHIKIBU",
+      "disposition": "no-additional-public-domain-body",
+      "blocker": "Project Gutenberg currently exposes Waley parts 1-4, all already admitted; parts 5-6 are absent. Located Japanese transcriptions are open-license or scan-based rather than a clean file-level public-domain text route."
+    },
+    {
+      "source_id": "LIB-MEDIEVAL-AUTHORITY-076-POVEST-VREMENNYKH-LET-TRADITION",
+      "disposition": "no-public-domain-body",
+      "blocker": "The known NLR witness route is project-permissioned and separates manuscript, modernization, and translation layers. No clean recension-bound public-domain text file with adequate reuse and edition metadata was established."
+    }
+  ],
+  "post_batch_totals": {
+    "medieval_authorities": 60,
+    "medieval_bodies": 70,
+    "medieval_text_bytes": 66814262,
+    "ancient_authorities": 56,
+    "ancient_bodies": 193,
+    "ancient_text_bytes": 159939301,
+    "managed_bodies_all_eras": 263,
+    "remaining_ancient_medieval_body_gap": 123
+  },
+  "validation": {
+    "library_validate": "passed",
+    "render_index_check": "passed",
+    "verify_texts": {
+      "status": "passed",
+      "checked_available_bodies": 249,
+      "missing_or_review_excluded_source_records": 43,
+      "failures": 0
+    },
+    "registry_private_store_reconciliation": {
+      "status": "passed",
+      "registered_bodies": 263,
+      "private_files": 263,
+      "missing": 0,
+      "unregistered": 0
+    },
+    "archive_library_tests": "24 passed"
+  },
+  "mutation": {
+    "registry_updated": true,
+    "private_text_store_updated": true,
+    "staged": false,
+    "committed": false,
+    "pushed": false,
+    "published": false
+  }
+}

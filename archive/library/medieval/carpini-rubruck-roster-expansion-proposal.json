@@ -1,0 +1,141 @@
+{
+  "schema_version": "library-medieval-roster-expansion-proposal-v1",
+  "prepared_on": "2026-08-20",
+  "status": "proposal-only",
+  "authority_effect": "none",
+  "baseline": {
+    "manifest": "archive/library/medieval/full-roster-candidates.json",
+    "manifest_sha256": "91e39a0ac95733519e38ac921f98e0ad6a17922375adba9588f22799b597f3e5",
+    "candidate_count": 76,
+    "selected_count": 60,
+    "reserve_count": 16
+  },
+  "policy_exception_proposed": {
+    "current_selected_ceiling": 60,
+    "proposed_selected_count": 62,
+    "reason": "Carpini and Rubruck are distinct eyewitness diplomatic authorities for the Latin-Inner Asian transmission corridor; historical consequence and non-duplication outweigh numeric parity.",
+    "existing_selected_records_removed": 0
+  },
+  "proposed_additions": [
+    {
+      "candidate_id": "MED-CAND-077",
+      "proposed_source_id": "LIB-MEDIEVAL-AUTHORITY-077-JOHN-OF-PLANO-CARPINI",
+      "accepted_pilot_seed": false,
+      "authority_label": "John of Plano Carpini",
+      "title": "Historia Mongalorum",
+      "date_start": 1247,
+      "date_end": 1247,
+      "date_label": "c. 1247",
+      "primary_lane": "Latin Christian and Jewish Mediterranean/European",
+      "languages": ["latin", "english"],
+      "functions": ["travel and diplomacy", "ethnography", "papal intelligence", "Mongol imperial encounter"],
+      "source_type": "primary",
+      "score": {
+        "historical_consequence": 2,
+        "boundary_clarity": 2,
+        "distinctiveness": 2,
+        "provenance_feasibility": 2,
+        "portability": 1,
+        "total": 9
+      },
+      "disposition": "selected",
+      "selection_reason": "Earliest substantial Latin eyewitness report from a papal mission to the Mongol court, joining diplomacy, political intelligence, ethnography, and imperial encounter.",
+      "corpus_boundary": "Carpini's Historia Mongalorum and its principal journey account only; Benedict the Pole's companion account and later abridgments are separate authorities or witnesses.",
+      "identity_source": {
+        "label": "Rockhill, The Journey of William of Rubruck, with the earlier journey of John of Pian de Carpine (Hakluyt Society, 1900)",
+        "url": "https://archive.org/details/journeywilliamr00rockgoog",
+        "evidence_status": "edition-and-provenance-inspected"
+      },
+      "original_language_route": {
+        "status": "not-located-complete-clean",
+        "route": "Locate and inspect a complete provenance-bound Latin edition; the inspected Beazley 1903 principal text lacks chapter IX.",
+        "rights_posture": "unknown"
+      },
+      "english_route": {
+        "status": "candidate-collated",
+        "route": "Private Rockhill 1900 first-account derivation, printed pages 1-32, collated against the parent scan.",
+        "rights_posture": "plausible-open"
+      },
+      "rights_posture": "plausible-open",
+      "portability": "partial",
+      "proposed_registry_status": "located",
+      "coverage_ceiling": "principal-work",
+      "maturity_ceiling": 4,
+      "principal_unresolved_gap": "A complete clean Latin body and a final derived-English rights statement remain unresolved.",
+      "preferred_next_action": "Review the separate Rockhill 1900 English admission proposal, then authorize metadata creation before any body dry-run.",
+      "reserve_replacement": null
+    },
+    {
+      "candidate_id": "MED-CAND-078",
+      "proposed_source_id": "LIB-MEDIEVAL-AUTHORITY-078-WILLIAM-OF-RUBRUCK",
+      "accepted_pilot_seed": false,
+      "authority_label": "William of Rubruck",
+      "title": "Itinerarium / Relatio",
+      "date_start": 1255,
+      "date_end": 1255,
+      "date_label": "c. 1255",
+      "primary_lane": "Latin Christian and Jewish Mediterranean/European",
+      "languages": ["latin", "english"],
+      "functions": ["travel and diplomacy", "religious encounter", "court observation", "Mongol imperial geography"],
+      "source_type": "primary",
+      "score": {
+        "historical_consequence": 2,
+        "boundary_clarity": 2,
+        "distinctiveness": 2,
+        "provenance_feasibility": 2,
+        "portability": 1,
+        "total": 9
+      },
+      "disposition": "selected",
+      "selection_reason": "Detailed eyewitness account of Mongol court life, Eurasian geography, diplomacy, and interreligious encounter distinct from Carpini's earlier papal intelligence mission.",
+      "corpus_boundary": "Rubruck's Itinerarium or Relatio only; associated travel texts, editorial apparatus, and later translations are body-level witnesses, not part of the authority boundary.",
+      "identity_source": {
+        "label": "Michel and Wright, Relations des voyages de Guillaume de Rubruk (1839)",
+        "url": "https://archive.org/details/RelationsDesVoyagesDeGuillaume",
+        "evidence_status": "edition-and-provenance-inspected"
+      },
+      "original_language_route": {
+        "status": "candidate-needs-correction",
+        "route": "Private structural draft from Michel-Wright 1839, printed pages 17-200; lexical collation and apparatus-boundary verification remain required.",
+        "rights_posture": "plausible-open"
+      },
+      "english_route": {
+        "status": "candidate-located",
+        "route": "Rockhill 1900 translation; derive and verify a clean body separately.",
+        "rights_posture": "plausible-open"
+      },
+      "rights_posture": "plausible-open",
+      "portability": "difficult",
+      "proposed_registry_status": "located",
+      "coverage_ceiling": "principal-work",
+      "maturity_ceiling": 4,
+      "principal_unresolved_gap": "The Latin candidate retains 146 distinct alphanumeric OCR-defect tokens and heuristic apparatus boundaries; the English body is not yet derived.",
+      "preferred_next_action": "Complete Latin lexical collation and independently verify apparatus boundaries before preparing an admission proposal.",
+      "reserve_replacement": null
+    }
+  ],
+  "proposed_reconciliation": {
+    "candidate_count": 78,
+    "selected_count": 62,
+    "reserve_count": 16,
+    "lane_counts": {
+      "Byzantine and Eastern Christian": 8,
+      "Latin Christian and Jewish Mediterranean/European": 14,
+      "Arabic-Islamic": 11,
+      "Persianate and Inner Asian": 8,
+      "South Asian": 7,
+      "Chinese": 8,
+      "Japanese and Korean": 6
+    },
+    "all_lane_floors_pass": true,
+    "required_jewish_authorities_retained": ["Maimonides", "Judah Halevi"],
+    "ethiopian_representation_retained": ["Kebra Nagast"],
+    "existing_selected_records_changed": 0
+  },
+  "non_authorizations": [
+    "No full-roster manifest mutation",
+    "No registry or era-index mutation",
+    "No private body admission",
+    "No staging, commit, push, Archive ingestion, or publication"
+  ]
+}

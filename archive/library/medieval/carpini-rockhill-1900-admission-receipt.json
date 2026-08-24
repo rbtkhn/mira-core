@@ -1,0 +1,49 @@
+{
+  "schema_version": "library-body-admission-receipt-v1",
+  "admitted_on": "2026-08-20",
+  "status": "admitted",
+  "source_id": "LIB-MEDIEVAL-AUTHORITY-077-JOHN-OF-PLANO-CARPINI",
+  "body": {
+    "body_id": "LIB-MEDIEVAL-AUTHORITY-077-CARPINI-JOURNEY-ROCKHILL-1900-EN",
+    "work_title": "Historia Mongalorum / The Journey of Friar John of Pian de Carpine to the Court of Kuyuk Khan, 1245-1247",
+    "text_location": "library-text://LIB-MEDIEVAL-AUTHORITY-077-CARPINI-JOURNEY-ROCKHILL-1900-EN.txt",
+    "text_sha256": "6f8ff4de6938144092bd3b26ad1292a9bd4d8fa807d98fb2e1dc500d8f0376a7",
+    "text_bytes": 44687,
+    "text_encoding": "utf-8",
+    "language": "english",
+    "translator": "W. W. Rockhill",
+    "editor": "W. W. Rockhill",
+    "edition_label": "W. W. Rockhill, Hakluyt Society, London, 1900; first Carpini account, printed pages 1-32; privately collated admission candidate",
+    "license_status": "public-domain",
+    "license_boundary": "United States posture; no claim for every jurisdiction",
+    "coverage_status": "complete-work",
+    "coverage_boundary": "Rockhill's first Carpini account, printed pages 1-32 only",
+    "status": "available",
+    "private_store": true
+  },
+  "source_state": {
+    "status": "located",
+    "text_status": "available",
+    "coverage_status": "principal-work",
+    "maturity_ceiling": 4
+  },
+  "validation": {
+    "copied_body_hash_match": true,
+    "library_verify_texts": {"status": "passed", "checked": 302, "missing": 17},
+    "library_validate": "passed",
+    "render_index_check": {"status": "passed", "medieval_sources": 62, "indexed_bodies": 316},
+    "archive_library_tests": {"status": "passed", "passed": 24}
+  },
+  "contained_failure": {
+    "phase": "first non-check copy attempt",
+    "failure": "Windows permission denied for the private text-store target",
+    "partial_registry_update": false,
+    "resolution": "Retried the exact authorized Library Import command with required filesystem permission"
+  },
+  "rubruck_changed": false,
+  "archive_catalog_ingested": false,
+  "staged": false,
+  "committed": false,
+  "pushed": false,
+  "published": false
+}

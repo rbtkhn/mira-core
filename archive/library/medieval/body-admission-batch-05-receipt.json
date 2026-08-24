@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0",
+  "batch_id": "MEDIEVAL-BODY-ADMISSION-05",
+  "date": "2026-08-19",
+  "status": "success",
+  "scope": {
+    "authorities_evaluated": 6,
+    "candidate_limit": 24,
+    "candidate_bodies_inspected": 15,
+    "admitted_bodies": 15,
+    "zero_yield_authorities": ["Procopius", "Bede", "Marco Polo / Rustichello tradition"]
+  },
+  "admitted": [
+    {"source_id":"LIB-MEDIEVAL-AUTHORITY-017-THOMAS-AQUINAS","body_id":"LIB-MEDIEVAL-AUTHORITY-017-AQUINAS-PRAYER-CONTEMPLATIVE-LIFE-POPE-GUTENBERG-22295","work_title":"On Prayer and the Contemplative Life","project_gutenberg_id":22295,"text_bytes":451259,"text_sha256":"97039fc2a806568693df12797f12e0db2cf98f1213dfdddc7a0c8e9dd25c217b"},
+    {"source_id":"LIB-MEDIEVAL-AUTHORITY-018-DANTE-ALIGHIERI","body_id":"LIB-MEDIEVAL-AUTHORITY-018-DANTE-COMMEDIA-LONGFELLOW-GUTENBERG-1004","work_title":"Divine Comedy","project_gutenberg_id":1004,"text_bytes":709055,"text_sha256":"c233a7ef9444890cb7f16071ff54d997307a3c60dcd6506cfd415bae2430eac2"},
+    {"source_id":"LIB-MEDIEVAL-AUTHORITY-018-DANTE-ALIGHIERI","body_id":"LIB-MEDIEVAL-AUTHORITY-018-DANTE-VITA-NUOVA-ROSSETTI-GUTENBERG-41085","work_title":"The New Life (La Vita Nuova)","project_gutenberg_id":41085,"text_bytes":163560,"text_sha256":"25957870f5621a9a0bd7fe9e35e23e10077f0b45f181b449a6186d80d6be6e59"},
+    {"source_id":"LIB-MEDIEVAL-AUTHORITY-018-DANTE-ALIGHIERI","body_id":"LIB-MEDIEVAL-AUTHORITY-018-DANTE-DE-MONARCHIA-CHURCH-GUTENBERG-33896","work_title":"De Monarchia","project_gutenberg_id":33896,"text_bytes":555796,"text_sha256":"90b460366c9892ad5e1f3c010479725217999a827e845b798862845fdb436161"},
+    {"source_id":"LIB-MEDIEVAL-AUTHORITY-018-DANTE-ALIGHIERI","body_id":"LIB-MEDIEVAL-AUTHORITY-018-DANTE-CONVITO-SAYER-GUTENBERG-12867","work_title":"The Banquet (Il Convito)","project_gutenberg_id":12867,"text_bytes":486925,"text_sha256":"b135827e128ba51de0c3787ec2d08501bbefac44695b5d708d2e7127348ea01b"},
+    {"source_id":"LIB-MEDIEVAL-AUTHORITY-018-DANTE-ALIGHIERI","body_id":"LIB-MEDIEVAL-AUTHORITY-018-DANTE-COMMEDIA-NORTON-INFERNO-GUTENBERG-1995","work_title":"The Divine Comedy, Volume 1, Hell","project_gutenberg_id":1995,"text_bytes":290820,"text_sha256":"a16393b88db1101b13cb1a30ef50fa9cc9a3ca2e8f502131f90eb8d92053baab"},
+    {"source_id":"LIB-MEDIEVAL-AUTHORITY-018-DANTE-ALIGHIERI","body_id":"LIB-MEDIEVAL-AUTHORITY-018-DANTE-COMMEDIA-NORTON-PURGATORY-GUTENBERG-1996","work_title":"The Divine Comedy, Volume 2, Purgatory","project_gutenberg_id":1996,"text_bytes":309748,"text_sha256":"ff05b1f84c74075bae143a3e39dfa38e5f3546b18d5ba3a32eeedf9306db6489"},
+    {"source_id":"LIB-MEDIEVAL-AUTHORITY-018-DANTE-ALIGHIERI","body_id":"LIB-MEDIEVAL-AUTHORITY-018-DANTE-COMMEDIA-NORTON-PARADISE-GUTENBERG-1997","work_title":"The Divine Comedy, Volume 3, Paradise","project_gutenberg_id":1997,"text_bytes":308292,"text_sha256":"9a48e85835c60ac565a928856cdde56dd38c120372d2fa0fb0b769b45ecc0cfe"},
+    {"source_id":"LIB-MEDIEVAL-AUTHORITY-075-ALF-LAYLA-WA-LAYLA-TRADITION","body_id":"LIB-MEDIEVAL-AUTHORITY-075-BURTON-SUPPLEMENTAL-VOL-01-GUTENBERG-59156","project_gutenberg_id":59156,"text_bytes":729862,"text_sha256":"859a357d7ec68dd79f22524308fb395ed1d33b2b36e61c63b2d5e5e8fd53e1ca"},
+    {"source_id":"LIB-MEDIEVAL-AUTHORITY-075-ALF-LAYLA-WA-LAYLA-TRADITION","body_id":"LIB-MEDIEVAL-AUTHORITY-075-BURTON-SUPPLEMENTAL-VOL-02-GUTENBERG-59953","project_gutenberg_id":59953,"text_bytes":896861,"text_sha256":"3b5ae56f8cf5dcc0d95b6606d14e1440da59c6eaadc844984841f34576877d35"},
+    {"source_id":"LIB-MEDIEVAL-AUTHORITY-075-ALF-LAYLA-WA-LAYLA-TRADITION","body_id":"LIB-MEDIEVAL-AUTHORITY-075-BURTON-SUPPLEMENTAL-VOL-03-PART-1-GUTENBERG-60889","project_gutenberg_id":60889,"text_bytes":749551,"text_sha256":"7193c1f329d65142858d46459daeeff522daf71a8980b8037379c2efa8fc62ab"},
+    {"source_id":"LIB-MEDIEVAL-AUTHORITY-075-ALF-LAYLA-WA-LAYLA-TRADITION","body_id":"LIB-MEDIEVAL-AUTHORITY-075-BURTON-SUPPLEMENTAL-VOL-03-PART-2-GUTENBERG-61974","project_gutenberg_id":61974,"text_bytes":866020,"text_sha256":"d73af5d745c5e859b2f7b2c2b0f7ccf3a07e1636e5d6c7eb9da3b299de0946cd"},
+    {"source_id":"LIB-MEDIEVAL-AUTHORITY-075-ALF-LAYLA-WA-LAYLA-TRADITION","body_id":"LIB-MEDIEVAL-AUTHORITY-075-BURTON-SUPPLEMENTAL-VOL-04-GUTENBERG-62140","project_gutenberg_id":62140,"text_bytes":869052,"text_sha256":"06fda225c98e774e1952c3cc078c74c8fb15c36258c020d3b67cfd3e0f99f1ff"},
+    {"source_id":"LIB-MEDIEVAL-AUTHORITY-075-ALF-LAYLA-WA-LAYLA-TRADITION","body_id":"LIB-MEDIEVAL-AUTHORITY-075-BURTON-SUPPLEMENTAL-VOL-05-GUTENBERG-63266","project_gutenberg_id":63266,"text_bytes":1063432,"text_sha256":"d74d611ef3949759be8b6348d0cd155b52504c1c94c8f715eec2962a1d88275a"},
+    {"source_id":"LIB-MEDIEVAL-AUTHORITY-075-ALF-LAYLA-WA-LAYLA-TRADITION","body_id":"LIB-MEDIEVAL-AUTHORITY-075-BURTON-SUPPLEMENTAL-VOL-06-GUTENBERG-64384","project_gutenberg_id":64384,"text_bytes":1417516,"text_sha256":"f41918562a26d6b3d2a07fadd216fb266c13527dc8da725cd057e7bbd7ebb7c3"}
+  ],
+  "rights_basis": "Each Project Gutenberg catalogue record marks its ebook public domain in the United States; wrappers and non-US jurisdiction warnings are preserved.",
+  "post_batch_totals": {"medieval_authorities":60,"medieval_bodies":54,"medieval_text_bytes":52325732,"medieval_needs_review_bodies":1,"managed_bodies_all_eras":247},
+  "validation": {"library_validate":"passed","render_index_check":"passed","available_bodies_verified":246,"verify_texts_failures":0,"missing_sources":43,"archive_library_tests":"24 passed"},
+  "archive_imported": false,
+  "staged": false,
+  "committed": false,
+  "pushed": false,
+  "published": false
+}

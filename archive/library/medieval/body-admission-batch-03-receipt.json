@@ -1,0 +1,63 @@
+{
+  "schema_version": "1.0",
+  "batch_id": "MEDIEVAL-BODY-ADMISSION-03",
+  "date": "2026-08-19",
+  "status": "success-with-review-debt",
+  "permission_basis": {
+    "status": "operator-asserted",
+    "assertion": "The operator confirmed on 2026-08-19 that they hold all rights for the four exact candidate bodies.",
+    "independently_verified": false,
+    "registry_license_status": "permissioned"
+  },
+  "admitted": [
+    {
+      "source_id": "LIB-MEDIEVAL-AUTHORITY-003-ANNA-KOMNENE",
+      "body_id": "LIB-MEDIEVAL-AUTHORITY-003-ANNA-KOMNENE-ALEXIAD-DAWES-1928-FORDHAM-DERIVED",
+      "text_sha256": "16ffef2dab325e930aa3e9bc04343192c65d416a4ea1f48c4c4d1ad347b2b287",
+      "text_bytes": 1067054,
+      "status": "available"
+    },
+    {
+      "source_id": "LIB-MEDIEVAL-AUTHORITY-011-RULE-SAINT-BENEDICT",
+      "body_id": "LIB-MEDIEVAL-AUTHORITY-011-RULE-SAINT-BENEDICT-DOYLE-GUTENBERG-50040-PERMISSIONED",
+      "text_sha256": "24b728e4c6c24717e23b264732cbba3842e4c80179b07d7eb7c5bd11a9332275",
+      "text_bytes": 149066,
+      "status": "available"
+    },
+    {
+      "source_id": "LIB-MEDIEVAL-AUTHORITY-024-QURANIC-TEXTUAL-TRADITION",
+      "body_id": "LIB-MEDIEVAL-AUTHORITY-024-QURAN-TANZIL-UTHMANI-V1-1-PERMISSIONED",
+      "text_sha256": "bf4f57b968d03f4131c070b1e285da9be0e0a108a21c910e872801ca273312c8",
+      "text_bytes": 1370878,
+      "status": "available"
+    },
+    {
+      "source_id": "LIB-MEDIEVAL-AUTHORITY-016-MAGNA-CARTA-TRADITION",
+      "body_id": "LIB-MEDIEVAL-AUTHORITY-016-MAGNA-CARTA-1215-NATIONAL-ARCHIVES-DERIVED",
+      "text_sha256": "75078c58fc7f4e9732ade06fde8782fbe2ea457d118b9cbaa7a50ad595e7f79c",
+      "text_bytes": 26148,
+      "status": "needs-review",
+      "review_debt": "Minor text-layer spacing defects remain after comparison with all eight rendered PDF pages."
+    }
+  ],
+  "post_batch_totals": {
+    "medieval_authorities": 60,
+    "medieval_bodies": 38,
+    "medieval_text_bytes": 40839652,
+    "medieval_needs_review_bodies": 1,
+    "managed_bodies_all_eras": 231
+  },
+  "validation": {
+    "library_validate": "passed",
+    "render_index_check": "passed",
+    "available_bodies_verified": 230,
+    "verify_texts_failures": 0,
+    "needs_review_bodies_excluded_from_clean_verification": 1,
+    "archive_library_tests": "24 passed"
+  },
+  "archive_imported": false,
+  "staged": false,
+  "committed": false,
+  "pushed": false,
+  "published": false
+}

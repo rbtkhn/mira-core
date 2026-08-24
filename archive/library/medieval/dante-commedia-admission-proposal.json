@@ -1,0 +1,125 @@
+{
+  "schema_version": "library-body-admission-proposal-v1",
+  "prepared_on": "2026-08-19",
+  "status": "proposal-only",
+  "authority_effect": "metadata-only",
+  "candidate_id": "MED-CAND-018",
+  "source_id": "LIB-MEDIEVAL-AUTHORITY-018-DANTE-ALIGHIERI",
+  "inspection_receipt": "archive/library/medieval/portable-batch-05-inspection.json",
+  "source_metadata": {
+    "registry_status": "located",
+    "text_status": "missing",
+    "coverage_status": "principal-work",
+    "maturity_after_metadata_only": 1,
+    "boundary": "Commedia only; Convivio, Monarchia, letters, and other works remain outside this authority record.",
+    "record_added": true
+  },
+  "proposed_bodies": [
+    {
+      "source_file": "C:\\private\\mira-core-medieval-portable-batch-05-20260819\\dante-divina-commedia-italian-pg1000.txt",
+      "expected_source_sha256": "4669dcc00ee61ceffe92d871e61ea430cec87b35cbab24f19a4c0b1c7da521b2",
+      "expected_source_bytes": 597903,
+      "body_id": "LIB-MEDIEVAL-AUTHORITY-018-DANTE-COMMEDIA-ITALIAN-GUTENBERG-1000",
+      "work_title": "La Divina Commedia di Dante: Complete",
+      "expected_text_location": "library-text://LIB-MEDIEVAL-AUTHORITY-018-DANTE-COMMEDIA-ITALIAN-GUTENBERG-1000.txt",
+      "text_encoding": "utf-8",
+      "language": "italian",
+      "translator": "",
+      "editor": "",
+      "edition_label": "La Divina Commedia di Dante: Complete; Project Gutenberg ebook 1000; critical editor and upstream print-edition lineage not identified in the file",
+      "license_status": "public-domain",
+      "license_notes": "Project Gutenberg marks ebook 1000 public domain in the United States and includes its license and non-US jurisdiction warning in the unmodified file.",
+      "coverage_status": "complete-work",
+      "coverage_notes": "The body contains Inferno, Purgatorio, and Paradiso and is complete as this named Gutenberg body. It does not establish a critical-edition identity, preferred text, manuscript lineage, or source-authority completeness.",
+      "initial_status": "available",
+      "proposed_import_arguments": {
+        "source_id": "LIB-MEDIEVAL-AUTHORITY-018-DANTE-ALIGHIERI",
+        "body_id": "LIB-MEDIEVAL-AUTHORITY-018-DANTE-COMMEDIA-ITALIAN-GUTENBERG-1000",
+        "work_title": "La Divina Commedia di Dante: Complete",
+        "language": "italian",
+        "translator": "",
+        "editor": "",
+        "encoding": "utf-8",
+        "license_status": "public-domain",
+        "coverage_status": "complete-work",
+        "replace_body": false
+      }
+    },
+    {
+      "source_file": "C:\\private\\mira-core-medieval-portable-batch-05-20260819\\dante-divine-comedy-cary-english-pg8800.txt",
+      "expected_source_sha256": "3a7dd97b5fec82456c58237b33383a593480c2bfe088aeaaa4a519de2a10d39c",
+      "expected_source_bytes": 656728,
+      "body_id": "LIB-MEDIEVAL-AUTHORITY-018-DANTE-DIVINE-COMEDY-CARY-GUTENBERG-8800",
+      "work_title": "The Divine Comedy",
+      "expected_text_location": "library-text://LIB-MEDIEVAL-AUTHORITY-018-DANTE-DIVINE-COMEDY-CARY-GUTENBERG-8800.txt",
+      "text_encoding": "utf-8",
+      "language": "english",
+      "translator": "Henry Francis Cary",
+      "editor": "",
+      "edition_label": "The Divine Comedy, translated by Henry Francis Cary; Project Gutenberg ebook 8800",
+      "license_status": "public-domain",
+      "license_notes": "Project Gutenberg marks ebook 8800 public domain in the United States and includes its license and non-US jurisdiction warning in the unmodified file.",
+      "coverage_status": "complete-work",
+      "coverage_notes": "The body contains Hell, Purgatory, and Paradise and is complete as this named Cary English translation. It does not establish line-level equivalence to the Italian candidate or source-authority completeness.",
+      "initial_status": "available",
+      "proposed_import_arguments": {
+        "source_id": "LIB-MEDIEVAL-AUTHORITY-018-DANTE-ALIGHIERI",
+        "body_id": "LIB-MEDIEVAL-AUTHORITY-018-DANTE-DIVINE-COMEDY-CARY-GUTENBERG-8800",
+        "work_title": "The Divine Comedy",
+        "language": "english",
+        "translator": "Henry Francis Cary",
+        "editor": "",
+        "encoding": "utf-8",
+        "license_status": "public-domain",
+        "coverage_status": "complete-work",
+        "replace_body": false
+      }
+    }
+  ],
+  "required_gates": [
+    {
+      "gate": "metadata-record",
+      "status": "passed",
+      "requirement": "The conservative located source record exists with text_status missing, no bodies, and validates."
+    },
+    {
+      "gate": "paired-body-hash-recheck",
+      "status": "passed-at-proposal-time",
+      "requirement": "Immediately before dry-run and admission, confirm both SHA-256 hashes and byte counts against this proposal."
+    },
+    {
+      "gate": "italian-edition-lineage",
+      "status": "unresolved-preserved",
+      "requirement": "Do not infer a critical editor or upstream print edition for Gutenberg 1000; preserve the explicit unidentified-lineage note if admitted."
+    },
+    {
+      "gate": "paired-body-dry-run",
+      "status": "not-started",
+      "requirement": "Both bodies must pass Library Import dry-run before either is admitted."
+    },
+    {
+      "gate": "body-admission",
+      "status": "not-authorized",
+      "requirement": "A separately authorized bundled execution may copy both files into the managed private text store and update the registry."
+    },
+    {
+      "gate": "post-admission-validation",
+      "status": "not-started",
+      "requirement": "After any later admission, run library validate, render-index --check, verify-texts, and tests/test_archive_library.py."
+    }
+  ],
+  "maturity_projection": {
+    "after_metadata_only": 1,
+    "after_available_paired_bodies": 2,
+    "maximum_without_identified_italian_edition_lineage": 4,
+    "level_5_or_6_authorized": false
+  },
+  "non_authorizations": [
+    "No private-store copy",
+    "No body admission",
+    "No available, verified, or reviewed body status",
+    "No critical-edition identity inferred for the Italian body",
+    "No Italian/English equivalence",
+    "No staging, commit, push, Archive ingestion, or publication"
+  ]
+}

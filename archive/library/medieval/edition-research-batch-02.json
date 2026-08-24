@@ -1,0 +1,134 @@
+{
+  "schema_version": "medieval-edition-research-batch-v1",
+  "batch_id": "MEDIEVAL-EDITION-RESEARCH-02",
+  "generated_on": "2026-08-19",
+  "status": "review-only",
+  "authority_effect": "none",
+  "candidate_count": 10,
+  "source_count": 20,
+  "source_ceiling": 20,
+  "body_admission_authorized": false,
+  "registry_mutation_authorized": false,
+  "records": [
+    {
+      "candidate_id": "MED-CAND-002", "source_id": "LIB-MEDIEVAL-RESEARCH-BATCH-02-01", "authority": "Procopius", "title": "History of the Wars; Buildings; Secret History",
+      "corpus_boundary": "Three principal works remain separate bodies; Wars requires all eight books and must not imply coverage of Buildings or Secret History.",
+      "original_route": {"candidate": "Dewing Greek text in the six-volume Loeb lineage surfaced by Perseus.", "rights_posture": "unknown"},
+      "english_route": {"candidate": "Dewing translation, 1914–1928, with all eight Wars books; separate candidates required for the other works.", "rights_posture": "plausible-open"},
+      "coverage": {"body_ceiling": "principal-works-separate-bodies", "current_maturity": 3, "maturity_ceiling": 6},
+      "disposition": "wars-route-strong-other-works-unresolved", "next_action": "Inspect the five Wars volumes and separately identify Buildings and Secret History files.",
+      "findings": [
+        {"evidence_status": "confirmed-metadata", "proposition": "Perseus identifies Dewing as editor and exposes all eight books of De Bellis.", "url": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A2008.01.0670", "lineage_root": "perseus.tufts.edu"},
+        {"evidence_status": "confirmed-metadata", "proposition": "The Perseus catalog identifies the bilingual Dewing edition, publishers, dates, and five-volume Wars division.", "url": "https://catalog.perseus.tufts.edu/catalog/urn:cts:greekLit:tlg4029.tlg001.opp-eng1", "lineage_root": "catalog.perseus.tufts.edu"}
+      ], "unresolved_risks": ["Perseus access does not settle bulk portability.", "No file has been inspected or admitted.", "Public-domain status remains jurisdiction- and edition-specific."]
+    },
+    {
+      "candidate_id": "MED-CAND-013", "source_id": "LIB-MEDIEVAL-RESEARCH-BATCH-02-02", "authority": "Bede", "title": "Historia ecclesiastica gentis Anglorum",
+      "corpus_boundary": "The five-book Ecclesiastical History only; Latin critical text, Sellar translation, notes, and later revisions are distinct layers.",
+      "original_route": {"candidate": "Plummer Latin critical text, to be located in a stable institutional scan.", "rights_posture": "unknown"},
+      "english_route": {"candidate": "A. M. Sellar revised translation, George Bell, 1907, Project Gutenberg ebook 38326.", "rights_posture": "plausible-open"},
+      "coverage": {"body_ceiling": "complete-work-english-only-until-latin-verified", "current_maturity": 3, "maturity_ceiling": 6},
+      "disposition": "english-candidate-strong-latin-unresolved", "next_action": "Inspect Gutenberg plain text and locate an exact Plummer Latin scan.",
+      "findings": [
+        {"evidence_status": "confirmed-metadata", "proposition": "Gutenberg identifies Sellar, ebook 38326, text formats, and public-domain status in the United States.", "url": "https://www.gutenberg.org/ebooks/38326", "lineage_root": "gutenberg.org"},
+        {"evidence_status": "source-assertion", "proposition": "Sellar states that her 1907 translation uses Plummer's Latin text and revises the Giles/Stevens lineage.", "url": "https://www.gutenberg.org/files/38326/38326-h/38326-h.html", "lineage_root": "gutenberg.org"}
+      ], "unresolved_risks": ["English is not an original-language equivalent.", "Gutenberg's rights statement is US-specific.", "No file has been inspected or admitted."]
+    },
+    {
+      "candidate_id": "MED-CAND-016", "source_id": "LIB-MEDIEVAL-RESEARCH-BATCH-02-03", "authority": "Magna Carta textual tradition", "title": "Magna Carta reissue tradition",
+      "corpus_boundary": "The 1215 settlement and the 1216, 1217, 1225, and 1297 reissues are separately modeled texts; modern clause numbering and surviving statutory force are annotations, not original features.",
+      "original_route": {"candidate": "National Archives 1215 Latin charter image and transcript route; later reissues require separate witnesses.", "rights_posture": "unknown"},
+      "english_route": {"candidate": "National Archives 1215 English translation with explicit reissue markers.", "rights_posture": "plausible-open"},
+      "coverage": {"body_ceiling": "1215-version-only", "current_maturity": 3, "maturity_ceiling": 6},
+      "disposition": "authoritative-1215-route-reissue-ledger-required", "next_action": "Verify National Archives reuse terms and build a version ledger through 1297.",
+      "findings": [
+        {"evidence_status": "confirmed-metadata", "proposition": "The National Archives dates the agreement to 15 June 1215 and supplies a full English translation.", "url": "https://www.nationalarchives.gov.uk/education/resources/magna-carta/british-library-magna-carta-1215-runnymede/", "lineage_root": "nationalarchives.gov.uk"},
+        {"evidence_status": "source-assertion", "proposition": "The National Archives marks clauses repeated in 1225 and clauses omitted from every later reissue, and notes that the original has no clause numbers.", "url": "https://cdn.nationalarchives.gov.uk/documents/education/magna-carta/magna-carta-lesson3-source9.pdf", "lineage_root": "cdn.nationalarchives.gov.uk"}
+      ], "unresolved_risks": ["Repository-wide Crown copyright and Open Government Licence applicability must be verified for the exact files.", "The 1215 translation cannot stand for later reissues.", "No file has been inspected or admitted."]
+    },
+    {
+      "candidate_id": "MED-CAND-025", "source_id": "LIB-MEDIEVAL-RESEARCH-BATCH-02-04", "authority": "al-Tabari", "title": "Tarikh al-rusul wa-l-muluk",
+      "corpus_boundary": "The historical chronicle only; the Tafsir and other works are excluded. Arabic print recensions and the SUNY English series are separate bodies.",
+      "original_route": {"candidate": "A complete de Goeje-lineage Arabic scan remains to be verified volume by volume.", "rights_posture": "unknown"},
+      "english_route": {"candidate": "SUNY/Yarshater complete English series, 1985–1999, plus index; documented for reference only.", "rights_posture": "restricted"},
+      "coverage": {"body_ceiling": "metadata-only-until-arabic-edition-verified", "current_maturity": 2, "maturity_ceiling": 5},
+      "disposition": "complete-english-known-but-restricted", "next_action": "Create a volume ledger for the de Goeje Arabic edition and verify repository rights.",
+      "findings": [
+        {"evidence_status": "confirmed-metadata", "proposition": "SUNY describes the complete English translation as thirty-nine translated volumes completed in 1999 plus a 2007 index.", "url": "https://sunypress.edu/Books/S/Set-History-of-al-abari", "lineage_root": "sunypress.edu"},
+        {"evidence_status": "confirmed-metadata", "proposition": "BnF catalogs an individual SUNY History of al-Tabari volume, supporting series identity rather than open reuse.", "url": "https://catalogue.bnf.fr/ark:/12148/cb36183917z", "lineage_root": "catalogue.bnf.fr"}
+      ], "unresolved_risks": ["No reusable complete English body is known.", "Arabic volume completeness and scan rights are unresolved.", "No file has been inspected or admitted."]
+    },
+    {
+      "candidate_id": "MED-CAND-033", "source_id": "LIB-MEDIEVAL-RESEARCH-BATCH-02-05", "authority": "Ibn Khaldun", "title": "Muqaddimah",
+      "corpus_boundary": "The Muqaddimah as the introductory book of Kitab al-Ibar; later abridgments and Rosenthal's translation are separate bodies.",
+      "original_route": {"candidate": "Quatremere's 1858 Arabic edition, pending exact multi-volume scan and rights inspection.", "rights_posture": "unknown"},
+      "english_route": {"candidate": "Rosenthal's complete English translation for reference only; no admissible English body verified.", "rights_posture": "restricted"},
+      "coverage": {"body_ceiling": "arabic-historical-edition-only-if-complete", "current_maturity": 2, "maturity_ceiling": 5},
+      "disposition": "arabic-route-located-english-restricted", "next_action": "Inspect and reconcile every Quatremere volume, then locate a lawful historical English translation if one exists.",
+      "findings": [
+        {"evidence_status": "confirmed-metadata", "proposition": "Open Library identifies a Quatremere Arabic-edition record for the Muqaddimah.", "url": "https://openlibrary.org/works/OL1597257W/The_Muqaddimah_an_introduction_to_history?edition=key%3A%2Fbooks%2FOL3018348M", "lineage_root": "openlibrary.org"},
+        {"evidence_status": "researcher-inference", "proposition": "A complete modern English route is not portable merely because bibliographic or lending access exists.", "url": "https://openlibrary.org/works/OL1597257W/The_Muqaddimah_an_introduction_to_history", "lineage_root": "openlibrary.org"}
+      ], "unresolved_risks": ["Edition record and downloadable files have not been reconciled.", "The English route is restricted.", "No file has been inspected or admitted."]
+    },
+    {
+      "candidate_id": "MED-CAND-037", "source_id": "LIB-MEDIEVAL-RESEARCH-BATCH-02-06", "authority": "Nizam al-Mulk", "title": "Siyar al-muluk / Siyasatnama",
+      "corpus_boundary": "The fifty-chapter received work, preserving the disputed thirty-nine-plus-eleven composition history and authenticity questions.",
+      "original_route": {"candidate": "Schefer's 1891–1897 Persian/French edition for historical comparison; Darke's later Persian edition is restricted.", "rights_posture": "unknown"},
+      "english_route": {"candidate": "Darke 1960/1978 translations for reference only; no admissible English file verified.", "rights_posture": "restricted"},
+      "coverage": {"body_ceiling": "historical-edition-with-authenticity-caveat", "current_maturity": 2, "maturity_ceiling": 6},
+      "disposition": "boundary-disputed-portability-unresolved", "next_action": "Locate and inspect all Schefer volumes and encode the Darke manuscript corrections as non-equivalent.",
+      "findings": [
+        {"evidence_status": "confirmed-metadata", "proposition": "Iranica records the thirty-nine-chapter core plus eleven appended chapters and preserves the authorship dispute.", "url": "https://www.iranicaonline.org/articles/siar-al-moluk/", "lineage_root": "iranicaonline.org"},
+        {"evidence_status": "confirmed-metadata", "proposition": "Iranica identifies Schefer's 1891–1897 edition and Darke's later revised Persian and English editions.", "url": "https://www.iranicaonline.org/articles/darke-hubert-seymour-garland-1/", "lineage_root": "iranicaonline.org"}
+      ], "unresolved_risks": ["Schefer used poor manuscripts and cannot silently represent the later critical state.", "Modern English is restricted.", "No file has been inspected or admitted."]
+    },
+    {
+      "candidate_id": "MED-CAND-038", "source_id": "LIB-MEDIEVAL-RESEARCH-BATCH-02-07", "authority": "al-Biruni", "title": "Kitab fi tahqiq ma li-l-Hind",
+      "corpus_boundary": "Kitab al-Hind only; Sachau's two-volume English translation and its Arabic source edition are separate bodies.",
+      "original_route": {"candidate": "Sachau's Arabic edition remains to be located in a stable institutional scan.", "rights_posture": "unknown"},
+      "english_route": {"candidate": "Edward C. Sachau, Alberuni's India, two-volume 1910 printing.", "rights_posture": "plausible-open"},
+      "coverage": {"body_ceiling": "complete-english-two-volume-route-original-unresolved", "current_maturity": 3, "maturity_ceiling": 6},
+      "disposition": "english-route-promising-original-unresolved", "next_action": "Inspect both English volumes and bind them to the exact Sachau Arabic edition used.",
+      "findings": [
+        {"evidence_status": "confirmed-metadata", "proposition": "Open Library identifies Sachau and the 1910 Alberuni's India edition record.", "url": "https://openlibrary.org/books/OL23270588M/Alberuni%27s_India.?show_page_status=1", "lineage_root": "openlibrary.org"},
+        {"evidence_status": "researcher-inference", "proposition": "The two English volumes must be inspected together before any complete-work coverage claim.", "url": "https://openlibrary.org/works/OL1532648W/Alberuni%27s_India", "lineage_root": "openlibrary.org"}
+      ], "unresolved_risks": ["Open Library metadata does not itself establish file rights.", "Original-language alignment is unresolved.", "No file has been inspected or admitted."]
+    },
+    {
+      "candidate_id": "MED-CAND-046", "source_id": "LIB-MEDIEVAL-RESEARCH-BATCH-02-08", "authority": "Kalhana", "title": "Rajatarangini",
+      "corpus_boundary": "Kalhana's eight books only; later Rajatarangini continuations are excluded. Stein's Sanskrit text, translation, notes, and maps are distinct layers.",
+      "original_route": {"candidate": "Stein's Sanskrit critical text in the complete two-volume 1900 edition, pending scan inspection.", "rights_posture": "plausible-open"},
+      "english_route": {"candidate": "M. A. Stein, Kalhana's Rajatarangini, volumes 1–2, 1900.", "rights_posture": "plausible-open"},
+      "coverage": {"body_ceiling": "kalhana-eight-books-two-volumes", "current_maturity": 3, "maturity_ceiling": 6},
+      "disposition": "paired-historical-edition-promising", "next_action": "Inspect both DjVu volumes and confirm Sanskrit/translation pagination and license metadata.",
+      "findings": [
+        {"evidence_status": "confirmed-metadata", "proposition": "Wikisource identifies Stein as translator, the 1900 London edition, DjVu source format, and a two-volume set.", "url": "https://en.wikisource.org/wiki/Index:Kalhana%27s_Rajatarangini_Vol_1.djvu", "lineage_root": "en.wikisource.org"},
+        {"evidence_status": "source-assertion", "proposition": "The edition's contents distinguish author, sources, textual constitution, and chronology apparatus from the translated chronicle.", "url": "https://en.wikisource.org/wiki/Page:Kalhana%27s_Rajatarangini_Vol_1.djvu/21", "lineage_root": "en.wikisource.org"}
+      ], "unresolved_risks": ["Wikisource transcription is not proofread and must not replace the scan silently.", "Volume 2 remains separately inspectable.", "No file has been inspected or admitted."]
+    },
+    {
+      "candidate_id": "MED-CAND-057", "source_id": "LIB-MEDIEVAL-RESEARCH-BATCH-02-09", "authority": "Sima Guang editorial tradition", "title": "Zizhi Tongjian",
+      "corpus_boundary": "The 294-juan principal chronicle; tables, critical analysis, later commentaries, and modern punctuation are separately modeled.",
+      "original_route": {"candidate": "Chinese Text Project scan/transcription route for identity inspection only; reusable bulk body not established.", "rights_posture": "restricted"},
+      "english_route": {"candidate": "No complete English translation located.", "rights_posture": "not-located"},
+      "coverage": {"body_ceiling": "metadata-only-until-complete-lawful-original-found", "current_maturity": 2, "maturity_ceiling": 5},
+      "disposition": "original-visible-not-portable-no-english", "next_action": "Locate a complete institutional scan with explicit reuse terms and enumerate all 294 juan.",
+      "findings": [
+        {"evidence_status": "confirmed-metadata", "proposition": "CText describes the principal text as a 294-scroll chronological narrative and distinguishes supplementary sections.", "url": "https://ctext.org/datawiki.pl?if=en&remap=gb&res=176090", "lineage_root": "ctext.org"},
+        {"evidence_status": "confirmed-metadata", "proposition": "CText's FAQ denies blanket republication and forbids automated bulk download.", "url": "https://ctext.org/faq", "lineage_root": "ctext.org"}
+      ], "unresolved_risks": ["CText is not an admissible bulk source under its stated terms.", "No complete English body is known.", "No file has been inspected or admitted."]
+    },
+    {
+      "candidate_id": "MED-CAND-073", "source_id": "LIB-MEDIEVAL-RESEARCH-BATCH-02-10", "authority": "Geoffrey Chaucer", "title": "The Canterbury Tales",
+      "corpus_boundary": "Chaucer's unfinished Tales in an explicit editorial order; manuscript variants and the non-Chaucerian Tale of Gamelyn are excluded unless separately modeled.",
+      "original_route": {"candidate": "Walter W. Skeat, Chaucer's Works volume 4, Middle English, Project Gutenberg ebook 22120.", "rights_posture": "plausible-open"},
+      "english_route": {"candidate": "No modern-English body proposed; Middle English remains the authoritative admission candidate.", "rights_posture": "not-located"},
+      "coverage": {"body_ceiling": "skeat-edition-of-surviving-unfinished-work", "current_maturity": 3, "maturity_ceiling": 6},
+      "disposition": "middle-english-candidate-strong-modern-english-unneeded", "next_action": "Inspect Gutenberg 22120 and encode Skeat order, unfinished passages, and Gamelyn exclusion.",
+      "findings": [
+        {"evidence_status": "confirmed-metadata", "proposition": "Gutenberg identifies ebook 22120 as Skeat's Middle English edition and states public-domain status in the United States.", "url": "https://www.gutenberg.org/ebooks/22120", "lineage_root": "gutenberg.org"},
+        {"evidence_status": "confirmed-metadata", "proposition": "The British Library catalogs Lansdowne MS 851 as a copy made shortly after Chaucer's death and records its tale sequence, including Gamelyn.", "url": "https://searcharchives.bl.uk/catalog/040-002078368", "lineage_root": "searcharchives.bl.uk"}
+      ], "unresolved_risks": ["Skeat's editorial order is not a recovered authorial order.", "Gamelyn attribution must remain excluded or disputed.", "No file has been inspected or admitted."]
+    }
+  ]
+}

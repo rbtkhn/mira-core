@@ -1,0 +1,4292 @@
+{
+  "schema_version": "1.0",
+  "manifest_id": "mira-library-medieval-full-roster-v1",
+  "generated_on": "2026-08-20",
+  "status": "review-ready",
+  "authority_effect": "none",
+  "selection_contract": {
+    "composition_window": {
+      "start": 476,
+      "end": 1453
+    },
+    "target": 62,
+    "minimum": 50,
+    "maximum": 62,
+    "longlist_count": 78,
+    "selected_count": 62,
+    "reserve_count": 16,
+    "evidence_posture": "feasibility-triage",
+    "substantive_source_ceiling": 140,
+    "selection_threshold": 6,
+    "importance_over_portability": true
+  },
+  "lane_floors": [
+    {
+      "lane": "Byzantine and Eastern Christian",
+      "minimum": 6,
+      "selected": 8
+    },
+    {
+      "lane": "Latin Christian and Jewish Mediterranean/European",
+      "minimum": 9,
+      "selected": 14
+    },
+    {
+      "lane": "Arabic-Islamic",
+      "minimum": 9,
+      "selected": 11
+    },
+    {
+      "lane": "Persianate and Inner Asian",
+      "minimum": 7,
+      "selected": 8
+    },
+    {
+      "lane": "South Asian",
+      "minimum": 6,
+      "selected": 7
+    },
+    {
+      "lane": "Chinese",
+      "minimum": 7,
+      "selected": 8
+    },
+    {
+      "lane": "Japanese and Korean",
+      "minimum": 5,
+      "selected": 6
+    }
+  ],
+  "accepted_pilot_seeds_retained": 12,
+  "body_admission_authorized": false,
+  "registry_mutation_authorized": false,
+  "candidates": [
+    {
+      "candidate_id": "MED-CAND-001",
+      "proposed_source_id": "LIB-MEDIEVAL-AUTHORITY-001-JUSTINIANIC-LEGAL-TRADITION",
+      "accepted_pilot_seed": true,
+      "authority_label": "Justinian I / Tribonianic legal commission",
+      "title": "Corpus Iuris Civilis",
+      "date_start": 529,
+      "date_end": 565,
+      "date_label": "529–565",
+      "primary_lane": "Byzantine and Eastern Christian",
+      "languages": [
+        "latin",
+        "greek"
+      ],
+      "functions": [
+        "law",
+        "administration",
+        "institutional continuity"
+      ],
+      "source_type": "legal",
+      "score": {
+        "historical_consequence": 3,
+        "boundary_clarity": 2,
+        "distinctiveness": 2,
+        "provenance_feasibility": 2,
+        "portability": 1,
+        "total": 10
+      },
+      "disposition": "selected",
+      "selection_reason": "Foundational composite legal transmission exemplar.",
+      "reserve_reason": null,
+      "corpus_boundary": "Codex, Digest, Institutes, and Novels are separate component bodies.",
+      "identity_source": {
+        "label": "University of Grenoble Roman Law Library",
+        "url": "https://droitromain.univ-grenoble-alpes.fr/corpjurciv.htm",
+        "evidence_status": "identity-or-provenance-triage"
+      },
+      "original_language_route": {
+        "status": "candidate-located",
+        "route": "Locate an institutional edition or manuscript-derived transcription.",
+        "rights_posture": "plausible-open"
+      },
+      "english_route": {
+        "status": "partial",
+        "route": "Locate a rights-clear complete translation or preserve the gap.",
+        "rights_posture": "plausible-open"
+      },
+      "rights_posture": "unknown",
+      "portability": "partial",
+      "proposed_registry_status": "stub",
+      "coverage_ceiling": "principal-works",
+      "maturity_ceiling": 6,
+      "principal_unresolved_gap": "Digital reuse terms and complete English component coverage remain unresolved.",
+      "preferred_next_action": "Recover exact upstream edition metadata and rights statement before body inspection.",
+      "reserve_replacement": null
+    },
+    {
+      "candidate_id": "MED-CAND-002",
+      "proposed_source_id": "LIB-MEDIEVAL-AUTHORITY-002-PROCOPIUS",
+      "accepted_pilot_seed": true,
+      "authority_label": "Procopius of Caesarea",
+      "title": "History of the Wars; Buildings; Secret History",
+      "date_start": 527,
+      "date_end": 560,
+      "date_label": "6th century",
+      "primary_lane": "Byzantine and Eastern Christian",
+      "languages": [
+        "greek",
+        "english"
+      ],
+      "functions": [
+        "chronicle",
+        "war",
+        "imperial administration"
+      ],
+      "source_type": "chronicle",
+      "score": {
+        "historical_consequence": 3,
+        "boundary_clarity": 2,
+        "distinctiveness": 2,
+        "provenance_feasibility": 2,
+        "portability": 1,
+        "total": 10
+      },
+      "disposition": "selected",
+      "selection_reason": "Primary imperial countervoice across Byzantine, Persian, Vandal, and Gothic worlds.",
+      "reserve_reason": null,
+      "corpus_boundary": "Wars is the initial principal work; Buildings and Secret History remain separate.",
+      "identity_source": {
+        "label": "Perseus Catalog",
+        "url": "https://catalog.perseus.tufts.edu/catalog/urn:cts:greekLit:tlg4029.tlg001.opp-eng1",
+        "evidence_status": "identity-or-provenance-triage"
+      },
+      "original_language_route": {
+        "status": "candidate-located",
+        "route": "Locate an institutional edition or manuscript-derived transcription.",
+        "rights_posture": "plausible-open"
+      },
+      "english_route": {
+        "status": "candidate-located",
+        "route": "Locate a rights-clear complete translation or preserve the gap.",
+        "rights_posture": "plausible-open"
+      },
+      "rights_posture": "plausible-open",
+      "portability": "strong",
+      "proposed_registry_status": "located",
+      "coverage_ceiling": "principal-work",
+      "maturity_ceiling": 5,
+      "principal_unresolved_gap": "Complete eight-book volume sequence and counterpart works require inspection.",
+      "preferred_next_action": "Recover exact upstream edition metadata and rights statement before body inspection.",
+      "reserve_replacement": null
+    },
+    {
+      "candidate_id": "MED-CAND-003",
+      "proposed_source_id": "LIB-MEDIEVAL-AUTHORITY-003-ANNA-KOMNENE",
+      "accepted_pilot_seed": false,
+      "authority_label": "Anna Komnene",
+      "title": "Alexiad",
+      "date_start": 1137,
+      "date_end": 1150,
+      "date_label": "c. 1137–1150",
+      "primary_lane": "Byzantine and Eastern Christian",
+      "languages": [
+        "greek",
+        "english"
+      ],
+      "functions": [
+        "chronicle",
+        "crusades",
+        "court memory"
+      ],
+      "source_type": "chronicle",
+      "score": {
+        "historical_consequence": 3,
+        "boundary_clarity": 2,
+        "distinctiveness": 2,
+        "provenance_feasibility": 2,
+        "portability": 1,
+        "total": 9
+      },
+      "disposition": "selected",
+      "selection_reason": "Essential Byzantine and Crusader counter-perspective.",
+      "reserve_reason": null,
+      "corpus_boundary": "Fifteen-book Alexiad; later translations and commentary are separate.",
+      "identity_source": {
+        "label": "Perseus Atlas",
+        "url": "https://atlas.perseus.tufts.edu/library/urn:cts:greekLit:tlg2703.tlg001/",
+        "evidence_status": "identity-or-provenance-triage"
+      },
+      "original_language_route": {
+        "status": "candidate-located",
+        "route": "Locate an institutional edition or manuscript-derived transcription.",
+        "rights_posture": "plausible-open"
+      },
+      "english_route": {
+        "status": "candidate-located",
+        "route": "Locate a rights-clear complete translation or preserve the gap.",
+        "rights_posture": "plausible-open"
+      },
+      "rights_posture": "plausible-open",
+      "portability": "strong",
+      "proposed_registry_status": "located",
+      "coverage_ceiling": "principal-work",
+      "maturity_ceiling": 5,
+      "principal_unresolved_gap": "Verify the Dawes translation file and Greek edition lineage.",
+      "preferred_next_action": "Recover exact upstream edition metadata and rights statement before body inspection.",
+      "reserve_replacement": null
+    },
+    {
+      "candidate_id": "MED-CAND-004",
+      "proposed_source_id": "LIB-MEDIEVAL-AUTHORITY-004-CONSTANTINE-VII",
+      "accepted_pilot_seed": false,
+      "authority_label": "Constantine VII Porphyrogenitus",
+      "title": "De Administrando Imperio",
+      "date_start": 948,
+      "date_end": 952,
+      "date_label": "c. 948–952",
+      "primary_lane": "Byzantine and Eastern Christian",
+      "languages": [
+        "greek",
+        "english"
+      ],
+      "functions": [
+        "diplomacy",
+        "administration",
+        "ethnography"
+      ],
+      "source_type": "classical",
+      "score": {
+        "historical_consequence": 3,
+        "boundary_clarity": 2,
+        "distinctiveness": 2,
+        "provenance_feasibility": 2,
+        "portability": 1,
+        "total": 9
+      },
+      "disposition": "selected",
+      "selection_reason": "Direct imperial manual of frontier peoples and diplomacy.",
+      "reserve_reason": null,
+      "corpus_boundary": "DAI is distinct from De Ceremoniis and imperial compilations.",
+      "identity_source": {
+        "label": "Fordham Byzantine Sourcebook",
+        "url": "https://sourcebooks.web.fordham.edu/byzantium/alltexts.asp",
+        "evidence_status": "identity-or-provenance-triage"
+      },
+      "original_language_route": {
+        "status": "candidate-located",
+        "route": "Locate an institutional edition or manuscript-derived transcription.",
+        "rights_posture": "unknown"
+      },
+      "english_route": {
+        "status": "restricted",
+        "route": "Locate a rights-clear complete translation or preserve the gap.",
+        "rights_posture": "restricted"
+      },
+      "rights_posture": "unknown",
+      "portability": "partial",
+      "proposed_registry_status": "stub",
+      "coverage_ceiling": "principal-work",
+      "maturity_ceiling": 4,
+      "principal_unresolved_gap": "No verified reusable complete English translation.",
+      "preferred_next_action": "Recover exact upstream edition metadata and rights statement before body inspection.",
+      "reserve_replacement": null
+    },
+    {
+      "candidate_id": "MED-CAND-005",
+      "proposed_source_id": "LIB-MEDIEVAL-AUTHORITY-005-MICHAEL-PSELLOS",
+      "accepted_pilot_seed": false,
+      "authority_label": "Michael Psellos",
+      "title": "Chronographia",
+      "date_start": 1059,
+      "date_end": 1078,
+      "date_label": "c. 1059–1078",
+      "primary_lane": "Byzantine and Eastern Christian",
+      "languages": [
+        "greek",
+        "english"
+      ],
+      "functions": [
+        "chronicle",
+        "court politics",
+        "intellectual transmission"
+      ],
+      "source_type": "chronicle",
+      "score": {
+        "historical_consequence": 2,
+        "boundary_clarity": 2,
+        "distinctiveness": 2,
+        "provenance_feasibility": 2,
+        "portability": 0,
+        "total": 8
+      },
+      "disposition": "selected",
+      "selection_reason": "Court politics and intellectual self-positioning in eleventh-century Byzantium.",
+      "reserve_reason": null,
+      "corpus_boundary": "Chronographia only; philosophical and rhetorical corpus excluded.",
+      "identity_source": {
+        "label": "Fordham Medieval Sourcebook",
+        "url": "https://sourcebooks.web.fordham.edu/basis/psellus-chrono-intro.asp",
+        "evidence_status": "identity-or-provenance-triage"
+      },
+      "original_language_route": {
+        "status": "candidate-located",
+        "route": "Locate an institutional edition or manuscript-derived transcription.",
+        "rights_posture": "unknown"
+      },
+      "english_route": {
+        "status": "candidate-located",
+        "route": "Locate a rights-clear complete translation or preserve the gap.",
+        "rights_posture": "unknown"
+      },
+      "rights_posture": "unknown",
+      "portability": "partial",
+      "proposed_registry_status": "stub",
+      "coverage_ceiling": "principal-work",
+      "maturity_ceiling": 4,
+      "principal_unresolved_gap": "English digital reuse and Greek file provenance require confirmation.",
+      "preferred_next_action": "Recover exact upstream edition metadata and rights statement before body inspection.",
+      "reserve_replacement": null
+    },
+    {
+      "candidate_id": "MED-CAND-006",
+      "proposed_source_id": "LIB-MEDIEVAL-AUTHORITY-006-MICHAEL-THE-SYRIAN",
+      "accepted_pilot_seed": false,
+      "authority_label": "Michael the Syrian",
+      "title": "Chronicle",
+      "date_start": 1166,
+      "date_end": 1199,
+      "date_label": "late 12th century",
+      "primary_lane": "Byzantine and Eastern Christian",
+      "languages": [
+        "syriac",
+        "french"
+      ],
+      "functions": [
+        "chronicle",
+        "eastern christianity",
+        "cross-confessional memory"
+      ],
+      "source_type": "chronicle",
+      "score": {
+        "historical_consequence": 2,
+        "boundary_clarity": 2,
+        "distinctiveness": 2,
+        "provenance_feasibility": 2,
+        "portability": 0,
+        "total": 8
+      },
+      "disposition": "selected",
+      "selection_reason": "Non-Greek Eastern Christian historical transmission.",
+      "reserve_reason": null,
+      "corpus_boundary": "Syriac chronicle and Chabot French edition; excerpts are not a complete authority body.",
+      "identity_source": {
+        "label": "Tertullian.org public-domain fathers collection",
+        "url": "https://www.tertullian.org/fathers/michael_the_syrian.htm",
+        "evidence_status": "identity-or-provenance-triage"
+      },
+      "original_language_route": {
+        "status": "partial",
+        "route": "Locate an institutional edition or manuscript-derived transcription.",
+        "rights_posture": "unknown"
+      },
+      "english_route": {
+        "status": "not-located",
+        "route": "Locate a rights-clear complete translation or preserve the gap.",
+        "rights_posture": "unknown"
+      },
+      "rights_posture": "unknown",
+      "portability": "difficult",
+      "proposed_registry_status": "stub",
+      "coverage_ceiling": "principal-work",
+      "maturity_ceiling": 4,
+      "principal_unresolved_gap": "No reusable complete English body and Syriac digital provenance is unresolved.",
+      "preferred_next_action": "Recover exact upstream edition metadata and rights statement before body inspection.",
+      "reserve_replacement": null
+    },
+    {
+      "candidate_id": "MED-CAND-007",
+      "proposed_source_id": "LIB-MEDIEVAL-AUTHORITY-007-KEBRA-NAGAST-TRADITION",
+      "accepted_pilot_seed": false,
+      "authority_label": "Kebra Nagast textual tradition",
+      "title": "Kebra Nagast / Glory of the Kings",
+      "date_start": 1314,
+      "date_end": 1322,
+      "date_label": "early 14th century",
+      "primary_lane": "Byzantine and Eastern Christian",
+      "languages": [
+        "geez",
+        "english"
+      ],
+      "functions": [
+        "dynastic legitimacy",
+        "eastern christianity",
+        "literary memory"
+      ],
+      "source_type": "religious",
+      "score": {
+        "historical_consequence": 2,
+        "boundary_clarity": 2,
+        "distinctiveness": 2,
+        "provenance_feasibility": 2,
+        "portability": 0,
+        "total": 8
+      },
+      "disposition": "selected",
+      "selection_reason": "Required Ethiopian and African dynastic-Christian transmission.",
+      "reserve_reason": null,
+      "corpus_boundary": "Composite Ge'ez textual tradition; Budge translation is a separate edition body.",
+      "identity_source": {
+        "label": "UNESCO Memory of the World discovery surface",
+        "url": "https://www.unesco.org/en/memory-world",
+        "evidence_status": "identity-or-provenance-triage"
+      },
+      "original_language_route": {
+        "status": "not-located",
+        "route": "Locate an institutional edition or manuscript-derived transcription.",
+        "rights_posture": "unknown"
+      },
+      "english_route": {
+        "status": "candidate-located",
+        "route": "Locate a rights-clear complete translation or preserve the gap.",
+        "rights_posture": "plausible-open"
+      },
+      "rights_posture": "unknown",
+      "portability": "partial",
+      "proposed_registry_status": "stub",
+      "coverage_ceiling": "principal-work",
+      "maturity_ceiling": 5,
+      "principal_unresolved_gap": "Exact Ge'ez edition and institutional upstream record must be recovered.",
+      "preferred_next_action": "Recover exact upstream edition metadata and rights statement before body inspection.",
+      "reserve_replacement": null
+    },
+    {
+      "candidate_id": "MED-CAND-008",
+      "proposed_source_id": "LIB-MEDIEVAL-AUTHORITY-008-THEOPHANES-CONFESSOR",
+      "accepted_pilot_seed": false,
+      "authority_label": "Theophanes the Confessor",
+      "title": "Chronographia",
+      "date_start": 810,
+      "date_end": 815,
+      "date_label": "c. 810–815",
+      "primary_lane": "Byzantine and Eastern Christian",
+      "languages": [
+        "greek",
+        "english"
+      ],
+      "functions": [
+        "chronicle",
+        "imperial memory"
+      ],
+      "source_type": "chronicle",
+      "score": {
+        "historical_consequence": 2,
+        "boundary_clarity": 2,
+        "distinctiveness": 1,
+        "provenance_feasibility": 2,
+        "portability": 0,
+        "total": 7
+      },
+      "disposition": "reserve",
+      "selection_reason": null,
+      "reserve_reason": "Reserve: strong chronicle but Byzantine lane already exceeds its floor.",
+      "corpus_boundary": "Chronographia only.",
+      "identity_source": {
+        "label": "Institutional or scholarly collection",
+        "url": "https://sourcebooks.web.fordham.edu/byzantium/alltexts.asp",
+        "evidence_status": "identity-or-provenance-triage"
+      },
+      "original_language_route": {
+        "status": "not-located",
+        "route": "Locate an institutional edition or manuscript-derived transcription.",
+        "rights_posture": "unknown"
+      },
+      "english_route": {
+        "status": "not-located",
+        "route": "Locate a rights-clear complete translation or preserve the gap.",
+        "rights_posture": "unknown"
+      },
+      "rights_posture": "unknown",
+      "portability": "difficult",
+      "proposed_registry_status": "stub",
+      "coverage_ceiling": "principal-work",
+      "maturity_ceiling": 4,
+      "principal_unresolved_gap": "Reusable complete English and exact Greek body not triaged.",
+      "preferred_next_action": "Recover exact upstream edition metadata and rights statement before body inspection.",
+      "reserve_replacement": null
+    },
+    {
+      "candidate_id": "MED-CAND-009",
+      "proposed_source_id": "LIB-MEDIEVAL-AUTHORITY-009-MATTHEW-EDESSA",
+      "accepted_pilot_seed": false,
+      "authority_label": "Matthew of Edessa",
+      "title": "Chronicle",
+      "date_start": 1120,
+      "date_end": 1140,
+      "date_label": "c. 1120–1140",
+      "primary_lane": "Byzantine and Eastern Christian",
+      "languages": [
+        "armenian",
+        "english"
+      ],
+      "functions": [
+        "chronicle",
+        "crusades",
+        "armenian memory"
+      ],
+      "source_type": "chronicle",
+      "score": {
+        "historical_consequence": 2,
+        "boundary_clarity": 2,
+        "distinctiveness": 1,
+        "provenance_feasibility": 2,
+        "portability": 0,
+        "total": 7
+      },
+      "disposition": "reserve",
+      "selection_reason": null,
+      "reserve_reason": "Reserve: valuable Armenian countervoice; body feasibility weaker than Michael the Syrian.",
+      "corpus_boundary": "Matthew's chronicle; continuations separate.",
+      "identity_source": {
+        "label": "Institutional or scholarly collection",
+        "url": "https://sourcebooks.web.fordham.edu/byzantium/alltexts.asp",
+        "evidence_status": "identity-or-provenance-triage"
+      },
+      "original_language_route": {
+        "status": "not-located",
+        "route": "Locate an institutional edition or manuscript-derived transcription.",
+        "rights_posture": "unknown"
+      },
+      "english_route": {
+        "status": "not-located",
+        "route": "Locate a rights-clear complete translation or preserve the gap.",
+        "rights_posture": "unknown"
+      },
+      "rights_posture": "unknown",
+      "portability": "difficult",
+      "proposed_registry_status": "stub",
+      "coverage_ceiling": "principal-work",
+      "maturity_ceiling": 4,
+      "principal_unresolved_gap": "Armenian original and reusable English require recovery.",
+      "preferred_next_action": "Recover exact upstream edition metadata and rights statement before body inspection.",
+      "reserve_replacement": null
+    },
+    {
+      "candidate_id": "MED-CAND-010",
+      "proposed_source_id": "LIB-MEDIEVAL-AUTHORITY-010-MAURICE-STRATEGIKON",
+      "accepted_pilot_seed": false,
+      "authority_label": "Maurice / Strategikon tradition",
+      "title": "Strategikon",
+      "date_start": 580,
+      "date_end": 610,
+      "date_label": "late 6th–early 7th century",
+      "primary_lane": "Byzantine and Eastern Christian",
+      "languages": [
+        "greek",
+        "english"
+      ],
+      "functions": [
+        "war",
+        "military administration"
+      ],
+      "source_type": "classical",
+      "score": {
+        "historical_consequence": 2,
+        "boundary_clarity": 2,
+        "distinctiveness": 1,
+        "provenance_feasibility": 2,
+        "portability": 0,
+        "total": 7
+      },
+      "disposition": "reserve",
+      "selection_reason": null,
+      "reserve_reason": "Reserve: military function is valuable but attribution and portability are weaker.",
+      "corpus_boundary": "Strategikon attribution remains disputed and must be modeled as a tradition.",
+      "identity_source": {
+        "label": "Institutional or scholarly collection",
+        "url": "https://sourcebooks.web.fordham.edu/byzantium/alltexts.asp",
+        "evidence_status": "identity-or-provenance-triage"
+      },
+      "original_language_route": {
+        "status": "not-located",
+        "route": "Locate an institutional edition or manuscript-derived transcription.",
+        "rights_posture": "unknown"
+      },
+      "english_route": {
+        "status": "not-located",
+        "route": "Locate a rights-clear complete translation or preserve the gap.",
+        "rights_posture": "unknown"
+      },
+      "rights_posture": "unknown",
+      "portability": "difficult",
+      "proposed_registry_status": "stub",
+      "coverage_ceiling": "principal-work",
+      "maturity_ceiling": 4,
+      "principal_unresolved_gap": "Modern English restricted; Greek edition route unresolved.",
+      "preferred_next_action": "Recover exact upstream edition metadata and rights statement before body inspection.",
+      "reserve_replacement": null
+    },
+    {
+      "candidate_id": "MED-CAND-011",
+      "proposed_source_id": "LIB-MEDIEVAL-AUTHORITY-011-RULE-SAINT-BENEDICT",
+      "accepted_pilot_seed": false,
+      "authority_label": "Benedictine rule tradition",
+      "title": "Rule of Saint Benedict",
+      "date_start": 516,
+      "date_end": 547,
+      "date_label": "early–mid 6th century",
+      "primary_lane": "Latin Christian and Jewish Mediterranean/European",
+      "languages": [
+        "latin",
+        "english"
+      ],
+      "functions": [
+        "religious institutions",
+        "governance",
+        "monastic administration"
+      ],
+      "source_type": "religious",
+      "score": {
+        "historical_consequence": 3,
+        "boundary_clarity": 2,
+        "distinctiveness": 2,
+        "provenance_feasibility": 2,
+        "portability": 1,
+        "total": 9
+      },
+      "disposition": "selected",
+      "selection_reason": "Institutional rule transmitted across medieval Europe.",
+      "reserve_reason": null,
+      "corpus_boundary": "Rule itself; later customary and commentary traditions separate.",
+      "identity_source": {
+        "label": "Fordham Medieval Sourcebook",
+        "url": "https://sourcebooks.web.fordham.edu/source/rul-benedict.asp",
+        "evidence_status": "identity-or-provenance-triage"
+      },
+      "original_language_route": {
+        "status": "candidate-located",
+        "route": "Locate an institutional edition or manuscript-derived transcription.",
+        "rights_posture": "unknown"
+      },
+      "english_route": {
+        "status": "candidate-located",
+        "route": "Locate a rights-clear complete translation or preserve the gap.",
+        "rights_posture": "unknown"
+      },
+      "rights_posture": "plausible-open",
+      "portability": "strong",
+      "proposed_registry_status": "located",
+      "coverage_ceiling": "principal-work",
+      "maturity_ceiling": 5,
+      "principal_unresolved_gap": "Verify complete Latin/English edition pairing.",
+      "preferred_next_action": "Recover exact upstream edition metadata and rights statement before body inspection.",
+      "reserve_replacement": null
+    },
+    {
+      "candidate_id": "MED-CAND-012",
+      "proposed_source_id": "LIB-MEDIEVAL-AUTHORITY-012-GREGORY-TOURS",
+      "accepted_pilot_seed": false,
+      "authority_label": "Gregory of Tours",
+      "title": "Ten Books of Histories / History of the Franks",
+      "date_start": 575,
+      "date_end": 594,
+      "date_label": "late 6th century",
+      "primary_lane": "Latin Christian and Jewish Mediterranean/European",
+      "languages": [
+        "latin",
+        "english"
+      ],
+      "functions": [
+        "chronicle",
+        "post-roman institutions",
+        "political memory"
+      ],
+      "source_type": "chronicle",
+      "score": {
+        "historical_consequence": 3,
+        "boundary_clarity": 2,
+        "distinctiveness": 2,
+        "provenance_feasibility": 2,
+        "portability": 1,
+        "total": 9
+      },
+      "disposition": "selected",
+      "selection_reason": "Central post-Roman political and ecclesiastical chronicle.",
+      "reserve_reason": null,
+      "corpus_boundary": "Histories only; miracle books and saints' lives separate.",
+      "identity_source": {
+        "label": "Fordham Medieval Sourcebook",
+        "url": "https://sourcebooks.web.fordham.edu/basis/gregory-hist.asp",
+        "evidence_status": "identity-or-provenance-triage"
+      },
+      "original_language_route": {
+        "status": "not-located",
+        "route": "Locate an institutional edition or manuscript-derived transcription.",
+        "rights_posture": "unknown"
+      },
+      "english_route": {
+        "status": "candidate-located",
+        "route": "Locate a rights-clear complete translation or preserve the gap.",
+        "rights_posture": "plausible-open"
+      },
+      "rights_posture": "unknown",
+      "portability": "partial",
+      "proposed_registry_status": "stub",
+      "coverage_ceiling": "principal-work",
+      "maturity_ceiling": 4,
+      "principal_unresolved_gap": "Abridged English route and missing verified Latin body.",
+      "preferred_next_action": "Recover exact upstream edition metadata and rights statement before body inspection.",
+      "reserve_replacement": null
+    },
+    {
+      "candidate_id": "MED-CAND-013",
+      "proposed_source_id": "LIB-MEDIEVAL-AUTHORITY-013-BEDE",
+      "accepted_pilot_seed": true,
+      "authority_label": "Bede the Venerable",
+      "title": "Historia ecclesiastica gentis Anglorum",
+      "date_start": 731,
+      "date_end": 731,
+      "date_label": "c. 731",
+      "primary_lane": "Latin Christian and Jewish Mediterranean/European",
+      "languages": [
+        "latin",
+        "english"
+      ],
+      "functions": [
+        "chronicle",
+        "ecclesiastical institutions",
+        "political memory"
+      ],
+      "source_type": "chronicle",
+      "score": {
+        "historical_consequence": 3,
+        "boundary_clarity": 2,
+        "distinctiveness": 2,
+        "provenance_feasibility": 2,
+        "portability": 1,
+        "total": 9
+      },
+      "disposition": "selected",
+      "selection_reason": "Documentary church and political memory in early medieval England.",
+      "reserve_reason": null,
+      "corpus_boundary": "Ecclesiastical History only.",
+      "identity_source": {
+        "label": "Project Gutenberg",
+        "url": "https://gutenberg.org/ebooks/38326",
+        "evidence_status": "identity-or-provenance-triage"
+      },
+      "original_language_route": {
+        "status": "not-located",
+        "route": "Locate an institutional edition or manuscript-derived transcription.",
+        "rights_posture": "unknown"
+      },
+      "english_route": {
+        "status": "candidate-located",
+        "route": "Locate a rights-clear complete translation or preserve the gap.",
+        "rights_posture": "plausible-open"
+      },
+      "rights_posture": "plausible-open",
+      "portability": "strong",
+      "proposed_registry_status": "located",
+      "coverage_ceiling": "principal-work",
+      "maturity_ceiling": 5,
+      "principal_unresolved_gap": "Verified clean Latin counterpart.",
+      "preferred_next_action": "Recover exact upstream edition metadata and rights statement before body inspection.",
+      "reserve_replacement": null
+    },
+    {
+      "candidate_id": "MED-CAND-014",
+      "proposed_source_id": "LIB-MEDIEVAL-AUTHORITY-014-EINHARD",
+      "accepted_pilot_seed": false,
+      "authority_label": "Einhard",
+      "title": "Vita Karoli Magni",
+      "date_start": 817,
+      "date_end": 833,
+      "date_label": "c. 817–833",
+      "primary_lane": "Latin Christian and Jewish Mediterranean/European",
+      "languages": [
+        "latin",
+        "english"
+      ],
+      "functions": [
+        "biography",
+        "imperial memory",
+        "statecraft"
+      ],
+      "source_type": "chronicle",
+      "score": {
+        "historical_consequence": 2,
+        "boundary_clarity": 2,
+        "distinctiveness": 2,
+        "provenance_feasibility": 2,
+        "portability": 0,
+        "total": 8
+      },
+      "disposition": "selected",
+      "selection_reason": "Compact model of Carolingian rulership and imperial memory.",
+      "reserve_reason": null,
+      "corpus_boundary": "Life of Charlemagne only.",
+      "identity_source": {
+        "label": "Fordham Medieval Sourcebook",
+        "url": "https://sourcebooks.web.fordham.edu/basis/einhard.asp",
+        "evidence_status": "identity-or-provenance-triage"
+      },
+      "original_language_route": {
+        "status": "candidate-located",
+        "route": "Locate an institutional edition or manuscript-derived transcription.",
+        "rights_posture": "unknown"
+      },
+      "english_route": {
+        "status": "candidate-located",
+        "route": "Locate a rights-clear complete translation or preserve the gap.",
+        "rights_posture": "unknown"
+      },
+      "rights_posture": "plausible-open",
+      "portability": "strong",
+      "proposed_registry_status": "located",
+      "coverage_ceiling": "principal-work",
+      "maturity_ceiling": 5,
+      "principal_unresolved_gap": "Verify complete bilingual provenance.",
+      "preferred_next_action": "Recover exact upstream edition metadata and rights statement before body inspection.",
+      "reserve_replacement": null
+    },
+    {
+      "candidate_id": "MED-CAND-015",
+      "proposed_source_id": "LIB-MEDIEVAL-AUTHORITY-015-DOMESDAY-BOOK-TRADITION",
+      "accepted_pilot_seed": false,
+      "authority_label": "Domesday Book administrative tradition",
+      "title": "Great Domesday and Little Domesday",
+      "date_start": 1085,
+      "date_end": 1086,
+      "date_label": "1085–1086",
+      "primary_lane": "Latin Christian and Jewish Mediterranean/European",
+      "languages": [
+        "latin",
+        "english"
+      ],
+      "functions": [
+        "administration",
+        "taxation",
+        "land survey"
+      ],
+      "source_type": "legal",
+      "score": {
+        "historical_consequence": 3,
+        "boundary_clarity": 2,
+        "distinctiveness": 2,
+        "provenance_feasibility": 2,
+        "portability": 1,
+        "total": 9
+      },
+      "disposition": "selected",
+      "selection_reason": "Exceptional administrative state-capacity record.",
+      "reserve_reason": null,
+      "corpus_boundary": "Great and Little Domesday are distinct bodies; later summaries excluded.",
+      "identity_source": {
+        "label": "Open Domesday scholarly data project",
+        "url": "https://opendomesday.org/",
+        "evidence_status": "identity-or-provenance-triage"
+      },
+      "original_language_route": {
+        "status": "candidate-located",
+        "route": "Locate an institutional edition or manuscript-derived transcription.",
+        "rights_posture": "open-license"
+      },
+      "english_route": {
+        "status": "partial",
+        "route": "Locate a rights-clear complete translation or preserve the gap.",
+        "rights_posture": "open-license"
+      },
+      "rights_posture": "plausible-open",
+      "portability": "partial",
+      "proposed_registry_status": "stub",
+      "coverage_ceiling": "principal-works",
+      "maturity_ceiling": 6,
+      "principal_unresolved_gap": "Confirm dataset license, transcription lineage, and treatment of abbreviations.",
+      "preferred_next_action": "Recover exact upstream edition metadata and rights statement before body inspection.",
+      "reserve_replacement": null
+    },
+    {
+      "candidate_id": "MED-CAND-016",
+      "proposed_source_id": "LIB-MEDIEVAL-AUTHORITY-016-MAGNA-CARTA-TRADITION",
+      "accepted_pilot_seed": false,
+      "authority_label": "Magna Carta charter tradition",
+      "title": "Magna Carta, 1215 and reissues",
+      "date_start": 1215,
+      "date_end": 1297,
+      "date_label": "1215–1297",
+      "primary_lane": "Latin Christian and Jewish Mediterranean/European",
+      "languages": [
+        "latin",
+        "english"
+      ],
+      "functions": [
+        "law",
+        "political constraint",
+        "charter transmission"
+      ],
+      "source_type": "legal",
+      "score": {
+        "historical_consequence": 3,
+        "boundary_clarity": 2,
+        "distinctiveness": 2,
+        "provenance_feasibility": 2,
+        "portability": 1,
+        "total": 9
+      },
+      "disposition": "selected",
+      "selection_reason": "Legal transmission through repeated charter reissue and reinterpretation.",
+      "reserve_reason": null,
+      "corpus_boundary": "1215 charter and later reissues must remain distinct witnesses.",
+      "identity_source": {
+        "label": "UK National Archives",
+        "url": "https://www.nationalarchives.gov.uk/education/resources/magna-carta/",
+        "evidence_status": "identity-or-provenance-triage"
+      },
+      "original_language_route": {
+        "status": "candidate-located",
+        "route": "Locate an institutional edition or manuscript-derived transcription.",
+        "rights_posture": "unknown"
+      },
+      "english_route": {
+        "status": "candidate-located",
+        "route": "Locate a rights-clear complete translation or preserve the gap.",
+        "rights_posture": "unknown"
+      },
+      "rights_posture": "plausible-open",
+      "portability": "strong",
+      "proposed_registry_status": "located",
+      "coverage_ceiling": "principal-works",
+      "maturity_ceiling": 6,
+      "principal_unresolved_gap": "Choose represented reissues and verify transcription licenses.",
+      "preferred_next_action": "Recover exact upstream edition metadata and rights statement before body inspection.",
+      "reserve_replacement": null
+    },
+    {
+      "candidate_id": "MED-CAND-017",
+      "proposed_source_id": "LIB-MEDIEVAL-AUTHORITY-017-THOMAS-AQUINAS",
+      "accepted_pilot_seed": false,
+      "authority_label": "Thomas Aquinas",
+      "title": "Summa Theologiae",
+      "date_start": 1265,
+      "date_end": 1274,
+      "date_label": "1265–1274",
+      "primary_lane": "Latin Christian and Jewish Mediterranean/European",
+      "languages": [
+        "latin",
+        "english"
+      ],
+      "functions": [
+        "theology",
+        "law",
+        "intellectual institutions"
+      ],
+      "source_type": "classical",
+      "score": {
+        "historical_consequence": 3,
+        "boundary_clarity": 2,
+        "distinctiveness": 2,
+        "provenance_feasibility": 2,
+        "portability": 1,
+        "total": 9
+      },
+      "disposition": "selected",
+      "selection_reason": "Scholastic synthesis of law, ethics, politics, and theology.",
+      "reserve_reason": null,
+      "corpus_boundary": "Summa Theologiae only; wider Thomistic corpus excluded.",
+      "identity_source": {
+        "label": "Corpus Thomisticum",
+        "url": "https://www.corpusthomisticum.org/sth0000.html",
+        "evidence_status": "identity-or-provenance-triage"
+      },
+      "original_language_route": {
+        "status": "candidate-located",
+        "route": "Locate an institutional edition or manuscript-derived transcription.",
+        "rights_posture": "unknown"
+      },
+      "english_route": {
+        "status": "candidate-located",
+        "route": "Locate a rights-clear complete translation or preserve the gap.",
+        "rights_posture": "plausible-open"
+      },
+      "rights_posture": "unknown",
+      "portability": "partial",
+      "proposed_registry_status": "stub",
+      "coverage_ceiling": "principal-work",
+      "maturity_ceiling": 5,
+      "principal_unresolved_gap": "Digital Latin terms and exact public-domain English translation provenance.",
+      "preferred_next_action": "Recover exact upstream edition metadata and rights statement before body inspection.",
+      "reserve_replacement": null
+    },
+    {
+      "candidate_id": "MED-CAND-018",
+      "proposed_source_id": "LIB-MEDIEVAL-AUTHORITY-018-DANTE-ALIGHIERI",
+      "accepted_pilot_seed": false,
+      "authority_label": "Dante Alighieri",
+      "title": "Commedia / Divine Comedy",
+      "date_start": 1308,
+      "date_end": 1321,
+      "date_label": "c. 1308–1321",
+      "primary_lane": "Latin Christian and Jewish Mediterranean/European",
+      "languages": [
+        "italian",
+        "english"
+      ],
+      "functions": [
+        "literary memory",
+        "political theology",
+        "vernacular transmission"
+      ],
+      "source_type": "literary",
+      "score": {
+        "historical_consequence": 3,
+        "boundary_clarity": 2,
+        "distinctiveness": 2,
+        "provenance_feasibility": 2,
+        "portability": 1,
+        "total": 9
+      },
+      "disposition": "selected",
+      "selection_reason": "Vernacular literary and political-theological memory.",
+      "reserve_reason": null,
+      "corpus_boundary": "Commedia only; Convivio, Monarchia, and letters separate.",
+      "identity_source": {
+        "label": "Princeton Dante Project",
+        "url": "https://dante.princeton.edu/",
+        "evidence_status": "identity-or-provenance-triage"
+      },
+      "original_language_route": {
+        "status": "candidate-located",
+        "route": "Locate an institutional edition or manuscript-derived transcription.",
+        "rights_posture": "unknown"
+      },
+      "english_route": {
+        "status": "candidate-located",
+        "route": "Locate a rights-clear complete translation or preserve the gap.",
+        "rights_posture": "unknown"
+      },
+      "rights_posture": "unknown",
+      "portability": "partial",
+      "proposed_registry_status": "stub",
+      "coverage_ceiling": "principal-work",
+      "maturity_ceiling": 5,
+      "principal_unresolved_gap": "Select rights-clear Italian and English edition pair.",
+      "preferred_next_action": "Recover exact upstream edition metadata and rights statement before body inspection.",
+      "reserve_replacement": null
+    },
+    {
+      "candidate_id": "MED-CAND-019",
+      "proposed_source_id": "LIB-MEDIEVAL-AUTHORITY-019-MAIMONIDES",
+      "accepted_pilot_seed": false,
+      "authority_label": "Moses Maimonides",
+      "title": "Mishneh Torah; Guide of the Perplexed",
+      "date_start": 1168,
+      "date_end": 1190,
+      "date_label": "c. 1168–1190",
+      "primary_lane": "Latin Christian and Jewish Mediterranean/European",
+      "languages": [
+        "hebrew",
+        "judeo-arabic",
+        "english"
+      ],
+      "functions": [
+        "jewish law",
+        "philosophy",
+        "cross-linguistic transmission"
+      ],
+      "source_type": "legal",
+      "score": {
+        "historical_consequence": 3,
+        "boundary_clarity": 2,
+        "distinctiveness": 2,
+        "provenance_feasibility": 2,
+        "portability": 1,
+        "total": 10
+      },
+      "disposition": "selected",
+      "selection_reason": "Essential medieval Jewish legal-philosophical transmission across Arabic, Hebrew, and Latin worlds.",
+      "reserve_reason": null,
+      "corpus_boundary": "Mishneh Torah and Guide are distinct works in Hebrew and Judeo-Arabic traditions.",
+      "identity_source": {
+        "label": "Stanford Encyclopedia of Philosophy",
+        "url": "https://plato.stanford.edu/entries/maimonides/",
+        "evidence_status": "identity-or-provenance-triage"
+      },
+      "original_language_route": {
+        "status": "partial",
+        "route": "Locate an institutional edition or manuscript-derived transcription.",
+        "rights_posture": "unknown"
+      },
+      "english_route": {
+        "status": "restricted",
+        "route": "Locate a rights-clear complete translation or preserve the gap.",
+        "rights_posture": "restricted"
+      },
+      "rights_posture": "unknown",
+      "portability": "difficult",
+      "proposed_registry_status": "stub",
+      "coverage_ceiling": "principal-works",
+      "maturity_ceiling": 6,
+      "principal_unresolved_gap": "Exact original-language editions and reusable English counterparts.",
+      "preferred_next_action": "Recover exact upstream edition metadata and rights statement before body inspection.",
+      "reserve_replacement": null
+    },
+    {
+      "candidate_id": "MED-CAND-020",
+      "proposed_source_id": "LIB-MEDIEVAL-AUTHORITY-020-JUDAH-HALEVI",
+      "accepted_pilot_seed": false,
+      "authority_label": "Judah Halevi",
+      "title": "Kuzari",
+      "date_start": 1130,
+      "date_end": 1140,
+      "date_label": "c. 1130–1140",
+      "primary_lane": "Latin Christian and Jewish Mediterranean/European",
+      "languages": [
+        "judeo-arabic",
+        "hebrew",
+        "english"
+      ],
+      "functions": [
+        "jewish philosophy",
+        "religious identity",
+        "translation"
+      ],
+      "source_type": "classical",
+      "score": {
+        "historical_consequence": 2,
+        "boundary_clarity": 2,
+        "distinctiveness": 2,
+        "provenance_feasibility": 2,
+        "portability": 0,
+        "total": 8
+      },
+      "disposition": "selected",
+      "selection_reason": "Second required Jewish authority and a distinct dialogue on law, revelation, and identity.",
+      "reserve_reason": null,
+      "corpus_boundary": "Kuzari only; poetry corpus separate.",
+      "identity_source": {
+        "label": "Stanford Encyclopedia of Philosophy",
+        "url": "https://plato.stanford.edu/entries/arabic-islamic-judaic/",
+        "evidence_status": "identity-or-provenance-triage"
+      },
+      "original_language_route": {
+        "status": "not-located",
+        "route": "Locate an institutional edition or manuscript-derived transcription.",
+        "rights_posture": "unknown"
+      },
+      "english_route": {
+        "status": "not-located",
+        "route": "Locate a rights-clear complete translation or preserve the gap.",
+        "rights_posture": "unknown"
+      },
+      "rights_posture": "unknown",
+      "portability": "metadata-only",
+      "proposed_registry_status": "stub",
+      "coverage_ceiling": "principal-work",
+      "maturity_ceiling": 4,
+      "principal_unresolved_gap": "Institutional Judeo-Arabic edition and rights-clear English translation.",
+      "preferred_next_action": "Recover exact upstream edition metadata and rights statement before body inspection.",
+      "reserve_replacement": null
+    },
+    {
+      "candidate_id": "MED-CAND-021",
+      "proposed_source_id": "LIB-MEDIEVAL-AUTHORITY-021-CHRISTINE-DE-PIZAN",
+      "accepted_pilot_seed": false,
+      "authority_label": "Christine de Pizan",
+      "title": "Book of the City of Ladies",
+      "date_start": 1404,
+      "date_end": 1405,
+      "date_label": "1404–1405",
+      "primary_lane": "Latin Christian and Jewish Mediterranean/European",
+      "languages": [
+        "middle french",
+        "english"
+      ],
+      "functions": [
+        "political thought",
+        "gender",
+        "literary memory"
+      ],
+      "source_type": "literary",
+      "score": {
+        "historical_consequence": 2,
+        "boundary_clarity": 2,
+        "distinctiveness": 1,
+        "provenance_feasibility": 2,
+        "portability": 0,
+        "total": 7
+      },
+      "disposition": "reserve",
+      "selection_reason": null,
+      "reserve_reason": "Reserve: important countervoice; displaced by higher-consequence institutional records.",
+      "corpus_boundary": "City of Ladies only.",
+      "identity_source": {
+        "label": "Institutional or scholarly collection",
+        "url": "https://www.bl.uk/collection/explore-the-collection",
+        "evidence_status": "identity-or-provenance-triage"
+      },
+      "original_language_route": {
+        "status": "not-located",
+        "route": "Locate an institutional edition or manuscript-derived transcription.",
+        "rights_posture": "unknown"
+      },
+      "english_route": {
+        "status": "not-located",
+        "route": "Locate a rights-clear complete translation or preserve the gap.",
+        "rights_posture": "unknown"
+      },
+      "rights_posture": "unknown",
+      "portability": "difficult",
+      "proposed_registry_status": "stub",
+      "coverage_ceiling": "principal-work",
+      "maturity_ceiling": 4,
+      "principal_unresolved_gap": "Exact manuscript/edition and reusable translation.",
+      "preferred_next_action": "Recover exact upstream edition metadata and rights statement before body inspection.",
+      "reserve_replacement": null
+    },
+    {
+      "candidate_id": "MED-CAND-022",
+      "proposed_source_id": "LIB-MEDIEVAL-AUTHORITY-022-SONG-OF-ROLAND-TRADITION",
+      "accepted_pilot_seed": false,
+      "authority_label": "Chanson de Roland textual tradition",
+      "title": "Song of Roland",
+      "date_start": 1040,
+      "date_end": 1115,
+      "date_label": "11th–early 12th century",
+      "primary_lane": "Latin Christian and Jewish Mediterranean/European",
+      "languages": [
+        "old french",
+        "english"
+      ],
+      "functions": [
+        "epic memory",
+        "war",
+        "religious identity"
+      ],
+      "source_type": "literary",
+      "score": {
+        "historical_consequence": 2,
+        "boundary_clarity": 2,
+        "distinctiveness": 1,
+        "provenance_feasibility": 2,
+        "portability": 0,
+        "total": 7
+      },
+      "disposition": "reserve",
+      "selection_reason": null,
+      "reserve_reason": "Reserve: epic function represented elsewhere; strong future literary addition.",
+      "corpus_boundary": "Oxford version and later recensions must remain distinct.",
+      "identity_source": {
+        "label": "Institutional or scholarly collection",
+        "url": "https://www.bl.uk/collection/explore-the-collection",
+        "evidence_status": "identity-or-provenance-triage"
+      },
+      "original_language_route": {
+        "status": "not-located",
+        "route": "Locate an institutional edition or manuscript-derived transcription.",
+        "rights_posture": "unknown"
+      },
+      "english_route": {
+        "status": "not-located",
+        "route": "Locate a rights-clear complete translation or preserve the gap.",
+        "rights_posture": "unknown"
+      },
+      "rights_posture": "unknown",
+      "portability": "difficult",
+      "proposed_registry_status": "stub",
+      "coverage_ceiling": "principal-work",
+      "maturity_ceiling": 4,
+      "principal_unresolved_gap": "Recension selection and bilingual rights-clear bodies.",
+      "preferred_next_action": "Recover exact upstream edition metadata and rights statement before body inspection.",
+      "reserve_replacement": null
+    },
+    {
+      "candidate_id": "MED-CAND-023",
+      "proposed_source_id": "LIB-MEDIEVAL-AUTHORITY-023-HILDEGARD-BINGEN",
+      "accepted_pilot_seed": false,
+      "authority_label": "Hildegard of Bingen",
+      "title": "Scivias",
+      "date_start": 1141,
+      "date_end": 1151,
+      "date_label": "1141–1151",
+      "primary_lane": "Latin Christian and Jewish Mediterranean/European",
+      "languages": [
+        "latin",
+        "english"
+      ],
+      "functions": [
+        "religious vision",
+        "institutional counsel",
+        "art"
+      ],
+      "source_type": "religious",
+      "score": {
+        "historical_consequence": 2,
+        "boundary_clarity": 2,
+        "distinctiveness": 1,
+        "provenance_feasibility": 2,
+        "portability": 0,
+        "total": 7
+      },
+      "disposition": "reserve",
+      "selection_reason": null,
+      "reserve_reason": "Reserve: distinctive voice but weaker initial portability.",
+      "corpus_boundary": "Scivias only; musical, medical, and epistolary corpora separate.",
+      "identity_source": {
+        "label": "Institutional or scholarly collection",
+        "url": "https://plato.stanford.edu/entries/medieval-philosophy/",
+        "evidence_status": "identity-or-provenance-triage"
+      },
+      "original_language_route": {
+        "status": "not-located",
+        "route": "Locate an institutional edition or manuscript-derived transcription.",
+        "rights_posture": "unknown"
+      },
+      "english_route": {
+        "status": "not-located",
+        "route": "Locate a rights-clear complete translation or preserve the gap.",
+        "rights_posture": "unknown"
+      },
+      "rights_posture": "unknown",
+      "portability": "difficult",
+      "proposed_registry_status": "stub",
+      "coverage_ceiling": "principal-work",
+      "maturity_ceiling": 4,
+      "principal_unresolved_gap": "Reusable complete English and Latin digital edition.",
+      "preferred_next_action": "Recover exact upstream edition metadata and rights statement before body inspection.",
+      "reserve_replacement": null
+    },
+    {
+      "candidate_id": "MED-CAND-024",
+      "proposed_source_id": "LIB-MEDIEVAL-AUTHORITY-024-QURANIC-TEXTUAL-TRADITION",
+      "accepted_pilot_seed": true,
+      "authority_label": "Qur'anic textual tradition",
+      "title": "Qur'an",
+      "date_start": 610,
+      "date_end": 656,
+      "date_label": "7th century",
+      "primary_lane": "Arabic-Islamic",
+      "languages": [
+        "arabic",
+        "english"
+      ],
+      "functions": [
+        "canon",
+        "law",
+        "ritual",
+        "manuscript transmission"
+      ],
+      "source_type": "religious",
+      "score": {
+        "historical_consequence": 3,
+        "boundary_clarity": 2,
+        "distinctiveness": 2,
+        "provenance_feasibility": 2,
+        "portability": 1,
+        "total": 10
+      },
+      "disposition": "selected",
+      "selection_reason": "Canonical Arabic and institutional transmission exemplar.",
+      "reserve_reason": null,
+      "corpus_boundary": "Reference text, readings, manuscripts, and translations are distinct bodies.",
+      "identity_source": {
+        "label": "Corpus Coranicum",
+        "url": "https://corpuscoranicum.de/en/manuscripts",
+        "evidence_status": "identity-or-provenance-triage"
+      },
+      "original_language_route": {
+        "status": "candidate-located",
+        "route": "Locate an institutional edition or manuscript-derived transcription.",
+        "rights_posture": "unknown"
+      },
+      "english_route": {
+        "status": "candidate-located",
+        "route": "Locate a rights-clear complete translation or preserve the gap.",
+        "rights_posture": "plausible-open"
+      },
+      "rights_posture": "unknown",
+      "portability": "partial",
+      "proposed_registry_status": "stub",
+      "coverage_ceiling": "principal-work",
+      "maturity_ceiling": 6,
+      "principal_unresolved_gap": "Reference-text rights and reading-tradition modeling.",
+      "preferred_next_action": "Recover exact upstream edition metadata and rights statement before body inspection.",
+      "reserve_replacement": null
+    },
+    {
+      "candidate_id": "MED-CAND-025",
+      "proposed_source_id": "LIB-MEDIEVAL-AUTHORITY-025-AL-TABARI",
+      "accepted_pilot_seed": true,
+      "authority_label": "Muhammad ibn Jarir al-Tabari",
+      "title": "History of Prophets and Kings",
+      "date_start": 915,
+      "date_end": 923,
+      "date_label": "early 10th century",
+      "primary_lane": "Arabic-Islamic",
+      "languages": [
+        "arabic",
+        "english"
+      ],
+      "functions": [
+        "chronicle",
+        "transmitted report",
+        "caliphal memory"
+      ],
+      "source_type": "chronicle",
+      "score": {
+        "historical_consequence": 3,
+        "boundary_clarity": 2,
+        "distinctiveness": 2,
+        "provenance_feasibility": 2,
+        "portability": 1,
+        "total": 10
+      },
+      "disposition": "selected",
+      "selection_reason": "Indispensable universal and early Islamic chronicle.",
+      "reserve_reason": null,
+      "corpus_boundary": "History distinct from Qur'anic commentary; multi-volume sequence.",
+      "identity_source": {
+        "label": "SUNY Press",
+        "url": "https://sunypress.edu/Books/S/Set-History-of-al-abari",
+        "evidence_status": "identity-or-provenance-triage"
+      },
+      "original_language_route": {
+        "status": "not-located",
+        "route": "Locate an institutional edition or manuscript-derived transcription.",
+        "rights_posture": "unknown"
+      },
+      "english_route": {
+        "status": "restricted",
+        "route": "Locate a rights-clear complete translation or preserve the gap.",
+        "rights_posture": "restricted"
+      },
+      "rights_posture": "restricted",
+      "portability": "metadata-only",
+      "proposed_registry_status": "stub",
+      "coverage_ceiling": "principal-work",
+      "maturity_ceiling": 4,
+      "principal_unresolved_gap": "Verified reusable Arabic edition and lawful English.",
+      "preferred_next_action": "Recover exact upstream edition metadata and rights statement before body inspection.",
+      "reserve_replacement": null
+    },
+    {
+      "candidate_id": "MED-CAND-026",
+      "proposed_source_id": "LIB-MEDIEVAL-AUTHORITY-026-AL-MASUDI",
+      "accepted_pilot_seed": false,
+      "authority_label": "al-Mas'udi",
+      "title": "Muruj al-dhahab / Meadows of Gold",
+      "date_start": 943,
+      "date_end": 956,
+      "date_label": "c. 943–956",
+      "primary_lane": "Arabic-Islamic",
+      "languages": [
+        "arabic",
+        "french",
+        "english"
+      ],
+      "functions": [
+        "world history",
+        "geography",
+        "cross-cultural observation"
+      ],
+      "source_type": "historiography",
+      "score": {
+        "historical_consequence": 3,
+        "boundary_clarity": 2,
+        "distinctiveness": 2,
+        "provenance_feasibility": 2,
+        "portability": 1,
+        "total": 9
+      },
+      "disposition": "selected",
+      "selection_reason": "World-historical and geographic synthesis beyond court annal.",
+      "reserve_reason": null,
+      "corpus_boundary": "Meadows of Gold only; later revisions and other works separate.",
+      "identity_source": {
+        "label": "Bibliothèque nationale de France data",
+        "url": "https://data.bnf.fr/en/11914109/al-mas_udi/",
+        "evidence_status": "identity-or-provenance-triage"
+      },
+      "original_language_route": {
+        "status": "candidate-located",
+        "route": "Locate an institutional edition or manuscript-derived transcription.",
+        "rights_posture": "unknown"
+      },
+      "english_route": {
+        "status": "not-located",
+        "route": "Locate a rights-clear complete translation or preserve the gap.",
+        "rights_posture": "unknown"
+      },
+      "rights_posture": "unknown",
+      "portability": "difficult",
+      "proposed_registry_status": "stub",
+      "coverage_ceiling": "principal-work",
+      "maturity_ceiling": 4,
+      "principal_unresolved_gap": "Exact Arabic edition and complete reusable English translation.",
+      "preferred_next_action": "Recover exact upstream edition metadata and rights statement before body inspection.",
+      "reserve_replacement": null
+    },
+    {
+      "candidate_id": "MED-CAND-027",
+      "proposed_source_id": "LIB-MEDIEVAL-AUTHORITY-027-IBN-HAZM",
+      "accepted_pilot_seed": false,
+      "authority_label": "Ibn Hazm",
+      "title": "Kitab al-Fisal",
+      "date_start": 1027,
+      "date_end": 1048,
+      "date_label": "11th century",
+      "primary_lane": "Arabic-Islamic",
+      "languages": [
+        "arabic",
+        "english"
+      ],
+      "functions": [
+        "comparative religion",
+        "law",
+        "andalusi intellectual history"
+      ],
+      "source_type": "religious",
+      "score": {
+        "historical_consequence": 2,
+        "boundary_clarity": 2,
+        "distinctiveness": 2,
+        "provenance_feasibility": 2,
+        "portability": 0,
+        "total": 8
+      },
+      "disposition": "selected",
+      "selection_reason": "Required Andalusi comparative and legal-intellectual authority.",
+      "reserve_reason": null,
+      "corpus_boundary": "Fisal only; legal and literary works separate.",
+      "identity_source": {
+        "label": "Stanford Encyclopedia of Philosophy",
+        "url": "https://plato.stanford.edu/entries/arabic-islamic-judaic/",
+        "evidence_status": "identity-or-provenance-triage"
+      },
+      "original_language_route": {
+        "status": "candidate-located",
+        "route": "Locate an institutional edition or manuscript-derived transcription.",
+        "rights_posture": "unknown"
+      },
+      "english_route": {
+        "status": "not-located",
+        "route": "Locate a rights-clear complete translation or preserve the gap.",
+        "rights_posture": "unknown"
+      },
+      "rights_posture": "unknown",
+      "portability": "difficult",
+      "proposed_registry_status": "stub",
+      "coverage_ceiling": "principal-work",
+      "maturity_ceiling": 4,
+      "principal_unresolved_gap": "Reusable complete English translation and exact Arabic file.",
+      "preferred_next_action": "Recover exact upstream edition metadata and rights statement before body inspection.",
+      "reserve_replacement": null
+    },
+    {
+      "candidate_id": "MED-CAND-028",
+      "proposed_source_id": "LIB-MEDIEVAL-AUTHORITY-028-AL-BAKRI",
+      "accepted_pilot_seed": false,
+      "authority_label": "Abu Ubayd al-Bakri",
+      "title": "Book of Roads and Kingdoms",
+      "date_start": 1067,
+      "date_end": 1068,
+      "date_label": "c. 1068",
+      "primary_lane": "Arabic-Islamic",
+      "languages": [
+        "arabic",
+        "french",
+        "english"
+      ],
+      "functions": [
+        "geography",
+        "trade",
+        "west africa"
+      ],
+      "source_type": "reference",
+      "score": {
+        "historical_consequence": 3,
+        "boundary_clarity": 2,
+        "distinctiveness": 2,
+        "provenance_feasibility": 2,
+        "portability": 1,
+        "total": 9
+      },
+      "disposition": "selected",
+      "selection_reason": "Connects Andalusi geography, Saharan trade, and West African evidence.",
+      "reserve_reason": null,
+      "corpus_boundary": "Book of Roads and Kingdoms; surviving sections and editions must be specified.",
+      "identity_source": {
+        "label": "BnF catalogue/data discovery",
+        "url": "https://data.bnf.fr/",
+        "evidence_status": "identity-or-provenance-triage"
+      },
+      "original_language_route": {
+        "status": "not-located",
+        "route": "Locate an institutional edition or manuscript-derived transcription.",
+        "rights_posture": "unknown"
+      },
+      "english_route": {
+        "status": "not-located",
+        "route": "Locate a rights-clear complete translation or preserve the gap.",
+        "rights_posture": "unknown"
+      },
+      "rights_posture": "unknown",
+      "portability": "metadata-only",
+      "proposed_registry_status": "stub",
+      "coverage_ceiling": "principal-work",
+      "maturity_ceiling": 4,
+      "principal_unresolved_gap": "Exact Arabic edition and reusable translation, especially West Africa sections.",
+      "preferred_next_action": "Recover exact upstream edition metadata and rights statement before body inspection.",
+      "reserve_replacement": null
+    },
+    {
+      "candidate_id": "MED-CAND-029",
+      "proposed_source_id": "LIB-MEDIEVAL-AUTHORITY-029-AL-IDRISI",
+      "accepted_pilot_seed": false,
+      "authority_label": "Muhammad al-Idrisi",
+      "title": "Nuzhat al-mushtaq / Tabula Rogeriana",
+      "date_start": 1138,
+      "date_end": 1154,
+      "date_label": "completed 1154",
+      "primary_lane": "Arabic-Islamic",
+      "languages": [
+        "arabic",
+        "latin",
+        "english"
+      ],
+      "functions": [
+        "geography",
+        "cartography",
+        "court knowledge"
+      ],
+      "source_type": "reference",
+      "score": {
+        "historical_consequence": 3,
+        "boundary_clarity": 2,
+        "distinctiveness": 2,
+        "provenance_feasibility": 2,
+        "portability": 1,
+        "total": 9
+      },
+      "disposition": "selected",
+      "selection_reason": "Mediterranean court synthesis of geographic knowledge.",
+      "reserve_reason": null,
+      "corpus_boundary": "Text and map traditions are separate but related bodies.",
+      "identity_source": {
+        "label": "Library of Congress",
+        "url": "https://www.loc.gov/resource/g3200.ct003878/",
+        "evidence_status": "identity-or-provenance-triage"
+      },
+      "original_language_route": {
+        "status": "partial",
+        "route": "Locate an institutional edition or manuscript-derived transcription.",
+        "rights_posture": "unknown"
+      },
+      "english_route": {
+        "status": "not-located",
+        "route": "Locate a rights-clear complete translation or preserve the gap.",
+        "rights_posture": "unknown"
+      },
+      "rights_posture": "unknown",
+      "portability": "difficult",
+      "proposed_registry_status": "stub",
+      "coverage_ceiling": "principal-work",
+      "maturity_ceiling": 5,
+      "principal_unresolved_gap": "Complete Arabic text, map edition lineage, and lawful English.",
+      "preferred_next_action": "Recover exact upstream edition metadata and rights statement before body inspection.",
+      "reserve_replacement": null
+    },
+    {
+      "candidate_id": "MED-CAND-030",
+      "proposed_source_id": "LIB-MEDIEVAL-AUTHORITY-030-IBN-JUBAYR",
+      "accepted_pilot_seed": false,
+      "authority_label": "Ibn Jubayr",
+      "title": "Rihla / Travels",
+      "date_start": 1183,
+      "date_end": 1185,
+      "date_label": "1183–1185 journey; later composition",
+      "primary_lane": "Arabic-Islamic",
+      "languages": [
+        "arabic",
+        "english"
+      ],
+      "functions": [
+        "travel",
+        "pilgrimage",
+        "cross-cultural observation"
+      ],
+      "source_type": "primary",
+      "score": {
+        "historical_consequence": 2,
+        "boundary_clarity": 2,
+        "distinctiveness": 2,
+        "provenance_feasibility": 2,
+        "portability": 0,
+        "total": 8
+      },
+      "disposition": "selected",
+      "selection_reason": "Western Islamic travel through Mediterranean and pilgrimage networks.",
+      "reserve_reason": null,
+      "corpus_boundary": "Rihla only; excerpt routes are not complete bodies.",
+      "identity_source": {
+        "label": "Fordham Medieval Sourcebook",
+        "url": "https://sourcebooks.web.fordham.edu/source/1184ibnjubayr.asp",
+        "evidence_status": "identity-or-provenance-triage"
+      },
+      "original_language_route": {
+        "status": "not-located",
+        "route": "Locate an institutional edition or manuscript-derived transcription.",
+        "rights_posture": "unknown"
+      },
+      "english_route": {
+        "status": "partial",
+        "route": "Locate a rights-clear complete translation or preserve the gap.",
+        "rights_posture": "plausible-open"
+      },
+      "rights_posture": "unknown",
+      "portability": "partial",
+      "proposed_registry_status": "stub",
+      "coverage_ceiling": "principal-work",
+      "maturity_ceiling": 4,
+      "principal_unresolved_gap": "Complete Arabic and English edition pair.",
+      "preferred_next_action": "Recover exact upstream edition metadata and rights statement before body inspection.",
+      "reserve_replacement": null
+    },
+    {
+      "candidate_id": "MED-CAND-031",
+      "proposed_source_id": "LIB-MEDIEVAL-AUTHORITY-031-IBN-BATTUTA",
+      "accepted_pilot_seed": false,
+      "authority_label": "Ibn Battuta",
+      "title": "Rihla / Tuhfat al-nuzzar",
+      "date_start": 1354,
+      "date_end": 1356,
+      "date_label": "c. 1354–1356",
+      "primary_lane": "Arabic-Islamic",
+      "languages": [
+        "arabic",
+        "english"
+      ],
+      "functions": [
+        "travel",
+        "diplomacy",
+        "global networks"
+      ],
+      "source_type": "primary",
+      "score": {
+        "historical_consequence": 3,
+        "boundary_clarity": 2,
+        "distinctiveness": 2,
+        "provenance_feasibility": 2,
+        "portability": 1,
+        "total": 10
+      },
+      "disposition": "selected",
+      "selection_reason": "Highest-consequence Afro-Eurasian travel and diplomatic network record.",
+      "reserve_reason": null,
+      "corpus_boundary": "Ibn Juzayy's redacted Rihla; travel experience and literary redaction must be distinguished.",
+      "identity_source": {
+        "label": "Fordham Medieval Sourcebook",
+        "url": "https://sourcebooks.web.fordham.edu/source/1354-ibnbattuta.asp",
+        "evidence_status": "identity-or-provenance-triage"
+      },
+      "original_language_route": {
+        "status": "not-located",
+        "route": "Locate an institutional edition or manuscript-derived transcription.",
+        "rights_posture": "unknown"
+      },
+      "english_route": {
+        "status": "candidate-located",
+        "route": "Locate a rights-clear complete translation or preserve the gap.",
+        "rights_posture": "plausible-open"
+      },
+      "rights_posture": "unknown",
+      "portability": "partial",
+      "proposed_registry_status": "stub",
+      "coverage_ceiling": "principal-work",
+      "maturity_ceiling": 5,
+      "principal_unresolved_gap": "Exact Arabic edition and completeness of public-domain English volumes.",
+      "preferred_next_action": "Recover exact upstream edition metadata and rights statement before body inspection.",
+      "reserve_replacement": null
+    },
+    {
+      "candidate_id": "MED-CAND-032",
+      "proposed_source_id": "LIB-MEDIEVAL-AUTHORITY-032-IBN-AL-ATHIR",
+      "accepted_pilot_seed": false,
+      "authority_label": "Izz al-Din Ibn al-Athir",
+      "title": "al-Kamil fi al-tarikh / Complete History",
+      "date_start": 1229,
+      "date_end": 1231,
+      "date_label": "c. 1231",
+      "primary_lane": "Arabic-Islamic",
+      "languages": [
+        "arabic",
+        "english"
+      ],
+      "functions": [
+        "chronicle",
+        "crusades",
+        "mongol expansion"
+      ],
+      "source_type": "chronicle",
+      "score": {
+        "historical_consequence": 3,
+        "boundary_clarity": 2,
+        "distinctiveness": 2,
+        "provenance_feasibility": 2,
+        "portability": 1,
+        "total": 9
+      },
+      "disposition": "selected",
+      "selection_reason": "Universal chronicle spanning Crusades and early Mongol conquest.",
+      "reserve_reason": null,
+      "corpus_boundary": "Multi-volume universal chronicle; translated selections do not represent the whole.",
+      "identity_source": {
+        "label": "BnF catalogue/data discovery",
+        "url": "https://data.bnf.fr/",
+        "evidence_status": "identity-or-provenance-triage"
+      },
+      "original_language_route": {
+        "status": "candidate-located",
+        "route": "Locate an institutional edition or manuscript-derived transcription.",
+        "rights_posture": "unknown"
+      },
+      "english_route": {
+        "status": "restricted",
+        "route": "Locate a rights-clear complete translation or preserve the gap.",
+        "rights_posture": "restricted"
+      },
+      "rights_posture": "unknown",
+      "portability": "difficult",
+      "proposed_registry_status": "stub",
+      "coverage_ceiling": "principal-work",
+      "maturity_ceiling": 4,
+      "principal_unresolved_gap": "Rights-clear complete Arabic file and English gap.",
+      "preferred_next_action": "Recover exact upstream edition metadata and rights statement before body inspection.",
+      "reserve_replacement": null
+    },
+    {
+      "candidate_id": "MED-CAND-033",
+      "proposed_source_id": "LIB-MEDIEVAL-AUTHORITY-033-IBN-KHALDUN",
+      "accepted_pilot_seed": true,
+      "authority_label": "Abd al-Rahman Ibn Khaldun",
+      "title": "Muqaddimah",
+      "date_start": 1375,
+      "date_end": 1378,
+      "date_label": "1375–1378",
+      "primary_lane": "Arabic-Islamic",
+      "languages": [
+        "arabic",
+        "english"
+      ],
+      "functions": [
+        "historiography",
+        "state formation",
+        "social theory"
+      ],
+      "source_type": "historiography",
+      "score": {
+        "historical_consequence": 3,
+        "boundary_clarity": 2,
+        "distinctiveness": 2,
+        "provenance_feasibility": 2,
+        "portability": 1,
+        "total": 10
+      },
+      "disposition": "selected",
+      "selection_reason": "Foundational causal theory of dynasty, taxation, labor, and historical method.",
+      "reserve_reason": null,
+      "corpus_boundary": "Muqaddimah is the introduction/first book of Kitab al-Ibar, not the full corpus.",
+      "identity_source": {
+        "label": "Open Library",
+        "url": "https://openlibrary.org/works/OL1597257W/The_Muqaddimah_an_introduction_to_history",
+        "evidence_status": "identity-or-provenance-triage"
+      },
+      "original_language_route": {
+        "status": "candidate-located",
+        "route": "Locate an institutional edition or manuscript-derived transcription.",
+        "rights_posture": "plausible-open"
+      },
+      "english_route": {
+        "status": "restricted",
+        "route": "Locate a rights-clear complete translation or preserve the gap.",
+        "rights_posture": "restricted"
+      },
+      "rights_posture": "unknown",
+      "portability": "partial",
+      "proposed_registry_status": "stub",
+      "coverage_ceiling": "principal-work",
+      "maturity_ceiling": 5,
+      "principal_unresolved_gap": "Reusable complete English translation.",
+      "preferred_next_action": "Recover exact upstream edition metadata and rights statement before body inspection.",
+      "reserve_replacement": null
+    },
+    {
+      "candidate_id": "MED-CAND-034",
+      "proposed_source_id": "LIB-MEDIEVAL-AUTHORITY-034-USAMA-IBN-MUNQIDH",
+      "accepted_pilot_seed": false,
+      "authority_label": "Usama ibn Munqidh",
+      "title": "Kitab al-I'tibar",
+      "date_start": 1175,
+      "date_end": 1188,
+      "date_label": "late 12th century",
+      "primary_lane": "Arabic-Islamic",
+      "languages": [
+        "arabic",
+        "english"
+      ],
+      "functions": [
+        "memoir",
+        "war",
+        "cross-cultural contact"
+      ],
+      "source_type": "primary",
+      "score": {
+        "historical_consequence": 2,
+        "boundary_clarity": 2,
+        "distinctiveness": 2,
+        "provenance_feasibility": 2,
+        "portability": 0,
+        "total": 8
+      },
+      "disposition": "reserve",
+      "selection_reason": null,
+      "reserve_reason": "Reserve: valuable contact narrative; travel function already strongly represented.",
+      "corpus_boundary": "Memoir only.",
+      "identity_source": {
+        "label": "Institutional or scholarly collection",
+        "url": "https://sourcebooks.web.fordham.edu/sbook.asp",
+        "evidence_status": "identity-or-provenance-triage"
+      },
+      "original_language_route": {
+        "status": "not-located",
+        "route": "Locate an institutional edition or manuscript-derived transcription.",
+        "rights_posture": "unknown"
+      },
+      "english_route": {
+        "status": "not-located",
+        "route": "Locate a rights-clear complete translation or preserve the gap.",
+        "rights_posture": "unknown"
+      },
+      "rights_posture": "unknown",
+      "portability": "difficult",
+      "proposed_registry_status": "stub",
+      "coverage_ceiling": "principal-work",
+      "maturity_ceiling": 4,
+      "principal_unresolved_gap": "Modern complete English restricted; Arabic route unresolved.",
+      "preferred_next_action": "Recover exact upstream edition metadata and rights statement before body inspection.",
+      "reserve_replacement": null
+    },
+    {
+      "candidate_id": "MED-CAND-035",
+      "proposed_source_id": "LIB-MEDIEVAL-AUTHORITY-035-IBN-RUSHD",
+      "accepted_pilot_seed": false,
+      "authority_label": "Ibn Rushd / Averroes",
+      "title": "Decisive Treatise",
+      "date_start": 1178,
+      "date_end": 1180,
+      "date_label": "c. 1178–1180",
+      "primary_lane": "Arabic-Islamic",
+      "languages": [
+        "arabic",
+        "hebrew",
+        "latin",
+        "english"
+      ],
+      "functions": [
+        "philosophy",
+        "law",
+        "translation"
+      ],
+      "source_type": "classical",
+      "score": {
+        "historical_consequence": 2,
+        "boundary_clarity": 2,
+        "distinctiveness": 2,
+        "provenance_feasibility": 2,
+        "portability": 0,
+        "total": 8
+      },
+      "disposition": "reserve",
+      "selection_reason": null,
+      "reserve_reason": "Reserve: major transmission figure; roster already has Maimonides and Aquinas as linked philosophical nodes.",
+      "corpus_boundary": "Decisive Treatise only; commentary corpus separate.",
+      "identity_source": {
+        "label": "Institutional or scholarly collection",
+        "url": "https://plato.stanford.edu/entries/medieval-philosophy/",
+        "evidence_status": "identity-or-provenance-triage"
+      },
+      "original_language_route": {
+        "status": "not-located",
+        "route": "Locate an institutional edition or manuscript-derived transcription.",
+        "rights_posture": "unknown"
+      },
+      "english_route": {
+        "status": "not-located",
+        "route": "Locate a rights-clear complete translation or preserve the gap.",
+        "rights_posture": "unknown"
+      },
+      "rights_posture": "unknown",
+      "portability": "difficult",
+      "proposed_registry_status": "stub",
+      "coverage_ceiling": "principal-work",
+      "maturity_ceiling": 4,
+      "principal_unresolved_gap": "Reusable complete multilingual bodies.",
+      "preferred_next_action": "Recover exact upstream edition metadata and rights statement before body inspection.",
+      "reserve_replacement": null
+    },
+    {
+      "candidate_id": "MED-CAND-036",
+      "proposed_source_id": "LIB-MEDIEVAL-AUTHORITY-036-IBN-TUFAYL",
+      "accepted_pilot_seed": false,
+      "authority_label": "Ibn Tufayl",
+      "title": "Hayy ibn Yaqzan",
+      "date_start": 1160,
+      "date_end": 1185,
+      "date_label": "late 12th century",
+      "primary_lane": "Arabic-Islamic",
+      "languages": [
+        "arabic",
+        "english"
+      ],
+      "functions": [
+        "philosophy",
+        "literary experiment",
+        "knowledge"
+      ],
+      "source_type": "literary",
+      "score": {
+        "historical_consequence": 2,
+        "boundary_clarity": 2,
+        "distinctiveness": 1,
+        "provenance_feasibility": 2,
+        "portability": 0,
+        "total": 7
+      },
+      "disposition": "reserve",
+      "selection_reason": null,
+      "reserve_reason": "Reserve: distinctive philosophical fiction but lower institutional consequence.",
+      "corpus_boundary": "Hayy ibn Yaqzan only.",
+      "identity_source": {
+        "label": "Institutional or scholarly collection",
+        "url": "https://plato.stanford.edu/entries/medieval-philosophy/",
+        "evidence_status": "identity-or-provenance-triage"
+      },
+      "original_language_route": {
+        "status": "not-located",
+        "route": "Locate an institutional edition or manuscript-derived transcription.",
+        "rights_posture": "unknown"
+      },
+      "english_route": {
+        "status": "not-located",
+        "route": "Locate a rights-clear complete translation or preserve the gap.",
+        "rights_posture": "unknown"
+      },
+      "rights_posture": "unknown",
+      "portability": "difficult",
+      "proposed_registry_status": "stub",
+      "coverage_ceiling": "principal-work",
+      "maturity_ceiling": 4,
+      "principal_unresolved_gap": "Exact Arabic and rights-clear English editions.",
+      "preferred_next_action": "Recover exact upstream edition metadata and rights statement before body inspection.",
+      "reserve_replacement": null
+    },
+    {
+      "candidate_id": "MED-CAND-037",
+      "proposed_source_id": "LIB-MEDIEVAL-AUTHORITY-037-NIZAM-AL-MULK",
+      "accepted_pilot_seed": true,
+      "authority_label": "Nizam al-Mulk textual tradition",
+      "title": "Siyasat-nama / Book of Government",
+      "date_start": 1091,
+      "date_end": 1092,
+      "date_label": "1091–1092",
+      "primary_lane": "Persianate and Inner Asian",
+      "languages": [
+        "persian",
+        "english"
+      ],
+      "functions": [
+        "statecraft",
+        "administration",
+        "advice literature"
+      ],
+      "source_type": "classical",
+      "score": {
+        "historical_consequence": 3,
+        "boundary_clarity": 2,
+        "distinctiveness": 2,
+        "provenance_feasibility": 2,
+        "portability": 1,
+        "total": 9
+      },
+      "disposition": "selected",
+      "selection_reason": "Core Persianate administrative manual.",
+      "reserve_reason": null,
+      "corpus_boundary": "Recension and late-chapter problem must remain visible.",
+      "identity_source": {
+        "label": "Encyclopaedia Iranica",
+        "url": "https://www.iranicaonline.org/articles/siar-al-moluk/",
+        "evidence_status": "identity-or-provenance-triage"
+      },
+      "original_language_route": {
+        "status": "candidate-located",
+        "route": "Locate an institutional edition or manuscript-derived transcription.",
+        "rights_posture": "unknown"
+      },
+      "english_route": {
+        "status": "partial",
+        "route": "Locate a rights-clear complete translation or preserve the gap.",
+        "rights_posture": "plausible-open"
+      },
+      "rights_posture": "unknown",
+      "portability": "partial",
+      "proposed_registry_status": "stub",
+      "coverage_ceiling": "principal-work",
+      "maturity_ceiling": 5,
+      "principal_unresolved_gap": "Verify Persian scan and complete 1916 English candidate.",
+      "preferred_next_action": "Recover exact upstream edition metadata and rights statement before body inspection.",
+      "reserve_replacement": null
+    },
+    {
+      "candidate_id": "MED-CAND-038",
+      "proposed_source_id": "LIB-MEDIEVAL-AUTHORITY-038-AL-BIRUNI",
+      "accepted_pilot_seed": true,
+      "authority_label": "Abu Rayhan al-Biruni",
+      "title": "Kitab al-Hind",
+      "date_start": 1025,
+      "date_end": 1030,
+      "date_label": "c. 1030",
+      "primary_lane": "Persianate and Inner Asian",
+      "languages": [
+        "arabic",
+        "english"
+      ],
+      "functions": [
+        "science",
+        "comparative religion",
+        "cross-cultural observation"
+      ],
+      "source_type": "historiography",
+      "score": {
+        "historical_consequence": 3,
+        "boundary_clarity": 2,
+        "distinctiveness": 2,
+        "provenance_feasibility": 2,
+        "portability": 1,
+        "total": 10
+      },
+      "disposition": "selected",
+      "selection_reason": "Exceptional translation and comparison across Persianate and Sanskritic knowledge.",
+      "reserve_reason": null,
+      "corpus_boundary": "Arabic India and Sachau translation bodies distinct.",
+      "identity_source": {
+        "label": "Open Library",
+        "url": "https://openlibrary.org/books/OL23270588M/Alberuni%27s_India.",
+        "evidence_status": "identity-or-provenance-triage"
+      },
+      "original_language_route": {
+        "status": "not-located",
+        "route": "Locate an institutional edition or manuscript-derived transcription.",
+        "rights_posture": "unknown"
+      },
+      "english_route": {
+        "status": "candidate-located",
+        "route": "Locate a rights-clear complete translation or preserve the gap.",
+        "rights_posture": "plausible-open"
+      },
+      "rights_posture": "plausible-open",
+      "portability": "partial",
+      "proposed_registry_status": "stub",
+      "coverage_ceiling": "principal-work",
+      "maturity_ceiling": 5,
+      "principal_unresolved_gap": "Verified Arabic body.",
+      "preferred_next_action": "Recover exact upstream edition metadata and rights statement before body inspection.",
+      "reserve_replacement": null
+    },
+    {
+      "candidate_id": "MED-CAND-039",
+      "proposed_source_id": "LIB-MEDIEVAL-AUTHORITY-039-FERDOWSI",
+      "accepted_pilot_seed": false,
+      "authority_label": "Ferdowsi",
+      "title": "Shahnameh",
+      "date_start": 977,
+      "date_end": 1010,
+      "date_label": "c. 977–1010",
+      "primary_lane": "Persianate and Inner Asian",
+      "languages": [
+        "persian",
+        "english"
+      ],
+      "functions": [
+        "epic memory",
+        "kingship",
+        "language transmission"
+      ],
+      "source_type": "literary",
+      "score": {
+        "historical_consequence": 3,
+        "boundary_clarity": 2,
+        "distinctiveness": 2,
+        "provenance_feasibility": 2,
+        "portability": 1,
+        "total": 10
+      },
+      "disposition": "selected",
+      "selection_reason": "Foundational Persian epic and political-cultural memory.",
+      "reserve_reason": null,
+      "corpus_boundary": "Recensions and manuscript witnesses vary; translation bodies separate.",
+      "identity_source": {
+        "label": "Cambridge Shahnama Project",
+        "url": "https://shahnama.caret.cam.ac.uk/",
+        "evidence_status": "identity-or-provenance-triage"
+      },
+      "original_language_route": {
+        "status": "candidate-located",
+        "route": "Locate an institutional edition or manuscript-derived transcription.",
+        "rights_posture": "unknown"
+      },
+      "english_route": {
+        "status": "candidate-located",
+        "route": "Locate a rights-clear complete translation or preserve the gap.",
+        "rights_posture": "plausible-open"
+      },
+      "rights_posture": "unknown",
+      "portability": "partial",
+      "proposed_registry_status": "stub",
+      "coverage_ceiling": "principal-work",
+      "maturity_ceiling": 6,
+      "principal_unresolved_gap": "Select a stable Persian base edition and complete public-domain English translation.",
+      "preferred_next_action": "Recover exact upstream edition metadata and rights statement before body inspection.",
+      "reserve_replacement": null
+    },
+    {
+      "candidate_id": "MED-CAND-040",
+      "proposed_source_id": "LIB-MEDIEVAL-AUTHORITY-040-YUSUF-KHASS-HAJIB",
+      "accepted_pilot_seed": false,
+      "authority_label": "Yusuf Khass Hajib",
+      "title": "Kutadgu Bilig",
+      "date_start": 1069,
+      "date_end": 1070,
+      "date_label": "1069–1070",
+      "primary_lane": "Persianate and Inner Asian",
+      "languages": [
+        "karakhanid turkic",
+        "english"
+      ],
+      "functions": [
+        "statecraft",
+        "ethics",
+        "turkic literary transmission"
+      ],
+      "source_type": "classical",
+      "score": {
+        "historical_consequence": 3,
+        "boundary_clarity": 2,
+        "distinctiveness": 2,
+        "provenance_feasibility": 2,
+        "portability": 1,
+        "total": 9
+      },
+      "disposition": "selected",
+      "selection_reason": "Required Turkic mirror-for-princes tradition.",
+      "reserve_reason": null,
+      "corpus_boundary": "Kutadgu Bilig manuscript tradition; recensions/witnesses separate.",
+      "identity_source": {
+        "label": "UNESCO cultural heritage discovery",
+        "url": "https://www.unesco.org/en/memory-world",
+        "evidence_status": "identity-or-provenance-triage"
+      },
+      "original_language_route": {
+        "status": "not-located",
+        "route": "Locate an institutional edition or manuscript-derived transcription.",
+        "rights_posture": "unknown"
+      },
+      "english_route": {
+        "status": "restricted",
+        "route": "Locate a rights-clear complete translation or preserve the gap.",
+        "rights_posture": "restricted"
+      },
+      "rights_posture": "unknown",
+      "portability": "metadata-only",
+      "proposed_registry_status": "stub",
+      "coverage_ceiling": "principal-work",
+      "maturity_ceiling": 4,
+      "principal_unresolved_gap": "Institutional original-language edition and reusable English.",
+      "preferred_next_action": "Recover exact upstream edition metadata and rights statement before body inspection.",
+      "reserve_replacement": null
+    },
+    {
+      "candidate_id": "MED-CAND-041",
+      "proposed_source_id": "LIB-MEDIEVAL-AUTHORITY-041-MAHMUD-AL-KASHGARI",
+      "accepted_pilot_seed": false,
+      "authority_label": "Mahmud al-Kashgari",
+      "title": "Diwan Lughat al-Turk",
+      "date_start": 1072,
+      "date_end": 1077,
+      "date_label": "1072–1077",
+      "primary_lane": "Persianate and Inner Asian",
+      "languages": [
+        "arabic",
+        "turkic"
+      ],
+      "functions": [
+        "lexicography",
+        "ethnography",
+        "language transmission"
+      ],
+      "source_type": "reference",
+      "score": {
+        "historical_consequence": 3,
+        "boundary_clarity": 2,
+        "distinctiveness": 2,
+        "provenance_feasibility": 2,
+        "portability": 1,
+        "total": 9
+      },
+      "disposition": "selected",
+      "selection_reason": "Foundational record of medieval Turkic languages and societies.",
+      "reserve_reason": null,
+      "corpus_boundary": "Unique manuscript and modern editions must remain distinct.",
+      "identity_source": {
+        "label": "UNESCO Memory of the World discovery",
+        "url": "https://www.unesco.org/en/memory-world",
+        "evidence_status": "identity-or-provenance-triage"
+      },
+      "original_language_route": {
+        "status": "candidate-located",
+        "route": "Locate an institutional edition or manuscript-derived transcription.",
+        "rights_posture": "unknown"
+      },
+      "english_route": {
+        "status": "restricted",
+        "route": "Locate a rights-clear complete translation or preserve the gap.",
+        "rights_posture": "restricted"
+      },
+      "rights_posture": "unknown",
+      "portability": "difficult",
+      "proposed_registry_status": "stub",
+      "coverage_ceiling": "principal-work",
+      "maturity_ceiling": 6,
+      "principal_unresolved_gap": "Digital manuscript/edition rights and lawful English.",
+      "preferred_next_action": "Recover exact upstream edition metadata and rights statement before body inspection.",
+      "reserve_replacement": null
+    },
+    {
+      "candidate_id": "MED-CAND-042",
+      "proposed_source_id": "LIB-MEDIEVAL-AUTHORITY-042-NASIR-KHUSRAW",
+      "accepted_pilot_seed": false,
+      "authority_label": "Nasir Khusraw",
+      "title": "Safarnama",
+      "date_start": 1052,
+      "date_end": 1070,
+      "date_label": "mid 11th century",
+      "primary_lane": "Persianate and Inner Asian",
+      "languages": [
+        "persian",
+        "english"
+      ],
+      "functions": [
+        "travel",
+        "religious networks",
+        "urban observation"
+      ],
+      "source_type": "primary",
+      "score": {
+        "historical_consequence": 2,
+        "boundary_clarity": 2,
+        "distinctiveness": 2,
+        "provenance_feasibility": 2,
+        "portability": 0,
+        "total": 8
+      },
+      "disposition": "selected",
+      "selection_reason": "Persian travel and Ismaili network observation.",
+      "reserve_reason": null,
+      "corpus_boundary": "Safarnama only; philosophical and poetic works separate.",
+      "identity_source": {
+        "label": "Encyclopaedia Iranica",
+        "url": "https://www.iranicaonline.org/articles/naser-e-kosrow/",
+        "evidence_status": "identity-or-provenance-triage"
+      },
+      "original_language_route": {
+        "status": "candidate-located",
+        "route": "Locate an institutional edition or manuscript-derived transcription.",
+        "rights_posture": "unknown"
+      },
+      "english_route": {
+        "status": "candidate-located",
+        "route": "Locate a rights-clear complete translation or preserve the gap.",
+        "rights_posture": "plausible-open"
+      },
+      "rights_posture": "unknown",
+      "portability": "partial",
+      "proposed_registry_status": "stub",
+      "coverage_ceiling": "principal-work",
+      "maturity_ceiling": 5,
+      "principal_unresolved_gap": "Verify Persian base text and public-domain English completeness.",
+      "preferred_next_action": "Recover exact upstream edition metadata and rights statement before body inspection.",
+      "reserve_replacement": null
+    },
+    {
+      "candidate_id": "MED-CAND-043",
+      "proposed_source_id": "LIB-MEDIEVAL-AUTHORITY-043-SECRET-HISTORY-MONGOLS",
+      "accepted_pilot_seed": true,
+      "authority_label": "Anonymous Mongol court textual tradition",
+      "title": "Secret History of the Mongols",
+      "date_start": 1228,
+      "date_end": 1264,
+      "date_label": "13th century; disputed",
+      "primary_lane": "Persianate and Inner Asian",
+      "languages": [
+        "middle mongol in chinese transcription",
+        "chinese",
+        "english"
+      ],
+      "functions": [
+        "imperial memory",
+        "lineage",
+        "war"
+      ],
+      "source_type": "chronicle",
+      "score": {
+        "historical_consequence": 3,
+        "boundary_clarity": 2,
+        "distinctiveness": 2,
+        "provenance_feasibility": 2,
+        "portability": 1,
+        "total": 10
+      },
+      "disposition": "selected",
+      "selection_reason": "Most demanding derivative-survival and Mongol imperial-memory exemplar.",
+      "reserve_reason": null,
+      "corpus_boundary": "Chinese-character transcription/gloss is the received witness; no Mongolian-script original survives.",
+      "identity_source": {
+        "label": "Cambridge / Bulletin of SOAS",
+        "url": "https://www.cambridge.org/core/journals/bulletin-of-the-school-of-oriental-and-african-studies/article/abs/secret-history-of-the-mongols-some-fresh-revelations/0EF9D9817213E16E60A227DF9C2E1B31",
+        "evidence_status": "identity-or-provenance-triage"
+      },
+      "original_language_route": {
+        "status": "fragmentary",
+        "route": "Locate an institutional edition or manuscript-derived transcription.",
+        "rights_posture": "unknown"
+      },
+      "english_route": {
+        "status": "restricted",
+        "route": "Locate a rights-clear complete translation or preserve the gap.",
+        "rights_posture": "restricted"
+      },
+      "rights_posture": "unknown",
+      "portability": "difficult",
+      "proposed_registry_status": "stub",
+      "coverage_ceiling": "fragmentary",
+      "maturity_ceiling": 6,
+      "principal_unresolved_gap": "Verified public-domain 1908 witness and no reusable complete English.",
+      "preferred_next_action": "Recover exact upstream edition metadata and rights statement before body inspection.",
+      "reserve_replacement": null
+    },
+    {
+      "candidate_id": "MED-CAND-044",
+      "proposed_source_id": "LIB-MEDIEVAL-AUTHORITY-044-RASHID-AL-DIN",
+      "accepted_pilot_seed": false,
+      "authority_label": "Rashid al-Din Hamadani and Ilkhanid compilation atelier",
+      "title": "Jami al-tawarikh / Compendium of Chronicles",
+      "date_start": 1307,
+      "date_end": 1314,
+      "date_label": "c. 1307–1314",
+      "primary_lane": "Persianate and Inner Asian",
+      "languages": [
+        "persian",
+        "arabic",
+        "english"
+      ],
+      "functions": [
+        "world history",
+        "mongol administration",
+        "illustrated transmission"
+      ],
+      "source_type": "chronicle",
+      "score": {
+        "historical_consequence": 3,
+        "boundary_clarity": 2,
+        "distinctiveness": 2,
+        "provenance_feasibility": 2,
+        "portability": 1,
+        "total": 10
+      },
+      "disposition": "selected",
+      "selection_reason": "Ilkhanid world history and administrative knowledge production.",
+      "reserve_reason": null,
+      "corpus_boundary": "Multi-part atelier compilation with Persian/Arabic witnesses and illustrated manuscripts.",
+      "identity_source": {
+        "label": "University of Edinburgh Oriental manuscripts",
+        "url": "https://www.lib.ed.ac.uk/about/collections/heritage-collections/oriental-manuscripts",
+        "evidence_status": "identity-or-provenance-triage"
+      },
+      "original_language_route": {
+        "status": "partial",
+        "route": "Locate an institutional edition or manuscript-derived transcription.",
+        "rights_posture": "unknown"
+      },
+      "english_route": {
+        "status": "restricted",
+        "route": "Locate a rights-clear complete translation or preserve the gap.",
+        "rights_posture": "restricted"
+      },
+      "rights_posture": "unknown",
+      "portability": "difficult",
+      "proposed_registry_status": "stub",
+      "coverage_ceiling": "selected-works",
+      "maturity_ceiling": 6,
+      "principal_unresolved_gap": "Edition/witness selection and lawful complete translation.",
+      "preferred_next_action": "Recover exact upstream edition metadata and rights statement before body inspection.",
+      "reserve_replacement": null
+    },
+    {
+      "candidate_id": "MED-CAND-045",
+      "proposed_source_id": "LIB-MEDIEVAL-AUTHORITY-045-JUVAINI",
+      "accepted_pilot_seed": false,
+      "authority_label": "Ata-Malik Juvayni",
+      "title": "Tarikh-i Jahan-gusha",
+      "date_start": 1252,
+      "date_end": 1260,
+      "date_label": "c. 1252–1260",
+      "primary_lane": "Persianate and Inner Asian",
+      "languages": [
+        "persian",
+        "english"
+      ],
+      "functions": [
+        "chronicle",
+        "mongol conquest",
+        "administration"
+      ],
+      "source_type": "chronicle",
+      "score": {
+        "historical_consequence": 2,
+        "boundary_clarity": 2,
+        "distinctiveness": 2,
+        "provenance_feasibility": 2,
+        "portability": 0,
+        "total": 8
+      },
+      "disposition": "reserve",
+      "selection_reason": null,
+      "reserve_reason": "Reserve: strong Mongol-Persian chronicle but Rashid al-Din and Secret History cover distinct higher-priority functions.",
+      "corpus_boundary": "History of the World-Conqueror only.",
+      "identity_source": {
+        "label": "Institutional or scholarly collection",
+        "url": "https://www.iranicaonline.org/",
+        "evidence_status": "identity-or-provenance-triage"
+      },
+      "original_language_route": {
+        "status": "not-located",
+        "route": "Locate an institutional edition or manuscript-derived transcription.",
+        "rights_posture": "unknown"
+      },
+      "english_route": {
+        "status": "not-located",
+        "route": "Locate a rights-clear complete translation or preserve the gap.",
+        "rights_posture": "unknown"
+      },
+      "rights_posture": "unknown",
+      "portability": "difficult",
+      "proposed_registry_status": "stub",
+      "coverage_ceiling": "principal-work",
+      "maturity_ceiling": 4,
+      "principal_unresolved_gap": "Public-domain Persian edition and complete reusable English.",
+      "preferred_next_action": "Recover exact upstream edition metadata and rights statement before body inspection.",
+      "reserve_replacement": null
+    },
+    {
+      "candidate_id": "MED-CAND-046",
+      "proposed_source_id": "LIB-MEDIEVAL-AUTHORITY-046-KALHANA",
+      "accepted_pilot_seed": true,
+      "authority_label": "Kalhana",
+      "title": "Rajatarangini",
+      "date_start": 1148,
+      "date_end": 1150,
+      "date_label": "c. 1148–1150",
+      "primary_lane": "South Asian",
+      "languages": [
+        "sanskrit",
+        "english"
+      ],
+      "functions": [
+        "chronicle",
+        "dynastic memory",
+        "historical method"
+      ],
+      "source_type": "chronicle",
+      "score": {
+        "historical_consequence": 3,
+        "boundary_clarity": 2,
+        "distinctiveness": 2,
+        "provenance_feasibility": 2,
+        "portability": 1,
+        "total": 10
+      },
+      "disposition": "selected",
+      "selection_reason": "Essential Sanskrit historiography and Kashmir political memory.",
+      "reserve_reason": null,
+      "corpus_boundary": "Kalhana's eight books only; later Kashmir continuations separate.",
+      "identity_source": {
+        "label": "Wikisource / Stein edition scan",
+        "url": "https://en.wikisource.org/wiki/Index:Kalhana%27s_Rajatarangini_Vol_1.djvu",
+        "evidence_status": "identity-or-provenance-triage"
+      },
+      "original_language_route": {
+        "status": "partial",
+        "route": "Locate an institutional edition or manuscript-derived transcription.",
+        "rights_posture": "unknown"
+      },
+      "english_route": {
+        "status": "candidate-located",
+        "route": "Locate a rights-clear complete translation or preserve the gap.",
+        "rights_posture": "plausible-open"
+      },
+      "rights_posture": "plausible-open",
+      "portability": "partial",
+      "proposed_registry_status": "stub",
+      "coverage_ceiling": "principal-work",
+      "maturity_ceiling": 5,
+      "principal_unresolved_gap": "Verify both Stein volumes and separation of Sanskrit/English apparatus.",
+      "preferred_next_action": "Recover exact upstream edition metadata and rights statement before body inspection.",
+      "reserve_replacement": null
+    },
+    {
+      "candidate_id": "MED-CAND-047",
+      "proposed_source_id": "LIB-MEDIEVAL-AUTHORITY-047-SOMESHVARA-III",
+      "accepted_pilot_seed": false,
+      "authority_label": "Someshvara III",
+      "title": "Manasollasa",
+      "date_start": 1129,
+      "date_end": 1130,
+      "date_label": "c. 1129",
+      "primary_lane": "South Asian",
+      "languages": [
+        "sanskrit",
+        "english"
+      ],
+      "functions": [
+        "court administration",
+        "arts",
+        "science",
+        "kingship"
+      ],
+      "source_type": "reference",
+      "score": {
+        "historical_consequence": 2,
+        "boundary_clarity": 2,
+        "distinctiveness": 2,
+        "provenance_feasibility": 2,
+        "portability": 0,
+        "total": 8
+      },
+      "disposition": "selected",
+      "selection_reason": "Unusually broad courtly governance and technical knowledge.",
+      "reserve_reason": null,
+      "corpus_boundary": "Five-book Sanskrit court encyclopedia; translations/excerpts separate.",
+      "identity_source": {
+        "label": "GRETIL Sanskrit text collection",
+        "url": "https://gretil.sub.uni-goettingen.de/gretil.html",
+        "evidence_status": "identity-or-provenance-triage"
+      },
+      "original_language_route": {
+        "status": "candidate-located",
+        "route": "Locate an institutional edition or manuscript-derived transcription.",
+        "rights_posture": "unknown"
+      },
+      "english_route": {
+        "status": "not-located",
+        "route": "Locate a rights-clear complete translation or preserve the gap.",
+        "rights_posture": "unknown"
+      },
+      "rights_posture": "unknown",
+      "portability": "difficult",
+      "proposed_registry_status": "stub",
+      "coverage_ceiling": "principal-work",
+      "maturity_ceiling": 4,
+      "principal_unresolved_gap": "Exact digital Sanskrit edition and complete lawful English.",
+      "preferred_next_action": "Recover exact upstream edition metadata and rights statement before body inspection.",
+      "reserve_replacement": null
+    },
+    {
+      "candidate_id": "MED-CAND-048",
+      "proposed_source_id": "LIB-MEDIEVAL-AUTHORITY-048-BHASKARA-II",
+      "accepted_pilot_seed": false,
+      "authority_label": "Bhaskara II",
+      "title": "Lilavati; Bijaganita",
+      "date_start": 1150,
+      "date_end": 1150,
+      "date_label": "c. 1150",
+      "primary_lane": "South Asian",
+      "languages": [
+        "sanskrit",
+        "english"
+      ],
+      "functions": [
+        "mathematics",
+        "science",
+        "pedagogy"
+      ],
+      "source_type": "classical",
+      "score": {
+        "historical_consequence": 3,
+        "boundary_clarity": 2,
+        "distinctiveness": 2,
+        "provenance_feasibility": 2,
+        "portability": 1,
+        "total": 9
+      },
+      "disposition": "selected",
+      "selection_reason": "Major South Asian mathematical transmission.",
+      "reserve_reason": null,
+      "corpus_boundary": "Lilavati and Bijaganita are distinct mathematical component works.",
+      "identity_source": {
+        "label": "GRETIL Sanskrit text collection",
+        "url": "https://gretil.sub.uni-goettingen.de/gretil.html",
+        "evidence_status": "identity-or-provenance-triage"
+      },
+      "original_language_route": {
+        "status": "candidate-located",
+        "route": "Locate an institutional edition or manuscript-derived transcription.",
+        "rights_posture": "unknown"
+      },
+      "english_route": {
+        "status": "candidate-located",
+        "route": "Locate a rights-clear complete translation or preserve the gap.",
+        "rights_posture": "plausible-open"
+      },
+      "rights_posture": "unknown",
+      "portability": "partial",
+      "proposed_registry_status": "stub",
+      "coverage_ceiling": "principal-works",
+      "maturity_ceiling": 5,
+      "principal_unresolved_gap": "Verify Sanskrit base edition and public-domain English translation lineage.",
+      "preferred_next_action": "Recover exact upstream edition metadata and rights statement before body inspection.",
+      "reserve_replacement": null
+    },
+    {
+      "candidate_id": "MED-CAND-049",
+      "proposed_source_id": "LIB-MEDIEVAL-AUTHORITY-049-JAYADEVA",
+      "accepted_pilot_seed": false,
+      "authority_label": "Jayadeva",
+      "title": "Gita Govinda",
+      "date_start": 1170,
+      "date_end": 1200,
+      "date_label": "late 12th century",
+      "primary_lane": "South Asian",
+      "languages": [
+        "sanskrit",
+        "english"
+      ],
+      "functions": [
+        "literary memory",
+        "religious performance",
+        "music"
+      ],
+      "source_type": "literary",
+      "score": {
+        "historical_consequence": 2,
+        "boundary_clarity": 2,
+        "distinctiveness": 2,
+        "provenance_feasibility": 2,
+        "portability": 0,
+        "total": 8
+      },
+      "disposition": "selected",
+      "selection_reason": "Highly transmitted literary-religious performance text.",
+      "reserve_reason": null,
+      "corpus_boundary": "Gita Govinda only; performance and commentary traditions separate.",
+      "identity_source": {
+        "label": "GRETIL Sanskrit text collection",
+        "url": "https://gretil.sub.uni-goettingen.de/gretil.html",
+        "evidence_status": "identity-or-provenance-triage"
+      },
+      "original_language_route": {
+        "status": "candidate-located",
+        "route": "Locate an institutional edition or manuscript-derived transcription.",
+        "rights_posture": "unknown"
+      },
+      "english_route": {
+        "status": "candidate-located",
+        "route": "Locate a rights-clear complete translation or preserve the gap.",
+        "rights_posture": "plausible-open"
+      },
+      "rights_posture": "unknown",
+      "portability": "partial",
+      "proposed_registry_status": "stub",
+      "coverage_ceiling": "principal-work",
+      "maturity_ceiling": 5,
+      "principal_unresolved_gap": "Select critical Sanskrit and lawful English bodies without flattening performance tradition.",
+      "preferred_next_action": "Recover exact upstream edition metadata and rights statement before body inspection.",
+      "reserve_replacement": null
+    },
+    {
+      "candidate_id": "MED-CAND-050",
+      "proposed_source_id": "LIB-MEDIEVAL-AUTHORITY-050-JNANESHWAR",
+      "accepted_pilot_seed": false,
+      "authority_label": "Jnaneshwar",
+      "title": "Jnaneshwari",
+      "date_start": 1290,
+      "date_end": 1290,
+      "date_label": "c. 1290",
+      "primary_lane": "South Asian",
+      "languages": [
+        "marathi",
+        "sanskrit",
+        "english"
+      ],
+      "functions": [
+        "vernacular religious transmission",
+        "commentary",
+        "literary memory"
+      ],
+      "source_type": "religious",
+      "score": {
+        "historical_consequence": 2,
+        "boundary_clarity": 2,
+        "distinctiveness": 2,
+        "provenance_feasibility": 2,
+        "portability": 0,
+        "total": 8
+      },
+      "disposition": "selected",
+      "selection_reason": "Vernacularization of Sanskrit religious knowledge.",
+      "reserve_reason": null,
+      "corpus_boundary": "Old Marathi commentary on Bhagavad Gita; manuscript/printed recensions separate.",
+      "identity_source": {
+        "label": "UNESCO/heritage discovery surface",
+        "url": "https://www.unesco.org/en/memory-world",
+        "evidence_status": "identity-or-provenance-triage"
+      },
+      "original_language_route": {
+        "status": "not-located",
+        "route": "Locate an institutional edition or manuscript-derived transcription.",
+        "rights_posture": "unknown"
+      },
+      "english_route": {
+        "status": "not-located",
+        "route": "Locate a rights-clear complete translation or preserve the gap.",
+        "rights_posture": "unknown"
+      },
+      "rights_posture": "unknown",
+      "portability": "metadata-only",
+      "proposed_registry_status": "stub",
+      "coverage_ceiling": "principal-work",
+      "maturity_ceiling": 4,
+      "principal_unresolved_gap": "Institutional Marathi edition and complete reusable English.",
+      "preferred_next_action": "Recover exact upstream edition metadata and rights statement before body inspection.",
+      "reserve_replacement": null
+    },
+    {
+      "candidate_id": "MED-CAND-051",
+      "proposed_source_id": "LIB-MEDIEVAL-AUTHORITY-051-MINHAJ-SIRAJ",
+      "accepted_pilot_seed": false,
+      "authority_label": "Minhaj-i Siraj Juzjani",
+      "title": "Tabaqat-i Nasiri",
+      "date_start": 1259,
+      "date_end": 1260,
+      "date_label": "c. 1260",
+      "primary_lane": "South Asian",
+      "languages": [
+        "persian",
+        "english"
+      ],
+      "functions": [
+        "chronicle",
+        "delhi sultanate",
+        "administration"
+      ],
+      "source_type": "chronicle",
+      "score": {
+        "historical_consequence": 3,
+        "boundary_clarity": 2,
+        "distinctiveness": 2,
+        "provenance_feasibility": 2,
+        "portability": 1,
+        "total": 9
+      },
+      "disposition": "selected",
+      "selection_reason": "Delhi Sultanate and Indo-Persian institutional chronicle.",
+      "reserve_reason": null,
+      "corpus_boundary": "Multi-volume Persian chronicle; Raverty translation separate.",
+      "identity_source": {
+        "label": "Internet Archive institutional scan search",
+        "url": "https://archive.org/search?query=title%3A%28Tabaqat-i+Nasiri%29",
+        "evidence_status": "identity-or-provenance-triage"
+      },
+      "original_language_route": {
+        "status": "candidate-located",
+        "route": "Locate an institutional edition or manuscript-derived transcription.",
+        "rights_posture": "unknown"
+      },
+      "english_route": {
+        "status": "candidate-located",
+        "route": "Locate a rights-clear complete translation or preserve the gap.",
+        "rights_posture": "plausible-open"
+      },
+      "rights_posture": "unknown",
+      "portability": "partial",
+      "proposed_registry_status": "stub",
+      "coverage_ceiling": "principal-work",
+      "maturity_ceiling": 5,
+      "principal_unresolved_gap": "Verify Persian edition and complete Raverty volume sequence.",
+      "preferred_next_action": "Recover exact upstream edition metadata and rights statement before body inspection.",
+      "reserve_replacement": null
+    },
+    {
+      "candidate_id": "MED-CAND-052",
+      "proposed_source_id": "LIB-MEDIEVAL-AUTHORITY-052-AMIR-KHUSRAU",
+      "accepted_pilot_seed": false,
+      "authority_label": "Amir Khusrau",
+      "title": "Khaza'in al-Futuh / Treasures of Victory",
+      "date_start": 1311,
+      "date_end": 1312,
+      "date_label": "c. 1311–1312",
+      "primary_lane": "South Asian",
+      "languages": [
+        "persian",
+        "english"
+      ],
+      "functions": [
+        "court chronicle",
+        "war",
+        "delhi sultanate"
+      ],
+      "source_type": "chronicle",
+      "score": {
+        "historical_consequence": 2,
+        "boundary_clarity": 2,
+        "distinctiveness": 2,
+        "provenance_feasibility": 2,
+        "portability": 0,
+        "total": 8
+      },
+      "disposition": "selected",
+      "selection_reason": "Courtly conquest narrative and Indo-Persian political language.",
+      "reserve_reason": null,
+      "corpus_boundary": "Khaza'in al-Futuh only; poetic corpus separate.",
+      "identity_source": {
+        "label": "Internet Archive institutional scan search",
+        "url": "https://archive.org/search?query=Amir+Khusrau+Khazain+Futuh",
+        "evidence_status": "identity-or-provenance-triage"
+      },
+      "original_language_route": {
+        "status": "not-located",
+        "route": "Locate an institutional edition or manuscript-derived transcription.",
+        "rights_posture": "unknown"
+      },
+      "english_route": {
+        "status": "partial",
+        "route": "Locate a rights-clear complete translation or preserve the gap.",
+        "rights_posture": "unknown"
+      },
+      "rights_posture": "unknown",
+      "portability": "difficult",
+      "proposed_registry_status": "stub",
+      "coverage_ceiling": "principal-work",
+      "maturity_ceiling": 4,
+      "principal_unresolved_gap": "Exact Persian edition and complete rights-clear English.",
+      "preferred_next_action": "Recover exact upstream edition metadata and rights statement before body inspection.",
+      "reserve_replacement": null
+    },
+    {
+      "candidate_id": "MED-CAND-053",
+      "proposed_source_id": "LIB-MEDIEVAL-AUTHORITY-053-BASAVA-VACHANA-TRADITION",
+      "accepted_pilot_seed": false,
+      "authority_label": "Basava and Virashaiva vachana tradition",
+      "title": "Vachanas",
+      "date_start": 1150,
+      "date_end": 1200,
+      "date_label": "12th century",
+      "primary_lane": "South Asian",
+      "languages": [
+        "kannada",
+        "english"
+      ],
+      "functions": [
+        "vernacular religion",
+        "social critique",
+        "literary memory"
+      ],
+      "source_type": "religious",
+      "score": {
+        "historical_consequence": 2,
+        "boundary_clarity": 2,
+        "distinctiveness": 1,
+        "provenance_feasibility": 2,
+        "portability": 0,
+        "total": 7
+      },
+      "disposition": "reserve",
+      "selection_reason": null,
+      "reserve_reason": "Reserve: important vernacular countervoice but composite boundary needs more work.",
+      "corpus_boundary": "Multi-author oral/manuscript tradition; anthology limits must be explicit.",
+      "identity_source": {
+        "label": "Institutional or scholarly collection",
+        "url": "https://www.unesco.org/en/memory-world",
+        "evidence_status": "identity-or-provenance-triage"
+      },
+      "original_language_route": {
+        "status": "not-located",
+        "route": "Locate an institutional edition or manuscript-derived transcription.",
+        "rights_posture": "unknown"
+      },
+      "english_route": {
+        "status": "not-located",
+        "route": "Locate a rights-clear complete translation or preserve the gap.",
+        "rights_posture": "unknown"
+      },
+      "rights_posture": "unknown",
+      "portability": "difficult",
+      "proposed_registry_status": "stub",
+      "coverage_ceiling": "principal-work",
+      "maturity_ceiling": 4,
+      "principal_unresolved_gap": "Defensible authority boundary and rights-clear Kannada/English anthology.",
+      "preferred_next_action": "Recover exact upstream edition metadata and rights statement before body inspection.",
+      "reserve_replacement": null
+    },
+    {
+      "candidate_id": "MED-CAND-054",
+      "proposed_source_id": "LIB-MEDIEVAL-AUTHORITY-054-CHACH-NAMA-TRADITION",
+      "accepted_pilot_seed": false,
+      "authority_label": "Chach Nama textual tradition",
+      "title": "Chach Nama",
+      "date_start": 1216,
+      "date_end": 1226,
+      "date_label": "early 13th century Persian recension",
+      "primary_lane": "South Asian",
+      "languages": [
+        "persian",
+        "english"
+      ],
+      "functions": [
+        "conquest memory",
+        "sindh",
+        "political legitimacy"
+      ],
+      "source_type": "chronicle",
+      "score": {
+        "historical_consequence": 2,
+        "boundary_clarity": 2,
+        "distinctiveness": 1,
+        "provenance_feasibility": 2,
+        "portability": 0,
+        "total": 7
+      },
+      "disposition": "reserve",
+      "selection_reason": null,
+      "reserve_reason": "Reserve: high regional value but contested origin weakens initial boundary.",
+      "corpus_boundary": "Persian recension/translation of claimed earlier material; origins contested.",
+      "identity_source": {
+        "label": "Internet Archive institutional scan search",
+        "url": "https://archive.org/search?query=Chachnama",
+        "evidence_status": "identity-or-provenance-triage"
+      },
+      "original_language_route": {
+        "status": "not-located",
+        "route": "Locate an institutional edition or manuscript-derived transcription.",
+        "rights_posture": "unknown"
+      },
+      "english_route": {
+        "status": "not-located",
+        "route": "Locate a rights-clear complete translation or preserve the gap.",
+        "rights_posture": "unknown"
+      },
+      "rights_posture": "unknown",
+      "portability": "difficult",
+      "proposed_registry_status": "stub",
+      "coverage_ceiling": "principal-work",
+      "maturity_ceiling": 4,
+      "principal_unresolved_gap": "Authority model and reusable Persian/English bodies.",
+      "preferred_next_action": "Recover exact upstream edition metadata and rights statement before body inspection.",
+      "reserve_replacement": null
+    },
+    {
+      "candidate_id": "MED-CAND-055",
+      "proposed_source_id": "LIB-MEDIEVAL-AUTHORITY-055-XUANZANG",
+      "accepted_pilot_seed": false,
+      "authority_label": "Xuanzang and Bianji",
+      "title": "Great Tang Records on the Western Regions",
+      "date_start": 646,
+      "date_end": 646,
+      "date_label": "646",
+      "primary_lane": "Chinese",
+      "languages": [
+        "classical chinese",
+        "english"
+      ],
+      "functions": [
+        "travel",
+        "buddhist networks",
+        "geography"
+      ],
+      "source_type": "primary",
+      "score": {
+        "historical_consequence": 3,
+        "boundary_clarity": 2,
+        "distinctiveness": 2,
+        "provenance_feasibility": 2,
+        "portability": 1,
+        "total": 10
+      },
+      "disposition": "selected",
+      "selection_reason": "Major China–Central Asia–South Asia transmission record.",
+      "reserve_reason": null,
+      "corpus_boundary": "Twelve-juan record compiled by Bianji from Xuanzang's travels.",
+      "identity_source": {
+        "label": "Chinese Text Project",
+        "url": "https://ctext.org/wiki.pl?if=en&res=80799",
+        "evidence_status": "identity-or-provenance-triage"
+      },
+      "original_language_route": {
+        "status": "candidate-located",
+        "route": "Locate an institutional edition or manuscript-derived transcription.",
+        "rights_posture": "unknown"
+      },
+      "english_route": {
+        "status": "candidate-located",
+        "route": "Locate a rights-clear complete translation or preserve the gap.",
+        "rights_posture": "plausible-open"
+      },
+      "rights_posture": "unknown",
+      "portability": "partial",
+      "proposed_registry_status": "stub",
+      "coverage_ceiling": "principal-work",
+      "maturity_ceiling": 5,
+      "principal_unresolved_gap": "Verify base scan/OCR and public-domain English completeness.",
+      "preferred_next_action": "Recover exact upstream edition metadata and rights statement before body inspection.",
+      "reserve_replacement": null
+    },
+    {
+      "candidate_id": "MED-CAND-056",
+      "proposed_source_id": "LIB-MEDIEVAL-AUTHORITY-056-DU-YOU",
+      "accepted_pilot_seed": false,
+      "authority_label": "Du You",
+      "title": "Tongdian / Comprehensive Institutions",
+      "date_start": 766,
+      "date_end": 801,
+      "date_label": "766–801",
+      "primary_lane": "Chinese",
+      "languages": [
+        "classical chinese",
+        "english"
+      ],
+      "functions": [
+        "administration",
+        "law",
+        "institutional history"
+      ],
+      "source_type": "reference",
+      "score": {
+        "historical_consequence": 3,
+        "boundary_clarity": 2,
+        "distinctiveness": 2,
+        "provenance_feasibility": 2,
+        "portability": 1,
+        "total": 9
+      },
+      "disposition": "selected",
+      "selection_reason": "Systematic institutional and administrative history.",
+      "reserve_reason": null,
+      "corpus_boundary": "Two-hundred-juan institutional encyclopedia; later continuations separate.",
+      "identity_source": {
+        "label": "Chinese Text Project",
+        "url": "https://ctext.org/",
+        "evidence_status": "identity-or-provenance-triage"
+      },
+      "original_language_route": {
+        "status": "candidate-located",
+        "route": "Locate an institutional edition or manuscript-derived transcription.",
+        "rights_posture": "unknown"
+      },
+      "english_route": {
+        "status": "not-located",
+        "route": "Locate a rights-clear complete translation or preserve the gap.",
+        "rights_posture": "unknown"
+      },
+      "rights_posture": "unknown",
+      "portability": "difficult",
+      "proposed_registry_status": "stub",
+      "coverage_ceiling": "principal-work",
+      "maturity_ceiling": 4,
+      "principal_unresolved_gap": "Exact base edition, OCR quality, and no complete reusable English.",
+      "preferred_next_action": "Recover exact upstream edition metadata and rights statement before body inspection.",
+      "reserve_replacement": null
+    },
+    {
+      "candidate_id": "MED-CAND-057",
+      "proposed_source_id": "LIB-MEDIEVAL-AUTHORITY-057-SIMA-GUANG",
+      "accepted_pilot_seed": true,
+      "authority_label": "Sima Guang and Northern Song compilation team",
+      "title": "Zizhi Tongjian",
+      "date_start": 1065,
+      "date_end": 1084,
+      "date_label": "completed 1084",
+      "primary_lane": "Chinese",
+      "languages": [
+        "classical chinese",
+        "english"
+      ],
+      "functions": [
+        "chronicle",
+        "governance",
+        "historical precedent"
+      ],
+      "source_type": "chronicle",
+      "score": {
+        "historical_consequence": 3,
+        "boundary_clarity": 2,
+        "distinctiveness": 2,
+        "provenance_feasibility": 2,
+        "portability": 1,
+        "total": 10
+      },
+      "disposition": "selected",
+      "selection_reason": "History designed explicitly as an instrument of governance.",
+      "reserve_reason": null,
+      "corpus_boundary": "294-juan principal text; commentaries, tables, and abridgments separate.",
+      "identity_source": {
+        "label": "Chinese Text Project",
+        "url": "https://ctext.org/wiki.pl?if=en&res=593436",
+        "evidence_status": "identity-or-provenance-triage"
+      },
+      "original_language_route": {
+        "status": "candidate-located",
+        "route": "Locate an institutional edition or manuscript-derived transcription.",
+        "rights_posture": "unknown"
+      },
+      "english_route": {
+        "status": "partial",
+        "route": "Locate a rights-clear complete translation or preserve the gap.",
+        "rights_posture": "restricted"
+      },
+      "rights_posture": "unknown",
+      "portability": "difficult",
+      "proposed_registry_status": "stub",
+      "coverage_ceiling": "principal-work",
+      "maturity_ceiling": 5,
+      "principal_unresolved_gap": "OCR/reuse confirmation and no complete reusable scholarly English.",
+      "preferred_next_action": "Recover exact upstream edition metadata and rights statement before body inspection.",
+      "reserve_replacement": null
+    },
+    {
+      "candidate_id": "MED-CAND-058",
+      "proposed_source_id": "LIB-MEDIEVAL-AUTHORITY-058-SHEN-KUO",
+      "accepted_pilot_seed": false,
+      "authority_label": "Shen Kuo",
+      "title": "Mengxi bitan / Dream Pool Essays",
+      "date_start": 1086,
+      "date_end": 1093,
+      "date_label": "c. 1086–1093",
+      "primary_lane": "Chinese",
+      "languages": [
+        "classical chinese",
+        "english"
+      ],
+      "functions": [
+        "science",
+        "administration",
+        "observation"
+      ],
+      "source_type": "reference",
+      "score": {
+        "historical_consequence": 3,
+        "boundary_clarity": 2,
+        "distinctiveness": 2,
+        "provenance_feasibility": 2,
+        "portability": 1,
+        "total": 9
+      },
+      "disposition": "selected",
+      "selection_reason": "Scientific observation joined to Song administrative experience.",
+      "reserve_reason": null,
+      "corpus_boundary": "Dream Pool Essays and supplements must be distinguished.",
+      "identity_source": {
+        "label": "Chinese Text Project",
+        "url": "https://ctext.org/",
+        "evidence_status": "identity-or-provenance-triage"
+      },
+      "original_language_route": {
+        "status": "candidate-located",
+        "route": "Locate an institutional edition or manuscript-derived transcription.",
+        "rights_posture": "unknown"
+      },
+      "english_route": {
+        "status": "partial",
+        "route": "Locate a rights-clear complete translation or preserve the gap.",
+        "rights_posture": "unknown"
+      },
+      "rights_posture": "unknown",
+      "portability": "partial",
+      "proposed_registry_status": "stub",
+      "coverage_ceiling": "principal-work",
+      "maturity_ceiling": 5,
+      "principal_unresolved_gap": "Verified Chinese edition and complete rights-clear English.",
+      "preferred_next_action": "Recover exact upstream edition metadata and rights statement before body inspection.",
+      "reserve_replacement": null
+    },
+    {
+      "candidate_id": "MED-CAND-059",
+      "proposed_source_id": "LIB-MEDIEVAL-AUTHORITY-059-SU-SONG",
+      "accepted_pilot_seed": false,
+      "authority_label": "Su Song",
+      "title": "Xin yixiang fayao",
+      "date_start": 1092,
+      "date_end": 1094,
+      "date_label": "c. 1092–1094",
+      "primary_lane": "Chinese",
+      "languages": [
+        "classical chinese",
+        "english"
+      ],
+      "functions": [
+        "astronomy",
+        "engineering",
+        "state science"
+      ],
+      "source_type": "reference",
+      "score": {
+        "historical_consequence": 3,
+        "boundary_clarity": 2,
+        "distinctiveness": 2,
+        "provenance_feasibility": 2,
+        "portability": 1,
+        "total": 9
+      },
+      "disposition": "selected",
+      "selection_reason": "State-supported astronomical and mechanical knowledge.",
+      "reserve_reason": null,
+      "corpus_boundary": "Clock-tower treatise and diagrams; later reconstructions separate.",
+      "identity_source": {
+        "label": "Chinese Text Project",
+        "url": "https://ctext.org/",
+        "evidence_status": "identity-or-provenance-triage"
+      },
+      "original_language_route": {
+        "status": "candidate-located",
+        "route": "Locate an institutional edition or manuscript-derived transcription.",
+        "rights_posture": "unknown"
+      },
+      "english_route": {
+        "status": "restricted",
+        "route": "Locate a rights-clear complete translation or preserve the gap.",
+        "rights_posture": "restricted"
+      },
+      "rights_posture": "unknown",
+      "portability": "difficult",
+      "proposed_registry_status": "stub",
+      "coverage_ceiling": "principal-work",
+      "maturity_ceiling": 5,
+      "principal_unresolved_gap": "Reusable English and exact diagram/text digital rights.",
+      "preferred_next_action": "Recover exact upstream edition metadata and rights statement before body inspection.",
+      "reserve_replacement": null
+    },
+    {
+      "candidate_id": "MED-CAND-060",
+      "proposed_source_id": "LIB-MEDIEVAL-AUTHORITY-060-ZHU-XI",
+      "accepted_pilot_seed": false,
+      "authority_label": "Zhu Xi",
+      "title": "Commentaries on the Four Books",
+      "date_start": 1177,
+      "date_end": 1190,
+      "date_label": "late 12th century",
+      "primary_lane": "Chinese",
+      "languages": [
+        "classical chinese",
+        "english"
+      ],
+      "functions": [
+        "education",
+        "philosophy",
+        "institutional canon"
+      ],
+      "source_type": "classical",
+      "score": {
+        "historical_consequence": 3,
+        "boundary_clarity": 2,
+        "distinctiveness": 2,
+        "provenance_feasibility": 2,
+        "portability": 1,
+        "total": 10
+      },
+      "disposition": "selected",
+      "selection_reason": "Institutionalized Neo-Confucian educational canon across East Asia.",
+      "reserve_reason": null,
+      "corpus_boundary": "Four Books commentaries as a defined corpus; wider Zhu Xi writings excluded.",
+      "identity_source": {
+        "label": "Chinese Text Project",
+        "url": "https://ctext.org/",
+        "evidence_status": "identity-or-provenance-triage"
+      },
+      "original_language_route": {
+        "status": "candidate-located",
+        "route": "Locate an institutional edition or manuscript-derived transcription.",
+        "rights_posture": "unknown"
+      },
+      "english_route": {
+        "status": "restricted",
+        "route": "Locate a rights-clear complete translation or preserve the gap.",
+        "rights_posture": "restricted"
+      },
+      "rights_posture": "unknown",
+      "portability": "difficult",
+      "proposed_registry_status": "stub",
+      "coverage_ceiling": "principal-works",
+      "maturity_ceiling": 5,
+      "principal_unresolved_gap": "Edition selection and reusable English translations.",
+      "preferred_next_action": "Recover exact upstream edition metadata and rights statement before body inspection.",
+      "reserve_replacement": null
+    },
+    {
+      "candidate_id": "MED-CAND-061",
+      "proposed_source_id": "LIB-MEDIEVAL-AUTHORITY-061-LI-QINGZHAO",
+      "accepted_pilot_seed": false,
+      "authority_label": "Li Qingzhao",
+      "title": "Surviving ci poetry and prose",
+      "date_start": 1100,
+      "date_end": 1155,
+      "date_label": "early–mid 12th century",
+      "primary_lane": "Chinese",
+      "languages": [
+        "classical chinese",
+        "english"
+      ],
+      "functions": [
+        "literary memory",
+        "war displacement",
+        "gendered witness"
+      ],
+      "source_type": "literary",
+      "score": {
+        "historical_consequence": 2,
+        "boundary_clarity": 2,
+        "distinctiveness": 2,
+        "provenance_feasibility": 2,
+        "portability": 0,
+        "total": 8
+      },
+      "disposition": "selected",
+      "selection_reason": "Fragmentary literary survival and witness to Northern Song collapse.",
+      "reserve_reason": null,
+      "corpus_boundary": "Fragmentary surviving corpus; later attributed poems must remain explicit.",
+      "identity_source": {
+        "label": "Chinese Text Project",
+        "url": "https://ctext.org/",
+        "evidence_status": "identity-or-provenance-triage"
+      },
+      "original_language_route": {
+        "status": "candidate-located",
+        "route": "Locate an institutional edition or manuscript-derived transcription.",
+        "rights_posture": "unknown"
+      },
+      "english_route": {
+        "status": "partial",
+        "route": "Locate a rights-clear complete translation or preserve the gap.",
+        "rights_posture": "unknown"
+      },
+      "rights_posture": "unknown",
+      "portability": "partial",
+      "proposed_registry_status": "stub",
+      "coverage_ceiling": "complete-surviving-corpus",
+      "maturity_ceiling": 6,
+      "principal_unresolved_gap": "Attribution-critical base edition and lawful English.",
+      "preferred_next_action": "Recover exact upstream edition metadata and rights statement before body inspection.",
+      "reserve_replacement": null
+    },
+    {
+      "candidate_id": "MED-CAND-062",
+      "proposed_source_id": "LIB-MEDIEVAL-AUTHORITY-062-SONG-SHI-TRADITION",
+      "accepted_pilot_seed": false,
+      "authority_label": "Song Shi Yuan editorial tradition",
+      "title": "Song Shi / History of Song",
+      "date_start": 1343,
+      "date_end": 1345,
+      "date_label": "1343–1345",
+      "primary_lane": "Chinese",
+      "languages": [
+        "classical chinese",
+        "english"
+      ],
+      "functions": [
+        "dynastic history",
+        "institutions",
+        "biography"
+      ],
+      "source_type": "chronicle",
+      "score": {
+        "historical_consequence": 3,
+        "boundary_clarity": 2,
+        "distinctiveness": 2,
+        "provenance_feasibility": 2,
+        "portability": 1,
+        "total": 9
+      },
+      "disposition": "selected",
+      "selection_reason": "Official retrospective record of Song institutions and actors.",
+      "reserve_reason": null,
+      "corpus_boundary": "496-juan official history; later punctuated editions and translations separate.",
+      "identity_source": {
+        "label": "Chinese Text Project",
+        "url": "https://ctext.org/",
+        "evidence_status": "identity-or-provenance-triage"
+      },
+      "original_language_route": {
+        "status": "candidate-located",
+        "route": "Locate an institutional edition or manuscript-derived transcription.",
+        "rights_posture": "unknown"
+      },
+      "english_route": {
+        "status": "partial",
+        "route": "Locate a rights-clear complete translation or preserve the gap.",
+        "rights_posture": "restricted"
+      },
+      "rights_posture": "unknown",
+      "portability": "difficult",
+      "proposed_registry_status": "stub",
+      "coverage_ceiling": "principal-work",
+      "maturity_ceiling": 5,
+      "principal_unresolved_gap": "Scale, OCR/base edition, and no complete reusable English.",
+      "preferred_next_action": "Recover exact upstream edition metadata and rights statement before body inspection.",
+      "reserve_replacement": null
+    },
+    {
+      "candidate_id": "MED-CAND-063",
+      "proposed_source_id": "LIB-MEDIEVAL-AUTHORITY-063-FAN-CHENGDA",
+      "accepted_pilot_seed": false,
+      "authority_label": "Fan Chengda",
+      "title": "Guihai yuheng zhi",
+      "date_start": 1175,
+      "date_end": 1175,
+      "date_label": "1175",
+      "primary_lane": "Chinese",
+      "languages": [
+        "classical chinese",
+        "english"
+      ],
+      "functions": [
+        "geography",
+        "frontier observation",
+        "administration"
+      ],
+      "source_type": "primary",
+      "score": {
+        "historical_consequence": 2,
+        "boundary_clarity": 2,
+        "distinctiveness": 1,
+        "provenance_feasibility": 2,
+        "portability": 0,
+        "total": 7
+      },
+      "disposition": "reserve",
+      "selection_reason": null,
+      "reserve_reason": "Reserve: strong frontier observation; core lane already exceeds floor.",
+      "corpus_boundary": "Guihai yuheng zhi only.",
+      "identity_source": {
+        "label": "Institutional or scholarly collection",
+        "url": "https://ctext.org/",
+        "evidence_status": "identity-or-provenance-triage"
+      },
+      "original_language_route": {
+        "status": "not-located",
+        "route": "Locate an institutional edition or manuscript-derived transcription.",
+        "rights_posture": "unknown"
+      },
+      "english_route": {
+        "status": "not-located",
+        "route": "Locate a rights-clear complete translation or preserve the gap.",
+        "rights_posture": "unknown"
+      },
+      "rights_posture": "unknown",
+      "portability": "difficult",
+      "proposed_registry_status": "stub",
+      "coverage_ceiling": "principal-work",
+      "maturity_ceiling": 4,
+      "principal_unresolved_gap": "Exact Chinese body and reusable English.",
+      "preferred_next_action": "Recover exact upstream edition metadata and rights statement before body inspection.",
+      "reserve_replacement": null
+    },
+    {
+      "candidate_id": "MED-CAND-064",
+      "proposed_source_id": "LIB-MEDIEVAL-AUTHORITY-064-WANG-ANSHI-MEMORIALS",
+      "accepted_pilot_seed": false,
+      "authority_label": "Wang Anshi",
+      "title": "Reform memorials and state papers",
+      "date_start": 1068,
+      "date_end": 1085,
+      "date_label": "c. 1068–1085",
+      "primary_lane": "Chinese",
+      "languages": [
+        "classical chinese",
+        "english"
+      ],
+      "functions": [
+        "statecraft",
+        "fiscal reform",
+        "administration"
+      ],
+      "source_type": "primary",
+      "score": {
+        "historical_consequence": 2,
+        "boundary_clarity": 2,
+        "distinctiveness": 2,
+        "provenance_feasibility": 2,
+        "portability": 0,
+        "total": 8
+      },
+      "disposition": "reserve",
+      "selection_reason": null,
+      "reserve_reason": "Reserve: high statecraft value but corpus boundary is not yet defensible.",
+      "corpus_boundary": "A selected-document authority needs a defensible edition/collection boundary.",
+      "identity_source": {
+        "label": "Institutional or scholarly collection",
+        "url": "https://ctext.org/",
+        "evidence_status": "identity-or-provenance-triage"
+      },
+      "original_language_route": {
+        "status": "not-located",
+        "route": "Locate an institutional edition or manuscript-derived transcription.",
+        "rights_posture": "unknown"
+      },
+      "english_route": {
+        "status": "not-located",
+        "route": "Locate a rights-clear complete translation or preserve the gap.",
+        "rights_posture": "unknown"
+      },
+      "rights_posture": "unknown",
+      "portability": "difficult",
+      "proposed_registry_status": "stub",
+      "coverage_ceiling": "principal-work",
+      "maturity_ceiling": 4,
+      "principal_unresolved_gap": "Stable corpus boundary and rights-clear document collection.",
+      "preferred_next_action": "Recover exact upstream edition metadata and rights statement before body inspection.",
+      "reserve_replacement": null
+    },
+    {
+      "candidate_id": "MED-CAND-065",
+      "proposed_source_id": "LIB-MEDIEVAL-AUTHORITY-065-NIHON-SHOKI-TRADITION",
+      "accepted_pilot_seed": false,
+      "authority_label": "Nihon Shoki court compilation tradition",
+      "title": "Nihon Shoki",
+      "date_start": 720,
+      "date_end": 720,
+      "date_label": "720",
+      "primary_lane": "Japanese and Korean",
+      "languages": [
+        "classical chinese",
+        "japanese",
+        "english"
+      ],
+      "functions": [
+        "court chronicle",
+        "dynastic legitimacy",
+        "religious memory"
+      ],
+      "source_type": "chronicle",
+      "score": {
+        "historical_consequence": 3,
+        "boundary_clarity": 2,
+        "distinctiveness": 2,
+        "provenance_feasibility": 2,
+        "portability": 1,
+        "total": 10
+      },
+      "disposition": "selected",
+      "selection_reason": "Foundational Japanese court historiography.",
+      "reserve_reason": null,
+      "corpus_boundary": "Thirty-scroll court chronicle; manuscript and printed recensions separate.",
+      "identity_source": {
+        "label": "Japanese Historical Text Initiative",
+        "url": "https://jhti.studentorg.berkeley.edu/",
+        "evidence_status": "identity-or-provenance-triage"
+      },
+      "original_language_route": {
+        "status": "candidate-located",
+        "route": "Locate an institutional edition or manuscript-derived transcription.",
+        "rights_posture": "unknown"
+      },
+      "english_route": {
+        "status": "candidate-located",
+        "route": "Locate a rights-clear complete translation or preserve the gap.",
+        "rights_posture": "plausible-open"
+      },
+      "rights_posture": "unknown",
+      "portability": "partial",
+      "proposed_registry_status": "stub",
+      "coverage_ceiling": "principal-work",
+      "maturity_ceiling": 6,
+      "principal_unresolved_gap": "Exact JHTI/NIJL original-text terms and complete translation provenance.",
+      "preferred_next_action": "Recover exact upstream edition metadata and rights statement before body inspection.",
+      "reserve_replacement": null
+    },
+    {
+      "candidate_id": "MED-CAND-066",
+      "proposed_source_id": "LIB-MEDIEVAL-AUTHORITY-066-MURASAKI-SHIKIBU",
+      "accepted_pilot_seed": false,
+      "authority_label": "Murasaki Shikibu",
+      "title": "Tale of Genji",
+      "date_start": 1008,
+      "date_end": 1021,
+      "date_label": "c. 1008–1021",
+      "primary_lane": "Japanese and Korean",
+      "languages": [
+        "classical japanese",
+        "english"
+      ],
+      "functions": [
+        "literary memory",
+        "court society",
+        "gender"
+      ],
+      "source_type": "literary",
+      "score": {
+        "historical_consequence": 3,
+        "boundary_clarity": 2,
+        "distinctiveness": 2,
+        "provenance_feasibility": 2,
+        "portability": 1,
+        "total": 10
+      },
+      "disposition": "selected",
+      "selection_reason": "Major court literary and social-memory authority.",
+      "reserve_reason": null,
+      "corpus_boundary": "Fifty-four-chapter textual tradition; manuscript variants and translations separate.",
+      "identity_source": {
+        "label": "University of Virginia Japanese Text Initiative",
+        "url": "https://jti.lib.virginia.edu/japanese/genji/",
+        "evidence_status": "identity-or-provenance-triage"
+      },
+      "original_language_route": {
+        "status": "candidate-located",
+        "route": "Locate an institutional edition or manuscript-derived transcription.",
+        "rights_posture": "unknown"
+      },
+      "english_route": {
+        "status": "candidate-located",
+        "route": "Locate a rights-clear complete translation or preserve the gap.",
+        "rights_posture": "plausible-open"
+      },
+      "rights_posture": "unknown",
+      "portability": "partial",
+      "proposed_registry_status": "stub",
+      "coverage_ceiling": "principal-work",
+      "maturity_ceiling": 6,
+      "principal_unresolved_gap": "Base Japanese edition and complete public-domain English selection.",
+      "preferred_next_action": "Recover exact upstream edition metadata and rights statement before body inspection.",
+      "reserve_replacement": null
+    },
+    {
+      "candidate_id": "MED-CAND-067",
+      "proposed_source_id": "LIB-MEDIEVAL-AUTHORITY-067-AZUMA-KAGAMI-TRADITION",
+      "accepted_pilot_seed": true,
+      "authority_label": "Kamakura bakufu chronicle editorial tradition",
+      "title": "Azuma Kagami",
+      "date_start": 1266,
+      "date_end": 1300,
+      "date_label": "late 13th century",
+      "primary_lane": "Japanese and Korean",
+      "languages": [
+        "kanbun",
+        "japanese",
+        "english"
+      ],
+      "functions": [
+        "warrior government",
+        "chronicle",
+        "administration"
+      ],
+      "source_type": "chronicle",
+      "score": {
+        "historical_consequence": 3,
+        "boundary_clarity": 2,
+        "distinctiveness": 2,
+        "provenance_feasibility": 2,
+        "portability": 1,
+        "total": 10
+      },
+      "disposition": "selected",
+      "selection_reason": "Essential institutional memory of warrior government.",
+      "reserve_reason": null,
+      "corpus_boundary": "Anonymous composite chronicle; JHTI provides only volumes 1–5 with restricted English.",
+      "identity_source": {
+        "label": "Berkeley JHTI",
+        "url": "https://jhti.studentorg.berkeley.edu/texthon17.htm",
+        "evidence_status": "identity-or-provenance-triage"
+      },
+      "original_language_route": {
+        "status": "partial",
+        "route": "Locate an institutional edition or manuscript-derived transcription.",
+        "rights_posture": "unknown"
+      },
+      "english_route": {
+        "status": "restricted",
+        "route": "Locate a rights-clear complete translation or preserve the gap.",
+        "rights_posture": "restricted"
+      },
+      "rights_posture": "restricted",
+      "portability": "difficult",
+      "proposed_registry_status": "stub",
+      "coverage_ceiling": "partial-work",
+      "maturity_ceiling": 5,
+      "principal_unresolved_gap": "Rights-clear full Japanese body and no reusable English.",
+      "preferred_next_action": "Recover exact upstream edition metadata and rights statement before body inspection.",
+      "reserve_replacement": null
+    },
+    {
+      "candidate_id": "MED-CAND-068",
+      "proposed_source_id": "LIB-MEDIEVAL-AUTHORITY-068-TALE-OF-HEIKE-TRADITION",
+      "accepted_pilot_seed": false,
+      "authority_label": "Heike monogatari performance/textual tradition",
+      "title": "Tale of the Heike",
+      "date_start": 1220,
+      "date_end": 1371,
+      "date_label": "13th–14th century",
+      "primary_lane": "Japanese and Korean",
+      "languages": [
+        "classical japanese",
+        "english"
+      ],
+      "functions": [
+        "epic memory",
+        "war",
+        "oral performance"
+      ],
+      "source_type": "literary",
+      "score": {
+        "historical_consequence": 3,
+        "boundary_clarity": 2,
+        "distinctiveness": 2,
+        "provenance_feasibility": 2,
+        "portability": 1,
+        "total": 9
+      },
+      "disposition": "selected",
+      "selection_reason": "War memory transmitted between performance and manuscript traditions.",
+      "reserve_reason": null,
+      "corpus_boundary": "Multiple recensions and oral-performance lineage; no single original text.",
+      "identity_source": {
+        "label": "Japanese Historical Text Initiative",
+        "url": "https://jhti.studentorg.berkeley.edu/",
+        "evidence_status": "identity-or-provenance-triage"
+      },
+      "original_language_route": {
+        "status": "candidate-located",
+        "route": "Locate an institutional edition or manuscript-derived transcription.",
+        "rights_posture": "unknown"
+      },
+      "english_route": {
+        "status": "restricted",
+        "route": "Locate a rights-clear complete translation or preserve the gap.",
+        "rights_posture": "restricted"
+      },
+      "rights_posture": "unknown",
+      "portability": "difficult",
+      "proposed_registry_status": "stub",
+      "coverage_ceiling": "principal-work",
+      "maturity_ceiling": 6,
+      "principal_unresolved_gap": "Recension choice, performance boundary, and lawful complete English.",
+      "preferred_next_action": "Recover exact upstream edition metadata and rights statement before body inspection.",
+      "reserve_replacement": null
+    },
+    {
+      "candidate_id": "MED-CAND-069",
+      "proposed_source_id": "LIB-MEDIEVAL-AUTHORITY-069-SAMGUK-SAGI",
+      "accepted_pilot_seed": false,
+      "authority_label": "Kim Busik and Goryeo court compilation",
+      "title": "Samguk Sagi",
+      "date_start": 1145,
+      "date_end": 1145,
+      "date_label": "1145",
+      "primary_lane": "Japanese and Korean",
+      "languages": [
+        "classical chinese",
+        "korean",
+        "english"
+      ],
+      "functions": [
+        "court chronicle",
+        "korean history",
+        "political legitimacy"
+      ],
+      "source_type": "chronicle",
+      "score": {
+        "historical_consequence": 3,
+        "boundary_clarity": 2,
+        "distinctiveness": 2,
+        "provenance_feasibility": 2,
+        "portability": 1,
+        "total": 10
+      },
+      "disposition": "selected",
+      "selection_reason": "Required Korean court-historical authority.",
+      "reserve_reason": null,
+      "corpus_boundary": "Fifty-volume court history; translations and modern Korean renderings separate.",
+      "identity_source": {
+        "label": "National Institute of Korean History database",
+        "url": "https://db.history.go.kr/",
+        "evidence_status": "identity-or-provenance-triage"
+      },
+      "original_language_route": {
+        "status": "candidate-located",
+        "route": "Locate an institutional edition or manuscript-derived transcription.",
+        "rights_posture": "unknown"
+      },
+      "english_route": {
+        "status": "partial",
+        "route": "Locate a rights-clear complete translation or preserve the gap.",
+        "rights_posture": "restricted"
+      },
+      "rights_posture": "unknown",
+      "portability": "difficult",
+      "proposed_registry_status": "stub",
+      "coverage_ceiling": "principal-work",
+      "maturity_ceiling": 5,
+      "principal_unresolved_gap": "Stable original-text export terms and no complete reusable English.",
+      "preferred_next_action": "Recover exact upstream edition metadata and rights statement before body inspection.",
+      "reserve_replacement": null
+    },
+    {
+      "candidate_id": "MED-CAND-070",
+      "proposed_source_id": "LIB-MEDIEVAL-AUTHORITY-070-GORYEOSA-TRADITION",
+      "accepted_pilot_seed": false,
+      "authority_label": "Goryeosa Joseon court editorial tradition",
+      "title": "Goryeosa / History of Goryeo",
+      "date_start": 1449,
+      "date_end": 1451,
+      "date_label": "1449–1451",
+      "primary_lane": "Japanese and Korean",
+      "languages": [
+        "classical chinese",
+        "korean",
+        "english"
+      ],
+      "functions": [
+        "dynastic history",
+        "institutions",
+        "biography"
+      ],
+      "source_type": "chronicle",
+      "score": {
+        "historical_consequence": 3,
+        "boundary_clarity": 2,
+        "distinctiveness": 2,
+        "provenance_feasibility": 2,
+        "portability": 1,
+        "total": 9
+      },
+      "disposition": "selected",
+      "selection_reason": "Late-medieval Korean institutional and dynastic memory.",
+      "reserve_reason": null,
+      "corpus_boundary": "139-volume official history completed before 1453; later translations separate.",
+      "identity_source": {
+        "label": "National Institute of Korean History database",
+        "url": "https://db.history.go.kr/",
+        "evidence_status": "identity-or-provenance-triage"
+      },
+      "original_language_route": {
+        "status": "candidate-located",
+        "route": "Locate an institutional edition or manuscript-derived transcription.",
+        "rights_posture": "unknown"
+      },
+      "english_route": {
+        "status": "partial",
+        "route": "Locate a rights-clear complete translation or preserve the gap.",
+        "rights_posture": "restricted"
+      },
+      "rights_posture": "unknown",
+      "portability": "difficult",
+      "proposed_registry_status": "stub",
+      "coverage_ceiling": "principal-work",
+      "maturity_ceiling": 5,
+      "principal_unresolved_gap": "Exact digital edition terms and no complete reusable English.",
+      "preferred_next_action": "Recover exact upstream edition metadata and rights statement before body inspection.",
+      "reserve_replacement": null
+    },
+    {
+      "candidate_id": "MED-CAND-071",
+      "proposed_source_id": "LIB-MEDIEVAL-AUTHORITY-071-KAMO-NO-CHOMEI",
+      "accepted_pilot_seed": false,
+      "authority_label": "Kamo no Chomei",
+      "title": "Hojoki",
+      "date_start": 1212,
+      "date_end": 1212,
+      "date_label": "1212",
+      "primary_lane": "Japanese and Korean",
+      "languages": [
+        "classical japanese",
+        "english"
+      ],
+      "functions": [
+        "disaster memory",
+        "religious reflection",
+        "literature"
+      ],
+      "source_type": "literary",
+      "score": {
+        "historical_consequence": 2,
+        "boundary_clarity": 2,
+        "distinctiveness": 2,
+        "provenance_feasibility": 2,
+        "portability": 0,
+        "total": 8
+      },
+      "disposition": "reserve",
+      "selection_reason": null,
+      "reserve_reason": "Reserve: exceptional disaster witness; lane floor already met.",
+      "corpus_boundary": "Hojoki only.",
+      "identity_source": {
+        "label": "Institutional or scholarly collection",
+        "url": "https://jhti.studentorg.berkeley.edu/",
+        "evidence_status": "identity-or-provenance-triage"
+      },
+      "original_language_route": {
+        "status": "not-located",
+        "route": "Locate an institutional edition or manuscript-derived transcription.",
+        "rights_posture": "unknown"
+      },
+      "english_route": {
+        "status": "not-located",
+        "route": "Locate a rights-clear complete translation or preserve the gap.",
+        "rights_posture": "unknown"
+      },
+      "rights_posture": "unknown",
+      "portability": "difficult",
+      "proposed_registry_status": "stub",
+      "coverage_ceiling": "principal-work",
+      "maturity_ceiling": 4,
+      "principal_unresolved_gap": "Verify original and public-domain English routes.",
+      "preferred_next_action": "Recover exact upstream edition metadata and rights statement before body inspection.",
+      "reserve_replacement": null
+    },
+    {
+      "candidate_id": "MED-CAND-072",
+      "proposed_source_id": "LIB-MEDIEVAL-AUTHORITY-072-JIKJI-TRADITION",
+      "accepted_pilot_seed": false,
+      "authority_label": "Baegun / Jikji print tradition",
+      "title": "Jikji",
+      "date_start": 1372,
+      "date_end": 1377,
+      "date_label": "1372 text; 1377 print",
+      "primary_lane": "Japanese and Korean",
+      "languages": [
+        "classical chinese",
+        "korean",
+        "english"
+      ],
+      "functions": [
+        "printing",
+        "buddhist transmission",
+        "book history"
+      ],
+      "source_type": "religious",
+      "score": {
+        "historical_consequence": 2,
+        "boundary_clarity": 2,
+        "distinctiveness": 2,
+        "provenance_feasibility": 2,
+        "portability": 0,
+        "total": 8
+      },
+      "disposition": "reserve",
+      "selection_reason": null,
+      "reserve_reason": "Reserve: major print-history exemplar, but source-body model needs separate object/text design.",
+      "corpus_boundary": "Surviving metal-type print is incomplete; textual and physical-object authority must be distinguished.",
+      "identity_source": {
+        "label": "UNESCO Memory of the World",
+        "url": "https://www.unesco.org/en/memory-world/jikji",
+        "evidence_status": "identity-or-provenance-triage"
+      },
+      "original_language_route": {
+        "status": "fragmentary",
+        "route": "Locate an institutional edition or manuscript-derived transcription.",
+        "rights_posture": "unknown"
+      },
+      "english_route": {
+        "status": "partial",
+        "route": "Locate a rights-clear complete translation or preserve the gap.",
+        "rights_posture": "unknown"
+      },
+      "rights_posture": "unknown",
+      "portability": "difficult",
+      "proposed_registry_status": "stub",
+      "coverage_ceiling": "fragmentary",
+      "maturity_ceiling": 6,
+      "principal_unresolved_gap": "Portable text route and complete translation.",
+      "preferred_next_action": "Recover exact upstream edition metadata and rights statement before body inspection.",
+      "reserve_replacement": null
+    },
+    {
+      "candidate_id": "MED-CAND-073",
+      "proposed_source_id": "LIB-MEDIEVAL-AUTHORITY-073-GEOFFREY-CHAUCER",
+      "accepted_pilot_seed": false,
+      "authority_label": "Geoffrey Chaucer",
+      "title": "Canterbury Tales",
+      "date_start": 1387,
+      "date_end": 1400,
+      "date_label": "c. 1387–1400",
+      "primary_lane": "Latin Christian and Jewish Mediterranean/European",
+      "languages": ["middle english", "english"],
+      "functions": ["literary memory", "social observation", "pilgrimage", "vernacular transmission"],
+      "source_type": "literary",
+      "score": {"historical_consequence": 3, "boundary_clarity": 2, "distinctiveness": 2, "provenance_feasibility": 2, "portability": 1, "total": 10},
+      "disposition": "selected",
+      "selection_reason": "Canonical vernacular witness to estates, pilgrimage, social encounter, and literary transmission in late medieval England.",
+      "reserve_reason": null,
+      "corpus_boundary": "The unfinished Canterbury Tales as transmitted in divergent manuscript orders; exclude apocryphal continuations such as the Tale of Gamelyn from Chaucer-authored coverage.",
+      "identity_source": {"label": "British Library Archives and Manuscripts Catalogue, Lansdowne MS 851", "url": "https://searcharchives.bl.uk/catalog/040-002078368", "evidence_status": "identity-or-provenance-triage"},
+      "original_language_route": {"status": "candidate-located", "route": "British Library manuscript witnesses and a rights-clear scholarly Middle English transcription require edition-level inspection.", "rights_posture": "unknown"},
+      "english_route": {"status": "not-required-for-language-access", "route": "Middle English is the original body; any modern-English translation must remain a separately licensed optional counterpart.", "rights_posture": "unknown"},
+      "rights_posture": "unknown",
+      "portability": "partial",
+      "proposed_registry_status": "stub",
+      "coverage_ceiling": "principal-work",
+      "maturity_ceiling": 5,
+      "principal_unresolved_gap": "Choose and verify a complete scholarly Middle English edition while preserving manuscript-order and attribution limits.",
+      "preferred_next_action": "Compare institutional manuscript witnesses with public-domain scholarly editions and document exclusions before body inspection.",
+      "reserve_replacement": null
+    },
+    {
+      "candidate_id": "MED-CAND-074",
+      "proposed_source_id": "LIB-MEDIEVAL-AUTHORITY-074-MARCO-POLO-RUSTICHELLO-TRADITION",
+      "accepted_pilot_seed": false,
+      "authority_label": "Marco Polo and Rustichello of Pisa textual tradition",
+      "title": "Devisement du monde / Description of the World",
+      "date_start": 1298,
+      "date_end": 1299,
+      "date_label": "1298–1299",
+      "primary_lane": "Latin Christian and Jewish Mediterranean/European",
+      "languages": ["franco-italian", "old french", "latin", "italian", "english"],
+      "functions": ["travel", "diplomacy", "geography", "trade", "cross-cultural observation", "mongol transmission"],
+      "source_type": "primary",
+      "score": {"historical_consequence": 3, "boundary_clarity": 1, "distinctiveness": 2, "provenance_feasibility": 2, "portability": 1, "total": 9},
+      "disposition": "selected",
+      "selection_reason": "High-consequence record of Eurasian travel and Mongol imperial geography whose multilingual transmission is itself historically important.",
+      "reserve_reason": null,
+      "corpus_boundary": "Collaborative Marco Polo–Rustichello tradition represented by divergent Franco-Italian, French, Tuscan, Venetian, and Latin witnesses; do not posit a single recoverable authorial text.",
+      "identity_source": {"label": "Bibliothèque nationale de France conventional-title authority record", "url": "https://catalogue.bnf.fr/ark:/12148/cb13592024s", "evidence_status": "identity-or-provenance-triage"},
+      "original_language_route": {"status": "candidate-located", "route": "BnF identifies Paris, français 1116 as the witness considered closest to the lost original; transcription and reuse terms require inspection.", "rights_posture": "unknown"},
+      "english_route": {"status": "candidate-located", "route": "Locate a complete public-domain English translation bound to a named recension and edition.", "rights_posture": "plausible-open"},
+      "rights_posture": "unknown",
+      "portability": "difficult",
+      "proposed_registry_status": "stub",
+      "coverage_ceiling": "principal-work",
+      "maturity_ceiling": 6,
+      "principal_unresolved_gap": "Recension selection, multilingual witness relationship, and lawful complete English counterpart remain unresolved.",
+      "preferred_next_action": "Build a witness-and-edition comparison anchored in BnF français 1116 before choosing any body.",
+      "reserve_replacement": null
+    },
+    {
+      "candidate_id": "MED-CAND-075",
+      "proposed_source_id": "LIB-MEDIEVAL-AUTHORITY-075-ALF-LAYLA-WA-LAYLA-TRADITION",
+      "accepted_pilot_seed": false,
+      "authority_label": "Alf Layla wa-Layla medieval textual tradition",
+      "title": "One Thousand and One Nights / Arabian Nights",
+      "date_start": 800,
+      "date_end": 1450,
+      "date_label": "medieval layers, c. 9th–15th centuries",
+      "primary_lane": "Arabic-Islamic",
+      "languages": ["arabic", "persian source layers", "english"],
+      "functions": ["literary memory", "oral transmission", "urban memory", "court narrative", "trade", "cross-cultural transmission"],
+      "source_type": "literary",
+      "score": {"historical_consequence": 3, "boundary_clarity": 1, "distinctiveness": 2, "provenance_feasibility": 1, "portability": 1, "total": 8},
+      "disposition": "selected",
+      "selection_reason": "Exceptional composite witness to Arabic story transmission, urban and courtly imagination, commerce, and long-distance narrative migration.",
+      "reserve_reason": null,
+      "corpus_boundary": "Only demonstrably medieval Arabic core stories and manuscript layers through 1450; exclude Galland-added tales and do not project the 1835 Bulaq corpus backward as a fixed medieval text.",
+      "identity_source": {"label": "Library of Congress, A Thousand and One Nights: Arabian Story-telling in World Literature", "url": "https://blogs.loc.gov/international-collections/2017/10/a-thousand-and-one-nights-arabian-story-telling-in-world-literature/", "evidence_status": "identity-or-provenance-triage"},
+      "original_language_route": {"status": "not-located", "route": "Identify a scholarly transcription of the medieval Syrian manuscript family or another explicitly bounded pre-1453 Arabic witness.", "rights_posture": "not-located"},
+      "english_route": {"status": "not-located", "route": "Locate an English translation tied specifically to the selected medieval witness rather than an accreted modern vulgate.", "rights_posture": "not-located"},
+      "rights_posture": "not-located",
+      "portability": "metadata-only",
+      "proposed_registry_status": "stub",
+      "coverage_ceiling": "selected-works",
+      "maturity_ceiling": 6,
+      "principal_unresolved_gap": "No inspected medieval-layer Arabic/English pairing with a defensible story inventory and reuse basis.",
+      "preferred_next_action": "Define the medieval story inventory and manuscript family before conducting any edition or license search.",
+      "reserve_replacement": null
+    },
+    {
+      "candidate_id": "MED-CAND-076",
+      "proposed_source_id": "LIB-MEDIEVAL-AUTHORITY-076-POVEST-VREMENNYKH-LET-TRADITION",
+      "accepted_pilot_seed": false,
+      "authority_label": "Rus' Primary Chronicle textual tradition",
+      "title": "Povest' vremennykh let / Tale of Bygone Years",
+      "date_start": 1110,
+      "date_end": 1118,
+      "date_label": "early 12th-century compilation and redactions",
+      "primary_lane": "Byzantine and Eastern Christian",
+      "languages": ["old east slavic", "church slavonic", "english"],
+      "functions": ["chronicle", "political memory", "dynastic legitimacy", "eastern christianity", "diplomacy", "state formation"],
+      "source_type": "chronicle",
+      "score": {"historical_consequence": 3, "boundary_clarity": 1, "distinctiveness": 2, "provenance_feasibility": 2, "portability": 1, "total": 9},
+      "disposition": "selected",
+      "selection_reason": "Foundational East Slavic chronicle tradition for dynastic memory, Christianization, diplomacy, and the political inheritance of Kyivan Rus'.",
+      "reserve_reason": null,
+      "corpus_boundary": "Recension-bound Povest' tradition reconstructed from Laurentian, Hypatian, and related witnesses; avoid sole attribution to Nestor and distinguish the Primary Chronicle from later continuations in each codex.",
+      "identity_source": {"label": "Harvard Ukrainian Research Institute, The Povest' vremennykh let", "url": "https://books.huri.harvard.edu/books/the-povest-vremennykh-let", "evidence_status": "identity-or-provenance-triage"},
+      "original_language_route": {"status": "candidate-located", "route": "National Library of Russia digital Laurentian Codex provides an institutional witness route; a verified diplomatic transcription remains required.", "rights_posture": "unknown"},
+      "english_route": {"status": "candidate-located", "route": "Inspect the public-domain Cross and Sherbowitz-Wetzor Laurentian translation while preserving its recension and editorial limits.", "rights_posture": "plausible-open"},
+      "rights_posture": "unknown",
+      "portability": "partial",
+      "proposed_registry_status": "stub",
+      "coverage_ceiling": "principal-work",
+      "maturity_ceiling": 6,
+      "principal_unresolved_gap": "A recension-aligned Old East Slavic transcription and English pairing with explicit digital reuse terms.",
+      "preferred_next_action": "Compare the Harvard paradosis, Laurentian digital witness, and public-domain English translation at the recension level.",
+      "reserve_replacement": null
+    },
+    {
+      "candidate_id": "MED-CAND-077",
+      "proposed_source_id": "LIB-MEDIEVAL-AUTHORITY-077-JOHN-OF-PLANO-CARPINI",
+      "accepted_pilot_seed": false,
+      "authority_label": "John of Plano Carpini",
+      "title": "Historia Mongalorum",
+      "date_start": 1247,
+      "date_end": 1247,
+      "date_label": "c. 1247",
+      "primary_lane": "Latin Christian and Jewish Mediterranean/European",
+      "languages": ["latin", "english"],
+      "functions": ["travel", "diplomacy", "ethnography", "cross-cultural observation", "papal intelligence", "mongol imperial encounter"],
+      "source_type": "primary",
+      "score": {"historical_consequence": 2, "boundary_clarity": 2, "distinctiveness": 2, "provenance_feasibility": 2, "portability": 1, "total": 9},
+      "disposition": "selected",
+      "selection_reason": "Earliest substantial Latin eyewitness report from a papal mission to the Mongol court, joining diplomacy, political intelligence, ethnography, and imperial encounter.",
+      "reserve_reason": null,
+      "corpus_boundary": "Carpini's Historia Mongalorum and principal journey account only; Benedict the Pole's companion account and later abridgments are separate authorities or witnesses.",
+      "identity_source": {"label": "Rockhill, The Journey of William of Rubruck, with the earlier journey of John of Pian de Carpine (Hakluyt Society, 1900)", "url": "https://archive.org/details/journeywilliamr00rockgoog", "evidence_status": "edition-and-provenance-inspected"},
+      "original_language_route": {"status": "not-located-complete-clean", "route": "Locate and inspect a complete provenance-bound Latin edition; the inspected Beazley 1903 principal text lacks chapter IX.", "rights_posture": "unknown"},
+      "english_route": {"status": "candidate-collated", "route": "Private Rockhill 1900 first-account derivation, printed pages 1-32, collated against the parent scan.", "rights_posture": "plausible-open"},
+      "rights_posture": "plausible-open",
+      "portability": "partial",
+      "proposed_registry_status": "located",
+      "coverage_ceiling": "principal-work",
+      "maturity_ceiling": 4,
+      "principal_unresolved_gap": "A complete clean Latin body and a final derived-English rights statement remain unresolved.",
+      "preferred_next_action": "Review the Rockhill 1900 English admission proposal, then authorize metadata creation before any body dry-run.",
+      "reserve_replacement": null
+    },
+    {
+      "candidate_id": "MED-CAND-078",
+      "proposed_source_id": "LIB-MEDIEVAL-AUTHORITY-078-WILLIAM-OF-RUBRUCK",
+      "accepted_pilot_seed": false,
+      "authority_label": "William of Rubruck",
+      "title": "Itinerarium / Relatio",
+      "date_start": 1255,
+      "date_end": 1255,
+      "date_label": "c. 1255",
+      "primary_lane": "Latin Christian and Jewish Mediterranean/European",
+      "languages": ["latin", "english"],
+      "functions": ["travel", "diplomacy", "ethnography", "cross-cultural observation", "religious encounter", "court observation", "mongol imperial geography"],
+      "source_type": "primary",
+      "score": {"historical_consequence": 2, "boundary_clarity": 2, "distinctiveness": 2, "provenance_feasibility": 2, "portability": 1, "total": 9},
+      "disposition": "selected",
+      "selection_reason": "Detailed eyewitness account of Mongol court life, Eurasian geography, diplomacy, and interreligious encounter distinct from Carpini's earlier papal intelligence mission.",
+      "reserve_reason": null,
+      "corpus_boundary": "Rubruck's Itinerarium or Relatio only; associated travel texts, editorial apparatus, and later translations are body-level witnesses, not part of the authority boundary.",
+      "identity_source": {"label": "Michel and Wright, Relations des voyages de Guillaume de Rubruk (1839)", "url": "https://archive.org/details/RelationsDesVoyagesDeGuillaume", "evidence_status": "edition-and-provenance-inspected"},
+      "original_language_route": {"status": "candidate-needs-correction", "route": "Private structural draft from Michel-Wright 1839, printed pages 17-200; lexical collation and apparatus-boundary verification remain required.", "rights_posture": "plausible-open"},
+      "english_route": {"status": "candidate-located", "route": "Rockhill 1900 translation; derive and verify a clean body separately.", "rights_posture": "plausible-open"},
+      "rights_posture": "plausible-open",
+      "portability": "difficult",
+      "proposed_registry_status": "located",
+      "coverage_ceiling": "principal-work",
+      "maturity_ceiling": 4,
+      "principal_unresolved_gap": "The Latin candidate retains 146 distinct alphanumeric OCR-defect tokens and heuristic apparatus boundaries; the English body is not yet derived.",
+      "preferred_next_action": "Complete Latin lexical collation and independently verify apparatus boundaries before preparing an admission proposal.",
+      "reserve_replacement": null
+    }
+  ]
+}

@@ -1,0 +1,110 @@
+{
+  "schema_version": "library-body-admission-batch-receipt-v1",
+  "batch_id": "MEDIEVAL-BODY-ADMISSION-09",
+  "date": "2026-08-19",
+  "status": "completed-no-admissions",
+  "authority_ceiling": 10,
+  "body_ceiling": 20,
+  "license_scope": "public-domain",
+  "authorities_inspected": 10,
+  "candidate_bodies_admitted": 0,
+  "results": [
+    {
+      "source_id": "LIB-MEDIEVAL-AUTHORITY-004-CONSTANTINE-VII",
+      "disposition": "blocked-repository-license-and-format",
+      "best_route": "University of Salamanca GREDOS, 1611 Greek-Latin De administrando imperio",
+      "url": "https://gredos.usal.es/handle/10366/42157",
+      "blocker": "The downloadable object is a scan under CC BY-NC-ND 3.0, not a clean public-domain text body; the standard English translation remains restricted."
+    },
+    {
+      "source_id": "LIB-MEDIEVAL-AUTHORITY-005-MICHAEL-PSELLOS",
+      "disposition": "blocked-electronic-form-rights",
+      "best_route": "Fordham Internet Medieval Sourcebook complete Sewter Chronographia",
+      "url": "https://sourcebooks.web.fordham.edu/basis/psellus-chronographia.asp",
+      "blocker": "Fordham reports that the 1953 translation copyright was not renewed but separately restricts its electronic transcription to educational and personal copying and denies commercial reuse. This batch cannot label that digital body public-domain."
+    },
+    {
+      "source_id": "LIB-MEDIEVAL-AUTHORITY-007-KEBRA-NAGAST-TRADITION",
+      "disposition": "blocked-edition-rights-and-clean-file",
+      "best_route": "E. A. Wallis Budge English translation, 1932",
+      "url": "https://www.sacred-texts.com/chr/kn/",
+      "blocker": "No clean institutional file with an unambiguous public-domain basis for the 1932 translation and no edition-bound Ge'ez text were established."
+    },
+    {
+      "source_id": "LIB-MEDIEVAL-AUTHORITY-015-DOMESDAY-BOOK-TRADITION",
+      "disposition": "blocked-dataset-license",
+      "best_route": "University of Hull Electronic Domesday dataset",
+      "url": "https://digitalcollections.hull.ac.uk/collections/3t945r28b?locale=en",
+      "blocker": "The electronic edition derives from copyrighted Phillimore volumes and is governed by a registered-user, not-for-profit research agreement; it is not a public-domain body."
+    },
+    {
+      "source_id": "LIB-MEDIEVAL-AUTHORITY-020-JUDAH-HALEVI",
+      "disposition": "blocked-digital-transcription-conditions",
+      "best_route": "Hirschfeld 1905 Kitab al Khazari at Sacred Texts",
+      "url": "https://www.sacred-texts.com/jud/khz/index.htm",
+      "blocker": "The proofed transcription claims public-domain source text but adds noncommercial-use and retained-attribution conditions to its files; the existing scan OCR remains uncorrected."
+    },
+    {
+      "source_id": "LIB-MEDIEVAL-AUTHORITY-026-AL-MASUDI",
+      "disposition": "blocked-ocr",
+      "best_route": "Barbier de Meynard and Pavet de Courteille, Les Prairies d'or, nine volumes, 1861-1877",
+      "url": "https://archive.org/",
+      "blocker": "All nine public-domain edition volumes are present locally only as unreconciled OCR. The clean public-domain Sprenger route covers one translated volume rather than the admitted authority boundary and is scan-based."
+    },
+    {
+      "source_id": "LIB-MEDIEVAL-AUTHORITY-027-IBN-HAZM",
+      "disposition": "blocked-clean-file-and-translation-gap",
+      "best_route": "Modern Arabic two-volume scan identified in Portable Batch 09",
+      "url": null,
+      "blocker": "No clean reusable Arabic export and no complete rights-clear English translation were resolved; modern edition rights cannot be inferred from medieval authorship."
+    },
+    {
+      "source_id": "LIB-MEDIEVAL-AUTHORITY-029-AL-IDRISI",
+      "disposition": "blocked-witness-completeness-and-format",
+      "best_route": "Bibliotheque nationale de France 1325 manuscript witness",
+      "url": "https://gallica.bnf.fr/",
+      "blocker": "The witness is scan-based, lacks two maps and its final folio, and contains damaged folios; no clean complete public-domain text file or map-text layer ledger was established."
+    },
+    {
+      "source_id": "LIB-MEDIEVAL-AUTHORITY-031-IBN-BATTUTA",
+      "disposition": "blocked-ocr-and-abridgment",
+      "best_route": "Samuel Lee, The Travels of Ibn Batuta, 1829",
+      "url": "https://wellcomecollection.org/works/vvpem8g6",
+      "blocker": "The public-domain scan represents an explicitly abridged manuscript tradition, and the available local text layer is noisy unreconciled OCR."
+    },
+    {
+      "source_id": "LIB-MEDIEVAL-AUTHORITY-043-SECRET-HISTORY-MONGOLS",
+      "disposition": "blocked-scan-and-layer-model",
+      "best_route": "Ye Dehui 1908 twelve-part Chinese-character witness, three scanned volumes",
+      "url": "https://commons.wikimedia.org/",
+      "blocker": "The public-domain scans do not provide a clean transcription, and the Chinese phonetic transcription, interlinear gloss, Chinese translation, and reconstructed Mongolian layers must not be collapsed."
+    }
+  ],
+  "claims_not_made": [
+    "No scan or OCR was treated as a clean text body",
+    "No source copyright was confused with digital-file reuse rights",
+    "No restricted or conditional body was labeled public-domain",
+    "No abridgment was treated as complete-work",
+    "No registry availability, reviewed status, or maturity advancement was inferred"
+  ],
+  "mutation": {
+    "registry_updated": false,
+    "private_text_store_updated": false,
+    "indexes_updated": false,
+    "staged": false,
+    "committed": false,
+    "pushed": false,
+    "published": false
+  },
+  "validation": {
+    "library_validate": "passed",
+    "render_index_check": "passed",
+    "verify_texts": {
+      "status": "passed",
+      "checked_available_bodies": 249,
+      "missing_or_review_excluded_source_records": 43,
+      "failures": 0
+    },
+    "archive_library_tests": "24 passed"
+  }
+}

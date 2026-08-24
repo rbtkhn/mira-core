@@ -1,0 +1,92 @@
+{
+  "schema_version": "library-body-inspection-receipt-v1",
+  "inspection_id": "MED-QURAN-TANZIL-UTHMANI-1.1-20260819",
+  "inspected_on": "2026-08-19",
+  "status": "reviewed-candidate-not-admitted",
+  "authority_effect": "none",
+  "candidate_id": "MED-CAND-024",
+  "proposed_source_id": "LIB-MEDIEVAL-AUTHORITY-024-QURANIC-TEXTUAL-TRADITION",
+  "body": {
+    "label": "Tanzil Quran Text (Uthmani, Version 1.1)",
+    "upstream_url": "https://tanzil.net/pub/download/index.php?quranType=uthmani&outType=txt-2&agree=true",
+    "upstream_filename": "quran-uthmani.txt",
+    "retrieval_options": {
+      "quran_type": "uthmani",
+      "output": "txt-2",
+      "pause_marks": false,
+      "sajdah_signs": false,
+      "rub_el_hizb_signs": false,
+      "tatweel_option": false,
+      "sequential_tanweens_option": false
+    },
+    "content_type": "application/octet-stream; charset=utf-8",
+    "bytes": 1370878,
+    "sha256": "bf4f57b968d03f4131c070b1e285da9be0e0a108a21c910e872801ca273312c8",
+    "encoding": "UTF-8",
+    "bom": false,
+    "line_endings": "LF",
+    "line_count": 6266,
+    "verse_record_count": 6236,
+    "unique_verse_pair_count": 6236,
+    "sura_count": 114,
+    "first_pair": "1:1",
+    "last_pair": "114:6",
+    "duplicate_pairs": 0,
+    "empty_verse_bodies": 0,
+    "numbering_gaps": 0,
+    "comment_lines": 28,
+    "license_block_start_line": 6239
+  },
+  "rights": {
+    "posture": "plausible-open-with-additional-condition",
+    "license_label": "Creative Commons Attribution 3.0",
+    "confirmed_conditions": [
+      "Distribute only verbatim copies; changing the Quran text is not allowed.",
+      "Clearly identify Tanzil Project as the source.",
+      "Link to tanzil.net so recipients can track changes.",
+      "Retain the copyright notice in verbatim copies and substantial derivatives."
+    ],
+    "notice_embedded": true,
+    "notice_markers_verified": [
+      "Creative Commons Attribution 3.0",
+      "CHANGING IT IS NOT ALLOWED",
+      "Tanzil Project",
+      "copyright notice",
+      "http://tanzil.net/updates/"
+    ]
+  },
+  "coverage": {
+    "source_level_ceiling": "principal-work",
+    "body_level_ceiling": "Hafs Uthmani reference text only",
+    "excluded": [
+      "Other canonical reading traditions",
+      "Manuscript witnesses",
+      "Translations",
+      "Tafsir and annotations",
+      "Tanzil Simple and Uthmani Minimal variants"
+    ],
+    "maturity_before": 3,
+    "maturity_after": "unchanged",
+    "maturity_ceiling": 6
+  },
+  "validation": {
+    "utf8_strict": true,
+    "record_shape": "sura|aya|text",
+    "all_sura_sequences_consecutive": true,
+    "admission_ready": false,
+    "verified_status_granted": false,
+    "reviewed_authority_status_granted": false
+  },
+  "persistence": {
+    "receipt": "repository-local untracked review artifact",
+    "inspected_file": "temporary external file at C:\\private\\mira-core-tanzil-inspection-20260819\\quran-uthmani-v1.1-txt-2.txt",
+    "library_text_store_copy": false,
+    "registry_mutation": false
+  },
+  "unresolved": [
+    "Independent byte-level comparison against a second official retrieval was not performed.",
+    "No English translation was inspected.",
+    "The additional no-change term should receive legal/governance review before admission.",
+    "Header design must preserve the upstream file bytes or store provenance outside the immutable body without altering the licensed text."
+  ]
+}

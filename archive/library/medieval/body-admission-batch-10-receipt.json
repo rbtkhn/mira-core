@@ -1,0 +1,43 @@
+{
+  "schema_version": "library-body-admission-batch-receipt-v1",
+  "batch_id": "MEDIEVAL-BODY-ADMISSION-10",
+  "date": "2026-08-19",
+  "status": "partial-success",
+  "authority_ceiling": 10,
+  "body_ceiling": 20,
+  "license_scope": "public-domain",
+  "authorities": [
+    "LIB-MEDIEVAL-AUTHORITY-002-PROCOPIUS",
+    "LIB-MEDIEVAL-AUTHORITY-007-NASIR-KHUSRAW",
+    "LIB-MEDIEVAL-AUTHORITY-013-BEDE",
+    "LIB-MEDIEVAL-AUTHORITY-018-DANTE-ALIGHIERI",
+    "LIB-MEDIEVAL-AUTHORITY-020-MAIMONIDES",
+    "LIB-MEDIEVAL-AUTHORITY-028-FERDOWSI",
+    "LIB-MEDIEVAL-AUTHORITY-035-JAYADEVA",
+    "LIB-MEDIEVAL-AUTHORITY-073-GEOFFREY-CHAUCER",
+    "LIB-MEDIEVAL-AUTHORITY-074-MARCO-POLO",
+    "LIB-MEDIEVAL-AUTHORITY-075-ALF-LAYLA-WA-LAYLA-TRADITION"
+  ],
+  "candidates": [
+    {"source_id":"LIB-MEDIEVAL-AUTHORITY-018-DANTE-ALIGHIERI","body_id":"LIB-MEDIEVAL-AUTHORITY-018-DANTE-COMMEDIA-ARANDA-SPANISH-GUTENBERG-57303","gutenberg_id":57303,"language":"spanish","coverage_status":"complete-work","bytes":741010,"sha256":"a0bd85f6721cd87d671bee63e44572287dedbdb90df593f6a05d3ce7431d6dd6","disposition":"admitted"},
+    {"source_id":"LIB-MEDIEVAL-AUTHORITY-018-DANTE-ALIGHIERI","body_id":"LIB-MEDIEVAL-AUTHORITY-018-DANTE-COMMEDIA-GERMAN-GUTENBERG-8085","gutenberg_id":8085,"language":"german","coverage_status":"unknown","bytes":666725,"sha256":"3a72d0748876ba47152025519a322924d6ea627ea9c3912b25fd48b75f8d2d47","disposition":"rejected-unresolved-edition"},
+    {"source_id":"LIB-MEDIEVAL-AUTHORITY-018-DANTE-ALIGHIERI","body_id":"LIB-MEDIEVAL-AUTHORITY-018-DANTE-COMMEDIA-LEINO-FINNISH-GUTENBERG-12546","gutenberg_id":12546,"language":"finnish","coverage_status":"complete-work","bytes":818417,"sha256":"239b23bd61665ab82683d1f6420fa0136649867b59d2d8008230c68b3bd0ae6d","disposition":"admitted"},
+    {"source_id":"LIB-MEDIEVAL-AUTHORITY-018-DANTE-ALIGHIERI","body_id":"LIB-MEDIEVAL-AUTHORITY-018-DANTE-VITA-NUOVA-AGRESTI-ITALIAN-GUTENBERG-71218","gutenberg_id":71218,"language":"italian","coverage_status":"complete-work","bytes":163888,"sha256":"1ddfc7c4a1eca519fefa3ce3c7dfb699121dfe425ee78006e47f32ae3883db7a","disposition":"admitted"},
+    {"source_id":"LIB-MEDIEVAL-AUTHORITY-018-DANTE-ALIGHIERI","body_id":"LIB-MEDIEVAL-AUTHORITY-018-DANTE-VITA-NUOVA-VAN-SUCHTELEN-DUTCH-GUTENBERG-28029","gutenberg_id":28029,"language":"dutch","coverage_status":"complete-work","bytes":294348,"sha256":"63c85a9ea00ee09b108257572c9eb193cb36a3422a024cc78a651722230fbb10","disposition":"admitted"},
+    {"source_id":"LIB-MEDIEVAL-AUTHORITY-075-ALF-LAYLA-WA-LAYLA-TRADITION","body_id":"LIB-MEDIEVAL-AUTHORITY-075-PAYNE-VOL-01-GUTENBERG-8655","gutenberg_id":8655,"language":"english","coverage_status":"partial-work","bytes":809349,"sha256":"9bb5fbd9ff616bd5dd4f04d78edca1c9ac9dcefa3b10c94ea20d72c85a464be4","disposition":"admitted"},
+    {"source_id":"LIB-MEDIEVAL-AUTHORITY-075-ALF-LAYLA-WA-LAYLA-TRADITION","body_id":"LIB-MEDIEVAL-AUTHORITY-075-PAYNE-VOL-02-GUTENBERG-8656","gutenberg_id":8656,"language":"english","coverage_status":"partial-work","bytes":762214,"sha256":"5364a300d096e87576879ad6b8499ebb7cc71e853d2be470eadbafcdb00b56f3","disposition":"admitted"},
+    {"source_id":"LIB-MEDIEVAL-AUTHORITY-075-ALF-LAYLA-WA-LAYLA-TRADITION","body_id":"LIB-MEDIEVAL-AUTHORITY-075-PAYNE-VOL-03-GUTENBERG-8657","gutenberg_id":8657,"language":"english","coverage_status":"partial-work","bytes":757287,"sha256":"8c7dad0e017378f01f6173d16821493e0462bc23f0e6bac111001bbdd25987cf","disposition":"admitted"},
+    {"source_id":"LIB-MEDIEVAL-AUTHORITY-075-ALF-LAYLA-WA-LAYLA-TRADITION","body_id":"LIB-MEDIEVAL-AUTHORITY-075-PAYNE-VOL-04-GUTENBERG-8658","gutenberg_id":8658,"language":"english","coverage_status":"partial-work","bytes":755263,"sha256":"c756a8e9f19dc111cbf2903ff9a56d6925e8473a3d6d7c08fb789f5f79b7ac52","disposition":"admitted"},
+    {"source_id":"LIB-MEDIEVAL-AUTHORITY-075-ALF-LAYLA-WA-LAYLA-TRADITION","body_id":"LIB-MEDIEVAL-AUTHORITY-075-SCOTT-COMPLETE-GUTENBERG-5668","gutenberg_id":5668,"language":"english","coverage_status":"complete-work","bytes":3057329,"sha256":"c33eec75335dcc93757f9a7170f605c99d20d5e2d13f7b70ccf95f2f074d6671","disposition":"admitted"},
+    {"source_id":"LIB-MEDIEVAL-AUTHORITY-075-ALF-LAYLA-WA-LAYLA-TRADITION","body_id":"LIB-MEDIEVAL-AUTHORITY-075-LANG-SELECTIONS-GUTENBERG-128","gutenberg_id":128,"language":"english","coverage_status":"selected-passages","bytes":629143,"sha256":"9b3f88ffdb36b112f8b3f23899efd71dbb7572cc765f33e9ad5a1a0f44f57eea","disposition":"admitted"},
+    {"source_id":"LIB-MEDIEVAL-AUTHORITY-075-ALF-LAYLA-WA-LAYLA-TRADITION","body_id":"LIB-MEDIEVAL-AUTHORITY-075-ANONYMOUS-ILLUSTRATED-SELECTIONS-GUTENBERG-19860","gutenberg_id":19860,"language":"english","coverage_status":"selected-passages","bytes":504877,"sha256":"233fb18bbb11f71d55a216bce6bb34c280c9bafbfe6debe076e6fbd2164820d3","disposition":"admitted"}
+  ],
+  "admission_result": {"candidate_bodies_inspected":12,"dry_runs_passed":11,"bodies_admitted":11,"bytes_added":9293125},
+  "isolated_failures": [
+    {"source_id":"LIB-MEDIEVAL-AUTHORITY-018-DANTE-ALIGHIERI","gutenberg_id":8085,"disposition":"rejected-unresolved-edition","blocker":"The embedded body and Project Gutenberg catalogue identify no translator or source edition. Language and apparent completeness do not cure the missing edition lineage."},
+    {"source_ids":["LIB-MEDIEVAL-AUTHORITY-002-PROCOPIUS","LIB-MEDIEVAL-AUTHORITY-007-NASIR-KHUSRAW","LIB-MEDIEVAL-AUTHORITY-013-BEDE","LIB-MEDIEVAL-AUTHORITY-020-MAIMONIDES","LIB-MEDIEVAL-AUTHORITY-028-FERDOWSI","LIB-MEDIEVAL-AUTHORITY-035-JAYADEVA","LIB-MEDIEVAL-AUTHORITY-073-GEOFFREY-CHAUCER","LIB-MEDIEVAL-AUTHORITY-074-MARCO-POLO"],"disposition":"no-new-candidate-advanced","blocker":"Earlier triage found no additional clean, distinct public-domain text route within the authorized boundary: located alternatives were absent, duplicative, adapted outside the source boundary, OCR-dependent, or lacked adequate edition or rights metadata."}
+  ],
+  "post_batch_totals": {"medieval_authorities":60,"medieval_bodies":81,"medieval_text_bytes":76107387,"ancient_authorities":56,"ancient_bodies":193,"ancient_text_bytes":159939301,"managed_bodies_all_eras":274,"remaining_ancient_medieval_body_gap":112},
+  "validation": {"library_validate":"passed","render_index_check":"passed","verify_texts":{"status":"passed","checked_available_bodies":260,"missing_or_review_excluded_source_records":43,"failures":0},"registry_private_store_reconciliation":{"status":"passed","registered_bodies":274,"private_files":274,"missing":0,"unregistered":0},"archive_library_tests":"24 passed"},
+  "mutation": {"registry_updated":true,"private_text_store_updated":true,"indexes_rendered":true,"staged":false,"committed":false,"pushed":false,"published":false}
+}

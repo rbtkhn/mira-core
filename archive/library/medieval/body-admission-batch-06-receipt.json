@@ -1,0 +1,43 @@
+{
+  "schema_version": "1.0",
+  "batch_id": "MEDIEVAL-BODY-ADMISSION-06",
+  "date": "2026-08-19",
+  "status": "partial-success-with-review-debt",
+  "scope": {"authorities_evaluated":12,"admitted_bodies":1,"isolated_failures":11},
+  "admitted": [
+    {
+      "source_id":"LIB-MEDIEVAL-AUTHORITY-052-AMIR-KHUSRAU",
+      "body_id":"LIB-MEDIEVAL-AUTHORITY-052-AMIR-KHUSRAU-KHAZAIN-MIRZA-1975-ZENODO-DERIVED",
+      "work_title":"Khaza'in al-Futuh / Treasures of Victory",
+      "source_url":"https://zenodo.org/records/3994264",
+      "source_pdf_sha256":"168b2d54409a9df658696a84b2cee87a079fb4461c5242ac809eea1fbfbe7753",
+      "text_sha256":"b8f7b548f92aa98eb8ff8e6830524584ccf4aae0c85abf59903022caf2c31219",
+      "text_bytes":262568,
+      "license_status":"open-license",
+      "license_basis":"Zenodo record assertion: CC BY 4.0",
+      "coverage_status":"complete-work",
+      "status":"needs-review",
+      "review_debt":"All 99 PDF pages are represented with numbered boundaries, but recurrent text-layer OCR defects remain; no silent correction was performed."
+    }
+  ],
+  "isolated_failures": [
+    {"authority":"al-Tabari","reason":"Only one uncorrected Arabic OCR volume with unstated item rights is resolved; the sequence is incomplete and modern English is restricted."},
+    {"authority":"Ibn Khaldun","reason":"The Quatremere Arabic sequence remains incomplete with poor OCR and unstated rights; no reusable complete English body is resolved."},
+    {"authority":"Nizam al-Mulk","reason":"The located Schefer route is uncorrected OCR with unstated rights, one edition layer, and an unresolved late-chapter recension boundary."},
+    {"authority":"al-Biruni","reason":"The prior combined OCR item is CC BY-NC-ND 4.0 and unreconciled; Wikisource pages are not fully validated or transcluded as a clean complete body."},
+    {"authority":"Nasir Khusraw","reason":"The located facsimile prohibits unauthorized copying; the English route is an incomplete regional extract with uncorrected OCR."},
+    {"authority":"Kalhana","reason":"Both Stein volumes remain uncorrected OCR and Wikisource marks the transcription as requiring proofreading; Sanskrit and English layers are not reconciled."},
+    {"authority":"Bhaskara II","reason":"The Colebrooke volume mixes Brahmagupta and Bhaskara components and remains noisy OCR with unresolved component boundaries."},
+    {"authority":"Jnaneshwar","reason":"Recension identity and reusable translation rights remain unresolved; located bodies are modern or unattributed reposts."},
+    {"authority":"Li Qingzhao","reason":"The surviving corpus is fragmentary and attribution-critical; the located complete modern English volume is CC BY-NC-ND."},
+    {"authority":"Nihon Shoki tradition","reason":"The Aston sequence remains noisy uncorrected OCR with unstated item rights; Sacred Texts was not an inspectable licensed portable route."},
+    {"authority":"Tale of the Heike tradition","reason":"The Sadler body remains uncorrected OCR not reconciled to scans; no Japanese witness or clean complete portable body was resolved."}
+  ],
+  "post_batch_totals":{"medieval_authorities":60,"medieval_bodies":55,"medieval_text_bytes":52588300,"medieval_needs_review_bodies":2,"managed_bodies_all_eras":248},
+  "validation":{"library_validate":"passed","render_index_check":"passed","available_bodies_verified":246,"verify_texts_failures":0,"missing_or_review_excluded":43,"archive_library_tests":"24 passed"},
+  "archive_imported":false,
+  "staged":false,
+  "committed":false,
+  "pushed":false,
+  "published":false
+}

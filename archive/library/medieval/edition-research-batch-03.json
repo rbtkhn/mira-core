@@ -1,0 +1,184 @@
+{
+  "schema_version": "medieval-edition-research-batch-v1",
+  "batch_id": "MEDIEVAL-EDITION-RESEARCH-03",
+  "generated_on": "2026-08-19",
+  "status": "review-only",
+  "authority_effect": "none",
+  "candidate_count": 10,
+  "source_count": 20,
+  "source_ceiling": 20,
+  "body_admission_authorized": false,
+  "registry_mutation_authorized": false,
+  "records": [
+    {
+      "candidate_id": "MED-CAND-004",
+      "source_id": "LIB-MEDIEVAL-RESEARCH-BATCH-03-01",
+      "authority": "Constantine VII Porphyrogenitus",
+      "title": "De Administrando Imperio",
+      "corpus_boundary": "The fifty-three chapter diplomatic-administrative compilation conventionally titled De Administrando Imperio; later titles, excerpt collections, and related Constantinian compilations are excluded.",
+      "original_route": {"candidate": "1611 Greek-Latin edition in the University of Salamanca GREDOS repository; a later critical Greek edition remains preferable.", "rights_posture": "unknown"},
+      "english_route": {"candidate": "Moravcsik-Jenkins 1949/1967 translation for reference only.", "rights_posture": "restricted"},
+      "coverage": {"body_ceiling": "historical-greek-latin-edition-only", "current_maturity": 2, "maturity_ceiling": 4},
+      "disposition": "original-historical-edition-located-english-restricted",
+      "next_action": "Inspect the GREDOS file and reuse terms; retain an explicit English gap unless a lawful older translation is located.",
+      "findings": [
+        {"evidence_status": "confirmed-metadata", "proposition": "University of Salamanca catalogs a 1611 Greek-Latin De Administrando Imperio edition.", "url": "https://gredos.usal.es/handle/10366/42157", "lineage_root": "gredos.usal.es"},
+        {"evidence_status": "confirmed-metadata", "proposition": "Fordham's Byzantine source index identifies Constantine VII and the work as a distinct Byzantine source route.", "url": "https://sourcebooks.web.fordham.edu/byzantium/alltexts.asp", "lineage_root": "sourcebooks.web.fordham.edu"}
+      ],
+      "unresolved_risks": ["The 1611 edition is not a modern critical text.", "GREDOS file-level reuse terms require inspection.", "The standard English translation remains restricted."]
+    },
+    {
+      "candidate_id": "MED-CAND-005",
+      "source_id": "LIB-MEDIEVAL-RESEARCH-BATCH-03-02",
+      "authority": "Michael Psellos",
+      "title": "Chronographia",
+      "corpus_boundary": "The Chronographia's imperial biographies only; Psellos's letters, philosophical works, and later continuations are excluded.",
+      "original_route": {"candidate": "A Renauld-era Greek edition is bibliographically identifiable, but no stable reusable complete file was confirmed.", "rights_posture": "unknown"},
+      "english_route": {"candidate": "E. R. A. Sewter's complete 1953 English translation as displayed by Fordham.", "rights_posture": "unknown"},
+      "coverage": {"body_ceiling": "english-translation-only-if-rights-cleared", "current_maturity": 2, "maturity_ceiling": 4},
+      "disposition": "english-visible-rights-and-greek-unresolved",
+      "next_action": "Recover Fordham's file-specific publication basis and locate an institutional Greek edition before inspection.",
+      "findings": [
+        {"evidence_status": "source-assertion", "proposition": "Fordham presents the entire Sewter English translation and identifies its 1953 lineage.", "url": "https://sourcebooks.web.fordham.edu/basis/psellus-chronographia.asp", "lineage_root": "sourcebooks.web.fordham.edu"},
+        {"evidence_status": "confirmed-metadata", "proposition": "Princeton's Byzantine translation catalog identifies Psellos, Chronographia, and the modern English translation record.", "url": "https://byzantine.lib.princeton.edu/byzantine/translation/14457", "lineage_root": "byzantine.lib.princeton.edu"}
+      ],
+      "unresolved_risks": ["Visible complete text does not establish portable reuse.", "No Greek file is resolved.", "No file has been inspected or admitted."]
+    },
+    {
+      "candidate_id": "MED-CAND-007",
+      "source_id": "LIB-MEDIEVAL-RESEARCH-BATCH-03-03",
+      "authority": "Kebra Nagast textual tradition",
+      "title": "Kebra Nagast / Glory of the Kings",
+      "corpus_boundary": "The received Ge'ez Kebra Nagast tradition; manuscript witnesses, modern Amharic renderings, and Budge's English translation remain separate bodies.",
+      "original_route": {"candidate": "No exact institutional Ge'ez edition or manuscript-derived transcription was resolved.", "rights_posture": "not-located"},
+      "english_route": {"candidate": "E. A. Wallis Budge's 1932 English translation, surfaced through a Sacred Texts-derived mirror.", "rights_posture": "unknown"},
+      "coverage": {"body_ceiling": "english-historical-translation-only-if-rights-cleared", "current_maturity": 2, "maturity_ceiling": 5},
+      "disposition": "english-route-located-original-and-rights-unresolved",
+      "next_action": "Locate an institutional Budge scan with an explicit rights statement and a named Ge'ez edition before downloading.",
+      "findings": [
+        {"evidence_status": "confirmed-metadata", "proposition": "The Sacred Texts-derived index identifies Budge, London, and 1932 for the English Kebra Nagast.", "url": "https://www.tewahedo.dk/litt/cached/www.sacred-texts.com/chr/kn/index.htm", "lineage_root": "tewahedo.dk"},
+        {"evidence_status": "confirmed-metadata", "proposition": "UNESCO Memory of the World provides the institutional discovery framework for manuscript heritage but does not by itself identify a reusable Ge'ez body.", "url": "https://www.unesco.org/en/memory-world", "lineage_root": "unesco.org"}
+      ],
+      "unresolved_risks": ["The English route is a non-institutional mirror.", "1932 rights require jurisdiction-specific review.", "No Ge'ez body is located."]
+    },
+    {
+      "candidate_id": "MED-CAND-012",
+      "source_id": "LIB-MEDIEVAL-RESEARCH-BATCH-03-04",
+      "authority": "Gregory of Tours",
+      "title": "Ten Books of Histories / History of the Franks",
+      "corpus_boundary": "Gregory's ten-book Histories; miracle collections and other works are excluded. Brehaut's 1916 English version is abridged and cannot represent the complete work.",
+      "original_route": {"candidate": "A complete Latin critical body remains to be located in a stable institutional route.", "rights_posture": "unknown"},
+      "english_route": {"candidate": "Earnest Brehaut's abridged 1916 English translation, Library of Congress / Project Gutenberg lineage.", "rights_posture": "plausible-open"},
+      "coverage": {"body_ceiling": "abridged-english-selection", "current_maturity": 3, "maturity_ceiling": 4},
+      "disposition": "abridged-english-strong-latin-and-completeness-gap",
+      "next_action": "Inspect the LOC/Gutenberg file and encode abridgment boundaries; separately locate a Latin critical text.",
+      "findings": [
+        {"evidence_status": "confirmed-metadata", "proposition": "The Library of Congress catalogs Brehaut's 1916 History of the Franks and marks the collection item free to use and reuse.", "url": "https://www.loc.gov/item/16020457/", "lineage_root": "loc.gov"},
+        {"evidence_status": "confirmed-metadata", "proposition": "Fordham explicitly labels its Brehaut text abridged.", "url": "https://sourcebooks.web.fordham.edu/basis/gregory-hist.asp", "lineage_root": "sourcebooks.web.fordham.edu"}
+      ],
+      "unresolved_risks": ["The English body is incomplete by design.", "No Latin counterpart is resolved.", "A complete-work claim is unavailable."]
+    },
+    {
+      "candidate_id": "MED-CAND-015",
+      "source_id": "LIB-MEDIEVAL-RESEARCH-BATCH-03-05",
+      "authority": "Domesday Book administrative tradition",
+      "title": "Great Domesday and Little Domesday",
+      "corpus_boundary": "Great and Little Domesday as distinct administrative witnesses; facsimiles, diplomatic transcriptions, normalized datasets, translations, and derived identifiers are separate layers.",
+      "original_route": {"candidate": "National Archives facsimiles and Open Domesday/Hull scholarly data routes.", "rights_posture": "unknown"},
+      "english_route": {"candidate": "Modern Alecto/Penguin translation is restricted; normalized scholarly data may offer partial semantic access only.", "rights_posture": "restricted"},
+      "coverage": {"body_ceiling": "dataset-layer-only-until-license-and-lineage-verified", "current_maturity": 2, "maturity_ceiling": 6},
+      "disposition": "dataset-located-license-and-layer-boundary-unresolved",
+      "next_action": "Inspect the Hull dataset package, embedded license, schema, abbreviations, and derivation from Great versus Little Domesday.",
+      "findings": [
+        {"evidence_status": "confirmed-metadata", "proposition": "The National Archives distinguishes original records, paid facsimiles, Open Domesday, and modern printed translations.", "url": "https://www.nationalarchives.gov.uk/help-with-your-research/research-guides/domesday-book/", "lineage_root": "nationalarchives.gov.uk"},
+        {"evidence_status": "confirmed-metadata", "proposition": "University of Hull describes a downloadable scholarly Domesday dataset and its revised identifier layer.", "url": "https://digitalcollections.hull.ac.uk/collections/3t945r28b?locale=en", "lineage_root": "digitalcollections.hull.ac.uk"}
+      ],
+      "unresolved_risks": ["Dataset license was not confirmed.", "A dataset is not a facsimile or diplomatic transcription.", "The complete modern English translation is restricted."]
+    },
+    {
+      "candidate_id": "MED-CAND-017",
+      "source_id": "LIB-MEDIEVAL-RESEARCH-BATCH-03-06",
+      "authority": "Thomas Aquinas",
+      "title": "Summa Theologiae",
+      "corpus_boundary": "The Summa Theologiae's Prima Pars, Prima Secundae, Secunda Secundae, Tertia Pars, and Supplement; commentaries and other Thomistic works are excluded.",
+      "original_route": {"candidate": "Corpus Thomisticum Latin Summa route, pending file and reuse-term inspection.", "rights_posture": "unknown"},
+      "english_route": {"candidate": "Fathers of the English Dominican Province translation displayed by CCEL and New Advent.", "rights_posture": "plausible-open"},
+      "coverage": {"body_ceiling": "complete-multipart-work-only-after-file-ledger", "current_maturity": 3, "maturity_ceiling": 5},
+      "disposition": "paired-routes-located-file-and-license-inspection-required",
+      "next_action": "Recover portable files and rights statements, then ledger every part and Supplement before completeness claims.",
+      "findings": [
+        {"evidence_status": "confirmed-metadata", "proposition": "Corpus Thomisticum exposes the Latin Summa as a dedicated scholarly text route.", "url": "https://www.corpusthomisticum.org/sth0000.html", "lineage_root": "corpusthomisticum.org"},
+        {"evidence_status": "confirmed-metadata", "proposition": "CCEL identifies the English Dominican Fathers translation and provides a dedicated Summa work surface.", "url": "https://ccel.org/ccel/aquinas/summa/home.html", "lineage_root": "ccel.org"}
+      ],
+      "unresolved_risks": ["Web display does not prove bulk portability.", "Latin and English edition alignment is unverified.", "Multipart completeness requires a ledger."]
+    },
+    {
+      "candidate_id": "MED-CAND-018",
+      "source_id": "LIB-MEDIEVAL-RESEARCH-BATCH-03-07",
+      "authority": "Dante Alighieri",
+      "title": "Commedia / Divine Comedy",
+      "corpus_boundary": "Inferno, Purgatorio, and Paradiso as one poem; commentary, illustrations, and later translations are separate bodies.",
+      "original_route": {"candidate": "Project Gutenberg ebook 1000, complete Italian Divina Commedia.", "rights_posture": "plausible-open"},
+      "english_route": {"candidate": "Henry Francis Cary complete English translation, Project Gutenberg ebook 8800.", "rights_posture": "plausible-open"},
+      "coverage": {"body_ceiling": "complete-italian-and-complete-english-separate-editions", "current_maturity": 3, "maturity_ceiling": 5},
+      "disposition": "paired-portable-candidates-strong-edition-alignment-unresolved",
+      "next_action": "Inspect Gutenberg 1000 and 8800 byte-for-byte; identify the Italian editorial base and keep translation equivalence unclaimed.",
+      "findings": [
+        {"evidence_status": "confirmed-metadata", "proposition": "Project Gutenberg ebook 1000 supplies the complete Italian Divina Commedia route.", "url": "https://digital.library.upenn.edu/webbin/gutbook/lookup?num=1000", "lineage_root": "digital.library.upenn.edu"},
+        {"evidence_status": "confirmed-metadata", "proposition": "Project Gutenberg ebook 8800 identifies Henry Francis Cary and marks the English text public domain in the United States.", "url": "https://www.gutenberg.org/ebooks/8800", "lineage_root": "gutenberg.org"}
+      ],
+      "unresolved_risks": ["The Italian editorial lineage needs exact recovery.", "No Italian/English equivalence claim is supported.", "Gutenberg jurisdiction warnings must be preserved."]
+    },
+    {
+      "candidate_id": "MED-CAND-019",
+      "source_id": "LIB-MEDIEVAL-RESEARCH-BATCH-03-08",
+      "authority": "Moses Maimonides",
+      "title": "Mishneh Torah; Guide of the Perplexed",
+      "corpus_boundary": "Mishneh Torah and Guide of the Perplexed are separate principal works; the Guide's Judeo-Arabic manuscripts, Hebrew translations, and English editions are distinct witnesses.",
+      "original_route": {"candidate": "Library of Congress / National Library of Israel Judeo-Arabic Guide manuscript images, dated circa 1200.", "rights_posture": "plausible-open"},
+      "english_route": {"candidate": "M. Friedländer's 1904 revised English Guide, Internet Sacred Text Archive.", "rights_posture": "plausible-open"},
+      "coverage": {"body_ceiling": "guide-only-paired-witnesses-mishneh-torah-missing", "current_maturity": 3, "maturity_ceiling": 6},
+      "disposition": "guide-routes-strong-second-principal-work-missing",
+      "next_action": "Inspect the LOC manifest and Friedländer body; separately research complete Mishneh Torah Hebrew and English routes.",
+      "findings": [
+        {"evidence_status": "confirmed-metadata", "proposition": "The Library of Congress identifies a circa-1200 Judeo-Arabic Guide manuscript, supplies a IIIF manifest, and states no known reuse restrictions for the collection item.", "url": "https://www.loc.gov/item/2021667527/", "lineage_root": "loc.gov"},
+        {"evidence_status": "source-assertion", "proposition": "Sacred Texts identifies Friedländer's 1904 revised English translation and asserts United States public-domain status.", "url": "https://sacred-texts.com/jud/gfp/gfp000.htm", "lineage_root": "sacred-texts.com"}
+      ],
+      "unresolved_risks": ["Manuscript images are not a clean transcription.", "Mishneh Torah remains unresearched in this batch.", "No cross-witness equivalence is established."]
+    },
+    {
+      "candidate_id": "MED-CAND-020",
+      "source_id": "LIB-MEDIEVAL-RESEARCH-BATCH-03-09",
+      "authority": "Judah Halevi",
+      "title": "Kuzari / Kitab al-Khazari",
+      "corpus_boundary": "The five-part Kuzari; the original Judeo-Arabic, Ibn Tibbon Hebrew translation, Hirschfeld Arabic edition, and English translation are distinct bodies.",
+      "original_route": {"candidate": "Hartwig Hirschfeld's 1905 Arabic-and-English edition, Internet Archive identifier judahhalleviskit00judauoft.", "rights_posture": "plausible-open"},
+      "english_route": {"candidate": "Hirschfeld's complete 1905 English translation at Wikisource / Internet Archive.", "rights_posture": "plausible-open"},
+      "coverage": {"body_ceiling": "complete-hirschfeld-edition-with-original-witness-gap", "current_maturity": 3, "maturity_ceiling": 5},
+      "disposition": "historical-bilingual-edition-promising-witness-status-unresolved",
+      "next_action": "Inspect the Internet Archive scan and OCR together; determine whether its Arabic layer is the edited Judeo-Arabic text and preserve the Hebrew gap.",
+      "findings": [
+        {"evidence_status": "confirmed-metadata", "proposition": "Open Library identifies the 1905 Hirschfeld edition as English and Arabic and links Internet Archive identifier judahhalleviskit00judauoft.", "url": "https://openlibrary.org/works/OL7891260W/%28Judah_Hallevi%27s%29_Kitab_al_Khazari", "lineage_root": "openlibrary.org"},
+        {"evidence_status": "source-assertion", "proposition": "Wikisource presents all five parts of Hirschfeld's 1905 translation and marks the historical edition public domain.", "url": "https://en.wikisource.org/wiki/Kitab_al_Khazari", "lineage_root": "en.wikisource.org"}
+      ],
+      "unresolved_risks": ["OCR quality and scan completeness are uninspected.", "The relation between edited Arabic and medieval Judeo-Arabic witnesses needs modeling.", "No Hebrew body is resolved."]
+    },
+    {
+      "candidate_id": "MED-CAND-026",
+      "source_id": "LIB-MEDIEVAL-RESEARCH-BATCH-03-10",
+      "authority": "al-Mas'udi",
+      "title": "Muruj al-dhahab / Meadows of Gold",
+      "corpus_boundary": "Muruj al-dhahab only; the nine-volume Barbier de Meynard/Pavet de Courteille Arabic-French edition, Sprenger's partial English translation, and later abridgments remain separate bodies.",
+      "original_route": {"candidate": "Nine-volume 1861–1877 Arabic-French edition at Internet Archive, beginning with lesprairiesdor01masduoft.", "rights_posture": "plausible-open"},
+      "english_route": {"candidate": "Aloys Sprenger's 1841 English volume is partial; no complete English translation was located.", "rights_posture": "plausible-open-partial"},
+      "coverage": {"body_ceiling": "nine-volume-arabic-french-edition-only", "current_maturity": 3, "maturity_ceiling": 5},
+      "disposition": "complete-historical-arabic-french-route-english-gap",
+      "next_action": "Build and inspect a nine-volume file ledger; verify item-level rights and reject one-volume English completeness claims.",
+      "findings": [
+        {"evidence_status": "confirmed-metadata", "proposition": "The historical Arabic-French Muruj edition is a nine-volume 1861–1877 sequence with stable Internet Archive identifiers.", "url": "https://archive.org/details/lesprairiesdor01masduoft/", "lineage_root": "archive.org"},
+        {"evidence_status": "confirmed-metadata", "proposition": "The University of Halle catalogs the Barbier de Meynard/Pavet de Courteille edition and Arabic language metadata.", "url": "https://opendata.uni-halle.de/handle/1981185920/99791", "lineage_root": "opendata.uni-halle.de"}
+      ],
+      "unresolved_risks": ["All nine volumes require reconciliation.", "Item-level rights and OCR quality remain uninspected.", "No complete English body is known."]
+    }
+  ]
+}

@@ -1,0 +1,120 @@
+{
+  "schema_version": "library-body-admission-proposal-v1",
+  "prepared_on": "2026-08-19",
+  "status": "proposal-only",
+  "authority_effect": "none",
+  "candidate_id": "MED-CAND-013",
+  "inspection_receipt": "archive/library/medieval/bede-sellar-1907-gutenberg-38326-inspection.json",
+  "proposal": {
+    "source_metadata_phase": {
+      "required_before_body_dry_run": true,
+      "record": {
+        "source_id": "LIB-MEDIEVAL-AUTHORITY-013-BEDE",
+        "title": "Historia ecclesiastica gentis Anglorum",
+        "author": "Bede the Venerable",
+        "subject_era": "medieval",
+        "source_composition_era": "medieval",
+        "edition_era": "industrial",
+        "secondary_eras": [],
+        "date_start": 731,
+        "date_end": 731,
+        "date_label": "c. 731",
+        "era_basis": "composition_period",
+        "civilization_tags": [
+          "britain",
+          "latin-christendom"
+        ],
+        "source_type": "chronicle",
+        "location": {
+          "civilization_memory_refs": [],
+          "body_imported": false
+        },
+        "status": "located",
+        "notes": "Early medieval ecclesiastical history and political memory. Initial body candidate is A. M. Sellar's 1907 English translation from Project Gutenberg; a verified Latin counterpart remains missing.",
+        "text_status": "missing",
+        "text_bodies": [],
+        "coverage_status": "principal-work",
+        "coverage_notes": "The authority record is scoped to Bede's Ecclesiastical History. Any initial English admission would cover the complete Sellar 1907 translated work, not a verified Latin edition, English/Latin equivalence, or Bede's complete surviving corpus."
+      }
+    },
+    "body_admission_phase": {
+      "source_file": "C:\\private\\mira-core-bede-inspection-20260819\\pg38326.txt",
+      "expected_source_sha256": "977da0babf070c825befb0a5db65a9cc2440d9ab45aa869a959c1bab911be2c8",
+      "expected_source_bytes": 1093654,
+      "proposed_body": {
+        "body_id": "LIB-MEDIEVAL-AUTHORITY-013-BEDE-ECCLESIASTICAL-HISTORY-SELLAR-1907-GUTENBERG-38326",
+        "work_title": "Historia ecclesiastica gentis Anglorum / Bede's Ecclesiastical History of England",
+        "expected_text_location": "library-text://LIB-MEDIEVAL-AUTHORITY-013-BEDE-ECCLESIASTICAL-HISTORY-SELLAR-1907-GUTENBERG-38326.txt",
+        "text_encoding": "utf-8",
+        "language": "english",
+        "translator": "A. M. Sellar",
+        "editor": "",
+        "edition_label": "Project Gutenberg ebook 38326; A. M. Sellar, A Revised Translation, George Bell and Sons, London, 1907; released 2011-12-17, updated 2020-06-17",
+        "license_status": "public-domain",
+        "license_notes": "Project Gutenberg marks ebook 38326 public domain in the USA and includes its license and non-US jurisdiction warning in the unmodified text. Admission would preserve the complete Gutenberg wrapper and make no rights claim outside the United States.",
+        "coverage_status": "complete-work",
+        "coverage_notes": "The unmodified Gutenberg body contains Sellar's front matter and all five books through Book V, chapter XXIV, plus notes, index, wrapper, and license. Complete-work applies only to this named English edition; it does not establish Latin equivalence or source-authority completeness.",
+        "initial_status": "available"
+      },
+      "proposed_import_arguments": {
+        "source_id": "LIB-MEDIEVAL-AUTHORITY-013-BEDE",
+        "body_id": "LIB-MEDIEVAL-AUTHORITY-013-BEDE-ECCLESIASTICAL-HISTORY-SELLAR-1907-GUTENBERG-38326",
+        "work_title": "Historia ecclesiastica gentis Anglorum / Bede's Ecclesiastical History of England",
+        "language": "english",
+        "translator": "A. M. Sellar",
+        "editor": "",
+        "encoding": "utf-8",
+        "license_status": "public-domain",
+        "coverage_status": "complete-work",
+        "replace_body": false
+      }
+    }
+  },
+  "required_gates": [
+    {
+      "gate": "metadata-record",
+      "status": "pending-authorization",
+      "requirement": "Add the exact located source record to library-registry.json and validate it before any body dry-run."
+    },
+    {
+      "gate": "rights-decision",
+      "status": "pending-authorization",
+      "requirement": "Accept public-domain as the registry posture for the United States while preserving Gutenberg's non-US warning and full license wrapper."
+    },
+    {
+      "gate": "hash-recheck",
+      "status": "passed-at-proposal-time",
+      "requirement": "Immediately before dry-run and admission, confirm SHA-256 and byte count still match the inspection receipt."
+    },
+    {
+      "gate": "import-dry-run",
+      "status": "blocked-by-missing-registry-record",
+      "requirement": "Run Library Import with --check against the exact source file, body ID, metadata, license, and coverage arguments."
+    },
+    {
+      "gate": "body-admission",
+      "status": "not-authorized",
+      "requirement": "Only a separately authorized non-check import may copy the body into the configured private text store and mutate the registry."
+    },
+    {
+      "gate": "post-admission-validation",
+      "status": "not-started",
+      "requirement": "Run library validate, render-index --check, verify-texts, and tests/test_archive_library.py; confirm the Medieval index is reconciled under the separately authorized implementation contract."
+    }
+  ],
+  "maturity_projection": {
+    "after_metadata_only": 1,
+    "after_unverified_body_admission": 2,
+    "maximum_without_latin_counterpart": 4,
+    "level_5_or_6_authorized": false,
+    "notes": "Admission alone must not mark the source reviewed or verified. A verified Latin body and an explicit cross-edition relationship are required before considering Level 5."
+  },
+  "non_authorizations": [
+    "No registry mutation",
+    "No copy or move into the private library text store",
+    "No body admission",
+    "No available, verified, or reviewed status change",
+    "No Medieval index mutation",
+    "No staging, commit, push, Archive ingestion, or publication"
+  ]
+}

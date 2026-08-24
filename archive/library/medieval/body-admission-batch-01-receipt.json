@@ -1,0 +1,50 @@
+{
+  "schema_version": "1.0",
+  "batch_id": "MEDIEVAL-BODY-ADMISSION-01",
+  "date": "2026-08-19",
+  "status": "partial-success",
+  "scope": "Expanded three-authority cohort: Ferdowsi, Jayadeva, and Amir Khusrau",
+  "admitted": [
+    {
+      "source_id": "LIB-MEDIEVAL-AUTHORITY-039-FERDOWSI",
+      "body_id": "LIB-MEDIEVAL-AUTHORITY-039-SHAHNAMEH-ATKINSON-ABRIDGED-GUTENBERG-10315",
+      "text_sha256": "b6febc1a60a69cd4119b1e604eebaa9dc513267c86db1eb08c2f2301b0add525",
+      "text_bytes": 746363,
+      "coverage_status": "selected-passages",
+      "license_status": "public-domain"
+    },
+    {
+      "source_id": "LIB-MEDIEVAL-AUTHORITY-049-JAYADEVA",
+      "body_id": "LIB-MEDIEVAL-AUTHORITY-049-GITA-GOVINDA-ARNOLD-ADAPTATION-GUTENBERG-25965",
+      "text_sha256": "8319320204013e837484167e433796ebc110fc0f2a738a2cc03fa0e4d542686f",
+      "text_bytes": 79759,
+      "coverage_status": "selected-passages",
+      "license_status": "public-domain"
+    }
+  ],
+  "deferred": [
+    {
+      "source_id": "LIB-MEDIEVAL-AUTHORITY-052-AMIR-KHUSRAU",
+      "candidate_sha256": "168b2d54409a9df658696a84b2cee87a079fb4461c5242ac809eea1fbfbe7753",
+      "reason": "The 99-page Zenodo PDF is CC BY 4.0 and has an extractable but imperfect OCR layer. Page-order and text-layer reconciliation remain incomplete, so no body was admitted."
+    }
+  ],
+  "post_batch_totals": {
+    "medieval_authorities": 11,
+    "medieval_bodies": 32,
+    "medieval_text_bytes": 36742461,
+    "managed_bodies_all_eras": 225
+  },
+  "validation": {
+    "library_validate": "passed",
+    "render_index_check": "passed",
+    "verify_texts_checked": 225,
+    "verify_texts_missing": 0,
+    "archive_library_tests": "24 passed"
+  },
+  "archive_imported": false,
+  "staged": false,
+  "committed": false,
+  "pushed": false,
+  "published": false
+}

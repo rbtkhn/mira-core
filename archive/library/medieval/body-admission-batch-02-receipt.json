@@ -1,0 +1,62 @@
+{
+  "schema_version": "1.0",
+  "batch_id": "MEDIEVAL-BODY-ADMISSION-02",
+  "date": "2026-08-19",
+  "status": "partial-success",
+  "scope": {
+    "roster_records_added": 49,
+    "authorities_processed_for_body_recovery": 10
+  },
+  "roster_result": {
+    "selected_roster_authorities": 60,
+    "medieval_registry_authorities": 60,
+    "new_records_initial_status": "stub",
+    "new_records_initial_text_status": "missing",
+    "new_records_initial_coverage_status": "metadata-only"
+  },
+  "admitted": [
+    {
+      "source_id": "LIB-MEDIEVAL-AUTHORITY-014-EINHARD",
+      "body_id": "LIB-MEDIEVAL-AUTHORITY-014-EINHARD-LIFE-CHARLEMAGNE-GRANT-GUTENBERG-48870",
+      "text_sha256": "5338fa224d39f703f71cb6c6a8b3965ab3c606bdc3f1bd8e27bd7efb164a9df3",
+      "text_bytes": 69139,
+      "coverage_status": "complete-work"
+    },
+    {
+      "source_id": "LIB-MEDIEVAL-AUTHORITY-073-GEOFFREY-CHAUCER",
+      "body_id": "LIB-MEDIEVAL-AUTHORITY-073-CHAUCER-CANTERBURY-TALES-SKEAT-GUTENBERG-22120-NO-GAMELYN",
+      "text_sha256": "fec85234e5b72f59c3a78c8d737f93ce18909d501862f828d1d118e3f94c6a58",
+      "text_bytes": 1414906,
+      "coverage_status": "complete-work"
+    }
+  ],
+  "isolated_failures": [
+    {"source_id": "LIB-MEDIEVAL-AUTHORITY-003-ANNA-KOMNENE", "blocker": "Fordham electronic-form terms permit educational and personal redistribution but prohibit commercial reuse; no clean openly licensed text body was established."},
+    {"source_id": "LIB-MEDIEVAL-AUTHORITY-011-RULE-SAINT-BENEDICT", "blocker": "The Gutenberg body retains a 1948 copyright notice whose public-domain basis has not been independently resolved."},
+    {"source_id": "LIB-MEDIEVAL-AUTHORITY-016-MAGNA-CARTA-TRADITION", "blocker": "The National Archives PDF lacks a resolved file-specific reuse basis and clean text lineage."},
+    {"source_id": "LIB-MEDIEVAL-AUTHORITY-024-QURANIC-TEXTUAL-TRADITION", "blocker": "The Tanzil body carries an additional verbatim-only/no-change condition requiring governance review."},
+    {"source_id": "LIB-MEDIEVAL-AUTHORITY-046-KALHANA", "blocker": "Both Stein volumes remain unreconciled OCR derivatives."},
+    {"source_id": "LIB-MEDIEVAL-AUTHORITY-038-AL-BIRUNI", "blocker": "The located OCR item carries restrictive item-level terms and remains unreconciled."},
+    {"source_id": "LIB-MEDIEVAL-AUTHORITY-025-AL-TABARI", "blocker": "Only one Arabic OCR volume is present; rights and OCR fidelity remain unresolved."},
+    {"source_id": "LIB-MEDIEVAL-AUTHORITY-033-IBN-KHALDUN", "blocker": "The Arabic edition sequence is incomplete and its OCR and item rights remain unresolved."}
+  ],
+  "post_batch_totals": {
+    "medieval_authorities": 60,
+    "medieval_bodies": 34,
+    "medieval_text_bytes": 38226506,
+    "managed_bodies_all_eras": 227
+  },
+  "validation": {
+    "library_validate": "passed",
+    "render_index_check": "passed",
+    "verify_texts_checked": 227,
+    "verify_texts_missing_source_authorities": 47,
+    "verify_texts_failures": 0,
+    "archive_library_tests": "24 passed"
+  },
+  "archive_imported": false,
+  "staged": false,
+  "committed": false,
+  "pushed": false,
+  "published": false
+}

@@ -1,0 +1,26 @@
+{
+  "schema_version": "library-body-admission-receipt-v1",
+  "admitted_on": "2026-08-19",
+  "status": "admitted",
+  "source_id": "LIB-MEDIEVAL-AUTHORITY-001-JUSTINIANIC-LEGAL-TRADITION",
+  "inspection_receipt": "archive/library/medieval/portable-batch-07-inspection.json",
+  "body": {
+    "body_id": "LIB-MEDIEVAL-AUTHORITY-001-JUSTINIAN-INSTITUTES-MOYLE-1913-GUTENBERG-5983",
+    "work_title": "The Institutes of Justinian",
+    "text_location": "library-text://LIB-MEDIEVAL-AUTHORITY-001-JUSTINIAN-INSTITUTES-MOYLE-1913-GUTENBERG-5983.txt",
+    "text_bytes": 494087,
+    "text_sha256": "f8ea7c1558e7a70353157f02bf9f69dfe5c75acaf71f65dac2ff3c3677dfd951",
+    "language": "english",
+    "translator": "John Baron Moyle",
+    "edition": "Fifth edition, 1913; Project Gutenberg ebook 5983",
+    "status": "available",
+    "coverage_status": "complete-work"
+  },
+  "component_boundary": "Complete-work applies only to the Institutiones component.",
+  "unresolved_components": ["Digesta","Codex Iustinianus","Novellae"],
+  "claims_not_made": ["No complete Corpus Iuris Civilis","No Latin-English equivalence","No reviewed or verified status","No Level 5 or Level 6 maturity"],
+  "registry_updated": true,
+  "private_text_store_updated": true,
+  "archive_catalog_updated": false,
+  "publication": {"staged":false,"committed":false,"pushed":false,"published":false}
+}

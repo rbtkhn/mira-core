@@ -1,0 +1,41 @@
+{
+  "schema_version": "library-cohort-admission-receipt-v1",
+  "admitted_on": "2026-08-19",
+  "status": "admitted",
+  "inspection_receipt": "archive/library/medieval/portable-batch-06-inspection.json",
+  "dry_runs_passed_before_admission": 14,
+  "bodies_admitted": 14,
+  "cohorts": [
+    {
+      "source_id": "LIB-MEDIEVAL-AUTHORITY-017-THOMAS-AQUINAS",
+      "body_count": 4,
+      "body_ids": [
+        "LIB-MEDIEVAL-AUTHORITY-017-AQUINAS-SUMMA-PRIMA-PARS-GUTENBERG-17611",
+        "LIB-MEDIEVAL-AUTHORITY-017-AQUINAS-SUMMA-PRIMA-SECUNDAE-GUTENBERG-17897",
+        "LIB-MEDIEVAL-AUTHORITY-017-AQUINAS-SUMMA-SECUNDA-SECUNDAE-GUTENBERG-18755",
+        "LIB-MEDIEVAL-AUTHORITY-017-AQUINAS-SUMMA-TERTIA-PARS-GUTENBERG-19950"
+      ],
+      "coverage_limit": "Four English parts only; Supplement absent; no Latin counterpart or complete-work claim."
+    },
+    {
+      "source_id": "LIB-MEDIEVAL-AUTHORITY-075-ALF-LAYLA-WA-LAYLA-TRADITION",
+      "body_count": 10,
+      "body_id_prefix": "LIB-MEDIEVAL-AUTHORITY-075-BURTON-MAIN-VOL-",
+      "coverage_limit": "Complete ten-volume Burton main English edition only; Supplemental Nights excluded; no Arabic equivalence, medieval-layer identity, or tradition-level completeness."
+    }
+  ],
+  "body_status": "available",
+  "body_coverage_status": "partial-work",
+  "registry_updated": true,
+  "private_text_store_updated": true,
+  "archive_catalog_updated": false,
+  "claims_not_made": [
+    "No complete multipart Summa Theologiae",
+    "No Aquinas Latin-English equivalence",
+    "No fixed or complete medieval Nights corpus",
+    "No Burton-Arabic equivalence",
+    "No verified or reviewed status",
+    "No Level 5 or Level 6 maturity"
+  ],
+  "publication": {"staged":false,"committed":false,"pushed":false,"published":false}
+}

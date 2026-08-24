@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "batch_id": "MEDIEVAL-BODY-ADMISSION-04",
+  "date": "2026-08-19",
+  "status": "partial-success",
+  "scope": {
+    "authorities_evaluated": 12,
+    "admitted_bodies": 1,
+    "isolated_failures": 11
+  },
+  "admitted": [
+    {
+      "source_id": "LIB-MEDIEVAL-AUTHORITY-019-MAIMONIDES",
+      "body_id": "LIB-MEDIEVAL-AUTHORITY-019-MAIMONIDES-GUIDE-FRIEDLANDER-GUTENBERG-73584",
+      "work_title": "The Guide for the Perplexed",
+      "edition": "M. Friedlander translation, second edition revised throughout; George Routledge & Sons, London, 1910; Project Gutenberg ebook 73584",
+      "source_url": "https://www.gutenberg.org/ebooks/73584",
+      "text_sha256": "4edcd99449a3f7928fc6a1e268f0dad72b7d922d506a010510b11459a40742c6",
+      "text_bytes": 1618331,
+      "license_status": "public-domain",
+      "coverage_status": "complete-work",
+      "status": "available"
+    }
+  ],
+  "isolated_failures": [
+    {"authority": "Constantine VII", "reason": "The located Serbian Wikisource surface is a short index to selected chapters 30-36, not a complete inspected body."},
+    {"authority": "Michael Psellos", "reason": "The located complete Fordham English text carries an electronic-use restriction incompatible with a clean rights-clear admission in this cohort."},
+    {"authority": "Kebra Nagast textual tradition", "reason": "The candidate Sacred Texts route returned HTTP 403 and no independently inspectable replacement body was resolved."},
+    {"authority": "Domesday Book textual tradition", "reason": "No portable corpus body with a defensible edition boundary was resolved."},
+    {"authority": "Judah Halevi", "reason": "The candidate Sacred Texts route returned HTTP 403; older OCR routes remain uninspected and edition-risky."},
+    {"authority": "al-Masudi", "reason": "The known route is a nine-volume OCR set whose edition integrity and volume reconciliation remain unresolved."},
+    {"authority": "Ibn Battuta", "reason": "The located Lee route is abridged OCR and cannot support a complete-work claim."},
+    {"authority": "Ibn Jubayr", "reason": "The Arabic Wikisource landing page is only a section index; the older OCR candidate remains uninspected."},
+    {"authority": "Rashid al-Din", "reason": "The composite textual tradition still lacks a portable body with a defensible work and edition boundary."},
+    {"authority": "Xuanzang", "reason": "Located OCR routes mix edition and/or volume lineages and were not safe to admit as a reconciled body."},
+    {"authority": "Shen Kuo", "reason": "No rights-clear, inspectable English body was resolved; the translation gap remains explicit."}
+  ],
+  "post_batch_totals": {
+    "medieval_authorities": 60,
+    "medieval_bodies": 39,
+    "medieval_text_bytes": 42457983,
+    "medieval_needs_review_bodies": 1,
+    "managed_bodies_all_eras": 232
+  },
+  "validation": {
+    "library_validate": "passed",
+    "render_index_check": "passed",
+    "available_bodies_verified": 231,
+    "verify_texts_failures": 0,
+    "missing_sources": 43,
+    "archive_library_tests": "24 passed"
+  },
+  "archive_imported": false,
+  "staged": false,
+  "committed": false,
+  "pushed": false,
+  "published": false
+}

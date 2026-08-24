@@ -1,0 +1,39 @@
+{
+  "schema_version": "library-body-admission-receipt-v1",
+  "admitted_on": "2026-08-19",
+  "status": "admitted",
+  "source_id": "LIB-MEDIEVAL-AUTHORITY-012-GREGORY-TOURS",
+  "inspection_receipt": "archive/library/medieval/portable-batch-05-inspection.json",
+  "execution": {
+    "dry_run_passed_before_admission": true,
+    "registry_updated": true,
+    "private_text_store_updated": true,
+    "archive_catalog_updated": false,
+    "body": {
+      "body_id": "LIB-MEDIEVAL-AUTHORITY-012-GREGORY-HISTORY-FRANKS-BREHAUT-GUTENBERG-74955",
+      "text_location": "library-text://LIB-MEDIEVAL-AUTHORITY-012-GREGORY-HISTORY-FRANKS-BREHAUT-GUTENBERG-74955.txt",
+      "text_bytes": 717726,
+      "text_sha256": "f285fd7b3b17b32c678ede86b951487f69c5846d632eef16b922ca29caa4f5fe",
+      "language": "english",
+      "translator": "Ernest Brehaut",
+      "edition": "Columbia University Press, 1916; Project Gutenberg ebook 74955",
+      "status": "available",
+      "coverage_status": "selected-passages"
+    }
+  },
+  "coverage_limit": "Brehaut explicitly presents selections, omits chapters, summarizes some omissions, and appends selections from the Eight Books of Miracles. The body is not a complete translation of the Ten Books of Histories.",
+  "claims_not_made": [
+    "No complete-work body",
+    "No Latin counterpart",
+    "No English-Latin equivalence",
+    "No complete surviving Gregory corpus",
+    "No verified or reviewed status",
+    "No Level 5 or Level 6 maturity"
+  ],
+  "publication": {
+    "staged": false,
+    "committed": false,
+    "pushed": false,
+    "published": false
+  }
+}

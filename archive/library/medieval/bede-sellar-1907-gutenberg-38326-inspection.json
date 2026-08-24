@@ -1,0 +1,71 @@
+{
+  "schema_version": "library-body-inspection-v1",
+  "inspected_on": "2026-08-19",
+  "status": "inspected-not-admitted",
+  "authority_effect": "none",
+  "candidate_id": "MED-CAND-013",
+  "proposed_source_id": "LIB-MEDIEVAL-AUTHORITY-013-BEDE",
+  "authority": "Bede",
+  "work": "Historia ecclesiastica gentis Anglorum",
+  "body": {
+    "language": "English",
+    "title": "Bede's Ecclesiastical History of England",
+    "translator": "A. M. Sellar",
+    "edition_label": "A Revised Translation, George Bell and Sons, London, 1907",
+    "upstream_repository": "Project Gutenberg",
+    "ebook_number": 38326,
+    "source_url": "https://www.gutenberg.org/ebooks/38326.txt.utf-8",
+    "landing_url": "https://www.gutenberg.org/ebooks/38326",
+    "format": "text/plain; UTF-8; CRLF",
+    "private_inspection_path": "C:\\private\\mira-core-bede-inspection-20260819\\pg38326.txt",
+    "byte_count": 1093654,
+    "line_count": 21876,
+    "sha256": "977da0babf070c825befb0a5db65a9cc2440d9ab45aa869a959c1bab911be2c8"
+  },
+  "checks": {
+    "header_matches_author": true,
+    "header_matches_work": true,
+    "header_matches_translator": true,
+    "front_matter_matches_edition": true,
+    "valid_utf8": true,
+    "nul_byte_count": 0,
+    "replacement_character_count": 0,
+    "gutenberg_start_marker_count": 1,
+    "gutenberg_end_marker_count": 1,
+    "body_book_markers": ["BOOK I", "BOOK II", "BOOK III", "BOOK IV", "BOOK V"],
+    "body_book_marker_count": 5,
+    "final_book_chapter_xxiv_located": true,
+    "license_text_present": true
+  },
+  "rights": {
+    "posture": "plausible-open",
+    "source_assertion": "Project Gutenberg marks ebook 38326 public domain in the USA and includes its license and non-US jurisdiction warning in the downloaded body.",
+    "jurisdiction_limit": "No claim is made for jurisdictions outside the United States.",
+    "admission_license_decision": "pending"
+  },
+  "coverage": {
+    "body_claim_ceiling": "complete-work-english-sellar-1907",
+    "source_claim_ceiling": "principal-work",
+    "equivalence_claim": "none",
+    "notes": "All five books of Sellar's English translation are present by contents and body markers. This body does not establish equivalence to a separately verified Latin edition and does not represent Bede's complete surviving corpus."
+  },
+  "cleanliness": {
+    "result": "mechanically-clean-with-required-wrapper",
+    "notes": "The body is valid UTF-8 with consistent CRLF line endings. Gutenberg header, footer, license, editorial introduction, notes, and index remain part of the provenance body and have not been stripped or normalized."
+  },
+  "decision": {
+    "inspection_passed": true,
+    "admission_ready": false,
+    "reason": "The file passes identity, encoding, wrapper, and work-structure inspection, but exact admission rights treatment and the durable private-store destination remain unapproved; no Latin counterpart has been inspected.",
+    "next_action": "If separately authorized, prepare an admission proposal preserving the unmodified file, hash, Gutenberg license, English-only coverage ceiling, and lack of Latin equivalence."
+  },
+  "mutations": {
+    "downloaded_to_private_inspection_root": true,
+    "private_library_store_changed": false,
+    "registry_changed": false,
+    "era_index_changed": false,
+    "staged": false,
+    "committed": false,
+    "published": false
+  }
+}

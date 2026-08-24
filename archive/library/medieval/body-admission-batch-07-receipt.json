@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0",
+  "batch_id": "MEDIEVAL-BODY-ADMISSION-07",
+  "date": "2026-08-19",
+  "status": "success-with-review-debt",
+  "permission_basis": {
+    "status": "operator-asserted",
+    "assertion": "The operator confirmed on 2026-08-19 that they hold all rights for the blocked Batch 06 items.",
+    "independently_verified": false,
+    "registry_license_status": "permissioned"
+  },
+  "scope": {"authorities_considered":11,"authorities_with_exact_payloads":9,"admitted_bodies":12,"authorities_without_payloads":2},
+  "admitted": [
+    {"source_id":"LIB-MEDIEVAL-AUTHORITY-025-AL-TABARI","body_id":"LIB-MEDIEVAL-AUTHORITY-025-AL-TABARI-DE-GOEJE-SERIES-1-VOL-3-IA-OCR-PERMISSIONED","text_bytes":1154804,"text_sha256":"4ef82407448b4b3715af894988a8438b96377f6f89747c2a36420f97bf5088c0","status":"needs-review"},
+    {"source_id":"LIB-MEDIEVAL-AUTHORITY-033-IBN-KHALDUN","body_id":"LIB-MEDIEVAL-AUTHORITY-033-IBN-KHALDUN-PROLEGOMENES-QUATREMERE-VOL-1-IA-OCR-PERMISSIONED","text_bytes":655217,"text_sha256":"86bf0275e250ea0e1cb77aa398613d1020396d9551e7adf7b8d37189db0a0d63","status":"needs-review"},
+    {"source_id":"LIB-MEDIEVAL-AUTHORITY-033-IBN-KHALDUN","body_id":"LIB-MEDIEVAL-AUTHORITY-033-IBN-KHALDUN-PROLEGOMENES-QUATREMERE-VOL-2-IA-OCR-PERMISSIONED","text_bytes":354220,"text_sha256":"90124bf9304f902bb7e3466ddf51aaca6b0e51867e4e7644dcef6dfd1a1f48f6","status":"needs-review"},
+    {"source_id":"LIB-MEDIEVAL-AUTHORITY-037-NIZAM-AL-MULK","body_id":"LIB-MEDIEVAL-AUTHORITY-037-NIZAM-AL-MULK-SIASSET-NAMEH-SCHEFER-VOL-1-IA-OCR-PERMISSIONED","text_bytes":403515,"text_sha256":"6740b5fb1f5fa3291b05d617bada05c8af8371b1c8397f7df688b454ed74026e","status":"needs-review"},
+    {"source_id":"LIB-MEDIEVAL-AUTHORITY-038-AL-BIRUNI","body_id":"LIB-MEDIEVAL-AUTHORITY-038-AL-BIRUNI-INDIA-SACHAU-VOLS-1-2-IA-OCR-PERMISSIONED","text_bytes":1583707,"text_sha256":"0ff2e77782540fd19dde8fb065045d31e7dbe11fb14495b4fca87d7fbca5f9ce","status":"needs-review"},
+    {"source_id":"LIB-MEDIEVAL-AUTHORITY-042-NASIR-KHUSRAW","body_id":"LIB-MEDIEVAL-AUTHORITY-042-NASIR-KHUSRAW-SAFARNAMA-LE-STRANGE-EXTRACT-IA-OCR-PERMISSIONED","text_bytes":175681,"text_sha256":"651c42e3a6c5567eabebbddc5e0824acbd8ea9d0d65d77d3694da20cbae73467","status":"needs-review"},
+    {"source_id":"LIB-MEDIEVAL-AUTHORITY-046-KALHANA","body_id":"LIB-MEDIEVAL-AUTHORITY-046-KALHANA-RAJATARANGINI-STEIN-VOL-1-IA-OCR-PERMISSIONED","text_bytes":1872096,"text_sha256":"831891eb5eb2dfc90a5f4b7887b7f49198ea8eac0ba594f0f44b2a0e3be9d842","status":"needs-review"},
+    {"source_id":"LIB-MEDIEVAL-AUTHORITY-046-KALHANA","body_id":"LIB-MEDIEVAL-AUTHORITY-046-KALHANA-RAJATARANGINI-STEIN-VOL-2-IA-OCR-PERMISSIONED","text_bytes":1940240,"text_sha256":"cd775b4562e2212dcbadbfef6a756c8c6d0d49239a3d82ab2e607d2252b2898c","status":"needs-review"},
+    {"source_id":"LIB-MEDIEVAL-AUTHORITY-048-BHASKARA-II","body_id":"LIB-MEDIEVAL-AUTHORITY-048-BHASKARA-COLEBROOKE-1817-MIXED-IA-OCR-PERMISSIONED","text_bytes":1237681,"text_sha256":"b8545c40513783252eebea9e1c389c6e58d1c4ba7a828308df3a3cd5193a1da9","status":"needs-review"},
+    {"source_id":"LIB-MEDIEVAL-AUTHORITY-065-NIHON-SHOKI-TRADITION","body_id":"LIB-MEDIEVAL-AUTHORITY-065-NIHONGI-ASTON-VOL-1-IA-OCR-PERMISSIONED","text_bytes":928209,"text_sha256":"09d36fc2ab98e62472a24d7bea48007ddbf09e98b515b1b9d94350d4f343c91f","status":"needs-review"},
+    {"source_id":"LIB-MEDIEVAL-AUTHORITY-065-NIHON-SHOKI-TRADITION","body_id":"LIB-MEDIEVAL-AUTHORITY-065-NIHONGI-ASTON-VOL-2-IA-OCR-PERMISSIONED","text_bytes":1005263,"text_sha256":"8f6e9d031ceed3d3de9ae71c0e2ee362108f17203f6664e1cf9086c7d2bc251b","status":"needs-review"},
+    {"source_id":"LIB-MEDIEVAL-AUTHORITY-068-TALE-OF-HEIKE-TRADITION","body_id":"LIB-MEDIEVAL-AUTHORITY-068-TALE-HEIKE-SADLER-IA-OCR-PERMISSIONED","text_bytes":1318046,"text_sha256":"dc4ed91ca1fecb09e8ea1dff3694db22fb9c7fbe60995ab481c56e4f185fa83e","status":"needs-review"}
+  ],
+  "not_admitted": [
+    {"source_id":"LIB-MEDIEVAL-AUTHORITY-050-JNANESHWAR","reason":"No exact recovered candidate payload exists to bind to the permission assertion."},
+    {"source_id":"LIB-MEDIEVAL-AUTHORITY-061-LI-QINGZHAO","reason":"No exact recovered candidate payload exists to bind to the permission assertion."}
+  ],
+  "post_batch_totals":{"medieval_authorities":60,"medieval_bodies":67,"medieval_text_bytes":65216979,"medieval_needs_review_bodies":14,"managed_bodies_all_eras":260},
+  "validation":{"library_validate":"passed","render_index_check":"passed","available_bodies_verified":246,"verify_texts_failures":0,"missing_or_review_excluded":43,"archive_library_tests":"24 passed"},
+  "archive_imported":false,
+  "staged":false,
+  "committed":false,
+  "pushed":false,
+  "published":false
+}

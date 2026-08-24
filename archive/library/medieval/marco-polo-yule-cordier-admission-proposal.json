@@ -1,0 +1,94 @@
+{
+  "schema_version": "library-body-admission-proposal-v1",
+  "prepared_on": "2026-08-19",
+  "status": "proposal-only",
+  "authority_effect": "none",
+  "candidate_id": "MED-CAND-074",
+  "source_id": "LIB-MEDIEVAL-AUTHORITY-074-MARCO-POLO-RUSTICHELLO-TRADITION",
+  "inspection_receipt": "archive/library/medieval/portable-batch-04-inspection.json",
+  "source_metadata": {
+    "registry_status": "located",
+    "text_status": "missing",
+    "coverage_status": "principal-work",
+    "maturity_after_metadata_only": 1,
+    "boundary": "Collaborative multilingual textual tradition; the paired English edition is not equivalent to BnF français 1116 and does not establish a single authorial text."
+  },
+  "proposed_bodies": [
+    {
+      "source_file": "C:\\private\\mira-core-medieval-portable-batch-04-20260819\\marco-polo-yule-cordier-vol1-pg10636.txt",
+      "expected_source_sha256": "7b0cbb0bc47a48d7594314b56d890e3e43ac05666b8c70d98f10719501cf6fb5",
+      "expected_source_bytes": 2345876,
+      "body_id": "LIB-MEDIEVAL-AUTHORITY-074-MARCO-POLO-YULE-CORDIER-VOL-1-GUTENBERG-10636",
+      "work_title": "The Travels of Marco Polo, complete Yule-Cordier edition, volume I",
+      "expected_text_location": "library-text://LIB-MEDIEVAL-AUTHORITY-074-MARCO-POLO-YULE-CORDIER-VOL-1-GUTENBERG-10636.txt",
+      "text_encoding": "utf-8",
+      "language": "english",
+      "translator": "Henry Yule",
+      "editor": "Henri Cordier",
+      "edition_label": "The Book of Ser Marco Polo, third edition, London 1903, revised by Henri Cordier; complete Yule-Cordier edition volume I; Project Gutenberg ebook 10636",
+      "license_status": "public-domain",
+      "license_notes": "Project Gutenberg marks ebook 10636 public domain in the United States and includes its license and non-US jurisdiction warning in the unmodified file.",
+      "coverage_status": "partial-work",
+      "coverage_notes": "Volume I of the two-volume Yule-Cordier English editorial edition. This body alone is incomplete; it is not equivalent to BnF français 1116 or any other named medieval witness.",
+      "initial_status": "available"
+    },
+    {
+      "source_file": "C:\\private\\mira-core-medieval-portable-batch-04-20260819\\marco-polo-yule-cordier-vol2-pg12410.txt",
+      "expected_source_sha256": "c1ce61dd8c6c6a326c42fb7ac3b1a63767bf1685ec88354f83dd321e1748921c",
+      "expected_source_bytes": 2421259,
+      "body_id": "LIB-MEDIEVAL-AUTHORITY-074-MARCO-POLO-YULE-CORDIER-VOL-2-GUTENBERG-12410",
+      "work_title": "The Travels of Marco Polo, complete Yule-Cordier edition, volume II",
+      "expected_text_location": "library-text://LIB-MEDIEVAL-AUTHORITY-074-MARCO-POLO-YULE-CORDIER-VOL-2-GUTENBERG-12410.txt",
+      "text_encoding": "utf-8",
+      "language": "english",
+      "translator": "Henry Yule",
+      "editor": "Henri Cordier",
+      "edition_label": "The Book of Ser Marco Polo, third edition, London 1903, revised by Henri Cordier, with later notes and addenda 1920; complete Yule-Cordier edition volume II; Project Gutenberg ebook 12410",
+      "license_status": "public-domain",
+      "license_notes": "Project Gutenberg marks ebook 12410 public domain in the United States and includes its license and non-US jurisdiction warning in the unmodified file.",
+      "coverage_status": "partial-work",
+      "coverage_notes": "Volume II of the two-volume Yule-Cordier English editorial edition. Paired with volume I it completes only this named English edition; it is not equivalent to BnF français 1116 or any other named medieval witness.",
+      "initial_status": "available"
+    }
+  ],
+  "required_gates": [
+    {
+      "gate": "metadata-record",
+      "status": "passed",
+      "requirement": "The conservative located source record exists and validates."
+    },
+    {
+      "gate": "paired-body-hash-recheck",
+      "status": "pending-execution",
+      "requirement": "Immediately before dry-run and admission, confirm both SHA-256 hashes and byte counts against this proposal."
+    },
+    {
+      "gate": "paired-body-dry-run",
+      "status": "not-started",
+      "requirement": "Both bodies must pass Library Import dry-run before either is admitted."
+    },
+    {
+      "gate": "body-admission",
+      "status": "not-authorized",
+      "requirement": "A separately authorized bundled execution may admit both volumes; do not admit one as a complete work by itself."
+    },
+    {
+      "gate": "post-admission-validation",
+      "status": "not-started",
+      "requirement": "Run library validate, render-index --check, verify-texts, and tests/test_archive_library.py once after the paired batch."
+    }
+  ],
+  "maturity_projection": {
+    "after_metadata_only": 1,
+    "after_available_paired_bodies": 2,
+    "maximum_without_original_language_witness": 4,
+    "level_5_or_6_authorized": false
+  },
+  "non_authorizations": [
+    "No private-store copy",
+    "No body admission",
+    "No available, verified, or reviewed body status",
+    "No English/original-language equivalence",
+    "No staging, commit, push, Archive ingestion, or publication"
+  ]
+}

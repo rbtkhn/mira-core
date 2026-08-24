@@ -1,0 +1,70 @@
+{
+  "schema_version": "library-body-admission-receipt-v1",
+  "admitted_on": "2026-08-19",
+  "status": "admitted",
+  "source_id": "LIB-MEDIEVAL-AUTHORITY-066-MURASAKI-SHIKIBU",
+  "inspection_receipt": "archive/library/medieval/portable-batch-08-inspection.json",
+  "dry_runs_passed_before_admission": 4,
+  "bodies_admitted": 4,
+  "bodies": [
+    {
+      "body_id": "LIB-MEDIEVAL-AUTHORITY-066-GENJI-WALEY-PART-01-GUTENBERG-66057",
+      "work_title": "The Tale of Genji",
+      "text_location": "library-text://LIB-MEDIEVAL-AUTHORITY-066-GENJI-WALEY-PART-01-GUTENBERG-66057.txt",
+      "text_sha256": "5290fcd9644228c3f61eee6787533e2c9db7bc073677619facb10a127533e0a8",
+      "text_bytes": 573407,
+      "coverage_status": "partial-work"
+    },
+    {
+      "body_id": "LIB-MEDIEVAL-AUTHORITY-066-GENJI-WALEY-PART-02-GUTENBERG-67111",
+      "work_title": "The Sacred Tree",
+      "text_location": "library-text://LIB-MEDIEVAL-AUTHORITY-066-GENJI-WALEY-PART-02-GUTENBERG-67111.txt",
+      "text_sha256": "bdc7a206fefff438f6e8b27ad6d1e7c5b5457ba513bae70f6942ab1f550efd5c",
+      "text_bytes": 573143,
+      "coverage_status": "partial-work"
+    },
+    {
+      "body_id": "LIB-MEDIEVAL-AUTHORITY-066-GENJI-WALEY-PART-03-GUTENBERG-75852",
+      "work_title": "A Wreath of Cloud",
+      "text_location": "library-text://LIB-MEDIEVAL-AUTHORITY-066-GENJI-WALEY-PART-03-GUTENBERG-75852.txt",
+      "text_sha256": "53a1e83b951a9313c2684a0f5026b1c025f28edb3f4af930daf1d954b7ca98f1",
+      "text_bytes": 594744,
+      "coverage_status": "partial-work"
+    },
+    {
+      "body_id": "LIB-MEDIEVAL-AUTHORITY-066-GENJI-WALEY-PART-04-GUTENBERG-77408",
+      "work_title": "Blue Trousers",
+      "text_location": "library-text://LIB-MEDIEVAL-AUTHORITY-066-GENJI-WALEY-PART-04-GUTENBERG-77408.txt",
+      "text_sha256": "01a44b37a494bec818d42e8ce80421b5fe31b0fb08eac5614a34f8975b783b01",
+      "text_bytes": 640509,
+      "coverage_status": "partial-work"
+    }
+  ],
+  "source_status": "located",
+  "text_status": "available",
+  "source_coverage_status": "principal-work",
+  "coverage_limit": "Arthur Waley English translation parts 1 through 4 of 6 only; parts 5 and 6 and an original-language body are absent.",
+  "registry_updated": true,
+  "private_text_store_updated": true,
+  "indexes_regenerated": [
+    "archive/library/text-sources-index.md",
+    "archive/library/medieval/index.md"
+  ],
+  "validation": {
+    "library_validate": "passed",
+    "render_index_check": "passed",
+    "verify_texts": {"status":"passed","checked":223,"missing":0,"failures":0},
+    "focused_tests": {"status":"passed","passed":24}
+  },
+  "claims_not_made": [
+    "No complete Tale of Genji body",
+    "No Waley parts 5 or 6",
+    "No original-language Japanese body",
+    "No Japanese-English equivalence",
+    "No complete-surviving-corpus claim",
+    "No verified or reviewed body status",
+    "No Level 5 or Level 6 maturity"
+  ],
+  "archive_catalog_updated": false,
+  "publication": {"staged":false,"committed":false,"pushed":false,"published":false}
+}

@@ -1,0 +1,85 @@
+{
+  "schema_version": "library-body-admission-proposal-v1",
+  "prepared_on": "2026-08-20",
+  "status": "proposal-only",
+  "authority_effect": "none",
+  "candidate_id": "MED-CAND-077",
+  "dependency": "Accept the separate 62-authority roster expansion proposal before registry creation or body dry-run.",
+  "inspection_receipt": "C:\\private\\mira-core-medieval-narrow-batch-20260820\\correction-batch-receipt.json",
+  "proposal": {
+    "source_metadata_phase": {
+      "required_before_body_dry_run": true,
+      "record": {
+        "source_id": "LIB-MEDIEVAL-AUTHORITY-077-JOHN-OF-PLANO-CARPINI",
+        "title": "Historia Mongalorum",
+        "author": "John of Plano Carpini",
+        "subject_era": "medieval",
+        "source_composition_era": "medieval",
+        "edition_era": "industrial",
+        "secondary_eras": [],
+        "date_start": 1247,
+        "date_end": 1247,
+        "date_label": "c. 1247",
+        "era_basis": "composition_period",
+        "civilization_tags": ["latin-christendom", "mongol-empire", "inner-asia"],
+        "source_type": "primary",
+        "location": {"civilization_memory_refs": [], "body_imported": false},
+        "status": "located",
+        "notes": "Papal diplomatic intelligence, ethnography, and eyewitness political memory from the 1245-1247 mission to the Mongol court. Initial candidate is Rockhill's 1900 English first account; a complete verified Latin counterpart remains missing.",
+        "text_status": "missing",
+        "text_bodies": [],
+        "coverage_status": "principal-work",
+        "coverage_notes": "Scoped to Carpini's Historia Mongalorum and principal journey account. Excludes Benedict the Pole's companion account, later abridgments, complete recension coverage, and complete-surviving-corpus claims."
+      }
+    },
+    "body_admission_phase": {
+      "source_file": "C:\\private\\mira-core-medieval-narrow-batch-20260820\\carpini-rockhill-1900-collated.txt",
+      "expected_source_sha256": "5171cfce829eed4f9422a73b1bf3aaac52519dd950abd6d6974b69fac5842bc1",
+      "expected_source_bytes": 43293,
+      "proposed_body": {
+        "body_id": "LIB-MEDIEVAL-AUTHORITY-077-CARPINI-JOURNEY-ROCKHILL-1900-EN",
+        "work_title": "Historia Mongalorum / The Journey of Friar John of Pian de Carpine to the Court of Kuyuk Khan, 1245-1247",
+        "expected_text_location": "library-text://LIB-MEDIEVAL-AUTHORITY-077-CARPINI-JOURNEY-ROCKHILL-1900-EN.txt",
+        "text_encoding": "utf-8",
+        "language": "english",
+        "translator": "W. W. Rockhill",
+        "editor": "W. W. Rockhill",
+        "edition_label": "Hakluyt Society, London, 1900; first Carpini account, printed pages 1-32",
+        "license_status": "public-domain",
+        "license_notes": "Proposed United States public-domain posture for the 1900 Rockhill edition. The final header must preserve a non-US jurisdiction caution and identify the modern transcription only as a transformation source; no modern annotation or wrapper is included.",
+        "coverage_status": "complete-work",
+        "coverage_notes": "Complete for the first Carpini account as translated and printed by Rockhill on pages 1-32. Excludes Benedict the Pole's companion account and does not establish Latin equivalence, all recensions, or complete surviving corpus coverage.",
+        "initial_status": "available"
+      },
+      "transformation_evidence": {
+        "pages_compared": 32,
+        "source_scan_pages": "56-87",
+        "minimum_normalized_match": 0.9625,
+        "source_supported_lexical_correction_groups": 22,
+        "report": "C:\\private\\mira-core-medieval-narrow-batch-20260820\\carpini-collation-report.json"
+      }
+    }
+  },
+  "required_gates": [
+    {"gate": "roster-policy", "status": "pending-authorization", "requirement": "Accept the 62-authority exception and add MED-CAND-077 without removing an existing selection."},
+    {"gate": "metadata-record", "status": "pending-authorization", "requirement": "Add and validate the exact located source record before any body dry-run."},
+    {"gate": "rights-and-header", "status": "pending-review", "requirement": "Bind derivation lineage, the United States public-domain rationale, and jurisdiction caution in the admission header."},
+    {"gate": "hash-recheck", "status": "passed-at-proposal-time", "requirement": "Immediately before dry-run and admission, confirm SHA-256 and byte count still match."},
+    {"gate": "import-dry-run", "status": "blocked-by-missing-registry-record", "requirement": "Run Library Import in check mode against the exact source file and proposed metadata."},
+    {"gate": "body-admission", "status": "not-authorized", "requirement": "Only a separately authorized non-check import may copy the body and mutate the registry."},
+    {"gate": "post-admission-validation", "status": "not-started", "requirement": "Run library validate, render-index --check, era-index drift checking, verify-texts, and tests/test_archive_library.py."}
+  ],
+  "maturity_projection": {
+    "after_metadata_only": 1,
+    "after_unverified_body_admission": 2,
+    "maximum_without_latin_counterpart": 4,
+    "level_5_or_6_authorized": false
+  },
+  "non_authorizations": [
+    "No roster or registry mutation",
+    "No copy or move into the private library text store",
+    "No body admission or status change",
+    "No Medieval index mutation",
+    "No staging, commit, push, Archive ingestion, or publication"
+  ]
+}

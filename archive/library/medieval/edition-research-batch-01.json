@@ -1,0 +1,424 @@
+{
+  "schema_version": "medieval-edition-research-batch-v1",
+  "batch_id": "MEDIEVAL-EDITION-RESEARCH-01",
+  "generated_on": "2026-08-19",
+  "status": "review-only",
+  "authority_effect": "none",
+  "candidate_count": 10,
+  "source_count": 20,
+  "source_ceiling": 30,
+  "body_admission_authorized": false,
+  "registry_mutation_authorized": false,
+  "records": [
+    {
+      "candidate_id": "MED-CAND-001",
+      "source_id": "LIB-MEDIEVAL-RESEARCH-BATCH-01-01",
+      "authority": "Justinian I / Tribonianic legal commission",
+      "title": "Corpus Iuris Civilis",
+      "corpus_boundary": "Four separately transmitted components: Institutes, Digest, Codex, and Novels.",
+      "original_route": {
+        "candidate": "University of Grenoble component texts; Mommsen–Krueger/Krueger, with Schoell–Kroll lineage still required for Novels.",
+        "rights_posture": "unknown"
+      },
+      "english_route": {
+        "candidate": "Component public-domain translations only; no complete aligned English corpus confirmed.",
+        "rights_posture": "unknown"
+      },
+      "coverage": {
+        "body_ceiling": "principal-works",
+        "current_maturity": 2,
+        "maturity_ceiling": 6
+      },
+      "disposition": "research-incomplete",
+      "next_action": "Create a four-component edition and rights ledger.",
+      "findings": [
+        {
+          "evidence_status": "confirmed-metadata",
+          "proposition": "Grenoble identifies Mommsen–Krueger and all fifty Digest books.",
+          "url": "https://droitromain.univ-grenoble-alpes.fr/Corpus/digest.htm",
+          "lineage_root": "droitromain.univ-grenoble-alpes.fr"
+        },
+        {
+          "evidence_status": "confirmed-metadata",
+          "proposition": "Grenoble distinguishes component editions.",
+          "url": "https://droitromain.univ-grenoble-alpes.fr/bibliographi.htm",
+          "lineage_root": "droitromain.univ-grenoble-alpes.fr"
+        }
+      ],
+      "unresolved_risks": [
+        "No file has been inspected or admitted.",
+        "Viewability does not establish portability.",
+        "Edition alignment and reuse terms remain body-specific."
+      ]
+    },
+    {
+      "candidate_id": "MED-CAND-024",
+      "source_id": "LIB-MEDIEVAL-RESEARCH-BATCH-01-02",
+      "authority": "Qur'anic textual tradition",
+      "title": "Qur'an",
+      "corpus_boundary": "Reference text, readings, manuscripts, translations, and annotations are separate bodies; initial candidate is Tanzil Hafs only.",
+      "original_route": {
+        "candidate": "Tanzil Uthmani Quran Text, preserved verbatim with required notice and link.",
+        "rights_posture": "plausible-open"
+      },
+      "english_route": {
+        "candidate": "Separately inspected public-domain translation; no English file yet verified.",
+        "rights_posture": "unknown"
+      },
+      "coverage": {
+        "body_ceiling": "Hafs-reference-text-only",
+        "current_maturity": 3,
+        "maturity_ceiling": 6
+      },
+      "disposition": "original-candidate-strong-english-unresolved",
+      "next_action": "Inspect a Tanzil release byte-for-byte, then verify one English edition.",
+      "findings": [
+        {
+          "evidence_status": "confirmed-metadata",
+          "proposition": "Tanzil states CC BY 3.0, verbatim distribution, no changes, attribution, linking, and notice preservation.",
+          "url": "https://tanzil.net/docs/Text_License",
+          "lineage_root": "tanzil.net"
+        },
+        {
+          "evidence_status": "confirmed-metadata",
+          "proposition": "The Quranic Arabic Corpus uses a GNU license for its distinct annotated corpus.",
+          "url": "https://corpus.quran.com/license.jsp",
+          "lineage_root": "corpus.quran.com"
+        }
+      ],
+      "unresolved_risks": [
+        "No file has been inspected or admitted.",
+        "Viewability does not establish portability.",
+        "Edition alignment and reuse terms remain body-specific."
+      ]
+    },
+    {
+      "candidate_id": "MED-CAND-075",
+      "source_id": "LIB-MEDIEVAL-RESEARCH-BATCH-01-03",
+      "authority": "Alf Layla wa-Layla medieval textual tradition",
+      "title": "One Thousand and One Nights",
+      "corpus_boundary": "BnF arabe 3609–3611 only: 281 medieval nights; exclude later Galland additions and Bulaq accretions.",
+      "original_route": {
+        "candidate": "BnF manuscript images; diplomatic Arabic transcription not located.",
+        "rights_posture": "unknown"
+      },
+      "english_route": {
+        "candidate": "Haddawy/Mahdi is aligned but modern and restricted; not proposed for admission.",
+        "rights_posture": "restricted"
+      },
+      "coverage": {
+        "body_ceiling": "selected-works-281-nights",
+        "current_maturity": 2,
+        "maturity_ceiling": 6
+      },
+      "disposition": "metadata-only",
+      "next_action": "Locate an admissible diplomatic Arabic transcription.",
+      "findings": [
+        {
+          "evidence_status": "confirmed-metadata",
+          "proposition": "BnF calls the Galland witness the oldest known substantial manuscript and dates the copy to the fourteenth century.",
+          "url": "https://essentiels.bnf.fr/fr/article/7cbf6b6d-8f7c-428c-ae42-9a58a7374522-transmission-mille-et-une-nuits",
+          "lineage_root": "essentiels.bnf.fr"
+        },
+        {
+          "evidence_status": "confirmed-metadata",
+          "proposition": "Presses de l'Ifpo states the three surviving volumes contain 281 nights.",
+          "url": "https://books.openedition.org/ifpo/24378",
+          "lineage_root": "books.openedition.org"
+        }
+      ],
+      "unresolved_risks": [
+        "No file has been inspected or admitted.",
+        "Viewability does not establish portability.",
+        "Edition alignment and reuse terms remain body-specific."
+      ]
+    },
+    {
+      "candidate_id": "MED-CAND-074",
+      "source_id": "LIB-MEDIEVAL-RESEARCH-BATCH-01-04",
+      "authority": "Marco Polo and Rustichello of Pisa textual tradition",
+      "title": "Devisement du monde",
+      "corpus_boundary": "Collaborative multilingual tradition, not a single recoverable authorial text; BnF français 1116 is the preferred witness.",
+      "original_route": {
+        "candidate": "BnF français 1116 images, followed by a verified Franco-Italian transcription.",
+        "rights_posture": "unknown"
+      },
+      "english_route": {
+        "candidate": "Yule–Cordier 1903/1920 complete edition at Project Gutenberg; not equivalent to français 1116.",
+        "rights_posture": "plausible-open"
+      },
+      "coverage": {
+        "body_ceiling": "one-witness-plus-non-equivalent-english",
+        "current_maturity": 3,
+        "maturity_ceiling": 6
+      },
+      "disposition": "paired-candidates-located-not-equivalent",
+      "next_action": "Inspect both Gutenberg volumes and BnF terms; encode recension mismatch.",
+      "findings": [
+        {
+          "evidence_status": "confirmed-metadata",
+          "proposition": "BnF dates the work to 1299, names Rustichello, identifies français 1116, and records 143 manuscripts.",
+          "url": "https://catalogue.bnf.fr/ark:/12148/cb13592024s",
+          "lineage_root": "catalogue.bnf.fr"
+        },
+        {
+          "evidence_status": "confirmed-metadata",
+          "proposition": "Project Gutenberg identifies the complete Yule–Cordier 1903/1920 lineage.",
+          "url": "https://www.gutenberg.org/files/10636/10636-h/10636-h.htm",
+          "lineage_root": "www.gutenberg.org"
+        }
+      ],
+      "unresolved_risks": [
+        "No file has been inspected or admitted.",
+        "Viewability does not establish portability.",
+        "Edition alignment and reuse terms remain body-specific."
+      ]
+    },
+    {
+      "candidate_id": "MED-CAND-076",
+      "source_id": "LIB-MEDIEVAL-RESEARCH-BATCH-01-05",
+      "authority": "Rus' Primary Chronicle textual tradition",
+      "title": "Povest' vremennykh let",
+      "corpus_boundary": "Primary Chronicle in named recensions; first witness is its portion of the 1377 Laurentian Codex, excluding later continuations.",
+      "original_route": {
+        "candidate": "NLR Laurentian Codex F.p.IV.2 images and modern-alphabet transliteration.",
+        "rights_posture": "restricted"
+      },
+      "english_route": {
+        "candidate": "Cross/Sherbowitz-Wetzor Laurentian translation, pending publication-rights verification.",
+        "rights_posture": "unknown"
+      },
+      "coverage": {
+        "body_ceiling": "laurentian-recension-only",
+        "current_maturity": 2,
+        "maturity_ceiling": 6
+      },
+      "disposition": "witness-strong-portability-unresolved",
+      "next_action": "Separate manuscript, NLR transliteration, and English translation rights.",
+      "findings": [
+        {
+          "evidence_status": "confirmed-metadata",
+          "proposition": "NLR identifies F.p.IV.2 and the oldest surviving Primary Chronicle version.",
+          "url": "https://expositions.nlr.ru/LaurentianCodex/eng/manuscript1.html",
+          "lineage_root": "expositions.nlr.ru"
+        },
+        {
+          "evidence_status": "confirmed-metadata",
+          "proposition": "NLR documents editorial modernization and permission for its modern translation.",
+          "url": "https://expositions.nlr.ru/LaurentianCodex/eng/project2.html",
+          "lineage_root": "expositions.nlr.ru"
+        }
+      ],
+      "unresolved_risks": [
+        "No file has been inspected or admitted.",
+        "Viewability does not establish portability.",
+        "Edition alignment and reuse terms remain body-specific."
+      ]
+    },
+    {
+      "candidate_id": "MED-CAND-043",
+      "source_id": "LIB-MEDIEVAL-RESEARCH-BATCH-01-06",
+      "authority": "Anonymous Mongol court textual tradition",
+      "title": "Secret History of the Mongols",
+      "corpus_boundary": "Lost Middle Mongol composition surviving in Chinese phonetic transcription, gloss, and paraphrase; reconstructions are derivative.",
+      "original_route": {
+        "candidate": "Institutional scan of the Ye Dehui witness still to be located.",
+        "rights_posture": "unknown"
+      },
+      "english_route": {
+        "candidate": "Cleaves and de Rachewiltz complete translations are modern and restricted.",
+        "rights_posture": "restricted"
+      },
+      "coverage": {
+        "body_ceiling": "received-chinese-transcription-witness",
+        "current_maturity": 2,
+        "maturity_ceiling": 6
+      },
+      "disposition": "metadata-only",
+      "next_action": "Locate an institutional Ye Dehui scan preserving all textual layers.",
+      "findings": [
+        {
+          "evidence_status": "confirmed-metadata",
+          "proposition": "SOAS scholarship treats the received witness and reconstructions as distinct layers.",
+          "url": "https://www.cambridge.org/core/journals/bulletin-of-the-school-of-oriental-and-african-studies/article/abs/secret-history-of-the-mongols-some-fresh-revelations/0EF9D9817213E16E60A227DF9C2E1B31",
+          "lineage_root": "www.cambridge.org"
+        },
+        {
+          "evidence_status": "confirmed-metadata",
+          "proposition": "UQAM's Pelliot route covers only chapters I–VI.",
+          "url": "https://classiques.uqam.ca/classiques/pelliot_paul/histoire_secrete_mongols/histoire_secrete_mongols.html",
+          "lineage_root": "classiques.uqam.ca"
+        }
+      ],
+      "unresolved_risks": [
+        "No file has been inspected or admitted.",
+        "Viewability does not establish portability.",
+        "Edition alignment and reuse terms remain body-specific."
+      ]
+    },
+    {
+      "candidate_id": "MED-CAND-067",
+      "source_id": "LIB-MEDIEVAL-RESEARCH-BATCH-01-07",
+      "authority": "Kamakura bakufu chronicle editorial tradition",
+      "title": "Azuma Kagami",
+      "corpus_boundary": "Anonymous composite chronicle; JHTI exposes only Kan'ei-ban volumes 1–5 aligned to 1180–1185 translation.",
+      "original_route": {
+        "candidate": "JHTI/NIJL Kan'ei-ban paragraphs for volumes 1–5, pending NIJL reuse verification.",
+        "rights_posture": "unknown"
+      },
+      "english_route": {
+        "candidate": "Shinoda 1960 selected translation; JHTI explicitly prohibits republication.",
+        "rights_posture": "restricted"
+      },
+      "coverage": {
+        "body_ceiling": "partial-work-volumes-1-5",
+        "current_maturity": 3,
+        "maturity_ceiling": 5
+      },
+      "disposition": "partial-and-restricted",
+      "next_action": "Investigate an openly licensed complete NIJL original text.",
+      "findings": [
+        {
+          "evidence_status": "confirmed-metadata",
+          "proposition": "JHTI names the Kan'ei-ban/NIJL lineage and volumes 1–5 limit.",
+          "url": "https://jhti.studentorg.berkeley.edu/texthon17.htm",
+          "lineage_root": "jhti.studentorg.berkeley.edu"
+        },
+        {
+          "evidence_status": "confirmed-metadata",
+          "proposition": "NIJL states item rights vary and permission is needed absent PD/CC marking.",
+          "url": "https://kokusho.nijl.ac.jp/page/en/usage.html?ln=en",
+          "lineage_root": "kokusho.nijl.ac.jp"
+        }
+      ],
+      "unresolved_risks": [
+        "No file has been inspected or admitted.",
+        "Viewability does not establish portability.",
+        "Edition alignment and reuse terms remain body-specific."
+      ]
+    },
+    {
+      "candidate_id": "MED-CAND-006",
+      "source_id": "LIB-MEDIEVAL-RESEARCH-BATCH-01-08",
+      "authority": "Michael the Syrian",
+      "title": "Chronicle",
+      "corpus_boundary": "Chabot four-volume edition: three French translation volumes and a Syriac text volume; omissions remain explicit.",
+      "original_route": {
+        "candidate": "Chabot volume IV Syriac, preferably the 1910 printing rather than an uninspected 1963 reprint.",
+        "rights_posture": "unknown"
+      },
+      "english_route": {
+        "candidate": "No complete English located; Chabot French volumes are verification bodies only.",
+        "rights_posture": "not-located"
+      },
+      "coverage": {
+        "body_ceiling": "french-plus-imperfect-syriac-no-english",
+        "current_maturity": 2,
+        "maturity_ceiling": 5
+      },
+      "disposition": "original-partial-no-english",
+      "next_action": "Inspect all four Chabot volumes and enumerate Syriac omissions.",
+      "findings": [
+        {
+          "evidence_status": "confirmed-metadata",
+          "proposition": "Penn identifies four volumes, French/Syriac division, and a 1963 volume-IV reprint route.",
+          "url": "https://onlinebooks.library.upenn.edu/webbin/book/lookupid?key=olbp65151",
+          "lineage_root": "onlinebooks.library.upenn.edu"
+        },
+        {
+          "evidence_status": "confirmed-metadata",
+          "proposition": "Syri.ac identifies chapters missing from Chabot volume IV and substitutions from Bar Hebraeus.",
+          "url": "https://syri.ac/michaelsyrian",
+          "lineage_root": "syri.ac"
+        }
+      ],
+      "unresolved_risks": [
+        "No file has been inspected or admitted.",
+        "Viewability does not establish portability.",
+        "Edition alignment and reuse terms remain body-specific."
+      ]
+    },
+    {
+      "candidate_id": "MED-CAND-062",
+      "source_id": "LIB-MEDIEVAL-RESEARCH-BATCH-01-09",
+      "authority": "Song Shi Yuan editorial tradition",
+      "title": "Song Shi",
+      "corpus_boundary": "The 496-juan Yuan official history; Siku scan, Zhonghua edition, and web transcription are separate bodies.",
+      "original_route": {
+        "candidate": "CText Siku Quanshu scan for inspection only; a reusable complete body remains unlocated.",
+        "rights_posture": "restricted"
+      },
+      "english_route": {
+        "candidate": "No complete English translation located.",
+        "rights_posture": "not-located"
+      },
+      "coverage": {
+        "body_ceiling": "original-only-if-complete-lawful-body-found",
+        "current_maturity": 2,
+        "maturity_ceiling": 5
+      },
+      "disposition": "metadata-only",
+      "next_action": "Locate a lawful complete 496-juan scan outside CText's no-bulk surface.",
+      "findings": [
+        {
+          "evidence_status": "confirmed-metadata",
+          "proposition": "CText identifies 496 juan and the Yuan editorial team.",
+          "url": "https://ctext.org/datawiki.pl?if=en&res=545989",
+          "lineage_root": "ctext.org"
+        },
+        {
+          "evidence_status": "confirmed-metadata",
+          "proposition": "CText denies blanket republication and forbids automated bulk download.",
+          "url": "https://ctext.org/faq",
+          "lineage_root": "ctext.org"
+        }
+      ],
+      "unresolved_risks": [
+        "No file has been inspected or admitted.",
+        "Viewability does not establish portability.",
+        "Edition alignment and reuse terms remain body-specific."
+      ]
+    },
+    {
+      "candidate_id": "MED-CAND-070",
+      "source_id": "LIB-MEDIEVAL-RESEARCH-BATCH-01-10",
+      "authority": "Goryeosa Joseon court editorial tradition",
+      "title": "Goryeosa",
+      "corpus_boundary": "The 139-volume official history; Classical Chinese, modern Korean, and English translation are separate bodies.",
+      "original_route": {
+        "candidate": "NIKH Goryeo source database; site displays all rights reserved.",
+        "rights_posture": "restricted"
+      },
+      "english_route": {
+        "candidate": "UH Press 2024 covers introduction and first ten annals volumes only; restricted.",
+        "rights_posture": "restricted"
+      },
+      "coverage": {
+        "body_ceiling": "metadata-only-english-partial",
+        "current_maturity": 2,
+        "maturity_ceiling": 5
+      },
+      "disposition": "metadata-only",
+      "next_action": "Request NIKH reuse terms and map the partial English subset.",
+      "findings": [
+        {
+          "evidence_status": "confirmed-metadata",
+          "proposition": "NIKH lists Goryeosa as a dedicated source collection and displays all rights reserved.",
+          "url": "https://db.history.go.kr/",
+          "lineage_root": "db.history.go.kr"
+        },
+        {
+          "evidence_status": "confirmed-metadata",
+          "proposition": "UH Press states its translation covers the introduction and first ten annals volumes, 918–1095.",
+          "url": "https://uhpress.hawaii.edu/title/koryosa-the-history-of-koryo-the-annals-of-the-kings-918-1095/",
+          "lineage_root": "uhpress.hawaii.edu"
+        }
+      ],
+      "unresolved_risks": [
+        "No file has been inspected or admitted.",
+        "Viewability does not establish portability.",
+        "Edition alignment and reuse terms remain body-specific."
+      ]
+    }
+  ]
+}

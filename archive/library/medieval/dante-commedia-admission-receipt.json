@@ -1,0 +1,50 @@
+{
+  "schema_version": "library-body-admission-receipt-v1",
+  "admitted_on": "2026-08-19",
+  "status": "admitted",
+  "source_id": "LIB-MEDIEVAL-AUTHORITY-018-DANTE-ALIGHIERI",
+  "proposal": "archive/library/medieval/dante-commedia-admission-proposal.json",
+  "inspection_receipt": "archive/library/medieval/portable-batch-05-inspection.json",
+  "execution": {
+    "dry_run_passed_for_all_bodies_before_admission": true,
+    "registry_updated": true,
+    "private_text_store_updated": true,
+    "archive_catalog_updated": false,
+    "bodies": [
+      {
+        "body_id": "LIB-MEDIEVAL-AUTHORITY-018-DANTE-COMMEDIA-ITALIAN-GUTENBERG-1000",
+        "text_location": "library-text://LIB-MEDIEVAL-AUTHORITY-018-DANTE-COMMEDIA-ITALIAN-GUTENBERG-1000.txt",
+        "text_bytes": 597903,
+        "text_sha256": "4669dcc00ee61ceffe92d871e61ea430cec87b35cbab24f19a4c0b1c7da521b2",
+        "language": "italian",
+        "status": "available",
+        "coverage_status": "complete-work",
+        "provenance_limit": "Critical editor and upstream print-edition lineage are not identified in the Gutenberg file."
+      },
+      {
+        "body_id": "LIB-MEDIEVAL-AUTHORITY-018-DANTE-DIVINE-COMEDY-CARY-GUTENBERG-8800",
+        "text_location": "library-text://LIB-MEDIEVAL-AUTHORITY-018-DANTE-DIVINE-COMEDY-CARY-GUTENBERG-8800.txt",
+        "text_bytes": 656728,
+        "text_sha256": "3a7dd97b5fec82456c58237b33383a593480c2bfe088aeaaa4a519de2a10d39c",
+        "language": "english",
+        "translator": "Henry Francis Cary",
+        "status": "available",
+        "coverage_status": "complete-work",
+        "provenance_limit": "Completeness applies to the named Cary translation and does not establish equivalence to the Italian body."
+      }
+    ]
+  },
+  "claims_not_made": [
+    "No critical-edition identity for the Italian body",
+    "No Italian-English textual equivalence",
+    "No complete surviving Dante corpus",
+    "No verified or reviewed status",
+    "No Level 5 or Level 6 maturity"
+  ],
+  "publication": {
+    "staged": false,
+    "committed": false,
+    "pushed": false,
+    "published": false
+  }
+}
