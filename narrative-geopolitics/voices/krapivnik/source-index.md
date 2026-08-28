@@ -4,7 +4,7 @@ This index routes the imported seeded corpus for `krapivnik` to the central Narr
 
 Source basis: `strategy-codex/source-archive/statecraft` plus local July 2026 intake.
 
-Corpus: 27 local route rows across 27 central archive source files.
+Corpus: 28 local route rows across 28 central archive source files.
 
 Status: `seeded`
 
@@ -46,6 +46,7 @@ Status: `seeded`
 | `2026-08-16` | (4) 🚨ESCALATION: Trade War Gets Worse, Iran War Extends to Ukraine \| Stas Krapivnik | `guest` | `neutrality-studies` | [source](../../../archive/sources/geopolitics/sources/2026-08-16/source-4-escalation-trade-war-gets-worse-iran-war-extends-to-ukraine-stas-krapivnik-2026-08-16.md) |
 | `2026-08-16` | (4) Stanislav Krapivnik: Europe Begs U.S. to Call Russia NOW—Fear of ‘Catastrophic’ Winter Strikes | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2026-08-16/source-4-stanislav-krapivnik-europe-begs-u-s-to-call-russia-now-fear-of-catastrophic-winter-strikes-2026-08-16.md) |
 | `2026-08-23` | Stanislav Krapivnik: Putin Vows to Target Ukraine’s 'Vulnerable' Food Exports | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2026-08-23/source-stanislav-krapivnik-putin-vows-to-target-ukraine-s-vulnerable-food-exports-2026-08-23.md) |
+| `2026-08-26` | Stanislav Krapivnik: NATO Escalates as Ukraine Reaches a Breaking Point | `guest` | `glenn-diesen` | [source](../../../archive/sources/geopolitics/sources/2026-08-26/source-stanislav-krapivnik-nato-escalates-as-ukraine-reaches-a-breaking-point-2026-08-26.md) |
 
 ## Import Boundary
 

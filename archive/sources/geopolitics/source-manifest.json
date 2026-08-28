@@ -2,7 +2,7 @@
   "manifest_id": "narrative-geopolitics-source-manifest-v1",
   "source_basis": "central archive with completed historical strategy-codex imports",
   "imported_at": "2026-07-09",
-  "source_count": 2231,
+  "source_count": 2238,
   "boundary": {
     "archive": "source truth",
     "voices": "voice continuity and routing",
@@ -60189,6 +60189,166 @@
       "date_basis": "operator-supplied",
       "inference_basis": [
         "explicit-host"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-26",
+      "title": "Stanislav Krapivnik: NATO Escalates as Ukraine Reaches a Breaking Point",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-26/source-stanislav-krapivnik-nato-escalates-as-ukraine-reaches-a-breaking-point-2026-08-26.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-26/source-stanislav-krapivnik-nato-escalates-as-ukraine-reaches-a-breaking-point-2026-08-26.md",
+      "upstream_path": "operator-paste://2026-08-27/stanislav-krapivnik-nato-escalates-as-ukraine-reaches-a-breaking-point",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "krapivnik"
+      ],
+      "host_slug": "glenn-diesen",
+      "source_identity": "youtube:NmrD-YmiA9Q",
+      "source_url": "https://www.youtube.com/watch?v=NmrD-YmiA9Q",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-26",
+      "title": "Lt. Col. Anthony Aguilar: BILLIONS in Damage: Iran's 'Unprecedented' Strike on U.S. Spy Agencies",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-26/source-lt-col-anthony-aguilar-billions-in-damage-iran-s-unprecedented-strike-on-u-s-spy-agencies-2026-08-26.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-26/source-lt-col-anthony-aguilar-billions-in-damage-iran-s-unprecedented-strike-on-u-s-spy-agencies-2026-08-26.md",
+      "upstream_path": "operator-paste://2026-08-27/lt-col-anthony-aguilar-billions-in-damage-iran-s-unprecedented-strike-on-u-s-spy-agencies",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "aguilar"
+      ],
+      "host_slug": "dialogue-works",
+      "source_identity": "youtube:B7ped3Iwj3Y",
+      "source_url": "https://www.youtube.com/watch?v=B7ped3Iwj3Y",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-26",
+      "title": "Matthew Hoh: War by Waiting: Inside the US-Iran Plan to Outlast Each Other",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-26/source-matthew-hoh-war-by-waiting-inside-the-us-iran-plan-to-outlast-each-other-2026-08-26.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-26/source-matthew-hoh-war-by-waiting-inside-the-us-iran-plan-to-outlast-each-other-2026-08-26.md",
+      "upstream_path": "operator-paste://2026-08-27/matthew-hoh-war-by-waiting-inside-the-us-iran-plan-to-outlast-each-other",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "hoh"
+      ],
+      "host_slug": "dialogue-works",
+      "source_identity": "youtube:ABiu5uWk_yU",
+      "source_url": "https://www.youtube.com/watch?v=ABiu5uWk_yU",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-26",
+      "title": "Scott Ritter: CIA on Russian Soil, Hungary Flips the Script, and Iran's Clock Ticks",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-26/source-scott-ritter-cia-on-russian-soil-hungary-flips-the-script-and-iran-s-clock-ticks-2026-08-26.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-26/source-scott-ritter-cia-on-russian-soil-hungary-flips-the-script-and-iran-s-clock-ticks-2026-08-26.md",
+      "upstream_path": "operator-paste://2026-08-27/scott-ritter-cia-on-russian-soil-hungary-flips-the-script-and-iran-s-clock-ticks",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "ritter"
+      ],
+      "host_slug": "dialogue-works",
+      "source_identity": "youtube:0tjV_CNWchk",
+      "source_url": "https://www.youtube.com/watch?v=0tjV_CNWchk",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-26",
+      "title": "IRAN WAR: Why Everyone Is Falling in Line /Lt Col Daniel Davis & Matt Hoh",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-26/source-iran-war-why-everyone-is-falling-in-line-lt-col-daniel-davis-matt-hoh-2026-08-26.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-26/source-iran-war-why-everyone-is-falling-in-line-lt-col-daniel-davis-matt-hoh-2026-08-26.md",
+      "upstream_path": "operator-paste://2026-08-27/iran-war-why-everyone-is-falling-in-line-lt-col-daniel-davis-matt-hoh",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "hoh"
+      ],
+      "host_slug": "daniel-davis",
+      "source_identity": "youtube:4Q99MtTzrjk",
+      "source_url": "https://www.youtube.com/watch?v=4Q99MtTzrjk",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-26",
+      "title": "Mearsheimer: IRAN WINNING THE BATTLE FOR WORLD OPINION",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-26/source-mearsheimer-iran-winning-the-battle-for-world-opinion-2026-08-26.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-26/source-mearsheimer-iran-winning-the-battle-for-world-opinion-2026-08-26.md",
+      "upstream_path": "operator-paste://2026-08-27/mearsheimer-iran-winning-the-battle-for-world-opinion",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mearsheimer"
+      ],
+      "host_slug": "daniel-davis",
+      "source_identity": "youtube:yJixMfzHt14",
+      "source_url": "https://www.youtube.com/watch?v=yJixMfzHt14",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-26",
+      "title": "Joe Kent: World War III Just Began And We Have One Last Chance To Stop It",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-26/source-joe-kent-world-war-iii-just-began-and-we-have-one-last-chance-to-stop-it-2026-08-26.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-26/source-joe-kent-world-war-iii-just-began-and-we-have-one-last-chance-to-stop-it-2026-08-26.md",
+      "upstream_path": "operator-paste://2026-08-27/joe-kent-world-war-iii-just-began-and-we-have-one-last-chance-to-stop-it",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "kent"
+      ],
+      "host_slug": "redacted-news",
+      "source_identity": "youtube:Ih37gv8uXHg",
+      "source_url": "https://www.youtube.com/watch?v=Ih37gv8uXHg",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-date-alias"
       ],
       "import_status": "imported"
     }

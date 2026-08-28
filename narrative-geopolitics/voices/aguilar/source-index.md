@@ -4,7 +4,7 @@ This index routes the unified local Aguilar corpus for `aguilar` to the central 
 
 Source basis: `strategy-codex/statecraft/voices/aguilar/aguilar-index.md`.
 
-Corpus: 28 local route rows across 28 central archive source files.
+Corpus: 29 local route rows across 29 central archive source files.
 
 Status: `imported-corpus`
 
@@ -47,6 +47,7 @@ Status: `imported-corpus`
 | `2026-08-12` | (3) Lt. Col. Anthony Aguilar: The Unraveling of the USS Abraham Lincoln | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2026-08-12/source-3-lt-col-anthony-aguilar-the-unraveling-of-the-uss-abraham-lincoln-2026-08-12.md) |
 | `2026-08-15` | (4) CENTCOM PUSHES TRUMP FOR MORE WAR AS CEASEFIRE EXPIRES MONDAY - w/ Lt. Col. Anthony Aguilar | `host-pressure test` | `mario-nawfal` | [source](../../../archive/sources/geopolitics/sources/2026-08-15/source-4-centcom-pushes-trump-for-more-war-as-ceasefire-expires-monday-w-lt-col-anthony-aguilar-2026-08-15.md) |
 | `2026-08-17` | (4) Lt. Col. Anthony Aguilar: Iran to Break US Naval Blockade By Force as Trump Demands Total Surrender | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2026-08-17/source-4-lt-col-anthony-aguilar-iran-to-break-us-naval-blockade-by-force-as-trump-demands-total-surrender-2026-08-17.md) |
+| `2026-08-26` | Lt. Col. Anthony Aguilar: BILLIONS in Damage: Iran's 'Unprecedented' Strike on U.S. Spy Agencies | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2026-08-26/source-lt-col-anthony-aguilar-billions-in-damage-iran-s-unprecedented-strike-on-u-s-spy-agencies-2026-08-26.md) |
 
 ## Import Boundary
 

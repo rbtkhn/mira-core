@@ -4,7 +4,7 @@ This index routes the imported Ritter corpus for `ritter` to the central Narrati
 
 Source basis: `strategy-codex/statecraft/voices/ritter/ritter-index.md`.
 
-Corpus: 130 local route rows across 130 central archive source files.
+Corpus: 131 local route rows across 131 central archive source files.
 
 Status: `imported-corpus`
 
@@ -149,6 +149,7 @@ Status: `imported-corpus`
 | `2026-08-21` | INTEL Roundtable w/ Larry Johnson & Scott Ritter : Weekly Wrap - 21 AUGUST | `guest` | `judging-freedom` | [source](../../../archive/sources/geopolitics/sources/2026-08-21/source-intel-roundtable-w-larry-johnson-scott-ritter-weekly-wrap-21-august-2026-08-21.md) |
 | `2026-08-23` | Scott Ritter: The Age of Nuclear War - War On Russia, Iran & China | `guest` | `glenn-diesen` | [source](../../../archive/sources/geopolitics/sources/2026-08-23/source-scott-ritter-the-age-of-nuclear-war-war-on-russia-iran-china-2026-08-23.md) |
 | `2026-08-24` | Scott Ritter: Russia Warns Ukraine Allies | `guest` | `daniel-davis` | [source](../../../archive/sources/geopolitics/sources/2026-08-24/source-scott-ritter-russia-warns-ukraine-allies-2026-08-24.md) |
+| `2026-08-26` | Scott Ritter: CIA on Russian Soil, Hungary Flips the Script, and Iran's Clock Ticks | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2026-08-26/source-scott-ritter-cia-on-russian-soil-hungary-flips-the-script-and-iran-s-clock-ticks-2026-08-26.md) |
 
 ## Import Boundary
 
