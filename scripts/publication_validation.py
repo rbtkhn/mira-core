@@ -203,6 +203,13 @@ def route_path(path: str, *, repo_root: Path = REPO_ROOT) -> dict[str, Any]:
             "commands": ["tools/run.ps1 test --path tests/test_morning_brief.py"],
             "manual_checks": [MANUAL_NARRATIVE_GEOPOLITICS_CHECK],
         }
+    if path == "narrative-geopolitics/work/capture/youtube/youtube-capture-policy.yml":
+        return {
+            "owner": "youtube-capture/policy",
+            "validation_class": "repo-structural",
+            "commands": ["tools/run.ps1 test --path tests/test_youtube_capture.py"],
+            "manual_checks": [MANUAL_YOUTUBE_CAPTURE_CHECK],
+        }
     youtube_date = _youtube_capture_date(path)
     if youtube_date:
         return {

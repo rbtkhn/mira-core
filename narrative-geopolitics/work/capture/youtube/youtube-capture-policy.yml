@@ -1,0 +1,243 @@
+version: 1
+status: draft
+scope: narrative-geopolitics-youtube-capture
+
+authority:
+  may_update_queue: true
+  may_attach_transcripts: true
+  may_land_archive_sources: false
+  may_mutate_manifest: false
+  may_run_synthesis: false
+  may_stage_commit_push: false
+
+defaults:
+  channel_url_source: narrative-geopolitics/channels/channel-index.md
+  channel_url_rule: resolve_by_channel_slug_do_not_duplicate
+  shorts_policy: skip
+  default_disposition: watch
+  must_land_requires: operator_or_batch_triage
+
+date_policy:
+  primary: browser_local_date
+  preserve:
+    - published_at_utc
+    - browser_local_date
+  mismatch_action: report_boundary
+
+failure_policy:
+  tier_a_browser_failure: report_in_receipt_and_mark_manual_review
+  tier_b_browser_failure: preserve_script_row_with_warning
+
+tool_read_contract:
+  status: draft
+  load_order:
+    - load_channel_index_for_roster_urls_status_and_cadence
+    - load_this_policy_for_capture_behavior_by_channel_slug
+    - use_script_defaults_when_index_channel_has_no_policy_row
+    - warn_and_skip_when_policy_channel_slug_is_missing_from_index
+  precedence:
+    - explicit_operator_flags_override_policy
+    - channel_specific_fields_override_tier_defaults
+    - tier_defaults_override_global_defaults
+    - policy_defaults_override_legacy_hardcoded_defaults
+  tier_a_behavior:
+    - run_script_discovery
+    - inspect_browser_by_default
+    - verify_same_day_candidates_with_watch_page_metadata
+    - preserve_utc_and_browser_local_dates
+    - report_date_boundary_mismatches
+  tier_b_behavior:
+    - run_script_discovery
+    - browser_only_when_escalation_triggers_match
+    - preserve_script_row_when_browser_fails
+    - skip_shorts_unless_explicitly_selected
+  receipt_fields:
+    - POLICY_FILE
+    - POLICY_STATUS
+    - TIER_A_CHANNELS_CHECKED
+    - TIER_B_CHANNELS_CHECKED
+    - BROWSER_DEFAULT_ROWS
+    - BROWSER_TRIGGERED_ROWS
+    - DATE_MISMATCH_ROWS
+    - POLICY_WARNINGS
+    - AUTHORITY_BOUNDARY
+  non_goals:
+    - do_not_make_must_land_automatic
+    - do_not_run_archive_intake
+    - do_not_mutate_source_manifest
+    - do_not_run_synthesis
+    - do_not_stage_commit_push_or_publish
+
+tiers:
+  A:
+    label: browser-autocheck-daily
+    script_default: true
+    browser_default: true
+    daily_limit: 12
+    since_days: 3
+    browser_check_mode: channel_videos_and_watch_metadata
+    completion_receipt:
+      - channels_checked
+      - videos_found
+      - date_matches
+      - already_landed
+      - transcript_ready
+      - discovery_failures
+  B:
+    label: script-first-title-triggered-browser
+    script_default: true
+    browser_default: false
+    daily_limit: 5
+    since_days: 3
+    browser_check_mode: triggered_watch_metadata_only
+    escalation_triggers:
+      - core_voice
+      - iran
+      - russia
+      - ukraine
+      - israel
+      - turkey
+      - syria
+      - sanctions
+      - nato
+      - china
+      - brics
+      - sco
+      - hormuz
+      - nuclear
+      - blockade
+      - military_base
+
+channels:
+  dialogue-works:
+    tier: A
+    reason: high-volume same-day interview channel; top-3 discovery is insufficient
+    expected_browser_rule: inspect videos page and verify same-day watch metadata
+
+  daniel-davis:
+    tier: A
+    reason: core military feasibility lane with recurring Davis, Mearsheimer, Wilkerson, Hoh, Ritter
+    expected_browser_rule: verify same-day long-form and segment uploads
+
+  glenn-diesen:
+    tier: A
+    reason: core order-transition and Eurasia mechanism lane
+    expected_browser_rule: verify same-day interviews and Russia-Iran-China titles
+
+  judging-freedom:
+    tier: A
+    reason: high-volume daily interview surface with recurring core voices
+    expected_browser_rule: verify same-day non-short interviews
+
+  alexander-mercouris:
+    tier: A
+    reason: daily Ukraine/Russia continuity baseline
+    expected_browser_rule: verify same-day full uploads and date-boundary quirks
+
+  the-duran:
+    tier: A
+    reason: Mercouris/Christoforou reinforcement and Ukraine/Russia crisis framing
+    expected_browser_rule: verify same-day major uploads
+
+  mario-nawfal:
+    tier: B
+    reason: fast headline lane but noisy; browser only on trigger
+    escalation_triggers:
+      - iran
+      - israel
+      - sanctions
+      - oil
+      - china
+      - russia
+      - nuclear
+      - military
+
+  moral-resistance:
+    tier: B
+    reason: useful Iran/resistance-law lane but title-triggered browser is enough
+    escalation_triggers:
+      - iran
+      - israel
+      - pakistan
+      - turkey
+      - mecca
+      - johnson
+      - syria
+      - sanctions
+
+  neutrality-studies:
+    tier: B
+    reason: strong mechanism interviews, lower cadence
+    escalation_triggers:
+      - iran
+      - nato
+      - russia
+      - china
+      - macgregor
+      - sovereignty
+
+  breaking-points:
+    tier: B
+    reason: public-compression lane mixed with off-lane domestic items
+    escalation_triggers:
+      - iran
+      - china
+      - russia
+      - ukraine
+      - war
+      - sanctions
+
+  cyrus-janssen:
+    tier: B
+    reason: China/Iran explanatory lane
+    escalation_triggers:
+      - iran
+      - china
+      - brics
+      - sco
+      - sanctions
+      - marandi
+
+  reason-resist:
+    tier: B
+    reason: law/resistance/antiwar routing, lower volume
+    escalation_triggers:
+      - israel
+      - turkey
+      - iran
+      - palestine
+      - syria
+      - international_law
+
+  redacted-news:
+    tier: B
+    reason: crisis-media pressure signal, mixed quality
+    escalation_triggers:
+      - iran
+      - israel
+      - ww3
+      - joe_kent
+      - military
+      - surveillance
+
+  tucker-carlson:
+    tier: B
+    reason: candidate long-form elite interview lane; shorts usually noise
+    escalation_triggers:
+      - iran
+      - war
+      - russia
+      - ukraine
+      - military
+      - long_form
+
+  india-global-left:
+    tier: B
+    reason: Global South / left-host frame, weekly cadence
+    escalation_triggers:
+      - global_south
+      - india
+      - iran
+      - russia
+      - china
+      - antiwar

@@ -169,8 +169,12 @@ def test_router_resolves_narrative_geopolitics_artifacts(tmp_path: Path) -> None
 
 def test_router_resolves_narrative_geopolitics_work_surfaces(tmp_path: Path) -> None:
     make_tree(tmp_path)
+    policy = tmp_path / "narrative-geopolitics/work/capture/youtube/youtube-capture-policy.yml"
+    policy.parent.mkdir(parents=True, exist_ok=True)
+    policy.write_text("version: 1\n", encoding="utf-8")
     report = routing.build_report(
         [
+            "narrative-geopolitics/work/capture/youtube/youtube-capture-policy.yml",
             "narrative-geopolitics/work/capture/youtube/2026-08-22.jsonl",
             "narrative-geopolitics/work/historical-reference/2026-08-22-run.json",
             "narrative-geopolitics/work/historical-reference/2026-08-22-run-review-queue.json",
@@ -182,12 +186,14 @@ def test_router_resolves_narrative_geopolitics_work_surfaces(tmp_path: Path) -> 
 
     assert report["status"] == "manual-required"
     assert report["owners"] == [
+        "youtube-capture/policy",
         "youtube-capture",
         "historical-reference",
         "reality-check",
     ]
-    assert report["validation_classes"] == ["domain-governed"]
+    assert report["validation_classes"] == ["repo-structural", "domain-governed"]
     assert report["commands"] == [
+        "tools/run.ps1 test --path tests/test_youtube_capture.py",
         "python scripts/youtube_capture.py status --date 2026-08-22",
         "python scripts/youtube_capture.py audit-duplicates --date 2026-08-22 --json",
         "python scripts/validate_historical_reference_taxonomy.py --run "
