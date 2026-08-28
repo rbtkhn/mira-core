@@ -4,7 +4,7 @@ This index routes the imported first-slice parity corpus for `davis` to the cent
 
 Source basis: `strategy-codex/statecraft/voices/davis/davis-index.md`.
 
-Corpus: 116 local route rows across 116 central archive source files.
+Corpus: 117 local route rows across 117 central archive source files.
 
 Status: `first-slice-parity`
 
@@ -140,6 +140,7 @@ Status: `first-slice-parity`
 | `2026-08-20` | (4) US Driving Iran into China's Arms /fmr CIA Analyst Larry Johnson & Lt Col Daniel Davis | `guest` | `daniel-davis` | [source](../../../archive/sources/geopolitics/sources/2026-08-20/source-4-us-driving-iran-into-china-s-arms-fmr-cia-analyst-larry-johnson-lt-col-daniel-davis-2026-08-20.md) |
 | `2026-08-21` | (4) Iran Knows: THE WEST MUST FEEL PAIN /Alastair Crooke & Lt Col Daniel Davis | `guest` | `daniel-davis` | [source](../../../archive/sources/geopolitics/sources/2026-08-21/source-4-iran-knows-the-west-must-feel-pain-alastair-crooke-lt-col-daniel-davis-2026-08-21.md) |
 | `2026-08-22` | IRAN REMAINS FEARLESS /Lt Col Daniel Davis | `host-pressure test` | `daniel-davis` | [source](../../../archive/sources/geopolitics/sources/2026-08-22/source-iran-remains-fearless-lt-col-daniel-davis-2026-08-22.md) |
+| `2026-08-24` | US Army Sowing the Seeds of Defeat in Next War | `host-pressure test` | `daniel-davis` | [source](../../../archive/sources/geopolitics/sources/2026-08-24/source-us-army-sowing-the-seeds-of-defeat-in-next-war-2026-08-24.md) |
 
 ## June 2026 Expansion
 

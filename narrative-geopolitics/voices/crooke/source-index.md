@@ -4,7 +4,7 @@ This index routes the unified local Crooke corpus for `crooke` to the central Na
 
 Source basis: `strategy-codex/statecraft/voices/crooke/crooke-index.md` plus already-local 2026 Crooke archive rows.
 
-Corpus: 81 local route rows across 81 central archive source files.
+Corpus: 82 local route rows across 82 central archive source files.
 
 Status: `imported-corpus`
 
@@ -100,6 +100,7 @@ Status: `imported-corpus`
 | `2026-08-17` | (4) Alastair Crooke : The Consequence of More Netanyahu Lies | `guest` | `judging-freedom` | [source](../../../archive/sources/geopolitics/sources/2026-08-17/source-4-alastair-crooke-the-consequence-of-more-netanyahu-lies-2026-08-17.md) |
 | `2026-08-17` | (4) Alastair Crooke: Trump’s Card Just Broke the Status Quo | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2026-08-17/source-4-alastair-crooke-trump-s-card-just-broke-the-status-quo-2026-08-17.md) |
 | `2026-08-21` | (4) Iran Knows: THE WEST MUST FEEL PAIN /Alastair Crooke & Lt Col Daniel Davis | `guest` | `daniel-davis` | [source](../../../archive/sources/geopolitics/sources/2026-08-21/source-4-iran-knows-the-west-must-feel-pain-alastair-crooke-lt-col-daniel-davis-2026-08-21.md) |
+| `2026-08-24` | Alastair Crooke : Can Trump Raise the Stakes in Iran? | `guest` | `judging-freedom` | [source](../../../archive/sources/geopolitics/sources/2026-08-24/source-alastair-crooke-can-trump-raise-the-stakes-in-iran-2026-08-24.md) |
 
 ## Judgment Continuity
 

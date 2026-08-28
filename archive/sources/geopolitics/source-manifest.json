@@ -2,7 +2,7 @@
   "manifest_id": "narrative-geopolitics-source-manifest-v1",
   "source_basis": "central archive with completed historical strategy-codex imports",
   "imported_at": "2026-07-09",
-  "source_count": 2213,
+  "source_count": 2231,
   "boundary": {
     "archive": "source truth",
     "voices": "voice continuity and routing",
@@ -59779,6 +59779,416 @@
         "wrapper-normalized",
         "explicit-host",
         "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-23",
+      "title": "Seyed M. Marandi: From \"Economic D-Day\" to Nuclear Strike Against Iran?",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-23/source-seyed-m-marandi-from-economic-d-day-to-nuclear-strike-against-iran-2026-08-23.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-23/source-seyed-m-marandi-from-economic-d-day-to-nuclear-strike-against-iran-2026-08-23.md",
+      "upstream_path": "operator-paste://2026-08-23/seyed-m-marandi-from-economic-d-day-to-nuclear-strike-against-iran",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "marandi"
+      ],
+      "host_slug": "glenn-diesen",
+      "source_identity": "youtube:9d4ZHY5CwUQ",
+      "source_url": "https://www.youtube.com/watch?v=9d4ZHY5CwUQ",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-23",
+      "title": "Scott Ritter: The Age of Nuclear War - War On Russia, Iran & China",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-23/source-scott-ritter-the-age-of-nuclear-war-war-on-russia-iran-china-2026-08-23.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-23/source-scott-ritter-the-age-of-nuclear-war-war-on-russia-iran-china-2026-08-23.md",
+      "upstream_path": "operator-paste://2026-08-23/scott-ritter-the-age-of-nuclear-war-war-on-russia-iran-china",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "ritter"
+      ],
+      "host_slug": "glenn-diesen",
+      "source_identity": "youtube:vTYQ8G5o73Y",
+      "source_url": "https://www.youtube.com/watch?v=vTYQ8G5o73Y",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-23",
+      "title": "🚨 LIVE: Mohammad Marandi - The Iran War Is Coming for the US Economy",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-23/source-live-mohammad-marandi-the-iran-war-is-coming-for-the-us-economy-2026-08-23.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-23/source-live-mohammad-marandi-the-iran-war-is-coming-for-the-us-economy-2026-08-23.md",
+      "upstream_path": "operator-paste://2026-08-23/live-mohammad-marandi-the-iran-war-is-coming-for-the-us-economy",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "marandi"
+      ],
+      "host_slug": "cyrus-janssen",
+      "source_identity": "youtube:9WblMSmfTiw",
+      "source_url": "https://www.youtube.com/watch?v=9WblMSmfTiw",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-23",
+      "title": "Ray McGovern: Israel’s Clash With Two Major Armies Signals Its Worst Defeat Yet",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-23/source-ray-mcgovern-israel-s-clash-with-two-major-armies-signals-its-worst-defeat-yet-2026-08-23.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-23/source-ray-mcgovern-israel-s-clash-with-two-major-armies-signals-its-worst-defeat-yet-2026-08-23.md",
+      "upstream_path": "operator-paste://2026-08-23/ray-mcgovern-israel-s-clash-with-two-major-armies-signals-its-worst-defeat-yet",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mcgovern"
+      ],
+      "host_slug": "dialogue-works",
+      "source_identity": "youtube:Psi6icSowtA",
+      "source_url": "https://www.youtube.com/watch?v=Psi6icSowtA",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-23",
+      "title": "Nima R. Alkhorshid: Iran’s Top General Reveals Retaliation Plan for Trump’s D-Day",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-23/source-nima-r-alkhorshid-iran-s-top-general-reveals-retaliation-plan-for-trump-s-d-day-2026-08-23.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-23/source-nima-r-alkhorshid-iran-s-top-general-reveals-retaliation-plan-for-trump-s-d-day-2026-08-23.md",
+      "upstream_path": "operator-paste://2026-08-23/nima-r-alkhorshid-iran-s-top-general-reveals-retaliation-plan-for-trump-s-d-day",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "alkhorshid"
+      ],
+      "host_slug": "dialogue-works",
+      "source_identity": "youtube:X3-ohm8fc7s",
+      "source_url": "https://www.youtube.com/watch?v=X3-ohm8fc7s",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-23",
+      "title": "Larry Johnson: Iran’s Parliament Agency DROPS BOMBSHELL: “We Were Invited to Join the Mecca Pact”",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-23/source-larry-johnson-iran-s-parliament-agency-drops-bombshell-we-were-invited-to-join-the-mecca-pact-2026-08-23.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-23/source-larry-johnson-iran-s-parliament-agency-drops-bombshell-we-were-invited-to-join-the-mecca-pact-2026-08-23.md",
+      "upstream_path": "operator-paste://2026-08-23/larry-johnson-iran-s-parliament-agency-drops-bombshell-we-were-invited-to-join-the-mecca-pact",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "johnson"
+      ],
+      "host_slug": "dialogue-works",
+      "source_identity": "youtube:ipcyexVZkGY",
+      "source_url": "https://www.youtube.com/watch?v=ipcyexVZkGY",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-23",
+      "title": "Stanislav Krapivnik: Putin Vows to Target Ukraine’s 'Vulnerable' Food Exports",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-23/source-stanislav-krapivnik-putin-vows-to-target-ukraine-s-vulnerable-food-exports-2026-08-23.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-23/source-stanislav-krapivnik-putin-vows-to-target-ukraine-s-vulnerable-food-exports-2026-08-23.md",
+      "upstream_path": "operator-paste://2026-08-23/stanislav-krapivnik-putin-vows-to-target-ukraine-s-vulnerable-food-exports",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "krapivnik"
+      ],
+      "host_slug": "dialogue-works",
+      "source_identity": "youtube:6PRvKeHc_mU",
+      "source_url": "https://www.youtube.com/watch?v=6PRvKeHc_mU",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-23",
+      "title": "Putin Says Kiev Begs Truce; Says NO & Kiev Faces Catastrophe; Russian AF Bombs Odessa; Dobropilia",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-23/source-putin-says-kiev-begs-truce-says-no-kiev-faces-catastrophe-russian-af-bombs-odessa-dobropilia-2026-08-23.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-23/source-putin-says-kiev-begs-truce-says-no-kiev-faces-catastrophe-russian-af-bombs-odessa-dobropilia-2026-08-23.md",
+      "upstream_path": "operator-paste://2026-08-23/putin-says-kiev-begs-truce-says-no-kiev-faces-catastrophe-russian-af-bombs-odessa-dobropilia",
+      "source_class": "host monologue",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "alexander-mercouris",
+      "source_identity": "youtube:jllhwj-7ut0",
+      "source_url": "https://www.youtube.com/watch?v=jllhwj-7ut0",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-24",
+      "title": "Russia AF Heaviest Odessa Bombing; Russia Storm Kiev After Donbas; Drones Cause Ukraine Budget Crash",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-24/source-russia-af-heaviest-odessa-bombing-russia-storm-kiev-after-donbas-drones-cause-ukraine-budget-crash-2026-08-24.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-24/source-russia-af-heaviest-odessa-bombing-russia-storm-kiev-after-donbas-drones-cause-ukraine-budget-crash-2026-08-24.md",
+      "upstream_path": "operator-paste://2026-08-24/russia-af-heaviest-odessa-bombing-russia-storm-kiev-after-donbas-drones-cause-ukraine-budget-crash",
+      "source_class": "host monologue",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "alexander-mercouris",
+      "source_identity": "youtube:VzS-Y5UpZ9A",
+      "source_url": "https://www.youtube.com/watch?v=VzS-Y5UpZ9A",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-24",
+      "title": "Col. Larry Wilkerson: Iran Abandons Defense Strategy as US Unleashes Economic Blitzkrieg",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-24/source-col-larry-wilkerson-iran-abandons-defense-strategy-as-us-unleashes-economic-blitzkrieg-2026-08-24.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-24/source-col-larry-wilkerson-iran-abandons-defense-strategy-as-us-unleashes-economic-blitzkrieg-2026-08-24.md",
+      "upstream_path": "operator-paste://2026-08-24/col-larry-wilkerson-iran-abandons-defense-strategy-as-us-unleashes-economic-blitzkrieg",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "wilkerson"
+      ],
+      "host_slug": "dialogue-works",
+      "source_identity": "youtube:1CGQFX2L0oQ",
+      "source_url": "https://www.youtube.com/watch?v=1CGQFX2L0oQ",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-24",
+      "title": "Col. Jacques Baud: US Declares \"Largest Ever\" Financial War as Tehran Vows Full Retaliation",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-24/source-col-jacques-baud-us-declares-largest-ever-financial-war-as-tehran-vows-full-retaliation-2026-08-24.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-24/source-col-jacques-baud-us-declares-largest-ever-financial-war-as-tehran-vows-full-retaliation-2026-08-24.md",
+      "upstream_path": "operator-paste://2026-08-24/col-jacques-baud-us-declares-largest-ever-financial-war-as-tehran-vows-full-retaliation",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "baud"
+      ],
+      "host_slug": "dialogue-works",
+      "source_identity": "youtube:uvllL5LFmB0",
+      "source_url": "https://www.youtube.com/watch?v=uvllL5LFmB0",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-24",
+      "title": "US Army Sowing the Seeds of Defeat in Next War",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-24/source-us-army-sowing-the-seeds-of-defeat-in-next-war-2026-08-24.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-24/source-us-army-sowing-the-seeds-of-defeat-in-next-war-2026-08-24.md",
+      "upstream_path": "operator-paste://2026-08-24/us-army-sowing-the-seeds-of-defeat-in-next-war",
+      "source_class": "host monologue",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "davis"
+      ],
+      "host_slug": "daniel-davis",
+      "source_identity": "youtube:0W2a62d63Es",
+      "source_url": "https://www.youtube.com/watch?v=0W2a62d63Es",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-24",
+      "title": "Jeffrey Sachs: The War on Russia & Iran Is Breaking the West",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-24/source-jeffrey-sachs-the-war-on-russia-iran-is-breaking-the-west-2026-08-24.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-24/source-jeffrey-sachs-the-war-on-russia-iran-is-breaking-the-west-2026-08-24.md",
+      "upstream_path": "operator-paste://2026-08-24/jeffrey-sachs-the-war-on-russia-iran-is-breaking-the-west",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "sachs"
+      ],
+      "host_slug": "glenn-diesen",
+      "source_identity": "youtube:kLhkKjo544U",
+      "source_url": "https://www.youtube.com/watch?v=kLhkKjo544U",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-24",
+      "title": "Alastair Crooke : Can Trump Raise the Stakes in Iran?",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-24/source-alastair-crooke-can-trump-raise-the-stakes-in-iran-2026-08-24.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-24/source-alastair-crooke-can-trump-raise-the-stakes-in-iran-2026-08-24.md",
+      "upstream_path": "operator-paste://2026-08-24/alastair-crooke-can-trump-raise-the-stakes-in-iran",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "crooke"
+      ],
+      "host_slug": "judging-freedom",
+      "source_identity": "youtube:VZVoAV9S0jM",
+      "source_url": "https://www.youtube.com/watch?v=VZVoAV9S0jM",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-24",
+      "title": "Robert Barnes : Do Trump's Senior Aides Trust Him?",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-24/source-robert-barnes-do-trump-s-senior-aides-trust-him-2026-08-24.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-24/source-robert-barnes-do-trump-s-senior-aides-trust-him-2026-08-24.md",
+      "upstream_path": "operator-paste://2026-08-24/robert-barnes-do-trump-s-senior-aides-trust-him",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "barnes"
+      ],
+      "host_slug": "judging-freedom",
+      "source_identity": "youtube:cnqXFzcH7eg",
+      "source_url": "https://www.youtube.com/watch?v=cnqXFzcH7eg",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-24",
+      "title": "Russia's Economic Model: Growth Without the Debt Trap",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-24/source-russia-s-economic-model-growth-without-the-debt-trap-2026-08-24.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-24/source-russia-s-economic-model-growth-without-the-debt-trap-2026-08-24.md",
+      "upstream_path": "operator-paste://2026-08-24/russia-s-economic-model-growth-without-the-debt-trap",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "the-duran",
+      "source_identity": "youtube:mAJT1WraLqc",
+      "source_url": "https://www.youtube.com/watch?v=mAJT1WraLqc",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-24",
+      "title": "Scott Ritter: Russia Warns Ukraine Allies",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-24/source-scott-ritter-russia-warns-ukraine-allies-2026-08-24.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-24/source-scott-ritter-russia-warns-ukraine-allies-2026-08-24.md",
+      "upstream_path": "operator-paste://2026-08-24/scott-ritter-russia-warns-ukraine-allies",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "ritter"
+      ],
+      "host_slug": "daniel-davis",
+      "source_identity": "youtube:54rr9c559po",
+      "source_url": "https://www.youtube.com/watch?v=54rr9c559po",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-25",
+      "title": "TRUMP'S SANCTIONS \"THE ULTIMATE ESCALATION TRAP\", WAR NOW IMMINENT - w/ Prof. Robert Pape",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-25/source-trump-s-sanctions-the-ultimate-escalation-trap-war-now-imminent-w-prof-robert-pape-2026-08-25.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-25/source-trump-s-sanctions-the-ultimate-escalation-trap-war-now-imminent-w-prof-robert-pape-2026-08-25.md",
+      "upstream_path": "operator-paste://2026-08-25/trump-s-sanctions-the-ultimate-escalation-trap-war-now-imminent-w-prof-robert-pape",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "pape"
+      ],
+      "host_slug": "mario-nawfal",
+      "source_identity": "https://www.youtube.com/live/V4Afj-8x0EY",
+      "source_url": "https://www.youtube.com/live/V4Afj-8x0EY",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "explicit-host"
       ],
       "import_status": "imported"
     }

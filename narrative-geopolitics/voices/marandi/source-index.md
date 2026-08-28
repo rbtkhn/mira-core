@@ -4,7 +4,7 @@ This index routes the imported first-slice parity corpus for `marandi` to the ce
 
 Source basis: `strategy-codex/statecraft/voices/marandi/marandi-index.md`.
 
-Corpus: 97 local route rows across 97 central archive source files.
+Corpus: 99 local route rows across 99 central archive source files.
 
 Status: `first-slice-parity`
 
@@ -121,6 +121,8 @@ Status: `first-slice-parity`
 | `2026-08-16` | (4) Seyed M. Marandi: Iran & Yemen Unleash a New Offensive Strategy | `guest` | `glenn-diesen` | [source](../../../archive/sources/geopolitics/sources/2026-08-16/source-4-seyed-m-marandi-iran-yemen-unleash-a-new-offensive-strategy-2026-08-16.md) |
 | `2026-08-18` | (4) Seyed M. Marandi: 60-Day Deadline FAILS: Iran & US on the Brink of a NEW War | `host-pressure test` | `nima-alkhorshid` | [source](../../../archive/sources/geopolitics/sources/2026-08-18/source-4-seyed-m-marandi-60-day-deadline-fails-iran-us-on-the-brink-of-a-new-war-2026-08-18.md) |
 | `2026-08-22` | Seyed M. Marandi: Trump to Squeeze Iran’s Economy to the Brink—But Tehran Just Doubled Its Arsenal | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2026-08-22/source-seyed-m-marandi-trump-to-squeeze-iran-s-economy-to-the-brink-but-tehran-just-doubled-its-arsenal-2026-08-22.md) |
+| `2026-08-23` | 🚨 LIVE: Mohammad Marandi - The Iran War Is Coming for the US Economy | `guest` | `cyrus-janssen` | [source](../../../archive/sources/geopolitics/sources/2026-08-23/source-live-mohammad-marandi-the-iran-war-is-coming-for-the-us-economy-2026-08-23.md) |
+| `2026-08-23` | Seyed M. Marandi: From "Economic D-Day" to Nuclear Strike Against Iran? | `guest` | `glenn-diesen` | [source](../../../archive/sources/geopolitics/sources/2026-08-23/source-seyed-m-marandi-from-economic-d-day-to-nuclear-strike-against-iran-2026-08-23.md) |
 
 ## Import Boundary
 

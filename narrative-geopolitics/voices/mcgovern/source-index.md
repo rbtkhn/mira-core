@@ -4,7 +4,7 @@ This index routes the unified local McGovern corpus for `mcgovern` to the centra
 
 Source basis: `strategy-codex/statecraft/voices/mcgovern/mcgovern-index.md` plus already-local matching archive rows.
 
-Corpus: 33 local route rows across 33 central archive source files.
+Corpus: 34 local route rows across 34 central archive source files.
 
 Status: `imported-corpus`
 
@@ -52,6 +52,7 @@ Status: `imported-corpus`
 | `2026-08-02` | Ray McGovern: IRAN'S GULF SHOCKWAVE: How 'Precision' Strikes Just Collapsed the War Strategy | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2026-08-02/source-ray-mcgovern-iran-s-gulf-shockwave-how-precision-strikes-just-collapsed-the-war-strategy-2026-08-02.md) |
 | `2026-08-15` | (4) Ray McGovern: Russia-Japan Tensions Grow & U.S. Involvement in Attacks on Russia | `host-pressure test` | `glenn-diesen` | [source](../../../archive/sources/geopolitics/sources/2026-08-15/source-4-ray-mcgovern-russia-japan-tensions-grow-u-s-involvement-in-attacks-on-russia-2026-08-15.md) |
 | `2026-08-16` | (4) Ray McGovern: Israel Suffers WORST Military Defeat – New Front Opens | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2026-08-16/source-4-ray-mcgovern-israel-suffers-worst-military-defeat-new-front-opens-2026-08-16.md) |
+| `2026-08-23` | Ray McGovern: Israel’s Clash With Two Major Armies Signals Its Worst Defeat Yet | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2026-08-23/source-ray-mcgovern-israel-s-clash-with-two-major-armies-signals-its-worst-defeat-yet-2026-08-23.md) |
 
 ## Import Boundary
 

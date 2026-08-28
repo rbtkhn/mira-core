@@ -4,7 +4,7 @@ This index routes the imported first-slice parity corpus for `johnson` to the ce
 
 Source basis: `archive/sources/geopolitics/source-manifest.json`.
 
-Corpus: 132 local route rows across 132 central archive source files.
+Corpus: 133 local route rows across 133 central archive source files.
 
 Status: `first-slice-parity`
 
@@ -156,6 +156,7 @@ Status: `first-slice-parity`
 | `2026-08-21` | Larry Johnson: The Trap is Set: America’s Confrontation with Iran is Unwinnable, Iran Quits NPT? | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2026-08-21/source-larry-johnson-the-trap-is-set-america-s-confrontation-with-iran-is-unwinnable-iran-quits-npt-2026-08-21.md) |
 | `2026-08-22` | BREAKING: IRAN THREATENS TO STRIKE COUNTRIES THAT ABIDE BY TRUMP'S SANCTIONS — w/ Larry Johnson | `guest` | `mario-nawfal` | [source](../../../archive/sources/geopolitics/sources/2026-08-22/source-breaking-iran-threatens-to-strike-countries-that-abide-by-trump-s-sanctions-w-larry-johnson-2026-08-22.md) |
 | `2026-08-22` | Larry Johnson: Iran Just Flipped the Script: Offensive to Break the Economic Siege | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2026-08-22/source-larry-johnson-iran-just-flipped-the-script-offensive-to-break-the-economic-siege-2026-08-22.md) |
+| `2026-08-23` | Larry Johnson: Iran’s Parliament Agency DROPS BOMBSHELL: “We Were Invited to Join the Mecca Pact” | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2026-08-23/source-larry-johnson-iran-s-parliament-agency-drops-bombshell-we-were-invited-to-join-the-mecca-pact-2026-08-23.md) |
 
 ## Judgment Continuity
 

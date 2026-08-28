@@ -4,7 +4,7 @@ This index routes the transcript-bearing upstream-parity corpus for `mercouris` 
 
 Source basis: `strategy-codex/statecraft/voices/mercouris/mercouris-index.md`, `strategy-codex/statecraft/channels/alexander-mercouris/alexander-mercouris-channel-index.md`, and subsequent local intake.
 
-Corpus: 400 local route rows across 400 central archive source files.
+Corpus: 403 local route rows across 403 central archive source files.
 
 Status: `transcript-bearing-upstream-parity`
 
@@ -424,6 +424,9 @@ Status: `transcript-bearing-upstream-parity`
 | `2026-08-20` | (4) Russia Massive Kiev Strike More Coming; Orekhov Troops Panic; Dobropilia Falling; Ukraine Crisis | `host monologue` | `alexander-mercouris` | [source](../../../archive/sources/geopolitics/sources/2026-08-20/source-4-russia-massive-kiev-strike-more-coming-orekhov-troops-panic-dobropilia-falling-ukraine-crisis-2026-08-20.md) |
 | `2026-08-21` | (4) Trump's Economic Siege on Iran, China and BRICS Stand in the Way | `guest` | `the-duran` | [source](../../../archive/sources/geopolitics/sources/2026-08-21/source-4-trump-s-economic-siege-on-iran-china-and-brics-stand-in-the-way-2026-08-21.md) |
 | `2026-08-22` | Russia Pounds Odessa Encircles Dobropilia Strikes Kiev Again; Ukraine Hyperinflation Fears Return | `host monologue` | `alexander-mercouris` | [source](../../../archive/sources/geopolitics/sources/2026-08-22/source-russia-pounds-odessa-encircles-dobropilia-strikes-kiev-again-ukraine-hyperinflation-fears-return-2026-08-22.md) |
+| `2026-08-23` | Putin Says Kiev Begs Truce; Says NO & Kiev Faces Catastrophe; Russian AF Bombs Odessa; Dobropilia | `host monologue` | `alexander-mercouris` | [source](../../../archive/sources/geopolitics/sources/2026-08-23/source-putin-says-kiev-begs-truce-says-no-kiev-faces-catastrophe-russian-af-bombs-odessa-dobropilia-2026-08-23.md) |
+| `2026-08-24` | Russia AF Heaviest Odessa Bombing; Russia Storm Kiev After Donbas; Drones Cause Ukraine Budget Crash | `host monologue` | `alexander-mercouris` | [source](../../../archive/sources/geopolitics/sources/2026-08-24/source-russia-af-heaviest-odessa-bombing-russia-storm-kiev-after-donbas-drones-cause-ukraine-budget-crash-2026-08-24.md) |
+| `2026-08-24` | Russia's Economic Model: Growth Without the Debt Trap | `guest` | `the-duran` | [source](../../../archive/sources/geopolitics/sources/2026-08-24/source-russia-s-economic-model-growth-without-the-debt-trap-2026-08-24.md) |
 
 ## Judgment Continuity
 

@@ -4,7 +4,7 @@ This index routes the unified local Sachs corpus for `sachs` to the central Narr
 
 Source basis: `strategy-codex/statecraft/voices/sachs/sachs-index.md`.
 
-Corpus: 104 local route rows across 104 central archive source files.
+Corpus: 105 local route rows across 105 central archive source files.
 
 Status: `imported-corpus`
 
@@ -123,6 +123,7 @@ Status: `imported-corpus`
 | `2026-08-10` | (2) Prof. Jeffrey Sachs : Trump and His War Destroying US Economy | `guest` | `judging-freedom` | [source](../../../archive/sources/geopolitics/sources/2026-08-10/source-2-prof-jeffrey-sachs-trump-and-his-war-destroying-us-economy-2026-08-10.md) |
 | `2026-08-17` | (4) Prof. Jeffrey Sachs : NATO Is Toothless; Fauci Latest | `guest` | `judging-freedom` | [source](../../../archive/sources/geopolitics/sources/2026-08-17/source-4-prof-jeffrey-sachs-nato-is-toothless-fauci-latest-2026-08-17.md) |
 | `2026-08-20` | (4) Prof. Jeffrey Sachs : Foreign Agents Fund 254 Congressional Races | `guest` | `judging-freedom` | [source](../../../archive/sources/geopolitics/sources/2026-08-20/source-4-prof-jeffrey-sachs-foreign-agents-fund-254-congressional-races-2026-08-20.md) |
+| `2026-08-24` | Jeffrey Sachs: The War on Russia & Iran Is Breaking the West | `guest` | `glenn-diesen` | [source](../../../archive/sources/geopolitics/sources/2026-08-24/source-jeffrey-sachs-the-war-on-russia-iran-is-breaking-the-west-2026-08-24.md) |
 
 ## Import Boundary
 

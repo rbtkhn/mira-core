@@ -4,7 +4,7 @@ This index routes the unified local Baud corpus for `baud` to the central Narrat
 
 Source basis: `strategy-codex/statecraft/voices/baud/baud-index.md`.
 
-Corpus: 41 local route rows across 41 central archive source files.
+Corpus: 42 local route rows across 42 central archive source files.
 
 Status: `imported-corpus`
 
@@ -60,6 +60,7 @@ Status: `imported-corpus`
 | `2026-08-03` | Col. Jacques Baud: Iran Defies Trump, Targets Ship in Strait of Hormuz Hours After Statement | `guest` | `mario-nawfal` | [source](../../../archive/sources/geopolitics/sources/2026-08-03/source-col-jacques-baud-iran-defies-trump-targets-ship-in-strait-of-hormuz-hours-after-statement-2026-08-03.md) |
 | `2026-08-10` | (2) Col. Jacques Baud: "Wherever You Mass, You Get Bombed" – Yemenis Target Saudi Forces | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2026-08-10/source-2-col-jacques-baud-wherever-you-mass-you-get-bombed-yemenis-target-saudi-forces-2026-08-10.md) |
 | `2026-08-17` | (4) Col. Jacques Baud: The Oval Office’s Final Move That Has Israel on Edge | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2026-08-17/source-4-col-jacques-baud-the-oval-office-s-final-move-that-has-israel-on-edge-2026-08-17.md) |
+| `2026-08-24` | Col. Jacques Baud: US Declares "Largest Ever" Financial War as Tehran Vows Full Retaliation | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2026-08-24/source-col-jacques-baud-us-declares-largest-ever-financial-war-as-tehran-vows-full-retaliation-2026-08-24.md) |
 
 ## Import Boundary
 
