@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "ledger_id": "applied-ai-opportunity-ledger-v1",
-  "generated_at": "2026-08-28T22:45:27Z",
+  "generated_at": "2026-08-28T23:11:02Z",
   "status": "working-ledger",
   "collections": [
     "nate-b-jones",
@@ -202,7 +202,7 @@
           "path": "archive/sources/singularity/nate-herk/transcripts/2026-08-23-i-deleted-all-my-claude-skills-and-claude-got-smarter.md",
           "title": "I Deleted All My Claude Skills... And Claude Got Smarter",
           "date": "2026-08-23",
-          "source_status": "untracked-local"
+          "source_status": "tracked"
         }
       ],
       "innermost_loop_refs": [
@@ -304,7 +304,7 @@
           "path": "archive/sources/singularity/nate-herk/transcripts/2026-08-23-i-built-the-ultimate-claude-website-design-skill-steal-this.md",
           "title": "I Built The Ultimate Claude Website Design Skill (steal this)",
           "date": "2026-08-23",
-          "source_status": "untracked-local"
+          "source_status": "tracked"
         }
       ],
       "innermost_loop_refs": [],
@@ -383,7 +383,7 @@
           "path": "archive/sources/singularity/nate-herk/transcripts/2026-08-23-how-to-sell-claude-workflows-without-starting-an-agency.md",
           "title": "How to Sell Claude Workflows (Without Starting an Agency)",
           "date": "2026-08-23",
-          "source_status": "untracked-local"
+          "source_status": "tracked"
         }
       ],
       "innermost_loop_refs": [],
@@ -462,7 +462,7 @@
           "path": "archive/sources/singularity/nate-herk/transcripts/2026-08-23-how-to-build-a-one-person-ai-business-using-claude-code.md",
           "title": "How to Build a One Person AI Business (Using Claude Code)",
           "date": "2026-08-23",
-          "source_status": "untracked-local"
+          "source_status": "tracked"
         }
       ],
       "innermost_loop_refs": [],
@@ -605,7 +605,7 @@
           "path": "archive/sources/singularity/nate-herk/transcripts/2026-08-23-18-months-of-pricing-ai-automations-in-21-mins.md",
           "title": "18 Months of Pricing AI Automations in 21 Mins",
           "date": "2026-08-23",
-          "source_status": "untracked-local"
+          "source_status": "tracked"
         }
       ],
       "innermost_loop_refs": [
@@ -715,7 +715,7 @@
           "path": "archive/sources/singularity/nate-herk/transcripts/2026-08-21-turn-claude-into-a-one-person-marketing-team-in-38-mins.md",
           "title": "Turn Claude Into a One Person Marketing Team in 38 Mins",
           "date": "2026-08-21",
-          "source_status": "untracked-local"
+          "source_status": "tracked"
         }
       ],
       "innermost_loop_refs": [
@@ -811,7 +811,7 @@
           "path": "archive/sources/singularity/nate-herk/transcripts/2026-08-21-this-stealth-model-makes-claude-code-free-heres-how.md",
           "title": "This Stealth Model Makes Claude Code Free. Here's How.",
           "date": "2026-08-21",
-          "source_status": "untracked-local"
+          "source_status": "tracked"
         }
       ],
       "innermost_loop_refs": [
@@ -932,7 +932,7 @@
           "path": "archive/sources/singularity/nate-herk/transcripts/2026-08-21-i-made-codex-and-claude-code-build-the-same-app.md",
           "title": "I Made Codex and Claude Code Build the Same App. One Clearly Won.",
           "date": "2026-08-21",
-          "source_status": "untracked-local"
+          "source_status": "tracked"
         }
       ],
       "innermost_loop_refs": [
@@ -1058,7 +1058,7 @@
           "path": "archive/sources/singularity/nate-herk/transcripts/2026-08-21-how-to-sell-these-5-most-in-demand-ai-automations-in-2026.md",
           "title": "How to Sell These 5 Most In Demand AI Automations in 2026",
           "date": "2026-08-21",
-          "source_status": "untracked-local"
+          "source_status": "tracked"
         }
       ],
       "innermost_loop_refs": [
@@ -1172,7 +1172,7 @@
           "path": "archive/sources/singularity/nate-herk/transcripts/2026-08-21-codexs-browser-use-automates-literally-anything.md",
           "title": "Codex's Browser Use Automates Literally Anything",
           "date": "2026-08-21",
-          "source_status": "untracked-local"
+          "source_status": "tracked"
         }
       ],
       "innermost_loop_refs": [
@@ -1282,7 +1282,7 @@
           "path": "archive/sources/singularity/nate-herk/transcripts/2026-08-21-a-week-of-grok-bot-lessons-in-10-mins.md",
           "title": "A Week of Grok Bot Lessons in 10 Mins",
           "date": "2026-08-21",
-          "source_status": "untracked-local"
+          "source_status": "tracked"
         }
       ],
       "innermost_loop_refs": [
@@ -1392,7 +1392,7 @@
           "path": "archive/sources/singularity/nate-b-jones/transcripts/2026-08-21-glm-5-3-in-claude-code-is-a-game-changer.md",
           "title": "GLM 5.3 in Claude Code Is A Game Changer!",
           "date": "2026-08-21",
-          "source_status": "untracked-local"
+          "source_status": "tracked"
         }
       ],
       "innermost_loop_refs": [
@@ -1511,7 +1511,7 @@
           "path": "archive/sources/singularity/nate-b-jones/transcripts/2026-08-17-one-cancelled-gym-class-agent-swarm-attacks.md",
           "title": "One Cancelled Gym Class. That's How Agent Swarm Attacks Start.",
           "date": "2026-08-17",
-          "source_status": "untracked-local"
+          "source_status": "tracked"
         }
       ],
       "innermost_loop_refs": [
@@ -1621,7 +1621,7 @@
           "path": "archive/sources/singularity/nate-b-jones/transcripts/2026-08-16-ai-isnt-a-bubble-nvidia-500-billion-push-retirement.md",
           "title": "AI Isn't A Bubble. That's How NVIDIA's  Billion Push Ends Up In Your Retirement.",
           "date": "2026-08-16",
-          "source_status": "untracked-local"
+          "source_status": "tracked"
         }
       ],
       "innermost_loop_refs": [
@@ -1746,7 +1746,7 @@
           "path": "archive/sources/singularity/nate-b-jones/transcripts/2026-08-14-grok-bot-is-the-first-ai-agent-you-just-install-is-it-worth-200.md",
           "title": "Grok Bot Is The First AI Agent You Just Install. Is It Worth $200?",
           "date": "2026-08-14",
-          "source_status": "untracked-local"
+          "source_status": "tracked"
         }
       ],
       "innermost_loop_refs": [

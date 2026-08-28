@@ -1,7 +1,7 @@
 # Applied AI Opportunity Ledger
 
 Status: `working-ledger`
-Generated: 2026-08-28T22:45:27Z
+Generated: 2026-08-28T23:11:02Z
 Collections: `nate-b-jones`, `nate-herk`, `innermost-loop`
 Authority boundary: Opportunity triage only. Rows are not revenue proof, customer validation, financial advice, rights clearance, public claim verification, or permission to reuse transcript bodies.
 
