@@ -7,7 +7,11 @@ date_published:
 date_captured: 2026-06-19
 rights_status: internal-commit-approved
 capture_method: youtube-transcript-operator-paste
-speaker: Peter Diamandis; Alex Wiggins; Salim Ismail; Dave
+speaker: "Peter H. Diamandis; Alex Wissner-Gross; Salim Ismail; Dave Blundin"
+host: "Peter H. Diamandis"
+panelists: ["Alex Wissner-Gross", "Salim Ismail", "Dave Blundin"]
+guests: []
+speaker_status: "not diarized; participant roster inferred from opening"
 episode_id: '265'
 notes: Imported from C:/dev/strategy-codex/source-archive/singularity canonical raw capture.
 ---
@@ -22,7 +26,11 @@ notes: Imported from C:/dev/strategy-codex/source-archive/singularity canonical 
 - Date captured: 2026-06-19
 - Rights status: `internal-commit-approved`
 - Capture method: youtube-transcript-operator-paste
-- Speaker: Peter Diamandis; Alex Wiggins; Salim Ismail; Dave
+- Speaker: Peter H. Diamandis; Alex Wissner-Gross; Salim Ismail; Dave Blundin
+- Host: Peter H. Diamandis
+- Panelists: Alex Wissner-Gross; Salim Ismail; Dave Blundin
+- Guests: none
+- Speaker status: not diarized; participant roster inferred from opening
 - Episode ID: 265
 
 ## Intake Notes

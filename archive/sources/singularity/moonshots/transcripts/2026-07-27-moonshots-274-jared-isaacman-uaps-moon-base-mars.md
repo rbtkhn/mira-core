@@ -9,7 +9,11 @@ date_published:
 date_captured: 2026-07-27
 rights_status: internal-commit-approved
 capture_method: "operator-provided transcript paste"
-speaker: "Jared Isaacman"
+speaker: "Peter H. Diamandis; Jared Isaacman"
+host: "Peter H. Diamandis"
+panelists: []
+guests: ["Jared Isaacman"]
+speaker_status: "not diarized; guest interview with Moonshots panel context"
 episode_id: "Ep #274"
 notes: "Internal Singularity Science archive intake. Preserve transcript bulk locally; use only original synthesis, short citations, and rights-aware source attribution outside archive."
 ---
@@ -24,7 +28,11 @@ notes: "Internal Singularity Science archive intake. Preserve transcript bulk lo
 - Date captured: 2026-07-27
 - Rights status: `internal-commit-approved`
 - Capture method: operator-provided transcript paste
-- Speaker: Jared Isaacman
+- Speaker: Peter H. Diamandis; Jared Isaacman
+- Host: Peter H. Diamandis
+- Panelists: none
+- Guests: Jared Isaacman
+- Speaker status: not diarized; guest interview with Moonshots panel context
 - Episode: `Ep #274`
 
 ## Intake Notes

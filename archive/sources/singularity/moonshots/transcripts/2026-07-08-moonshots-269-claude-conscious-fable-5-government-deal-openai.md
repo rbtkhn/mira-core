@@ -7,7 +7,11 @@ date_published:
 date_captured: 2026-07-08
 rights_status: internal-commit-approved
 capture_method: user-provided transcript paste
-speaker: Peter Diamandis; Alex Wiggins; Salim Ismail; Dave Blundin; Sim Ismail; Philip Johnston
+speaker: "Peter H. Diamandis; Alex Wissner-Gross; Salim Ismail; Dave Blundin"
+host: "Peter H. Diamandis"
+panelists: ["Alex Wissner-Gross", "Salim Ismail", "Dave Blundin"]
+guests: []
+speaker_status: "not diarized; participant roster inferred from opening"
 episode_id: "269"
 notes: Intake created from operator-provided transcript text attachment on 2026-07-08. YouTube publish date not independently verified at intake.
 ---
@@ -22,7 +26,11 @@ notes: Intake created from operator-provided transcript text attachment on 2026-
 - Date captured: 2026-07-08
 - Rights status: `internal-commit-approved`
 - Capture method: user-provided transcript paste
-- Speaker: Peter Diamandis; Alex Wiggins; Salim Ismail; Dave Blundin; Sim Ismail; Philip Johnston
+- Speaker: Peter H. Diamandis; Alex Wissner-Gross; Salim Ismail; Dave Blundin
+- Host: Peter H. Diamandis
+- Panelists: Alex Wissner-Gross; Salim Ismail; Dave Blundin
+- Guests: none
+- Speaker status: not diarized; participant roster inferred from opening
 - Episode ID: 269
 
 ## Intake Notes

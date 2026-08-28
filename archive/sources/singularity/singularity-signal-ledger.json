@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "ledger_id": "singularity-signal-ledger-v1",
-  "generated_at": "2026-08-28T01:57:30Z",
+  "generated_at": "2026-08-28T16:39:32Z",
   "status": "working-ledger",
   "collections": [
     "innermost-loop",
@@ -75,6 +75,18 @@
         "compute-bottleneck",
         "china-catch-up"
       ],
+      "participant_context": {
+        "host": "Peter H. Diamandis",
+        "panelists": [
+          "Alex Wissner-Gross",
+          "Dave Blundin",
+          "Salim Ismail",
+          "Emad Mostaque"
+        ],
+        "guests": [],
+        "speaker_status": "not diarized; full Moonshots quintet inferred from opening",
+        "attribution_status": "episode-level-context"
+      },
       "forecast_claims": {
         "status": "needs-human-extraction",
         "candidate_handles": [
@@ -144,6 +156,18 @@
         "agent-autonomy",
         "safety-governance-narrative"
       ],
+      "participant_context": {
+        "host": "Peter H. Diamandis",
+        "panelists": [
+          "Alex Wissner-Gross",
+          "Dave Blundin",
+          "Salim Ismail",
+          "Emad Mostaque"
+        ],
+        "guests": [],
+        "speaker_status": "not diarized; full Moonshots quintet inferred from opening",
+        "attribution_status": "episode-level-context"
+      },
       "forecast_claims": {
         "status": "needs-human-extraction",
         "candidate_handles": [
@@ -212,6 +236,19 @@
         "safety-governance-narrative",
         "agent-autonomy"
       ],
+      "participant_context": {
+        "host": "Peter H. Diamandis",
+        "panelists": [
+          "Alex Wissner-Gross",
+          "Dave Blundin",
+          "Salim Ismail"
+        ],
+        "guests": [
+          "Alvin Graylin"
+        ],
+        "speaker_status": "not diarized; participant roster inferred from opening",
+        "attribution_status": "episode-level-context"
+      },
       "forecast_claims": {
         "status": "needs-human-extraction",
         "candidate_handles": [
@@ -282,6 +319,19 @@
         "compute-bottleneck",
         "space-industrialization"
       ],
+      "participant_context": {
+        "host": "Peter H. Diamandis",
+        "panelists": [
+          "Alex Wissner-Gross",
+          "Dave Blundin",
+          "Salim Ismail"
+        ],
+        "guests": [
+          "Ramez Naam"
+        ],
+        "speaker_status": "not diarized; participant roster inferred from opening",
+        "attribution_status": "episode-level-context"
+      },
       "forecast_claims": {
         "status": "needs-human-extraction",
         "candidate_handles": [
@@ -353,6 +403,18 @@
         "safety-governance-narrative",
         "capital-market-infrastructure"
       ],
+      "participant_context": {
+        "host": "Peter H. Diamandis",
+        "panelists": [
+          "Alex Wissner-Gross",
+          "Dave Blundin",
+          "Salim Ismail",
+          "Emad Mostaque"
+        ],
+        "guests": [],
+        "speaker_status": "not diarized; full Moonshots quintet inferred from opening; Emad is featured in title but treated as panel member",
+        "attribution_status": "episode-level-context"
+      },
       "forecast_claims": {
         "status": "needs-human-extraction",
         "candidate_handles": [
@@ -427,6 +489,19 @@
         "compute-bottleneck",
         "china-catch-up"
       ],
+      "participant_context": {
+        "host": "Peter H. Diamandis",
+        "panelists": [
+          "Alex Wissner-Gross",
+          "Dave Blundin",
+          "Salim Ismail"
+        ],
+        "guests": [
+          "Kush Bavaria"
+        ],
+        "speaker_status": "not diarized; participant roster inferred from opening",
+        "attribution_status": "episode-level-context"
+      },
       "forecast_claims": {
         "status": "needs-human-extraction",
         "candidate_handles": [
@@ -499,6 +574,18 @@
         "agent-autonomy",
         "science-acceleration"
       ],
+      "participant_context": {
+        "host": "Peter H. Diamandis",
+        "panelists": [
+          "Alex Wissner-Gross",
+          "Dave Blundin",
+          "Salim Ismail",
+          "Emad Mostaque"
+        ],
+        "guests": [],
+        "speaker_status": "not diarized; full Moonshots quintet inferred from opening",
+        "attribution_status": "episode-level-context"
+      },
       "forecast_claims": {
         "status": "needs-human-extraction",
         "candidate_handles": [
@@ -566,6 +653,15 @@
         "agent-autonomy",
         "institutional-lag"
       ],
+      "participant_context": {
+        "host": "Peter H. Diamandis",
+        "panelists": [],
+        "guests": [
+          "Michael Kratsios"
+        ],
+        "speaker_status": "not diarized; one-on-one interview; questions framed partly on behalf of the Moonshots panel",
+        "attribution_status": "episode-level-context"
+      },
       "forecast_claims": {
         "status": "needs-human-extraction",
         "candidate_handles": [
@@ -582,5 +678,62 @@
       "priority": "high",
       "disposition": "Review candidate links and extract atomic forecast claims before reuse."
     }
-  ]
+  ],
+  "participant_filters": {
+    "Alex Wissner-Gross": [
+      "SSL-20260808-001",
+      "SSL-20260811-001",
+      "SSL-20260813-001",
+      "SSL-20260815-001",
+      "SSL-20260818-001",
+      "SSL-20260821-001",
+      "SSL-20260827-001"
+    ],
+    "Alvin Graylin": [
+      "SSL-20260818-001"
+    ],
+    "Dave Blundin": [
+      "SSL-20260808-001",
+      "SSL-20260811-001",
+      "SSL-20260813-001",
+      "SSL-20260815-001",
+      "SSL-20260818-001",
+      "SSL-20260821-001",
+      "SSL-20260827-001"
+    ],
+    "Emad Mostaque": [
+      "SSL-20260808-001",
+      "SSL-20260813-001",
+      "SSL-20260821-001",
+      "SSL-20260827-001"
+    ],
+    "Kush Bavaria": [
+      "SSL-20260811-001"
+    ],
+    "Michael Kratsios": [
+      "SSL-20260804-001"
+    ],
+    "Peter H. Diamandis": [
+      "SSL-20260804-001",
+      "SSL-20260808-001",
+      "SSL-20260811-001",
+      "SSL-20260813-001",
+      "SSL-20260815-001",
+      "SSL-20260818-001",
+      "SSL-20260821-001",
+      "SSL-20260827-001"
+    ],
+    "Ramez Naam": [
+      "SSL-20260815-001"
+    ],
+    "Salim Ismail": [
+      "SSL-20260808-001",
+      "SSL-20260811-001",
+      "SSL-20260813-001",
+      "SSL-20260815-001",
+      "SSL-20260818-001",
+      "SSL-20260821-001",
+      "SSL-20260827-001"
+    ]
+  }
 }

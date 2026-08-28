@@ -171,24 +171,47 @@ def repo_relative(path: Path) -> str:
     return path.relative_to(REPO_ROOT).as_posix()
 
 
-def parse_frontmatter(text: str) -> dict[str, str]:
+def parse_inline_list(value: str) -> list[str]:
+    stripped = value.strip()
+    if stripped == "[]":
+        return []
+    if not stripped.startswith("[") or not stripped.endswith("]"):
+        return []
+    raw_items = stripped[1:-1].strip()
+    if not raw_items:
+        return []
+    items: list[str] = []
+    for item in raw_items.split(","):
+        cleaned = item.strip().strip('"').strip("'").strip()
+        if cleaned:
+            items.append(cleaned)
+    return items
+
+
+def parse_frontmatter_value(raw_value: str) -> Any:
+    value = raw_value.strip()
+    if value.startswith("[") and value.endswith("]"):
+        return parse_inline_list(value)
+    return value.strip('"')
+
+
+def parse_frontmatter(text: str) -> dict[str, Any]:
     if not text.startswith("---\n"):
         return {}
     end = text.find("\n---\n", 4)
     if end == -1:
         return {}
-    result: dict[str, str] = {}
+    result: dict[str, Any] = {}
     for line in text[4:end].splitlines():
         if ":" not in line:
             continue
         key, raw_value = line.split(":", 1)
-        value = raw_value.strip().strip('"')
-        result[key.strip()] = value
+        result[key.strip()] = parse_frontmatter_value(raw_value)
     return result
 
 
-def parse_date(value: str | None, fallback_name: str) -> date | None:
-    candidates = [value or "", fallback_name]
+def parse_date(value: Any, fallback_name: str) -> date | None:
+    candidates = [value if isinstance(value, str) else "", fallback_name]
     for candidate in candidates:
         match = re.search(r"\b(20\d{2}-\d{2}-\d{2})\b", candidate)
         if match:
@@ -209,7 +232,7 @@ def load_docs(root: Path) -> list[SourceDoc]:
             SourceDoc(
                 path=path,
                 repo_path=repo_relative(path),
-                title=title,
+                title=title if isinstance(title, str) else path.stem,
                 published=published,
                 text=text,
             )
@@ -305,6 +328,75 @@ def signal_id(published: date | None, index: int) -> str:
     return f"SSL-{stamp}-{index:03d}"
 
 
+def participant_context(frontmatter: dict[str, Any]) -> dict[str, Any]:
+    host = frontmatter.get("host")
+    panelists = frontmatter.get("panelists")
+    guests = frontmatter.get("guests")
+    speaker_status = frontmatter.get("speaker_status")
+    if isinstance(host, str) or isinstance(panelists, list) or isinstance(guests, list) or isinstance(speaker_status, str):
+        return {
+            "host": host if isinstance(host, str) and host else None,
+            "panelists": panelists if isinstance(panelists, list) else [],
+            "guests": guests if isinstance(guests, list) else [],
+            "speaker_status": speaker_status if isinstance(speaker_status, str) and speaker_status else "metadata-missing",
+            "attribution_status": "episode-level-context",
+        }
+    return {
+        "host": None,
+        "panelists": [],
+        "guests": [],
+        "speaker_status": "metadata-missing",
+        "attribution_status": "episode-level-context-unavailable",
+    }
+
+
+def format_participants(context: dict[str, Any]) -> str:
+    parts: list[str] = []
+    host = context.get("host")
+    panelists = context.get("panelists") or []
+    guests = context.get("guests") or []
+    if host:
+        parts.append(f"Host: {host}")
+    if panelists:
+        parts.append(f"Panel: {', '.join(panelists)}")
+    if guests:
+        parts.append(f"Guest: {', '.join(guests)}")
+    return "; ".join(parts) if parts else "`metadata-missing`"
+
+
+def participant_names(context: dict[str, Any]) -> list[str]:
+    names: list[str] = []
+    host = context.get("host")
+    if isinstance(host, str) and host:
+        names.append(host)
+    for field in ("panelists", "guests"):
+        values = context.get(field) or []
+        if isinstance(values, list):
+            names.extend(value for value in values if isinstance(value, str) and value)
+    return names
+
+
+def participant_filters(rows: list[dict[str, Any]]) -> dict[str, list[str]]:
+    filters: dict[str, list[str]] = {}
+    for row in rows:
+        signal_id = row["signal_id"]
+        for name in participant_names(row.get("participant_context", {})):
+            filters.setdefault(name, []).append(signal_id)
+    return {name: sorted(signal_ids) for name, signal_ids in sorted(filters.items())}
+
+
+def rows_sorted_for_markdown(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    priority_order = {"high": 0, "medium": 1, "watch": 2}
+    return sorted(
+        rows,
+        key=lambda row: (
+            priority_order.get(row.get("priority", ""), 99),
+            row.get("date_first_seen") or "",
+            row.get("signal_id") or "",
+        ),
+    )
+
+
 def build_payload(window_days: int, link_limit: int) -> dict[str, Any]:
     moonshots = [
         doc
@@ -317,6 +409,7 @@ def build_payload(window_days: int, link_limit: int) -> dict[str, Any]:
         mechanisms = top_mechanisms(f"{doc.title}\n{doc.text}")
         forecasts = forecast_handles(f"{doc.title}\n{doc.text}")
         innermost_refs = matching_innermost_refs(doc, innermost, mechanisms, window_days, link_limit)
+        frontmatter = parse_frontmatter(doc.text)
         status = "forecast-pending" if forecasts else "interpreted"
         next_check = (doc.published + timedelta(days=30)).isoformat() if doc.published else "unscheduled"
         rows.append(
@@ -332,6 +425,7 @@ def build_payload(window_days: int, link_limit: int) -> dict[str, Any]:
                 ],
                 "innermost_loop_refs": innermost_refs,
                 "mechanism": mechanisms,
+                "participant_context": participant_context(frontmatter),
                 "forecast_claims": {
                     "status": "needs-human-extraction",
                     "candidate_handles": forecasts,
@@ -342,7 +436,7 @@ def build_payload(window_days: int, link_limit: int) -> dict[str, Any]:
                 "disposition": "Review candidate links and extract atomic forecast claims before reuse.",
             }
         )
-    return {
+    payload = {
         "schema_version": 1,
         "ledger_id": "singularity-signal-ledger-v1",
         "generated_at": datetime.now(UTC).replace(microsecond=0).isoformat().replace("+00:00", "Z"),
@@ -364,6 +458,8 @@ def build_payload(window_days: int, link_limit: int) -> dict[str, Any]:
         },
         "rows": rows,
     }
+    payload["participant_filters"] = participant_filters(rows)
+    return payload
 
 
 def md_list(values: list[str]) -> str:
@@ -397,7 +493,7 @@ def render_markdown(payload: dict[str, Any]) -> str:
         "",
         "## Row Contract",
         "",
-        "Each row preserves `signal_id`, `date_first_seen`, `innermost_loop_refs`, `moonshots_refs`, `mechanism`, `forecast_claims`, `evidence_status`, `next_check_date`, `priority`, and `disposition`.",
+        "Each row preserves `signal_id`, `date_first_seen`, `participant_context`, `innermost_loop_refs`, `moonshots_refs`, `mechanism`, `forecast_claims`, `evidence_status`, `next_check_date`, `priority`, and `disposition`.",
         "",
         "## Mechanism Labels",
         "",
@@ -406,20 +502,32 @@ def render_markdown(payload: dict[str, Any]) -> str:
     lines.extend(
         [
             "",
-            "## Ledger",
+            "## Participant Filters",
             "",
-            "| signal_id | date_first_seen | priority | innermost_loop_refs | moonshots_refs | mechanism | forecast_claims | evidence_status | next_check_date | disposition |",
-            "|---|---|---|---|---|---|---|---|---|---|",
+            "These indexes are episode-level context only, not per-claim attribution.",
+            "",
         ]
     )
-    for row in payload["rows"]:
+    for participant, signal_ids in payload.get("participant_filters", {}).items():
+        lines.append(f"- {participant}: {md_list(signal_ids)}")
+    lines.extend(
+        [
+            "",
+            "## Ledger",
+            "",
+            "| signal_id | date_first_seen | priority | participants | innermost_loop_refs | moonshots_refs | mechanism | forecast_claims | evidence_status | next_check_date | disposition |",
+            "|---|---|---|---|---|---|---|---|---|---|---|",
+        ]
+    )
+    for row in rows_sorted_for_markdown(payload["rows"]):
         handles = row["forecast_claims"]["candidate_handles"]
         forecast_text = "; ".join(f"`{handle}`" for handle in handles) if handles else "`needs-human-extraction`"
         lines.append(
-            "| {signal_id} | {date_first_seen} | {priority} | {inner} | {moon} | {mechanisms} | {forecasts} | {status} | {next_check} | {disposition} |".format(
+            "| {signal_id} | {date_first_seen} | {priority} | {participants} | {inner} | {moon} | {mechanisms} | {forecasts} | {status} | {next_check} | {disposition} |".format(
                 signal_id=row["signal_id"],
                 date_first_seen=row["date_first_seen"] or "`undated`",
                 priority=row["priority"],
+                participants=format_participants(row["participant_context"]),
                 inner=md_refs(row["innermost_loop_refs"]),
                 moon=md_refs(row["moonshots_refs"]),
                 mechanisms=md_list(row["mechanism"]),

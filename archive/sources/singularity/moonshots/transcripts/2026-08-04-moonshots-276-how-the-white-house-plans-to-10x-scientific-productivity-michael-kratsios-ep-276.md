@@ -7,7 +7,11 @@ date_published: 2026-08-04
 date_captured: 2026-08-28
 rights_status: "operator-supplied transcript; internal analysis only; reuse and quotation not cleared"
 capture_method: "operator-provided transcript paste"
-speaker: "Peter H. Diamandis and Moonshots panel"
+speaker: "Peter H. Diamandis; Michael Kratsios"
+host: "Peter H. Diamandis"
+panelists: []
+guests: ["Michael Kratsios"]
+speaker_status: "not diarized; one-on-one interview; questions framed partly on behalf of the Moonshots panel"
 episode_id: "EP #276"
 notes: "Internal Singularity Science archive intake. Preserve transcript bulk locally; use only original synthesis, short citations, and rights-aware source attribution outside archive."
 ---
@@ -22,7 +26,11 @@ notes: "Internal Singularity Science archive intake. Preserve transcript bulk lo
 - Date captured: 2026-08-28
 - Rights status: `operator-supplied transcript; internal analysis only; reuse and quotation not cleared`
 - Capture method: operator-provided transcript paste
-- Speaker: Peter H. Diamandis and Moonshots panel
+- Speaker: Peter H. Diamandis; Michael Kratsios
+- Host: Peter H. Diamandis
+- Panelists: none
+- Guests: Michael Kratsios
+- Speaker status: not diarized; one-on-one interview; questions framed partly on behalf of the Moonshots panel
 - Episode: `EP #276`
 
 ## Intake Notes

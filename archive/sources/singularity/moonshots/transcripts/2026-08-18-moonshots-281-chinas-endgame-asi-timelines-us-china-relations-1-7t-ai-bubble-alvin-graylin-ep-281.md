@@ -7,7 +7,11 @@ date_published: 2026-08-18
 date_captured: 2026-08-28
 rights_status: "operator-supplied transcript; internal analysis only; reuse and quotation not cleared"
 capture_method: "operator-provided transcript paste"
-speaker: "Peter H. Diamandis and Moonshots panel"
+speaker: "Peter H. Diamandis; Alex Wissner-Gross; Dave Blundin; Salim Ismail; Alvin Graylin"
+host: "Peter H. Diamandis"
+panelists: ["Alex Wissner-Gross", "Dave Blundin", "Salim Ismail"]
+guests: ["Alvin Graylin"]
+speaker_status: "not diarized; participant roster inferred from opening"
 episode_id: "EP #281"
 notes: "Internal Singularity Science archive intake. Preserve transcript bulk locally; use only original synthesis, short citations, and rights-aware source attribution outside archive."
 ---
@@ -22,7 +26,11 @@ notes: "Internal Singularity Science archive intake. Preserve transcript bulk lo
 - Date captured: 2026-08-28
 - Rights status: `operator-supplied transcript; internal analysis only; reuse and quotation not cleared`
 - Capture method: operator-provided transcript paste
-- Speaker: Peter H. Diamandis and Moonshots panel
+- Speaker: Peter H. Diamandis; Alex Wissner-Gross; Dave Blundin; Salim Ismail; Alvin Graylin
+- Host: Peter H. Diamandis
+- Panelists: Alex Wissner-Gross; Dave Blundin; Salim Ismail
+- Guests: Alvin Graylin
+- Speaker status: not diarized; participant roster inferred from opening
 - Episode: `EP #281`
 
 ## Intake Notes
