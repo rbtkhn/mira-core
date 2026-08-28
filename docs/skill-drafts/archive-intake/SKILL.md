@@ -109,6 +109,12 @@ historical-reference records. If the featured voice is uncertain, use a
 provisional voice route and retain the host rather than inferring the guest
 from the channel name or title alone.
 
+When a source has an explicit `guest`, `guest_people`, or a featured
+`voice_slugs` value that differs from the host/channel default voice, preserve
+the source form as `interview` or another participatory form unless the operator
+explicitly overrides it. Do not collapse that row to a host monologue merely
+because the channel or host is known.
+
 Manifest role metadata is source-participation data, not a replacement for the
 person shelf: keep `voice_slugs` person-only and add `voice_roles`,
 `role_status`, and `role_basis`. Use `author` for authored work, `guest` for

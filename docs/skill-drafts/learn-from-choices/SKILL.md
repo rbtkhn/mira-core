@@ -108,6 +108,15 @@ intermediate choice surface for routine row completion, isolated row failure,
 unchanged constraints, or every single item in a batch. This prevents approval
 fatigue while preserving real authority boundaries.
 
+For consecutive execution chains, keep the operator's selected branch moving
+through read-only checks, validation, receipts, and reversible preparation until
+the next real authority boundary. After an executable selection, do not present
+another A-D menu merely to restate the same action, confirm an already-bounded
+scope, or ask whether to perform a validation step that the visible option
+already implied. Present the next surface only when the workflow reaches a new
+mutation class such as staging, commit, push, publication, deployment, external
+communication, or another independently meaningful objective.
+
 A durable batch envelope exists only when the visible option or direct command
 names the workflow, target set, allowed actions, stop boundary, and forbidden
 actions. Inside that envelope, the agent may inspect, classify, draft,
@@ -189,6 +198,12 @@ direct later command supersedes it; a response bound to an older option set
 requires one minimal clarification. The capsule is conversational and
 transient: do not save it to the choice ledger, infer preferences from it, or
 display it routinely.
+
+If the operator asks where the options are, or otherwise signals that the
+expected menu was omitted, repair the interaction immediately: name the missing
+surface, provide exactly four current options if a real decision remains, and
+avoid making the operator reconstruct the prior branch from memory. Treat this
+as a presentation failure, not as new authority.
 
 After two consecutive navigation-only selections deepen the same objective,
 default to silent saturated closure unless the latest turn adds new evidence,

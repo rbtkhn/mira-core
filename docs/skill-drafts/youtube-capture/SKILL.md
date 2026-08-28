@@ -54,6 +54,21 @@ Use the current local date unless the operator supplies another date. Keep
 discovery bounded; raise `--limit-per-channel` or `--since-days` only when the
 operator asks for wider coverage.
 
+For daily Narrative Geopolitics work, default effort is high. Treat configured
+Tier A channels as browser-checked by default for the target date; public
+metadata discovery is the first pass, not sufficient completion. Apply strict
+date filtering when the operator asks for one date: report only items matching
+that publication date, and keep adjacent-day candidates out of the user-facing
+result unless they explain an ambiguity or a missed-source risk.
+
+For Tier A daily checks, the in-app browser is part of the standard contract,
+not a fallback, because visible YouTube channel pages are often the only
+adequate source for same-day upload order, livestream replay status, Shorts
+separation, and missed rows. Check major channels carefully before declaring a
+date complete. Dialogue Works requires especially careful same-day inspection
+because multiple guest uploads on the same date can be missed by lighter
+metadata passes.
+
 If Windows console encoding fails on titles, rerun status or duplicate audit
 with UTF-8 output forced:
 
@@ -117,11 +132,13 @@ After archive admission, produce or verify a bounded receipt:
 - if a daily packet already exists for that date, `geo-strategy` refresh or
   validation is needed so consumed source count matches landed source count.
 
-## Browser Fallback
+## Browser Contract
 
 Automated discovery uses public metadata and usually does not require the
-browser. Use the browser only when human-visible triage or transcript capture is
-needed, especially when YouTube blocks automated transcript access.
+browser. For daily Tier A Narrative Geopolitics checks, use the browser by
+default as described above. For other bounded capture work, use the browser when
+human-visible triage or transcript capture is needed, especially when YouTube
+blocks automated transcript access.
 
 Use the in-app browser for the parts of YouTube work that need visible-page
 judgment:
