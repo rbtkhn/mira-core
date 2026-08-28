@@ -1179,11 +1179,7 @@ def infer_source_form(args: SimpleNamespace, body: str, profile: HostProfile | N
         return explicit
     title = getattr(args, "title", "")
     combined = f"{title}\n{body[:2500]}".lower()
-    if profile and profile.slug == "alexander-mercouris":
-        return "solo"
     if "welcome back to neutrality studies" in combined:
-        return "interview"
-    if re.search(r"\bw/\b", title.lower()) or " w/" in title.lower() or " with " in title.lower():
         return "interview"
     if getattr(args, "guest", "") or getattr(args, "guest_people", None):
         return "interview"
@@ -1192,6 +1188,8 @@ def infer_source_form(args: SimpleNamespace, body: str, profile: HostProfile | N
             return "interview"
     if voice_candidates and profile and any(slug != profile.default_voice_slug for slug, _ in voice_candidates):
         return "interview"
+    if profile and profile.slug == "alexander-mercouris":
+        return "solo"
     if profile and profile.slug == "daniel-davis":
         return "monologue"
     return profile.default_source_form if profile else "interview"

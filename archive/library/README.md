@@ -1,6 +1,12 @@
 # Mira Library
 
-Status: `scaffold`
+Status: `sealed-v1.0` for the four governed historical shelves; Digital remains
+operational but outside the v1.0 release scope.
+
+The [`Mira Library v1.0 release seal`](version-seal-1.0-2026-08-23.md)
+certifies the Ancient, Medieval, Colonial, and Industrial seal lineage. It does
+not claim a complete world canon, public-reuse rights, or a fresh live replay
+of every historical private payload.
 
 `archive/library/` is Mira Core's curated source-library shelf for primary,
 ancient, and historical sources, organized by the source or work's primary

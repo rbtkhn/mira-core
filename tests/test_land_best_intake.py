@@ -1138,6 +1138,59 @@ def test_fast_intake_infers_mercouris_solo_from_body_text() -> None:
     assert normalized.thread == "mercouris"
 
 
+def test_fast_intake_explicit_mercouris_guest_stays_interview() -> None:
+    args = build_fast_args(
+        "2026-08-28",
+        "https://www.youtube.com/watch?v=mercouris-guest",
+        "Alexander Mercouris with Jeffrey Sachs",
+        "Alexander Mercouris speaks with Jeffrey Sachs about European security.\n",
+    )
+    args.host_slug = "alexander-mercouris"
+    args.voice_slugs = ["sachs"]
+    args.guest = "Jeffrey Sachs"
+    args.guest_people = ["Jeffrey Sachs"]
+
+    normalized = land_best_intake.normalize_args(args)
+
+    assert normalized.host_slug == "alexander-mercouris"
+    assert normalized.guest == "Jeffrey Sachs"
+    assert normalized.source_form == "interview"
+    assert normalized.source_class == "guest interview pressure test"
+
+
+def test_fast_intake_generic_with_phrase_does_not_imply_guest() -> None:
+    args = build_fast_args(
+        "2026-08-28",
+        "https://www.youtube.com/watch?v=davis-monologue",
+        "Daniel Davis: Problems With the US Army",
+        "Daniel Davis explains force readiness in a solo update.\n",
+    )
+    args.host_slug = "daniel-davis"
+
+    normalized = land_best_intake.normalize_args(args)
+
+    assert normalized.host_slug == "daniel-davis"
+    assert normalized.source_form == "monologue"
+    assert normalized.source_class == "host monologue"
+
+
+def test_fast_intake_known_named_with_guest_still_implies_interview() -> None:
+    args = build_fast_args(
+        "2026-08-28",
+        "https://www.youtube.com/watch?v=davis-guest",
+        "Daniel Davis with Matthew Hoh",
+        "Daniel Davis discusses military readiness.\n",
+    )
+    args.host_slug = "daniel-davis"
+
+    normalized = land_best_intake.normalize_args(args)
+
+    assert normalized.host_slug == "daniel-davis"
+    assert normalized.voice_slugs == ["hoh"]
+    assert normalized.source_form == "interview"
+    assert normalized.source_class == "guest interview pressure test"
+
+
 def test_fast_intake_infers_dialogue_works_guest_from_body_text() -> None:
     args = build_fast_args(
         "2026-07-08",
