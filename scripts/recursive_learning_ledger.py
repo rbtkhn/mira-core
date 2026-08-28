@@ -61,6 +61,11 @@ def sha256_bytes(value: bytes) -> str:
     return hashlib.sha256(value).hexdigest()
 
 
+def journal_prose_sha256(value: bytes) -> str:
+    normalized = value.replace(b"\r\n", b"\n").replace(b"\r", b"\n")
+    return sha256_bytes(normalized)
+
+
 def atomic_write_text(path: Path, text: str) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     temporary = path.with_name(f".{path.name}.tmp-{os.getpid()}")
@@ -238,6 +243,8 @@ def render_markdown(ledger: dict[str, Any]) -> str:
                 "- Journal context: "
                 + ", ".join(f"`{value}`" for value in entry["journal_context_refs"])
             )
+        if entry.get("supersedes"):
+            lines.append(f"- Supersedes: `{entry['supersedes']}`")
         for stage_name in REQUIRED_STAGES:
             stage = entry[stage_name]
             lines.extend(
@@ -302,6 +309,14 @@ def validate_entry(entry: Any, *, repo_root: Path = REPO_ROOT) -> list[str]:
         failures.append(f"{entry_id}: invalid closure_state")
     if not str(entry.get("title", "")).strip() or not str(entry.get("next_measure", "")).strip():
         failures.append(f"{entry_id}: missing title or next_measure")
+    supersedes = entry.get("supersedes")
+    if supersedes is not None:
+        if not ENTRY_ID_RE.fullmatch(str(supersedes)):
+            failures.append(f"{entry_id}: malformed supersedes reference")
+        elif str(supersedes) == entry_id:
+            failures.append(f"{entry_id}: entry cannot supersede itself")
+        if entry.get("closure_state") != "measured":
+            failures.append(f"{entry_id}: successor entry must have measured closure")
     context_refs = entry.get("journal_context_refs", [])
     if not isinstance(context_refs, list) or any(not REFERENCE_ID_RE.fullmatch(str(item)) for item in context_refs):
         failures.append(f"{entry_id}: malformed journal_context_refs")
@@ -345,6 +360,50 @@ def validate_entry(entry: Any, *, repo_root: Path = REPO_ROOT) -> list[str]:
     return failures
 
 
+def successor_failures(entry: dict[str, Any], ledger: dict[str, Any]) -> list[str]:
+    supersedes = entry.get("supersedes")
+    if supersedes is None:
+        return []
+    entry_id = str(entry.get("id", ""))
+    predecessor_id = str(supersedes)
+    entries = [item for item in ledger.get("entries", []) if isinstance(item, dict)]
+    predecessor = next((item for item in entries if item.get("id") == predecessor_id), None)
+    failures: list[str] = []
+    if predecessor is None:
+        failures.append(f"{entry_id}: supersedes target does not exist: {predecessor_id}")
+        return failures
+    if str(entry.get("date", "")) < str(predecessor.get("date", "")):
+        failures.append(f"{entry_id}: successor date precedes {predecessor_id}")
+    competing = sorted(
+        str(item.get("id"))
+        for item in entries
+        if item.get("supersedes") == predecessor_id and item.get("id") != entry_id
+    )
+    if competing:
+        failures.append(
+            f"{entry_id}: supersedes target already has successor: {', '.join(competing)}"
+        )
+    return failures
+
+
+def bind_successor(
+    candidate: dict[str, Any],
+    predecessor_id: str | None,
+    *,
+    ledger: dict[str, Any] | None = None,
+) -> dict[str, Any]:
+    if predecessor_id is None:
+        return candidate
+    updated = copy.deepcopy(candidate)
+    updated["supersedes"] = predecessor_id
+    current = ledger or load_ledger()
+    failures = validate_entry(updated)
+    failures.extend(successor_failures(updated, current))
+    if failures:
+        raise LearningError("; ".join(failures))
+    return updated
+
+
 def validate_ledger(
     *,
     repo_root: Path = REPO_ROOT,
@@ -368,6 +427,8 @@ def validate_ledger(
 
     for entry in entries:
         failures.extend(validate_entry(entry, repo_root=repo_root))
+        if isinstance(entry, dict):
+            failures.extend(successor_failures(entry, ledger))
 
     if not markdown_path.is_file():
         failures.append(f"recursive learning Markdown missing: {markdown_path}")
@@ -704,7 +765,7 @@ def validated_reference(path: Path) -> dict[str, Any]:
     prose_path = next(
         (
             candidate for candidate in candidates
-            if candidate.is_file() and sha256_bytes(candidate.read_bytes()) == digest
+            if candidate.is_file() and journal_prose_sha256(candidate.read_bytes()) == digest
         ),
         None,
     )
@@ -814,6 +875,7 @@ def candidate_from_process_reference(
     current = ledger or load_ledger()
     claims = packet.get("claims") or {}
     observation_paths = process_stage_paths(packet, "behavior-observation")
+    diagnosis_paths = process_stage_paths(packet, "diagnosis")
     intervention_paths = process_stage_paths(packet, "implementation")
     validation_paths = process_stage_paths(packet, "verification")
     outcome_paths = process_stage_paths(packet, "later-use")
@@ -833,7 +895,7 @@ def candidate_from_process_reference(
         "closure_state": "partial" if partial else "measured",
         "journal_context_refs": [],
         "observation": {"summary": str(claims.get("observation") or "Cadence observed system behavior."), "evidence_paths": observation_paths},
-        "diagnosis": {"summary": str(claims.get("diagnosis") or "The process weakness remains to be diagnosed."), "evidence_paths": observation_paths},
+        "diagnosis": {"summary": str(claims.get("diagnosis") or "The process weakness remains to be diagnosed."), "evidence_paths": diagnosis_paths},
         "intervention": {"summary": str(claims.get("intervention") or "A persistent intervention remains to be evidenced."), "commits": commits, "evidence_paths": intervention_paths},
         "validation": {"summary": "Separate verification exercised the intervention." if validation_paths else "Separate validation remains pending.", "evidence_paths": validation_paths},
         "outcome": {"summary": "A comparable later use was observed." if later_use else "A comparable later-use outcome remains pending.", "measure": measure, "evidence_paths": outcome_paths},
@@ -883,10 +945,11 @@ def admit_candidate(
     approval_record_ref: str,
     check: bool,
 ) -> dict[str, Any]:
+    ledger = load_ledger()
     failures = validate_entry(candidate)
+    failures.extend(successor_failures(candidate, ledger))
     if failures:
         raise LearningError("; ".join(failures))
-    ledger = load_ledger()
     entry_id = str(candidate["id"])
     if any(entry.get("id") == entry_id for entry in ledger.get("entries", [])):
         raise LearningError(f"recursive learning entry already exists: {entry_id}")
@@ -949,6 +1012,10 @@ def parser() -> argparse.ArgumentParser:
     candidate_source.add_argument("--reference", type=Path)
     candidate_source.add_argument("--process-reference", type=Path)
     candidate.add_argument("--output", type=Path, required=True)
+    candidate.add_argument(
+        "--supersedes",
+        help="Bind a measured successor candidate to one existing RSI entry.",
+    )
     candidate.add_argument("--check", action="store_true")
     receipt = subparsers.add_parser(
         "outcome-receipt",
@@ -994,6 +1061,7 @@ def main(arguments: list[str] | None = None) -> int:
                 candidate = candidate_from_process_reference(packet)
             else:
                 candidate = candidate_from_reference(validated_reference(args.reference))
+            candidate = bind_successor(candidate, args.supersedes)
             output = external_output(args.output)
             if not args.check:
                 atomic_write_json(output, candidate)
@@ -1002,6 +1070,7 @@ def main(arguments: list[str] | None = None) -> int:
                 "mutation": not args.check,
                 "output": str(output),
                 "entry_id": candidate["id"],
+                "supersedes": candidate.get("supersedes"),
                 "candidate_sha256": sha256_bytes(canonical_json(candidate).encode("utf-8")),
             }
         elif args.command == "outcome-receipt":

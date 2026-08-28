@@ -130,6 +130,64 @@ def test_candidate_packet_is_classified_by_assessor_not_journal() -> None:
     assert candidate["journal_context_refs"] == ["MJTR-20260809-v2"]
 
 
+def test_measured_successor_is_digest_bound_without_rewriting_predecessor() -> None:
+    ledger = copy.deepcopy(MODULE.load_ledger())
+    predecessor_id = "RSI-20260721-01"
+    predecessor_before = copy.deepcopy(
+        next(entry for entry in ledger["entries"] if entry["id"] == predecessor_id)
+    )
+    candidate = MODULE.candidate_from_reference(reference("possible-loop", measured=True))
+
+    successor = MODULE.bind_successor(candidate, predecessor_id, ledger=ledger)
+
+    assert successor["supersedes"] == predecessor_id
+    assert MODULE.sha256_bytes(MODULE.canonical_json(successor).encode("utf-8")) != (
+        MODULE.sha256_bytes(MODULE.canonical_json(candidate).encode("utf-8"))
+    )
+    assert next(entry for entry in ledger["entries"] if entry["id"] == predecessor_id) == predecessor_before
+    assert f"- Supersedes: `{predecessor_id}`" in MODULE.render_markdown(
+        {**ledger, "entries": [*ledger["entries"], successor]}
+    )
+
+
+def test_successor_binding_fails_closed_for_partial_missing_or_competing_lineage() -> None:
+    ledger = copy.deepcopy(MODULE.load_ledger())
+    predecessor_id = "RSI-20260721-01"
+    with pytest.raises(MODULE.LearningError, match="measured closure"):
+        MODULE.bind_successor(
+            MODULE.candidate_from_reference(reference("possible-loop")),
+            predecessor_id,
+            ledger=ledger,
+        )
+    measured = MODULE.candidate_from_reference(reference("possible-loop", measured=True))
+    with pytest.raises(MODULE.LearningError, match="target does not exist"):
+        MODULE.bind_successor(measured, "RSI-20260809-98", ledger=ledger)
+    existing_successor = copy.deepcopy(measured)
+    existing_successor["id"] = "RSI-20260809-98"
+    existing_successor["supersedes"] = predecessor_id
+    ledger["entries"].append(existing_successor)
+    with pytest.raises(MODULE.LearningError, match="already has successor"):
+        MODULE.bind_successor(measured, predecessor_id, ledger=ledger)
+
+
+def test_candidate_cli_accepts_explicit_successor_binding() -> None:
+    args = MODULE.parse_args(
+        [
+            "candidate",
+            "--reference",
+            "reference.json",
+            "--output",
+            "candidate.json",
+            "--supersedes",
+            "RSI-20260721-01",
+            "--check",
+        ]
+    )
+
+    assert args.supersedes == "RSI-20260721-01"
+    assert args.check is True
+
+
 def test_ordinary_feature_work_is_not_admissible() -> None:
     value = reference("possible-loop", measured=True)
     value["recursive_learning"]["assessment_inputs"]["assessment_basis"]["system_behavior_observed"] = False
@@ -279,18 +337,33 @@ def test_assessment_entrypoint_runs_the_full_companion_validator(tmp_path: Path)
         MODULE.validated_reference(reference_path)
 
 
+@pytest.mark.parametrize(
+    "reference_path",
+    sorted((REPO_ROOT / "mira" / "journal" / "references").glob("MJTR-*.json")),
+)
+def test_canonical_reference_digest_resolves_across_line_endings(reference_path: Path) -> None:
+    value = json.loads(reference_path.read_text(encoding="utf-8"))
+    prose_path = REPO_ROOT / "mira" / "journal" / f"{value['entry_date']}.md"
+
+    assert MODULE.journal_prose_sha256(prose_path.read_bytes()) == value["journal_content_sha256"]
+
+
 def test_validated_reference_supplies_pre_version_continuity_projection(
     monkeypatch: pytest.MonkeyPatch, tmp_path: Path
 ) -> None:
     import mira_journal_references
 
     prose_path = tmp_path / "draft.md"
-    prose_path.write_text("# 2026-08-09 — Continuity Test\n\nI remember why this test matters.\n", encoding="utf-8")
+    prose_path.write_bytes(
+        "# 2026-08-09 — Continuity Test\r\n\r\nI remember why this test matters.\r\n".encode(
+            "utf-8"
+        )
+    )
     value = reference("observation", include_inputs=False)
     value.update(
         {
             "journal_version_id": "MJ-20260809-v2",
-            "journal_content_sha256": MODULE.sha256_bytes(prose_path.read_bytes()),
+            "journal_content_sha256": MODULE.journal_prose_sha256(prose_path.read_bytes()),
             "entry_date": "2026-08-09",
         }
     )

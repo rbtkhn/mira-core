@@ -505,10 +505,37 @@ def test_export_is_private_deterministic_and_assessable(tmp_path: Path) -> None:
     assessment = recursive_learning_ledger.assess_process_reference(packet)
     assert assessment["status"] == "partial-candidate"
     assert assessment["private_context_is_stage_evidence"] is False
+    assert assessment["stage_dispositions"]["diagnosis"]["status"] == "missing"
+    assert "diagnosis evidence" in packet["missing_evidence"]
     packet["chronology"][0]["event_type"] = "tampered"
     output.write_text(json.dumps(packet), encoding="utf-8")
     with pytest.raises(recursive_learning_ledger.LearningError, match="event chain"):
         recursive_learning_ledger.load_process_reference(output)
+    connection.close()
+
+
+def test_process_diagnosis_requires_explicit_repository_relationship(tmp_path: Path) -> None:
+    connection = database(tmp_path)
+    value = episode()
+    value["artifacts"].append(
+        {
+            "ref": "scripts/cadence.py",
+            "relationship": "diagnosis",
+            "captured_at": value["created_at"],
+        }
+    )
+    projection = cadence_ledger.create_episode(connection, value, idempotency_key="dream-diagnosis")
+    output = tmp_path / "diagnosis-reference.json"
+    cadence_ledger.export_learning_reference(projection, output, check=False)
+
+    packet = recursive_learning_ledger.load_process_reference(output)
+    assessment = recursive_learning_ledger.assess_process_reference(packet)
+
+    assert assessment["stage_dispositions"]["diagnosis"]["status"] == "provided"
+    assert assessment["stage_dispositions"]["diagnosis"]["evidence_paths"] == [
+        "scripts/cadence.py"
+    ]
+    assert "diagnosis evidence" not in packet["missing_evidence"]
     connection.close()
 
 

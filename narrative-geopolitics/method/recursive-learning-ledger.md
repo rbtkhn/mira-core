@@ -43,8 +43,15 @@ identify the dated intervention history but never substitute for an artifact.
 - `measured`: a post-intervention outcome has been measured against a declared
   baseline.
 - `partial`: at least one required causal or outcome link remains open.
-- `superseded`: a later entry replaces the intervention while preserving its
-  history.
+- `superseded`: a legacy closure marker retained for compatibility. New
+  progression uses immutable successor entries instead of rewriting closure.
+
+Historical entries are immutable. When a later measured loop advances an
+admitted partial or validated entry, admit a new entry with a `supersedes`
+reference to the prior RSI ID. A successor must be measured, may have only one
+direct predecessor, and must be the predecessor's only direct successor. The
+prior entry retains its original closure state so the historical judgment
+remains inspectable; the successor carries the current result.
 
 No entry may claim `measured` unless its outcome names a post-intervention
 measure and the evidence artifact that contains it.
@@ -76,3 +83,7 @@ that record. Admission atomically appends canonical JSON, renders Markdown, and
 validates the result. `journal_context_refs` may link an RSI entry backward to
 version-bound companions without changing those companions. An incomplete loop
 remains `partial`; never manufacture an outcome to close it.
+
+Use `candidate --supersedes RSI-ID` only for a measured successor. The
+successor link is part of the candidate digest and therefore part of the exact
+admission authority; it cannot be added after approval.

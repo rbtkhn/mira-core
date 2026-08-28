@@ -31,7 +31,11 @@ tools/run.ps1 recursive-learn assess --process-reference ABSOLUTE_EXTERNAL_PATH
 
 Cadence prose and events are orientation and provenance only. Recursive Learn
 alone maps repository artifacts into the five stages. Implementation tests are
-validation, never outcome; later use must be separately observed.
+validation, never outcome; later use must be separately observed. A cadence
+diagnosis is stage evidence only when a repository artifact is explicitly
+bound with the `diagnosis` relationship. Never reuse behavior-observation
+artifacts as diagnosis evidence merely because the cadence packet contains a
+diagnosis claim.
 
 Classify the reference as `non-candidate`, `observation-only`,
 `partial-candidate`, `admissible`, or `already-represented`. A journal entry or
@@ -68,6 +72,19 @@ Candidate creation grants no ledger authority. Keep honest missing measurements
 in `partial-feedback-loop` / `partial` entries; never manufacture closure.
 Use `--process-reference` instead of `--reference` for an exported cadence
 packet.
+
+When a later measured loop advances an admitted partial or validated entry,
+prepare an immutable successor rather than rewriting history:
+
+```text
+tools/run.ps1 recursive-learn candidate --reference PATH --supersedes RSI-ID --output ABSOLUTE_EXTERNAL_PATH --check
+tools/run.ps1 recursive-learn candidate --reference PATH --supersedes RSI-ID --output ABSOLUTE_EXTERNAL_PATH
+```
+
+The successor must have `measured` closure, must name an existing entry, and
+must be the only direct successor of that entry. The prior entry remains
+unchanged. Admission of the successor still requires its own exact digest-bound
+operator instruction.
 
 ## Preserve an assessor outcome
 

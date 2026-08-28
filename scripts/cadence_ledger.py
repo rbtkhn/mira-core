@@ -26,7 +26,7 @@ SQLITE_HEADER = b"SQLite format 3\x00"
 TERMINAL_STATES = frozenset({"rejected", "superseded", "expired"})
 DISPOSITIONS = frozenset({"inherit", "retest", "reconcile", *TERMINAL_STATES})
 RELATIONSHIPS = frozenset(
-    {"behavior-observation", "implementation", "verification", "later-use"}
+    {"behavior-observation", "diagnosis", "implementation", "verification", "later-use"}
 )
 TARGET_TYPES = frozenset(
     {"artifact", "forecast", "crisis_object", "observable", "method_change", "presentation_context"}
@@ -1484,6 +1484,14 @@ def learning_reference(projection: dict[str, Any]) -> dict[str, Any]:
         for event in projection["events"]
     ]
     later_use = [row for row in chronology if row["event_type"] == "repetition_recorded"]
+    diagnosis_evidence = any(
+        item.get("relationship") == "diagnosis" for item in episode["artifacts"]
+    )
+    missing_evidence = []
+    if not diagnosis_evidence:
+        missing_evidence.append("diagnosis evidence")
+    if not later_use:
+        missing_evidence.append("later-use outcome")
     return {
         "schema_version": 1,
         "reference_kind": "cadence-process-learning",
@@ -1501,7 +1509,7 @@ def learning_reference(projection: dict[str, Any]) -> dict[str, Any]:
         },
         "artifacts": episode["artifacts"],
         "chronology": chronology,
-        "missing_evidence": ["later-use outcome"] if not later_use else [],
+        "missing_evidence": missing_evidence,
     }
 
 
