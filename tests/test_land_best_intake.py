@@ -1191,6 +1191,26 @@ def test_fast_intake_known_named_with_guest_still_implies_interview() -> None:
     assert normalized.source_class == "guest interview pressure test"
 
 
+@pytest.mark.parametrize(
+    ("host_slug", "title"),
+    (
+        ("daniel-davis", "Daniel Davis with Jane Doe"),
+        ("alexander-mercouris", "Alexander Mercouris w/ Alex Example"),
+    ),
+)
+def test_fast_intake_unknown_named_guest_requires_clarification(host_slug: str, title: str) -> None:
+    args = build_fast_args(
+        "2026-08-28",
+        "https://www.youtube.com/watch?v=unknown-guest",
+        title,
+        "The host discusses military readiness and European security.\n",
+    )
+    args.host_slug = host_slug
+
+    with pytest.raises(ValueError, match="title suggests an unrecognized guest"):
+        land_best_intake.normalize_args(args)
+
+
 def test_fast_intake_infers_dialogue_works_guest_from_body_text() -> None:
     args = build_fast_args(
         "2026-07-08",

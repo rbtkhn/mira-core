@@ -1188,6 +1188,19 @@ def infer_source_form(args: SimpleNamespace, body: str, profile: HostProfile | N
             return "interview"
     if voice_candidates and profile and any(slug != profile.default_voice_slug for slug, _ in voice_candidates):
         return "interview"
+    if profile and profile.slug in {"alexander-mercouris", "daniel-davis"}:
+        unresolved_guest = re.search(
+            r"(?:\bwith\b|\bw/)\s+"
+            r"(?!(?:the|a|an|our|this|why|how)\b)"
+            r"(?:[A-Z][A-Za-z.'’-]*\s+){1,3}[A-Z][A-Za-z.'’-]*\b",
+            title,
+        )
+        if unresolved_guest:
+            raise ValueError(
+                "Need one clarification: the title suggests an unrecognized guest. "
+                "Re-run with --guest and --voice-slug, or use --source-form solo/monologue "
+                "when no guest is present."
+            )
     if profile and profile.slug == "alexander-mercouris":
         return "solo"
     if profile and profile.slug == "daniel-davis":
