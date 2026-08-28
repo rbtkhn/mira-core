@@ -25,6 +25,11 @@ Before collecting substantive evidence, resolve:
 - applicable domain auditors;
 - output and verification expectations.
 
+When the input includes a prior or third-party audit, also record the source
+report, its revision or observation window, its evidence limitations, and the
+current repository state against which its findings will be reconciled. A
+report that was accurate at its original revision is not automatically current.
+
 Do not infer whole-repository scope when size, ambiguity, or consequence makes
 that unsafe. Judge external repositories primarily against their declared
 purpose, controls, interfaces, and ecosystem requirements.
@@ -153,6 +158,13 @@ or result clarity changed, or separate planes genuinely require different
 evidence. A matching successful Full fingerprint is reusable landed-corpus
 evidence; it cannot replace hosted-state verification.
 
+Use a read-only cache-status or fingerprint probe before invoking an expensive
+gate when the target repository provides one. If an identical fingerprint is
+expected to hit but misses, stop before starting the workload when possible and
+record a validation-infrastructure defect. If the validator starts the workload
+atomically with the miss, follow that one process to terminal, do not launch
+another equivalent gate, and disclose the forced duplicate execution.
+
 ## Classify evidence
 
 Use these evidence classes:
@@ -173,7 +185,37 @@ is normally observed state; call it a change-path result only when the path was
 simulated or observed in an actual run. Attach limitations to the claim they
 qualify.
 
+## Reconcile prior and external audits
+
+Treat a returned external audit as a set of leads until its material claims are
+reproduced against repository evidence. Preserve the report, author or engine,
+revision window, capture date, links or source references, and unavailable
+evidence. For a returned Grok report in Mira Core, route provenance and report
+quality through `grok-research` before importing its claims into a repository
+finding set.
+
+Before reusing or prioritizing an earlier finding, check it against the current
+declared state and assign exactly one lifecycle disposition:
+
+- `open`: reproduced and still actionable in the checked state;
+- `resolved`: the demonstrated condition no longer exists;
+- `superseded`: a later design or control makes the original framing obsolete;
+- `rejected-by-operator`: the operator declined the assessment or proposed
+  direction, without converting that decision into factual falsification;
+- `not-reproduced`: current evidence does not establish the original claim; or
+- `unavailable`: the evidence needed for reconciliation cannot be inspected.
+
+Bind the disposition to the checked commit, staged index, working tree, side
+worktree or branch, and hosted state as applicable. Never describe an unstaged
+or side-branch repair as landed. Do not repeatedly reopen an operator-rejected
+direction unless new evidence, scope, or explicit operator instruction changes
+the decision boundary.
+
 ## Compose with domain auditors
+
+For Mira Core or another repository with more than one audit authority, read
+[`references/audit-routing.md`](references/audit-routing.md) before composing
+domain results. Preserve its minimal handoff record.
 
 A domain auditor remains authoritative for its governed object. `repo-audit`
 evaluates the surrounding repository system and integration.
@@ -189,6 +231,11 @@ When a governed domain is in scope:
 7. route repair through the domain's repair workflow.
 
 Do not duplicate domain rules or launder their severity into a unified report.
+
+When benchmarking this skill, auditing it inward, or revising finding
+lifecycle and repair triage, read
+[`references/validation-fixtures.md`](references/validation-fixtures.md). The
+fixtures protect behavior and authority boundaries, not exact response wording.
 
 ## Audit inward safely
 
@@ -218,6 +265,24 @@ repair effort, repetition, or inconvenience as a substitute for consequence.
 Consider a credible rival for every consequential finding and name evidence
 that would escalate, deescalate, or falsify it. Multiple low findings require a
 shared mechanism and cumulative consequence before aggregation.
+
+## Triage repair opportunities when requested
+
+When the operator asks what to fix, what remains, what is low hanging, or how to
+sequence repairs, produce a repair portfolio only after current-state
+reconciliation. Keep severity independent from implementation ease and record:
+
+- expected benefit and the evidence supporting it;
+- effort band and material dependencies;
+- reversibility and likely blast radius;
+- readiness: `ready`, `needs-decision`, `needs-evidence`, or `not-safe`;
+- owner now and owner after any authority handoff; and
+- the exact additional authority required for edit, staging, commit, push,
+  publication, deployment, communication, or hosted-state mutation.
+
+Do not call an item low hanging merely because its severity is low. Prefer a
+small high-confidence repair when it removes recurring error or operator
+confusion; keep architectural work visible as a separate project.
 
 ## Bound authorship and lineage inference
 
@@ -265,6 +330,12 @@ state; domain auditors were composed without duplication; findings are
 reproducible or labeled as inference; credible rivals were considered; inward
 mode examined the audit mechanism; no mutation occurred; and the authority
 boundary is explicit.
+
+For prior or external reports, completion also requires lifecycle disposition
+against the current checked state. When repair prioritization was requested,
+the repair portfolio must separate consequence from effort and authority. Any
+unexpected validation-cache miss must be recorded without launching a second
+equivalent gate.
 
 If the repository cannot be resolved, controls materially conflict, or scope
 cannot be bounded safely, stop and report the exact blocker.

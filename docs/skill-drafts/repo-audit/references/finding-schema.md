@@ -17,6 +17,17 @@ classification:
   confidence: high | medium | low
   remediation_priority: immediate | next-cycle | planned | monitor | none
 
+lifecycle:
+  source_audit_id: <identifier-or-null>
+  source_revision_or_window: <revision-window-or-null>
+  checked_against_revision: <revision-or-observed-state-id>
+  checked_state: commit | staged-index | working-tree | side-worktree |
+    hosted-state | cross-state
+  disposition: open | resolved | superseded | rejected-by-operator |
+    not-reproduced | unavailable
+  disposition_evidence: <bounded-reference>
+  operator_disposition: accepted | rejected | deferred | none
+
 scope:
   repository: <identifier>
   revision: <revision>
@@ -104,6 +115,17 @@ routing:
   proposed_action: <concept-not-authorization>
   validation_after_remediation: <required-check>
   authority_effect: none
+
+repair_assessment:
+  requested: true | false
+  expected_benefit: <bounded-consequence-or-null>
+  effort_band: minutes | hours | days | multi-cycle | unknown
+  dependencies: []
+  reversibility: immediate | routine | difficult | irreversible | unknown
+  readiness: ready | needs-decision | needs-evidence | not-safe
+  owner_now: <role-or-null>
+  owner_later: <role-or-null>
+  authority_required: <exact-boundary-or-none>
 ```
 
 ## Severity
@@ -136,6 +158,12 @@ Use `confirmed` when the condition and material mechanism are directly
 established, `probable` when some reach remains inferential, `possible` when
 evidence only warrants investigation, and `unavailable` when required evidence
 could not be accessed. Unavailable evidence cannot produce a confirmed finding.
+
+Lifecycle disposition is not severity or truth adjudication. In particular,
+`rejected-by-operator` records a decision boundary, not proof that the finding
+was false, while `resolved` requires evidence that the demonstrated condition
+no longer exists in the checked state. Repair effort and expected benefit never
+raise or lower finding severity.
 
 ## Domain provenance
 

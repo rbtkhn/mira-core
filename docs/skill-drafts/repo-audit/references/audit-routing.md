@@ -36,6 +36,26 @@ replace archive validation or decide source truth.
 7. Keep truth adjudication outside this trio. Invoke `reality-check` only when
    claim verification or lattice adjudication is explicitly in scope.
 
+## Prior and third-party audit intake
+
+A prior audit, consultant report, model-generated critique, or returned Grok
+report is an input artifact rather than repository evidence by itself. Record
+its author or engine, revision window, capture date, direct references, and
+missing evidence. Reproduce material claims against the current declared
+repository state before importing them as findings.
+
+For returned Grok reports in Mira Core, use `grok-research` in report or
+adversarial-review mode to assess provenance, source quality, unsupported
+certainty, and direct-link availability. Then let `repo-audit` assess only the
+repository-system implications. Preserve operator dispositions separately:
+acceptance or rejection of a recommendation does not adjudicate the underlying
+factual condition.
+
+When repository state has advanced, reconcile every imported finding as
+`open`, `resolved`, `superseded`, `rejected-by-operator`, `not-reproduced`, or
+`unavailable`. Bind that disposition to the exact commit, index, working tree,
+side worktree, or hosted state checked.
+
 ## Decision Tree
 
 Ask what object is being evaluated:
@@ -75,6 +95,9 @@ Every composed audit should record:
 - domain result with original provenance;
 - repository-level implication, if any;
 - repair owner and separate authority status.
+- prior-finding lifecycle disposition and checked state, when applicable;
+- repair benefit, effort, dependencies, readiness, and required authority when
+  prioritization was requested.
 
 Authority effect: none. This routing note grants no authority to modify,
 repair, stage, commit, push, publish, deploy, communicate, or alter hosted
