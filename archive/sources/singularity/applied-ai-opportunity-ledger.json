@@ -1,0 +1,2990 @@
+{
+  "schema_version": 1,
+  "ledger_id": "applied-ai-opportunity-ledger-v1",
+  "generated_at": "2026-08-28T22:45:27Z",
+  "status": "working-ledger",
+  "collections": [
+    "nate-b-jones",
+    "nate-herk",
+    "innermost-loop"
+  ],
+  "authority_boundary": "Opportunity triage only. Rows are not revenue proof, customer validation, financial advice, rights clearance, public claim verification, or permission to reuse transcript bodies.",
+  "opportunity_labels": [
+    "agent-setup",
+    "ai-native-ops",
+    "automation-service",
+    "browser-automation",
+    "finance-investment-signal",
+    "model-tool-arbitrage",
+    "pricing-and-packaging",
+    "sales-and-positioning",
+    "security-risk",
+    "skill-or-template-system",
+    "solo-business-system",
+    "workflow-productization"
+  ],
+  "source_roots": {
+    "nate-b-jones": "archive/sources/singularity/nate-b-jones/transcripts",
+    "nate-herk": "archive/sources/singularity/nate-herk/transcripts",
+    "innermost-loop": "archive/sources/singularity/innermost-loop/transcripts"
+  },
+  "matching_policy": {
+    "method": "deterministic keyword overlap by opportunity label and publication-date window",
+    "date_window_days": 45,
+    "innermost_candidate_limit": 3
+  },
+  "creator_filters": {
+    "Nate B. Jones": [
+      "AAO-20260709-024",
+      "AAO-20260717-021",
+      "AAO-20260717-022",
+      "AAO-20260717-023",
+      "AAO-20260801-017",
+      "AAO-20260814-015",
+      "AAO-20260816-014",
+      "AAO-20260817-013",
+      "AAO-20260821-012"
+    ],
+    "Nate Herk": [
+      "AAO-20260722-019",
+      "AAO-20260722-020",
+      "AAO-20260723-018",
+      "AAO-20260804-016",
+      "AAO-20260821-006",
+      "AAO-20260821-007",
+      "AAO-20260821-008",
+      "AAO-20260821-009",
+      "AAO-20260821-010",
+      "AAO-20260821-011",
+      "AAO-20260823-001",
+      "AAO-20260823-002",
+      "AAO-20260823-003",
+      "AAO-20260823-004",
+      "AAO-20260823-005"
+    ]
+  },
+  "opportunity_type_filters": {
+    "agent-setup": [
+      "AAO-20260709-024",
+      "AAO-20260717-021",
+      "AAO-20260717-022",
+      "AAO-20260717-023",
+      "AAO-20260722-019",
+      "AAO-20260723-018",
+      "AAO-20260801-017",
+      "AAO-20260804-016",
+      "AAO-20260814-015",
+      "AAO-20260817-013",
+      "AAO-20260821-007",
+      "AAO-20260821-008",
+      "AAO-20260821-009",
+      "AAO-20260821-010",
+      "AAO-20260821-011",
+      "AAO-20260821-012",
+      "AAO-20260823-001"
+    ],
+    "ai-native-ops": [
+      "AAO-20260717-021",
+      "AAO-20260723-018",
+      "AAO-20260821-008",
+      "AAO-20260821-009",
+      "AAO-20260823-003",
+      "AAO-20260823-004"
+    ],
+    "automation-service": [
+      "AAO-20260717-023",
+      "AAO-20260722-020",
+      "AAO-20260821-009",
+      "AAO-20260823-002",
+      "AAO-20260823-003",
+      "AAO-20260823-004",
+      "AAO-20260823-005"
+    ],
+    "browser-automation": [
+      "AAO-20260709-024",
+      "AAO-20260722-019",
+      "AAO-20260821-006",
+      "AAO-20260821-008",
+      "AAO-20260821-010",
+      "AAO-20260821-011",
+      "AAO-20260823-002"
+    ],
+    "finance-investment-signal": [
+      "AAO-20260816-014",
+      "AAO-20260821-006"
+    ],
+    "model-tool-arbitrage": [
+      "AAO-20260709-024",
+      "AAO-20260717-022",
+      "AAO-20260717-023",
+      "AAO-20260722-019",
+      "AAO-20260804-016",
+      "AAO-20260814-015",
+      "AAO-20260816-014",
+      "AAO-20260821-007",
+      "AAO-20260821-008",
+      "AAO-20260821-012",
+      "AAO-20260823-001",
+      "AAO-20260823-005"
+    ],
+    "pricing-and-packaging": [
+      "AAO-20260709-024",
+      "AAO-20260717-021",
+      "AAO-20260722-020",
+      "AAO-20260814-015",
+      "AAO-20260816-014",
+      "AAO-20260823-004",
+      "AAO-20260823-005"
+    ],
+    "sales-and-positioning": [
+      "AAO-20260722-019",
+      "AAO-20260816-014",
+      "AAO-20260821-009",
+      "AAO-20260823-003",
+      "AAO-20260823-004",
+      "AAO-20260823-005"
+    ],
+    "security-risk": [
+      "AAO-20260717-021",
+      "AAO-20260801-017",
+      "AAO-20260814-015",
+      "AAO-20260817-013",
+      "AAO-20260821-012"
+    ],
+    "skill-or-template-system": [
+      "AAO-20260717-022",
+      "AAO-20260722-020",
+      "AAO-20260723-018",
+      "AAO-20260801-017",
+      "AAO-20260804-016",
+      "AAO-20260817-013",
+      "AAO-20260821-006",
+      "AAO-20260821-007",
+      "AAO-20260821-010",
+      "AAO-20260821-011",
+      "AAO-20260821-012",
+      "AAO-20260823-001",
+      "AAO-20260823-002",
+      "AAO-20260823-003"
+    ],
+    "workflow-productization": [
+      "AAO-20260717-022",
+      "AAO-20260717-023",
+      "AAO-20260722-020",
+      "AAO-20260723-018",
+      "AAO-20260801-017",
+      "AAO-20260804-016",
+      "AAO-20260817-013",
+      "AAO-20260821-006",
+      "AAO-20260821-007",
+      "AAO-20260821-010",
+      "AAO-20260821-011",
+      "AAO-20260823-001",
+      "AAO-20260823-002"
+    ]
+  },
+  "offer_map_filters": {
+    "mapped": [
+      "AAO-20260823-004",
+      "AAO-20260823-005",
+      "AAO-20260821-009",
+      "AAO-20260823-003",
+      "AAO-20260709-024",
+      "AAO-20260821-008"
+    ]
+  },
+  "rows": [
+    {
+      "opportunity_id": "AAO-20260823-001",
+      "date_first_seen": "2026-08-23",
+      "source_refs": [
+        {
+          "path": "archive/sources/singularity/nate-herk/transcripts/2026-08-23-i-deleted-all-my-claude-skills-and-claude-got-smarter.md",
+          "title": "I Deleted All My Claude Skills... And Claude Got Smarter",
+          "date": "2026-08-23",
+          "source_status": "untracked-local"
+        }
+      ],
+      "innermost_loop_refs": [
+        {
+          "path": "archive/sources/singularity/innermost-loop/transcripts/2026-07-27-july-21-to-july-24-cluster.md",
+          "title": "title: \"The Innermost Loop: July 21-24, 2026 cluster\"",
+          "date": "2026-07-27",
+          "matched_terms": [
+            "agent",
+            "model",
+            "models"
+          ],
+          "match_status": "candidate"
+        },
+        {
+          "path": "archive/sources/singularity/innermost-loop/transcripts/2026-07-27-the-first-orbital-librarian.md",
+          "title": "title: \"The First Orbital Librarian\"",
+          "date": "2026-07-27",
+          "matched_terms": [
+            "agent",
+            "model"
+          ],
+          "match_status": "candidate"
+        }
+      ],
+      "creator_context": {
+        "collection": "nate-herk",
+        "creator": "Nate Herk"
+      },
+      "opportunity_type": [
+        "skill-or-template-system",
+        "workflow-productization",
+        "model-tool-arbitrage",
+        "agent-setup"
+      ],
+      "buyer_or_user": [
+        "solo operator",
+        "software team"
+      ],
+      "pain_point": [
+        "context handoff",
+        "manual workflow"
+      ],
+      "workflow_pattern": [
+        "skill-or-template-system",
+        "workflow-productization",
+        "model-tool-arbitrage"
+      ],
+      "tool_stack": [
+        "Claude Code"
+      ],
+      "pricing_or_roi_signal": {
+        "status": "candidate",
+        "handles": [
+          "3 months",
+          "6 months"
+        ]
+      },
+      "implementation_difficulty": "medium",
+      "time_to_value": "medium",
+      "repeatability": "high",
+      "evidence_status": "triage-only",
+      "priority": "high",
+      "offer_map": {
+        "status": "not-mapped",
+        "rank": null,
+        "offer_name": null,
+        "primary_buyer": null,
+        "core_pain": null,
+        "delivery_shape": null,
+        "pricing_model": null,
+        "measurement_plan": null,
+        "source_row_ids": [],
+        "why_high_roi": null
+      },
+      "implementation_brief": {
+        "status": "not-drafted",
+        "brief_id": null,
+        "offer_name": null,
+        "purpose": null,
+        "core_promise": null,
+        "best_buyers": [],
+        "ideal_first_use_cases": [],
+        "delivery_steps": [],
+        "offer_ladder": [],
+        "measurement_plan": [],
+        "go_no_go_filter": {},
+        "innermost_loop_angle": null,
+        "related_artifacts": {},
+        "authority_boundary": null
+      },
+      "disposition": "Extract concrete workflow, buyer proof, and delivery steps before reuse."
+    },
+    {
+      "opportunity_id": "AAO-20260823-002",
+      "date_first_seen": "2026-08-23",
+      "source_refs": [
+        {
+          "path": "archive/sources/singularity/nate-herk/transcripts/2026-08-23-i-built-the-ultimate-claude-website-design-skill-steal-this.md",
+          "title": "I Built The Ultimate Claude Website Design Skill (steal this)",
+          "date": "2026-08-23",
+          "source_status": "untracked-local"
+        }
+      ],
+      "innermost_loop_refs": [],
+      "creator_context": {
+        "collection": "nate-herk",
+        "creator": "Nate Herk"
+      },
+      "opportunity_type": [
+        "skill-or-template-system",
+        "workflow-productization",
+        "browser-automation",
+        "automation-service"
+      ],
+      "buyer_or_user": [
+        "agency",
+        "solo operator",
+        "software team"
+      ],
+      "pain_point": [
+        "lead handling"
+      ],
+      "workflow_pattern": [
+        "skill-or-template-system",
+        "workflow-productization",
+        "browser-automation"
+      ],
+      "tool_stack": [
+        "Claude Code"
+      ],
+      "pricing_or_roi_signal": {
+        "status": "candidate",
+        "handles": [
+          "30 minutes"
+        ]
+      },
+      "implementation_difficulty": "medium",
+      "time_to_value": "short",
+      "repeatability": "high",
+      "evidence_status": "triage-only",
+      "priority": "high",
+      "offer_map": {
+        "status": "not-mapped",
+        "rank": null,
+        "offer_name": null,
+        "primary_buyer": null,
+        "core_pain": null,
+        "delivery_shape": null,
+        "pricing_model": null,
+        "measurement_plan": null,
+        "source_row_ids": [],
+        "why_high_roi": null
+      },
+      "implementation_brief": {
+        "status": "not-drafted",
+        "brief_id": null,
+        "offer_name": null,
+        "purpose": null,
+        "core_promise": null,
+        "best_buyers": [],
+        "ideal_first_use_cases": [],
+        "delivery_steps": [],
+        "offer_ladder": [],
+        "measurement_plan": [],
+        "go_no_go_filter": {},
+        "innermost_loop_angle": null,
+        "related_artifacts": {},
+        "authority_boundary": null
+      },
+      "disposition": "Extract concrete workflow, buyer proof, and delivery steps before reuse."
+    },
+    {
+      "opportunity_id": "AAO-20260823-003",
+      "date_first_seen": "2026-08-23",
+      "source_refs": [
+        {
+          "path": "archive/sources/singularity/nate-herk/transcripts/2026-08-23-how-to-sell-claude-workflows-without-starting-an-agency.md",
+          "title": "How to Sell Claude Workflows (Without Starting an Agency)",
+          "date": "2026-08-23",
+          "source_status": "untracked-local"
+        }
+      ],
+      "innermost_loop_refs": [],
+      "creator_context": {
+        "collection": "nate-herk",
+        "creator": "Nate Herk"
+      },
+      "opportunity_type": [
+        "ai-native-ops",
+        "sales-and-positioning",
+        "automation-service",
+        "skill-or-template-system"
+      ],
+      "buyer_or_user": [
+        "enterprise",
+        "agency",
+        "solo operator"
+      ],
+      "pain_point": [],
+      "workflow_pattern": [
+        "ai-native-ops",
+        "sales-and-positioning",
+        "automation-service"
+      ],
+      "tool_stack": [],
+      "pricing_or_roi_signal": {
+        "status": "candidate",
+        "handles": [
+          "$1.6 m",
+          "20 minutes",
+          "10 minutes"
+        ]
+      },
+      "implementation_difficulty": "medium",
+      "time_to_value": "short",
+      "repeatability": "high",
+      "evidence_status": "triage-only",
+      "priority": "high",
+      "offer_map": {
+        "status": "mapped",
+        "rank": 4,
+        "offer_name": "Workflow Asset Productization",
+        "primary_buyer": "Solo operators, agencies, enterprise ops teams",
+        "core_pain": "Service labor does not compound, one-off workflows decay",
+        "delivery_shape": "Convert one-off automations into reusable workflows, templates, playbooks, and internal operating assets.",
+        "pricing_model": "Implementation fee plus asset maintenance, internal enablement, or template licensing.",
+        "measurement_plan": "Measure reuse count, setup-time reduction, support burden, and downstream workflow adoption.",
+        "source_row_ids": [
+          "AAO-20260823-003"
+        ],
+        "why_high_roi": "Moves from implementation labor to reusable assets where margin and compounding can begin."
+      },
+      "implementation_brief": {
+        "status": "not-drafted",
+        "brief_id": null,
+        "offer_name": null,
+        "purpose": null,
+        "core_promise": null,
+        "best_buyers": [],
+        "ideal_first_use_cases": [],
+        "delivery_steps": [],
+        "offer_ladder": [],
+        "measurement_plan": [],
+        "go_no_go_filter": {},
+        "innermost_loop_angle": null,
+        "related_artifacts": {},
+        "authority_boundary": null
+      },
+      "disposition": "Extract concrete workflow, buyer proof, and delivery steps before reuse."
+    },
+    {
+      "opportunity_id": "AAO-20260823-004",
+      "date_first_seen": "2026-08-23",
+      "source_refs": [
+        {
+          "path": "archive/sources/singularity/nate-herk/transcripts/2026-08-23-how-to-build-a-one-person-ai-business-using-claude-code.md",
+          "title": "How to Build a One Person AI Business (Using Claude Code)",
+          "date": "2026-08-23",
+          "source_status": "untracked-local"
+        }
+      ],
+      "innermost_loop_refs": [],
+      "creator_context": {
+        "collection": "nate-herk",
+        "creator": "Nate Herk"
+      },
+      "opportunity_type": [
+        "automation-service",
+        "pricing-and-packaging",
+        "sales-and-positioning",
+        "ai-native-ops"
+      ],
+      "buyer_or_user": [
+        "agency",
+        "small business",
+        "solo operator"
+      ],
+      "pain_point": [
+        "lead handling",
+        "context handoff",
+        "manual workflow"
+      ],
+      "workflow_pattern": [
+        "automation-service",
+        "pricing-and-packaging",
+        "sales-and-positioning"
+      ],
+      "tool_stack": [
+        "Claude Code"
+      ],
+      "pricing_or_roi_signal": {
+        "status": "candidate",
+        "handles": [
+          "$100,000",
+          "$100",
+          "$500",
+          "$200",
+          "$3,000",
+          "3 to 15%",
+          "10 to 20%",
+          "75 to 87%"
+        ]
+      },
+      "implementation_difficulty": "medium",
+      "time_to_value": "short",
+      "repeatability": "high",
+      "evidence_status": "triage-only",
+      "priority": "high",
+      "offer_map": {
+        "status": "mapped",
+        "rank": 1,
+        "offer_name": "Constraint-to-Automation Sprint",
+        "primary_buyer": "Founder-led service businesses, agencies, local operators",
+        "core_pain": "Manual workflows, lead handling, context handoff",
+        "delivery_shape": "Identify one bottleneck, build a Claude/Codex workflow, measure before/after movement.",
+        "pricing_model": "Discovery sprint plus implementation fee; retainer candidate after measured workflow lift.",
+        "measurement_plan": "Capture baseline cycle time, lead conversion, or revenue leakage before build; compare after workflow deployment.",
+        "source_row_ids": [
+          "AAO-20260823-004"
+        ],
+        "why_high_roi": "Closest path from AI curiosity to paid implementation because it sells a measured operational improvement."
+      },
+      "implementation_brief": {
+        "status": "draft",
+        "brief_id": "constraint-to-automation-sprint-v1",
+        "offer_name": "Constraint-to-Automation Sprint",
+        "purpose": "Turn one painful business bottleneck into a measured AI workflow improvement.",
+        "core_promise": "We find one workflow costing you time or revenue, automate the smallest useful version, and prove whether the number moved.",
+        "best_buyers": [
+          "Founder-led service business",
+          "Agency",
+          "Local operator",
+          "Small ops team with obvious manual leakage"
+        ],
+        "ideal_first_use_cases": [
+          "Lead intake and follow-up",
+          "Proposal or quote generation",
+          "Customer support triage",
+          "Weekly reporting",
+          "CRM cleanup",
+          "Content repurposing",
+          "Internal knowledge retrieval"
+        ],
+        "delivery_steps": [
+          "Diagnose one constraint with clear volume, pain, owner, and measurable before-state.",
+          "Define the metric: time per task, response time, conversion rate, missed leads, error rate, or weekly labor hours.",
+          "Build the minimum AI workflow with Claude, Codex, or browser automation as needed, with human review where risk demands it.",
+          "Run a before/after test against the same workflow after deployment.",
+          "Package the win into a reusable playbook, template, checklist, or retainer candidate."
+        ],
+        "offer_ladder": [
+          {
+            "stage": "Audit",
+            "shape": "Fixed-fee workflow constraint scan."
+          },
+          {
+            "stage": "Sprint",
+            "shape": "One measured automation shipped in 1-2 weeks."
+          },
+          {
+            "stage": "Retainer",
+            "shape": "Maintain, improve, and expand the workflow stack."
+          },
+          {
+            "stage": "Asset",
+            "shape": "Reusable templates or workflows for repeated deployment."
+          }
+        ],
+        "measurement_plan": [
+          "Baseline manual time per run",
+          "Weekly workflow volume",
+          "Error or rework count",
+          "Revenue or lead leakage where visible",
+          "Post-automation time per run",
+          "Human review burden",
+          "Adoption rate after handoff"
+        ],
+        "go_no_go_filter": {
+          "strong_yes": "Painful, repeated, measurable, owned by one team, and safe to automate partially.",
+          "maybe": "Strategic but hard to measure.",
+          "no": "One-off task, unclear owner, no baseline, or high-risk without review controls."
+        },
+        "innermost_loop_angle": "Detect constraint, intervene, measure, retain the workflow pattern, and feed the result back into the Applied AI ledger.",
+        "related_artifacts": {
+          "implementation_brief": "archive/sources/singularity/constraint-to-automation-sprint-implementation-brief.md",
+          "client_one_pager": "archive/sources/singularity/constraint-to-automation-sprint-client-one-pager.md",
+          "intake_worksheet": "archive/sources/singularity/constraint-to-automation-sprint-intake-worksheet.md",
+          "delivery_checklist": "archive/sources/singularity/constraint-to-automation-sprint-delivery-checklist.md"
+        },
+        "authority_boundary": "Implementation planning only; not customer validation, legal advice, factual verification, rights clearance, or a promise of business results."
+      },
+      "disposition": "Extract concrete workflow, buyer proof, and delivery steps before reuse."
+    },
+    {
+      "opportunity_id": "AAO-20260823-005",
+      "date_first_seen": "2026-08-23",
+      "source_refs": [
+        {
+          "path": "archive/sources/singularity/nate-herk/transcripts/2026-08-23-18-months-of-pricing-ai-automations-in-21-mins.md",
+          "title": "18 Months of Pricing AI Automations in 21 Mins",
+          "date": "2026-08-23",
+          "source_status": "untracked-local"
+        }
+      ],
+      "innermost_loop_refs": [
+        {
+          "path": "archive/sources/singularity/innermost-loop/transcripts/2026-07-27-july-21-to-july-24-cluster.md",
+          "title": "title: \"The Innermost Loop: July 21-24, 2026 cluster\"",
+          "date": "2026-07-27",
+          "matched_terms": [
+            "model",
+            "models"
+          ],
+          "match_status": "candidate"
+        },
+        {
+          "path": "archive/sources/singularity/innermost-loop/transcripts/2026-07-27-the-first-orbital-librarian.md",
+          "title": "title: \"The First Orbital Librarian\"",
+          "date": "2026-07-27",
+          "matched_terms": [
+            "model"
+          ],
+          "match_status": "candidate"
+        }
+      ],
+      "creator_context": {
+        "collection": "nate-herk",
+        "creator": "Nate Herk"
+      },
+      "opportunity_type": [
+        "pricing-and-packaging",
+        "automation-service",
+        "sales-and-positioning",
+        "model-tool-arbitrage"
+      ],
+      "buyer_or_user": [
+        "agency",
+        "small business",
+        "enterprise"
+      ],
+      "pain_point": [
+        "lead handling",
+        "manual workflow",
+        "context handoff"
+      ],
+      "workflow_pattern": [
+        "pricing-and-packaging",
+        "automation-service",
+        "sales-and-positioning"
+      ],
+      "tool_stack": [
+        "Claude Code"
+      ],
+      "pricing_or_roi_signal": {
+        "status": "candidate",
+        "handles": [
+          "$100,000",
+          "$20,000",
+          "$40",
+          "$41,600",
+          "$5,500",
+          "$400",
+          "$30,000",
+          "$12,000"
+        ]
+      },
+      "implementation_difficulty": "medium",
+      "time_to_value": "short",
+      "repeatability": "high",
+      "evidence_status": "triage-only",
+      "priority": "high",
+      "offer_map": {
+        "status": "mapped",
+        "rank": 2,
+        "offer_name": "Automation Pricing Clinic",
+        "primary_buyer": "AI consultants, agencies, technical solo operators",
+        "core_pain": "Pricing uncertainty, weak packaging, unclear ROI story",
+        "delivery_shape": "Convert automation requests into price bands, setup fees, retainers, and ROI-backed proposals.",
+        "pricing_model": "Fixed-fee pricing audit, proposal rewrite, or packaged offer ladder.",
+        "measurement_plan": "Track proposal acceptance, average contract value, and retained margin before and after pricing revision.",
+        "source_row_ids": [
+          "AAO-20260823-005"
+        ],
+        "why_high_roi": "Pricing is the conversion layer between capability and revenue; improving it lifts every future offer."
+      },
+      "implementation_brief": {
+        "status": "not-drafted",
+        "brief_id": null,
+        "offer_name": null,
+        "purpose": null,
+        "core_promise": null,
+        "best_buyers": [],
+        "ideal_first_use_cases": [],
+        "delivery_steps": [],
+        "offer_ladder": [],
+        "measurement_plan": [],
+        "go_no_go_filter": {},
+        "innermost_loop_angle": null,
+        "related_artifacts": {},
+        "authority_boundary": null
+      },
+      "disposition": "Extract concrete workflow, buyer proof, and delivery steps before reuse."
+    },
+    {
+      "opportunity_id": "AAO-20260821-006",
+      "date_first_seen": "2026-08-21",
+      "source_refs": [
+        {
+          "path": "archive/sources/singularity/nate-herk/transcripts/2026-08-21-turn-claude-into-a-one-person-marketing-team-in-38-mins.md",
+          "title": "Turn Claude Into a One Person Marketing Team in 38 Mins",
+          "date": "2026-08-21",
+          "source_status": "untracked-local"
+        }
+      ],
+      "innermost_loop_refs": [
+        {
+          "path": "archive/sources/singularity/innermost-loop/transcripts/2026-07-07-welcome-to-july-7-2026.md",
+          "title": "capture_date: 2026-07-08",
+          "date": "2026-07-07",
+          "matched_terms": [
+            "browser"
+          ],
+          "match_status": "candidate"
+        }
+      ],
+      "creator_context": {
+        "collection": "nate-herk",
+        "creator": "Nate Herk"
+      },
+      "opportunity_type": [
+        "finance-investment-signal",
+        "skill-or-template-system",
+        "workflow-productization",
+        "browser-automation"
+      ],
+      "buyer_or_user": [
+        "enterprise",
+        "solo operator",
+        "agency"
+      ],
+      "pain_point": [
+        "context handoff",
+        "manual workflow",
+        "lead handling"
+      ],
+      "workflow_pattern": [
+        "finance-investment-signal",
+        "skill-or-template-system",
+        "workflow-productization"
+      ],
+      "tool_stack": [
+        "Claude Code"
+      ],
+      "pricing_or_roi_signal": {
+        "status": "candidate",
+        "handles": [
+          "$343",
+          "$9.56",
+          "38 Mins",
+          "11 minutes",
+          "5 minutes",
+          "8 minutes"
+        ]
+      },
+      "implementation_difficulty": "medium",
+      "time_to_value": "medium",
+      "repeatability": "high",
+      "evidence_status": "triage-only",
+      "priority": "medium",
+      "offer_map": {
+        "status": "not-mapped",
+        "rank": null,
+        "offer_name": null,
+        "primary_buyer": null,
+        "core_pain": null,
+        "delivery_shape": null,
+        "pricing_model": null,
+        "measurement_plan": null,
+        "source_row_ids": [],
+        "why_high_roi": null
+      },
+      "implementation_brief": {
+        "status": "not-drafted",
+        "brief_id": null,
+        "offer_name": null,
+        "purpose": null,
+        "core_promise": null,
+        "best_buyers": [],
+        "ideal_first_use_cases": [],
+        "delivery_steps": [],
+        "offer_ladder": [],
+        "measurement_plan": [],
+        "go_no_go_filter": {},
+        "innermost_loop_angle": null,
+        "related_artifacts": {},
+        "authority_boundary": null
+      },
+      "disposition": "Extract concrete workflow, buyer proof, and delivery steps before reuse."
+    },
+    {
+      "opportunity_id": "AAO-20260821-007",
+      "date_first_seen": "2026-08-21",
+      "source_refs": [
+        {
+          "path": "archive/sources/singularity/nate-herk/transcripts/2026-08-21-this-stealth-model-makes-claude-code-free-heres-how.md",
+          "title": "This Stealth Model Makes Claude Code Free. Here's How.",
+          "date": "2026-08-21",
+          "source_status": "untracked-local"
+        }
+      ],
+      "innermost_loop_refs": [
+        {
+          "path": "archive/sources/singularity/innermost-loop/transcripts/2026-07-27-july-21-to-july-24-cluster.md",
+          "title": "title: \"The Innermost Loop: July 21-24, 2026 cluster\"",
+          "date": "2026-07-27",
+          "matched_terms": [
+            "agent",
+            "model",
+            "models"
+          ],
+          "match_status": "candidate"
+        },
+        {
+          "path": "archive/sources/singularity/innermost-loop/transcripts/2026-07-07-welcome-to-july-7-2026.md",
+          "title": "capture_date: 2026-07-08",
+          "date": "2026-07-07",
+          "matched_terms": [
+            "codex",
+            "glm",
+            "model",
+            "models"
+          ],
+          "match_status": "candidate"
+        },
+        {
+          "path": "archive/sources/singularity/innermost-loop/transcripts/2026-07-27-the-first-orbital-librarian.md",
+          "title": "title: \"The First Orbital Librarian\"",
+          "date": "2026-07-27",
+          "matched_terms": [
+            "agent",
+            "model"
+          ],
+          "match_status": "candidate"
+        }
+      ],
+      "creator_context": {
+        "collection": "nate-herk",
+        "creator": "Nate Herk"
+      },
+      "opportunity_type": [
+        "model-tool-arbitrage",
+        "skill-or-template-system",
+        "workflow-productization",
+        "agent-setup"
+      ],
+      "buyer_or_user": [
+        "solo operator",
+        "enterprise"
+      ],
+      "pain_point": [
+        "manual workflow",
+        "context handoff"
+      ],
+      "workflow_pattern": [
+        "model-tool-arbitrage",
+        "skill-or-template-system",
+        "workflow-productization"
+      ],
+      "tool_stack": [
+        "Claude Code",
+        "GLM"
+      ],
+      "pricing_or_roi_signal": {
+        "status": "candidate",
+        "handles": [
+          "$0",
+          "6 hours",
+          "30 minutes",
+          "5 minutes",
+          "10 minutes",
+          "20 minutes",
+          "44 minutes",
+          "45 minutes"
+        ]
+      },
+      "implementation_difficulty": "medium",
+      "time_to_value": "medium",
+      "repeatability": "high",
+      "evidence_status": "triage-only",
+      "priority": "high",
+      "offer_map": {
+        "status": "not-mapped",
+        "rank": null,
+        "offer_name": null,
+        "primary_buyer": null,
+        "core_pain": null,
+        "delivery_shape": null,
+        "pricing_model": null,
+        "measurement_plan": null,
+        "source_row_ids": [],
+        "why_high_roi": null
+      },
+      "implementation_brief": {
+        "status": "not-drafted",
+        "brief_id": null,
+        "offer_name": null,
+        "purpose": null,
+        "core_promise": null,
+        "best_buyers": [],
+        "ideal_first_use_cases": [],
+        "delivery_steps": [],
+        "offer_ladder": [],
+        "measurement_plan": [],
+        "go_no_go_filter": {},
+        "innermost_loop_angle": null,
+        "related_artifacts": {},
+        "authority_boundary": null
+      },
+      "disposition": "Extract concrete workflow, buyer proof, and delivery steps before reuse."
+    },
+    {
+      "opportunity_id": "AAO-20260821-008",
+      "date_first_seen": "2026-08-21",
+      "source_refs": [
+        {
+          "path": "archive/sources/singularity/nate-herk/transcripts/2026-08-21-i-made-codex-and-claude-code-build-the-same-app.md",
+          "title": "I Made Codex and Claude Code Build the Same App. One Clearly Won.",
+          "date": "2026-08-21",
+          "source_status": "untracked-local"
+        }
+      ],
+      "innermost_loop_refs": [
+        {
+          "path": "archive/sources/singularity/innermost-loop/transcripts/2026-07-07-welcome-to-july-7-2026.md",
+          "title": "capture_date: 2026-07-08",
+          "date": "2026-07-07",
+          "matched_terms": [
+            "browser",
+            "codex",
+            "glm",
+            "model",
+            "models",
+            "ops"
+          ],
+          "match_status": "candidate"
+        },
+        {
+          "path": "archive/sources/singularity/innermost-loop/transcripts/2026-07-27-july-21-to-july-24-cluster.md",
+          "title": "title: \"The Innermost Loop: July 21-24, 2026 cluster\"",
+          "date": "2026-07-27",
+          "matched_terms": [
+            "agent",
+            "model",
+            "models"
+          ],
+          "match_status": "candidate"
+        },
+        {
+          "path": "archive/sources/singularity/innermost-loop/transcripts/2026-07-27-the-first-orbital-librarian.md",
+          "title": "title: \"The First Orbital Librarian\"",
+          "date": "2026-07-27",
+          "matched_terms": [
+            "agent",
+            "model"
+          ],
+          "match_status": "candidate"
+        }
+      ],
+      "creator_context": {
+        "collection": "nate-herk",
+        "creator": "Nate Herk"
+      },
+      "opportunity_type": [
+        "agent-setup",
+        "model-tool-arbitrage",
+        "browser-automation",
+        "ai-native-ops"
+      ],
+      "buyer_or_user": [
+        "solo operator",
+        "software team"
+      ],
+      "pain_point": [
+        "manual workflow",
+        "context handoff",
+        "lead handling"
+      ],
+      "workflow_pattern": [
+        "agent-setup",
+        "model-tool-arbitrage",
+        "browser-automation"
+      ],
+      "tool_stack": [
+        "Codex",
+        "Claude Code",
+        "browser automation"
+      ],
+      "pricing_or_roi_signal": {
+        "status": "candidate",
+        "handles": [
+          "$3,000",
+          "$800",
+          "$447",
+          "5 hours",
+          "2 hours",
+          "61 hours",
+          "62 hours"
+        ]
+      },
+      "implementation_difficulty": "medium",
+      "time_to_value": "medium",
+      "repeatability": "medium",
+      "evidence_status": "triage-only",
+      "priority": "high",
+      "offer_map": {
+        "status": "mapped",
+        "rank": 6,
+        "offer_name": "Agent Tool Selection Matrix",
+        "primary_buyer": "Software teams, solo builders, AI ops leads",
+        "core_pain": "Tool mismatch, wasted experimentation, context handoff",
+        "delivery_shape": "Compare Codex, Claude Code, browser agents, and model/tool combinations by task class.",
+        "pricing_model": "Diagnostic engagement, tool-routing playbook, or team operating guide.",
+        "measurement_plan": "Track avoided rework, task completion time, handoff failures, and tool spend after routing changes.",
+        "source_row_ids": [
+          "AAO-20260821-008"
+        ],
+        "why_high_roi": "Prevents hidden hour loss by routing work to the right agent loop."
+      },
+      "implementation_brief": {
+        "status": "not-drafted",
+        "brief_id": null,
+        "offer_name": null,
+        "purpose": null,
+        "core_promise": null,
+        "best_buyers": [],
+        "ideal_first_use_cases": [],
+        "delivery_steps": [],
+        "offer_ladder": [],
+        "measurement_plan": [],
+        "go_no_go_filter": {},
+        "innermost_loop_angle": null,
+        "related_artifacts": {},
+        "authority_boundary": null
+      },
+      "disposition": "Extract concrete workflow, buyer proof, and delivery steps before reuse."
+    },
+    {
+      "opportunity_id": "AAO-20260821-009",
+      "date_first_seen": "2026-08-21",
+      "source_refs": [
+        {
+          "path": "archive/sources/singularity/nate-herk/transcripts/2026-08-21-how-to-sell-these-5-most-in-demand-ai-automations-in-2026.md",
+          "title": "How to Sell These 5 Most In Demand AI Automations in 2026",
+          "date": "2026-08-21",
+          "source_status": "untracked-local"
+        }
+      ],
+      "innermost_loop_refs": [
+        {
+          "path": "archive/sources/singularity/innermost-loop/transcripts/2026-07-27-july-21-to-july-24-cluster.md",
+          "title": "title: \"The Innermost Loop: July 21-24, 2026 cluster\"",
+          "date": "2026-07-27",
+          "matched_terms": [
+            "agent"
+          ],
+          "match_status": "candidate"
+        },
+        {
+          "path": "archive/sources/singularity/innermost-loop/transcripts/2026-07-27-the-first-orbital-librarian.md",
+          "title": "title: \"The First Orbital Librarian\"",
+          "date": "2026-07-27",
+          "matched_terms": [
+            "agent"
+          ],
+          "match_status": "candidate"
+        },
+        {
+          "path": "archive/sources/singularity/innermost-loop/transcripts/2026-07-07-welcome-to-july-7-2026.md",
+          "title": "capture_date: 2026-07-08",
+          "date": "2026-07-07",
+          "matched_terms": [
+            "codex",
+            "ops"
+          ],
+          "match_status": "candidate"
+        }
+      ],
+      "creator_context": {
+        "collection": "nate-herk",
+        "creator": "Nate Herk"
+      },
+      "opportunity_type": [
+        "automation-service",
+        "agent-setup",
+        "sales-and-positioning",
+        "ai-native-ops"
+      ],
+      "buyer_or_user": [
+        "enterprise",
+        "agency",
+        "small business"
+      ],
+      "pain_point": [
+        "lead handling",
+        "context handoff",
+        "manual workflow"
+      ],
+      "workflow_pattern": [
+        "automation-service",
+        "agent-setup",
+        "sales-and-positioning"
+      ],
+      "tool_stack": [],
+      "pricing_or_roi_signal": {
+        "status": "candidate",
+        "handles": [
+          "$100",
+          "2025 to 66%",
+          "6 months",
+          "40 hours",
+          "2 hours"
+        ]
+      },
+      "implementation_difficulty": "medium",
+      "time_to_value": "short",
+      "repeatability": "high",
+      "evidence_status": "triage-only",
+      "priority": "high",
+      "offer_map": {
+        "status": "mapped",
+        "rank": 3,
+        "offer_name": "Five Demand-Ready Automations Catalog",
+        "primary_buyer": "Small businesses, agencies, enterprise team leads",
+        "core_pain": "Demand discovery, repeated workflow pain, sales friction",
+        "delivery_shape": "Maintain a pre-scoped catalog of automations such as lead capture, follow-up, reporting, content ops, and internal knowledge workflows.",
+        "pricing_model": "Menu of fixed-scope implementations with optional support retainers.",
+        "measurement_plan": "Score each automation by buyer urgency, implementation time, repeatability, and measurable operating impact.",
+        "source_row_ids": [
+          "AAO-20260821-009"
+        ],
+        "why_high_roi": "Reduces discovery friction and creates a reusable what-to-sell-now surface."
+      },
+      "implementation_brief": {
+        "status": "not-drafted",
+        "brief_id": null,
+        "offer_name": null,
+        "purpose": null,
+        "core_promise": null,
+        "best_buyers": [],
+        "ideal_first_use_cases": [],
+        "delivery_steps": [],
+        "offer_ladder": [],
+        "measurement_plan": [],
+        "go_no_go_filter": {},
+        "innermost_loop_angle": null,
+        "related_artifacts": {},
+        "authority_boundary": null
+      },
+      "disposition": "Extract concrete workflow, buyer proof, and delivery steps before reuse."
+    },
+    {
+      "opportunity_id": "AAO-20260821-010",
+      "date_first_seen": "2026-08-21",
+      "source_refs": [
+        {
+          "path": "archive/sources/singularity/nate-herk/transcripts/2026-08-21-codexs-browser-use-automates-literally-anything.md",
+          "title": "Codex's Browser Use Automates Literally Anything",
+          "date": "2026-08-21",
+          "source_status": "untracked-local"
+        }
+      ],
+      "innermost_loop_refs": [
+        {
+          "path": "archive/sources/singularity/innermost-loop/transcripts/2026-07-27-july-21-to-july-24-cluster.md",
+          "title": "title: \"The Innermost Loop: July 21-24, 2026 cluster\"",
+          "date": "2026-07-27",
+          "matched_terms": [
+            "agent"
+          ],
+          "match_status": "candidate"
+        },
+        {
+          "path": "archive/sources/singularity/innermost-loop/transcripts/2026-07-27-the-first-orbital-librarian.md",
+          "title": "title: \"The First Orbital Librarian\"",
+          "date": "2026-07-27",
+          "matched_terms": [
+            "agent"
+          ],
+          "match_status": "candidate"
+        },
+        {
+          "path": "archive/sources/singularity/innermost-loop/transcripts/2026-07-07-welcome-to-july-7-2026.md",
+          "title": "capture_date: 2026-07-08",
+          "date": "2026-07-07",
+          "matched_terms": [
+            "browser",
+            "codex"
+          ],
+          "match_status": "candidate"
+        }
+      ],
+      "creator_context": {
+        "collection": "nate-herk",
+        "creator": "Nate Herk"
+      },
+      "opportunity_type": [
+        "browser-automation",
+        "agent-setup",
+        "skill-or-template-system",
+        "workflow-productization"
+      ],
+      "buyer_or_user": [
+        "solo operator",
+        "enterprise"
+      ],
+      "pain_point": [
+        "context handoff",
+        "manual workflow"
+      ],
+      "workflow_pattern": [
+        "browser-automation",
+        "agent-setup",
+        "skill-or-template-system"
+      ],
+      "tool_stack": [
+        "browser automation",
+        "Codex",
+        "Grok Bot"
+      ],
+      "pricing_or_roi_signal": {
+        "status": "candidate",
+        "handles": [
+          "10 minutes"
+        ]
+      },
+      "implementation_difficulty": "medium",
+      "time_to_value": "medium",
+      "repeatability": "high",
+      "evidence_status": "triage-only",
+      "priority": "medium",
+      "offer_map": {
+        "status": "not-mapped",
+        "rank": null,
+        "offer_name": null,
+        "primary_buyer": null,
+        "core_pain": null,
+        "delivery_shape": null,
+        "pricing_model": null,
+        "measurement_plan": null,
+        "source_row_ids": [],
+        "why_high_roi": null
+      },
+      "implementation_brief": {
+        "status": "not-drafted",
+        "brief_id": null,
+        "offer_name": null,
+        "purpose": null,
+        "core_promise": null,
+        "best_buyers": [],
+        "ideal_first_use_cases": [],
+        "delivery_steps": [],
+        "offer_ladder": [],
+        "measurement_plan": [],
+        "go_no_go_filter": {},
+        "innermost_loop_angle": null,
+        "related_artifacts": {},
+        "authority_boundary": null
+      },
+      "disposition": "Extract concrete workflow, buyer proof, and delivery steps before reuse."
+    },
+    {
+      "opportunity_id": "AAO-20260821-011",
+      "date_first_seen": "2026-08-21",
+      "source_refs": [
+        {
+          "path": "archive/sources/singularity/nate-herk/transcripts/2026-08-21-a-week-of-grok-bot-lessons-in-10-mins.md",
+          "title": "A Week of Grok Bot Lessons in 10 Mins",
+          "date": "2026-08-21",
+          "source_status": "untracked-local"
+        }
+      ],
+      "innermost_loop_refs": [
+        {
+          "path": "archive/sources/singularity/innermost-loop/transcripts/2026-07-27-july-21-to-july-24-cluster.md",
+          "title": "title: \"The Innermost Loop: July 21-24, 2026 cluster\"",
+          "date": "2026-07-27",
+          "matched_terms": [
+            "agent"
+          ],
+          "match_status": "candidate"
+        },
+        {
+          "path": "archive/sources/singularity/innermost-loop/transcripts/2026-07-27-the-first-orbital-librarian.md",
+          "title": "title: \"The First Orbital Librarian\"",
+          "date": "2026-07-27",
+          "matched_terms": [
+            "agent"
+          ],
+          "match_status": "candidate"
+        },
+        {
+          "path": "archive/sources/singularity/innermost-loop/transcripts/2026-07-07-welcome-to-july-7-2026.md",
+          "title": "capture_date: 2026-07-08",
+          "date": "2026-07-07",
+          "matched_terms": [
+            "browser",
+            "codex"
+          ],
+          "match_status": "candidate"
+        }
+      ],
+      "creator_context": {
+        "collection": "nate-herk",
+        "creator": "Nate Herk"
+      },
+      "opportunity_type": [
+        "agent-setup",
+        "skill-or-template-system",
+        "workflow-productization",
+        "browser-automation"
+      ],
+      "buyer_or_user": [
+        "enterprise",
+        "solo operator"
+      ],
+      "pain_point": [
+        "context handoff",
+        "manual workflow"
+      ],
+      "workflow_pattern": [
+        "agent-setup",
+        "skill-or-template-system",
+        "workflow-productization"
+      ],
+      "tool_stack": [
+        "Grok Bot",
+        "Codex"
+      ],
+      "pricing_or_roi_signal": {
+        "status": "candidate",
+        "handles": [
+          "10 Mins",
+          "10 minutes"
+        ]
+      },
+      "implementation_difficulty": "medium",
+      "time_to_value": "medium",
+      "repeatability": "high",
+      "evidence_status": "triage-only",
+      "priority": "medium",
+      "offer_map": {
+        "status": "not-mapped",
+        "rank": null,
+        "offer_name": null,
+        "primary_buyer": null,
+        "core_pain": null,
+        "delivery_shape": null,
+        "pricing_model": null,
+        "measurement_plan": null,
+        "source_row_ids": [],
+        "why_high_roi": null
+      },
+      "implementation_brief": {
+        "status": "not-drafted",
+        "brief_id": null,
+        "offer_name": null,
+        "purpose": null,
+        "core_promise": null,
+        "best_buyers": [],
+        "ideal_first_use_cases": [],
+        "delivery_steps": [],
+        "offer_ladder": [],
+        "measurement_plan": [],
+        "go_no_go_filter": {},
+        "innermost_loop_angle": null,
+        "related_artifacts": {},
+        "authority_boundary": null
+      },
+      "disposition": "Extract concrete workflow, buyer proof, and delivery steps before reuse."
+    },
+    {
+      "opportunity_id": "AAO-20260821-012",
+      "date_first_seen": "2026-08-21",
+      "source_refs": [
+        {
+          "path": "archive/sources/singularity/nate-b-jones/transcripts/2026-08-21-glm-5-3-in-claude-code-is-a-game-changer.md",
+          "title": "GLM 5.3 in Claude Code Is A Game Changer!",
+          "date": "2026-08-21",
+          "source_status": "untracked-local"
+        }
+      ],
+      "innermost_loop_refs": [
+        {
+          "path": "archive/sources/singularity/innermost-loop/transcripts/2026-07-27-july-21-to-july-24-cluster.md",
+          "title": "title: \"The Innermost Loop: July 21-24, 2026 cluster\"",
+          "date": "2026-07-27",
+          "matched_terms": [
+            "agent",
+            "model",
+            "models"
+          ],
+          "match_status": "candidate"
+        },
+        {
+          "path": "archive/sources/singularity/innermost-loop/transcripts/2026-07-07-welcome-to-july-7-2026.md",
+          "title": "capture_date: 2026-07-08",
+          "date": "2026-07-07",
+          "matched_terms": [
+            "codex",
+            "glm",
+            "model",
+            "models"
+          ],
+          "match_status": "candidate"
+        },
+        {
+          "path": "archive/sources/singularity/innermost-loop/transcripts/2026-07-27-the-first-orbital-librarian.md",
+          "title": "title: \"The First Orbital Librarian\"",
+          "date": "2026-07-27",
+          "matched_terms": [
+            "agent",
+            "model"
+          ],
+          "match_status": "candidate"
+        }
+      ],
+      "creator_context": {
+        "collection": "nate-b-jones",
+        "creator": "Nate B. Jones"
+      },
+      "opportunity_type": [
+        "model-tool-arbitrage",
+        "agent-setup",
+        "skill-or-template-system",
+        "security-risk"
+      ],
+      "buyer_or_user": [
+        "software team",
+        "enterprise",
+        "solo operator"
+      ],
+      "pain_point": [
+        "context handoff",
+        "tool-cost pressure",
+        "lead handling"
+      ],
+      "workflow_pattern": [
+        "model-tool-arbitrage",
+        "agent-setup",
+        "skill-or-template-system"
+      ],
+      "tool_stack": [
+        "GLM",
+        "Claude Code",
+        "Codex"
+      ],
+      "pricing_or_roi_signal": {
+        "status": "candidate",
+        "handles": [
+          "$200",
+          "$18",
+          "$18 m"
+        ]
+      },
+      "implementation_difficulty": "medium",
+      "time_to_value": "medium",
+      "repeatability": "high",
+      "evidence_status": "triage-only",
+      "priority": "high",
+      "offer_map": {
+        "status": "not-mapped",
+        "rank": null,
+        "offer_name": null,
+        "primary_buyer": null,
+        "core_pain": null,
+        "delivery_shape": null,
+        "pricing_model": null,
+        "measurement_plan": null,
+        "source_row_ids": [],
+        "why_high_roi": null
+      },
+      "implementation_brief": {
+        "status": "not-drafted",
+        "brief_id": null,
+        "offer_name": null,
+        "purpose": null,
+        "core_promise": null,
+        "best_buyers": [],
+        "ideal_first_use_cases": [],
+        "delivery_steps": [],
+        "offer_ladder": [],
+        "measurement_plan": [],
+        "go_no_go_filter": {},
+        "innermost_loop_angle": null,
+        "related_artifacts": {},
+        "authority_boundary": null
+      },
+      "disposition": "Extract concrete workflow, buyer proof, and delivery steps before reuse."
+    },
+    {
+      "opportunity_id": "AAO-20260817-013",
+      "date_first_seen": "2026-08-17",
+      "source_refs": [
+        {
+          "path": "archive/sources/singularity/nate-b-jones/transcripts/2026-08-17-one-cancelled-gym-class-agent-swarm-attacks.md",
+          "title": "One Cancelled Gym Class. That's How Agent Swarm Attacks Start.",
+          "date": "2026-08-17",
+          "source_status": "untracked-local"
+        }
+      ],
+      "innermost_loop_refs": [
+        {
+          "path": "archive/sources/singularity/innermost-loop/transcripts/2026-07-27-july-21-to-july-24-cluster.md",
+          "title": "title: \"The Innermost Loop: July 21-24, 2026 cluster\"",
+          "date": "2026-07-27",
+          "matched_terms": [
+            "agent"
+          ],
+          "match_status": "candidate"
+        },
+        {
+          "path": "archive/sources/singularity/innermost-loop/transcripts/2026-07-27-the-first-orbital-librarian.md",
+          "title": "title: \"The First Orbital Librarian\"",
+          "date": "2026-07-27",
+          "matched_terms": [
+            "agent"
+          ],
+          "match_status": "candidate"
+        },
+        {
+          "path": "archive/sources/singularity/innermost-loop/transcripts/2026-07-03-welcome-to-july-3-2026.md",
+          "title": "capture_date: 2026-07-08",
+          "date": "2026-07-03",
+          "matched_terms": [
+            "agent",
+            "agents",
+            "codex"
+          ],
+          "match_status": "candidate"
+        }
+      ],
+      "creator_context": {
+        "collection": "nate-b-jones",
+        "creator": "Nate B. Jones"
+      },
+      "opportunity_type": [
+        "agent-setup",
+        "security-risk",
+        "skill-or-template-system",
+        "workflow-productization"
+      ],
+      "buyer_or_user": [
+        "software team",
+        "solo operator",
+        "enterprise"
+      ],
+      "pain_point": [
+        "lead handling",
+        "context handoff"
+      ],
+      "workflow_pattern": [
+        "agent-setup",
+        "security-risk",
+        "skill-or-template-system"
+      ],
+      "tool_stack": [
+        "Claude Code"
+      ],
+      "pricing_or_roi_signal": {
+        "status": "candidate",
+        "handles": [
+          "3 months"
+        ]
+      },
+      "implementation_difficulty": "medium",
+      "time_to_value": "medium",
+      "repeatability": "high",
+      "evidence_status": "triage-only",
+      "priority": "medium",
+      "offer_map": {
+        "status": "not-mapped",
+        "rank": null,
+        "offer_name": null,
+        "primary_buyer": null,
+        "core_pain": null,
+        "delivery_shape": null,
+        "pricing_model": null,
+        "measurement_plan": null,
+        "source_row_ids": [],
+        "why_high_roi": null
+      },
+      "implementation_brief": {
+        "status": "not-drafted",
+        "brief_id": null,
+        "offer_name": null,
+        "purpose": null,
+        "core_promise": null,
+        "best_buyers": [],
+        "ideal_first_use_cases": [],
+        "delivery_steps": [],
+        "offer_ladder": [],
+        "measurement_plan": [],
+        "go_no_go_filter": {},
+        "innermost_loop_angle": null,
+        "related_artifacts": {},
+        "authority_boundary": null
+      },
+      "disposition": "Extract concrete workflow, buyer proof, and delivery steps before reuse."
+    },
+    {
+      "opportunity_id": "AAO-20260816-014",
+      "date_first_seen": "2026-08-16",
+      "source_refs": [
+        {
+          "path": "archive/sources/singularity/nate-b-jones/transcripts/2026-08-16-ai-isnt-a-bubble-nvidia-500-billion-push-retirement.md",
+          "title": "AI Isn't A Bubble. That's How NVIDIA's  Billion Push Ends Up In Your Retirement.",
+          "date": "2026-08-16",
+          "source_status": "untracked-local"
+        }
+      ],
+      "innermost_loop_refs": [
+        {
+          "path": "archive/sources/singularity/innermost-loop/transcripts/2026-07-03-welcome-to-july-3-2026.md",
+          "title": "capture_date: 2026-07-08",
+          "date": "2026-07-03",
+          "matched_terms": [
+            "cheap",
+            "cheaper",
+            "lead",
+            "model",
+            "models",
+            "month",
+            "token",
+            "tokens"
+          ],
+          "match_status": "candidate"
+        },
+        {
+          "path": "archive/sources/singularity/innermost-loop/transcripts/2026-07-07-welcome-to-july-7-2026.md",
+          "title": "capture_date: 2026-07-08",
+          "date": "2026-07-07",
+          "matched_terms": [
+            "glm",
+            "model",
+            "models",
+            "month",
+            "price"
+          ],
+          "match_status": "candidate"
+        },
+        {
+          "path": "archive/sources/singularity/innermost-loop/transcripts/2026-07-27-july-21-to-july-24-cluster.md",
+          "title": "title: \"The Innermost Loop: July 21-24, 2026 cluster\"",
+          "date": "2026-07-27",
+          "matched_terms": [
+            "model",
+            "models"
+          ],
+          "match_status": "candidate"
+        }
+      ],
+      "creator_context": {
+        "collection": "nate-b-jones",
+        "creator": "Nate B. Jones"
+      },
+      "opportunity_type": [
+        "finance-investment-signal",
+        "model-tool-arbitrage",
+        "pricing-and-packaging",
+        "sales-and-positioning"
+      ],
+      "buyer_or_user": [
+        "enterprise",
+        "solo operator",
+        "software team"
+      ],
+      "pain_point": [
+        "lead handling",
+        "ai adoption gap"
+      ],
+      "workflow_pattern": [
+        "finance-investment-signal",
+        "model-tool-arbitrage",
+        "pricing-and-packaging"
+      ],
+      "tool_stack": [],
+      "pricing_or_roi_signal": {
+        "status": "candidate",
+        "handles": [
+          "$500 B",
+          "$24 b",
+          "$110 b",
+          "$175 b",
+          "$47 b",
+          "$100 b",
+          "$7,400",
+          "12 to 18%"
+        ]
+      },
+      "implementation_difficulty": "medium",
+      "time_to_value": "short",
+      "repeatability": "medium",
+      "evidence_status": "triage-only",
+      "priority": "high",
+      "offer_map": {
+        "status": "not-mapped",
+        "rank": null,
+        "offer_name": null,
+        "primary_buyer": null,
+        "core_pain": null,
+        "delivery_shape": null,
+        "pricing_model": null,
+        "measurement_plan": null,
+        "source_row_ids": [],
+        "why_high_roi": null
+      },
+      "implementation_brief": {
+        "status": "not-drafted",
+        "brief_id": null,
+        "offer_name": null,
+        "purpose": null,
+        "core_promise": null,
+        "best_buyers": [],
+        "ideal_first_use_cases": [],
+        "delivery_steps": [],
+        "offer_ladder": [],
+        "measurement_plan": [],
+        "go_no_go_filter": {},
+        "innermost_loop_angle": null,
+        "related_artifacts": {},
+        "authority_boundary": null
+      },
+      "disposition": "Extract concrete workflow, buyer proof, and delivery steps before reuse."
+    },
+    {
+      "opportunity_id": "AAO-20260814-015",
+      "date_first_seen": "2026-08-14",
+      "source_refs": [
+        {
+          "path": "archive/sources/singularity/nate-b-jones/transcripts/2026-08-14-grok-bot-is-the-first-ai-agent-you-just-install-is-it-worth-200.md",
+          "title": "Grok Bot Is The First AI Agent You Just Install. Is It Worth $200?",
+          "date": "2026-08-14",
+          "source_status": "untracked-local"
+        }
+      ],
+      "innermost_loop_refs": [
+        {
+          "path": "archive/sources/singularity/innermost-loop/transcripts/2026-07-01-welcome-to-july-1-2026.md",
+          "title": "capture_date: 2026-07-08",
+          "date": "2026-07-01",
+          "matched_terms": [
+            "$",
+            "cheap",
+            "cheaper",
+            "codex",
+            "model",
+            "models",
+            "month",
+            "price"
+          ],
+          "match_status": "candidate"
+        },
+        {
+          "path": "archive/sources/singularity/innermost-loop/transcripts/2026-07-03-welcome-to-july-3-2026.md",
+          "title": "capture_date: 2026-07-08",
+          "date": "2026-07-03",
+          "matched_terms": [
+            "agent",
+            "agents",
+            "cheap",
+            "cheaper",
+            "codex",
+            "model",
+            "models",
+            "month"
+          ],
+          "match_status": "candidate"
+        },
+        {
+          "path": "archive/sources/singularity/innermost-loop/transcripts/2026-07-07-welcome-to-july-7-2026.md",
+          "title": "capture_date: 2026-07-08",
+          "date": "2026-07-07",
+          "matched_terms": [
+            "codex",
+            "glm",
+            "model",
+            "models",
+            "month",
+            "price"
+          ],
+          "match_status": "candidate"
+        }
+      ],
+      "creator_context": {
+        "collection": "nate-b-jones",
+        "creator": "Nate B. Jones"
+      },
+      "opportunity_type": [
+        "agent-setup",
+        "pricing-and-packaging",
+        "model-tool-arbitrage",
+        "security-risk"
+      ],
+      "buyer_or_user": [
+        "enterprise",
+        "solo operator"
+      ],
+      "pain_point": [
+        "manual workflow",
+        "tool-cost pressure",
+        "context handoff"
+      ],
+      "workflow_pattern": [
+        "agent-setup",
+        "pricing-and-packaging",
+        "model-tool-arbitrage"
+      ],
+      "tool_stack": [
+        "Grok Bot",
+        "Codex",
+        "browser automation"
+      ],
+      "pricing_or_roi_signal": {
+        "status": "candidate",
+        "handles": [
+          "$200",
+          "$20",
+          "$25",
+          "$300",
+          "10x"
+        ]
+      },
+      "implementation_difficulty": "medium",
+      "time_to_value": "short",
+      "repeatability": "medium",
+      "evidence_status": "triage-only",
+      "priority": "high",
+      "offer_map": {
+        "status": "not-mapped",
+        "rank": null,
+        "offer_name": null,
+        "primary_buyer": null,
+        "core_pain": null,
+        "delivery_shape": null,
+        "pricing_model": null,
+        "measurement_plan": null,
+        "source_row_ids": [],
+        "why_high_roi": null
+      },
+      "implementation_brief": {
+        "status": "not-drafted",
+        "brief_id": null,
+        "offer_name": null,
+        "purpose": null,
+        "core_promise": null,
+        "best_buyers": [],
+        "ideal_first_use_cases": [],
+        "delivery_steps": [],
+        "offer_ladder": [],
+        "measurement_plan": [],
+        "go_no_go_filter": {},
+        "innermost_loop_angle": null,
+        "related_artifacts": {},
+        "authority_boundary": null
+      },
+      "disposition": "Extract concrete workflow, buyer proof, and delivery steps before reuse."
+    },
+    {
+      "opportunity_id": "AAO-20260804-016",
+      "date_first_seen": "2026-08-04",
+      "source_refs": [
+        {
+          "path": "archive/sources/singularity/nate-herk/transcripts/2026-08-04-everything-ive-learned-after-5000-hours-of-building-with-ai.md",
+          "title": "Everything I've Learned After 5000 Hours of Building with AI \u2014 Transcript",
+          "date": "2026-08-04",
+          "source_status": "tracked"
+        }
+      ],
+      "innermost_loop_refs": [
+        {
+          "path": "archive/sources/singularity/innermost-loop/transcripts/2026-07-03-welcome-to-july-3-2026.md",
+          "title": "capture_date: 2026-07-08",
+          "date": "2026-07-03",
+          "matched_terms": [
+            "agent",
+            "agents",
+            "cheap",
+            "cheaper",
+            "codex",
+            "model",
+            "models",
+            "token"
+          ],
+          "match_status": "candidate"
+        },
+        {
+          "path": "archive/sources/singularity/innermost-loop/transcripts/2026-07-01-welcome-to-july-1-2026.md",
+          "title": "capture_date: 2026-07-08",
+          "date": "2026-07-01",
+          "matched_terms": [
+            "cheap",
+            "cheaper",
+            "codex",
+            "model",
+            "models",
+            "token",
+            "tokens"
+          ],
+          "match_status": "candidate"
+        },
+        {
+          "path": "archive/sources/singularity/innermost-loop/transcripts/2026-07-27-july-21-to-july-24-cluster.md",
+          "title": "title: \"The Innermost Loop: July 21-24, 2026 cluster\"",
+          "date": "2026-07-27",
+          "matched_terms": [
+            "agent",
+            "model",
+            "models"
+          ],
+          "match_status": "candidate"
+        }
+      ],
+      "creator_context": {
+        "collection": "nate-herk",
+        "creator": "Nate Herk"
+      },
+      "opportunity_type": [
+        "model-tool-arbitrage",
+        "agent-setup",
+        "skill-or-template-system",
+        "workflow-productization"
+      ],
+      "buyer_or_user": [
+        "agency",
+        "enterprise",
+        "software team"
+      ],
+      "pain_point": [
+        "lead handling",
+        "manual workflow",
+        "context handoff"
+      ],
+      "workflow_pattern": [
+        "model-tool-arbitrage",
+        "agent-setup",
+        "skill-or-template-system"
+      ],
+      "tool_stack": [
+        "Claude Code",
+        "Codex",
+        "browser automation"
+      ],
+      "pricing_or_roi_signal": {
+        "status": "candidate",
+        "handles": [
+          "$10,000",
+          "$50,000",
+          "5000 Hours",
+          "000 hours"
+        ]
+      },
+      "implementation_difficulty": "medium",
+      "time_to_value": "medium",
+      "repeatability": "high",
+      "evidence_status": "triage-only",
+      "priority": "high",
+      "offer_map": {
+        "status": "not-mapped",
+        "rank": null,
+        "offer_name": null,
+        "primary_buyer": null,
+        "core_pain": null,
+        "delivery_shape": null,
+        "pricing_model": null,
+        "measurement_plan": null,
+        "source_row_ids": [],
+        "why_high_roi": null
+      },
+      "implementation_brief": {
+        "status": "not-drafted",
+        "brief_id": null,
+        "offer_name": null,
+        "purpose": null,
+        "core_promise": null,
+        "best_buyers": [],
+        "ideal_first_use_cases": [],
+        "delivery_steps": [],
+        "offer_ladder": [],
+        "measurement_plan": [],
+        "go_no_go_filter": {},
+        "innermost_loop_angle": null,
+        "related_artifacts": {},
+        "authority_boundary": null
+      },
+      "disposition": "Extract concrete workflow, buyer proof, and delivery steps before reuse."
+    },
+    {
+      "opportunity_id": "AAO-20260801-017",
+      "date_first_seen": "2026-08-01",
+      "source_refs": [
+        {
+          "path": "archive/sources/singularity/nate-b-jones/transcripts/2026-08-01-i-stopped-installing-claude-skills-heres-what-i-do-instead.md",
+          "title": "I Stopped Installing Claude Skills. Here's What I Do Instead. \u2014 Transcript",
+          "date": "2026-08-01",
+          "source_status": "tracked"
+        }
+      ],
+      "innermost_loop_refs": [
+        {
+          "path": "archive/sources/singularity/innermost-loop/transcripts/2026-07-27-july-21-to-july-24-cluster.md",
+          "title": "title: \"The Innermost Loop: July 21-24, 2026 cluster\"",
+          "date": "2026-07-27",
+          "matched_terms": [
+            "agent"
+          ],
+          "match_status": "candidate"
+        },
+        {
+          "path": "archive/sources/singularity/innermost-loop/transcripts/2026-07-27-the-first-orbital-librarian.md",
+          "title": "title: \"The First Orbital Librarian\"",
+          "date": "2026-07-27",
+          "matched_terms": [
+            "agent"
+          ],
+          "match_status": "candidate"
+        },
+        {
+          "path": "archive/sources/singularity/innermost-loop/transcripts/2026-07-03-welcome-to-july-3-2026.md",
+          "title": "capture_date: 2026-07-08",
+          "date": "2026-07-03",
+          "matched_terms": [
+            "agent",
+            "agents",
+            "codex"
+          ],
+          "match_status": "candidate"
+        }
+      ],
+      "creator_context": {
+        "collection": "nate-b-jones",
+        "creator": "Nate B. Jones"
+      },
+      "opportunity_type": [
+        "skill-or-template-system",
+        "workflow-productization",
+        "agent-setup",
+        "security-risk"
+      ],
+      "buyer_or_user": [
+        "solo operator",
+        "software team"
+      ],
+      "pain_point": [
+        "context handoff",
+        "lead handling",
+        "manual workflow"
+      ],
+      "workflow_pattern": [
+        "skill-or-template-system",
+        "workflow-productization",
+        "agent-setup"
+      ],
+      "tool_stack": [
+        "Codex",
+        "Claude Code"
+      ],
+      "pricing_or_roi_signal": {
+        "status": "needs-human-extraction",
+        "handles": []
+      },
+      "implementation_difficulty": "medium",
+      "time_to_value": "medium",
+      "repeatability": "high",
+      "evidence_status": "triage-only",
+      "priority": "medium",
+      "offer_map": {
+        "status": "not-mapped",
+        "rank": null,
+        "offer_name": null,
+        "primary_buyer": null,
+        "core_pain": null,
+        "delivery_shape": null,
+        "pricing_model": null,
+        "measurement_plan": null,
+        "source_row_ids": [],
+        "why_high_roi": null
+      },
+      "implementation_brief": {
+        "status": "not-drafted",
+        "brief_id": null,
+        "offer_name": null,
+        "purpose": null,
+        "core_promise": null,
+        "best_buyers": [],
+        "ideal_first_use_cases": [],
+        "delivery_steps": [],
+        "offer_ladder": [],
+        "measurement_plan": [],
+        "go_no_go_filter": {},
+        "innermost_loop_angle": null,
+        "related_artifacts": {},
+        "authority_boundary": null
+      },
+      "disposition": "Extract concrete workflow, buyer proof, and delivery steps before reuse."
+    },
+    {
+      "opportunity_id": "AAO-20260723-018",
+      "date_first_seen": "2026-07-23",
+      "source_refs": [
+        {
+          "path": "archive/sources/singularity/nate-herk/transcripts/2026-07-23-steal-my-exact-ai-os-setup-5-simple-tips.md",
+          "title": "\ufeff# Steal My Exact AI OS Setup (5 Simple Tips) \u00e2\u20ac\u201d Transcript",
+          "date": "2026-07-23",
+          "source_status": "tracked"
+        }
+      ],
+      "innermost_loop_refs": [
+        {
+          "path": "archive/sources/singularity/innermost-loop/transcripts/2026-07-03-welcome-to-july-3-2026.md",
+          "title": "capture_date: 2026-07-08",
+          "date": "2026-07-03",
+          "matched_terms": [
+            "agent",
+            "agents",
+            "codex"
+          ],
+          "match_status": "candidate"
+        },
+        {
+          "path": "archive/sources/singularity/innermost-loop/transcripts/2026-07-02-welcome-to-july-2-2026.md",
+          "title": "capture_date: 2026-07-08",
+          "date": "2026-07-02",
+          "matched_terms": [
+            "agent",
+            "agents",
+            "codex"
+          ],
+          "match_status": "candidate"
+        },
+        {
+          "path": "archive/sources/singularity/innermost-loop/transcripts/2026-06-09-innermost-loop-2026-06-09.md",
+          "title": "title: The Innermost Loop - 2026-06-09",
+          "date": "2026-06-09",
+          "matched_terms": [
+            "agent",
+            "agents",
+            "codex",
+            "skill",
+            "skills"
+          ],
+          "match_status": "candidate"
+        }
+      ],
+      "creator_context": {
+        "collection": "nate-herk",
+        "creator": "Nate Herk"
+      },
+      "opportunity_type": [
+        "agent-setup",
+        "skill-or-template-system",
+        "workflow-productization",
+        "ai-native-ops"
+      ],
+      "buyer_or_user": [
+        "agency",
+        "enterprise",
+        "solo operator"
+      ],
+      "pain_point": [
+        "context handoff",
+        "manual workflow",
+        "lead handling"
+      ],
+      "workflow_pattern": [
+        "agent-setup",
+        "skill-or-template-system",
+        "workflow-productization"
+      ],
+      "tool_stack": [
+        "Claude Code",
+        "Codex",
+        "browser automation"
+      ],
+      "pricing_or_roi_signal": {
+        "status": "candidate",
+        "handles": [
+          "$1,000",
+          "10x",
+          "2 minutes"
+        ]
+      },
+      "implementation_difficulty": "medium",
+      "time_to_value": "medium",
+      "repeatability": "high",
+      "evidence_status": "triage-only",
+      "priority": "medium",
+      "offer_map": {
+        "status": "not-mapped",
+        "rank": null,
+        "offer_name": null,
+        "primary_buyer": null,
+        "core_pain": null,
+        "delivery_shape": null,
+        "pricing_model": null,
+        "measurement_plan": null,
+        "source_row_ids": [],
+        "why_high_roi": null
+      },
+      "implementation_brief": {
+        "status": "not-drafted",
+        "brief_id": null,
+        "offer_name": null,
+        "purpose": null,
+        "core_promise": null,
+        "best_buyers": [],
+        "ideal_first_use_cases": [],
+        "delivery_steps": [],
+        "offer_ladder": [],
+        "measurement_plan": [],
+        "go_no_go_filter": {},
+        "innermost_loop_angle": null,
+        "related_artifacts": {},
+        "authority_boundary": null
+      },
+      "disposition": "Extract concrete workflow, buyer proof, and delivery steps before reuse."
+    },
+    {
+      "opportunity_id": "AAO-20260722-019",
+      "date_first_seen": "2026-07-22",
+      "source_refs": [
+        {
+          "path": "archive/sources/singularity/nate-herk/transcripts/2026-07-22-how-you-can-provide-the-most-ai-value-to-businesses.md",
+          "title": "\ufeff# How You Can Provide the Most AI Value to Businesses \u00e2\u20ac\u201d Transcript",
+          "date": "2026-07-22",
+          "source_status": "tracked"
+        }
+      ],
+      "innermost_loop_refs": [
+        {
+          "path": "archive/sources/singularity/innermost-loop/transcripts/2026-07-03-welcome-to-july-3-2026.md",
+          "title": "capture_date: 2026-07-08",
+          "date": "2026-07-03",
+          "matched_terms": [
+            "agent",
+            "agents",
+            "browser",
+            "cheap",
+            "cheaper",
+            "codex",
+            "lead",
+            "model"
+          ],
+          "match_status": "candidate"
+        },
+        {
+          "path": "archive/sources/singularity/innermost-loop/transcripts/2026-07-01-welcome-to-july-1-2026.md",
+          "title": "capture_date: 2026-07-08",
+          "date": "2026-07-01",
+          "matched_terms": [
+            "browser",
+            "cheap",
+            "cheaper",
+            "codex",
+            "model",
+            "models",
+            "token",
+            "tokens"
+          ],
+          "match_status": "candidate"
+        },
+        {
+          "path": "archive/sources/singularity/innermost-loop/transcripts/2026-06-19-innermost-loop-2026-06-19.md",
+          "title": "title: The Innermost Loop - 2026-06-19",
+          "date": "2026-06-19",
+          "matched_terms": [
+            "codex",
+            "glm",
+            "lead",
+            "leads",
+            "model",
+            "models",
+            "sales",
+            "sell"
+          ],
+          "match_status": "candidate"
+        }
+      ],
+      "creator_context": {
+        "collection": "nate-herk",
+        "creator": "Nate Herk"
+      },
+      "opportunity_type": [
+        "sales-and-positioning",
+        "model-tool-arbitrage",
+        "agent-setup",
+        "browser-automation"
+      ],
+      "buyer_or_user": [
+        "enterprise",
+        "solo operator",
+        "agency"
+      ],
+      "pain_point": [
+        "lead handling",
+        "context handoff",
+        "ai adoption gap"
+      ],
+      "workflow_pattern": [
+        "sales-and-positioning",
+        "model-tool-arbitrage",
+        "agent-setup"
+      ],
+      "tool_stack": [
+        "Claude Code",
+        "GLM"
+      ],
+      "pricing_or_roi_signal": {
+        "status": "candidate",
+        "handles": [
+          "$200 m",
+          "10x"
+        ]
+      },
+      "implementation_difficulty": "medium",
+      "time_to_value": "short",
+      "repeatability": "medium",
+      "evidence_status": "triage-only",
+      "priority": "high",
+      "offer_map": {
+        "status": "not-mapped",
+        "rank": null,
+        "offer_name": null,
+        "primary_buyer": null,
+        "core_pain": null,
+        "delivery_shape": null,
+        "pricing_model": null,
+        "measurement_plan": null,
+        "source_row_ids": [],
+        "why_high_roi": null
+      },
+      "implementation_brief": {
+        "status": "not-drafted",
+        "brief_id": null,
+        "offer_name": null,
+        "purpose": null,
+        "core_promise": null,
+        "best_buyers": [],
+        "ideal_first_use_cases": [],
+        "delivery_steps": [],
+        "offer_ladder": [],
+        "measurement_plan": [],
+        "go_no_go_filter": {},
+        "innermost_loop_angle": null,
+        "related_artifacts": {},
+        "authority_boundary": null
+      },
+      "disposition": "Extract concrete workflow, buyer proof, and delivery steps before reuse."
+    },
+    {
+      "opportunity_id": "AAO-20260722-020",
+      "date_first_seen": "2026-07-22",
+      "source_refs": [
+        {
+          "path": "archive/sources/singularity/nate-herk/transcripts/2026-07-22-how-id-make-money-with-claude-if-my-life-depended-on-it.md",
+          "title": "title: \"How I'd Make Money with Claude if my life depended on it\"",
+          "date": "2026-07-22",
+          "source_status": "tracked"
+        }
+      ],
+      "innermost_loop_refs": [
+        {
+          "path": "archive/sources/singularity/innermost-loop/transcripts/2026-07-01-welcome-to-july-1-2026.md",
+          "title": "capture_date: 2026-07-08",
+          "date": "2026-07-01",
+          "matched_terms": [
+            "$",
+            "month",
+            "price"
+          ],
+          "match_status": "candidate"
+        },
+        {
+          "path": "archive/sources/singularity/innermost-loop/transcripts/2026-07-07-welcome-to-july-7-2026.md",
+          "title": "capture_date: 2026-07-08",
+          "date": "2026-07-07",
+          "matched_terms": [
+            "month",
+            "price"
+          ],
+          "match_status": "candidate"
+        },
+        {
+          "path": "archive/sources/singularity/innermost-loop/transcripts/2026-06-12-innermost-loop-2026-06-12.md",
+          "title": "title: The Innermost Loop - 2026-06-12",
+          "date": "2026-06-12",
+          "matched_terms": [
+            "$",
+            "client",
+            "month",
+            "price"
+          ],
+          "match_status": "candidate"
+        }
+      ],
+      "creator_context": {
+        "collection": "nate-herk",
+        "creator": "Nate Herk"
+      },
+      "opportunity_type": [
+        "automation-service",
+        "skill-or-template-system",
+        "workflow-productization",
+        "pricing-and-packaging"
+      ],
+      "buyer_or_user": [
+        "agency",
+        "enterprise",
+        "solo operator"
+      ],
+      "pain_point": [
+        "manual workflow",
+        "lead handling"
+      ],
+      "workflow_pattern": [
+        "automation-service",
+        "skill-or-template-system",
+        "workflow-productization"
+      ],
+      "tool_stack": [],
+      "pricing_or_roi_signal": {
+        "status": "candidate",
+        "handles": [
+          "$725 b",
+          "4 hours",
+          "10 minutes",
+          "20 minutes",
+          "2 hours"
+        ]
+      },
+      "implementation_difficulty": "medium",
+      "time_to_value": "short",
+      "repeatability": "high",
+      "evidence_status": "triage-only",
+      "priority": "high",
+      "offer_map": {
+        "status": "not-mapped",
+        "rank": null,
+        "offer_name": null,
+        "primary_buyer": null,
+        "core_pain": null,
+        "delivery_shape": null,
+        "pricing_model": null,
+        "measurement_plan": null,
+        "source_row_ids": [],
+        "why_high_roi": null
+      },
+      "implementation_brief": {
+        "status": "not-drafted",
+        "brief_id": null,
+        "offer_name": null,
+        "purpose": null,
+        "core_promise": null,
+        "best_buyers": [],
+        "ideal_first_use_cases": [],
+        "delivery_steps": [],
+        "offer_ladder": [],
+        "measurement_plan": [],
+        "go_no_go_filter": {},
+        "innermost_loop_angle": null,
+        "related_artifacts": {},
+        "authority_boundary": null
+      },
+      "disposition": "Extract concrete workflow, buyer proof, and delivery steps before reuse."
+    },
+    {
+      "opportunity_id": "AAO-20260717-021",
+      "date_first_seen": "2026-07-17",
+      "source_refs": [
+        {
+          "path": "archive/sources/singularity/nate-b-jones/transcripts/2026-07-17-captured-your-roadmap-is-why-youre-losing-to-ai-native-teams.md",
+          "title": "title: \"Your Roadmap Is Why You're Losing to AI-Native Teams.\"",
+          "date": "2026-07-17",
+          "source_status": "tracked"
+        }
+      ],
+      "innermost_loop_refs": [
+        {
+          "path": "archive/sources/singularity/innermost-loop/transcripts/2026-06-17-innermost-loop-2026-06-17.md",
+          "title": "title: The Innermost Loop - 2026-06-17",
+          "date": "2026-06-17",
+          "matched_terms": [
+            "$",
+            "agent",
+            "attack",
+            "claude code",
+            "codex",
+            "month",
+            "price"
+          ],
+          "match_status": "candidate"
+        },
+        {
+          "path": "archive/sources/singularity/innermost-loop/transcripts/2026-07-01-welcome-to-july-1-2026.md",
+          "title": "capture_date: 2026-07-08",
+          "date": "2026-07-01",
+          "matched_terms": [
+            "$",
+            "codex",
+            "month",
+            "price",
+            "security"
+          ],
+          "match_status": "candidate"
+        },
+        {
+          "path": "archive/sources/singularity/innermost-loop/transcripts/2026-06-28-welcome-to-june-28-2026.md",
+          "title": "capture_date: 2026-07-08",
+          "date": "2026-06-28",
+          "matched_terms": [
+            "agent",
+            "codex",
+            "month",
+            "price",
+            "security"
+          ],
+          "match_status": "candidate"
+        }
+      ],
+      "creator_context": {
+        "collection": "nate-b-jones",
+        "creator": "Nate B. Jones"
+      },
+      "opportunity_type": [
+        "agent-setup",
+        "security-risk",
+        "pricing-and-packaging",
+        "ai-native-ops"
+      ],
+      "buyer_or_user": [
+        "enterprise",
+        "software team",
+        "solo operator"
+      ],
+      "pain_point": [
+        "ai adoption gap",
+        "context handoff",
+        "manual workflow"
+      ],
+      "workflow_pattern": [
+        "agent-setup",
+        "security-risk",
+        "pricing-and-packaging"
+      ],
+      "tool_stack": [],
+      "pricing_or_roi_signal": {
+        "status": "needs-human-extraction",
+        "handles": []
+      },
+      "implementation_difficulty": "medium",
+      "time_to_value": "short",
+      "repeatability": "medium",
+      "evidence_status": "triage-only",
+      "priority": "medium",
+      "offer_map": {
+        "status": "not-mapped",
+        "rank": null,
+        "offer_name": null,
+        "primary_buyer": null,
+        "core_pain": null,
+        "delivery_shape": null,
+        "pricing_model": null,
+        "measurement_plan": null,
+        "source_row_ids": [],
+        "why_high_roi": null
+      },
+      "implementation_brief": {
+        "status": "not-drafted",
+        "brief_id": null,
+        "offer_name": null,
+        "purpose": null,
+        "core_promise": null,
+        "best_buyers": [],
+        "ideal_first_use_cases": [],
+        "delivery_steps": [],
+        "offer_ladder": [],
+        "measurement_plan": [],
+        "go_no_go_filter": {},
+        "innermost_loop_angle": null,
+        "related_artifacts": {},
+        "authority_boundary": null
+      },
+      "disposition": "Extract concrete workflow, buyer proof, and delivery steps before reuse."
+    },
+    {
+      "opportunity_id": "AAO-20260717-022",
+      "date_first_seen": "2026-07-17",
+      "source_refs": [
+        {
+          "path": "archive/sources/singularity/nate-b-jones/transcripts/2026-07-17-captured-fable-5-and-gpt-5-6-dont-need-better-prompts-they-need-a-clean-setup.md",
+          "title": "title: \"Fable 5 And GPT-5.6 Don't Need Better Prompts. They Need A Clean Setup.\"",
+          "date": "2026-07-17",
+          "source_status": "tracked"
+        }
+      ],
+      "innermost_loop_refs": [
+        {
+          "path": "archive/sources/singularity/innermost-loop/transcripts/2026-07-03-welcome-to-july-3-2026.md",
+          "title": "capture_date: 2026-07-08",
+          "date": "2026-07-03",
+          "matched_terms": [
+            "agent",
+            "agents",
+            "cheap",
+            "cheaper",
+            "codex",
+            "model",
+            "models",
+            "token"
+          ],
+          "match_status": "candidate"
+        },
+        {
+          "path": "archive/sources/singularity/innermost-loop/transcripts/2026-07-01-welcome-to-july-1-2026.md",
+          "title": "capture_date: 2026-07-08",
+          "date": "2026-07-01",
+          "matched_terms": [
+            "cheap",
+            "cheaper",
+            "codex",
+            "model",
+            "models",
+            "token",
+            "tokens"
+          ],
+          "match_status": "candidate"
+        },
+        {
+          "path": "archive/sources/singularity/innermost-loop/transcripts/2026-06-12-innermost-loop-2026-06-12.md",
+          "title": "title: The Innermost Loop - 2026-06-12",
+          "date": "2026-06-12",
+          "matched_terms": [
+            "agent",
+            "agents",
+            "cheap",
+            "cheaper",
+            "codex",
+            "model",
+            "models",
+            "token"
+          ],
+          "match_status": "candidate"
+        }
+      ],
+      "creator_context": {
+        "collection": "nate-b-jones",
+        "creator": "Nate B. Jones"
+      },
+      "opportunity_type": [
+        "skill-or-template-system",
+        "workflow-productization",
+        "model-tool-arbitrage",
+        "agent-setup"
+      ],
+      "buyer_or_user": [
+        "software team"
+      ],
+      "pain_point": [
+        "context handoff",
+        "lead handling"
+      ],
+      "workflow_pattern": [
+        "skill-or-template-system",
+        "workflow-productization",
+        "model-tool-arbitrage"
+      ],
+      "tool_stack": [
+        "Codex",
+        "Claude Code"
+      ],
+      "pricing_or_roi_signal": {
+        "status": "candidate",
+        "handles": [
+          "6 months"
+        ]
+      },
+      "implementation_difficulty": "medium",
+      "time_to_value": "medium",
+      "repeatability": "high",
+      "evidence_status": "triage-only",
+      "priority": "high",
+      "offer_map": {
+        "status": "not-mapped",
+        "rank": null,
+        "offer_name": null,
+        "primary_buyer": null,
+        "core_pain": null,
+        "delivery_shape": null,
+        "pricing_model": null,
+        "measurement_plan": null,
+        "source_row_ids": [],
+        "why_high_roi": null
+      },
+      "implementation_brief": {
+        "status": "not-drafted",
+        "brief_id": null,
+        "offer_name": null,
+        "purpose": null,
+        "core_promise": null,
+        "best_buyers": [],
+        "ideal_first_use_cases": [],
+        "delivery_steps": [],
+        "offer_ladder": [],
+        "measurement_plan": [],
+        "go_no_go_filter": {},
+        "innermost_loop_angle": null,
+        "related_artifacts": {},
+        "authority_boundary": null
+      },
+      "disposition": "Extract concrete workflow, buyer proof, and delivery steps before reuse."
+    },
+    {
+      "opportunity_id": "AAO-20260717-023",
+      "date_first_seen": "2026-07-17",
+      "source_refs": [
+        {
+          "path": "archive/sources/singularity/nate-b-jones/transcripts/2026-07-17-captured-codex-vs-fable-which-ai-agent-picked-the-better-problem.md",
+          "title": "title: \"Codex vs Fable: Which AI Agent Picked the Better Problem?\"",
+          "date": "2026-07-17",
+          "source_status": "tracked"
+        }
+      ],
+      "innermost_loop_refs": [
+        {
+          "path": "archive/sources/singularity/innermost-loop/transcripts/2026-07-03-welcome-to-july-3-2026.md",
+          "title": "capture_date: 2026-07-08",
+          "date": "2026-07-03",
+          "matched_terms": [
+            "agent",
+            "agents",
+            "cheap",
+            "cheaper",
+            "codex",
+            "model",
+            "models",
+            "token"
+          ],
+          "match_status": "candidate"
+        },
+        {
+          "path": "archive/sources/singularity/innermost-loop/transcripts/2026-06-12-innermost-loop-2026-06-12.md",
+          "title": "title: The Innermost Loop - 2026-06-12",
+          "date": "2026-06-12",
+          "matched_terms": [
+            "agent",
+            "agents",
+            "cheap",
+            "cheaper",
+            "client",
+            "codex",
+            "model",
+            "models"
+          ],
+          "match_status": "candidate"
+        },
+        {
+          "path": "archive/sources/singularity/innermost-loop/transcripts/2026-07-01-welcome-to-july-1-2026.md",
+          "title": "capture_date: 2026-07-08",
+          "date": "2026-07-01",
+          "matched_terms": [
+            "cheap",
+            "cheaper",
+            "codex",
+            "model",
+            "models",
+            "token",
+            "tokens"
+          ],
+          "match_status": "candidate"
+        }
+      ],
+      "creator_context": {
+        "collection": "nate-b-jones",
+        "creator": "Nate B. Jones"
+      },
+      "opportunity_type": [
+        "agent-setup",
+        "model-tool-arbitrage",
+        "workflow-productization",
+        "automation-service"
+      ],
+      "buyer_or_user": [
+        "enterprise"
+      ],
+      "pain_point": [
+        "context handoff",
+        "lead handling",
+        "manual workflow"
+      ],
+      "workflow_pattern": [
+        "agent-setup",
+        "model-tool-arbitrage",
+        "workflow-productization"
+      ],
+      "tool_stack": [
+        "Codex",
+        "Claude Code"
+      ],
+      "pricing_or_roi_signal": {
+        "status": "needs-human-extraction",
+        "handles": []
+      },
+      "implementation_difficulty": "medium",
+      "time_to_value": "short",
+      "repeatability": "high",
+      "evidence_status": "triage-only",
+      "priority": "high",
+      "offer_map": {
+        "status": "not-mapped",
+        "rank": null,
+        "offer_name": null,
+        "primary_buyer": null,
+        "core_pain": null,
+        "delivery_shape": null,
+        "pricing_model": null,
+        "measurement_plan": null,
+        "source_row_ids": [],
+        "why_high_roi": null
+      },
+      "implementation_brief": {
+        "status": "not-drafted",
+        "brief_id": null,
+        "offer_name": null,
+        "purpose": null,
+        "core_promise": null,
+        "best_buyers": [],
+        "ideal_first_use_cases": [],
+        "delivery_steps": [],
+        "offer_ladder": [],
+        "measurement_plan": [],
+        "go_no_go_filter": {},
+        "innermost_loop_angle": null,
+        "related_artifacts": {},
+        "authority_boundary": null
+      },
+      "disposition": "Extract concrete workflow, buyer proof, and delivery steps before reuse."
+    },
+    {
+      "opportunity_id": "AAO-20260709-024",
+      "date_first_seen": "2026-07-09",
+      "source_refs": [
+        {
+          "path": "archive/sources/singularity/nate-b-jones/transcripts/2026-07-09-claude-fable-5-bossed-20-cheap-ai-agents-site-cost-8.md",
+          "title": "title: \"Claude Fable 5 Bossed 20 Cheap AI Agents. The Whole Site Cost $8.\"",
+          "date": "2026-07-09",
+          "source_status": "tracked"
+        }
+      ],
+      "innermost_loop_refs": [
+        {
+          "path": "archive/sources/singularity/innermost-loop/transcripts/2026-07-03-welcome-to-july-3-2026.md",
+          "title": "capture_date: 2026-07-08",
+          "date": "2026-07-03",
+          "matched_terms": [
+            "agent",
+            "agents",
+            "browser",
+            "cheap",
+            "cheaper",
+            "codex",
+            "model",
+            "models"
+          ],
+          "match_status": "candidate"
+        },
+        {
+          "path": "archive/sources/singularity/innermost-loop/transcripts/2026-07-01-welcome-to-july-1-2026.md",
+          "title": "capture_date: 2026-07-08",
+          "date": "2026-07-01",
+          "matched_terms": [
+            "$",
+            "browser",
+            "cheap",
+            "cheaper",
+            "codex",
+            "model",
+            "models",
+            "month"
+          ],
+          "match_status": "candidate"
+        },
+        {
+          "path": "archive/sources/singularity/innermost-loop/transcripts/2026-06-12-innermost-loop-2026-06-12.md",
+          "title": "title: The Innermost Loop - 2026-06-12",
+          "date": "2026-06-12",
+          "matched_terms": [
+            "$",
+            "agent",
+            "agents",
+            "cheap",
+            "cheaper",
+            "codex",
+            "model",
+            "models"
+          ],
+          "match_status": "candidate"
+        }
+      ],
+      "creator_context": {
+        "collection": "nate-b-jones",
+        "creator": "Nate B. Jones"
+      },
+      "opportunity_type": [
+        "agent-setup",
+        "model-tool-arbitrage",
+        "browser-automation",
+        "pricing-and-packaging"
+      ],
+      "buyer_or_user": [
+        "enterprise",
+        "software team"
+      ],
+      "pain_point": [
+        "context handoff",
+        "manual workflow"
+      ],
+      "workflow_pattern": [
+        "agent-setup",
+        "model-tool-arbitrage",
+        "browser-automation"
+      ],
+      "tool_stack": [
+        "browser automation",
+        "GLM"
+      ],
+      "pricing_or_roi_signal": {
+        "status": "candidate",
+        "handles": [
+          "$8",
+          "$85",
+          "$105",
+          "$2",
+          "$50 m",
+          "2 hours"
+        ]
+      },
+      "implementation_difficulty": "medium",
+      "time_to_value": "short",
+      "repeatability": "medium",
+      "evidence_status": "triage-only",
+      "priority": "high",
+      "offer_map": {
+        "status": "mapped",
+        "rank": 5,
+        "offer_name": "Cheap Agent Swarm Build Lab",
+        "primary_buyer": "Software teams, AI-native builders, product teams",
+        "core_pain": "Build-cycle drag, QA bottlenecks, model-cost pressure",
+        "delivery_shape": "Prototype low-cost multi-agent build and review loops for sites, tools, audits, and QA.",
+        "pricing_model": "Prototype lab, internal enablement workshop, or verification-loop implementation.",
+        "measurement_plan": "Compare human hours, model cost, defect rate, and test-pass rate against a single-agent baseline.",
+        "source_row_ids": [
+          "AAO-20260709-024"
+        ],
+        "why_high_roi": "Many cheap agents plus strict verification can compress build cycles without assuming expensive model usage."
+      },
+      "implementation_brief": {
+        "status": "not-drafted",
+        "brief_id": null,
+        "offer_name": null,
+        "purpose": null,
+        "core_promise": null,
+        "best_buyers": [],
+        "ideal_first_use_cases": [],
+        "delivery_steps": [],
+        "offer_ladder": [],
+        "measurement_plan": [],
+        "go_no_go_filter": {},
+        "innermost_loop_angle": null,
+        "related_artifacts": {},
+        "authority_boundary": null
+      },
+      "disposition": "Extract concrete workflow, buyer proof, and delivery steps before reuse."
+    }
+  ]
+}
