@@ -8,6 +8,8 @@ from typing import Any
 
 
 TERMINAL_DISPOSITIONS = {"landed", "duplicate-prevented", "failed"}
+KNOWN_DISPOSITIONS = TERMINAL_DISPOSITIONS | {"preflight-only", "dry-run"}
+REPO_ROOT = Path(__file__).resolve().parents[1]
 METRIC_FIELDS = (
     "attempted_sources",
     "warning_sources",
@@ -52,25 +54,68 @@ def source_identities(payload: dict[str, Any]) -> list[str]:
     return sorted(set(identities))
 
 
-def aggregate_receipts(receipts: list[tuple[str, dict[str, Any]]]) -> dict[str, Any]:
-    totals = Counter({field: 0 for field in METRIC_FIELDS})
+def validate_receipt(label: str, payload: dict[str, Any]) -> tuple[str, dict[str, int]]:
+    metrics = receipt_metrics(payload)
+    if not metrics:
+        raise ValueError(f"receipt lacks outcome_metrics: {label}")
+    disposition = str(metrics.get("disposition") or payload.get("status") or "")
+    if disposition not in KNOWN_DISPOSITIONS:
+        raise ValueError(f"receipt has unsupported disposition {disposition!r}: {label}")
+    normalized: dict[str, int] = {}
+    for field in METRIC_FIELDS:
+        value = metrics.get(field)
+        if not isinstance(value, int) or isinstance(value, bool) or value < 0:
+            raise ValueError(f"receipt has invalid {field}: {label}")
+        normalized[field] = value
+    identities = source_identities(payload)
+    if disposition in TERMINAL_DISPOSITIONS and not identities:
+        if not (
+            disposition == "failed"
+            and payload.get("measurement_scope") == "preflight-unavailable"
+        ):
+            raise ValueError(f"terminal receipt lacks source identity: {label}")
+    if disposition == "landed" and normalized["successful_landings"] < 1:
+        raise ValueError(f"landed receipt lacks successful landing: {label}")
+    if disposition == "duplicate-prevented" and normalized["duplicate_stops"] < 1:
+        raise ValueError(f"duplicate receipt lacks duplicate stop: {label}")
+    if disposition == "failed" and normalized["failed_attempts"] < 1:
+        raise ValueError(f"failed receipt lacks failed attempt: {label}")
+    return disposition, normalized
+
+
+def aggregate_receipts(
+    receipts: list[tuple[str, dict[str, Any]]], *, redact_identities: bool = False
+) -> dict[str, Any]:
+    labels = [label for label, _ in receipts]
+    if len(labels) != len(set(labels)):
+        raise ValueError("duplicate receipt paths are not allowed")
+    terminal_totals = Counter({field: 0 for field in METRIC_FIELDS})
+    nonterminal_totals = Counter({field: 0 for field in METRIC_FIELDS})
     terminal_attempts: Counter[str] = Counter()
     seen_terminal: set[str] = set()
     successful_after_retry: set[str] = set()
     dispositions: Counter[str] = Counter()
     identities: set[str] = set()
+    terminal_receipt_count = 0
+    nonterminal_receipt_count = 0
+    unattributed_failed_attempts = 0
 
-    for _, payload in receipts:
-        metrics = receipt_metrics(payload)
-        disposition = str(metrics.get("disposition") or payload.get("status") or "unknown")
+    for label, payload in receipts:
+        disposition, metrics = validate_receipt(label, payload)
         dispositions[disposition] += 1
+        if disposition in TERMINAL_DISPOSITIONS:
+            terminal_receipt_count += 1
+            selected_totals = terminal_totals
+        else:
+            nonterminal_receipt_count += 1
+            selected_totals = nonterminal_totals
         for field in METRIC_FIELDS:
-            value = metrics.get(field, 0)
-            if isinstance(value, int) and not isinstance(value, bool):
-                totals[field] += value
+            selected_totals[field] += metrics[field]
 
         receipt_ids = source_identities(payload)
         identities.update(receipt_ids)
+        if disposition == "failed" and not receipt_ids:
+            unattributed_failed_attempts += metrics["failed_attempts"]
         if disposition in TERMINAL_DISPOSITIONS:
             for identity in receipt_ids:
                 terminal_attempts[identity] += 1
@@ -81,20 +126,28 @@ def aggregate_receipts(receipts: list[tuple[str, dict[str, Any]]]) -> dict[str, 
     retry_sources = sorted(
         identity for identity, count in terminal_attempts.items() if count > 1
     )
-    return {
+    summary = {
         "schema": "intake-outcome-summary-v1",
         "receipt_count": len(receipts),
+        "terminal_receipt_count": terminal_receipt_count,
+        "nonterminal_receipt_count": nonterminal_receipt_count,
+        "unattributed_failed_attempts": unattributed_failed_attempts,
         "unique_source_identities": len(identities),
+        "identity_disclosure": "redacted" if redact_identities else "included",
         "dispositions": dict(sorted(dispositions.items())),
-        "totals": dict(totals),
+        "totals": dict(terminal_totals),
+        "nonterminal_totals": dict(nonterminal_totals),
         "retry_source_count": len(retry_sources),
         "successful_after_retry_count": len(successful_after_retry),
-        "retry_source_identities": retry_sources,
         "measurement_note": (
-            "Retry metrics use repeated terminal receipts for the same canonical "
-            "source identity. Preflight-only and dry-run receipts do not count as retries."
+            "Outcome totals and retry metrics use terminal receipts only. "
+            "Preflight-only and dry-run metrics are reported separately under "
+            "nonterminal_totals."
         ),
     }
+    if not redact_identities:
+        summary["retry_source_identities"] = retry_sources
+    return summary
 
 
 def parse_frontmatter(path: Path) -> dict[str, str]:
@@ -241,6 +294,11 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument("--json", action="store_true")
     parser.add_argument("--output", type=Path)
+    parser.add_argument(
+        "--redact-identities",
+        action="store_true",
+        help="Omit source-identity lists while retaining aggregate counts.",
+    )
     return parser.parse_args()
 
 
@@ -251,8 +309,19 @@ def main() -> int:
     if args.source_baseline:
         summary = source_baseline(args.source_baseline)
     else:
+        normalized_paths = [path.resolve() for path in args.receipts]
+        if len(normalized_paths) != len(set(normalized_paths)):
+            raise SystemExit("duplicate receipt paths are not allowed")
         receipts = [(path.as_posix(), load_receipt(path)) for path in args.receipts]
-        summary = aggregate_receipts(receipts)
+        summary = aggregate_receipts(
+            receipts, redact_identities=args.redact_identities
+        )
+        if args.output:
+            output = args.output.resolve()
+            if (
+                output == REPO_ROOT or REPO_ROOT in output.parents
+            ) and not args.redact_identities:
+                raise SystemExit("repository output requires --redact-identities")
     rendered = json.dumps(summary, indent=2) + "\n" if args.json else render_markdown(summary)
     if args.output:
         args.output.parent.mkdir(parents=True, exist_ok=True)

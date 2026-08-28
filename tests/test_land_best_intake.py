@@ -1796,3 +1796,172 @@ def test_manifest_row_carries_identity_and_date_basis() -> None:
     row = land_best_intake.build_manifest_row(normalized, path, "operator-paste://2026-07-24/a-title")
     assert row["source_identity"] == "youtube:abc123XYZ_1"
     assert row["date_basis"] == "operator-supplied"
+
+
+def test_terminal_receipt_target_requires_absolute_external_path(
+    tmp_path: Path,
+) -> None:
+    with pytest.raises(ValueError, match="must be absolute"):
+        land_best_intake.validate_terminal_receipt_target(Path("receipt.json"))
+
+    with pytest.raises(ValueError, match="outside the repository"):
+        land_best_intake.validate_terminal_receipt_target(
+            REPO_ROOT / "receipt.json"
+        )
+
+    existing = tmp_path / "existing.json"
+    existing.write_text("{}\n", encoding="utf-8")
+    with pytest.raises(FileExistsError, match="Refusing to overwrite"):
+        land_best_intake.validate_terminal_receipt_target(existing)
+
+
+def test_prepare_terminal_receipt_target_enforces_measurement_contract(
+    tmp_path: Path,
+) -> None:
+    target = tmp_path / "receipt.json"
+    base = {
+        "receipt": target,
+        "json": True,
+        "backfill_since": None,
+        "no_preflight": False,
+    }
+    assert land_best_intake.prepare_terminal_receipt_target(
+        SimpleNamespace(**base)
+    ) == target.resolve()
+
+    with pytest.raises(ValueError, match="requires --json"):
+        land_best_intake.prepare_terminal_receipt_target(
+            SimpleNamespace(**(base | {"json": False}))
+        )
+    with pytest.raises(ValueError, match="backfill"):
+        land_best_intake.prepare_terminal_receipt_target(
+            SimpleNamespace(**(base | {"backfill_since": "2026-08-01"}))
+        )
+    with pytest.raises(ValueError, match="governed preflight"):
+        land_best_intake.prepare_terminal_receipt_target(
+            SimpleNamespace(**(base | {"no_preflight": True}))
+        )
+
+
+def test_terminal_receipt_write_is_canonical_and_no_clobber(
+    tmp_path: Path,
+) -> None:
+    target = tmp_path / "receipt.json"
+    payload = land_best_intake.terminal_receipt_payload(
+        {
+            "status": "landed",
+            "preflight": {"sources": []},
+            "outcome_metrics": {"disposition": "landed"},
+        },
+        measurement_scope="preflight-qualified",
+    )
+
+    land_best_intake.write_terminal_receipt(target, payload)
+
+    raw = target.read_bytes()
+    assert raw.endswith(b"\n")
+    assert b"\r\n" not in raw
+    written = json.loads(raw)
+    assert written["schema"] == "best-intake-terminal-receipt-v1"
+    assert written["measurement_scope"] == "preflight-qualified"
+
+    with pytest.raises(FileExistsError, match="Refusing to overwrite"):
+        land_best_intake.write_terminal_receipt(target, payload)
+
+
+def test_post_landing_receipt_failure_preserves_landed_outcome() -> None:
+    result = {
+        "status": "landed",
+        "outcome_metrics": {
+            "disposition": "landed",
+            "successful_landings": 1,
+            "failed_attempts": 0,
+        },
+    }
+
+    payload = land_best_intake.post_landing_receipt_failure_payload(
+        result, OSError("receipt disk unavailable")
+    )
+
+    assert payload["status"] == "landed"
+    assert payload["landing_status"] == "landed"
+    assert payload["receipt_status"] == "write-failed-after-land"
+    assert payload["receipt_error"] == "receipt disk unavailable"
+    assert payload["outcome_metrics"]["failed_attempts"] == 0
+    assert "receipt_status" not in result
+
+
+def test_main_does_not_reclassify_landing_when_receipt_write_fails(
+    monkeypatch, tmp_path: Path, capsys
+) -> None:
+    receipt_target = tmp_path / "receipt.json"
+    cli_args = SimpleNamespace(
+        backfill_since=None,
+        preflight=False,
+        dry_run=False,
+        json=True,
+    )
+    preflight = {"status": "ready", "sources": [{"warnings": []}]}
+    metrics = {
+        "disposition": "landed",
+        "attempted_sources": 1,
+        "warning_sources": 0,
+        "warning_events": 0,
+        "duplicate_stops": 0,
+        "correction_signal_sources": 0,
+        "correction_signal_events": 0,
+        "successful_landings": 1,
+        "failed_attempts": 0,
+    }
+    source = SimpleNamespace(source_identity="youtube:one", url="https://example.test/one")
+
+    monkeypatch.setattr(land_best_intake, "parse_args", lambda: cli_args)
+    monkeypatch.setattr(
+        land_best_intake,
+        "prepare_terminal_receipt_target",
+        lambda _: receipt_target,
+    )
+    monkeypatch.setattr(land_best_intake, "gather_sources", lambda _: [source])
+    monkeypatch.setattr(land_best_intake, "load_manifest", lambda: {})
+    monkeypatch.setattr(
+        land_best_intake, "preflight_receipt", lambda *_: preflight
+    )
+    monkeypatch.setattr(land_best_intake, "archived_source_urls", lambda: {})
+    monkeypatch.setattr(land_best_intake, "archived_source_identities", lambda: {})
+    monkeypatch.setattr(
+        land_best_intake,
+        "prepare_batch",
+        lambda *_: ([object()], {"source_count": 1}),
+    )
+    monkeypatch.setattr(
+        land_best_intake,
+        "project_voice_indexes_for_plans",
+        lambda *_: ({}, []),
+    )
+    monkeypatch.setattr(
+        land_best_intake, "publish_batch", lambda *_: ["Source landed"]
+    )
+    monkeypatch.setattr(
+        land_best_intake, "disposition_metrics", lambda *_args, **_kwargs: metrics
+    )
+    monkeypatch.setattr(
+        land_best_intake,
+        "write_terminal_receipt",
+        lambda *_: (_ for _ in ()).throw(OSError("receipt disk unavailable")),
+    )
+
+    assert land_best_intake.main() == 1
+
+    result = json.loads(capsys.readouterr().err)
+    assert result["status"] == "landed"
+    assert result["landing_status"] == "landed"
+    assert result["receipt_status"] == "write-failed-after-land"
+    assert result["outcome_metrics"]["failed_attempts"] == 0
+
+
+def test_preflight_unavailable_failure_metrics_invent_no_attempt() -> None:
+    metrics = land_best_intake.empty_failure_metrics()
+
+    assert metrics["disposition"] == "failed"
+    assert metrics["attempted_sources"] == 0
+    assert metrics["failed_attempts"] == 1

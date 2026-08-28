@@ -71,6 +71,7 @@ def safe_int(value: str | None) -> int:
     except ValueError:
         return 0
 ASR_REPAIR_PASS_LABEL = "2026-07-09 asr-repair-v1"
+TERMINAL_RECEIPT_SCHEMA = "best-intake-terminal-receipt-v1"
 TOPIC_STOPWORDS = {
     "a",
     "an",
@@ -739,6 +740,11 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument("--preflight", action="store_true", help="Print a read-only intake preflight receipt.")
     parser.add_argument("--json", action="store_true", help="Emit machine-readable preflight or landing receipts.")
+    parser.add_argument(
+        "--receipt",
+        type=Path,
+        help="Write one atomic terminal JSON receipt to an absolute path outside the repository.",
+    )
     parser.add_argument("--no-preflight", action="store_true", help="Skip internal preflight for controlled batch use.")
     parser.add_argument(
         "--trim-opening",
@@ -2066,6 +2072,85 @@ def stage_bytes(path: Path, payload: bytes) -> Path:
     return temporary
 
 
+def validate_terminal_receipt_target(path: Path) -> Path:
+    if not path.is_absolute():
+        raise ValueError("Terminal receipt path must be absolute")
+    resolved = path.resolve()
+    repository = REPO_ROOT.resolve()
+    if resolved == repository or repository in resolved.parents:
+        raise ValueError("Terminal receipt path must remain outside the repository")
+    if not resolved.parent.is_dir():
+        raise FileNotFoundError(
+            f"Terminal receipt parent does not exist: {resolved.parent}"
+        )
+    if resolved.exists():
+        raise FileExistsError(f"Refusing to overwrite terminal receipt: {resolved}")
+    probe = stage_bytes(resolved, b"")
+    probe.unlink(missing_ok=True)
+    return resolved
+
+
+def prepare_terminal_receipt_target(args: argparse.Namespace) -> Path | None:
+    if not args.receipt:
+        return None
+    if not args.json:
+        raise ValueError("--receipt requires --json")
+    if args.backfill_since:
+        raise ValueError("--receipt is unavailable for backfill operations")
+    if args.no_preflight:
+        raise ValueError("--receipt requires the governed preflight")
+    return validate_terminal_receipt_target(args.receipt)
+
+
+def terminal_receipt_payload(
+    payload: dict[str, object], *, measurement_scope: str
+) -> dict[str, object]:
+    normalized = dict(payload)
+    normalized["schema"] = TERMINAL_RECEIPT_SCHEMA
+    normalized["measurement_scope"] = measurement_scope
+    if normalized.get("status") == "ALREADY LANDED":
+        normalized["display_status"] = "ALREADY LANDED"
+        normalized["status"] = "duplicate-prevented"
+    return normalized
+
+
+def write_terminal_receipt(path: Path, payload: dict[str, object]) -> None:
+    rendered = (
+        json.dumps(payload, indent=2, ensure_ascii=False) + "\n"
+    ).encode("utf-8")
+    staged = stage_bytes(path, rendered)
+    try:
+        if path.exists():
+            raise FileExistsError(f"Refusing to overwrite terminal receipt: {path}")
+        os.link(staged, path)
+    finally:
+        staged.unlink(missing_ok=True)
+
+
+def post_landing_receipt_failure_payload(
+    result: dict[str, object], error: Exception
+) -> dict[str, object]:
+    failed_receipt = dict(result)
+    failed_receipt["landing_status"] = "landed"
+    failed_receipt["receipt_status"] = "write-failed-after-land"
+    failed_receipt["receipt_error"] = str(error)
+    return failed_receipt
+
+
+def empty_failure_metrics() -> dict[str, object]:
+    return {
+        "disposition": "failed",
+        "attempted_sources": 0,
+        "warning_sources": 0,
+        "warning_events": 0,
+        "duplicate_stops": 0,
+        "correction_signal_sources": 0,
+        "correction_signal_events": 0,
+        "successful_landings": 0,
+        "failed_attempts": 1,
+    }
+
+
 def publish_batch(
     plans: list[LandingPlan],
     manifest: dict,
@@ -2287,8 +2372,11 @@ def gather_sources(cli_args: argparse.Namespace) -> list[SimpleNamespace]:
 def main() -> int:
     cli_args = parse_args()
     receipt: dict[str, object] | None = None
+    receipt_target: Path | None = None
+    published_result: dict[str, object] | None = None
 
     try:
+        receipt_target = prepare_terminal_receipt_target(cli_args)
         if cli_args.backfill_since:
             messages = backfill_sources(
                 cli_args.backfill_since,
@@ -2303,6 +2391,20 @@ def main() -> int:
         manifest = load_manifest()
         receipt = preflight_receipt(source_args, manifest)
         if cli_args.preflight:
+            if receipt_target:
+                write_terminal_receipt(
+                    receipt_target,
+                    terminal_receipt_payload(
+                        {
+                            "status": "preflight-only",
+                            "preflight": receipt,
+                            "outcome_metrics": disposition_metrics(
+                                receipt, "preflight-only"
+                            ),
+                        },
+                        measurement_scope="preflight-only",
+                    ),
+                )
             print(json.dumps(receipt, indent=2, ensure_ascii=False) if cli_args.json else json.dumps(receipt, indent=2, ensure_ascii=False))
             return 0
         existing_urls = archived_source_urls()
@@ -2315,6 +2417,13 @@ def main() -> int:
                 "preflight": receipt,
                 "outcome_metrics": disposition_metrics(receipt, "duplicate-prevented"),
             }
+            if receipt_target:
+                write_terminal_receipt(
+                    receipt_target,
+                    terminal_receipt_payload(
+                        result, measurement_scope="preflight-qualified"
+                    ),
+                )
             print(json.dumps(result, indent=2) if cli_args.json else f"ALREADY LANDED\nArchive: {result['archive']}")
             return 0
         matching_url_path = next((path for url, path in existing_urls.items() if url.rstrip("/") == source_args[0].url.rstrip("/")), None)
@@ -2326,6 +2435,13 @@ def main() -> int:
                 "preflight": receipt,
                 "outcome_metrics": disposition_metrics(receipt, "duplicate-prevented"),
             }
+            if receipt_target:
+                write_terminal_receipt(
+                    receipt_target,
+                    terminal_receipt_payload(
+                        result, measurement_scope="preflight-qualified"
+                    ),
+                )
             print(json.dumps(result, indent=2) if cli_args.json else f"ALREADY LANDED\nArchive: {result['archive']}")
             return 0
         plans, proposed_manifest = prepare_batch(source_args, manifest)
@@ -2352,22 +2468,64 @@ def main() -> int:
                 ),
                 "messages": messages,
             }
+            if not cli_args.dry_run:
+                published_result = result
+            if receipt_target:
+                write_terminal_receipt(
+                    receipt_target,
+                    terminal_receipt_payload(
+                        result,
+                        measurement_scope=(
+                            "dry-run" if cli_args.dry_run else "preflight-qualified"
+                        ),
+                    ),
+                )
             print(json.dumps(result, indent=2, ensure_ascii=False))
         else:
             print("\n".join(messages))
         return 0
     except Exception as exc:  # noqa: BLE001
-        if cli_args.json and receipt is not None:
+        if cli_args.json:
+            if published_result is not None:
+                print(
+                    json.dumps(
+                        post_landing_receipt_failure_payload(
+                            published_result, exc
+                        ),
+                        indent=2,
+                        ensure_ascii=False,
+                    ),
+                    file=sys.stderr,
+                )
+                return 1
+            failed = {
+                "status": "failed",
+                "error": str(exc),
+                "preflight": receipt,
+                "outcome_metrics": (
+                    disposition_metrics(receipt, "failed", failed_attempts=1)
+                    if receipt is not None
+                    else empty_failure_metrics()
+                ),
+            }
+            if receipt_target:
+                try:
+                    write_terminal_receipt(
+                        receipt_target,
+                        terminal_receipt_payload(
+                            failed,
+                            measurement_scope=(
+                                "preflight-qualified"
+                                if receipt is not None
+                                else "preflight-unavailable"
+                            ),
+                        ),
+                    )
+                except Exception as receipt_error:  # noqa: BLE001
+                    failed["receipt_error"] = str(receipt_error)
             print(
                 json.dumps(
-                    {
-                        "status": "failed",
-                        "error": str(exc),
-                        "preflight": receipt,
-                        "outcome_metrics": disposition_metrics(
-                            receipt, "failed", failed_attempts=1
-                        ),
-                    },
+                    failed,
                     indent=2,
                     ensure_ascii=False,
                 ),
