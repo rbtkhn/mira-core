@@ -1185,6 +1185,11 @@ def infer_source_form(args: SimpleNamespace, body: str, profile: HostProfile | N
         return "interview"
     if re.search(r"\bw/\b", title.lower()) or " w/" in title.lower() or " with " in title.lower():
         return "interview"
+    if getattr(args, "guest", "") or getattr(args, "guest_people", None):
+        return "interview"
+    if profile and getattr(args, "voice_slugs", None):
+        if any(slug != profile.default_voice_slug for slug in args.voice_slugs):
+            return "interview"
     if voice_candidates and profile and any(slug != profile.default_voice_slug for slug, _ in voice_candidates):
         return "interview"
     if profile and profile.slug == "daniel-davis":

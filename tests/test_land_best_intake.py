@@ -1210,6 +1210,45 @@ def test_fast_intake_real_july_glenn_diesen_davis_routes_to_davis_thread() -> No
     assert normalized.source_form == "interview"
 
 
+def test_fast_intake_explicit_daniel_davis_guest_stays_interview() -> None:
+    args = build_fast_args(
+        "2026-08-26",
+        "https://www.youtube.com/watch?v=4Q99MtTzrjk",
+        "IRAN WAR: Why Everyone Is Falling in Line /Lt Col Daniel Davis & Matt Hoh",
+        "IRAN WAR: Why Everyone Is Falling in Line /Lt Col Daniel Davis & Matt Hoh\n",
+    )
+    args.host_slug = "daniel-davis"
+    args.voice_slugs = ["hoh"]
+    args.guest = "Matthew Hoh"
+    args.guest_people = ["Matthew Hoh"]
+
+    normalized = land_best_intake.normalize_args(args)
+
+    assert normalized.host_slug == "daniel-davis"
+    assert normalized.voice_slugs == ["hoh"]
+    assert normalized.guest == "Matthew Hoh"
+    assert normalized.source_form == "interview"
+    assert normalized.source_class == "guest interview pressure test"
+
+
+def test_fast_intake_non_host_voice_stays_interview_without_guest_field() -> None:
+    args = build_fast_args(
+        "2026-08-26",
+        "https://www.youtube.com/watch?v=4Q99MtTzrjk",
+        "IRAN WAR: Why Everyone Is Falling in Line /Lt Col Daniel Davis & Matt Hoh",
+        "IRAN WAR: Why Everyone Is Falling in Line /Lt Col Daniel Davis & Matt Hoh\n",
+    )
+    args.host_slug = "daniel-davis"
+    args.voice_slugs = ["hoh"]
+
+    normalized = land_best_intake.normalize_args(args)
+
+    assert normalized.host_slug == "daniel-davis"
+    assert normalized.voice_slugs == ["hoh"]
+    assert normalized.source_form == "interview"
+    assert normalized.source_class == "guest interview pressure test"
+
+
 def test_fast_intake_real_july_dialogue_works_martyanov_routes_to_martyanov_thread() -> None:
     body = (
         "Andrei Martyanov: IRAN BOMBSHELL: Hypersonic Missile Hit U.S. Targets in 6 Minutes - Trump WARNED! - YouTube Transcripts\n"
