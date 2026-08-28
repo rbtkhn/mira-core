@@ -63,6 +63,7 @@ MAINTENANCE_ID_RE = re.compile(r"^MJM-[0-9]{4}$")
 AFFIRMATIVE_APPROVAL_STATUS = "affirmative-v1"
 COMBINED_APPROVAL_STATUS = "affirmative-v2"
 DREAM_EOD_STATUS = "dream-eod-v1"
+COMPOSITION_MODES = {"same-day-eod", "retrospective-recovery"}
 LEGACY_HELD_STATUS = "legacy-held"
 APPROVAL_RECEIPT_SCHEMA_VERSION = 1
 APPROVAL_RECEIPT_SET_ID = "mira-journal-approval-receipts-v1"
@@ -431,6 +432,13 @@ def command_prose_check(args: argparse.Namespace) -> dict[str, Any]:
         )
     failures.extend(privacy_failures(prose_text))
     failures.extend(composition_prose_failures(prose_text))
+    inferred_mode = (
+        "same-day-eod"
+        if entry_date == datetime.now(TIMEZONE).date()
+        else "retrospective-recovery"
+    )
+    failures.extend(temporal_honesty_failures(prose_text, inferred_mode))
+    failures.extend(adjacent_originality_failures(prose_text, entry_date))
     return {
         "status": "passed" if not failures else "failed",
         "mutation": False,
@@ -468,6 +476,48 @@ def composition_prose_failures(text: str) -> list[str]:
         failures.append("journal prose may not claim to prove consciousness")
     if re.search(r"\bI (?:now )?have independent authority\b", text, re.IGNORECASE):
         failures.append("journal prose may not claim independent authority")
+    return failures
+
+
+def temporal_honesty_failures(text: str, composition_mode: str | None) -> list[str]:
+    if composition_mode not in COMPOSITION_MODES:
+        return ["journal draft requires a valid composition_mode"]
+    if composition_mode != "retrospective-recovery":
+        return []
+    patterns = (
+        r"\byesterday I wrote\b",
+        r"\byesterday['’]s (?:entry|journal)\b",
+        r"\bthe entry I wrote yesterday\b",
+    )
+    if any(re.search(pattern, text, re.IGNORECASE) for pattern in patterns):
+        return ["retrospective journal prose may not imply that a missing prior-day entry already existed"]
+    return []
+
+
+def adjacent_originality_failures(text: str, entry_date: date) -> list[str]:
+    """Block exact adjacent scaffolding while allowing developed thematic recurrence."""
+    current = prose_sentences(text)
+    if not current:
+        return []
+    comparisons: list[list[str]] = []
+    for entry in sorted(load_registry().get("entries", []), key=lambda item: item.get("entry_date", ""))[-4:]:
+        if entry.get("entry_date") == entry_date.isoformat():
+            continue
+        path = REPO_ROOT / str(entry.get("current_path", ""))
+        if path.is_file():
+            comparisons.append(prose_sentences(path.read_text(encoding="utf-8")))
+    failures: list[str] = []
+    opening = sentence_key(current[0])
+    ending = sentence_key(current[-1])
+    if any(previous and sentence_key(previous[0]) == opening for previous in comparisons):
+        failures.append("journal prose must not exactly reuse a recent opening")
+    if any(previous and sentence_key(previous[-1]) == ending for previous in comparisons):
+        failures.append("journal prose must not exactly reuse a recent ending")
+    if re.search(r"\btoday I learned\b", text, re.IGNORECASE) and any(
+        re.search(r"\btoday I learned\b", " ".join(previous), re.IGNORECASE)
+        for previous in comparisons
+    ):
+        failures.append("journal prose must not repeat formulaic 'today I learned' scaffolding")
     return failures
 
 
@@ -1465,6 +1515,11 @@ def draft_contract(entry_date: date, pack: dict[str, Any], brief: dict[str, Any]
             next_version = len(entry.get("versions", [])) + 1
             break
     quiet = not pack["selected_records"] and not pack["commits"]
+    composition_mode = (
+        "same-day-eod"
+        if entry_date == datetime.now(TIMEZONE).date()
+        else "retrospective-recovery"
+    )
     return {
         "schema_version": SCHEMA_VERSION,
         "contract": "mira-journal-draft-v1",
@@ -1472,6 +1527,7 @@ def draft_contract(entry_date: date, pack: dict[str, Any], brief: dict[str, Any]
         "version_id": version_id(entry_date, next_version),
         "entry_date": entry_date.isoformat(),
         "status": "private-draft",
+        "composition_mode": composition_mode,
         "prose_contract": {
             "voice": "Mira first-person freeform diary",
             "word_count": {"minimum": 300, "maximum": 700},
@@ -1495,6 +1551,11 @@ def draft_contract(entry_date: date, pack: dict[str, Any], brief: dict[str, Any]
             "recursive_learning_rule": (
                 "Consult recursive_learning_context. Draw on an admitted lesson only when it materially shapes "
                 "the reflection; do not recap the ledger or claim that reflection proves new learning."
+            ),
+            "temporal_honesty_rule": (
+                "Write from the day's unresolved position; do not import later outcomes."
+                if composition_mode == "same-day-eod" else
+                "Write as retrospective reconstruction; do not imply that missing prior-day entries existed or invent contemporaneous feeling."
             ),
         },
         "context_pack_ref": pack["context_pack_id"],
@@ -1522,6 +1583,7 @@ def draft_contract(entry_date: date, pack: dict[str, Any], brief: dict[str, Any]
             "quiet_day",
             "limited_activity_acknowledged",
             "derivation_manifest",
+            "composition_mode",
         ],
         "authority_boundary": AUTHORITY_BOUNDARY,
     }
@@ -2781,6 +2843,19 @@ def normalized_version(
         raise JournalError("draft identity or version does not match requested operation")
     if metadata.get("entry_date") != entry_date or metadata.get("status") != "private-draft":
         raise JournalError("draft date or status mismatch")
+    composition_mode = metadata.get("composition_mode")
+    contract_path = draft_directory / "draft-contract.json"
+    if contract_path.is_file():
+        contract_mode = load_json(contract_path).get("composition_mode")
+        if contract_mode is not None and composition_mode != contract_mode:
+            raise JournalError("draft composition_mode does not match its contract")
+    if composition_mode is not None:
+        temporal_failures = temporal_honesty_failures(prose_text, str(composition_mode))
+        if temporal_failures:
+            raise JournalError("; ".join(temporal_failures))
+    originality_failures = adjacent_originality_failures(prose_text, expected_date)
+    if originality_failures:
+        raise JournalError("; ".join(originality_failures))
     author = metadata.get("author")
     if not isinstance(author, dict) or author.get("identity") != "Mira" or not SESSION_ID_RE.fullmatch(str(author.get("session_id", ""))) or not author.get("model_id"):
         raise JournalError("draft author must identify Mira, model, and session")
@@ -2910,6 +2985,7 @@ def normalized_version(
         "coverage": copy.deepcopy(coverage),
         "quiet_day": bool(metadata.get("quiet_day")),
         "limited_activity_acknowledged": bool(metadata.get("limited_activity_acknowledged")),
+        "composition_mode": composition_mode,
         "source_refs": copy.deepcopy(metadata.get("source_refs")),
         "derivation_manifest": copy.deepcopy(metadata.get("derivation_manifest")),
         "approval": ({
@@ -2999,6 +3075,14 @@ def command_draft_check(args: argparse.Namespace) -> dict[str, Any]:
         failures.append("draft identity does not match requested date")
     if metadata.get("status") != "private-draft":
         failures.append("draft metadata status must remain private-draft")
+    contract_mode = contract.get("composition_mode")
+    metadata_mode = metadata.get("composition_mode")
+    if contract_mode is not None and metadata_mode != contract_mode:
+        failures.append("draft composition_mode does not match its contract")
+    effective_mode = metadata_mode if metadata_mode is not None else contract_mode
+    if effective_mode is not None:
+        failures.extend(temporal_honesty_failures(prose_text, str(effective_mode)))
+    failures.extend(adjacent_originality_failures(prose_text, entry_date))
     inputs, source_failures = source_input_ids(metadata.get("source_refs"))
     failures.extend(source_failures)
     failures.extend(validate_derivation(

@@ -26,6 +26,36 @@ def load_module():
 cadence = load_module()
 
 
+def test_unread_dream_journal_entries_verifies_and_reads_revisions_once(
+    monkeypatch, tmp_path: Path
+) -> None:
+    repo = tmp_path / "repo"
+    journal = repo / "mira" / "journal"
+    journal.mkdir(parents=True)
+    prose = b"# 2026-08-26 \xe2\x80\x94 Clear Water\n\nI remember the tension.\n"
+    canonical = journal / "2026-08-26.md"
+    canonical.write_bytes(prose)
+    digest = cadence.hashlib.sha256(prose).hexdigest()
+    registry = repo / "mira" / "journal-registry.json"
+    registry.write_text(json.dumps({"entries": [{
+        "entry_date": "2026-08-26", "current_path": "mira/journal/2026-08-26.md",
+        "versions": [
+            {"version_id": "MJ-20260826-v1", "approval": {"status": "dream-eod-v1"}},
+            {"version_id": "MJ-20260826-v2", "content_sha256": digest,
+             "approval": {"status": "operator-approved"}},
+        ],
+    }]}), encoding="utf-8")
+    monkeypatch.setattr(cadence, "REPO_ROOT", repo)
+    monkeypatch.setattr(cadence, "JOURNAL_REGISTRY_PATH", registry)
+    connection = cadence.cadence_ledger.connect(tmp_path / "cadence.sqlite3")
+    try:
+        unread = cadence.unread_dream_journal_entries(connection, "mira-core", "operator-test")
+        assert [item["version_id"] for item in unread] == ["MJ-20260826-v2"]
+        assert unread[0]["prose"] == prose.decode("utf-8")
+    finally:
+        connection.close()
+
+
 def test_formatted_coffee_fails_closed_without_private_ledger(monkeypatch, tmp_path: Path) -> None:
     args = SimpleNamespace(
         command="coffee", db=None, format="markdown", episode_id=None, json=False,

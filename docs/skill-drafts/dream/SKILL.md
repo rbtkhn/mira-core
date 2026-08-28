@@ -8,11 +8,11 @@ description: "Consolidate one local day of mira-core sessions into a private adv
 Use only in `mira-core`. Bare `dream` is the daily-close conductor. Before it
 opens or resumes the private daily-close ledger, it performs a read-only
 prerequisite gate for the selected date: Geo-Strategy must have a validated,
-committed issue packet (or an honest `no_geo_run` result), and Mira Journal
-must already be finalized or have a current, fully validated private bundle.
-When both are complete, Dream continues automatically. When either is
-incomplete, Dream pauses without preparing, composing, or mutating either lane
-and asks the operator whether to finish the named missing work first.
+committed issue packet (or an honest `no_geo_run` result). Journal composition
+is an internal Dream stage: Dream prepares the complete daily census, composes
+under Mira Journal with Mira Voice, validates, and finalizes without an
+operator prompt. An incomplete Geo lane pauses; a Journal failure blocks with
+repair guidance and never creates fallback prose or a partial canonical entry.
 Run one canonical Dream consolidation per operator, workspace, and local
 calendar day. Individual sessions contribute bounded closeout receipts; Dream
 consolidates all sessions active that day. Dream records advisory cadence state
@@ -36,18 +36,19 @@ from those receipts. It must not regenerate, reinterpret, or revise the packet
 unless the operator explicitly requests a Geo-Strategy revision. The
 certification names the packet date, validation stage, artifact refs, and commit
 or acceptance basis. A date without manifest-backed Geo sources records
-`no_geo_run`; a failed evidence-backed Geo packet blocks Journal. Dream may
-certify a fully validated `dream-eod-v1` journal bundle without an operator
-approval record, but it must not canonicalize, approve, or publish the entry.
-The receipt preserves both version digests, records `canonicalized: false`, and
-leaves `approval_status: pending`. When the tool returns a composition handoff,
-complete the prepared private bundle and resume. Finish
+`no_geo_run`; a failed evidence-backed Geo packet blocks Journal. Dream prepares
+and composes the private Journal bundle internally, then runs prose, grounding,
+temporal-position, adjacent-entry originality, full-bundle, and finalization
+checks. A passing bundle is canonicalized as private `dream-eod-v1` with
+`publication_eligible: false`; Dream is the finalizing conductor and Mira is
+the recorded author. An internal composition handoff is not an operator-facing
+approval or resume step. Finish
 with a private `--dream-json` candidate or `--no-candidate REASON`.
 
-The prerequisite prompt grants no authority to complete either lane. If the
-operator says yes, invoke the owning Geo-Strategy or Mira Journal workflow for
-only the missing date-bound work, then rerun Dream; do not continue the Dream
-ledger from an incomplete preflight.
+The Geo prerequisite prompt grants no authority to complete that lane. Journal
+composition and private EOD finalization are part of the already-authorized
+Dream ritual; they grant no staging, commit, push, publication, communication,
+RSI admission, or identity-promotion authority.
 
 Before inheriting a Geo-Strategy prerequisite, run a read-only freshness gate
 over `narrative-geopolitics/work/daily`. If any later substantive Geo packet
@@ -113,10 +114,10 @@ tools/run.ps1 cadence dream-supplement --episode-id ID --session-coverage-json J
 
 Do not call a change `improved` merely because tests pass. It must improve a
 named judgment, quality, reliability, or efficiency criterion.
-Journal certification records completion only. Canonical approval remains a
-separate exact digest-bound Mira Journal action; certification never mutates
-the journal registry, canonical prose, technical-reference companions, or
-continuity indexes.
+Journal finalization records the canonical prose and technical reference with
+the composing model and Dream run provenance. Late substantive work is retained
+as append-only close coverage for the next day; it never silently revises the
+finalized entry.
 
 Do not solicit or record unresolved choice outcomes during closeout. Route
 them through the next `coffee` re-entry instead.
@@ -157,6 +158,7 @@ Local-use eligibility never grants repo-use or public-use.
 
 ## Return
 
-Report the experiment, outcome, verification status, Git state, candidate
-improvement, and `Tomorrow inherits:` sentence. Never infer permission to
-stage, commit, push, publish, change forecasts, or run intake.
+On successful close, report only the Journal title and version, validation
+result, finalization state, and genuine remaining debt. Do not duplicate or
+summarize the entry. Never infer permission to stage, commit, push, publish,
+change forecasts, or run intake.

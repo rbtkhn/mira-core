@@ -33,7 +33,75 @@ from runtime_names import remove_environment_pair, resolve_environment
 from session_preflight import probe_temp_root
 
 
+def unread_dream_journal_entries(
+    connection: sqlite3.Connection, workspace_id: str, operator_id: str,
+) -> list[dict[str, str]]:
+    shown: set[str] = set()
+    if cadence_ledger.table_exists(connection, "coffee_presentations"):
+        rows = connection.execute(
+            "SELECT context_components_json FROM coffee_presentations "
+            "WHERE workspace_id=? AND operator_id=?",
+            (workspace_id, operator_id),
+        ).fetchall()
+        for row in rows:
+            try:
+                components = json.loads(row["context_components_json"])
+            except (json.JSONDecodeError, TypeError):
+                continue
+            shown.update(
+                str(item.get("version_id"))
+                for item in components.get("journal_versions", [])
+                if isinstance(item, dict) and item.get("version_id")
+            )
+    registry_path = JOURNAL_REGISTRY_PATH
+    if not registry_path.is_file():
+        return []
+    registry = json.loads(registry_path.read_text(encoding="utf-8"))
+    entries: list[dict[str, str]] = []
+    for entry in registry.get("entries", []):
+        if not isinstance(entry, dict):
+            continue
+        versions = entry.get("versions", [])
+        if not versions:
+            continue
+        version = versions[-1]
+        dream_finalized_lineage = any(
+            isinstance(candidate, dict)
+            and candidate.get("approval", {}).get("status") == "dream-eod-v1"
+            for candidate in versions
+        )
+        if (
+            not isinstance(version, dict)
+            or version.get("version_id") in shown
+            or not dream_finalized_lineage
+        ):
+            continue
+        path = REPO_ROOT / str(entry.get("current_path", ""))
+        if not path.is_file():
+            raise cadence_ledger.CadenceLedgerError(
+                f"Coffee journal reading is missing canonical entry: {entry.get('entry_date')}"
+            )
+        body = path.read_bytes()
+        content_sha256 = hashlib.sha256(
+            body.replace(b"\r\n", b"\n").replace(b"\r", b"\n")
+        ).hexdigest()
+        if content_sha256 != version.get("content_sha256"):
+            raise cadence_ledger.CadenceLedgerError(
+                f"Coffee journal reading digest mismatch: {entry.get('entry_date')}"
+            )
+        entry_date = datetime.strptime(str(entry["entry_date"]), "%Y-%m-%d")
+        entries.append({
+            "entry_date": str(entry["entry_date"]),
+            "display_date": entry_date.strftime("%B %d, %Y").replace(" 0", " "),
+            "version_id": str(version["version_id"]),
+            "content_sha256": str(version["content_sha256"]),
+            "prose": body.decode("utf-8"),
+        })
+    return sorted(entries, key=lambda item: (item["entry_date"], item["version_id"]))
+
+
 REPO_ROOT = Path(__file__).resolve().parent.parent
+JOURNAL_REGISTRY_PATH = REPO_ROOT / "mira" / "journal-registry.json"
 HANDOFF_PATH = (
     REPO_ROOT / "narrative-geopolitics" / "work" / "cadence" / "last-dream.json"
 )
@@ -1717,17 +1785,23 @@ def main() -> None:
             try:
                 check=bool(getattr(args,"check",False))
                 connection = cadence_ledger.connect_read_only(resolution.path) if check else cadence_ledger.connect(resolution.path)
+                selected = cadence_ledger.selected_episode(connection, args.episode_id)
                 try:
                     rest_inbox = rest_receipts.resolve_inbox(None)
-                    selected = cadence_ledger.selected_episode(connection, args.episode_id)
                     rest_status = rest_receipts.coffee_coverage(
                         rest_inbox, selected["episode"] if selected else None
                     )
                 except (OSError, rest_receipts.RestError):
                     rest_status = "unavailable"
+                workspace_id = selected["episode"]["workspace_id"] if selected else "mira-core"
+                operator_id = selected["episode"]["operator_id"] if selected else "operator"
+                journal_entries = unread_dream_journal_entries(
+                    connection, workspace_id, operator_id
+                )
                 context = cadence_ledger.coffee_context(
                     connection, episode_id=args.episode_id,
                     rest_coverage_status=rest_status,
+                    journal_entries=journal_entries,
                 )
                 rendered=cadence_ledger.render_coffee_markdown(context)
                 if not check:

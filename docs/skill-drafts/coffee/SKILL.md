@@ -11,6 +11,16 @@ and one digest-only presentation receipt after a grounded menu validates.
 
 ## Orient
 
+Before ordinary orientation, resolve every unread canonical version descended
+from a Dream-finalized Journal entry. Verify the registry and canonical-file
+digests, then present entries chronologically and verbatim under only
+`Mira Journal — Month D, YYYY`. Add no summary, receipt metadata, continuity
+claim, or connective prose between entries. After the final entry use one
+restrained transition into Coffee orientation. Record only version IDs and
+digests in the private presentation receipt so each version is read once; a
+canonical revision is one new presentation. If none is unread, begin ordinary
+orientation directly.
+
 1. Resolve the private cadence store before running Coffee. Prefer
    `MIRA_CORE_CADENCE_DB`, then compatibility variable `NARRATIVE_CADENCE_DB`.
    In this workspace, when both are unset and the existing compatibility store

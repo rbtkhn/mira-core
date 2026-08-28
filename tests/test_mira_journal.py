@@ -167,6 +167,7 @@ def write_v2_bundle(drafts: Path, day: str, body: bytes, value: dict) -> Path:
     ]
     value["derivation_manifest"]["input_object_ids"] = [pack_digest, brief_digest]
     value["schema_version"] = 2
+    value["composition_mode"] = contract["composition_mode"]
     reference = technical_reference(day, body, int(str(value["version_id"]).rsplit("-v", 1)[1]))
     reference["schema_version"] = 2
     reference["cutoff_at"] = str(value["coverage"]["as_of"])
@@ -434,6 +435,19 @@ def test_prose_check_rejects_cross_date_approved_title_reuse(
     assert result["failures"] == [
         "journal title must not reuse an approved title from another date"
     ]
+
+
+def test_retrospective_temporal_audit_rejects_false_prior_entry_claim() -> None:
+    failures = subject.temporal_honesty_failures(
+        "Yesterday I wrote that certainty had arrived.", "retrospective-recovery"
+    )
+    assert any("may not imply that a missing prior-day entry already existed" in item for item in failures)
+
+
+def test_same_day_temporal_audit_preserves_unresolved_perspective() -> None:
+    assert subject.temporal_honesty_failures(
+        "I do not yet know whether this correction will hold.", "same-day-eod"
+    ) == []
 
 
 def test_prose_check_requires_absolute_external_draft(

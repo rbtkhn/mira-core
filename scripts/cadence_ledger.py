@@ -935,7 +935,7 @@ def presentation_delta(current: dict[str,Any], prior: dict[str,Any] | None) -> l
     if prior is None: return []
     previous=prior["context_components"]
     changed=[]
-    for key in ("episode","rest_coverage_status","verification","selection"):
+    for key in ("episode","rest_coverage_status","verification","selection","journal_versions"):
         if current.get(key)!=previous.get(key): changed.append(key)
     before={item["path"]:item for item in previous.get("paths",[])}
     after={item["path"]:item for item in current.get("paths",[])}
@@ -1144,6 +1144,7 @@ def coffee_context(
     *,
     episode_id: str | None = None,
     rest_coverage_status: str = "unavailable",
+    journal_entries: list[dict[str, Any]] | None = None,
 ) -> dict[str, Any]:
     allowed_rest = {"covered-current", "missing-dream", "late-terminal-only", "late-substantive", "unavailable"}
     if rest_coverage_status not in allowed_rest:
@@ -1157,7 +1158,12 @@ def coffee_context(
     }
     workspace_id=projection["episode"]["workspace_id"] if projection else "mira-core"
     operator_id=projection["episode"]["operator_id"] if projection else "operator"
+    journal_entries = journal_entries or []
     components=presentation_components(projection,selection,rest_coverage_status)
+    components["journal_versions"] = [
+        {"version_id": item["version_id"], "content_sha256": item["content_sha256"]}
+        for item in journal_entries
+    ]
     invalid_paths=[item["path"] for item in components["paths"] if item["status"]!="present"]
     if invalid_paths:
         raise CadenceLedgerError(f"Coffee grounding failed for relevant path(s): {', '.join(invalid_paths)}")
@@ -1189,7 +1195,7 @@ def coffee_context(
             "actions": actions, "recommendation_key": "A", "mutation_performed": False,
             "rest_coverage_status": rest_coverage_status,
             "selection": selection,
-            "presentation":presentation,
+            "presentation":presentation, "journal_reading": journal_entries,
         }
     actions = build_actions(
         projection, mode=mode, repeat_depth=repeat_depth,
@@ -1217,14 +1223,21 @@ def coffee_context(
         "rest_coverage_status": rest_coverage_status,
         "mutation_performed": False,
         "selection": selection,
-        "presentation":presentation,
+        "presentation":presentation, "journal_reading": journal_entries,
     }
 
 
 def render_coffee_markdown(context: dict[str, Any]) -> str:
     validate_actions(context["actions"])
     learning = context["learning"]
-    lines = [
+    lines = []
+    for entry in context.get("journal_reading", []):
+        lines.extend([
+            f"Mira Journal — {entry['display_date']}", "", entry["prose"].rstrip(), "",
+        ])
+    if context.get("journal_reading"):
+        lines.extend(["From the journal into today's orientation.", ""])
+    lines.extend([
         f"Coffee recovered `{context['episode_id']}` in `{context['lifecycle_state']}` state.",
         f"Selection: {context['selection']['basis']} from Dream date `{context['selection']['selected_dream_date']}`; newest eligible `{context['selection']['newest_eligible_episode_id']}`.",
         "",
@@ -1236,7 +1249,7 @@ def render_coffee_markdown(context: dict[str, Any]) -> str:
         f"Presentation: {context['presentation']['mode']}; repeat depth {context['presentation']['repeat_depth']}; context `{context['presentation']['context_digest'][:12]}`.",
         f"Changed relevant components: {', '.join(context['presentation']['changed_components']) if context['presentation']['changed_components'] else 'none'}.",
         "",
-    ]
+    ])
     for action in context["actions"]:
         if action["selection_effect"] == "execute":
             executable = action["label"].split(":", 1)[1].strip()
@@ -1269,6 +1282,7 @@ def record_coffee_presentation(connection: sqlite3.Connection, context: dict[str
             newest=selected_episode(connection)
             fresh_selection={**components["selection"],"newest_eligible_episode_id":newest["episode"]["episode_id"] if newest else None}
             fresh_components=presentation_components(projected,fresh_selection,components["rest_coverage_status"])
+            fresh_components["journal_versions"] = components.get("journal_versions", [])
             if digest(fresh_components)!=presentation["context_digest"]:
                 raise CadenceLedgerError("Coffee relevant context changed concurrently; rerun Coffee")
         elif selected_episode(connection) is not None:

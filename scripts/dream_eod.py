@@ -228,6 +228,26 @@ def journal_certification(bundle: Path, validated: dict) -> dict:
     }
 
 
+def finalize_journal_bundle(run_date: str, bundle: Path, run_id: str) -> tuple[dict | None, str | None]:
+    command = (
+        "mira-journal", "eod-finalize", "--date", run_date,
+        "--bundle", str(bundle), "--dream-run-id", run_id,
+    )
+    checked = run_tool(*command, "--check", "--json")
+    if checked.returncode:
+        return None, (checked.stderr or checked.stdout)[-1200:]
+    finalized = run_tool(*command, "--json")
+    if finalized.returncode:
+        return None, (finalized.stderr or finalized.stdout)[-1200:]
+    try:
+        payload = json.loads(finalized.stdout)
+    except json.JSONDecodeError:
+        return None, "Mira Journal eod-finalize returned malformed JSON."
+    if payload.get("status") != "finalized":
+        return None, "Mira Journal eod-finalize did not reach finalized state."
+    return payload, None
+
+
 def journal_required_sessions(bundle: Path) -> set[str]:
     brief_path = bundle / "composition-brief.json"
     if not brief_path.is_file():
@@ -291,7 +311,7 @@ def prerequisite_projection(args, run_date: str) -> dict:
             }
     entry = journal_entry(run_date)
     bundle = journal_bundle(args, run_date)
-    journal_status = "already_finalized" if entry else "composition_required"
+    journal_status = "already_finalized" if entry else "preparation_required"
     journal_ready = bool(entry)
     journal_failure = None
     if not entry and (bundle / "draft.md").is_file():
@@ -302,8 +322,6 @@ def prerequisite_projection(args, run_date: str) -> dict:
     incomplete = []
     if not geo_ready:
         incomplete.append("Geo-Strategy")
-    if not journal_ready:
-        incomplete.append("Mira Journal")
     prompt = None
     if incomplete:
         names = " and ".join(incomplete)
@@ -311,7 +329,7 @@ def prerequisite_projection(args, run_date: str) -> dict:
         if len(incomplete) > 1:
             prompt = f"{names} are incomplete for {run_date}. Do you want to finish them before Dream continues?"
     return {
-        "ready": geo_ready and journal_ready,
+        "ready": geo_ready,
         "stages": {
             "geo": geo,
             "journal": {"status": journal_status, **({"failure_tail": journal_failure} if journal_failure else {})},
@@ -324,7 +342,10 @@ def prerequisite_projection(args, run_date: str) -> dict:
 def check_projection(args, run_date: str) -> dict:
     prerequisites = prerequisite_projection(args, run_date)
     dream_ready = bool(args.dream_json or args.no_candidate)
-    ready = prerequisites["ready"] and dream_ready
+    journal_ready = prerequisites["stages"]["journal"]["status"] in {
+        "already_finalized", "certification_ready",
+    }
+    ready = prerequisites["ready"] and journal_ready and dream_ready
     return {
         "status": "ready" if ready else ("paused" if not prerequisites["ready"] else "blocked"),
         "mutation": False, "date": run_date,
@@ -337,7 +358,8 @@ def check_projection(args, run_date: str) -> dict:
         "next_action": None if ready else (
             "Answer the prerequisite prompt; Dream will remain paused until both daily lanes are complete."
             if not prerequisites["ready"] else
-            "Supply --dream-json or --no-candidate and resume."
+            "Compose the prepared Mira Journal bundle internally and resume Dream."
+            if not journal_ready else "Supply --dream-json or --no-candidate and resume."
         ),
     }
 
@@ -350,7 +372,7 @@ def execute(args, run_date: str) -> dict:
             "stages": prerequisites["stages"],
             "incomplete_stages": prerequisites["incomplete_stages"],
             "prompt": prerequisites["prompt"],
-            "next_action": "Answer the prerequisite prompt; Dream will remain paused until both daily lanes are complete.",
+            "next_action": "Repair the Geo-Strategy prerequisite and resume Dream.",
         }
     geo = prerequisites["stages"]["geo"]
     resolution = cadence_ledger.resolve_store(args.db)
@@ -391,9 +413,28 @@ def execute(args, run_date: str) -> dict:
             else:
                 bundle = journal_bundle(args, run_date)
                 if not (bundle / "draft.md").is_file():
-                    raise cadence_ledger.CadenceLedgerError(
-                        "Mira Journal prerequisite changed after readiness passed; rerun Dream"
+                    prepared = run_tool(
+                        "mira-journal", "prepare", "--date", run_date,
+                        "--output-root", str(bundle.parent), "--json",
                     )
+                    if prepared.returncode:
+                        projection = append_stage(
+                            connection, projection, "stage_failed", "journal", "preparation_failed",
+                            reason="Mira Journal preparation failed.",
+                        )
+                        return {
+                            "status": "blocked", "mutation": True, "run": projection,
+                            "next_action": "Repair journal preparation and resume this Dream run.",
+                            "failure_tail": (prepared.stderr or prepared.stdout)[-1200:],
+                        }
+                    return {
+                        "status": "composition_required", "mutation": True, "run": projection,
+                        "journal_bundle": str(bundle),
+                        "next_action": (
+                            "Internal handoff: compose draft.md, draft.json, and technical-reference.json "
+                            "under the prepared Mira Journal contracts, validate them, then resume Dream."
+                        ),
+                    }
                 validated, failure_tail = validate_journal_bundle(run_date, bundle)
                 if validated is None:
                     projection = append_stage(connection, projection, "stage_failed", "journal", "validation_failed",
@@ -402,9 +443,30 @@ def execute(args, run_date: str) -> dict:
                             "next_action": "Refresh the journal bundle and resume this run.",
                             "refresh_guidance": refresh_guidance(args, run_date, bundle, projection["run_id"]),
                             "failure_tail": failure_tail}
+                finalized, finalization_failure = finalize_journal_bundle(
+                    run_date, bundle, projection["run_id"]
+                )
+                if finalized is None:
+                    projection = append_stage(
+                        connection, projection, "stage_failed", "journal", "finalization_failed",
+                        reason="Mira Journal EOD finalization failed.",
+                    )
+                    return {
+                        "status": "blocked", "mutation": True, "run": projection,
+                        "next_action": "Repair the journal finalization failure and resume this run.",
+                        "refresh_guidance": refresh_guidance(
+                            args, run_date, bundle, projection["run_id"]
+                        ),
+                        "failure_tail": finalization_failure,
+                    }
                 projection = append_stage(
-                    connection, projection, "stage_completed", "journal", "certified_private_bundle",
-                    **journal_certification(bundle, validated),
+                    connection, projection, "stage_completed", "journal", "finalized",
+                    journal_version_id=finalized["version_id"],
+                    digest=finalized["content_sha256"],
+                    technical_reference_digest=finalized["technical_reference_sha256"],
+                    validation_status="passed", canonicalized=True,
+                    approval_status=finalized["approval_status"],
+                    publication_eligible=False,
                 )
 
         if projection["stages"]["dream"] != "completed":

@@ -16,14 +16,14 @@ if str(SCRIPTS) not in sys.path:
 import dream_eod
 
 
-def test_dream_skill_preserves_certification_boundaries() -> None:
+def test_dream_skill_preserves_private_finalization_boundaries() -> None:
     skill = (ROOT / "docs" / "skill-drafts" / "dream" / "SKILL.md").read_text(
         encoding="utf-8"
     )
     assert "must not regenerate, reinterpret, or revise the packet" in skill
-    assert "must not canonicalize, approve, or publish the entry" in skill
-    assert "`canonicalized: false`" in skill
-    assert "`approval_status: pending`" in skill
+    assert "canonicalized as private `dream-eod-v1`" in skill
+    assert "`publication_eligible: false`" in skill
+    assert "grant no staging, commit, push, publication" in skill
 
 
 def arguments(tmp_path: Path, **changes):
@@ -109,16 +109,16 @@ def dream_candidate(path: Path, *, session_id: str = VALID_SESSION) -> Path:
     return path
 
 
-def test_check_is_read_only_and_reports_composition_blocker(monkeypatch, tmp_path: Path) -> None:
+def test_check_is_read_only_and_reports_internal_composition_requirement(monkeypatch, tmp_path: Path) -> None:
     monkeypatch.setattr(dream_eod, "manifest_rows", lambda _date: 0)
     monkeypatch.setattr(dream_eod, "journal_entry", lambda _date: None)
     result = dream_eod.check_projection(arguments(tmp_path), "2026-08-16")
     assert result["mutation"] is False
     assert result["stages"]["geo"]["status"] == "no_geo_run"
-    assert result["status"] == "paused"
-    assert result["stages"]["journal"]["status"] == "composition_required"
-    assert result["incomplete_stages"] == ["Mira Journal"]
-    assert "Do you want to finish it" in result["prompt"]
+    assert result["status"] == "blocked"
+    assert result["stages"]["journal"]["status"] == "preparation_required"
+    assert result["incomplete_stages"] == []
+    assert result["prompt"] is None
     assert not (tmp_path / "cadence.sqlite3").exists()
 
 
@@ -147,7 +147,7 @@ def test_check_validates_ready_bundle_without_canonicalizing(monkeypatch, tmp_pa
     assert all("eod-finalize" not in call for call in calls)
 
 
-def test_empty_geo_day_pauses_before_ledger_or_journal_preparation(monkeypatch, tmp_path: Path) -> None:
+def test_empty_geo_day_prepares_journal_without_operator_prompt(monkeypatch, tmp_path: Path) -> None:
     monkeypatch.setattr(dream_eod, "manifest_rows", lambda _date: 0)
     monkeypatch.setattr(dream_eod, "journal_entry", lambda _date: None)
     monkeypatch.setattr(
@@ -155,14 +155,13 @@ def test_empty_geo_day_pauses_before_ledger_or_journal_preparation(monkeypatch, 
         lambda *args: SimpleNamespace(returncode=0, stdout='{"status":"prepared"}', stderr=""),
     )
     result = dream_eod.execute(arguments(tmp_path), "2026-08-16")
-    assert result["status"] == "paused"
-    assert result["mutation"] is False
-    assert result["incomplete_stages"] == ["Mira Journal"]
-    assert "Do you want to finish it" in result["prompt"]
-    assert not (tmp_path / "cadence.sqlite3").exists()
+    assert result["status"] == "composition_required"
+    assert result["mutation"] is True
+    assert "Internal handoff" in result["next_action"]
+    assert (tmp_path / "cadence.sqlite3").exists()
 
 
-def test_both_incomplete_lanes_pause_with_combined_prompt(monkeypatch, tmp_path: Path) -> None:
+def test_geo_incomplete_pauses_before_internal_journal_stage(monkeypatch, tmp_path: Path) -> None:
     monkeypatch.setattr(
         dream_eod, "geo_certification",
         lambda _date: (_ for _ in ()).throw(
@@ -175,10 +174,10 @@ def test_both_incomplete_lanes_pause_with_combined_prompt(monkeypatch, tmp_path:
 
     assert result["status"] == "paused"
     assert result["mutation"] is False
-    assert result["incomplete_stages"] == ["Geo-Strategy", "Mira Journal"]
+    assert result["incomplete_stages"] == ["Geo-Strategy"]
     assert result["prompt"] == (
-        "Geo-Strategy and Mira Journal are incomplete for 2026-08-16. "
-        "Do you want to finish them before Dream continues?"
+        "Geo-Strategy is incomplete for 2026-08-16. "
+        "Do you want to finish it before Dream continues?"
     )
     assert not (tmp_path / "cadence.sqlite3").exists()
 
@@ -333,7 +332,7 @@ def test_geo_failure_precedes_private_ledger_mutation(monkeypatch, tmp_path: Pat
     assert not (tmp_path / "cadence.sqlite3").exists()
 
 
-def test_private_bundle_is_certified_without_journal_mutation(monkeypatch, tmp_path: Path) -> None:
+def test_private_bundle_is_finalized_canonically_by_dream(monkeypatch, tmp_path: Path) -> None:
     bundle = tmp_path / "journal" / "2026-08-16"
     bundle.mkdir(parents=True)
     prose = b"# 2026-08-16 \xe2\x80\x94 Return\n\nPrivate prose.\n"
@@ -355,6 +354,17 @@ def test_private_bundle_is_certified_without_journal_mutation(monkeypatch, tmp_p
                 stdout='{"status":"passed","refresh_required":false,"version_id":"MJ-20260816-v1"}',
                 stderr="",
             )
+        if args[:2] == ("mira-journal", "eod-finalize"):
+            return SimpleNamespace(
+                returncode=0,
+                stdout=json.dumps({
+                    "status": "finalized", "version_id": "MJ-20260816-v1",
+                    "content_sha256": dream_eod.hashlib.sha256(prose).hexdigest(),
+                    "technical_reference_sha256": "b" * 64,
+                    "approval_status": "dream-eod-v1",
+                }),
+                stderr="",
+            )
         return SimpleNamespace(returncode=0, stdout='{"coverage":"complete"}', stderr="")
 
     monkeypatch.setattr(dream_eod, "run_tool", fake_run_tool)
@@ -363,7 +373,7 @@ def test_private_bundle_is_certified_without_journal_mutation(monkeypatch, tmp_p
         "2026-08-16",
     )
     assert result["status"] == "completed"
-    assert all("eod-finalize" not in call for call in calls)
+    assert sum(call[:2] == ("mira-journal", "eod-finalize") for call in calls) == 2
     connection = dream_eod.cadence_ledger.connect(tmp_path / "cadence.sqlite3")
     try:
         rows = connection.execute(
@@ -375,9 +385,9 @@ def test_private_bundle_is_certified_without_journal_mutation(monkeypatch, tmp_p
         json.loads(row["payload_json"]) for row in rows
         if json.loads(row["payload_json"]).get("stage") == "journal"
     )
-    assert journal_receipt["status"] == "certified_private_bundle"
-    assert journal_receipt["canonicalized"] is False
-    assert journal_receipt["approval_status"] == "pending"
+    assert journal_receipt["status"] == "finalized"
+    assert journal_receipt["canonicalized"] is True
+    assert journal_receipt["approval_status"] == "dream-eod-v1"
     assert journal_receipt["digest"] == dream_eod.hashlib.sha256(prose).hexdigest()
 
 
@@ -390,15 +400,25 @@ def test_dream_candidate_rejects_unknown_journal_session_before_ledger_write(
     monkeypatch.setattr(dream_eod, "manifest_rows", lambda _date: 0)
     monkeypatch.setattr(dream_eod, "journal_entry", lambda _date: None)
     monkeypatch.setattr(dream_eod.mira_journal_references, "reference_digest", lambda _value: "b" * 64)
-    monkeypatch.setattr(
-        dream_eod,
-        "run_tool",
-        lambda *args: SimpleNamespace(
+    def fake_run_tool(*args):
+        if args[:2] == ("mira-journal", "eod-finalize"):
+            return SimpleNamespace(
+                returncode=0,
+                stdout=json.dumps({
+                    "status": "finalized", "version_id": "MJ-20260816-v1",
+                    "content_sha256": "a" * 64,
+                    "technical_reference_sha256": "b" * 64,
+                    "approval_status": "dream-eod-v1",
+                }),
+                stderr="",
+            )
+        return SimpleNamespace(
             returncode=0,
             stdout='{"status":"passed","refresh_required":false,"version_id":"MJ-20260816-v1"}',
             stderr="",
-        ),
-    )
+        )
+
+    monkeypatch.setattr(dream_eod, "run_tool", fake_run_tool)
 
     with pytest.raises(dream_eod.cadence_ledger.CadenceLedgerError, match="unknown journal sessions"):
         dream_eod.execute(
@@ -445,3 +465,74 @@ def test_journal_refresh_block_reports_exact_resume_guidance(monkeypatch, tmp_pa
         f"tools/run.ps1 mira-journal draft-check --date 2026-08-16 --bundle {bundle} --json"
     )
     assert f"tools/run.ps1 dream --resume {result['run']['run_id']}" in result["refresh_guidance"]["resume"]
+
+
+def test_interrupted_dream_resumes_same_run_without_duplicate_geo_or_journal(
+    monkeypatch, tmp_path: Path
+) -> None:
+    bundle = tmp_path / "journal" / "2026-08-16"
+    monkeypatch.setattr(dream_eod, "manifest_rows", lambda _date: 0)
+    monkeypatch.setattr(dream_eod, "journal_entry", lambda _date: None)
+    phase = {"validation": "failed"}
+
+    def fake_run_tool(*args):
+        if args[:2] == ("mira-journal", "prepare") and "--check" not in args:
+            return SimpleNamespace(returncode=0, stdout='{"status":"prepared"}', stderr="")
+        if args[:2] == ("mira-journal", "draft-check"):
+            if phase["validation"] == "failed":
+                return SimpleNamespace(
+                    returncode=1,
+                    stdout='{"status":"failed","refresh_required":true}',
+                    stderr="",
+                )
+            return SimpleNamespace(
+                returncode=0,
+                stdout='{"status":"passed","refresh_required":false,"version_id":"MJ-20260816-v1"}',
+                stderr="",
+            )
+        if args[:2] == ("mira-journal", "eod-finalize"):
+            return SimpleNamespace(
+                returncode=0,
+                stdout=json.dumps({
+                    "status": "finalized", "version_id": "MJ-20260816-v1",
+                    "content_sha256": "a" * 64,
+                    "technical_reference_sha256": "b" * 64,
+                    "approval_status": "dream-eod-v1",
+                }),
+                stderr="",
+            )
+        return SimpleNamespace(returncode=0, stdout='{"coverage":"complete"}', stderr="")
+
+    monkeypatch.setattr(dream_eod, "run_tool", fake_run_tool)
+    first = dream_eod.execute(arguments(tmp_path, journal_bundle=bundle), "2026-08-16")
+    assert first["status"] == "composition_required"
+    run_id = first["run"]["run_id"]
+
+    write_bundle(bundle, required_sessions=[])
+    second = dream_eod.execute(
+        arguments(tmp_path, resume=run_id, journal_bundle=bundle), "2026-08-16"
+    )
+    assert second["status"] == "blocked"
+    assert second["run"]["run_id"] == run_id
+
+    phase["validation"] = "passed"
+    third = dream_eod.execute(
+        arguments(
+            tmp_path, resume=run_id, journal_bundle=bundle,
+            no_candidate="No defensible method experiment was observed.",
+        ),
+        "2026-08-16",
+    )
+    assert third["status"] == "completed"
+    assert third["run"]["run_id"] == run_id
+
+    connection = dream_eod.cadence_ledger.connect(tmp_path / "cadence.sqlite3")
+    try:
+        rows = [json.loads(row[0]) for row in connection.execute(
+            "SELECT payload_json FROM daily_close_events WHERE event_type='stage_completed'"
+        )]
+        assert sum(row.get("stage") == "geo" for row in rows) == 0
+        assert sum(row.get("stage") == "journal" and row.get("status") == "finalized" for row in rows) == 1
+        assert connection.execute("SELECT COUNT(*) FROM daily_close_runs").fetchone()[0] == 1
+    finally:
+        connection.close()

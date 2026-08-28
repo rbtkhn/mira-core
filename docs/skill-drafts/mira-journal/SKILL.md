@@ -76,8 +76,16 @@ events merely to fill the entry.
    `session_coverage`; bind `selected` and `technical-only` sessions to the
    grounding items they informed, and give every `not-selected` session a
    concise reason.
-8. **Check and offer.** Run `draft-check`. Report the private bundle as
-   approval-pending, including warnings and any refresh requirement.
+8. **Audit time and originality.** Preserve `same-day-eod` or
+   `retrospective-recovery` from the contract. Retrospective prose must not
+   invent contemporaneous feeling, imply an earlier entry existed, or import
+   later outcomes into earlier certainty. Compare adjacent canonical entries
+   for repeated openings, endings, titles, metaphors, formulaic learning arcs,
+   and strongly templated boundary language. Repetition blocks only when it is
+   exact or meaningfully formulaic; developed thematic recurrence is allowed.
+9. **Check and offer or finalize.** Run `draft-check`. In ordinary composition report
+   the private bundle as approval-pending. Inside Dream, continue without an
+   operator prompt through EOD finalization as `dream-eod-v1`.
 
 Never invent an approval record. Never approve, revise canonical state, admit
 RSI learning, stage, commit, push, publish, or promote identity during nightly

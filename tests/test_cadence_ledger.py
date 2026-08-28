@@ -270,6 +270,30 @@ def test_coffee_has_exact_grounded_navigation_contract(tmp_path: Path) -> None:
     connection.close()
 
 
+def test_coffee_reads_multiple_unread_journals_verbatim_without_synthetic_bridge(
+    tmp_path: Path,
+) -> None:
+    connection = database(tmp_path)
+    cadence_ledger.create_episode(connection, episode(), idempotency_key="dream-1")
+    entries = [
+        {"display_date": "August 25, 2026", "version_id": "MJ-20260825-v1",
+         "content_sha256": "a" * 64, "prose": "First exact entry."},
+        {"display_date": "August 26, 2026", "version_id": "MJ-20260826-v1",
+         "content_sha256": "b" * 64, "prose": "Second exact entry."},
+    ]
+    context = cadence_ledger.coffee_context(connection, journal_entries=entries)
+    markdown = cadence_ledger.render_coffee_markdown(context)
+    assert markdown.index("First exact entry.") < markdown.index("Second exact entry.")
+    between = markdown.split("First exact entry.", 1)[1].split("Second exact entry.", 1)[0]
+    assert between.strip() == "Mira Journal — August 26, 2026"
+    assert markdown.count("From the journal into today's orientation.") == 1
+    assert context["presentation"]["components"]["journal_versions"] == [
+        {"version_id": "MJ-20260825-v1", "content_sha256": "a" * 64},
+        {"version_id": "MJ-20260826-v1", "content_sha256": "b" * 64},
+    ]
+    connection.close()
+
+
 def test_coffee_presentations_escalate_and_preserve_episode_lifecycle(tmp_path: Path,monkeypatch: pytest.MonkeyPatch) -> None:
     connection,_=isolated_episode_store(tmp_path,monkeypatch)
     lifecycle=cadence_ledger.project_episode(connection,"CD-20260816-01")["lifecycle_version"]
