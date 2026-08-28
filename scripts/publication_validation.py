@@ -41,6 +41,10 @@ MANUAL_REALITY_CHECK = (
     "Validate Reality lattice record integrity, evidence lineage, language/provenance "
     "boundaries, assessment status, and rendered view freshness."
 )
+MANUAL_SINGULARITY_ARCHIVE_CHECK = (
+    "Validate Singularity Science provenance, source-body rights posture, collection "
+    "membership, candidate-link status, and separation from claim verification or publication."
+)
 MIRA_CONTROL_PATHS = frozenset({
     "docs/mira-core-name-migration.md",
     "docs/plans/2026-08-16-mira-archive-name-migration.md",
@@ -129,6 +133,17 @@ def _historical_reference_run_path(path: str) -> str | None:
     return None
 
 
+def _singularity_archive_path(path: str) -> bool:
+    if path == "archive/collections.json":
+        return True
+    if path in {
+        "archive/registries/innermost-loop.json",
+        "archive/registries/moonshots.json",
+    }:
+        return True
+    return path.startswith("archive/sources/singularity/")
+
+
 def route_path(path: str, *, repo_root: Path = REPO_ROOT) -> dict[str, Any]:
     if path.startswith("projects/grace-gems/"):
         return {
@@ -157,6 +172,13 @@ def route_path(path: str, *, repo_root: Path = REPO_ROOT) -> dict[str, Any]:
             "validation_class": "domain-governed",
             "commands": [],
             "manual_checks": [MANUAL_ESSAY_CHECK],
+        }
+    if _singularity_archive_path(path):
+        return {
+            "owner": "singularity-science/archive",
+            "validation_class": "domain-governed",
+            "commands": ["tools/run.ps1 archive validate --git-only --json"],
+            "manual_checks": [MANUAL_SINGULARITY_ARCHIVE_CHECK],
         }
     if path == "archive/sources/geopolitics/source-manifest.json":
         return {

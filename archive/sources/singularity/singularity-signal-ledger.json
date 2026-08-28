@@ -1,0 +1,586 @@
+{
+  "schema_version": 1,
+  "ledger_id": "singularity-signal-ledger-v1",
+  "generated_at": "2026-08-28T01:57:30Z",
+  "status": "working-ledger",
+  "collections": [
+    "innermost-loop",
+    "moonshots"
+  ],
+  "authority_boundary": "Cross-corpus triage only. Candidate links and forecast handles are not claim verification, rights clearance, archive admission, publication authority, or Narrative Geopolitics promotion.",
+  "mechanism_labels": [
+    "agent-autonomy",
+    "capital-market-infrastructure",
+    "china-catch-up",
+    "compute-bottleneck",
+    "energy-bottleneck",
+    "institutional-lag",
+    "open-source-acceleration",
+    "robotics-labor-substitution",
+    "safety-governance-narrative",
+    "science-acceleration",
+    "space-industrialization",
+    "vertical-integration"
+  ],
+  "source_roots": {
+    "moonshots": "archive/sources/singularity/moonshots/transcripts",
+    "innermost-loop": "archive/sources/singularity/innermost-loop/transcripts"
+  },
+  "matching_policy": {
+    "method": "deterministic keyword overlap by mechanism label and publication-date window",
+    "date_window_days": 45,
+    "innermost_candidate_limit": 3
+  },
+  "rows": [
+    {
+      "signal_id": "SSL-20260827-001",
+      "date_first_seen": "2026-08-27",
+      "moonshots_refs": [
+        {
+          "path": "archive/sources/singularity/moonshots/transcripts/2026-08-27-moonshots-283-sam-altman-singularity-slow-down-emad-runs-18-grokbots-waymo-slashes-hardware-83-percent-ep-283.md",
+          "title": "Sam Altman: Singularity Slow-Down, Emad Runs 18 Grokbots, Waymo Slashes Hardware 83% | EP #283",
+          "date": "2026-08-27"
+        }
+      ],
+      "innermost_loop_refs": [
+        {
+          "path": "archive/sources/singularity/innermost-loop/transcripts/2026-07-27-july-21-to-july-24-cluster.md",
+          "title": "The Innermost Loop: July 21-24, 2026 cluster",
+          "date": "2026-07-21",
+          "matched_terms": [
+            "agent",
+            "autonomous",
+            "bot",
+            "chip",
+            "chips",
+            "compute",
+            "export control",
+            "sandbox"
+          ],
+          "match_status": "candidate"
+        },
+        {
+          "path": "archive/sources/singularity/innermost-loop/transcripts/2026-07-27-the-first-orbital-librarian.md",
+          "title": "The First Orbital Librarian",
+          "date": "2026-07-27",
+          "matched_terms": [
+            "agent",
+            "inference"
+          ],
+          "match_status": "candidate"
+        }
+      ],
+      "mechanism": [
+        "agent-autonomy",
+        "compute-bottleneck",
+        "china-catch-up"
+      ],
+      "forecast_claims": {
+        "status": "needs-human-extraction",
+        "candidate_handles": [
+          "by 2030",
+          "within 3 months",
+          "100x",
+          "6x",
+          "5x",
+          "$30 trillion"
+        ]
+      },
+      "evidence_status": "forecast-pending",
+      "next_check_date": "2026-09-26",
+      "priority": "high",
+      "disposition": "Review candidate links and extract atomic forecast claims before reuse."
+    },
+    {
+      "signal_id": "SSL-20260821-001",
+      "date_first_seen": "2026-08-21",
+      "moonshots_refs": [
+        {
+          "path": "archive/sources/singularity/moonshots/transcripts/2026-08-21-moonshots-282-elon-says-100x-memory-prices-spike-500-percent-unitree-robot-outruns-usain-bolt-emad-mostaque-ep-282.md",
+          "title": "Elon Says 100X, Memory Prices Spike 500%, Unitree Robot Outruns Usain Bolt with Emad Mostaque | #282",
+          "date": "2026-08-21"
+        }
+      ],
+      "innermost_loop_refs": [
+        {
+          "path": "archive/sources/singularity/innermost-loop/transcripts/2026-07-27-july-21-to-july-24-cluster.md",
+          "title": "The Innermost Loop: July 21-24, 2026 cluster",
+          "date": "2026-07-21",
+          "matched_terms": [
+            "agent",
+            "autonomous",
+            "bot",
+            "chip",
+            "chips",
+            "compute",
+            "lab",
+            "risk"
+          ],
+          "match_status": "candidate"
+        },
+        {
+          "path": "archive/sources/singularity/innermost-loop/transcripts/2026-07-27-the-first-orbital-librarian.md",
+          "title": "The First Orbital Librarian",
+          "date": "2026-07-27",
+          "matched_terms": [
+            "agent",
+            "inference",
+            "lab"
+          ],
+          "match_status": "candidate"
+        },
+        {
+          "path": "archive/sources/singularity/innermost-loop/transcripts/2026-07-21-worldmonitor-gated-fixture-infrastructure-event.md",
+          "title": "2026-07-21-worldmonitor-gated-fixture-infrastructure-event",
+          "date": "2026-07-21",
+          "matched_terms": [
+            "lab"
+          ],
+          "match_status": "candidate"
+        }
+      ],
+      "mechanism": [
+        "compute-bottleneck",
+        "agent-autonomy",
+        "safety-governance-narrative"
+      ],
+      "forecast_claims": {
+        "status": "needs-human-extraction",
+        "candidate_handles": [
+          "within 5 years",
+          "100X",
+          "10x",
+          "000x",
+          "5x",
+          "4x"
+        ]
+      },
+      "evidence_status": "forecast-pending",
+      "next_check_date": "2026-09-20",
+      "priority": "high",
+      "disposition": "Review candidate links and extract atomic forecast claims before reuse."
+    },
+    {
+      "signal_id": "SSL-20260818-001",
+      "date_first_seen": "2026-08-18",
+      "moonshots_refs": [
+        {
+          "path": "archive/sources/singularity/moonshots/transcripts/2026-08-18-moonshots-281-chinas-endgame-asi-timelines-us-china-relations-1-7t-ai-bubble-alvin-graylin-ep-281.md",
+          "title": "China\u2019s Endgame: ASI Timelines, US-China Relations, and the $1.7T AI Bubble With Alvin Graylin | 281",
+          "date": "2026-08-18"
+        }
+      ],
+      "innermost_loop_refs": [
+        {
+          "path": "archive/sources/singularity/innermost-loop/transcripts/2026-07-27-july-21-to-july-24-cluster.md",
+          "title": "The Innermost Loop: July 21-24, 2026 cluster",
+          "date": "2026-07-21",
+          "matched_terms": [
+            "agent",
+            "autonomous",
+            "bot",
+            "export control",
+            "lab",
+            "risk",
+            "safety",
+            "sandbox"
+          ],
+          "match_status": "candidate"
+        },
+        {
+          "path": "archive/sources/singularity/innermost-loop/transcripts/2026-07-27-the-first-orbital-librarian.md",
+          "title": "The First Orbital Librarian",
+          "date": "2026-07-27",
+          "matched_terms": [
+            "agent",
+            "lab"
+          ],
+          "match_status": "candidate"
+        },
+        {
+          "path": "archive/sources/singularity/innermost-loop/transcripts/2026-07-21-worldmonitor-gated-fixture-infrastructure-event.md",
+          "title": "2026-07-21-worldmonitor-gated-fixture-infrastructure-event",
+          "date": "2026-07-21",
+          "matched_terms": [
+            "lab"
+          ],
+          "match_status": "candidate"
+        }
+      ],
+      "mechanism": [
+        "china-catch-up",
+        "safety-governance-narrative",
+        "agent-autonomy"
+      ],
+      "forecast_claims": {
+        "status": "needs-human-extraction",
+        "candidate_handles": [
+          "5x",
+          "20x",
+          "10x",
+          "$1.7T",
+          "$500 billion",
+          "$1.6 trillion"
+        ]
+      },
+      "evidence_status": "forecast-pending",
+      "next_check_date": "2026-09-17",
+      "priority": "high",
+      "disposition": "Review candidate links and extract atomic forecast claims before reuse."
+    },
+    {
+      "signal_id": "SSL-20260815-001",
+      "date_first_seen": "2026-08-15",
+      "moonshots_refs": [
+        {
+          "path": "archive/sources/singularity/moonshots/transcripts/2026-08-15-moonshots-280-200gw-hiding-in-grid-sodium-batteries-10x-cheaper-wave-powered-datacenters-ramez-naam-ep-280.md",
+          "title": "200GW Hiding in Grid, Sodium Batteries 10x Cheaper, Wave-Powered Datacenters w/ Ramez Naam | EP #280",
+          "date": "2026-08-15"
+        }
+      ],
+      "innermost_loop_refs": [
+        {
+          "path": "archive/sources/singularity/innermost-loop/transcripts/2026-07-27-july-21-to-july-24-cluster.md",
+          "title": "The Innermost Loop: July 21-24, 2026 cluster",
+          "date": "2026-07-21",
+          "matched_terms": [
+            "chip",
+            "chips",
+            "compute",
+            "energy",
+            "nuclear",
+            "orbital",
+            "power",
+            "satellite"
+          ],
+          "match_status": "candidate"
+        },
+        {
+          "path": "archive/sources/singularity/innermost-loop/transcripts/2026-07-27-the-first-orbital-librarian.md",
+          "title": "The First Orbital Librarian",
+          "date": "2026-07-27",
+          "matched_terms": [
+            "inference",
+            "nasa",
+            "orbital"
+          ],
+          "match_status": "candidate"
+        },
+        {
+          "path": "archive/sources/singularity/innermost-loop/transcripts/2026-07-07-welcome-to-july-7-2026.md",
+          "title": "2026-07-07-welcome-to-july-7-2026",
+          "date": "2026-07-07",
+          "matched_terms": [
+            "space",
+            "training"
+          ],
+          "match_status": "candidate"
+        }
+      ],
+      "mechanism": [
+        "energy-bottleneck",
+        "compute-bottleneck",
+        "space-industrialization"
+      ],
+      "forecast_claims": {
+        "status": "needs-human-extraction",
+        "candidate_handles": [
+          "by 2030",
+          "10x",
+          "1000x",
+          "5x",
+          "2x",
+          "20x"
+        ]
+      },
+      "evidence_status": "forecast-pending",
+      "next_check_date": "2026-09-14",
+      "priority": "high",
+      "disposition": "Review candidate links and extract atomic forecast claims before reuse."
+    },
+    {
+      "signal_id": "SSL-20260813-001",
+      "date_first_seen": "2026-08-13",
+      "moonshots_refs": [
+        {
+          "path": "archive/sources/singularity/moonshots/transcripts/2026-08-13-moonshots-279-bernie-demands-the-labs-stop-wall-street-turns-gpus-into-bonds-grok-4-7-takes-1-ft-emad-mostaque.md",
+          "title": "Bernie Demands the Labs Stop, Wall Street Turns GPUs Into Bonds, Grok 4.7 Takes #1 ft. Emad Mostaque",
+          "date": "2026-08-13"
+        }
+      ],
+      "innermost_loop_refs": [
+        {
+          "path": "archive/sources/singularity/innermost-loop/transcripts/2026-07-27-july-21-to-july-24-cluster.md",
+          "title": "The Innermost Loop: July 21-24, 2026 cluster",
+          "date": "2026-07-21",
+          "matched_terms": [
+            "chip",
+            "chips",
+            "compute",
+            "lab",
+            "risk",
+            "safety"
+          ],
+          "match_status": "candidate"
+        },
+        {
+          "path": "archive/sources/singularity/innermost-loop/transcripts/2026-06-29-welcome-to-june-29-2026.md",
+          "title": "2026-06-29-welcome-to-june-29-2026",
+          "date": "2026-06-29",
+          "matched_terms": [
+            "chip",
+            "inference",
+            "lab",
+            "labs",
+            "nvidia",
+            "training"
+          ],
+          "match_status": "candidate"
+        },
+        {
+          "path": "archive/sources/singularity/innermost-loop/transcripts/2026-07-27-the-first-orbital-librarian.md",
+          "title": "The First Orbital Librarian",
+          "date": "2026-07-27",
+          "matched_terms": [
+            "inference",
+            "lab"
+          ],
+          "match_status": "candidate"
+        }
+      ],
+      "mechanism": [
+        "compute-bottleneck",
+        "safety-governance-narrative",
+        "capital-market-infrastructure"
+      ],
+      "forecast_claims": {
+        "status": "needs-human-extraction",
+        "candidate_handles": [
+          "by 2030",
+          "5x",
+          "$10 billion",
+          "$500 billion",
+          "$7 trillion"
+        ]
+      },
+      "evidence_status": "forecast-pending",
+      "next_check_date": "2026-09-12",
+      "priority": "high",
+      "disposition": "Review candidate links and extract atomic forecast claims before reuse."
+    },
+    {
+      "signal_id": "SSL-20260811-001",
+      "date_first_seen": "2026-08-11",
+      "moonshots_refs": [
+        {
+          "path": "archive/sources/singularity/moonshots/transcripts/2026-08-11-moonshots-278-bots-hit-57-percent-of-the-web-china-simulates-1b-agents-4-labs-lose-containment-kush-bavaria-ep-278.md",
+          "title": "Bots Hit 57% of the Web, China Simulates 1B Agents, 4 Labs Lose Containment w/ Kush Bavaria | EP 278",
+          "date": "2026-08-11"
+        }
+      ],
+      "innermost_loop_refs": [
+        {
+          "path": "archive/sources/singularity/innermost-loop/transcripts/2026-07-27-july-21-to-july-24-cluster.md",
+          "title": "The Innermost Loop: July 21-24, 2026 cluster",
+          "date": "2026-07-21",
+          "matched_terms": [
+            "agent",
+            "autonomous",
+            "bot",
+            "chip",
+            "chips",
+            "compute",
+            "export control",
+            "sandbox"
+          ],
+          "match_status": "candidate"
+        },
+        {
+          "path": "archive/sources/singularity/innermost-loop/transcripts/2026-06-29-welcome-to-june-29-2026.md",
+          "title": "2026-06-29-welcome-to-june-29-2026",
+          "date": "2026-06-29",
+          "matched_terms": [
+            "beijing",
+            "bot",
+            "chinese",
+            "chip",
+            "export control",
+            "inference",
+            "nvidia",
+            "training"
+          ],
+          "match_status": "candidate"
+        },
+        {
+          "path": "archive/sources/singularity/innermost-loop/transcripts/2026-07-27-the-first-orbital-librarian.md",
+          "title": "The First Orbital Librarian",
+          "date": "2026-07-27",
+          "matched_terms": [
+            "agent",
+            "inference"
+          ],
+          "match_status": "candidate"
+        }
+      ],
+      "mechanism": [
+        "agent-autonomy",
+        "compute-bottleneck",
+        "china-catch-up"
+      ],
+      "forecast_claims": {
+        "status": "needs-human-extraction",
+        "candidate_handles": [
+          "within 5 years",
+          "40x",
+          "5x",
+          "100x",
+          "10x",
+          "1X"
+        ]
+      },
+      "evidence_status": "forecast-pending",
+      "next_check_date": "2026-09-10",
+      "priority": "high",
+      "disposition": "Review candidate links and extract atomic forecast claims before reuse."
+    },
+    {
+      "signal_id": "SSL-20260808-001",
+      "date_first_seen": "2026-08-08",
+      "moonshots_refs": [
+        {
+          "path": "archive/sources/singularity/moonshots/transcripts/2026-08-08-moonshots-277-googles-jeff-dean-exits-spacex-hits-100b-in-rev-openais-astra-solves-decade-old-math-problems.md",
+          "title": "Google\u2019s Jeff Dean Exits, SpaceX Hits $100B in Rev & OpenAI\u2019s Astra Solves Decade-Old Math Problems",
+          "date": "2026-08-08"
+        }
+      ],
+      "innermost_loop_refs": [
+        {
+          "path": "archive/sources/singularity/innermost-loop/transcripts/2026-07-27-july-21-to-july-24-cluster.md",
+          "title": "The Innermost Loop: July 21-24, 2026 cluster",
+          "date": "2026-07-21",
+          "matched_terms": [
+            "agent",
+            "autonomous",
+            "bot",
+            "discovery",
+            "math",
+            "mathematics",
+            "orbital",
+            "sandbox"
+          ],
+          "match_status": "candidate"
+        },
+        {
+          "path": "archive/sources/singularity/innermost-loop/transcripts/2026-07-27-the-first-orbital-librarian.md",
+          "title": "The First Orbital Librarian",
+          "date": "2026-07-27",
+          "matched_terms": [
+            "agent",
+            "nasa",
+            "orbital"
+          ],
+          "match_status": "candidate"
+        },
+        {
+          "path": "archive/sources/singularity/innermost-loop/transcripts/2026-06-28-welcome-to-june-28-2026.md",
+          "title": "2026-06-28-welcome-to-june-28-2026",
+          "date": "2026-06-28",
+          "matched_terms": [
+            "agent",
+            "bot",
+            "space",
+            "spacex"
+          ],
+          "match_status": "candidate"
+        }
+      ],
+      "mechanism": [
+        "space-industrialization",
+        "agent-autonomy",
+        "science-acceleration"
+      ],
+      "forecast_claims": {
+        "status": "needs-human-extraction",
+        "candidate_handles": [
+          "by 2030",
+          "by 2029",
+          "5x",
+          "100x",
+          "2x",
+          "10x"
+        ]
+      },
+      "evidence_status": "forecast-pending",
+      "next_check_date": "2026-09-07",
+      "priority": "high",
+      "disposition": "Review candidate links and extract atomic forecast claims before reuse."
+    },
+    {
+      "signal_id": "SSL-20260804-001",
+      "date_first_seen": "2026-08-04",
+      "moonshots_refs": [
+        {
+          "path": "archive/sources/singularity/moonshots/transcripts/2026-08-04-moonshots-276-how-the-white-house-plans-to-10x-scientific-productivity-michael-kratsios-ep-276.md",
+          "title": "How the White House Plans to 10x Scientific Productivity | Michael Kratsios | EP #276",
+          "date": "2026-08-04"
+        }
+      ],
+      "innermost_loop_refs": [
+        {
+          "path": "archive/sources/singularity/innermost-loop/transcripts/2026-07-27-july-21-to-july-24-cluster.md",
+          "title": "The Innermost Loop: July 21-24, 2026 cluster",
+          "date": "2026-07-21",
+          "matched_terms": [
+            "agent",
+            "autonomous",
+            "bot",
+            "discovery",
+            "math",
+            "mathematics",
+            "sandbox"
+          ],
+          "match_status": "candidate"
+        },
+        {
+          "path": "archive/sources/singularity/innermost-loop/transcripts/2026-07-27-the-first-orbital-librarian.md",
+          "title": "The First Orbital Librarian",
+          "date": "2026-07-27",
+          "matched_terms": [
+            "agent"
+          ],
+          "match_status": "candidate"
+        },
+        {
+          "path": "archive/sources/singularity/innermost-loop/transcripts/2026-07-03-welcome-to-july-3-2026.md",
+          "title": "2026-07-03-welcome-to-july-3-2026",
+          "date": "2026-07-03",
+          "matched_terms": [
+            "agent",
+            "agents"
+          ],
+          "match_status": "candidate"
+        }
+      ],
+      "mechanism": [
+        "science-acceleration",
+        "agent-autonomy",
+        "institutional-lag"
+      ],
+      "forecast_claims": {
+        "status": "needs-human-extraction",
+        "candidate_handles": [
+          "by 2036",
+          "10x",
+          "5x",
+          "2x",
+          "$45 billion",
+          "$30 billion"
+        ]
+      },
+      "evidence_status": "forecast-pending",
+      "next_check_date": "2026-09-03",
+      "priority": "high",
+      "disposition": "Review candidate links and extract atomic forecast claims before reuse."
+    }
+  ]
+}

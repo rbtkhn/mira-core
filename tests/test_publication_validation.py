@@ -11,6 +11,11 @@ def make_tree(root: Path) -> None:
         "archive/essays/2026-08-17-essay.md",
         "archive/sessions/registry.json",
         "archive/schemas/session-memorial.schema.json",
+        "archive/collections.json",
+        "archive/registries/moonshots.json",
+        "archive/registries/innermost-loop.json",
+        "archive/sources/singularity/moonshots/transcripts/2026-08-27-example.md",
+        "archive/sources/singularity/singularity-signal-ledger.json",
         "projects/grace-gems/README.md",
         "archive/sources/geopolitics/source-manifest.json",
         "archive/sources/geopolitics/sources/2026-08-17/source-example.md",
@@ -131,6 +136,27 @@ def test_router_resolves_mira_library_paths(tmp_path: Path) -> None:
         "tools/run.ps1 test --path tests/test_archive_library.py",
     ]
     assert report["manual_checks"] == []
+    assert report["blockers"] == []
+
+
+def test_router_resolves_singularity_archive_paths(tmp_path: Path) -> None:
+    make_tree(tmp_path)
+    report = routing.build_report(
+        [
+            "archive/collections.json",
+            "archive/registries/moonshots.json",
+            "archive/registries/innermost-loop.json",
+            "archive/sources/singularity/moonshots/transcripts/2026-08-27-example.md",
+            "archive/sources/singularity/singularity-signal-ledger.json",
+        ],
+        repo_root=tmp_path,
+    )
+
+    assert report["status"] == "manual-required"
+    assert report["owners"] == ["singularity-science/archive"]
+    assert report["validation_classes"] == ["domain-governed"]
+    assert report["commands"] == ["tools/run.ps1 archive validate --git-only --json"]
+    assert report["manual_checks"] == [routing.MANUAL_SINGULARITY_ARCHIVE_CHECK]
     assert report["blockers"] == []
 
 
