@@ -4,7 +4,7 @@ This index routes the unified local Barnes corpus for `barnes` to the central Na
 
 Source basis: `strategy-codex/statecraft/voices/barnes/barnes-index.md` plus already-local matching archive rows.
 
-Corpus: 41 local route rows across 41 central archive source files.
+Corpus: 42 local route rows across 42 central archive source files.
 
 Status: `imported-corpus`
 
@@ -60,6 +60,7 @@ Status: `imported-corpus`
 | `2026-08-17` | (4) TRUMP THREATENS TO "BOMB THE SHIT OUT" OF OMAN TOO - w/ Robert Barnes | `guest` | `mario-nawfal` | [source](../../../archive/sources/geopolitics/sources/2026-08-17/source-4-trump-threatens-to-bomb-the-shit-out-of-oman-too-w-robert-barnes-2026-08-17.md) |
 | `2026-08-19` | (4) Robert Barnes: No More Bluffing: US and Iran Harden Positions | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2026-08-19/source-4-robert-barnes-no-more-bluffing-us-and-iran-harden-positions-2026-08-19.md) |
 | `2026-08-24` | Robert Barnes : Do Trump's Senior Aides Trust Him? | `guest` | `judging-freedom` | [source](../../../archive/sources/geopolitics/sources/2026-08-24/source-robert-barnes-do-trump-s-senior-aides-trust-him-2026-08-24.md) |
+| `2026-08-28` | A FOREIGN SPY CHIEF INSIDE A PRESIDENT-LINKED BANK — w/ Robert Barnes | `guest` | `mario-nawfal` | [source](../../../archive/sources/geopolitics/sources/2026-08-28/source-a-foreign-spy-chief-inside-a-president-linked-bank-w-robert-barnes-2026-08-28.md) |
 
 ## Import Boundary
 

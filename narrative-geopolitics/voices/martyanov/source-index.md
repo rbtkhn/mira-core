@@ -4,7 +4,7 @@ This index routes the unified local Martyanov corpus for `martyanov` to the cent
 
 Source basis: `strategy-codex/statecraft/voices/martyanov/martyanov-index.md` plus already-local matching archive rows.
 
-Corpus: 39 local route rows across 39 central archive source files.
+Corpus: 40 local route rows across 40 central archive source files.
 
 Status: `imported-corpus`
 
@@ -58,6 +58,7 @@ Status: `imported-corpus`
 | `2026-08-06` | (1) Andrei Martyanov: Strategic Nightmare: Iran’s Unthinkable Move Leaves U.S. With Zero Options | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2026-08-06/source-1-andrei-martyanov-strategic-nightmare-iran-s-unthinkable-move-leaves-u-s-with-zero-options-2026-08-06.md) |
 | `2026-08-13` | (3) Andrei Martyanov: it's OVER! Iran Goes ALL IN — Wiping Out Every Threat | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2026-08-13/source-3-andrei-martyanov-it-s-over-iran-goes-all-in-wiping-out-every-threat-2026-08-13.md) |
 | `2026-08-20` | Andrei Martyanov: No Deal, More Pain: Why Trump is Walking Away from the Iran Table | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2026-08-20/source-andrei-martyanov-no-deal-more-pain-why-trump-is-walking-away-from-the-iran-table-2026-08-20.md) |
+| `2026-08-27` | Andrei Martyanov: "No End in Sight": Inside Washington’s Growing Alarm Over the Russia-Iran Move | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2026-08-27/source-andrei-martyanov-no-end-in-sight-inside-washington-s-growing-alarm-over-the-russia-iran-move-2026-08-27.md) |
 
 ## Import Boundary
 

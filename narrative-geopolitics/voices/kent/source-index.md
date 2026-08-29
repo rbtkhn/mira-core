@@ -4,7 +4,7 @@ This index routes the unified local Kent corpus for `kent` to the central Narrat
 
 Source basis: `archive/sources/geopolitics/source-manifest.json`.
 
-Corpus: 20 local route rows across 20 central archive source files.
+Corpus: 21 local route rows across 21 central archive source files.
 
 Status: `imported-corpus`
 
@@ -39,8 +39,8 @@ Status: `imported-corpus`
 | `2026-07-30` | TRUMP PUSHES CENTCOM TO CONTINUE STRIKES DESPITE PROTEST - w/ Joe Kent | `guest` | `mario-nawfal` | [source](../../../archive/sources/geopolitics/sources/2026-07-30/source-trump-pushes-centcom-to-continue-strikes-despite-protest-w-joe-kent-2026-07-30.md) |
 | `2026-08-14` | (3) CENTCOM PUSHING FOR STRIKES ON IRAN'S INFRASTRUCTURE - w/ Joe Kent | `guest` | `mario-nawfal` | [source](../../../archive/sources/geopolitics/sources/2026-08-14/source-3-centcom-pushing-for-strikes-on-iran-s-infrastructure-w-joe-kent-2026-08-14.md) |
 | `2026-08-26` | Joe Kent: World War III Just Began And We Have One Last Chance To Stop It | `guest` | `redacted-news` | [source](../../../archive/sources/geopolitics/sources/2026-08-26/source-joe-kent-world-war-iii-just-began-and-we-have-one-last-chance-to-stop-it-2026-08-26.md) |
+| `2026-08-28` | Impeachment Looms Over Trump After the Pentagon’s Leaked Nuclear Plans. Joe Kent on What Comes Next. | `guest` | `tucker-carlson` | [source](../../../archive/sources/geopolitics/sources/2026-08-28/source-impeachment-looms-over-trump-after-the-pentagon-s-leaked-nuclear-plans-joe-kent-on-what-comes-next-2026-08-28.md) |
 
 ## Import Boundary
 
 This shelf was created to reconcile existing manifest-backed Kent routes and complete Redacted News channel parity. It is a routing surface, not a mature claim map.
-

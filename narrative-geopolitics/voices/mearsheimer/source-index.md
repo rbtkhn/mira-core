@@ -4,7 +4,7 @@ This index routes the imported first-slice parity corpus for `mearsheimer` to th
 
 Source basis: `strategy-codex/statecraft/voices/mearsheimer/mearsheimer-index.md`.
 
-Corpus: 74 local route rows across 74 central archive source files.
+Corpus: 75 local route rows across 75 central archive source files.
 
 Status: `first-slice-parity`
 
@@ -99,6 +99,7 @@ Status: `first-slice-parity`
 | `2026-08-13` | (3) John Mearsheimer: U.S. Grand Strategy in a New World Order | `guest` | `glenn-diesen` | [source](../../../archive/sources/geopolitics/sources/2026-08-13/source-3-john-mearsheimer-u-s-grand-strategy-in-a-new-world-order-2026-08-13.md) |
 | `2026-08-18` | (4) Prof. John Mearsheimer : Is Putin’s Patience Paying Off? | `guest` | `judging-freedom` | [source](../../../archive/sources/geopolitics/sources/2026-08-18/source-4-prof-john-mearsheimer-is-putin-s-patience-paying-off-2026-08-18.md) |
 | `2026-08-26` | Mearsheimer: IRAN WINNING THE BATTLE FOR WORLD OPINION | `guest` | `daniel-davis` | [source](../../../archive/sources/geopolitics/sources/2026-08-26/source-mearsheimer-iran-winning-the-battle-for-world-opinion-2026-08-26.md) |
+| `2026-08-28` | John Mearsheimer: Russia & Iran - The West’s Escalation Trap | `guest` | `glenn-diesen` | [source](../../../archive/sources/geopolitics/sources/2026-08-28/source-john-mearsheimer-russia-iran-the-west-s-escalation-trap-2026-08-28.md) |
 
 ## Judgment Continuity
 

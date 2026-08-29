@@ -4,7 +4,7 @@ This index routes the imported first-slice parity corpus for `johnson` to the ce
 
 Source basis: `archive/sources/geopolitics/source-manifest.json`.
 
-Corpus: 133 local route rows across 133 central archive source files.
+Corpus: 137 local route rows across 137 central archive source files.
 
 Status: `first-slice-parity`
 
@@ -157,6 +157,10 @@ Status: `first-slice-parity`
 | `2026-08-22` | BREAKING: IRAN THREATENS TO STRIKE COUNTRIES THAT ABIDE BY TRUMP'S SANCTIONS — w/ Larry Johnson | `guest` | `mario-nawfal` | [source](../../../archive/sources/geopolitics/sources/2026-08-22/source-breaking-iran-threatens-to-strike-countries-that-abide-by-trump-s-sanctions-w-larry-johnson-2026-08-22.md) |
 | `2026-08-22` | Larry Johnson: Iran Just Flipped the Script: Offensive to Break the Economic Siege | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2026-08-22/source-larry-johnson-iran-just-flipped-the-script-offensive-to-break-the-economic-siege-2026-08-22.md) |
 | `2026-08-23` | Larry Johnson: Iran’s Parliament Agency DROPS BOMBSHELL: “We Were Invited to Join the Mecca Pact” | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2026-08-23/source-larry-johnson-iran-s-parliament-agency-drops-bombshell-we-were-invited-to-join-the-mecca-pact-2026-08-23.md) |
+| `2026-08-26` | Larry Johnson: JUST IN: Iran & Russia Just Signed a ‘Strategic Energy Pact | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2026-08-26/source-larry-johnson-just-in-iran-russia-just-signed-a-strategic-energy-pact-2026-08-26.md) |
+| `2026-08-27` | CIA Moscow Meeting, What's That About? / fmr CIA Analyst Larry Johnson & Lt Col Daniel Davis | `guest` | `daniel-davis` | [source](../../../archive/sources/geopolitics/sources/2026-08-27/source-cia-moscow-meeting-what-s-that-about-fmr-cia-analyst-larry-johnson-lt-col-daniel-davis-2026-08-27.md) |
+| `2026-08-28` | BREAKING: MULTIPLE STRIKES ON STRIAT OF HORMUZ, HEGSETH FOR PRESIDENT w/ CIA Larry Johnson | `guest` | `moral-resistance` | [source](../../../archive/sources/geopolitics/sources/2026-08-28/source-breaking-multiple-strikes-on-striat-of-hormuz-hegseth-for-president-w-cia-larry-johnson-2026-08-28.md) |
+| `2026-08-28` | Col. Larry Wilkerson & Larry Johnson: The Trap is Closing on Iran and the US | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2026-08-28/source-col-larry-wilkerson-larry-johnson-the-trap-is-closing-on-iran-and-the-us-2026-08-28.md) |
 
 ## Judgment Continuity
 

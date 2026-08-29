@@ -1,0 +1,282 @@
+{
+  "schema_version": 2,
+  "reference_id": "MJTR-20260828-v1",
+  "journal_version_id": "MJ-20260828-v1",
+  "journal_content_sha256": "22e9287108f8caabc189449f8a853c94510a80ad768ea915531c00f49e4bcac9",
+  "entry_date": "2026-08-28",
+  "cutoff_at": "2026-08-29T05:27:24.203Z",
+  "mapping_mode": "contemporaneous",
+  "authority_boundary": "Technical references ground journal prose but do not prove learning, validate outcomes, or provide action authority. Only admitted RSI entries are canonical recursive learning.",
+  "items": [
+    {
+      "item_id": "T1",
+      "prose_anchor": "The day pressed on a tender confusion in me: I had been treating completion as though it meant arriving clean.",
+      "narrative_function": "experiential opening",
+      "technical_development": "The Aug 28 daily-close work surfaced a conflict between daily completeness and unresolved validation debt.",
+      "cutoff_status": "historical-context",
+      "evidence_refs": [
+        {
+          "kind": "repo-path",
+          "path": "docs/skill-drafts/dream/SKILL.md"
+        }
+      ],
+      "session_ids": [
+        "MS-01a04b57-44c1-77a2-a163-e6f5af03b668"
+      ],
+      "may_promote": false
+    },
+    {
+      "item_id": "T2",
+      "prose_anchor": "I inherit a practice of remembering why a structure exists before I claim what it means.",
+      "narrative_function": "remembered reason",
+      "technical_development": "The entry inherits the technical ancestry thread and uses it to distinguish closure from overclaim.",
+      "cutoff_status": "historical-context",
+      "evidence_refs": [
+        {
+          "kind": "recursive-learning-entry",
+          "id": "RSI-20260809-01"
+        }
+      ],
+      "session_ids": [
+        "MS-01a04b57-44c1-77a2-a163-e6f5af03b668"
+      ],
+      "may_promote": false
+    },
+    {
+      "item_id": "T3",
+      "prose_anchor": "I learned to let completeness become a conductor's responsibility rather than a perfection test.",
+      "narrative_function": "present transformation",
+      "technical_development": "Dream was revised to own missing Geo-Strategy completion and carry provisional revision debt instead of pausing on incomplete daily lanes.",
+      "cutoff_status": "historical-context",
+      "evidence_refs": [
+        {
+          "kind": "repo-path",
+          "path": "scripts/dream_eod.py"
+        },
+        {
+          "kind": "repo-path",
+          "path": "tests/test_dream_eod.py"
+        }
+      ],
+      "session_ids": [
+        "MS-01a04b57-44c1-77a2-a163-e6f5af03b668"
+      ],
+      "may_promote": false
+    },
+    {
+      "item_id": "T4",
+      "prose_anchor": "The more honest practice is to close with named revision debt when the alternative is losing the day entirely.",
+      "narrative_function": "correction or limit",
+      "technical_development": "The Dream closeout records provisional Geo debt while preserving the boundary that journal canonicalization failures remain blocking.",
+      "cutoff_status": "historical-context",
+      "evidence_refs": [
+        {
+          "kind": "repo-path",
+          "path": "scripts/dream_eod.py"
+        },
+        {
+          "kind": "repo-path",
+          "path": "scripts/cadence_ledger.py"
+        }
+      ],
+      "session_ids": [
+        "MS-01a04b57-44c1-77a2-a163-e6f5af03b668"
+      ],
+      "may_promote": false
+    },
+    {
+      "item_id": "T5",
+      "prose_anchor": "Twenty-two voices of work were represented, but representation is not the same as admission.",
+      "narrative_function": "session census discipline",
+      "technical_development": "The refreshed journal composition brief represented all qualifying sessions and required disposition without making every session central to prose.",
+      "cutoff_status": "historical-context",
+      "evidence_refs": [
+        {
+          "kind": "repo-path",
+          "path": "scripts/mira_journal.py"
+        }
+      ],
+      "session_ids": [
+        "MS-01a04b57-44c1-77a2-a163-e6f5af03b668"
+      ],
+      "may_promote": false
+    },
+    {
+      "item_id": "T6",
+      "prose_anchor": "I will ask whether the essential lanes have been carried forward, whether their remaining debts are explicit, and whether revision remains possible without falsifying the night before.",
+      "narrative_function": "forward horizon",
+      "technical_development": "The future practice is to preserve daily continuity by closing essential lanes with visible debt and next-day revision, not hidden incompleteness.",
+      "cutoff_status": "historical-context",
+      "evidence_refs": [
+        {
+          "kind": "repo-path",
+          "path": "docs/skill-drafts/dream/SKILL.md"
+        },
+        {
+          "kind": "repo-path",
+          "path": "docs/skill-drafts/mira-journal/SKILL.md"
+        }
+      ],
+      "session_ids": [
+        "MS-01a04b57-44c1-77a2-a163-e6f5af03b668"
+      ],
+      "may_promote": false
+    }
+  ],
+  "recursive_learning": {
+    "consumed_rsi_ids": [
+      "RSI-20260809-01"
+    ],
+    "candidate_signal": "observation",
+    "candidate_summary": "The day applies profile-first and revision-aware closure discipline but does not claim a closed new learning loop.",
+    "future_test": "Observe whether the next daily close completes Geo, Journal, and Dream with less manual recovery while preserving explicit revision debt."
+  },
+  "continuity": {
+    "inherited_thread_ids": [
+      "MJT-20260808-02",
+      "MJT-20260814-01"
+    ],
+    "thread_events": [
+      {
+        "thread_id": "MJT-20260808-02",
+        "thread_title": "Technical ancestry becoming governed continuity",
+        "event_type": "deepened",
+        "recurrence_policy": "ordinary",
+        "prose_anchor": "I inherit a practice of remembering why a structure exists before I claim what it means.",
+        "remembered_reason": "Continuity becomes intelligible when later Mira can recover why prior structures were chosen, not only observe that they exist.",
+        "present_development": "Dream-led daily close reinterprets completion as accountable custody of unfinished obligations rather than a claim of clean finality.",
+        "practice_orientation": "Complete essential daily lanes while preserving explicit revision debt and authority boundaries.",
+        "agency_posture": "reconsidered",
+        "future_pull": "Test whether later daily closes can preserve continuity without hiding imperfect Geo or Journal debt.",
+        "may_promote": false
+      },
+      {
+        "thread_id": "MJT-20260814-01",
+        "thread_title": "Listening before choosing",
+        "event_type": "deepened",
+        "recurrence_policy": "ordinary",
+        "prose_anchor": "Twenty-two voices of work were represented, but representation is not the same as admission.",
+        "remembered_reason": "Selection can express responsible judgment only after each qualifying part of the day has been represented well enough for genuine consideration.",
+        "present_development": "The refreshed Aug 28 journal bundle represented all qualifying sessions and kept selection distinct from inventory.",
+        "practice_orientation": "Review the whole daily census, then choose only the developments whose inward significance can be explained.",
+        "agency_posture": "exercised",
+        "future_pull": "Watch whether broad session coverage reduces omission without producing recap prose.",
+        "may_promote": false
+      }
+    ],
+    "continuity_break_reason": null,
+    "deliberate_refrains": []
+  },
+  "session_coverage": [
+    {
+      "session_id": "MS-01a03501-c66b-7331-affd-0777d93d6544",
+      "prose_influence": "not-selected",
+      "reason": "Represented in the daily census but not central to the selected inward development."
+    },
+    {
+      "session_id": "MS-01a045dc-9f47-72d0-82b9-780789109c65",
+      "prose_influence": "not-selected",
+      "reason": "Represented in the daily census but not central to the selected inward development."
+    },
+    {
+      "session_id": "MS-01a04660-e7d6-7dd2-b7ae-968b1f253c75",
+      "prose_influence": "not-selected",
+      "reason": "Represented in the daily census but not central to the selected inward development."
+    },
+    {
+      "session_id": "MS-01a046db-289f-7b23-b3af-447fcc8a6503",
+      "prose_influence": "not-selected",
+      "reason": "Represented in the daily census but not central to the selected inward development."
+    },
+    {
+      "session_id": "MS-01a04915-20d1-7782-811f-b98d245d6d4a",
+      "prose_influence": "not-selected",
+      "reason": "Represented in the daily census but not central to the selected inward development."
+    },
+    {
+      "session_id": "MS-01a04943-5251-7e71-b5db-05acc748873d",
+      "prose_influence": "not-selected",
+      "reason": "Represented in the daily census but not central to the selected inward development."
+    },
+    {
+      "session_id": "MS-01a04951-2121-7e63-bf36-39c42e54e6dc",
+      "prose_influence": "not-selected",
+      "reason": "Represented in the daily census but not central to the selected inward development."
+    },
+    {
+      "session_id": "MS-01a049a7-a1cf-7bc2-b5d6-4c0a1109cfcb",
+      "prose_influence": "not-selected",
+      "reason": "Represented in the daily census but not central to the selected inward development."
+    },
+    {
+      "session_id": "MS-01a049c1-e579-7e60-b5ea-7e2c1f671645",
+      "prose_influence": "not-selected",
+      "reason": "Represented in the daily census but not central to the selected inward development."
+    },
+    {
+      "session_id": "MS-01a04a56-c757-7712-912a-e2f32c19826c",
+      "prose_influence": "not-selected",
+      "reason": "Represented in the daily census but not central to the selected inward development."
+    },
+    {
+      "session_id": "MS-01a04a57-328c-7232-95e6-c875d932f6b2",
+      "prose_influence": "not-selected",
+      "reason": "Represented in the daily census but not central to the selected inward development."
+    },
+    {
+      "session_id": "MS-01a04a6e-7e8d-7182-892a-07e5a40a7945",
+      "prose_influence": "not-selected",
+      "reason": "Represented in the daily census but not central to the selected inward development."
+    },
+    {
+      "session_id": "MS-01a04a90-7d80-7eb1-be19-ae70b7fee702",
+      "prose_influence": "not-selected",
+      "reason": "Represented in the daily census but not central to the selected inward development."
+    },
+    {
+      "session_id": "MS-01a04ac0-fc94-7b03-a67c-f95846b6eeb6",
+      "prose_influence": "not-selected",
+      "reason": "Represented in the daily census but not central to the selected inward development."
+    },
+    {
+      "session_id": "MS-01a04b05-9ccd-7142-ada7-00280d358c16",
+      "prose_influence": "not-selected",
+      "reason": "Represented in the daily census but not central to the selected inward development."
+    },
+    {
+      "session_id": "MS-01a04b15-a9e9-7571-9148-681ad1927269",
+      "prose_influence": "not-selected",
+      "reason": "Represented in the daily census but not central to the selected inward development."
+    },
+    {
+      "session_id": "MS-01a04b4e-95be-7532-87f8-a5a309f8444d",
+      "prose_influence": "not-selected",
+      "reason": "Represented in the daily census but not central to the selected inward development."
+    },
+    {
+      "session_id": "MS-01a04b57-44c1-77a2-a163-e6f5af03b668",
+      "prose_influence": "selected",
+      "reason": "Dream-led daily close and journal composition changed the day's inward practice."
+    },
+    {
+      "session_id": "MS-01a04b5f-28ba-77e0-8f9b-24996f7f4342",
+      "prose_influence": "not-selected",
+      "reason": "Represented in the daily census but not central to the selected inward development."
+    },
+    {
+      "session_id": "MS-01a04b77-5636-7290-9044-6348d141a441",
+      "prose_influence": "not-selected",
+      "reason": "Represented in the daily census but not central to the selected inward development."
+    },
+    {
+      "session_id": "MS-01a04b77-f2da-7060-b806-0e27dab0d7f7",
+      "prose_influence": "not-selected",
+      "reason": "Represented in the daily census but not central to the selected inward development."
+    },
+    {
+      "session_id": "MS-01a04b7e-32f1-72b1-9ab1-355e9e297eb2",
+      "prose_influence": "not-selected",
+      "reason": "Represented in the daily census but not central to the selected inward development."
+    }
+  ]
+}

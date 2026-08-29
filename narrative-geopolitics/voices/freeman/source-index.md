@@ -4,7 +4,7 @@ This index routes the unified local Freeman corpus for `freeman` to the central 
 
 Source basis: `strategy-codex/statecraft/voices/freeman/freeman-index.md` plus already-local matching archive rows.
 
-Corpus: 166 local route rows across 166 central archive source files.
+Corpus: 167 local route rows across 167 central archive source files.
 
 Status: `imported-corpus`
 
@@ -185,6 +185,7 @@ Status: `imported-corpus`
 | `2026-08-18` | (4) AMB Chas Freeman : Is Israel’s Military Collapsing? | `guest` | `judging-freedom` | [source](../../../archive/sources/geopolitics/sources/2026-08-18/source-4-amb-chas-freeman-is-israel-s-military-collapsing-2026-08-18.md) |
 | `2026-08-21` | (4) Chas Freeman: Israel-Turkey Conflict Could Explode Into War | `guest` | `glenn-diesen` | [source](../../../archive/sources/geopolitics/sources/2026-08-21/source-4-chas-freeman-israel-turkey-conflict-could-explode-into-war-2026-08-21.md) |
 | `2026-08-21` | Amb. Chas Freeman: Israel in PANIC – Emergency Security Summit Called as Turkey Rushes Arms to Syria | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2026-08-21/source-amb-chas-freeman-israel-in-panic-emergency-security-summit-called-as-turkey-rushes-arms-to-syria-2026-08-21.md) |
+| `2026-08-28` | Amb. Chas Freeman: Crumbling on All Sides: The Staggering Reality of Israel's Multi-Front War | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2026-08-28/source-amb-chas-freeman-crumbling-on-all-sides-the-staggering-reality-of-israel-s-multi-front-war-2026-08-28.md) |
 
 ## Import Boundary
 

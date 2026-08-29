@@ -4,7 +4,7 @@ This index routes the unified local Blumenthal corpus for `blumenthal` to the ce
 
 Source basis: `strategy-codex/statecraft/voices/blumenthal/blumenthal-index.md` plus already-local matching archive rows.
 
-Corpus: 21 local route rows across 21 central archive source files.
+Corpus: 23 local route rows across 23 central archive source files.
 
 Status: `imported-corpus`
 
@@ -40,6 +40,8 @@ Status: `imported-corpus`
 | `2026-08-06` | (1) Max Blumenthal : Why Trump Hates Press Freedom | `guest` | `judging-freedom` | [source](../../../archive/sources/geopolitics/sources/2026-08-06/source-1-max-blumenthal-why-trump-hates-press-freedom-2026-08-06.md) |
 | `2026-08-07` | (1) REUTERS: ONLY 35% OF AMERICANS SUPPORT THE IRAN WAR — w/ Max Blumenthal | `guest` | `mario-nawfal` | [source](../../../archive/sources/geopolitics/sources/2026-08-07/source-1-reuters-only-35-of-americans-support-the-iran-war-w-max-blumenthal-2026-08-07.md) |
 | `2026-08-13` | (3) Max Blumenthal : Israel manipulates Trump once again | `guest` | `judging-freedom` | [source](../../../archive/sources/geopolitics/sources/2026-08-13/source-3-max-blumenthal-israel-manipulates-trump-once-again-2026-08-13.md) |
+| `2026-08-27` | Max Blumenthal : - Netanyahu: The Islamic Republic of Britain? | `guest` | `judging-freedom` | [source](../../../archive/sources/geopolitics/sources/2026-08-27/source-max-blumenthal-netanyahu-the-islamic-republic-of-britain-2026-08-27.md) |
+| `2026-08-28` | Max Blumenthal: Netanyahu's Dangerous Game in Britain | `guest` | `judging-freedom` | [source](../../../archive/sources/geopolitics/sources/2026-08-28/source-max-blumenthal-netanyahu-s-dangerous-game-in-britain-2026-08-28.md) |
 
 ## Import Boundary
 

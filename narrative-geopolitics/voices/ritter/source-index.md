@@ -4,7 +4,7 @@ This index routes the imported Ritter corpus for `ritter` to the central Narrati
 
 Source basis: `strategy-codex/statecraft/voices/ritter/ritter-index.md`.
 
-Corpus: 131 local route rows across 131 central archive source files.
+Corpus: 132 local route rows across 132 central archive source files.
 
 Status: `imported-corpus`
 
@@ -150,6 +150,7 @@ Status: `imported-corpus`
 | `2026-08-23` | Scott Ritter: The Age of Nuclear War - War On Russia, Iran & China | `guest` | `glenn-diesen` | [source](../../../archive/sources/geopolitics/sources/2026-08-23/source-scott-ritter-the-age-of-nuclear-war-war-on-russia-iran-china-2026-08-23.md) |
 | `2026-08-24` | Scott Ritter: Russia Warns Ukraine Allies | `guest` | `daniel-davis` | [source](../../../archive/sources/geopolitics/sources/2026-08-24/source-scott-ritter-russia-warns-ukraine-allies-2026-08-24.md) |
 | `2026-08-26` | Scott Ritter: CIA on Russian Soil, Hungary Flips the Script, and Iran's Clock Ticks | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2026-08-26/source-scott-ritter-cia-on-russian-soil-hungary-flips-the-script-and-iran-s-clock-ticks-2026-08-26.md) |
+| `2026-08-27` | BREAKING: REAL REASON FOR RATCLIFFE RUSSIA MEETING, KUWAIT-PAKISTAN PACT, US SEND CARRIER TO IRAN, | `guest` | `moral-resistance` | [source](../../../archive/sources/geopolitics/sources/2026-08-27/source-breaking-real-reason-for-ratcliffe-russia-meeting-kuwait-pakistan-pact-us-send-carrier-to-iran-2026-08-27.md) |
 
 ## Import Boundary
 

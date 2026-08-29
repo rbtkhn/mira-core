@@ -4,7 +4,7 @@ This index routes the unified local Parsi corpus for `parsi` to the central Narr
 
 Source basis: `strategy-codex/statecraft/voices/parsi/parsi-index.md` plus already-local matching archive rows.
 
-Corpus: 67 local route rows across 67 central archive source files.
+Corpus: 69 local route rows across 69 central archive source files.
 
 Status: `imported-corpus`
 
@@ -86,6 +86,8 @@ Status: `imported-corpus`
 | `2026-08-07` | (1) Trita Parsi: New Deals Will Change the Middle East Forever | `guest` | `glenn-diesen` | [source](../../../archive/sources/geopolitics/sources/2026-08-07/source-1-trita-parsi-new-deals-will-change-the-middle-east-forever-2026-08-07.md) |
 | `2026-08-07` | (1) Trita Parsi : What the US Misunderstands about Iran : LIVE - (PART TWO) | `guest` | `judging-freedom` | [source](../../../archive/sources/geopolitics/sources/2026-08-07/source-1-trita-parsi-what-the-us-misunderstands-about-iran-live-part-two-2026-08-07.md) |
 | `2026-08-10` | (2) Iran Demands TOTAL SURRENDER From Trump On Hormuz | `guest` | `breaking-points` | [source](../../../archive/sources/geopolitics/sources/2026-08-10/source-2-iran-demands-total-surrender-from-trump-on-hormuz-2026-08-10.md) |
+| `2026-08-27` | BREAKING: IRAN WARNS ISRAEL AND NETANYAHU — w/ Trita Parsi | `guest` | `mario-nawfal` | [source](../../../archive/sources/geopolitics/sources/2026-08-27/source-breaking-iran-warns-israel-and-netanyahu-w-trita-parsi-2026-08-27.md) |
+| `2026-08-28` | Iran May Beat the US to the Punch in WAR /Trita Parsi & Lt Col Daniel Davis | `guest` | `daniel-davis` | [source](../../../archive/sources/geopolitics/sources/2026-08-28/source-iran-may-beat-the-us-to-the-punch-in-war-trita-parsi-lt-col-daniel-davis-2026-08-28.md) |
 
 ## Import Boundary
 

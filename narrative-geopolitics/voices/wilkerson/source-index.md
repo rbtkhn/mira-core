@@ -4,7 +4,7 @@ This index routes the unified local Wilkerson corpus for `wilkerson` to the cent
 
 Source basis: `strategy-codex/statecraft/voices/wilkerson/wilkerson-index.md` plus already-local matching archive rows.
 
-Corpus: 113 local route rows across 113 central archive source files.
+Corpus: 114 local route rows across 114 central archive source files.
 
 Status: `imported-corpus`
 
@@ -132,6 +132,7 @@ Status: `imported-corpus`
 | `2026-08-19` | (4) COL. Lawrence Wilkerson : Is Trump Considering Nuclear? | `guest` | `judging-freedom` | [source](../../../archive/sources/geopolitics/sources/2026-08-19/source-4-col-lawrence-wilkerson-is-trump-considering-nuclear-2026-08-19.md) |
 | `2026-08-19` | (4) Lawrence Wilkerson: U.S. Considers Nuclear Strike Against Iran | `guest` | `glenn-diesen` | [source](../../../archive/sources/geopolitics/sources/2026-08-19/source-4-lawrence-wilkerson-u-s-considers-nuclear-strike-against-iran-2026-08-19.md) |
 | `2026-08-24` | Col. Larry Wilkerson: Iran Abandons Defense Strategy as US Unleashes Economic Blitzkrieg | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2026-08-24/source-col-larry-wilkerson-iran-abandons-defense-strategy-as-us-unleashes-economic-blitzkrieg-2026-08-24.md) |
+| `2026-08-28` | Col. Larry Wilkerson & Larry Johnson: The Trap is Closing on Iran and the US | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2026-08-28/source-col-larry-wilkerson-larry-johnson-the-trap-is-closing-on-iran-and-the-us-2026-08-28.md) |
 
 ## Import Boundary
 

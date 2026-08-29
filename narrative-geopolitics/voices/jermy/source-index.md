@@ -4,7 +4,7 @@ This index routes the unified local Jermy corpus for `jermy` to the central Narr
 
 Source basis: `strategy-codex/statecraft/voices/jermy/jermy-index.md`.
 
-Corpus: 19 local route rows across 19 central archive source files.
+Corpus: 20 local route rows across 20 central archive source files.
 
 Status: `imported-corpus`
 
@@ -38,6 +38,7 @@ Status: `imported-corpus`
 | `2026-07-09` | Navy Combat Vet: The Coming European War w/Russia Steve Jermy & Lt Col Daniel Davis | `guest` | `daniel-davis` | [source](../../../archive/sources/geopolitics/sources/2026-07-09/source-navy-combat-vet-the-coming-european-war-w-russia-steve-jermy-lt-col-daniel-davis-2026-07-09.md) |
 | `2026-07-20` | WAR UPDATE: Military Insider Gives Terrifying Prediction & Reveals How Unprepared America Truly Is | `guest` | `tucker-carlson` | [source](../../../archive/sources/geopolitics/sources/2026-07-20/source-war-update-military-insider-gives-terrifying-prediction-reveals-how-unprepared-america-truly-is-2026-07-20.md) |
 | `2026-07-29` | Steve Jermy: Ukraine, Europe's Suicide & Global Energy Crisis | `guest` | `glenn-diesen` | [source](../../../archive/sources/geopolitics/sources/2026-07-29/source-steve-jermy-ukraine-europe-s-suicide-global-energy-crisis-2026-07-29.md) |
+| `2026-08-27` | Russia Directly Threatens British Military Bases /Steve Jermy & Lt Col Daniel Davis | `guest` | `daniel-davis` | [source](../../../archive/sources/geopolitics/sources/2026-08-27/source-russia-directly-threatens-british-military-bases-steve-jermy-lt-col-daniel-davis-2026-08-27.md) |
 
 ## Import Boundary
 

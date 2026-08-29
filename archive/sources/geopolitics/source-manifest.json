@@ -2,7 +2,7 @@
   "manifest_id": "narrative-geopolitics-source-manifest-v1",
   "source_basis": "central archive with completed historical strategy-codex imports",
   "imported_at": "2026-07-09",
-  "source_count": 2238,
+  "source_count": 2260,
   "boundary": {
     "archive": "source truth",
     "voices": "voice continuity and routing",
@@ -60348,6 +60348,511 @@
       "date_basis": "operator-supplied",
       "inference_basis": [
         "wrapper-normalized",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-27",
+      "title": "Russia Rejects CIA Chief Ratcliffe Spurns West Pleas For Ukraine Truce; Slaviansk Battle Begins",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-27/source-russia-rejects-cia-chief-ratcliffe-spurns-west-pleas-for-ukraine-truce-slaviansk-battle-begins-2026-08-27.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-27/source-russia-rejects-cia-chief-ratcliffe-spurns-west-pleas-for-ukraine-truce-slaviansk-battle-begins-2026-08-27.md",
+      "upstream_path": "operator-paste://2026-08-27/russia-rejects-cia-chief-ratcliffe-spurns-west-pleas-for-ukraine-truce-slaviansk-battle-begins",
+      "source_class": "host monologue",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "alexander-mercouris",
+      "source_identity": "youtube:8l8yLjWfBxw",
+      "source_url": "https://www.youtube.com/watch?v=8l8yLjWfBxw",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-27",
+      "title": "Andrei Martyanov: \"No End in Sight\": Inside Washington’s Growing Alarm Over the Russia-Iran Move",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-27/source-andrei-martyanov-no-end-in-sight-inside-washington-s-growing-alarm-over-the-russia-iran-move-2026-08-27.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-27/source-andrei-martyanov-no-end-in-sight-inside-washington-s-growing-alarm-over-the-russia-iran-move-2026-08-27.md",
+      "upstream_path": "operator-paste://2026-08-27/andrei-martyanov-no-end-in-sight-inside-washington-s-growing-alarm-over-the-russia-iran-move",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "martyanov"
+      ],
+      "host_slug": "dialogue-works",
+      "source_identity": "youtube:jiMrmbPDeCM",
+      "source_url": "https://www.youtube.com/watch?v=jiMrmbPDeCM",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-27",
+      "title": "CIA Moscow Meeting, What's That About? / fmr CIA Analyst Larry Johnson & Lt Col Daniel Davis",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-27/source-cia-moscow-meeting-what-s-that-about-fmr-cia-analyst-larry-johnson-lt-col-daniel-davis-2026-08-27.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-27/source-cia-moscow-meeting-what-s-that-about-fmr-cia-analyst-larry-johnson-lt-col-daniel-davis-2026-08-27.md",
+      "upstream_path": "operator-paste://2026-08-27/cia-moscow-meeting-what-s-that-about-fmr-cia-analyst-larry-johnson-lt-col-daniel-davis",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "johnson"
+      ],
+      "host_slug": "daniel-davis",
+      "source_identity": "youtube:XMXQqreWOOA",
+      "source_url": "https://www.youtube.com/watch?v=XMXQqreWOOA",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-27",
+      "title": "Deep State Maximum Pressure on Russia as Ukraine Crumbles",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-27/source-deep-state-maximum-pressure-on-russia-as-ukraine-crumbles-2026-08-27.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-27/source-deep-state-maximum-pressure-on-russia-as-ukraine-crumbles-2026-08-27.md",
+      "upstream_path": "operator-paste://2026-08-27/deep-state-maximum-pressure-on-russia-as-ukraine-crumbles",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "the-duran",
+      "source_identity": "youtube:bH6ClwI3jVE",
+      "source_url": "https://www.youtube.com/watch?v=bH6ClwI3jVE",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-27",
+      "title": "SANCTIONS AGAINST IRAN HAVE FAILED AND WAR WILL RESTART w/ Lt Col Anthony Aguilar",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-27/source-sanctions-against-iran-have-failed-and-war-will-restart-w-lt-col-anthony-aguilar-2026-08-27.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-27/source-sanctions-against-iran-have-failed-and-war-will-restart-w-lt-col-anthony-aguilar-2026-08-27.md",
+      "upstream_path": "operator-paste://2026-08-27/sanctions-against-iran-have-failed-and-war-will-restart-w-lt-col-anthony-aguilar",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "aguilar"
+      ],
+      "host_slug": "moral-resistance",
+      "source_identity": "youtube:hwRczDrgfh8",
+      "source_url": "https://www.youtube.com/watch?v=hwRczDrgfh8",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-26",
+      "title": "Larry Johnson: JUST IN: Iran & Russia Just Signed a ‘Strategic Energy Pact",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-26/source-larry-johnson-just-in-iran-russia-just-signed-a-strategic-energy-pact-2026-08-26.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-26/source-larry-johnson-just-in-iran-russia-just-signed-a-strategic-energy-pact-2026-08-26.md",
+      "upstream_path": "operator-paste://2026-08-27/larry-johnson-just-in-iran-russia-just-signed-a-strategic-energy-pact",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "johnson"
+      ],
+      "host_slug": "dialogue-works",
+      "source_identity": "youtube:smrELGsB40A",
+      "source_url": "https://www.youtube.com/watch?v=smrELGsB40A",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-27",
+      "title": "Russia Directly Threatens British Military Bases /Steve Jermy & Lt Col Daniel Davis",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-27/source-russia-directly-threatens-british-military-bases-steve-jermy-lt-col-daniel-davis-2026-08-27.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-27/source-russia-directly-threatens-british-military-bases-steve-jermy-lt-col-daniel-davis-2026-08-27.md",
+      "upstream_path": "operator-paste://2026-08-27/russia-directly-threatens-british-military-bases-steve-jermy-lt-col-daniel-davis",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "jermy"
+      ],
+      "host_slug": "daniel-davis",
+      "source_identity": "youtube:okDAwpb70CM",
+      "source_url": "https://www.youtube.com/watch?v=okDAwpb70CM",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-27",
+      "title": "Max Blumenthal : - Netanyahu: The Islamic Republic of Britain?",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-27/source-max-blumenthal-netanyahu-the-islamic-republic-of-britain-2026-08-27.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-27/source-max-blumenthal-netanyahu-the-islamic-republic-of-britain-2026-08-27.md",
+      "upstream_path": "operator-paste://2026-08-27/max-blumenthal-netanyahu-the-islamic-republic-of-britain",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "blumenthal"
+      ],
+      "host_slug": "judging-freedom",
+      "source_identity": "youtube:KIr4Dq-DZag",
+      "source_url": "https://www.youtube.com/watch?v=KIr4Dq-DZag",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-27",
+      "title": "BREAKING: IRAN WARNS ISRAEL AND NETANYAHU — w/ Trita Parsi",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-27/source-breaking-iran-warns-israel-and-netanyahu-w-trita-parsi-2026-08-27.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-27/source-breaking-iran-warns-israel-and-netanyahu-w-trita-parsi-2026-08-27.md",
+      "upstream_path": "operator-paste://2026-08-27/breaking-iran-warns-israel-and-netanyahu-w-trita-parsi",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "parsi"
+      ],
+      "host_slug": "mario-nawfal",
+      "source_identity": "youtube:XfjMzjyyGyE",
+      "source_url": "https://www.youtube.com/watch?v=XfjMzjyyGyE",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-27",
+      "title": "BREAKING: REAL REASON FOR RATCLIFFE RUSSIA MEETING, KUWAIT-PAKISTAN PACT, US SEND CARRIER TO IRAN,",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-27/source-breaking-real-reason-for-ratcliffe-russia-meeting-kuwait-pakistan-pact-us-send-carrier-to-iran-2026-08-27.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-27/source-breaking-real-reason-for-ratcliffe-russia-meeting-kuwait-pakistan-pact-us-send-carrier-to-iran-2026-08-27.md",
+      "upstream_path": "operator-paste://2026-08-27/breaking-real-reason-for-ratcliffe-russia-meeting-kuwait-pakistan-pact-us-send-carrier-to-iran",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "ritter"
+      ],
+      "host_slug": "moral-resistance",
+      "source_identity": "youtube:pZaF_GtVCb0",
+      "source_url": "https://www.youtube.com/watch?v=pZaF_GtVCb0",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-28",
+      "title": "Impeachment Looms Over Trump After the Pentagon’s Leaked Nuclear Plans. Joe Kent on What Comes Next.",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-28/source-impeachment-looms-over-trump-after-the-pentagon-s-leaked-nuclear-plans-joe-kent-on-what-comes-next-2026-08-28.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-28/source-impeachment-looms-over-trump-after-the-pentagon-s-leaked-nuclear-plans-joe-kent-on-what-comes-next-2026-08-28.md",
+      "upstream_path": "operator-paste://2026-08-28/impeachment-looms-over-trump-after-the-pentagon-s-leaked-nuclear-plans-joe-kent-on-what-comes-next",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "kent"
+      ],
+      "host_slug": "tucker-carlson",
+      "source_identity": "youtube:9POOfL7fo7c",
+      "source_url": "https://www.youtube.com/watch?v=9POOfL7fo7c",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-28",
+      "title": "Iran May Beat the US to the Punch in WAR /Trita Parsi & Lt Col Daniel Davis",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-28/source-iran-may-beat-the-us-to-the-punch-in-war-trita-parsi-lt-col-daniel-davis-2026-08-28.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-28/source-iran-may-beat-the-us-to-the-punch-in-war-trita-parsi-lt-col-daniel-davis-2026-08-28.md",
+      "upstream_path": "operator-paste://2026-08-28/iran-may-beat-the-us-to-the-punch-in-war-trita-parsi-lt-col-daniel-davis",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "parsi"
+      ],
+      "host_slug": "daniel-davis",
+      "source_identity": "youtube:9Xa7Chtgf70",
+      "source_url": "https://www.youtube.com/watch?v=9Xa7Chtgf70",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-28",
+      "title": "Russia Donbas Knockout Blow Dobropilia Cauldron Slaviansk Crisis; Lavrov West Diplomacy All Trickery",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-28/source-russia-donbas-knockout-blow-dobropilia-cauldron-slaviansk-crisis-lavrov-west-diplomacy-all-trickery-2026-08-28.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-28/source-russia-donbas-knockout-blow-dobropilia-cauldron-slaviansk-crisis-lavrov-west-diplomacy-all-trickery-2026-08-28.md",
+      "upstream_path": "operator-paste://2026-08-28/russia-donbas-knockout-blow-dobropilia-cauldron-slaviansk-crisis-lavrov-west-diplomacy-all-trickery",
+      "source_class": "host monologue",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "alexander-mercouris",
+      "source_identity": "youtube:RLF6vPwXKsg",
+      "source_url": "https://www.youtube.com/watch?v=RLF6vPwXKsg",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-28",
+      "title": "John Mearsheimer: Russia & Iran - The West’s Escalation Trap",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-28/source-john-mearsheimer-russia-iran-the-west-s-escalation-trap-2026-08-28.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-28/source-john-mearsheimer-russia-iran-the-west-s-escalation-trap-2026-08-28.md",
+      "upstream_path": "operator-paste://2026-08-28/john-mearsheimer-russia-iran-the-west-s-escalation-trap",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mearsheimer"
+      ],
+      "host_slug": "glenn-diesen",
+      "source_identity": "youtube:2jxda4WTcbc",
+      "source_url": "https://www.youtube.com/watch?v=2jxda4WTcbc",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-28",
+      "title": "Max Blumenthal: Netanyahu's Dangerous Game in Britain",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-28/source-max-blumenthal-netanyahu-s-dangerous-game-in-britain-2026-08-28.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-28/source-max-blumenthal-netanyahu-s-dangerous-game-in-britain-2026-08-28.md",
+      "upstream_path": "operator-paste://2026-08-28/max-blumenthal-netanyahu-s-dangerous-game-in-britain",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "blumenthal"
+      ],
+      "host_slug": "judging-freedom",
+      "source_identity": "youtube:iqWBiVpxeSc",
+      "source_url": "https://www.youtube.com/watch?v=iqWBiVpxeSc",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-28",
+      "title": "The Truth About the US Blockade in the Strait of Hormuz",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-28/source-the-truth-about-the-us-blockade-in-the-strait-of-hormuz-2026-08-28.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-28/source-the-truth-about-the-us-blockade-in-the-strait-of-hormuz-2026-08-28.md",
+      "upstream_path": "operator-paste://2026-08-28/the-truth-about-the-us-blockade-in-the-strait-of-hormuz",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "escobar"
+      ],
+      "host_slug": "judging-freedom",
+      "source_identity": "youtube:EPiupy195bc",
+      "source_url": "https://www.youtube.com/watch?v=EPiupy195bc",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-28",
+      "title": "Amb. Chas Freeman: Crumbling on All Sides: The Staggering Reality of Israel's Multi-Front War",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-28/source-amb-chas-freeman-crumbling-on-all-sides-the-staggering-reality-of-israel-s-multi-front-war-2026-08-28.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-28/source-amb-chas-freeman-crumbling-on-all-sides-the-staggering-reality-of-israel-s-multi-front-war-2026-08-28.md",
+      "upstream_path": "operator-paste://2026-08-28/amb-chas-freeman-crumbling-on-all-sides-the-staggering-reality-of-israel-s-multi-front-war",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "freeman"
+      ],
+      "host_slug": "dialogue-works",
+      "source_identity": "youtube:1F-YSL_yyuU",
+      "source_url": "https://www.youtube.com/watch?v=1F-YSL_yyuU",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-28",
+      "title": "Col. Larry Wilkerson & Larry Johnson: The Trap is Closing on Iran and the US",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-28/source-col-larry-wilkerson-larry-johnson-the-trap-is-closing-on-iran-and-the-us-2026-08-28.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-28/source-col-larry-wilkerson-larry-johnson-the-trap-is-closing-on-iran-and-the-us-2026-08-28.md",
+      "upstream_path": "operator-paste://2026-08-28/col-larry-wilkerson-larry-johnson-the-trap-is-closing-on-iran-and-the-us",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "wilkerson",
+        "johnson"
+      ],
+      "host_slug": "dialogue-works",
+      "source_identity": "youtube:El-b1LRgihQ",
+      "source_url": "https://www.youtube.com/watch?v=El-b1LRgihQ",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-28",
+      "title": "U.S PLAN TO RESART IRAN WAR AFTER THE MIDTERMS, TRUMP CLAIMS HE CONTROL STRAIT w/ COL DANIEL DAVIS",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-28/source-u-s-plan-to-resart-iran-war-after-the-midterms-trump-claims-he-control-strait-w-col-daniel-davis-2026-08-28.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-28/source-u-s-plan-to-resart-iran-war-after-the-midterms-trump-claims-he-control-strait-w-col-daniel-davis-2026-08-28.md",
+      "upstream_path": "operator-paste://2026-08-28/u-s-plan-to-resart-iran-war-after-the-midterms-trump-claims-he-control-strait-w-col-daniel-davis",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "davis"
+      ],
+      "host_slug": "moral-resistance",
+      "source_identity": "youtube:ChcqxvGKkms",
+      "source_url": "https://www.youtube.com/watch?v=ChcqxvGKkms",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-28",
+      "title": "BREAKING: MULTIPLE STRIKES ON STRIAT OF HORMUZ, HEGSETH FOR PRESIDENT w/ CIA Larry Johnson",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-28/source-breaking-multiple-strikes-on-striat-of-hormuz-hegseth-for-president-w-cia-larry-johnson-2026-08-28.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-28/source-breaking-multiple-strikes-on-striat-of-hormuz-hegseth-for-president-w-cia-larry-johnson-2026-08-28.md",
+      "upstream_path": "operator-paste://2026-08-28/breaking-multiple-strikes-on-striat-of-hormuz-hegseth-for-president-w-cia-larry-johnson",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "johnson"
+      ],
+      "host_slug": "moral-resistance",
+      "source_identity": "youtube:c-dSAEWep6k",
+      "source_url": "https://www.youtube.com/watch?v=c-dSAEWep6k",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-28",
+      "title": "NATO's Crazy Long Term Planning for Proxy Wars | Stas Krapivnik",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-28/source-nato-s-crazy-long-term-planning-for-proxy-wars-stas-krapivnik-2026-08-28.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-28/source-nato-s-crazy-long-term-planning-for-proxy-wars-stas-krapivnik-2026-08-28.md",
+      "upstream_path": "operator-paste://2026-08-28/nato-s-crazy-long-term-planning-for-proxy-wars-stas-krapivnik",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "krapivnik"
+      ],
+      "host_slug": "neutrality-studies",
+      "source_identity": "youtube:47JG9LuXYdY",
+      "source_url": "https://www.youtube.com/watch?v=47JG9LuXYdY",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-28",
+      "title": "A FOREIGN SPY CHIEF INSIDE A PRESIDENT-LINKED BANK — w/ Robert Barnes",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-28/source-a-foreign-spy-chief-inside-a-president-linked-bank-w-robert-barnes-2026-08-28.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-28/source-a-foreign-spy-chief-inside-a-president-linked-bank-w-robert-barnes-2026-08-28.md",
+      "upstream_path": "operator-paste://2026-08-28/a-foreign-spy-chief-inside-a-president-linked-bank-w-robert-barnes",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "barnes"
+      ],
+      "host_slug": "mario-nawfal",
+      "source_identity": "youtube:jfnYC1Aoepk",
+      "source_url": "https://www.youtube.com/watch?v=jfnYC1Aoepk",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
         "explicit-date-alias"
       ],
       "import_status": "imported"
