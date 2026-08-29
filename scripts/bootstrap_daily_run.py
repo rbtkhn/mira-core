@@ -136,7 +136,7 @@ def relative_archive_path(local_path: str) -> str:
 def archive_link(local_path: str) -> str:
     rel = relative_archive_path(local_path)
     if rel.startswith("archive/"):
-        return "../../../" + rel
+        return "../../../../" + rel
     return "../../../" + rel
 
 

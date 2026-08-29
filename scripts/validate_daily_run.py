@@ -272,7 +272,7 @@ def is_placeholder_day(run_path: Path) -> bool:
 
 
 def normalize_daily_archive_link(link: str) -> str:
-    return link.removeprefix("../../../")
+    return link.removeprefix("../../../../")
 
 
 def manifest_archive_paths(rows: list[dict[str, Any]]) -> set[str]:

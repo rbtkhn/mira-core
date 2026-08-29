@@ -468,7 +468,7 @@ def render_reference(value: dict[str, Any]) -> str:
     lines = [
         f"# Technical Reference — `{value['reference_id']}`",
         "",
-        f"Journal version: `{value['journal_version_id']}`  ",
+        f"Journal version: `{value['journal_version_id']}`",
         f"Journal digest: `{value['journal_content_sha256']}`",
         "",
         AUTHORITY_BOUNDARY,
