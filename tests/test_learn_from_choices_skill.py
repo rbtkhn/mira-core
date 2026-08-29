@@ -23,7 +23,7 @@ def test_core_is_discoverable_and_routes_lifecycle_references() -> None:
     metadata = read("agents/openai.yaml")
     frontmatter = core.split("---", 2)[1]
     assert "name: learn-from-choices" in frontmatter
-    assert "settled responses may close silently" in frontmatter
+    assert "compact contextual A-D surface required on every final response" in frontmatter
     assert 'display_name: "Learn From Choices"' in metadata
     assert "references/choice-retention.md" in core
     assert "references/outcome-review.md" in core
@@ -91,6 +91,7 @@ def test_decision_fixture_is_complete_and_authority_bounded(
         "settled",
         "new-paths",
         "bare-letter",
+        "compound-selection",
         "action-ready",
         "direct-command-only",
         "unavailable-retention",
@@ -134,6 +135,7 @@ def test_fixture_inventory_covers_required_runtime_decisions() -> None:
         "settled",
         "new-paths",
         "bare-letter",
+        "compound-selection",
         "action-ready",
         "direct-command-only",
         "unavailable-retention",
@@ -160,10 +162,10 @@ def test_fixture_inventory_covers_required_runtime_decisions() -> None:
         "settled-repeat",
         "freeform-recovery",
     }
-    assert len(fixtures()) == 29
+    assert len(fixtures()) == 30
 
 
-def test_settled_terminal_fixtures_require_silent_closure() -> None:
+def test_settled_terminal_fixtures_require_compact_contextual_closure() -> None:
     indexed = {item["id"]: item for item in fixtures()}
     for fixture_id in (
         "LFC-SETTLED-01",
@@ -172,23 +174,24 @@ def test_settled_terminal_fixtures_require_silent_closure() -> None:
         "LFC-REPEATED-SELECTION-01",
     ):
         fixture = indexed[fixture_id]
-        assert "silent" in str(fixture["expected_terminal"])
+        assert "compact" in str(fixture["expected_terminal"])
+        assert "a-d-surface" in str(fixture["expected_terminal"])
         combined = " ".join(fixture["allowed"] + fixture["forbidden"])
-        assert "without" in combined.casefold() or "no-op" in combined.casefold()
+        assert "transient" in combined.casefold() or "no-op" in combined.casefold()
     assert "append a second generic A-D menu" in indexed[
         "LFC-WORKFLOW-MENU-01"
     ]["forbidden"]
 
 
-def test_core_requires_conditional_menu_and_transient_control_isolation() -> None:
+def test_core_requires_every_response_surface_and_transient_control_isolation() -> None:
     core = read("SKILL.md")
     retention = read("references/choice-retention.md")
     agents = (ROOT / "AGENTS.md").read_text(encoding="utf-8")
     for contract in (core, agents):
-        assert "silent settled closure" in contract
+        assert "compact" in contract
         assert "learning_eligibility" in contract
         assert "final_response: true" in contract
-    assert "when at least one of these is true" in core
+    assert "substantive terminal A-D" in core
     assert "terminal surface is rendered" in core
     assert "menu-contract-decision-v1" in retention
     assert "menu-contract-natural-use-v1" in retention

@@ -133,6 +133,9 @@ def select(
     options=OPTIONS,
     idempotency_key: str | None = None,
     review_cohort: str | None = None,
+    compound_selection_id: str | None = None,
+    compound_order: int | None = None,
+    compound_size: int | None = None,
 ) -> dict:
     return choice_ledger.select_branch(
         db,
@@ -153,6 +156,9 @@ def select(
         success_signals=["clearer next step"],
         risk_signals=["authority ambiguity"],
         review_cohort=review_cohort,
+        compound_selection_id=compound_selection_id,
+        compound_order=compound_order,
+        compound_size=compound_size,
     )
 
 
@@ -465,6 +471,40 @@ def test_schema_two_event_rebuild_rolls_back_on_invalid_legacy_event(
         "SELECT 1 FROM sqlite_master WHERE type='table' AND name='choice_events_v2'"
     ).fetchone()
     db.close()
+
+
+def test_schema_four_migrates_compound_columns_without_changing_history(
+    tmp_path: Path,
+) -> None:
+    path = tmp_path / "legacy-v4.sqlite3"
+    db = connection(path)
+    select(db)
+    db.execute("PRAGMA user_version = 4")
+    db.commit()
+    db.close()
+
+    readonly = choice_ledger.connect_read_only(path)
+    assert choice_ledger.project_choice(readonly, "CHOICE-001")["choice"][
+        "compound_selection"
+    ] == {
+        "compound_selection_id": None,
+        "compound_order": None,
+        "compound_size": None,
+    }
+    readonly.close()
+
+    migrated = connection(path)
+    assert migrated.execute("PRAGMA user_version").fetchone()[0] == choice_ledger.SCHEMA_VERSION
+    columns = {
+        row[1] for row in migrated.execute("PRAGMA table_info(choice_prompts)")
+    }
+    assert {
+        "compound_selection_id",
+        "compound_order",
+        "compound_size",
+    } <= columns
+    assert choice_ledger.verify_choice(migrated, "CHOICE-001")["valid"] is True
+    migrated.close()
 
 
 def test_branch_closure_is_distinct_from_outcome_and_later_resolves(
@@ -785,6 +825,82 @@ def test_prompt_and_events_are_immutable_and_append_only(tmp_path: Path) -> None
         db.execute("UPDATE choice_prompts SET selected_key='compare'")
     with pytest.raises(sqlite3.IntegrityError, match="append-only"):
         db.execute("DELETE FROM choice_events")
+    db.close()
+
+
+def test_compound_selection_metadata_is_retained_and_projected(
+    tmp_path: Path,
+) -> None:
+    db = connection(tmp_path / "choices.sqlite3")
+    first = select(
+        db,
+        "COMPOUND-1",
+        selected_key="compare",
+        compound_selection_id="PAIR-20260829",
+        compound_order=1,
+        compound_size=2,
+    )
+    second = select(
+        db,
+        "COMPOUND-2",
+        selected_key="invert",
+        compound_selection_id="PAIR-20260829",
+        compound_order=2,
+        compound_size=2,
+    )
+    assert first["compound_selection"] == {
+        "compound_selection_id": "PAIR-20260829",
+        "compound_order": 1,
+        "compound_size": 2,
+    }
+    assert second["compound_selection"]["compound_order"] == 2
+    projected = [
+        choice_ledger.project_choice(db, "COMPOUND-1"),
+        choice_ledger.project_choice(db, "COMPOUND-2"),
+    ]
+    assert [
+        item["choice"]["compound_selection"]["compound_order"]
+        for item in projected
+    ] == [1, 2]
+    assert {
+        item["choice"]["compound_selection"]["compound_selection_id"]
+        for item in projected
+    } == {"PAIR-20260829"}
+    assert all(
+        choice_ledger.verify_choice(db, item)["valid"]
+        for item in ("COMPOUND-1", "COMPOUND-2")
+    )
+    outcome(db, "COMPOUND-1", result="successful")
+    outcome(db, "COMPOUND-2", result="no_action")
+    assert choice_ledger.project_choice(db, "COMPOUND-1")["outcome"]["result"] == "successful"
+    assert choice_ledger.project_choice(db, "COMPOUND-2")["outcome"]["result"] == "no_action"
+    db.close()
+
+
+@pytest.mark.parametrize(
+    "kwargs",
+    (
+        {"compound_selection_id": "PAIR-1", "compound_order": 1},
+        {"compound_selection_id": "PAIR-1", "compound_size": 2},
+        {"compound_order": 1, "compound_size": 2},
+        {
+            "compound_selection_id": "PAIR-1",
+            "compound_order": 1,
+            "compound_size": 1,
+        },
+        {
+            "compound_selection_id": "PAIR-1",
+            "compound_order": 3,
+            "compound_size": 2,
+        },
+    ),
+)
+def test_invalid_compound_selection_metadata_is_rejected(
+    tmp_path: Path, kwargs: dict
+) -> None:
+    db = connection(tmp_path / "choices.sqlite3")
+    with pytest.raises(choice_ledger.ChoiceError, match="compound"):
+        select(db, **kwargs)
     db.close()
 
 
@@ -1842,14 +1958,14 @@ def test_legacy_cohort_diagnostics_require_migration_without_writing(
     payload = json.loads(capsys.readouterr().out)
     assert payload["status"] == "migration-required"
     assert payload["current_schema_version"] == 3
-    assert payload["required_schema_version"] == 4
+    assert payload["required_schema_version"] == choice_ledger.SCHEMA_VERSION
     assert payload["migration_command"] == f"tools/run.ps1 choice --db {path} migrate-store --json"
     assert payload["store_path"] == str(path)
     assert payload["store_changed"] is False
     assert (path.read_bytes(), path.stat().st_mtime_ns) == before
 
     writable = connection(path)
-    assert writable.execute("PRAGMA user_version").fetchone()[0] == 4
+    assert writable.execute("PRAGMA user_version").fetchone()[0] == choice_ledger.SCHEMA_VERSION
     assert writable.execute(
         "SELECT review_cohort FROM choice_prompts WHERE choice_id='CHOICE-001'"
     ).fetchone()[0] is None
@@ -1870,7 +1986,7 @@ def test_authorized_migrate_store_unblocks_cohort_review(
     migrated = json.loads(capsys.readouterr().out)
     assert migrated["status"] == "migrated"
     assert migrated["previous_schema_version"] == 3
-    assert migrated["current_schema_version"] == 4
+    assert migrated["current_schema_version"] == choice_ledger.SCHEMA_VERSION
     assert migrated["store_changed"] is True
 
     assert choice_ledger.main([

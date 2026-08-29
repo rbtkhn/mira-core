@@ -1,13 +1,13 @@
 ---
 name: learn-from-choices
-description: "Turn genuine user decisions into outcome-aware possibility maps and learn from explicitly selected branches without expanding action authority. Use when a material choice or bounded action remains, when a user replies with a menu letter, or when choice outcomes or staged five-to-ten reviews should be retained or examined; settled responses may close silently."
+description: "Turn genuine user decisions into outcome-aware possibility maps and learn from explicitly selected branches without expanding action authority. Use for the compact contextual A-D surface required on every final response, when a material choice or bounded action remains, when a user replies with a menu letter, or when choice outcomes or staged five-to-ten reviews should be retained or examined."
 ---
 
 # Learn From Choices
 
-Use this core contract to classify every final response, but render a choice
-surface only when a genuine decision or action boundary remains. Settled
-responses may close silently. Do not apply choice footers to intermediate
+Use this core contract to classify every final response and render exactly one
+compact contextual A-D surface at its end. A settled surface uses transient
+response controls rather than manufacturing a decision. Do not apply choice footers to intermediate
 commentary. Load lifecycle references only at their named trigger:
 
 - After a user selects an offered branch, or when that selected branch closes,
@@ -32,19 +32,20 @@ Merely imaginable adjacent work is not closure debt. A complete factual answer
 may close despite optional deeper analysis. A completed, verified commit may
 close when push or publication was not requested.
 
-Classify the wider conversation separately. Render a terminal A-D surface only
-when at least one of these is true:
+Classify the wider conversation separately. Render a substantive terminal A-D
+surface when at least one of these is true:
 
 - a material decision remains;
 - an exact bounded action is awaiting authority;
 - independently credible new objectives begin genuinely different work; or
 - the operator explicitly requested choices or structured navigation.
 
-Otherwise use **silent settled closure**: deliver the result or acknowledgement
-without an appended menu. This is the default for completed factual answers,
-simple thanks or acknowledgements, explicit stops, completed actions with no
-remaining boundary, repeated settled selections, and saturated navigation-only
-branches. Silent closure retains nothing and creates no choice identity.
+Otherwise use **compact settled closure**: deliver the result or acknowledgement
+with exactly four contextual transient controls. This is the default for
+completed factual answers, simple thanks or acknowledgements, explicit stops,
+completed actions with no remaining boundary, repeated settled selections, and
+saturated navigation-only branches. Settled controls retain nothing and create
+no choice identity.
 
 After closing a branch, offer substantive `New paths` only when independently
 credible directions begin genuinely different objectives, evidence searches,
@@ -63,15 +64,14 @@ C. Deepen — request more evidence or explanation within this objective.
 D. New task — begin a distinct objective.
 ```
 
-After an explicit stop, stop silently unless the operator requested navigation.
-If navigation was requested, use only `Close now`, `Return later`, `Start a new
-task`, and `Correct the stopping summary`. A governing workflow's existing
+After an explicit stop, keep the response minimal and use only `Close now`,
+`Return later`, `Start a new task`, and `Correct the stopping summary`. A governing workflow's existing
 four-action A-D surface, including Coffee, satisfies the need; never append a
 duplicate menu.
 
-## End an open branch with possibilities
+## End every final response with possibilities
 
-When a terminal surface is warranted, use exactly four concise options. Prefer materially distinct possibilities and
+Use exactly four concise options. For an open branch, prefer materially distinct possibilities and
 use transient response controls for positions that would otherwise be filler:
 
 ```text
@@ -156,7 +156,7 @@ return-later controls are `none`. Eligibility is independent of
 When a terminal surface is rendered, validate it with `final_response: true`.
 This requires four options and explicit eligibility for each one. Three-option
 Elicitation surfaces remain valid only for non-final backward-compatible
-interactions. Silent settled closure has no surface to validate.
+interactions.
 
 ## Preserve action authority
 
@@ -191,6 +191,16 @@ same selection is a no-op. Acknowledge closure once and do not regenerate the
 same menu. Present a new choice only for genuinely new evidence, scope,
 decision, or action.
 
+Treat comma-separated letters such as `B,C` as an ordered compound selection
+when every selected branch is present in the current surface. Preserve the
+order as operator intent: the first branch is the first requested path, and
+later branches are additional selected paths, not discarded preferences.
+Compound selection does not widen action authority; each branch keeps its own
+validated `selection_effect`, retention eligibility, readiness, and execution
+boundary. A `pause-or-deepen` branch is exclusive and cannot be combined with
+another branch. Treat ranked syntax such as `A>C>B` as read-only preference
+evidence, not branch selection or action authority.
+
 Create or refresh the silent interaction-context capsule whenever presenting a
 validated decision surface. Resolve a compact response only against the
 current digest-bound capsule. Retire the capsule when the branch closes or a
@@ -206,10 +216,11 @@ avoid making the operator reconstruct the prior branch from memory. Treat this
 as a presentation failure, not as new authority.
 
 After two consecutive navigation-only selections deepen the same objective,
-default to silent saturated closure unless the latest turn adds new evidence,
+default to compact saturated closure unless the latest turn adds new evidence,
 resolves a material contradiction, or exposes a genuinely new decision or
-action. Do not offer another substantive or transient menu that merely
-analyzes, rewrites, compares, or audits the result just delivered.
+action. Render only contextual transient controls; do not offer another
+substantive menu that merely analyzes, rewrites, compares, or audits the result
+just delivered.
 
 ## Deliver permanent artifacts honestly
 
@@ -231,7 +242,7 @@ A turn has four valid terminal forms:
 - an open branch with a genuine decision ends with a valid four-option surface;
 - a settled branch with independently credible new work may end with eligible
   `New paths` plus transient fillers;
-- a settled or stopped conversation closes silently; or
+- a settled or stopped conversation closes with compact contextual transient controls; or
 - a governing workflow supplies its own validated interaction surface.
 
 When a selected branch closes, use the retention reference to append a quiet

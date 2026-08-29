@@ -31,6 +31,7 @@ EXPLICIT_COMMAND_PATTERNS = (
     re.compile(r"^(?:stage|commit|push|send|publish|deploy)\b.*$", re.IGNORECASE),
 )
 LETTER_RE = re.compile(r"^[A-Z]$")
+COMPOUND_LETTERS_RE = re.compile(r"^[A-Z](?:\s*,\s*[A-Z])+$")
 ACTION_LABEL_RE = re.compile(r"^\s*(execute|commit|push|send)(?=\s|:|$)", re.IGNORECASE)
 
 
@@ -353,6 +354,54 @@ def resolve_followup(
             exact_meaning=option,
             authority_effect=effect if action_authorized else AUTHORITY_NONE,
             action_authorized=action_authorized,
+        )
+    if COMPOUND_LETTERS_RE.fullmatch(candidate):
+        options = {item["letter"]: item for item in current["visible_options"]}
+        letters = [part.strip() for part in candidate.split(",")]
+        if len(set(letters)) != len(letters):
+            return _result(
+                "clarification-required",
+                route="intent-recovery",
+                ambiguity="duplicate-option-letter",
+            )
+        unknown = [letter for letter in letters if letter not in options]
+        if unknown:
+            return _result(
+                "clarification-required",
+                route="intent-recovery",
+                ambiguity="unknown-option-letter",
+            )
+        selected = [options[letter] for letter in letters]
+        if any(item.get("role") == "pause-or-deepen" for item in selected):
+            return _result(
+                "clarification-required",
+                route="intent-recovery",
+                ambiguity="pause-or-deepen-cannot-be-compounded",
+            )
+        if state == "closed":
+            return _result("settled-no-op", route="conversation", exact_meaning=selected)
+        already = {
+            item.get("letter") for item in current["selected_branches"]
+        } & set(letters)
+        if already:
+            return _result(
+                "selection-already-recorded",
+                route="conversation",
+                exact_meaning=selected,
+            )
+        if state == "selected":
+            return _result(
+                "clarification-required",
+                route="intent-recovery",
+                ambiguity="branch-already-selected",
+            )
+        return _result(
+            "exact-compound-menu-selection",
+            route="elicitation-selection",
+            exact_meaning={
+                "mode": "compound",
+                "ordered_selected_branches": selected,
+            },
         )
 
     if folded in VAGUE_IMPERATIVES:

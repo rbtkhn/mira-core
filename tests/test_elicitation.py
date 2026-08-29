@@ -409,6 +409,24 @@ def test_mixed_surface_retains_only_learning_eligible_selection() -> None:
     directive = interpretation["receipt_directives"][0]
     assert directive["choice_kind"] == "menu-contract-decision-v1"
     assert directive["recommended_review_cohort"] == "menu-contract-natural-use-v1"
+    assert "compound_selection_id" not in directive
+    assert "compound_order" not in directive
+    assert "compound_size" not in directive
+
+
+def test_compound_metadata_requires_timestamped_retained_bundle() -> None:
+    surface = decision_surface()
+    surface.pop("presented_at")
+    interpretation = elicitation.interpret_elicitation_response(surface, "A,C")
+    assert len(interpretation["receipt_directives"]) == 2
+    assert all(
+        directive["requires_presentation_timestamp"] is True
+        for directive in interpretation["receipt_directives"]
+    )
+    assert all(
+        "compound_selection_id" not in directive
+        for directive in interpretation["receipt_directives"]
+    )
 
 
 @pytest.mark.parametrize("verb", ("execute", "COMMIT", "Push", "sEnD"))
@@ -443,6 +461,17 @@ def test_compound_selection_preserves_order_and_receipt_identity() -> None:
     assert [item["selected_key"] for item in result["receipt_directives"]] == [
         "path-2",
         "path-0",
+    ]
+    assert len(
+        {item["compound_selection_id"] for item in result["receipt_directives"]}
+    ) == 1
+    assert [item["compound_order"] for item in result["receipt_directives"]] == [
+        1,
+        2,
+    ]
+    assert [item["compound_size"] for item in result["receipt_directives"]] == [
+        2,
+        2,
     ]
     assert len({item["options_hash"] for item in result["receipt_directives"]}) == 1
     assert all(
@@ -685,7 +714,7 @@ def test_host_and_choice_contract_require_option_level_readiness() -> None:
     assert "validated mixed `decision-navigation`" in choices
 
 
-def test_host_and_choice_contract_allow_silent_settled_closure() -> None:
+def test_host_and_choice_contract_require_compact_contextual_closure() -> None:
     agents = (REPO_ROOT / "AGENTS.md").read_text(encoding="utf-8")
     choices = (
         REPO_ROOT / "docs" / "skill-drafts" / "learn-from-choices" / "SKILL.md"
@@ -694,8 +723,8 @@ def test_host_and_choice_contract_allow_silent_settled_closure() -> None:
         REPO_ROOT / "docs" / "skill-drafts" / "elicitation" / "SKILL.md"
     ).read_text(encoding="utf-8")
 
-    assert "silent settled closure" in agents
-    assert "silent settled closure" in choices
+    assert "compact contextual four-option A-D surface" in agents
+    assert "compact settled closure" in choices
     assert "completed factual answers" in choices
     assert "simple thanks or acknowledgements" in choices
     assert "explicit stops" in choices
@@ -733,8 +762,8 @@ def test_skill_contract_limits_repeated_selection_chains() -> None:
     assert "continue the" in skill
     assert "selected branch" in skill
     assert "to a meaningful result" in skill
-    assert "silent settled closure" in skill
-    assert "do not emit another decision surface" in skill
+    assert "compact settled closure" in skill
+    assert "do not manufacture another" in skill
     assert "Explicit creative or preference discovery" in skill
     assert "ten-question limit" in skill
 

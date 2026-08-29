@@ -33,6 +33,13 @@ Do not report non-retention for a deliberately transient control.
 6. If the store is unavailable, continue and disclose that the selection was
    not retained.
 
+For a comma-separated compound selection, retain each learning-eligible branch
+as its own `choice select` row with the same exact option set and shared
+`compound_selection_id`. Pass `compound_order` as a 1-based position and
+`compound_size` as the total selected branch count. Outcomes, closure, and
+review remain branch-level; compound metadata only preserves the ordered bundle
+for later analysis.
+
 Do not retain an unselected footer. Never store raw evidence bodies, secrets,
 credentials, personal contact data, or customer-private content. Link bounded
 evidence by reference.

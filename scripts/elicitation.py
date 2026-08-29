@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import hashlib
 import re
 import sys
 from datetime import datetime
@@ -435,6 +436,27 @@ def interpret_elicitation_response(surface: Any, response: Any) -> dict[str, Any
     receipt_options = _receipt_options(normalized["options"])
     option_hash = choice_ledger.digest(receipt_options)
     presented_at = normalized.get("presented_at")
+    retained_branches = [
+        branch for branch in branches if branch["learning_eligibility"] == "eligible"
+    ]
+    compound_selection_id = None
+    if mode == "compound" and presented_at is not None and len(retained_branches) >= 2:
+        compound_selection_id = (
+            "compound-"
+            + hashlib.sha256(
+                json.dumps(
+                    {
+                        "options_hash": option_hash,
+                        "letters": [
+                            branch["letter"] for branch in retained_branches
+                        ],
+                        "presented_at": presented_at,
+                    },
+                    sort_keys=True,
+                    separators=(",", ":"),
+                ).encode("utf-8")
+            ).hexdigest()[:24]
+        )
     directives = [
         {
             "selected_key": branch["option_key"],
@@ -448,8 +470,16 @@ def interpret_elicitation_response(surface: Any, response: Any) -> dict[str, Any
             "authority_effect": AUTHORITY_EFFECT,
             "final_response": normalized.get("final_response", False),
         }
-        for branch in branches
-        if branch["learning_eligibility"] == "eligible"
+        | (
+            {
+                "compound_selection_id": compound_selection_id,
+                "compound_order": index + 1,
+                "compound_size": len(retained_branches),
+            }
+            if compound_selection_id
+            else {}
+        )
+        for index, branch in enumerate(retained_branches)
     ]
     return {
         "mode": mode,

@@ -18,9 +18,9 @@ from runtime_names import resolve_environment
 from portable_paths import PortablePathError, require_private_path as portable_private_path, state_path
 
 
-SCHEMA_VERSION = 4
-READABLE_SCHEMA_VERSIONS = frozenset({1, 2, 3, SCHEMA_VERSION})
-PROJECTION_VERSION = "1.1"
+SCHEMA_VERSION = 5
+READABLE_SCHEMA_VERSIONS = frozenset({1, 2, 3, 4, SCHEMA_VERSION})
+PROJECTION_VERSION = "1.2"
 REVIEW_PROJECTION_VERSION = "2.0"
 DB_ENV = "MIRA_CORE_CHOICE_DB"
 GRACEFUL_CONNECTION_FAILURE_COMMANDS = frozenset(
@@ -95,7 +95,7 @@ def migration_required_payload(
         "command": command,
         "review_cohort": sanitize_identifier(review_cohort),
         "current_schema_version": version,
-        "required_schema_version": 4,
+        "required_schema_version": SCHEMA_VERSION,
         "migration_trigger": "the next authorized writable choice operation",
         "migration_command": (
             f"tools/run.ps1 choice --db {store_path} migrate-store --json"
@@ -342,6 +342,9 @@ def migrate(connection: sqlite3.Connection) -> None:
                     options_hash TEXT NOT NULL,
                     recommended_key TEXT NOT NULL,
                     selected_key TEXT NOT NULL,
+                    compound_selection_id TEXT,
+                    compound_order INTEGER,
+                    compound_size INTEGER,
                     learning_refs_json TEXT NOT NULL,
                     success_signals_json TEXT NOT NULL,
                     risk_signals_json TEXT NOT NULL,
@@ -498,6 +501,68 @@ def migrate(connection: sqlite3.Connection) -> None:
                 "selected_at_utc_us, choice_id)"
             )
             connection.execute("PRAGMA user_version = 4")
+    version = int(connection.execute("PRAGMA user_version").fetchone()[0])
+    if version == 4:
+        with connection:
+            connection.execute("BEGIN IMMEDIATE")
+            connection.execute("DROP TRIGGER IF EXISTS choice_prompts_no_update")
+            columns = {
+                row[1] for row in connection.execute("PRAGMA table_info(choice_prompts)")
+            }
+            for column, definition in (
+                ("compound_selection_id", "TEXT"),
+                ("compound_order", "INTEGER"),
+                ("compound_size", "INTEGER"),
+            ):
+                if column not in columns:
+                    connection.execute(
+                        f"ALTER TABLE choice_prompts ADD COLUMN {column} {definition}"
+                    )
+            connection.execute(
+                "CREATE TRIGGER choice_prompts_no_update "
+                "BEFORE UPDATE ON choice_prompts BEGIN "
+                "SELECT RAISE(ABORT, 'choice prompts are immutable'); END"
+            )
+            connection.execute(
+                "CREATE INDEX IF NOT EXISTS choice_prompts_compound_selected "
+                "ON choice_prompts(tenant, workspace, compound_selection_id, "
+                "compound_order, choice_id)"
+            )
+            connection.execute("PRAGMA user_version = 5")
+
+
+def sanitize_compound_selection(
+    *,
+    compound_selection_id: str | None,
+    compound_order: int | None,
+    compound_size: int | None,
+) -> dict[str, Any]:
+    supplied = [
+        compound_selection_id is not None,
+        compound_order is not None,
+        compound_size is not None,
+    ]
+    if any(supplied) and not all(supplied):
+        raise ChoiceError("compound selection fields must be supplied together")
+    if not any(supplied):
+        return {
+            "compound_selection_id": None,
+            "compound_order": None,
+            "compound_size": None,
+        }
+    assert compound_selection_id is not None
+    assert compound_order is not None
+    assert compound_size is not None
+    sanitized_id = sanitize_identifier(compound_selection_id)
+    if compound_size < 2:
+        raise ChoiceError("compound_size must be at least 2")
+    if compound_order < 1 or compound_order > compound_size:
+        raise ChoiceError("compound_order must be between 1 and compound_size")
+    return {
+        "compound_selection_id": sanitized_id,
+        "compound_order": compound_order,
+        "compound_size": compound_size,
+    }
 
 
 def create_backup(path: Path, destination: Path) -> Path:
@@ -729,12 +794,20 @@ def select_branch(
     learning_refs: Iterable[Any] | None = None,
     success_signals: Iterable[Any] | None = None,
     risk_signals: Iterable[Any] | None = None,
+    compound_selection_id: str | None = None,
+    compound_order: int | None = None,
+    compound_size: int | None = None,
 ) -> dict[str, Any]:
     sanitized = sanitize_options(options)
     selected_key = sanitize_text(selected_key, limit=80)
     keys = {item["key"] for item in sanitized}
     if selected_key not in keys:
         raise ChoiceError("selected key is not present in the possibility set")
+    compound = sanitize_compound_selection(
+        compound_selection_id=compound_selection_id,
+        compound_order=compound_order,
+        compound_size=compound_size,
+    )
     recommended_key = next(item["key"] for item in sanitized if item["role"] == "recommended")
     prompt = {
         "choice_id": sanitize_identifier(choice_id),
@@ -755,6 +828,9 @@ def select_branch(
         "options_hash": digest(sanitized),
         "recommended_key": recommended_key,
         "selected_key": selected_key,
+        "compound_selection_id": compound["compound_selection_id"],
+        "compound_order": compound["compound_order"],
+        "compound_size": compound["compound_size"],
         "learning_refs_json": canonical_json(sanitize_reference_list(learning_refs)),
         "success_signals_json": canonical_json(sanitize_string_list(success_signals)),
         "risk_signals_json": canonical_json(sanitize_string_list(risk_signals)),
@@ -802,6 +878,9 @@ def select_branch(
                     item["role"] for item in sanitized if item["key"] == selected_key
                 ),
                 "options_hash": prompt["options_hash"],
+                "compound_selection_id": compound["compound_selection_id"],
+                "compound_order": compound["compound_order"],
+                "compound_size": compound["compound_size"],
                 "authority_effect": AUTHORITY_EFFECT,
                 "no_execution_authority": NO_AUTHORITY,
             }
@@ -817,6 +896,7 @@ def select_branch(
         "choice_id": prompt["choice_id"],
         "selected_key": selected_key,
         "selected_role": json.loads(event["payload_json"])["selected_role"],
+        "compound_selection": compound,
         "options_hash": prompt["options_hash"],
         "authority_effect": AUTHORITY_EFFECT,
         "no_execution_authority": NO_AUTHORITY,
@@ -1115,6 +1195,19 @@ def _project_choice_rows(
             "options_hash": row["options_hash"],
             "recommended_key": row["recommended_key"],
             "selected_key": row["selected_key"],
+            "compound_selection": {
+                "compound_selection_id": (
+                    row["compound_selection_id"]
+                    if "compound_selection_id" in row.keys()
+                    else None
+                ),
+                "compound_order": (
+                    row["compound_order"] if "compound_order" in row.keys() else None
+                ),
+                "compound_size": (
+                    row["compound_size"] if "compound_size" in row.keys() else None
+                ),
+            },
             "learning_refs": json.loads(row["learning_refs_json"]),
             "success_signals": json.loads(row["success_signals_json"]),
             "risk_signals": json.loads(row["risk_signals_json"]),
@@ -1180,6 +1273,23 @@ def _verify_choice_rows(
         failures.append("branch_selected event is not first")
     if selection_events:
         selection_payload = selection_events[0]["payload"]
+        prompt_compound = {
+            "compound_selection_id": (
+                prompt["compound_selection_id"]
+                if "compound_selection_id" in prompt.keys()
+                else None
+            ),
+            "compound_order": (
+                prompt["compound_order"] if "compound_order" in prompt.keys() else None
+            ),
+            "compound_size": (
+                prompt["compound_size"] if "compound_size" in prompt.keys() else None
+            ),
+        }
+        try:
+            sanitize_compound_selection(**prompt_compound)
+        except ChoiceError as error:
+            failures.append(str(error))
         selected_option = next(
             (
                 option
@@ -1192,6 +1302,12 @@ def _verify_choice_rows(
             failures.append("selection event key differs from immutable prompt")
         if selection_payload.get("options_hash") != prompt["options_hash"]:
             failures.append("selection event option identity differs from prompt")
+        for key, value in prompt_compound.items():
+            if selection_payload.get(key) != value:
+                failures.append(
+                    "selection event compound metadata differs from immutable prompt"
+                )
+                break
         if (
             not selected_option
             or selection_payload.get("selected_role") != selected_option["role"]
@@ -1863,6 +1979,9 @@ def parse_args(arguments: list[str] | None = None) -> argparse.Namespace:
     select.add_argument("--learning-ref", action="append")
     select.add_argument("--success-signal", action="append")
     select.add_argument("--risk-signal", action="append")
+    select.add_argument("--compound-selection-id")
+    select.add_argument("--compound-order", type=int)
+    select.add_argument("--compound-size", type=int)
     select.add_argument("--dry-run", action="store_true")
 
     outcome = subparsers.add_parser("outcome", help="Append an outcome or lifecycle event.")
@@ -1960,6 +2079,11 @@ def main(arguments: list[str] | None = None) -> int:
             "retained": False,
             "sanitized_options": sanitize_options(parse_json_argument(args.options_json)),
             "selected_key": args.selected_key,
+            "compound_selection": sanitize_compound_selection(
+                compound_selection_id=args.compound_selection_id,
+                compound_order=args.compound_order,
+                compound_size=args.compound_size,
+            ),
             "authority_effect": AUTHORITY_EFFECT,
             "no_execution_authority": NO_AUTHORITY,
         }
@@ -2130,6 +2254,9 @@ def main(arguments: list[str] | None = None) -> int:
                 success_signals=args.success_signal,
                 risk_signals=args.risk_signal,
                 review_cohort=args.review_cohort,
+                compound_selection_id=args.compound_selection_id,
+                compound_order=args.compound_order,
+                compound_size=args.compound_size,
             )
         elif args.command == "outcome":
             payload = append_choice_event(

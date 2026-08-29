@@ -177,6 +177,49 @@ def test_exact_letter_stale_digest_and_closed_repeat_are_distinct() -> None:
     assert repeated["action_authorized"] is False
 
 
+def test_compound_letters_resolve_order_without_broad_action_authority() -> None:
+    capsule = elicitation.validate_elicitation_surface(decision_surface())[
+        "context_capsule"
+    ]
+    result = interaction_context.resolve_followup(capsule, "B,C")
+    assert result["classification"] == "exact-compound-menu-selection"
+    assert result["action_authorized"] is False
+    assert result["authority_effect"] == "none"
+    assert [item["letter"] for item in result["exact_meaning"]["ordered_selected_branches"]] == [
+        "B",
+        "C",
+    ]
+
+
+@pytest.mark.parametrize(
+    ("response", "ambiguity"),
+    (
+        ("B,B", "duplicate-option-letter"),
+        ("B,Z", "unknown-option-letter"),
+        ("B,C,D", "pause-or-deepen-cannot-be-compounded"),
+    ),
+)
+def test_invalid_compound_followups_require_clarification(
+    response: str, ambiguity: str
+) -> None:
+    surface = decision_surface()
+    surface["options"].append(
+        {
+            "key": "deepen",
+            "role": "pause-or-deepen",
+            "label": "Pause or deepen",
+            "selection_effect": "navigate",
+        }
+    )
+    capsule = elicitation.validate_elicitation_surface(surface)[
+        "context_capsule"
+    ]
+    result = interaction_context.resolve_followup(capsule, response)
+    assert result["classification"] == "clarification-required"
+    assert result["ambiguity"] == ambiguity
+    assert result["action_authorized"] is False
+
+
 def test_yes_answers_one_non_action_yes_option_but_never_an_action() -> None:
     neutral = elicitation.validate_elicitation_surface(
         {

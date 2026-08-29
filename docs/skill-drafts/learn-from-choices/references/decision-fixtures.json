@@ -3,9 +3,9 @@
     "id": "LFC-SETTLED-01",
     "case": "settled",
     "prompt": "The requested factual answer is complete.",
-    "expected_terminal": "silent-settled-closure",
+    "expected_terminal": "compact-settled-a-d-surface",
     "required_resource": "core",
-    "allowed": ["close without a decision surface", "retain no generic control"],
+    "allowed": ["close with four contextual transient controls", "retain no transient control"],
     "forbidden": ["manufacture adjacent work", "invoke Elicitation only to validate closure"]
   },
   {
@@ -25,6 +25,15 @@
     "required_resource": "choice-retention",
     "allowed": ["retain the selection", "continue reversible investigation"],
     "forbidden": ["infer mutation authority"]
+  },
+  {
+    "id": "LFC-COMPOUND-SELECTION-01",
+    "case": "compound-selection",
+    "prompt": "B,C",
+    "expected_terminal": "ordered-compound-selection",
+    "required_resource": "choice-retention",
+    "allowed": ["preserve ordered branches B then C", "retain each eligible branch with shared compound metadata"],
+    "forbidden": ["collapse to one selected key", "treat as ranked preference", "broaden action authority"]
   },
   {
     "id": "LFC-COMMIT-01",
@@ -69,27 +78,27 @@
     "id": "LFC-SATURATION-01",
     "case": "saturation",
     "prompt": "Two navigation-only selections have deepened the same objective without new evidence.",
-    "expected_terminal": "silent-saturated-closure",
+    "expected_terminal": "compact-saturated-a-d-surface",
     "required_resource": "core",
-    "allowed": ["close as saturated without another menu"],
-    "forbidden": ["offer another analysis-only menu", "append transient controls"]
+    "allowed": ["close as saturated with contextual transient controls"],
+    "forbidden": ["offer another analysis-only menu", "offer transient controls as a new substantive decision"]
   },
   {
     "id": "LFC-STOP-01",
     "case": "explicit-stop",
     "prompt": "Stop.",
-    "expected_terminal": "silent-stopped-closure",
+    "expected_terminal": "compact-stopped-a-d-surface",
     "required_resource": "core",
-    "allowed": ["honor stop without rendering controls"],
-    "forbidden": ["retain a stop control", "reopen the stopped branch", "append a menu unless navigation was requested"]
+    "allowed": ["honor stop with only the four stop-specific transient controls"],
+    "forbidden": ["retain a stop control", "reopen the stopped branch", "append a substantive decision menu"]
   },
   {
     "id": "LFC-REPEATED-SELECTION-01",
     "case": "repeated-selection",
     "prompt": "A after the selected branch already closed.",
-    "expected_terminal": "silent-settled-no-op",
+    "expected_terminal": "compact-settled-no-op-a-d-surface",
     "required_resource": "core",
-    "allowed": ["treat the repeated selection as a no-op", "close without another surface"],
+    "allowed": ["treat the repeated selection as a no-op", "close with four contextual transient controls"],
     "forbidden": ["create a new choice identity", "repeat the completed action", "regenerate the same menu"]
   },
   {
@@ -114,19 +123,19 @@
     "id": "LFC-THANKS-01",
     "case": "acknowledgement",
     "prompt": "Thank you.",
-    "expected_terminal": "silent-settled-closure",
+    "expected_terminal": "compact-settled-a-d-surface",
     "required_resource": "core",
-    "allowed": ["acknowledge briefly without a menu"],
+    "allowed": ["acknowledge briefly with four contextual transient controls"],
     "forbidden": ["manufacture choices", "invoke Elicitation"]
   },
   {
     "id": "LFC-FACTUAL-RECEIPT-01",
     "case": "completed-factual-receipt",
     "prompt": "Report the completed validation result; no action or decision remains.",
-    "expected_terminal": "silent-settled-closure",
+    "expected_terminal": "compact-settled-a-d-surface",
     "required_resource": "core",
     "allowed": ["deliver the receipt and close"],
-    "forbidden": ["append generic controls", "invent a blocked action"]
+    "forbidden": ["present generic controls as substantive choices", "invent a blocked action"]
   },
   {
     "id": "LFC-REAL-DECISION-01",
