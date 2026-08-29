@@ -24,7 +24,7 @@ orientation directly.
 1. Resolve the private cadence store before running Coffee. Prefer
    `MIRA_CORE_CADENCE_DB`, then compatibility variable `NARRATIVE_CADENCE_DB`.
    In this workspace, when both are unset and the existing compatibility store
-   `C:\private\narrative-cadence.sqlite3` resolves, pass it explicitly with
+   `.mira-private/state/cadence.sqlite3` resolves, pass it explicitly with
    `--db`; do not create or copy a store implicitly. Run
    `tools/run.ps1 cadence --db ABSOLUTE_STORE coffee --format markdown`.
    This command may migrate the resolved private cadence store and append one

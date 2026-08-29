@@ -16,6 +16,7 @@ from pathlib import Path
 from typing import Callable, Iterator, Mapping, Sequence
 
 from runtime_names import EnvironmentNameConflict, resolve_environment
+from portable_paths import local_runtime_root
 
 
 MINIMUM_PYTHON = (3, 11)
@@ -46,13 +47,7 @@ def dependency_declarations(pyproject_path: Path) -> tuple[str, ...]:
 
 
 def default_cache_root(environment: Mapping[str, str] = os.environ) -> Path:
-    if os.name == "nt":
-        base = environment.get("LOCALAPPDATA")
-        root = Path(base) if base else Path.home() / "AppData" / "Local"
-        return root / "MiraCore" / "validation"
-    base = environment.get("XDG_CACHE_HOME")
-    root = Path(base) if base else Path.home() / ".cache"
-    return root / "mira-core" / "validation"
+    return local_runtime_root(dict(environment)) / "validation"
 
 
 def cache_root(

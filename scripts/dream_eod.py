@@ -14,6 +14,7 @@ from zoneinfo import ZoneInfo
 
 import cadence_ledger
 import mira_journal_references
+from portable_paths import PRIVATE_ROOT
 
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
@@ -182,9 +183,11 @@ def journal_entry(run_date: str) -> dict | None:
 
 
 def journal_bundle(args, run_date: str) -> Path:
-    canonical = REPO_ROOT / ".mira-private" / "journal" / "drafts"
+    canonical = PRIVATE_ROOT / "journal" / "drafts"
     legacy = Path(r"C:\private\mira-journal-drafts")
-    root = canonical if canonical.exists() or not legacy.exists() else legacy
+    root = canonical
+    if not canonical.exists() and legacy.exists():
+        print(f"{legacy} is deprecated; use {canonical}", file=sys.stderr)
     return (args.journal_bundle or root / run_date).resolve()
 
 

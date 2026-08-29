@@ -18,7 +18,7 @@ from typing import Any, Iterator, Mapping, Sequence
 
 from archive_store import ArchiveError, ArtifactStore, RecordInput, add_edge, canonical_json, catalog_counts, catalog_fingerprint, ingest_record, iter_active_records, parse_time, safe_logical_path, sha256_bytes, verify_derivation_acyclic
 from runtime_names import resolve_environment
-from portable_paths import PRIVATE_ROOT, require_private_path
+from portable_paths import PRIVATE_ROOT, legacy_external_private_root, require_private_path
 
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
@@ -28,8 +28,9 @@ ARCHIVE_ROOT_ENV = "MIRA_CORE_ARCHIVE_ROOT"
 REPLICA_ROOT_ENV = "MIRA_CORE_ARCHIVE_REPLICA_ROOT"
 CONFIG_PATH_ENV = "MIRA_CORE_ARCHIVE_CONFIG"
 DEFAULT_CONFIG_PATH = PRIVATE_ROOT / "archive" / "config.json"
-EXTERNAL_CONFIG_PATH = Path(r"C:\private\mira-core-archive-config.json")
-FORMER_CONFIG_PATH = Path(r"C:\private\mira-core-system-archive-config.json")
+LEGACY_PRIVATE_ROOT = legacy_external_private_root()
+EXTERNAL_CONFIG_PATH = LEGACY_PRIVATE_ROOT / "mira-core-archive-config.json"
+FORMER_CONFIG_PATH = LEGACY_PRIVATE_ROOT / "mira-core-system-archive-config.json"
 COMPILER_VERSION = "system-archive-context-compiler-v1"
 REPLAY_VERSION = "system-archive-replay-plan-v1"
 TOKEN_RE = re.compile(r"[\w'-]+",re.UNICODE)
@@ -58,7 +59,7 @@ def storage_config() -> tuple[dict[str,Any] | None,Path]:
     if not configured and not path.is_file():
         for fallback in (EXTERNAL_CONFIG_PATH, FORMER_CONFIG_PATH):
             if fallback.is_file():
-                print(f"{fallback} is deprecated; use {DEFAULT_CONFIG_PATH}",file=sys.stderr)
+                print(f"{fallback} is deprecated legacy import config; use {DEFAULT_CONFIG_PATH}",file=sys.stderr)
                 path=fallback
                 break
     if not path.is_file(): return None,path

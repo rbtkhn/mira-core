@@ -10,7 +10,6 @@ import sys
 from pathlib import Path
 from typing import Any, Iterable, Mapping
 
-
 REPO_ROOT = Path(__file__).resolve().parent.parent
 LIBRARY_ROOT = REPO_ROOT / "archive" / "library"
 REGISTRY_PATH = LIBRARY_ROOT / "library-registry.json"
@@ -152,7 +151,7 @@ def resolve_text_root(environment: Mapping[str, str] | None = None) -> Path:
 def ensure_private_text_root(root: Path) -> Path:
     resolved = root.resolve()
     if not private_text_root_allowed(resolved):
-        raise LibraryError(f"library text root must be inside .mira-private or C:/private: {resolved}")
+        raise LibraryError(f"library text root must be inside .mira-private; C:/private is legacy import-only: {resolved}")
     resolved.mkdir(parents=True, exist_ok=True)
     return resolved
 
@@ -160,11 +159,7 @@ def ensure_private_text_root(root: Path) -> Path:
 def private_text_root_allowed(root: Path) -> bool:
     resolved = root.resolve()
     repo_private = (REPO_ROOT / ".mira-private").resolve()
-    allowed_roots = [repo_private]
-    private_root = Path("C:/private")
-    if private_root.exists():
-        allowed_roots.append(private_root.resolve())
-    return any(resolved == allowed or allowed in resolved.parents for allowed in allowed_roots)
+    return resolved == repo_private or repo_private in resolved.parents
 
 
 def resolve_text_location(location: Any, environment: Mapping[str, str] | None = None) -> Path | None:
@@ -1149,7 +1144,7 @@ def admit_text_command(args: argparse.Namespace) -> dict[str, Any]:
     text_root = resolve_text_root()
     resolved_text_root = text_root.resolve()
     if not private_text_root_allowed(resolved_text_root):
-        raise LibraryError(f"library text root must be inside .mira-private or C:/private: {resolved_text_root}")
+        raise LibraryError(f"library text root must be inside .mira-private; C:/private is legacy import-only: {resolved_text_root}")
     if not args.check:
         resolved_text_root = ensure_private_text_root(text_root)
     registry = load_registry()

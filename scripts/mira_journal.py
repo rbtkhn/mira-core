@@ -17,6 +17,7 @@ from zoneinfo import ZoneInfo
 import mira_continuity
 import rest_receipts
 import mira_journal_references
+from portable_paths import local_runtime_root
 from runtime_names import resolve_environment
 
 
@@ -3785,7 +3786,7 @@ def parser() -> argparse.ArgumentParser:
     replay.add_argument("--exclude-version", action="append", default=[])
     replay.add_argument(
         "--output", type=Path,
-        default=Path(r"C:\private\mira-journal-freshness-replay-20260816.json"),
+        default=local_runtime_root() / "runtime" / "temp" / "mira-journal-freshness-replay-20260816.json",
     )
     replay.add_argument("--check", action="store_true")
     add_output(replay)

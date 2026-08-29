@@ -154,7 +154,7 @@ They close advisory learning loops through a configured append-only private
 SQLite ledger outside Git:
 
 ```powershell
-$env:MIRA_CORE_CADENCE_DB = 'C:\private\mira-core-cadence.sqlite3'
+$env:MIRA_CORE_CADENCE_DB = "$PWD\.mira-private\state\cadence.sqlite3"
 .\tools\run.ps1 cadence coffee --format markdown
 .\tools\run.ps1 cadence dream --help
 ```

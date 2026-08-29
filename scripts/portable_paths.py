@@ -1,10 +1,12 @@
 from __future__ import annotations
 
+import os
 from pathlib import Path
 
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 PRIVATE_ROOT = REPO_ROOT / ".mira-private"
+LOCAL_RUNTIME_ENV = "MIRA_CORE_LOCAL_ROOT"
 
 
 class PortablePathError(ValueError):
@@ -66,3 +68,25 @@ def require_bundle_child(
     if not is_within(resolved, repo_root):
         raise PortablePathError(f"{label} must remain inside the existing Mira Core root")
     return resolved
+
+
+def local_runtime_root(environment: dict[str, str] | None = None) -> Path:
+    """Return the machine-local Mira Core root for cache and temporary state."""
+
+    source = os.environ if environment is None else environment
+    configured = source.get(LOCAL_RUNTIME_ENV)
+    if configured:
+        return Path(configured).expanduser()
+    if os.name == "nt":
+        base = source.get("LOCALAPPDATA")
+        root = Path(base) if base else Path.home() / "AppData" / "Local"
+        return root / "MiraCore"
+    base = source.get("XDG_CACHE_HOME")
+    root = Path(base) if base else Path.home() / ".cache"
+    return root / "mira-core"
+
+
+def legacy_external_private_root() -> Path:
+    """Legacy import-only private root retained for compatibility reads."""
+
+    return Path("C:/private")

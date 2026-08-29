@@ -753,7 +753,7 @@ def test_admit_text_rejects_non_private_root(tmp_path: Path, monkeypatch, capsys
         "public-domain",
         "--json",
     ]) == 1
-    assert "library text root must be inside .mira-private or C:/private" in capsys.readouterr().err
+    assert "library text root must be inside .mira-private" in capsys.readouterr().err
 
 
 def test_render_index_command_writes_and_checks_drift(tmp_path: Path, monkeypatch, capsys) -> None:

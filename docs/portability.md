@@ -4,6 +4,17 @@ The existing Git root is the sole transfer unit. `.mira-private/` is an ignored,
 unencrypted child payload; it is not another repository and is not complete in a
 Git clone. Copy the entire existing root to the USB device.
 
+Private-root policy:
+
+- `%LOCALAPPDATA%\MiraCore` is machine-local runtime state: validation
+  environments, temporary roots, runtime scratch, continuity inboxes, and
+  migration markers.
+- `.mira-private/` is the repo-local portable private carrier: private SQLite
+  state, archive copies, library texts, Journal drafts/revisions, sessions, and
+  recovery material.
+- `C:\private` is legacy import-only material. New workflow state and temporary
+  validation roots must not be created there.
+
 Run `python tools/mira_portable.py status`, then `prepare`. `prepare` copies and
 verifies external sources without moving or deleting originals. It records every
 included or excluded dependency in `.mira-private/portability/dispositions.json`.

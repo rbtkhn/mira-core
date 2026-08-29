@@ -19,6 +19,7 @@ from typing import Any, Iterable
 REPO_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(REPO_ROOT / "scripts"))
 PRIVATE = REPO_ROOT / ".mira-private"
+LEGACY_PRIVATE = Path(r"C:\private")
 PORTABILITY = PRIVATE / "portability"
 DISPOSITIONS = PORTABILITY / "dispositions.json"
 MANIFEST = PORTABILITY / "manifest.json"
@@ -111,8 +112,8 @@ def archive_sources(*, include_portable: bool=True) -> tuple[Path | None, Path |
     configured=os.environ.get("MIRA_CORE_ARCHIVE_CONFIG", "").strip()
     if configured: candidates.append(Path(configured))
     if include_portable: candidates.append(PRIVATE/"archive/config.json")
-    candidates += [Path(r"C:\private\mira-core-archive-config.json"),
-                   Path(r"C:\private\mira-core-system-archive-config.json"), Path(r"C:\private\narrative-system-archive-config.json")]
+    candidates += [LEGACY_PRIVATE/"mira-core-archive-config.json",
+                   LEGACY_PRIVATE/"mira-core-system-archive-config.json", LEGACY_PRIVATE/"narrative-system-archive-config.json"]
     for config in candidates:
         if config.is_file():
             doc=json.loads(config.read_text(encoding="utf-8"))
@@ -255,8 +256,8 @@ def status() -> dict[str, Any]:
 def prepare() -> dict[str, Any]:
     for name in DIRS: beneath(PRIVATE/name).mkdir(parents=True, exist_ok=True)
     rows=[]; copied={}
-    db_specs=(("MIRA_CORE_CADENCE_DB", Path(r"C:\private\narrative-cadence.sqlite3"), PRIVATE/"state/cadence.sqlite3"),
-              ("MIRA_CORE_CHOICE_DB", Path(r"C:\private\narrative-choice-history.sqlite3"), PRIVATE/"state/choice-history.sqlite3"))
+    db_specs=(("MIRA_CORE_CADENCE_DB", LEGACY_PRIVATE/"narrative-cadence.sqlite3", PRIVATE/"state/cadence.sqlite3"),
+              ("MIRA_CORE_CHOICE_DB", LEGACY_PRIVATE/"narrative-choice-history.sqlite3", PRIVATE/"state/choice-history.sqlite3"))
     for env, fallback, dest in db_specs:
         source=Path(os.environ.get(env) or fallback)
         if source.is_file():
@@ -270,7 +271,7 @@ def prepare() -> dict[str, Any]:
             rows.append(disposition(str(source), "include-private-active", f"byte-preserving {label} archive copy", dest.relative_to(REPO_ROOT).as_posix(), authority="active-private-carrier"))
         else: rows.append(disposition(str(source), "include-private-active", f"required {label} archive missing", dest.relative_to(REPO_ROOT).as_posix()))
     write_json(PRIVATE/"archive/config.json", {"schema_version":1, "canonical_root":"canonical", "replica_root":"replica"})
-    journal_specs=((Path(r"C:\private\mira-journal-drafts"), PRIVATE/"journal/drafts"), (Path(r"C:\private\mira-journal-revisions"), PRIVATE/"journal/revisions"))
+    journal_specs=((LEGACY_PRIVATE/"mira-journal-drafts", PRIVATE/"journal/drafts"), (LEGACY_PRIVATE/"mira-journal-revisions", PRIVATE/"journal/revisions"))
     for source,dest in journal_specs:
         if source.is_dir():
             receipts=copy_tree(source,dest); rows.append(disposition(str(source), "include-private-active", "private Journal material; preservation grants no promotion", dest.relative_to(REPO_ROOT).as_posix(), authority="private-noncanonical")); copied[source.name]=len(receipts)
@@ -288,7 +289,7 @@ def prepare() -> dict[str, Any]:
             else: missing_attachments.append(str(attachment))
     copied["sessions"] = len(session_receipts)
     for name in LEGACY_DIRS:
-        source=Path(r"C:\private")/name
+        source=LEGACY_PRIVATE/name
         if source.is_dir():
             count=len(copy_tree(source, PRIVATE/"legacy"/name)); rows.append(disposition(str(source), "include-inactive-legacy", "preserved without identity, evidence, Journal, or action authority", f".mira-private/legacy/{name}", authority="inactive")); copied[f"legacy_{name}"]=count
     codex=Path.home()/".codex"

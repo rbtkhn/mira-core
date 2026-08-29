@@ -52,12 +52,13 @@ evidence by reference.
 Configure private state only with an absolute path outside Git:
 
 ```powershell
-$env:MIRA_CORE_CHOICE_DB = "C:\private\mira-core-choice-history.sqlite3"
+$env:MIRA_CORE_CHOICE_DB = "$PWD\.mira-private\state\choice-history.sqlite3"
 .\tools\run.ps1 choice select ...
 ```
 
 During migration, an existing `NARRATIVE_CHOICE_DB` remains usable and emits a
-deprecation warning. Prefer setting `MIRA_CORE_CHOICE_DB` to the same absolute
+deprecation warning. Prefer setting `MIRA_CORE_CHOICE_DB` to the canonical
+`.mira-private/state/choice-history.sqlite3` absolute
 private path; if both variables are populated with different paths, preserve
 the conflict and stop rather than choosing one.
 

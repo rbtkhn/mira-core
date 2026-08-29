@@ -31,10 +31,12 @@ requests for an authorized external runner and ingests its JSON outputs.
 Preflight an empty external root before export, then run:
 
 ```powershell
+$runRoot = "$env:LOCALAPPDATA\MiraCore\runtime\temp\mira-skill-ablation-run"
+$scoreRoot = "$env:LOCALAPPDATA\MiraCore\runtime\temp\mira-skill-ablation-scores"
 tools/run.ps1 skill-ablation validate
-tools/run.ps1 skill-ablation export --run-root C:\private\mira-skill-ablation-run --model MODEL --runtime RUNTIME --effort EFFORT
-tools/run.ps1 skill-ablation score --run-root C:\private\mira-skill-ablation-run --ai-scores C:\private\ai-scores.json
-tools/run.ps1 skill-ablation decision --run-root C:\private\mira-skill-ablation-run --operator-scores C:\private\operator-scores.json --adjudications C:\private\adjudications.json
+tools/run.ps1 skill-ablation export --run-root $runRoot --model MODEL --runtime RUNTIME --effort EFFORT
+tools/run.ps1 skill-ablation score --run-root $runRoot --ai-scores "$scoreRoot\ai-scores.json"
+tools/run.ps1 skill-ablation decision --run-root $runRoot --operator-scores "$scoreRoot\operator-scores.json" --adjudications "$scoreRoot\adjudications.json"
 ```
 
 Each external output must use schema `mira-skill-ablation-output-v1`, retain its
