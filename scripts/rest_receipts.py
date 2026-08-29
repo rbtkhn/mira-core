@@ -6,6 +6,7 @@ import os
 import subprocess
 import sys
 import time
+import re
 from contextlib import contextmanager
 from datetime import datetime, timezone
 from pathlib import Path
@@ -20,8 +21,8 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 INBOX_ENV = "MIRA_CORE_CONTINUITY_INBOX"
 DEFAULT_INBOX = state_path("continuity/inbox")
 WORKSPACE_ID = "mira-core"
-SCHEMA_VERSION = 2
-SUPPORTED_SCHEMA_VERSIONS = {1, 2}
+SCHEMA_VERSION = 3
+SUPPORTED_SCHEMA_VERSIONS = {1, 2, 3}
 LOCAL_TIMEZONE = "America/Denver"
 REVIEW_STATES = {
     "mira-journal": "pending-consideration",
@@ -30,8 +31,9 @@ REVIEW_STATES = {
 DEBT_CLASSES = {
     "uncommitted-work", "unpublished-commit", "blocked-external-action",
     "unresolved-authority", "open-choice-branch", "unsaved-artifact",
-    "unavailable-verification",
+    "unavailable-verification", "action-capable-transition",
 }
+TRANSITION_RE = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._:/-]{0,127}$")
 
 
 class RestError(RuntimeError):
@@ -201,9 +203,20 @@ def requested_review_entries(owners: list[str] | None = None) -> list[dict[str, 
     return [{"owner": owner, "state": REVIEW_STATES[owner]} for owner in sorted(requested)]
 
 
+def transition_entries(values: list[str] | None = None) -> list[str]:
+    transitions = sorted(set(values or []))
+    if len(transitions) > 10:
+        raise RestError("at most ten active transitions may be recorded")
+    invalid = [value for value in transitions if not TRANSITION_RE.fullmatch(value)]
+    if invalid:
+        raise RestError("invalid active transition identifier")
+    return transitions
+
+
 def event_body(*, session: str, sequence: int, event_type: str, record: dict[str, str],
                previous: str | None, debt: list[str], state: dict[str, Any],
-               debt_basis: dict[str, str] | None = None, reviews: list[str] | None = None) -> dict[str, Any]:
+               debt_basis: dict[str, str] | None = None, reviews: list[str] | None = None,
+               transitions: list[str] | None = None) -> dict[str, Any]:
     body = {
         "schema_version": SCHEMA_VERSION,
         "event_id": "",
@@ -219,6 +232,7 @@ def event_body(*, session: str, sequence: int, event_type: str, record: dict[str
         "reentry_expected": event_type == "resumed",
         "closure_debt": debt if event_type == "rested" else [],
         "closure_debt_basis": (debt_basis or {}) if event_type == "rested" else {},
+        "active_transitions": transition_entries(transitions) if event_type == "rested" else [],
         "repository_state": state if event_type == "rested" else None,
         "requested_reviews": requested_review_entries(reviews) if event_type == "rested" else [],
     }
@@ -229,7 +243,8 @@ def event_body(*, session: str, sequence: int, event_type: str, record: dict[str
 
 
 def planned_events(source: mira_continuity.SessionSource, existing: list[dict[str, Any]],
-                   debt: list[str] | None = None, reviews: list[str] | None = None) -> list[dict[str, Any]]:
+                   debt: list[str] | None = None, reviews: list[str] | None = None,
+                   transitions: list[str] | None = None) -> list[dict[str, Any]]:
     records = user_records(source)
     if not records or not exact_rest(records[-1]["text"]):
         raise RestError("the latest user instruction must be exactly `rest`")
@@ -243,16 +258,21 @@ def planned_events(source: mira_continuity.SessionSource, existing: list[dict[st
         resumed = next((row for row in after if not exact_rest(row["text"])), None)
         if resumed:
             body = event_body(session=source.session_uuid, sequence=sequence, event_type="resumed",
-                              record=resumed, previous=previous, debt=[], state={}, debt_basis={}, reviews=[])
+                              record=resumed, previous=previous, debt=[], state={}, debt_basis={}, reviews=[],
+                              transitions=[])
             body["event_sha256"] = digest(body)
             additions.append(body)
             previous, sequence = body["event_sha256"], sequence + 1
         else:
             return []
-    assessed_debt, basis = debt_assessment(state, debt)
+    active_transitions = transition_entries(transitions)
+    declared_debt = list(debt or [])
+    if active_transitions:
+        declared_debt.append("action-capable-transition")
+    assessed_debt, basis = debt_assessment(state, declared_debt)
     body = event_body(session=source.session_uuid, sequence=sequence, event_type="rested",
                       record=records[-1], previous=previous, debt=assessed_debt, state=state,
-                      debt_basis=basis, reviews=reviews)
+                      debt_basis=basis, reviews=reviews, transitions=active_transitions)
     body["event_sha256"] = digest(body)
     additions.append(body)
     return additions
@@ -309,6 +329,7 @@ def projection(inbox: Path, session: str, source: mira_continuity.SessionSource 
         "current_state": current, "derived_resume": derived_resume,
         "event_count": len(events), "latest_event_id": latest.get("event_id") if latest else None,
         "closure_debt": latest.get("closure_debt", []) if latest else [],
+        "active_transitions": latest.get("active_transitions", []) if latest else [],
         "requested_reviews": review_queue(events),
         "mutation_performed": False,
     }

@@ -85,6 +85,10 @@ def test_completion_and_composition_contract_are_present() -> None:
         "Mira Voice governs tone",
         "`learn-from-choices` governs final navigation",
         "must not silently create durable memory",
+        "mira-work snapshot --repo ABSOLUTE_PATH --format json",
+        "one action-capable architectural or state transition per repository",
+        "blocked-with-resumption",
+        "Landed-state result:",
     ):
         assert phrase in normalized
 

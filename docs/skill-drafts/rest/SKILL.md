@@ -20,6 +20,10 @@ terminal response.
    `--debt CLASS`. The receipt records whether each class was automatic or
    declared. Do not imply that the automatic check covers unsaved artifacts,
    authority questions, blocked external actions, or open choice branches.
+   Report each unresolved action-capable transition separately with
+   `--transition <bounded-id>`. Rest records it as
+   `action-capable-transition` debt; ordinary Git dirt and optional future work
+   are not transitions.
 3. Add `--review mira-journal` only when the session contains a substantive
    reflection worth later consideration. Add `--review recursive-learn` only
    when a recurring method observation may warrant later screening. Review
@@ -30,6 +34,11 @@ terminal response.
    rather than launching another.
 6. Report receipt retention and each material debt class once, then stop. Do
    not produce a handoff, possibility menu, or invitation to continue.
+
+An unresolved transition must name an exact re-entry point in the surrounding
+closure response or governing resumption packet. Rest may preserve that point,
+but it cannot describe the transition as complete or demote it to optional
+future work.
 
 Bare Rest authorizes only the private receipt. If storage is unavailable,
 close conversationally and disclose that the receipt and review requests were

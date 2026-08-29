@@ -28,6 +28,10 @@ conversation, simple one-step edits, or low-consequence mechanical work.
   information.
 - Resolve and state the active repository root before inspecting or modifying
   another repository.
+- For consequential repository or state work, capture a fresh read-only
+  `tools/run.ps1 mira-work snapshot --repo ABSOLUTE_PATH --format json`.
+  Bind the snapshot digest into the preflight. A commit, checkout, rebase,
+  migration, relevant environment change, or remote refresh makes it stale.
 - Classify the work as read-only, preparatory, or action-capable.
 - Treat external repositories as read-only unless an exact bounded mutation is
   explicitly authorized.
@@ -84,6 +88,10 @@ Method allowed to end:
 ### Act
 
 - Prepare analysis, drafts, packets, plans, or bounded changes within scope.
+- Maintain one action-capable architectural or state transition per repository.
+  Before opening another, complete the first, pause it explicitly, or stop it
+  with a resumption packet. Read-only diagnosis may continue but cannot
+  silently become a second mutation lane.
 - Keep the receipt target visible while acting. Do not let a technically
   complete artifact displace the human process, decision, or observable proof
   that made the work worth doing.
@@ -151,6 +159,9 @@ Validation plan:
 Stop or rollback path:
 Chunking and retry threshold:
 Human review or handoff point:
+Landed-state snapshot digest:
+Active transition:
+Prior transition disposition: none | completed | paused | blocked-with-resumption
 ```
 
 When the work is meant to improve a process, decision, workflow, handoff, or
@@ -186,6 +197,10 @@ Evidence or artifacts used:
 Decisions made:
 Risks or limits:
 Next owner can act without rediscovery: yes | no | not-applicable
+Landed-state snapshot digest:
+Active transition: none | <bounded transition>
+Prior transition disposition: none | completed | paused | blocked-with-resumption
+Landed-state result: working-tree | committed | remote-verified | hosted-verified | not-applicable
 Compression class: toil | technique | judgment | apprenticeship | not-applicable
 Authorized boundary:
 Validation profile and result:
@@ -254,6 +269,9 @@ current system no longer lacks.
 - `mira-journal` governs journal artifacts.
 - `morning-brief` governs morning-brief research and rendering.
 - `mira-github` governs staging, commit, push, branch, PR, and main-sync lanes.
+  It consumes a fresh Mira Work snapshot and re-snapshots after every Git
+  mutation; intended, working-tree, committed, remote, and hosted state remain
+  distinct claims.
 - `learn-from-choices` governs final navigation, action-ready selections, and
   closure.
 - The stricter authority, privacy, safety, or evidence rule controls.

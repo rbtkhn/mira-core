@@ -13,6 +13,13 @@ what GitHub lane is safe, what evidence is missing, and where authority stops.
 Use this skill before staging, committing, pushing, opening a PR, synchronizing
 `main`, or interpreting compressed operator direction that could lead there.
 
+For every consequential Git action, first run `tools/run.ps1 mira-work
+snapshot --repo <absolute-repository> --remote <remote/branch> --format json`
+and retain its digest. A snapshot is stale after a commit, checkout, rebase,
+migration, relevant environment change, or remote fetch. Re-snapshot
+immediately after every Git mutation; never carry a stale digest across the
+next action boundary.
+
 ## Start with fresh state
 
 Do not rely on status, branch, validation, or authority remembered from an
@@ -524,6 +531,7 @@ Repository:
 Current branch:
 Target commit:
 Intended branch/refspec:
+Pre-action snapshot digest:
 Upstream divergence:
 Remote/auth/LFS blocker:
 Validation already run:
@@ -535,6 +543,16 @@ Authority effect: none.
 Use this packet for invalid GitHub auth, missing LFS support, unknown remote,
 silent push failure, divergent `main`, unavailable publication proof, or any
 blocker that would otherwise require rediscovery in the next session.
+The packet pauses or blocks the existing publication transition. It must not
+silently open a second repair or architecture transition.
+
+After a push, verify the exact advertised remote SHA and take a fresh Mira Work
+snapshot. The publication receipt must state the pre-action and post-action
+snapshot digests, exact local commit, exact remote commit, excluded dirty paths,
+remaining divergence, and reached boundary. Keep intended state, working-tree
+state, committed state, remote state, and hosted state distinct. If any required
+boundary cannot be proved, report it as unavailable or blocked rather than
+claiming synchronization.
 
 ## Track diagnostic benchmarks
 

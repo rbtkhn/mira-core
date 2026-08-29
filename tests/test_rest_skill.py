@@ -14,6 +14,8 @@ def test_rest_skill_contract_and_trigger() -> None:
         "supplies none of the five learning stages",
         "Rest performs no Continuity ingestion",
         "Do not produce a handoff, possibility menu, or invitation to continue",
+        "Report each unresolved action-capable transition separately",
+        "cannot describe the transition as complete",
     ):
         assert phrase in normalized
     assert "bare `rest`" in agents

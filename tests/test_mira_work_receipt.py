@@ -1,8 +1,13 @@
 from __future__ import annotations
 
 import json
+import os
+import stat
+import subprocess
 import sys
 from pathlib import Path
+
+import pytest
 
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
@@ -11,6 +16,33 @@ if str(SCRIPTS_ROOT) not in sys.path:
     sys.path.insert(0, str(SCRIPTS_ROOT))
 
 import mira_work_receipt as subject
+
+
+def git(repo: Path, *args: str) -> str:
+    return subprocess.run(["git", "-C", str(repo), *args], check=True, capture_output=True, text=True).stdout.strip()
+
+
+def snapshot_repo(tmp_path: Path) -> Path:
+    repo = tmp_path / "repo"
+    repo.mkdir()
+    git(repo, "init")
+    git(repo, "config", "user.name", "Mira Test")
+    git(repo, "config", "user.email", "mira@example.invalid")
+    (repo / "tracked.txt").write_text("one", encoding="utf-8")
+    git(repo, "add", "tracked.txt")
+    git(repo, "commit", "-m", "initial")
+    git(repo, "update-ref", "refs/remotes/origin/main", "HEAD")
+    return repo
+
+
+@pytest.fixture
+def git_cleanup(tmp_path: Path):
+    yield
+    for path in sorted(tmp_path.rglob("*"), reverse=True):
+        try:
+            path.chmod(path.stat().st_mode | stat.S_IWRITE)
+        except OSError:
+            pass
 
 
 def write_receipt(path: Path, body: str) -> Path:
@@ -100,6 +132,10 @@ What changed: filled
 Evidence or artifacts used: filled
 Decisions made: filled
 Risks or limits: filled
+Landed-state snapshot digest: filled
+Active transition: filled
+Prior transition disposition: filled
+Landed-state result: filled
 ```
 Next owner can act without rediscovery: this code fence should not count
 ```
@@ -279,6 +315,9 @@ Data sensitivity and exclusions: filled
 Validation plan: filled
 Stop or rollback path: filled
 Chunking and retry threshold: filled
+Landed-state snapshot digest: filled
+Active transition: filled
+Prior transition disposition: filled
 ```
 Human review or handoff point: this code fence should not count
 ```
@@ -367,3 +406,62 @@ def test_preflight_json_output_is_parseable_and_authority_free(tmp_path, monkeyp
     assert output["advisory_fields"] == list(subject.PREFLIGHT_ADVISORY_FIELDS)
     assert output["present_advisory_fields"] == []
     assert output["missing_advisory_fields"] == list(subject.PREFLIGHT_ADVISORY_FIELDS)
+
+
+def test_snapshot_reports_clean_landed_state_and_carriers(tmp_path: Path, git_cleanup) -> None:
+    repo = snapshot_repo(tmp_path)
+    state = tmp_path / "state"
+    for relative in (
+        "state/choice-history.sqlite3", "state/cadence.sqlite3",
+        "state/mentorship.sqlite3", "archive/config.json",
+    ):
+        path = state / relative
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.touch()
+    (state / "continuity/inbox").mkdir(parents=True)
+    result = subject.landed_state_snapshot(
+        repo.resolve(), environment={"MIRA_CORE_STATE_ROOT": str(state.resolve())},
+    )
+    assert result["dirty"]["count"] == 0
+    assert result["ahead"] == 0 and result["behind"] == 0
+    assert all(result["state"]["carriers"].values())
+    assert len(result["snapshot_digest"]) == 64
+    assert result["authority_effect"] == "none"
+
+
+def test_snapshot_distinguishes_dirty_ahead_behind_diverged_and_detached(tmp_path: Path, git_cleanup) -> None:
+    repo = snapshot_repo(tmp_path)
+    (repo / "tracked.txt").write_text("dirty", encoding="utf-8")
+    dirty = subject.landed_state_snapshot(repo.resolve(), environment={"MIRA_CORE_STATE_ROOT": str((tmp_path / "state").resolve())})
+    assert dirty["dirty"]["tracked"] == 1
+    git(repo, "checkout", "--", "tracked.txt")
+    (repo / "ahead.txt").write_text("ahead", encoding="utf-8")
+    git(repo, "add", "ahead.txt"); git(repo, "commit", "-m", "ahead")
+    ahead = subject.landed_state_snapshot(repo.resolve(), environment={"MIRA_CORE_STATE_ROOT": str((tmp_path / "state").resolve())})
+    assert ahead["ahead"] == 1 and ahead["behind"] == 0
+    remote_tip = git(repo, "rev-parse", "HEAD")
+    git(repo, "reset", "--hard", "HEAD~1")
+    git(repo, "update-ref", "refs/remotes/origin/main", remote_tip)
+    behind = subject.landed_state_snapshot(repo.resolve(), environment={"MIRA_CORE_STATE_ROOT": str((tmp_path / "state").resolve())})
+    assert behind["behind"] == 1 and behind["ahead"] == 0
+    (repo / "local.txt").write_text("local", encoding="utf-8")
+    git(repo, "add", "local.txt"); git(repo, "commit", "-m", "local")
+    diverged = subject.landed_state_snapshot(repo.resolve(), environment={"MIRA_CORE_STATE_ROOT": str((tmp_path / "state").resolve())})
+    assert diverged["behind"] == 1 and diverged["ahead"] == 1
+    git(repo, "checkout", "--detach")
+    assert subject.landed_state_snapshot(repo.resolve(), environment={"MIRA_CORE_STATE_ROOT": str((tmp_path / "state").resolve())})["detached"]
+
+
+def test_snapshot_handles_alternate_worktree_missing_remote_and_environment_conflict(tmp_path: Path, git_cleanup) -> None:
+    repo = snapshot_repo(tmp_path)
+    worktree = tmp_path / "worktree"
+    git(repo, "worktree", "add", "-b", "codex/test", str(worktree))
+    environment = {
+        "MIRA_CORE_STATE_ROOT": str((tmp_path / "state").resolve()),
+        "MIRA_CORE_CHOICE_DB": str((tmp_path / "new.sqlite3").resolve()),
+        "NARRATIVE_CHOICE_DB": str((tmp_path / "old.sqlite3").resolve()),
+    }
+    result = subject.landed_state_snapshot(worktree.resolve(), remote="origin/missing", environment=environment)
+    assert result["remote_available"] is False
+    assert result["worktree_git_dir"] != result["git_common_dir"]
+    assert result["environment"]["conflicts"][0]["canonical"] == "MIRA_CORE_CHOICE_DB"

@@ -61,9 +61,12 @@ def test_fixture_inventory_covers_normal_edge_failure_and_ambiguous_cases() -> N
         "MGH-FAILURE-01",
         "MGH-FAILURE-03",
         "MGH-EDGE-03",
-        "MGH-FAILURE-02",
-        "MGH-AMBIGUOUS-01",
-    )
+            "MGH-FAILURE-02",
+            "MGH-AMBIGUOUS-01",
+            "MGH-FAILURE-04",
+            "MGH-EDGE-04",
+            "MGH-NORMAL-04",
+        )
     for fixture_id in expected:
         assert fixtures.count(f"## {fixture_id} ") == 1
     assert fixtures.count("- Expected:") == len(expected)
@@ -124,6 +127,32 @@ def test_blocked_push_stops_with_resumption_packet_and_no_blind_retry() -> None:
         assert field in skill
     assert "Do not retry blind pushes" in normalized
     assert "produce a resumption packet for every blocked push" in normalized
+
+
+def test_snapshot_and_landed_state_closure_contract() -> None:
+    skill = (SKILL_ROOT / "SKILL.md").read_text(encoding="utf-8")
+    normalized = " ".join(skill.split())
+    for phrase in (
+        "tools/run.ps1 mira-work snapshot",
+        "Re-snapshot immediately after every Git mutation",
+        "pre-action and post-action snapshot digests",
+        "exact local commit",
+        "exact remote commit",
+        "excluded dirty paths",
+        "remaining divergence",
+        "working-tree state, committed state, remote state, and hosted state distinct",
+        "must not silently open a second repair or architecture transition",
+    ):
+        assert phrase in normalized
+
+
+def test_operational_maturation_fixtures_cover_stale_competing_and_exact_closure() -> None:
+    fixtures = (SKILL_ROOT / "references" / "validation-fixtures.md").read_text(encoding="utf-8")
+    for fixture_id in ("MGH-FAILURE-04", "MGH-EDGE-04", "MGH-NORMAL-04"):
+        assert fixtures.count(f"## {fixture_id} ") == 1
+    assert "publishing from the stale snapshot" in fixtures
+    assert "silently beginning the architectural repair" in fixtures
+    assert "local and remote SHA equality is proved" in fixtures
 
 
 def test_skill_uses_non_printing_token_check_and_deterministic_publication_tools() -> None:

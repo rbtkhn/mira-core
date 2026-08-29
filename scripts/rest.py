@@ -14,6 +14,8 @@ def parser() -> argparse.ArgumentParser:
     root.add_argument("--json", action="store_true")
     root.add_argument("--debt", action="append", choices=sorted(rest_receipts.DEBT_CLASSES), default=[])
     root.add_argument("--review", action="append", choices=sorted(rest_receipts.REVIEW_STATES), default=[])
+    root.add_argument("--transition", action="append", default=[],
+                      help="bounded identifier for an unresolved action-capable transition")
     commands = root.add_subparsers(dest="command")
     for name in ("status", "verify"):
         item = commands.add_parser(name)
@@ -37,6 +39,8 @@ def emit(value: dict, as_json: bool) -> None:
     print(f"Rest state: {value.get('current_state', value.get('status', 'unknown'))}")
     if value.get("closure_debt"):
         print("Visible debt: " + ", ".join(value["closure_debt"]))
+    if value.get("active_transitions"):
+        print("Unresolved transitions: " + ", ".join(value["active_transitions"]))
     print(f"Mutation performed: {'yes' if value.get('mutation_performed') else 'no'}")
 
 
@@ -53,13 +57,13 @@ def main(arguments: list[str] | None = None) -> int:
         session, source = current_source()
         directory = rest_receipts.session_dir(inbox, session)
         existing = rest_receipts.load_events(inbox, session)
-        additions = rest_receipts.planned_events(source, existing, args.debt, args.review)
+        additions = rest_receipts.planned_events(source, existing, args.debt, args.review, args.transition)
         value = rest_receipts.projection(inbox, session, source)
         value.update({"status": "ready" if args.check else "written", "planned_events": additions})
         if not args.check and additions:
             with rest_receipts.session_lock(directory):
                 existing = rest_receipts.load_events(inbox, session)
-                additions = rest_receipts.planned_events(source, existing, args.debt, args.review)
+                additions = rest_receipts.planned_events(source, existing, args.debt, args.review, args.transition)
                 rest_receipts.write_events(inbox, session, additions)
             value = rest_receipts.projection(inbox, session, source)
             value.update({"status": "written", "mutation_performed": bool(additions)})

@@ -1,11 +1,18 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
+import os
 import re
+import subprocess
 import sys
+from datetime import datetime, timezone
 from pathlib import Path
-from typing import Any
+from typing import Any, Mapping
+
+from portable_paths import PortablePathError, resolve_state_root
+from runtime_names import DEPRECATED_ENVIRONMENT_ALIASES, DEPRECATED_ENVIRONMENT_ALIAS_CHAINS
 
 
 SCHEMA_VERSION = "1.0"
@@ -23,6 +30,10 @@ REQUIRED_FIELDS = (
     "Decisions made",
     "Risks or limits",
     "Next owner can act without rediscovery",
+    "Landed-state snapshot digest",
+    "Active transition",
+    "Prior transition disposition",
+    "Landed-state result",
 )
 
 PREFLIGHT_FIELDS = (
@@ -39,6 +50,9 @@ PREFLIGHT_FIELDS = (
     "Stop or rollback path",
     "Chunking and retry threshold",
     "Human review or handoff point",
+    "Landed-state snapshot digest",
+    "Active transition",
+    "Prior transition disposition",
 )
 
 PREFLIGHT_ADVISORY_FIELDS = (
@@ -89,6 +103,103 @@ LIST_MARKER_RE = re.compile(r"^\s*(?:[-*+]\s+)?(?P<label>.*?)\s*$")
 
 class ReceiptError(ValueError):
     pass
+
+
+def canonical_digest(value: Any) -> str:
+    raw = json.dumps(value, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode()
+    return hashlib.sha256(raw).hexdigest()
+
+
+def git(repo: Path, *arguments: str, required: bool = True) -> str | None:
+    result = subprocess.run(
+        ["git", "-C", str(repo), *arguments], capture_output=True, text=True,
+        encoding="utf-8", errors="replace",
+    )
+    if result.returncode == 0:
+        return result.stdout.strip()
+    if required:
+        detail = result.stderr.strip() or result.stdout.strip() or "Git command failed"
+        raise ReceiptError(detail)
+    return None
+
+
+def environment_observation(environment: Mapping[str, str]) -> dict[str, Any]:
+    pairs: dict[str, tuple[str, ...]] = {
+        key: (value,) for key, value in DEPRECATED_ENVIRONMENT_ALIASES.items()
+    }
+    pairs.update(DEPRECATED_ENVIRONMENT_ALIAS_CHAINS)
+    conflicts, legacy_only = [], []
+    for canonical, aliases in sorted(pairs.items()):
+        current = environment.get(canonical)
+        present = [alias for alias in aliases if environment.get(alias)]
+        if current and present:
+            conflicts.append({"canonical": canonical, "legacy": present, "values_differ": any(environment[alias] != current for alias in present)})
+        elif present:
+            legacy_only.append({"canonical": canonical, "legacy": present})
+    return {"conflicts": conflicts, "legacy_only": legacy_only}
+
+
+def landed_state_snapshot(
+    repo: Path, *, remote: str = "origin/main", environment: Mapping[str, str] = os.environ,
+) -> dict[str, Any]:
+    if not repo.is_absolute():
+        raise ReceiptError("snapshot repository path must be absolute")
+    root_text = git(repo, "rev-parse", "--show-toplevel")
+    assert root_text is not None
+    root = Path(root_text).resolve()
+    branch = git(root, "branch", "--show-current") or None
+    head = git(root, "rev-parse", "HEAD")
+    git_dir = git(root, "rev-parse", "--absolute-git-dir")
+    common_dir = git(root, "rev-parse", "--path-format=absolute", "--git-common-dir")
+    remote_sha = git(root, "rev-parse", "--verify", remote, required=False)
+    ahead = behind = None
+    if remote_sha:
+        counts = git(root, "rev-list", "--left-right", "--count", f"{remote}...HEAD")
+        assert counts is not None
+        behind, ahead = (int(value) for value in counts.split())
+    porcelain = (git(root, "status", "--porcelain=v1", "--untracked-files=all") or "").splitlines()
+    groups: dict[str, int] = {}
+    for row in porcelain:
+        path = row[3:].split(" -> ")[-1]
+        group = re.split(r"[/\\]", path, maxsplit=1)[0]
+        groups[group] = groups.get(group, 0) + 1
+    state: dict[str, Any]
+    try:
+        state_root = resolve_state_root(environment=environment, repo_root=root)
+        carriers = {
+            "choice": state_root / "state/choice-history.sqlite3",
+            "cadence": state_root / "state/cadence.sqlite3",
+            "mentorship": state_root / "state/mentorship.sqlite3",
+            "archive": state_root / "archive/config.json",
+            "continuity": state_root / "continuity/inbox",
+        }
+        state = {
+            "root": str(state_root), "available": state_root.is_dir(),
+            "carriers": {name: path.exists() for name, path in carriers.items()},
+        }
+    except PortablePathError as error:
+        state = {"root": None, "available": False, "carriers": {}, "error": str(error)}
+    environment_state = environment_observation(environment)
+    observed = {
+        "repository_root": str(root), "worktree_git_dir": git_dir,
+        "git_common_dir": common_dir, "branch": branch, "detached": branch is None,
+        "head": head, "remote_ref": remote, "remote_sha": remote_sha,
+        "remote_available": remote_sha is not None, "ahead": ahead, "behind": behind,
+        "dirty": {
+            "count": len(porcelain),
+            "tracked": sum(not row.startswith("??") for row in porcelain),
+            "untracked": sum(row.startswith("??") for row in porcelain),
+            "groups": dict(sorted(groups.items())),
+            "digest": canonical_digest(porcelain),
+        },
+        "state": state, "environment": environment_state,
+    }
+    return {
+        "schema_version": "1.0", "observed_at": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
+        **observed, "snapshot_digest": canonical_digest(observed),
+        "evidence_boundary": "local-git-state-and-resolved-local-carrier-availability",
+        "authority_effect": "none",
+    }
 
 
 def normalize_label(value: str) -> str:
@@ -246,6 +357,10 @@ def build_parser() -> argparse.ArgumentParser:
     preflight_check = subparsers.add_parser("preflight-check", help="Check a Markdown Mira Work preflight note.")
     preflight_check.add_argument("--file", required=True, type=Path, help="Markdown file inside this repository.")
     preflight_check.add_argument("--json", action="store_true", help="Emit machine-readable JSON.")
+    snapshot = subparsers.add_parser("snapshot", help="Capture bounded landed repository and state truth.")
+    snapshot.add_argument("--repo", required=True, type=Path, help="Absolute Git repository path.")
+    snapshot.add_argument("--remote", default="origin/main", help="Remote-tracking ref to compare with HEAD.")
+    snapshot.add_argument("--format", choices=("text", "json"), default="text")
     return parser
 
 
@@ -280,6 +395,21 @@ def error_result(path: Path, check_type: str) -> dict[str, Any]:
 def main(arguments: list[str] | None = None) -> int:
     parser = build_parser()
     args = parser.parse_args(arguments)
+    if args.command == "snapshot":
+        try:
+            result = landed_state_snapshot(args.repo, remote=args.remote)
+        except ReceiptError as exc:
+            print(f"mira_work_snapshot_error={exc}", file=sys.stderr)
+            return 2
+        if args.format == "json":
+            print(json.dumps(result, indent=2))
+        else:
+            for key in ("repository_root", "branch", "head", "remote_ref", "remote_sha", "ahead", "behind", "snapshot_digest"):
+                print(f"{key}={result[key]}")
+            print(f"dirty_count={result['dirty']['count']}")
+            print(f"state_available={str(result['state']['available']).lower()}")
+            print("authority_effect=none")
+        return 0
     check_type = "preflight" if args.command == "preflight-check" else "receipt"
     output_prefix = CHECKS[check_type]["output_prefix"]
 

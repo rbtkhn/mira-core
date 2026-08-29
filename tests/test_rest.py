@@ -215,6 +215,28 @@ def test_schema_one_receipts_remain_readable(tmp_path: Path) -> None:
     assert rest_receipts.load_events(inbox, SESSION)[0]["schema_version"] == 1
 
 
+def test_active_transition_is_separate_closure_debt(monkeypatch, tmp_path: Path) -> None:
+    monkeypatch.setattr(rest_receipts, "git_state", lambda: {
+        "status": "available", "dirty_count": 0, "ahead": 0,
+    })
+    current = source(tmp_path, [("2026-08-17T10:01:00Z", "rest")])
+    event = rest_receipts.planned_events(
+        current, [], transitions=["state-convergence/mira-core"]
+    )[0]
+    assert event["active_transitions"] == ["state-convergence/mira-core"]
+    assert event["closure_debt"] == ["action-capable-transition"]
+    assert event["closure_debt_basis"]["action-capable-transition"] == "declared-at-rest"
+
+
+def test_active_transition_identifier_is_bounded(monkeypatch, tmp_path: Path) -> None:
+    monkeypatch.setattr(rest_receipts, "git_state", lambda: {
+        "status": "available", "dirty_count": 0, "ahead": 0,
+    })
+    current = source(tmp_path, [("2026-08-17T10:01:00Z", "rest")])
+    with pytest.raises(rest_receipts.RestError, match="invalid active transition"):
+        rest_receipts.planned_events(current, [], transitions=["contains spaces"])
+
+
 def test_status_remains_read_only_when_session_source_is_unavailable(tmp_path: Path, monkeypatch, capsys) -> None:
     inbox = tmp_path / "state" / "continuity" / "inbox"
     monkeypatch.setattr(rest_receipts, "DEFAULT_INBOX", inbox)
