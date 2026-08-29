@@ -423,14 +423,27 @@ invalid auth, treat it as a credential-context split. Do not ask the operator
 to repeat a completed login until this ladder has been tried or a named step
 fails closed:
 
+On Windows, explicitly check for the Codex sandbox identity split before
+diagnosing ordinary token expiry. Normal task commands may run as
+`<host>\CodexSandboxOnline` while approved commands run as the real interactive
+Windows user, even when `USERPROFILE` and `APPDATA` point at that user's
+profile. In that state, GitHub CLI may read `hosts.yml` account metadata while
+failing to read the keyring-backed token, and Git Credential Manager may report
+`SEC_E_NO_CREDENTIALS` or credential storage failure. Treat this as a sandbox
+credential-boundary issue. Prefer the elevated exact-refspec verification and
+push ladder below; do not fix it by changing global credential helpers, printing
+tokens, erasing credentials, or asking for repeated browser login loops.
+
 1. Check the local credential context:
 
 ```powershell
+whoami /user
 gh auth status
 & gh auth token --hostname github.com *> $null
 $tokenState = if ($LASTEXITCODE -eq 0) { 'present' } else { 'unavailable' }
 $tokenState
 git config --show-origin --get-regexp "credential.*github"
+cmdkey /list | Select-String -Pattern 'github|git:https' -CaseSensitive:$false
 ```
 
 The token command must redirect every output stream and only its exit code may

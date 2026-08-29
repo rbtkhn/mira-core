@@ -61,6 +61,7 @@ def test_fixture_inventory_covers_normal_edge_failure_and_ambiguous_cases() -> N
         "MGH-FAILURE-01",
         "MGH-EDGE-05",
         "MGH-FAILURE-03",
+        "MGH-FAILURE-05",
         "MGH-EDGE-03",
         "MGH-FAILURE-02",
         "MGH-AMBIGUOUS-01",
@@ -165,6 +166,23 @@ def test_skill_uses_non_printing_token_check_and_deterministic_publication_tools
     assert "tools/run.ps1 publication-validation" in skill
     assert "tools/run.ps1 validated-push check" in skill
     assert "tools/run.ps1 validated-push push" in skill
+
+
+def test_skill_documents_windows_sandbox_credential_boundary() -> None:
+    skill = read_skill()
+    fixtures = (SKILL_ROOT / "references" / "validation-fixtures.md").read_text(
+        encoding="utf-8"
+    )
+    normalized = " ".join(skill.split())
+    normalized_fixtures = " ".join(fixtures.split())
+    assert "CodexSandboxOnline" in skill
+    assert "SEC_E_NO_CREDENTIALS" in skill
+    assert "cmdkey /list" in skill
+    assert "sandbox credential-boundary issue" in normalized
+    assert "`hosts.yml` account metadata" in normalized
+    assert "MGH-FAILURE-05" in fixtures
+    assert "Windows sandbox identity cannot read user keyring" in fixtures
+    assert "treating `hosts.yml` account metadata as" in normalized_fixtures
 
 
 def test_skill_documents_windows_long_paths_and_temp_root_push_receipts() -> None:
