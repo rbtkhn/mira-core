@@ -259,7 +259,11 @@ def route_path(path: str, *, repo_root: Path = REPO_ROOT) -> dict[str, Any]:
             "commands": commands,
             "manual_checks": [MANUAL_HISTORICAL_REFERENCE_CHECK],
         }
-    if path.startswith("narrative-geopolitics/work/reality/"):
+    if (
+        path.startswith("narrative-geopolitics/work/reality/")
+        or path.startswith("narrative-geopolitics/work/verification/packets/")
+        or path == "narrative-geopolitics/work/verification/legacy-inventory.json"
+    ):
         return {
             "owner": "reality-check",
             "validation_class": "domain-governed",

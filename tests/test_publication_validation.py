@@ -198,6 +198,15 @@ def test_router_resolves_narrative_geopolitics_work_surfaces(tmp_path: Path) -> 
     policy = tmp_path / "narrative-geopolitics/work/capture/youtube/youtube-capture-policy.yml"
     policy.parent.mkdir(parents=True, exist_ok=True)
     policy.write_text("version: 1\n", encoding="utf-8")
+    legacy_inventory = tmp_path / "narrative-geopolitics/work/verification/legacy-inventory.json"
+    legacy_inventory.parent.mkdir(parents=True, exist_ok=True)
+    legacy_inventory.write_text("{}\n", encoding="utf-8")
+    legacy_packet = (
+        tmp_path
+        / "narrative-geopolitics/work/verification/packets/VER-20260822-01-example/README.md"
+    )
+    legacy_packet.parent.mkdir(parents=True, exist_ok=True)
+    legacy_packet.write_text("# Fixture\n", encoding="utf-8")
     report = routing.build_report(
         [
             "narrative-geopolitics/work/capture/youtube/youtube-capture-policy.yml",
@@ -206,6 +215,8 @@ def test_router_resolves_narrative_geopolitics_work_surfaces(tmp_path: Path) -> 
             "narrative-geopolitics/work/historical-reference/2026-08-22-run-review-queue.json",
             "narrative-geopolitics/work/reality/claims/OPC-20260822-01.json",
             "narrative-geopolitics/work/reality/views/outcome-ledger.md",
+            "narrative-geopolitics/work/verification/legacy-inventory.json",
+            "narrative-geopolitics/work/verification/packets/VER-20260822-01-example/README.md",
         ],
         repo_root=tmp_path,
     )

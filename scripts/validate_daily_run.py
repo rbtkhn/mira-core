@@ -45,7 +45,7 @@ JUDGMENT_REQUIRED_SECTIONS = (
     "## Decision / Public-use Implication",
     "## Decision Compression",
 )
-JUDGMENT_REF_RE = re.compile(r"`((?:SRC|OPC|CLM|NG|VER)-[A-Z0-9-]+)`")
+JUDGMENT_REF_RE = re.compile(r"`((?:SRC|LIB|OPC|CLM|NG|VER)-[A-Z0-9-]+)`")
 JUDGMENT_DISPOSITION_RE = re.compile(
     r"Recommended disposition:\s*`?([^`\n]+)`?", re.IGNORECASE
 )
@@ -157,6 +157,7 @@ def judgment_failures(run_date: str, rows: list[dict[str, Any]], stage: str) -> 
                 known_ids.add(str(record["id"]))
     ledger_ids = set(HOOK_RE.findall(read_text(LEDGER_PATH)))
     source_ids = set(re.findall(r"`(SRC-[A-Z0-9-]+)`", read_text(daily_dir(run_date) / "sources.md")))
+    library_ids: set[str] | None = None
     verification_ids = {
         path.name for path in (NG_ROOT / "work" / "verification" / "packets").glob("VER-*")
     } if (NG_ROOT / "work" / "verification" / "packets").exists() else set()
@@ -164,6 +165,19 @@ def judgment_failures(run_date: str, rows: list[dict[str, Any]], stage: str) -> 
         if ref.startswith("SRC-"):
             if ref not in source_ids:
                 failures.append(f"judgment.md reference does not resolve: {ref}")
+        elif ref.startswith("LIB-"):
+            if library_ids is None:
+                registry_path = REPO_ROOT / "archive" / "library" / "library-registry.json"
+                if not registry_path.is_file():
+                    failures.append("judgment.md cites Mira Library but the Library registry is unavailable")
+                    library_ids = set()
+                else:
+                    library_registry = json.loads(registry_path.read_text(encoding="utf-8"))
+                    library_ids = {
+                        str(row.get("source_id")) for row in library_registry.get("sources", [])
+                    }
+            if ref not in library_ids:
+                failures.append(f"judgment.md Library reference does not resolve: {ref}")
         elif ref.startswith("VER-"):
             if not any(ref == item or item.startswith(ref + "-") for item in verification_ids):
                 failures.append(f"judgment.md reference does not resolve: {ref}")
@@ -172,6 +186,52 @@ def judgment_failures(run_date: str, rows: list[dict[str, Any]], stage: str) -> 
                 failures.append(f"judgment.md reference does not resolve: {ref}")
         elif ref not in known_ids:
             failures.append(f"judgment.md reference does not resolve: {ref}")
+    return failures
+
+
+def historical_pressure_failures(run_date: str) -> list[str]:
+    """Keep private Library material and present-fact authority separate."""
+    run_path = daily_dir(run_date)
+    paths = [run_path / name for name in ("sources.md", "synthesis.md", "judgment.md", "daily-brief.md", "issue.md")]
+    texts = {path.name: read_text(path) for path in paths if path.exists()}
+    failures: list[str] = []
+    for name, text in texts.items():
+        if re.search(r"(?i)(?:\.mira-private|[A-Z]:[\\/]private[\\/])", text):
+            failures.append(f"{name} exposes a private Library path")
+    library_refs = set(re.findall(r"`(LIB-[A-Z0-9-]+)`", "\n".join(texts.values())))
+    if library_refs:
+        registry_path = REPO_ROOT / "archive" / "library" / "library-registry.json"
+        if not registry_path.is_file():
+            failures.append("daily artifacts cite Mira Library but the Library registry is unavailable")
+        else:
+            registry = json.loads(registry_path.read_text(encoding="utf-8"))
+            valid_refs: set[str] = set()
+            for source in registry.get("sources", []):
+                valid_refs.add(str(source.get("source_id")))
+                valid_refs.update(
+                    str(body.get("body_id"))
+                    for body in source.get("text_bodies", [])
+                    if isinstance(body, dict) and body.get("body_id")
+                )
+            for ref in sorted(library_refs - valid_refs):
+                failures.append(f"daily artifact Library reference does not resolve: {ref}")
+    synthesis = texts.get("synthesis.md", "")
+    if "## Historical Pressure Test" in synthesis:
+        section = synthesis.split("## Historical Pressure Test", 1)[-1].split("##", 1)[0]
+        for line in section.splitlines():
+            if not line.startswith("|") or "LIB-" not in line:
+                continue
+            cells = [cell.strip().strip("`") for cell in line.strip().strip("|").split("|")]
+            if len(cells) < 8:
+                failures.append("Historical Pressure Test row has incomplete schema")
+                continue
+            disposition = cells[2]
+            if disposition in {"adopted", "narrowed", "redirected"}:
+                if not cells[3] or not cells[4] or not cells[5] or not cells[6]:
+                    failures.append(f"Historical Pressure Test adopted row lacks safeguard fields: {cells[0]}")
+    combined = "\n".join(texts.values())
+    if re.search(r"(?i)LIB-[A-Z0-9-]+[^\n]{0,120}(?:verifies|confirms|operationally_supported)", combined):
+        failures.append("Library reference cannot verify a present operating fact")
     return failures
 
 
@@ -298,8 +358,16 @@ def validate_run(run_date: str, stage: str = "intake") -> dict[str, Any]:
     if not rows and placeholder_day:
         warnings.append(f"placeholder day awaiting intake for date {run_date}")
 
-    for local_path in source_paths_exist(rows):
-        failures.append(f"missing archive source file: {local_path}")
+    missing_source_paths = source_paths_exist(rows)
+    hydrated_source_directories = {
+        (REPO_ROOT / local_path).parent
+        for local_path in missing_source_paths
+        if (REPO_ROOT / local_path).parent.is_dir()
+        and any((REPO_ROOT / local_path).parent.glob("*.md"))
+    }
+    for local_path in missing_source_paths:
+        if (REPO_ROOT / local_path).parent in hydrated_source_directories:
+            failures.append(f"missing archive source file: {local_path}")
 
     if rows and (run_path / "sources.md").exists():
         sources_text = read_text(run_path / "sources.md")
@@ -312,7 +380,11 @@ def validate_run(run_date: str, stage: str = "intake") -> dict[str, Any]:
         linked_paths = {normalize_daily_archive_link(link) for link in extract_archive_links(sources_text)}
 
         for rel in sorted(linked_paths):
-            if not (REPO_ROOT / "narrative-geopolitics" / Path(rel)).exists():
+            target = REPO_ROOT / "narrative-geopolitics" / Path(rel)
+            directory_is_hydrated = target.parent.is_dir() and any(
+                target.parent.glob("*.md")
+            )
+            if not target.exists() and directory_is_hydrated:
                 warnings.append(f"sources.md links missing archive file: {rel}")
 
         if status != "pilot":
@@ -345,6 +417,7 @@ def validate_run(run_date: str, stage: str = "intake") -> dict[str, Any]:
 
     if downstream and rows:
         failures.extend(judgment_failures(run_date, rows, stage))
+        failures.extend(historical_pressure_failures(run_date))
         failures.extend(voice_metadata.metadata_failures(manifest, REPO_ROOT, run_date))
         voice_report = voice_indexes.reconcile(
             manifest,

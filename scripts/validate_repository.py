@@ -62,6 +62,7 @@ LOCAL_SKILLS = {
     "geopolitical-synthesis",
     "intent-recovery",
     "library-import",
+    "library-reasoning",
     "mechanism-lens",
     "mira-essays",
     "mira-face",
@@ -376,7 +377,6 @@ def markdown_link_failures() -> list[str]:
     manifest_paths = {
         str(row.get("local_path", "")) for row in load_manifest().get("sources", [])
     }
-    sources_hydrated = ARCHIVE_SOURCES.is_dir()
     for path in markdown_files():
         text = path.read_text(encoding="utf-8")
         for match in MARKDOWN_LINK_RE.finditer(text):
@@ -400,14 +400,23 @@ def markdown_link_failures() -> list[str]:
                 canonical_target = canonical_repository_path(repository_target)
                 if canonical_target != repository_target:
                     resolved = REPO_ROOT / canonical_target
-            if not resolved.exists() and not sources_hydrated:
+            if not resolved.exists():
                 try:
                     repository_target = resolved.resolve().relative_to(REPO_ROOT.resolve()).as_posix()
                 except ValueError:
                     repository_target = ""
-                if repository_target in manifest_paths or any(
-                    path.startswith(repository_target.rstrip("/") + "/")
-                    for path in manifest_paths
+                target_is_manifest_backed = repository_target in manifest_paths
+                target_is_manifest_directory = any(
+                    item.startswith(repository_target.rstrip("/") + "/")
+                    for item in manifest_paths
+                )
+                hydration_directory = (REPO_ROOT / repository_target).parent
+                directory_is_hydrated = hydration_directory.is_dir() and any(
+                    hydration_directory.glob("*.md")
+                )
+                if (
+                    (target_is_manifest_backed or target_is_manifest_directory)
+                    and not directory_is_hydrated
                 ):
                     continue
             if not resolved.exists():

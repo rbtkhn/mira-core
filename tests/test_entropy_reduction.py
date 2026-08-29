@@ -205,6 +205,36 @@ def test_markdown_archive_links_use_manifest_when_hydration_is_absent(
     ]
 
 
+def test_markdown_archive_links_check_partial_hydration_per_date(
+    monkeypatch, tmp_path: Path
+) -> None:
+    docs = tmp_path / "docs"
+    docs.mkdir()
+    note = docs / "note.md"
+    valid = "archive/sources/geopolitics/sources/2026-07-09/source-a.md"
+    note.write_text(f"[valid](../{valid})\n", encoding="utf-8")
+    archive = tmp_path / "archive" / "sources" / "geopolitics" / "sources"
+    (archive / "2026-07-08").mkdir(parents=True)
+    (archive / "2026-07-08" / "source-other.md").write_text("other", encoding="utf-8")
+    monkeypatch.setattr(integrity, "REPO_ROOT", tmp_path)
+    monkeypatch.setattr(integrity, "ARCHIVE_SOURCES", archive)
+    monkeypatch.setattr(integrity, "markdown_files", lambda: [note])
+    monkeypatch.setattr(
+        integrity,
+        "load_manifest",
+        lambda: {"source_count": 1, "sources": [{"local_path": valid}]},
+    )
+
+    assert integrity.markdown_link_failures() == []
+
+    target_day = archive / "2026-07-09"
+    target_day.mkdir()
+    (target_day / "source-other.md").write_text("partial", encoding="utf-8")
+    assert integrity.markdown_link_failures() == [
+        "broken Markdown link: docs/note.md -> ../archive/sources/geopolitics/sources/2026-07-09/source-a.md"
+    ]
+
+
 def test_root_relative_archive_links_use_portable_path_separators(
     monkeypatch, tmp_path: Path
 ) -> None:

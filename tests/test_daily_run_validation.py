@@ -229,6 +229,19 @@ def test_exact_intake_coverage_is_ready(monkeypatch, tmp_path: Path) -> None:
     assert result["consumed_sources"] == 2
 
 
+def test_manifest_backed_unhydrated_day_is_valid(monkeypatch, tmp_path: Path) -> None:
+    configure_fixture(monkeypatch, tmp_path, complete_sources_text())
+    source_dir = tmp_path / "archive" / "sources" / "geopolitics" / "sources" / "2026-07-09"
+    for source_path in source_dir.glob("*.md"):
+        source_path.unlink()
+
+    result = validator.validate_run("2026-07-09", "intake")
+
+    assert result["landed_sources"] == 0
+    assert not any("missing archive source file" in item for item in result["failures"])
+    assert not any("links missing archive file" in item for item in result["warnings"])
+
+
 def test_compression_rejects_missing_disposition(monkeypatch, tmp_path: Path) -> None:
     configure_fixture(monkeypatch, tmp_path, complete_sources_text())
     path = tmp_path / "narrative-geopolitics" / "work" / "daily" / "2026-07-09" / "judgment.md"
@@ -255,3 +268,31 @@ def test_selected_run_source_set_may_be_subset(monkeypatch, tmp_path: Path) -> N
 
     assert result["state"] == "ready"
     assert result["failures"] == []
+
+
+def test_historical_pressure_rejects_private_paths_and_unknown_library_refs(monkeypatch, tmp_path: Path) -> None:
+    configure_fixture(monkeypatch, tmp_path, complete_sources_text())
+    library = tmp_path / "archive" / "library"
+    library.mkdir(parents=True)
+    (library / "library-registry.json").write_text(json.dumps({"sources": []}), encoding="utf-8")
+    synthesis = tmp_path / "narrative-geopolitics" / "work" / "daily" / "2026-07-09" / "synthesis.md"
+    synthesis.write_text(
+        "## Historical Pressure Test\n\n`LIB-NOT-REGISTERED`\n\nC:/private/library/passage.txt\n",
+        encoding="utf-8",
+    )
+    failures = validator.historical_pressure_failures("2026-07-09")
+    assert "synthesis.md exposes a private Library path" in failures
+    assert "daily artifact Library reference does not resolve: LIB-NOT-REGISTERED" in failures
+
+
+def test_historical_pressure_accepts_registered_source_and_body_refs(monkeypatch, tmp_path: Path) -> None:
+    configure_fixture(monkeypatch, tmp_path, complete_sources_text())
+    library = tmp_path / "archive" / "library"
+    library.mkdir(parents=True)
+    (library / "library-registry.json").write_text(
+        json.dumps({"sources": [{"source_id": "LIB-SOURCE", "text_bodies": [{"body_id": "LIB-BODY"}]}]}),
+        encoding="utf-8",
+    )
+    sources = tmp_path / "narrative-geopolitics" / "work" / "daily" / "2026-07-09" / "sources.md"
+    sources.write_text(complete_sources_text() + "\n`LIB-SOURCE` `LIB-BODY`\n", encoding="utf-8")
+    assert validator.historical_pressure_failures("2026-07-09") == []
