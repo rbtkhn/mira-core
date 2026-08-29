@@ -2,7 +2,7 @@
   "manifest_id": "narrative-geopolitics-source-manifest-v1",
   "source_basis": "central archive with completed historical strategy-codex imports",
   "imported_at": "2026-07-09",
-  "source_count": 2260,
+  "source_count": 2268,
   "boundary": {
     "archive": "source truth",
     "voices": "voice continuity and routing",
@@ -60850,6 +60850,182 @@
       "source_url": "https://www.youtube.com/watch?v=jfnYC1Aoepk",
       "title_source": "transcript",
       "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-13",
+      "title": "Turkey's Imperial Ambitions w/ John Helmer",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-13/source-turkey-s-imperial-ambitions-w-john-helmer-2026-08-13.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-13/source-turkey-s-imperial-ambitions-w-john-helmer-2026-08-13.md",
+      "upstream_path": "operator-paste://2026-08-29/turkey-s-imperial-ambitions-w-john-helmer",
+      "source_class": "guest interview pressure test",
+      "modality": "transcript",
+      "voice_slugs": [
+        "helmer"
+      ],
+      "host_slug": "reason-resist",
+      "source_identity": "youtube:WD-_-aNaJ7U",
+      "source_url": "https://www.youtube.com/watch?v=WD-_-aNaJ7U",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-28",
+      "title": "Is the CIA Hiding Its Losses In the Iran and Ukraine Wars? w/ John Helmer",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-28/source-is-the-cia-hiding-its-losses-in-the-iran-and-ukraine-wars-w-john-helmer-2026-08-28.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-28/source-is-the-cia-hiding-its-losses-in-the-iran-and-ukraine-wars-w-john-helmer-2026-08-28.md",
+      "upstream_path": "operator-paste://2026-08-29/is-the-cia-hiding-its-losses-in-the-iran-and-ukraine-wars-w-john-helmer",
+      "source_class": "guest interview pressure test",
+      "modality": "transcript",
+      "voice_slugs": [
+        "helmer"
+      ],
+      "host_slug": "reason-resist",
+      "source_identity": "youtube:mfhV8eD2iXs",
+      "source_url": "https://www.youtube.com/watch?v=mfhV8eD2iXs",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-13",
+      "title": "US-Iran Stalemate: Why Can’t Trump End the War? | Larry Johnson",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-13/source-us-iran-stalemate-why-can-t-trump-end-the-war-larry-johnson-2026-08-13.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-13/source-us-iran-stalemate-why-can-t-trump-end-the-war-larry-johnson-2026-08-13.md",
+      "upstream_path": "operator-paste://2026-08-29/us-iran-stalemate-why-can-t-trump-end-the-war-larry-johnson",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "johnson"
+      ],
+      "host_slug": "india-global-left",
+      "source_identity": "youtube:eMcWsQ7Vatc",
+      "source_url": "https://www.youtube.com/watch?v=eMcWsQ7Vatc",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-24",
+      "title": "Harvard Professor Warns of the Next Phase of Trump’s War: We’re Approaching a Dangerous World",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-24/source-harvard-professor-warns-of-the-next-phase-of-trump-s-war-we-re-approaching-a-dangerous-world-2026-08-24.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-24/source-harvard-professor-warns-of-the-next-phase-of-trump-s-war-we-re-approaching-a-dangerous-world-2026-08-24.md",
+      "upstream_path": "operator-paste://2026-08-29/harvard-professor-warns-of-the-next-phase-of-trump-s-war-we-re-approaching-a-dangerous-world",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "walt"
+      ],
+      "host_slug": "tucker-carlson",
+      "source_identity": "youtube:Fi4ViAuh_Os",
+      "source_url": "https://www.youtube.com/watch?v=Fi4ViAuh_Os",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-26",
+      "title": "Professor Pape RIDICULES Scott Bessents 'Economic D-Day'",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-26/source-professor-pape-ridicules-scott-bessents-economic-d-day-2026-08-26.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-26/source-professor-pape-ridicules-scott-bessents-economic-d-day-2026-08-26.md",
+      "upstream_path": "operator-paste://2026-08-29/professor-pape-ridicules-scott-bessents-economic-d-day",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "pape"
+      ],
+      "host_slug": "breaking-points",
+      "source_identity": "youtube:QwZgox4_cP0",
+      "source_url": "https://www.youtube.com/watch?v=QwZgox4_cP0",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-05",
+      "title": "Patrick Henningsen: The Ultimatum That Backfired: Trump’s Threat Just Made Iran Stronger",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-05/source-patrick-henningsen-the-ultimatum-that-backfired-trump-s-threat-just-made-iran-stronger-2026-08-05.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-05/source-patrick-henningsen-the-ultimatum-that-backfired-trump-s-threat-just-made-iran-stronger-2026-08-05.md",
+      "upstream_path": "operator-paste://2026-08-05/patrick-henningsen-the-ultimatum-that-backfired-trump-s-threat-just-made-iran-stronger",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "henningsen"
+      ],
+      "host_slug": "dialogue-works",
+      "source_identity": "youtube:L8lgDK1xRpg",
+      "source_url": "https://www.youtube.com/watch?v=L8lgDK1xRpg",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-05",
+      "title": "Russia Can't Go Scortched Earth /Patrick Henningsen & Lt Col Daniel Davis",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-05/source-russia-can-t-go-scortched-earth-patrick-henningsen-lt-col-daniel-davis-2026-08-05.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-05/source-russia-can-t-go-scortched-earth-patrick-henningsen-lt-col-daniel-davis-2026-08-05.md",
+      "upstream_path": "operator-paste://2026-08-05/russia-can-t-go-scortched-earth-patrick-henningsen-lt-col-daniel-davis",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "henningsen"
+      ],
+      "host_slug": "daniel-davis",
+      "source_identity": "youtube:IKpOGuRqKaM",
+      "source_url": "https://www.youtube.com/watch?v=IKpOGuRqKaM",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-25",
+      "title": "Patrick Henningsen: Israel's Losses Mount As New Middle East Reality Sets In",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-25/source-patrick-henningsen-israel-s-losses-mount-as-new-middle-east-reality-sets-in-2026-08-25.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-25/source-patrick-henningsen-israel-s-losses-mount-as-new-middle-east-reality-sets-in-2026-08-25.md",
+      "upstream_path": "operator-paste://2026-08-25/patrick-henningsen-israel-s-losses-mount-as-new-middle-east-reality-sets-in",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "henningsen"
+      ],
+      "host_slug": "dialogue-works",
+      "source_identity": "youtube:x7sIy2JCj64",
+      "source_url": "https://www.youtube.com/watch?v=x7sIy2JCj64",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
       "inference_basis": [
         "wrapper-normalized",
         "explicit-host",
