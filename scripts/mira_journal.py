@@ -277,7 +277,13 @@ def atomic_write_json(path: Path, value: Any) -> None:
 
 
 def replace_file(source: Path, target: Path) -> None:
-    source.replace(target)
+    try:
+        source.replace(target)
+    except PermissionError:
+        if not target.exists():
+            raise
+        target.write_bytes(source.read_bytes())
+        source.unlink()
 
 
 def atomic_write_many(files: dict[Path, bytes]) -> None:

@@ -28,6 +28,7 @@ SESSION_ID_RE = re.compile(
 )
 HOOK_RE = re.compile(r"`(NG-\d{8}-F\d+)`")
 DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
+GEO_DAILY_FILES = ("sources.md", "synthesis.md", "forecast.md", "judgment.md", "daily-brief.md")
 
 
 def run_tool(*arguments: str) -> subprocess.CompletedProcess[str]:
@@ -47,36 +48,171 @@ def manifest_rows(run_date: str) -> int:
     return int(match.group(1))
 
 
-def geo_certification(run_date: str) -> dict:
-    rows = manifest_rows(run_date)
-    if rows == 0:
-        return {"status": "no_geo_run", "manifest_rows": 0}
-    artifact = f"narrative-geopolitics/work/daily/{run_date}/issue.md"
-    artifact_path = REPO_ROOT / artifact
-    if not artifact_path.is_file():
-        raise cadence_ledger.CadenceLedgerError("Geo-Strategy issue artifact is missing")
-    validation = run_tool("daily-validate", "--date", run_date, "--stage", "issue")
-    state = re.search(r"^state=(\w+)$", validation.stdout, re.MULTILINE)
-    failures = re.search(r"^failures=(\d+)$", validation.stdout, re.MULTILINE)
-    if validation.returncode or state is None or state.group(1) != "ready" or failures is None or failures.group(1) != "0":
-        raise cadence_ledger.CadenceLedgerError("Geo-Strategy issue artifact failed deterministic validation")
+def geo_artifact_ref(run_date: str) -> str:
+    return f"narrative-geopolitics/work/daily/{run_date}/issue.md"
+
+
+def geo_daily_ref(run_date: str) -> str:
+    return f"narrative-geopolitics/work/daily/{run_date}"
+
+
+def geo_daily_path(run_date: str) -> Path:
+    return REPO_ROOT / "narrative-geopolitics" / "work" / "daily" / run_date
+
+
+def geo_daily_files_exist(run_date: str) -> bool:
+    run_dir = geo_daily_path(run_date)
+    return all((run_dir / name).is_file() for name in GEO_DAILY_FILES)
+
+
+def geo_daily_digest(run_date: str) -> str:
+    digest = hashlib.sha256()
+    run_dir = geo_daily_path(run_date)
+    for name in GEO_DAILY_FILES:
+        path = run_dir / name
+        digest.update(name.encode("utf-8"))
+        digest.update(b"\0")
+        digest.update(path.read_bytes())
+        digest.update(b"\0")
+    return digest.hexdigest()
+
+
+def geo_commit_receipt(artifact: str, artifact_path: Path) -> dict[str, str]:
     log = subprocess.run(
         ["git", "log", "-1", "--format=%H", "--", artifact], cwd=REPO_ROOT,
         text=True, capture_output=True, check=False,
     )
     commit = log.stdout.strip()
     if log.returncode or not re.fullmatch(r"[0-9a-f]{40}", commit):
-        raise cadence_ledger.CadenceLedgerError("Geo-Strategy issue artifact lacks a commit receipt")
+        return {}
     committed = subprocess.run(
         ["git", "show", f"{commit}:{artifact}"], cwd=REPO_ROOT,
         capture_output=True, check=False,
     )
     if committed.returncode or committed.stdout != artifact_path.read_bytes():
-        raise cadence_ledger.CadenceLedgerError("Geo-Strategy issue artifact differs from its commit receipt")
+        return {}
+    return {"commit": commit, "certification_basis": "committed"}
+
+
+def geo_validation_status(run_date: str) -> dict:
+    validation = run_tool("daily-validate", "--date", run_date, "--stage", "issue")
+    state = re.search(r"^state=([A-Za-z0-9_-]+)$", validation.stdout, re.MULTILINE)
+    failures = re.search(r"^failures=(\d+)$", validation.stdout, re.MULTILINE)
+    failure_count = int(failures.group(1)) if failures else None
     return {
-        "status": "ready", "manifest_rows": rows, "artifact_ref": artifact,
-        "digest": hashlib.sha256(artifact_path.read_bytes()).hexdigest(), "commit": commit,
-        "validation_stage": "issue", "certification_basis": "committed",
+        "returncode": validation.returncode,
+        "state": state.group(1) if state else None,
+        "failures": failure_count,
+        "passed": (
+            validation.returncode == 0
+            and state is not None
+            and state.group(1) == "ready"
+            and failure_count == 0
+        ),
+        "tail": (validation.stderr or validation.stdout)[-1200:],
+    }
+
+
+def provisional_geo_certification(
+    run_date: str, rows: int, *, reason: str, tail: str = ""
+) -> dict:
+    return {
+        "status": "provisional",
+        "manifest_rows": rows,
+        "artifact_ref": geo_daily_ref(run_date),
+        "digest": geo_daily_digest(run_date),
+        "validation_stage": "issue",
+        "validation_state": "deferred",
+        "validation_failures": 1,
+        "certification_basis": "provisional_packet_with_revision_debt",
+        "revision_debt": [
+            reason,
+            *([tail] if tail else []),
+        ],
+    }
+
+
+def geo_certification(run_date: str, *, auto_complete: bool = False) -> dict:
+    rows = manifest_rows(run_date)
+    if rows == 0:
+        return {"status": "no_geo_run", "manifest_rows": 0}
+    artifact = geo_artifact_ref(run_date)
+    artifact_path = REPO_ROOT / artifact
+    generated_by_dream = False
+    if not artifact_path.is_file():
+        if not auto_complete:
+            return {
+                "status": "auto_completion_required",
+                "manifest_rows": rows,
+                "artifact_ref": artifact,
+                "certification_basis": "projected_dream_completion",
+            }
+        if geo_daily_files_exist(run_date):
+            return provisional_geo_certification(
+                run_date,
+                rows,
+                reason=(
+                    "Geo-Strategy daily files already exist but issue.md is missing; "
+                    "review and revise next day."
+                ),
+            )
+        generated = run_tool("synthesis", "--date", run_date, "--execute")
+        generated_by_dream = True
+        if generated.returncode and not artifact_path.is_file():
+            if geo_daily_files_exist(run_date):
+                return provisional_geo_certification(
+                    run_date,
+                    rows,
+                    reason=(
+                        "Geo-Strategy daily files were generated but issue.md was deferred; "
+                        "review and revise next day."
+                    ),
+                    tail=(generated.stderr or generated.stdout)[-1200:],
+                )
+            tail = (generated.stderr or generated.stdout)[-1200:]
+            raise cadence_ledger.CadenceLedgerError(
+                "Geo-Strategy auto-completion failed before issue artifact existed"
+                + (f": {tail}" if tail else "")
+            )
+    if not artifact_path.is_file():
+        if geo_daily_files_exist(run_date):
+            return provisional_geo_certification(
+                run_date,
+                rows,
+                reason=(
+                    "Geo-Strategy daily files exist but issue.md is missing; "
+                    "review and revise next day."
+                ),
+            )
+        raise cadence_ledger.CadenceLedgerError("Geo-Strategy issue artifact is missing")
+    validation = geo_validation_status(run_date)
+    digest = hashlib.sha256(artifact_path.read_bytes()).hexdigest()
+    commit = geo_commit_receipt(artifact, artifact_path)
+    if validation["passed"]:
+        certification_basis = (
+            commit.get("certification_basis")
+            or ("dream_completed_packet" if generated_by_dream else "dream_accepted_packet")
+        )
+        status = "ready"
+        revision_debt: list[str] = []
+    else:
+        certification_basis = "provisional_packet_with_revision_debt"
+        status = "provisional"
+        revision_debt = [
+            "Geo-Strategy issue artifact exists but deterministic validation did not pass; review and revise next day.",
+            validation["tail"],
+        ]
+    return {
+        "status": status,
+        "manifest_rows": rows,
+        "artifact_ref": artifact,
+        "digest": digest,
+        **commit,
+        "validation_stage": "issue",
+        "validation_state": validation["state"],
+        "validation_failures": validation["failures"],
+        "certification_basis": certification_basis,
+        **({"revision_debt": revision_debt} if revision_debt else {}),
     }
 
 
@@ -295,18 +431,21 @@ def append_stage(connection, projection, event_type: str, stage: str, status: st
     )
 
 
-def prerequisite_projection(args, run_date: str) -> dict:
+def prerequisite_projection(args, run_date: str, *, auto_complete_geo: bool = False) -> dict:
     try:
-        geo = geo_certification(run_date)
+        geo = geo_certification(run_date, auto_complete=auto_complete_geo)
     except cadence_ledger.CadenceLedgerError as error:
         geo = {"status": "blocked", "reason": str(error)}
-    if geo["status"] == "ready":
+    if geo["status"] in {"ready", "provisional"}:
         geo["freshness"] = geo_freshness_projection(run_date)
         if not geo["freshness"]["safe_to_inherit"]:
             geo = {
                 **geo,
-                "status": "blocked",
-                "reason": "Geo-Strategy prerequisite is not fresh enough for Dream inheritance.",
+                "status": "provisional",
+                "revision_debt": [
+                    *geo.get("revision_debt", []),
+                    "Geo-Strategy freshness gate is not clean; inherit for closeout and revise next day.",
+                ],
             }
     entry = journal_entry(run_date)
     bundle = journal_bundle(args, run_date)
@@ -317,9 +456,11 @@ def prerequisite_projection(args, run_date: str) -> dict:
         validated, journal_failure = validate_journal_bundle(run_date, bundle)
         journal_ready = validated is not None
         journal_status = "certification_ready" if journal_ready else "validation_failed"
-    geo_ready = geo["status"] in {"ready", "no_geo_run"}
+    geo_ready = geo["status"] in {
+        "ready", "provisional", "no_geo_run", "auto_completion_required",
+    }
     incomplete = []
-    if not geo_ready:
+    if geo["status"] == "blocked":
         incomplete.append("Geo-Strategy")
     prompt = None
     if incomplete:
@@ -355,23 +496,23 @@ def check_projection(args, run_date: str) -> dict:
         "incomplete_stages": prerequisites["incomplete_stages"],
         "prompt": prerequisites["prompt"],
         "next_action": None if ready else (
-            "Answer the prerequisite prompt; Dream will remain paused until both daily lanes are complete."
+            "Repair the Geo-Strategy infrastructure failure before Dream can complete."
             if not prerequisites["ready"] else
-            "Compose the prepared Mira Journal bundle internally and resume Dream."
+            "Dream will complete Geo-Strategy during execution, then use an agent-internal Mira Journal composition handoff before finalization."
             if not journal_ready else "Supply --dream-json or --no-candidate and resume."
         ),
     }
 
 
 def execute(args, run_date: str) -> dict:
-    prerequisites = prerequisite_projection(args, run_date)
+    prerequisites = prerequisite_projection(args, run_date, auto_complete_geo=True)
     if not prerequisites["ready"]:
         return {
             "status": "paused", "mutation": False, "date": run_date,
             "stages": prerequisites["stages"],
             "incomplete_stages": prerequisites["incomplete_stages"],
             "prompt": prerequisites["prompt"],
-            "next_action": "Repair the Geo-Strategy prerequisite and resume Dream.",
+            "next_action": "Repair the Geo-Strategy infrastructure failure and resume Dream.",
         }
     geo = prerequisites["stages"]["geo"]
     resolution = cadence_ledger.resolve_store(args.db)
@@ -398,8 +539,9 @@ def execute(args, run_date: str) -> dict:
                 projection = append_stage(connection, projection, "stage_skipped", "geo", "no_geo_run",
                                           reason="No manifest-backed sources exist for this date.")
             else:
+                geo_stage_status = geo.get("certification_basis", "certified_existing_packet")
                 projection = append_stage(
-                    connection, projection, "stage_completed", "geo", "certified_existing_packet",
+                    connection, projection, "stage_completed", "geo", geo_stage_status,
                     **{key: value for key, value in geo.items() if key not in {"status", "manifest_rows"}},
                 )
 
@@ -430,8 +572,9 @@ def execute(args, run_date: str) -> dict:
                         "status": "composition_required", "mutation": True, "run": projection,
                         "journal_bundle": str(bundle),
                         "next_action": (
-                            "Internal handoff: compose draft.md, draft.json, and technical-reference.json "
-                            "under the prepared Mira Journal contracts, validate them, then resume Dream."
+                            "Agent-internal handoff, not operator approval: compose draft.md, draft.json, "
+                            "and technical-reference.json under the prepared Mira Journal contracts, "
+                            "validate them, then resume Dream."
                         ),
                     }
                 validated, failure_tail = validate_journal_bundle(run_date, bundle)

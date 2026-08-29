@@ -20,10 +20,12 @@ def test_dream_skill_preserves_private_finalization_boundaries() -> None:
     skill = (ROOT / "docs" / "skill-drafts" / "dream" / "SKILL.md").read_text(
         encoding="utf-8"
     )
-    assert "must not regenerate, reinterpret, or revise the packet" in skill
-    assert "canonicalized as private `dream-eod-v1`" in skill
+    assert "Dream owns\ndaily completion" in skill
+    assert "Complete the\ndaily cycle first; revise next day if necessary." in skill
+    assert "agent-internal handoff" in skill
+    assert "canonicalized as private\n`dream-eod-v1`" in skill
     assert "`publication_eligible: false`" in skill
-    assert "grant no staging, commit, push, publication" in skill
+    assert "grants no staging, commit, push, publication" in skill
 
 
 def arguments(tmp_path: Path, **changes):
@@ -122,6 +124,22 @@ def test_check_is_read_only_and_reports_internal_composition_requirement(monkeyp
     assert not (tmp_path / "cadence.sqlite3").exists()
 
 
+def test_check_projects_geo_auto_completion_without_mutating(monkeypatch, tmp_path: Path) -> None:
+    calls = []
+    monkeypatch.setattr(dream_eod, "REPO_ROOT", tmp_path)
+    monkeypatch.setattr(dream_eod, "manifest_rows", lambda _date: 4)
+    monkeypatch.setattr(dream_eod, "journal_entry", lambda _date: None)
+    monkeypatch.setattr(dream_eod, "run_tool", lambda *args: calls.append(args))
+
+    result = dream_eod.check_projection(arguments(tmp_path), "2026-08-16")
+
+    assert result["mutation"] is False
+    assert result["stages"]["geo"]["status"] == "auto_completion_required"
+    assert result["stages"]["geo"]["certification_basis"] == "projected_dream_completion"
+    assert "Dream will complete Geo-Strategy during execution" in result["next_action"]
+    assert calls == []
+
+
 def test_check_validates_ready_bundle_without_canonicalizing(monkeypatch, tmp_path: Path) -> None:
     bundle = tmp_path / "journal" / "2026-08-16"
     bundle.mkdir(parents=True)
@@ -157,15 +175,204 @@ def test_empty_geo_day_prepares_journal_without_operator_prompt(monkeypatch, tmp
     result = dream_eod.execute(arguments(tmp_path), "2026-08-16")
     assert result["status"] == "composition_required"
     assert result["mutation"] is True
-    assert "Internal handoff" in result["next_action"]
+    assert "Agent-internal handoff, not operator approval" in result["next_action"]
     assert (tmp_path / "cadence.sqlite3").exists()
 
 
-def test_geo_incomplete_pauses_before_internal_journal_stage(monkeypatch, tmp_path: Path) -> None:
+def test_missing_geo_packet_is_completed_by_dream_before_closeout(
+    monkeypatch, tmp_path: Path
+) -> None:
+    entry = {"versions": [{"version_id": "MJ-20260816-v1", "content_sha256": "a" * 64}]}
+    calls = []
+    monkeypatch.setattr(dream_eod, "REPO_ROOT", tmp_path)
+    monkeypatch.setattr(dream_eod, "manifest_rows", lambda _date: 3)
+    monkeypatch.setattr(dream_eod, "journal_entry", lambda _date: entry)
+    monkeypatch.setattr(
+        dream_eod,
+        "geo_freshness_projection",
+        lambda _date: {
+            "geo_prerequisite_status": "current",
+            "latest_daily_packet": "2026-08-16",
+            "later_substantive_packets": [],
+            "due_forecast_debt": {
+                "verification": 0,
+                "posture_review": 0,
+                "not_yet_due": 0,
+                "verification_hooks": [],
+                "posture_review_hooks": [],
+            },
+            "safe_to_inherit": True,
+            "next_action": "proceed",
+        },
+    )
+
+    def fake_run_tool(*args):
+        calls.append(args)
+        if args == ("synthesis", "--date", "2026-08-16", "--execute"):
+            issue = tmp_path / "narrative-geopolitics" / "work" / "daily" / "2026-08-16" / "issue.md"
+            issue.parent.mkdir(parents=True)
+            issue.write_text("issue", encoding="utf-8")
+            return SimpleNamespace(returncode=0, stdout="status=issue-complete\n", stderr="")
+        if args == ("daily-validate", "--date", "2026-08-16", "--stage", "issue"):
+            return SimpleNamespace(returncode=0, stdout="state=ready\nfailures=0\n", stderr="")
+        return SimpleNamespace(returncode=0, stdout='{"coverage":"complete"}', stderr="")
+
+    monkeypatch.setattr(dream_eod, "run_tool", fake_run_tool)
+
+    result = dream_eod.execute(
+        arguments(tmp_path, no_candidate="No defensible method experiment was observed."),
+        "2026-08-16",
+    )
+
+    assert result["status"] == "completed"
+    assert ("synthesis", "--date", "2026-08-16", "--execute") in calls
+    connection = dream_eod.cadence_ledger.connect(tmp_path / "cadence.sqlite3")
+    try:
+        rows = connection.execute(
+            "SELECT payload_json FROM daily_close_events WHERE event_type='stage_completed'"
+        ).fetchall()
+    finally:
+        connection.close()
+    geo_receipt = next(
+        json.loads(row["payload_json"]) for row in rows
+        if json.loads(row["payload_json"]).get("stage") == "geo"
+    )
+    assert geo_receipt["status"] == "dream_completed_packet"
+    assert geo_receipt["validation_stage"] == "issue"
+
+
+def test_geo_validation_failure_with_artifact_records_revision_debt_and_continues(
+    monkeypatch, tmp_path: Path
+) -> None:
+    entry = {"versions": [{"version_id": "MJ-20260816-v1", "content_sha256": "a" * 64}]}
+    monkeypatch.setattr(dream_eod, "REPO_ROOT", tmp_path)
+    monkeypatch.setattr(dream_eod, "manifest_rows", lambda _date: 3)
+    monkeypatch.setattr(dream_eod, "journal_entry", lambda _date: entry)
+    monkeypatch.setattr(
+        dream_eod,
+        "geo_freshness_projection",
+        lambda _date: {
+            "geo_prerequisite_status": "current",
+            "latest_daily_packet": "2026-08-16",
+            "later_substantive_packets": [],
+            "due_forecast_debt": {
+                "verification": 0,
+                "posture_review": 0,
+                "not_yet_due": 0,
+                "verification_hooks": [],
+                "posture_review_hooks": [],
+            },
+            "safe_to_inherit": True,
+            "next_action": "proceed",
+        },
+    )
+
+    def fake_run_tool(*args):
+        if args == ("synthesis", "--date", "2026-08-16", "--execute"):
+            issue = tmp_path / "narrative-geopolitics" / "work" / "daily" / "2026-08-16" / "issue.md"
+            issue.parent.mkdir(parents=True)
+            issue.write_text("issue", encoding="utf-8")
+            return SimpleNamespace(returncode=1, stdout="status=blocked-needs-deepening\n", stderr="")
+        if args == ("daily-validate", "--date", "2026-08-16", "--stage", "issue"):
+            return SimpleNamespace(
+                returncode=1,
+                stdout="state=ready\nfailures=2\nFAIL missing forecast hook\n",
+                stderr="",
+            )
+        return SimpleNamespace(returncode=0, stdout='{"coverage":"complete"}', stderr="")
+
+    monkeypatch.setattr(dream_eod, "run_tool", fake_run_tool)
+
+    result = dream_eod.execute(
+        arguments(tmp_path, no_candidate="No defensible method experiment was observed."),
+        "2026-08-16",
+    )
+
+    assert result["status"] == "completed"
+    connection = dream_eod.cadence_ledger.connect(tmp_path / "cadence.sqlite3")
+    try:
+        rows = connection.execute(
+            "SELECT payload_json FROM daily_close_events WHERE event_type='stage_completed'"
+        ).fetchall()
+    finally:
+        connection.close()
+    geo_receipt = next(
+        json.loads(row["payload_json"]) for row in rows
+        if json.loads(row["payload_json"]).get("stage") == "geo"
+    )
+    assert geo_receipt["status"] == "provisional_packet_with_revision_debt"
+    assert geo_receipt["validation_failures"] == 2
+    assert "revision_debt" in geo_receipt
+
+
+def test_geo_issue_deferred_with_daily_files_records_revision_debt_and_continues(
+    monkeypatch, tmp_path: Path
+) -> None:
+    entry = {"versions": [{"version_id": "MJ-20260816-v1", "content_sha256": "a" * 64}]}
+    monkeypatch.setattr(dream_eod, "REPO_ROOT", tmp_path)
+    monkeypatch.setattr(dream_eod, "manifest_rows", lambda _date: 3)
+    monkeypatch.setattr(dream_eod, "journal_entry", lambda _date: entry)
+    monkeypatch.setattr(
+        dream_eod,
+        "geo_freshness_projection",
+        lambda _date: {
+            "geo_prerequisite_status": "current",
+            "latest_daily_packet": "2026-08-16",
+            "later_substantive_packets": [],
+            "due_forecast_debt": {
+                "verification": 0,
+                "posture_review": 0,
+                "not_yet_due": 0,
+                "verification_hooks": [],
+                "posture_review_hooks": [],
+            },
+            "safe_to_inherit": True,
+            "next_action": "proceed",
+        },
+    )
+
+    def fake_run_tool(*args):
+        if args == ("synthesis", "--date", "2026-08-16", "--execute"):
+            run_dir = tmp_path / "narrative-geopolitics" / "work" / "daily" / "2026-08-16"
+            run_dir.mkdir(parents=True)
+            for name in dream_eod.GEO_DAILY_FILES:
+                (run_dir / name).write_text(name, encoding="utf-8")
+            return SimpleNamespace(
+                returncode=1,
+                stdout="issue_action=deferred\nFAIL deepening gate rejects unresolved synthesis placeholders\n",
+                stderr="",
+            )
+        return SimpleNamespace(returncode=0, stdout='{"coverage":"complete"}', stderr="")
+
+    monkeypatch.setattr(dream_eod, "run_tool", fake_run_tool)
+
+    result = dream_eod.execute(
+        arguments(tmp_path, no_candidate="No defensible method experiment was observed."),
+        "2026-08-16",
+    )
+
+    assert result["status"] == "completed"
+    connection = dream_eod.cadence_ledger.connect(tmp_path / "cadence.sqlite3")
+    try:
+        rows = connection.execute(
+            "SELECT payload_json FROM daily_close_events WHERE event_type='stage_completed'"
+        ).fetchall()
+    finally:
+        connection.close()
+    geo_receipt = next(
+        json.loads(row["payload_json"]) for row in rows
+        if json.loads(row["payload_json"]).get("stage") == "geo"
+    )
+    assert geo_receipt["status"] == "provisional_packet_with_revision_debt"
+    assert geo_receipt["artifact_ref"] == "narrative-geopolitics/work/daily/2026-08-16"
+    assert "issue.md was deferred" in " ".join(geo_receipt["revision_debt"])
+
+
+def test_geo_infrastructure_failure_still_pauses_before_internal_journal_stage(monkeypatch, tmp_path: Path) -> None:
     monkeypatch.setattr(
         dream_eod, "geo_certification",
-        lambda _date: (_ for _ in ()).throw(
-            dream_eod.cadence_ledger.CadenceLedgerError("Geo packet is incomplete")
+        lambda _date, **_kwargs: (_ for _ in ()).throw(
+            dream_eod.cadence_ledger.CadenceLedgerError("Geo infrastructure failed")
         ),
     )
     monkeypatch.setattr(dream_eod, "journal_entry", lambda _date: None)
@@ -206,7 +413,7 @@ def test_existing_committed_geo_packet_is_certified_without_regeneration(monkeyp
         "validation_stage": "issue", "certification_basis": "committed",
     }
     calls = []
-    monkeypatch.setattr(dream_eod, "geo_certification", lambda _date: certification)
+    monkeypatch.setattr(dream_eod, "geo_certification", lambda _date, **_kwargs: certification)
     monkeypatch.setattr(
         dream_eod,
         "geo_freshness_projection",
@@ -249,7 +456,7 @@ def test_existing_committed_geo_packet_is_certified_without_regeneration(monkeyp
         json.loads(row["payload_json"]) for row in rows
         if json.loads(row["payload_json"]).get("stage") == "geo"
     )
-    assert geo_receipt["status"] == "certified_existing_packet"
+    assert geo_receipt["status"] == "committed"
     assert geo_receipt["artifact_ref"] == certification["artifact_ref"]
     assert geo_receipt["commit"] == "c" * 40
     assert geo_receipt["validation_stage"] == "issue"
@@ -313,7 +520,7 @@ def test_geo_freshness_splits_due_forecast_debt(monkeypatch, tmp_path: Path) -> 
 
 
 def test_geo_failure_precedes_private_ledger_mutation(monkeypatch, tmp_path: Path) -> None:
-    def fail(_date):
+    def fail(_date, **_kwargs):
         raise dream_eod.cadence_ledger.CadenceLedgerError("packet validation failed")
 
     monkeypatch.setattr(dream_eod, "geo_certification", fail)

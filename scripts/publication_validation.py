@@ -21,6 +21,11 @@ MANUAL_SESSION_MEMORIAL_CHECK = (
     "Validate the memorial pair, exact Continuity lineage, paraphrase-only privacy, "
     "manual privacy receipt, inactive posture, attribution, omissions, and version chain through mira-sessions."
 )
+MANUAL_MIRA_JOURNAL_CHECK = (
+    "Validate Mira Journal registry digest binding, approved status, technical "
+    "reference integrity, continuity-index coherence, privacy boundary, and "
+    "absence of research-evidence or publication-authority promotion."
+)
 MANUAL_GRACE_GEMS_CHECK = (
     "Validate Grace Gems provenance, privacy exclusions, stewardship-versus-ownership "
     "boundaries, CEO authority, and absence of copied upstream or private evidence."
@@ -144,6 +149,31 @@ def _singularity_archive_path(path: str) -> bool:
     return path.startswith("archive/sources/singularity/")
 
 
+def _mira_journal_date(path: str) -> str | None:
+    parts = PurePosixPath(path).parts
+    if len(parts) == 3 and parts[:2] == ("mira", "journal") and parts[2].endswith(".md"):
+        date = parts[2].removesuffix(".md")
+        if DATE_RE.match(date):
+            return date
+    if (
+        len(parts) == 4
+        and parts[:3] == ("mira", "journal", "references")
+        and parts[3].startswith("MJTR-")
+        and (parts[3].endswith(".json") or parts[3].endswith(".md"))
+    ):
+        match = re.match(r"^MJTR-(\d{4})(\d{2})(\d{2})-v\d+\.(?:json|md)$", parts[3])
+        if match:
+            return "-".join(match.groups())
+    if path in {
+        "mira/journal-registry.json",
+        "mira/journal.md",
+        "mira/journal/continuity-index.json",
+        "mira/journal/continuity-index.md",
+    }:
+        return ""
+    return None
+
+
 def route_path(path: str, *, repo_root: Path = REPO_ROOT) -> dict[str, Any]:
     if path.startswith("projects/grace-gems/"):
         return {
@@ -172,6 +202,21 @@ def route_path(path: str, *, repo_root: Path = REPO_ROOT) -> dict[str, Any]:
             "validation_class": "domain-governed",
             "commands": [],
             "manual_checks": [MANUAL_ESSAY_CHECK],
+        }
+    journal_date = _mira_journal_date(path)
+    if journal_date is not None:
+        commands = [
+            (
+                f"tools/run.ps1 mira-journal status --from {journal_date} --to {journal_date} --json"
+                if journal_date
+                else "tools/run.ps1 mira-journal status --json"
+            )
+        ]
+        return {
+            "owner": "mira-journal",
+            "validation_class": "domain-governed",
+            "commands": commands,
+            "manual_checks": [MANUAL_MIRA_JOURNAL_CHECK],
         }
     if _singularity_archive_path(path):
         return {
@@ -238,8 +283,8 @@ def route_path(path: str, *, repo_root: Path = REPO_ROOT) -> dict[str, Any]:
             "owner": "youtube-capture",
             "validation_class": "domain-governed",
             "commands": [
-                f"python scripts/youtube_capture.py status --date {youtube_date}",
-                f"python scripts/youtube_capture.py audit-duplicates --date {youtube_date} --json",
+                f"python -X utf8 scripts/youtube_capture.py status --date {youtube_date}",
+                f"python -X utf8 scripts/youtube_capture.py audit-duplicates --date {youtube_date} --json",
             ],
             "manual_checks": [MANUAL_YOUTUBE_CAPTURE_CHECK],
         }

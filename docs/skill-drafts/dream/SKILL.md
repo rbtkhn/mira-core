@@ -5,14 +5,17 @@ description: "Consolidate one local day of mira-core sessions into a private adv
 
 # Dream
 
-Use only in `mira-core`. Bare `dream` is the daily-close conductor. Before it
-opens or resumes the private daily-close ledger, it performs a read-only
-prerequisite gate for the selected date: Geo-Strategy must have a validated,
-committed issue packet (or an honest `no_geo_run` result). Journal composition
-is an internal Dream stage: Dream prepares the complete daily census, composes
-under Mira Journal with Mira Voice, validates, and finalizes without an
-operator prompt. An incomplete Geo lane pauses; a Journal failure blocks with
-repair guidance and never creates fallback prose or a partial canonical entry.
+Use only in `mira-core`. Bare `dream` is the daily-close conductor. Dream owns
+daily completion for the selected date: if manifest-backed Geo-Strategy sources
+exist and the issue packet is missing, Dream completes the Geo lane before
+continuing. If the generated Geo packet exists but is analytically imperfect or
+fails deterministic issue validation, Dream records explicit next-day revision
+debt and continues the closeout rather than pausing. Journal composition is an
+internal Dream stage: Dream prepares the complete daily census, then hands the
+prepared bundle to the current agent for Mira Journal composition under Mira
+Voice, validates, and finalizes without an operator approval prompt. Journal
+canonicalization failures still block with repair guidance and never create
+fallback prose or a partial canonical entry.
 Run one canonical Dream consolidation per operator, workspace, and local
 calendar day. Individual sessions contribute bounded closeout receipts; Dream
 consolidates all sessions active that day. Dream records advisory cadence state
@@ -28,27 +31,30 @@ tools/run.ps1 dream --date YYYY-MM-DD --json
 tools/run.ps1 dream --resume DCR-ID --date YYYY-MM-DD --json
 ```
 
-Use `--check` for a read-only readiness projection. Completed stages are
-immutable. When the date's Geo-Strategy packet already exists, passes
-`validate_daily_run --stage issue`, and has either been committed or explicitly
-accepted by the operator, Dream certifies the Geo-Strategy stage as complete
-from those receipts. It must not regenerate, reinterpret, or revise the packet
-unless the operator explicitly requests a Geo-Strategy revision. The
-certification names the packet date, validation stage, artifact refs, and commit
-or acceptance basis. A date without manifest-backed Geo sources records
-`no_geo_run`; a failed evidence-backed Geo packet blocks Journal. Dream prepares
-and composes the private Journal bundle internally, then runs prose, grounding,
-temporal-position, adjacent-entry originality, full-bundle, and finalization
-checks. A passing bundle is canonicalized as private `dream-eod-v1` with
-`publication_eligible: false`; Dream is the finalizing conductor and Mira is
-the recorded author. An internal composition handoff is not an operator-facing
-approval or resume step. Finish
-with a private `--dream-json` candidate or `--no-candidate REASON`.
+Use `--check` for a read-only projection: it reports when Geo-Strategy will be
+completed during execution, but writes nothing. Completed stages are immutable.
+When the date's Geo-Strategy packet already exists and validates cleanly, Dream
+certifies it from the best available receipt: committed bytes when present, or
+Dream close authority when uncommitted. When manifest rows exist and the packet
+is missing, Dream runs `synthesis --date YYYY-MM-DD --execute`, validates the
+issue stage, and certifies the Geo stage as `dream_completed_packet` when clean
+or `provisional_packet_with_revision_debt` when an issue artifact exists but
+validation is not clean. A date without manifest-backed Geo sources records
+`no_geo_run`. Dream prepares the private Journal bundle and may return
+`composition_required` as an agent-internal handoff to write `draft.md`,
+`draft.json`, and `technical-reference.json` from the prepared bundle
+contracts. That handoff is not an operator-facing approval lane, and it is not
+permission to abandon the Dream cycle. After composition, Dream runs prose,
+grounding, temporal-position, adjacent-entry originality, full-bundle, and
+finalization checks. A passing bundle is canonicalized as private
+`dream-eod-v1` with `publication_eligible: false`; Dream is the finalizing
+conductor and Mira is the recorded author. Finish with a private `--dream-json`
+candidate or `--no-candidate REASON`.
 
-The Geo prerequisite prompt grants no authority to complete that lane. Journal
-composition and private EOD finalization are part of the already-authorized
-Dream ritual; they grant no staging, commit, push, publication, communication,
-RSI admission, or identity-promotion authority.
+Dream's Geo completion authority grants no staging, commit, push, publication,
+forecast resolution, operational-truth assignment, verification admission,
+communication, RSI admission, or identity-promotion authority. Complete the
+daily cycle first; revise next day if necessary.
 
 Before inheriting a Geo-Strategy prerequisite, run a read-only freshness gate
 over `narrative-geopolitics/work/daily`. If any later substantive Geo packet

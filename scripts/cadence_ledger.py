@@ -356,8 +356,17 @@ def append_daily_close_event(connection: sqlite3.Connection, run_id: str, event_
         elif key in {"stage", "status", "reason", "digest", "coverage_status",
                    "episode_id", "closeout_id", "journal_version_id", "technical_reference_id",
                    "technical_reference_digest", "validated_at", "validation_status",
-                   "approval_status", "commit", "validation_stage", "certification_basis"}:
+                   "approval_status", "commit", "validation_stage", "validation_state",
+                   "certification_basis"}:
             clean[key] = sanitize_text(value, limit=1000)
+        elif key == "validation_failures" and isinstance(value, int):
+            clean[key] = value
+        elif key == "revision_debt" and isinstance(value, list):
+            clean[key] = [
+                sanitize_text(item, limit=1000)
+                for item in value
+                if isinstance(item, str) and item.strip()
+            ]
         elif key == "canonicalized" and isinstance(value, bool):
             clean[key] = value
     if clean.get("stage") and clean["stage"] not in DAILY_CLOSE_STAGES:

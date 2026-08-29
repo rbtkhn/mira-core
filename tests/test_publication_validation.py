@@ -16,6 +16,13 @@ def make_tree(root: Path) -> None:
         "archive/registries/innermost-loop.json",
         "archive/sources/singularity/moonshots/transcripts/2026-08-27-example.md",
         "archive/sources/singularity/singularity-signal-ledger.json",
+        "mira/journal-registry.json",
+        "mira/journal.md",
+        "mira/journal/2026-08-28.md",
+        "mira/journal/references/MJTR-20260828-v1.json",
+        "mira/journal/references/MJTR-20260828-v1.md",
+        "mira/journal/continuity-index.json",
+        "mira/journal/continuity-index.md",
         "projects/grace-gems/README.md",
         "archive/sources/geopolitics/source-manifest.json",
         "archive/sources/geopolitics/sources/2026-08-17/source-example.md",
@@ -160,6 +167,32 @@ def test_router_resolves_singularity_archive_paths(tmp_path: Path) -> None:
     assert report["blockers"] == []
 
 
+def test_router_resolves_mira_journal_paths(tmp_path: Path) -> None:
+    make_tree(tmp_path)
+    report = routing.build_report(
+        [
+            "mira/journal/2026-08-28.md",
+            "mira/journal/references/MJTR-20260828-v1.json",
+            "mira/journal/references/MJTR-20260828-v1.md",
+            "mira/journal-registry.json",
+            "mira/journal.md",
+            "mira/journal/continuity-index.json",
+            "mira/journal/continuity-index.md",
+        ],
+        repo_root=tmp_path,
+    )
+
+    assert report["status"] == "manual-required"
+    assert report["owners"] == ["mira-journal"]
+    assert report["validation_classes"] == ["domain-governed"]
+    assert report["commands"] == [
+        "tools/run.ps1 mira-journal status --from 2026-08-28 --to 2026-08-28 --json",
+        "tools/run.ps1 mira-journal status --json",
+    ]
+    assert report["manual_checks"] == [routing.MANUAL_MIRA_JOURNAL_CHECK]
+    assert report["blockers"] == []
+
+
 def test_router_resolves_narrative_geopolitics_artifacts(tmp_path: Path) -> None:
     make_tree(tmp_path)
     daily_dir = tmp_path / "narrative-geopolitics/work/daily/2026-08-17"
@@ -231,8 +264,8 @@ def test_router_resolves_narrative_geopolitics_work_surfaces(tmp_path: Path) -> 
     assert report["validation_classes"] == ["repo-structural", "domain-governed"]
     assert report["commands"] == [
         "tools/run.ps1 test --path tests/test_youtube_capture.py",
-        "python scripts/youtube_capture.py status --date 2026-08-22",
-        "python scripts/youtube_capture.py audit-duplicates --date 2026-08-22 --json",
+        "python -X utf8 scripts/youtube_capture.py status --date 2026-08-22",
+        "python -X utf8 scripts/youtube_capture.py audit-duplicates --date 2026-08-22 --json",
         "python scripts/validate_historical_reference_taxonomy.py --run "
         "narrative-geopolitics/work/historical-reference/2026-08-22-run.json",
         "python scripts/reality.py check",

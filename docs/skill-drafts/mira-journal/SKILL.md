@@ -23,7 +23,8 @@ voice judgment is required.
   requires no operator approval record, uses status `dream-eod-v1`, and is
   always `publication_eligible: false`.
 - **Prepare and compose:** run `tools/run.ps1 mira-journal prepare --date
-  YYYY-MM-DD`, then use the private bundle contracts.
+  YYYY-MM-DD`, then use the private bundle contracts. Inside Dream, this is an
+  agent-internal composition handoff, not an operator approval lane.
 - **Revise:** prepare the next version for the date, preserve the registered
   digest chain, and apply the composition method to the requested correction.
 - **Check or review:** run `tools/run.ps1 mira-journal draft-check --date
@@ -83,9 +84,10 @@ events merely to fill the entry.
    for repeated openings, endings, titles, metaphors, formulaic learning arcs,
    and strongly templated boundary language. Repetition blocks only when it is
    exact or meaningfully formulaic; developed thematic recurrence is allowed.
-9. **Check and offer or finalize.** Run `draft-check`. In ordinary composition report
-   the private bundle as approval-pending. Inside Dream, continue without an
-   operator prompt through EOD finalization as `dream-eod-v1`.
+9. **Check and offer or finalize.** Run `draft-check`. In ordinary composition
+   report the private bundle as approval-pending. Inside Dream, treat any
+   missing-draft handoff as agent-internal work, continue without an operator
+   approval prompt, and resume through EOD finalization as `dream-eod-v1`.
 
 Never invent an approval record. Never approve, revise canonical state, admit
 RSI learning, stage, commit, push, publish, or promote identity during nightly
