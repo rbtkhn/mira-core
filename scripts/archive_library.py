@@ -10,6 +10,8 @@ import sys
 from pathlib import Path
 from typing import Any, Iterable, Mapping
 
+from portable_paths import require_private_path, state_path
+
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 LIBRARY_ROOT = REPO_ROOT / "archive" / "library"
@@ -146,25 +148,24 @@ def sha256_file(path: Path) -> str:
 def resolve_text_root(environment: Mapping[str, str] | None = None) -> Path:
     source = os.environ if environment is None else environment
     configured = text(source.get("MIRA_CORE_LIBRARY_TEXT_ROOT"))
-    return Path(configured).expanduser() if configured else REPO_ROOT / ".mira-private" / "library" / "texts"
+    return Path(configured).expanduser() if configured else state_path("library/texts", environment=source)
 
 
 def ensure_private_text_root(root: Path) -> Path:
-    resolved = root.resolve()
-    if not private_text_root_allowed(resolved):
-        raise LibraryError(f"library text root must be inside .mira-private or C:/private: {resolved}")
+    try:
+        resolved = require_private_path(root, label="library text root", repo_root=REPO_ROOT)
+    except ValueError as error:
+        raise LibraryError(str(error)) from error
     resolved.mkdir(parents=True, exist_ok=True)
     return resolved
 
 
 def private_text_root_allowed(root: Path) -> bool:
-    resolved = root.resolve()
-    repo_private = (REPO_ROOT / ".mira-private").resolve()
-    allowed_roots = [repo_private]
-    private_root = Path("C:/private")
-    if private_root.exists():
-        allowed_roots.append(private_root.resolve())
-    return any(resolved == allowed or allowed in resolved.parents for allowed in allowed_roots)
+    try:
+        require_private_path(root, label="library text root", repo_root=REPO_ROOT)
+    except ValueError:
+        return False
+    return True
 
 
 def resolve_text_location(location: Any, environment: Mapping[str, str] | None = None) -> Path | None:
@@ -761,7 +762,7 @@ def render_text_sources_index(registry: Mapping[str, Any]) -> str:
     lines = [
         "# Library Text Sources Index",
         "",
-        "This index lists source text bodies admitted in `archive/library/library-registry.json`. The source bodies themselves are private/local payloads, normally stored under `.mira-private/library/texts/`; this file records only metadata and logical text URIs.",
+        "This index lists source text bodies admitted in `archive/library/library-registry.json`. The source bodies themselves are local payloads stored under the platform Mira Core state root at `library/texts/`; this file records only metadata and logical text URIs.",
         "",
         "- Registry: `library-registry.json`",
         f"- Text bodies indexed: {len(rows)}",
@@ -1149,7 +1150,7 @@ def admit_text_command(args: argparse.Namespace) -> dict[str, Any]:
     text_root = resolve_text_root()
     resolved_text_root = text_root.resolve()
     if not private_text_root_allowed(resolved_text_root):
-        raise LibraryError(f"library text root must be inside .mira-private or C:/private: {resolved_text_root}")
+        raise LibraryError(f"library text root must remain outside Git: {resolved_text_root}")
     if not args.check:
         resolved_text_root = ensure_private_text_root(text_root)
     registry = load_registry()

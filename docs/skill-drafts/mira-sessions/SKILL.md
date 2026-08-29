@@ -13,7 +13,7 @@ not a transcript, total recall, identity substrate, or evidence source.
 
 - Resolve the session through `mira/continuity/session-registry.json`; do not invent IDs.
 - For a canonical session, compose a matching Markdown and JSON pair and validate it.
-- For an unresolved session, use `prepare-pending` only under `.mira-private/sessions/memorials/pending/`; later rebinding requires a new direct admission command.
+- For an unresolved session, use `prepare-pending` only under the platform state root at `sessions/memorials/pending/`; later rebinding requires a new direct admission command.
 - `memorialize this session` authorizes local composition, validation, and eligible local admission only—not staging, commit, push, Archive ingestion, publication, communication, or activation.
 
 ## Compose safely

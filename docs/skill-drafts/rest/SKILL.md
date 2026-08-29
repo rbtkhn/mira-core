@@ -12,13 +12,23 @@ terminal response.
 ## Close
 
 1. Resolve the private Continuity inbox at the canonical portable path
-   `.mira-private/sessions/rest/`. Accept `MIRA_CORE_CONTINUITY_INBOX` or an
+   the platform state root at `continuity/inbox/`. Accept `MIRA_CORE_CONTINUITY_INBOX` or an
    exact operator-supplied absolute path only as a warning compatibility
    override; fail closed when it conflicts with populated canonical state.
-2. Run `tools/run.ps1 rest --check --json` and inspect bounded closure debt.
-3. Run `tools/run.ps1 rest --json` once. Resume a returned live process rather
-   than launching another.
-4. Report receipt retention and each material debt class once, then stop. Do
+2. Classify closure debt before the check. Git dirt and unpublished commits
+   are detected automatically; pass each separately observed non-Git class as
+   `--debt CLASS`. The receipt records whether each class was automatic or
+   declared. Do not imply that the automatic check covers unsaved artifacts,
+   authority questions, blocked external actions, or open choice branches.
+3. Add `--review mira-journal` only when the session contains a substantive
+   reflection worth later consideration. Add `--review recursive-learn` only
+   when a recurring method observation may warrant later screening. Review
+   requests are provisional context, never evidence or admission, and ordinary
+   Rest emits none.
+4. Run `tools/run.ps1 rest --check --json` with the exact debt and review flags.
+5. Run the same command without `--check` once. Resume a returned live process
+   rather than launching another.
+6. Report receipt retention and each material debt class once, then stop. Do
    not produce a handoff, possibility menu, or invitation to continue.
 
 Bare Rest authorizes only the private receipt. If storage is unavailable,

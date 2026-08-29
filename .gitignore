@@ -36,8 +36,8 @@ Thumbs.db
 # Private continuity payloads are hydrated locally and never published by default.
 /mira/continuity/captures/
 
-# Portable private continuity payloads. The existing repository root is the
-# physical bundle; this child tree must never enter Git.
+# Retired in-checkout private payload path; ignored only to prevent accidental
+# admission of legacy material. Live state belongs outside Git.
 /.mira-private/
 
 # Explicit local Mira provenance stores; schemas and code remain versioned.

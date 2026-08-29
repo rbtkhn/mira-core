@@ -52,7 +52,7 @@ evidence by reference.
 Configure private state only with an absolute path outside Git:
 
 ```powershell
-$env:MIRA_CORE_CHOICE_DB = "C:\private\mira-core-choice-history.sqlite3"
+$env:MIRA_CORE_CHOICE_DB = "$env:LOCALAPPDATA\MiraCore\state\choice-history.sqlite3"
 .\tools\run.ps1 choice select ...
 ```
 

@@ -8,7 +8,7 @@ Authority is question-specific, not a single global ranking:
 | --- | --- | --- | --- |
 | Identity | `mira/continuity/identity-ledger.json` | `mira/identity.md`, activation and trajectory views | `mira-continuity` |
 | Session continuity | `mira/continuity/session-registry.json` and immutable captures | Mira Archive replicas, activation and trajectory views | `mira-continuity` |
-| Session closure | `.mira-private/sessions/rest/` (private provisional) | exact-session `session_closure` projection | `rest` / `mira-continuity` |
+| Session closure | platform state root `continuity/inbox/` (private provisional) | exact-session `session_closure` projection | `rest` / `mira-continuity` |
 | Autobiographical | `mira/journal-registry.json` and approved `MJ-*` bytes | journal indexes and explicit-only Mira Archive collection | `mira-journal` |
 | Procedural learning | canonical Recursive Learning JSON ledger | generated Markdown and explicit-only Mira Archive outcomes | `recursive-learn` |
 | Provisional method experiments | configured private cadence database | bounded Coffee and scorecard projections | `coffee` / `dream` / `cadence` |

@@ -57,13 +57,14 @@ dependencies in an external user cache; no environment activation or repo-local
 `.venv` is required.
 
 ```powershell
-$env:MIRA_CORE_SESSION_TEMP_ROOT = 'C:\private\mira-core-test-temp'
+$env:MIRA_CORE_STATE_ROOT = Join-Path $env:LOCALAPPDATA 'MiraCore'
+$env:MIRA_CORE_SESSION_TEMP_ROOT = Join-Path $env:MIRA_CORE_STATE_ROOT 'runtime\temp'
 .\tools\run.ps1 runtime-bootstrap --print-python
 .\tools\run.ps1 test --temp-root $env:MIRA_CORE_SESSION_TEMP_ROOT --path tests/test_example.py
 .\tools\validate.ps1 -Mode Fast -TempRoot $env:MIRA_CORE_SESSION_TEMP_ROOT
 .\tools\validate.ps1 -TempRoot $env:MIRA_CORE_SESSION_TEMP_ROOT
 .\tools\validate.ps1 -Force -TempRoot $env:MIRA_CORE_SESSION_TEMP_ROOT
-$env:MIRA_CORE_CADENCE_DB = 'C:\private\mira-core-cadence.sqlite3'
+$env:MIRA_CORE_CADENCE_DB = Join-Path $env:MIRA_CORE_STATE_ROOT 'state\cadence.sqlite3'
 .\tools\run.ps1 cadence coffee --format markdown
 .\tools\run.ps1 harness
 .\tools\run.ps1 archive status
@@ -113,7 +114,7 @@ Unselected menus are not retained. To retain selected branches privately,
 configure an absolute SQLite path outside the repository:
 
 ```powershell
-$env:MIRA_CORE_CHOICE_DB = "C:\private\mira-core-choice-history.sqlite3"
+$env:MIRA_CORE_CHOICE_DB = Join-Path $env:MIRA_CORE_STATE_ROOT "state\choice-history.sqlite3"
 ```
 
 The first retained selection creates or migrates the private store. Selection
@@ -129,7 +130,7 @@ and `text` fields:
 
 ```powershell
 .\tools\run.ps1 choice select --choice-id CHOICE-20260729-01 `
-  --options-json C:\private\choice-options.json --selected-key inspect `
+  --options-json $env:TEMP\mira-choice-options.json --selected-key inspect `
   --choice-kind next-step --consequence-level low `
   --decision-summary "Choose the next bounded investigation" `
   --presented-at 2026-07-29T18:00:00Z --idempotency-key select-20260729-01
@@ -166,12 +167,12 @@ Back up and recover private state explicitly:
 
 ```powershell
 .\tools\run.ps1 choice backup `
-  --to C:\private\backups\mira-core-choice-history-20260804.sqlite3
+  --to $env:USERPROFILE\Documents\MiraCore-Exports\choice-history-20260804.sqlite3
 .\tools\run.ps1 choice backup-status `
-  --backup C:\private\backups\mira-core-choice-history-20260804.sqlite3
+  --backup $env:USERPROFILE\Documents\MiraCore-Exports\choice-history-20260804.sqlite3
 .\tools\run.ps1 choice recover `
-  --from C:\private\backups\mira-core-choice-history-20260804.sqlite3 `
-  --to C:\private\restored-choices.sqlite3 --dry-run
+  --from $env:USERPROFILE\Documents\MiraCore-Exports\choice-history-20260804.sqlite3 `
+  --to $env:LOCALAPPDATA\MiraCore\state\restored-choices.sqlite3 --dry-run
 ```
 
 Backups are created through a same-directory temporary database, checked for

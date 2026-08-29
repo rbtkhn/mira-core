@@ -12,14 +12,14 @@ import sys
 from pathlib import Path
 from typing import Any, Iterable
 
-from portable_paths import require_private_path
+from portable_paths import require_private_path, state_path
 
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 SHELF = REPO_ROOT / "archive" / "sessions"
 REGISTRY = SHELF / "registry.json"
 CONTINUITY = REPO_ROOT / "mira" / "continuity" / "session-registry.json"
-PENDING = REPO_ROOT / ".mira-private" / "sessions" / "memorials" / "pending"
+PENDING = state_path("sessions/memorials/pending")
 ARCHIVE_COLLECTION = "mira-session-memorials"
 AUTHORITY_BOUNDARY = (
     "A memorial is inactive reflective interpretation: preservation does not imply present identity, "

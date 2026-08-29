@@ -13,15 +13,20 @@ from typing import Any, Iterator, Mapping
 from zoneinfo import ZoneInfo
 
 import mira_continuity
-from portable_paths import PortablePathError, require_private_path
+from portable_paths import PortablePathError, require_private_path, state_path
 
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 INBOX_ENV = "MIRA_CORE_CONTINUITY_INBOX"
-DEFAULT_INBOX = REPO_ROOT / ".mira-private" / "sessions" / "rest"
+DEFAULT_INBOX = state_path("continuity/inbox")
 WORKSPACE_ID = "mira-core"
-SCHEMA_VERSION = 1
+SCHEMA_VERSION = 2
+SUPPORTED_SCHEMA_VERSIONS = {1, 2}
 LOCAL_TIMEZONE = "America/Denver"
+REVIEW_STATES = {
+    "mira-journal": "pending-consideration",
+    "recursive-learn": "pending-screening",
+}
 DEBT_CLASSES = {
     "uncommitted-work", "unpublished-commit", "blocked-external-action",
     "unresolved-authority", "open-choice-branch", "unsaved-artifact",
@@ -62,25 +67,13 @@ def resolve_inbox(
     warn=None,
 ) -> Path:
     repository = (repo_root or REPO_ROOT).resolve()
-    canonical = repository / ".mira-private" / "sessions" / "rest"
+    canonical = DEFAULT_INBOX
     configured = raw if raw is not None else environment.get(INBOX_ENV)
     candidate = Path(configured).expanduser() if configured else canonical
     try:
-        resolved = require_private_path(
-            candidate, label="private Rest inbox", repo_root=repository,
-            private_root=repository / ".mira-private",
-        )
+        resolved = require_private_path(candidate, label="private Rest inbox", repo_root=repository)
     except PortablePathError as error:
         raise RestError(str(error)) from error
-    canonical_resolved = canonical.resolve(strict=False)
-    if configured and resolved != canonical_resolved:
-        if _populated(canonical_resolved):
-            raise RestError(
-                f"external Rest inbox conflicts with populated canonical inbox: {canonical_resolved}"
-            )
-        message=f"external Rest inbox {resolved} is deprecated; use {canonical_resolved}"
-        if warn is None: print(message, file=sys.stderr)
-        else: warn(message)
     return resolved
 
 
@@ -139,6 +132,10 @@ def load_events(inbox: Path, session: str, repo_root: Path = REPO_ROOT) -> list[
             value = json.loads(path.read_text(encoding="utf-8"))
         except (OSError, json.JSONDecodeError) as error:
             raise RestError("Rest receipt is unreadable") from error
+        if value.get("schema_version") not in SUPPORTED_SCHEMA_VERSIONS:
+            raise RestError("unsupported Rest receipt schema")
+        if value.get("workspace_id") != WORKSPACE_ID:
+            raise RestError("Rest receipt workspace mismatch")
         claimed = value.get("event_sha256")
         body = {key: item for key, item in value.items() if key != "event_sha256"}
         if claimed != digest(body):
@@ -175,22 +172,38 @@ def git_state(repo_root: Path = REPO_ROOT) -> dict[str, Any]:
         return {"status": "unavailable"}
 
 
-def inferred_debt(state: dict[str, Any], extra: list[str] | None = None) -> list[str]:
-    values = set(extra or [])
-    unknown = values - DEBT_CLASSES
+def debt_assessment(state: dict[str, Any], extra: list[str] | None = None) -> tuple[list[str], dict[str, str]]:
+    declared = set(extra or [])
+    unknown = declared - DEBT_CLASSES
     if unknown:
         raise RestError("unsupported closure debt: " + ", ".join(sorted(unknown)))
+    automatic: set[str] = set()
     if state.get("dirty_count", 0):
-        values.add("uncommitted-work")
+        automatic.add("uncommitted-work")
     if isinstance(state.get("ahead"), int) and state["ahead"] > 0:
-        values.add("unpublished-commit")
+        automatic.add("unpublished-commit")
     if state.get("status") == "unavailable":
-        values.add("unavailable-verification")
-    return sorted(values)
+        automatic.add("unavailable-verification")
+    values = sorted(declared | automatic)
+    basis = {value: ("automatic-git" if value in automatic else "declared-at-rest") for value in values}
+    return values, basis
+
+
+def inferred_debt(state: dict[str, Any], extra: list[str] | None = None) -> list[str]:
+    return debt_assessment(state, extra)[0]
+
+
+def requested_review_entries(owners: list[str] | None = None) -> list[dict[str, str]]:
+    requested = set(owners or [])
+    unknown = requested - set(REVIEW_STATES)
+    if unknown:
+        raise RestError("unsupported Rest review owner: " + ", ".join(sorted(unknown)))
+    return [{"owner": owner, "state": REVIEW_STATES[owner]} for owner in sorted(requested)]
 
 
 def event_body(*, session: str, sequence: int, event_type: str, record: dict[str, str],
-               previous: str | None, debt: list[str], state: dict[str, Any]) -> dict[str, Any]:
+               previous: str | None, debt: list[str], state: dict[str, Any],
+               debt_basis: dict[str, str] | None = None, reviews: list[str] | None = None) -> dict[str, Any]:
     body = {
         "schema_version": SCHEMA_VERSION,
         "event_id": "",
@@ -205,13 +218,9 @@ def event_body(*, session: str, sequence: int, event_type: str, record: dict[str
         "previous_event_sha256": previous,
         "reentry_expected": event_type == "resumed",
         "closure_debt": debt if event_type == "rested" else [],
+        "closure_debt_basis": (debt_basis or {}) if event_type == "rested" else {},
         "repository_state": state if event_type == "rested" else None,
-        "requested_reviews": (
-            [
-                {"owner": "mira-journal", "state": "pending-consideration"},
-                {"owner": "recursive-learn", "state": "pending-screening"},
-            ] if event_type == "rested" else []
-        ),
+        "requested_reviews": requested_review_entries(reviews) if event_type == "rested" else [],
     }
     seed = dict(body)
     seed.pop("event_id")
@@ -220,7 +229,7 @@ def event_body(*, session: str, sequence: int, event_type: str, record: dict[str
 
 
 def planned_events(source: mira_continuity.SessionSource, existing: list[dict[str, Any]],
-                   debt: list[str] | None = None) -> list[dict[str, Any]]:
+                   debt: list[str] | None = None, reviews: list[str] | None = None) -> list[dict[str, Any]]:
     records = user_records(source)
     if not records or not exact_rest(records[-1]["text"]):
         raise RestError("the latest user instruction must be exactly `rest`")
@@ -234,14 +243,16 @@ def planned_events(source: mira_continuity.SessionSource, existing: list[dict[st
         resumed = next((row for row in after if not exact_rest(row["text"])), None)
         if resumed:
             body = event_body(session=source.session_uuid, sequence=sequence, event_type="resumed",
-                              record=resumed, previous=previous, debt=[], state={})
+                              record=resumed, previous=previous, debt=[], state={}, debt_basis={}, reviews=[])
             body["event_sha256"] = digest(body)
             additions.append(body)
             previous, sequence = body["event_sha256"], sequence + 1
         else:
             return []
+    assessed_debt, basis = debt_assessment(state, debt)
     body = event_body(session=source.session_uuid, sequence=sequence, event_type="rested",
-                      record=records[-1], previous=previous, debt=inferred_debt(state, debt), state=state)
+                      record=records[-1], previous=previous, debt=assessed_debt, state=state,
+                      debt_basis=basis, reviews=reviews)
     body["event_sha256"] = digest(body)
     additions.append(body)
     return additions

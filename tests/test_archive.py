@@ -44,34 +44,27 @@ def test_private_storage_config_fallback_and_environment_precedence(
     )
 
 
-def test_private_config_fallback_precedence(
+def test_private_config_uses_only_canonical_or_explicit_path(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch, capsys: pytest.CaptureFixture[str]
 ) -> None:
     repo = tmp_path / "repo"; repo.mkdir()
     canonical = tmp_path / "canonical"; canonical.mkdir()
     replica = tmp_path / "replica"; replica.mkdir()
     current = tmp_path / "current.json"
-    former = tmp_path / "former.json"
-    legacy = tmp_path / "legacy.json"
     document = json.dumps({
         "schema_version": 1,
         "canonical_root": str(canonical),
         "replica_root": str(replica),
     })
-    former.write_text(document, encoding="utf-8")
-    legacy.write_text(document, encoding="utf-8")
     monkeypatch.setattr(system_archive, "REPO_ROOT", repo)
     monkeypatch.setattr(system_archive, "DEFAULT_CONFIG_PATH", current)
-    monkeypatch.setattr(system_archive, "FORMER_CONFIG_PATH", former)
-    for name in (
-        system_archive.CONFIG_PATH_ENV,
-        "MIRA_CORE_SYSTEM_ARCHIVE_CONFIG",
-    ):
-        monkeypatch.delenv(name, raising=False)
-    assert system_archive.storage_config()[1] == former.resolve()
-    assert str(former) in capsys.readouterr().err
-    former.unlink()
-    assert system_archive.storage_config()[1] == system_archive.DEFAULT_CONFIG_PATH
+    monkeypatch.delenv(system_archive.CONFIG_PATH_ENV, raising=False)
+    assert system_archive.storage_config() == (None, current)
+    explicit = tmp_path / "explicit.json"
+    explicit.write_text(document, encoding="utf-8")
+    monkeypatch.setenv(system_archive.CONFIG_PATH_ENV, str(explicit))
+    assert system_archive.storage_config()[1] == explicit.resolve()
+    assert capsys.readouterr().err == ""
 
 
 def test_environment_roots_must_remain_distinct(

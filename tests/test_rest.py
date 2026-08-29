@@ -13,6 +13,11 @@ import rest_receipts
 SESSION = "01a001e8-c18a-7213-8afa-b7e4421aad72"
 
 
+@pytest.fixture(autouse=True)
+def external_rest_root(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+    monkeypatch.setattr(rest_receipts, "DEFAULT_INBOX", tmp_path / "mira-state" / "continuity" / "inbox")
+
+
 def source(tmp_path: Path, messages: list[tuple[str, str]]) -> mira_continuity.SessionSource:
     path = tmp_path / f"rollout-{SESSION}.jsonl"
     rows = [{
@@ -36,7 +41,7 @@ def source(tmp_path: Path, messages: list[tuple[str, str]]) -> mira_continuity.S
 def test_private_inbox_defaults_to_portable_root_and_rejects_other_repository_paths(tmp_path: Path) -> None:
     repo = tmp_path / "Mira Core"
     repo.mkdir()
-    expected = repo / ".mira-private" / "sessions" / "rest"
+    expected = rest_receipts.DEFAULT_INBOX
     assert rest_receipts.resolve_inbox(None, {}, repo_root=repo) == expected.resolve()
     assert not expected.exists()
     with pytest.raises(rest_receipts.RestError):
@@ -45,15 +50,12 @@ def test_private_inbox_defaults_to_portable_root_and_rejects_other_repository_pa
         rest_receipts.resolve_inbox(repo / "tmp", {}, repo_root=repo)
 
 
-def test_external_inbox_warns_and_conflicts_with_populated_canonical(tmp_path: Path) -> None:
+def test_external_inbox_override_is_exact_and_repository_paths_fail(tmp_path: Path) -> None:
     repo=tmp_path/"repo"; repo.mkdir(); external=tmp_path/"external"; warnings=[]
     assert rest_receipts.resolve_inbox(external, {}, repo_root=repo, warn=warnings.append) == external.resolve()
-    assert warnings and "deprecated" in warnings[0]
-    canonical=repo/".mira-private/sessions/rest/mira-core/session"
-    canonical.mkdir(parents=True); (canonical/"event.json").write_text("{}",encoding="utf-8")
-    with pytest.raises(rest_receipts.RestError,match="conflicts"):
-        rest_receipts.resolve_inbox(external, {}, repo_root=repo, warn=warnings.append)
-    assert rest_receipts.resolve_inbox(repo/".mira-private/sessions/rest", {}, repo_root=repo) == (repo/".mira-private/sessions/rest").resolve()
+    assert warnings == []
+    with pytest.raises(rest_receipts.RestError):
+        rest_receipts.resolve_inbox(repo/".mira-private/sessions/rest", {}, repo_root=repo)
 
 
 def test_workspace_identity_is_stable_across_relocation() -> None:
@@ -67,9 +69,6 @@ def test_environment_override_precedes_default_and_equal_canonical_is_quiet(tmp_
     repo=tmp_path/"repo"; repo.mkdir(); external=tmp_path/"external"; warnings=[]
     environment={rest_receipts.INBOX_ENV:str(external)}
     assert rest_receipts.resolve_inbox(None,environment,repo_root=repo,warn=warnings.append) == external.resolve()
-    assert len(warnings) == 1
-    warnings.clear(); canonical=repo/".mira-private/sessions/rest"
-    assert rest_receipts.resolve_inbox(None,{rest_receipts.INBOX_ENV:str(canonical)},repo_root=repo,warn=warnings.append) == canonical.resolve()
     assert warnings == []
 
 
@@ -84,7 +83,8 @@ def test_write_creates_canonical_inbox_but_projection_does_not(tmp_path: Path, m
 
 
 def test_cli_check_is_read_only_and_write_creates_one_chained_receipt(tmp_path: Path, monkeypatch, capsys) -> None:
-    repo=tmp_path/"repo"; repo.mkdir(); inbox=repo/".mira-private/sessions/rest"
+    repo=tmp_path/"repo"; repo.mkdir(); inbox=tmp_path/"state/continuity/inbox"
+    monkeypatch.setattr(rest_receipts,"DEFAULT_INBOX",inbox)
     current=source(tmp_path,[('2026-08-17T10:01:00Z','rest')])
     monkeypatch.setattr(rest,"current_source",lambda:(SESSION,current))
     monkeypatch.setattr(rest_receipts,"REPO_ROOT",repo)
@@ -129,16 +129,11 @@ def test_rest_resume_rest_is_ordered_and_idempotent(monkeypatch, tmp_path: Path)
     events = rest_receipts.load_events(tmp_path / "inbox", SESSION)
     assert [row["sequence"] for row in events] == [1, 2, 3]
     assert [row["event_type"] for row in events] == ["rested", "resumed", "rested"]
-    assert events[-1]["requested_reviews"] == [
-        {"owner": "mira-journal", "state": "pending-consideration"},
-        {"owner": "recursive-learn", "state": "pending-screening"},
-    ]
+    assert events[-1]["requested_reviews"] == []
+    assert events[-1]["closure_debt_basis"] == {}
     assert events[-1]["local_date"] == "2026-08-17"
     assert events[-1]["timezone"] == "America/Denver"
-    assert rest_receipts.projection(tmp_path / "inbox", SESSION)["requested_reviews"] == [
-        {"owner": "mira-journal", "state": "pending-consideration"},
-        {"owner": "recursive-learn", "state": "pending-screening"},
-    ]
+    assert rest_receipts.projection(tmp_path / "inbox", SESSION)["requested_reviews"] == []
 
 
 def test_projection_derives_resume_without_writing(monkeypatch, tmp_path: Path) -> None:
@@ -183,3 +178,49 @@ def test_coffee_coverage_states(monkeypatch, tmp_path: Path) -> None:
         "session_coverage": [{"session_id": f"MS-{SESSION}"}],
     }
     assert rest_receipts.coffee_coverage(inbox, episode) == "covered-current"
+
+
+def test_reviews_are_opt_in_and_debt_records_provenance(monkeypatch, tmp_path: Path) -> None:
+    monkeypatch.setattr(rest_receipts, "git_state", lambda: {
+        "status": "available", "dirty_count": 1, "ahead": 0,
+    })
+    current = source(tmp_path, [("2026-08-17T10:01:00Z", "rest")])
+    event = rest_receipts.planned_events(
+        current, [], ["open-choice-branch"], ["mira-journal"]
+    )[0]
+    assert event["closure_debt"] == ["open-choice-branch", "uncommitted-work"]
+    assert event["closure_debt_basis"] == {
+        "open-choice-branch": "declared-at-rest",
+        "uncommitted-work": "automatic-git",
+    }
+    assert event["requested_reviews"] == [
+        {"owner": "mira-journal", "state": "pending-consideration"}
+    ]
+
+
+def test_schema_one_receipts_remain_readable(tmp_path: Path) -> None:
+    inbox = tmp_path / "inbox"
+    directory = inbox / "mira-core" / SESSION
+    directory.mkdir(parents=True)
+    body = {
+        "schema_version": 1, "event_id": "RSTE-legacy", "workspace_id": "mira-core",
+        "session_id": f"MS-{SESSION}", "sequence": 1, "event_type": "rested",
+        "occurred_at": "2026-08-17T10:01:00Z", "local_date": "2026-08-17",
+        "timezone": "America/Denver", "authority_record_sha256": "a" * 64,
+        "previous_event_sha256": None, "reentry_expected": False,
+        "closure_debt": [], "repository_state": {}, "requested_reviews": [],
+    }
+    body["event_sha256"] = rest_receipts.digest(body)
+    (directory / "000001-RSTE-legacy.json").write_text(json.dumps(body), encoding="utf-8")
+    assert rest_receipts.load_events(inbox, SESSION)[0]["schema_version"] == 1
+
+
+def test_status_remains_read_only_when_session_source_is_unavailable(tmp_path: Path, monkeypatch, capsys) -> None:
+    inbox = tmp_path / "state" / "continuity" / "inbox"
+    monkeypatch.setattr(rest_receipts, "DEFAULT_INBOX", inbox)
+    monkeypatch.setattr(rest, "current_source", lambda required=True: (SESSION, None))
+    assert rest.main(["status", "--json"]) == 0
+    value = json.loads(capsys.readouterr().out)
+    assert value["availability"] == "available"
+    assert value["event_count"] == 0
+    assert not inbox.exists()

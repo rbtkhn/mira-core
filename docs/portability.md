@@ -1,30 +1,24 @@
-# Mira Core portability
+# Mira Core state portability
 
-The existing Git root is the sole transfer unit. `.mira-private/` is an ignored,
-unencrypted child payload; it is not another repository and is not complete in a
-Git clone. Copy the entire existing root to the USB device.
+The Git repository and Mira Core's local runtime state are separate transfer
+units. Live state is never stored inside a checkout. `MIRA_CORE_STATE_ROOT`
+selects the external state root; when unset, Mira Core uses the platform-native
+location (`%LOCALAPPDATA%\MiraCore` on Windows).
 
-Run `python tools/mira_portable.py status`, then `prepare`. `prepare` copies and
-verifies external sources without moving or deleting originals. It records every
-included or excluded dependency in `.mira-private/portability/dispositions.json`.
+Use `tools/run.ps1 mira-state status` to inspect resolution. Create a
+digest-bound, immutable transfer snapshot only on explicit request:
 
-After installing the pinned, licensed runtime packs described by each platform's
-`runtime.json`, close Codex and run `seal --external-confirm` from an external
-shell. At the destination, run `verify`, `rebind`, and `adapter-check`. Verification
-works without Git; Git adds object and recovery-bundle checks when available.
+```powershell
+.\tools\run.ps1 mira-state export --output ABSOLUTE_EXTERNAL_PATH --check
+.\tools\run.ps1 mira-state export --output ABSOLUTE_EXTERNAL_PATH
+```
 
-The payload has `confidentiality: none`: it is deliberately unencrypted. Provider
-credentials, model weights, inference servers, browser state, application logs,
-caches, queues, and credential stores are excluded prerequisites. Preserved global
-skills, automations, legacy files, and recovery data are inert provenance and gain
-no authority. Kimi and DeepSeek use the same `mira-model-adapter-v1` pass criteria.
+The output must be outside both Git and the live state root. It contains local
+state carriers and a file-digest manifest. It excludes credentials, tokens,
+browser state, logs, caches, unrelated projects, and account configuration.
+Export grants no authority to import, activate, publish, commit, send, or admit
+any preserved material.
 
-The completion states are independent: root calibration, dependency closure,
-bundle verification, adapter-contract verification, and live Kimi and DeepSeek
-operational verification must never be conflated.
-
-Private Rest lifecycle receipts use `.mira-private/sessions/rest/` and the
-relocation-stable workspace identity `mira-core`. External inboxes remain
-warning compatibility overrides. Portability preparation inventories each Rest
-receipt as active private continuity state; read-only Rest checks never create
-the inbox.
+`tools/run.ps1 portability` remains a compatibility alias for `status`,
+`verify`, `export`, and the model-adapter fixture. The former `prepare` and
+`seal` workflow and the live `.mira-private/` bundle are retired.

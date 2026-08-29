@@ -11,6 +11,7 @@ from pathlib import Path
 from typing import Any
 
 from runtime_names import resolve_environment
+from portable_paths import state_path
 
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
@@ -20,10 +21,7 @@ CADENCE_ENV = "MIRA_CORE_CADENCE_DB"
 MENTORSHIP_ENV = "MIRA_MENTORSHIP_DB"
 ARCHIVE_ROOT_ENV = "MIRA_CORE_ARCHIVE_ROOT"
 ARCHIVE_CONFIG_ENV = "MIRA_CORE_ARCHIVE_CONFIG"
-DEFAULT_ARCHIVE_CONFIG = REPO_ROOT / ".mira-private" / "archive" / "config.json"
-EXTERNAL_ARCHIVE_CONFIG = Path(r"C:\private\mira-core-archive-config.json")
-FORMER_ARCHIVE_CONFIG = Path(r"C:\private\mira-core-system-archive-config.json")
-LEGACY_ARCHIVE_CONFIG = Path(r"C:\private\narrative-system-archive-config.json")
+DEFAULT_ARCHIVE_CONFIG = state_path("archive/config.json")
 TENSION_KINDS = {
     "stale-derived-view",
     "canonical-source-drift",
@@ -252,15 +250,6 @@ def archive_carrier(*, inspect_catalog: bool = False) -> dict[str, Any]:
     state, validation = json_state(registry)
     configured_path = resolve_environment(ARCHIVE_CONFIG_ENV)
     config = Path(configured_path) if configured_path else DEFAULT_ARCHIVE_CONFIG
-    if not configured_path and not config.is_file():
-        for fallback in (EXTERNAL_ARCHIVE_CONFIG, FORMER_ARCHIVE_CONFIG, LEGACY_ARCHIVE_CONFIG):
-            if fallback.is_file():
-                print(
-                    f"{fallback} is deprecated; use {DEFAULT_ARCHIVE_CONFIG}",
-                    file=sys.stderr,
-                )
-                config = fallback
-                break
     configured = bool(resolve_environment(ARCHIVE_ROOT_ENV)) or config.is_file()
     result = carrier(
         "archive",

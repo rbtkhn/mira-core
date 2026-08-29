@@ -14,12 +14,12 @@ from pathlib import Path
 from typing import Any, Iterable
 
 from runtime_names import resolve_environment
-from portable_paths import PortablePathError, require_private_path as portable_private_path
+from portable_paths import PortablePathError, require_private_path as portable_private_path, state_path
 
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 DB_ENV = "MIRA_CORE_CADENCE_DB"
-DEFAULT_DB_PATH = REPO_ROOT / ".mira-private" / "state" / "cadence.sqlite3"
+DEFAULT_DB_PATH = state_path("state/cadence.sqlite3")
 SCHEMA_VERSION = 4
 PROJECTION_VERSION = "1.2"
 SQLITE_HEADER = b"SQLite format 3\x00"

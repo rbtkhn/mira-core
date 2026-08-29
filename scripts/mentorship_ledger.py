@@ -11,6 +11,8 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
+from portable_paths import state_path
+
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 DB_ENV = "MIRA_MENTORSHIP_DB"
@@ -152,9 +154,7 @@ def private_path(raw: str | Path) -> Path:
 
 
 def resolve_store(raw: str | None, *, require_exists: bool = False) -> Path:
-    configured = raw or os.environ.get(DB_ENV)
-    if not configured:
-        raise MentorError(f"private mentorship store is not configured; set {DB_ENV} or pass --db")
+    configured = raw or os.environ.get(DB_ENV) or state_path("state/mentorship.sqlite3")
     path = private_path(configured)
     if require_exists and not path.is_file():
         raise MentorError(f"private mentorship store does not exist: {path}")

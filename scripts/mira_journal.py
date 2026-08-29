@@ -18,6 +18,7 @@ import mira_continuity
 import rest_receipts
 import mira_journal_references
 from runtime_names import resolve_environment
+from portable_paths import require_private_path, state_path
 
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
@@ -34,8 +35,7 @@ LEARNING_LEDGER_PATH = (
 )
 
 DRAFT_ROOT_ENV = "MIRA_CORE_JOURNAL_DRAFT_ROOT"
-DEFAULT_DRAFT_ROOT = REPO_ROOT / ".mira-private" / "journal" / "drafts"
-LEGACY_DRAFT_ROOT = Path(r"C:\private\mira-journal-drafts")
+DEFAULT_DRAFT_ROOT = state_path("journal/drafts")
 TIMEZONE_NAME = "America/Denver"
 TIMEZONE = ZoneInfo(TIMEZONE_NAME)
 FRESHNESS_REPLAY_BASE_REF = "a19f5d1^"
@@ -311,30 +311,18 @@ def atomic_write_many(files: dict[Path, bytes]) -> None:
 def external_draft_root(value: Path | None = None, *, repo_root: Path = REPO_ROOT) -> Path:
     configured = resolve_environment(DRAFT_ROOT_ENV)
     candidate = value or Path(configured or str(DEFAULT_DRAFT_ROOT))
-    if value is None and not configured and not candidate.exists() and LEGACY_DRAFT_ROOT.exists():
-        candidate = LEGACY_DRAFT_ROOT
-    resolved = candidate.expanduser().resolve()
-    private = (repo_root / ".mira-private" / "journal").resolve()
-    try: resolved.relative_to(repo_root.resolve())
-    except ValueError: return resolved
-    try: resolved.relative_to(private)
-    except ValueError as error: raise JournalError(f"journal draft root must be external or within {private}: {resolved}") from error
-    return resolved
+    try:
+        return require_private_path(candidate, label="journal draft root", repo_root=repo_root)
+    except ValueError as error:
+        raise JournalError(str(error)) from error
 
 
 def private_draft_path(value: Path, *, label: str, repo_root: Path | None = None) -> Path:
     root = repo_root or REPO_ROOT
-    resolved = value.expanduser().resolve()
-    private = (root / ".mira-private" / "journal").resolve()
     try:
-        resolved.relative_to(root.resolve())
-    except ValueError:
-        return resolved
-    try:
-        resolved.relative_to(private)
+        return require_private_path(value, label=label, repo_root=root)
     except ValueError as error:
-        raise JournalError(f"{label} must remain outside Git or within {private}") from error
-    return resolved
+        raise JournalError(str(error)) from error
 
 
 def entry_path(value: date, *, journal_root: Path | None = None) -> Path:
@@ -3785,7 +3773,7 @@ def parser() -> argparse.ArgumentParser:
     replay.add_argument("--exclude-version", action="append", default=[])
     replay.add_argument(
         "--output", type=Path,
-        default=Path(r"C:\private\mira-journal-freshness-replay-20260816.json"),
+        default=state_path("runtime/replays/mira-journal-freshness-replay-20260816.json"),
     )
     replay.add_argument("--check", action="store_true")
     add_output(replay)

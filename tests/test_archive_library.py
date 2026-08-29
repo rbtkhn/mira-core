@@ -433,7 +433,7 @@ def test_verify_texts_reports_probable_site_chrome(tmp_path: Path, monkeypatch, 
 
 
 def test_census_texts_reports_private_payload_presence_by_era(tmp_path: Path, monkeypatch, capsys) -> None:
-    text_root = tmp_path / ".mira-private" / "library" / "texts"
+    text_root = tmp_path.parent / (tmp_path.name + "-state") / "library" / "texts"
     text_root.mkdir(parents=True)
     ancient_body = text_root / "ANCIENT-BODY.txt"
     ancient_body.write_text("ancient body\n", encoding="utf-8")
@@ -477,7 +477,7 @@ def test_census_texts_reports_private_payload_presence_by_era(tmp_path: Path, mo
 
 
 def test_census_texts_era_filter_preserves_library_totals(tmp_path: Path, monkeypatch, capsys) -> None:
-    text_root = tmp_path / ".mira-private" / "library" / "texts"
+    text_root = tmp_path.parent / (tmp_path.name + "-state") / "library" / "texts"
     text_root.mkdir(parents=True)
     body = text_root / "ANCIENT-BODY.txt"
     body.write_text("ancient body\n", encoding="utf-8")
@@ -508,7 +508,7 @@ def test_census_texts_era_filter_preserves_library_totals(tmp_path: Path, monkey
 
 
 def test_locate_and_verify_multiple_text_bodies(tmp_path: Path, monkeypatch, capsys) -> None:
-    text_root = tmp_path / ".mira-private" / "library" / "texts"
+    text_root = tmp_path.parent / (tmp_path.name + "-state") / "library" / "texts"
     text_root.mkdir(parents=True)
     iliad = text_root / "HOMER-ILIAD.txt"
     odyssey = text_root / "HOMER-ODYSSEY.txt"
@@ -573,7 +573,7 @@ def test_admit_text_into_private_root(tmp_path: Path, monkeypatch, capsys) -> No
     registry = base_registry()
     registry["sources"] = [source(text_status="missing")]
     write_scaffold(tmp_path, registry)
-    private_root = tmp_path / ".mira-private" / "library" / "texts"
+    private_root = tmp_path.parent / (tmp_path.name + "-state") / "library" / "texts"
     source_file = tmp_path / "input.txt"
     source_file.write_text("Ab urbe condita.\n", encoding="utf-8")
     monkeypatch.setenv("MIRA_CORE_LIBRARY_TEXT_ROOT", str(private_root))
@@ -610,7 +610,7 @@ def test_admit_text_check_does_not_copy_or_update_registry(tmp_path: Path, monke
     registry = base_registry()
     registry["sources"] = [source(text_status="missing")]
     write_scaffold(tmp_path, registry)
-    private_root = tmp_path / ".mira-private" / "library" / "texts"
+    private_root = tmp_path.parent / (tmp_path.name + "-state") / "library" / "texts"
     source_file = tmp_path / "input.txt"
     source_file.write_text("Ab urbe condita.\n", encoding="utf-8")
     monkeypatch.setenv("MIRA_CORE_LIBRARY_TEXT_ROOT", str(private_root))
@@ -643,7 +643,7 @@ def test_admit_multiple_text_bodies_without_overwriting(tmp_path: Path, monkeypa
     registry = base_registry()
     registry["sources"] = [source(source_id="HOMER", title="Iliad; Odyssey", author="Homer", text_status="missing")]
     write_scaffold(tmp_path, registry)
-    private_root = tmp_path / ".mira-private" / "library" / "texts"
+    private_root = tmp_path.parent / (tmp_path.name + "-state") / "library" / "texts"
     iliad = tmp_path / "iliad.txt"
     odyssey = tmp_path / "odyssey.txt"
     iliad.write_text("Sing, goddess.\n", encoding="utf-8")
@@ -706,7 +706,7 @@ def test_admit_text_rejects_unknown_or_restricted_license(tmp_path: Path, monkey
     registry = base_registry()
     registry["sources"] = [source(text_status="missing")]
     write_scaffold(tmp_path, registry)
-    private_root = tmp_path / ".mira-private" / "library" / "texts"
+    private_root = tmp_path.parent / (tmp_path.name + "-state") / "library" / "texts"
     source_file = tmp_path / "input.txt"
     source_file.write_text("text\n", encoding="utf-8")
     monkeypatch.setenv("MIRA_CORE_LIBRARY_TEXT_ROOT", str(private_root))
@@ -753,7 +753,7 @@ def test_admit_text_rejects_non_private_root(tmp_path: Path, monkeypatch, capsys
         "public-domain",
         "--json",
     ]) == 1
-    assert "library text root must be inside .mira-private or C:/private" in capsys.readouterr().err
+    assert "library text root must remain outside Git" in capsys.readouterr().err
 
 
 def test_render_index_command_writes_and_checks_drift(tmp_path: Path, monkeypatch, capsys) -> None:

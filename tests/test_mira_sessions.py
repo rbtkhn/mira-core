@@ -81,7 +81,7 @@ def test_substantial_capture_overlap_is_rejected(tmp_path: Path) -> None:
 def test_pending_pair_has_no_canonical_references_and_check_does_not_write(tmp_path: Path) -> None:
     md, js, _ = pair(tmp_path); sidecar = json.loads(js.read_text())
     sidecar.update({"status": "pending", "source_thread_id": "thread-local", "session_id": None, "capture_refs": [], "record_refs": [], "markdown_path": None})
-    js.write_text(json.dumps(sidecar)); output = tmp_path / ".mira-private" / "pending"
+    js.write_text(json.dumps(sidecar)); output = tmp_path.parent / f"{tmp_path.name}-state" / "pending"
     original_root = mira_sessions.REPO_ROOT; mira_sessions.REPO_ROOT = tmp_path
     try: result = mira_sessions.pending_command(SimpleNamespace(markdown=md, sidecar=js, output_root=output, check=True))
     finally: mira_sessions.REPO_ROOT = original_root
@@ -130,7 +130,7 @@ def test_archive_lineage_links_capture_and_superseded_version(tmp_path: Path, mo
         versions.append(entry); previous = {"version_id": entry["version_id"], "sidecar_sha256": entry["sidecar_sha256"]}
     registry = {"memorials": [{"memorial_id": "MSM-reflection", "session_id": session_id, "versions": versions}]}
     (shelf / "registry.json").write_text(json.dumps(registry)); collection = {"id": "mira-session-memorials", "registry_path": "archive/sessions/registry.json"}
-    archive = ArtifactStore(tmp_path / ".mira-private" / "archive", tmp_path, create=True); monkeypatch.setattr(archive_module, "REPO_ROOT", tmp_path)
+    archive = ArtifactStore(tmp_path.parent / f"{tmp_path.name}-state" / "archive", tmp_path, create=True); monkeypatch.setattr(archive_module, "REPO_ROOT", tmp_path)
     capture_path = tmp_path / "mira" / "continuity" / "captures" / "capture.jsonl.gz"
     with archive.connect(create=True) as connection:
         ingest_record(connection, archive, RecordInput(capture_id, "session-capture", "capture", "mira-continuity", "continuity", "continuity-evidence", "agent-session", session_id, "2026-08-18T01:00:00Z", None, None, {}, ""), capture_path.read_bytes())

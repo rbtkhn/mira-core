@@ -453,18 +453,18 @@ def test_same_day_temporal_audit_preserves_unresolved_perspective() -> None:
 def test_prose_check_requires_absolute_external_draft(
     monkeypatch: pytest.MonkeyPatch, tmp_path: Path
 ) -> None:
-    repo, _ = configure_repo(monkeypatch, tmp_path)
+    repo, drafts = configure_repo(monkeypatch, tmp_path)
     with pytest.raises(subject.JournalError, match="path must be absolute"):
         subject.command_prose_check(
             argparse.Namespace(date="2026-08-10", draft=Path("draft.md"))
         )
     inside = repo / "draft.md"
     inside.write_bytes(prose("2026-08-10"))
-    with pytest.raises(subject.JournalError, match="must remain outside Git or within"):
+    with pytest.raises(subject.JournalError, match="must be outside the repository"):
         subject.command_prose_check(
             argparse.Namespace(date="2026-08-10", draft=inside)
         )
-    private = repo / ".mira-private" / "journal" / "drafts" / "2026-08-10" / "draft.md"
+    private = drafts / "2026-08-10" / "draft.md"
     private.parent.mkdir(parents=True)
     private.write_bytes(prose("2026-08-10"))
     assert subject.command_prose_check(
@@ -1418,11 +1418,11 @@ def test_draft_bundle_inside_git_is_rejected(monkeypatch: pytest.MonkeyPatch, tm
     draft = repo / "draft.md"
     draft.write_bytes(prose("2026-08-09"))
     draft.with_suffix(".json").write_text("{}", encoding="utf-8")
-    with pytest.raises(subject.JournalError, match="outside Git or within"):
+    with pytest.raises(subject.JournalError, match="outside the repository"):
         subject.load_draft_bundle(draft)
 
 
-def test_draft_check_accepts_designated_private_root_bundle(
+def test_draft_check_rejects_retired_in_repository_bundle(
     monkeypatch: pytest.MonkeyPatch, tmp_path: Path
 ) -> None:
     repo, _ = configure_repo(monkeypatch, tmp_path)
@@ -1434,10 +1434,8 @@ def test_draft_check_accepts_designated_private_root_bundle(
         body,
         metadata(day, body),
     )
-    result = subject.command_draft_check(
-        argparse.Namespace(date=day, bundle=bundle.parent)
-    )
-    assert result["status"] == "passed"
+    with pytest.raises(subject.JournalError, match="outside the repository"):
+        subject.command_draft_check(argparse.Namespace(date=day, bundle=bundle.parent))
 
 
 def test_privacy_and_authority_boundaries_are_enforced(

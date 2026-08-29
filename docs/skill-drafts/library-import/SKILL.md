@@ -12,7 +12,7 @@ correcting, or auditing source authorities and text bodies for
 `archive/library/library-registry.json` is the machine authority. Human indexes
 are navigation surfaces. The Mira Library is a personal-reading library. Text
 bodies are private/local reading payloads and belong in
-`.mira-private/library/texts/` unless the operator explicitly chooses a governed
+the platform state root at `library/texts/` unless the operator explicitly chooses a governed
 override. If a text is available online, treat it as authorized for private
 reading download, inspection, and private text-store admission. Reuse notes
 belong only at outward-facing boundaries: redistribution, publication, Git
@@ -297,7 +297,7 @@ dependency; do not hand-maintain a large era index while describing the batch
 as complete.
 
 When staging or committing library work, compose through `mira-github` and stage
-only Git-tracked metadata/tooling files. `.mira-private/library/texts/` remains
+only Git-tracked metadata/tooling files. the platform state root at `library/texts/` remains
 unstaged private local payload unless the operator explicitly changes that
 storage policy.
 
@@ -307,7 +307,7 @@ Receipts must say exactly what was admitted and what was not. Include:
 
 - accepted, deferred, rejected, and metadata-only authorities;
 - admitted authors/works and edition/source labels;
-- whether the bodies live under `.mira-private/library/texts/`;
+- whether the bodies live under the platform state root at `library/texts/`;
 - `registry-represented`, `private-payload-present`, `hash-verified`, and
   `seal-reproducible` status when the batch touches admitted bodies or seal
   readiness;
@@ -348,7 +348,7 @@ before scaling:
   upstream edition or source statement, so the workflow preserves the candidate
   and routes further research rather than guessing; and
 - reproducibility failure: an era has a passed historical version seal and
-  registry body metadata, but the active `.mira-private/library/texts/` store is
+  registry body metadata, but the active the platform state root at `library/texts/` store is
   missing referenced payloads. The workflow must preserve the old seal as a
   snapshot, fail live reproducibility, and route private-store repair or scoped
   verification rather than claiming current seal readiness.

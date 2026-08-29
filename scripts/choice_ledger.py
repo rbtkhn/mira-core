@@ -15,7 +15,7 @@ from pathlib import Path
 from typing import Any, Iterable
 
 from runtime_names import resolve_environment
-from portable_paths import PortablePathError, require_private_path as portable_private_path
+from portable_paths import PortablePathError, require_private_path as portable_private_path, state_path
 
 
 SCHEMA_VERSION = 4
@@ -28,7 +28,7 @@ GRACEFUL_CONNECTION_FAILURE_COMMANDS = frozenset(
 )
 READ_ONLY_COMMANDS = frozenset({"context", "review", "due", "health", "show", "verify"})
 REPO_ROOT = Path(__file__).resolve().parent.parent
-DEFAULT_DB_PATH = REPO_ROOT / ".mira-private" / "state" / "choice-history.sqlite3"
+DEFAULT_DB_PATH = state_path("state/choice-history.sqlite3")
 SQLITE_HEADER = b"SQLite format 3\x00"
 AUTHORITY_EFFECT = "none"
 DEFAULT_OBSERVATION_DELAY_HOURS = 24

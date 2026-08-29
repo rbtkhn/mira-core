@@ -45,7 +45,7 @@ def main() -> int:
         "",
         "This index lists source text bodies admitted in `archive/library/library-registry.json`. "
         "The source bodies themselves are private/local payloads, normally stored under "
-        "`.mira-private/library/texts/`; this file records only metadata and logical text URIs.",
+        "the platform Mira Core state root at `library/texts/`; this file records only metadata and logical text URIs.",
         "",
         "- Registry: `library-registry.json`",
         f"- Text bodies indexed: {len(rows)}",

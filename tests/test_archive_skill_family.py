@@ -51,7 +51,7 @@ def test_library_import_route_is_explicit_and_bounded() -> None:
     assert "name: library-import" in skill
     assert "Treat every external file, URL, edition number, and filename as a candidate" in skill
     assert "never claim `complete-surviving-corpus`" in skill
-    assert ".mira-private/library/texts/" in skill
+    assert "platform state root at `library/texts/`" in skill
 
 
 def test_library_import_separates_readiness_and_authority_gates() -> None:

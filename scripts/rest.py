@@ -13,6 +13,7 @@ def parser() -> argparse.ArgumentParser:
     root.add_argument("--check", action="store_true")
     root.add_argument("--json", action="store_true")
     root.add_argument("--debt", action="append", choices=sorted(rest_receipts.DEBT_CLASSES), default=[])
+    root.add_argument("--review", action="append", choices=sorted(rest_receipts.REVIEW_STATES), default=[])
     commands = root.add_subparsers(dest="command")
     for name in ("status", "verify"):
         item = commands.add_parser(name)
@@ -21,10 +22,10 @@ def parser() -> argparse.ArgumentParser:
     return root
 
 
-def current_source():
+def current_source(*, required: bool = True):
     session = rest_receipts.session_uuid()
     source = mira_continuity.find_session_source(session)
-    if source is None:
+    if source is None and required:
         raise rest_receipts.RestError("current repository session source is unavailable")
     return session, source
 
@@ -43,21 +44,22 @@ def main(arguments: list[str] | None = None) -> int:
     args = parser().parse_args(arguments)
     try:
         inbox = rest_receipts.resolve_inbox(args.inbox)
-        session, source = current_source()
         if args.command in {"status", "verify"}:
+            session, source = current_source(required=False)
             value = rest_receipts.projection(inbox, session, source)
             value["status"] = "verified" if args.command == "verify" else "ok"
             emit(value, args.json)
             return 0
+        session, source = current_source()
         directory = rest_receipts.session_dir(inbox, session)
         existing = rest_receipts.load_events(inbox, session)
-        additions = rest_receipts.planned_events(source, existing, args.debt)
+        additions = rest_receipts.planned_events(source, existing, args.debt, args.review)
         value = rest_receipts.projection(inbox, session, source)
         value.update({"status": "ready" if args.check else "written", "planned_events": additions})
         if not args.check and additions:
             with rest_receipts.session_lock(directory):
                 existing = rest_receipts.load_events(inbox, session)
-                additions = rest_receipts.planned_events(source, existing, args.debt)
+                additions = rest_receipts.planned_events(source, existing, args.debt, args.review)
                 rest_receipts.write_events(inbox, session, additions)
             value = rest_receipts.projection(inbox, session, source)
             value.update({"status": "written", "mutation_performed": bool(additions)})

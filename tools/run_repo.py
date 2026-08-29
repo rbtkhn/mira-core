@@ -46,6 +46,7 @@ SURFACES = {
     "mira-journal": REPO_ROOT / "scripts" / "mira_journal.py",
     "mira-memory": REPO_ROOT / "scripts" / "mira_memory.py",
     "mira-sessions": REPO_ROOT / "scripts" / "mira_sessions.py",
+    "mira-state": REPO_ROOT / "scripts" / "mira_state.py",
     "mechanism-lens-checklist": REPO_ROOT / "scripts" / "mechanism_lens_checklist.py",
     "mira-mentor": REPO_ROOT / "scripts" / "mentorship_ledger.py",
     "mira-work": REPO_ROOT / "scripts" / "mira_work_receipt.py",

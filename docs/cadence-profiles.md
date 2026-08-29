@@ -12,7 +12,7 @@ timeout:
 .\tools\run.ps1 cadence profile list --json
 .\tools\run.ps1 cadence profile show smart-intake-routing --json
 .\tools\run.ps1 cadence dream --profile smart-intake-routing `
-  --temp-root C:\private\mira-core-test-temp `
+  --temp-root $env:LOCALAPPDATA\MiraCore\runtime\temp `
   --series-id SERIES-ID --episode-id EPISODE-ID ...
 ```
 
@@ -27,7 +27,7 @@ repository use explicitly through:
 
 ```powershell
 .\tools\run.ps1 cadence promote `
-  --temp-root C:\private\mira-core-test-temp --json
+  --temp-root $env:LOCALAPPDATA\MiraCore\runtime\temp --json
 ```
 
 Promotion reuses an exact content-addressed Full result unless `--force` is
