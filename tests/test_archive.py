@@ -478,15 +478,20 @@ def test_moonshots_manifest_is_pinned_complete_and_bounded() -> None:
     manifest = json.loads((repo / "archive" / "registries" / "moonshots.json").read_text(encoding="utf-8"))
     assert manifest["schema_version"] == 2
     assert manifest["source_commit"] == "940f354e00e2f49af2f340dd4ef1c1bc6e8ded77"
-    assert manifest["document_count"] == len(manifest["documents"]) == 29
-    assert manifest["object_byte_count"] == sum(row["size"] for row in manifest["documents"]) == 683276
+    assert manifest["document_count"] == len(manifest["documents"]) == 37
+    assert manifest["object_byte_count"] == sum(row["size"] for row in manifest["documents"]) == 1736791
     counts: dict[str, int] = {}
+    dated_documents = 0
     for document in manifest["documents"]:
         counts[document["document_type"]] = counts.get(document["document_type"], 0) + 1
         assert document["logical_path"].startswith("external-corpora/moonshots/")
         assert len(document["sha256"]) == 64
-        assert document["publication_date"] is None
-    assert counts == {"analysis": 8, "archive-readme": 1, "derived-analysis": 4, "research-ledger": 1, "source-note": 8, "template": 2, "transcript": 5}
+        if document["publication_date"] is not None:
+            dated_documents += 1
+            assert document["document_type"] == "transcript"
+            assert document["publication_date"] == document["capture_date"]
+    assert counts == {"analysis": 8, "archive-readme": 1, "derived-analysis": 4, "research-ledger": 1, "source-note": 8, "template": 2, "transcript": 13}
+    assert dated_documents == 8
     assert len(manifest["excluded_paths"]) == 3
     assert sum(row["size"] for row in manifest["excluded_paths"]) == 6868
     assert sum(row.get("source_body_availability") == "not-present-in-collection" for row in manifest["documents"]) == 6
