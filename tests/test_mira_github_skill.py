@@ -59,14 +59,15 @@ def test_fixture_inventory_covers_normal_edge_failure_and_ambiguous_cases() -> N
         "MGH-EDGE-01",
         "MGH-EDGE-02",
         "MGH-FAILURE-01",
+        "MGH-EDGE-05",
         "MGH-FAILURE-03",
         "MGH-EDGE-03",
-            "MGH-FAILURE-02",
-            "MGH-AMBIGUOUS-01",
-            "MGH-FAILURE-04",
-            "MGH-EDGE-04",
-            "MGH-NORMAL-04",
-        )
+        "MGH-FAILURE-02",
+        "MGH-AMBIGUOUS-01",
+        "MGH-FAILURE-04",
+        "MGH-EDGE-04",
+        "MGH-NORMAL-04",
+    )
     for fixture_id in expected:
         assert fixtures.count(f"## {fixture_id} ") == 1
     assert fixtures.count("- Expected:") == len(expected)
@@ -176,6 +177,29 @@ def test_skill_documents_windows_long_paths_and_temp_root_push_receipts() -> Non
     assert "git ls-remote" in skill
     assert "FETCH_HEAD" in skill
     assert "final remote SHA proof" in normalized
+
+
+def test_skill_records_full_gate_exceptions_without_generic_passes() -> None:
+    skill = read_skill()
+    fixtures = (SKILL_ROOT / "references" / "validation-fixtures.md").read_text(
+        encoding="utf-8"
+    )
+    normalized = " ".join(skill.split())
+    normalized_fixtures = " ".join(fixtures.split())
+    for field in (
+        "--validation-profile",
+        "--validation-result",
+        "--required-gate",
+        "--required-gate-result",
+        "--exception-authorized",
+        "--exception-basis",
+        "--failure-fingerprint",
+        "--authority-context-digest",
+    ):
+        assert field in skill
+    assert "Never encode this state as a generic pass" in normalized
+    assert "MGH-EDGE-05" in fixtures
+    assert "focused pass and Full failure separately" in normalized_fixtures
 
 
 def test_skill_defines_quiet_routine_readiness_scan() -> None:

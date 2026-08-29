@@ -15,9 +15,11 @@ from session_preflight import is_within, probe_temp_root
 
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
-SCHEMA_VERSION = "1.0"
+SCHEMA_VERSION = "2.0"
 TEMP_ROOT_ENV = "MIRA_CORE_SESSION_TEMP_ROOT"
 FULL_SHA = re.compile(r"^[0-9a-f]{40}$")
+SHA256 = re.compile(r"^[0-9a-f]{64}$")
+VALIDATION_NAME = re.compile(r"^[a-z][a-z0-9-]{0,63}$")
 BRANCH_REF = re.compile(r"^refs/heads/(?![./])(?!.*(?:\.\.|//|@\{|\\|\s|[~^:?*\[]))(?!.*[./]$)[A-Za-z0-9._/-]+$")
 
 
@@ -206,10 +208,85 @@ def write_receipt(receipt: dict[str, Any], temp_root: Path) -> Path:
     return target
 
 
+def validation_evidence(
+    *,
+    profile: str,
+    result: str,
+    required_gate: str,
+    required_gate_result: str,
+    exception_authorized: bool = False,
+    exception_basis: str | None = None,
+    failure_fingerprint: str | None = None,
+    authority_context_digest: str | None = None,
+) -> dict[str, Any]:
+    for label, value in (("validation profile", profile), ("required gate", required_gate)):
+        if not isinstance(value, str) or not VALIDATION_NAME.fullmatch(value):
+            raise PushError(f"{label} must be a lowercase safe name")
+    if not isinstance(result, str) or not isinstance(required_gate_result, str):
+        raise PushError("validation results must be strings")
+    if type(exception_authorized) is not bool:
+        raise PushError("exception authorization must be boolean")
+    for label, value in (
+        ("exception basis", exception_basis),
+        ("failure fingerprint", failure_fingerprint),
+        ("authority context digest", authority_context_digest),
+    ):
+        if value is not None and not isinstance(value, str):
+            raise PushError(f"{label} must be a string when present")
+    if result != "passed":
+        raise PushError("the recorded validation profile must have passed")
+    if required_gate_result not in {"passed", "failed"}:
+        raise PushError("required gate result must be passed or failed")
+    if profile == required_gate and result != required_gate_result:
+        raise PushError("one validation gate cannot have contradictory results")
+
+    basis = exception_basis.strip() if exception_basis else None
+    if required_gate_result == "passed":
+        if exception_authorized or any(
+            value is not None
+            for value in (basis, failure_fingerprint, authority_context_digest)
+        ):
+            raise PushError("a passing required gate must not carry an exception")
+    else:
+        if not exception_authorized:
+            raise PushError("a failed required gate requires an authorized exception")
+        if not basis:
+            raise PushError("a validation exception requires a non-empty basis")
+        if not failure_fingerprint or not SHA256.fullmatch(failure_fingerprint):
+            raise PushError("a validation exception requires a lowercase SHA-256 failure fingerprint")
+        if not authority_context_digest or not SHA256.fullmatch(authority_context_digest):
+            raise PushError("a validation exception requires a lowercase SHA-256 authority context digest")
+
+    return {
+        "profile": profile,
+        "result": result,
+        "required_gate": required_gate,
+        "required_gate_result": required_gate_result,
+        "exception_authorized": exception_authorized,
+        "exception_basis": basis,
+        "failure_fingerprint": failure_fingerprint,
+        "authority_context_digest": authority_context_digest,
+    }
+
+
 def build_check_receipt(
     *, repo: Path, remote: str, source_sha: str, target_ref: str,
-    validation_status: str, temp_root: Path
+    validation_profile: str, validation_result: str, required_gate: str,
+    required_gate_result: str, temp_root: Path,
+    exception_authorized: bool = False, exception_basis: str | None = None,
+    failure_fingerprint: str | None = None,
+    authority_context_digest: str | None = None,
 ) -> tuple[dict[str, Any], Path]:
+    validation = validation_evidence(
+        profile=validation_profile,
+        result=validation_result,
+        required_gate=required_gate,
+        required_gate_result=required_gate_result,
+        exception_authorized=exception_authorized,
+        exception_basis=exception_basis,
+        failure_fingerprint=failure_fingerprint,
+        authority_context_digest=authority_context_digest,
+    )
     source = validate_source(repo, source_sha)
     target = validate_target_ref(target_ref)
     url = remote_url(repo, remote)
@@ -234,7 +311,7 @@ def build_check_receipt(
         "authentication": authentication,
         "freshness": "passed",
         "lfs": lfs,
-        "validation_status": validation_status,
+        "validation": validation,
         "authority_effect": "none",
     }
     receipt["receipt_digest"] = receipt_digest(receipt)
@@ -254,6 +331,8 @@ def load_receipt(path: Path, *, temp_root: Path, repo_root: Path) -> dict[str, A
         raise PushError(f"receipt is unreadable: {error}") from error
     if not isinstance(receipt, dict) or receipt.get("kind") != "validated-push-check":
         raise PushError("receipt kind is invalid")
+    if receipt.get("schema_version") != SCHEMA_VERSION:
+        raise PushError("receipt schema version is invalid")
     if receipt.get("receipt_digest") != receipt_digest(receipt):
         raise PushError("receipt digest mismatch")
     return receipt
@@ -262,12 +341,30 @@ def load_receipt(path: Path, *, temp_root: Path, repo_root: Path) -> dict[str, A
 def execute_push(receipt: dict[str, Any]) -> dict[str, Any]:
     required = {
         "repository", "remote", "source_sha", "target_ref", "observed_remote_sha",
-        "validation_status", "freshness", "authentication", "lfs",
+        "schema_version", "validation", "freshness", "authentication", "lfs",
     }
     if not required <= set(receipt):
         raise PushError("receipt is missing required fields")
-    if receipt["validation_status"] != "passed" or receipt["freshness"] != "passed":
-        raise PushError("receipt does not prove validation and freshness")
+    if receipt["schema_version"] != SCHEMA_VERSION:
+        raise PushError("receipt schema version is invalid")
+    raw_validation = receipt["validation"]
+    if not isinstance(raw_validation, dict):
+        raise PushError("receipt validation evidence is invalid")
+    try:
+        validation_evidence(
+            profile=raw_validation["profile"],
+            result=raw_validation["result"],
+            required_gate=raw_validation["required_gate"],
+            required_gate_result=raw_validation["required_gate_result"],
+            exception_authorized=raw_validation["exception_authorized"],
+            exception_basis=raw_validation["exception_basis"],
+            failure_fingerprint=raw_validation["failure_fingerprint"],
+            authority_context_digest=raw_validation["authority_context_digest"],
+        )
+    except (KeyError, TypeError) as error:
+        raise PushError("receipt validation evidence is incomplete") from error
+    if receipt["freshness"] != "passed":
+        raise PushError("receipt does not prove freshness")
     repo = resolve_repo(receipt["repository"])
     source = validate_source(repo, receipt["source_sha"])
     target = validate_target_ref(receipt["target_ref"])
@@ -312,7 +409,14 @@ def parser() -> argparse.ArgumentParser:
     check.add_argument("--remote", required=True)
     check.add_argument("--source-sha", required=True)
     check.add_argument("--target-ref", required=True)
-    check.add_argument("--validation-status", required=True, choices=("passed",))
+    check.add_argument("--validation-profile", required=True)
+    check.add_argument("--validation-result", required=True, choices=("passed", "failed"))
+    check.add_argument("--required-gate", required=True)
+    check.add_argument("--required-gate-result", required=True, choices=("passed", "failed"))
+    check.add_argument("--exception-authorized", action="store_true")
+    check.add_argument("--exception-basis")
+    check.add_argument("--failure-fingerprint")
+    check.add_argument("--authority-context-digest")
     check.add_argument("--temp-root")
     check.add_argument("--json", action="store_true")
     push = commands.add_parser("push")
@@ -342,8 +446,15 @@ def main(arguments: list[str] | None = None) -> int:
                 remote=args.remote,
                 source_sha=args.source_sha,
                 target_ref=args.target_ref,
-                validation_status=args.validation_status,
+                validation_profile=args.validation_profile,
+                validation_result=args.validation_result,
+                required_gate=args.required_gate,
+                required_gate_result=args.required_gate_result,
                 temp_root=temp_root,
+                exception_authorized=args.exception_authorized,
+                exception_basis=args.exception_basis,
+                failure_fingerprint=args.failure_fingerprint,
+                authority_context_digest=args.authority_context_digest,
             )
             payload = {**receipt, "receipt_path": str(path)}
         else:

@@ -352,7 +352,10 @@ tools/run.ps1 validated-push check `
   --remote <remote> `
   --source-sha <full-commit-sha> `
   --target-ref refs/heads/<branch> `
-  --validation-status passed `
+  --validation-profile full `
+  --validation-result passed `
+  --required-gate full `
+  --required-gate-result passed `
   --temp-root <absolute-temp-root> `
   --json
 
@@ -361,6 +364,15 @@ tools/run.ps1 validated-push push `
   --temp-root <absolute-temp-root> `
   --json
 ```
+
+When the required Full gate fails only on an unchanged baseline and the
+operator directly authorizes that exact exception, record the narrower passing
+profile and the failed required gate honestly. Add
+`--exception-authorized`, a non-empty `--exception-basis`, the lowercase
+SHA-256 `--failure-fingerprint` for the gate evidence, and the lowercase
+SHA-256 `--authority-context-digest` for the validating interaction. Never
+encode this state as a generic pass. A failed required gate without all four
+exception fields fails closed, as does a failed narrower validation profile.
 
 The check receipt has `authority_effect: none`. Invoke `push` only after a
 direct bounded push command, an operator-defined note or essay lifecycle
