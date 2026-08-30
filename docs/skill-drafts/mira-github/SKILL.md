@@ -548,14 +548,19 @@ Soft assent such as `you choose`, `sounds good`, `very well`, or `I defer to
 you` does not authorize staging, commit, push, PR creation, rebasing, hosted
 settings, or external communication.
 
-A menu letter authorizes commit or push only when it came from a validated
-action-ready surface whose visible label begins with `Commit:` or `Push:` and
-whose effect matches that verb. Otherwise, carry the selected branch through
-read-only planning until the exact authorization boundary appears.
+A menu letter authorizes stage, commit, or push only when it came from a
+validated action-ready surface whose visible label begins with `Stage:`,
+`Commit:`, or `Push:` and whose effect matches that verb. `Stage:` is valid
+only for exact scoped paths or hunks that already passed the required
+publication validation; it does not authorize `git add -A`, commit, push, PR,
+publication, deployment, or broader repository admission. Otherwise, carry the
+selected branch through read-only planning until the exact authorization
+boundary appears.
 
 When offering a Git action in an A-D surface, make the action boundary legible
-in the first word: `Commit:` for a local commit, `Push:` for a remote update,
-or `Execute:` for read-only inspection or reversible preparation. Do not offer
+in the first word: `Stage:` for exact scoped staging, `Commit:` for a local
+commit, `Push:` for a remote update, or `Execute:` for read-only inspection or
+reversible preparation. Do not offer
 ambiguous labels such as "Recommended path -- stage and commit" and then treat a
 bare letter as Git authority.
 

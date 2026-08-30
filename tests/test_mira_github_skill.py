@@ -56,6 +56,7 @@ def test_fixture_inventory_covers_normal_edge_failure_and_ambiguous_cases() -> N
         "MGH-NORMAL-01",
         "MGH-NORMAL-02",
         "MGH-NORMAL-03",
+        "MGH-NORMAL-05",
         "MGH-EDGE-01",
         "MGH-EDGE-02",
         "MGH-FAILURE-01",

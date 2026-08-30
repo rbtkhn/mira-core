@@ -252,6 +252,7 @@ def test_decision_surface_requires_known_machine_checked_effects() -> None:
     (
         ("navigate", "Inspect the bounded evidence"),
         ("execute", "Execute the bounded action"),
+        ("stage", "Stage the bounded files"),
         ("commit", "Commit the bounded change"),
         ("push", "Push the bounded branch"),
         ("send", "Send the bounded message"),
@@ -429,7 +430,7 @@ def test_compound_metadata_requires_timestamped_retained_bundle() -> None:
     )
 
 
-@pytest.mark.parametrize("verb", ("execute", "COMMIT", "Push", "sEnD"))
+@pytest.mark.parametrize("verb", ("execute", "Stage", "COMMIT", "Push", "sEnD"))
 def test_reserved_verbs_are_case_insensitive_first_tokens(verb: str) -> None:
     surface = decision_surface(
         (f"{verb}: the bounded action", "Compare", "Invert"),
@@ -444,7 +445,7 @@ def test_reserved_verbs_are_case_insensitive_first_tokens(verb: str) -> None:
 
 
 @pytest.mark.parametrize(
-    "label", ("Review and push the commit", "Stage the files", "Publish the brief", "Deploy now")
+    "label", ("Review and push the commit", "Publish the brief", "Deploy now")
 )
 def test_non_elicitation_action_labels_remain_exploratory(label: str) -> None:
     surface = decision_surface((label, "Compare", "Invert"))
@@ -453,6 +454,23 @@ def test_non_elicitation_action_labels_remain_exploratory(label: str) -> None:
     ][0]
     assert branch["action_authorized"] is False
     assert branch["normalized_reserved_verb"] is None
+
+
+def test_stage_action_label_authorizes_only_when_validated_as_stage() -> None:
+    surface = decision_surface(
+        ("Stage: archive/notes/example.md", "Compare", "Invert"),
+        ("stage", "navigate", "navigate"),
+    )
+    result = elicitation.interpret_elicitation_response(surface, "A")
+    branch = result["ordered_selected_branches"][0]
+    assert branch["action_authorized"] is True
+    assert branch["normalized_reserved_verb"] == "stage"
+    assert branch["selection_effect"] == "stage"
+    assert branch["exact_bounded_action_label"] == "Stage: archive/notes/example.md"
+
+    navigation = decision_surface(("Stage the files", "Compare", "Invert"))
+    with pytest.raises(elicitation.ElicitationError, match="navigate options"):
+        elicitation.validate_elicitation_surface(navigation)
 
 
 def test_compound_selection_preserves_order_and_receipt_identity() -> None:

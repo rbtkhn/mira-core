@@ -162,14 +162,16 @@ interactions.
 A bare letter enters and develops the selected branch. It authorizes mutation
 only when all of these are true:
 
-1. the visible option begins with `Execute`, `Commit`, `Push`, or `Send`;
+1. the visible option begins with `Execute`, `Stage`, `Commit`, `Push`, or `Send`;
 2. the complete bounded action and target are visible;
 3. Elicitation validates the decision-navigation surface; and
 4. its machine-checked `selection_effect` matches the visible verb.
 
 Put the stable role after the executable prefix. Labels such as `Patch both
 skills`, `Create tests`, or `Update the file` remain navigation-only.
-`Stage`, `Publish`, and `Deploy` always require a direct explicit command.
+`Stage` is valid only for exact scoped staging where the complete path or hunk
+boundary is visible and validated. Broad staging, `Publish`, and `Deploy`
+always require a direct explicit command.
 
 Discussion, retention, recommendation, or selection alone never authorizes
 execution, spending, publication, communication, customer action, commit,

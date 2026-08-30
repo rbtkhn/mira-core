@@ -36,11 +36,12 @@ def test_core_retains_nonnegotiable_authority_and_terminal_forms() -> None:
     normalized = " ".join(core.split())
     for role in ("recommended", "alternative", "overlooked", "pause-or-deepen"):
         assert f"`{role}`" in core
-    for verb in ("Execute", "Commit", "Push", "Send"):
+    for verb in ("Execute", "Stage", "Commit", "Push", "Send"):
         assert f"`{verb}`" in core
     for phrase in (
         "machine-checked `selection_effect`",
-        "`Stage`, `Publish`, and `Deploy` always require a direct explicit command",
+        "`Stage` is valid only for exact scoped staging",
+        "Broad staging, `Publish`, and `Deploy` always require a direct explicit command",
         "A turn has four valid terminal forms",
         "Working-tree presence is distinct",
         "Do not present consecutive navigation-only menus",
@@ -80,7 +81,7 @@ def test_agents_router_is_compact_and_preserves_core_boundaries() -> None:
     assert "choice-retention reference only after" in agents
     assert "outcome-review reference only when" in agents
     assert "machine-validated visible option" in agents
-    assert "require direct commands for\nstaging, publication, and deployment" in agents
+    assert "require direct\ncommands for broad staging, publication, and deployment" in agents
 
 
 @pytest.mark.parametrize("case", fixtures(), ids=lambda item: str(item["id"]))
@@ -162,7 +163,7 @@ def test_fixture_inventory_covers_required_runtime_decisions() -> None:
         "settled-repeat",
         "freeform-recovery",
     }
-    assert len(fixtures()) == 30
+    assert len(fixtures()) == 31
 
 
 def test_settled_terminal_fixtures_require_compact_contextual_closure() -> None:

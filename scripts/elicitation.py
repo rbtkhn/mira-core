@@ -20,7 +20,7 @@ DECISION_ROLES = (
     "overlooked",
     "pause-or-deepen",
 )
-RESERVED_VERBS = ("execute", "commit", "push", "send")
+RESERVED_VERBS = ("execute", "stage", "commit", "push", "send")
 SELECTION_EFFECTS = ("navigate", *RESERVED_VERBS)
 LEARNING_ELIGIBILITY = ("eligible", "none")
 LEARNING_CHOICE_KIND = "menu-contract-decision-v1"
@@ -31,7 +31,7 @@ ALL_NAVIGATION_REASONS = (
     "operator-requested-read-only",
 )
 ACTION_LABEL_RE = re.compile(
-    r"^\s*(execute|commit|push|send)(?=\s|:|$)", re.IGNORECASE
+    r"^\s*(execute|stage|commit|push|send)(?=\s|:|$)", re.IGNORECASE
 )
 LETTER_RE = re.compile(r"^[A-Z]$")
 AUTHORITY_EFFECT = "none"

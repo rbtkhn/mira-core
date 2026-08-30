@@ -32,7 +32,7 @@ EXPLICIT_COMMAND_PATTERNS = (
 )
 LETTER_RE = re.compile(r"^[A-Z]$")
 COMPOUND_LETTERS_RE = re.compile(r"^[A-Z](?:\s*,\s*[A-Z])+$")
-ACTION_LABEL_RE = re.compile(r"^\s*(execute|commit|push|send)(?=\s|:|$)", re.IGNORECASE)
+ACTION_LABEL_RE = re.compile(r"^\s*(execute|stage|commit|push|send)(?=\s|:|$)", re.IGNORECASE)
 
 
 class InteractionContextError(ValueError):
@@ -63,7 +63,7 @@ def _pending_action(value: Any, *, fallback_id: str | None = None) -> dict[str, 
     visible_label = _text(
         value.get("visible_label"), label="pending action visible label"
     )
-    if effect in {"execute", "commit", "push", "send"}:
+    if effect in {"execute", "stage", "commit", "push", "send"}:
         match = ACTION_LABEL_RE.match(visible_label)
         if not match or match.group(1).casefold() != effect:
             raise InteractionContextError(
@@ -230,7 +230,7 @@ def validate_capsule(value: Any) -> dict[str, Any]:
         option = option_by_key[key]
         effect = option.get("selection_effect")
         match = ACTION_LABEL_RE.match(option["visible_label"])
-        if effect not in {"execute", "commit", "push", "send"} or not match or match.group(1).casefold() != effect:
+        if effect not in {"execute", "stage", "commit", "push", "send"} or not match or match.group(1).casefold() != effect:
             raise InteractionContextError("ready option effect must match its visible action verb")
     selected = value.get("selected_branches")
     if not isinstance(selected, list):

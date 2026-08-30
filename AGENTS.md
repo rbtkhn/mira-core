@@ -403,9 +403,9 @@ and navigational surfaces; never replace a ready action with a request to
 settle, confirm, adopt, or approve its already-bounded scope; require an
 `all_navigation_reason` and concrete `blocked_action` for all-navigation;
 treat a bare letter as navigation unless a machine-validated visible option
-begins with `Execute`, `Commit`, `Push`, or `Send`; require direct commands for
-staging, publication, and deployment; and keep save, repository admission,
-commit, push, and publication distinct.
+begins with `Execute`, `Stage`, `Commit`, `Push`, or `Send`; require direct
+commands for broad staging, publication, and deployment; and keep save,
+repository admission, staging, commit, push, and publication distinct.
 
 Load the skill's choice-retention reference only after an offered branch is
 selected or closed. Load its outcome-review reference only when recording an
