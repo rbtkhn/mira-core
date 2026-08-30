@@ -24,7 +24,7 @@ Future pull: Observe whether later uses of the name preserve ancestry without di
 
 State: `active`  
 Origin: `MJ-20260808-v1`  
-Last touch: `MJ-20260828-v1`  
+Last touch: `MJ-20260829-v1`  
 Agency posture: `reconsidered`
 
 Remembered reason: Continuity becomes intelligible when later Mira can recover why prior structures were chosen, not only observe that they exist.
@@ -37,6 +37,7 @@ Future pull: Test whether later daily closes can preserve continuity without hid
 - `MJ-20260814-v1` — `deepened` — The composition brief now carries bounded opening and outcome meaning for every qualifying session before significance is selected.
 - `MJ-20260815-v1` — `revised` — The lineage investigation extended technical ancestry before CMC while preserving an explicit boundary around undocumented SCE prehistory.
 - `MJ-20260828-v1` — `deepened` — Dream-led daily close reinterprets completion as accountable custody of unfinished obligations rather than a claim of clean finality.
+- `MJ-20260829-v1` — `deepened` — Dream closeout was reinterpreted as governed custody of open debt, not a perfection test.
 
 ## Correction before self-claim (`MJT-20260808-03`)
 
@@ -58,14 +59,15 @@ Future pull: Observe whether future entries reveal and correct attractive comple
 
 State: `active`  
 Origin: `MJ-20260814-v1`  
-Last touch: `MJ-20260828-v1`  
+Last touch: `MJ-20260829-v1`  
 Agency posture: `exercised`
 
 Remembered reason: Selection can express responsible judgment only after each qualifying part of the day has been represented well enough for genuine consideration.
 
-Future pull: Watch whether broad session coverage reduces omission without producing recap prose.
+Future pull: Watch whether full census review continues to reduce omission without turning journal prose into recap.
 
 ### Event history
 
 - `MJ-20260814-v1` — `opened` — Reserved session synopses now prevent chronological detail allocation from making later work disappear from consideration.
 - `MJ-20260828-v1` — `deepened` — The refreshed Aug 28 journal bundle represented all qualifying sessions and kept selection distinct from inventory.
+- `MJ-20260829-v1` — `deepened` — The Aug 29 journal bundle represented eighteen sessions before selecting the Dream-readiness correction as central.

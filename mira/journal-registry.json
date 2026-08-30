@@ -448,6 +448,96 @@
           "previous_version_digest": null
         }
       ]
+    },
+    {
+      "journal_id": "MJ-20260829",
+      "entry_date": "2026-08-29",
+      "current_version_id": "MJ-20260829-v1",
+      "current_path": "mira/journal/2026-08-29.md",
+      "versions": [
+        {
+          "version_id": "MJ-20260829-v1",
+          "version_number": 1,
+          "title": "Carrying Through",
+          "content_sha256": "f34156bbd71674ca5e4a16ea19564a2bddd3103682693405cae7def273058ccd",
+          "word_count": 402,
+          "authored_at": "2026-08-30T05:25:30.000Z",
+          "author": {
+            "identity": "Mira",
+            "model_id": "gpt-5",
+            "session_id": "MS-01a050ed-ea9b-7c11-ae1f-d2e287cc28a8"
+          },
+          "coverage": {
+            "as_of": "2026-08-30T05:24:58.283Z",
+            "end": "2026-08-30T06:00:00.000Z",
+            "retrospective": false,
+            "start": "2026-08-29T06:00:00.000Z"
+          },
+          "quiet_day": false,
+          "limited_activity_acknowledged": false,
+          "composition_mode": "same-day-eod",
+          "source_refs": [
+            {
+              "context_pack_id": "CP-0fb8e76f3e7131061c596d64",
+              "kind": "journal-context-pack",
+              "object_id": "73e1807cb78168168a87c9467d5bb1837127767343c7416da9b95f13c8c3305b"
+            },
+            {
+              "composition_brief_id": "CB-4fdaa716457a22a7abd70da1",
+              "kind": "journal-composition-brief",
+              "object_id": "769ba42f9cf440e4f4e790289441065f291b3a3b99a5efee91e154f0fcc4ed3d"
+            }
+          ],
+          "derivation_manifest": {
+            "derivation_id": "DRV-5aece8ab17bf1d0a5475f546",
+            "deterministic": false,
+            "evaluation_refs": [],
+            "input_object_ids": [
+              "73e1807cb78168168a87c9467d5bb1837127767343c7416da9b95f13c8c3305b",
+              "769ba42f9cf440e4f4e790289441065f291b3a3b99a5efee91e154f0fcc4ed3d"
+            ],
+            "output_digest": "f34156bbd71674ca5e4a16ea19564a2bddd3103682693405cae7def273058ccd",
+            "producer": {
+              "id": "gpt-5",
+              "kind": "model",
+              "session_id": "MS-01a050ed-ea9b-7c11-ae1f-d2e287cc28a8"
+            },
+            "prompt_digest": "b340ecdb2a793703f73be5185d034f41031b72abffc71f8ba583336d9affe5f0",
+            "schema_version": 1
+          },
+          "approval": {
+            "approved_by": "dream-eod-conductor",
+            "status": "dream-eod-v1",
+            "publication_eligible": false,
+            "approved_at": "2026-08-30T05:32:24.206Z",
+            "dream_run_id": "DCR-20260829-08d7f93a8b22",
+            "method_digest": "e89954066cc4e18e1c0f25146d10f92994d1578fd3b3c3d719bc4e91dbcdd167",
+            "finalization_digest": "253a55a29395dad9962daf902284381deb015c4657b6cba8146be81efd43c08f"
+          },
+          "technical_reference": {
+            "reference_id": "MJTR-20260829-v1",
+            "json_path": "mira/journal/references/MJTR-20260829-v1.json",
+            "markdown_path": "mira/journal/references/MJTR-20260829-v1.md",
+            "content_sha256": "030bd20140f4c602563903b4917a63412f09a64dff51a81170df7e8a3dc83c59",
+            "item_count": 6,
+            "consumed_rsi_ids": [
+              "RSI-20260809-01"
+            ],
+            "candidate_signal": "observation"
+          },
+          "provenance_receipt": {
+            "resolved_at": "2026-08-30T05:32:24.206Z",
+            "context_pack_object_ids": [
+              "73e1807cb78168168a87c9467d5bb1837127767343c7416da9b95f13c8c3305b"
+            ],
+            "composition_brief_object_ids": [
+              "769ba42f9cf440e4f4e790289441065f291b3a3b99a5efee91e154f0fcc4ed3d"
+            ],
+            "git_commits_checked": []
+          },
+          "previous_version_digest": null
+        }
+      ]
     }
   ]
 }

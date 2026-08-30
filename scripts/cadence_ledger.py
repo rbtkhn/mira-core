@@ -421,9 +421,20 @@ def record_dream_closeout(connection: sqlite3.Connection, payload: dict[str, Any
     required = ("closeout_id", "workspace_id", "operator_id", "dream_date", "timezone", "coverage_status")
     if any(not str(payload.get(key, "")).strip() for key in required):
         raise CadenceLedgerError("Dream closeout is incomplete")
+    if not re.fullmatch(r"DCO-\d{8}-[A-Za-z0-9._:-]+", str(payload["closeout_id"])):
+        raise CadenceLedgerError("Dream closeout_id is malformed")
+    if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", str(payload["dream_date"])):
+        raise CadenceLedgerError("Dream closeout dream_date must use YYYY-MM-DD")
     if payload["coverage_status"] not in {"complete", "partial"}:
         raise CadenceLedgerError("Dream closeout coverage_status must be complete or partial")
-    clean = {key: sanitize_text(payload[key], limit=1000) for key in required}
+    clean = {
+        "closeout_id": str(payload["closeout_id"]),
+        "workspace_id": sanitize_text(payload["workspace_id"], limit=200),
+        "operator_id": sanitize_text(payload["operator_id"], limit=200),
+        "dream_date": str(payload["dream_date"]),
+        "timezone": sanitize_text(payload["timezone"], limit=200),
+        "coverage_status": str(payload["coverage_status"]),
+    }
     for key in ("reason", "session_coverage_digest"):
         if payload.get(key):
             clean[key] = sanitize_text(payload[key], limit=1000)

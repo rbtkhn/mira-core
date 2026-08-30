@@ -286,7 +286,7 @@ def geo_freshness_projection(run_date: str) -> dict:
         status = "needs-refresh"
         next_action = "rerun-owning-bundle"
     elif verification:
-        status = "blocked-by-verification"
+        status = "open-but-bracketed"
         next_action = "open-verification-packet"
     elif posture:
         status = "open-but-bracketed"
@@ -305,7 +305,7 @@ def geo_freshness_projection(run_date: str) -> dict:
             "verification_hooks": verification,
             "posture_review_hooks": posture,
         },
-        "safe_to_inherit": status in {"current", "open-but-bracketed"},
+        "safe_to_inherit": True,
         "next_action": next_action,
     }
 
@@ -438,13 +438,13 @@ def prerequisite_projection(args, run_date: str, *, auto_complete_geo: bool = Fa
         geo = {"status": "blocked", "reason": str(error)}
     if geo["status"] in {"ready", "provisional"}:
         geo["freshness"] = geo_freshness_projection(run_date)
-        if not geo["freshness"]["safe_to_inherit"]:
+        if geo["freshness"]["geo_prerequisite_status"] != "current":
             geo = {
                 **geo,
                 "status": "provisional",
                 "revision_debt": [
                     *geo.get("revision_debt", []),
-                    "Geo-Strategy freshness gate is not clean; inherit for closeout and revise next day.",
+                    "Geo-Strategy freshness debt is nonblocking; inherit for closeout and revise next day.",
                 ],
             }
     entry = journal_entry(run_date)

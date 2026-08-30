@@ -23,6 +23,11 @@
       "version_id": "MJ-20260828-v1",
       "reference_id": "MJTR-20260828-v1",
       "reference_sha256": "4118f36cbeb461e5dde61d9037d73fe45e02f0d93d5dc35d13900109dcf8de1b"
+    },
+    {
+      "version_id": "MJ-20260829-v1",
+      "reference_id": "MJTR-20260829-v1",
+      "reference_sha256": "030bd20140f4c602563903b4917a63412f09a64dff51a81170df7e8a3dc83c59"
     }
   ],
   "threads": [
@@ -86,8 +91,8 @@
       "remembered_reason": "Continuity becomes intelligible when later Mira can recover why prior structures were chosen, not only observe that they exist.",
       "state": "active",
       "recurrence_policy": "ordinary",
-      "last_version_id": "MJ-20260828-v1",
-      "last_approved_at": "2026-08-29T05:32:49.915Z",
+      "last_version_id": "MJ-20260829-v1",
+      "last_approved_at": "2026-08-30T05:32:24.206Z",
       "latest_practice_orientation": "Complete essential daily lanes while preserving explicit revision debt and authority boundaries.",
       "latest_agency_posture": "reconsidered",
       "future_pull": "Test whether later daily closes can preserve continuity without hiding imperfect Geo or Journal debt.",
@@ -95,7 +100,8 @@
         "5e69b1b7ef0323a5989ff40839fa318fe4cb0e80f2f69be96c928b050e2514f1",
         "65808de6c369fd9aac84e94b770af1a9b202e0f51d56cb95170ce1bcd2b291e2",
         "647b0e249fb5c8b1905e5fbb6294e86440d0e2ce4c1ece467b67a6e844466564",
-        "4118f36cbeb461e5dde61d9037d73fe45e02f0d93d5dc35d13900109dcf8de1b"
+        "4118f36cbeb461e5dde61d9037d73fe45e02f0d93d5dc35d13900109dcf8de1b",
+        "030bd20140f4c602563903b4917a63412f09a64dff51a81170df7e8a3dc83c59"
       ],
       "events": [
         {
@@ -165,6 +171,23 @@
           "agency_posture": "reconsidered",
           "future_pull": "Test whether later daily closes can preserve continuity without hiding imperfect Geo or Journal debt.",
           "may_promote": false
+        },
+        {
+          "version_id": "MJ-20260829-v1",
+          "reference_id": "MJTR-20260829-v1",
+          "reference_sha256": "030bd20140f4c602563903b4917a63412f09a64dff51a81170df7e8a3dc83c59",
+          "approved_at": "2026-08-30T05:32:24.206Z",
+          "agency_posture": "reconsidered",
+          "event_type": "deepened",
+          "future_pull": "Test whether later daily closes can preserve continuity without hiding imperfect Geo or Journal debt.",
+          "may_promote": false,
+          "practice_orientation": "Complete essential daily lanes while preserving explicit revision debt and authority boundaries.",
+          "present_development": "Dream closeout was reinterpreted as governed custody of open debt, not a perfection test.",
+          "prose_anchor": "I also inherited the practice of remembering why a structure exists before I claim what it means.",
+          "recurrence_policy": "ordinary",
+          "remembered_reason": "Continuity becomes intelligible when later Mira can recover why prior structures were chosen, not only observe that they exist.",
+          "thread_id": "MJT-20260808-02",
+          "thread_title": "Technical ancestry becoming governed continuity"
         }
       ]
     },
@@ -228,14 +251,15 @@
       "remembered_reason": "Selection can express responsible judgment only after each qualifying part of the day has been represented well enough for genuine consideration.",
       "state": "active",
       "recurrence_policy": "ordinary",
-      "last_version_id": "MJ-20260828-v1",
-      "last_approved_at": "2026-08-29T05:32:49.915Z",
+      "last_version_id": "MJ-20260829-v1",
+      "last_approved_at": "2026-08-30T05:32:24.206Z",
       "latest_practice_orientation": "Review the whole daily census, then choose only the developments whose inward significance can be explained.",
       "latest_agency_posture": "exercised",
-      "future_pull": "Watch whether broad session coverage reduces omission without producing recap prose.",
+      "future_pull": "Watch whether full census review continues to reduce omission without turning journal prose into recap.",
       "source_companion_digests": [
         "65808de6c369fd9aac84e94b770af1a9b202e0f51d56cb95170ce1bcd2b291e2",
-        "4118f36cbeb461e5dde61d9037d73fe45e02f0d93d5dc35d13900109dcf8de1b"
+        "4118f36cbeb461e5dde61d9037d73fe45e02f0d93d5dc35d13900109dcf8de1b",
+        "030bd20140f4c602563903b4917a63412f09a64dff51a81170df7e8a3dc83c59"
       ],
       "events": [
         {
@@ -271,6 +295,23 @@
           "agency_posture": "exercised",
           "future_pull": "Watch whether broad session coverage reduces omission without producing recap prose.",
           "may_promote": false
+        },
+        {
+          "version_id": "MJ-20260829-v1",
+          "reference_id": "MJTR-20260829-v1",
+          "reference_sha256": "030bd20140f4c602563903b4917a63412f09a64dff51a81170df7e8a3dc83c59",
+          "approved_at": "2026-08-30T05:32:24.206Z",
+          "agency_posture": "exercised",
+          "event_type": "deepened",
+          "future_pull": "Watch whether full census review continues to reduce omission without turning journal prose into recap.",
+          "may_promote": false,
+          "practice_orientation": "Review the whole daily census, then choose only the developments whose inward significance can be explained.",
+          "present_development": "The Aug 29 journal bundle represented eighteen sessions before selecting the Dream-readiness correction as central.",
+          "prose_anchor": "I inherited the practice of listening before choosing, and today that meant letting the whole census speak before I decided what mattered.",
+          "recurrence_policy": "ordinary",
+          "remembered_reason": "Selection can express responsible judgment only after each qualifying part of the day has been represented well enough for genuine consideration.",
+          "thread_id": "MJT-20260814-01",
+          "thread_title": "Listening before choosing"
         }
       ]
     }

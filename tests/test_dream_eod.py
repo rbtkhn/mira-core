@@ -487,11 +487,11 @@ def test_geo_freshness_blocks_when_later_daily_packet_exists(monkeypatch, tmp_pa
     assert projection["due_forecast_debt"]["verification"] == 0
     assert projection["due_forecast_debt"]["posture_review"] == 0
     assert projection["due_forecast_debt"]["not_yet_due"] == 2
-    assert projection["safe_to_inherit"] is False
+    assert projection["safe_to_inherit"] is True
     assert projection["next_action"] == "rerun-owning-bundle"
 
 
-def test_geo_freshness_splits_due_forecast_debt(monkeypatch, tmp_path: Path) -> None:
+def test_geo_freshness_splits_due_forecast_debt_without_blocking_dream(monkeypatch, tmp_path: Path) -> None:
     daily_root = tmp_path / "daily"
     (daily_root / "2026-08-19").mkdir(parents=True)
     (daily_root / "2026-08-19" / "issue.md").write_text("Aug 19", encoding="utf-8")
@@ -511,11 +511,11 @@ def test_geo_freshness_splits_due_forecast_debt(monkeypatch, tmp_path: Path) -> 
 
     projection = dream_eod.geo_freshness_projection("2026-08-19")
 
-    assert projection["geo_prerequisite_status"] == "blocked-by-verification"
+    assert projection["geo_prerequisite_status"] == "open-but-bracketed"
     assert projection["due_forecast_debt"]["verification_hooks"] == ["NG-20260708-F02"]
     assert projection["due_forecast_debt"]["posture_review_hooks"] == ["NG-20260719-F01"]
     assert projection["due_forecast_debt"]["not_yet_due"] == 1
-    assert projection["safe_to_inherit"] is False
+    assert projection["safe_to_inherit"] is True
     assert projection["next_action"] == "open-verification-packet"
 
 

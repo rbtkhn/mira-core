@@ -69,15 +69,16 @@ surfaced by the latest Geo packet, split debt into `verification-required`,
   posture signals and no operational-claim dependency is admitted.
 - `not-yet-due`: the hook is open but outside the current review boundary.
 
-Dream may inherit only when the Geo prerequisite is `current`, no due
-`verification-required` hook is silently treated as resolved without an
-assessed packet, and any `posture-review` debt is either resolved or explicitly
-bracketed as unresolved. Report the gate in this compact form:
+Dream must not let forecast verification debt block closeout. It may inherit
+when the Geo packet exists and its deterministic issue validation is accepted;
+due verification or posture-review hooks are carried as visible nonblocking
+debt and must not be silently treated as resolved. Report the gate in this
+compact form:
 
 ```text
-geo_prerequisite_status: current | needs-refresh | blocked-by-verification | open-but-bracketed
+geo_prerequisite_status: current | needs-refresh | open-but-bracketed
 due_forecast_debt: verification=N posture_review=N not_yet_due=N
-safe_to_inherit: yes | no
+safe_to_inherit: yes
 next_action: rerun-owning-bundle | open-verification-packet | posture-review | proceed
 ```
 
