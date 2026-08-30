@@ -80,6 +80,7 @@ LOCAL_SKILLS = {
     "rest",
     "research-brief",
     "skill-audit",
+    "x-recon",
     "youtube-capture",
 }
 LOCAL_ROUTER_PATH = REPO_ROOT / "AGENTS.md"

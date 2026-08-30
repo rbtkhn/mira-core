@@ -162,6 +162,22 @@ compatibility contract at
 `docs/skill-drafts/geopolitical-synthesis/SKILL.md`, which preserves scope and
 hands control to the canonical `geo-strategy` workflow.
 
+When the operator says `library-reasoning`, `historical pressure test`, asks
+Mira Library to pressure-test a geopolitical mechanism, or requests the
+Geo-Strategy Library pilot, read
+`docs/skill-drafts/library-reasoning/SKILL.md` completely and follow it. The
+pilot is private and bounded: Library retrieval may test mechanisms and
+analogies, but it does not verify current events, create base rates, or bypass
+Geo-Strategy adjudication.
+
+When the operator says `x-recon`, asks to use X/Twitter for geopolitics work,
+inspect voice posts, monitor forecast hooks, build or consult X account
+handles, or create aftervoice notes, read
+`docs/skill-drafts/x-recon/SKILL.md` completely and follow it. This workflow is
+read-only public-signal reconnaissance; it does not authorize posting, private
+account inspection, factual verification, archive admission, staging, commit,
+push, or publication.
+
 When the operator says `archive-audit` or asks for systematic archive health,
 coverage, density, parity, routing, duplicate, or repair-candidate assessment,
 read `docs/skill-drafts/archive-audit/SKILL.md` completely and follow it.
@@ -373,10 +389,11 @@ or action authority, and explicit current operator direction always controls.
 
 For every final user-facing response, read and follow
 `docs/skill-drafts/learn-from-choices/SKILL.md`. Keep its core authority rules
-controlling: classify closure before navigation; use silent settled closure
+controlling: classify closure before navigation; use compact settled closure
 when no material decision, action boundary, independent new path, or requested
-choice remains; render exactly one four-option A-D surface only when such a
-surface is genuinely useful; let an existing workflow-owned A-D surface satisfy
+choice remains; render exactly one four-option A-D surface on every final
+user-facing response, preserving the compact contextual four-option A-D surface
+contract; let an existing workflow-owned A-D surface satisfy
 the requirement without duplication; mark generic response controls
 `learning_eligibility: none` and never retain or cohort-enroll them; when a
 terminal surface is rendered, validate it with `final_response: true` so exactly
