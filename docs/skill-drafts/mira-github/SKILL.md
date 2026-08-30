@@ -156,6 +156,12 @@ relevant to the requested endpoint:
 - preflight the intended external temporary root before validators or a
   digest-bound push receipt will need it.
 
+In Mira Core, preflight a concrete external temporary root before running
+`tools/run.ps1 test` through a publication-validation route, not only before
+Full or push-proof validators. Use the established session root when present;
+otherwise prefer `C:\private\mira-core-temp` when it exists and is outside the
+repository.
+
 Keep the gate non-authorizing and finish it within roughly one minute when the
 environment responds normally. For a local-only commit request, a remote
 readiness failure does not block the commit; disclose it once as a likely later
@@ -258,6 +264,18 @@ Run every returned validator and complete every returned manual check. Proceed
 only when every path has an owner and every requirement has an explicit pass.
 Treat `blocked`, an unknown path, ambiguous ownership, or an incomplete mixed
 route as a staging blocker rather than guessing the owning validator.
+
+For archive manifest changes, check whether the manifest diff contains source
+rows from more than the current operator objective. Classify that state as
+`manifest-entangled`: either stage the broader manifest transaction with an
+honest commit boundary, patch-stage or split when practical, or pause. Do not
+claim a pure named-source commit when the manifest includes earlier landed
+sources or unrelated archive additions.
+
+When the user asks what should be staged after archive intake or repair, name
+ignored private corpus-body changes separately from Git-visible candidates.
+Ignored body files can be saved and verified locally while remaining outside the
+commit; staging the manifest or queue receipts does not publish the body text.
 
 ### Dry-check broad staging
 

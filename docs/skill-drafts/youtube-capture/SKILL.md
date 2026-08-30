@@ -56,7 +56,12 @@ operator asks for wider coverage.
 
 For daily Narrative Geopolitics work, default effort is high. Treat configured
 Tier A channels as browser-checked by default for the target date; public
-metadata discovery is the first pass, not sufficient completion. Apply strict
+metadata discovery is the first pass, not sufficient completion. Named-channel
+or named-guest same-day searches are also browser-first, regardless of tier:
+inspect the visible YouTube channel search, Videos, Live, or watch page before
+relying on RSS or scraped public metadata. RSS may lag, omit livestream/search
+ordering context, or fail in the local environment, so use it only as a
+supplemental clue unless the operator explicitly asks for RSS. Apply strict
 date filtering when the operator asks for one date: report only items matching
 that publication date, and keep adjacent-day candidates out of the user-facing
 result unless they explain an ambiguity or a missed-source risk.
@@ -132,13 +137,21 @@ After archive admission, produce or verify a bounded receipt:
 - if a daily packet already exists for that date, `geo-strategy` refresh or
   validation is needed so consumed source count matches landed source count.
 
+For named-guest or named-issue work inside broader date queues, make the
+publication boundary explicit before any later staging discussion. A date queue
+file may contain unrelated candidates, prior operator selections, skipped
+shorts, or channel front-door rows; classify the later commit candidate as
+either the whole date queue receipt, a patch-staged subset when practical, or
+not ready for staging. Do not describe a mixed date queue commit as if it were
+only the named guest.
+
 ## Browser Contract
 
 Automated discovery uses public metadata and usually does not require the
-browser. For daily Tier A Narrative Geopolitics checks, use the browser by
-default as described above. For other bounded capture work, use the browser when
-human-visible triage or transcript capture is needed, especially when YouTube
-blocks automated transcript access.
+browser. For daily Tier A Narrative Geopolitics checks and same-day named
+channel/guest searches, use the browser by default as described above. For other
+bounded capture work, use the browser when human-visible triage or transcript
+capture is needed, especially when YouTube blocks automated transcript access.
 
 Use the in-app browser for the parts of YouTube work that need visible-page
 judgment:

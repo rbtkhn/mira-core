@@ -145,6 +145,14 @@ voice shelves, verify that pre-existing role labels such as
 Restore unintended role-label drift while preserving the newly landed source,
 manifest row, corpus count updates, and intended route additions.
 
+Keep private source-body persistence distinct from Git publication. Narrative
+Geopolitics body files under `archive/sources/geopolitics/sources/` may be
+ignored private corpus material while the manifest, queue receipts, indexes, or
+working notes are Git-visible. When a landing or repair changes an ignored body
+file, report that body as saved locally and verify the manifest identity, but do
+not imply the body text itself was staged, committed, pushed, or publicly
+published.
+
 ### Singularity Science
 
 Route Singularity Science material to the selected Singularity Science backend
