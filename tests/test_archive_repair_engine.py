@@ -187,7 +187,11 @@ def test_asr_class_preserves_layout_and_does_not_section_or_trim(tmp_path: Path)
     assert "\n\n\nSecond paragraph" in proposed
     assert "### " not in proposed
     assert plan.files[0].operations == ("asr-repair",)
-    assert set(plan.files[0].changed_fields) <= {"asr_repair_applied", "asr_repair_pass"}
+    assert set(plan.files[0].changed_fields) <= {
+        "asr_repair_applied",
+        "asr_repair_pass",
+        *engine.land_best_intake.PROCESSING_FIELD_ORDER,
+    }
 
 
 def test_asr_rejects_unapproved_host(tmp_path: Path) -> None:

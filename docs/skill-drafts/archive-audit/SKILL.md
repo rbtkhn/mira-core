@@ -101,6 +101,15 @@ Interpretation:
   future months as missing.
 - Use density only for triage. It does not verify claims or measure truth.
 
+For unfiltered `--month` audits, also report the additive Narrative
+Geopolitics monthly completeness certification. Read only the frozen monthly
+contract and append-only evidence receipts under
+`narrative-geopolitics/work/coverage`. Treat absent, malformed, cross-shelf, or
+unfrozen contracts as `ineligible`, not as structural archive failure. Keep
+late declarations visible. Do not infer voice tiers, channel floors,
+exceptions, diversity approval, transcript processing readiness, or issue
+readiness from source volume alone.
+
 ### Singularity Science
 
 Audit Singularity Science through its Mira Archive collections. Check

@@ -249,7 +249,13 @@ def scalar_line(key: str, value: Any) -> str:
         rendered = "true" if value else "false"
     elif isinstance(value, int):
         rendered = str(value)
-    elif key in {"transcript_curation"}:
+    elif key in {
+        "transcript_curation",
+        "asr_disposition",
+        "speaker_attribution",
+        "sectioning_disposition",
+        "quotation_readiness",
+    }:
         rendered = str(value)
     else:
         rendered = land_best_intake.yaml_quote(str(value))
@@ -257,6 +263,10 @@ def scalar_line(key: str, value: Any) -> str:
 
 
 def update_frontmatter(lines: list[str], updates: dict[str, Any]) -> tuple[list[str], tuple[str, ...]]:
+    while lines and not lines[0].strip():
+        lines = lines[1:]
+    while lines and not lines[-1].strip():
+        lines = lines[:-1]
     if not updates:
         return list(lines), ()
     existing = land_best_intake.parse_frontmatter_lines(lines)
@@ -409,10 +419,18 @@ def plan_file(
     elif repair_class == "asr":
         if not land_best_intake.host_supports_asr_repair(host_slug):
             raise ArchiveRepairError(f"ASR repair host is not approved: {relative}")
-        proposed_body = land_best_intake.repair_asr_text(args, body, normalize_layout=False)
+        proposed_body = land_best_intake.normalize_inline_turn_markers(body)
+        proposed_body = land_best_intake.repair_asr_text(args, proposed_body, normalize_layout=False)
+        processing = land_best_intake.parse_frontmatter_lines(
+            land_best_intake.build_processing_field_lines(args, proposed_body)
+        )
         updates = {
             "asr_repair_applied": args.asr_repair_applied,
             "asr_repair_pass": args.asr_repair_pass,
+            **{
+                key: land_best_intake.unquote_scalar(value)
+                for key, value in processing.items()
+            },
         }
         operations = ("asr-repair",)
     elif repair_class == "wrapper-trim":

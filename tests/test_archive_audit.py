@@ -106,6 +106,95 @@ def build(tmp_path: Path, arguments: list[str]) -> dict:
     )
 
 
+def write_completeness_controls(
+    repo: Path,
+    *,
+    frozen: bool,
+    daily_floor: int = 1,
+    scope: str = "narrative-geopolitics",
+    receipts: list[dict] | None = None,
+) -> None:
+    voices = repo / "narrative-geopolitics" / "voices"
+    for voice in ("voice-a", "voice-b"):
+        (voices / voice).mkdir(parents=True, exist_ok=True)
+    policy = repo / "narrative-geopolitics" / "work" / "capture" / "youtube" / "youtube-capture-policy.yml"
+    policy.parent.mkdir(parents=True, exist_ok=True)
+    policy.write_text("channels:\n  host-a:\n    tier: B\n", encoding="utf-8")
+    contract = repo / "narrative-geopolitics" / "work" / "coverage" / "contracts" / "2026-01.json"
+    contract.parent.mkdir(parents=True, exist_ok=True)
+    contract.write_text(
+        json.dumps(
+            {
+                "schema_version": "1.1",
+                "scope": scope,
+                "month": "2026-01",
+                "declared_at": "2026-01-31T12:00:00+00:00",
+                "frozen": frozen,
+                "reviewer": "operator",
+                "late_declaration": True,
+                "daily_transcript_floor": daily_floor,
+                "voice_tiers": {"tier_a": ["voice-a"], "tier_b": ["voice-b"]},
+                "voice_tier_floors": {"tier_a": 5, "tier_b": 0},
+                "tier_b_channels": [
+                    {"host_slug": "host-a", "expected_cadence": "daily", "transcript_floor": 2}
+                ],
+                "exception_policy": {"required": True},
+                "diversity_policy": {"required_disposition": True},
+            }
+        ),
+        encoding="utf-8",
+    )
+    receipt_path = repo / "narrative-geopolitics" / "work" / "coverage" / "receipts" / "2026-01.jsonl"
+    receipt_path.parent.mkdir(parents=True, exist_ok=True)
+    receipt_path.write_text(
+        "".join(json.dumps(item) + "\n" for item in (receipts or [])), encoding="utf-8"
+    )
+
+
+def complete_processing_frontmatter() -> str:
+    return (
+        "asr_disposition: repaired\n"
+        "speaker_attribution: turn-labeled\n"
+        "sectioning_disposition: sectioned\n"
+        "quotation_readiness: ready\n"
+    )
+
+
+def diversity_receipt() -> dict:
+    return {
+        "schema_version": "1.1",
+        "month": "2026-01",
+        "target_type": "diversity",
+        "target": "2026-01",
+        "observed_at": "2026-02-01T12:00:00+00:00",
+        "reviewer": "operator",
+        "disposition": "accepted",
+        "candidates_checked": [],
+        "excluded": [],
+        "uncovered_lanes": [],
+        "evidence_refs": ["fixture:diversity-review"],
+        "crisis_objects": ["fixture-object"],
+        "concentration_review": "No concentration defect in fixture.",
+        "missing_disagreement": "No missing disagreement in fixture.",
+    }
+
+
+def voice_shortfall_receipt() -> dict:
+    return {
+        "schema_version": "1.1",
+        "month": "2026-01",
+        "target_type": "voice",
+        "target": "voice-a",
+        "observed_at": "2026-02-01T12:00:00+00:00",
+        "reviewer": "operator",
+        "disposition": "accepted",
+        "candidates_checked": ["fixture:candidate"],
+        "excluded": [{"ref": "fixture:candidate", "reason": "No qualifying second source."}],
+        "uncovered_lanes": ["voice-a"],
+        "evidence_refs": ["fixture:coverage-review"],
+    }
+
+
 def test_month_date_range_and_whole_corpus_scopes(tmp_path: Path) -> None:
     month = build(tmp_path / "month", ["--month", "2026-01"])
     date_range = build(
@@ -311,6 +400,145 @@ def test_benchmark_json_and_markdown_are_additive(tmp_path: Path) -> None:
     rendered = archive_audit.render_markdown(payload)
     assert "## Benchmarks" in rendered
     assert "Future/unlanded days" in rendered
+
+
+def test_monthly_certification_is_ineligible_without_frozen_contract(tmp_path: Path) -> None:
+    repo, sources, manifest_path, _ = archive_fixture(tmp_path)
+    payload = archive_audit.build_audit(
+        archive_audit.parse_args(["--month", "2026-01"]),
+        repo_root=repo,
+        sources_root=sources,
+        manifest_path=manifest_path,
+    )
+    assert payload["certification"]["status"] == "ineligible"
+    assert "absent" in payload["certification"]["reason"]
+    score = payload["certification"]["completeness_score"]
+    assert score["schema_version"] == "completeness-score-v1"
+    assert score["total"] < 100
+    assert score["hundred_reserved_for_pass"] is True
+    assert score["subscores"]["voice_representation"]["status"] == "unassessed"
+    assert score["subscores"]["tier_b_channels"]["status"] == "unassessed"
+    assert score["subscores"]["diversity_disposition"]["status"] == "unassessed"
+    assert sum(item["weight"] for item in score["subscores"].values()) == 100
+
+    write_completeness_controls(repo, frozen=False)
+    payload = archive_audit.build_audit(
+        archive_audit.parse_args(["--month", "2026-01"]),
+        repo_root=repo,
+        sources_root=sources,
+        manifest_path=manifest_path,
+    )
+    assert payload["certification"]["status"] == "ineligible"
+    assert "not frozen" in payload["certification"]["reason"]
+    assert payload["certification"]["completeness_score"]["total"] < 100
+
+
+def test_monthly_certification_transitions_from_fail_to_pass(tmp_path: Path) -> None:
+    repo, sources, manifest_path, rows = archive_fixture(tmp_path)
+    for row in rows[:2]:
+        row["modality"] = "cleaned-transcript"
+        path = repo / row["local_path"]
+        path.write_text(
+            source_text(
+                pub_date=row["date"],
+                url=row["source_url"],
+                extra_frontmatter=complete_processing_frontmatter(),
+            ),
+            encoding="utf-8",
+        )
+    manifest_path.write_text(
+        json.dumps({"manifest_id": "test", "source_count": len(rows), "sources": rows}), encoding="utf-8"
+    )
+    write_completeness_controls(repo, frozen=True)
+    failed = archive_audit.build_audit(
+        archive_audit.parse_args(["--month", "2026-01"]),
+        repo_root=repo,
+        sources_root=sources,
+        manifest_path=manifest_path,
+        daily_validator=lambda value: {"failures": []},
+    )
+    assert failed["certification"]["status"] == "fail"
+    assert failed["certification"]["gates"]["diversity_disposition"]["status"] == "fail"
+    assert failed["certification"]["gates"]["voice_representation"]["expected"] == 1
+    assert failed["certification"]["gates"]["voice_representation"]["missing"] == ["voice-a"]
+    assert failed["certification"]["completeness_score"]["total"] < 100
+
+    write_completeness_controls(
+        repo, frozen=True, receipts=[diversity_receipt(), voice_shortfall_receipt()]
+    )
+    passed = archive_audit.build_audit(
+        archive_audit.parse_args(["--month", "2026-01"]),
+        repo_root=repo,
+        sources_root=sources,
+        manifest_path=manifest_path,
+        daily_validator=lambda value: {"failures": []},
+    )
+    assert passed["certification"]["status"] == "pass"
+    assert passed["certification"]["late_declaration"] is True
+    assert passed["certification"]["completeness_score"]["total"] == 100
+    rendered = archive_audit.render_markdown(passed)
+    assert "## Monthly Completeness Certification" in rendered
+    assert "completeness-score-v1" in rendered
+    assert "density is excluded" in rendered
+
+
+def test_cross_shelf_contract_is_rejected(tmp_path: Path) -> None:
+    repo, sources, manifest_path, _ = archive_fixture(tmp_path)
+    write_completeness_controls(repo, frozen=True, scope="singularity-science")
+    payload = archive_audit.build_audit(
+        archive_audit.parse_args(["--month", "2026-01"]),
+        repo_root=repo,
+        sources_root=sources,
+        manifest_path=manifest_path,
+    )
+    assert payload["certification"]["status"] == "ineligible"
+    assert "narrative-geopolitics" in payload["certification"]["reason"]
+
+
+@pytest.mark.parametrize(
+    "metadata",
+    [
+        {
+            "asr_disposition": "not-needed",
+            "speaker_attribution": "confirmed-solo",
+            "sectioning_disposition": "preserved-unsectioned",
+            "sectioning_reason": "Solo statement has no strong semantic boundary.",
+            "quotation_readiness": "ready",
+        },
+        {
+            "asr_disposition": "repaired",
+            "speaker_attribution": "turn-labeled",
+            "sectioning_disposition": "sectioned",
+            "quotation_readiness": "ready",
+        },
+        {
+            "asr_disposition": "blocked",
+            "speaker_attribution": "partial",
+            "speaker_attribution_reason": "One speaker remains unknown.",
+            "sectioning_disposition": "preserved-unsectioned",
+            "sectioning_reason": "Boundaries are not strong enough.",
+            "quotation_readiness": "restricted",
+            "quotation_readiness_reason": "Quote only attributed turns.",
+        },
+    ],
+)
+def test_processing_dispositions_accept_evidence_bounded_states(metadata: dict[str, str]) -> None:
+    complete, missing = archive_audit.monthly_completeness.processing_state(metadata)
+    assert complete is True
+    assert missing == []
+
+
+def test_processing_dispositions_do_not_infer_readiness_from_legacy_fields() -> None:
+    complete, missing = archive_audit.monthly_completeness.processing_state(
+        {"asr_repair_applied": "true", "transcript_curation": "preserved_unsectioned"}
+    )
+    assert complete is False
+    assert set(missing) == {
+        "asr_disposition",
+        "speaker_attribution",
+        "sectioning_disposition",
+        "quotation_readiness",
+    }
 
 
 def test_results_are_deterministic_under_manifest_reordering(tmp_path: Path) -> None:

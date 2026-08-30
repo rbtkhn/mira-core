@@ -3,6 +3,7 @@ from __future__ import annotations
 import importlib.util
 import json
 import os
+import re
 import shutil
 import sys
 import tempfile
@@ -411,6 +412,10 @@ def test_frontmatter_includes_rule_and_metric_fields() -> None:
     assert "section_count: 3" in doc
     assert 'source_url: "https://example.com"' in doc
     assert "source_url_status: provided" in doc
+    assert "asr_disposition: needs-repair" in doc
+    assert "speaker_attribution: unknown" in doc
+    assert "sectioning_disposition: sectioned" in doc
+    assert "quotation_readiness: not-ready" in doc
 
     args.url = ""
     unavailable = land_best_intake.build_frontmatter(
@@ -546,6 +551,44 @@ def test_section_transcript_skips_when_cues_are_weak() -> None:
     assert curation == "preserved_unsectioned"
     assert section_count == 0
     assert skip_reason in {"weak-cues", "unclean-open-label", "unclean-segment-label"}
+
+
+def test_reason_resist_inline_turns_are_exposed_and_sectioned_without_identity_inference() -> None:
+    body = (
+        "Good day. This is Dimitri Lascaris. >> Thank you for having me. "
+        ">> Now, John, I want to ask about Turkey and Russia. "
+        ">> First of all, the Russia military question is separate. "
+        ">> Let me turn to the regional pact. "
+        ">> Thank you, John, for this discussion of Turkey and Russia."
+    )
+    normalized = land_best_intake.normalize_inline_turn_markers(body)
+    args = trim_args("reason-resist")
+    args.title = "Turkey's Imperial Ambitions w/ John Helmer"
+
+    sectioned, curation, count, reason = land_best_intake.section_transcript(args, normalized)
+
+    assert len(re.findall(r"(?m)^>> ", normalized)) == 5
+    assert curation == "curated_sectioned"
+    assert count >= 2
+    assert reason == ""
+    assert "### Show Open" in sectioned
+
+
+def test_processing_dispositions_keep_turn_labels_evidence_bounded() -> None:
+    args = SimpleNamespace(
+        asr_repair_applied=True,
+        transcript_curation="curated_sectioned",
+    )
+
+    fields = land_best_intake.build_processing_field_lines(
+        args,
+        ">> Host question.\n\n>> Guest answer.\n",
+    )
+
+    assert "speaker_attribution: turn-labeled" in fields
+    assert "sectioning_disposition: sectioned" in fields
+    assert "quotation_readiness: restricted" in fields
+    assert all("confirmed" not in field for field in fields)
 
 
 def test_section_transcript_respects_none_mode() -> None:

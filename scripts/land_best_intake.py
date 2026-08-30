@@ -44,6 +44,15 @@ ASR_FIELD_ORDER = (
     "asr_repair_applied",
     "asr_repair_pass",
 )
+PROCESSING_FIELD_ORDER = (
+    "asr_disposition",
+    "speaker_attribution",
+    "speaker_attribution_reason",
+    "sectioning_disposition",
+    "sectioning_reason",
+    "quotation_readiness",
+    "quotation_readiness_reason",
+)
 SECTIONING_APPROVED_HOSTS = {
     "alexander-mercouris",
     "daniel-davis",
@@ -52,6 +61,7 @@ SECTIONING_APPROVED_HOSTS = {
     "judging-freedom",
     "mario-nawfal",
     "moral-resistance",
+    "reason-resist",
 }
 ASR_REPAIR_APPROVED_HOSTS = {
     "alexander-mercouris",
@@ -61,6 +71,7 @@ ASR_REPAIR_APPROVED_HOSTS = {
     "judging-freedom",
     "mario-nawfal",
     "moral-resistance",
+    "reason-resist",
 }
 SECTIONING_PASS_LABEL = "2026-07-09 semantic-section-v1"
 
@@ -294,6 +305,34 @@ HOST_ASR_REPAIRS: dict[str, tuple[tuple[str, str], ...]] = {
             r"\bfor the first time, they agree on that mou is over here is what\b",
             "for the first time, they agree that the MOU is over. ",
         ),
+    ),
+    "reason-resist": (
+        (r"\bDemetri Lcer(?:is|as)\b", "Dimitri Lascaris"),
+        (r"\bDimmitri\b", "Dimitri"),
+        (r"\bDmitri\b", "Dimitri"),
+        (r"\battackums\b", "ATACMS"),
+        (r"\battacker missiles\b", "ATACMS missiles"),
+        (r"\bAndre Mariano\b", "Andrei Martyanov"),
+        (r"\bBarakta\b", "Bayraktar"),
+        (r"\bGata\b", "Qatar"),
+        (r"\bGalani\b", "al-Jolani"),
+        (r"\bTartis\b", "Tartus"),
+        (r"\bKmium\b", "Khmeimim"),
+        (r"\bErdawan\b", "Erdogan"),
+        (r"\bBoserus\b", "Bosporus"),
+        (r"\bmantra treaty\b", "Montreux Convention"),
+        (r"\bHakan Fedan\b", "Hakan Fidan"),
+        (r"\bAnton Czechov\b", "Anton Chekhov"),
+        (r"\bSkullan Island\b", "Sakhalin Island"),
+        (r"\bJohn Radcliffe\b", "John Ratcliffe"),
+        (r"\b(?:Radkut|Ratiff|Rakov)\b", "Ratcliffe"),
+        (r"\bNarishkin\b", "Naryshkin"),
+        (r"\bKarakas\b", "Caracas"),
+        (r"\bMadura\b", "Maduro"),
+        (r"\bDeli Rodriguez\b", "Delcy Rodriguez"),
+        (r"\bRiyad\b", "Riyadh"),
+        (r"\bLavro Rob\b", "Lavrov"),
+        (r"\bMario Rubio\b", "Marco Rubio"),
     ),
 }
 
@@ -530,6 +569,32 @@ def build_frontmatter(args: SimpleNamespace, title_slug: str, body: str) -> str:
     host_slug = getattr(args, "host_slug", "") or ""
     asr_repair_applied = bool(getattr(args, "asr_repair_applied", False))
     asr_repair_pass = getattr(args, "asr_repair_pass", "") or ""
+    asr_disposition = "repaired" if asr_repair_applied else "needs-repair"
+    turn_marker_count = len(re.findall(r"(?m)^>> ", body))
+    speaker_attribution = "turn-labeled" if turn_marker_count >= 2 else "unknown"
+    speaker_attribution_reason = (
+        "Source transcript preserves explicit turn boundaries; identities are not assigned where the source does not establish them."
+        if speaker_attribution == "turn-labeled"
+        else "Source-level host and guest metadata does not establish transcript turn attribution."
+    )
+    sectioning_disposition = (
+        "sectioned" if args.transcript_curation == "curated_sectioned" else "preserved-unsectioned"
+    )
+    sectioning_reason = (
+        "" if sectioning_disposition == "sectioned" else "No strong semantic boundaries were admitted during intake."
+    )
+    quotation_readiness = (
+        "restricted"
+        if asr_disposition == "repaired"
+        and speaker_attribution == "turn-labeled"
+        and sectioning_disposition == "sectioned"
+        else "not-ready"
+    )
+    quotation_reason = (
+        "Usable for bounded analysis, but quotations require source-audio verification."
+        if quotation_readiness == "restricted"
+        else "Transcript processing is incomplete; quotations are not ready."
+    )
     lines = [
         "---",
         f"ingest_date: {args.ingest_date}",
@@ -588,6 +653,13 @@ def build_frontmatter(args: SimpleNamespace, title_slug: str, body: str) -> str:
             f"transcript_curation: {args.transcript_curation}",
             f"section_count: {args.section_count}",
             f"section_pass: {yaml_quote(args.section_pass)}",
+            f"asr_disposition: {asr_disposition}",
+            f"speaker_attribution: {speaker_attribution}",
+            f"speaker_attribution_reason: {yaml_quote(speaker_attribution_reason)}",
+            f"sectioning_disposition: {sectioning_disposition}",
+            f"sectioning_reason: {yaml_quote(sectioning_reason)}",
+            f"quotation_readiness: {quotation_readiness}",
+            f"quotation_readiness_reason: {yaml_quote(quotation_reason)}",
             "---",
             f"# {args.title}",
             "",
@@ -1574,6 +1646,15 @@ def split_transcript_paragraphs(body: str) -> list[str]:
     return [block.strip() for block in blocks if block.strip()]
 
 
+def normalize_inline_turn_markers(body: str) -> str:
+    """Expose source-supplied YouTube turn markers without assigning identities."""
+    if ">>" not in body:
+        return body
+    normalized = re.sub(r"[ \t]*>>[ \t]*", "\n\n>> ", body)
+    normalized = re.sub(r"\n{3,}", "\n\n", normalized).strip() + "\n"
+    return normalized
+
+
 def format_sectioned_body(sections: list[tuple[str, str]]) -> str:
     chunks: list[str] = []
     for heading, block in sections:
@@ -1670,13 +1751,50 @@ def build_asr_field_lines(args: SimpleNamespace) -> list[str]:
     ]
 
 
-def normalize_frontmatter_trim_fields(frontmatter_lines: list[str], args: SimpleNamespace) -> list[str]:
+def build_processing_field_lines(args: SimpleNamespace, body: str) -> list[str]:
+    asr_disposition = "repaired" if args.asr_repair_applied else "needs-repair"
+    speaker_attribution = "turn-labeled" if len(re.findall(r"(?m)^>> ", body)) >= 2 else "unknown"
+    speaker_reason = (
+        "Source transcript preserves explicit turn boundaries; identities are not assigned where the source does not establish them."
+        if speaker_attribution == "turn-labeled"
+        else "Source-level host and guest metadata does not establish transcript turn attribution."
+    )
+    sectioning_disposition = (
+        "sectioned" if args.transcript_curation == "curated_sectioned" else "preserved-unsectioned"
+    )
+    sectioning_reason = (
+        "" if sectioning_disposition == "sectioned" else "No strong semantic boundaries were admitted during intake."
+    )
+    quotation_readiness = (
+        "restricted"
+        if asr_disposition == "repaired"
+        and speaker_attribution == "turn-labeled"
+        and sectioning_disposition == "sectioned"
+        else "not-ready"
+    )
+    quotation_reason = (
+        "Usable for bounded analysis, but quotations require source-audio verification."
+        if quotation_readiness == "restricted"
+        else "Transcript processing is incomplete; quotations are not ready."
+    )
+    return [
+        f"asr_disposition: {asr_disposition}",
+        f"speaker_attribution: {speaker_attribution}",
+        f"speaker_attribution_reason: {yaml_quote(speaker_reason)}",
+        f"sectioning_disposition: {sectioning_disposition}",
+        f"sectioning_reason: {yaml_quote(sectioning_reason)}",
+        f"quotation_readiness: {quotation_readiness}",
+        f"quotation_readiness_reason: {yaml_quote(quotation_reason)}",
+    ]
+
+
+def normalize_frontmatter_trim_fields(frontmatter_lines: list[str], args: SimpleNamespace, body: str) -> list[str]:
     new_lines: list[str] = []
     inserted = False
     for line in frontmatter_lines:
         stripped = line.strip()
         key = stripped.split(":", 1)[0] if ":" in stripped else ""
-        if key in TRIM_FIELD_ORDER or key in ASR_FIELD_ORDER or key in SECTIONING_FIELD_ORDER:
+        if key in TRIM_FIELD_ORDER or key in ASR_FIELD_ORDER or key in SECTIONING_FIELD_ORDER or key in PROCESSING_FIELD_ORDER:
             continue
         if key == "editorial_note":
             new_lines.append(f"editorial_note: {yaml_quote(args.editorial_note)}")
@@ -1686,12 +1804,14 @@ def normalize_frontmatter_trim_fields(frontmatter_lines: list[str], args: Simple
             new_lines.extend(build_trim_field_lines(args))
             new_lines.extend(build_asr_field_lines(args))
             new_lines.extend(build_section_field_lines(args))
+            new_lines.extend(build_processing_field_lines(args, body))
             inserted = True
 
     if not inserted:
         new_lines.extend(build_trim_field_lines(args))
         new_lines.extend(build_asr_field_lines(args))
         new_lines.extend(build_section_field_lines(args))
+        new_lines.extend(build_processing_field_lines(args, body))
     return new_lines
 
 
@@ -1818,7 +1938,7 @@ def retrofit_source(
     trimmed_body = body
     if host_slug in HOST_TRIM_RULES:
         trimmed_body = apply_trim_metadata(args, body)
-    repaired_body = repair_asr_text(args, trimmed_body)
+    repaired_body = repair_asr_text(args, normalize_inline_turn_markers(trimmed_body))
     section_body = repaired_body
     if not force_sections and (existing_curation == "curated_sectioned" or original_section_count > 0):
         args.transcript_curation = "curated_sectioned"
@@ -1827,7 +1947,7 @@ def retrofit_source(
         base_body = strip_transcript_section_headings(repaired_body) if force_sections else repaired_body
         section_body, args.transcript_curation, args.section_count, _ = section_transcript(args, base_body)
     args.editorial_note = update_editorial_note(args.editorial_note, args.transcript_curation, args.section_count)
-    new_frontmatter_lines = normalize_frontmatter_trim_fields(frontmatter_lines, args)
+    new_frontmatter_lines = normalize_frontmatter_trim_fields(frontmatter_lines, args, section_body)
     new_text = "---\n" + "\n".join(new_frontmatter_lines) + "\n---" + body_prefix + section_body.rstrip() + "\n"
 
     body_changed = section_body != body
@@ -1903,6 +2023,7 @@ def prepare_landing(args: SimpleNamespace) -> LandingPlan:
     source_path, title_slug, upstream_path = source_plan(args)
     body = load_body_text(args)
     body = apply_trim_metadata(args, body)
+    body = normalize_inline_turn_markers(body)
     body = repair_asr_text(args, body)
     body, args.transcript_curation, args.section_count, _ = section_transcript(args, body)
     args.editorial_note = update_editorial_note(args.editorial_note, args.transcript_curation, args.section_count)

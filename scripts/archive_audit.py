@@ -10,6 +10,8 @@ from datetime import date, timedelta
 from pathlib import Path
 from typing import Any, Iterable
 
+import monthly_completeness
+
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 ARCHIVE_ROOT = REPO_ROOT / "archive" / "sources" / "geopolitics"
@@ -551,6 +553,7 @@ def build_audit(
     repo_root: Path = REPO_ROOT,
     sources_root: Path = SOURCES_ROOT,
     manifest_path: Path = MANIFEST_PATH,
+    daily_validator: Any | None = None,
 ) -> dict[str, Any]:
     manifest, all_rows = load_manifest(manifest_path)
     as_of = manifest_as_of(all_rows)
@@ -573,7 +576,7 @@ def build_audit(
     benchmarks = benchmark_snapshot(rows, findings, scope)
     error_count = sum(item["severity"] == "error" for item in findings)
     warning_count = sum(item["severity"] == "warning" for item in findings)
-    return {
+    payload = {
         "schema_version": "1.0",
         "disposition": "fail" if error_count else "pass",
         "as_of": as_of.isoformat(),
@@ -591,6 +594,28 @@ def build_audit(
         "capability_token": False,
         "notice": "Archive audit is read-only and grants no repair authority.",
     }
+    if scope.mode == "month" and not scope.voice_slugs and not scope.host_slugs:
+        if daily_validator is None:
+            if repo_root.resolve() == REPO_ROOT.resolve():
+                import validate_daily_run
+
+                daily_validator = lambda value: validate_daily_run.validate_run(value, "issue")
+            else:
+                daily_validator = lambda value: {
+                    "failures": []
+                    if (repo_root / "narrative-geopolitics" / "work" / "daily" / value / "issue.md").is_file()
+                    else ["missing issue.md"]
+                }
+        payload["certification"] = monthly_completeness.build_certification(
+            month=scope.requested_start.strftime("%Y-%m"),
+            rows=rows,
+            findings=findings,
+            as_of=as_of,
+            repo_root=repo_root,
+            source_metadata_loader=source_metadata,
+            daily_validator=daily_validator,
+        )
+    return payload
 
 
 def render_markdown(payload: dict[str, Any]) -> str:
@@ -645,6 +670,39 @@ def render_markdown(payload: dict[str, Any]) -> str:
     lines += ["", "| Date | Sources | Density |", "| --- | ---: | --- |"]
     for item in coverage_payload["density"]:
         lines.append(f"| `{item['date']}` | {item['source_count']} | `{item['density_class']}` |")
+    certification = payload.get("certification")
+    if isinstance(certification, dict):
+        lines += [
+            "",
+            "## Monthly Completeness Certification",
+            "",
+            f"- Status: `{certification['status']}`",
+            f"- Reason: {certification['reason']}",
+            f"- Late declaration: `{certification.get('late_declaration')}`",
+            f"- Contract: `{certification['contract_path']}`",
+            f"- Receipts: `{certification['receipt_path']}`",
+        ]
+        score = certification.get("completeness_score") or {}
+        if score:
+            lines += [
+                f"- Completeness score: `{score['total']}/{score['maximum']}` (`{score['schema_version']}`)",
+                "- Score rule: `100` is reserved for a certification pass; density is excluded.",
+            ]
+            lines += ["", "| Score component | Earned | Weight | Status |", "| --- | ---: | ---: | --- |"]
+            for name, component in score["subscores"].items():
+                lines.append(
+                    f"| `{name}` | {component['earned']} | {component['weight']} | `{component['status']}` |"
+                )
+        gates = certification.get("gates") or {}
+        if gates:
+            lines += ["", "| Gate | Status | Expected | Observed | Excepted | Missing |", "| --- | --- | ---: | ---: | ---: | --- |"]
+            for name, gate in gates.items():
+                missing = ", ".join(gate["missing"][:5])
+                if len(gate["missing"]) > 5:
+                    missing += f" (+{len(gate['missing']) - 5} more)"
+                lines.append(
+                    f"| `{name}` | `{gate['status']}` | {gate['expected']} | {gate['observed']} | {gate['excepted']} | {missing or 'none'} |"
+                )
     return "\n".join(lines).rstrip() + "\n"
 
 
