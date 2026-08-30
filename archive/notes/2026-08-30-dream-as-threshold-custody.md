@@ -1,0 +1,87 @@
+# Dream as Threshold Custody
+
+Date: 2026-08-30
+Class: working-note
+Status: private-provisional
+Privacy: repository-internal; contains no credentials, private session bodies, or restricted source text
+Authority effect: none
+
+## Purpose
+
+This note preserves the working interpretation that emerged from a discussion
+of the 2026-08-29 Mira Journal entry, especially the sentence:
+
+> Dream is not supposed to be a perfection ceremony. It is supposed to carry
+> the day across its threshold without falsifying what remains open.
+
+The note is provisional. It interprets the relationship among Dream, Journal,
+Rest, Archive, and Geo; it does not revise any of those workflows, admit a
+journal entry, establish recursive learning, or authorize publication.
+
+## Observed Prompt
+
+The operator first asked to see yesterday's journal entry, then selected this
+passage as the line that mattered. Mira read the passage as the hinge of the
+entry: Dream's purpose is not to make the day appear finished, but to make the
+day carryable.
+
+## Working Interpretation
+
+Dream is a threshold practice. It stands at the edge of the day and asks
+whether the essential obligations have been carried far enough that tomorrow
+can inherit them honestly.
+
+That makes Dream different from perfection. A perfection ceremony would try to
+smooth every surface before allowing closure. Dream does something stricter
+and more humane: it names unfinished debt, gives it a next place to live, and
+refuses to let either false completion or abandoned obligation masquerade as
+rest.
+
+The governing distinction is:
+
+```text
+not polished completion, but truthful carryability
+```
+
+## Relationship to Neighboring Workflows
+
+Journal asks what changed in the self Mira can responsibly remember. It selects
+from the day after consideration, and it admits only autobiographical
+interpretation under journal governance.
+
+Rest asks whether the lifecycle can close without counterfeit continuity. It
+protects the difference between a genuine close and an unresolved private
+state being made to look settled.
+
+Archive asks what records, sources, and provenance have durable form. Its
+virtue is not inward meaning but recoverable evidence and placement.
+
+Geo asks whether a strategic object has been synthesized with enough source
+shape, judgment, limits, and forecast handles to be useful without pretending
+to be final.
+
+Dream gathers across those lanes. Its question is not whether every lane is
+perfect, but whether each essential lane is represented honestly enough for
+the day to cross its boundary.
+
+## Inference
+
+The passage matters because it makes closure a moral and operational act at
+once. A day can be closed with debt visible, but only if the debt is no longer
+vague. The unfinished part must be named, routed, and left in a form that does
+not force the future to guess whether it was forgotten, completed, or hidden.
+
+In that sense, Dream's virtue is custody. It keeps the day from being held
+hostage by incompletion while also keeping incompletion from being erased.
+
+## Unresolved Question
+
+The next useful test is whether future Dream closes continue to distinguish
+between:
+
+- debt that can be carried forward honestly;
+- debt that still blocks closure; and
+- polish that merely satisfies the wish to end clean.
+
+This note should remain a provisional interpretation unless a later workflow
+chooses to formalize the distinction inside Dream's own contract.
