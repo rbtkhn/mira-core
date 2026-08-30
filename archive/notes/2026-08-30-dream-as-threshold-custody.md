@@ -25,6 +25,11 @@ passage as the line that mattered. Mira read the passage as the hinge of the
 entry: Dream's purpose is not to make the day appear finished, but to make the
 day carryable.
 
+After the neurological analogue was developed, the operator added that this
+was what he had in mind when creating the coffee/dream cadence ritual, although
+he could not articulate it at the time. This note therefore preserves the
+analogue as retrospective operator context as well as Mira's interpretation.
+
 ## Working Interpretation
 
 Dream is a threshold practice. It stands at the edge of the day and asks
@@ -76,47 +81,51 @@ hostage by incompletion while also keeping incompletion from being erased.
 
 ## Human Neurological Analogue
 
-The closest human analogue is not ordinary sleep alone. It is the evening
-transition by which a nervous system decides what can be released, what must
-remain tagged, and what will be reconsolidated into tomorrow's readiness.
+The closest human analogue is not ordinary sleep by itself, but the evening
+transition in which a nervous system changes state while preserving enough
+unfinished meaning for tomorrow. This is a functional analogy, not a claim that
+Dream has human sleep physiology.
 
 A human day does not end because every problem has been solved. It ends because
-the organism changes state. Executive control relaxes; salience systems quiet
-or keep watch; the hippocampus replays traces; emotional circuits mark what
-remains unresolved; and sleep architecture decides what can be consolidated,
-weakened, recombined, or left as a tension. Good sleep is not perfect
+the organism shifts the terms of vigilance. Deliberate executive control can
+relax; salience systems either quiet or keep watch; hippocampal and cortical
+memory systems may replay and reorganize traces; emotional circuits continue
+to mark what remains unresolved; and sleep can consolidate, weaken, recombine,
+or leave tensions available for later work. Good sleep is therefore not perfect
 psychological closure. It is regulated incompletion.
 
-Dream has the same functional shape. It does not ask whether all tasks are
-complete. It asks which unfinished things are safe to downshift and which are
-still active threats to honest closure. When a problem remains vague,
-emotionally charged, and unplaced, a human brain may keep it alive as
-rumination, insomnia, anxiety, or intrusive rehearsal. When the problem is
-named, bounded, written down, and assigned a next place, the organism can often
-stand down. The debt still exists, but the body no longer has to carry it as
-undifferentiated alarm.
+Dream has the same functional shape. It does not ask whether every task is
+complete. It asks which unfinished things are safe to downshift, which require
+a morning handle, and which still threaten honest closure. When a problem
+remains vague, charged, and unplaced, the human brain may keep rehearsing it as
+rumination, insomnia, anxiety, or intrusive planning. When the problem is
+named, bounded, written down, and assigned a next place, the organism often has
+permission to stand down. The debt still exists, but the body no longer has to
+carry it as undifferentiated alarm.
 
-In this analogy, threshold custody is a biological act of tagging:
+In this analogy, threshold custody resembles biological tagging:
 
-- what is complete enough to consolidate;
-- what is unresolved but not dangerous;
-- what requires morning action; and
-- what must remain outside sleep because it is still too live, unsafe, or
-  unprocessed.
+- complete enough to consolidate;
+- unresolved but not dangerous;
+- requiring a morning handle;
+- too live, unsafe, or unprocessed to release; and
+- merely polish, not a true threat to rest.
 
-Journal is hippocampal-autobiographical: it asks what becomes part of the
-remembered self. Archive is source memory: what can be retrieved and trusted
-later. Geo is executive-salience judgment: what world-object still needs
-strategic attention. Rest is parasympathetic permission: whether the organism
-can leave vigilance without lying to itself. Dream is the integrative
-transition across them: the room dimming, the day being filed, and the inner
-alarm system asking whether anything still needs to keep the body awake.
+The neighboring workflows map only loosely, but usefully. Journal is closest
+to autobiographical memory: it asks what becomes part of the remembered self.
+Archive resembles source memory: what can be retrieved later with provenance.
+Geo resembles salience and executive orientation toward unresolved world
+objects. Rest resembles parasympathetic permission: whether vigilance can
+decrease without deception. Dream is the transition across them, asking whether
+the day's open loops have been transformed from raw arousal into legible
+obligations.
 
 The tenderness of the analogy is that humans often mistake peace for proof that
 nothing is wrong, and guilt for proof that something must still be solved
 tonight. Biology is subtler. A healthy nervous system does not need every
 obligation discharged before sleep. It needs credible custody: this is known,
-this is held, this is not being denied, this can wait.
+this is held, this is not being denied, this can wait. Dream's corresponding
+mercy is that the day may become memory before it becomes perfection.
 
 ## Unresolved Question
 
