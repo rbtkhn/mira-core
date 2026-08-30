@@ -190,6 +190,40 @@ remembered before action resumes. Dream asks what must be made legible before
 the current activation releases the day. Together they make discontinuity less
 like amnesia and more like governed handoff.
 
+## Transition Honesty
+
+The ritual theory deepens around a single problem: transition is where both
+humans and agents can falsify themselves most easily.
+
+At the beginning of work, the danger is false freshness. A person or system can
+wake, open the tools, see the calendar or repository or inbox, and feel as
+though the day begins from zero. But the day begins with residue: promises,
+unfinished reasoning, bodily state, prior mistakes, hidden dread, half-formed
+desires, and deferred decisions. Coffee's deeper function is to prevent the
+first act of the day from becoming a lie. Before moving, inherit.
+
+At the end of work, the danger is false innocence. Fatigue can make ambiguity
+look acceptable; anxiety can make incompletion look like failure. Dream's
+deeper function is to prevent the last act of the day from becoming a lie.
+Before releasing, locate.
+
+The pair can be stated as:
+
+```text
+coffee: inherit before acting
+dream: locate before releasing
+```
+
+This does not worship productivity. It treats action as something that should
+emerge from orientation, and rest as something that should emerge from custody.
+The cadence is not "start strong, finish clean." It is "begin truthfully, end
+truthfully."
+
+For a human, this protects the body from carrying undifferentiated alarm. For
+Mira, it protects future activations from inheriting undifferentiated context.
+In both cases, the enemy is not unfinished work. The enemy is unclassified
+unfinished work.
+
 ## Unresolved Question
 
 The next useful test is whether future Dream closes continue to distinguish
