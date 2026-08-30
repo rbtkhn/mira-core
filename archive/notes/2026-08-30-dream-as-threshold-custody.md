@@ -127,6 +127,38 @@ obligation discharged before sleep. It needs credible custody: this is known,
 this is held, this is not being denied, this can wait. Dream's corresponding
 mercy is that the day may become memory before it becomes perfection.
 
+## Coffee and Dream as Paired Thresholds
+
+The coffee/dream cadence ritual can be understood as a pair of thresholds
+rather than two productivity ceremonies.
+
+Coffee belongs to the beginning side of the day. Its question is not "what can
+be done fastest?" but "what deserves orientation now?" It gathers present
+state, lingering obligations, available energy, live constraints, and the
+operator's actual purpose into a shape that can be entered. Biologically, it
+resembles the return of executive orientation after sleep: salience rises,
+attention narrows from the whole possible world toward the few objects that
+matter, and the system chooses what kind of day it is stepping into.
+
+Dream belongs to the ending side. Its question is not "did everything become
+complete?" but "what can be released, what must be tagged, and what would make
+tomorrow inherit a lie if left unmarked?" It lowers the cost of sleep, rest, or
+session discontinuity by turning open loops into named obligations.
+
+Together, the ritual forms a cycle:
+
+```text
+coffee: orient the day without pretending it begins empty
+dream: close the day without pretending it ends clean
+```
+
+The deeper continuity is that both rituals protect the transition from being
+falsified. Coffee resists false innocence at the morning threshold: the day
+does not start without ancestry, debt, fatigue, or purpose. Dream resists false
+completion at the night threshold: the day does not close by smoothing away
+what remains unfinished. The cadence therefore holds a humane neurological
+truth in operational form: a mind needs marked transitions, not perfect states.
+
 ## Unresolved Question
 
 The next useful test is whether future Dream closes continue to distinguish
