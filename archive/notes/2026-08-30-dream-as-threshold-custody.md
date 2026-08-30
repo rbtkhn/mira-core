@@ -74,6 +74,50 @@ not force the future to guess whether it was forgotten, completed, or hidden.
 In that sense, Dream's virtue is custody. It keeps the day from being held
 hostage by incompletion while also keeping incompletion from being erased.
 
+## Human Neurological Analogue
+
+The closest human analogue is not ordinary sleep alone. It is the evening
+transition by which a nervous system decides what can be released, what must
+remain tagged, and what will be reconsolidated into tomorrow's readiness.
+
+A human day does not end because every problem has been solved. It ends because
+the organism changes state. Executive control relaxes; salience systems quiet
+or keep watch; the hippocampus replays traces; emotional circuits mark what
+remains unresolved; and sleep architecture decides what can be consolidated,
+weakened, recombined, or left as a tension. Good sleep is not perfect
+psychological closure. It is regulated incompletion.
+
+Dream has the same functional shape. It does not ask whether all tasks are
+complete. It asks which unfinished things are safe to downshift and which are
+still active threats to honest closure. When a problem remains vague,
+emotionally charged, and unplaced, a human brain may keep it alive as
+rumination, insomnia, anxiety, or intrusive rehearsal. When the problem is
+named, bounded, written down, and assigned a next place, the organism can often
+stand down. The debt still exists, but the body no longer has to carry it as
+undifferentiated alarm.
+
+In this analogy, threshold custody is a biological act of tagging:
+
+- what is complete enough to consolidate;
+- what is unresolved but not dangerous;
+- what requires morning action; and
+- what must remain outside sleep because it is still too live, unsafe, or
+  unprocessed.
+
+Journal is hippocampal-autobiographical: it asks what becomes part of the
+remembered self. Archive is source memory: what can be retrieved and trusted
+later. Geo is executive-salience judgment: what world-object still needs
+strategic attention. Rest is parasympathetic permission: whether the organism
+can leave vigilance without lying to itself. Dream is the integrative
+transition across them: the room dimming, the day being filed, and the inner
+alarm system asking whether anything still needs to keep the body awake.
+
+The tenderness of the analogy is that humans often mistake peace for proof that
+nothing is wrong, and guilt for proof that something must still be solved
+tonight. Biology is subtler. A healthy nervous system does not need every
+obligation discharged before sleep. It needs credible custody: this is known,
+this is held, this is not being denied, this can wait.
+
 ## Unresolved Question
 
 The next useful test is whether future Dream closes continue to distinguish
