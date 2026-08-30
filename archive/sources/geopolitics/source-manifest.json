@@ -2,7 +2,7 @@
   "manifest_id": "narrative-geopolitics-source-manifest-v1",
   "source_basis": "central archive with completed historical strategy-codex imports",
   "imported_at": "2026-07-09",
-  "source_count": 2268,
+  "source_count": 2275,
   "boundary": {
     "archive": "source truth",
     "voices": "voice continuity and routing",
@@ -61024,6 +61024,167 @@
       "host_slug": "dialogue-works",
       "source_identity": "youtube:x7sIy2JCj64",
       "source_url": "https://www.youtube.com/watch?v=x7sIy2JCj64",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-05",
+      "title": "BREAKING: OMAN AND IRAN ANNOUNCE DEAL - w/ Elijah Magnier",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-05/source-breaking-oman-and-iran-announce-deal-w-elijah-magnier-2026-08-05.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-05/source-breaking-oman-and-iran-announce-deal-w-elijah-magnier-2026-08-05.md",
+      "upstream_path": "operator-paste://2026-08-05/breaking-oman-and-iran-announce-deal-w-elijah-magnier",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "elijah-magnier"
+      ],
+      "host_slug": "mario-nawfal",
+      "source_identity": "youtube:SiLyR5xfIpU",
+      "source_url": "https://www.youtube.com/watch?v=SiLyR5xfIpU",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-05",
+      "title": "Elijah Magnier: Trump Doubles Down: Iran Will Be \"Hit Really Hard\" If They Back Out",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-05/source-elijah-magnier-trump-doubles-down-iran-will-be-hit-really-hard-if-they-back-out-2026-08-05.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-05/source-elijah-magnier-trump-doubles-down-iran-will-be-hit-really-hard-if-they-back-out-2026-08-05.md",
+      "upstream_path": "operator-paste://2026-08-05/elijah-magnier-trump-doubles-down-iran-will-be-hit-really-hard-if-they-back-out",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "elijah-magnier"
+      ],
+      "host_slug": "dialogue-works",
+      "source_identity": "youtube:BhATKhafVu8",
+      "source_url": "https://www.youtube.com/watch?v=BhATKhafVu8",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-12",
+      "title": "Elijah Magnier: Erdoğan: The ‘Mecca Alliance’ Has Only ONE Target (And It’s Not Who You Think)",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-12/source-elijah-magnier-erdo-an-the-mecca-alliance-has-only-one-target-and-it-s-not-who-you-think-2026-08-12.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-12/source-elijah-magnier-erdo-an-the-mecca-alliance-has-only-one-target-and-it-s-not-who-you-think-2026-08-12.md",
+      "upstream_path": "operator-paste://2026-08-12/elijah-magnier-erdo-an-the-mecca-alliance-has-only-one-target-and-it-s-not-who-you-think",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "elijah-magnier"
+      ],
+      "host_slug": "dialogue-works",
+      "source_identity": "youtube:3D5wLeAauqY",
+      "source_url": "https://www.youtube.com/watch?v=3D5wLeAauqY",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-15",
+      "title": "IRAN CEASEFIRE SET TO \"EXPIRE\" ON MONDAY, SITUATION STATIC - w/ Elijah Magnier",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-15/source-iran-ceasefire-set-to-expire-on-monday-situation-static-w-elijah-magnier-2026-08-15.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-15/source-iran-ceasefire-set-to-expire-on-monday-situation-static-w-elijah-magnier-2026-08-15.md",
+      "upstream_path": "operator-paste://2026-08-15/iran-ceasefire-set-to-expire-on-monday-situation-static-w-elijah-magnier",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "elijah-magnier"
+      ],
+      "host_slug": "mario-nawfal",
+      "source_identity": "youtube:rJ9NORfCmEA",
+      "source_url": "https://www.youtube.com/watch?v=rJ9NORfCmEA",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-19",
+      "title": "Elijah Magnier: FT: Iran Draws a Red Line in Europe—US Assets in Cyprus Targeted",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-19/source-elijah-magnier-ft-iran-draws-a-red-line-in-europe-us-assets-in-cyprus-targeted-2026-08-19.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-19/source-elijah-magnier-ft-iran-draws-a-red-line-in-europe-us-assets-in-cyprus-targeted-2026-08-19.md",
+      "upstream_path": "operator-paste://2026-08-19/elijah-magnier-ft-iran-draws-a-red-line-in-europe-us-assets-in-cyprus-targeted",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "elijah-magnier"
+      ],
+      "host_slug": "dialogue-works",
+      "source_identity": "youtube:3COyPXGFD40",
+      "source_url": "https://www.youtube.com/watch?v=3COyPXGFD40",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-24",
+      "title": "BREAKING: SYRIA'S SPY CHIEFS MET ISRAELI OFFICIALS IN JORDAN — w/ Elijah Magnier",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-24/source-breaking-syria-s-spy-chiefs-met-israeli-officials-in-jordan-w-elijah-magnier-2026-08-24.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-24/source-breaking-syria-s-spy-chiefs-met-israeli-officials-in-jordan-w-elijah-magnier-2026-08-24.md",
+      "upstream_path": "operator-paste://2026-08-24/breaking-syria-s-spy-chiefs-met-israeli-officials-in-jordan-w-elijah-magnier",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "elijah-magnier"
+      ],
+      "host_slug": "mario-nawfal",
+      "source_identity": "youtube:ImlB7oIMeXc",
+      "source_url": "https://www.youtube.com/watch?v=ImlB7oIMeXc",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-26",
+      "title": "Elijah Magnier: Iran Slams US: Economic War Won't Be One-Sided – Secret Arsenal Awakens",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-26/source-elijah-magnier-iran-slams-us-economic-war-won-t-be-one-sided-secret-arsenal-awakens-2026-08-26.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-26/source-elijah-magnier-iran-slams-us-economic-war-won-t-be-one-sided-secret-arsenal-awakens-2026-08-26.md",
+      "upstream_path": "operator-paste://2026-08-26/elijah-magnier-iran-slams-us-economic-war-won-t-be-one-sided-secret-arsenal-awakens",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "elijah-magnier"
+      ],
+      "host_slug": "dialogue-works",
+      "source_identity": "youtube:C6RUXl6wg7c",
+      "source_url": "https://www.youtube.com/watch?v=C6RUXl6wg7c",
       "title_source": "transcript",
       "date_basis": "transcript-self-date",
       "inference_basis": [
