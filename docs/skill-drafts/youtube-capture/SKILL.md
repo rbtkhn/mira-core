@@ -48,11 +48,19 @@ tools\run.ps1 youtube-capture scan-index --date YYYY-MM-DD --include-active --in
 tools\run.ps1 youtube-capture discover-public --date YYYY-MM-DD --include-active --include-candidate --limit-per-channel 3 --since-days 7
 tools\run.ps1 youtube-capture status --date YYYY-MM-DD
 tools\run.ps1 youtube-capture audit-duplicates --date YYYY-MM-DD
+tools\run.ps1 youtube-capture browser-coverage --date YYYY-MM-DD
 ```
 
-Use the current local date unless the operator supplies another date. Keep
-discovery bounded; raise `--limit-per-channel` or `--since-days` only when the
-operator asks for wider coverage.
+Use the current local date unless the operator supplies another date. RSS is a
+seed source only. `discover-public` reads the full available feed, applies the
+date window, and only then applies `--limit-per-channel`; never truncate the
+newest feed entries before date filtering. Raise `--limit-per-channel` or
+`--since-days` only when the operator asks for wider candidate coverage.
+
+Queue files are named for the capture run. Each video row stores
+`capture_date` separately from `publication_date`; the compatibility `date`
+field follows `publication_date` when public metadata supplies one. Do not
+mistake the queue filename or capture date for the episode's publication date.
 
 For daily Narrative Geopolitics work, default effort is high. Treat configured
 Tier A channels as browser-checked by default for the target date; public
@@ -73,6 +81,47 @@ separation, and missed rows. Check major channels carefully before declaring a
 date complete. Dialogue Works requires especially careful same-day inspection
 because multiple guest uploads on the same date can be missed by lighter
 metadata passes.
+
+After inspecting a Tier A channel's visible page, record the observation:
+
+```powershell
+tools\run.ps1 youtube-capture record-browser-receipt --date YYYY-MM-DD --channel-slug SLUG --channel-url CHANNEL_URL --observed-at ISO_TIMESTAMP --observed-url VIDEO_URL
+```
+
+Repeat `--observed-url` for every qualifying visible item. If inspection finds
+none, use `--no-qualifying-videos` instead. A receipt states only what was
+visibly checked; it does not verify episode claims or authorize archive intake.
+For this workflow, configured `daily` cadence channels are the Tier A browser
+set unless the operator supplies explicit `--channel` selections. Tier A
+completion fails closed until `browser-coverage` finds a valid receipt for
+every selected channel. RSS rows, including an empty or apparently current
+feed, never satisfy this gate.
+
+For channel-discovery briefs that rank URLs by expected value, run filtering
+before ranking. Filtering decides which rows may compete in the main list;
+ranking decides their order.
+
+Use this filter sequence:
+
+1. Date: the main list includes only the target date unless the operator asks
+   for a wider window. Put adjacent-day rows in a separate recent-context
+   bucket.
+2. Form: exclude shorts, teaser clips, duplicate uploads, and headline
+   fragments unless the operator selects them.
+3. Object fitness: keep rows tied to the day's crisis object or to an
+   explicitly named strategic mechanism. Do not let generic breaking-news
+   intensity substitute for object fit.
+4. Mechanism transfer: when the operator has developed or named a mechanism,
+   preserve substantive cross-theater exemplars of that mechanism even when
+   they are outside the headline theater.
+
+For state-substrate coercion, main-list eligible mechanism terms include energy
+systems, grids, banking, sanctions, shipping, insurance, logistics, ammunition,
+budget pressure, industrial capacity, diplomacy, and alliance compliance.
+
+Only after filtering should the brief rank by expected value: mechanism
+clarity, crisis-object relevance, cross-theater transfer value, transcript
+readiness, voice/source value, and actionability.
 
 If Windows console encoding fails on titles, rerun status or duplicate audit
 with UTF-8 output forced:
@@ -147,11 +196,11 @@ only the named guest.
 
 ## Browser Contract
 
-Automated discovery uses public metadata and usually does not require the
-browser. For daily Tier A Narrative Geopolitics checks and same-day named
-channel/guest searches, use the browser by default as described above. For other
-bounded capture work, use the browser when human-visible triage or transcript
-capture is needed, especially when YouTube blocks automated transcript access.
+Automated RSS discovery seeds candidates but cannot close a channel check. For
+daily Tier A Narrative Geopolitics checks and same-day named channel/guest
+searches, use the browser by default as described above. For other bounded
+capture work, use the browser when human-visible triage or transcript capture
+is needed, especially when YouTube blocks automated transcript access.
 
 Use the in-app browser for the parts of YouTube work that need visible-page
 judgment:
@@ -169,8 +218,9 @@ verification. For browser-based work, keep the output in the queue first. Do
 not paste a browser transcript directly into archive intake without attaching
 it to the queue row or explaining why queue attachment is impossible.
 
-When browser work supplies a candidate, record a compact browser-to-queue
-receipt in row notes or the user-facing handoff:
+When browser work completes a Tier A channel check, record the dedicated JSON
+receipt with `record-browser-receipt`. Row notes or a user-facing handoff may
+summarize the observation, but neither substitutes for the receipt. Preserve:
 
 - canonical URL;
 - visible title, channel, and date as seen in the browser;

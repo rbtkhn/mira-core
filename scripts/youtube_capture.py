@@ -47,6 +47,7 @@ AUTHORITY_NOTICE = (
     "forecast, Reality, publication, staging, commit, push, or deployment"
 )
 USER_AGENT = "mira-core-youtube-capture/1.0"
+BROWSER_RECEIPT_SCHEMA_VERSION = 1
 
 
 class CaptureError(ValueError):
@@ -82,6 +83,10 @@ def parse_nonnegative_float(value: str) -> float:
 
 def queue_path(capture_date: str, queue_root: Path = QUEUE_ROOT) -> Path:
     return queue_root / f"{capture_date}.jsonl"
+
+
+def browser_receipt_path(capture_date: str, channel_slug: str, queue_root: Path = QUEUE_ROOT) -> Path:
+    return queue_root / "browser-receipts" / capture_date / f"{channel_slug}.json"
 
 
 def extract_video_id(url: str) -> str:
@@ -131,8 +136,11 @@ def normalize_row(
     if disposition not in DISPOSITIONS:
         raise CaptureError(f"invalid disposition: {disposition}")
     video_id, source_identity = youtube_source_identity(url)
+    publication_date = publication_date_from_timestamp(published_at)
     return {
-        "date": capture_date,
+        "date": publication_date or capture_date,
+        "capture_date": capture_date,
+        "publication_date": publication_date,
         "url": url.strip(),
         "video_id": video_id,
         "title": title.strip(),
@@ -155,6 +163,8 @@ def normalize_index_row(*, capture_date: str, row: dict[str, str]) -> dict[str, 
     status = row.get("status", "")
     return {
         "date": capture_date,
+        "capture_date": capture_date,
+        "publication_date": "",
         "url": url,
         "video_id": video_id,
         "title": "",
@@ -194,17 +204,21 @@ def normalize_discovered_video_row(
     slug = channel_row["slug"]
     cadence = channel_row.get("capture_cadence", "")
     title = video.get("title", "")
+    published_at = video.get("published_at", "")
+    publication_date = publication_date_from_timestamp(published_at)
     disposition, next_action, filter_note = discovered_triage(url, title)
-    notes = f"discover-public cadence={cadence}; channel_slug={slug}"
+    notes = f"discover-public cadence={cadence}; channel_slug={slug}; discovery_evidence=rss-seed-only"
     if filter_note:
         notes = f"{notes}; {filter_note}"
     return {
-        "date": capture_date,
+        "date": publication_date or capture_date,
+        "capture_date": capture_date,
+        "publication_date": publication_date,
         "url": url,
         "video_id": video_id,
         "title": title,
         "channel": video.get("channel") or channel_row.get("label", ""),
-        "published_at": video.get("published_at", ""),
+        "published_at": published_at,
         "expected_voice": CHANNEL_EXPECTED_VOICE.get(slug, "unknown"),
         "transcript_status": "defer",
         "disposition": disposition,
@@ -482,7 +496,7 @@ def channel_id_from_url(url: str, fetcher=None) -> str:
     return extract_channel_id(fetcher(url.rstrip("/") + "/videos"))
 
 
-def parse_youtube_rss(text: str, *, limit: int) -> list[dict[str, str]]:
+def parse_youtube_rss(text: str, *, limit: int | None = None) -> list[dict[str, str]]:
     try:
         root = ElementTree.fromstring(text)
     except ElementTree.ParseError as error:
@@ -512,7 +526,7 @@ def parse_youtube_rss(text: str, *, limit: int) -> list[dict[str, str]]:
                 "channel": channel,
             }
         )
-        if len(videos) >= limit:
+        if limit is not None and len(videos) >= limit:
             break
     return videos
 
@@ -527,6 +541,11 @@ def parse_rss_datetime(value: str) -> datetime | None:
     if parsed.tzinfo is None:
         return parsed.replace(tzinfo=timezone.utc)
     return parsed.astimezone(timezone.utc)
+
+
+def publication_date_from_timestamp(value: str) -> str:
+    published = parse_rss_datetime(value)
+    return published.date().isoformat() if published is not None else ""
 
 
 def filter_videos_since(
@@ -548,7 +567,9 @@ def filter_videos_since(
     return filtered
 
 
-def discover_public_videos(row: dict[str, str], *, limit: int, fetcher=None) -> list[dict[str, str]]:
+def discover_public_videos(
+    row: dict[str, str], *, limit: int | None = None, fetcher=None
+) -> list[dict[str, str]]:
     fetcher = fetch_text if fetcher is None else fetcher
     channel_id = channel_id_from_url(row["channel_url"], fetcher=fetcher)
     rss_url = f"https://www.youtube.com/feeds/videos.xml?channel_id={channel_id}"
@@ -652,10 +673,10 @@ def discover_public_command(args: argparse.Namespace) -> int:
     for row in selected:
         try:
             videos = filter_videos_since(
-                discover_public_videos(row, limit=args.limit_per_channel),
+                discover_public_videos(row, limit=None),
                 capture_date=args.date,
                 since_days=args.since_days,
-            )
+            )[: args.limit_per_channel]
         except CaptureError as error:
             fallback = normalize_index_row(capture_date=args.date, row=row)
             fallback["notes"] = f"{fallback['notes']}; discover-public failed: {error}"
@@ -676,7 +697,7 @@ def discover_public_command(args: argparse.Namespace) -> int:
     rows, added, updated = upsert_rows(read_queue(path), incoming, preserve_review_state=True)
     write_queue(path, rows)
     print(QUEUE_ONLY_NOTICE)
-    print("DISCOVER_PUBLIC_MODE=public-metadata-only")
+    print("DISCOVER_PUBLIC_MODE=rss-seed-only")
     print(f"CHANNEL_INDEX={args.channel_index}")
     print(f"CHANNEL_ROWS_SELECTED={len(selected)}")
     print(f"VIDEOS_FOUND={videos_found}")
@@ -686,6 +707,121 @@ def discover_public_command(args: argparse.Namespace) -> int:
     print(f"ROWS_UPDATED={updated}")
     print(AUTHORITY_NOTICE)
     return 0
+
+
+def write_browser_receipt(
+    *,
+    capture_date: str,
+    channel_slug: str,
+    channel_url: str,
+    observed_at: str,
+    observed_urls: list[str],
+    no_qualifying_videos: bool,
+    queue_root: Path = QUEUE_ROOT,
+    notes: str = "",
+) -> Path:
+    if not re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", channel_slug):
+        raise CaptureError("channel-slug must be a lowercase kebab-case slug")
+    if not observed_urls and not no_qualifying_videos:
+        raise CaptureError("browser receipt needs an observed URL or --no-qualifying-videos")
+    normalized_urls: list[str] = []
+    for url in observed_urls:
+        extract_video_id(url)
+        if url not in normalized_urls:
+            normalized_urls.append(url)
+    try:
+        datetime.fromisoformat(observed_at.replace("Z", "+00:00"))
+    except ValueError as error:
+        raise CaptureError("observed-at must be an ISO-8601 timestamp") from error
+    receipt = {
+        "schema_version": BROWSER_RECEIPT_SCHEMA_VERSION,
+        "status": "complete",
+        "capture_date": capture_date,
+        "channel_slug": channel_slug,
+        "channel_url": channel_url,
+        "observed_at": observed_at,
+        "observed_urls": normalized_urls,
+        "no_qualifying_videos": no_qualifying_videos,
+        "evidence_basis": "in-app-browser-visible-channel-page",
+        "rss_completion_authority": False,
+        "notes": notes,
+    }
+    path = browser_receipt_path(capture_date, channel_slug, queue_root)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(receipt, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    return path
+
+
+def record_browser_receipt_command(args: argparse.Namespace) -> int:
+    path = write_browser_receipt(
+        capture_date=args.date,
+        channel_slug=args.channel_slug,
+        channel_url=args.channel_url,
+        observed_at=args.observed_at,
+        observed_urls=args.observed_url,
+        no_qualifying_videos=args.no_qualifying_videos,
+        queue_root=args.queue_root,
+        notes=args.notes,
+    )
+    print(QUEUE_ONLY_NOTICE)
+    print("BROWSER_RECEIPT_MODE=visible-page-evidence")
+    print(f"BROWSER_RECEIPT={path}")
+    print("TIER_A_COMPLETION_AUTHORITY=browser-receipt")
+    print(AUTHORITY_NOTICE)
+    return 0
+
+
+def browser_coverage_command(args: argparse.Namespace) -> int:
+    cadences = {item.lower() for item in (args.cadence or ["daily"])}
+    channels = {item.strip() for item in args.channel}
+    selected = select_channel_index_rows(
+        parse_channel_index(args.channel_index),
+        cadences=cadences,
+        channels=channels,
+        include_active=args.include_active,
+        include_candidate=args.include_candidate,
+    )
+    if not selected:
+        raise CaptureError("no Tier A channels selected for browser coverage")
+    present: list[str] = []
+    missing: list[str] = []
+    for row in selected:
+        slug = row["slug"]
+        path = browser_receipt_path(args.date, slug, args.queue_root)
+        try:
+            receipt = json.loads(path.read_text(encoding="utf-8")) if path.exists() else {}
+        except json.JSONDecodeError:
+            receipt = {}
+        valid = (
+            receipt.get("schema_version") == BROWSER_RECEIPT_SCHEMA_VERSION
+            and receipt.get("status") == "complete"
+            and receipt.get("capture_date") == args.date
+            and receipt.get("channel_slug") == slug
+            and receipt.get("evidence_basis") == "in-app-browser-visible-channel-page"
+            and receipt.get("rss_completion_authority") is False
+        )
+        (present if valid else missing).append(slug)
+    payload = {
+        "mode": "youtube-capture-browser-coverage",
+        "date": args.date,
+        "required_channels": [row["slug"] for row in selected],
+        "present_receipts": present,
+        "missing_receipts": missing,
+        "tier_a_completion": "pass" if not missing else "fail",
+        "authority": AUTHORITY_NOTICE,
+    }
+    if args.json:
+        print(json.dumps(payload, indent=2, ensure_ascii=False))
+    else:
+        print(QUEUE_ONLY_NOTICE)
+        print("BROWSER_COVERAGE_MODE=tier-a-visible-page-receipts")
+        print(f"TIER_A_CHANNELS_REQUIRED={len(selected)}")
+        print(f"BROWSER_RECEIPTS_PRESENT={len(present)}")
+        print(f"BROWSER_RECEIPTS_MISSING={len(missing)}")
+        print(f"MISSING_CHANNELS={','.join(missing)}")
+        print(f"TIER_A_COMPLETION={payload['tier_a_completion']}")
+        print(AUTHORITY_NOTICE)
+    return 0 if not missing else 1
 
 
 def list_command(args: argparse.Namespace) -> int:
@@ -1318,7 +1454,7 @@ def build_parser() -> argparse.ArgumentParser:
     scan_index.add_argument("--include-candidate", action="store_true")
     scan_index.set_defaults(handler=scan_index_command)
 
-    discover = subparsers.add_parser("discover-public", help="Discover public video rows from channel-index URLs")
+    discover = subparsers.add_parser("discover-public", help="Seed candidate video rows from public RSS metadata")
     add_common(discover)
     discover.add_argument("--channel-index", type=Path, default=CHANNEL_INDEX_PATH)
     discover.add_argument("--cadence", action="append", choices=["daily", "weekly", "manual", "off"])
@@ -1328,6 +1464,26 @@ def build_parser() -> argparse.ArgumentParser:
     discover.add_argument("--limit-per-channel", type=int, default=5)
     discover.add_argument("--since-days", type=parse_nonnegative_int)
     discover.set_defaults(handler=discover_public_command)
+
+    receipt = subparsers.add_parser("record-browser-receipt", help="Record visible channel-page evidence")
+    add_common(receipt)
+    receipt.add_argument("--channel-slug", required=True)
+    receipt.add_argument("--channel-url", required=True)
+    receipt.add_argument("--observed-at", required=True)
+    receipt.add_argument("--observed-url", action="append", default=[])
+    receipt.add_argument("--no-qualifying-videos", action="store_true")
+    receipt.add_argument("--notes", default="")
+    receipt.set_defaults(handler=record_browser_receipt_command)
+
+    coverage = subparsers.add_parser("browser-coverage", help="Require browser receipts for Tier A completion")
+    add_common(coverage)
+    coverage.add_argument("--channel-index", type=Path, default=CHANNEL_INDEX_PATH)
+    coverage.add_argument("--cadence", action="append", choices=["daily", "weekly", "manual", "off"])
+    coverage.add_argument("--channel", action="append", default=[])
+    coverage.add_argument("--include-active", action="store_true")
+    coverage.add_argument("--include-candidate", action="store_true")
+    coverage.add_argument("--json", action="store_true")
+    coverage.set_defaults(handler=browser_coverage_command)
 
     list_rows = subparsers.add_parser("list", help="List queue rows for a date")
     add_common(list_rows)

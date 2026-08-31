@@ -58,12 +58,14 @@ def test_add_creates_queue_only_row(tmp_path: Path, capsys) -> None:
     assert rows == [
         {
             "channel": "Example Channel",
+            "capture_date": "2026-08-20",
             "date": "2026-08-20",
             "disposition": "must-land",
             "expected_voice": "example",
             "next_action": "review",
             "notes": "",
             "published_at": "",
+            "publication_date": "",
             "source_identity": "youtube:abc123",
             "title": "Daily update",
             "transcript_status": "available",
@@ -339,12 +341,14 @@ def test_discover_public_writes_video_rows_from_public_rss(tmp_path: Path, monke
     assert rows == [
         {
             "channel": "Glenn Diesen",
+            "capture_date": "2026-08-20",
             "date": "2026-08-20",
             "disposition": "watch",
             "expected_voice": "diesen",
             "next_action": "review video and mark must-land/possible/skip",
-            "notes": "discover-public cadence=daily; channel_slug=glenn-diesen",
+            "notes": "discover-public cadence=daily; channel_slug=glenn-diesen; discovery_evidence=rss-seed-only",
             "published_at": "2026-08-20T10:00:00+00:00",
+            "publication_date": "2026-08-20",
             "source_identity": "youtube:video123",
             "title": "Public metadata only",
             "transcript_status": "defer",
@@ -352,6 +356,118 @@ def test_discover_public_writes_video_rows_from_public_rss(tmp_path: Path, monke
             "video_id": "video123",
         }
     ]
+
+
+def test_discover_public_overfetches_before_date_filter_for_mcgovern_regression(
+    tmp_path: Path, monkeypatch
+) -> None:
+    queue_root = tmp_path / "queue"
+    channel_index = tmp_path / "channel-index.md"
+    channel_index.write_text(
+        "\n".join(
+            [
+                "| Channel slug | Label | Narrative status | Routing role | Local shelf / required next step | Upstream files | Upstream days | Capture cadence | Channel URL | First day | Last day |",
+                "| --- | --- | --- | --- | --- | ---: | ---: | --- | --- | --- | --- |",
+                "| `dialogue-works` | Dialogue Works | `active` | Interview host. | [dialogue-works/](dialogue-works/README.md) | 1 | 1 | `daily` | [open](https://www.youtube.com/@dialogueworks01) | `2026-08-01` | `2026-08-31` |",
+            ]
+        ),
+        encoding="utf-8",
+    )
+    entries = []
+    for index in range(3):
+        entries.append(
+            f"""<entry><yt:videoId>new{index}</yt:videoId><title>August 31 upload {index}</title><published>2026-08-31T1{index}:00:00+00:00</published><author><name>Dialogue Works</name></author><link rel=\"alternate\" href=\"https://www.youtube.com/watch?v=new{index}\" /></entry>"""
+        )
+    entries.append(
+        """<entry><yt:videoId>CFzK79SVKOE</yt:videoId><title>Ray McGovern: Inside the CIA's Moscow Meeting</title><published>2026-08-30T18:04:32+00:00</published><author><name>Dialogue Works</name></author><link rel=\"alternate\" href=\"https://www.youtube.com/watch?v=CFzK79SVKOE\" /></entry>"""
+    )
+    rss = (
+        '<feed xmlns="http://www.w3.org/2005/Atom" xmlns:yt="http://www.youtube.com/xml/schemas/2015">'
+        + "".join(entries)
+        + "</feed>"
+    )
+
+    def fake_fetch(url: str, timeout: int = 20) -> str:
+        if url.endswith("/videos"):
+            return '{"channelId":"UCdialogue"}'
+        if "feeds/videos.xml" in url:
+            return rss
+        raise AssertionError(url)
+
+    monkeypatch.setattr(youtube_capture, "fetch_text", fake_fetch)
+    assert youtube_capture.main(
+        [
+            "discover-public",
+            "--date",
+            "2026-08-30",
+            "--queue-root",
+            str(queue_root),
+            "--channel-index",
+            str(channel_index),
+            "--limit-per-channel",
+            "3",
+            "--since-days",
+            "0",
+        ]
+    ) == 0
+
+    rows = read_jsonl(queue_root / "2026-08-30.jsonl")
+    assert [row["video_id"] for row in rows] == ["CFzK79SVKOE"]
+    assert rows[0]["capture_date"] == "2026-08-30"
+    assert rows[0]["publication_date"] == "2026-08-30"
+    assert "discovery_evidence=rss-seed-only" in rows[0]["notes"]
+
+
+def test_browser_receipt_is_required_for_tier_a_completion(tmp_path: Path, capsys) -> None:
+    queue_root = tmp_path / "queue"
+    channel_index = tmp_path / "channel-index.md"
+    channel_index.write_text(
+        "\n".join(
+            [
+                "| Channel slug | Label | Narrative status | Routing role | Local shelf / required next step | Upstream files | Upstream days | Capture cadence | Channel URL | First day | Last day |",
+                "| --- | --- | --- | --- | --- | ---: | ---: | --- | --- | --- | --- |",
+                "| `dialogue-works` | Dialogue Works | `active` | Interview host. | [dialogue-works/](dialogue-works/README.md) | 1 | 1 | `daily` | [open](https://www.youtube.com/@dialogueworks01) | `2026-08-01` | `2026-08-31` |",
+            ]
+        ),
+        encoding="utf-8",
+    )
+    coverage_args = [
+        "browser-coverage",
+        "--date",
+        "2026-08-30",
+        "--queue-root",
+        str(queue_root),
+        "--channel-index",
+        str(channel_index),
+        "--channel",
+        "dialogue-works",
+        "--json",
+    ]
+    assert youtube_capture.main(coverage_args) == 1
+    assert json.loads(capsys.readouterr().out)["tier_a_completion"] == "fail"
+
+    assert youtube_capture.main(
+        [
+            "record-browser-receipt",
+            "--date",
+            "2026-08-30",
+            "--queue-root",
+            str(queue_root),
+            "--channel-slug",
+            "dialogue-works",
+            "--channel-url",
+            "https://www.youtube.com/@dialogueworks01/videos",
+            "--observed-at",
+            "2026-08-31T12:00:00-06:00",
+            "--observed-url",
+            "https://www.youtube.com/watch?v=CFzK79SVKOE",
+        ]
+    ) == 0
+    capsys.readouterr()
+    assert youtube_capture.main(coverage_args) == 0
+    payload = json.loads(capsys.readouterr().out)
+    assert payload["tier_a_completion"] == "pass"
+    assert payload["present_receipts"] == ["dialogue-works"]
 
 
 def test_discovered_video_row_filters_shorts_to_skip() -> None:
