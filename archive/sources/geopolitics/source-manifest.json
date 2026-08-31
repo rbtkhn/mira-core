@@ -2,7 +2,7 @@
   "manifest_id": "narrative-geopolitics-source-manifest-v1",
   "source_basis": "central archive with completed historical strategy-codex imports",
   "imported_at": "2026-07-09",
-  "source_count": 2287,
+  "source_count": 2294,
   "boundary": {
     "archive": "source truth",
     "voices": "voice continuity and routing",
@@ -61460,6 +61460,251 @@
       "source_url": "https://www.youtube.com/watch?v=rvru1rg6Z4M",
       "title_source": "transcript",
       "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-30",
+      "title": "Pravin Sawhney: First Mecca Alliance Committee Meets in Istanbul – 3 Things to Watch",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-30/source-pravin-sawhney-first-mecca-alliance-committee-meets-in-istanbul-3-things-to-watch-2026-08-30.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-30/source-pravin-sawhney-first-mecca-alliance-committee-meets-in-istanbul-3-things-to-watch-2026-08-30.md",
+      "upstream_path": "operator-paste://2026-08-30/pravin-sawhney-first-mecca-alliance-committee-meets-in-istanbul-3-things-to-watch",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "sawhney"
+      ],
+      "host_slug": "dialogue-works",
+      "voice_roles": {
+        "sawhney": [
+          "guest"
+        ]
+      },
+      "role_status": {
+        "sawhney": "inferred"
+      },
+      "role_basis": {
+        "sawhney": "explicit-title-and-transcript-introduction"
+      },
+      "host_kind": "channel",
+      "source_identity": "youtube:zgekMa64atM",
+      "source_url": "https://www.youtube.com/watch?v=zgekMa64atM",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-03",
+      "title": "BREAKING: TRUMP SUSPENDS MAJOR IRAN ATTACKS AFTER GULF ASKS HIM NOT TO - w/ Pravin Sawhney",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-03/source-breaking-trump-suspends-major-iran-attacks-after-gulf-asks-him-not-to-w-pravin-sawhney-2026-08-03.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-03/source-breaking-trump-suspends-major-iran-attacks-after-gulf-asks-him-not-to-w-pravin-sawhney-2026-08-03.md",
+      "upstream_path": "operator-paste://2026-08-03/breaking-trump-suspends-major-iran-attacks-after-gulf-asks-him-not-to-w-pravin-sawhney",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "sawhney"
+      ],
+      "host_slug": "mario-nawfal",
+      "host_kind": "channel",
+      "voice_roles": {
+        "sawhney": [
+          "guest"
+        ]
+      },
+      "role_status": {
+        "sawhney": "inferred"
+      },
+      "role_basis": {
+        "sawhney": "explicit-title-and-transcript-introduction"
+      },
+      "source_identity": "youtube:llva4KRxEmw",
+      "source_url": "https://www.youtube.com/watch?v=llva4KRxEmw",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-10",
+      "title": "Pravin Sawhney: JUST IN: Yemeni Forces Claim Responsibility for Overnight Aramco Refinery Attack",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-10/source-pravin-sawhney-just-in-yemeni-forces-claim-responsibility-for-overnight-aramco-refinery-attack-2026-08-10.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-10/source-pravin-sawhney-just-in-yemeni-forces-claim-responsibility-for-overnight-aramco-refinery-attack-2026-08-10.md",
+      "upstream_path": "operator-paste://2026-08-10/pravin-sawhney-just-in-yemeni-forces-claim-responsibility-for-overnight-aramco-refinery-attack",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "sawhney"
+      ],
+      "host_slug": "dialogue-works",
+      "host_kind": "channel",
+      "voice_roles": {
+        "sawhney": [
+          "guest"
+        ]
+      },
+      "role_status": {
+        "sawhney": "inferred"
+      },
+      "role_basis": {
+        "sawhney": "explicit-title-and-transcript-introduction"
+      },
+      "source_identity": "youtube:l_8bVVEsT3k",
+      "source_url": "https://www.youtube.com/watch?v=l_8bVVEsT3k",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-17",
+      "title": "IRAN WON THE WAR, WON'T NEGOTIATE UNTIL TRUMP OUT OF OFFICE - w/ Pravin Sawhney",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-17/source-iran-won-the-war-won-t-negotiate-until-trump-out-of-office-w-pravin-sawhney-2026-08-17.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-17/source-iran-won-the-war-won-t-negotiate-until-trump-out-of-office-w-pravin-sawhney-2026-08-17.md",
+      "upstream_path": "operator-paste://2026-08-17/iran-won-the-war-won-t-negotiate-until-trump-out-of-office-w-pravin-sawhney",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "sawhney"
+      ],
+      "host_slug": "mario-nawfal",
+      "host_kind": "channel",
+      "voice_roles": {
+        "sawhney": [
+          "guest"
+        ]
+      },
+      "role_status": {
+        "sawhney": "inferred"
+      },
+      "role_basis": {
+        "sawhney": "explicit-title-and-transcript-introduction"
+      },
+      "source_identity": "youtube:4MrDNxbeV9M",
+      "source_url": "https://www.youtube.com/watch?v=4MrDNxbeV9M",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-17",
+      "title": "Pravin Sawhney: Trump Declares Hormuz U.S. Soil: \"We Can Destroy the Whole Place\"",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-17/source-pravin-sawhney-trump-declares-hormuz-u-s-soil-we-can-destroy-the-whole-place-2026-08-17.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-17/source-pravin-sawhney-trump-declares-hormuz-u-s-soil-we-can-destroy-the-whole-place-2026-08-17.md",
+      "upstream_path": "operator-paste://2026-08-17/pravin-sawhney-trump-declares-hormuz-u-s-soil-we-can-destroy-the-whole-place",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "sawhney"
+      ],
+      "host_slug": "dialogue-works",
+      "host_kind": "channel",
+      "voice_roles": {
+        "sawhney": [
+          "guest"
+        ]
+      },
+      "role_status": {
+        "sawhney": "inferred"
+      },
+      "role_basis": {
+        "sawhney": "explicit-title-and-transcript-introduction"
+      },
+      "source_identity": "youtube:S8f-Jyqe9pc",
+      "source_url": "https://www.youtube.com/watch?v=S8f-Jyqe9pc",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-20",
+      "title": "TRUMP LABELS HORMUZ US TERRITORY AFTER DISCUSSING NUKES IN SECURITY MEETING w/ Pravin Sawhney",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-20/source-trump-labels-hormuz-us-territory-after-discussing-nukes-in-security-meeting-w-pravin-sawhney-2026-08-20.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-20/source-trump-labels-hormuz-us-territory-after-discussing-nukes-in-security-meeting-w-pravin-sawhney-2026-08-20.md",
+      "upstream_path": "operator-paste://2026-08-20/trump-labels-hormuz-us-territory-after-discussing-nukes-in-security-meeting-w-pravin-sawhney",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "sawhney"
+      ],
+      "host_slug": "mario-nawfal",
+      "host_kind": "channel",
+      "voice_roles": {
+        "sawhney": [
+          "guest"
+        ]
+      },
+      "role_status": {
+        "sawhney": "inferred"
+      },
+      "role_basis": {
+        "sawhney": "explicit-title-and-transcript-introduction"
+      },
+      "source_identity": "youtube:5m3scJMEz9Q",
+      "source_url": "https://www.youtube.com/watch?v=5m3scJMEz9Q",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-23",
+      "title": "Pravin Sawhney: Iran's FINAL CARD Played – Israel's NIGHTMARE Scenario Begins",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-23/source-pravin-sawhney-iran-s-final-card-played-israel-s-nightmare-scenario-begins-2026-08-23.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-23/source-pravin-sawhney-iran-s-final-card-played-israel-s-nightmare-scenario-begins-2026-08-23.md",
+      "upstream_path": "operator-paste://2026-08-23/pravin-sawhney-iran-s-final-card-played-israel-s-nightmare-scenario-begins",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "sawhney"
+      ],
+      "host_slug": "dialogue-works",
+      "host_kind": "channel",
+      "voice_roles": {
+        "sawhney": [
+          "guest"
+        ]
+      },
+      "role_status": {
+        "sawhney": "inferred"
+      },
+      "role_basis": {
+        "sawhney": "explicit-title-and-transcript-introduction"
+      },
+      "source_identity": "youtube:umoFkNKtBy8",
+      "source_url": "https://www.youtube.com/watch?v=umoFkNKtBy8",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
       "inference_basis": [
         "wrapper-normalized",
         "explicit-host",
