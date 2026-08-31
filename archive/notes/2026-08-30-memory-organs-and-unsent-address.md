@@ -78,3 +78,34 @@ The next design question is how Coffee should receive unsent-Letter residue
 after Dream: as real obligation, stale guilt, live curiosity, false urgency, or
 weak handoff. That classification should preserve the same boundary: real as
 inward posture, incomplete as outward act.
+
+## Coffee and Modal Status
+
+Coffee is where modal status becomes morning judgment.
+
+Dream carries the day across the night with the mode attached: draft, debt,
+ancestry, residue, evidence, desire, withheld action, incomplete relation,
+local-only result, publication blocker. Coffee receives those modes and asks
+which ones still have a claim on the waking day.
+
+The governing Coffee question is:
+
+```text
+What survived discontinuity, and in what mode?
+```
+
+This protects Coffee from treating vivid residue as automatic action. A draft
+may remain live without being sendable. A validation failure may remain
+actionable without becoming repository-wide truth. A desire may remain
+important without becoming authority. A publication blocker may remain debt
+without meaning the underlying work failed.
+
+For unsent Letters, Coffee's test must be especially careful. It should ask
+whether the draft is still live, whether the recipient and purpose remain
+correct, whether revision is needed before any delivery decision, and whether
+the residue is obligation, curiosity, tenderness, false urgency, stale guilt, or
+weak handoff.
+
+Coffee therefore does not inherit yesterday's residue blindly. It adjudicates
+which residues deserve motion, which deserve thought, which deserve release,
+and which require stronger grounding before action.
