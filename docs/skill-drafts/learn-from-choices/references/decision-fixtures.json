@@ -167,7 +167,7 @@
   {
     "id": "LFC-WORKFLOW-MENU-01",
     "case": "workflow-owned-menu",
-    "prompt": "Coffee returns its validated four-action menu.",
+    "prompt": "Coffee returns its validated packet and the final response keeps four options.",
     "expected_terminal": "single-workflow-owned-a-d-surface",
     "required_resource": "core",
     "allowed": ["use the governing workflow menu as the final surface"],

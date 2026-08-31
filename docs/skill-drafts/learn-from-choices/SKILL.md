@@ -65,8 +65,10 @@ D. New task — begin a distinct objective.
 ```
 
 After an explicit stop, keep the response minimal and use only `Close now`,
-`Return later`, `Start a new task`, and `Correct the stopping summary`. A governing workflow's existing
-four-action A-D surface, including Coffee, satisfies the need; never append a duplicate menu.
+`Return later`, `Start a new task`, and `Correct the stopping summary`. A
+governing workflow's existing valid four-option A-D surface satisfies the
+need; never append a duplicate menu. A smaller Coffee packet does not satisfy
+this final-response requirement by itself.
 
 ## End every final response with possibilities
 

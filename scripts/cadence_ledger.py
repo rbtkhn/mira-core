@@ -1116,11 +1116,11 @@ def build_cold_start_actions() -> list[dict[str, Any]]:
 
 
 def validate_actions(actions: list[dict[str, Any]]) -> None:
-    if len(actions) != 4:
-        raise CadenceLedgerError("Coffee requires exactly four actions")
+    if not 1 <= len(actions) <= 4:
+        raise CadenceLedgerError("Coffee requires one to four actions")
     labels: set[str] = set()
     targets: set[str] = set()
-    for action, expected in zip(actions, ACTION_SHAPE, strict=True):
+    for action, expected in zip(actions, ACTION_SHAPE[:len(actions)], strict=True):
         if (action.get("key"), action.get("verb"), action.get("role")) != expected:
             raise CadenceLedgerError("Coffee actions have invalid order, verb, or role")
         label = sanitize_text(action.get("label", ""), limit=1000)

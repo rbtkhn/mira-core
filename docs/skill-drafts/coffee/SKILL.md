@@ -1,13 +1,22 @@
 ---
 name: coffee
-description: "Reorient Mira Core from repository state and the last verified dream handoff. Use when the operator says coffee or asks what bounded learning move should happen next."
+description: "Reorient Mira Core from repository state and the last verified Dream handoff. Use when the operator says coffee or asks what bounded learning move should happen next."
 ---
 
 # Coffee
 
 Use only in `mira-core`. Coffee is repository-read-only. Bare `coffee`
 authorizes only a deterministic private cadence-schema migration when needed
-and one digest-only presentation receipt after a grounded menu validates.
+and one digest-only presentation receipt after a grounded Coffee packet
+validates.
+
+Coffee is the morning counterpart to Dream. Dream makes unfinished work
+legible enough to release; Coffee receives that marked work without pretending
+the day begins empty. Coffee tests whether the latest Dream handoff survived
+discontinuity, whether its evidence remains recoverable and current, and which
+residue should become orientation before momentum begins. Classify morning
+residue as real obligation, stale guilt, live curiosity, false urgency, or a
+weak/stale Dream handoff before selecting the next bounded action surface.
 
 ## Orient
 
@@ -31,10 +40,12 @@ orientation directly.
    Confirm that the renderer selected the newest eligible Dream candidate for
    the current workspace and operator. Current ledger state outranks inherited
    prose and any stale `next_use` description. Return the renderer's
-   deterministic four-action menu verbatim only after candidate freshness,
-   artifact grounding, and material factual premises pass their controlling
-   checks;
-   do not remove, reorder, rename, replace, or hand-compose actions. Confirm
+   deterministic Coffee packet verbatim only after candidate freshness,
+   artifact grounding, morning-residue classification, and material factual
+   premises pass their controlling checks. The packet may contain one to four
+   grounded Coffee actions, and must contain at least one action-ready
+   read-only `Execute:` option; do not remove, reorder, rename, replace, or
+   hand-compose actions. Confirm
    its presentation mode is `initial`, `delta`, `repeat-checkpoint`, or
    `saturated`; relevant-lane delta is limited to candidate lifecycle,
    declared paths, verification posture, Rest coverage, and selection identity.
@@ -91,21 +102,24 @@ orientation directly.
 ## Return
 
 Briefly state what was learned, the bounded evidence supporting it, whether it
-is safe to inherit, and what remains unverified. Offer exactly four grounded
-actions. At least one must be action-ready with `selection_effect: execute`, a
-visible label beginning `Execute:`, an exact read-only source, and a stated
-verification result:
+is safe to inherit, and what remains unverified. Offer the smallest honest
+grounded Coffee action surface: one recommended next move when the path is
+clear, two to four actions when real tradeoffs remain, and a fail-closed notice
+when grounding is insufficient. At least one Coffee action must be action-ready
+with `selection_effect: execute`, a visible label beginning `Execute:`, an exact
+read-only source, and a stated verification result. Use the existing action
+order as a prefix, stopping when later actions would be filler:
 
 - `A. Confirm` (`recommended`) — validate a claimed improvement before adopting it.
 - `B. Test` (`alternative`) — run a discriminating falsifier or comparison.
 - `C. Deepen` (`overlooked`) — fill one named evidence or mechanism gap.
 - `D. Reframe` (`pause-or-deepen`) — retire, narrow, revert, or replace the method assumption.
 
-Recommend one action and stop on the menu. Each action must name an artifact,
-forecast, crisis object, observable, or method change.
+Recommend one action and stop on the Coffee packet. Each action must name an
+artifact, forecast, crisis object, observable, or method change.
 
 If the renderer reports `insufficient_grounding`, fail closed and report that
-no honest four-action Coffee packet can be formed. Never invent filler actions.
+no honest grounded Coffee packet can be formed. Never invent filler actions.
 Selecting a navigation-only letter develops that branch. Selecting the
 validated action-ready letter authorizes only its exact read-only comparison;
 the displayed authority boundary remains controlling after selection.
@@ -115,5 +129,9 @@ every other follow-on action remain separately authorized.
 Presentation receipts retain identifiers, timestamps, component and menu
 digests, bounded path status, and a receipt chain only. They are not evidence,
 selection, outcome, disposition, identity, belief, or follow-on authority.
+
+Coffee's smaller internal packet does not weaken the global Learn From Choices
+requirement that final assistant responses render exactly four A-D options
+unless a governing workflow explicitly supplies a valid four-option surface.
 
 Do not mutate intake, archive evidence, forecasts, publication, or Git state.

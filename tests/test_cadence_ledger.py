@@ -245,7 +245,7 @@ def test_late_session_receipt_is_append_only_supplement(tmp_path: Path) -> None:
     connection.close()
 
 
-def test_coffee_has_exact_grounded_navigation_contract(tmp_path: Path) -> None:
+def test_coffee_has_grounded_navigation_contract(tmp_path: Path) -> None:
     connection = database(tmp_path)
     value = episode()
     cadence_ledger.create_episode(connection, value, idempotency_key="dream-1")
@@ -267,6 +267,49 @@ def test_coffee_has_exact_grounded_navigation_contract(tmp_path: Path) -> None:
     assert "Authority boundary: Execute only the named read-only comparison; tests, writes, and disposition remain separate." in markdown
     assert all(f"{key}. {verb}:" in markdown for key, verb, _ in cadence_ledger.ACTION_SHAPE[1:])
     assert markdown.rstrip().endswith("Recommendation: A. Confirm the claimed improvement before adoption.")
+    connection.close()
+
+
+def test_coffee_accepts_one_to_four_grounded_actions(tmp_path: Path) -> None:
+    connection = database(tmp_path)
+    cadence_ledger.create_episode(connection, episode(), idempotency_key="dream-1")
+    context = cadence_ledger.coffee_context(connection, rest_coverage_status="covered-current")
+    actions = context["actions"]
+
+    for count in (1, 2, 4):
+        subset = actions[:count]
+        cadence_ledger.validate_actions(subset)
+        assert [(row["key"], row["verb"], row["role"]) for row in subset] == list(
+            cadence_ledger.ACTION_SHAPE[:count]
+        )
+
+    with pytest.raises(cadence_ledger.CadenceLedgerError, match="one to four actions"):
+        cadence_ledger.validate_actions([])
+
+    connection.close()
+
+
+def test_coffee_variable_actions_keep_execution_safety(tmp_path: Path) -> None:
+    connection = database(tmp_path)
+    cadence_ledger.create_episode(connection, episode(), idempotency_key="dream-1")
+    actions = cadence_ledger.coffee_context(
+        connection, rest_coverage_status="covered-current"
+    )["actions"]
+
+    missing_execute_prefix = [{**actions[0], "label": "Confirm without executable prefix."}]
+    with pytest.raises(cadence_ledger.CadenceLedgerError, match="begin with Execute"):
+        cadence_ledger.validate_actions(missing_execute_prefix)
+
+    mutating_execute = [
+        {**actions[0], "execution": {**actions[0]["execution"], "mutation": True}}
+    ]
+    with pytest.raises(cadence_ledger.CadenceLedgerError, match="explicitly read-only"):
+        cadence_ledger.validate_actions(mutating_execute)
+
+    no_actionable = [{**actions[0], "selection_effect": "navigate"}]
+    with pytest.raises(cadence_ledger.CadenceLedgerError, match="at least one actionable"):
+        cadence_ledger.validate_actions(no_actionable)
+
     connection.close()
 
 
