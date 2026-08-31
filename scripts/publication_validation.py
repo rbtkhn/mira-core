@@ -26,6 +26,11 @@ MANUAL_MIRA_JOURNAL_CHECK = (
     "reference integrity, continuity-index coherence, privacy boundary, and "
     "absence of research-evidence or publication-authority promotion."
 )
+MANUAL_DEV_JOURNAL_CHECK = (
+    "Validate Dev Journal neutral engineering voice, rationale focus, authority "
+    "effect none, and separation from Mira selfhood, audits, tests, evidence, "
+    "publication, and workflow authority."
+)
 MANUAL_GRACE_GEMS_CHECK = (
     "Validate Grace Gems provenance, privacy exclusions, stewardship-versus-ownership "
     "boundaries, CEO authority, and absence of copied upstream or private evidence."
@@ -344,6 +349,13 @@ def route_path(path: str, *, repo_root: Path = REPO_ROOT) -> dict[str, Any]:
                 "Verify the experiment preserves frozen inputs, evidence and privacy boundaries, "
                 "decision thresholds, and separation between evaluation and mutation authority."
             ],
+        }
+    if path.startswith("docs/dev-journal/"):
+        return {
+            "owner": "dev-journal",
+            "validation_class": "repo-structural",
+            "commands": ["tools/run.ps1 test --path tests/test_publication_validation.py"],
+            "manual_checks": [MANUAL_DEV_JOURNAL_CHECK],
         }
     if path.startswith("archive/library/"):
         return {

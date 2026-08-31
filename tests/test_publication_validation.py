@@ -40,6 +40,7 @@ def make_tree(root: Path) -> None:
         "docs/mira-core-name-migration.md",
         "docs/plans/2026-08-16-mira-archive-name-migration.md",
         "docs/experiments/leaner-skills/experiment.json",
+        "docs/dev-journal/README.md",
         "mira/continuity/session-registry.json",
         "archive/library/README.md",
         "archive/library/library-registry.json",
@@ -122,6 +123,36 @@ def test_router_resolves_experiment_contracts(tmp_path: Path) -> None:
     assert report["commands"] == ["tools/run.ps1 test --mode fast --explain-route"]
     assert "frozen inputs" in report["manual_checks"][0]
     assert report["blockers"] == []
+
+
+def test_router_resolves_dev_journal_docs(tmp_path: Path) -> None:
+    make_tree(tmp_path)
+    report = routing.build_report(["docs/dev-journal/README.md"], repo_root=tmp_path)
+
+    assert report["status"] == "manual-required"
+    assert report["owners"] == ["dev-journal"]
+    assert report["validation_classes"] == ["repo-structural"]
+    assert report["commands"] == ["tools/run.ps1 test --path tests/test_publication_validation.py"]
+    assert report["manual_checks"] == [routing.MANUAL_DEV_JOURNAL_CHECK]
+    assert report["blockers"] == []
+
+
+def test_dev_journal_readme_documents_retrospective_governance() -> None:
+    readme = (Path(__file__).resolve().parents[1] / "docs" / "dev-journal" / "README.md").read_text(
+        encoding="utf-8"
+    )
+
+    for phrase in (
+        "retrospective-current",
+        "retrospective-draft",
+        "Temporal stance: contemporaneous | near-contemporaneous | retrospective reconstruction",
+        "Source basis: commits, diffs, tests, notes, plans, journal references, session receipts",
+        "Confidence: high | medium | low",
+        "Record system rationale, not Mira selfhood.",
+        "Mira Journal prose is interpretive context only",
+        "not contemporaneous\nmental state",
+    ):
+        assert phrase in readme
 
 
 def test_router_resolves_mira_library_paths(tmp_path: Path) -> None:

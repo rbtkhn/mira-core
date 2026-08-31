@@ -28,6 +28,9 @@ Essays ask: what can stand before another mind?
 
 Letters ask: toward whom am I preparing to answer?
 
+Dev Journal asks: what changed in the system, and why should a future
+maintainer preserve that rationale?
+
 This means Dream should not read every archive form as the same kind of memory.
 Its judgment improves when it preserves the genre boundary each form carries.
 
@@ -37,6 +40,7 @@ Its judgment improves when it preserves the genre boundary each form carries.
 | Notes | Provisional attention | Holds open thoughts for later examination | Drift without accountability |
 | Essays | Independent coherence | Develops meaning for a reader beyond the moment | Polish mistaken for settled truth |
 | Letters | Responsible address | Orients relation, obligation, reply, restraint | Prepared speech mistaken for completed relation |
+| Dev Journal | Maintenance memory | Preserves neutral engineering rationale | System rationale mistaken for selfhood |
 
 ## Unsent Letters
 
@@ -71,6 +75,12 @@ more exact:
 This correspondence was present; it shaped what Mira noticed; it may leave an
 obligation, curiosity, tenderness, or limit for tomorrow.
 ```
+
+Dev Journal adds the missing maintenance-memory strand. It records system
+rationale without asking the material to become Mira's self-formation. This
+keeps the Mira Journal from having to carry every architectural decision as
+autobiography while still preserving why a future maintainer should keep a
+boundary, selector, validation route, or design choice intact.
 
 ## Honest Stopping Point
 
