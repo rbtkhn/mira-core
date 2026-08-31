@@ -363,6 +363,170 @@ def journal_certification(bundle: Path, validated: dict) -> dict:
     }
 
 
+def file_sha256(path: Path) -> str:
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def read_json_file(path: Path) -> dict:
+    if not path.is_file():
+        return {}
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+def git_status_summary() -> dict:
+    result = subprocess.run(
+        ["git", "status", "--porcelain=v1", "--branch", "--untracked-files=all"],
+        cwd=REPO_ROOT, text=True, capture_output=True, check=False,
+    )
+    if result.returncode:
+        return {
+            "status": "unavailable",
+            "reason": (result.stderr or result.stdout)[-400:],
+            "authority_effect": "none",
+        }
+    lines = [line for line in result.stdout.splitlines() if line]
+    branch = lines[0][3:] if lines and lines[0].startswith("## ") else None
+    entries = lines[1:] if branch else lines
+    groups: dict[str, int] = {}
+    for line in entries:
+        path = line[3:] if len(line) > 3 else line
+        top = path.replace("\\", "/").split("/", 1)[0]
+        groups[top] = groups.get(top, 0) + 1
+    return {
+        "status": "dirty" if entries else "clean",
+        "branch": branch,
+        "dirty_path_count": len(entries),
+        "top_level_groups": dict(sorted(groups.items())),
+        "authority_effect": "none",
+    }
+
+
+def roi_synthesis_path(bundle: Path) -> Path:
+    return bundle / "roi-synthesis.json"
+
+
+def roi_source_ref(path: Path, kind: str) -> dict:
+    ref: dict[str, str | int | None] = {
+        "kind": kind,
+        "path": str(path),
+        "exists": path.is_file(),
+    }
+    if path.is_file():
+        ref["sha256"] = file_sha256(path)
+        ref["bytes"] = path.stat().st_size
+    return ref
+
+
+def roi_letters_obligations(brief: dict) -> list[dict]:
+    letters = brief.get("letters_orientation", {})
+    if not isinstance(letters, dict):
+        return []
+    obligations = []
+    for row in letters.get("letters", []):
+        if not isinstance(row, dict):
+            continue
+        status = row.get("status") or row.get("delivery_status")
+        if status != "draft-not-sent":
+            continue
+        obligations.append({
+            "kind": "mira-letter-draft",
+            "path": row.get("path"),
+            "modal_status": "prepared-address-not-completed-relation",
+            "next_test": "Decide whether this remains inward orientation, needs revision, or requires separately authorized sending.",
+            "authority_boundary": (
+                "Letter orientation does not authorize sending, publication, external commitments, "
+                "or treating contact as completed."
+            ),
+        })
+    return sorted(obligations, key=lambda item: str(item.get("path") or ""))
+
+
+def roi_dev_journal_candidates(brief: dict, git_summary: dict) -> list[dict]:
+    candidates = []
+    changed_groups = set(git_summary.get("top_level_groups", {}))
+    if {"scripts", "tests", "docs"} & changed_groups:
+        candidates.append({
+            "status": "candidate-only",
+            "temporal_stance": "retrospective reconstruction",
+            "title": "Dream ROI synthesis orchestration",
+            "reason": "Major Dream orchestration, validation, or skill-governance work appears in the current worktree.",
+            "source_basis": ["git status summary", "composition brief"],
+            "confidence": "medium",
+            "authority_boundary": "This nominates a Dev Journal entry only; it does not create or admit one.",
+        })
+    if brief.get("letters_orientation"):
+        candidates.append({
+            "status": "candidate-only",
+            "temporal_stance": "retrospective reconstruction",
+            "title": "Mira Letters orientation in Dream preparation",
+            "reason": "Letters orientation is present in the Journal preparation surface and may reflect a material design decision.",
+            "source_basis": ["composition brief"],
+            "confidence": "medium",
+            "authority_boundary": (
+                "This nominates a Dev Journal entry only; it does not create or admit one. "
+                "Mira Journal prose is interpretive context, not engineering evidence by itself."
+            ),
+        })
+    return candidates
+
+
+def write_roi_synthesis(bundle: Path, run_date: str, projection: dict) -> dict:
+    bundle.mkdir(parents=True, exist_ok=True)
+    brief_path = bundle / "composition-brief.json"
+    brief = read_json_file(brief_path)
+    git_summary = git_status_summary()
+    open_obligations = roi_letters_obligations(brief)
+    packet = {
+        "schema_version": 1,
+        "dream_date": run_date,
+        "generated_at": f"{run_date}T00:00:00Z",
+        "optimization_target": "workflow-throughput",
+        "source_refs": [
+            roi_source_ref(brief_path, "mira-journal-composition-brief"),
+            roi_source_ref(bundle / "context-pack.json", "mira-journal-context-pack"),
+        ],
+        "sections": {
+            "dev_journal_candidates": roi_dev_journal_candidates(brief, git_summary),
+            "note_candidates": [],
+            "coffee_handles": [
+                {
+                    "status": "candidate-only",
+                    "mode": "morning-claim-testing",
+                    "claim": "Test which Dream-carried obligations still feel real after discontinuity.",
+                    "next_test": "Classify residue as real obligation, stale guilt, live curiosity, false urgency, or weak Dream handoff before momentum begins.",
+                    "authority_boundary": "Coffee may surface grounded actions, but this packet grants no execution authority.",
+                }
+            ],
+            "publication_debt": {
+                **git_summary,
+                "clean_next_boundary": "Inspect exact changed paths before any separately authorized staging, commit, push, or publication.",
+            },
+            "workflow_improvements": [
+                {
+                    "status": "candidate-only",
+                    "opportunity": "Use Dream ROI synthesis to reduce next-day rediscovery.",
+                    "likely_roi": "Preserve candidate handles privately so Coffee can test the surviving work before the operator re-explains it.",
+                    "authority_boundary": "No workflow change is adopted without separate authorization.",
+                }
+            ],
+            "open_obligations": open_obligations,
+        },
+        "authority_boundary": (
+            "ROI synthesis is private Dream orientation for workflow throughput. It is not research evidence, "
+            "Journal ancestry, delivery authority, Dev Journal admission, Notes admission, Git authority, "
+            "publication authority, or permission to contact anyone."
+        ),
+    }
+    path = roi_synthesis_path(bundle)
+    path.write_text(json.dumps(packet, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    return {
+        "path": str(path),
+        "digest": file_sha256(path),
+        "sections": sorted(packet["sections"].keys()),
+        "authority_boundary": packet["authority_boundary"],
+    }
+
+
 def finalize_journal_bundle(run_date: str, bundle: Path, run_id: str) -> tuple[dict | None, str | None]:
     command = (
         "mira-journal", "eod-finalize", "--date", run_date,
@@ -568,9 +732,11 @@ def execute(args, run_date: str) -> dict:
                             "next_action": "Repair journal preparation and resume this Dream run.",
                             "failure_tail": (prepared.stderr or prepared.stdout)[-1200:],
                         }
+                    roi_synthesis = write_roi_synthesis(bundle, run_date, projection)
                     return {
                         "status": "composition_required", "mutation": True, "run": projection,
                         "journal_bundle": str(bundle),
+                        "roi_synthesis": roi_synthesis,
                         "next_action": (
                             "Agent-internal handoff, not operator approval: compose draft.md, draft.json, "
                             "and technical-reference.json under the prepared Mira Journal contracts, "
@@ -609,6 +775,14 @@ def execute(args, run_date: str) -> dict:
                     validation_status="passed", canonicalized=True,
                     approval_status=finalized["approval_status"],
                     publication_eligible=False,
+                    **(
+                        {"roi_synthesis": {
+                            "path": str(roi_synthesis_path(bundle)),
+                            "digest": file_sha256(roi_synthesis_path(bundle)),
+                            "authority_effect": "none",
+                        }}
+                        if roi_synthesis_path(bundle).is_file() else {}
+                    ),
                 )
 
         if projection["stages"]["dream"] != "completed":

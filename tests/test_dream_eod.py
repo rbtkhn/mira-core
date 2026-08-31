@@ -26,6 +26,19 @@ def test_dream_skill_preserves_private_finalization_boundaries() -> None:
     assert "canonicalized as private\n`dream-eod-v1`" in skill
     assert "`publication_eligible: false`" in skill
     assert "grants no staging, commit, push, publication" in skill
+    assert "bounded Mira Letters orientation since the previous canonical Dream\nfinalization" in skill
+    assert "Letters remain relational orientation only" in skill
+    assert "permission to contact anyone" in skill
+    assert "prepared address, not completed relation" in skill
+    assert "real as inward\nposture, incomplete as outward act" in skill
+    assert "workflow throughput" in skill
+    assert "without multiplying repo-tracked artifacts" in skill
+    assert "`roi-synthesis.json`" in skill
+    assert "Mira Journal\nremains the only prose artifact Dream automatically finalizes" in skill
+    assert "Dev Journal candidates" in skill
+    assert "Coffee handles" in skill
+    assert "candidates only" in skill
+    assert "what\nsurvived discontinuity" in skill
 
 
 def arguments(tmp_path: Path, **changes):
@@ -45,7 +58,7 @@ OTHER_VALID_SESSION = "MS-01a01585-46ad-7271-b0b6-d97b1390eb11"
 
 
 def write_bundle(bundle: Path, *, required_sessions: list[str] | None = None) -> None:
-    bundle.mkdir(parents=True)
+    bundle.mkdir(parents=True, exist_ok=True)
     (bundle / "draft.md").write_bytes(b"# 2026-08-16 \xe2\x80\x94 Return\n\nPrivate prose.\n")
     (bundle / "technical-reference.json").write_text(
         json.dumps({"reference_id": "MJTR-20260816-v1", "journal_version_id": "MJ-20260816-v1"}),
@@ -168,15 +181,85 @@ def test_check_validates_ready_bundle_without_canonicalizing(monkeypatch, tmp_pa
 def test_empty_geo_day_prepares_journal_without_operator_prompt(monkeypatch, tmp_path: Path) -> None:
     monkeypatch.setattr(dream_eod, "manifest_rows", lambda _date: 0)
     monkeypatch.setattr(dream_eod, "journal_entry", lambda _date: None)
+    bundle = tmp_path / "journal" / "2026-08-16"
+
+    def fake_run_tool(*args):
+        if args[:2] == ("mira-journal", "prepare") and "--check" not in args:
+            bundle.mkdir(parents=True)
+            (bundle / "composition-brief.json").write_text(
+                json.dumps({"daily_session_coverage": {"sessions": []}}),
+                encoding="utf-8",
+            )
+            return SimpleNamespace(returncode=0, stdout='{"status":"prepared"}', stderr="")
+        return SimpleNamespace(returncode=0, stdout='{"status":"prepared"}', stderr="")
+
     monkeypatch.setattr(
-        dream_eod, "run_tool",
-        lambda *args: SimpleNamespace(returncode=0, stdout='{"status":"prepared"}', stderr=""),
+        dream_eod, "run_tool", fake_run_tool,
     )
     result = dream_eod.execute(arguments(tmp_path), "2026-08-16")
     assert result["status"] == "composition_required"
     assert result["mutation"] is True
     assert "Agent-internal handoff, not operator approval" in result["next_action"]
+    assert result["roi_synthesis"]["digest"] == dream_eod.file_sha256(bundle / "roi-synthesis.json")
+    roi = json.loads((bundle / "roi-synthesis.json").read_text(encoding="utf-8"))
+    assert roi["optimization_target"] == "workflow-throughput"
+    assert sorted(roi["sections"]) == [
+        "coffee_handles",
+        "dev_journal_candidates",
+        "note_candidates",
+        "open_obligations",
+        "publication_debt",
+        "workflow_improvements",
+    ]
+    assert "not research evidence" in roi["authority_boundary"]
     assert (tmp_path / "cadence.sqlite3").exists()
+
+
+def test_roi_synthesis_is_private_candidate_only_and_tracks_material_input(
+    monkeypatch, tmp_path: Path
+) -> None:
+    bundle = tmp_path / "journal" / "2026-08-16"
+    bundle.mkdir(parents=True)
+    (bundle / "composition-brief.json").write_text(
+        json.dumps({
+            "letters_orientation": {
+                "letters": [{
+                    "path": "archive/letters/2026-08-16-draft.md",
+                    "status": "draft-not-sent",
+                }]
+            }
+        }),
+        encoding="utf-8",
+    )
+    monkeypatch.setattr(
+        dream_eod,
+        "git_status_summary",
+        lambda: {
+            "status": "clean",
+            "branch": "main",
+            "dirty_path_count": 0,
+            "top_level_groups": {},
+            "authority_effect": "none",
+        },
+    )
+
+    first = dream_eod.write_roi_synthesis(bundle, "2026-08-16", {"run_id": "DCR-test"})
+    second = dream_eod.write_roi_synthesis(bundle, "2026-08-16", {"run_id": "DCR-test"})
+    packet = json.loads((bundle / "roi-synthesis.json").read_text(encoding="utf-8"))
+    assert first["digest"] == second["digest"]
+    assert packet["sections"]["open_obligations"][0]["modal_status"] == (
+        "prepared-address-not-completed-relation"
+    )
+    assert packet["sections"]["note_candidates"] == []
+    assert "does not create or admit" in packet["sections"]["dev_journal_candidates"][0]["authority_boundary"]
+    assert not any((tmp_path / name).exists() for name in ["docs", "archive"])
+
+    (bundle / "composition-brief.json").write_text(
+        json.dumps({"letters_orientation": {"letters": []}}),
+        encoding="utf-8",
+    )
+    changed = dream_eod.write_roi_synthesis(bundle, "2026-08-16", {"run_id": "DCR-test"})
+    assert changed["digest"] != first["digest"]
 
 
 def test_missing_geo_packet_is_completed_by_dream_before_closeout(
@@ -740,6 +823,11 @@ def test_interrupted_dream_resumes_same_run_without_duplicate_geo_or_journal(
         )]
         assert sum(row.get("stage") == "geo" for row in rows) == 0
         assert sum(row.get("stage") == "journal" and row.get("status") == "finalized" for row in rows) == 1
+        journal_receipt = next(row for row in rows if row.get("stage") == "journal")
+        assert journal_receipt["roi_synthesis"]["digest"] == dream_eod.file_sha256(
+            bundle / "roi-synthesis.json"
+        )
+        assert journal_receipt["roi_synthesis"]["authority_effect"] == "none"
         assert connection.execute("SELECT COUNT(*) FROM daily_close_runs").fetchone()[0] == 1
     finally:
         connection.close()

@@ -367,6 +367,12 @@ def append_daily_close_event(connection: sqlite3.Connection, run_id: str, event_
                 for item in value
                 if isinstance(item, str) and item.strip()
             ]
+        elif key == "roi_synthesis" and isinstance(value, dict):
+            clean[key] = {
+                "path": sanitize_text(value.get("path", ""), limit=1000),
+                "digest": sanitize_text(value.get("digest", ""), limit=1000),
+                "authority_effect": sanitize_text(value.get("authority_effect", ""), limit=200),
+            }
         elif key == "canonicalized" and isinstance(value, bool):
             clean[key] = value
     if clean.get("stage") and clean["stage"] not in DAILY_CLOSE_STAGES:
