@@ -103,6 +103,12 @@
       "path": "narrative-geopolitics/work/verification/packets/VER-20260806-04-july-21-limited-strike-cycle-review",
       "status": "compatibility-retained",
       "retirement_condition": "Retire after the bounded forecast review and its source lineage are represented in the Reality Verification Lattice and no active document links to this packet."
+    },
+    {
+      "packet_id": "VER-20260818-01-hormuz-traffic-materially-constrained",
+      "path": "narrative-geopolitics/work/verification/packets/VER-20260818-01-hormuz-traffic-materially-constrained",
+      "status": "compatibility-retained",
+      "retirement_condition": "Retire after the linked Hormuz traffic claim, observables, evidence, and any assessment are fully represented in the Reality Verification Lattice and no active document links to this packet."
     }
   ]
 }

@@ -1,4 +1,4 @@
-<!-- daily-issue-v1 inputs-sha256: 14758f0ef83e9ba2b37fa48f796547d6465089b94cd7e79733f93b929835803a -->
+<!-- daily-issue-v1 inputs-sha256: 390cd7f64ebf5f3efd543644d3a71508bb525b97adee1e8c4e47ca6886aa578a -->
 <!-- reality-lattice-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 -->
 <!-- Generated file. Edit canonical daily or reality-lattice inputs, then regenerate. -->
 
@@ -90,15 +90,15 @@ Only sources used by selected issue stories appear here. See the [complete canon
 
 | Source ID | Voice | Archive source | Analytical job |
 | --- | --- | --- | --- |
-| `SRC-03` | Weichert | [2026-08-17 Weichert](../../../archive/sources/geopolitics/sources/2026-08-17/source-4-breaking-iran-promises-war-if-blockade-not-lifted-2026-08-17.md) | (4) BREAKING: IRAN PROMISES WAR IF BLOCKADE NOT LIFTED |
-| `SRC-06` | Johnson | [2026-08-17 Johnson](../../../archive/sources/geopolitics/sources/2026-08-17/source-4-larry-johnson-how-poorly-us-treats-its-own-troops-2026-08-17.md) | (4) Larry Johnson : How Poorly US Treats Its Own Troops |
-| `SRC-07` | Aguilar | [2026-08-17 Aguilar](../../../archive/sources/geopolitics/sources/2026-08-17/source-4-lt-col-anthony-aguilar-iran-to-break-us-naval-blockade-by-force-as-trump-demands-total-surrender-2026-08-17.md) | (4) Lt. Col. Anthony Aguilar: Iran to Break US Naval Blockade By Force as Trump Demands Total Surrender |
-| `SRC-09` | Ritter | [2026-08-17 Ritter](../../../archive/sources/geopolitics/sources/2026-08-17/source-4-scott-ritter-pentagon-did-no-due-diligence-2026-08-17.md) | (4) Scott Ritter :Pentagon Did No Due Diligence |
-| `SRC-10` | Barnes | [2026-08-17 Barnes](../../../archive/sources/geopolitics/sources/2026-08-17/source-4-trump-threatens-to-bomb-the-shit-out-of-oman-too-w-robert-barnes-2026-08-17.md) | (4) TRUMP THREATENS TO "BOMB THE SHIT OUT" OF OMAN TOO - w/ Robert Barnes |
-| `SRC-01` | Crooke | [2026-08-17 Crooke](../../../archive/sources/geopolitics/sources/2026-08-17/source-4-alastair-crooke-the-consequence-of-more-netanyahu-lies-2026-08-17.md) | (4) Alastair Crooke : The Consequence of More Netanyahu Lies |
-| `SRC-02` | Crooke | [2026-08-17 Crooke](../../../archive/sources/geopolitics/sources/2026-08-17/source-4-alastair-crooke-trump-s-card-just-broke-the-status-quo-2026-08-17.md) | (4) Alastair Crooke: Trump’s Card Just Broke the Status Quo |
-| `SRC-05` | Henningsen | [2026-08-17 Henningsen](../../../archive/sources/geopolitics/sources/2026-08-17/source-4-iran-breaking-the-back-of-us-empire-patrick-henningsen-2026-08-17.md) | (4) Iran Breaking the Back of US Empire /Patrick Henningsen |
-| `SRC-08` | Sachs | [2026-08-17 Sachs](../../../archive/sources/geopolitics/sources/2026-08-17/source-4-prof-jeffrey-sachs-nato-is-toothless-fauci-latest-2026-08-17.md) | (4) Prof. Jeffrey Sachs : NATO Is Toothless; Fauci Latest |
+| `SRC-03` | Weichert | [2026-08-17 Weichert](../../../../archive/sources/geopolitics/sources/2026-08-17/source-4-breaking-iran-promises-war-if-blockade-not-lifted-2026-08-17.md) | (4) BREAKING: IRAN PROMISES WAR IF BLOCKADE NOT LIFTED |
+| `SRC-06` | Johnson | [2026-08-17 Johnson](../../../../archive/sources/geopolitics/sources/2026-08-17/source-4-larry-johnson-how-poorly-us-treats-its-own-troops-2026-08-17.md) | (4) Larry Johnson : How Poorly US Treats Its Own Troops |
+| `SRC-07` | Aguilar | [2026-08-17 Aguilar](../../../../archive/sources/geopolitics/sources/2026-08-17/source-4-lt-col-anthony-aguilar-iran-to-break-us-naval-blockade-by-force-as-trump-demands-total-surrender-2026-08-17.md) | (4) Lt. Col. Anthony Aguilar: Iran to Break US Naval Blockade By Force as Trump Demands Total Surrender |
+| `SRC-09` | Ritter | [2026-08-17 Ritter](../../../../archive/sources/geopolitics/sources/2026-08-17/source-4-scott-ritter-pentagon-did-no-due-diligence-2026-08-17.md) | (4) Scott Ritter :Pentagon Did No Due Diligence |
+| `SRC-10` | Barnes | [2026-08-17 Barnes](../../../../archive/sources/geopolitics/sources/2026-08-17/source-4-trump-threatens-to-bomb-the-shit-out-of-oman-too-w-robert-barnes-2026-08-17.md) | (4) TRUMP THREATENS TO "BOMB THE SHIT OUT" OF OMAN TOO - w/ Robert Barnes |
+| `SRC-01` | Crooke | [2026-08-17 Crooke](../../../../archive/sources/geopolitics/sources/2026-08-17/source-4-alastair-crooke-the-consequence-of-more-netanyahu-lies-2026-08-17.md) | (4) Alastair Crooke : The Consequence of More Netanyahu Lies |
+| `SRC-02` | Crooke | [2026-08-17 Crooke](../../../../archive/sources/geopolitics/sources/2026-08-17/source-4-alastair-crooke-trump-s-card-just-broke-the-status-quo-2026-08-17.md) | (4) Alastair Crooke: Trump’s Card Just Broke the Status Quo |
+| `SRC-05` | Henningsen | [2026-08-17 Henningsen](../../../../archive/sources/geopolitics/sources/2026-08-17/source-4-iran-breaking-the-back-of-us-empire-patrick-henningsen-2026-08-17.md) | (4) Iran Breaking the Back of US Empire /Patrick Henningsen |
+| `SRC-08` | Sachs | [2026-08-17 Sachs](../../../../archive/sources/geopolitics/sources/2026-08-17/source-4-prof-jeffrey-sachs-nato-is-toothless-fauci-latest-2026-08-17.md) | (4) Prof. Jeffrey Sachs : NATO Is Toothless; Fauci Latest |
 
 ## Forecast Desk
 

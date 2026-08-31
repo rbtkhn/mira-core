@@ -4,7 +4,7 @@ Date: `2026-08-18`
 
 Status: `draft`
 
-Forecast rule: state a causal wager, not topic plus outcome. See [labels as analytical interfaces](../method/analytical-interfaces.md).
+Forecast rule: state a causal wager, not topic plus outcome. See [labels as analytical interfaces](../../../method/analytical-interfaces.md).
 
 ## Probability Bands
 

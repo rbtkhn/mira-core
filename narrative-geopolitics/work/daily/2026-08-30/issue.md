@@ -1,10 +1,10 @@
-<!-- daily-issue-v1 inputs-sha256: a04f503eff32306f2c2a06176947085c3eeb7d96a9db4906b1623165569c08f4 -->
+<!-- daily-issue-v1 inputs-sha256: a46a1790a69bf7e496c724c2797d40603d78d7f28b969a717145efc5672aa4d3 -->
 <!-- reality-lattice-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 -->
 <!-- Generated file. Edit canonical daily or reality-lattice inputs, then regenerate. -->
 
 Publication: **Narrative Geopolitics — Daily Issue**
 
-# State-Substrate Coercion
+# State-Substrate Coercion Does Not Guarantee Political Conversion
 
 Title standard: `reader-facing`
 

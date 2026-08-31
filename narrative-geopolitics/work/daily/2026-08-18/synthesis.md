@@ -4,7 +4,7 @@ Date: `2026-08-18`
 
 Status: `draft`
 
-Analytical language contract: [labels as analytical interfaces](../method/analytical-interfaces.md)
+Analytical language contract: [labels as analytical interfaces](../../../method/analytical-interfaces.md)
 
 Density triage: `dense / verification-heavy`. Ten same-day sources are landed and routed. The Iran-Hormuz object is supported by direct issue sources plus secondary pressure-test mentions in the wider day batch.
 
@@ -93,6 +93,10 @@ Additional operational candidates from `SRC-02`: alleged Iranian strike or missi
 ## Accountable Judgment Handoff
 
 Complete `judgment.md` after forecast triage. Do not promote any `OPC-*` row into a verified claim until a canonical reality-lattice assessment exists.
+
+## Archive-only reconciliation
+
+Ritter's authored essay on artificial intelligence and the OODA loop (`SRC-11`) is manifest-backed but orthogonal to the day's Iran-Hormuz political-economic pressure object. It is retained in the complete Run Source Set and explicitly excluded from the synthesis, forecast, and Issue Story Desk. No geopolitical claim, forecast dependency, or semantic connection is manufactured from it.
 
 ## Issue Story Desk
 

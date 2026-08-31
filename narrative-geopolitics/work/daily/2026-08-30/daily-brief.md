@@ -1,4 +1,4 @@
-# State-Substrate Coercion
+# State-Substrate Coercion Does Not Guarantee Political Conversion
 
 Title standard: `reader-facing`
 

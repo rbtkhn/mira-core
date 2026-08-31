@@ -1,4 +1,4 @@
-<!-- daily-issue-v1 inputs-sha256: 8e9dbcba84b4ecc0c959764fd13f0f8dca6f83dff18a8f4d75a3f732c8481b79 -->
+<!-- daily-issue-v1 inputs-sha256: 00c049fa8c2ba1b9bd751e7e3290296f4b4e15960ca54c09ee6b18b858c37de5 -->
 <!-- reality-lattice-sha256: 5f627d1fe459a382081d5dca4958d44707f924f5312b8b7f3e4ce62cd649e390 -->
 <!-- Generated file. Edit canonical daily or reality-lattice inputs, then regenerate. -->
 
@@ -84,13 +84,13 @@ Only sources used by selected issue stories appear here. See the [complete canon
 
 | Source ID | Voice | Archive source | Analytical job |
 | --- | --- | --- | --- |
-| `SRC-01` | Freeman | [2026-08-18 Freeman](../../../archive/sources/geopolitics/sources/2026-08-18/source-4-amb-chas-freeman-is-israel-s-military-collapsing-2026-08-18.md) | (4) AMB Chas Freeman : Is Israel’s Military Collapsing? |
-| `SRC-02` | Johnson | [2026-08-18 Johnson](../../../archive/sources/geopolitics/sources/2026-08-18/source-4-breaking-iran-strike-dubai-uae-stop-all-financial-transactions-with-iran-w-larry-johnson-2026-08-18.md) | (4) BREAKING: IRAN STRIKE DUBAI? UAE STOP ALL FINANCIAL TRANSACTIONS WITH IRAN w/ Larry Johnson |
-| `SRC-03` | Macgregor | [2026-08-18 Macgregor](../../../archive/sources/geopolitics/sources/2026-08-18/source-4-col-douglas-macgregor-the-collision-course-w-iran-we-re-making-no-attempt-to-avoid-2026-08-18.md) | (4) Col Douglas Macgregor: The Collision Course w/Iran, We're Making No Attempt to Avoid |
-| `SRC-04` | Wilkerson | [2026-08-18 Wilkerson](../../../archive/sources/geopolitics/sources/2026-08-18/source-4-col-larry-wilkerson-iran-just-abandoned-its-defense-strategy-us-discussed-nuclear-option-on-iran-2026-08-18.md) | (4) Col. Larry Wilkerson: Iran Just Abandoned Its Defense Strategy–US Discussed NUCLEAR Option on Iran |
-| `SRC-07` | Mearsheimer | [2026-08-18 Mearsheimer](../../../archive/sources/geopolitics/sources/2026-08-18/source-4-prof-john-mearsheimer-is-putin-s-patience-paying-off-2026-08-18.md) | (4) Prof. John Mearsheimer : Is Putin’s Patience Paying Off? |
-| `SRC-08` | Marandi | [2026-08-18 Marandi](../../../archive/sources/geopolitics/sources/2026-08-18/source-4-seyed-m-marandi-60-day-deadline-fails-iran-us-on-the-brink-of-a-new-war-2026-08-18.md) | (4) Seyed M. Marandi: 60-Day Deadline FAILS: Iran & US on the Brink of a NEW War |
-| `SRC-10` | Pape | [2026-08-18 Pape](../../../archive/sources/geopolitics/sources/2026-08-18/source-iran-s-strategy-for-the-u-s-midterms-maximum-political-pressure-on-trump-2026-08-18.md) | Iran's Strategy for the U.S. Midterms: Maximum Political Pressure on Trump |
+| `SRC-01` | Freeman | [2026-08-18 Freeman](../../../../archive/sources/geopolitics/sources/2026-08-18/source-4-amb-chas-freeman-is-israel-s-military-collapsing-2026-08-18.md) | (4) AMB Chas Freeman : Is Israel’s Military Collapsing? |
+| `SRC-02` | Johnson | [2026-08-18 Johnson](../../../../archive/sources/geopolitics/sources/2026-08-18/source-4-breaking-iran-strike-dubai-uae-stop-all-financial-transactions-with-iran-w-larry-johnson-2026-08-18.md) | (4) BREAKING: IRAN STRIKE DUBAI? UAE STOP ALL FINANCIAL TRANSACTIONS WITH IRAN w/ Larry Johnson |
+| `SRC-03` | Macgregor | [2026-08-18 Macgregor](../../../../archive/sources/geopolitics/sources/2026-08-18/source-4-col-douglas-macgregor-the-collision-course-w-iran-we-re-making-no-attempt-to-avoid-2026-08-18.md) | (4) Col Douglas Macgregor: The Collision Course w/Iran, We're Making No Attempt to Avoid |
+| `SRC-04` | Wilkerson | [2026-08-18 Wilkerson](../../../../archive/sources/geopolitics/sources/2026-08-18/source-4-col-larry-wilkerson-iran-just-abandoned-its-defense-strategy-us-discussed-nuclear-option-on-iran-2026-08-18.md) | (4) Col. Larry Wilkerson: Iran Just Abandoned Its Defense Strategy–US Discussed NUCLEAR Option on Iran |
+| `SRC-07` | Mearsheimer | [2026-08-18 Mearsheimer](../../../../archive/sources/geopolitics/sources/2026-08-18/source-4-prof-john-mearsheimer-is-putin-s-patience-paying-off-2026-08-18.md) | (4) Prof. John Mearsheimer : Is Putin’s Patience Paying Off? |
+| `SRC-08` | Marandi | [2026-08-18 Marandi](../../../../archive/sources/geopolitics/sources/2026-08-18/source-4-seyed-m-marandi-60-day-deadline-fails-iran-us-on-the-brink-of-a-new-war-2026-08-18.md) | (4) Seyed M. Marandi: 60-Day Deadline FAILS: Iran & US on the Brink of a NEW War |
+| `SRC-10` | Pape | [2026-08-18 Pape](../../../../archive/sources/geopolitics/sources/2026-08-18/source-iran-s-strategy-for-the-u-s-midterms-maximum-political-pressure-on-trump-2026-08-18.md) | Iran's Strategy for the U.S. Midterms: Maximum Political Pressure on Trump |
 
 ## Forecast Desk
 
@@ -140,4 +140,6 @@ Canonical inputs: [sources](sources.md), [synthesis](synthesis.md), [forecast](f
 
 ### Revision Log
 
-No revisions.
+| Timestamp (UTC) | Type | Note |
+| --- | --- | --- |
+| 2026-08-31T01:49:02Z | update | Reconciled the Ritter AI/OODA essay as archive-only; no owning crisis-object judgment was changed. |
