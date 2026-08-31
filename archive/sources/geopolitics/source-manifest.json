@@ -2,7 +2,7 @@
   "manifest_id": "narrative-geopolitics-source-manifest-v1",
   "source_basis": "central archive with completed historical strategy-codex imports",
   "imported_at": "2026-07-09",
-  "source_count": 2294,
+  "source_count": 2295,
   "boundary": {
     "archive": "source truth",
     "voices": "voice continuity and routing",
@@ -61042,7 +61042,7 @@
       "source_class": "guest interview pressure test",
       "modality": "cleaned-transcript",
       "voice_slugs": [
-        "elijah-magnier"
+        "magnier"
       ],
       "host_slug": "mario-nawfal",
       "source_identity": "youtube:SiLyR5xfIpU",
@@ -61065,7 +61065,7 @@
       "source_class": "guest interview pressure test",
       "modality": "cleaned-transcript",
       "voice_slugs": [
-        "elijah-magnier"
+        "magnier"
       ],
       "host_slug": "dialogue-works",
       "source_identity": "youtube:BhATKhafVu8",
@@ -61088,7 +61088,7 @@
       "source_class": "guest interview pressure test",
       "modality": "cleaned-transcript",
       "voice_slugs": [
-        "elijah-magnier"
+        "magnier"
       ],
       "host_slug": "dialogue-works",
       "source_identity": "youtube:3D5wLeAauqY",
@@ -61111,7 +61111,7 @@
       "source_class": "guest interview pressure test",
       "modality": "cleaned-transcript",
       "voice_slugs": [
-        "elijah-magnier"
+        "magnier"
       ],
       "host_slug": "mario-nawfal",
       "source_identity": "youtube:rJ9NORfCmEA",
@@ -61134,7 +61134,7 @@
       "source_class": "guest interview pressure test",
       "modality": "cleaned-transcript",
       "voice_slugs": [
-        "elijah-magnier"
+        "magnier"
       ],
       "host_slug": "dialogue-works",
       "source_identity": "youtube:3COyPXGFD40",
@@ -61157,7 +61157,7 @@
       "source_class": "guest interview pressure test",
       "modality": "cleaned-transcript",
       "voice_slugs": [
-        "elijah-magnier"
+        "magnier"
       ],
       "host_slug": "mario-nawfal",
       "source_identity": "youtube:ImlB7oIMeXc",
@@ -61180,7 +61180,7 @@
       "source_class": "guest interview pressure test",
       "modality": "cleaned-transcript",
       "voice_slugs": [
-        "elijah-magnier"
+        "magnier"
       ],
       "host_slug": "dialogue-works",
       "source_identity": "youtube:C6RUXl6wg7c",
@@ -61361,7 +61361,7 @@
       "source_class": "guest interview pressure test",
       "modality": "cleaned-transcript",
       "voice_slugs": [
-        "elijah-magnier"
+        "magnier"
       ],
       "host_slug": "dialogue-works",
       "source_identity": "youtube:IlQSXuZ5b4Y",
@@ -61460,6 +61460,29 @@
       "source_url": "https://www.youtube.com/watch?v=rvru1rg6Z4M",
       "title_source": "transcript",
       "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-30",
+      "title": "Stanislav Krapivnik: Russia Intensifies Kiev Strikes - MASSIVE Secondary Explosions Rock Capital",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-30/source-stanislav-krapivnik-russia-intensifies-kiev-strikes-massive-secondary-explosions-rock-capital-2026-08-30.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-30/source-stanislav-krapivnik-russia-intensifies-kiev-strikes-massive-secondary-explosions-rock-capital-2026-08-30.md",
+      "upstream_path": "operator-paste://2026-08-31/stanislav-krapivnik-russia-intensifies-kiev-strikes-massive-secondary-explosions-rock-capital",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "krapivnik"
+      ],
+      "host_slug": "dialogue-works",
+      "source_identity": "youtube:uI1KrpFVb6c",
+      "source_url": "https://www.youtube.com/watch?v=uI1KrpFVb6c",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
       "inference_basis": [
         "wrapper-normalized",
         "explicit-host",
