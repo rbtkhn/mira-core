@@ -2,7 +2,7 @@
   "manifest_id": "narrative-geopolitics-source-manifest-v1",
   "source_basis": "central archive with completed historical strategy-codex imports",
   "imported_at": "2026-07-09",
-  "source_count": 2280,
+  "source_count": 2287,
   "boundary": {
     "archive": "source truth",
     "voices": "voice continuity and routing",
@@ -61303,6 +61303,166 @@
       "date_basis": "operator-supplied",
       "inference_basis": [
         "wrapper-normalized",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-30",
+      "title": "Russia Announces Will Smash Ukraine's Energy System; Zelensky Blames Others As Kiev Hit Again, Sumy",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-30/source-russia-announces-will-smash-ukraine-s-energy-system-zelensky-blames-others-as-kiev-hit-again-sumy-2026-08-30.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-30/source-russia-announces-will-smash-ukraine-s-energy-system-zelensky-blames-others-as-kiev-hit-again-sumy-2026-08-30.md",
+      "upstream_path": "operator-paste://2026-08-30/russia-announces-will-smash-ukraine-s-energy-system-zelensky-blames-others-as-kiev-hit-again-sumy",
+      "source_class": "host monologue",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "alexander-mercouris",
+      "source_identity": "youtube:OHXe0-o4b_o",
+      "source_url": "https://www.youtube.com/watch?v=OHXe0-o4b_o",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-30",
+      "title": "Armenia Ditches Russia for the EU and Azerbaijan",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-30/source-armenia-ditches-russia-for-the-eu-and-azerbaijan-2026-08-30.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-30/source-armenia-ditches-russia-for-the-eu-and-azerbaijan-2026-08-30.md",
+      "upstream_path": "operator-paste://2026-08-30/armenia-ditches-russia-for-the-eu-and-azerbaijan",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "the-duran",
+      "source_identity": "youtube:HPadg3pTMZY",
+      "source_url": "https://www.youtube.com/watch?v=HPadg3pTMZY",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-06-30",
+      "title": "Elijah Magnier: Iran ENDS US Warship Transit",
+      "local_path": "archive/sources/geopolitics/sources/2026-06-30/source-elijah-magnier-iran-ends-us-warship-transit-2026-06-30.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-06-30/source-elijah-magnier-iran-ends-us-warship-transit-2026-06-30.md",
+      "upstream_path": "operator-paste://2026-08-30/elijah-magnier-iran-ends-us-warship-transit; youtube-uploadDate=2026-06-30",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "elijah-magnier"
+      ],
+      "host_slug": "dialogue-works",
+      "source_identity": "youtube:IlQSXuZ5b4Y",
+      "source_url": "https://www.youtube.com/watch?v=IlQSXuZ5b4Y",
+      "title_source": "transcript",
+      "date_basis": "youtube-uploadDate",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "youtube-uploadDate-repair"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-25",
+      "title": "Larry Johnson: Iran Invited to Join the Turkey-Saudi-Pakistan Defence Pact?",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-25/source-larry-johnson-iran-invited-to-join-the-turkey-saudi-pakistan-defence-pact-2026-08-25.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-25/source-larry-johnson-iran-invited-to-join-the-turkey-saudi-pakistan-defence-pact-2026-08-25.md",
+      "upstream_path": "operator-paste://2026-08-25/larry-johnson-iran-invited-to-join-the-turkey-saudi-pakistan-defence-pact",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "johnson"
+      ],
+      "host_slug": "glenn-diesen",
+      "source_identity": "youtube:oUzj-cJ92EI",
+      "source_url": "https://www.youtube.com/watch?v=oUzj-cJ92EI",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-25",
+      "title": "Operation Economic Outcast, Bessent's Economic War With China",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-25/source-operation-economic-outcast-bessent-s-economic-war-with-china-2026-08-25.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-25/source-operation-economic-outcast-bessent-s-economic-war-with-china-2026-08-25.md",
+      "upstream_path": "operator-paste://2026-08-25/operation-economic-outcast-bessent-s-economic-war-with-china",
+      "source_class": "cross-host pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mercouris",
+        "cristoforou"
+      ],
+      "host_slug": "the-duran",
+      "source_identity": "youtube:-dVl8b2PfmE",
+      "source_url": "https://www.youtube.com/watch?v=-dVl8b2PfmE",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-30",
+      "title": "NATO's New Plans To Destroy Russia | Prof. Jeffrey Sachs",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-30/source-nato-s-new-plans-to-destroy-russia-prof-jeffrey-sachs-2026-08-30.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-30/source-nato-s-new-plans-to-destroy-russia-prof-jeffrey-sachs-2026-08-30.md",
+      "upstream_path": "operator-paste://2026-08-30/nato-s-new-plans-to-destroy-russia-prof-jeffrey-sachs",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "sachs"
+      ],
+      "host_slug": "neutrality-studies",
+      "source_identity": "youtube:rgM_Aj7EESw",
+      "source_url": "https://www.youtube.com/watch?v=rgM_Aj7EESw",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-26",
+      "title": "West NO To Kiev AD Pleas; Russia Withdraws London Ambassador; Dobropilia Crisis; Kiev Begs Funds",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-26/source-west-no-to-kiev-ad-pleas-russia-withdraws-london-ambassador-dobropilia-crisis-kiev-begs-funds-2026-08-26.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-26/source-west-no-to-kiev-ad-pleas-russia-withdraws-london-ambassador-dobropilia-crisis-kiev-begs-funds-2026-08-26.md",
+      "upstream_path": "operator-paste://2026-08-26/west-no-to-kiev-ad-pleas-russia-withdraws-london-ambassador-dobropilia-crisis-kiev-begs-funds",
+      "source_class": "host monologue",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "alexander-mercouris",
+      "source_identity": "youtube:rvru1rg6Z4M",
+      "source_url": "https://www.youtube.com/watch?v=rvru1rg6Z4M",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
         "explicit-date-alias"
       ],
       "import_status": "imported"
