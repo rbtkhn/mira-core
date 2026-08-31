@@ -441,33 +441,103 @@ def roi_letters_obligations(brief: dict) -> list[dict]:
     return sorted(obligations, key=lambda item: str(item.get("path") or ""))
 
 
-def roi_dev_journal_candidates(brief: dict, git_summary: dict) -> list[dict]:
-    candidates = []
-    changed_groups = set(git_summary.get("top_level_groups", {}))
-    if {"scripts", "tests", "docs"} & changed_groups:
-        candidates.append({
+def roi_stage_payload(projection: dict, stage: str) -> dict:
+    for event in reversed(projection.get("events", [])):
+        if not isinstance(event, dict):
+            continue
+        payload = event.get("payload")
+        if isinstance(payload, dict) and payload.get("stage") == stage:
+            return payload
+    return {}
+
+
+def roi_projection_ref(projection: dict) -> dict:
+    event_ids = [
+        str(event["event_id"])
+        for event in projection.get("events", [])
+        if isinstance(event, dict) and event.get("event_id")
+    ]
+    return {
+        "kind": "dream-daily-close-projection",
+        "run_id": projection.get("run_id"),
+        "lifecycle_version": projection.get("lifecycle_version"),
+        "event_ids": event_ids,
+        "authority_effect": "none",
+    }
+
+
+def roi_coffee_handles(projection: dict, open_obligations: list[dict]) -> list[dict]:
+    handles = []
+    for obligation in open_obligations:
+        path = obligation.get("path")
+        if not path:
+            continue
+        handles.append({
             "status": "candidate-only",
-            "temporal_stance": "retrospective reconstruction",
-            "title": "Dream ROI synthesis orchestration",
-            "reason": "Major Dream orchestration, validation, or skill-governance work appears in the current worktree.",
-            "source_basis": ["git status summary", "composition brief"],
-            "confidence": "medium",
-            "authority_boundary": "This nominates a Dev Journal entry only; it does not create or admit one.",
+            "mode": "morning-claim-testing",
+            "claim": f"The unsent Mira Letter at {path} remains prepared address, not completed relation.",
+            "modal_status": obligation["modal_status"],
+            "source_ref": path,
+            "next_test": obligation["next_test"],
+            "authority_boundary": obligation["authority_boundary"],
         })
-    if brief.get("letters_orientation"):
-        candidates.append({
+
+    geo = roi_stage_payload(projection, "geo")
+    artifact_ref = geo.get("artifact_ref")
+    if artifact_ref:
+        revision_debt = [
+            str(item)
+            for item in geo.get("revision_debt", [])
+            if isinstance(item, str) and item.strip()
+        ]
+        handles.append({
             "status": "candidate-only",
-            "temporal_stance": "retrospective reconstruction",
-            "title": "Mira Letters orientation in Dream preparation",
-            "reason": "Letters orientation is present in the Journal preparation surface and may reflect a material design decision.",
-            "source_basis": ["composition brief"],
-            "confidence": "medium",
+            "mode": "morning-claim-testing",
+            "claim": (
+                f"Dream carried Geo revision debt at {artifact_ref}."
+                if revision_debt else
+                f"Dream carried the certified Geo packet at {artifact_ref}."
+            ),
+            "modal_status": "revision-debt" if revision_debt else "certified-evidence",
+            "source_ref": artifact_ref,
+            "source_digest": geo.get("digest"),
+            "certification_basis": geo.get("certification_basis"),
+            "revision_debt": revision_debt,
+            "next_test": (
+                "Check the named artifact and determine whether its recorded revision debt remains current."
+                if revision_debt else
+                "Check the named artifact and determine whether its certification remains current."
+            ),
             "authority_boundary": (
-                "This nominates a Dev Journal entry only; it does not create or admit one. "
-                "Mira Journal prose is interpretive context, not engineering evidence by itself."
+                "This handle supports read-only Coffee orientation only; it does not verify claims, "
+                "resolve forecasts, revise the packet, or authorize publication."
             ),
         })
-    return candidates
+    return handles
+
+
+def roi_workflow_improvements(projection: dict) -> list[dict]:
+    geo = roi_stage_payload(projection, "geo")
+    artifact_ref = geo.get("artifact_ref")
+    revision_debt = [
+        str(item)
+        for item in geo.get("revision_debt", [])
+        if isinstance(item, str) and item.strip()
+    ]
+    if not artifact_ref or not revision_debt:
+        return []
+    return [{
+        "status": "candidate-only",
+        "opportunity": f"Revisit the recorded Geo revision debt at {artifact_ref}.",
+        "source_ref": artifact_ref,
+        "source_digest": geo.get("digest"),
+        "evidence": revision_debt,
+        "likely_roi": "Remove explicitly recorded next-day revision debt without reopening clean Dream stages.",
+        "authority_boundary": (
+            "This is a workflow-improvement candidate only; revision, verification, and publication "
+            "remain separately authorized."
+        ),
+    }]
 
 
 def write_roi_synthesis(bundle: Path, run_date: str, projection: dict) -> dict:
@@ -479,36 +549,22 @@ def write_roi_synthesis(bundle: Path, run_date: str, projection: dict) -> dict:
     packet = {
         "schema_version": 1,
         "dream_date": run_date,
-        "generated_at": f"{run_date}T00:00:00Z",
+        "generated_at": projection.get("created_at") or f"{run_date}T00:00:00Z",
         "optimization_target": "workflow-throughput",
         "source_refs": [
             roi_source_ref(brief_path, "mira-journal-composition-brief"),
             roi_source_ref(bundle / "context-pack.json", "mira-journal-context-pack"),
+            roi_projection_ref(projection),
         ],
         "sections": {
-            "dev_journal_candidates": roi_dev_journal_candidates(brief, git_summary),
+            "dev_journal_candidates": [],
             "note_candidates": [],
-            "coffee_handles": [
-                {
-                    "status": "candidate-only",
-                    "mode": "morning-claim-testing",
-                    "claim": "Test which Dream-carried obligations still feel real after discontinuity.",
-                    "next_test": "Classify residue as real obligation, stale guilt, live curiosity, false urgency, or weak Dream handoff before momentum begins.",
-                    "authority_boundary": "Coffee may surface grounded actions, but this packet grants no execution authority.",
-                }
-            ],
+            "coffee_handles": roi_coffee_handles(projection, open_obligations),
             "publication_debt": {
                 **git_summary,
                 "clean_next_boundary": "Inspect exact changed paths before any separately authorized staging, commit, push, or publication.",
             },
-            "workflow_improvements": [
-                {
-                    "status": "candidate-only",
-                    "opportunity": "Use Dream ROI synthesis to reduce next-day rediscovery.",
-                    "likely_roi": "Preserve candidate handles privately so Coffee can test the surviving work before the operator re-explains it.",
-                    "authority_boundary": "No workflow change is adopted without separate authorization.",
-                }
-            ],
+            "workflow_improvements": roi_workflow_improvements(projection),
             "open_obligations": open_obligations,
         },
         "authority_boundary": (

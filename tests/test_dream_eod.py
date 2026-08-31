@@ -211,6 +211,11 @@ def test_empty_geo_day_prepares_journal_without_operator_prompt(monkeypatch, tmp
         "publication_debt",
         "workflow_improvements",
     ]
+    assert roi["sections"]["coffee_handles"] == []
+    assert roi["sections"]["dev_journal_candidates"] == []
+    assert roi["sections"]["workflow_improvements"] == []
+    assert roi["source_refs"][-1]["kind"] == "dream-daily-close-projection"
+    assert roi["source_refs"][-1]["run_id"] == result["run"]["run_id"]
     assert "not research evidence" in roi["authority_boundary"]
     assert (tmp_path / "cadence.sqlite3").exists()
 
@@ -243,23 +248,82 @@ def test_roi_synthesis_is_private_candidate_only_and_tracks_material_input(
         },
     )
 
-    first = dream_eod.write_roi_synthesis(bundle, "2026-08-16", {"run_id": "DCR-test"})
-    second = dream_eod.write_roi_synthesis(bundle, "2026-08-16", {"run_id": "DCR-test"})
+    projection = {
+        "run_id": "DCR-test",
+        "created_at": "2026-08-17T05:40:00Z",
+        "lifecycle_version": 3,
+        "events": [{
+            "event_id": "DCE-geo",
+            "payload": {
+                "stage": "geo",
+                "status": "provisional_packet_with_revision_debt",
+                "artifact_ref": "narrative-geopolitics/work/daily/2026-08-16/issue.md",
+                "digest": "a" * 64,
+                "certification_basis": "provisional_packet_with_revision_debt",
+                "revision_debt": ["Issue validation needs revision."],
+            },
+        }],
+    }
+    first = dream_eod.write_roi_synthesis(bundle, "2026-08-16", projection)
+    second = dream_eod.write_roi_synthesis(bundle, "2026-08-16", projection)
     packet = json.loads((bundle / "roi-synthesis.json").read_text(encoding="utf-8"))
     assert first["digest"] == second["digest"]
+    assert packet["generated_at"] == projection["created_at"]
     assert packet["sections"]["open_obligations"][0]["modal_status"] == (
         "prepared-address-not-completed-relation"
     )
+    assert packet["sections"]["coffee_handles"][0]["source_ref"] == (
+        "archive/letters/2026-08-16-draft.md"
+    )
+    geo_handle = packet["sections"]["coffee_handles"][1]
+    assert geo_handle["source_ref"] == (
+        "narrative-geopolitics/work/daily/2026-08-16/issue.md"
+    )
+    assert geo_handle["source_digest"] == "a" * 64
+    assert geo_handle["revision_debt"] == ["Issue validation needs revision."]
+    improvement = packet["sections"]["workflow_improvements"][0]
+    assert improvement["source_ref"] == geo_handle["source_ref"]
+    assert improvement["evidence"] == geo_handle["revision_debt"]
     assert packet["sections"]["note_candidates"] == []
-    assert "does not create or admit" in packet["sections"]["dev_journal_candidates"][0]["authority_boundary"]
+    assert packet["sections"]["dev_journal_candidates"] == []
     assert not any((tmp_path / name).exists() for name in ["docs", "archive"])
 
     (bundle / "composition-brief.json").write_text(
         json.dumps({"letters_orientation": {"letters": []}}),
         encoding="utf-8",
     )
-    changed = dream_eod.write_roi_synthesis(bundle, "2026-08-16", {"run_id": "DCR-test"})
+    changed = dream_eod.write_roi_synthesis(bundle, "2026-08-16", projection)
     assert changed["digest"] != first["digest"]
+
+
+def test_roi_synthesis_does_not_nominate_work_from_unrelated_dirty_paths(
+    monkeypatch, tmp_path: Path
+) -> None:
+    bundle = tmp_path / "journal" / "2026-08-16"
+    bundle.mkdir(parents=True)
+    (bundle / "composition-brief.json").write_text("{}", encoding="utf-8")
+    monkeypatch.setattr(
+        dream_eod,
+        "git_status_summary",
+        lambda: {
+            "status": "dirty",
+            "branch": "main",
+            "dirty_path_count": 12,
+            "top_level_groups": {"docs": 4, "scripts": 4, "tests": 4},
+            "authority_effect": "none",
+        },
+    )
+
+    dream_eod.write_roi_synthesis(
+        bundle,
+        "2026-08-16",
+        {"run_id": "DCR-test", "events": []},
+    )
+    packet = json.loads((bundle / "roi-synthesis.json").read_text(encoding="utf-8"))
+    assert packet["sections"]["dev_journal_candidates"] == []
+    assert packet["sections"]["coffee_handles"] == []
+    assert packet["sections"]["workflow_improvements"] == []
+    assert packet["sections"]["publication_debt"]["dirty_path_count"] == 12
 
 
 def test_missing_geo_packet_is_completed_by_dream_before_closeout(
