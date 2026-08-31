@@ -1,0 +1,121 @@
+{
+  "schema_version": "1.1",
+  "scope": "narrative-geopolitics",
+  "month": "2026-08",
+  "declared_at": "2026-08-29T12:00:00-06:00",
+  "frozen": false,
+  "reviewer": "operator",
+  "late_declaration": true,
+  "daily_transcript_floor": 5,
+  "voice_tiers": {
+    "tier_a": [
+      "mercouris",
+      "johnson",
+      "marandi",
+      "davis",
+      "ritter",
+      "freeman",
+      "wilkerson",
+      "macgregor",
+      "crooke",
+      "mearsheimer",
+      "pape",
+      "parsi",
+      "helmer",
+      "sachs"
+    ],
+    "tier_b": [
+      "adams",
+      "aguilar",
+      "alkhorshid",
+      "armstrong",
+      "barnes",
+      "baud",
+      "beebe",
+      "berletic",
+      "blumenthal",
+      "cristoforou",
+      "diesen",
+      "dugin",
+      "escobar",
+      "henningsen",
+      "hoh",
+      "hudson",
+      "jermy",
+      "jiang",
+      "karaganov",
+      "kent",
+      "krainer",
+      "krapivnik",
+      "lieven",
+      "marouf",
+      "martyanov",
+      "mate",
+      "matlock",
+      "mcgovern",
+      "mostaque",
+      "polyanskiy",
+      "postol",
+      "varoufakis",
+      "vilano",
+      "weichert"
+    ]
+  },
+  "voice_tier_floors": {
+    "tier_a": 5,
+    "tier_b": 0
+  },
+  "tier_b_channels": [
+    {
+      "host_slug": "mario-nawfal",
+      "expected_cadence": "daily",
+      "transcript_floor": 2
+    },
+    {
+      "host_slug": "moral-resistance",
+      "expected_cadence": "weekly",
+      "transcript_floor": 2
+    },
+    {
+      "host_slug": "cyrus-janssen",
+      "expected_cadence": "weekly",
+      "transcript_floor": 2
+    },
+    {
+      "host_slug": "neutrality-studies",
+      "expected_cadence": "weekly",
+      "transcript_floor": 2
+    },
+    {
+      "host_slug": "reason-resist",
+      "expected_cadence": "weekly",
+      "transcript_floor": 2
+    },
+    {
+      "host_slug": "redacted-news",
+      "expected_cadence": "weekly",
+      "transcript_floor": 2
+    },
+    {
+      "host_slug": "breaking-points",
+      "expected_cadence": "weekly",
+      "transcript_floor": 2
+    },
+    {
+      "host_slug": "tucker-carlson",
+      "expected_cadence": "manual",
+      "transcript_floor": 2
+    },
+    {
+      "host_slug": "india-global-left",
+      "expected_cadence": "weekly",
+      "transcript_floor": 2
+    }
+  ],
+  "exception_policy": {
+    "required": true
+  },
+  "diversity_policy": {
+    "required_disposition": true
+  }
+}

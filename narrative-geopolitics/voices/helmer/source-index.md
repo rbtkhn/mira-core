@@ -4,7 +4,7 @@ This index routes the unified local Helmer corpus for `helmer` to the central Na
 
 Source basis: `strategy-codex/statecraft/voices/helmer/helmer-index.md`.
 
-Corpus: 39 local route rows across 39 central archive source files.
+Corpus: 42 local route rows across 42 central archive source files.
 
 Status: `imported-corpus`
 
@@ -57,7 +57,10 @@ Status: `imported-corpus`
 | `2026-07-28` | John Helmer: Ukraine Warns of Imminent Iranian Ballistic Missile Attack | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2026-07-28/source-john-helmer-ukraine-warns-of-imminent-iranian-ballistic-missile-attack-2026-07-28.md) |
 | `2026-08-04` | John Helmer: Ukrainian Drone Hits Turkish Ship to Russia – 3 Wounded as Odessa Blockade Intensifies | `guest` | `nima-alkhorshid` | [source](../../../archive/sources/geopolitics/sources/2026-08-04/source-john-helmer-ukrainian-drone-hits-turkish-ship-to-russia-3-wounded-as-odessa-blockade-intensifies-2026-08-04.md) |
 | `2026-08-11` | (2) John Helmer: The Polling Paradox: Why the Wars Will Continue | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2026-08-11/source-2-john-helmer-the-polling-paradox-why-the-wars-will-continue-2026-08-11.md) |
+| `2026-08-13` | Turkey's Imperial Ambitions w/ John Helmer | `guest` | `reason-resist` | [source](../../../archive/sources/geopolitics/sources/2026-08-13/source-turkey-s-imperial-ambitions-w-john-helmer-2026-08-13.md) |
 | `2026-08-18` | (4) John Helmer: From "Special Operation" to a "Full-Scale War" in Ukraine | `guest` | `nima-alkhorshid` | [source](../../../archive/sources/geopolitics/sources/2026-08-18/source-4-john-helmer-from-special-operation-to-a-full-scale-war-in-ukraine-2026-08-18.md) |
+| `2026-08-25` | John Helmer: The Empire Crumbles: the War on Iran and Russia Just Changed EVERYTHING | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2026-08-25/source-john-helmer-the-empire-crumbles-the-war-on-iran-and-russia-just-changed-everything-2026-08-25.md) |
+| `2026-08-28` | Is the CIA Hiding Its Losses In the Iran and Ukraine Wars? w/ John Helmer | `guest` | `reason-resist` | [source](../../../archive/sources/geopolitics/sources/2026-08-28/source-is-the-cia-hiding-its-losses-in-the-iran-and-ukraine-wars-w-john-helmer-2026-08-28.md) |
 
 ## Import Boundary
 

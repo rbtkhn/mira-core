@@ -61,6 +61,7 @@ MIRA_CONTROL_PATHS = frozenset({
     "mira/continuity/session-registry.json",
 })
 DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
+MONTH_RE = re.compile(r"^\d{4}-\d{2}$")
 
 
 class RoutingError(ValueError):
@@ -113,6 +114,21 @@ def _daily_validate_command(path: str) -> str | None:
         and DATE_RE.match(parts[3])
     ):
         return f"tools/run.ps1 daily-validate --date {parts[3]} --stage issue"
+    return None
+
+
+def _monthly_coverage_audit_command(path: str) -> str | None:
+    parts = PurePosixPath(path).parts
+    if (
+        len(parts) == 5
+        and parts[:3] == ("narrative-geopolitics", "work", "coverage")
+        and parts[3] in {"contracts", "receipts"}
+    ):
+        suffix = ".json" if parts[3] == "contracts" else ".jsonl"
+        if parts[4].endswith(suffix):
+            month = parts[4].removesuffix(suffix)
+            if MONTH_RE.match(month):
+                return f"tools/run.ps1 archive-audit --month {month} --format json"
     return None
 
 
@@ -273,6 +289,14 @@ def route_path(path: str, *, repo_root: Path = REPO_ROOT) -> dict[str, Any]:
             "owner": "morning-brief",
             "validation_class": "domain-governed",
             "commands": ["tools/run.ps1 test --path tests/test_morning_brief.py"],
+            "manual_checks": [MANUAL_NARRATIVE_GEOPOLITICS_CHECK],
+        }
+    monthly_coverage_command = _monthly_coverage_audit_command(path)
+    if monthly_coverage_command:
+        return {
+            "owner": "archive-audit/monthly-completeness",
+            "validation_class": "domain-governed",
+            "commands": [monthly_coverage_command],
             "manual_checks": [MANUAL_NARRATIVE_GEOPOLITICS_CHECK],
         }
     if path == "narrative-geopolitics/work/capture/youtube/youtube-capture-policy.yml":

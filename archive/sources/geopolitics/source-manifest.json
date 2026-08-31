@@ -2,7 +2,7 @@
   "manifest_id": "narrative-geopolitics-source-manifest-v1",
   "source_basis": "central archive with completed historical strategy-codex imports",
   "imported_at": "2026-07-09",
-  "source_count": 2295,
+  "source_count": 2297,
   "boundary": {
     "archive": "source truth",
     "voices": "voice continuity and routing",
@@ -61726,6 +61726,52 @@
       },
       "source_identity": "youtube:umoFkNKtBy8",
       "source_url": "https://www.youtube.com/watch?v=umoFkNKtBy8",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-25",
+      "title": "AMB. Chas Freeman : Israel is Now an American Problem",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-25/source-amb-chas-freeman-israel-is-now-an-american-problem-2026-08-25.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-25/source-amb-chas-freeman-israel-is-now-an-american-problem-2026-08-25.md",
+      "upstream_path": "operator-paste://2026-08-31/amb-chas-freeman-israel-is-now-an-american-problem",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "freeman"
+      ],
+      "host_slug": "judging-freedom",
+      "source_identity": "youtube:io3K_cgGjmk",
+      "source_url": "https://www.youtube.com/watch?v=io3K_cgGjmk",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-25",
+      "title": "John Helmer: The Empire Crumbles: the War on Iran and Russia Just Changed EVERYTHING",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-25/source-john-helmer-the-empire-crumbles-the-war-on-iran-and-russia-just-changed-everything-2026-08-25.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-25/source-john-helmer-the-empire-crumbles-the-war-on-iran-and-russia-just-changed-everything-2026-08-25.md",
+      "upstream_path": "operator-paste://2026-08-31/john-helmer-the-empire-crumbles-the-war-on-iran-and-russia-just-changed-everything",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "helmer"
+      ],
+      "host_slug": "dialogue-works",
+      "source_identity": "youtube:WOXK7emOwCg",
+      "source_url": "https://www.youtube.com/watch?v=WOXK7emOwCg",
       "title_source": "transcript",
       "date_basis": "transcript-self-date",
       "inference_basis": [
