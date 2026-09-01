@@ -2,7 +2,7 @@
   "manifest_id": "narrative-geopolitics-source-manifest-v1",
   "source_basis": "central archive with completed historical strategy-codex imports",
   "imported_at": "2026-07-09",
-  "source_count": 2310,
+  "source_count": 2328,
   "boundary": {
     "archive": "source truth",
     "voices": "voice continuity and routing",
@@ -62072,6 +62072,420 @@
       "source_url": "https://www.youtube.com/watch?v=oCg52LEwiZg",
       "title_source": "transcript",
       "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2025-01-15",
+      "title": "US-Israel Rift Deepens; Trump Gaza Pressure Shocks Bibi; Patrushev: No More Ukraine Post 2025",
+      "local_path": "archive/sources/geopolitics/sources/2025-01-15/source-us-israel-rift-deepens-trump-gaza-pressure-shocks-bibi-patrushev-no-more-ukraine-post-2025-2025-01-15.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2025-01-15/source-us-israel-rift-deepens-trump-gaza-pressure-shocks-bibi-patrushev-no-more-ukraine-post-2025-2025-01-15.md",
+      "upstream_path": "operator-paste://2025-01-15/us-israel-rift-deepens-trump-gaza-pressure-shocks-bibi-patrushev-no-more-ukraine-post-2025",
+      "source_class": "host monologue",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "alexander-mercouris",
+      "source_identity": "youtube:5rfL50lir0g",
+      "source_url": "https://www.youtube.com/watch?v=5rfL50lir0g",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2025-02-18",
+      "title": "Paris Summit Chaos, Macron Starmer Isolated; Riyadh Summit: Lavrov No Concessions, Zelensky Must Go",
+      "local_path": "archive/sources/geopolitics/sources/2025-02-18/source-paris-summit-chaos-macron-starmer-isolated-riyadh-summit-lavrov-no-concessions-zelensky-must-go-2025-02-18.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2025-02-18/source-paris-summit-chaos-macron-starmer-isolated-riyadh-summit-lavrov-no-concessions-zelensky-must-go-2025-02-18.md",
+      "upstream_path": "operator-paste://2025-02-18/paris-summit-chaos-macron-starmer-isolated-riyadh-summit-lavrov-no-concessions-zelensky-must-go",
+      "source_class": "host monologue",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "alexander-mercouris",
+      "source_identity": "youtube:ZsXMBNWqm7k",
+      "source_url": "https://www.youtube.com/watch?v=ZsXMBNWqm7k",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2025-03-17",
+      "title": "Kursk Catastrophe, Roads Closed Kiev Troops Say; Medvedev Lashes Starmer; US Russia Leaders To Speak",
+      "local_path": "archive/sources/geopolitics/sources/2025-03-17/source-kursk-catastrophe-roads-closed-kiev-troops-say-medvedev-lashes-starmer-us-russia-leaders-to-speak-2025-03-17.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2025-03-17/source-kursk-catastrophe-roads-closed-kiev-troops-say-medvedev-lashes-starmer-us-russia-leaders-to-speak-2025-03-17.md",
+      "upstream_path": "operator-paste://2025-03-17/kursk-catastrophe-roads-closed-kiev-troops-say-medvedev-lashes-starmer-us-russia-leaders-to-speak",
+      "source_class": "host monologue",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "alexander-mercouris",
+      "source_identity": "youtube:oxqtraYhZGs",
+      "source_url": "https://www.youtube.com/watch?v=oxqtraYhZGs",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2025-03-31",
+      "title": "US Plots China War After Ukraine Failure; Trump Backtracks Russia Criticism; NYT Admits US War Role",
+      "local_path": "archive/sources/geopolitics/sources/2025-03-31/source-us-plots-china-war-after-ukraine-failure-trump-backtracks-russia-criticism-nyt-admits-us-war-role-2025-03-31.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2025-03-31/source-us-plots-china-war-after-ukraine-failure-trump-backtracks-russia-criticism-nyt-admits-us-war-role-2025-03-31.md",
+      "upstream_path": "operator-paste://2025-03-31/us-plots-china-war-after-ukraine-failure-trump-backtracks-russia-criticism-nyt-admits-us-war-role",
+      "source_class": "host monologue",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "alexander-mercouris",
+      "source_identity": "youtube:mwcbXqDSDms",
+      "source_url": "https://www.youtube.com/watch?v=mwcbXqDSDms",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2025-01-10",
+      "title": "Amb. Chas Freeman: What Is Trump Really After?",
+      "local_path": "archive/sources/geopolitics/sources/2025-01-10/source-amb-chas-freeman-what-is-trump-really-after-2025-01-10.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2025-01-10/source-amb-chas-freeman-what-is-trump-really-after-2025-01-10.md",
+      "upstream_path": "operator-paste://2025-01-10/amb-chas-freeman-what-is-trump-really-after",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "chas-freeman"
+      ],
+      "host_slug": "dialogue-works",
+      "source_identity": "youtube:WpZWtFiHJk8",
+      "source_url": "https://www.youtube.com/watch?v=WpZWtFiHJk8",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2025-01-23",
+      "title": "Ukraine Russia War SHOWDOWN w/Amb. Chas Freeman",
+      "local_path": "archive/sources/geopolitics/sources/2025-01-23/source-ukraine-russia-war-showdown-w-amb-chas-freeman-2025-01-23.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2025-01-23/source-ukraine-russia-war-showdown-w-amb-chas-freeman-2025-01-23.md",
+      "upstream_path": "operator-paste://2025-01-23/ukraine-russia-war-showdown-w-amb-chas-freeman",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "chas-freeman"
+      ],
+      "host_slug": "daniel-davis",
+      "source_identity": "youtube:lVQX-fQZgu0",
+      "source_url": "https://www.youtube.com/watch?v=lVQX-fQZgu0",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2025-02-12",
+      "title": "Col. Lawrence Wilkerson & Graham E. Fuller: SHOCKING MELTDOWN: Has Trump Finally LOST IT?!",
+      "local_path": "archive/sources/geopolitics/sources/2025-02-12/source-col-lawrence-wilkerson-graham-e-fuller-shocking-meltdown-has-trump-finally-lost-it-2025-02-12.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2025-02-12/source-col-lawrence-wilkerson-graham-e-fuller-shocking-meltdown-has-trump-finally-lost-it-2025-02-12.md",
+      "upstream_path": "operator-paste://2025-02-12/col-lawrence-wilkerson-graham-e-fuller-shocking-meltdown-has-trump-finally-lost-it",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "lawrence-wilkerson"
+      ],
+      "host_slug": "dialogue-works",
+      "source_identity": "youtube:TJ3SIvzYDX4",
+      "source_url": "https://www.youtube.com/watch?v=TJ3SIvzYDX4",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2025-03-30",
+      "title": "Strategic Suicide: Why the U.S. Can’t Win a War with Iran | Col. Larry Wilkerson & Larry C. Johnson",
+      "local_path": "archive/sources/geopolitics/sources/2025-03-30/source-strategic-suicide-why-the-u-s-can-t-win-a-war-with-iran-col-larry-wilkerson-larry-c-johnson-2025-03-30.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2025-03-30/source-strategic-suicide-why-the-u-s-can-t-win-a-war-with-iran-col-larry-wilkerson-larry-c-johnson-2025-03-30.md",
+      "upstream_path": "operator-paste://2025-03-30/strategic-suicide-why-the-u-s-can-t-win-a-war-with-iran-col-larry-wilkerson-larry-c-johnson",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "lawrence-wilkerson"
+      ],
+      "host_slug": "dialogue-works",
+      "source_identity": "youtube:EyTxAu91wb8",
+      "source_url": "https://www.youtube.com/watch?v=EyTxAu91wb8",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2025-05-28",
+      "title": "John Mearsheimer: New World Order? US, China & Russia in the New Great Power Rivalry",
+      "local_path": "archive/sources/geopolitics/sources/2025-05-28/source-john-mearsheimer-new-world-order-us-china-russia-in-the-new-great-power-rivalry-2025-05-28.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2025-05-28/source-john-mearsheimer-new-world-order-us-china-russia-in-the-new-great-power-rivalry-2025-05-28.md",
+      "upstream_path": "operator-paste://2025-05-28/john-mearsheimer-new-world-order-us-china-russia-in-the-new-great-power-rivalry",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mearsheimer"
+      ],
+      "host_slug": "glenn-diesen",
+      "source_identity": "youtube:zHA_EBmcKb4",
+      "source_url": "https://www.youtube.com/watch?v=zHA_EBmcKb4",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2025-07-31",
+      "title": "John Mearsheimer: Liberal Delusions & How NATO Led Ukraine Down the Primrose Path",
+      "local_path": "archive/sources/geopolitics/sources/2025-07-31/source-john-mearsheimer-liberal-delusions-how-nato-led-ukraine-down-the-primrose-path-2025-07-31.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2025-07-31/source-john-mearsheimer-liberal-delusions-how-nato-led-ukraine-down-the-primrose-path-2025-07-31.md",
+      "upstream_path": "operator-paste://2025-07-31/john-mearsheimer-liberal-delusions-how-nato-led-ukraine-down-the-primrose-path",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mearsheimer"
+      ],
+      "host_slug": "glenn-diesen",
+      "source_identity": "youtube:zPkkaF3kbh0",
+      "source_url": "https://www.youtube.com/watch?v=zPkkaF3kbh0",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2025-09-11",
+      "title": "John Mearsheimer: Ukraine Army Indicators Tell a Very Grim Story /Lt Col Daniel Davis",
+      "local_path": "archive/sources/geopolitics/sources/2025-09-11/source-john-mearsheimer-ukraine-army-indicators-tell-a-very-grim-story-lt-col-daniel-davis-2025-09-11.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2025-09-11/source-john-mearsheimer-ukraine-army-indicators-tell-a-very-grim-story-lt-col-daniel-davis-2025-09-11.md",
+      "upstream_path": "operator-paste://2025-09-11/john-mearsheimer-ukraine-army-indicators-tell-a-very-grim-story-lt-col-daniel-davis",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mearsheimer"
+      ],
+      "host_slug": "daniel-davis",
+      "source_identity": "youtube:4CenMMPmaDY",
+      "source_url": "https://www.youtube.com/watch?v=4CenMMPmaDY",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2025-12-09",
+      "title": "John Mearsheimer: Ukraine & NATO Shoving Trump to the Side",
+      "local_path": "archive/sources/geopolitics/sources/2025-12-09/source-john-mearsheimer-ukraine-nato-shoving-trump-to-the-side-2025-12-09.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2025-12-09/source-john-mearsheimer-ukraine-nato-shoving-trump-to-the-side-2025-12-09.md",
+      "upstream_path": "operator-paste://2025-12-09/john-mearsheimer-ukraine-nato-shoving-trump-to-the-side",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mearsheimer"
+      ],
+      "host_slug": "daniel-davis",
+      "source_identity": "youtube:PgnOZth4bA4",
+      "source_url": "https://www.youtube.com/watch?v=PgnOZth4bA4",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2025-07-03",
+      "title": "Prof. John Mearsheimer : Unpacking Netanyahu's next-steps. Why the DC visit w/ Trump?",
+      "local_path": "archive/sources/geopolitics/sources/2025-07-03/source-prof-john-mearsheimer-unpacking-netanyahu-s-next-steps-why-the-dc-visit-w-trump-2025-07-03.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2025-07-03/source-prof-john-mearsheimer-unpacking-netanyahu-s-next-steps-why-the-dc-visit-w-trump-2025-07-03.md",
+      "upstream_path": "operator-paste://2025-07-03/prof-john-mearsheimer-unpacking-netanyahu-s-next-steps-why-the-dc-visit-w-trump",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mearsheimer"
+      ],
+      "host_slug": "judging-freedom",
+      "source_identity": "youtube:U--V2Mo7W_o",
+      "source_url": "https://www.youtube.com/watch?v=U--V2Mo7W_o",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2025-07-15",
+      "title": "Prof. John Mearsheimer : US Escalates the Ukraine War",
+      "local_path": "archive/sources/geopolitics/sources/2025-07-15/source-prof-john-mearsheimer-us-escalates-the-ukraine-war-2025-07-15.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2025-07-15/source-prof-john-mearsheimer-us-escalates-the-ukraine-war-2025-07-15.md",
+      "upstream_path": "operator-paste://2025-07-15/prof-john-mearsheimer-us-escalates-the-ukraine-war",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mearsheimer"
+      ],
+      "host_slug": "judging-freedom",
+      "source_identity": "youtube:ObN01ent7w0",
+      "source_url": "https://www.youtube.com/watch?v=ObN01ent7w0",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2025-08-07",
+      "title": "Prof. John Mearsheimer : A Brief History of Israel",
+      "local_path": "archive/sources/geopolitics/sources/2025-08-07/source-prof-john-mearsheimer-a-brief-history-of-israel-2025-08-07.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2025-08-07/source-prof-john-mearsheimer-a-brief-history-of-israel-2025-08-07.md",
+      "upstream_path": "operator-paste://2025-08-07/prof-john-mearsheimer-a-brief-history-of-israel",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mearsheimer"
+      ],
+      "host_slug": "judging-freedom",
+      "source_identity": "youtube:z8wooQEYyzc",
+      "source_url": "https://www.youtube.com/watch?v=z8wooQEYyzc",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2025-10-17",
+      "title": "Prof John Mearsheimer : Why Trump’s Gaza Deal Will Fail.",
+      "local_path": "archive/sources/geopolitics/sources/2025-10-17/source-prof-john-mearsheimer-why-trump-s-gaza-deal-will-fail-2025-10-17.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2025-10-17/source-prof-john-mearsheimer-why-trump-s-gaza-deal-will-fail-2025-10-17.md",
+      "upstream_path": "operator-paste://2025-10-17/prof-john-mearsheimer-why-trump-s-gaza-deal-will-fail",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mearsheimer"
+      ],
+      "host_slug": "judging-freedom",
+      "source_identity": "youtube:2doNMLV8Ji8",
+      "source_url": "https://www.youtube.com/watch?v=2doNMLV8Ji8",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2025-10-30",
+      "title": "Prof. John Mearsheimer : The Dangerous Marco Rubio.",
+      "local_path": "archive/sources/geopolitics/sources/2025-10-30/source-prof-john-mearsheimer-the-dangerous-marco-rubio-2025-10-30.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2025-10-30/source-prof-john-mearsheimer-the-dangerous-marco-rubio-2025-10-30.md",
+      "upstream_path": "operator-paste://2025-10-30/prof-john-mearsheimer-the-dangerous-marco-rubio",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mearsheimer"
+      ],
+      "host_slug": "judging-freedom",
+      "source_identity": "youtube:fFLTgNGjhvs",
+      "source_url": "https://www.youtube.com/watch?v=fFLTgNGjhvs",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2025-11-06",
+      "title": "Prof. John Mearsheimer : Israel’s Nightmare.",
+      "local_path": "archive/sources/geopolitics/sources/2025-11-06/source-prof-john-mearsheimer-israel-s-nightmare-2025-11-06.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2025-11-06/source-prof-john-mearsheimer-israel-s-nightmare-2025-11-06.md",
+      "upstream_path": "operator-paste://2025-11-06/prof-john-mearsheimer-israel-s-nightmare",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mearsheimer"
+      ],
+      "host_slug": "judging-freedom",
+      "source_identity": "youtube:F3aIyWOQm6A",
+      "source_url": "https://www.youtube.com/watch?v=F3aIyWOQm6A",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
       "inference_basis": [
         "wrapper-normalized",
         "explicit-host",
