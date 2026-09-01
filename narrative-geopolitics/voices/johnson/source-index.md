@@ -4,7 +4,7 @@ This index routes the imported first-slice parity corpus for `johnson` to the ce
 
 Source basis: `archive/sources/geopolitics/source-manifest.json`.
 
-Corpus: 137 local route rows across 137 central archive source files.
+Corpus: 144 local route rows across 144 central archive source files.
 
 Status: `first-slice-parity`
 
@@ -144,7 +144,9 @@ Status: `first-slice-parity`
 | `2026-08-10` | (2) Larry Johnson: Trump Flips the Script: U.S. Now Demands BILLIONS in Reparations from Iran | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2026-08-10/source-2-larry-johnson-trump-flips-the-script-u-s-now-demands-billions-in-reparations-from-iran-2026-08-10.md) |
 | `2026-08-11` | (2) Larry Johnson: US 10x Surge in THAAD & PAC-3 Ammo, Yemeni Rockets Hit Saudi Command | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2026-08-11/source-2-larry-johnson-us-10x-surge-in-thaad-pac-3-ammo-yemeni-rockets-hit-saudi-command-2026-08-11.md) |
 | `2026-08-12` | (3) Larry Johnson: Will Trump Declare Victory Against Iran & Walk Away Without a Nuclear Deal? | `guest` | `glenn-diesen` | [source](../../../archive/sources/geopolitics/sources/2026-08-12/source-3-larry-johnson-will-trump-declare-victory-against-iran-walk-away-without-a-nuclear-deal-2026-08-12.md) |
+| `2026-08-12` | Larry Johnson: "Outlast Trump" – Iran’s Move vs. Trump’s "Bankrupt Iran" Strategy | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2026-08-12/source-larry-johnson-outlast-trump-iran-s-move-vs-trump-s-bankrupt-iran-strategy-2026-08-12.md) |
 | `2026-08-13` | (3) fmr CIA Analyst Larry Johnson: We're Trapped, How the MIC Ruined the US | `guest` | `daniel-davis` | [source](../../../archive/sources/geopolitics/sources/2026-08-13/source-3-fmr-cia-analyst-larry-johnson-we-re-trapped-how-the-mic-ruined-the-us-2026-08-13.md) |
+| `2026-08-13` | US-Iran Stalemate: Why Can’t Trump End the War? \| Larry Johnson | `guest` | `india-global-left` | [source](../../../archive/sources/geopolitics/sources/2026-08-13/source-us-iran-stalemate-why-can-t-trump-end-the-war-larry-johnson-2026-08-13.md) |
 | `2026-08-15` | (4) Larry Johnson: Iran’s FINAL Play in Hormuz- Israel Attack FALLS APART- Yemen Flipped the Script | `host-pressure test` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2026-08-15/source-4-larry-johnson-iran-s-final-play-in-hormuz-israel-attack-falls-apart-yemen-flipped-the-script-2026-08-15.md) |
 | `2026-08-17` | (4) Larry Johnson : How Poorly US Treats Its Own Troops | `guest` | `judging-freedom` | [source](../../../archive/sources/geopolitics/sources/2026-08-17/source-4-larry-johnson-how-poorly-us-treats-its-own-troops-2026-08-17.md) |
 | `2026-08-18` | (4) BREAKING: IRAN STRIKE DUBAI? UAE STOP ALL FINANCIAL TRANSACTIONS WITH IRAN w/ Larry Johnson | `guest` | `moral-resistance` | [source](../../../archive/sources/geopolitics/sources/2026-08-18/source-4-breaking-iran-strike-dubai-uae-stop-all-financial-transactions-with-iran-w-larry-johnson-2026-08-18.md) |
@@ -157,10 +159,15 @@ Status: `first-slice-parity`
 | `2026-08-22` | BREAKING: IRAN THREATENS TO STRIKE COUNTRIES THAT ABIDE BY TRUMP'S SANCTIONS — w/ Larry Johnson | `guest` | `mario-nawfal` | [source](../../../archive/sources/geopolitics/sources/2026-08-22/source-breaking-iran-threatens-to-strike-countries-that-abide-by-trump-s-sanctions-w-larry-johnson-2026-08-22.md) |
 | `2026-08-22` | Larry Johnson: Iran Just Flipped the Script: Offensive to Break the Economic Siege | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2026-08-22/source-larry-johnson-iran-just-flipped-the-script-offensive-to-break-the-economic-siege-2026-08-22.md) |
 | `2026-08-23` | Larry Johnson: Iran’s Parliament Agency DROPS BOMBSHELL: “We Were Invited to Join the Mecca Pact” | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2026-08-23/source-larry-johnson-iran-s-parliament-agency-drops-bombshell-we-were-invited-to-join-the-mecca-pact-2026-08-23.md) |
+| `2026-08-25` | CONFIRMED: TRUMP WANTS TO USE A NUCLEAR BOMB ON IRAN, SAILORS SEND DISTRESS SIGNAL w/ Larry Johnson | `guest` | `moral-resistance` | [source](../../../archive/sources/geopolitics/sources/2026-08-25/source-confirmed-trump-wants-to-use-a-nuclear-bomb-on-iran-sailors-send-distress-signal-w-larry-johnson-2026-08-25.md) |
+| `2026-08-25` | GROUND INVASION INTO IRAN IMPOSSIBLE, TRUMP ATTACKS IRAN, U.S OIL RESERVES DOWN w/ CIA Larry Johnson | `guest` | `moral-resistance` | [source](../../../archive/sources/geopolitics/sources/2026-08-25/source-ground-invasion-into-iran-impossible-trump-attacks-iran-u-s-oil-reserves-down-w-cia-larry-johnson-2026-08-25.md) |
+| `2026-08-25` | Larry Johnson: Iran Invited to Join the Turkey-Saudi-Pakistan Defence Pact? | `guest` | `glenn-diesen` | [source](../../../archive/sources/geopolitics/sources/2026-08-25/source-larry-johnson-iran-invited-to-join-the-turkey-saudi-pakistan-defence-pact-2026-08-25.md) |
 | `2026-08-26` | Larry Johnson: JUST IN: Iran & Russia Just Signed a ‘Strategic Energy Pact | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2026-08-26/source-larry-johnson-just-in-iran-russia-just-signed-a-strategic-energy-pact-2026-08-26.md) |
 | `2026-08-27` | CIA Moscow Meeting, What's That About? / fmr CIA Analyst Larry Johnson & Lt Col Daniel Davis | `guest` | `daniel-davis` | [source](../../../archive/sources/geopolitics/sources/2026-08-27/source-cia-moscow-meeting-what-s-that-about-fmr-cia-analyst-larry-johnson-lt-col-daniel-davis-2026-08-27.md) |
 | `2026-08-28` | BREAKING: MULTIPLE STRIKES ON STRIAT OF HORMUZ, HEGSETH FOR PRESIDENT w/ CIA Larry Johnson | `guest` | `moral-resistance` | [source](../../../archive/sources/geopolitics/sources/2026-08-28/source-breaking-multiple-strikes-on-striat-of-hormuz-hegseth-for-president-w-cia-larry-johnson-2026-08-28.md) |
 | `2026-08-28` | Col. Larry Wilkerson & Larry Johnson: The Trap is Closing on Iran and the US | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2026-08-28/source-col-larry-wilkerson-larry-johnson-the-trap-is-closing-on-iran-and-the-us-2026-08-28.md) |
+| `2026-08-29` | BREAKING: TRUMP REJECTS SAUDI ARABIA REQUEST, MOU BREAKS DOWN DUE TO GAZA w/ CIA Larry Johnson | `guest` | `moral-resistance` | [source](../../../archive/sources/geopolitics/sources/2026-08-29/source-breaking-trump-rejects-saudi-arabia-request-mou-breaks-down-due-to-gaza-w-cia-larry-johnson-2026-08-29.md) |
+| `2026-08-31` | Larry Johnson: Iran Strikes US Airbase – F-16 & F-35 Hangars Destroyed as Trump Vows Hard Offensive | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2026-08-31/source-larry-johnson-iran-strikes-us-airbase-f-16-f-35-hangars-destroyed-as-trump-vows-hard-offensive-2026-08-31.md) |
 
 ## Judgment Continuity
 

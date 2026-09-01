@@ -2,7 +2,7 @@
   "manifest_id": "narrative-geopolitics-source-manifest-v1",
   "source_basis": "central archive with completed historical strategy-codex imports",
   "imported_at": "2026-07-09",
-  "source_count": 2297,
+  "source_count": 2310,
   "boundary": {
     "archive": "source truth",
     "voices": "voice continuity and routing",
@@ -61774,6 +61774,304 @@
       "source_url": "https://www.youtube.com/watch?v=WOXK7emOwCg",
       "title_source": "transcript",
       "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-31",
+      "title": "Russian Escalates Air Strikes; Kiev Lvov Critical Shortages Desperate Ukraine Seeks To Block Rassvet",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-31/source-russian-escalates-air-strikes-kiev-lvov-critical-shortages-desperate-ukraine-seeks-to-block-rassvet-2026-08-31.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-31/source-russian-escalates-air-strikes-kiev-lvov-critical-shortages-desperate-ukraine-seeks-to-block-rassvet-2026-08-31.md",
+      "upstream_path": "operator-paste://2026-08-31/russian-escalates-air-strikes-kiev-lvov-critical-shortages-desperate-ukraine-seeks-to-block-rassvet",
+      "source_class": "host monologue",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "alexander-mercouris",
+      "source_identity": "youtube:OXUNOFIxCow",
+      "source_url": "https://www.youtube.com/watch?v=OXUNOFIxCow",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-31",
+      "title": "Larry Johnson: Iran Strikes US Airbase – F-16 & F-35 Hangars Destroyed as Trump Vows Hard Offensive",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-31/source-larry-johnson-iran-strikes-us-airbase-f-16-f-35-hangars-destroyed-as-trump-vows-hard-offensive-2026-08-31.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-31/source-larry-johnson-iran-strikes-us-airbase-f-16-f-35-hangars-destroyed-as-trump-vows-hard-offensive-2026-08-31.md",
+      "upstream_path": "operator-paste://2026-08-31/larry-johnson-iran-strikes-us-airbase-f-16-f-35-hangars-destroyed-as-trump-vows-hard-offensive",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "johnson"
+      ],
+      "host_slug": "dialogue-works",
+      "source_identity": "youtube:mFCzEFNdR8I",
+      "source_url": "https://www.youtube.com/watch?v=mFCzEFNdR8I",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-31",
+      "title": "Russia's NonStop Drones Hit Kiev /Andrei Martyanov & Lt Col Daniel Davis",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-31/source-russia-s-nonstop-drones-hit-kiev-andrei-martyanov-lt-col-daniel-davis-2026-08-31.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-31/source-russia-s-nonstop-drones-hit-kiev-andrei-martyanov-lt-col-daniel-davis-2026-08-31.md",
+      "upstream_path": "operator-paste://2026-08-31/russia-s-nonstop-drones-hit-kiev-andrei-martyanov-lt-col-daniel-davis",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "martyanov"
+      ],
+      "host_slug": "daniel-davis",
+      "source_identity": "youtube:ii6Hl3zifew",
+      "source_url": "https://www.youtube.com/watch?v=ii6Hl3zifew",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-31",
+      "title": "Alastair Crooke : How Iran Blunts the U.S.",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-31/source-alastair-crooke-how-iran-blunts-the-u-s-2026-08-31.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-31/source-alastair-crooke-how-iran-blunts-the-u-s-2026-08-31.md",
+      "upstream_path": "operator-paste://2026-08-31/alastair-crooke-how-iran-blunts-the-u-s",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "crooke"
+      ],
+      "host_slug": "judging-freedom",
+      "source_identity": "youtube:1ZObpvnOGns",
+      "source_url": "https://www.youtube.com/watch?v=1ZObpvnOGns",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-31",
+      "title": "Col. Jacques Baud: Supertanker Struck in Hormuz as Saudi Ship Burns in Red Sea",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-31/source-col-jacques-baud-supertanker-struck-in-hormuz-as-saudi-ship-burns-in-red-sea-2026-08-31.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-31/source-col-jacques-baud-supertanker-struck-in-hormuz-as-saudi-ship-burns-in-red-sea-2026-08-31.md",
+      "upstream_path": "operator-paste://2026-08-31/col-jacques-baud-supertanker-struck-in-hormuz-as-saudi-ship-burns-in-red-sea",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "baud"
+      ],
+      "host_slug": "dialogue-works",
+      "source_identity": "youtube:FowoV7I6DfE",
+      "source_url": "https://www.youtube.com/watch?v=FowoV7I6DfE",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-31",
+      "title": "Prof. John Mearsheimer : Iran War is the Worst Blunder in U.S. History",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-31/source-prof-john-mearsheimer-iran-war-is-the-worst-blunder-in-u-s-history-2026-08-31.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-31/source-prof-john-mearsheimer-iran-war-is-the-worst-blunder-in-u-s-history-2026-08-31.md",
+      "upstream_path": "operator-paste://2026-08-31/prof-john-mearsheimer-iran-war-is-the-worst-blunder-in-u-s-history",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mearsheimer"
+      ],
+      "host_slug": "judging-freedom",
+      "source_identity": "youtube:3WeqdARq0Ds",
+      "source_url": "https://www.youtube.com/watch?v=3WeqdARq0Ds",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-31",
+      "title": "Lt. Col. Anthony Aguilar: Iran's Swift Retaliation Strikes US F-16 Hangar in Jordan",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-31/source-lt-col-anthony-aguilar-iran-s-swift-retaliation-strikes-us-f-16-hangar-in-jordan-2026-08-31.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-31/source-lt-col-anthony-aguilar-iran-s-swift-retaliation-strikes-us-f-16-hangar-in-jordan-2026-08-31.md",
+      "upstream_path": "operator-paste://2026-08-31/lt-col-anthony-aguilar-iran-s-swift-retaliation-strikes-us-f-16-hangar-in-jordan",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "aguilar"
+      ],
+      "host_slug": "dialogue-works",
+      "source_identity": "youtube:I1laiYuUZ2c",
+      "source_url": "https://www.youtube.com/watch?v=I1laiYuUZ2c",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-31",
+      "title": "Russian Strikes Are Breaking The Zelensky Regime",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-31/source-russian-strikes-are-breaking-the-zelensky-regime-2026-08-31.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-31/source-russian-strikes-are-breaking-the-zelensky-regime-2026-08-31.md",
+      "upstream_path": "operator-paste://2026-08-31/russian-strikes-are-breaking-the-zelensky-regime",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "the-duran",
+      "source_identity": "youtube:AyVif8WQhWA",
+      "source_url": "https://www.youtube.com/watch?v=AyVif8WQhWA",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-12",
+      "title": "Larry Johnson: \"Outlast Trump\" – Iran’s Move vs. Trump’s \"Bankrupt Iran\" Strategy",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-12/source-larry-johnson-outlast-trump-iran-s-move-vs-trump-s-bankrupt-iran-strategy-2026-08-12.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-12/source-larry-johnson-outlast-trump-iran-s-move-vs-trump-s-bankrupt-iran-strategy-2026-08-12.md",
+      "upstream_path": "operator-paste://2026-08-12/larry-johnson-outlast-trump-iran-s-move-vs-trump-s-bankrupt-iran-strategy",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "johnson"
+      ],
+      "host_slug": "dialogue-works",
+      "source_identity": "youtube:MFRqORPP0ZU",
+      "source_url": "https://www.youtube.com/watch?v=MFRqORPP0ZU",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-27",
+      "title": "Russia Winning the Air Attrition War Over Ukraine /Lt Col Daniel Davis",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-27/source-russia-winning-the-air-attrition-war-over-ukraine-lt-col-daniel-davis-2026-08-27.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-27/source-russia-winning-the-air-attrition-war-over-ukraine-lt-col-daniel-davis-2026-08-27.md",
+      "upstream_path": "operator-paste://2026-08-27/russia-winning-the-air-attrition-war-over-ukraine-lt-col-daniel-davis",
+      "source_class": "host monologue",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "davis"
+      ],
+      "host_slug": "daniel-davis",
+      "source_identity": "youtube:V8TAm-6cLDA",
+      "source_url": "https://www.youtube.com/watch?v=V8TAm-6cLDA",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-25",
+      "title": "CONFIRMED: TRUMP WANTS TO USE A NUCLEAR BOMB ON IRAN, SAILORS SEND DISTRESS SIGNAL w/ Larry Johnson",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-25/source-confirmed-trump-wants-to-use-a-nuclear-bomb-on-iran-sailors-send-distress-signal-w-larry-johnson-2026-08-25.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-25/source-confirmed-trump-wants-to-use-a-nuclear-bomb-on-iran-sailors-send-distress-signal-w-larry-johnson-2026-08-25.md",
+      "upstream_path": "operator-paste://2026-08-25/confirmed-trump-wants-to-use-a-nuclear-bomb-on-iran-sailors-send-distress-signal-w-larry-johnson",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "johnson"
+      ],
+      "host_slug": "moral-resistance",
+      "source_identity": "youtube:FWQSYnf0lnk",
+      "source_url": "https://www.youtube.com/watch?v=FWQSYnf0lnk",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-25",
+      "title": "GROUND INVASION INTO IRAN IMPOSSIBLE, TRUMP ATTACKS IRAN, U.S OIL RESERVES DOWN w/ CIA Larry Johnson",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-25/source-ground-invasion-into-iran-impossible-trump-attacks-iran-u-s-oil-reserves-down-w-cia-larry-johnson-2026-08-25.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-25/source-ground-invasion-into-iran-impossible-trump-attacks-iran-u-s-oil-reserves-down-w-cia-larry-johnson-2026-08-25.md",
+      "upstream_path": "operator-paste://2026-08-25/ground-invasion-into-iran-impossible-trump-attacks-iran-u-s-oil-reserves-down-w-cia-larry-johnson",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "johnson"
+      ],
+      "host_slug": "moral-resistance",
+      "source_identity": "youtube:5ZNqIjZH1gw",
+      "source_url": "https://www.youtube.com/watch?v=5ZNqIjZH1gw",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-27",
+      "title": "HOW CHINA FLIPPED THE SCRIPT OF IRAN WAR /Col Lawrence Wilkerson",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-27/source-how-china-flipped-the-script-of-iran-war-col-lawrence-wilkerson-2026-08-27.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-27/source-how-china-flipped-the-script-of-iran-war-col-lawrence-wilkerson-2026-08-27.md",
+      "upstream_path": "operator-paste://2026-08-27/how-china-flipped-the-script-of-iran-war-col-lawrence-wilkerson",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "wilkerson"
+      ],
+      "host_slug": "daniel-davis",
+      "source_identity": "youtube:oCg52LEwiZg",
+      "source_url": "https://www.youtube.com/watch?v=oCg52LEwiZg",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
       "inference_basis": [
         "wrapper-normalized",
         "explicit-host",
