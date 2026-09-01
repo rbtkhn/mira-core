@@ -266,6 +266,20 @@ def route_path(path: str, *, repo_root: Path = REPO_ROOT) -> dict[str, Any]:
             "commands": ["tools/run.ps1 test --path tests/test_voice_count_authority.py"],
             "manual_checks": [MANUAL_NARRATIVE_GEOPOLITICS_CHECK],
         }
+    if path.startswith("narrative-geopolitics/templates/"):
+        return {
+            "owner": "geo-strategy/templates",
+            "validation_class": "domain-governed",
+            "commands": ["tools/run.ps1 test --mode fast --explain-route"],
+            "manual_checks": [MANUAL_NARRATIVE_GEOPOLITICS_CHECK],
+        }
+    if path.startswith("narrative-geopolitics/method/"):
+        return {
+            "owner": "geo-strategy/method",
+            "validation_class": "domain-governed",
+            "commands": ["tools/run.ps1 test --mode fast --explain-route"],
+            "manual_checks": [MANUAL_NARRATIVE_GEOPOLITICS_CHECK],
+        }
     daily_command = _daily_validate_command(path)
     if daily_command:
         return {

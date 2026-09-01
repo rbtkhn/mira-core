@@ -29,6 +29,7 @@ SESSION_ID_RE = re.compile(
 HOOK_RE = re.compile(r"`(NG-\d{8}-F\d+)`")
 DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 GEO_DAILY_FILES = ("sources.md", "synthesis.md", "forecast.md", "judgment.md", "daily-brief.md")
+STRATEGY_NOTEBOOK_FILE = "strategy-notebook.md"
 
 
 def run_tool(*arguments: str) -> subprocess.CompletedProcess[str]:
@@ -75,6 +76,42 @@ def geo_daily_digest(run_date: str) -> str:
         digest.update(path.read_bytes())
         digest.update(b"\0")
     return digest.hexdigest()
+
+
+def strategy_notebook_path(run_date: str) -> Path:
+    return geo_daily_path(run_date) / STRATEGY_NOTEBOOK_FILE
+
+
+def strategy_notebook_status(run_date: str, geo: dict | None = None) -> dict:
+    if geo and geo.get("status") == "no_geo_run":
+        return {
+            "status": "not_applicable",
+            "reason": "No manifest-backed Geo-Strategy sources exist for this date.",
+            "authority_effect": "none",
+        }
+    path = strategy_notebook_path(run_date)
+    if not path.is_file():
+        return {
+            "status": "composition_required",
+            "path": str(path.relative_to(REPO_ROOT)),
+        }
+    failures = []
+    if geo and geo.get("manifest_rows", 0):
+        validation = run_tool("daily-validate", "--date", run_date, "--stage", "synthesis")
+        failures = re.findall(r"^- (strategy-notebook\.md .+)$", validation.stdout, re.MULTILINE)
+        if failures:
+            return {
+                "status": "repair_required",
+                "path": str(path.relative_to(REPO_ROOT)),
+                "failures": failures,
+                "authority_effect": "none",
+            }
+    return {
+        "status": "present",
+        "path": str(path.relative_to(REPO_ROOT)),
+        "digest": file_sha256(path),
+        "authority_effect": "none",
+    }
 
 
 def geo_commit_receipt(artifact: str, artifact_path: Path) -> dict[str, str]:
@@ -669,6 +706,7 @@ def prerequisite_projection(args, run_date: str, *, auto_complete_geo: bool = Fa
             }
     entry = journal_entry(run_date)
     bundle = journal_bundle(args, run_date)
+    notebook = strategy_notebook_status(run_date, geo)
     journal_status = "already_finalized" if entry else "preparation_required"
     journal_ready = bool(entry)
     journal_failure = None
@@ -692,6 +730,7 @@ def prerequisite_projection(args, run_date: str, *, auto_complete_geo: bool = Fa
         "ready": geo_ready,
         "stages": {
             "geo": geo,
+            "strategy_notebook": notebook,
             "journal": {"status": journal_status, **({"failure_tail": journal_failure} if journal_failure else {})},
         },
         "incomplete_stages": incomplete,
@@ -718,7 +757,7 @@ def check_projection(args, run_date: str) -> dict:
         "next_action": None if ready else (
             "Repair the Geo-Strategy infrastructure failure before Dream can complete."
             if not prerequisites["ready"] else
-            "Dream will complete Geo-Strategy during execution, then use an agent-internal Mira Journal composition handoff before finalization."
+            "Dream will complete Geo-Strategy during execution, then use one agent-internal handoff to compose Strategy Notebook and Mira Journal before finalization."
             if not journal_ready else "Supply --dream-json or --no-candidate and resume."
         ),
     }
@@ -792,11 +831,13 @@ def execute(args, run_date: str) -> dict:
                     return {
                         "status": "composition_required", "mutation": True, "run": projection,
                         "journal_bundle": str(bundle),
+                        "strategy_notebook": strategy_notebook_status(run_date, geo),
                         "roi_synthesis": roi_synthesis,
                         "next_action": (
-                            "Agent-internal handoff, not operator approval: compose draft.md, draft.json, "
-                            "and technical-reference.json under the prepared Mira Journal contracts, "
-                            "validate them, then resume Dream."
+                            "Agent-internal handoff, not operator approval: compose any applicable "
+                            "Strategy Notebook work under the calibrated template, then compose "
+                            "draft.md, draft.json, and technical-reference.json under the prepared "
+                            "Mira Journal contracts, validate them, then resume Dream."
                         ),
                     }
                 validated, failure_tail = validate_journal_bundle(run_date, bundle)

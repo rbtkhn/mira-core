@@ -22,6 +22,7 @@ NG_ROOT = REPO_ROOT / "narrative-geopolitics"
 MANIFEST_PATH = NG_ROOT.parent / "archive" / "sources" / "geopolitics" / "source-manifest.json"
 DAILY_ROOT = NG_ROOT / "work" / "daily"
 LEDGER_PATH = NG_ROOT / "work" / "forecasts" / "forecast-ledger.md"
+DAILY_COMPLETENESS_TARGET = 6
 
 
 HOOK_RE = re.compile(r"`(NG-\d{8}-F\d{2})`")
@@ -58,6 +59,33 @@ JUDGMENT_DISPOSITIONS = {
     "longitudinal-review",
     "public-use-held",
 }
+STRATEGY_NOTEBOOK_REQUIRED_SECTIONS = (
+    "## Analyst Use",
+    "## Delta",
+    "## Source Pressure",
+    "## Forecast Hooks",
+    "## Why This Day Matters",
+)
+STRATEGY_NOTEBOOK_SECTION_ALIASES = (
+    ("strategic question", ("## Strategic Question", "## Question of Order")),
+    ("bottom line", ("## Bottom Line", "## Central Judgment")),
+    (
+        "claims requiring verification",
+        ("## Claims Requiring Verification", "## Claims That Cannot Bear Weight"),
+    ),
+    ("indicators", ("## Indicators", "## Signals to Watch")),
+    ("boundary", ("## Boundary", "## Memorandum Boundary")),
+)
+STRATEGY_MEMORANDUM_REQUIRED_SECTIONS = (
+    "## Historical Weight",
+    "## Problem of Leverage",
+    "## Settlement Architecture",
+)
+ISSUE_WORD_COUNT_RE = re.compile(r"word count outside 1500-2500 target: (\d+)")
+ISSUE_STUB_WORD_FLOOR = 750
+ISSUE_LOW_WORD_WARNING = 1100
+ISSUE_DENSE_WORD_FLOOR = 1200
+ISSUE_LEGACY_WORD_CEILING = 2500
 
 
 def parse_args() -> argparse.Namespace:
@@ -157,6 +185,13 @@ def judgment_failures(run_date: str, rows: list[dict[str, Any]], stage: str) -> 
                 known_ids.add(str(record["id"]))
     ledger_ids = set(HOOK_RE.findall(read_text(LEDGER_PATH)))
     source_ids = set(re.findall(r"`(SRC-[A-Z0-9-]+)`", read_text(daily_dir(run_date) / "sources.md")))
+    synthesis_path = daily_dir(run_date) / "synthesis.md"
+    operational_ids = {
+        claim.claim_id
+        for claim in verification.parse_operational_claims(
+            read_text(synthesis_path) if synthesis_path.exists() else ""
+        )
+    }
     library_ids: set[str] | None = None
     verification_ids = {
         path.name for path in (NG_ROOT / "work" / "verification" / "packets").glob("VER-*")
@@ -181,6 +216,9 @@ def judgment_failures(run_date: str, rows: list[dict[str, Any]], stage: str) -> 
         elif ref.startswith("VER-"):
             if not any(ref == item or item.startswith(ref + "-") for item in verification_ids):
                 failures.append(f"judgment.md reference does not resolve: {ref}")
+        elif ref.startswith("OPC-"):
+            if ref not in known_ids and ref not in operational_ids:
+                failures.append(f"judgment.md reference does not resolve: {ref}")
         elif ref.startswith("NG-"):
             if ref not in known_ids and ref not in ledger_ids:
                 failures.append(f"judgment.md reference does not resolve: {ref}")
@@ -189,10 +227,117 @@ def judgment_failures(run_date: str, rows: list[dict[str, Any]], stage: str) -> 
     return failures
 
 
+def strategy_notebook_failures(run_date: str, stage: str) -> list[str]:
+    """Validate the expert-facing daily estimate without verifying its claims."""
+    path = daily_dir(run_date) / "strategy-notebook.md"
+    if stage == "intake" or not path.exists():
+        return []
+    text = read_text(path)
+    if "Status: `template`" in text or JUDGMENT_PLACEHOLDER_RE.search(text):
+        return ["strategy-notebook.md is still a template or contains unresolved placeholders"]
+
+    failures: list[str] = []
+    for section in STRATEGY_NOTEBOOK_REQUIRED_SECTIONS:
+        if section not in text:
+            failures.append(f"strategy-notebook.md missing required section: {section}")
+    for label, aliases in STRATEGY_NOTEBOOK_SECTION_ALIASES:
+        if not any(alias in text for alias in aliases):
+            failures.append(f"strategy-notebook.md missing required section: {label}")
+    register_match = re.search(r"(?im)^Register:\s*`?([a-z-]+)`?", text)
+    register_mode = register_match.group(1) if register_match else "expert-room"
+    if register_mode == "strategic-memorandum":
+        for section in STRATEGY_MEMORANDUM_REQUIRED_SECTIONS:
+            if section not in text:
+                failures.append(f"strategy-notebook.md missing strategic-memorandum section: {section}")
+    if not re.search(r"Source set:\s*`\d+\s+sources;\s*\d+\s+voices;\s*\d+\s+hosts/channels;", text):
+        failures.append("strategy-notebook.md requires source-set counts")
+    if not re.search(r"Confidence:\s*`(?:low|medium|high)`", text):
+        failures.append("strategy-notebook.md requires a confidence level")
+    drivers = text.split("Confidence drivers:", 1)[-1].split("##", 1)[0]
+    if "Confidence drivers:" not in text or len(re.findall(r"(?m)^-\s+\S", drivers)) < 3:
+        failures.append("strategy-notebook.md requires three confidence drivers")
+
+    source_ids = set(re.findall(r"`(SRC-\d{2})`", read_text(daily_dir(run_date) / "sources.md")))
+    for ref in sorted(set(re.findall(r"`(SRC-\d{2})`", text)) - source_ids):
+        failures.append(f"strategy-notebook.md reference does not resolve: {ref}")
+
+    source_pressure = text.split("## Source Pressure", 1)[-1].split("##", 1)[0]
+    if "| Source ID |" not in source_pressure:
+        failures.append("strategy-notebook.md Source Pressure requires Source ID column")
+    elif not re.search(r"(?m)^\|\s*`SRC-\d{2}`\s*\|", source_pressure):
+        failures.append("strategy-notebook.md Source Pressure requires at least one source row")
+
+    verification = re.split(
+        r"(?m)^## (?:Claims Requiring Verification|Claims That Cannot Bear Weight)\s*$",
+        text,
+        maxsplit=1,
+    )[-1].split("##", 1)[0]
+    if "none" not in verification.lower() and "| Claim ID / Source IDs |" not in verification:
+        failures.append("strategy-notebook.md verification claims require claim/source ID column")
+
+    forecast_hooks = text.split("## Forecast Hooks", 1)[-1].split("##", 1)[0]
+    has_hook = bool(HOOK_RE.search(forecast_hooks))
+    has_none = re.search(r"(?im)^\s*none\b", forecast_hooks) is not None
+    if not has_hook and not has_none:
+        failures.append("strategy-notebook.md Forecast Hooks requires hook rows or none")
+
+    boundary = re.split(
+        r"(?m)^## (?:Boundary|Memorandum Boundary)\s*$",
+        text,
+        maxsplit=1,
+    )[-1] if re.search(r"(?m)^## (?:Boundary|Memorandum Boundary)\s*$", text) else ""
+    for phrase in (
+        "source convergence is not independent factual verification",
+        "public promotion",
+        "operational advice",
+        "forecast resolution",
+    ):
+        if phrase not in boundary.lower():
+            failures.append(f"strategy-notebook.md Boundary missing: {phrase}")
+    return failures
+
+
+def issue_word_count_failure(
+    warning: str,
+    *,
+    stage: str,
+    consumed_sources: int,
+    strategy_notebook_valid: bool,
+) -> str | None:
+    match = ISSUE_WORD_COUNT_RE.search(warning)
+    if not match or stage not in {"issue", "publication"}:
+        return None
+    count = int(match.group(1))
+    if count > ISSUE_LEGACY_WORD_CEILING:
+        return f"issue.md: {warning}; daily-packet exceeds {ISSUE_LEGACY_WORD_CEILING} editorial words"
+    if count < ISSUE_STUB_WORD_FLOOR:
+        return f"issue.md: {warning}; daily-packet requires at least {ISSUE_STUB_WORD_FLOOR} editorial words"
+    if (
+        consumed_sources >= DAILY_COMPLETENESS_TARGET
+        and not strategy_notebook_valid
+        and count < ISSUE_DENSE_WORD_FLOOR
+    ):
+        return (
+            f"issue.md: {warning}; dense daily-packet without a valid Strategy Notebook "
+            f"requires at least {ISSUE_DENSE_WORD_FLOOR} editorial words"
+        )
+    return None
+
+
 def historical_pressure_failures(run_date: str) -> list[str]:
     """Keep private Library material and present-fact authority separate."""
     run_path = daily_dir(run_date)
-    paths = [run_path / name for name in ("sources.md", "synthesis.md", "judgment.md", "daily-brief.md", "issue.md")]
+    paths = [
+        run_path / name
+        for name in (
+            "sources.md",
+            "synthesis.md",
+            "judgment.md",
+            "daily-brief.md",
+            "issue.md",
+            "strategy-notebook.md",
+        )
+    ]
     texts = {path.name: read_text(path) for path in paths if path.exists()}
     failures: list[str] = []
     for name, text in texts.items():
@@ -229,6 +374,23 @@ def historical_pressure_failures(run_date: str) -> list[str]:
             if disposition in {"adopted", "narrowed", "redirected"}:
                 if not cells[3] or not cells[4] or not cells[5] or not cells[6]:
                     failures.append(f"Historical Pressure Test adopted row lacks safeguard fields: {cells[0]}")
+    notebook = texts.get("strategy-notebook.md", "")
+    if "## Library Pressure Test" in notebook:
+        section = notebook.split("## Library Pressure Test", 1)[-1].split("##", 1)[0]
+        for line in section.splitlines():
+            if not line.startswith("|") or ("LIB-" not in line and "not-invoked" not in line):
+                continue
+            cells = [cell.strip().strip("`") for cell in line.strip().strip("|").split("|")]
+            if len(cells) < 8:
+                failures.append("Strategy Notebook Library Pressure Test row has incomplete schema")
+                continue
+            disposition = cells[2]
+            if disposition in {"adopted", "narrowed", "redirected"}:
+                missing = [cells[index] for index in (3, 4, 5, 6)]
+                if any(not value or value.lower() == "none" for value in missing):
+                    failures.append(
+                        f"Strategy Notebook Library Pressure Test adopted row lacks safeguard fields: {cells[0]}"
+                    )
     combined = "\n".join(texts.values())
     if re.search(r"(?i)LIB-[A-Z0-9-]+[^\n]{0,120}(?:verifies|confirms|operationally_supported)", combined):
         failures.append("Library reference cannot verify a present operating fact")
@@ -376,6 +538,11 @@ def validate_run(run_date: str, stage: str = "intake") -> dict[str, Any]:
         consumed_sources = len(
             manifest_archive_paths(rows) & set(extract_intake_paths(sources_text))
         )
+        if 0 < consumed_sources < DAILY_COMPLETENESS_TARGET:
+            warnings.append(
+                "daily completeness below target: "
+                f"{consumed_sources} consumed sources; target {DAILY_COMPLETENESS_TARGET}"
+            )
         status = extract_status(sources_text)
         linked_paths = {normalize_daily_archive_link(link) for link in extract_archive_links(sources_text)}
 
@@ -415,8 +582,11 @@ def validate_run(run_date: str, stage: str = "intake") -> dict[str, Any]:
             if hook_id not in ledger_hook_ids:
                 warnings.append(f"forecast hook missing from ledger: {hook_id}")
 
+    strategy_failures: list[str] = []
     if downstream and rows:
         failures.extend(judgment_failures(run_date, rows, stage))
+        strategy_failures = strategy_notebook_failures(run_date, stage)
+        failures.extend(strategy_failures)
         failures.extend(historical_pressure_failures(run_date))
         failures.extend(voice_metadata.metadata_failures(manifest, REPO_ROOT, run_date))
         voice_report = voice_indexes.reconcile(
@@ -484,9 +654,19 @@ def validate_run(run_date: str, stage: str = "intake") -> dict[str, Any]:
             ledger_path=LEDGER_PATH,
         )
         failures.extend(f"issue.md: {item}" for item in issue_failures)
+        strategy_notebook_valid = (
+            (run_path / "strategy-notebook.md").exists()
+            and not strategy_failures
+        )
         for item in issue_warnings:
-            if stage in {"issue", "publication"} and "word count outside 1500-2500" in item:
-                failures.append(f"issue.md: {item}; daily-packet requires 1500-2500 editorial words")
+            word_count_failure = issue_word_count_failure(
+                item,
+                stage=stage,
+                consumed_sources=consumed_sources,
+                strategy_notebook_valid=strategy_notebook_valid,
+            )
+            if word_count_failure:
+                failures.append(word_count_failure)
             else:
                 warnings.append(f"issue.md: {item}")
 

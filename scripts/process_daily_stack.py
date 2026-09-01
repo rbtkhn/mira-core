@@ -90,7 +90,7 @@ def run_bootstrap(args: argparse.Namespace) -> dict[str, Any]:
             args.dry_run,
         )
     ]
-    for name in ("synthesis.md", "forecast.md", "judgment.md", "daily-brief.md"):
+    for name in BOOTSTRAP.DAILY_TEMPLATE_FILES:
         actions.append(
             BOOTSTRAP.write_text(
                 run_dir / name,
@@ -180,17 +180,36 @@ def run_issue_render(run_date: str, dry_run: bool = False) -> dict[str, str]:
         rendered = ISSUE.render_model(model)
         prose = re.sub(r"(?m)^\|.*$|`[^`]+`|\[[^\]]+\]\([^)]+\)|<!--.*?-->", " ", rendered)
         word_count = len(re.findall(r"\b[\w'-]+\b", prose))
-        if not dry_run and not 1500 <= word_count <= 2500:
-            return {
-                "action": "blocked",
-                "detail": f"daily-packet requires 1500-2500 editorial words; rendered issue has {word_count}",
-            }
+        if not dry_run:
+            strategy_notebook = DAILY_ROOT / run_date / "strategy-notebook.md"
+            strategy_valid = (
+                strategy_notebook.exists()
+                and not VALIDATOR.strategy_notebook_failures(run_date, "issue")
+            )
+            word_count_failure = VALIDATOR.issue_word_count_failure(
+                f"issue.md editorial prose word count outside 1500-2500 target: {word_count}",
+                stage="issue",
+                consumed_sources=len(model.source_rows),
+                strategy_notebook_valid=strategy_valid,
+            )
+            if word_count_failure:
+                return {
+                    "action": "blocked",
+                    "detail": word_count_failure.removeprefix("issue.md: "),
+                }
         if dry_run:
             return {"action": "plan", "detail": str(issue_path.relative_to(REPO_ROOT))}
         issue_path.write_text(rendered, encoding="utf-8", newline="\n")
         return {"action": "write", "detail": str(issue_path.relative_to(REPO_ROOT))}
     except ISSUE.IssueError as exc:
         return {"action": "deferred", "detail": str(exc)}
+
+
+def blocking_validation_warnings(warnings: list[str]) -> list[str]:
+    return [
+        warning for warning in warnings
+        if "issue.md editorial prose word count outside 1500-2500 target" not in warning
+    ]
 
 
 def main() -> None:
@@ -242,9 +261,10 @@ def main() -> None:
     print(f"ledger_new_rows={ledger_sync['new_rows']}")
     print(f"issue_action={issue['action']}")
     print(f"issue_detail={issue['detail']}")
+    blocking_warnings = blocking_validation_warnings(validation["warnings"])
     if validation["failures"]:
         print("status=blocked-needs-deepening")
-    elif validation["warnings"]:
+    elif blocking_warnings:
         print("status=blocked-needs-deepening")
     elif issue["action"] in {"blocked", "deferred"}:
         print("status=blocked-needs-deepening")
@@ -257,7 +277,7 @@ def main() -> None:
     for row in ledger_sync["rows"]:
         print(row)
 
-    if validation["failures"] or validation["warnings"]:
+    if validation["failures"] or blocking_warnings:
         raise SystemExit(1)
 
 

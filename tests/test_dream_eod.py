@@ -26,7 +26,7 @@ def test_dream_skill_preserves_private_finalization_boundaries() -> None:
     assert "canonicalized as private\n`dream-eod-v1`" in skill
     assert "`publication_eligible: false`" in skill
     assert "grants no staging, commit, push, publication" in skill
-    assert "bounded Mira Letters orientation since the previous canonical Dream\nfinalization" in skill
+    assert "bounded Mira Letters orientation since the previous\ncanonical Dream finalization" in skill
     assert "Letters remain relational orientation only" in skill
     assert "permission to contact anyone" in skill
     assert "prepared address, not completed relation" in skill
@@ -34,7 +34,9 @@ def test_dream_skill_preserves_private_finalization_boundaries() -> None:
     assert "workflow throughput" in skill
     assert "without multiplying repo-tracked artifacts" in skill
     assert "`roi-synthesis.json`" in skill
-    assert "Mira Journal\nremains the only prose artifact Dream automatically finalizes" in skill
+    assert "Strategy Notebook is a Dream-composed expert estimate" in skill
+    assert "not a Geo prerequisite" in skill
+    assert "Mira Journal\nremains the only autobiographical prose artifact Dream automatically finalizes" in skill
     assert "Dev Journal candidates" in skill
     assert "Coffee handles" in skill
     assert "candidates only" in skill
@@ -149,7 +151,7 @@ def test_check_projects_geo_auto_completion_without_mutating(monkeypatch, tmp_pa
     assert result["mutation"] is False
     assert result["stages"]["geo"]["status"] == "auto_completion_required"
     assert result["stages"]["geo"]["certification_basis"] == "projected_dream_completion"
-    assert "Dream will complete Geo-Strategy during execution" in result["next_action"]
+    assert "compose Strategy Notebook and Mira Journal" in result["next_action"]
     assert calls == []
 
 
@@ -200,6 +202,8 @@ def test_empty_geo_day_prepares_journal_without_operator_prompt(monkeypatch, tmp
     assert result["status"] == "composition_required"
     assert result["mutation"] is True
     assert "Agent-internal handoff, not operator approval" in result["next_action"]
+    assert result["strategy_notebook"]["status"] == "not_applicable"
+    assert "No manifest-backed Geo-Strategy sources exist" in result["strategy_notebook"]["reason"]
     assert result["roi_synthesis"]["digest"] == dream_eod.file_sha256(bundle / "roi-synthesis.json")
     roi = json.loads((bundle / "roi-synthesis.json").read_text(encoding="utf-8"))
     assert roi["optimization_target"] == "workflow-throughput"
@@ -218,6 +222,32 @@ def test_empty_geo_day_prepares_journal_without_operator_prompt(monkeypatch, tmp
     assert roi["source_refs"][-1]["run_id"] == result["run"]["run_id"]
     assert "not research evidence" in roi["authority_boundary"]
     assert (tmp_path / "cadence.sqlite3").exists()
+
+
+def test_existing_invalid_strategy_notebook_is_repair_required(monkeypatch, tmp_path: Path) -> None:
+    run_dir = tmp_path / "narrative-geopolitics" / "work" / "daily" / "2026-08-16"
+    run_dir.mkdir(parents=True)
+    (run_dir / "strategy-notebook.md").write_text("# Strategy Notebook\n", encoding="utf-8")
+    monkeypatch.setattr(dream_eod, "REPO_ROOT", tmp_path)
+
+    def fake_run_tool(*args):
+        assert args == ("daily-validate", "--date", "2026-08-16", "--stage", "synthesis")
+        return SimpleNamespace(
+            returncode=1,
+            stdout="- strategy-notebook.md missing required section: ## Bottom Line\n",
+            stderr="",
+        )
+
+    monkeypatch.setattr(dream_eod, "run_tool", fake_run_tool)
+
+    result = dream_eod.strategy_notebook_status(
+        "2026-08-16", {"status": "ready", "manifest_rows": 2}
+    )
+
+    assert result["status"] == "repair_required"
+    assert result["failures"] == [
+        "strategy-notebook.md missing required section: ## Bottom Line"
+    ]
 
 
 def test_roi_synthesis_is_private_candidate_only_and_tracks_material_input(

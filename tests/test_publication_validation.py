@@ -26,6 +26,8 @@ def make_tree(root: Path) -> None:
         "projects/grace-gems/README.md",
         "archive/sources/geopolitics/source-manifest.json",
         "archive/sources/geopolitics/sources/2026-08-17/source-example.md",
+        "narrative-geopolitics/method/strategy-notebook-library-routing.md",
+        "narrative-geopolitics/templates/strategy-notebook.md",
         "narrative-geopolitics/voices/aguilar/source-index.md",
         "narrative-geopolitics/work/daily/2026-08-17/synthesis.md",
         "narrative-geopolitics/work/coverage/contracts/2026-08.json",
@@ -235,6 +237,8 @@ def test_router_resolves_narrative_geopolitics_artifacts(tmp_path: Path) -> None
         [
             "archive/sources/geopolitics/source-manifest.json",
             "narrative-geopolitics/voices/aguilar/source-index.md",
+            "narrative-geopolitics/method/strategy-notebook-library-routing.md",
+            "narrative-geopolitics/templates/strategy-notebook.md",
             "narrative-geopolitics/work/daily/2026-08-17",
             "narrative-geopolitics/work/forecasts/forecast-ledger.md",
             "narrative-geopolitics/work/morning-brief/2026-08-17.receipt.json",
@@ -245,6 +249,8 @@ def test_router_resolves_narrative_geopolitics_artifacts(tmp_path: Path) -> None
     assert report["status"] == "manual-required"
     assert report["owners"] == [
         "narrative-geopolitics/archive",
+        "geo-strategy/method",
+        "geo-strategy/templates",
         "geo-strategy",
         "geo-strategy/forecast-ledger",
         "morning-brief",
@@ -252,6 +258,7 @@ def test_router_resolves_narrative_geopolitics_artifacts(tmp_path: Path) -> None
     assert report["validation_classes"] == ["domain-governed"]
     assert report["commands"] == [
         "tools/run.ps1 test --path tests/test_voice_count_authority.py",
+        "tools/run.ps1 test --mode fast --explain-route",
         "tools/run.ps1 daily-validate --date 2026-08-17 --stage issue",
         "tools/run.ps1 test --path tests/test_morning_brief.py",
     ]
