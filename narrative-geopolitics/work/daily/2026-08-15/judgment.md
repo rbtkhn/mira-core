@@ -34,6 +34,10 @@ Strongest counterevidence or dissent: The source set is ideologically clustered.
 
 Do not treat repeated source assertions as verified claims. Link only to existing `SRC-*`, `OPC-*`, `CLM-*`, `NG-*`, or `VER-*` records.
 
+## Late-source judgment renewal
+
+Magnier's reported ceasefire deadline strengthens the temporal test already governing the packet. The relevant judgment is not that the deadline or its terms are verified, but that actors can use renewal, expiry, and threatened punishment to compete for control of the sequence. No new forecast is warranted; the existing watch should treat the reported Monday boundary as one source-attributed observable among official and market signals.
+
 ## Next Observable Signals
 
 - Hormuz passage, insurance, fee, MOU, sanctions, and route-language changes between `2026-08-16` and `2026-09-15`; clean normalization weakens the packet, while conditional passage strengthens it.

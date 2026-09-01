@@ -8,8 +8,8 @@ Status: `live-intake-first`
 
 Primary source basis:
 
-- `narrative-geopolitics/archive/source-manifest.json`
-- `narrative-geopolitics/archive/sources/2026-08-06/`
+- `archive/sources/geopolitics/source-manifest.json`
+- `archive/sources/geopolitics/sources/2026-08-06/`
 
 ## Intake Batch
 
@@ -17,25 +17,25 @@ This run is grounded in the `2026-08-06` day batch already landed in the central
 
 | Source File | Source Type | Intake Status | Manifest Row | Voice Route | Channel Route | Notes |
 | --- | --- | --- | --- | --- | --- | --- |
-| `archive/sources/2026-08-06/source-1-andrei-martyanov-strategic-nightmare-iran-s-unthinkable-move-leaves-u-s-with-zero-options-2026-08-06.md` | cleaned-transcript | `imported` | `yes` | Martyanov | Dialogue Works | guest interview pressure test; review and narrow to owning crisis object before synthesis. |
-| `archive/sources/2026-08-06/source-1-col-doug-macgregor-all-out-war-w-iran-getting-unavoidable-2026-08-06.md` | cleaned-transcript | `imported` | `yes` | Macgregor | Daniel Davis | guest interview pressure test; review and narrow to owning crisis object before synthesis. |
-| `archive/sources/2026-08-06/source-1-max-blumenthal-why-trump-hates-press-freedom-2026-08-06.md` | cleaned-transcript | `imported` | `yes` | Blumenthal | Judging Freedom | guest interview pressure test; review and narrow to owning crisis object before synthesis. |
-| `archive/sources/2026-08-06/source-1-prof-john-mearsheimer-drones-can-t-deliver-ukraine-victory-2026-08-06.md` | cleaned-transcript | `imported` | `yes` | Mearsheimer | Daniel Davis | guest interview pressure test; review and narrow to owning crisis object before synthesis. |
-| `archive/sources/2026-08-06/source-1-prof-mohammad-marandi-who-started-this-war-2026-08-06.md` | cleaned-transcript | `imported` | `yes` | Marandi | Judging Freedom | guest interview pressure test; review and narrow to owning crisis object before synthesis. |
-| `archive/sources/2026-08-06/source-1-russia-prepares-chernigov-offensive-china-to-block-drone-exports-worried-west-meets-russia-vienna-2026-08-06.md` | cleaned-transcript | `imported` | `yes` | Mercouris | Alexander Mercouris | host monologue; review and narrow to owning crisis object before synthesis. |
-| `archive/sources/2026-08-06/source-1-russia-rearms-west-disarms-zelensky-wants-us-to-strike-russian-missile-launchers-2026-08-06.md` | cleaned-transcript | `imported` | `yes` | Mercouris | The Duran | guest interview pressure test; review and narrow to owning crisis object before synthesis. |
+| `archive/sources/geopolitics/sources/2026-08-06/source-1-andrei-martyanov-strategic-nightmare-iran-s-unthinkable-move-leaves-u-s-with-zero-options-2026-08-06.md` | cleaned-transcript | `imported` | `yes` | Martyanov | Dialogue Works | guest interview pressure test; review and narrow to owning crisis object before synthesis. |
+| `archive/sources/geopolitics/sources/2026-08-06/source-1-col-doug-macgregor-all-out-war-w-iran-getting-unavoidable-2026-08-06.md` | cleaned-transcript | `imported` | `yes` | Macgregor | Daniel Davis | guest interview pressure test; review and narrow to owning crisis object before synthesis. |
+| `archive/sources/geopolitics/sources/2026-08-06/source-1-max-blumenthal-why-trump-hates-press-freedom-2026-08-06.md` | cleaned-transcript | `imported` | `yes` | Blumenthal | Judging Freedom | guest interview pressure test; review and narrow to owning crisis object before synthesis. |
+| `archive/sources/geopolitics/sources/2026-08-06/source-1-prof-john-mearsheimer-drones-can-t-deliver-ukraine-victory-2026-08-06.md` | cleaned-transcript | `imported` | `yes` | Mearsheimer | Daniel Davis | guest interview pressure test; review and narrow to owning crisis object before synthesis. |
+| `archive/sources/geopolitics/sources/2026-08-06/source-1-prof-mohammad-marandi-who-started-this-war-2026-08-06.md` | cleaned-transcript | `imported` | `yes` | Marandi | Judging Freedom | guest interview pressure test; review and narrow to owning crisis object before synthesis. |
+| `archive/sources/geopolitics/sources/2026-08-06/source-1-russia-prepares-chernigov-offensive-china-to-block-drone-exports-worried-west-meets-russia-vienna-2026-08-06.md` | cleaned-transcript | `imported` | `yes` | Mercouris | Alexander Mercouris | host monologue; review and narrow to owning crisis object before synthesis. |
+| `archive/sources/geopolitics/sources/2026-08-06/source-1-russia-rearms-west-disarms-zelensky-wants-us-to-strike-russian-missile-launchers-2026-08-06.md` | cleaned-transcript | `imported` | `yes` | Mercouris | The Duran | guest interview pressure test; review and narrow to owning crisis object before synthesis. |
 
 ## Run Source Set
 
 | Source ID | Voice | Host / Channel | Modality | Archive Path | Why It Matters |
 | --- | --- | --- | --- | --- | --- |
-| `SRC-01` | Martyanov | Dialogue Works | cleaned-transcript | [2026-08-06 Martyanov](../../../archive/sources/2026-08-06/source-1-andrei-martyanov-strategic-nightmare-iran-s-unthinkable-move-leaves-u-s-with-zero-options-2026-08-06.md) | (1) Andrei Martyanov: Strategic Nightmare: Iran’s Unthinkable Move Leaves U.S. With Zero Options |
-| `SRC-02` | Macgregor | Daniel Davis | cleaned-transcript | [2026-08-06 Macgregor](../../../archive/sources/2026-08-06/source-1-col-doug-macgregor-all-out-war-w-iran-getting-unavoidable-2026-08-06.md) | (1) Col Doug Macgregor: All Out War w/Iran Getting Unavoidable |
-| `SRC-03` | Blumenthal | Judging Freedom | cleaned-transcript | [2026-08-06 Blumenthal](../../../archive/sources/2026-08-06/source-1-max-blumenthal-why-trump-hates-press-freedom-2026-08-06.md) | (1) Max Blumenthal : Why Trump Hates Press Freedom |
-| `SRC-04` | Mearsheimer | Daniel Davis | cleaned-transcript | [2026-08-06 Mearsheimer](../../../archive/sources/2026-08-06/source-1-prof-john-mearsheimer-drones-can-t-deliver-ukraine-victory-2026-08-06.md) | (1) Prof John Mearsheimer: Drones Can't Deliver Ukraine Victory |
-| `SRC-05` | Marandi | Judging Freedom | cleaned-transcript | [2026-08-06 Marandi](../../../archive/sources/2026-08-06/source-1-prof-mohammad-marandi-who-started-this-war-2026-08-06.md) | (1) Prof. Mohammad Marandi : Who Started this War? |
-| `SRC-06` | Mercouris | Alexander Mercouris | cleaned-transcript | [2026-08-06 Mercouris](../../../archive/sources/2026-08-06/source-1-russia-prepares-chernigov-offensive-china-to-block-drone-exports-worried-west-meets-russia-vienna-2026-08-06.md) | (1) Russia Prepares Chernigov Offensive; China To Block Drone Exports; Worried West Meets Russia Vienna |
-| `SRC-07` | Mercouris | The Duran | cleaned-transcript | [2026-08-06 Mercouris](../../../archive/sources/2026-08-06/source-1-russia-rearms-west-disarms-zelensky-wants-us-to-strike-russian-missile-launchers-2026-08-06.md) | (1) Russia Rearms, West Disarms. Zelensky Wants US to Strike Russian Missile Launchers |
+| `SRC-01` | Martyanov | Dialogue Works | cleaned-transcript | [2026-08-06 Martyanov](../../../../archive/sources/geopolitics/sources/2026-08-06/source-1-andrei-martyanov-strategic-nightmare-iran-s-unthinkable-move-leaves-u-s-with-zero-options-2026-08-06.md) | (1) Andrei Martyanov: Strategic Nightmare: Iran’s Unthinkable Move Leaves U.S. With Zero Options |
+| `SRC-02` | Macgregor | Daniel Davis | cleaned-transcript | [2026-08-06 Macgregor](../../../../archive/sources/geopolitics/sources/2026-08-06/source-1-col-doug-macgregor-all-out-war-w-iran-getting-unavoidable-2026-08-06.md) | (1) Col Doug Macgregor: All Out War w/Iran Getting Unavoidable |
+| `SRC-03` | Blumenthal | Judging Freedom | cleaned-transcript | [2026-08-06 Blumenthal](../../../../archive/sources/geopolitics/sources/2026-08-06/source-1-max-blumenthal-why-trump-hates-press-freedom-2026-08-06.md) | (1) Max Blumenthal : Why Trump Hates Press Freedom |
+| `SRC-04` | Mearsheimer | Daniel Davis | cleaned-transcript | [2026-08-06 Mearsheimer](../../../../archive/sources/geopolitics/sources/2026-08-06/source-1-prof-john-mearsheimer-drones-can-t-deliver-ukraine-victory-2026-08-06.md) | (1) Prof John Mearsheimer: Drones Can't Deliver Ukraine Victory |
+| `SRC-05` | Marandi | Judging Freedom | cleaned-transcript | [2026-08-06 Marandi](../../../../archive/sources/geopolitics/sources/2026-08-06/source-1-prof-mohammad-marandi-who-started-this-war-2026-08-06.md) | (1) Prof. Mohammad Marandi : Who Started this War? |
+| `SRC-06` | Mercouris | Alexander Mercouris | cleaned-transcript | [2026-08-06 Mercouris](../../../../archive/sources/geopolitics/sources/2026-08-06/source-1-russia-prepares-chernigov-offensive-china-to-block-drone-exports-worried-west-meets-russia-vienna-2026-08-06.md) | (1) Russia Prepares Chernigov Offensive; China To Block Drone Exports; Worried West Meets Russia Vienna |
+| `SRC-07` | Mercouris | The Duran | cleaned-transcript | [2026-08-06 Mercouris](../../../../archive/sources/geopolitics/sources/2026-08-06/source-1-russia-rearms-west-disarms-zelensky-wants-us-to-strike-russian-missile-launchers-2026-08-06.md) | (1) Russia Rearms, West Disarms. Zelensky Wants US to Strike Russian Missile Launchers |
 
 ## Load-Bearing Quotes
 

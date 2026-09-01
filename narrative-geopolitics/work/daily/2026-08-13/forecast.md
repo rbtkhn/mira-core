@@ -27,6 +27,10 @@ Disposition: due hooks are noted but not resolved here. Resolution requires auth
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | `NG-20260813-F01` | By `2026-08-27`, at least one later source lane, official statement, or policy move will frame U.S. Iran/Gulf pressure as burden management, force rotation, sanctions fallback, partner restraint, or containment rather than clean victory settlement. | If ambiguity management is replacing decisive coercion, public language and policy signals should shift toward managing costs rather than claiming closure. | `plausible` | `2026-08-27` | References to rotation, burden sharing, sanctions fallback, coalition discipline, containment, partner restraint, or managed attrition. | Durable settlement language, credible de-escalation architecture, or a sustained victory narrative without burden-management signals. | `hit` if one qualifying later signal appears; `miss` if clean victory/settlement framing dominates authorized evidence by review date; `mixed` if both appear; `unresolvable_with_authorized_evidence` if no adequate later evidence is captured. | U.S. and partners may still sustain a victory/coercion narrative without visible burden-management language. | `none` |
 
+## Late-source forecast review
+
+`SRC-15` and `SRC-17` strengthen the causal rationale for the existing burden-management hook by showing how threat narratives and incompatible settlement demands can preserve ambiguity. They do not alter the probability or review date. `SRC-16` is a held regional comparison and is not a forecast dependency.
+
 ## Ledger Entries
 
 Copy final hooks to `work/forecasts/forecast-ledger.md` only when the operator authorizes ledger mutation. No ledger row was added by this run.

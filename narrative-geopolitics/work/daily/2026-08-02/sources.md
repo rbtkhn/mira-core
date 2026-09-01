@@ -8,8 +8,8 @@ Status: `live-intake-first`
 
 Primary source basis:
 
-- `narrative-geopolitics/archive/source-manifest.json`
-- `narrative-geopolitics/archive/sources/2026-08-02/`
+- `archive/sources/geopolitics/source-manifest.json`
+- `archive/sources/geopolitics/sources/2026-08-02/`
 
 ## Intake Batch
 
@@ -17,25 +17,25 @@ This run is grounded in the `2026-08-02` day batch already landed in the central
 
 | Source File | Source Type | Intake Status | Manifest Row | Voice Route | Channel Route | Notes |
 | --- | --- | --- | --- | --- | --- | --- |
-| `archive/sources/2026-08-02/source-larry-johnson-i-called-it-off-trump-confirms-scrapped-iran-attack-amid-drone-impacts-in-kurdistan-2026-08-02.md` | cleaned-transcript | `imported` | `yes` | Johnson | Dialogue Works | guest interview pressure test; review and narrow to owning crisis object before synthesis. |
-| `archive/sources/2026-08-02/source-live-scott-ritter-iran-and-russia-wars-now-entering-most-dangerous-phase-2026-08-02.md` | cleaned-transcript | `imported` | `yes` | Ritter | Cyrus Janssen | guest interview pressure test; review and narrow to owning crisis object before synthesis. |
-| `archive/sources/2026-08-02/source-ray-mcgovern-iran-s-gulf-shockwave-how-precision-strikes-just-collapsed-the-war-strategy-2026-08-02.md` | cleaned-transcript | `imported` | `yes` | McGovern | Dialogue Works | guest interview pressure test; review and narrow to owning crisis object before synthesis. |
-| `archive/sources/2026-08-02/source-trump-iran-begged-him-not-to-strike-as-they-are-ready-for-deal-2026-08-02.md` | cleaned-transcript | `imported` | `yes` | Weichert | Mario Nawfal | guest interview pressure test; review and narrow to owning crisis object before synthesis. |
-| `archive/sources/2026-08-02/source-trump-tacos-again-what-s-next-lt-col-daniel-davis-2026-08-02.md` | cleaned-transcript | `imported` | `yes` | Davis | Daniel Davis | host monologue; review and narrow to owning crisis object before synthesis. |
-| `archive/sources/2026-08-02/source-breaking-iran-attacks-ship-after-trump-cancels-strikes-w-lt-col-anthony-aguilar-2026-08-02.md` | cleaned-transcript | `imported` | `yes` | Aguilar | Mario Nawfal | guest interview pressure test; review and narrow to owning crisis object before synthesis. |
-| `archive/sources/2026-08-02/source-ukraine-landocked-russia-cuts-off-odessa-land-sea-routes-rassvet-begins-operating-merz-implodes-2026-08-02.md` | cleaned-transcript | `imported` | `yes` | Mercouris | Alexander Mercouris | host monologue; review and narrow to owning crisis object before synthesis. |
+| `archive/sources/geopolitics/sources/2026-08-02/source-larry-johnson-i-called-it-off-trump-confirms-scrapped-iran-attack-amid-drone-impacts-in-kurdistan-2026-08-02.md` | cleaned-transcript | `imported` | `yes` | Johnson | Dialogue Works | guest interview pressure test; review and narrow to owning crisis object before synthesis. |
+| `archive/sources/geopolitics/sources/2026-08-02/source-live-scott-ritter-iran-and-russia-wars-now-entering-most-dangerous-phase-2026-08-02.md` | cleaned-transcript | `imported` | `yes` | Ritter | Cyrus Janssen | guest interview pressure test; review and narrow to owning crisis object before synthesis. |
+| `archive/sources/geopolitics/sources/2026-08-02/source-ray-mcgovern-iran-s-gulf-shockwave-how-precision-strikes-just-collapsed-the-war-strategy-2026-08-02.md` | cleaned-transcript | `imported` | `yes` | McGovern | Dialogue Works | guest interview pressure test; review and narrow to owning crisis object before synthesis. |
+| `archive/sources/geopolitics/sources/2026-08-02/source-trump-iran-begged-him-not-to-strike-as-they-are-ready-for-deal-2026-08-02.md` | cleaned-transcript | `imported` | `yes` | Weichert | Mario Nawfal | guest interview pressure test; review and narrow to owning crisis object before synthesis. |
+| `archive/sources/geopolitics/sources/2026-08-02/source-trump-tacos-again-what-s-next-lt-col-daniel-davis-2026-08-02.md` | cleaned-transcript | `imported` | `yes` | Davis | Daniel Davis | host monologue; review and narrow to owning crisis object before synthesis. |
+| `archive/sources/geopolitics/sources/2026-08-02/source-breaking-iran-attacks-ship-after-trump-cancels-strikes-w-lt-col-anthony-aguilar-2026-08-02.md` | cleaned-transcript | `imported` | `yes` | Aguilar | Mario Nawfal | guest interview pressure test; review and narrow to owning crisis object before synthesis. |
+| `archive/sources/geopolitics/sources/2026-08-02/source-ukraine-landocked-russia-cuts-off-odessa-land-sea-routes-rassvet-begins-operating-merz-implodes-2026-08-02.md` | cleaned-transcript | `imported` | `yes` | Mercouris | Alexander Mercouris | host monologue; review and narrow to owning crisis object before synthesis. |
 
 ## Run Source Set
 
 | Source ID | Voice | Host / Channel | Modality | Archive Path | Why It Matters |
 | --- | --- | --- | --- | --- | --- |
-| `SRC-01` | Johnson | Dialogue Works | cleaned-transcript | [2026-08-02 Johnson](../../../archive/sources/2026-08-02/source-larry-johnson-i-called-it-off-trump-confirms-scrapped-iran-attack-amid-drone-impacts-in-kurdistan-2026-08-02.md) | Larry Johnson: I Called It Off: Trump Confirms Scrapped Iran Attack Amid Drone Impacts in Kurdistan |
-| `SRC-02` | Ritter | Cyrus Janssen | cleaned-transcript | [2026-08-02 Ritter](../../../archive/sources/2026-08-02/source-live-scott-ritter-iran-and-russia-wars-now-entering-most-dangerous-phase-2026-08-02.md) | 🚨 LIVE: Scott Ritter - Iran and Russia Wars Now Entering Most Dangerous Phase |
-| `SRC-03` | McGovern | Dialogue Works | cleaned-transcript | [2026-08-02 McGovern](../../../archive/sources/2026-08-02/source-ray-mcgovern-iran-s-gulf-shockwave-how-precision-strikes-just-collapsed-the-war-strategy-2026-08-02.md) | Ray McGovern: IRAN'S GULF SHOCKWAVE: How 'Precision' Strikes Just Collapsed the War Strategy |
-| `SRC-04` | Weichert | Mario Nawfal | cleaned-transcript | [2026-08-02 Weichert](../../../archive/sources/2026-08-02/source-trump-iran-begged-him-not-to-strike-as-they-are-ready-for-deal-2026-08-02.md) | TRUMP: IRAN BEGGED HIM NOT TO STRIKE AS THEY ARE READY FOR DEAL |
-| `SRC-05` | Davis | Daniel Davis | cleaned-transcript | [2026-08-02 Davis](../../../archive/sources/2026-08-02/source-trump-tacos-again-what-s-next-lt-col-daniel-davis-2026-08-02.md) | Trump Tacos Again! What's Next /Lt Col Daniel Davis |
-| `SRC-06` | Mercouris | Alexander Mercouris | cleaned-transcript | [2026-08-02 Mercouris](../../../archive/sources/2026-08-02/source-ukraine-landocked-russia-cuts-off-odessa-land-sea-routes-rassvet-begins-operating-merz-implodes-2026-08-02.md) | Ukraine Landocked; Russia Cuts Off Odessa Land Sea Routes; Rassvet Begins Operating; Merz Implodes |
-| `SRC-07` | Aguilar | Mario Nawfal | cleaned-transcript | [2026-08-02 Aguilar](../../../archive/sources/2026-08-02/source-breaking-iran-attacks-ship-after-trump-cancels-strikes-w-lt-col-anthony-aguilar-2026-08-02.md) | BREAKING: IRAN ATTACKS SHIP AFTER TRUMP CANCELS STRIKES |
+| `SRC-01` | Johnson | Dialogue Works | cleaned-transcript | [2026-08-02 Johnson](../../../../archive/sources/geopolitics/sources/2026-08-02/source-larry-johnson-i-called-it-off-trump-confirms-scrapped-iran-attack-amid-drone-impacts-in-kurdistan-2026-08-02.md) | Larry Johnson: I Called It Off: Trump Confirms Scrapped Iran Attack Amid Drone Impacts in Kurdistan |
+| `SRC-02` | Ritter | Cyrus Janssen | cleaned-transcript | [2026-08-02 Ritter](../../../../archive/sources/geopolitics/sources/2026-08-02/source-live-scott-ritter-iran-and-russia-wars-now-entering-most-dangerous-phase-2026-08-02.md) | 🚨 LIVE: Scott Ritter - Iran and Russia Wars Now Entering Most Dangerous Phase |
+| `SRC-03` | McGovern | Dialogue Works | cleaned-transcript | [2026-08-02 McGovern](../../../../archive/sources/geopolitics/sources/2026-08-02/source-ray-mcgovern-iran-s-gulf-shockwave-how-precision-strikes-just-collapsed-the-war-strategy-2026-08-02.md) | Ray McGovern: IRAN'S GULF SHOCKWAVE: How 'Precision' Strikes Just Collapsed the War Strategy |
+| `SRC-04` | Weichert | Mario Nawfal | cleaned-transcript | [2026-08-02 Weichert](../../../../archive/sources/geopolitics/sources/2026-08-02/source-trump-iran-begged-him-not-to-strike-as-they-are-ready-for-deal-2026-08-02.md) | TRUMP: IRAN BEGGED HIM NOT TO STRIKE AS THEY ARE READY FOR DEAL |
+| `SRC-05` | Davis | Daniel Davis | cleaned-transcript | [2026-08-02 Davis](../../../../archive/sources/geopolitics/sources/2026-08-02/source-trump-tacos-again-what-s-next-lt-col-daniel-davis-2026-08-02.md) | Trump Tacos Again! What's Next /Lt Col Daniel Davis |
+| `SRC-06` | Mercouris | Alexander Mercouris | cleaned-transcript | [2026-08-02 Mercouris](../../../../archive/sources/geopolitics/sources/2026-08-02/source-ukraine-landocked-russia-cuts-off-odessa-land-sea-routes-rassvet-begins-operating-merz-implodes-2026-08-02.md) | Ukraine Landocked; Russia Cuts Off Odessa Land Sea Routes; Rassvet Begins Operating; Merz Implodes |
+| `SRC-07` | Aguilar | Mario Nawfal | cleaned-transcript | [2026-08-02 Aguilar](../../../../archive/sources/geopolitics/sources/2026-08-02/source-breaking-iran-attacks-ship-after-trump-cancels-strikes-w-lt-col-anthony-aguilar-2026-08-02.md) | BREAKING: IRAN ATTACKS SHIP AFTER TRUMP CANCELS STRIKES |
 
 ## Load-Bearing Quotes
 

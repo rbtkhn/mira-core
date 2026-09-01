@@ -1,29 +1,29 @@
 # Accountable Judgment — 2026-08-08
 
-Status: `retrospective-source-ledger`
-As-of: `2026-08-08`
-Crisis object: `[name the owning crisis object]`
-Review date: `2026-08-08`
+Status: `retrospective-source-bounded`
+As-of: `2026-08-30`
+Crisis object: `Can Washington preserve command coherence over Iran-Hormuz pressure?`
+Review date: `2026-08-30`
 
 ## Load-Bearing Judgments
 
-1. `[bounded judgment; state the mechanism and consequence]`
-2. `[bounded judgment; state the mechanism and consequence]`
-3. `[bounded judgment; state the mechanism and consequence]`
+1. Continued coercive activity does not establish political control when military, diplomatic, and alliance endpoints diverge.
+2. The reported maritime and civil-military events are useful as pressure signals but remain unverified source assertions.
+3. Ukraine supplies a secondary comparison: destructive capacity and settlement leverage can move in different directions.
 
 ## Confidence Boundary
 
-Confidence: `[low | medium | high]`
+Confidence: `medium`
 
-What this judgment depends on: `[state the evidence boundary, unresolved attribution, or timing limit]`
+What this judgment depends on: the mechanism recurs across five sources, but the most concrete events and private-intent claims lack independent adjudication.
 
-What would make it wrong: `[state the strongest disconfirmation condition]`
+What would make it wrong: consistent official military and political language around one verified settlement sequence, followed by stable passage and reduced regional linkage.
 
 ## Support and Dissent
 
-Strongest supporting sources and voices: `[source paths/IDs and voice slugs]`
+Strongest supporting sources and voices: `SRC-01`, `SRC-02`, and `SRC-04` supply the command, dissent, and Iranian rule-setting lanes.
 
-Strongest counterevidence or dissent: `[specific source, voice, mechanism, or missing evidence that pressures the judgment]`
+Strongest counterevidence or dissent: the batch lacks official U.S., Omani, Gulf, and independent shipping records; source agreement may reflect a shared skeptical ecology.
 
 ## Claim and Forecast Dependencies
 
@@ -31,30 +31,29 @@ Strongest counterevidence or dissent: `[specific source, voice, mechanism, or mi
 - Forecast hooks: `none`
 - Operational or causal dependencies: `none`
 
-Do not treat repeated source assertions as verified claims. Link only to existing `OPC-*`, `CLM-*`, `NG-*`, or `NG-*-F*` records.
-
 ## Next Observable Signals
 
-- `[observable signal, timing window, and which judgment it would strengthen or weaken]`
+- Official descriptions of the military objective and settlement terms.
+- Independent reporting on Hormuz passage and the alleged ship boarding.
+- Named evidence of civil-military disagreement or a unified command position.
+- Signs that Ukraine pressure changes negotiating room rather than only battlefield tempo.
 
 ## Decision / Public-use Implication
 
-`[internal decision implication, or state that no decision/public-use implication is authorized]`
+Use internally to track command coherence; hold all concrete event claims from public factual use.
 
 ## Decision Compression
 
-What changed: `[dated change from the prior state, or explicitly no material delta]`
+What changed: the day makes command coherence the governing variable rather than coercive activity alone.
 
-Reusable mechanism: `[causal or structural mechanism; separate it from rhetoric, examples, forecasts, and unsupported assertions]`
+Reusable mechanism: force can continue after political control begins to decay because every instrument carries a different endpoint and constituency.
 
-Decision implication: `[what the operator should do, defer, verify, watch, preserve, or avoid]`
+Decision implication: watch convergence between military action, diplomatic terms, and partner behavior.
 
-Evidence still missing: `[specific evidence, lineage, falsifier, language coverage, or verification work]`
+Evidence still missing: independent maritime records, official statements, and source-lineage separation.
 
-Recommended disposition: `[archive-only | synthesis-use | forecast-hook | verification-request | reality-claim-candidate | longitudinal-review | public-use-held]`
-
-Use only existing `SRC-*`, `OPC-*`, `CLM-*`, `NG-*`, and `VER-*` references. This internal handoff does not promote source assertions into verified facts.
+Recommended disposition: `synthesis-use`
 
 ## Later Review Note
 
-`[leave blank until review; record what changed, which judgment strengthened or weakened, forecast outcome, and lesson for the voice/source set]`
+Retrospective completeness repair; no ex-ante forecast is claimed.

@@ -39,6 +39,7 @@ Crisis object: Can Washington convert a constrained pause around Hormuz into a d
 | Postol | Technical pressure test | Explains why missile-defense assumptions may not restore deterrence against maneuvering or high-speed impact systems. | Technical assessment is source expertise, not an independently adjudicated weapons review. |
 | Mercouris / The Duran / Wilkerson | Secondary-theater and imperial-structure pressure | Show Ukraine/Russia and empire-preservation narratives as parallel symptoms of overstretched coercive capacity. | Shared interpretive family can create convergence without source independence. |
 | Ritter / Henningsen | Regional and civilizational pressure | Add Yemen/Saudi maritime pressure and Iranian social-cohesion framing to the off-ramp problem. | Sweeping geopolitical claims are useful for mechanism stress, not operational truth. |
+| Magnier | Negotiation-threat sequence | Places a claimed Oman-Iran arrangement beside renewed U.S. punishment language, making the pause's bargaining fragility explicit. | Arrangement terms, threat effects, and attribution remain source-asserted. |
 
 ## Orthogonal Pressure Test
 
@@ -91,12 +92,16 @@ Record only concrete operating facts that control planned public factual use, wa
 
 Complete `judgment.md` after synthesis and forecast triage. It is the concise internal handoff, not a replacement for this synthesis.
 
+## Late-source reconciliation
+
+Four later-landed records change the packet unevenly. Magnier's Oman-Iran arrangement report (`SRC-11`) and coercion interview (`SRC-12`) sharpen the lead by putting a claimed diplomatic carrier beside an explicit threat to punish withdrawal. Henningsen's ultimatum argument (`SRC-13`) reinforces the possible backfire mechanism but is not independent corroboration. His Russia discussion with Davis (`SRC-14`) remains a secondary restraint comparison and does not establish the Iran/Hormuz mechanism. The lead therefore strengthens as a bargaining-structure judgment while every concrete arrangement, threat-effect, and operational assertion remains source-attributed.
+
 ## Issue Story Desk
 
 | Story ID | Placement | Argument headline | Crisis object | Evidence posture | Source IDs | Voices | Forecast hooks | Operational claims | Selection rationale |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| `NGI-20260805-S01` | `lead` | The off-ramp is now the battlefield | Can Washington convert a constrained pause around Hormuz into a durable off-ramp before depleted coercive capacity and Israeli disruption pressure pull the conflict back into a hot-ceasefire cycle? | `bounded-analysis` | `SRC-02,SRC-03,SRC-04,SRC-05,SRC-08,SRC-09` | Marandi, Macgregor, Hoh, Johnson, Ritter, Postol | `NG-20260805-F01` | `none` | The highest-consequence mechanism across the day is whether a pause can survive the same constraints that produced it. |
-| `NGI-20260805-S02` | `brief` | Ukraine is the secondary proof of the stockpile problem | Does the Ukraine front reveal the same gap between Western narrative confidence and depleted air-defense or strike capacity? | `bounded-analysis` | `SRC-07,SRC-10,SRC-05,SRC-04` | Mercouris, Johnson, Hoh | `none` | `none` | Useful as a pressure test, but secondary to the Iran/Hormuz object. |
+| `NGI-20260805-S01` | `lead` | The off-ramp is now the battlefield | Can Washington convert a constrained pause around Hormuz into a durable off-ramp before depleted coercive capacity and Israeli disruption pressure pull the conflict back into a hot-ceasefire cycle? | `bounded-analysis` | `SRC-02,SRC-03,SRC-04,SRC-05,SRC-08,SRC-09,SRC-11,SRC-12,SRC-13` | Marandi, Macgregor, Hoh, Johnson, Ritter, Postol, Magnier, Henningsen | `NG-20260805-F01` | `none` | The highest-consequence mechanism across the day is whether a pause can survive the same constraints that produced it. |
+| `NGI-20260805-S02` | `brief` | Ukraine is the secondary proof of the stockpile problem | Does the Ukraine front reveal the same gap between Western narrative confidence and depleted air-defense or strike capacity? | `bounded-analysis` | `SRC-07,SRC-10,SRC-05,SRC-04,SRC-14` | Mercouris, Johnson, Hoh, Henningsen | `none` | `none` | Useful as a pressure test, but secondary to the Iran/Hormuz object. |
 | `NGI-20260805-S03` | `hold` | Iranian cohesion as the failed-regime-change assumption | Does Iranian social cohesion make coercive collapse strategy self-defeating? | `bounded-analysis` | `SRC-01,SRC-02` | Henningsen, Marandi | `none` | `none` | Important longitudinally, but not the day lead unless paired with external verification and historical comparison. |
 
 ## Forecast Candidates

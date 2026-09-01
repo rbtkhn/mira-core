@@ -1,4 +1,4 @@
-<!-- daily-issue-v1 inputs-sha256: 34f2b278b09d3a230c7a8d5c3508badc85b24d3a4a564c0579d5691f7b16c9b4 -->
+<!-- daily-issue-v1 inputs-sha256: 9eedd0b623a8958de30b680fab90208e2b0031c05b8518f73549ee4f0e6dc6c0 -->
 <!-- reality-lattice-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 -->
 <!-- Generated file. Edit canonical daily or reality-lattice inputs, then regenerate. -->
 
@@ -18,7 +18,7 @@ Evidence posture: `archive-first; story-level labels govern factual use`
 
 ## Front Page
 
-The August 15 archive batch should be held as a time-control story. The lead object is Hormuz, but the deeper mechanism reaches across the Iran and Ukraine lanes. The sources are not simply asking whether the United States, Iran, Russia, Ukraine, Israel, or NATO will escalate next. They are asking who can make time work for them after escalation has stopped producing clean political results.
+Magnier's reported ceasefire expiry turns the broad time-control mechanism into a bounded near-term watch. The date matters here as a source-attributed coordination point around which actors can threaten, renew, reposition, or accuse the other side of breaking the pause—not as a verified legal record.
 
 | Desk | Story | Evidence posture |
 | --- | --- | --- |
@@ -37,6 +37,8 @@ Evidence posture: `bounded-analysis`
 Crisis object: Can U.S.-led coercion restore transit and escalation control before Iran and Russia turn delay, logistics strain, and industrial depth into the dominant bargaining facts?
 
 Related reality claims: None registered
+
+Magnier's reported ceasefire expiry turns the broad time-control mechanism into a bounded near-term watch. The date matters here as a source-attributed coordination point around which actors can threaten, renew, reposition, or accuse the other side of breaking the pause—not as a verified legal record.
 
 The August 15 archive batch should be held as a time-control story. The lead object is Hormuz, but the deeper mechanism reaches across the Iran and Ukraine lanes. The sources are not simply asking whether the United States, Iran, Russia, Ukraine, Israel, or NATO will escalate next. They are asking who can make time work for them after escalation has stopped producing clean political results.
 
@@ -78,8 +80,8 @@ Only sources used by selected issue stories appear here. See the [complete canon
 
 | Source ID | Voice | Archive source | Analytical job |
 | --- | --- | --- | --- |
-| `SRC-01` | Aguilar | [2026-08-15 Aguilar](../../../archive/sources/2026-08-15/source-4-centcom-pushes-trump-for-more-war-as-ceasefire-expires-monday-w-lt-col-anthony-aguilar-2026-08-15.md) | (4) CENTCOM PUSHES TRUMP FOR MORE WAR AS CEASEFIRE EXPIRES MONDAY - w/ Lt. Col. Anthony Aguilar |
-| `SRC-06` | Marandi | [2026-08-15 Marandi](../../../archive/sources/2026-08-15/source-4-seyed-m-marandi-us-on-imminent-attack-alert-hezbollah-delivers-a-stunning-blow-to-idf-2026-08-15.md) | (4) Seyed M. Marandi: US on Imminent Attack Alert - Hezbollah Delivers a Stunning Blow to IDF |
+| `SRC-01` | Aguilar | [2026-08-15 Aguilar](../../../../archive/sources/geopolitics/sources/2026-08-15/source-4-centcom-pushes-trump-for-more-war-as-ceasefire-expires-monday-w-lt-col-anthony-aguilar-2026-08-15.md) | (4) CENTCOM PUSHES TRUMP FOR MORE WAR AS CEASEFIRE EXPIRES MONDAY - w/ Lt. Col. Anthony Aguilar |
+| `SRC-07` | Magnier | [Ceasefire expiry](../../../../archive/sources/geopolitics/sources/2026-08-15/source-iran-ceasefire-set-to-expire-on-monday-situation-static-w-elijah-magnier-2026-08-15.md) | Makes the day's time-control mechanism explicit while leaving the reported ceasefire status unverified. |
 
 ## Forecast Desk
 
@@ -107,6 +109,7 @@ Names identify source-bounded pressure tests, not endorsement or reconstructed p
 | marandi | Iranian bargaining floor | Presents Iran as less patient, more assertive, and unwilling to surrender Hormuz authority or allied deterrence claims. | Insider/opponent-position claims may compress official policy, commentary, and wartime signaling. |
 | mcgovern | Escalation-restraint diagnosis | Frames Russia as stronger but cautious because Trump, NATO, and deep-state behavior are unpredictable. | High-level intent attribution is inferential and vulnerable to overpersonalization. |
 | mercouris | Ukraine battlefield and industrial-depth frame | Connects Russian battlefield movement, Ukrainian air-defense scarcity, and Western industrial limits. | Front-line and economic claims remain source assertions and may rely on Russian-aligned reporting. |
+| magnier | Ceasefire-clock signal | Makes expiry, renewal, and renewed punishment part of the contest over who controls the sequence. | The reported deadline and terms remain unverified source assertions. |
 
 ## Editor's Note
 
@@ -124,3 +127,4 @@ Initial source-bounded geo-strategy packet generated on 2026-08-15.
 | Timestamp (UTC) | Type | Note |
 | --- | --- | --- |
 | 2026-08-15T00:00:00Z | update | Created source-bounded daily brief with matching issue copy and watch frame. |
+| 2026-08-31T01:49:02Z | update | Reconciled the ceasefire-expiry source and renewed the time-control watch without adding a duplicate forecast. |

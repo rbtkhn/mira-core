@@ -6,7 +6,7 @@ Status: `live-intake-first`
 
 Analytical language contract: [labels as analytical interfaces](../../../method/analytical-interfaces.md)
 
-Density triage: `thin-day-synthesis-check`; the day has three landed sources, two Mercouris lanes and one Sachs pressure test. Treat convergence as mechanism evidence, not factual corroboration.
+Density triage: `normal`; the day has four landed sources, two Mercouris lanes, one Sachs pressure test, and one Krapivnik pressure test. Treat convergence as mechanism evidence, not factual corroboration.
 
 Synthesis contract: `delta-v1`
 
@@ -20,7 +20,7 @@ Disposition: `daily-packet`
 
 ## Lead Judgment
 
-The useful August 30 judgment is that coercion should be measured against political conversion, not visible pressure alone. Mercouris treats Armenia as an alignment-loss problem and Ukraine energy attacks as a capacity-pressure problem. Sachs adds a NATO/Russia lane in which alliance planning and escalation posture become part of the same substrate contest. None of this verifies the operational claims. It preserves a strategic question: can pressure on state capacity and alliance substrate produce durable compliance, or does it accelerate adaptation and defection?
+The useful August 30 judgment is that coercion should be measured against political conversion, not visible pressure alone. Mercouris treats Armenia as an alignment-loss problem and Ukraine energy attacks as a capacity-pressure problem. Sachs adds a NATO/Russia lane in which alliance planning and escalation posture become part of the same substrate contest. Krapivnik adds an adversarial account of strike effects, infrastructure pressure, and coercive signaling; its operational particulars remain unverified. Together they preserve a strategic question: can pressure on state capacity and alliance substrate produce durable compliance, or does it accelerate adaptation and defection?
 
 ## Crisis Object
 
@@ -38,6 +38,7 @@ Crisis object: Can states convert pressure on energy, diplomacy, military planni
 | --- | --- | --- | --- |
 | Mercouris | Alignment and infrastructure-pressure frame | Supplies the Armenia political-retention lane and the Ukraine energy-system pressure lane. | Single-voice recurrence can make mechanism coherence look like corroboration. |
 | Sachs | NATO/Russia escalation pressure test | Adds alliance planning, diplomatic credibility, and European strategic posture as non-infrastructure substrate pressures. | Broad structural critique needs contrary-source and primary-document review before public factual use. |
+| Krapivnik | Strike-effects and escalation pressure test | Connects claimed secondary explosions, infrastructure pressure, and signaling to the coercive mechanism. | Operational and casualty claims are single-source assertions requiring independent verification. |
 
 ## Orthogonal Pressure Test
 
@@ -46,6 +47,7 @@ Crisis object: Can states convert pressure on energy, diplomacy, military planni
 | Alignment retention | Mercouris | Does pressure preserve a patron relationship or make exit more attractive? | Keeps Armenia from being reduced to simple proximity or inherited alliance logic. |
 | Capacity degradation | Mercouris | Does energy-system pressure alter political behavior or only impose adaptive cost? | Separates degradation from coercive success. |
 | Alliance substrate | Sachs | Do NATO plans and Western diplomatic choices add leverage or exhaust settlement credibility? | Expands the mechanism beyond physical infrastructure into institutional and diplomatic capacity. |
+| Escalation signaling | Krapivnik | Do larger strikes change bargaining behavior, or merely increase destruction and reciprocal risk? | Reinforces the distinction between visible damage and political conversion. |
 
 ## Actor Map
 
@@ -84,7 +86,7 @@ Complete `judgment.md` after synthesis and forecast triage. It is the concise in
 
 | Story ID | Placement | Argument headline | Crisis object | Evidence posture | Source IDs | Voices | Forecast hooks | Operational claims | Selection rationale |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| `NGI-20260830-S01` | `lead` | State-substrate coercion does not guarantee political conversion | Can states convert pressure on energy, diplomacy, military planning, and alliance credibility into durable political alignment before targets adapt or defect? | `bounded-analysis` | `SRC-01,SRC-02,SRC-03` | Mercouris, Sachs | `none` | `none` | All three sources fit the same mechanism family while leaving operational truth and cross-voice corroboration unresolved. |
+| `NGI-20260830-S01` | `lead` | State-substrate coercion does not guarantee political conversion | Can states convert pressure on energy, diplomacy, military planning, and alliance credibility into durable political alignment before targets adapt or defect? | `bounded-analysis` | `SRC-01,SRC-02,SRC-03,SRC-04` | Mercouris, Sachs, Krapivnik | `none` | `none` | All four sources fit the same mechanism family while leaving operational truth and cross-voice corroboration unresolved. |
 
 ## Forecast Candidates
 

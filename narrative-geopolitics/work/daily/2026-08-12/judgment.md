@@ -36,6 +36,10 @@ Forecast hooks: NG-20260812-F01 was drafted in the daily pass and admitted to th
 
 Operational dependencies: none for internal synthesis; public use held.
 
+## Late-source judgment renewal
+
+Magnier's alliance frame strengthens the proposition that force strain can appear as partner hedging and regional coordination, but it does not prove a coherent new alliance. The judgment remains that burden management is becoming more important than clean-victory language; confidence does not rise because the added source belongs to the same skeptical archive ecology and lacks independent confirmation.
+
 ## Next Observable Signals
 
 - U.S. officials frame Iran pressure as containment, sanctions enforcement, force rotation, or burden management rather than a decisive settlement.

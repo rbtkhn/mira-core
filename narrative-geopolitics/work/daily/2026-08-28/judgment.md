@@ -34,6 +34,10 @@ Strongest counterevidence or dissent: the packet contains no official MOU text, 
 
 Do not treat repeated source assertions as verified claims. Link only to existing `SRC-*`, `OPC-*`, `CLM-*`, `NG-*`, `NG-*-F*`, or `VER-*` records.
 
+## Late-source judgment renewal
+
+Helmer's interview introduces hidden intelligence loss and institutional opacity as a possible reason public coercive posture can diverge from actual control. That mechanism is relevant across both Iran and Ukraine, but the alleged losses are not verified and must remain attributed. The renewed judgment preserves the lead—coercion does not guarantee settlement control—while adding intelligence performance to the indicators that could later strengthen or weaken it.
+
 ## Next Observable Signals
 
 - By `2026-09-11`, U.S., Iranian, Omani, Gulf, Israeli, or Yemeni public language explicitly links Hormuz transit or sanctions relief to Lebanon, Gaza, Syria, regional infrastructure protection, or U.S. force posture.

@@ -68,9 +68,15 @@ Watch Russian restraint. If Moscow keeps escalating inside Ukraine while avoidin
 
 No new accountable forecast hook is issued. The packet preserves a watch frame instead: later U.S. or partner language shifting from victory and control toward force rotation, sanctions fallback, partner restraint, route conditions, or burden management would strengthen the time-control judgment.
 
+## Late-source reconciliation
+
+Magnier's ceasefire-expiry interview makes the packet's clock visible but does not establish the deadline or terms as fact. The issue uses the reported Monday boundary as a source-attributed test: renewal, threatened punishment, or renewed fighting would each reveal who can control the sequence and at what cost.
+
 ## Issue Copy
 
 ### NGI-20260815-S01 - The Strait Becomes A Test Of Who Controls Time
+
+Magnier's reported ceasefire expiry turns the broad time-control mechanism into a bounded near-term watch. The date matters here as a source-attributed coordination point around which actors can threaten, renew, reposition, or accuse the other side of breaking the pause—not as a verified legal record.
 
 The August 15 archive batch should be held as a time-control story. The lead object is Hormuz, but the deeper mechanism reaches across the Iran and Ukraine lanes. The sources are not simply asking whether the United States, Iran, Russia, Ukraine, Israel, or NATO will escalate next. They are asking who can make time work for them after escalation has stopped producing clean political results.
 
@@ -113,3 +119,4 @@ Initial source-bounded geo-strategy packet generated on 2026-08-15.
 | Timestamp (UTC) | Type | Note |
 | --- | --- | --- |
 | 2026-08-15T00:00:00Z | update | Created source-bounded daily brief with matching issue copy and watch frame. |
+| 2026-08-31T01:49:02Z | update | Reconciled the ceasefire-expiry source and renewed the time-control watch without adding a duplicate forecast. |

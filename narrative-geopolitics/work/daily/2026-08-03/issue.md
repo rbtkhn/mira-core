@@ -1,4 +1,4 @@
-<!-- daily-issue-v1 inputs-sha256: b57212868c916abbf5601a19d20aff7f66ae6a0072a384c62ad9a64579241701 -->
+<!-- daily-issue-v1 inputs-sha256: 8e6c74a3358361db3afa26418e5c0bee5a526c5b90fd06307ecda81fa9800f25 -->
 <!-- reality-lattice-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 -->
 <!-- Generated file. Edit canonical daily or reality-lattice inputs, then regenerate. -->
 
@@ -98,15 +98,15 @@ Only sources used by selected issue stories appear here. See the [complete canon
 
 | Source ID | Voice | Archive source | Analytical job |
 | --- | --- | --- | --- |
-| `SRC-02` | Escobar | [2026-08-03 Escobar](../../../archive/sources/2026-08-03/source-breaking-iran-claims-u-s-conceded-on-hormuz-w-pepe-escobar-2026-08-03.md) | BREAKING: IRAN CLAIMS U.S. CONCEDED ON HORMUZ - w/ Pepe Escobar |
-| `SRC-03` | Baud | [2026-08-03 Baud](../../../archive/sources/2026-08-03/source-col-jacques-baud-iran-defies-trump-targets-ship-in-strait-of-hormuz-hours-after-statement-2026-08-03.md) | Col. Jacques Baud: Iran Defies Trump, Targets Ship in Strait of Hormuz Hours After Statement |
-| `SRC-04` | Johnson | [2026-08-03 Johnson](../../../archive/sources/2026-08-03/source-larry-johnson-u-s-concedes-to-iran-in-secret-talks-but-tehran-fires-back-with-a-demand-2026-08-03.md) | Larry Johnson: U.S. CONCEDES to Iran in Secret Talks—But Tehran Fires Back with a Demand |
-| `SRC-08` | Pape | [2026-08-03 Pape](../../../archive/sources/2026-08-03/source-trump-bombs-iran-for-5-months-and-they-still-say-no-w-prof-robert-pape-2026-08-03.md) | TRUMP BOMBS IRAN FOR 5 MONTHS AND THEY STILL SAY NO — w/ Prof. Robert Pape |
-| `SRC-09` | Pape | [2026-08-03 Pape](../../../archive/sources/2026-08-03/source-untitled-source-2026-08-03.md) | Breaking Analysis #10: Trump’s Illusion of Control Meets Escalation Reality |
-| `SRC-01` | Crooke | [2026-08-03 Crooke](../../../archive/sources/2026-08-03/source-alastair-crooke-live-8am-trump-in-a-box-of-his-own-making-2026-08-03.md) | Alastair Crooke : LIVE @ 8AM :Trump in a Box of His Own Making |
-| `SRC-05` | Sachs | [2026-08-03 Sachs](../../../archive/sources/2026-08-03/source-prof-jeffrey-sachs-live-3pm-us-wants-to-destroy-iran-and-russia-2026-08-03.md) | Prof. Jeffrey Sachs : LIVE @3PM - US Wants to Destroy Iran and Russia |
-| `SRC-06` | Mercouris | [2026-08-03 Mercouris](../../../archive/sources/2026-08-03/source-russia-smashes-key-odessa-bridge-captures-bely-kolodez-kharkov-defence-collapses-saudi-rages-at-us-2026-08-03.md) | Russia Smashes Key Odessa Bridge; Captures Bely Kolodez Kharkov Defence Collapses; Saudi Rages At US |
-| `SRC-07` | Ritter | [2026-08-03 Ritter](../../../archive/sources/2026-08-03/source-scott-ritter-live-2pm-russia-winning-decisively-2026-08-03.md) | Scott Ritter : LIVE @2PM - Russia Winning Decisively |
+| `SRC-02` | Escobar | [2026-08-03 Escobar](../../../../archive/sources/geopolitics/sources/2026-08-03/source-breaking-iran-claims-u-s-conceded-on-hormuz-w-pepe-escobar-2026-08-03.md) | BREAKING: IRAN CLAIMS U.S. CONCEDED ON HORMUZ - w/ Pepe Escobar |
+| `SRC-03` | Baud | [2026-08-03 Baud](../../../../archive/sources/geopolitics/sources/2026-08-03/source-col-jacques-baud-iran-defies-trump-targets-ship-in-strait-of-hormuz-hours-after-statement-2026-08-03.md) | Col. Jacques Baud: Iran Defies Trump, Targets Ship in Strait of Hormuz Hours After Statement |
+| `SRC-04` | Johnson | [2026-08-03 Johnson](../../../../archive/sources/geopolitics/sources/2026-08-03/source-larry-johnson-u-s-concedes-to-iran-in-secret-talks-but-tehran-fires-back-with-a-demand-2026-08-03.md) | Larry Johnson: U.S. CONCEDES to Iran in Secret Talks—But Tehran Fires Back with a Demand |
+| `SRC-08` | Pape | [2026-08-03 Pape](../../../../archive/sources/geopolitics/sources/2026-08-03/source-trump-bombs-iran-for-5-months-and-they-still-say-no-w-prof-robert-pape-2026-08-03.md) | TRUMP BOMBS IRAN FOR 5 MONTHS AND THEY STILL SAY NO — w/ Prof. Robert Pape |
+| `SRC-09` | Pape | [2026-08-03 Pape](../../../../archive/sources/geopolitics/sources/2026-08-03/source-untitled-source-2026-08-03.md) | Breaking Analysis #10: Trump’s Illusion of Control Meets Escalation Reality |
+| `SRC-01` | Crooke | [2026-08-03 Crooke](../../../../archive/sources/geopolitics/sources/2026-08-03/source-alastair-crooke-live-8am-trump-in-a-box-of-his-own-making-2026-08-03.md) | Alastair Crooke : LIVE @ 8AM :Trump in a Box of His Own Making |
+| `SRC-05` | Sachs | [2026-08-03 Sachs](../../../../archive/sources/geopolitics/sources/2026-08-03/source-prof-jeffrey-sachs-live-3pm-us-wants-to-destroy-iran-and-russia-2026-08-03.md) | Prof. Jeffrey Sachs : LIVE @3PM - US Wants to Destroy Iran and Russia |
+| `SRC-06` | Mercouris | [2026-08-03 Mercouris](../../../../archive/sources/geopolitics/sources/2026-08-03/source-russia-smashes-key-odessa-bridge-captures-bely-kolodez-kharkov-defence-collapses-saudi-rages-at-us-2026-08-03.md) | Russia Smashes Key Odessa Bridge; Captures Bely Kolodez Kharkov Defence Collapses; Saudi Rages At US |
+| `SRC-07` | Ritter | [2026-08-03 Ritter](../../../../archive/sources/geopolitics/sources/2026-08-03/source-scott-ritter-live-2pm-russia-winning-decisively-2026-08-03.md) | Scott Ritter : LIVE @2PM - Russia Winning Decisively |
 
 ## Forecast Desk
 

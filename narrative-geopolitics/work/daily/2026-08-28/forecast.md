@@ -51,6 +51,10 @@ Open forecast hooks whose review date is due on or before this run date:
 - Resolution criteria permit `hit`, `miss`, `mixed`, or `unresolvable_with_authorized_evidence` without hindsight rewriting.
 - Operational dependency cites one `OPC-*` claim from the day's synthesis or `none`.
 
+## Late-source forecast review
+
+No new forecast is promoted. `SRC-13` identifies intelligence opacity as a possible hidden constraint, but its loss claims are unverified and the day is a closeout repair. The interview remains a later-review indicator rather than an accountable wager.
+
 ## Ledger Entries
 
 Copy final hooks to `work/forecasts/forecast-ledger.md`.

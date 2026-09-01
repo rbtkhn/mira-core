@@ -44,6 +44,10 @@ These due hooks are not resolved here. Resolution requires the forecast-review w
 - Resolution criteria permit `hit`, `miss`, `mixed`, or `unresolvable_with_authorized_evidence` without hindsight rewriting.
 - Operational dependency cites one `OPC-*` claim from the day's synthesis or `none`.
 
+## Late-source forecast review
+
+`SRC-11` through `SRC-13` strengthen the existing wager's linkage mechanism: a claimed arrangement, renewed punishment threat, and coercion-backfire account all make the durability of the pause more testable. They do not justify a new hook or an upward probability revision because the arrangement and its effects remain source-asserted. `SRC-14` is outside the principal observable.
+
 ## Ledger Entries
 
 Copy final hooks to `work/forecasts/forecast-ledger.md` only after explicit ledger-sync authority.

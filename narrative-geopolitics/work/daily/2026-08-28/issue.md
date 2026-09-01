@@ -1,4 +1,4 @@
-<!-- daily-issue-v1 inputs-sha256: 3c8ce465c542beb5a83cbe26d994cc406862d9e7849ad7ae1491f805f33d9697 -->
+<!-- daily-issue-v1 inputs-sha256: cc29b0fb5f60dfcc6036d6d56f156c541798c7b4c52d724835e275c8fd074eb9 -->
 <!-- reality-lattice-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 -->
 <!-- Generated file. Edit canonical daily or reality-lattice inputs, then regenerate. -->
 
@@ -18,7 +18,7 @@ Evidence posture: `archive-first; story-level labels govern factual use`
 
 ## Front Page
 
-The lead story is the gap between pressure and command. The August 28 source set repeatedly presents U.S. sanctions, blockade language, and strike threats as active but strategically insufficient. Escobar contests the idea that Washington controls Hormuz. Parsi argues that Iran is linking any return to an MOU to wider regional security terms. Davis treats the turn back to sanctions as evidence that military pressure failed to create compliance. Wilkerson and Johnson frame renewed war as the likely result of incompatible demands.
+Helmer adds a cross-theater opacity hypothesis: intelligence institutions may conceal or misread losses while public policy continues to project control. Because the interview does not establish those losses independently, the issue uses it only to widen the indicator set—access, intelligence performance, unexplained policy reversals, and discrepancies between public claims and later institutional evidence.
 
 | Desk | Story | Evidence posture |
 | --- | --- | --- |
@@ -54,6 +54,8 @@ Crisis object: Can Western powers still negotiate exits when Russia reads ceasef
 
 Related reality claims: None registered
 
+Helmer's account belongs here only as an attributed institutional-opacity test. If later evidence shows intelligence access or losses diverging from public confidence in either theater, it would strengthen the no-clean-exit pattern; without that evidence, it remains a hypothesis.
+
 Russia/Ukraine is not the Aug 28 lead, but it is the day's best cross-theater pressure test. Mercouris presents Russian officials as rejecting ceasefires that they believe would only rearm Ukraine. Mearsheimer and Krapivnik place NATO planning and Western escalation inside a longer structural trap. Barnes and Kent add U.S. domestic legitimacy, intelligence, finance, and impeachment narratives. Freeman speculates that Washington may seek movement with Russia because Iran has become politically stuck.
 
 The shared mechanism is settlement credibility. If Russia reads ceasefire diplomacy, asset proposals, NATO planning, and intelligence channels as instruments of delay or coercion, then negotiation no longer functions as a clean exit. That resembles the Iran/Hormuz problem at the level of structure, not factual proof. In both theaters, coercive instruments remain available, but settlement authority has been damaged.
@@ -73,6 +75,8 @@ Evidence posture: `bounded-analysis`
 Crisis object: Can Washington convert sanctions, blockade pressure, and Israeli-aligned escalation into a durable Iran settlement when multiple actors can veto the off-ramp?
 
 Related reality claims: None registered
+
+Helmer adds a cross-theater opacity hypothesis: intelligence institutions may conceal or misread losses while public policy continues to project control. Because the interview does not establish those losses independently, the issue uses it only to widen the indicator set—access, intelligence performance, unexplained policy reversals, and discrepancies between public claims and later institutional evidence.
 
 The lead story is the gap between pressure and command. The August 28 source set repeatedly presents U.S. sanctions, blockade language, and strike threats as active but strategically insufficient. Escobar contests the idea that Washington controls Hormuz. Parsi argues that Iran is linking any return to an MOU to wider regional security terms. Davis treats the turn back to sanctions as evidence that military pressure failed to create compliance. Wilkerson and Johnson frame renewed war as the likely result of incompatible demands.
 
@@ -101,6 +105,7 @@ Only sources used by selected issue stories appear here. See the [complete canon
 | `SRC-06` | Parsi | [2026-08-28 Parsi](../../../../archive/sources/geopolitics/sources/2026-08-28/source-iran-may-beat-the-us-to-the-punch-in-war-trita-parsi-lt-col-daniel-davis-2026-08-28.md) | Iran May Beat the US to the Punch in WAR /Trita Parsi & Lt Col Daniel Davis |
 | `SRC-11` | Escobar | [2026-08-28 Escobar](../../../../archive/sources/geopolitics/sources/2026-08-28/source-the-truth-about-the-us-blockade-in-the-strait-of-hormuz-2026-08-28.md) | The Truth About the US Blockade in the Strait of Hormuz |
 | `SRC-12` | Davis | [2026-08-28 Davis](../../../../archive/sources/geopolitics/sources/2026-08-28/source-u-s-plan-to-resart-iran-war-after-the-midterms-trump-claims-he-control-strait-w-col-daniel-davis-2026-08-28.md) | U.S PLAN TO RESART IRAN WAR AFTER THE MIDTERMS, TRUMP CLAIMS HE CONTROL STRAIT w/ COL DANIEL DAVIS |
+| `SRC-13` | Helmer | [CIA losses](../../../../archive/sources/geopolitics/sources/2026-08-28/source-is-the-cia-hiding-its-losses-in-the-iran-and-ukraine-wars-w-john-helmer-2026-08-28.md) | Adds an intelligence-opacity mechanism across Iran and Ukraine while leaving alleged losses unverified. |
 | `SRC-02` | Freeman | [2026-08-28 Freeman](../../../../archive/sources/geopolitics/sources/2026-08-28/source-amb-chas-freeman-crumbling-on-all-sides-the-staggering-reality-of-israel-s-multi-front-war-2026-08-28.md) | Amb. Chas Freeman: Crumbling on All Sides: The Staggering Reality of Israel's Multi-Front War |
 | `SRC-08` | Blumenthal | [2026-08-28 Blumenthal](../../../../archive/sources/geopolitics/sources/2026-08-28/source-max-blumenthal-netanyahu-s-dangerous-game-in-britain-2026-08-28.md) | Max Blumenthal: Netanyahu's Dangerous Game in Britain |
 | `SRC-01` | Barnes | [2026-08-28 Barnes](../../../../archive/sources/geopolitics/sources/2026-08-28/source-a-foreign-spy-chief-inside-a-president-linked-bank-w-robert-barnes-2026-08-28.md) | A FOREIGN SPY CHIEF INSIDE A PRESIDENT-LINKED BANK — w/ Robert Barnes |
@@ -134,6 +139,7 @@ Names identify source-bounded pressure tests, not endorsement or reconstructed p
 | Parsi | Negotiation and regional-security threshold | Frames Iran as more confident after surviving U.S.-Israeli pressure and links MOU revival to Lebanon, Syria, Gaza, and Gulf diplomacy. | Infers Iranian leverage and intent from a source interview rather than official texts. |
 | Escobar | Hormuz route-control challenge | Rejects the claim that the United States controls the Strait and emphasizes Iranian veto power, leaks around blockade, and overland export alternatives. | Exact oil-flow volumes, naval positions, and diplomatic messages require independent verification. |
 | Davis | Military capacity and sanctions backfire | Treats economic escalation after military failure as evidence that Washington lacks a viable off-ramp and may restart kinetic action. | Casualty, aircraft, base, and cost figures are source assertions. |
+| Helmer | Intelligence-opacity pressure test | Adds the possibility that concealed or contested institutional losses widen the gap between public coercive confidence and actual control. | Alleged CIA losses remain unverified and must stay source-attributed. |
 | Freeman | Diplomatic process and U.S. political escape | Reads CIA/Russia contact, Ukraine strain, and Israel/Lebanon escalation as signs that Trump seeks an exit in one theater while stuck in another. | Explicitly speculative; useful as a scenario map, not as evidence of intent. |
 | Blumenthal | Israel as transnational pressure actor | Links Israeli domestic politics, anti-Palestinian repression, and threats toward Western political figures to a broader hybrid-war posture. | Highly charged attribution and threat language require caution before public factual use. |
 | Barnes | Domestic legitimacy and elite-network pressure | Adds U.S. internal legitimacy, intelligence, finance, and impeachment narratives to the foreign-policy constraint map. | Several claims are legally and politically loaded source assertions. |
@@ -153,4 +159,6 @@ Canonical inputs: [sources](sources.md), [synthesis](synthesis.md), [forecast](f
 
 ### Revision Log
 
-No revisions.
+| Timestamp (UTC) | Type | Note |
+| --- | --- | --- |
+| 2026-08-31T01:49:02Z | update | Reconciled the Helmer source as an intelligence-opacity hypothesis with no factual promotion of alleged losses. |

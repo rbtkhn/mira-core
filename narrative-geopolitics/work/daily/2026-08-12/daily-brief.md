@@ -54,15 +54,21 @@ The strongest caution is source clustering. These voices are not a representativ
 
 `NG-20260812-F01`: By `2026-08-19`, at least one later source lane, official statement, or policy move frames Iran/Gulf pressure as containment, sanctions enforcement, force rotation, maritime access management, or managed attrition rather than a clean victory settlement.
 
+## Late-source reconciliation
+
+Magnier's alliance discussion adds a partner-hedging pathway to the force-strain analysis. The issue does not adopt the named "Mecca alliance" as established fact. It uses the source more narrowly: uncertainty about the cost and reliability of U.S. protection can encourage regional actors to diversify security relationships and coordinate outside a single patron's framework.
+
 ## Issue Copy
 
 ### NGI-20260812-S01 - Force-Strain Replaces Clean Victory
+
+Magnier adds a partner-hedging pathway: when U.S. protection appears expensive or uncertain, regional actors may diversify relationships and coordinate beyond a single patron. The named alliance remains a source claim rather than an established institution.
 
 Rank: `lead`
 
 Evidence posture: `bounded-analysis`
 
-Source support: `SRC-01`, `SRC-02`, `SRC-03`, `SRC-04`, `SRC-05`, `SRC-06`, `SRC-07`, `SRC-08`
+Source support: `SRC-01`, `SRC-02`, `SRC-03`, `SRC-04`, `SRC-05`, `SRC-06`, `SRC-07`, `SRC-08`, `SRC-09`
 
 Forecast hook: `NG-20260812-F01`
 
@@ -104,4 +110,6 @@ For internal strategy work, the implication is to stop treating Iran/Gulf pressu
 
 ## Revision Log
 
-No revisions.
+| Timestamp (UTC) | Type | Note |
+| --- | --- | --- |
+| 2026-08-31T01:49:02Z | update | Reconciled Magnier alliance source and renewed the partner-hedging component without verifying the named alignment. |

@@ -4,7 +4,7 @@ This index routes the imported first-slice parity corpus for `marandi` to the ce
 
 Source basis: `strategy-codex/statecraft/voices/marandi/marandi-index.md`.
 
-Corpus: 99 local route rows across 99 central archive source files.
+Corpus: 100 local route rows across 100 central archive source files.
 
 Status: `first-slice-parity`
 
@@ -123,6 +123,7 @@ Status: `first-slice-parity`
 | `2026-08-22` | Seyed M. Marandi: Trump to Squeeze Iran’s Economy to the Brink—But Tehran Just Doubled Its Arsenal | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2026-08-22/source-seyed-m-marandi-trump-to-squeeze-iran-s-economy-to-the-brink-but-tehran-just-doubled-its-arsenal-2026-08-22.md) |
 | `2026-08-23` | 🚨 LIVE: Mohammad Marandi - The Iran War Is Coming for the US Economy | `guest` | `cyrus-janssen` | [source](../../../archive/sources/geopolitics/sources/2026-08-23/source-live-mohammad-marandi-the-iran-war-is-coming-for-the-us-economy-2026-08-23.md) |
 | `2026-08-23` | Seyed M. Marandi: From "Economic D-Day" to Nuclear Strike Against Iran? | `guest` | `glenn-diesen` | [source](../../../archive/sources/geopolitics/sources/2026-08-23/source-seyed-m-marandi-from-economic-d-day-to-nuclear-strike-against-iran-2026-08-23.md) |
+| `2026-08-29` | Seyed M. Marandi: Iran Activates War Economy & Military Surge as All-Out Conflict Becomes Inevitable | `guest` | `nima-alkhorshid` | [source](../../../archive/sources/geopolitics/sources/2026-08-29/source-seyed-m-marandi-iran-activates-war-economy-military-surge-as-all-out-conflict-becomes-inevitable-2026-08-29.md) |
 
 ## Import Boundary
 

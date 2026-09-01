@@ -1,4 +1,4 @@
-<!-- daily-issue-v1 inputs-sha256: b0d437dfc3a8c1f6b628e0cb51d28e9da36d4970dd005bd816e62a1a257eaec5 -->
+<!-- daily-issue-v1 inputs-sha256: e86c0beaef70d404f0cfeae13b160319b5368e3f9eae9b5ecdf0e0ef2a1e7d47 -->
 <!-- reality-lattice-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 -->
 <!-- Generated file. Edit canonical daily or reality-lattice inputs, then regenerate. -->
 
@@ -90,17 +90,17 @@ Only sources used by selected issue stories appear here. See the [complete canon
 
 | Source ID | Voice | Archive source | Analytical job |
 | --- | --- | --- | --- |
-| `SRC-01` | Alastair Crooke | [2026-08-07 Crooke](../../../archive/sources/2026-08-07/source-1-alastair-crooke-iran-s-only-choice-humiliate-the-us-2026-08-07.md) | Hormuz reopening and sanctions/assets leverage. |
-| `SRC-04` | Larry Johnson | [2026-08-07 Johnson](../../../archive/sources/2026-08-07/source-1-fmr-cia-analyst-larry-johnson-us-grudgingly-returns-to-diplomacy-2026-08-07.md) | Coercive capacity limit and diplomacy-under-pressure mechanism. |
-| `SRC-05` | Nima Alkhorshid, Daniel Davis | [2026-08-07 Alkhorshid Davis](../../../archive/sources/2026-08-07/source-1-iran-s-long-run-strategy-nima-alkhorshid-lt-col-daniel-davis-2026-08-07.md) | Iran-Oman technical path and regional-security authority claim. |
-| `SRC-06` | Anthony Aguilar | [2026-08-07 Aguilar](../../../archive/sources/2026-08-07/source-1-israel-reject-trump-attempt-at-iran-deal-yemen-strike-saudi-islamic-nato-w-col-anthony-aguilar-2026-08-07.md) | Wider-war constraints against premature settlement framing. |
-| `SRC-09` | Robert Pape | [2026-08-07 Pape](../../../archive/sources/2026-08-07/source-1-professor-robert-pape-iran-war-is-a-trap-and-america-has-no-way-out-2026-08-07.md) | Operational scale mechanism for coercive limits. |
-| `SRC-11` | Trita Parsi | [2026-08-07 Parsi Diesen](../../../archive/sources/2026-08-07/source-1-trita-parsi-new-deals-will-change-the-middle-east-forever-2026-08-07.md) | Regional security alternatives after U.S. umbrella shock. |
-| `SRC-12` | Trita Parsi | [2026-08-07 Parsi Napolitano](../../../archive/sources/2026-08-07/source-1-trita-parsi-what-the-us-misunderstands-about-iran-live-part-two-2026-08-07.md) | Territorial-water framing of Hormuz negotiations. |
-| `SRC-02` | Chas Freeman | [2026-08-07 Freeman](../../../archive/sources/2026-08-07/source-1-amb-chas-freeman-breaking-saudi-pakistan-turkiye-just-signed-a-joint-defense-pact-2026-08-07.md) | Regional defense architecture after the Iran-Oman settlement channel. |
-| `SRC-03` | Glenn Diesen | [2026-08-07 Diesen](../../../archive/sources/2026-08-07/source-1-breaking-turkey-saudi-pakistan-sign-mutual-defense-pact-w-prof-glenn-diesen-2026-08-07.md) | Saudi-Pakistan-Turkiye pact as umbrella-repricing signal. |
-| `SRC-07` | Larry Johnson, Larry Wilkerson | [2026-08-07 Johnson Wilkerson](../../../archive/sources/2026-08-07/source-1-larry-johnson-col-larry-wilkerson-the-old-middle-east-is-dead-2026-08-07.md) | Mutual-defense pact trigger logic and target ambiguity. |
-| `SRC-13` | Alexander Mercouris | [2026-08-07 Mercouris](../../../archive/sources/2026-08-07/source-1-west-kiev-panic-as-patriots-run-out-russia-hammers-odessa-dobropiliya-breakthrough-merz-in-crisis-2026-08-07.md) | Ukraine/Russia secondary capacity lane and Patriot scarcity. |
+| `SRC-01` | Alastair Crooke | [2026-08-07 Crooke](../../../../archive/sources/geopolitics/sources/2026-08-07/source-1-alastair-crooke-iran-s-only-choice-humiliate-the-us-2026-08-07.md) | Hormuz reopening and sanctions/assets leverage. |
+| `SRC-04` | Larry Johnson | [2026-08-07 Johnson](../../../../archive/sources/geopolitics/sources/2026-08-07/source-1-fmr-cia-analyst-larry-johnson-us-grudgingly-returns-to-diplomacy-2026-08-07.md) | Coercive capacity limit and diplomacy-under-pressure mechanism. |
+| `SRC-05` | Nima Alkhorshid, Daniel Davis | [2026-08-07 Alkhorshid Davis](../../../../archive/sources/geopolitics/sources/2026-08-07/source-1-iran-s-long-run-strategy-nima-alkhorshid-lt-col-daniel-davis-2026-08-07.md) | Iran-Oman technical path and regional-security authority claim. |
+| `SRC-06` | Anthony Aguilar | [2026-08-07 Aguilar](../../../../archive/sources/geopolitics/sources/2026-08-07/source-1-israel-reject-trump-attempt-at-iran-deal-yemen-strike-saudi-islamic-nato-w-col-anthony-aguilar-2026-08-07.md) | Wider-war constraints against premature settlement framing. |
+| `SRC-09` | Robert Pape | [2026-08-07 Pape](../../../../archive/sources/geopolitics/sources/2026-08-07/source-1-professor-robert-pape-iran-war-is-a-trap-and-america-has-no-way-out-2026-08-07.md) | Operational scale mechanism for coercive limits. |
+| `SRC-11` | Trita Parsi | [2026-08-07 Parsi Diesen](../../../../archive/sources/geopolitics/sources/2026-08-07/source-1-trita-parsi-new-deals-will-change-the-middle-east-forever-2026-08-07.md) | Regional security alternatives after U.S. umbrella shock. |
+| `SRC-12` | Trita Parsi | [2026-08-07 Parsi Napolitano](../../../../archive/sources/geopolitics/sources/2026-08-07/source-1-trita-parsi-what-the-us-misunderstands-about-iran-live-part-two-2026-08-07.md) | Territorial-water framing of Hormuz negotiations. |
+| `SRC-02` | Chas Freeman | [2026-08-07 Freeman](../../../../archive/sources/geopolitics/sources/2026-08-07/source-1-amb-chas-freeman-breaking-saudi-pakistan-turkiye-just-signed-a-joint-defense-pact-2026-08-07.md) | Regional defense architecture after the Iran-Oman settlement channel. |
+| `SRC-03` | Glenn Diesen | [2026-08-07 Diesen](../../../../archive/sources/geopolitics/sources/2026-08-07/source-1-breaking-turkey-saudi-pakistan-sign-mutual-defense-pact-w-prof-glenn-diesen-2026-08-07.md) | Saudi-Pakistan-Turkiye pact as umbrella-repricing signal. |
+| `SRC-07` | Larry Johnson, Larry Wilkerson | [2026-08-07 Johnson Wilkerson](../../../../archive/sources/geopolitics/sources/2026-08-07/source-1-larry-johnson-col-larry-wilkerson-the-old-middle-east-is-dead-2026-08-07.md) | Mutual-defense pact trigger logic and target ambiguity. |
+| `SRC-13` | Alexander Mercouris | [2026-08-07 Mercouris](../../../../archive/sources/geopolitics/sources/2026-08-07/source-1-west-kiev-panic-as-patriots-run-out-russia-hammers-odessa-dobropiliya-breakthrough-merz-in-crisis-2026-08-07.md) | Ukraine/Russia secondary capacity lane and Patriot scarcity. |
 
 ## Forecast Desk
 

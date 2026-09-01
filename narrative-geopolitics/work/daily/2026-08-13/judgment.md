@@ -32,6 +32,10 @@ Strongest counterevidence or dissent: the batch may overselect voices predispose
 - Forecast hooks: `NG-20260813-F01`
 - Operational or causal dependencies: `none`
 
+## Late-source judgment renewal
+
+Crooke and Johnson reinforce the narrowing-exit mechanism from different formats: one argues that recycled threat narratives sustain escalation, while the other frames the U.S.-Iran file as a stalemate Washington cannot easily terminate. This increases confidence that incompatible political demands make delay costly, but not that either source's operational narrative is true. Helmer's Turkey thesis is preserved as a regional comparison and does not change the lead. The renewed confidence boundary remains `moderate` and source-bounded.
+
 ## Next Observable Signals
 
 - U.S. or partner language shifts toward force rotation, sanctions fallback, containment, coalition discipline, or burden sharing by `2026-08-27`; this strengthens the ambiguity-management judgment.

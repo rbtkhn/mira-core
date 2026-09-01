@@ -95,11 +95,16 @@ No operational claim is retained for public factual use in this pass. CENTCOM pr
 
 See [judgment.md](judgment.md).
 
+## Late-source reconciliation
+
+Three later-landed records sharpen rather than replace the constraint-inversion thesis. Crooke's authored WMD-deceit argument (`SRC-15`) and Johnson's U.S.-Iran stalemate interview (`SRC-17`) both describe how threat narratives and incompatible demands can make delay costly for the initiator; neither is independent confirmation of the other's factual claims. Helmer's Turkey analysis (`SRC-16`) adds a distinct Russia-Turkey bargaining lane, but it remains secondary because it does not decide the day's U.S.-Iran ambiguity object. The lead is renewed around narrowing exit options, with Turkey retained as a held regional comparison.
+
 ## Issue Story Desk
 
 | Story ID | Placement | Argument headline | Crisis object | Evidence posture | Source IDs | Voices | Forecast hooks | Operational claims | Selection rationale |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| `NGI-20260813-S01` | `lead` | Delay Becomes the Cost | U.S. Force-Strain / Ambiguity Management | `bounded-analysis` | `SRC-01`, `SRC-03`, `SRC-05`, `SRC-06`, `SRC-08`, `SRC-09`, `SRC-10`, `SRC-11`, `SRC-13` | Pape, Davis, Diesen, Crooke, Blumenthal, Macgregor, Mearsheimer, Weichert, Mercouris | `NG-20260813-F01` | none for public use | The story captures the day’s delta: ambiguity still organizes the crisis, but several actors may be nearing thresholds where waiting is no longer cheap. |
+| `NGI-20260813-S01` | `lead` | Delay Becomes the Cost | U.S. Force-Strain / Ambiguity Management | `bounded-analysis` | `SRC-01`, `SRC-03`, `SRC-05`, `SRC-06`, `SRC-08`, `SRC-09`, `SRC-10`, `SRC-11`, `SRC-13`, `SRC-15`, `SRC-17` | Pape, Davis, Diesen, Crooke, Blumenthal, Macgregor, Mearsheimer, Weichert, Mercouris, Johnson | `NG-20260813-F01` | none for public use | The story captures the day’s delta: ambiguity still organizes the crisis, but several actors may be nearing thresholds where waiting is no longer cheap. |
+| `NGI-20260813-S02` | `hold` | Turkey tests the cost of cross-theater ambiguity | Can Ankara convert position between Russia, NATO, and regional wars into bargaining leverage without creating a new commitment trap? | `source-assertion` | `SRC-16` | Helmer | `none` | none for public use | A distinct regional comparison worth retaining, but too remote from the owning U.S.-Iran object for issue elevation. |
 
 ## Forecast Candidates
 

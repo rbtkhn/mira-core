@@ -1,4 +1,4 @@
-<!-- daily-issue-v1 inputs-sha256: 0156b58866cbeac4d4167a00426994409ebd1fd9bdee5f10e4b6343dda69cbc9 -->
+<!-- daily-issue-v1 inputs-sha256: 2238ad09c8849431d39c4f731ba62022b8b20fcb3057fe5e966f53e02459598e -->
 <!-- reality-lattice-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 -->
 <!-- Generated file. Edit canonical daily or reality-lattice inputs, then regenerate. -->
 
@@ -18,7 +18,7 @@ Evidence posture: `archive-first; story-level labels govern factual use`
 
 ## Front Page
 
-The lead story is the durability of a constrained pause. The August 5 sources suggest that any reported Hormuz/Oman opening should be read less as a clean settlement than as a test of whether Washington can manage reduced coercive room without admitting strategic retreat. That distinction matters: if transit, sanctions, infrastructure protection, Lebanon, and U.S. force stocks remain linked, then the pause is another carrier of the conflict rather than its resolution.
+The late Magnier records sharpen the lead without settling it: one reports an Oman-Iran arrangement while the other foregrounds renewed U.S. punishment if Iran withdraws. Henningsen's coercion-backfire thesis supplies supporting analysis, not independent corroboration. Together they make the pause's political fragility more visible while leaving its actual terms and durability unverified.
 
 | Desk | Story | Evidence posture |
 | --- | --- | --- |
@@ -34,6 +34,8 @@ Evidence posture: `bounded-analysis`
 Crisis object: Does the Ukraine front reveal the same gap between Western narrative confidence and depleted air-defense or strike capacity?
 
 Related reality claims: None registered
+
+Henningsen's discussion with Davis adds a restraint comparison. It remains a secondary cross-theater analogy and is not used as factual proof of the Iran/Hormuz mechanism.
 
 Ukraine remains secondary, but it matters as a pressure test for the same capacity mechanism. Mercouris, Johnson, and Hoh suggest that Western confidence language is increasingly exposed to air-defense, strike-system, and weapons-stock constraints. That does not move the daily lead away from Iran/Hormuz; it shows why the off-ramp belongs to a wider allocation problem.
 
@@ -71,6 +73,8 @@ Crisis object: Can Washington convert a constrained pause around Hormuz into a d
 
 Related reality claims: None registered
 
+The late Magnier records sharpen the lead without settling it: one reports an Oman-Iran arrangement while the other foregrounds renewed U.S. punishment if Iran withdraws. Henningsen's coercion-backfire thesis supplies supporting analysis, not independent corroboration. Together they make the pause's political fragility more visible while leaving its actual terms and durability unverified.
+
 The lead story is the durability of a constrained pause. The August 5 sources suggest that any reported Hormuz/Oman opening should be read less as a clean settlement than as a test of whether Washington can manage reduced coercive room without admitting strategic retreat. That distinction matters: if transit, sanctions, infrastructure protection, Lebanon, and U.S. force stocks remain linked, then the pause is another carrier of the conflict rather than its resolution.
 
 The strongest version of the judgment is cautious. The source packet supports an internal analytical claim about incentives and constraints. It does not settle the operational truth of the arrangement, sanctions movement, weapons inventories, or strike claims. The practical implication is to watch linkage language, not victory language.
@@ -85,14 +89,18 @@ Only sources used by selected issue stories appear here. See the [complete canon
 
 | Source ID | Voice | Archive source | Analytical job |
 | --- | --- | --- | --- |
-| `SRC-02` | Marandi | [2026-08-05 Marandi](../../../archive/sources/2026-08-05/source-1-breaking-60-day-hormuz-arrangement-confirmed-by-tehran-oman-w-prof-seyed-mohammad-marandi-2026-08-05.md) | (1) BREAKING: 60-DAY HORMUZ ARRANGEMENT CONFIRMED BY TEHRAN & OMAN — w/ Prof. Seyed Mohammad Marandi |
-| `SRC-03` | Macgregor | [2026-08-05 Macgregor](../../../archive/sources/2026-08-05/source-1-col-douglas-macgregor-trump-s-failing-foreign-policy-2026-08-05.md) | (1) COL. Douglas Macgregor : Trump’s Failing Foreign Policy |
-| `SRC-04` | Hoh | [2026-08-05 Hoh](../../../archive/sources/2026-08-05/source-1-fmr-us-marine-matthew-hoh-us-runs-out-of-firepower-2026-08-05.md) | (1) Fmr. US Marine Matthew Hoh: US Runs Out of Firepower |
-| `SRC-05` | Johnson | [2026-08-05 Johnson](../../../archive/sources/2026-08-05/source-1-larry-johnson-tehran-washington-enter-the-endgame-no-more-bluffing-2026-08-05.md) | (1) Larry Johnson: Tehran & Washington Enter the Endgame—No More Bluffing |
-| `SRC-08` | Ritter | [2026-08-05 Ritter](../../../archive/sources/2026-08-05/source-1-scott-ritter-yemen-strike-saudi-oil-tanker-wafa-u-s-munitions-depleted-trump-cornered-2026-08-05.md) | (1) Scott Ritter: Yemen Strike Saudi Oil Tanker "Wafa" – U.S. Munitions Depleted, Trump Cornered |
-| `SRC-09` | Postol | [2026-08-05 Postol](../../../archive/sources/2026-08-05/source-1-ted-postol-iran-s-fattah-missile-v-russia-s-oreshnik-missile-2026-08-05.md) | (1) Ted Postol: Iran's Fattah Missile v. Russia's Oreshnik Missile |
-| `SRC-07` | Mercouris | [2026-08-05 Mercouris](../../../archive/sources/2026-08-05/source-1-russia-again-massively-strikes-kiev-no-russian-missile-shot-down-zelensky-rages-blames-west-hormuz-2026-08-05.md) | (1) Russia Again Massively Strikes Kiev No Russian Missile Shot Down; Zelensky Rages Blames West; Hormuz |
-| `SRC-10` | Mercouris | [2026-08-05 Mercouris](../../../archive/sources/2026-08-05/source-1-ukraine-battlefield-failures-push-europe-into-desperate-measures-2026-08-05.md) | (1) Ukraine battlefield failures push Europe into desperate measures |
+| `SRC-02` | Marandi | [2026-08-05 Marandi](../../../../archive/sources/geopolitics/sources/2026-08-05/source-1-breaking-60-day-hormuz-arrangement-confirmed-by-tehran-oman-w-prof-seyed-mohammad-marandi-2026-08-05.md) | (1) BREAKING: 60-DAY HORMUZ ARRANGEMENT CONFIRMED BY TEHRAN & OMAN — w/ Prof. Seyed Mohammad Marandi |
+| `SRC-03` | Macgregor | [2026-08-05 Macgregor](../../../../archive/sources/geopolitics/sources/2026-08-05/source-1-col-douglas-macgregor-trump-s-failing-foreign-policy-2026-08-05.md) | (1) COL. Douglas Macgregor : Trump’s Failing Foreign Policy |
+| `SRC-04` | Hoh | [2026-08-05 Hoh](../../../../archive/sources/geopolitics/sources/2026-08-05/source-1-fmr-us-marine-matthew-hoh-us-runs-out-of-firepower-2026-08-05.md) | (1) Fmr. US Marine Matthew Hoh: US Runs Out of Firepower |
+| `SRC-05` | Johnson | [2026-08-05 Johnson](../../../../archive/sources/geopolitics/sources/2026-08-05/source-1-larry-johnson-tehran-washington-enter-the-endgame-no-more-bluffing-2026-08-05.md) | (1) Larry Johnson: Tehran & Washington Enter the Endgame—No More Bluffing |
+| `SRC-08` | Ritter | [2026-08-05 Ritter](../../../../archive/sources/geopolitics/sources/2026-08-05/source-1-scott-ritter-yemen-strike-saudi-oil-tanker-wafa-u-s-munitions-depleted-trump-cornered-2026-08-05.md) | (1) Scott Ritter: Yemen Strike Saudi Oil Tanker "Wafa" – U.S. Munitions Depleted, Trump Cornered |
+| `SRC-09` | Postol | [2026-08-05 Postol](../../../../archive/sources/geopolitics/sources/2026-08-05/source-1-ted-postol-iran-s-fattah-missile-v-russia-s-oreshnik-missile-2026-08-05.md) | (1) Ted Postol: Iran's Fattah Missile v. Russia's Oreshnik Missile |
+| `SRC-11` | Magnier | [Oman-Iran arrangement](../../../../archive/sources/geopolitics/sources/2026-08-05/source-breaking-oman-and-iran-announce-deal-w-elijah-magnier-2026-08-05.md) | Directly pressures whether the reported pause is an off-ramp or another bargaining carrier. |
+| `SRC-12` | Magnier | [Trump coercion warning](../../../../archive/sources/geopolitics/sources/2026-08-05/source-elijah-magnier-trump-doubles-down-iran-will-be-hit-really-hard-if-they-back-out-2026-08-05.md) | Adds the explicit threat that can destabilize a negotiated pause. |
+| `SRC-13` | Henningsen | [Ultimatum backfire](../../../../archive/sources/geopolitics/sources/2026-08-05/source-patrick-henningsen-the-ultimatum-that-backfired-trump-s-threat-just-made-iran-stronger-2026-08-05.md) | Tests whether coercive rhetoric strengthens rather than weakens Iranian resistance. |
+| `SRC-07` | Mercouris | [2026-08-05 Mercouris](../../../../archive/sources/geopolitics/sources/2026-08-05/source-1-russia-again-massively-strikes-kiev-no-russian-missile-shot-down-zelensky-rages-blames-west-hormuz-2026-08-05.md) | (1) Russia Again Massively Strikes Kiev No Russian Missile Shot Down; Zelensky Rages Blames West; Hormuz |
+| `SRC-10` | Mercouris | [2026-08-05 Mercouris](../../../../archive/sources/geopolitics/sources/2026-08-05/source-1-ukraine-battlefield-failures-push-europe-into-desperate-measures-2026-08-05.md) | (1) Ukraine battlefield failures push Europe into desperate measures |
+| `SRC-14` | Henningsen | [Russia restraint lane](../../../../archive/sources/geopolitics/sources/2026-08-05/source-russia-can-t-go-scortched-earth-patrick-henningsen-lt-col-daniel-davis-2026-08-05.md) | Secondary cross-theater restraint argument, held from the Iran/Hormuz lead. |
 
 ## Forecast Desk
 
@@ -122,6 +130,8 @@ Names identify source-bounded pressure tests, not endorsement or reconstructed p
 | Johnson | Negotiation and political-risk mechanism | Reads partial sanctions movement and U.S. non-response as evidence of a panic-driven attempt to reopen Hormuz without admitting defeat. | Infers intent from public signals and commentary rather than documentary evidence. |
 | Ritter | Regional and civilizational pressure | Add Yemen/Saudi maritime pressure and Iranian social-cohesion framing to the off-ramp problem. | Sweeping geopolitical claims are useful for mechanism stress, not operational truth. |
 | Postol | Technical pressure test | Explains why missile-defense assumptions may not restore deterrence against maneuvering or high-speed impact systems. | Technical assessment is source expertise, not an independently adjudicated weapons review. |
+| Magnier | Negotiation-threat sequence | Places a claimed Oman-Iran arrangement beside renewed U.S. punishment language, making the pause's bargaining fragility explicit. | Arrangement terms, threat effects, and attribution remain source-asserted. |
+| Henningsen | Regional and civilizational pressure | Add Yemen/Saudi maritime pressure and Iranian social-cohesion framing to the off-ramp problem. | Sweeping geopolitical claims are useful for mechanism stress, not operational truth. |
 | Mercouris | Secondary-theater and imperial-structure pressure | Show Ukraine/Russia and empire-preservation narratives as parallel symptoms of overstretched coercive capacity. | Shared interpretive family can create convergence without source independence. |
 
 ## Editor's Note
@@ -139,4 +149,6 @@ Canonical inputs: [sources](sources.md), [synthesis](synthesis.md), [forecast](f
 
 ### Revision Log
 
-No revisions.
+| Timestamp (UTC) | Type | Note |
+| --- | --- | --- |
+| 2026-08-31T01:49:02Z | update | Reconciled four later-landed sources; renewed lead and secondary judgments with source-bounded dispositions. |

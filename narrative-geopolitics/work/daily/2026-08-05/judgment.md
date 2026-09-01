@@ -34,6 +34,10 @@ Strongest counterevidence or dissent: the packet contains no primary official te
 
 Do not treat repeated source assertions as verified claims. Link only to existing `OPC-*`, `CLM-*`, `NG-*`, or `NG-*-F*` records.
 
+## Late-source judgment renewal
+
+The late records raise confidence in the *structure* of the off-ramp problem, not in the reported facts. Two Magnier sources make the claimed Oman-Iran arrangement and renewed U.S. threat part of the same bargaining sequence; Henningsen supplies a compatible backfire account. Because these voices are not independent verification and the transcripts remain unreviewed for quotation, the renewed judgment stays at `moderate`: the pause is vulnerable to coercive linkage, while its actual terms and durability remain unresolved. The Russia discussion is held as a comparison only.
+
 ## Next Observable Signals
 
 - By `2026-08-19`, official or high-visibility U.S., Iranian, Israeli, Gulf, or Yemeni statements observable after `2026-08-06` explicitly connect Hormuz transit normalization to sanctions relief, regional infrastructure protection, Lebanon/Gaza escalation, or U.S. force-stock constraints.

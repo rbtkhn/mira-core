@@ -29,7 +29,7 @@ This run is grounded in the `2026-08-28` day batch already landed in the central
 | `archive/sources/geopolitics/sources/2026-08-28/source-russia-donbas-knockout-blow-dobropilia-cauldron-slaviansk-crisis-lavrov-west-diplomacy-all-trickery-2026-08-28.md` | cleaned-transcript | `imported` | `yes` | Mercouris | Alexander Mercouris | host monologue; review and narrow to owning crisis object before synthesis. |
 | `archive/sources/geopolitics/sources/2026-08-28/source-the-truth-about-the-us-blockade-in-the-strait-of-hormuz-2026-08-28.md` | cleaned-transcript | `imported` | `yes` | Escobar | Judging Freedom | guest interview pressure test; review and narrow to owning crisis object before synthesis. |
 | `archive/sources/geopolitics/sources/2026-08-28/source-u-s-plan-to-resart-iran-war-after-the-midterms-trump-claims-he-control-strait-w-col-daniel-davis-2026-08-28.md` | cleaned-transcript | `imported` | `yes` | Davis | Moral Resistance | guest interview pressure test; review and narrow to owning crisis object before synthesis. |
-
+| `archive/sources/geopolitics/sources/2026-08-28/source-is-the-cia-hiding-its-losses-in-the-iran-and-ukraine-wars-w-john-helmer-2026-08-28.md` | cleaned-transcript | `imported` | `yes` | Helmer | Reason2Resist | Cross-theater intelligence-loss and opacity thesis; retained as source-attributed analysis. |
 ## Run Source Set
 
 | Source ID | Voice | Host / Channel | Modality | Archive Path | Why It Matters |
@@ -46,6 +46,7 @@ This run is grounded in the `2026-08-28` day batch already landed in the central
 | `SRC-10` | Mercouris | Alexander Mercouris | cleaned-transcript | [2026-08-28 Mercouris](../../../../archive/sources/geopolitics/sources/2026-08-28/source-russia-donbas-knockout-blow-dobropilia-cauldron-slaviansk-crisis-lavrov-west-diplomacy-all-trickery-2026-08-28.md) | Russia Donbas Knockout Blow Dobropilia Cauldron Slaviansk Crisis; Lavrov West Diplomacy All Trickery |
 | `SRC-11` | Escobar | Judging Freedom | cleaned-transcript | [2026-08-28 Escobar](../../../../archive/sources/geopolitics/sources/2026-08-28/source-the-truth-about-the-us-blockade-in-the-strait-of-hormuz-2026-08-28.md) | The Truth About the US Blockade in the Strait of Hormuz |
 | `SRC-12` | Davis | Moral Resistance | cleaned-transcript | [2026-08-28 Davis](../../../../archive/sources/geopolitics/sources/2026-08-28/source-u-s-plan-to-resart-iran-war-after-the-midterms-trump-claims-he-control-strait-w-col-daniel-davis-2026-08-28.md) | U.S PLAN TO RESART IRAN WAR AFTER THE MIDTERMS, TRUMP CLAIMS HE CONTROL STRAIT w/ COL DANIEL DAVIS |
+| `SRC-13` | Helmer | Reason2Resist | cleaned-transcript | [CIA losses](../../../../archive/sources/geopolitics/sources/2026-08-28/source-is-the-cia-hiding-its-losses-in-the-iran-and-ukraine-wars-w-john-helmer-2026-08-28.md) | Adds an intelligence-opacity mechanism across Iran and Ukraine while leaving alleged losses unverified. |
 
 ## Historical Context Set
 
@@ -56,7 +57,6 @@ count toward intake coverage or current-event corroboration.
 | Library Source | Body IDs | Analytic Role | Coverage | Hash State | Private Packet Digest |
 | --- | --- | --- | --- | --- | --- |
 | `none` | `none` | `not-invoked` | `none` | `none` | `none` |
-
 ## Load-Bearing Quotes
 
 Use short direct quotes only when wording matters. Keep quotes brief and tie each quote to an analytic job.
@@ -92,7 +92,7 @@ Use short direct quotes only when wording matters. Keep quotes brief and tie eac
 | `CLM-10` | `SRC-10` |  | Mercouris via Alexander Mercouris | `candidate` |
 | `CLM-11` | `SRC-11` |  | Escobar via Judging Freedom | `candidate` |
 | `CLM-12` | `SRC-12` |  | Davis via Moral Resistance | `candidate` |
-
+| `CLM-13` | `SRC-13` | Hidden or contested intelligence losses can widen the gap between coercive public posture and actual control. | Helmer via Reason2Resist | `source-assertion` |
 ## Source Hygiene
 
 - Confirm each archive path resolves.

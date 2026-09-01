@@ -45,6 +45,10 @@ No new accountable forecast hook is issued from the August 15 packet. The strong
 - Operational dependency is `none` because no `OPC-*` claim is retained for public factual use.
 - Any future hook should first resolve whether its operating premise requires a verification packet.
 
+## Late-source forecast review
+
+`SRC-07` supplies a source-attributed timing marker for the existing watch. Because the reported expiry is not independently verified and the packet's wager already concerns time-control, no duplicate forecast is added and no probability is revised.
+
 ## Ledger Entries
 
 No new ledger entries were created.

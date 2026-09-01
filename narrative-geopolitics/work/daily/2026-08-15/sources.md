@@ -8,8 +8,8 @@ Status: `live-intake-first`
 
 Primary source basis:
 
-- `narrative-geopolitics/archive/source-manifest.json`
-- `narrative-geopolitics/archive/sources/2026-08-15/`
+- `archive/sources/geopolitics/source-manifest.json`
+- `archive/sources/geopolitics/sources/2026-08-15/`
 
 ## Intake Batch
 
@@ -17,24 +17,24 @@ This run is grounded in the `2026-08-15` day batch already landed in the central
 
 | Source File | Source Type | Intake Status | Manifest Row | Voice Route | Channel Route | Notes |
 | --- | --- | --- | --- | --- | --- | --- |
-| `archive/sources/2026-08-15/source-4-centcom-pushes-trump-for-more-war-as-ceasefire-expires-monday-w-lt-col-anthony-aguilar-2026-08-15.md` | cleaned-transcript | `imported` | `yes` | Aguilar | Mario Nawfal | interview; review and narrow to owning crisis object before synthesis. |
-| `archive/sources/2026-08-15/source-4-how-hormuz-is-haunting-the-us-lt-col-daniel-davis-2026-08-15.md` | cleaned-transcript | `imported` | `yes` | Davis | Daniel Davis | host monologue; review and narrow to owning crisis object before synthesis. |
-| `archive/sources/2026-08-15/source-4-larry-johnson-iran-s-final-play-in-hormuz-israel-attack-falls-apart-yemen-flipped-the-script-2026-08-15.md` | cleaned-transcript | `imported` | `yes` | Johnson | Dialogue Works | interview; review and narrow to owning crisis object before synthesis. |
-| `archive/sources/2026-08-15/source-4-ray-mcgovern-russia-japan-tensions-grow-u-s-involvement-in-attacks-on-russia-2026-08-15.md` | cleaned-transcript | `imported` | `yes` | McGovern | Glenn Diesen | interview; review and narrow to owning crisis object before synthesis. |
-| `archive/sources/2026-08-15/source-4-russia-crushes-kiev-s-elite-azov-troops-smashes-dobropilia-west-despairs-at-kiev-lack-of-ad-2026-08-15.md` | cleaned-transcript | `imported` | `yes` | Mercouris | Alexander Mercouris | guest interview pressure test; review and narrow to owning crisis object before synthesis. |
-| `archive/sources/2026-08-15/source-4-seyed-m-marandi-us-on-imminent-attack-alert-hezbollah-delivers-a-stunning-blow-to-idf-2026-08-15.md` | cleaned-transcript | `imported` | `yes` | Marandi | Nima Alkhorshid | interview; review and narrow to owning crisis object before synthesis. |
-
+| `archive/sources/geopolitics/sources/2026-08-15/source-4-centcom-pushes-trump-for-more-war-as-ceasefire-expires-monday-w-lt-col-anthony-aguilar-2026-08-15.md` | cleaned-transcript | `imported` | `yes` | Aguilar | Mario Nawfal | interview; review and narrow to owning crisis object before synthesis. |
+| `archive/sources/geopolitics/sources/2026-08-15/source-4-how-hormuz-is-haunting-the-us-lt-col-daniel-davis-2026-08-15.md` | cleaned-transcript | `imported` | `yes` | Davis | Daniel Davis | host monologue; review and narrow to owning crisis object before synthesis. |
+| `archive/sources/geopolitics/sources/2026-08-15/source-4-larry-johnson-iran-s-final-play-in-hormuz-israel-attack-falls-apart-yemen-flipped-the-script-2026-08-15.md` | cleaned-transcript | `imported` | `yes` | Johnson | Dialogue Works | interview; review and narrow to owning crisis object before synthesis. |
+| `archive/sources/geopolitics/sources/2026-08-15/source-4-ray-mcgovern-russia-japan-tensions-grow-u-s-involvement-in-attacks-on-russia-2026-08-15.md` | cleaned-transcript | `imported` | `yes` | McGovern | Glenn Diesen | interview; review and narrow to owning crisis object before synthesis. |
+| `archive/sources/geopolitics/sources/2026-08-15/source-4-russia-crushes-kiev-s-elite-azov-troops-smashes-dobropilia-west-despairs-at-kiev-lack-of-ad-2026-08-15.md` | cleaned-transcript | `imported` | `yes` | Mercouris | Alexander Mercouris | guest interview pressure test; review and narrow to owning crisis object before synthesis. |
+| `archive/sources/geopolitics/sources/2026-08-15/source-4-seyed-m-marandi-us-on-imminent-attack-alert-hezbollah-delivers-a-stunning-blow-to-idf-2026-08-15.md` | cleaned-transcript | `imported` | `yes` | Marandi | Nima Alkhorshid | interview; review and narrow to owning crisis object before synthesis. |
+| `archive/sources/geopolitics/sources/2026-08-15/source-iran-ceasefire-set-to-expire-on-monday-situation-static-w-elijah-magnier-2026-08-15.md` | cleaned-transcript | `imported` | `yes` | Magnier | Mario Nawfal | Direct ceasefire-expiry timing signal; exact terms and status remain source-asserted. |
 ## Run Source Set
 
 | Source ID | Voice | Host / Channel | Modality | Archive Path | Why It Matters |
 | --- | --- | --- | --- | --- | --- |
-| `SRC-01` | Aguilar | Mario Nawfal | cleaned-transcript | [2026-08-15 Aguilar](../../../archive/sources/2026-08-15/source-4-centcom-pushes-trump-for-more-war-as-ceasefire-expires-monday-w-lt-col-anthony-aguilar-2026-08-15.md) | (4) CENTCOM PUSHES TRUMP FOR MORE WAR AS CEASEFIRE EXPIRES MONDAY - w/ Lt. Col. Anthony Aguilar |
-| `SRC-02` | Davis | Daniel Davis | cleaned-transcript | [2026-08-15 Davis](../../../archive/sources/2026-08-15/source-4-how-hormuz-is-haunting-the-us-lt-col-daniel-davis-2026-08-15.md) | (4) HOW HORMUZ IS HAUNTING THE US /Lt Col Daniel Davis |
-| `SRC-03` | Johnson | Dialogue Works | cleaned-transcript | [2026-08-15 Johnson](../../../archive/sources/2026-08-15/source-4-larry-johnson-iran-s-final-play-in-hormuz-israel-attack-falls-apart-yemen-flipped-the-script-2026-08-15.md) | (4) Larry Johnson: Iran’s FINAL Play in Hormuz- Israel Attack FALLS APART- Yemen Flipped the Script |
-| `SRC-04` | McGovern | Glenn Diesen | cleaned-transcript | [2026-08-15 McGovern](../../../archive/sources/2026-08-15/source-4-ray-mcgovern-russia-japan-tensions-grow-u-s-involvement-in-attacks-on-russia-2026-08-15.md) | (4) Ray McGovern: Russia-Japan Tensions Grow & U.S. Involvement in Attacks on Russia |
-| `SRC-05` | Mercouris | Alexander Mercouris | cleaned-transcript | [2026-08-15 Mercouris](../../../archive/sources/2026-08-15/source-4-russia-crushes-kiev-s-elite-azov-troops-smashes-dobropilia-west-despairs-at-kiev-lack-of-ad-2026-08-15.md) | (4) Russia Crushes Kiev's Elite Azov Troops Smashes Dobropilia; West Despairs At Kiev Lack Of AD |
-| `SRC-06` | Marandi | Nima Alkhorshid | cleaned-transcript | [2026-08-15 Marandi](../../../archive/sources/2026-08-15/source-4-seyed-m-marandi-us-on-imminent-attack-alert-hezbollah-delivers-a-stunning-blow-to-idf-2026-08-15.md) | (4) Seyed M. Marandi: US on Imminent Attack Alert - Hezbollah Delivers a Stunning Blow to IDF |
-
+| `SRC-01` | Aguilar | Mario Nawfal | cleaned-transcript | [2026-08-15 Aguilar](../../../../archive/sources/geopolitics/sources/2026-08-15/source-4-centcom-pushes-trump-for-more-war-as-ceasefire-expires-monday-w-lt-col-anthony-aguilar-2026-08-15.md) | (4) CENTCOM PUSHES TRUMP FOR MORE WAR AS CEASEFIRE EXPIRES MONDAY - w/ Lt. Col. Anthony Aguilar |
+| `SRC-02` | Davis | Daniel Davis | cleaned-transcript | [2026-08-15 Davis](../../../../archive/sources/geopolitics/sources/2026-08-15/source-4-how-hormuz-is-haunting-the-us-lt-col-daniel-davis-2026-08-15.md) | (4) HOW HORMUZ IS HAUNTING THE US /Lt Col Daniel Davis |
+| `SRC-03` | Johnson | Dialogue Works | cleaned-transcript | [2026-08-15 Johnson](../../../../archive/sources/geopolitics/sources/2026-08-15/source-4-larry-johnson-iran-s-final-play-in-hormuz-israel-attack-falls-apart-yemen-flipped-the-script-2026-08-15.md) | (4) Larry Johnson: Iran’s FINAL Play in Hormuz- Israel Attack FALLS APART- Yemen Flipped the Script |
+| `SRC-04` | McGovern | Glenn Diesen | cleaned-transcript | [2026-08-15 McGovern](../../../../archive/sources/geopolitics/sources/2026-08-15/source-4-ray-mcgovern-russia-japan-tensions-grow-u-s-involvement-in-attacks-on-russia-2026-08-15.md) | (4) Ray McGovern: Russia-Japan Tensions Grow & U.S. Involvement in Attacks on Russia |
+| `SRC-05` | Mercouris | Alexander Mercouris | cleaned-transcript | [2026-08-15 Mercouris](../../../../archive/sources/geopolitics/sources/2026-08-15/source-4-russia-crushes-kiev-s-elite-azov-troops-smashes-dobropilia-west-despairs-at-kiev-lack-of-ad-2026-08-15.md) | (4) Russia Crushes Kiev's Elite Azov Troops Smashes Dobropilia; West Despairs At Kiev Lack Of AD |
+| `SRC-06` | Marandi | Nima Alkhorshid | cleaned-transcript | [2026-08-15 Marandi](../../../../archive/sources/geopolitics/sources/2026-08-15/source-4-seyed-m-marandi-us-on-imminent-attack-alert-hezbollah-delivers-a-stunning-blow-to-idf-2026-08-15.md) | (4) Seyed M. Marandi: US on Imminent Attack Alert - Hezbollah Delivers a Stunning Blow to IDF |
+| `SRC-07` | Magnier | Mario Nawfal | cleaned-transcript | [Ceasefire expiry](../../../../archive/sources/geopolitics/sources/2026-08-15/source-iran-ceasefire-set-to-expire-on-monday-situation-static-w-elijah-magnier-2026-08-15.md) | Makes the day's time-control mechanism explicit while leaving the reported ceasefire status unverified. |
 ## Load-Bearing Quotes
 
 Use short direct quotes only when wording matters. Keep quotes brief and tie each quote to an analytic job.
@@ -58,7 +58,7 @@ Use short direct quotes only when wording matters. Keep quotes brief and tie eac
 | `CLM-04` | `SRC-04` |  | McGovern via Glenn Diesen | `candidate` |
 | `CLM-05` | `SRC-05` |  | Mercouris via Alexander Mercouris | `candidate` |
 | `CLM-06` | `SRC-06` |  | Marandi via Nima Alkhorshid | `candidate` |
-
+| `CLM-07` | `SRC-07` | A reported ceasefire expiry makes delay, renewal, and renewed coercion observable parts of the time-control contest. | Magnier via Mario Nawfal | `source-assertion` |
 ## Source Hygiene
 
 - Confirm each archive path resolves.

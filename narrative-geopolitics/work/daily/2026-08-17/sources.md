@@ -28,6 +28,8 @@ This run is grounded in the `2026-08-17` day batch already landed in the central
 | `archive/sources/geopolitics/sources/2026-08-17/source-4-scott-ritter-pentagon-did-no-due-diligence-2026-08-17.md` | cleaned-transcript | `imported` | `yes` | Ritter | Judging Freedom | guest interview pressure test; review and narrow to owning crisis object before synthesis. |
 | `archive/sources/geopolitics/sources/2026-08-17/source-4-trump-threatens-to-bomb-the-shit-out-of-oman-too-w-robert-barnes-2026-08-17.md` | cleaned-transcript | `imported` | `yes` | Barnes | Mario Nawfal | guest interview pressure test; review and narrow to owning crisis object before synthesis. |
 | `archive/sources/geopolitics/sources/2026-08-17/source-russia-smashes-key-zaporozhzhie-dnieper-bridge-starts-surrounding-kramatorsk-kiev-protests-resume-2026-08-17.md` | cleaned-transcript | `imported` | `yes` | Mercouris | Alexander Mercouris | host monologue; review and narrow to owning crisis object before synthesis. |
+| `archive/sources/geopolitics/sources/2026-08-17/source-iran-won-the-war-won-t-negotiate-until-trump-out-of-office-w-pravin-sawhney-2026-08-17.md` | cleaned-transcript | `imported` | `yes` | Sawhney | Mario Nawfal | guest interview pressure test; retained in the source ledger without promotion into the issue lineup. |
+| `archive/sources/geopolitics/sources/2026-08-17/source-pravin-sawhney-trump-declares-hormuz-u-s-soil-we-can-destroy-the-whole-place-2026-08-17.md` | cleaned-transcript | `imported` | `yes` | Sawhney | Dialogue Works | guest interview pressure test; retained in the source ledger without promotion into the issue lineup. |
 
 ## Run Source Set
 
@@ -44,6 +46,8 @@ This run is grounded in the `2026-08-17` day batch already landed in the central
 | `SRC-09` | Ritter | Judging Freedom | cleaned-transcript | [2026-08-17 Ritter](../../../../archive/sources/geopolitics/sources/2026-08-17/source-4-scott-ritter-pentagon-did-no-due-diligence-2026-08-17.md) | (4) Scott Ritter :Pentagon Did No Due Diligence |
 | `SRC-10` | Barnes | Mario Nawfal | cleaned-transcript | [2026-08-17 Barnes](../../../../archive/sources/geopolitics/sources/2026-08-17/source-4-trump-threatens-to-bomb-the-shit-out-of-oman-too-w-robert-barnes-2026-08-17.md) | (4) TRUMP THREATENS TO "BOMB THE SHIT OUT" OF OMAN TOO - w/ Robert Barnes |
 | `SRC-11` | Mercouris | Alexander Mercouris | cleaned-transcript | [2026-08-17 Mercouris](../../../../archive/sources/geopolitics/sources/2026-08-17/source-russia-smashes-key-zaporozhzhie-dnieper-bridge-starts-surrounding-kramatorsk-kiev-protests-resume-2026-08-17.md) | Russia Smashes Key Zaporozhzhie Dnieper Bridge; Starts Surrounding Kramatorsk; Kiev Protests Resume |
+| `SRC-12` | Sawhney | Mario Nawfal | cleaned-transcript | [2026-08-17 Sawhney](../../../../archive/sources/geopolitics/sources/2026-08-17/source-iran-won-the-war-won-t-negotiate-until-trump-out-of-office-w-pravin-sawhney-2026-08-17.md) | Negotiation refusal and claimed Iranian leverage; retained as a source assertion. |
+| `SRC-13` | Sawhney | Dialogue Works | cleaned-transcript | [2026-08-17 Sawhney](../../../../archive/sources/geopolitics/sources/2026-08-17/source-pravin-sawhney-trump-declares-hormuz-u-s-soil-we-can-destroy-the-whole-place-2026-08-17.md) | Hormuz sovereignty rhetoric and escalation risk; retained as a source assertion. |
 
 ## Load-Bearing Quotes
 

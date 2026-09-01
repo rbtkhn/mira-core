@@ -2,28 +2,28 @@
 
 Status: `retrospective-source-ledger`
 As-of: `2026-08-09`
-Crisis object: `[name the owning crisis object]`
+Crisis object: `Can Washington keep regional partners inside one security sequence as each pursues greater autonomy?`
 Review date: `2026-08-09`
 
 ## Load-Bearing Judgments
 
-1. `[bounded judgment; state the mechanism and consequence]`
-2. `[bounded judgment; state the mechanism and consequence]`
-3. `[bounded judgment; state the mechanism and consequence]`
+1. Partner autonomy rises when protection is uncertain and settlement clocks diverge.
+2. The reported pact and refusal claims are pressure signals, not verified operating facts.
+3. Turkey's role across Middle East and Ukraine diplomacy illustrates how middle powers can monetize ambiguity.
 
 ## Confidence Boundary
 
-Confidence: `[low | medium | high]`
+Confidence: `medium`
 
-What this judgment depends on: `[state the evidence boundary, unresolved attribution, or timing limit]`
+What this judgment depends on: behavioral convergence across five source lanes, with no independent confirmation of the named alignments.
 
-What would make it wrong: `[state the strongest disconfirmation condition]`
+What would make it wrong: stable partner compliance with one U.S.-led settlement sequence and no durable alternative coordination.
 
 ## Support and Dissent
 
-Strongest supporting sources and voices: `[source paths/IDs and voice slugs]`
+Strongest supporting sources and voices: `SRC-01`, `SRC-04`, and `SRC-03` through Johnson, Marandi, and Mercouris.
 
-Strongest counterevidence or dissent: `[specific source, voice, mechanism, or missing evidence that pressures the judgment]`
+Strongest counterevidence or dissent: no official pact texts, U.S.-Israeli record, or independent evidence of durable realignment.
 
 ## Claim and Forecast Dependencies
 
@@ -35,26 +35,26 @@ Do not treat repeated source assertions as verified claims. Link only to existin
 
 ## Next Observable Signals
 
-- `[observable signal, timing window, and which judgment it would strengthen or weaken]`
+- Official defense-coordination texts, transit rules, mediation behavior, and visible partner refusal or compliance.
 
 ## Decision / Public-use Implication
 
-`[internal decision implication, or state that no decision/public-use implication is authorized]`
+Track partner behavior rather than alliance labels; hold concrete claims from public factual use.
 
 ## Decision Compression
 
-What changed: `[dated change from the prior state, or explicitly no material delta]`
+What changed: partner autonomy becomes the day's governing mechanism.
 
-Reusable mechanism: `[causal or structural mechanism; separate it from rhetoric, examples, forecasts, and unsupported assertions]`
+Reusable mechanism: uncertain protection lets middle powers widen room without formally defecting.
 
-Decision implication: `[what the operator should do, defer, verify, watch, preserve, or avoid]`
+Decision implication: watch alignment behavior, not announced bloc names.
 
-Evidence still missing: `[specific evidence, lineage, falsifier, language coverage, or verification work]`
+Evidence still missing: primary agreements, official statements, and independent regional records.
 
-Recommended disposition: `[archive-only | synthesis-use | forecast-hook | verification-request | reality-claim-candidate | longitudinal-review | public-use-held]`
+Recommended disposition: `synthesis-use`
 
 Use only existing `SRC-*`, `OPC-*`, `CLM-*`, `NG-*`, and `VER-*` references. This internal handoff does not promote source assertions into verified facts.
 
 ## Later Review Note
 
-`[leave blank until review; record what changed, which judgment strengthened or weakened, forecast outcome, and lesson for the voice/source set]`
+Retrospective completeness repair; no ex-ante forecast is claimed.

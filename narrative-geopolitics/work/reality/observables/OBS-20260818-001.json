@@ -1,0 +1,31 @@
+{
+  "as_of": "2026-08-18",
+  "claim_ids": [
+    "OPC-20260818-01"
+  ],
+  "created_at": "2026-08-18T00:00:00Z",
+  "created_by": "operator",
+  "domain_profile": "DOMAIN-MARITIME-TRACKING",
+  "id": "OBS-20260818-001",
+  "kind": "observable",
+  "possible_results": [
+    "observed",
+    "not_observed",
+    "contested",
+    "unavailable"
+  ],
+  "question": "Was Hormuz traffic materially constrained during the August 16-18, 2026 window?",
+  "required_language_environments": [
+    "affected_or_claimant_region",
+    "external_or_challenged",
+    "third_independent_environment"
+  ],
+  "resolution_rule": "Resolve only from independent maritime, official, commercial, registry, sensor, or professional reporting evidence with traced lineage; separate vessel movement constraint from political route-governance claims.",
+  "revision_of": null,
+  "schema_version": 1,
+  "status": "open",
+  "window": {
+    "end": "2026-08-18",
+    "start": "2026-08-16"
+  }
+}

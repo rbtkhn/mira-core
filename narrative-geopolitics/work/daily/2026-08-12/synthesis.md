@@ -36,6 +36,7 @@ Review signal: The judgment strengthens if later packets show the same pressure 
 | Alexander Mercouris | `SRC-06` | Maritime-reprisal frame | Russian naval seizure claims, if verified elsewhere, would show maritime coercion spreading beyond the Gulf object. |
 | Robert Barnes | `SRC-07` | Domestic-control frame | The Iran-war lane is framed as under-contested inside the administration, raising the risk that internal checks do not discipline escalation. |
 | Scott Ritter | `SRC-08` | Psychological-warfare frame | Russia-Ukraine pressure is framed as societal and cognitive endurance, not only battlefield exchange. |
+| Magnier | `SRC-09` | Regional-alignment frame | Adds partner hedging and autonomous coordination as a response to expensive or uncertain protection. |
 
 ## Orthogonal Pressure Test
 
@@ -80,11 +81,15 @@ The best rival explanation is that this is a source-cluster effect: an anti-inte
 
 No operational claim is retained for public factual use in this pass. Aguilar's carrier-strain discussion and Mercouris's maritime-seizure discussion remain useful as source-bound pressure signals, but both need verification packets before they can support external factual claims.
 
+## Late-source reconciliation
+
+Magnier's proposed "Mecca alliance" frame (`SRC-09`) does not independently establish a new bloc, but it adds a useful regional response mechanism: states facing expensive or uncertain U.S. protection may hedge through new alignments and autonomous coordination. This strengthens the alliance-management component of the force-strain thesis without changing the owning object or promoting the named alliance claim into fact.
+
 ## Issue Story Desk
 
 | Story ID | Placement | Argument headline | Crisis object | Evidence posture | Source IDs | Voices | Forecast hooks | Operational claims | Selection rationale |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| `NGI-20260812-S01` | `lead` | Force-Strain Replaces Clean Victory | U.S. Force-Strain / Iran-Hormuz | `bounded-analysis` | `SRC-01`, `SRC-02`, `SRC-03`, `SRC-04`, `SRC-05`, `SRC-06`, `SRC-07`, `SRC-08` | Freeman, Wilkerson, Johnson, Krapivnik, Aguilar, Mercouris, Barnes, Ritter | `NG-20260812-F01` | none | The day is useful because multiple lanes describe the cost of U.S. coercion, not because any single operational allegation is verified. |
+| `NGI-20260812-S01` | `lead` | Force-Strain Replaces Clean Victory | U.S. Force-Strain / Iran-Hormuz | `bounded-analysis` | `SRC-01`, `SRC-02`, `SRC-03`, `SRC-04`, `SRC-05`, `SRC-06`, `SRC-07`, `SRC-08`, `SRC-09` | Freeman, Wilkerson, Johnson, Krapivnik, Aguilar, Mercouris, Barnes, Ritter, Magnier | `NG-20260812-F01` | none | The day is useful because multiple lanes describe the cost of U.S. coercion, not because any single operational allegation is verified. |
 
 ## Forecast Candidates
 

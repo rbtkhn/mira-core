@@ -1,4 +1,4 @@
-<!-- daily-issue-v1 inputs-sha256: 7b995a19b9770f293936983519ab95a0e0a57b83a32d15dac6e5c7feb5c712e7 -->
+<!-- daily-issue-v1 inputs-sha256: 3e6f157bf32f69487e6e5049be7320d719551433b969b1df0aeb7923628ebeb2 -->
 <!-- reality-lattice-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 -->
 <!-- Generated file. Edit canonical daily or reality-lattice inputs, then regenerate. -->
 
@@ -91,12 +91,12 @@ Only sources used by selected issue stories appear here. See the [complete canon
 
 | Source ID | Voice | Archive source | Analytical job |
 | --- | --- | --- | --- |
-| `SRC-01` | Martyanov | [2026-08-06 Martyanov](../../../archive/sources/2026-08-06/source-1-andrei-martyanov-strategic-nightmare-iran-s-unthinkable-move-leaves-u-s-with-zero-options-2026-08-06.md) | (1) Andrei Martyanov: Strategic Nightmare: Iran’s Unthinkable Move Leaves U.S. With Zero Options |
-| `SRC-02` | Macgregor | [2026-08-06 Macgregor](../../../archive/sources/2026-08-06/source-1-col-doug-macgregor-all-out-war-w-iran-getting-unavoidable-2026-08-06.md) | (1) Col Doug Macgregor: All Out War w/Iran Getting Unavoidable |
-| `SRC-04` | Mearsheimer | [2026-08-06 Mearsheimer](../../../archive/sources/2026-08-06/source-1-prof-john-mearsheimer-drones-can-t-deliver-ukraine-victory-2026-08-06.md) | (1) Prof John Mearsheimer: Drones Can't Deliver Ukraine Victory |
-| `SRC-06` | Mercouris | [2026-08-06 Mercouris](../../../archive/sources/2026-08-06/source-1-russia-prepares-chernigov-offensive-china-to-block-drone-exports-worried-west-meets-russia-vienna-2026-08-06.md) | (1) Russia Prepares Chernigov Offensive; China To Block Drone Exports; Worried West Meets Russia Vienna |
-| `SRC-07` | Mercouris | [2026-08-06 Mercouris](../../../archive/sources/2026-08-06/source-1-russia-rearms-west-disarms-zelensky-wants-us-to-strike-russian-missile-launchers-2026-08-06.md) | (1) Russia Rearms, West Disarms. Zelensky Wants US to Strike Russian Missile Launchers |
-| `SRC-05` | Marandi | [2026-08-06 Marandi](../../../archive/sources/2026-08-06/source-1-prof-mohammad-marandi-who-started-this-war-2026-08-06.md) | (1) Prof. Mohammad Marandi : Who Started this War? |
+| `SRC-01` | Martyanov | [2026-08-06 Martyanov](../../../../archive/sources/geopolitics/sources/2026-08-06/source-1-andrei-martyanov-strategic-nightmare-iran-s-unthinkable-move-leaves-u-s-with-zero-options-2026-08-06.md) | (1) Andrei Martyanov: Strategic Nightmare: Iran’s Unthinkable Move Leaves U.S. With Zero Options |
+| `SRC-02` | Macgregor | [2026-08-06 Macgregor](../../../../archive/sources/geopolitics/sources/2026-08-06/source-1-col-doug-macgregor-all-out-war-w-iran-getting-unavoidable-2026-08-06.md) | (1) Col Doug Macgregor: All Out War w/Iran Getting Unavoidable |
+| `SRC-04` | Mearsheimer | [2026-08-06 Mearsheimer](../../../../archive/sources/geopolitics/sources/2026-08-06/source-1-prof-john-mearsheimer-drones-can-t-deliver-ukraine-victory-2026-08-06.md) | (1) Prof John Mearsheimer: Drones Can't Deliver Ukraine Victory |
+| `SRC-06` | Mercouris | [2026-08-06 Mercouris](../../../../archive/sources/geopolitics/sources/2026-08-06/source-1-russia-prepares-chernigov-offensive-china-to-block-drone-exports-worried-west-meets-russia-vienna-2026-08-06.md) | (1) Russia Prepares Chernigov Offensive; China To Block Drone Exports; Worried West Meets Russia Vienna |
+| `SRC-07` | Mercouris | [2026-08-06 Mercouris](../../../../archive/sources/geopolitics/sources/2026-08-06/source-1-russia-rearms-west-disarms-zelensky-wants-us-to-strike-russian-missile-launchers-2026-08-06.md) | (1) Russia Rearms, West Disarms. Zelensky Wants US to Strike Russian Missile Launchers |
+| `SRC-05` | Marandi | [2026-08-06 Marandi](../../../../archive/sources/geopolitics/sources/2026-08-06/source-1-prof-mohammad-marandi-who-started-this-war-2026-08-06.md) | (1) Prof. Mohammad Marandi : Who Started this War? |
 
 ## Forecast Desk
 

@@ -19,6 +19,8 @@ Forecast rule: state a causal wager, not topic plus outcome. See [labels as anal
 
 ## New Hooks
 
+Late-source review: `SRC-09` extends the existing burden-management observable to regional alliance and hedging language. It does not create a separate wager and does not change the recorded probability; a named new alliance would require evidence beyond this interview before forecast resolution.
+
 | Forecast ID | Object | Causal wager | Observable claim | Probability | Review date | Strengthening evidence | Weakening evidence | Resolution criteria | Verification dependency |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | `NG-20260812-F01` | U.S. force-strain around Iran/Gulf pressure | If the U.S. coercive posture is consuming more strategic margin than it is producing, later signals will move away from clean victory and toward burden management. | By `2026-08-19`, at least one later source lane, official statement, or policy move frames Iran/Gulf pressure as containment, sanctions enforcement, force rotation, maritime access management, or managed attrition rather than a clean victory settlement. | `plausible` | `2026-08-19` | U.S. language about sanctions/containment, carrier/base rotation, Gulf hedging, Israeli pressure for continued escalation, or explicit linkage to Ukraine/Russia bandwidth. | A verifiable settlement, durable force reset, or stable regional enforcement arrangement that removes the pressure from U.S. bandwidth. | `hit` if at least one qualifying later signal appears; `miss` if later evidence shows clean settlement or no burden-management shift; `mixed` if rhetoric shifts but policy remains ambiguous. | Internal forecast tracking only; public factual use requires independent verification. |

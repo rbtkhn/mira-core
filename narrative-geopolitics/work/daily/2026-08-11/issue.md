@@ -1,4 +1,4 @@
-<!-- daily-issue-v1 inputs-sha256: 437d523927b3fa6660ee51055e956984fb988831c6a1b5f088714feaf74ce841 -->
+<!-- daily-issue-v1 inputs-sha256: 3975268a69ceeaa50e10793ea48404afa68d0cd1b662c5a37cece9b3b80beb16 -->
 <!-- reality-lattice-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 -->
 <!-- Generated file. Edit canonical daily or reality-lattice inputs, then regenerate. -->
 
@@ -88,19 +88,19 @@ Only sources used by selected issue stories appear here. See the [complete canon
 
 | Source ID | Voice | Archive source | Analytical job |
 | --- | --- | --- | --- |
-| `SRC-03` | Pape | [2026-08-11 Pape](../../../archive/sources/2026-08-11/source-2-breaking-iran-says-it-will-outlast-trump-no-deal-coming-w-prof-robert-pape-2026-08-11.md) | (2) BREAKING: IRAN SAYS IT WILL OUTLAST TRUMP — NO DEAL COMING – w/ Prof. Robert Pape |
-| `SRC-04` | Macgregor | [2026-08-11 Macgregor](../../../archive/sources/2026-08-11/source-2-col-doug-macgregor-iran-war-the-art-of-defeat-we-have-no-influence-over-iran-2026-08-11.md) | (2) Col Doug Macgregor - Iran War: THE ART OF DEFEAT / We Have No Influence Over Iran |
-| `SRC-09` | Hoh | [2026-08-11 Hoh](../../../archive/sources/2026-08-11/source-2-matt-hoh-window-closing-on-us-military-power-2026-08-11.md) | (2) Matt Hoh : Window Closing on US Military Power |
-| `SRC-10` | Mearsheimer | [2026-08-11 Mearsheimer](../../../archive/sources/2026-08-11/source-2-prof-john-mearsheimer-what-comes-next-in-iran-2026-08-11.md) | (2) Prof. John Mearsheimer : What Comes Next in Iran? |
-| `SRC-14` | Marandi | [2026-08-11 Marandi](../../../archive/sources/2026-08-11/source-2-seyed-m-marandi-us-preparing-for-imminent-attacks-gulf-states-hammered-by-hormuz-bab-al-mandab-2026-08-11.md) | (2) Seyed M. Marandi: US Preparing for Imminent Attacks – Gulf States Hammered by Hormuz & Bab al-Mandab |
-| `SRC-15` | Pape | [2026-08-11 Pape](../../../archive/sources/2026-08-11/source-trump-s-unilateral-demands-iran-doubles-down-on-hard-power-a-collision-course-2026-08-11.md) | Trump’s Unilateral Demands, Iran Doubles Down on Hard Power — A Collision Course |
-| `SRC-02` | Freeman | [2026-08-11 Freeman](../../../archive/sources/2026-08-11/source-2-amb-chas-freeman-new-middle-east-alliance-a-threat-to-israel-2026-08-11.md) | (2) AMB. Chas Freeman : New Middle East Alliance a Threat to Israel |
-| `SRC-05` | Wilkerson | [2026-08-11 Wilkerson](../../../archive/sources/2026-08-11/source-2-col-larry-wilkerson-yemen-just-struck-a-major-blow-against-the-saudis-trump-in-denial-2026-08-11.md) | (2) Col. Larry Wilkerson: Yemen Just Struck a Major Blow Against the Saudis - Trump in Denial |
-| `SRC-08` | Johnson | [2026-08-11 Johnson](../../../archive/sources/2026-08-11/source-2-larry-johnson-us-10x-surge-in-thaad-pac-3-ammo-yemeni-rockets-hit-saudi-command-2026-08-11.md) | (2) Larry Johnson: US 10x Surge in THAAD & PAC-3 Ammo, Yemeni Rockets Hit Saudi Command |
-| `SRC-11` | Barnes | [2026-08-11 Barnes](../../../archive/sources/2026-08-11/source-2-robert-barnes-russia-s-missiles-rain-on-kiev-iran-yemen-strike-multiple-vessels-2026-08-11.md) | (2) Robert Barnes: Russia’s Missiles Rain on Kiev - Iran & Yemen Strike Multiple Vessels |
-| `SRC-01` | Mate | [2026-08-11 Mate](../../../archive/sources/2026-08-11/source-2-aaron-mat-their-blood-our-bullets-2026-08-11.md) | (2) Aaron Maté : Their Blood, Our Bullets |
-| `SRC-12` | Mercouris | [2026-08-11 Mercouris](../../../archive/sources/2026-08-11/source-2-russian-missile-output-surge-kiev-struck-russia-outflanks-donbass-cities-west-without-plan-orekhov-2026-08-11.md) | (2) Russian Missile Output Surge Kiev Struck Russia Outflanks Donbass Cities; West Without Plan; Orekhov |
-| `SRC-13` | Ritter | [2026-08-11 Ritter](../../../archive/sources/2026-08-11/source-2-scott-ritter-us-is-out-of-ammo-and-oil-2026-08-11.md) | (2) Scott Ritter : US is Out of Ammo and Oil |
+| `SRC-03` | Pape | [2026-08-11 Pape](../../../../archive/sources/geopolitics/sources/2026-08-11/source-2-breaking-iran-says-it-will-outlast-trump-no-deal-coming-w-prof-robert-pape-2026-08-11.md) | (2) BREAKING: IRAN SAYS IT WILL OUTLAST TRUMP — NO DEAL COMING – w/ Prof. Robert Pape |
+| `SRC-04` | Macgregor | [2026-08-11 Macgregor](../../../../archive/sources/geopolitics/sources/2026-08-11/source-2-col-doug-macgregor-iran-war-the-art-of-defeat-we-have-no-influence-over-iran-2026-08-11.md) | (2) Col Doug Macgregor - Iran War: THE ART OF DEFEAT / We Have No Influence Over Iran |
+| `SRC-09` | Hoh | [2026-08-11 Hoh](../../../../archive/sources/geopolitics/sources/2026-08-11/source-2-matt-hoh-window-closing-on-us-military-power-2026-08-11.md) | (2) Matt Hoh : Window Closing on US Military Power |
+| `SRC-10` | Mearsheimer | [2026-08-11 Mearsheimer](../../../../archive/sources/geopolitics/sources/2026-08-11/source-2-prof-john-mearsheimer-what-comes-next-in-iran-2026-08-11.md) | (2) Prof. John Mearsheimer : What Comes Next in Iran? |
+| `SRC-14` | Marandi | [2026-08-11 Marandi](../../../../archive/sources/geopolitics/sources/2026-08-11/source-2-seyed-m-marandi-us-preparing-for-imminent-attacks-gulf-states-hammered-by-hormuz-bab-al-mandab-2026-08-11.md) | (2) Seyed M. Marandi: US Preparing for Imminent Attacks – Gulf States Hammered by Hormuz & Bab al-Mandab |
+| `SRC-15` | Pape | [2026-08-11 Pape](../../../../archive/sources/geopolitics/sources/2026-08-11/source-trump-s-unilateral-demands-iran-doubles-down-on-hard-power-a-collision-course-2026-08-11.md) | Trump’s Unilateral Demands, Iran Doubles Down on Hard Power — A Collision Course |
+| `SRC-02` | Freeman | [2026-08-11 Freeman](../../../../archive/sources/geopolitics/sources/2026-08-11/source-2-amb-chas-freeman-new-middle-east-alliance-a-threat-to-israel-2026-08-11.md) | (2) AMB. Chas Freeman : New Middle East Alliance a Threat to Israel |
+| `SRC-05` | Wilkerson | [2026-08-11 Wilkerson](../../../../archive/sources/geopolitics/sources/2026-08-11/source-2-col-larry-wilkerson-yemen-just-struck-a-major-blow-against-the-saudis-trump-in-denial-2026-08-11.md) | (2) Col. Larry Wilkerson: Yemen Just Struck a Major Blow Against the Saudis - Trump in Denial |
+| `SRC-08` | Johnson | [2026-08-11 Johnson](../../../../archive/sources/geopolitics/sources/2026-08-11/source-2-larry-johnson-us-10x-surge-in-thaad-pac-3-ammo-yemeni-rockets-hit-saudi-command-2026-08-11.md) | (2) Larry Johnson: US 10x Surge in THAAD & PAC-3 Ammo, Yemeni Rockets Hit Saudi Command |
+| `SRC-11` | Barnes | [2026-08-11 Barnes](../../../../archive/sources/geopolitics/sources/2026-08-11/source-2-robert-barnes-russia-s-missiles-rain-on-kiev-iran-yemen-strike-multiple-vessels-2026-08-11.md) | (2) Robert Barnes: Russia’s Missiles Rain on Kiev - Iran & Yemen Strike Multiple Vessels |
+| `SRC-01` | Mate | [2026-08-11 Mate](../../../../archive/sources/geopolitics/sources/2026-08-11/source-2-aaron-mat-their-blood-our-bullets-2026-08-11.md) | (2) Aaron Maté : Their Blood, Our Bullets |
+| `SRC-12` | Mercouris | [2026-08-11 Mercouris](../../../../archive/sources/geopolitics/sources/2026-08-11/source-2-russian-missile-output-surge-kiev-struck-russia-outflanks-donbass-cities-west-without-plan-orekhov-2026-08-11.md) | (2) Russian Missile Output Surge Kiev Struck Russia Outflanks Donbass Cities; West Without Plan; Orekhov |
+| `SRC-13` | Ritter | [2026-08-11 Ritter](../../../../archive/sources/geopolitics/sources/2026-08-11/source-2-scott-ritter-us-is-out-of-ammo-and-oil-2026-08-11.md) | (2) Scott Ritter : US is Out of Ammo and Oil |
 
 ## Forecast Desk
 

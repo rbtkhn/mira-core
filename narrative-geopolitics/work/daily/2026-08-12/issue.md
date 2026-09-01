@@ -1,4 +1,4 @@
-<!-- daily-issue-v1 inputs-sha256: a7a7185acbd1009fd5e3f97413c99dd33ca7729dae657824897412ba4cbcc1fa -->
+<!-- daily-issue-v1 inputs-sha256: b5b5145763ec03333113e10012d401821dc3cdfb718e9e55c1450f02fd92d8ea -->
 <!-- reality-lattice-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 -->
 <!-- Generated file. Edit canonical daily or reality-lattice inputs, then regenerate. -->
 
@@ -18,7 +18,7 @@ Evidence posture: `archive-first; story-level labels govern factual use`
 
 ## Front Page
 
-Rank: `lead`
+Magnier adds a partner-hedging pathway: when U.S. protection appears expensive or uncertain, regional actors may diversify relationships and coordinate beyond a single patron. The named alliance remains a source claim rather than an established institution.
 
 | Desk | Story | Evidence posture |
 | --- | --- | --- |
@@ -38,11 +38,13 @@ Crisis object: U.S. Force-Strain / Iran-Hormuz
 
 Related reality claims: None registered
 
+Magnier adds a partner-hedging pathway: when U.S. protection appears expensive or uncertain, regional actors may diversify relationships and coordinate beyond a single patron. The named alliance remains a source claim rather than an established institution.
+
 Rank: `lead`
 
 Evidence posture: `bounded-analysis`
 
-Source support: `SRC-01`, `SRC-02`, `SRC-03`, `SRC-04`, `SRC-05`, `SRC-06`, `SRC-07`, `SRC-08`
+Source support: `SRC-01`, `SRC-02`, `SRC-03`, `SRC-04`, `SRC-05`, `SRC-06`, `SRC-07`, `SRC-08`, `SRC-09`
 
 Forecast hook: `NG-20260812-F01`
 
@@ -88,14 +90,15 @@ Only sources used by selected issue stories appear here. See the [complete canon
 
 | Source ID | Voice | Archive source | Analytical job |
 | --- | --- | --- | --- |
-| `SRC-01` | Freeman | [2026-08-12 Freeman](../../../archive/sources/2026-08-12/source-3-chas-freeman-how-u-s-decline-reshapes-the-middle-east-2026-08-12.md) | (3) Chas Freeman: How U.S. Decline Reshapes the Middle East |
-| `SRC-02` | Wilkerson | [2026-08-12 Wilkerson](../../../archive/sources/2026-08-12/source-3-col-lawrence-wilkerson-is-the-us-a-republic-or-an-empire-2026-08-12.md) | (3) COL. Lawrence Wilkerson : Is the US a Republic or an Empire? |
-| `SRC-03` | Johnson | [2026-08-12 Johnson](../../../archive/sources/2026-08-12/source-3-larry-johnson-will-trump-declare-victory-against-iran-walk-away-without-a-nuclear-deal-2026-08-12.md) | (3) Larry Johnson: Will Trump Declare Victory Against Iran & Walk Away Without a Nuclear Deal? |
-| `SRC-04` | Krapivnik | [2026-08-12 Krapivnik](../../../archive/sources/2026-08-12/source-3-live-from-russia-stanislav-krapivnik-2026-08-12.md) | (3) LIVE from Russia Stanislav Krapivnik |
-| `SRC-05` | Aguilar | [2026-08-12 Aguilar](../../../archive/sources/2026-08-12/source-3-lt-col-anthony-aguilar-the-unraveling-of-the-uss-abraham-lincoln-2026-08-12.md) | (3) Lt. Col. Anthony Aguilar: The Unraveling of the USS Abraham Lincoln |
-| `SRC-06` | Mercouris | [2026-08-12 Mercouris](../../../archive/sources/2026-08-12/source-3-putin-orders-retaliatory-seizures-by-russian-navy-of-eu-ships-orekhov-crisis-kiev-brigade-trapped-2026-08-12.md) | (3) Putin Orders Retaliatory Seizures By Russian Navy Of EU Ships; Orekhov Crisis Kiev Brigade Trapped |
-| `SRC-07` | Barnes | [2026-08-12 Barnes](../../../archive/sources/2026-08-12/source-3-robert-barnes-nobody-s-pushing-back-on-trump-in-the-admin-re-iran-war-2026-08-12.md) | (3) Robert Barnes: Nobody's Pushing Back on Trump in the Admin re: IRAN WAR |
-| `SRC-08` | Ritter | [2026-08-12 Ritter](../../../archive/sources/2026-08-12/source-3-scott-ritter-russia-ukraine-mental-warfare-societal-pressures-rising-2026-08-12.md) | (3) Scott Ritter: Russia Ukraine MENTAL WARFARE, Societal Pressures Rising |
+| `SRC-01` | Freeman | [2026-08-12 Freeman](../../../../archive/sources/geopolitics/sources/2026-08-12/source-3-chas-freeman-how-u-s-decline-reshapes-the-middle-east-2026-08-12.md) | (3) Chas Freeman: How U.S. Decline Reshapes the Middle East |
+| `SRC-02` | Wilkerson | [2026-08-12 Wilkerson](../../../../archive/sources/geopolitics/sources/2026-08-12/source-3-col-lawrence-wilkerson-is-the-us-a-republic-or-an-empire-2026-08-12.md) | (3) COL. Lawrence Wilkerson : Is the US a Republic or an Empire? |
+| `SRC-03` | Johnson | [2026-08-12 Johnson](../../../../archive/sources/geopolitics/sources/2026-08-12/source-3-larry-johnson-will-trump-declare-victory-against-iran-walk-away-without-a-nuclear-deal-2026-08-12.md) | (3) Larry Johnson: Will Trump Declare Victory Against Iran & Walk Away Without a Nuclear Deal? |
+| `SRC-04` | Krapivnik | [2026-08-12 Krapivnik](../../../../archive/sources/geopolitics/sources/2026-08-12/source-3-live-from-russia-stanislav-krapivnik-2026-08-12.md) | (3) LIVE from Russia Stanislav Krapivnik |
+| `SRC-05` | Aguilar | [2026-08-12 Aguilar](../../../../archive/sources/geopolitics/sources/2026-08-12/source-3-lt-col-anthony-aguilar-the-unraveling-of-the-uss-abraham-lincoln-2026-08-12.md) | (3) Lt. Col. Anthony Aguilar: The Unraveling of the USS Abraham Lincoln |
+| `SRC-06` | Mercouris | [2026-08-12 Mercouris](../../../../archive/sources/geopolitics/sources/2026-08-12/source-3-putin-orders-retaliatory-seizures-by-russian-navy-of-eu-ships-orekhov-crisis-kiev-brigade-trapped-2026-08-12.md) | (3) Putin Orders Retaliatory Seizures By Russian Navy Of EU Ships; Orekhov Crisis Kiev Brigade Trapped |
+| `SRC-07` | Barnes | [2026-08-12 Barnes](../../../../archive/sources/geopolitics/sources/2026-08-12/source-3-robert-barnes-nobody-s-pushing-back-on-trump-in-the-admin-re-iran-war-2026-08-12.md) | (3) Robert Barnes: Nobody's Pushing Back on Trump in the Admin re: IRAN WAR |
+| `SRC-08` | Ritter | [2026-08-12 Ritter](../../../../archive/sources/geopolitics/sources/2026-08-12/source-3-scott-ritter-russia-ukraine-mental-warfare-societal-pressures-rising-2026-08-12.md) | (3) Scott Ritter: Russia Ukraine MENTAL WARFARE, Societal Pressures Rising |
+| `SRC-09` | Magnier | [Mecca alliance](../../../../archive/sources/geopolitics/sources/2026-08-12/source-elijah-magnier-erdo-an-the-mecca-alliance-has-only-one-target-and-it-s-not-who-you-think-2026-08-12.md) | Adds a regional alliance-management lane to the force-strain object without independently verifying the proposed alignment. |
 
 ## Forecast Desk
 
@@ -127,6 +130,7 @@ Names identify source-bounded pressure tests, not endorsement or reconstructed p
 | Mercouris |  |  |  |
 | Barnes |  |  |  |
 | Ritter |  |  |  |
+| Magnier |  |  |  |
 
 ## Editor's Note
 
@@ -139,4 +143,6 @@ Canonical inputs: [sources](sources.md), [synthesis](synthesis.md), [forecast](f
 
 ### Revision Log
 
-No revisions.
+| Timestamp (UTC) | Type | Note |
+| --- | --- | --- |
+| 2026-08-31T01:49:02Z | update | Reconciled Magnier alliance source and renewed the partner-hedging component without verifying the named alignment. |

@@ -4,7 +4,7 @@ This index routes the transcript-bearing upstream-parity corpus for `mercouris` 
 
 Source basis: `strategy-codex/statecraft/voices/mercouris/mercouris-index.md`, `strategy-codex/statecraft/channels/alexander-mercouris/alexander-mercouris-channel-index.md`, and subsequent local intake.
 
-Corpus: 406 local route rows across 406 central archive source files.
+Corpus: 412 local route rows across 412 central archive source files.
 
 Status: `transcript-bearing-upstream-parity`
 
@@ -427,9 +427,15 @@ Status: `transcript-bearing-upstream-parity`
 | `2026-08-23` | Putin Says Kiev Begs Truce; Says NO & Kiev Faces Catastrophe; Russian AF Bombs Odessa; Dobropilia | `host monologue` | `alexander-mercouris` | [source](../../../archive/sources/geopolitics/sources/2026-08-23/source-putin-says-kiev-begs-truce-says-no-kiev-faces-catastrophe-russian-af-bombs-odessa-dobropilia-2026-08-23.md) |
 | `2026-08-24` | Russia AF Heaviest Odessa Bombing; Russia Storm Kiev After Donbas; Drones Cause Ukraine Budget Crash | `host monologue` | `alexander-mercouris` | [source](../../../archive/sources/geopolitics/sources/2026-08-24/source-russia-af-heaviest-odessa-bombing-russia-storm-kiev-after-donbas-drones-cause-ukraine-budget-crash-2026-08-24.md) |
 | `2026-08-24` | Russia's Economic Model: Growth Without the Debt Trap | `guest` | `the-duran` | [source](../../../archive/sources/geopolitics/sources/2026-08-24/source-russia-s-economic-model-growth-without-the-debt-trap-2026-08-24.md) |
+| `2026-08-25` | Operation Economic Outcast, Bessent's Economic War With China | `host-pressure test` | `the-duran` | [source](../../../archive/sources/geopolitics/sources/2026-08-25/source-operation-economic-outcast-bessent-s-economic-war-with-china-2026-08-25.md) |
+| `2026-08-26` | West NO To Kiev AD Pleas; Russia Withdraws London Ambassador; Dobropilia Crisis; Kiev Begs Funds | `host monologue` | `alexander-mercouris` | [source](../../../archive/sources/geopolitics/sources/2026-08-26/source-west-no-to-kiev-ad-pleas-russia-withdraws-london-ambassador-dobropilia-crisis-kiev-begs-funds-2026-08-26.md) |
 | `2026-08-27` | Deep State Maximum Pressure on Russia as Ukraine Crumbles | `guest` | `the-duran` | [source](../../../archive/sources/geopolitics/sources/2026-08-27/source-deep-state-maximum-pressure-on-russia-as-ukraine-crumbles-2026-08-27.md) |
 | `2026-08-27` | Russia Rejects CIA Chief Ratcliffe Spurns West Pleas For Ukraine Truce; Slaviansk Battle Begins | `host monologue` | `alexander-mercouris` | [source](../../../archive/sources/geopolitics/sources/2026-08-27/source-russia-rejects-cia-chief-ratcliffe-spurns-west-pleas-for-ukraine-truce-slaviansk-battle-begins-2026-08-27.md) |
 | `2026-08-28` | Russia Donbas Knockout Blow Dobropilia Cauldron Slaviansk Crisis; Lavrov West Diplomacy All Trickery | `host monologue` | `alexander-mercouris` | [source](../../../archive/sources/geopolitics/sources/2026-08-28/source-russia-donbas-knockout-blow-dobropilia-cauldron-slaviansk-crisis-lavrov-west-diplomacy-all-trickery-2026-08-28.md) |
+| `2026-08-29` | Russia Rejects Vatican and CIA Ceasefire Demands | `guest` | `the-duran` | [source](../../../archive/sources/geopolitics/sources/2026-08-29/source-russia-rejects-vatican-and-cia-ceasefire-demands-2026-08-29.md) |
+| `2026-08-29` | Russian Multi Day Strikes Shatter Kiev; Massive Ammo Explosion; US Vatican Truce Bid Fails; Orekhov | `host monologue` | `alexander-mercouris` | [source](../../../archive/sources/geopolitics/sources/2026-08-29/source-russian-multi-day-strikes-shatter-kiev-massive-ammo-explosion-us-vatican-truce-bid-fails-orekhov-2026-08-29.md) |
+| `2026-08-30` | Armenia Ditches Russia for the EU and Azerbaijan | `guest` | `the-duran` | [source](../../../archive/sources/geopolitics/sources/2026-08-30/source-armenia-ditches-russia-for-the-eu-and-azerbaijan-2026-08-30.md) |
+| `2026-08-30` | Russia Announces Will Smash Ukraine's Energy System; Zelensky Blames Others As Kiev Hit Again, Sumy | `host monologue` | `alexander-mercouris` | [source](../../../archive/sources/geopolitics/sources/2026-08-30/source-russia-announces-will-smash-ukraine-s-energy-system-zelensky-blames-others-as-kiev-hit-again-sumy-2026-08-30.md) |
 
 ## Judgment Continuity
 

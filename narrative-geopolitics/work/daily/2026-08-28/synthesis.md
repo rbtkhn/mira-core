@@ -46,6 +46,7 @@ Crisis object: Can Washington convert sanctions, blockade pressure, and Israeli-
 | Freeman | Diplomatic process and U.S. political escape | Reads CIA/Russia contact, Ukraine strain, and Israel/Lebanon escalation as signs that Trump seeks an exit in one theater while stuck in another. | Explicitly speculative; useful as a scenario map, not as evidence of intent. |
 | Mearsheimer / Krapivnik / Mercouris | Russia/NATO settlement constraint | Treat Ukraine as the parallel case where Western escalation can continue after settlement terms become unavailable. | Battlefield and diplomatic specifics require external corroboration. |
 | Barnes / Kent | Domestic legitimacy and elite-network pressure | Adds U.S. internal legitimacy, intelligence, finance, and impeachment narratives to the foreign-policy constraint map. | Several claims are legally and politically loaded source assertions. |
+| Helmer | Intelligence-opacity pressure test | Adds the possibility that concealed or contested institutional losses widen the gap between public coercive confidence and actual control. | Alleged CIA losses remain unverified and must stay source-attributed. |
 
 ## Orthogonal Pressure Test
 
@@ -100,13 +101,17 @@ Record only concrete operating facts that control planned public factual use, wa
 
 Complete `judgment.md` after synthesis and forecast triage. It is the concise internal handoff, not a replacement for this synthesis.
 
+## Late-source reconciliation
+
+Helmer's Reason2Resist interview (`SRC-13`) adds an intelligence-opacity mechanism across Iran and Ukraine: public coercive confidence can persist even when losses, access, or analytic performance are contested behind the scenes. The interview does not verify any CIA loss claim. It strengthens the lead only at the mechanism level and also belongs in the Ukraine comparison as a source-attributed test of settlement credibility and hidden constraint.
+
 ## Issue Story Desk
 
 | Story ID | Placement | Argument headline | Crisis object | Evidence posture | Source IDs | Voices | Forecast hooks | Operational claims | Selection rationale |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| `NGI-20260828-S01` | `lead` | Coercion no longer equals control | Can Washington convert sanctions, blockade pressure, and Israeli-aligned escalation into a durable Iran settlement when multiple actors can veto the off-ramp? | `bounded-analysis` | `SRC-03,SRC-04,SRC-06,SRC-11,SRC-12` | Johnson, Wilkerson, Parsi, Escobar, Davis | `none` | `none` | The highest-consequence mechanism is the gap between U.S. coercive claims and settlement control around Hormuz/Iran. |
+| `NGI-20260828-S01` | `lead` | Coercion no longer equals control | Can Washington convert sanctions, blockade pressure, and Israeli-aligned escalation into a durable Iran settlement when multiple actors can veto the off-ramp? | `bounded-analysis` | `SRC-03,SRC-04,SRC-06,SRC-11,SRC-12,SRC-13` | Johnson, Wilkerson, Parsi, Escobar, Davis, Helmer | `none` | `none` | The highest-consequence mechanism is the gap between U.S. coercive claims and settlement control around Hormuz/Iran. |
 | `NGI-20260828-S02` | `brief` | Israel exports the disruption lane | Can Israeli war politics keep allied capitals and U.S. domestic politics inside the Iran/Lebanon/Gaza escalation field? | `bounded-analysis` | `SRC-02,SRC-08` | Freeman, Blumenthal | `none` | `none` | This lane explains why an Iran off-ramp can fail even if U.S.-Iran bargaining resumes. |
-| `NGI-20260828-S03` | `brief` | Ukraine shows the no-clean-exit pattern | Can Western powers still negotiate exits when Russia reads ceasefire and asset proposals as bad-faith rearmament or confiscation tools? | `bounded-analysis` | `SRC-01,SRC-05,SRC-07,SRC-09,SRC-10` | Barnes, Kent, Mearsheimer, Krapivnik, Mercouris | `none` | `none` | Russia/Ukraine is a secondary but useful pressure test for the wider mechanism: escalation can outlive settlement credibility. |
+| `NGI-20260828-S03` | `brief` | Ukraine shows the no-clean-exit pattern | Can Western powers still negotiate exits when Russia reads ceasefire and asset proposals as bad-faith rearmament or confiscation tools? | `bounded-analysis` | `SRC-01,SRC-05,SRC-07,SRC-09,SRC-10,SRC-13` | Barnes, Kent, Mearsheimer, Krapivnik, Mercouris, Helmer | `none` | `none` | Russia/Ukraine is a secondary but useful pressure test for the wider mechanism: escalation can outlive settlement credibility. |
 
 ## Forecast Candidates
 

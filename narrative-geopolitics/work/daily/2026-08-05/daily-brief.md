@@ -69,9 +69,15 @@ Review date: `2026-08-19`
 
 Principal alternative: the arrangement becomes a narrow maritime-management pause while actors avoid widening the frame.
 
+## Late-source reconciliation
+
+Four later-landed sources have now been reconciled. Magnier's two interviews and Henningsen's ultimatum argument strengthen the issue's account of a fragile off-ramp by placing a claimed arrangement beside renewed coercive pressure. Their concrete claims remain attributed and unverified. Henningsen's Russia discussion stays in the secondary Ukraine comparison rather than being used to prove the Hormuz lead.
+
 ## Issue Copy
 
 ### NGI-20260805-S01 - The off-ramp is now the battlefield
+
+The late Magnier records sharpen the lead without settling it: one reports an Oman-Iran arrangement while the other foregrounds renewed U.S. punishment if Iran withdraws. Henningsen's coercion-backfire thesis supplies supporting analysis, not independent corroboration. Together they make the pause's political fragility more visible while leaving its actual terms and durability unverified.
 
 The lead story is the durability of a constrained pause. The August 5 sources suggest that any reported Hormuz/Oman opening should be read less as a clean settlement than as a test of whether Washington can manage reduced coercive room without admitting strategic retreat. That distinction matters: if transit, sanctions, infrastructure protection, Lebanon, and U.S. force stocks remain linked, then the pause is another carrier of the conflict rather than its resolution.
 
@@ -82,6 +88,8 @@ The key reader-facing distinction is between an off-ramp and a settlement. An of
 This is why the day should not be framed as a peace turn. The packet does not verify a durable arrangement, exact terms, or material depletion. It does show why the next public signals matter. If official language connects transit normalization to sanctions, route management, force-stock limits, or regional infrastructure protection, the off-ramp is becoming a bargaining battlefield. If public language compartmentalizes those issues and shipping normalizes quietly, the lead judgment weakens.
 
 ### NGI-20260805-S02 - Ukraine is the secondary proof of the stockpile problem
+
+Henningsen's discussion with Davis adds a restraint comparison. It remains a secondary cross-theater analogy and is not used as factual proof of the Iran/Hormuz mechanism.
 
 Ukraine remains secondary, but it matters as a pressure test for the same capacity mechanism. Mercouris, Johnson, and Hoh suggest that Western confidence language is increasingly exposed to air-defense, strike-system, and weapons-stock constraints. That does not move the daily lead away from Iran/Hormuz; it shows why the off-ramp belongs to a wider allocation problem.
 
@@ -111,4 +119,6 @@ The issue also gives the week a usable middle chapter. It does not begin with th
 
 ## Revision Log
 
-No revisions.
+| Timestamp (UTC) | Type | Note |
+| --- | --- | --- |
+| 2026-08-31T01:49:02Z | update | Reconciled four later-landed sources; renewed lead and secondary judgments with source-bounded dispositions. |

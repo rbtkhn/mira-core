@@ -63,6 +63,10 @@ Probability band: `likely`
 
 Review date: `2026-08-25`
 
+## Archive-only reconciliation
+
+The landed Ritter essay on AI and military decision loops is recorded for complete intake parity but excluded from this issue because it does not bear on the owning Hormuz crisis object. Its presence changes source accounting, not the day's judgment.
+
 ## Issue Copy
 
 ### NGI-20260818-S01 — Hormuz Pressure Becomes a Political Clock
@@ -109,4 +113,6 @@ That measurable question is the advantage of this packet. It turns a volatile wa
 
 ## Revision Log
 
-No revisions.
+| Timestamp (UTC) | Type | Note |
+| --- | --- | --- |
+| 2026-08-31T01:49:02Z | update | Reconciled the Ritter AI/OODA essay as archive-only; no owning crisis-object judgment was changed. |

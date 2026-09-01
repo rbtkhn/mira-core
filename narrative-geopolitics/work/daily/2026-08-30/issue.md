@@ -1,4 +1,4 @@
-<!-- daily-issue-v1 inputs-sha256: a46a1790a69bf7e496c724c2797d40603d78d7f28b969a717145efc5672aa4d3 -->
+<!-- daily-issue-v1 inputs-sha256: 21e459b790d1a68e2c1093c9f940ffa4f57181048968dbf8ac0e6d798bf4b8cc -->
 <!-- reality-lattice-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 -->
 <!-- Generated file. Edit canonical daily or reality-lattice inputs, then regenerate. -->
 
@@ -83,6 +83,7 @@ Only sources used by selected issue stories appear here. See the [complete canon
 | `SRC-01` | Mercouris | [2026-08-30 Mercouris](../../../../archive/sources/geopolitics/sources/2026-08-30/source-armenia-ditches-russia-for-the-eu-and-azerbaijan-2026-08-30.md) | Armenia Ditches Russia for the EU and Azerbaijan |
 | `SRC-02` | Sachs | [2026-08-30 Sachs](../../../../archive/sources/geopolitics/sources/2026-08-30/source-nato-s-new-plans-to-destroy-russia-prof-jeffrey-sachs-2026-08-30.md) | NATO's New Plans To Destroy Russia - Prof. Jeffrey Sachs |
 | `SRC-03` | Mercouris | [2026-08-30 Mercouris](../../../../archive/sources/geopolitics/sources/2026-08-30/source-russia-announces-will-smash-ukraine-s-energy-system-zelensky-blames-others-as-kiev-hit-again-sumy-2026-08-30.md) | Russia Announces Will Smash Ukraine's Energy System; Zelensky Blames Others As Kiev Hit Again, Sumy |
+| `SRC-04` | Krapivnik | [2026-08-30 Krapivnik](../../../../archive/sources/geopolitics/sources/2026-08-30/source-stanislav-krapivnik-russia-intensifies-kiev-strikes-massive-secondary-explosions-rock-capital-2026-08-30.md) | Russia Intensifies Kiev Strikes - MASSIVE Secondary Explosions Rock Capital |
 
 ## Forecast Desk
 
@@ -106,11 +107,12 @@ Names identify source-bounded pressure tests, not endorsement or reconstructed p
 | --- | --- | --- | --- |
 | Mercouris | Alignment and infrastructure-pressure frame | Supplies the Armenia political-retention lane and the Ukraine energy-system pressure lane. | Single-voice recurrence can make mechanism coherence look like corroboration. |
 | Sachs | NATO/Russia escalation pressure test | Adds alliance planning, diplomatic credibility, and European strategic posture as non-infrastructure substrate pressures. | Broad structural critique needs contrary-source and primary-document review before public factual use. |
+| Krapivnik | Strike-effects and escalation pressure test | Connects claimed secondary explosions, infrastructure pressure, and signaling to the coercive mechanism. | Operational and casualty claims are single-source assertions requiring independent verification. |
 
 ## Editor's Note
 
 This issue selects stories by declared analytical consequence, not by source volume.
-- **State-substrate coercion does not guarantee political conversion:** All three sources fit the same mechanism family while leaving operational truth and cross-voice corroboration unresolved.
+- **State-substrate coercion does not guarantee political conversion:** All four sources fit the same mechanism family while leaving operational truth and cross-voice corroboration unresolved.
 
 This is intentionally a thin issue: fewer than three story objects cleared the selection threshold.
 

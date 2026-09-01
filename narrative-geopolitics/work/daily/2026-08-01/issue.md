@@ -1,4 +1,4 @@
-<!-- daily-issue-v1 inputs-sha256: 8cb57821cb0ef673aa3e37cbf2cfad85a0918d01144bd7eae39f73e179ad9bd6 -->
+<!-- daily-issue-v1 inputs-sha256: 663ff5c4f897c3821ebfa603305220c897119241b4edd656d5d8dfab21038f14 -->
 <!-- reality-lattice-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 -->
 <!-- Generated file. Edit canonical daily or reality-lattice inputs, then regenerate. -->
 
@@ -78,13 +78,13 @@ Only sources used by selected issue stories appear here. See the [complete canon
 
 | Source ID | Voice | Archive source | Analytical job |
 | --- | --- | --- | --- |
-| `SRC-01` | Davis | [2026-08-01 Davis](../../../archive/sources/2026-08-01/source-america-s-israel-first-obsession-everyone-loses-lt-col-daniel-davis-2026-08-01.md) | America's Israel-First Obsession, Everyone Loses /Lt Col Daniel Davis |
-| `SRC-02` | Aguilar | [2026-08-01 Aguilar](../../../archive/sources/2026-08-01/source-breaking-israel-on-highest-alert-iran-orders-evacuations-w-lt-col-anthony-aguilar-2026-08-01.md) | BREAKING: ISRAEL ON HIGHEST ALERT, IRAN ORDERS EVACUATIONS - w/ Lt. Col. Anthony Aguilar |
-| `SRC-03` | Weichert | [2026-08-01 Weichert](../../../archive/sources/2026-08-01/source-breaking-u-s-issues-security-alert-trump-plans-to-hammer-iran-hard-this-weekend-2026-08-01.md) | BREAKING: U.S. ISSUES SECURITY ALERT, TRUMP PLANS TO HAMMER IRAN HARD THIS WEEKEND! |
-| `SRC-05` | Macgregor | [2026-08-01 Macgregor](../../../archive/sources/2026-08-01/source-colonel-douglas-macgregor-america-and-israel-have-lost-iran-war-2026-08-01.md) | Colonel Douglas Macgregor: America and Israel Have Lost Iran War |
-| `SRC-06` | Johnson | [2026-08-01 Johnson](../../../archive/sources/2026-08-01/source-larry-johnson-us-israel-about-to-launch-most-extensive-bombing-campaign-yet-on-iran-s-energy-grid-2026-08-01.md) | Larry Johnson: US & Israel About to Launch Most Extensive Bombing Campaign Yet on Iran's Energy Grid |
-| `SRC-07` | Marandi | [2026-08-01 Marandi](../../../archive/sources/2026-08-01/source-reports-of-israel-u-s-preparing-strikes-on-iran-s-infrastructure-w-nima-rostami-alkhorshid-2026-08-01.md) | REPORTS OF ISRAEL & U.S. PREPARING STRIKES ON IRAN'S INFRASTRUCTURE - w/ Nima Rostami Alkhorshid |
-| `SRC-08` | Marandi | [2026-08-01 Marandi](../../../archive/sources/2026-08-01/source-seyed-m-marandi-iran-yemen-to-unleash-missiles-on-gulf-israel-2026-08-01.md) | Seyed M. Marandi: Iran & Yemen to Unleash Missiles on Gulf, Israel |
+| `SRC-01` | Davis | [2026-08-01 Davis](../../../../archive/sources/geopolitics/sources/2026-08-01/source-america-s-israel-first-obsession-everyone-loses-lt-col-daniel-davis-2026-08-01.md) | America's Israel-First Obsession, Everyone Loses /Lt Col Daniel Davis |
+| `SRC-02` | Aguilar | [2026-08-01 Aguilar](../../../../archive/sources/geopolitics/sources/2026-08-01/source-breaking-israel-on-highest-alert-iran-orders-evacuations-w-lt-col-anthony-aguilar-2026-08-01.md) | BREAKING: ISRAEL ON HIGHEST ALERT, IRAN ORDERS EVACUATIONS - w/ Lt. Col. Anthony Aguilar |
+| `SRC-03` | Weichert | [2026-08-01 Weichert](../../../../archive/sources/geopolitics/sources/2026-08-01/source-breaking-u-s-issues-security-alert-trump-plans-to-hammer-iran-hard-this-weekend-2026-08-01.md) | BREAKING: U.S. ISSUES SECURITY ALERT, TRUMP PLANS TO HAMMER IRAN HARD THIS WEEKEND! |
+| `SRC-05` | Macgregor | [2026-08-01 Macgregor](../../../../archive/sources/geopolitics/sources/2026-08-01/source-colonel-douglas-macgregor-america-and-israel-have-lost-iran-war-2026-08-01.md) | Colonel Douglas Macgregor: America and Israel Have Lost Iran War |
+| `SRC-06` | Johnson | [2026-08-01 Johnson](../../../../archive/sources/geopolitics/sources/2026-08-01/source-larry-johnson-us-israel-about-to-launch-most-extensive-bombing-campaign-yet-on-iran-s-energy-grid-2026-08-01.md) | Larry Johnson: US & Israel About to Launch Most Extensive Bombing Campaign Yet on Iran's Energy Grid |
+| `SRC-07` | Marandi | [2026-08-01 Marandi](../../../../archive/sources/geopolitics/sources/2026-08-01/source-reports-of-israel-u-s-preparing-strikes-on-iran-s-infrastructure-w-nima-rostami-alkhorshid-2026-08-01.md) | REPORTS OF ISRAEL & U.S. PREPARING STRIKES ON IRAN'S INFRASTRUCTURE - w/ Nima Rostami Alkhorshid |
+| `SRC-08` | Marandi | [2026-08-01 Marandi](../../../../archive/sources/geopolitics/sources/2026-08-01/source-seyed-m-marandi-iran-yemen-to-unleash-missiles-on-gulf-israel-2026-08-01.md) | Seyed M. Marandi: Iran & Yemen to Unleash Missiles on Gulf, Israel |
 
 ## Forecast Desk
 

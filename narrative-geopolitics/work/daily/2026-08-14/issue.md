@@ -1,4 +1,4 @@
-<!-- daily-issue-v1 inputs-sha256: 74a2eaea957c4e3500c782c8a9dda7dd20e22860e604ffc2a09a11eadeaea17c -->
+<!-- daily-issue-v1 inputs-sha256: 735fd63aaff6766f512e313812af74db8d8a99f476b511fd27b09f7beca16323 -->
 <!-- reality-lattice-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 -->
 <!-- Generated file. Edit canonical daily or reality-lattice inputs, then regenerate. -->
 
@@ -70,8 +70,8 @@ Only sources used by selected issue stories appear here. See the [complete canon
 
 | Source ID | Voice | Archive source | Analytical job |
 | --- | --- | --- | --- |
-| `SRC-01` | Mercouris | [Mercouris](../../../archive/sources/2026-08-14/source-3-russia-mocks-zelensky-erdogan-odessa-sea-truce-call-uk-panic-as-russia-targets-uk-ships-druzhivka-2026-08-14.md) | Frames the Black Sea, Odessa, shipping, and Ukrainian infrastructure squeeze. |
-| `SRC-09` | Alkhorshid | [Alkhorshid](../../../archive/sources/2026-08-14/source-3-nima-r-alkhorshid-yemenis-strike-saudi-aramco-saudi-arms-shipment-destroyed-in-precision-strike-2026-08-14.md) | Connects Yemen/Saudi pressure, Iran's regional deterrence posture, and anti-endless-war framing. |
+| `SRC-01` | Mercouris | [Mercouris](../../../../archive/sources/geopolitics/sources/2026-08-14/source-3-russia-mocks-zelensky-erdogan-odessa-sea-truce-call-uk-panic-as-russia-targets-uk-ships-druzhivka-2026-08-14.md) | Frames the Black Sea, Odessa, shipping, and Ukrainian infrastructure squeeze. |
+| `SRC-09` | Alkhorshid | [Alkhorshid](../../../../archive/sources/geopolitics/sources/2026-08-14/source-3-nima-r-alkhorshid-yemenis-strike-saudi-aramco-saudi-arms-shipment-destroyed-in-precision-strike-2026-08-14.md) | Connects Yemen/Saudi pressure, Iran's regional deterrence posture, and anti-endless-war framing. |
 
 ## Forecast Desk
 

@@ -44,6 +44,7 @@ Crisis object: Can U.S.-led coercion restore transit and escalation control befo
 | Marandi | Iranian bargaining floor | Presents Iran as less patient, more assertive, and unwilling to surrender Hormuz authority or allied deterrence claims. | Insider/opponent-position claims may compress official policy, commentary, and wartime signaling. |
 | Mercouris | Ukraine battlefield and industrial-depth frame | Connects Russian battlefield movement, Ukrainian air-defense scarcity, and Western industrial limits. | Front-line and economic claims remain source assertions and may rely on Russian-aligned reporting. |
 | McGovern | Escalation-restraint diagnosis | Frames Russia as stronger but cautious because Trump, NATO, and deep-state behavior are unpredictable. | High-level intent attribution is inferential and vulnerable to overpersonalization. |
+| Magnier | Ceasefire-clock signal | Makes expiry, renewal, and renewed punishment part of the contest over who controls the sequence. | The reported deadline and terms remain unverified source assertions. |
 
 ## Orthogonal Pressure Test
 
@@ -97,11 +98,15 @@ No operational claim is retained for public factual use in this pass. The synthe
 
 Complete [judgment.md](judgment.md) as the concise internal handoff. It preserves 3-5 load-bearing judgments, a confidence boundary, counterevidence, observable signals, review date, and decision compression without promoting source assertions into verified facts.
 
+## Late-source reconciliation
+
+Magnier's ceasefire-expiry discussion (`SRC-07`) makes the day's time-control mechanism more concrete: the reported deadline creates observable choices among renewal, threatened punishment, and renewed war. The source does not verify the ceasefire's legal status or terms, so the packet uses it as a timing signal rather than a factual settlement record. It strengthens the existing forecast logic without creating a second wager.
+
 ## Issue Story Desk
 
 | Story ID | Placement | Argument headline | Crisis object | Evidence posture | Source IDs | Voices | Forecast hooks | Operational claims | Selection rationale |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| `NGI-20260815-S01` | `lead` | The Strait Becomes A Test Of Who Controls Time | Can U.S.-led coercion restore transit and escalation control before Iran and Russia turn delay, logistics strain, and industrial depth into the dominant bargaining facts? | `bounded-analysis` | `SRC-01` through `SRC-06` | aguilar, davis, johnson, marandi, mcgovern, mercouris | none issued | none for public use | The day adds a distinctive delta to August 14: endurance becomes active time-control leverage across Hormuz and Ukraine rather than a generic cost of coercion. |
+| `NGI-20260815-S01` | `lead` | The Strait Becomes A Test Of Who Controls Time | Can U.S.-led coercion restore transit and escalation control before Iran and Russia turn delay, logistics strain, and industrial depth into the dominant bargaining facts? | `bounded-analysis` | `SRC-01` through `SRC-07` | aguilar, davis, johnson, marandi, mcgovern, mercouris, magnier | none issued | none for public use | The day adds a distinctive delta to August 14: endurance becomes active time-control leverage across Hormuz and Ukraine rather than a generic cost of coercion. |
 
 ## Forecast Candidates
 

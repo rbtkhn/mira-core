@@ -69,9 +69,15 @@ Review date: `2026-09-11`
 
 Review question: did public linkage language grow stronger, or did Hormuz/Iran settlement language narrow into technical passage management?
 
+## Late-source reconciliation
+
+Helmer's interview adds intelligence opacity to the gap between coercion and control. The issue does not adopt its alleged CIA losses as fact. It uses the source to identify a reviewable mechanism: hidden institutional losses or analytic failure can allow public confidence language to outlast the capacity it describes.
+
 ## Issue Copy
 
 ### NGI-20260828-S01 - Coercion no longer equals control
+
+Helmer adds a cross-theater opacity hypothesis: intelligence institutions may conceal or misread losses while public policy continues to project control. Because the interview does not establish those losses independently, the issue uses it only to widen the indicator set—access, intelligence performance, unexplained policy reversals, and discrepancies between public claims and later institutional evidence.
 
 The lead story is the gap between pressure and command. The August 28 source set repeatedly presents U.S. sanctions, blockade language, and strike threats as active but strategically insufficient. Escobar contests the idea that Washington controls Hormuz. Parsi argues that Iran is linking any return to an MOU to wider regional security terms. Davis treats the turn back to sanctions as evidence that military pressure failed to create compliance. Wilkerson and Johnson frame renewed war as the likely result of incompatible demands.
 
@@ -103,6 +109,8 @@ For later review, the clean signal is linkage. If Lebanon, Gaza, Western protest
 
 ### NGI-20260828-S03 - Ukraine shows the no-clean-exit pattern
 
+Helmer's account belongs here only as an attributed institutional-opacity test. If later evidence shows intelligence access or losses diverging from public confidence in either theater, it would strengthen the no-clean-exit pattern; without that evidence, it remains a hypothesis.
+
 Russia/Ukraine is not the Aug 28 lead, but it is the day's best cross-theater pressure test. Mercouris presents Russian officials as rejecting ceasefires that they believe would only rearm Ukraine. Mearsheimer and Krapivnik place NATO planning and Western escalation inside a longer structural trap. Barnes and Kent add U.S. domestic legitimacy, intelligence, finance, and impeachment narratives. Freeman speculates that Washington may seek movement with Russia because Iran has become politically stuck.
 
 The shared mechanism is settlement credibility. If Russia reads ceasefire diplomacy, asset proposals, NATO planning, and intelligence channels as instruments of delay or coercion, then negotiation no longer functions as a clean exit. That resembles the Iran/Hormuz problem at the level of structure, not factual proof. In both theaters, coercive instruments remain available, but settlement authority has been damaged.
@@ -115,4 +123,6 @@ That lesson loops back to Hormuz. A technical arrangement for passage might be r
 
 ## Revision Log
 
-No revisions.
+| Timestamp (UTC) | Type | Note |
+| --- | --- | --- |
+| 2026-08-31T01:49:02Z | update | Reconciled the Helmer source as an intelligence-opacity hypothesis with no factual promotion of alleged losses. |

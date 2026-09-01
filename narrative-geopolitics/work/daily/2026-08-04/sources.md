@@ -8,8 +8,8 @@ Status: `live-intake-first`
 
 Primary source basis:
 
-- `narrative-geopolitics/archive/source-manifest.json`
-- `narrative-geopolitics/archive/sources/2026-08-04/`
+- `archive/sources/geopolitics/source-manifest.json`
+- `archive/sources/geopolitics/sources/2026-08-04/`
 
 ## Intake Batch
 
@@ -17,29 +17,29 @@ This run is grounded in the `2026-08-04` day batch already landed in the central
 
 | Source File | Source Type | Intake Status | Manifest Row | Voice Route | Channel Route | Notes |
 | --- | --- | --- | --- | --- | --- | --- |
-| `archive/sources/2026-08-04/source-aaron-mat-is-there-a-rift-between-the-us-and-israel-2026-08-04.md` | cleaned-transcript | `imported` | `yes` | Mate | Judging Freedom | guest interview pressure test; review and narrow to owning crisis object before synthesis. |
-| `archive/sources/2026-08-04/source-amb-chas-freeman-netanyahu-leaves-trump-empty-handed-2026-08-04.md` | cleaned-transcript | `imported` | `yes` | Freeman | Judging Freedom | guest interview pressure test; review and narrow to owning crisis object before synthesis. |
-| `archive/sources/2026-08-04/source-breaking-iran-to-control-hormuz-w-trita-parsi-2026-08-04.md` | cleaned-transcript | `imported` | `yes` | Parsi | Mario Nawfal | guest interview pressure test; review and narrow to owning crisis object before synthesis. |
-| `archive/sources/2026-08-04/source-col-larry-wilkerson-breaking-yemen-strikes-saudi-airport-sensitive-target-hit-2026-08-04.md` | cleaned-transcript | `imported` | `yes` | Wilkerson | Nima Alkhorshid | guest interview pressure test; review and narrow to owning crisis object before synthesis. |
-| `archive/sources/2026-08-04/source-john-helmer-ukrainian-drone-hits-turkish-ship-to-russia-3-wounded-as-odessa-blockade-intensifies-2026-08-04.md` | cleaned-transcript | `imported` | `yes` | Helmer | Nima Alkhorshid | guest interview pressure test; review and narrow to owning crisis object before synthesis. |
-| `archive/sources/2026-08-04/source-larry-johnson-desperation-as-america-s-weapons-stockpiles-deplete-in-iran-2026-08-04.md` | cleaned-transcript | `imported` | `yes` | Johnson | Glenn Diesen | guest interview pressure test; review and narrow to owning crisis object before synthesis. |
-| `archive/sources/2026-08-04/source-matt-hoh-can-the-us-sustain-the-iran-war-2026-08-04.md` | cleaned-transcript | `imported` | `yes` | Hoh | Judging Freedom | guest interview pressure test; review and narrow to owning crisis object before synthesis. |
-| `archive/sources/2026-08-04/source-russia-traps-kiev-troops-ne-kharkov-desperate-zelensky-ceasefire-call-zaluzhny-says-nato-powerless-2026-08-04.md` | cleaned-transcript | `imported` | `yes` | Mercouris | Alexander Mercouris | guest interview pressure test; review and narrow to owning crisis object before synthesis. |
-| `archive/sources/2026-08-04/source-seyed-m-marandi-yemeni-blockade-cripples-saudi-oil-exports-trapping-trump-in-a-regional-quagmire-2026-08-04.md` | cleaned-transcript | `imported` | `yes` | Marandi | Nima Alkhorshid | guest interview pressure test; review and narrow to owning crisis object before synthesis. |
+| `archive/sources/geopolitics/sources/2026-08-04/source-aaron-mat-is-there-a-rift-between-the-us-and-israel-2026-08-04.md` | cleaned-transcript | `imported` | `yes` | Mate | Judging Freedom | guest interview pressure test; review and narrow to owning crisis object before synthesis. |
+| `archive/sources/geopolitics/sources/2026-08-04/source-amb-chas-freeman-netanyahu-leaves-trump-empty-handed-2026-08-04.md` | cleaned-transcript | `imported` | `yes` | Freeman | Judging Freedom | guest interview pressure test; review and narrow to owning crisis object before synthesis. |
+| `archive/sources/geopolitics/sources/2026-08-04/source-breaking-iran-to-control-hormuz-w-trita-parsi-2026-08-04.md` | cleaned-transcript | `imported` | `yes` | Parsi | Mario Nawfal | guest interview pressure test; review and narrow to owning crisis object before synthesis. |
+| `archive/sources/geopolitics/sources/2026-08-04/source-col-larry-wilkerson-breaking-yemen-strikes-saudi-airport-sensitive-target-hit-2026-08-04.md` | cleaned-transcript | `imported` | `yes` | Wilkerson | Nima Alkhorshid | guest interview pressure test; review and narrow to owning crisis object before synthesis. |
+| `archive/sources/geopolitics/sources/2026-08-04/source-john-helmer-ukrainian-drone-hits-turkish-ship-to-russia-3-wounded-as-odessa-blockade-intensifies-2026-08-04.md` | cleaned-transcript | `imported` | `yes` | Helmer | Nima Alkhorshid | guest interview pressure test; review and narrow to owning crisis object before synthesis. |
+| `archive/sources/geopolitics/sources/2026-08-04/source-larry-johnson-desperation-as-america-s-weapons-stockpiles-deplete-in-iran-2026-08-04.md` | cleaned-transcript | `imported` | `yes` | Johnson | Glenn Diesen | guest interview pressure test; review and narrow to owning crisis object before synthesis. |
+| `archive/sources/geopolitics/sources/2026-08-04/source-matt-hoh-can-the-us-sustain-the-iran-war-2026-08-04.md` | cleaned-transcript | `imported` | `yes` | Hoh | Judging Freedom | guest interview pressure test; review and narrow to owning crisis object before synthesis. |
+| `archive/sources/geopolitics/sources/2026-08-04/source-russia-traps-kiev-troops-ne-kharkov-desperate-zelensky-ceasefire-call-zaluzhny-says-nato-powerless-2026-08-04.md` | cleaned-transcript | `imported` | `yes` | Mercouris | Alexander Mercouris | guest interview pressure test; review and narrow to owning crisis object before synthesis. |
+| `archive/sources/geopolitics/sources/2026-08-04/source-seyed-m-marandi-yemeni-blockade-cripples-saudi-oil-exports-trapping-trump-in-a-regional-quagmire-2026-08-04.md` | cleaned-transcript | `imported` | `yes` | Marandi | Nima Alkhorshid | guest interview pressure test; review and narrow to owning crisis object before synthesis. |
 
 ## Run Source Set
 
 | Source ID | Voice | Host / Channel | Modality | Archive Path | Why It Matters |
 | --- | --- | --- | --- | --- | --- |
-| `SRC-01` | Mate | Judging Freedom | cleaned-transcript | [2026-08-04 Mate](../../../archive/sources/2026-08-04/source-aaron-mat-is-there-a-rift-between-the-us-and-israel-2026-08-04.md) | Aaron Maté : Is There a Rift Between the US and Israel? |
-| `SRC-02` | Freeman | Judging Freedom | cleaned-transcript | [2026-08-04 Freeman](../../../archive/sources/2026-08-04/source-amb-chas-freeman-netanyahu-leaves-trump-empty-handed-2026-08-04.md) | AMB. Chas Freeman : Netanyahu Leaves Trump Empty Handed |
-| `SRC-03` | Parsi | Mario Nawfal | cleaned-transcript | [2026-08-04 Parsi](../../../archive/sources/2026-08-04/source-breaking-iran-to-control-hormuz-w-trita-parsi-2026-08-04.md) | BREAKING: IRAN TO CONTROL HORMUZ - w/ Trita Parsi |
-| `SRC-04` | Wilkerson | Nima Alkhorshid | cleaned-transcript | [2026-08-04 Wilkerson](../../../archive/sources/2026-08-04/source-col-larry-wilkerson-breaking-yemen-strikes-saudi-airport-sensitive-target-hit-2026-08-04.md) | Col. Larry Wilkerson: Breaking: Yemen Strikes Saudi Airport – “Sensitive Target” Hit |
-| `SRC-05` | Helmer | Nima Alkhorshid | cleaned-transcript | [2026-08-04 Helmer](../../../archive/sources/2026-08-04/source-john-helmer-ukrainian-drone-hits-turkish-ship-to-russia-3-wounded-as-odessa-blockade-intensifies-2026-08-04.md) | John Helmer: Ukrainian Drone Hits Turkish Ship to Russia – 3 Wounded as Odessa Blockade Intensifies |
-| `SRC-06` | Johnson | Glenn Diesen | cleaned-transcript | [2026-08-04 Johnson](../../../archive/sources/2026-08-04/source-larry-johnson-desperation-as-america-s-weapons-stockpiles-deplete-in-iran-2026-08-04.md) | Larry Johnson: Desperation as America's Weapons Stockpiles Deplete in Iran |
-| `SRC-07` | Hoh | Judging Freedom | cleaned-transcript | [2026-08-04 Hoh](../../../archive/sources/2026-08-04/source-matt-hoh-can-the-us-sustain-the-iran-war-2026-08-04.md) | Matt Hoh : Can the US Sustain the Iran War? |
-| `SRC-08` | Mercouris | Alexander Mercouris | cleaned-transcript | [2026-08-04 Mercouris](../../../archive/sources/2026-08-04/source-russia-traps-kiev-troops-ne-kharkov-desperate-zelensky-ceasefire-call-zaluzhny-says-nato-powerless-2026-08-04.md) | Russia Traps Kiev Troops NE Kharkov; Desperate Zelensky Ceasefire Call Zaluzhny Says NATO Powerless |
-| `SRC-09` | Marandi | Nima Alkhorshid | cleaned-transcript | [2026-08-04 Marandi](../../../archive/sources/2026-08-04/source-seyed-m-marandi-yemeni-blockade-cripples-saudi-oil-exports-trapping-trump-in-a-regional-quagmire-2026-08-04.md) | Seyed M. Marandi: Yemeni Blockade Cripples Saudi Oil Exports, Trapping Trump in a Regional Quagmire |
+| `SRC-01` | Mate | Judging Freedom | cleaned-transcript | [2026-08-04 Mate](../../../../archive/sources/geopolitics/sources/2026-08-04/source-aaron-mat-is-there-a-rift-between-the-us-and-israel-2026-08-04.md) | Aaron Maté : Is There a Rift Between the US and Israel? |
+| `SRC-02` | Freeman | Judging Freedom | cleaned-transcript | [2026-08-04 Freeman](../../../../archive/sources/geopolitics/sources/2026-08-04/source-amb-chas-freeman-netanyahu-leaves-trump-empty-handed-2026-08-04.md) | AMB. Chas Freeman : Netanyahu Leaves Trump Empty Handed |
+| `SRC-03` | Parsi | Mario Nawfal | cleaned-transcript | [2026-08-04 Parsi](../../../../archive/sources/geopolitics/sources/2026-08-04/source-breaking-iran-to-control-hormuz-w-trita-parsi-2026-08-04.md) | BREAKING: IRAN TO CONTROL HORMUZ - w/ Trita Parsi |
+| `SRC-04` | Wilkerson | Nima Alkhorshid | cleaned-transcript | [2026-08-04 Wilkerson](../../../../archive/sources/geopolitics/sources/2026-08-04/source-col-larry-wilkerson-breaking-yemen-strikes-saudi-airport-sensitive-target-hit-2026-08-04.md) | Col. Larry Wilkerson: Breaking: Yemen Strikes Saudi Airport – “Sensitive Target” Hit |
+| `SRC-05` | Helmer | Nima Alkhorshid | cleaned-transcript | [2026-08-04 Helmer](../../../../archive/sources/geopolitics/sources/2026-08-04/source-john-helmer-ukrainian-drone-hits-turkish-ship-to-russia-3-wounded-as-odessa-blockade-intensifies-2026-08-04.md) | John Helmer: Ukrainian Drone Hits Turkish Ship to Russia – 3 Wounded as Odessa Blockade Intensifies |
+| `SRC-06` | Johnson | Glenn Diesen | cleaned-transcript | [2026-08-04 Johnson](../../../../archive/sources/geopolitics/sources/2026-08-04/source-larry-johnson-desperation-as-america-s-weapons-stockpiles-deplete-in-iran-2026-08-04.md) | Larry Johnson: Desperation as America's Weapons Stockpiles Deplete in Iran |
+| `SRC-07` | Hoh | Judging Freedom | cleaned-transcript | [2026-08-04 Hoh](../../../../archive/sources/geopolitics/sources/2026-08-04/source-matt-hoh-can-the-us-sustain-the-iran-war-2026-08-04.md) | Matt Hoh : Can the US Sustain the Iran War? |
+| `SRC-08` | Mercouris | Alexander Mercouris | cleaned-transcript | [2026-08-04 Mercouris](../../../../archive/sources/geopolitics/sources/2026-08-04/source-russia-traps-kiev-troops-ne-kharkov-desperate-zelensky-ceasefire-call-zaluzhny-says-nato-powerless-2026-08-04.md) | Russia Traps Kiev Troops NE Kharkov; Desperate Zelensky Ceasefire Call Zaluzhny Says NATO Powerless |
+| `SRC-09` | Marandi | Nima Alkhorshid | cleaned-transcript | [2026-08-04 Marandi](../../../../archive/sources/geopolitics/sources/2026-08-04/source-seyed-m-marandi-yemeni-blockade-cripples-saudi-oil-exports-trapping-trump-in-a-regional-quagmire-2026-08-04.md) | Seyed M. Marandi: Yemeni Blockade Cripples Saudi Oil Exports, Trapping Trump in a Regional Quagmire |
 
 ## Load-Bearing Quotes
 
