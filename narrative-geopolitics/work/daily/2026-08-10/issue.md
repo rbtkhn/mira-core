@@ -1,42 +1,42 @@
+<!-- daily-issue-v1 inputs-sha256: 65b8c39380c48047850b40cc1397291b08c92b0a8e882f20eab35d06e3b46132 -->
+<!-- reality-lattice-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 -->
+<!-- Generated file. Edit canonical daily or reality-lattice inputs, then regenerate. -->
+
+Publication: **Narrative Geopolitics — Daily Issue**
+
 # Reparations, Delay, and the Price of Exit
 
 Title standard: `reader-facing`
 
 Title rationale: `The title captures the day’s shared mechanism: exit from coercion becomes harder when each side raises the price of settlement.`
 
-Status: `source-bounded complete`
+Date: `2026-08-10`
 
-## Lead Judgment
+Status: `internal-reader-facing`
 
-The August 10 batch is dense and should be read as mechanism evidence, not factual verification. The sources collectively frame U.S. Middle East dominance, Iranian delay or reparations demands, Yemen/Saudi pressure, and Odessa/Russia-Ukraine escalation as parts of a larger exit-cost problem. The archive does not prove the reported reparations demand, Saudi targeting claim, or Odessa operational claims. It does show a strong recurring argument: once coercion fails to compel prompt concessions, settlement itself becomes politically expensive because every concession can be read as defeat.
+Evidence posture: `archive-first; story-level labels govern factual use`
 
-## Source Grounding
+## Front Page
 
-This brief is grounded in the manifest-backed August 10 archive batch. It uses source recurrence and contrast to read the day’s strategic mechanism. It does not independently verify reported incidents, private deliberations, battlefield claims, or actor intent.
+The selected story is that the archive sees the cost of exit rising faster than the availability of a clean settlement. That story is strategically useful because it explains why continued pressure can coexist with diplomatic visibility. The evidence posture is `bounded-analysis`: the day can support reader-facing internal issue work because the mechanism is clear, but the operational facts remain attributed to sources unless later verification changes their status.
 
-## Crisis Object
+| Desk | Story | Evidence posture |
+| --- | --- | --- |
+| Main Analysis | Reparations, Delay, and the Price of Exit | `bounded-analysis` |
 
-Can the U.S. recover a negotiated exit when Iran, regional actors, and Russia/Ukraine dynamics make settlement look like admission of failed coercion?
+## Briefing Desk
 
-## Actor And Narrative Map
+No secondary brief met the issue threshold for this archive day.
 
-The United States and allied actors need coercion to look bounded, effective, and reversible. Iran and aligned regional actors benefit when each new incident makes pressure look less controllable. Israel, Gulf actors, and the Ukraine/Russia lane matter because adjacent fronts can change the political cost of settlement even when diplomacy remains visible.
+## Main Analysis
 
-## Voice Pressure Test
+### Reparations, Delay, and the Price of Exit
 
-Crooke supplies the order-transition frame; Aguilar, Parsi, Johnson, Alkhorshid, Sachs, Baud, and Weichert press Iran/Hormuz and U.S. leverage from different angles; Mercouris and Krapivnik provide the Ukraine/Russia comparison. The density supports strategic comparison but also raises selection risk, especially because many claims remain source assertions. The pressure test is therefore not whether the archive proves each reported event. It is whether the same source set keeps returning to the same strategic problem: coercion can continue after its political theory has weakened.
+Evidence posture: `bounded-analysis`
 
-## What To Watch
+Crisis object: Can the U.S. recover a negotiated exit when Iran, regional actors, and Russia/Ukraine dynamics make settlement look like admission of failed coercion?
 
-Watch for official settlement implementation, reduced maritime or infrastructure pressure, clearer command attribution, and fewer adjacent-front claims being used as evidence of coercive overextension.
-
-## Forecast / Review Hooks
-
-No new forecast hook is issued: By 2026-08-20, the archive will still frame the Iran/Hormuz crisis as an exit-cost problem in which diplomacy remains visible but concessions, reparations, delay, or adjacent-front pressure prevent a clean settlement narrative. Probability band: `plausible`. Review date: `2026-08-31`.
-
-## Issue Copy
-
-### NGI-20260810-S01 — Reparations, Delay, and the Price of Exit
+Related reality claims: None registered
 
 The selected story is that the archive sees the cost of exit rising faster than the availability of a clean settlement. That story is strategically useful because it explains why continued pressure can coexist with diplomatic visibility. The evidence posture is `bounded-analysis`: the day can support reader-facing internal issue work because the mechanism is clear, but the operational facts remain attributed to sources unless later verification changes their status.
 
@@ -68,6 +68,47 @@ This matters for the monthly score because completeness is not polish alone. A c
 
 That boundary also protects the standard. The day can be issue-ready while still needing future source-anchor improvement and independent verification. The issue-ready layer asks whether the day has a coherent object, a usable mechanism, a clear evidence posture, and a visible role in the monthly arc. On those terms August 10 now qualifies. Factual certification, operational claim promotion, and public-use confidence remain separate gates.
 
-## Revision Log
+## Source Ledger
+
+Only sources used by selected issue stories appear here. See the [complete canonical source accounting](sources.md).
+
+| Source ID | Voice | Archive source | Analytical job |
+| --- | --- | --- | --- |
+| `SRC-01` | Crooke | [2026-08-10 Crooke](../../../archive/sources/2026-08-10/source-2-alastair-crooke-us-middle-east-dominance-is-ended-2026-08-10.md) | (2) Alastair Crooke : US Middle East Dominance is Ended |
+| `SRC-02` | Aguilar | [2026-08-10 Aguilar](../../../archive/sources/2026-08-10/source-2-breaking-iran-to-delay-deal-until-after-trump-administration-ends-w-lt-col-anthony-aguilar-2026-08-10.md) | (2) BREAKING: IRAN TO DELAY DEAL UNTIL AFTER TRUMP ADMINISTRATION ENDS - w/ Lt. Col. Anthony Aguilar |
+| `SRC-03` | Baud | [2026-08-10 Baud](../../../archive/sources/2026-08-10/source-2-col-jacques-baud-wherever-you-mass-you-get-bombed-yemenis-target-saudi-forces-2026-08-10.md) | (2) Col. Jacques Baud: "Wherever You Mass, You Get Bombed" – Yemenis Target Saudi Forces |
+
+## Forecast Desk
+
+Forecasts remain accountable to the [canonical daily review](forecast.md) and [central ledger](../../forecasts/forecast-ledger.md).
+
+No selected story carries a forecast hook.
+
+## Verification Desk
+
+Operational claims remain attributed unless canonical multilingual adjudication supports factual adoption.
+
+### Missing observables
+
+No additional missing observables were recorded.
+
+## Voices / Columns
+
+Names identify source-bounded pressure tests, not endorsement or reconstructed present opinion.
+
+| Voice | Analytical operation | Contribution | Main risk |
+| --- | --- | --- | --- |
+| Archive source set | Lead evidence surface | Crooke supplies the order-transition frame; Aguilar, Parsi, Johnson, Alkhorshid, Sachs, Baud, and Weichert press Iran/Hormuz and U.S. leverage from different angles; Mercouris and Krapivnik provide the Ukraine/Russia comparison. The density supports strategic comparison but also raises selection risk, especially because many claims remain source assertions. | Concentrated skeptical ecology; operational claims remain attributed source assertions. |
+
+## Editor's Note
+
+This issue selects stories by declared analytical consequence, not by source volume.
+- **Reparations, Delay, and the Price of Exit:** The selected story is that the archive sees the cost of exit rising faster than the availability of a clean settlement. That story is strategically useful because it explains why continued pressure can coexist with diplomatic visibility.
+
+This is intentionally a thin issue: fewer than three story objects cleared the selection threshold.
+
+Canonical inputs: [sources](sources.md), [synthesis](synthesis.md), [forecast](forecast.md), and [daily brief](daily-brief.md).
+
+### Revision Log
 
 No revisions.

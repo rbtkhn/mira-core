@@ -13,15 +13,15 @@ Primary source basis:
 
 ## Intake Batch
 
-This run is a retrospective judgment run built from already-imported central archive sources for `2026-08-08`.
+This run is grounded in the `2026-08-08` day batch already landed in the central archive.
 
 | Source File | Source Type | Intake Status | Manifest Row | Voice Route | Channel Route | Notes |
 | --- | --- | --- | --- | --- | --- | --- |
-| `archive/sources/2026-08-08/source-2-iran-boards-ship-in-hormuz-trump-s-top-general-calls-for-end-of-iran-war-2026-08-08.md` | cleaned-transcript | `already-imported` | `yes` | Weichert | Mario Nawfal | guest interview pressure test; review and narrow to owning crisis object before synthesis. |
-| `archive/sources/2026-08-08/source-2-larry-johnson-top-u-s-general-just-privately-broke-with-trump-over-iran-2026-08-08.md` | cleaned-transcript | `already-imported` | `yes` | Johnson | Dialogue Works | guest interview pressure test; review and narrow to owning crisis object before synthesis. |
-| `archive/sources/2026-08-08/source-2-russia-wins-air-war-bombs-kiev-army-hqs-jams-starlink-starts-rassvet-kiev-drone-offensive-flopped-2026-08-08.md` | cleaned-transcript | `already-imported` | `yes` | Mercouris | Alexander Mercouris | host monologue; review and narrow to owning crisis object before synthesis. |
-| `archive/sources/2026-08-08/source-2-seyed-m-marandi-iran-s-strikes-hit-emirati-oil-tanker-kurdish-hq-in-iraq-new-hormuz-order-2026-08-08.md` | cleaned-transcript | `already-imported` | `yes` | Marandi | Nima Alkhorshid | guest interview pressure test; review and narrow to owning crisis object before synthesis. |
-| `archive/sources/2026-08-08/source-2-time-has-come-ukraine-should-accept-russia-terms-or-likely-suffer-total-defeat-2026-08-08.md` | cleaned-transcript | `already-imported` | `yes` | Davis | Daniel Davis | author; review and narrow to owning crisis object before synthesis. |
+| `archive/sources/geopolitics/sources/2026-08-08/source-2-iran-boards-ship-in-hormuz-trump-s-top-general-calls-for-end-of-iran-war-2026-08-08.md` | cleaned-transcript | `imported` | `yes` | Weichert | Mario Nawfal | guest interview pressure test; review and narrow to owning crisis object before synthesis. |
+| `archive/sources/geopolitics/sources/2026-08-08/source-2-larry-johnson-top-u-s-general-just-privately-broke-with-trump-over-iran-2026-08-08.md` | cleaned-transcript | `imported` | `yes` | Johnson | Dialogue Works | guest interview pressure test; review and narrow to owning crisis object before synthesis. |
+| `archive/sources/geopolitics/sources/2026-08-08/source-2-russia-wins-air-war-bombs-kiev-army-hqs-jams-starlink-starts-rassvet-kiev-drone-offensive-flopped-2026-08-08.md` | cleaned-transcript | `imported` | `yes` | Mercouris | Alexander Mercouris | host monologue; review and narrow to owning crisis object before synthesis. |
+| `archive/sources/geopolitics/sources/2026-08-08/source-2-seyed-m-marandi-iran-s-strikes-hit-emirati-oil-tanker-kurdish-hq-in-iraq-new-hormuz-order-2026-08-08.md` | cleaned-transcript | `imported` | `yes` | Marandi | Nima Alkhorshid | guest interview pressure test; review and narrow to owning crisis object before synthesis. |
+| `archive/sources/geopolitics/sources/2026-08-08/source-2-time-has-come-ukraine-should-accept-russia-terms-or-likely-suffer-total-defeat-2026-08-08.md` | cleaned-transcript | `imported` | `yes` | Davis | Daniel Davis | author; review and narrow to owning crisis object before synthesis. |
 
 ## Run Source Set
 

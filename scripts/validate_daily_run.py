@@ -227,12 +227,55 @@ def judgment_failures(run_date: str, rows: list[dict[str, Any]], stage: str) -> 
     return failures
 
 
+def strategy_notebook_paths(run_date: str) -> list[Path]:
+    month = run_date[:7]
+    return [
+        daily_dir(run_date) / "strategy-notebook.md",
+        NG_ROOT / "work" / "strategy-notebook" / f"{month}.md",
+    ]
+
+
+def strategy_notebook_section(text: str, run_date: str) -> str:
+    marker = f"Date: `{run_date}`"
+    pos = text.find(marker)
+    if pos == -1:
+        return ""
+    start = text.rfind("\n## ", 0, pos)
+    if start == -1:
+        start = 0
+    else:
+        start += 1
+    next_heading = text.find("\n## Daily Estimate:", pos + len(marker))
+    if next_heading == -1:
+        return text[start:]
+    return text[start:next_heading]
+
+
+def strategy_notebook_exists_for_date(run_date: str) -> bool:
+    daily_path = daily_dir(run_date) / "strategy-notebook.md"
+    if daily_path.exists():
+        return True
+    month_path = NG_ROOT / "work" / "strategy-notebook" / f"{run_date[:7]}.md"
+    if not month_path.exists():
+        return False
+    return bool(strategy_notebook_section(read_text(month_path), run_date))
+
+
 def strategy_notebook_failures(run_date: str, stage: str) -> list[str]:
     """Validate the expert-facing daily estimate without verifying its claims."""
-    path = daily_dir(run_date) / "strategy-notebook.md"
-    if stage == "intake" or not path.exists():
+    daily_path = daily_dir(run_date) / "strategy-notebook.md"
+    month_path = NG_ROOT / "work" / "strategy-notebook" / f"{run_date[:7]}.md"
+    if stage == "intake":
         return []
-    text = read_text(path)
+    if daily_path.exists():
+        text = read_text(daily_path)
+    elif month_path.exists():
+        text = read_text(month_path)
+        text = strategy_notebook_section(text, run_date)
+        if not text:
+            return []
+    else:
+        return []
     if "Status: `template`" in text or JUDGMENT_PLACEHOLDER_RE.search(text):
         return ["strategy-notebook.md is still a template or contains unresolved placeholders"]
 
@@ -655,7 +698,7 @@ def validate_run(run_date: str, stage: str = "intake") -> dict[str, Any]:
         )
         failures.extend(f"issue.md: {item}" for item in issue_failures)
         strategy_notebook_valid = (
-            (run_path / "strategy-notebook.md").exists()
+            strategy_notebook_exists_for_date(run_date)
             and not strategy_failures
         )
         for item in issue_warnings:

@@ -1,5 +1,7 @@
 # Forecast - 2026-08-21
 
+Date: `2026-08-21`
+
 Status: `internal-hooks`
 
 These hooks convert source mechanisms into observable watch items. They do not verify the underlying operational claims, and they are not ready for public factual use.

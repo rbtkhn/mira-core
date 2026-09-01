@@ -3,7 +3,7 @@
   "scope": "narrative-geopolitics",
   "month": "2026-08",
   "declared_at": "2026-08-29T12:00:00-06:00",
-  "frozen": false,
+  "frozen": true,
   "reviewer": "operator",
   "late_declaration": true,
   "daily_transcript_floor": 5,

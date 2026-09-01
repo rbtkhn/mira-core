@@ -132,6 +132,19 @@ def _monthly_coverage_audit_command(path: str) -> str | None:
     return None
 
 
+def _monthly_strategy_notebook_audit_command(path: str) -> str | None:
+    parts = PurePosixPath(path).parts
+    if (
+        len(parts) == 4
+        and parts[:3] == ("narrative-geopolitics", "work", "strategy-notebook")
+        and parts[3].endswith(".md")
+    ):
+        month = parts[3].removesuffix(".md")
+        if MONTH_RE.match(month):
+            return f"tools/run.ps1 archive-audit --month {month} --format json"
+    return None
+
+
 def _youtube_capture_date(path: str) -> str | None:
     parts = PurePosixPath(path).parts
     if (
@@ -303,6 +316,14 @@ def route_path(path: str, *, repo_root: Path = REPO_ROOT) -> dict[str, Any]:
             "owner": "morning-brief",
             "validation_class": "domain-governed",
             "commands": ["tools/run.ps1 test --path tests/test_morning_brief.py"],
+            "manual_checks": [MANUAL_NARRATIVE_GEOPOLITICS_CHECK],
+        }
+    monthly_strategy_notebook_command = _monthly_strategy_notebook_audit_command(path)
+    if monthly_strategy_notebook_command:
+        return {
+            "owner": "geo-strategy/strategy-notebook",
+            "validation_class": "domain-governed",
+            "commands": [monthly_strategy_notebook_command],
             "manual_checks": [MANUAL_NARRATIVE_GEOPOLITICS_CHECK],
         }
     monthly_coverage_command = _monthly_coverage_audit_command(path)

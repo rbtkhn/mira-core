@@ -13,15 +13,15 @@ Primary source basis:
 
 ## Intake Batch
 
-This run is a retrospective judgment run built from already-imported central archive sources for `2026-08-09`.
+This run is grounded in the `2026-08-09` day batch already landed in the central archive.
 
 | Source File | Source Type | Intake Status | Manifest Row | Voice Route | Channel Route | Notes |
 | --- | --- | --- | --- | --- | --- | --- |
-| `archive/sources/2026-08-09/source-2-netanyahu-refuses-trump-s-demands-to-leave-iran-lebanon-and-gaza-w-cia-larry-johnson-2026-08-09.md` | cleaned-transcript | `already-imported` | `yes` | Johnson | Moral Resistance | guest; review and narrow to owning crisis object before synthesis. |
-| `archive/sources/2026-08-09/source-2-nima-r-alkhorshid-the-inevitable-just-happened-in-the-middle-east-2026-08-09.md` | cleaned-transcript | `already-imported` | `yes` | Alkhorshid | Dialogue Works | author; review and narrow to owning crisis object before synthesis. |
-| `archive/sources/2026-08-09/source-2-russia-makes-biggest-odessa-attack-rejects-turkey-truce-call-captures-key-donbas-defences-orekhov-2026-08-09.md` | cleaned-transcript | `already-imported` | `yes` | Mercouris | Alexander Mercouris | host monologue; review and narrow to owning crisis object before synthesis. |
-| `archive/sources/2026-08-09/source-2-seyed-m-marandi-iran-oman-hormuz-deal-almost-reached-the-saudi-turkey-pakistan-defence-pact-2026-08-09.md` | cleaned-transcript | `already-imported` | `yes` | Marandi | Glenn Diesen | guest interview pressure test; review and narrow to owning crisis object before synthesis. |
-| `archive/sources/2026-08-09/source-2-stanislav-krapivnik-russia-just-crippled-ukraine-s-supply-lines-in-odessa-and-nikolaev-2026-08-09.md` | cleaned-transcript | `already-imported` | `yes` | Krapivnik | Dialogue Works | guest interview pressure test; review and narrow to owning crisis object before synthesis. |
+| `archive/sources/geopolitics/sources/2026-08-09/source-2-netanyahu-refuses-trump-s-demands-to-leave-iran-lebanon-and-gaza-w-cia-larry-johnson-2026-08-09.md` | cleaned-transcript | `imported` | `yes` | Johnson | Moral Resistance | guest; review and narrow to owning crisis object before synthesis. |
+| `archive/sources/geopolitics/sources/2026-08-09/source-2-nima-r-alkhorshid-the-inevitable-just-happened-in-the-middle-east-2026-08-09.md` | cleaned-transcript | `imported` | `yes` | Alkhorshid | Dialogue Works | author; review and narrow to owning crisis object before synthesis. |
+| `archive/sources/geopolitics/sources/2026-08-09/source-2-russia-makes-biggest-odessa-attack-rejects-turkey-truce-call-captures-key-donbas-defences-orekhov-2026-08-09.md` | cleaned-transcript | `imported` | `yes` | Mercouris | Alexander Mercouris | host monologue; review and narrow to owning crisis object before synthesis. |
+| `archive/sources/geopolitics/sources/2026-08-09/source-2-seyed-m-marandi-iran-oman-hormuz-deal-almost-reached-the-saudi-turkey-pakistan-defence-pact-2026-08-09.md` | cleaned-transcript | `imported` | `yes` | Marandi | Glenn Diesen | guest interview pressure test; review and narrow to owning crisis object before synthesis. |
+| `archive/sources/geopolitics/sources/2026-08-09/source-2-stanislav-krapivnik-russia-just-crippled-ukraine-s-supply-lines-in-odessa-and-nikolaev-2026-08-09.md` | cleaned-transcript | `imported` | `yes` | Krapivnik | Dialogue Works | guest interview pressure test; review and narrow to owning crisis object before synthesis. |
 
 ## Run Source Set
 

@@ -398,6 +398,37 @@ def test_strategy_notebook_artifact_does_not_require_template_register(monkeypat
     assert result["failures"] == []
 
 
+def test_monthly_strategy_notebook_daily_estimate_is_valid(monkeypatch, tmp_path: Path) -> None:
+    configure_fixture(monkeypatch, tmp_path, complete_sources_text())
+    path = tmp_path / "narrative-geopolitics" / "work" / "strategy-notebook" / "2026-07.md"
+    path.parent.mkdir(parents=True)
+    path.write_text(valid_strategy_notebook().replace(
+        "## Daily Estimate: Test Mechanism",
+        "## Daily Estimate: 2026-07-09 - Test Mechanism",
+    ), encoding="utf-8")
+
+    result = validator.validate_run("2026-07-09", "synthesis")
+
+    assert result["state"] == "ready"
+    assert result["failures"] == []
+    assert validator.strategy_notebook_exists_for_date("2026-07-09")
+
+
+def test_monthly_strategy_notebook_without_date_is_neutral(monkeypatch, tmp_path: Path) -> None:
+    configure_fixture(monkeypatch, tmp_path, complete_sources_text())
+    daily_path = tmp_path / "narrative-geopolitics" / "work" / "daily" / "2026-07-09" / "strategy-notebook.md"
+    daily_path.unlink()
+    path = tmp_path / "narrative-geopolitics" / "work" / "strategy-notebook" / "2026-07.md"
+    path.parent.mkdir(parents=True)
+    path.write_text(valid_strategy_notebook().replace("Date: `2026-07-09`", "Date: `2026-07-10`"), encoding="utf-8")
+
+    result = validator.validate_run("2026-07-09", "synthesis")
+
+    assert result["state"] == "ready"
+    assert result["failures"] == []
+    assert not validator.strategy_notebook_exists_for_date("2026-07-09")
+
+
 def test_strategy_memorandum_accepts_mode_aliases(monkeypatch, tmp_path: Path) -> None:
     configure_fixture(monkeypatch, tmp_path, complete_sources_text())
     path = tmp_path / "narrative-geopolitics" / "work" / "daily" / "2026-07-09" / "strategy-notebook.md"

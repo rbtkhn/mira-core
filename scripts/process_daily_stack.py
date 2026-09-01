@@ -181,9 +181,8 @@ def run_issue_render(run_date: str, dry_run: bool = False) -> dict[str, str]:
         prose = re.sub(r"(?m)^\|.*$|`[^`]+`|\[[^\]]+\]\([^)]+\)|<!--.*?-->", " ", rendered)
         word_count = len(re.findall(r"\b[\w'-]+\b", prose))
         if not dry_run:
-            strategy_notebook = DAILY_ROOT / run_date / "strategy-notebook.md"
             strategy_valid = (
-                strategy_notebook.exists()
+                VALIDATOR.strategy_notebook_exists_for_date(run_date)
                 and not VALIDATOR.strategy_notebook_failures(run_date, "issue")
             )
             word_count_failure = VALIDATOR.issue_word_count_failure(

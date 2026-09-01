@@ -14,24 +14,27 @@ Evidence boundary: This run is grounded in the landed August 13 archive batch. I
 
 ## Intake Batch
 
-The manifest has 14 rows for `2026-08-13`; 13 are included in this geopolitical run.
+This run is grounded in the `2026-08-13` day batch already landed in the central archive.
 
-| Source File | Voice / Lane | Intake Status | Run Use |
-| --- | --- | --- | --- |
-| `archive/sources/2026-08-13/source-3-alastair-crooke-iran-russia-give-up-on-diplomacy-go-on-the-offensive-2026-08-13.md` | Crooke | `imported` | included |
-| `archive/sources/2026-08-13/source-3-alex-krainer-the-balance-of-power-just-collapsed-2026-08-13.md` | Krainer | `imported` | included |
-| `archive/sources/2026-08-13/source-3-andrei-martyanov-it-s-over-iran-goes-all-in-wiping-out-every-threat-2026-08-13.md` | Martyanov | `imported` | included |
-| `archive/sources/2026-08-13/source-3-bernie-demands-the-labs-stop-wall-street-turns-gpus-into-bonds-grok-4-7-takes-1-ft-emad-mostaque-2026-08-13.md` | Mostaque / Moonshots | `imported` | excluded as misrouted |
-| `archive/sources/2026-08-13/source-3-breaking-centcom-tells-israel-to-prepare-for-war-2026-08-13.md` | Weichert | `imported` | included |
-| `archive/sources/2026-08-13/source-3-col-douglas-macgregor-trump-s-dwindling-options-2026-08-13.md` | Macgregor | `imported` | included |
-| `archive/sources/2026-08-13/source-3-fmr-cia-analyst-larry-johnson-we-re-trapped-how-the-mic-ruined-the-us-2026-08-13.md` | Johnson | `imported` | included |
-| `archive/sources/2026-08-13/source-3-john-mearsheimer-u-s-grand-strategy-in-a-new-world-order-2026-08-13.md` | Mearsheimer | `imported` | included |
-| `archive/sources/2026-08-13/source-3-max-blumenthal-israel-manipulates-trump-once-again-2026-08-13.md` | Blumenthal | `imported` | included |
-| `archive/sources/2026-08-13/source-3-more-than-a-red-line-russian-policy-to-mirror-attacks-on-shadow-fleet-2026-08-13.md` | Mercouris / Duran | `imported` | included |
-| `archive/sources/2026-08-13/source-3-prof-glenn-diesen-nato-taunting-putin-2026-08-13.md` | Diesen | `imported` | included |
-| `archive/sources/2026-08-13/source-3-russia-plans-ukraine-land-blockade-strikes-road-rail-links-russian-a50-awacs-defeat-ukraine-drones-2026-08-13.md` | Mercouris | `imported` | included |
-| `archive/sources/2026-08-13/source-3-why-we-can-t-win-anymore-lt-col-daniel-davis-2026-08-13.md` | Davis | `imported` | included |
-| `archive/sources/2026-08-13/source-iran-s-endgame-wait-out-trump-2026-08-13.md` | Pape | `imported` | included |
+| Source File | Source Type | Intake Status | Manifest Row | Voice Route | Channel Route | Notes |
+| --- | --- | --- | --- | --- | --- | --- |
+| `archive/sources/geopolitics/sources/2026-08-13/source-3-alastair-crooke-iran-russia-give-up-on-diplomacy-go-on-the-offensive-2026-08-13.md` | cleaned-transcript | `imported` | `yes` | Crooke | Glenn Diesen | guest; review and narrow to owning crisis object before synthesis. |
+| `archive/sources/geopolitics/sources/2026-08-13/source-3-alex-krainer-the-balance-of-power-just-collapsed-2026-08-13.md` | cleaned-transcript | `imported` | `yes` | Krainer | Dialogue Works | guest; review and narrow to owning crisis object before synthesis. |
+| `archive/sources/geopolitics/sources/2026-08-13/source-3-andrei-martyanov-it-s-over-iran-goes-all-in-wiping-out-every-threat-2026-08-13.md` | cleaned-transcript | `imported` | `yes` | Martyanov | Dialogue Works | guest; review and narrow to owning crisis object before synthesis. |
+| `archive/sources/geopolitics/sources/2026-08-13/source-3-bernie-demands-the-labs-stop-wall-street-turns-gpus-into-bonds-grok-4-7-takes-1-ft-emad-mostaque-2026-08-13.md` | cleaned-transcript | `imported` | `yes` | Mostaque | Diamandis | guest interview pressure test; review and narrow to owning crisis object before synthesis. |
+| `archive/sources/geopolitics/sources/2026-08-13/source-3-breaking-centcom-tells-israel-to-prepare-for-war-2026-08-13.md` | cleaned-transcript | `imported` | `yes` | Weichert | Mario Nawfal | guest; review and narrow to owning crisis object before synthesis. |
+| `archive/sources/geopolitics/sources/2026-08-13/source-3-col-douglas-macgregor-trump-s-dwindling-options-2026-08-13.md` | cleaned-transcript | `imported` | `yes` | Macgregor | Judging Freedom | guest; review and narrow to owning crisis object before synthesis. |
+| `archive/sources/geopolitics/sources/2026-08-13/source-3-fmr-cia-analyst-larry-johnson-we-re-trapped-how-the-mic-ruined-the-us-2026-08-13.md` | cleaned-transcript | `imported` | `yes` | Johnson | Daniel Davis | guest; review and narrow to owning crisis object before synthesis. |
+| `archive/sources/geopolitics/sources/2026-08-13/source-3-john-mearsheimer-u-s-grand-strategy-in-a-new-world-order-2026-08-13.md` | cleaned-transcript | `imported` | `yes` | Mearsheimer | Glenn Diesen | guest; review and narrow to owning crisis object before synthesis. |
+| `archive/sources/geopolitics/sources/2026-08-13/source-3-max-blumenthal-israel-manipulates-trump-once-again-2026-08-13.md` | cleaned-transcript | `imported` | `yes` | Blumenthal | Judging Freedom | guest; review and narrow to owning crisis object before synthesis. |
+| `archive/sources/geopolitics/sources/2026-08-13/source-3-more-than-a-red-line-russian-policy-to-mirror-attacks-on-shadow-fleet-2026-08-13.md` | cleaned-transcript | `imported` | `yes` | Mercouris | The Duran | guest; review and narrow to owning crisis object before synthesis. |
+| `archive/sources/geopolitics/sources/2026-08-13/source-3-prof-glenn-diesen-nato-taunting-putin-2026-08-13.md` | cleaned-transcript | `imported` | `yes` | Diesen | Judging Freedom | guest; review and narrow to owning crisis object before synthesis. |
+| `archive/sources/geopolitics/sources/2026-08-13/source-3-russia-plans-ukraine-land-blockade-strikes-road-rail-links-russian-a50-awacs-defeat-ukraine-drones-2026-08-13.md` | cleaned-transcript | `imported` | `yes` | Mercouris | Alexander Mercouris | host monologue; review and narrow to owning crisis object before synthesis. |
+| `archive/sources/geopolitics/sources/2026-08-13/source-3-why-we-can-t-win-anymore-lt-col-daniel-davis-2026-08-13.md` | cleaned-transcript | `imported` | `yes` | Davis | Daniel Davis | authored; review and narrow to owning crisis object before synthesis. |
+| `archive/sources/geopolitics/sources/2026-08-13/source-iran-s-endgame-wait-out-trump-2026-08-13.md` | source-text | `imported` | `yes` | Pape | Upstream Unresolved | authored; review and narrow to owning crisis object before synthesis. |
+| `archive/sources/geopolitics/sources/2026-08-13/source-netanyahu-s-reprise-of-the-iraq-wmd-deceit-re-launched-to-promote-war-on-iran-2026-08-13.md` | article | `imported` | `yes` | Crooke | Crooke | author; review and narrow to owning crisis object before synthesis. |
+| `archive/sources/geopolitics/sources/2026-08-13/source-turkey-s-imperial-ambitions-w-john-helmer-2026-08-13.md` | transcript | `imported` | `yes` | Helmer | Reason Resist | guest interview pressure test; review and narrow to owning crisis object before synthesis. |
+| `archive/sources/geopolitics/sources/2026-08-13/source-us-iran-stalemate-why-can-t-trump-end-the-war-larry-johnson-2026-08-13.md` | cleaned-transcript | `imported` | `yes` | Johnson | India Global Left | guest interview pressure test; review and narrow to owning crisis object before synthesis. |
 
 ## Run Source Set
 

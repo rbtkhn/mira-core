@@ -32,6 +32,7 @@ def make_tree(root: Path) -> None:
         "narrative-geopolitics/work/daily/2026-08-17/synthesis.md",
         "narrative-geopolitics/work/coverage/contracts/2026-08.json",
         "narrative-geopolitics/work/coverage/receipts/2026-08.jsonl",
+        "narrative-geopolitics/work/strategy-notebook/2026-08.md",
         "narrative-geopolitics/work/forecasts/forecast-ledger.md",
         "narrative-geopolitics/work/morning-brief/2026-08-17.md",
         "narrative-geopolitics/work/morning-brief/2026-08-17.receipt.json",
@@ -279,6 +280,24 @@ def test_router_resolves_monthly_coverage_contract_and_receipts(tmp_path: Path) 
 
     assert report["status"] == "manual-required"
     assert report["owners"] == ["archive-audit/monthly-completeness"]
+    assert report["validation_classes"] == ["domain-governed"]
+    assert report["commands"] == [
+        "tools/run.ps1 archive-audit --month 2026-08 --format json"
+    ]
+    assert report["manual_checks"] == [routing.MANUAL_NARRATIVE_GEOPOLITICS_CHECK]
+    assert report["blockers"] == []
+
+
+def test_router_resolves_monthly_strategy_notebook(tmp_path: Path) -> None:
+    make_tree(tmp_path)
+
+    report = routing.build_report(
+        ["narrative-geopolitics/work/strategy-notebook/2026-08.md"],
+        repo_root=tmp_path,
+    )
+
+    assert report["status"] == "manual-required"
+    assert report["owners"] == ["geo-strategy/strategy-notebook"]
     assert report["validation_classes"] == ["domain-governed"]
     assert report["commands"] == [
         "tools/run.ps1 archive-audit --month 2026-08 --format json"

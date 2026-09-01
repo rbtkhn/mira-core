@@ -13,21 +13,22 @@ Primary source basis:
 
 ## Intake Batch
 
-This run is a retrospective judgment run built from already-imported central archive sources for `2026-08-10`.
+This run is grounded in the `2026-08-10` day batch already landed in the central archive.
 
 | Source File | Source Type | Intake Status | Manifest Row | Voice Route | Channel Route | Notes |
 | --- | --- | --- | --- | --- | --- | --- |
-| `archive/sources/2026-08-10/source-2-alastair-crooke-us-middle-east-dominance-is-ended-2026-08-10.md` | cleaned-transcript | `already-imported` | `yes` | Crooke | Judging Freedom | guest interview pressure test; review and narrow to owning crisis object before synthesis. |
-| `archive/sources/2026-08-10/source-2-breaking-iran-to-delay-deal-until-after-trump-administration-ends-w-lt-col-anthony-aguilar-2026-08-10.md` | cleaned-transcript | `already-imported` | `yes` | Aguilar | Mario Nawfal | guest interview pressure test; review and narrow to owning crisis object before synthesis. |
-| `archive/sources/2026-08-10/source-2-col-jacques-baud-wherever-you-mass-you-get-bombed-yemenis-target-saudi-forces-2026-08-10.md` | cleaned-transcript | `already-imported` | `yes` | Baud | Dialogue Works | guest interview pressure test; review and narrow to owning crisis object before synthesis. |
-| `archive/sources/2026-08-10/source-2-iran-demands-total-surrender-from-trump-on-hormuz-2026-08-10.md` | cleaned-transcript | `already-imported` | `yes` | Parsi | Breaking Points | guest interview pressure test; review and narrow to owning crisis object before synthesis. |
-| `archive/sources/2026-08-10/source-2-larry-johnson-trump-flips-the-script-u-s-now-demands-billions-in-reparations-from-iran-2026-08-10.md` | cleaned-transcript | `already-imported` | `yes` | Johnson | Dialogue Works | guest interview pressure test; review and narrow to owning crisis object before synthesis. |
-| `archive/sources/2026-08-10/source-2-nima-r-alkhorshid-iran-s-new-power-player-who-is-mohsen-rezaei-and-what-does-he-want-2026-08-10.md` | cleaned-transcript | `already-imported` | `yes` | Alkhorshid | Dialogue Works | author; review and narrow to owning crisis object before synthesis. |
-| `archive/sources/2026-08-10/source-2-prof-jeffrey-sachs-trump-and-his-war-destroying-us-economy-2026-08-10.md` | cleaned-transcript | `already-imported` | `yes` | Sachs | Judging Freedom | guest interview pressure test; review and narrow to owning crisis object before synthesis. |
-| `archive/sources/2026-08-10/source-2-russia-blasts-odessa-energy-system-cuts-road-rail-links-sea-assault-coming-russia-holds-30-orekhov-2026-08-10.md` | cleaned-transcript | `already-imported` | `yes` | Mercouris | Alexander Mercouris | host monologue; review and narrow to owning crisis object before synthesis. |
-| `archive/sources/2026-08-10/source-2-russia-hits-odessa-as-black-sea-standoff-risks-wider-war-2026-08-10.md` | cleaned-transcript | `already-imported` | `yes` | Mercouris | The Duran | guest interview pressure test; review and narrow to owning crisis object before synthesis. |
-| `archive/sources/2026-08-10/source-2-stanislav-krapivnik-russia-s-ukraine-strategy-preparations-for-war-with-europe-2026-08-10.md` | cleaned-transcript | `already-imported` | `yes` | Krapivnik | Glenn Diesen | guest interview pressure test; review and narrow to owning crisis object before synthesis. |
-| `archive/sources/2026-08-10/source-2-trump-demands-reparations-from-iran-2026-08-10.md` | cleaned-transcript | `already-imported` | `yes` | Weichert | Mario Nawfal | guest interview pressure test; review and narrow to owning crisis object before synthesis. |
+| `archive/sources/geopolitics/sources/2026-08-10/source-2-alastair-crooke-us-middle-east-dominance-is-ended-2026-08-10.md` | cleaned-transcript | `imported` | `yes` | Crooke | Judging Freedom | guest interview pressure test; review and narrow to owning crisis object before synthesis. |
+| `archive/sources/geopolitics/sources/2026-08-10/source-2-breaking-iran-to-delay-deal-until-after-trump-administration-ends-w-lt-col-anthony-aguilar-2026-08-10.md` | cleaned-transcript | `imported` | `yes` | Aguilar | Mario Nawfal | guest interview pressure test; review and narrow to owning crisis object before synthesis. |
+| `archive/sources/geopolitics/sources/2026-08-10/source-2-col-jacques-baud-wherever-you-mass-you-get-bombed-yemenis-target-saudi-forces-2026-08-10.md` | cleaned-transcript | `imported` | `yes` | Baud | Dialogue Works | guest interview pressure test; review and narrow to owning crisis object before synthesis. |
+| `archive/sources/geopolitics/sources/2026-08-10/source-2-iran-demands-total-surrender-from-trump-on-hormuz-2026-08-10.md` | cleaned-transcript | `imported` | `yes` | Parsi | Breaking Points | guest interview pressure test; review and narrow to owning crisis object before synthesis. |
+| `archive/sources/geopolitics/sources/2026-08-10/source-2-larry-johnson-trump-flips-the-script-u-s-now-demands-billions-in-reparations-from-iran-2026-08-10.md` | cleaned-transcript | `imported` | `yes` | Johnson | Dialogue Works | guest interview pressure test; review and narrow to owning crisis object before synthesis. |
+| `archive/sources/geopolitics/sources/2026-08-10/source-2-nima-r-alkhorshid-iran-s-new-power-player-who-is-mohsen-rezaei-and-what-does-he-want-2026-08-10.md` | cleaned-transcript | `imported` | `yes` | Alkhorshid | Dialogue Works | author; review and narrow to owning crisis object before synthesis. |
+| `archive/sources/geopolitics/sources/2026-08-10/source-2-prof-jeffrey-sachs-trump-and-his-war-destroying-us-economy-2026-08-10.md` | cleaned-transcript | `imported` | `yes` | Sachs | Judging Freedom | guest interview pressure test; review and narrow to owning crisis object before synthesis. |
+| `archive/sources/geopolitics/sources/2026-08-10/source-2-russia-blasts-odessa-energy-system-cuts-road-rail-links-sea-assault-coming-russia-holds-30-orekhov-2026-08-10.md` | cleaned-transcript | `imported` | `yes` | Mercouris | Alexander Mercouris | host monologue; review and narrow to owning crisis object before synthesis. |
+| `archive/sources/geopolitics/sources/2026-08-10/source-2-russia-hits-odessa-as-black-sea-standoff-risks-wider-war-2026-08-10.md` | cleaned-transcript | `imported` | `yes` | Mercouris | The Duran | guest interview pressure test; review and narrow to owning crisis object before synthesis. |
+| `archive/sources/geopolitics/sources/2026-08-10/source-2-stanislav-krapivnik-russia-s-ukraine-strategy-preparations-for-war-with-europe-2026-08-10.md` | cleaned-transcript | `imported` | `yes` | Krapivnik | Glenn Diesen | guest interview pressure test; review and narrow to owning crisis object before synthesis. |
+| `archive/sources/geopolitics/sources/2026-08-10/source-2-trump-demands-reparations-from-iran-2026-08-10.md` | cleaned-transcript | `imported` | `yes` | Weichert | Mario Nawfal | guest interview pressure test; review and narrow to owning crisis object before synthesis. |
+| `archive/sources/geopolitics/sources/2026-08-10/source-pravin-sawhney-just-in-yemeni-forces-claim-responsibility-for-overnight-aramco-refinery-attack-2026-08-10.md` | cleaned-transcript | `imported` | `yes` | Sawhney | Dialogue Works | guest interview pressure test; review and narrow to owning crisis object before synthesis. |
 
 ## Run Source Set
 
@@ -44,6 +45,7 @@ This run is a retrospective judgment run built from already-imported central arc
 | `SRC-09` | Mercouris | The Duran | cleaned-transcript | [2026-08-10 Mercouris](../../../archive/sources/2026-08-10/source-2-russia-hits-odessa-as-black-sea-standoff-risks-wider-war-2026-08-10.md) | (2) Russia Hits Odessa As Black Sea Standoff Risks Wider War |
 | `SRC-10` | Krapivnik | Glenn Diesen | cleaned-transcript | [2026-08-10 Krapivnik](../../../archive/sources/2026-08-10/source-2-stanislav-krapivnik-russia-s-ukraine-strategy-preparations-for-war-with-europe-2026-08-10.md) | (2) Stanislav Krapivnik: Russia's Ukraine Strategy & Preparations for War with Europe |
 | `SRC-11` | Weichert | Mario Nawfal | cleaned-transcript | [2026-08-10 Weichert](../../../archive/sources/2026-08-10/source-2-trump-demands-reparations-from-iran-2026-08-10.md) | (2) TRUMP DEMANDS REPARATIONS FROM IRAN |
+| `SRC-12` | Sawhney | Dialogue Works | cleaned-transcript | [2026-08-10 Sawhney](../../../archive/sources/2026-08-10/source-pravin-sawhney-just-in-yemeni-forces-claim-responsibility-for-overnight-aramco-refinery-attack-2026-08-10.md) | Pravin Sawhney: JUST IN: Yemeni Forces Claim Responsibility for Overnight Aramco Refinery Attack |
 
 ## Load-Bearing Quotes
 
@@ -62,6 +64,7 @@ Use short direct quotes only when wording matters. Keep quotes brief and tie eac
 | `SRC-09` |  |  |
 | `SRC-10` |  |  |
 | `SRC-11` |  |  |
+| `SRC-12` |  |  |
 
 ## Initial Claims
 
@@ -78,6 +81,7 @@ Use short direct quotes only when wording matters. Keep quotes brief and tie eac
 | `CLM-09` | `SRC-09` |  | Mercouris via The Duran | `candidate` |
 | `CLM-10` | `SRC-10` |  | Krapivnik via Glenn Diesen | `candidate` |
 | `CLM-11` | `SRC-11` |  | Weichert via Mario Nawfal | `candidate` |
+| `CLM-12` | `SRC-12` |  | Sawhney via Dialogue Works | `candidate` |
 
 ## Source Hygiene
 

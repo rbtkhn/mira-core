@@ -62,6 +62,129 @@ Use completeness and fullness to decide review attention, not truth. A complete
 and dense day may still be analytically wrong; a thin day may still capture the
 decisive object.
 
+## Monthly Completeness Certification
+
+For a Narrative Geopolitics month, `archive-audit --month YYYY-MM` also reads
+the frozen contract at `work/coverage/contracts/YYYY-MM.json` and append-only
+evidence receipts at `work/coverage/receipts/YYYY-MM.jsonl`.
+
+Certification is additive to structural audit disposition. It remains
+`ineligible` when the contract is absent, malformed, cross-shelf, or unfrozen;
+`in-progress` until the manifest horizon reaches month end; and otherwise
+`pass` or `fail` according to these hard gates:
+
+- structural integrity;
+- the manually declared daily, voice-tier, and Tier B channel floors, with
+  accepted evidence receipts for justified shortfalls;
+- explicit ASR, speaker-attribution, sectioning, and quotation-readiness
+  dispositions for every transcript;
+- one accepted monthly diversity disposition; and
+- issue-stage daily validation for every landed day.
+
+Core voices require five transcripts, rotation voices require two, and watch
+voices carry no acquisition quota. Voice membership and Tier B channel floors
+are operator-declared; the audit must not infer or optimize them. A late
+declaration remains visible but does not prevent a later pass. These rules
+apply only to Narrative Geopolitics and must not read or count Singularity
+Science, Moonshots, or Innermost Loop collections.
+
+## Layered Monthly Completeness
+
+Monthly completeness has three distinct claims that must not be collapsed or
+mistaken for factual verification:
+
+1. Historiographic completeness: whether the month preserves a usable
+   historical record.
+2. Strategic completeness: whether the month supports mechanism-level
+   retrospective judgment.
+3. Issue readiness: whether each landed day can produce current, reproducible
+   reader-facing issue output.
+
+The diagnostic numeric month score should reflect all three layers. Formal
+certification remains stricter: a month may receive `certified-complete` only
+when every hard gate passes, including issue readiness and governance.
+
+Historiographic completeness considers continuous calendar horizon,
+manifest-backed source coverage, transcript or body availability, provenance,
+local file presence, voice and host recurrence, disclosed concentration and
+missing perspectives, and processing dispositions for ASR, attribution,
+sectioning, and quotation readiness. It answers whether a future reader can
+reconstruct what the archive saw, from whom, and with what limits.
+
+Strategic completeness considers continuity of crisis objects across days,
+actor constraints and incentives over time, represented rival mechanisms,
+forecast or review hooks, operational-claim boundaries where claims matter,
+and enough density and recurrence to distinguish signal from one-day noise. It
+answers whether the month can support retrospective strategy rather than only
+source storage.
+
+Issue readiness should be scored in tiers:
+
+- `issue_ready`: daily validation has no failures; generated issue output is
+  current or warnings are nonblocking.
+- `issue_repairable`: the daily stack is substantive, but source accounting,
+  stale digest, or deterministic rendering repair remains.
+- `daily_stack_ready`: canonical daily files exist, but substantive
+  placeholders, missing deepening, or incomplete issue-schema work remain.
+- `not_ready`: no complete daily stack exists for a manifest-backed day.
+
+For certification, every landed day must reach `issue_ready`; partial credit
+does not satisfy the hard gate. For monthly scoring, tiers may receive partial
+credit because historiographic and strategic usefulness can survive unfinished
+editorial rendering. The recommended diagnostic issue-readiness weights are
+`issue_ready = 1.0`, `issue_repairable = 0.6`, `daily_stack_ready = 0.35`, and
+`not_ready = 0.0`.
+
+This preserves the publication gate while preventing unfinished issue rendering
+from misdescribing the historical corpus as absent or weak.
+
+## Strategy-Notebook Quality
+
+Strategy-notebook quality is an advisory layer above monthly completeness
+certification. It assesses the interpretive value of the monthly strategy
+notebook as a historical-strategic record. It does not certify archive
+completeness, source truth, publication readiness, forecast resolution, or
+operational authority.
+
+A high-quality strategy notebook asserts that the month has not only been
+processed, but rendered into coherent judgment. A future reader should be able
+to reconstruct the sequence of strategic problems, why each day mattered, how
+mechanisms evolved, where source convergence appeared, and where verification
+boundaries remain.
+
+Use this 0-5 advisory scale:
+
+- `0`: absent.
+- `1`: present but mostly boilerplate.
+- `2`: usable but uneven notes.
+- `3`: solid internal historical-strategic record.
+- `4`: strong interpretive synthesis layer.
+- `5`: publication-quality strategic apparatus, still source-bounded.
+
+Score the layer separately from certification. A certified-complete month may
+still have an uneven strategy notebook, and an excellent notebook cannot cure
+missing hard gates. Use the score to guide review priority, rewrite effort, and
+month-over-month maturation.
+
+When judging the score, consider:
+
+- strategic specificity: each day identifies a real mechanism, constraint,
+  actor problem, or decision-relevant shift rather than summarizing topics;
+- historiographic placement: each day explains why the date matters in the
+  month sequence;
+- source discipline: assertion, convergence, inference, uncertainty, and
+  verification need remain distinct;
+- comparative usefulness: the notebook helps compare voices, theaters,
+  mechanisms, and time slices;
+- prose integrity: the writing is coherent enough for serious internal use
+  without boilerplate, truncation, or mechanical phrasing.
+
+For August 2026, the advisory quality score after certification repair is
+`3.7 / 5`: a solid internal historical-strategic record with coherent daily
+placement and preserved evidence boundaries, but not yet a fully mature
+interpretive synthesis layer because several generated entries remain less
+individually authored than the strongest strategic-memorandum days.
+
 ## Operating Use
 
 Use density after source-accounting validation and before synthesis deepening.
