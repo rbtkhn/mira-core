@@ -36,6 +36,15 @@ def test_markdown_digest_is_stable_across_line_endings() -> None:
     assert subject.parse_markdown(body)["content_sha256"] == subject.parse_markdown(crlf)["content_sha256"]
 
 
+def test_local_timezone_falls_back_when_tzdata_is_unavailable() -> None:
+    def missing_zone(_name: str):
+        raise subject.ZoneInfoNotFoundError
+
+    fallback = subject.local_timezone("America/Denver", zone_factory=missing_zone)
+
+    assert fallback.utcoffset(datetime(2026, 1, 1)) == subject.timedelta(hours=-7)
+
+
 def source_ref(seed: str = "a") -> dict:
     return {
         "kind": "journal-context-pack",

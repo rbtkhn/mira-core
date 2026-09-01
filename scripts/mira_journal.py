@@ -12,7 +12,7 @@ import sys
 from datetime import date, datetime, time, timedelta, timezone
 from pathlib import Path
 from typing import Any, Iterable
-from zoneinfo import ZoneInfo
+from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
 
 import mira_continuity
 import rest_receipts
@@ -37,7 +37,18 @@ LEARNING_LEDGER_PATH = (
 DRAFT_ROOT_ENV = "MIRA_CORE_JOURNAL_DRAFT_ROOT"
 DEFAULT_DRAFT_ROOT = state_path("journal/drafts")
 TIMEZONE_NAME = "America/Denver"
-TIMEZONE = ZoneInfo(TIMEZONE_NAME)
+
+
+def local_timezone(name: str = TIMEZONE_NAME, zone_factory=ZoneInfo):
+    try:
+        return zone_factory(name)
+    except ZoneInfoNotFoundError:
+        # Last-resort import fallback for ad hoc Windows Python installs that
+        # bypass the repository bootstrap and lack the declared tzdata wheel.
+        return timezone(timedelta(hours=-7), name)
+
+
+TIMEZONE = local_timezone()
 FRESHNESS_REPLAY_BASE_REF = "a19f5d1^"
 FRESHNESS_REPLAY_DEVELOPMENT_VERSION = "MJ-20260815-v1"
 FRESHNESS_REPLAY_CADENCE = {
