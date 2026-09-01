@@ -93,6 +93,46 @@ making the dirty-tree boundary, target branch, worktree path, and cleanup plan
 visible. Prefer exact-path staging in the current worktree when the requested
 publication can be isolated safely.
 
+### Clean stale worktrees deliberately
+
+When the operator asks for worktree cleanup, separate Git-registered worktrees
+from filesystem residue before deleting anything. Start with `git worktree
+list`, then inspect each candidate with bounded status and path grouping. On
+Windows, use a command-local `-c safe.directory=<absolute-worktree-path>` for
+read-only inspection when ownership checks block Git; do not mutate global Git
+configuration merely to inspect a stale worktree.
+
+Classify every cleanup candidate before recommending removal:
+
+- `clean-removable`: clean, no unique preservation value found.
+- `dirty-with-salvage`: contains unique commits, missing canonical files,
+  private payloads, or receipt-worthy state that should be copied, restored, or
+  documented before deletion.
+- `dirty-obsolete`: dirty state has been inspected and is superseded,
+  intentionally abandoned, or already represented elsewhere.
+- `filesystem-residue`: no longer Git-registered; only an exact orphaned path
+  remains.
+- `acl-blocked`: Windows ownership or ACLs prevent deletion or repair.
+
+For dirty or detached worktrees, check for unique commits and preservation
+value before removal. Treat untracked receipts, proposals, generated indexes,
+or old planning ledgers as non-canonical until the current main registry,
+index, seal, or owning validation surface proves whether their state has
+landed. Keep private payload copying distinct from Git state, Archive
+ingestion, staging, commit, push, or publication.
+
+Require an explicit action-ready operator choice or direct command before any
+destructive cleanup. Use narrow deletion in this order: exact registered
+worktree path, exact empty parent directory, then exact orphaned residue path.
+After each deletion, verify `git worktree list` and filesystem existence. If an
+ACL blocks cleanup, report the exact owner, relevant ACL entries, blocked path,
+and manual/admin next step; do not broaden into general permission surgery.
+
+When cleanup changes preservation posture, save or report a receipt naming what
+was removed, what was preserved, what remains blocked, and which boundaries
+were not crossed: staging, commit, push, PR, publication, deployment, or Archive
+ingestion.
+
 ### Protect local `main`
 
 When the current branch is `main`, treat any non-empty
