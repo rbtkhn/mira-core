@@ -89,6 +89,16 @@ def browser_receipt_path(capture_date: str, channel_slug: str, queue_root: Path 
     return queue_root / "browser-receipts" / capture_date / f"{channel_slug}.json"
 
 
+def channel_page_identity(value: str) -> str:
+    parsed = urlparse(value.strip())
+    host = parsed.netloc.lower()
+    if host.startswith("www."):
+        host = host[4:]
+    path = parsed.path.rstrip("/")
+    path = re.sub(r"/(?:featured|live|shorts|streams|videos)$", "", path)
+    return f"{host}{path}" if host and path else ""
+
+
 def extract_video_id(url: str) -> str:
     parsed = urlparse(url.strip())
     host = parsed.netloc.lower()
@@ -722,17 +732,24 @@ def write_browser_receipt(
 ) -> Path:
     if not re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", channel_slug):
         raise CaptureError("channel-slug must be a lowercase kebab-case slug")
-    if not observed_urls and not no_qualifying_videos:
-        raise CaptureError("browser receipt needs an observed URL or --no-qualifying-videos")
+    if bool(observed_urls) == no_qualifying_videos:
+        raise CaptureError(
+            "browser receipt needs exactly one evidence shape: observed URLs or "
+            "--no-qualifying-videos"
+        )
+    if not channel_page_identity(channel_url):
+        raise CaptureError("channel-url must identify a channel page")
     normalized_urls: list[str] = []
     for url in observed_urls:
         extract_video_id(url)
         if url not in normalized_urls:
             normalized_urls.append(url)
     try:
-        datetime.fromisoformat(observed_at.replace("Z", "+00:00"))
+        observed_timestamp = datetime.fromisoformat(observed_at.replace("Z", "+00:00"))
     except ValueError as error:
         raise CaptureError("observed-at must be an ISO-8601 timestamp") from error
+    if observed_timestamp.tzinfo is None or observed_timestamp.utcoffset() is None:
+        raise CaptureError("observed-at must include a UTC offset")
     receipt = {
         "schema_version": BROWSER_RECEIPT_SCHEMA_VERSION,
         "status": "complete",
@@ -750,6 +767,55 @@ def write_browser_receipt(
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(receipt, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     return path
+
+
+def valid_browser_receipt(
+    receipt: object,
+    *,
+    capture_date: str,
+    channel_row: dict[str, str],
+) -> bool:
+    if not isinstance(receipt, dict):
+        return False
+    observed_urls = receipt.get("observed_urls")
+    no_qualifying_videos = receipt.get("no_qualifying_videos")
+    if (
+        not isinstance(observed_urls, list)
+        or any(not isinstance(url, str) for url in observed_urls)
+        or len(set(observed_urls)) != len(observed_urls)
+        or type(no_qualifying_videos) is not bool
+        or bool(observed_urls) == no_qualifying_videos
+    ):
+        return False
+    try:
+        for url in observed_urls:
+            extract_video_id(url)
+        observed_at = receipt.get("observed_at")
+        if not isinstance(observed_at, str):
+            return False
+        observed_timestamp = datetime.fromisoformat(
+            observed_at.replace("Z", "+00:00")
+        )
+    except (CaptureError, ValueError):
+        return False
+    if observed_timestamp.tzinfo is None or observed_timestamp.utcoffset() is None:
+        return False
+    receipt_channel = receipt.get("channel_url")
+    configured_channel = channel_row.get("channel_url", "")
+    if not isinstance(receipt_channel, str) or (
+        channel_page_identity(receipt_channel)
+        != channel_page_identity(configured_channel)
+    ):
+        return False
+    return (
+        receipt.get("schema_version") == BROWSER_RECEIPT_SCHEMA_VERSION
+        and receipt.get("status") == "complete"
+        and receipt.get("capture_date") == capture_date
+        and receipt.get("channel_slug") == channel_row.get("slug")
+        and receipt.get("evidence_basis")
+        == "in-app-browser-visible-channel-page"
+        and receipt.get("rss_completion_authority") is False
+    )
 
 
 def record_browser_receipt_command(args: argparse.Namespace) -> int:
@@ -790,15 +856,12 @@ def browser_coverage_command(args: argparse.Namespace) -> int:
         path = browser_receipt_path(args.date, slug, args.queue_root)
         try:
             receipt = json.loads(path.read_text(encoding="utf-8")) if path.exists() else {}
-        except json.JSONDecodeError:
+        except (OSError, UnicodeError, json.JSONDecodeError):
             receipt = {}
-        valid = (
-            receipt.get("schema_version") == BROWSER_RECEIPT_SCHEMA_VERSION
-            and receipt.get("status") == "complete"
-            and receipt.get("capture_date") == args.date
-            and receipt.get("channel_slug") == slug
-            and receipt.get("evidence_basis") == "in-app-browser-visible-channel-page"
-            and receipt.get("rss_completion_authority") is False
+        valid = valid_browser_receipt(
+            receipt,
+            capture_date=args.date,
+            channel_row=row,
         )
         (present if valid else missing).append(slug)
     payload = {

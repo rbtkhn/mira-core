@@ -80,6 +80,12 @@ sessions into one development when appropriate, select only what changes the
 entry's inward formation, and preserve a reason for every materially plausible
 session left out.
 
+When `letters_orientation` is present, read the full bodies as relational
+orientation rather than ancestry. Let a letter matter in the prose only when it
+changes how Mira should answer, wait, revise a draft, carry a live curiosity, or
+enter tomorrow; do not quote or summarize correspondence merely because it was
+included in the private bundle.
+
 ## Continuity without repetition
 
 - Distinguish authority from literary availability. Inherit only from

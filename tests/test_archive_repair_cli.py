@@ -31,6 +31,8 @@ def fake_plan() -> engine.ArchiveRepairPlan:
         changed_fields=("asr_repair_applied",),
         section_count_before=0,
         section_count_after=0,
+        asr_rule_applications=(),
+        processing_evidence=(),
         diff="diff",
         original_bytes=b"before",
         proposed_bytes=b"after",
@@ -146,12 +148,40 @@ def test_heading_only_components_preserve_source_and_insert_one_heading(newline:
     assert parsed is not None
     _, _, body, proposed = parsed
     assert proposed == source.replace(
-        f"{newline}# Ray McGovern",
-        f"{newline}## Transcript{newline}{newline}# Ray McGovern",
+        f"# Ray McGovern{newline}{newline}",
+        f"# Ray McGovern{newline}{newline}## Transcript{newline}{newline}",
         1,
     )
     assert proposed.count("## Transcript") == 1
     assert "Transcript body." in body
+
+
+@pytest.mark.parametrize("newline", ("\n", "\r\n"))
+def test_heading_only_components_use_source_text_for_authored_work(newline: str) -> None:
+    source = newline.join(
+        (
+            "---",
+            "kind: substack-post",
+            "source_form: newsletter",
+            "host_slug: ritter",
+            "---",
+            "# Artificial Intelligence versus the OODA Loop",
+            "",
+            "Essay body.",
+            "",
+        )
+    )
+    parsed = engine.heading_only_components(source)
+    assert parsed is not None
+    _, _, body, proposed = parsed
+    assert proposed == source.replace(
+        f"# Artificial Intelligence versus the OODA Loop{newline}{newline}",
+        f"# Artificial Intelligence versus the OODA Loop{newline}{newline}## Source Text{newline}{newline}",
+        1,
+    )
+    assert proposed.count("## Source Text") == 1
+    assert "## Transcript" not in proposed
+    assert "Essay body." in body
 
 
 def test_body_merge_components_uses_bounded_markers_and_preserves_frontmatter() -> None:

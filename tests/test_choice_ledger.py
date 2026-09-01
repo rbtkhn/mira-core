@@ -1209,6 +1209,46 @@ def test_missing_store_fallback_does_not_block_navigation(
     assert "may continue" in payload["disclosure"]
 
 
+def test_legacy_only_store_fails_closed_without_touching_either_path(
+    tmp_path: Path, capsys, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    legacy = tmp_path / "legacy.sqlite3"
+    fallback = tmp_path / "fallback.sqlite3"
+    monkeypatch.setenv("NARRATIVE_CHOICE_DB", str(legacy))
+    monkeypatch.setattr(choice_ledger, "DEFAULT_DB_PATH", fallback)
+
+    assert choice_ledger.main(select_arguments()) == 0
+
+    captured = capsys.readouterr()
+    payload = json.loads(captured.out)
+    assert payload["available"] is False
+    assert payload["retained"] is False
+    assert payload["reason"] == (
+        "NARRATIVE_CHOICE_DB is unsupported; configure MIRA_CORE_CHOICE_DB"
+    )
+    assert str(legacy) not in captured.out
+    assert str(fallback) not in captured.out
+    assert not legacy.exists()
+    assert not fallback.exists()
+
+
+def test_explicit_store_bypasses_legacy_only_fail_closed_routing(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    explicit = tmp_path / "explicit.sqlite3"
+    legacy = tmp_path / "legacy.sqlite3"
+    fallback = tmp_path / "fallback.sqlite3"
+    monkeypatch.setenv("NARRATIVE_CHOICE_DB", str(legacy))
+    monkeypatch.setattr(choice_ledger, "DEFAULT_DB_PATH", fallback)
+
+    resolution = choice_ledger.resolve_store(explicit)
+
+    assert resolution.path == explicit.resolve()
+    assert resolution.reason is None
+    assert not legacy.exists()
+    assert not fallback.exists()
+
+
 @pytest.mark.parametrize("command", ("context", "review"))
 def test_read_only_commands_do_not_use_the_writable_store_connection(
     tmp_path: Path, monkeypatch, capsys, command: str

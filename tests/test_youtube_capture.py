@@ -470,6 +470,94 @@ def test_browser_receipt_is_required_for_tier_a_completion(tmp_path: Path, capsy
     assert payload["present_receipts"] == ["dialogue-works"]
 
 
+def test_browser_receipt_rejects_contradictory_evidence(tmp_path: Path, capsys) -> None:
+    queue_root = tmp_path / "queue"
+    result = youtube_capture.main(
+        [
+            "record-browser-receipt",
+            "--date",
+            "2026-08-30",
+            "--queue-root",
+            str(queue_root),
+            "--channel-slug",
+            "dialogue-works",
+            "--channel-url",
+            "https://www.youtube.com/@dialogueworks01/videos",
+            "--observed-at",
+            "2026-08-31T12:00:00-06:00",
+            "--observed-url",
+            "https://www.youtube.com/watch?v=CFzK79SVKOE",
+            "--no-qualifying-videos",
+        ]
+    )
+
+    assert result == 2
+    assert "exactly one evidence shape" in capsys.readouterr().err
+    assert not youtube_capture.browser_receipt_path(
+        "2026-08-30", "dialogue-works", queue_root
+    ).exists()
+
+
+def test_browser_coverage_fails_closed_on_invalid_receipt_shapes(
+    tmp_path: Path, capsys
+) -> None:
+    queue_root = tmp_path / "queue"
+    channel_index = tmp_path / "channel-index.md"
+    channel_index.write_text(
+        "\n".join(
+            [
+                "| Channel slug | Label | Narrative status | Routing role | Local shelf / required next step | Upstream files | Upstream days | Capture cadence | Channel URL | First day | Last day |",
+                "| --- | --- | --- | --- | --- | ---: | ---: | --- | --- | --- | --- |",
+                "| `dialogue-works` | Dialogue Works | `active` | Interview host. | [dialogue-works/](dialogue-works/README.md) | 1 | 1 | `daily` | [open](https://www.youtube.com/@dialogueworks01) | `2026-08-01` | `2026-08-31` |",
+            ]
+        ),
+        encoding="utf-8",
+    )
+    coverage_args = [
+        "browser-coverage",
+        "--date",
+        "2026-08-30",
+        "--queue-root",
+        str(queue_root),
+        "--channel-index",
+        str(channel_index),
+        "--channel",
+        "dialogue-works",
+        "--json",
+    ]
+    receipt_path = youtube_capture.browser_receipt_path(
+        "2026-08-30", "dialogue-works", queue_root
+    )
+    receipt_path.parent.mkdir(parents=True)
+    base = {
+        "schema_version": youtube_capture.BROWSER_RECEIPT_SCHEMA_VERSION,
+        "status": "complete",
+        "capture_date": "2026-08-30",
+        "channel_slug": "dialogue-works",
+        "channel_url": "https://www.youtube.com/@dialogueworks01/videos",
+        "observed_at": "2026-08-31T12:00:00-06:00",
+        "observed_urls": ["https://www.youtube.com/watch?v=CFzK79SVKOE"],
+        "no_qualifying_videos": False,
+        "evidence_basis": "in-app-browser-visible-channel-page",
+        "rss_completion_authority": False,
+    }
+    invalid_receipts = [
+        [],
+        {key: value for key, value in base.items() if key != "observed_urls"},
+        {**base, "observed_urls": [], "no_qualifying_videos": False},
+        {**base, "no_qualifying_videos": True},
+        {**base, "channel_url": "https://www.youtube.com/@another-channel/videos"},
+        {**base, "observed_at": "2026-08-31T12:00:00"},
+    ]
+
+    for receipt in invalid_receipts:
+        receipt_path.write_text(json.dumps(receipt), encoding="utf-8")
+        assert youtube_capture.main(coverage_args) == 1
+        payload = json.loads(capsys.readouterr().out)
+        assert payload["tier_a_completion"] == "fail"
+        assert payload["missing_receipts"] == ["dialogue-works"]
+
+
 def test_discovered_video_row_filters_shorts_to_skip() -> None:
     row = youtube_capture.normalize_discovered_video_row(
         capture_date="2026-08-20",

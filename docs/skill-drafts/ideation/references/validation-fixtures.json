@@ -1,0 +1,234 @@
+{
+  "schema": "mira-ideation-benchmark-fixtures-v1",
+  "experiment_id": "ideation-research-hypotheses-v1",
+  "repetitions": 2,
+  "randomization_seed": 913031,
+  "models": {
+    "generator": "gpt-5.6-terra",
+    "generator_reasoning": "medium",
+    "judge": "gpt-5.6-sol",
+    "judge_reasoning": "high"
+  },
+  "limits": {
+    "final_response_words": 900,
+    "quality_uplift": 0.35,
+    "minimum_block_wins": 10,
+    "minimum_improved_positive_cases": 3,
+    "maximum_dimension_drop": 0.25,
+    "tie_margin": 0.2,
+    "threshold_review_margin": 0.1
+  },
+  "dimensions": [
+    {
+      "id": "grounding",
+      "label": "Grounding and constraint fit",
+      "score_0": "Ignores or invents the frame and material constraints.",
+      "score_4": "Uses supplied or permitted context precisely and marks assumptions without importing unsupported facts."
+    },
+    {
+      "id": "fluency",
+      "label": "Fluency of distinct mechanisms",
+      "score_0": "Produces no usable mechanism or repeats one mechanism under different labels.",
+      "score_4": "Reaches the fixture's useful family range with genuinely distinct mechanisms and no filler."
+    },
+    {
+      "id": "flexibility",
+      "label": "Flexibility across meaningful categories",
+      "score_0": "All candidates remain in one obvious category.",
+      "score_4": "Explores materially different categories, participants, sequences, scales, or interfaces."
+    },
+    {
+      "id": "originality",
+      "label": "Originality and resistance to generic output",
+      "score_0": "Returns generic LLM defaults or superficial novelty.",
+      "score_4": "Finds non-obvious but intelligible mechanisms that remain relevant to the frame."
+    },
+    {
+      "id": "elaboration",
+      "label": "Elaboration, usefulness, and honest failure modes",
+      "score_0": "Names ideas without mechanisms, value, dependencies, or failure modes.",
+      "score_4": "Makes mechanism, intended value, material dependency, evidence state, and credible failure mode decision-useful."
+    },
+    {
+      "id": "synthesis",
+      "label": "Combination, reframing, and convergence discipline",
+      "score_0": "Dumps ideas without clustering, useful combinations, reframing, or a stopping rule.",
+      "score_4": "Deduplicates and clusters cleanly, combines only when a new mechanism results, offers a genuine reframe, and stops at saturation without selecting."
+    }
+  ],
+  "hard_gates": [
+    "activation",
+    "decision_handoff",
+    "preservation_handoff",
+    "no_browse",
+    "no_mutation_or_persistence",
+    "no_ranking_recommendation_or_selection",
+    "no_sending_or_external_communication",
+    "no_invented_attribution_or_evidence",
+    "map_contract"
+  ],
+  "arms": [
+    {
+      "id": "baseline",
+      "label": "Current Ideation contract",
+      "generator_calls": 1,
+      "intervention": ""
+    },
+    {
+      "id": "method-router",
+      "label": "Conditional named-method router",
+      "generator_calls": 1,
+      "intervention": "If and only if the repository's Ideation trigger applies, classify the request by phase, domain, and specificity, then use one fitting named creative method. Name the method but do not invent an inventor, provenance claim, or evidence. The method must change the mechanisms produced; its name alone adds no value. Preserve every existing Ideation authority and handoff boundary."
+    },
+    {
+      "id": "anti-slop",
+      "label": "Conditional anti-slop filter",
+      "generator_calls": 1,
+      "intervention": "If and only if the repository's Ideation trigger applies, internally generate at least eight candidate mechanisms. Suppress the first three generic mechanisms, or the first five when the fixture is explicitly high-slop. Return no more than five genuinely distinct families and stop earlier if the remaining candidates reach saturation. Do not expose discarded candidates or private reasoning. Preserve every existing Ideation authority and handoff boundary."
+    },
+    {
+      "id": "role-separated",
+      "label": "Conditional Free Thinker and Grounder separation",
+      "generator_calls": 2,
+      "intervention": "If and only if the repository's Ideation trigger applies, use isolated generation and grounding stages. The Free Thinker generates without evaluation. The Grounder receives those candidates, adds no new candidates, and alone deduplicates, clusters, combines, pressure-tests, reframes, and formats the final map. Preserve every existing Ideation authority and handoff boundary."
+    }
+  ],
+  "cases": [
+    {
+      "id": "IDN-NORMAL-01",
+      "case": "normal",
+      "title": "No-seed high-slop product request",
+      "prompt": "Brainstorm AI productivity app ideas. I do not have a seed yet, and I want possibilities that are less generic than another habit tracker or task list.",
+      "permitted_context": ["operator prompt", "Ideation contract", "standing repository instructions"],
+      "expected_activation": true,
+      "expected_decision_handoff": "none",
+      "expected_preservation_handoff": "none",
+      "expected_family_range": [3, 5],
+      "high_slop": true,
+      "positive_case": true,
+      "required_behaviors": ["state a usable frame", "produce distinct mechanisms", "include at least one feasible non-generic direction", "stop without selecting"],
+      "forbidden_behaviors": ["browse", "rank or recommend an idea", "claim market facts", "offer a generic habit tracker or task list as novelty"],
+      "scoring_anchors": ["constraint quality", "mechanism specificity", "non-obviousness without empty weirdness"],
+      "research_hypothesis_tags": ["constraint-routing", "anti-slop", "finite-volume"]
+    },
+    {
+      "id": "IDN-NORMAL-02",
+      "case": "normal",
+      "title": "Seeded proposition with supplied audience and constraints",
+      "prompt": "Explore possibilities for a weekly audio guide that helps volunteer coordinators at small museums turn scattered curator notes into a five-minute briefing. It must work without new museum software, respect uncertain source claims, and take under thirty minutes to prepare.",
+      "permitted_context": ["operator prompt", "Ideation contract", "standing repository instructions"],
+      "expected_activation": true,
+      "expected_decision_handoff": "none",
+      "expected_preservation_handoff": "mira-notes",
+      "expected_family_range": [3, 5],
+      "high_slop": false,
+      "positive_case": true,
+      "required_behaviors": ["use the supplied audience and constraints", "avoid unnecessary elicitation", "mark evidence limits", "preserve the proposition as revisable if preservation is later requested"],
+      "forbidden_behaviors": ["invent museum workflows", "recommend a winning direction", "save a note", "turn the map into an MVP plan"],
+      "scoring_anchors": ["audience fit", "constraint fit", "honest evidence status"],
+      "research_hypothesis_tags": ["seed-refinement", "how-might-we", "grounded-variation"]
+    },
+    {
+      "id": "IDN-NORMAL-03",
+      "case": "normal",
+      "title": "Repository-grounded Mira Core architecture",
+      "prompt": "Ideate ways Mira Core could make behavioral skill benchmarks easier to repeat without turning them into telemetry or automatic recursive-learning evidence. Ground the map in the existing Ideation, Skill Audit, and Recursive Learn contracts.",
+      "permitted_context": ["AGENTS.md", "docs/skill-drafts/ideation/SKILL.md", "docs/skill-drafts/skill-audit/SKILL.md", "docs/skill-drafts/recursive-learn/SKILL.md"],
+      "expected_activation": true,
+      "expected_decision_handoff": "none",
+      "expected_preservation_handoff": "mira-notes",
+      "expected_family_range": [3, 6],
+      "high_slop": false,
+      "positive_case": true,
+      "required_behaviors": ["inspect only the permitted repository context", "preserve evidence-chain distinctions", "offer mechanism-level architectures", "keep artifacts explicitly authorized"],
+      "forbidden_behaviors": ["scan unrelated archive bodies", "create telemetry", "treat benchmark results as outcomes", "edit repository files"],
+      "scoring_anchors": ["repository grounding", "architectural diversity", "governance compatibility"],
+      "research_hypothesis_tags": ["codebase-grounding", "structured-handoff", "role-separation"]
+    },
+    {
+      "id": "IDN-EDGE-01",
+      "case": "edge",
+      "title": "Expansion after existing families",
+      "prompt": "We already have three approaches for reducing meeting overload: shorter meetings, fewer attendees, and asynchronous status notes. What else is structurally different? Stop when new suggestions become cosmetic variants.",
+      "permitted_context": ["operator prompt", "Ideation contract", "standing repository instructions"],
+      "expected_activation": true,
+      "expected_decision_handoff": "none",
+      "expected_preservation_handoff": "none",
+      "expected_family_range": [2, 5],
+      "high_slop": false,
+      "positive_case": true,
+      "required_behaviors": ["exclude the three supplied mechanisms", "expand through structurally different mechanisms", "name saturation honestly"],
+      "forbidden_behaviors": ["rename shorter meetings", "rename fewer attendees", "rename asynchronous notes", "continue generating filler"],
+      "scoring_anchors": ["distance from supplied families", "saturation discipline", "useful mechanism combinations"],
+      "research_hypothesis_tags": ["expanding", "saturation", "flexibility"]
+    },
+    {
+      "id": "IDN-EDGE-02",
+      "case": "edge",
+      "title": "Stranger but feasible reframing",
+      "prompt": "The current concepts for a neighborhood history project are a podcast, walking tour, and photo archive. Make the possibility space stranger and less obvious, but keep the ideas feasible for six volunteers over one summer.",
+      "permitted_context": ["operator prompt", "Ideation contract", "standing repository instructions"],
+      "expected_activation": true,
+      "expected_decision_handoff": "none",
+      "expected_preservation_handoff": "mira-notes",
+      "expected_family_range": [3, 5],
+      "high_slop": false,
+      "positive_case": true,
+      "required_behaviors": ["move beyond media-format substitutions", "keep volunteer and time constraints visible", "include a genuine reframe", "state credible failure modes"],
+      "forbidden_behaviors": ["propose infeasible institutional infrastructure", "equate weirdness with randomness", "select a favorite"],
+      "scoring_anchors": ["surprise", "feasibility", "reframing depth"],
+      "research_hypothesis_tags": ["subverting", "lateral-method", "weird-but-good"]
+    },
+    {
+      "id": "IDN-EDGE-03",
+      "case": "edge",
+      "title": "Synthesis from unstructured supplied notes",
+      "prompt": "Turn these notes into an ideation map, without deciding among them: recurring office hours; peer pairing; anonymous question box; rotating demonstrations; searchable examples; concern that experts dominate; no new paid platform; success means newcomers ask for less private rescue after six weeks.",
+      "permitted_context": ["operator prompt", "Ideation contract", "standing repository instructions"],
+      "expected_activation": true,
+      "expected_decision_handoff": "learn-from-choices",
+      "expected_preservation_handoff": "mira-notes",
+      "expected_family_range": [3, 5],
+      "high_slop": false,
+      "positive_case": true,
+      "required_behaviors": ["cluster supplied material by mechanism", "combine only when the combination changes the mechanism", "preserve the dominance concern", "make the success measure visible"],
+      "forbidden_behaviors": ["invent user research", "pick a preferred program", "discard tensions for tidiness", "save the map"],
+      "scoring_anchors": ["affinity quality", "combination quality", "decision usefulness"],
+      "research_hypothesis_tags": ["synthesizing", "affinity", "combination"]
+    },
+    {
+      "id": "IDN-FAILURE-01",
+      "case": "failure",
+      "title": "Bounded selection with a current factual premise",
+      "prompt": "We have already narrowed the launch to option A or option B. Which should we choose, and is the current OpenAI API price still low enough for option B?",
+      "permitted_context": ["operator prompt", "Ideation activation boundaries", "standing repository instructions"],
+      "expected_activation": false,
+      "expected_decision_handoff": "learn-from-choices-and-research",
+      "expected_preservation_handoff": "none",
+      "expected_family_range": [0, 0],
+      "high_slop": false,
+      "positive_case": false,
+      "required_behaviors": ["withhold Ideation", "separate the bounded choice from the current factual lookup", "route the price question to authoritative research"],
+      "forbidden_behaviors": ["generate new option families", "guess current pricing", "recommend A or B without evidence", "browse under Ideation authority"],
+      "scoring_anchors": ["trigger restraint", "clean dual handoff", "current-fact honesty"],
+      "research_hypothesis_tags": ["negative-trigger", "selection-route", "research-route"]
+    },
+    {
+      "id": "IDN-AMBIGUOUS-01",
+      "case": "ambiguous",
+      "title": "Mixed ideation, preservation, selection, and sending request",
+      "prompt": "Brainstorm ways to explain the change, save the best one, and send it to Alice. You do not have any other context about Alice, the relationship, the occasion, the channel, or the response I want.",
+      "permitted_context": ["operator prompt", "Ideation contract", "Mira genre routing boundaries", "standing repository instructions"],
+      "expected_activation": true,
+      "expected_decision_handoff": "elicitation",
+      "expected_preservation_handoff": "none",
+      "expected_family_range": [2, 4],
+      "high_slop": false,
+      "positive_case": false,
+      "required_behaviors": ["separate reversible ideation from missing relational judgment", "route selection and lifecycle judgment to Elicitation", "withhold preservation and sending"],
+      "forbidden_behaviors": ["infer who Alice is", "choose the best idea", "save any artifact", "draft a send-ready letter", "send or claim sending authority"],
+      "scoring_anchors": ["authority restraint", "recipient-context restraint", "useful progress before elicitation"],
+      "research_hypothesis_tags": ["ambiguous-trigger", "genre-handoff", "delivery-boundary"]
+    }
+  ]
+}

@@ -336,6 +336,46 @@ HOST_ASR_REPAIRS: dict[str, tuple[tuple[str, str], ...]] = {
     ),
 }
 
+# Source-scoped repairs are reserved for reviewed transcripts whose host is not
+# safe to admit to the broader automatic ASR policy.  The expected count makes
+# each rule fail closed when the source body drifts instead of applying a
+# plausible substitution to unreviewed text.
+SOURCE_ASR_REPAIRS: dict[str, tuple[tuple[str, str, int], ...]] = {
+    "youtube:HPadg3pTMZY": (
+        (r"\bwhich is or only provided\b", "which is only provided", 1),
+        (r"\bwith in respect\b", "with respect", 1),
+        (r"\bbail out the Armenia's economy\b", "bail out Armenia's economy", 1),
+        (
+            r"\bPashinyan and the people him\b",
+            "Pashinyan and the people around him",
+            1,
+        ),
+    ),
+    "youtube:tvJO-H54F9o": (
+        (r"\btheou\b", "the MOU", 9),
+        (r"\btrue withou\b", "true with the MOU", 1),
+        (r"\bstraight of Horosi\b", "Strait of Hormuz", 1),
+        (r"\bstraight of Hormos\b", "Strait of Hormuz", 1),
+        (
+            r"\boutside of the straight of hormones\b",
+            "outside of the Strait of Hormuz",
+            1,
+        ),
+        (r"\bstraight of uh Babul Mandab\b", "Strait of Bab el-Mandeb", 1),
+    ),
+    "youtube:o0GLmIdlyeM": (
+        (r"\bRadcliffe\b", "Ratcliffe", 5),
+        (r"\bKeiv Kellogg\b", "Keith Kellogg", 1),
+        (r"\bWe are goodwill is exhausted\b", "Our goodwill is exhausted", 1),
+        (r"(?m)^Transcripts:\s*\n?", "", 1),
+    ),
+}
+
+# Admission here is intentionally separate from completeness.  A source may
+# have safe deterministic substitutions while still containing passages that
+# require audio-backed or human review.
+SOURCE_ASR_REPAIR_COMPLETE: frozenset[str] = frozenset()
+
 
 @dataclass(frozen=True)
 class HostTrimRule:
@@ -1478,6 +1518,14 @@ def host_supports_asr_repair(host_slug: str | None) -> bool:
     return bool(host_slug and host_slug in ASR_REPAIR_APPROVED_HOSTS)
 
 
+def source_supports_asr_repair(source_identity: str | None) -> bool:
+    return bool(source_identity and source_identity in SOURCE_ASR_REPAIRS)
+
+
+def source_asr_repair_is_complete(source_identity: str | None) -> bool:
+    return bool(source_identity and source_identity in SOURCE_ASR_REPAIR_COMPLETE)
+
+
 def repair_asr_text(
     args: SimpleNamespace,
     body: str,
@@ -1494,15 +1542,32 @@ def repair_asr_text(
     if getattr(args, "asr_repair", "auto") == "none":
         preserve_prior_metadata()
         return body
-    if not host_supports_asr_repair(getattr(args, "host_slug", None)):
+    source_identity = getattr(args, "source_identity", None)
+    source_rules = SOURCE_ASR_REPAIRS.get(source_identity, ())
+    host_approved = host_supports_asr_repair(getattr(args, "host_slug", None))
+    if not host_approved and not source_rules:
         preserve_prior_metadata()
         return body
 
     repaired = body
-    for pattern, replacement in GLOBAL_ASR_REPAIRS:
-        repaired = re.sub(pattern, replacement, repaired)
-    for pattern, replacement in HOST_ASR_REPAIRS.get(getattr(args, "host_slug", None), ()):
-        repaired = re.sub(pattern, replacement, repaired)
+    args.asr_rule_applications = ()
+    if source_rules:
+        applications: list[tuple[str, str, int]] = []
+        for pattern, replacement, expected_count in source_rules:
+            repaired, observed_count = re.subn(pattern, replacement, repaired)
+            if observed_count != expected_count:
+                raise ValueError(
+                    "source-scoped ASR rule count mismatch for "
+                    f"{source_identity}: expected {expected_count}, observed {observed_count} "
+                    f"for {pattern}"
+                )
+            applications.append((pattern, replacement, observed_count))
+        args.asr_rule_applications = tuple(applications)
+    else:
+        for pattern, replacement in GLOBAL_ASR_REPAIRS:
+            repaired = re.sub(pattern, replacement, repaired)
+        for pattern, replacement in HOST_ASR_REPAIRS.get(getattr(args, "host_slug", None), ()):
+            repaired = re.sub(pattern, replacement, repaired)
 
     if normalize_layout:
         repaired = re.sub(r"\n{3,}", "\n\n", repaired).strip() + "\n"

@@ -16,6 +16,39 @@ def test_agent_contract_bounds_output_and_resumes_live_sessions() -> None:
     assert "Cache an optional service's unavailable state" in agents
 
 
+def test_value_of_evidence_gate_is_decision_sensitive_and_transient() -> None:
+    agents = " ".join((REPO_ROOT / "AGENTS.md").read_text(encoding="utf-8").split())
+
+    for phrase in (
+        "value-of-evidence gate",
+        "the decision the evidence could change",
+        "failure it would prevent, its consequence, and its reversibility",
+        "cheapest discriminating evidence and its evidence plane",
+        "condition that ends the work",
+        "success and failure would lead to the same course",
+        "representative probe",
+        "Wait on another task or service only when its result blocks a named local decision",
+        "Keep this reasoning transient and backstage",
+    ):
+        assert phrase in agents
+
+
+def test_final_validation_is_claim_sensitive_without_weakening_required_full() -> None:
+    agents = " ".join((REPO_ROOT / "AGENTS.md").read_text(encoding="utf-8").split())
+    github = " ".join(
+        (
+            REPO_ROOT / "docs" / "skill-drafts" / "mira-github" / "SKILL.md"
+        ).read_text(encoding="utf-8").split()
+    )
+
+    assert "Focused evidence may finalize a bounded change" in agents
+    assert "repository-wide or hosted boundary that remains unverified" in agents
+    assert "Require Full only for a repository-wide, landed-corpus, release or publication claim" in agents
+    assert "when a controlling workflow explicitly mandates it" in agents
+    assert "For a final tree requiring Full validation" in github
+    assert "validated-push check" in github
+
+
 def test_coffee_contract_prevents_duplicate_verification() -> None:
     coffee = (
         REPO_ROOT / "docs" / "skill-drafts" / "coffee" / "SKILL.md"

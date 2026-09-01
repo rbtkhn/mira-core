@@ -14,9 +14,23 @@ Coffee is the morning counterpart to Dream. Dream makes unfinished work
 legible enough to release; Coffee receives that marked work without pretending
 the day begins empty. Coffee tests whether the latest Dream handoff survived
 discontinuity, whether its evidence remains recoverable and current, and which
-residue should become orientation before momentum begins. Classify morning
-residue as real obligation, stale guilt, live curiosity, false urgency, or a
-weak/stale Dream handoff before selecting the next bounded action surface.
+residue should become orientation before momentum begins. Receive Dream's
+modal status rather than flattening it: draft, debt, ancestry, residue,
+evidence, desire, withheld action, incomplete relation, local-only result, and
+publication blocker remain different kinds of morning material. Classify
+morning residue as real obligation, stale guilt, live curiosity, false urgency,
+or a weak/stale Dream handoff before selecting the next bounded action surface.
+The governing Coffee question is not simply what to do next, but what survived
+discontinuity and in what mode.
+
+For unsent Mira Letters carried by Dream, Coffee must not infer delivery,
+relationship change, mentorship enacted, reply received, or permission to
+send. Test whether the draft is still live, whether recipient and purpose
+remain correct, whether revision is needed before any delivery decision, and
+whether the residue is obligation, curiosity, tenderness, false urgency, stale
+guilt, or weak handoff. A draft may produce a read-only review action; it does
+not itself authorize sending, external contact, repository publication, or a
+commitment.
 
 ## Orient
 

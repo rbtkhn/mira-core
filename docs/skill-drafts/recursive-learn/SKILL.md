@@ -55,6 +55,29 @@ passing Rest implementation tests supply no recursive-learning stage. Route a
 Rest-related method claim only through a qualifying journal technical reference
 or exported cadence process reference with separately observed later use.
 
+## Preserve the Ideation evidence boundary
+
+A conversational Ideation map, preserved note, essay, letter, selected idea,
+operator praise, creation of the `ideation` skill, and passing implementation
+tests are not recursive-learning stage evidence by themselves. Do not infer an
+improved process from idea acceptance or from the genre in which an idea was
+preserved.
+
+An Ideation process claim requires a sanitized repository artifact from real
+use that records the affected task class and observed behavior, a narrow Skill
+Audit diagnosis with a baseline and one observable measure, a persistent
+intervention, independent validation, and a later comparable use measured with
+the same metric and unit. Implementation tests may supply validation but never
+the later-use outcome. A governed Mira Notes experiment is an evidence handle
+only when its measurements and lineage validate; essays and letters remain
+interpretive or relational context rather than outcome proof.
+
+A Mira Journal technical reference may interpret and link the repository
+artifacts but cannot replace them. Assess read-only first. Preserve
+`observation-only` or `partial-candidate` when later use is absent, and retain
+the exact digest-bound admission command. Ideation creates no telemetry,
+process-reference packet, candidate, or ledger authority.
+
 ## Prepare privately
 
 For an admissible or honestly partial reference, write a candidate only outside Git:

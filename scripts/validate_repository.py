@@ -60,6 +60,7 @@ LOCAL_SKILLS = {
     "coffee",
     "dream",
     "geopolitical-synthesis",
+    "ideation",
     "intent-recovery",
     "library-import",
     "library-reasoning",

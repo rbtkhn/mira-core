@@ -23,6 +23,10 @@ def test_mira_journal_skill_has_minimal_valid_structure() -> None:
     assert "Use $mira-journal" in metadata
     assert "`rest_lifecycle` metadata as provisional Continuity context" in skill
     assert "not authoritative ancestry" in skill
+    assert "`letters_orientation` as private relational orientation" in skill
+    assert "permission to contact\n   anyone" in skill
+    assert "`letters_orientation` is present" in method
+    assert "relational\norientation rather than ancestry" in method
 
 
 def test_skill_uses_progressive_disclosure_without_redundant_resources() -> None:

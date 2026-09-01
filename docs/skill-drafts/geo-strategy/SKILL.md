@@ -215,6 +215,33 @@ Use a variable source-anchor target rather than a hard 40-anchor minimum:
 Anchors support source traceability; they do not independently corroborate a
 claim or convert source assertion into reality-check evidence.
 
+## Mira Library Historical Pressure-Test Pilot
+
+Use `library-reasoning` only when a historical mechanism, institutional
+lineage, analogy, or credible rival could materially change the crisis-object
+judgment. Before settling the mechanism, run its metadata-only pre-scan. After
+stating a provisional mechanism, create at most one bounded private packet and
+adjudicate every candidate as `adopted`, `narrowed`, `redirected`, `rejected`,
+or `held`.
+
+Keep `SRC-*` and `LIB-*` evidence lanes separate. Library material may sharpen
+causal mechanisms, principal alternatives, falsifiers, and sequencing. It may
+not satisfy manifest coverage, corroborate a current operating fact, resolve
+an `OPC-*` or forecast, or supply statistical base rates. Shared textual or
+intellectual ancestry is not independent convergence.
+
+For adopted material, name the shared mechanism, decisive structural
+difference, concept non-equivalence, rejection condition, representation gap,
+and actual effect on judgment. If no material effect survives, reject or hold
+the analogy rather than decorating the synthesis with history. During the
+pilot, Mira Voice consumes only adjudicated material and does not reopen
+retrieval.
+
+Private routing observations may affect later candidate selection only after
+the `library-reasoning` proposal and explicit activation boundary. They never
+alter Geo-Strategy dispositions, current-event evidence status, or the
+provisional mechanism automatically.
+
 The daily-run validator performs advisory checks for minimum source coverage,
 partial quote coverage, repeated load-bearing quotes, and unusually high anchor
 counts. These checks warn for review; they do not replace source judgment or

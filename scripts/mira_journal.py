@@ -33,6 +33,7 @@ CONTINUITY_INDEX_MD_PATH = JOURNAL_ROOT / "continuity-index.md"
 LEARNING_LEDGER_PATH = (
     REPO_ROOT / "narrative-geopolitics" / "work" / "system-improvement" / "recursive-learning-ledger.json"
 )
+LETTERS_ROOT = REPO_ROOT / "archive" / "letters"
 
 DRAFT_ROOT_ENV = "MIRA_CORE_JOURNAL_DRAFT_ROOT"
 DEFAULT_DRAFT_ROOT = state_path("journal/drafts")
@@ -95,6 +96,8 @@ SESSION_SYNOPSIS_NONCONTENT_PREFIXES = (
 TITLE_RE = re.compile(r"^# (?P<date>\d{4}-\d{2}-\d{2})\s+[—-]\s+(?P<title>[^\r\n]+)\s*$")
 WORD_RE = re.compile(r"\b[\w’'-]+\b", re.UNICODE)
 TITLE_SUBTITLE_RE = re.compile(r"(?::|[—–]|\s-\s)")
+FRONTMATTER_RE = re.compile(r"\A---\s*\n(?P<body>.*?)\n---\s*\n", re.DOTALL)
+MARKDOWN_FIELD_RE = re.compile(r"^\*\*(?P<key>[^*:\n]+):\*\*\s*(?P<value>.+?)\s*$")
 
 
 def dream_eod_digest(*, run_id: str, prose_digest: str, reference_digest: str,
@@ -889,6 +892,215 @@ def git_commits(start: datetime, end: datetime) -> list[dict[str, str]]:
     return commits
 
 
+def git_file_timestamp(path: Path) -> datetime | None:
+    rel = repo_relative(path)
+    result = subprocess.run(
+        ["git", "log", "-1", "--format=%cI", "--", rel],
+        cwd=REPO_ROOT,
+        text=True,
+        encoding="utf-8",
+        errors="replace",
+        capture_output=True,
+        check=False,
+    )
+    if result.returncode:
+        raise JournalError("could not inspect Mira Letters Git history")
+    text = result.stdout.strip()
+    return parse_timestamp(text, label="letter git timestamp") if text else None
+
+
+def repo_relative(path: Path) -> str:
+    resolved = path.resolve()
+    try:
+        return resolved.relative_to(REPO_ROOT).as_posix()
+    except ValueError as error:
+        raise JournalError("path escapes repository root") from error
+
+
+def parse_optional_timestamp(value: str | None, *, label: str) -> datetime | None:
+    text = (value or "").strip()
+    if not text:
+        return None
+    return parse_timestamp(text, label=label)
+
+
+def markdown_metadata(text: str) -> dict[str, str]:
+    metadata: dict[str, str] = {}
+    match = FRONTMATTER_RE.match(text)
+    if match:
+        for line in match.group("body").splitlines():
+            if ":" not in line:
+                continue
+            key, value = line.split(":", 1)
+            metadata[key.strip().lower().replace("-", "_")] = value.strip().strip('"')
+    for line in text.splitlines()[:40]:
+        field = MARKDOWN_FIELD_RE.match(line.strip())
+        if field:
+            key = field.group("key").strip().lower().replace(" ", "_")
+            metadata.setdefault(key, field.group("value").strip())
+    return metadata
+
+
+def declared_letter_date(path: Path, metadata: dict[str, str]) -> date | None:
+    value = metadata.get("date") or metadata.get("declared_date")
+    if value:
+        try:
+            return parse_entry_date(value[:10])
+        except JournalError:
+            return None
+    match = re.match(r"(?P<date>\d{4}-\d{2}-\d{2})-", path.name)
+    return parse_entry_date(match.group("date")) if match else None
+
+
+def previous_dream_finalized_at(entry_date: date) -> datetime | None:
+    registry = load_registry()
+    candidates: list[datetime] = []
+    for entry in registry.get("entries", []):
+        try:
+            prior_date = parse_entry_date(str(entry.get("entry_date", "")))
+        except JournalError:
+            continue
+        if prior_date >= entry_date:
+            continue
+        versions = entry.get("versions", [])
+        if not versions:
+            continue
+        approval = versions[-1].get("approval", {})
+        if approval.get("status") != DREAM_EOD_STATUS:
+            continue
+        approved_at = parse_optional_timestamp(approval.get("approved_at"), label="Dream approved_at")
+        if approved_at is not None:
+            candidates.append(approved_at)
+    return max(candidates) if candidates else None
+
+
+def letter_delivery_status(metadata: dict[str, str]) -> str:
+    status = " ".join(
+        metadata.get(key, "")
+        for key in ("status", "direction")
+    ).lower()
+    if "draft" in status and "sent" not in status:
+        return "draft-not-sent"
+    if "not sent" in status or "unsent" in status:
+        return "draft-not-sent"
+    if "received" in status or "inbound" in status:
+        return "received-preserved"
+    if "sent" in status or "outbound" in status:
+        return "sent-reported"
+    return "preserved-status-unclear"
+
+
+def normalize_authority_effect(value: str | None) -> tuple[str, str | None]:
+    text = (value or "").strip()
+    if not text:
+        return "none", None
+    if text.lower() == "none" or text.lower().startswith("none."):
+        return "none", text if text.lower() != "none" else None
+    return text, None
+
+
+def letter_preservation_timestamp(path: Path, metadata: dict[str, str]) -> tuple[datetime | None, str]:
+    material = parse_optional_timestamp(metadata.get("material_revision_at"), label="material_revision_at")
+    if material is not None:
+        return material, "material_revision_at"
+    preserved = parse_optional_timestamp(metadata.get("preserved_at"), label="preserved_at")
+    if preserved is not None:
+        return preserved, "preserved_at"
+    git_timestamp = git_file_timestamp(path)
+    if git_timestamp is not None:
+        return git_timestamp, "git-history"
+    try:
+        return datetime.fromtimestamp(path.stat().st_mtime, timezone.utc), "filesystem-mtime"
+    except OSError:
+        return None, "unavailable"
+
+
+def letters_orientation(entry_date: date, *, as_of: datetime) -> dict[str, Any]:
+    lower = previous_dream_finalized_at(entry_date)
+    included: list[dict[str, Any]] = []
+    omitted: list[dict[str, Any]] = []
+    if not LETTERS_ROOT.exists():
+        files: list[Path] = []
+    else:
+        files = sorted(
+            path for path in LETTERS_ROOT.rglob("*.md")
+            if path.is_file() and path.name.lower() != "readme.md"
+        )
+    for path in files:
+        rel = repo_relative(path)
+        if not rel.startswith("archive/letters/"):
+            raise JournalError("Mira Letters path escapes archive/letters")
+        text = path.read_text(encoding="utf-8")
+        metadata = markdown_metadata(text)
+        declared = declared_letter_date(path, metadata)
+        if declared is not None and declared > entry_date:
+            omitted.append({
+                "path": rel,
+                "reason": "future-dated",
+                "declared_date": declared.isoformat(),
+            })
+            continue
+        try:
+            timestamp, source = letter_preservation_timestamp(path, metadata)
+        except JournalError as error:
+            omitted.append({"path": rel, "reason": str(error)})
+            continue
+        if timestamp is None:
+            omitted.append({"path": rel, "reason": "no reliable preservation timestamp"})
+            continue
+        if lower is not None and timestamp <= lower:
+            omitted.append({
+                "path": rel,
+                "reason": "before previous Dream finalization",
+                "declared_date": declared.isoformat() if declared else None,
+                "preservation_timestamp": utc_text(timestamp),
+            })
+            continue
+        if timestamp > as_of:
+            omitted.append({
+                "path": rel,
+                "reason": "after prepare as_of cutoff",
+                "declared_date": declared.isoformat() if declared else None,
+                "preservation_timestamp": utc_text(timestamp),
+            })
+            continue
+        authority_effect, authority_note = normalize_authority_effect(metadata.get("authority_effect"))
+        included.append({
+            "path": rel,
+            "declared_date": declared.isoformat() if declared else None,
+            "preservation_timestamp": utc_text(timestamp),
+            "preservation_source": source,
+            "direction": metadata.get("direction"),
+            "sender": metadata.get("sender"),
+            "recipient": metadata.get("recipient"),
+            "correspondents": metadata.get("correspondents"),
+            "relationship": metadata.get("relationship") or metadata.get("context"),
+            "status": metadata.get("status"),
+            "occasion": metadata.get("occasion"),
+            "delivery_status": letter_delivery_status(metadata),
+            "authority_effect": authority_effect,
+            "authority_note": authority_note,
+            "body_sha256": sha256_bytes(text.encode("utf-8")),
+            "body": text,
+        })
+    included.sort(key=lambda row: (row["preservation_timestamp"], row["path"]))
+    omitted.sort(key=lambda row: (row["path"], row["reason"]))
+    return {
+        "schema_version": 1,
+        "lower_bound": utc_text(lower) if lower else None,
+        "upper_bound": utc_text(as_of),
+        "included_count": len(included),
+        "omitted_count": len(omitted),
+        "letters": included,
+        "omissions": omitted,
+        "authority_boundary": (
+            "Mira Letters supply private relational orientation only. They do not establish "
+            "Journal ancestry, research evidence, delivery authority, publication authority, "
+            "permission to contact anyone, or commitments."
+        ),
+    }
+
+
 def collect_activity(
     entry_date: date,
     *,
@@ -1278,7 +1490,7 @@ def validate_context_pack(value: dict[str, Any]) -> list[str]:
     return failures
 
 
-def composition_brief(entry_date: date, pack: dict[str, Any]) -> dict[str, Any]:
+def composition_brief(entry_date: date, pack: dict[str, Any], *, as_of: datetime) -> dict[str, Any]:
     registry = load_registry()
     eligible = [
         entry for entry in registry.get("entries", [])
@@ -1343,6 +1555,8 @@ def composition_brief(entry_date: date, pack: dict[str, Any]) -> dict[str, Any]:
     pack_digest = sha256_bytes(canonical_json(pack).encode("utf-8"))
     registry_digest = sha256_bytes(canonical_json(registry).encode("utf-8"))
     continuity_digest = sha256_bytes(canonical_json(continuity).encode("utf-8"))
+    letters = letters_orientation(entry_date, as_of=as_of)
+    letters_digest = sha256_bytes(canonical_json(letters).encode("utf-8"))
     census = copy.deepcopy(pack.get("session_census", []))
     census_digest = sha256_bytes(canonical_json(census).encode("utf-8"))
     represented = sum(row.get("disposition") == "represented" for row in census if isinstance(row, dict))
@@ -1381,6 +1595,7 @@ def composition_brief(entry_date: date, pack: dict[str, Any]) -> dict[str, Any]:
             ),
         },
         "recent_entries": recent,
+        "letters_orientation": letters,
         "recursive_learning_context": copy.deepcopy(pack["recursive_learning_context"]),
         "founding_touchstones": [{
             "thread_id": "MJT-20260808-01",
@@ -1406,6 +1621,7 @@ def composition_brief(entry_date: date, pack: dict[str, Any]) -> dict[str, Any]:
             f"context-pack:{pack_digest}",
             f"journal-registry:{registry_digest}",
             f"continuity-index:{continuity_digest}",
+            f"letters-orientation:{letters_digest}",
         ]),
         "authority_boundary": AUTHORITY_BOUNDARY,
     }
@@ -1485,6 +1701,59 @@ def validate_composition_brief(value: Any, *, pack: dict[str, Any]) -> list[str]
             failures.append("composition brief session census digest mismatch")
         if daily.get("sessions") != expected_sessions:
             failures.append("composition brief session census projection mismatch")
+    letters = value.get("letters_orientation")
+    if not isinstance(letters, dict):
+        failures.append("composition brief letters orientation is malformed")
+    else:
+        if letters.get("schema_version") != 1:
+            failures.append("composition brief letters orientation schema mismatch")
+        if not isinstance(letters.get("letters"), list) or not isinstance(letters.get("omissions"), list):
+            failures.append("composition brief letters orientation lists are malformed")
+        if "do not establish Journal ancestry" not in str(letters.get("authority_boundary", "")):
+            failures.append("composition brief letters orientation authority boundary is missing")
+        previous_key = ("", "")
+        for row in letters.get("letters", []) if isinstance(letters.get("letters"), list) else []:
+            if not isinstance(row, dict):
+                failures.append("composition brief letters orientation row is malformed")
+                break
+            path = str(row.get("path", ""))
+            key = (str(row.get("preservation_timestamp", "")), path)
+            if not path.startswith("archive/letters/") or path.endswith("/README.md") or ".." in Path(path).parts:
+                failures.append("composition brief letters orientation path is invalid")
+                break
+            if key < previous_key:
+                failures.append("composition brief letters orientation ordering is invalid")
+                break
+            previous_key = key
+            try:
+                preservation = parse_optional_timestamp(
+                    row.get("preservation_timestamp"), label="letter preservation timestamp"
+                )
+            except JournalError:
+                preservation = None
+            if preservation is None:
+                failures.append("composition brief letters orientation timestamp is invalid")
+                break
+            declared = row.get("declared_date")
+            if declared is not None:
+                try:
+                    if parse_entry_date(str(declared)) > parse_entry_date(str(value.get("entry_date", ""))):
+                        failures.append("composition brief letters orientation includes future-dated letter")
+                        break
+                except JournalError:
+                    failures.append("composition brief letters orientation declared date is invalid")
+                    break
+            body = row.get("body")
+            if not isinstance(body, str) or row.get("body_sha256") != sha256_bytes(body.encode("utf-8")):
+                failures.append("composition brief letters orientation body digest mismatch")
+                break
+            if str(row.get("authority_effect", "none")).lower() != "none":
+                failures.append("composition brief letters orientation authority effect must be none")
+                break
+        if letters.get("included_count") != len(letters.get("letters", [])):
+            failures.append("composition brief letters orientation included count mismatch")
+        if letters.get("omitted_count") != len(letters.get("omissions", [])):
+            failures.append("composition brief letters orientation omitted count mismatch")
     derivation = value.get("derivation_manifest")
     core = {key: copy.deepcopy(item) for key, item in value.items() if key not in {"composition_brief_id", "derivation_manifest"}}
     digest = sha256_bytes(canonical_json(core).encode("utf-8"))
@@ -3210,7 +3479,7 @@ def command_prepare(args: argparse.Namespace) -> dict[str, Any]:
         entry_date, as_of=as_of, token_budget=args.token_budget - learning_tokens
     )
     pack = context_pack(entry_date, activity, args.token_budget, learning_context)
-    brief = composition_brief(entry_date, pack)
+    brief = composition_brief(entry_date, pack, as_of=as_of)
     contract = draft_contract(entry_date, pack, brief)
     reference_contract = technical_reference_contract(entry_date, pack, contract, brief)
     target = root / entry_date.isoformat()

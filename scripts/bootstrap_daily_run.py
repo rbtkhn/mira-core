@@ -239,6 +239,16 @@ Primary source basis:
 | --- | --- | --- | --- | --- | --- |
 {chr(10).join(run_lines)}
 
+## Historical Context Set
+
+Populate only after a threshold-triggered Library pressure test. `LIB-*`
+references remain distinct from the manifest-backed Run Source Set and do not
+count toward intake coverage or current-event corroboration.
+
+| Library Source | Body IDs | Analytic Role | Coverage | Hash State | Private Packet Digest |
+| --- | --- | --- | --- | --- | --- |
+| `none` | `none` | `not-invoked` | `none` | `none` | `none` |
+
 ## Load-Bearing Quotes
 
 Use short direct quotes only when wording matters. Keep quotes brief and tie each quote to an analytic job.

@@ -17,11 +17,9 @@ Do not report non-retention for a deliberately transient control.
    current task, run `choice select` atomically with the selected key,
    recommendation binding, lane/workspace/tenant scope, choice kind,
    consequence, summary, actor, timestamps, and bounded signals. Let the
-   command resolve `MIRA_CORE_CHOICE_DB`, the deprecated
-   `NARRATIVE_CHOICE_DB` compatibility variable, or its governed default. Do
-   not inspect one environment variable and infer that retention is
-   unavailable; only the compatibility-aware command result may establish
-   availability.
+   command resolve `MIRA_CORE_CHOICE_DB` or its governed default. Do not
+   inspect one environment variable and infer that retention is unavailable;
+   only the command result may establish availability.
 4. Use the stable workspace identifier `mira-core`; never pass a repository
    path as `--workspace`. Preserve the operational lane. For consequential
    universal-menu decisions being measured prospectively, use `choice_kind:
@@ -63,10 +61,11 @@ $env:MIRA_CORE_CHOICE_DB = "$env:LOCALAPPDATA\MiraCore\state\choice-history.sqli
 .\tools\run.ps1 choice select ...
 ```
 
-During migration, an existing `NARRATIVE_CHOICE_DB` remains usable and emits a
-deprecation warning. Prefer setting `MIRA_CORE_CHOICE_DB` to the same absolute
-private path; if both variables are populated with different paths, preserve
-the conflict and stop rather than choosing one.
+`NARRATIVE_CHOICE_DB` is unsupported. When it is present without
+`MIRA_CORE_CHOICE_DB`, the choice runtime must fail closed rather than silently
+fall back to a different store. Configure `MIRA_CORE_CHOICE_DB` with the
+intended absolute private path. When the canonical variable is configured, it
+controls routing and any remaining legacy value is ignored.
 
 Cache unavailability by resolved store path and relevant environment state for
 the task; treat the unchanged failure as cached as unavailable.

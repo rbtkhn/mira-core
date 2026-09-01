@@ -14,7 +14,7 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any, Iterable
 
-from runtime_names import resolve_environment
+from runtime_names import environment_aliases, resolve_environment
 from portable_paths import PortablePathError, require_private_path as portable_private_path, state_path
 
 
@@ -158,7 +158,25 @@ def require_private_path(raw_path: str | Path, *, label: str) -> Path:
 
 
 def resolve_store(raw_path: str | Path | None, *, require_exists: bool = False) -> StoreResolution:
-    configured = raw_path or resolve_environment(DB_ENV) or DEFAULT_DB_PATH
+    if raw_path is not None:
+        configured = raw_path
+    else:
+        configured = resolve_environment(DB_ENV)
+        if configured is None:
+            legacy_name = next(
+                (
+                    alias
+                    for alias in environment_aliases(DB_ENV)
+                    if os.environ.get(alias)
+                ),
+                None,
+            )
+            if legacy_name is not None:
+                return StoreResolution(
+                    None,
+                    f"{legacy_name} is unsupported; configure {DB_ENV}",
+                )
+            configured = DEFAULT_DB_PATH
     try:
         path = require_private_path(configured, label="private choice store")
     except ChoiceError as error:

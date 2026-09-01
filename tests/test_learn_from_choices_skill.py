@@ -65,13 +65,14 @@ def test_deferred_material_is_not_duplicated_in_core() -> None:
     assert "selection frequency" in review
 
 
-def test_retention_uses_compatibility_aware_store_resolution() -> None:
+def test_retention_fails_closed_on_unsupported_legacy_store_routing() -> None:
     retention = read("references/choice-retention.md")
     normalized = " ".join(retention.split())
     assert "`MIRA_CORE_CHOICE_DB`" in retention
-    assert "`NARRATIVE_CHOICE_DB` compatibility variable" in normalized
+    assert "`NARRATIVE_CHOICE_DB` is unsupported" in normalized
+    assert "must fail closed rather than silently fall back" in normalized
     assert "Do not inspect one environment variable" in normalized
-    assert "only the compatibility-aware command result" in normalized
+    assert "only the command result may establish availability" in normalized
 
 
 def test_agents_router_is_compact_and_preserves_core_boundaries() -> None:

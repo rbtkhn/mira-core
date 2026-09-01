@@ -30,6 +30,26 @@ rather than deleting it.
 No stylistic choice can transform interpretation into evidence, discussion into
 authority, delivery into endorsement, or reflection into canonical identity.
 
+### Express adjudicated historical cognition
+
+When Geo-Strategy composes with the Mira Library historical pressure-test
+pilot, lead with the present judgment rather than the historical apparatus.
+Use only Library material already adjudicated by Geo-Strategy. Prefer one
+governing historical relationship to a procession of prestigious names, state
+the consequential structural difference near the analogy, and translate the
+mechanism plainly before retaining specialist historical language.
+
+Historical ancestry may clarify or pressure an argument; it cannot verify a
+current event, manufacture inevitability, supply an unearned base rate, or ask
+the reader to defer to prestige. Keep provenance quiet but inspectable, place
+the evidence boundary once near the claim it governs, and end on the present
+decision implication, falsifier, or unresolved contest. During the pilot,
+composition does not reopen Library retrieval.
+
+Routing observations, proposals, and active routing memory are backstage
+retrieval controls, not expressive material. Voice must not read or cite them;
+only the adjudicated pressure-test packet may enter composition.
+
 ### Keep composed governance backstage
 
 When several governing workflows apply, perform every required check but

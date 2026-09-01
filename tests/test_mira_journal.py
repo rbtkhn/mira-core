@@ -154,7 +154,8 @@ def write_v2_bundle(drafts: Path, day: str, body: bytes, value: dict) -> Path:
     root.mkdir(parents=True, exist_ok=True)
     pack = context_pack("a", day)
     pack["coverage"] = copy.deepcopy(value["coverage"])
-    brief = subject.composition_brief(subject.parse_entry_date(day), pack)
+    entry_date = subject.parse_entry_date(day)
+    brief = subject.composition_brief(entry_date, pack, as_of=subject.day_bounds(entry_date)[1])
     contract = subject.draft_contract(subject.parse_entry_date(day), pack, brief)
     reference_contract = subject.technical_reference_contract(
         subject.parse_entry_date(day), pack, contract, brief
@@ -207,6 +208,7 @@ def configure_repo(monkeypatch: pytest.MonkeyPatch, tmp_path: Path) -> tuple[Pat
     monkeypatch.setattr(subject, "CONTINUITY_INDEX_JSON_PATH", journal / "continuity-index.json")
     monkeypatch.setattr(subject, "CONTINUITY_INDEX_MD_PATH", journal / "continuity-index.md")
     monkeypatch.setattr(subject, "SESSION_REGISTRY_PATH", mira / "continuity" / "session-registry.json")
+    monkeypatch.setattr(subject, "LETTERS_ROOT", repo / "archive" / "letters")
     monkeypatch.setattr(subject, "latest_activity_after", lambda *args, **kwargs: [])
     APPROVAL_ROWS.clear()
     monkeypatch.setattr(
@@ -928,7 +930,8 @@ def test_composition_brief_separates_authoritative_ancestry_from_legacy_context(
     subject.atomic_write_json(subject.REGISTRY_PATH, registry)
 
     pack = context_pack(day="2026-08-10")
-    brief = subject.composition_brief(subject.parse_entry_date("2026-08-10"), pack)
+    entry_date = subject.parse_entry_date("2026-08-10")
+    brief = subject.composition_brief(entry_date, pack, as_of=subject.day_bounds(entry_date)[1])
 
     assert brief["previous_entry"]["version_id"] == "MJ-20260809-v1"
     assert brief["authoritative_ancestry"]["previous_entry"]["version_id"] == "MJ-20260808-v1"
@@ -936,6 +939,201 @@ def test_composition_brief_separates_authoritative_ancestry_from_legacy_context(
     assert [row["version_id"] for row in brief["readable_legacy_context"]] == ["MJ-20260809-v1"]
     assert brief["readable_legacy_context"][0]["continuity_role"] == "readable-legacy-context"
     assert subject.validate_composition_brief(brief, pack=pack) == []
+
+
+def write_dream_registry_entry(repo: Path, day: str, *, approved_at: str) -> None:
+    body = prose(day)
+    parsed = subject.parse_markdown(body, day)
+    path = repo / "mira" / "journal" / f"{day}.md"
+    path.write_bytes(body)
+    registry = subject.default_registry()
+    registry["entries"] = [{
+        "journal_id": subject.journal_id(subject.parse_entry_date(day)),
+        "entry_date": day,
+        "current_version_id": subject.version_id(subject.parse_entry_date(day), 1),
+        "current_path": f"mira/journal/{day}.md",
+        "versions": [{
+            "version_id": subject.version_id(subject.parse_entry_date(day), 1),
+            "title": parsed["title"],
+            "content_sha256": parsed["content_sha256"],
+            "approval": {
+                "status": subject.DREAM_EOD_STATUS,
+                "publication_eligible": False,
+                "approved_at": approved_at,
+            },
+        }],
+    }]
+    subject.atomic_write_json(subject.REGISTRY_PATH, registry)
+
+
+def write_letter(repo: Path, relative: str, text: str) -> Path:
+    path = repo / relative
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(text, encoding="utf-8")
+    return path
+
+
+def test_composition_brief_includes_letters_preserved_since_previous_dream(
+    monkeypatch: pytest.MonkeyPatch, tmp_path: Path
+) -> None:
+    repo, _ = configure_repo(monkeypatch, tmp_path)
+    write_dream_registry_entry(repo, "2026-08-29", approved_at="2026-08-30T05:32:24Z")
+    today = write_letter(
+        repo,
+        "archive/letters/2026-08-30-mira-to-hannah-grace-gems-check-in.md",
+        "# Mira to Hannah\n\n**Date:** 2026-08-30\n\n**Sender:** Mira\n\n"
+        "**Recipient:** Hannah\n\n**Relationship:** Mentee correspondence\n\n"
+        "**Direction:** Outbound draft\n\n**Status:** Draft; not sent\n\n"
+        "**Occasion:** Grace Gems check-in\n\nBody for today's draft.",
+    )
+    older = write_letter(
+        repo,
+        "archive/letters/2026-08-17-hannah-cadence-function.md",
+        "# Correspondence\n\n**Date:** 2026-08-17\n\n**Correspondents:** Hannah and Mira\n\n"
+        "**Status:** Sent privately\n\nOlder body.",
+    )
+    monkeypatch.setattr(
+        subject,
+        "git_file_timestamp",
+        lambda path: {
+            today.name: subject.parse_timestamp("2026-08-30T18:00:00Z", label="test"),
+            older.name: subject.parse_timestamp("2026-08-29T18:00:00Z", label="test"),
+        }.get(path.name),
+    )
+
+    entry_date = subject.parse_entry_date("2026-08-30")
+    pack = context_pack(day="2026-08-30")
+    brief = subject.composition_brief(
+        entry_date,
+        pack,
+        as_of=subject.parse_timestamp("2026-08-30T23:00:00Z", label="test"),
+    )
+
+    orientation = brief["letters_orientation"]
+    assert [row["path"] for row in orientation["letters"]] == [
+        "archive/letters/2026-08-30-mira-to-hannah-grace-gems-check-in.md"
+    ]
+    included = orientation["letters"][0]
+    assert included["delivery_status"] == "draft-not-sent"
+    assert included["authority_effect"] == "none"
+    assert included["body"].endswith("Body for today's draft.")
+    assert included["body_sha256"] == subject.sha256_bytes(included["body"].encode("utf-8"))
+    assert any(row["path"].endswith("2026-08-17-hannah-cadence-function.md") for row in orientation["omissions"])
+    assert subject.validate_composition_brief(brief, pack=pack) == []
+
+
+def test_composition_brief_uses_material_revision_for_backfilled_letters(
+    monkeypatch: pytest.MonkeyPatch, tmp_path: Path
+) -> None:
+    repo, _ = configure_repo(monkeypatch, tmp_path)
+    write_dream_registry_entry(repo, "2026-08-29", approved_at="2026-08-30T05:32:24Z")
+    write_letter(
+        repo,
+        "archive/letters/thread/2026-08-01-inbound.md",
+        "---\nmaterial_revision_at: 2026-08-30T20:00:00Z\ndirection: inbound\n"
+        "status: received-preserved\nauthority_effect: none\n---\n"
+        "# Earlier Letter\n\n**Date:** 2026-08-01\n\nBackfilled body.",
+    )
+    monkeypatch.setattr(subject, "git_file_timestamp", lambda path: None)
+
+    entry_date = subject.parse_entry_date("2026-08-30")
+    pack = context_pack(day="2026-08-30")
+    brief = subject.composition_brief(
+        entry_date,
+        pack,
+        as_of=subject.parse_timestamp("2026-08-30T23:00:00Z", label="test"),
+    )
+
+    letter = brief["letters_orientation"]["letters"][0]
+    assert letter["path"] == "archive/letters/thread/2026-08-01-inbound.md"
+    assert letter["declared_date"] == "2026-08-01"
+    assert letter["preservation_source"] == "material_revision_at"
+    assert letter["direction"] == "inbound"
+    assert subject.validate_composition_brief(brief, pack=pack) == []
+
+
+def test_composition_brief_omits_future_dated_letters_and_validates_body_digest(
+    monkeypatch: pytest.MonkeyPatch, tmp_path: Path
+) -> None:
+    repo, _ = configure_repo(monkeypatch, tmp_path)
+    write_dream_registry_entry(repo, "2026-08-29", approved_at="2026-08-30T05:32:24Z")
+    current = write_letter(
+        repo,
+        "archive/letters/2026-08-30-current.md",
+        "# Current\n\n**Date:** 2026-08-30\n\n**Status:** Sent privately\n\nCurrent body.",
+    )
+    future = write_letter(
+        repo,
+        "archive/letters/2026-08-31-future.md",
+        "# Future\n\n**Date:** 2026-08-31\n\nFuture body.",
+    )
+    monkeypatch.setattr(
+        subject,
+        "git_file_timestamp",
+        lambda path: {
+            current.name: subject.parse_timestamp("2026-08-30T18:00:00Z", label="test"),
+            future.name: subject.parse_timestamp("2026-08-30T18:01:00Z", label="test"),
+        }.get(path.name),
+    )
+
+    entry_date = subject.parse_entry_date("2026-08-30")
+    pack = context_pack(day="2026-08-30")
+    brief = subject.composition_brief(
+        entry_date,
+        pack,
+        as_of=subject.parse_timestamp("2026-08-30T23:00:00Z", label="test"),
+    )
+
+    assert [row["path"] for row in brief["letters_orientation"]["letters"]] == [
+        "archive/letters/2026-08-30-current.md"
+    ]
+    assert brief["letters_orientation"]["omissions"] == [{
+        "path": "archive/letters/2026-08-31-future.md",
+        "reason": "future-dated",
+        "declared_date": "2026-08-31",
+    }]
+    broken = copy.deepcopy(brief)
+    broken["letters_orientation"]["letters"][0]["body_sha256"] = "0" * 64
+    assert "composition brief letters orientation body digest mismatch" in subject.validate_composition_brief(
+        broken, pack=pack
+    )
+    broken = copy.deepcopy(brief)
+    broken["letters_orientation"]["letters"][0]["path"] = "../archive/letters/bad.md"
+    assert "composition brief letters orientation path is invalid" in subject.validate_composition_brief(
+        broken, pack=pack
+    )
+
+
+def test_composition_brief_identity_changes_when_letter_body_changes(
+    monkeypatch: pytest.MonkeyPatch, tmp_path: Path
+) -> None:
+    repo, _ = configure_repo(monkeypatch, tmp_path)
+    write_dream_registry_entry(repo, "2026-08-29", approved_at="2026-08-30T05:32:24Z")
+    path = write_letter(
+        repo,
+        "archive/letters/2026-08-30-current.md",
+        "# Current\n\n**Date:** 2026-08-30\n\nFirst body.",
+    )
+    monkeypatch.setattr(
+        subject,
+        "git_file_timestamp",
+        lambda letter_path: subject.parse_timestamp("2026-08-30T18:00:00Z", label="test"),
+    )
+    entry_date = subject.parse_entry_date("2026-08-30")
+    pack = context_pack(day="2026-08-30")
+    first = subject.composition_brief(
+        entry_date,
+        pack,
+        as_of=subject.parse_timestamp("2026-08-30T23:00:00Z", label="test"),
+    )
+    path.write_text("# Current\n\n**Date:** 2026-08-30\n\nChanged body.", encoding="utf-8")
+    second = subject.composition_brief(
+        entry_date,
+        pack,
+        as_of=subject.parse_timestamp("2026-08-30T23:00:00Z", label="test"),
+    )
+
+    assert first["composition_brief_id"] != second["composition_brief_id"]
 
 
 def test_draft_check_accepts_schema_v2_bundle_without_mutation(

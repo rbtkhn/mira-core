@@ -15,6 +15,19 @@ ownership or permission context; and the publication lane. Reuse the envelope
 until one of those inputs changes. Surface it only when a blocker, authority
 boundary, or verification distinction affects the operator.
 
+Within that envelope, apply a compact value-of-evidence gate before a costly
+tool, broad validation, repeated probe, or cross-task wait: name the decision
+the evidence could change; the failure it would prevent, its consequence, and
+its reversibility; the cheapest discriminating evidence and its evidence plane;
+and the condition that ends the work. Skip non-mandatory evidence gathering
+when success and failure would lead to the same course. Start with a
+representative probe when it can resolve the decision, and escalate only while
+the decision remains sensitive. Wait on another task or service only when its
+result blocks a named local decision; otherwise continue bounded local work or
+close. Mandatory safety, authority, publication, and domain-governance checks
+remain controlling. Keep this reasoning transient and backstage unless it
+explains a blocker, a skipped expensive action, or an evidence limitation.
+
 Bound diagnostic output before expanding it. For a dirty repository, inspect
 counts and capped top-level groupings first. Do not print a complete status or
 path inventory when more than 200 entries are present unless the operator or a
@@ -53,14 +66,22 @@ transfer failed or succeeded; verify state directly before retrying.
 
 ## Validation Evidence Budget
 
-Run focused diagnostics while changing the tree. On the final working tree,
-run exactly one uncached Full gate and record its successful content and
-environment fingerprint. After committing unchanged bytes, invoke Full once
-without force and require an identical-fingerprint cache hit with no structural
-or pytest execution. Rerun Full only when repository bytes, executable bits,
-runtime or declared dependencies, relevant environment, or result clarity
-changed. Never rerun merely because commit metadata, branch name, or `HEAD`
-changed.
+Run focused diagnostics while changing the tree. A working tree becomes final
+when its intended scope and bytes are settled and it is being presented as
+complete or ready for handoff, whether or not those bytes are staged or
+committed. Exploratory or in-progress edits are not final and use focused
+diagnostics; do not present them as completed work. Focused evidence may
+finalize a bounded change when it directly covers the intended claim; report
+its evidence plane and any repository-wide or hosted boundary that remains
+unverified. Require Full only for a repository-wide, landed-corpus, release or
+publication claim, or when a controlling workflow explicitly mandates it.
+When Full is required, run exactly one uncached Full gate and record its
+successful content and environment fingerprint. After committing unchanged
+bytes that required Full, invoke Full once without force and require an
+identical-fingerprint cache hit with no structural or pytest execution. Rerun
+Full only when repository bytes, executable bits, runtime or declared
+dependencies, relevant environment, or result clarity changed. Never rerun
+merely because commit metadata, branch name, or `HEAD` changed.
 
 Change-time, landed-corpus, and hosted-state checks establish different claims.
 Use one sufficient check per materially distinct claim; do not repeat a local
@@ -212,6 +233,13 @@ validate, compare, or improve a skill, or asks whether a skill is working well,
 read `docs/skill-drafts/skill-audit/SKILL.md` completely and follow it. Default
 to read-only assessment; findings grant no repair, synchronization, commit, or
 publication authority.
+
+When the operator says `ideation`, asks to brainstorm, explore possibilities,
+generate options, combine approaches, or reframe a problem, read
+`docs/skill-drafts/ideation/SKILL.md` completely and follow it. Ideation
+expands and structures a grounded option space but does not rank, recommend,
+select, preserve, research, or execute an idea. Route later decisions,
+preservation, evidence work, and execution to their owning workflows.
 
 When the operator explicitly invokes intent recovery, or when meaning is likely
 present but compressed before elicitation, friction repair, reflective

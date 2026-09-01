@@ -18,6 +18,15 @@ import cadence_ledger
 import recursive_learning_ledger
 
 
+def test_coffee_skill_preserves_modal_status_for_unsent_letters() -> None:
+    skill = (ROOT / "docs" / "skill-drafts" / "coffee" / "SKILL.md").read_text(encoding="utf-8")
+
+    assert "Receive Dream's\nmodal status rather than flattening it" in skill
+    assert "what survived\ndiscontinuity and in what mode" in skill
+    assert "For unsent Mira Letters carried by Dream" in skill
+    assert "does\nnot itself authorize sending" in skill
+
+
 def episode(*, episode_id: str = "CD-20260816-01") -> dict:
     now = datetime.now(timezone.utc)
     return {

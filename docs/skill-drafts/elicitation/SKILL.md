@@ -188,8 +188,9 @@ can change the next action.
 After three consecutive compact selections within one objective, continue the
 selected branch to a meaningful result. Do not present another substantive
 Elicitation surface unless a newly emerged blocker passes all five
-implicit-invocation conditions. After settlement, use silent settled closure;
-do not emit another decision surface merely to carry generic controls.
+implicit-invocation conditions. After settlement, use compact settled closure:
+emit exactly four contextual transient controls, but do not manufacture another
+substantive decision surface merely to carry them.
 Explicit creative or preference discovery may continue within the ten-question limit
 because each answer supplies missing human evidence.
 

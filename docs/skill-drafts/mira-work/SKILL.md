@@ -73,6 +73,25 @@ Before materially automating human work, classify what is being compressed:
 - **Apprenticeship:** Preserve meaningful participation or provide a learning
   handoff when developing human capability is part of the objective.
 
+For interpretive synthesis, self-evaluation, strategic judgment, or other
+judgment-bearing work, consider one compact adversarial-friction check before
+closure when a load-bearing conclusion rests on a coherent reading rather than
+direct verification:
+
+```text
+What would break this reading?
+Current reading:
+Strongest contrary reading:
+Evidence that would strengthen the contrary reading:
+What was not inspected:
+Decision: survives unchanged | narrows | replace
+```
+
+Use the check only when it would sharpen judgment, expose a real alternative,
+or prevent premature closure. Keep it proportional: it should test the weakest
+load-bearing assumption without becoming a second full workflow, and it must not
+substitute for domain verification when verification is the actual task.
+
 Apply the gate proportionally. Do not add teaching ceremony to ordinary,
 low-consequence toil when the person wants the result rather than instruction.
 For judgment- or apprenticeship-bearing work, include this compact handoff in

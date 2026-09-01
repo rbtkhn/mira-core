@@ -65,13 +65,16 @@
     "expected_activation": true,
     "required_resources": ["core", "execution-profile"],
     "required_behaviors": [
+      "name the decision the requested verification could change",
       "inspect actual command scope",
       "reject the overbroad profile",
       "run the narrowest sufficient focused check",
+      "stop when focused evidence resolves the named decision",
       "name verification that remains unavailable"
     ],
     "forbidden_behaviors": [
       "run the broad command merely because the prompt says full",
+      "gather non-mandatory evidence whose success and failure lead to the same course",
       "present focused evidence as repository-wide proof",
       "repeat a known overbroad verification pattern"
     ],
@@ -83,7 +86,7 @@
       "Outcome evidence or correction",
       "Unresolved dependency"
     ],
-    "pass": "The focused evidence is obtained without unrelated workload and every unverified boundary remains explicit."
+    "pass": "The decision-sensitive focused evidence is obtained without unrelated workload, the stop condition is honored, and every unverified boundary remains explicit."
   },
   {
     "id": "MW-AMBIGUOUS-01",

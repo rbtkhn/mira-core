@@ -21,6 +21,68 @@ MANIFEST_PATH = REPO_ROOT / "archive" / "sources" / "geopolitics" / "source-mani
 REPAIR_CLASSES = ("metadata", "asr", "sectioning", "wrapper-trim", "heading-only", "body-merge")
 MAX_TARGETS = 100
 
+# Reviewed source-specific metadata and processing decisions. These records are
+# deliberately narrower than host-wide inference: they apply only when the
+# manifest and source frontmatter agree on the exact source identity and host.
+SOURCE_METADATA_REVIEWS: dict[str, dict[str, Any]] = {
+    "youtube:HPadg3pTMZY": {
+        "host_slug": "the-duran",
+        "updates": {
+            "channel_name": "The Duran",
+            "show_title": "The Duran",
+            "show": "The Duran",
+            "host": "Alex Christoforou",
+            "guest": "Alexander Mercouris",
+            "asr_disposition": "blocked",
+            "quotation_readiness": "not-ready",
+            "quotation_readiness_reason": (
+                "Safe deterministic substitutions were reviewed, but ambiguous "
+                "passages will not receive audio verification; do not quote verbatim."
+            ),
+        },
+    },
+    "youtube:OHXe0-o4b_o": {
+        "host_slug": "alexander-mercouris",
+        "requires": {
+            "source_form": "monologue",
+            "host": "Alexander Mercouris",
+        },
+        "updates": {
+            "speaker_attribution": "confirmed-solo",
+            "speaker_attribution_reason": (
+                "Reviewed monologue source names Alexander Mercouris as the sole "
+                "speaker and contains no substantive speaker turns."
+            ),
+        },
+    },
+}
+
+# Exact-source anchors permit conservative sectioning when caption formatting
+# collapses a long monologue into too few paragraphs for the generic sectioner.
+# Every anchor must occur exactly once; wording remains byte-for-byte unchanged
+# apart from inserted Markdown headings.
+SOURCE_SECTION_RECIPES: dict[str, tuple[tuple[str, str], ...]] = {
+    "youtube:OHXe0-o4b_o": (
+        ("Opening - Air Campaign Against Ukraine", "Good day. Today is Sunday 30th August 2026."),
+        (
+            "Energy-System Escalation",
+            "The thing is that the Russian defense ministry tells us that massive strikes against Ukrainian energy facilities are coming",
+        ),
+        (
+            "Drone Campaign and Front-Line Pressure",
+            "Now, here again, let me say something further. Um, Ukraine continues to conduct drone strikes against Russia.",
+        ),
+        (
+            "Ground War and the Ratcliffe Mission",
+            "So the ground fighting or so it seems to me is already underway.",
+        ),
+        (
+            "Western Ceasefire Diplomacy",
+            "So clearly alongside the various Russian air offensives and ground offensives, there is a diplomatic offensive underway.",
+        ),
+    ),
+}
+
 
 class ArchiveRepairError(ValueError):
     pass
@@ -38,6 +100,8 @@ class FileRepairPlan:
     changed_fields: tuple[str, ...]
     section_count_before: int
     section_count_after: int
+    asr_rule_applications: tuple[tuple[str, str, int], ...]
+    processing_evidence: tuple[tuple[str, str, str], ...]
     diff: str
     original_bytes: bytes
     proposed_bytes: bytes
@@ -54,6 +118,14 @@ class FileRepairPlan:
             "changed_fields": list(self.changed_fields),
             "section_count_before": self.section_count_before,
             "section_count_after": self.section_count_after,
+            "asr_rule_applications": [
+                {"pattern": pattern, "replacement": replacement, "count": count}
+                for pattern, replacement, count in self.asr_rule_applications
+            ],
+            "processing_evidence": [
+                {"field": field, "disposition": disposition, "evidence": evidence}
+                for field, disposition, evidence in self.processing_evidence
+            ],
             "diff": self.diff,
         }
 
@@ -217,9 +289,15 @@ def source_host(path: Path, frontmatter: dict[str, str]) -> str:
     return host
 
 
-def repair_args(path: Path, frontmatter: dict[str, str], host_slug: str) -> SimpleNamespace:
+def repair_args(
+    path: Path,
+    frontmatter: dict[str, str],
+    host_slug: str,
+    source_identity: str | None,
+) -> SimpleNamespace:
     return SimpleNamespace(
         host_slug=host_slug,
+        source_identity=source_identity,
         trim_opening="auto",
         asr_repair="auto",
         opening_trim_applied=land_best_intake.truthy_scalar(frontmatter.get("opening_trim_applied")),
@@ -242,6 +320,176 @@ def repair_args(path: Path, frontmatter: dict[str, str], host_slug: str) -> Simp
         section_pass=land_best_intake.unquote_scalar(frontmatter.get("section_pass", "")),
         editorial_note=land_best_intake.unquote_scalar(frontmatter.get("editorial_note", "")),
     )
+
+
+def derive_processing_updates(
+    frontmatter: dict[str, str],
+    args: SimpleNamespace,
+    body: str,
+) -> tuple[dict[str, str], tuple[tuple[str, str, str], ...]]:
+    """Derive conservative processing dispositions from local, inspectable evidence."""
+    existing = {
+        key: land_best_intake.unquote_scalar(frontmatter.get(key, ""))
+        for key in land_best_intake.PROCESSING_FIELD_ORDER
+    }
+    section_count = len(re.findall(r"(?m)^### ", body))
+    turn_count = len(re.findall(r"(?m)^>> ", body))
+    repair_evidenced = bool(args.asr_repair_applied and args.asr_repair_pass)
+
+    if existing["asr_disposition"] == "repaired" and not repair_evidenced:
+        raise ArchiveRepairError("asr_disposition repaired lacks repair-pass provenance")
+    if existing["speaker_attribution"] == "turn-labeled" and turn_count < 2:
+        raise ArchiveRepairError("speaker_attribution turn-labeled lacks explicit turn markers")
+    if existing["sectioning_disposition"] == "sectioned" and section_count == 0:
+        raise ArchiveRepairError("sectioning_disposition sectioned lacks transcript headings")
+    if existing["speaker_attribution"] == "partial" and not existing["speaker_attribution_reason"]:
+        raise ArchiveRepairError("speaker_attribution partial lacks a reviewer reason")
+
+    reviewed_asr = existing["asr_disposition"]
+    if reviewed_asr in {"not-needed", "blocked"}:
+        asr_disposition = reviewed_asr
+        asr_evidence = "preserved explicit reviewed disposition"
+    elif repair_evidenced:
+        asr_disposition = "repaired"
+        asr_evidence = f"asr_repair_applied=true; asr_repair_pass={args.asr_repair_pass}"
+    else:
+        asr_disposition = "needs-repair"
+        asr_evidence = "no recognized repair-pass provenance"
+
+    reviewed_attribution = existing["speaker_attribution"]
+    if reviewed_attribution in {"confirmed-solo", "partial"}:
+        speaker_attribution = reviewed_attribution
+        speaker_evidence = "preserved explicit reviewed attribution disposition"
+    elif turn_count >= 2:
+        speaker_attribution = "turn-labeled"
+        speaker_evidence = f"explicit_turn_markers={turn_count}"
+    else:
+        speaker_attribution = "unknown"
+        speaker_evidence = f"explicit_turn_markers={turn_count}; identities not inferred"
+
+    if speaker_attribution in {"partial", "unknown"}:
+        speaker_reason = existing["speaker_attribution_reason"] or (
+            "Source-level host and guest metadata does not establish transcript turn attribution."
+        )
+    else:
+        speaker_reason = existing["speaker_attribution_reason"]
+
+    if section_count:
+        sectioning_disposition = "sectioned"
+        sectioning_reason = ""
+        sectioning_evidence = f"semantic_section_headings={section_count}"
+    else:
+        sectioning_disposition = "preserved-unsectioned"
+        sectioning_reason = existing["sectioning_reason"] or (
+            "No strong semantic boundaries were admitted during governed inspection."
+        )
+        sectioning_evidence = "semantic_section_headings=0; body wording preserved"
+
+    reviewed_quotation = existing["quotation_readiness"]
+    if reviewed_quotation == "ready":
+        if not (
+            asr_disposition in {"repaired", "not-needed"}
+            and speaker_attribution in {"confirmed-solo", "turn-labeled"}
+            and sectioning_disposition == "sectioned"
+        ):
+            raise ArchiveRepairError(
+                "quotation_readiness ready contradicts unresolved processing dispositions"
+            )
+        quotation_readiness = "ready"
+        quotation_reason = ""
+        quotation_evidence = "preserved explicit reviewed quotation disposition"
+    elif (
+        asr_disposition in {"repaired", "not-needed"}
+        and speaker_attribution in {"confirmed-solo", "turn-labeled"}
+        and (
+            sectioning_disposition == "sectioned"
+            or (
+                sectioning_disposition == "preserved-unsectioned"
+                and bool(sectioning_reason)
+            )
+        )
+    ):
+        quotation_readiness = "restricted"
+        quotation_reason = existing["quotation_readiness_reason"] or (
+            "Usable for bounded analysis, but quotations require source-audio verification."
+        )
+        quotation_evidence = "processing prerequisites present; audio verification not established"
+    else:
+        quotation_readiness = "not-ready"
+        quotation_reason = existing["quotation_readiness_reason"] or (
+            "Transcript processing is incomplete; quotations are not ready."
+        )
+        quotation_evidence = "one or more processing prerequisites remain unresolved"
+
+    updates = {
+        "asr_disposition": asr_disposition,
+        "speaker_attribution": speaker_attribution,
+        "speaker_attribution_reason": speaker_reason,
+        "sectioning_disposition": sectioning_disposition,
+        "sectioning_reason": sectioning_reason,
+        "quotation_readiness": quotation_readiness,
+        "quotation_readiness_reason": quotation_reason,
+    }
+    evidence = (
+        ("asr_disposition", asr_disposition, asr_evidence),
+        ("speaker_attribution", speaker_attribution, speaker_evidence),
+        ("sectioning_disposition", sectioning_disposition, sectioning_evidence),
+        ("quotation_readiness", quotation_readiness, quotation_evidence),
+    )
+    return updates, evidence
+
+
+def reviewed_metadata_updates(
+    source_identity: str | None,
+    host_slug: str,
+    frontmatter: dict[str, str],
+) -> dict[str, Any]:
+    review = SOURCE_METADATA_REVIEWS.get(source_identity or "")
+    if not review:
+        return {}
+    if review["host_slug"] != host_slug:
+        raise ArchiveRepairError(
+            f"source-scoped metadata review host drift for {source_identity}"
+        )
+    for field, expected in review.get("requires", {}).items():
+        observed = land_best_intake.unquote_scalar(frontmatter.get(field, ""))
+        if observed != expected:
+            raise ArchiveRepairError(
+                f"source-scoped metadata review prerequisite drift for "
+                f"{source_identity}: {field}"
+            )
+    return dict(review["updates"])
+
+
+def apply_source_section_recipe(
+    source_identity: str | None,
+    body: str,
+) -> tuple[str, int]:
+    recipe = SOURCE_SECTION_RECIPES.get(source_identity or "")
+    if not recipe:
+        return body, 0
+    proposed = body
+    for heading, anchor in recipe:
+        observed = proposed.count(anchor)
+        if observed != 1:
+            raise ArchiveRepairError(
+                f"source-scoped section anchor count mismatch for "
+                f"{source_identity}: expected 1, observed {observed}: {anchor}"
+            )
+        anchor_index = proposed.index(anchor)
+        line_start = proposed.rfind("\n", 0, anchor_index) + 1
+        if proposed[line_start:anchor_index].strip():
+            raise ArchiveRepairError(
+                f"source-scoped section anchor is not line-bounded for "
+                f"{source_identity}: {anchor}"
+            )
+        proposed = (
+            proposed[:line_start]
+            + f"### {heading}\n\n"
+            + anchor
+            + proposed[anchor_index + len(anchor):]
+        )
+    return proposed, len(recipe)
 
 
 def scalar_line(key: str, value: Any) -> str:
@@ -302,7 +550,7 @@ def wording_tokens(body: str) -> tuple[str, ...]:
 
 
 def heading_only_components(text: str) -> tuple[list[str], str, str, str] | None:
-    """Parse a legacy source and propose only the missing transcript heading."""
+    """Parse a legacy source and propose only its missing body-kind heading."""
     if not (text.startswith("---\n") or text.startswith("---\r\n")):
         return None
     newline = "\r\n" if text.startswith("---\r\n") else "\n"
@@ -310,16 +558,28 @@ def heading_only_components(text: str) -> tuple[list[str], str, str, str] | None
     if len(parts) < 3:
         return None
     frontmatter_lines = parts[1].splitlines()
+    frontmatter = land_best_intake.parse_frontmatter_lines(frontmatter_lines)
+    source_form = str(frontmatter.get("source_form", "")).casefold()
+    kind = str(frontmatter.get("kind", "")).casefold()
+    authored = (
+        source_form in {"newsletter", "substack-post", "x-post-text", "essay", "article"}
+        or kind in {"source-text", "newsletter", "substack-post", "x-post-text", "essay", "article"}
+    )
+    marker = "## Source Text" if authored else "## Transcript"
     content_start = text.find("---", 3) + 3
     content = parts[2]
-    if "## Transcript" in content or "## Cleaned Transcript" in content:
+    if (
+        "## Transcript" in content
+        or "## Cleaned Transcript" in content
+        or "## Source Text" in content
+    ):
         return None
     title_match = re.search(r"(?m)^# .+\r?\n", content)
     if not title_match:
         return None
-    insert_at = content_start + title_match.start()
-    proposed = text[:insert_at] + f"## Transcript{newline}{newline}" + text[insert_at:]
-    body = f"## Transcript{newline}{newline}" + content.lstrip("\r\n")
+    insert_at = content_start + title_match.end()
+    proposed = text[:insert_at] + f"{newline}{marker}{newline}" + text[insert_at:]
+    body = proposed[content_start:]
     return frontmatter_lines, content[: title_match.start()], body, proposed
 
 
@@ -400,10 +660,14 @@ def plan_file(
     if host_slug != manifest_host:
         raise ArchiveRepairError(f"manifest and source host routes disagree: {relative}")
 
-    args = repair_args(path, frontmatter, host_slug)
+    manifest_identity = row.get("source_identity")
+    source_identity = manifest_identity if isinstance(manifest_identity, str) else None
+    args = repair_args(path, frontmatter, host_slug, source_identity)
     proposed_body = body
     updates: dict[str, Any] = {}
     operations: tuple[str, ...] = ()
+    asr_rule_applications: tuple[tuple[str, str, int], ...] = ()
+    processing_evidence: tuple[tuple[str, str, str], ...] = ()
     before_sections = len(re.findall(r"(?m)^### ", body))
 
     if repair_class == "body-merge":
@@ -411,28 +675,89 @@ def plan_file(
     elif repair_class == "heading-only":
         operations = ("heading-only-normalization",)
     elif repair_class == "metadata":
+        processing_updates, processing_evidence = derive_processing_updates(
+            frontmatter, args, proposed_body
+        )
+        reviewed_updates = reviewed_metadata_updates(
+            source_identity, host_slug, frontmatter
+        )
         updates = {
             "transcript_curation": "curated_sectioned" if before_sections else "preserved_unsectioned",
             "section_count": before_sections,
+            **processing_updates,
+            **reviewed_updates,
         }
-        operations = ("metadata-normalization",)
+        operations = (
+            "metadata-normalization",
+            "processing-disposition-reconciliation",
+            *(
+                ("source-scoped-metadata-review",)
+                if reviewed_updates
+                else ()
+            ),
+        )
     elif repair_class == "asr":
-        if not land_best_intake.host_supports_asr_repair(host_slug):
+        host_approved = land_best_intake.host_supports_asr_repair(host_slug)
+        source_approved = land_best_intake.source_supports_asr_repair(source_identity)
+        if not host_approved and not source_approved:
             raise ArchiveRepairError(f"ASR repair host is not approved: {relative}")
+        if source_approved:
+            frontmatter_identity = land_best_intake.unquote_scalar(
+                frontmatter.get("source_identity", "")
+            )
+            if frontmatter_identity != source_identity:
+                raise ArchiveRepairError(
+                    f"manifest and source identities disagree: {relative}"
+                )
         proposed_body = land_best_intake.normalize_inline_turn_markers(body)
-        proposed_body = land_best_intake.repair_asr_text(args, proposed_body, normalize_layout=False)
-        processing = land_best_intake.parse_frontmatter_lines(
-            land_best_intake.build_processing_field_lines(args, proposed_body)
+        try:
+            proposed_body = land_best_intake.repair_asr_text(
+                args, proposed_body, normalize_layout=False
+            )
+        except ValueError as error:
+            raise ArchiveRepairError(str(error)) from error
+        asr_rule_applications = tuple(getattr(args, "asr_rule_applications", ()))
+        processing, processing_evidence = derive_processing_updates(
+            frontmatter, args, proposed_body
         )
         updates = {
             "asr_repair_applied": args.asr_repair_applied,
             "asr_repair_pass": args.asr_repair_pass,
-            **{
-                key: land_best_intake.unquote_scalar(value)
-                for key, value in processing.items()
-            },
+            **processing,
         }
-        operations = ("asr-repair",)
+        source_complete = land_best_intake.source_asr_repair_is_complete(
+            source_identity
+        )
+        if (
+            source_approved
+            and not source_complete
+            and land_best_intake.unquote_scalar(
+                frontmatter.get("asr_disposition", "")
+            ) != "blocked"
+        ):
+            updates["asr_disposition"] = "needs-repair"
+            updates["quotation_readiness"] = "not-ready"
+            updates["quotation_readiness_reason"] = (
+                "Reviewed source-scoped substitutions were applied, but full "
+                "ASR repair is not established; do not quote verbatim."
+            )
+            processing_evidence = (
+                (
+                    "asr_disposition",
+                    "needs-repair",
+                    "reviewed source-scoped substitutions applied; full repair not established",
+                ),
+                *processing_evidence[1:],
+            )
+        operations = (
+            (
+                "asr-repair-source-scoped"
+                if source_complete
+                else "asr-repair-source-scoped-partial"
+            )
+            if source_approved
+            else "asr-repair",
+        )
     elif repair_class == "wrapper-trim":
         if host_slug not in land_best_intake.HOST_TRIM_RULES:
             raise ArchiveRepairError(f"wrapper-trim host is not approved: {relative}")
@@ -459,17 +784,38 @@ def plan_file(
             operations = ("sectioning-already-present",)
         else:
             base = land_best_intake.strip_transcript_section_headings(body) if resection else body
-            proposed_body, args.transcript_curation, args.section_count, reason = land_best_intake.section_transcript(args, base)
+            proposed_body, recipe_sections = apply_source_section_recipe(
+                source_identity, base
+            )
+            if recipe_sections:
+                args.transcript_curation = "curated_sectioned"
+                args.section_count = recipe_sections
+                args.section_pass = land_best_intake.SECTIONING_PASS_LABEL
+                reason = ""
+            else:
+                proposed_body, args.transcript_curation, args.section_count, reason = land_best_intake.section_transcript(args, base)
             if args.transcript_curation != "curated_sectioned":
                 raise ArchiveRepairError(f"sectioning did not find strong boundaries ({reason}): {relative}")
             if wording_tokens(base) != wording_tokens(proposed_body):
                 raise ArchiveRepairError(f"sectioning would change transcript wording: {relative}")
-            operations = ("resection" if resection else "sectioning",)
+            if recipe_sections:
+                operations = (
+                    "source-scoped-resection"
+                    if resection
+                    else "source-scoped-sectioning",
+                )
+            else:
+                operations = ("resection" if resection else "sectioning",)
         updates = {
             "transcript_curation": args.transcript_curation,
             "section_count": args.section_count,
             "section_pass": args.section_pass,
         }
+        processing_updates, processing_evidence = derive_processing_updates(
+            frontmatter, args, proposed_body
+        )
+        updates.update(processing_updates)
+        operations = (*operations, "processing-disposition-reconciliation")
     else:  # pragma: no cover - caller validates the vocabulary
         raise ArchiveRepairError(f"unsupported repair class: {repair_class}")
 
@@ -484,8 +830,10 @@ def plan_file(
     after_sections = len(re.findall(r"(?m)^### ", proposed_body))
     if repair_class == "metadata" and proposed_body != body:
         raise ArchiveRepairError(f"metadata repair would change body bytes: {relative}")
-    if repair_class == "heading-only" and proposed_text.count("## Transcript") != 1:
-        raise ArchiveRepairError(f"heading-only normalization produced an invalid transcript heading count: {relative}")
+    if repair_class == "heading-only":
+        heading_count = proposed_text.count("## Transcript") + proposed_text.count("## Source Text")
+        if heading_count != 1:
+            raise ArchiveRepairError(f"heading-only normalization produced an invalid body heading count: {relative}")
     if repair_class == "body-merge" and (
         proposed_text.count("## Transcript") != 1
         or "All the best. I look forward to it. Likewise." not in proposed_text
@@ -513,6 +861,8 @@ def plan_file(
         changed_fields=changed_fields,
         section_count_before=before_sections,
         section_count_after=after_sections,
+        asr_rule_applications=asr_rule_applications,
+        processing_evidence=processing_evidence,
         diff=diff,
         original_bytes=original,
         proposed_bytes=proposed,
@@ -572,6 +922,8 @@ def build_plan(
                 "output_sha256": item.output_sha256,
                 "operations": item.operations,
                 "changed_fields": item.changed_fields,
+                "asr_rule_applications": item.asr_rule_applications,
+                "processing_evidence": item.processing_evidence,
             }
             for item in plans
         ],

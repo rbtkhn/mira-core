@@ -12,6 +12,10 @@ Before costly tools, establish a compact internal execution envelope containing:
 - objective and mutation boundary;
 - canonical runtime and an absolute external temporary root;
 - cheapest sufficient validation profile;
+- the decision the evidence could change;
+- the failure prevented, its consequence, and its reversibility;
+- the cheapest discriminating evidence and its evidence plane;
+- the condition that ends the evidence work;
 - permitted live probes and their exact scope;
 - the controlling terminal session identifier when a wrapper returns one;
 - an applicable admitted recursive-learning lesson or explicit `none`; and
@@ -19,6 +23,11 @@ Before costly tools, establish a compact internal execution envelope containing:
 
 Keep the envelope backstage unless a blocker, authority boundary, verification
 distinction, or external-repository scope affects the operator.
+
+Do not persist this gate as a checklist, receipt, ledger, or telemetry event.
+If success and failure would lead to the same course, skip the non-mandatory
+evidence work. A required safety, authority, publication, or domain-governance
+check remains controlling even when it does not change the immediate course.
 
 ## Validate proportionally
 
@@ -30,6 +39,15 @@ Prefer this order:
 4. one live forward check when materially required; and
 5. repository-wide validation only when the objective or release boundary
    requires it.
+
+Use the first level that can distinguish the live possibilities. Start with a
+representative probe when it can settle the decision, escalate only while the
+decision remains sensitive, and stop when the named condition is met or the
+remaining uncertainty cannot change the course. A bounded final change may
+close on focused evidence when the receipt names the evidence plane and the
+repository-wide or hosted boundary that remains unverified. Full remains
+required for repository-wide, landed-corpus, release or publication claims,
+and whenever another controlling workflow explicitly requires it.
 
 Use `tools/run.ps1 runtime-bootstrap --print-python` once for external
 validators and `tools/run.ps1 test` for repository tests. Before any test or
@@ -51,6 +69,10 @@ tools/run.ps1 test --mode fast --explain-route
 If the route reports Full because of unrelated state, use explicit focused test
 paths for the bounded change and report unrelated structural drift separately.
 The preview is read-only and does not replace eventual release validation.
+
+Before waiting on another task or service, name the local decision that its
+result blocks. If no local decision depends on it, continue bounded local work
+or close rather than treating completion elsewhere as a dependency.
 
 ## Preserve continuity and publication boundaries
 

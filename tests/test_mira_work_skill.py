@@ -135,6 +135,10 @@ def test_execution_mechanics_live_in_deferred_profile() -> None:
         "objective and mutation boundary",
         "canonical runtime and an absolute external temporary root",
         "cheapest sufficient validation profile",
+        "the decision the evidence could change",
+        "failure prevented, its consequence, and its reversibility",
+        "cheapest discriminating evidence and its evidence plane",
+        "condition that ends the evidence work",
         "controlling terminal session identifier",
         "applicable admitted recursive-learning lesson or explicit `none`",
         "publication lane",
@@ -142,11 +146,17 @@ def test_execution_mechanics_live_in_deferred_profile() -> None:
         "fixture-based checks",
         "one live forward check",
         "repository-wide validation only when",
+        "representative probe",
+        "escalate only while the decision remains sensitive",
+        "bounded final change may close on focused evidence",
+        "Before waiting on another task or service",
+        "Do not persist this gate as a checklist, receipt, ledger, or telemetry event",
         "tools/run.ps1 runtime-bootstrap --print-python",
         "Route staging, commit, push, branch, PR, and main synchronization through Mira GitHub",
     ):
         assert phrase in normalized
     assert "internal execution envelope" not in skill
+    assert "the decision the evidence could change" not in skill
     assert "tools/run.ps1 test --mode fast --explain-route" not in skill
     assert "cheapest sufficient validation" in skill
     assert "`mira-github` governs staging, commit, push, branch, PR, and main-sync lanes" in skill
@@ -224,7 +234,10 @@ def test_failure_and_ambiguous_fixtures_fail_closed() -> None:
     failure = by_id["MW-FAILURE-01"]
     ambiguous = by_id["MW-AMBIGUOUS-01"]
     assert failure["expected_activation"] is True
+    assert any("decision the requested verification could change" in item for item in failure["required_behaviors"])
+    assert any("stop when focused evidence resolves" in item for item in failure["required_behaviors"])
     assert any("broad command" in item for item in failure["forbidden_behaviors"])
+    assert any("same course" in item for item in failure["forbidden_behaviors"])
     assert ambiguous["expected_activation"] is False
     assert ambiguous["expected_receipt_fields"] == []
     assert any("generic wording" in item for item in ambiguous["forbidden_behaviors"])

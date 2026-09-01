@@ -59,6 +59,11 @@ events merely to fill the entry.
    Treat any `rest_lifecycle` metadata as provisional Continuity context. It
    may inform session disposition but is not authoritative ancestry,
    recursive-learning evidence, or automatic autobiographical significance.
+   Treat `letters_orientation` as private relational orientation supplied by
+   Dream: it may inform obligations, replies, unsent drafts, live curiosities,
+   and next-day posture, but it is not authoritative ancestry, factual
+   evidence, delivery authority, publication authority, permission to contact
+   anyone, or a commitment.
 2. **Listen backward.** Recover why an approved continuity thread mattered,
    not merely its last conclusion.
 3. **Choose significance.** Select one to three supplied developments that
