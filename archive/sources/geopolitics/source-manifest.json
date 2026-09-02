@@ -2,7 +2,7 @@
   "manifest_id": "narrative-geopolitics-source-manifest-v1",
   "source_basis": "central archive with completed historical strategy-codex imports",
   "imported_at": "2026-07-09",
-  "source_count": 2348,
+  "source_count": 2384,
   "boundary": {
     "archive": "source truth",
     "voices": "voice continuity and routing",
@@ -16863,6 +16863,8 @@
     {
       "date": "2025-07-15",
       "title": "Jeffrey Sachs: End of the Western-Centric World & Rise of BRICS",
+      "source_identity": "youtube:VusbFzvhsf4",
+      "source_url": "https://www.youtube.com/watch?v=VusbFzvhsf4",
       "local_path": "archive/sources/geopolitics/sources/2025-07-15/source-diesen-sachs-end-of-the-western-centric-world-and-rise-of-brics-2025-07-15.md",
       "voice_index_path": "../../../archive/sources/geopolitics/sources/2025-07-15/source-diesen-sachs-end-of-the-western-centric-world-and-rise-of-brics-2025-07-15.md",
       "upstream_path": "C:/dev/strategy-codex/source-archive/statecraft/2025-07-15/source-diesen-sachs-end-of-the-western-centric-world-and-rise-of-brics-2025-07-15.md",
@@ -16884,9 +16886,7 @@
       "role_basis": {
         "sachs": "host_route_with_person_voice"
       },
-      "host_kind": "channel",
-      "source_identity": "youtube:VusbFzvhsf4",
-      "source_url": "https://www.youtube.com/watch?v=VusbFzvhsf4"
+      "host_kind": "channel"
     },
     {
       "date": "2025-07-30",
@@ -16943,6 +16943,8 @@
     {
       "date": "2025-09-18",
       "title": "Jeffrey Sachs: US and China Edge Toward War Over Taiwan",
+      "source_identity": "youtube:E2SsiG1jDLs",
+      "source_url": "https://www.youtube.com/watch?v=E2SsiG1jDLs",
       "local_path": "archive/sources/geopolitics/sources/2025-09-18/source-glenn-diesen-jeffrey-sachs-us-and-china-edge-toward-war-over-taiwan-2025-09-18.md",
       "voice_index_path": "../../../archive/sources/geopolitics/sources/2025-09-18/source-glenn-diesen-jeffrey-sachs-us-and-china-edge-toward-war-over-taiwan-2025-09-18.md",
       "upstream_path": "C:/dev/strategy-codex/source-archive/statecraft/2025-09-18/source-glenn-diesen-jeffrey-sachs-us-and-china-edge-toward-war-over-taiwan-2025-09-18.md",
@@ -16964,9 +16966,7 @@
       "role_basis": {
         "sachs": "host_route_with_person_voice"
       },
-      "host_kind": "channel",
-      "source_identity": "youtube:E2SsiG1jDLs",
-      "source_url": "https://www.youtube.com/watch?v=E2SsiG1jDLs"
+      "host_kind": "channel"
     },
     {
       "date": "2025-09-27",
@@ -17023,6 +17023,8 @@
     {
       "date": "2025-10-22",
       "title": "Jeffrey Sachs: Last Chance for Peace in Ukraine Sabotaged by Europe",
+      "source_identity": "youtube:7Wrd2J1pLqk",
+      "source_url": "https://www.youtube.com/watch?v=7Wrd2J1pLqk",
       "local_path": "archive/sources/geopolitics/sources/2025-10-22/source-glenn-diesen-jeffrey-sachs-last-chance-for-peace-in-ukraine-sabotaged-by-europe-2025-10-22.md",
       "voice_index_path": "../../../archive/sources/geopolitics/sources/2025-10-22/source-glenn-diesen-jeffrey-sachs-last-chance-for-peace-in-ukraine-sabotaged-by-europe-2025-10-22.md",
       "upstream_path": "C:/dev/strategy-codex/source-archive/statecraft/2025-10-22/source-glenn-diesen-jeffrey-sachs-last-chance-for-peace-in-ukraine-sabotaged-by-europe-2025-10-22.md",
@@ -17044,13 +17046,13 @@
       "role_basis": {
         "sachs": "host_route_with_person_voice"
       },
-      "host_kind": "channel",
-      "source_identity": "youtube:7Wrd2J1pLqk",
-      "source_url": "https://www.youtube.com/watch?v=7Wrd2J1pLqk"
+      "host_kind": "channel"
     },
     {
       "date": "2025-11-08",
       "title": "Jeffrey Sachs: Venezuela Regime Change - Oil & Gangster Politics",
+      "source_identity": "youtube:73jqtNqjwcw",
+      "source_url": "https://www.youtube.com/watch?v=73jqtNqjwcw",
       "local_path": "archive/sources/geopolitics/sources/2025-11-08/source-glenn-diesen-jeffrey-sachs-venezuela-regime-change-oil-and-gangster-politics-2025-11-08.md",
       "voice_index_path": "../../../archive/sources/geopolitics/sources/2025-11-08/source-glenn-diesen-jeffrey-sachs-venezuela-regime-change-oil-and-gangster-politics-2025-11-08.md",
       "upstream_path": "C:/dev/strategy-codex/source-archive/statecraft/2025-11-08/source-glenn-diesen-jeffrey-sachs-venezuela-regime-change-oil-and-gangster-politics-2025-11-08.md",
@@ -17072,9 +17074,7 @@
       "role_basis": {
         "sachs": "host_route_with_person_voice"
       },
-      "host_kind": "channel",
-      "source_identity": "youtube:73jqtNqjwcw",
-      "source_url": "https://www.youtube.com/watch?v=73jqtNqjwcw"
+      "host_kind": "channel"
     },
     {
       "date": "2026-01-04",
@@ -18004,6 +18004,8 @@
         "sachs"
       ],
       "host_slug": "judging-freedom",
+      "source_identity": "youtube:WPcgkd-sC3s",
+      "source_url": "https://www.youtube.com/watch?v=WPcgkd-sC3s",
       "import_status": "imported",
       "voice_roles": {
         "sachs": [
@@ -18016,9 +18018,7 @@
       "role_basis": {
         "sachs": "host_route_with_person_voice"
       },
-      "host_kind": "channel",
-      "source_identity": "youtube:WPcgkd-sC3s",
-      "source_url": "https://www.youtube.com/watch?v=WPcgkd-sC3s"
+      "host_kind": "channel"
     },
     {
       "date": "2026-01-27",
@@ -28516,6 +28516,8 @@
     {
       "date": "2025-05-09",
       "title": "Col. Douglas Macgregor: Victory Day - Russia Already Won the War",
+      "source_identity": "youtube:e_RoltpkEsY",
+      "source_url": "https://www.youtube.com/watch?v=e_RoltpkEsY",
       "local_path": "archive/sources/geopolitics/sources/2025-05-09/source-diesen-macgregor-victory-day-russia-already-won-the-war-2025-05-09.md",
       "voice_index_path": "../../../archive/sources/geopolitics/sources/2025-05-09/source-diesen-macgregor-victory-day-russia-already-won-the-war-2025-05-09.md",
       "upstream_path": "C:/dev/strategy-codex/source-archive/statecraft/2025-05-09/source-diesen-macgregor-victory-day-russia-already-won-the-war-2025-05-09.md",
@@ -28537,9 +28539,7 @@
       "role_basis": {
         "macgregor": "host_route_with_person_voice"
       },
-      "host_kind": "channel",
-      "source_identity": "youtube:e_RoltpkEsY",
-      "source_url": "https://www.youtube.com/watch?v=e_RoltpkEsY"
+      "host_kind": "channel"
     },
     {
       "date": "2025-05-12",
@@ -28804,6 +28804,8 @@
     {
       "date": "2025-06-20",
       "title": "Col. Douglas Macgregor: America's Attack on Iran Could Start WW3",
+      "source_identity": "youtube:wLWXoSI7IFM",
+      "source_url": "https://www.youtube.com/watch?v=wLWXoSI7IFM",
       "local_path": "archive/sources/geopolitics/sources/2025-06-20/source-diesen-macgregor-america-s-attack-on-iran-could-start-ww3-2025-06-20.md",
       "voice_index_path": "../../../archive/sources/geopolitics/sources/2025-06-20/source-diesen-macgregor-america-s-attack-on-iran-could-start-ww3-2025-06-20.md",
       "upstream_path": "C:/dev/strategy-codex/source-archive/statecraft/2025-06-20/source-diesen-macgregor-america-s-attack-on-iran-could-start-ww3-2025-06-20.md",
@@ -28825,9 +28827,7 @@
       "role_basis": {
         "macgregor": "host_route_with_person_voice"
       },
-      "host_kind": "channel",
-      "source_identity": "youtube:wLWXoSI7IFM",
-      "source_url": "https://www.youtube.com/watch?v=wLWXoSI7IFM"
+      "host_kind": "channel"
     },
     {
       "date": "2025-08-20",
@@ -28858,6 +28858,8 @@
     {
       "date": "2025-09-25",
       "title": "Douglas Macgregor: 'War is Inevitable'",
+      "source_identity": "youtube:k1FkIZaAhHE",
+      "source_url": "https://www.youtube.com/watch?v=k1FkIZaAhHE",
       "local_path": "archive/sources/geopolitics/sources/2025-09-25/source-glenn-diesen-douglas-macgregor-douglas-macgregor-war-is-inevitable-2025-09-25.md",
       "voice_index_path": "../../../archive/sources/geopolitics/sources/2025-09-25/source-glenn-diesen-douglas-macgregor-douglas-macgregor-war-is-inevitable-2025-09-25.md",
       "upstream_path": "C:/dev/strategy-codex/source-archive/statecraft/2025-09-25/source-glenn-diesen-douglas-macgregor-douglas-macgregor-war-is-inevitable-2025-09-25.md",
@@ -28879,13 +28881,13 @@
       "role_basis": {
         "macgregor": "host_route_with_person_voice"
       },
-      "host_kind": "channel",
-      "source_identity": "youtube:k1FkIZaAhHE",
-      "source_url": "https://www.youtube.com/watch?v=k1FkIZaAhHE"
+      "host_kind": "channel"
     },
     {
       "date": "2025-10-23",
       "title": "Douglas Macgregor: Broken NATO Escalates War on Russia",
+      "source_identity": "youtube:dZdnC1btS4M",
+      "source_url": "https://www.youtube.com/watch?v=dZdnC1btS4M",
       "local_path": "archive/sources/geopolitics/sources/2025-10-23/source-glenn-diesen-douglas-macgregor-douglas-macgregor-broken-nato-escalates-war-on-russia-2025-10-23.md",
       "voice_index_path": "../../../archive/sources/geopolitics/sources/2025-10-23/source-glenn-diesen-douglas-macgregor-douglas-macgregor-broken-nato-escalates-war-on-russia-2025-10-23.md",
       "upstream_path": "C:/dev/strategy-codex/source-archive/statecraft/2025-10-23/source-glenn-diesen-douglas-macgregor-douglas-macgregor-broken-nato-escalates-war-on-russia-2025-10-23.md",
@@ -28907,9 +28909,7 @@
       "role_basis": {
         "macgregor": "host_route_with_person_voice"
       },
-      "host_kind": "channel",
-      "source_identity": "youtube:dZdnC1btS4M",
-      "source_url": "https://www.youtube.com/watch?v=dZdnC1btS4M"
+      "host_kind": "channel"
     },
     {
       "date": "2025-12-10",
@@ -62198,7 +62198,7 @@
       "source_class": "guest interview pressure test",
       "modality": "cleaned-transcript",
       "voice_slugs": [
-        "chas-freeman"
+        "freeman"
       ],
       "host_slug": "dialogue-works",
       "source_identity": "youtube:WpZWtFiHJk8",
@@ -62221,7 +62221,7 @@
       "source_class": "guest interview pressure test",
       "modality": "cleaned-transcript",
       "voice_slugs": [
-        "chas-freeman"
+        "freeman"
       ],
       "host_slug": "daniel-davis",
       "source_identity": "youtube:lVQX-fQZgu0",
@@ -62244,7 +62244,7 @@
       "source_class": "guest interview pressure test",
       "modality": "cleaned-transcript",
       "voice_slugs": [
-        "lawrence-wilkerson"
+        "wilkerson"
       ],
       "host_slug": "dialogue-works",
       "source_identity": "youtube:TJ3SIvzYDX4",
@@ -62267,7 +62267,7 @@
       "source_class": "guest interview pressure test",
       "modality": "cleaned-transcript",
       "voice_slugs": [
-        "lawrence-wilkerson"
+        "wilkerson"
       ],
       "host_slug": "dialogue-works",
       "source_identity": "youtube:EyTxAu91wb8",
@@ -62512,6 +62512,144 @@
       "import_status": "imported"
     },
     {
+      "date": "2025-10-13",
+      "title": "Alastair Crooke : Israel and Trump Still Want War.",
+      "local_path": "archive/sources/geopolitics/sources/2025-10-13/source-alastair-crooke-israel-and-trump-still-want-war-2025-10-13.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2025-10-13/source-alastair-crooke-israel-and-trump-still-want-war-2025-10-13.md",
+      "upstream_path": "operator-paste://2025-10-13/alastair-crooke-israel-and-trump-still-want-war",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "crooke"
+      ],
+      "host_slug": "judging-freedom",
+      "source_identity": "youtube:U7Hoj5sLtZE",
+      "source_url": "https://www.youtube.com/watch?v=U7Hoj5sLtZE",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2025-11-18",
+      "title": "Alastair Crooke : Russians Believe Europe Wants War",
+      "local_path": "archive/sources/geopolitics/sources/2025-11-18/source-alastair-crooke-russians-believe-europe-wants-war-2025-11-18.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2025-11-18/source-alastair-crooke-russians-believe-europe-wants-war-2025-11-18.md",
+      "upstream_path": "operator-paste://2025-11-18/alastair-crooke-russians-believe-europe-wants-war",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "crooke"
+      ],
+      "host_slug": "judging-freedom",
+      "source_identity": "youtube:u8iB4IOFFrg",
+      "source_url": "https://www.youtube.com/watch?v=u8iB4IOFFrg",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2025-12-08",
+      "title": "Alastair Crooke : Trump's Bait and Switch; Netanyahu's Extortion.",
+      "local_path": "archive/sources/geopolitics/sources/2025-12-08/source-alastair-crooke-trump-s-bait-and-switch-netanyahu-s-extortion-2025-12-08.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2025-12-08/source-alastair-crooke-trump-s-bait-and-switch-netanyahu-s-extortion-2025-12-08.md",
+      "upstream_path": "operator-paste://2025-12-08/alastair-crooke-trump-s-bait-and-switch-netanyahu-s-extortion",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "crooke"
+      ],
+      "host_slug": "judging-freedom",
+      "source_identity": "youtube:cPTTQsROlR0",
+      "source_url": "https://www.youtube.com/watch?v=cPTTQsROlR0",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2025-11-20",
+      "title": "Prof. John Mearsheimer : Ukraine and Reality",
+      "local_path": "archive/sources/geopolitics/sources/2025-11-20/source-prof-john-mearsheimer-ukraine-and-reality-2025-11-20.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2025-11-20/source-prof-john-mearsheimer-ukraine-and-reality-2025-11-20.md",
+      "upstream_path": "operator-paste://2025-11-20/prof-john-mearsheimer-ukraine-and-reality",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mearsheimer"
+      ],
+      "host_slug": "judging-freedom",
+      "source_identity": "youtube:CwQ46qPoKKM",
+      "source_url": "https://www.youtube.com/watch?v=CwQ46qPoKKM",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2025-12-18",
+      "title": "Prof. John Mearsheimer : Unintended Consequences of a Meaningless War.",
+      "local_path": "archive/sources/geopolitics/sources/2025-12-18/source-prof-john-mearsheimer-unintended-consequences-of-a-meaningless-war-2025-12-18.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2025-12-18/source-prof-john-mearsheimer-unintended-consequences-of-a-meaningless-war-2025-12-18.md",
+      "upstream_path": "operator-paste://2025-12-18/prof-john-mearsheimer-unintended-consequences-of-a-meaningless-war",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mearsheimer"
+      ],
+      "host_slug": "judging-freedom",
+      "source_identity": "youtube:c5cikB6G5y0",
+      "source_url": "https://www.youtube.com/watch?v=c5cikB6G5y0",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2025-12-24",
+      "title": "Prof. John Mearsheimer : An Incoherent Foreign Policy.",
+      "local_path": "archive/sources/geopolitics/sources/2025-12-24/source-prof-john-mearsheimer-an-incoherent-foreign-policy-2025-12-24.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2025-12-24/source-prof-john-mearsheimer-an-incoherent-foreign-policy-2025-12-24.md",
+      "upstream_path": "operator-paste://2025-12-24/prof-john-mearsheimer-an-incoherent-foreign-policy",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mearsheimer"
+      ],
+      "host_slug": "judging-freedom",
+      "source_identity": "youtube:27r7ZK1Pnro",
+      "source_url": "https://www.youtube.com/watch?v=27r7ZK1Pnro",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
       "date": "2025-10-16",
       "title": "Jeffrey Sachs & John Mearsheimer: Spheres of Security to Prevent World War III",
       "local_path": "archive/sources/geopolitics/sources/2025-10-16/source-jeffrey-sachs-john-mearsheimer-spheres-of-security-to-prevent-world-war-iii-2025-10-16.md",
@@ -62619,6 +62757,235 @@
       "source_url": "https://www.youtube.com/watch?v=-cAPBgQOXfQ",
       "title_source": "transcript",
       "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-09-01",
+      "title": "Robert Barnes: Iran Launches Ballistic Missiles After U.S. Bombs Southern Iran",
+      "local_path": "archive/sources/geopolitics/sources/2026-09-01/source-robert-barnes-iran-launches-ballistic-missiles-after-u-s-bombs-southern-iran-2026-09-01.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-09-01/source-robert-barnes-iran-launches-ballistic-missiles-after-u-s-bombs-southern-iran-2026-09-01.md",
+      "upstream_path": "operator-paste://2026-09-01/robert-barnes-iran-launches-ballistic-missiles-after-u-s-bombs-southern-iran",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "barnes"
+      ],
+      "host_slug": "dialogue-works",
+      "source_identity": "youtube:w8-tfD4lrOw",
+      "source_url": "https://www.youtube.com/watch?v=w8-tfD4lrOw",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-09-01",
+      "title": "BREAKING: MAJOR STRIKES BY IRAN - WAR ESCALATED & IS OUT OF CONTROL w/ Professor Robert Pape",
+      "local_path": "archive/sources/geopolitics/sources/2026-09-01/source-breaking-major-strikes-by-iran-war-escalated-is-out-of-control-w-professor-robert-pape-2026-09-01.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-09-01/source-breaking-major-strikes-by-iran-war-escalated-is-out-of-control-w-professor-robert-pape-2026-09-01.md",
+      "upstream_path": "operator-paste://2026-09-01/breaking-major-strikes-by-iran-war-escalated-is-out-of-control-w-professor-robert-pape",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "pape"
+      ],
+      "host_slug": "moral-resistance",
+      "source_identity": "youtube:EmcJ0EWPLUs",
+      "source_url": "https://www.youtube.com/watch?v=EmcJ0EWPLUs",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-09-01",
+      "title": "BREAKING: MULTIPLE EXPLOSIONS IN JORDAN, U.S CONTINOUS TO STRIKE IRAN w/ Marine Matthew Hoh",
+      "local_path": "archive/sources/geopolitics/sources/2026-09-01/source-breaking-multiple-explosions-in-jordan-u-s-continous-to-strike-iran-w-marine-matthew-hoh-2026-09-01.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-09-01/source-breaking-multiple-explosions-in-jordan-u-s-continous-to-strike-iran-w-marine-matthew-hoh-2026-09-01.md",
+      "upstream_path": "operator-paste://2026-09-01/breaking-multiple-explosions-in-jordan-u-s-continous-to-strike-iran-w-marine-matthew-hoh",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "hoh"
+      ],
+      "host_slug": "moral-resistance",
+      "source_identity": "youtube:IyKhOj_3Jfw",
+      "source_url": "https://www.youtube.com/watch?v=IyKhOj_3Jfw",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-09-01",
+      "title": "Col. Larry Wilkerson: WAR & CHAOS: Iran Rocks US Bases in Jordan— Top Army Official Steps Down",
+      "local_path": "archive/sources/geopolitics/sources/2026-09-01/source-col-larry-wilkerson-war-chaos-iran-rocks-us-bases-in-jordan-top-army-official-steps-down-2026-09-01.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-09-01/source-col-larry-wilkerson-war-chaos-iran-rocks-us-bases-in-jordan-top-army-official-steps-down-2026-09-01.md",
+      "upstream_path": "operator-paste://2026-09-01/col-larry-wilkerson-war-chaos-iran-rocks-us-bases-in-jordan-top-army-official-steps-down",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "wilkerson"
+      ],
+      "host_slug": "dialogue-works",
+      "source_identity": "youtube:qPYghARdUaA",
+      "source_url": "https://www.youtube.com/watch?v=qPYghARdUaA",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-09-01",
+      "title": "BREAKING: TRUMP HINTS AT USING NUKES AS IRAN BOMBS U.S. BASES – w/ Joe Kent",
+      "local_path": "archive/sources/geopolitics/sources/2026-09-01/source-breaking-trump-hints-at-using-nukes-as-iran-bombs-u-s-bases-w-joe-kent-2026-09-01.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-09-01/source-breaking-trump-hints-at-using-nukes-as-iran-bombs-u-s-bases-w-joe-kent-2026-09-01.md",
+      "upstream_path": "operator-paste://2026-09-01/breaking-trump-hints-at-using-nukes-as-iran-bombs-u-s-bases-w-joe-kent",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "kent"
+      ],
+      "host_slug": "mario-nawfal",
+      "source_identity": "youtube:6kpG1YH1YFg",
+      "source_url": "https://www.youtube.com/watch?v=6kpG1YH1YFg",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-09-01",
+      "title": "IRGC IN IRAN UNDER FIRE /Robert Barnes & Lt Col Daniel Davis",
+      "local_path": "archive/sources/geopolitics/sources/2026-09-01/source-irgc-in-iran-under-fire-robert-barnes-lt-col-daniel-davis-2026-09-01.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-09-01/source-irgc-in-iran-under-fire-robert-barnes-lt-col-daniel-davis-2026-09-01.md",
+      "upstream_path": "operator-paste://2026-09-01/irgc-in-iran-under-fire-robert-barnes-lt-col-daniel-davis",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "barnes"
+      ],
+      "host_slug": "daniel-davis",
+      "source_identity": "youtube:2LAIRIG5qIY",
+      "source_url": "https://www.youtube.com/watch?v=2LAIRIG5qIY",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-09-01",
+      "title": "Joe Kent: Escalation Against Iran & Russia — We Have Entered the Early Stages of World War III",
+      "local_path": "archive/sources/geopolitics/sources/2026-09-01/source-joe-kent-escalation-against-iran-russia-we-have-entered-the-early-stages-of-world-war-iii-2026-09-01.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-09-01/source-joe-kent-escalation-against-iran-russia-we-have-entered-the-early-stages-of-world-war-iii-2026-09-01.md",
+      "upstream_path": "operator-paste://2026-09-01/joe-kent-escalation-against-iran-russia-we-have-entered-the-early-stages-of-world-war-iii",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "kent"
+      ],
+      "host_slug": "glenn-diesen",
+      "source_identity": "youtube:psMoCoh8hm0",
+      "source_url": "https://www.youtube.com/watch?v=psMoCoh8hm0",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-09-01",
+      "title": "Geopolitical Lies Fuel Financial Bubble w/ Jeffrey Sachs",
+      "local_path": "archive/sources/geopolitics/sources/2026-09-01/source-geopolitical-lies-fuel-financial-bubble-w-jeffrey-sachs-2026-09-01.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-09-01/source-geopolitical-lies-fuel-financial-bubble-w-jeffrey-sachs-2026-09-01.md",
+      "upstream_path": "operator-paste://2026-09-01/geopolitical-lies-fuel-financial-bubble-w-jeffrey-sachs",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "sachs"
+      ],
+      "host_slug": "the-duran",
+      "source_identity": "youtube:Ho6U3BAbmgI",
+      "source_url": "https://www.youtube.com/watch?v=Ho6U3BAbmgI",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-09-01",
+      "title": "Russian Missiles Devastate Kiev Odessa; West Panics Tells Westerners Flee; Orekhov Surrounded; G20",
+      "local_path": "archive/sources/geopolitics/sources/2026-09-01/source-russian-missiles-devastate-kiev-odessa-west-panics-tells-westerners-flee-orekhov-surrounded-g20-2026-09-01.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-09-01/source-russian-missiles-devastate-kiev-odessa-west-panics-tells-westerners-flee-orekhov-surrounded-g20-2026-09-01.md",
+      "upstream_path": "operator-paste://2026-09-01/russian-missiles-devastate-kiev-odessa-west-panics-tells-westerners-flee-orekhov-surrounded-g20",
+      "source_class": "host monologue",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "alexander-mercouris",
+      "source_identity": "youtube:t_9h1tIYoYU",
+      "source_url": "https://www.youtube.com/watch?v=t_9h1tIYoYU",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-09-01",
+      "title": "Larry Johnson: Iran Launches Missile Barrage: Swift Retaliation After U.S. Strikes",
+      "local_path": "archive/sources/geopolitics/sources/2026-09-01/source-larry-johnson-iran-launches-missile-barrage-swift-retaliation-after-u-s-strikes-2026-09-01.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-09-01/source-larry-johnson-iran-launches-missile-barrage-swift-retaliation-after-u-s-strikes-2026-09-01.md",
+      "upstream_path": "operator-paste://2026-09-01/larry-johnson-iran-launches-missile-barrage-swift-retaliation-after-u-s-strikes",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "johnson"
+      ],
+      "host_slug": "dialogue-works",
+      "source_identity": "youtube:h5rWaJ1TZvo",
+      "source_url": "https://www.youtube.com/watch?v=h5rWaJ1TZvo",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
       "inference_basis": [
         "wrapper-normalized",
         "explicit-host",
@@ -62962,6 +63329,466 @@
       "host_slug": "judging-freedom",
       "source_identity": "youtube:-88X-Rh4_wY",
       "source_url": "https://www.youtube.com/watch?v=-88X-Rh4_wY",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2025-06-18",
+      "title": "Max Blumenthal : Who is to Blame: Trump or Netanyahu?",
+      "local_path": "archive/sources/geopolitics/sources/2025-06-18/source-max-blumenthal-who-is-to-blame-trump-or-netanyahu-2025-06-18.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2025-06-18/source-max-blumenthal-who-is-to-blame-trump-or-netanyahu-2025-06-18.md",
+      "upstream_path": "operator-paste://2025-06-18/max-blumenthal-who-is-to-blame-trump-or-netanyahu",
+      "source_class": "transcript",
+      "modality": "video",
+      "voice_slugs": [
+        "blumenthal"
+      ],
+      "host_slug": "judging-freedom",
+      "source_identity": "youtube:8xqVZxx6NoU",
+      "source_url": "https://www.youtube.com/watch?v=8xqVZxx6NoU",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2025-08-13",
+      "title": "Max Blumenthal : Netanyahu Murders Journalists.",
+      "local_path": "archive/sources/geopolitics/sources/2025-08-13/source-max-blumenthal-netanyahu-murders-journalists-2025-08-13.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2025-08-13/source-max-blumenthal-netanyahu-murders-journalists-2025-08-13.md",
+      "upstream_path": "operator-paste://2025-08-13/max-blumenthal-netanyahu-murders-journalists",
+      "source_class": "transcript",
+      "modality": "video",
+      "voice_slugs": [
+        "blumenthal"
+      ],
+      "host_slug": "judging-freedom",
+      "source_identity": "youtube:GrkunZKkHy0",
+      "source_url": "https://www.youtube.com/watch?v=GrkunZKkHy0",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2025-11-13",
+      "title": "Max Blumenthal : The MAGA Divide: Israel, Epstein, and Kirk Split Trump’s Base",
+      "local_path": "archive/sources/geopolitics/sources/2025-11-13/source-max-blumenthal-the-maga-divide-israel-epstein-and-kirk-split-trump-s-base-2025-11-13.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2025-11-13/source-max-blumenthal-the-maga-divide-israel-epstein-and-kirk-split-trump-s-base-2025-11-13.md",
+      "upstream_path": "operator-paste://2025-11-13/max-blumenthal-the-maga-divide-israel-epstein-and-kirk-split-trump-s-base",
+      "source_class": "transcript",
+      "modality": "video",
+      "voice_slugs": [
+        "blumenthal"
+      ],
+      "host_slug": "judging-freedom",
+      "source_identity": "youtube:l0XqZBDR6EY",
+      "source_url": "https://www.youtube.com/watch?v=l0XqZBDR6EY",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2025-09-15",
+      "title": "[BREAKING NEWS EXCLUSIVE ] - Max Blumenthal Reports: : Charlie Kirk and the Israel Lobby!",
+      "local_path": "archive/sources/geopolitics/sources/2025-09-15/source-breaking-news-exclusive-max-blumenthal-reports-charlie-kirk-and-the-israel-lobby-2025-09-15.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2025-09-15/source-breaking-news-exclusive-max-blumenthal-reports-charlie-kirk-and-the-israel-lobby-2025-09-15.md",
+      "upstream_path": "operator-paste://2025-09-15/breaking-news-exclusive-max-blumenthal-reports-charlie-kirk-and-the-israel-lobby",
+      "source_class": "transcript",
+      "modality": "video",
+      "voice_slugs": [
+        "blumenthal"
+      ],
+      "host_slug": "judging-freedom",
+      "source_identity": "youtube:GceyZzZzYlc",
+      "source_url": "https://www.youtube.com/watch?v=GceyZzZzYlc",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2025-09-29",
+      "title": "Max Blumenthal : Iran Fully Prepared.",
+      "local_path": "archive/sources/geopolitics/sources/2025-09-29/source-max-blumenthal-iran-fully-prepared-2025-09-29.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2025-09-29/source-max-blumenthal-iran-fully-prepared-2025-09-29.md",
+      "upstream_path": "operator-paste://2025-09-29/max-blumenthal-iran-fully-prepared",
+      "source_class": "transcript",
+      "modality": "video",
+      "voice_slugs": [
+        "blumenthal"
+      ],
+      "host_slug": "judging-freedom",
+      "source_identity": "youtube:Kap9aIdqaiw",
+      "source_url": "https://www.youtube.com/watch?v=Kap9aIdqaiw",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2025-07-04",
+      "title": "Aaron Maté : MI6 and Atomic Weapons Inspections",
+      "local_path": "archive/sources/geopolitics/sources/2025-07-04/source-aaron-mat-mi6-and-atomic-weapons-inspections-2025-07-04.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2025-07-04/source-aaron-mat-mi6-and-atomic-weapons-inspections-2025-07-04.md",
+      "upstream_path": "operator-paste://2025-07-04/aaron-mat-mi6-and-atomic-weapons-inspections",
+      "source_class": "transcript",
+      "modality": "video",
+      "voice_slugs": [
+        "mate"
+      ],
+      "host_slug": "judging-freedom",
+      "source_identity": "youtube:WANHTNnNSM8",
+      "source_url": "https://www.youtube.com/watch?v=WANHTNnNSM8",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2025-09-10",
+      "title": "Aaron Maté : Is the US a Criminal State Like Israel?",
+      "local_path": "archive/sources/geopolitics/sources/2025-09-10/source-aaron-mat-is-the-us-a-criminal-state-like-israel-2025-09-10.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2025-09-10/source-aaron-mat-is-the-us-a-criminal-state-like-israel-2025-09-10.md",
+      "upstream_path": "operator-paste://2025-09-10/aaron-mat-is-the-us-a-criminal-state-like-israel",
+      "source_class": "transcript",
+      "modality": "video",
+      "voice_slugs": [
+        "mate"
+      ],
+      "host_slug": "judging-freedom",
+      "source_identity": "youtube:H_SNi-dzICE",
+      "source_url": "https://www.youtube.com/watch?v=H_SNi-dzICE",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2025-09-16",
+      "title": "Aaron Maté : The Dead And Injured In Gaza.",
+      "local_path": "archive/sources/geopolitics/sources/2025-09-16/source-aaron-mat-the-dead-and-injured-in-gaza-2025-09-16.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2025-09-16/source-aaron-mat-the-dead-and-injured-in-gaza-2025-09-16.md",
+      "upstream_path": "operator-paste://2025-09-16/aaron-mat-the-dead-and-injured-in-gaza",
+      "source_class": "transcript",
+      "modality": "video",
+      "voice_slugs": [
+        "mate"
+      ],
+      "host_slug": "judging-freedom",
+      "source_identity": "youtube:twYKR8mcc6o",
+      "source_url": "https://www.youtube.com/watch?v=twYKR8mcc6o",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2025-09-30",
+      "title": "Aaron Maté : Al Qaeda Visits the US",
+      "local_path": "archive/sources/geopolitics/sources/2025-09-30/source-aaron-mat-al-qaeda-visits-the-us-2025-09-30.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2025-09-30/source-aaron-mat-al-qaeda-visits-the-us-2025-09-30.md",
+      "upstream_path": "operator-paste://2025-09-30/aaron-mat-al-qaeda-visits-the-us",
+      "source_class": "transcript",
+      "modality": "video",
+      "voice_slugs": [
+        "mate"
+      ],
+      "host_slug": "judging-freedom",
+      "source_identity": "youtube:cnZTzYEMyqE",
+      "source_url": "https://www.youtube.com/watch?v=cnZTzYEMyqE",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2025-11-12",
+      "title": "Aaron Maté : Should Israel Pay Reparations to Gaza?",
+      "local_path": "archive/sources/geopolitics/sources/2025-11-12/source-aaron-mat-should-israel-pay-reparations-to-gaza-2025-11-12.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2025-11-12/source-aaron-mat-should-israel-pay-reparations-to-gaza-2025-11-12.md",
+      "upstream_path": "operator-paste://2025-11-12/aaron-mat-should-israel-pay-reparations-to-gaza",
+      "source_class": "transcript",
+      "modality": "video",
+      "voice_slugs": [
+        "mate"
+      ],
+      "host_slug": "judging-freedom",
+      "source_identity": "youtube:VZoTjASaydk",
+      "source_url": "https://www.youtube.com/watch?v=VZoTjASaydk",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2025-11-17",
+      "title": "Mohammad Marandi: Iran’s ‘War Alert’ Explained: Why Millions Got Emergency Message — What Happened?",
+      "local_path": "archive/sources/geopolitics/sources/2025-11-17/source-mohammad-marandi-iran-s-war-alert-explained-why-millions-got-emergency-message-what-happened-2025-11-17.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2025-11-17/source-mohammad-marandi-iran-s-war-alert-explained-why-millions-got-emergency-message-what-happened-2025-11-17.md",
+      "upstream_path": "operator-paste://2025-11-17/mohammad-marandi-iran-s-war-alert-explained-why-millions-got-emergency-message-what-happened",
+      "source_class": "transcript",
+      "modality": "video",
+      "voice_slugs": [
+        "marandi"
+      ],
+      "host_slug": "dialogue-works",
+      "source_identity": "youtube:ojnTeHAtT1U",
+      "source_url": "https://www.youtube.com/watch?v=ojnTeHAtT1U",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2025-08-26",
+      "title": "Mohammad Marandi: Yemen’s DEVASTATING Missile Retaliation Leaves Netanyahu on His Knees!",
+      "local_path": "archive/sources/geopolitics/sources/2025-08-26/source-mohammad-marandi-yemen-s-devastating-missile-retaliation-leaves-netanyahu-on-his-knees-2025-08-26.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2025-08-26/source-mohammad-marandi-yemen-s-devastating-missile-retaliation-leaves-netanyahu-on-his-knees-2025-08-26.md",
+      "upstream_path": "operator-paste://2025-08-26/mohammad-marandi-yemen-s-devastating-missile-retaliation-leaves-netanyahu-on-his-knees",
+      "source_class": "transcript",
+      "modality": "video",
+      "voice_slugs": [
+        "marandi"
+      ],
+      "host_slug": "dialogue-works",
+      "source_identity": "youtube:lCTJujjAFUE",
+      "source_url": "https://www.youtube.com/watch?v=lCTJujjAFUE",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2025-08-12",
+      "title": "Mohammad Marandi: Iran’s DEADLY Warning: Missiles Poised to OBLITERATE Any Israeli Strike!",
+      "local_path": "archive/sources/geopolitics/sources/2025-08-12/source-mohammad-marandi-iran-s-deadly-warning-missiles-poised-to-obliterate-any-israeli-strike-2025-08-12.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2025-08-12/source-mohammad-marandi-iran-s-deadly-warning-missiles-poised-to-obliterate-any-israeli-strike-2025-08-12.md",
+      "upstream_path": "operator-paste://2025-08-12/mohammad-marandi-iran-s-deadly-warning-missiles-poised-to-obliterate-any-israeli-strike",
+      "source_class": "transcript",
+      "modality": "video",
+      "voice_slugs": [
+        "marandi"
+      ],
+      "host_slug": "dialogue-works",
+      "source_identity": "youtube:PvbwcU_qONY",
+      "source_url": "https://www.youtube.com/watch?v=PvbwcU_qONY",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2025-10-14",
+      "title": "Mohammad Marandi: Palestinian Victory - Yemen Issues STRONG Warning as Gaza Truce Unravels!",
+      "local_path": "archive/sources/geopolitics/sources/2025-10-14/source-mohammad-marandi-palestinian-victory-yemen-issues-strong-warning-as-gaza-truce-unravels-2025-10-14.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2025-10-14/source-mohammad-marandi-palestinian-victory-yemen-issues-strong-warning-as-gaza-truce-unravels-2025-10-14.md",
+      "upstream_path": "operator-paste://2025-10-14/mohammad-marandi-palestinian-victory-yemen-issues-strong-warning-as-gaza-truce-unravels",
+      "source_class": "transcript",
+      "modality": "video",
+      "voice_slugs": [
+        "marandi"
+      ],
+      "host_slug": "dialogue-works",
+      "source_identity": "youtube:wGqXr27qmYA",
+      "source_url": "https://www.youtube.com/watch?v=wGqXr27qmYA",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2025-09-21",
+      "title": "Mohammad Marandi: Iran KILLS IAEA Deal — Cairo Agreement Wiped Out After SnapBack!",
+      "local_path": "archive/sources/geopolitics/sources/2025-09-21/source-mohammad-marandi-iran-kills-iaea-deal-cairo-agreement-wiped-out-after-snapback-2025-09-21.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2025-09-21/source-mohammad-marandi-iran-kills-iaea-deal-cairo-agreement-wiped-out-after-snapback-2025-09-21.md",
+      "upstream_path": "operator-paste://2025-09-21/mohammad-marandi-iran-kills-iaea-deal-cairo-agreement-wiped-out-after-snapback",
+      "source_class": "transcript",
+      "modality": "video",
+      "voice_slugs": [
+        "marandi"
+      ],
+      "host_slug": "dialogue-works",
+      "source_identity": "youtube:ReLXlN7UIAg",
+      "source_url": "https://www.youtube.com/watch?v=ReLXlN7UIAg",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2025-08-19",
+      "title": "Pepe Escobar & Mohammad Marandi: Explosive Conflicts Rage in Middle East & Caucasus–Is Ukraine Next?",
+      "local_path": "archive/sources/geopolitics/sources/2025-08-19/source-pepe-escobar-mohammad-marandi-explosive-conflicts-rage-in-middle-east-caucasus-is-ukraine-next-2025-08-19.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2025-08-19/source-pepe-escobar-mohammad-marandi-explosive-conflicts-rage-in-middle-east-caucasus-is-ukraine-next-2025-08-19.md",
+      "upstream_path": "operator-paste://2025-08-19/pepe-escobar-mohammad-marandi-explosive-conflicts-rage-in-middle-east-caucasus-is-ukraine-next",
+      "source_class": "transcript",
+      "modality": "video",
+      "voice_slugs": [
+        "marandi"
+      ],
+      "host_slug": "dialogue-works",
+      "source_identity": "youtube:-QSzaN7qjNo",
+      "source_url": "https://www.youtube.com/watch?v=-QSzaN7qjNo",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2025-02-20",
+      "title": "Prof. Mohammad Marandi: Trump’s Impact on the Middle East",
+      "local_path": "archive/sources/geopolitics/sources/2025-02-20/source-prof-mohammad-marandi-trump-s-impact-on-the-middle-east-2025-02-20.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2025-02-20/source-prof-mohammad-marandi-trump-s-impact-on-the-middle-east-2025-02-20.md",
+      "upstream_path": "operator-paste://2025-02-20/prof-mohammad-marandi-trump-s-impact-on-the-middle-east",
+      "source_class": "transcript",
+      "modality": "video",
+      "voice_slugs": [
+        "marandi"
+      ],
+      "host_slug": "dialogue-works",
+      "source_identity": "youtube:ZETOpdB2GTw",
+      "source_url": "https://www.youtube.com/watch?v=ZETOpdB2GTw",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2025-09-02",
+      "title": "Mohammad Marandi: Iran Just Gave Israel a FINAL Warning…",
+      "local_path": "archive/sources/geopolitics/sources/2025-09-02/source-mohammad-marandi-iran-just-gave-israel-a-final-warning-2025-09-02.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2025-09-02/source-mohammad-marandi-iran-just-gave-israel-a-final-warning-2025-09-02.md",
+      "upstream_path": "operator-paste://2025-09-02/mohammad-marandi-iran-just-gave-israel-a-final-warning",
+      "source_class": "transcript",
+      "modality": "video",
+      "voice_slugs": [
+        "marandi"
+      ],
+      "host_slug": "dialogue-works",
+      "source_identity": "youtube:eYHERy-wuqM",
+      "source_url": "https://www.youtube.com/watch?v=eYHERy-wuqM",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2025-10-20",
+      "title": "Iran's Enriched Uranium, Rvidence it Remains/Trita Parsi & Lt Col Daniel Davis",
+      "local_path": "archive/sources/geopolitics/sources/2025-10-20/source-iran-s-enriched-uranium-rvidence-it-remains-trita-parsi-lt-col-daniel-davis-2025-10-20.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2025-10-20/source-iran-s-enriched-uranium-rvidence-it-remains-trita-parsi-lt-col-daniel-davis-2025-10-20.md",
+      "upstream_path": "operator-paste://2025-10-20/iran-s-enriched-uranium-rvidence-it-remains-trita-parsi-lt-col-daniel-davis",
+      "source_class": "transcript",
+      "modality": "video",
+      "voice_slugs": [
+        "parsi"
+      ],
+      "host_slug": "daniel-davis",
+      "source_identity": "youtube:nenPpza8E34",
+      "source_url": "https://www.youtube.com/watch?v=nenPpza8E34",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2025-10-10",
+      "title": "Amb. Chas Freeman & Trita Parsi: Can the U.S. Finally Stop Netanyahu?",
+      "local_path": "archive/sources/geopolitics/sources/2025-10-10/source-amb-chas-freeman-trita-parsi-can-the-u-s-finally-stop-netanyahu-2025-10-10.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2025-10-10/source-amb-chas-freeman-trita-parsi-can-the-u-s-finally-stop-netanyahu-2025-10-10.md",
+      "upstream_path": "operator-paste://2025-10-10/amb-chas-freeman-trita-parsi-can-the-u-s-finally-stop-netanyahu",
+      "source_class": "transcript",
+      "modality": "video",
+      "voice_slugs": [
+        "parsi"
+      ],
+      "host_slug": "dialogue-works",
+      "source_identity": "youtube:5ptKO-6weR0",
+      "source_url": "https://www.youtube.com/watch?v=5ptKO-6weR0",
       "title_source": "transcript",
       "date_basis": "transcript-self-date",
       "inference_basis": [

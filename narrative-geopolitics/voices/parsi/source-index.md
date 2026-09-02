@@ -4,7 +4,7 @@ This index routes the unified local Parsi corpus for `parsi` to the central Narr
 
 Source basis: `strategy-codex/statecraft/voices/parsi/parsi-index.md` plus already-local matching archive rows.
 
-Corpus: 69 local route rows across 69 central archive source files.
+Corpus: 72 local route rows across 72 central archive source files.
 
 Status: `imported-corpus`
 
@@ -24,7 +24,9 @@ Status: `imported-corpus`
 | `2025-07-26` | Amb. Chas Freeman & Trita Parsi: How the Iran-Israel War Changed EVERYTHING Overnight | `cross-voice panel` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2025-07-26/source-dialogue-works-amb-chas-freeman-and-trita-parsi-how-the-iran-israel-war-changed-everything-overnight-2025-07-26.md) |
 | `2025-08-15` | Amb. Chas Freeman & Trita Parsi: The Next Israel-Iran War Is Coming | `cross-voice panel` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2025-08-15/source-dialogue-works-amb-chas-freeman-and-trita-parsi-the-next-israel-iran-war-is-coming-2025-08-15.md) |
 | `2025-09-02` | Trita Parsi: Why Europe's Sanctions Make an Israeli-Western War on Iran Unstoppable | `guest` | `india-global-left` | [source](../../../archive/sources/geopolitics/sources/2025-09-02/source-india-global-left-europe-snapback-sanctions-israel-war-trita-parsi-2025-09-02.md) |
+| `2025-10-10` | Amb. Chas Freeman & Trita Parsi: Can the U.S. Finally Stop Netanyahu? | `host-pressure test` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2025-10-10/source-amb-chas-freeman-trita-parsi-can-the-u-s-finally-stop-netanyahu-2025-10-10.md) |
 | `2025-10-20` | IRAN's NUCLEAR DILEMMA /Trita Parsi & Lt Col Daniel Davis | `guest` | `daniel-davis` | [source](../../../archive/sources/geopolitics/sources/2025-10-20/source-daniel-davis-irans-nuclear-dilemma-trita-parsi-lt-col-daniel-davis-2025-10-20.md) |
+| `2025-10-20` | Iran's Enriched Uranium, Rvidence it Remains/Trita Parsi & Lt Col Daniel Davis | `host-pressure test` | `daniel-davis` | [source](../../../archive/sources/geopolitics/sources/2025-10-20/source-iran-s-enriched-uranium-rvidence-it-remains-trita-parsi-lt-col-daniel-davis-2025-10-20.md) |
 | `2025-12-19` | Amb. Chas Freeman & Trita Parsi: The Middle East You Knew Is Disappearing | `cross-voice panel` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2025-12-19/source-dialogue-works-freeman-parsi-middle-east-you-knew-disappearing-2025-12-19.md) |
 | `2026-01-09` | As Tehran cracks down, Trump's likely instincts are to stay out | `authored analysis` | `parsi` | [source](../../../archive/sources/geopolitics/sources/2026-01-09/source-parsi-as-tehran-cracks-down-trumps-likely-instincts-are-to-stay-out-2026-01-09.md) |
 | `2026-01-14` | The Decision (To Strike) Was Already Made - Trita Parsi On Iran, Protests, US... | `guest` | `mario-nawfal` | [source](../../../archive/sources/geopolitics/sources/2026-01-14/source-the-decision-to-strike-was-already-made-trita-parsi-on-iran-protests-us-2026-01-14.md) |
@@ -88,6 +90,7 @@ Status: `imported-corpus`
 | `2026-08-10` | (2) Iran Demands TOTAL SURRENDER From Trump On Hormuz | `guest` | `breaking-points` | [source](../../../archive/sources/geopolitics/sources/2026-08-10/source-2-iran-demands-total-surrender-from-trump-on-hormuz-2026-08-10.md) |
 | `2026-08-27` | BREAKING: IRAN WARNS ISRAEL AND NETANYAHU — w/ Trita Parsi | `guest` | `mario-nawfal` | [source](../../../archive/sources/geopolitics/sources/2026-08-27/source-breaking-iran-warns-israel-and-netanyahu-w-trita-parsi-2026-08-27.md) |
 | `2026-08-28` | Iran May Beat the US to the Punch in WAR /Trita Parsi & Lt Col Daniel Davis | `guest` | `daniel-davis` | [source](../../../archive/sources/geopolitics/sources/2026-08-28/source-iran-may-beat-the-us-to-the-punch-in-war-trita-parsi-lt-col-daniel-davis-2026-08-28.md) |
+| `2026-08-29` | Trita Parsi: Why the World Is Quietly Taking Iran's Side in the War | `guest` | `glenn-diesen` | [source](../../../archive/sources/geopolitics/sources/2026-08-29/source-trita-parsi-why-the-world-is-quietly-taking-iran-s-side-in-the-war-2026-08-29.md) |
 
 ## Import Boundary
 

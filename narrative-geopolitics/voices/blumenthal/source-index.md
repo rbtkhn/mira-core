@@ -4,7 +4,7 @@ This index routes the unified local Blumenthal corpus for `blumenthal` to the ce
 
 Source basis: `strategy-codex/statecraft/voices/blumenthal/blumenthal-index.md` plus already-local matching archive rows.
 
-Corpus: 23 local route rows across 23 central archive source files.
+Corpus: 28 local route rows across 28 central archive source files.
 
 Status: `imported-corpus`
 
@@ -19,6 +19,11 @@ Status: `imported-corpus`
 
 | Date | Source | Role | Host slug | Archive link |
 | --- | --- | --- | --- | --- |
+| `2025-06-18` | Max Blumenthal : Who is to Blame: Trump or Netanyahu? | `host-pressure test` | `judging-freedom` | [source](../../../archive/sources/geopolitics/sources/2025-06-18/source-max-blumenthal-who-is-to-blame-trump-or-netanyahu-2025-06-18.md) |
+| `2025-08-13` | Max Blumenthal : Netanyahu Murders Journalists. | `host-pressure test` | `judging-freedom` | [source](../../../archive/sources/geopolitics/sources/2025-08-13/source-max-blumenthal-netanyahu-murders-journalists-2025-08-13.md) |
+| `2025-09-15` | [BREAKING NEWS EXCLUSIVE ] - Max Blumenthal Reports: : Charlie Kirk and the Israel Lobby! | `host-pressure test` | `judging-freedom` | [source](../../../archive/sources/geopolitics/sources/2025-09-15/source-breaking-news-exclusive-max-blumenthal-reports-charlie-kirk-and-the-israel-lobby-2025-09-15.md) |
+| `2025-09-29` | Max Blumenthal : Iran Fully Prepared. | `host-pressure test` | `judging-freedom` | [source](../../../archive/sources/geopolitics/sources/2025-09-29/source-max-blumenthal-iran-fully-prepared-2025-09-29.md) |
+| `2025-11-13` | Max Blumenthal : The MAGA Divide: Israel, Epstein, and Kirk Split Trump’s Base | `host-pressure test` | `judging-freedom` | [source](../../../archive/sources/geopolitics/sources/2025-11-13/source-max-blumenthal-the-maga-divide-israel-epstein-and-kirk-split-trump-s-base-2025-11-13.md) |
 | `2026-01-04` | Max Blumenthal On Maduro Capture, Vice President, Resources & More... | `guest` | `mario-nawfal` | [source](../../../archive/sources/geopolitics/sources/2026-01-04/source-max-blumenthal-on-maduro-capture-vice-president-resources-more-2026-01-04.md) |
 | `2026-01-14` | Max Blumenthal: Protecting Protesters or Manipulating Unrest? Trump and Iran | `guest` | `judging-freedom` | [source](../../../archive/sources/geopolitics/sources/2026-01-14/source-max-blumenthal-protecting-protesters-or-manipulating-unrest-trump-and-iran-2026-01-14.md) |
 | `2026-01-28` | Max Blumenthal: Venezuela at a Crossroads | `guest` | `judging-freedom` | [source](../../../archive/sources/geopolitics/sources/2026-01-28/source-max-blumenthal-venezuela-at-a-crossroads-2026-01-28.md) |

@@ -4,7 +4,7 @@ This index routes the imported first-slice parity corpus for `marandi` to the ce
 
 Source basis: `strategy-codex/statecraft/voices/marandi/marandi-index.md`.
 
-Corpus: 99 local route rows across 99 central archive source files.
+Corpus: 108 local route rows across 108 central archive source files.
 
 Status: `first-slice-parity`
 
@@ -24,7 +24,15 @@ Status: `first-slice-parity`
 
 | Date | Source | Role | Host slug | Archive link |
 | --- | --- | --- | --- | --- |
+| `2025-02-20` | Prof. Mohammad Marandi: Trump’s Impact on the Middle East | `host-pressure test` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2025-02-20/source-prof-mohammad-marandi-trump-s-impact-on-the-middle-east-2025-02-20.md) |
 | `2025-03-20` | Seyed Marandi: Is Israel Destroying Itself? | `guest` | `glenn-diesen` | [source](../../../archive/sources/geopolitics/sources/2025-03-20/source-glenn-diesen-seyed-marandi-is-israel-destroying-itself-2025-03-20.md) |
+| `2025-08-12` | Mohammad Marandi: Iran’s DEADLY Warning: Missiles Poised to OBLITERATE Any Israeli Strike! | `host-pressure test` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2025-08-12/source-mohammad-marandi-iran-s-deadly-warning-missiles-poised-to-obliterate-any-israeli-strike-2025-08-12.md) |
+| `2025-08-19` | Pepe Escobar & Mohammad Marandi: Explosive Conflicts Rage in Middle East & Caucasus–Is Ukraine Next? | `host-pressure test` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2025-08-19/source-pepe-escobar-mohammad-marandi-explosive-conflicts-rage-in-middle-east-caucasus-is-ukraine-next-2025-08-19.md) |
+| `2025-08-26` | Mohammad Marandi: Yemen’s DEVASTATING Missile Retaliation Leaves Netanyahu on His Knees! | `host-pressure test` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2025-08-26/source-mohammad-marandi-yemen-s-devastating-missile-retaliation-leaves-netanyahu-on-his-knees-2025-08-26.md) |
+| `2025-09-02` | Mohammad Marandi: Iran Just Gave Israel a FINAL Warning… | `host-pressure test` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2025-09-02/source-mohammad-marandi-iran-just-gave-israel-a-final-warning-2025-09-02.md) |
+| `2025-09-21` | Mohammad Marandi: Iran KILLS IAEA Deal — Cairo Agreement Wiped Out After SnapBack! | `host-pressure test` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2025-09-21/source-mohammad-marandi-iran-kills-iaea-deal-cairo-agreement-wiped-out-after-snapback-2025-09-21.md) |
+| `2025-10-14` | Mohammad Marandi: Palestinian Victory - Yemen Issues STRONG Warning as Gaza Truce Unravels! | `host-pressure test` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2025-10-14/source-mohammad-marandi-palestinian-victory-yemen-issues-strong-warning-as-gaza-truce-unravels-2025-10-14.md) |
+| `2025-11-17` | Mohammad Marandi: Iran’s ‘War Alert’ Explained: Why Millions Got Emergency Message — What Happened? | `host-pressure test` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2025-11-17/source-mohammad-marandi-iran-s-war-alert-explained-why-millions-got-emergency-message-what-happened-2025-11-17.md) |
 | `2026-01-20` | Who Opposes Iran's Government? U.S., Israel, Gulf States & the Protest Strategy | `guest` | `india-global-left` | [source](../../../archive/sources/geopolitics/sources/2026-01-20/source-who-opposes-iran-s-government-u-s-israel-gulf-states-the-protest-strategy-2026-01-20.md) |
 | `2026-02-10` | Mohammad Marandi & Larry C. Johnson: U.S. & Iran on the Brink as Critical Negotiations Unfold LIVE | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2026-02-10/source-dialogue-works-mohammad-marandi-larry-c-johnson-u-s-iran-on-the-brink-as-critical-negot-2026-02-10.md) |
 | `2026-02-11` | Prof Seyed Marandi: War w/Iran Will Be CATASTROPHIC FOR EVERYONE | `guest` | `daniel-davis` | [source](../../../archive/sources/geopolitics/sources/2026-02-11/source-daniel-davis-prof-seyed-marandi-war-w-iran-will-be-catastrophic-for-everyone-2026-02-11.md) |
@@ -123,6 +131,7 @@ Status: `first-slice-parity`
 | `2026-08-22` | Seyed M. Marandi: Trump to Squeeze Iran’s Economy to the Brink—But Tehran Just Doubled Its Arsenal | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2026-08-22/source-seyed-m-marandi-trump-to-squeeze-iran-s-economy-to-the-brink-but-tehran-just-doubled-its-arsenal-2026-08-22.md) |
 | `2026-08-23` | 🚨 LIVE: Mohammad Marandi - The Iran War Is Coming for the US Economy | `guest` | `cyrus-janssen` | [source](../../../archive/sources/geopolitics/sources/2026-08-23/source-live-mohammad-marandi-the-iran-war-is-coming-for-the-us-economy-2026-08-23.md) |
 | `2026-08-23` | Seyed M. Marandi: From "Economic D-Day" to Nuclear Strike Against Iran? | `guest` | `glenn-diesen` | [source](../../../archive/sources/geopolitics/sources/2026-08-23/source-seyed-m-marandi-from-economic-d-day-to-nuclear-strike-against-iran-2026-08-23.md) |
+| `2026-08-29` | Seyed M. Marandi: Iran Activates War Economy & Military Surge as All-Out Conflict Becomes Inevitable | `guest` | `nima-alkhorshid` | [source](../../../archive/sources/geopolitics/sources/2026-08-29/source-seyed-m-marandi-iran-activates-war-economy-military-surge-as-all-out-conflict-becomes-inevitable-2026-08-29.md) |
 
 ## Import Boundary
 
