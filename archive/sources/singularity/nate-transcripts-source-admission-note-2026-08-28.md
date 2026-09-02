@@ -2,16 +2,16 @@
 
 Status: `admission-review-note`
 Created: 2026-08-28
-Updated: 2026-08-29
-Scope: Twenty-six untracked Nate Herk and Nate B. Jones transcript bodies, including five additional operator-supplied Nate B. Jones captures and six additional operator-supplied Nate Herk captures from recent YouTube channel review.
+Updated: 2026-09-02
+Scope: Thirty-four untracked Nate Herk and Nate B. Jones transcript bodies, including eight additional operator-supplied Nate B. Jones captures and eleven additional operator-supplied Nate Herk captures from recent YouTube channel review.
 Related ledger: `archive/sources/singularity/applied-ai-opportunity-ledger.json`
 Authority boundary: This note documents admission posture only. It does not admit the files to Git, verify transcript claims, establish publication rights, repair metadata, or authorize reuse outside internal research.
 
 ## Summary
 
-The Applied AI Opportunity Ledger currently includes rows derived from fifteen local transcript files that are not present on the clean landing branch from `origin/main`. Five additional Nate B. Jones transcript bodies and six additional Nate Herk transcript bodies were supplied by the operator on 2026-08-29 after browser reviews of recent uncaptured channel videos. The files are present in the local worktree and appear to be substantive transcript bodies rather than stubs.
+The Applied AI Opportunity Ledger currently includes rows derived from fifteen local transcript files that are not present on the clean landing branch from `origin/main`. Five additional Nate B. Jones transcript bodies and six additional Nate Herk transcript bodies were supplied by the operator on 2026-08-29 after browser reviews of recent uncaptured channel videos. Five more Nate Herk transcript bodies and three more Nate B. Jones transcript bodies were supplied by the operator on 2026-09-02 after a seven-day channel-missingness check. The files are present in the local worktree and appear to be substantive transcript bodies rather than stubs.
 
-All twenty-six files carry an operator-supplied transcript rights posture:
+All thirty-four files carry an operator-supplied transcript rights posture:
 
 `Operator-supplied transcript; internal research use only; publication and reuse rights not established`
 
@@ -38,6 +38,14 @@ The main governance question is therefore not file completeness. The question is
 | `archive/sources/singularity/nate-herk/transcripts/2026-08-26-i-tested-claude-code-vs-codex-on-design-it-wasnt-even-close.md` | Nate Herk | 5,164 words | 2026-08-26 | Substantive transcript body; supplied by the operator and locally admitted on 2026-08-29. |
 | `archive/sources/singularity/nate-herk/transcripts/2026-08-27-set-up-a-personal-hermes-in-14-mins-no-vps-or-mac-mini.md` | Nate Herk | 3,897 words | 2026-08-27 | Substantive transcript body; supplied by the operator and locally admitted on 2026-08-29. |
 | `archive/sources/singularity/nate-herk/transcripts/2026-08-28-i-cloned-calendly-and-now-its-free-forever.md` | Nate Herk | 3,509 words | 2026-08-28 | Substantive transcript body; supplied by the operator and locally admitted on 2026-08-29. |
+| `archive/sources/singularity/nate-herk/transcripts/2026-08-30-build-sell-grok-bots-2-hour-course.md` | Nate Herk | 26,299 words | 2026-08-30 | Substantive transcript body; supplied by the operator and locally admitted on 2026-09-02; publication date verified from YouTube watch-page metadata. |
+| `archive/sources/singularity/nate-herk/transcripts/2026-08-31-every-grok-bot-concept-explained-for-normal-people.md` | Nate Herk | 5,736 words | 2026-08-31 | Substantive transcript body; supplied by the operator and locally admitted on 2026-09-02; publication date verified from YouTube watch-page metadata. |
+| `archive/sources/singularity/nate-herk/transcripts/2026-09-01-anthropic-is-teaching-claude-to-be-evil.md` | Nate Herk | 3,375 words | 2026-09-01 | Substantive transcript body; supplied by the operator and locally admitted on 2026-09-02; publication date verified from YouTube watch-page metadata. |
+| `archive/sources/singularity/nate-herk/transcripts/2026-09-01-fable-5-1-just-dropped-it-looks-unreal.md` | Nate Herk | 1,370 words | 2026-09-01 | Substantive transcript body; supplied by the operator and locally admitted on 2026-09-02; publication date verified from YouTube watch-page metadata. |
+| `archive/sources/singularity/nate-herk/transcripts/2026-09-01-fable-5-1-finally-kills-ai-website-slop.md` | Nate Herk | 4,035 words | 2026-09-01 | Substantive transcript body; supplied by the operator and locally admitted on 2026-09-02; publication date verified from YouTube watch-page metadata. |
+| `archive/sources/singularity/nate-b-jones/transcripts/2026-09-02-openai-nvidia-and-anthropic-just-split-heres-how-id-spend-20-60-or-200.md` | Nate B. Jones | 3,410 words | 2026-09-02 | Substantive transcript body; supplied by the operator and locally admitted on 2026-09-02; publication date inferred from YouTube watch-page relative age observed in the in-app browser. |
+| `archive/sources/singularity/nate-b-jones/transcripts/2026-08-31-apple-put-its-newest-chip-in-the-899-mac-not-the-5499-one.md` | Nate B. Jones | 4,308 words | 2026-08-31 | Substantive transcript body; supplied by the operator and locally admitted on 2026-09-02; publication date inferred from YouTube watch-page relative age observed in the in-app browser. |
+| `archive/sources/singularity/nate-b-jones/transcripts/2026-08-30-runable-raised-21-million-on-agents-that-finish-nobody-told-yours-what-done-means.md` | Nate B. Jones | 4,983 words | 2026-08-30 | Substantive transcript body; supplied by the operator and locally admitted on 2026-09-02; publication date inferred from YouTube watch-page relative age observed in the in-app browser. |
 | `archive/sources/singularity/nate-b-jones/transcripts/2026-08-28-how-i-fight-ai-brain-rot-friction-maxxing-with-codex-grok-and-claude.md` | Nate B. Jones | 5,113 words | 2026-08-28 | Substantive transcript body; exact publication date and URL verified from YouTube metadata in the in-app browser. |
 | `archive/sources/singularity/nate-b-jones/transcripts/2026-08-26-agents-arent-taking-your-jobs-theyre-creating-more-work-instead.md` | Nate B. Jones | 5,719 words | 2026-08-26 | Substantive transcript body; supplied title differs from current YouTube title observed in browser. |
 | `archive/sources/singularity/nate-b-jones/transcripts/2026-08-24-stripe-paid-7-5-billion-for-openrouter-you-are-living-in-the-age-of-startups.md` | Nate B. Jones | 4,626 words | 2026-08-24 | Substantive transcript body; exact publication date and URL verified from YouTube metadata in the in-app browser. |
@@ -53,9 +61,9 @@ The main governance question is therefore not file completeness. The question is
 - These are transcript bodies, not only metadata records.
 - Rights are limited to internal research unless separately established.
 - Several older Nate Herk records still have unknown or unverified publication dates; five Nate Herk dates were repaired from YouTube feed metadata on 2026-08-29.
-- The Applied AI Opportunity Ledger should not land with references to these files unless the files are admitted, the ledger is regenerated to exclude them, or the missing-source condition is explicitly accepted. The five 2026-08-29 Nate B. Jones additions and six 2026-08-29 Nate Herk additions were landed as local source bodies only; no ledger regeneration was performed.
+- The Applied AI Opportunity Ledger should not land with references to these files unless the files are admitted, the ledger is regenerated to exclude them, or the missing-source condition is explicitly accepted. The five 2026-08-29 Nate B. Jones additions, six 2026-08-29 Nate Herk additions, five 2026-09-02 Nate Herk additions, and three 2026-09-02 Nate B. Jones additions were landed as local source bodies only; no ledger regeneration was performed.
 - No factual claims inside the transcripts have been verified by this review.
 
 ## Recommended Next Decision
 
-Admit the twenty transcript files only if the intended branch is allowed to carry internal-research transcript bodies. If not, regenerate the clean landing ledger from the source files already present on `origin/main` and treat derived rows that depend on unadmitted source bodies as a local working view until the source bodies are governed.
+Admit the thirty-four transcript files only if the intended branch is allowed to carry internal-research transcript bodies. If not, regenerate the clean landing ledger from the source files already present on `origin/main` and treat derived rows that depend on unadmitted source bodies as a local working view until the source bodies are governed.
