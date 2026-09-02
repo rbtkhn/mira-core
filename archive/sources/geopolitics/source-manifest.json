@@ -2,7 +2,7 @@
   "manifest_id": "narrative-geopolitics-source-manifest-v1",
   "source_basis": "central archive with completed historical strategy-codex imports",
   "imported_at": "2026-07-09",
-  "source_count": 2339,
+  "source_count": 2348,
   "boundary": {
     "archive": "source truth",
     "voices": "voice continuity and routing",
@@ -62757,6 +62757,213 @@
       "source_url": "https://www.youtube.com/watch?v=gR6L-R6fVKY",
       "title_source": "transcript",
       "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2025-03-13",
+      "title": "Scott Ritter: Trump’s America: Trust Built or Broken?",
+      "local_path": "archive/sources/geopolitics/sources/2025-03-13/source-scott-ritter-trump-s-america-trust-built-or-broken-2025-03-13.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2025-03-13/source-scott-ritter-trump-s-america-trust-built-or-broken-2025-03-13.md",
+      "upstream_path": "operator-paste://2025-03-13/scott-ritter-trump-s-america-trust-built-or-broken",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "ritter"
+      ],
+      "host_slug": "dialogue-works",
+      "source_identity": "youtube:74ZaNbW3bcc",
+      "source_url": "https://www.youtube.com/watch?v=74ZaNbW3bcc",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2025-06-03",
+      "title": "Scott Ritter: Ukraine Could Be Completely Destroyed If THIS Happens...",
+      "local_path": "archive/sources/geopolitics/sources/2025-06-03/source-scott-ritter-ukraine-could-be-completely-destroyed-if-this-happens-2025-06-03.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2025-06-03/source-scott-ritter-ukraine-could-be-completely-destroyed-if-this-happens-2025-06-03.md",
+      "upstream_path": "operator-paste://2025-06-03/scott-ritter-ukraine-could-be-completely-destroyed-if-this-happens",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "ritter"
+      ],
+      "host_slug": "dialogue-works",
+      "source_identity": "youtube:Oh82FfI1fX0",
+      "source_url": "https://www.youtube.com/watch?v=Oh82FfI1fX0",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2025-06-23",
+      "title": "Scott Ritter : What We Now Know.",
+      "local_path": "archive/sources/geopolitics/sources/2025-06-23/source-scott-ritter-what-we-now-know-2025-06-23.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2025-06-23/source-scott-ritter-what-we-now-know-2025-06-23.md",
+      "upstream_path": "operator-paste://2025-06-23/scott-ritter-what-we-now-know",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "ritter"
+      ],
+      "host_slug": "judging-freedom",
+      "source_identity": "youtube:KWmzSdrffPI",
+      "source_url": "https://www.youtube.com/watch?v=KWmzSdrffPI",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2025-07-08",
+      "title": "Scott Ritter: WAR DRUMS LOUDER as BRICS SHATTERS Trump's Threat!",
+      "local_path": "archive/sources/geopolitics/sources/2025-07-08/source-scott-ritter-war-drums-louder-as-brics-shatters-trump-s-threat-2025-07-08.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2025-07-08/source-scott-ritter-war-drums-louder-as-brics-shatters-trump-s-threat-2025-07-08.md",
+      "upstream_path": "operator-paste://2025-07-08/scott-ritter-war-drums-louder-as-brics-shatters-trump-s-threat",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "ritter"
+      ],
+      "host_slug": "dialogue-works",
+      "source_identity": "youtube:BZtDmmV4FwI",
+      "source_url": "https://www.youtube.com/watch?v=BZtDmmV4FwI",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2025-09-27",
+      "title": "Trump Just GUARANTEED World War 3 with Russia?! | Scott Ritter",
+      "local_path": "archive/sources/geopolitics/sources/2025-09-27/source-trump-just-guaranteed-world-war-3-with-russia-scott-ritter-2025-09-27.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2025-09-27/source-trump-just-guaranteed-world-war-3-with-russia-scott-ritter-2025-09-27.md",
+      "upstream_path": "operator-paste://2025-09-27/trump-just-guaranteed-world-war-3-with-russia-scott-ritter",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "ritter"
+      ],
+      "host_slug": "dialogue-works",
+      "source_identity": "youtube:e-zZNM8gi50",
+      "source_url": "https://www.youtube.com/watch?v=e-zZNM8gi50",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2025-10-06",
+      "title": "Scott Ritter : NATO Collapsing.",
+      "local_path": "archive/sources/geopolitics/sources/2025-10-06/source-scott-ritter-nato-collapsing-2025-10-06.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2025-10-06/source-scott-ritter-nato-collapsing-2025-10-06.md",
+      "upstream_path": "operator-paste://2025-10-06/scott-ritter-nato-collapsing",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "ritter"
+      ],
+      "host_slug": "judging-freedom",
+      "source_identity": "youtube:b28JrBj8CrI",
+      "source_url": "https://www.youtube.com/watch?v=b28JrBj8CrI",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2025-11-14",
+      "title": "Scott Ritter : Inside Russia’s Mindset: How the Kremlin Sees This War",
+      "local_path": "archive/sources/geopolitics/sources/2025-11-14/source-scott-ritter-inside-russia-s-mindset-how-the-kremlin-sees-this-war-2025-11-14.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2025-11-14/source-scott-ritter-inside-russia-s-mindset-how-the-kremlin-sees-this-war-2025-11-14.md",
+      "upstream_path": "operator-paste://2025-11-14/scott-ritter-inside-russia-s-mindset-how-the-kremlin-sees-this-war",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "ritter"
+      ],
+      "host_slug": "judging-freedom",
+      "source_identity": "youtube:C3QBKCBVbSs",
+      "source_url": "https://www.youtube.com/watch?v=C3QBKCBVbSs",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2025-12-03",
+      "title": "[SPECIAL] - SCOTT RITTER: Pete Hegseth: The Self-Made War Criminal.",
+      "local_path": "archive/sources/geopolitics/sources/2025-12-03/source-special-scott-ritter-pete-hegseth-the-self-made-war-criminal-2025-12-03.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2025-12-03/source-special-scott-ritter-pete-hegseth-the-self-made-war-criminal-2025-12-03.md",
+      "upstream_path": "operator-paste://2025-12-03/special-scott-ritter-pete-hegseth-the-self-made-war-criminal",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "ritter"
+      ],
+      "host_slug": "judging-freedom",
+      "source_identity": "youtube:0OhUL_HL_b0",
+      "source_url": "https://www.youtube.com/watch?v=0OhUL_HL_b0",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2025-12-11",
+      "title": "Scott Ritter : American Killers.",
+      "local_path": "archive/sources/geopolitics/sources/2025-12-11/source-scott-ritter-american-killers-2025-12-11.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2025-12-11/source-scott-ritter-american-killers-2025-12-11.md",
+      "upstream_path": "operator-paste://2025-12-11/scott-ritter-american-killers",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "ritter"
+      ],
+      "host_slug": "judging-freedom",
+      "source_identity": "youtube:-88X-Rh4_wY",
+      "source_url": "https://www.youtube.com/watch?v=-88X-Rh4_wY",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
       "inference_basis": [
         "wrapper-normalized",
         "explicit-host",
