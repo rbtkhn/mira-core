@@ -1,10 +1,10 @@
-<!-- daily-issue-v1 inputs-sha256: a9dcbeb229652d1517767028744ab65dee3c5099cb2e6ccdbad801a41b9a8408 -->
+<!-- daily-issue-v1 inputs-sha256: 2a9c4aac37690b5395c5f7ade08551719b078b20fb52539771b7dc4a42dd6e75 -->
 <!-- reality-lattice-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 -->
 <!-- Generated file. Edit canonical daily or reality-lattice inputs, then regenerate. -->
 
 Publication: **Narrative Geopolitics — Daily Issue**
 
-# Daily Brief - 2026-08-22
+# Economic War Meets Deterrence Signaling
 
 Title standard: `reader-facing`
 

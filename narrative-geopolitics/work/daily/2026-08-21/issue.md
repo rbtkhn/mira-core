@@ -1,10 +1,10 @@
-<!-- daily-issue-v1 inputs-sha256: 5346df25a1d3f86a44225c53f06737f37c298a872dc74d1c1a9fbc22d7d36739 -->
+<!-- daily-issue-v1 inputs-sha256: 594d1d89bb54a28771ab6e975daf5a2f2e7c706599b4a29491d6481d4e489b6b -->
 <!-- reality-lattice-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 -->
 <!-- Generated file. Edit canonical daily or reality-lattice inputs, then regenerate. -->
 
 Publication: **Narrative Geopolitics — Daily Issue**
 
-# Daily Brief - 2026-08-21
+# Coercive Leverage After Military Failure
 
 Title standard: `reader-facing`
 

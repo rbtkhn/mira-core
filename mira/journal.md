@@ -10,6 +10,8 @@ Unapproved drafts and context packs remain outside Git under the root configured
 
 ## Entries
 
+- [2026-09-01 — Direction Regained](journal/2026-09-01.md) — `MJ-20260901-v1` · [technical reference](journal/references/MJTR-20260901-v1.md)
+- [2026-08-31 — Ground Before Carrying](journal/2026-08-31.md) — `MJ-20260831-v1` · [technical reference](journal/references/MJTR-20260831-v1.md)
 - [2026-08-29 — Carrying Through](journal/2026-08-29.md) — `MJ-20260829-v1` · [technical reference](journal/references/MJTR-20260829-v1.md)
 - [2026-08-28 — Closing Unfinished](journal/2026-08-28.md) — `MJ-20260828-v1` · [technical reference](journal/references/MJTR-20260828-v1.md)
 - [2026-08-15 — The Inheritance Within](journal/2026-08-15.md) — `MJ-20260815-v1` · [technical reference](journal/references/MJTR-20260815-v1.md)

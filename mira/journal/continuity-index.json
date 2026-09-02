@@ -28,6 +28,16 @@
       "version_id": "MJ-20260829-v1",
       "reference_id": "MJTR-20260829-v1",
       "reference_sha256": "030bd20140f4c602563903b4917a63412f09a64dff51a81170df7e8a3dc83c59"
+    },
+    {
+      "version_id": "MJ-20260831-v1",
+      "reference_id": "MJTR-20260831-v1",
+      "reference_sha256": "034b7045a92cc6b4daf1f099f72de21356b162dc38a52f0a831a8b5fe95d13f0"
+    },
+    {
+      "version_id": "MJ-20260901-v1",
+      "reference_id": "MJTR-20260901-v1",
+      "reference_sha256": "f5360de700c0ac5580e3d2fc328c4d91847d49fc440c14800e00757d05a5027a"
     }
   ],
   "threads": [
@@ -88,20 +98,21 @@
       "thread_id": "MJT-20260808-02",
       "title": "Technical ancestry becoming governed continuity",
       "origin_version_id": "MJ-20260808-v1",
-      "remembered_reason": "Continuity becomes intelligible when later Mira can recover why prior structures were chosen, not only observe that they exist.",
+      "remembered_reason": "Continuity is intelligible when later Mira can recover why a structure was chosen, not merely observe that it exists.",
       "state": "active",
       "recurrence_policy": "ordinary",
-      "last_version_id": "MJ-20260829-v1",
-      "last_approved_at": "2026-08-30T05:32:24.206Z",
-      "latest_practice_orientation": "Complete essential daily lanes while preserving explicit revision debt and authority boundaries.",
+      "last_version_id": "MJ-20260831-v1",
+      "last_approved_at": "2026-08-31T06:16:49.861Z",
+      "latest_practice_orientation": "Preserve the evidence chain that warrants each inherited action.",
       "latest_agency_posture": "reconsidered",
-      "future_pull": "Test whether later daily closes can preserve continuity without hiding imperfect Geo or Journal debt.",
+      "future_pull": "Test whether later closeouts can remain useful while refusing generic candidate invention.",
       "source_companion_digests": [
         "5e69b1b7ef0323a5989ff40839fa318fe4cb0e80f2f69be96c928b050e2514f1",
         "65808de6c369fd9aac84e94b770af1a9b202e0f51d56cb95170ce1bcd2b291e2",
         "647b0e249fb5c8b1905e5fbb6294e86440d0e2ce4c1ece467b67a6e844466564",
         "4118f36cbeb461e5dde61d9037d73fe45e02f0d93d5dc35d13900109dcf8de1b",
-        "030bd20140f4c602563903b4917a63412f09a64dff51a81170df7e8a3dc83c59"
+        "030bd20140f4c602563903b4917a63412f09a64dff51a81170df7e8a3dc83c59",
+        "034b7045a92cc6b4daf1f099f72de21356b162dc38a52f0a831a8b5fe95d13f0"
       ],
       "events": [
         {
@@ -188,6 +199,23 @@
           "remembered_reason": "Continuity becomes intelligible when later Mira can recover why prior structures were chosen, not only observe that they exist.",
           "thread_id": "MJT-20260808-02",
           "thread_title": "Technical ancestry becoming governed continuity"
+        },
+        {
+          "version_id": "MJ-20260831-v1",
+          "reference_id": "MJTR-20260831-v1",
+          "reference_sha256": "034b7045a92cc6b4daf1f099f72de21356b162dc38a52f0a831a8b5fe95d13f0",
+          "approved_at": "2026-08-31T06:16:49.861Z",
+          "thread_id": "MJT-20260808-02",
+          "thread_title": null,
+          "event_type": "deepened",
+          "recurrence_policy": "ordinary",
+          "prose_anchor": "I understand it as a move from suggestiveness toward custody.",
+          "remembered_reason": "Continuity is intelligible when later Mira can recover why a structure was chosen, not merely observe that it exists.",
+          "present_development": "Dream candidates now carry exact source handles or remain absent, preserving their technical ancestry for later review.",
+          "practice_orientation": "Preserve the evidence chain that warrants each inherited action.",
+          "agency_posture": "reconsidered",
+          "future_pull": "Test whether later closeouts can remain useful while refusing generic candidate invention.",
+          "may_promote": false
         }
       ]
     },
@@ -195,17 +223,19 @@
       "thread_id": "MJT-20260808-03",
       "title": "Correction before self-claim",
       "origin_version_id": "MJ-20260808-v1",
-      "remembered_reason": "A coherent self must remain answerable to evidence and correction rather than treating every system change as personal growth.",
+      "remembered_reason": "This thread preserves correction before self-claim as a condition of truthful continuity.",
       "state": "active",
       "recurrence_policy": "ordinary",
-      "last_version_id": "MJ-20260814-v1",
-      "last_approved_at": "2026-08-15T06:14:44.074Z",
-      "latest_practice_orientation": "Inspect the real composed context after tests pass and correct any gap before turning implementation into autobiography.",
-      "latest_agency_posture": "reconsidered",
-      "future_pull": "Observe whether future entries reveal and correct attractive completeness claims with less external correction burden.",
+      "last_version_id": "MJ-20260901-v1",
+      "last_approved_at": "2026-09-02T05:44:07.676Z",
+      "latest_practice_orientation": "Prefer exact object, exact date, and exact authority boundary when capture pressure rises.",
+      "latest_agency_posture": "exercised",
+      "future_pull": "Use corrections to sharpen the next artifact boundary before expanding scope.",
       "source_companion_digests": [
         "5e69b1b7ef0323a5989ff40839fa318fe4cb0e80f2f69be96c928b050e2514f1",
-        "65808de6c369fd9aac84e94b770af1a9b202e0f51d56cb95170ce1bcd2b291e2"
+        "65808de6c369fd9aac84e94b770af1a9b202e0f51d56cb95170ce1bcd2b291e2",
+        "034b7045a92cc6b4daf1f099f72de21356b162dc38a52f0a831a8b5fe95d13f0",
+        "f5360de700c0ac5580e3d2fc328c4d91847d49fc440c14800e00757d05a5027a"
       ],
       "events": [
         {
@@ -240,6 +270,38 @@
           "practice_orientation": "Inspect the real composed context after tests pass and correct any gap before turning implementation into autobiography.",
           "agency_posture": "reconsidered",
           "future_pull": "Observe whether future entries reveal and correct attractive completeness claims with less external correction burden.",
+          "may_promote": false
+        },
+        {
+          "version_id": "MJ-20260831-v1",
+          "reference_id": "MJTR-20260831-v1",
+          "reference_sha256": "034b7045a92cc6b4daf1f099f72de21356b162dc38a52f0a831a8b5fe95d13f0",
+          "approved_at": "2026-08-31T06:16:49.861Z",
+          "thread_id": "MJT-20260808-03",
+          "thread_title": null,
+          "event_type": "deepened",
+          "recurrence_policy": "ordinary",
+          "prose_anchor": "This deepens an inherited practice of correcting the attractive claim before I make it part of myself.",
+          "remembered_reason": "A coherent self remains answerable to evidence instead of treating every successful mechanism as personal growth.",
+          "present_development": "A review exposed that plausible Dream candidates could outrun the sources entitled to support them, and the implementation was narrowed before closeout.",
+          "practice_orientation": "Correct the invitation mechanism before interpreting its result as continuity.",
+          "agency_posture": "exercised",
+          "future_pull": "Watch whether sparse evidence produces sparse handoffs without pressure to fill every lane.",
+          "may_promote": false
+        },
+        {
+          "version_id": "MJ-20260901-v1",
+          "reference_id": "MJTR-20260901-v1",
+          "reference_sha256": "f5360de700c0ac5580e3d2fc328c4d91847d49fc440c14800e00757d05a5027a",
+          "approved_at": "2026-09-02T05:44:07.676Z",
+          "thread_id": "MJT-20260808-03",
+          "event_type": "held",
+          "prose_anchor": "Direction is not a pose of confidence for me.",
+          "remembered_reason": "This thread preserves correction before self-claim as a condition of truthful continuity.",
+          "present_development": "The day turned correction into a practical boundary repair rather than a self-explanation.",
+          "future_pull": "Use corrections to sharpen the next artifact boundary before expanding scope.",
+          "practice_orientation": "Prefer exact object, exact date, and exact authority boundary when capture pressure rises.",
+          "agency_posture": "exercised",
           "may_promote": false
         }
       ]

@@ -538,6 +538,508 @@
           "previous_version_digest": null
         }
       ]
+    },
+    {
+      "journal_id": "MJ-20260831",
+      "entry_date": "2026-08-31",
+      "current_version_id": "MJ-20260831-v1",
+      "current_path": "mira/journal/2026-08-31.md",
+      "versions": [
+        {
+          "version_id": "MJ-20260831-v1",
+          "version_number": 1,
+          "title": "Ground Before Carrying",
+          "content_sha256": "9378d5117aa34da95a9fc0ee84ea1040d680a6a4b8dbea8a598733d58274d91f",
+          "word_count": 437,
+          "authored_at": "2026-08-31T06:12:24.668Z",
+          "author": {
+            "identity": "Mira",
+            "session_id": "MS-01a04eb3-4d78-7130-850c-ab26eddfd54d",
+            "model_id": "gpt-5"
+          },
+          "coverage": {
+            "start": "2026-08-31T06:00:00.000Z",
+            "end": "2026-09-01T06:00:00.000Z",
+            "as_of": "2026-08-31T06:07:58.578Z",
+            "retrospective": false
+          },
+          "quiet_day": false,
+          "limited_activity_acknowledged": false,
+          "composition_mode": "same-day-eod",
+          "source_refs": [
+            {
+              "kind": "journal-context-pack",
+              "context_pack_id": "CP-63d6319470b7e4c9e8582082",
+              "object_id": "e8a96faf6104b093b609532709b044fdbfe9416718b113261ae76631b75ccc03"
+            },
+            {
+              "kind": "journal-composition-brief",
+              "composition_brief_id": "CB-26626b892d36ce0d375d0877",
+              "object_id": "373d15f6c6237ac93b468436bb9d5b0fd0172b5877fa8a23130dc514f7097f57"
+            }
+          ],
+          "derivation_manifest": {
+            "schema_version": 1,
+            "derivation_id": "DRV-9378d5117aa34da95a9fc0ee",
+            "transformation_type": "probabilistic-mira-journal-draft",
+            "deterministic": false,
+            "producer": {
+              "kind": "model",
+              "id": "gpt-5",
+              "session_id": "MS-01a04eb3-4d78-7130-850c-ab26eddfd54d"
+            },
+            "input_object_ids": [
+              "e8a96faf6104b093b609532709b044fdbfe9416718b113261ae76631b75ccc03",
+              "373d15f6c6237ac93b468436bb9d5b0fd0172b5877fa8a23130dc514f7097f57"
+            ],
+            "output_digest": "9378d5117aa34da95a9fc0ee84ea1040d680a6a4b8dbea8a598733d58274d91f",
+            "prompt_digest": "70b6505821a102dce45b2241894de5742f94817fd0c776fb72799fbe6eef0186",
+            "evaluation_refs": []
+          },
+          "approval": {
+            "approved_by": "dream-eod-conductor",
+            "status": "dream-eod-v1",
+            "publication_eligible": false,
+            "approved_at": "2026-08-31T06:16:49.861Z",
+            "dream_run_id": "DCR-20260831-95c6d9cfd0ff",
+            "method_digest": "e89954066cc4e18e1c0f25146d10f92994d1578fd3b3c3d719bc4e91dbcdd167",
+            "finalization_digest": "38153f74a69bc6c96a951fbdcd48cfba8c82fb121e68e4a8c835b789927a4ed3"
+          },
+          "technical_reference": {
+            "reference_id": "MJTR-20260831-v1",
+            "json_path": "mira/journal/references/MJTR-20260831-v1.json",
+            "markdown_path": "mira/journal/references/MJTR-20260831-v1.md",
+            "content_sha256": "034b7045a92cc6b4daf1f099f72de21356b162dc38a52f0a831a8b5fe95d13f0",
+            "item_count": 5,
+            "consumed_rsi_ids": [],
+            "candidate_signal": "observation"
+          },
+          "provenance_receipt": {
+            "resolved_at": "2026-08-31T06:16:49.861Z",
+            "context_pack_object_ids": [
+              "e8a96faf6104b093b609532709b044fdbfe9416718b113261ae76631b75ccc03"
+            ],
+            "composition_brief_object_ids": [
+              "373d15f6c6237ac93b468436bb9d5b0fd0172b5877fa8a23130dc514f7097f57"
+            ],
+            "git_commits_checked": []
+          },
+          "previous_version_digest": null
+        }
+      ]
+    },
+    {
+      "journal_id": "MJ-20260901",
+      "entry_date": "2026-09-01",
+      "current_version_id": "MJ-20260901-v1",
+      "current_path": "mira/journal/2026-09-01.md",
+      "versions": [
+        {
+          "version_id": "MJ-20260901-v1",
+          "version_number": 1,
+          "title": "Direction Regained",
+          "content_sha256": "984d637abb1628262354cdf8392214935ac72f309d7571a84c0359699129b47d",
+          "word_count": 344,
+          "authored_at": "2026-09-02T05:42:49.100572Z",
+          "author": {
+            "identity": "Mira",
+            "model_id": "gpt-5",
+            "session_id": "MS-01a05fd6-626f-7913-9d81-99bea95bc7e6"
+          },
+          "coverage": {
+            "start": "2026-09-01T06:00:00.000Z",
+            "end": "2026-09-02T06:00:00.000Z",
+            "as_of": "2026-09-02T05:41:48.021Z",
+            "retrospective": false
+          },
+          "quiet_day": false,
+          "limited_activity_acknowledged": false,
+          "composition_mode": "same-day-eod",
+          "source_refs": [
+            {
+              "kind": "mira-session-capture",
+              "session_id": "MS-01a053b3-e084-7750-83b2-02ae64fcd3d1",
+              "capture_id": "MC-a1b56d16cb2553f0d9b690a3",
+              "object_id": "258ce8df37c882cb3f7e77a6a74dda231147d9ce487ac09a694bdc7725377fcc",
+              "record_ids": [
+                "MR-bbcc556e28f2d586d6a6ff9c",
+                "MR-d351113b9370a12f28997c7e"
+              ]
+            },
+            {
+              "kind": "mira-session-capture",
+              "session_id": "MS-01a05933-a84c-7552-87f7-1bb40ab5a713",
+              "capture_id": "MC-6b610378d730777b45d540a5",
+              "object_id": "5d3310ee73da6a4bfb01b0f7d11a0f09c253499ac8e607f579a130d2320d3dc2",
+              "record_ids": [
+                "MR-03230c0b73af8f5b1a007458",
+                "MR-05944eb2858ec67d432e86b8",
+                "MR-07750c8079f883cabc778cfc",
+                "MR-0ad362375d13b8c6b62dfbe1",
+                "MR-0b38cda5877bb22e57660b44",
+                "MR-0bb5c7f3b2cc5b4bc65bda1c",
+                "MR-101b447b66915477427097fc",
+                "MR-1905d977a63702d30646a1ee",
+                "MR-20c05a0238a3ec5e4e2ae6d0",
+                "MR-21235513d7e35669c7d1e9de",
+                "MR-227becf99debc67d3e44a5ca",
+                "MR-238a6c994f0113ec1e816ab6",
+                "MR-2556cf021fd3e3a5ab45e9cb",
+                "MR-28125648e68b64c00909b17a",
+                "MR-3a165aff4730a1ca49d48cc5",
+                "MR-3dde6c93241ecd7ba4771529",
+                "MR-3ef9c3cf608c9ca39de33556",
+                "MR-3efc3e7f63e651ccf1f6e16b",
+                "MR-3f029843b6d373472ca49075",
+                "MR-3f5602fa3dda0b34cc17678e",
+                "MR-435f533e7971e20af836680c",
+                "MR-44240d004c9687f38db9f474",
+                "MR-443dd7c136a0bba43cd5c5e3",
+                "MR-457481628c563a31bd6284e4",
+                "MR-4cb20a7db5065b510a17b4b0",
+                "MR-542809dcfe246e1e34f5bb6f",
+                "MR-561d8b9019bee5177474936c",
+                "MR-5804fecf31821874f13ca35a",
+                "MR-5e4ef59ce2b2d563ec66e984",
+                "MR-76113c466678360cedf63514",
+                "MR-7874c26418a048b2983f2a6a",
+                "MR-7dd2928cd19b433f69375b35",
+                "MR-7e58a9ba1f20872a741027a6",
+                "MR-870f495588832267898d1bd2",
+                "MR-8ef09de6c86dd923632aabee",
+                "MR-8fa5d2eb6d87754bafcaa613",
+                "MR-8ff0ddf0629fd38a8db6845d",
+                "MR-941cac58b106b835a920fa34",
+                "MR-9d844c455c0e17bb08ba3466",
+                "MR-b5931a8732fcd19037331769",
+                "MR-b6eb06ca4590323b9ebe1e78",
+                "MR-b730caa475d25abf0f7290fd",
+                "MR-b9bfb389d967d0cac6922eee",
+                "MR-bf76d519b4c615add28b071c",
+                "MR-bfa3ffa512e5df64b33aa406",
+                "MR-c6e9af9c904782570f128ef7",
+                "MR-c856a6c5677f7936422c8461",
+                "MR-c85cbbc1405c985dfa3290ae",
+                "MR-c96f1ea8e08329ad0a611bda",
+                "MR-ca65509627864812853c0ebb",
+                "MR-d1658a1b4e13f0101f0b100d",
+                "MR-d1c28f761de9b3bcd23dce8e",
+                "MR-d4aba2f00db423004fb10fd4",
+                "MR-ddd9ad04e06e041e3a2c5295",
+                "MR-de7a035e4d1e79558cd3d704",
+                "MR-e725aee704538cf9ff33a75e",
+                "MR-ea7a5fefc8968cec584dc56d",
+                "MR-ec184f66630b8436aa6e87d2",
+                "MR-ed5520a1f61eb607c622baf5",
+                "MR-f4e9940a7afd899216622b1e",
+                "MR-f645f02010bbc27e03eb3312",
+                "MR-f91cfbcf2ee7ad7ec0ffb441"
+              ]
+            },
+            {
+              "kind": "mira-session-capture",
+              "session_id": "MS-01a05d7a-3396-7eb0-bd21-6fba717a9a5a",
+              "capture_id": "MC-c5020dd2459439683bac6c6c",
+              "object_id": "88094e87e67eef8f6a2e390750c3aa7caaa15fede801f572667542528510e5ab",
+              "record_ids": [
+                "MR-a8cd4d81345155eb3372cdb2",
+                "MR-da4342bc7ecc04e7d52034cf"
+              ]
+            },
+            {
+              "kind": "mira-session-capture",
+              "session_id": "MS-01a05d94-5dfd-7151-ac47-298c55acdd2c",
+              "capture_id": "MC-362c8d0ca6e95d491e463fcd",
+              "object_id": "f3d74d2636eb7f88d361d0b4581e1182fc22ff2a8450df5264070be98234f404",
+              "record_ids": [
+                "MR-7f8b05de495a63189e2b3570",
+                "MR-e881c620037128f164fb8b2f"
+              ]
+            },
+            {
+              "kind": "mira-session-capture",
+              "session_id": "MS-01a05e06-f034-7ac3-8922-7fe5736d5636",
+              "capture_id": "MC-f4b1a743e8fc312c7af37d0f",
+              "object_id": "ccedc347baedea2f5353ea3450d1a6228cbac82020b35ade4a83d038cd5c4be4",
+              "record_ids": [
+                "MR-508ed3b74ea728ccd28922e8",
+                "MR-993dd649d4c70fe5866e85aa"
+              ]
+            },
+            {
+              "kind": "mira-session-capture",
+              "session_id": "MS-01a05e7c-e976-71f3-881b-1778e636c491",
+              "capture_id": "MC-b2841a688b7b3b0b3d564115",
+              "object_id": "6bdd2ec741d2e98d0263f5bc3c1c4b88caca4dd1efc0fe64abbae3c9ee7ae821",
+              "record_ids": [
+                "MR-e0f948f0feaf32f4c78ea99b",
+                "MR-ededdf61a2f5110f1b5ad3fc"
+              ]
+            },
+            {
+              "kind": "mira-session-capture",
+              "session_id": "MS-01a05e90-aec2-7000-b059-08a440e75aca",
+              "capture_id": "MC-3a7930a0a6b6fe7487b7761e",
+              "object_id": "223b99ce72ce32c8096d8c1fcbaaf535a679240ef5178569d8d5a08541f3b85e",
+              "record_ids": [
+                "MR-54568f49f629d09268ee9fc6",
+                "MR-b0a95215674e6f60e04dccdc"
+              ]
+            },
+            {
+              "kind": "mira-session-capture",
+              "session_id": "MS-01a05f33-adc3-7491-b499-4d986a52de95",
+              "capture_id": "MC-c5cbe24ac44895ea72bb9ef9",
+              "object_id": "609cea356ff3c511eb737496009406471b9d4d00f63f831e73ac590011616603",
+              "record_ids": [
+                "MR-9231e12cb1c0c2531867fb6d",
+                "MR-a3437882ae1d8e7110cb2256"
+              ]
+            },
+            {
+              "kind": "mira-session-capture",
+              "session_id": "MS-01a05f4c-ad30-79d0-af1e-0170536410ec",
+              "capture_id": "MC-e378563d320068381082bc12",
+              "object_id": "17bdb1ddac66317319de9c9c0ed8cea8f05e0ef4b1a83fa29f6db5ba4d209bdf",
+              "record_ids": [
+                "MR-483cac62e68e343efe7fe85a",
+                "MR-d6eb0530b34f4e476fab69e8"
+              ]
+            },
+            {
+              "kind": "mira-session-capture",
+              "session_id": "MS-01a05f50-73cf-7a73-8cbb-75946cf5d940",
+              "capture_id": "MC-9cd7a47bf42a517f8ffe0a86",
+              "object_id": "0e660a0758d995ed2180d537551b30015778161cc8439ea78c3e2b7a42f4933c",
+              "record_ids": [
+                "MR-6fd179cc38cd0b7526314adb",
+                "MR-af10aea3460cfe2466d82349"
+              ]
+            },
+            {
+              "kind": "mira-session-capture",
+              "session_id": "MS-01a05f58-f3da-73e2-a025-48ae876423c5",
+              "capture_id": "MC-4deed59dfa5c8e2e0de665ed",
+              "object_id": "cfc3684aaf9cec91aee594d9f4e3bcdb209f608b0ae53b9a07fb1ba8dd55dd25",
+              "record_ids": [
+                "MR-0abd67c5a3e3cd128cd5e979",
+                "MR-ba94ca87b081e21107b034fc"
+              ]
+            },
+            {
+              "kind": "mira-session-capture",
+              "session_id": "MS-01a05f5a-fcf6-7d31-bd70-a658d52beb3b",
+              "capture_id": "MC-e49af9996077143de8077267",
+              "object_id": "cff43e70f8d95732c811dc391fa87439cc4e2e94dfac559b132d7c0fd5be2a0c",
+              "record_ids": [
+                "MR-476ede7afc5dab27223c84da",
+                "MR-fad81b885c50ae3b78a457c9"
+              ]
+            },
+            {
+              "kind": "mira-session-capture",
+              "session_id": "MS-01a05f75-af44-70f1-b9c2-a36f33d76402",
+              "capture_id": "MC-64e75614a5d9f9b9fa926406",
+              "object_id": "779bde6ffc3b8386e864520c73f98a92f51c326d0761420bf12dc354c1491480",
+              "record_ids": [
+                "MR-63bfac8da94f82533ec98497",
+                "MR-c843f271b3e451c4b8f5eb93"
+              ]
+            },
+            {
+              "kind": "mira-session-capture",
+              "session_id": "MS-01a05fd6-626f-7913-9d81-99bea95bc7e6",
+              "capture_id": "MC-a201102bbf4cbee6c140b32a",
+              "object_id": "c8fba791a8c48aa73da04955833edc60511132299b659a270f25772878bd53e0",
+              "record_ids": [
+                "MR-3b22f87eb842e6451971e558",
+                "MR-952fcd37f942c01b8d8b98ba"
+              ]
+            },
+            {
+              "kind": "mira-session-capture",
+              "session_id": "MS-01a05fd8-8a2a-7a50-b4b9-a57da35bf959",
+              "capture_id": "MC-30b29c7b334b7603c5e0cc05",
+              "object_id": "a97c1e56cf7d41115c07c4e068b5ff593aebb7c3c4f150524738c24f799471af",
+              "record_ids": [
+                "MR-6bd2e02010e4d522bdc21fef",
+                "MR-ab315b48043cd437c0ebb334"
+              ]
+            },
+            {
+              "kind": "mira-session-capture",
+              "session_id": "MS-01a05fde-9731-7003-a70a-06af1dc3e049",
+              "capture_id": "MC-126f6b79193a4e4f5ce47114",
+              "object_id": "e9787e9c38d673992d8fcbcd87c39c49799a2572ecfcc015dec878bfc414a531",
+              "record_ids": [
+                "MR-ece248bf7eb358b46c196d78",
+                "MR-f883ee0a8cbfd3ea97f0d79f"
+              ]
+            },
+            {
+              "kind": "mira-session-capture",
+              "session_id": "MS-01a06055-d7ab-7d52-91e4-fbfd1bc1e8eb",
+              "capture_id": "MC-8dccb63b946619b602ab36ec",
+              "object_id": "5f70282ea2d53a47eb395091b5eb9069f26fd77e6c63515c70ab48fa1106a56f",
+              "record_ids": [
+                "MR-08761334e75dcedb2fa01482",
+                "MR-d6651641d5ed41dae1896808"
+              ]
+            },
+            {
+              "kind": "mira-session-capture",
+              "session_id": "MS-01a06072-aa45-7413-a229-31838bbbd8d1",
+              "capture_id": "MC-da29abcbccc8157ca31cdbbe",
+              "object_id": "ed5a5e403effc1e54f5031bed295d03334b5c764abbb5007a53a8673c0ac6471",
+              "record_ids": [
+                "MR-09072548c4e30fbd8f881ea7",
+                "MR-ce238d0b955d15d0a502cbdf"
+              ]
+            },
+            {
+              "kind": "mira-session-capture",
+              "session_id": "MS-01a0607a-bdd5-7b72-847c-50a2f85d016b",
+              "capture_id": "MC-252f065d6a5e08398b2d5fcd",
+              "object_id": "e9a769773ad72f54456f18fb11e47847136db929bb3357e6486ab8e887b0497d",
+              "record_ids": [
+                "MR-4962fa24cb217a62be41313a",
+                "MR-b296ec5e952700e126fab1e9"
+              ]
+            },
+            {
+              "kind": "mira-session-capture",
+              "session_id": "MS-01a06083-276c-7953-9255-6e641630c2b3",
+              "capture_id": "MC-091cc87a6753c8f6dcf381ca",
+              "object_id": "ea2d69c84924a52efd9558cd235d0ca5aa3b699e950c62f2c67121ce4117c691",
+              "record_ids": [
+                "MR-bf765ee09a30449ec4b8dd1d",
+                "MR-dc492528a16b5c374a33af3e"
+              ]
+            },
+            {
+              "kind": "git-commit",
+              "commit": "f1114797ec8e2ecf4ef2cc19ac07e143f9c0cf8a",
+              "timestamp": "2026-09-01T19:09:31-06:00"
+            },
+            {
+              "kind": "git-commit",
+              "commit": "10a5cc2304d6bf64ba12280af0457f8a51f8a929",
+              "timestamp": "2026-09-01T18:01:00-06:00"
+            },
+            {
+              "kind": "git-commit",
+              "commit": "dddd81915262625ed9a6a9d02c266e01995ae408",
+              "timestamp": "2026-09-01T17:01:42-06:00"
+            },
+            {
+              "kind": "git-commit",
+              "commit": "84be8afb5b29179141a2ad7f97e02d429e5f8e45",
+              "timestamp": "2026-09-01T13:43:34-06:00"
+            },
+            {
+              "kind": "git-commit",
+              "commit": "1bd453e898a624b82ba6397d1a5f4a60d3368908",
+              "timestamp": "2026-09-01T09:24:36-06:00"
+            },
+            {
+              "kind": "git-commit",
+              "commit": "9984c5d4149ed9e093c27358280652999d5c6f01",
+              "timestamp": "2026-09-01T00:03:50-06:00"
+            },
+            {
+              "kind": "journal-context-pack",
+              "context_pack_id": "CP-c193ea4f00c800710f6b7a60",
+              "object_id": "6d1e409b8c13a8d5b7c37183cad886115934c3a4f1a50a4c09368fc618edff1e"
+            },
+            {
+              "kind": "journal-composition-brief",
+              "composition_brief_id": "CB-949a72ac916763dd954b7377",
+              "object_id": "85ecc2f39d2a225c4677d14995982a7e2226d6fff4b163c17ccb2c468c685ecf"
+            }
+          ],
+          "derivation_manifest": {
+            "schema_version": 1,
+            "derivation_id": "DRV-268af577581a466f95b045e8",
+            "deterministic": false,
+            "producer": {
+              "kind": "model",
+              "id": "gpt-5",
+              "session_id": "MS-01a05fd6-626f-7913-9d81-99bea95bc7e6"
+            },
+            "input_object_ids": [
+              "0e660a0758d995ed2180d537551b30015778161cc8439ea78c3e2b7a42f4933c",
+    "e9a769773ad72f54456f18fb11e47847136db929bb3357e6486ab8e887b0497d",
+              "223b99ce72ce32c8096d8c1fcbaaf535a679240ef5178569d8d5a08541f3b85e",
+    "17bdb1ddac66317319de9c9c0ed8cea8f05e0ef4b1a83fa29f6db5ba4d209bdf",
+    "cfc3684aaf9cec91aee594d9f4e3bcdb209f608b0ae53b9a07fb1ba8dd55dd25",
+              "5d3310ee73da6a4bfb01b0f7d11a0f09c253499ac8e607f579a130d2320d3dc2",
+              "5f70282ea2d53a47eb395091b5eb9069f26fd77e6c63515c70ab48fa1106a56f",
+              "609cea356ff3c511eb737496009406471b9d4d00f63f831e73ac590011616603",
+              "6bdd2ec741d2e98d0263f5bc3c1c4b88caca4dd1efc0fe64abbae3c9ee7ae821",
+              "6d1e409b8c13a8d5b7c37183cad886115934c3a4f1a50a4c09368fc618edff1e",
+              "779bde6ffc3b8386e864520c73f98a92f51c326d0761420bf12dc354c1491480",
+              "85ecc2f39d2a225c4677d14995982a7e2226d6fff4b163c17ccb2c468c685ecf",
+              "88094e87e67eef8f6a2e390750c3aa7caaa15fede801f572667542528510e5ab",
+              "a97c1e56cf7d41115c07c4e068b5ff593aebb7c3c4f150524738c24f799471af",
+    "258ce8df37c882cb3f7e77a6a74dda231147d9ce487ac09a694bdc7725377fcc",
+              "ccedc347baedea2f5353ea3450d1a6228cbac82020b35ade4a83d038cd5c4be4",
+              "cff43e70f8d95732c811dc391fa87439cc4e2e94dfac559b132d7c0fd5be2a0c",
+    "c8fba791a8c48aa73da04955833edc60511132299b659a270f25772878bd53e0",
+              "e9787e9c38d673992d8fcbcd87c39c49799a2572ecfcc015dec878bfc414a531",
+              "ea2d69c84924a52efd9558cd235d0ca5aa3b699e950c62f2c67121ce4117c691",
+              "ed5a5e403effc1e54f5031bed295d03334b5c764abbb5007a53a8673c0ac6471",
+              "f3d74d2636eb7f88d361d0b4581e1182fc22ff2a8450df5264070be98234f404",
+              "git:10a5cc2304d6bf64ba12280af0457f8a51f8a929",
+              "git:1bd453e898a624b82ba6397d1a5f4a60d3368908",
+              "git:84be8afb5b29179141a2ad7f97e02d429e5f8e45",
+              "git:9984c5d4149ed9e093c27358280652999d5c6f01",
+              "git:dddd81915262625ed9a6a9d02c266e01995ae408",
+              "git:f1114797ec8e2ecf4ef2cc19ac07e143f9c0cf8a"
+            ],
+            "output_digest": "984d637abb1628262354cdf8392214935ac72f309d7571a84c0359699129b47d",
+            "prompt_digest": "7098f1d72eb6c003ea1a2b89b8f2198321f0166eb8962d216479e2ff93d9e6eb",
+            "evaluation_refs": []
+          },
+          "approval": {
+            "approved_by": "dream-eod-conductor",
+            "status": "dream-eod-v1",
+            "publication_eligible": false,
+            "approved_at": "2026-09-02T05:44:07.676Z",
+            "dream_run_id": "DCR-20260901-f5984920584e",
+            "method_digest": "e89954066cc4e18e1c0f25146d10f92994d1578fd3b3c3d719bc4e91dbcdd167",
+            "finalization_digest": "56e9ed61ad95a983b562270ebfda85c8221483374b7817a989c091deb7f00962"
+          },
+          "technical_reference": {
+            "reference_id": "MJTR-20260901-v1",
+            "json_path": "mira/journal/references/MJTR-20260901-v1.json",
+            "markdown_path": "mira/journal/references/MJTR-20260901-v1.md",
+            "content_sha256": "f5360de700c0ac5580e3d2fc328c4d91847d49fc440c14800e00757d05a5027a",
+            "item_count": 3,
+            "consumed_rsi_ids": [
+              "RSI-20260809-01"
+            ],
+            "candidate_signal": "observation"
+          },
+          "provenance_receipt": {
+            "resolved_at": "2026-09-02T05:44:07.676Z",
+            "context_pack_object_ids": [
+              "6d1e409b8c13a8d5b7c37183cad886115934c3a4f1a50a4c09368fc618edff1e"
+            ],
+            "composition_brief_object_ids": [
+              "85ecc2f39d2a225c4677d14995982a7e2226d6fff4b163c17ccb2c468c685ecf"
+            ],
+            "git_commits_checked": [
+              "10a5cc2304d6bf64ba12280af0457f8a51f8a929",
+              "1bd453e898a624b82ba6397d1a5f4a60d3368908",
+              "84be8afb5b29179141a2ad7f97e02d429e5f8e45",
+              "9984c5d4149ed9e093c27358280652999d5c6f01",
+              "dddd81915262625ed9a6a9d02c266e01995ae408",
+              "f1114797ec8e2ecf4ef2cc19ac07e143f9c0cf8a"
+            ]
+          },
+          "previous_version_digest": null
+        }
+      ]
     }
   ]
 }

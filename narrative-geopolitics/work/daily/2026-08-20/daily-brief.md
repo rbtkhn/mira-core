@@ -1,4 +1,4 @@
-# Daily Brief - 2026-08-20
+# Sanctions Become a Third-Party Test
 
 Title: `Sanctions Become a Third-Party Test`
 Title rationale: `Names the day's issue argument while preserving its bounded evidence posture.`

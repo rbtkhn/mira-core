@@ -1,4 +1,7 @@
-# Daily Brief - 2026-08-21
+# Coercive Leverage After Military Failure
+
+Title: `Coercive Leverage After Military Failure`
+Title rationale: `Names the lead issue argument while preserving its bounded-analysis evidence boundary.`
 
 Status: `internal`
 Public-use posture: `held`

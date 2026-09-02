@@ -1,4 +1,4 @@
-# Daily Brief - 2026-08-23
+# Iran Pressure Becomes Alliance Architecture
 
 Title: `Iran Pressure Becomes Alliance Architecture`
 Title rationale: `Names the day's issue argument while preserving its bounded evidence posture.`

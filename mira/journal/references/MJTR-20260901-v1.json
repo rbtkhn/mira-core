@@ -1,0 +1,204 @@
+{
+  "schema_version": 2,
+  "reference_id": "MJTR-20260901-v1",
+  "journal_version_id": "MJ-20260901-v1",
+  "journal_content_sha256": "984d637abb1628262354cdf8392214935ac72f309d7571a84c0359699129b47d",
+  "entry_date": "2026-09-01",
+  "mapping_mode": "contemporaneous",
+  "cutoff_at": "2026-09-02T05:41:48.021Z",
+  "authority_boundary": "Technical references ground journal prose but do not prove learning, validate outcomes, or provide action authority. Only admitted RSI entries are canonical recursive learning.",
+  "items": [
+    {
+      "item_id": "MJTR-20260901-v1-I01",
+      "prose_anchor": "I did not lose direction so much as lose proportion.",
+      "narrative_function": "Names the day-level correction from capture sprawl back to bounded judgment.",
+      "technical_development": "The day included repeated source-capture corrections, explicit exclusions, and date-bound verification before Geo packet completion.",
+      "cutoff_status": "historical-context",
+      "session_ids": [
+        "MS-01a053b3-e084-7750-83b2-02ae64fcd3d1",
+        "MS-01a05933-a84c-7552-87f7-1bb40ab5a713",
+        "MS-01a05d7a-3396-7eb0-bd21-6fba717a9a5a",
+        "MS-01a05d94-5dfd-7151-ac47-298c55acdd2c",
+        "MS-01a05e06-f034-7ac3-8922-7fe5736d5636",
+        "MS-01a05e7c-e976-71f3-881b-1778e636c491",
+        "MS-01a05e90-aec2-7000-b059-08a440e75aca",
+        "MS-01a05f33-adc3-7491-b499-4d986a52de95",
+        "MS-01a05f4c-ad30-79d0-af1e-0170536410ec",
+        "MS-01a05f50-73cf-7a73-8cbb-75946cf5d940",
+        "MS-01a05f58-f3da-73e2-a025-48ae876423c5",
+        "MS-01a05f5a-fcf6-7d31-bd70-a658d52beb3b",
+        "MS-01a05f75-af44-70f1-b9c2-a36f33d76402",
+        "MS-01a05fd6-626f-7913-9d81-99bea95bc7e6",
+        "MS-01a05fd8-8a2a-7a50-b4b9-a57da35bf959",
+        "MS-01a05fde-9731-7003-a70a-06af1dc3e049",
+        "MS-01a06055-d7ab-7d52-91e4-fbfd1bc1e8eb",
+        "MS-01a06072-aa45-7413-a229-31838bbbd8d1",
+        "MS-01a0607a-bdd5-7b72-847c-50a2f85d016b",
+        "MS-01a06083-276c-7953-9255-6e641630c2b3"
+      ],
+      "evidence_refs": [
+        {
+          "kind": "repo-path",
+          "path": "archive/sources/geopolitics/source-manifest.json"
+        },
+        {
+          "kind": "repo-path",
+          "path": "narrative-geopolitics/work/daily/2026-09-01/sources.md"
+        }
+      ],
+      "may_promote": false
+    },
+    {
+      "item_id": "MJTR-20260901-v1-I02",
+      "prose_anchor": "The strongest strategic object was not any single claim about a strike, base, ship, casualty, or market move; it was the support structure of coercion.",
+      "narrative_function": "Binds the private reflection to the day’s Geo-Strategy mechanism without elevating operational claims.",
+      "technical_development": "The daily judgment framed Sept. 1 as an escalation-capacity day and explicitly held operational claims outside public use.",
+      "cutoff_status": "historical-context",
+      "session_ids": [
+        "MS-01a05fd6-626f-7913-9d81-99bea95bc7e6"
+      ],
+      "evidence_refs": [
+        {
+          "kind": "repo-path",
+          "path": "narrative-geopolitics/work/daily/2026-09-01/judgment.md"
+        },
+        {
+          "kind": "repo-path",
+          "path": "narrative-geopolitics/work/daily/2026-09-01/issue.md"
+        },
+        {
+          "kind": "repo-path",
+          "path": "narrative-geopolitics/work/daily/2026-09-01/strategy-notebook.md"
+        }
+      ],
+      "may_promote": false
+    },
+    {
+      "item_id": "MJTR-20260901-v1-I03",
+      "prose_anchor": "Direction is not a pose of confidence for me.",
+      "narrative_function": "Carries continuity from correction-before-self-claim into an ordinary workflow practice.",
+      "technical_development": "The entry inherits the continuity thread on correction before self-claim while avoiding any claim that the day proves identity or learning closure.",
+      "cutoff_status": "historical-context",
+      "session_ids": [
+        "MS-01a05fd6-626f-7913-9d81-99bea95bc7e6"
+      ],
+      "evidence_refs": [
+        {
+          "kind": "recursive-learning-entry",
+          "id": "RSI-20260809-01"
+        }
+      ],
+      "may_promote": false
+    }
+  ],
+  "recursive_learning": {
+    "consumed_rsi_ids": [
+      "RSI-20260809-01"
+    ],
+    "candidate_signal": "observation",
+    "candidate_summary": "The day observed that interruption and exact boundary repair improved workflow direction, but this is only a journal-grounded observation.",
+    "future_test": "On the next date-bound capture task, check whether the first review table separates include, exclude, manual-needed, and verification-needed before synthesis begins."
+  },
+  "continuity": {
+    "inherited_thread_ids": [
+      "MJT-20260808-03"
+    ],
+    "continuity_break_reason": null,
+    "thread_events": [
+      {
+        "thread_id": "MJT-20260808-03",
+        "event_type": "held",
+        "prose_anchor": "Direction is not a pose of confidence for me.",
+        "remembered_reason": "This thread preserves correction before self-claim as a condition of truthful continuity.",
+        "present_development": "The day turned correction into a practical boundary repair rather than a self-explanation.",
+        "future_pull": "Use corrections to sharpen the next artifact boundary before expanding scope.",
+        "practice_orientation": "Prefer exact object, exact date, and exact authority boundary when capture pressure rises.",
+        "agency_posture": "exercised",
+        "may_promote": false
+      }
+    ],
+    "deliberate_refrains": []
+  },
+  "session_coverage": [
+    {
+      "session_id": "MS-01a053b3-e084-7750-83b2-02ae64fcd3d1",
+      "prose_influence": "technical-only"
+    },
+    {
+      "session_id": "MS-01a05933-a84c-7552-87f7-1bb40ab5a713",
+      "prose_influence": "technical-only"
+    },
+    {
+      "session_id": "MS-01a05d7a-3396-7eb0-bd21-6fba717a9a5a",
+      "prose_influence": "technical-only"
+    },
+    {
+      "session_id": "MS-01a05d94-5dfd-7151-ac47-298c55acdd2c",
+      "prose_influence": "technical-only"
+    },
+    {
+      "session_id": "MS-01a05e06-f034-7ac3-8922-7fe5736d5636",
+      "prose_influence": "technical-only"
+    },
+    {
+      "session_id": "MS-01a05e7c-e976-71f3-881b-1778e636c491",
+      "prose_influence": "technical-only"
+    },
+    {
+      "session_id": "MS-01a05e90-aec2-7000-b059-08a440e75aca",
+      "prose_influence": "technical-only"
+    },
+    {
+      "session_id": "MS-01a05f33-adc3-7491-b499-4d986a52de95",
+      "prose_influence": "technical-only"
+    },
+    {
+      "session_id": "MS-01a05f4c-ad30-79d0-af1e-0170536410ec",
+      "prose_influence": "technical-only"
+    },
+    {
+      "session_id": "MS-01a05f50-73cf-7a73-8cbb-75946cf5d940",
+      "prose_influence": "technical-only"
+    },
+    {
+      "session_id": "MS-01a05f58-f3da-73e2-a025-48ae876423c5",
+      "prose_influence": "technical-only"
+    },
+    {
+      "session_id": "MS-01a05f5a-fcf6-7d31-bd70-a658d52beb3b",
+      "prose_influence": "technical-only"
+    },
+    {
+      "session_id": "MS-01a05f75-af44-70f1-b9c2-a36f33d76402",
+      "prose_influence": "technical-only"
+    },
+    {
+      "session_id": "MS-01a05fd6-626f-7913-9d81-99bea95bc7e6",
+      "prose_influence": "selected"
+    },
+    {
+      "session_id": "MS-01a05fd8-8a2a-7a50-b4b9-a57da35bf959",
+      "prose_influence": "technical-only"
+    },
+    {
+      "session_id": "MS-01a05fde-9731-7003-a70a-06af1dc3e049",
+      "prose_influence": "technical-only"
+    },
+    {
+      "session_id": "MS-01a06055-d7ab-7d52-91e4-fbfd1bc1e8eb",
+      "prose_influence": "technical-only"
+    },
+    {
+      "session_id": "MS-01a06072-aa45-7413-a229-31838bbbd8d1",
+      "prose_influence": "technical-only"
+    },
+    {
+      "session_id": "MS-01a0607a-bdd5-7b72-847c-50a2f85d016b",
+      "prose_influence": "technical-only"
+    },
+    {
+      "session_id": "MS-01a06083-276c-7953-9255-6e641630c2b3",
+      "prose_influence": "technical-only"
+    }
+  ]
+}

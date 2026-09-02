@@ -1,4 +1,4 @@
-# Daily Brief - 2026-08-26
+# War by Waiting Reaches the Legitimacy Layer
 
 Title: `War by Waiting Reaches the Legitimacy Layer`
 Title rationale: `Names the day's issue argument while preserving its bounded evidence posture.`

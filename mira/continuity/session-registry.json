@@ -2383,6 +2383,899 @@
         }
       ],
       "harvest_refs": []
+    },
+    {
+      "id": "MS-01a05398-da47-7601-9a46-224792d0c43a",
+      "codex_session_id": "01a05398-da47-7601-9a46-224792d0c43a",
+      "started_at": "2026-08-30T16:55:21.819Z",
+      "last_observed_at": "2026-08-31T05:17:11.948Z",
+      "source_kind": "vscode",
+      "captures": [
+        {
+          "id": "MC-076b0b5967587868f0083047",
+          "path": "mira/continuity/captures/01a05398-da47-7601-9a46-224792d0c43a/MC-076b0b5967587868f0083047.jsonl.gz",
+          "sha256": "12daa10be2686e5a69b2b0185e29fb4aecf2bcc4759e989cc469db1de1a1aeb8",
+          "source_sha256": "a6ef18ff3fec4736574f16ed96dde6df1cde038ff11a46f74d8ca34581abd266",
+          "record_count": 2210,
+          "observed_at": "2026-08-31T05:17:11.948Z",
+          "source_class": "active"
+        }
+      ],
+      "harvest_refs": []
+    },
+    {
+      "id": "MS-01a053b3-e084-7750-83b2-02ae64fcd3d1",
+      "codex_session_id": "01a053b3-e084-7750-83b2-02ae64fcd3d1",
+      "started_at": "2026-08-30T17:24:52.781Z",
+      "last_observed_at": "2026-09-02T19:03:38.892Z",
+      "source_kind": "vscode",
+      "captures": [
+        {
+          "id": "MC-a1b56d16cb2553f0d9b690a3",
+          "path": "mira/continuity/captures/01a053b3-e084-7750-83b2-02ae64fcd3d1/MC-a1b56d16cb2553f0d9b690a3.jsonl.gz",
+          "sha256": "258ce8df37c882cb3f7e77a6a74dda231147d9ce487ac09a694bdc7725377fcc",
+          "source_sha256": "d9106c87d891b7aaa32c5b45dd128053b9c29165a1d4bf7b39b62cc6f8ab959f",
+          "record_count": 751,
+          "observed_at": "2026-09-02T19:03:38.892Z",
+          "source_class": "active"
+        }
+      ],
+      "harvest_refs": []
+    },
+    {
+      "id": "MS-01a053dc-7649-7d10-bb89-a379ee094755",
+      "codex_session_id": "01a053dc-7649-7d10-bb89-a379ee094755",
+      "started_at": "2026-08-30T18:09:12.543Z",
+      "last_observed_at": "2026-08-30T18:16:45.159Z",
+      "source_kind": "subagent",
+      "captures": [
+        {
+          "id": "MC-93217c8aff84cbf51ffb6ce1",
+          "path": "mira/continuity/captures/01a053dc-7649-7d10-bb89-a379ee094755/MC-93217c8aff84cbf51ffb6ce1.jsonl.gz",
+          "sha256": "447a7cbc22dc69a12eb184f64654e29a7c5285947be8370783368417e1350b88",
+          "source_sha256": "d15437456a59734f9660221fb94fc07e907712e5778b84413b57f7745a8513ad",
+          "record_count": 17,
+          "observed_at": "2026-08-30T18:16:45.159Z",
+          "source_class": "active"
+        }
+      ],
+      "harvest_refs": []
+    },
+    {
+      "id": "MS-01a0549a-010a-73e1-b0b9-1a193aa3b604",
+      "codex_session_id": "01a0549a-010a-73e1-b0b9-1a193aa3b604",
+      "started_at": "2026-08-30T21:36:14.466Z",
+      "last_observed_at": "2026-08-30T21:39:50.316Z",
+      "source_kind": "subagent",
+      "captures": [
+        {
+          "id": "MC-c509011fd1633e7bb579b861",
+          "path": "mira/continuity/captures/01a0549a-010a-73e1-b0b9-1a193aa3b604/MC-c509011fd1633e7bb579b861.jsonl.gz",
+          "sha256": "11737854e4f75faee72175353ccb5f729a08e26673c8fade8d70b4baccb49b71",
+          "source_sha256": "5e234f22d82547160237cdd3137676e6a4f85a514121cbf60a50d3eed9f31fa9",
+          "record_count": 17,
+          "observed_at": "2026-08-30T21:39:50.316Z",
+          "source_class": "active"
+        }
+      ],
+      "harvest_refs": []
+    },
+    {
+      "id": "MS-01a0549a-9324-7491-9cd9-040ddc9d6a91",
+      "codex_session_id": "01a0549a-9324-7491-9cd9-040ddc9d6a91",
+      "started_at": "2026-08-30T21:36:51.688Z",
+      "last_observed_at": "2026-08-30T21:36:56.158Z",
+      "source_kind": "subagent",
+      "captures": [
+        {
+          "id": "MC-6fa6fa289f3d4e7fb7008b1a",
+          "path": "mira/continuity/captures/01a0549a-9324-7491-9cd9-040ddc9d6a91/MC-6fa6fa289f3d4e7fb7008b1a.jsonl.gz",
+          "sha256": "12d8bc19da6dfd7dc32f89e06573a906dd134356ac6bba1e305de2e2d3b693e2",
+          "source_sha256": "f4aefe1d437e17db4c9a271d73a0edcd2782b21376f60f3cd33be18a6af77bee",
+          "record_count": 5,
+          "observed_at": "2026-08-30T21:36:56.158Z",
+          "source_class": "active"
+        }
+      ],
+      "harvest_refs": []
+    },
+    {
+      "id": "MS-01a054b8-2a2f-77b0-8030-a35233b53f02",
+      "codex_session_id": "01a054b8-2a2f-77b0-8030-a35233b53f02",
+      "started_at": "2026-08-30T22:09:10.900Z",
+      "last_observed_at": "2026-08-30T22:09:15.469Z",
+      "source_kind": "subagent",
+      "captures": [
+        {
+          "id": "MC-b8e4f682de82892dd121b409",
+          "path": "mira/continuity/captures/01a054b8-2a2f-77b0-8030-a35233b53f02/MC-b8e4f682de82892dd121b409.jsonl.gz",
+          "sha256": "b20f2c82abbcd71ba3933bc69b31e6acb4638bf41bee5f0c6bcb90263534344a",
+          "source_sha256": "0082ee7e44d5810c7c8457f8db2a5e815c1c457a08d89cb763ef699bb81b4e99",
+          "record_count": 5,
+          "observed_at": "2026-08-30T22:09:15.469Z",
+          "source_class": "active"
+        }
+      ],
+      "harvest_refs": []
+    },
+    {
+      "id": "MS-01a054bb-195e-7973-9141-62972ebe529c",
+      "codex_session_id": "01a054bb-195e-7973-9141-62972ebe529c",
+      "started_at": "2026-08-30T22:12:23.281Z",
+      "last_observed_at": "2026-08-30T22:12:27.784Z",
+      "source_kind": "subagent",
+      "captures": [
+        {
+          "id": "MC-4fc43bda68666233894fe633",
+          "path": "mira/continuity/captures/01a054bb-195e-7973-9141-62972ebe529c/MC-4fc43bda68666233894fe633.jsonl.gz",
+          "sha256": "41ce326c579689e81564e975a303f7a0226e9cbdb4f02338a8e82b132aabbc05",
+          "source_sha256": "5b7866ae8e694ae112ba1acc38833365a316cc11f57b4b8f20ba347f6a925099",
+          "record_count": 5,
+          "observed_at": "2026-08-30T22:12:27.784Z",
+          "source_class": "active"
+        }
+      ],
+      "harvest_refs": []
+    },
+    {
+      "id": "MS-01a054f7-514b-77a0-9110-e9a95396d97b",
+      "codex_session_id": "01a054f7-514b-77a0-9110-e9a95396d97b",
+      "started_at": "2026-08-30T23:18:09.852Z",
+      "last_observed_at": "2026-08-31T19:10:59.753Z",
+      "source_kind": "vscode",
+      "captures": [
+        {
+          "id": "MC-0352d2d2e2aca60fe48dd25b",
+          "path": "mira/continuity/captures/01a054f7-514b-77a0-9110-e9a95396d97b/MC-0352d2d2e2aca60fe48dd25b.jsonl.gz",
+          "sha256": "39e0cfe6fdfad299e1e68a094a4229649fbc019a24d70c993f0949696df39229",
+          "source_sha256": "a91e0049418765e3e453f9761cb1357f81aa256d02c90758bae9aa0ea546d095",
+          "record_count": 1863,
+          "observed_at": "2026-08-31T19:10:59.753Z",
+          "source_class": "active"
+        }
+      ],
+      "harvest_refs": []
+    },
+    {
+      "id": "MS-01a054ff-96b5-72e2-bd46-e2690fc85749",
+      "codex_session_id": "01a054ff-96b5-72e2-bd46-e2690fc85749",
+      "started_at": "2026-08-30T23:27:12.087Z",
+      "last_observed_at": "2026-08-31T00:47:13.894Z",
+      "source_kind": "subagent",
+      "captures": [
+        {
+          "id": "MC-560fa0b0d4f6864e207f0cca",
+          "path": "mira/continuity/captures/01a054ff-96b5-72e2-bd46-e2690fc85749/MC-560fa0b0d4f6864e207f0cca.jsonl.gz",
+          "sha256": "f456393b98b050002d2fa8096304b238ad8948d8a7ba9590b40f932501797acd",
+          "source_sha256": "064e695c5144498b9f8cb255f14c125fcf0f6ac77dc15c76ef9cddd637753357",
+          "record_count": 118,
+          "observed_at": "2026-08-31T00:47:13.894Z",
+          "source_class": "active"
+        }
+      ],
+      "harvest_refs": []
+    },
+    {
+      "id": "MS-01a05550-99b8-7361-adee-baa41752b3ee",
+      "codex_session_id": "01a05550-99b8-7361-adee-baa41752b3ee",
+      "started_at": "2026-08-31T00:55:41.391Z",
+      "last_observed_at": "2026-08-31T04:20:11.199Z",
+      "source_kind": "subagent",
+      "captures": [
+        {
+          "id": "MC-644e21ac014ace13d48febee",
+          "path": "mira/continuity/captures/01a05550-99b8-7361-adee-baa41752b3ee/MC-644e21ac014ace13d48febee.jsonl.gz",
+          "sha256": "f6abcda3d781016e7abdf674e1526040561f0839908607c68c67c412d4c98c99",
+          "source_sha256": "3f1c84f6e9c58a3fe8ff5e7d4b891acb127286bd9e000c5f66a024c5beac4967",
+          "record_count": 81,
+          "observed_at": "2026-08-31T04:20:11.199Z",
+          "source_class": "active"
+        }
+      ],
+      "harvest_refs": []
+    },
+    {
+      "id": "MS-01a055e1-f61c-7b43-ae24-ca1312fd6cec",
+      "codex_session_id": "01a055e1-f61c-7b43-ae24-ca1312fd6cec",
+      "started_at": "2026-08-31T03:34:27.774Z",
+      "last_observed_at": "2026-08-31T05:07:46.680Z",
+      "source_kind": "subagent",
+      "captures": [
+        {
+          "id": "MC-a410d6f9c7d0970e76cf446a",
+          "path": "mira/continuity/captures/01a055e1-f61c-7b43-ae24-ca1312fd6cec/MC-a410d6f9c7d0970e76cf446a.jsonl.gz",
+          "sha256": "0799a628da1a156b3d7b808eff3ab861a2da61713647e5c5f6bf2adc92de6f67",
+          "source_sha256": "bf3c3a15306bf7976facb40c78e974cf9d526a056d81671d7a8787ef4dcae98f",
+          "record_count": 37,
+          "observed_at": "2026-08-31T05:07:46.680Z",
+          "source_class": "active"
+        }
+      ],
+      "harvest_refs": []
+    },
+    {
+      "id": "MS-01a0560b-87b1-7d91-8b16-b524b6e9448d",
+      "codex_session_id": "01a0560b-87b1-7d91-8b16-b524b6e9448d",
+      "started_at": "2026-08-31T04:19:51.707Z",
+      "last_observed_at": "2026-08-31T06:30:00.989Z",
+      "source_kind": "subagent",
+      "captures": [
+        {
+          "id": "MC-096aec8d0fbdf24a5c0c6787",
+          "path": "mira/continuity/captures/01a0560b-87b1-7d91-8b16-b524b6e9448d/MC-096aec8d0fbdf24a5c0c6787.jsonl.gz",
+          "sha256": "8661f10a6afb02937b3a1a2656fb35f3d054524e1788f8a63389037c250ddfe0",
+          "source_sha256": "64310497625b52f6c2b402216a8040709c80670fba7e156e23b6a90a6b9741c3",
+          "record_count": 34,
+          "observed_at": "2026-08-31T06:30:00.989Z",
+          "source_class": "active"
+        }
+      ],
+      "harvest_refs": []
+    },
+    {
+      "id": "MS-01a05640-c3bb-7120-8ef6-0c10c6da58d4",
+      "codex_session_id": "01a05640-c3bb-7120-8ef6-0c10c6da58d4",
+      "started_at": "2026-08-31T05:18:00.462Z",
+      "last_observed_at": "2026-09-01T01:50:41.670Z",
+      "source_kind": "vscode",
+      "captures": [
+        {
+          "id": "MC-8aff9a8f2d5b54cac31caa0f",
+          "path": "mira/continuity/captures/01a05640-c3bb-7120-8ef6-0c10c6da58d4/MC-8aff9a8f2d5b54cac31caa0f.jsonl.gz",
+          "sha256": "cac510e2739ddf319224d6cae529f3ac18ad06310e905709570d085fbfd5c09f",
+          "source_sha256": "f0ac2a4213c91b16586dc36e2af283e7d91f48246560b3bc8573dc330dc1eedf",
+          "record_count": 2274,
+          "observed_at": "2026-09-01T01:50:41.670Z",
+          "source_class": "active"
+        }
+      ],
+      "harvest_refs": []
+    },
+    {
+      "id": "MS-01a0566b-d7c8-7c40-8eaa-ba0880af81bb",
+      "codex_session_id": "01a0566b-d7c8-7c40-8eaa-ba0880af81bb",
+      "started_at": "2026-08-31T06:05:03.508Z",
+      "last_observed_at": "2026-08-31T06:19:08.730Z",
+      "source_kind": "subagent",
+      "captures": [
+        {
+          "id": "MC-2e007510c47ae3c9646f0ac5",
+          "path": "mira/continuity/captures/01a0566b-d7c8-7c40-8eaa-ba0880af81bb/MC-2e007510c47ae3c9646f0ac5.jsonl.gz",
+          "sha256": "a1fa7231acee1a78f2e5864e4a030b0d1ab99d4e7fbca5ea04abee768e263250",
+          "source_sha256": "2b3c97c28813926a08a0e24c7ef46c0bc2e9dc41c830de639f21b7ee336ee62a",
+          "record_count": 37,
+          "observed_at": "2026-08-31T06:19:08.730Z",
+          "source_class": "active"
+        }
+      ],
+      "harvest_refs": []
+    },
+    {
+      "id": "MS-01a05866-895f-7930-b905-d71dbe7700a2",
+      "codex_session_id": "01a05866-895f-7930-b905-d71dbe7700a2",
+      "started_at": "2026-08-31T15:18:30.174Z",
+      "last_observed_at": "2026-08-31T15:18:34.648Z",
+      "source_kind": "subagent",
+      "captures": [
+        {
+          "id": "MC-bd7e8abe483e39ec28b3ac42",
+          "path": "mira/continuity/captures/01a05866-895f-7930-b905-d71dbe7700a2/MC-bd7e8abe483e39ec28b3ac42.jsonl.gz",
+          "sha256": "5a61a5b378862007a9f1d9e4ac01ae107d4e6fdcc7e8e8c43ccc762979297ce7",
+          "source_sha256": "ac0e43f258830d75b1ff0427dba95cca8ee37ff2fbf7ab7c4a85bf93ff81dee4",
+          "record_count": 5,
+          "observed_at": "2026-08-31T15:18:34.648Z",
+          "source_class": "active"
+        }
+      ],
+      "harvest_refs": []
+    },
+    {
+      "id": "MS-01a058a0-091e-76f2-88ad-3a434301801f",
+      "codex_session_id": "01a058a0-091e-76f2-88ad-3a434301801f",
+      "started_at": "2026-08-31T16:21:18.336Z",
+      "last_observed_at": "2026-08-31T16:21:32.986Z",
+      "source_kind": "subagent",
+      "captures": [
+        {
+          "id": "MC-592ba317079a4f09254d423f",
+          "path": "mira/continuity/captures/01a058a0-091e-76f2-88ad-3a434301801f/MC-592ba317079a4f09254d423f.jsonl.gz",
+          "sha256": "98be453d6ebd5051d1489c0b54cdf563fba0b69c17a0354177296805e38ba20e",
+          "source_sha256": "7d0846c3c9ec9f1f48a7a51f6b555b8575169081aa2d43b39bc8f2fbc562af37",
+          "record_count": 9,
+          "observed_at": "2026-08-31T16:21:32.986Z",
+          "source_class": "active"
+        }
+      ],
+      "harvest_refs": []
+    },
+    {
+      "id": "MS-01a058b1-adb2-7352-98d8-5320eba96cac",
+      "codex_session_id": "01a058b1-adb2-7352-98d8-5320eba96cac",
+      "started_at": "2026-08-31T16:40:34.597Z",
+      "last_observed_at": "2026-08-31T16:40:39.534Z",
+      "source_kind": "subagent",
+      "captures": [
+        {
+          "id": "MC-dfe4bf4c036598de56d563b7",
+          "path": "mira/continuity/captures/01a058b1-adb2-7352-98d8-5320eba96cac/MC-dfe4bf4c036598de56d563b7.jsonl.gz",
+          "sha256": "fca5efc491584c48f9ce797d29854a9720e5e9e32afce41376d55c92dcd75fae",
+          "source_sha256": "baac2b87ecf69f034fee621f624c3f1a45a08d7d9242a50fd0f988f4153febd4",
+          "record_count": 5,
+          "observed_at": "2026-08-31T16:40:39.534Z",
+          "source_class": "active"
+        }
+      ],
+      "harvest_refs": []
+    },
+    {
+      "id": "MS-01a058cf-b084-7cc3-b92e-60a6a05ec4ae",
+      "codex_session_id": "01a058cf-b084-7cc3-b92e-60a6a05ec4ae",
+      "started_at": "2026-08-31T17:13:21.371Z",
+      "last_observed_at": "2026-08-31T18:25:33.354Z",
+      "source_kind": "subagent",
+      "captures": [
+        {
+          "id": "MC-86f4457da5635d32080dacbd",
+          "path": "mira/continuity/captures/01a058cf-b084-7cc3-b92e-60a6a05ec4ae/MC-86f4457da5635d32080dacbd.jsonl.gz",
+          "sha256": "e1eb3477a543514536c67c78d8c0ca814285fbf3a1862ce929190c3879ed643b",
+          "source_sha256": "4db7e5ca496008db4f3ae2bb12c6b17831bb098fe5c8ab442b5e1f0745b37f75",
+          "record_count": 33,
+          "observed_at": "2026-08-31T18:25:33.354Z",
+          "source_class": "active"
+        }
+      ],
+      "harvest_refs": []
+    },
+    {
+      "id": "MS-01a058e8-d735-7e80-8f26-84fa855f292a",
+      "codex_session_id": "01a058e8-d735-7e80-8f26-84fa855f292a",
+      "started_at": "2026-08-31T17:40:49.848Z",
+      "last_observed_at": "2026-09-01T01:50:30.642Z",
+      "source_kind": "subagent",
+      "captures": [
+        {
+          "id": "MC-7503c22f104ff2a6a7f91291",
+          "path": "mira/continuity/captures/01a058e8-d735-7e80-8f26-84fa855f292a/MC-7503c22f104ff2a6a7f91291.jsonl.gz",
+          "sha256": "1e8949330801faa2905e4ef31201f4e90f93b6f53044ca0d9f0d310e6c779fbe",
+          "source_sha256": "44586c98bd1feb07c6df1bba27034717cddc49cbe7366fa267877e5d23b632c3",
+          "record_count": 137,
+          "observed_at": "2026-09-01T01:50:30.642Z",
+          "source_class": "active"
+        }
+      ],
+      "harvest_refs": []
+    },
+    {
+      "id": "MS-01a05930-f7c4-7e92-8386-51a8d7573085",
+      "codex_session_id": "01a05930-f7c4-7e92-8386-51a8d7573085",
+      "started_at": "2026-08-31T18:59:36.624Z",
+      "last_observed_at": "2026-08-31T18:59:59.514Z",
+      "source_kind": "subagent",
+      "captures": [
+        {
+          "id": "MC-9942c8f140a8ba1311a3251b",
+          "path": "mira/continuity/captures/01a05930-f7c4-7e92-8386-51a8d7573085/MC-9942c8f140a8ba1311a3251b.jsonl.gz",
+          "sha256": "a8c226ccaf6c559d6315f79383210607ce8c1b7f7924f6dcc1352130a9c59339",
+          "source_sha256": "fe77a665e3eb751845214e323ce5cc0813350e4e31757ab02437be202bdefad1",
+          "record_count": 9,
+          "observed_at": "2026-08-31T18:59:59.514Z",
+          "source_class": "active"
+        }
+      ],
+      "harvest_refs": []
+    },
+    {
+      "id": "MS-01a05933-a84c-7552-87f7-1bb40ab5a713",
+      "codex_session_id": "01a05933-a84c-7552-87f7-1bb40ab5a713",
+      "started_at": "2026-08-31T19:02:32.860Z",
+      "last_observed_at": "2026-09-01T15:11:31.719Z",
+      "source_kind": "vscode",
+      "captures": [
+        {
+          "id": "MC-6b610378d730777b45d540a5",
+          "path": "mira/continuity/captures/01a05933-a84c-7552-87f7-1bb40ab5a713/MC-6b610378d730777b45d540a5.jsonl.gz",
+          "sha256": "5d3310ee73da6a4bfb01b0f7d11a0f09c253499ac8e607f579a130d2320d3dc2",
+          "source_sha256": "2514554174ab6a5e1746530ef6ee67201d52fd9db373f797de165563f046323d",
+          "record_count": 1744,
+          "observed_at": "2026-09-01T15:11:31.719Z",
+          "source_class": "active"
+        }
+      ],
+      "harvest_refs": []
+    },
+    {
+      "id": "MS-01a05948-16ee-7040-abbd-d14114af57b7",
+      "codex_session_id": "01a05948-16ee-7040-abbd-d14114af57b7",
+      "started_at": "2026-08-31T19:24:51.908Z",
+      "last_observed_at": "2026-08-31T20:47:49.056Z",
+      "source_kind": "subagent",
+      "captures": [
+        {
+          "id": "MC-1b93c95d0950cdb7488a04c5",
+          "path": "mira/continuity/captures/01a05948-16ee-7040-abbd-d14114af57b7/MC-1b93c95d0950cdb7488a04c5.jsonl.gz",
+          "sha256": "66a220b882b15398c417f96fb22d496f14dab860d613013a9321cdb319b0f5e3",
+          "source_sha256": "67fa39255aea9cec42a18477db409e395a9593a32339045ecb6801985eb2a3e2",
+          "record_count": 81,
+          "observed_at": "2026-08-31T20:47:49.056Z",
+          "source_class": "active"
+        }
+      ],
+      "harvest_refs": []
+    },
+    {
+      "id": "MS-01a059ee-a05a-76c3-8e5e-03881443610f",
+      "codex_session_id": "01a059ee-a05a-76c3-8e5e-03881443610f",
+      "started_at": "2026-08-31T22:26:46.069Z",
+      "last_observed_at": "2026-09-01T00:05:07.572Z",
+      "source_kind": "subagent",
+      "captures": [
+        {
+          "id": "MC-b5837f79d725bfd4049fada6",
+          "path": "mira/continuity/captures/01a059ee-a05a-76c3-8e5e-03881443610f/MC-b5837f79d725bfd4049fada6.jsonl.gz",
+          "sha256": "bbbebf89fae74d4cd73be9a89bb45d166d35962fefd765f7619f0aa824a2cddc",
+          "source_sha256": "de760645bca747a36c1f3c939a8b012e96dcb61ebe41e1a20207cb67e9ca7869",
+          "record_count": 49,
+          "observed_at": "2026-09-01T00:05:07.572Z",
+          "source_class": "active"
+        }
+      ],
+      "harvest_refs": []
+    },
+    {
+      "id": "MS-01a05a9f-c2e6-7812-99e0-126a2b55dd23",
+      "codex_session_id": "01a05a9f-c2e6-7812-99e0-126a2b55dd23",
+      "started_at": "2026-09-01T01:40:14.831Z",
+      "last_observed_at": "2026-09-01T15:30:13.621Z",
+      "source_kind": "vscode",
+      "captures": [
+        {
+          "id": "MC-48fee239330b7df9fe6bb00d",
+          "path": "mira/continuity/captures/01a05a9f-c2e6-7812-99e0-126a2b55dd23/MC-48fee239330b7df9fe6bb00d.jsonl.gz",
+          "sha256": "bbd4f0e841e4ddee3436202816599bf449178b1d57e08840bd079d968543e818",
+          "source_sha256": "ff41334918de117600c394ccbef2a000b674af126f17caa18f438f181911191a",
+          "record_count": 2412,
+          "observed_at": "2026-09-01T15:30:13.621Z",
+          "source_class": "active"
+        }
+      ],
+      "harvest_refs": []
+    },
+    {
+      "id": "MS-01a05aad-c22a-7513-8c1f-6a3975930546",
+      "codex_session_id": "01a05aad-c22a-7513-8c1f-6a3975930546",
+      "started_at": "2026-09-01T01:55:32.168Z",
+      "last_observed_at": "2026-09-01T03:34:22.388Z",
+      "source_kind": "subagent",
+      "captures": [
+        {
+          "id": "MC-7d375e148a6b911d8a508131",
+          "path": "mira/continuity/captures/01a05aad-c22a-7513-8c1f-6a3975930546/MC-7d375e148a6b911d8a508131.jsonl.gz",
+          "sha256": "d84c43cf6ce49dce1e519278d805c2af6a099475fbacb68bfa6279244c2af686",
+          "source_sha256": "84aab38195239ce0d61bf043518ebdf63716ac3938537694898d289b39a38bbc",
+          "record_count": 13,
+          "observed_at": "2026-09-01T03:34:22.388Z",
+          "source_class": "active"
+        }
+      ],
+      "harvest_refs": []
+    },
+    {
+      "id": "MS-01a05b30-1962-7a60-bbb7-8a04e232aa6f",
+      "codex_session_id": "01a05b30-1962-7a60-bbb7-8a04e232aa6f",
+      "started_at": "2026-09-01T04:17:54.113Z",
+      "last_observed_at": "2026-09-01T05:54:45.593Z",
+      "source_kind": "vscode",
+      "captures": [
+        {
+          "id": "MC-a6543f2eafca7792a939fe9e",
+          "path": "mira/continuity/captures/01a05b30-1962-7a60-bbb7-8a04e232aa6f/MC-a6543f2eafca7792a939fe9e.jsonl.gz",
+          "sha256": "94a3da8ab1e5ecdf14fe65a293843d1ade37906e1cc45a775f6909a8879d709c",
+          "source_sha256": "ea60edac92c28166a68e6b99a733c33bbd1d74f10bb18b1f82ca869d7380edbe",
+          "record_count": 1051,
+          "observed_at": "2026-09-01T05:54:45.593Z",
+          "source_class": "active"
+        }
+      ],
+      "harvest_refs": []
+    },
+    {
+      "id": "MS-01a05b33-6cc9-7941-97a3-99f1eb5b43cd",
+      "codex_session_id": "01a05b33-6cc9-7941-97a3-99f1eb5b43cd",
+      "started_at": "2026-09-01T04:21:32.088Z",
+      "last_observed_at": "2026-09-01T05:54:36.326Z",
+      "source_kind": "subagent",
+      "captures": [
+        {
+          "id": "MC-f60af7e3b241cd3a04c3b876",
+          "path": "mira/continuity/captures/01a05b33-6cc9-7941-97a3-99f1eb5b43cd/MC-f60af7e3b241cd3a04c3b876.jsonl.gz",
+          "sha256": "31303339795352f60ee945b8dd2204854db2c8a42cac2e226bbfde26deb32b46",
+          "source_sha256": "07fe19370422dd96f394d739eca03841cc700ac064a162ba27d12e90d626a6e1",
+          "record_count": 77,
+          "observed_at": "2026-09-01T05:54:36.326Z",
+          "source_class": "active"
+        }
+      ],
+      "harvest_refs": []
+    },
+    {
+      "id": "MS-01a05b63-738f-7322-853c-e45cef7664ee",
+      "codex_session_id": "01a05b63-738f-7322-853c-e45cef7664ee",
+      "started_at": "2026-09-01T05:13:59.562Z",
+      "last_observed_at": "2026-09-01T06:03:48.825Z",
+      "source_kind": "subagent",
+      "captures": [
+        {
+          "id": "MC-0449d125862a1c7d75be4bfc",
+          "path": "mira/continuity/captures/01a05b63-738f-7322-853c-e45cef7664ee/MC-0449d125862a1c7d75be4bfc.jsonl.gz",
+          "sha256": "be88dbc9044ff63a9e8e9e07ce85a58e46d65e517dbcbc4a94399da5df8bc314",
+          "source_sha256": "e5be920545e86b1db534451d18e4268e2d1ee95f375a593870c0bc72368fcfad",
+          "record_count": 42,
+          "observed_at": "2026-09-01T06:03:48.825Z",
+          "source_class": "active"
+        }
+      ],
+      "harvest_refs": []
+    },
+    {
+      "id": "MS-01a05b71-3ba5-7812-98d4-818dba511f82",
+      "codex_session_id": "01a05b71-3ba5-7812-98d4-818dba511f82",
+      "started_at": "2026-09-01T05:29:02.736Z",
+      "last_observed_at": "2026-09-01T15:30:06.567Z",
+      "source_kind": "subagent",
+      "captures": [
+        {
+          "id": "MC-0663d07647ed891a123026e6",
+          "path": "mira/continuity/captures/01a05b71-3ba5-7812-98d4-818dba511f82/MC-0663d07647ed891a123026e6.jsonl.gz",
+          "sha256": "f4923e9ec63e6d7e1fdb71236dd8c3941ffb3a24105185b69df225f14dfb83b9",
+          "source_sha256": "ca407ab5e47e8c32d7a2b1a042618eee9ea94157b1911db86ade581d66ba8975",
+          "record_count": 30,
+          "observed_at": "2026-09-01T15:30:06.567Z",
+          "source_class": "active"
+        }
+      ],
+      "harvest_refs": []
+    },
+    {
+      "id": "MS-01a05d7a-3396-7eb0-bd21-6fba717a9a5a",
+      "codex_session_id": "01a05d7a-3396-7eb0-bd21-6fba717a9a5a",
+      "started_at": "2026-09-01T14:58:04.942Z",
+      "last_observed_at": "2026-09-01T15:11:23.093Z",
+      "source_kind": "subagent",
+      "captures": [
+        {
+          "id": "MC-c5020dd2459439683bac6c6c",
+          "path": "mira/continuity/captures/01a05d7a-3396-7eb0-bd21-6fba717a9a5a/MC-c5020dd2459439683bac6c6c.jsonl.gz",
+          "sha256": "88094e87e67eef8f6a2e390750c3aa7caaa15fede801f572667542528510e5ab",
+          "source_sha256": "6f7548b5fa3610fdb5702072ba7f2df45f033493f637a630c2c53f755eb779a5",
+          "record_count": 21,
+          "observed_at": "2026-09-01T15:11:23.093Z",
+          "source_class": "active"
+        }
+      ],
+      "harvest_refs": []
+    },
+    {
+      "id": "MS-01a05d94-5dfd-7151-ac47-298c55acdd2c",
+      "codex_session_id": "01a05d94-5dfd-7151-ac47-298c55acdd2c",
+      "started_at": "2026-09-01T15:26:39.718Z",
+      "last_observed_at": "2026-09-01T20:33:52.126Z",
+      "source_kind": "vscode",
+      "captures": [
+        {
+          "id": "MC-362c8d0ca6e95d491e463fcd",
+          "path": "mira/continuity/captures/01a05d94-5dfd-7151-ac47-298c55acdd2c/MC-362c8d0ca6e95d491e463fcd.jsonl.gz",
+          "sha256": "f3d74d2636eb7f88d361d0b4581e1182fc22ff2a8450df5264070be98234f404",
+          "source_sha256": "1088cac30e3520115ca1911ff477f05ff6ab650abb2fc7c54c7b4fcdc1c8a13f",
+          "record_count": 1470,
+          "observed_at": "2026-09-01T20:33:52.126Z",
+          "source_class": "active"
+        }
+      ],
+      "harvest_refs": []
+    },
+    {
+      "id": "MS-01a05e06-f034-7ac3-8922-7fe5736d5636",
+      "codex_session_id": "01a05e06-f034-7ac3-8922-7fe5736d5636",
+      "started_at": "2026-09-01T17:31:48.240Z",
+      "last_observed_at": "2026-09-02T00:39:41.483Z",
+      "source_kind": "vscode",
+      "captures": [
+        {
+          "id": "MC-f4b1a743e8fc312c7af37d0f",
+          "path": "mira/continuity/captures/01a05e06-f034-7ac3-8922-7fe5736d5636/MC-f4b1a743e8fc312c7af37d0f.jsonl.gz",
+          "sha256": "ccedc347baedea2f5353ea3450d1a6228cbac82020b35ade4a83d038cd5c4be4",
+          "source_sha256": "b80de7919d56a9ce7fe36452a8b22ccd7a6a9322634c2c1c88dc89eea1a17388",
+          "record_count": 3581,
+          "observed_at": "2026-09-02T00:39:41.483Z",
+          "source_class": "active"
+        }
+      ],
+      "harvest_refs": []
+    },
+    {
+      "id": "MS-01a05e7c-e976-71f3-881b-1778e636c491",
+      "codex_session_id": "01a05e7c-e976-71f3-881b-1778e636c491",
+      "started_at": "2026-09-01T19:40:39.794Z",
+      "last_observed_at": "2026-09-01T22:36:43.068Z",
+      "source_kind": "subagent",
+      "captures": [
+        {
+          "id": "MC-b2841a688b7b3b0b3d564115",
+          "path": "mira/continuity/captures/01a05e7c-e976-71f3-881b-1778e636c491/MC-b2841a688b7b3b0b3d564115.jsonl.gz",
+          "sha256": "6bdd2ec741d2e98d0263f5bc3c1c4b88caca4dd1efc0fe64abbae3c9ee7ae821",
+          "source_sha256": "84f163daef6ae07294ab28c14785f3f819b7dc991610092f0fb61d076582dddb",
+          "record_count": 81,
+          "observed_at": "2026-09-01T22:36:43.068Z",
+          "source_class": "active"
+        }
+      ],
+      "harvest_refs": []
+    },
+    {
+      "id": "MS-01a05e90-aec2-7000-b059-08a440e75aca",
+      "codex_session_id": "01a05e90-aec2-7000-b059-08a440e75aca",
+      "started_at": "2026-09-01T20:02:15.752Z",
+      "last_observed_at": "2026-09-01T20:33:43.027Z",
+      "source_kind": "subagent",
+      "captures": [
+        {
+          "id": "MC-3a7930a0a6b6fe7487b7761e",
+          "path": "mira/continuity/captures/01a05e90-aec2-7000-b059-08a440e75aca/MC-3a7930a0a6b6fe7487b7761e.jsonl.gz",
+          "sha256": "223b99ce72ce32c8096d8c1fcbaaf535a679240ef5178569d8d5a08541f3b85e",
+          "source_sha256": "5f40e344069da085598c15a674c3a231d6c7655a4918bc753d186d0bc6f57ce9",
+          "record_count": 13,
+          "observed_at": "2026-09-01T20:33:43.027Z",
+          "source_class": "active"
+        }
+      ],
+      "harvest_refs": []
+    },
+    {
+      "id": "MS-01a05f33-adc3-7491-b499-4d986a52de95",
+      "codex_session_id": "01a05f33-adc3-7491-b499-4d986a52de95",
+      "started_at": "2026-09-01T23:00:17.598Z",
+      "last_observed_at": "2026-09-01T23:03:36.213Z",
+      "source_kind": "subagent",
+      "captures": [
+        {
+          "id": "MC-c5cbe24ac44895ea72bb9ef9",
+          "path": "mira/continuity/captures/01a05f33-adc3-7491-b499-4d986a52de95/MC-c5cbe24ac44895ea72bb9ef9.jsonl.gz",
+          "sha256": "609cea356ff3c511eb737496009406471b9d4d00f63f831e73ac590011616603",
+          "source_sha256": "b871fec14127b097a1729cb102fb55bcebf0513180744a83f15815c77c0b4868",
+          "record_count": 17,
+          "observed_at": "2026-09-01T23:03:36.213Z",
+          "source_class": "active"
+        }
+      ],
+      "harvest_refs": []
+    },
+    {
+      "id": "MS-01a05f4c-ad30-79d0-af1e-0170536410ec",
+      "codex_session_id": "01a05f4c-ad30-79d0-af1e-0170536410ec",
+      "started_at": "2026-09-01T23:27:36.406Z",
+      "last_observed_at": "2026-09-02T18:02:01.050Z",
+      "source_kind": "vscode",
+      "captures": [
+        {
+          "id": "MC-e378563d320068381082bc12",
+          "path": "mira/continuity/captures/01a05f4c-ad30-79d0-af1e-0170536410ec/MC-e378563d320068381082bc12.jsonl.gz",
+          "sha256": "17bdb1ddac66317319de9c9c0ed8cea8f05e0ef4b1a83fa29f6db5ba4d209bdf",
+          "source_sha256": "55deddda4d7ba5931729d412328608629a72b3fbc94497bbe3b1abc006d8e996",
+          "record_count": 1671,
+          "observed_at": "2026-09-02T18:02:01.050Z",
+          "source_class": "active"
+        }
+      ],
+      "harvest_refs": []
+    },
+    {
+      "id": "MS-01a05f50-73cf-7a73-8cbb-75946cf5d940",
+      "codex_session_id": "01a05f50-73cf-7a73-8cbb-75946cf5d940",
+      "started_at": "2026-09-01T23:31:43.302Z",
+      "last_observed_at": "2026-09-02T00:39:34.614Z",
+      "source_kind": "subagent",
+      "captures": [
+        {
+          "id": "MC-9cd7a47bf42a517f8ffe0a86",
+          "path": "mira/continuity/captures/01a05f50-73cf-7a73-8cbb-75946cf5d940/MC-9cd7a47bf42a517f8ffe0a86.jsonl.gz",
+          "sha256": "0e660a0758d995ed2180d537551b30015778161cc8439ea78c3e2b7a42f4933c",
+          "source_sha256": "c8843297d6bd3a42a10a35a336ac9cf89d5dffe98222ad7ebe3c4e8895f96a0e",
+          "record_count": 77,
+          "observed_at": "2026-09-02T00:39:34.614Z",
+          "source_class": "active"
+        }
+      ],
+      "harvest_refs": []
+    },
+    {
+      "id": "MS-01a05f58-f3da-73e2-a025-48ae876423c5",
+      "codex_session_id": "01a05f58-f3da-73e2-a025-48ae876423c5",
+      "started_at": "2026-09-01T23:41:00.366Z",
+      "last_observed_at": "2026-09-02T18:08:12.968Z",
+      "source_kind": "vscode",
+      "captures": [
+        {
+          "id": "MC-4deed59dfa5c8e2e0de665ed",
+          "path": "mira/continuity/captures/01a05f58-f3da-73e2-a025-48ae876423c5/MC-4deed59dfa5c8e2e0de665ed.jsonl.gz",
+          "sha256": "cfc3684aaf9cec91aee594d9f4e3bcdb209f608b0ae53b9a07fb1ba8dd55dd25",
+          "source_sha256": "1cddb2c24a3243c345cffe6c6d2541397af448fb31e3441f06fc1d00eb058bb7",
+          "record_count": 2349,
+          "observed_at": "2026-09-02T18:08:12.968Z",
+          "source_class": "active"
+        }
+      ],
+      "harvest_refs": []
+    },
+    {
+      "id": "MS-01a05f5a-fcf6-7d31-bd70-a658d52beb3b",
+      "codex_session_id": "01a05f5a-fcf6-7d31-bd70-a658d52beb3b",
+      "started_at": "2026-09-01T23:43:14.224Z",
+      "last_observed_at": "2026-09-01T23:43:18.971Z",
+      "source_kind": "subagent",
+      "captures": [
+        {
+          "id": "MC-e49af9996077143de8077267",
+          "path": "mira/continuity/captures/01a05f5a-fcf6-7d31-bd70-a658d52beb3b/MC-e49af9996077143de8077267.jsonl.gz",
+          "sha256": "cff43e70f8d95732c811dc391fa87439cc4e2e94dfac559b132d7c0fd5be2a0c",
+          "source_sha256": "2d7f1a5a4784e815b549b628732285c9018d036ef90acfebd1b081d1da25060f",
+          "record_count": 5,
+          "observed_at": "2026-09-01T23:43:18.971Z",
+          "source_class": "active"
+        }
+      ],
+      "harvest_refs": []
+    },
+    {
+      "id": "MS-01a05f75-af44-70f1-b9c2-a36f33d76402",
+      "codex_session_id": "01a05f75-af44-70f1-b9c2-a36f33d76402",
+      "started_at": "2026-09-02T00:12:23.633Z",
+      "last_observed_at": "2026-09-02T01:56:04.121Z",
+      "source_kind": "subagent",
+      "captures": [
+        {
+          "id": "MC-64e75614a5d9f9b9fa926406",
+          "path": "mira/continuity/captures/01a05f75-af44-70f1-b9c2-a36f33d76402/MC-64e75614a5d9f9b9fa926406.jsonl.gz",
+          "sha256": "779bde6ffc3b8386e864520c73f98a92f51c326d0761420bf12dc354c1491480",
+          "source_sha256": "f92f4e316d7747385e4cded9ada87c2ee1c25102d685854c312a7664879e9cb8",
+          "record_count": 29,
+          "observed_at": "2026-09-02T01:56:04.121Z",
+          "source_class": "active"
+        }
+      ],
+      "harvest_refs": []
+    },
+    {
+      "id": "MS-01a05fd6-626f-7913-9d81-99bea95bc7e6",
+      "codex_session_id": "01a05fd6-626f-7913-9d81-99bea95bc7e6",
+      "started_at": "2026-09-02T01:58:00.688Z",
+      "last_observed_at": "2026-09-02T15:40:35.273Z",
+      "source_kind": "vscode",
+      "captures": [
+        {
+          "id": "MC-a201102bbf4cbee6c140b32a",
+          "path": "mira/continuity/captures/01a05fd6-626f-7913-9d81-99bea95bc7e6/MC-a201102bbf4cbee6c140b32a.jsonl.gz",
+          "sha256": "c8fba791a8c48aa73da04955833edc60511132299b659a270f25772878bd53e0",
+          "source_sha256": "d13dbcf659db4006f39f531ba185bdccde1ed3a5dbc1f4d59a1a21529d787ee5",
+          "record_count": 1692,
+          "observed_at": "2026-09-02T15:40:35.273Z",
+          "source_class": "active"
+        }
+      ],
+      "harvest_refs": []
+    },
+    {
+      "id": "MS-01a05fd8-8a2a-7a50-b4b9-a57da35bf959",
+      "codex_session_id": "01a05fd8-8a2a-7a50-b4b9-a57da35bf959",
+      "started_at": "2026-09-02T02:00:21.945Z",
+      "last_observed_at": "2026-09-02T02:00:29.721Z",
+      "source_kind": "subagent",
+      "captures": [
+        {
+          "id": "MC-30b29c7b334b7603c5e0cc05",
+          "path": "mira/continuity/captures/01a05fd8-8a2a-7a50-b4b9-a57da35bf959/MC-30b29c7b334b7603c5e0cc05.jsonl.gz",
+          "sha256": "a97c1e56cf7d41115c07c4e068b5ff593aebb7c3c4f150524738c24f799471af",
+          "source_sha256": "471abaf2418f14871ed094506c57b071e7288fedf267db4cc458c0aa7c789d5f",
+          "record_count": 5,
+          "observed_at": "2026-09-02T02:00:29.721Z",
+          "source_class": "active"
+        }
+      ],
+      "harvest_refs": []
+    },
+    {
+      "id": "MS-01a05fde-9731-7003-a70a-06af1dc3e049",
+      "codex_session_id": "01a05fde-9731-7003-a70a-06af1dc3e049",
+      "started_at": "2026-09-02T02:06:58.651Z",
+      "last_observed_at": "2026-09-02T04:10:23.936Z",
+      "source_kind": "subagent",
+      "captures": [
+        {
+          "id": "MC-126f6b79193a4e4f5ce47114",
+          "path": "mira/continuity/captures/01a05fde-9731-7003-a70a-06af1dc3e049/MC-126f6b79193a4e4f5ce47114.jsonl.gz",
+          "sha256": "e9787e9c38d673992d8fcbcd87c39c49799a2572ecfcc015dec878bfc414a531",
+          "source_sha256": "b4ab0b8c26da59fc791807b0247911a53b6ad4f76f07fcfc3c1c1fdcf3bb3930",
+          "record_count": 13,
+          "observed_at": "2026-09-02T04:10:23.936Z",
+          "source_class": "active"
+        }
+      ],
+      "harvest_refs": []
+    },
+    {
+      "id": "MS-01a06055-d7ab-7d52-91e4-fbfd1bc1e8eb",
+      "codex_session_id": "01a06055-d7ab-7d52-91e4-fbfd1bc1e8eb",
+      "started_at": "2026-09-02T04:17:14.002Z",
+      "last_observed_at": "2026-09-02T04:17:22.054Z",
+      "source_kind": "subagent",
+      "captures": [
+        {
+          "id": "MC-8dccb63b946619b602ab36ec",
+          "path": "mira/continuity/captures/01a06055-d7ab-7d52-91e4-fbfd1bc1e8eb/MC-8dccb63b946619b602ab36ec.jsonl.gz",
+          "sha256": "5f70282ea2d53a47eb395091b5eb9069f26fd77e6c63515c70ab48fa1106a56f",
+          "source_sha256": "699340285e1ea273311bc56ad45c73c28928d3b4a639b976e661c86317d29feb",
+          "record_count": 5,
+          "observed_at": "2026-09-02T04:17:22.054Z",
+          "source_class": "active"
+        }
+      ],
+      "harvest_refs": []
+    },
+    {
+      "id": "MS-01a06072-aa45-7413-a229-31838bbbd8d1",
+      "codex_session_id": "01a06072-aa45-7413-a229-31838bbbd8d1",
+      "started_at": "2026-09-02T04:48:42.693Z",
+      "last_observed_at": "2026-09-02T04:48:47.160Z",
+      "source_kind": "subagent",
+      "captures": [
+        {
+          "id": "MC-da29abcbccc8157ca31cdbbe",
+          "path": "mira/continuity/captures/01a06072-aa45-7413-a229-31838bbbd8d1/MC-da29abcbccc8157ca31cdbbe.jsonl.gz",
+          "sha256": "ed5a5e403effc1e54f5031bed295d03334b5c764abbb5007a53a8673c0ac6471",
+          "source_sha256": "7640e8f2581a1f5e030705598d566eb8685112520f664565d9065e1014c2b0da",
+          "record_count": 5,
+          "observed_at": "2026-09-02T04:48:47.160Z",
+          "source_class": "active"
+        }
+      ],
+      "harvest_refs": []
+    },
+    {
+      "id": "MS-01a0607a-bdd5-7b72-847c-50a2f85d016b",
+      "codex_session_id": "01a0607a-bdd5-7b72-847c-50a2f85d016b",
+      "started_at": "2026-09-02T04:57:32.078Z",
+      "last_observed_at": "2026-09-02T15:40:24.873Z",
+      "source_kind": "subagent",
+      "captures": [
+        {
+          "id": "MC-252f065d6a5e08398b2d5fcd",
+          "path": "mira/continuity/captures/01a0607a-bdd5-7b72-847c-50a2f85d016b/MC-252f065d6a5e08398b2d5fcd.jsonl.gz",
+          "sha256": "e9a769773ad72f54456f18fb11e47847136db929bb3357e6486ab8e887b0497d",
+          "source_sha256": "7a691767ed3399d54e337c3607a7b82b661d7c0e1828a1382438d2c1834cc8db",
+          "record_count": 124,
+          "observed_at": "2026-09-02T15:40:24.873Z",
+          "source_class": "active"
+        }
+      ],
+      "harvest_refs": []
+    },
+    {
+      "id": "MS-01a06083-276c-7953-9255-6e641630c2b3",
+      "codex_session_id": "01a06083-276c-7953-9255-6e641630c2b3",
+      "started_at": "2026-09-02T05:06:43.804Z",
+      "last_observed_at": "2026-09-02T05:11:52.998Z",
+      "source_kind": "subagent",
+      "captures": [
+        {
+          "id": "MC-091cc87a6753c8f6dcf381ca",
+          "path": "mira/continuity/captures/01a06083-276c-7953-9255-6e641630c2b3/MC-091cc87a6753c8f6dcf381ca.jsonl.gz",
+          "sha256": "ea2d69c84924a52efd9558cd235d0ca5aa3b699e950c62f2c67121ce4117c691",
+          "source_sha256": "db01beab2ecd70a090db5b8d6cabde508e8ceb6863b6253ceed9c5db98926d2f",
+          "record_count": 9,
+          "observed_at": "2026-09-02T05:11:52.998Z",
+          "source_class": "active"
+        }
+      ],
+      "harvest_refs": []
     }
   ]
 }

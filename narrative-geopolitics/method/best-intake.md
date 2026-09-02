@@ -267,6 +267,7 @@ Current approved auto-section hosts:
 - `alexander-mercouris`
 - `mario-nawfal`
 - `moral-resistance`
+- `reason-resist`
 
 Current approved auto-ASR-repair hosts:
 
@@ -277,6 +278,7 @@ Current approved auto-ASR-repair hosts:
 - `alexander-mercouris`
 - `mario-nawfal`
 - `moral-resistance`
+- `reason-resist`
 
 ## Handoff To Synthesis
 

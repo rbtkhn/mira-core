@@ -1,10 +1,10 @@
-<!-- daily-issue-v1 inputs-sha256: 34a5b2fe859fc2bcd6dae6e042c4ae90cefd88a050e8813af0b62c7512ee831c -->
+<!-- daily-issue-v1 inputs-sha256: 0de55db9eea73d4c380bffee9a9f5d1d5937c0b234ed68dd2c6b44aaba3b4162 -->
 <!-- reality-lattice-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 -->
 <!-- Generated file. Edit canonical daily or reality-lattice inputs, then regenerate. -->
 
 Publication: **Narrative Geopolitics — Daily Issue**
 
-# Daily Brief - 2026-08-23
+# Iran Pressure Becomes Alliance Architecture
 
 Title standard: `reader-facing`
 

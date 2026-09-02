@@ -1,10 +1,10 @@
-<!-- daily-issue-v1 inputs-sha256: bba38d5d7ba4bfc7a0085d0db75854e8534723693f877a15d065f7b68fdb29d1 -->
+<!-- daily-issue-v1 inputs-sha256: a0a085e4ab9a14418a09cb65aac3143cd15983085919ceb6522b7462a03b4a22 -->
 <!-- reality-lattice-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 -->
 <!-- Generated file. Edit canonical daily or reality-lattice inputs, then regenerate. -->
 
 Publication: **Narrative Geopolitics — Daily Issue**
 
-# Daily Brief - 2026-08-20
+# Sanctions Become a Third-Party Test
 
 Title standard: `reader-facing`
 

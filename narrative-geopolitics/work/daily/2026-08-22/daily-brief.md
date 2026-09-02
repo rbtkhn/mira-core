@@ -1,4 +1,4 @@
-# Daily Brief - 2026-08-22
+# Economic War Meets Deterrence Signaling
 
 Title: `Economic War Meets Deterrence Signaling`
 Title rationale: `Names the day's issue argument while preserving its bounded evidence posture.`

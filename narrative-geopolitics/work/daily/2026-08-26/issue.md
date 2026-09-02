@@ -1,10 +1,10 @@
-<!-- daily-issue-v1 inputs-sha256: 6498042409fcaff722bf84e0e778562023909d9dc82919225db4d7343a5e14c2 -->
+<!-- daily-issue-v1 inputs-sha256: d186c35f3d164017e52f603366ea3be8c4cd8ac698179b8f6ea06a9320b0f0cb -->
 <!-- reality-lattice-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 -->
 <!-- Generated file. Edit canonical daily or reality-lattice inputs, then regenerate. -->
 
 Publication: **Narrative Geopolitics — Daily Issue**
 
-# Daily Brief - 2026-08-26
+# War by Waiting Reaches the Legitimacy Layer
 
 Title standard: `reader-facing`
 
