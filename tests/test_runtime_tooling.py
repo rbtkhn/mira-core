@@ -60,6 +60,7 @@ EXPECTED_SURFACES = {
     "innermost-loop-simulation": "innermost_loop_simulation.py",
     "issue-render": "render_daily_issue.py",
     "library": "archive_library.py",
+    "library-reasoning": "library_reasoning.py",
     "morning-brief": "morning_brief.py",
     "mira-continuity": "mira_continuity.py",
     "mira-mentor": "mentorship_ledger.py",

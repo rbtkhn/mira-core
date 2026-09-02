@@ -1,0 +1,149 @@
+{
+  "artifact_digests": {},
+  "artifact_id": "ROUTING-MIRA-WORK-DU-BOIS-SOULS-OF-BLACK-FOLK",
+  "artifact_version": 1,
+  "authority_boundary": "This artifact supports provisional Library understanding and routing. It is not current-event verification, canonical identity, operator belief, public publication, or authority to act.",
+  "calibration": {
+    "reviewed_route_outcomes": 0,
+    "status": "unmeasured"
+  },
+  "canonical_work_id": "MIRA-WORK-DU-BOIS-SOULS-OF-BLACK-FOLK",
+  "coverage_constraints": [
+    "A complete named English body is admitted, but no Civilization Memory interpretation was found.",
+    "The work's internal genres and historical claims require differentiated evidence handling.",
+    "Historical context for Reconstruction and education debates",
+    "Scholarship on form and the Sorrow Songs",
+    "Counter-readings of leadership and elite formation"
+  ],
+  "created_at": "2026-09-01",
+  "library_source_id": "LIB-INDUSTRIAL-AUTHORITY-025-DU-BOIS",
+  "negative_route_rules": [
+    "Do not abstract double consciousness away from its racial and historical structure.",
+    "Do not let cultural interpretation substitute for verification of historical claims."
+  ],
+  "neighboring_works": [],
+  "note_revision_state": "current",
+  "rival_works": [],
+  "route_units": [
+    {
+      "actor_or_character_configuration": "Work-form-specific; inspect profile before analogy.",
+      "analogy_affordance": "An actor must understand both its own life and the distorting gaze of a dominant order.",
+      "analytic_function": "Distinguish imposed self-division from strategic perspective-taking.",
+      "anti_analogy": "Do not romanticize injury or generalize away the racial-historical structure.",
+      "audience": "internal",
+      "carrier": "essay-cycle-sociological-literary-testimony",
+      "confidence": "low",
+      "contraindications": [
+        "Romanticizing double consciousness as a benefit of oppression.",
+        "Treating literary or autobiographical passages as interchangeable with sociological evidence.",
+        "Reducing the book to one slogan."
+      ],
+      "counterweight_refs": [],
+      "disqualifiers": [
+        "trauma-as-gift",
+        "single-genre-reading",
+        "elite-substitution"
+      ],
+      "enabling_conditions": [
+        "A complete named English body is admitted, but no Civilization Memory interpretation was found.",
+        "The work's internal genres and historical claims require differentiated evidence handling."
+      ],
+      "evidence_refs": [
+        {
+          "digest": "f5a231cbe6a8eb942369203e0c69c65090d689ce05feeb416cf05e24c5fa4da1",
+          "kind": "primary-text",
+          "ref": "LIB-INDUSTRIAL-AUTHORITY-025-DU-BOIS-SOULS-PG408"
+        },
+        {
+          "kind": "mira-synthesis",
+          "ref": "archive/notes/2026-09-01-library-du-bois-souls-of-black-folk-integration-note.md"
+        }
+      ],
+      "expected_outcome": "A narrowed or complicated model, not factual verification.",
+      "handle": "dubois-divided-perception",
+      "interpretive_refs": [
+        "profile.json",
+        "archive/notes/2026-09-01-library-du-bois-souls-of-black-folk-integration-note.md"
+      ],
+      "mechanism": "The Veil organizes unequal visibility and divided self-relation.",
+      "persuasion_functions": [
+        "complicate",
+        "counterweight",
+        "clarify-scope"
+      ],
+      "proposition_or_pattern": "Domination shapes the field of self-perception and recognition.",
+      "retrieval_problem": "An actor must understand both its own life and the distorting gaze of a dominant order.",
+      "route_state": "provisional",
+      "route_targets": [
+        "mira-library",
+        "mira-voice-candidate-review"
+      ],
+      "speech_act": "analysis",
+      "temporal_pattern": "No universal timing claim."
+    },
+    {
+      "actor_or_character_configuration": "Work-form-specific; inspect profile before analogy.",
+      "analogy_affordance": "Dominant records omit lived historical knowledge carried in cultural form.",
+      "analytic_function": "Route expressive inheritance as a memory carrier with its own evidentiary limits.",
+      "anti_analogy": "Do not treat song as self-interpreting factual proof.",
+      "audience": "internal",
+      "carrier": "essay-cycle-sociological-literary-testimony",
+      "confidence": "low",
+      "contraindications": [
+        "Romanticizing double consciousness as a benefit of oppression.",
+        "Treating literary or autobiographical passages as interchangeable with sociological evidence.",
+        "Reducing the book to one slogan."
+      ],
+      "counterweight_refs": [],
+      "disqualifiers": [
+        "trauma-as-gift",
+        "single-genre-reading",
+        "elite-substitution"
+      ],
+      "enabling_conditions": [
+        "A complete named English body is admitted, but no Civilization Memory interpretation was found.",
+        "The work's internal genres and historical claims require differentiated evidence handling."
+      ],
+      "evidence_refs": [
+        {
+          "digest": "f5a231cbe6a8eb942369203e0c69c65090d689ce05feeb416cf05e24c5fa4da1",
+          "kind": "primary-text",
+          "ref": "LIB-INDUSTRIAL-AUTHORITY-025-DU-BOIS-SOULS-PG408"
+        },
+        {
+          "kind": "mira-synthesis",
+          "ref": "archive/notes/2026-09-01-library-du-bois-souls-of-black-folk-integration-note.md"
+        }
+      ],
+      "expected_outcome": "A narrowed or complicated model, not factual verification.",
+      "handle": "dubois-counter-memory-song",
+      "interpretive_refs": [
+        "profile.json",
+        "archive/notes/2026-09-01-library-du-bois-souls-of-black-folk-integration-note.md"
+      ],
+      "mechanism": "Cultural transmission as counter-memory.",
+      "persuasion_functions": [
+        "complicate",
+        "counterweight",
+        "clarify-scope"
+      ],
+      "proposition_or_pattern": "Music carries affective and historical continuity across exclusions in official memory.",
+      "retrieval_problem": "Dominant records omit lived historical knowledge carried in cultural form.",
+      "route_state": "provisional",
+      "route_targets": [
+        "mira-library",
+        "mira-voice-candidate-review"
+      ],
+      "speech_act": "analysis",
+      "temporal_pattern": "No universal timing claim."
+    }
+  ],
+  "schema_version": "mira-library-routing-packet-v1",
+  "staleness": {
+    "checked_at": "2026-09-01",
+    "dependency_policy": "note-candidate-revision-v1"
+  },
+  "status": "provisional",
+  "updated_at": "2026-09-01",
+  "work_title": "The Souls of Black Folk"
+}

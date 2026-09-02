@@ -1,0 +1,98 @@
+{
+  "artifact_id": "TOPICS-MIRA-WORK-MURASAKI-TALE-OF-GENJI",
+  "artifact_version": 1,
+  "authority_boundary": "This artifact supports provisional Library understanding and routing. It is not current-event verification, canonical identity, operator belief, public publication, or authority to act.",
+  "canonical_work_id": "MIRA-WORK-MURASAKI-TALE-OF-GENJI",
+  "created_at": "2026-09-01",
+  "essay_artifacts_created": 0,
+  "essay_refs": [],
+  "essay_relationship_policy": "Unbounded one-to-many. Essays receive independent IDs and lifecycle states; only revisions of the same essay supersede one another.",
+  "library_source_id": "LIB-MEDIEVAL-AUTHORITY-066-MURASAKI-SHIKIBU",
+  "schema_version": "mira-library-essay-topic-contracts-v1",
+  "status": "candidate-set",
+  "topics": [
+    {
+      "central_tension": "What cannot be said directly may still structure the entire relation.",
+      "civilization_memory_refs": [],
+      "do_not_draft_yet": "The pilot authorizes topic comparison only; selection and essay composition remain separate decisions.",
+      "essay_mode": "perceptual",
+      "evidence_readiness": "research-required",
+      "external_research_authorized": true,
+      "external_research_used": false,
+      "governing_question": "How does indirect perception become a way of reading power, rank, and vulnerability?",
+      "library_body_refs": [
+        "LIB-MEDIEVAL-AUTHORITY-066-GENJI-WALEY-PART-01-GUTENBERG-66057",
+        "LIB-MEDIEVAL-AUTHORITY-066-GENJI-WALEY-PART-02-GUTENBERG-67111",
+        "LIB-MEDIEVAL-AUTHORITY-066-GENJI-WALEY-PART-03-GUTENBERG-75852",
+        "LIB-MEDIEVAL-AUTHORITY-066-GENJI-WALEY-PART-04-GUTENBERG-77408"
+      ],
+      "missing_evidence": [
+        "Complete work coverage",
+        "Heian context",
+        "Translation-sensitive passages"
+      ],
+      "provisional_title": "The Court Behind the Screen",
+      "rank": 1,
+      "routing_contribution": "Provide a perceptual lens for power exercised through access and indirection.",
+      "source_posture": "Knowledge-seeded profile; Civilization Memory coverage is none and the translation is incomplete.",
+      "topic_contract_id": "TOPIC-MIRA-WORK-MURASAKI-TALE-OF-GENJI-01",
+      "voice_contribution": "Cultivate attention to silence, mediation, and constrained agency."
+    },
+    {
+      "central_tension": "Impermanence can deepen moral perception without dissolving responsibility.",
+      "civilization_memory_refs": [],
+      "do_not_draft_yet": "The pilot authorizes topic comparison only; selection and essay composition remain separate decisions.",
+      "essay_mode": "perceptual",
+      "evidence_readiness": "research-required",
+      "external_research_authorized": true,
+      "external_research_used": false,
+      "governing_question": "How does impermanence alter the narrative's understanding of possession, ambition, and loss?",
+      "library_body_refs": [
+        "LIB-MEDIEVAL-AUTHORITY-066-GENJI-WALEY-PART-01-GUTENBERG-66057",
+        "LIB-MEDIEVAL-AUTHORITY-066-GENJI-WALEY-PART-02-GUTENBERG-67111",
+        "LIB-MEDIEVAL-AUTHORITY-066-GENJI-WALEY-PART-03-GUTENBERG-75852",
+        "LIB-MEDIEVAL-AUTHORITY-066-GENJI-WALEY-PART-04-GUTENBERG-77408"
+      ],
+      "missing_evidence": [
+        "Final two Waley parts",
+        "Japanese aesthetic vocabulary",
+        "Critical context"
+      ],
+      "provisional_title": "The Politics of Ephemerality",
+      "rank": 2,
+      "routing_contribution": "Route temporal and affective change rather than static character labels.",
+      "source_posture": "Knowledge-seeded profile pending complete-work and contextual research.",
+      "topic_contract_id": "TOPIC-MIRA-WORK-MURASAKI-TALE-OF-GENJI-02",
+      "voice_contribution": "Let endings and loss revise earlier judgments."
+    },
+    {
+      "central_tension": "Aesthetic closeness may obscure unequal freedom and consequences.",
+      "civilization_memory_refs": [],
+      "do_not_draft_yet": "The pilot authorizes topic comparison only; selection and essay composition remain separate decisions.",
+      "essay_mode": "relational",
+      "evidence_readiness": "blocked",
+      "external_research_authorized": true,
+      "external_research_used": false,
+      "governing_question": "What can relational asymmetry in Genji teach without converting fictional conduct into historical fact or ethical permission?",
+      "library_body_refs": [
+        "LIB-MEDIEVAL-AUTHORITY-066-GENJI-WALEY-PART-01-GUTENBERG-66057",
+        "LIB-MEDIEVAL-AUTHORITY-066-GENJI-WALEY-PART-02-GUTENBERG-67111",
+        "LIB-MEDIEVAL-AUTHORITY-066-GENJI-WALEY-PART-03-GUTENBERG-75852",
+        "LIB-MEDIEVAL-AUTHORITY-066-GENJI-WALEY-PART-04-GUTENBERG-77408"
+      ],
+      "missing_evidence": [
+        "Complete narrative arc",
+        "Gender and court context",
+        "Japanese text or translation comparison"
+      ],
+      "provisional_title": "Intimacy Under Constraint",
+      "rank": 3,
+      "routing_contribution": "Supply relational contraindications and ethical anti-analogy.",
+      "source_posture": "Partial English translation; no Civilization Memory coverage.",
+      "topic_contract_id": "TOPIC-MIRA-WORK-MURASAKI-TALE-OF-GENJI-03",
+      "voice_contribution": "Join subtle perception to explicit respect for agency."
+    }
+  ],
+  "updated_at": "2026-09-01",
+  "work_title": "The Tale of Genji"
+}

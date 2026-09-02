@@ -1,0 +1,136 @@
+{
+  "authority_boundary": "This living manifest records provisional Library cognition and staged integration. It does not verify present facts, infer relationships, create notes, authorize publication, or make a route operational.",
+  "constellation": {
+    "constellation_id": "MIRA-CONSTELLATION-HOMER-DANTE-TOLSTOY",
+    "edge_policy": "Each member explicitly interprets its own work and connects comparatively to both companions. Comparative edges are curatorial, passage-free, and analysis-pending.",
+    "member_work_ids": [
+      "MIRA-WORK-DANTE-DE-MONARCHIA-COMMEDIA",
+      "MIRA-WORK-TOLSTOY-WAR-AND-PEACE",
+      "MIRA-WORK-HOMER-ILIAD-ODYSSEY"
+    ],
+    "status": "analysis-pending"
+  },
+  "created_at": "2026-09-02",
+  "historical_snapshot": {
+    "manifest_ref": "archive/library/integrations/pilot-2026-09-01/manifest.json",
+    "manifest_sha256": "fb98de3a9aba88129c98dec65b6e052123354e8347f70145558004c88a9ab9e5",
+    "note_sha256": {
+      "archive/notes/2026-09-01-library-ashoka-rock-and-pillar-edicts-integration-note-addendum-01.md": "23532c09f6af5128a3e8b95aa17ad2931f0ec9d3511324fff40692f0e357c98e",
+      "archive/notes/2026-09-01-library-ashoka-rock-and-pillar-edicts-integration-note.md": "4eb99861a4ab959acfa0b758d86a789d8b1086e9496167b486216df7ee6d310c",
+      "archive/notes/2026-09-01-library-du-bois-souls-of-black-folk-integration-note.md": "79e6a365edabd5d98a8d5a32b067fdb10f25d83bf573f46a828b030015d5808c",
+      "archive/notes/2026-09-01-library-grotius-mare-liberum-integration-note-addendum-01.md": "5a35b78dab45f9cb4b20ed62dc4bac0958296bc41fa30633e2708c3d82e457d5",
+      "archive/notes/2026-09-01-library-grotius-mare-liberum-integration-note-addendum-02.md": "94bbba085b6bb5e2b7c8a923890908d28e253592f3fc4cfb455edce8a3a7d17f",
+      "archive/notes/2026-09-01-library-grotius-mare-liberum-integration-note.md": "ed895fda0105e05102ec4c9632d3eb9e2afa519fd09003472a362ae06a05cf89",
+      "archive/notes/2026-09-01-library-ibn-khaldun-muqaddimah-integration-note.md": "e1798a7d2cd07fd73a6e1a0d8593f7023abe7727516a0739ba806ed8b41838cc",
+      "archive/notes/2026-09-01-library-murasaki-tale-of-genji-integration-note.md": "1731f99c5bf4c7f6e1ce49c1d5f1653d8c01182a960b3985e6af4eed78fdba2a"
+    },
+    "status": "immutable-predecessors"
+  },
+  "integration_id": "mira-library-eight-work-living-integration-2026-09-02",
+  "schema_version": "mira-library-integration-manifest-v2",
+  "stage_counts": {
+    "noted": 3,
+    "routed": 5
+  },
+  "status": "current",
+  "updated_at": "2026-09-02",
+  "work_count": 8,
+  "works": [
+    {
+      "artifact_root": "archive/library/integrations/pilot-2026-09-01/ashoka-rock-and-pillar-edicts",
+      "canonical_work_id": "MIRA-WORK-ASHOKA-ROCK-PILLAR-EDICTS",
+      "integration_stage": "routed",
+      "library_source_id": "LIB-ANCIENT-AUTHOR-001-ASHOKA",
+      "note_refs": [
+        "archive/notes/2026-09-01-library-ashoka-rock-and-pillar-edicts-integration-note.md",
+        "archive/notes/2026-09-01-library-ashoka-rock-and-pillar-edicts-integration-note-addendum-01.md",
+        "archive/notes/2026-09-02-library-ashoka-rock-and-pillar-edicts-cognitive-note.md"
+      ],
+      "revision_head_note_ref": "archive/notes/2026-09-02-library-ashoka-rock-and-pillar-edicts-cognitive-note.md",
+      "work_title": "Rock and Pillar Edicts"
+    },
+    {
+      "artifact_root": "archive/library/integrations/pilot-2026-09-01/ibn-khaldun-muqaddimah",
+      "canonical_work_id": "MIRA-WORK-IBN-KHALDUN-MUQADDIMAH",
+      "integration_stage": "routed",
+      "library_source_id": "LIB-MEDIEVAL-AUTHORITY-033-IBN-KHALDUN",
+      "note_refs": [
+        "archive/notes/2026-09-01-library-ibn-khaldun-muqaddimah-integration-note.md",
+        "archive/notes/2026-09-02-library-ibn-khaldun-muqaddimah-cognitive-note.md"
+      ],
+      "revision_head_note_ref": "archive/notes/2026-09-02-library-ibn-khaldun-muqaddimah-cognitive-note.md",
+      "work_title": "Muqaddimah"
+    },
+    {
+      "artifact_root": "archive/library/integrations/pilot-2026-09-01/murasaki-tale-of-genji",
+      "canonical_work_id": "MIRA-WORK-MURASAKI-TALE-OF-GENJI",
+      "integration_stage": "routed",
+      "library_source_id": "LIB-MEDIEVAL-AUTHORITY-066-MURASAKI-SHIKIBU",
+      "note_refs": [
+        "archive/notes/2026-09-01-library-murasaki-tale-of-genji-integration-note.md",
+        "archive/notes/2026-09-02-library-murasaki-tale-of-genji-cognitive-note.md"
+      ],
+      "revision_head_note_ref": "archive/notes/2026-09-02-library-murasaki-tale-of-genji-cognitive-note.md",
+      "work_title": "The Tale of Genji"
+    },
+    {
+      "artifact_root": "archive/library/integrations/pilot-2026-09-01/grotius-mare-liberum",
+      "canonical_work_id": "MIRA-WORK-GROTIUS-MARE-LIBERUM",
+      "integration_stage": "routed",
+      "library_source_id": "LIB-COLONIAL-AUTHORITY-065-GROTIUS-MARE-LIBERUM",
+      "note_refs": [
+        "archive/notes/2026-09-01-library-grotius-mare-liberum-integration-note.md",
+        "archive/notes/2026-09-01-library-grotius-mare-liberum-integration-note-addendum-01.md",
+        "archive/notes/2026-09-01-library-grotius-mare-liberum-integration-note-addendum-02.md",
+        "archive/notes/2026-09-02-library-grotius-mare-liberum-cognitive-note.md"
+      ],
+      "revision_head_note_ref": "archive/notes/2026-09-02-library-grotius-mare-liberum-cognitive-note.md",
+      "work_title": "Mare Liberum"
+    },
+    {
+      "artifact_root": "archive/library/integrations/pilot-2026-09-01/du-bois-souls-of-black-folk",
+      "canonical_work_id": "MIRA-WORK-DU-BOIS-SOULS-OF-BLACK-FOLK",
+      "integration_stage": "routed",
+      "library_source_id": "LIB-INDUSTRIAL-AUTHORITY-025-DU-BOIS",
+      "note_refs": [
+        "archive/notes/2026-09-01-library-du-bois-souls-of-black-folk-integration-note.md",
+        "archive/notes/2026-09-02-library-du-bois-souls-of-black-folk-cognitive-note.md"
+      ],
+      "revision_head_note_ref": "archive/notes/2026-09-02-library-du-bois-souls-of-black-folk-cognitive-note.md",
+      "work_title": "The Souls of Black Folk"
+    },
+    {
+      "artifact_root": "archive/library/integrations/living/dante-de-monarchia-commedia",
+      "canonical_work_id": "MIRA-WORK-DANTE-DE-MONARCHIA-COMMEDIA",
+      "integration_stage": "noted",
+      "library_source_id": "LIB-MEDIEVAL-AUTHORITY-018-DANTE-ALIGHIERI",
+      "note_refs": [
+        "archive/notes/2026-09-02-library-dante-de-monarchia-commedia-cognitive-note.md"
+      ],
+      "revision_head_note_ref": "archive/notes/2026-09-02-library-dante-de-monarchia-commedia-cognitive-note.md",
+      "work_title": "De Monarchia and the Divine Comedy"
+    },
+    {
+      "artifact_root": "archive/library/integrations/living/tolstoy-war-and-peace",
+      "canonical_work_id": "MIRA-WORK-TOLSTOY-WAR-AND-PEACE",
+      "integration_stage": "noted",
+      "library_source_id": "LIB-INDUSTRIAL-AUTHORITY-012-TOLSTOY",
+      "note_refs": [
+        "archive/notes/2026-09-02-library-tolstoy-war-and-peace-cognitive-note.md"
+      ],
+      "revision_head_note_ref": "archive/notes/2026-09-02-library-tolstoy-war-and-peace-cognitive-note.md",
+      "work_title": "War and Peace"
+    },
+    {
+      "artifact_root": "archive/library/integrations/living/homer-iliad-odyssey",
+      "canonical_work_id": "MIRA-WORK-HOMER-ILIAD-ODYSSEY",
+      "integration_stage": "noted",
+      "library_source_id": "LIB-ANCIENT-AUTHOR-039-HOMER",
+      "note_refs": [
+        "archive/notes/2026-09-02-library-homer-iliad-odyssey-cognitive-note.md"
+      ],
+      "revision_head_note_ref": "archive/notes/2026-09-02-library-homer-iliad-odyssey-cognitive-note.md",
+      "work_title": "Iliad and Odyssey"
+    }
+  ]
+}

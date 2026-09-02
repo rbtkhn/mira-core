@@ -1,0 +1,222 @@
+{
+  "artifact_id": "PROFILE-MIRA-WORK-HOMER-ILIAD-ODYSSEY",
+  "artifact_links": {
+    "current_note_ref": "archive/notes/2026-09-02-library-homer-iliad-odyssey-cognitive-note.md",
+    "integration_note_ref": "archive/notes/2026-09-02-library-homer-iliad-odyssey-cognitive-note.md",
+    "integration_note_refs": [
+      "archive/notes/2026-09-02-library-homer-iliad-odyssey-cognitive-note.md"
+    ]
+  },
+  "artifact_version": 1,
+  "authority_boundary": "This source-grounded profile supports a provisional Library note. It does not settle Homeric authorship, establish a completed reception history, verify present facts, authorize publication, or supply action authority.",
+  "canonical_work_id": "MIRA-WORK-HOMER-ILIAD-ODYSSEY",
+  "central_question_or_situation": "How do the Iliad and Odyssey hold human agency accountable while action remains constrained by honor, war, divine purpose, mortality, and the claims of home?",
+  "confidence": {
+    "bibliographic": "medium",
+    "body_characterization": "high",
+    "body_integrity": "high",
+    "civilization_memory_interpretation": "medium",
+    "doctrinal_or_formal_summary": "medium",
+    "identity": "medium",
+    "routing_readiness": "low"
+  },
+  "created_at": "2026-09-02",
+  "essay_refs": [],
+  "external_research_used": false,
+  "failure_modes": [
+    "Treating divine action as erasing mortal responsibility.",
+    "Reducing both epics to a single doctrine of heroic honor.",
+    "Claiming line-level equivalence between the Butler translations and the Greek XML witnesses."
+  ],
+  "identity": {
+    "author": "Homeric epic tradition",
+    "title": "Iliad and Odyssey"
+  },
+  "intellectual_affordances": {
+    "affective_movements": [
+      "Awe before force joined to grief for what honor, rage, and war consume.",
+      "Longing for return, recognition, and restored household order."
+    ],
+    "forms_of_attention": [
+      "Track how personal injury becomes collective catastrophe.",
+      "Distinguish divine constraint from the choices for which mortals remain answerable.",
+      "Read homecoming as an ordering problem rather than simple escape from war."
+    ],
+    "institutional_acts": [
+      "Assembly and command",
+      "Distribution of honor",
+      "Supplication",
+      "Restoration of household rule"
+    ],
+    "mechanisms": [
+      "An affront within an honor order can withdraw decisive capacity and transmit private rage into collective loss.",
+      "Return requires endurance, recognition, and the reconstitution of relationships damaged by absence and predation."
+    ],
+    "organizing_tensions": [
+      "Fate versus responsibility",
+      "Honor versus common survival",
+      "Immortal ease versus mortal belonging",
+      "War-making versus home-making"
+    ],
+    "perceptual_patterns": [
+      "Ask whose injury reorganizes the whole field and who bears the resulting cost.",
+      "Notice when characters blame gods for consequences prepared by their own choices."
+    ],
+    "propositions": [
+      "Rage can become a system-level force when honor and command are inseparable.",
+      "Mortal agency persists inside, rather than outside, divine and inherited constraint.",
+      "Home is a chosen finite order whose value can exceed release from mortality."
+    ],
+    "symbolic_structures": [
+      "Achilles' wrath",
+      "The divided assembly",
+      "The sea road to Ithaca",
+      "The threatened household"
+    ]
+  },
+  "interpretive_field": {
+    "common_misreadings": [
+      "Treating the poems as uncomplicated celebrations of heroic violence."
+    ],
+    "internal_tensions": [
+      "The gods constrain and redirect events while mortals are repeatedly judged for folly, appetite, and refusal."
+    ],
+    "rival_readings": [
+      "Heroic-aristocratic memory",
+      "A tragedy of force and honor",
+      "An inquiry into agency under divine order",
+      "A poetics of return and household restoration"
+    ]
+  },
+  "knowledge_basis": "knowledge-seeded",
+  "library_source_id": "LIB-ANCIENT-AUTHOR-039-HOMER",
+  "routing_signatures": {
+    "anti_analogy": [
+      "Do not map Homeric honor directly onto a contemporary military institution.",
+      "Do not use divine causation as a factual model of modern collective action.",
+      "Do not infer one coherent historical polity from the poems' social order."
+    ],
+    "negative": [
+      "heroic-celebration-only",
+      "fate-erases-agency",
+      "translation-equivalence"
+    ],
+    "positive": [
+      "honor-and-collective-loss",
+      "agency-under-constraint",
+      "war-and-homecoming",
+      "household-order"
+    ]
+  },
+  "schema_version": "mira-library-work-profile-v1",
+  "scope_conditions": [
+    "The focal anchors use Samuel Butler's English translations of both epics.",
+    "The Perseus Greek XML bodies are retained as consulted witnesses for passage identity, not asserted as line-level equivalents to Butler.",
+    "The source-authority record represents the Iliad and Odyssey as the surviving corpus in scope; authorship and textual history remain more complex than the registry label.",
+    "The profile remains note-first and creates no operational route."
+  ],
+  "status": "knowledge-seeded",
+  "synopsis": "The Iliad and Odyssey place action within overlapping fields of honor, divine intervention, mortality, war, kinship, and return. The first traces how a quarrel among leaders becomes common devastation; the second joins endurance and cunning to the recovery of a finite home while continuing to hold mortals answerable inside divine constraint.",
+  "textual_basis": {
+    "body_refs": [
+      {
+        "body_id": "LIB-ANCIENT-AUTHOR-039-HOMER-ILIAD-BUTLER",
+        "coverage_status": "complete-work",
+        "language": "english",
+        "status": "available",
+        "text_sha256": "a7a39e3467305472fcd5ee0e42fc93d069449171cf1758f2a42cfae8b2da2774",
+        "work_title": "Iliad"
+      },
+      {
+        "body_id": "LIB-ANCIENT-AUTHOR-039-HOMER-ODYSSEY-BUTLER",
+        "coverage_status": "complete-work",
+        "language": "english",
+        "status": "available",
+        "text_sha256": "ffbdb29c3dda284b65c11243db1a98167826a70c81bca2ed4b6232f86c905fb9",
+        "work_title": "Odyssey"
+      },
+      {
+        "body_id": "LIB-ANCIENT-AUTHOR-039-HOMER-ILIAD-GREEK-PERSEUS-GRC2",
+        "coverage_status": "complete-work",
+        "language": "ancient greek",
+        "status": "available",
+        "text_sha256": "ebbdfdd7b6ebd52c4ecdfdb92c17cef4447ccbb5114f7fb00cd34f434dd8521b",
+        "work_title": "Iliad"
+      },
+      {
+        "body_id": "LIB-ANCIENT-AUTHOR-039-HOMER-ODYSSEY-GREEK-PERSEUS-GRC2",
+        "coverage_status": "complete-work",
+        "language": "ancient greek",
+        "status": "available",
+        "text_sha256": "184fa4fc598f0cd9d2964b17eaabe36bd9c61d44c2eae264c4b016feacf28530",
+        "work_title": "Odyssey"
+      }
+    ],
+    "passage_anchors": [
+      {
+        "anchor_summary": "Opens the Iliad by making Achilles' anger, collective Achaean loss, divine counsel, and a quarrel among leaders one causal field.",
+        "body_id": "LIB-ANCIENT-AUTHOR-039-HOMER-ILIAD-BUTLER",
+        "claim_type": "epic-invocation-in-translation",
+        "locator": {
+          "line_end": 97,
+          "line_start": 82,
+          "section": "Iliad, Book I"
+        },
+        "passage_id": "PASSAGE-HOMER-ILIAD-WRATH-AND-COLLECTIVE-LOSS",
+        "raw_span_sha256": "5d509a18d6ba73ff16ed2c9a35b0de3e742b75251058216731660cd5134e9308",
+        "supports": ["homer-honor-and-collective-loss"],
+        "voice_role": "epic-narrator-in-translation"
+      },
+      {
+        "anchor_summary": "Makes Achilles' withdrawal intelligible as a response to unequal honor distribution while exposing the distance between his grievance and the war's object.",
+        "body_id": "LIB-ANCIENT-AUTHOR-039-HOMER-ILIAD-BUTLER",
+        "claim_type": "character-speech-in-translation",
+        "locator": {
+          "line_end": 237,
+          "line_start": 217,
+          "section": "Iliad, Book I"
+        },
+        "passage_id": "PASSAGE-HOMER-ILIAD-HONOR-WITHDRAWAL",
+        "raw_span_sha256": "786f7210fbea4373a06ecc004f67206d730d78d40a2a90f5ac3c580d25f834d3",
+        "supports": ["homer-honor-command-field"],
+        "voice_role": "character-speech-in-translation"
+      },
+      {
+        "anchor_summary": "Pairs divine ordering with explicit mortal folly and responsibility in the Odyssey's opening frame.",
+        "body_id": "LIB-ANCIENT-AUTHOR-039-HOMER-ODYSSEY-BUTLER",
+        "claim_type": "epic-invocation-and-divine-speech-in-translation",
+        "locator": {
+          "line_end": 417,
+          "line_start": 382,
+          "section": "Odyssey, Book I"
+        },
+        "passage_id": "PASSAGE-HOMER-ODYSSEY-FOLLY-AND-DIVINE-ORDER",
+        "raw_span_sha256": "4ccf42d50e589332215e7fe0a924cb137353e68048de228107db4a0d768c8c29",
+        "supports": ["homer-agency-under-constraint"],
+        "voice_role": "epic-narrator-and-divine-speech-in-translation"
+      },
+      {
+        "anchor_summary": "Has Odysseus choose mortal homecoming, suffering, and Penelope over Calypso's offered immortality.",
+        "body_id": "LIB-ANCIENT-AUTHOR-039-HOMER-ODYSSEY-BUTLER",
+        "claim_type": "character-speech-in-translation",
+        "locator": {
+          "line_end": 2454,
+          "line_start": 2438,
+          "section": "Odyssey, Book V"
+        },
+        "passage_id": "PASSAGE-HOMER-ODYSSEY-MORTAL-HOMECOMING",
+        "raw_span_sha256": "de7518f39eff33173ca3dc12058a0fe07eb117b6bc5fea8a912619a117597f40",
+        "supports": ["homer-mortal-belonging"],
+        "voice_role": "character-speech-in-translation"
+      }
+    ],
+    "passage_status": "anchored-living"
+  },
+  "uncertainties": [
+    "The Butler translations and Greek XML bodies have not been aligned line by line.",
+    "Homeric authorship, composition, and transmission remain outside this first note's competence.",
+    "The two epics should not be flattened into one political or theological doctrine."
+  ],
+  "updated_at": "2026-09-02",
+  "work_form": "paired-epic-poems"
+}

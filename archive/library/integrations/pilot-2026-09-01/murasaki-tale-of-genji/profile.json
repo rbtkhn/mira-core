@@ -1,0 +1,198 @@
+{
+  "artifact_id": "PROFILE-MIRA-WORK-MURASAKI-TALE-OF-GENJI",
+  "artifact_links": {
+    "coverage_ref": "coverage.json",
+    "essay_topics_ref": "essay-topics.json",
+    "integration_note_ref": "archive/notes/2026-09-01-library-murasaki-tale-of-genji-integration-note.md",
+    "routing_ref": "routing.json"
+  },
+  "artifact_version": 2,
+  "authority_boundary": "This artifact supports provisional Library understanding and routing. It is not current-event verification, canonical identity, operator belief, public publication, or authority to act.",
+  "canonical_work_id": "MIRA-WORK-MURASAKI-TALE-OF-GENJI",
+  "central_question_or_situation": "How can a literary work refine perception of power and relationship without turning characters into doctrines or fictional events into historical evidence?",
+  "confidence": {
+    "bibliographic": "medium",
+    "body_characterization": "medium",
+    "body_integrity": "high",
+    "civilization_memory_interpretation": "none",
+    "doctrinal_or_formal_summary": "medium",
+    "identity": "high",
+    "routing_readiness": "low"
+  },
+  "created_at": "2026-09-01",
+  "essay_refs": [],
+  "external_research_used": false,
+  "failure_modes": [
+    "Treating character speech as author doctrine.",
+    "Using fictional events as direct historical evidence.",
+    "Aestheticizing coercive or unequal relationships."
+  ],
+  "identity": {
+    "author": "Murasaki Shikibu",
+    "title": "The Tale of Genji"
+  },
+  "intellectual_affordances": {
+    "affective_movements": [
+      "Desire, anticipation, shame, grief, recollection, and impermanence."
+    ],
+    "forms_of_attention": [
+      "Attend to focalization, silence, indirection, season, object, and remembered scene."
+    ],
+    "institutional_acts": [
+      "Court appointment",
+      "Marriage arrangement",
+      "Household and patronage ordering"
+    ],
+    "mechanisms": [
+      "Rank and gender shape what can be said directly, perceived indirectly, or refused.",
+      "Attachment and memory transform the meaning of status across time."
+    ],
+    "organizing_tensions": [
+      "Aesthetic sensitivity versus ethical blindness",
+      "Intimacy versus asymmetrical freedom"
+    ],
+    "perceptual_patterns": [
+      "Infer power from access, delay, concealment, gesture, and constrained speech."
+    ],
+    "propositions": [],
+    "symbolic_structures": [
+      "Screens, letters, clothing, music, seasons, and residences as relational carriers."
+    ]
+  },
+  "interpretive_field": {
+    "common_misreadings": [
+      "Treating character speech as author doctrine.",
+      "Using fictional events as direct historical evidence.",
+      "Aestheticizing coercive or unequal relationships."
+    ],
+    "internal_tensions": [
+      "Perceptiveness in form does not guarantee ethical clarity in conduct."
+    ],
+    "rival_readings": [
+      "Genji as refined aesthetic consciousness",
+      "Genji as exposure of courtly and gendered asymmetry"
+    ]
+  },
+  "knowledge_basis": "knowledge-seeded",
+  "library_source_id": "LIB-MEDIEVAL-AUTHORITY-066-MURASAKI-SHIKIBU",
+  "routing_signatures": {
+    "anti_analogy": [
+      "Do not translate courtly indirection directly into modern organizational norms."
+    ],
+    "negative": [
+      "author-doctrine",
+      "historical-proof",
+      "ethical-exemplar"
+    ],
+    "positive": [
+      "indirect-power",
+      "relational-asymmetry",
+      "focalization",
+      "impermanence",
+      "constrained-speech"
+    ]
+  },
+  "schema_version": "mira-library-work-profile-v1",
+  "scope_conditions": [
+    "Only Waley parts 1–4 of 6 are admitted; parts 5–6 and a Japanese body are absent.",
+    "Translation-dependent effects and manuscript traditions are unresolved."
+  ],
+  "status": "knowledge-seeded",
+  "synopsis": "A long court narrative organized through relationships, rank, aesthetic judgment, recollection, and loss. Its knowledge is not reducible to propositions: it trains attention to indirect communication, shifting focalization, unequal agency, temporal change, and the social consequences of intimate conduct.",
+  "textual_basis": {
+    "body_refs": [
+      {
+        "body_id": "LIB-MEDIEVAL-AUTHORITY-066-GENJI-WALEY-PART-01-GUTENBERG-66057",
+        "coverage_status": "partial-work",
+        "language": "english",
+        "status": "available",
+        "text_sha256": "5290fcd9644228c3f61eee6787533e2c9db7bc073677619facb10a127533e0a8",
+        "work_title": "The Tale of Genji"
+      },
+      {
+        "body_id": "LIB-MEDIEVAL-AUTHORITY-066-GENJI-WALEY-PART-02-GUTENBERG-67111",
+        "coverage_status": "partial-work",
+        "language": "english",
+        "status": "available",
+        "text_sha256": "bdc7a206fefff438f6e8b27ad6d1e7c5b5457ba513bae70f6942ab1f550efd5c",
+        "work_title": "The Sacred Tree"
+      },
+      {
+        "body_id": "LIB-MEDIEVAL-AUTHORITY-066-GENJI-WALEY-PART-03-GUTENBERG-75852",
+        "coverage_status": "partial-work",
+        "language": "english",
+        "status": "available",
+        "text_sha256": "53a1e83b951a9313c2684a0f5026b1c025f28edb3f4af930daf1d954b7ca98f1",
+        "work_title": "A Wreath of Cloud"
+      },
+      {
+        "body_id": "LIB-MEDIEVAL-AUTHORITY-066-GENJI-WALEY-PART-04-GUTENBERG-77408",
+        "coverage_status": "partial-work",
+        "language": "english",
+        "status": "available",
+        "text_sha256": "01a44b37a494bec818d42e8ce80421b5fe31b0fb08eac5614a34f8975b783b01",
+        "work_title": "Blue Trousers"
+      }
+    ],
+    "passage_anchors": [
+      {
+        "anchor_summary": "The opening makes favor inseparable from rank: the favored woman's elevation exposes her to jealousy, isolation, illness, and political alarm.",
+        "body_id": "LIB-MEDIEVAL-AUTHORITY-066-GENJI-WALEY-PART-01-GUTENBERG-66057",
+        "claim_type": "narrative-presentation",
+        "locator": {
+          "line_end": 290,
+          "line_start": 273,
+          "section": "Chapter I — Kiritsubo"
+        },
+        "passage_id": "PASSAGE-GENJI-KIRITSUBO-FAVOR-RANK-VULNERABILITY",
+        "raw_span_sha256": "90df0d4e728a31d56e9c506e7b534e0c3bcfd3e7a3421d5bc90bca6182ada126",
+        "supports": [
+          "genji-indirect-power",
+          "genji-relational-asymmetry"
+        ],
+        "voice_role": "narrator-in-translation"
+      },
+      {
+        "anchor_summary": "A male courtly discussion explicitly classifies women by rank, access to reputation, and whose qualities are considered socially consequential.",
+        "body_id": "LIB-MEDIEVAL-AUTHORITY-066-GENJI-WALEY-PART-01-GUTENBERG-66057",
+        "claim_type": "character-discourse",
+        "locator": {
+          "line_end": 1058,
+          "line_start": 1038,
+          "section": "Chapter II — The Broom-Tree"
+        },
+        "passage_id": "PASSAGE-GENJI-BROOM-TREE-RANK-CLASSIFICATION",
+        "raw_span_sha256": "2a23a9150383733f4d741e9eb2a1fbe77feca5b4ea32dbb06075cde49339dd97",
+        "supports": [
+          "genji-indirect-power"
+        ],
+        "voice_role": "characters-in-translation"
+      },
+      {
+        "anchor_summary": "A woman speaks from behind a screen, using controlled distance and literary precision to govern an encounter otherwise narrated by a man.",
+        "body_id": "LIB-MEDIEVAL-AUTHORITY-066-GENJI-WALEY-PART-01-GUTENBERG-66057",
+        "claim_type": "narrated-encounter",
+        "locator": {
+          "line_end": 1664,
+          "line_start": 1646,
+          "section": "Chapter II — The Broom-Tree"
+        },
+        "passage_id": "PASSAGE-GENJI-BROOM-TREE-SCREENED-SPEECH",
+        "raw_span_sha256": "6a0684c88c92f805490d58c375222763dabd5e4345cef4597fa4bd98bc053616",
+        "supports": [
+          "genji-constrained-speech",
+          "genji-indirect-power"
+        ],
+        "voice_role": "narrator-and-characters-in-translation"
+      }
+    ],
+    "passage_status": "anchored-pilot"
+  },
+  "uncertainties": [
+    "The admitted sequence omits the final two Waley parts.",
+    "No Japanese body anchors language-sensitive interpretation.",
+    "Civilization Memory contains no direct or adjacent Genji material."
+  ],
+  "updated_at": "2026-09-01",
+  "work_form": "long-literary-narrative"
+}

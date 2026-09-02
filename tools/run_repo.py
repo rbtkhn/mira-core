@@ -38,6 +38,7 @@ SURFACES = {
     "intake-stats": REPO_ROOT / "scripts" / "report_trim_stats.py",
     "interaction-context": REPO_ROOT / "scripts" / "interaction_context.py",
     "library": REPO_ROOT / "scripts" / "archive_library.py",
+    "library-reasoning": REPO_ROOT / "scripts" / "library_reasoning.py",
     "innermost-loop-simulation": REPO_ROOT / "scripts" / "innermost_loop_simulation.py",
     "issue-render": REPO_ROOT / "scripts" / "render_daily_issue.py",
     "morning-brief": REPO_ROOT / "scripts" / "morning_brief.py",

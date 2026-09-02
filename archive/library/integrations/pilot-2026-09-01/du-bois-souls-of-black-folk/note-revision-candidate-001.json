@@ -1,0 +1,40 @@
+{
+  "affected_claims": [
+    "dubois-divided-perception",
+    "dubois-counter-memory-song"
+  ],
+  "authority_boundary": "This candidate may prepare review but may not rewrite interpretive prose or activate routing.",
+  "candidate_id": "REV-MIRA-WORK-DU-BOIS-SOULS-OF-BLACK-FOLK-001",
+  "canonical_work_id": "MIRA-WORK-DU-BOIS-SOULS-OF-BLACK-FOLK",
+  "changed_dependencies": [
+    "body_states"
+  ],
+  "disposition": "reviewed-no-change",
+  "open_questions": [
+    "How do the musical epigraphs govern the reading of each essay?",
+    "How did Du Bois revise his account of leadership and education later?"
+  ],
+  "predecessor_note_ref": "archive/notes/2026-09-01-library-du-bois-souls-of-black-folk-integration-note.md",
+  "rereading_scope": [
+    "Changed primary bodies",
+    "Affected profile or coverage claims",
+    "Previously open questions"
+  ],
+  "review_summary": "The admitted English body is now explicitly typed as original-language with no translator and unresolved editor attribution. The added metadata changes no passage or claim, so the direct encounter survives unchanged.",
+  "schema_version": "mira-library-note-revision-candidate-v1",
+  "status": "resolved",
+  "suspended_route_states": {
+    "dubois-counter-memory-song": "provisional",
+    "dubois-divided-perception": "provisional"
+  },
+  "trigger": {
+    "hard_changes": [
+      "body_states"
+    ],
+    "hard_signals": [],
+    "soft_changes": [],
+    "soft_signals": [],
+    "state": "revision-due",
+    "unknown_signals": []
+  }
+}

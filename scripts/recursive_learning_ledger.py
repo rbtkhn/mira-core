@@ -28,7 +28,12 @@ ASSESSOR_IMPLEMENTATION_PATHS = (
 ENTRY_ID_RE = re.compile(r"^RSI-\d{8}-\d{2}$")
 COMMIT_RE = re.compile(r"^[0-9a-f]{7,40}$")
 REFERENCE_ID_RE = re.compile(r"^MJTR-\d{8}-v[1-9]\d*$")
-PROCESS_REFERENCE_ID_RE = re.compile(r"^CPR-[A-Za-z0-9._:-]{1,100}$")
+PROCESS_REFERENCE_ID_RE = re.compile(r"^(?:CPR|MPR)-[A-Za-z0-9._:-]{1,100}$")
+PROCESS_REFERENCE_KINDS = {"cadence-process-learning", "mira-process-learning-reference-v1"}
+PROCESS_ORIGINS = {"cadence", "library-reasoning"}
+PROCESS_RELATIONSHIPS = {
+    "behavior-observation", "diagnosis", "implementation", "verification", "later-use",
+}
 REQUIRED_STAGES = ("observation", "diagnosis", "intervention", "validation", "outcome")
 ALLOWED_CLASSES = {
     "closed-feedback-loop",
@@ -737,12 +742,15 @@ def load_process_reference(path: Path) -> dict[str, Any]:
         packet = json.loads(resolved.read_text(encoding="utf-8"))
     except (OSError, json.JSONDecodeError) as error:
         raise LearningError(f"could not read process-learning reference: {error}") from error
-    if not isinstance(packet, dict) or packet.get("reference_kind") != "cadence-process-learning":
+    if not isinstance(packet, dict) or packet.get("reference_kind") not in PROCESS_REFERENCE_KINDS:
         raise LearningError("process-learning reference has an invalid kind")
     if packet.get("schema_version") != 1:
         raise LearningError("process-learning reference has an unsupported schema")
     if not PROCESS_REFERENCE_ID_RE.fullmatch(str(packet.get("reference_id", ""))):
         raise LearningError("process-learning reference has a malformed reference_id")
+    generic = packet.get("reference_kind") == "mira-process-learning-reference-v1"
+    if generic and packet.get("origin_workflow") not in PROCESS_ORIGINS:
+        raise LearningError("process-learning reference has an invalid origin_workflow")
     if not re.fullmatch(r"[0-9a-f]{64}", str(packet.get("event_chain_digest", ""))):
         raise LearningError("process-learning reference lacks a valid event-chain digest")
     artifacts = packet.get("artifacts")
@@ -760,15 +768,26 @@ def load_process_reference(path: Path) -> dict[str, Any]:
         if previous_time and observed < previous_time:
             raise LearningError("process-learning chronology is not ordered")
         previous_time = observed
-        body = {
-            "event_id": event.get("event_id"),
-            "episode_id": packet.get("source_episode_id"),
-            "event_type": event.get("event_type"),
-            "occurred_at": event.get("occurred_at"),
-            "lifecycle_version": event.get("lifecycle_version"),
-            "payload": event.get("payload"),
-            "previous_event_sha256": previous_digest,
-        }
+        body = (
+            {
+                "event_id": event.get("event_id"),
+                "origin_workflow": packet.get("origin_workflow"),
+                "event_type": event.get("event_type"),
+                "occurred_at": event.get("occurred_at"),
+                "payload": event.get("payload"),
+                "previous_event_sha256": previous_digest,
+            }
+            if generic else
+            {
+                "event_id": event.get("event_id"),
+                "episode_id": packet.get("source_episode_id"),
+                "event_type": event.get("event_type"),
+                "occurred_at": event.get("occurred_at"),
+                "lifecycle_version": event.get("lifecycle_version"),
+                "payload": event.get("payload"),
+                "previous_event_sha256": previous_digest,
+            }
+        )
         if event.get("previous_event_sha256") != previous_digest or event.get("event_sha256") != sha256_bytes(canonical_json(body).encode("utf-8")):
             raise LearningError("process-learning event chain does not validate")
         previous_digest = str(event.get("event_sha256"))
@@ -782,6 +801,27 @@ def load_process_reference(path: Path) -> dict[str, Any]:
             raise LearningError(f"process-learning artifact does not resolve: {path}")
         if _is_journal_path(path):
             raise LearningError("journal context cannot serve as process-learning evidence")
+        if generic:
+            if path.replace("\\", "/").startswith("archive/notes/"):
+                raise LearningError("Mira note context cannot serve as process-learning evidence")
+            if artifact.get("relationship") not in PROCESS_RELATIONSHIPS:
+                raise LearningError("process-learning artifact has an invalid relationship")
+            expected = str(artifact.get("sha256", ""))
+            actual = sha256_bytes(resolve_repository_path(REPO_ROOT, path).read_bytes())
+            if not re.fullmatch(r"[0-9a-f]{64}", expected) or expected != actual:
+                raise LearningError(f"process-learning artifact digest mismatch: {path}")
+    if generic:
+        claims = packet.get("claims")
+        if not isinstance(claims, dict) or not str(claims.get("observation", "")).strip() or not str(claims.get("diagnosis", "")).strip():
+            raise LearningError("process-learning reference requires explicit observation and diagnosis claims")
+        relationships = {str(item.get("relationship")) for item in artifacts}
+        commits = packet.get("intervention_commits", [])
+        if (claims.get("intervention") or "implementation" in relationships) and (
+            not isinstance(commits, list) or not commits or any(not COMMIT_RE.fullmatch(str(value)) for value in commits)
+        ):
+            raise LearningError("process-learning intervention requires valid commit references")
+        if claims.get("outcome") and "later-use" not in relationships:
+            raise LearningError("claimed process-learning outcome requires distinct later-use evidence")
     return packet
 
 
@@ -814,6 +854,7 @@ def candidate_from_process_reference(
     current = ledger or load_ledger()
     claims = packet.get("claims") or {}
     observation_paths = process_stage_paths(packet, "behavior-observation")
+    diagnosis_paths = process_stage_paths(packet, "diagnosis") or observation_paths
     intervention_paths = process_stage_paths(packet, "implementation")
     validation_paths = process_stage_paths(packet, "verification")
     outcome_paths = process_stage_paths(packet, "later-use")
@@ -828,12 +869,12 @@ def candidate_from_process_reference(
     return {
         "id": process_candidate_id(packet, current),
         "date": parse_observed_at(str(packet["chronology"][0]["occurred_at"])).date().isoformat(),
-        "title": str(claims.get("intervention") or "Cadence process-learning candidate"),
+        "title": str(claims.get("intervention") or f"{packet.get('origin_workflow', 'cadence')} process-learning candidate"),
         "class": "partial-feedback-loop" if partial else "closed-feedback-loop",
         "closure_state": "partial" if partial else "measured",
         "journal_context_refs": [],
         "observation": {"summary": str(claims.get("observation") or "Cadence observed system behavior."), "evidence_paths": observation_paths},
-        "diagnosis": {"summary": str(claims.get("diagnosis") or "The process weakness remains to be diagnosed."), "evidence_paths": observation_paths},
+        "diagnosis": {"summary": str(claims.get("diagnosis") or "The process weakness remains to be diagnosed."), "evidence_paths": diagnosis_paths},
         "intervention": {"summary": str(claims.get("intervention") or "A persistent intervention remains to be evidenced."), "commits": commits, "evidence_paths": intervention_paths},
         "validation": {"summary": "Separate verification exercised the intervention." if validation_paths else "Separate validation remains pending.", "evidence_paths": validation_paths},
         "outcome": {"summary": "A comparable later use was observed." if later_use else "A comparable later-use outcome remains pending.", "measure": measure, "evidence_paths": outcome_paths},

@@ -1,0 +1,89 @@
+{
+  "artifact_id": "TOPICS-MIRA-WORK-DU-BOIS-SOULS-OF-BLACK-FOLK",
+  "artifact_version": 1,
+  "authority_boundary": "This artifact supports provisional Library understanding and routing. It is not current-event verification, canonical identity, operator belief, public publication, or authority to act.",
+  "canonical_work_id": "MIRA-WORK-DU-BOIS-SOULS-OF-BLACK-FOLK",
+  "created_at": "2026-09-01",
+  "essay_artifacts_created": 0,
+  "essay_refs": [],
+  "essay_relationship_policy": "Unbounded one-to-many. Essays receive independent IDs and lifecycle states; only revisions of the same essay supersede one another.",
+  "library_source_id": "LIB-INDUSTRIAL-AUTHORITY-025-DU-BOIS",
+  "schema_version": "mira-library-essay-topic-contracts-v1",
+  "status": "candidate-set",
+  "topics": [
+    {
+      "central_tension": "The resulting doubleness may sharpen perception but remains an imposed wound, not a redeeming gift.",
+      "civilization_memory_refs": [],
+      "do_not_draft_yet": "The pilot authorizes topic comparison only; selection and essay composition remain separate decisions.",
+      "essay_mode": "perceptual",
+      "evidence_readiness": "research-required",
+      "external_research_authorized": true,
+      "external_research_used": false,
+      "governing_question": "How does double consciousness reveal both the injury and analytical power of seeing oneself through a hostile social order?",
+      "library_body_refs": [
+        "LIB-INDUSTRIAL-AUTHORITY-025-DU-BOIS-SOULS-PG408"
+      ],
+      "missing_evidence": [
+        "Close-reading passages",
+        "Historical context",
+        "Scholarly counter-readings"
+      ],
+      "provisional_title": "The Veil as an Instrument of Perception",
+      "rank": 1,
+      "routing_contribution": "Route divided perception with explicit structural and ethical constraints.",
+      "source_posture": "Complete Library body; Civilization Memory coverage is none.",
+      "topic_contract_id": "TOPIC-MIRA-WORK-DU-BOIS-SOULS-OF-BLACK-FOLK-01",
+      "voice_contribution": "Hold interior experience and social structure together."
+    },
+    {
+      "central_tension": "Cultural memory can preserve truth without functioning like a conventional factual archive.",
+      "civilization_memory_refs": [],
+      "do_not_draft_yet": "The pilot authorizes topic comparison only; selection and essay composition remain separate decisions.",
+      "essay_mode": "genealogy",
+      "evidence_readiness": "research-required",
+      "external_research_authorized": true,
+      "external_research_used": false,
+      "governing_question": "How does inherited music carry historical knowledge that dominant archives fail to preserve?",
+      "library_body_refs": [
+        "LIB-INDUSTRIAL-AUTHORITY-025-DU-BOIS-SOULS-PG408"
+      ],
+      "missing_evidence": [
+        "Music history",
+        "Source and transmission context",
+        "Interpretive scholarship"
+      ],
+      "provisional_title": "The Sorrow Songs as Civilizational Memory",
+      "rank": 2,
+      "routing_contribution": "Route song as a distinct memory carrier with typed evidentiary limits.",
+      "source_posture": "Complete Library body; no Civilization Memory interpretation.",
+      "topic_contract_id": "TOPIC-MIRA-WORK-DU-BOIS-SOULS-OF-BLACK-FOLK-02",
+      "voice_contribution": "Attend to knowledge carried through form, grief, and transmission."
+    },
+    {
+      "central_tension": "Leadership can expand collective capacity or substitute itself for the people it claims to serve.",
+      "civilization_memory_refs": [],
+      "do_not_draft_yet": "The pilot authorizes topic comparison only; selection and essay composition remain separate decisions.",
+      "essay_mode": "tension",
+      "evidence_readiness": "research-required",
+      "external_research_authorized": true,
+      "external_research_used": false,
+      "governing_question": "How does Du Bois's leadership argument hold together uplift, democratic agency, and the risk of elite substitution?",
+      "library_body_refs": [
+        "LIB-INDUSTRIAL-AUTHORITY-025-DU-BOIS-SOULS-PG408"
+      ],
+      "missing_evidence": [
+        "Washington debate context",
+        "Du Bois's later revisions",
+        "Democratic and educational counterarguments"
+      ],
+      "provisional_title": "Education and the Danger of Custodianship",
+      "rank": 3,
+      "routing_contribution": "Add agency and custodianship tests to elite-leadership arguments.",
+      "source_posture": "Complete Library body; external context authorized but unused.",
+      "topic_contract_id": "TOPIC-MIRA-WORK-DU-BOIS-SOULS-OF-BLACK-FOLK-03",
+      "voice_contribution": "Make benevolent authority answerable to the freedom of its beneficiaries."
+    }
+  ],
+  "updated_at": "2026-09-01",
+  "work_title": "The Souls of Black Folk"
+}

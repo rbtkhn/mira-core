@@ -1,0 +1,132 @@
+{
+  "artifact_id": "PROFILE-MIRA-WORK-IBN-KHALDUN-MUQADDIMAH",
+  "artifact_links": {
+    "coverage_ref": "coverage.json",
+    "essay_topics_ref": "essay-topics.json",
+    "integration_note_ref": "archive/notes/2026-09-01-library-ibn-khaldun-muqaddimah-integration-note.md",
+    "routing_ref": "routing.json"
+  },
+  "artifact_version": 1,
+  "authority_boundary": "This artifact supports provisional Library understanding and routing. It is not current-event verification, canonical identity, operator belief, public publication, or authority to act.",
+  "canonical_work_id": "MIRA-WORK-IBN-KHALDUN-MUQADDIMAH",
+  "central_question_or_situation": "Can knowledge of how societies work discipline inherited reports without turning a powerful causal model into a universal cycle?",
+  "confidence": {
+    "bibliographic": "medium",
+    "body_characterization": "low",
+    "body_integrity": "low",
+    "civilization_memory_interpretation": "low",
+    "doctrinal_or_formal_summary": "medium",
+    "identity": "high",
+    "routing_readiness": "low"
+  },
+  "created_at": "2026-09-01",
+  "essay_refs": [],
+  "external_research_used": false,
+  "failure_modes": [
+    "Treating asabiyyah as a universal predictive law.",
+    "Quoting unreviewed OCR as settled text.",
+    "Reducing a methodological work to one dynastic cycle."
+  ],
+  "identity": {
+    "author": "Abd al-Rahman Ibn Khaldun",
+    "title": "Muqaddimah"
+  },
+  "intellectual_affordances": {
+    "affective_movements": [
+      "Skepticism toward prestige and inherited report."
+    ],
+    "forms_of_attention": [
+      "Move from narrated event to enabling social structure."
+    ],
+    "institutional_acts": [
+      "Historiographical criticism",
+      "Dynastic consolidation",
+      "Tax extraction"
+    ],
+    "mechanisms": [
+      "Group solidarity enables political formation and is altered by settled power and luxury.",
+      "Courtly incentives and credulity corrupt historical transmission."
+    ],
+    "organizing_tensions": [
+      "Causal explanation versus cyclical overreach",
+      "Solidarity versus settled administration"
+    ],
+    "perceptual_patterns": [
+      "Ask whether a report is compatible with known social mechanisms."
+    ],
+    "propositions": [
+      "Historical reports should be tested against the conditions that make events socially possible."
+    ],
+    "symbolic_structures": [
+      "Desert and city as contrasting social configurations, not merely places."
+    ]
+  },
+  "interpretive_field": {
+    "common_misreadings": [
+      "Treating asabiyyah as a universal predictive law.",
+      "Quoting unreviewed OCR as settled text.",
+      "Reducing a methodological work to one dynastic cycle."
+    ],
+    "internal_tensions": [
+      "A method designed to resist credulity can itself become an inherited formula."
+    ],
+    "rival_readings": [
+      "A durable comparative sociology reading",
+      "A historically bounded Maghrebi dynastic model reading"
+    ]
+  },
+  "knowledge_basis": "knowledge-seeded",
+  "library_source_id": "LIB-MEDIEVAL-AUTHORITY-033-IBN-KHALDUN",
+  "routing_signatures": {
+    "anti_analogy": [
+      "Do not apply pastoral/urban succession mechanically to modern states or organizations."
+    ],
+    "negative": [
+      "ready-quotation",
+      "universal-cycle",
+      "reviewed-english-equivalence"
+    ],
+    "positive": [
+      "group-solidarity",
+      "dynastic-formation",
+      "historical-method",
+      "report-plausibility"
+    ]
+  },
+  "schema_version": "mira-library-work-profile-v1",
+  "scope_conditions": [
+    "The Library bodies are incomplete Arabic OCR volumes and remain needs-review.",
+    "Civilization Memory only names the work; it does not supply substantive interpretation."
+  ],
+  "status": "knowledge-seeded",
+  "synopsis": "A prolegomenon to universal history that asks how reports about society and rule can be tested against causal knowledge of social organization. It is associated with analyses of group solidarity, dynastic formation, urbanization, taxation, labor, education, and the recurrent corruption of historical transmission.",
+  "textual_basis": {
+    "body_refs": [
+      {
+        "body_id": "LIB-MEDIEVAL-AUTHORITY-033-IBN-KHALDUN-PROLEGOMENES-QUATREMERE-VOL-1-IA-OCR-PERMISSIONED",
+        "coverage_status": "partial-work",
+        "language": "arabic",
+        "status": "needs-review",
+        "text_sha256": "86bf0275e250ea0e1cb77aa398613d1020396d9551e7adf7b8d37189db0a0d63",
+        "work_title": "Prolegomenes, Quatremere volume 1"
+      },
+      {
+        "body_id": "LIB-MEDIEVAL-AUTHORITY-033-IBN-KHALDUN-PROLEGOMENES-QUATREMERE-VOL-2-IA-OCR-PERMISSIONED",
+        "coverage_status": "partial-work",
+        "language": "arabic",
+        "status": "needs-review",
+        "text_sha256": "90124bf9304f902bb7e3466ddf51aaca6b0e51867e4e7644dcef6dfd1a1f48f6",
+        "work_title": "Prolegomenes, Quatremere volume 2"
+      }
+    ],
+    "passage_anchors": [],
+    "passage_status": "not-yet-annotated"
+  },
+  "uncertainties": [
+    "The admitted OCR sequence is incomplete and unreconciled.",
+    "No English body or translation equivalence is admitted.",
+    "Civilization Memory offers nominal presence rather than work-level analysis."
+  ],
+  "updated_at": "2026-09-01",
+  "work_form": "historiographical-theoretical-prolegomenon"
+}

@@ -1,0 +1,193 @@
+{
+  "artifact_id": "PROFILE-MIRA-WORK-DU-BOIS-SOULS-OF-BLACK-FOLK",
+  "artifact_links": {
+    "coverage_ref": "coverage.json",
+    "essay_topics_ref": "essay-topics.json",
+    "integration_note_ref": "archive/notes/2026-09-01-library-du-bois-souls-of-black-folk-integration-note.md",
+    "routing_ref": "routing.json"
+  },
+  "artifact_version": 2,
+  "authority_boundary": "This artifact supports provisional Library understanding and routing. It is not current-event verification, canonical identity, operator belief, public publication, or authority to act.",
+  "canonical_work_id": "MIRA-WORK-DU-BOIS-SOULS-OF-BLACK-FOLK",
+  "central_question_or_situation": "How can a work make divided perception into knowledge without treating injury as an intellectual gift that justifies the conditions producing it?",
+  "confidence": {
+    "bibliographic": "medium",
+    "body_characterization": "medium",
+    "body_integrity": "high",
+    "civilization_memory_interpretation": "none",
+    "doctrinal_or_formal_summary": "medium",
+    "identity": "high",
+    "routing_readiness": "low"
+  },
+  "created_at": "2026-09-01",
+  "essay_refs": [],
+  "external_research_used": false,
+  "failure_modes": [
+    "Romanticizing double consciousness as a benefit of oppression.",
+    "Treating literary or autobiographical passages as interchangeable with sociological evidence.",
+    "Reducing the book to one slogan."
+  ],
+  "identity": {
+    "author": "W. E. B. Du Bois",
+    "title": "The Souls of Black Folk"
+  },
+  "intellectual_affordances": {
+    "affective_movements": [
+      "Estrangement, striving, grief, dignity, anger, and hope."
+    ],
+    "forms_of_attention": [
+      "Join structural analysis to singular lives, voices, and cultural forms."
+    ],
+    "institutional_acts": [
+      "Education",
+      "Political advocacy",
+      "Historical testimony",
+      "Cultural preservation"
+    ],
+    "mechanisms": [
+      "A hostile social gaze produces divided self-perception.",
+      "Cultural memory preserves experience excluded from dominant public narratives."
+    ],
+    "organizing_tensions": [
+      "Leadership versus democratic agency",
+      "Analytical doubleness versus psychic injury",
+      "Progress narrative versus sorrow and unfinished freedom"
+    ],
+    "perceptual_patterns": [
+      "See both the imposed image and the life that exceeds it."
+    ],
+    "propositions": [
+      "Racial domination structures both social opportunity and the conditions under which selfhood is perceived."
+    ],
+    "symbolic_structures": [
+      "The Veil",
+      "Sorrow Songs",
+      "paired musical epigraphs and essays"
+    ]
+  },
+  "interpretive_field": {
+    "common_misreadings": [
+      "Romanticizing double consciousness as a benefit of oppression.",
+      "Treating literary or autobiographical passages as interchangeable with sociological evidence.",
+      "Reducing the book to one slogan."
+    ],
+    "internal_tensions": [
+      "A capacity developed under domination should not be used to redeem domination."
+    ],
+    "rival_readings": [
+      "Double consciousness as imposed fracture",
+      "Double vision as a constrained epistemic capacity"
+    ]
+  },
+  "knowledge_basis": "knowledge-seeded",
+  "library_source_id": "LIB-INDUSTRIAL-AUTHORITY-025-DU-BOIS",
+  "routing_signatures": {
+    "anti_analogy": [
+      "Do not generalize the Veil into a frictionless metaphor for every form of divided identity."
+    ],
+    "negative": [
+      "trauma-as-gift",
+      "single-genre-reading",
+      "elite-substitution"
+    ],
+    "positive": [
+      "double-consciousness",
+      "veil",
+      "counter-memory",
+      "leadership-agency",
+      "sorrow-songs"
+    ]
+  },
+  "schema_version": "mira-library-work-profile-v1",
+  "scope_conditions": [
+    "A complete named English body is admitted, but no Civilization Memory interpretation was found.",
+    "The work's internal genres and historical claims require differentiated evidence handling."
+  ],
+  "status": "knowledge-seeded",
+  "synopsis": "A formally varied work joining historical analysis, sociological argument, autobiography, portraiture, political dispute, and music. It develops the Veil and double consciousness while examining emancipation, education, leadership, labor, sorrow, and the struggle to become a self in a society structured by racial domination.",
+  "textual_basis": {
+    "body_refs": [
+      {
+        "body_id": "LIB-INDUSTRIAL-AUTHORITY-025-DU-BOIS-SOULS-PG408",
+        "coverage_status": "complete-work",
+        "language": "english",
+        "status": "available",
+        "text_sha256": "f5a231cbe6a8eb942369203e0c69c65090d689ce05feeb416cf05e24c5fa4da1",
+        "work_title": "The Souls of Black Folk"
+      }
+    ],
+    "passage_anchors": [
+      {
+        "anchor_summary": "Du Bois defines the Veil and double consciousness as imposed self-perception, divided striving, and a struggle toward a self that does not erase either inheritance.",
+        "body_id": "LIB-INDUSTRIAL-AUTHORITY-025-DU-BOIS-SOULS-PG408",
+        "claim_type": "authorial-analysis",
+        "locator": {
+          "line_end": 191,
+          "line_start": 177,
+          "section": "Chapter I — Of Our Spiritual Strivings"
+        },
+        "passage_id": "PASSAGE-DU-BOIS-VEIL-DOUBLE-CONSCIOUSNESS",
+        "raw_span_sha256": "3f0abf5bff07ec8d97b7d2c5617f5b9610e7e6ba2e8523d843105429797d4d86",
+        "supports": [
+          "du-bois-veil-perception"
+        ],
+        "voice_role": "author"
+      },
+      {
+        "anchor_summary": "The forethought makes the Sorrow Songs part of the book's architecture and identifies the speaker with those living within the Veil.",
+        "body_id": "LIB-INDUSTRIAL-AUTHORITY-025-DU-BOIS-SOULS-PG408",
+        "claim_type": "authorial-framing",
+        "locator": {
+          "line_end": 99,
+          "line_start": 80,
+          "section": "The Forethought"
+        },
+        "passage_id": "PASSAGE-DU-BOIS-FORETHOUGHT-SORROW-SONGS",
+        "raw_span_sha256": "f55495d5b0090abfd4525f993e25057f00fd9159fba567b41017eb8337efeef7",
+        "supports": [
+          "du-bois-counter-memory"
+        ],
+        "voice_role": "author"
+      },
+      {
+        "anchor_summary": "Du Bois contrasts leadership arising through the consent of Black communities with leadership consolidated through a wider national compromise that hushes criticism.",
+        "body_id": "LIB-INDUSTRIAL-AUTHORITY-025-DU-BOIS-SOULS-PG408",
+        "claim_type": "historical-political-analysis",
+        "locator": {
+          "line_end": 1349,
+          "line_start": 1337,
+          "section": "Chapter III — Of Mr. Booker T. Washington and Others"
+        },
+        "passage_id": "PASSAGE-DU-BOIS-LEADERSHIP-CONSENT-CRITICISM",
+        "raw_span_sha256": "7a6495b88c4f2da3002ff68e7728d9da33bf640e799714820b65aaee78581550",
+        "supports": [
+          "du-bois-leadership-agency"
+        ],
+        "voice_role": "author"
+      },
+      {
+        "anchor_summary": "The Washington program is tested as a trade of political power, civil rights, and higher education for industrial advancement and conciliation, followed by an accounting of the resulting losses.",
+        "body_id": "LIB-INDUSTRIAL-AUTHORITY-025-DU-BOIS-SOULS-PG408",
+        "claim_type": "political-argument",
+        "locator": {
+          "line_end": 1390,
+          "line_start": 1372,
+          "section": "Chapter III — Of Mr. Booker T. Washington and Others"
+        },
+        "passage_id": "PASSAGE-DU-BOIS-EDUCATION-RIGHTS-TRADEOFF",
+        "raw_span_sha256": "523245ee5215500beb0ef4eca41fac65423b171312fb6374a192608d776217f1",
+        "supports": [
+          "du-bois-leadership-agency"
+        ],
+        "voice_role": "author"
+      }
+    ],
+    "passage_status": "anchored-pilot"
+  },
+  "uncertainties": [
+    "No relevant Civilization Memory object was found.",
+    "External historical and scholarly context has not been gathered for the proposed topics."
+  ],
+  "updated_at": "2026-09-01",
+  "work_form": "essay-cycle-sociological-literary-testimony"
+}

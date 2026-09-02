@@ -1,0 +1,42 @@
+{
+  "adjacent_objects_opened": [],
+  "adjudication": "Civilization Memory directly develops the strategic-interest and export-grammar readings and supplies adjacent Dutch commercial context. It supports two narrow topics, but the VOC coercion topic needs broader evidence and the corpus's framing must be treated as interpretation rather than neutral fact.",
+  "artifact_id": "COVERAGE-MIRA-WORK-GROTIUS-MARE-LIBERUM",
+  "artifact_version": 1,
+  "authority_boundary": "This artifact supports provisional Library understanding and routing. It is not current-event verification, canonical identity, operator belief, public publication, or authority to act.",
+  "canonical_work_id": "MIRA-WORK-GROTIUS-MARE-LIBERUM",
+  "coverage_decision": "partial",
+  "coverage_scope": "Narrow essays on interested universality and export grammar; insufficient alone for comprehensive legal or colonial adjudication.",
+  "created_at": "2026-09-01",
+  "direct_objects_opened": [
+    {
+      "digest": "494bab426b87b509f99f7a61ee1b273c901463b243e83a1638764ea1dc29f138",
+      "id": "civilization-memory-snapshot://content/civilizations/GERMANY/MEM–GERMANY–LAW–GROTIUS.md",
+      "relevance": "Direct treatment of Mare Liberum as open-seas doctrine, Dutch strategic interest, and export grammar."
+    },
+    {
+      "digest": "5f0fba593f4610eaca1308cffbf50c7f00736f8c9ba5ef7df7467dd27afc4800",
+      "id": "civilization-memory-snapshot://content/civilizations/GERMANY/MEM–GERMANY–NETHERLANDS–DUTCH–REPUBLIC.md",
+      "relevance": "Adjacent context for Dutch commercial hegemony, VOC quasi-sovereignty, extraction, and maritime power."
+    }
+  ],
+  "essay_source_posture": "Library body + typed Civilization Memory interpretation + Mira synthesis; external research only where authorized and later used.",
+  "external_research_authorized": false,
+  "external_research_used": false,
+  "library_source_id": "LIB-COLONIAL-AUTHORITY-065-GROTIUS-MARE-LIBERUM",
+  "schema_version": "mira-library-civmem-coverage-v1",
+  "search_scope": [
+    "Direct title and author terms for Mare Liberum and Hugo Grotius",
+    "Adjacent civilizational and mechanism terms where direct matches existed"
+  ],
+  "snapshot_commit": "4e3fd0c807e124508d42a65759c7cb616e522f4c",
+  "snapshot_receipt_sha256": "bc8dac038f3a0ae06680b29ce6dd783fc5b3b14b8904a3b2f23f8fa2058c1359",
+  "status": "adjudicated",
+  "unresolved_gaps": [
+    "Critical edition and translation posture",
+    "Portuguese and English counterarguments",
+    "Colonized and commercial counterpart evidence"
+  ],
+  "updated_at": "2026-09-01",
+  "work_title": "Mare Liberum"
+}

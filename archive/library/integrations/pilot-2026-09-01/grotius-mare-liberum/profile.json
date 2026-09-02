@@ -1,0 +1,178 @@
+{
+  "artifact_id": "PROFILE-MIRA-WORK-GROTIUS-MARE-LIBERUM",
+  "artifact_links": {
+    "coverage_ref": "coverage.json",
+    "current_note_ref": "archive/notes/2026-09-01-library-grotius-mare-liberum-integration-note-addendum-02.md",
+    "essay_topics_ref": "essay-topics.json",
+    "integration_note_ref": "archive/notes/2026-09-01-library-grotius-mare-liberum-integration-note.md",
+    "integration_note_refs": [
+      "archive/notes/2026-09-01-library-grotius-mare-liberum-integration-note.md",
+      "archive/notes/2026-09-01-library-grotius-mare-liberum-integration-note-addendum-01.md",
+      "archive/notes/2026-09-01-library-grotius-mare-liberum-integration-note-addendum-02.md"
+    ],
+    "routing_ref": "routing.json"
+  },
+  "artifact_version": 3,
+  "authority_boundary": "This artifact supports provisional Library understanding and routing. It is not current-event verification, canonical identity, operator belief, public publication, or authority to act.",
+  "canonical_work_id": "MIRA-WORK-GROTIUS-MARE-LIBERUM",
+  "central_question_or_situation": "How should a universal legal principle be understood when its abstraction and its sponsor's strategic interest reinforce one another?",
+  "confidence": {
+    "bibliographic": "low",
+    "body_characterization": "low",
+    "body_integrity": "high",
+    "civilization_memory_interpretation": "high",
+    "doctrinal_or_formal_summary": "medium",
+    "identity": "high",
+    "routing_readiness": "medium"
+  },
+  "created_at": "2026-09-01",
+  "essay_refs": [],
+  "external_research_used": false,
+  "failure_modes": [
+    "Dismissing the principle merely because it served Dutch interest.",
+    "Treating universal language as proof of disinterestedness.",
+    "Equating open navigation with freedom from coercion."
+  ],
+  "identity": {
+    "author": "Hugo Grotius",
+    "title": "Mare Liberum"
+  },
+  "intellectual_affordances": {
+    "affective_movements": [
+      "Confidence in reasoned order under strategic pressure."
+    ],
+    "forms_of_attention": [
+      "Ask who benefits when a principle removes an incumbent barrier."
+    ],
+    "institutional_acts": [
+      "Legal advocacy",
+      "Commercial justification",
+      "Challenge to maritime monopoly"
+    ],
+    "mechanisms": [
+      "Universal legal grammar can delegitimize an incumbent monopoly and widen access for a rising power."
+    ],
+    "organizing_tensions": [
+      "Universal right versus interested advocacy",
+      "Open access versus coercive commercial expansion"
+    ],
+    "perceptual_patterns": [
+      "Read universality together with positional advantage and institutional sponsor."
+    ],
+    "propositions": [
+      "The sea cannot be possessed in the manner of bounded land and should remain open to navigation and trade."
+    ],
+    "symbolic_structures": [
+      "The open sea as commons, route, and field of rivalry."
+    ]
+  },
+  "interpretive_field": {
+    "common_misreadings": [
+      "Dismissing the principle merely because it served Dutch interest.",
+      "Treating universal language as proof of disinterestedness.",
+      "Equating open navigation with freedom from coercion."
+    ],
+    "internal_tensions": [
+      "A principle can be genuinely generalizable and strategically interested at the same time."
+    ],
+    "rival_readings": [
+      "Foundational open-seas doctrine",
+      "Advocacy that converts rising-power interest into universal law"
+    ]
+  },
+  "knowledge_basis": "knowledge-seeded",
+  "library_source_id": "LIB-COLONIAL-AUTHORITY-065-GROTIUS-MARE-LIBERUM",
+  "routing_signatures": {
+    "anti_analogy": [
+      "Do not map seventeenth-century open-seas argument directly onto every modern commons or network."
+    ],
+    "negative": [
+      "neutral-law",
+      "open-access-equals-noncoercion",
+      "critical-edition"
+    ],
+    "positive": [
+      "maritime-access-order",
+      "universal-principle",
+      "rising-power-law",
+      "commercial-hegemony"
+    ]
+  },
+  "schema_version": "mira-library-work-profile-v1",
+  "scope_conditions": [
+    "The admitted Latin body carries edition uncertainty and unknown body-level coverage.",
+    "Civilization Memory's Germania framing is an interpretation, not neutral scholarly consensus."
+  ],
+  "status": "knowledge-seeded",
+  "synopsis": "A legal argument for the freedom of the seas and commerce, published from a larger defense of Dutch East India Company action. It universalizes claims about the non-appropriability of the sea while emerging from a concrete contest among maritime and commercial powers.",
+  "textual_basis": {
+    "body_refs": [
+      {
+        "body_id": "LIB-COLONIAL-AUTHORITY-065-GROTIUS-MARE-LIBERUM-LATIN-WIKISOURCE",
+        "coverage_status": "unknown",
+        "language": "latin",
+        "status": "available",
+        "text_sha256": "f5fd4847ecb3e2b8d83ef41c8f788d5f7a0fca2326fa2e6f6d4de37192c64c33",
+        "work_title": "Mare liberum"
+      }
+    ],
+    "passage_anchors": [
+      {
+        "anchor_summary": "Argues that no polity can prescribe against humanity's common use of the sea and that navigation remains governed by the original law of nations.",
+        "body_id": "LIB-COLONIAL-AUTHORITY-065-GROTIUS-MARE-LIBERUM-LATIN-WIKISOURCE",
+        "claim_type": "legal-argument",
+        "locator": {
+          "line_end": 483,
+          "line_start": 481,
+          "section": "Argument against prescription or custom over the sea"
+        },
+        "passage_id": "PASSAGE-GROTIUS-COMMON-USE-NONAPPROPRIATION",
+        "raw_span_sha256": "b56446a1d4ae966c071f5c2e0093ccc8ec13d5721ff14384b38866bcd671eff7",
+        "supports": [
+          "grotius-interested-universal"
+        ],
+        "voice_role": "primary-author"
+      },
+      {
+        "anchor_summary": "Explicitly joins Dutch advantage to the asserted advantage of humanity while answering Portuguese complaints about lost profit.",
+        "body_id": "LIB-COLONIAL-AUTHORITY-065-GROTIUS-MARE-LIBERUM-LATIN-WIKISOURCE",
+        "claim_type": "legal-advocacy",
+        "locator": {
+          "line_end": 660,
+          "line_start": 656,
+          "section": "Caput XII — No equity supports Portuguese prohibition of trade"
+        },
+        "passage_id": "PASSAGE-GROTIUS-CAPUT-XII-DUTCH-AND-UNIVERSAL-UTILITY",
+        "raw_span_sha256": "b81016e8ba55cf47a4ed015ff1503e84dcc0adadbd126e544aaafa264741ee9a",
+        "supports": [
+          "grotius-interested-universal",
+          "grotius-open-access-coercion"
+        ],
+        "voice_role": "primary-author"
+      },
+      {
+        "anchor_summary": "Moves from a common commercial right to defense by arms and just war when adjudication is unavailable.",
+        "body_id": "LIB-COLONIAL-AUTHORITY-065-GROTIUS-MARE-LIBERUM-LATIN-WIKISOURCE",
+        "claim_type": "legal-advocacy",
+        "locator": {
+          "line_end": 699,
+          "line_start": 687,
+          "section": "Caput XIII — Dutch commerce retained in peace, truce, or war"
+        },
+        "passage_id": "PASSAGE-GROTIUS-CAPUT-XIII-COMMON-RIGHT-ARMED-ENFORCEMENT",
+        "raw_span_sha256": "01405e941c3988782503c7b3e2a0812b5bb32f30c1b0436deba5dbb829045e54",
+        "supports": [
+          "grotius-open-access-coercion"
+        ],
+        "voice_role": "primary-author"
+      }
+    ],
+    "passage_status": "anchored-pilot"
+  },
+  "uncertainties": [
+    "The Wikisource body has edition/source uncertainty and blank language metadata.",
+    "The relation between the tract's legal argument and wider Grotian doctrine requires care."
+  ],
+  "updated_at": "2026-09-01",
+  "work_form": "argumentative-legal-treatise"
+}

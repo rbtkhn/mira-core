@@ -1,0 +1,180 @@
+{
+  "artifact_digests": {},
+  "artifact_id": "ROUTING-MIRA-WORK-MURASAKI-TALE-OF-GENJI",
+  "artifact_version": 1,
+  "authority_boundary": "This artifact supports provisional Library understanding and routing. It is not current-event verification, canonical identity, operator belief, public publication, or authority to act.",
+  "calibration": {
+    "reviewed_route_outcomes": 0,
+    "status": "unmeasured"
+  },
+  "canonical_work_id": "MIRA-WORK-MURASAKI-TALE-OF-GENJI",
+  "coverage_constraints": [
+    "Only Waley parts 1–4 of 6 are admitted; parts 5–6 and a Japanese body are absent.",
+    "Translation-dependent effects and manuscript traditions are unresolved.",
+    "Waley parts 5–6",
+    "Japanese-language body",
+    "Heian historical and literary context",
+    "Translation comparison"
+  ],
+  "created_at": "2026-09-01",
+  "library_source_id": "LIB-MEDIEVAL-AUTHORITY-066-MURASAKI-SHIKIBU",
+  "negative_route_rules": [
+    "Never route character speech as Murasaki's doctrine.",
+    "Withhold whole-work claims that depend on the absent final parts or Japanese wording."
+  ],
+  "neighboring_works": [],
+  "note_revision_state": "current",
+  "rival_works": [],
+  "route_units": [
+    {
+      "actor_or_character_configuration": "Work-form-specific; inspect profile before analogy.",
+      "analogy_affordance": "Power is exercised through access, concealment, timing, or constrained speech rather than explicit command.",
+      "analytic_function": "Increase sensitivity to relational and perceptual evidence.",
+      "anti_analogy": "Do not treat fictional scenes as historical proof or direct policy analogies.",
+      "audience": "internal",
+      "carrier": "long-literary-narrative",
+      "confidence": "low",
+      "contraindications": [
+        "Treating character speech as author doctrine.",
+        "Using fictional events as direct historical evidence.",
+        "Aestheticizing coercive or unequal relationships."
+      ],
+      "counterweight_refs": [],
+      "disqualifiers": [
+        "author-doctrine",
+        "historical-proof",
+        "ethical-exemplar"
+      ],
+      "enabling_conditions": [
+        "Only Waley parts 1–4 of 6 are admitted; parts 5–6 and a Japanese body are absent.",
+        "Translation-dependent effects and manuscript traditions are unresolved."
+      ],
+      "evidence_refs": [
+        {
+          "digest": "5290fcd9644228c3f61eee6787533e2c9db7bc073677619facb10a127533e0a8",
+          "kind": "primary-text",
+          "ref": "LIB-MEDIEVAL-AUTHORITY-066-GENJI-WALEY-PART-01-GUTENBERG-66057"
+        },
+        {
+          "digest": "bdc7a206fefff438f6e8b27ad6d1e7c5b5457ba513bae70f6942ab1f550efd5c",
+          "kind": "primary-text",
+          "ref": "LIB-MEDIEVAL-AUTHORITY-066-GENJI-WALEY-PART-02-GUTENBERG-67111"
+        },
+        {
+          "digest": "53a1e83b951a9313c2684a0f5026b1c025f28edb3f4af930daf1d954b7ca98f1",
+          "kind": "primary-text",
+          "ref": "LIB-MEDIEVAL-AUTHORITY-066-GENJI-WALEY-PART-03-GUTENBERG-75852"
+        },
+        {
+          "digest": "01a44b37a494bec818d42e8ce80421b5fe31b0fb08eac5614a34f8975b783b01",
+          "kind": "primary-text",
+          "ref": "LIB-MEDIEVAL-AUTHORITY-066-GENJI-WALEY-PART-04-GUTENBERG-77408"
+        },
+        {
+          "kind": "mira-synthesis",
+          "ref": "archive/notes/2026-09-01-library-murasaki-tale-of-genji-integration-note.md"
+        }
+      ],
+      "expected_outcome": "A narrowed or complicated model, not factual verification.",
+      "handle": "genji-indirect-power",
+      "interpretive_refs": [
+        "profile.json",
+        "archive/notes/2026-09-01-library-murasaki-tale-of-genji-integration-note.md"
+      ],
+      "mechanism": "Indirect control through rank-shaped channels of perception.",
+      "persuasion_functions": [
+        "complicate",
+        "counterweight",
+        "clarify-scope"
+      ],
+      "proposition_or_pattern": "Social hierarchy structures who may appear, speak, wait, interpret, or withdraw.",
+      "retrieval_problem": "Power is exercised through access, concealment, timing, or constrained speech rather than explicit command.",
+      "route_state": "provisional",
+      "route_targets": [
+        "mira-library",
+        "mira-voice-candidate-review"
+      ],
+      "speech_act": "analysis",
+      "temporal_pattern": "No universal timing claim."
+    },
+    {
+      "actor_or_character_configuration": "Work-form-specific; inspect profile before analogy.",
+      "analogy_affordance": "Refined expression coexists with unequal agency or harm.",
+      "analytic_function": "Separate perceptual sophistication from ethical endorsement.",
+      "anti_analogy": "Do not romanticize asymmetry because the prose renders it beautifully.",
+      "audience": "internal",
+      "carrier": "long-literary-narrative",
+      "confidence": "low",
+      "contraindications": [
+        "Treating character speech as author doctrine.",
+        "Using fictional events as direct historical evidence.",
+        "Aestheticizing coercive or unequal relationships."
+      ],
+      "counterweight_refs": [],
+      "disqualifiers": [
+        "author-doctrine",
+        "historical-proof",
+        "ethical-exemplar"
+      ],
+      "enabling_conditions": [
+        "Only Waley parts 1–4 of 6 are admitted; parts 5–6 and a Japanese body are absent.",
+        "Translation-dependent effects and manuscript traditions are unresolved."
+      ],
+      "evidence_refs": [
+        {
+          "digest": "5290fcd9644228c3f61eee6787533e2c9db7bc073677619facb10a127533e0a8",
+          "kind": "primary-text",
+          "ref": "LIB-MEDIEVAL-AUTHORITY-066-GENJI-WALEY-PART-01-GUTENBERG-66057"
+        },
+        {
+          "digest": "bdc7a206fefff438f6e8b27ad6d1e7c5b5457ba513bae70f6942ab1f550efd5c",
+          "kind": "primary-text",
+          "ref": "LIB-MEDIEVAL-AUTHORITY-066-GENJI-WALEY-PART-02-GUTENBERG-67111"
+        },
+        {
+          "digest": "53a1e83b951a9313c2684a0f5026b1c025f28edb3f4af930daf1d954b7ca98f1",
+          "kind": "primary-text",
+          "ref": "LIB-MEDIEVAL-AUTHORITY-066-GENJI-WALEY-PART-03-GUTENBERG-75852"
+        },
+        {
+          "digest": "01a44b37a494bec818d42e8ce80421b5fe31b0fb08eac5614a34f8975b783b01",
+          "kind": "primary-text",
+          "ref": "LIB-MEDIEVAL-AUTHORITY-066-GENJI-WALEY-PART-04-GUTENBERG-77408"
+        },
+        {
+          "kind": "mira-synthesis",
+          "ref": "archive/notes/2026-09-01-library-murasaki-tale-of-genji-integration-note.md"
+        }
+      ],
+      "expected_outcome": "A narrowed or complicated model, not factual verification.",
+      "handle": "genji-aesthetic-ethical-split",
+      "interpretive_refs": [
+        "profile.json",
+        "archive/notes/2026-09-01-library-murasaki-tale-of-genji-integration-note.md"
+      ],
+      "mechanism": "Tension between attention and responsibility.",
+      "persuasion_functions": [
+        "complicate",
+        "counterweight",
+        "clarify-scope"
+      ],
+      "proposition_or_pattern": "Aesthetic sensitivity can disclose suffering while failing to prevent its reproduction.",
+      "retrieval_problem": "Refined expression coexists with unequal agency or harm.",
+      "route_state": "provisional",
+      "route_targets": [
+        "mira-library",
+        "mira-voice-candidate-review"
+      ],
+      "speech_act": "analysis",
+      "temporal_pattern": "No universal timing claim."
+    }
+  ],
+  "schema_version": "mira-library-routing-packet-v1",
+  "staleness": {
+    "checked_at": "2026-09-01",
+    "dependency_policy": "note-candidate-revision-v1"
+  },
+  "status": "provisional",
+  "updated_at": "2026-09-01",
+  "work_title": "The Tale of Genji"
+}

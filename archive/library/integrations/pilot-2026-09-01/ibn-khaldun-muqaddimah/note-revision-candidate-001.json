@@ -1,0 +1,40 @@
+{
+  "affected_claims": [
+    "khaldun-solidarity-dynasty",
+    "khaldun-history-credulity"
+  ],
+  "authority_boundary": "This candidate may prepare review but may not rewrite interpretive prose or activate routing.",
+  "candidate_id": "REV-MIRA-WORK-IBN-KHALDUN-MUQADDIMAH-001",
+  "canonical_work_id": "MIRA-WORK-IBN-KHALDUN-MUQADDIMAH",
+  "changed_dependencies": [
+    "body_states"
+  ],
+  "disposition": "reviewed-no-change",
+  "open_questions": [
+    "Which reviewed passages best articulate report criticism?",
+    "How historically bounded is the solidarity-to-dynasty sequence in the text?"
+  ],
+  "predecessor_note_ref": "archive/notes/2026-09-01-library-ibn-khaldun-muqaddimah-integration-note.md",
+  "rereading_scope": [
+    "Changed primary bodies",
+    "Affected profile or coverage claims",
+    "Previously open questions"
+  ],
+  "review_summary": "The two admitted Arabic bodies are now explicitly typed as OCR mediation with unresolved editor attribution. This strengthens the existing source-readiness-only disposition and creates no interpretive claim to revise.",
+  "schema_version": "mira-library-note-revision-candidate-v1",
+  "status": "resolved",
+  "suspended_route_states": {
+    "khaldun-history-credulity": "blocked-source-review",
+    "khaldun-solidarity-dynasty": "blocked-source-review"
+  },
+  "trigger": {
+    "hard_changes": [
+      "body_states"
+    ],
+    "hard_signals": [],
+    "soft_changes": [],
+    "soft_signals": [],
+    "state": "revision-due",
+    "unknown_signals": []
+  }
+}

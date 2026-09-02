@@ -82,6 +82,56 @@
           "language": "english",
           "translator": "",
           "editor": "",
+          "mediation_type": "editorial-rendering",
+          "translator_status": "unknown",
+          "editor_status": "unknown",
+          "mediation": {
+            "schema_version": "mira-library-mediation-v1",
+            "text_relation": {
+              "kind": "translation",
+              "source_languages": [],
+              "body_language": "english",
+              "status": "partial"
+            },
+            "edition_identity": {
+              "label": "Wikisource rendering of Vincent Arthur Smith, Asoka - the Buddhist Emperor of India, 1920, chapters 4-5",
+              "status": "known"
+            },
+            "primary_path": [
+              {
+                "layer_id": "MED-ASHOKA-SMITH-01-TRANSLATION",
+                "sequence": 1,
+                "kind": "translation",
+                "status": "partial",
+                "revision_relevance": "interpretive",
+                "agents": [{"role": "translator", "name": "", "status": "unknown"}],
+                "scope": "Edict translations embedded in the Smith chapters"
+              },
+              {
+                "layer_id": "MED-ASHOKA-SMITH-02-EDITORIAL",
+                "sequence": 2,
+                "kind": "editorial-framing",
+                "status": "known",
+                "revision_relevance": "interpretive",
+                "agents": [{"role": "compiler-commentator", "name": "Vincent Arthur Smith", "status": "known"}],
+                "scope": "Selection, arrangement, and commentary in chapters 4-5"
+              },
+              {
+                "layer_id": "MED-ASHOKA-SMITH-03-DIGITAL",
+                "sequence": 3,
+                "kind": "digital-rendering",
+                "status": "known",
+                "revision_relevance": "carrier-only",
+                "agents": [{"role": "text-provider", "name": "Wikisource", "status": "known"}],
+                "scope": "Admitted electronic rendering"
+              }
+            ],
+            "lineage_graph_ref": null,
+            "unresolved_questions": [
+              "Exact translator attribution remains unresolved.",
+              "Component-level source languages and inscription boundaries remain unresolved."
+            ]
+          },
           "edition_label": "Wikisource rendering of Vincent Arthur Smith, Asoka - the Buddhist Emperor of India, 1920, chapters 4-5",
           "license_status": "public-domain",
           "license_notes": "Wikisource marks source work public domain; chapters derive from pre-1931 publication.",
@@ -6759,7 +6809,54 @@
           "text_encoding": "utf-8",
           "language": "arabic",
           "translator": "",
-          "editor": "",
+          "editor": "Etienne-Marc Quatremere",
+          "mediation_type": "ocr",
+          "translator_status": "not-applicable",
+          "editor_status": "known",
+          "mediation": {
+            "schema_version": "mira-library-mediation-v1",
+            "text_relation": {
+              "kind": "original-language",
+              "source_languages": ["arabic"],
+              "body_language": "arabic",
+              "status": "known"
+            },
+            "edition_identity": {
+              "label": "Etienne-Marc Quatremere Arabic edition, volume 1; Internet Archive derived OCR",
+              "status": "known"
+            },
+            "primary_path": [
+              {
+                "layer_id": "MED-IBN-KHALDUN-Q-V1-01-EDITION",
+                "sequence": 1,
+                "kind": "critical-edition",
+                "status": "known",
+                "revision_relevance": "textual-integrity",
+                "agents": [{"role": "editor", "name": "Etienne-Marc Quatremere", "status": "known"}],
+                "scope": "Arabic edition, volume 1"
+              },
+              {
+                "layer_id": "MED-IBN-KHALDUN-Q-V1-02-SCAN",
+                "sequence": 2,
+                "kind": "scan",
+                "status": "known",
+                "revision_relevance": "textual-integrity",
+                "agents": [{"role": "digitizer", "name": "Internet Archive", "status": "known"}],
+                "scope": "Digital scan underlying the recovered OCR"
+              },
+              {
+                "layer_id": "MED-IBN-KHALDUN-Q-V1-03-OCR",
+                "sequence": 3,
+                "kind": "ocr",
+                "status": "known",
+                "revision_relevance": "textual-integrity",
+                "agents": [{"role": "ocr-provider", "name": "Internet Archive", "status": "known"}],
+                "scope": "Admitted OCR text, volume 1"
+              }
+            ],
+            "lineage_graph_ref": null,
+            "unresolved_questions": ["OCR accuracy remains unreconciled against the scan."]
+          },
           "edition_label": "Etienne-Marc Quatremere Arabic edition, volume 1; Internet Archive derived OCR",
           "license_status": "permissioned",
           "license_notes": "Operator asserted on 2026-08-19 that they hold all rights for this exact recovered candidate; assertion not independently verified.",
@@ -6776,7 +6873,54 @@
           "text_encoding": "utf-8",
           "language": "arabic",
           "translator": "",
-          "editor": "",
+          "editor": "Etienne-Marc Quatremere",
+          "mediation_type": "ocr",
+          "translator_status": "not-applicable",
+          "editor_status": "known",
+          "mediation": {
+            "schema_version": "mira-library-mediation-v1",
+            "text_relation": {
+              "kind": "original-language",
+              "source_languages": ["arabic"],
+              "body_language": "arabic",
+              "status": "known"
+            },
+            "edition_identity": {
+              "label": "Etienne-Marc Quatremere Arabic edition, volume 2; Internet Archive derived OCR",
+              "status": "known"
+            },
+            "primary_path": [
+              {
+                "layer_id": "MED-IBN-KHALDUN-Q-V2-01-EDITION",
+                "sequence": 1,
+                "kind": "critical-edition",
+                "status": "known",
+                "revision_relevance": "textual-integrity",
+                "agents": [{"role": "editor", "name": "Etienne-Marc Quatremere", "status": "known"}],
+                "scope": "Arabic edition, volume 2"
+              },
+              {
+                "layer_id": "MED-IBN-KHALDUN-Q-V2-02-SCAN",
+                "sequence": 2,
+                "kind": "scan",
+                "status": "known",
+                "revision_relevance": "textual-integrity",
+                "agents": [{"role": "digitizer", "name": "Internet Archive", "status": "known"}],
+                "scope": "Digital scan underlying the recovered OCR"
+              },
+              {
+                "layer_id": "MED-IBN-KHALDUN-Q-V2-03-OCR",
+                "sequence": 3,
+                "kind": "ocr",
+                "status": "known",
+                "revision_relevance": "textual-integrity",
+                "agents": [{"role": "ocr-provider", "name": "Internet Archive", "status": "known"}],
+                "scope": "Admitted OCR text, volume 2"
+              }
+            ],
+            "lineage_graph_ref": null,
+            "unresolved_questions": ["OCR accuracy remains unreconciled against the scan."]
+          },
           "edition_label": "Etienne-Marc Quatremere Arabic edition, volume 2; Internet Archive derived OCR",
           "license_status": "permissioned",
           "license_notes": "Operator asserted on 2026-08-19 that they hold all rights for this exact recovered candidate; assertion not independently verified.",
@@ -8009,6 +8153,36 @@
           "language": "english",
           "translator": "Arthur Waley",
           "editor": "",
+          "mediation_type": "translation",
+          "translator_status": "known",
+          "editor_status": "unknown",
+          "mediation": {
+            "schema_version": "mira-library-mediation-v1",
+            "text_relation": {"kind": "translation", "source_languages": ["japanese"], "body_language": "english", "status": "known"},
+            "edition_identity": {"label": "Arthur Waley translation, part 1 of 6; Houghton Mifflin, 1925; Project Gutenberg ebook 66057", "status": "known"},
+            "primary_path": [
+              {
+                "layer_id": "MED-GENJI-WALEY-P1-01-TRANSLATION",
+                "sequence": 1,
+                "kind": "translation",
+                "status": "known",
+                "revision_relevance": "interpretive",
+                "agents": [{"role": "translator", "name": "Arthur Waley", "status": "known"}],
+                "scope": "Waley part 1 of 6"
+              },
+              {
+                "layer_id": "MED-GENJI-WALEY-P1-02-TRANSCRIPTION",
+                "sequence": 2,
+                "kind": "transcription",
+                "status": "known",
+                "revision_relevance": "textual-integrity",
+                "agents": [{"role": "text-provider", "name": "Project Gutenberg", "status": "known"}],
+                "scope": "Project Gutenberg ebook 66057"
+              }
+            ],
+            "lineage_graph_ref": null,
+            "unresolved_questions": ["Intermediate editorial and transcription contributors remain unresolved."]
+          },
           "edition_label": "Arthur Waley translation, part 1 of 6; Houghton Mifflin, 1925; Project Gutenberg ebook 66057",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg marks this ebook public domain in the United States and retains its license and non-US jurisdiction warning in the unmodified file.",
@@ -8026,6 +8200,36 @@
           "language": "english",
           "translator": "Arthur Waley",
           "editor": "",
+          "mediation_type": "translation",
+          "translator_status": "known",
+          "editor_status": "unknown",
+          "mediation": {
+            "schema_version": "mira-library-mediation-v1",
+            "text_relation": {"kind": "translation", "source_languages": ["japanese"], "body_language": "english", "status": "known"},
+            "edition_identity": {"label": "Arthur Waley translation, part 2 of 6; Houghton Mifflin, 1926; Project Gutenberg ebook 67111", "status": "known"},
+            "primary_path": [
+              {
+                "layer_id": "MED-GENJI-WALEY-P2-01-TRANSLATION",
+                "sequence": 1,
+                "kind": "translation",
+                "status": "known",
+                "revision_relevance": "interpretive",
+                "agents": [{"role": "translator", "name": "Arthur Waley", "status": "known"}],
+                "scope": "Waley part 2 of 6"
+              },
+              {
+                "layer_id": "MED-GENJI-WALEY-P2-02-TRANSCRIPTION",
+                "sequence": 2,
+                "kind": "transcription",
+                "status": "known",
+                "revision_relevance": "textual-integrity",
+                "agents": [{"role": "text-provider", "name": "Project Gutenberg", "status": "known"}],
+                "scope": "Project Gutenberg ebook 67111"
+              }
+            ],
+            "lineage_graph_ref": null,
+            "unresolved_questions": ["Intermediate editorial and transcription contributors remain unresolved."]
+          },
           "edition_label": "Arthur Waley translation, part 2 of 6; Houghton Mifflin, 1926; Project Gutenberg ebook 67111",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg marks this ebook public domain in the United States and retains its license and non-US jurisdiction warning in the unmodified file.",
@@ -8043,6 +8247,36 @@
           "language": "english",
           "translator": "Arthur Waley",
           "editor": "",
+          "mediation_type": "translation",
+          "translator_status": "known",
+          "editor_status": "unknown",
+          "mediation": {
+            "schema_version": "mira-library-mediation-v1",
+            "text_relation": {"kind": "translation", "source_languages": ["japanese"], "body_language": "english", "status": "known"},
+            "edition_identity": {"label": "Arthur Waley translation, part 3 of 6; Houghton Mifflin, 1927; Project Gutenberg ebook 75852", "status": "known"},
+            "primary_path": [
+              {
+                "layer_id": "MED-GENJI-WALEY-P3-01-TRANSLATION",
+                "sequence": 1,
+                "kind": "translation",
+                "status": "known",
+                "revision_relevance": "interpretive",
+                "agents": [{"role": "translator", "name": "Arthur Waley", "status": "known"}],
+                "scope": "Waley part 3 of 6"
+              },
+              {
+                "layer_id": "MED-GENJI-WALEY-P3-02-TRANSCRIPTION",
+                "sequence": 2,
+                "kind": "transcription",
+                "status": "known",
+                "revision_relevance": "textual-integrity",
+                "agents": [{"role": "text-provider", "name": "Project Gutenberg", "status": "known"}],
+                "scope": "Project Gutenberg ebook 75852"
+              }
+            ],
+            "lineage_graph_ref": null,
+            "unresolved_questions": ["Intermediate editorial and transcription contributors remain unresolved."]
+          },
           "edition_label": "Arthur Waley translation, part 3 of 6; Houghton Mifflin, 1927; Project Gutenberg ebook 75852",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg marks this ebook public domain in the United States and retains its license and non-US jurisdiction warning in the unmodified file.",
@@ -8060,6 +8294,36 @@
           "language": "english",
           "translator": "Arthur Waley",
           "editor": "",
+          "mediation_type": "translation",
+          "translator_status": "known",
+          "editor_status": "unknown",
+          "mediation": {
+            "schema_version": "mira-library-mediation-v1",
+            "text_relation": {"kind": "translation", "source_languages": ["japanese"], "body_language": "english", "status": "known"},
+            "edition_identity": {"label": "Arthur Waley translation, part 4 of 6; Houghton Mifflin, 1928; Project Gutenberg ebook 77408", "status": "known"},
+            "primary_path": [
+              {
+                "layer_id": "MED-GENJI-WALEY-P4-01-TRANSLATION",
+                "sequence": 1,
+                "kind": "translation",
+                "status": "known",
+                "revision_relevance": "interpretive",
+                "agents": [{"role": "translator", "name": "Arthur Waley", "status": "known"}],
+                "scope": "Waley part 4 of 6"
+              },
+              {
+                "layer_id": "MED-GENJI-WALEY-P4-02-TRANSCRIPTION",
+                "sequence": 2,
+                "kind": "transcription",
+                "status": "known",
+                "revision_relevance": "textual-integrity",
+                "agents": [{"role": "text-provider", "name": "Project Gutenberg", "status": "known"}],
+                "scope": "Project Gutenberg ebook 77408"
+              }
+            ],
+            "lineage_graph_ref": null,
+            "unresolved_questions": ["Intermediate editorial and transcription contributors remain unresolved."]
+          },
           "edition_label": "Arthur Waley translation, part 4 of 6; Houghton Mifflin, 1928; Project Gutenberg ebook 77408",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg marks this ebook public domain in the United States and retains its license and non-US jurisdiction warning in the unmodified file.",
@@ -12968,9 +13232,30 @@
           "text_sha256": "f5fd4847ecb3e2b8d83ef41c8f788d5f7a0fca2326fa2e6f6d4de37192c64c33",
           "text_bytes": 108488,
           "text_encoding": "utf-8",
-          "language": "",
+          "language": "latin",
           "translator": "",
           "editor": "",
+          "mediation_type": "original-language",
+          "translator_status": "not-applicable",
+          "editor_status": "unknown",
+          "mediation": {
+            "schema_version": "mira-library-mediation-v1",
+            "text_relation": {"kind": "original-language", "source_languages": ["latin"], "body_language": "latin", "status": "known"},
+            "edition_identity": {"label": "Latin Wikisource extraction of Mare liberum, page revision downloaded/extracted 2026-08-21", "status": "partial"},
+            "primary_path": [
+              {
+                "layer_id": "MED-GROTIUS-MARE-LIBERUM-01-TRANSCRIPTION",
+                "sequence": 1,
+                "kind": "transcription",
+                "status": "known",
+                "revision_relevance": "textual-integrity",
+                "agents": [{"role": "text-provider", "name": "Latin Wikisource", "status": "known"}],
+                "scope": "Admitted Latin Wikisource extraction"
+              }
+            ],
+            "lineage_graph_ref": null,
+            "unresolved_questions": ["Critical editor and upstream print-edition lineage remain unresolved."]
+          },
           "edition_label": "Latin Wikisource extraction of Mare liberum, page revision downloaded/extracted 2026-08-21",
           "license_status": "public-domain",
           "license_notes": "",
@@ -13898,6 +14183,27 @@
           "language": "english",
           "translator": "",
           "editor": "",
+          "mediation_type": "original-language",
+          "translator_status": "not-applicable",
+          "editor_status": "unknown",
+          "mediation": {
+            "schema_version": "mira-library-mediation-v1",
+            "text_relation": {"kind": "original-language", "source_languages": ["english"], "body_language": "english", "status": "known"},
+            "edition_identity": {"label": "Project Gutenberg candidate: The Souls of Black Folk", "status": "partial"},
+            "primary_path": [
+              {
+                "layer_id": "MED-DU-BOIS-SOULS-01-TRANSCRIPTION",
+                "sequence": 1,
+                "kind": "transcription",
+                "status": "known",
+                "revision_relevance": "textual-integrity",
+                "agents": [{"role": "text-provider", "name": "Project Gutenberg", "status": "known"}],
+                "scope": "Complete admitted Project Gutenberg text body"
+              }
+            ],
+            "lineage_graph_ref": null,
+            "unresolved_questions": ["Upstream print-edition and editor lineage remain unresolved."]
+          },
           "edition_label": "Project Gutenberg candidate: The Souls of Black Folk",
           "license_status": "public-domain",
           "license_notes": "Project Gutenberg candidate inspected in Industrial Body Research Batch 001; public-domain/U.S. copyright-unprotected collection language and Project Gutenberg license observed before admission.",

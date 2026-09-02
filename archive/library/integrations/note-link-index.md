@@ -1,0 +1,34 @@
+# Mira Library Note-Link Index
+
+- Status: `current`
+- Notes: `16`
+- Explicit links: `22`
+
+| Link ID | Note | Target work | Relation | Role | Lineage | Explanation |
+| --- | --- | --- | --- | --- | --- | --- |
+| `MIRA-LINK-3E1DC1613368AADC8D77` | `2026-09-01-library-ashoka-rock-and-pillar-edicts-integration-note-addendum-01.md` | `MIRA-WORK-ASHOKA-ROCK-PILLAR-EDICTS` | `interprets` | `focal` | `ancestor` | This addendum continues the provisional interpretation of the Rock and Pillar Edicts. |
+| `MIRA-LINK-281D2235D55B22105F9B` | `2026-09-01-library-ashoka-rock-and-pillar-edicts-integration-note.md` | `MIRA-WORK-ASHOKA-ROCK-PILLAR-EDICTS` | `interprets` | `focal` | `ancestor` | This note preserves a provisional interpretation of the Rock and Pillar Edicts. |
+| `MIRA-LINK-B08BF35E99D82594D70A` | `2026-09-02-library-ashoka-rock-and-pillar-edicts-cognitive-note.md` | `MIRA-WORK-ASHOKA-ROCK-PILLAR-EDICTS` | `interprets` | `focal` | `head` | This addendum continues the provisional interpretation of the Rock and Pillar Edicts. |
+| `MIRA-LINK-58530B0F02824CC9611B` | `2026-09-02-library-dante-de-monarchia-commedia-cognitive-note.md` | `MIRA-WORK-DANTE-DE-MONARCHIA-COMMEDIA` | `interprets` | `focal` | `head` | This note provisionally interprets Dante's distinction between peace-serving temporal office and spiritual direction through the admitted passages. |
+| `MIRA-LINK-BAC42F6B63FC7D04965A` | `2026-09-02-library-homer-iliad-odyssey-cognitive-note.md` | `MIRA-WORK-DANTE-DE-MONARCHIA-COMMEDIA` | `connects` | `comparative` | `head` | Curatorial civilizational juxtaposition with Dante; the specific comparison remains analysis-pending and asserts no completed causal, influence, or contemporary mechanism. |
+| `MIRA-LINK-88BC29928E99ACFE3614` | `2026-09-02-library-tolstoy-war-and-peace-cognitive-note.md` | `MIRA-WORK-DANTE-DE-MONARCHIA-COMMEDIA` | `connects` | `comparative` | `head` | Curatorial civilizational juxtaposition with Dante; the specific comparison remains analysis-pending and asserts no completed causal, influence, or contemporary mechanism. |
+| `MIRA-LINK-340ECE970C5CC5764387` | `2026-09-01-library-du-bois-souls-of-black-folk-integration-note.md` | `MIRA-WORK-DU-BOIS-SOULS-OF-BLACK-FOLK` | `interprets` | `focal` | `ancestor` | This note preserves a provisional interpretation of The Souls of Black Folk. |
+| `MIRA-LINK-9F66293F32638A33499E` | `2026-09-02-library-du-bois-souls-of-black-folk-cognitive-note.md` | `MIRA-WORK-DU-BOIS-SOULS-OF-BLACK-FOLK` | `interprets` | `focal` | `head` | This note preserves a provisional interpretation of The Souls of Black Folk. |
+| `MIRA-LINK-8FE918C9625219F504E0` | `2026-09-01-library-grotius-mare-liberum-integration-note-addendum-01.md` | `MIRA-WORK-GROTIUS-MARE-LIBERUM` | `interprets` | `focal` | `ancestor` | This addendum continues the provisional interpretation of Mare Liberum. |
+| `MIRA-LINK-29AD8635E7E735FCD372` | `2026-09-01-library-grotius-mare-liberum-integration-note-addendum-02.md` | `MIRA-WORK-GROTIUS-MARE-LIBERUM` | `interprets` | `focal` | `ancestor` | This addendum continues the provisional interpretation of Mare Liberum through its reviewed route encounter. |
+| `MIRA-LINK-988E4D4AD9D598F576D9` | `2026-09-01-library-grotius-mare-liberum-integration-note.md` | `MIRA-WORK-GROTIUS-MARE-LIBERUM` | `interprets` | `focal` | `ancestor` | This note preserves a provisional interpretation of Mare Liberum. |
+| `MIRA-LINK-BA97E088FB061A213918` | `2026-09-02-library-grotius-mare-liberum-cognitive-note.md` | `MIRA-WORK-GROTIUS-MARE-LIBERUM` | `interprets` | `focal` | `head` | This addendum continues the provisional interpretation of Mare Liberum through its reviewed route encounter. |
+| `MIRA-LINK-04AF8E6C384C48D8F6C0` | `2026-09-02-library-dante-de-monarchia-commedia-cognitive-note.md` | `MIRA-WORK-HOMER-ILIAD-ODYSSEY` | `connects` | `comparative` | `head` | Curatorial civilizational juxtaposition with Homer; the specific comparison remains analysis-pending and asserts no completed causal, influence, or contemporary mechanism. |
+| `MIRA-LINK-F9282E0AC5D1788F6E4B` | `2026-09-02-library-homer-iliad-odyssey-cognitive-note.md` | `MIRA-WORK-HOMER-ILIAD-ODYSSEY` | `interprets` | `focal` | `head` | This note provisionally interprets the Iliad and Odyssey through admitted passages on wrath, honor, mortal responsibility, and chosen homecoming. |
+| `MIRA-LINK-C650253285E95BDEA226` | `2026-09-02-library-tolstoy-war-and-peace-cognitive-note.md` | `MIRA-WORK-HOMER-ILIAD-ODYSSEY` | `connects` | `comparative` | `head` | Curatorial civilizational juxtaposition with Homer; the specific comparison remains analysis-pending and asserts no completed causal, influence, or contemporary mechanism. |
+| `MIRA-LINK-EB051310122DA367D900` | `2026-09-01-library-ibn-khaldun-muqaddimah-integration-note.md` | `MIRA-WORK-IBN-KHALDUN-MUQADDIMAH` | `interprets` | `focal` | `ancestor` | This note preserves a provisional source-readiness interpretation of the Muqaddimah. |
+| `MIRA-LINK-0FFB15429920CF57B505` | `2026-09-02-library-ibn-khaldun-muqaddimah-cognitive-note.md` | `MIRA-WORK-IBN-KHALDUN-MUQADDIMAH` | `interprets` | `focal` | `head` | This note preserves a provisional source-readiness interpretation of the Muqaddimah. |
+| `MIRA-LINK-9EE3CA1E393553C4C390` | `2026-09-01-library-murasaki-tale-of-genji-integration-note.md` | `MIRA-WORK-MURASAKI-TALE-OF-GENJI` | `interprets` | `focal` | `ancestor` | This note preserves a provisional interpretation of The Tale of Genji. |
+| `MIRA-LINK-D6CA2EF7B75465EB360F` | `2026-09-02-library-murasaki-tale-of-genji-cognitive-note.md` | `MIRA-WORK-MURASAKI-TALE-OF-GENJI` | `interprets` | `focal` | `head` | This note preserves a provisional interpretation of The Tale of Genji. |
+| `MIRA-LINK-E4E0FB80028330C560B4` | `2026-09-02-library-dante-de-monarchia-commedia-cognitive-note.md` | `MIRA-WORK-TOLSTOY-WAR-AND-PEACE` | `connects` | `comparative` | `head` | Curatorial civilizational juxtaposition with Tolstoy; the specific comparison remains analysis-pending and asserts no completed causal, influence, or contemporary mechanism. |
+| `MIRA-LINK-0CF02E8CE72B3BBFE199` | `2026-09-02-library-homer-iliad-odyssey-cognitive-note.md` | `MIRA-WORK-TOLSTOY-WAR-AND-PEACE` | `connects` | `comparative` | `head` | Curatorial civilizational juxtaposition with Tolstoy; the specific comparison remains analysis-pending and asserts no completed causal, influence, or contemporary mechanism. |
+| `MIRA-LINK-7934D639A54821246ACD` | `2026-09-02-library-tolstoy-war-and-peace-cognitive-note.md` | `MIRA-WORK-TOLSTOY-WAR-AND-PEACE` | `interprets` | `focal` | `head` | This note provisionally interprets War and Peace's account of command, execution, distributed action, freedom, and necessity through the admitted passages. |
+
+## Authority boundary
+
+This index derives only explicitly authored note-to-work relations. It may not infer relationships from prose, create notes, or grant routing or publication authority.

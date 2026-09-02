@@ -1,0 +1,40 @@
+{
+  "affected_claims": [
+    "genji-indirect-power",
+    "genji-aesthetic-ethical-split"
+  ],
+  "authority_boundary": "This candidate may prepare review but may not rewrite interpretive prose or activate routing.",
+  "candidate_id": "REV-MIRA-WORK-MURASAKI-TALE-OF-GENJI-003",
+  "canonical_work_id": "MIRA-WORK-MURASAKI-TALE-OF-GENJI",
+  "changed_dependencies": [
+    "body_states"
+  ],
+  "disposition": "reviewed-no-change",
+  "open_questions": [
+    "How do the absent final parts revise the meaning of impermanence?",
+    "Which effects depend most strongly on Waley's translation choices?"
+  ],
+  "predecessor_note_ref": "archive/notes/2026-09-01-library-murasaki-tale-of-genji-integration-note.md",
+  "rereading_scope": [
+    "Changed primary bodies",
+    "Affected profile or coverage claims",
+    "Previously open questions"
+  ],
+  "schema_version": "mira-library-note-revision-candidate-v1",
+  "review_summary": "The dependency projection retains Waley's translation and Gutenberg transcription as interpretive and textual-integrity layers. The encounter and its translation caution remain unchanged.",
+  "status": "resolved",
+  "suspended_route_states": {
+    "genji-aesthetic-ethical-split": "provisional",
+    "genji-indirect-power": "provisional"
+  },
+  "trigger": {
+    "hard_changes": [
+      "body_states"
+    ],
+    "hard_signals": [],
+    "soft_changes": [],
+    "soft_signals": [],
+    "state": "revision-due",
+    "unknown_signals": []
+  }
+}

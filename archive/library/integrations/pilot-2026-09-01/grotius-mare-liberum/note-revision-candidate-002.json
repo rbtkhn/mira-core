@@ -1,0 +1,40 @@
+{
+  "affected_claims": [
+    "grotius-interested-universal",
+    "grotius-open-access-coercion"
+  ],
+  "authority_boundary": "This candidate may prepare review but may not rewrite interpretive prose or activate routing.",
+  "candidate_id": "REV-MIRA-WORK-GROTIUS-MARE-LIBERUM-002",
+  "canonical_work_id": "MIRA-WORK-GROTIUS-MARE-LIBERUM",
+  "changed_dependencies": [
+    "body_states"
+  ],
+  "disposition": "reviewed-no-change",
+  "open_questions": [
+    "Which claims remain persuasive when detached from the VOC controversy?",
+    "What rival text should supply the closed-seas counterargument?"
+  ],
+  "predecessor_note_ref": "archive/notes/2026-09-01-library-grotius-mare-liberum-integration-note-addendum-01.md",
+  "rereading_scope": [
+    "Changed primary bodies",
+    "Changed passage anchors",
+    "Affected routing counterweights"
+  ],
+  "review_summary": "The body language is corrected to Latin and its mediation is explicitly original-language with no translator and unresolved editor attribution. The note already identifies the Latin body and labels its English formulations as Mira's paraphrases, so its interpretation survives unchanged.",
+  "schema_version": "mira-library-note-revision-candidate-v1",
+  "status": "resolved",
+  "suspended_route_states": {
+    "grotius-interested-universal": "provisional",
+    "grotius-open-access-coercion": "provisional"
+  },
+  "trigger": {
+    "hard_changes": [
+      "body_states"
+    ],
+    "hard_signals": [],
+    "soft_changes": [],
+    "soft_signals": [],
+    "state": "revision-due",
+    "unknown_signals": []
+  }
+}

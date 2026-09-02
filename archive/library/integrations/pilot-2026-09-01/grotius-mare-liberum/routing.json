@@ -1,0 +1,221 @@
+{
+  "artifact_digests": {},
+  "artifact_id": "ROUTING-MIRA-WORK-GROTIUS-MARE-LIBERUM",
+  "artifact_version": 2,
+  "authority_boundary": "This artifact supports provisional Library understanding and routing. It is not current-event verification, canonical identity, operator belief, public publication, or authority to act.",
+  "calibration": {
+    "reviewed_route_outcomes": 0,
+    "status": "unmeasured"
+  },
+  "canonical_work_id": "MIRA-WORK-GROTIUS-MARE-LIBERUM",
+  "coverage_constraints": [
+    "The admitted Latin body carries edition uncertainty and unknown body-level coverage.",
+    "Civilization Memory's Germania framing is an interpretation, not neutral scholarly consensus.",
+    "Critical edition and translation posture",
+    "Portuguese and English counterarguments",
+    "Colonized and commercial counterpart evidence"
+  ],
+  "created_at": "2026-09-01",
+  "library_source_id": "LIB-COLONIAL-AUTHORITY-065-GROTIUS-MARE-LIBERUM",
+  "negative_route_rules": [
+    "Never return Mare Liberum as neutral authority without disclosing the Dutch/VOC setting.",
+    "Do not infer contemporary international-law validity from this historical packet."
+  ],
+  "neighboring_works": [],
+  "note_review_ref": "archive/notes/2026-09-01-library-grotius-mare-liberum-integration-note-addendum-02.md",
+  "note_revision_state": "current",
+  "rival_works": [],
+  "route_units": [
+    {
+      "actor_or_character_configuration": "A Dutch legal advocate in a VOC-linked contest with Portuguese exclusion joins Dutch access interest to a common right of navigation and trade.",
+      "analogy_affordance": "An interested claimant presents its access claim as a rule available to humanity.",
+      "analytic_function": "Test whether a universal rule remains analytically distinct from the claimant's positional advantage.",
+      "anti_analogy": "Do not infer that interest disproves the principle, that universality proves neutrality, or that the tract decides current legal validity.",
+      "audience": "internal",
+      "carrier": "argumentative-legal-treatise",
+      "confidence": "medium",
+      "contraindications": [
+        "Dismissing the principle merely because it served Dutch interest.",
+        "Treating universal language as proof of disinterestedness.",
+        "Equating open navigation with freedom from coercion."
+      ],
+      "counterweight_refs": [
+        {
+          "digest": "01405e941c3988782503c7b3e2a0812b5bb32f30c1b0436deba5dbb829045e54",
+          "kind": "primary-passage",
+          "ref": "PASSAGE-GROTIUS-CAPUT-XIII-COMMON-RIGHT-ARMED-ENFORCEMENT",
+          "role": "The universal commercial right culminates in a claim to armed enforcement when adjudication is unavailable."
+        },
+        {
+          "digest": "5f0fba593f4610eaca1308cffbf50c7f00736f8c9ba5ef7df7467dd27afc4800",
+          "kind": "civmem-interpretation",
+          "ref": "civilization-memory-snapshot://content/civilizations/GERMANY/MEM–GERMANY–NETHERLANDS–DUTCH–REPUBLIC.md",
+          "role": "Dutch commercial freedom coexisted with VOC quasi-sovereignty, monopoly, and extraction."
+        }
+      ],
+      "disqualifiers": [
+        "neutral-law",
+        "open-access-equals-noncoercion",
+        "critical-edition"
+      ],
+      "enabling_conditions": [
+        "The comparison contains an incumbent exclusion rule and a claimant seeking wider access.",
+        "The question concerns the portability or neutrality of the claimant's rule, not current legal validity."
+      ],
+      "evidence_refs": [
+        {
+          "digest": "f5fd4847ecb3e2b8d83ef41c8f788d5f7a0fca2326fa2e6f6d4de37192c64c33",
+          "kind": "primary-text",
+          "ref": "LIB-COLONIAL-AUTHORITY-065-GROTIUS-MARE-LIBERUM-LATIN-WIKISOURCE"
+        },
+        {
+          "digest": "b56446a1d4ae966c071f5c2e0093ccc8ec13d5721ff14384b38866bcd671eff7",
+          "kind": "primary-passage",
+          "ref": "PASSAGE-GROTIUS-COMMON-USE-NONAPPROPRIATION"
+        },
+        {
+          "digest": "b81016e8ba55cf47a4ed015ff1503e84dcc0adadbd126e544aaafa264741ee9a",
+          "kind": "primary-passage",
+          "ref": "PASSAGE-GROTIUS-CAPUT-XII-DUTCH-AND-UNIVERSAL-UTILITY"
+        },
+        {
+          "digest": "494bab426b87b509f99f7a61ee1b273c901463b243e83a1638764ea1dc29f138",
+          "kind": "civmem-interpretation",
+          "ref": "civilization-memory-snapshot://content/civilizations/GERMANY/MEM–GERMANY–LAW–GROTIUS.md"
+        },
+        {
+          "digest": "5f0fba593f4610eaca1308cffbf50c7f00736f8c9ba5ef7df7467dd27afc4800",
+          "kind": "civmem-interpretation",
+          "ref": "civilization-memory-snapshot://content/civilizations/GERMANY/MEM–GERMANY–NETHERLANDS–DUTCH–REPUBLIC.md"
+        },
+        {
+          "kind": "mira-synthesis",
+          "ref": "archive/notes/2026-09-01-library-grotius-mare-liberum-integration-note.md"
+        }
+      ],
+      "expected_outcome": "A narrowed or complicated model, not factual verification.",
+      "handle": "grotius-interested-universal",
+      "interpretive_refs": [
+        "profile.json",
+        "archive/notes/2026-09-01-library-grotius-mare-liberum-integration-note.md"
+      ],
+      "lineage_assessment": "Primary passages establish the common-use argument and the conjunction of Dutch and human utility; contextual interpretation identifies the sponsor setting and is not independent corroboration.",
+      "mechanism": "Claimant interest translated into portable legal grammar by aligning Dutch utility with common use.",
+      "persuasion_functions": [
+        "complicate",
+        "counterweight",
+        "clarify-scope"
+      ],
+      "proposition_or_pattern": "An interested claimant can express its own access interest as a universal rule against incumbent exclusion.",
+      "rejection_condition": "Reject when the candidate case lacks both an exclusionary incumbent rule and claimant-side universalization, or when the analogy is being used to decide current legal validity.",
+      "retrieval_problem": "A universal rule also advantages the actor articulating it.",
+      "route_state": "provisional",
+      "route_targets": [
+        "mira-library",
+        "mira-voice-candidate-review"
+      ],
+      "speech_act": "analysis",
+      "temporal_pattern": "No universal timing claim."
+    },
+    {
+      "actor_or_character_configuration": "A Dutch legal advocate in a VOC-linked contest with Portuguese exclusion joins a common-access claim to a claimed right of armed enforcement.",
+      "analogy_affordance": "An actor couples a common-access claim to a claimed right of armed enforcement when adjudication is unavailable.",
+      "analytic_function": "Test whether an access-opening principle also carries an enforcement claim without inferring later institutional outcomes.",
+      "anti_analogy": "Do not claim equivalence across oceans, digital networks, or modern law, or infer a successor monopoly or realized commercial outcome without independent evidence.",
+      "audience": "internal",
+      "carrier": "argumentative-legal-treatise",
+      "confidence": "low",
+      "contraindications": [
+        "Dismissing the principle merely because it served Dutch interest.",
+        "Treating universal language as proof of disinterestedness.",
+        "Equating open navigation with freedom from coercion.",
+        "Inferring realized VOC outcomes from Grotius's legal argument alone."
+      ],
+      "counterweight_refs": [
+        {
+          "digest": "01405e941c3988782503c7b3e2a0812b5bb32f30c1b0436deba5dbb829045e54",
+          "kind": "primary-passage",
+          "ref": "PASSAGE-GROTIUS-CAPUT-XIII-COMMON-RIGHT-ARMED-ENFORCEMENT",
+          "role": "The text itself joins open commerce to coercive enforcement through just war."
+        },
+        {
+          "digest": "5f0fba593f4610eaca1308cffbf50c7f00736f8c9ba5ef7df7467dd27afc4800",
+          "kind": "civmem-interpretation",
+          "ref": "civilization-memory-snapshot://content/civilizations/GERMANY/MEM–GERMANY–NETHERLANDS–DUTCH–REPUBLIC.md",
+          "role": "The Dutch Republic packet supplies dependent sponsor context; it is not independent evidence of a realized successor coercive order."
+        }
+      ],
+      "disqualifiers": [
+        "neutral-law",
+        "open-access-equals-noncoercion",
+        "critical-edition"
+      ],
+      "enabling_conditions": [
+        "The comparison contains both an access-opening principle and a claimant-side enforcement claim or capacity.",
+        "The question concerns the coupling of access and enforcement, not proof of the subsequent political or commercial order."
+      ],
+      "evidence_refs": [
+        {
+          "digest": "f5fd4847ecb3e2b8d83ef41c8f788d5f7a0fca2326fa2e6f6d4de37192c64c33",
+          "kind": "primary-text",
+          "ref": "LIB-COLONIAL-AUTHORITY-065-GROTIUS-MARE-LIBERUM-LATIN-WIKISOURCE"
+        },
+        {
+          "digest": "b81016e8ba55cf47a4ed015ff1503e84dcc0adadbd126e544aaafa264741ee9a",
+          "kind": "primary-passage",
+          "ref": "PASSAGE-GROTIUS-CAPUT-XII-DUTCH-AND-UNIVERSAL-UTILITY"
+        },
+        {
+          "digest": "01405e941c3988782503c7b3e2a0812b5bb32f30c1b0436deba5dbb829045e54",
+          "kind": "primary-passage",
+          "ref": "PASSAGE-GROTIUS-CAPUT-XIII-COMMON-RIGHT-ARMED-ENFORCEMENT"
+        },
+        {
+          "digest": "494bab426b87b509f99f7a61ee1b273c901463b243e83a1638764ea1dc29f138",
+          "kind": "civmem-interpretation",
+          "ref": "civilization-memory-snapshot://content/civilizations/GERMANY/MEM–GERMANY–LAW–GROTIUS.md"
+        },
+        {
+          "digest": "5f0fba593f4610eaca1308cffbf50c7f00736f8c9ba5ef7df7467dd27afc4800",
+          "kind": "civmem-interpretation",
+          "ref": "civilization-memory-snapshot://content/civilizations/GERMANY/MEM–GERMANY–NETHERLANDS–DUTCH–REPUBLIC.md"
+        },
+        {
+          "kind": "mira-synthesis",
+          "ref": "archive/notes/2026-09-01-library-grotius-mare-liberum-integration-note.md"
+        }
+      ],
+      "expected_outcome": "A narrowed or complicated model, not factual verification.",
+      "handle": "grotius-open-access-coercion",
+      "interpretive_refs": [
+        "profile.json",
+        "archive/notes/2026-09-01-library-grotius-mare-liberum-integration-note.md"
+      ],
+      "lineage_assessment": "Primary passages establish the common commercial right and its claimed armed enforcement; contextual interpretation adds sponsor setting but is not independent evidence of realized coercive outcomes.",
+      "mechanism": "Universal access claim coupled to coercive enforcement capacity.",
+      "persuasion_functions": [
+        "complicate",
+        "counterweight",
+        "clarify-scope"
+      ],
+      "proposition_or_pattern": "A claim of common commercial access can be paired with a claim to armed enforcement when adjudication is unavailable.",
+      "rejection_condition": "Reject when the candidate comparison contains only access liberalization or only coercion, or when a realized successor order is being inferred from the tract alone.",
+      "retrieval_problem": "Open access is presented as common freedom while coercive enforcement is also authorized.",
+      "route_state": "provisional",
+      "route_targets": [
+        "mira-library",
+        "mira-voice-candidate-review"
+      ],
+      "speech_act": "analysis",
+      "temporal_pattern": "No universal timing claim."
+    }
+  ],
+  "schema_version": "mira-library-routing-packet-v1",
+  "staleness": {
+    "checked_at": "2026-09-01",
+    "dependency_policy": "note-candidate-revision-v1"
+  },
+  "status": "provisional",
+  "updated_at": "2026-09-01",
+  "work_title": "Mare Liberum"
+}

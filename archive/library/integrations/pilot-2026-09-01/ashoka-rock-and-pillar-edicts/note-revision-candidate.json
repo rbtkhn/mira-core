@@ -1,0 +1,39 @@
+{
+  "affected_claims": [
+    "ashoka-remorse-capacity",
+    "ashoka-inscription-governance"
+  ],
+  "authority_boundary": "This candidate may prepare review but may not rewrite interpretive prose or activate routing.",
+  "candidate_id": "REV-MIRA-WORK-ASHOKA-ROCK-PILLAR-EDICTS-001",
+  "canonical_work_id": "MIRA-WORK-ASHOKA-ROCK-PILLAR-EDICTS",
+  "changed_dependencies": [
+    "profile_sha256",
+    "routing_sha256"
+  ],
+  "disposition": "addendum",
+  "open_questions": [
+    "Which edicts most clearly separate aspiration from reported practice?",
+    "How should regional variants change routing confidence?"
+  ],
+  "predecessor_note_ref": "archive/notes/2026-09-01-library-ashoka-rock-and-pillar-edicts-integration-note.md",
+  "rereading_scope": [
+    "Changed primary bodies",
+    "Affected profile or coverage claims",
+    "Previously open questions"
+  ],
+  "schema_version": "mira-library-note-revision-candidate-v1",
+  "status": "resolved",
+  "successor_note_ref": "archive/notes/2026-09-01-library-ashoka-rock-and-pillar-edicts-integration-note-addendum-01.md",
+  "trigger": {
+    "hard_changes": [
+      "profile_sha256"
+    ],
+    "hard_signals": [],
+    "soft_changes": [
+      "routing_sha256"
+    ],
+    "soft_signals": [],
+    "state": "revision-due",
+    "unknown_signals": []
+  }
+}

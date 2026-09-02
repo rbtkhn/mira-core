@@ -26,6 +26,108 @@ def test_current_recursive_learning_ledger_validates() -> None:
     assert MODULE.validate_ledger() == []
 
 
+def generic_process_reference(*, include_outcome: bool = False) -> dict:
+    refs = [
+        ("behavior-observation", "docs/skill-drafts/library-reasoning/SKILL.md"),
+        ("diagnosis", "docs/skill-drafts/library-integration/SKILL.md"),
+        ("implementation", "scripts/library_reasoning.py"),
+        ("verification", "tests/test_mira_memory.py"),
+    ]
+    if include_outcome:
+        refs.append((
+            "later-use",
+            "narrative-geopolitics/work/system-improvement/recursive-learning-outcomes/recursive-learn-assessment-2026-08-11.json",
+        ))
+    artifacts = [
+        {
+            "relationship": relationship,
+            "ref": ref,
+            "sha256": MODULE.sha256_bytes((REPO_ROOT / ref).read_bytes()),
+        }
+        for relationship, ref in refs
+    ]
+    body = {
+        "event_id": "event-1",
+        "origin_workflow": "library-reasoning",
+        "event_type": "library-cognitive-observation",
+        "occurred_at": "2026-09-02T00:00:00Z",
+        "payload": {"packet_id": "MLGP-test"},
+        "previous_event_sha256": None,
+    }
+    event_sha = MODULE.sha256_bytes(MODULE.canonical_json(body).encode("utf-8"))
+    return {
+        "schema_version": 1,
+        "reference_kind": "mira-process-learning-reference-v1",
+        "reference_id": "MPR-LIB-test",
+        "origin_workflow": "library-reasoning",
+        "event_chain_digest": event_sha,
+        "chronology": [{**body, "event_sha256": event_sha}],
+        "claims": {
+            "observation": "The prior selector could not consume governed Library notes.",
+            "diagnosis": "The cognitive integration had no explicit reasoning adapter.",
+            "intervention": "Add digest-bound cognitive consumption.",
+            **({"outcome": {"observed": "A distinct later assessment exercised the adapter."}} if include_outcome else {}),
+        },
+        "artifacts": artifacts,
+        "intervention_commits": ["abcdef1"],
+        "private_context_is_stage_evidence": False,
+    }
+
+
+def test_generic_library_process_reference_validates_and_remains_partial(tmp_path: Path) -> None:
+    path = tmp_path / "library-process-reference.json"
+    path.write_text(MODULE.pretty_json(generic_process_reference()), encoding="utf-8")
+    packet = MODULE.load_process_reference(path)
+    assessment = MODULE.assess_process_reference(packet, ledger={"entries": []})
+    assert packet["origin_workflow"] == "library-reasoning"
+    assert assessment["status"] == "partial-candidate"
+    assert assessment["stage_dispositions"]["outcome"]["status"] == "missing"
+    assert assessment["private_context_is_stage_evidence"] is False
+
+
+def test_generic_library_reference_can_be_admissible_only_with_distinct_later_use(tmp_path: Path) -> None:
+    path = tmp_path / "complete-library-process-reference.json"
+    path.write_text(MODULE.pretty_json(generic_process_reference(include_outcome=True)), encoding="utf-8")
+    assessment = MODULE.assess_process_reference(MODULE.load_process_reference(path), ledger={"entries": []})
+    assert assessment["status"] == "admissible"
+    assert all(row["status"] == "provided" for row in assessment["stage_dispositions"].values())
+
+
+def test_generic_library_reference_requires_digests_commits_and_later_use(tmp_path: Path) -> None:
+    value = generic_process_reference()
+    value["artifacts"][0]["sha256"] = "0" * 64
+    path = tmp_path / "bad-digest.json"
+    path.write_text(MODULE.pretty_json(value), encoding="utf-8")
+    with pytest.raises(MODULE.LearningError, match="digest mismatch"):
+        MODULE.load_process_reference(path)
+
+    value = generic_process_reference()
+    value["intervention_commits"] = []
+    path.write_text(MODULE.pretty_json(value), encoding="utf-8")
+    with pytest.raises(MODULE.LearningError, match="commit references"):
+        MODULE.load_process_reference(path)
+
+    value = generic_process_reference()
+    value["claims"]["outcome"] = {"observed": "claimed without later use"}
+    path.write_text(MODULE.pretty_json(value), encoding="utf-8")
+    with pytest.raises(MODULE.LearningError, match="later-use evidence"):
+        MODULE.load_process_reference(path)
+
+
+def test_generic_library_reference_rejects_note_as_stage_evidence(tmp_path: Path) -> None:
+    value = generic_process_reference()
+    note = "archive/notes/2026-09-02-library-dante-de-monarchia-commedia-cognitive-note.md"
+    value["artifacts"][0] = {
+        "relationship": "behavior-observation",
+        "ref": note,
+        "sha256": MODULE.sha256_bytes((REPO_ROOT / note).read_bytes()),
+    }
+    path = tmp_path / "note-evidence.json"
+    path.write_text(MODULE.pretty_json(value), encoding="utf-8")
+    with pytest.raises(MODULE.LearningError, match="note context"):
+        MODULE.load_process_reference(path)
+
+
 def test_rest_receipts_do_not_supply_recursive_learning_stages() -> None:
     skill = (REPO_ROOT / "docs/skill-drafts/recursive-learn/SKILL.md").read_text(encoding="utf-8")
     assert "Rest receipts" in skill

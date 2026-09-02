@@ -1,0 +1,42 @@
+{
+  "adjacent_objects_opened": [],
+  "adjudication": "Civilization Memory directly supplies the adopted narrow mechanism and adjacent Buddhist-patronage context. It is sufficient for those bounded topics, but not for claims about implementation, reception, or a critical history of the inscription corpus.",
+  "artifact_id": "COVERAGE-MIRA-WORK-ASHOKA-ROCK-PILLAR-EDICTS",
+  "artifact_version": 1,
+  "authority_boundary": "This artifact supports provisional Library understanding and routing. It is not current-event verification, canonical identity, operator belief, public publication, or authority to act.",
+  "canonical_work_id": "MIRA-WORK-ASHOKA-ROCK-PILLAR-EDICTS",
+  "coverage_decision": "sufficient",
+  "coverage_scope": "Narrow essays on moral restraint layered over coercive capacity and inscription as symbolic integration.",
+  "created_at": "2026-09-01",
+  "direct_objects_opened": [
+    {
+      "digest": "3ed076407b0d5d864b1bf97676e47def86732193fd8f29ffb034621ec548d541",
+      "id": "civilization-memory-snapshot://content/civilizations/INDIA/MEM–INDIA–DYNASTY–MAURYA.md",
+      "relevance": "Direct mechanism language: moral restraint layered over coercive capacity, welfare, and symbolic unification through dhamma."
+    },
+    {
+      "digest": "16bf4be33d3f3b391028f80a3749d248439d4bd82ac87ddae157f15683fca6be",
+      "id": "civilization-memory-snapshot://content/civilizations/INDIA/MEM–INDIA–BUDDHISM.md",
+      "relevance": "Adjacent context for Mauryan patronage, missionary expansion, and pillar edicts."
+    }
+  ],
+  "essay_source_posture": "Library body + typed Civilization Memory interpretation + Mira synthesis; external research only where authorized and later used.",
+  "external_research_authorized": false,
+  "external_research_used": false,
+  "library_source_id": "LIB-ANCIENT-AUTHOR-001-ASHOKA",
+  "schema_version": "mira-library-civmem-coverage-v1",
+  "search_scope": [
+    "Direct title and author terms for Rock and Pillar Edicts and Ashoka",
+    "Adjacent civilizational and mechanism terms where direct matches existed"
+  ],
+  "snapshot_commit": "4e3fd0c807e124508d42a65759c7cb616e522f4c",
+  "snapshot_receipt_sha256": "bc8dac038f3a0ae06680b29ce6dd783fc5b3b14b8904a3b2f23f8fa2058c1359",
+  "status": "adjudicated",
+  "unresolved_gaps": [
+    "Contemporary reception",
+    "Administrative compliance",
+    "Critical epigraphic comparison"
+  ],
+  "updated_at": "2026-09-01",
+  "work_title": "Rock and Pillar Edicts"
+}

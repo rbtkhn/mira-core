@@ -29,6 +29,13 @@ tools/run.ps1 cadence export-learning-reference --episode-id ID --output ABSOLUT
 tools/run.ps1 recursive-learn assess --process-reference ABSOLUTE_EXTERNAL_PATH
 ```
 
+For Library Reasoning, use its explicit `export-learning-reference` command
+and assess the resulting `mira-process-learning-reference-v1` through the same
+`--process-reference` interface. Legacy `cadence-process-learning` v1 remains
+supported. Generic references declare `origin_workflow` as `cadence` or
+`library-reasoning`, bind every repository artifact by SHA-256, and preserve a
+digest-chained chronology.
+
 Cadence prose and events are orientation and provenance only. Recursive Learn
 alone maps repository artifacts into the five stages. Implementation tests are
 validation, never outcome; later use must be separately observed.
@@ -42,6 +49,12 @@ tests accompanying an unused feature, readiness gates without observed use,
 and prose that merely claims self-improvement. Report each
 `stage_disposition`, including why evidence is missing, context-only, invalid,
 or provided.
+
+Library packets, note prose, routing observations, route-review nominations,
+and successful retrieval are likewise context rather than stage evidence. A
+Library-originated reference must still supply repository evidence for all five
+stages. Implementation tests may validate an intervention but cannot serve as
+its later-use outcome.
 
 Mentorship notes, learner-progress claims, praise, creation of `mira-mentor`,
 and passing implementation tests are not stage evidence. Private mentorship

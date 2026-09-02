@@ -1,0 +1,213 @@
+{
+  "artifact_digests": {},
+  "artifact_id": "ROUTING-MIRA-WORK-ASHOKA-ROCK-PILLAR-EDICTS",
+  "artifact_version": 2,
+  "authority_boundary": "This artifact supports provisional Library understanding and routing. It is not current-event verification, canonical identity, operator belief, public publication, or authority to act.",
+  "calibration": {
+    "reviewed_route_outcomes": 0,
+    "status": "unmeasured"
+  },
+  "canonical_work_id": "MIRA-WORK-ASHOKA-ROCK-PILLAR-EDICTS",
+  "coverage_constraints": [
+    "The admitted Smith/Wikisource body represents a named edition, not a critical complete inscription corpus.",
+    "An edict proves proclamation, not implementation or reception.",
+    "Contemporary reception",
+    "Administrative compliance",
+    "Critical epigraphic comparison"
+  ],
+  "created_at": "2026-09-01",
+  "library_source_id": "LIB-ANCIENT-AUTHOR-001-ASHOKA",
+  "negative_route_rules": [
+    "Never use the edicts alone as evidence that announced policies were implemented.",
+    "Do not flatten distinct inscriptions into a single decontextualized quotation bank."
+  ],
+  "neighboring_works": [],
+  "note_review_ref": "archive/notes/2026-09-01-library-ashoka-rock-and-pillar-edicts-integration-note-addendum-01.md",
+  "note_revision_state": "current",
+  "rival_works": [],
+  "route_units": [
+    {
+      "actor_or_character_configuration": "Work-form-specific; inspect profile before analogy.",
+      "analogy_affordance": "A ruler adopts moral restraint after destructive success.",
+      "analytic_function": "Separate transformation in declared purpose from continuity in governing capacity.",
+      "anti_analogy": "Do not infer institutional accountability or abandonment of force.",
+      "audience": "internal",
+      "carrier": "composite-inscription-corpus",
+      "confidence": "medium",
+      "contraindications": [
+        "Treating dhamma as evidence that coercion ended.",
+        "Treating all inscriptions as one context-free authorial voice.",
+        "Using later admiration as proof of contemporary reception."
+      ],
+      "counterweight_refs": [
+        {
+          "digest": "184618c6b94e51f9965e2a6b029e5d24300bade144681f734a1402b32470f826",
+          "kind": "primary-passage",
+          "ref": "PASSAGE-ASHOKA-ROCK-EDICT-XIII-REMORSE-AND-THREAT",
+          "role": "The remorse proclamation retains the possibility of chastising forest peoples."
+        },
+        {
+          "digest": "e654bdd33136a514e92a47e6a3ab88b73398ad48d4691ec845af1171fdf6d2e0",
+          "kind": "editorial-commentary",
+          "ref": "PASSAGE-ASHOKA-SMITH-COMMENTARY-MORAL-OFFICERS",
+          "role": "Smith warns that moral officers could become tyrannical; this is a typed editorial interpretation, not evidence of actual practice."
+        }
+      ],
+      "disqualifiers": [
+        "proof-of-policy-implementation",
+        "pacifism-without-capacity"
+      ],
+      "enabling_conditions": [
+        "The admitted Smith/Wikisource body represents a named edition, not a critical complete inscription corpus.",
+        "An edict proves proclamation, not implementation or reception."
+      ],
+      "evidence_refs": [
+        {
+          "digest": "a2f5ba5b76a2a466b79a46fa4925e9281a82988ed6c9bf91d2535e67ff1bf583",
+          "kind": "primary-text",
+          "ref": "LIB-ANCIENT-AUTHOR-001-ASHOKA-ROCK-PILLAR-EDICTS-SMITH"
+        },
+        {
+          "digest": "184618c6b94e51f9965e2a6b029e5d24300bade144681f734a1402b32470f826",
+          "kind": "primary-passage",
+          "ref": "PASSAGE-ASHOKA-ROCK-EDICT-XIII-REMORSE-AND-THREAT"
+        },
+        {
+          "digest": "64b27109d345597bd4087c22f5244ee0d7a3bf97b07fa681dffca5e1a3380017",
+          "kind": "primary-passage",
+          "ref": "PASSAGE-ASHOKA-ROCK-EDICT-VI-WELFARE-ADMINISTRATION"
+        },
+        {
+          "digest": "3ed076407b0d5d864b1bf97676e47def86732193fd8f29ffb034621ec548d541",
+          "kind": "civmem-interpretation",
+          "ref": "civilization-memory-snapshot://content/civilizations/INDIA/MEM–INDIA–DYNASTY–MAURYA.md"
+        },
+        {
+          "digest": "16bf4be33d3f3b391028f80a3749d248439d4bd82ac87ddae157f15683fca6be",
+          "kind": "civmem-interpretation",
+          "ref": "civilization-memory-snapshot://content/civilizations/INDIA/MEM–INDIA–BUDDHISM.md"
+        },
+        {
+          "kind": "mira-synthesis",
+          "ref": "archive/notes/2026-09-01-library-ashoka-rock-and-pillar-edicts-integration-note.md"
+        }
+      ],
+      "expected_outcome": "A narrowed or complicated model, not factual verification.",
+      "handle": "ashoka-remorse-capacity",
+      "interpretive_refs": [
+        "profile.json",
+        "archive/notes/2026-09-01-library-ashoka-rock-and-pillar-edicts-integration-note.md"
+      ],
+      "mechanism": "Moral recoding of imperial legitimacy through durable proclamation.",
+      "persuasion_functions": [
+        "complicate",
+        "counterweight",
+        "clarify-scope"
+      ],
+      "proposition_or_pattern": "Remorse becomes a public legitimacy and restraint mechanism while the administrative core persists.",
+      "retrieval_problem": "A ruler adopts moral restraint after destructive success.",
+      "route_state": "provisional",
+      "route_targets": [
+        "mira-library",
+        "mira-voice-candidate-review"
+      ],
+      "speech_act": "analysis",
+      "temporal_pattern": "No universal timing claim."
+    },
+    {
+      "actor_or_character_configuration": "Work-form-specific; inspect profile before analogy.",
+      "analogy_affordance": "A polity uses public language to bind diverse territory.",
+      "analytic_function": "Examine carrier, repetition, audience, and official mediation as part of persuasion.",
+      "anti_analogy": "Do not infer uniform comprehension, acceptance, or enforcement.",
+      "audience": "internal",
+      "carrier": "composite-inscription-corpus",
+      "confidence": "medium",
+      "contraindications": [
+        "Treating dhamma as evidence that coercion ended.",
+        "Treating all inscriptions as one context-free authorial voice.",
+        "Using later admiration as proof of contemporary reception."
+      ],
+      "counterweight_refs": [
+        {
+          "digest": "e654bdd33136a514e92a47e6a3ab88b73398ad48d4691ec845af1171fdf6d2e0",
+          "kind": "editorial-commentary",
+          "ref": "PASSAGE-ASHOKA-SMITH-COMMENTARY-MORAL-OFFICERS",
+          "role": "The administrative carrier of moral instruction may also become coercive; the source is explicitly editorial."
+        },
+        {
+          "kind": "coverage-constraint",
+          "ref": "coverage.json",
+          "role": "The proclamations do not establish implementation, reception, or uniform comprehension."
+        }
+      ],
+      "disqualifiers": [
+        "proof-of-policy-implementation",
+        "pacifism-without-capacity"
+      ],
+      "enabling_conditions": [
+        "The admitted Smith/Wikisource body represents a named edition, not a critical complete inscription corpus.",
+        "An edict proves proclamation, not implementation or reception."
+      ],
+      "evidence_refs": [
+        {
+          "digest": "a2f5ba5b76a2a466b79a46fa4925e9281a82988ed6c9bf91d2535e67ff1bf583",
+          "kind": "primary-text",
+          "ref": "LIB-ANCIENT-AUTHOR-001-ASHOKA-ROCK-PILLAR-EDICTS-SMITH"
+        },
+        {
+          "digest": "d7b75fe2a827de6633309bcbf77de7af193727f06ccb228acaae93e023dafbcc",
+          "kind": "primary-passage",
+          "ref": "PASSAGE-ASHOKA-ROCK-EDICT-V-MORAL-OFFICERS"
+        },
+        {
+          "digest": "64b27109d345597bd4087c22f5244ee0d7a3bf97b07fa681dffca5e1a3380017",
+          "kind": "primary-passage",
+          "ref": "PASSAGE-ASHOKA-ROCK-EDICT-VI-WELFARE-ADMINISTRATION"
+        },
+        {
+          "digest": "3ed076407b0d5d864b1bf97676e47def86732193fd8f29ffb034621ec548d541",
+          "kind": "civmem-interpretation",
+          "ref": "civilization-memory-snapshot://content/civilizations/INDIA/MEM–INDIA–DYNASTY–MAURYA.md"
+        },
+        {
+          "digest": "16bf4be33d3f3b391028f80a3749d248439d4bd82ac87ddae157f15683fca6be",
+          "kind": "civmem-interpretation",
+          "ref": "civilization-memory-snapshot://content/civilizations/INDIA/MEM–INDIA–BUDDHISM.md"
+        },
+        {
+          "kind": "mira-synthesis",
+          "ref": "archive/notes/2026-09-01-library-ashoka-rock-and-pillar-edicts-integration-note.md"
+        }
+      ],
+      "expected_outcome": "A narrowed or complicated model, not factual verification.",
+      "handle": "ashoka-inscription-governance",
+      "interpretive_refs": [
+        "profile.json",
+        "archive/notes/2026-09-01-library-ashoka-rock-and-pillar-edicts-integration-note.md"
+      ],
+      "mechanism": "Durable public speech extends royal presence across distance.",
+      "persuasion_functions": [
+        "complicate",
+        "counterweight",
+        "clarify-scope"
+      ],
+      "proposition_or_pattern": "Repeated inscriptions make ethical address an infrastructure of symbolic integration.",
+      "retrieval_problem": "A polity uses public language to bind diverse territory.",
+      "route_state": "provisional",
+      "route_targets": [
+        "mira-library",
+        "mira-voice-candidate-review"
+      ],
+      "speech_act": "analysis",
+      "temporal_pattern": "No universal timing claim."
+    }
+  ],
+  "schema_version": "mira-library-routing-packet-v1",
+  "staleness": {
+    "checked_at": "2026-09-01",
+    "dependency_policy": "note-candidate-revision-v1"
+  },
+  "status": "provisional",
+  "updated_at": "2026-09-01",
+  "work_title": "Rock and Pillar Edicts"
+}

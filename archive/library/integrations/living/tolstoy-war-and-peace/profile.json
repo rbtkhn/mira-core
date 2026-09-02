@@ -1,0 +1,174 @@
+{
+  "artifact_id": "PROFILE-MIRA-WORK-TOLSTOY-WAR-AND-PEACE",
+  "artifact_links": {
+    "current_note_ref": "archive/notes/2026-09-02-library-tolstoy-war-and-peace-cognitive-note.md",
+    "integration_note_ref": "archive/notes/2026-09-02-library-tolstoy-war-and-peace-cognitive-note.md",
+    "integration_note_refs": [
+      "archive/notes/2026-09-02-library-tolstoy-war-and-peace-cognitive-note.md"
+    ]
+  },
+  "artifact_version": 1,
+  "authority_boundary": "This source-grounded profile supports a provisional Library note. It does not verify present facts, produce a historical base rate, authorize publication, or supply action authority.",
+  "canonical_work_id": "MIRA-WORK-TOLSTOY-WAR-AND-PEACE",
+  "central_question_or_situation": "What becomes visible when history is read as the relation between innumerable situated acts rather than as the execution of a sovereign will?",
+  "confidence": {
+    "bibliographic": "low",
+    "body_characterization": "high",
+    "body_integrity": "high",
+    "civilization_memory_interpretation": "medium",
+    "doctrinal_or_formal_summary": "medium",
+    "identity": "high",
+    "routing_readiness": "low"
+  },
+  "created_at": "2026-09-02",
+  "essay_refs": [],
+  "external_research_used": false,
+  "failure_modes": [
+    "Turning Tolstoy's critique of command into a denial that institutions or leaders matter.",
+    "Treating the novel's philosophy of history as an empirically established social law.",
+    "Using an unidentified English translation as if it settled Russian wording."
+  ],
+  "identity": {
+    "author": "Leo Tolstoy",
+    "title": "War and Peace"
+  },
+  "intellectual_affordances": {
+    "affective_movements": [
+      "Humility before the scale of collective action and the opacity of historical causation."
+    ],
+    "forms_of_attention": [
+      "Look beneath a command for the chain of executable relations that made it effective.",
+      "Distinguish retrospective narrative compression from causal explanation."
+    ],
+    "institutional_acts": [
+      "Commanding",
+      "Executing",
+      "Retrospectively attributing agency"
+    ],
+    "mechanisms": [
+      "Commands become effective only when they coincide with a corresponding series of events and executors.",
+      "Historical narration compresses many contingent acts into the will of a visible leader."
+    ],
+    "organizing_tensions": [
+      "Command versus execution",
+      "Freedom versus necessity",
+      "Named leader versus distributed action"
+    ],
+    "perceptual_patterns": [
+      "Ask which orders failed, which were executable, and which agents carried an event into being."
+    ],
+    "propositions": [
+      "Power is a relation between expressed will and execution, not a self-sufficient cause.",
+      "The apparent freedom or necessity of action changes with temporal, causal, and relational distance."
+    ],
+    "symbolic_structures": [
+      "The commander above the field",
+      "The moving multitude",
+      "The retrospective label of the great man"
+    ]
+  },
+  "interpretive_field": {
+    "common_misreadings": [
+      "Reducing distributed causation to leaderlessness or fatalism."
+    ],
+    "internal_tensions": [
+      "The work denies sovereign command as sufficient cause while retaining power as an observable relation."
+    ],
+    "rival_readings": [
+      "A deterministic philosophy of history",
+      "A relational theory of power",
+      "A novelistic correction to command-centered historiography"
+    ]
+  },
+  "knowledge_basis": "knowledge-seeded",
+  "library_source_id": "LIB-INDUSTRIAL-AUTHORITY-012-TOLSTOY",
+  "routing_signatures": {
+    "anti_analogy": [
+      "Do not infer that visible leaders are causally irrelevant in every modern institution.",
+      "Do not convert literary-historical argument into a quantitative base rate."
+    ],
+    "negative": [
+      "great-man-inversion",
+      "literary-determinism-as-law",
+      "translation-equivalence"
+    ],
+    "positive": [
+      "command-execution-gap",
+      "distributed-causation",
+      "historical-narrative-compression",
+      "freedom-and-necessity"
+    ]
+  },
+  "schema_version": "mira-library-work-profile-v1",
+  "scope_conditions": [
+    "The note uses the admitted Project Gutenberg English body of War and Peace; its translator is unresolved in registry metadata.",
+    "No Russian original-language body is claimed or silently substituted.",
+    "The profile remains note-first and creates no operational route."
+  ],
+  "status": "knowledge-seeded",
+  "synopsis": "War and Peace joins narrative scale to an explicit critique of command-centered history. Its closing argument treats power as a relation between orders and execution, emphasizes the selection of executable commands from innumerable failures, and resists explaining collective movement through the will of a few named actors.",
+  "textual_basis": {
+    "body_refs": [
+      {
+        "body_id": "LIB-INDUSTRIAL-AUTHORITY-012-TOLSTOY-WAR-AND-PEACE-PG2600",
+        "coverage_status": "complete-work",
+        "language": "english",
+        "status": "available",
+        "text_sha256": "2d5bb2ad5f422765e714617e21fa31bbaf8958aa79682c86fca6660fcc5d1b2b",
+        "work_title": "War and Peace"
+      }
+    ],
+    "passage_anchors": [
+      {
+        "anchor_summary": "Rejects command as an immediate cause when orders are often ineffective and defines power as the relation between will and execution.",
+        "body_id": "LIB-INDUSTRIAL-AUTHORITY-012-TOLSTOY-WAR-AND-PEACE-PG2600",
+        "claim_type": "philosophy-of-history",
+        "locator": {
+          "line_end": 64590,
+          "line_start": 64574,
+          "section": "Second Epilogue, Chapter V"
+        },
+        "passage_id": "PASSAGE-TOLSTOY-POWER-AS-RELATION",
+        "raw_span_sha256": "8b9bea5a79d8e4815d3722c85c6a271e9f0e1fd5dcfdbc71e2088e8f4db443de",
+        "supports": ["tolstoy-command-execution-gap"],
+        "voice_role": "narratorial-argument-in-translation"
+      },
+      {
+        "anchor_summary": "Makes command effective only through a corresponding series of events and locates commanders at the smallest point of direct participation.",
+        "body_id": "LIB-INDUSTRIAL-AUTHORITY-012-TOLSTOY-WAR-AND-PEACE-PG2600",
+        "claim_type": "relational-mechanism",
+        "locator": {
+          "line_end": 64751,
+          "line_start": 64742,
+          "section": "Second Epilogue, Chapter VI"
+        },
+        "passage_id": "PASSAGE-TOLSTOY-EXECUTABLE-COMMAND",
+        "raw_span_sha256": "9595f066e0fd0ff69f0cc88702e3b5ecbc2da960cde69f7b49afc55b84b9933d",
+        "supports": ["tolstoy-distributed-causation"],
+        "voice_role": "narratorial-argument-in-translation"
+      },
+      {
+        "anchor_summary": "Describes freedom and necessity as reciprocal perceptions conditioned by relation, time, and causal knowledge.",
+        "body_id": "LIB-INDUSTRIAL-AUTHORITY-012-TOLSTOY-WAR-AND-PEACE-PG2600",
+        "claim_type": "philosophy-of-action",
+        "locator": {
+          "line_end": 65179,
+          "line_start": 65160,
+          "section": "Second Epilogue, Chapter IX"
+        },
+        "passage_id": "PASSAGE-TOLSTOY-FREEDOM-NECESSITY",
+        "raw_span_sha256": "63642b36f4fb16b6d9fd8d38e6855a90b9542e6fd5c98b7454d8da018a688fbb",
+        "supports": ["tolstoy-freedom-necessity"],
+        "voice_role": "narratorial-argument-in-translation"
+      }
+    ],
+    "passage_status": "anchored-living"
+  },
+  "uncertainties": [
+    "The registry does not identify the English translator of the admitted body.",
+    "The note does not establish equivalence with Tolstoy's Russian text.",
+    "The relation between the epilogue's explicit theory and the novel's enacted plurality remains interpretive."
+  ],
+  "updated_at": "2026-09-02",
+  "work_form": "historical-novel-and-philosophy-of-history"
+}

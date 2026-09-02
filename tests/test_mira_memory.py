@@ -64,7 +64,7 @@ def test_json_status_has_stable_contract_and_all_carriers() -> None:
     result = run_status("--focus", "recover journal continuity", "--as-of", "2026-08-14T12:00:00-06:00", "--json")
     assert result.returncode == 0, result.stderr
     payload = json.loads(result.stdout)
-    assert payload["schema_version"] == 4
+    assert payload["schema_version"] == 5
     assert payload["countercheck_mode"] == "auto"
     assert "session_closure" in payload
     assert payload["as_of"] == "2026-08-14T18:00:00Z"
@@ -76,7 +76,7 @@ def test_json_status_has_stable_contract_and_all_carriers() -> None:
     assert payload["mutation_performed"] is False
     assert {row["id"] for row in payload["carriers"]} == {
         "continuity", "mira-journal", "recursive-learning",
-        "archive", "narrative-geopolitics", "private-choice-history",
+        "archive", "narrative-geopolitics", "mira-library", "private-choice-history",
         "private-cadence-history", "private-mentorship-history",
     }
     for field in ("tensions", "coverage_gaps", "authority_boundary"):
@@ -109,7 +109,7 @@ def test_focus_routes_without_excluding_other_carriers() -> None:
     payload = json.loads(result.stdout)
     assert payload["recommended_owner"] == "forecast-review"
     assert payload["carriers"][0]["id"] == "narrative-geopolitics"
-    assert len(payload["carriers"]) == 8
+    assert len(payload["carriers"]) == 9
 
 
 def test_cadence_focus_routes_to_distinct_owners() -> None:
@@ -119,6 +119,48 @@ def test_cadence_focus_routes_to_distinct_owners() -> None:
     assert mira_memory.route_focus("coffee")["recommended_owner"] == "coffee"
     assert mira_memory.route_focus("record dream")["recommended_owner"] == "dream"
     assert mira_memory.route_focus("assess cadence learning")["recommended_owner"] == "recursive-learn"
+
+
+def test_library_recursive_focus_routes_to_assessor_and_retains_source_owner() -> None:
+    sys.path.insert(0, str(ROOT / "scripts"))
+    import mira_memory
+
+    route = mira_memory.route_focus(
+        "assess Mira Library cognitive consumption as recursive learning"
+    )
+    assert route["recommended_owner"] == "recursive-learn"
+    assert route["routing_state"] == "routed"
+    assert route["memory_class"] == "procedural"
+    assert route["memory_classes"] == ["epistemic", "procedural"]
+    assert {row["workflow"] for row in route["owner_candidates"]} >= {
+        "recursive-learn", "library-reasoning", "library-integration",
+    }
+
+
+def test_library_countercheck_is_tiered_and_bounded(monkeypatch) -> None:
+    sys.path.insert(0, str(ROOT / "scripts"))
+    import archive_library
+    import mira_memory
+
+    calls = 0
+
+    def verify(_args):
+        nonlocal calls
+        calls += 1
+        return {
+            "status": "failed", "checked": 3, "missing": 1,
+            "failures": ["BODY-ONE: text file does not exist: C:/private/secret.txt"],
+        }
+
+    monkeypatch.setattr(archive_library, "verify_texts_command", verify)
+    skipped = mira_memory.status("Mira Library integration", "2026-09-02T00:00:00Z", counterchecks="skip")
+    assert calls == 0
+    assert "countercheck" not in next(row for row in skipped["carriers"] if row["id"] == "mira-library")
+    automatic = mira_memory.status("Mira Library integration", "2026-09-02T00:00:00Z", counterchecks="auto")
+    assert calls == 1
+    library = next(row for row in automatic["carriers"] if row["id"] == "mira-library")
+    assert library["countercheck"]["failing_body_ids"] == ["BODY-ONE"]
+    assert "secret.txt" not in json.dumps(library)
 
 
 def test_former_archive_carrier_name_routes_to_canonical_owner() -> None:
@@ -203,7 +245,7 @@ def test_skip_counterchecks_avoids_live_continuity_and_archive_probes(monkeypatc
         "2026-08-15T18:00:00Z",
         counterchecks="skip",
     )
-    assert payload["schema_version"] == 4
+    assert payload["schema_version"] == 5
     assert payload["countercheck_mode"] == "skip"
     assert payload["recommended_owner"] == "mira-continuity"
     assert payload["mutation_performed"] is False

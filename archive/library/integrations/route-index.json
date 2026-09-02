@@ -1,0 +1,596 @@
+{
+  "authority_boundary": "This index governs internal route consumption only. It does not verify present facts, authorize publication, or promote provisional routes into reviewed use.",
+  "eligible_route_count": 1,
+  "generated_from": {
+    "library_registry_ref": "archive/library/library-registry.json",
+    "library_registry_sha256": "d9a467d06bac4c74122bb622e4c7d14a1591cdcd491ea5fe2542d4712f3820ec",
+    "work_registry_ref": "archive/library/integrations/work-registry.json",
+    "work_registry_sha256": "ec37d07a1ab115ca62a06bccd51ef9f2ff5384e3dee0a1d4a98db6136d8cbf59"
+  },
+  "route_count": 10,
+  "routes": [
+    {
+      "body_refs": [
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-001-ASHOKA-ROCK-PILLAR-EDICTS-SMITH",
+          "sha256": "a2f5ba5b76a2a466b79a46fa4925e9281a82988ed6c9bf91d2535e67ff1bf583",
+          "status": "available"
+        }
+      ],
+      "boundary": "Internal historical pressure test only; no present-fact verification, base rate, forecast resolution, publication, or action authority.",
+      "canonical_work_id": "MIRA-WORK-ASHOKA-ROCK-PILLAR-EDICTS",
+      "ineligibility_reasons": [
+        "review-unreviewed"
+      ],
+      "library_refs": [
+        "LIB-ANCIENT-AUTHOR-001-ASHOKA",
+        "LIB-ANCIENT-AUTHOR-001-ASHOKA-ROCK-PILLAR-EDICTS-SMITH"
+      ],
+      "library_source_id": "LIB-ANCIENT-AUTHOR-001-ASHOKA",
+      "mechanism_signatures": [
+        "legitimacy_under_overreach"
+      ],
+      "note_bindings": [
+        {
+          "note_dependency_sha256": "44e47f50398c62f9903167850ad290ede3c2b365c38fd31e854eb501439e1da1",
+          "note_ref": "archive/notes/2026-09-01-library-ashoka-rock-and-pillar-edicts-integration-note-addendum-01.md",
+          "note_revision_state": "current",
+          "note_sha256": "23532c09f6af5128a3e8b95aa17ad2931f0ec9d3511324fff40692f0e357c98e",
+          "relation_types": [
+            "interprets"
+          ],
+          "roles": [
+            "focal"
+          ]
+        }
+      ],
+      "note_ref": "archive/notes/2026-09-01-library-ashoka-rock-and-pillar-edicts-integration-note-addendum-01.md",
+      "note_revision_state": "current",
+      "notebook_eligibility": "ineligible",
+      "packet_status": "provisional",
+      "review_binding_status": "not-applicable",
+      "review_disposition": "unreviewed",
+      "route_handle": "ashoka-inscription-governance",
+      "route_id": "MIRA-ROUTE-ASHOKA-INSCRIPTION-GOVERNANCE",
+      "route_packet_ref": "archive/library/integrations/pilot-2026-09-01/ashoka-rock-and-pillar-edicts/routing.json",
+      "route_unit_legacy_state": "provisional",
+      "work_integration_stage": "profiled"
+    },
+    {
+      "body_refs": [
+        {
+          "body_id": "LIB-ANCIENT-AUTHOR-001-ASHOKA-ROCK-PILLAR-EDICTS-SMITH",
+          "sha256": "a2f5ba5b76a2a466b79a46fa4925e9281a82988ed6c9bf91d2535e67ff1bf583",
+          "status": "available"
+        }
+      ],
+      "boundary": "Internal historical pressure test only; no present-fact verification, base rate, forecast resolution, publication, or action authority.",
+      "canonical_work_id": "MIRA-WORK-ASHOKA-ROCK-PILLAR-EDICTS",
+      "ineligibility_reasons": [
+        "review-unreviewed"
+      ],
+      "library_refs": [
+        "LIB-ANCIENT-AUTHOR-001-ASHOKA",
+        "LIB-ANCIENT-AUTHOR-001-ASHOKA-ROCK-PILLAR-EDICTS-SMITH"
+      ],
+      "library_source_id": "LIB-ANCIENT-AUTHOR-001-ASHOKA",
+      "mechanism_signatures": [
+        "legitimacy_under_overreach"
+      ],
+      "note_bindings": [
+        {
+          "note_dependency_sha256": "44e47f50398c62f9903167850ad290ede3c2b365c38fd31e854eb501439e1da1",
+          "note_ref": "archive/notes/2026-09-01-library-ashoka-rock-and-pillar-edicts-integration-note-addendum-01.md",
+          "note_revision_state": "current",
+          "note_sha256": "23532c09f6af5128a3e8b95aa17ad2931f0ec9d3511324fff40692f0e357c98e",
+          "relation_types": [
+            "interprets"
+          ],
+          "roles": [
+            "focal"
+          ]
+        }
+      ],
+      "note_ref": "archive/notes/2026-09-01-library-ashoka-rock-and-pillar-edicts-integration-note-addendum-01.md",
+      "note_revision_state": "current",
+      "notebook_eligibility": "ineligible",
+      "packet_status": "provisional",
+      "review_binding_status": "not-applicable",
+      "review_disposition": "unreviewed",
+      "route_handle": "ashoka-remorse-capacity",
+      "route_id": "MIRA-ROUTE-ASHOKA-REMORSE-CAPACITY",
+      "route_packet_ref": "archive/library/integrations/pilot-2026-09-01/ashoka-rock-and-pillar-edicts/routing.json",
+      "route_unit_legacy_state": "provisional",
+      "work_integration_stage": "profiled"
+    },
+    {
+      "body_refs": [
+        {
+          "body_id": "LIB-INDUSTRIAL-AUTHORITY-025-DU-BOIS-SOULS-PG408",
+          "sha256": "f5a231cbe6a8eb942369203e0c69c65090d689ce05feeb416cf05e24c5fa4da1",
+          "status": "available"
+        }
+      ],
+      "boundary": "Internal historical pressure test only; no present-fact verification, base rate, forecast resolution, publication, or action authority.",
+      "canonical_work_id": "MIRA-WORK-DU-BOIS-SOULS-OF-BLACK-FOLK",
+      "ineligibility_reasons": [
+        "no-current-route-passage-anchor",
+        "review-unreviewed"
+      ],
+      "library_refs": [
+        "LIB-INDUSTRIAL-AUTHORITY-025-DU-BOIS",
+        "LIB-INDUSTRIAL-AUTHORITY-025-DU-BOIS-SOULS-PG408"
+      ],
+      "library_source_id": "LIB-INDUSTRIAL-AUTHORITY-025-DU-BOIS",
+      "mechanism_signatures": [
+        "legitimacy_under_overreach"
+      ],
+      "note_bindings": [
+        {
+          "note_dependency_sha256": "87fb1ecdc0bb3d69920b7a0f265b794785ec6619a8e568cd8ad08c4ac5f5e5dd",
+          "note_ref": "archive/notes/2026-09-01-library-du-bois-souls-of-black-folk-integration-note.md",
+          "note_revision_state": "current",
+          "note_sha256": "79e6a365edabd5d98a8d5a32b067fdb10f25d83bf573f46a828b030015d5808c",
+          "relation_types": [
+            "interprets"
+          ],
+          "roles": [
+            "focal"
+          ]
+        }
+      ],
+      "note_ref": "archive/notes/2026-09-01-library-du-bois-souls-of-black-folk-integration-note.md",
+      "note_revision_state": "current",
+      "notebook_eligibility": "ineligible",
+      "packet_status": "provisional",
+      "review_binding_status": "not-applicable",
+      "review_disposition": "unreviewed",
+      "route_handle": "dubois-counter-memory-song",
+      "route_id": "MIRA-ROUTE-DUBOIS-COUNTER-MEMORY-SONG",
+      "route_packet_ref": "archive/library/integrations/pilot-2026-09-01/du-bois-souls-of-black-folk/routing.json",
+      "route_unit_legacy_state": "provisional",
+      "work_integration_stage": "profiled"
+    },
+    {
+      "body_refs": [
+        {
+          "body_id": "LIB-INDUSTRIAL-AUTHORITY-025-DU-BOIS-SOULS-PG408",
+          "sha256": "f5a231cbe6a8eb942369203e0c69c65090d689ce05feeb416cf05e24c5fa4da1",
+          "status": "available"
+        }
+      ],
+      "boundary": "Internal historical pressure test only; no present-fact verification, base rate, forecast resolution, publication, or action authority.",
+      "canonical_work_id": "MIRA-WORK-DU-BOIS-SOULS-OF-BLACK-FOLK",
+      "ineligibility_reasons": [
+        "no-current-route-passage-anchor",
+        "review-unreviewed"
+      ],
+      "library_refs": [
+        "LIB-INDUSTRIAL-AUTHORITY-025-DU-BOIS",
+        "LIB-INDUSTRIAL-AUTHORITY-025-DU-BOIS-SOULS-PG408"
+      ],
+      "library_source_id": "LIB-INDUSTRIAL-AUTHORITY-025-DU-BOIS",
+      "mechanism_signatures": [
+        "legitimacy_under_overreach"
+      ],
+      "note_bindings": [
+        {
+          "note_dependency_sha256": "87fb1ecdc0bb3d69920b7a0f265b794785ec6619a8e568cd8ad08c4ac5f5e5dd",
+          "note_ref": "archive/notes/2026-09-01-library-du-bois-souls-of-black-folk-integration-note.md",
+          "note_revision_state": "current",
+          "note_sha256": "79e6a365edabd5d98a8d5a32b067fdb10f25d83bf573f46a828b030015d5808c",
+          "relation_types": [
+            "interprets"
+          ],
+          "roles": [
+            "focal"
+          ]
+        }
+      ],
+      "note_ref": "archive/notes/2026-09-01-library-du-bois-souls-of-black-folk-integration-note.md",
+      "note_revision_state": "current",
+      "notebook_eligibility": "ineligible",
+      "packet_status": "provisional",
+      "review_binding_status": "not-applicable",
+      "review_disposition": "unreviewed",
+      "route_handle": "dubois-divided-perception",
+      "route_id": "MIRA-ROUTE-DUBOIS-DIVIDED-PERCEPTION",
+      "route_packet_ref": "archive/library/integrations/pilot-2026-09-01/du-bois-souls-of-black-folk/routing.json",
+      "route_unit_legacy_state": "provisional",
+      "work_integration_stage": "profiled"
+    },
+    {
+      "body_refs": [
+        {
+          "body_id": "LIB-MEDIEVAL-AUTHORITY-066-GENJI-WALEY-PART-01-GUTENBERG-66057",
+          "sha256": "5290fcd9644228c3f61eee6787533e2c9db7bc073677619facb10a127533e0a8",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-MEDIEVAL-AUTHORITY-066-GENJI-WALEY-PART-02-GUTENBERG-67111",
+          "sha256": "bdc7a206fefff438f6e8b27ad6d1e7c5b5457ba513bae70f6942ab1f550efd5c",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-MEDIEVAL-AUTHORITY-066-GENJI-WALEY-PART-03-GUTENBERG-75852",
+          "sha256": "53a1e83b951a9313c2684a0f5026b1c025f28edb3f4af930daf1d954b7ca98f1",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-MEDIEVAL-AUTHORITY-066-GENJI-WALEY-PART-04-GUTENBERG-77408",
+          "sha256": "01a44b37a494bec818d42e8ce80421b5fe31b0fb08eac5614a34f8975b783b01",
+          "status": "available"
+        }
+      ],
+      "boundary": "Internal historical pressure test only; no present-fact verification, base rate, forecast resolution, publication, or action authority.",
+      "canonical_work_id": "MIRA-WORK-MURASAKI-TALE-OF-GENJI",
+      "ineligibility_reasons": [
+        "no-current-route-passage-anchor",
+        "review-unreviewed"
+      ],
+      "library_refs": [
+        "LIB-MEDIEVAL-AUTHORITY-066-MURASAKI-SHIKIBU",
+        "LIB-MEDIEVAL-AUTHORITY-066-GENJI-WALEY-PART-01-GUTENBERG-66057",
+        "LIB-MEDIEVAL-AUTHORITY-066-GENJI-WALEY-PART-02-GUTENBERG-67111",
+        "LIB-MEDIEVAL-AUTHORITY-066-GENJI-WALEY-PART-03-GUTENBERG-75852",
+        "LIB-MEDIEVAL-AUTHORITY-066-GENJI-WALEY-PART-04-GUTENBERG-77408"
+      ],
+      "library_source_id": "LIB-MEDIEVAL-AUTHORITY-066-MURASAKI-SHIKIBU",
+      "mechanism_signatures": [
+        "legitimacy_under_overreach"
+      ],
+      "note_bindings": [
+        {
+          "note_dependency_sha256": "cc27c68140577cf3e03cccc5fd7e90cc7e04cc048826196c039306b074229a8e",
+          "note_ref": "archive/notes/2026-09-01-library-murasaki-tale-of-genji-integration-note.md",
+          "note_revision_state": "current",
+          "note_sha256": "1731f99c5bf4c7f6e1ce49c1d5f1653d8c01182a960b3985e6af4eed78fdba2a",
+          "relation_types": [
+            "interprets"
+          ],
+          "roles": [
+            "focal"
+          ]
+        }
+      ],
+      "note_ref": "archive/notes/2026-09-01-library-murasaki-tale-of-genji-integration-note.md",
+      "note_revision_state": "current",
+      "notebook_eligibility": "ineligible",
+      "packet_status": "provisional",
+      "review_binding_status": "not-applicable",
+      "review_disposition": "unreviewed",
+      "route_handle": "genji-aesthetic-ethical-split",
+      "route_id": "MIRA-ROUTE-GENJI-AESTHETIC-ETHICAL-SPLIT",
+      "route_packet_ref": "archive/library/integrations/pilot-2026-09-01/murasaki-tale-of-genji/routing.json",
+      "route_unit_legacy_state": "provisional",
+      "work_integration_stage": "profiled"
+    },
+    {
+      "body_refs": [
+        {
+          "body_id": "LIB-MEDIEVAL-AUTHORITY-066-GENJI-WALEY-PART-01-GUTENBERG-66057",
+          "sha256": "5290fcd9644228c3f61eee6787533e2c9db7bc073677619facb10a127533e0a8",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-MEDIEVAL-AUTHORITY-066-GENJI-WALEY-PART-02-GUTENBERG-67111",
+          "sha256": "bdc7a206fefff438f6e8b27ad6d1e7c5b5457ba513bae70f6942ab1f550efd5c",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-MEDIEVAL-AUTHORITY-066-GENJI-WALEY-PART-03-GUTENBERG-75852",
+          "sha256": "53a1e83b951a9313c2684a0f5026b1c025f28edb3f4af930daf1d954b7ca98f1",
+          "status": "available"
+        },
+        {
+          "body_id": "LIB-MEDIEVAL-AUTHORITY-066-GENJI-WALEY-PART-04-GUTENBERG-77408",
+          "sha256": "01a44b37a494bec818d42e8ce80421b5fe31b0fb08eac5614a34f8975b783b01",
+          "status": "available"
+        }
+      ],
+      "boundary": "Internal historical pressure test only; no present-fact verification, base rate, forecast resolution, publication, or action authority.",
+      "canonical_work_id": "MIRA-WORK-MURASAKI-TALE-OF-GENJI",
+      "ineligibility_reasons": [
+        "no-current-route-passage-anchor",
+        "review-unreviewed"
+      ],
+      "library_refs": [
+        "LIB-MEDIEVAL-AUTHORITY-066-MURASAKI-SHIKIBU",
+        "LIB-MEDIEVAL-AUTHORITY-066-GENJI-WALEY-PART-01-GUTENBERG-66057",
+        "LIB-MEDIEVAL-AUTHORITY-066-GENJI-WALEY-PART-02-GUTENBERG-67111",
+        "LIB-MEDIEVAL-AUTHORITY-066-GENJI-WALEY-PART-03-GUTENBERG-75852",
+        "LIB-MEDIEVAL-AUTHORITY-066-GENJI-WALEY-PART-04-GUTENBERG-77408"
+      ],
+      "library_source_id": "LIB-MEDIEVAL-AUTHORITY-066-MURASAKI-SHIKIBU",
+      "mechanism_signatures": [
+        "coercion_indirect_instruments"
+      ],
+      "note_bindings": [
+        {
+          "note_dependency_sha256": "cc27c68140577cf3e03cccc5fd7e90cc7e04cc048826196c039306b074229a8e",
+          "note_ref": "archive/notes/2026-09-01-library-murasaki-tale-of-genji-integration-note.md",
+          "note_revision_state": "current",
+          "note_sha256": "1731f99c5bf4c7f6e1ce49c1d5f1653d8c01182a960b3985e6af4eed78fdba2a",
+          "relation_types": [
+            "interprets"
+          ],
+          "roles": [
+            "focal"
+          ]
+        }
+      ],
+      "note_ref": "archive/notes/2026-09-01-library-murasaki-tale-of-genji-integration-note.md",
+      "note_revision_state": "current",
+      "notebook_eligibility": "ineligible",
+      "packet_status": "provisional",
+      "review_binding_status": "not-applicable",
+      "review_disposition": "unreviewed",
+      "route_handle": "genji-indirect-power",
+      "route_id": "MIRA-ROUTE-GENJI-INDIRECT-POWER",
+      "route_packet_ref": "archive/library/integrations/pilot-2026-09-01/murasaki-tale-of-genji/routing.json",
+      "route_unit_legacy_state": "provisional",
+      "work_integration_stage": "profiled"
+    },
+    {
+      "body_refs": [
+        {
+          "body_id": "LIB-COLONIAL-AUTHORITY-065-GROTIUS-MARE-LIBERUM-LATIN-WIKISOURCE",
+          "sha256": "f5fd4847ecb3e2b8d83ef41c8f788d5f7a0fca2326fa2e6f6d4de37192c64c33",
+          "status": "available"
+        }
+      ],
+      "boundary": "Internal historical pressure test only; no present-fact verification, base rate, forecast resolution, publication, or action authority.",
+      "canonical_work_id": "MIRA-WORK-GROTIUS-MARE-LIBERUM",
+      "ineligibility_reasons": [],
+      "library_refs": [
+        "LIB-COLONIAL-AUTHORITY-065-GROTIUS-MARE-LIBERUM",
+        "LIB-COLONIAL-AUTHORITY-065-GROTIUS-MARE-LIBERUM-LATIN-WIKISOURCE"
+      ],
+      "library_source_id": "LIB-COLONIAL-AUTHORITY-065-GROTIUS-MARE-LIBERUM",
+      "mechanism_signatures": [
+        "maritime_access_order"
+      ],
+      "note_bindings": [
+        {
+          "note_dependency_sha256": "6302560c41ddd432858b691f46e3e990ff9559395317b292bc6f522a4cd253b8",
+          "note_ref": "archive/notes/2026-09-01-library-grotius-mare-liberum-integration-note-addendum-02.md",
+          "note_revision_state": "current",
+          "note_sha256": "94bbba085b6bb5e2b7c8a923890908d28e253592f3fc4cfb455edce8a3a7d17f",
+          "relation_types": [
+            "interprets"
+          ],
+          "roles": [
+            "focal"
+          ]
+        }
+      ],
+      "note_ref": "archive/notes/2026-09-01-library-grotius-mare-liberum-integration-note-addendum-02.md",
+      "note_revision_state": "current",
+      "notebook_eligibility": "eligible",
+      "packet_status": "provisional",
+      "review_binding_status": "current",
+      "review_disposition": "approved-internal",
+      "route_handle": "grotius-interested-universal",
+      "route_id": "MIRA-ROUTE-GROTIUS-INTERESTED-UNIVERSAL",
+      "route_packet_ref": "archive/library/integrations/pilot-2026-09-01/grotius-mare-liberum/routing.json",
+      "route_unit_legacy_state": "provisional",
+      "work_integration_stage": "pressure-test-ready"
+    },
+    {
+      "body_refs": [
+        {
+          "body_id": "LIB-COLONIAL-AUTHORITY-065-GROTIUS-MARE-LIBERUM-LATIN-WIKISOURCE",
+          "sha256": "f5fd4847ecb3e2b8d83ef41c8f788d5f7a0fca2326fa2e6f6d4de37192c64c33",
+          "status": "available"
+        }
+      ],
+      "boundary": "Internal historical pressure test only; no present-fact verification, base rate, forecast resolution, publication, or action authority.",
+      "canonical_work_id": "MIRA-WORK-GROTIUS-MARE-LIBERUM",
+      "ineligibility_reasons": [
+        "review-unreviewed"
+      ],
+      "library_refs": [
+        "LIB-COLONIAL-AUTHORITY-065-GROTIUS-MARE-LIBERUM",
+        "LIB-COLONIAL-AUTHORITY-065-GROTIUS-MARE-LIBERUM-LATIN-WIKISOURCE"
+      ],
+      "library_source_id": "LIB-COLONIAL-AUTHORITY-065-GROTIUS-MARE-LIBERUM",
+      "mechanism_signatures": [
+        "maritime_access_order",
+        "commerce_to_sovereignty"
+      ],
+      "note_bindings": [
+        {
+          "note_dependency_sha256": "6302560c41ddd432858b691f46e3e990ff9559395317b292bc6f522a4cd253b8",
+          "note_ref": "archive/notes/2026-09-01-library-grotius-mare-liberum-integration-note-addendum-02.md",
+          "note_revision_state": "current",
+          "note_sha256": "94bbba085b6bb5e2b7c8a923890908d28e253592f3fc4cfb455edce8a3a7d17f",
+          "relation_types": [
+            "interprets"
+          ],
+          "roles": [
+            "focal"
+          ]
+        }
+      ],
+      "note_ref": "archive/notes/2026-09-01-library-grotius-mare-liberum-integration-note-addendum-02.md",
+      "note_revision_state": "current",
+      "notebook_eligibility": "ineligible",
+      "packet_status": "provisional",
+      "review_binding_status": "not-applicable",
+      "review_disposition": "unreviewed",
+      "route_handle": "grotius-open-access-coercion",
+      "route_id": "MIRA-ROUTE-GROTIUS-OPEN-ACCESS-COERCION",
+      "route_packet_ref": "archive/library/integrations/pilot-2026-09-01/grotius-mare-liberum/routing.json",
+      "route_unit_legacy_state": "provisional",
+      "work_integration_stage": "pressure-test-ready"
+    },
+    {
+      "body_refs": [
+        {
+          "body_id": "LIB-MEDIEVAL-AUTHORITY-033-IBN-KHALDUN-PROLEGOMENES-QUATREMERE-VOL-1-IA-OCR-PERMISSIONED",
+          "sha256": "86bf0275e250ea0e1cb77aa398613d1020396d9551e7adf7b8d37189db0a0d63",
+          "status": "needs-review"
+        },
+        {
+          "body_id": "LIB-MEDIEVAL-AUTHORITY-033-IBN-KHALDUN-PROLEGOMENES-QUATREMERE-VOL-2-IA-OCR-PERMISSIONED",
+          "sha256": "90124bf9304f902bb7e3466ddf51aaca6b0e51867e4e7644dcef6dfd1a1f48f6",
+          "status": "needs-review"
+        }
+      ],
+      "boundary": "Internal historical pressure test only; no present-fact verification, base rate, forecast resolution, publication, or action authority.",
+      "canonical_work_id": "MIRA-WORK-IBN-KHALDUN-MUQADDIMAH",
+      "ineligibility_reasons": [
+        "body-not-ready:LIB-MEDIEVAL-AUTHORITY-033-IBN-KHALDUN-PROLEGOMENES-QUATREMERE-VOL-1-IA-OCR-PERMISSIONED:needs-review",
+        "body-not-ready:LIB-MEDIEVAL-AUTHORITY-033-IBN-KHALDUN-PROLEGOMENES-QUATREMERE-VOL-2-IA-OCR-PERMISSIONED:needs-review",
+        "note-not-source-direct",
+        "no-passage-anchors",
+        "no-current-route-passage-anchor",
+        "review-blocked-source"
+      ],
+      "library_refs": [
+        "LIB-MEDIEVAL-AUTHORITY-033-IBN-KHALDUN",
+        "LIB-MEDIEVAL-AUTHORITY-033-IBN-KHALDUN-PROLEGOMENES-QUATREMERE-VOL-1-IA-OCR-PERMISSIONED",
+        "LIB-MEDIEVAL-AUTHORITY-033-IBN-KHALDUN-PROLEGOMENES-QUATREMERE-VOL-2-IA-OCR-PERMISSIONED"
+      ],
+      "library_source_id": "LIB-MEDIEVAL-AUTHORITY-033-IBN-KHALDUN",
+      "mechanism_signatures": [
+        "legitimacy_under_overreach"
+      ],
+      "note_bindings": [
+        {
+          "note_dependency_sha256": "915eb3f89a3215f879f4c6da5cf12272b89b3691e5d574db94ce2acf18103c41",
+          "note_ref": "archive/notes/2026-09-01-library-ibn-khaldun-muqaddimah-integration-note.md",
+          "note_revision_state": "current",
+          "note_sha256": "e1798a7d2cd07fd73a6e1a0d8593f7023abe7727516a0739ba806ed8b41838cc",
+          "relation_types": [
+            "interprets"
+          ],
+          "roles": [
+            "focal"
+          ]
+        }
+      ],
+      "note_ref": "archive/notes/2026-09-01-library-ibn-khaldun-muqaddimah-integration-note.md",
+      "note_revision_state": "current",
+      "notebook_eligibility": "ineligible",
+      "packet_status": "provisional",
+      "review_binding_status": "not-applicable",
+      "review_disposition": "blocked-source",
+      "route_handle": "khaldun-history-credulity",
+      "route_id": "MIRA-ROUTE-KHALDUN-HISTORY-CREDULITY",
+      "route_packet_ref": "archive/library/integrations/pilot-2026-09-01/ibn-khaldun-muqaddimah/routing.json",
+      "route_unit_legacy_state": "blocked-source-review",
+      "work_integration_stage": "profiled"
+    },
+    {
+      "body_refs": [
+        {
+          "body_id": "LIB-MEDIEVAL-AUTHORITY-033-IBN-KHALDUN-PROLEGOMENES-QUATREMERE-VOL-1-IA-OCR-PERMISSIONED",
+          "sha256": "86bf0275e250ea0e1cb77aa398613d1020396d9551e7adf7b8d37189db0a0d63",
+          "status": "needs-review"
+        },
+        {
+          "body_id": "LIB-MEDIEVAL-AUTHORITY-033-IBN-KHALDUN-PROLEGOMENES-QUATREMERE-VOL-2-IA-OCR-PERMISSIONED",
+          "sha256": "90124bf9304f902bb7e3466ddf51aaca6b0e51867e4e7644dcef6dfd1a1f48f6",
+          "status": "needs-review"
+        }
+      ],
+      "boundary": "Internal historical pressure test only; no present-fact verification, base rate, forecast resolution, publication, or action authority.",
+      "canonical_work_id": "MIRA-WORK-IBN-KHALDUN-MUQADDIMAH",
+      "ineligibility_reasons": [
+        "body-not-ready:LIB-MEDIEVAL-AUTHORITY-033-IBN-KHALDUN-PROLEGOMENES-QUATREMERE-VOL-1-IA-OCR-PERMISSIONED:needs-review",
+        "body-not-ready:LIB-MEDIEVAL-AUTHORITY-033-IBN-KHALDUN-PROLEGOMENES-QUATREMERE-VOL-2-IA-OCR-PERMISSIONED:needs-review",
+        "note-not-source-direct",
+        "no-passage-anchors",
+        "no-current-route-passage-anchor",
+        "review-blocked-source"
+      ],
+      "library_refs": [
+        "LIB-MEDIEVAL-AUTHORITY-033-IBN-KHALDUN",
+        "LIB-MEDIEVAL-AUTHORITY-033-IBN-KHALDUN-PROLEGOMENES-QUATREMERE-VOL-1-IA-OCR-PERMISSIONED",
+        "LIB-MEDIEVAL-AUTHORITY-033-IBN-KHALDUN-PROLEGOMENES-QUATREMERE-VOL-2-IA-OCR-PERMISSIONED"
+      ],
+      "library_source_id": "LIB-MEDIEVAL-AUTHORITY-033-IBN-KHALDUN",
+      "mechanism_signatures": [
+        "settlement_architecture"
+      ],
+      "note_bindings": [
+        {
+          "note_dependency_sha256": "915eb3f89a3215f879f4c6da5cf12272b89b3691e5d574db94ce2acf18103c41",
+          "note_ref": "archive/notes/2026-09-01-library-ibn-khaldun-muqaddimah-integration-note.md",
+          "note_revision_state": "current",
+          "note_sha256": "e1798a7d2cd07fd73a6e1a0d8593f7023abe7727516a0739ba806ed8b41838cc",
+          "relation_types": [
+            "interprets"
+          ],
+          "roles": [
+            "focal"
+          ]
+        }
+      ],
+      "note_ref": "archive/notes/2026-09-01-library-ibn-khaldun-muqaddimah-integration-note.md",
+      "note_revision_state": "current",
+      "notebook_eligibility": "ineligible",
+      "packet_status": "provisional",
+      "review_binding_status": "not-applicable",
+      "review_disposition": "blocked-source",
+      "route_handle": "khaldun-solidarity-dynasty",
+      "route_id": "MIRA-ROUTE-KHALDUN-SOLIDARITY-DYNASTY",
+      "route_packet_ref": "archive/library/integrations/pilot-2026-09-01/ibn-khaldun-muqaddimah/routing.json",
+      "route_unit_legacy_state": "blocked-source-review",
+      "work_integration_stage": "profiled"
+    }
+  ],
+  "schema_version": "mira-library-route-index-v3",
+  "status": "current",
+  "works": [
+    {
+      "canonical_work_id": "MIRA-WORK-ASHOKA-ROCK-PILLAR-EDICTS",
+      "eligible_route_count": 0,
+      "essay_ref_count": 0,
+      "integration_stage": "profiled"
+    },
+    {
+      "canonical_work_id": "MIRA-WORK-DANTE-DE-MONARCHIA-COMMEDIA",
+      "eligible_route_count": 0,
+      "essay_ref_count": 0,
+      "integration_stage": "noted"
+    },
+    {
+      "canonical_work_id": "MIRA-WORK-DU-BOIS-SOULS-OF-BLACK-FOLK",
+      "eligible_route_count": 0,
+      "essay_ref_count": 0,
+      "integration_stage": "profiled"
+    },
+    {
+      "canonical_work_id": "MIRA-WORK-GROTIUS-MARE-LIBERUM",
+      "eligible_route_count": 1,
+      "essay_ref_count": 0,
+      "integration_stage": "pressure-test-ready"
+    },
+    {
+      "canonical_work_id": "MIRA-WORK-HOMER-ILIAD-ODYSSEY",
+      "eligible_route_count": 0,
+      "essay_ref_count": 0,
+      "integration_stage": "noted"
+    },
+    {
+      "canonical_work_id": "MIRA-WORK-IBN-KHALDUN-MUQADDIMAH",
+      "eligible_route_count": 0,
+      "essay_ref_count": 0,
+      "integration_stage": "profiled"
+    },
+    {
+      "canonical_work_id": "MIRA-WORK-MURASAKI-TALE-OF-GENJI",
+      "eligible_route_count": 0,
+      "essay_ref_count": 0,
+      "integration_stage": "profiled"
+    },
+    {
+      "canonical_work_id": "MIRA-WORK-TOLSTOY-WAR-AND-PEACE",
+      "eligible_route_count": 0,
+      "essay_ref_count": 0,
+      "integration_stage": "noted"
+    }
+  ]
+}

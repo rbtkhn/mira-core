@@ -1,0 +1,182 @@
+{
+  "artifact_id": "PROFILE-MIRA-WORK-DANTE-DE-MONARCHIA-COMMEDIA",
+  "artifact_links": {
+    "current_note_ref": "archive/notes/2026-09-02-library-dante-de-monarchia-commedia-cognitive-note.md",
+    "integration_note_ref": "archive/notes/2026-09-02-library-dante-de-monarchia-commedia-cognitive-note.md",
+    "integration_note_refs": [
+      "archive/notes/2026-09-02-library-dante-de-monarchia-commedia-cognitive-note.md"
+    ]
+  },
+  "artifact_version": 1,
+  "authority_boundary": "This source-grounded profile supports a provisional Library note. It does not verify present facts, establish a completed reception history, authorize publication, or supply action authority.",
+  "canonical_work_id": "MIRA-WORK-DANTE-DE-MONARCHIA-COMMEDIA",
+  "central_question_or_situation": "How does Dante imagine a public authority capable of orienting temporal life toward peace without absorbing humanity's spiritual end?",
+  "confidence": {
+    "bibliographic": "medium",
+    "body_characterization": "high",
+    "body_integrity": "high",
+    "civilization_memory_interpretation": "medium",
+    "doctrinal_or_formal_summary": "medium",
+    "identity": "high",
+    "routing_readiness": "low"
+  },
+  "created_at": "2026-09-02",
+  "essay_refs": [],
+  "external_research_used": false,
+  "failure_modes": [
+    "Treating Dante's universal monarchy as a direct program for a modern state.",
+    "Collapsing poetic judgment, political theology, and institutional history into one voice.",
+    "Reading Roman vocation without Dante's warnings about greed, vacancy, and fused offices."
+  ],
+  "identity": {
+    "author": "Dante Alighieri",
+    "title": "De Monarchia and the Divine Comedy"
+  },
+  "intellectual_affordances": {
+    "affective_movements": [
+      "Longing for public order sharpened by grief at institutional corruption."
+    ],
+    "forms_of_attention": [
+      "Distinguish an office's civilizational purpose from the appetites of its occupants.",
+      "Read universal claims beside the institutional division intended to restrain them."
+    ],
+    "institutional_acts": [
+      "Defining temporal jurisdiction",
+      "Judging corrupted office",
+      "Separating temporal and spiritual guidance"
+    ],
+    "mechanisms": [
+      "A universal office is justified by the peace needed for humanity's shared intellectual and practical work.",
+      "When spiritual and temporal powers are fused, reciprocal correction weakens and appetite can capture both."
+    ],
+    "organizing_tensions": [
+      "Universal peace versus imperial domination",
+      "Office versus occupant",
+      "Distinct ends versus fused authority"
+    ],
+    "perceptual_patterns": [
+      "Ask whether law has an executor and whether an executor remains bounded by the end of the office."
+    ],
+    "propositions": [
+      "Temporal peace is a precondition for humanity to exercise its shared capacities.",
+      "Temporal and spiritual ends require distinct forms of guidance."
+    ],
+    "symbolic_structures": [
+      "Rome as office and civilizational memory",
+      "The two suns",
+      "The empty saddle and the bridle"
+    ]
+  },
+  "interpretive_field": {
+    "common_misreadings": [
+      "Equating Dante's Rome with uncomplicated praise of every Roman or imperial act."
+    ],
+    "internal_tensions": [
+      "The peace-serving universal office is defended through a providential account of Roman expansion that requires historical and moral counterpressure."
+    ],
+    "rival_readings": [
+      "A constitutional differentiation of jurisdictions",
+      "A sacralized defense of empire",
+      "An exile's judgment on factional Italy"
+    ]
+  },
+  "knowledge_basis": "knowledge-seeded",
+  "library_source_id": "LIB-MEDIEVAL-AUTHORITY-018-DANTE-ALIGHIERI",
+  "routing_signatures": {
+    "anti_analogy": [
+      "Do not translate Dante's monarchy directly into a prescription for contemporary global government.",
+      "Do not treat poetic placement as documentary proof of institutional causation."
+    ],
+    "negative": [
+      "modern-state-equivalence",
+      "providential-history-as-verification",
+      "office-occupant-collapse"
+    ],
+    "positive": [
+      "office-and-order",
+      "jurisdictional-differentiation",
+      "peace-as-public-end",
+      "rome-as-civilizational-office"
+    ]
+  },
+  "schema_version": "mira-library-work-profile-v1",
+  "scope_conditions": [
+    "The note uses F. J. Church's English De Monarchia and Longfellow's English Comedy; no Latin or Italian equivalence is asserted.",
+    "The paired works are read together for a bounded question, not represented as Dante's complete corpus.",
+    "The profile remains note-first and creates no operational route."
+  ],
+  "status": "knowledge-seeded",
+  "synopsis": "Dante's political treatise and sacred poem place temporal order inside a larger account of human ends. De Monarchia argues that universal peace enables humanity's shared work and distinguishes temporal from spiritual direction; the Comedy dramatizes the degradation that follows when offices are vacant, fused, or captured by appetite.",
+  "textual_basis": {
+    "body_refs": [
+      {
+        "body_id": "LIB-MEDIEVAL-AUTHORITY-018-DANTE-DE-MONARCHIA-CHURCH-GUTENBERG-33896",
+        "coverage_status": "complete-work",
+        "language": "english",
+        "status": "available",
+        "text_sha256": "90b460366c9892ad5e1f3c010479725217999a827e845b798862845fdb436161",
+        "work_title": "De Monarchia"
+      },
+      {
+        "body_id": "LIB-MEDIEVAL-AUTHORITY-018-DANTE-COMMEDIA-LONGFELLOW-GUTENBERG-1004",
+        "coverage_status": "complete-work",
+        "language": "english",
+        "status": "available",
+        "text_sha256": "c233a7ef9444890cb7f16071ff54d997307a3c60dcd6506cfd415bae2430eac2",
+        "work_title": "Divine Comedy"
+      }
+    ],
+    "passage_anchors": [
+      {
+        "anchor_summary": "Defines temporal monarchy as a universal temporal office and states the treatise's three governing questions.",
+        "body_id": "LIB-MEDIEVAL-AUTHORITY-018-DANTE-DE-MONARCHIA-CHURCH-GUTENBERG-33896",
+        "claim_type": "political-definition",
+        "locator": {
+          "line_end": 4841,
+          "line_start": 4832,
+          "section": "De Monarchia I.II"
+        },
+        "passage_id": "PASSAGE-DANTE-MONARCHIA-TEMPORAL-OFFICE",
+        "raw_span_sha256": "4740afc3df74055ba0c6feb06731708fea648db20294978bc07fd85672105f76",
+        "supports": ["dante-office-and-order"],
+        "voice_role": "primary-author-in-translation"
+      },
+      {
+        "anchor_summary": "Makes universal peace the first principle and enabling end of the civil order.",
+        "body_id": "LIB-MEDIEVAL-AUTHORITY-018-DANTE-DE-MONARCHIA-CHURCH-GUTENBERG-33896",
+        "claim_type": "political-argument",
+        "locator": {
+          "line_end": 4985,
+          "line_start": 4978,
+          "section": "De Monarchia I.IV"
+        },
+        "passage_id": "PASSAGE-DANTE-MONARCHIA-UNIVERSAL-PEACE",
+        "raw_span_sha256": "3d563816c8d81a3035199c982438d2b9c446a36667e863956a4d0a165ccb9401",
+        "supports": ["dante-peace-as-public-end"],
+        "voice_role": "primary-author-in-translation"
+      },
+      {
+        "anchor_summary": "Contrasts law without an executor with Rome's two lights and condemns the fusion of spiritual and temporal government.",
+        "body_id": "LIB-MEDIEVAL-AUTHORITY-018-DANTE-COMMEDIA-LONGFELLOW-GUTENBERG-1004",
+        "claim_type": "poetic-political-judgment",
+        "locator": {
+          "line_end": 9865,
+          "line_start": 9839,
+          "section": "Purgatorio XVI"
+        },
+        "passage_id": "PASSAGE-DANTE-PURGATORIO-TWO-SUNS",
+        "raw_span_sha256": "51c713a70e2c1bfa2ab4927ac3d2273995366615702283db7854de85ebc7a166",
+        "supports": ["dante-jurisdictional-differentiation"],
+        "voice_role": "character-speech-in-translation"
+      }
+    ],
+    "passage_status": "anchored-living"
+  },
+  "uncertainties": [
+    "The English witnesses do not establish line-level equivalence with Dante's Latin and Italian texts.",
+    "The relationship between the treatise's institutional argument and the poem's many voices remains interpretive.",
+    "A fuller account of Roman violence and reception lies outside this first note."
+  ],
+  "updated_at": "2026-09-02",
+  "work_form": "political-treatise-and-sacred-epic"
+}

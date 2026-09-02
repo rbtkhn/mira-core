@@ -1,0 +1,40 @@
+{
+  "affected_claims": [
+    "ashoka-remorse-capacity",
+    "ashoka-inscription-governance"
+  ],
+  "authority_boundary": "This candidate may prepare review but may not rewrite interpretive prose or activate routing.",
+  "candidate_id": "REV-MIRA-WORK-ASHOKA-ROCK-PILLAR-EDICTS-004",
+  "canonical_work_id": "MIRA-WORK-ASHOKA-ROCK-PILLAR-EDICTS",
+  "changed_dependencies": [
+    "body_states"
+  ],
+  "disposition": "reviewed-no-change",
+  "open_questions": [
+    "How should regional inscription variants change routing confidence?",
+    "What independent evidence can test implementation and reception?"
+  ],
+  "predecessor_note_ref": "archive/notes/2026-09-01-library-ashoka-rock-and-pillar-edicts-integration-note-addendum-01.md",
+  "rereading_scope": [
+    "Changed primary bodies",
+    "Changed passage anchors",
+    "Affected routing counterweights"
+  ],
+  "schema_version": "mira-library-note-revision-candidate-v1",
+  "review_summary": "The dependency projection now excludes the carrier-only Wikisource rendering while retaining translation, editorial framing, edition identity, and unresolved limitations. This narrows rather than changes the encounter's interpretive basis.",
+  "status": "resolved",
+  "suspended_route_states": {
+    "ashoka-inscription-governance": "provisional",
+    "ashoka-remorse-capacity": "provisional"
+  },
+  "trigger": {
+    "hard_changes": [
+      "body_states"
+    ],
+    "hard_signals": [],
+    "soft_changes": [],
+    "soft_signals": [],
+    "state": "revision-due",
+    "unknown_signals": []
+  }
+}

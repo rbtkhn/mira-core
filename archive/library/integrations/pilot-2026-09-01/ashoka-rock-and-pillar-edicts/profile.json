@@ -1,0 +1,191 @@
+{
+  "artifact_id": "PROFILE-MIRA-WORK-ASHOKA-ROCK-PILLAR-EDICTS",
+  "artifact_links": {
+    "coverage_ref": "coverage.json",
+    "current_note_ref": "archive/notes/2026-09-01-library-ashoka-rock-and-pillar-edicts-integration-note-addendum-01.md",
+    "essay_topics_ref": "essay-topics.json",
+    "integration_note_ref": "archive/notes/2026-09-01-library-ashoka-rock-and-pillar-edicts-integration-note.md",
+    "integration_note_refs": [
+      "archive/notes/2026-09-01-library-ashoka-rock-and-pillar-edicts-integration-note.md",
+      "archive/notes/2026-09-01-library-ashoka-rock-and-pillar-edicts-integration-note-addendum-01.md"
+    ],
+    "routing_ref": "routing.json"
+  },
+  "artifact_version": 2,
+  "authority_boundary": "This artifact supports provisional Library understanding and routing. It is not current-event verification, canonical identity, operator belief, public publication, or authority to act.",
+  "canonical_work_id": "MIRA-WORK-ASHOKA-ROCK-PILLAR-EDICTS",
+  "central_question_or_situation": "What happens when imperial power publicly subjects itself to a moral vocabulary without surrendering the administrative and coercive capacities that make the proclamation possible?",
+  "confidence": {
+    "bibliographic": "medium",
+    "body_characterization": "medium",
+    "body_integrity": "high",
+    "civilization_memory_interpretation": "high",
+    "doctrinal_or_formal_summary": "medium",
+    "identity": "high",
+    "routing_readiness": "medium"
+  },
+  "created_at": "2026-09-01",
+  "essay_refs": [],
+  "external_research_used": false,
+  "failure_modes": [
+    "Treating dhamma as evidence that coercion ended.",
+    "Treating all inscriptions as one context-free authorial voice.",
+    "Using later admiration as proof of contemporary reception."
+  ],
+  "identity": {
+    "author": "Ashoka",
+    "title": "Rock and Pillar Edicts"
+  },
+  "intellectual_affordances": {
+    "affective_movements": [
+      "Remorse redirected into solicitude and instruction."
+    ],
+    "forms_of_attention": [
+      "Attend to audience, location, variant, and speech act rather than extracting aphorisms."
+    ],
+    "institutional_acts": [
+      "Royal proclamation",
+      "Welfare instruction",
+      "Appointment and direction of officials"
+    ],
+    "mechanisms": [
+      "Public remorse can recode imperial legitimacy without dissolving imperial capacity.",
+      "Repeated inscription creates symbolic unity across heterogeneous territory."
+    ],
+    "organizing_tensions": [
+      "Restraint versus retained coercion",
+      "Universal ethical address versus imperial hierarchy"
+    ],
+    "perceptual_patterns": [
+      "Read moral language together with its institutional carrier."
+    ],
+    "propositions": [
+      "Conquest creates moral obligations that victory alone cannot discharge."
+    ],
+    "symbolic_structures": [
+      "Stone as durability, reach, and royal presence."
+    ]
+  },
+  "interpretive_field": {
+    "common_misreadings": [
+      "Treating dhamma as evidence that coercion ended.",
+      "Treating all inscriptions as one context-free authorial voice.",
+      "Using later admiration as proof of contemporary reception."
+    ],
+    "internal_tensions": [
+      "Sincere remorse and political usefulness may coexist."
+    ],
+    "rival_readings": [
+      "A sincere moral conversion reading",
+      "A strategic legitimacy and administrative-integration reading"
+    ]
+  },
+  "knowledge_basis": "knowledge-seeded",
+  "library_source_id": "LIB-ANCIENT-AUTHOR-001-ASHOKA",
+  "routing_signatures": {
+    "anti_analogy": [
+      "Do not equate an emperor's declared restraint with a modern accountable institution."
+    ],
+    "negative": [
+      "proof-of-policy-implementation",
+      "pacifism-without-capacity"
+    ],
+    "positive": [
+      "public-remorse",
+      "moral-restraint-over-capacity",
+      "inscription-as-governance",
+      "imperial-legitimacy"
+    ]
+  },
+  "schema_version": "mira-library-work-profile-v1",
+  "scope_conditions": [
+    "The admitted Smith/Wikisource body represents a named edition, not a critical complete inscription corpus.",
+    "An edict proves proclamation, not implementation or reception."
+  ],
+  "status": "knowledge-seeded",
+  "synopsis": "A geographically distributed corpus of royal proclamations in which an emperor presents dhamma, welfare, restraint, remorse, and administrative concern as obligations of rule. The edicts are political acts as well as moral statements: their carriers, audiences, locations, and repetitions belong to their meaning.",
+  "textual_basis": {
+    "body_refs": [
+      {
+        "body_id": "LIB-ANCIENT-AUTHOR-001-ASHOKA-ROCK-PILLAR-EDICTS-SMITH",
+        "coverage_status": "complete-work",
+        "language": "english",
+        "status": "available",
+        "text_sha256": "a2f5ba5b76a2a466b79a46fa4925e9281a82988ed6c9bf91d2535e67ff1bf583",
+        "work_title": "Rock and Pillar Edicts"
+      }
+    ],
+    "passage_anchors": [
+      {
+        "anchor_summary": "Creates dedicated moral officers and assigns them welfare functions across sects, peoples, ranks, and vulnerable groups.",
+        "body_id": "LIB-ANCIENT-AUTHOR-001-ASHOKA-ROCK-PILLAR-EDICTS-SMITH",
+        "claim_type": "proclamation",
+        "locator": {
+          "line_end": 360,
+          "line_start": 356,
+          "section": "Rock Edict V — Censors or High Officers of the Law of Piety"
+        },
+        "passage_id": "PASSAGE-ASHOKA-ROCK-EDICT-V-MORAL-OFFICERS",
+        "raw_span_sha256": "d7b75fe2a827de6633309bcbf77de7af193727f06ccb228acaae93e023dafbcc",
+        "supports": [
+          "ashoka-inscription-governance"
+        ],
+        "voice_role": "primary-ruler"
+      },
+      {
+        "anchor_summary": "Joins universal welfare language to permanent reporting, council escalation, and continuous royal dispatch of business.",
+        "body_id": "LIB-ANCIENT-AUTHOR-001-ASHOKA-ROCK-PILLAR-EDICTS-SMITH",
+        "claim_type": "proclamation",
+        "locator": {
+          "line_end": 404,
+          "line_start": 400,
+          "section": "Rock Edict VI — Public business and welfare"
+        },
+        "passage_id": "PASSAGE-ASHOKA-ROCK-EDICT-VI-WELFARE-ADMINISTRATION",
+        "raw_span_sha256": "64b27109d345597bd4087c22f5244ee0d7a3bf97b07fa681dffca5e1a3380017",
+        "supports": [
+          "ashoka-inscription-governance",
+          "ashoka-remorse-capacity"
+        ],
+        "voice_role": "primary-ruler"
+      },
+      {
+        "anchor_summary": "Places quantified conquest, remorse, restraint, a continuing threat of chastisement, and moral conquest in the same proclamation.",
+        "body_id": "LIB-ANCIENT-AUTHOR-001-ASHOKA-ROCK-PILLAR-EDICTS-SMITH",
+        "claim_type": "proclamation",
+        "locator": {
+          "line_end": 620,
+          "line_start": 613,
+          "section": "Rock Edict XIII — Kalinga conquest and remorse"
+        },
+        "passage_id": "PASSAGE-ASHOKA-ROCK-EDICT-XIII-REMORSE-AND-THREAT",
+        "raw_span_sha256": "184618c6b94e51f9965e2a6b029e5d24300bade144681f734a1402b32470f826",
+        "supports": [
+          "ashoka-remorse-capacity"
+        ],
+        "voice_role": "primary-ruler"
+      },
+      {
+        "anchor_summary": "Smith warns that the moral officers' jurisdiction could become tyrannical; this is an editorial counterweight, not Ashoka's voice or primary evidence of practice.",
+        "body_id": "LIB-ANCIENT-AUTHOR-001-ASHOKA-ROCK-PILLAR-EDICTS-SMITH",
+        "claim_type": "editorial-commentary",
+        "locator": {
+          "line_end": 371,
+          "line_start": 371,
+          "section": "Smith commentary on Rock Edict V"
+        },
+        "passage_id": "PASSAGE-ASHOKA-SMITH-COMMENTARY-MORAL-OFFICERS",
+        "raw_span_sha256": "e654bdd33136a514e92a47e6a3ab88b73398ad48d4691ec845af1171fdf6d2e0",
+        "supports": [],
+        "voice_role": "editor-commentator"
+      }
+    ],
+    "passage_status": "anchored-pilot"
+  },
+  "uncertainties": [
+    "Inscription variants and original-language distinctions are not modeled passage by passage.",
+    "Administrative reception and compliance require evidence outside the proclamations."
+  ],
+  "updated_at": "2026-09-01",
+  "work_form": "composite-inscription-corpus"
+}

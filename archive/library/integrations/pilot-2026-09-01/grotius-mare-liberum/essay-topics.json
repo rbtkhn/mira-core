@@ -1,0 +1,96 @@
+{
+  "artifact_id": "TOPICS-MIRA-WORK-GROTIUS-MARE-LIBERUM",
+  "artifact_version": 1,
+  "authority_boundary": "This artifact supports provisional Library understanding and routing. It is not current-event verification, canonical identity, operator belief, public publication, or authority to act.",
+  "canonical_work_id": "MIRA-WORK-GROTIUS-MARE-LIBERUM",
+  "created_at": "2026-09-01",
+  "essay_artifacts_created": 0,
+  "essay_refs": [],
+  "essay_relationship_policy": "Unbounded one-to-many. Essays receive independent IDs and lifecycle states; only revisions of the same essay supersede one another.",
+  "library_source_id": "LIB-COLONIAL-AUTHORITY-065-GROTIUS-MARE-LIBERUM",
+  "schema_version": "mira-library-essay-topic-contracts-v1",
+  "status": "candidate-set",
+  "topics": [
+    {
+      "central_tension": "Interest may explain a principle's articulation without exhausting its validity.",
+      "civilization_memory_refs": [
+        "civilization-memory-snapshot://content/civilizations/GERMANY/MEM–GERMANY–LAW–GROTIUS.md",
+        "civilization-memory-snapshot://content/civilizations/GERMANY/MEM–GERMANY–NETHERLANDS–DUTCH–REPUBLIC.md"
+      ],
+      "do_not_draft_yet": "The pilot authorizes topic comparison only; selection and essay composition remain separate decisions.",
+      "essay_mode": "tension",
+      "evidence_readiness": "supported",
+      "external_research_authorized": false,
+      "external_research_used": false,
+      "governing_question": "How does a universal principle also serve the strategic needs of a rising commercial power?",
+      "library_body_refs": [
+        "LIB-COLONIAL-AUTHORITY-065-GROTIUS-MARE-LIBERUM-LATIN-WIKISOURCE"
+      ],
+      "missing_evidence": [
+        "Critical edition",
+        "Counterargument from closed-seas doctrine"
+      ],
+      "provisional_title": "The Open Sea and the Interested Law",
+      "rank": 1,
+      "routing_contribution": "Route universal claims together with sponsor position and beneficiary structure.",
+      "source_posture": "Admitted Latin body with edition caution plus direct Civilization Memory interpretation.",
+      "topic_contract_id": "TOPIC-MIRA-WORK-GROTIUS-MARE-LIBERUM-01",
+      "voice_contribution": "Hold principle and interest without collapsing either."
+    },
+    {
+      "central_tension": "Ideas formed at an imperial margin may become the grammar of a wider system.",
+      "civilization_memory_refs": [
+        "civilization-memory-snapshot://content/civilizations/GERMANY/MEM–GERMANY–LAW–GROTIUS.md",
+        "civilization-memory-snapshot://content/civilizations/GERMANY/MEM–GERMANY–NETHERLANDS–DUTCH–REPUBLIC.md"
+      ],
+      "do_not_draft_yet": "The pilot authorizes topic comparison only; selection and essay composition remain separate decisions.",
+      "essay_mode": "genealogy",
+      "evidence_readiness": "narrow",
+      "external_research_authorized": false,
+      "external_research_used": false,
+      "governing_question": "How does legal thought produced by a successful political exit return to reshape the surrounding international order?",
+      "library_body_refs": [
+        "LIB-COLONIAL-AUTHORITY-065-GROTIUS-MARE-LIBERUM-LATIN-WIKISOURCE"
+      ],
+      "missing_evidence": [
+        "Independent reception history",
+        "Westphalian causal caution"
+      ],
+      "provisional_title": "Export Grammar",
+      "rank": 2,
+      "routing_contribution": "Connect exit, institutional need, legal abstraction, and later reuse.",
+      "source_posture": "Direct Civilization Memory interpretation plus admitted body.",
+      "topic_contract_id": "TOPIC-MIRA-WORK-GROTIUS-MARE-LIBERUM-02",
+      "voice_contribution": "Trace inheritance without pretending inevitability."
+    },
+    {
+      "central_tension": "Opening routes for one actor may intensify coercion elsewhere.",
+      "civilization_memory_refs": [
+        "civilization-memory-snapshot://content/civilizations/GERMANY/MEM–GERMANY–LAW–GROTIUS.md",
+        "civilization-memory-snapshot://content/civilizations/GERMANY/MEM–GERMANY–NETHERLANDS–DUTCH–REPUBLIC.md"
+      ],
+      "do_not_draft_yet": "The pilot authorizes topic comparison only; selection and essay composition remain separate decisions.",
+      "essay_mode": "limitation",
+      "evidence_readiness": "research-required",
+      "external_research_authorized": false,
+      "external_research_used": false,
+      "governing_question": "How should freedom of navigation be interpreted alongside VOC coercion, monopoly, and colonial extraction?",
+      "library_body_refs": [
+        "LIB-COLONIAL-AUTHORITY-065-GROTIUS-MARE-LIBERUM-LATIN-WIKISOURCE"
+      ],
+      "missing_evidence": [
+        "VOC operational evidence",
+        "Colonized counterpart sources",
+        "Competing maritime doctrines"
+      ],
+      "provisional_title": "Freedom for Whom?",
+      "rank": 3,
+      "routing_contribution": "Add counterpart and distributional tests to open-access rhetoric.",
+      "source_posture": "Civilization Memory is partial and the primary body does not supply the excluded counterpart.",
+      "topic_contract_id": "TOPIC-MIRA-WORK-GROTIUS-MARE-LIBERUM-03",
+      "voice_contribution": "Ask whose freedom and whose exposure a persuasive universal conceals."
+    }
+  ],
+  "updated_at": "2026-09-01",
+  "work_title": "Mare Liberum"
+}

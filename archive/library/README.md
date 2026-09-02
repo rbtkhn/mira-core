@@ -27,6 +27,45 @@ tools\run.ps1 library render-index --json
 Use `tools\run.ps1 library render-index --check --json` in validation paths to
 detect registry/index drift without rewriting any index.
 
+## Work Integration Pilot
+
+The five-work pilot under
+[`integrations/pilot-2026-09-01/`](integrations/pilot-2026-09-01/manifest.md)
+adds versioned, human-and-machine-readable profiles, Civilization Memory
+coverage receipts, routing packets, and essay-topic contracts for Ashoka, Ibn
+Khaldun, Murasaki Shikibu, Grotius, and Du Bois. Their provisional encounter
+notes remain on the Mira Notes shelf. The pilot creates no essay and does not
+activate any routing or Voice contribution merely by storing it.
+
+Validate the pilot and its Library bindings with:
+
+```powershell
+tools\run.ps1 library integration-validate --json
+tools\run.ps1 library integration-render --check --json
+tools\run.ps1 library route-index --check --json
+tools\run.ps1 library integration-reconcile --json
+```
+
+`integration-reconcile --write` may prepare a machine revision candidate when
+a note dependency changes. A hard trigger also suspends the affected routing
+units. It never rewrites a note's interpretive prose; a later encounter must
+produce a linked version, addendum, `reviewed-no-change`, or blocked
+disposition.
+
+The pilot manifest remains an immutable experiment receipt. Current work-level
+integration and route-review state lives in
+[`integrations/work-registry.json`](integrations/work-registry.json). The
+generated [`operational route index`](integrations/route-index.md) is the only
+Library surface that may authorize an active Strategy Notebook pressure-test
+row. A registered `LIB-*` source or body is necessary provenance, but it is not
+operational routing authority by itself. The work registry is the sole human
+review authority: `approved-internal` decisions bind the exact route unit, note
+dependency snapshot, and body digests reviewed. The generated index derives
+technical freshness, source-direct passage support, Notebook eligibility, and
+the work stage (`profiled`, `pressure-test-ready`, `fully-integrated`, or
+`stale`). Unreviewed, rejected, blocked-source, stale, source-readiness-only,
+unanchored, and body-unready routes remain ineligible.
+
 ## Era Taxonomy
 
 | Era | ID | Range | Use |
@@ -142,7 +181,12 @@ Optional text fields:
 - `text_encoding`
 - `language`
 - `translator`
+- `translator_status`: `known`, `unknown`, or `not-applicable`
 - `editor`
+- `editor_status`: `known`, `unknown`, or `not-applicable`
+- `mediation_type`: temporary scalar compatibility projection
+- `mediation`: canonical relation, edition identity, ordered primary path,
+  optional lineage-graph reference, and unresolved questions
 - `edition_label`
 - `license_status`: `public-domain`, `open-license`, `permissioned`,
   `unknown`, or `restricted`
@@ -159,7 +203,12 @@ edition, prefer `text_bodies` over the single-text fields:
 - `text_encoding`
 - `language`
 - `translator`
+- `translator_status`: `known`, `unknown`, or `not-applicable`
 - `editor`
+- `editor_status`: `known`, `unknown`, or `not-applicable`
+- `mediation_type`: temporary scalar compatibility projection
+- `mediation`: canonical relation, edition identity, ordered primary path,
+  optional lineage-graph reference, and unresolved questions
 - `edition_label`
 - `license_status`
 - `license_notes`
@@ -172,6 +221,16 @@ The single-text fields remain valid for simple one-body records. New multi-work
 or multi-volume admissions should use `text_bodies` so author/source authority
 records such as Homer, Herodotus, Plato, Aristotle, Cicero, and Tacitus can
 carry multiple local text bodies without overwriting each other.
+
+Canonical mediation uses `mira-library-mediation-v1`. `text_relation`
+describes whether the admitted body is original-language, translated,
+bilingual, or unresolved. `primary_path` is an ordered, non-empty array of
+stable layers. Each layer records its kind, status, agents, scope, and one
+revision relevance: `interpretive`, `textual-integrity`, or `carrier-only`.
+`lineage_graph_ref` remains optional for ancestry that branches, recombines,
+or is shared by several bodies. During the compatibility period, the scalar
+mediation, translator, editor, and edition fields must equal the deterministic
+projection of the canonical record.
 
 Source-level `coverage_status` describes how much of an author/source authority
 is actually present in the portable text store. It is not inferred from

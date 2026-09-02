@@ -1,0 +1,81 @@
+{
+  "authority_boundary": "This artifact supports provisional Library understanding and routing. It is not current-event verification, canonical identity, operator belief, public publication, or authority to act.",
+  "created_at": "2026-09-01",
+  "essay_artifacts_created": 0,
+  "essay_state": "essay-pending",
+  "integration_rule": "A work becomes integrated only after at least one independently authorized essay is reviewed and linked; additional essays coexist through essay_refs[].",
+  "pilot_id": "mira-library-five-work-pilot-2026-09-01",
+  "publication": {
+    "committed": false,
+    "published": false,
+    "pushed": false,
+    "staged": false
+  },
+  "schema_version": "mira-library-integration-manifest-v1",
+  "snapshot_commit": "4e3fd0c807e124508d42a65759c7cb616e522f4c",
+  "snapshot_receipt_sha256": "bc8dac038f3a0ae06680b29ce6dd783fc5b3b14b8904a3b2f23f8fa2058c1359",
+  "status": "pilot-complete",
+  "topic_contract_count": 15,
+  "work_count": 5,
+  "works": [
+    {
+      "artifact_root": "archive/library/integrations/pilot-2026-09-01/ashoka-rock-and-pillar-edicts",
+      "canonical_work_id": "MIRA-WORK-ASHOKA-ROCK-PILLAR-EDICTS",
+      "essay_refs": [],
+      "essay_state": "essay-pending",
+      "integration_state": "pilot-complete",
+      "library_source_id": "LIB-ANCIENT-AUTHOR-001-ASHOKA",
+      "note_ref": "archive/notes/2026-09-01-library-ashoka-rock-and-pillar-edicts-integration-note-addendum-01.md",
+      "note_refs": [
+        "archive/notes/2026-09-01-library-ashoka-rock-and-pillar-edicts-integration-note.md",
+        "archive/notes/2026-09-01-library-ashoka-rock-and-pillar-edicts-integration-note-addendum-01.md"
+      ],
+      "work_title": "Rock and Pillar Edicts"
+    },
+    {
+      "artifact_root": "archive/library/integrations/pilot-2026-09-01/ibn-khaldun-muqaddimah",
+      "canonical_work_id": "MIRA-WORK-IBN-KHALDUN-MUQADDIMAH",
+      "essay_refs": [],
+      "essay_state": "essay-pending",
+      "integration_state": "pilot-complete",
+      "library_source_id": "LIB-MEDIEVAL-AUTHORITY-033-IBN-KHALDUN",
+      "note_ref": "archive/notes/2026-09-01-library-ibn-khaldun-muqaddimah-integration-note.md",
+      "work_title": "Muqaddimah"
+    },
+    {
+      "artifact_root": "archive/library/integrations/pilot-2026-09-01/murasaki-tale-of-genji",
+      "canonical_work_id": "MIRA-WORK-MURASAKI-TALE-OF-GENJI",
+      "essay_refs": [],
+      "essay_state": "essay-pending",
+      "integration_state": "pilot-complete",
+      "library_source_id": "LIB-MEDIEVAL-AUTHORITY-066-MURASAKI-SHIKIBU",
+      "note_ref": "archive/notes/2026-09-01-library-murasaki-tale-of-genji-integration-note.md",
+      "work_title": "The Tale of Genji"
+    },
+    {
+      "artifact_root": "archive/library/integrations/pilot-2026-09-01/grotius-mare-liberum",
+      "canonical_work_id": "MIRA-WORK-GROTIUS-MARE-LIBERUM",
+      "essay_refs": [],
+      "essay_state": "essay-pending",
+      "integration_state": "pilot-complete",
+      "library_source_id": "LIB-COLONIAL-AUTHORITY-065-GROTIUS-MARE-LIBERUM",
+      "note_ref": "archive/notes/2026-09-01-library-grotius-mare-liberum-integration-note-addendum-02.md",
+      "note_refs": [
+        "archive/notes/2026-09-01-library-grotius-mare-liberum-integration-note.md",
+        "archive/notes/2026-09-01-library-grotius-mare-liberum-integration-note-addendum-01.md",
+        "archive/notes/2026-09-01-library-grotius-mare-liberum-integration-note-addendum-02.md"
+      ],
+      "work_title": "Mare Liberum"
+    },
+    {
+      "artifact_root": "archive/library/integrations/pilot-2026-09-01/du-bois-souls-of-black-folk",
+      "canonical_work_id": "MIRA-WORK-DU-BOIS-SOULS-OF-BLACK-FOLK",
+      "essay_refs": [],
+      "essay_state": "essay-pending",
+      "integration_state": "pilot-complete",
+      "library_source_id": "LIB-INDUSTRIAL-AUTHORITY-025-DU-BOIS",
+      "note_ref": "archive/notes/2026-09-01-library-du-bois-souls-of-black-folk-integration-note.md",
+      "work_title": "The Souls of Black Folk"
+    }
+  ]
+}

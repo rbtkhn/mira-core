@@ -15,7 +15,7 @@ from portable_paths import state_path
 
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
-SCHEMA_VERSION = 4
+SCHEMA_VERSION = 5
 CHOICE_ENV = "MIRA_CORE_CHOICE_DB"
 CADENCE_ENV = "MIRA_CORE_CADENCE_DB"
 MENTORSHIP_ENV = "MIRA_MENTORSHIP_DB"
@@ -290,7 +290,7 @@ def archive_carrier(*, inspect_catalog: bool = False) -> dict[str, Any]:
                 f"catalog-only={len(result['countercheck']['catalog_only'])}; "
                 f"zero-record={len(zero_records)}"
             )
-        except (OSError, ValueError, sqlite3.Error, archive.ArchiveError) as error:
+        except (OSError, ValueError, sqlite3.Error, ImportError) as error:
             result["countercheck"] = {
                 "status": "unavailable",
                 "detail": f"read-only catalog check failed: {error.__class__.__name__}",
@@ -314,6 +314,65 @@ def geopolitics_carrier() -> dict[str, Any]:
         "supports", "canonical", authority_flags(evidence=True),
         "available" if available else "degraded",
     )
+
+
+def library_carrier(*, inspect_texts: bool = False) -> dict[str, Any]:
+    """Project Mira Library health without acquiring Library authority."""
+    import archive_library
+    import library_integration
+
+    canonical = [
+        REPO_ROOT / "archive/library/library-registry.json",
+        REPO_ROOT / "archive/library/integrations/manifest.json",
+        REPO_ROOT / "archive/library/integrations/work-registry.json",
+    ]
+    generated = [
+        REPO_ROOT / "archive/library/text-sources-index.md",
+        REPO_ROOT / "archive/library/integrations/note-link-index.json",
+        REPO_ROOT / "archive/library/integrations/note-link-index.md",
+        REPO_ROOT / "archive/library/integrations/route-index.json",
+        REPO_ROOT / "archive/library/integrations/route-index.md",
+    ]
+    failures: list[str] = []
+    try:
+        registry = archive_library.load_registry(canonical[0])
+        failures.extend(archive_library.validate_registry(registry))
+        failures.extend(library_integration.validate_repository(REPO_ROOT, registry))
+    except (OSError, ValueError, archive_library.LibraryError) as error:
+        failures.append(f"Library controls unreadable: {error}")
+    missing = [relative(path) for path in (*canonical, *generated) if not path.is_file()]
+    failures.extend(f"missing Library control: {path}" for path in missing)
+    available = not failures
+    result = carrier(
+        "mira-library", ["epistemic"],
+        "historical source grounding and provisional cognitive interpretation; no present-fact authority",
+        canonical, generated,
+        "library-import / library-integration / library-reasoning",
+        "current" if available else "invalid",
+        "Library registry, cognitive integration, and derived views validate" if available else "; ".join(failures[:20]),
+        "frames", "canonical", authority_flags(),
+        "available" if available else "degraded",
+        [
+            {"id": "source-library", "authority_status": "collection-native", "owning_command": "tools/run.ps1 library", "reporting_verb": "grounds"},
+            {"id": "cognitive-integration", "authority_status": "provisional", "owning_command": "tools/run.ps1 library integration-validate", "reporting_verb": "frames"},
+            {"id": "applied-reasoning", "authority_status": "private-advisory", "owning_command": "tools/run.ps1 library-reasoning", "reporting_verb": "pressure-tests"},
+        ],
+    )
+    if inspect_texts and available:
+        verification = archive_library.verify_texts_command(argparse.Namespace())
+        body_ids = [str(item).split(":", 1)[0] for item in verification.get("failures", [])]
+        result["countercheck"] = {
+            "status": verification.get("status"),
+            "checked": verification.get("checked", 0),
+            "registry_sources_without_reference_body": verification.get("missing", 0),
+            "failing_body_ids": body_ids[:20],
+            "failure_count": len(body_ids),
+        }
+        if verification.get("status") != "passed":
+            result["availability"] = "degraded"
+            result["freshness"] = "grounding-gap"
+            result["validation_state"] += "; private source grounding has verification gaps"
+    return result
 
 
 def choice_carrier() -> dict[str, Any]:
@@ -400,6 +459,17 @@ ROUTING_RULES = [
     ({"assess", "cadence", "learning"}, "procedural", "recursive-learn", 120, "explicit cadence learning assessment"),
     ({"admit", "recursive", "learning"}, "procedural", "recursive-learn", 120, "explicit recursive-learning admission"),
     ({"rsi", "candidate"}, "procedural", "recursive-learn", 120, "explicit RSI candidate request"),
+    ({"assess", "recursive", "learning"}, "procedural", "recursive-learn", 130, "explicit recursive-learning assessment"),
+    ({"recursive", "learning"}, "procedural", "recursive-learn", 125, "recursive-learning object"),
+    ({"cognitive", "consumption"}, "epistemic", "library-reasoning", 120, "Library cognitive-consumption request"),
+    ({"historical", "pressure", "test"}, "epistemic", "library-reasoning", 120, "Library historical pressure test"),
+    ({"library", "reasoning"}, "epistemic", "library-reasoning", 110, "Library reasoning request"),
+    ({"library", "source"}, "epistemic", "library-import", 110, "Library source request"),
+    ({"library", "body"}, "epistemic", "library-import", 110, "Library body request"),
+    ({"library", "import"}, "epistemic", "library-import", 110, "Library import request"),
+    ({"library", "integration"}, "epistemic", "library-integration", 110, "Library integration request"),
+    ({"library", "note"}, "epistemic", "library-integration", 110, "Library note request"),
+    ({"library", "graph"}, "epistemic", "library-integration", 110, "Library graph request"),
     ({"record", "dream"}, "procedural", "dream", 110, "explicit Dream closeout"),
     ({"close", "session", "learning"}, "procedural", "dream", 110, "explicit method closeout"),
     ({"coffee"}, "procedural", "coffee", 100, "explicit Coffee re-entry"),
@@ -430,6 +500,7 @@ ROUTING_RULES = [
     ({"continuity"}, "relational", "mira-continuity", 50, "continuity object"),
     ({"lineage"}, "epistemic", "archive", 50, "lineage object"),
     ({"archive"}, "epistemic", "archive", 50, "archive object"),
+    ({"library"}, "epistemic", "library-integration", 50, "Mira Library object"),
 ]
 
 
@@ -606,15 +677,26 @@ def status(focus: str | None, as_of: str, counterchecks: str = "auto") -> dict[s
         route["recommended_owner"] == "archive"
         or bool(focus_classes & {"epistemic", "autobiographical", "procedural", "relational"})
     )
+    inspect_library = counterchecks == "auto" and (
+        route["recommended_owner"] in {"library-import", "library-integration", "library-reasoning"}
+        or bool(candidate_workflows & {"library-import", "library-integration", "library-reasoning"})
+    )
     _, session_closure = rest_surface()
     carriers = [
         continuity_carrier(inspect_sources=inspect_continuity), journal_carrier(),
         recursive_carrier(), archive_carrier(inspect_catalog=inspect_archive),
-        geopolitics_carrier(), choice_carrier(), cadence_carrier(), mentorship_carrier(),
+        geopolitics_carrier(), library_carrier(inspect_texts=inspect_library),
+        choice_carrier(), cadence_carrier(), mentorship_carrier(),
     ]
     for row in carriers:
         if row["availability"] == "unavailable":
             row["activation_state"] = "unavailable"
+        elif row["id"] == "mira-library" and bool(
+            candidate_workflows & {"library-import", "library-integration", "library-reasoning"}
+        ):
+            row["activation_state"] = "relevant"
+        elif row["id"] == "mira-library":
+            row["activation_state"] = "inactive"
         elif bool(focus_classes & set(row["memory_classes"])):
             row["activation_state"] = "relevant"
     carriers.sort(key=lambda row: (row["activation_state"] != "relevant", row["id"]))

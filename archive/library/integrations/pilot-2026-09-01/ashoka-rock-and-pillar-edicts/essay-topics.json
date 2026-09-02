@@ -1,0 +1,93 @@
+{
+  "artifact_id": "TOPICS-MIRA-WORK-ASHOKA-ROCK-PILLAR-EDICTS",
+  "artifact_version": 1,
+  "authority_boundary": "This artifact supports provisional Library understanding and routing. It is not current-event verification, canonical identity, operator belief, public publication, or authority to act.",
+  "canonical_work_id": "MIRA-WORK-ASHOKA-ROCK-PILLAR-EDICTS",
+  "created_at": "2026-09-01",
+  "essay_artifacts_created": 0,
+  "essay_refs": [],
+  "essay_relationship_policy": "Unbounded one-to-many. Essays receive independent IDs and lifecycle states; only revisions of the same essay supersede one another.",
+  "library_source_id": "LIB-ANCIENT-AUTHOR-001-ASHOKA",
+  "schema_version": "mira-library-essay-topic-contracts-v1",
+  "status": "candidate-set",
+  "topics": [
+    {
+      "central_tension": "Moral conversion may be sincere while also renewing legitimacy.",
+      "civilization_memory_refs": [
+        "civilization-memory-snapshot://content/civilizations/INDIA/MEM–INDIA–DYNASTY–MAURYA.md",
+        "civilization-memory-snapshot://content/civilizations/INDIA/MEM–INDIA–BUDDHISM.md"
+      ],
+      "do_not_draft_yet": "The pilot authorizes topic comparison only; selection and essay composition remain separate decisions.",
+      "essay_mode": "mechanism",
+      "evidence_readiness": "supported",
+      "external_research_authorized": false,
+      "external_research_used": false,
+      "governing_question": "How does Ashoka layer moral restraint over an imperial coercive apparatus that remains intact?",
+      "library_body_refs": [
+        "LIB-ANCIENT-AUTHOR-001-ASHOKA-ROCK-PILLAR-EDICTS-SMITH"
+      ],
+      "missing_evidence": [
+        "Reception and implementation evidence"
+      ],
+      "provisional_title": "Remorse in Stone",
+      "rank": 1,
+      "routing_contribution": "Distinguish change in governing purpose from disappearance of capacity.",
+      "source_posture": "Admitted edict body plus direct Civilization Memory interpretation.",
+      "topic_contract_id": "TOPIC-MIRA-WORK-ASHOKA-ROCK-PILLAR-EDICTS-01",
+      "voice_contribution": "Hold remorse and institutional continuity in the same sentence."
+    },
+    {
+      "central_tension": "Ethical address can include care while functioning as imperial administration.",
+      "civilization_memory_refs": [
+        "civilization-memory-snapshot://content/civilizations/INDIA/MEM–INDIA–DYNASTY–MAURYA.md",
+        "civilization-memory-snapshot://content/civilizations/INDIA/MEM–INDIA–BUDDHISM.md"
+      ],
+      "do_not_draft_yet": "The pilot authorizes topic comparison only; selection and essay composition remain separate decisions.",
+      "essay_mode": "persuasion",
+      "evidence_readiness": "narrow",
+      "external_research_authorized": false,
+      "external_research_used": false,
+      "governing_question": "How do inscriptions turn ethical proclamation, welfare, and symbolic unification into instruments of rule?",
+      "library_body_refs": [
+        "LIB-ANCIENT-AUTHOR-001-ASHOKA-ROCK-PILLAR-EDICTS-SMITH"
+      ],
+      "missing_evidence": [
+        "Inscription-by-inscription location and variant model"
+      ],
+      "provisional_title": "The Empire Addresses Its Subjects",
+      "rank": 2,
+      "routing_contribution": "Route by carrier and speech act rather than maxim alone.",
+      "source_posture": "Admitted edict body plus direct and adjacent Civilization Memory objects.",
+      "topic_contract_id": "TOPIC-MIRA-WORK-ASHOKA-ROCK-PILLAR-EDICTS-02",
+      "voice_contribution": "Increase attention to material form, audience, and mediation."
+    },
+    {
+      "central_tension": "Declaration is evidence of utterance and aspiration, not automatic evidence of compliance.",
+      "civilization_memory_refs": [
+        "civilization-memory-snapshot://content/civilizations/INDIA/MEM–INDIA–DYNASTY–MAURYA.md",
+        "civilization-memory-snapshot://content/civilizations/INDIA/MEM–INDIA–BUDDHISM.md"
+      ],
+      "do_not_draft_yet": "The pilot authorizes topic comparison only; selection and essay composition remain separate decisions.",
+      "essay_mode": "limitation",
+      "evidence_readiness": "research-required",
+      "external_research_authorized": false,
+      "external_research_used": false,
+      "governing_question": "Where is the boundary between proclaimed dhamma and demonstrated administrative practice?",
+      "library_body_refs": [
+        "LIB-ANCIENT-AUTHOR-001-ASHOKA-ROCK-PILLAR-EDICTS-SMITH"
+      ],
+      "missing_evidence": [
+        "Independent administrative evidence",
+        "Reception history"
+      ],
+      "provisional_title": "What an Edict Cannot Prove",
+      "rank": 3,
+      "routing_contribution": "Supply a reusable proclamation/practice/reception distinction.",
+      "source_posture": "Primary proclamations and Civilization Memory are sufficient to define the problem, not to settle practice.",
+      "topic_contract_id": "TOPIC-MIRA-WORK-ASHOKA-ROCK-PILLAR-EDICTS-03",
+      "voice_contribution": "Make evidentiary limits intrinsic to persuasive clarity."
+    }
+  ],
+  "updated_at": "2026-09-01",
+  "work_title": "Rock and Pillar Edicts"
+}

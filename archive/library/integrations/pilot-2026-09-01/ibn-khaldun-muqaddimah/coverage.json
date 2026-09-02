@@ -1,0 +1,42 @@
+{
+  "adjacent_objects_opened": [],
+  "adjudication": "The bounded search found only authority-list mentions. Those mentions establish civilizational placement but cannot support any proposed essay's substantive argument. Coverage is therefore none, not partial; the Library body review remains an independent blocker.",
+  "artifact_id": "COVERAGE-MIRA-WORK-IBN-KHALDUN-MUQADDIMAH",
+  "artifact_version": 1,
+  "authority_boundary": "This artifact supports provisional Library understanding and routing. It is not current-event verification, canonical identity, operator belief, public publication, or authority to act.",
+  "canonical_work_id": "MIRA-WORK-IBN-KHALDUN-MUQADDIMAH",
+  "coverage_decision": "none",
+  "coverage_scope": "The three proposed essays on solidarity, historical method, and the limits of cyclical analogy.",
+  "created_at": "2026-09-01",
+  "direct_objects_opened": [
+    {
+      "digest": "93eb7f6d3e264c6902d5ce93c6d29304efef7d8a58c60eb6bd3f367658b89ca4",
+      "id": "civilization-memory-snapshot://content/civilizations/ISLAM/CIV–ARC–ISLAM.md",
+      "relevance": "Names Ibn Khaldun and the Muqaddimah but contains no substantive interpretation of the work."
+    },
+    {
+      "digest": "861408a70c1f556eb77fe84d192722ae2d812b27012303fce2da5b02d455e21d",
+      "id": "civilization-memory-snapshot://content/civilizations/PERSIA/CIV–ARC–PERSIA.md",
+      "relevance": "Names Ibn Khaldun as an admissible source but supplies no work-level mechanism analysis."
+    }
+  ],
+  "essay_source_posture": "Library body + typed Civilization Memory interpretation + Mira synthesis; external research only where authorized and later used.",
+  "external_research_authorized": true,
+  "external_research_used": false,
+  "library_source_id": "LIB-MEDIEVAL-AUTHORITY-033-IBN-KHALDUN",
+  "schema_version": "mira-library-civmem-coverage-v1",
+  "search_scope": [
+    "Direct title and author terms for Muqaddimah and Abd al-Rahman Ibn Khaldun",
+    "Adjacent civilizational and mechanism terms where direct matches existed"
+  ],
+  "snapshot_commit": "4e3fd0c807e124508d42a65759c7cb616e522f4c",
+  "snapshot_receipt_sha256": "bc8dac038f3a0ae06680b29ce6dd783fc5b3b14b8904a3b2f23f8fa2058c1359",
+  "status": "adjudicated",
+  "unresolved_gaps": [
+    "Reviewed primary text",
+    "English reading body or governed translation posture",
+    "Substantive Civilization Memory interpretation"
+  ],
+  "updated_at": "2026-09-01",
+  "work_title": "Muqaddimah"
+}

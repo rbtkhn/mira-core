@@ -28,6 +28,13 @@ without making historical authority a substitute for live evidence.
    directory is not writable, stop and report the private-carrier blocker rather
    than creating new packet state under `C:\private`.
 
+   Packet v3 may also consume the validated current-head Library cognitive
+   inventory. Read only explicit profile signatures, framing arrays, and
+   authored graph relationships; never derive a relation or claim from prose.
+   A direct positive signature may nominate a source, while a matching negative
+   signature cancels that promotion. Comparative edges widen framing exactly
+   one hop and never borrow passages or routing authority.
+
 3. Geo-Strategy must adjudicate every candidate as `adopted`, `narrowed`,
    `redirected`, `rejected`, or `held`. Adopted material requires a shared
    mechanism, decisive structural difference, rejection condition, concept
@@ -41,6 +48,12 @@ observations. These records describe retrieval usefulness and failure, never
 the truth of a geopolitical conclusion. Use `--check` when no observation
 should be written.
 
+Cognitive context is adjudicated separately as `used-materially`,
+`used-nonmaterially`, `rejected`, or `held`. Only direct, passage-grounded
+material use may contribute to a route-review nomination. Operational
+dispositions still require an eligible route; a current cognitive head does
+not replace the reviewed predecessor bound to that route.
+
 ## Recursive Routing
 
 Inspect observations and prepare an inactive proposal:
@@ -50,6 +63,8 @@ tools\run.ps1 library-reasoning learning-status --json
 tools\run.ps1 library-reasoning calibration-status --json
 tools\run.ps1 library-reasoning propose-routing-update --check --json
 tools\run.ps1 library-reasoning propose-routing-update --json
+tools\run.ps1 library-reasoning propose-route-review-candidates --check --json
+tools\run.ps1 library-reasoning propose-route-review-candidates --json
 ```
 
 A proposal requires three consistent adjudications across two crisis
@@ -68,6 +83,28 @@ verification, or census root. Routing memory may learn only capped,
 profile-scoped retrieval adjustments; it may not learn present-event truth,
 base rates, preferred prose, or historical prestige.
 
+Route-review candidates require three consistent material direct uses across
+two crisis signatures, no effective rejection, and unchanged note, dependency,
+and profile digests. They remain inactive private nominations and create no
+route or review.
+
+## Recursive Learning Handoff
+
+Library observations do not establish Recursive Learning. After real later
+use, prepare a private `mira-library-learning-export-spec-v1` and run:
+
+```powershell
+tools\run.ps1 library-reasoning export-learning-reference --spec FILE --output ABSOLUTE_EXTERNAL_PATH --check --json
+tools\run.ps1 library-reasoning export-learning-reference --spec FILE --output ABSOLUTE_EXTERNAL_PATH --json
+```
+
+The specification identifies effective cognitive observation events, states
+explicit observation and diagnosis claims, and binds repository-relative stage
+artifacts by SHA-256. Notes, packets, and private events remain provenance only.
+An intervention requires commit references; an outcome requires distinct
+later-use evidence. Export creates assessment input, never an RSI candidate or
+ledger admission.
+
 ## Boundaries
 
 - Registry and private source bodies are read-only.
@@ -81,6 +118,8 @@ base rates, preferred prose, or historical prestige.
 - Staging, commit, push, Archive ingestion, and publication are separate.
 - Routing activation and recursive-learning ledger admission are separate
   exact-authority boundaries.
+- Mira Memory may report Library relevance and route ownership, but it is not a
+  runtime dependency or writer for this workflow.
 
 ## Pilot Review
 

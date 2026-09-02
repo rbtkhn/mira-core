@@ -15,6 +15,7 @@ from statistics import median
 from typing import Any, Iterable
 
 import archive_library
+import library_integration
 
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
@@ -35,6 +36,11 @@ FAILURE_TAGS = {
     "wrong-analytic-role", "insufficient-context", "translation-ambiguity",
     "shared-lineage", "anachronism", "representation-gap", "crisis-object-mismatch",
     "evidence-laundering-risk",
+}
+COGNITIVE_DISPOSITIONS = {"used-materially", "used-nonmaterially", "rejected", "held"}
+COGNITIVE_EFFECTS = {
+    "nominated-source", "clarified-mechanism", "introduced-tension",
+    "introduced-rival", "strengthened-anti-analogy", "no-material-change",
 }
 ABLATION_METRICS = {
     "mechanism_clarity", "evidence_integrity", "credible_rival_quality",
@@ -96,7 +102,133 @@ class ReasoningError(ValueError):
 
 
 def tokens(value: str) -> set[str]:
-    return {item for item in TOKEN_RE.findall(value.lower()) if len(item) > 2}
+    return {item for item in TOKEN_RE.findall(value.lower().replace("-", " ")) if len(item) > 2}
+
+
+def file_sha256(path: Path) -> str:
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def _signature_matches(values: Any, query_tokens: set[str]) -> list[str]:
+    if not isinstance(values, list):
+        return []
+    return sorted(
+        str(value) for value in values
+        if isinstance(value, str) and len(tokens(value) & query_tokens) >= 2
+    )
+
+
+def cognitive_inventory(question: str, mechanism: str) -> dict[str, Any]:
+    """Load explicit current-head cognitive handles; never inspect note prose."""
+    registry = archive_library.load_registry()
+    failures = library_integration.validate_repository(REPO_ROOT, registry)
+    if failures:
+        raise ReasoningError("Library cognitive controls invalid: " + "; ".join(failures[:10]))
+    work_registry = library_integration.load_work_registry(REPO_ROOT)
+    manifest = library_integration.load_manifest(REPO_ROOT)
+    note_index = load_json(REPO_ROOT / "archive/library/integrations/note-link-index.json")
+    route_index = load_json(REPO_ROOT / "archive/library/integrations/route-index.json")
+    if note_index.get("schema_version") != "mira-library-note-link-index-v2":
+        raise ReasoningError("Library note-link index is not current")
+    known = {str(row.get("canonical_work_id")) for row in manifest.get("works", [])}
+    query_tokens = tokens(f"{question} {mechanism}")
+    routes_by_work: dict[str, list[dict[str, Any]]] = defaultdict(list)
+    for route in route_index.get("routes", []):
+        routes_by_work[str(route.get("canonical_work_id"))].append(route)
+    rows: dict[str, dict[str, Any]] = {}
+    envelopes: dict[str, dict[str, Any]] = {}
+    for work in work_registry.get("works", []):
+        work_id = str(work.get("canonical_work_id"))
+        note_ref = library_integration.revision_head_note_ref(work)
+        note_path = REPO_ROOT / note_ref
+        envelope = library_integration.parse_note_envelope(note_path)
+        work_dir = REPO_ROOT / str(work.get("artifact_root"))
+        profile_path = work_dir / "profile.json"
+        profile = load_json(profile_path)
+        relation_failures = library_integration.validate_library_relations(
+            envelope, known, label=note_ref
+        )
+        focal = [
+            row for row in library_integration.library_relations_for_work(envelope, work_id)
+            if row.get("relation_type") == "interprets" and row.get("role") == "focal"
+        ]
+        expected_dependency = library_integration.dependency_snapshot_for_note(
+            work_dir, archive_library.find_source(registry, str(work.get("library_source_id"))), envelope
+        )
+        expected_profile = file_sha256(profile_path)
+        if relation_failures or not focal:
+            raise ReasoningError(f"current Library head lacks a valid focal relation: {work_id}")
+        if envelope.get("dependency_snapshot") != expected_dependency:
+            raise ReasoningError(f"current Library head has stale dependencies: {work_id}")
+        if envelope.get("linked_artifact_digests", {}).get("profile_sha256") != expected_profile:
+            raise ReasoningError(f"current Library head has stale profile binding: {work_id}")
+        signatures = profile.get("routing_signatures", {})
+        positive = _signature_matches(signatures.get("positive"), query_tokens)
+        negative = _signature_matches(signatures.get("negative"), query_tokens)
+        route_rows = routes_by_work.get(work_id, [])
+        rows[work_id] = {
+            "canonical_work_id": work_id,
+            "library_source_id": work.get("library_source_id"),
+            "integration_stage": work.get("integration_stage"),
+            "note_ref": note_ref,
+            "note_sha256": file_sha256(note_path),
+            "note_dependency_sha256": hashlib.sha256(json.dumps(expected_dependency, sort_keys=True, separators=(",", ":")).encode("utf-8")).hexdigest(),
+            "profile_ref": str(profile_path.relative_to(REPO_ROOT)).replace("\\", "/"),
+            "profile_sha256": expected_profile,
+            "matched_positive_signatures": positive,
+            "matched_negative_signatures": negative,
+            "promotion_state": "suppressed-negative" if positive and negative else ("promoted" if positive else "unmatched"),
+            "framing": {
+                "mechanisms": profile.get("intellectual_affordances", {}).get("mechanisms", []),
+                "tensions": profile.get("intellectual_affordances", {}).get("organizing_tensions", []),
+                "rival_readings": profile.get("interpretive_field", {}).get("rival_readings", []),
+                "anti_analogy": signatures.get("anti_analogy", []),
+            },
+            "eligible_route_ids": sorted(str(route.get("route_id")) for route in route_rows if route.get("notebook_eligibility") == "eligible"),
+            "route_state": "eligible-route" if any(route.get("notebook_eligibility") == "eligible" for route in route_rows) else ("ineligible-route" if route_rows else "noted-only"),
+            "nomination_basis": "direct-signature",
+            "analysis_state": "governed",
+            "consumption_scope": "retrieval-and-framing",
+            "cognitive_disposition": None,
+            "cognitive_effects": [],
+            "reviewed_passage_digests": [],
+        }
+        envelopes[work_id] = envelope
+    direct = [rows[key] for key in sorted(rows) if rows[key]["matched_positive_signatures"]]
+    promoted = [row for row in direct if row["promotion_state"] == "promoted"]
+    companions: list[dict[str, Any]] = []
+    seen_companions: set[str] = set()
+    for focal_row in promoted:
+        targets = sorted({
+            str(relation.get("target_id"))
+            for relation in envelopes[focal_row["canonical_work_id"]].get("library_relations", [])
+            if isinstance(relation, dict)
+            and relation.get("relation_type") == "connects"
+            and relation.get("role") == "comparative"
+        })[:2]
+        for target in targets:
+            if target in seen_companions or target == focal_row["canonical_work_id"] or target not in rows:
+                continue
+            companion = dict(rows[target])
+            companion.update({
+                "nomination_basis": "comparative-one-hop",
+                "origin_work_id": focal_row["canonical_work_id"],
+                "analysis_state": "analysis-pending",
+                "promotion_state": "framing-only",
+                "eligible_route_ids": [],
+            })
+            companions.append(companion)
+            seen_companions.add(target)
+            if len(companions) == 4:
+                break
+        if len(companions) == 4:
+            break
+    return {
+        "works": [rows[key] for key in sorted(rows)],
+        "direct": direct,
+        "companions": companions,
+        "preferred_source_ids": sorted(str(row["library_source_id"]) for row in promoted),
+    }
 
 
 def source_text(source: dict[str, Any]) -> str:
@@ -145,7 +277,7 @@ def routing_decision(question: str, mechanism: str) -> dict[str, Any]:
     }
 
 
-def score_source(source: dict[str, Any], query_tokens: set[str], profiles: list[str]) -> int:
+def score_source(source: dict[str, Any], query_tokens: set[str], profiles: list[str], cognitive_preferred: set[str] | None = None) -> int:
     haystack = source_text(source).lower()
     score = sum(3 for item in query_tokens if item in haystack)
     score += sum(2 for item in query_tokens if item in str(source.get("title", "")).lower())
@@ -158,17 +290,17 @@ def score_source(source: dict[str, Any], query_tokens: set[str], profiles: list[
         for name in profiles
         for source_id, _ in MECHANISM_PROFILES[name]["candidates"]
     }
-    if source.get("source_id") in preferred:
+    if source.get("source_id") in preferred | set(cognitive_preferred or set()):
         score += 20
     return score + learned_adjustment(profiles, str(source.get("source_id")))
 
 
-def ranked_sources(question: str, mechanism: str, *, limit: int = 20, profiles: list[str] | None = None) -> list[dict[str, Any]]:
+def ranked_sources(question: str, mechanism: str, *, limit: int = 20, profiles: list[str] | None = None, cognitive_preferred: set[str] | None = None) -> list[dict[str, Any]]:
     registry = archive_library.load_registry()
     query_tokens = tokens(f"{question} {mechanism}")
     profiles = matching_profiles(query_tokens) if profiles is None else profiles
     ranked = [
-        (score_source(source, query_tokens, profiles), source)
+        (score_source(source, query_tokens, profiles, cognitive_preferred), source)
         for source in registry.get("sources", [])
         if source.get("subject_era") != "digital"
     ]
@@ -182,11 +314,15 @@ def family_key(source: dict[str, Any]) -> str:
     return f"{source.get('subject_era', 'unknown')}:{tags[0]}:{source.get('source_type', 'unknown')}"
 
 
-def pre_scan(question: str, mechanism: str, limit: int = 5) -> dict[str, Any]:
+def pre_scan(question: str, mechanism: str, limit: int = 5, cognitive: dict[str, Any] | None = None) -> dict[str, Any]:
     decision = routing_decision(question, mechanism)
+    cognitive = cognitive_inventory(question, mechanism) if cognitive is None else cognitive
+    if cognitive["direct"] and decision["decision"] == "skip":
+        decision = {"decision": "invoke", "profiles": [], "reason": "governed cognitive signature cleared the two-term relevance floor"}
     families: list[dict[str, Any]] = []
     seen: set[str] = set()
-    for source in ranked_sources(question, mechanism, profiles=decision["profiles"]) if decision["decision"] == "invoke" else []:
+    preferred = set(cognitive["preferred_source_ids"])
+    for source in ranked_sources(question, mechanism, profiles=decision["profiles"], cognitive_preferred=preferred) if decision["decision"] == "invoke" else []:
         key = family_key(source)
         if key in seen:
             continue
@@ -229,8 +365,15 @@ def reasoning_text_roots(environment: dict[str, str] | None = None) -> list[Path
     if fallback not in roots:
         roots.append(fallback)
     for root in roots:
-        if not private_carrier_path_allowed(root):
-            raise ReasoningError(f"reasoning text root must be private: {root}")
+        try:
+            root.relative_to(REPO_ROOT.resolve())
+        except ValueError:
+            pass
+        else:
+            raise ReasoningError(f"reasoning text root must remain outside Git: {root}")
+        legacy_root = Path("C:/private").resolve()
+        if root == legacy_root or legacy_root in root.parents:
+            raise ReasoningError(f"C:/private is legacy import-only, not a reasoning text root: {root}")
     return roots
 
 
@@ -364,8 +507,11 @@ def geo_packet(run_date: str, crisis_object: str, mechanism: str) -> dict[str, A
     query_tokens = tokens(f"{crisis_object} {mechanism}")
     words = TOKEN_RE.findall(f"{crisis_object} {mechanism}".lower())
     query_phrases = {" ".join(words[index:index + 2]) for index in range(len(words) - 1)}
+    cognitive = cognitive_inventory(crisis_object, mechanism)
     decision = routing_decision(crisis_object, mechanism)
-    ranked = ranked_sources(crisis_object, mechanism, profiles=decision["profiles"]) if decision["decision"] == "invoke" else []
+    if cognitive["direct"] and decision["decision"] == "skip":
+        decision = {"decision": "invoke", "profiles": [], "reason": "governed cognitive signature cleared the two-term relevance floor"}
+    ranked = ranked_sources(crisis_object, mechanism, profiles=decision["profiles"], cognitive_preferred=set(cognitive["preferred_source_ids"])) if decision["decision"] == "invoke" else []
     selected = select_sources(ranked)
     candidates: list[dict[str, Any]] = []
     passage_total = 0
@@ -397,6 +543,10 @@ def geo_packet(run_date: str, crisis_object: str, mechanism: str) -> dict[str, A
                 "routing_suppressed": suppressed,
                 "passages": passages,
             })
+        source_routes = [
+            route for route in load_json(REPO_ROOT / "archive/library/integrations/route-index.json").get("routes", [])
+            if route.get("library_source_id") == source.get("source_id") and route.get("notebook_eligibility") == "eligible"
+        ]
         candidates.append({
             "source_id": source.get("source_id"),
             "authority": source.get("author"),
@@ -430,9 +580,10 @@ def geo_packet(run_date: str, crisis_object: str, mechanism: str) -> dict[str, A
             "effect_on_judgment": [],
             "failure_tags": [],
             "adjudicated_role": None,
+            "eligible_route_ids": sorted(str(route.get("route_id")) for route in source_routes),
         })
     packet = {
-        "schema_version": "mira-library-geo-pilot-v2",
+        "schema_version": "mira-library-geo-pilot-v3",
         "packet_id": "MLGP-" + hashlib.sha256(
             f"{run_date}|{crisis_object}|{mechanism}".encode("utf-8")
         ).hexdigest()[:16],
@@ -441,9 +592,10 @@ def geo_packet(run_date: str, crisis_object: str, mechanism: str) -> dict[str, A
         "crisis_object": crisis_object,
         "provisional_mechanism": mechanism,
         "crisis_signature": hashlib.sha256(crisis_object.encode("utf-8")).hexdigest(),
-        "pre_scan": pre_scan(crisis_object, mechanism),
+        "pre_scan": pre_scan(crisis_object, mechanism, cognitive=cognitive),
         "routing": decision,
         "candidates": candidates,
+        "cognitive_context": [*cognitive["direct"], *cognitive["companions"]],
         "representation_gaps": representation_gaps(selected),
         "retrieval_cost": {"candidate_count": len(candidates), "passage_count": passage_total},
         "review_state": (
@@ -501,6 +653,8 @@ def validate_adjudication(packet: dict[str, Any]) -> list[str]:
             failures.append(f"{source_id} has invalid or missing disposition")
             continue
         if row["disposition"] in {"adopted", "narrowed", "redirected"}:
+            if packet.get("schema_version") == "mira-library-geo-pilot-v3" and not row.get("eligible_route_ids"):
+                failures.append(f"{source_id} has an operational disposition without an eligible route")
             analogy = row.get("analogy", {})
             bridge = row.get("concept_bridge", {})
             if not analogy.get("shared_mechanism"):
@@ -521,6 +675,16 @@ def validate_adjudication(packet: dict[str, Any]) -> list[str]:
         failures.append("packet effect is missing")
     elif set(packet["packet_effect"]) - EFFECTS:
         failures.append("packet effect contains unsupported values")
+    for row in packet.get("cognitive_context", []):
+        work_id = row.get("canonical_work_id", "unknown")
+        disposition = row.get("cognitive_disposition")
+        if disposition not in COGNITIVE_DISPOSITIONS:
+            failures.append(f"{work_id} has invalid or missing cognitive disposition")
+        invalid = sorted(set(row.get("cognitive_effects", [])) - COGNITIVE_EFFECTS)
+        if invalid:
+            failures.append(f"{work_id} has invalid cognitive effects: {', '.join(invalid)}")
+        if row.get("nomination_basis") == "comparative-one-hop" and row.get("reviewed_passage_digests"):
+            failures.append(f"{work_id} comparative context may not borrow passages")
     return failures
 
 
@@ -533,6 +697,10 @@ def load_json(path: Path) -> dict[str, Any]:
 
 def feedback_path() -> Path:
     return resolve_packet_root() / "learning" / "events.jsonl"
+
+
+def cognitive_feedback_path() -> Path:
+    return resolve_packet_root() / "learning" / "cognitive-events.jsonl"
 
 
 def append_feedback(packet: dict[str, Any], adjudication: dict[str, Any]) -> int:
@@ -579,6 +747,58 @@ def append_feedback(packet: dict[str, Any], adjudication: dict[str, Any]) -> int
     with path.open("a", encoding="utf-8", newline="\n") as handle:
         for event in events:
             handle.write(json.dumps(event, ensure_ascii=False, separators=(",", ":")) + "\n")
+    return len(events) + append_cognitive_feedback(packet)
+
+
+def read_cognitive_feedback() -> list[dict[str, Any]]:
+    path = cognitive_feedback_path()
+    if not path.is_file():
+        return []
+    rows: list[dict[str, Any]] = []
+    for line in path.read_text(encoding="utf-8").splitlines():
+        try:
+            value = json.loads(line)
+        except json.JSONDecodeError:
+            continue
+        if isinstance(value, dict):
+            rows.append(value)
+    return rows
+
+
+def append_cognitive_feedback(packet: dict[str, Any]) -> int:
+    rows = read_cognitive_feedback()
+    existing = {str(row.get("event_id")) for row in rows}
+    events: list[dict[str, Any]] = []
+    for row in packet.get("cognitive_context", []):
+        payload = {
+            "packet_id": packet.get("packet_id"),
+            "canonical_work_id": row.get("canonical_work_id"),
+            "nomination_basis": row.get("nomination_basis"),
+            "matched_positive_signatures": row.get("matched_positive_signatures", []),
+            "cognitive_disposition": row.get("cognitive_disposition"),
+            "cognitive_effects": row.get("cognitive_effects", []),
+            "reviewed_passage_digests": row.get("reviewed_passage_digests", []),
+            "note_sha256": row.get("note_sha256"),
+            "note_dependency_sha256": row.get("note_dependency_sha256"),
+            "profile_sha256": row.get("profile_sha256"),
+        }
+        event_id = hashlib.sha256(json.dumps(payload, sort_keys=True, separators=(",", ":")).encode("utf-8")).hexdigest()
+        if event_id in existing:
+            continue
+        events.append({
+            "schema_version": "mira-library-cognitive-observation-v1",
+            "event_id": event_id,
+            "observed_at": datetime.now(timezone.utc).isoformat(),
+            "crisis_signature": packet.get("crisis_signature"),
+            **payload,
+            "grounded": bool(row.get("reviewed_passage_digests")),
+        })
+    if events:
+        path = cognitive_feedback_path()
+        path.parent.mkdir(parents=True, exist_ok=True)
+        with path.open("a", encoding="utf-8", newline="\n") as handle:
+            for event in events:
+                handle.write(json.dumps(event, ensure_ascii=False, separators=(",", ":")) + "\n")
     return len(events)
 
 
@@ -592,6 +812,17 @@ def adjudicate(packet_file: Path, adjudication_file: Path, *, check: bool) -> di
             for field in ("textual_lineage", "intellectual_lineage", "lineage_independence", "representation_limitations", "analogy", "concept_bridge", "disposition", "effect_on_judgment", "failure_tags", "adjudicated_role"):
                 if field in update:
                     candidate[field] = update[field]
+    cognitive_rows = {
+        row.get("canonical_work_id"): row
+        for row in adjudication.get("cognitive_context", [])
+        if isinstance(row, dict)
+    }
+    for context in packet.get("cognitive_context", []):
+        update = cognitive_rows.get(context.get("canonical_work_id"))
+        if update:
+            for field in ("cognitive_disposition", "cognitive_effects", "reviewed_passage_digests"):
+                if field in update:
+                    context[field] = update[field]
     packet["packet_effect"] = adjudication.get("packet_effect", [])
     packet["review_state"] = "adjudicated"
     failures = validate_adjudication(packet)
@@ -613,6 +844,159 @@ def adjudicate(packet_file: Path, adjudication_file: Path, *, check: bool) -> di
         packet_file.write_text(json.dumps(packet, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
         events_appended = append_feedback(packet, adjudication)
     return {"status": "ok", "failures": [], "packet": packet, "written": not check, "learning_events_appended": events_appended}
+
+
+def route_review_candidates(*, check: bool) -> dict[str, Any]:
+    groups: dict[tuple[str, str, str, str, str], list[dict[str, Any]]] = defaultdict(list)
+    for event in read_cognitive_feedback():
+        if event.get("nomination_basis") != "direct-signature" or not event.get("grounded"):
+            continue
+        for signature in event.get("matched_positive_signatures", []):
+            key = (
+                str(event.get("canonical_work_id")), str(signature),
+                str(event.get("note_sha256")), str(event.get("note_dependency_sha256")),
+                str(event.get("profile_sha256")),
+            )
+            groups[key].append(event)
+    candidates: list[dict[str, Any]] = []
+    for key, rows in sorted(groups.items()):
+        material = [row for row in rows if row.get("cognitive_disposition") == "used-materially"]
+        rejected = [row for row in rows if row.get("cognitive_disposition") == "rejected"]
+        crises = {row.get("crisis_signature") for row in material if row.get("crisis_signature")}
+        if len(material) < 3 or len(crises) < 2 or rejected:
+            continue
+        work_id, signature, note_sha, dependency_sha, profile_sha = key
+        basis = {
+            "canonical_work_id": work_id,
+            "matched_positive_signature": signature,
+            "note_sha256": note_sha,
+            "note_dependency_sha256": dependency_sha,
+            "profile_sha256": profile_sha,
+            "supporting_event_ids": sorted(str(row.get("event_id")) for row in material),
+            "supporting_packet_ids": sorted({str(row.get("packet_id")) for row in material}),
+            "crisis_signatures": sorted(str(value) for value in crises),
+        }
+        digest = hashlib.sha256(json.dumps(basis, sort_keys=True, separators=(",", ":")).encode("utf-8")).hexdigest()
+        candidates.append({
+            "schema_version": "mira-library-route-review-candidate-v1",
+            "candidate_id": f"MLRRC-{digest[:16]}",
+            "status": "inactive",
+            **basis,
+            "authority_boundary": "Review nomination only; creates no route, review, approval, registry mutation, or recursive-learning outcome.",
+        })
+    written: list[str] = []
+    root = resolve_packet_root() / "route-review-candidates"
+    if not check:
+        root.mkdir(parents=True, exist_ok=True)
+        for candidate in candidates:
+            target = root / f"{candidate['candidate_id']}.json"
+            atomic_json_write(target, candidate)
+            written.append(str(target))
+    return {"status": "ok", "candidate_count": len(candidates), "candidates": candidates, "written": written}
+
+
+def external_private_path(path: Path, *, label: str) -> Path:
+    resolved = path.expanduser().resolve()
+    if not resolved.is_absolute():
+        raise ReasoningError(f"{label} must be an absolute path")
+    try:
+        resolved.relative_to(REPO_ROOT.resolve())
+    except ValueError:
+        return resolved
+    raise ReasoningError(f"{label} must remain outside Git: {resolved}")
+
+
+def export_learning_reference(spec_file: Path, output: Path, *, check: bool) -> dict[str, Any]:
+    spec_path = external_private_path(spec_file, label="learning export specification")
+    target = external_private_path(output, label="learning reference output")
+    spec = load_json(spec_path)
+    if spec.get("schema_version") != "mira-library-learning-export-spec-v1":
+        raise ReasoningError("learning export specification has an unsupported schema")
+    event_ids = spec.get("observation_event_ids")
+    if not isinstance(event_ids, list) or not event_ids or any(not isinstance(value, str) for value in event_ids):
+        raise ReasoningError("learning export specification requires observation_event_ids")
+    available = {str(row.get("event_id")): row for row in read_cognitive_feedback()}
+    missing = sorted(set(event_ids) - set(available))
+    if missing:
+        raise ReasoningError("learning export references unknown cognitive events: " + ", ".join(missing))
+    claims = spec.get("claims")
+    if not isinstance(claims, dict) or not str(claims.get("observation", "")).strip() or not str(claims.get("diagnosis", "")).strip():
+        raise ReasoningError("learning export requires explicit observation and diagnosis claims")
+    artifacts = spec.get("artifacts")
+    allowed_relationships = {"behavior-observation", "diagnosis", "implementation", "verification", "later-use"}
+    if not isinstance(artifacts, list) or not artifacts:
+        raise ReasoningError("learning export requires repository artifact evidence handles")
+    normalized_artifacts: list[dict[str, str]] = []
+    for artifact in artifacts:
+        if not isinstance(artifact, dict) or artifact.get("relationship") not in allowed_relationships:
+            raise ReasoningError("learning export artifact has an invalid relationship")
+        ref = str(artifact.get("ref", "")).replace("\\", "/")
+        base_ref = ref.split("#", 1)[0]
+        if not base_ref or Path(base_ref).is_absolute() or ".." in Path(base_ref).parts or base_ref.startswith(("archive/notes/", ".mira-private/")):
+            raise ReasoningError(f"learning export artifact is not admissible repository evidence: {ref}")
+        path = REPO_ROOT / base_ref
+        if not path.is_file():
+            raise ReasoningError(f"learning export artifact does not resolve: {ref}")
+        digest = file_sha256(path)
+        if artifact.get("sha256") != digest:
+            raise ReasoningError(f"learning export artifact digest mismatch: {ref}")
+        normalized_artifacts.append({"relationship": str(artifact["relationship"]), "ref": ref, "sha256": digest})
+    commits = spec.get("intervention_commits", [])
+    relationships = {row["relationship"] for row in normalized_artifacts}
+    if (claims.get("intervention") or "implementation" in relationships) and (
+        not isinstance(commits, list) or not commits or any(not re.fullmatch(r"[0-9a-f]{7,40}", str(value)) for value in commits)
+    ):
+        raise ReasoningError("learning export intervention requires valid commit references")
+    if claims.get("outcome") and "later-use" not in relationships:
+        raise ReasoningError("learning export outcome requires distinct later-use evidence")
+    selected = sorted((available[value] for value in set(event_ids)), key=lambda row: (str(row.get("observed_at")), str(row.get("event_id"))))
+    chronology: list[dict[str, Any]] = []
+    previous: str | None = None
+    for event in selected:
+        body = {
+            "event_id": event.get("event_id"),
+            "origin_workflow": "library-reasoning",
+            "event_type": "library-cognitive-observation",
+            "occurred_at": event.get("observed_at"),
+            "payload": {
+                "packet_id": event.get("packet_id"),
+                "canonical_work_id": event.get("canonical_work_id"),
+                "cognitive_disposition": event.get("cognitive_disposition"),
+                "note_sha256": event.get("note_sha256"),
+                "note_dependency_sha256": event.get("note_dependency_sha256"),
+                "profile_sha256": event.get("profile_sha256"),
+            },
+            "previous_event_sha256": previous,
+        }
+        event_sha = hashlib.sha256(json.dumps(body, sort_keys=True, separators=(",", ":"), ensure_ascii=False).encode("utf-8")).hexdigest()
+        chronology.append({**body, "event_sha256": event_sha})
+        previous = event_sha
+    identity = hashlib.sha256(json.dumps({"events": event_ids, "artifacts": normalized_artifacts, "claims": claims}, sort_keys=True, separators=(",", ":")).encode("utf-8")).hexdigest()
+    packet = {
+        "schema_version": 1,
+        "reference_kind": "mira-process-learning-reference-v1",
+        "reference_id": f"MPR-LIB-{identity[:20]}",
+        "origin_workflow": "library-reasoning",
+        "event_chain_digest": previous,
+        "chronology": chronology,
+        "claims": claims,
+        "artifacts": normalized_artifacts,
+        "intervention_commits": [str(value) for value in commits],
+        "private_context_is_stage_evidence": False,
+        "authority_boundary": "Assessment input only; does not create a candidate, admit recursive learning, or authorize repository mutation.",
+    }
+    encoded = json.dumps(packet, indent=2, ensure_ascii=False) + "\n"
+    if not check:
+        target.parent.mkdir(parents=True, exist_ok=True)
+        temporary = target.with_name(f".{target.name}.{time.time_ns()}.tmp")
+        temporary.write_text(encoded, encoding="utf-8")
+        temporary.replace(target)
+    return {
+        "status": "ok", "written": not check, "output": str(target),
+        "reference_id": packet["reference_id"],
+        "reference_sha256": hashlib.sha256(encoded.encode("utf-8")).hexdigest(),
+        "reference": packet,
+    }
 
 
 def read_feedback() -> list[dict[str, Any]]:
@@ -1030,6 +1414,14 @@ def parser() -> argparse.ArgumentParser:
     propose = sub.add_parser("propose-routing-update")
     propose.add_argument("--check", action="store_true")
     propose.add_argument("--json", action="store_true")
+    route_candidates = sub.add_parser("propose-route-review-candidates")
+    route_candidates.add_argument("--check", action="store_true")
+    route_candidates.add_argument("--json", action="store_true")
+    learning_export = sub.add_parser("export-learning-reference")
+    learning_export.add_argument("--spec", type=Path, required=True)
+    learning_export.add_argument("--output", type=Path, required=True)
+    learning_export.add_argument("--check", action="store_true")
+    learning_export.add_argument("--json", action="store_true")
     activate = sub.add_parser("activate-routing-memory")
     activate.add_argument("--input", type=Path, required=True)
     activate.add_argument("--check", action="store_true")
@@ -1065,6 +1457,10 @@ def main(arguments: list[str] | None = None) -> int:
             result = calibration_status()
         elif args.command == "propose-routing-update":
             result = propose_routing_update(check=args.check)
+        elif args.command == "propose-route-review-candidates":
+            result = route_review_candidates(check=args.check)
+        elif args.command == "export-learning-reference":
+            result = export_learning_reference(args.spec, args.output, check=args.check)
         elif args.command == "activate-routing-memory":
             result = activate_routing_memory(args.input, check=args.check)
         else:
