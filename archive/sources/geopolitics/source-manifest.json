@@ -2,7 +2,7 @@
   "manifest_id": "narrative-geopolitics-source-manifest-v1",
   "source_basis": "central archive with completed historical strategy-codex imports",
   "imported_at": "2026-07-09",
-  "source_count": 2333,
+  "source_count": 2339,
   "boundary": {
     "archive": "source truth",
     "voices": "voice continuity and routing",
@@ -28537,7 +28537,9 @@
       "role_basis": {
         "macgregor": "host_route_with_person_voice"
       },
-      "host_kind": "channel"
+      "host_kind": "channel",
+      "source_identity": "youtube:e_RoltpkEsY",
+      "source_url": "https://www.youtube.com/watch?v=e_RoltpkEsY"
     },
     {
       "date": "2025-05-12",
@@ -28823,7 +28825,9 @@
       "role_basis": {
         "macgregor": "host_route_with_person_voice"
       },
-      "host_kind": "channel"
+      "host_kind": "channel",
+      "source_identity": "youtube:wLWXoSI7IFM",
+      "source_url": "https://www.youtube.com/watch?v=wLWXoSI7IFM"
     },
     {
       "date": "2025-08-20",
@@ -28875,7 +28879,9 @@
       "role_basis": {
         "macgregor": "host_route_with_person_voice"
       },
-      "host_kind": "channel"
+      "host_kind": "channel",
+      "source_identity": "youtube:k1FkIZaAhHE",
+      "source_url": "https://www.youtube.com/watch?v=k1FkIZaAhHE"
     },
     {
       "date": "2025-10-23",
@@ -28901,7 +28907,9 @@
       "role_basis": {
         "macgregor": "host_route_with_person_voice"
       },
-      "host_kind": "channel"
+      "host_kind": "channel",
+      "source_identity": "youtube:dZdnC1btS4M",
+      "source_url": "https://www.youtube.com/watch?v=dZdnC1btS4M"
     },
     {
       "date": "2025-12-10",
@@ -62609,6 +62617,144 @@
       "host_slug": "glenn-diesen",
       "source_identity": "youtube:-cAPBgQOXfQ",
       "source_url": "https://www.youtube.com/watch?v=-cAPBgQOXfQ",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2025-02-13",
+      "title": "Colonel Douglas Macgregor: End of the American Empire?",
+      "local_path": "archive/sources/geopolitics/sources/2025-02-13/source-colonel-douglas-macgregor-end-of-the-american-empire-2025-02-13.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2025-02-13/source-colonel-douglas-macgregor-end-of-the-american-empire-2025-02-13.md",
+      "upstream_path": "operator-paste://2025-02-13/colonel-douglas-macgregor-end-of-the-american-empire",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "macgregor"
+      ],
+      "host_slug": "glenn-diesen",
+      "source_identity": "youtube:1JeyScAPzaM",
+      "source_url": "https://www.youtube.com/watch?v=1JeyScAPzaM",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2025-03-29",
+      "title": "Colonel Douglas Macgregor: Zelensky Will Be Gone and NATO Will Fall Apart",
+      "local_path": "archive/sources/geopolitics/sources/2025-03-29/source-colonel-douglas-macgregor-zelensky-will-be-gone-and-nato-will-fall-apart-2025-03-29.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2025-03-29/source-colonel-douglas-macgregor-zelensky-will-be-gone-and-nato-will-fall-apart-2025-03-29.md",
+      "upstream_path": "operator-paste://2025-03-29/colonel-douglas-macgregor-zelensky-will-be-gone-and-nato-will-fall-apart",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "macgregor"
+      ],
+      "host_slug": "glenn-diesen",
+      "source_identity": "youtube:IWGhXB1uszI",
+      "source_url": "https://www.youtube.com/watch?v=IWGhXB1uszI",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2025-04-24",
+      "title": "Col. Douglas Macgregor: Walking Away from the Ukraine War & Restoring Strategic Clarity",
+      "local_path": "archive/sources/geopolitics/sources/2025-04-24/source-col-douglas-macgregor-walking-away-from-the-ukraine-war-restoring-strategic-clarity-2025-04-24.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2025-04-24/source-col-douglas-macgregor-walking-away-from-the-ukraine-war-restoring-strategic-clarity-2025-04-24.md",
+      "upstream_path": "operator-paste://2025-04-24/col-douglas-macgregor-walking-away-from-the-ukraine-war-restoring-strategic-clarity",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "macgregor"
+      ],
+      "host_slug": "glenn-diesen",
+      "source_identity": "youtube:Vp7DR3bktLk",
+      "source_url": "https://www.youtube.com/watch?v=Vp7DR3bktLk",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2025-07-30",
+      "title": "Col. Douglas Macgregor: Fall of the American Empire - A Study in Decadence",
+      "local_path": "archive/sources/geopolitics/sources/2025-07-30/source-col-douglas-macgregor-fall-of-the-american-empire-a-study-in-decadence-2025-07-30.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2025-07-30/source-col-douglas-macgregor-fall-of-the-american-empire-a-study-in-decadence-2025-07-30.md",
+      "upstream_path": "operator-paste://2025-07-30/col-douglas-macgregor-fall-of-the-american-empire-a-study-in-decadence",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "macgregor"
+      ],
+      "host_slug": "glenn-diesen",
+      "source_identity": "youtube:D6MymK54xh4",
+      "source_url": "https://www.youtube.com/watch?v=D6MymK54xh4",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2025-08-28",
+      "title": "Douglas Macgregor: With NATO's Collapse, New World Order Emerges",
+      "local_path": "archive/sources/geopolitics/sources/2025-08-28/source-douglas-macgregor-with-nato-s-collapse-new-world-order-emerges-2025-08-28.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2025-08-28/source-douglas-macgregor-with-nato-s-collapse-new-world-order-emerges-2025-08-28.md",
+      "upstream_path": "operator-paste://2025-08-28/douglas-macgregor-with-nato-s-collapse-new-world-order-emerges",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "macgregor"
+      ],
+      "host_slug": "glenn-diesen",
+      "source_identity": "youtube:JzHKAIWCqkQ",
+      "source_url": "https://www.youtube.com/watch?v=JzHKAIWCqkQ",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2025-10-08",
+      "title": "Douglas Macgregor: Toward War with Russia, Iran & Venezuela",
+      "local_path": "archive/sources/geopolitics/sources/2025-10-08/source-douglas-macgregor-toward-war-with-russia-iran-venezuela-2025-10-08.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2025-10-08/source-douglas-macgregor-toward-war-with-russia-iran-venezuela-2025-10-08.md",
+      "upstream_path": "operator-paste://2025-10-08/douglas-macgregor-toward-war-with-russia-iran-venezuela",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "macgregor"
+      ],
+      "host_slug": "glenn-diesen",
+      "source_identity": "youtube:gR6L-R6fVKY",
+      "source_url": "https://www.youtube.com/watch?v=gR6L-R6fVKY",
       "title_source": "transcript",
       "date_basis": "operator-supplied",
       "inference_basis": [

@@ -4,7 +4,7 @@ This index routes the transcript-bearing upstream-parity corpus for `macgregor` 
 
 Source basis: `archive/sources/geopolitics/source-manifest.json`.
 
-Corpus: 96 local route rows across 96 central archive source files.
+Corpus: 102 local route rows across 102 central archive source files.
 
 Status: `transcript-bearing-upstream-parity`
 
@@ -31,6 +31,7 @@ Status: `transcript-bearing-upstream-parity`
 | `2025-02-04` | Colonel Douglas Macgregor: Trump and His Oligarchs. | `guest` | `judging-freedom` | [source](../../../archive/sources/geopolitics/sources/2025-02-04/source-judging-freedom-macgregor-trump-and-his-oligarchs-2025-02-04.md) |
 | `2025-02-06` | Colonel Douglas Macgregor: Can the US Own Gaza? | `guest` | `judging-freedom` | [source](../../../archive/sources/geopolitics/sources/2025-02-06/source-judging-freedom-macgregor-can-the-us-own-gaza-2025-02-06.md) |
 | `2025-02-11` | COL. Douglas Macgregor : Fall of the American Empire | `guest` | `judging-freedom` | [source](../../../archive/sources/geopolitics/sources/2025-02-11/source-judging-freedom-macgregor-fall-of-the-american-empire-2025-02-11.md) |
+| `2025-02-13` | Colonel Douglas Macgregor: End of the American Empire? | `guest` | `glenn-diesen` | [source](../../../archive/sources/geopolitics/sources/2025-02-13/source-colonel-douglas-macgregor-end-of-the-american-empire-2025-02-13.md) |
 | `2025-02-18` | Col Doug Macgregor: Zelensky Obstructing Peace | `guest` | `daniel-davis` | [source](../../../archive/sources/geopolitics/sources/2025-02-18/source-daniel-davis-macgregor-zelensky-obstructing-peace-2025-02-18.md) |
 | `2025-02-19` | COL. Douglas Macgregor : Israel, Egypt, and Riyadh | `guest` | `judging-freedom` | [source](../../../archive/sources/geopolitics/sources/2025-02-19/source-judging-freedom-macgregor-israel-egypt-and-riyadh-2025-02-19.md) |
 | `2025-02-25` | Col Doug Macgregor: Peace in Ukraine / What Will it Look Like? | `guest` | `daniel-davis` | [source](../../../archive/sources/geopolitics/sources/2025-02-25/source-daniel-davis-macgregor-peace-in-ukraine-what-will-it-look-like-2025-02-25.md) |
@@ -39,9 +40,11 @@ Status: `transcript-bearing-upstream-parity`
 | `2025-03-18` | Col Doug Macgregor Putin Wants All Arms Halted to Ukraine | `guest` | `daniel-davis` | [source](../../../archive/sources/geopolitics/sources/2025-03-18/source-daniel-davis-macgregor-putin-wants-all-arms-halted-to-ukraine-2025-03-18.md) |
 | `2025-03-19` | COL. Douglas Macgregor : Will US Attack Iran? | `guest` | `judging-freedom` | [source](../../../archive/sources/geopolitics/sources/2025-03-19/source-judging-freedom-macgregor-will-us-attack-iran-2025-03-19.md) |
 | `2025-03-27` | COL. Douglas Macgregor : Readying For War With Iran. | `guest` | `judging-freedom` | [source](../../../archive/sources/geopolitics/sources/2025-03-27/source-judging-freedom-macgregor-readying-for-war-with-iran-2025-03-27.md) |
+| `2025-03-29` | Colonel Douglas Macgregor: Zelensky Will Be Gone and NATO Will Fall Apart | `guest` | `glenn-diesen` | [source](../../../archive/sources/geopolitics/sources/2025-03-29/source-colonel-douglas-macgregor-zelensky-will-be-gone-and-nato-will-fall-apart-2025-03-29.md) |
 | `2025-04-15` | Col Doug Macgregor: Trump & Zelensky at Odds/ What this Means for Peace Talks | `guest` | `daniel-davis` | [source](../../../archive/sources/geopolitics/sources/2025-04-15/source-daniel-davis-macgregor-trump-and-zelensky-at-odds-what-this-means-for-peace-talks-2025-04-15.md) |
 | `2025-04-15` | COL. Douglas Macgregor : Will Zelenskyy and Neocons Reject Peace? | `guest` | `judging-freedom` | [source](../../../archive/sources/geopolitics/sources/2025-04-15/source-judging-freedom-macgregor-will-zelenskyy-and-neocons-reject-peace-2025-04-15.md) |
 | `2025-04-22` | Col Doug Macgregor: Trump Revealing Ukraine Peace Plan this Week | `guest` | `daniel-davis` | [source](../../../archive/sources/geopolitics/sources/2025-04-22/source-daniel-davis-macgregor-trump-revealing-ukraine-peace-plan-this-week-2025-04-22.md) |
+| `2025-04-24` | Col. Douglas Macgregor: Walking Away from the Ukraine War & Restoring Strategic Clarity | `guest` | `glenn-diesen` | [source](../../../archive/sources/geopolitics/sources/2025-04-24/source-col-douglas-macgregor-walking-away-from-the-ukraine-war-restoring-strategic-clarity-2025-04-24.md) |
 | `2025-04-28` | Col Doug Magregor: It's UKRAINE Prolonging this WAR | `guest` | `daniel-davis` | [source](../../../archive/sources/geopolitics/sources/2025-04-28/source-daniel-davis-macgregor-it-s-ukraine-prolonging-this-war-2025-04-28.md) |
 | `2025-04-29` | COL. Douglas Macgregor : How Close to a Regional War? | `guest` | `judging-freedom` | [source](../../../archive/sources/geopolitics/sources/2025-04-29/source-judging-freedom-macgregor-how-close-to-a-regional-war-2025-04-29.md) |
 | `2025-05-01` | [SPECIAL] COL Douglas Macgregor : US/Ukraine Mineral/Security Deal: Insane or Provocative? | `guest` | `judging-freedom` | [source](../../../archive/sources/geopolitics/sources/2025-05-01/source-judging-freedom-macgregor-us-ukraine-mineral-security-deal-insane-or-provocative-2025-05-01.md) |
@@ -57,8 +60,11 @@ Status: `transcript-bearing-upstream-parity`
 | `2025-06-10` | Col Doug Macgregor: Russia's Win in Ukraine Will NEVER be Stopped by NATO | `guest` | `daniel-davis` | [source](../../../archive/sources/geopolitics/sources/2025-06-10/source-daniel-davis-macgregor-russia-s-win-in-ukraine-will-never-be-stopped-by-nato-2025-06-10.md) |
 | `2025-06-10` | Douglas Macgregor: Russia's Retaliation & NATO's Declining Relevance | `guest` | `glenn-diesen` | [source](../../../archive/sources/geopolitics/sources/2025-06-10/source-glenn-diesen-douglas-macgregor-douglas-macgregor-russia-s-retaliation-nato-s-declining-relevance-2025-06-10.md) |
 | `2025-06-20` | Col. Douglas Macgregor: America's Attack on Iran Could Start WW3 | `guest` | `glenn-diesen` | [source](../../../archive/sources/geopolitics/sources/2025-06-20/source-diesen-macgregor-america-s-attack-on-iran-could-start-ww3-2025-06-20.md) |
+| `2025-07-30` | Col. Douglas Macgregor: Fall of the American Empire - A Study in Decadence | `guest` | `glenn-diesen` | [source](../../../archive/sources/geopolitics/sources/2025-07-30/source-col-douglas-macgregor-fall-of-the-american-empire-a-study-in-decadence-2025-07-30.md) |
 | `2025-08-20` | Colonel Douglas Macgregor Reveals How Russia Ukraine War Will End! | `guest` | `cyrus-janssen` | [source](../../../archive/sources/geopolitics/sources/2025-08-20/source-macgregor-cyrus-janssen-russia-ukraine-war-will-end-2025-08-20.md) |
+| `2025-08-28` | Douglas Macgregor: With NATO's Collapse, New World Order Emerges | `guest` | `glenn-diesen` | [source](../../../archive/sources/geopolitics/sources/2025-08-28/source-douglas-macgregor-with-nato-s-collapse-new-world-order-emerges-2025-08-28.md) |
 | `2025-09-25` | Douglas Macgregor: 'War is Inevitable' | `guest` | `glenn-diesen` | [source](../../../archive/sources/geopolitics/sources/2025-09-25/source-glenn-diesen-douglas-macgregor-douglas-macgregor-war-is-inevitable-2025-09-25.md) |
+| `2025-10-08` | Douglas Macgregor: Toward War with Russia, Iran & Venezuela | `guest` | `glenn-diesen` | [source](../../../archive/sources/geopolitics/sources/2025-10-08/source-douglas-macgregor-toward-war-with-russia-iran-venezuela-2025-10-08.md) |
 | `2025-10-23` | Douglas Macgregor: Broken NATO Escalates War on Russia | `guest` | `glenn-diesen` | [source](../../../archive/sources/geopolitics/sources/2025-10-23/source-glenn-diesen-douglas-macgregor-douglas-macgregor-broken-nato-escalates-war-on-russia-2025-10-23.md) |
 | `2025-12-10` | Douglas Macgregor: U.S. Pivoting Away from Ukraine, Europe & NATO | `guest` | `glenn-diesen` | [source](../../../archive/sources/geopolitics/sources/2025-12-10/source-glenn-diesen-douglas-macgregor-u-s-pivoting-away-from-ukraine-europe-nato-2025-12-10.md) |
 | `2025-12-20` | Why Venezuela is America's Next Disaster | `guest` | `cyrus-janssen` | [source](../../../archive/sources/geopolitics/sources/2025-12-20/source-macgregor-cyrus-janssen-why-venezuela-americas-next-disaster-2025-12-20.md) |
