@@ -279,6 +279,13 @@ def route_path(path: str, *, repo_root: Path = REPO_ROOT) -> dict[str, Any]:
             "commands": ["tools/run.ps1 test --path tests/test_voice_count_authority.py"],
             "manual_checks": [MANUAL_NARRATIVE_GEOPOLITICS_CHECK],
         }
+    if path == "narrative-geopolitics/voices/README.md":
+        return {
+            "owner": "narrative-geopolitics/voice-control",
+            "validation_class": "domain-governed",
+            "commands": ["tools/run.ps1 test --path tests/test_voice_count_authority.py"],
+            "manual_checks": [MANUAL_NARRATIVE_GEOPOLITICS_CHECK],
+        }
     if path.startswith("narrative-geopolitics/templates/"):
         return {
             "owner": "geo-strategy/templates",

@@ -109,6 +109,14 @@ historical-reference records. If the featured voice is uncertain, use a
 provisional voice route and retain the host rather than inferring the guest
 from the channel name or title alone.
 
+Canonical voice routing is not the same as voice-shelf promotion. If a newly
+landed source names a person who has no existing voice directory, preserve the
+person slug in manifest metadata when it is the best source-truth route, but do
+not create a new voice shelf from one item alone. Check the promotion gate in
+`narrative-geopolitics/voices/README.md`; if it is not satisfied, report the
+unindexed voice as provisional and stop before synthesis unless the operator
+explicitly authorizes a bounded exception for that exact voice.
+
 When a source has an explicit `guest`, `guest_people`, or a featured
 `voice_slugs` value that differs from the host/channel default voice, preserve
 the source form as `interview` or another participatory form unless the operator

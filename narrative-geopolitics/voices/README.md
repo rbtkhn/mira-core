@@ -86,6 +86,11 @@ Host, show, and channel conditioning belongs in [../channels/](../channels/READM
 
 Do not add a voice record just because a source appears once.
 
+For a new person with no existing directory, one manifest row is a provisional
+route, not a canonical voice shelf. Keep the manifest's best source-truth
+`voice_slugs` value if needed, but leave the person unindexed until recurrence
+or explicit operator override justifies a durable continuity object.
+
 Add a record when at least one of these is true:
 
 - the voice recurs across daily runs
@@ -93,3 +98,6 @@ Add a record when at least one of these is true:
 - the voice's prior pattern materially changes interpretation
 - the source modality changes how the claim should be read
 - contradictions or tensions need continuity tracking
+
+When the only support is a single landed item, the default repair is further
+capture discovery or provisional reporting, not shelf creation.

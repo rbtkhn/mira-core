@@ -123,6 +123,42 @@ Only after filtering should the brief rank by expected value: mechanism
 clarity, crisis-object relevance, cross-theater transfer value, transcript
 readiness, voice/source value, and actionability.
 
+## Named Voice Retrospective Discovery
+
+For requests to find new YouTube URLs for a named voice across a month, year,
+or administration period, treat the work as browser-first discovery unless the
+operator explicitly asks for RSS only. Use
+`narrative-geopolitics/channels/channel-index.md` as the controlling source for
+regular channel scope: `daily` cadence channels are the regular Tier A browser
+set, `weekly` cadence channels are the regular Tier B browser set, and
+`manual` or `candidate` channels require explicit mention or a clearly stated
+candidate-channel result.
+
+Use this sequence:
+
+1. Read the channel index and state the active channel scope.
+2. Search YouTube in the in-app browser for the named voice, bounded date
+   range, and regular channel names or handles.
+3. Exclude shorts, chapter links, clips, mirrored snippets, and rows where the
+   visible title/channel/date does not support the named voice as a featured
+   participant.
+4. Check candidate video IDs against the source manifest and existing capture
+   queue before calling them new.
+5. Output queue rows when the operator asks for `youtube-capture`; otherwise
+   return a browser-discovery-only receipt and wait for queue authority.
+
+For a browser-discovery-only receipt, report the searched surface, candidate
+URLs, excluded duplicate or already-landed IDs, excluded shorts/clips, whether
+any row came from outside the regular channel set, and the authority boundary:
+no queue mutation, archive admission, voice promotion, staging, commit, push,
+or synthesis occurred.
+
+Discovery does not canonicalize a voice. A single captured or landed item may
+support a provisional `expected_voice` value in the queue, but it must not
+create a new voice shelf or profile unless the voice promotion gate in
+`narrative-geopolitics/voices/README.md` is satisfied or the operator gives an
+explicit override for that exact voice.
+
 If Windows console encoding fails on titles, rerun status or duplicate audit
 with UTF-8 output forced:
 

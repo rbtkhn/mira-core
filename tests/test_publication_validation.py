@@ -28,6 +28,7 @@ def make_tree(root: Path) -> None:
         "archive/sources/geopolitics/sources/2026-08-17/source-example.md",
         "narrative-geopolitics/method/strategy-notebook-library-routing.md",
         "narrative-geopolitics/templates/strategy-notebook.md",
+        "narrative-geopolitics/voices/README.md",
         "narrative-geopolitics/voices/aguilar/source-index.md",
         "narrative-geopolitics/work/daily/2026-08-17/synthesis.md",
         "narrative-geopolitics/work/coverage/contracts/2026-08.json",
@@ -237,6 +238,7 @@ def test_router_resolves_narrative_geopolitics_artifacts(tmp_path: Path) -> None
     report = routing.build_report(
         [
             "archive/sources/geopolitics/source-manifest.json",
+            "narrative-geopolitics/voices/README.md",
             "narrative-geopolitics/voices/aguilar/source-index.md",
             "narrative-geopolitics/method/strategy-notebook-library-routing.md",
             "narrative-geopolitics/templates/strategy-notebook.md",
@@ -250,6 +252,7 @@ def test_router_resolves_narrative_geopolitics_artifacts(tmp_path: Path) -> None
     assert report["status"] == "manual-required"
     assert report["owners"] == [
         "narrative-geopolitics/archive",
+        "narrative-geopolitics/voice-control",
         "geo-strategy/method",
         "geo-strategy/templates",
         "geo-strategy",
