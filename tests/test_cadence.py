@@ -95,6 +95,35 @@ def test_formatted_coffee_renders_governed_menu_from_explicit_store(
     connection.close()
 
 
+def test_cold_start_coffee_actions_do_not_inherit_or_change_method(tmp_path: Path) -> None:
+    store = tmp_path / "cadence.sqlite3"
+    connection = cadence.cadence_ledger.connect(store)
+    try:
+        context = cadence.cadence_ledger.coffee_context(connection)
+    finally:
+        connection.close()
+
+    assert context["lifecycle_state"] == "cold_start"
+    assert context["inheritance_safe"] is False
+    assert context["learning"]["intervention"] == "No method change is proposed."
+
+    actions = {action["key"]: action for action in context["actions"]}
+    assert actions["A"]["selection_effect"] == "execute"
+    assert actions["A"]["target"] == "tests/test_cadence.py"
+    assert actions["A"]["execution"] == {
+        "kind": "read-only-artifact-inspection",
+        "source": "tests/test_cadence.py",
+        "mutation": False,
+        "verification": (
+            "Report the currently enforced Coffee and Dream baseline without running "
+            "or changing tests."
+        ),
+    }
+    assert actions["B"]["selection_effect"] == "navigate"
+    assert actions["C"]["selection_effect"] == "navigate"
+    assert actions["D"]["selection_effect"] == "navigate"
+
+
 def test_coffee_receipt_failure_prints_no_actionable_menu(monkeypatch,tmp_path: Path,capsys) -> None:
     store=tmp_path/"cadence.sqlite3"; cadence.cadence_ledger.connect(store).close()
     args=SimpleNamespace(command="coffee",db=store,format="markdown",episode_id=None,json=False,check=False)
