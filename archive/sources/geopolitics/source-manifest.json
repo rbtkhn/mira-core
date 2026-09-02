@@ -2,7 +2,7 @@
   "manifest_id": "narrative-geopolitics-source-manifest-v1",
   "source_basis": "central archive with completed historical strategy-codex imports",
   "imported_at": "2026-07-09",
-  "source_count": 2328,
+  "source_count": 2333,
   "boundary": {
     "archive": "source truth",
     "voices": "voice continuity and routing",
@@ -16884,7 +16884,9 @@
       "role_basis": {
         "sachs": "host_route_with_person_voice"
       },
-      "host_kind": "channel"
+      "host_kind": "channel",
+      "source_identity": "youtube:VusbFzvhsf4",
+      "source_url": "https://www.youtube.com/watch?v=VusbFzvhsf4"
     },
     {
       "date": "2025-07-30",
@@ -16962,7 +16964,9 @@
       "role_basis": {
         "sachs": "host_route_with_person_voice"
       },
-      "host_kind": "channel"
+      "host_kind": "channel",
+      "source_identity": "youtube:E2SsiG1jDLs",
+      "source_url": "https://www.youtube.com/watch?v=E2SsiG1jDLs"
     },
     {
       "date": "2025-09-27",
@@ -17040,7 +17044,9 @@
       "role_basis": {
         "sachs": "host_route_with_person_voice"
       },
-      "host_kind": "channel"
+      "host_kind": "channel",
+      "source_identity": "youtube:7Wrd2J1pLqk",
+      "source_url": "https://www.youtube.com/watch?v=7Wrd2J1pLqk"
     },
     {
       "date": "2025-11-08",
@@ -17066,7 +17072,9 @@
       "role_basis": {
         "sachs": "host_route_with_person_voice"
       },
-      "host_kind": "channel"
+      "host_kind": "channel",
+      "source_identity": "youtube:73jqtNqjwcw",
+      "source_url": "https://www.youtube.com/watch?v=73jqtNqjwcw"
     },
     {
       "date": "2026-01-04",
@@ -18008,7 +18016,9 @@
       "role_basis": {
         "sachs": "host_route_with_person_voice"
       },
-      "host_kind": "channel"
+      "host_kind": "channel",
+      "source_identity": "youtube:WPcgkd-sC3s",
+      "source_url": "https://www.youtube.com/watch?v=WPcgkd-sC3s"
     },
     {
       "date": "2026-01-27",
@@ -62486,6 +62496,121 @@
       "source_url": "https://www.youtube.com/watch?v=F3aIyWOQm6A",
       "title_source": "transcript",
       "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2025-10-16",
+      "title": "Jeffrey Sachs & John Mearsheimer: Spheres of Security to Prevent World War III",
+      "local_path": "archive/sources/geopolitics/sources/2025-10-16/source-jeffrey-sachs-john-mearsheimer-spheres-of-security-to-prevent-world-war-iii-2025-10-16.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2025-10-16/source-jeffrey-sachs-john-mearsheimer-spheres-of-security-to-prevent-world-war-iii-2025-10-16.md",
+      "upstream_path": "operator-paste://2025-10-16/jeffrey-sachs-john-mearsheimer-spheres-of-security-to-prevent-world-war-iii",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "sachs"
+      ],
+      "host_slug": "glenn-diesen",
+      "source_identity": "youtube:Ntkc7AWujEU",
+      "source_url": "https://www.youtube.com/watch?v=Ntkc7AWujEU",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2025-12-02",
+      "title": "Jeffrey Sachs: Europe Only Accepts Hegemony & Bloc Politics",
+      "local_path": "archive/sources/geopolitics/sources/2025-12-02/source-jeffrey-sachs-europe-only-accepts-hegemony-bloc-politics-2025-12-02.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2025-12-02/source-jeffrey-sachs-europe-only-accepts-hegemony-bloc-politics-2025-12-02.md",
+      "upstream_path": "operator-paste://2025-12-02/jeffrey-sachs-europe-only-accepts-hegemony-bloc-politics",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "sachs"
+      ],
+      "host_slug": "glenn-diesen",
+      "source_identity": "youtube:-IRCm-JLi0w",
+      "source_url": "https://www.youtube.com/watch?v=-IRCm-JLi0w",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2025-06-02",
+      "title": "Prof. Jeffrey Sachs : Can the US be Trusted?",
+      "local_path": "archive/sources/geopolitics/sources/2025-06-02/source-prof-jeffrey-sachs-can-the-us-be-trusted-2025-06-02.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2025-06-02/source-prof-jeffrey-sachs-can-the-us-be-trusted-2025-06-02.md",
+      "upstream_path": "operator-paste://2025-06-02/prof-jeffrey-sachs-can-the-us-be-trusted",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "sachs"
+      ],
+      "host_slug": "judging-freedom",
+      "source_identity": "youtube:CHqUzdSt_g0",
+      "source_url": "https://www.youtube.com/watch?v=CHqUzdSt_g0",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2025-07-14",
+      "title": "Prof. Jeffrey Sachs : Why the US Is In Decline",
+      "local_path": "archive/sources/geopolitics/sources/2025-07-14/source-prof-jeffrey-sachs-why-the-us-is-in-decline-2025-07-14.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2025-07-14/source-prof-jeffrey-sachs-why-the-us-is-in-decline-2025-07-14.md",
+      "upstream_path": "operator-paste://2025-07-14/prof-jeffrey-sachs-why-the-us-is-in-decline",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "sachs"
+      ],
+      "host_slug": "judging-freedom",
+      "source_identity": "youtube:lqAmUL4p82A",
+      "source_url": "https://www.youtube.com/watch?v=lqAmUL4p82A",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2025-12-12",
+      "title": "Jeffrey Sachs: Trump’s Distorted Version of the Monroe Doctrine",
+      "local_path": "archive/sources/geopolitics/sources/2025-12-12/source-jeffrey-sachs-trump-s-distorted-version-of-the-monroe-doctrine-2025-12-12.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2025-12-12/source-jeffrey-sachs-trump-s-distorted-version-of-the-monroe-doctrine-2025-12-12.md",
+      "upstream_path": "operator-paste://2025-12-12/jeffrey-sachs-trump-s-distorted-version-of-the-monroe-doctrine",
+      "source_class": "host-pressure test",
+      "modality": "transcript",
+      "voice_slugs": [
+        "sachs"
+      ],
+      "host_slug": "glenn-diesen",
+      "source_identity": "youtube:-cAPBgQOXfQ",
+      "source_url": "https://www.youtube.com/watch?v=-cAPBgQOXfQ",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
       "inference_basis": [
         "wrapper-normalized",
         "explicit-host",

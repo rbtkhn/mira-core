@@ -4,7 +4,7 @@ This index routes the unified local Sachs corpus for `sachs` to the central Narr
 
 Source basis: `strategy-codex/statecraft/voices/sachs/sachs-index.md`.
 
-Corpus: 105 local route rows across 105 central archive source files.
+Corpus: 110 local route rows across 110 central archive source files.
 
 Status: `imported-corpus`
 
@@ -39,11 +39,13 @@ Status: `imported-corpus`
 | `2025-05-03` | Η Παγκόσμια Τάξη σε Μετάβαση - Prof. Jeffrey Sachs | `authored lecture` | `jeffrey-sachs` | [source](../../../archive/sources/geopolitics/sources/2025-05-03/source-sachs-global-order-in-transition-2025-05-03.md) |
 | `2025-05-07` | Prof. Jeffrey Sachs : Can the Kremlin Trust Trump? | `guest` | `judging-freedom` | [source](../../../archive/sources/geopolitics/sources/2025-05-07/source-judging-freedom-sachs-can-the-kremlin-trust-trump-2025-05-07.md) |
 | `2025-05-19` | Jeffrey Sachs: Europe's Declining Economy, Security & Common Sense | `guest` | `glenn-diesen` | [source](../../../archive/sources/geopolitics/sources/2025-05-19/source-diesen-sachs-europes-declining-economy-security-and-common-sense-2025-05-19.md) |
+| `2025-06-02` | Prof. Jeffrey Sachs : Can the US be Trusted? | `guest` | `judging-freedom` | [source](../../../archive/sources/geopolitics/sources/2025-06-02/source-prof-jeffrey-sachs-can-the-us-be-trusted-2025-06-02.md) |
 | `2025-06-04` | Jeffrey Sachs: NATO & Russia On the Brink of Nuclear War | `guest` | `glenn-diesen` | [source](../../../archive/sources/geopolitics/sources/2025-06-04/source-diesen-sachs-nato-and-russia-on-the-brink-of-nuclear-war-2025-06-04.md) |
 | `2025-06-11` | Jeffrey Sachs: The Dark Forces Pushing Trump Into War With Iran, & Ukraine/Russia New Escalation | `guest` | `tucker-carlson` | [source](../../../archive/sources/geopolitics/sources/2025-06-11/source-tucker-carlson-sachs-dark-forces-pushing-trump-into-war-with-iran-2025-06-11.md) |
 | `2025-06-17` | Jeffrey Sachs: US Prepares to Join War Against Iran | `guest` | `glenn-diesen` | [source](../../../archive/sources/geopolitics/sources/2025-06-17/source-diesen-sachs-us-prepares-to-join-war-against-iran-2025-06-17.md) |
 | `2025-06-24` | [SPECIAL] Prof. Jeffrey Sachs : Is the US Subordinated to Israel? | `guest` | `judging-freedom` | [source](../../../archive/sources/geopolitics/sources/2025-06-24/source-judging-freedom-sachs-is-the-us-subordinated-to-israel-2025-06-24.md) |
 | `2025-07-08` | Prof. Jeffrey Sachs : Is Netanyahu Lobbying for More War? | `guest` | `judging-freedom` | [source](../../../archive/sources/geopolitics/sources/2025-07-08/source-judging-freedom-sachs-is-netanyahu-lobbying-for-more-war-2025-07-08.md) |
+| `2025-07-14` | Prof. Jeffrey Sachs : Why the US Is In Decline | `guest` | `judging-freedom` | [source](../../../archive/sources/geopolitics/sources/2025-07-14/source-prof-jeffrey-sachs-why-the-us-is-in-decline-2025-07-14.md) |
 | `2025-07-15` | Jeffrey Sachs: End of the Western-Centric World & Rise of BRICS | `guest` | `glenn-diesen` | [source](../../../archive/sources/geopolitics/sources/2025-07-15/source-diesen-sachs-end-of-the-western-centric-world-and-rise-of-brics-2025-07-15.md) |
 | `2025-07-21` | Doomsday Clock is Ticking: U.S. Foreign Policy and the Global Crisis | `authored lecture` | `jeffrey-sachs` | [source](../../../archive/sources/geopolitics/sources/2025-07-21/source-sachs-doomsday-clock-is-ticking-us-foreign-policy-and-the-global-crisis-2025-07-21.md) |
 | `2025-07-30` | Jeffrey Sachs: At the Precipice of World War 3 | `guest` | `glenn-diesen` | [source](../../../archive/sources/geopolitics/sources/2025-07-30/source-diesen-sachs-at-the-precipice-of-world-war-3-2025-07-30.md) |
@@ -62,6 +64,7 @@ Status: `imported-corpus`
 | `2025-10-06` | Jeffrey Sachs: Another War Against Iran Could Be Imminent | `guest` | `glenn-diesen` | [source](../../../archive/sources/geopolitics/sources/2025-10-06/source-glenn-diesen-jeffrey-sachs-another-war-against-iran-could-be-imminent-2025-10-06.md) |
 | `2025-10-06` | Prof. Jeffrey Sachs: Trump Colonizing Gaza. | `guest` | `judging-freedom` | [source](../../../archive/sources/geopolitics/sources/2025-10-06/source-judging-freedom-sachs-trump-colonizing-gaza-2025-10-06.md) |
 | `2025-10-13` | Prof. Jeffrey Sachs: Who Would Trust Netanyahu? | `guest` | `judging-freedom` | [source](../../../archive/sources/geopolitics/sources/2025-10-13/source-judging-freedom-sachs-who-would-trust-netanyahu-2025-10-13.md) |
+| `2025-10-16` | Jeffrey Sachs & John Mearsheimer: Spheres of Security to Prevent World War III | `guest` | `glenn-diesen` | [source](../../../archive/sources/geopolitics/sources/2025-10-16/source-jeffrey-sachs-john-mearsheimer-spheres-of-security-to-prevent-world-war-iii-2025-10-16.md) |
 | `2025-10-22` | Jeffrey Sachs: Last Chance for Peace in Ukraine Sabotaged by Europe | `guest` | `glenn-diesen` | [source](../../../archive/sources/geopolitics/sources/2025-10-22/source-glenn-diesen-jeffrey-sachs-last-chance-for-peace-in-ukraine-sabotaged-by-europe-2025-10-22.md) |
 | `2025-10-22` | Prof. Jeffrey Sachs : Israel’s Next Moves. | `guest` | `judging-freedom` | [source](../../../archive/sources/geopolitics/sources/2025-10-22/source-judging-freedom-sachs-israels-next-moves-2025-10-22.md) |
 | `2025-10-27` | Prof. Jeffrey Sachs : Trump’s attempt at Venezuelan regime-change and his Gaza Illusions | `guest` | `judging-freedom` | [source](../../../archive/sources/geopolitics/sources/2025-10-27/source-judging-freedom-sachs-trumps-attempt-at-venezuelan-regime-change-and-his-gaza-illusions-2025-10-27.md) |
@@ -73,9 +76,11 @@ Status: `imported-corpus`
 | `2025-11-17` | Prof. Jeffrey Sachs : Netanyahu Sabotages a Palestinian State | `guest` | `judging-freedom` | [source](../../../archive/sources/geopolitics/sources/2025-11-17/source-judging-freedom-sachs-netanyahu-sabotages-a-palestinian-state-2025-11-17.md) |
 | `2025-11-21` | Jeffrey Sachs ROASTS Trump for Skipping the G20 Summit in South Africa! | `guest` | `jeffrey-sachs` | [source](../../../archive/sources/geopolitics/sources/2025-11-21/source-sachs-roasts-trump-for-skipping-the-g20-summit-in-south-africa-2025-11-21.md) |
 | `2025-11-24` | Prof. Jeffrey Sachs: US Still Woefully Ignorant of Russia. | `guest` | `judging-freedom` | [source](../../../archive/sources/geopolitics/sources/2025-11-24/source-judging-freedom-sachs-us-still-woefully-ignorant-of-russia-2025-11-24.md) |
+| `2025-12-02` | Jeffrey Sachs: Europe Only Accepts Hegemony & Bloc Politics | `guest` | `glenn-diesen` | [source](../../../archive/sources/geopolitics/sources/2025-12-02/source-jeffrey-sachs-europe-only-accepts-hegemony-bloc-politics-2025-12-02.md) |
 | `2025-12-02` | Prof. Jeffrey Sachs : Is Trump Planning More Wars? | `guest` | `judging-freedom` | [source](../../../archive/sources/geopolitics/sources/2025-12-02/source-judging-freedom-sachs-is-trump-planning-more-wars-2025-12-02.md) |
 | `2025-12-09` | Israel's Zionist Self-Destruction \| Y. Rabkin, M. Ramos & J. Sachs | `guest` | `neutrality-studies` | [source](../../../archive/sources/geopolitics/sources/2025-12-09/source-neutrality-studies-rabkin-ramos-sachs-israels-zionist-self-destruction-2025-12-09.md) |
 | `2025-12-10` | Prof. Jeffrey Sachs : Underestimating Russia. | `guest` | `judging-freedom` | [source](../../../archive/sources/geopolitics/sources/2025-12-10/source-judging-freedom-sachs-underestimating-russia-2025-12-10.md) |
+| `2025-12-12` | Jeffrey Sachs: Trump’s Distorted Version of the Monroe Doctrine | `host-pressure test` | `glenn-diesen` | [source](../../../archive/sources/geopolitics/sources/2025-12-12/source-jeffrey-sachs-trump-s-distorted-version-of-the-monroe-doctrine-2025-12-12.md) |
 | `2025-12-15` | Prof. Jeffrey Sachs : Trump's Empire of Hubris. | `guest` | `judging-freedom` | [source](../../../archive/sources/geopolitics/sources/2025-12-15/source-judging-freedom-sachs-trumps-empire-of-hubris-2025-12-15.md) |
 | `2025-12-19` | The Asia-Pacific Century Explained | `guest` | `horizons` | [source](../../../archive/sources/geopolitics/sources/2025-12-19/source-horizons-vuk-jeremic-sachs-the-asia-pacific-century-explained-2025-12-19.md) |
 | `2026-01-03` | Jeffrey Sachs: U.S. Attacks Venezuela & Kidnaps President Maduro | `guest` | `jeffrey-sachs` | [source](../../../archive/sources/geopolitics/sources/2026-01-03/source-sachs-us-attacks-venezuela-and-kidnaps-president-maduro-2026-01-03.md) |
