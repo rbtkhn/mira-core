@@ -55,6 +55,13 @@ Check:
 For the severity scale, benchmark template, and checklists, read
 [`references/audit-rubric.md`](references/audit-rubric.md).
 
+When the audit asks whether a skill is operationally useful as an agent
+workflow, system component, automation surface, or portable operating loop,
+also read
+[`references/agent-operating-system-checklist.md`](references/agent-operating-system-checklist.md).
+Use it to test done-state clarity, context carriers, authority boundaries,
+connection risks, cadence, receipt evidence, and portability.
+
 ## Produce findings first
 
 Return findings before praise or summary. For each finding include:

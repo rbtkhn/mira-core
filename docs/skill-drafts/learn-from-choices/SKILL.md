@@ -31,6 +31,8 @@ closure-debt audit before declaring settlement. Keep the branch open for:
 Merely imaginable adjacent work is not closure debt. A complete factual answer
 may close despite optional deeper analysis. A completed, verified commit may
 close when push or publication was not requested.
+Learn From Choices judges conversational and decision closure; domain
+workflows own the evidence that proves domain-specific done-state.
 
 Classify the wider conversation separately. Render a substantive terminal A-D
 surface when at least one of these is true:
@@ -211,6 +213,12 @@ direct later command supersedes it; a response bound to an older option set
 requires one minimal clarification. The capsule is conversational and
 transient: do not save it to the choice ledger, infer preferences from it, or
 display it routinely.
+If capsule state is stale, unavailable, or multiply plausible, ask the minimal
+clarifying question instead of reconstructing authority from memory.
+
+Visible option text is the portable authority surface. Private capsules and
+retention records may improve continuity, but safety must not depend on them
+being present or model-readable.
 
 If the operator asks where the options are, or otherwise signals that the
 expected menu was omitted, repair the interaction immediately: name the missing
@@ -224,6 +232,13 @@ resolves a material contradiction, or exposes a genuinely new decision or
 action. Render only contextual transient controls; do not offer another
 substantive menu that merely analyzes, rewrites, compares, or audits the result
 just delivered.
+
+This two-selection rule controls repeated navigation-only deepening. The
+Elicitation three-compact-selection rule is a separate upper bound for mixed
+compact sequences: it requires carrying the selected branch to a meaningful
+result and then using compact settled closure, not manufacturing another
+substantive decision surface. Apply the earlier bound whenever both describe
+the same sequence.
 
 ## Deliver permanent artifacts honestly
 

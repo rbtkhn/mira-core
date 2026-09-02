@@ -23,7 +23,7 @@ conversation, simple one-step edits, or low-consequence mechanical work.
 - Establish the objective, audience, scope, lane, and evidence boundary.
 - Design the receipt before acting: name the primary user or stakeholder, the
   process or decision the work should improve, the observable proof that would
-  show usefulness, and any human review or handoff point.
+  show usefulness, the exact done-state, and any human review or handoff point.
 - Separate observed, supplied, inferred, missing, stale, and contradictory
   information.
 - Resolve and state the active repository root before inspecting or modifying
@@ -154,6 +154,7 @@ Worker or model lane:
 Model/provider trust level:
 Trusted instruction sources:
 Credential or external-system exposure:
+Connector/plugin/template assumptions:
 Data sensitivity and exclusions:
 Validation plan:
 Stop or rollback path:
@@ -190,6 +191,7 @@ Receipt target:
 Primary user or stakeholder:
 Process or decision improved:
 Observable proof of usefulness:
+Done-state:
 Human review or handoff point:
 Handoff quality:
 What changed:
@@ -197,6 +199,7 @@ Evidence or artifacts used:
 Decisions made:
 Risks or limits:
 Next owner can act without rediscovery: yes | no | not-applicable
+Another agent can resume from saved state: yes | no | not-applicable
 Landed-state snapshot digest:
 Active transition: none | <bounded transition>
 Prior transition disposition: none | completed | paused | blocked-with-resumption
