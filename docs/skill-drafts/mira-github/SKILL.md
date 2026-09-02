@@ -442,6 +442,31 @@ wildcards, abbreviated SHAs, multiple refs, and non-fast-forward publication.
 Never force-push, rebase, broaden the refspec, open a PR, mutate hosted
 settings, or publish generated drift as part of a plain `push`.
 
+### Approval-reviewer destination blocks
+
+When an assistant push attempt is blocked by the approval reviewer only because
+the exact remote destination was not sufficiently explicit, do not restart the
+publication lane or ask the operator to rediscover already-proven facts. Preserve
+the current push boundary and emit one action-ready retry surface that begins
+with `Push:` and names:
+
+- the full source SHA and short SHA;
+- the exact remote name and URL;
+- the exact target ref and PowerShell-safe refspec;
+- the validation evidence already accepted, including whether another Full run
+  is explicitly excluded;
+- current upstream divergence and dirty-tree exclusion status; and
+- the fact that no rebase, force-push, PR, broad staging, hosted setting change,
+  or additional validation is authorized.
+
+If repository bytes, executable bits, runtime/dependency inputs, remote state,
+target ref, or authentication posture changed after the blocked attempt, refresh
+only the changed precondition before presenting the retry surface. Otherwise,
+reuse the existing snapshot and validation receipts. A direct operator command
+that repeats the same exact destination after this packet authorizes one retry
+of the same bounded push, subject to approval tooling; it does not authorize a
+different branch, remote, refspec, validation rerun, or workaround.
+
 For hosted validation, locate the run by exact head SHA, then start one watcher:
 
 ```powershell
