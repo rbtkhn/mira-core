@@ -2,7 +2,7 @@
   "manifest_id": "narrative-geopolitics-source-manifest-v1",
   "source_basis": "central archive with completed historical strategy-codex imports",
   "imported_at": "2026-07-09",
-  "source_count": 2384,
+  "source_count": 2392,
   "boundary": {
     "archive": "source truth",
     "voices": "voice continuity and routing",
@@ -63795,6 +63795,179 @@
         "wrapper-normalized",
         "explicit-host",
         "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2025-06-11",
+      "title": "Ukraine's 'Operation Spider Web' Backfires on Ukraine w/ John Helmer",
+      "local_path": "archive/sources/geopolitics/sources/2025-06-11/source-ukraine-s-operation-spider-web-backfires-on-ukraine-w-john-helmer-2025-06-11.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2025-06-11/source-ukraine-s-operation-spider-web-backfires-on-ukraine-w-john-helmer-2025-06-11.md",
+      "upstream_path": "operator-paste://2026-09-03/ukraine-s-operation-spider-web-backfires-on-ukraine-w-john-helmer",
+      "source_class": "transcript",
+      "modality": "video",
+      "voice_slugs": [
+        "john-helmer"
+      ],
+      "host_slug": "reason-resist",
+      "source_identity": "youtube:TKkaeZUKvDY",
+      "source_url": "https://www.youtube.com/watch?v=TKkaeZUKvDY",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2025-06-26",
+      "title": "Russia's Complex Relationships With Iran and Israel w/ John Helmer",
+      "local_path": "archive/sources/geopolitics/sources/2025-06-26/source-russia-s-complex-relationships-with-iran-and-israel-w-john-helmer-2025-06-26.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2025-06-26/source-russia-s-complex-relationships-with-iran-and-israel-w-john-helmer-2025-06-26.md",
+      "upstream_path": "operator-paste://2026-09-03/russia-s-complex-relationships-with-iran-and-israel-w-john-helmer",
+      "source_class": "transcript",
+      "modality": "video",
+      "voice_slugs": [
+        "john-helmer"
+      ],
+      "host_slug": "reason-resist",
+      "source_identity": "youtube:FSXZ28xlAxc",
+      "source_url": "https://www.youtube.com/watch?v=FSXZ28xlAxc",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2025-09-04",
+      "title": "John Helmer: Russia Loses Patience Over Ignored Security Concerns",
+      "local_path": "archive/sources/geopolitics/sources/2025-09-04/source-john-helmer-russia-loses-patience-over-ignored-security-concerns-2025-09-04.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2025-09-04/source-john-helmer-russia-loses-patience-over-ignored-security-concerns-2025-09-04.md",
+      "upstream_path": "operator-paste://2026-09-03/john-helmer-russia-loses-patience-over-ignored-security-concerns",
+      "source_class": "transcript",
+      "modality": "video",
+      "voice_slugs": [
+        "john-helmer"
+      ],
+      "host_slug": "glenn-diesen",
+      "source_identity": "youtube:JHXU_aMRqX4",
+      "source_url": "https://www.youtube.com/watch?v=JHXU_aMRqX4",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2025-01-31",
+      "title": "The Looming Demise of NATO and Israel w/ Alex Krainer",
+      "local_path": "archive/sources/geopolitics/sources/2025-01-31/source-the-looming-demise-of-nato-and-israel-w-alex-krainer-2025-01-31.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2025-01-31/source-the-looming-demise-of-nato-and-israel-w-alex-krainer-2025-01-31.md",
+      "upstream_path": "operator-paste://2026-09-03/the-looming-demise-of-nato-and-israel-w-alex-krainer",
+      "source_class": "transcript",
+      "modality": "video",
+      "voice_slugs": [
+        "alex-krainer"
+      ],
+      "host_slug": "reason-resist",
+      "source_identity": "youtube:dlhm0i-xl-k",
+      "source_url": "https://www.youtube.com/watch?v=dlhm0i-xl-k",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2025-10-02",
+      "title": "Alex Krainer: Iran’s Air Defense REVOLUTION — China & Russia Just Tipped the Scales!",
+      "local_path": "archive/sources/geopolitics/sources/2025-10-02/source-alex-krainer-iran-s-air-defense-revolution-china-russia-just-tipped-the-scales-2025-10-02.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2025-10-02/source-alex-krainer-iran-s-air-defense-revolution-china-russia-just-tipped-the-scales-2025-10-02.md",
+      "upstream_path": "operator-paste://2026-09-03/alex-krainer-iran-s-air-defense-revolution-china-russia-just-tipped-the-scales",
+      "source_class": "transcript",
+      "modality": "video",
+      "voice_slugs": [
+        "alex-krainer"
+      ],
+      "host_slug": "dialogue-works",
+      "source_identity": "youtube:IVU2X95oEg4",
+      "source_url": "https://www.youtube.com/watch?v=IVU2X95oEg4",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2025-10-08",
+      "title": "Alex Krainer: Europe's Economic Collapse & Democratic Despotism",
+      "local_path": "archive/sources/geopolitics/sources/2025-10-08/source-alex-krainer-europe-s-economic-collapse-democratic-despotism-2025-10-08.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2025-10-08/source-alex-krainer-europe-s-economic-collapse-democratic-despotism-2025-10-08.md",
+      "upstream_path": "operator-paste://2026-09-03/alex-krainer-europe-s-economic-collapse-democratic-despotism",
+      "source_class": "transcript",
+      "modality": "video",
+      "voice_slugs": [
+        "alex-krainer"
+      ],
+      "host_slug": "glenn-diesen",
+      "source_identity": "youtube:Y0u_FwkZrio",
+      "source_url": "https://www.youtube.com/watch?v=Y0u_FwkZrio",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2025-08-02",
+      "title": "Alex Krainer: NATO & the EU Became Outdated in the Multipolar World",
+      "local_path": "archive/sources/geopolitics/sources/2025-08-02/source-alex-krainer-nato-the-eu-became-outdated-in-the-multipolar-world-2025-08-02.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2025-08-02/source-alex-krainer-nato-the-eu-became-outdated-in-the-multipolar-world-2025-08-02.md",
+      "upstream_path": "operator-paste://2026-09-03/alex-krainer-nato-the-eu-became-outdated-in-the-multipolar-world",
+      "source_class": "transcript",
+      "modality": "video",
+      "voice_slugs": [
+        "alex-krainer"
+      ],
+      "host_slug": "glenn-diesen",
+      "source_identity": "youtube:2sA0DdKIQf4",
+      "source_url": "https://www.youtube.com/watch?v=2sA0DdKIQf4",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2025-11-11",
+      "title": "Alex Krainer: NATO Lost Ukraine War - New Economic World Order Awaits",
+      "local_path": "archive/sources/geopolitics/sources/2025-11-11/source-alex-krainer-nato-lost-ukraine-war-new-economic-world-order-awaits-2025-11-11.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2025-11-11/source-alex-krainer-nato-lost-ukraine-war-new-economic-world-order-awaits-2025-11-11.md",
+      "upstream_path": "operator-paste://2026-09-03/alex-krainer-nato-lost-ukraine-war-new-economic-world-order-awaits",
+      "source_class": "transcript",
+      "modality": "video",
+      "voice_slugs": [
+        "alex-krainer"
+      ],
+      "host_slug": "glenn-diesen",
+      "source_identity": "youtube:xtElzgNVHdw",
+      "source_url": "https://www.youtube.com/watch?v=xtElzgNVHdw",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host"
       ],
       "import_status": "imported"
     }
