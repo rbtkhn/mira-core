@@ -4,7 +4,7 @@ This index routes the imported first-slice parity corpus for `marandi` to the ce
 
 Source basis: `strategy-codex/statecraft/voices/marandi/marandi-index.md`.
 
-Corpus: 108 local route rows across 108 central archive source files.
+Corpus: 112 local route rows across 112 central archive source files.
 
 Status: `first-slice-parity`
 
@@ -24,8 +24,11 @@ Status: `first-slice-parity`
 
 | Date | Source | Role | Host slug | Archive link |
 | --- | --- | --- | --- | --- |
+| `2025-01-15` | Prof. Mohammad Marandi \| Breaking: Official Gaza Ceasefire Announced – What Happens Next? | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2025-01-15/source-prof-mohammad-marandi-breaking-official-gaza-ceasefire-announced-what-happens-next-2025-01-15.md) |
 | `2025-02-20` | Prof. Mohammad Marandi: Trump’s Impact on the Middle East | `host-pressure test` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2025-02-20/source-prof-mohammad-marandi-trump-s-impact-on-the-middle-east-2025-02-20.md) |
 | `2025-03-20` | Seyed Marandi: Is Israel Destroying Itself? | `guest` | `glenn-diesen` | [source](../../../archive/sources/geopolitics/sources/2025-03-20/source-glenn-diesen-seyed-marandi-is-israel-destroying-itself-2025-03-20.md) |
+| `2025-05-25` | Seyed Mohammad Marandi: Is an Israeli Attack on Iran Imminent? | `guest` | `glenn-diesen` | [source](../../../archive/sources/geopolitics/sources/2025-05-25/source-seyed-mohammad-marandi-is-an-israeli-attack-on-iran-imminent-2025-05-25.md) |
+| `2025-06-13` | Seyed Mohammad Marandi: Israel Attacks Iran - Reality vs. Deception | `guest` | `glenn-diesen` | [source](../../../archive/sources/geopolitics/sources/2025-06-13/source-seyed-mohammad-marandi-israel-attacks-iran-reality-vs-deception-2025-06-13.md) |
 | `2025-08-12` | Mohammad Marandi: Iran’s DEADLY Warning: Missiles Poised to OBLITERATE Any Israeli Strike! | `host-pressure test` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2025-08-12/source-mohammad-marandi-iran-s-deadly-warning-missiles-poised-to-obliterate-any-israeli-strike-2025-08-12.md) |
 | `2025-08-19` | Pepe Escobar & Mohammad Marandi: Explosive Conflicts Rage in Middle East & Caucasus–Is Ukraine Next? | `host-pressure test` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2025-08-19/source-pepe-escobar-mohammad-marandi-explosive-conflicts-rage-in-middle-east-caucasus-is-ukraine-next-2025-08-19.md) |
 | `2025-08-26` | Mohammad Marandi: Yemen’s DEVASTATING Missile Retaliation Leaves Netanyahu on His Knees! | `host-pressure test` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2025-08-26/source-mohammad-marandi-yemen-s-devastating-missile-retaliation-leaves-netanyahu-on-his-knees-2025-08-26.md) |
@@ -33,6 +36,7 @@ Status: `first-slice-parity`
 | `2025-09-21` | Mohammad Marandi: Iran KILLS IAEA Deal — Cairo Agreement Wiped Out After SnapBack! | `host-pressure test` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2025-09-21/source-mohammad-marandi-iran-kills-iaea-deal-cairo-agreement-wiped-out-after-snapback-2025-09-21.md) |
 | `2025-10-14` | Mohammad Marandi: Palestinian Victory - Yemen Issues STRONG Warning as Gaza Truce Unravels! | `host-pressure test` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2025-10-14/source-mohammad-marandi-palestinian-victory-yemen-issues-strong-warning-as-gaza-truce-unravels-2025-10-14.md) |
 | `2025-11-17` | Mohammad Marandi: Iran’s ‘War Alert’ Explained: Why Millions Got Emergency Message — What Happened? | `host-pressure test` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2025-11-17/source-mohammad-marandi-iran-s-war-alert-explained-why-millions-got-emergency-message-what-happened-2025-11-17.md) |
+| `2025-12-30` | Mohammad Marandi: Is Israel Listening? Iran's "Smash" Doctrine | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2025-12-30/source-mohammad-marandi-is-israel-listening-iran-s-smash-doctrine-2025-12-30.md) |
 | `2026-01-20` | Who Opposes Iran's Government? U.S., Israel, Gulf States & the Protest Strategy | `guest` | `india-global-left` | [source](../../../archive/sources/geopolitics/sources/2026-01-20/source-who-opposes-iran-s-government-u-s-israel-gulf-states-the-protest-strategy-2026-01-20.md) |
 | `2026-02-10` | Mohammad Marandi & Larry C. Johnson: U.S. & Iran on the Brink as Critical Negotiations Unfold LIVE | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2026-02-10/source-dialogue-works-mohammad-marandi-larry-c-johnson-u-s-iran-on-the-brink-as-critical-negot-2026-02-10.md) |
 | `2026-02-11` | Prof Seyed Marandi: War w/Iran Will Be CATASTROPHIC FOR EVERYONE | `guest` | `daniel-davis` | [source](../../../archive/sources/geopolitics/sources/2026-02-11/source-daniel-davis-prof-seyed-marandi-war-w-iran-will-be-catastrophic-for-everyone-2026-02-11.md) |

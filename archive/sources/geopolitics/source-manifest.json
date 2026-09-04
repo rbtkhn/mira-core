@@ -2,7 +2,7 @@
   "manifest_id": "narrative-geopolitics-source-manifest-v1",
   "source_basis": "central archive with completed historical strategy-codex imports",
   "imported_at": "2026-07-09",
-  "source_count": 2417,
+  "source_count": 2421,
   "boundary": {
     "archive": "source truth",
     "voices": "voice continuity and routing",
@@ -64547,6 +64547,98 @@
       "host_slug": "judging-freedom",
       "source_identity": "youtube:hIftKdIwG8o",
       "source_url": "https://www.youtube.com/watch?v=hIftKdIwG8o",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2025-01-15",
+      "title": "Prof. Mohammad Marandi | Breaking: Official Gaza Ceasefire Announced – What Happens Next?",
+      "local_path": "archive/sources/geopolitics/sources/2025-01-15/source-prof-mohammad-marandi-breaking-official-gaza-ceasefire-announced-what-happens-next-2025-01-15.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2025-01-15/source-prof-mohammad-marandi-breaking-official-gaza-ceasefire-announced-what-happens-next-2025-01-15.md",
+      "upstream_path": "operator-paste://2025-01-15/prof-mohammad-marandi-breaking-official-gaza-ceasefire-announced-what-happens-next",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "marandi"
+      ],
+      "host_slug": "dialogue-works",
+      "source_identity": "youtube:DM1Ju_xQhlI",
+      "source_url": "https://www.youtube.com/watch?v=DM1Ju_xQhlI",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2025-05-25",
+      "title": "Seyed Mohammad Marandi: Is an Israeli Attack on Iran Imminent?",
+      "local_path": "archive/sources/geopolitics/sources/2025-05-25/source-seyed-mohammad-marandi-is-an-israeli-attack-on-iran-imminent-2025-05-25.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2025-05-25/source-seyed-mohammad-marandi-is-an-israeli-attack-on-iran-imminent-2025-05-25.md",
+      "upstream_path": "operator-paste://2025-05-25/seyed-mohammad-marandi-is-an-israeli-attack-on-iran-imminent",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "marandi"
+      ],
+      "host_slug": "glenn-diesen",
+      "source_identity": "youtube:r4-tvuqOQAg",
+      "source_url": "https://www.youtube.com/watch?v=r4-tvuqOQAg",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2025-06-13",
+      "title": "Seyed Mohammad Marandi: Israel Attacks Iran - Reality vs. Deception",
+      "local_path": "archive/sources/geopolitics/sources/2025-06-13/source-seyed-mohammad-marandi-israel-attacks-iran-reality-vs-deception-2025-06-13.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2025-06-13/source-seyed-mohammad-marandi-israel-attacks-iran-reality-vs-deception-2025-06-13.md",
+      "upstream_path": "operator-paste://2025-06-13/seyed-mohammad-marandi-israel-attacks-iran-reality-vs-deception",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "marandi"
+      ],
+      "host_slug": "glenn-diesen",
+      "source_identity": "youtube:Bb7T6FpRLKQ",
+      "source_url": "https://www.youtube.com/watch?v=Bb7T6FpRLKQ",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2025-12-30",
+      "title": "Mohammad Marandi: Is Israel Listening? Iran's \"Smash\" Doctrine",
+      "local_path": "archive/sources/geopolitics/sources/2025-12-30/source-mohammad-marandi-is-israel-listening-iran-s-smash-doctrine-2025-12-30.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2025-12-30/source-mohammad-marandi-is-israel-listening-iran-s-smash-doctrine-2025-12-30.md",
+      "upstream_path": "operator-paste://2025-12-30/mohammad-marandi-is-israel-listening-iran-s-smash-doctrine",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "marandi"
+      ],
+      "host_slug": "dialogue-works",
+      "source_identity": "youtube:qSxtxiS-a1Q",
+      "source_url": "https://www.youtube.com/watch?v=qSxtxiS-a1Q",
       "title_source": "transcript",
       "date_basis": "transcript-self-date",
       "inference_basis": [
