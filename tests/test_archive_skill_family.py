@@ -135,6 +135,12 @@ def test_query_duplicate_source_is_retired() -> None:
     assert not (ROOT / ".codex" / "skills" / "archive-query" / "SKILL.md").exists()
 
 
+def test_archive_query_uses_current_geopolitics_manifest_path() -> None:
+    value = text("archive-query")
+    assert "archive/sources/geopolitics/source-manifest.json" in value
+    assert "narrative-geopolitics/archive/source-manifest.json" not in value
+
+
 def test_archive_repair_routes_inspection_to_audit() -> None:
     value = text("archive-repair")
     assert "archive-audit" in value

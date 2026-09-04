@@ -127,7 +127,11 @@ readiness, voice/source value, and actionability.
 
 For requests to find new YouTube URLs for a named voice across a month, year,
 or administration period, treat the work as browser-first discovery unless the
-operator explicitly asks for RSS only. Use
+operator explicitly asks for RSS only. If the operator says browser-only,
+in-app browser only, or forbids a helper such as `yt-dlp`, do not use that
+helper for discovery, transcript capture, metadata closure, or duplicate
+resolution during the current YouTube task; rely only on visible browser
+observations and repository-local manifest or queue checks. Use
 `narrative-geopolitics/channels/channel-index.md` as the controlling source for
 regular channel scope: `daily` cadence channels are the regular Tier A browser
 set, `weekly` cadence channels are the regular Tier B browser set, and
@@ -204,8 +208,11 @@ tools\run.ps1 youtube-capture export-intake --date YYYY-MM-DD --json
 ```
 
 Inspect the draft. A clean draft should include the appropriate `--host-slug`
-and `--voice-slug` when known. If warnings report missing host or voice routing,
-repair the queue metadata before asking for archive admission.
+and `--voice-slug` when known. For manually added or browser-discovered rows,
+put the canonical channel route in structured metadata when the tool supports
+it, and include `channel_slug=SLUG` in notes when that is the current exporter
+contract. If warnings report missing host or voice routing, repair the queue
+metadata before asking for archive admission.
 
 When several transcript-ready rows are approved for archive admission, hand
 them to `archive-intake` one at a time. Do not parallelize landing operations
