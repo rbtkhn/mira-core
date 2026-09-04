@@ -2,7 +2,7 @@
   "manifest_id": "narrative-geopolitics-source-manifest-v1",
   "source_basis": "central archive with completed historical strategy-codex imports",
   "imported_at": "2026-07-09",
-  "source_count": 2402,
+  "source_count": 2409,
   "boundary": {
     "archive": "source truth",
     "voices": "voice continuity and routing",
@@ -64192,6 +64192,167 @@
       "host_slug": "moral-resistance",
       "source_identity": "youtube:VZ6vRbiMRDA",
       "source_url": "https://www.youtube.com/watch?v=VZ6vRbiMRDA",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-09-02",
+      "title": "Elijah Magnier: Oil Tankers Ablaze in Hormuz – US-Iran Conflict Hits Boiling Point",
+      "local_path": "archive/sources/geopolitics/sources/2026-09-02/source-elijah-magnier-oil-tankers-ablaze-in-hormuz-us-iran-conflict-hits-boiling-point-2026-09-02.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-09-02/source-elijah-magnier-oil-tankers-ablaze-in-hormuz-us-iran-conflict-hits-boiling-point-2026-09-02.md",
+      "upstream_path": "operator-paste://2026-09-02/elijah-magnier-oil-tankers-ablaze-in-hormuz-us-iran-conflict-hits-boiling-point",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "magnier"
+      ],
+      "host_slug": "dialogue-works",
+      "source_identity": "youtube:NJBuZA24FMs",
+      "source_url": "https://www.youtube.com/watch?v=NJBuZA24FMs",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-09-02",
+      "title": "Fmr. Marine Matthew Hoh: Oil Prices, Allies, and War: What Iran’s Retaliation Means Now",
+      "local_path": "archive/sources/geopolitics/sources/2026-09-02/source-fmr-marine-matthew-hoh-oil-prices-allies-and-war-what-iran-s-retaliation-means-now-2026-09-02.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-09-02/source-fmr-marine-matthew-hoh-oil-prices-allies-and-war-what-iran-s-retaliation-means-now-2026-09-02.md",
+      "upstream_path": "operator-paste://2026-09-02/fmr-marine-matthew-hoh-oil-prices-allies-and-war-what-iran-s-retaliation-means-now",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "hoh"
+      ],
+      "host_slug": "dialogue-works",
+      "source_identity": "youtube:gzzgxK3iI_A",
+      "source_url": "https://www.youtube.com/watch?v=gzzgxK3iI_A",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-09-02",
+      "title": "Larry Johnson: The Gulf Is Burning – US Bases Hit as Iran Fires Back",
+      "local_path": "archive/sources/geopolitics/sources/2026-09-02/source-larry-johnson-the-gulf-is-burning-us-bases-hit-as-iran-fires-back-2026-09-02.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-09-02/source-larry-johnson-the-gulf-is-burning-us-bases-hit-as-iran-fires-back-2026-09-02.md",
+      "upstream_path": "operator-paste://2026-09-02/larry-johnson-the-gulf-is-burning-us-bases-hit-as-iran-fires-back",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "johnson"
+      ],
+      "host_slug": "dialogue-works",
+      "source_identity": "youtube:zm_EE3LonTk",
+      "source_url": "https://www.youtube.com/watch?v=zm_EE3LonTk",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-09-02",
+      "title": "THE U.S. CAN'T WIN THIS WAR WITHOUT A MILLION TROOPS – w/ Prof. Robert Pape",
+      "local_path": "archive/sources/geopolitics/sources/2026-09-02/source-the-u-s-can-t-win-this-war-without-a-million-troops-w-prof-robert-pape-2026-09-02.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-09-02/source-the-u-s-can-t-win-this-war-without-a-million-troops-w-prof-robert-pape-2026-09-02.md",
+      "upstream_path": "operator-paste://2026-09-02/the-u-s-can-t-win-this-war-without-a-million-troops-w-prof-robert-pape",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "pape"
+      ],
+      "host_slug": "mario-nawfal",
+      "source_identity": "youtube:BQmULSH0KGY",
+      "source_url": "https://www.youtube.com/watch?v=BQmULSH0KGY",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-09-02",
+      "title": "Russian Strikes Enrage Zelensky; Russian Airports Threat; Putin No Talks With Terrorists; Orekhov",
+      "local_path": "archive/sources/geopolitics/sources/2026-09-02/source-russian-strikes-enrage-zelensky-russian-airports-threat-putin-no-talks-with-terrorists-orekhov-2026-09-02.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-09-02/source-russian-strikes-enrage-zelensky-russian-airports-threat-putin-no-talks-with-terrorists-orekhov-2026-09-02.md",
+      "upstream_path": "operator-paste://2026-09-02/russian-strikes-enrage-zelensky-russian-airports-threat-putin-no-talks-with-terrorists-orekhov",
+      "source_class": "host monologue",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "alexander-mercouris",
+      "source_identity": "youtube:cnQkpazbnQ0",
+      "source_url": "https://www.youtube.com/watch?v=cnQkpazbnQ0",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-09-02",
+      "title": "Lt. Col. Anthony Aguilar: Secretary Rubio Admits Critical Shortage in Interceptors Amid Iran War",
+      "local_path": "archive/sources/geopolitics/sources/2026-09-02/source-lt-col-anthony-aguilar-secretary-rubio-admits-critical-shortage-in-interceptors-amid-iran-war-2026-09-02.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-09-02/source-lt-col-anthony-aguilar-secretary-rubio-admits-critical-shortage-in-interceptors-amid-iran-war-2026-09-02.md",
+      "upstream_path": "operator-paste://2026-09-02/lt-col-anthony-aguilar-secretary-rubio-admits-critical-shortage-in-interceptors-amid-iran-war",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "aguilar"
+      ],
+      "host_slug": "dialogue-works",
+      "source_identity": "youtube:rAPCpBT-g6o",
+      "source_url": "https://www.youtube.com/watch?v=rAPCpBT-g6o",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-09-02",
+      "title": "Lawrence Wilkerson: NATO & the EU are Dead - A New World Emerges",
+      "local_path": "archive/sources/geopolitics/sources/2026-09-02/source-lawrence-wilkerson-nato-the-eu-are-dead-a-new-world-emerges-2026-09-02.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-09-02/source-lawrence-wilkerson-nato-the-eu-are-dead-a-new-world-emerges-2026-09-02.md",
+      "upstream_path": "operator-paste://2026-09-02/lawrence-wilkerson-nato-the-eu-are-dead-a-new-world-emerges",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "wilkerson"
+      ],
+      "host_slug": "glenn-diesen",
+      "source_identity": "youtube:H9gD_YOeJwA",
+      "source_url": "https://www.youtube.com/watch?v=H9gD_YOeJwA",
       "title_source": "transcript",
       "date_basis": "operator-supplied",
       "inference_basis": [

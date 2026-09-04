@@ -4,10 +4,11 @@ This index routes the imported first-slice parity corpus for `johnson` to the ce
 
 Source basis: `archive/sources/geopolitics/source-manifest.json`.
 
-Corpus: 145 local route rows across 145 central archive source files.
+Corpus: 146 local route rows across 146 central archive source files.
 
 Status: `first-slice-parity`
 | `2026-09-03` | BREAKING: TRUMP APPOINTS PRO-ISRAEL AS ARMY SECRETARY, TRUMP TO STRIKE SOON w/ CIA Larry Johnson | `guest` | `moral-resistance` | [source](../../../archive/sources/geopolitics/sources/2026-09-03/source-breaking-trump-appoints-pro-israel-as-army-secretary-trump-to-strike-soon-w-cia-larry-johnson-2026-09-03.md) |
+| `2026-09-02` | Larry Johnson: The Gulf Is Burning – US Bases Hit as Iran Fires Back | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2026-09-02/source-larry-johnson-the-gulf-is-burning-us-bases-hit-as-iran-fires-back-2026-09-02.md) |
 
 ## Reading Rule
 

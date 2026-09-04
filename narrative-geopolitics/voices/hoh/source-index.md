@@ -4,9 +4,10 @@ This index routes the unified local Hoh corpus for `hoh` to the central Narrativ
 
 Source basis: `strategy-codex/statecraft/voices/hoh/hoh-index.md` plus already-local matching archive rows.
 
-Corpus: 34 local route rows across 34 central archive source files.
+Corpus: 35 local route rows across 35 central archive source files.
 
 Status: `imported-corpus`
+| `2026-09-02` | Fmr. Marine Matthew Hoh: Oil Prices, Allies, and War: What Iran’s Retaliation Means Now | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2026-09-02/source-fmr-marine-matthew-hoh-oil-prices-allies-and-war-what-iran-s-retaliation-means-now-2026-09-02.md) |
 
 ## Reading Rule
 

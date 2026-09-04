@@ -4,9 +4,10 @@ This index routes the unified local Aguilar corpus for `aguilar` to the central 
 
 Source basis: `strategy-codex/statecraft/voices/aguilar/aguilar-index.md`.
 
-Corpus: 30 local route rows across 30 central archive source files.
+Corpus: 31 local route rows across 31 central archive source files.
 
 Status: `imported-corpus`
+| `2026-09-02` | Lt. Col. Anthony Aguilar: Secretary Rubio Admits Critical Shortage in Interceptors Amid Iran War | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2026-09-02/source-lt-col-anthony-aguilar-secretary-rubio-admits-critical-shortage-in-interceptors-amid-iran-war-2026-09-02.md) |
 
 ## Reading Rule
 
