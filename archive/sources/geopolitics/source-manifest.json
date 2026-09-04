@@ -2,7 +2,7 @@
   "manifest_id": "narrative-geopolitics-source-manifest-v1",
   "source_basis": "central archive with completed historical strategy-codex imports",
   "imported_at": "2026-07-09",
-  "source_count": 2409,
+  "source_count": 2414,
   "boundary": {
     "archive": "source truth",
     "voices": "voice continuity and routing",
@@ -64355,6 +64355,121 @@
       "source_url": "https://www.youtube.com/watch?v=H9gD_YOeJwA",
       "title_source": "transcript",
       "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2025-01-09",
+      "title": "Max Blumenthal : More Lies on Syria.",
+      "local_path": "archive/sources/geopolitics/sources/2025-01-09/source-max-blumenthal-more-lies-on-syria-2025-01-09.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2025-01-09/source-max-blumenthal-more-lies-on-syria-2025-01-09.md",
+      "upstream_path": "operator-paste://2025-01-09/max-blumenthal-more-lies-on-syria",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "blumenthal"
+      ],
+      "host_slug": "judging-freedom",
+      "source_identity": "youtube:k11eX27dLws",
+      "source_url": "https://www.youtube.com/watch?v=k11eX27dLws",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2025-10-13",
+      "title": "Max Blumenthal : How Soon Will IDF Attack Gaza?",
+      "local_path": "archive/sources/geopolitics/sources/2025-10-13/source-max-blumenthal-how-soon-will-idf-attack-gaza-2025-10-13.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2025-10-13/source-max-blumenthal-how-soon-will-idf-attack-gaza-2025-10-13.md",
+      "upstream_path": "operator-paste://2025-10-13/max-blumenthal-how-soon-will-idf-attack-gaza",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "blumenthal"
+      ],
+      "host_slug": "judging-freedom",
+      "source_identity": "youtube:USfI5TgEHdg",
+      "source_url": "https://www.youtube.com/watch?v=USfI5TgEHdg",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2025-11-06",
+      "title": "! Max Blumenthal ! : Netanyahu Defends Prison Rape.",
+      "local_path": "archive/sources/geopolitics/sources/2025-11-06/source-max-blumenthal-netanyahu-defends-prison-rape-2025-11-06.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2025-11-06/source-max-blumenthal-netanyahu-defends-prison-rape-2025-11-06.md",
+      "upstream_path": "operator-paste://2025-11-06/max-blumenthal-netanyahu-defends-prison-rape",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "blumenthal"
+      ],
+      "host_slug": "judging-freedom",
+      "source_identity": "youtube:7rEE8xuCWvU",
+      "source_url": "https://www.youtube.com/watch?v=7rEE8xuCWvU",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2025-12-23",
+      "title": "Max Blumenthal : Netanyahu to Investigate Himself!",
+      "local_path": "archive/sources/geopolitics/sources/2025-12-23/source-max-blumenthal-netanyahu-to-investigate-himself-2025-12-23.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2025-12-23/source-max-blumenthal-netanyahu-to-investigate-himself-2025-12-23.md",
+      "upstream_path": "operator-paste://2025-12-23/max-blumenthal-netanyahu-to-investigate-himself",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "blumenthal"
+      ],
+      "host_slug": "judging-freedom",
+      "source_identity": "youtube:wbOciOSf8nY",
+      "source_url": "https://www.youtube.com/watch?v=wbOciOSf8nY",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2025-12-31",
+      "title": "Max Blumenthal: Trump’s 2025 Wrap-Up: Wars Still Burning",
+      "local_path": "archive/sources/geopolitics/sources/2025-12-31/source-max-blumenthal-trump-s-2025-wrap-up-wars-still-burning-2025-12-31.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2025-12-31/source-max-blumenthal-trump-s-2025-wrap-up-wars-still-burning-2025-12-31.md",
+      "upstream_path": "operator-paste://2025-12-31/max-blumenthal-trump-s-2025-wrap-up-wars-still-burning",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "blumenthal"
+      ],
+      "host_slug": "dialogue-works",
+      "source_identity": "youtube:FHZaYOLj4mE",
+      "source_url": "https://www.youtube.com/watch?v=FHZaYOLj4mE",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
       "inference_basis": [
         "wrapper-normalized",
         "explicit-host",

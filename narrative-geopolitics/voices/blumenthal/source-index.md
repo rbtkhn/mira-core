@@ -4,9 +4,14 @@ This index routes the unified local Blumenthal corpus for `blumenthal` to the ce
 
 Source basis: `strategy-codex/statecraft/voices/blumenthal/blumenthal-index.md` plus already-local matching archive rows.
 
-Corpus: 28 local route rows across 28 central archive source files.
+Corpus: 33 local route rows across 33 central archive source files.
 
 Status: `imported-corpus`
+| `2025-01-09` | Max Blumenthal : More Lies on Syria. | `guest` | `judging-freedom` | [source](../../../archive/sources/geopolitics/sources/2025-01-09/source-max-blumenthal-more-lies-on-syria-2025-01-09.md) |
+| `2025-10-13` | Max Blumenthal : How Soon Will IDF Attack Gaza? | `guest` | `judging-freedom` | [source](../../../archive/sources/geopolitics/sources/2025-10-13/source-max-blumenthal-how-soon-will-idf-attack-gaza-2025-10-13.md) |
+| `2025-11-06` | ! Max Blumenthal ! : Netanyahu Defends Prison Rape. | `guest` | `judging-freedom` | [source](../../../archive/sources/geopolitics/sources/2025-11-06/source-max-blumenthal-netanyahu-defends-prison-rape-2025-11-06.md) |
+| `2025-12-23` | Max Blumenthal : Netanyahu to Investigate Himself! | `guest` | `judging-freedom` | [source](../../../archive/sources/geopolitics/sources/2025-12-23/source-max-blumenthal-netanyahu-to-investigate-himself-2025-12-23.md) |
+| `2025-12-31` | Max Blumenthal: Trump’s 2025 Wrap-Up: Wars Still Burning | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2025-12-31/source-max-blumenthal-trump-s-2025-wrap-up-wars-still-burning-2025-12-31.md) |
 
 ## Reading Rule
 
