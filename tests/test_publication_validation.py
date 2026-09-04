@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 from pathlib import Path
 
 import publication_validation as routing
@@ -15,7 +16,10 @@ def make_tree(root: Path) -> None:
         "archive/registries/moonshots.json",
         "archive/registries/innermost-loop.json",
         "archive/sources/singularity/moonshots/transcripts/2026-08-27-example.md",
+        "archive/sources/singularity/_youtube-capture-target-template.md",
+        "archive/sources/singularity/nate-herk-capture-targets-2026-09-04.md",
         "archive/sources/singularity/singularity-signal-ledger.json",
+        "archive/sources/youtube-channel-routing.yml",
         "mira/journal-registry.json",
         "mira/journal.md",
         "mira/journal/2026-08-28.md",
@@ -29,6 +33,7 @@ def make_tree(root: Path) -> None:
         "narrative-geopolitics/method/strategy-notebook-library-routing.md",
         "narrative-geopolitics/templates/strategy-notebook.md",
         "narrative-geopolitics/voices/README.md",
+        "narrative-geopolitics/voices/sachs/README.md",
         "narrative-geopolitics/voices/aguilar/source-index.md",
         "narrative-geopolitics/work/daily/2026-08-17/synthesis.md",
         "narrative-geopolitics/work/coverage/contracts/2026-08.json",
@@ -177,10 +182,101 @@ def test_router_resolves_mira_library_paths(tmp_path: Path) -> None:
     assert report["validation_classes"] == ["repo-structural"]
     assert report["commands"] == [
         "tools/run.ps1 library validate --json",
+        "tools/run.ps1 library integration-render --check --json",
+        "tools/run.ps1 library route-index --check --json",
         "tools/run.ps1 test --path tests/test_archive_library.py",
+        "tools/run.ps1 test --path tests/test_library_integration.py",
+        "tools/run.ps1 test --path tests/test_daily_run_validation.py",
     ]
     assert report["manual_checks"] == []
+
+
+def test_router_keeps_library_integration_code_and_schema_in_library_lane(
+    tmp_path: Path,
+) -> None:
+    make_tree(tmp_path)
+    schema_paths = [
+        tmp_path / "archive" / "schemas" / f"mira-library-integration-v{version}.schema.json"
+        for version in (1, 2, 3)
+    ]
+    for schema in schema_paths:
+        schema.parent.mkdir(parents=True, exist_ok=True)
+        schema.write_text("{}\n", encoding="utf-8")
+    integration_script = tmp_path / "scripts" / "library_integration.py"
+    integration_script.write_text("# fixture\n", encoding="utf-8")
+
+    report = routing.build_report(
+        [
+            *(path.relative_to(tmp_path).as_posix() for path in schema_paths),
+            "scripts/library_integration.py",
+        ],
+        repo_root=tmp_path,
+    )
+
+    assert report["status"] == "resolved"
+    assert report["owners"] == ["mira-library"]
+    assert "tools/run.ps1 library route-index --check --json" in report["commands"]
+    assert "tools/run.ps1 test --path tests/test_library_integration.py" in report["commands"]
     assert report["blockers"] == []
+
+
+def test_registered_library_note_requires_notes_and_integration_validation(
+    tmp_path: Path,
+) -> None:
+    make_tree(tmp_path)
+    note_ref = "archive/notes/2026-09-02-library-example-cognitive-note.md"
+    note_path = tmp_path / note_ref
+    note_path.write_text("# governed note\n", encoding="utf-8")
+    registry_path = (
+        tmp_path / "archive" / "library" / "integrations" / "work-registry.json"
+    )
+    registry_path.parent.mkdir(parents=True, exist_ok=True)
+    registry_path.write_text(
+        json.dumps(
+            {
+                "works": [
+                    {
+                        "canonical_work_id": "MIRA-WORK-EXAMPLE",
+                        "note_refs": [note_ref],
+                        "revision_head_note_ref": note_ref,
+                    }
+                ]
+            }
+        )
+        + "\n",
+        encoding="utf-8",
+    )
+
+    report = routing.build_report([note_ref], repo_root=tmp_path)
+
+    assert report["status"] == "manual-required"
+    assert report["owners"] == ["mira-library/cognitive-note"]
+    assert report["validation_classes"] == ["domain-governed"]
+    assert "tools/run.ps1 library integration-render --check --json" in report["commands"]
+    assert "tools/run.ps1 test --path tests/test_library_integration.py" in report["commands"]
+    assert report["manual_checks"] == [
+        routing.MANUAL_NOTE_CHECK,
+        routing.MANUAL_LIBRARY_COGNITIVE_NOTE_CHECK,
+    ]
+
+
+def test_unreadable_library_registry_blocks_note_ownership_guessing(tmp_path: Path) -> None:
+    make_tree(tmp_path)
+    registry_path = (
+        tmp_path / "archive" / "library" / "integrations" / "work-registry.json"
+    )
+    registry_path.parent.mkdir(parents=True, exist_ok=True)
+    registry_path.write_text("{not-json}\n", encoding="utf-8")
+
+    report = routing.build_report(
+        ["archive/notes/2026-08-17-note.md"], repo_root=tmp_path
+    )
+
+    assert report["status"] == "blocked"
+    assert report["owners"] == []
+    assert report["blockers"] == [
+        "Mira Library work registry is unreadable; cognitive-note ownership cannot be resolved"
+    ]
 
 
 def test_router_resolves_singularity_archive_paths(tmp_path: Path) -> None:
@@ -239,6 +335,7 @@ def test_router_resolves_narrative_geopolitics_artifacts(tmp_path: Path) -> None
         [
             "archive/sources/geopolitics/source-manifest.json",
             "narrative-geopolitics/voices/README.md",
+            "narrative-geopolitics/voices/sachs/README.md",
             "narrative-geopolitics/voices/aguilar/source-index.md",
             "narrative-geopolitics/method/strategy-notebook-library-routing.md",
             "narrative-geopolitics/templates/strategy-notebook.md",
@@ -291,6 +388,32 @@ def test_router_resolves_monthly_coverage_contract_and_receipts(tmp_path: Path) 
     assert report["blockers"] == []
 
 
+def test_router_resolves_youtube_capture_routing_and_singularity_targets(tmp_path: Path) -> None:
+    make_tree(tmp_path)
+    report = routing.build_report(
+        [
+            "archive/sources/youtube-channel-routing.yml",
+            "archive/sources/singularity/_youtube-capture-target-template.md",
+            "archive/sources/singularity/nate-herk-capture-targets-2026-09-04.md",
+        ],
+        repo_root=tmp_path,
+    )
+
+    assert report["status"] == "manual-required"
+    assert report["owners"] == [
+        "youtube-capture/routing",
+        "youtube-capture/singularity-targets",
+    ]
+    assert report["validation_classes"] == ["repo-structural", "domain-governed"]
+    assert report["commands"] == [
+        "tools/run.ps1 test --path tests/test_youtube_capture.py",
+        "tools/run.ps1 test --path tests/test_youtube_capture_skill.py",
+        "tools/run.ps1 youtube-capture route-audit --json",
+    ]
+    assert report["manual_checks"] == [routing.MANUAL_YOUTUBE_CAPTURE_CHECK]
+    assert report["blockers"] == []
+
+
 def test_router_resolves_monthly_strategy_notebook(tmp_path: Path) -> None:
     make_tree(tmp_path)
 
@@ -339,8 +462,8 @@ def test_router_resolves_narrative_geopolitics_work_surfaces(tmp_path: Path) -> 
 
     assert report["status"] == "manual-required"
     assert report["owners"] == [
-        "youtube-capture/policy",
-        "youtube-capture",
+        "youtube-capture/geopolitics-policy",
+        "youtube-capture/geopolitics-queue",
         "historical-reference",
         "reality-check",
     ]

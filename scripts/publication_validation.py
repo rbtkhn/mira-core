@@ -13,6 +13,11 @@ MANUAL_NOTE_CHECK = (
     "Validate note lifecycle/status, privacy, provenance, authority effect, and "
     "absence of credentials or restricted source bodies through mira-notes."
 )
+MANUAL_LIBRARY_COGNITIVE_NOTE_CHECK = (
+    "Validate Library cognitive-note authorship, template order, admitted-body dependency "
+    "snapshot, explicit work relationships, lineage, integration stage, and absence of "
+    "inferred prose edges or automatic note creation through library-integration."
+)
 MANUAL_ESSAY_CHECK = (
     "Validate essay privacy, evidence boundaries, provenance, links, detached-title "
     "accuracy, and Markdown integrity through mira-essays."
@@ -62,6 +67,9 @@ MIRA_CONTROL_PATHS = frozenset({
 })
 DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 MONTH_RE = re.compile(r"^\d{4}-\d{2}$")
+LIBRARY_INTEGRATION_SCHEMA_RE = re.compile(
+    r"^archive/schemas/mira-library-integration-v[1-9]\d*\.schema\.json$"
+)
 
 
 class RoutingError(ValueError):
@@ -208,6 +216,78 @@ def _mira_journal_date(path: str) -> str | None:
     return None
 
 
+def _singularity_youtube_capture_target(path: str) -> str | None:
+    parts = PurePosixPath(path).parts
+    if (
+        len(parts) == 4
+        and parts[:3] == ("archive", "sources", "singularity")
+        and parts[3].endswith(".md")
+    ):
+        name = parts[3].removesuffix(".md")
+        match = re.match(r"^[a-z0-9-]+-capture-targets-(\d{4}-\d{2}-\d{2})$", name)
+        if match:
+            return match.group(1)
+    return None
+
+
+def _registered_library_note(path: str, *, repo_root: Path) -> bool:
+    if not path.startswith("archive/notes/"):
+        return False
+    registry_path = (
+        repo_root / "archive" / "library" / "integrations" / "work-registry.json"
+    )
+    if not registry_path.is_file():
+        return False
+    try:
+        payload = json.loads(registry_path.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError) as error:
+        raise RoutingError(
+            "Mira Library work registry is unreadable; cognitive-note ownership cannot be resolved"
+        ) from error
+    works = payload.get("works") if isinstance(payload, dict) else None
+    if not isinstance(works, list):
+        raise RoutingError(
+            "Mira Library work registry has no works list; cognitive-note ownership cannot be resolved"
+        )
+    for work in works:
+        if not isinstance(work, dict):
+            continue
+        refs = {
+            str(value).replace("\\", "/")
+            for value in work.get("note_refs", [])
+            if isinstance(value, str) and value
+        }
+        for key in ("note_ref", "revision_head_note_ref"):
+            value = work.get(key)
+            if isinstance(value, str) and value:
+                refs.add(value.replace("\\", "/"))
+        if path in refs:
+            return True
+    return False
+
+
+def _library_validation_route(*, cognitive_note: bool = False) -> dict[str, Any]:
+    return {
+        "owner": (
+            "mira-library/cognitive-note" if cognitive_note else "mira-library"
+        ),
+        "validation_class": "domain-governed" if cognitive_note else "repo-structural",
+        "commands": [
+            "tools/run.ps1 library validate --json",
+            "tools/run.ps1 library integration-render --check --json",
+            "tools/run.ps1 library route-index --check --json",
+            "tools/run.ps1 test --path tests/test_archive_library.py",
+            "tools/run.ps1 test --path tests/test_library_integration.py",
+            "tools/run.ps1 test --path tests/test_daily_run_validation.py",
+        ],
+        "manual_checks": (
+            [MANUAL_NOTE_CHECK, MANUAL_LIBRARY_COGNITIVE_NOTE_CHECK]
+            if cognitive_note
+            else []
+        ),
+    }
+
+
 def route_path(path: str, *, repo_root: Path = REPO_ROOT) -> dict[str, Any]:
     if path.startswith("projects/grace-gems/"):
         return {
@@ -215,6 +295,36 @@ def route_path(path: str, *, repo_root: Path = REPO_ROOT) -> dict[str, Any]:
             "validation_class": "domain-governed",
             "commands": [],
             "manual_checks": [MANUAL_GRACE_GEMS_CHECK],
+        }
+    if _registered_library_note(path, repo_root=repo_root):
+        return _library_validation_route(cognitive_note=True)
+    if path == "archive/sources/youtube-channel-routing.yml":
+        return {
+            "owner": "youtube-capture/routing",
+            "validation_class": "repo-structural",
+            "commands": [
+                "tools/run.ps1 test --path tests/test_youtube_capture.py",
+                "tools/run.ps1 test --path tests/test_youtube_capture_skill.py",
+            ],
+            "manual_checks": [MANUAL_YOUTUBE_CAPTURE_CHECK],
+        }
+    if path == "archive/sources/singularity/_youtube-capture-target-template.md":
+        return {
+            "owner": "youtube-capture/singularity-targets",
+            "validation_class": "repo-structural",
+            "commands": ["tools/run.ps1 test --path tests/test_youtube_capture.py"],
+            "manual_checks": [MANUAL_YOUTUBE_CAPTURE_CHECK],
+        }
+    singularity_capture_date = _singularity_youtube_capture_target(path)
+    if singularity_capture_date:
+        return {
+            "owner": "youtube-capture/singularity-targets",
+            "validation_class": "domain-governed",
+            "commands": [
+                "tools/run.ps1 youtube-capture route-audit --json",
+                "tools/run.ps1 test --path tests/test_youtube_capture.py",
+            ],
+            "manual_checks": [MANUAL_YOUTUBE_CAPTURE_CHECK],
         }
     if path.startswith("archive/notes/"):
         return {
@@ -286,6 +396,16 @@ def route_path(path: str, *, repo_root: Path = REPO_ROOT) -> dict[str, Any]:
             "commands": ["tools/run.ps1 test --path tests/test_voice_count_authority.py"],
             "manual_checks": [MANUAL_NARRATIVE_GEOPOLITICS_CHECK],
         }
+    if (
+        path.startswith("narrative-geopolitics/voices/")
+        and path.endswith("/README.md")
+    ):
+        return {
+            "owner": "narrative-geopolitics/voice-control",
+            "validation_class": "domain-governed",
+            "commands": ["tools/run.ps1 test --path tests/test_voice_count_authority.py"],
+            "manual_checks": [MANUAL_NARRATIVE_GEOPOLITICS_CHECK],
+        }
     if path.startswith("narrative-geopolitics/templates/"):
         return {
             "owner": "geo-strategy/templates",
@@ -343,7 +463,7 @@ def route_path(path: str, *, repo_root: Path = REPO_ROOT) -> dict[str, Any]:
         }
     if path == "narrative-geopolitics/work/capture/youtube/youtube-capture-policy.yml":
         return {
-            "owner": "youtube-capture/policy",
+            "owner": "youtube-capture/geopolitics-policy",
             "validation_class": "repo-structural",
             "commands": ["tools/run.ps1 test --path tests/test_youtube_capture.py"],
             "manual_checks": [MANUAL_YOUTUBE_CAPTURE_CHECK],
@@ -351,7 +471,7 @@ def route_path(path: str, *, repo_root: Path = REPO_ROOT) -> dict[str, Any]:
     youtube_date = _youtube_capture_date(path)
     if youtube_date:
         return {
-            "owner": "youtube-capture",
+            "owner": "youtube-capture/geopolitics-queue",
             "validation_class": "domain-governed",
             "commands": [
                 f"python -X utf8 scripts/youtube_capture.py status --date {youtube_date}",
@@ -423,16 +543,12 @@ def route_path(path: str, *, repo_root: Path = REPO_ROOT) -> dict[str, Any]:
             "commands": ["tools/run.ps1 test --path tests/test_publication_validation.py"],
             "manual_checks": [MANUAL_DEV_JOURNAL_CHECK],
         }
-    if path.startswith("archive/library/"):
-        return {
-            "owner": "mira-library",
-            "validation_class": "repo-structural",
-            "commands": [
-                "tools/run.ps1 library validate --json",
-                "tools/run.ps1 test --path tests/test_archive_library.py",
-            ],
-            "manual_checks": [],
-        }
+    if (
+        path.startswith("archive/library/")
+        or LIBRARY_INTEGRATION_SCHEMA_RE.fullmatch(path)
+        or path == "scripts/library_integration.py"
+    ):
+        return _library_validation_route()
     if path.startswith("tests/"):
         suffix = Path(path).suffix.lower()
         if suffix != ".py":

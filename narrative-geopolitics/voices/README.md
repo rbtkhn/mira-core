@@ -53,18 +53,57 @@ Pape is currently `full-source-parity`. The other core voices are `first-slice-p
 
 | Voice | Profile | Index | Status |
 | --- | --- | --- | --- |
-| Alexander Mercouris | [mercouris/README.md](mercouris/README.md) | [mercouris/source-index.md](mercouris/source-index.md) | internal / first-slice-parity |
-| Daniel Davis | [davis/README.md](davis/README.md) | [davis/source-index.md](davis/source-index.md) | internal / first-slice-parity |
-| Douglas Macgregor | [macgregor/README.md](macgregor/README.md) | [macgregor/source-index.md](macgregor/source-index.md) | internal / first-slice-parity |
-| Pepe Escobar | [escobar/README.md](escobar/README.md) | [escobar/source-index.md](escobar/source-index.md) | internal / lightweight |
+| Adams | [adams/README.md](adams/README.md) | [adams/source-index.md](adams/source-index.md) | internal / imported-corpus |
+| Anthony Aguilar | [aguilar/README.md](aguilar/README.md) | [aguilar/source-index.md](aguilar/source-index.md) | internal / imported-corpus |
+| Alkhorshid | [alkhorshid/README.md](alkhorshid/README.md) | [alkhorshid/source-index.md](alkhorshid/source-index.md) | internal / imported-corpus |
+| Armstrong | [armstrong/README.md](armstrong/README.md) | [armstrong/source-index.md](armstrong/source-index.md) | internal / imported-corpus |
+| Robert Barnes | [barnes/README.md](barnes/README.md) | [barnes/source-index.md](barnes/source-index.md) | internal / imported-corpus |
+| Jacques Baud | [baud/README.md](baud/README.md) | [baud/source-index.md](baud/source-index.md) | internal / imported-corpus |
+| Beebe | [beebe/README.md](beebe/README.md) | [beebe/source-index.md](beebe/source-index.md) | internal / imported-corpus |
+| Berletic | [berletic/README.md](berletic/README.md) | [berletic/source-index.md](berletic/source-index.md) | internal / imported-corpus |
+| Max Blumenthal | [blumenthal/README.md](blumenthal/README.md) | [blumenthal/source-index.md](blumenthal/source-index.md) | internal / imported-corpus |
+| Alex Christoforou | [cristoforou/README.md](cristoforou/README.md) | [cristoforou/source-index.md](cristoforou/source-index.md) | internal / canonical-person-seed |
+| Alastair Crooke | [crooke/README.md](crooke/README.md) | [crooke/source-index.md](crooke/source-index.md) | internal / imported-corpus |
+| Daniel L. Davis | [davis/README.md](davis/README.md) | [davis/source-index.md](davis/source-index.md) | internal / first-slice-parity |
 | Glenn Diesen | [diesen/README.md](diesen/README.md) | [diesen/source-index.md](diesen/source-index.md) | internal / first-slice-parity |
-| Larry Johnson | [johnson/README.md](johnson/README.md) | [johnson/source-index.md](johnson/source-index.md) | internal / first-slice-parity |
-| John Mearsheimer | [mearsheimer/README.md](mearsheimer/README.md) | [mearsheimer/source-index.md](mearsheimer/source-index.md) | internal / first-slice-parity |
-| Jiang Xueqin | [jiang/README.md](jiang/README.md) | [jiang/source-index.md](jiang/source-index.md) | internal / imported-corpus |
-| Joe Kent | [kent/README.md](kent/README.md) | [kent/source-index.md](kent/source-index.md) | internal / imported-corpus |
+| Dugin | [dugin/README.md](dugin/README.md) | [dugin/source-index.md](dugin/source-index.md) | internal / imported-corpus |
+| Pepe Escobar | [escobar/README.md](escobar/README.md) | [escobar/source-index.md](escobar/source-index.md) | internal / lightweight |
+| Chas Freeman | [freeman/README.md](freeman/README.md) | [freeman/source-index.md](freeman/source-index.md) | internal / imported-corpus |
+| John Helmer | [helmer/README.md](helmer/README.md) | [helmer/source-index.md](helmer/source-index.md) | internal / imported-corpus |
 | Patrick Henningsen | [henningsen/README.md](henningsen/README.md) | [henningsen/source-index.md](henningsen/source-index.md) | internal / lightweight |
+| Matthew Hoh | [hoh/README.md](hoh/README.md) | [hoh/source-index.md](hoh/source-index.md) | internal / imported-corpus |
+| Hudson | [hudson/README.md](hudson/README.md) | [hudson/source-index.md](hudson/source-index.md) | internal / imported-corpus |
+| Steve Jermy | [jermy/README.md](jermy/README.md) | [jermy/source-index.md](jermy/source-index.md) | internal / imported-corpus |
+| Jiang Xueqin | [jiang/README.md](jiang/README.md) | [jiang/source-index.md](jiang/source-index.md) | internal / imported-corpus |
+| Larry Johnson | [johnson/README.md](johnson/README.md) | [johnson/source-index.md](johnson/source-index.md) | internal / first-slice-parity |
+| Sergey Karaganov | [karaganov/README.md](karaganov/README.md) | [karaganov/source-index.md](karaganov/source-index.md) | internal / imported-corpus |
+| Joe Kent | [kent/README.md](kent/README.md) | [kent/source-index.md](kent/source-index.md) | internal |
+| Alex Krainer | [krainer/README.md](krainer/README.md) | [krainer/source-index.md](krainer/source-index.md) | internal / imported-corpus |
+| Stanislav Krapivnik | [krapivnik/README.md](krapivnik/README.md) | [krapivnik/source-index.md](krapivnik/source-index.md) | internal / seeded |
+| Lieven | [lieven/README.md](lieven/README.md) | [lieven/source-index.md](lieven/source-index.md) | internal / imported-corpus |
+| Douglas Macgregor | [macgregor/README.md](macgregor/README.md) | [macgregor/source-index.md](macgregor/source-index.md) | internal / transcript-bearing-upstream-parity |
+| Elijah Magnier | [magnier/README.md](magnier/README.md) | [magnier/source-index.md](magnier/source-index.md) | internal / provisional-imported-corpus |
 | Seyed Mohammad Marandi | [marandi/README.md](marandi/README.md) | [marandi/source-index.md](marandi/source-index.md) | internal / first-slice-parity |
-| Robert Pape | [pape/README.md](pape/README.md) | [pape/source-index.md](pape/source-index.md) | internal / full-source-parity |
+| Marouf | [marouf/README.md](marouf/README.md) | [marouf/source-index.md](marouf/source-index.md) | internal / imported-corpus |
+| Andrei Martyanov | [martyanov/README.md](martyanov/README.md) | [martyanov/source-index.md](martyanov/source-index.md) | internal / imported-corpus |
+| Aaron Mate | [mate/README.md](mate/README.md) | [mate/source-index.md](mate/source-index.md) | internal / imported-corpus |
+| Jack Matlock | [matlock/README.md](matlock/README.md) | [matlock/source-index.md](matlock/source-index.md) | internal / imported-corpus |
+| Ray McGovern | [mcgovern/README.md](mcgovern/README.md) | [mcgovern/source-index.md](mcgovern/source-index.md) | internal / imported-corpus |
+| John Mearsheimer | [mearsheimer/README.md](mearsheimer/README.md) | [mearsheimer/source-index.md](mearsheimer/source-index.md) | internal / first-slice-parity |
+| Alexander Mercouris | [mercouris/README.md](mercouris/README.md) | [mercouris/source-index.md](mercouris/source-index.md) | internal / transcript-bearing-upstream-parity |
+| Emad Mostaque | [mostaque/README.md](mostaque/README.md) | [mostaque/source-index.md](mostaque/source-index.md) | internal / provisional-corpus |
+| Robert Pape | [pape/README.md](pape/README.md) | [pape/source-index.md](pape/source-index.md) | internal |
+| Trita Parsi | [parsi/README.md](parsi/README.md) | [parsi/source-index.md](parsi/source-index.md) | internal / imported-corpus |
+| Polyanskiy | [polyanskiy/README.md](polyanskiy/README.md) | [polyanskiy/source-index.md](polyanskiy/source-index.md) | internal / imported-corpus |
+| Ted Postol | [postol/README.md](postol/README.md) | [postol/source-index.md](postol/source-index.md) | internal / imported-corpus |
+| Scott Ritter | [ritter/README.md](ritter/README.md) | [ritter/source-index.md](ritter/source-index.md) | internal / imported-corpus |
+| Jeffrey Sachs | [sachs/README.md](sachs/README.md) | [sachs/source-index.md](sachs/source-index.md) | internal / imported-corpus |
+| Pravin Sawhney | [sawhney/README.md](sawhney/README.md) | [sawhney/source-index.md](sawhney/source-index.md) | internal |
+| Varoufakis | [varoufakis/README.md](varoufakis/README.md) | [varoufakis/source-index.md](varoufakis/source-index.md) | internal / imported-corpus |
+| Vilano | [vilano/README.md](vilano/README.md) | [vilano/source-index.md](vilano/source-index.md) | internal / imported-corpus |
+| Stephen Walt | [walt/README.md](walt/README.md) | [walt/source-index.md](walt/source-index.md) | internal / imported-corpus |
+| Brandon Weichert | [weichert/README.md](weichert/README.md) | [weichert/source-index.md](weichert/source-index.md) | internal / imported-corpus |
+| Lawrence Wilkerson | [wilkerson/README.md](wilkerson/README.md) | [wilkerson/source-index.md](wilkerson/source-index.md) | internal / imported-corpus |
 
 ## Comparison Notes
 
