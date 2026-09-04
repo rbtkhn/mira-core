@@ -2,7 +2,7 @@
   "manifest_id": "narrative-geopolitics-source-manifest-v1",
   "source_basis": "central archive with completed historical strategy-codex imports",
   "imported_at": "2026-07-09",
-  "source_count": 2392,
+  "source_count": 2402,
   "boundary": {
     "archive": "source truth",
     "voices": "voice continuity and routing",
@@ -63968,6 +63968,236 @@
       "inference_basis": [
         "wrapper-normalized",
         "explicit-host"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-09-03",
+      "title": "Chas Freeman: U.S. & Iran Back at War & NATO's Abuse of Ukraine",
+      "local_path": "archive/sources/geopolitics/sources/2026-09-03/source-chas-freeman-u-s-iran-back-at-war-nato-s-abuse-of-ukraine-2026-09-03.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-09-03/source-chas-freeman-u-s-iran-back-at-war-nato-s-abuse-of-ukraine-2026-09-03.md",
+      "upstream_path": "operator-paste://2026-09-03/chas-freeman-u-s-iran-back-at-war-nato-s-abuse-of-ukraine",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "freeman"
+      ],
+      "host_slug": "glenn-diesen",
+      "source_identity": "youtube:BIrmFJm4ulM",
+      "source_url": "https://www.youtube.com/watch?v=BIrmFJm4ulM",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-09-03",
+      "title": "Alex Krainer: The Middle East Just Broke: Here’s What Happens Next",
+      "local_path": "archive/sources/geopolitics/sources/2026-09-03/source-alex-krainer-the-middle-east-just-broke-here-s-what-happens-next-2026-09-03.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-09-03/source-alex-krainer-the-middle-east-just-broke-here-s-what-happens-next-2026-09-03.md",
+      "upstream_path": "operator-paste://2026-09-03/alex-krainer-the-middle-east-just-broke-here-s-what-happens-next",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "krainer"
+      ],
+      "host_slug": "dialogue-works",
+      "source_identity": "youtube:IhHN0-YyjN4",
+      "source_url": "https://www.youtube.com/watch?v=IhHN0-YyjN4",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-09-03",
+      "title": "NATO Backs Berlin Against Moscow, Ukraine Celebrates",
+      "local_path": "archive/sources/geopolitics/sources/2026-09-03/source-nato-backs-berlin-against-moscow-ukraine-celebrates-2026-09-03.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-09-03/source-nato-backs-berlin-against-moscow-ukraine-celebrates-2026-09-03.md",
+      "upstream_path": "operator-paste://2026-09-03/nato-backs-berlin-against-moscow-ukraine-celebrates",
+      "source_class": "host monologue",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "davis"
+      ],
+      "host_slug": "daniel-davis",
+      "source_identity": "youtube:CpOJdrzu1Yk",
+      "source_url": "https://www.youtube.com/watch?v=CpOJdrzu1Yk",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-09-03",
+      "title": "Europe Wants U.S. To Fight Russia",
+      "local_path": "archive/sources/geopolitics/sources/2026-09-03/source-europe-wants-u-s-to-fight-russia-2026-09-03.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-09-03/source-europe-wants-u-s-to-fight-russia-2026-09-03.md",
+      "upstream_path": "operator-paste://2026-09-03/europe-wants-u-s-to-fight-russia",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mercouris",
+        "cristoforou"
+      ],
+      "host_slug": "the-duran",
+      "source_identity": "youtube:W8mIv9BF58Y",
+      "source_url": "https://www.youtube.com/watch?v=W8mIv9BF58Y",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-09-03",
+      "title": "MAJOR COUNTRIES TURN ON TRUMP, CONDEMN IRAN WAR IN SCO SUMMIT – w/ Pepe Escobar",
+      "local_path": "archive/sources/geopolitics/sources/2026-09-03/source-major-countries-turn-on-trump-condemn-iran-war-in-sco-summit-w-pepe-escobar-2026-09-03.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-09-03/source-major-countries-turn-on-trump-condemn-iran-war-in-sco-summit-w-pepe-escobar-2026-09-03.md",
+      "upstream_path": "operator-paste://2026-09-03/major-countries-turn-on-trump-condemn-iran-war-in-sco-summit-w-pepe-escobar",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "escobar"
+      ],
+      "host_slug": "mario-nawfal",
+      "source_identity": "youtube:kWNtNxYwHQg",
+      "source_url": "https://www.youtube.com/watch?v=kWNtNxYwHQg",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-09-03",
+      "title": "Russia Hits Central Kiev Close To Key Railway Station; Kiev Panic Gunfights; Kharkov Front Collapses",
+      "local_path": "archive/sources/geopolitics/sources/2026-09-03/source-russia-hits-central-kiev-close-to-key-railway-station-kiev-panic-gunfights-kharkov-front-collapses-2026-09-03.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-09-03/source-russia-hits-central-kiev-close-to-key-railway-station-kiev-panic-gunfights-kharkov-front-collapses-2026-09-03.md",
+      "upstream_path": "operator-paste://2026-09-03/russia-hits-central-kiev-close-to-key-railway-station-kiev-panic-gunfights-kharkov-front-collapses",
+      "source_class": "host monologue",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "alexander-mercouris",
+      "source_identity": "youtube:eFodmuJAGO4",
+      "source_url": "https://www.youtube.com/watch?v=eFodmuJAGO4",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-09-03",
+      "title": "Alexander Mercouris: Ukraine Unravelling - War Enters New & Dangerous Phase",
+      "local_path": "archive/sources/geopolitics/sources/2026-09-03/source-alexander-mercouris-ukraine-unravelling-war-enters-new-dangerous-phase-2026-09-03.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-09-03/source-alexander-mercouris-ukraine-unravelling-war-enters-new-dangerous-phase-2026-09-03.md",
+      "upstream_path": "operator-paste://2026-09-03/alexander-mercouris-ukraine-unravelling-war-enters-new-dangerous-phase",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "glenn-diesen",
+      "source_identity": "youtube:xw-go81A0JQ",
+      "source_url": "https://www.youtube.com/watch?v=xw-go81A0JQ",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-09-03",
+      "title": "KATZ THREATENS TO BOMB IRAN \"INTO THE STONE AGE\" – w/ Col. Larry Wilkerson",
+      "local_path": "archive/sources/geopolitics/sources/2026-09-03/source-katz-threatens-to-bomb-iran-into-the-stone-age-w-col-larry-wilkerson-2026-09-03.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-09-03/source-katz-threatens-to-bomb-iran-into-the-stone-age-w-col-larry-wilkerson-2026-09-03.md",
+      "upstream_path": "operator-paste://2026-09-03/katz-threatens-to-bomb-iran-into-the-stone-age-w-col-larry-wilkerson",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "wilkerson"
+      ],
+      "host_slug": "mario-nawfal",
+      "source_identity": "youtube:dgJK1yQaubM",
+      "source_url": "https://www.youtube.com/watch?v=dgJK1yQaubM",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-09-03",
+      "title": "IRAN STRIKES U.S. BASES IN KUWAIT AND THE UAE OVERNIGHT",
+      "local_path": "archive/sources/geopolitics/sources/2026-09-03/source-iran-strikes-u-s-bases-in-kuwait-and-the-uae-overnight-2026-09-03.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-09-03/source-iran-strikes-u-s-bases-in-kuwait-and-the-uae-overnight-2026-09-03.md",
+      "upstream_path": "operator-paste://2026-09-03/iran-strikes-u-s-bases-in-kuwait-and-the-uae-overnight",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "weichert"
+      ],
+      "host_slug": "mario-nawfal",
+      "source_identity": "youtube:zk9QXNMlY4k",
+      "source_url": "https://www.youtube.com/watch?v=zk9QXNMlY4k",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-09-03",
+      "title": "BREAKING: TRUMP APPOINTS PRO-ISRAEL AS ARMY SECRETARY, TRUMP TO STRIKE SOON w/ CIA Larry Johnson",
+      "local_path": "archive/sources/geopolitics/sources/2026-09-03/source-breaking-trump-appoints-pro-israel-as-army-secretary-trump-to-strike-soon-w-cia-larry-johnson-2026-09-03.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-09-03/source-breaking-trump-appoints-pro-israel-as-army-secretary-trump-to-strike-soon-w-cia-larry-johnson-2026-09-03.md",
+      "upstream_path": "operator-paste://2026-09-03/breaking-trump-appoints-pro-israel-as-army-secretary-trump-to-strike-soon-w-cia-larry-johnson",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "johnson"
+      ],
+      "host_slug": "moral-resistance",
+      "source_identity": "youtube:VZ6vRbiMRDA",
+      "source_url": "https://www.youtube.com/watch?v=VZ6vRbiMRDA",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
       ],
       "import_status": "imported"
     }

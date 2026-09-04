@@ -4,9 +4,10 @@ This index routes the unified local Krainer corpus for `krainer` to the central 
 
 Source basis: `strategy-codex/statecraft/voices/krainer/krainer-index.md` plus already-local matching archive rows.
 
-Corpus: 25 local route rows across 25 central archive source files.
+Corpus: 26 local route rows across 26 central archive source files.
 
 Status: `imported-corpus`
+| `2026-09-03` | Alex Krainer: The Middle East Just Broke: Here’s What Happens Next | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2026-09-03/source-alex-krainer-the-middle-east-just-broke-here-s-what-happens-next-2026-09-03.md) |
 
 ## Reading Rule
 

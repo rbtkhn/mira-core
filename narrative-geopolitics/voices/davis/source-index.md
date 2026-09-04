@@ -4,9 +4,10 @@ This index routes the imported first-slice parity corpus for `davis` to the cent
 
 Source basis: `strategy-codex/statecraft/voices/davis/davis-index.md`.
 
-Corpus: 119 local route rows across 119 central archive source files.
+Corpus: 120 local route rows across 120 central archive source files.
 
 Status: `first-slice-parity`
+| `2026-09-03` | NATO Backs Berlin Against Moscow, Ukraine Celebrates | `host-pressure test` | `daniel-davis` | [source](../../../archive/sources/geopolitics/sources/2026-09-03/source-nato-backs-berlin-against-moscow-ukraine-celebrates-2026-09-03.md) |
 
 ## Reading Rule
 

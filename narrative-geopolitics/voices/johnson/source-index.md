@@ -4,9 +4,10 @@ This index routes the imported first-slice parity corpus for `johnson` to the ce
 
 Source basis: `archive/sources/geopolitics/source-manifest.json`.
 
-Corpus: 144 local route rows across 144 central archive source files.
+Corpus: 145 local route rows across 145 central archive source files.
 
 Status: `first-slice-parity`
+| `2026-09-03` | BREAKING: TRUMP APPOINTS PRO-ISRAEL AS ARMY SECRETARY, TRUMP TO STRIKE SOON w/ CIA Larry Johnson | `guest` | `moral-resistance` | [source](../../../archive/sources/geopolitics/sources/2026-09-03/source-breaking-trump-appoints-pro-israel-as-army-secretary-trump-to-strike-soon-w-cia-larry-johnson-2026-09-03.md) |
 
 ## Reading Rule
 

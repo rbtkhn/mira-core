@@ -4,9 +4,12 @@ This index routes the transcript-bearing upstream-parity corpus for `mercouris` 
 
 Source basis: `strategy-codex/statecraft/voices/mercouris/mercouris-index.md`, `strategy-codex/statecraft/channels/alexander-mercouris/alexander-mercouris-channel-index.md`, and subsequent local intake.
 
-Corpus: 406 local route rows across 406 central archive source files.
+Corpus: 409 local route rows across 409 central archive source files.
 
 Status: `transcript-bearing-upstream-parity`
+| `2026-09-03` | Alexander Mercouris: Ukraine Unravelling - War Enters New & Dangerous Phase | `guest` | `glenn-diesen` | [source](../../../archive/sources/geopolitics/sources/2026-09-03/source-alexander-mercouris-ukraine-unravelling-war-enters-new-dangerous-phase-2026-09-03.md) |
+| `2026-09-03` | Europe Wants U.S. To Fight Russia | `guest` | `the-duran` | [source](../../../archive/sources/geopolitics/sources/2026-09-03/source-europe-wants-u-s-to-fight-russia-2026-09-03.md) |
+| `2026-09-03` | Russia Hits Central Kiev Close To Key Railway Station; Kiev Panic Gunfights; Kharkov Front Collapses | `host monologue` | `alexander-mercouris` | [source](../../../archive/sources/geopolitics/sources/2026-09-03/source-russia-hits-central-kiev-close-to-key-railway-station-kiev-panic-gunfights-kharkov-front-collapses-2026-09-03.md) |
 
 ## Reading Rule
 

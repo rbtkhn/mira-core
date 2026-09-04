@@ -4,9 +4,10 @@ This index routes the unified local Wilkerson corpus for `wilkerson` to the cent
 
 Source basis: `strategy-codex/statecraft/voices/wilkerson/wilkerson-index.md` plus already-local matching archive rows.
 
-Corpus: 115 local route rows across 115 central archive source files.
+Corpus: 116 local route rows across 116 central archive source files.
 
 Status: `imported-corpus`
+| `2026-09-03` | KATZ THREATENS TO BOMB IRAN "INTO THE STONE AGE" – w/ Col. Larry Wilkerson | `guest` | `mario-nawfal` | [source](../../../archive/sources/geopolitics/sources/2026-09-03/source-katz-threatens-to-bomb-iran-into-the-stone-age-w-col-larry-wilkerson-2026-09-03.md) |
 
 ## Reading Rule
 

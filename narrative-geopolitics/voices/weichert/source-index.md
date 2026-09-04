@@ -4,9 +4,10 @@ This index routes the unified local Weichert corpus for `weichert` to the centra
 
 Source basis: `strategy-codex/statecraft/voices/weichert/weichert-index.md`.
 
-Corpus: 33 local route rows across 33 central archive source files.
+Corpus: 34 local route rows across 34 central archive source files.
 
 Status: `imported-corpus`
+| `2026-09-03` | IRAN STRIKES U.S. BASES IN KUWAIT AND THE UAE OVERNIGHT | `guest` | `mario-nawfal` | [source](../../../archive/sources/geopolitics/sources/2026-09-03/source-iran-strikes-u-s-bases-in-kuwait-and-the-uae-overnight-2026-09-03.md) |
 
 ## Reading Rule
 

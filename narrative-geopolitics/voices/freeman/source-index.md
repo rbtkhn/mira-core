@@ -4,9 +4,10 @@ This index routes the unified local Freeman corpus for `freeman` to the central 
 
 Source basis: `strategy-codex/statecraft/voices/freeman/freeman-index.md` plus already-local matching archive rows.
 
-Corpus: 168 local route rows across 168 central archive source files.
+Corpus: 169 local route rows across 169 central archive source files.
 
 Status: `imported-corpus`
+| `2026-09-03` | Chas Freeman: U.S. & Iran Back at War & NATO's Abuse of Ukraine | `guest` | `glenn-diesen` | [source](../../../archive/sources/geopolitics/sources/2026-09-03/source-chas-freeman-u-s-iran-back-at-war-nato-s-abuse-of-ukraine-2026-09-03.md) |
 
 ## Reading Rule
 

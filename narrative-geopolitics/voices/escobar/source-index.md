@@ -4,9 +4,10 @@ This index routes the imported lightweight corpus for `escobar` to the central N
 
 Source basis: `archive/sources/geopolitics/source-manifest.json`.
 
-Corpus: 19 local route rows across 19 central archive source files.
+Corpus: 20 local route rows across 20 central archive source files.
 
 Status: `lightweight`
+| `2026-09-03` | MAJOR COUNTRIES TURN ON TRUMP, CONDEMN IRAN WAR IN SCO SUMMIT – w/ Pepe Escobar | `guest` | `mario-nawfal` | [source](../../../archive/sources/geopolitics/sources/2026-09-03/source-major-countries-turn-on-trump-condemn-iran-war-in-sco-summit-w-pepe-escobar-2026-09-03.md) |
 
 ## Reading Rule
 
