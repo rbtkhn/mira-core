@@ -1,13 +1,14 @@
-"""Queue-only YouTube source capture for Narrative Geopolitics.
+"""Route-aware YouTube source capture for Mira Core archives.
 
 This tool records candidate source leads for later governed intake. It does
-not fetch transcript bodies, land archive sources, mutate manifests, or produce
-geo-strategy synthesis.
+not fetch transcript bodies, land archive sources, mutate manifests, extract
+signals, or produce synthesis.
 """
 
 from __future__ import annotations
 
 import argparse
+import html
 import json
 import re
 import sys
@@ -18,11 +19,15 @@ from pathlib import Path
 from urllib.parse import parse_qs, urlparse
 from xml.etree import ElementTree
 
+import yaml
+
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 QUEUE_ROOT = REPO_ROOT / "narrative-geopolitics" / "work" / "capture" / "youtube"
 CHANNEL_INDEX_PATH = REPO_ROOT / "narrative-geopolitics" / "channels" / "channel-index.md"
 MANIFEST_PATH = REPO_ROOT / "archive" / "sources" / "geopolitics" / "source-manifest.json"
+ROUTE_INDEX_PATH = REPO_ROOT / "archive" / "sources" / "youtube-channel-routing.yml"
+SINGULARITY_ROOT = REPO_ROOT / "archive" / "sources" / "singularity"
 
 TRANSCRIPT_STATUSES = {"available", "missing", "manual-needed", "defer"}
 DISPOSITIONS = {"must-land", "possible", "skip", "watch"}
@@ -41,17 +46,324 @@ SEGMENT_TITLE_RE = re.compile(
     r"destroy our rights|threaten|kills children|ignores deal)\b",
     re.IGNORECASE,
 )
-QUEUE_ONLY_NOTICE = "YOUTUBE_CAPTURE_MODE=queue-draft-only"
+QUEUE_ONLY_NOTICE = "YOUTUBE_CAPTURE_MODE=route-aware-capture-draft-only"
 AUTHORITY_NOTICE = (
-    "AUTHORITY_BOUNDARY=no archive landing, manifest mutation, synthesis, "
-    "forecast, Reality, publication, staging, commit, push, or deployment"
+    "AUTHORITY_BOUNDARY=no archive landing, transcript admission, manifest mutation, "
+    "signal extraction, synthesis, forecast, Reality, publication, staging, commit, "
+    "push, or deployment"
 )
 USER_AGENT = "mira-core-youtube-capture/1.0"
 BROWSER_RECEIPT_SCHEMA_VERSION = 1
+DEFAULT_DAILY_BROWSER_SEARCH_TERMS = [
+    "{year}",
+    "{short_month_day_year}",
+    "{long_month_day_year}",
+    "Iran",
+    "Hormuz",
+    "oil",
+    "Ukraine",
+    "NATO",
+]
 
 
 class CaptureError(ValueError):
     pass
+
+
+def _norm_key(value: str) -> str:
+    return re.sub(r"[^a-z0-9]+", "", value.casefold())
+
+
+def _relative_display(path: Path) -> str:
+    try:
+        return path.relative_to(REPO_ROOT).as_posix()
+    except ValueError:
+        return str(path)
+
+
+def load_route_index(path: Path = ROUTE_INDEX_PATH) -> dict[str, object]:
+    if not path.exists():
+        raise CaptureError(f"YouTube route index not found: {path}")
+    payload = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+    if not isinstance(payload, dict):
+        raise CaptureError("YouTube route index must be a mapping")
+    routes = payload.get("routes")
+    if not isinstance(routes, list):
+        raise CaptureError("YouTube route index must contain a routes list")
+    for index, route in enumerate(routes, 1):
+        if not isinstance(route, dict):
+            raise CaptureError(f"YouTube route index row {index} must be a mapping")
+        for key in ("channel_slug", "archive_lane", "shelf", "output"):
+            if not route.get(key):
+                raise CaptureError(f"YouTube route index row {index} missing {key}")
+    return payload
+
+
+def _route_tokens(route: dict[str, object]) -> set[str]:
+    tokens: set[str] = set()
+    for key in ("channel_slug", "channel_handle", "canonical_url"):
+        value = route.get(key)
+        if isinstance(value, str) and value:
+            tokens.add(_norm_key(value))
+    aliases = route.get("aliases", [])
+    if isinstance(aliases, list):
+        for alias in aliases:
+            if isinstance(alias, str) and alias:
+                tokens.add(_norm_key(alias))
+    return {token for token in tokens if token}
+
+
+def _video_lookup_values(*, url: str = "", channel: str = "", notes: str = "") -> set[str]:
+    values = {channel, url}
+    match = re.search(r"channel_slug=([A-Za-z0-9_.-]+)", notes)
+    if match:
+        values.add(match.group(1))
+    parsed = urlparse(url)
+    if parsed.netloc.lower().endswith("youtube.com"):
+        path_parts = [part for part in parsed.path.split("/") if part]
+        values.update(path_parts)
+    return {_norm_key(value) for value in values if value}
+
+
+def resolve_channel_route(
+    *,
+    url: str = "",
+    channel: str = "",
+    notes: str = "",
+    route_index_path: Path = ROUTE_INDEX_PATH,
+    archive_lane: str = "auto",
+) -> dict[str, object]:
+    if archive_lane == "geopolitics":
+        return {
+            "channel_slug": "explicit-geopolitics",
+            "archive_lane": "geopolitics",
+            "shelf": "narrative-geopolitics",
+            "output": "geopolitics-jsonl-queue",
+            "match_reason": "explicit --archive-lane geopolitics",
+        }
+    if archive_lane == "singularity":
+        raise CaptureError("--archive-lane singularity requires a channel route index match")
+    payload = load_route_index(route_index_path)
+    lookup = _video_lookup_values(url=url, channel=channel, notes=notes)
+    for route in payload["routes"]:
+        assert isinstance(route, dict)
+        if lookup & _route_tokens(route):
+            return {**route, "match_reason": "matched route index channel metadata"}
+    delegated = payload.get("delegated_indexes", {})
+    if isinstance(delegated, dict) and delegated.get("geopolitics"):
+        index_path = REPO_ROOT / str(delegated["geopolitics"])
+        if not index_path.is_file():
+            raise CaptureError(f"delegated Geopolitics channel index not found: {index_path}")
+        matches = []
+        for channel_row in parse_channel_index(index_path):
+            route = {
+                "channel_slug": channel_row["slug"],
+                "channel_handle": urlparse(channel_row["channel_url"]).path.strip("/"),
+                "canonical_url": channel_row["channel_url"],
+                "aliases": [channel_row["label"]],
+                "archive_lane": "geopolitics",
+                "shelf": "narrative-geopolitics",
+                "output": "geopolitics-jsonl-queue",
+                "match_reason": "matched delegated Geopolitics channel index",
+            }
+            if lookup & _route_tokens(route):
+                matches.append(route)
+        if len(matches) > 1:
+            raise CaptureError("ambiguous delegated Geopolitics channel metadata")
+        if matches:
+            return matches[0]
+    raise CaptureError(
+        "no YouTube archive route for channel metadata; add a row to "
+        f"{_relative_display(route_index_path)} or pass --archive-lane geopolitics explicitly"
+    )
+
+
+def singularity_capture_target_path(route: dict[str, object], capture_date: str) -> Path:
+    pattern = str(route.get("target_pattern") or "")
+    if not pattern:
+        slug = str(route["channel_slug"])
+        pattern = f"archive/sources/singularity/{slug}-capture-targets-{{date}}.md"
+    return REPO_ROOT / pattern.format(date=capture_date)
+
+
+def capture_target_video_ids(path: Path) -> set[str]:
+    """Inspect historical target tables without treating them as rewrite input."""
+    identities: set[str] = set()
+    for line in path.read_text(encoding="utf-8-sig").splitlines():
+        if not line.lstrip().startswith("|"):
+            continue
+        for url in re.findall(
+            r"https://(?:www\.)?(?:youtube\.com|youtu\.be)/[^\s`|<>\]\)]+",
+            html.unescape(line),
+        ):
+            try:
+                identities.add(extract_video_id(url))
+            except CaptureError:
+                continue
+    return identities
+
+
+def singularity_absence_check(route: dict[str, object], url: str, target_path: Path) -> str:
+    video_id = extract_video_id(url)
+    shelf = REPO_ROOT / "archive/sources/singularity" / str(route["shelf"]) / "transcripts"
+    scope = route.get("duplicate_check_scope")
+    if scope is None:
+        target_pattern = str(
+            route.get("target_pattern")
+            or f"archive/sources/singularity/{route['channel_slug']}-capture-targets-{{date}}.md"
+        )
+        scope = [
+            _relative_display(shelf),
+            target_pattern.replace("{date}", "*"),
+        ]
+    if not isinstance(scope, list) or not scope or any(
+        not isinstance(pattern, str) or not pattern for pattern in scope
+    ):
+        raise CaptureError("duplicate_check_scope must be a nonempty list of paths or globs")
+    paths: set[Path] = set()
+    for pattern in scope:
+        if Path(pattern).is_absolute() or ".." in Path(pattern).parts:
+            raise CaptureError("duplicate_check_scope must stay within the repository")
+        for match in REPO_ROOT.glob(pattern):
+            paths.update(match.rglob("*.md") if match.is_dir() else [match])
+    landed: list[str] = []
+    captured: list[str] = []
+    for path in sorted(paths):
+        if path.is_relative_to(shelf):
+            text = path.read_text(encoding="utf-8", errors="replace")
+            if re.search(rf"(?<![\w-]){re.escape(video_id)}(?![\w-])", text):
+                landed.append(_relative_display(path))
+        elif video_id in capture_target_video_ids(path):
+            captured.append(_relative_display(path))
+    results = []
+    if landed:
+        results.append("already-landed: " + ", ".join(landed))
+    if captured:
+        results.append("already-captured: " + ", ".join(captured))
+    return "; ".join(results) if results else "not found in " + "; ".join(scope)
+
+
+TARGET_ROW_ENCODING = "Row encoding: html-entities-v1"
+
+
+def encode_target_cell(value: str) -> str:
+    return (
+        html.escape(value, quote=False)
+        .replace("|", "&#124;")
+        .replace("\r", "&#13;")
+        .replace("\n", "&#10;")
+    )
+
+
+def format_singularity_target_note(
+    *,
+    route: dict[str, object],
+    capture_date: str,
+    rows: list[dict[str, str]],
+) -> str:
+    label = str(route.get("label") or route["channel_slug"])
+    shelf = str(route["shelf"])
+    lines = [
+        f"# {label} YouTube Capture Targets - {capture_date}",
+        "",
+        "Status: capture-targets",
+        TARGET_ROW_ENCODING,
+        "Archive lane: singularity",
+        f"Shelf: `archive/sources/singularity/{shelf}/`",
+        "Authority: discovery targets only; no transcript admission, signal extraction, staging, commit, push, or publication.",
+        "",
+        "| Video URL | Title | Publication date | Channel | Observed date | Absence check | Next eligible workflow |",
+        "| --- | --- | --- | --- | --- | --- | --- |",
+    ]
+    for row in rows:
+        lines.append(
+            "| "
+            + " | ".join(
+                encode_target_cell(value)
+                for value in [
+                    row["url"],
+                    row.get("title", ""),
+                    row.get("publication_date", ""),
+                    row.get("channel", ""),
+                    row.get("capture_date", ""),
+                    row.get("absence_check", ""),
+                    row.get("next_action", ""),
+                ]
+            )
+            + " |"
+        )
+    return "\n".join(lines) + "\n"
+
+
+def read_singularity_target_rows(path: Path) -> list[dict[str, str]]:
+    if not path.exists():
+        return []
+    rows: list[dict[str, str]] = []
+    text = path.read_text(encoding="utf-8-sig")
+    encoded = TARGET_ROW_ENCODING in text.splitlines()
+    for line_number, line in enumerate(text.splitlines(), 1):
+        line = line.strip()
+        if not line.startswith("|"):
+            continue
+        if line.startswith("| Video URL |") or re.fullmatch(r"\|[\s:|\-]+", line):
+            continue
+        cells = [cell.strip() for cell in line.strip().strip("|").split("|")]
+        if len(cells) != 7 or not cells[0].startswith("https://"):
+            raise CaptureError(f"malformed capture-target row at {path}:{line_number}; refusing rewrite")
+        if encoded:
+            cells = [html.unescape(cell) for cell in cells]
+        rows.append(
+            {
+                "url": cells[0],
+                "title": cells[1],
+                "publication_date": cells[2],
+                "channel": cells[3],
+                "capture_date": cells[4],
+                "absence_check": cells[5],
+                "next_action": cells[6],
+                "source_identity": f"youtube:{extract_video_id(cells[0])}",
+            }
+        )
+    return rows
+
+
+def upsert_singularity_target(
+    *,
+    route: dict[str, object],
+    capture_date: str,
+    url: str,
+    title: str,
+    channel: str,
+    published_at: str,
+    next_action: str,
+) -> tuple[Path, int, int]:
+    path = singularity_capture_target_path(route, capture_date)
+    existing = read_singularity_target_rows(path)
+    video_id, identity = youtube_source_identity(url)
+    publication_date = publication_date_from_timestamp(published_at)
+    row = {
+        "url": url.strip(),
+        "title": title.strip(),
+        "publication_date": publication_date,
+        "channel": channel.strip() or str(route.get("label") or route["channel_slug"]),
+        "capture_date": capture_date,
+        "absence_check": singularity_absence_check(route, url, path),
+        "next_action": (
+            "route transcript through archive-intake if supplied"
+            if next_action.strip() in {"", "review"}
+            else next_action.strip()
+        ),
+        "source_identity": identity,
+        "video_id": video_id,
+    }
+    rows, added, updated = upsert_rows(existing, [row])
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(
+        format_singularity_target_note(route=route, capture_date=capture_date, rows=rows),
+        encoding="utf-8",
+        newline="\n",
+    )
+    return path, added, updated
 
 
 def parse_capture_date(value: str) -> str:
@@ -577,7 +889,44 @@ def discover_public_videos(
 
 
 def add_command(args: argparse.Namespace) -> int:
+    route = resolve_channel_route(
+        url=args.url,
+        channel=args.channel,
+        notes=args.notes,
+        route_index_path=args.route_index,
+        archive_lane=args.archive_lane,
+    )
+    if route["archive_lane"] == "singularity":
+        path, added, updated = upsert_singularity_target(
+            route=route,
+            capture_date=args.date,
+            url=args.url,
+            title=args.title,
+            channel=args.channel,
+            published_at=args.published_at,
+            next_action=args.next_action,
+        )
+        print(QUEUE_ONLY_NOTICE)
+        print("ROUTE_ARCHIVE_LANE=singularity")
+        print(f"ROUTE_CHANNEL_SLUG={route['channel_slug']}")
+        print(f"TARGET_PATH={_relative_display(path)}")
+        print(f"ROWS_ADDED={added}")
+        print(f"ROWS_UPDATED={updated}")
+        print(AUTHORITY_NOTICE)
+        return 0
+
     path = queue_path(args.date, args.queue_root)
+    existing = read_queue(path)
+    notes = args.notes
+    if not notes.strip():
+        _, identity = youtube_source_identity(args.url)
+        notes = next(
+            (item.get("notes", "") for item in existing if item["source_identity"] == identity),
+            "",
+        )
+    if route["channel_slug"] != "explicit-geopolitics" and channel_slug_from_notes(notes) != route["channel_slug"]:
+        notes = re.sub(r"(?:;\s*)?channel_slug=[A-Za-z0-9_.-]+", "", notes).strip("; ")
+        notes = f"{notes}; channel_slug={route['channel_slug']}".lstrip("; ")
     row = normalize_row(
         capture_date=args.date,
         url=args.url,
@@ -588,12 +937,13 @@ def add_command(args: argparse.Namespace) -> int:
         transcript_status=args.transcript_status,
         disposition=args.disposition,
         next_action=args.next_action,
-        notes=args.notes,
+        notes=notes,
     )
-    rows, added, updated = upsert_rows(read_queue(path), [row])
+    rows, added, updated = upsert_rows(existing, [row])
     write_queue(path, rows)
     print(QUEUE_ONLY_NOTICE)
-    print(f"QUEUE_PATH={path.relative_to(REPO_ROOT).as_posix() if path.is_relative_to(REPO_ROOT) else path}")
+    print("ROUTE_ARCHIVE_LANE=geopolitics")
+    print(f"QUEUE_PATH={_relative_display(path)}")
     print(f"ROWS_ADDED={added}")
     print(f"ROWS_UPDATED={updated}")
     print(AUTHORITY_NOTICE)
@@ -724,6 +1074,14 @@ def write_browser_receipt(
         raise CaptureError("channel-slug must be a lowercase kebab-case slug")
     if not observed_urls and not no_qualifying_videos:
         raise CaptureError("browser receipt needs an observed URL or --no-qualifying-videos")
+    if no_qualifying_videos:
+        normalized_notes = notes.lower()
+        has_page_surface = "videos" in normalized_notes or "live" in normalized_notes
+        has_search_surface = "search" in normalized_notes
+        if not has_page_surface or not has_search_surface:
+            raise CaptureError(
+                "--no-qualifying-videos receipts must note inspected Videos/Live surfaces and channel search terms"
+            )
     normalized_urls: list[str] = []
     for url in observed_urls:
         extract_video_id(url)
@@ -822,6 +1180,93 @@ def browser_coverage_command(args: argparse.Namespace) -> int:
         print(f"TIER_A_COMPLETION={payload['tier_a_completion']}")
         print(AUTHORITY_NOTICE)
     return 0 if not missing else 1
+
+
+def daily_browser_search_terms(capture_date: str) -> list[str]:
+    capture_day = date.fromisoformat(capture_date)
+    values = {
+        "year": f"{capture_day.year}",
+        "short_month_day_year": f"{capture_day.strftime('%b')} {capture_day.day} {capture_day.year}",
+        "long_month_day_year": f"{capture_day.strftime('%B')} {capture_day.day} {capture_day.year}",
+    }
+    terms: list[str] = []
+    for template in DEFAULT_DAILY_BROWSER_SEARCH_TERMS:
+        term = template.format(**values)
+        if term not in terms:
+            terms.append(term)
+    return terms
+
+
+def print_daily_browser_checklist(*, capture_date: str, selected: list[dict[str, str]]) -> None:
+    terms = daily_browser_search_terms(capture_date)
+    print("TIER_A_BROWSER_CHECKLIST=required")
+    print("BROWSER_SURFACES=Videos,Live,channel-search")
+    print(f"CHANNEL_SEARCH_TERMS={'; '.join(terms)}")
+    for row in selected:
+        slug = row["slug"]
+        url = row["channel_url"]
+        print(f"CHECK_CHANNEL={slug}|{url}/videos|{url}/streams|{url}/search")
+    print(
+        "NO_QUALIFYING_RECEIPT_RULE=notes must mention inspected Videos/Live surfaces "
+        "and channel search terms"
+    )
+
+
+def daily_check_command(args: argparse.Namespace) -> int:
+    cadences = {item.lower() for item in (args.cadence or ["daily"])}
+    channels = {item.strip() for item in args.channel}
+    source_rows = parse_channel_index(args.channel_index)
+    tier_a_rows = [row for row in source_rows if row["capture_cadence"] in cadences]
+    selected = select_channel_index_rows(
+        tier_a_rows,
+        cadences=cadences,
+        channels=channels,
+        include_active=False,
+        include_candidate=False,
+    )
+    if not selected:
+        raise CaptureError("no Tier A channels selected for daily check")
+    selected_channels = [row["slug"] for row in selected]
+
+    scan_args = argparse.Namespace(
+        date=args.date,
+        queue_root=args.queue_root,
+        channel_index=args.channel_index,
+        cadence=args.cadence,
+        channel=selected_channels,
+        include_active=False,
+        include_candidate=False,
+    )
+    discover_args = argparse.Namespace(
+        date=args.date,
+        queue_root=args.queue_root,
+        channel_index=args.channel_index,
+        cadence=args.cadence,
+        channel=selected_channels,
+        include_active=False,
+        include_candidate=False,
+        limit_per_channel=args.limit_per_channel,
+        since_days=args.since_days,
+    )
+    coverage_args = argparse.Namespace(
+        date=args.date,
+        queue_root=args.queue_root,
+        channel_index=args.channel_index,
+        cadence=args.cadence,
+        channel=selected_channels,
+        include_active=False,
+        include_candidate=False,
+        json=args.json,
+    )
+
+    scan_index_command(scan_args)
+    discover_public_command(discover_args)
+    print(QUEUE_ONLY_NOTICE)
+    print("DAILY_CHECK_MODE=seed-plus-required-browser-check")
+    print_daily_browser_checklist(capture_date=args.date, selected=selected)
+    coverage_status = browser_coverage_command(coverage_args)
+    print(AUTHORITY_NOTICE)
+    return coverage_status
 
 
 def list_command(args: argparse.Namespace) -> int:
@@ -1187,6 +1632,73 @@ def audit_duplicates_command(args: argparse.Namespace) -> int:
     return 0
 
 
+def route_explain_command(args: argparse.Namespace) -> int:
+    route = resolve_channel_route(
+        url=args.url or "",
+        channel=args.channel or "",
+        notes=args.notes or "",
+        route_index_path=args.route_index,
+        archive_lane=args.archive_lane,
+    )
+    payload = {
+        "mode": "youtube-capture-route-explain",
+        "archive_lane": route["archive_lane"],
+        "channel_slug": route["channel_slug"],
+        "shelf": route["shelf"],
+        "output": route["output"],
+        "match_reason": route["match_reason"],
+        "authority": AUTHORITY_NOTICE,
+    }
+    if args.json:
+        print(json.dumps(payload, indent=2, ensure_ascii=False))
+    else:
+        print(QUEUE_ONLY_NOTICE)
+        print("ROUTE_EXPLAIN_MODE=read-only")
+        print(f"ARCHIVE_LANE={payload['archive_lane']}")
+        print(f"CHANNEL_SLUG={payload['channel_slug']}")
+        print(f"SHELF={payload['shelf']}")
+        print(f"OUTPUT={payload['output']}")
+        print(f"MATCH_REASON={payload['match_reason']}")
+        print(AUTHORITY_NOTICE)
+    return 0
+
+
+def route_audit_command(args: argparse.Namespace) -> int:
+    forbidden = ("nate-herk", "nate b. jones", "nate b jones", "natebjones", "nate herk")
+    paths = [
+        REPO_ROOT / "narrative-geopolitics" / "channels" / "channel-index.md",
+        REPO_ROOT / "archive" / "sources" / "geopolitics" / "source-manifest.json",
+        REPO_ROOT / "narrative-geopolitics" / "work" / "capture" / "youtube" / "youtube-capture-policy.yml",
+    ]
+    queue_root = args.queue_root
+    if queue_root.exists():
+        paths.extend(sorted(queue_root.glob("*.jsonl")))
+    findings: list[dict[str, str]] = []
+    for path in paths:
+        if not path.exists() or not path.is_file():
+            continue
+        text = path.read_text(encoding="utf-8", errors="replace").casefold()
+        for token in forbidden:
+            if token in text:
+                findings.append({"path": _relative_display(path), "token": token})
+    payload = {
+        "mode": "youtube-capture-route-audit",
+        "status": "fail" if findings else "pass",
+        "findings": findings,
+        "authority": AUTHORITY_NOTICE,
+    }
+    if args.json:
+        print(json.dumps(payload, indent=2, ensure_ascii=False))
+    else:
+        print(QUEUE_ONLY_NOTICE)
+        print("ROUTE_AUDIT_MODE=read-only-contamination-check")
+        print(f"STATUS={payload['status']}")
+        for finding in findings:
+            print(f"FINDING path={finding['path']} token={finding['token']}")
+        print(AUTHORITY_NOTICE)
+    return 1 if findings else 0
+
+
 def prune_queue_command(args: argparse.Namespace) -> int:
     total_removed: list[dict[str, str]] = []
     for capture_date in args.date:
@@ -1429,6 +1941,8 @@ def build_parser() -> argparse.ArgumentParser:
 
     add = subparsers.add_parser("add", help="Add or update one queue row")
     add_common(add)
+    add.add_argument("--archive-lane", choices=["auto", "geopolitics", "singularity"], default="auto")
+    add.add_argument("--route-index", type=Path, default=ROUTE_INDEX_PATH)
     add.add_argument("--url", required=True)
     add.add_argument("--title", default="")
     add.add_argument("--channel", default="")
@@ -1464,6 +1978,18 @@ def build_parser() -> argparse.ArgumentParser:
     discover.add_argument("--limit-per-channel", type=int, default=5)
     discover.add_argument("--since-days", type=parse_nonnegative_int)
     discover.set_defaults(handler=discover_public_command)
+
+    daily_check = subparsers.add_parser("daily-check", help="Seed queue rows and require Tier A browser receipts")
+    add_common(daily_check)
+    daily_check.add_argument("--channel-index", type=Path, default=CHANNEL_INDEX_PATH)
+    daily_check.add_argument("--cadence", action="append", choices=["daily", "weekly", "manual", "off"])
+    daily_check.add_argument("--channel", action="append", default=[])
+    daily_check.add_argument("--include-active", action="store_true")
+    daily_check.add_argument("--include-candidate", action="store_true")
+    daily_check.add_argument("--limit-per-channel", type=int, default=3)
+    daily_check.add_argument("--since-days", type=parse_nonnegative_int, default=7)
+    daily_check.add_argument("--json", action="store_true")
+    daily_check.set_defaults(handler=daily_check_command)
 
     receipt = subparsers.add_parser("record-browser-receipt", help="Record visible channel-page evidence")
     add_common(receipt)
@@ -1530,6 +2056,20 @@ def build_parser() -> argparse.ArgumentParser:
     audit.add_argument("--disposition", action="append", choices=sorted(DISPOSITIONS))
     audit.add_argument("--json", action="store_true")
     audit.set_defaults(handler=audit_duplicates_command)
+
+    explain = subparsers.add_parser("route-explain", help="Explain archive routing for channel metadata")
+    explain.add_argument("--archive-lane", choices=["auto", "geopolitics"], default="auto")
+    explain.add_argument("--route-index", type=Path, default=ROUTE_INDEX_PATH)
+    explain.add_argument("--url")
+    explain.add_argument("--channel")
+    explain.add_argument("--notes", default="")
+    explain.add_argument("--json", action="store_true")
+    explain.set_defaults(handler=route_explain_command)
+
+    route_audit = subparsers.add_parser("route-audit", help="Check for cross-archive YouTube routing contamination")
+    route_audit.add_argument("--queue-root", type=Path, default=QUEUE_ROOT, help=argparse.SUPPRESS)
+    route_audit.add_argument("--json", action="store_true")
+    route_audit.set_defaults(handler=route_audit_command)
 
     prune = subparsers.add_parser("prune-queue", help="Remove queue-only duplicate or stale discovered video rows")
     prune.add_argument("--date", action="append", required=True, type=parse_capture_date)

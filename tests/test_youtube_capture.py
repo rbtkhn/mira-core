@@ -5,6 +5,8 @@ import json
 import sys
 from pathlib import Path
 
+import pytest
+
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 SCRIPTS_ROOT = REPO_ROOT / "scripts"
@@ -28,6 +30,33 @@ def read_jsonl(path: Path) -> list[dict[str, str]]:
     return [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines()]
 
 
+def write_route_index(path: Path) -> None:
+    path.write_text(
+        """version: 1
+routes:
+  - channel_slug: nate-herk
+    label: Nate Herk
+    channel_handle: "@nateherk"
+    canonical_url: https://www.youtube.com/@nateherk
+    aliases: [Nate Herk, nateherk]
+    archive_lane: singularity
+    shelf: nate-herk
+    output: singularity-capture-target-note
+    target_pattern: archive/sources/singularity/nate-herk-capture-targets-{date}.md
+  - channel_slug: nate-b-jones
+    label: Nate B. Jones
+    channel_handle: "@NateBJones"
+    canonical_url: https://www.youtube.com/@NateBJones
+    aliases: [Nate B. Jones, Nate B Jones, natebjones]
+    archive_lane: singularity
+    shelf: nate-b-jones
+    output: singularity-capture-target-note
+    target_pattern: archive/sources/singularity/nate-b-jones-capture-targets-{date}.md
+""",
+        encoding="utf-8",
+    )
+
+
 def test_add_creates_queue_only_row(tmp_path: Path, capsys) -> None:
     queue_root = tmp_path / "queue"
 
@@ -38,6 +67,8 @@ def test_add_creates_queue_only_row(tmp_path: Path, capsys) -> None:
             "2026-08-20",
             "--queue-root",
             str(queue_root),
+            "--archive-lane",
+            "geopolitics",
             "--url",
             "https://www.youtube.com/watch?v=abc123",
             "--title",
@@ -74,7 +105,7 @@ def test_add_creates_queue_only_row(tmp_path: Path, capsys) -> None:
         }
     ]
     output = capsys.readouterr().out
-    assert "YOUTUBE_CAPTURE_MODE=queue-draft-only" in output
+    assert "YOUTUBE_CAPTURE_MODE=route-aware-capture-draft-only" in output
     assert "no archive landing" in output
 
 
@@ -86,6 +117,8 @@ def test_add_is_idempotent_by_source_identity(tmp_path: Path) -> None:
         "2026-08-20",
         "--queue-root",
         str(queue_root),
+        "--archive-lane",
+        "geopolitics",
         "--url",
         "https://youtu.be/abc123",
     ]
@@ -98,6 +131,337 @@ def test_add_is_idempotent_by_source_identity(tmp_path: Path) -> None:
     assert rows[0]["title"] == "Second"
     assert rows[0]["channel"] == "Updated"
     assert rows[0]["source_identity"] == "youtube:abc123"
+
+
+def test_auto_add_routes_nate_herk_to_singularity_target_note(tmp_path: Path, monkeypatch, capsys) -> None:
+    route_index = tmp_path / "routes.yml"
+    write_route_index(route_index)
+    monkeypatch.setattr(youtube_capture, "REPO_ROOT", tmp_path)
+    transcript_dir = tmp_path / "archive/sources/singularity/nate-herk/transcripts"
+    transcript_dir.mkdir(parents=True)
+
+    result = youtube_capture.main(
+        [
+            "add",
+            "--date",
+            "2026-09-04",
+            "--route-index",
+            str(route_index),
+            "--url",
+            "https://www.youtube.com/watch?v=nate123",
+            "--title",
+            "September AI update",
+            "--channel",
+            "Nate Herk",
+            "--published-at",
+            "2026-09-04T15:00:00+00:00",
+        ]
+    )
+
+    assert result == 0
+    output = capsys.readouterr().out
+    assert "ROUTE_ARCHIVE_LANE=singularity" in output
+    target = tmp_path / "archive/sources/singularity/nate-herk-capture-targets-2026-09-04.md"
+    text = target.read_text(encoding="utf-8")
+    assert "Archive lane: singularity" in text
+    assert "https://www.youtube.com/watch?v=nate123" in text
+    assert "September AI update" in text
+    assert "2026-09-04" in text
+    assert "archive-intake" in text
+    assert not (tmp_path / "narrative-geopolitics/work/capture/youtube/2026-09-04.jsonl").exists()
+
+
+def test_auto_add_routes_nate_b_jones_to_singularity_target_note(tmp_path: Path, monkeypatch) -> None:
+    route_index = tmp_path / "routes.yml"
+    write_route_index(route_index)
+    monkeypatch.setattr(youtube_capture, "REPO_ROOT", tmp_path)
+
+    assert (
+        youtube_capture.main(
+            [
+                "add",
+                "--date",
+                "2026-09-03",
+                "--route-index",
+                str(route_index),
+                "--url",
+                "https://www.youtube.com/watch?v=jones123",
+                "--title",
+                "Embodied AI conversation",
+                "--channel",
+                "Nate B. Jones",
+            ]
+        )
+        == 0
+    )
+
+    target = tmp_path / "archive/sources/singularity/nate-b-jones-capture-targets-2026-09-03.md"
+    assert "https://www.youtube.com/watch?v=jones123" in target.read_text(encoding="utf-8")
+
+
+def test_auto_add_fails_closed_for_unknown_channel(tmp_path: Path, capsys) -> None:
+    route_index = tmp_path / "routes.yml"
+    write_route_index(route_index)
+
+    result = youtube_capture.main(
+        [
+            "add",
+            "--date",
+            "2026-09-04",
+            "--route-index",
+            str(route_index),
+            "--url",
+            "https://www.youtube.com/watch?v=unknown123",
+            "--channel",
+            "Unknown Channel",
+        ]
+    )
+
+    assert result == 2
+    assert "no YouTube archive route" in capsys.readouterr().err
+
+
+def test_route_explain_reports_index_match(tmp_path: Path, capsys) -> None:
+    route_index = tmp_path / "routes.yml"
+    write_route_index(route_index)
+
+    assert (
+        youtube_capture.main(
+            [
+                "route-explain",
+                "--route-index",
+                str(route_index),
+                "--channel",
+                "Nate B Jones",
+                "--json",
+            ]
+        )
+        == 0
+    )
+
+    payload = json.loads(capsys.readouterr().out)
+    assert payload["archive_lane"] == "singularity"
+    assert payload["channel_slug"] == "nate-b-jones"
+    assert payload["output"] == "singularity-capture-target-note"
+
+
+def write_delegated_channel_index(tmp_path: Path) -> Path:
+    route_index = tmp_path / "routes.yml"
+    write_route_index(route_index)
+    with route_index.open("a", encoding="utf-8") as stream:
+        stream.write("delegated_indexes:\n  geopolitics: channels.md\n")
+    (tmp_path / "channels.md").write_text(
+        "| `dialogue-works` | Dialogue Works | `active` | Interview host. | shelf | 1 | 1 | `daily` | [open](https://www.youtube.com/@dialogueworks01) | first | last |\n",
+        encoding="utf-8",
+    )
+    return route_index
+
+
+@pytest.mark.parametrize("channel", ["dialogue-works", "Dialogue Works", "@dialogueworks01", "https://www.youtube.com/@dialogueworks01"])
+def test_delegated_geopolitics_route_accepts_known_channel_metadata(tmp_path: Path, monkeypatch, channel: str) -> None:
+    monkeypatch.setattr(youtube_capture, "REPO_ROOT", tmp_path)
+    route_index = write_delegated_channel_index(tmp_path)
+    route = youtube_capture.resolve_channel_route(channel=channel, route_index_path=route_index)
+    assert (route["archive_lane"], route["channel_slug"]) == ("geopolitics", "dialogue-works")
+
+
+def test_delegated_add_preserves_canonical_export_routing(tmp_path: Path, monkeypatch) -> None:
+    monkeypatch.setattr(youtube_capture, "REPO_ROOT", tmp_path)
+    route_index = write_delegated_channel_index(tmp_path)
+    queue_root = tmp_path / "queue"
+    assert youtube_capture.main([
+        "add", "--date", "2026-09-04", "--route-index", str(route_index),
+        "--queue-root", str(queue_root), "--channel", "Dialogue Works",
+        "--url", "https://youtu.be/known123", "--notes", "operator-selected",
+    ]) == 0
+    row = read_jsonl(queue_root / "2026-09-04.jsonl")[0]
+    assert row["notes"] == "operator-selected; channel_slug=dialogue-works"
+    draft = youtube_capture.build_intake_draft(row, execute_shape="preflight")
+    assert draft["command_argv"][draft["command_argv"].index("--host-slug") + 1] == "dialogue-works"
+
+
+def test_delegation_keeps_unknown_channels_closed_and_explicit_routes_first(tmp_path: Path, monkeypatch) -> None:
+    monkeypatch.setattr(youtube_capture, "REPO_ROOT", tmp_path)
+    route_index = write_delegated_channel_index(tmp_path)
+    with pytest.raises(youtube_capture.CaptureError, match="no YouTube archive route"):
+        youtube_capture.resolve_channel_route(channel="Unknown Channel", route_index_path=route_index)
+    assert youtube_capture.resolve_channel_route(channel="Nate Herk", route_index_path=route_index)["archive_lane"] == "singularity"
+    (tmp_path / "channels.md").unlink()
+    with pytest.raises(youtube_capture.CaptureError, match="delegated Geopolitics channel index not found"):
+        youtube_capture.resolve_channel_route(channel="Dialogue Works", route_index_path=route_index)
+
+
+def test_repeated_delegated_add_preserves_notes_unless_replaced(tmp_path: Path, monkeypatch) -> None:
+    monkeypatch.setattr(youtube_capture, "REPO_ROOT", tmp_path)
+    route_index = write_delegated_channel_index(tmp_path)
+    queue_root = tmp_path / "queue"
+    args = [
+        "add", "--date", "2026-09-04", "--route-index", str(route_index),
+        "--queue-root", str(queue_root), "--channel", "Dialogue Works",
+        "--url", "https://youtu.be/known123",
+    ]
+    assert youtube_capture.main([*args, "--notes", "operator rationale"]) == 0
+    for _ in range(2):
+        assert youtube_capture.main(args) == 0
+        rows = read_jsonl(queue_root / "2026-09-04.jsonl")
+        assert len(rows) == 1
+        assert rows[0]["notes"] == "operator rationale; channel_slug=dialogue-works"
+    assert youtube_capture.main([*args, "--notes", "revised rationale"]) == 0
+    assert read_jsonl(queue_root / "2026-09-04.jsonl")[0]["notes"] == "revised rationale; channel_slug=dialogue-works"
+
+
+def test_delegation_rejects_conflicting_channel_identifiers(tmp_path: Path, monkeypatch) -> None:
+    monkeypatch.setattr(youtube_capture, "REPO_ROOT", tmp_path)
+    route_index = write_delegated_channel_index(tmp_path)
+    with (tmp_path / "channels.md").open("a", encoding="utf-8") as stream:
+        stream.write(
+            "| `other-channel` | Other Channel | `active` | Interview host. | shelf | 1 | 1 | `daily` | [open](https://www.youtube.com/@otherchannel) | first | last |\n"
+        )
+    with pytest.raises(youtube_capture.CaptureError, match="ambiguous delegated"):
+        youtube_capture.resolve_channel_route(
+            channel="Dialogue Works", notes="channel_slug=other-channel", route_index_path=route_index,
+        )
+
+
+def singularity_route(tmp_path: Path, monkeypatch) -> dict[str, object]:
+    monkeypatch.setattr(youtube_capture, "REPO_ROOT", tmp_path)
+    route_index = tmp_path / "routes.yml"
+    write_route_index(route_index)
+    route = youtube_capture.resolve_channel_route(channel="Nate Herk", route_index_path=route_index)
+    route["duplicate_check_scope"] = [
+        "archive/sources/singularity/nate-herk/transcripts/",
+        "archive/sources/singularity/nate-herk-capture-targets-*.md",
+    ]
+    return route
+
+
+def add_singularity_target(route: dict[str, object], *, capture_date: str = "2026-09-04", video_id: str = "nate123", title: str = "AI update") -> tuple[Path, int, int]:
+    return youtube_capture.upsert_singularity_target(
+        route=route, capture_date=capture_date, url=f"https://youtu.be/{video_id}",
+        title=title, channel="Nate Herk", published_at="2026-09-03T12:00:00Z", next_action="review",
+    )
+
+
+def test_singularity_duplicate_scope_finds_prior_dates_and_landed_separately(tmp_path: Path, monkeypatch) -> None:
+    route = singularity_route(tmp_path, monkeypatch)
+    prior, _, _ = add_singularity_target(route, capture_date="2026-09-03")
+    today = youtube_capture.singularity_capture_target_path(route, "2026-09-04")
+    result = youtube_capture.singularity_absence_check(route, "https://www.youtube.com/watch?v=nate123", today)
+    assert "already-captured: " in result and prior.name in result
+    assert "already-landed" not in result
+    transcript = tmp_path / "archive/sources/singularity/nate-herk/transcripts/episode.md"
+    transcript.parent.mkdir(parents=True)
+    transcript.write_text("Source: https://youtu.be/nate123\n", encoding="utf-8")
+    result = youtube_capture.singularity_absence_check(route, "https://youtu.be/nate123", today)
+    assert "already-landed: " in result and "episode.md" in result
+    assert "already-captured: " in result
+    assert youtube_capture.singularity_absence_check(route, "https://youtu.be/nate12", today).startswith("not found in ")
+
+
+def test_singularity_duplicate_scope_honors_configured_target_glob(tmp_path: Path, monkeypatch) -> None:
+    route = singularity_route(tmp_path, monkeypatch)
+    route["target_pattern"] = "custom/targets-{date}.md"
+    route["duplicate_check_scope"] = ["custom/targets-*.md"]
+    prior, _, _ = add_singularity_target(route, capture_date="2026-09-02")
+    today, _, _ = add_singularity_target(route)
+    row = youtube_capture.read_singularity_target_rows(today)[0]
+    assert "already-captured: custom/" + prior.name in row["absence_check"]
+
+
+def test_historical_five_column_targets_are_discovered_but_never_rewritten(tmp_path: Path, monkeypatch) -> None:
+    route = singularity_route(tmp_path, monkeypatch)
+    historical = youtube_capture.singularity_capture_target_path(route, "2026-09-02")
+    historical.parent.mkdir(parents=True)
+    historical.write_text(
+        "# Nate Herk Capture Targets\n\n"
+        "| visible_age | title | url | target_status | next_action |\n"
+        "|---|---|---|---|---|\n"
+        "| 3 weeks ago | Grok Bot is For Real. What You Need to Know. | `https://www.youtube.com/watch?v=PQBYZQqan2g` | transcript missing | Retrieve or paste transcript. |\n",
+        encoding="utf-8",
+    )
+    before = historical.read_bytes()
+    today, _, _ = add_singularity_target(route, video_id="PQBYZQqan2g")
+    row = youtube_capture.read_singularity_target_rows(today)[0]
+    assert "already-captured:" in row["absence_check"]
+    assert historical.name in row["absence_check"]
+    add_singularity_target(route, video_id="newvideo123")
+    assert len(youtube_capture.read_singularity_target_rows(today)) == 2
+    with pytest.raises(youtube_capture.CaptureError, match="malformed capture-target row"):
+        add_singularity_target(route, capture_date="2026-09-02")
+    assert historical.read_bytes() == before
+
+
+def test_singularity_rows_survive_special_characters_and_subsequent_updates(tmp_path: Path, monkeypatch) -> None:
+    route = singularity_route(tmp_path, monkeypatch)
+    title = "AI | tools & literal &#124; <tag> \\ path\nnext line"
+    path, _, _ = add_singularity_target(route, title=title)
+    add_singularity_target(route, video_id="nate456", title="Second episode")
+    rows = youtube_capture.read_singularity_target_rows(path)
+    assert len(rows) == 2
+    assert rows[0]["title"] == title
+    _, added, updated = add_singularity_target(route, video_id="nate456", title="Updated | title")
+    assert (added, updated) == (0, 1)
+    rows = youtube_capture.read_singularity_target_rows(path)
+    assert [row["title"] for row in rows] == [title, "Updated | title"]
+
+
+def test_singularity_legacy_note_migrates_without_decoding_literal_entities(tmp_path: Path, monkeypatch) -> None:
+    route = singularity_route(tmp_path, monkeypatch)
+    path = youtube_capture.singularity_capture_target_path(route, "2026-09-04")
+    path.parent.mkdir(parents=True)
+    path.write_text(
+        "# Legacy targets\n\n| Video URL | Title | Publication date | Channel | Observed date | Absence check | Next eligible workflow |\n"
+        "| --- | --- | --- | --- | --- | --- | --- |\n"
+        "| https://youtu.be/legacy123 | Literal &amp; &#124; | 2026-09-03 | Nate Herk | 2026-09-04 | not found | review |\n",
+        encoding="utf-8",
+    )
+    add_singularity_target(route)
+    rows = youtube_capture.read_singularity_target_rows(path)
+    assert len(rows) == 2 and rows[0]["title"] == "Literal &amp; &#124;"
+
+
+@pytest.mark.parametrize("indent", ["", "  "])
+def test_singularity_malformed_existing_row_blocks_rewrite_without_byte_changes(tmp_path: Path, monkeypatch, indent: str) -> None:
+    route = singularity_route(tmp_path, monkeypatch)
+    path, _, _ = add_singularity_target(route)
+    malformed = path.read_text(encoding="utf-8").replace("AI update", "AI | update").replace("| https://", indent + "| https://")
+    path.write_text(malformed, encoding="utf-8")
+    before = path.read_bytes()
+    with pytest.raises(youtube_capture.CaptureError, match="malformed capture-target row.*refusing rewrite"):
+        add_singularity_target(route, video_id="second123")
+    assert path.read_bytes() == before
+
+
+def test_route_audit_fails_on_nate_contamination_in_geopolitics(tmp_path: Path, monkeypatch, capsys) -> None:
+    monkeypatch.setattr(youtube_capture, "REPO_ROOT", tmp_path)
+    queue_root = tmp_path / "narrative-geopolitics/work/capture/youtube"
+    queue_root.mkdir(parents=True)
+    (tmp_path / "narrative-geopolitics/channels").mkdir(parents=True)
+    (tmp_path / "archive/sources/geopolitics").mkdir(parents=True)
+    (tmp_path / "narrative-geopolitics/channels/channel-index.md").write_text(
+        "| `nate-herk` | Nate Herk |\n",
+        encoding="utf-8",
+    )
+    (tmp_path / "archive/sources/geopolitics/source-manifest.json").write_text(
+        '{"sources":[]}\n',
+        encoding="utf-8",
+    )
+    (queue_root / "youtube-capture-policy.yml").write_text(
+        "scope: geopolitics-youtube-capture-lane\n",
+        encoding="utf-8",
+    )
+
+    result = youtube_capture.main(["route-audit", "--queue-root", str(queue_root), "--json"])
+
+    assert result == 1
+    payload = json.loads(capsys.readouterr().out)
+    assert payload["status"] == "fail"
+    assert {
+        (finding["path"], finding["token"]) for finding in payload["findings"]
+    } == {
+        ("narrative-geopolitics/channels/channel-index.md", "nate-herk"),
+        ("narrative-geopolitics/channels/channel-index.md", "nate herk"),
+    }
 
 
 def test_scan_imports_watchlist_without_fetching_transcripts(tmp_path: Path) -> None:
@@ -468,6 +832,111 @@ def test_browser_receipt_is_required_for_tier_a_completion(tmp_path: Path, capsy
     payload = json.loads(capsys.readouterr().out)
     assert payload["tier_a_completion"] == "pass"
     assert payload["present_receipts"] == ["dialogue-works"]
+
+
+def test_daily_check_seeds_queue_and_fails_until_browser_receipts_exist(
+    tmp_path: Path, monkeypatch, capsys
+) -> None:
+    queue_root = tmp_path / "queue"
+    channel_index = tmp_path / "channel-index.md"
+    channel_index.write_text(
+        "\n".join(
+            [
+                "| Channel slug | Label | Narrative status | Routing role | Local shelf / required next step | Upstream files | Upstream days | Capture cadence | Channel URL | First day | Last day |",
+                "| --- | --- | --- | --- | --- | ---: | ---: | --- | --- | --- | --- |",
+                "| `dialogue-works` | Dialogue Works | `active` | Interview host. | [dialogue-works/](dialogue-works/README.md) | 1 | 1 | `daily` | [open](https://www.youtube.com/@dialogueworks01) | `2026-08-01` | `2026-08-31` |",
+                "| `redacted-news` | Redacted News | `active` | Weekly context. | [redacted-news/](redacted-news/README.md) | 1 | 1 | `weekly` | [open](https://www.youtube.com/@RedactedNews) | `2026-08-01` | `2026-08-31` |",
+            ]
+        ),
+        encoding="utf-8",
+    )
+    rss = """<feed xmlns="http://www.w3.org/2005/Atom" xmlns:yt="http://www.youtube.com/xml/schemas/2015">
+  <entry>
+    <yt:videoId>sameDay</yt:videoId>
+    <title>Same-day seed</title>
+    <published>2026-08-30T18:04:32+00:00</published>
+    <author><name>Dialogue Works</name></author>
+    <link rel="alternate" href="https://www.youtube.com/watch?v=sameDay" />
+  </entry>
+</feed>"""
+
+    def fake_fetch(url: str, timeout: int = 20) -> str:
+        if url.endswith("/videos"):
+            return '{"channelId":"UCdialogue"}'
+        if "feeds/videos.xml" in url:
+            return rss
+        raise AssertionError(url)
+
+    monkeypatch.setattr(youtube_capture, "fetch_text", fake_fetch)
+    result = youtube_capture.main(
+        [
+            "daily-check",
+            "--date",
+            "2026-08-30",
+            "--queue-root",
+            str(queue_root),
+            "--channel-index",
+            str(channel_index),
+            "--include-active",
+        ]
+    )
+
+    assert result == 1
+    output = capsys.readouterr().out
+    assert "DAILY_CHECK_MODE=seed-plus-required-browser-check" in output
+    assert "CHECK_CHANNEL=dialogue-works|https://www.youtube.com/@dialogueworks01/videos" in output
+    assert "CHECK_CHANNEL=redacted-news" not in output
+    assert "CHANNEL_ROWS_SELECTED=1" in output
+    assert "CHANNEL_SEARCH_TERMS=2026; Aug 30 2026; August 30 2026; Iran; Hormuz; oil; Ukraine; NATO" in output
+    assert "TIER_A_COMPLETION=fail" in output
+    rows = read_jsonl(queue_root / "2026-08-30.jsonl")
+    assert [row["source_identity"] for row in rows] == ["youtube-channel:dialogue-works", "youtube:sameDay"]
+
+
+def test_no_qualifying_browser_receipt_requires_search_surface_notes(tmp_path: Path) -> None:
+    assert (
+        youtube_capture.main(
+            [
+                "record-browser-receipt",
+                "--date",
+                "2026-08-30",
+                "--queue-root",
+                str(tmp_path / "queue"),
+                "--channel-slug",
+                "dialogue-works",
+                "--channel-url",
+                "https://www.youtube.com/@dialogueworks01/videos",
+                "--observed-at",
+                "2026-08-31T12:00:00-06:00",
+                "--no-qualifying-videos",
+                "--notes",
+                "Videos page checked only",
+            ]
+        )
+        == 2
+    )
+
+    assert (
+        youtube_capture.main(
+            [
+                "record-browser-receipt",
+                "--date",
+                "2026-08-30",
+                "--queue-root",
+                str(tmp_path / "queue"),
+                "--channel-slug",
+                "dialogue-works",
+                "--channel-url",
+                "https://www.youtube.com/@dialogueworks01/videos",
+                "--observed-at",
+                "2026-08-31T12:00:00-06:00",
+                "--no-qualifying-videos",
+                "--notes",
+                "Videos and Live checked; channel search terms: 2026, Iran, Ukraine",
+            ]
+        )
+        == 0
+    )
 
 
 def test_discovered_video_row_filters_shorts_to_skip() -> None:
@@ -1189,7 +1658,19 @@ def test_roi_receipt_can_write_optional_receipt_file(tmp_path: Path, capsys) -> 
 
 def test_mark_updates_review_fields_only(tmp_path: Path) -> None:
     queue_root = tmp_path / "queue"
-    assert youtube_capture.main(["add", "--date", "2026-08-20", "--queue-root", str(queue_root), "--url", "https://youtube.com/watch?v=abc123"]) == 0
+    assert youtube_capture.main(
+        [
+            "add",
+            "--date",
+            "2026-08-20",
+            "--queue-root",
+            str(queue_root),
+            "--archive-lane",
+            "geopolitics",
+            "--url",
+            "https://youtube.com/watch?v=abc123",
+        ]
+    ) == 0
 
     result = youtube_capture.main(
         [
@@ -1230,6 +1711,8 @@ def test_export_intake_prints_dry_run_suggestions_only(tmp_path: Path, capsys) -
             "2026-08-20",
             "--queue-root",
             str(queue_root),
+            "--archive-lane",
+            "geopolitics",
             "--url",
             "https://youtube.com/watch?v=must123",
             "--title",
@@ -1266,6 +1749,8 @@ def test_export_intake_prints_dry_run_suggestions_only(tmp_path: Path, capsys) -
             "2026-08-20",
             "--queue-root",
             str(queue_root),
+            "--archive-lane",
+            "geopolitics",
             "--url",
             "https://youtube.com/watch?v=watch123",
             "--transcript-status",

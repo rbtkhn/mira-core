@@ -1,0 +1,43 @@
+version: 1
+description: >
+  Cross-archive YouTube capture routing. The public youtube-capture skill reads
+  this index before writing capture outputs so channel discovery does not fall
+  back to Narrative Geopolitics by accident.
+delegated_indexes:
+  geopolitics: narrative-geopolitics/channels/channel-index.md
+routes:
+  - channel_slug: nate-herk
+    label: Nate Herk
+    channel_handle: "@nateherk"
+    canonical_url: https://www.youtube.com/@nateherk
+    aliases:
+      - Nate Herk
+      - nate-herk
+      - nateherk
+    archive_lane: singularity
+    shelf: nate-herk
+    output: singularity-capture-target-note
+    duplicate_check_scope:
+      - archive/sources/singularity/nate-herk/transcripts/
+      - archive/sources/singularity/nate-herk-capture-targets-*.md
+    target_pattern: archive/sources/singularity/nate-herk-capture-targets-{date}.md
+    template: archive/sources/singularity/_youtube-capture-target-template.md
+    next_eligible_workflow: archive-intake
+  - channel_slug: nate-b-jones
+    label: Nate B. Jones
+    channel_handle: "@NateBJones"
+    canonical_url: https://www.youtube.com/@NateBJones
+    aliases:
+      - Nate B. Jones
+      - Nate B Jones
+      - nate-b-jones
+      - natebjones
+    archive_lane: singularity
+    shelf: nate-b-jones
+    output: singularity-capture-target-note
+    duplicate_check_scope:
+      - archive/sources/singularity/nate-b-jones/transcripts/
+      - archive/sources/singularity/nate-b-jones-capture-targets-*.md
+    target_pattern: archive/sources/singularity/nate-b-jones-capture-targets-{date}.md
+    template: archive/sources/singularity/_youtube-capture-target-template.md
+    next_eligible_workflow: archive-intake
