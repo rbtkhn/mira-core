@@ -280,6 +280,8 @@ def test_commit_reuses_matching_full_fingerprint() -> None:
         "If no valid matching evidence exists, run one Full gate",
         "Do not force an uncached run solely because the working tree is final",
         "same fingerprint with a cache hit",
+        "tools/validate.ps1 -CacheOnly",
+        "does not authorize a fallback Full run",
         "evidence as reused rather than newly executed",
         "without repeating Full validation",
     ):
@@ -291,6 +293,9 @@ def test_commit_reuses_matching_full_fingerprint() -> None:
         "result clarity",
     ):
         assert changed_input in skill
+    agents = " ".join((ROOT / "AGENTS.md").read_text(encoding="utf-8").split())
+    assert "tools/validate.ps1 -CacheOnly" in agents
+    assert "does not authorize a fallback Full run" in agents
 
 
 def test_hosted_state_is_distinct_and_uses_one_compact_watcher() -> None:

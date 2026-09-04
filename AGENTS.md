@@ -59,9 +59,12 @@ evidence; completing work, staging, or committing does not itself require Full.
 When Full is required, reuse a successful matching content and environment
 fingerprint. If no valid matching evidence exists, run one Full gate and record
 its successful fingerprint. Do not force an uncached run solely because the
-working tree is final. After committing unchanged bytes covered by Full, invoke Full once
-without force and require an identical-fingerprint cache hit with no structural
-or pytest execution. Rerun Full only when repository bytes, executable bits,
+working tree is final. After committing unchanged bytes covered by Full, run
+`tools/validate.ps1 -CacheOnly` and require an identical-fingerprint cache hit
+with no structural or pytest execution. A cache miss or unavailable evidence
+does not authorize a fallback Full run; report the missing evidence and assess
+whether the governing profile still requires Full. Rerun Full only when
+repository bytes, executable bits,
 runtime or declared dependencies, relevant environment, or result clarity
 changed. Never rerun merely because commit metadata, branch name, or `HEAD`
 changed.

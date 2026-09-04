@@ -374,9 +374,11 @@ and environment fingerprint. If no valid matching evidence exists, run one
 Full gate and record its successful fingerprint. Do not force an uncached run
 solely because the working tree is final.
 
-After committing unchanged bytes covered by Full, invoke Full once
-without force and require the same fingerprint with a cache hit; report the
-evidence as reused rather than newly executed.
+After committing unchanged bytes covered by Full, run
+`tools/validate.ps1 -CacheOnly` and require the same fingerprint with a cache
+hit; report the evidence as reused rather than newly executed. A cache miss or
+unavailable evidence does not authorize a fallback Full run; report the missing
+evidence and assess whether the governing profile still requires Full.
 
 Before push, refresh Git status, authentication, target, and divergence without
 repeating Full validation. Rerun Full only when repository bytes, executable
