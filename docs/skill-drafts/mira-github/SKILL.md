@@ -366,9 +366,15 @@ commit, push, PR, deployment, and hosted settings as separate boundaries.
 
 ## Reuse validation evidence
 
-Before commit, require the validation appropriate to the change. For a final
-tree requiring Full validation, run exactly one uncached Full gate and record
-its successful fingerprint. After committing unchanged bytes, invoke Full once
+Before commit, require the validation appropriate to the change. Require Full
+only when the governing validation profile or release boundary requires
+whole-repository evidence; completing work, staging, or committing does not
+itself require Full. When Full is required, reuse a successful matching content
+and environment fingerprint. If no valid matching evidence exists, run one
+Full gate and record its successful fingerprint. Do not force an uncached run
+solely because the working tree is final.
+
+After committing unchanged bytes covered by Full, invoke Full once
 without force and require the same fingerprint with a cache hit; report the
 evidence as reused rather than newly executed.
 

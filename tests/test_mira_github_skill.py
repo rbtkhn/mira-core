@@ -274,7 +274,11 @@ def test_skill_main_workflow_requires_exact_stale_lock_proof() -> None:
 def test_commit_reuses_matching_full_fingerprint() -> None:
     skill = " ".join(read_skill().split())
     for phrase in (
-        "exactly one uncached Full gate",
+        "only when the governing validation profile or release boundary requires whole-repository evidence",
+        "completing work, staging, or committing does not itself require Full",
+        "reuse a successful matching content and environment fingerprint",
+        "If no valid matching evidence exists, run one Full gate",
+        "Do not force an uncached run solely because the working tree is final",
         "same fingerprint with a cache hit",
         "evidence as reused rather than newly executed",
         "without repeating Full validation",
