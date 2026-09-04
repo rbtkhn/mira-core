@@ -6,8 +6,9 @@ description: "Turn genuine user decisions into outcome-aware possibility maps an
 # Learn From Choices
 
 Use this core contract to classify every final response and render exactly one
-compact contextual A-D surface at its end. A settled surface uses transient
-response controls rather than manufacturing a decision. Do not apply choice footers to intermediate
+compact contextual A-D surface at its end. Completed work can lead to substantive
+next options or, after a separate assessment, transient response controls.
+Do not apply choice footers to intermediate
 commentary. Load lifecycle references only at their named trigger:
 
 - After a user selects an offered branch, or when that selected branch closes,
@@ -17,6 +18,10 @@ commentary. Load lifecycle references only at their named trigger:
   [`references/outcome-review.md`](references/outcome-review.md).
 
 ## Classify closure before navigation
+
+Close completed actions, then independently identify useful next options.
+Completion prevents repeating finished work; it does not withdraw meaningful
+choices. Never infer the menu type from completion alone.
 
 A branch is settled when its complete visible promise is delivered and no new
 decision, evidence gap, scope change, or executable action remains. Run a
@@ -48,6 +53,41 @@ completed factual answers, simple thanks or acknowledgements, explicit stops,
 completed actions with no remaining boundary, repeated settled selections, and
 saturated navigation-only branches. Settled controls retain nothing and create
 no choice identity.
+
+The validator separates two declarations:
+
+- `closure_state: settled` describes the completed action only. It may accompany
+  a decision menu offering a next bounded action, with ordinary readiness and
+  authority checks intact.
+- `surface_kind: response-controls` selects exactly four navigation-only,
+  `learning_eligibility: none` controls. They carry no executable targets,
+  action context, or authority. Omit action readiness or supply only
+  `ready_option_keys: []`.
+
+Either declaration requires a separate `next_option_assessment`: a nonempty
+`basis` explaining the current situation and a `candidates` list. Each candidate
+has `label`, `status`, and `reason`. Status is `ready`, `navigational`, `blocked`,
+or `out-of-scope`. Ready and navigational candidates must bind an `option_key`
+in the visible decision menu; generic response controls cannot hide them.
+Blocked and out-of-scope candidates have no option key. An empty list is valid
+for a simple acknowledgement or explicit stop; explain that in the basis rather
+than inventing work. Missing authority alone does not make an otherwise ready
+action blocked or out-of-scope. A blocked action may still warrant a useful
+inspection or alternative, which should be assessed independently.
+
+For completed repository edits, consider the exact staging/commit boundary
+before choosing controls. Perform available read-only scoping first. After a
+commit, assess useful next options separately; do not assume push authority or
+reopen the completed commit. An explicit stop rules out continued work.
+
+The validator checks supplied assessments for consistency; it cannot discover
+omitted opportunities or prove the agent's judgment. An unchanged validated
+response-control template may be reused within the session through the
+compatibility class `elicitation.SettledControls`. A changed situation,
+assessment, label, or classification requires fresh validation. Never persist
+this cache, retain control selections, or enroll them in a choice-learning
+cohort. Genuine decisions still require current targets, evidence, and selection
+identity; direct instructions supersede earlier menus.
 
 After closing a branch, offer substantive `New paths` only when independently
 credible directions begin genuinely different objectives, evidence searches,
@@ -144,7 +184,7 @@ broaden authority: the same forbidden actions remain forbidden, and the final
 receipt must state what was completed, deferred, rejected, blocked, and not
 attempted.
 
-An all-navigation surface is exceptional: provide `all_navigation_reason` and
+Outside settled controls, an all-navigation surface is exceptional: provide `all_navigation_reason` and
 a concrete `blocked_action` naming the action considered, its blocker, and
 what would make it ready. Do not present consecutive navigation-only menus for
 the same objective. A later Elicitation surface requires a newly emerged
@@ -193,7 +233,8 @@ selected scope.
 Treat a letter as the complete visible option, not a request for the operator
 to restate it. Once a branch is confirmed, paused, or settled, repeating the
 same selection is a no-op. Acknowledge closure once and do not regenerate the
-same menu. Present a new choice only for genuinely new evidence, scope,
+same substantive menu. Reuse unchanged transient settled controls when needed
+for the four-option footer. Present a new choice only for genuinely new evidence, scope,
 decision, or action.
 
 Treat comma-separated letters such as `B,C` as an ordered compound selection

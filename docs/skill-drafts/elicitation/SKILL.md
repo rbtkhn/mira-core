@@ -60,26 +60,47 @@ readiness or authority.
 
 Set `final_response: true` only when a decision-navigation surface is actually
 used as the response's terminal A-D menu. Validation then requires exactly four
-options and an explicit `learning_eligibility` on every option. A silent settled
-final has no decision surface and does not invoke Elicitation merely to validate
-closure. Non-final decision surfaces retain backward-compatible three-or-four
+options and an explicit `learning_eligibility` on every option. Completion of an
+action does not determine the next menu. `closure_state: settled` records that
+completion; ordinary decision menus may still offer independently bounded next
+actions. Non-final decision surfaces retain backward-compatible three-or-four
 option support and default missing eligibility to `eligible`. Neutral-evidence
 surfaces cannot set `final_response`.
+
+Use `surface_kind: response-controls` only after separately assessing whether
+useful next options exist. This mode requires four navigation-only controls,
+each with `learning_eligibility: none`, and carries no action authority.
+Both this mode and `closure_state: settled` require `next_option_assessment`:
+a nonempty `basis` and a `candidates` list. Candidate fields are `label`,
+`status` (`ready`, `navigational`, `blocked`, or `out-of-scope`), and `reason`.
+Ready/navigational candidates must bind a visible `option_key` with the matching
+readiness; they rule out a generic response-control menu. Blocked/out-of-scope
+candidates have no option key. A simple acknowledgement or explicit stop may
+use an empty list with its basis stated. Completion alone, or missing authority
+for an otherwise ready action, is not a reason to omit useful options.
+
+This assessment is a consistency check on supplied context, not proof that the
+agent found every useful possibility. Preserve independent judgment and the
+Learn From Choices requirement to consider the wider conversation.
 
 When a ready action may be carried through a later compressed imperative, add
 an `action_context` entry keyed by its option key with the exact `target`,
 `verification`, and `required_authority`. Existing surfaces without this
-metadata remain valid, but compressed imperatives fail closed rather than
-reconstructing the missing action.
+metadata remain valid only when they are non-final, but compressed imperatives
+fail closed rather than reconstructing the missing action. When
+`final_response: true`, every ready option must have complete `action_context`;
+validation fails closed if any ready option is missing it.
 
 `ready_option_keys` must exactly equal the keys of options whose
-`selection_effect` is `execute`, `commit`, `push`, or `send`. When every option
+`selection_effect` is `execute`, `stage`, `commit`, `push`, or `send`. When every option
 is navigational, the list must be empty and `all_navigation_reason` must be one
 of `no-bounded-action`, `material-choice-unresolved`,
 or `operator-requested-read-only`. It must also include a `blocked_action`
 object naming the concrete action considered, its present blocker, and the
 condition that would make it ready. This audit prevents a generic navigation
-label from concealing work the agent could already perform.
+label from concealing work the agent could already perform. The separate
+response-control mode uses its next-option assessment instead of this
+blocked-action object; declaring completion does not bypass either check.
 
 Treat an action as ready when its exact action, target, and verification step
 are bounded, no material human choice remains unresolved, and authority is the
@@ -116,7 +137,7 @@ Use `decision-navigation` for judgment, preference, or path selection:
 - Present three or four genuinely distinct paths.
 - Bind `recommended`, `alternative`, and `overlooked`; add
   `pause-or-deepen` only when it is real.
-- Give every option a `selection_effect`: `navigate`, `execute`, `commit`,
+- Give every option a `selection_effect`: `navigate`, `execute`, `stage`, `commit`,
   `push`, or `send`.
 - Give the surface machine-checked `action_readiness` metadata.
 - Explain the recommendation from current evidence.
@@ -157,16 +178,18 @@ read-only exploration.
 ## Keep authority exact
 
 Treat a selection as read-only navigation unless its validated
-`selection_effect` is `execute`, `commit`, `push`, or `send`. Require the
+`selection_effect` is `execute`, `stage`, `commit`, `push`, or `send`. Require the
 visible label to begin, case-insensitively, with the matching verb as its first
 token, including a trailing colon. Authorize only the exact visible bounded
 action, subject to every existing permission and approval boundary.
 
 Reject missing, unknown, or mismatched effects before presentation. A
 `navigate` option cannot begin with a reserved action verb, and neutral
-evidence accepts no `selection_effect`. `Stage`, `Publish`, and `Deploy`
-require a direct explicit command. Ordinary `learn-from-choices` menus are
-navigation-only. A direct later command supersedes a pending menu.
+evidence accepts no `selection_effect`. `Stage` requires exact scoped paths or
+hunks in a validated option; broad staging, `Publish`, and `Deploy` require a
+direct explicit command. Learn From Choices menus may mix executable and
+navigational options under these same authority checks. A direct later command
+supersedes a pending menu.
 
 Exact cadence commands bypass the capsule and route to their governing skill.
 Soft assent carries agreement only. A vague imperative may carry one exact
@@ -188,8 +211,11 @@ can change the next action.
 After three consecutive compact selections within one objective, continue the
 selected branch to a meaningful result. Do not present another substantive
 Elicitation surface unless a newly emerged blocker passes all five
-implicit-invocation conditions. After settlement, use silent settled closure;
-do not emit another decision surface merely to carry generic controls.
+implicit-invocation conditions. After settlement, use compact settled closure;
+do not manufacture another substantive decision surface merely to carry generic
+controls. Learn From Choices' earlier two-selection saturation rule controls
+when both rules describe repeated navigation-only deepening; this three-selection
+bound governs other mixed compact sequences.
 Explicit creative or preference discovery may continue within the ten-question limit
 because each answer supplies missing human evidence.
 

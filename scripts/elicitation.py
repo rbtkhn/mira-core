@@ -145,14 +145,89 @@ def _validate_action_readiness(
     }
 
 
+def _validate_next_option_assessment(
+    raw: Any, *, options: list[dict[str, Any]], response_controls: bool
+) -> dict[str, Any]:
+    if not isinstance(raw, dict):
+        raise ElicitationError("completion and response controls require next_option_assessment")
+    basis = _text(raw.get("basis"), label="next-option assessment basis")
+    candidates = raw.get("candidates")
+    if not isinstance(candidates, list):
+        raise ElicitationError("next-option assessment candidates must be a list")
+    by_key = {option["key"]: option for option in options}
+    normalized = []
+    labels: set[str] = set()
+    for candidate in candidates:
+        if not isinstance(candidate, dict):
+            raise ElicitationError("next-option candidate must be an object")
+        label = _text(candidate.get("label"), label="next-option candidate label")
+        if label.casefold() in labels:
+            raise ElicitationError("next-option candidates must be unique")
+        labels.add(label.casefold())
+        status = candidate.get("status")
+        if status not in ("ready", "navigational", "blocked", "out-of-scope"):
+            raise ElicitationError("invalid next-option candidate status")
+        item = {
+            "label": label,
+            "status": status,
+            "reason": _text(candidate.get("reason"), label="next-option candidate reason"),
+        }
+        if status in ("ready", "navigational"):
+            if response_controls:
+                raise ElicitationError("response controls cannot hide meaningful next options")
+            key = _text(candidate.get("option_key"), label="next-option candidate option_key")
+            option = by_key.get(key)
+            if option is None:
+                raise ElicitationError("meaningful next option must appear in the visible menu")
+            actionable = option["selection_effect"] in RESERVED_VERBS
+            if actionable != (status == "ready"):
+                raise ElicitationError("next-option readiness must match the visible selection_effect")
+            item["option_key"] = key
+        elif "option_key" in candidate:
+            raise ElicitationError("blocked or out-of-scope candidates cannot bind an option")
+        normalized.append(item)
+    return {"basis": basis, "candidates": normalized}
+
+
 def validate_elicitation_surface(surface: Any) -> dict[str, Any]:
     if not isinstance(surface, dict):
         raise ElicitationError("surface must be an object")
+    settled = surface.get("closure_state") == "settled"
+    if "closure_state" in surface and not settled:
+        raise ElicitationError("closure_state must be settled when supplied")
+    surface_kind = surface.get("surface_kind", "decision")
+    if surface_kind not in ("decision", "response-controls"):
+        raise ElicitationError("surface_kind must be decision or response-controls")
+    response_controls = surface_kind == "response-controls"
+    if response_controls:
+        if set(surface) - {"type", "interaction_type", "closure_state", "options", "final_response",
+                           "presented_at", "authority_effect", "action_readiness", "context_capsule",
+                           "surface_kind", "next_option_assessment"}:
+            raise ElicitationError("response controls cannot carry executable targets or authority metadata")
+        if surface.get("type", surface.get("interaction_type")) != "decision-navigation":
+            raise ElicitationError("response controls require decision-navigation")
+        if not isinstance(surface.get("options"), list) or len(surface["options"]) != 4:
+            raise ElicitationError("response controls require exactly four options")
+        if any(key in surface for key in ("action_context", "target", "execution", "required_authority")):
+            raise ElicitationError("response controls cannot carry executable targets or authority")
+        if surface.get("authority_effect", "none") != "none":
+            raise ElicitationError("response controls cannot grant authority")
+        if surface.get("action_readiness", {"ready_option_keys": []}) != {"ready_option_keys": []}:
+            raise ElicitationError("response controls cannot carry action readiness or blocked-action explanations")
+        for option in surface.get("options", []):
+            if not isinstance(option, dict) or option.get("selection_effect") != "navigate" or option.get("learning_eligibility") != "none":
+                raise ElicitationError("response controls must be navigation-only and learning_eligibility none")
+            if set(option) - {"key", "letter", "label", "text", "role", "selection_effect", "learning_eligibility"}:
+                raise ElicitationError("response-control options cannot carry targets or authority metadata")
     interaction_type = surface.get("type", surface.get("interaction_type"))
     if interaction_type not in INTERACTION_TYPES:
         raise ElicitationError(
             "surface type must be decision-navigation or neutral-evidence"
         )
+    if interaction_type == "neutral-evidence" and (
+        settled or "surface_kind" in surface or "next_option_assessment" in surface
+    ):
+        raise ElicitationError("neutral evidence cannot carry completion or menu assessment metadata")
     final_response_present = "final_response" in surface
     final_response = surface.get("final_response", False)
     if final_response_present and not isinstance(final_response, bool):
@@ -265,7 +340,7 @@ def validate_elicitation_surface(surface: Any) -> dict[str, Any]:
 
     action_readiness = None
     if interaction_type == "decision-navigation":
-        action_readiness = _validate_action_readiness(
+        action_readiness = {"ready_option_keys": []} if response_controls else _validate_action_readiness(
             surface.get("action_readiness"), options=options
         )
     elif "action_readiness" in surface:
@@ -279,11 +354,33 @@ def validate_elicitation_surface(surface: Any) -> dict[str, Any]:
         "options": options,
         "authority_effect": AUTHORITY_EFFECT,
     }
+    if settled:
+        normalized_surface["closure_state"] = "settled"
+    if "surface_kind" in surface:
+        normalized_surface["surface_kind"] = surface_kind
+    if settled or response_controls or "next_option_assessment" in surface:
+        normalized_surface["next_option_assessment"] = _validate_next_option_assessment(
+            surface.get("next_option_assessment"), options=options,
+            response_controls=response_controls,
+        )
     if presented_at is not None:
         normalized_surface["presented_at"] = presented_at
     if action_readiness is not None:
         normalized_surface["action_readiness"] = action_readiness
     raw_action_context = surface.get("action_context")
+    if interaction_type == "decision-navigation" and final_response:
+        ready_keys = set(action_readiness["ready_option_keys"])
+        context_keys = (
+            set(raw_action_context)
+            if isinstance(raw_action_context, dict)
+            else set()
+        )
+        missing_context = sorted(ready_keys - context_keys)
+        if missing_context:
+            raise ElicitationError(
+                "final-response ready options require complete action_context: "
+                + ", ".join(missing_context)
+            )
     if raw_action_context is not None:
         if interaction_type != "decision-navigation":
             raise ElicitationError(
@@ -309,6 +406,28 @@ def validate_elicitation_surface(surface: Any) -> dict[str, Any]:
     if final_response_present:
         normalized_surface["final_response"] = final_response
     return normalized_surface
+
+
+class SettledControls:
+    """Compatibility name for session-local response-control template reuse.
+
+    JSON snapshots prevent callers from mutating the cached validation result.
+    Any input change goes through the ordinary validator again.
+    """
+
+    def __init__(self) -> None:
+        self._source: str | None = None
+        self._validated: str | None = None
+
+    def validate(self, surface: Any) -> dict[str, Any]:
+        if not isinstance(surface, dict) or surface.get("surface_kind") != "response-controls":
+            raise ElicitationError("template reuse is restricted to response controls")
+        source = json.dumps(surface, sort_keys=True, ensure_ascii=False)
+        if source != self._source:
+            normalized = validate_elicitation_surface(surface)
+            self._validated = json.dumps(normalized, ensure_ascii=False)
+            self._source = source
+        return json.loads(self._validated)
 
 
 def _selected_letters(

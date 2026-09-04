@@ -86,6 +86,127 @@ def decision_surface(
     }
 
 
+def response_controls(basis: str) -> dict:
+    surface = decision_surface(
+        labels=("Close", "Correct", "Explain", "New task"),
+        learning_eligibility=("none",) * 4, final_response=True,
+    )
+    surface.pop("action_readiness")
+    surface.update(
+        closure_state="settled", surface_kind="response-controls",
+        next_option_assessment={"basis": basis, "candidates": []},
+    )
+    return surface
+
+
+def completed_work_with_commit_option() -> dict:
+    surface = decision_surface(
+        labels=("Commit: Stage and commit scripts/example.py locally", "Review diff", "Compare scope", "Pause"),
+        selection_effects=("commit", "navigate", "navigate", "navigate"),
+        learning_eligibility=("eligible", "none", "none", "none"), final_response=True,
+    )
+    surface["closure_state"] = "settled"
+    surface["next_option_assessment"] = {
+        "basis": "Repairs are complete; exact staging scope and validation are known.",
+        "candidates": [{"label": "Commit repaired script", "status": "ready",
+                        "reason": "Only local commit authority remains.", "option_key": "path-0"}],
+    }
+    surface["action_context"] = {"path-0": {
+        "target": "scripts/example.py", "verification": "Focused tests and staged diff check",
+        "required_authority": "Local staging and commit only; no push",
+    }}
+    return surface
+
+
+def test_completed_repairs_can_offer_commit_without_reopening_the_repair() -> None:
+    surface = completed_work_with_commit_option()
+    normalized = elicitation.validate_elicitation_surface(surface)
+    assert normalized["closure_state"] == "settled"
+    assert normalized["action_readiness"]["ready_option_keys"] == ["path-0"]
+    result = elicitation.interpret_elicitation_response(normalized, "A")
+    assert result["ordered_selected_branches"][0]["selection_effect"] == "commit"
+    assert result["ordered_selected_branches"][0]["action_authorized"] is True
+
+
+@pytest.mark.parametrize("missing", ["action_readiness", "action_context", "next_option_assessment"])
+def test_completion_does_not_bypass_decision_requirements(missing: str) -> None:
+    surface = completed_work_with_commit_option()
+    surface.pop(missing)
+    with pytest.raises(elicitation.ElicitationError):
+        elicitation.validate_elicitation_surface(surface)
+
+
+@pytest.mark.parametrize("status", ["ready", "navigational"])
+def test_response_controls_cannot_hide_known_meaningful_options(status: str) -> None:
+    surface = response_controls("Repair is complete, but a useful next step exists.")
+    surface["next_option_assessment"]["candidates"] = [{
+        "label": "Commit or inspect exact commit scope", "status": status,
+        "reason": "The next repository decision remains useful.", "option_key": "path-0",
+    }]
+    with pytest.raises(elicitation.ElicitationError, match="cannot hide meaningful"):
+        elicitation.validate_elicitation_surface(surface)
+
+
+def test_legacy_settled_flag_alone_no_longer_selects_generic_controls() -> None:
+    surface = response_controls("Acknowledgement")
+    surface.pop("surface_kind")
+    with pytest.raises(elicitation.ElicitationError, match="action_readiness"):
+        elicitation.validate_elicitation_surface(surface)
+
+
+def test_response_controls_require_independent_assessment() -> None:
+    surface = response_controls("Acknowledgement")
+    surface.pop("next_option_assessment")
+    with pytest.raises(elicitation.ElicitationError, match="next_option_assessment"):
+        elicitation.validate_elicitation_surface(surface)
+
+
+@pytest.mark.parametrize("basis", [
+    "Simple thanks: no unresolved work or useful new objective was identified.",
+    "Operator explicitly stopped: no further work should be offered for execution.",
+])
+def test_acknowledgements_and_stops_keep_transient_controls(basis: str) -> None:
+    surface = response_controls(basis)
+    result = elicitation.interpret_elicitation_response(surface, "A")
+    assert result["receipt_count"] == 0
+    assert result["ordered_selected_branches"][0]["action_authorized"] is False
+
+
+def test_completed_commit_may_offer_push_inspection_without_push_authority() -> None:
+    surface = completed_work_with_commit_option()
+    surface["options"][0].update(label="Review push readiness", selection_effect="navigate")
+    surface.pop("action_context")
+    surface["action_readiness"] = {
+        "ready_option_keys": [], "all_navigation_reason": "material-choice-unresolved",
+        "blocked_action": {"action": "Push commit", "blocker": "Destination unresolved",
+                           "ready_when": "Destination and remote checks are known"},
+    }
+    surface["next_option_assessment"] = {
+        "basis": "Commit is complete; push readiness is a separate useful question.",
+        "candidates": [{"label": "Inspect publication boundary", "status": "navigational",
+                        "reason": "Resolve the destination before any push", "option_key": "path-0"}],
+    }
+    result = elicitation.interpret_elicitation_response(surface, "A")
+    assert result["ordered_selected_branches"][0]["action_authorized"] is False
+
+
+@pytest.mark.parametrize("mutation", ["missing-option", "wrong-effect", "empty-basis", "bad-status"])
+def test_next_option_assessment_rejects_inconsistent_claims(mutation: str) -> None:
+    surface = completed_work_with_commit_option()
+    assessment = surface["next_option_assessment"]
+    candidate = assessment["candidates"][0]
+    if mutation == "missing-option":
+        candidate["option_key"] = "omitted-commit"
+    elif mutation == "wrong-effect":
+        candidate["option_key"] = "path-1"
+    elif mutation == "empty-basis":
+        assessment["basis"] = ""
+    else:
+        candidate["status"] = "completed-so-no-options"
+    with pytest.raises(elicitation.ElicitationError):
+        elicitation.validate_elicitation_surface(surface)
+
+
 def neutral_surface(*, hold: bool = False) -> dict:
     options = [
         {"key": "yes", "label": "Yes"},
@@ -225,6 +346,32 @@ def test_final_response_flag_is_decision_only_and_strictly_boolean() -> None:
     invalid["final_response"] = "yes"
     with pytest.raises(elicitation.ElicitationError, match="true or false"):
         elicitation.validate_elicitation_surface(invalid)
+
+
+def test_final_response_ready_options_require_complete_action_context() -> None:
+    final = decision_surface(
+        labels=(
+            "Execute: apply the bounded change",
+            "Inspect another path",
+            "Test the overlooked inverse",
+            "Pause and deepen",
+        ),
+        selection_effects=("execute", "navigate", "navigate", "navigate"),
+        learning_eligibility=("eligible", "eligible", "eligible", "none"),
+        final_response=True,
+    )
+    with pytest.raises(elicitation.ElicitationError, match="complete action_context"):
+        elicitation.validate_elicitation_surface(final)
+
+    final["action_context"] = {
+        "path-0": {
+            "target": "scripts/example.py",
+            "verification": "run the focused unit test",
+            "required_authority": "repository-edit",
+        }
+    }
+    normalized = elicitation.validate_elicitation_surface(final)
+    assert normalized["context_capsule"]["incomplete_action_context_keys"] == []
 
 
 def test_decision_surface_requires_known_machine_checked_effects() -> None:
@@ -746,7 +893,9 @@ def test_host_and_choice_contract_require_compact_contextual_closure() -> None:
     assert "completed factual answers" in choices
     assert "simple thanks or acknowledgements" in choices
     assert "explicit stops" in choices
-    assert "does not invoke Elicitation merely to validate" in elicitation_skill
+    assert "action does not determine the next menu" in elicitation_skill
+    assert "next_option_assessment" in elicitation_skill
+    assert "Never infer the menu type from completion alone" in choices
 
 
 def test_choice_contract_makes_bounded_task_creation_executable() -> None:
@@ -784,6 +933,7 @@ def test_skill_contract_limits_repeated_selection_chains() -> None:
     assert "do not manufacture another" in skill
     assert "Explicit creative or preference discovery" in skill
     assert "ten-question limit" in skill
+    assert "earlier two-selection saturation rule controls" in skill
 
 
 def test_skill_contract_exposes_transient_context_and_exact_action_metadata() -> None:
