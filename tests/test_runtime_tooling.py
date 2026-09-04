@@ -893,9 +893,43 @@ def test_powershell_validator_exposes_fast_full_and_force() -> None:
     assert "[ValidateSet('Full', 'Fast')]" in launcher
     assert "$validatorArguments = @('--mode', $Mode.ToLowerInvariant())" in launcher
     assert "$validatorArguments += '--force'" in launcher
+    assert "[switch] $CacheOnly" in launcher
+    assert "$validatorArguments += '--cache-only'" in launcher
     assert "MIRA_CORE_SESSION_TEMP_ROOT" in launcher
     assert "@('--temp-root', $TempRoot)" in launcher
     assert launcher.count("@validatorArguments") == 4
+
+
+@pytest.mark.parametrize("state,expected", [("hit", 0), ("miss", 1), ("failed", 1), ("mismatch", 1), ("unavailable", 1)])
+def test_cache_only_never_runs_validation_or_requires_temp(monkeypatch, tmp_path, capsys, state, expected) -> None:
+    record = tmp_path / "result.json"
+    monkeypatch.setattr(validator, "resolve_validation_python", lambda repo: Path(sys.executable))
+    monkeypatch.setattr(validator, "full_result_path", lambda *args: record)
+    def fingerprint(*args):
+        if state == "unavailable":
+            raise OSError("cache unavailable")
+        return "current"
+    monkeypatch.setattr(validator, "full_result_fingerprint", fingerprint)
+    if state in {"hit", "failed", "mismatch"}:
+        record.write_text(json.dumps({"schema": validator.FULL_RESULT_SCHEMA,
+            "fingerprint": "old" if state == "mismatch" else "current",
+            "result": "failed" if state == "failed" else "passed"}))
+    def forbidden(*args, **kwargs):
+        pytest.fail("cache-only must not execute phases, create evidence, or require temporary storage")
+    monkeypatch.setattr(validator, "run_phase", forbidden)
+    monkeypatch.setattr(validator, "resolve_temp_root", forbidden)
+    monkeypatch.setattr(validator, "store_successful_full_result", forbidden)
+    assert validator.main(["--cache-only"]) == expected
+    output = capsys.readouterr().err
+    assert "status=hit" in output if state == "hit" else "no validation phases executed" in output
+
+
+@pytest.mark.parametrize("extra", [["--force"], ["--mode", "fast"], ["--path", "tests"], ["--explain-route"]])
+def test_cache_only_rejects_conflicting_options_before_bootstrap(monkeypatch, extra) -> None:
+    def forbidden(*args, **kwargs):
+        pytest.fail("invalid cache-only arguments must stop before bootstrap")
+    monkeypatch.setattr(validator, "resolve_validation_python", forbidden)
+    assert validator.main(["--cache-only", *extra]) == 2
 
 
 def test_hosted_validation_checkout_retains_git_evidence_history() -> None:

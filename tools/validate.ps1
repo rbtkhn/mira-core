@@ -3,6 +3,7 @@ param(
     [ValidateSet('Full', 'Fast')]
     [string] $Mode = 'Full',
     [switch] $Force,
+    [switch] $CacheOnly,
     [string] $TempRoot
 )
 
@@ -16,6 +17,9 @@ $validator = Join-Path $repoRoot 'tools\validate_repo.py'
 $validatorArguments = @('--mode', $Mode.ToLowerInvariant())
 if ($Force) {
     $validatorArguments += '--force'
+}
+if ($CacheOnly) {
+    $validatorArguments += '--cache-only'
 }
 if ($TempRoot) {
     $validatorArguments += @('--temp-root', $TempRoot)

@@ -177,6 +177,11 @@ def parse_args(arguments: list[str] | None = None) -> argparse.Namespace:
         help="validation policy; fast fails closed to full for changes outside its allowlist",
     )
     parser.add_argument(
+        "--cache-only",
+        action="store_true",
+        help="require matching successful Full evidence; never run validation phases",
+    )
+    parser.add_argument(
         "--force",
         action="store_true",
         help="bypass a successful content-equivalent full-validation result",
@@ -401,6 +406,9 @@ def main(
     temp_root: Path | None = None
     try:
         args = parse_args(arguments)
+        if args.cache_only and (args.mode != "full" or args.force or args.paths or args.explain_route):
+            print("validation argument error: --cache-only requires Full and cannot be combined with --force, --path, or --explain-route", file=sys.stderr)
+            return 2
         if args.explain_route:
             if args.mode != "fast" or args.force or args.paths or args.temp_root:
                 print(
@@ -432,11 +440,12 @@ def main(
             )
             return 0
         try:
-            temp_root = resolve_temp_root(args.temp_root)
+            temp_root = None if args.cache_only else resolve_temp_root(args.temp_root)
         except ValueError as error:
             print(f"validation temporary-root error: {error}", file=sys.stderr)
             return 2
-        pytest_root = temp_root / f"pytest-{os.getpid()}-{uuid.uuid4().hex}"
+        if temp_root is not None:
+            pytest_root = temp_root / f"pytest-{os.getpid()}-{uuid.uuid4().hex}"
         try:
             paths = focused_test_paths(args.paths) if args.paths else []
         except ValueError as error:
@@ -547,7 +556,7 @@ def main(
             final_status = "passed" if returncode == 0 else "failed"
             return returncode
 
-        cache_enabled = arguments is None
+        cache_enabled = arguments is None or args.cache_only
         fingerprint: str | None = None
         result_path: Path | None = None
         if cache_enabled:
@@ -565,6 +574,10 @@ def main(
                     return 0
                 cache_status = "bypassed" if args.force else "miss"
                 print(f"validation_cache status={cache_status} fingerprint={fingerprint}", file=sys.stderr)
+
+        if args.cache_only:
+            print("validation_cache check_only=true result=not_verified; no validation phases executed", file=sys.stderr)
+            return 1
 
         commands = (
             ("structural", [str(python), "scripts/validate_repository.py"]),
