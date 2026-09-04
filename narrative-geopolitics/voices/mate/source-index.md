@@ -4,7 +4,7 @@ This index routes the unified local Mate corpus for `mate` to the central Narrat
 
 Source basis: `strategy-codex/statecraft/voices/mate/mate-index.md` plus already-local matching archive rows.
 
-Corpus: 23 local route rows across 23 central archive source files.
+Corpus: 26 local route rows across 26 central archive source files.
 
 Status: `imported-corpus`
 
@@ -21,11 +21,14 @@ Status: `imported-corpus`
 | --- | --- | --- | --- | --- |
 | `2025-04-17` | Aaron Maté: NATO's War Narratives Collapse | `guest` | `glenn-diesen` | [source](../../../archive/sources/geopolitics/sources/2025-04-17/source-aaron-mat-nato-s-war-narratives-collapse-2025-04-17.md) |
 | `2025-06-04` | Aaron Maté: From the Russiagate Hoax to Attacking Russia’s Nuclear Forces | `guest` | `glenn-diesen` | [source](../../../archive/sources/geopolitics/sources/2025-06-04/source-aaron-mat-from-the-russiagate-hoax-to-attacking-russia-s-nuclear-forces-2025-06-04.md) |
+| `2025-06-09` | Aaron Maté : Lies the Zionists Teach. | `guest` | `judging-freedom` | [source](../../../archive/sources/geopolitics/sources/2025-06-09/source-aaron-mat-lies-the-zionists-teach-2025-06-09.md) |
 | `2025-07-04` | Aaron Maté : MI6 and Atomic Weapons Inspections | `host-pressure test` | `judging-freedom` | [source](../../../archive/sources/geopolitics/sources/2025-07-04/source-aaron-mat-mi6-and-atomic-weapons-inspections-2025-07-04.md) |
+| `2025-07-08` | Aaron Maté : Americans Murdering Gazans. | `guest` | `judging-freedom` | [source](../../../archive/sources/geopolitics/sources/2025-07-08/source-aaron-mat-americans-murdering-gazans-2025-07-08.md) |
 | `2025-09-10` | Aaron Maté : Is the US a Criminal State Like Israel? | `host-pressure test` | `judging-freedom` | [source](../../../archive/sources/geopolitics/sources/2025-09-10/source-aaron-mat-is-the-us-a-criminal-state-like-israel-2025-09-10.md) |
 | `2025-09-16` | Aaron Maté : The Dead And Injured In Gaza. | `host-pressure test` | `judging-freedom` | [source](../../../archive/sources/geopolitics/sources/2025-09-16/source-aaron-mat-the-dead-and-injured-in-gaza-2025-09-16.md) |
 | `2025-09-30` | Aaron Maté : Al Qaeda Visits the US | `host-pressure test` | `judging-freedom` | [source](../../../archive/sources/geopolitics/sources/2025-09-30/source-aaron-mat-al-qaeda-visits-the-us-2025-09-30.md) |
 | `2025-11-12` | Aaron Maté : Should Israel Pay Reparations to Gaza? | `host-pressure test` | `judging-freedom` | [source](../../../archive/sources/geopolitics/sources/2025-11-12/source-aaron-mat-should-israel-pay-reparations-to-gaza-2025-11-12.md) |
+| `2025-11-25` | Aaron Maté : The US Has Sabotaged Ukraine. | `guest` | `judging-freedom` | [source](../../../archive/sources/geopolitics/sources/2025-11-25/source-aaron-mat-the-us-has-sabotaged-ukraine-2025-11-25.md) |
 | `2026-01-15` | Aaron Maté: Media Myths Driving the Iran Crisis? | `guest` | `judging-freedom` | [source](../../../archive/sources/geopolitics/sources/2026-01-15/source-aaron-mat-media-myths-driving-the-iran-crisis-2026-01-15.md) |
 | `2026-01-21` | Aaron Maté: Did a Regime-Change Operation in Iran Fail? | `guest` | `judging-freedom` | [source](../../../archive/sources/geopolitics/sources/2026-01-21/source-aaron-mat-did-a-regime-change-operation-in-iran-fail-2026-01-21.md) |
 | `2026-02-03` | Aaron Maté: A Reckless Game With Iran | `guest` | `judging-freedom` | [source](../../../archive/sources/geopolitics/sources/2026-02-03/source-aaron-mat-a-reckless-game-with-iran-2026-02-03.md) |
