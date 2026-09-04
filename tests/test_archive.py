@@ -4,7 +4,7 @@ import json
 import gzip
 import copy
 import sqlite3
-import subprocess
+import runpy
 import sys
 from pathlib import Path
 from types import SimpleNamespace
@@ -569,25 +569,38 @@ def test_active_registry_uses_archive_paths_and_preserves_upstream_paths() -> No
     assert manifest["source_prefix"].startswith("system-archive/singularity-science/")
 
 
-def test_deprecated_cli_wrapper_matches_canonical_git_validation() -> None:
-    root = Path(__file__).resolve().parent.parent
-    canonical = subprocess.run(
-        [sys.executable, str(root / "scripts" / "archive.py"), "validate", "--git-only", "--json"],
-        cwd=root,
-        text=True,
-        capture_output=True,
-        check=False,
-    )
-    deprecated = subprocess.run(
-        [sys.executable, str(root / "scripts" / "system_archive.py"), "validate", "--git-only", "--json"],
-        cwd=root,
-        text=True,
-        capture_output=True,
-        check=False,
-    )
-    assert canonical.returncode == deprecated.returncode == 0
-    assert json.loads(canonical.stdout) == json.loads(deprecated.stdout)
-    assert deprecated.stderr.count("system-archive is deprecated; use archive") == 1
+@pytest.mark.parametrize("failures", [[], ["fixture archive validation failure"]])
+def test_deprecated_cli_wrapper_matches_canonical_git_validation(
+    monkeypatch: pytest.MonkeyPatch, capsys: pytest.CaptureFixture[str], failures: list[str]
+) -> None:
+    # Exercise the real parser, handler, exit status, and compatibility entry point.
+    # Corpus health belongs to structural validation, not wrapper compatibility.
+    calls = []
+
+    def fixture_validation() -> list[str]:
+        calls.append("validate")
+        return list(failures)
+
+    def forbidden_store(*args, **kwargs):
+        pytest.fail("--git-only must not access the private archive store")
+
+    monkeypatch.setattr(system_archive, "validate_repository_state", fixture_validation)
+    monkeypatch.setattr(system_archive, "store", forbidden_store)
+    arguments = ["validate", "--git-only", "--json"]
+    canonical_code = system_archive.main(arguments)
+    canonical = capsys.readouterr()
+    wrapper = SCRIPTS / "system_archive.py"
+    monkeypatch.setattr(sys, "argv", [str(wrapper), *arguments])
+    with pytest.raises(SystemExit) as exit_info:
+        runpy.run_path(str(wrapper), run_name="__main__")
+    deprecated = capsys.readouterr()
+
+    assert canonical_code == exit_info.value.code == (1 if failures else 0)
+    expected = {"status": "failed" if failures else "passed", "failures": failures}
+    assert json.loads(canonical.out) == json.loads(deprecated.out) == expected
+    assert canonical.err == ""
+    assert deprecated.err == "system-archive is deprecated; use archive\n"
+    assert calls == ["validate", "validate"]
 
 
 def test_legacy_python_modules_export_canonical_archive_behavior() -> None:
