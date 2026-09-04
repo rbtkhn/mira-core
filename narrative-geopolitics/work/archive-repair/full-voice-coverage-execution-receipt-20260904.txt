@@ -1,0 +1,59 @@
+full voice coverage execution receipt 2026-09-04
+
+shelf: Narrative Geopolitics
+selected_options:
+- A: alias repair for alex-krainer -> krainer and john-helmer -> helmer
+- B: Walt source-index creation
+
+authority boundary:
+- Voice metadata/index repair only.
+- No transcript body rewrite.
+- No archive landing.
+- No source deletion.
+- No staging.
+- No commit.
+- No push.
+
+mutations:
+- scripts/voice_metadata.py
+  - Added VOICE_ALIASES entries:
+    - alex-krainer -> krainer
+    - john-helmer -> helmer
+- archive/sources/geopolitics/source-manifest.json
+  - Canonicalized 8 manifest voice_slugs:
+    - 5 alex-krainer rows to krainer
+    - 3 john-helmer rows to helmer
+- archive/sources/geopolitics/sources
+  - Canonicalized the corresponding 8 source frontmatter thread fields.
+  - canonicalize_voice_metadata.py reported body_preserved: true for all 8 touched source files.
+- narrative-geopolitics/voices/krainer/source-index.md
+  - Added the 5 formerly alex-krainer routes.
+- narrative-geopolitics/voices/helmer/source-index.md
+  - Added the 3 formerly john-helmer routes.
+- narrative-geopolitics/voices/walt/source-index.md
+  - Created and normalized a one-row Walt voice source index for the 2026-08-24 Tucker Carlson source.
+
+validation:
+1. python scripts/sync_voice_indexes.py --all --check --json
+   - exit_code: 0
+   - changed_shelves: 0
+   - added_routes: 0
+   - unindexed_voices: 0
+   - failures: 0
+
+2. python scripts/canonicalize_voice_metadata.py --all --check --json
+   - exit_code: 0
+   - changes: 0
+   - failures: 0
+
+3. python scripts/archive_audit.py --whole-corpus --format json
+   - exit_code: 0
+   - manifest_rows: 2421
+   - scoped_rows: 2421
+   - structural_failures: 0
+   - warnings: 1039
+
+terminal claim:
+- Archive-index structural validation remains exactly up to date.
+- Existing and newly created voice source indexes are in full parity with the source manifest.
+- No unindexed voice slugs remain.

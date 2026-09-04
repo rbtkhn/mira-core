@@ -13,7 +13,7 @@ host_slug: reason-resist
 show:
 host:
 guest: "John Helmer"
-thread: john-helmer
+thread: helmer
 source_url: "https://www.youtube.com/watch?v=TKkaeZUKvDY"
 source_identity: "youtube:TKkaeZUKvDY"
 source_url_status: provided

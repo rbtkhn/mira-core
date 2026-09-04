@@ -13,7 +13,7 @@ host_slug: glenn-diesen
 show: Glenn Diesen
 host: Glenn Diesen
 guest: "Alex Krainer"
-thread: alex-krainer
+thread: krainer
 source_url: "https://www.youtube.com/watch?v=2sA0DdKIQf4"
 source_identity: "youtube:2sA0DdKIQf4"
 source_url_status: provided

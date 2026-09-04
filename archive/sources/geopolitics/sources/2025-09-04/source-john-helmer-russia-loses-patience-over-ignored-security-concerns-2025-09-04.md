@@ -13,7 +13,7 @@ host_slug: glenn-diesen
 show: Glenn Diesen
 host: Glenn Diesen
 guest: "John Helmer"
-thread: john-helmer
+thread: helmer
 source_url: "https://www.youtube.com/watch?v=JHXU_aMRqX4"
 source_identity: "youtube:JHXU_aMRqX4"
 source_url_status: provided

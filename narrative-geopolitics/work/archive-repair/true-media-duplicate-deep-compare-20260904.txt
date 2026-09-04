@@ -1,0 +1,127 @@
+true media duplicate deep compare 2026-09-04
+
+shelf: Narrative Geopolitics
+scope: read-only body/metadata comparison of 5 remaining manifest.duplicate_url groups
+source_files_modified: false
+manifest_modified: false
+archive_landing: false
+staged: false
+committed: false
+
+normalization used:
+- Strip frontmatter.
+- Strip markdown headings and bold metadata wrapper lines.
+- Tokenize lowercase alphanumeric transcript words.
+- Compare 8-word shingle overlap.
+
+summary:
+- Groups 1, 4, and 5 are effectively duplicate transcript bodies after token normalization.
+- Group 2 is a near-duplicate with minor local wording/cleanup drift.
+- Group 3 is the only substantive outlier: the curated sectioned record and preserved unsectioned record overlap, but not enough to retire one without a merge-style metadata/body decision.
+- Current archive-index failures can be reduced by duplicate retirement/alias policy; no malformed or pub_date repair remains in this pass.
+
+group 1
+url: https://www.youtube.com/watch?v=HuhJinByAEg
+A: archive/sources/geopolitics/sources/2026-06-06/source-dialogue-works-freeman-the-greater-israel-project-is-collapsing-2026-06-06.md
+B: archive/sources/geopolitics/sources/2026-06-06/source-glenn-diesen-chas-freeman-the-greater-israel-project-is-collapsing-2026-06-06.md
+metadata:
+- A title: "Chas Freeman: The Greater Israel Project Is Collapsing"
+- B title: "Chas Freeman: The Greater Israel Project Is Collapsing"
+- A kind/channel: cleaned-transcript / dialogue-works
+- B kind/channel: cleaned-transcript / glenn-diesen
+- A curation/sections: curated_sectioned / 9
+- B curation/sections: curated_sectioned / 9
+comparison:
+- token counts: A 7900, B 7900
+- common 8-word shingles: 7891
+- coverage of shorter side: 1.0000
+- shingle jaccard: 1.0000
+- normalized token digest: both 816e53dc933f
+classification: same transcript body; metadata indicates A is the mis-attributed Dialogue Works legacy capture and B is the canonical Glenn Diesen re-file.
+recommended cleanup: keep B as canonical. Retire or manifest-exclude A only after preserving its alias/cross-reference value.
+
+group 2
+url: https://www.youtube.com/watch?v=gmtJZvmOOes
+A: archive/sources/geopolitics/sources/2026-03-16/source-glenn-diesen-jeffrey-sachs-israel-could-use-nuclear-weapons-against-iran-2026-03-16.md
+B: archive/sources/geopolitics/sources/2026-03-20/source-diesen-sachs-israel-could-use-nuclear-weapons-against-iran-2026-03-20.md
+metadata:
+- A title: "Jeffrey Sachs: Israel Could Use Nuclear Weapons Against Iran"
+- B title: "Jeffrey Sachs: Israel Could Use Nuclear Weapons Against Iran"
+- A kind/channel: transcript / glenn-diesen
+- B kind/channel: transcript / glenn-diesen
+comparison:
+- token counts: A 3974, B 3962
+- common 8-word shingles: 3930
+- coverage of shorter side: 0.9952
+- shingle jaccard: 0.9874
+- normalized token digests: A 9e40d0890aef, B 2aec03e537ec
+- sample drift: A includes "with your colleague ... in civil affairs"; B has the same passage without that local phrase.
+classification: near-duplicate same channel/media, likely alternate cleanup or capture pass.
+recommended cleanup: keep A because it is dated to the URL/file title pattern already favored in the prior review; compare frontmatter for any unique provenance before retiring or excluding B.
+
+group 3
+url: https://www.youtube.com/watch?v=gXhVdK7l-9A
+A: archive/sources/geopolitics/sources/2026-06-19/source-mario-nawfal-max-blumenthal-katz-defies-trump-ceasefire-2026-06-19.md
+B: archive/sources/geopolitics/sources/2026-06-19/source-nobody-tells-us-what-to-do-katz-defies-trump-s-ceasefire-max-blumenthal-2026-06-19.md
+metadata:
+- A title: "\"NOBODY TELLS US WHAT TO DO\", KATZ DEFIES TRUMP'S CEASEFIRE - w/ Max Blumenthal" with mojibake dash in current console rendering
+- B title: empty frontmatter title, H1 title populated
+- A kind/channel: transcript / missing host route in frontmatter
+- B kind/host: transcript / mario-nawfal
+- A curation: curated_sectioned
+- B curation: preserved_unsectioned
+comparison:
+- token counts: A 10239, B 10151
+- common 8-word shingles: 7494
+- coverage of shorter side: 0.7391
+- shingle jaccard: 0.5821
+- normalized token digests: A f04dc03a369a, B 7f12bc1973ec
+- sample drift: B retains an opening YouTube title wrapper and raw punctuation/ASR phrasing; A is curated/sectioned and likely normalized more aggressively.
+classification: duplicate URL but not retirement-safe by body comparison alone; likely two representations of the same media with different curation/provenance.
+recommended cleanup: merge metadata first, preserving A as curated transcript candidate and B as raw/provenance candidate until a deliberate raw/cleaned duplicate policy is selected.
+
+group 4
+url: https://www.youtube.com/watch?v=3gG-bMVOgYg
+A: archive/sources/geopolitics/sources/2026-05-31/source-mario-nawfal-weichert-iran-us-rearming-for-war-2026-05-31.cleaned.md
+B: archive/sources/geopolitics/sources/2026-05-31/source-mario-nawfal-weichert-iran-us-rearming-for-war-2026-05-31.md
+metadata:
+- A title: IRAN & U.S. REARMING FOR WAR - w/ Geopolitics Expert Brandon Weichert
+- B title: IRAN & U.S. REARMING FOR WAR - w/ Geopolitics Expert Brandon Weichert
+- A kind/host: cleaned-transcript / missing route
+- B kind/host: cleaned-transcript / missing route
+- A curation: empty
+- B curation: curated_sectioned
+comparison:
+- token counts: A 11266, B 11322
+- common 8-word shingles: 11254
+- coverage of shorter side: 1.0000
+- shingle jaccard: 0.9950
+- normalized token digests: A 03690c479d9d, B ca5c5f960018
+- sample drift: B contains a small additional opening exchange beginning "so um i'll give you kind of an update..." while A otherwise matches the cleaned body.
+classification: policy-safe duplicate candidate after confirming which record should own curated_sectioned metadata.
+recommended cleanup: keep B if preserving curated_sectioned metadata is primary; keep A if filename-level .cleaned convention is primary. A narrow metadata consolidation plan is needed before retirement.
+
+group 5
+url: https://www.youtube.com/watch?v=CtNtxF4LPKo
+A: archive/sources/geopolitics/sources/2026-06-05/source-glenn-diesen-seyed-m-marandi-hormuz-toll-strike-on-kuwait-israel-decline-iranian-nuclear-bomb-2026-06-05.md
+B: archive/sources/geopolitics/sources/2026-06-05/source-seyed-m-marandi-hormuz-toll-strike-on-kuwait-israel-decline-iranian-nuclear-bomb-2026-06-05.md
+metadata:
+- A title: "Seyed M. Marandi: Hormuz Toll, Strike On Kuwait, Israel Decline & Iranian Nuclear Bomb?"
+- B title: empty frontmatter title
+- A kind/channel: cleaned-transcript / glenn-diesen
+- B kind/host: transcript / dialogue-works
+- A curation: curated_sectioned
+- B curation/sections: curated_sectioned / 9
+comparison:
+- token counts: A 7820, B 7820
+- common 8-word shingles: 7806
+- coverage of shorter side: 1.0000
+- shingle jaccard: 1.0000
+- normalized token digest: both 6b281aab51f4
+classification: same transcript body; B appears to be route-misattributed or weaker metadata duplicate.
+recommended cleanup: keep A as canonical Glenn Diesen record. Retire or manifest-exclude B after preserving any useful alias/provenance note.
+
+candidate remediation sequence:
+1. Non-destructive metadata consolidation plan for groups 1, 2, 4, and 5.
+2. Separate merge/retention decision for group 3 because it is not body-equivalent enough for automatic retirement.
+3. After operator approval, execute only the reviewed duplicate policy against exact paths and rerun archive audit.

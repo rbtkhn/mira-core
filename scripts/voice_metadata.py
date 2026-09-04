@@ -22,6 +22,11 @@ VOICE_ALIASES = {
     "alex-christoforou": "cristoforou",
     "christoforou": "cristoforou",
     "jiang-xueqin": "jiang",
+    "alastair-crooke": "crooke",
+    "chas-freeman": "freeman",
+    "lawrence-wilkerson": "wilkerson",
+    "alex-krainer": "krainer",
+    "john-helmer": "helmer",
 }
 
 FRONTMATTER_RE = re.compile(

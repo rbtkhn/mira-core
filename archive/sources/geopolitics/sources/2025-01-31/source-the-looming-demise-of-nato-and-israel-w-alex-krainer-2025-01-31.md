@@ -13,7 +13,7 @@ host_slug: reason-resist
 show:
 host:
 guest: "Alex Krainer"
-thread: alex-krainer
+thread: krainer
 source_url: "https://www.youtube.com/watch?v=dlhm0i-xl-k"
 source_identity: "youtube:dlhm0i-xl-k"
 source_url_status: provided

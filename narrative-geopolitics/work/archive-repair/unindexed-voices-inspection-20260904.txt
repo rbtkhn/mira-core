@@ -1,0 +1,71 @@
+unindexed voices inspection 2026-09-04
+
+shelf: Narrative Geopolitics
+mode: read-only inspection
+source_files_modified: false
+manifest_modified: false
+voice_indexes_modified: false
+channel_indexes_modified: false
+archive_landing: false
+staged: false
+committed: false
+
+basis:
+- voice-sync check reported unindexed_voices: alex-krainer, john-helmer, walt.
+- Existing voice shelves remain in parity: changed_shelves: 0, added_routes: 0, failures: 0.
+
+inspection result:
+
+1. alex-krainer
+- manifest rows: 5
+- hosts:
+  - glenn-diesen: 3
+  - reason-resist: 1
+  - dialogue-works: 1
+- date span: 2025-01-31 to 2025-11-11
+- existing nearby canonical shelf: narrative-geopolitics/voices/krainer/source-index.md
+- canonical shelf current corpus: 26 local route rows across 26 central archive source files
+- diagnosis: alias drift. The repository already has an Alex Krainer shelf under slug krainer, but scripts/voice_metadata.py does not map alex-krainer to krainer.
+- recommended repair: add alex-krainer -> krainer to VOICE_ALIASES, run voice canonicalization in write mode for affected manifest/frontmatter slugs, then voice-sync --all --write or --check as required.
+
+2. john-helmer
+- manifest rows: 3
+- hosts:
+  - reason-resist: 2
+  - glenn-diesen: 1
+- date span: 2025-06-11 to 2025-09-04
+- existing nearby canonical shelf: narrative-geopolitics/voices/helmer/source-index.md
+- canonical shelf current corpus: 42 local route rows across 42 central archive source files
+- diagnosis: alias drift. The repository already has a John Helmer shelf under slug helmer, but scripts/voice_metadata.py does not map john-helmer to helmer.
+- recommended repair: add john-helmer -> helmer to VOICE_ALIASES, run voice canonicalization in write mode for affected manifest/frontmatter slugs, then voice-sync --all --write or --check as required.
+
+3. walt
+- manifest rows: 1
+- hosts:
+  - tucker-carlson: 1
+- date span: 2026-08-24 to 2026-08-24
+- existing nearby canonical shelf: narrative-geopolitics/voices/walt/ exists, but source-index.md does not exist.
+- diagnosis: true missing source-index shelf, not alias drift.
+- recommended repair: create narrative-geopolitics/voices/walt/source-index.md from the standard voice-index format, or let a write-capable voice-index sync path create it only if the tool is extended to support new shelves.
+
+candidate rows:
+
+alex-krainer:
+- 2025-01-31 | reason-resist | The Looming Demise of NATO and Israel w/ Alex Krainer | archive/sources/geopolitics/sources/2025-01-31/source-the-looming-demise-of-nato-and-israel-w-alex-krainer-2025-01-31.md
+- 2025-10-02 | dialogue-works | Alex Krainer: Iran's Air Defense REVOLUTION - China & Russia Just Tipped the Scales! | archive/sources/geopolitics/sources/2025-10-02/source-alex-krainer-iran-s-air-defense-revolution-china-russia-just-tipped-the-scales-2025-10-02.md
+- 2025-10-08 | glenn-diesen | Alex Krainer: Europe's Economic Collapse & Democratic Despotism | archive/sources/geopolitics/sources/2025-10-08/source-alex-krainer-europe-s-economic-collapse-democratic-despotism-2025-10-08.md
+- 2025-08-02 | glenn-diesen | Alex Krainer: NATO & the EU Became Outdated in the Multipolar World | archive/sources/geopolitics/sources/2025-08-02/source-alex-krainer-nato-the-eu-became-outdated-in-the-multipolar-world-2025-08-02.md
+- 2025-11-11 | glenn-diesen | Alex Krainer: NATO Lost Ukraine War - New Economic World Order Awaits | archive/sources/geopolitics/sources/2025-11-11/source-alex-krainer-nato-lost-ukraine-war-new-economic-world-order-awaits-2025-11-11.md
+
+john-helmer:
+- 2025-06-11 | reason-resist | Ukraine's 'Operation Spider Web' Backfires on Ukraine w/ John Helmer | archive/sources/geopolitics/sources/2025-06-11/source-ukraine-s-operation-spider-web-backfires-on-ukraine-w-john-helmer-2025-06-11.md
+- 2025-06-26 | reason-resist | Russia's Complex Relationships With Iran and Israel w/ John Helmer | archive/sources/geopolitics/sources/2025-06-26/source-russia-s-complex-relationships-with-iran-and-israel-w-john-helmer-2025-06-26.md
+- 2025-09-04 | glenn-diesen | John Helmer: Russia Loses Patience Over Ignored Security Concerns | archive/sources/geopolitics/sources/2025-09-04/source-john-helmer-russia-loses-patience-over-ignored-security-concerns-2025-09-04.md
+
+walt:
+- 2026-08-24 | tucker-carlson | Harvard Professor Warns of the Next Phase of Trump's War: We're Approaching a Dangerous World | archive/sources/geopolitics/sources/2026-08-24/source-harvard-professor-warns-of-the-next-phase-of-trump-s-war-we-re-approaching-a-dangerous-world-2026-08-24.md
+
+terminal claim:
+- The three unindexed voice notices are not current source-index drift.
+- Two are alias-table gaps: alex-krainer -> krainer and john-helmer -> helmer.
+- One is a true missing shelf: walt/source-index.md.

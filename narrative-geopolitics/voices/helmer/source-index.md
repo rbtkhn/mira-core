@@ -4,7 +4,7 @@ This index routes the unified local Helmer corpus for `helmer` to the central Na
 
 Source basis: `strategy-codex/statecraft/voices/helmer/helmer-index.md`.
 
-Corpus: 42 local route rows across 42 central archive source files.
+Corpus: 45 local route rows across 45 central archive source files.
 
 Status: `imported-corpus`
 
@@ -23,7 +23,10 @@ Status: `imported-corpus`
 | `2025-03-21` | The Trump Administration Is Peace-Incapable - John Helmer | `guest` | `reason-resist` | [source](../../../archive/sources/geopolitics/sources/2025-03-21/source-the-trump-administration-is-peace-incapable-john-helmer-2025-03-21.md) |
 | `2025-04-24` | Trump's Grand Protection Racket - John Helmer | `guest` | `reason-resist` | [source](../../../archive/sources/geopolitics/sources/2025-04-24/source-trump-s-grand-protection-racket-john-helmer-2025-04-24.md) |
 | `2025-05-17` | After Months of U.S.-Led Negotiations, Ukraine and Russia Are No Closer to Peace - John Helmer | `guest` | `reason-resist` | [source](../../../archive/sources/geopolitics/sources/2025-05-17/source-after-months-of-u-s-led-negotiations-ukraine-and-russia-are-no-closer-to-peace-john-helmer-2025-05-17.md) |
+| `2025-06-11` | Ukraine's 'Operation Spider Web' Backfires on Ukraine w/ John Helmer | `host-pressure test` | `reason-resist` | [source](../../../archive/sources/geopolitics/sources/2025-06-11/source-ukraine-s-operation-spider-web-backfires-on-ukraine-w-john-helmer-2025-06-11.md) |
+| `2025-06-26` | Russia's Complex Relationships With Iran and Israel w/ John Helmer | `host-pressure test` | `reason-resist` | [source](../../../archive/sources/geopolitics/sources/2025-06-26/source-russia-s-complex-relationships-with-iran-and-israel-w-john-helmer-2025-06-26.md) |
 | `2025-08-16` | John Helmer: Russian Sources Say Trump Has Accepted Russia's Territorial Claims | `guest` | `reason-resist` | [source](../../../archive/sources/geopolitics/sources/2025-08-16/source-john-helmer-russian-sources-say-trump-has-accepted-russia-s-territorial-claims-2025-08-16.md) |
+| `2025-09-04` | John Helmer: Russia Loses Patience Over Ignored Security Concerns | `host-pressure test` | `glenn-diesen` | [source](../../../archive/sources/geopolitics/sources/2025-09-04/source-john-helmer-russia-loses-patience-over-ignored-security-concerns-2025-09-04.md) |
 | `2025-09-05` | Trump Is Banging His Head Against a BRICS Wall - John Helmer | `guest` | `reason-resist` | [source](../../../archive/sources/geopolitics/sources/2025-09-05/source-trump-is-banging-his-head-against-a-brics-wall-john-helmer-2025-09-05.md) |
 | `2025-11-02` | China's Ten NOs To The Trump Regime - John Helmer | `guest` | `reason-resist` | [source](../../../archive/sources/geopolitics/sources/2025-11-02/source-china-s-ten-nos-to-the-trump-regime-john-helmer-2025-11-02.md) |
 | `2025-12-08` | U.S. Efforts to Divide Russia And India Have Failed - John Helmer | `guest` | `reason-resist` | [source](../../../archive/sources/geopolitics/sources/2025-12-08/source-u-s-efforts-to-divide-russia-and-india-have-failed-john-helmer-2025-12-08.md) |

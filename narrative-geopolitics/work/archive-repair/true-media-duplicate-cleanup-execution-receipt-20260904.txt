@@ -1,0 +1,62 @@
+true media duplicate cleanup execution receipt 2026-09-04
+
+shelf: Narrative Geopolitics
+selected_plan: narrative-geopolitics/work/archive-repair/true-media-duplicate-cleanup-plan-20260904.txt
+selected_plan_sha256: A74D152ABABA798633CE6C97A5F1AC3B214B8C147C6165453E24EB311C9E7116
+mode: executed low-risk duplicate-alias cleanup
+
+authority boundary:
+- Source metadata and audit-policy cleanup only.
+- No transcript body rewrites.
+- No source deletion.
+- No manifest row deletion.
+- No archive landing.
+- No staging.
+- No commit.
+- No push.
+
+source metadata edits:
+- archive/sources/geopolitics/sources/2026-03-20/source-diesen-sachs-israel-could-use-nuclear-weapons-against-iran-2026-03-20.md
+  - Extended source_note with canonical duplicate alias pointer to the 2026-03-16 Glenn Diesen/Sachs record.
+- archive/sources/geopolitics/sources/2026-05-31/source-mario-nawfal-weichert-iran-us-rearming-for-war-2026-05-31.cleaned.md
+  - Extended source_note with canonical duplicate alias pointer to the non-.cleaned Mario Nawfal/Weichert record.
+- archive/sources/geopolitics/sources/2026-06-05/source-seyed-m-marandi-hormuz-toll-strike-on-kuwait-israel-decline-iranian-nuclear-bomb-2026-06-05.md
+  - Extended source_note with canonical duplicate alias pointer to the Glenn Diesen/Marandi record.
+- archive/sources/geopolitics/sources/2026-06-19/source-mario-nawfal-max-blumenthal-katz-defies-trump-ceasefire-2026-06-19.md
+  - Added host_slug: mario-nawfal.
+  - Extended source_note with pointer to the raw/provenance same-media alias record.
+- archive/sources/geopolitics/sources/2026-06-19/source-nobody-tells-us-what-to-do-katz-defies-trump-s-ceasefire-max-blumenthal-2026-06-19.md
+  - Extended source_note with canonical curated duplicate alias pointer.
+
+audit policy edit:
+- scripts/archive_audit.py
+  - Added exact-path duplicate_alias_group policy for the five reviewed YouTube duplicate groups.
+  - Existing Sachs shared archive-page exemption remains in place.
+  - The duplicate exemption requires the URL and complete observed path set to match the declared reviewed group.
+
+validated duplicate groups:
+- https://www.youtube.com/watch?v=HuhJinByAEg
+- https://www.youtube.com/watch?v=gmtJZvmOOes
+- https://www.youtube.com/watch?v=gXhVdK7l-9A
+- https://www.youtube.com/watch?v=3gG-bMVOgYg
+- https://www.youtube.com/watch?v=CtNtxF4LPKo
+
+validation command:
+- python scripts/archive_audit.py --whole-corpus --format json
+
+validation result:
+- exit_code: 0
+- manifest_rows: 2421
+- scoped_rows: 2421
+- structural_failures: 0
+- warnings: 1039
+- warning distribution:
+  - coverage.month_missing: 21
+  - repair.section_metadata_mismatch: 33
+  - routing.duran_mercouris_metadata_weak: 12
+  - routing.host_missing: 68
+  - routing.provisional: 905
+
+terminal claim:
+- Archive-index structural validation is exactly up to date under the current audit rules: 0 structural failures across 2421 manifest-backed source rows.
+- Remaining findings are warnings only, not structural blockers.

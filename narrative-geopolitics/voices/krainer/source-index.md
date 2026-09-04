@@ -4,10 +4,9 @@ This index routes the unified local Krainer corpus for `krainer` to the central 
 
 Source basis: `strategy-codex/statecraft/voices/krainer/krainer-index.md` plus already-local matching archive rows.
 
-Corpus: 26 local route rows across 26 central archive source files.
+Corpus: 31 local route rows across 31 central archive source files.
 
 Status: `imported-corpus`
-| `2026-09-03` | Alex Krainer: The Middle East Just Broke: Here’s What Happens Next | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2026-09-03/source-alex-krainer-the-middle-east-just-broke-here-s-what-happens-next-2026-09-03.md) |
 
 ## Reading Rule
 
@@ -21,9 +20,14 @@ Status: `imported-corpus`
 | Date | Source | Role | Host slug | Archive link |
 | --- | --- | --- | --- | --- |
 | `2025-01-18` | Israel is in Total Disarray \| Alex Krainer & Col. Larry Wilkerson | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2025-01-18/source-dialogue-works-israel-is-in-total-disarray-alex-krainer-col-larry-wilkerson-2025-01-18.md) |
+| `2025-01-31` | The Looming Demise of NATO and Israel w/ Alex Krainer | `host-pressure test` | `reason-resist` | [source](../../../archive/sources/geopolitics/sources/2025-01-31/source-the-looming-demise-of-nato-and-israel-w-alex-krainer-2025-01-31.md) |
 | `2025-07-20` | Iran, Russia & China UNLEASH Epic Counterstrike Against the West! \| Alex Krainer | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2025-07-20/source-dialogue-works-iran-russia-china-unleash-epic-counterstrike-against-the-west-alex-krainer-2025-07-20.md) |
+| `2025-08-02` | Alex Krainer: NATO & the EU Became Outdated in the Multipolar World | `host-pressure test` | `glenn-diesen` | [source](../../../archive/sources/geopolitics/sources/2025-08-02/source-alex-krainer-nato-the-eu-became-outdated-in-the-multipolar-world-2025-08-02.md) |
+| `2025-10-02` | Alex Krainer: Iran’s Air Defense REVOLUTION — China & Russia Just Tipped the Scales! | `host-pressure test` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2025-10-02/source-alex-krainer-iran-s-air-defense-revolution-china-russia-just-tipped-the-scales-2025-10-02.md) |
+| `2025-10-08` | Alex Krainer: Europe's Economic Collapse & Democratic Despotism | `host-pressure test` | `glenn-diesen` | [source](../../../archive/sources/geopolitics/sources/2025-10-08/source-alex-krainer-europe-s-economic-collapse-democratic-despotism-2025-10-08.md) |
 | `2025-10-20` | Alex Krainer: Europe's Militarism & Economic Decline | `guest` | `glenn-diesen` | [source](../../../archive/sources/geopolitics/sources/2025-10-20/source-glenn-diesen-alex-krainer-europes-militarism-economic-decline-2025-10-20.md) |
 | `2025-11-09` | It's OVER: Global Arms Control COLLAPSES! \| Andrei Martyanov & Alex Krainer | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2025-11-09/source-dialogue-works-andrei-martyanov-alex-krainer-its-over-global-arms-control-collapses-2025-11-09.md) |
+| `2025-11-11` | Alex Krainer: NATO Lost Ukraine War - New Economic World Order Awaits | `host-pressure test` | `glenn-diesen` | [source](../../../archive/sources/geopolitics/sources/2025-11-11/source-alex-krainer-nato-lost-ukraine-war-new-economic-world-order-awaits-2025-11-11.md) |
 | `2025-12-14` | Russia Strikes. U.S. Recalculates. EU Draws the Line \| Pepe Escobar, Andrei Martyanov & Alex Krainer | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2025-12-14/source-dialogue-works-pepe-escobar-andrei-martyanov-alex-krainer-russia-strikes-us-recalculates-eu-draws-the-line-2025-12-14.md) |
 | `2026-01-01` | Alex Krainer: New York Times Reports CIA Attacks on Russian Tankers | `guest` | `glenn-diesen` | [source](../../../archive/sources/geopolitics/sources/2026-01-01/source-alex-krainer-new-york-times-reports-cia-attacks-on-russian-tankers-2026-01-01.md) |
 | `2026-01-08` | Alex Krainer: Venezuela Goes Trap & With Greenland NATO Faces Collapse | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2026-01-08/source-alex-krainer-venezuela-goes-trap-with-greenland-nato-faces-collapse-2026-01-08.md) |
@@ -45,6 +49,7 @@ Status: `imported-corpus`
 | `2026-07-28` | Alex Krainer: Energy Wars, Dollar Endgame & Banking Crisis | `guest` | `glenn-diesen` | [source](../../../archive/sources/geopolitics/sources/2026-07-28/source-alex-krainer-energy-wars-dollar-endgame-banking-crisis-2026-07-28.md) |
 | `2026-07-30` | Alex Krainer: The Inevitable Just Happened: MASSIVE Middle East Shifts | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2026-07-30/source-alex-krainer-the-inevitable-just-happened-massive-middle-east-shifts-2026-07-30.md) |
 | `2026-08-13` | (3) Alex Krainer: The Balance Of Power Just COLLAPSED | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2026-08-13/source-3-alex-krainer-the-balance-of-power-just-collapsed-2026-08-13.md) |
+| `2026-09-03` | Alex Krainer: The Middle East Just Broke: Here’s What Happens Next | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2026-09-03/source-alex-krainer-the-middle-east-just-broke-here-s-what-happens-next-2026-09-03.md) |
 
 ## Import Boundary
 

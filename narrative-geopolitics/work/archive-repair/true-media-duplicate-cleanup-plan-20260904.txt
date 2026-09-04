@@ -1,0 +1,128 @@
+true media duplicate cleanup plan 2026-09-04
+
+shelf: Narrative Geopolitics
+mode: dry-run plan only
+source_files_modified: false
+manifest_modified: false
+archive_landing: false
+staged: false
+committed: false
+
+basis:
+- Archive audit is down to 10 manifest.duplicate_url findings across 5 true media groups.
+- Deep comparison receipt: narrative-geopolitics/work/archive-repair/true-media-duplicate-deep-compare-20260904.txt
+- Live manifest rows exist for all 10 paths, but current manifest rows do not carry source_url; the duplicate_url failures are produced from source-file frontmatter source_url values.
+- No existing repository-local source-retirement convention was found for Narrative Geopolitics that safely removes source_url-bearing duplicate source files from audit scope without a deliberate policy choice.
+
+recommended overall policy:
+- Do not delete transcript bodies.
+- Preserve one canonical manifest-backed source per YouTube media URL.
+- Preserve duplicate records as explicit aliases/provenance only if they are removed from duplicate_url audit scope by a visible, named policy.
+- Treat group 3 as merge-needed, not automatic retirement, because body overlap is materially lower.
+
+preferred low-risk cleanup mechanism:
+1. Add a narrow duplicate-alias policy to scripts/archive_audit.py that exempts source_url duplicates only when all of these are true:
+   - The URL is one of the five exact YouTube URLs in this plan.
+   - Every duplicate path is one of the exact paths in this plan.
+   - Exactly one canonical keep path is declared for the URL.
+   - Every non-canonical path has a source_note, cross_host_alias, or equivalent frontmatter note pointing to the canonical record, or is listed in this plan as requiring such a note before exemption.
+2. Add or normalize duplicate-alias/canonical pointers only where missing.
+3. Rerun archive audit and require structural_failures: 0.
+
+alternative stronger cleanup mechanism:
+1. Retain canonical source files under archive/sources/geopolitics/sources.
+2. Move retired duplicate source files to a governed retired/aliases area outside the audit source scan, or remove their source_url field by replacing it with duplicate_of_url plus canonical_source_path.
+3. Remove or update their manifest rows accordingly.
+4. Rerun archive audit and voice/channel route checks.
+
+This stronger mechanism is not recommended until the repository has a named Narrative Geopolitics duplicate-retirement convention.
+
+exact group plan:
+
+group 1
+url: https://www.youtube.com/watch?v=HuhJinByAEg
+canonical keep:
+- archive/sources/geopolitics/sources/2026-06-06/source-glenn-diesen-chas-freeman-the-greater-israel-project-is-collapsing-2026-06-06.md
+duplicate/provenance alias:
+- archive/sources/geopolitics/sources/2026-06-06/source-dialogue-works-freeman-the-greater-israel-project-is-collapsing-2026-06-06.md
+reason:
+- Same normalized transcript body.
+- Duplicate file explicitly says it is a mis-attributed Dialogue Works capture and names the canonical Glenn Diesen file.
+proposed low-risk action:
+- Exempt this exact pair as a declared cross-host alias duplicate.
+proposed source-file edits:
+- None required for alias evidence, unless a future policy requires a standardized duplicate_of field.
+
+group 2
+url: https://www.youtube.com/watch?v=gmtJZvmOOes
+canonical keep:
+- archive/sources/geopolitics/sources/2026-03-16/source-glenn-diesen-jeffrey-sachs-israel-could-use-nuclear-weapons-against-iran-2026-03-16.md
+duplicate/provenance alias:
+- archive/sources/geopolitics/sources/2026-03-20/source-diesen-sachs-israel-could-use-nuclear-weapons-against-iran-2026-03-20.md
+reason:
+- Same title, same channel, same voice, same URL.
+- Deep compare found 0.9952 shorter-side 8-word shingle coverage and only minor wording/cleanup drift.
+proposed low-risk action:
+- Before exemption, add a canonical alias note to the 2026-03-20 duplicate pointing to the 2026-03-16 canonical record.
+proposed source-file edits before audit-policy exemption:
+- In 2026-03-20 duplicate frontmatter, add or extend source_note with: "Duplicate media alias for canonical record archive/sources/geopolitics/sources/2026-03-16/source-glenn-diesen-jeffrey-sachs-israel-could-use-nuclear-weapons-against-iran-2026-03-16.md; same YouTube URL gmtJZvmOOes; preserved for provenance until duplicate-retirement policy is finalized."
+
+group 3
+url: https://www.youtube.com/watch?v=gXhVdK7l-9A
+canonical keep candidate:
+- archive/sources/geopolitics/sources/2026-06-19/source-mario-nawfal-max-blumenthal-katz-defies-trump-ceasefire-2026-06-19.md
+raw/provenance candidate:
+- archive/sources/geopolitics/sources/2026-06-19/source-nobody-tells-us-what-to-do-katz-defies-trump-s-ceasefire-max-blumenthal-2026-06-19.md
+reason:
+- Same URL and same source event, but only 0.7391 shorter-side 8-word shingle coverage and 0.5821 shingle jaccard after normalization.
+- The first record is curated/sectioned but has weaker current route metadata in frontmatter.
+- The second record is preserved_unsectioned/raw with stronger mario-nawfal route metadata and opening wrapper provenance.
+proposed low-risk action:
+- Do not retire either record automatically.
+- Merge metadata first: canonical curated record should carry host_slug/channel route, clean title, youtube_id, and source_note that a raw/provenance representation exists.
+- Raw/provenance record should carry duplicate_of/canonical note once a field convention is selected.
+proposed audit treatment:
+- Keep this pair visible as duplicate_url until the merge is reviewed, or exempt it under a separate explicit "raw plus curated same-media pair" policy with both paths named.
+
+group 4
+url: https://www.youtube.com/watch?v=3gG-bMVOgYg
+canonical keep:
+- archive/sources/geopolitics/sources/2026-05-31/source-mario-nawfal-weichert-iran-us-rearming-for-war-2026-05-31.md
+duplicate/provenance alias:
+- archive/sources/geopolitics/sources/2026-05-31/source-mario-nawfal-weichert-iran-us-rearming-for-war-2026-05-31.cleaned.md
+reason:
+- Same title, same URL, same host/voice route in manifest.
+- Deep compare found 1.0000 shorter-side 8-word shingle coverage and 0.9950 shingle jaccard.
+- The non-.cleaned path carries curated_sectioned metadata and includes a small additional opening exchange.
+proposed low-risk action:
+- Keep the non-.cleaned canonical file because it has the richer body and curated_sectioned metadata.
+- Add a duplicate-alias note to the .cleaned file before exemption, unless a stronger retirement move is selected.
+proposed source-file edits before audit-policy exemption:
+- In .cleaned duplicate frontmatter, add or extend source_note with: "Duplicate media alias for canonical record archive/sources/geopolitics/sources/2026-05-31/source-mario-nawfal-weichert-iran-us-rearming-for-war-2026-05-31.md; same YouTube URL 3gG-bMVOgYg; canonical record preserves curated_sectioned metadata and the fuller opening exchange."
+
+group 5
+url: https://www.youtube.com/watch?v=CtNtxF4LPKo
+canonical keep:
+- archive/sources/geopolitics/sources/2026-06-05/source-glenn-diesen-seyed-m-marandi-hormuz-toll-strike-on-kuwait-israel-decline-iranian-nuclear-bomb-2026-06-05.md
+duplicate/provenance alias:
+- archive/sources/geopolitics/sources/2026-06-05/source-seyed-m-marandi-hormuz-toll-strike-on-kuwait-israel-decline-iranian-nuclear-bomb-2026-06-05.md
+reason:
+- Same normalized transcript body.
+- Canonical file has populated title and Glenn Diesen route; duplicate appears route-misattributed or weaker metadata.
+proposed low-risk action:
+- Exempt this exact pair as a declared cross-host/route alias duplicate after preserving an explicit canonical pointer on the duplicate.
+proposed source-file edits before audit-policy exemption:
+- In duplicate frontmatter, add or extend source_note with: "Duplicate media alias for canonical record archive/sources/geopolitics/sources/2026-06-05/source-glenn-diesen-seyed-m-marandi-hormuz-toll-strike-on-kuwait-israel-decline-iranian-nuclear-bomb-2026-06-05.md; same YouTube URL CtNtxF4LPKo; preserved for provenance until duplicate-retirement policy is finalized."
+
+execution boundary:
+- This plan does not authorize execution.
+- A valid execution command should name one of these exact target classes:
+  1. "Execute the low-risk duplicate-alias cleanup plan for all five groups."
+  2. "Execute only the source_note/canonical-pointer edits for groups 2, 4, and 5."
+  3. "Patch archive_audit.py with the exact duplicate-alias exemption policy and rerun archive audit."
+- Staging, commit, push, archive landing, and transcript body rewrites remain out of scope.
+
+expected validation after low-risk execution:
+- Run archive audit.
+- Expected terminal claim if both canonical-pointer edits and exact duplicate-alias audit policy are applied: structural_failures: 0.
+- If group 3 is deliberately left visible pending merge, expected terminal claim: structural_failures: 2, both paths in the group 3 duplicate_url pair only.

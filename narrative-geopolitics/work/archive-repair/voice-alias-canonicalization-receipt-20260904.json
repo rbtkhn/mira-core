@@ -1,0 +1,165 @@
+{
+  "changes": [
+    {
+      "local_path": "archive/sources/geopolitics/sources/2025-06-11/source-ukraine-s-operation-spider-web-backfires-on-ukraine-w-john-helmer-2025-06-11.md",
+      "manifest_voice_slugs": {
+        "before": [
+          "john-helmer"
+        ],
+        "after": [
+          "helmer"
+        ]
+      },
+      "frontmatter": [
+        {
+          "field": "thread",
+          "before": "john-helmer",
+          "after": "helmer"
+        }
+      ],
+      "body_sha256": "1ca2f086b8394099dc10264dabbb1a9cbd1cc76eac0418753362af2bbaec18e6",
+      "body_preserved": true
+    },
+    {
+      "local_path": "archive/sources/geopolitics/sources/2025-06-26/source-russia-s-complex-relationships-with-iran-and-israel-w-john-helmer-2025-06-26.md",
+      "manifest_voice_slugs": {
+        "before": [
+          "john-helmer"
+        ],
+        "after": [
+          "helmer"
+        ]
+      },
+      "frontmatter": [
+        {
+          "field": "thread",
+          "before": "john-helmer",
+          "after": "helmer"
+        }
+      ],
+      "body_sha256": "bbd7798cc681f78c04a99f3db3f5077613296d84f236fd803c60c207cdaecc39",
+      "body_preserved": true
+    },
+    {
+      "local_path": "archive/sources/geopolitics/sources/2025-09-04/source-john-helmer-russia-loses-patience-over-ignored-security-concerns-2025-09-04.md",
+      "manifest_voice_slugs": {
+        "before": [
+          "john-helmer"
+        ],
+        "after": [
+          "helmer"
+        ]
+      },
+      "frontmatter": [
+        {
+          "field": "thread",
+          "before": "john-helmer",
+          "after": "helmer"
+        }
+      ],
+      "body_sha256": "071bdca69a85825287fcc46c355add274a2fe2717ff0d474f8e0c35ce796c581",
+      "body_preserved": true
+    },
+    {
+      "local_path": "archive/sources/geopolitics/sources/2025-01-31/source-the-looming-demise-of-nato-and-israel-w-alex-krainer-2025-01-31.md",
+      "manifest_voice_slugs": {
+        "before": [
+          "alex-krainer"
+        ],
+        "after": [
+          "krainer"
+        ]
+      },
+      "frontmatter": [
+        {
+          "field": "thread",
+          "before": "alex-krainer",
+          "after": "krainer"
+        }
+      ],
+      "body_sha256": "ba5fc62bc5366e1d3483b61385730f898871def5710177f84cecd5ec9ae0e410",
+      "body_preserved": true
+    },
+    {
+      "local_path": "archive/sources/geopolitics/sources/2025-10-02/source-alex-krainer-iran-s-air-defense-revolution-china-russia-just-tipped-the-scales-2025-10-02.md",
+      "manifest_voice_slugs": {
+        "before": [
+          "alex-krainer"
+        ],
+        "after": [
+          "krainer"
+        ]
+      },
+      "frontmatter": [
+        {
+          "field": "thread",
+          "before": "alex-krainer",
+          "after": "krainer"
+        }
+      ],
+      "body_sha256": "5139ac7218f3fce9557a513821473bae9208277986e2127e77883b456109c04b",
+      "body_preserved": true
+    },
+    {
+      "local_path": "archive/sources/geopolitics/sources/2025-10-08/source-alex-krainer-europe-s-economic-collapse-democratic-despotism-2025-10-08.md",
+      "manifest_voice_slugs": {
+        "before": [
+          "alex-krainer"
+        ],
+        "after": [
+          "krainer"
+        ]
+      },
+      "frontmatter": [
+        {
+          "field": "thread",
+          "before": "alex-krainer",
+          "after": "krainer"
+        }
+      ],
+      "body_sha256": "5b958cfb1f2b2ca09e702056c0792c3aa3fbddf389dfeb3f23db398f2f735e7f",
+      "body_preserved": true
+    },
+    {
+      "local_path": "archive/sources/geopolitics/sources/2025-08-02/source-alex-krainer-nato-the-eu-became-outdated-in-the-multipolar-world-2025-08-02.md",
+      "manifest_voice_slugs": {
+        "before": [
+          "alex-krainer"
+        ],
+        "after": [
+          "krainer"
+        ]
+      },
+      "frontmatter": [
+        {
+          "field": "thread",
+          "before": "alex-krainer",
+          "after": "krainer"
+        }
+      ],
+      "body_sha256": "afaabd8105317f3383908b359e71cdea18d090ecbf6b18e7fe8049fc44dc983f",
+      "body_preserved": true
+    },
+    {
+      "local_path": "archive/sources/geopolitics/sources/2025-11-11/source-alex-krainer-nato-lost-ukraine-war-new-economic-world-order-awaits-2025-11-11.md",
+      "manifest_voice_slugs": {
+        "before": [
+          "alex-krainer"
+        ],
+        "after": [
+          "krainer"
+        ]
+      },
+      "frontmatter": [
+        {
+          "field": "thread",
+          "before": "alex-krainer",
+          "after": "krainer"
+        }
+      ],
+      "body_sha256": "0708a1039ea5f9b29648c06090dae34ff05f5347545a45af520b96ba8993f8d6",
+      "body_preserved": true
+    }
+  ],
+  "failures": []
+}

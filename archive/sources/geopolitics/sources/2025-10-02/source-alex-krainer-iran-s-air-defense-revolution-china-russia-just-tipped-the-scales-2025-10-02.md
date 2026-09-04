@@ -13,7 +13,7 @@ host_slug: dialogue-works
 show: Dialogue Works
 host: Nima Alkhorshid
 guest: "Alex Krainer"
-thread: alex-krainer
+thread: krainer
 source_url: "https://www.youtube.com/watch?v=IVU2X95oEg4"
 source_identity: "youtube:IVU2X95oEg4"
 source_url_status: provided

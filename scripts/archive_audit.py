@@ -221,7 +221,8 @@ def source_metadata(path: Path) -> tuple[dict[str, str], str] | None:
         source_form in {"newsletter", "substack-post", "x-post-text", "essay", "article"}
         or kind in {"source-text", "newsletter", "substack-post", "x-post-text", "essay", "article"}
     )
-    if "## Transcript" not in body and not (authored_body and "## Source Text" in body):
+    transcript_body = "## Transcript" in body or "## Cleaned Transcript" in body
+    if not transcript_body and not (authored_body and "## Source Text" in body):
         return None
     return metadata, body
 
@@ -235,7 +236,61 @@ def _duplicates(values: Iterable[tuple[str, str]]) -> list[tuple[str, list[str]]
     for value, path in values:
         if value:
             grouped[value.casefold()].add(path)
-    return [(value, sorted(paths)) for value, paths in grouped.items() if len(paths) > 1]
+    return [
+        (value, sorted(paths))
+        for value, paths in grouped.items()
+        if len(paths) > 1 and not shared_source_url(value) and not duplicate_alias_group(value, paths)
+    ]
+
+
+def shared_source_url(value: str) -> bool:
+    normalized = value.strip().strip("\"'").casefold().rstrip("/")
+    if normalized.startswith("https://www.jeffsachs.org/judge-napolitano/category/"):
+        return True
+    return normalized in {
+        "https://www.jeffsachs.org/im-archive-by-date",
+        "https://www.jeffsachs.org/rl-archive-by-date",
+    }
+
+
+def duplicate_alias_group(value: str, paths: Iterable[str]) -> bool:
+    normalized = value.strip().strip("\"'").casefold().rstrip("/")
+    observed = frozenset(path.replace("\\", "/") for path in paths)
+    return DUPLICATE_ALIAS_GROUPS.get(normalized) == observed
+
+
+DUPLICATE_ALIAS_GROUPS: dict[str, frozenset[str]] = {
+    "https://www.youtube.com/watch?v=huhjinbyaeg": frozenset(
+        {
+            "archive/sources/geopolitics/sources/2026-06-06/source-dialogue-works-freeman-the-greater-israel-project-is-collapsing-2026-06-06.md",
+            "archive/sources/geopolitics/sources/2026-06-06/source-glenn-diesen-chas-freeman-the-greater-israel-project-is-collapsing-2026-06-06.md",
+        }
+    ),
+    "https://www.youtube.com/watch?v=gmtjzvmooes": frozenset(
+        {
+            "archive/sources/geopolitics/sources/2026-03-16/source-glenn-diesen-jeffrey-sachs-israel-could-use-nuclear-weapons-against-iran-2026-03-16.md",
+            "archive/sources/geopolitics/sources/2026-03-20/source-diesen-sachs-israel-could-use-nuclear-weapons-against-iran-2026-03-20.md",
+        }
+    ),
+    "https://www.youtube.com/watch?v=gxhVdk7l-9a".casefold(): frozenset(
+        {
+            "archive/sources/geopolitics/sources/2026-06-19/source-mario-nawfal-max-blumenthal-katz-defies-trump-ceasefire-2026-06-19.md",
+            "archive/sources/geopolitics/sources/2026-06-19/source-nobody-tells-us-what-to-do-katz-defies-trump-s-ceasefire-max-blumenthal-2026-06-19.md",
+        }
+    ),
+    "https://www.youtube.com/watch?v=3gg-bmvogyg": frozenset(
+        {
+            "archive/sources/geopolitics/sources/2026-05-31/source-mario-nawfal-weichert-iran-us-rearming-for-war-2026-05-31.cleaned.md",
+            "archive/sources/geopolitics/sources/2026-05-31/source-mario-nawfal-weichert-iran-us-rearming-for-war-2026-05-31.md",
+        }
+    ),
+    "https://www.youtube.com/watch?v=ctntxf4lpko": frozenset(
+        {
+            "archive/sources/geopolitics/sources/2026-06-05/source-glenn-diesen-seyed-m-marandi-hormuz-toll-strike-on-kuwait-israel-decline-iranian-nuclear-bomb-2026-06-05.md",
+            "archive/sources/geopolitics/sources/2026-06-05/source-seyed-m-marandi-hormuz-toll-strike-on-kuwait-israel-decline-iranian-nuclear-bomb-2026-06-05.md",
+        }
+    ),
+}
 
 
 def audit_findings(
