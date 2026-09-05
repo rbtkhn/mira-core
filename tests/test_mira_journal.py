@@ -4,7 +4,7 @@ import argparse
 import copy
 import gzip
 import json
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from types import SimpleNamespace
 
@@ -16,6 +16,29 @@ import mira_journal as subject
 SESSION = "MS-019fce7b-67cd-7753-be6c-74f76e2f9b7a"
 APPROVAL_RECORD = "MR-" + "f" * 24
 APPROVAL_ROWS: dict[str, dict] = {}
+
+
+def add_reading_ack(monkeypatch, bundle):
+    value = subject.load_json(bundle / "draft.json")
+    day = subject.parse_entry_date(value["entry_date"])
+    packet = subject.journal_reading_packet(day)
+    digest = subject.reading_digest(packet)
+    contract = subject.load_json(bundle / "draft-contract.json")
+    contract["journal_reading"] = {"required": True, "packet_sha256": digest, "entry_count": len(packet["entries"])}
+    subject.atomic_write_json(bundle / "draft-contract.json", contract)
+    subject.atomic_write_json(bundle / "journal-reading.json", packet)
+    completed = subject.parse_timestamp(value["authored_at"], label="test authorship") - timedelta(seconds=1)
+    class ReadingClock(datetime):
+        @classmethod
+        def now(cls, tz=None):
+            return completed
+    with monkeypatch.context() as clock:
+        clock.setattr(subject, "datetime", ReadingClock)
+        result = subject.command_reading_complete(argparse.Namespace(
+            bundle=bundle, packet_digest=digest, session_id=value["author"]["session_id"]))
+    value["journal_reading_ack_sha256"] = result["acknowledgement_sha256"]
+    subject.atomic_write_json(bundle / "draft.json", value)
+    return value
 
 
 def prose(day: str, title: str = "A Day Carried Forward", marker: str = "steady") -> bytes:
@@ -36,13 +59,12 @@ def test_markdown_digest_is_stable_across_line_endings() -> None:
     assert subject.parse_markdown(body)["content_sha256"] == subject.parse_markdown(crlf)["content_sha256"]
 
 
-def test_local_timezone_falls_back_when_tzdata_is_unavailable() -> None:
+def test_local_timezone_fails_when_tzdata_is_unavailable() -> None:
     def missing_zone(_name: str):
         raise subject.ZoneInfoNotFoundError
 
-    fallback = subject.local_timezone("America/Denver", zone_factory=missing_zone)
-
-    assert fallback.utcoffset(datetime(2026, 1, 1)) == subject.timedelta(hours=-7)
+    with pytest.raises(subject.ZoneInfoNotFoundError):
+        subject.local_timezone("America/New_York", zone_factory=missing_zone)
 
 
 def source_ref(seed: str = "a") -> dict:
@@ -701,6 +723,7 @@ def test_dream_eod_finalizes_canonical_non_public_continuity_without_operator_ap
     day = "2026-08-09"
     body = prose(day)
     bundle = write_v2_bundle(drafts, day, body, metadata(day, body)).parent
+    add_reading_ack(monkeypatch, bundle)
     monkeypatch.setattr(subject, "latest_activity_after", lambda *args, **kwargs: [])
     result = subject.command_eod_finalize(argparse.Namespace(
         date=day, bundle=bundle, dream_run_id="DCR-20260809-test",
@@ -1482,8 +1505,8 @@ def test_status_distinguishes_missing_drafted_approved_and_revision_pending(
     args = argparse.Namespace(from_date=day, to_date="2026-08-10", draft_root=drafts)
     rows = subject.command_status(args)["days"]
     assert rows == [
-        {"date": "2026-08-09", "status": "revision-pending"},
-        {"date": "2026-08-10", "status": "missing"},
+        {"date": "2026-08-09", "status": "revision-pending", "timezone": "America/Denver", "transition_day": False},
+        {"date": "2026-08-10", "status": "missing", "timezone": "America/Denver", "transition_day": False},
     ]
 
 

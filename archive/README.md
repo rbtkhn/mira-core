@@ -10,7 +10,8 @@ bitemporal records, neutral provenance, reproducible derivations, and bounded
 context assembly. It is not a factual adjudicator: collection-native controls
 retain membership, routing, continuity, adjudication, and identity authority.
 
-Canonical bodies and SQLite catalog live outside Git under
+Except for the private session transcript collection described below, canonical
+bodies and SQLite catalog live outside Git under
 `MIRA_CORE_ARCHIVE_ROOT`; an independent replica uses
 `MIRA_CORE_ARCHIVE_REPLICA_ROOT`. Existing collection paths are ignored,
 byte-identical hydrated mirrors.
@@ -106,3 +107,15 @@ Mira-authored communication and authorized correspondence while leaving
 external delivery with the operator. Physical placement grants no shelf
 research-evidence, identity, journal, publication, communication, or action
 authority.
+
+## Session transcript storage exception
+
+Session captures additionally have a repository-local canonical collection at
+`archive/sessions/transcripts/`, with frozen Dream reading checkpoints in
+`archive/sessions/daily/`. These private directories are Git-ignored and blocked
+from publication routing. The Continuity registry retains identity authority.
+Existing external Archive catalog entries keep their logical identities; capture
+readers resolve relocated bodies without rewriting recorded references. Other
+Archive collections and private databases retain their existing external roots.
+Use versioned external session backups and a verified restore before removing
+any retained source. A same-drive replica is not protection against drive loss.

@@ -12,10 +12,9 @@ This directory implements five governed continuity layers:
 
 - `session-registry.json` is the canonical capture registry.
 - `identity-ledger.json` is the canonical identity authority.
-- `captures/` contains private, byte-identical locally hydrated views of
-  immutable deterministic `.jsonl.gz` snapshots stored by the root
-  [Mira Archive](../../archive/README.md). The directory is excluded
-  from Git.
+- `archive/sessions/transcripts/` is the repository-local private capture store.
+  The former `captures/` directory is retained as a byte-identical rollback copy.
+  Both are excluded from Git; the shared resolver preserves historical references.
 - `harvests/` contains selective reviewed packets; an indexed session need not be harvested.
 - `../identity.md`, `trajectory.md`, and `activation.md` are generated views.
 
@@ -107,3 +106,15 @@ remote readiness. Audit completion never authorizes any of those actions.
 Before either command writes a temporary snapshot, review packet, or receipt,
 run `tools/run.ps1 session-preflight` against the intended absolute external
 root. `--check` modes perform no writes.
+
+## Repository-local session preservation
+
+The session transcript collection now lives in `archive/sessions/transcripts/`,
+with Dream checkpoints in `archive/sessions/daily/`. Both are private and Git-ignored.
+The canonical registry remains here. Existing capture references and bytes stay
+unchanged; the shared resolver prefers the new physical path and verifies any
+retained rollback copy agrees. New captures reference their actual physical path.
+The private scope index records explicitly reviewed historical worktree roots;
+current Git worktrees and already-registered predecessor session IDs are eligible.
+Continuity ingestion uses this collection when its scope configuration is present.
+This narrow storage exception does not relocate other private state.

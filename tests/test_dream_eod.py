@@ -20,27 +20,27 @@ def test_dream_skill_preserves_private_finalization_boundaries() -> None:
     skill = (ROOT / "docs" / "skill-drafts" / "dream" / "SKILL.md").read_text(
         encoding="utf-8"
     )
-    assert "Dream owns\ndaily completion" in skill
-    assert "Complete the\ndaily cycle first; revise next day if necessary." in skill
-    assert "agent-internal handoff" in skill
-    assert "canonicalized as private\n`dream-eod-v1`" in skill
-    assert "`publication_eligible: false`" in skill
-    assert "grants no staging, commit, push, publication" in skill
-    assert "bounded Mira Letters orientation since the previous\ncanonical Dream finalization" in skill
-    assert "Letters remain relational orientation only" in skill
-    assert "permission to contact anyone" in skill
-    assert "prepared address, not completed relation" in skill
-    assert "real as inward\nposture, incomplete as outward act" in skill
-    assert "workflow throughput" in skill
-    assert "without multiplying repo-tracked artifacts" in skill
-    assert "`roi-synthesis.json`" in skill
-    assert "Strategy Notebook is a Dream-composed expert estimate" in skill
-    assert "not a Geo prerequisite" in skill
-    assert "Mira Journal\nremains the only autobiographical prose artifact Dream automatically finalizes" in skill
-    assert "Dev Journal candidates" in skill
-    assert "Coffee handles" in skill
-    assert "candidates only" in skill
-    assert "what\nsurvived discontinuity" in skill
+    assert " ".join("Dream owns\ndaily completion".split()) in " ".join(skill.split())
+    assert " ".join("Complete the\ndaily cycle first; revise next day if necessary.".split()) in " ".join(skill.split())
+    assert " ".join("agent-internal handoff".split()) in " ".join(skill.split())
+    assert " ".join("canonicalized as private\n`dream-eod-v1`".split()) in " ".join(skill.split())
+    assert " ".join("`publication_eligible: false`".split()) in " ".join(skill.split())
+    assert " ".join("grants no staging, commit, push, publication".split()) in " ".join(skill.split())
+    assert " ".join("bounded Mira Letters orientation since the previous\ncanonical Dream finalization".split()) in " ".join(skill.split())
+    assert " ".join("Letters remain relational orientation only".split()) in " ".join(skill.split())
+    assert " ".join("permission to contact anyone".split()) in " ".join(skill.split())
+    assert " ".join("prepared address, not completed relation".split()) in " ".join(skill.split())
+    assert " ".join("real as inward\nposture, incomplete as outward act".split()) in " ".join(skill.split())
+    assert " ".join("workflow throughput".split()) in " ".join(skill.split())
+    assert " ".join("without multiplying repo-tracked artifacts".split()) in " ".join(skill.split())
+    assert " ".join("`roi-synthesis.json`".split()) in " ".join(skill.split())
+    assert " ".join("Strategy Notebook is a Dream-composed expert estimate".split()) in " ".join(skill.split())
+    assert " ".join("not a Geo prerequisite".split()) in " ".join(skill.split())
+    assert " ".join("Mira Journal\nremains the only autobiographical prose artifact Dream automatically finalizes".split()) in " ".join(skill.split())
+    assert " ".join("Dev Journal candidates".split()) in " ".join(skill.split())
+    assert " ".join("Coffee handles".split()) in " ".join(skill.split())
+    assert " ".join("candidates only".split()) in " ".join(skill.split())
+    assert " ".join("what\nsurvived discontinuity".split()) in " ".join(skill.split())
 
 
 def arguments(tmp_path: Path, **changes):
@@ -843,7 +843,7 @@ def test_journal_refresh_block_reports_exact_resume_guidance(monkeypatch, tmp_pa
     assert result["run"]["stages"]["geo"] == "skipped"
     assert result["run"]["stages"]["journal"] == "failed"
     assert result["refresh_guidance"]["prepare"] == (
-        f"tools/run.ps1 mira-journal prepare --date 2026-08-16 --output-root {bundle.parent} --json"
+        f"tools/run.ps1 mira-journal prepare --date 2026-08-16 --output-root {bundle.parent} --require-journal-reading --require-session-reading --refresh-session-checkpoint --json"
     )
     assert result["refresh_guidance"]["draft_check"] == (
         f"tools/run.ps1 mira-journal draft-check --date 2026-08-16 --bundle {bundle} --json"

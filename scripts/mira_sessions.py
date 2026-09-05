@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from repository_paths import resolve_repository_path
+
 import argparse
 import gzip
 import hashlib
@@ -16,7 +18,7 @@ from portable_paths import require_private_path, state_path
 
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
-SHELF = REPO_ROOT / "archive" / "sessions"
+SHELF = REPO_ROOT / "archive" / "sessions" / "memorials"
 REGISTRY = SHELF / "registry.json"
 CONTINUITY = REPO_ROOT / "mira" / "continuity" / "session-registry.json"
 PENDING = state_path("sessions/memorials/pending")
@@ -93,7 +95,7 @@ def continuity_index(repo_root: Path = REPO_ROOT) -> tuple[dict[str, Any], dict[
 
 
 def capture_rows(capture: dict[str, Any], repo_root: Path = REPO_ROOT) -> list[dict[str, Any]]:
-    path = repo_root / str(capture.get("path", ""))
+    path = resolve_repository_path(repo_root, str(capture.get("path", "")))
     if not path.is_file():
         raise MemorialError(f"missing Continuity capture: {capture.get('id')}")
     body = path.read_bytes()
@@ -212,7 +214,7 @@ def validate_pair(markdown_path: Path, sidecar_path: Path, *, repo_root: Path = 
             failures.append("entry_date and admitted_at required")
         if selected_rows and overlap_failure(markdown, selected_rows): failures.append("substantial copied-message overlap detected")
         logical = str(sidecar.get("markdown_path", ""))
-        if logical != f"archive/sessions/{markdown_path.name}": failures.append("markdown_path does not bind admitted shelf path")
+        if logical != f"archive/sessions/memorials/{markdown_path.name}": failures.append("markdown_path does not bind admitted shelf path")
     previous = sidecar.get("previous_version")
     if version == 1 and previous is not None: failures.append("v1 cannot name a previous version")
     if isinstance(version, int) and version > 1:
@@ -222,7 +224,7 @@ def validate_pair(markdown_path: Path, sidecar_path: Path, *, repo_root: Path = 
 
 
 def registry_document(repo_root: Path | None = None) -> dict[str, Any]:
-    return load_json((repo_root or REPO_ROOT) / "archive" / "sessions" / "registry.json")
+    return load_json((repo_root or REPO_ROOT) / "archive" / "sessions" / "memorials" / "registry.json")
 
 
 def validate_registry(repo_root: Path = REPO_ROOT) -> list[str]:

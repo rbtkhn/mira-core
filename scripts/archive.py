@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from repository_paths import resolve_repository_path
+
 import argparse
 import gzip
 import hashlib
@@ -190,7 +192,7 @@ def discover_mira(collection: Mapping[str,Any]) -> Iterator[tuple[RecordInput,Pa
     if not isinstance(sessions,list): raise ArchiveError("invalid Mira session registry")
     for session in sessions:
         for capture in session.get("captures",[]):
-            logical=safe_logical_path(str(capture.get("path",""))); path=REPO_ROOT/logical
+            logical=safe_logical_path(str(capture.get("path",""))); path=resolve_repository_path(REPO_ROOT,logical)
             if not path.is_file(): raise ArchiveError(f"missing collection body: {logical}")
             body=path.read_bytes()
             if capture.get("sha256")!=sha256_bytes(body): raise ArchiveError(f"Mira registry hash mismatch: {logical}")
@@ -519,7 +521,7 @@ def add_journal_lineage(connection: sqlite3.Connection) -> int:
     record_capture: dict[str,str]={}
     for session in continuity.get("sessions",[]):
         for capture in session.get("captures",[]):
-            path=REPO_ROOT/str(capture.get("path",""))
+            path=resolve_repository_path(REPO_ROOT,str(capture.get("path","")))
             if not path.is_file(): continue
             try:
                 rows=[json.loads(line) for line in gzip.decompress(path.read_bytes()).splitlines()]
@@ -719,7 +721,7 @@ def validate_repository_state(repo_root: Path=REPO_ROOT) -> list[str]:
         if policy.get("explicit_only_collections")!=derived: failures.append("Mira Archive explicit-only policy drifts from collection registry")
     except (ArchiveError,KeyError,TypeError) as error: failures.append(str(error))
     try:
-        result=subprocess.run(["git","ls-files","-z","--","archive/sources/geopolitics/sources","mira/continuity/captures"],cwd=repo_root,check=True,capture_output=True)
+        result=subprocess.run(["git","ls-files","-z","--","archive/sources/geopolitics/sources","mira/continuity/captures","archive/sessions/transcripts","archive/sessions/daily"],cwd=repo_root,check=True,capture_output=True)
         failures.extend(f"tracked corpus body: {item.decode(errors='replace')}" for item in result.stdout.split(b"\0") if item)
     except (OSError,subprocess.CalledProcessError) as error: failures.append(f"could not inspect tracked corpus bodies: {error}")
     return failures

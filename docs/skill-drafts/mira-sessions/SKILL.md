@@ -5,7 +5,7 @@ description: "Compose, validate, admit, correct, or explicitly retrieve curated 
 
 # Mira Sessions
 
-Use `archive/sessions/` as an explicit-only inheritance library. A memorial is
+Use `archive/sessions/memorials/` as an explicit-only inheritance library. A memorial is
 Mira's bounded reflective interpretation of one canonical technical session,
 not a transcript, total recall, identity substrate, or evidence source.
 
@@ -30,3 +30,11 @@ Corrections create the next version under the same `MSM-*` identity. Explicit
 retrieval preserves inactive posture, counter-memory, supersession, omissions,
 and authority disclosures. If sensitive material is found after admission,
 stop retrieval and route the incident separately; correction does not erase Git history.
+
+## Shelf layout
+
+Authored memorials now live in `archive/sessions/memorials/`, with their registry
+in that directory. `archive/sessions/transcripts/` and `archive/sessions/daily/`
+are private Git-ignored session preservation and Dream reading stores. Memorial
+authorship, validation, and retrieval do not grant transcript capture or checkpoint
+write authority. Historical Continuity references resolve through the shared resolver.

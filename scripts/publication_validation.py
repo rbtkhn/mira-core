@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse
 import json
 import re
+import subprocess
 from pathlib import Path, PurePosixPath
 from typing import Any, Iterable
 
@@ -61,6 +62,11 @@ MANUAL_SINGULARITY_ARCHIVE_CHECK = (
     "membership, candidate-link status, and separation from claim verification or publication."
 )
 MIRA_CONTROL_PATHS = frozenset({
+    ".gitignore",
+    "archive/README.md",
+    "mira/continuity/README.md",
+    "mira/continuity/activation.md",
+    "mira/continuity/trajectory.md",
     "docs/mira-core-name-migration.md",
     "docs/plans/2026-08-16-mira-archive-name-migration.md",
     "mira/continuity/session-registry.json",
@@ -97,7 +103,13 @@ def normalize_path(raw: str, *, repo_root: Path = REPO_ROOT) -> str:
     if not _inside(resolved, repository):
         raise RoutingError(f"path is outside repository: {raw}")
     if not resolved.exists():
-        raise RoutingError(f"path does not exist: {raw}")
+        relative_missing = resolved.relative_to(repository).as_posix()
+        # Permit this exact tracked relocation source, never arbitrary absent paths.
+        relocated = repository / "archive/sessions/memorials/registry.json"
+        if (relative_missing != "archive/sessions/registry.json" or not relocated.is_file()
+                or subprocess.run(["git", "cat-file", "-e", "HEAD:" + relative_missing],
+                                  cwd=repository, capture_output=True).returncode):
+            raise RoutingError(f"path does not exist: {raw}")
     relative = resolved.relative_to(repository).as_posix()
     if relative in {"", "."}:
         raise RoutingError("repository root is not a publication path")
@@ -306,6 +318,8 @@ def _library_validation_route(*, cognitive_note: bool = False) -> dict[str, Any]
 
 
 def route_path(path: str, *, repo_root: Path = REPO_ROOT) -> dict[str, Any]:
+    if path.startswith(("archive/sessions/transcripts/", "archive/sessions/daily/")):
+        raise RoutingError("Private session payloads cannot be admitted to Git")
     if path.startswith("projects/grace-gems/"):
         return {
             "owner": "grace-gems/stewardship",

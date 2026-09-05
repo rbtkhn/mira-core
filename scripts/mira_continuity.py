@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from repository_paths import resolve_repository_path
+
 import argparse
 import copy
 import gzip
@@ -213,6 +215,9 @@ def discover_sources(
     *,
     repo_root: Path = REPO_ROOT,
 ) -> list[SessionSource]:
+    if (repo_root / "archive/sessions/transcripts/scope.json").is_file():
+        import session_checkpoints
+        return session_checkpoints.sources(repo_root, list(source_roots) if source_roots else None)
     expected_cwd = canonical_path(repo_root.resolve())
     results: list[SessionSource] = []
     for root in source_roots or default_source_roots():
@@ -787,15 +792,16 @@ def _capture_inventory(registry: dict[str, Any], *, repo_root: Path) -> dict[str
         for ref in session.get("captures", []):
             raw_path = str(ref.get("path", ""))
             referenced.add(raw_path)
-            path = repo_root / raw_path
+            path = resolve_repository_path(repo_root, raw_path)
             if not path.is_file():
                 missing.append(raw_path)
                 continue
             rows.append((raw_path, sha256_bytes(path.read_bytes()), path.stat().st_size))
+    from repository_paths import canonical_repository_path
     disk = {
-        path.relative_to(repo_root).as_posix()
-        for path in (repo_root / "mira" / "continuity" / "captures").rglob("*.jsonl.gz")
-        if path.is_file()
+        canonical_repository_path(path.relative_to(repo_root).as_posix())
+        for root in (repo_root / "mira/continuity/captures", repo_root / "archive/sessions/transcripts")
+        for path in root.rglob("*.jsonl.gz") if path.is_file()
     }
     rows.sort()
     inventory_lines = [f"{path}\t{digest}\t{size}" for path, digest, size in rows]
@@ -803,7 +809,7 @@ def _capture_inventory(registry: dict[str, Any], *, repo_root: Path) -> dict[str
         "capture_count": len(rows),
         "compressed_bytes": sum(size for _, _, size in rows),
         "missing": sorted(missing),
-        "extra": sorted(disk - referenced),
+        "extra": sorted(disk - {canonical_repository_path(path) for path in referenced}),
         "path_set_sha256": hash_lines(path for path, _, _ in rows),
         "actual_inventory_sha256": hash_lines(inventory_lines),
     }
@@ -978,7 +984,7 @@ def _capture_descriptors(registry: dict[str, Any], *, repo_root: Path) -> list[d
     results: list[dict[str, Any]] = []
     for session in registry.get("sessions", []):
         for ref in session.get("captures", []):
-            path = repo_root / str(ref.get("path", ""))
+            path = resolve_repository_path(repo_root, str(ref.get("path", "")))
             if not path.is_file():
                 raise ContinuityError(f"privacy audit missing capture: {ref.get('id', '')}")
             results.append(
@@ -1866,7 +1872,7 @@ def validate_repository_state(
                 failures.append(f"duplicate capture ID: {capture_id}")
             capture_ids.add(capture_id)
             raw_path = str(ref.get("path", ""))
-            if Path(raw_path).is_absolute() or not raw_path.startswith("mira/continuity/captures/"):
+            if Path(raw_path).is_absolute() or not raw_path.startswith(("mira/continuity/captures/", "archive/sessions/transcripts/")):
                 failures.append(f"{capture_id}: malformed capture path")
                 continue
             if not re.fullmatch(r"[0-9a-f]{64}", str(ref.get("sha256", ""))):
@@ -1877,7 +1883,7 @@ def validate_repository_state(
                 failures.append(f"{capture_id}: invalid observed_at timestamp")
             if not check_capture_bodies:
                 continue
-            path = repo_root / raw_path
+            path = resolve_repository_path(repo_root, raw_path)
             if not path.is_file():
                 failures.append(f"{capture_id}: missing capture file: {raw_path}")
                 continue
@@ -1993,6 +1999,20 @@ def _format_report(payload: dict[str, Any], format_name: str) -> None:
         print(f"{key}={value}")
 
 
+def command_session_backup(args: argparse.Namespace) -> int:
+    import session_checkpoints
+    result = session_checkpoints.backup(REPO_ROOT, args.destination, check=args.check)
+    _format_report(result, args.format)
+    return 0
+
+
+def command_session_restore(args: argparse.Namespace) -> int:
+    import session_checkpoints
+    result = session_checkpoints.restore(args.backup_root, args.snapshot, args.destination, check=args.check)
+    _format_report(result, args.format)
+    return 0
+
+
 def command_discover(args: argparse.Namespace) -> int:
     roots = [Path(value) for value in args.source_root] if args.source_root else None
     sources = discover_sources(roots)
@@ -2020,6 +2040,14 @@ def command_discover(args: argparse.Namespace) -> int:
 
 
 def command_ingest(args: argparse.Namespace) -> int:
+    if (REPO_ROOT / "archive/sessions/transcripts/scope.json").is_file():
+        import session_checkpoints
+        values = session_checkpoints.sources(REPO_ROOT, [Path(p) for p in args.source_root] or None)
+        updated, outputs = session_checkpoints.preserve(REPO_ROOT, values, check=args.check)
+        _format_report({"mira_continuity_ingest": "ready" if args.check else "written",
+                        "qualifying_sources": len(values), "sessions": len(updated["sessions"]),
+                        "new_captures": len(outputs), "mutation": not args.check}, args.format)
+        return 0
     roots = [Path(value) for value in args.source_root] if args.source_root else None
     sources = discover_sources(roots)
     registry = load_registry()
@@ -2248,6 +2276,20 @@ def parser() -> argparse.ArgumentParser:
     value = argparse.ArgumentParser(description="Govern Mira session continuity and operator-approved identity.")
     subparsers = value.add_subparsers(dest="command", required=True)
 
+    backup = subparsers.add_parser("session-backup", help="Create a versioned private session recovery snapshot.")
+    backup.add_argument("--destination", type=Path, required=True)
+    backup.add_argument("--check", action="store_true")
+    backup.add_argument("--format", choices=("json", "markdown"), default="json")
+    backup.set_defaults(handler=command_session_backup)
+
+    restore = subparsers.add_parser("session-restore", help="Verify or restore a session snapshot into an empty external directory.")
+    restore.add_argument("--backup-root", type=Path, required=True)
+    restore.add_argument("--snapshot", required=True)
+    restore.add_argument("--destination", type=Path, required=True)
+    restore.add_argument("--check", action="store_true")
+    restore.add_argument("--format", choices=("json", "markdown"), default="json")
+    restore.set_defaults(handler=command_session_restore)
+
     discover = subparsers.add_parser("discover", help="Discover qualifying current-repository Codex sessions.")
     discover.add_argument("--source-root", action="append", default=[])
     discover.add_argument("--format", choices=("text", "json"), default="text")
@@ -2314,7 +2356,7 @@ def main(arguments: list[str] | None = None) -> int:
     args = parser().parse_args(arguments)
     try:
         return args.handler(args)
-    except (ContinuityError, OSError) as error:
+    except (ContinuityError, OSError, ValueError) as error:
         print(f"mira continuity error: {error}", file=sys.stderr)
         return 2
 

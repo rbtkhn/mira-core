@@ -13,6 +13,7 @@ from pathlib import Path
 from zoneinfo import ZoneInfo
 
 import cadence_ledger
+import journal_calendar
 import mira_journal_references
 from portable_paths import state_path
 
@@ -20,7 +21,7 @@ from portable_paths import state_path
 REPO_ROOT = Path(__file__).resolve().parent.parent
 DAILY_ROOT = REPO_ROOT / "narrative-geopolitics" / "work" / "daily"
 FORECAST_LEDGER = REPO_ROOT / "narrative-geopolitics" / "work" / "forecasts" / "forecast-ledger.md"
-DEFAULT_TIMEZONE = "America/Denver"
+DEFAULT_TIMEZONE = journal_calendar.CURRENT_TIMEZONE
 DEFAULT_WORKSPACE = "mira-core"
 DEFAULT_OPERATOR = "operator"
 SESSION_ID_RE = re.compile(
@@ -377,7 +378,7 @@ def validate_journal_bundle(run_date: str, bundle: Path) -> tuple[dict | None, s
 
 
 def refresh_guidance(args, run_date: str, bundle: Path, run_id: str | None) -> dict[str, str | None]:
-    base = f"tools/run.ps1 mira-journal prepare --date {run_date} --output-root {bundle.parent} --json"
+    base = f"tools/run.ps1 mira-journal prepare --date {run_date} --output-root {bundle.parent} --require-journal-reading --require-session-reading --refresh-session-checkpoint --json"
     check = f"tools/run.ps1 mira-journal draft-check --date {run_date} --bundle {bundle} --json"
     resume = (
         f"tools/run.ps1 dream --resume {run_id} --date {run_date} --journal-bundle {bundle}"
@@ -815,7 +816,7 @@ def execute(args, run_date: str) -> dict:
                 if not (bundle / "draft.md").is_file():
                     prepared = run_tool(
                         "mira-journal", "prepare", "--date", run_date,
-                        "--output-root", str(bundle.parent), "--json",
+                        "--output-root", str(bundle.parent), "--require-journal-reading", "--require-session-reading", "--json",
                     )
                     if prepared.returncode:
                         projection = append_stage(
@@ -835,7 +836,13 @@ def execute(args, run_date: str) -> dict:
                         "roi_synthesis": roi_synthesis,
                         "next_action": (
                             "Agent-internal handoff, not operator approval: compose any applicable "
-                            "Strategy Notebook work under the calibrated template, then compose "
+                            "Strategy Notebook work under the calibrated template, then read the complete "
+                            "journal-reading.json sequentially, oldest first, for inward continuity. "
+                            "Run mira-journal reading-complete with its packet digest and composing session; "
+                            "bind journal_reading_ack_sha256 in draft.json. Read every session checkpoint "
+                            "chunk in ordinal order and acknowledge it with mira-journal session-reading-complete. "
+                            "Bind session_checkpoint_sha256 and session_reading_ack_sha256 in draft.json, "
+                            "and session_checkpoint_sha256 in technical-reference.json before composing "
                             "draft.md, draft.json, and technical-reference.json under the prepared "
                             "Mira Journal contracts, validate them, then resume Dream."
                         ),
@@ -932,7 +939,7 @@ def parser() -> argparse.ArgumentParser:
         description="Certify Geo-Strategy and Mira Journal completion, then close Dream in sequence."
     )
     root.add_argument("--date")
-    root.add_argument("--timezone", default=DEFAULT_TIMEZONE)
+    root.add_argument("--timezone", help="Defaults to the dated Journal calendar; future dates require its timezone")
     root.add_argument("--workspace-id", default=DEFAULT_WORKSPACE)
     root.add_argument("--operator-id", default=DEFAULT_OPERATOR)
     root.add_argument("--db", type=Path)
@@ -949,7 +956,6 @@ def parser() -> argparse.ArgumentParser:
 def main(arguments: list[str] | None = None) -> int:
     args = parser().parse_args(arguments)
     try:
-        timezone = ZoneInfo(args.timezone)
         if args.resume and not args.date:
             resolution = cadence_ledger.resolve_store(args.db, require_exists=True)
             if resolution.path is None:
@@ -960,8 +966,13 @@ def main(arguments: list[str] | None = None) -> int:
             finally:
                 connection.close()
         else:
-            run_date = args.date or datetime.now(timezone).date().isoformat()
-        datetime.strptime(run_date, "%Y-%m-%d")
+            run_date = args.date or journal_calendar.current_date().isoformat()
+        calendar_day = datetime.strptime(run_date, "%Y-%m-%d").date()
+        expected_zone = journal_calendar.timezone_name(calendar_day)
+        if args.timezone and calendar_day >= journal_calendar.TRANSITION_DAY and args.timezone != expected_zone:
+            raise ValueError("Dream timezone must match the dated Journal calendar")
+        args.timezone = args.timezone or expected_zone
+        ZoneInfo(args.timezone)  # Fail explicitly if timezone data is unavailable.
         result = check_projection(args, run_date) if args.check else execute(args, run_date)
     except (ValueError, OSError, json.JSONDecodeError, subprocess.SubprocessError, cadence_ledger.CadenceLedgerError) as error:
         print(f"dream error: {error}", file=sys.stderr)

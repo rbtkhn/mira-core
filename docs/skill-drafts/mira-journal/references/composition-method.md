@@ -141,3 +141,20 @@ Before grounding, answer each question with a prose anchor or revise:
 
 Then create the technical companion from exact prose, not the other way
 around.
+
+
+## Conversation grouping
+
+New daily reading checkpoints bind a private parentage snapshot derived only from
+explicit Codex metadata. The composition brief groups active sessions beneath their
+recorded primary ancestor; inactive parents provide context only. Missing,
+conflicting, cyclic, or unavailable ancestry remains unresolved. Primary sessions,
+subagent sessions, and transcript records are separate counts, not accomplishments.
+Read every required chunk and disposition every session. Combine a helper finding
+and its parent summary under one grounded development when they describe the same
+work; retain distinct findings even within one conversation. Grouping does not
+prove semantic duplication or independent corroboration. Historical checkpoints,
+transcripts, journal versions, and approvals are not rewritten. Older bundles
+without grouping remain valid. The private provenance index is
+`archive/sessions/transcripts/lineage.json`; subsequent changes do not alter a
+previously frozen grouping.

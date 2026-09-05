@@ -10,7 +10,7 @@ def make_tree(root: Path) -> None:
     for relative in (
         "archive/notes/2026-08-17-note.md",
         "archive/essays/2026-08-17-essay.md",
-        "archive/sessions/registry.json",
+        "archive/sessions/memorials/registry.json",
         "archive/schemas/session-memorial.schema.json",
         "archive/collections.json",
         "archive/registries/moonshots.json",
@@ -508,7 +508,7 @@ def test_router_resolves_grace_gems_files_to_stewardship_review(
 
 def test_router_assigns_session_memorials_to_governing_validator(tmp_path: Path) -> None:
     make_tree(tmp_path)
-    report = routing.build_report(["archive/sessions/registry.json", "archive/schemas/session-memorial.schema.json"], repo_root=tmp_path)
+    report = routing.build_report(["archive/sessions/memorials/registry.json", "archive/schemas/session-memorial.schema.json"], repo_root=tmp_path)
     assert report["status"] == "manual-required"
     assert report["owners"] == ["mira-sessions"]
     assert report["commands"] == ["tools/run.ps1 mira-sessions validate"]

@@ -41,7 +41,7 @@ def pair(repo: Path, *, version: int = 1, previous=None, source_message: str | N
     sidecar = {
         "schema_version": 1, "memorial_id": "MSM-reflection", "version_id": f"MSMV-reflection-v{version}", "version": version,
         "status": "admitted", "session_id": session_id, "capture_refs": [capture_id], "record_refs": [record_id],
-        "markdown_path": f"archive/sessions/{md.name}", "markdown_sha256": hashlib.sha256(md.read_bytes()).hexdigest(),
+        "markdown_path": f"archive/sessions/memorials/{md.name}", "markdown_sha256": hashlib.sha256(md.read_bytes()).hexdigest(),
         "entry_date": "2026-08-18", "admitted_at": "2026-08-18T02:00:00Z", "evidence_class": "session-memorial-interpretation",
         "activation_posture": "inactive", "authority_boundary": BOUNDARY, "significance_reasons": ["method-change"],
         "retention_reason": "The operator chose to preserve the method change.", "decision_attribution": [{"actor": "joint", "summary": "The method changed."}],
@@ -89,11 +89,11 @@ def test_pending_pair_has_no_canonical_references_and_check_does_not_write(tmp_p
 
 
 def test_archive_discovery_is_explicit_only_and_preserves_inactive_metadata(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
-    md, js, _ = pair(tmp_path); shelf = tmp_path / "archive" / "sessions"; shelf.mkdir(parents=True)
+    md, js, _ = pair(tmp_path); shelf = tmp_path / "archive" / "sessions" / "memorials"; shelf.mkdir(parents=True)
     target_md = shelf / md.name; target_js = shelf / js.name; target_md.write_bytes(md.read_bytes()); target_js.write_bytes(js.read_bytes())
-    sidecar = json.loads(target_js.read_text()); entry = {"version": 1, "version_id": sidecar["version_id"], "markdown_path": f"archive/sessions/{md.name}", "sidecar_path": f"archive/sessions/{js.name}", "markdown_sha256": sidecar["markdown_sha256"], "sidecar_sha256": hashlib.sha256(target_js.read_bytes()).hexdigest()}
+    sidecar = json.loads(target_js.read_text()); entry = {"version": 1, "version_id": sidecar["version_id"], "markdown_path": f"archive/sessions/memorials/{md.name}", "sidecar_path": f"archive/sessions/memorials/{js.name}", "markdown_sha256": sidecar["markdown_sha256"], "sidecar_sha256": hashlib.sha256(target_js.read_bytes()).hexdigest()}
     (shelf / "registry.json").write_text(json.dumps({"memorials": [{"memorial_id": sidecar["memorial_id"], "session_id": sidecar["session_id"], "versions": [entry]}]}))
-    collection = {"id": "mira-session-memorials", "kind": "mira-session-memorial-registry", "registry_path": "archive/sessions/registry.json", "authority_owner": "archive/sessions/registry.json", "evidence_class": "session-memorial-interpretation", "retrieval_policy": "explicit-only"}
+    collection = {"id": "mira-session-memorials", "kind": "mira-session-memorial-registry", "registry_path": "archive/sessions/memorials/registry.json", "authority_owner": "archive/sessions/memorials/registry.json", "evidence_class": "session-memorial-interpretation", "retrieval_policy": "explicit-only"}
     monkeypatch.setattr(archive_module, "REPO_ROOT", tmp_path)
     record, _ = list(archive_module.discover_session_memorials(collection))[0]
     assert record.metadata["activation_posture"] == "inactive" and record.metadata["may_promote"] is False
@@ -102,7 +102,7 @@ def test_archive_discovery_is_explicit_only_and_preserves_inactive_metadata(tmp_
 
 
 def test_admission_is_deterministic_rejects_overwrite_and_preserves_v1(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
-    shelf = tmp_path / "archive" / "sessions"; shelf.mkdir(parents=True)
+    shelf = tmp_path / "archive" / "sessions" / "memorials"; shelf.mkdir(parents=True)
     registry = shelf / "registry.json"
     registry.write_text(json.dumps({"schema_version": 1, "collection_id": "mira-session-memorials", "memorials": []}))
     monkeypatch.setattr(mira_sessions, "REPO_ROOT", tmp_path); monkeypatch.setattr(mira_sessions, "SHELF", shelf); monkeypatch.setattr(mira_sessions, "REGISTRY", registry)
@@ -121,15 +121,15 @@ def test_admission_is_deterministic_rejects_overwrite_and_preserves_v1(tmp_path:
 
 def test_archive_lineage_links_capture_and_superseded_version(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
     session_id, capture_id, record_id = write_continuity(tmp_path)
-    shelf = tmp_path / "archive" / "sessions"; shelf.mkdir(parents=True); versions = []
+    shelf = tmp_path / "archive" / "sessions" / "memorials"; shelf.mkdir(parents=True); versions = []
     previous = None
     for number in (1, 2):
         md, js, _ = pair(tmp_path, version=number, previous=previous)
         target_md, target_js = shelf / md.name, shelf / js.name; target_md.write_bytes(md.read_bytes()); target_js.write_bytes(js.read_bytes())
-        entry = {"version": number, "version_id": f"MSMV-reflection-v{number}", "markdown_path": f"archive/sessions/{md.name}", "sidecar_path": f"archive/sessions/{js.name}", "markdown_sha256": hashlib.sha256(md.read_bytes()).hexdigest(), "sidecar_sha256": hashlib.sha256(js.read_bytes()).hexdigest()}
+        entry = {"version": number, "version_id": f"MSMV-reflection-v{number}", "markdown_path": f"archive/sessions/memorials/{md.name}", "sidecar_path": f"archive/sessions/memorials/{js.name}", "markdown_sha256": hashlib.sha256(md.read_bytes()).hexdigest(), "sidecar_sha256": hashlib.sha256(js.read_bytes()).hexdigest()}
         versions.append(entry); previous = {"version_id": entry["version_id"], "sidecar_sha256": entry["sidecar_sha256"]}
     registry = {"memorials": [{"memorial_id": "MSM-reflection", "session_id": session_id, "versions": versions}]}
-    (shelf / "registry.json").write_text(json.dumps(registry)); collection = {"id": "mira-session-memorials", "registry_path": "archive/sessions/registry.json"}
+    (shelf / "registry.json").write_text(json.dumps(registry)); collection = {"id": "mira-session-memorials", "registry_path": "archive/sessions/memorials/registry.json"}
     archive = ArtifactStore(tmp_path.parent / f"{tmp_path.name}-state" / "archive", tmp_path, create=True); monkeypatch.setattr(archive_module, "REPO_ROOT", tmp_path)
     capture_path = tmp_path / "mira" / "continuity" / "captures" / "capture.jsonl.gz"
     with archive.connect(create=True) as connection:

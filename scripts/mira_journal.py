@@ -1,5 +1,10 @@
 from __future__ import annotations
 
+import session_checkpoints
+import journal_calendar
+
+from repository_paths import resolve_repository_path
+
 import argparse
 import copy
 import gzip
@@ -36,16 +41,11 @@ LEARNING_LEDGER_PATH = (
 
 DRAFT_ROOT_ENV = "MIRA_CORE_JOURNAL_DRAFT_ROOT"
 DEFAULT_DRAFT_ROOT = state_path("journal/drafts")
-TIMEZONE_NAME = "America/Denver"
+TIMEZONE_NAME = journal_calendar.CURRENT_TIMEZONE
 
 
 def local_timezone(name: str = TIMEZONE_NAME, zone_factory=ZoneInfo):
-    try:
-        return zone_factory(name)
-    except ZoneInfoNotFoundError:
-        # Last-resort import fallback for ad hoc Windows Python installs that
-        # bypass the repository bootstrap and lack the declared tzdata wheel.
-        return timezone(timedelta(hours=-7), name)
+    return zone_factory(name)
 
 
 TIMEZONE = local_timezone()
@@ -230,9 +230,7 @@ def parse_entry_date(value: str) -> date:
 
 
 def day_bounds(value: date) -> tuple[datetime, datetime]:
-    start = datetime.combine(value, time.min, tzinfo=TIMEZONE)
-    end = datetime.combine(value.fromordinal(value.toordinal() + 1), time.min, tzinfo=TIMEZONE)
-    return start.astimezone(timezone.utc), end.astimezone(timezone.utc)
+    return journal_calendar.day_bounds(value)
 
 
 def journal_id(value: date) -> str:
@@ -248,7 +246,7 @@ def default_registry() -> dict[str, Any]:
         "schema_version": SCHEMA_VERSION,
         "registry_id": "mira-daily-journal-v1",
         "status": "canonical",
-        "timezone": TIMEZONE_NAME,
+        "timezone": journal_calendar.LEGACY_TIMEZONE,
         "draft_root_environment": DRAFT_ROOT_ENV,
         "authority_boundary": AUTHORITY_BOUNDARY,
         "namespace_boundary": NAMESPACE_BOUNDARY,
@@ -439,7 +437,7 @@ def command_prose_check(args: argparse.Namespace) -> dict[str, Any]:
     failures.extend(composition_prose_failures(prose_text))
     inferred_mode = (
         "same-day-eod"
-        if entry_date == datetime.now(TIMEZONE).date()
+        if entry_date == journal_calendar.current_date()
         else "retrospective-recovery"
     )
     failures.extend(temporal_honesty_failures(prose_text, inferred_mode))
@@ -546,6 +544,9 @@ def session_sources() -> list[mira_continuity.SessionSource]:
 
 def session_sources_since(minimum_observed: datetime) -> list[mira_continuity.SessionSource]:
     """Discover candidate raw sessions without rereading every historical body."""
+    if (REPO_ROOT / "archive/sessions/transcripts/scope.json").is_file():
+        return [source for source in session_checkpoints.sources(REPO_ROOT)
+                if parse_timestamp(source.last_observed_at, label="source last observed") >= minimum_observed]
     expected_cwd = mira_continuity.canonical_path(REPO_ROOT.resolve())
     newest: dict[str, mira_continuity.SessionSource] = {}
     threshold = minimum_observed.timestamp()
@@ -633,7 +634,7 @@ def resolved_records_for_session(
             for capture in session.get("captures", []):
                 if not isinstance(capture, dict):
                     continue
-                path = repo_root / str(capture.get("path", ""))
+                path = resolve_repository_path(repo_root, str(capture.get("path", "")))
                 if not path.is_file():
                     continue
                 try:
@@ -1115,6 +1116,8 @@ def collect_activity(
             "end": utc_text(end),
             "as_of": utc_text(cutoff),
             "retrospective": as_of >= end,
+            **({"calendar": journal_calendar.metadata(entry_date)}
+               if entry_date >= journal_calendar.TRANSITION_DAY else {}),
         },
         "selected_records": selected,
         "session_census": census,
@@ -1148,7 +1151,7 @@ def context_pack(
         "schema_version": SCHEMA_VERSION,
         "compiler_version": CONTEXT_VERSION,
         "entry_date": entry_date.isoformat(),
-        "timezone": TIMEZONE_NAME,
+        "timezone": journal_calendar.timezone_name(entry_date),
         "token_budget": token_budget,
         "estimated_tokens": activity["estimated_tokens"] + learning_tokens,
         "coverage": activity["coverage"],
@@ -1204,6 +1207,18 @@ def validate_context_pack(value: dict[str, Any]) -> list[str]:
     coverage = value.get("coverage")
     if not isinstance(coverage, dict) or not {"start", "end", "as_of", "retrospective"} <= coverage.keys():
         failures.append("journal context pack coverage is incomplete")
+    try:
+        day = parse_entry_date(value["entry_date"])
+        if value.get("timezone") != journal_calendar.timezone_name(day):
+            failures.append("journal context timezone does not match dated calendar")
+        if day >= journal_calendar.TRANSITION_DAY:
+            expected_start, expected_end = day_bounds(day)
+            if (coverage.get("calendar") != journal_calendar.metadata(day)
+                    or parse_timestamp(coverage["start"], label="start") != expected_start
+                    or parse_timestamp(coverage["end"], label="end") != expected_end):
+                failures.append("journal context coverage does not match dated calendar")
+    except (JournalError, KeyError, TypeError, AttributeError):
+        failures.append("journal context calendar is malformed")
     if not isinstance(value.get("token_budget"), int) or not isinstance(value.get("estimated_tokens"), int):
         failures.append("journal context pack token accounting is malformed")
     elif not 0 <= value["estimated_tokens"] <= value["token_budget"]:
@@ -1289,7 +1304,7 @@ def validate_context_pack(value: dict[str, Any]) -> list[str]:
     return failures
 
 
-def composition_brief(entry_date: date, pack: dict[str, Any]) -> dict[str, Any]:
+def composition_brief(entry_date: date, pack: dict[str, Any], *, grouping: dict | None = None) -> dict[str, Any]:
     registry = load_registry()
     eligible = [
         entry for entry in registry.get("entries", [])
@@ -1420,6 +1435,8 @@ def composition_brief(entry_date: date, pack: dict[str, Any]) -> dict[str, Any]:
         ]),
         "authority_boundary": AUTHORITY_BOUNDARY,
     }
+    if grouping is not None:
+        core["conversation_grouping"] = copy.deepcopy(grouping)
     output_digest = sha256_bytes(canonical_json(core).encode("utf-8"))
     value = copy.deepcopy(core)
     value["composition_brief_id"] = f"CB-{output_digest[:24]}"
@@ -1522,7 +1539,7 @@ def draft_contract(entry_date: date, pack: dict[str, Any], brief: dict[str, Any]
     quiet = not pack["selected_records"] and not pack["commits"]
     composition_mode = (
         "same-day-eod"
-        if entry_date == datetime.now(TIMEZONE).date()
+        if entry_date == journal_calendar.current_date()
         else "retrospective-recovery"
     )
     return {
@@ -1962,7 +1979,7 @@ def validate_registry(
         failures.append("journal registry schema_version must be 1")
     if registry.get("registry_id") != "mira-daily-journal-v1":
         failures.append("journal registry_id mismatch")
-    if registry.get("status") != "canonical" or registry.get("timezone") != TIMEZONE_NAME:
+    if registry.get("status") != "canonical" or registry.get("timezone") != journal_calendar.LEGACY_TIMEZONE:
         failures.append("journal registry status or timezone mismatch")
     if registry.get("authority_boundary") != AUTHORITY_BOUNDARY:
         failures.append("journal authority boundary mismatch")
@@ -2188,7 +2205,7 @@ def validate_registry(
                     for (known_session, _), capture in known_captures.items():
                         if known_session != session_id:
                             continue
-                        capture_path = repo_root / str(capture.get("path", ""))
+                        capture_path = resolve_repository_path(repo_root, str(capture.get("path", "")))
                         if not capture_path.is_file():
                             continue
                         try:
@@ -2249,7 +2266,7 @@ def validate_registry(
                 if capture.get("sha256") != ref.get("object_id"):
                     failures.append(f"{expected_version}: Mira capture object mismatch: {key[1]}")
                     continue
-                capture_path = repo_root / str(capture.get("path", ""))
+                capture_path = resolve_repository_path(repo_root, str(capture.get("path", "")))
                 if not capture_path.is_file():
                     failures.append(f"{expected_version}: missing hydrated Mira capture: {key[1]}")
                     continue
@@ -2326,6 +2343,11 @@ def validate_registry(
                     as_of = parse_timestamp(str(coverage.get("as_of", "")), label="coverage as_of")
                     if not start < as_of <= end:
                         failures.append(f"journal coverage interval invalid: {expected_version}")
+                    calendar_day = parse_entry_date(entry_date)
+                    if calendar_day >= journal_calendar.TRANSITION_DAY and (
+                            (start, end) != day_bounds(calendar_day)
+                            or coverage.get("calendar") != journal_calendar.metadata(calendar_day)):
+                        failures.append(f"journal dated calendar binding invalid: {expected_version}")
                 except JournalError:
                     failures.append(f"journal coverage timestamps invalid: {expected_version}")
         current = versions[-1]
@@ -2871,6 +2893,8 @@ def normalized_version(
     start, end = day_bounds(expected_date)
     if parse_timestamp(str(coverage.get("start", "")), label="coverage start") != start or parse_timestamp(str(coverage.get("end", "")), label="coverage end") != end or not start < as_of <= end:
         raise JournalError("draft coverage does not match local calendar day")
+    if expected_date >= journal_calendar.TRANSITION_DAY and coverage.get("calendar") != journal_calendar.metadata(expected_date):
+        raise JournalError("draft lacks the dated calendar binding")
     if metadata.get("quiet_day") and metadata.get("limited_activity_acknowledged") is not True:
         raise JournalError("quiet-day draft must acknowledge limited activity")
     inputs, source_failures = source_input_ids(metadata.get("source_refs"))
@@ -2969,13 +2993,20 @@ def normalized_version(
         raise JournalError("schema-v2 journal draft must resolve its composition brief")
     if authored_at < as_of:
         raise JournalError("draft authored_at precedes its context cutoff")
+    session_contract = load_json(draft_directory / "draft-contract.json").get("session_reading") if (draft_directory / "draft-contract.json").exists() else None
+    if session_contract:
+        session_failures = session_checkpoints.reading_failures(REPO_ROOT, draft_directory, metadata)
+        if technical_reference.get("session_checkpoint_sha256") != session_contract["checkpoint_sha256"]:
+            session_failures.append("Technical reference session checkpoint binding mismatch")
+        if session_failures:
+            raise JournalError("; ".join(session_failures))
     late = latest_activity_after(
         expected_date,
         as_of,
         until=approved_time,
-        excluded_sessions={str(author.get("session_id"))} - ({authority_ref} if finalization_mode == "operator" else set()),
+        excluded_sessions=(set() if session_contract else {str(author.get("session_id"))}) - ({authority_ref} if finalization_mode == "operator" else set()),
         excluded_records={approval_record_ref} if finalization_mode == "operator" else set(),
-        user_only_sessions={authority_ref} if finalization_mode == "operator" else set(),
+        user_only_sessions=({authority_ref} if finalization_mode == "operator" else set()) | ({str(author.get("session_id"))} if session_contract else set()),
     )
     if late:
         raise JournalError(f"draft requires refresh for {len(late)} later activity record(s)")
@@ -3027,6 +3058,9 @@ def normalized_version(
                 if isinstance(ref, dict) and ref.get("kind") == "git-commit"
             ),
         },
+        **({"session_reading": {"checkpoint_sha256": metadata["session_checkpoint_sha256"],
+              "acknowledgement_sha256": metadata["session_reading_ack_sha256"]}}
+           if metadata.get("session_checkpoint_sha256") else {}),
         "previous_version_digest": previous_digest,
     }
 
@@ -3068,8 +3102,13 @@ def command_draft_check(args: argparse.Namespace) -> dict[str, Any]:
         failures.append(str(error))
     failures.extend(privacy_failures(prose_text))
     failures.extend(composition_prose_failures(prose_text))
+    failures.extend(session_checkpoints.reading_failures(REPO_ROOT, bundle, metadata))
+    if contract.get("session_reading") and reference.get("session_checkpoint_sha256") != contract["session_reading"]["checkpoint_sha256"]:
+        failures.append("Technical reference must bind the session checkpoint digest")
     failures.extend(validate_context_pack(pack))
     failures.extend(validate_composition_brief(brief, pack=pack))
+    if contract.get("journal_reading", {}).get("required") or (bundle / "journal-reading.json").exists():
+        failures.extend(reading_failures(bundle, entry_date, metadata))
     if contract.get("version_id") != metadata.get("version_id") or contract.get("entry_date") != entry_date.isoformat():
         failures.append("draft metadata does not match its draft contract")
     if contract.get("composition_brief_ref") != brief.get("composition_brief_id"):
@@ -3176,7 +3215,8 @@ def command_draft_check(args: argparse.Namespace) -> dict[str, Any]:
             author = metadata.get("author", {})
             late = latest_activity_after(
                 entry_date, as_of, until=datetime.now(timezone.utc),
-                excluded_sessions={str(author.get("session_id", ""))}, excluded_records=set(),
+                excluded_sessions=set() if contract.get("session_reading") else {str(author.get("session_id", ""))}, excluded_records=set(),
+                user_only_sessions={str(author.get("session_id", ""))} if contract.get("session_reading") else set(),
             )
             refresh_required = bool(late)
             if late:
@@ -3198,16 +3238,191 @@ def command_draft_check(args: argparse.Namespace) -> dict[str, Any]:
     }
 
 
+def journal_reading_packet(entry_date: date) -> dict[str, Any]:
+    """Full literary context, independent of the daily activity token budget."""
+    registry = load_registry()
+    entries = []
+    seen = set()
+    for entry in sorted(registry.get("entries", []), key=lambda row: row["entry_date"]):
+        if entry["entry_date"] >= entry_date.isoformat():
+            continue
+        if entry["entry_date"] in seen:
+            raise JournalError("duplicate Journal reading date")
+        seen.add(entry["entry_date"])
+        version = entry["versions"][-1]
+        if entry.get("current_version_id") != version["version_id"]:
+            raise JournalError("Journal reading current-version mismatch")
+        path = (REPO_ROOT / entry["current_path"]).resolve()
+        if not path.is_relative_to(JOURNAL_ROOT.resolve()) or not path.is_file():
+            raise JournalError("Journal reading source missing or outside Journal")
+        body = path.read_bytes().replace(b"\r\n", b"\n").replace(b"\r", b"\n")
+        if sha256_bytes(body) != version["content_sha256"]:
+            raise JournalError(f"Journal reading digest mismatch: {entry['entry_date']}")
+        status = version["approval"]["status"]
+        entries.append({
+            "entry_date": entry["entry_date"], "version_id": version["version_id"],
+            "content_sha256": version["content_sha256"], "prose": body.decode("utf-8"),
+            "approval_status": status, "approved_at": version["approval"].get("approved_at"),
+            "authored_at": version.get("authored_at"),
+            "continuity_role": "authoritative-ancestry" if status in {
+                AFFIRMATIVE_APPROVAL_STATUS, COMBINED_APPROVAL_STATUS, DREAM_EOD_STATUS
+            } else "readable-legacy-context", "may_promote": False,
+        })
+    return {"schema_version": 1, "entry_date": entry_date.isoformat(), "entries": entries,
+            "authority_boundary": "Reflective interpretation, not factual evidence or action authority. "
+            "Current revisions may postdate the target day; do not import later knowledge into earlier certainty."}
+
+
+def reading_digest(value: dict[str, Any]) -> str:
+    return sha256_bytes(canonical_json(value).encode("utf-8"))
+
+
+def checked_reading(bundle: Path, entry_date: date) -> tuple[dict[str, Any], str]:
+    for name in ("journal-reading.json", "draft-contract.json"):
+        if not (bundle / name).is_file():
+            raise JournalError("Dream requires full Journal reading; refresh the unfinished bundle")
+    packet = load_json(bundle / "journal-reading.json")
+    digest = reading_digest(packet)
+    contract = load_json(bundle / "draft-contract.json").get("journal_reading", {})
+    if contract != {"required": True, "packet_sha256": digest, "entry_count": len(packet.get("entries", []))}:
+        raise JournalError("Journal reading contract mismatch; refresh the bundle")
+    if packet != journal_reading_packet(entry_date):
+        raise JournalError("Journal reading changed; refresh, reread, and reconsider the draft")
+    return packet, digest
+
+
+def command_reading_complete(args: argparse.Namespace) -> dict[str, Any]:
+    bundle = private_draft_path(args.bundle, label="Journal reading bundle")
+    contract = load_json(bundle / "draft-contract.json")
+    day = parse_entry_date(contract["entry_date"])
+    packet, digest = checked_reading(bundle, day)
+    if args.packet_digest != digest or not SESSION_ID_RE.fullmatch(args.session_id):
+        raise JournalError("Journal reading acknowledgement digest or session is invalid")
+    ordered = [{"version_id": row["version_id"], "content_sha256": row["content_sha256"]}
+               for row in packet["entries"]]
+    path = bundle / "journal-reading-ack.json"
+    if path.is_file():
+        old = load_json(path)
+        if (old.get("packet_sha256"), old.get("session_id"), old.get("entries")) == (digest, args.session_id, ordered):
+            return {"status": "already_acknowledged", "acknowledgement_sha256": reading_digest(old), "mutation": False}
+    receipt = {"schema_version": 1, "entry_date": day.isoformat(), "packet_sha256": digest,
+               "session_id": args.session_id, "entries": ordered,
+               "completed_at": utc_text(datetime.now(timezone.utc)),
+               "declaration": "Full text read sequentially before composition; coverage declaration, not proof of comprehension."}
+    atomic_write_json(path, receipt)
+    return {"status": "acknowledged", "acknowledgement_sha256": reading_digest(receipt), "mutation": True}
+
+
+def reading_failures(bundle: Path, entry_date: date, metadata: dict[str, Any]) -> list[str]:
+    try:
+        packet, digest = checked_reading(bundle, entry_date)
+        if not (bundle / "journal-reading-ack.json").is_file():
+            raise JournalError("Read the full Journal sequentially and run reading-complete before composition")
+        ack = load_json(bundle / "journal-reading-ack.json")
+        ordered = [{"version_id": row["version_id"], "content_sha256": row["content_sha256"]}
+                   for row in packet["entries"]]
+        if (ack.get("schema_version") != 1 or ack.get("entry_date") != entry_date.isoformat()
+                or ack.get("packet_sha256") != digest or ack.get("entries") != ordered
+                or not SESSION_ID_RE.fullmatch(str(ack.get("session_id", "")))
+                or ack.get("session_id") != metadata.get("author", {}).get("session_id")
+                or metadata.get("journal_reading_ack_sha256") != reading_digest(ack)):
+            raise JournalError("Journal reading acknowledgement does not match this composition")
+        completed = parse_timestamp(str(ack.get("completed_at", "")), label="reading completion")
+        authored = parse_timestamp(str(metadata.get("authored_at", "")), label="authored_at")
+        if completed > authored or completed > datetime.now(timezone.utc):
+            raise JournalError("Journal reading must finish before draft authorship")
+    except (JournalError, OSError, ValueError, KeyError, TypeError) as error:
+        return [str(error)]
+    return []
+
+
+def checkpoint_activity(entry_date: date, as_of: datetime, checkpoint: dict, chunks: list[dict], registry: dict,
+                        token_budget: int) -> dict:
+    """Orientation derived from the exact preserved reading set, never fresh raw files."""
+    activity = collect_activity(entry_date, as_of=as_of, token_budget=token_budget, sources=[])
+    rows = [json.loads(line) for line in "".join(chunk["text"] for chunk in chunks).splitlines()]
+    owners = {s["id"]: s for s in registry["sessions"]}
+    by_session: dict[str, list[dict]] = {}
+    refs = []
+    for session in checkpoint["sessions"]:
+        for cap in session["captures"]:
+            refs.append({"kind": "mira-session-capture", "session_id": session["session_id"],
+                         "capture_id": cap["capture_id"], "object_id": cap["sha256"], "record_ids": cap["record_ids"]})
+    capture_by_record = {(ref["session_id"], rid): ref for ref in refs for rid in ref["record_ids"]}
+    candidates = []
+    for item in rows:
+        row, sid = item["record"], item["session_id"]
+        ref = capture_by_record[(sid, row["record_id"])]
+        candidate = {"record_id": row["record_id"], "session_id": sid, "capture_id": ref["capture_id"],
+                     "timestamp": row["timestamp"], "kind": row["kind"], "role": row.get("role"),
+                     "text": row_text(row), **epistemic_metadata(row)}
+        candidates.append(candidate)
+        by_session.setdefault(sid, []).append(candidate)
+    census = []
+    for sid, items in by_session.items():
+        owner = owners[sid]
+        substantive = [r for r in items if r["kind"] == "message" and r["role"] in {"user", "assistant"} and r["text"].strip()]
+        synopsis_rows = substantive[:1] + (substantive[-1:] if len(substantive) > 1 else [])
+        synopsis = "\n\n".join(r["text"][:SESSION_SYNOPSIS_TEXT_LIMIT // 2] for r in synopsis_rows)
+        ref = capture_by_record[(sid, items[-1]["record_id"])]
+        census.append({"session_id": sid, "source_kind": owner["source_kind"], "source_class": "preserved",
+                       "started_at": owner["started_at"], "last_observed_at": owner["last_observed_at"],
+                       "capture_id": ref["capture_id"], "object_id": ref["object_id"],
+                       "eligible_record_count": len(items), "disposition": "represented" if substantive else "administrative-only",
+                       "reason": "Complete records are in the frozen session reading chunks", "synopsis": synopsis,
+                       "synopsis_record_ids": [r["record_id"] for r in synopsis_rows],
+                       "estimated_tokens": 40 + max(1, (len(synopsis) + 3) // 4), "may_promote": False})
+    for gap in checkpoint["gaps"]:
+        if any(r["session_id"] == gap["session_id"] for r in census):
+            continue
+        owner = owners[gap["session_id"]]
+        census.append({"session_id": owner["id"], "source_kind": owner["source_kind"], "source_class": "preserved",
+                       "started_at": owner["started_at"], "last_observed_at": owner["last_observed_at"],
+                       "capture_id": None, "object_id": None, "eligible_record_count": 0,
+                       "disposition": "unreadable", "reason": gap["reason"], "synopsis": "", "synopsis_record_ids": [],
+                       "estimated_tokens": 40, "may_promote": False})
+    census.sort(key=lambda r: (r["started_at"], r["session_id"]))
+    remaining = token_budget - sum(r["estimated_tokens"] for r in census)
+    if remaining < 0:
+        raise JournalError("Session census exceeds orientation budget; increase --token-budget")
+    selected, omissions = [], []
+    for row in candidates:
+        estimate = 40 + max(1, (len(row["text"]) + 3) // 4)
+        if estimate <= remaining:
+            selected.append({**row, "estimated_tokens": estimate})
+            remaining -= estimate
+        else:
+            omissions.append({"record_id": row["record_id"], "session_id": row["session_id"],
+                              "reason": "orientation-detail-omitted; complete text retained in required reading chunks"})
+    activity.update(session_census=census, selected_records=selected, omissions=omissions,
+                    estimated_tokens=token_budget - remaining)
+    activity["source_refs"] = refs + activity["source_refs"]
+    activity["input_object_ids"] = sorted(set(activity["input_object_ids"]) | {ref["object_id"] for ref in refs})
+    return activity
+
+
 def command_prepare(args: argparse.Namespace) -> dict[str, Any]:
     entry_date = parse_entry_date(args.date)
     now = datetime.now(timezone.utc)
     as_of = parse_timestamp(args.as_of, label="as_of") if args.as_of else now
     _, end = day_bounds(entry_date)
-    if entry_date > now.astimezone(TIMEZONE).date():
+    if entry_date > journal_calendar.current_date(now):
         raise JournalError("cannot prepare a future journal date")
-    if entry_date < now.astimezone(TIMEZONE).date() and not args.as_of:
+    if entry_date < journal_calendar.current_date(now) and not args.as_of:
         as_of = end
     root = external_draft_root(args.output_root)
+    previous_contract_path = root / entry_date.isoformat() / "draft-contract.json"
+    if (getattr(args, "require_session_reading", False) and previous_contract_path.exists()
+            and not getattr(args, "refresh_session_checkpoint", False)):
+        previous_reading = load_json(previous_contract_path).get("session_reading")
+        if previous_reading:
+            frozen, _ = session_checkpoints.checked(REPO_ROOT, previous_reading)
+            if args.as_of and as_of != parse_timestamp(frozen["cutoff"], label="checkpoint cutoff"):
+                raise JournalError("Changing a frozen cutoff requires --refresh-session-checkpoint")
+            return {"status": "ready" if args.check else "already_prepared", "mutation": False,
+                    "entry_date": entry_date.isoformat(), "output_root": str(previous_contract_path.parent),
+                    "session_reading": previous_reading, "cutoff": frozen["cutoff"],
+                    "next_action": "Read the frozen chunks or explicitly refresh the unfinished checkpoint."}
     ledger = mira_journal_references.load_ledger(LEARNING_LEDGER_PATH)
     learning_context = mira_journal_references.select_admitted_lessons(
         ledger,
@@ -3217,30 +3432,62 @@ def command_prepare(args: argparse.Namespace) -> dict[str, Any]:
     learning_tokens = max(1, (len(canonical_json(learning_context)) + 3) // 4)
     if learning_tokens > args.token_budget - 256:
         raise JournalError("recursive learning context leaves insufficient journal context budget")
-    activity = collect_activity(
-        entry_date, as_of=as_of, token_budget=args.token_budget - learning_tokens
-    )
+    session_reading = None
+    if getattr(args, "require_session_reading", False):
+        values = session_checkpoints.sources(REPO_ROOT)
+        preserved, overlay = session_checkpoints.preserve(REPO_ROOT, values, check=args.check)
+        start, end = day_bounds(entry_date)
+        checkpoint, chunks = session_checkpoints.build(REPO_ROOT, entry_date.isoformat(), start,
+            min(as_of, end), end, preserved, overlay=overlay)
+        lineage = session_checkpoints.lineage_index(REPO_ROOT, values)
+        checkpoint["conversation_grouping"] = session_checkpoints.conversation_groups(
+            preserved, {row["session_id"] for row in checkpoint["sessions"]}, lineage)
+        if not args.check:
+            session_checkpoints.write_json(session_checkpoints.private_child(REPO_ROOT, session_checkpoints.LINEAGE), lineage)
+        session_reading = session_checkpoints.publish(REPO_ROOT, checkpoint, chunks, check=args.check)
+        activity = checkpoint_activity(entry_date, as_of, checkpoint, chunks, preserved,
+                                       args.token_budget - learning_tokens)
+    else:
+        activity = collect_activity(entry_date, as_of=as_of, token_budget=args.token_budget - learning_tokens)
     pack = context_pack(entry_date, activity, args.token_budget, learning_context)
-    brief = composition_brief(entry_date, pack)
+    brief = composition_brief(entry_date, pack, grouping=checkpoint["conversation_grouping"] if session_reading else None)
     contract = draft_contract(entry_date, pack, brief)
+    if session_reading is not None:
+        contract["session_reading"] = session_reading
+        contract["required_draft_metadata"].extend(["session_checkpoint_sha256", "session_reading_ack_sha256"])
     reference_contract = technical_reference_contract(entry_date, pack, contract, brief)
+    if session_reading is not None:
+        reference_contract["session_reading"] = session_reading
     target = root / entry_date.isoformat()
+    reading = None
+    if getattr(args, "require_journal_reading", False) or (target / "journal-reading.json").exists():
+        reading = journal_reading_packet(entry_date)
+        contract["journal_reading"] = {"required": True, "packet_sha256": reading_digest(reading),
+                                       "entry_count": len(reading["entries"])}
+        contract["required_draft_metadata"].append("journal_reading_ack_sha256")
     if not args.check:
+        if reading is not None and reading != journal_reading_packet(entry_date):
+            raise JournalError("Journal changed during preparation; retry before composing")
         target.mkdir(parents=True, exist_ok=True)
         atomic_write_json(target / "context-pack.json", pack)
         atomic_write_json(target / "composition-brief.json", brief)
         atomic_write_json(target / "draft-contract.json", contract)
         atomic_write_json(target / "technical-reference-contract.json", reference_contract)
+        if reading is not None:
+            atomic_write_json(target / "journal-reading.json", reading)
     return {
         "status": "ready" if args.check else "prepared",
         "mutation": not args.check,
         "entry_date": entry_date.isoformat(),
         "output_root": str(target),
+        "journal_reading": contract.get("journal_reading"),
+        "session_reading": contract.get("session_reading"),
         "context_pack_id": pack["context_pack_id"],
         "composition_brief_id": brief["composition_brief_id"],
         "composition_brief_sha256": sha256_bytes(canonical_json(brief).encode("utf-8")),
         "selected_records": len(pack["selected_records"]),
         "qualifying_sessions": len(pack["session_census"]),
+        "conversation_grouping": brief.get("conversation_grouping"),
         "dispositioned_sessions": sum(
             row.get("disposition") in SESSION_DISPOSITIONS for row in pack["session_census"]
         ),
@@ -3258,7 +3505,7 @@ def command_prepare(args: argparse.Namespace) -> dict[str, Any]:
 def command_status(args: argparse.Namespace) -> dict[str, Any]:
     registry = load_registry()
     approved = {entry["entry_date"]: entry for entry in registry.get("entries", [])}
-    today = datetime.now(TIMEZONE).date()
+    today = journal_calendar.current_date()
     start = parse_entry_date(args.from_date) if args.from_date else (parse_entry_date(min(approved)) if approved else today)
     end = parse_entry_date(args.to_date) if args.to_date else today
     if end < start:
@@ -3277,7 +3524,9 @@ def command_status(args: argparse.Namespace) -> dict[str, Any]:
             state = "drafted"
         else:
             state = "missing"
-        rows.append({"date": key, "status": state})
+        rows.append({"date": key, "status": state,
+                     "timezone": journal_calendar.timezone_name(cursor),
+                     "transition_day": cursor == journal_calendar.TRANSITION_DAY})
         cursor = cursor.fromordinal(cursor.toordinal() + 1)
     return {"status": "ok", "timezone": TIMEZONE_NAME, "days": rows}
 
@@ -3377,6 +3626,13 @@ def approve_or_revise(args: argparse.Namespace, *, revising: bool) -> dict[str, 
 def command_eod_finalize(args: argparse.Namespace) -> dict[str, Any]:
     entry_date = parse_entry_date(args.date)
     body, metadata = load_draft_bundle(args.bundle / "draft.md")
+    if (REPO_ROOT / "archive/sessions/transcripts/scope.json").is_file():
+        if not load_json(args.bundle / "draft-contract.json").get("session_reading"):
+            raise JournalError("Refresh Dream preparation with --require-session-reading before finalization")
+    failures = reading_failures(args.bundle, entry_date, metadata)
+    failures.extend(session_checkpoints.reading_failures(REPO_ROOT, args.bundle, metadata))
+    if failures:
+        raise JournalError("; ".join(failures))
     technical_reference = load_draft_reference(args.bundle / "draft.md")
     registry = load_registry()
     if any(item.get("entry_date") == entry_date.isoformat() for item in registry.get("entries", [])):
@@ -3752,10 +4008,29 @@ def parser() -> argparse.ArgumentParser:
     prepare.add_argument("--date", required=True)
     prepare.add_argument("--as-of")
     prepare.add_argument("--token-budget", type=int, default=16000)
+    prepare.add_argument("--refresh-session-checkpoint", action="store_true", help="Explicitly refresh unfinished session coverage; rereading is required.")
+    prepare.add_argument("--require-session-reading", action="store_true", help="Preserve and bind complete daily transcript reading.")
+    prepare.add_argument("--require-journal-reading", action="store_true",
+                         help="Prepare the complete sequential Journal reading required by Dream.")
     prepare.add_argument("--output-root", type=Path)
     prepare.add_argument("--check", action="store_true")
     add_output(prepare)
     prepare.set_defaults(handler=command_prepare)
+    reading = subparsers.add_parser("reading-complete", help="Declare full sequential reading before Dream composition.")
+    reading.add_argument("--bundle", type=Path, required=True)
+    reading.add_argument("--packet-digest", required=True)
+    reading.add_argument("--session-id", required=True)
+    add_output(reading)
+    reading.set_defaults(handler=command_reading_complete)
+
+    session_reading = subparsers.add_parser("session-reading-complete", help="Acknowledge daily transcript chunks in order.")
+    session_reading.add_argument("--bundle", type=Path, required=True)
+    session_reading.add_argument("--packet-digest", required=True)
+    session_reading.add_argument("--session-id", required=True)
+    session_reading.add_argument("--chunk", type=int, action="append", default=[])
+    add_output(session_reading)
+    session_reading.set_defaults(handler=lambda args: session_checkpoints.acknowledge(REPO_ROOT,
+        private_draft_path(args.bundle, label="session reading bundle"), args.session_id, args.packet_digest, args.chunk))
 
     prose_check = subparsers.add_parser(
         "prose-check",

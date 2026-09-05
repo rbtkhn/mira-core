@@ -50,7 +50,15 @@ events merely to fill the entry.
 
 1. **Gather.** Read only `context-pack.json`, `composition-brief.json`,
    `draft-contract.json`, and `technical-reference-contract.json` from the
-   prepared external date directory. Treat `authoritative_ancestry` as the
+   prepared external date directory, plus Dream's complete `journal-reading.json`
+   and all daily transcript chunks bound by `session_reading` in the draft contract.
+   For Dream, read that packet oldest to newest before selecting significance
+   or writing prose, and acknowledge it through `reading-complete` as described
+   in Dream. Bind `journal_reading_ack_sha256` in draft metadata. The full
+   reading is separate from the session evidence budget and cannot be replaced
+   by summaries, prior-session memory, or selected continuity threads.
+   Treat approved entries labeled `authoritative-ancestry` in that packet and
+   `authoritative_ancestry` in the brief as the
    only source of inheritable journal continuity. Treat
    `readable_legacy_context` as reflection context that may inform the prose
    but must not supply an inherited thread or governed continuity claim.
@@ -105,3 +113,59 @@ The skill interprets and composes. `tools/run.ps1 mira-journal` prepares,
 validates, approves, renders, and governs. `recursive-learn` alone assesses a
 possible feedback loop, and explicit digest-bound admission alone mutates the
 canonical RSI ledger.
+
+## Complete daily transcript reading
+
+Dream preparation additionally uses `--require-session-reading`. Read all private
+checkpoint chunks under `archive/sessions/daily/` in order before choosing significance
+or composing. The bounded context-pack remains an orientation aid only. Complete
+sequential reading is acknowledged with `mira-journal session-reading-complete`
+using the checkpoint digest, composing session ID, and repeated ordered `--chunk N`
+arguments. Bind `session_checkpoint_sha256` and `session_reading_ack_sha256` in
+`draft.json`; bind `session_checkpoint_sha256` in `technical-reference.json`.
+Partial capture coverage requires `session_coverage_gaps_acknowledged: true`.
+Neither an acknowledgement nor complete capture availability proves comprehension.
+
+Unchanged preparation reuses its checkpoint. Explicit `--refresh-session-checkpoint`
+creates a new immutable checkpoint for an unfinished bundle and requires fresh reading.
+Existing finalized Journal versions and approvals remain unchanged.
+
+
+## Conversation grouping
+
+New daily reading checkpoints bind a private parentage snapshot derived only from
+explicit Codex metadata. The composition brief groups active sessions beneath their
+recorded primary ancestor; inactive parents provide context only. Missing,
+conflicting, cyclic, or unavailable ancestry remains unresolved. Primary sessions,
+subagent sessions, and transcript records are separate counts, not accomplishments.
+Read every required chunk and disposition every session. Combine a helper finding
+and its parent summary under one grounded development when they describe the same
+work; retain distinct findings even within one conversation. Grouping does not
+prove semantic duplication or independent corroboration. Historical checkpoints,
+transcripts, journal versions, and approvals are not rewritten. Older bundles
+without grouping remain valid. The private provenance index is
+`archive/sessions/transcripts/lineage.json`; subsequent changes do not alter a
+previously frozen grouping.
+
+
+## Dated Eastern calendar
+
+The Journal and Dream use the shared policy in `scripts/journal_calendar.py`.
+Through September 4, 2026, dates retain America/Denver boundaries. September 5
+is an explicit 22-hour transition: 2026-09-05 06:00 UTC through 2026-09-06
+04:00 UTC (midnight to 10 p.m. Denver). From September 6 onward, dates use
+midnight to midnight America/New_York, including EST/EDT daylight-saving rules.
+Intervals include their start and exclude their end; no activity is reassigned
+twice or dropped at the transition. Transition checkpoints identify their
+exceptional window explicitly. Use the shared date policy for retrospective
+preparation, freshness, current-date selection, and validation.
+
+The registry's original `timezone: America/Denver` remains historical metadata;
+it is not a global override of the dated policy. Existing versions, approval
+bindings, captures, and frozen checkpoints remain unchanged. New post-transition
+coverage binds its calendar policy and UTC bounds. Missing timezone data fails
+explicitly; fixed EST or a silent fixed-offset fallback is not permitted.
+Dream defaults to the timezone for the requested date and rejects a conflicting
+post-transition override. This changes date assignment, not task scheduling,
+operating-system settings, or external publication timestamps. Journal entry
+dates remain distinct from the time an entry is actually published.
