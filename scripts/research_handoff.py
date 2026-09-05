@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from repository_paths import resolve_geopolitics_reference
 import argparse
 import json
 import re
@@ -8,7 +9,7 @@ from typing import Any
 
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
-CLAIMS_ROOT = REPO_ROOT / "narrative-geopolitics" / "work" / "reality" / "claims"
+CLAIMS_ROOT = resolve_geopolitics_reference(REPO_ROOT, 'geopolitics') / "work" / "reality" / "claims"
 SCHEMA = "research-execution-handoff-v1"
 SEED_SCHEMA = "research-brief-seed-v1"
 WORKFLOWS = {
@@ -60,6 +61,20 @@ REQUIRED_CONTRACT_FIELDS = {
     "contradiction_protocol",
     "finding_format",
     "stop_condition",
+}
+
+
+
+
+def _path(name: str):
+    """Resolve defaults at use time while honoring explicit module overrides."""
+    original, factory = _PATH_DEFAULTS[name]
+    value = globals()[name]
+    return factory() if value == original else value
+
+
+_PATH_DEFAULTS = {
+    'CLAIMS_ROOT': (CLAIMS_ROOT, lambda: resolve_geopolitics_reference(REPO_ROOT, 'geopolitics') / 'work' / 'reality' / 'claims'),
 }
 
 
@@ -130,7 +145,8 @@ def claim_exists(claim_id: str, claims_root: Path) -> bool:
     return False
 
 
-def classify(packet: dict[str, Any], *, claims_root: Path = CLAIMS_ROOT) -> tuple[str, list[str]]:
+def classify(packet: dict[str, Any], *, claims_root: Path = None) -> tuple[str, list[str]]:
+    claims_root = _path('CLAIMS_ROOT') if claims_root is None else claims_root
     destination = require_mapping(packet.get("destination"), "destination")
     prerequisites = require_mapping(packet.get("prerequisites"), "prerequisites")
     scope = require_mapping(packet.get("scope"), "scope")
@@ -284,7 +300,8 @@ def build_seed(
     return seed
 
 
-def validate_packet(packet: Any, *, claims_root: Path = CLAIMS_ROOT) -> dict[str, Any]:
+def validate_packet(packet: Any, *, claims_root: Path = None) -> dict[str, Any]:
+    claims_root = _path('CLAIMS_ROOT') if claims_root is None else claims_root
     root = require_mapping(packet, "packet")
     if root.get("schema") != SCHEMA:
         raise ValueError(f"schema must be {SCHEMA}")
@@ -351,7 +368,7 @@ def parse_args(arguments: list[str] | None = None) -> argparse.Namespace:
     target = parser.add_mutually_exclusive_group(required=True)
     target.add_argument("--packet", type=Path)
     target.add_argument("--seed", type=Path)
-    parser.add_argument("--claims-root", type=Path, default=CLAIMS_ROOT, help=argparse.SUPPRESS)
+    parser.add_argument("--claims-root", type=Path, default=_path('CLAIMS_ROOT'), help=argparse.SUPPRESS)
     parser.add_argument("--json", action="store_true")
     return parser.parse_args(arguments)
 

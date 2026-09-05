@@ -137,6 +137,7 @@ def test_auto_add_routes_nate_herk_to_singularity_target_note(tmp_path: Path, mo
     route_index = tmp_path / "routes.yml"
     write_route_index(route_index)
     monkeypatch.setattr(youtube_capture, "REPO_ROOT", tmp_path)
+    (tmp_path / "narrative-geopolitics").mkdir(exist_ok=True)
     transcript_dir = tmp_path / "archive/sources/singularity/nate-herk/transcripts"
     transcript_dir.mkdir(parents=True)
 
@@ -175,6 +176,7 @@ def test_auto_add_routes_nate_b_jones_to_singularity_target_note(tmp_path: Path,
     route_index = tmp_path / "routes.yml"
     write_route_index(route_index)
     monkeypatch.setattr(youtube_capture, "REPO_ROOT", tmp_path)
+    (tmp_path / "narrative-geopolitics").mkdir(exist_ok=True)
 
     assert (
         youtube_capture.main(
@@ -260,6 +262,7 @@ def write_delegated_channel_index(tmp_path: Path) -> Path:
 @pytest.mark.parametrize("channel", ["dialogue-works", "Dialogue Works", "@dialogueworks01", "https://www.youtube.com/@dialogueworks01"])
 def test_delegated_geopolitics_route_accepts_known_channel_metadata(tmp_path: Path, monkeypatch, channel: str) -> None:
     monkeypatch.setattr(youtube_capture, "REPO_ROOT", tmp_path)
+    (tmp_path / "narrative-geopolitics").mkdir(exist_ok=True)
     route_index = write_delegated_channel_index(tmp_path)
     route = youtube_capture.resolve_channel_route(channel=channel, route_index_path=route_index)
     assert (route["archive_lane"], route["channel_slug"]) == ("geopolitics", "dialogue-works")
@@ -267,6 +270,7 @@ def test_delegated_geopolitics_route_accepts_known_channel_metadata(tmp_path: Pa
 
 def test_delegated_add_preserves_canonical_export_routing(tmp_path: Path, monkeypatch) -> None:
     monkeypatch.setattr(youtube_capture, "REPO_ROOT", tmp_path)
+    (tmp_path / "narrative-geopolitics").mkdir(exist_ok=True)
     route_index = write_delegated_channel_index(tmp_path)
     queue_root = tmp_path / "queue"
     assert youtube_capture.main([
@@ -282,6 +286,7 @@ def test_delegated_add_preserves_canonical_export_routing(tmp_path: Path, monkey
 
 def test_delegation_keeps_unknown_channels_closed_and_explicit_routes_first(tmp_path: Path, monkeypatch) -> None:
     monkeypatch.setattr(youtube_capture, "REPO_ROOT", tmp_path)
+    (tmp_path / "narrative-geopolitics").mkdir(exist_ok=True)
     route_index = write_delegated_channel_index(tmp_path)
     with pytest.raises(youtube_capture.CaptureError, match="no YouTube archive route"):
         youtube_capture.resolve_channel_route(channel="Unknown Channel", route_index_path=route_index)
@@ -293,6 +298,7 @@ def test_delegation_keeps_unknown_channels_closed_and_explicit_routes_first(tmp_
 
 def test_repeated_delegated_add_preserves_notes_unless_replaced(tmp_path: Path, monkeypatch) -> None:
     monkeypatch.setattr(youtube_capture, "REPO_ROOT", tmp_path)
+    (tmp_path / "narrative-geopolitics").mkdir(exist_ok=True)
     route_index = write_delegated_channel_index(tmp_path)
     queue_root = tmp_path / "queue"
     args = [
@@ -312,6 +318,7 @@ def test_repeated_delegated_add_preserves_notes_unless_replaced(tmp_path: Path, 
 
 def test_delegation_rejects_conflicting_channel_identifiers(tmp_path: Path, monkeypatch) -> None:
     monkeypatch.setattr(youtube_capture, "REPO_ROOT", tmp_path)
+    (tmp_path / "narrative-geopolitics").mkdir(exist_ok=True)
     route_index = write_delegated_channel_index(tmp_path)
     with (tmp_path / "channels.md").open("a", encoding="utf-8") as stream:
         stream.write(
@@ -325,6 +332,7 @@ def test_delegation_rejects_conflicting_channel_identifiers(tmp_path: Path, monk
 
 def singularity_route(tmp_path: Path, monkeypatch) -> dict[str, object]:
     monkeypatch.setattr(youtube_capture, "REPO_ROOT", tmp_path)
+    (tmp_path / "narrative-geopolitics").mkdir(exist_ok=True)
     route_index = tmp_path / "routes.yml"
     write_route_index(route_index)
     route = youtube_capture.resolve_channel_route(channel="Nate Herk", route_index_path=route_index)
@@ -434,6 +442,7 @@ def test_singularity_malformed_existing_row_blocks_rewrite_without_byte_changes(
 
 def test_route_audit_fails_on_nate_contamination_in_geopolitics(tmp_path: Path, monkeypatch, capsys) -> None:
     monkeypatch.setattr(youtube_capture, "REPO_ROOT", tmp_path)
+    (tmp_path / "narrative-geopolitics").mkdir(exist_ok=True)
     queue_root = tmp_path / "narrative-geopolitics/work/capture/youtube"
     queue_root.mkdir(parents=True)
     (tmp_path / "narrative-geopolitics/channels").mkdir(parents=True)

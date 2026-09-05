@@ -6,11 +6,7 @@ from datetime import date
 from pathlib import Path
 
 import voice_metadata
-
-
-DEFAULT_RECEIPT = (
-    voice_metadata.NG_ROOT / "work" / "migrations" / f"canonical-voice-metadata-{date.today().isoformat()}.json"
-)
+from repository_paths import resolve_geopolitics_reference
 
 
 def parse_args() -> argparse.Namespace:
@@ -28,6 +24,14 @@ def parse_args() -> argparse.Namespace:
 
 def main() -> None:
     args = parse_args()
+    # Resolve the default destination before apply_metadata can modify sources.
+    # Explicit receipts and archive-only checks do not require a domain root.
+    receipt = args.receipt
+    if args.write and args.all and receipt is None:
+        receipt = resolve_geopolitics_reference(
+            voice_metadata.REPO_ROOT,
+            f"geopolitics/work/migrations/canonical-voice-metadata-{date.today().isoformat()}.json",
+        )
     manifest = voice_metadata.load_manifest()
     run_date = None if args.all else args.date
     report = (
@@ -37,7 +41,6 @@ def main() -> None:
     )
     if args.write and not report["failures"] and report["changes"]:
         voice_metadata.write_manifest(manifest)
-        receipt = args.receipt or (DEFAULT_RECEIPT if args.all else None)
         if receipt:
             receipt.parent.mkdir(parents=True, exist_ok=True)
             receipt.write_text(json.dumps(report, indent=2, ensure_ascii=False) + "\n", encoding="utf-8", newline="\n")

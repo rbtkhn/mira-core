@@ -11,6 +11,8 @@ SCRIPTS_ROOT = Path(__file__).resolve().parent
 if str(SCRIPTS_ROOT) not in sys.path:
     sys.path.insert(0, str(SCRIPTS_ROOT))
 
+from repository_paths import geopolitics_root, resolve_geopolitics_reference, canonical_geopolitics_reference
+
 import voice_indexes
 import voice_metadata
 import verification
@@ -18,10 +20,10 @@ import render_daily_issue as daily_issue
 
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
-NG_ROOT = REPO_ROOT / "narrative-geopolitics"
-MANIFEST_PATH = NG_ROOT.parent / "archive" / "sources" / "geopolitics" / "source-manifest.json"
-DAILY_ROOT = NG_ROOT / "work" / "daily"
-LEDGER_PATH = NG_ROOT / "work" / "forecasts" / "forecast-ledger.md"
+NG_ROOT: Path | None = None
+MANIFEST_PATH: Path | None = None
+DAILY_ROOT: Path | None = None
+LEDGER_PATH: Path | None = None
 DAILY_COMPLETENESS_TARGET = 6
 
 
@@ -88,6 +90,18 @@ ISSUE_DENSE_WORD_FLOOR = 1200
 ISSUE_LEGACY_WORD_CEILING = 2500
 
 
+def domain_root() -> Path:
+    return NG_ROOT if NG_ROOT is not None else geopolitics_root(REPO_ROOT)
+
+
+def daily_root() -> Path:
+    return DAILY_ROOT if DAILY_ROOT is not None else domain_root() / "work" / "daily"
+
+
+def ledger_path() -> Path:
+    return LEDGER_PATH if LEDGER_PATH is not None else domain_root() / "work" / "forecasts" / "forecast-ledger.md"
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description="Validate a Narrative Geopolitics daily run against archive and forecast surfaces."
@@ -106,7 +120,8 @@ def parse_args() -> argparse.Namespace:
 
 
 def load_manifest() -> dict[str, Any]:
-    return json.loads(MANIFEST_PATH.read_text(encoding="utf-8-sig"))
+    path = MANIFEST_PATH if MANIFEST_PATH is not None else REPO_ROOT / "archive" / "sources" / "geopolitics" / "source-manifest.json"
+    return json.loads(path.read_text(encoding="utf-8-sig"))
 
 
 def read_text(path: Path) -> str:
@@ -114,7 +129,7 @@ def read_text(path: Path) -> str:
 
 
 def daily_dir(run_date: str) -> Path:
-    return DAILY_ROOT / run_date
+    return daily_root() / run_date
 
 
 def expected_files(run_date: str) -> list[Path]:
@@ -173,7 +188,7 @@ def judgment_failures(run_date: str, rows: list[dict[str, Any]], stage: str) -> 
     if re.search(r"(?i)\b(?:is|are|was|were)\s+(?:verified|confirmed|operationally supported)\b|\boperationally_supported\b", compression) and not re.search(r"`(?:OPC|CLM|VER)-[A-Z0-9-]+`", compression):
         failures.append("judgment.md cannot assert verification status without a linked OPC, CLM, or VER record")
 
-    records_root = NG_ROOT / "work" / "reality"
+    records_root = domain_root() / "work" / "reality"
     known_ids = set()
     if records_root.exists():
         for record_path in records_root.rglob("*.json"):
@@ -183,7 +198,7 @@ def judgment_failures(run_date: str, rows: list[dict[str, Any]], stage: str) -> 
                 continue
             if record.get("id"):
                 known_ids.add(str(record["id"]))
-    ledger_ids = set(HOOK_RE.findall(read_text(LEDGER_PATH)))
+    ledger_ids = set(HOOK_RE.findall(read_text(ledger_path())))
     source_ids = set(re.findall(r"`(SRC-[A-Z0-9-]+)`", read_text(daily_dir(run_date) / "sources.md")))
     synthesis_path = daily_dir(run_date) / "synthesis.md"
     operational_ids = {
@@ -194,8 +209,8 @@ def judgment_failures(run_date: str, rows: list[dict[str, Any]], stage: str) -> 
     }
     library_ids: set[str] | None = None
     verification_ids = {
-        path.name for path in (NG_ROOT / "work" / "verification" / "packets").glob("VER-*")
-    } if (NG_ROOT / "work" / "verification" / "packets").exists() else set()
+        path.name for path in (domain_root() / "work" / "verification" / "packets").glob("VER-*")
+    } if (domain_root() / "work" / "verification" / "packets").exists() else set()
     for ref in JUDGMENT_REF_RE.findall(text):
         if ref.startswith("SRC-"):
             if ref not in source_ids:
@@ -231,7 +246,7 @@ def strategy_notebook_paths(run_date: str) -> list[Path]:
     month = run_date[:7]
     return [
         daily_dir(run_date) / "strategy-notebook.md",
-        NG_ROOT / "work" / "strategy-notebook" / f"{month}.md",
+        domain_root() / "work" / "strategy-notebook" / f"{month}.md",
     ]
 
 
@@ -255,7 +270,7 @@ def strategy_notebook_exists_for_date(run_date: str) -> bool:
     daily_path = daily_dir(run_date) / "strategy-notebook.md"
     if daily_path.exists():
         return True
-    month_path = NG_ROOT / "work" / "strategy-notebook" / f"{run_date[:7]}.md"
+    month_path = domain_root() / "work" / "strategy-notebook" / f"{run_date[:7]}.md"
     if not month_path.exists():
         return False
     return bool(strategy_notebook_section(read_text(month_path), run_date))
@@ -264,7 +279,7 @@ def strategy_notebook_exists_for_date(run_date: str) -> bool:
 def strategy_notebook_failures(run_date: str, stage: str) -> list[str]:
     """Validate the expert-facing daily estimate without verifying its claims."""
     daily_path = daily_dir(run_date) / "strategy-notebook.md"
-    month_path = NG_ROOT / "work" / "strategy-notebook" / f"{run_date[:7]}.md"
+    month_path = domain_root() / "work" / "strategy-notebook" / f"{run_date[:7]}.md"
     if stage == "intake":
         return []
     if daily_path.exists():
@@ -450,7 +465,7 @@ def source_paths_exist(rows: list[dict[str, Any]]) -> list[str]:
     missing: list[str] = []
     for row in rows:
         local_path = row.get("local_path", "")
-        target = REPO_ROOT / Path(local_path)
+        target = resolve_geopolitics_reference(REPO_ROOT, local_path)
         if not target.exists():
             missing.append(local_path)
     return missing
@@ -481,7 +496,7 @@ def normalize_daily_archive_link(link: str) -> str:
 
 
 def manifest_archive_paths(rows: list[dict[str, Any]]) -> set[str]:
-    return {row.get("local_path", "").split("narrative-geopolitics/", 1)[-1] for row in rows}
+    return {canonical_geopolitics_reference(row["local_path"]) for row in rows if row.get("local_path")}
 
 
 def extract_hook_ids(text: str) -> list[str]:
@@ -493,7 +508,7 @@ def extract_hook_ids(text: str) -> list[str]:
 
 
 def extract_ledger_hook_ids() -> set[str]:
-    return set(HOOK_RE.findall(read_text(LEDGER_PATH)))
+    return set(HOOK_RE.findall(read_text(ledger_path())))
 
 
 def coverage_differences(
@@ -590,7 +605,7 @@ def validate_run(run_date: str, stage: str = "intake") -> dict[str, Any]:
         linked_paths = {normalize_daily_archive_link(link) for link in extract_archive_links(sources_text)}
 
         for rel in sorted(linked_paths):
-            target = REPO_ROOT / "narrative-geopolitics" / Path(rel)
+            target = resolve_geopolitics_reference(REPO_ROOT, rel)
             directory_is_hydrated = target.parent.is_dir() and any(
                 target.parent.glob("*.md")
             )
@@ -637,7 +652,7 @@ def validate_run(run_date: str, stage: str = "intake") -> dict[str, Any]:
             run_date=run_date,
             write=False,
             repo_root=REPO_ROOT,
-            voices_root=NG_ROOT / "voices",
+            voices_root=domain_root() / "voices",
         )
         failures.extend(voice_report["failures"])
 
@@ -680,8 +695,9 @@ def validate_run(run_date: str, stage: str = "intake") -> dict[str, Any]:
             verification.validate_day_claims(
                 run_date,
                 stage,
-                daily_root=DAILY_ROOT,
-                packets_root=verification.PACKETS_ROOT,
+                daily_root=daily_root(),
+                packets_root=domain_root() / "work" / "verification" / "packets",
+                reality_root=domain_root() / "work" / "reality",
             )
         )
 
@@ -693,8 +709,8 @@ def validate_run(run_date: str, stage: str = "intake") -> dict[str, Any]:
         issue_failures, issue_warnings = daily_issue.validate_issue(
             run_date,
             require=stage == "issue",
-            daily_root=DAILY_ROOT,
-            ledger_path=LEDGER_PATH,
+            daily_root=daily_root(),
+            ledger_path=ledger_path(),
         )
         failures.extend(f"issue.md: {item}" for item in issue_failures)
         strategy_notebook_valid = (

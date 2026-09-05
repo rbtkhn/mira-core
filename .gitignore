@@ -45,3 +45,7 @@ Thumbs.db
 # Explicit local Mira provenance stores; schemas and code remain versioned.
 /mira/provenance/*.sqlite3
 /mira/provenance/*.sqlite3-*
+
+# Geopolitics domain rename compatibility (legacy rules retained above).
+/geopolitics/work/cadence/last-dream.json
+/geopolitics/work/operator-positions/.candidates/

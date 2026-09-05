@@ -142,6 +142,7 @@ def test_check_is_read_only_and_reports_internal_composition_requirement(monkeyp
 def test_check_projects_geo_auto_completion_without_mutating(monkeypatch, tmp_path: Path) -> None:
     calls = []
     monkeypatch.setattr(dream_eod, "REPO_ROOT", tmp_path)
+    (tmp_path / "narrative-geopolitics").mkdir(exist_ok=True)
     monkeypatch.setattr(dream_eod, "manifest_rows", lambda _date: 4)
     monkeypatch.setattr(dream_eod, "journal_entry", lambda _date: None)
     monkeypatch.setattr(dream_eod, "run_tool", lambda *args: calls.append(args))
@@ -229,6 +230,7 @@ def test_existing_invalid_strategy_notebook_is_repair_required(monkeypatch, tmp_
     run_dir.mkdir(parents=True)
     (run_dir / "strategy-notebook.md").write_text("# Strategy Notebook\n", encoding="utf-8")
     monkeypatch.setattr(dream_eod, "REPO_ROOT", tmp_path)
+    (tmp_path / "narrative-geopolitics").mkdir(exist_ok=True)
 
     def fake_run_tool(*args):
         assert args == ("daily-validate", "--date", "2026-08-16", "--stage", "synthesis")
@@ -362,6 +364,7 @@ def test_missing_geo_packet_is_completed_by_dream_before_closeout(
     entry = {"versions": [{"version_id": "MJ-20260816-v1", "content_sha256": "a" * 64}]}
     calls = []
     monkeypatch.setattr(dream_eod, "REPO_ROOT", tmp_path)
+    (tmp_path / "narrative-geopolitics").mkdir(exist_ok=True)
     monkeypatch.setattr(dream_eod, "manifest_rows", lambda _date: 3)
     monkeypatch.setattr(dream_eod, "journal_entry", lambda _date: entry)
     monkeypatch.setattr(
@@ -423,6 +426,7 @@ def test_geo_validation_failure_with_artifact_records_revision_debt_and_continue
 ) -> None:
     entry = {"versions": [{"version_id": "MJ-20260816-v1", "content_sha256": "a" * 64}]}
     monkeypatch.setattr(dream_eod, "REPO_ROOT", tmp_path)
+    (tmp_path / "narrative-geopolitics").mkdir(exist_ok=True)
     monkeypatch.setattr(dream_eod, "manifest_rows", lambda _date: 3)
     monkeypatch.setattr(dream_eod, "journal_entry", lambda _date: entry)
     monkeypatch.setattr(
@@ -487,6 +491,7 @@ def test_geo_issue_deferred_with_daily_files_records_revision_debt_and_continues
 ) -> None:
     entry = {"versions": [{"version_id": "MJ-20260816-v1", "content_sha256": "a" * 64}]}
     monkeypatch.setattr(dream_eod, "REPO_ROOT", tmp_path)
+    (tmp_path / "narrative-geopolitics").mkdir(exist_ok=True)
     monkeypatch.setattr(dream_eod, "manifest_rows", lambda _date: 3)
     monkeypatch.setattr(dream_eod, "journal_entry", lambda _date: entry)
     monkeypatch.setattr(

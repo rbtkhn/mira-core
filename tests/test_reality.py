@@ -524,5 +524,5 @@ def test_audit_reports_pilot_impact_and_rejects_unknown_claim() -> None:
 
 
 def test_july_10_packet_remains_unchanged() -> None:
-    path = reality.LEGACY_PACKETS_ROOT / "VER-20260710-01-hormuz-bypass-test" / "README.md"
+    path = reality.default_path("geopolitics/work/verification/packets") / "VER-20260710-01-hormuz-bypass-test" / "README.md"
     assert reality.digest_text(path.read_text(encoding="utf-8")) == "1445c5388421ae6e8d80c9a0c2189dd2d59b25a498ee59c636ec23a5eb5ce9f9"

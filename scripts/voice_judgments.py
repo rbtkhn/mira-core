@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from repository_paths import resolve_geopolitics_reference
 import argparse
 import json
 import os
@@ -14,7 +15,7 @@ from repository_paths import canonical_repository_path
 
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
-NG_ROOT = REPO_ROOT / "narrative-geopolitics"
+NG_ROOT = resolve_geopolitics_reference(REPO_ROOT, 'geopolitics')
 REGISTRY_ROOT = NG_ROOT / "work" / "voice-judgments"
 REGISTRY_PATH = REGISTRY_ROOT / "external-voice-judgment-ledger.json"
 VOICES_ROOT = NG_ROOT / "voices"
@@ -50,6 +51,26 @@ MIGRATION_CLASSES = {
 }
 
 
+
+
+def _path(name: str):
+    """Resolve defaults at use time while honoring explicit module overrides."""
+    original, factory = _PATH_DEFAULTS[name]
+    value = globals()[name]
+    return factory() if value == original else value
+
+
+_PATH_DEFAULTS = {
+    'NG_ROOT': (NG_ROOT, lambda: resolve_geopolitics_reference(REPO_ROOT, 'geopolitics')),
+    'REGISTRY_ROOT': (REGISTRY_ROOT, lambda: _path('NG_ROOT') / 'work' / 'voice-judgments'),
+    'REGISTRY_PATH': (REGISTRY_PATH, lambda: _path('REGISTRY_ROOT') / 'external-voice-judgment-ledger.json'),
+    'VOICES_ROOT': (VOICES_ROOT, lambda: _path('NG_ROOT') / 'voices'),
+    'REVISION_PATH': (REVISION_PATH, lambda: _path('NG_ROOT') / 'work' / 'voice-accountability' / 'voice-revision-ledger.json'),
+    'REALITY_ROOT': (REALITY_ROOT, lambda: _path('NG_ROOT') / 'work' / 'reality'),
+    'FORECAST_LEDGER': (FORECAST_LEDGER, lambda: _path('NG_ROOT') / 'work' / 'forecasts' / 'forecast-ledger.md'),
+}
+
+
 def relative(path: Path) -> str:
     return path.relative_to(REPO_ROOT).as_posix()
 
@@ -58,21 +79,25 @@ def load_json(path: Path) -> dict[str, Any]:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
-def load_registry(path: Path = REGISTRY_PATH) -> dict[str, Any]:
+def load_registry(path: Path = None) -> dict[str, Any]:
+    path = _path('REGISTRY_PATH') if path is None else path
     return load_json(path)
 
 
-def load_revisions(path: Path = REVISION_PATH) -> dict[str, Any]:
+def load_revisions(path: Path = None) -> dict[str, Any]:
+    path = _path('REVISION_PATH') if path is None else path
     return load_json(path)
 
 
-def formal_forecast_ids(path: Path = FORECAST_LEDGER) -> set[str]:
+def formal_forecast_ids(path: Path = None) -> set[str]:
+    path = _path('FORECAST_LEDGER') if path is None else path
     if not path.exists():
         return set()
     return set(re.findall(r"NG-\d{8}-F\d{2}", path.read_text(encoding="utf-8")))
 
 
-def reality_claims(root: Path = REALITY_ROOT) -> dict[str, dict[str, Any]]:
+def reality_claims(root: Path = None) -> dict[str, dict[str, Any]]:
+    root = _path('REALITY_ROOT') if root is None else root
     result: dict[str, dict[str, Any]] = {}
     for path in sorted((root / "claims").glob("*.json")):
         record = load_json(path)
@@ -80,7 +105,8 @@ def reality_claims(root: Path = REALITY_ROOT) -> dict[str, dict[str, Any]]:
     return result
 
 
-def reality_assessments(root: Path = REALITY_ROOT) -> dict[str, dict[str, Any]]:
+def reality_assessments(root: Path = None) -> dict[str, dict[str, Any]]:
+    root = _path('REALITY_ROOT') if root is None else root
     by_claim: dict[str, list[dict[str, Any]]] = {}
     for path in sorted((root / "assessments").glob("*.json")):
         record = load_json(path)
@@ -94,7 +120,8 @@ def reality_assessments(root: Path = REALITY_ROOT) -> dict[str, dict[str, Any]]:
     return result
 
 
-def all_revision_entries(path: Path = REVISION_PATH) -> list[dict[str, Any]]:
+def all_revision_entries(path: Path = None) -> list[dict[str, Any]]:
+    path = _path('REVISION_PATH') if path is None else path
     return list(load_revisions(path).get("entries", []))
 
 
@@ -105,16 +132,20 @@ def judgment_index(registry: dict[str, Any]) -> dict[str, dict[str, Any]]:
 def validate_registry(
     registry: dict[str, Any] | None = None,
     *,
-    repo_root: Path = REPO_ROOT,
-    revision_path: Path = REVISION_PATH,
-    reality_root: Path = REALITY_ROOT,
-    forecast_path: Path = FORECAST_LEDGER,
+    repo_root: Path = None,
+    revision_path: Path = None,
+    reality_root: Path = None,
+    forecast_path: Path = None,
 ) -> list[str]:
+    repo_root = REPO_ROOT if repo_root is None else repo_root
+    revision_path = _path('REVISION_PATH') if revision_path is None else revision_path
+    reality_root = _path('REALITY_ROOT') if reality_root is None else reality_root
+    forecast_path = _path('FORECAST_LEDGER') if forecast_path is None else forecast_path
     failures: list[str] = []
     registered_sources = registered_source_paths(repo_root)
     if registry is None:
-        if not REGISTRY_PATH.exists():
-            return [f"voice judgment registry missing: {relative(REGISTRY_PATH)}"]
+        if not _path('REGISTRY_PATH').exists():
+            return [f"voice judgment registry missing: {relative(_path('REGISTRY_PATH'))}"]
         try:
             registry = load_registry()
         except (OSError, json.JSONDecodeError) as error:
@@ -126,7 +157,13 @@ def validate_registry(
         failures.append("voice judgment registry: invalid status")
     if registry.get("authority_boundary") != BOUNDARY:
         failures.append("voice judgment registry: authority boundary drift")
-    if registry.get("revision_ledger_ref") != relative(REVISION_PATH):
+    revision_ref = relative(_path('REVISION_PATH'))
+    revision_aliases = {revision_ref}
+    if revision_ref.startswith("narrative-geopolitics/"):
+        revision_aliases.add(revision_ref.removeprefix("narrative-"))
+    elif revision_ref.startswith("geopolitics/"):
+        revision_aliases.add("narrative-" + revision_ref)
+    if registry.get("revision_ledger_ref") not in revision_aliases:
         failures.append("voice judgment registry: revision authority reference drift")
     judgments = registry.get("judgments")
     if not isinstance(judgments, list):
@@ -151,7 +188,7 @@ def validate_registry(
             failures.append(f"{label}: duplicate judgment ID")
         seen_ids.add(label)
         voice = judgment.get("voice_slug")
-        if not isinstance(voice, str) or not (repo_root / "narrative-geopolitics" / "voices" / voice).is_dir():
+        if not isinstance(voice, str) or not (resolve_geopolitics_reference(repo_root, 'geopolitics') / "voices" / voice).is_dir():
             failures.append(f"{label}: voice directory does not resolve: {voice}")
         if judgment.get("class") not in JUDGMENT_CLASSES:
             failures.append(f"{label}: invalid judgment class {judgment.get('class')}")
@@ -231,9 +268,9 @@ def validate_registry(
                 failures.append(f"{version_id}: daily_refs must be a list")
                 daily_refs = []
             for daily_ref in daily_refs:
-                if not isinstance(daily_ref, str) or not daily_ref.startswith("narrative-geopolitics/work/daily/"):
+                if not isinstance(daily_ref, str) or not daily_ref.startswith(("narrative-geopolitics/work/daily/", "geopolitics/work/daily/")):
                     failures.append(f"{version_id}: invalid daily reference {daily_ref}")
-                elif not (repo_root / daily_ref).is_file():
+                elif not resolve_geopolitics_reference(repo_root, daily_ref).is_file():
                     failures.append(f"{version_id}: daily reference does not resolve: {daily_ref}")
 
             for forecast_id in version.get("formal_forecast_refs", []):
@@ -292,7 +329,7 @@ def daterange(start: str, end: str) -> list[str]:
 
 
 def daily_source_map(day: str) -> dict[str, tuple[str, str]]:
-    path = NG_ROOT / "work" / "daily" / day / "sources.md"
+    path = _path('NG_ROOT') / "work" / "daily" / day / "sources.md"
     if not path.exists():
         return {}
     result: dict[str, tuple[str, str]] = {}
@@ -309,7 +346,7 @@ def daily_source_map(day: str) -> dict[str, tuple[str, str]]:
             continue
         target = match.group(1).replace("\\", "/")
         marker = "archive/sources/geopolitics/sources/"
-        archive_path = "narrative-geopolitics/" + target[target.index(marker) :]
+        archive_path = target[target.index(marker) :]
         result[source_id] = (voice, archive_path)
     return result
 
@@ -399,19 +436,19 @@ def parse_legacy_state(path: Path) -> dict[str, Any]:
 
 
 def migrate_state_registry() -> dict[str, Any]:
-    state_paths = sorted(VOICES_ROOT.glob("*/state-ledger.md"))
+    state_paths = sorted(_path('VOICES_ROOT').glob("*/state-ledger.md"))
     judgments = [parse_legacy_state(path) for path in state_paths]
     return {
         "schema": SCHEMA,
         "status": "internal-canonical",
         "authority_boundary": BOUNDARY,
-        "revision_ledger_ref": relative(REVISION_PATH),
+        "revision_ledger_ref": relative(_path('REVISION_PATH')),
         "judgments": judgments,
     }
 
 
 def voice_title(slug: str) -> str:
-    readme = VOICES_ROOT / slug / "README.md"
+    readme = _path('VOICES_ROOT') / slug / "README.md"
     if readme.exists():
         for line in readme.read_text(encoding="utf-8").splitlines():
             if line.startswith("# "):
@@ -431,7 +468,14 @@ def md_escape(value: Any) -> str:
 
 
 def md_link(from_dir: Path, target: str, label: str) -> str:
+    # Preserve historical relative link bytes, including legacy archive aliases.
+    # Only project the domain prefix onto the selected physical layout here;
+    # existence checks use the full archive/domain resolver separately.
     path = REPO_ROOT / target
+    for prefix in ("narrative-geopolitics/", "geopolitics/"):
+        if target.startswith(prefix):
+            path = _path('NG_ROOT') / target.removeprefix(prefix)
+            break
     rel = os.path.relpath(path, from_dir).replace("\\", "/")
     return f"[{label}]({rel})"
 
@@ -443,7 +487,7 @@ def render_voice(
     claims: dict[str, dict[str, Any]],
     assessments: dict[str, dict[str, Any]],
 ) -> str:
-    voice_dir = VOICES_ROOT / slug
+    voice_dir = _path('VOICES_ROOT') / slug
     judgments = sorted(
         [item for item in registry.get("judgments", []) if item.get("voice_slug") == slug],
         key=lambda item: str(item.get("id")),
@@ -573,7 +617,7 @@ def render_voice(
             for claim_id in version.get("reality_claim_refs", []):
                 claim = claims[claim_id]
                 assessment = assessments.get(claim_id, {})
-                claim_path = relative(REALITY_ROOT / "claims" / f"{claim_id}.json")
+                claim_path = relative(_path('REALITY_ROOT') / "claims" / f"{claim_id}.json")
                 lines.append(
                     f"| `{item['id']}` | {md_link(voice_dir, claim_path, claim_id)} | `{claim.get('claim_type')}` | "
                     f"`{assessment.get('outcome', 'unassessed')}` | `{assessment.get('status', 'unassessed')}` |"
@@ -647,7 +691,7 @@ def expected_outputs(registry: dict[str, Any] | None = None) -> dict[Path, str]:
     )
     outputs: dict[Path, str] = {}
     for slug in voices:
-        outputs[VOICES_ROOT / slug / "judgment-ledger.md"] = render_voice(
+        outputs[_path('VOICES_ROOT') / slug / "judgment-ledger.md"] = render_voice(
             slug, registry, revisions, claims, assessments
         )
     by_voice: dict[str, list[dict[str, Any]]] = {}
@@ -655,7 +699,7 @@ def expected_outputs(registry: dict[str, Any] | None = None) -> dict[Path, str]:
         if judgment.get("legacy_ids"):
             by_voice.setdefault(str(judgment.get("voice_slug")), []).append(judgment)
     for slug, judgments in by_voice.items():
-        outputs[VOICES_ROOT / slug / "state-ledger.md"] = render_state_stub(slug, judgments)
+        outputs[_path('VOICES_ROOT') / slug / "state-ledger.md"] = render_state_stub(slug, judgments)
     return outputs
 
 
@@ -691,7 +735,7 @@ def command_validate() -> int:
 
 
 def command_migrate_state(*, check: bool, write: bool) -> int:
-    if check and REGISTRY_PATH.exists():
+    if check and _path('REGISTRY_PATH').exists():
         registry = load_registry()
         failures = validate_registry(registry)
         legacy_count = sum(bool(item.get("legacy_ids")) for item in registry.get("judgments", []))
@@ -717,9 +761,9 @@ def command_migrate_state(*, check: bool, write: bool) -> int:
             print(f"FAIL {failure}")
         return 1
     if write:
-        REGISTRY_ROOT.mkdir(parents=True, exist_ok=True)
-        REGISTRY_PATH.write_text(json.dumps(candidate, indent=2) + "\n", encoding="utf-8", newline="\n")
-        print(f"voice judgment registry written: {relative(REGISTRY_PATH)}")
+        _path('REGISTRY_ROOT').mkdir(parents=True, exist_ok=True)
+        _path('REGISTRY_PATH').write_text(json.dumps(candidate, indent=2) + "\n", encoding="utf-8", newline="\n")
+        print(f"voice judgment registry written: {relative(_path('REGISTRY_PATH'))}")
     else:
         print(f"voice judgment migration check passed judgments={len(candidate['judgments'])}")
     return 0

@@ -27,6 +27,7 @@ FORBIDDEN_PROMOTION_PREFIXES = (
     "mira/continuity/",
     "mira/journal/",
     "narrative-geopolitics/",
+    "geopolitics/",
     "archive/registries/",
 )
 

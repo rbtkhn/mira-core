@@ -71,7 +71,7 @@ FAST_PATH_RULES = (
         ),
     ),
     (
-        re.compile(r"^narrative-geopolitics/work/daily/.+\.(?:md|json)$"),
+        re.compile(r"^(?:narrative-geopolitics|geopolitics)/work/daily/.+\.(?:md|json)$"),
         (
             "tests/test_daily_run_validation.py",
             "tests/test_daily_issue.py",
@@ -80,15 +80,15 @@ FAST_PATH_RULES = (
         ),
     ),
     (
-        re.compile(r"^narrative-geopolitics/voices/[^/]+/source-index\.md$"),
+        re.compile(r"^(?:narrative-geopolitics|geopolitics)/voices/[^/]+/source-index\.md$"),
         ("tests/test_voice_reconciliation.py", "tests/test_role_aware_archive.py"),
     ),
     (
-        re.compile(r"^narrative-geopolitics/work/comparisons/.+\.md$"),
+        re.compile(r"^(?:narrative-geopolitics|geopolitics)/work/comparisons/.+\.md$"),
         ("tests/test_voice_comparison.py",),
     ),
     (
-        re.compile(r"^narrative-geopolitics/work/continuity/.+\.md$"),
+        re.compile(r"^(?:narrative-geopolitics|geopolitics)/work/continuity/.+\.md$"),
         ("tests/test_continuity.py",),
     ),
 )

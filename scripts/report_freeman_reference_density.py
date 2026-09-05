@@ -1,6 +1,7 @@
 """Report historical-reference density across Chas Freeman transcripts."""
 from __future__ import annotations
 
+from repository_paths import resolve_geopolitics_reference
 import argparse
 import importlib.util
 import sys
@@ -9,8 +10,20 @@ from dataclasses import dataclass
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
-OUTPUT_PATH = REPO_ROOT / "narrative-geopolitics" / "voices" / "freeman" / "historical-reference-density.md"
+OUTPUT_PATH = resolve_geopolitics_reference(REPO_ROOT, 'geopolitics') / "voices" / "freeman" / "historical-reference-density.md"
 INDEX_SCRIPT = REPO_ROOT / "scripts" / "build_freeman_historical_index.py"
+
+
+def _path(name: str):
+    """Resolve defaults at use time while honoring explicit module overrides."""
+    original, factory = _PATH_DEFAULTS[name]
+    value = globals()[name]
+    return factory() if value == original else value
+
+
+_PATH_DEFAULTS = {
+    'OUTPUT_PATH': (OUTPUT_PATH, lambda: resolve_geopolitics_reference(REPO_ROOT, 'geopolitics') / 'voices' / 'freeman' / 'historical-reference-density.md'),
+}
 
 
 @dataclass(frozen=True)
@@ -132,7 +145,7 @@ def build_report() -> str:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--output", type=Path, default=OUTPUT_PATH)
+    parser.add_argument("--output", type=Path, default=_path('OUTPUT_PATH'))
     parser.add_argument("--dry-run", action="store_true")
     args = parser.parse_args()
     report = build_report()

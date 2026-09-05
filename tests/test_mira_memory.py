@@ -215,7 +215,7 @@ def test_status_does_not_change_tracked_carrier_bytes() -> None:
     tracked = [
         ROOT / "mira/continuity/session-registry.json",
         ROOT / "mira/journal-registry.json",
-        ROOT / "narrative-geopolitics/work/system-improvement/recursive-learning-ledger.json",
+        ROOT / "geopolitics/work/system-improvement/recursive-learning-ledger.json",
         ROOT / "archive/collections.json",
     ]
     before = {path: path.read_bytes() for path in tracked}

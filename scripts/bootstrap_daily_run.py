@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from repository_paths import resolve_geopolitics_reference
 import argparse
 import json
 import re
@@ -9,7 +10,7 @@ from datetime import date
 
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
-NG_ROOT = REPO_ROOT / "narrative-geopolitics"
+NG_ROOT = resolve_geopolitics_reference(REPO_ROOT, 'geopolitics')
 MANIFEST_PATH = NG_ROOT.parent / "archive" / "sources" / "geopolitics" / "source-manifest.json"
 DAILY_ROOT = NG_ROOT / "work" / "daily"
 TEMPLATES_ROOT = NG_ROOT / "templates"
@@ -72,6 +73,24 @@ HOST_LABELS = {
 }
 
 
+
+
+def _path(name: str):
+    """Resolve defaults at use time while honoring explicit module overrides."""
+    original, factory = _PATH_DEFAULTS[name]
+    value = globals()[name]
+    return factory() if value == original else value
+
+
+_PATH_DEFAULTS = {
+    'NG_ROOT': (NG_ROOT, lambda: resolve_geopolitics_reference(REPO_ROOT, 'geopolitics')),
+    'MANIFEST_PATH': (MANIFEST_PATH, lambda: _path('NG_ROOT').parent / 'archive' / 'sources' / 'geopolitics' / 'source-manifest.json'),
+    'DAILY_ROOT': (DAILY_ROOT, lambda: _path('NG_ROOT') / 'work' / 'daily'),
+    'TEMPLATES_ROOT': (TEMPLATES_ROOT, lambda: _path('NG_ROOT') / 'templates'),
+    'LEDGER_PATH': (LEDGER_PATH, lambda: _path('NG_ROOT') / 'work' / 'forecasts' / 'forecast-ledger.md'),
+}
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description="Bootstrap a daily Narrative Geopolitics run from the manifest day batch."
@@ -101,15 +120,15 @@ def parse_args() -> argparse.Namespace:
 
 
 def load_manifest() -> dict[str, Any]:
-    return json.loads(MANIFEST_PATH.read_text(encoding="utf-8-sig"))
+    return json.loads(_path('MANIFEST_PATH').read_text(encoding="utf-8-sig"))
 
 
 def load_template(name: str) -> str:
-    return (TEMPLATES_ROOT / name).read_text(encoding="utf-8")
+    return (_path('TEMPLATES_ROOT') / name).read_text(encoding="utf-8")
 
 
 def load_ledger_text() -> str:
-    return LEDGER_PATH.read_text(encoding="utf-8")
+    return _path('LEDGER_PATH').read_text(encoding="utf-8")
 
 
 def parse_iso_date(value: str) -> date:
@@ -327,7 +346,7 @@ def main() -> None:
     if not rows:
         raise SystemExit(f"No manifest rows found for {args.date}.")
 
-    run_dir = DAILY_ROOT / args.date
+    run_dir = _path('DAILY_ROOT') / args.date
     actions = []
     actions.append(
         write_text(

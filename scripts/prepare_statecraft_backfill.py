@@ -8,6 +8,7 @@ the publisher of record.
 
 from __future__ import annotations
 
+from repository_paths import resolve_geopolitics_reference
 import argparse
 import json
 import re
@@ -18,9 +19,24 @@ from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 UPSTREAM_ROOT = Path(r"C:\dev\strategy-codex\source-archive\statecraft")
-BACKFILL_ROOT = REPO_ROOT / "narrative-geopolitics" / "work" / "backfill-2026"
-VOICE_ROOT = REPO_ROOT / "narrative-geopolitics" / "voices"
+BACKFILL_ROOT = resolve_geopolitics_reference(REPO_ROOT, 'geopolitics') / "work" / "backfill-2026"
+VOICE_ROOT = resolve_geopolitics_reference(REPO_ROOT, 'geopolitics') / "voices"
 MANIFEST_PATH = REPO_ROOT / "archive" / "sources" / "geopolitics" / "source-manifest.json"
+
+
+
+
+def _path(name: str):
+    """Resolve defaults at use time while honoring explicit module overrides."""
+    original, factory = _PATH_DEFAULTS[name]
+    value = globals()[name]
+    return factory() if value == original else value
+
+
+_PATH_DEFAULTS = {
+    'BACKFILL_ROOT': (BACKFILL_ROOT, lambda: resolve_geopolitics_reference(REPO_ROOT, 'geopolitics') / 'work' / 'backfill-2026'),
+    'VOICE_ROOT': (VOICE_ROOT, lambda: resolve_geopolitics_reference(REPO_ROOT, 'geopolitics') / 'voices'),
+}
 
 
 def frontmatter_and_body(path: Path) -> tuple[dict[str, str], str]:
@@ -92,12 +108,12 @@ def source_files() -> list[Path]:
 
 
 def prepare() -> list[dict[str, object]]:
-    voices = sorted(path.name for path in VOICE_ROOT.iterdir() if path.is_dir() and not path.name.startswith("_"))
+    voices = sorted(path.name for path in _path('VOICE_ROOT').iterdir() if path.is_dir() and not path.name.startswith("_"))
     known_paths, known_urls = known_provenance()
-    BACKFILL_ROOT.mkdir(parents=True, exist_ok=True)
-    for generated in BACKFILL_ROOT.glob("2026-*/metadata/*.md"):
+    _path('BACKFILL_ROOT').mkdir(parents=True, exist_ok=True)
+    for generated in _path('BACKFILL_ROOT').glob("2026-*/metadata/*.md"):
         generated.unlink()
-    for generated in BACKFILL_ROOT.glob("2026-*/bodies/*.txt"):
+    for generated in _path('BACKFILL_ROOT').glob("2026-*/bodies/*.txt"):
         generated.unlink()
     records: list[dict[str, object]] = []
     for path in source_files():
@@ -134,7 +150,7 @@ def prepare() -> list[dict[str, object]]:
         }
         records.append(record)
         if reason == "eligible":
-            month_dir = BACKFILL_ROOT / pub_date[:7]
+            month_dir = _path('BACKFILL_ROOT') / pub_date[:7]
             bodies_dir = month_dir / "bodies"
             meta_dir = month_dir / "metadata"
             bodies_dir.mkdir(parents=True, exist_ok=True)
@@ -164,7 +180,7 @@ def prepare() -> list[dict[str, object]]:
             for voice in hits:
                 metadata_lines.append(f"voice_slug: {voice}")
             (meta_dir / f"{path.stem}.md").write_text("\n".join(metadata_lines) + "\n", encoding="utf-8")
-    (BACKFILL_ROOT / "inventory.json").write_text(json.dumps(records, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    (_path('BACKFILL_ROOT') / "inventory.json").write_text(json.dumps(records, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     return records
 
 

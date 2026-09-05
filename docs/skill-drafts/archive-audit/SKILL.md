@@ -132,3 +132,13 @@ than auditing the wrong archive family.
 `archive-density` is a deprecated Narrative Geopolitics density-only
 compatibility command. Use `archive-audit` for new work and route to the
 selected backend.
+
+## Geopolitics directory compatibility
+
+For current filesystem operations, resolve domain paths through the shared
+`repository_paths.resolve_geopolitics_reference` helper. It accepts the legacy
+`narrative-geopolitics/` spelling and the `geopolitics/` spelling and selects
+exactly one existing domain directory. Examples below or above using the legacy
+spelling remain compatibility references; they do not authorize a directory
+move. Preserve historical IDs and stored/hash-bound references. The source
+archive remains at `archive/sources/geopolitics/`.

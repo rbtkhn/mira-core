@@ -1,6 +1,7 @@
 """Validate and render a fresh internal global morning update receipt."""
 from __future__ import annotations
 
+from repository_paths import resolve_geopolitics_reference
 import argparse
 import datetime as dt
 import hashlib
@@ -19,7 +20,7 @@ import reality
 
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
-NG_ROOT = REPO_ROOT / "narrative-geopolitics"
+NG_ROOT = resolve_geopolitics_reference(REPO_ROOT, 'geopolitics')
 DAILY_ROOT = NG_ROOT / "work" / "daily"
 LEDGER_PATH = NG_ROOT / "work" / "forecasts" / "forecast-ledger.md"
 BRIEF_ROOT = NG_ROOT / "work" / "morning-brief"
@@ -80,6 +81,24 @@ CHALLENGED_OUTCOMES = {
     "superseded",
     "obsolete",
     "excluded",
+}
+
+
+
+
+def _path(name: str):
+    """Resolve defaults at use time while honoring explicit module overrides."""
+    original, factory = _PATH_DEFAULTS[name]
+    value = globals()[name]
+    return factory() if value == original else value
+
+
+_PATH_DEFAULTS = {
+    'NG_ROOT': (NG_ROOT, lambda: resolve_geopolitics_reference(REPO_ROOT, 'geopolitics')),
+    'DAILY_ROOT': (DAILY_ROOT, lambda: _path('NG_ROOT') / 'work' / 'daily'),
+    'LEDGER_PATH': (LEDGER_PATH, lambda: _path('NG_ROOT') / 'work' / 'forecasts' / 'forecast-ledger.md'),
+    'BRIEF_ROOT': (BRIEF_ROOT, lambda: _path('NG_ROOT') / 'work' / 'morning-brief'),
+    'REALITY_ROOT': (REALITY_ROOT, lambda: _path('NG_ROOT') / 'work' / 'reality'),
 }
 
 
@@ -233,10 +252,11 @@ def relative_path(path: Path, repo_root: Path) -> str:
 def expected_judgments(
     brief_date: dt.date,
     *,
-    repo_root: Path = REPO_ROOT,
+    repo_root: Path = None,
     daily_root: Path | None = None,
 ) -> list[dict[str, Any]]:
-    root = daily_root or repo_root / "narrative-geopolitics" / "work" / "daily"
+    repo_root = REPO_ROOT if repo_root is None else repo_root
+    root = daily_root or resolve_geopolitics_reference(repo_root, 'geopolitics') / "work" / "daily"
     earliest = brief_date - dt.timedelta(days=LOOKBACK_DAYS)
     rows: list[dict[str, Any]] = []
     if not root.is_dir():
@@ -291,10 +311,11 @@ def expected_judgments(
 def expected_forecasts(
     brief_date: dt.date,
     *,
-    repo_root: Path = REPO_ROOT,
+    repo_root: Path = None,
     ledger_path: Path | None = None,
 ) -> list[dict[str, Any]]:
-    path = ledger_path or repo_root / "narrative-geopolitics" / "work" / "forecasts" / "forecast-ledger.md"
+    repo_root = REPO_ROOT if repo_root is None else repo_root
+    path = ledger_path or resolve_geopolitics_reference(repo_root, 'geopolitics') / "work" / "forecasts" / "forecast-ledger.md"
     if not path.is_file():
         raise BriefError("forecast ledger is missing")
     raw = path.read_bytes()
@@ -613,11 +634,12 @@ def validate_receipt(
     *,
     date: str,
     as_of: str,
-    repo_root: Path = REPO_ROOT,
+    repo_root: Path = None,
     daily_root: Path | None = None,
     ledger_path: Path | None = None,
     reality_root: Path | None = None,
 ) -> dict[str, Any]:
+    repo_root = REPO_ROOT if repo_root is None else repo_root
     exact_keys(
         payload,
         {
@@ -863,7 +885,7 @@ def validate_receipt(
                 f"{candidate_id}.reality",
                 repo_root=repo_root,
                 reality_root=reality_root
-                or repo_root / "narrative-geopolitics" / "work" / "reality",
+                or resolve_geopolitics_reference(repo_root, 'geopolitics') / "work" / "reality",
                 research_retrieved=retrieved,
             )
             prose = " ".join(
@@ -1404,15 +1426,17 @@ def generate_brief(
     as_of: str,
     receipt_input: Path,
     *,
-    repo_root: Path = REPO_ROOT,
+    repo_root: Path = None,
     daily_root: Path | None = None,
     ledger_path: Path | None = None,
     reality_root: Path | None = None,
-    brief_root: Path = BRIEF_ROOT,
+    brief_root: Path = None,
     overwrite: bool = False,
 ) -> tuple[Path, Path]:
+    repo_root = REPO_ROOT if repo_root is None else repo_root
+    brief_root = _path('BRIEF_ROOT') if brief_root is None else brief_root
     exact_date(date, "--date")
-    canonical_root = brief_root.resolve() == BRIEF_ROOT.resolve()
+    canonical_root = brief_root.resolve() == _path('BRIEF_ROOT').resolve()
     if canonical_root and date in PROTECTED_CANONICAL_DATES:
         raise BriefError(f"historical morning-brief specimen is protected: {date}")
     brief_path = brief_root / f"{date}.md"

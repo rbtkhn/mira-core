@@ -6,6 +6,7 @@ cadence kernel owns handoffs, aggregation, inheritance, and rendering.
 
 from __future__ import annotations
 
+from repository_paths import resolve_geopolitics_reference
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Callable
@@ -28,13 +29,17 @@ def narrative_geopolitics_contract(repo_root: Path, run_checks: Callable[[], lis
     return CadenceContract(
         contract_id="narrative-geopolitics",
         version=1,
-        state_root=repo_root / "narrative-geopolitics" / "work" / "cadence",
+        state_root=resolve_geopolitics_reference(repo_root, 'geopolitics') / "work" / "cadence",
         authority_surfaces=(
             "archive/sources/geopolitics/",
             "narrative-geopolitics/work/daily/",
+            "geopolitics/work/daily/",
             "narrative-geopolitics/work/forecasts/",
+            "geopolitics/work/forecasts/",
             "narrative-geopolitics/work/reality/",
+            "geopolitics/work/reality/",
             "narrative-geopolitics/public/",
+            "geopolitics/public/",
         ),
         checks=("repository-integrity", "manifest-archive", "daily-contract", "forecast-ledger", "reality-verification", "rendering-publication", "smart-intake-routing"),
         run_checks=run_checks,

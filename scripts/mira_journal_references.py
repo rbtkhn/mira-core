@@ -8,7 +8,7 @@ from datetime import date, datetime, timezone
 from pathlib import Path
 from typing import Any
 
-from repository_paths import resolve_repository_path
+from repository_paths import resolve_geopolitics_reference
 
 
 REFERENCE_ID_RE = re.compile(r"^MJTR-(?P<date>\d{8})-v(?P<version>[1-9]\d*)$")
@@ -38,7 +38,7 @@ class ReferenceError(RuntimeError):
 def resolve_repo_evidence_path(repo_root: Path, raw: str) -> Path:
     normalized = raw.replace("\\", "/")
     aliased = REPO_EVIDENCE_PATH_ALIASES.get(normalized, normalized)
-    return resolve_repository_path(repo_root, aliased)
+    return resolve_geopolitics_reference(repo_root, aliased)
 
 
 def canonical_json(value: Any) -> str:

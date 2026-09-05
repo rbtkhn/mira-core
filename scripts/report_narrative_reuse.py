@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from repository_paths import resolve_geopolitics_reference
 import argparse
 import json
 import re
@@ -10,10 +11,22 @@ from pathlib import Path
 
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
-DAILY_ROOT = REPO_ROOT / "narrative-geopolitics" / "work" / "daily"
+DAILY_ROOT = resolve_geopolitics_reference(REPO_ROOT, 'geopolitics') / "work" / "daily"
 CANONICAL_FILES = ("synthesis.md", "daily-brief.md")
 MIN_PARAGRAPH_CHARS = 120
 SOURCE_HYGIENE_PREFIX = "confirm each archive path resolves"
+
+
+def _path(name: str):
+    """Resolve defaults at use time while honoring explicit module overrides."""
+    original, factory = _PATH_DEFAULTS[name]
+    value = globals()[name]
+    return factory() if value == original else value
+
+
+_PATH_DEFAULTS = {
+    'DAILY_ROOT': (DAILY_ROOT, lambda: resolve_geopolitics_reference(REPO_ROOT, 'geopolitics') / 'work' / 'daily'),
+}
 
 
 @dataclass(frozen=True)
@@ -53,8 +66,9 @@ def eligible_paragraphs(text: str) -> list[str]:
 
 
 def collect(
-    start: date, end: date, daily_root: Path = DAILY_ROOT
+    start: date, end: date, daily_root: Path = None
 ) -> list[ParagraphOccurrence]:
+    daily_root = _path('DAILY_ROOT') if daily_root is None else daily_root
     if start > end:
         raise ValueError("--start must not be later than --end")
     occurrences: list[ParagraphOccurrence] = []

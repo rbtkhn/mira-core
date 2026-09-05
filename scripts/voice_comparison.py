@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from repository_paths import resolve_geopolitics_reference
 import argparse
 import json
 import re
@@ -7,9 +8,23 @@ from dataclasses import dataclass
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
-NG_ROOT = REPO_ROOT / "narrative-geopolitics"
+NG_ROOT = resolve_geopolitics_reference(REPO_ROOT, 'geopolitics')
 MANIFEST = NG_ROOT.parent / "archive" / "sources" / "geopolitics" / "source-manifest.json"
 OUT_ROOT = NG_ROOT / "work" / "comparisons"
+
+
+def _path(name: str):
+    """Resolve defaults at use time while honoring explicit module overrides."""
+    original, factory = _PATH_DEFAULTS[name]
+    value = globals()[name]
+    return factory() if value == original else value
+
+
+_PATH_DEFAULTS = {
+    'NG_ROOT': (NG_ROOT, lambda: resolve_geopolitics_reference(REPO_ROOT, 'geopolitics')),
+    'MANIFEST': (MANIFEST, lambda: _path('NG_ROOT').parent / 'archive' / 'sources' / 'geopolitics' / 'source-manifest.json'),
+    'OUT_ROOT': (OUT_ROOT, lambda: _path('NG_ROOT') / 'work' / 'comparisons'),
+}
 
 
 @dataclass
@@ -26,7 +41,7 @@ def slug(value: str) -> str:
 
 
 def load_rows() -> list[dict]:
-    data = json.loads(MANIFEST.read_text(encoding="utf-8-sig"))
+    data = json.loads(_path('MANIFEST').read_text(encoding="utf-8-sig"))
     return data if isinstance(data, list) else data.get("sources", [])
 
 
@@ -145,7 +160,7 @@ def main() -> int:
         parser.error("compare requires at least two explicit --voice values")
     voices = list(dict.fromkeys(args.voice))
     report = render(args.object, voices, collect_quotes(load_rows(), voices, args.object, args.date_start, args.date_end), args.date_start, args.date_end)
-    target = OUT_ROOT / f"{slug(args.object)}--{'-'.join(sorted(slug(v) for v in voices))}.md"
+    target = _path('OUT_ROOT') / f"{slug(args.object)}--{'-'.join(sorted(slug(v) for v in voices))}.md"
     if args.write:
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_text(report, encoding="utf-8")

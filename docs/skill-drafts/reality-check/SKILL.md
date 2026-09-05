@@ -211,3 +211,13 @@ epistemic state into that observation; related crises, actors, mechanisms, and
 forecast dependencies remain context. Morning Brief may snapshot controlling
 claim and assessment paths and hashes, but it may not create, investigate,
 assess, sign, transition, render, or otherwise mutate lattice state.
+
+## Geopolitics directory compatibility
+
+For current filesystem operations, resolve domain paths through the shared
+`repository_paths.resolve_geopolitics_reference` helper. It accepts the legacy
+`narrative-geopolitics/` spelling and the `geopolitics/` spelling and selects
+exactly one existing domain directory. Examples below or above using the legacy
+spelling remain compatibility references; they do not authorize a directory
+move. Preserve historical IDs and stored/hash-bound references. The source
+archive remains at `archive/sources/geopolitics/`.

@@ -7,12 +7,10 @@ from pathlib import Path
 from typing import Any
 
 import voice_metadata
-from repository_paths import canonical_repository_path
+from repository_paths import canonical_repository_path, resolve_geopolitics_reference
 
 
 REPO_ROOT = voice_metadata.REPO_ROOT
-NG_ROOT = voice_metadata.NG_ROOT
-VOICES_ROOT = NG_ROOT / "voices"
 ROLE_OVERRIDES_NAME = "role-overrides.json"
 PAPE_OVERRIDE_ROLES = {"author", "authored", "guest"}
 STANDARD_HEADER = "| Date | Source | Role | Host slug | Archive link |"
@@ -32,8 +30,15 @@ LEGACY_SOURCE_BASIS = "narrative-geopolitics/archive/source-manifest.json"
 SOURCE_BASIS = "archive/sources/geopolitics/source-manifest.json"
 
 
-def load_manifest(path: Path = voice_metadata.MANIFEST_PATH) -> dict[str, Any]:
-    return json.loads(path.read_text(encoding="utf-8-sig"))
+def load_manifest(path: Path | None = None) -> dict[str, Any]:
+    return voice_metadata.load_manifest(path)
+
+
+def default_voices_root(repo_root: Path | None = None) -> Path:
+    """Resolve only when needed; explicit fixture/caller paths remain supported."""
+    return resolve_geopolitics_reference(
+        REPO_ROOT if repo_root is None else repo_root, "geopolitics/voices"
+    )
 
 
 def load_role_overrides(path: Path) -> dict[tuple[str, str], str]:
@@ -85,7 +90,8 @@ def archive_link(local_path: str) -> str:
     return "../../../" + local_path
 
 
-def shelves(voices_root: Path = VOICES_ROOT) -> dict[str, Path]:
+def shelves(voices_root: Path | None = None) -> dict[str, Path]:
+    voices_root = default_voices_root() if voices_root is None else voices_root
     return {
         path.parent.name: path
         for path in voices_root.glob("*/source-index.md")
@@ -93,7 +99,7 @@ def shelves(voices_root: Path = VOICES_ROOT) -> dict[str, Path]:
     }
 
 
-def rows_by_voice(manifest: dict[str, Any], run_date: str | None = None, voices_root: Path = VOICES_ROOT) -> tuple[dict[str, list[dict[str, Any]]], set[str]]:
+def rows_by_voice(manifest: dict[str, Any], run_date: str | None = None, voices_root: Path | None = None) -> tuple[dict[str, list[dict[str, Any]]], set[str]]:
     result: dict[str, list[dict[str, Any]]] = defaultdict(list)
     unindexed: set[str] = set()
     available = shelves(voices_root)
@@ -300,10 +306,12 @@ def render_pape(
 def project(
     manifest: dict[str, Any],
     run_date: str | None = None,
-    repo_root: Path = REPO_ROOT,
-    voices_root: Path = VOICES_ROOT,
+    repo_root: Path | None = None,
+    voices_root: Path | None = None,
     role_overrides: dict[tuple[str, str], str] | None = None,
 ) -> tuple[dict[Path, str], dict[str, Any]]:
+    repo_root = REPO_ROOT if repo_root is None else repo_root
+    voices_root = default_voices_root(repo_root) if voices_root is None else voices_root
     failures = voice_metadata.metadata_failures(manifest, repo_root=repo_root, run_date=run_date)
     if role_overrides is None:
         try:
@@ -343,8 +351,8 @@ def reconcile(
     manifest: dict[str, Any],
     run_date: str | None = None,
     write: bool = False,
-    repo_root: Path = REPO_ROOT,
-    voices_root: Path = VOICES_ROOT,
+    repo_root: Path | None = None,
+    voices_root: Path | None = None,
     role_overrides: dict[tuple[str, str], str] | None = None,
 ) -> dict[str, Any]:
     updates, report = project(

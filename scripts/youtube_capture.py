@@ -7,6 +7,7 @@ signals, or produce synthesis.
 
 from __future__ import annotations
 
+from repository_paths import resolve_geopolitics_reference
 import argparse
 import html
 import json
@@ -23,8 +24,8 @@ import yaml
 
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
-QUEUE_ROOT = REPO_ROOT / "narrative-geopolitics" / "work" / "capture" / "youtube"
-CHANNEL_INDEX_PATH = REPO_ROOT / "narrative-geopolitics" / "channels" / "channel-index.md"
+QUEUE_ROOT = resolve_geopolitics_reference(REPO_ROOT, 'geopolitics') / "work" / "capture" / "youtube"
+CHANNEL_INDEX_PATH = resolve_geopolitics_reference(REPO_ROOT, 'geopolitics') / "channels" / "channel-index.md"
 MANIFEST_PATH = REPO_ROOT / "archive" / "sources" / "geopolitics" / "source-manifest.json"
 ROUTE_INDEX_PATH = REPO_ROOT / "archive" / "sources" / "youtube-channel-routing.yml"
 SINGULARITY_ROOT = REPO_ROOT / "archive" / "sources" / "singularity"
@@ -64,6 +65,21 @@ DEFAULT_DAILY_BROWSER_SEARCH_TERMS = [
     "Ukraine",
     "NATO",
 ]
+
+
+
+
+def _path(name: str):
+    """Resolve defaults at use time while honoring explicit module overrides."""
+    original, factory = _PATH_DEFAULTS[name]
+    value = globals()[name]
+    return factory() if value == original else value
+
+
+_PATH_DEFAULTS = {
+    'QUEUE_ROOT': (QUEUE_ROOT, lambda: resolve_geopolitics_reference(REPO_ROOT, 'geopolitics') / 'work' / 'capture' / 'youtube'),
+    'CHANNEL_INDEX_PATH': (CHANNEL_INDEX_PATH, lambda: resolve_geopolitics_reference(REPO_ROOT, 'geopolitics') / 'channels' / 'channel-index.md'),
+}
 
 
 class CaptureError(ValueError):
@@ -393,11 +409,13 @@ def parse_nonnegative_float(value: str) -> float:
     return parsed
 
 
-def queue_path(capture_date: str, queue_root: Path = QUEUE_ROOT) -> Path:
+def queue_path(capture_date: str, queue_root: Path = None) -> Path:
+    queue_root = _path('QUEUE_ROOT') if queue_root is None else queue_root
     return queue_root / f"{capture_date}.jsonl"
 
 
-def browser_receipt_path(capture_date: str, channel_slug: str, queue_root: Path = QUEUE_ROOT) -> Path:
+def browser_receipt_path(capture_date: str, channel_slug: str, queue_root: Path = None) -> Path:
+    queue_root = _path('QUEUE_ROOT') if queue_root is None else queue_root
     return queue_root / "browser-receipts" / capture_date / f"{channel_slug}.json"
 
 
@@ -581,10 +599,11 @@ def load_manifest_by_url(path: Path = MANIFEST_PATH) -> dict[str, dict[str, obje
 def audit_queue_duplicates(
     *,
     dates: list[str],
-    queue_root: Path = QUEUE_ROOT,
+    queue_root: Path = None,
     manifest_path: Path = MANIFEST_PATH,
     dispositions: set[str] | None = None,
 ) -> tuple[list[dict[str, object]], list[dict[str, object]]]:
+    queue_root = _path('QUEUE_ROOT') if queue_root is None else queue_root
     manifest = load_manifest_by_url(manifest_path)
     seen: dict[str, dict[str, object]] = {}
     for capture_date in dates:
@@ -644,11 +663,12 @@ def published_in_window(row: dict[str, str], *, capture_date: str, since_days: i
 def prune_queue_rows(
     *,
     capture_date: str,
-    queue_root: Path = QUEUE_ROOT,
+    queue_root: Path = None,
     manifest_path: Path = MANIFEST_PATH,
     remove_landed: bool = False,
     discovery_since_days: int | None = None,
 ) -> tuple[list[dict[str, str]], list[dict[str, str]]]:
+    queue_root = _path('QUEUE_ROOT') if queue_root is None else queue_root
     manifest = load_manifest_by_url(manifest_path)
     kept: list[dict[str, str]] = []
     removed: list[dict[str, str]] = []
@@ -729,7 +749,8 @@ def markdown_link_url(value: str) -> str:
     return match.group(1) if match else value
 
 
-def parse_channel_index(path: Path = CHANNEL_INDEX_PATH) -> list[dict[str, str]]:
+def parse_channel_index(path: Path = None) -> list[dict[str, str]]:
+    path = _path('CHANNEL_INDEX_PATH') if path is None else path
     rows: list[dict[str, str]] = []
     for line in path.read_text(encoding="utf-8").splitlines():
         if not line.startswith("| `"):
@@ -1067,9 +1088,10 @@ def write_browser_receipt(
     observed_at: str,
     observed_urls: list[str],
     no_qualifying_videos: bool,
-    queue_root: Path = QUEUE_ROOT,
+    queue_root: Path = None,
     notes: str = "",
 ) -> Path:
+    queue_root = _path('QUEUE_ROOT') if queue_root is None else queue_root
     if not re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", channel_slug):
         raise CaptureError("channel-slug must be a lowercase kebab-case slug")
     if not observed_urls and not no_qualifying_videos:
@@ -1666,9 +1688,9 @@ def route_explain_command(args: argparse.Namespace) -> int:
 def route_audit_command(args: argparse.Namespace) -> int:
     forbidden = ("nate-herk", "nate b. jones", "nate b jones", "natebjones", "nate herk")
     paths = [
-        REPO_ROOT / "narrative-geopolitics" / "channels" / "channel-index.md",
+        resolve_geopolitics_reference(REPO_ROOT, 'geopolitics') / "channels" / "channel-index.md",
         REPO_ROOT / "archive" / "sources" / "geopolitics" / "source-manifest.json",
-        REPO_ROOT / "narrative-geopolitics" / "work" / "capture" / "youtube" / "youtube-capture-policy.yml",
+        resolve_geopolitics_reference(REPO_ROOT, 'geopolitics') / "work" / "capture" / "youtube" / "youtube-capture-policy.yml",
     ]
     queue_root = args.queue_root
     if queue_root.exists():
@@ -1730,9 +1752,10 @@ def attach_transcript_to_queue(
     capture_date: str,
     url: str,
     transcript_file: Path,
-    queue_root: Path = QUEUE_ROOT,
+    queue_root: Path = None,
     notes: str = "",
 ) -> dict[str, str]:
+    queue_root = _path('QUEUE_ROOT') if queue_root is None else queue_root
     if not transcript_file.exists() or not transcript_file.is_file():
         raise CaptureError(f"transcript file not found: {transcript_file}")
     if transcript_file.stat().st_size == 0:
@@ -1840,13 +1863,14 @@ def attach_transcript_command(args: argparse.Namespace) -> int:
 def build_roi_receipt(
     *,
     dates: list[str],
-    queue_root: Path = QUEUE_ROOT,
+    queue_root: Path = None,
     baseline_minutes: float = 300.0,
     minutes_spent: float = 0.0,
     manual_transcript_minutes_avoided: float = 0.0,
     intended_capture_days: int = 5,
     packet_days: int = 0,
 ) -> dict[str, object]:
+    queue_root = _path('QUEUE_ROOT') if queue_root is None else queue_root
     date_rows: list[dict[str, object]] = []
     all_rows: list[dict[str, str]] = []
     capture_days = 0
@@ -1937,7 +1961,7 @@ def build_parser() -> argparse.ArgumentParser:
 
     def add_common(row_parser: argparse.ArgumentParser) -> None:
         row_parser.add_argument("--date", required=True, type=parse_capture_date)
-        row_parser.add_argument("--queue-root", type=Path, default=QUEUE_ROOT, help=argparse.SUPPRESS)
+        row_parser.add_argument("--queue-root", type=Path, default=_path('QUEUE_ROOT'), help=argparse.SUPPRESS)
 
     add = subparsers.add_parser("add", help="Add or update one queue row")
     add_common(add)
@@ -1961,7 +1985,7 @@ def build_parser() -> argparse.ArgumentParser:
 
     scan_index = subparsers.add_parser("scan-index", help="Create channel-check rows from the channel index")
     add_common(scan_index)
-    scan_index.add_argument("--channel-index", type=Path, default=CHANNEL_INDEX_PATH)
+    scan_index.add_argument("--channel-index", type=Path, default=_path('CHANNEL_INDEX_PATH'))
     scan_index.add_argument("--cadence", action="append", choices=["daily", "weekly", "manual", "off"])
     scan_index.add_argument("--channel", action="append", default=[])
     scan_index.add_argument("--include-active", action="store_true")
@@ -1970,7 +1994,7 @@ def build_parser() -> argparse.ArgumentParser:
 
     discover = subparsers.add_parser("discover-public", help="Seed candidate video rows from public RSS metadata")
     add_common(discover)
-    discover.add_argument("--channel-index", type=Path, default=CHANNEL_INDEX_PATH)
+    discover.add_argument("--channel-index", type=Path, default=_path('CHANNEL_INDEX_PATH'))
     discover.add_argument("--cadence", action="append", choices=["daily", "weekly", "manual", "off"])
     discover.add_argument("--channel", action="append", default=[])
     discover.add_argument("--include-active", action="store_true")
@@ -1981,7 +2005,7 @@ def build_parser() -> argparse.ArgumentParser:
 
     daily_check = subparsers.add_parser("daily-check", help="Seed queue rows and require Tier A browser receipts")
     add_common(daily_check)
-    daily_check.add_argument("--channel-index", type=Path, default=CHANNEL_INDEX_PATH)
+    daily_check.add_argument("--channel-index", type=Path, default=_path('CHANNEL_INDEX_PATH'))
     daily_check.add_argument("--cadence", action="append", choices=["daily", "weekly", "manual", "off"])
     daily_check.add_argument("--channel", action="append", default=[])
     daily_check.add_argument("--include-active", action="store_true")
@@ -2003,7 +2027,7 @@ def build_parser() -> argparse.ArgumentParser:
 
     coverage = subparsers.add_parser("browser-coverage", help="Require browser receipts for Tier A completion")
     add_common(coverage)
-    coverage.add_argument("--channel-index", type=Path, default=CHANNEL_INDEX_PATH)
+    coverage.add_argument("--channel-index", type=Path, default=_path('CHANNEL_INDEX_PATH'))
     coverage.add_argument("--cadence", action="append", choices=["daily", "weekly", "manual", "off"])
     coverage.add_argument("--channel", action="append", default=[])
     coverage.add_argument("--include-active", action="store_true")
@@ -2033,7 +2057,7 @@ def build_parser() -> argparse.ArgumentParser:
 
     status = subparsers.add_parser("status", help="Show queue rows with manifest landed status")
     status.add_argument("--date", action="append", required=True, type=parse_capture_date)
-    status.add_argument("--queue-root", type=Path, default=QUEUE_ROOT, help=argparse.SUPPRESS)
+    status.add_argument("--queue-root", type=Path, default=_path('QUEUE_ROOT'), help=argparse.SUPPRESS)
     status.add_argument("--manifest", type=Path, default=MANIFEST_PATH)
     status.add_argument("--cadence", action="append", choices=["daily", "weekly", "manual", "off"])
     status.add_argument("--channel", action="append", default=[])
@@ -2043,7 +2067,7 @@ def build_parser() -> argparse.ArgumentParser:
 
     catch_up = subparsers.add_parser("catch-up", help="Group queue rows for weekly catch-up")
     catch_up.add_argument("--date", action="append", required=True, type=parse_capture_date)
-    catch_up.add_argument("--queue-root", type=Path, default=QUEUE_ROOT, help=argparse.SUPPRESS)
+    catch_up.add_argument("--queue-root", type=Path, default=_path('QUEUE_ROOT'), help=argparse.SUPPRESS)
     catch_up.add_argument("--manifest", type=Path, default=MANIFEST_PATH)
     catch_up.add_argument("--include-landed", action="store_true")
     catch_up.add_argument("--json", action="store_true")
@@ -2051,7 +2075,7 @@ def build_parser() -> argparse.ArgumentParser:
 
     audit = subparsers.add_parser("audit-duplicates", help="Read-only URL match of queue rows against the source manifest")
     audit.add_argument("--date", action="append", required=True, type=parse_capture_date)
-    audit.add_argument("--queue-root", type=Path, default=QUEUE_ROOT, help=argparse.SUPPRESS)
+    audit.add_argument("--queue-root", type=Path, default=_path('QUEUE_ROOT'), help=argparse.SUPPRESS)
     audit.add_argument("--manifest", type=Path, default=MANIFEST_PATH)
     audit.add_argument("--disposition", action="append", choices=sorted(DISPOSITIONS))
     audit.add_argument("--json", action="store_true")
@@ -2067,13 +2091,13 @@ def build_parser() -> argparse.ArgumentParser:
     explain.set_defaults(handler=route_explain_command)
 
     route_audit = subparsers.add_parser("route-audit", help="Check for cross-archive YouTube routing contamination")
-    route_audit.add_argument("--queue-root", type=Path, default=QUEUE_ROOT, help=argparse.SUPPRESS)
+    route_audit.add_argument("--queue-root", type=Path, default=_path('QUEUE_ROOT'), help=argparse.SUPPRESS)
     route_audit.add_argument("--json", action="store_true")
     route_audit.set_defaults(handler=route_audit_command)
 
     prune = subparsers.add_parser("prune-queue", help="Remove queue-only duplicate or stale discovered video rows")
     prune.add_argument("--date", action="append", required=True, type=parse_capture_date)
-    prune.add_argument("--queue-root", type=Path, default=QUEUE_ROOT, help=argparse.SUPPRESS)
+    prune.add_argument("--queue-root", type=Path, default=_path('QUEUE_ROOT'), help=argparse.SUPPRESS)
     prune.add_argument("--manifest", type=Path, default=MANIFEST_PATH)
     prune.add_argument("--remove-landed", action="store_true")
     prune.add_argument("--discovery-since-days", type=parse_nonnegative_int)
@@ -2096,7 +2120,7 @@ def build_parser() -> argparse.ArgumentParser:
 
     roi = subparsers.add_parser("roi-receipt", help="Measure queue-cadence ROI without changing archive state")
     roi.add_argument("--date", action="append", required=True, type=parse_capture_date)
-    roi.add_argument("--queue-root", type=Path, default=QUEUE_ROOT, help=argparse.SUPPRESS)
+    roi.add_argument("--queue-root", type=Path, default=_path('QUEUE_ROOT'), help=argparse.SUPPRESS)
     roi.add_argument("--baseline-minutes", type=parse_nonnegative_float, default=300.0)
     roi.add_argument("--minutes-spent", type=parse_nonnegative_float, required=True)
     roi.add_argument("--manual-transcript-minutes-avoided", type=parse_nonnegative_float, default=0.0)

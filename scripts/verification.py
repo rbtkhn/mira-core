@@ -9,15 +9,23 @@ from pathlib import Path
 from typing import Any
 from urllib.parse import urlparse
 
+from repository_paths import resolve_geopolitics_reference
+
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
-NG_ROOT = REPO_ROOT / "narrative-geopolitics"
-VERIFICATION_ROOT = NG_ROOT / "work" / "verification"
-PACKETS_ROOT = VERIFICATION_ROOT / "packets"
-TEMPLATE_PATH = VERIFICATION_ROOT / "_packet-template.md"
-LEDGER_PATH = NG_ROOT / "work" / "forecasts" / "forecast-ledger.md"
-REGISTRY_PATH = VERIFICATION_ROOT / "source-registry.md"
-REALITY_ROOT = NG_ROOT / "work" / "reality"
+
+
+def default_path(reference: str, override: Path | None = None) -> Path:
+    return override if override is not None else resolve_geopolitics_reference(REPO_ROOT, reference)
+
+
+NG_ROOT: Path | None = None
+VERIFICATION_ROOT: Path | None = None
+PACKETS_ROOT: Path | None = None
+TEMPLATE_PATH: Path | None = None
+LEDGER_PATH: Path | None = None
+REGISTRY_PATH: Path | None = None
+REALITY_ROOT: Path | None = None
 
 WORKFLOW_STATES = {"requested", "researching", "assessed", "closed"}
 OUTCOMES = {
@@ -128,9 +136,10 @@ class OperationalClaim:
     verification: str
 
 
-def parse_registry(path: Path = REGISTRY_PATH) -> list[SourceRecord]:
-    structured_root = REALITY_ROOT / "sources"
-    if path == REGISTRY_PATH and structured_root.exists() and any(structured_root.glob("*.json")):
+def parse_registry(path: Path | None = None) -> list[SourceRecord]:
+    path = default_path("geopolitics/work/verification/source-registry.md", REGISTRY_PATH) if path is None else path
+    structured_root = path.parent.parent / "reality" / "sources"
+    if path.name == "source-registry.md" and structured_root.exists() and any(structured_root.glob("*.json")):
         translation_map = {
             "not_required": "not_required",
             "official_edition": "official_english_available",
@@ -161,7 +170,8 @@ def parse_registry(path: Path = REGISTRY_PATH) -> list[SourceRecord]:
     return records
 
 
-def validate_registry(path: Path = REGISTRY_PATH) -> list[str]:
+def validate_registry(path: Path | None = None) -> list[str]:
+    path = default_path("geopolitics/work/verification/source-registry.md", REGISTRY_PATH) if path is None else path
     failures = []
     if not path.exists():
         return ["verification source registry is missing"]
@@ -211,9 +221,12 @@ def parse_forecast_dependencies(text: str) -> list[dict[str, str]]:
 def day_payload(
     run_date: str,
     daily_root: Path | None = None,
-    packets_root: Path = PACKETS_ROOT,
+    packets_root: Path | None = None,
+    *, reality_root: Path | None = None,
 ) -> dict[str, Any]:
-    root = daily_root or (NG_ROOT / "work" / "daily")
+    root = daily_root if daily_root is not None else resolve_geopolitics_reference(REPO_ROOT, "geopolitics/work/daily")
+    packets_root = packets_root if packets_root is not None else root.parent / "verification" / "packets"
+    reality_root = reality_root if reality_root is not None else root.parent / "reality"
     run_dir = root / run_date
     synthesis_path = run_dir / "synthesis.md"
     forecast_path = run_dir / "forecast.md"
@@ -230,7 +243,7 @@ def day_payload(
         lattice = None
         try:
             import reality
-            lattice = reality.claim_state(claim.claim_id)
+            lattice = reality.claim_state(claim.claim_id, root=reality_root)
         except (ImportError, ValueError, OSError, json.JSONDecodeError):
             lattice = None
         packet = None
@@ -283,11 +296,14 @@ def day_payload(
     return {"date": run_date, "claims": rows, "forecast_dependencies": dependencies, "unknown_dependencies": unknown_dependencies}
 
 
-def validate_day_claims(run_date: str, stage: str, daily_root: Path | None = None, packets_root: Path = PACKETS_ROOT) -> list[str]:
-    root = daily_root or (NG_ROOT / "work" / "daily")
+def validate_day_claims(run_date: str, stage: str, daily_root: Path | None = None, packets_root: Path | None = None,
+    *, reality_root: Path | None = None) -> list[str]:
+    root = daily_root if daily_root is not None else resolve_geopolitics_reference(REPO_ROOT, "geopolitics/work/daily")
+    packets_root = packets_root if packets_root is not None else root.parent / "verification" / "packets"
+    reality_root = reality_root if reality_root is not None else root.parent / "reality"
     synthesis_path = root / run_date / "synthesis.md"
     synthesis = synthesis_path.read_text(encoding="utf-8") if synthesis_path.exists() else ""
-    payload = day_payload(run_date, root, packets_root)
+    payload = day_payload(run_date, root, packets_root, reality_root=reality_root)
     failures = []
     claims = payload["claims"]
     ids = [item["claim_id"] for item in claims]
@@ -328,7 +344,8 @@ def validate_day_claims(run_date: str, stage: str, daily_root: Path | None = Non
     return failures
 
 
-def packet_paths(root: Path = PACKETS_ROOT) -> list[Path]:
+def packet_paths(root: Path | None = None) -> list[Path]:
+    root = default_path("geopolitics/work/verification/packets", PACKETS_ROOT) if root is None else root
     return sorted(root.glob("VER-*/README.md")) if root.exists() else []
 
 
@@ -345,16 +362,21 @@ def parse_packet(path: Path) -> Packet:
     return Packet(packet_id, path, fields, OBSERVABLE_RE.findall(text), evidence, sections, coverage)
 
 
-def find_packet(packet_id: str, root: Path = PACKETS_ROOT) -> Path | None:
+def find_packet(packet_id: str, root: Path | None = None) -> Path | None:
+    root = default_path("geopolitics/work/verification/packets", PACKETS_ROOT) if root is None else root
     matches = [path for path in packet_paths(root) if parse_packet(path).packet_id == packet_id]
     return matches[0] if len(matches) == 1 else None
 
 
-def ledger_hook_ids(path: Path = LEDGER_PATH) -> set[str]:
+def ledger_hook_ids(path: Path | None = None) -> set[str]:
+    path = default_path("geopolitics/work/forecasts/forecast-ledger.md", LEDGER_PATH) if path is None else path
     return set(HOOK_RE.findall(path.read_text(encoding="utf-8"))) if path.exists() else set()
 
 
-def validate_packet(packet: Packet, repo_root: Path = REPO_ROOT, ledger_path: Path = LEDGER_PATH, registry_path: Path = REGISTRY_PATH) -> list[str]:
+def validate_packet(packet: Packet, repo_root: Path | None = None, ledger_path: Path | None = None, registry_path: Path | None = None) -> list[str]:
+    repo_root = REPO_ROOT if repo_root is None else repo_root
+    ledger_path = default_path("geopolitics/work/forecasts/forecast-ledger.md", LEDGER_PATH) if ledger_path is None else ledger_path
+    registry_path = default_path("geopolitics/work/verification/source-registry.md", REGISTRY_PATH) if registry_path is None else registry_path
     failures: list[str] = []
     label = packet.packet_id or packet.path.parent.name
     required = {"verification_id", "status", "assessment_outcome", "opened", "closed", "claim", "why_it_matters", "affected_forecast_hooks", "affected_artifacts", "research_minutes", "evidence_chains_examined", "judgment_changed", "further_automation_justified"}
@@ -403,7 +425,7 @@ def validate_packet(packet: Packet, repo_root: Path = REPO_ROOT, ledger_path: Pa
     artifact_value = packet.fields.get("affected_artifacts", "")
     artifacts = [] if artifact_value == "none" else [item.strip() for item in artifact_value.split(",") if item.strip()]
     for artifact in artifacts:
-        if not (repo_root / artifact).exists():
+        if not resolve_geopolitics_reference(repo_root, artifact).exists():
             failures.append(f"{label}: broken affected artifact path {artifact}")
     status = packet.fields.get("status")
     if status in {"assessed", "closed"}:
@@ -448,38 +470,49 @@ def validate_packet(packet: Packet, repo_root: Path = REPO_ROOT, ledger_path: Pa
     return failures
 
 
-def validate_all(root: Path = PACKETS_ROOT, repo_root: Path = REPO_ROOT, ledger_path: Path = LEDGER_PATH) -> list[str]:
+def validate_all(root: Path | None = None, repo_root: Path | None = None, ledger_path: Path | None = None, *, registry_path: Path | None = None) -> list[str]:
+    repo_root = REPO_ROOT if repo_root is None else repo_root
+    root = default_path("geopolitics/work/verification/packets", PACKETS_ROOT) if root is None else root
+    ledger_path = (LEDGER_PATH if LEDGER_PATH is not None else root.parent.parent / "forecasts" / "forecast-ledger.md") if ledger_path is None else ledger_path
+    registry_path = root.parent / "source-registry.md" if registry_path is None else registry_path
     packets = [parse_packet(path) for path in packet_paths(root)]
-    failures: list[str] = validate_registry()
+    failures: list[str] = validate_registry(registry_path)
     ids = [packet.packet_id for packet in packets]
     for packet_id in sorted({item for item in ids if ids.count(item) > 1}):
         failures.append(f"duplicate verification packet ID: {packet_id}")
     for packet in packets:
-        failures.extend(validate_packet(packet, repo_root, ledger_path))
+        failures.extend(validate_packet(packet, repo_root, ledger_path, registry_path))
     return failures
 
 
-def next_packet_id(run_date: str, root: Path = PACKETS_ROOT) -> str:
+def next_packet_id(run_date: str, root: Path | None = None) -> str:
+    root = default_path("geopolitics/work/verification/packets", PACKETS_ROOT) if root is None else root
     prefix = f"VER-{run_date.replace('-', '')}-"
     used = [int(match.group(0)[-2:]) for path in packet_paths(root) if (match := VER_RE.search(path.parent.name)) and match.group(0).startswith(prefix)]
     return f"{prefix}{max(used, default=0) + 1:02d}"
 
 
-def create_packet(run_date: str, slug: str, root: Path = PACKETS_ROOT, template_path: Path = TEMPLATE_PATH) -> Path:
+def create_packet(run_date: str, slug: str, root: Path | None = None, template_path: Path | None = None) -> Path:
+    root = default_path("geopolitics/work/verification/packets", PACKETS_ROOT) if root is None else root
+    template_path = default_path("geopolitics/work/verification/_packet-template.md", TEMPLATE_PATH) if template_path is None else template_path
     packet_id = next_packet_id(run_date, root)
     target = root / f"{packet_id}-{slugify(slug)}" / "README.md"
-    target.parent.mkdir(parents=True, exist_ok=False)
     text = template_path.read_text(encoding="utf-8")
+    target.parent.mkdir(parents=True, exist_ok=False)
     text = text.replace("VER-YYYYMMDD-NN", packet_id).replace("YYYY-MM-DD", run_date).replace("[Bounded claim label]", slug)
     target.write_text(text, encoding="utf-8", newline="\n")
     return target
 
 
-def repo_relative(path: Path, repo_root: Path = REPO_ROOT) -> str:
+def repo_relative(path: Path, repo_root: Path | None = None) -> str:
+    repo_root = REPO_ROOT if repo_root is None else repo_root
     return path.relative_to(repo_root).as_posix() if path.is_relative_to(repo_root) else path.as_posix()
 
 
-def default_affected_artifacts(run_date: str, daily_root: Path = NG_ROOT / "work" / "daily", ledger_path: Path = LEDGER_PATH, repo_root: Path = REPO_ROOT) -> list[str]:
+def default_affected_artifacts(run_date: str, daily_root: Path | None = None, ledger_path: Path | None = None, repo_root: Path | None = None) -> list[str]:
+    repo_root = REPO_ROOT if repo_root is None else repo_root
+    daily_root = default_path("geopolitics/work/daily", None) if daily_root is None else daily_root
+    ledger_path = default_path("geopolitics/work/forecasts/forecast-ledger.md", LEDGER_PATH) if ledger_path is None else ledger_path
     run_dir = daily_root / run_date
     paths = [run_dir / "synthesis.md", run_dir / "forecast.md"]
     issue_path = run_dir / "issue.md"
@@ -536,12 +569,17 @@ def attach_packet_to_claim(
     hooks: list[str] | None = None,
     artifacts: list[str] | None = None,
     force: bool = False,
-    daily_root: Path = NG_ROOT / "work" / "daily",
-    packets_root: Path = PACKETS_ROOT,
-    template_path: Path = TEMPLATE_PATH,
-    ledger_path: Path = LEDGER_PATH,
-    repo_root: Path = REPO_ROOT,
+    daily_root: Path | None = None,
+    packets_root: Path | None = None,
+    template_path: Path | None = None,
+    ledger_path: Path | None = None,
+    repo_root: Path | None = None,
 ) -> dict[str, Any]:
+    repo_root = REPO_ROOT if repo_root is None else repo_root
+    daily_root = default_path("geopolitics/work/daily") if daily_root is None else daily_root
+    packets_root = daily_root.parent / "verification" / "packets" if packets_root is None else packets_root
+    template_path = packets_root.parent / "_packet-template.md" if template_path is None else template_path
+    ledger_path = daily_root.parent / "forecasts" / "forecast-ledger.md" if ledger_path is None else ledger_path
     run_dir = daily_root / run_date
     synthesis_path = run_dir / "synthesis.md"
     forecast_path = run_dir / "forecast.md"
@@ -584,7 +622,7 @@ def attach_packet_to_claim(
         )
 
     packet = parse_packet(packet_path)
-    failures = validate_packet(packet, repo_root, ledger_path)
+    failures = validate_packet(packet, repo_root, ledger_path, packets_root.parent / "source-registry.md")
     if failures:
         raise ValueError("; ".join(failures))
 
@@ -608,8 +646,9 @@ def attach_packet_to_claim(
     issue_action = "absent"
     if issue_path.exists():
         import render_daily_issue
-        model = render_daily_issue.load_model(run_date, daily_root, ledger_path)
-        issue_path.write_text(render_daily_issue.render_model(model), encoding="utf-8", newline="\n")
+        context = render_daily_issue.load_validation_context(daily_root, ledger_path)
+        model = render_daily_issue.load_model(run_date, daily_root, ledger_path, packets_root, context=context)
+        issue_path.write_text(render_daily_issue.render_model(model, context=context), encoding="utf-8", newline="\n")
         issue_action = "write"
     else:
         issue_action = f"run .\\scripts\\python.ps1 scripts\\render_daily_issue.py --date {run_date}"
@@ -627,7 +666,8 @@ def attach_packet_to_claim(
     }
 
 
-def list_payload(root: Path = PACKETS_ROOT, status: str | None = None) -> list[dict[str, Any]]:
+def list_payload(root: Path | None = None, status: str | None = None) -> list[dict[str, Any]]:
+    root = default_path("geopolitics/work/verification/packets", PACKETS_ROOT) if root is None else root
     packets = [parse_packet(path) for path in packet_paths(root)]
     if status:
         packets = [packet for packet in packets if packet.fields.get("status") == status]
@@ -642,7 +682,8 @@ def list_payload(root: Path = PACKETS_ROOT, status: str | None = None) -> list[d
     ]
 
 
-def source_payload(path: Path = REGISTRY_PATH, domain: str | None = None, perspective: str | None = None, access: str | None = None) -> list[dict[str, Any]]:
+def source_payload(path: Path | None = None, domain: str | None = None, perspective: str | None = None, access: str | None = None) -> list[dict[str, Any]]:
+    path = default_path("geopolitics/work/verification/source-registry.md", REGISTRY_PATH) if path is None else path
     records = parse_registry(path)
     if domain: records = [r for r in records if r.domain == domain]
     if perspective: records = [r for r in records if r.perspective == perspective]
@@ -650,19 +691,23 @@ def source_payload(path: Path = REGISTRY_PATH, domain: str | None = None, perspe
     return [{"id": r.source_id, "source": r.source, "url": r.url, "domain": r.domain, "evidence_class": r.evidence_class, "perspective": r.perspective, "access": r.access, "status": r.status} for r in records]
 
 
-def close_packet(packet_id: str, root: Path = PACKETS_ROOT) -> list[str]:
+def close_packet(packet_id: str, root: Path | None = None, *, ledger_path: Path | None = None, registry_path: Path | None = None, repo_root: Path | None = None) -> list[str]:
+    root = default_path("geopolitics/work/verification/packets", PACKETS_ROOT) if root is None else root
+    repo_root = REPO_ROOT if repo_root is None else repo_root
+    ledger_path = (LEDGER_PATH if LEDGER_PATH is not None else root.parent.parent / "forecasts" / "forecast-ledger.md") if ledger_path is None else ledger_path
+    registry_path = root.parent / "source-registry.md" if registry_path is None else registry_path
     path = find_packet(packet_id, root)
     if not path:
         return [f"packet not found or ambiguous: {packet_id}"]
     packet = parse_packet(path)
-    failures = validate_packet(packet)
+    failures = validate_packet(packet, repo_root, ledger_path, registry_path)
     if failures or packet.fields.get("status") != "assessed":
         return failures or [f"{packet_id}: only assessed packets may be closed"]
     text = path.read_text(encoding="utf-8")
     text = re.sub(r"^Status: `assessed`$", "Status: `closed`", text, count=1, flags=re.MULTILINE)
     text = re.sub(r"^Closed: `none`$", f"Closed: `{date.today().isoformat()}`", text, count=1, flags=re.MULTILINE)
     path.write_text(text, encoding="utf-8", newline="\n")
-    return validate_packet(parse_packet(path))
+    return validate_packet(parse_packet(path), repo_root, ledger_path, registry_path)
 
 
 def parse_args() -> argparse.Namespace:

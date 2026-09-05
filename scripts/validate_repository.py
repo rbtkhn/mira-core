@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from repository_paths import resolve_geopolitics_reference
 import json
 import os
 import re
@@ -41,14 +42,14 @@ import recursive_learning_ledger
 import mira_continuity
 import mira_journal
 import archive_library
-from repository_paths import canonical_repository_path
+from repository_paths import canonical_repository_path, canonical_geopolitics_reference
 import operator_positions
 import archive
 from role_aware_archive import validate_row as validate_role_row
 
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
-NG_ROOT = REPO_ROOT / "narrative-geopolitics"
+NG_ROOT = resolve_geopolitics_reference(REPO_ROOT, 'geopolitics')
 ARCHIVE_SOURCES = NG_ROOT.parent / "archive" / "sources" / "geopolitics" / "sources"
 MANIFEST_PATH = NG_ROOT.parent / "archive" / "sources" / "geopolitics" / "source-manifest.json"
 DAILY_ROOT = NG_ROOT / "work" / "daily"
@@ -265,8 +266,30 @@ MODEL_SUBSTITUTION_TEST_ELEMENTS = (
 )
 
 
+
+
+def _path(name: str):
+    """Resolve defaults at use time while honoring explicit module overrides."""
+    original, factory = _PATH_DEFAULTS[name]
+    value = globals()[name]
+    return factory() if value == original else value
+
+
+_PATH_DEFAULTS = {
+    'NG_ROOT': (NG_ROOT, lambda: resolve_geopolitics_reference(REPO_ROOT, 'geopolitics')),
+    'ARCHIVE_SOURCES': (ARCHIVE_SOURCES, lambda: _path('NG_ROOT').parent / 'archive' / 'sources' / 'geopolitics' / 'sources'),
+    'MANIFEST_PATH': (MANIFEST_PATH, lambda: _path('NG_ROOT').parent / 'archive' / 'sources' / 'geopolitics' / 'source-manifest.json'),
+    'DAILY_ROOT': (DAILY_ROOT, lambda: _path('NG_ROOT') / 'work' / 'daily'),
+    'LEDGER_PATH': (LEDGER_PATH, lambda: _path('NG_ROOT') / 'work' / 'forecasts' / 'forecast-ledger.md'),
+    'PUBLIC_BRIEFS_ROOT': (PUBLIC_BRIEFS_ROOT, lambda: _path('NG_ROOT') / 'public' / 'briefs'),
+    'ACTIVE_ASR_GUIDANCE': (ACTIVE_ASR_GUIDANCE, lambda: _path('NG_ROOT') / 'work' / 'asr-repair-pilot-findings-july-2026.md'),
+    'LEGACY_VERIFICATION_ROOT': (LEGACY_VERIFICATION_ROOT, lambda: _path('NG_ROOT') / 'work' / 'verification' / 'packets'),
+    'LEGACY_VERIFICATION_INVENTORY': (LEGACY_VERIFICATION_INVENTORY, lambda: _path('NG_ROOT') / 'work' / 'verification' / 'legacy-inventory.json'),
+}
+
+
 def load_manifest() -> dict:
-    return json.loads(MANIFEST_PATH.read_text(encoding="utf-8-sig"))
+    return json.loads(_path('MANIFEST_PATH').read_text(encoding="utf-8-sig"))
 
 
 def relative(path: Path) -> str:
@@ -277,9 +300,9 @@ def archive_manifest_failures() -> list[str]:
     manifest = load_manifest()
     rows = manifest.get("sources", [])
     row_paths = [row.get("local_path", "") for row in rows]
-    sources_hydrated = ARCHIVE_SOURCES.is_dir()
+    sources_hydrated = _path('ARCHIVE_SOURCES').is_dir()
     file_paths = (
-        sorted(relative(path) for path in ARCHIVE_SOURCES.rglob("*.md"))
+        sorted(relative(path) for path in _path('ARCHIVE_SOURCES').rglob("*.md"))
         if sources_hydrated
         else []
     )
@@ -311,7 +334,7 @@ def daily_run_failures(
     manifest = load_manifest()
     dates = {row.get("date") for row in manifest.get("sources", [])}
     failures: list[str] = []
-    for run_dir in sorted(path for path in DAILY_ROOT.iterdir() if path.is_dir()):
+    for run_dir in sorted(path for path in _path('DAILY_ROOT').iterdir() if path.is_dir()):
         files = {path.name for path in run_dir.iterdir() if path.is_file()}
         if not files:
             failures.append(f"empty daily directory: {relative(run_dir)}")
@@ -332,8 +355,8 @@ def daily_run_failures(
         if "issue.md" in files:
             issue_failures, _ = daily_issue.validate_issue(
                 run_dir.name,
-                daily_root=DAILY_ROOT,
-                ledger_path=LEDGER_PATH,
+                daily_root=_path('DAILY_ROOT'),
+                ledger_path=_path('LEDGER_PATH'),
                 context=context,
             )
             failures.extend(
@@ -344,7 +367,7 @@ def daily_run_failures(
 
 
 def forecast_ledger_failures() -> list[str]:
-    text = LEDGER_PATH.read_text(encoding="utf-8")
+    text = _path('LEDGER_PATH').read_text(encoding="utf-8")
     if forecast_ledger.TRIAGE_HEADING not in text:
         return ["forecast ledger missing Accountability Triage section"]
     failures = forecast_ledger.structural_failures(
@@ -360,7 +383,7 @@ def forecast_ledger_failures() -> list[str]:
 def markdown_files() -> list[Path]:
     roots = (
         REPO_ROOT / "docs",
-        NG_ROOT,
+        _path('NG_ROOT'),
         REPO_ROOT / "predictive-history",
         REPO_ROOT / "historical-entropy",
     )
@@ -369,7 +392,7 @@ def markdown_files() -> list[Path]:
         if not root.exists():
             continue
         for path in root.rglob("*.md"):
-            if ARCHIVE_SOURCES in path.parents:
+            if _path('ARCHIVE_SOURCES') in path.parents:
                 continue
             files.append(path)
     return sorted(files)
@@ -392,17 +415,17 @@ def markdown_link_failures() -> list[str]:
                 continue
             resolved = path.parent / target
             if not resolved.exists() and target.replace("\\", "/").startswith("archive/"):
-                resolved = REPO_ROOT / Path(target.replace("\\", "/"))
-            if not resolved.exists() and target.replace("\\", "/").startswith("narrative-geopolitics/"):
-                resolved = REPO_ROOT / Path(target.replace("\\", "/"))
+                resolved = resolve_geopolitics_reference(REPO_ROOT, target.replace("\\", "/"))
+            if not resolved.exists() and target.replace("\\", "/").startswith(("narrative-geopolitics/", "geopolitics/")):
+                resolved = resolve_geopolitics_reference(REPO_ROOT, target.replace("\\", "/"))
             if not resolved.exists():
                 try:
                     repository_target = resolved.resolve().relative_to(REPO_ROOT.resolve()).as_posix()
                 except ValueError:
                     repository_target = ""
-                canonical_target = canonical_repository_path(repository_target)
+                canonical_target = canonical_geopolitics_reference(canonical_repository_path(repository_target)) if repository_target else ""
                 if canonical_target != repository_target:
-                    resolved = REPO_ROOT / canonical_target
+                    resolved = resolve_geopolitics_reference(REPO_ROOT, canonical_target)
             if not resolved.exists():
                 try:
                     repository_target = resolved.resolve().relative_to(REPO_ROOT.resolve()).as_posix()
@@ -459,15 +482,15 @@ def model_substitution_gate_failures(
 
 def reader_facing_title_files() -> list[Path]:
     candidates: set[Path] = set()
-    if PUBLIC_BRIEFS_ROOT.exists():
-        candidates.update(PUBLIC_BRIEFS_ROOT.rglob("*.md"))
+    if _path('PUBLIC_BRIEFS_ROOT').exists():
+        candidates.update(_path('PUBLIC_BRIEFS_ROOT').rglob("*.md"))
     for path in markdown_files():
-        if (NG_ROOT / "templates") in path.parents:
+        if (_path('NG_ROOT') / "templates") in path.parents:
             continue
         text = path.read_text(encoding="utf-8")
         # Unpromoted daily scaffolds are working documents, not reader-facing
         # publications; their placeholder title is intentionally allowed.
-        if path.parent.parent == NG_ROOT / "work" / "daily" and "Status: `not-promoted`" in text[:400]:
+        if path.parent.parent == _path('NG_ROOT') / "work" / "daily" and "Status: `not-promoted`" in text[:400]:
             continue
         if "Title standard: `reader-facing`" in text:
             candidates.add(path)
@@ -505,7 +528,7 @@ def editorial_title_failures() -> list[str]:
 def operational_claim_failures() -> list[str]:
     failures: list[str] = []
     for path in markdown_files():
-        if verification_packets.VERIFICATION_ROOT in path.parents:
+        if verification_packets.default_path("geopolitics/work/verification") in path.parents:
             continue
         text = path.read_text(encoding="utf-8")
         if not OPERATIONAL_STATUS_RE.search(text):
@@ -611,12 +634,14 @@ def tracked_artifact_failures() -> list[str]:
     tracked = set(result.stdout.splitlines())
     forbidden = {
         "narrative-geopolitics/work/cadence/last-dream.json",
+        "geopolitics/work/cadence/last-dream.json",
     }
     return [f"tracked derived cadence artifact: {path}" for path in sorted(forbidden & tracked)]
 
 
-def active_guidance_files(repo_root: Path = REPO_ROOT) -> list[Path]:
-    ng_root = repo_root / "narrative-geopolitics"
+def active_guidance_files(repo_root: Path = None) -> list[Path]:
+    repo_root = REPO_ROOT if repo_root is None else repo_root
+    ng_root = resolve_geopolitics_reference(repo_root, 'geopolitics')
     files = {repo_root / "README.md", repo_root / "AGENTS.md"}
     for root in (
         repo_root / "docs",
@@ -643,8 +668,9 @@ def active_guidance_files(repo_root: Path = REPO_ROOT) -> list[Path]:
 
 def obsolete_guidance_failures(
     paths: list[Path] | None = None,
-    repo_root: Path = REPO_ROOT,
+    repo_root: Path = None,
 ) -> list[str]:
+    repo_root = REPO_ROOT if repo_root is None else repo_root
     failures: list[str] = []
     for path in paths if paths is not None else active_guidance_files(repo_root):
         text = path.read_text(encoding="utf-8")
@@ -682,10 +708,11 @@ def legacy_repository_identity_failures() -> list[str]:
         text = path.read_text(encoding="utf-8")
         for identity, _allowlist in LEGACY_REPOSITORY_IDENTITIES:
             if identity in text:
-                found_by_identity[identity].add(relative_path)
+                found_by_identity[identity].add(canonical_geopolitics_reference(relative_path))
     failures: list[str] = []
     for identity, allowlist in LEGACY_REPOSITORY_IDENTITIES:
         found = found_by_identity[identity]
+        allowlist = {canonical_geopolitics_reference(path) for path in allowlist}
         failures.extend(
             f"operative legacy repository identity {identity!r}: {path}"
             for path in sorted(found - allowlist)
@@ -717,9 +744,9 @@ def legacy_archive_name_failures() -> list[str]:
         if not any(token in text for token in LEGACY_ARCHIVE_TOKENS):
             continue
         allowed = (
-            relative_path in LEGACY_ARCHIVE_COMPATIBILITY_FILES
+            canonical_geopolitics_reference(relative_path) in {canonical_geopolitics_reference(path) for path in LEGACY_ARCHIVE_COMPATIBILITY_FILES}
             or any(
-                relative_path.startswith(prefix)
+                (relative_path + "/").startswith(prefix) or canonical_geopolitics_reference(relative_path).startswith(canonical_geopolitics_reference(prefix).rstrip("/") + "/")
                 for prefix in LEGACY_ARCHIVE_HISTORICAL_PREFIXES
             )
         )
@@ -736,7 +763,7 @@ def voice_routing_failures() -> list[str]:
             manifest,
             write=False,
             repo_root=REPO_ROOT,
-            voices_root=NG_ROOT / "voices",
+            voices_root=_path('NG_ROOT') / "voices",
         )["failures"]
     )
     return sorted(set(failures))
@@ -758,10 +785,10 @@ def voice_judgment_failures() -> list[str]:
 
 
 def legacy_verification_inventory_failures() -> list[str]:
-    if not LEGACY_VERIFICATION_INVENTORY.is_file():
+    if not _path('LEGACY_VERIFICATION_INVENTORY').is_file():
         return ["legacy verification inventory missing"]
     try:
-        payload = json.loads(LEGACY_VERIFICATION_INVENTORY.read_text(encoding="utf-8"))
+        payload = json.loads(_path('LEGACY_VERIFICATION_INVENTORY').read_text(encoding="utf-8"))
     except json.JSONDecodeError as exc:
         return [f"legacy verification inventory invalid JSON: line {exc.lineno}"]
     rows = payload.get("packets")
@@ -781,13 +808,13 @@ def legacy_verification_inventory_failures() -> list[str]:
             continue
         if path in registered:
             failures.append(f"duplicate legacy verification inventory path: {path}")
-        registered.add(path)
-        target = REPO_ROOT / path
+        registered.add(canonical_geopolitics_reference(path))
+        target = resolve_geopolitics_reference(REPO_ROOT, path)
         if not target.is_dir() or target.name != packet_id:
             failures.append(f"legacy verification inventory target mismatch: {path}")
     actual = {
-        relative(path)
-        for path in LEGACY_VERIFICATION_ROOT.iterdir()
+        canonical_geopolitics_reference(relative(path))
+        for path in _path('LEGACY_VERIFICATION_ROOT').iterdir()
         if path.is_dir()
     }
     failures.extend(
@@ -842,8 +869,8 @@ def validate_repository(
             if not shared_context:
                 shared_context.append(
                     daily_issue.load_validation_context(
-                        daily_root=DAILY_ROOT,
-                        ledger_path=LEDGER_PATH,
+                        daily_root=_path('DAILY_ROOT'),
+                        ledger_path=_path('LEDGER_PATH'),
                     )
                 )
             return shared_context[0]

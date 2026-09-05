@@ -230,6 +230,10 @@ def configure_repo(monkeypatch: pytest.MonkeyPatch, tmp_path: Path) -> tuple[Pat
     journal.mkdir(parents=True)
     drafts.mkdir()
     (repo / "evidence.md").write_text("technical evidence\n", encoding="utf-8")
+    learning_ledger = repo / "narrative-geopolitics" / "work" / "system-improvement" / "recursive-learning-ledger.json"
+    learning_ledger.parent.mkdir(parents=True)
+    learning_ledger.write_text('{"entries": []}', encoding="utf-8")
+    monkeypatch.setattr(subject, "LEARNING_LEDGER_PATH", learning_ledger)
     monkeypatch.setattr(subject, "REPO_ROOT", repo)
     monkeypatch.setattr(subject, "MIRA_ROOT", mira)
     monkeypatch.setattr(subject, "JOURNAL_ROOT", journal)

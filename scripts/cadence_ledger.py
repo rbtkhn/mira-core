@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from repository_paths import resolve_geopolitics_reference
 import hashlib
 import json
 import os
@@ -476,7 +477,7 @@ def normalize_repo_ref(value: str) -> str:
     candidate = Path(path_text)
     if candidate.is_absolute() or ".." in candidate.parts:
         raise CadenceLedgerError(f"artifact reference must be repository-relative: {value}")
-    resolved = (REPO_ROOT / candidate).resolve()
+    resolved = resolve_geopolitics_reference(REPO_ROOT, candidate.as_posix()).resolve()
     if not resolved.is_relative_to(REPO_ROOT.resolve()) or not resolved.exists():
         raise CadenceLedgerError(f"artifact reference does not resolve: {value}")
     return ref
@@ -486,7 +487,7 @@ def content_digest(refs: Iterable[str]) -> str:
     rows: list[dict[str, Any]] = []
     for ref in sorted(set(refs)):
         normalized = normalize_repo_ref(ref)
-        path = REPO_ROOT / normalized.split("#", 1)[0]
+        path = resolve_geopolitics_reference(REPO_ROOT, normalized.split("#", 1)[0])
         if path.is_file():
             rows.append({"path": normalized, "sha256": hashlib.sha256(path.read_bytes()).hexdigest()})
         else:
@@ -905,7 +906,7 @@ def selected_episode(connection: sqlite3.Connection, episode_id: str | None = No
 
 def repository_change(projection: dict[str, Any]) -> dict[str, Any]:
     episode = projection["episode"]
-    missing = [ref for ref in episode["relevant_paths"] if not (REPO_ROOT / ref.split("#", 1)[0]).exists()]
+    missing = [ref for ref in episode["relevant_paths"] if not resolve_geopolitics_reference(REPO_ROOT, ref.split("#", 1)[0]).exists()]
     if missing:
         return {"status": "relevant_deleted", "paths": missing}
     current = content_digest(episode["relevant_paths"])
@@ -1472,7 +1473,7 @@ def private_status(raw_path: str | Path | None = None) -> dict[str, Any]:
                 if event["event_type"] == "represented" and event["payload"].get("rsi_id"):
                     represented_ids.add(str(event["payload"]["rsi_id"]))
         canonical_ids: set[str] = set()
-        canonical_path = REPO_ROOT / "narrative-geopolitics/work/system-improvement/recursive-learning-ledger.json"
+        canonical_path = resolve_geopolitics_reference(REPO_ROOT, 'geopolitics/work/system-improvement/recursive-learning-ledger.json')
         if canonical_path.is_file():
             canonical = json.loads(canonical_path.read_text(encoding="utf-8"))
             canonical_ids = {str(item.get("id")) for item in canonical.get("entries", []) if isinstance(item, dict)}

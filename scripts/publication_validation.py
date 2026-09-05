@@ -318,6 +318,11 @@ def _library_validation_route(*, cognitive_note: bool = False) -> dict[str, Any]
 
 
 def route_path(path: str, *, repo_root: Path = REPO_ROOT) -> dict[str, Any]:
+    # Classification aliases are not physical paths or replacements for owner IDs.
+    # Keep the supplied path for commands that address the actual artifact.
+    physical_path = path
+    if path.startswith("geopolitics/"):
+        path = "narrative-geopolitics/" + path.removeprefix("geopolitics/")
     if path.startswith(("archive/sessions/transcripts/", "archive/sessions/daily/")):
         raise RoutingError("Private session payloads cannot be admitted to Git")
     if path.startswith("projects/grace-gems/"):
@@ -522,7 +527,7 @@ def route_path(path: str, *, repo_root: Path = REPO_ROOT) -> dict[str, Any]:
         commands = (
             [
                 "python scripts/validate_historical_reference_taxonomy.py "
-                f"--run {historical_run}"
+                f"--run {physical_path}"
             ]
             if historical_run
             else []
@@ -604,26 +609,93 @@ def route_path(path: str, *, repo_root: Path = REPO_ROOT) -> dict[str, Any]:
             "commands": ["tools/run.ps1 test --mode fast --explain-route"],
             "manual_checks": [],
         }
-    raise RoutingError(f"no deterministic publication-validation route: {path}")
+    raise RoutingError(f"no deterministic publication-validation route: {physical_path}")
 
 
 def _ordered_unique(values: Iterable[str]) -> list[str]:
     return list(dict.fromkeys(values))
 
 
-def build_report(raw_paths: list[str], *, repo_root: Path = REPO_ROOT) -> dict[str, Any]:
+def verified_rename(source: str, target: str, *, repo_root: Path) -> dict[str, Any]:
+    """Verify a worktree-only domain move against the current index, read-only.
+
+    This establishes unchanged content, not publication approval or a Full-gate
+    exception. Content changes continue through the ordinary domain routes.
+    """
+    for value in (source, target):
+        if (not value or "\\" in value or ":" in value
+                or any(token in value for token in GLOB_TOKENS)
+                or any(part in ("", ".", "..") or part.endswith((" ", "."))
+                       for part in value.split("/"))):
+            raise RoutingError("unsafe rename mapping")
+    prefix = "narrative-geopolitics/"
+    if not source.startswith(prefix) or target != "geopolitics/" + source[len(prefix):]:
+        raise RoutingError("rename must preserve the exact domain-relative path")
+    root = repo_root.resolve(strict=True)
+
+    def git(*args: str) -> bytes:
+        result = subprocess.run(["git", *args], cwd=root, capture_output=True)
+        if result.returncode:
+            raise RoutingError("Git evidence unavailable for rename")
+        return result.stdout
+
+    if Path(git("rev-parse", "--show-toplevel").decode().strip()).resolve() != root:
+        raise RoutingError("rename repository must be the exact Git root")
+    if (root / "narrative-geopolitics").exists() or (root / "narrative-geopolitics").is_symlink():
+        raise RoutingError("rename source domain is still occupied")
+    destination = root / target
+    for path in (destination, *destination.parents):
+        if path == root:
+            break
+        if path.is_symlink() or (hasattr(path, "is_junction") and path.is_junction()):
+            raise RoutingError("rename target contains a filesystem link")
+    if not destination.is_file() or not _inside(destination.resolve(), root):
+        raise RoutingError("rename target is missing or outside repository")
+    rows = git("ls-files", "--stage", "-z", "--", source, target).split(b"\0")
+    expected = [row for row in rows if row]
+    if len(expected) != 1:
+        raise RoutingError("rename requires one indexed source and an unindexed target")
+    metadata, indexed_path = expected[0].split(b"\t", 1)
+    mode, blob, stage = metadata.decode().split()
+    if indexed_path.decode() != source or stage != "0" or mode not in {"100644", "100755"}:
+        raise RoutingError("rename source is missing, conflicted, or not a regular file")
+    # Use destination attributes: a path-dependent clean filter must not change
+    # the blob that Git would stage at the new location.
+    actual = git("hash-object", "--path=" + target, "--", target).decode().strip()
+    if actual != blob:
+        raise RoutingError("rename target content differs from indexed source")
+    return {"source": source, "target": target, "blob": blob, "mode": mode,
+            "evidence_boundary": "current-index-to-working-tree", "authority_effect": "none"}
+
+
+def build_report(raw_paths: list[str], *, repo_root: Path = REPO_ROOT,
+                 rename_sources: list[str] | None = None) -> dict[str, Any]:
     paths: list[str] = []
     blockers: list[str] = []
     routes: list[dict[str, Any]] = []
     seen: set[str] = set()
-    for raw in raw_paths:
+    rename_evidence: list[dict[str, Any]] = []
+    if rename_sources is not None and (
+            len(rename_sources) != len(raw_paths) or not raw_paths
+            or len(set(rename_sources)) != len(rename_sources)):
+        raise RoutingError("rename sources must be unique and paired with every target")
+    for index, raw in enumerate(raw_paths):
         try:
+            evidence = (verified_rename(rename_sources[index], raw, repo_root=repo_root)
+                        if rename_sources is not None else None)
             path = normalize_path(raw, repo_root=repo_root)
             if path in seen:
                 raise RoutingError(f"duplicate path: {path}")
             seen.add(path)
             paths.append(path)
-            routes.append(route_path(path, repo_root=repo_root.resolve()))
+            if evidence is None:
+                routes.append(route_path(path, repo_root=repo_root.resolve()))
+            else:
+                rename_evidence.append(evidence)
+                routes.append({"owner": "geopolitics/verified-domain-rename",
+                               "validation_class": "repo-structural",
+                               "commands": ["tools/run.ps1 test --mode full"],
+                               "manual_checks": ["Verify the staged old/new blob and mode pairs match this evidence; preserve unrelated edits and untracked files. No content admission or publication authority is granted."]})
         except (OSError, RoutingError) as error:
             blockers.append(str(error))
     owners = _ordered_unique(route["owner"] for route in routes)
@@ -635,7 +707,7 @@ def build_report(raw_paths: list[str], *, repo_root: Path = REPO_ROOT) -> dict[s
         check for route in routes for check in route["manual_checks"]
     )
     status = "blocked" if blockers else ("manual-required" if manual_checks else "resolved")
-    return {
+    report = {
         "status": status,
         "paths": paths,
         "owners": owners,
@@ -644,6 +716,9 @@ def build_report(raw_paths: list[str], *, repo_root: Path = REPO_ROOT) -> dict[s
         "manual_checks": manual_checks,
         "blockers": blockers,
     }
+    if rename_sources is not None:
+        report["rename_evidence"] = rename_evidence
+    return report
 
 
 def parser() -> argparse.ArgumentParser:
@@ -651,13 +726,15 @@ def parser() -> argparse.ArgumentParser:
         description="Resolve publication candidates to owning validation workflows."
     )
     value.add_argument("--path", action="append", required=True)
+    value.add_argument("--rename-source", action="append",
+                       help="Explicit indexed old path paired with each --path; verifies a pure domain move.")
     value.add_argument("--json", action="store_true")
     return value
 
 
 def main(arguments: list[str] | None = None) -> int:
     args = parser().parse_args(arguments)
-    report = build_report(args.path)
+    report = build_report(args.path, rename_sources=args.rename_source)
     if args.json:
         print(json.dumps(report, indent=2))
     else:

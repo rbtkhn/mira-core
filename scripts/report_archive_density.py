@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from repository_paths import resolve_geopolitics_reference
 import argparse
 import csv
 import json
@@ -15,7 +16,7 @@ import archive_audit
 
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
-NG_ROOT = REPO_ROOT / "narrative-geopolitics"
+NG_ROOT = resolve_geopolitics_reference(REPO_ROOT, 'geopolitics')
 MANIFEST_PATH = NG_ROOT.parent / "archive" / "sources" / "geopolitics" / "source-manifest.json"
 DAILY_ROOT = NG_ROOT / "work" / "daily"
 
@@ -24,6 +25,20 @@ HOOK_RE = re.compile(r"\b(?:NG-)?2026\d{4}-F\d{2}\b|\bNG-2026\d{4}-F\d{2}\b")
 NG_HOOK_RE = re.compile(r"\bNG-(\d{8})-F\d{2}\b")
 LEGACY_HOOK_RE = re.compile(r"\bF-(\d{8})-\d{2}\b")
 OPC_RE = re.compile(r"\bOPC-\d{8}-\d{2}\b")
+
+
+def _path(name: str):
+    """Resolve defaults at use time while honoring explicit module overrides."""
+    original, factory = _PATH_DEFAULTS[name]
+    value = globals()[name]
+    return factory() if value == original else value
+
+
+_PATH_DEFAULTS = {
+    'NG_ROOT': (NG_ROOT, lambda: resolve_geopolitics_reference(REPO_ROOT, 'geopolitics')),
+    'MANIFEST_PATH': (MANIFEST_PATH, lambda: _path('NG_ROOT').parent / 'archive' / 'sources' / 'geopolitics' / 'source-manifest.json'),
+    'DAILY_ROOT': (DAILY_ROOT, lambda: _path('NG_ROOT') / 'work' / 'daily'),
+}
 
 
 @dataclass(frozen=True)
@@ -83,13 +98,15 @@ def iter_dates(month: str | None, start_date: str | None, end_date: str | None) 
     return values
 
 
-def load_manifest_counts(manifest_path: Path = MANIFEST_PATH) -> dict[str, int]:
+def load_manifest_counts(manifest_path: Path = None) -> dict[str, int]:
+    manifest_path = _path('MANIFEST_PATH') if manifest_path is None else manifest_path
     if not manifest_path.exists():
         return {}
     return archive_audit.load_manifest_counts(manifest_path)
 
 
-def read_daily_text(run_date: str, daily_root: Path = DAILY_ROOT) -> dict[str, str]:
+def read_daily_text(run_date: str, daily_root: Path = None) -> dict[str, str]:
+    daily_root = _path('DAILY_ROOT') if daily_root is None else daily_root
     run_dir = daily_root / run_date
     texts: dict[str, str] = {}
     for name in REQUIRED_DAILY_FILES:
@@ -158,7 +175,8 @@ def classifications(
     return archive_audit.density_labels(density, source_count, hooks, opcs, stories, ratio)
 
 
-def validation_counts(run_date: str, daily_root: Path = DAILY_ROOT) -> tuple[int, int]:
+def validation_counts(run_date: str, daily_root: Path = None) -> tuple[int, int]:
+    daily_root = _path('DAILY_ROOT') if daily_root is None else daily_root
     run_dir = daily_root / run_date
     required = ("sources.md", "synthesis.md", "forecast.md", "judgment.md", "daily-brief.md")
     if not all((run_dir / name).exists() for name in required):
@@ -169,9 +187,11 @@ def validation_counts(run_date: str, daily_root: Path = DAILY_ROOT) -> tuple[int
 
 def analyze_range(
     dates: list[str],
-    manifest_path: Path = MANIFEST_PATH,
-    daily_root: Path = DAILY_ROOT,
+    manifest_path: Path = None,
+    daily_root: Path = None,
 ) -> list[DensityRow]:
+    manifest_path = _path('MANIFEST_PATH') if manifest_path is None else manifest_path
+    daily_root = _path('DAILY_ROOT') if daily_root is None else daily_root
     counts = load_manifest_counts(manifest_path)
     rows: list[DensityRow] = []
     for run_date in dates:

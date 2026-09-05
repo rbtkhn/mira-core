@@ -127,6 +127,11 @@ def test_manifest_count_mismatch_is_detected(monkeypatch, tmp_path: Path) -> Non
     manifest_path = archive / "source-manifest.json"
     manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
     monkeypatch.setattr(integrity, "REPO_ROOT", tmp_path)
+    manifest_fixture = tmp_path / "archive" / "sources" / "geopolitics" / "source-manifest.json"
+    manifest_fixture.parent.mkdir(parents=True, exist_ok=True)
+    if not manifest_fixture.exists():
+        manifest_fixture.write_text('{"sources": []}', encoding="utf-8")
+    monkeypatch.setattr(integrity, "MANIFEST_PATH", manifest_fixture)
     monkeypatch.setattr(integrity, "ARCHIVE_SOURCES", archive / "sources")
     monkeypatch.setattr(integrity, "MANIFEST_PATH", manifest_path)
 
@@ -150,6 +155,11 @@ def test_archive_manifest_accepts_absent_ignored_hydration(monkeypatch, tmp_path
     manifest_path = archive / "source-manifest.json"
     manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
     monkeypatch.setattr(integrity, "REPO_ROOT", tmp_path)
+    manifest_fixture = tmp_path / "archive" / "sources" / "geopolitics" / "source-manifest.json"
+    manifest_fixture.parent.mkdir(parents=True, exist_ok=True)
+    if not manifest_fixture.exists():
+        manifest_fixture.write_text('{"sources": []}', encoding="utf-8")
+    monkeypatch.setattr(integrity, "MANIFEST_PATH", manifest_fixture)
     monkeypatch.setattr(integrity, "ARCHIVE_SOURCES", archive / "sources")
     monkeypatch.setattr(integrity, "MANIFEST_PATH", manifest_path)
 
@@ -171,6 +181,11 @@ def test_archive_manifest_rejects_partial_hydration(monkeypatch, tmp_path: Path)
     manifest_path = archive / "source-manifest.json"
     manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
     monkeypatch.setattr(integrity, "REPO_ROOT", tmp_path)
+    manifest_fixture = tmp_path / "archive" / "sources" / "geopolitics" / "source-manifest.json"
+    manifest_fixture.parent.mkdir(parents=True, exist_ok=True)
+    if not manifest_fixture.exists():
+        manifest_fixture.write_text('{"sources": []}', encoding="utf-8")
+    monkeypatch.setattr(integrity, "MANIFEST_PATH", manifest_fixture)
     monkeypatch.setattr(integrity, "ARCHIVE_SOURCES", archive / "sources")
     monkeypatch.setattr(integrity, "MANIFEST_PATH", manifest_path)
 
@@ -188,6 +203,11 @@ def test_markdown_archive_links_use_manifest_when_hydration_is_absent(
     valid = "archive/sources/geopolitics/sources/2026-07-09/source-a.md"
     note.write_text(f"[valid](../{valid})\n[invalid](../archive/sources/geopolitics/sources/missing.md)\n")
     monkeypatch.setattr(integrity, "REPO_ROOT", tmp_path)
+    manifest_fixture = tmp_path / "archive" / "sources" / "geopolitics" / "source-manifest.json"
+    manifest_fixture.parent.mkdir(parents=True, exist_ok=True)
+    if not manifest_fixture.exists():
+        manifest_fixture.write_text('{"sources": []}', encoding="utf-8")
+    monkeypatch.setattr(integrity, "MANIFEST_PATH", manifest_fixture)
     monkeypatch.setattr(
         integrity,
         "ARCHIVE_SOURCES",
@@ -217,6 +237,11 @@ def test_markdown_archive_links_check_partial_hydration_per_date(
     (archive / "2026-07-08").mkdir(parents=True)
     (archive / "2026-07-08" / "source-other.md").write_text("other", encoding="utf-8")
     monkeypatch.setattr(integrity, "REPO_ROOT", tmp_path)
+    manifest_fixture = tmp_path / "archive" / "sources" / "geopolitics" / "source-manifest.json"
+    manifest_fixture.parent.mkdir(parents=True, exist_ok=True)
+    if not manifest_fixture.exists():
+        manifest_fixture.write_text('{"sources": []}', encoding="utf-8")
+    monkeypatch.setattr(integrity, "MANIFEST_PATH", manifest_fixture)
     monkeypatch.setattr(integrity, "ARCHIVE_SOURCES", archive)
     monkeypatch.setattr(integrity, "markdown_files", lambda: [note])
     monkeypatch.setattr(
@@ -244,6 +269,11 @@ def test_root_relative_archive_links_use_portable_path_separators(
     valid = "archive/sources/geopolitics/sources/2026-07-09/source-a.md"
     note.write_text(f"[valid]({valid}:12)\n", encoding="utf-8")
     monkeypatch.setattr(integrity, "REPO_ROOT", tmp_path)
+    manifest_fixture = tmp_path / "archive" / "sources" / "geopolitics" / "source-manifest.json"
+    manifest_fixture.parent.mkdir(parents=True, exist_ok=True)
+    if not manifest_fixture.exists():
+        manifest_fixture.write_text('{"sources": []}', encoding="utf-8")
+    monkeypatch.setattr(integrity, "MANIFEST_PATH", manifest_fixture)
     monkeypatch.setattr(
         integrity,
         "ARCHIVE_SOURCES",
@@ -283,6 +313,11 @@ def test_unregistered_legacy_verification_packet_is_rejected(
     inventory = tmp_path / "legacy-inventory.json"
     inventory.write_text('{"schema_version": 1, "packets": []}\n', encoding="utf-8")
     monkeypatch.setattr(integrity, "REPO_ROOT", tmp_path)
+    manifest_fixture = tmp_path / "archive" / "sources" / "geopolitics" / "source-manifest.json"
+    manifest_fixture.parent.mkdir(parents=True, exist_ok=True)
+    if not manifest_fixture.exists():
+        manifest_fixture.write_text('{"sources": []}', encoding="utf-8")
+    monkeypatch.setattr(integrity, "MANIFEST_PATH", manifest_fixture)
     monkeypatch.setattr(integrity, "LEGACY_VERIFICATION_ROOT", packets)
     monkeypatch.setattr(integrity, "LEGACY_VERIFICATION_INVENTORY", inventory)
 
@@ -300,6 +335,11 @@ def test_broken_non_archive_markdown_link_is_detected(monkeypatch, tmp_path: Pat
     predictive = tmp_path / "predictive-history"
     predictive.mkdir()
     monkeypatch.setattr(integrity, "REPO_ROOT", tmp_path)
+    manifest_fixture = tmp_path / "archive" / "sources" / "geopolitics" / "source-manifest.json"
+    manifest_fixture.parent.mkdir(parents=True, exist_ok=True)
+    if not manifest_fixture.exists():
+        manifest_fixture.write_text('{"sources": []}', encoding="utf-8")
+    monkeypatch.setattr(integrity, "MANIFEST_PATH", manifest_fixture)
     monkeypatch.setattr(integrity, "NG_ROOT", ng_root)
     monkeypatch.setattr(integrity, "ARCHIVE_SOURCES", ng_root / "archive" / "sources")
 
@@ -324,6 +364,11 @@ def test_broken_historical_entropy_markdown_link_is_detected(
         encoding="utf-8",
     )
     monkeypatch.setattr(integrity, "REPO_ROOT", tmp_path)
+    manifest_fixture = tmp_path / "archive" / "sources" / "geopolitics" / "source-manifest.json"
+    manifest_fixture.parent.mkdir(parents=True, exist_ok=True)
+    if not manifest_fixture.exists():
+        manifest_fixture.write_text('{"sources": []}', encoding="utf-8")
+    monkeypatch.setattr(integrity, "MANIFEST_PATH", manifest_fixture)
     monkeypatch.setattr(integrity, "NG_ROOT", ng_root)
     monkeypatch.setattr(integrity, "ARCHIVE_SOURCES", ng_root / "archive" / "sources")
 
@@ -346,6 +391,11 @@ def test_sibling_markdown_roots_remain_checked_when_historical_entropy_is_empty(
     historical_entropy.mkdir()
     (predictive / "README.md").write_text("[missing](missing.md)\n", encoding="utf-8")
     monkeypatch.setattr(integrity, "REPO_ROOT", tmp_path)
+    manifest_fixture = tmp_path / "archive" / "sources" / "geopolitics" / "source-manifest.json"
+    manifest_fixture.parent.mkdir(parents=True, exist_ok=True)
+    if not manifest_fixture.exists():
+        manifest_fixture.write_text('{"sources": []}', encoding="utf-8")
+    monkeypatch.setattr(integrity, "MANIFEST_PATH", manifest_fixture)
     monkeypatch.setattr(integrity, "NG_ROOT", ng_root)
     monkeypatch.setattr(integrity, "ARCHIVE_SOURCES", ng_root / "archive" / "sources")
 
@@ -370,6 +420,11 @@ def test_reader_facing_title_contract_rejects_placeholder_and_missing_rationale(
         encoding="utf-8",
     )
     monkeypatch.setattr(integrity, "REPO_ROOT", tmp_path)
+    manifest_fixture = tmp_path / "archive" / "sources" / "geopolitics" / "source-manifest.json"
+    manifest_fixture.parent.mkdir(parents=True, exist_ok=True)
+    if not manifest_fixture.exists():
+        manifest_fixture.write_text('{"sources": []}', encoding="utf-8")
+    monkeypatch.setattr(integrity, "MANIFEST_PATH", manifest_fixture)
     monkeypatch.setattr(integrity, "NG_ROOT", ng_root)
     monkeypatch.setattr(integrity, "ARCHIVE_SOURCES", ng_root / "archive" / "sources")
     monkeypatch.setattr(integrity, "PUBLIC_BRIEFS_ROOT", briefs)
@@ -398,6 +453,11 @@ def test_reader_facing_title_contract_accepts_compressed_argument(
         encoding="utf-8",
     )
     monkeypatch.setattr(integrity, "REPO_ROOT", tmp_path)
+    manifest_fixture = tmp_path / "archive" / "sources" / "geopolitics" / "source-manifest.json"
+    manifest_fixture.parent.mkdir(parents=True, exist_ok=True)
+    if not manifest_fixture.exists():
+        manifest_fixture.write_text('{"sources": []}', encoding="utf-8")
+    monkeypatch.setattr(integrity, "MANIFEST_PATH", manifest_fixture)
     monkeypatch.setattr(integrity, "NG_ROOT", ng_root)
     monkeypatch.setattr(integrity, "ARCHIVE_SOURCES", ng_root / "archive" / "sources")
     monkeypatch.setattr(integrity, "PUBLIC_BRIEFS_ROOT", briefs)
@@ -424,6 +484,11 @@ def test_reader_facing_contract_rejects_generic_analytical_heading(
         encoding="utf-8",
     )
     monkeypatch.setattr(integrity, "REPO_ROOT", tmp_path)
+    manifest_fixture = tmp_path / "archive" / "sources" / "geopolitics" / "source-manifest.json"
+    manifest_fixture.parent.mkdir(parents=True, exist_ok=True)
+    if not manifest_fixture.exists():
+        manifest_fixture.write_text('{"sources": []}', encoding="utf-8")
+    monkeypatch.setattr(integrity, "MANIFEST_PATH", manifest_fixture)
     monkeypatch.setattr(integrity, "NG_ROOT", ng_root)
     monkeypatch.setattr(integrity, "ARCHIVE_SOURCES", ng_root / "archive" / "sources")
     monkeypatch.setattr(integrity, "PUBLIC_BRIEFS_ROOT", briefs)
@@ -440,6 +505,11 @@ def test_operationally_supported_claim_requires_packet_link(monkeypatch, tmp_pat
     brief.parent.mkdir(parents=True)
     brief.write_text("# Claim\n\nOperational status: `operationally_supported`\n", encoding="utf-8")
     monkeypatch.setattr(integrity, "REPO_ROOT", tmp_path)
+    manifest_fixture = tmp_path / "archive" / "sources" / "geopolitics" / "source-manifest.json"
+    manifest_fixture.parent.mkdir(parents=True, exist_ok=True)
+    if not manifest_fixture.exists():
+        manifest_fixture.write_text('{"sources": []}', encoding="utf-8")
+    monkeypatch.setattr(integrity, "MANIFEST_PATH", manifest_fixture)
     monkeypatch.setattr(integrity, "NG_ROOT", ng_root)
     monkeypatch.setattr(integrity, "ARCHIVE_SOURCES", ng_root / "archive" / "sources")
     monkeypatch.setattr(integrity.verification_packets, "VERIFICATION_ROOT", ng_root / "work" / "verification")
@@ -451,19 +521,19 @@ def test_operationally_supported_claim_requires_packet_link(monkeypatch, tmp_pat
 
 def test_analytical_interface_templates_preserve_required_prompts() -> None:
     method = (
-        REPO_ROOT / "narrative-geopolitics" / "method" / "analytical-interfaces.md"
+        REPO_ROOT / "geopolitics" / "method" / "analytical-interfaces.md"
     ).read_text(encoding="utf-8")
     synthesis = (
-        REPO_ROOT / "narrative-geopolitics" / "templates" / "synthesis.md"
+        REPO_ROOT / "geopolitics" / "templates" / "synthesis.md"
     ).read_text(encoding="utf-8")
     forecast = (
-        REPO_ROOT / "narrative-geopolitics" / "templates" / "forecast.md"
+        REPO_ROOT / "geopolitics" / "templates" / "forecast.md"
     ).read_text(encoding="utf-8")
     dialogue = (
-        REPO_ROOT / "narrative-geopolitics" / "work" / "dialogues" / "_template.md"
+        REPO_ROOT / "geopolitics" / "work" / "dialogues" / "_template.md"
     ).read_text(encoding="utf-8")
     voice = (
-        REPO_ROOT / "narrative-geopolitics" / "voices" / "_template.md"
+        REPO_ROOT / "geopolitics" / "voices" / "_template.md"
     ).read_text(encoding="utf-8")
 
     assert "Every analytical label should help the next reader recover the judgment" in method
@@ -550,7 +620,7 @@ def test_coffee_delegates_choice_store_compatibility_to_runtime() -> None:
 
 
 def test_scaffold_empty_is_a_no_write_compatibility_flag() -> None:
-    target = REPO_ROOT / "narrative-geopolitics" / "work" / "daily" / "2099-01-01"
+    target = REPO_ROOT / "geopolitics" / "work" / "daily" / "2099-01-01"
     assert not target.exists()
     result = subprocess.run(
         [
@@ -571,7 +641,7 @@ def test_scaffold_empty_is_a_no_write_compatibility_flag() -> None:
 
 def test_range_mode_skips_empty_dates_without_writes() -> None:
     targets = [
-        REPO_ROOT / "narrative-geopolitics" / "work" / "daily" / value
+        REPO_ROOT / "geopolitics" / "work" / "daily" / value
         for value in ("2099-01-01", "2099-01-02")
     ]
     result = subprocess.run(

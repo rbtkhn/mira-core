@@ -42,7 +42,7 @@ def generic_process_reference(*, include_outcome: bool = False) -> dict:
         {
             "relationship": relationship,
             "ref": ref,
-            "sha256": MODULE.sha256_bytes((REPO_ROOT / ref).read_bytes()),
+            "sha256": MODULE.sha256_bytes(MODULE.resolve_geopolitics_reference(REPO_ROOT, ref).read_bytes()),
         }
         for relationship, ref in refs
     ]
@@ -120,7 +120,7 @@ def test_generic_library_reference_rejects_note_as_stage_evidence(tmp_path: Path
     value["artifacts"][0] = {
         "relationship": "behavior-observation",
         "ref": note,
-        "sha256": MODULE.sha256_bytes((REPO_ROOT / note).read_bytes()),
+        "sha256": MODULE.sha256_bytes(MODULE.resolve_geopolitics_reference(REPO_ROOT, note).read_bytes()),
     }
     path = tmp_path / "note-evidence.json"
     path.write_text(MODULE.pretty_json(value), encoding="utf-8")

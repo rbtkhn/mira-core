@@ -244,3 +244,13 @@ block a justified dense-batch exception.
 - Print an explicit packet-request command for `request` rows; operator action remains required.
 - Permit bounded internal synthesis with unresolved claims. Block high-consequence public factual use and accountable forecast resolution until packet requirements are met.
 - Reject orphan `OPC-*` rows: every retained claim must control planned public factual use, watch promotion, or a forecast dependency.
+
+## Geopolitics directory compatibility
+
+For current filesystem operations, resolve domain paths through the shared
+`repository_paths.resolve_geopolitics_reference` helper. It accepts the legacy
+`narrative-geopolitics/` spelling and the `geopolitics/` spelling and selects
+exactly one existing domain directory. Examples below or above using the legacy
+spelling remain compatibility references; they do not authorize a directory
+move. Preserve historical IDs and stored/hash-bound references. The source
+archive remains at `archive/sources/geopolitics/`.

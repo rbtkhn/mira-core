@@ -6,7 +6,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-VOICES = ROOT / "narrative-geopolitics" / "voices"
+VOICES = ROOT / "geopolitics" / "voices"
 MANIFEST = ROOT / "archive" / "sources" / "geopolitics" / "source-manifest.json"
 
 

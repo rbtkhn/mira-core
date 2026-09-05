@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from repository_paths import resolve_geopolitics_reference
 import argparse
 import hashlib
 import json
@@ -14,7 +15,7 @@ import research_handoff
 import voice_judgments
 
 ROOT = Path(__file__).resolve().parent.parent
-NG = ROOT / "narrative-geopolitics"
+NG = resolve_geopolitics_reference(ROOT, 'geopolitics')
 VOICES = NG / "voices"
 MANIFEST = NG.parent / "archive" / "sources" / "geopolitics" / "source-manifest.json"
 DAILY = NG / "work" / "daily"
@@ -30,10 +31,28 @@ AXES = {
     "diesen": ("multipolar order / host-convener", "How does the crisis reveal order transition?"),
     "davis": ("practical room / military feasibility", "What can force still do, and what can coercion no longer recover?"),
 }
+
+
+def _path(name: str):
+    """Resolve defaults at use time while honoring explicit module overrides."""
+    original, factory = _PATH_DEFAULTS[name]
+    value = globals()[name]
+    return factory() if value == original else value
+
+
+_PATH_DEFAULTS = {
+    'NG': (NG, lambda: resolve_geopolitics_reference(ROOT, 'geopolitics')),
+    'VOICES': (VOICES, lambda: _path('NG') / 'voices'),
+    'MANIFEST': (MANIFEST, lambda: _path('NG').parent / 'archive' / 'sources' / 'geopolitics' / 'source-manifest.json'),
+    'DAILY': (DAILY, lambda: _path('NG') / 'work' / 'daily'),
+    'DESCRIPTOR_PATH': (DESCRIPTOR_PATH, lambda: _path('VOICES') / 'comparisons' / 'voice-descriptors.json'),
+}
+
+
 def descriptor_registry():
-    if not DESCRIPTOR_PATH.exists():
+    if not _path('DESCRIPTOR_PATH').exists():
         return {}
-    registry = json.loads(DESCRIPTOR_PATH.read_text(encoding="utf-8")).get("voices", {})
+    registry = json.loads(_path('DESCRIPTOR_PATH').read_text(encoding="utf-8")).get("voices", {})
     required = {"axis", "native_question", "identity_line", "primary_risk", "do_not_collapse", "status"}
     invalid = [voice for voice, profile in registry.items() if not required.issubset(profile)]
     if invalid:
@@ -49,7 +68,7 @@ PAIR_DIMENSIONS = ("axis_separation", "mechanism_separation", "evidence_independ
 
 
 def ledgers():
-    for path in VOICES.glob("*/state-ledger.md"):
+    for path in _path('VOICES').glob("*/state-ledger.md"):
         yield path.parent.name, path
 
 
@@ -148,9 +167,9 @@ def markdown_payload(payload, title):
 
 
 def manifest_rows():
-    if not MANIFEST.exists():
+    if not _path('MANIFEST').exists():
         return []
-    return json.loads(MANIFEST.read_text(encoding="utf-8")).get("sources", [])
+    return json.loads(_path('MANIFEST').read_text(encoding="utf-8")).get("sources", [])
 
 
 def command_states(states):
@@ -210,7 +229,7 @@ def command_select(states):
 
 
 def score_voice(voice, own_states, all_state_rows):
-    profile = VOICES / voice / "README.md"
+    profile = _path('VOICES') / voice / "README.md"
     has_profile = profile.exists()
     has_ledger = bool(own_states)
     role, question = AXES.get(voice, ("unmapped", "No canonical axis assigned."))
@@ -284,7 +303,7 @@ def daily_source_rows(run_date):
 
 
 def daily_text(run_date, name):
-    path = DAILY / run_date / name
+    path = _path('DAILY') / run_date / name
     return path.read_text(encoding="utf-8") if path.exists() else ""
 
 
@@ -489,7 +508,7 @@ def daily_payload(run_date):
 
 def persist_daily_payload(payload, target=None):
     rendered = render_daily_orthogonality(payload)
-    target = target or NG / "work" / "continuity" / "orthogonality" / f"orthogonality-{payload['date']}.md"
+    target = target or _path('NG') / "work" / "continuity" / "orthogonality" / f"orthogonality-{payload['date']}.md"
     if not target.is_absolute():
         target = ROOT / target
     if not ARGS.dry_run:
@@ -561,7 +580,7 @@ def command_daily_orthogonality(states):
         skipped = [d for d in date_range(start, end) if d not in manifest_dates]
         payloads = [daily_payload(d) for d in sorted(manifest_dates)]
         rollup = monthly_rollup(payloads, skipped, ARGS.start_date, ARGS.end_date)
-        target = Path(ARGS.output) if ARGS.output else NG / "work" / "continuity" / "orthogonality" / f"orthogonality-{start.strftime('%Y-%m')}.md"
+        target = Path(ARGS.output) if ARGS.output else _path('NG') / "work" / "continuity" / "orthogonality" / f"orthogonality-{start.strftime('%Y-%m')}.md"
         if not ARGS.dry_run:
             target.parent.mkdir(parents=True, exist_ok=True)
             existing = target.read_text(encoding="utf-8") if target.exists() else ""
@@ -584,7 +603,7 @@ def command_daily_orthogonality(states):
 
 
 def parse_forecast_rows():
-    path = NG / "work" / "forecasts" / "forecast-ledger.md"
+    path = _path('NG') / "work" / "forecasts" / "forecast-ledger.md"
     hooks = {}
     if not path.exists():
         return hooks
@@ -609,7 +628,7 @@ def parse_state_forecast_links():
 def reality_records():
     records = []
     for folder in ("claims", "assessments", "investigations", "transitions", "observables"):
-        for path in (NG / "work" / "reality" / folder).glob("*.json"):
+        for path in (_path('NG') / "work" / "reality" / folder).glob("*.json"):
             try:
                 item = json.loads(path.read_text(encoding="utf-8"))
                 item["_folder"] = folder
@@ -704,7 +723,7 @@ def command_longitudinal():
         raise SystemExit(2)
     payload = longitudinal_payload(ARGS.start_date, ARGS.end_date)
     rendered = render_longitudinal(payload)
-    target = Path(ARGS.output) if ARGS.output else NG / "work" / "continuity" / "longitudinal" / f"longitudinal-accountability-{start.strftime('%Y-%m')}.md"
+    target = Path(ARGS.output) if ARGS.output else _path('NG') / "work" / "continuity" / "longitudinal" / f"longitudinal-accountability-{start.strftime('%Y-%m')}.md"
     if not target.is_absolute(): target = ROOT / target
     if not ARGS.dry_run:
         target.parent.mkdir(parents=True, exist_ok=True)
@@ -865,7 +884,7 @@ def command_geometry():
     except ValueError: raise SystemExit(2)
     if start > end: raise SystemExit(2)
     payload = geometry_payload(ARGS.start_date, ARGS.end_date); rendered = render_geometry_v2(payload)
-    target = Path(ARGS.output) if ARGS.output else NG / "work" / "continuity" / "geometry" / f"geometry-{start.strftime('%Y-%m') if start != end else start.isoformat()}.md"
+    target = Path(ARGS.output) if ARGS.output else _path('NG') / "work" / "continuity" / "geometry" / f"geometry-{start.strftime('%Y-%m') if start != end else start.isoformat()}.md"
     if not target.is_absolute(): target = ROOT / target
     if not ARGS.dry_run:
         target.parent.mkdir(parents=True, exist_ok=True); existing = target.read_text(encoding="utf-8") if target.exists() else ""
@@ -1056,7 +1075,7 @@ def command_triage():
     except ValueError: raise SystemExit(2)
     if start > end: raise SystemExit(2)
     payload = triage_payload(ARGS.start_date, ARGS.end_date); rendered = render_triage(payload)
-    target = Path(ARGS.output) if ARGS.output else NG / "work" / "continuity" / "triage" / f"triage-{start.strftime('%Y-%m') if start != end else start.isoformat()}.md"
+    target = Path(ARGS.output) if ARGS.output else _path('NG') / "work" / "continuity" / "triage" / f"triage-{start.strftime('%Y-%m') if start != end else start.isoformat()}.md"
     if not target.is_absolute(): target = ROOT / target
     if not ARGS.dry_run:
         target.parent.mkdir(parents=True, exist_ok=True); existing = target.read_text(encoding="utf-8") if target.exists() else ""
@@ -1069,7 +1088,7 @@ def command_validate(states):
     failures = []
     ids = set()
     source_ids = set()
-    for source_file in DAILY.glob("*/sources.md"):
+    for source_file in _path('DAILY').glob("*/sources.md"):
         source_ids.update(re.findall(r"`(SRC-[0-9]+)`", source_file.read_text(encoding="utf-8")))
     for state in states:
         sid = state["state_id"]
@@ -1079,7 +1098,7 @@ def command_validate(states):
         if state["expression_type"] not in EXPRESSION: failures.append(f"invalid expression type {state['expression_type']}: {sid}")
         for source in re.findall(r"SRC-[0-9]+", state["source_ids"]):
             if source not in source_ids: failures.append(f"missing source {source}: {sid}")
-    daily_text = "\n".join(p.read_text(encoding="utf-8") for p in DAILY.glob("*/synthesis.md"))
+    daily_text = "\n".join(p.read_text(encoding="utf-8") for p in _path('DAILY').glob("*/synthesis.md"))
     for sid in re.findall(r"STATE-[A-Z0-9-]+", daily_text):
         if sid not in ids: failures.append(f"daily state has no ledger: {sid}")
     emit({"state_count": len(states), "ledger_count": len(list(ledgers())), "failures": failures, "status": "pass" if not failures else "fail"}, "Continuity Validation")

@@ -8,8 +8,7 @@ from typing import Any
 
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
-NG_ROOT = REPO_ROOT / "narrative-geopolitics"
-MANIFEST_PATH = NG_ROOT.parent / "archive" / "sources" / "geopolitics" / "source-manifest.json"
+MANIFEST_PATH = REPO_ROOT / "archive" / "sources" / "geopolitics" / "source-manifest.json"
 
 VOICE_ALIASES = {
     "larry-johnson": "johnson",
@@ -49,11 +48,13 @@ def canonicalize_slugs(values: list[str]) -> list[str]:
     return result
 
 
-def load_manifest(path: Path = MANIFEST_PATH) -> dict[str, Any]:
+def load_manifest(path: Path | None = None) -> dict[str, Any]:
+    path = MANIFEST_PATH if path is None else path
     return json.loads(path.read_text(encoding="utf-8-sig"))
 
 
-def write_manifest(manifest: dict[str, Any], path: Path = MANIFEST_PATH) -> None:
+def write_manifest(manifest: dict[str, Any], path: Path | None = None) -> None:
+    path = MANIFEST_PATH if path is None else path
     path.write_text(
         json.dumps(manifest, indent=2, ensure_ascii=False) + "\n",
         encoding="utf-8",
@@ -107,8 +108,9 @@ def selected_rows(manifest: dict[str, Any], run_date: str | None) -> list[dict[s
 
 
 def inspect_metadata(
-    manifest: dict[str, Any], repo_root: Path = REPO_ROOT, run_date: str | None = None
+    manifest: dict[str, Any], repo_root: Path | None = None, run_date: str | None = None
 ) -> dict[str, Any]:
+    repo_root = REPO_ROOT if repo_root is None else repo_root
     changes: list[dict[str, Any]] = []
     failures: list[str] = []
     sources_hydrated = (repo_root / "archive" / "sources" / "geopolitics" / "sources").is_dir()
@@ -137,8 +139,9 @@ def inspect_metadata(
 
 
 def apply_metadata(
-    manifest: dict[str, Any], repo_root: Path = REPO_ROOT, run_date: str | None = None
+    manifest: dict[str, Any], repo_root: Path | None = None, run_date: str | None = None
 ) -> dict[str, Any]:
+    repo_root = REPO_ROOT if repo_root is None else repo_root
     report = inspect_metadata(manifest, repo_root, run_date)
     if report["failures"]:
         return report
@@ -159,7 +162,7 @@ def apply_metadata(
 
 
 def metadata_failures(
-    manifest: dict[str, Any], repo_root: Path = REPO_ROOT, run_date: str | None = None
+    manifest: dict[str, Any], repo_root: Path | None = None, run_date: str | None = None
 ) -> list[str]:
     report = inspect_metadata(manifest, repo_root, run_date)
     failures = list(report["failures"])

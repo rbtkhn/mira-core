@@ -326,7 +326,7 @@ def test_cli_requires_force_to_replace_a_stale_issue(monkeypatch, tmp_path: Path
     issue_path.write_text("hand edit\n", encoding="utf-8")
     monkeypatch.setattr(issue, "DAILY_ROOT", daily_root)
     monkeypatch.setattr(issue, "LEDGER_PATH", ledger_path)
-    monkeypatch.setattr(issue, "TEMPLATE_PATH", REPO_ROOT / "narrative-geopolitics" / "templates" / "issue.md")
+    monkeypatch.setattr(issue, "TEMPLATE_PATH", REPO_ROOT / "geopolitics" / "templates" / "issue.md")
     monkeypatch.setattr(sys, "argv", ["render_daily_issue.py", "--date", RUN_DATE])
 
     with pytest.raises(SystemExit, match="Refusing to overwrite"):

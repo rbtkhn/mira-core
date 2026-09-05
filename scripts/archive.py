@@ -393,6 +393,7 @@ def discover_external_corpus(collection: Mapping[str,Any],source_root: Path | No
 REPOSITORY_ARTIFACT_PREFIXES = (
     "docs/audits/",
     "narrative-geopolitics/work/system-improvement/mira-journal-outcomes/",
+    "geopolitics/work/system-improvement/mira-journal-outcomes/",
 )
 REPOSITORY_ARTIFACT_TYPES = {"baseline-audit","validation-receipt","outcome-measurement"}
 

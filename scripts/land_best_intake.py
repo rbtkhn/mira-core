@@ -19,8 +19,7 @@ if str(SCRIPT_DIR) not in sys.path:
 import voice_indexes
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
-NG_ROOT = REPO_ROOT / "narrative-geopolitics"
-ARCHIVE_ROOT = NG_ROOT.parent / "archive" / "sources" / "geopolitics"
+ARCHIVE_ROOT = REPO_ROOT / "archive" / "sources" / "geopolitics"
 MANIFEST_PATH = ARCHIVE_ROOT / "source-manifest.json"
 ARCHIVE_SOURCES_ROOT = ARCHIVE_ROOT / "sources"
 METADATA_SUFFIXES = (".txt", ".md")
@@ -2268,6 +2267,7 @@ def project_voice_indexes_for_plans(
             if plan.manifest_row.get("date")
         }
     )
+    voices_root = voice_indexes.default_voices_root(REPO_ROOT) if run_dates else None
     updates: dict[Path, str] = {}
     changed_shelves: set[str] = set()
     added_routes: set[str] = set()
@@ -2278,7 +2278,7 @@ def project_voice_indexes_for_plans(
             manifest,
             run_date=run_date,
             repo_root=REPO_ROOT,
-            voices_root=NG_ROOT / "voices",
+            voices_root=voices_root,
         )
         updates.update(projected)
         changed_shelves.update(report.get("changed_shelves", []))
@@ -2319,6 +2319,7 @@ def sync_voice_indexes_for_plans(plans: list[LandingPlan], manifest: dict) -> li
             if plan.manifest_row.get("date")
         }
     )
+    voices_root = voice_indexes.default_voices_root(REPO_ROOT) if run_dates else None
     changed_shelves: set[str] = set()
     added_routes: set[str] = set()
     unindexed_voices: set[str] = set()
@@ -2330,7 +2331,7 @@ def sync_voice_indexes_for_plans(plans: list[LandingPlan], manifest: dict) -> li
             run_date=run_date,
             write=True,
             repo_root=REPO_ROOT,
-            voices_root=NG_ROOT / "voices",
+            voices_root=voices_root,
         )
         changed_shelves.update(report.get("changed_shelves", []))
         added_routes.update(report.get("added_routes", []))

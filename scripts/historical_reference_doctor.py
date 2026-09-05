@@ -1,6 +1,7 @@
 """Read-only health report for the bounded historical-reference workflow."""
 from __future__ import annotations
 
+from repository_paths import resolve_geopolitics_reference
 import argparse
 import hashlib
 import json
@@ -36,7 +37,7 @@ def report() -> dict:
         "manifest": {"rows": len(rows), "declared_count": data.get("source_count"), "duplicate_paths": duplicates, "missing_archive_paths": missing},
         "skill": {"canonical_exists": SKILL.exists(), "canonical_hash": files_hash(SKILL) if SKILL.exists() else None, "mirror_exists": MIRROR.exists(), "mirror_hash": files_hash(MIRROR) if MIRROR.exists() else None, "mirror_status": "IN_SYNC" if SKILL.exists() and MIRROR.exists() and files_hash(SKILL) == files_hash(MIRROR) else "DRIFT_OR_MISSING"},
         "runtime": {"python": sys.executable, "python_version": sys.version.split()[0], "focused_tests_exit": focused.returncode, "focused_tests_tail": focused.stdout.strip().splitlines()[-1] if focused.stdout.strip() else focused.stderr.strip().splitlines()[-1] if focused.stderr.strip() else "", "taxonomy_validation_exit": taxonomy.returncode, "taxonomy_validation_tail": taxonomy.stdout.strip().splitlines()[-1] if taxonomy.stdout.strip() else taxonomy.stderr.strip().splitlines()[-1] if taxonomy.stderr.strip() else ""},
-        "generated_outputs": {"work_root_exists": (ROOT / "narrative-geopolitics" / "work" / "historical-reference").exists()},
+        "generated_outputs": {"work_root_exists": (resolve_geopolitics_reference(ROOT, 'geopolitics') / "work" / "historical-reference").exists()},
         "checks": {"manifest_valid": data.get("source_count") == len(rows) and not duplicates and not missing, "skill_mirror_in_sync": SKILL.exists() and MIRROR.exists() and files_hash(SKILL) == files_hash(MIRROR), "focused_tests_pass": focused.returncode == 0, "taxonomy_valid": taxonomy.returncode == 0},
     }
 

@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from repository_paths import resolve_geopolitics_reference
 import argparse
 import copy
 import hashlib
@@ -10,11 +11,11 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any
 
-from repository_paths import resolve_repository_path
+from repository_paths import resolve_geopolitics_reference
 
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
-TRACKER_ROOT = REPO_ROOT / "narrative-geopolitics" / "work" / "system-improvement"
+TRACKER_ROOT = resolve_geopolitics_reference(REPO_ROOT, 'geopolitics') / "work" / "system-improvement"
 LEDGER_JSON_PATH = TRACKER_ROOT / "recursive-learning-ledger.json"
 LEDGER_MD_PATH = TRACKER_ROOT / "recursive-learning-ledger.md"
 OUTCOME_RECEIPT_ROOT = TRACKER_ROOT / "recursive-learning-outcomes"
@@ -47,6 +48,23 @@ ASSESSMENT_STATES = {
     "partial-candidate",
     "admissible",
     "already-represented",
+}
+
+
+
+
+def _path(name: str):
+    """Resolve defaults at use time while honoring explicit module overrides."""
+    original, factory = _PATH_DEFAULTS[name]
+    value = globals()[name]
+    return factory() if value == original else value
+
+
+_PATH_DEFAULTS = {
+    'TRACKER_ROOT': (TRACKER_ROOT, lambda: resolve_geopolitics_reference(REPO_ROOT, 'geopolitics') / 'work' / 'system-improvement'),
+    'LEDGER_JSON_PATH': (LEDGER_JSON_PATH, lambda: _path('TRACKER_ROOT') / 'recursive-learning-ledger.json'),
+    'LEDGER_MD_PATH': (LEDGER_MD_PATH, lambda: _path('TRACKER_ROOT') / 'recursive-learning-ledger.md'),
+    'OUTCOME_RECEIPT_ROOT': (OUTCOME_RECEIPT_ROOT, lambda: _path('TRACKER_ROOT') / 'recursive-learning-outcomes'),
 }
 
 
@@ -89,22 +107,22 @@ def replace_file(source: Path, target: Path) -> None:
 
 
 def atomic_write_ledger_pair(ledger: dict[str, Any]) -> None:
-    json_temporary = LEDGER_JSON_PATH.with_name(f".{LEDGER_JSON_PATH.name}.pair-{os.getpid()}")
-    markdown_temporary = LEDGER_MD_PATH.with_name(f".{LEDGER_MD_PATH.name}.pair-{os.getpid()}")
-    original_json = LEDGER_JSON_PATH.read_bytes()
-    original_markdown = LEDGER_MD_PATH.read_bytes()
+    json_temporary = _path('LEDGER_JSON_PATH').with_name(f".{_path('LEDGER_JSON_PATH').name}.pair-{os.getpid()}")
+    markdown_temporary = _path('LEDGER_MD_PATH').with_name(f".{_path('LEDGER_MD_PATH').name}.pair-{os.getpid()}")
+    original_json = _path('LEDGER_JSON_PATH').read_bytes()
+    original_markdown = _path('LEDGER_MD_PATH').read_bytes()
     try:
         json_temporary.write_text(pretty_json(ledger), encoding="utf-8", newline="\n")
         markdown_temporary.write_text(render_markdown(ledger), encoding="utf-8", newline="\n")
         failures = validate_ledger(json_path=json_temporary, markdown_path=markdown_temporary)
         if failures:
             raise LearningError("; ".join(failures))
-        replace_file(json_temporary, LEDGER_JSON_PATH)
+        replace_file(json_temporary, _path('LEDGER_JSON_PATH'))
         try:
-            replace_file(markdown_temporary, LEDGER_MD_PATH)
+            replace_file(markdown_temporary, _path('LEDGER_MD_PATH'))
         except OSError:
-            atomic_write_bytes(LEDGER_JSON_PATH, original_json)
-            atomic_write_bytes(LEDGER_MD_PATH, original_markdown)
+            atomic_write_bytes(_path('LEDGER_JSON_PATH'), original_json)
+            atomic_write_bytes(_path('LEDGER_MD_PATH'), original_markdown)
             raise
     finally:
         for path in (json_temporary, markdown_temporary):
@@ -123,7 +141,8 @@ def external_output(path: Path) -> Path:
     raise LearningError(f"recursive-learning candidate output must be outside Git: {resolved}")
 
 
-def governed_outcome_output(path: Path, *, root: Path = OUTCOME_RECEIPT_ROOT) -> Path:
+def governed_outcome_output(path: Path, *, root: Path = None) -> Path:
+    root = _path('OUTCOME_RECEIPT_ROOT') if root is None else root
     resolved = path.expanduser().resolve()
     governed_root = root.resolve()
     try:
@@ -137,13 +156,14 @@ def governed_outcome_output(path: Path, *, root: Path = OUTCOME_RECEIPT_ROOT) ->
     return resolved
 
 
-def repository_evidence_path(value: str, *, repo_root: Path = REPO_ROOT) -> str:
+def repository_evidence_path(value: str, *, repo_root: Path = None) -> str:
+    repo_root = REPO_ROOT if repo_root is None else repo_root
     normalized = value.replace("\\", "/").strip()
     if not normalized or Path(normalized).is_absolute() or normalized.startswith("../"):
         raise LearningError("baseline_ref must be a repository-relative path")
     if _is_journal_path(normalized):
         raise LearningError("journal context cannot serve as an outcome-receipt baseline")
-    if not (repo_root / normalized).is_file():
+    if not resolve_geopolitics_reference(repo_root, normalized).is_file():
         raise LearningError(f"outcome-receipt baseline does not resolve: {normalized}")
     return normalized
 
@@ -202,7 +222,7 @@ def write_correspondence_receipt(
 
 
 def load_ledger(path: Path | None = None) -> dict[str, Any]:
-    return json.loads((path or LEDGER_JSON_PATH).read_text(encoding="utf-8"))
+    return json.loads((path or _path('LEDGER_JSON_PATH')).read_text(encoding="utf-8"))
 
 
 def render_markdown(ledger: dict[str, Any]) -> str:
@@ -294,7 +314,8 @@ def _is_journal_path(value: str) -> bool:
     }
 
 
-def validate_entry(entry: Any, *, repo_root: Path = REPO_ROOT) -> list[str]:
+def validate_entry(entry: Any, *, repo_root: Path = None) -> list[str]:
+    repo_root = REPO_ROOT if repo_root is None else repo_root
     if not isinstance(entry, dict):
         return ["recursive learning entry must be an object"]
     failures: list[str] = []
@@ -327,7 +348,7 @@ def validate_entry(entry: Any, *, repo_root: Path = REPO_ROOT) -> list[str]:
                 if _is_journal_path(raw_text):
                     failures.append(f"{entry_id}: journal context cannot serve as {stage_name} evidence: {raw_text}")
                     continue
-                path = resolve_repository_path(repo_root, raw_text)
+                path = resolve_geopolitics_reference(repo_root, raw_text)
                 if not path.exists():
                     failures.append(f"{entry_id}: missing evidence path: {raw_text}")
         if stage_name == "intervention":
@@ -352,10 +373,13 @@ def validate_entry(entry: Any, *, repo_root: Path = REPO_ROOT) -> list[str]:
 
 def validate_ledger(
     *,
-    repo_root: Path = REPO_ROOT,
-    json_path: Path = LEDGER_JSON_PATH,
-    markdown_path: Path = LEDGER_MD_PATH,
+    repo_root: Path = None,
+    json_path: Path = None,
+    markdown_path: Path = None,
 ) -> list[str]:
+    repo_root = REPO_ROOT if repo_root is None else repo_root
+    json_path = _path('LEDGER_JSON_PATH') if json_path is None else json_path
+    markdown_path = _path('LEDGER_MD_PATH') if markdown_path is None else markdown_path
     failures: list[str] = []
     if not json_path.is_file():
         return [f"recursive learning ledger missing: {json_path}"]
@@ -436,8 +460,9 @@ def stage_dispositions(
     signal: str,
     candidate: dict[str, Any] | None,
     *,
-    repo_root: Path = REPO_ROOT,
+    repo_root: Path = None,
 ) -> dict[str, dict[str, str]]:
+    repo_root = REPO_ROOT if repo_root is None else repo_root
     if signal == "none":
         return {
             stage: {
@@ -481,7 +506,7 @@ def stage_dispositions(
             raw_text = str(raw_path)
             if _is_journal_path(raw_text):
                 invalid_reasons.append(f"journal context is inadmissible evidence: {raw_text}")
-            elif not resolve_repository_path(repo_root, raw_text).exists():
+            elif not resolve_geopolitics_reference(repo_root, raw_text).exists():
                 invalid_reasons.append(f"evidence path does not resolve: {raw_text}")
         if stage_name == "intervention":
             commits = stage.get("commits")
@@ -580,15 +605,16 @@ def build_outcome_receipt(
     observed_at: datetime,
     ledger_before: bytes,
     ledger_after: bytes,
-    repo_root: Path = REPO_ROOT,
+    repo_root: Path = None,
 ) -> dict[str, Any]:
+    repo_root = REPO_ROOT if repo_root is None else repo_root
     if ledger_before != ledger_after:
         raise LearningError("canonical recursive-learning ledger changed during outcome assessment")
     baseline = repository_evidence_path(baseline_ref, repo_root=repo_root)
     reference_id = str(reference["reference_id"])
     source_digests: dict[str, str] = {}
     for relative in ASSESSOR_IMPLEMENTATION_PATHS:
-        path = repo_root / relative
+        path = resolve_geopolitics_reference(repo_root, relative)
         if not path.is_file():
             raise LearningError(f"outcome-receipt implementation path does not resolve: {relative}")
         source_digests[relative] = sha256_bytes(path.read_bytes())
@@ -628,7 +654,7 @@ def build_outcome_receipt(
             "ledger_unchanged": True,
         },
         "ledger_integrity": {
-            "path": str(LEDGER_JSON_PATH.relative_to(REPO_ROOT)).replace("\\", "/"),
+            "path": str(_path('LEDGER_JSON_PATH').relative_to(REPO_ROOT)).replace("\\", "/"),
             "sha256_before": sha256_bytes(ledger_before),
             "sha256_after": sha256_bytes(ledger_after),
             "mutation": False,
@@ -655,9 +681,9 @@ def create_outcome_receipt(
     reference = validated_reference(resolved_reference)
     observed_at = parse_observed_at(observed_at_text)
     output_path = governed_outcome_output(output)
-    ledger_before = LEDGER_JSON_PATH.read_bytes()
+    ledger_before = _path('LEDGER_JSON_PATH').read_bytes()
     assessment = assess_reference(reference, ledger=json.loads(ledger_before.decode("utf-8")))
-    ledger_after = LEDGER_JSON_PATH.read_bytes()
+    ledger_after = _path('LEDGER_JSON_PATH').read_bytes()
     receipt = build_outcome_receipt(
         reference=reference,
         reference_bytes=reference_bytes,
@@ -797,7 +823,7 @@ def load_process_reference(path: Path) -> dict[str, Any]:
         if not isinstance(artifact, dict):
             raise LearningError("process-learning artifact handles must be objects")
         path = str(artifact.get("ref", "")).split("#", 1)[0]
-        if Path(path).is_absolute() or ".." in Path(path).parts or not resolve_repository_path(REPO_ROOT, path).exists():
+        if Path(path).is_absolute() or ".." in Path(path).parts or not resolve_geopolitics_reference(REPO_ROOT, path).exists():
             raise LearningError(f"process-learning artifact does not resolve: {path}")
         if _is_journal_path(path):
             raise LearningError("journal context cannot serve as process-learning evidence")
@@ -807,7 +833,7 @@ def load_process_reference(path: Path) -> dict[str, Any]:
             if artifact.get("relationship") not in PROCESS_RELATIONSHIPS:
                 raise LearningError("process-learning artifact has an invalid relationship")
             expected = str(artifact.get("sha256", ""))
-            actual = sha256_bytes(resolve_repository_path(REPO_ROOT, path).read_bytes())
+            actual = sha256_bytes(resolve_geopolitics_reference(REPO_ROOT, path).read_bytes())
             if not re.fullmatch(r"[0-9a-f]{64}", expected) or expected != actual:
                 raise LearningError(f"process-learning artifact digest mismatch: {path}")
     if generic:
@@ -1072,13 +1098,13 @@ def main(arguments: list[str] | None = None) -> int:
                 )
         elif args.command == "render":
             expected = render_markdown(load_ledger())
-            matches = LEDGER_MD_PATH.is_file() and LEDGER_MD_PATH.read_text(encoding="utf-8") == expected
+            matches = _path('LEDGER_MD_PATH').is_file() and _path('LEDGER_MD_PATH').read_text(encoding="utf-8") == expected
             if not args.check:
-                atomic_write_text(LEDGER_MD_PATH, expected)
+                atomic_write_text(_path('LEDGER_MD_PATH'), expected)
             result = {"status": "current" if matches else ("stale" if args.check else "rendered"), "mutation": not args.check}
         else:
             if args.write:
-                atomic_write_text(LEDGER_MD_PATH, render_markdown(load_ledger()))
+                atomic_write_text(_path('LEDGER_MD_PATH'), render_markdown(load_ledger()))
             failures = validate_ledger() if args.check or args.command == "validate" or not args.write else []
             if failures:
                 for failure in failures:

@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from repository_paths import resolve_geopolitics_reference
 import argparse
 import json
 import re
@@ -7,7 +8,7 @@ from pathlib import Path
 from typing import Any
 
 ROOT = Path(__file__).resolve().parent.parent
-NG = ROOT / "narrative-geopolitics"
+NG = resolve_geopolitics_reference(ROOT, 'geopolitics')
 MANIFEST = NG.parent / "archive" / "sources" / "geopolitics" / "source-manifest.json"
 PUBLICATIONS = NG / "publications"
 ALLOWED_ROLES = {"author", "guest", "host", "co-host", "panelist"}
@@ -26,6 +27,22 @@ DOMAIN_PUBLICATIONS = {
 }
 
 
+
+
+def _path(name: str):
+    """Resolve defaults at use time while honoring explicit module overrides."""
+    original, factory = _PATH_DEFAULTS[name]
+    value = globals()[name]
+    return factory() if value == original else value
+
+
+_PATH_DEFAULTS = {
+    'NG': (NG, lambda: resolve_geopolitics_reference(ROOT, 'geopolitics')),
+    'MANIFEST': (MANIFEST, lambda: _path('NG').parent / 'archive' / 'sources' / 'geopolitics' / 'source-manifest.json'),
+    'PUBLICATIONS': (PUBLICATIONS, lambda: _path('NG') / 'publications'),
+}
+
+
 def canonical_slug(value: str) -> str:
     aliases = {
         "larry-johnson": "johnson",
@@ -41,7 +58,7 @@ def canonical_slug(value: str) -> str:
 
 
 def load_manifest() -> dict[str, Any]:
-    return json.loads(MANIFEST.read_text(encoding="utf-8-sig"))
+    return json.loads(_path('MANIFEST').read_text(encoding="utf-8-sig"))
 
 
 def source_frontmatter_url(row: dict[str, Any]) -> str:
@@ -109,9 +126,9 @@ def host_kind(row: dict[str, Any]) -> str | None:
     host = canonical_slug(str(row.get("host_slug") or ""))
     if not host:
         return None
-    if (NG / "channels" / host).is_dir():
+    if (_path('NG') / "channels" / host).is_dir():
         return "channel"
-    if (NG / "voices" / host).is_dir():
+    if (_path('NG') / "voices" / host).is_dir():
         return "host-person"
     return "show"
 
@@ -208,7 +225,7 @@ def migrate(manifest: dict[str, Any], start: str | None, end: str | None, write:
                     changed.append(row["local_path"])
         failures.extend(f"{row.get('local_path')}: {item}" for item in validate_row(row))
     if write and not failures:
-        MANIFEST.write_text(json.dumps(manifest, indent=2, ensure_ascii=False) + "\n", encoding="utf-8", newline="\n")
+        _path('MANIFEST').write_text(json.dumps(manifest, indent=2, ensure_ascii=False) + "\n", encoding="utf-8", newline="\n")
     return {"changed": sorted(changed), "failures": sorted(set(failures)), "write": write and not failures}
 
 
@@ -231,7 +248,7 @@ def write_publications(manifest: dict[str, Any], start: str | None, end: str | N
         grouped.setdefault(slug, (row.get("publication_name", slug), []))[1].append(row)
     written: list[str] = []
     for slug, (name, rows) in grouped.items():
-        target = PUBLICATIONS / slug / "README.md"
+        target = _path('PUBLICATIONS') / slug / "README.md"
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_text(render_publication(slug, name, rows), encoding="utf-8", newline="\n")
         written.append(target.relative_to(ROOT).as_posix())

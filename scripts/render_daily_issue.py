@@ -9,15 +9,16 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Mapping
 
+from repository_paths import resolve_geopolitics_reference
+
 import verification
 import reality
 
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
-NG_ROOT = REPO_ROOT / "narrative-geopolitics"
-DAILY_ROOT = NG_ROOT / "work" / "daily"
-TEMPLATE_PATH = NG_ROOT / "templates" / "issue.md"
-LEDGER_PATH = NG_ROOT / "work" / "forecasts" / "forecast-ledger.md"
+DAILY_ROOT: Path | None = None
+TEMPLATE_PATH: Path | None = None
+LEDGER_PATH: Path | None = None
 CANONICAL_FILES = ("sources.md", "synthesis.md", "forecast.md", "daily-brief.md")
 
 STORY_ID_RE = re.compile(r"NGI-(\d{8})-S\d{2}")
@@ -67,11 +68,28 @@ class IssueValidationContext:
     reality_records: Mapping[str, dict[str, Any]]
 
 
+def default_daily_root() -> Path:
+    return DAILY_ROOT if DAILY_ROOT is not None else resolve_geopolitics_reference(REPO_ROOT, "geopolitics/work/daily")
+
+
+def default_ledger_path(daily_root: Path) -> Path:
+    if LEDGER_PATH is not None:
+        return LEDGER_PATH
+    return daily_root.parent / "forecasts" / "forecast-ledger.md"
+
+
+def default_template_path() -> Path:
+    return TEMPLATE_PATH if TEMPLATE_PATH is not None else default_daily_root().parents[1] / "templates" / "issue.md"
+
+
 def load_validation_context(
-    daily_root: Path = DAILY_ROOT,
-    ledger_path: Path = LEDGER_PATH,
-    reality_root: Path = reality.REALITY_ROOT,
+    daily_root: Path | None = None,
+    ledger_path: Path | None = None,
+    reality_root: Path | None = None,
 ) -> IssueValidationContext:
+    daily_root = default_daily_root() if daily_root is None else daily_root
+    ledger_path = default_ledger_path(daily_root) if ledger_path is None else ledger_path
+    reality_root = daily_root.parent / "reality" if reality_root is None else reality_root
     manifest_path = daily_root.parents[2] / "archive" / "sources" / "geopolitics" / "source-manifest.json"
     manifest = json.loads(manifest_path.read_text(encoding="utf-8-sig"))
     return IssueValidationContext(
@@ -168,7 +186,8 @@ def first_table_with(text: str, required_headers: set[str]) -> list[dict[str, st
     return []
 
 
-def canonical_inputs(run_date: str, daily_root: Path = DAILY_ROOT) -> dict[str, str]:
+def canonical_inputs(run_date: str, daily_root: Path | None = None) -> dict[str, str]:
+    daily_root = default_daily_root() if daily_root is None else daily_root
     run_dir = daily_root / run_date
     missing = [name for name in CANONICAL_FILES if not (run_dir / name).exists()]
     if missing:
@@ -288,7 +307,8 @@ def parse_ledger(ledger_text: str) -> dict[str, dict[str, str]]:
     return {match.group(0): row for row in rows if (match := HOOK_ID_RE.search(row["Hook ID"]))}
 
 
-def parse_forecast_detail(hook_id: str, daily_root: Path = DAILY_ROOT) -> dict[str, str]:
+def parse_forecast_detail(hook_id: str, daily_root: Path | None = None) -> dict[str, str]:
+    daily_root = default_daily_root() if daily_root is None else daily_root
     match = re.fullmatch(r"NG-(\d{4})(\d{2})(\d{2})-F\d{2}", hook_id)
     if not match:
         return {}
@@ -302,7 +322,8 @@ def parse_forecast_detail(hook_id: str, daily_root: Path = DAILY_ROOT) -> dict[s
     return {}
 
 
-def parse_forecasts(stories: tuple[Story, ...], ledger_text: str, daily_root: Path = DAILY_ROOT) -> dict[str, dict[str, str]]:
+def parse_forecasts(stories: tuple[Story, ...], ledger_text: str, daily_root: Path | None = None) -> dict[str, dict[str, str]]:
+    daily_root = default_daily_root() if daily_root is None else daily_root
     ledger = parse_ledger(ledger_text)
     output: dict[str, dict[str, str]] = {}
     for hook_id in dict.fromkeys(hook for story in stories if story.placement != "hold" for hook in story.forecast_hooks):
@@ -348,12 +369,15 @@ def title_and_rationale(daily_brief: str, lead: Story) -> tuple[str, str]:
 
 def load_model(
     run_date: str,
-    daily_root: Path = DAILY_ROOT,
-    ledger_path: Path = LEDGER_PATH,
-    packets_root: Path = verification.PACKETS_ROOT,
+    daily_root: Path | None = None,
+    ledger_path: Path | None = None,
+    packets_root: Path | None = None,
     *,
     context: IssueValidationContext | None = None,
 ) -> IssueModel:
+    daily_root = default_daily_root() if daily_root is None else daily_root
+    ledger_path = default_ledger_path(daily_root) if ledger_path is None else ledger_path
+    packets_root = daily_root.parent / "verification" / "packets" if packets_root is None else packets_root
     inputs = canonical_inputs(run_date, daily_root)
     stories = parse_stories(run_date, inputs["synthesis.md"])
     reality_links = parse_reality_links(inputs["synthesis.md"])
@@ -408,6 +432,7 @@ def load_model(
         input_digest=input_digest(inputs),
         reality_digest=reality.subgraph_digest(
             selected_claims | selected_hooks,
+            root=daily_root.parent / "reality",
             records=context.reality_records if context is not None else None,
         ),
     )
@@ -431,7 +456,7 @@ def render_model(
     *,
     context: IssueValidationContext | None = None,
 ) -> str:
-    template = template_text if template_text is not None else TEMPLATE_PATH.read_text(encoding="utf-8")
+    template = template_text if template_text is not None else default_template_path().read_text(encoding="utf-8")
     selected = [story for story in model.stories if story.placement != "hold"]
     lead = next(story for story in selected if story.placement == "lead")
     briefs = [story for story in selected if story.placement == "brief"]
@@ -470,6 +495,7 @@ def render_model(
             verification_display = model.verification_links.get(raw_verification, row.get("Verification", ""))
             state = reality.claim_state(
                 claim_id,
+                root=default_daily_root().parent / "reality" if context is None else Path(),
                 records=context.reality_records if context is not None else None,
             )
             assessment = state.get("assessment") if state else None
@@ -516,11 +542,13 @@ def render_model(
 def model_failures(
     model: IssueModel,
     ledger_text: str,
-    daily_root: Path = DAILY_ROOT,
-    packets_root: Path = verification.PACKETS_ROOT,
+    daily_root: Path | None = None,
+    packets_root: Path | None = None,
     *,
     context: IssueValidationContext | None = None,
 ) -> list[str]:
+    daily_root = default_daily_root() if daily_root is None else daily_root
+    packets_root = daily_root.parent / "verification" / "packets" if packets_root is None else packets_root
     failures: list[str] = []
     selected = [story for story in model.stories if story.placement != "hold"]
     for story in selected:
@@ -547,6 +575,7 @@ def model_failures(
             if clean_cell(model.claim_rows[claim_id].get("Current status", "")) == "operationally_supported":
                 lattice = reality.claim_state(
                     claim_id,
+                    root=daily_root.parent / "reality",
                     records=context.reality_records if context is not None else None,
                 )
                 lattice_assessment = lattice.get("assessment") if lattice else None
@@ -581,6 +610,7 @@ def model_failures(
                     failures.append(f"{story.story_id}: verification-supported packet does not operationally support the claim")
                 lattice = reality.claim_state(
                     claim_id,
+                    root=daily_root.parent / "reality",
                     records=context.reality_records if context is not None else None,
                 )
                 lattice_assessment = lattice.get("assessment") if lattice else None
@@ -626,14 +656,17 @@ def model_failures(
 def validate_issue(
     run_date: str,
     require: bool = False,
-    daily_root: Path = DAILY_ROOT,
-    ledger_path: Path = LEDGER_PATH,
+    daily_root: Path | None = None,
+    ledger_path: Path | None = None,
     *,
     context: IssueValidationContext | None = None,
 ) -> tuple[list[str], list[str]]:
+    daily_root = default_daily_root() if daily_root is None else daily_root
+    ledger_path = default_ledger_path(daily_root) if ledger_path is None else ledger_path
     issue_path = daily_root / run_date / "issue.md"
     if not issue_path.exists():
         return (["missing issue.md"] if require else []), []
+    context = context if context is not None else load_validation_context(daily_root, ledger_path)
     failures: list[str] = []
     warnings: list[str] = []
     try:
@@ -686,14 +719,17 @@ def parse_args() -> argparse.Namespace:
 
 def main() -> None:
     args = parse_args()
-    issue_path = DAILY_ROOT / args.date / "issue.md"
-    model = load_model(args.date, DAILY_ROOT, LEDGER_PATH)
-    failures = model_failures(model, LEDGER_PATH.read_text(encoding="utf-8"), DAILY_ROOT)
+    root = default_daily_root()
+    ledger = default_ledger_path(root)
+    context = load_validation_context(root, ledger)
+    issue_path = root / args.date / "issue.md"
+    model = load_model(args.date, root, ledger, context=context)
+    failures = model_failures(model, context.ledger_text, root, context=context)
     if failures:
         for item in failures:
             print(f"FAIL {item}")
         raise SystemExit(1)
-    rendered = render_model(model)
+    rendered = render_model(model, context=context)
     if args.check:
         if not issue_path.exists() or issue_path.read_text(encoding="utf-8") != rendered:
             print(f"FAIL stale or missing issue: {display_path(issue_path)}")

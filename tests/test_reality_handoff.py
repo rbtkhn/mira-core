@@ -26,6 +26,7 @@ def configure_roots(
     claims_root.mkdir()
     observables_root.mkdir()
     monkeypatch.setattr(reality_handoff, "REPO_ROOT", tmp_path)
+    (tmp_path / "narrative-geopolitics").mkdir(exist_ok=True)
     monkeypatch.setattr(reality_handoff, "DAILY_ROOT", daily_root)
     monkeypatch.setattr(reality_handoff, "CLAIMS_ROOT", claims_root)
     monkeypatch.setattr(reality_handoff, "OBSERVABLES_ROOT", observables_root)

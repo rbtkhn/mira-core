@@ -104,7 +104,7 @@ def configure_transaction_root(monkeypatch, tmp_path: Path) -> tuple[Path, Path]
     manifest_path = archive / "source-manifest.json"
     manifest_path.write_text('{"source_count": 0, "sources": []}\n', encoding="utf-8")
     monkeypatch.setattr(land_best_intake, "REPO_ROOT", tmp_path)
-    monkeypatch.setattr(land_best_intake, "NG_ROOT", tmp_path / "narrative-geopolitics")
+    (tmp_path / "narrative-geopolitics").mkdir(exist_ok=True)
     monkeypatch.setattr(land_best_intake, "ARCHIVE_ROOT", archive)
     monkeypatch.setattr(land_best_intake, "ARCHIVE_SOURCES_ROOT", sources)
     monkeypatch.setattr(land_best_intake, "MANIFEST_PATH", manifest_path)
@@ -1793,7 +1793,7 @@ def test_manifest_publication_failure_rolls_back_all_sources(
 
 def test_documented_host_allowlists_match_executable_contracts() -> None:
     method = (
-        REPO_ROOT / "narrative-geopolitics" / "method" / "best-intake.md"
+        REPO_ROOT / "geopolitics" / "method" / "best-intake.md"
     ).read_text(encoding="utf-8")
     expected = {
         "Current approved hosts:": set(land_best_intake.HOST_TRIM_RULES),

@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from repository_paths import resolve_geopolitics_reference, geopolitics_reference_for_read
 import json
 from collections import Counter
 from datetime import date, datetime
@@ -79,12 +80,12 @@ def _nonempty(value: Any, label: str) -> str:
 
 
 def _known_voices(repo_root: Path) -> set[str]:
-    root = repo_root / "narrative-geopolitics" / "voices"
+    root = resolve_geopolitics_reference(repo_root, 'geopolitics') / "voices"
     return {item.name for item in root.iterdir() if item.is_dir() and item.name != "comparisons"} if root.is_dir() else set()
 
 
 def _known_tier_b_channels(repo_root: Path) -> set[str]:
-    policy = repo_root / "narrative-geopolitics" / "work" / "capture" / "youtube" / "youtube-capture-policy.yml"
+    policy = resolve_geopolitics_reference(repo_root, 'geopolitics') / "work" / "capture" / "youtube" / "youtube-capture-policy.yml"
     if not policy.is_file():
         return set()
     channels: set[str] = set()
@@ -444,8 +445,8 @@ def build_certification(
     source_metadata_loader: Callable[[Path], tuple[dict[str, str], str] | None],
     daily_validator: Callable[[str], dict[str, Any]],
 ) -> dict[str, Any]:
-    contracts_root = repo_root / "narrative-geopolitics" / "work" / "coverage" / "contracts"
-    receipts_root = repo_root / "narrative-geopolitics" / "work" / "coverage" / "receipts"
+    contracts_root = geopolitics_reference_for_read(repo_root, 'geopolitics') / "work" / "coverage" / "contracts"
+    receipts_root = geopolitics_reference_for_read(repo_root, 'geopolitics') / "work" / "coverage" / "receipts"
     contract_path = contracts_root / f"{month}.json"
     receipt_path = receipts_root / f"{month}.jsonl"
     base = {

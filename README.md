@@ -19,7 +19,7 @@ recursive learning.
 immutable bodies, cross-collection inventory, provenance, temporal retrieval,
 and bounded context assembly. It does not replace collection-native authority.
 
-The executable center is [Narrative Geopolitics](narrative-geopolitics/README.md):
+The executable center is [Geopolitics](geopolitics/README.md):
 a source-bounded system for curating intellectual voices, testing their
 continuity across time and channels, bringing their distinct frameworks into
 disciplined dialogue, producing synthesis, and holding forecasts accountable.
@@ -42,7 +42,7 @@ independent evidence for the sources from which they descend.
 ```text
 .
 ├── archive/                Shared storage, provenance, time, and context governance
-├── narrative-geopolitics/  Archive, continuity, work, forecasts, and public output
+├── geopolitics/            Archive, continuity, work, forecasts, and public output
 ├── predictive-history/     Sibling public-system study
 ├── historical-entropy/     Governed historical inheritance and long-memory study
 ├── docs/                   Method and local skill contracts
@@ -100,7 +100,7 @@ Changes to a model behind an existing workflow use the internal
 Use `MIRA_CORE_PYTHON` to select a specific Python executable and
 `MIRA_CORE_VALIDATION_CACHE` to select an external cache directory. Private
 intake behavior is documented separately under
-`narrative-geopolitics/method/` and is not part of repository maintenance.
+`geopolitics/method/` and is not part of repository maintenance.
 
 ## Outcome-aware choice navigation
 
@@ -208,3 +208,12 @@ index rather than one query per choice.
   sources, but those objects are navigation and interpretation surfaces, not
   corroborating evidence.
 - Empty dates create no daily directory.
+
+### Geopolitics directory compatibility
+
+The domain name is Geopolitics. During the directory transition, tooling accepts
+`geopolitics/` and the legacy `narrative-geopolitics/` reference, selecting the one
+physical domain directory present. Both directories together are an error.
+The live directory is `geopolitics/`; links above point to it. The archive stays at
+`archive/sources/geopolitics/`. Historical identifiers and hash-bound records
+retain their original spelling.

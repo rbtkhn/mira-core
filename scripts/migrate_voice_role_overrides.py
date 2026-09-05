@@ -42,11 +42,12 @@ def main() -> int:
     )
     parser.add_argument("--write", action="store_true")
     args = parser.parse_args()
+    voices_root = voice_indexes.default_voices_root()
     manifest = voice_indexes.load_manifest()
-    overrides = collect_overrides(manifest, voice_indexes.REPO_ROOT, voice_indexes.VOICES_ROOT)
+    overrides = collect_overrides(manifest, voice_indexes.REPO_ROOT, voices_root)
     payload = {"schema_version": 1, "overrides": overrides}
     rendered = json.dumps(payload, indent=2, ensure_ascii=False) + "\n"
-    target = voice_indexes.VOICES_ROOT / voice_indexes.ROLE_OVERRIDES_NAME
+    target = voices_root / voice_indexes.ROLE_OVERRIDES_NAME
     if args.write:
         target.write_text(rendered, encoding="utf-8", newline="\n")
         print(f"wrote {len(overrides)} overrides to {target}")

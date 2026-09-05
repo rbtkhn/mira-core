@@ -116,8 +116,6 @@ def configure_voice_roots(monkeypatch, tmp_path: Path) -> tuple[Path, Path]:
     ng_root = tmp_path / "narrative-geopolitics"
     voices_root = ng_root / "voices"
     monkeypatch.setattr(voice_indexes, "REPO_ROOT", tmp_path)
-    monkeypatch.setattr(voice_indexes, "NG_ROOT", ng_root)
-    monkeypatch.setattr(voice_indexes, "VOICES_ROOT", voices_root)
     monkeypatch.setattr(voice_metadata, "REPO_ROOT", tmp_path)
     return ng_root, voices_root
 

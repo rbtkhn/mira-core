@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from repository_paths import resolve_geopolitics_reference
 import argparse
 import hashlib
 import json
@@ -15,7 +16,7 @@ from repository_paths import canonical_repository_path, resolve_repository_path
 
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
-TRACK_ROOT = REPO_ROOT / "narrative-geopolitics" / "work" / "operator-positions"
+TRACK_ROOT = resolve_geopolitics_reference(REPO_ROOT, 'geopolitics') / "work" / "operator-positions"
 LEDGER_PATH = TRACK_ROOT / "strategic-judgment-ledger.json"
 GRAPH_PATH = TRACK_ROOT / "strategic-judgment-graph.json"
 REPORT_PATH = TRACK_ROOT / "strategic-judgment-ledger.md"
@@ -105,15 +106,35 @@ LEARNING_LOOP_FIELDS = (
 )
 
 
+
+
+def _path(name: str):
+    """Resolve defaults at use time while honoring explicit module overrides."""
+    original, factory = _PATH_DEFAULTS[name]
+    value = globals()[name]
+    return factory() if value == original else value
+
+
+_PATH_DEFAULTS = {
+    'TRACK_ROOT': (TRACK_ROOT, lambda: resolve_geopolitics_reference(REPO_ROOT, 'geopolitics') / 'work' / 'operator-positions'),
+    'LEDGER_PATH': (LEDGER_PATH, lambda: _path('TRACK_ROOT') / 'strategic-judgment-ledger.json'),
+    'GRAPH_PATH': (GRAPH_PATH, lambda: _path('TRACK_ROOT') / 'strategic-judgment-graph.json'),
+    'REPORT_PATH': (REPORT_PATH, lambda: _path('TRACK_ROOT') / 'strategic-judgment-ledger.md'),
+    'CANDIDATE_ROOT': (CANDIDATE_ROOT, lambda: _path('TRACK_ROOT') / '.candidates'),
+}
+
+
 class LedgerError(ValueError):
     pass
 
 
-def load_ledger(path: Path = LEDGER_PATH) -> dict[str, Any]:
+def load_ledger(path: Path = None) -> dict[str, Any]:
+    path = _path('LEDGER_PATH') if path is None else path
     return json.loads(path.read_text(encoding="utf-8"))
 
 
-def write_ledger(data: dict[str, Any], path: Path = LEDGER_PATH) -> None:
+def write_ledger(data: dict[str, Any], path: Path = None) -> None:
+    path = _path('LEDGER_PATH') if path is None else path
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(
         json.dumps(data, ensure_ascii=False, indent=2, sort_keys=True) + "\n",
@@ -130,6 +151,10 @@ def _layer_node_id(version_id: str, layer_id: str) -> str:
 
 
 def build_graph(data: dict[str, Any]) -> dict[str, Any]:
+    # This field is a historical logical identity, not a physical output path.
+    ledger_reference = _path('LEDGER_PATH').relative_to(REPO_ROOT).as_posix()
+    if ledger_reference.startswith("geopolitics/"):
+        ledger_reference = "narrative-" + ledger_reference
     nodes: dict[str, dict[str, Any]] = {}
     edges: dict[str, dict[str, Any]] = {}
 
@@ -361,7 +386,7 @@ def build_graph(data: dict[str, Any]) -> dict[str, Any]:
     return {
         "schema": "strategic-judgment-graph-v1",
         "source": {
-            "ledger_path": LEDGER_PATH.relative_to(REPO_ROOT).as_posix(),
+            "ledger_path": ledger_reference,
             "ledger_schema": data["schema"],
         },
         "nodes": ordered_nodes,
@@ -399,8 +424,8 @@ def validate_graph(graph: dict[str, Any]) -> list[str]:
 def write_artifacts(data: dict[str, Any], *, write_source: bool = True) -> None:
     if write_source:
         write_ledger(data)
-    GRAPH_PATH.write_text(_json_text(build_graph(data)), encoding="utf-8")
-    REPORT_PATH.write_text(render_report(data), encoding="utf-8")
+    _path('GRAPH_PATH').write_text(_json_text(build_graph(data)), encoding="utf-8")
+    _path('REPORT_PATH').write_text(render_report(data), encoding="utf-8")
 
 
 def latest_version(position: dict[str, Any]) -> dict[str, Any]:
@@ -430,7 +455,7 @@ def _validate_evidence_ref(ref: dict[str, Any], errors: list[str], context: str)
         errors.append(f"{context}: evidence reference needs a path")
         return
     canonical_path = canonical_repository_path(path_value)
-    evidence_path = resolve_repository_path(REPO_ROOT, path_value)
+    evidence_path = resolve_geopolitics_reference(REPO_ROOT, path_value)
     if not evidence_path.is_file() and not (
         canonical_path.startswith("archive/sources/geopolitics/sources/")
         and source_reference_available(REPO_ROOT, path_value)
@@ -722,16 +747,16 @@ def validate_data(data: dict[str, Any], *, check_report: bool = False) -> list[s
             errors.extend(validate_graph(expected_graph))
     if check_report and not errors and expected_graph is not None:
         expected_report = render_report(data)
-        if not REPORT_PATH.is_file() or REPORT_PATH.read_text(encoding="utf-8") != expected_report:
+        if not _path('REPORT_PATH').is_file() or _path('REPORT_PATH').read_text(encoding="utf-8") != expected_report:
             errors.append("strategic judgment ledger: canonical JSON/Markdown drift")
         expected_graph_text = _json_text(expected_graph)
-        if not GRAPH_PATH.is_file() or GRAPH_PATH.read_text(encoding="utf-8") != expected_graph_text:
+        if not _path('GRAPH_PATH').is_file() or _path('GRAPH_PATH').read_text(encoding="utf-8") != expected_graph_text:
             errors.append("strategic judgment ledger: canonical JSON/graph drift")
     return errors
 
 
 def validate_ledger() -> list[str]:
-    if not LEDGER_PATH.is_file():
+    if not _path('LEDGER_PATH').is_file():
         return ["strategic judgment ledger: missing canonical JSON"]
     try:
         data = load_ledger()
@@ -1053,8 +1078,8 @@ def make_candidate(input_path: Path, object_slug: str, source_kind: str) -> Path
             "epistemic_layers", "change_conditions", "qualifications", "strongest_counterarguments"
         } else "" for field in REQUIRED_POSITION_FIELDS},
     }
-    CANDIDATE_ROOT.mkdir(parents=True, exist_ok=True)
-    target = CANDIDATE_ROOT / f"{candidate['candidate_id']}.json"
+    _path('CANDIDATE_ROOT').mkdir(parents=True, exist_ok=True)
+    target = _path('CANDIDATE_ROOT') / f"{candidate['candidate_id']}.json"
     target.write_text(json.dumps(candidate, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     return target
 
@@ -1093,8 +1118,8 @@ def make_journal_candidate(
             },
         },
     }
-    CANDIDATE_ROOT.mkdir(parents=True, exist_ok=True)
-    target = CANDIDATE_ROOT / f"{candidate['candidate_id']}.json"
+    _path('CANDIDATE_ROOT').mkdir(parents=True, exist_ok=True)
+    target = _path('CANDIDATE_ROOT') / f"{candidate['candidate_id']}.json"
     target.write_text(json.dumps(candidate, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     return target
 
@@ -2069,8 +2094,8 @@ def main(argv: list[str] | None = None) -> int:
             data = load_ledger()
             rendered = _json_text(build_graph(data))
             if args.write:
-                GRAPH_PATH.write_text(rendered, encoding="utf-8")
-                print(GRAPH_PATH)
+                _path('GRAPH_PATH').write_text(rendered, encoding="utf-8")
+                print(_path('GRAPH_PATH'))
             else:
                 print(rendered, end="")
         elif args.command == "report":
@@ -2078,7 +2103,7 @@ def main(argv: list[str] | None = None) -> int:
             rendered = render_report(data)
             if args.write:
                 write_artifacts(data, write_source=False)
-                print(REPORT_PATH)
+                print(_path('REPORT_PATH'))
             else:
                 print(rendered, end="")
         elif args.command == "validate":

@@ -1,6 +1,7 @@
 """Build a bounded historical-reference density comparison pilot."""
 from __future__ import annotations
 
+from repository_paths import resolve_geopolitics_reference
 import argparse
 import importlib.util
 import json
@@ -10,13 +11,32 @@ from collections import Counter, defaultdict
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
-NG_ROOT = REPO_ROOT / "narrative-geopolitics"
+NG_ROOT = resolve_geopolitics_reference(REPO_ROOT, 'geopolitics')
 MANIFEST_PATH = NG_ROOT.parent / "archive" / "sources" / "geopolitics" / "source-manifest.json"
 OUTPUT_PATH = NG_ROOT / "analytics" / "cross-voice-historical-reference-density.md"
 VOICE_LEDGER_DIR = NG_ROOT / "analytics" / "historical-reference-ledgers"
 REVIEW_OVERRIDES_PATH = NG_ROOT / "analytics" / "historical-reference-review-overrides.json"
 REVIEW_QUEUE_PATH = NG_ROOT / "analytics" / "historical-reference-review-queue.md"
 INDEX_SCRIPT = REPO_ROOT / "scripts" / "build_freeman_historical_index.py"
+
+
+
+
+def _path(name: str):
+    """Resolve defaults at use time while honoring explicit module overrides."""
+    original, factory = _PATH_DEFAULTS[name]
+    value = globals()[name]
+    return factory() if value == original else value
+
+
+_PATH_DEFAULTS = {
+    'NG_ROOT': (NG_ROOT, lambda: resolve_geopolitics_reference(REPO_ROOT, 'geopolitics')),
+    'MANIFEST_PATH': (MANIFEST_PATH, lambda: _path('NG_ROOT').parent / 'archive' / 'sources' / 'geopolitics' / 'source-manifest.json'),
+    'OUTPUT_PATH': (OUTPUT_PATH, lambda: _path('NG_ROOT') / 'analytics' / 'cross-voice-historical-reference-density.md'),
+    'VOICE_LEDGER_DIR': (VOICE_LEDGER_DIR, lambda: _path('NG_ROOT') / 'analytics' / 'historical-reference-ledgers'),
+    'REVIEW_OVERRIDES_PATH': (REVIEW_OVERRIDES_PATH, lambda: _path('NG_ROOT') / 'analytics' / 'historical-reference-review-overrides.json'),
+    'REVIEW_QUEUE_PATH': (REVIEW_QUEUE_PATH, lambda: _path('NG_ROOT') / 'analytics' / 'historical-reference-review-queue.md'),
+}
 
 
 def load_taxonomy():
@@ -35,7 +55,7 @@ def selected_voices(voice_filter: str) -> set[str] | None:
 
 
 def manifest_rows(voice_filter: str = "freeman") -> list[dict]:
-    manifest = json.loads(MANIFEST_PATH.read_text(encoding="utf-8"))
+    manifest = json.loads(_path('MANIFEST_PATH').read_text(encoding="utf-8"))
     selected = selected_voices(voice_filter)
     seen: set[tuple[str, str]] = set()
     rows: list[dict] = []
@@ -85,7 +105,7 @@ def is_context_only(paragraph: str) -> bool:
 
 def build_records(voice_filter: str = "freeman") -> tuple[list[dict], list[str]]:
     module = load_taxonomy()
-    overrides = json.loads(REVIEW_OVERRIDES_PATH.read_text(encoding="utf-8")) if REVIEW_OVERRIDES_PATH.is_file() else {}
+    overrides = json.loads(_path('REVIEW_OVERRIDES_PATH').read_text(encoding="utf-8")) if _path('REVIEW_OVERRIDES_PATH').is_file() else {}
     records: list[dict] = []
     coverage: list[str] = []
     for index, row in enumerate(manifest_rows(voice_filter), start=1):
@@ -321,10 +341,10 @@ def render_review_queue(records: list[dict]) -> str:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--output", type=Path, default=OUTPUT_PATH)
+    parser.add_argument("--output", type=Path, default=_path('OUTPUT_PATH'))
     parser.add_argument("--voices", default="freeman", help="Comma-separated voice routes; use 'all' only for a deliberate full-corpus run.")
-    parser.add_argument("--voice-ledger-dir", type=Path, default=VOICE_LEDGER_DIR)
-    parser.add_argument("--review-queue", type=Path, default=REVIEW_QUEUE_PATH)
+    parser.add_argument("--voice-ledger-dir", type=Path, default=_path('VOICE_LEDGER_DIR'))
+    parser.add_argument("--review-queue", type=Path, default=_path('REVIEW_QUEUE_PATH'))
     parser.add_argument("--dry-run", action="store_true")
     args = parser.parse_args()
     voice_filter = args.voices.lower()

@@ -689,7 +689,7 @@ def test_historical_territories_are_not_active_guidance() -> None:
     assert not any("/work/daily/" in path for path in paths)
     assert not any("/work/audits/" in path for path in paths)
     assert "narrative-geopolitics/work/june-backfill-demo-sequence.md" not in paths
-    assert "narrative-geopolitics/work/asr-repair-pilot-findings-july-2026.md" in paths
+    assert "geopolitics/work/asr-repair-pilot-findings-july-2026.md" in paths
 
 
 def test_normative_repository_guidance_has_no_obsolete_commands() -> None:

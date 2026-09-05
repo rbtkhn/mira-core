@@ -13,6 +13,7 @@ import time
 import uuid
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
+from repository_paths import resolve_geopolitics_reference
 from typing import Any, Callable
 
 
@@ -103,13 +104,21 @@ def unread_dream_journal_entries(
 REPO_ROOT = Path(__file__).resolve().parent.parent
 JOURNAL_REGISTRY_PATH = REPO_ROOT / "mira" / "journal-registry.json"
 HANDOFF_PATH = (
-    REPO_ROOT / "narrative-geopolitics" / "work" / "cadence" / "last-dream.json"
+    resolve_geopolitics_reference(REPO_ROOT, "geopolitics") / "work" / "cadence" / "last-dream.json"
 )
-BASELINE_ROOT = REPO_ROOT / "narrative-geopolitics" / "work" / "cadence" / "baselines"
+BASELINE_ROOT = resolve_geopolitics_reference(REPO_ROOT, "geopolitics") / "work" / "cadence" / "baselines"
 VALIDATOR_PATH = REPO_ROOT / "tools" / "validate_repo.py"
 TEMP_ROOT_ENV = "MIRA_CORE_SESSION_TEMP_ROOT"
 HEARTBEAT_SECONDS = 30
-DAILY_ROOT = REPO_ROOT / "narrative-geopolitics" / "work" / "daily"
+DAILY_ROOT = resolve_geopolitics_reference(REPO_ROOT, "geopolitics") / "work" / "daily"
+
+_INITIAL_DOMAIN_PATHS = {name: globals()[name] for name in ('HANDOFF_PATH', 'BASELINE_ROOT', 'DAILY_ROOT')}
+_DOMAIN_REFERENCES = {'HANDOFF_PATH': 'geopolitics/work/cadence/last-dream.json', 'BASELINE_ROOT': 'geopolitics/work/cadence/baselines', 'DAILY_ROOT': 'geopolitics/work/daily'}
+
+def _path(name):
+    value = globals()[name]
+    return resolve_geopolitics_reference(REPO_ROOT, _DOMAIN_REFERENCES[name]) if value == _INITIAL_DOMAIN_PATHS[name] else value
+
 MANIFEST_PATH = REPO_ROOT / "archive" / "sources" / "geopolitics" / "source-manifest.json"
 ARCHIVE_SOURCES_ROOT = REPO_ROOT / "archive" / "sources" / "geopolitics" / "sources"
 BOUNDED_AGENCY_CONTRACT = (
@@ -402,9 +411,9 @@ def worktree_fingerprint() -> str:
 
 
 def latest_daily_run() -> str | None:
-    if not DAILY_ROOT.exists():
+    if not _path('DAILY_ROOT').exists():
         return None
-    dates = sorted(path.name for path in DAILY_ROOT.iterdir() if path.is_dir())
+    dates = sorted(path.name for path in _path('DAILY_ROOT').iterdir() if path.is_dir())
     return dates[-1] if dates else None
 
 
@@ -431,9 +440,11 @@ def manifest_state(
 def synthesis_state(
     run_date: str,
     manifest_path: Path = MANIFEST_PATH,
-    daily_root: Path = DAILY_ROOT,
-    repo_root: Path = REPO_ROOT,
+    daily_root: Path = None,
+    repo_root: Path = None,
 ) -> dict:
+    repo_root = REPO_ROOT if repo_root is None else repo_root
+    daily_root = _path('DAILY_ROOT') if daily_root is None else daily_root
     try:
         date.fromisoformat(run_date)
     except ValueError as error:
@@ -895,7 +906,8 @@ def print_startup(state: dict) -> None:
     print(f"next_action={state['next_action']}")
 
 
-def load_handoff(path: Path = HANDOFF_PATH) -> dict | None:
+def load_handoff(path: Path = None) -> dict | None:
+    path = _path('HANDOFF_PATH') if path is None else path
     if not path.exists():
         return None
     return json.loads(path.read_text(encoding="utf-8"))
@@ -1062,7 +1074,7 @@ def normalize_artifact_refs(values: list[str]) -> list[str]:
         candidate = Path(path_text)
         if not ref or candidate.is_absolute() or ".." in candidate.parts:
             raise ValueError(f"artifact reference must be repo-relative: {value}")
-        resolved = (REPO_ROOT / candidate).resolve()
+        resolved = resolve_geopolitics_reference(REPO_ROOT, candidate.as_posix()).resolve()
         try:
             resolved.relative_to(root)
         except ValueError as error:
@@ -1079,7 +1091,8 @@ def normalize_artifact_refs(values: list[str]) -> list[str]:
     return normalized
 
 
-def coffee_state(path: Path = HANDOFF_PATH) -> dict:
+def coffee_state(path: Path = None) -> dict:
+    path = _path('HANDOFF_PATH') if path is None else path
     current_head = git_head()
     current_dirty = dirty_paths()
     current_fingerprint = worktree_fingerprint()
@@ -1331,9 +1344,10 @@ def promote_dream(
     *,
     temp_root: Path,
     force: bool = False,
-    path: Path = HANDOFF_PATH,
+    path: Path = None,
     runner: Callable[..., dict] = run_repository_validator,
 ) -> dict:
+    path = _path('HANDOFF_PATH') if path is None else path
     handoff = load_handoff(path)
     if handoff is None:
         raise ValueError("no Dream handoff exists to promote")
@@ -1426,7 +1440,7 @@ def write_baseline(
         "elapsed_seconds": result["elapsed_seconds"],
         "output_tail": result["output_tail"],
     }
-    target = path or (BASELINE_ROOT / f"{profile}.json")
+    target = path or (_path('BASELINE_ROOT') / f"{profile}.json")
     atomic_write_json(target, payload)
     return payload
 
@@ -1443,9 +1457,10 @@ def write_dream(
     profile: str | None = None,
     temp_root: Path | None = None,
     measurement: dict | None = None,
-    path: Path = HANDOFF_PATH,
+    path: Path = None,
     profile_runner: Callable[[str, Path], dict] = run_profile_verification,
 ) -> dict:
+    path = _path('HANDOFF_PATH') if path is None else path
     evidence_summary = evidence_summary.strip()
     if not evidence_summary:
         raise ValueError("evidence summary must not be empty")
@@ -1951,7 +1966,7 @@ def main() -> None:
             payload = write_baseline(args.profile, temp_root=temp_root)
         except ValueError as error:
             raise SystemExit(str(error)) from error
-        print(json.dumps(payload, indent=2) if args.json else f"baseline_written={BASELINE_ROOT.relative_to(REPO_ROOT).as_posix()}/{args.profile}.json")
+        print(json.dumps(payload, indent=2) if args.json else f"baseline_written={_path('BASELINE_ROOT').relative_to(REPO_ROOT).as_posix()}/{args.profile}.json")
         if not payload["passed"]:
             raise SystemExit(1)
         return
@@ -2025,7 +2040,7 @@ def main() -> None:
         print(json.dumps(payload, indent=2))
     else:
         experiment_status = payload["verification"]["experiment"]["status"]
-        print(f"dream_written={HANDOFF_PATH.relative_to(REPO_ROOT).as_posix()}")
+        print(f"dream_written={_path('HANDOFF_PATH').relative_to(REPO_ROOT).as_posix()}")
         print(f"experiment_status={experiment_status}")
         print(f"local_use={payload['verification']['inheritance']['local-use']}")
         print("repo_use=blocked")

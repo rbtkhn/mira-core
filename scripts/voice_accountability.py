@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from repository_paths import resolve_geopolitics_reference
 import argparse
 import json
 import re
@@ -14,7 +15,7 @@ from repository_paths import resolve_repository_path
 
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
-NG_ROOT = REPO_ROOT / "narrative-geopolitics"
+NG_ROOT = resolve_geopolitics_reference(REPO_ROOT, 'geopolitics')
 TRACKER_ROOT = NG_ROOT / "work" / "voice-accountability"
 LEDGER_MD_PATH = TRACKER_ROOT / "voice-revision-ledger.md"
 LEDGER_JSON_PATH = TRACKER_ROOT / "voice-revision-ledger.json"
@@ -57,11 +58,30 @@ REQUIRED_FIELDS = {
 }
 
 
+
+
+def _path(name: str):
+    """Resolve defaults at use time while honoring explicit module overrides."""
+    original, factory = _PATH_DEFAULTS[name]
+    value = globals()[name]
+    return factory() if value == original else value
+
+
+_PATH_DEFAULTS = {
+    'NG_ROOT': (NG_ROOT, lambda: resolve_geopolitics_reference(REPO_ROOT, 'geopolitics')),
+    'TRACKER_ROOT': (TRACKER_ROOT, lambda: _path('NG_ROOT') / 'work' / 'voice-accountability'),
+    'LEDGER_MD_PATH': (LEDGER_MD_PATH, lambda: _path('TRACKER_ROOT') / 'voice-revision-ledger.md'),
+    'LEDGER_JSON_PATH': (LEDGER_JSON_PATH, lambda: _path('TRACKER_ROOT') / 'voice-revision-ledger.json'),
+    'NEAR_MISSES_PATH': (NEAR_MISSES_PATH, lambda: _path('TRACKER_ROOT') / 'voice-revision-near-misses.md'),
+}
+
+
 def relative(path: Path) -> str:
     return path.relative_to(REPO_ROOT).as_posix()
 
 
-def load_ledger(path: Path = LEDGER_JSON_PATH) -> dict[str, Any]:
+def load_ledger(path: Path = None) -> dict[str, Any]:
+    path = _path('LEDGER_JSON_PATH') if path is None else path
     return json.loads(path.read_text(encoding="utf-8"))
 
 
@@ -142,11 +162,15 @@ def render_markdown(ledger: dict[str, Any]) -> str:
 
 def validate_ledger(
     *,
-    repo_root: Path = REPO_ROOT,
-    markdown_path: Path = LEDGER_MD_PATH,
-    json_path: Path = LEDGER_JSON_PATH,
-    near_misses_path: Path = NEAR_MISSES_PATH,
+    repo_root: Path = None,
+    markdown_path: Path = None,
+    json_path: Path = None,
+    near_misses_path: Path = None,
 ) -> list[str]:
+    repo_root = REPO_ROOT if repo_root is None else repo_root
+    markdown_path = _path('LEDGER_MD_PATH') if markdown_path is None else markdown_path
+    json_path = _path('LEDGER_JSON_PATH') if json_path is None else json_path
+    near_misses_path = _path('NEAR_MISSES_PATH') if near_misses_path is None else near_misses_path
     failures: list[str] = []
     for path in (markdown_path, json_path, near_misses_path):
         if not path.exists():
@@ -232,7 +256,7 @@ def validate_ledger(
         source_value = entry.get("source_path")
         if not isinstance(source_value, str) or not source_value:
             continue
-        source_path = resolve_repository_path(repo_root, source_value)
+        source_path = resolve_geopolitics_reference(repo_root, source_value)
         if not source_reference_available(
             repo_root, source_value, registered=registered_sources
         ):
@@ -301,15 +325,15 @@ def run_validate(_: argparse.Namespace) -> int:
 def run_render(args: argparse.Namespace) -> int:
     ledger = load_ledger()
     rendered = render_markdown(ledger)
-    current = LEDGER_MD_PATH.read_text(encoding="utf-8") if LEDGER_MD_PATH.exists() else ""
+    current = _path('LEDGER_MD_PATH').read_text(encoding="utf-8") if _path('LEDGER_MD_PATH').exists() else ""
     if args.check:
         if current != rendered:
             print("voice-revision Markdown drift from canonical JSON", file=sys.stderr)
             return 1
         print("voice-revision Markdown is current")
         return 0
-    LEDGER_MD_PATH.write_text(rendered, encoding="utf-8", newline="\n")
-    print(f"rendered {relative(LEDGER_MD_PATH)}")
+    _path('LEDGER_MD_PATH').write_text(rendered, encoding="utf-8", newline="\n")
+    print(f"rendered {relative(_path('LEDGER_MD_PATH'))}")
     return 0
 
 

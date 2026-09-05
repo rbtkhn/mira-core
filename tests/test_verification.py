@@ -10,10 +10,13 @@ SCRIPTS_ROOT = REPO_ROOT / "scripts"
 sys.path.insert(0, str(SCRIPTS_ROOT))
 
 import verification
+from repository_paths import resolve_geopolitics_reference
 
 
 def template() -> str:
-    return (REPO_ROOT / "narrative-geopolitics" / "work" / "verification" / "_packet-template.md").read_text(encoding="utf-8")
+    return resolve_geopolitics_reference(
+        REPO_ROOT, "geopolitics/work/verification/_packet-template.md"
+    ).read_text(encoding="utf-8")
 
 
 def write_packet(
@@ -128,19 +131,19 @@ def test_close_requires_assessed_packet_and_preserves_human_outcome(tmp_path: Pa
     packets = tmp_path / "packets"
     path = write_packet(packets, outcome="operationally_contested")
     monkeypatch.setattr(verification, "LEDGER_PATH", ledger(tmp_path / "ledger.md"))
-    assert verification.close_packet("VER-20260710-01", packets) == []
+    assert verification.close_packet("VER-20260710-01", packets, registry_path=verification.default_path("geopolitics/work/verification/source-registry.md")) == []
     closed = verification.parse_packet(path)
     assert closed.fields["status"] == "closed"
     assert closed.fields["assessment_outcome"] == "operationally_contested"
 
 
 def test_registry_has_36_valid_sources_and_stable_read_only_payload() -> None:
-    before = verification.REGISTRY_PATH.read_bytes()
+    before = verification.default_path("geopolitics/work/verification/source-registry.md").read_bytes()
     assert verification.validate_registry() == []
     payload = verification.source_payload(domain="maritime_incident")
     assert payload and all(item["domain"] == "maritime_incident" for item in payload)
     assert json.loads(json.dumps(payload)) == payload
-    assert verification.REGISTRY_PATH.read_bytes() == before
+    assert verification.default_path("geopolitics/work/verification/source-registry.md").read_bytes() == before
 
 
 def test_unknown_registry_source_is_rejected(tmp_path: Path) -> None:
@@ -282,8 +285,9 @@ def test_attach_creates_valid_packet_updates_only_target_claim_and_rerenders_iss
     monkeypatch.setattr(verification, "validate_day_claims", lambda *args, **kwargs: [])
     import types
     fake_issue = types.SimpleNamespace(
-        load_model=lambda run_date, daily_root, ledger_path: {"run_date": run_date},
-        render_model=lambda model: f"rendered {model['run_date']}",
+        load_validation_context=lambda *args: object(),
+        load_model=lambda run_date, daily_root, ledger_path, packets_root, **kwargs: {"run_date": run_date},
+        render_model=lambda model, **kwargs: f"rendered {model['run_date']}",
     )
     monkeypatch.setitem(sys.modules, "render_daily_issue", fake_issue)
 

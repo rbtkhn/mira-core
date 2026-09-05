@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from repository_paths import resolve_geopolitics_reference
 import argparse
 import json
 import os
@@ -229,8 +230,8 @@ def journal_carrier() -> dict[str, Any]:
 def recursive_carrier() -> dict[str, Any]:
     import recursive_learning_ledger
 
-    canonical = [REPO_ROOT / "narrative-geopolitics/work/system-improvement/recursive-learning-ledger.json"]
-    generated = [REPO_ROOT / "narrative-geopolitics/work/system-improvement/recursive-learning-ledger.md"]
+    canonical = [resolve_geopolitics_reference(REPO_ROOT, 'geopolitics/work/system-improvement/recursive-learning-ledger.json')]
+    generated = [resolve_geopolitics_reference(REPO_ROOT, 'geopolitics/work/system-improvement/recursive-learning-ledger.md')]
     state, validation = json_state(canonical[0])
     failures = recursive_learning_ledger.validate_ledger()
     stale = any("drift" in failure or "Markdown missing" in failure for failure in failures)
@@ -300,8 +301,8 @@ def archive_carrier(*, inspect_catalog: bool = False) -> dict[str, Any]:
 
 
 def geopolitics_carrier() -> dict[str, Any]:
-    canonical = [REPO_ROOT / "archive/sources/geopolitics/source-manifest.json", REPO_ROOT / "narrative-geopolitics/work/forecasts/forecast-ledger.md"]
-    generated = [REPO_ROOT / "narrative-geopolitics/work/reality/views/outcome-ledger.md"]
+    canonical = [REPO_ROOT / "archive/sources/geopolitics/source-manifest.json", resolve_geopolitics_reference(REPO_ROOT, 'geopolitics/work/forecasts/forecast-ledger.md')]
+    generated = [resolve_geopolitics_reference(REPO_ROOT, 'geopolitics/work/reality/views/outcome-ledger.md')]
     state, validation = json_state(canonical[0])
     missing = [relative(path) for path in canonical[1:] if not path.is_file()]
     available = state == "valid" and not missing

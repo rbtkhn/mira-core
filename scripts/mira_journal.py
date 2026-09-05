@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from repository_paths import resolve_geopolitics_reference, geopolitics_reference_for_read
 import session_checkpoints
 import journal_calendar
 
@@ -36,12 +37,26 @@ REFERENCE_ROOT = JOURNAL_ROOT / "references"
 CONTINUITY_INDEX_JSON_PATH = JOURNAL_ROOT / "continuity-index.json"
 CONTINUITY_INDEX_MD_PATH = JOURNAL_ROOT / "continuity-index.md"
 LEARNING_LEDGER_PATH = (
-    REPO_ROOT / "narrative-geopolitics" / "work" / "system-improvement" / "recursive-learning-ledger.json"
+    resolve_geopolitics_reference(REPO_ROOT, 'geopolitics') / "work" / "system-improvement" / "recursive-learning-ledger.json"
 )
 
 DRAFT_ROOT_ENV = "MIRA_CORE_JOURNAL_DRAFT_ROOT"
 DEFAULT_DRAFT_ROOT = state_path("journal/drafts")
 TIMEZONE_NAME = journal_calendar.CURRENT_TIMEZONE
+
+
+
+
+def _path(name: str):
+    """Resolve defaults at use time while honoring explicit module overrides."""
+    original, factory = _PATH_DEFAULTS[name]
+    value = globals()[name]
+    return factory() if value == original else value
+
+
+_PATH_DEFAULTS = {
+    'LEARNING_LEDGER_PATH': (LEARNING_LEDGER_PATH, lambda: geopolitics_reference_for_read(REPO_ROOT, 'geopolitics/work/system-improvement/recursive-learning-ledger.json')),
+}
 
 
 def local_timezone(name: str = TIMEZONE_NAME, zone_factory=ZoneInfo):
@@ -323,7 +338,8 @@ def atomic_write_many(files: dict[Path, bytes]) -> None:
             candidate.unlink(missing_ok=True)
 
 
-def external_draft_root(value: Path | None = None, *, repo_root: Path = REPO_ROOT) -> Path:
+def external_draft_root(value: Path | None = None, *, repo_root: Path = None) -> Path:
+    repo_root = REPO_ROOT if repo_root is None else repo_root
     configured = resolve_environment(DRAFT_ROOT_ENV)
     candidate = value or Path(configured or str(DEFAULT_DRAFT_ROOT))
     try:
@@ -618,9 +634,10 @@ def raw_records_for_session(session_id: str) -> set[str]:
 def resolved_records_for_session(
     session_id: str,
     *,
-    repo_root: Path = REPO_ROOT,
+    repo_root: Path = None,
     required_record_ids: set[str] | None = None,
 ) -> dict[str, dict[str, Any]]:
+    repo_root = REPO_ROOT if repo_root is None else repo_root
     records: dict[str, dict[str, Any]] = {}
     registry_path = repo_root / "mira" / "continuity" / "session-registry.json"
     if registry_path.is_file():
@@ -634,7 +651,7 @@ def resolved_records_for_session(
             for capture in session.get("captures", []):
                 if not isinstance(capture, dict):
                     continue
-                path = resolve_repository_path(repo_root, str(capture.get("path", "")))
+                path = resolve_geopolitics_reference(repo_root, str(capture.get("path", "")))
                 if not path.is_file():
                     continue
                 try:
@@ -1729,8 +1746,9 @@ def build_continuity_index(
     registry: dict[str, Any],
     *,
     reference_overrides: dict[str, dict[str, Any]] | None = None,
-    repo_root: Path = REPO_ROOT,
+    repo_root: Path = None,
 ) -> dict[str, Any]:
+    repo_root = REPO_ROOT if repo_root is None else repo_root
     overrides = reference_overrides or {}
     index = default_continuity_index()
     threads: dict[str, dict[str, Any]] = {}
@@ -1836,8 +1854,9 @@ def render_continuity_index(index: dict[str, Any]) -> str:
 
 
 def continuity_index_before_version(
-    registry: dict[str, Any], version_id_value: str, *, repo_root: Path = REPO_ROOT
+    registry: dict[str, Any], version_id_value: str, *, repo_root: Path = None
 ) -> dict[str, Any]:
+    repo_root = REPO_ROOT if repo_root is None else repo_root
     prior = copy.deepcopy(registry)
     kept_entries = []
     reached = False
@@ -1951,9 +1970,10 @@ def source_input_ids(refs: Any) -> tuple[set[str], list[str]]:
 def validate_registry(
     registry: dict[str, Any],
     *,
-    repo_root: Path = REPO_ROOT,
+    repo_root: Path = None,
     index_path: Path | None = None,
 ) -> list[str]:
+    repo_root = REPO_ROOT if repo_root is None else repo_root
     failures: list[str] = []
     approval_receipts, receipt_failures = approval_receipt_map(repo_root)
     failures.extend(receipt_failures)
@@ -2205,7 +2225,7 @@ def validate_registry(
                     for (known_session, _), capture in known_captures.items():
                         if known_session != session_id:
                             continue
-                        capture_path = resolve_repository_path(repo_root, str(capture.get("path", "")))
+                        capture_path = resolve_geopolitics_reference(repo_root, str(capture.get("path", "")))
                         if not capture_path.is_file():
                             continue
                         try:
@@ -2266,7 +2286,7 @@ def validate_registry(
                 if capture.get("sha256") != ref.get("object_id"):
                     failures.append(f"{expected_version}: Mira capture object mismatch: {key[1]}")
                     continue
-                capture_path = resolve_repository_path(repo_root, str(capture.get("path", "")))
+                capture_path = resolve_geopolitics_reference(repo_root, str(capture.get("path", "")))
                 if not capture_path.is_file():
                     failures.append(f"{expected_version}: missing hydrated Mira capture: {key[1]}")
                     continue
@@ -2369,7 +2389,7 @@ def validate_registry(
         reference = current.get("technical_reference")
         if isinstance(reference, dict):
             json_path = repo_root / str(reference.get("json_path", ""))
-            ledger_path = repo_root / "narrative-geopolitics" / "work" / "system-improvement" / "recursive-learning-ledger.json"
+            ledger_path = geopolitics_reference_for_read(repo_root, 'geopolitics/work/system-improvement/recursive-learning-ledger.json')
             if json_path.is_file() and ledger_path.is_file():
                 try:
                     reference_value = load_json(json_path)
@@ -2837,7 +2857,7 @@ def normalized_version(
             raise JournalError("; ".join(voice_failures))
     expected_journal = journal_id(expected_date)
     expected_version = version_id(expected_date, expected_number)
-    ledger = mira_journal_references.load_ledger(LEARNING_LEDGER_PATH)
+    ledger = mira_journal_references.load_ledger(_path('LEARNING_LEDGER_PATH'))
     if technical_reference.get("schema_version") == 2:
         brief_path = draft_directory / "composition-brief.json"
         if not brief_path.is_file():
@@ -3154,7 +3174,7 @@ def command_draft_check(args: argparse.Namespace) -> dict[str, Any]:
         for ref in refs
     ):
         failures.append("draft does not resolve its composition-brief source")
-    ledger = mira_journal_references.load_ledger(LEARNING_LEDGER_PATH)
+    ledger = mira_journal_references.load_ledger(_path('LEARNING_LEDGER_PATH'))
     failures.extend(mira_journal_references.validate_reference(
         reference,
         prose=prose_text,
@@ -3423,7 +3443,7 @@ def command_prepare(args: argparse.Namespace) -> dict[str, Any]:
                     "entry_date": entry_date.isoformat(), "output_root": str(previous_contract_path.parent),
                     "session_reading": previous_reading, "cutoff": frozen["cutoff"],
                     "next_action": "Read the frozen chunks or explicitly refresh the unfinished checkpoint."}
-    ledger = mira_journal_references.load_ledger(LEARNING_LEDGER_PATH)
+    ledger = mira_journal_references.load_ledger(_path('LEARNING_LEDGER_PATH'))
     learning_context = mira_journal_references.select_admitted_lessons(
         ledger,
         entry_date,
@@ -3761,7 +3781,7 @@ def command_reference_backfill(args: argparse.Namespace) -> dict[str, Any]:
         raise JournalError("legacy technical reference must declare retrospective-backfill mapping")
     prose_path = REPO_ROOT / str(entry["current_path"])
     prose = prose_path.read_text(encoding="utf-8")
-    ledger = mira_journal_references.load_ledger(LEARNING_LEDGER_PATH)
+    ledger = mira_journal_references.load_ledger(_path('LEARNING_LEDGER_PATH'))
     failures = mira_journal_references.validate_reference(
         reference,
         prose=prose,

@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from repository_paths import resolve_geopolitics_reference
 import argparse
 import re
 import sys
@@ -14,7 +15,7 @@ import forecast_ledger
 
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
-NG_ROOT = REPO_ROOT / "narrative-geopolitics"
+NG_ROOT = resolve_geopolitics_reference(REPO_ROOT, 'geopolitics')
 DAILY_ROOT = NG_ROOT / "work" / "daily"
 LEDGER_PATH = NG_ROOT / "work" / "forecasts" / "forecast-ledger.md"
 
@@ -25,6 +26,22 @@ TABLE_ROW_RE = re.compile(
     r"^\|\s*`(NG-\d{8}-F\d{2})`\s*\|\s*(.*?)\s*\|\s*`?(low|plausible|likely|high)`?\s*\|\s*`([^`]+)`\s*\|\s*(.*?)\s*\|\s*(.*?)\s*\|$"
 )
 LEDGER_HOOK_RE = re.compile(r"`(NG-\d{8}-F\d{2})`")
+
+
+
+
+def _path(name: str):
+    """Resolve defaults at use time while honoring explicit module overrides."""
+    original, factory = _PATH_DEFAULTS[name]
+    value = globals()[name]
+    return factory() if value == original else value
+
+
+_PATH_DEFAULTS = {
+    'NG_ROOT': (NG_ROOT, lambda: resolve_geopolitics_reference(REPO_ROOT, 'geopolitics')),
+    'DAILY_ROOT': (DAILY_ROOT, lambda: _path('NG_ROOT') / 'work' / 'daily'),
+    'LEDGER_PATH': (LEDGER_PATH, lambda: _path('NG_ROOT') / 'work' / 'forecasts' / 'forecast-ledger.md'),
+}
 
 
 def parse_args() -> argparse.Namespace:
@@ -82,7 +99,7 @@ def infer_crisis_object(forecast_text: str, fallback: str) -> str:
     if fallback:
         return fallback
     run_date = extract_run_date(forecast_text)
-    synthesis_path = DAILY_ROOT / run_date / "synthesis.md"
+    synthesis_path = _path('DAILY_ROOT') / run_date / "synthesis.md"
     if synthesis_path.exists():
         synthesis_text = read_text(synthesis_path)
         match = CRISIS_OBJECT_RE.search(synthesis_text)
@@ -160,7 +177,7 @@ def insert_rows(
 
 def main() -> None:
     args = parse_args()
-    forecast_path = DAILY_ROOT / args.date / "forecast.md"
+    forecast_path = _path('DAILY_ROOT') / args.date / "forecast.md"
     if not forecast_path.exists():
         raise SystemExit(f"Missing forecast file: {forecast_path.relative_to(REPO_ROOT)}")
 
@@ -170,7 +187,7 @@ def main() -> None:
     if not hooks:
         raise SystemExit("No hook rows found in forecast.md")
 
-    ledger_text = read_text(LEDGER_PATH)
+    ledger_text = read_text(_path('LEDGER_PATH'))
     existing = existing_hook_ids(ledger_text)
     crisis_object = infer_crisis_object(forecast_text, args.crisis_object)
 
@@ -197,7 +214,7 @@ def main() -> None:
         return
 
     updated = insert_rows(ledger_text, new_rows, new_triage_rows)
-    LEDGER_PATH.write_text(updated, encoding="utf-8", newline="\n")
+    _path('LEDGER_PATH').write_text(updated, encoding="utf-8", newline="\n")
 
 
 if __name__ == "__main__":

@@ -20,13 +20,21 @@ import event_identity_kernel
 from event_identity_policy import HOST_POLICY as EVENT_IDENTITY_POLICY
 
 
+from repository_paths import resolve_geopolitics_reference
+
 REPO_ROOT = Path(__file__).resolve().parent.parent
-NG_ROOT = REPO_ROOT / "narrative-geopolitics"
-REALITY_ROOT = NG_ROOT / "work" / "reality"
-LEGACY_REGISTRY_PATH = NG_ROOT / "work" / "verification" / "source-registry.md"
-LEGACY_PACKETS_ROOT = NG_ROOT / "work" / "verification" / "packets"
-DAILY_ROOT = NG_ROOT / "work" / "daily"
-VIEWS_ROOT = REALITY_ROOT / "views"
+
+
+def default_path(reference: str, override: Path | None = None) -> Path:
+    return override if override is not None else resolve_geopolitics_reference(REPO_ROOT, reference)
+
+
+NG_ROOT: Path | None = None
+REALITY_ROOT: Path | None = None
+LEGACY_REGISTRY_PATH: Path | None = None
+LEGACY_PACKETS_ROOT: Path | None = None
+DAILY_ROOT: Path | None = None
+VIEWS_ROOT: Path | None = None
 
 KIND_DIRS = {
     "source": "sources",
@@ -289,11 +297,13 @@ def digest_text(text: str) -> str:
     return hashlib.sha256(text.encode("utf-8")).hexdigest()
 
 
-def record_path(kind: str, record_id: str, root: Path = REALITY_ROOT) -> Path:
+def record_path(kind: str, record_id: str, root: Path | None = None) -> Path:
+    root = default_path("geopolitics/work/reality", REALITY_ROOT) if root is None else root
     return root / KIND_DIRS[kind] / f"{record_id}.json"
 
 
-def write_record(record: dict[str, Any], root: Path = REALITY_ROOT, *, overwrite: bool = False) -> Path:
+def write_record(record: dict[str, Any], root: Path | None = None, *, overwrite: bool = False) -> Path:
+    root = default_path("geopolitics/work/reality", REALITY_ROOT) if root is None else root
     kind = record.get("kind", "")
     record_id = record.get("id", "")
     if kind not in KIND_DIRS or not ID_PATTERNS[kind].fullmatch(record_id):
@@ -309,7 +319,8 @@ def write_record(record: dict[str, Any], root: Path = REALITY_ROOT, *, overwrite
     return path
 
 
-def load_records(root: Path = REALITY_ROOT) -> dict[str, dict[str, Any]]:
+def load_records(root: Path | None = None) -> dict[str, dict[str, Any]]:
+    root = default_path("geopolitics/work/reality", REALITY_ROOT) if root is None else root
     records: dict[str, dict[str, Any]] = {}
     for kind, dirname in KIND_DIRS.items():
         folder = root / dirname
@@ -566,11 +577,12 @@ def validate_assessment(assessment: dict[str, Any], records: dict[str, dict[str,
 
 
 def validate_all(
-    root: Path = REALITY_ROOT,
+    root: Path | None = None,
     *,
     check_views: bool = True,
     records: Mapping[str, dict[str, Any]] | None = None,
 ) -> list[str]:
+    root = default_path("geopolitics/work/reality", REALITY_ROOT) if root is None else root
     records = load_records(root) if records is None else records
     failures: list[str] = []
     for record_id, record in records.items():
@@ -585,7 +597,7 @@ def validate_all(
                 failures.append(f"stale or missing generated reality view: {name}")
         if any(record.get("kind") == "source" for record in records.values()):
             expected_registry = render_source_registry(records)
-            registry_path = NG_ROOT / "work" / "verification" / "source-registry.md"
+            registry_path = root.parent / "verification" / "source-registry.md"
             if not registry_path.exists() or registry_path.read_text(encoding="utf-8") != expected_registry:
                 failures.append("stale generated verification source registry")
     return sorted(set(failures))
@@ -679,7 +691,9 @@ def render_source_registry(records: dict[str, dict[str, Any]]) -> str:
     return "".join(lines)
 
 
-def write_views(root: Path = REALITY_ROOT, *, check: bool = False) -> list[str]:
+def write_views(root: Path | None = None, *, check: bool = False) -> list[str]:
+    root = default_path("geopolitics/work/reality", REALITY_ROOT) if root is None else root
+    registry_path = root.parent / "verification" / "source-registry.md"
     records = load_records(root)
     failures = []
     for name, content in render_views(records).items():
@@ -693,10 +707,11 @@ def write_views(root: Path = REALITY_ROOT, *, check: bool = False) -> list[str]:
     if any(item.get("kind") == "source" for item in records.values()):
         content = render_source_registry(records)
         if check:
-            if not LEGACY_REGISTRY_PATH.exists() or LEGACY_REGISTRY_PATH.read_text(encoding="utf-8") != content:
+            if not registry_path.exists() or registry_path.read_text(encoding="utf-8") != content:
                 failures.append("stale generated verification source registry")
         else:
-            LEGACY_REGISTRY_PATH.write_text(content, encoding="utf-8", newline="\n")
+            registry_path.parent.mkdir(parents=True, exist_ok=True)
+            registry_path.write_text(content, encoding="utf-8", newline="\n")
     return failures
 
 
@@ -713,7 +728,8 @@ def base_record(record_id: str, kind: str, as_of: str, *, status: str, creator: 
     }
 
 
-def parse_legacy_registry(path: Path = LEGACY_REGISTRY_PATH) -> list[dict[str, Any]]:
+def parse_legacy_registry(path: Path | None = None) -> list[dict[str, Any]]:
+    path = default_path("geopolitics/work/verification/source-registry.md", LEGACY_REGISTRY_PATH) if path is None else path
     records = []
     text = path.read_text(encoding="utf-8")
     for order, match in enumerate(LEGACY_REGISTRY_ROW_RE.finditer(text), start=1):
@@ -773,7 +789,8 @@ def domain_profiles(as_of: str = "2026-07-15") -> list[dict[str, Any]]:
     return records
 
 
-def migrate_registry(root: Path = REALITY_ROOT) -> list[Path]:
+def migrate_registry(root: Path | None = None) -> list[Path]:
+    root = default_path("geopolitics/work/reality", REALITY_ROOT) if root is None else root
     if (root / "sources").exists() and list((root / "sources").glob("*.json")):
         records = [clean_record(item) for item in load_records(root).values() if item.get("kind") == "source"]
     else:
@@ -805,7 +822,8 @@ def new_observable(record_id: str, as_of: str, claim_ids: list[str], question: s
     return record
 
 
-def next_id(kind: str, as_of: str, root: Path = REALITY_ROOT) -> str:
+def next_id(kind: str, as_of: str, root: Path | None = None) -> str:
+    root = default_path("geopolitics/work/reality", REALITY_ROOT) if root is None else root
     prefix_by_kind = {"claim": "CLM", "observable": "OBS", "evidence": "EVD", "assessment": "ADJ", "transition": "EPT", "relation": "REL"}
     prefix = f"{prefix_by_kind[kind]}-{as_of.replace('-', '')}-"
     width = 3
@@ -848,7 +866,8 @@ def migrated_evidence_record(item: dict[str, str], index: int, sources: dict[str
     return record
 
 
-def migrate_20260710(root: Path = REALITY_ROOT) -> list[Path]:
+def migrate_20260710(root: Path | None = None) -> list[Path]:
+    root = default_path("geopolitics/work/reality", REALITY_ROOT) if root is None else root
     records = load_records(root)
     sources = {key: clean_record(value) for key, value in records.items() if value.get("kind") == "source"}
     if not sources:
@@ -879,7 +898,7 @@ def migrate_20260710(root: Path = REALITY_ROOT) -> list[Path]:
         observable = new_observable(f"OBS-20260710-{index:03d}", "2026-07-10", [claim_id], question, domain_profile=profile, resolution_rule="Resolve only from event-specific evidence with globally traced lineage and required multilingual coverage.", window={"start": "2026-07-06", "end": "2026-07-11"}, required_languages=["regional_or_claimant", "external", "third_independent_environment"])
         observable["created_by"] = "legacy-pilot-migration"
         paths.append(write_record(observable, root))
-    packet_path = LEGACY_PACKETS_ROOT / "VER-20260710-01-hormuz-bypass-test" / "README.md"
+    packet_path = default_path("geopolitics/work/verification/packets", LEGACY_PACKETS_ROOT) / "VER-20260710-01-hormuz-bypass-test" / "README.md"
     text = packet_path.read_text(encoding="utf-8")
     evidence_items = [match.groupdict() for match in LEGACY_EVIDENCE_RE.finditer(text)]
     for index, item in enumerate(evidence_items, start=1):
@@ -949,7 +968,8 @@ def migrate_20260710(root: Path = REALITY_ROOT) -> list[Path]:
     return paths
 
 
-def migrate_20260714(root: Path = REALITY_ROOT) -> list[Path]:
+def migrate_20260714(root: Path | None = None) -> list[Path]:
+    root = default_path("geopolitics/work/reality", REALITY_ROOT) if root is None else root
     paths: list[Path] = []
     claims = [
         ("OPC-20260714-01", "Iran struck US or Gulf-linked bases and facilities across the named regional cluster, with material air-defense failure.", "military activity", "DOMAIN-MILITARY-ACTIVITY"),
@@ -1005,7 +1025,8 @@ def migrate_20260714(root: Path = REALITY_ROOT) -> list[Path]:
     return paths
 
 
-def migrate_date(run_date: str, root: Path = REALITY_ROOT) -> list[Path]:
+def migrate_date(run_date: str, root: Path | None = None) -> list[Path]:
+    root = default_path("geopolitics/work/reality", REALITY_ROOT) if root is None else root
     migrate_registry(root)
     if run_date == "2026-07-10":
         return migrate_20260710(root)
@@ -1014,7 +1035,8 @@ def migrate_date(run_date: str, root: Path = REALITY_ROOT) -> list[Path]:
     raise RealityError(f"no deterministic migration is defined for {run_date}")
 
 
-def check_migration(run_date: str, root: Path = REALITY_ROOT) -> list[str]:
+def check_migration(run_date: str, root: Path | None = None) -> list[str]:
+    root = default_path("geopolitics/work/reality", REALITY_ROOT) if root is None else root
     with tempfile.TemporaryDirectory(prefix="reality-migration-check-", dir=REPO_ROOT) as temp_dir:
         expected_root = Path(temp_dir) / "reality"
         migrate_date(run_date, expected_root)
@@ -1081,10 +1103,11 @@ def migration_record_matches(
 
 def claim_state(
     claim_id: str,
-    root: Path = REALITY_ROOT,
+    root: Path | None = None,
     *,
     records: Mapping[str, dict[str, Any]] | None = None,
 ) -> dict[str, Any] | None:
+    root = default_path("geopolitics/work/reality", REALITY_ROOT) if root is None and records is None else root
     records = load_records(root) if records is None else records
     claim = records.get(claim_id)
     if not claim or claim.get("kind") != "claim":
@@ -1096,10 +1119,11 @@ def claim_state(
 
 def relevant_subgraph(
     seed_ids: Iterable[str],
-    root: Path = REALITY_ROOT,
+    root: Path | None = None,
     *,
     records: Mapping[str, dict[str, Any]] | None = None,
 ) -> list[dict[str, Any]]:
+    root = default_path("geopolitics/work/reality", REALITY_ROOT) if root is None and records is None else root
     records = load_records(root) if records is None else records
     included = {item for item in seed_ids if item in records}
     changed = True
@@ -1123,14 +1147,16 @@ def relevant_subgraph(
 
 def subgraph_digest(
     seed_ids: Iterable[str],
-    root: Path = REALITY_ROOT,
+    root: Path | None = None,
     *,
     records: Mapping[str, dict[str, Any]] | None = None,
 ) -> str:
+    root = default_path("geopolitics/work/reality", REALITY_ROOT) if root is None and records is None else root
     return record_digest(relevant_subgraph(seed_ids, root, records=records))
 
 
-def impact_payload(subject_id: str, root: Path = REALITY_ROOT) -> dict[str, Any]:
+def impact_payload(subject_id: str, root: Path | None = None) -> dict[str, Any]:
+    root = default_path("geopolitics/work/reality", REALITY_ROOT) if root is None else root
     records = load_records(root)
     if subject_id not in records:
         raise RealityError(f"unknown lattice ID: {subject_id}")
@@ -1151,7 +1177,8 @@ def impact_payload(subject_id: str, root: Path = REALITY_ROOT) -> dict[str, Any]
     return {"subject_id": subject_id, "affected_ids": sorted(seen - {subject_id})}
 
 
-def audit_payload(claim_id: str, root: Path = REALITY_ROOT) -> dict[str, Any]:
+def audit_payload(claim_id: str, root: Path | None = None) -> dict[str, Any]:
+    root = default_path("geopolitics/work/reality", REALITY_ROOT) if root is None else root
     records = load_records(root)
     claim = records.get(claim_id)
     if not claim or claim.get("kind") != "claim":
@@ -1413,7 +1440,8 @@ def render_audit_brief(payload: dict[str, Any]) -> str:
     return "\n".join(lines)
 
 
-def profile_payload(voice: str, root: Path = REALITY_ROOT) -> dict[str, Any]:
+def profile_payload(voice: str, root: Path | None = None) -> dict[str, Any]:
+    root = default_path("geopolitics/work/reality", REALITY_ROOT) if root is None else root
     records = load_records(root)
     claims = [item for item in records.values() if item.get("kind") == "claim" and voice in item.get("claimant_refs", [])]
     assessments = {item.get("claim_id"): item for item in records.values() if item.get("kind") == "assessment" and item.get("calibration_eligible", True) and item.get("status") == "canonical_assessed"}
@@ -1486,7 +1514,8 @@ def land_evidence(args: argparse.Namespace) -> Path:
     return path
 
 
-def scaffold_assessment(claim_id: str, root: Path = REALITY_ROOT) -> Path:
+def scaffold_assessment(claim_id: str, root: Path | None = None) -> Path:
+    root = default_path("geopolitics/work/reality", REALITY_ROOT) if root is None else root
     records = load_records(root)
     claim = records.get(claim_id)
     if not claim or claim.get("kind") != "claim":
@@ -1505,7 +1534,8 @@ def scaffold_assessment(claim_id: str, root: Path = REALITY_ROOT) -> Path:
     return write_record(record, root)
 
 
-def mutate_assessment(assessment_id: str, updater: Any, root: Path = REALITY_ROOT) -> Path:
+def mutate_assessment(assessment_id: str, updater: Any, root: Path | None = None) -> Path:
+    root = default_path("geopolitics/work/reality", REALITY_ROOT) if root is None else root
     path = record_path("assessment", assessment_id, root)
     if not path.exists():
         raise RealityError(f"unknown assessment: {assessment_id}")
@@ -1516,7 +1546,8 @@ def mutate_assessment(assessment_id: str, updater: Any, root: Path = REALITY_ROO
     return path
 
 
-def sign_assessment(assessment_id: str, reviewer: str, root: Path = REALITY_ROOT) -> Path:
+def sign_assessment(assessment_id: str, reviewer: str, root: Path | None = None) -> Path:
+    root = default_path("geopolitics/work/reality", REALITY_ROOT) if root is None else root
     def update(record: dict[str, Any]) -> None:
         signoffs = record.setdefault("signoffs", [])
         if reviewer in {item.get("reviewer") for item in signoffs}:
@@ -1532,7 +1563,8 @@ def sign_assessment(assessment_id: str, reviewer: str, root: Path = REALITY_ROOT
     return mutate_assessment(assessment_id, update, root)
 
 
-def waive_language(assessment_id: str, reviewer: str, reason: str, root: Path = REALITY_ROOT) -> Path:
+def waive_language(assessment_id: str, reviewer: str, reason: str, root: Path | None = None) -> Path:
+    root = default_path("geopolitics/work/reality", REALITY_ROOT) if root is None else root
     def update(record: dict[str, Any]) -> None:
         if not record.get("physical_evidence_exception"):
             raise RealityError("document the physical evidence exception before requesting a language waiver")

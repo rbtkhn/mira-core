@@ -93,3 +93,13 @@ State the date range and number of source files examined. Report:
 Prefer precise counts over claims that the search was exhaustive beyond the
 files actually present. Keep excerpts short and distinguish transcript evidence
 from audio-verified quotation.
+
+## Geopolitics directory compatibility
+
+For current filesystem operations, resolve domain paths through the shared
+`repository_paths.resolve_geopolitics_reference` helper. It accepts the legacy
+`narrative-geopolitics/` spelling and the `geopolitics/` spelling and selects
+exactly one existing domain directory. Examples below or above using the legacy
+spelling remain compatibility references; they do not authorize a directory
+move. Preserve historical IDs and stored/hash-bound references. The source
+archive remains at `archive/sources/geopolitics/`.

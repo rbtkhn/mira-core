@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from repository_paths import resolve_geopolitics_reference, geopolitics_reference_for_read
 import argparse
 import json
 import re
@@ -299,10 +300,11 @@ def audit_findings(
     rows: list[dict[str, Any]],
     scope: AuditScope,
     *,
-    repo_root: Path = REPO_ROOT,
+    repo_root: Path = None,
     sources_root: Path = SOURCES_ROOT,
     manifest_path: Path = MANIFEST_PATH,
 ) -> list[dict[str, str]]:
+    repo_root = REPO_ROOT if repo_root is None else repo_root
     findings: list[dict[str, str]] = []
     manifest_label = manifest_path.resolve().relative_to(repo_root.resolve()).as_posix()
     if manifest.get("source_count") != len(all_rows):
@@ -605,11 +607,12 @@ def benchmark_snapshot(
 def build_audit(
     args: argparse.Namespace,
     *,
-    repo_root: Path = REPO_ROOT,
+    repo_root: Path = None,
     sources_root: Path = SOURCES_ROOT,
     manifest_path: Path = MANIFEST_PATH,
     daily_validator: Any | None = None,
 ) -> dict[str, Any]:
+    repo_root = REPO_ROOT if repo_root is None else repo_root
     manifest, all_rows = load_manifest(manifest_path)
     as_of = manifest_as_of(all_rows)
     scope = resolve_scope(args, all_rows)
@@ -658,7 +661,7 @@ def build_audit(
             else:
                 daily_validator = lambda value: {
                     "failures": []
-                    if (repo_root / "narrative-geopolitics" / "work" / "daily" / value / "issue.md").is_file()
+                    if (geopolitics_reference_for_read(repo_root, 'geopolitics/work/daily') / value / "issue.md").is_file()
                     else ["missing issue.md"]
                 }
         payload["certification"] = monthly_completeness.build_certification(
@@ -800,10 +803,11 @@ def parse_args(arguments: list[str] | None = None) -> argparse.Namespace:
 def main(
     arguments: list[str] | None = None,
     *,
-    repo_root: Path = REPO_ROOT,
+    repo_root: Path = None,
     sources_root: Path = SOURCES_ROOT,
     manifest_path: Path = MANIFEST_PATH,
 ) -> int:
+    repo_root = REPO_ROOT if repo_root is None else repo_root
     args = parse_args(arguments)
     try:
         payload = build_audit(

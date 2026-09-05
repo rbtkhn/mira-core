@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from repository_paths import resolve_geopolitics_reference
 import json
 import re
 from collections import defaultdict
@@ -9,10 +10,27 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-NG = ROOT / "narrative-geopolitics"
+NG = resolve_geopolitics_reference(ROOT, 'geopolitics')
 MANIFEST = NG.parent / "archive" / "sources" / "geopolitics" / "source-manifest.json"
 INVENTORY = NG / "work" / "backfill-2026" / "inventory.json"
 OUT = NG / "work" / "backfill-2026"
+
+
+
+
+def _path(name: str):
+    """Resolve defaults at use time while honoring explicit module overrides."""
+    original, factory = _PATH_DEFAULTS[name]
+    value = globals()[name]
+    return factory() if value == original else value
+
+
+_PATH_DEFAULTS = {
+    'NG': (NG, lambda: resolve_geopolitics_reference(ROOT, 'geopolitics')),
+    'MANIFEST': (MANIFEST, lambda: _path('NG').parent / 'archive' / 'sources' / 'geopolitics' / 'source-manifest.json'),
+    'INVENTORY': (INVENTORY, lambda: _path('NG') / 'work' / 'backfill-2026' / 'inventory.json'),
+    'OUT': (OUT, lambda: _path('NG') / 'work' / 'backfill-2026'),
+}
 
 
 def object_for(title: str) -> str:
@@ -43,8 +61,8 @@ def load_frontmatter(path: Path) -> dict[str, str]:
 
 
 def main() -> int:
-    manifest = json.loads(MANIFEST.read_text(encoding="utf-8"))
-    inventory = json.loads(INVENTORY.read_text(encoding="utf-8"))
+    manifest = json.loads(_path('MANIFEST').read_text(encoding="utf-8"))
+    inventory = json.loads(_path('INVENTORY').read_text(encoding="utf-8"))
     rows = list(manifest["sources"])
     backfill_rows = [
         row for row in rows
@@ -116,7 +134,7 @@ def main() -> int:
             "Title-derived tags are not thesis adjudications.",
         ],
     }
-    (OUT / "coverage-ledger.json").write_text(json.dumps(ledger, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    (_path('OUT') / "coverage-ledger.json").write_text(json.dumps(ledger, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     lines = [
         "# 2026 Statecraft Backfill Coverage Ledger",
         "",
@@ -140,9 +158,9 @@ def main() -> int:
         "",
         "Coverage is not verification. Provisional routing, unsectioned transcripts, and title-derived enrichment require later review.",
     ]
-    (OUT / "coverage-ledger.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
-    (OUT / "thesis-tags.json").write_text(json.dumps(tags, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-    (OUT / "continuity-flags.json").write_text(json.dumps(flags, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    (_path('OUT') / "coverage-ledger.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
+    (_path('OUT') / "thesis-tags.json").write_text(json.dumps(tags, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    (_path('OUT') / "continuity-flags.json").write_text(json.dumps(flags, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print(json.dumps({"source_rows": len(rows), "voices": len(voices), "thesis_tags": len(tags), "continuity_flags": len(flags)}, indent=2))
     return 0
 

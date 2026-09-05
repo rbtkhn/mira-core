@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from repository_paths import resolve_geopolitics_reference
 import argparse
 import hashlib
 import json
@@ -19,8 +20,8 @@ from portable_paths import state_path
 
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
-DAILY_ROOT = REPO_ROOT / "narrative-geopolitics" / "work" / "daily"
-FORECAST_LEDGER = REPO_ROOT / "narrative-geopolitics" / "work" / "forecasts" / "forecast-ledger.md"
+DAILY_ROOT = resolve_geopolitics_reference(REPO_ROOT, 'geopolitics') / "work" / "daily"
+FORECAST_LEDGER = resolve_geopolitics_reference(REPO_ROOT, 'geopolitics') / "work" / "forecasts" / "forecast-ledger.md"
 DEFAULT_TIMEZONE = journal_calendar.CURRENT_TIMEZONE
 DEFAULT_WORKSPACE = "mira-core"
 DEFAULT_OPERATOR = "operator"
@@ -31,6 +32,21 @@ HOOK_RE = re.compile(r"`(NG-\d{8}-F\d+)`")
 DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 GEO_DAILY_FILES = ("sources.md", "synthesis.md", "forecast.md", "judgment.md", "daily-brief.md")
 STRATEGY_NOTEBOOK_FILE = "strategy-notebook.md"
+
+
+
+
+def _path(name: str):
+    """Resolve defaults at use time while honoring explicit module overrides."""
+    original, factory = _PATH_DEFAULTS[name]
+    value = globals()[name]
+    return factory() if value == original else value
+
+
+_PATH_DEFAULTS = {
+    'DAILY_ROOT': (DAILY_ROOT, lambda: resolve_geopolitics_reference(REPO_ROOT, 'geopolitics') / 'work' / 'daily'),
+    'FORECAST_LEDGER': (FORECAST_LEDGER, lambda: resolve_geopolitics_reference(REPO_ROOT, 'geopolitics') / 'work' / 'forecasts' / 'forecast-ledger.md'),
+}
 
 
 def run_tool(*arguments: str) -> subprocess.CompletedProcess[str]:
@@ -51,15 +67,15 @@ def manifest_rows(run_date: str) -> int:
 
 
 def geo_artifact_ref(run_date: str) -> str:
-    return f"narrative-geopolitics/work/daily/{run_date}/issue.md"
+    return (geo_daily_path(run_date) / "issue.md").relative_to(REPO_ROOT).as_posix()
 
 
 def geo_daily_ref(run_date: str) -> str:
-    return f"narrative-geopolitics/work/daily/{run_date}"
+    return geo_daily_path(run_date).relative_to(REPO_ROOT).as_posix()
 
 
 def geo_daily_path(run_date: str) -> Path:
-    return REPO_ROOT / "narrative-geopolitics" / "work" / "daily" / run_date
+    return resolve_geopolitics_reference(REPO_ROOT, 'geopolitics') / "work" / "daily" / run_date
 
 
 def geo_daily_files_exist(run_date: str) -> bool:
@@ -175,7 +191,7 @@ def geo_certification(run_date: str, *, auto_complete: bool = False) -> dict:
     if rows == 0:
         return {"status": "no_geo_run", "manifest_rows": 0}
     artifact = geo_artifact_ref(run_date)
-    artifact_path = REPO_ROOT / artifact
+    artifact_path = resolve_geopolitics_reference(REPO_ROOT, artifact)
     generated_by_dream = False
     if not artifact_path.is_file():
         if not auto_complete:
@@ -255,7 +271,7 @@ def geo_certification(run_date: str, *, auto_complete: bool = False) -> dict:
 
 
 def substantive_daily_dates(daily_root: Path | None = None) -> list[str]:
-    daily_root = DAILY_ROOT if daily_root is None else daily_root
+    daily_root = _path('DAILY_ROOT') if daily_root is None else daily_root
     if not daily_root.is_dir():
         return []
     dates: list[str] = []
@@ -266,7 +282,7 @@ def substantive_daily_dates(daily_root: Path | None = None) -> list[str]:
 
 
 def forecast_ledger_rows(ledger_path: Path | None = None) -> list[dict[str, str]]:
-    ledger_path = FORECAST_LEDGER if ledger_path is None else ledger_path
+    ledger_path = _path('FORECAST_LEDGER') if ledger_path is None else ledger_path
     if not ledger_path.is_file():
         return []
     rows: list[dict[str, str]] = []
@@ -313,7 +329,7 @@ def classify_forecast_debt(row: dict[str, str], ledger_text: str) -> str:
 def geo_freshness_projection(run_date: str) -> dict:
     later_dates = [date for date in substantive_daily_dates() if date > run_date]
     latest_date = later_dates[-1] if later_dates else run_date
-    ledger_text = FORECAST_LEDGER.read_text(encoding="utf-8") if FORECAST_LEDGER.is_file() else ""
+    ledger_text = _path('FORECAST_LEDGER').read_text(encoding="utf-8") if _path('FORECAST_LEDGER').is_file() else ""
     due_rows = due_open_forecast_rows(latest_date)
     classified = {"verification-required": [], "posture-review": []}
     for row in due_rows:
@@ -334,7 +350,7 @@ def geo_freshness_projection(run_date: str) -> dict:
         next_action = "proceed"
     return {
         "geo_prerequisite_status": status,
-        "latest_daily_packet": latest_date if (later_dates or (DAILY_ROOT / run_date / "issue.md").is_file()) else None,
+        "latest_daily_packet": latest_date if (later_dates or (_path('DAILY_ROOT') / run_date / "issue.md").is_file()) else None,
         "later_substantive_packets": later_dates,
         "due_forecast_debt": {
             "verification": len(verification),

@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from repository_paths import resolve_geopolitics_reference
 import argparse
 import hashlib
 import json
@@ -10,21 +11,36 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 MANIFEST = ROOT / "archive" / "sources" / "geopolitics" / "source-manifest.json"
-TRACK_ROOT = ROOT / "narrative-geopolitics" / "work" / "thesis-tracker"
+TRACK_ROOT = resolve_geopolitics_reference(ROOT, 'geopolitics') / "work" / "thesis-tracker"
 
 PILOTS = {
     "mercouris/odessa": {
         "thesis_id": "mercouris-odessa-2026",
         "voice_slug": "mercouris",
         "display_name": "Mercouris Odessa thesis",
-        "definition": ROOT / "narrative-geopolitics" / "voices" / "mercouris" / "odessa-thesis-2026.md",
+        "definition": resolve_geopolitics_reference(ROOT, 'geopolitics') / "voices" / "mercouris" / "odessa-thesis-2026.md",
         "aliases": ["odessa", "odesa", "odessa port", "black sea", "kherson", "zaporizhzhia", "dnieper", "dnipro"],
         "scope": ["city", "port", "black-sea-access", "southern-coast", "territorial-settlement"],
     }
 }
+_DEFAULT_PILOT_DEFINITION = PILOTS["mercouris/odessa"]["definition"]
 CLAIM_TYPES = ("analytical", "operational", "rhetorical", "descriptive", "forecast")
 RELATIONS = ("continuation", "refinement", "revision", "contradiction", "abandonment", "new-related-thesis", "non-engagement")
 REVIEW_STATES = ("candidate", "accepted", "rejected", "needs-revision", "insufficient-evidence", "duplicate", "deferred")
+
+
+
+
+def _path(name: str):
+    """Resolve defaults at use time while honoring explicit module overrides."""
+    original, factory = _PATH_DEFAULTS[name]
+    value = globals()[name]
+    return factory() if value == original else value
+
+
+_PATH_DEFAULTS = {
+    'TRACK_ROOT': (TRACK_ROOT, lambda: resolve_geopolitics_reference(ROOT, 'geopolitics') / 'work' / 'thesis-tracker'),
+}
 
 
 def slug(value: str) -> str:
@@ -39,12 +55,14 @@ def pilot(name: str) -> dict:
     if name not in PILOTS:
         raise SystemExit(f"unknown thesis: {name}; choices: {', '.join(PILOTS)}")
     p = dict(PILOTS[name])
+    if name == "mercouris/odessa" and p["definition"] is _DEFAULT_PILOT_DEFINITION:
+        p["definition"] = resolve_geopolitics_reference(ROOT, "geopolitics/voices/mercouris/odessa-thesis-2026.md")
     p["definition_version"] = hashlib.sha256(p["definition"].read_bytes()).hexdigest()[:16]
     return p
 
 
 def state_path(p: dict) -> Path:
-    return TRACK_ROOT / p["thesis_id"] / "state.json"
+    return _path('TRACK_ROOT') / p["thesis_id"] / "state.json"
 
 
 def load_state(p: dict) -> dict:

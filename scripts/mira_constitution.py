@@ -1,5 +1,9 @@
 from __future__ import annotations
 
+from repository_paths import resolve_geopolitics_reference
+
+from repository_paths import resolve_geopolitics_reference
+
 import argparse
 import copy
 import hashlib
@@ -146,7 +150,7 @@ def validate_candidate(data: dict[str, Any], *, repo_root: Path = REPO_ROOT) -> 
             if Path(ref).is_absolute() or ".." in Path(ref).parts or any(token in lowered for token in PRIVATE_REFERENCE_TOKENS):
                 failures.append(f"{clause_id} has forbidden reference: {raw}")
                 continue
-            target = (repo_root / ref).resolve()
+            target = resolve_geopolitics_reference(repo_root, ref).resolve()
             try:
                 target.relative_to(repo_root.resolve())
             except ValueError:

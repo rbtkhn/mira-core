@@ -720,7 +720,7 @@ def test_morning_brief_is_governed_local_only_and_research_led() -> None:
 
 
 def test_historical_august_2_specimen_is_unchanged_and_protected(tmp_path: Path) -> None:
-    specimen = REPO_ROOT / "narrative-geopolitics" / "work" / "morning-brief" / "2026-08-02.md"
+    specimen = REPO_ROOT / "geopolitics" / "work" / "morning-brief" / "2026-08-02.md"
     before = hashlib.sha256(specimen.read_bytes()).hexdigest()
     input_path = tmp_path / "irrelevant.json"
     input_path.write_text("{}\n", encoding="utf-8")

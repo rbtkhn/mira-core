@@ -1,6 +1,7 @@
 """Build a deterministic, source-derived historical-reference index for Chas Freeman."""
 from __future__ import annotations
 
+from repository_paths import resolve_geopolitics_reference
 import argparse
 import json
 import re
@@ -9,7 +10,7 @@ from dataclasses import dataclass
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
-NG_ROOT = REPO_ROOT / "narrative-geopolitics"
+NG_ROOT = resolve_geopolitics_reference(REPO_ROOT, 'geopolitics')
 MANIFEST_PATH = NG_ROOT.parent / "archive" / "sources" / "geopolitics" / "source-manifest.json"
 OUTPUT_PATH = NG_ROOT / "voices" / "freeman" / "historical-references.md"
 MECHANISM_REGISTRY_PATH = NG_ROOT / "voices" / "freeman" / "mechanism-registry.json"
@@ -17,6 +18,24 @@ MECHANISM_REVIEW_PATH = NG_ROOT / "voices" / "freeman" / "mechanism-review.json"
 REVIEW_DECISIONS_PATH = NG_ROOT / "voices" / "freeman" / "historical-reference-review-decisions.json"
 MANUAL_TURN_REVIEW_PATH = NG_ROOT / "work" / "historical-reference" / "july24-manual-turn-review.json"
 MECHANISM_VERSION = "1.0"
+
+
+def _path(name: str):
+    """Resolve defaults at use time while honoring explicit module overrides."""
+    original, factory = _PATH_DEFAULTS[name]
+    value = globals()[name]
+    return factory() if value == original else value
+
+
+_PATH_DEFAULTS = {
+    'NG_ROOT': (NG_ROOT, lambda: resolve_geopolitics_reference(REPO_ROOT, 'geopolitics')),
+    'MANIFEST_PATH': (MANIFEST_PATH, lambda: _path('NG_ROOT').parent / 'archive' / 'sources' / 'geopolitics' / 'source-manifest.json'),
+    'OUTPUT_PATH': (OUTPUT_PATH, lambda: _path('NG_ROOT') / 'voices' / 'freeman' / 'historical-references.md'),
+    'MECHANISM_REGISTRY_PATH': (MECHANISM_REGISTRY_PATH, lambda: _path('NG_ROOT') / 'voices' / 'freeman' / 'mechanism-registry.json'),
+    'MECHANISM_REVIEW_PATH': (MECHANISM_REVIEW_PATH, lambda: _path('NG_ROOT') / 'voices' / 'freeman' / 'mechanism-review.json'),
+    'REVIEW_DECISIONS_PATH': (REVIEW_DECISIONS_PATH, lambda: _path('NG_ROOT') / 'voices' / 'freeman' / 'historical-reference-review-decisions.json'),
+    'MANUAL_TURN_REVIEW_PATH': (MANUAL_TURN_REVIEW_PATH, lambda: _path('NG_ROOT') / 'work' / 'historical-reference' / 'july24-manual-turn-review.json'),
+}
 
 
 @dataclass(frozen=True)
@@ -125,7 +144,7 @@ def source_body(text: str) -> str:
 
 
 def source_rows() -> list[dict]:
-    manifest = json.loads(MANIFEST_PATH.read_text(encoding="utf-8"))
+    manifest = json.loads(_path('MANIFEST_PATH').read_text(encoding="utf-8"))
     rows = []
     seen: set[str] = set()
     for row in manifest.get("sources", []):
@@ -240,15 +259,15 @@ def build_occurrences(rows: list[dict] | None = None) -> tuple[list[dict], list[
 
 
 def load_mechanism_review() -> dict:
-    if not MECHANISM_REVIEW_PATH.is_file():
+    if not _path('MECHANISM_REVIEW_PATH').is_file():
         return {"voice": "freeman", "version": MECHANISM_VERSION, "confirmed": [], "revisions": [], "counterexamples": []}
-    return json.loads(MECHANISM_REVIEW_PATH.read_text(encoding="utf-8"))
+    return json.loads(_path('MECHANISM_REVIEW_PATH').read_text(encoding="utf-8"))
 
 
 def load_review_decisions() -> dict[str, dict]:
-    if not REVIEW_DECISIONS_PATH.is_file():
+    if not _path('REVIEW_DECISIONS_PATH').is_file():
         return {}
-    payload = json.loads(REVIEW_DECISIONS_PATH.read_text(encoding="utf-8"))
+    payload = json.loads(_path('REVIEW_DECISIONS_PATH').read_text(encoding="utf-8"))
     decisions: dict[str, dict] = {}
     for decision in payload.get("decisions", []):
         for occurrence_id in decision.get("occurrence_ids", []):
@@ -257,9 +276,9 @@ def load_review_decisions() -> dict[str, dict]:
 
 
 def load_manual_turn_review() -> dict[str, dict]:
-    if not MANUAL_TURN_REVIEW_PATH.is_file():
+    if not _path('MANUAL_TURN_REVIEW_PATH').is_file():
         return {}
-    payload = json.loads(MANUAL_TURN_REVIEW_PATH.read_text(encoding="utf-8"))
+    payload = json.loads(_path('MANUAL_TURN_REVIEW_PATH').read_text(encoding="utf-8"))
     return {item["occurrence_id"]: item for item in payload.get("decisions", [])}
 
 
@@ -425,7 +444,7 @@ def render(analysis: HistoricalIndexAnalysis | None = None) -> str:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--output", type=Path, default=OUTPUT_PATH)
+    parser.add_argument("--output", type=Path, default=_path('OUTPUT_PATH'))
     parser.add_argument("--dry-run", action="store_true")
     args = parser.parse_args()
     analysis = build_analysis()
@@ -435,8 +454,8 @@ def main() -> int:
     else:
         args.output.parent.mkdir(parents=True, exist_ok=True)
         args.output.write_text(rendered, encoding="utf-8", newline="\n")
-        MECHANISM_REGISTRY_PATH.write_text(json.dumps({"version": MECHANISM_VERSION, "mechanisms": list(MECHANISMS)}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
-        MECHANISM_REVIEW_PATH.write_text(json.dumps(analysis.review, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
+        _path('MECHANISM_REGISTRY_PATH').write_text(json.dumps({"version": MECHANISM_VERSION, "mechanisms": list(MECHANISMS)}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
+        _path('MECHANISM_REVIEW_PATH').write_text(json.dumps(analysis.review, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
         args.output.with_suffix(".json").write_text(json.dumps(structured_ledger(analysis.rows, analysis.occurrences, analysis.rejected, analysis.coverage, analysis.review), ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
         print(f"Wrote {args.output.relative_to(REPO_ROOT).as_posix()}")
     return 0

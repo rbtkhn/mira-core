@@ -121,3 +121,13 @@ infer permission to admit, stage, commit, push, publish, or promote a method.
 Report the assessment state, mapped and missing stages, evidence boundaries,
 candidate digest when present, and the exact next measurement. State whether
 the ledger changed. Journal candidate signals never close a loop by themselves.
+
+## Geopolitics directory compatibility
+
+For current filesystem operations, resolve domain paths through the shared
+`repository_paths.resolve_geopolitics_reference` helper. It accepts the legacy
+`narrative-geopolitics/` spelling and the `geopolitics/` spelling and selects
+exactly one existing domain directory. Examples below or above using the legacy
+spelling remain compatibility references; they do not authorize a directory
+move. Preserve historical IDs and stored/hash-bound references. The source
+archive remains at `archive/sources/geopolitics/`.

@@ -5,10 +5,10 @@ import json
 import re
 from pathlib import Path
 
+from repository_paths import resolve_geopolitics_reference
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 MANIFEST_PATH = REPO_ROOT / "archive" / "sources" / "geopolitics" / "source-manifest.json"
-CHANNEL_INDEX_PATH = REPO_ROOT / "narrative-geopolitics" / "channels" / "channel-index.md"
 ROW_RE = re.compile(r"^\| `(?P<slug>[^`]+)` \| (?P<rest>.+) \|$")
 
 
@@ -44,7 +44,10 @@ def load_manifest_stats() -> dict[str, dict[str, object]]:
 
 def parse_channel_rows() -> list[dict[str, object]]:
     rows: list[dict[str, object]] = []
-    for line in CHANNEL_INDEX_PATH.read_text(encoding="utf-8").splitlines():
+    channel_index = resolve_geopolitics_reference(
+        REPO_ROOT, "geopolitics/channels/channel-index.md"
+    )
+    for line in channel_index.read_text(encoding="utf-8").splitlines():
         match = ROW_RE.match(line)
         if not match:
             continue

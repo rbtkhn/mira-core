@@ -1,4 +1,34 @@
+import hashlib
+
+import pytest
+
+from scripts import thesis_track
 from scripts.thesis_track import classify, evidence_spans
+
+
+def test_default_definition_follows_domain_rename(tmp_path, monkeypatch):
+    monkeypatch.setattr(thesis_track, "ROOT", tmp_path)
+    domain = tmp_path / "narrative-geopolitics"
+    definition = domain / "voices/mercouris/odessa-thesis-2026.md"
+    definition.parent.mkdir(parents=True)
+    definition.write_bytes(b"default thesis")
+    before = thesis_track.pilot("mercouris/odessa")
+    domain.rename(tmp_path / "geopolitics")
+    after = thesis_track.pilot("mercouris/odessa")
+    assert after["definition"] == tmp_path / "geopolitics/voices/mercouris/odessa-thesis-2026.md"
+    assert after["definition_version"] == before["definition_version"]
+
+
+@pytest.mark.parametrize("layout", ["narrative-geopolitics", "geopolitics"])
+def test_explicit_definition_is_used_for_path_and_digest(tmp_path, monkeypatch, layout):
+    monkeypatch.setattr(thesis_track, "ROOT", tmp_path)
+    (tmp_path / layout).mkdir()
+    definition = tmp_path / "custom.md"
+    definition.write_bytes(b"custom thesis")
+    monkeypatch.setitem(thesis_track.PILOTS["mercouris/odessa"], "definition", definition)
+    result = thesis_track.pilot("mercouris/odessa")
+    assert result["definition"] == definition
+    assert result["definition_version"] == hashlib.sha256(b"custom thesis").hexdigest()[:16]
 
 
 def test_forecast_classification_is_deterministic():

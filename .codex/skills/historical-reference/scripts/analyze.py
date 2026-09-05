@@ -79,6 +79,10 @@ MECHANISMS = {
     "legitimacy": ("M-FR-005", "sovereignty, legitimacy, and historical memory"),
 }
 
+import sys
+sys.path.insert(0, str(REPO / "scripts"))
+from repository_paths import resolve_geopolitics_reference
+
 def sha256(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
@@ -290,7 +294,7 @@ def main() -> int:
     p.add_argument("--resume", action="store_true")
     p.add_argument("--changed-only", action="store_true")
     p.add_argument("--dry-run", action="store_true")
-    p.add_argument("--output-dir", type=Path, default=REPO / "narrative-geopolitics" / "work" / "historical-reference")
+    p.add_argument("--output-dir", type=Path, default=resolve_geopolitics_reference(REPO, "geopolitics/work/historical-reference"))
     p.add_argument("--calibration", action="store_true")
     p.add_argument("--overrides", type=Path)
     args = p.parse_args()

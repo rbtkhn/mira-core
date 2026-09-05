@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from repository_paths import resolve_geopolitics_reference
 import argparse
 import json
 import sys
@@ -27,7 +28,21 @@ from forecast_ledger import (
 
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
-LEDGER_PATH = REPO_ROOT / "narrative-geopolitics" / "work" / "forecasts" / "forecast-ledger.md"
+LEDGER_PATH = resolve_geopolitics_reference(REPO_ROOT, 'geopolitics') / "work" / "forecasts" / "forecast-ledger.md"
+
+
+
+def _path(name: str):
+    """Resolve defaults at use time while honoring explicit module overrides."""
+    original, factory = _PATH_DEFAULTS[name]
+    value = globals()[name]
+    return factory() if value == original else value
+
+
+_PATH_DEFAULTS = {
+    'LEDGER_PATH': (LEDGER_PATH, lambda: resolve_geopolitics_reference(REPO_ROOT, 'geopolitics') / 'work' / 'forecasts' / 'forecast-ledger.md'),
+}
+
 
 def parse_args(arguments: list[str] | None = None) -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Validate forecast-ledger triage metadata.")
@@ -165,7 +180,7 @@ def emit_plan_text(plan: dict[str, object]) -> None:
 
 def main(arguments: list[str] | None = None) -> None:
     args = parse_args(arguments)
-    text = LEDGER_PATH.read_text(encoding="utf-8")
+    text = _path('LEDGER_PATH').read_text(encoding="utf-8")
     entries = parse_entries(text)
     triage_rows = parse_triage(text)
     if args.command == "plan":

@@ -293,3 +293,13 @@ dates remain distinct from the time an entry is actually published.
 
 Strategy Notebook is a Dream-composed expert estimate, not a Geo prerequisite
 and not a canonical autobiographical artifact.
+
+## Geopolitics directory compatibility
+
+For current filesystem operations, resolve domain paths through the shared
+`repository_paths.resolve_geopolitics_reference` helper. It accepts the legacy
+`narrative-geopolitics/` spelling and the `geopolitics/` spelling and selects
+exactly one existing domain directory. Examples below or above using the legacy
+spelling remain compatibility references; they do not authorize a directory
+move. Preserve historical IDs and stored/hash-bound references. The source
+archive remains at `archive/sources/geopolitics/`.

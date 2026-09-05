@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from repository_paths import resolve_geopolitics_reference
 import argparse
 import datetime as dt
 import json
@@ -11,9 +12,9 @@ import research_handoff
 
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
-DAILY_ROOT = REPO_ROOT / "narrative-geopolitics" / "work" / "daily"
-CLAIMS_ROOT = REPO_ROOT / "narrative-geopolitics" / "work" / "reality" / "claims"
-OBSERVABLES_ROOT = REPO_ROOT / "narrative-geopolitics" / "work" / "reality" / "observables"
+DAILY_ROOT = resolve_geopolitics_reference(REPO_ROOT, 'geopolitics') / "work" / "daily"
+CLAIMS_ROOT = resolve_geopolitics_reference(REPO_ROOT, 'geopolitics') / "work" / "reality" / "claims"
+OBSERVABLES_ROOT = resolve_geopolitics_reference(REPO_ROOT, 'geopolitics') / "work" / "reality" / "observables"
 STOPWORDS = {"the", "and", "for", "with", "from", "that", "this", "whether", "into", "remain", "claim", "war"}
 DATE_RE = re.compile(r"\d{4}-\d{2}-\d{2}")
 CLAIM_ID_RE = re.compile(r"(?:OPC-\d{8}-\d{2}|NG-\d{8}-F\d{2}|CLM-\d{8}-\d{3})$")
@@ -24,6 +25,22 @@ RESEARCH_ADDRESSABLE_GAPS = {
     "independent_lineage_coverage",
     "regional_environment",
     "external_environment",
+}
+
+
+
+
+def _path(name: str):
+    """Resolve defaults at use time while honoring explicit module overrides."""
+    original, factory = _PATH_DEFAULTS[name]
+    value = globals()[name]
+    return factory() if value == original else value
+
+
+_PATH_DEFAULTS = {
+    'DAILY_ROOT': (DAILY_ROOT, lambda: resolve_geopolitics_reference(REPO_ROOT, 'geopolitics') / 'work' / 'daily'),
+    'CLAIMS_ROOT': (CLAIMS_ROOT, lambda: resolve_geopolitics_reference(REPO_ROOT, 'geopolitics') / 'work' / 'reality' / 'claims'),
+    'OBSERVABLES_ROOT': (OBSERVABLES_ROOT, lambda: resolve_geopolitics_reference(REPO_ROOT, 'geopolitics') / 'work' / 'reality' / 'observables'),
 }
 
 
@@ -49,14 +66,14 @@ def words(text: str) -> set[str]:
 
 
 def load_claims() -> list[dict]:
-    return [json.loads(path.read_text(encoding="utf-8")) for path in sorted(CLAIMS_ROOT.glob("*.json"))]
+    return [json.loads(path.read_text(encoding="utf-8")) for path in sorted(_path('CLAIMS_ROOT').glob("*.json"))]
 
 
 def load_observables_for_claim(claim_id: str) -> list[dict]:
-    if not OBSERVABLES_ROOT.exists():
+    if not _path('OBSERVABLES_ROOT').exists():
         return []
     observables = []
-    for path in sorted(OBSERVABLES_ROOT.glob("*.json")):
+    for path in sorted(_path('OBSERVABLES_ROOT').glob("*.json")):
         record = json.loads(path.read_text(encoding="utf-8"))
         if claim_id in record.get("claim_ids", []):
             observables.append(record)
@@ -100,7 +117,7 @@ def resolve_claim(claim_id: str) -> dict:
 
 
 def review_date_for_claim(claim_id: str) -> str | None:
-    ledger = REPO_ROOT / "narrative-geopolitics" / "work" / "forecasts" / "forecast-ledger.md"
+    ledger = resolve_geopolitics_reference(REPO_ROOT, 'geopolitics') / "work" / "forecasts" / "forecast-ledger.md"
     if not ledger.exists():
         return None
     pattern = re.compile(rf"^\|\s*`{re.escape(claim_id)}`\s*\|[^|]*\|[^|]*\|[^|]*\|[^|]*\|\s*`(?P<review>\d{{4}}-\d{{2}}-\d{{2}})`\s*\|", re.MULTILINE)
@@ -151,16 +168,16 @@ def investigation_plan(claim: dict) -> dict:
 
 def linked_artifacts(claim_id: str) -> dict[str, list[str]]:
     links: dict[str, list[str]] = {"daily_forecasts": [], "syntheses": [], "issues": [], "ledger": []}
-    for path in sorted(DAILY_ROOT.glob("*/forecast.md")):
+    for path in sorted(_path('DAILY_ROOT').glob("*/forecast.md")):
         if claim_id in path.read_text(encoding="utf-8"):
             links["daily_forecasts"].append(path.relative_to(REPO_ROOT).as_posix())
-    for path in sorted(DAILY_ROOT.glob("*/synthesis.md")):
+    for path in sorted(_path('DAILY_ROOT').glob("*/synthesis.md")):
         if claim_id in path.read_text(encoding="utf-8"):
             links["syntheses"].append(path.relative_to(REPO_ROOT).as_posix())
-    for path in sorted(DAILY_ROOT.glob("*/issue.md")):
+    for path in sorted(_path('DAILY_ROOT').glob("*/issue.md")):
         if claim_id in path.read_text(encoding="utf-8"):
             links["issues"].append(path.relative_to(REPO_ROOT).as_posix())
-    ledger = REPO_ROOT / "narrative-geopolitics" / "work" / "forecasts" / "forecast-ledger.md"
+    ledger = resolve_geopolitics_reference(REPO_ROOT, 'geopolitics') / "work" / "forecasts" / "forecast-ledger.md"
     if ledger.exists() and claim_id in ledger.read_text(encoding="utf-8"):
         links["ledger"].append(ledger.relative_to(REPO_ROOT).as_posix())
     return links
@@ -295,7 +312,7 @@ def build_batch_handoff(claim_ids: list[str], *, investigate: bool = False) -> d
 
 def build(date: str) -> dict:
     date = validate_date(date)
-    daily = DAILY_ROOT / date
+    daily = _path('DAILY_ROOT') / date
     issue_path = daily / "issue.md"
     synthesis_path = daily / "synthesis.md"
     issue = issue_path.read_text(encoding="utf-8") if issue_path.exists() else ""
