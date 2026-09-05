@@ -191,6 +191,23 @@ def _singularity_archive_path(path: str) -> bool:
     return path.startswith("archive/sources/singularity/")
 
 
+def _narrative_geopolitics_voice_lens_path(path: str) -> bool:
+    if not (
+        path.startswith("narrative-geopolitics/voices/")
+        and path.endswith(".md")
+    ):
+        return False
+    parts = path.split("/")
+    if len(parts) != 4:
+        return False
+    return parts[-1] not in {
+        "README.md",
+        "source-index.md",
+        "judgment-ledger.md",
+        "state-ledger.md",
+    }
+
+
 def _mira_journal_date(path: str) -> str | None:
     parts = PurePosixPath(path).parts
     if len(parts) == 3 and parts[:2] == ("mira", "journal") and parts[2].endswith(".md"):
@@ -400,6 +417,13 @@ def route_path(path: str, *, repo_root: Path = REPO_ROOT) -> dict[str, Any]:
         path.startswith("narrative-geopolitics/voices/")
         and path.endswith("/README.md")
     ):
+        return {
+            "owner": "narrative-geopolitics/voice-control",
+            "validation_class": "domain-governed",
+            "commands": ["tools/run.ps1 test --path tests/test_voice_count_authority.py"],
+            "manual_checks": [MANUAL_NARRATIVE_GEOPOLITICS_CHECK],
+        }
+    if _narrative_geopolitics_voice_lens_path(path):
         return {
             "owner": "narrative-geopolitics/voice-control",
             "validation_class": "domain-governed",
