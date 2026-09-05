@@ -4,7 +4,7 @@ This index routes the unified local Barnes corpus for `barnes` to the central Na
 
 Source basis: `strategy-codex/statecraft/voices/barnes/barnes-index.md` plus already-local matching archive rows.
 
-Corpus: 42 local route rows across 42 central archive source files.
+Corpus: 44 local route rows across 44 central archive source files.
 
 Status: `imported-corpus`
 
@@ -61,6 +61,8 @@ Status: `imported-corpus`
 | `2026-08-19` | (4) Robert Barnes: No More Bluffing: US and Iran Harden Positions | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2026-08-19/source-4-robert-barnes-no-more-bluffing-us-and-iran-harden-positions-2026-08-19.md) |
 | `2026-08-24` | Robert Barnes : Do Trump's Senior Aides Trust Him? | `guest` | `judging-freedom` | [source](../../../archive/sources/geopolitics/sources/2026-08-24/source-robert-barnes-do-trump-s-senior-aides-trust-him-2026-08-24.md) |
 | `2026-08-28` | A FOREIGN SPY CHIEF INSIDE A PRESIDENT-LINKED BANK — w/ Robert Barnes | `guest` | `mario-nawfal` | [source](../../../archive/sources/geopolitics/sources/2026-08-28/source-a-foreign-spy-chief-inside-a-president-linked-bank-w-robert-barnes-2026-08-28.md) |
+| `2026-09-01` | IRGC IN IRAN UNDER FIRE /Robert Barnes & Lt Col Daniel Davis | `guest` | `daniel-davis` | [source](../../../archive/sources/geopolitics/sources/2026-09-01/source-irgc-in-iran-under-fire-robert-barnes-lt-col-daniel-davis-2026-09-01.md) |
+| `2026-09-01` | Robert Barnes: Iran Launches Ballistic Missiles After U.S. Bombs Southern Iran | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2026-09-01/source-robert-barnes-iran-launches-ballistic-missiles-after-u-s-bombs-southern-iran-2026-09-01.md) |
 
 ## Import Boundary
 
