@@ -1678,7 +1678,7 @@ def strip_transcript_section_headings(body: str) -> str:
 
 
 def split_source_document(text: str) -> tuple[list[str], str, str] | None:
-    if not text.startswith("---\n"):
+    if not (text.startswith("---\n") or text.startswith("---\r\n")):
         return None
     parts = text.split("---", 2)
     if len(parts) < 3:

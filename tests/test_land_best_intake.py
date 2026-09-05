@@ -637,6 +637,28 @@ def test_report_frontmatter_parser_extracts_generated_fields() -> None:
     assert parsed["closing_trim_chars_saved"] == "120"
 
 
+def test_split_source_document_accepts_crlf_frontmatter() -> None:
+    split = land_best_intake.split_source_document(
+        "---\r\n"
+        "pub_date: 2026-07-07\r\n"
+        "host_slug: dialogue-works\r\n"
+        "---\r\n"
+        "## Transcript\r\n"
+        "\r\n"
+        "# Example\r\n"
+        "\r\n"
+        "Body.\r\n"
+    )
+
+    assert split is not None
+    frontmatter_lines, body_prefix, body = split
+    frontmatter = land_best_intake.parse_frontmatter_lines(frontmatter_lines)
+    assert frontmatter["pub_date"] == "2026-07-07"
+    assert frontmatter["host_slug"] == "dialogue-works"
+    assert body_prefix == "\r\n## Transcript\n\n"
+    assert body == "# Example\r\n\r\nBody.\r\n"
+
+
 def test_retrofit_source_trims_body_and_normalizes_metadata() -> None:
     tmp_dir = make_local_temp_dir()
     try:
