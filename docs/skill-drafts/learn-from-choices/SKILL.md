@@ -89,6 +89,26 @@ this cache, retain control selections, or enroll them in a choice-learning
 cohort. Genuine decisions still require current targets, evidence, and selection
 identity; direct instructions supersede earlier menus.
 
+Classify the meaning of each visible option before encoding it. An empty
+`candidates` list cannot accompany independently meaningful new work merely
+because that work is optional. Validation checks supplied structure and
+consistency, not the truth of the agent's semantic classification.
+
+For example, "Explain that distinction again, so that I can follow the answer"
+is a generic clarification control (`none`). "Compare the two voices using
+contrary passages, so that agreement can be tested against exceptions" selects
+an evidence method (`eligible`): represent it as a navigational candidate in a
+decision surface, with the ordinary readiness assessment. Likewise, "Clarify
+the example, so that its meaning is clear" is a control; "Design a matched-task
+experiment, so that competing capability claims face the same measurement"
+opens substantive work and must not be encoded as a response control. Neither
+navigational label authorizes experiment execution or persistence.
+
+Review these distinctions using `references/decision-fixtures.json` when
+auditing choice classification. Preserve the existing exact-input rules for
+settled-control reuse: a changed label, assessment, or classification requires
+fresh validation. Reuse does not permit semantic caching or skipped validation.
+
 After closing a branch, offer substantive `New paths` only when independently
 credible directions begin genuinely different objectives, evidence searches,
 or commitments. Selecting one creates a new choice identity; it never reopens

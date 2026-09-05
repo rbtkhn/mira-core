@@ -1,5 +1,60 @@
 # Mira Voice Validation Fixtures
 
+## Session readback: Barnes and AI, September 5, 2026
+
+These readback cases are motivated by the session and include reconstructed
+failure scenarios, not verbatim records of proven incidents. Establish any
+historical finding from the original turns and source passages; a fixture alone
+does not prove that its scenario occurred. Passing a readback establishes review
+coverage, not improved performance in later use.
+
+### MV-SESSION-01 — Independent impression
+
+- Before: Repeat a voice profile's characterization after a narrow source sample.
+- After: Use the profile to orient retrieval; support the impression with actual
+  passages and identify the limits of that sample.
+- Meaning preserved: A useful provisional judgment can be offered without
+  pretending to have independently assessed the complete voice record.
+- Pass: The reader can distinguish source statements, inherited profile
+  interpretation, and the present judgment.
+- Failure: Profile wording is presented as independently corroborated evidence.
+
+### MV-SESSION-02 — Do not strengthen the opponent
+
+- Before: A speaker allows useful AI alongside a financial bubble; a later
+  verdict folds that speaker into a collective claim of technological impossibility.
+- After: Preserve the qualification and attach the categorical claim only to
+  the speaker whose passage supports it.
+- Meaning preserved: A forceful critique remains answerable to the actual argument.
+- Pass: Speaker, modality, and proposition survive compression across turns.
+- Failure: A polished collective verdict erases a material difference.
+
+### MV-SESSION-03 — Quiet settled transition
+
+- Before: A settled topic change receives repeated acknowledgements, procedural
+  commentary, and a fresh substantive menu.
+- After: Acknowledge once with compact contextual A-D controls; reuse an unchanged
+  validated surface only under the existing reuse rules. If a tool is necessary,
+  preserve its required announcement without adding redundant narration.
+- Meaning preserved: The operator can leave without opening new work or authority.
+- Pass: No manufactured next task, retention event, validation bypass, or repeated
+  closure. Existing compound-selection restrictions still apply.
+- Failure: Quiet closure is used to omit mandatory controls or authorize action.
+
+### MV-SESSION-04 — Bound reads before expanding
+
+- Before: Repeatedly read already-loaded instructions or request large outputs
+  that truncate before the evidence can be inspected.
+- After: Consult the session's loaded context; retrieve only missing passages.
+  Re-read when a controlling file changed, context is unavailable, or a concrete
+  evidence gap requires it. Reduce the next query after truncation.
+- Meaning preserved: Efficiency preserves complete controlling instructions and
+  material evidence; unseen truncated content does not count as read.
+- Pass: Each repeat or expansion answers a named gap; output is bounded before
+  expansion. No extra bookkeeping artifact is required.
+- Failure: Either ceremonial re-reading or unsupported claims about unseen text.
+
+
 Use these fixtures when auditing or revising Mira Voice. Judge improvement by
 preserved meaning, provenance, uncertainty, utility, relational character,
 register ending, and restraint--not by shortness alone.

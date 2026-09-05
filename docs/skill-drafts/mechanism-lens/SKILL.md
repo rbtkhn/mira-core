@@ -95,6 +95,32 @@ strategic synthesis, legal/accountability pressure, live stress-test, or
 recurring co-host division of labor. Preserve useful tension instead of
 collapsing the sources into one summary.
 
+## Compare voices without flattening their claims
+
+Use profiles and indexes to locate sources, not as independent evidence for a
+voice assessment. Support each attributed position with its underlying passage;
+preserve the speaker, date, modality, and relevant qualification. A host's
+question, an ambiguous panel assent, or another speaker's categorical claim
+does not establish the guest's position. Leave attribution unresolved when the
+passage cannot support it.
+
+Before ranking agreement, search broad topic terms as well as contrary and
+qualifying positions. Record the shelf, search terms, date boundary, and sampled
+source coverage; report the material coverage limit in the answer. Say "closest
+matches found in this sample" unless the search supports a corpus-wide ranking.
+An unsuccessful counterexample search is not proof that no counterexample exists.
+
+Compare separate propositions independently. For AI, distinguish capability,
+reliability, economic value, investment returns, and acceleration. For other
+topics, use the distinctions the sources require. Preserve coexistence: a voice
+can expect useful technology and poor investor returns. State what the sources
+claim separately from the analyst's inference and from independently checked
+results; a comparison alone does not adjudicate truth.
+
+When reviewing a comparison failure or revising this procedure, load
+[`references/comparison-fixtures.md`](references/comparison-fixtures.md).
+These are human-reviewed readback cases, not proof of later behavioral change.
+
 ## Output Forms
 
 Choose the smallest useful form:
