@@ -1175,6 +1175,50 @@ def test_cli_show_and_verify_reject_cross_lane_access(tmp_path: Path) -> None:
         )
 
 
+@pytest.mark.parametrize("choice_id", [None, "CHOICE-001"])
+@pytest.mark.parametrize("output_format", ["json", "markdown"])
+def test_cli_verify_exit_status_matches_integrity(
+    tmp_path: Path, choice_id: str | None, output_format: str
+) -> None:
+    path = tmp_path / "choices.sqlite3"
+    db = connection(path)
+    select(db)
+    outcome(db, "CHOICE-001")
+    db.close()
+    command = [
+        sys.executable,
+        str(SCRIPTS_ROOT / "choice_ledger.py"),
+        "--db", str(path),
+        "--format", output_format,
+        "verify",
+        "--tenant", "tenant-a",
+        "--workspace", "workspace-a",
+        "--lane", "lane-a",
+    ]
+    if choice_id is not None:
+        command.extend(["--choice-id", choice_id])
+
+    def verify(expected_valid: bool) -> None:
+        before = path.read_bytes()
+        result = subprocess.run(command, capture_output=True, text=True, check=False)
+        assert result.returncode == (0 if expected_valid else 1), result.stderr
+        assert path.read_bytes() == before
+        if output_format == "json":
+            payload = json.loads(result.stdout)
+            assert payload["valid"] is expected_valid
+            assert payload["choices"]["CHOICE-001"]["valid"] is expected_valid
+        else:
+            assert "Choice Chain Verification" in result.stdout
+
+    verify(True)
+    db = connection(path)
+    db.execute("DROP TRIGGER choice_events_no_update")
+    db.execute("UPDATE choice_events SET payload_json='{}' WHERE sequence=2")
+    db.commit()
+    db.close()
+    verify(False)
+
+
 def test_privacy_scan_redacts_contacts_and_rejects_secrets() -> None:
     assert choice_ledger.sanitize_text("Call +1 (303) 555-1212") == "Call [redacted-contact]"
     with pytest.raises(choice_ledger.ChoiceError, match="credential"):

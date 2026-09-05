@@ -2375,7 +2375,7 @@ def main(arguments: list[str] | None = None) -> int:
         print(markdown_projection(payload, title), end="")
     else:
         print(json.dumps(payload, indent=2, ensure_ascii=False))
-    return 0
+    return 1 if args.command == "verify" and not payload["valid"] else 0
 
 
 if __name__ == "__main__":
