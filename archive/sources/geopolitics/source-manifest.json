@@ -2,7 +2,7 @@
   "manifest_id": "narrative-geopolitics-source-manifest-v1",
   "source_basis": "central archive with completed historical strategy-codex imports",
   "imported_at": "2026-07-09",
-  "source_count": 2431,
+  "source_count": 2433,
   "boundary": {
     "archive": "source truth",
     "voices": "voice continuity and routing",
@@ -64872,6 +64872,51 @@
       "inference_basis": [
         "wrapper-normalized",
         "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-08-27",
+      "title": "Martin Armstrong: Economic Collapse Has Started & the EU Will Break Up",
+      "local_path": "archive/sources/geopolitics/sources/2026-08-27/source-martin-armstrong-economic-collapse-has-started-the-eu-will-break-up-2026-08-27.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-08-27/source-martin-armstrong-economic-collapse-has-started-the-eu-will-break-up-2026-08-27.md",
+      "upstream_path": "operator-paste://2026-08-27/martin-armstrong-economic-collapse-has-started-the-eu-will-break-up",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "armstrong"
+      ],
+      "host_slug": "glenn-diesen",
+      "source_identity": "youtube:Mn8jelKmHqo",
+      "source_url": "https://www.youtube.com/watch?v=Mn8jelKmHqo",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2024-08-08",
+      "title": "Geopolitical and economic turmoil w/ Martin Armstrong (Live)",
+      "local_path": "archive/sources/geopolitics/sources/2024-08-08/source-geopolitical-and-economic-turmoil-w-martin-armstrong-live-2024-08-08.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2024-08-08/source-geopolitical-and-economic-turmoil-w-martin-armstrong-live-2024-08-08.md",
+      "upstream_path": "operator-paste://2024-08-08/geopolitical-and-economic-turmoil-w-martin-armstrong-live",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "armstrong"
+      ],
+      "host_slug": "the-duran",
+      "source_identity": "youtube:kPFviQhpqw4",
+      "source_url": "https://www.youtube.com/watch?v=kPFviQhpqw4",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
         "explicit-date-alias"
       ],
       "import_status": "imported"

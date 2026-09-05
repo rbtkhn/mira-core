@@ -2,10 +2,11 @@
 
 This index routes the unified local Armstrong corpus to the central Narrative Geopolitics source archive.
 
-Corpus: 9 local route rows across 9 central archive source files.
+Corpus: 11 local route rows across 11 central archive source files.
 
 | Date | Source | Role | Host slug | Archive link |
 | --- | --- | --- | --- | --- |
+| `2024-08-08` | Geopolitical and economic turmoil w/ Martin Armstrong (Live) | `guest` | `the-duran` | [source](../../../archive/sources/geopolitics/sources/2024-08-08/source-geopolitical-and-economic-turmoil-w-martin-armstrong-live-2024-08-08.md) |
 | `2025-02-19` | Martin Armstrong: Trump vs. BRICS: Is He Leading the U.S. to Power or Collapse? | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2025-02-19/source-dialogue-works-martin-armstrong-trump-vs-brics-is-he-leading-the-u-s-to-power-or-collapse-2025-02-19.md) |
 | `2025-07-24` | Martin A. Armstrong: NATO Plans MASSIVE Troop Surge into Ukraine | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2025-07-24/source-dialogue-works-martin-armstrong-nato-plans-massive-troop-surge-into-ukraine-2025-07-24.md) |
 | `2025-08-21` | Martin Armstrong: The Cold Reality: Peace With Russia Will NEVER Happen | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2025-08-21/source-dialogue-works-martin-armstrong-the-cold-reality-peace-with-russia-will-never-happen-2025-08-21.md) |
@@ -14,4 +15,5 @@ Corpus: 9 local route rows across 9 central archive source files.
 | `2025-12-03` | Martin Armstrong: Where Is America Headed Under Trump? Is this WW3? | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2025-12-03/source-dialogue-works-martin-armstrong-where-is-america-headed-under-trump-is-this-ww3-2025-12-03.md) |
 | `2026-02-24` | Martin Armstrong: How Europe Destroyed Itself & What Comes Next | `guest` | `glenn-diesen` | [source](../../../archive/sources/geopolitics/sources/2026-02-24/source-glenn-diesen-martin-armstrong-martin-armstrong-how-europe-destroyed-itself-what-comes-next-2026-02-24.md) |
 | `2026-02-27` | Martin Armstrong: How World War III Begins — And Why It’s Happening Now | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2026-02-27/source-dialogue-works-martin-armstrong-how-world-war-iii-begins-and-why-it-s-happening-now-2026-02-27.md) |
+| `2026-08-27` | Martin Armstrong: Economic Collapse Has Started & the EU Will Break Up | `guest` | `glenn-diesen` | [source](../../../archive/sources/geopolitics/sources/2026-08-27/source-martin-armstrong-economic-collapse-has-started-the-eu-will-break-up-2026-08-27.md) |
 | `2026-09-04` | U.S. DIESEL PRICES SMASH A RECORD AS THE IRAN WAR CHOKES SUPPLY – w/ Martin Armstrong | `guest` | `mario-nawfal` | [source](../../../archive/sources/geopolitics/sources/2026-09-04/source-u-s-diesel-prices-smash-a-record-as-the-iran-war-chokes-supply-w-martin-armstrong-2026-09-04.md) |
