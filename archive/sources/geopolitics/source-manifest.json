@@ -2,7 +2,7 @@
   "manifest_id": "narrative-geopolitics-source-manifest-v1",
   "source_basis": "central archive with completed historical strategy-codex imports",
   "imported_at": "2026-07-09",
-  "source_count": 2421,
+  "source_count": 2431,
   "boundary": {
     "archive": "source truth",
     "voices": "voice continuity and routing",
@@ -64641,6 +64641,234 @@
       "source_url": "https://www.youtube.com/watch?v=qSxtxiS-a1Q",
       "title_source": "transcript",
       "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-09-04",
+      "title": "Russia Targets Zelensky's Top Spy Chief FAB Bombs Smash Ukraine Power Plants; Kharkov Crisis Worsens",
+      "local_path": "archive/sources/geopolitics/sources/2026-09-04/source-russia-targets-zelensky-s-top-spy-chief-fab-bombs-smash-ukraine-power-plants-kharkov-crisis-worsens-2026-09-04.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-09-04/source-russia-targets-zelensky-s-top-spy-chief-fab-bombs-smash-ukraine-power-plants-kharkov-crisis-worsens-2026-09-04.md",
+      "upstream_path": "operator-paste://2026-09-04/russia-targets-zelensky-s-top-spy-chief-fab-bombs-smash-ukraine-power-plants-kharkov-crisis-worsens",
+      "source_class": "host monologue",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "alexander-mercouris",
+      "source_identity": "youtube:xPBpuQ_XhZQ",
+      "source_url": "https://www.youtube.com/watch?v=xPBpuQ_XhZQ",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-09-04",
+      "title": "Larry Johnson: EU Joins US Sanctions on Iran - NATO Faces Collapse",
+      "local_path": "archive/sources/geopolitics/sources/2026-09-04/source-larry-johnson-eu-joins-us-sanctions-on-iran-nato-faces-collapse-2026-09-04.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-09-04/source-larry-johnson-eu-joins-us-sanctions-on-iran-nato-faces-collapse-2026-09-04.md",
+      "upstream_path": "operator-paste://2026-09-04/larry-johnson-eu-joins-us-sanctions-on-iran-nato-faces-collapse",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "johnson"
+      ],
+      "host_slug": "dialogue-works",
+      "source_identity": "youtube:8ZGH-9g1e1M",
+      "source_url": "https://www.youtube.com/watch?v=8ZGH-9g1e1M",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-09-04",
+      "title": "Jeffrey Sachs: The World Order Built on Lies Is Now Unravelling",
+      "local_path": "archive/sources/geopolitics/sources/2026-09-04/source-jeffrey-sachs-the-world-order-built-on-lies-is-now-unravelling-2026-09-04.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-09-04/source-jeffrey-sachs-the-world-order-built-on-lies-is-now-unravelling-2026-09-04.md",
+      "upstream_path": "operator-paste://2026-09-04/jeffrey-sachs-the-world-order-built-on-lies-is-now-unravelling",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "sachs"
+      ],
+      "host_slug": "glenn-diesen",
+      "source_identity": "youtube:6JqCzpmQcbk",
+      "source_url": "https://www.youtube.com/watch?v=6JqCzpmQcbk",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-09-04",
+      "title": "Col. Larry Wilkerson: Iran Just Changed the Rules– Preemptive Strikes Are Now Their Default Strategy",
+      "local_path": "archive/sources/geopolitics/sources/2026-09-04/source-col-larry-wilkerson-iran-just-changed-the-rules-preemptive-strikes-are-now-their-default-strategy-2026-09-04.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-09-04/source-col-larry-wilkerson-iran-just-changed-the-rules-preemptive-strikes-are-now-their-default-strategy-2026-09-04.md",
+      "upstream_path": "operator-paste://2026-09-04/col-larry-wilkerson-iran-just-changed-the-rules-preemptive-strikes-are-now-their-default-strategy",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "wilkerson"
+      ],
+      "host_slug": "dialogue-works",
+      "source_identity": "youtube:RsdZNK9VbNs",
+      "source_url": "https://www.youtube.com/watch?v=RsdZNK9VbNs",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-09-04",
+      "title": "SOUTH KOREA SIGNALS IT WILL JOIN THE U.S. IN HORMUZ – w/ Lt. Col. Anthony Aguilar",
+      "local_path": "archive/sources/geopolitics/sources/2026-09-04/source-south-korea-signals-it-will-join-the-u-s-in-hormuz-w-lt-col-anthony-aguilar-2026-09-04.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-09-04/source-south-korea-signals-it-will-join-the-u-s-in-hormuz-w-lt-col-anthony-aguilar-2026-09-04.md",
+      "upstream_path": "operator-paste://2026-09-04/south-korea-signals-it-will-join-the-u-s-in-hormuz-w-lt-col-anthony-aguilar",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "aguilar"
+      ],
+      "host_slug": "mario-nawfal",
+      "source_identity": "youtube:BAe-8st8uv8",
+      "source_url": "https://www.youtube.com/watch?v=BAe-8st8uv8",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-09-04",
+      "title": "Modi, Erdogan and Tokayev Gang Up on Putin",
+      "local_path": "archive/sources/geopolitics/sources/2026-09-04/source-modi-erdogan-and-tokayev-gang-up-on-putin-2026-09-04.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-09-04/source-modi-erdogan-and-tokayev-gang-up-on-putin-2026-09-04.md",
+      "upstream_path": "operator-paste://2026-09-04/modi-erdogan-and-tokayev-gang-up-on-putin",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "mercouris"
+      ],
+      "host_slug": "the-duran",
+      "source_identity": "youtube:NES43_eF3sE",
+      "source_url": "https://www.youtube.com/watch?v=NES43_eF3sE",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-09-04",
+      "title": "The West Must Be Denazified w/ John Helmer",
+      "local_path": "archive/sources/geopolitics/sources/2026-09-04/source-the-west-must-be-denazified-w-john-helmer-2026-09-04.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-09-04/source-the-west-must-be-denazified-w-john-helmer-2026-09-04.md",
+      "upstream_path": "operator-paste://2026-09-04/the-west-must-be-denazified-w-john-helmer",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "helmer"
+      ],
+      "host_slug": "reason-resist",
+      "source_identity": "youtube:CE31GuVR3Lc",
+      "source_url": "https://www.youtube.com/watch?v=CE31GuVR3Lc",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-09-04",
+      "title": "PROF. MOHAMMAD MARANDI: Trump’s Iran War Is Backfiring — Iran Will NOT Surrender. What Happens Next?",
+      "local_path": "archive/sources/geopolitics/sources/2026-09-04/source-prof-mohammad-marandi-trump-s-iran-war-is-backfiring-iran-will-not-surrender-what-happens-next-2026-09-04.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-09-04/source-prof-mohammad-marandi-trump-s-iran-war-is-backfiring-iran-will-not-surrender-what-happens-next-2026-09-04.md",
+      "upstream_path": "operator-paste://2026-09-04/prof-mohammad-marandi-trump-s-iran-war-is-backfiring-iran-will-not-surrender-what-happens-next",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "marandi"
+      ],
+      "host_slug": "judging-freedom",
+      "source_identity": "youtube:wlf97jq1HfU",
+      "source_url": "https://www.youtube.com/watch?v=wlf97jq1HfU",
+      "title_source": "transcript",
+      "date_basis": "transcript-self-date",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-09-04",
+      "title": "Amb. Chas Freeman: Inside Israel’s Crumbling Multi-Front War",
+      "local_path": "archive/sources/geopolitics/sources/2026-09-04/source-amb-chas-freeman-inside-israel-s-crumbling-multi-front-war-2026-09-04.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-09-04/source-amb-chas-freeman-inside-israel-s-crumbling-multi-front-war-2026-09-04.md",
+      "upstream_path": "operator-paste://2026-09-04/amb-chas-freeman-inside-israel-s-crumbling-multi-front-war",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "freeman"
+      ],
+      "host_slug": "dialogue-works",
+      "source_identity": "youtube:QJAUO7bZhwo",
+      "source_url": "https://www.youtube.com/watch?v=QJAUO7bZhwo",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
+      "inference_basis": [
+        "wrapper-normalized",
+        "explicit-host",
+        "explicit-date-alias"
+      ],
+      "import_status": "imported"
+    },
+    {
+      "date": "2026-09-04",
+      "title": "U.S. DIESEL PRICES SMASH A RECORD AS THE IRAN WAR CHOKES SUPPLY – w/ Martin Armstrong",
+      "local_path": "archive/sources/geopolitics/sources/2026-09-04/source-u-s-diesel-prices-smash-a-record-as-the-iran-war-chokes-supply-w-martin-armstrong-2026-09-04.md",
+      "voice_index_path": "../../../archive/sources/geopolitics/sources/2026-09-04/source-u-s-diesel-prices-smash-a-record-as-the-iran-war-chokes-supply-w-martin-armstrong-2026-09-04.md",
+      "upstream_path": "operator-paste://2026-09-04/u-s-diesel-prices-smash-a-record-as-the-iran-war-chokes-supply-w-martin-armstrong",
+      "source_class": "guest interview pressure test",
+      "modality": "cleaned-transcript",
+      "voice_slugs": [
+        "armstrong"
+      ],
+      "host_slug": "mario-nawfal",
+      "source_identity": "youtube:TLbQivzNnms",
+      "source_url": "https://www.youtube.com/watch?v=TLbQivzNnms",
+      "title_source": "transcript",
+      "date_basis": "operator-supplied",
       "inference_basis": [
         "wrapper-normalized",
         "explicit-host",

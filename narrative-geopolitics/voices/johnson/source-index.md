@@ -4,11 +4,9 @@ This index routes the imported first-slice parity corpus for `johnson` to the ce
 
 Source basis: `archive/sources/geopolitics/source-manifest.json`.
 
-Corpus: 146 local route rows across 146 central archive source files.
+Corpus: 148 local route rows across 148 central archive source files.
 
 Status: `first-slice-parity`
-| `2026-09-03` | BREAKING: TRUMP APPOINTS PRO-ISRAEL AS ARMY SECRETARY, TRUMP TO STRIKE SOON w/ CIA Larry Johnson | `guest` | `moral-resistance` | [source](../../../archive/sources/geopolitics/sources/2026-09-03/source-breaking-trump-appoints-pro-israel-as-army-secretary-trump-to-strike-soon-w-cia-larry-johnson-2026-09-03.md) |
-| `2026-09-02` | Larry Johnson: The Gulf Is Burning – US Bases Hit as Iran Fires Back | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2026-09-02/source-larry-johnson-the-gulf-is-burning-us-bases-hit-as-iran-fires-back-2026-09-02.md) |
 
 ## Reading Rule
 
@@ -170,6 +168,10 @@ Status: `first-slice-parity`
 | `2026-08-28` | Col. Larry Wilkerson & Larry Johnson: The Trap is Closing on Iran and the US | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2026-08-28/source-col-larry-wilkerson-larry-johnson-the-trap-is-closing-on-iran-and-the-us-2026-08-28.md) |
 | `2026-08-29` | BREAKING: TRUMP REJECTS SAUDI ARABIA REQUEST, MOU BREAKS DOWN DUE TO GAZA w/ CIA Larry Johnson | `guest` | `moral-resistance` | [source](../../../archive/sources/geopolitics/sources/2026-08-29/source-breaking-trump-rejects-saudi-arabia-request-mou-breaks-down-due-to-gaza-w-cia-larry-johnson-2026-08-29.md) |
 | `2026-08-31` | Larry Johnson: Iran Strikes US Airbase – F-16 & F-35 Hangars Destroyed as Trump Vows Hard Offensive | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2026-08-31/source-larry-johnson-iran-strikes-us-airbase-f-16-f-35-hangars-destroyed-as-trump-vows-hard-offensive-2026-08-31.md) |
+| `2026-09-01` | Larry Johnson: Iran Launches Missile Barrage: Swift Retaliation After U.S. Strikes | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2026-09-01/source-larry-johnson-iran-launches-missile-barrage-swift-retaliation-after-u-s-strikes-2026-09-01.md) |
+| `2026-09-02` | Larry Johnson: The Gulf Is Burning – US Bases Hit as Iran Fires Back | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2026-09-02/source-larry-johnson-the-gulf-is-burning-us-bases-hit-as-iran-fires-back-2026-09-02.md) |
+| `2026-09-03` | BREAKING: TRUMP APPOINTS PRO-ISRAEL AS ARMY SECRETARY, TRUMP TO STRIKE SOON w/ CIA Larry Johnson | `guest` | `moral-resistance` | [source](../../../archive/sources/geopolitics/sources/2026-09-03/source-breaking-trump-appoints-pro-israel-as-army-secretary-trump-to-strike-soon-w-cia-larry-johnson-2026-09-03.md) |
+| `2026-09-04` | Larry Johnson: EU Joins US Sanctions on Iran - NATO Faces Collapse | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2026-09-04/source-larry-johnson-eu-joins-us-sanctions-on-iran-nato-faces-collapse-2026-09-04.md) |
 
 ## Judgment Continuity
 

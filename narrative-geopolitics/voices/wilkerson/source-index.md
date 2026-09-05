@@ -4,11 +4,9 @@ This index routes the unified local Wilkerson corpus for `wilkerson` to the cent
 
 Source basis: `strategy-codex/statecraft/voices/wilkerson/wilkerson-index.md` plus already-local matching archive rows.
 
-Corpus: 117 local route rows across 117 central archive source files.
+Corpus: 121 local route rows across 121 central archive source files.
 
 Status: `imported-corpus`
-| `2026-09-03` | KATZ THREATENS TO BOMB IRAN "INTO THE STONE AGE" – w/ Col. Larry Wilkerson | `guest` | `mario-nawfal` | [source](../../../archive/sources/geopolitics/sources/2026-09-03/source-katz-threatens-to-bomb-iran-into-the-stone-age-w-col-larry-wilkerson-2026-09-03.md) |
-| `2026-09-02` | Lawrence Wilkerson: NATO & the EU are Dead - A New World Emerges | `guest` | `glenn-diesen` | [source](../../../archive/sources/geopolitics/sources/2026-09-02/source-lawrence-wilkerson-nato-the-eu-are-dead-a-new-world-emerges-2026-09-02.md) |
 
 ## Reading Rule
 
@@ -25,7 +23,9 @@ Status: `imported-corpus`
 | `2025-01-18` | Israel is in Total Disarray \| Alex Krainer & Col. Larry Wilkerson | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2025-01-18/source-dialogue-works-israel-is-in-total-disarray-alex-krainer-col-larry-wilkerson-2025-01-18.md) |
 | `2025-02-02` | Trump's Weakness Spells Disaster \| Col. Larry Wilkerson & Scott Ritter | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2025-02-02/source-dialogue-works-trumps-weakness-spells-disaster-col-larry-wilkerson-scott-ritter-2025-02-02.md) |
 | `2025-02-06` | Ex-State Dept. Chief REVEALS Hidden War Making Process \| Col. Lawrence Wilkerson | `guest` | `neutrality-studies` | [source](../../../archive/sources/geopolitics/sources/2025-02-06/source-neutrality-studies-ex-state-dept-chief-reveals-hidden-war-making-process-col-lawrence-wilkerson-2025-02-06.md) |
+| `2025-02-12` | Col. Lawrence Wilkerson & Graham E. Fuller: SHOCKING MELTDOWN: Has Trump Finally LOST IT?! | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2025-02-12/source-col-lawrence-wilkerson-graham-e-fuller-shocking-meltdown-has-trump-finally-lost-it-2025-02-12.md) |
 | `2025-02-15` | Colonel Lawrence Wilkerson: Trump’s Actions Could Ignite a Regional Conflict in the Middle East | `guest` | `glenn-diesen` | [source](../../../archive/sources/geopolitics/sources/2025-02-15/source-glenn-diesen-lawrence-wilkerson-colonel-lawrence-wilkerson-trump-s-actions-could-ignite-a-regional-conflict-in-the-middle-east-2025-02-15.md) |
+| `2025-03-30` | Strategic Suicide: Why the U.S. Can’t Win a War with Iran \| Col. Larry Wilkerson & Larry C. Johnson | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2025-03-30/source-strategic-suicide-why-the-u-s-can-t-win-a-war-with-iran-col-larry-wilkerson-larry-c-johnson-2025-03-30.md) |
 | `2025-04-03` | COL. Lawrence Wilkerson : Trump Delusional over Tariffs and Iran. | `guest` | `judging-freedom` | [source](../../../archive/sources/geopolitics/sources/2025-04-03/source-judging-freedom-wilkerson-trump-delusional-over-tariffs-and-iran-2025-04-03.md) |
 | `2025-04-04` | Mohammad Marandi, Larry Wilkerson & Chas Freeman on Middle East Erupts: Iran Challenges Ultimatum | `cross-voice panel` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2025-04-04/source-dialogue-works-mohammad-marandi-larry-wilkerson-and-chas-freeman-on-middle-east-erupts-iran-challenges-ultimatum-2025-04-04.md) |
 | `2025-04-05` | Yemeni Missiles Slam US Navy, Iran-US Tension Skyrockets \| Col. Larry Wilkerson & Larry C. Johnson | `cross-voice panel` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2025-04-05/source-dialogue-works-yemeni-missiles-slam-us-navy-iran-us-tension-skyrockets-col-larry-wilkerson-larry-c-johnson-2025-04-05.md) |
@@ -136,6 +136,10 @@ Status: `imported-corpus`
 | `2026-08-24` | Col. Larry Wilkerson: Iran Abandons Defense Strategy as US Unleashes Economic Blitzkrieg | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2026-08-24/source-col-larry-wilkerson-iran-abandons-defense-strategy-as-us-unleashes-economic-blitzkrieg-2026-08-24.md) |
 | `2026-08-27` | HOW CHINA FLIPPED THE SCRIPT OF IRAN WAR /Col Lawrence Wilkerson | `guest` | `daniel-davis` | [source](../../../archive/sources/geopolitics/sources/2026-08-27/source-how-china-flipped-the-script-of-iran-war-col-lawrence-wilkerson-2026-08-27.md) |
 | `2026-08-28` | Col. Larry Wilkerson & Larry Johnson: The Trap is Closing on Iran and the US | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2026-08-28/source-col-larry-wilkerson-larry-johnson-the-trap-is-closing-on-iran-and-the-us-2026-08-28.md) |
+| `2026-09-01` | Col. Larry Wilkerson: WAR & CHAOS: Iran Rocks US Bases in Jordan— Top Army Official Steps Down | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2026-09-01/source-col-larry-wilkerson-war-chaos-iran-rocks-us-bases-in-jordan-top-army-official-steps-down-2026-09-01.md) |
+| `2026-09-02` | Lawrence Wilkerson: NATO & the EU are Dead - A New World Emerges | `guest` | `glenn-diesen` | [source](../../../archive/sources/geopolitics/sources/2026-09-02/source-lawrence-wilkerson-nato-the-eu-are-dead-a-new-world-emerges-2026-09-02.md) |
+| `2026-09-03` | KATZ THREATENS TO BOMB IRAN "INTO THE STONE AGE" – w/ Col. Larry Wilkerson | `guest` | `mario-nawfal` | [source](../../../archive/sources/geopolitics/sources/2026-09-03/source-katz-threatens-to-bomb-iran-into-the-stone-age-w-col-larry-wilkerson-2026-09-03.md) |
+| `2026-09-04` | Col. Larry Wilkerson: Iran Just Changed the Rules– Preemptive Strikes Are Now Their Default Strategy | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2026-09-04/source-col-larry-wilkerson-iran-just-changed-the-rules-preemptive-strikes-are-now-their-default-strategy-2026-09-04.md) |
 
 ## Import Boundary
 

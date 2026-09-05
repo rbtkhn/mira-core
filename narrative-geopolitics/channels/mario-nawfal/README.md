@@ -8,7 +8,7 @@ Status: `indexed-batch-parity`
 | --- | --- |
 | Channel slug | `mario-nawfal` |
 | Channel / show | Mario Nawfal |
-| Host people | Mario Nawfal |
+| Host people | Mario Nawfal; Brandon Weichert observed as guest host / fill-in host on `2026-08-28` |
 | Source basis | [../../archive/source-manifest.json](../../archive/source-manifest.json) |
 | Shelf status | `indexed-batch-parity` |
 | Indexed batch | 48 substantive captures |
@@ -20,7 +20,20 @@ Mario Nawfal began as the first full channel pilot around seven Pape-on-Nawfal c
 
 For Narrative Geopolitics, this shelf conditions a multi-guest breaking-headline register: Pape on escalation traps, Johnson on operational and intelligence claims, Kent on walk-away and domestic constraint, Parsi on deal politics, and other specialists on military or institutional feasibility. The manifest—not this selective shelf—is the exhaustive channel-membership authority.
 
-The shelf is not a Mario Nawfal voice record. It is a host/channel conditioning surface for how Nawfal frames, sequences, compresses, and amplifies guest claims.
+The shelf is not a Mario Nawfal voice record. It is a host/channel conditioning
+surface for how Nawfal's channel frames, sequences, compresses, and amplifies
+guest claims.
+
+## Guest-Host Signal
+
+On `2026-08-28`, the operator-pasted transcript for
+[A FOREIGN SPY CHIEF INSIDE A PRESIDENT-LINKED BANK - w/ Robert Barnes](https://www.youtube.com/watch?v=jfnYC1Aoepk)
+opens with Brandon Weichert introducing himself as filling in for Mario before
+interviewing Robert Barnes. Treat this as a provisional channel-conditioning
+signal that Weichert has become a guest host / fill-in host on the
+Mario Nawfal channel. It does not make Weichert the canonical host for the
+channel, and it does not by itself land the Barnes source or verify any claims
+inside that episode.
 
 ## Pape-on-Nawfal Pattern
 

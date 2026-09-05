@@ -4,7 +4,7 @@ This index routes the unified local Helmer corpus for `helmer` to the central Na
 
 Source basis: `strategy-codex/statecraft/voices/helmer/helmer-index.md`.
 
-Corpus: 45 local route rows across 45 central archive source files.
+Corpus: 46 local route rows across 46 central archive source files.
 
 Status: `imported-corpus`
 
@@ -64,6 +64,7 @@ Status: `imported-corpus`
 | `2026-08-18` | (4) John Helmer: From "Special Operation" to a "Full-Scale War" in Ukraine | `guest` | `nima-alkhorshid` | [source](../../../archive/sources/geopolitics/sources/2026-08-18/source-4-john-helmer-from-special-operation-to-a-full-scale-war-in-ukraine-2026-08-18.md) |
 | `2026-08-25` | John Helmer: The Empire Crumbles: the War on Iran and Russia Just Changed EVERYTHING | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2026-08-25/source-john-helmer-the-empire-crumbles-the-war-on-iran-and-russia-just-changed-everything-2026-08-25.md) |
 | `2026-08-28` | Is the CIA Hiding Its Losses In the Iran and Ukraine Wars? w/ John Helmer | `guest` | `reason-resist` | [source](../../../archive/sources/geopolitics/sources/2026-08-28/source-is-the-cia-hiding-its-losses-in-the-iran-and-ukraine-wars-w-john-helmer-2026-08-28.md) |
+| `2026-09-04` | The West Must Be Denazified w/ John Helmer | `guest` | `reason-resist` | [source](../../../archive/sources/geopolitics/sources/2026-09-04/source-the-west-must-be-denazified-w-john-helmer-2026-09-04.md) |
 
 ## Import Boundary
 

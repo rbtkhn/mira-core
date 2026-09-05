@@ -4,10 +4,9 @@ This index routes the unified local Aguilar corpus for `aguilar` to the central 
 
 Source basis: `strategy-codex/statecraft/voices/aguilar/aguilar-index.md`.
 
-Corpus: 31 local route rows across 31 central archive source files.
+Corpus: 33 local route rows across 33 central archive source files.
 
 Status: `imported-corpus`
-| `2026-09-02` | Lt. Col. Anthony Aguilar: Secretary Rubio Admits Critical Shortage in Interceptors Amid Iran War | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2026-09-02/source-lt-col-anthony-aguilar-secretary-rubio-admits-critical-shortage-in-interceptors-amid-iran-war-2026-09-02.md) |
 
 ## Reading Rule
 
@@ -50,6 +49,9 @@ Status: `imported-corpus`
 | `2026-08-17` | (4) Lt. Col. Anthony Aguilar: Iran to Break US Naval Blockade By Force as Trump Demands Total Surrender | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2026-08-17/source-4-lt-col-anthony-aguilar-iran-to-break-us-naval-blockade-by-force-as-trump-demands-total-surrender-2026-08-17.md) |
 | `2026-08-26` | Lt. Col. Anthony Aguilar: BILLIONS in Damage: Iran's 'Unprecedented' Strike on U.S. Spy Agencies | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2026-08-26/source-lt-col-anthony-aguilar-billions-in-damage-iran-s-unprecedented-strike-on-u-s-spy-agencies-2026-08-26.md) |
 | `2026-08-27` | SANCTIONS AGAINST IRAN HAVE FAILED AND WAR WILL RESTART w/ Lt Col Anthony Aguilar | `guest` | `moral-resistance` | [source](../../../archive/sources/geopolitics/sources/2026-08-27/source-sanctions-against-iran-have-failed-and-war-will-restart-w-lt-col-anthony-aguilar-2026-08-27.md) |
+| `2026-08-31` | Lt. Col. Anthony Aguilar: Iran's Swift Retaliation Strikes US F-16 Hangar in Jordan | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2026-08-31/source-lt-col-anthony-aguilar-iran-s-swift-retaliation-strikes-us-f-16-hangar-in-jordan-2026-08-31.md) |
+| `2026-09-02` | Lt. Col. Anthony Aguilar: Secretary Rubio Admits Critical Shortage in Interceptors Amid Iran War | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2026-09-02/source-lt-col-anthony-aguilar-secretary-rubio-admits-critical-shortage-in-interceptors-amid-iran-war-2026-09-02.md) |
+| `2026-09-04` | SOUTH KOREA SIGNALS IT WILL JOIN THE U.S. IN HORMUZ – w/ Lt. Col. Anthony Aguilar | `guest` | `mario-nawfal` | [source](../../../archive/sources/geopolitics/sources/2026-09-04/source-south-korea-signals-it-will-join-the-u-s-in-hormuz-w-lt-col-anthony-aguilar-2026-09-04.md) |
 
 ## Import Boundary
 

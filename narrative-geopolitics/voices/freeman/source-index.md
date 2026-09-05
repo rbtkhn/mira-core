@@ -4,10 +4,9 @@ This index routes the unified local Freeman corpus for `freeman` to the central 
 
 Source basis: `strategy-codex/statecraft/voices/freeman/freeman-index.md` plus already-local matching archive rows.
 
-Corpus: 169 local route rows across 169 central archive source files.
+Corpus: 172 local route rows across 172 central archive source files.
 
 Status: `imported-corpus`
-| `2026-09-03` | Chas Freeman: U.S. & Iran Back at War & NATO's Abuse of Ukraine | `guest` | `glenn-diesen` | [source](../../../archive/sources/geopolitics/sources/2026-09-03/source-chas-freeman-u-s-iran-back-at-war-nato-s-abuse-of-ukraine-2026-09-03.md) |
 
 ## Reading Rule
 
@@ -21,12 +20,14 @@ Status: `imported-corpus`
 | Date | Source | Role | Host slug | Archive link |
 | --- | --- | --- | --- | --- |
 | `2025-01-07` | AMB. Chas Freeman : Is Israel Destroying Itself? | `guest` | `judging-freedom` | [source](../../../archive/sources/geopolitics/sources/2025-01-07/source-judging-freedom-amb-chas-freeman-is-israel-destroying-itself-2025-01-07.md) |
+| `2025-01-10` | Amb. Chas Freeman: What Is Trump Really After? | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2025-01-10/source-amb-chas-freeman-what-is-trump-really-after-2025-01-10.md) |
 | `2025-01-10` | How Will Trump End War in Ukraine w/Amb Chas Freeman | `guest` | `daniel-davis` | [source](../../../archive/sources/geopolitics/sources/2025-01-10/source-daniel-davis-how-will-trump-end-war-in-ukraine-w-amb-chas-freeman-2025-01-10.md) |
 | `2025-01-14` | AMB. Chas Freeman : Netanyahu Instigating War with Iran. | `guest` | `judging-freedom` | [source](../../../archive/sources/geopolitics/sources/2025-01-14/source-judging-freedom-amb-chas-freeman-netanyahu-instigating-war-with-iran-2025-01-14.md) |
 | `2025-01-17` | Amb. Chas Freeman: The Delusional Policies Driving America's Decline | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2025-01-17/source-dialogue-works-amb-chas-freeman-the-delusional-policies-driving-america-s-decline-2025-01-17.md) |
 | `2025-01-19` | Can Trump Outdo Biden's Worst? \| Amb. Chas Freeman, Richard D. Wolff & Michael Hudson | `solo` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2025-01-19/source-dialogue-works-can-trump-outdo-biden-s-worst-amb-chas-freeman-richard-d-wolff-michael-h-2025-01-19.md) |
 | `2025-01-21` | AMB. Chas Freeman : A Ceasefire or a Pause? | `guest` | `judging-freedom` | [source](../../../archive/sources/geopolitics/sources/2025-01-21/source-judging-freedom-amb-chas-freeman-a-ceasefire-or-a-pause-2025-01-21.md) |
 | `2025-01-23` | Ukraine Russia War SHOWDOWN  w/Chas Freeman | `guest` | `daniel-davis` | [source](../../../archive/sources/geopolitics/sources/2025-01-23/source-daniel-davis-ukraine-russia-war-showdown-w-chas-freeman-2025-01-23.md) |
+| `2025-01-23` | Ukraine Russia War SHOWDOWN w/Amb. Chas Freeman | `guest` | `daniel-davis` | [source](../../../archive/sources/geopolitics/sources/2025-01-23/source-ukraine-russia-war-showdown-w-amb-chas-freeman-2025-01-23.md) |
 | `2025-01-24` | Amb Chas Freeman: Is the World on the Brink of Total CHAOS? | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2025-01-24/source-dialogue-works-amb-chas-freeman-is-the-world-on-the-brink-of-total-chaos-2025-01-24.md) |
 | `2025-01-28` | AMB. Chas Freeman : Netanyahu on the Ropes. | `guest` | `judging-freedom` | [source](../../../archive/sources/geopolitics/sources/2025-01-28/source-judging-freedom-amb-chas-freeman-netanyahu-on-the-ropes-2025-01-28.md) |
 | `2025-02-04` | AMB. Chas Freeman : Trump and USAID. | `guest` | `judging-freedom` | [source](../../../archive/sources/geopolitics/sources/2025-02-04/source-judging-freedom-amb-chas-freeman-trump-and-usaid-2025-02-04.md) |
@@ -188,6 +189,8 @@ Status: `imported-corpus`
 | `2026-08-21` | Amb. Chas Freeman: Israel in PANIC – Emergency Security Summit Called as Turkey Rushes Arms to Syria | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2026-08-21/source-amb-chas-freeman-israel-in-panic-emergency-security-summit-called-as-turkey-rushes-arms-to-syria-2026-08-21.md) |
 | `2026-08-25` | AMB. Chas Freeman : Israel is Now an American Problem | `guest` | `judging-freedom` | [source](../../../archive/sources/geopolitics/sources/2026-08-25/source-amb-chas-freeman-israel-is-now-an-american-problem-2026-08-25.md) |
 | `2026-08-28` | Amb. Chas Freeman: Crumbling on All Sides: The Staggering Reality of Israel's Multi-Front War | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2026-08-28/source-amb-chas-freeman-crumbling-on-all-sides-the-staggering-reality-of-israel-s-multi-front-war-2026-08-28.md) |
+| `2026-09-03` | Chas Freeman: U.S. & Iran Back at War & NATO's Abuse of Ukraine | `guest` | `glenn-diesen` | [source](../../../archive/sources/geopolitics/sources/2026-09-03/source-chas-freeman-u-s-iran-back-at-war-nato-s-abuse-of-ukraine-2026-09-03.md) |
+| `2026-09-04` | Amb. Chas Freeman: Inside Israel’s Crumbling Multi-Front War | `guest` | `dialogue-works` | [source](../../../archive/sources/geopolitics/sources/2026-09-04/source-amb-chas-freeman-inside-israel-s-crumbling-multi-front-war-2026-09-04.md) |
 
 ## Import Boundary
 
