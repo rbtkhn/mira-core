@@ -12,6 +12,7 @@ import argparse
 import html
 import json
 import re
+import subprocess
 import sys
 import urllib.error
 import urllib.request
@@ -59,6 +60,10 @@ AUTHORITY_NOTICE = (
     "AUTHORITY_BOUNDARY=no archive landing, transcript admission, manifest mutation, "
     "signal extraction, synthesis, forecast, Reality, publication, staging, commit, "
     "push, or deployment"
+)
+LAND_READY_AUTHORITY_NOTICE = (
+    "AUTHORITY_BOUNDARY=archive intake only; no signal extraction, synthesis, "
+    "forecast, Reality, publication, staging, commit, push, or deployment"
 )
 USER_AGENT = "mira-core-youtube-capture/1.0"
 BROWSER_RECEIPT_SCHEMA_VERSION = 1
@@ -533,7 +538,7 @@ def discovered_triage(url: str, title: str, *, channel_slug: str = "") -> tuple[
             "review topical segment before transcript retrieval",
             "auto-filter=segment-candidate",
         )
-    return "watch", "review video and mark must-land/possible/skip", ""
+    return "watch", "review video and mark possible/skip or attach transcript for intake", ""
 
 
 def normalize_discovered_video_row(
@@ -1439,13 +1444,26 @@ def build_intake_draft(
     }
 
 
-def export_intake_command(args: argparse.Namespace) -> int:
-    rows = read_queue(queue_path(args.date, args.queue_root))
-    candidates = [
-        row
-        for row in rows
-        if row.get("disposition") == "must-land" and row.get("transcript_status") == "available"
-    ]
+def row_ready_for_intake(row: dict[str, object]) -> bool:
+    return (
+        not row.get("landed")
+        and row.get("transcript_status") == "available"
+        and bool(row.get("has_transcript_path") or str(row.get("transcript_path", "")).strip())
+    )
+
+
+def intake_candidate_rows(args: argparse.Namespace) -> list[dict[str, object]]:
+    rows = queue_status_rows(
+        dates=[args.date],
+        queue_root=args.queue_root,
+        manifest_path=args.manifest,
+        dispositions=set(args.disposition) if getattr(args, "disposition", None) else None,
+    )
+    return [row for row in rows if row_ready_for_intake(row)]
+
+
+def intake_draft_command(args: argparse.Namespace) -> int:
+    candidates = intake_candidate_rows(args)
     drafts = [build_intake_draft(row, execute_shape=args.execute_shape) for row in candidates]
     if args.json:
         print(
@@ -1464,7 +1482,7 @@ def export_intake_command(args: argparse.Namespace) -> int:
         )
     else:
         print(QUEUE_ONLY_NOTICE)
-        print("EXPORT_MODE=command-draft-only")
+        print("INTAKE_DRAFT_MODE=command-draft-only")
         print(f"EXECUTE_SHAPE={args.execute_shape}")
         for draft in drafts:
             row = draft["row"]
@@ -1475,6 +1493,10 @@ def export_intake_command(args: argparse.Namespace) -> int:
         print(f"INTAKE_SUGGESTIONS={len(drafts)}")
         print(AUTHORITY_NOTICE)
     return 0
+
+
+def export_intake_command(args: argparse.Namespace) -> int:
+    return intake_draft_command(args)
 
 
 def queue_status_rows(
@@ -1576,14 +1598,7 @@ def catch_up_command(args: argparse.Namespace) -> int:
         queue_root=args.queue_root,
         manifest_path=args.manifest,
     )
-    ready = [
-        row
-        for row in rows
-        if not row.get("landed")
-        and row.get("disposition") == "must-land"
-        and row.get("transcript_status") == "available"
-        and row.get("has_transcript_path")
-    ]
+    ready = [row for row in rows if row_ready_for_intake(row)]
     needs_transcript = [
         row
         for row in rows
@@ -1598,7 +1613,7 @@ def catch_up_command(args: argparse.Namespace) -> int:
         remaining_rows = [row for row in rows if not row.get("landed")]
     counts = queue_status_counts(remaining_rows)
     payload = {
-        "mode": "youtube-capture-catch-up",
+        "mode": getattr(args, "mode_name", "youtube-capture-catch-up"),
         "dates": args.date,
         "counts": counts,
         "ready_for_intake": ready,
@@ -1610,7 +1625,7 @@ def catch_up_command(args: argparse.Namespace) -> int:
         print(json.dumps(payload, indent=2, ensure_ascii=False))
     else:
         print(QUEUE_ONLY_NOTICE)
-        print("CATCH_UP_MODE=queue-and-manifest-only")
+        print(f"{getattr(args, 'text_mode_name', 'CATCH_UP_MODE')}=queue-and-manifest-only")
         print(f"READY_FOR_INTAKE={len(ready)}")
         print(f"NEEDS_TRANSCRIPT={len(needs_transcript)}")
         print(f"ALREADY_LANDED_OR_STALE={len(landed_or_stale)}")
@@ -1627,6 +1642,65 @@ def catch_up_command(args: argparse.Namespace) -> int:
                 )
         print(AUTHORITY_NOTICE)
     return 0
+
+
+def intake_ready_command(args: argparse.Namespace) -> int:
+    return catch_up_command(args)
+
+
+def land_ready_command(args: argparse.Namespace) -> int:
+    rows = intake_candidate_rows(args)
+    drafts = [build_intake_draft(row, execute_shape="landing") for row in rows]
+    landed: list[dict[str, object]] = []
+    failed: list[dict[str, object]] = []
+    for draft in drafts:
+        if draft["warnings"] and not args.allow_warnings:
+            failed.append({"draft": draft, "returncode": None, "stdout": "", "stderr": "draft has warnings"})
+            break
+        result = subprocess.run(
+            draft["command_argv"],
+            cwd=REPO_ROOT,
+            text=True,
+            capture_output=True,
+            check=False,
+        )
+        record = {
+            "row": draft["row"],
+            "command_argv": draft["command_argv"],
+            "returncode": result.returncode,
+            "stdout": result.stdout,
+            "stderr": result.stderr,
+        }
+        if result.returncode == 0:
+            landed.append(record)
+        else:
+            failed.append(record)
+            break
+    payload = {
+        "mode": "youtube-capture-land-ready",
+        "date": args.date,
+        "attempted_count": len(landed) + len(failed),
+        "landed_count": len(landed),
+        "failed_count": len(failed),
+        "landed": landed,
+        "failed": failed,
+        "authority": LAND_READY_AUTHORITY_NOTICE,
+    }
+    if args.json:
+        print(json.dumps(payload, indent=2, ensure_ascii=False))
+    else:
+        print("LAND_READY_MODE=serial-archive-intake")
+        print(f"ATTEMPTED={payload['attempted_count']}")
+        print(f"LANDED={payload['landed_count']}")
+        print(f"FAILED={payload['failed_count']}")
+        for record in landed:
+            row = record["row"]
+            print(f"LANDED url={row.get('url', '')} title={row.get('title', '')}")
+        for record in failed:
+            row = record.get("row") or record.get("draft", {}).get("row", {})
+            print(f"FAILED url={row.get('url', '')} title={row.get('title', '')}")
+        print(LAND_READY_AUTHORITY_NOTICE)
+    return 1 if failed else 0
 
 
 def audit_duplicates_command(args: argparse.Namespace) -> int:
@@ -2062,8 +2136,18 @@ def build_parser() -> argparse.ArgumentParser:
     mark.add_argument("--notes")
     mark.set_defaults(handler=mark_command)
 
-    export = subparsers.add_parser("export-intake", help="Print governed intake command drafts for ready rows")
+    intake_draft = subparsers.add_parser("intake-draft", help="Print governed intake command drafts for ready rows")
+    add_common(intake_draft)
+    intake_draft.add_argument("--manifest", type=Path, default=MANIFEST_PATH)
+    intake_draft.add_argument("--disposition", action="append", choices=sorted(DISPOSITIONS))
+    intake_draft.add_argument("--execute-shape", choices=["preflight", "landing"], default="preflight")
+    intake_draft.add_argument("--json", action="store_true")
+    intake_draft.set_defaults(handler=intake_draft_command)
+
+    export = subparsers.add_parser("export-intake", help="Legacy alias for intake-draft")
     add_common(export)
+    export.add_argument("--manifest", type=Path, default=MANIFEST_PATH)
+    export.add_argument("--disposition", action="append", choices=sorted(DISPOSITIONS))
     export.add_argument("--execute-shape", choices=["preflight", "landing"], default="preflight")
     export.add_argument("--json", action="store_true")
     export.set_defaults(handler=export_intake_command)
@@ -2078,13 +2162,33 @@ def build_parser() -> argparse.ArgumentParser:
     status.add_argument("--json", action="store_true")
     status.set_defaults(handler=status_command)
 
-    catch_up = subparsers.add_parser("catch-up", help="Group queue rows for weekly catch-up")
+    intake_ready = subparsers.add_parser("intake-ready", help="Group queue rows by intake readiness")
+    intake_ready.add_argument("--date", action="append", required=True, type=parse_capture_date)
+    intake_ready.add_argument("--queue-root", type=Path, default=_path('QUEUE_ROOT'), help=argparse.SUPPRESS)
+    intake_ready.add_argument("--manifest", type=Path, default=MANIFEST_PATH)
+    intake_ready.add_argument("--include-landed", action="store_true")
+    intake_ready.add_argument("--json", action="store_true")
+    intake_ready.set_defaults(
+        handler=intake_ready_command,
+        mode_name="youtube-capture-intake-ready",
+        text_mode_name="INTAKE_READY_MODE",
+    )
+
+    catch_up = subparsers.add_parser("catch-up", help="Legacy alias for intake-ready")
     catch_up.add_argument("--date", action="append", required=True, type=parse_capture_date)
     catch_up.add_argument("--queue-root", type=Path, default=_path('QUEUE_ROOT'), help=argparse.SUPPRESS)
     catch_up.add_argument("--manifest", type=Path, default=MANIFEST_PATH)
     catch_up.add_argument("--include-landed", action="store_true")
     catch_up.add_argument("--json", action="store_true")
     catch_up.set_defaults(handler=catch_up_command)
+
+    land_ready = subparsers.add_parser("land-ready", help="Land ready queue rows serially")
+    add_common(land_ready)
+    land_ready.add_argument("--manifest", type=Path, default=MANIFEST_PATH)
+    land_ready.add_argument("--disposition", action="append", choices=sorted(DISPOSITIONS))
+    land_ready.add_argument("--allow-warnings", action="store_true")
+    land_ready.add_argument("--json", action="store_true")
+    land_ready.set_defaults(handler=land_ready_command)
 
     audit = subparsers.add_parser("audit-duplicates", help="Read-only URL match of queue rows against the source manifest")
     audit.add_argument("--date", action="append", required=True, type=parse_capture_date)

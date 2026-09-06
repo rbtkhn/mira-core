@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import importlib.util
 import json
+import subprocess
 import sys
 from pathlib import Path
 
@@ -718,7 +719,7 @@ def test_discover_public_writes_video_rows_from_public_rss(tmp_path: Path, monke
             "date": "2026-08-20",
             "disposition": "watch",
             "expected_voice": "diesen",
-            "next_action": "review video and mark must-land/possible/skip",
+            "next_action": "review video and mark possible/skip or attach transcript for intake",
             "notes": "discover-public cadence=daily; channel_slug=glenn-diesen; discovery_evidence=rss-seed-only",
             "published_at": "2026-08-20T10:00:00+00:00",
             "publication_date": "2026-08-20",
@@ -1754,6 +1755,8 @@ def test_mark_updates_review_fields_only(tmp_path: Path) -> None:
 
 def test_export_intake_prints_dry_run_suggestions_only(tmp_path: Path, capsys) -> None:
     queue_root = tmp_path / "queue"
+    manifest = tmp_path / "source-manifest.json"
+    manifest.write_text(json.dumps({"sources": []}), encoding="utf-8")
     transcript_file = tmp_path / "must.txt"
     transcript_file.write_text("Transcript body", encoding="utf-8")
     assert youtube_capture.main(
@@ -1813,10 +1816,23 @@ def test_export_intake_prints_dry_run_suggestions_only(tmp_path: Path, capsys) -
     ) == 0
 
     capsys.readouterr()
-    assert youtube_capture.main(["export-intake", "--date", "2026-08-20", "--queue-root", str(queue_root)]) == 0
+    assert (
+        youtube_capture.main(
+            [
+                "intake-draft",
+                "--date",
+                "2026-08-20",
+                "--queue-root",
+                str(queue_root),
+                "--manifest",
+                str(manifest),
+            ]
+        )
+        == 0
+    )
 
     output = capsys.readouterr().out
-    assert "EXPORT_MODE=command-draft-only" in output
+    assert "INTAKE_DRAFT_MODE=command-draft-only" in output
     assert "python\" \"scripts\\\\land_best_intake.py" in output
     assert "--preflight" in output
     assert "--host-slug\" \"dialogue-works" in output
@@ -1827,21 +1843,97 @@ def test_export_intake_prints_dry_run_suggestions_only(tmp_path: Path, capsys) -
     assert "no archive landing" in output
 
 
-def test_export_intake_json_preserves_uncertainty_and_placeholder(tmp_path: Path, capsys) -> None:
+def test_intake_draft_exports_available_unlanded_rows_without_must_land(tmp_path: Path, capsys) -> None:
     queue_root = tmp_path / "queue"
+    manifest = tmp_path / "source-manifest.json"
+    transcript_file = tmp_path / "ready.txt"
+    transcript_file.write_text("Transcript body", encoding="utf-8")
+    manifest.write_text(
+        json.dumps(
+            {
+                "sources": [
+                    {
+                        "source_url": "https://youtube.com/watch?v=landed123",
+                        "date": "2026-08-19",
+                    }
+                ]
+            }
+        ),
+        encoding="utf-8",
+    )
     youtube_capture.write_queue(
         queue_root / "2026-08-20.jsonl",
         [
-            youtube_capture.normalize_row(
-                capture_date="2026-08-20",
-                url="https://youtube.com/watch?v=unknown123",
-                title="Unknown voice source",
-                channel="Unknown Channel",
-                transcript_status="available",
-                disposition="must-land",
-                expected_voice="unknown",
-                notes="discover-public cadence=weekly; channel_slug=unknown-channel",
-            )
+            {
+                **youtube_capture.normalize_row(
+                    capture_date="2026-08-20",
+                    url="https://youtube.com/watch?v=ready123",
+                    title="Ready without priority tag",
+                    channel="Dialogue Works",
+                    transcript_status="available",
+                    disposition="watch",
+                    expected_voice="johnson",
+                    notes="channel_slug=dialogue-works",
+                ),
+                "transcript_path": str(transcript_file),
+            },
+            {
+                **youtube_capture.normalize_row(
+                    capture_date="2026-08-20",
+                    url="https://youtube.com/watch?v=landed123",
+                    title="Already landed",
+                    transcript_status="available",
+                    disposition="must-land",
+                    notes="channel_slug=dialogue-works",
+                ),
+                "transcript_path": str(transcript_file),
+            },
+        ],
+    )
+
+    assert (
+        youtube_capture.main(
+            [
+                "intake-draft",
+                "--date",
+                "2026-08-20",
+                "--queue-root",
+                str(queue_root),
+                "--manifest",
+                str(manifest),
+                "--json",
+            ]
+        )
+        == 0
+    )
+
+    output = json.loads(capsys.readouterr().out)
+    assert [draft["row"]["video_id"] for draft in output["drafts"]] == ["ready123"]
+    assert output["drafts"][0]["warnings"] == []
+
+
+def test_export_intake_json_preserves_uncertainty_and_placeholder(tmp_path: Path, capsys) -> None:
+    queue_root = tmp_path / "queue"
+    manifest = tmp_path / "source-manifest.json"
+    transcript_file = tmp_path / "unknown.txt"
+    transcript_file.write_text("Transcript body", encoding="utf-8")
+    manifest.write_text(json.dumps({"sources": []}), encoding="utf-8")
+    youtube_capture.write_queue(
+        queue_root / "2026-08-20.jsonl",
+        [
+            {
+                **youtube_capture.normalize_row(
+                    capture_date="2026-08-20",
+                    url="https://youtube.com/watch?v=unknown123",
+                    title="Unknown voice source",
+                    channel="Unknown Channel",
+                    transcript_status="available",
+                    disposition="watch",
+                    expected_voice="unknown",
+                    notes="discover-public cadence=weekly; channel_slug=unknown-channel",
+                ),
+                "transcript_path": str(transcript_file),
+            }
         ],
     )
 
@@ -1853,6 +1945,8 @@ def test_export_intake_json_preserves_uncertainty_and_placeholder(tmp_path: Path
                 "2026-08-20",
                 "--queue-root",
                 str(queue_root),
+                "--manifest",
+                str(manifest),
                 "--execute-shape",
                 "landing",
                 "--json",
@@ -1870,9 +1964,8 @@ def test_export_intake_json_preserves_uncertainty_and_placeholder(tmp_path: Path
     assert "--host-slug" in argv
     assert "unknown-channel" in argv
     assert "--voice-slug" not in argv
-    assert "<operator-provided-transcript-path>" in argv
+    assert str(transcript_file) in argv
     assert "expected_voice unknown" in " ".join(draft["warnings"])
-    assert "missing transcript_path" in " ".join(draft["warnings"])
     assert "no archive landing" in output["authority"]
 
 
@@ -2033,7 +2126,7 @@ def test_catch_up_groups_ready_needs_transcript_and_landed(tmp_path: Path, capsy
                     url="https://www.youtube.com/watch?v=ready123",
                     title="Ready",
                     transcript_status="available",
-                    disposition="must-land",
+                    disposition="watch",
                 ),
                 "transcript_path": str(transcript_file),
             },
@@ -2076,3 +2169,126 @@ def test_catch_up_groups_ready_needs_transcript_and_landed(tmp_path: Path, capsy
     assert [row["video_id"] for row in output["needs_transcript"]] == ["needed123"]
     assert [row["video_id"] for row in output["already_landed_or_stale"]] == ["landed123"]
     assert "no archive landing" in output["authority"]
+
+
+def test_intake_ready_alias_uses_transcript_readiness(tmp_path: Path, capsys) -> None:
+    queue_root = tmp_path / "queue"
+    manifest = tmp_path / "source-manifest.json"
+    transcript_file = tmp_path / "ready.txt"
+    transcript_file.write_text("ready", encoding="utf-8")
+    manifest.write_text(json.dumps({"sources": []}), encoding="utf-8")
+    youtube_capture.write_queue(
+        queue_root / "2026-08-20.jsonl",
+        [
+            {
+                **youtube_capture.normalize_row(
+                    capture_date="2026-08-20",
+                    url="https://www.youtube.com/watch?v=ready123",
+                    title="Ready",
+                    transcript_status="available",
+                    disposition="possible",
+                ),
+                "transcript_path": str(transcript_file),
+            }
+        ],
+    )
+
+    assert (
+        youtube_capture.main(
+            [
+                "intake-ready",
+                "--date",
+                "2026-08-20",
+                "--queue-root",
+                str(queue_root),
+                "--manifest",
+                str(manifest),
+                "--json",
+            ]
+        )
+        == 0
+    )
+
+    output = json.loads(capsys.readouterr().out)
+    assert output["mode"] == "youtube-capture-intake-ready"
+    assert [row["video_id"] for row in output["ready_for_intake"]] == ["ready123"]
+
+
+def test_land_ready_lands_available_unlanded_rows_serially(tmp_path: Path, capsys, monkeypatch) -> None:
+    queue_root = tmp_path / "queue"
+    manifest = tmp_path / "source-manifest.json"
+    transcript_file = tmp_path / "ready.txt"
+    transcript_file.write_text("ready", encoding="utf-8")
+    manifest.write_text(
+        json.dumps(
+            {
+                "sources": [
+                    {
+                        "source_url": "https://www.youtube.com/watch?v=landed123",
+                        "date": "2026-08-19",
+                    }
+                ]
+            }
+        ),
+        encoding="utf-8",
+    )
+    youtube_capture.write_queue(
+        queue_root / "2026-08-20.jsonl",
+        [
+            {
+                **youtube_capture.normalize_row(
+                    capture_date="2026-08-20",
+                    url="https://www.youtube.com/watch?v=ready123",
+                    title="Ready",
+                    transcript_status="available",
+                    disposition="watch",
+                    expected_voice="johnson",
+                    notes="channel_slug=dialogue-works",
+                ),
+                "transcript_path": str(transcript_file),
+            },
+            {
+                **youtube_capture.normalize_row(
+                    capture_date="2026-08-20",
+                    url="https://www.youtube.com/watch?v=landed123",
+                    title="Already landed",
+                    transcript_status="available",
+                    disposition="must-land",
+                    notes="channel_slug=dialogue-works",
+                ),
+                "transcript_path": str(transcript_file),
+            },
+        ],
+    )
+    calls = []
+
+    def fake_run(argv, **kwargs):
+        calls.append((argv, kwargs))
+        return subprocess.CompletedProcess(argv, 0, stdout='{"status":"landed"}\n', stderr="")
+
+    monkeypatch.setattr(youtube_capture.subprocess, "run", fake_run)
+
+    assert (
+        youtube_capture.main(
+            [
+                "land-ready",
+                "--date",
+                "2026-08-20",
+                "--queue-root",
+                str(queue_root),
+                "--manifest",
+                str(manifest),
+                "--json",
+            ]
+        )
+        == 0
+    )
+
+    output = json.loads(capsys.readouterr().out)
+    assert output["mode"] == "youtube-capture-land-ready"
+    assert output["landed_count"] == 1
+    assert output["failed_count"] == 0
+    assert len(calls) == 1
+    command_text = " ".join(calls[0][0])
+    assert "ready123" in command_text
+    assert "landed123" not in command_text
