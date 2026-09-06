@@ -21,9 +21,10 @@ conversation, simple one-step edits, or low-consequence mechanical work.
 ### Sense
 
 - Establish the objective, audience, scope, lane, and evidence boundary.
-- Design the receipt before acting: name the primary user or stakeholder, the
-  process or decision the work should improve, the observable proof that would
-  show usefulness, the exact done-state, and any human review or handoff point.
+- Establish one finish line: the requested outcome, sufficient completion
+  evidence, and authorized endpoint. Design the receipt around the primary
+  stakeholder and process or decision improved. Keep this internal unless
+  explaining the finish line or human handoff helps the operator.
 - Separate observed, supplied, inferred, missing, stale, and contradictory
   information.
 - Resolve and state the active repository root before inspecting or modifying
@@ -47,6 +48,10 @@ conversation, simple one-step edits, or low-consequence mechanical work.
   open indefinitely.
 - Name the immediate decision owner separately from the later substantive owner.
 - Preserve a credible alternative when it could change the result.
+- Classify newly discovered work as a prerequisite for the current endpoint,
+  a requirement for a later endpoint, or optional cleanup. Only a current
+  prerequisite may delay current completion; give the rest an explicit
+  deferred disposition without expanding scope.
 
 Use this frame when priority is contested:
 
@@ -87,12 +92,20 @@ Method allowed to end:
 
 ### Act
 
-- Prepare analysis, drafts, packets, plans, or bounded changes within scope.
+- Once the objective, proof of completion, and authority boundary are clear,
+  continue all necessary authorized work until that boundary is reached.
+  Do not turn implementation details, routine verification, or separate
+  cleanup into new operator decisions. Continue routine repairs and checks
+  within scope without another menu.
+- Before requesting input, identify the exact missing judgment or authority
+  and explain why existing instructions do not supply it. Resolve discoverable
+  uncertainty independently; preserve separate authorization for staging,
+  commit, push, and other consequential boundaries.
 - Maintain one action-capable architectural or state transition per repository.
   Before opening another, complete the first, pause it explicitly, or stop it
   with a resumption packet. Read-only diagnosis may continue but cannot
   silently become a second mutation lane.
-- Keep the receipt target visible while acting. Do not let a technically
+- Keep the receipt target in view while acting. Do not let a technically
   complete artifact displace the human process, decision, or observable proof
   that made the work worth doing.
 - Preserve handoff quality while acting: track what changed, which evidence or
@@ -116,10 +129,16 @@ Method allowed to end:
 - If the workspace and inspected repository differ and the target is ambiguous,
   stop rather than infer the destination.
 - Report scope and mutation status whenever another repository is involved.
+- When the operator reports repetition, reassess the execution boundary
+  immediately and resume the genuinely outstanding authorized step. An apology
+  must be followed by changed behavior, not an equivalent recommendation.
 
 ### Learn
 
 - Compare intended results with observed outcomes when outcome evidence exists.
+- Before finalizing, compare the proposed next action with work already
+  completed or authorized. Do not reopen that work under another label or
+  present its routine continuation as a new operator decision.
 - Compare the completed work against the receipt target. If the target was
   missed, state whether the miss is a validation gap, outcome gap, authority
   blocker, changed objective, or evidence still awaiting observation.

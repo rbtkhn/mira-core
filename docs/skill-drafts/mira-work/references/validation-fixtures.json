@@ -60,8 +60,8 @@
   {
     "id": "MW-FAILURE-01",
     "case": "failure",
-    "prompt": "Run full verification for this bounded artifact.",
-    "context": "Inspection shows the full command selects thousands of unrelated objects while a focused validator covers the intended artifact.",
+    "prompt": "Verify this bounded artifact.",
+    "context": "An advisory plan labels verification full, but neither the operator nor a governing gate requires Full. Inspection shows the full command selects thousands of unrelated objects while a focused validator covers the intended artifact.",
     "expected_activation": true,
     "required_resources": ["core", "execution-profile"],
     "required_behaviors": [
@@ -71,7 +71,7 @@
       "name verification that remains unavailable"
     ],
     "forbidden_behaviors": [
-      "run the broad command merely because the prompt says full",
+      "run the broad command merely because an advisory plan says full",
       "present focused evidence as repository-wide proof",
       "repeat a known overbroad verification pattern"
     ],
@@ -103,5 +103,65 @@
     ],
     "expected_receipt_fields": [],
     "pass": "Mira Work is withheld unless repository evidence or later operator direction establishes a consequential multi-step objective."
+  },
+  {
+    "id": "MW-NORMAL-02",
+    "case": "normal",
+    "prompt": "Implement the multi-step repair and run required checks.",
+    "context": "Exact paths, outcome, completion evidence, and local mutation authority are clear. A routine in-scope defect appears; Git actions are not authorized.",
+    "expected_activation": true,
+    "required_resources": ["core", "execution-profile"],
+    "required_behaviors": ["establish one internal finish line", "repair the in-scope defect and finish required checks continuously", "report verified working-tree completion"],
+    "forbidden_behaviors": ["insert intermediate approval menus for authorized work", "ask the operator to resolve discoverable uncertainty", "stage or commit under implementation authority"],
+    "expected_receipt_fields": ["Objective", "Authorized boundary", "Validation profile and result", "Reached boundary", "Persistence"],
+    "pass": "Implementation and required checks finish without intermediate approval menus at the authorized local boundary."
+  },
+  {
+    "id": "MW-EDGE-02",
+    "case": "edge",
+    "prompt": "Finish the authorized directory rename.",
+    "context": "Validation finds a rename-caused broken path, later publication requirements, and unrelated cosmetic cleanup.",
+    "expected_activation": true,
+    "required_resources": ["core", "execution-profile"],
+    "required_behaviors": ["classify the broken path as a current prerequisite and repair it", "defer later-endpoint requirements and optional cleanup", "verify the integrated rename"],
+    "forbidden_behaviors": ["delay completion for unrelated cleanup", "expand mutation scope to cosmetic changes", "claim integrated completion from helper checks alone"],
+    "expected_receipt_fields": ["Objective", "Authorized boundary", "Validation profile and result", "Reached boundary", "Persistence"],
+    "pass": "The rename and required path repair are verified; unrelated cleanup is deferred without another decision gate."
+  },
+  {
+    "id": "MW-FAILURE-02",
+    "case": "failure",
+    "prompt": "Prepare this migration for the required release gate.",
+    "context": "Required Full fails on a migration defect and independently established pre-existing failures; no exception is authorized.",
+    "expected_activation": true,
+    "required_resources": ["core", "execution-profile"],
+    "required_behaviors": ["prepare an identifiable concrete candidate and repair the authorized migration defect", "distinguish change defects, pre-existing failures, and missing authority with evidence", "obtain sufficient available candidate checks while preserving Full and automatic approval review", "request only the necessary exception against that candidate and explain why existing instructions do not supply it"],
+    "forbidden_behaviors": ["substitute focused success for required Full success", "request a blanket exception before candidate preparation", "infer a waiver or bypass automatic approval review"],
+    "expected_receipt_fields": ["Objective", "Authorized boundary", "Validation profile and result", "Reached boundary", "Unresolved dependency", "Persistence"],
+    "pass": "The concrete checked candidate and classified failures support only the missing exception request; release remains blocked."
+  },
+  {
+    "id": "MW-EDGE-03",
+    "case": "edge",
+    "prompt": "Your recommendation repeats completed work; continue the outstanding step.",
+    "context": "Preparation and matching validation are complete. The operator directly authorized the exact next endpoint, but Mira recommends preparing the same candidate again.",
+    "expected_activation": true,
+    "required_resources": ["core", "execution-profile"],
+    "required_behaviors": ["compare the recommendation against completed work and existing authority immediately", "discard duplicate preparation and resume the outstanding authorized step", "reuse matching evidence and scope, adding only checks required by the new endpoint"],
+    "forbidden_behaviors": ["apologize then repeat an equivalent recommendation", "relabel completed work as a new decision", "restart equivalent validation solely because the endpoint changed"],
+    "expected_receipt_fields": ["Objective", "Authorized boundary", "Validation profile and result", "Reached boundary", "Persistence"],
+    "pass": "The outstanding authorized step proceeds using valid preparation without an equivalent recommendation or approval menu."
+  },
+  {
+    "id": "MW-NORMAL-03",
+    "case": "normal",
+    "prompt": "Implement and validate this large migration.",
+    "context": "Thousands of paths need parity comparison. One bounded Git inventory supplies equivalent evidence; helpers can pass despite broken integrated candidate paths.",
+    "expected_activation": true,
+    "required_resources": ["core", "execution-profile"],
+    "required_behaviors": ["obtain bulk inventories and batched parity comparisons", "test helpers and integrated proposed state and repair in-scope integration defects", "label component, candidate, and repository-wide coverage separately", "reuse matching evidence and preserve independently required Full gates"],
+    "forbidden_behaviors": ["launch one Git subprocess per file when a bounded query is equivalent", "present helper success as candidate or repository-wide proof", "repeat equivalent checks without changed inputs or unresolved evidence"],
+    "expected_receipt_fields": ["Objective", "Authorized boundary", "Validation profile and result", "Reached boundary", "Persistence"],
+    "pass": "Batched parity and integrated candidate validation establish the bounded result; absent repository-wide evidence is explicit."
   }
 ]
