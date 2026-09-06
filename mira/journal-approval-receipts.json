@@ -38,6 +38,15 @@
       "role": "user",
       "timestamp": "2026-08-16T14:12:24.053Z",
       "text_sha256": "0ac9bfa0c20280e840c755831639fd21e19f93c13c7c4fa71e24c8bfedbdd59d"
+    },
+    {
+      "version_id": "MJ-20260905-v2",
+      "authority_ref": "MS-01a074a5-8ce4-7da3-9ac4-2bbe062d58a8",
+      "record_ref": "MR-b9807b3e7d141973469dcfd8",
+      "kind": "message",
+      "role": "user",
+      "timestamp": "2026-09-06T14:01:29.422Z",
+      "text_sha256": "717164cd92cdf2ec4cdc9fb9ad34e290c6841b665e2041b2eb8c29a04a204298"
     }
   ]
 }

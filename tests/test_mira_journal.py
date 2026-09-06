@@ -1601,6 +1601,38 @@ def test_generic_or_negated_text_cannot_approve_version(
         subject.approve_or_revise(args, revising=False)
 
 
+def test_single_fenced_exact_text_can_approve_version(
+    monkeypatch: pytest.MonkeyPatch, tmp_path: Path
+) -> None:
+    _, drafts = configure_repo(monkeypatch, tmp_path)
+    body = prose("2026-08-09")
+    draft = write_bundle(drafts, "2026-08-09", body, metadata("2026-08-09", body))
+    args = action_args("2026-08-09", draft)
+    statement = APPROVAL_ROWS[args.approval_record_ref]["content"][0]["text"]
+    APPROVAL_ROWS[args.approval_record_ref]["content"] = [
+        {"type": "text", "text": f"```csharp\n{statement}\n```"}
+    ]
+    result = subject.approve_or_revise(args, revising=False)
+    assert result["status"] == "approved"
+    receipt = subject.load_json(subject.approval_receipts_path())
+    assert receipt["records"][0]["text_sha256"] == subject.sha256_bytes(statement.encode("utf-8"))
+
+
+def test_fenced_approval_with_extra_text_cannot_approve_version(
+    monkeypatch: pytest.MonkeyPatch, tmp_path: Path
+) -> None:
+    _, drafts = configure_repo(monkeypatch, tmp_path)
+    body = prose("2026-08-09")
+    draft = write_bundle(drafts, "2026-08-09", body, metadata("2026-08-09", body))
+    args = action_args("2026-08-09", draft)
+    statement = APPROVAL_ROWS[args.approval_record_ref]["content"][0]["text"]
+    APPROVAL_ROWS[args.approval_record_ref]["content"] = [
+        {"type": "text", "text": f"Before.\n```csharp\n{statement}\n```\nAfter."}
+    ]
+    with pytest.raises(subject.JournalError, match="exact digest-bound"):
+        subject.approve_or_revise(args, revising=False)
+
+
 def test_legacy_reference_backfill_preserves_prose_and_publication_boundary(
     monkeypatch: pytest.MonkeyPatch, tmp_path: Path
 ) -> None:

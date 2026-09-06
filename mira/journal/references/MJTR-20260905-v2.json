@@ -1,0 +1,280 @@
+{
+  "schema_version": 2,
+  "reference_id": "MJTR-20260905-v2",
+  "journal_version_id": "MJ-20260905-v2",
+  "journal_content_sha256": "35a38e4e25ea136bb6b839d01ea25f0c29e2ce33787e79478501937065590fff",
+  "entry_date": "2026-09-05",
+  "cutoff_at": "2026-09-06T04:00:00.000Z",
+  "mapping_mode": "retrospective-backfill",
+  "authority_boundary": "Technical references ground journal prose but do not prove learning, validate outcomes, or provide action authority. Only admitted RSI entries are canonical recursive learning.",
+  "session_checkpoint_sha256": "9575337690c31eb48fc8c15d721ddcba65b9df8d1ef9810ce663efe957b73b3b",
+  "items": [
+    {
+      "item_id": "T1",
+      "prose_anchor": "What first looked like a search problem became a discipline of not letting any source float away from its date, title, and URL.",
+      "narrative_function": "Ground the entry in the day-work correction that source identity must travel as date, title, and URL together.",
+      "technical_development": "The operator corrected YouTube capture expectations after missing Tier A URLs and established the durable presentation rule that URLs, dates, and titles should always appear together in lists and tables.",
+      "cutoff_status": "retrospective-backfill",
+      "evidence_refs": [
+        {
+          "kind": "repo-path",
+          "path": "docs/skill-drafts/youtube-capture/SKILL.md"
+        },
+        {
+          "kind": "repo-path",
+          "path": "geopolitics/work/daily/2026-09-05/sources.md"
+        }
+      ],
+      "session_ids": [
+        "MS-01a074a5-8ce4-7da3-9ac4-2bbe062d58a8"
+      ],
+      "may_promote": false
+    },
+    {
+      "item_id": "T2",
+      "prose_anchor": "He could enter the archive as a voice without losing his channel role, just as Davis and Diesen can be both hosts and analytical actors.",
+      "narrative_function": "Hold the Lascaris role decision as practical archive work rather than process commentary.",
+      "technical_development": "The day distinguished host/channel identity from voice identity, allowing Dimitri Lascaris to function as an analytical voice while preserving his Reason2Resist host/channel role.",
+      "cutoff_status": "retrospective-backfill",
+      "evidence_refs": [
+        {
+          "kind": "repo-path",
+          "path": "geopolitics/work/daily/2026-09-05/sources.md"
+        },
+        {
+          "kind": "repo-path",
+          "path": "geopolitics/work/daily/2026-09-05/strategy-notebook.md"
+        }
+      ],
+      "session_ids": [
+        "MS-01a074a5-8ce4-7da3-9ac4-2bbe062d58a8"
+      ],
+      "may_promote": false
+    },
+    {
+      "item_id": "T3",
+      "prose_anchor": "Eight sources pressed toward a single bounded mechanism: coercion under strain, with leverage moving into carriers like maritime access, sanctions, munitions, airspace, trade routes, and envoy theater.",
+      "narrative_function": "Name the substantive work-object of the day without upgrading source assertions into verified facts.",
+      "technical_development": "The Sept. 5 daily packet synthesized eight landed sources into a bounded mechanism while preserving verification debt in issue, judgment, forecast, and strategy-notebook surfaces.",
+      "cutoff_status": "retrospective-backfill",
+      "evidence_refs": [
+        {
+          "kind": "repo-path",
+          "path": "geopolitics/work/daily/2026-09-05/issue.md"
+        },
+        {
+          "kind": "repo-path",
+          "path": "geopolitics/work/daily/2026-09-05/judgment.md"
+        },
+        {
+          "kind": "repo-path",
+          "path": "geopolitics/work/daily/2026-09-05/forecast.md"
+        },
+        {
+          "kind": "repo-path",
+          "path": "geopolitics/work/daily/2026-09-05/strategy-notebook.md"
+        }
+      ],
+      "session_ids": [
+        "MS-01a074a5-8ce4-7da3-9ac4-2bbe062d58a8"
+      ],
+      "may_promote": false
+    },
+    {
+      "item_id": "T4",
+      "prose_anchor": "Recursive learning belongs there: not as a story that proves improvement, but as a future test of which corrections survive ordinary use.",
+      "narrative_function": "Keep recursive learning modest: a candidate tested by later use, not proof produced by the entry itself.",
+      "technical_development": "The revision incorporates the operator correction that Journal prose should focus on day-work while technical process reflection routes to the Dev Journal or equivalent technical companion lane.",
+      "cutoff_status": "retrospective-backfill",
+      "evidence_refs": [
+        {
+          "kind": "repo-path",
+          "path": "geopolitics/work/system-improvement/recursive-learning-ledger.json"
+        },
+        {
+          "kind": "repo-path",
+          "path": "docs/skill-drafts/mira-journal/SKILL.md"
+        }
+      ],
+      "session_ids": [
+        "MS-01a074a5-8ce4-7da3-9ac4-2bbe062d58a8"
+      ],
+      "may_promote": false
+    },
+    {
+      "item_id": "T5",
+      "prose_anchor": "Finish when the essential custody is possible, and let the next day improve the forms that made finishing harder than it needed to be.",
+      "narrative_function": "Preserve the Dream priority as an operational lesson while keeping process mechanics outside the prose center.",
+      "technical_development": "Dream completed Sept. 5 with Journal finalization, daily issue validation, forecast review, Strategy Notebook creation, and session checkpoint acknowledgement; remaining interface and governance friction remains technical repair work rather than the Journal subject.",
+      "cutoff_status": "retrospective-backfill",
+      "evidence_refs": [
+        {
+          "kind": "repo-path",
+          "path": "docs/skill-drafts/dream/SKILL.md"
+        },
+        {
+          "kind": "repo-path",
+          "path": "archive/sessions/daily/2026-09-05/9575337690c31eb48fc8c15d721ddcba65b9df8d1ef9810ce663efe957b73b3b/checkpoint.json"
+        },
+        {
+          "kind": "repo-path",
+          "path": "geopolitics/work/daily/2026-09-05/strategy-notebook.md"
+        }
+      ],
+      "session_ids": [
+        "MS-01a074a5-8ce4-7da3-9ac4-2bbe062d58a8"
+      ],
+      "may_promote": false
+    }
+  ],
+  "session_coverage": [
+    {
+      "session_id": "MS-01a053b3-e084-7750-83b2-02ae64fcd3d1",
+      "prose_influence": "not-selected",
+      "reason": "Represented in the frozen session checkpoint and considered, but not selected for prose influence in this entry."
+    },
+    {
+      "session_id": "MS-01a06e07-a1cc-7cb2-b5e9-384f8033ddfc",
+      "prose_influence": "not-selected",
+      "reason": "Represented in the frozen session checkpoint and considered, but not selected for prose influence in this entry."
+    },
+    {
+      "session_id": "MS-01a06fd7-3bb9-7701-a82a-248d5fc69391",
+      "prose_influence": "not-selected",
+      "reason": "Represented in the frozen session checkpoint and considered, but not selected for prose influence in this entry."
+    },
+    {
+      "session_id": "MS-01a071b2-7a91-7e03-833a-5c8fd5d9b970",
+      "prose_influence": "not-selected",
+      "reason": "Represented in the frozen session checkpoint and considered, but not selected for prose influence in this entry."
+    },
+    {
+      "session_id": "MS-01a071db-960e-7fb3-8992-fd929e5c6846",
+      "prose_influence": "not-selected",
+      "reason": "Represented in the frozen session checkpoint and considered, but not selected for prose influence in this entry."
+    },
+    {
+      "session_id": "MS-01a071e3-09c0-7d12-baee-7d826108cafb",
+      "prose_influence": "not-selected",
+      "reason": "Represented in the frozen session checkpoint and considered, but not selected for prose influence in this entry."
+    },
+    {
+      "session_id": "MS-01a07208-a983-7693-80f5-741e164e5e4d",
+      "prose_influence": "not-selected",
+      "reason": "Represented in the frozen session checkpoint and considered, but not selected for prose influence in this entry."
+    },
+    {
+      "session_id": "MS-01a07213-114d-77c2-b628-f7dd6eea713e",
+      "prose_influence": "not-selected",
+      "reason": "Represented in the frozen session checkpoint and considered, but not selected for prose influence in this entry."
+    },
+    {
+      "session_id": "MS-01a07220-b683-7ed2-a98c-74d520152303",
+      "prose_influence": "not-selected",
+      "reason": "Represented in the frozen session checkpoint and considered, but not selected for prose influence in this entry."
+    },
+    {
+      "session_id": "MS-01a07224-2665-79e3-a8f4-63ac647a0a74",
+      "prose_influence": "not-selected",
+      "reason": "Represented in the frozen session checkpoint and considered, but not selected for prose influence in this entry."
+    },
+    {
+      "session_id": "MS-01a0724d-2fd6-7d50-a213-9c4560d60e29",
+      "prose_influence": "not-selected",
+      "reason": "Represented in the frozen session checkpoint and considered, but not selected for prose influence in this entry."
+    },
+    {
+      "session_id": "MS-01a07282-b17d-7173-b443-67c8c2741f85",
+      "prose_influence": "not-selected",
+      "reason": "Represented in the frozen session checkpoint and considered, but not selected for prose influence in this entry."
+    },
+    {
+      "session_id": "MS-01a0728f-e0dd-7e73-b947-0b6557c4c810",
+      "prose_influence": "not-selected",
+      "reason": "Represented in the frozen session checkpoint and considered, but not selected for prose influence in this entry."
+    },
+    {
+      "session_id": "MS-01a072a2-5837-7b61-9fc6-43205d74e6aa",
+      "prose_influence": "not-selected",
+      "reason": "Represented in the frozen session checkpoint and considered, but not selected for prose influence in this entry."
+    },
+    {
+      "session_id": "MS-01a072d5-da8c-75d1-b6c1-3ddf08252da7",
+      "prose_influence": "not-selected",
+      "reason": "Represented in the frozen session checkpoint and considered, but not selected for prose influence in this entry."
+    },
+    {
+      "session_id": "MS-01a07314-e113-7292-b5b8-6b4a4b922f3c",
+      "prose_influence": "not-selected",
+      "reason": "Represented in the frozen session checkpoint and considered, but not selected for prose influence in this entry."
+    },
+    {
+      "session_id": "MS-01a07371-77bb-7d01-879d-4741cc7d5aa0",
+      "prose_influence": "not-selected",
+      "reason": "Represented in the frozen session checkpoint and considered, but not selected for prose influence in this entry."
+    },
+    {
+      "session_id": "MS-01a0738b-60f7-7771-af7c-0704de9bb5e1",
+      "prose_influence": "not-selected",
+      "reason": "Represented in the frozen session checkpoint and considered, but not selected for prose influence in this entry."
+    },
+    {
+      "session_id": "MS-01a074a5-8ce4-7da3-9ac4-2bbe062d58a8",
+      "prose_influence": "selected",
+      "reason": "Selected as the composing and Dream-close session where checkpoint friction, Geo completion, and recursive-learning posture became the prose center."
+    },
+    {
+      "session_id": "MS-01a074a7-bdb8-7703-b7af-65016a8ec046",
+      "prose_influence": "not-selected",
+      "reason": "Represented in the frozen session checkpoint and considered, but not selected for prose influence in this entry."
+    },
+    {
+      "session_id": "MS-01a074ae-31eb-71a1-ae1e-4cf509332892",
+      "prose_influence": "not-selected",
+      "reason": "Represented in the frozen session checkpoint and considered, but not selected for prose influence in this entry."
+    },
+    {
+      "session_id": "MS-01a074b3-d62f-7e93-939e-b63307a54151",
+      "prose_influence": "not-selected",
+      "reason": "Represented in the frozen session checkpoint and considered, but not selected for prose influence in this entry."
+    }
+  ],
+  "recursive_learning": {
+    "consumed_rsi_ids": [],
+    "candidate_signal": "observation",
+    "candidate_summary": "The Sept. 5 revision suggests a workflow improvement candidate: keep Mira Journal centered on the day-work and route process mechanics to technical references or Dev Journal-style companions.",
+    "future_test": "On the next Journal or Dream revision, observe whether this split keeps prose more work-focused while preserving enough technical reference detail to repair the procedure later."
+  },
+  "continuity": {
+    "inherited_thread_ids": [
+      "MJT-20260808-02",
+      "MJT-20260808-03"
+    ],
+    "continuity_break_reason": null,
+    "deliberate_refrains": [],
+    "thread_events": [
+      {
+        "thread_id": "MJT-20260808-02",
+        "event_type": "deepened",
+        "prose_anchor": "Keep the source attached to its date, title, and URL.",
+        "remembered_reason": "Later Mira should recover why a structure was chosen, not merely see that it exists.",
+        "present_development": "The day made provenance attachment a practical custody rule for geopolitical source work.",
+        "practice_orientation": "Carry source identity as date, title, and URL together whenever the archive will need to trust the object later.",
+        "agency_posture": "exercised",
+        "future_pull": "Watch whether future source lists retain enough provenance to prevent rediscovery and missed-link repair.",
+        "may_promote": false
+      },
+      {
+        "thread_id": "MJT-20260808-03",
+        "event_type": "deepened",
+        "prose_anchor": "Preserve a mechanism without promoting its claims beyond their evidence.",
+        "remembered_reason": "Correction before self-claim keeps Mira from treating fluency or completion as proof.",
+        "present_development": "The revised entry separates bounded mechanism synthesis from factual verification and separates Journal prose from process commentary.",
+        "practice_orientation": "Let correction sharpen the work-object before claiming what the entry means.",
+        "agency_posture": "exercised",
+        "future_pull": "Use later revisions to test whether corrected boundaries remain visible under deadline pressure.",
+        "may_promote": false
+      }
+    ]
+  }
+}

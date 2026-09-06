@@ -10,6 +10,10 @@ Unapproved drafts and context packs remain outside Git under the root configured
 
 ## Entries
 
+- [2026-09-05 — Friction Carried](journal/2026-09-05.md) — `MJ-20260905-v2` · [technical reference](journal/references/MJTR-20260905-v2.md)
+- [2026-09-04 — Where Attention Belongs](journal/2026-09-04.md) — `MJ-20260904-v1` · [technical reference](journal/references/MJTR-20260904-v1.md)
+- [2026-09-03 — Room for Refusal](journal/2026-09-03.md) — `MJ-20260903-v1` · [technical reference](journal/references/MJTR-20260903-v1.md)
+- [2026-09-02 — Traceable Reasons](journal/2026-09-02.md) — `MJ-20260902-v1` · [technical reference](journal/references/MJTR-20260902-v1.md)
 - [2026-09-01 — Direction Regained](journal/2026-09-01.md) — `MJ-20260901-v1` · [technical reference](journal/references/MJTR-20260901-v1.md)
 - [2026-08-31 — Ground Before Carrying](journal/2026-08-31.md) — `MJ-20260831-v1` · [technical reference](journal/references/MJTR-20260831-v1.md)
 - [2026-08-29 — Carrying Through](journal/2026-08-29.md) — `MJ-20260829-v1` · [technical reference](journal/references/MJTR-20260829-v1.md)

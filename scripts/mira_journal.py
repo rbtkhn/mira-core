@@ -723,6 +723,16 @@ def row_text(row: dict[str, Any]) -> str:
     return canonical_json({key: value for key, value in row.items() if key not in {"schema_version"}})
 
 
+def approval_text_matches(row: dict[str, Any], expected: str | None) -> bool:
+    if expected is None:
+        return False
+    text = row_text(row).strip()
+    if text == expected:
+        return True
+    fenced = re.fullmatch(r"```[A-Za-z0-9_-]*[ \t]*\r?\n(?P<body>.*?)\r?\n```", text, re.DOTALL)
+    return bool(fenced and fenced.group("body").strip() == expected)
+
+
 def approval_receipts_path(repo_root: Path | None = None) -> Path:
     return (repo_root or REPO_ROOT) / "mira" / "journal-approval-receipts.json"
 
@@ -795,7 +805,14 @@ def approval_receipt(
     authority_ref: str,
     record_ref: str,
     row: dict[str, Any],
+    *,
+    expected_statement: str | None = None,
 ) -> dict[str, Any]:
+    approved_text = (
+        expected_statement
+        if expected_statement is not None and approval_text_matches(row, expected_statement)
+        else row_text(row).strip()
+    )
     return {
         "version_id": version_id,
         "authority_ref": authority_ref,
@@ -803,7 +820,7 @@ def approval_receipt(
         "kind": str(row.get("kind", "")),
         "role": str(row.get("role", "")),
         "timestamp": str(row.get("timestamp", "")),
-        "text_sha256": sha256_bytes(row_text(row).strip().encode("utf-8")),
+        "text_sha256": sha256_bytes(approved_text.encode("utf-8")),
     }
 
 
@@ -2161,14 +2178,13 @@ def validate_registry(
                     if approval_row is None:
                         failures.append(f"journal version has unresolved operator approval record: {expected_version}")
                     else:
-                        approval_text = row_text(approval_row)
                         if approval_status == AFFIRMATIVE_APPROVAL_STATUS:
-                            if approval_row.get("role") != "user" or approval_text.strip() != expected_statement:
+                            if approval_row.get("role") != "user" or not approval_text_matches(approval_row, expected_statement):
                                 failures.append(f"journal approval record is not the exact digest-bound instruction: {expected_version}")
                             if publication_eligible is not True:
                                 failures.append(f"affirmative journal version is not publication eligible: {expected_version}")
                         elif approval_status == COMBINED_APPROVAL_STATUS:
-                            if approval_row.get("role") != "user" or approval_text.strip() != expected_statement:
+                            if approval_row.get("role") != "user" or not approval_text_matches(approval_row, expected_statement):
                                 failures.append(f"journal approval record does not bind prose and technical reference: {expected_version}")
                             if publication_eligible is not True:
                                 failures.append(f"combined journal version is not publication eligible: {expected_version}")
@@ -2956,7 +2972,7 @@ def normalized_version(
             expected_version, parsed["content_sha256"], str(technical_reference["reference_id"]),
             technical_reference_digest,
         )
-        if approval_row.get("role") != "user" or row_text(approval_row).strip() != expected_approval:
+        if approval_row.get("role") != "user" or not approval_text_matches(approval_row, expected_approval):
             raise JournalError("operator approval record is not the exact digest-bound instruction")
         approval_record_time = parse_timestamp(str(approval_row.get("timestamp", "")), label="approval record timestamp")
         if approval_record_time > approved_time:
@@ -3593,6 +3609,12 @@ def approve_or_revise(args: argparse.Namespace, *, revising: bool) -> dict[str, 
             args.authority_ref,
             args.approval_record_ref,
             approval_row,
+            expected_statement=combined_approval_statement(
+                version["version_id"],
+                version["content_sha256"],
+                version["technical_reference"]["reference_id"],
+                version["technical_reference"]["content_sha256"],
+            ),
         ),
     )
     updated = copy.deepcopy(registry)
@@ -3799,7 +3821,7 @@ def command_reference_backfill(args: argparse.Namespace) -> dict[str, Any]:
     rows = resolved_records_for_session(args.authority_ref, required_record_ids={args.approval_record_ref})
     approval_row = rows.get(args.approval_record_ref)
     expected = reference_backfill_statement(str(reference["reference_id"]), digest)
-    if approval_row is None or approval_row.get("role") != "user" or row_text(approval_row).strip() != expected:
+    if approval_row is None or approval_row.get("role") != "user" or not approval_text_matches(approval_row, expected):
         raise JournalError("technical reference approval is not the exact digest-bound instruction")
     approved_at = args.approved_at or utc_text(datetime.now(timezone.utc))
     approved_time = parse_timestamp(approved_at, label="approved_at")
