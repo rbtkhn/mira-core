@@ -33,7 +33,7 @@
       "PASSAGE-TOLSTOY-FREEDOM-NECESSITY": "63642b36f4fb16b6d9fd8d38e6855a90b9542e6fd5c98b7454d8da018a688fbb",
       "PASSAGE-TOLSTOY-POWER-AS-RELATION": "8b9bea5a79d8e4815d3722c85c6a271e9f0e1fd5dcfdbc71e2088e8f4db443de"
     },
-    "source_identity_digest": "b78339a6d6728239d0a651f6cca768213d720539005debb475d9872fbb557d3f"
+    "source_identity_digest": "4a7e02179a4ebb3fb05e941e090b11ad4ee2db23e1e806aa8da1c62ab97e8fe0"
   },
   "disposition": "initial",
   "focal_question": "What becomes visible when history is read as the relation between innumerable situated acts rather than as the execution of a sovereign will?",

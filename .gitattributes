@@ -10,3 +10,30 @@ archive/notes/innermost-loop-simulation/** text eol=lf
 archive/notes/innermost-loop-simulation/responses/day-2.md -text -eol whitespace=-blank-at-eol
 # Provenance-bound source must hash identically across platforms.
 scripts/contradiction_kernel.py text eol=lf
+
+# Preserve exact bytes of hash-bound Library witnesses (including mixed line endings).
+archive/library/integrations/living/dante-de-monarchia-commedia/profile.json -text whitespace=cr-at-eol
+archive/library/integrations/living/homer-iliad-odyssey/profile.json -text whitespace=cr-at-eol
+archive/library/integrations/living/tolstoy-war-and-peace/profile.json -text whitespace=cr-at-eol
+archive/library/integrations/pilot-2026-09-01/ashoka-rock-and-pillar-edicts/profile.json -text whitespace=cr-at-eol
+archive/library/integrations/pilot-2026-09-01/du-bois-souls-of-black-folk/profile.json -text whitespace=cr-at-eol
+archive/library/integrations/pilot-2026-09-01/grotius-mare-liberum/profile.json -text whitespace=cr-at-eol
+archive/library/integrations/pilot-2026-09-01/grotius-mare-liberum/routing.json -text whitespace=cr-at-eol
+archive/library/integrations/pilot-2026-09-01/manifest.json -text whitespace=cr-at-eol
+archive/library/integrations/pilot-2026-09-01/murasaki-tale-of-genji/profile.json -text whitespace=cr-at-eol
+archive/notes/2026-09-01-library-ashoka-rock-and-pillar-edicts-integration-note-addendum-01.md -text whitespace=cr-at-eol
+archive/notes/2026-09-01-library-ashoka-rock-and-pillar-edicts-integration-note.md -text whitespace=cr-at-eol
+archive/notes/2026-09-01-library-du-bois-souls-of-black-folk-integration-note.md -text whitespace=cr-at-eol
+archive/notes/2026-09-01-library-grotius-mare-liberum-integration-note-addendum-01.md -text whitespace=cr-at-eol
+archive/notes/2026-09-01-library-grotius-mare-liberum-integration-note-addendum-02.md -text whitespace=cr-at-eol
+archive/notes/2026-09-01-library-grotius-mare-liberum-integration-note.md -text whitespace=cr-at-eol
+archive/notes/2026-09-01-library-ibn-khaldun-muqaddimah-integration-note.md -text whitespace=cr-at-eol
+archive/notes/2026-09-01-library-murasaki-tale-of-genji-integration-note.md -text whitespace=cr-at-eol
+archive/notes/library/ashoka-edicts/encounter-addendum-01.md -text whitespace=cr-at-eol
+archive/notes/library/ashoka-edicts/encounter.md -text whitespace=cr-at-eol
+archive/notes/library/du-bois-souls-of-black-folk/encounter.md -text whitespace=cr-at-eol
+archive/notes/library/grotius-mare-liberum/encounter.md -text whitespace=cr-at-eol
+archive/notes/library/grotius-mare-liberum/passage-anchors.md -text whitespace=cr-at-eol
+archive/notes/library/grotius-mare-liberum/route-review.md -text whitespace=cr-at-eol
+archive/notes/library/ibn-khaldun-muqaddimah/encounter.md -text whitespace=cr-at-eol
+archive/notes/library/murasaki-tale-of-genji/encounter.md -text whitespace=cr-at-eol

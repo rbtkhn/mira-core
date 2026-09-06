@@ -1,0 +1,161 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mira-library-integration-v1.schema.json",
+  "title": "Mira Library Work Integration",
+  "description": "Versioned machine contracts for profiles, Civilization Memory coverage, routing packets, essay-topic contracts, and pilot manifests. Integration notes remain canonical Markdown with an embedded JSON envelope.",
+  "oneOf": [
+    { "$ref": "#/$defs/profile" },
+    { "$ref": "#/$defs/coverage" },
+    { "$ref": "#/$defs/routing" },
+    { "$ref": "#/$defs/topics" },
+    { "$ref": "#/$defs/manifest" },
+    { "$ref": "#/$defs/workRegistry" },
+    { "$ref": "#/$defs/routeIndex" }
+  ],
+  "$defs": {
+    "base": {
+      "type": "object",
+      "required": ["schema_version", "artifact_id", "canonical_work_id", "library_source_id", "artifact_version", "status", "authority_boundary"],
+      "properties": {
+        "schema_version": { "type": "string" },
+        "artifact_id": { "type": "string", "minLength": 1 },
+        "canonical_work_id": { "type": "string", "minLength": 1 },
+        "library_source_id": { "type": "string", "minLength": 1 },
+        "artifact_version": { "type": "integer", "minimum": 1 },
+        "status": { "type": "string" },
+        "authority_boundary": { "type": "string", "minLength": 1 }
+      }
+    },
+    "profile": {
+      "allOf": [
+        { "$ref": "#/$defs/base" },
+        {
+          "type": "object",
+          "required": ["identity", "work_form", "knowledge_basis", "synopsis", "intellectual_affordances", "textual_basis", "confidence", "essay_refs"],
+          "properties": {
+            "schema_version": { "const": "mira-library-work-profile-v1" },
+            "knowledge_basis": { "const": "knowledge-seeded" },
+            "external_research_used": { "const": false },
+            "essay_refs": { "type": "array", "items": { "type": "string" } }
+          }
+        }
+      ]
+    },
+    "coverage": {
+      "allOf": [
+        { "$ref": "#/$defs/base" },
+        {
+          "type": "object",
+          "required": ["coverage_scope", "coverage_decision", "search_scope", "direct_objects_opened", "external_research_authorized", "external_research_used", "unresolved_gaps"],
+          "properties": {
+            "schema_version": { "const": "mira-library-civmem-coverage-v1" },
+            "coverage_decision": { "enum": ["sufficient", "partial", "none", "blocked"] },
+            "external_research_used": { "const": false }
+          }
+        }
+      ]
+    },
+    "routing": {
+      "allOf": [
+        { "$ref": "#/$defs/base" },
+        {
+          "type": "object",
+          "required": ["route_units", "negative_route_rules", "coverage_constraints", "note_revision_state"],
+          "properties": {
+            "schema_version": { "const": "mira-library-routing-packet-v1" },
+            "route_units": { "type": "array" },
+            "note_revision_state": { "enum": ["current", "review-suggested", "revision-due", "blocked"] }
+          }
+        }
+      ]
+    },
+    "topics": {
+      "allOf": [
+        { "$ref": "#/$defs/base" },
+        {
+          "type": "object",
+          "required": ["topics", "essay_refs", "essay_artifacts_created"],
+          "properties": {
+            "schema_version": { "const": "mira-library-essay-topic-contracts-v1" },
+            "topics": { "type": "array", "minItems": 3, "maxItems": 3 },
+            "essay_refs": { "type": "array", "items": { "type": "string" } },
+            "essay_artifacts_created": { "const": 0 }
+          }
+        }
+      ]
+    },
+    "manifest": {
+      "type": "object",
+      "required": ["schema_version", "pilot_id", "status", "works", "essay_artifacts_created"],
+      "properties": {
+        "schema_version": { "const": "mira-library-integration-manifest-v1" },
+        "works": { "type": "array", "minItems": 5, "maxItems": 5 },
+        "essay_artifacts_created": { "const": 0 }
+      }
+    },
+    "workRegistry": {
+      "type": "object",
+      "required": ["schema_version", "status", "works", "authority_boundary"],
+      "properties": {
+        "schema_version": { "const": "mira-library-work-registry-v1" },
+        "status": { "const": "current" },
+        "works": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["canonical_work_id", "library_source_id", "artifact_root", "note_ref", "essay_refs", "route_reviews"],
+            "properties": {
+              "essay_refs": { "type": "array", "items": { "type": "string" } },
+              "route_reviews": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": ["route_handle", "mechanism_signatures", "review_disposition", "review_binding"],
+                  "properties": {
+                    "review_disposition": { "enum": ["unreviewed", "approved-internal", "rejected", "blocked-source"] },
+                    "review_binding": {
+                      "oneOf": [
+                        { "type": "null" },
+                        {
+                          "type": "object",
+                          "required": ["route_unit_sha256", "note_dependency_sha256", "body_digests"]
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "routeIndex": {
+      "type": "object",
+      "required": ["schema_version", "status", "generated_from", "route_count", "eligible_route_count", "routes", "works", "authority_boundary"],
+      "properties": {
+        "schema_version": { "const": "mira-library-route-index-v1" },
+        "status": { "const": "current" },
+        "route_count": { "type": "integer", "minimum": 0 },
+        "eligible_route_count": { "type": "integer", "minimum": 0 },
+        "routes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["route_id", "route_handle", "canonical_work_id", "library_source_id", "library_refs", "body_refs", "route_packet_ref", "note_ref", "note_revision_state", "packet_status", "route_unit_legacy_state", "review_disposition", "review_binding_status", "mechanism_signatures", "work_integration_stage", "notebook_eligibility", "ineligibility_reasons", "boundary"],
+            "properties": {
+              "route_id": { "type": "string", "pattern": "^MIRA-ROUTE-[A-Z0-9-]+$" },
+              "notebook_eligibility": { "enum": ["eligible", "ineligible"] },
+              "review_disposition": { "enum": ["unreviewed", "approved-internal", "rejected", "blocked-source"] },
+              "review_binding_status": { "enum": ["not-applicable", "current", "stale"] },
+              "work_integration_stage": { "enum": ["profiled", "pressure-test-ready", "fully-integrated", "stale"] },
+              "mechanism_signatures": { "type": "array", "minItems": 1, "items": { "type": "string", "pattern": "^[a-z][a-z0-9_]*$" } },
+              "ineligibility_reasons": { "type": "array", "items": { "type": "string" } }
+            }
+          }
+        },
+        "works": { "type": "array" }
+      }
+    }
+  }
+}

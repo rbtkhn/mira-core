@@ -36,39 +36,39 @@
       },
       {
         "note_ref": "archive/notes/2026-09-02-library-ashoka-rock-and-pillar-edicts-cognitive-note.md",
-        "note_sha256": "40fad0c07afd3a0f417cba92fbe8241c554240d5323400dba3bcc789d3af9ffd"
+        "note_sha256": "550dc11d038798ecfd83300cac26729f2995d339fb7208d1d0ae6dfdb66f178e"
       },
       {
         "note_ref": "archive/notes/2026-09-02-library-dante-de-monarchia-commedia-cognitive-note.md",
-        "note_sha256": "1921132da82709fc5699cf095983d6b0d846e832b1b7b21d8a75d9f6e3eb3979"
+        "note_sha256": "fb8ce23f0d08d6362e49cc6e2fa1404edf6ad45a1368863a20e7b0cfbab2d70c"
       },
       {
         "note_ref": "archive/notes/2026-09-02-library-du-bois-souls-of-black-folk-cognitive-note.md",
-        "note_sha256": "9b93aeb7f5aced3d9444d7a3ec1e1c24559e4cd5e0ae1eb6dcbfd7afd4c2b0f4"
+        "note_sha256": "3612afc4295c0198d8ac00dea266231fbb7207c60c3475f644d9df6ab07e7efc"
       },
       {
         "note_ref": "archive/notes/2026-09-02-library-grotius-mare-liberum-cognitive-note.md",
-        "note_sha256": "2f12c0e93e7f6300297e444b3c319a9b25e900a024b16f84a815eaf90905ed69"
+        "note_sha256": "7c58f80ca6defe659827c4e08a07d1a8785093ccee5889d944d0b161403fa2ef"
       },
       {
         "note_ref": "archive/notes/2026-09-02-library-homer-iliad-odyssey-cognitive-note.md",
-        "note_sha256": "4d36065b7decbfe8fef1c03bf6aa72bb373b56b7e329f2ae6b058e642820ffaf"
+        "note_sha256": "2dbc1df76d3e39a6ad3c3f6b07fb20c111ca2dd0ba6673d1d46c9bef1a804f90"
       },
       {
         "note_ref": "archive/notes/2026-09-02-library-ibn-khaldun-muqaddimah-cognitive-note.md",
-        "note_sha256": "97823970b1047c3745f5ca437aeecbad124fef5d8583ccc19fe7e01695863213"
+        "note_sha256": "0d40d8d68683952b22d6826a43bbbd06302d9b09c5f0939e2791e47bcbbd55f3"
       },
       {
         "note_ref": "archive/notes/2026-09-02-library-murasaki-tale-of-genji-cognitive-note.md",
-        "note_sha256": "b565175b5bcc922967e9d6cfc217576b5c449b141d59ecaa89ca483a0b9eccae"
+        "note_sha256": "7bfbd94a27ab22cbf92c05cc6b58e08e6d7cf80cb3cb6c92ec758c4479522013"
       },
       {
         "note_ref": "archive/notes/2026-09-02-library-tolstoy-war-and-peace-cognitive-note.md",
-        "note_sha256": "62914f0c163fcb1facf4b6b131e2bf6f965f0cb7904607b61f867128747c828f"
+        "note_sha256": "e49166fe26e6723cbf15bb5828db1619075e9120d5006bee677f6ff12fa01fef"
       }
     ],
     "work_registry_ref": "archive/library/integrations/work-registry.json",
-    "work_registry_sha256": "ec37d07a1ab115ca62a06bccd51ef9f2ff5384e3dee0a1d4a98db6136d8cbf59"
+    "work_registry_sha256": "77d0588b76794fdb32e6d336f42034bcd30cd55d47400e33462e51dfb965ea57"
   },
   "link_count": 22,
   "links": [
@@ -109,7 +109,7 @@
       "note_dependency_sha256": "44e47f50398c62f9903167850ad290ede3c2b365c38fd31e854eb501439e1da1",
       "note_id": "NOTE-MIRA-WORK-ASHOKA-ROCK-PILLAR-EDICTS-TEMPLATE-01",
       "note_ref": "archive/notes/2026-09-02-library-ashoka-rock-and-pillar-edicts-cognitive-note.md",
-      "note_sha256": "40fad0c07afd3a0f417cba92fbe8241c554240d5323400dba3bcc789d3af9ffd",
+      "note_sha256": "550dc11d038798ecfd83300cac26729f2995d339fb7208d1d0ae6dfdb66f178e",
       "passage_refs": [],
       "relation_type": "interprets",
       "role": "focal",
@@ -124,7 +124,7 @@
       "note_dependency_sha256": "9379650a6a90dfa641969f24a03893dd9c2a5284361aece5fc05efc1f78e3393",
       "note_id": "NOTE-MIRA-WORK-DANTE-DE-MONARCHIA-COMMEDIA-001",
       "note_ref": "archive/notes/2026-09-02-library-dante-de-monarchia-commedia-cognitive-note.md",
-      "note_sha256": "1921132da82709fc5699cf095983d6b0d846e832b1b7b21d8a75d9f6e3eb3979",
+      "note_sha256": "fb8ce23f0d08d6362e49cc6e2fa1404edf6ad45a1368863a20e7b0cfbab2d70c",
       "passage_refs": [
         "PASSAGE-DANTE-MONARCHIA-TEMPORAL-OFFICE",
         "PASSAGE-DANTE-MONARCHIA-UNIVERSAL-PEACE",
@@ -143,7 +143,7 @@
       "note_dependency_sha256": "05326f2fdc73d1619988146026284ec9b3a840f3b02c517451980e2fccc0a7e6",
       "note_id": "NOTE-MIRA-WORK-HOMER-ILIAD-ODYSSEY-001",
       "note_ref": "archive/notes/2026-09-02-library-homer-iliad-odyssey-cognitive-note.md",
-      "note_sha256": "4d36065b7decbfe8fef1c03bf6aa72bb373b56b7e329f2ae6b058e642820ffaf",
+      "note_sha256": "2dbc1df76d3e39a6ad3c3f6b07fb20c111ca2dd0ba6673d1d46c9bef1a804f90",
       "passage_refs": [],
       "relation_type": "connects",
       "role": "comparative",
@@ -155,10 +155,10 @@
       "explanation": "Curatorial civilizational juxtaposition with Dante; the specific comparison remains analysis-pending and asserts no completed causal, influence, or contemporary mechanism.",
       "lineage_position": "head",
       "link_id": "MIRA-LINK-88BC29928E99ACFE3614",
-      "note_dependency_sha256": "5c0b5b92bb21e3a4bba15edaf42735c82adf611fb2a42098ac8eba18f0f22251",
+      "note_dependency_sha256": "234a0dc4e7700c19f8bf83ac10f528a08e5dbb24a8575bf386ae15cc9284eede",
       "note_id": "NOTE-MIRA-WORK-TOLSTOY-WAR-AND-PEACE-001",
       "note_ref": "archive/notes/2026-09-02-library-tolstoy-war-and-peace-cognitive-note.md",
-      "note_sha256": "62914f0c163fcb1facf4b6b131e2bf6f965f0cb7904607b61f867128747c828f",
+      "note_sha256": "e49166fe26e6723cbf15bb5828db1619075e9120d5006bee677f6ff12fa01fef",
       "passage_refs": [],
       "relation_type": "connects",
       "role": "comparative",
@@ -188,7 +188,7 @@
       "note_dependency_sha256": "87fb1ecdc0bb3d69920b7a0f265b794785ec6619a8e568cd8ad08c4ac5f5e5dd",
       "note_id": "NOTE-MIRA-WORK-DU-BOIS-SOULS-OF-BLACK-FOLK-TEMPLATE-01",
       "note_ref": "archive/notes/2026-09-02-library-du-bois-souls-of-black-folk-cognitive-note.md",
-      "note_sha256": "9b93aeb7f5aced3d9444d7a3ec1e1c24559e4cd5e0ae1eb6dcbfd7afd4c2b0f4",
+      "note_sha256": "3612afc4295c0198d8ac00dea266231fbb7207c60c3475f644d9df6ab07e7efc",
       "passage_refs": [],
       "relation_type": "interprets",
       "role": "focal",
@@ -248,7 +248,7 @@
       "note_dependency_sha256": "6302560c41ddd432858b691f46e3e990ff9559395317b292bc6f522a4cd253b8",
       "note_id": "NOTE-MIRA-WORK-GROTIUS-MARE-LIBERUM-TEMPLATE-01",
       "note_ref": "archive/notes/2026-09-02-library-grotius-mare-liberum-cognitive-note.md",
-      "note_sha256": "2f12c0e93e7f6300297e444b3c319a9b25e900a024b16f84a815eaf90905ed69",
+      "note_sha256": "7c58f80ca6defe659827c4e08a07d1a8785093ccee5889d944d0b161403fa2ef",
       "passage_refs": [],
       "relation_type": "interprets",
       "role": "focal",
@@ -263,7 +263,7 @@
       "note_dependency_sha256": "9379650a6a90dfa641969f24a03893dd9c2a5284361aece5fc05efc1f78e3393",
       "note_id": "NOTE-MIRA-WORK-DANTE-DE-MONARCHIA-COMMEDIA-001",
       "note_ref": "archive/notes/2026-09-02-library-dante-de-monarchia-commedia-cognitive-note.md",
-      "note_sha256": "1921132da82709fc5699cf095983d6b0d846e832b1b7b21d8a75d9f6e3eb3979",
+      "note_sha256": "fb8ce23f0d08d6362e49cc6e2fa1404edf6ad45a1368863a20e7b0cfbab2d70c",
       "passage_refs": [],
       "relation_type": "connects",
       "role": "comparative",
@@ -278,7 +278,7 @@
       "note_dependency_sha256": "05326f2fdc73d1619988146026284ec9b3a840f3b02c517451980e2fccc0a7e6",
       "note_id": "NOTE-MIRA-WORK-HOMER-ILIAD-ODYSSEY-001",
       "note_ref": "archive/notes/2026-09-02-library-homer-iliad-odyssey-cognitive-note.md",
-      "note_sha256": "4d36065b7decbfe8fef1c03bf6aa72bb373b56b7e329f2ae6b058e642820ffaf",
+      "note_sha256": "2dbc1df76d3e39a6ad3c3f6b07fb20c111ca2dd0ba6673d1d46c9bef1a804f90",
       "passage_refs": [
         "PASSAGE-HOMER-ILIAD-WRATH-AND-COLLECTIVE-LOSS",
         "PASSAGE-HOMER-ILIAD-HONOR-WITHDRAWAL",
@@ -295,10 +295,10 @@
       "explanation": "Curatorial civilizational juxtaposition with Homer; the specific comparison remains analysis-pending and asserts no completed causal, influence, or contemporary mechanism.",
       "lineage_position": "head",
       "link_id": "MIRA-LINK-C650253285E95BDEA226",
-      "note_dependency_sha256": "5c0b5b92bb21e3a4bba15edaf42735c82adf611fb2a42098ac8eba18f0f22251",
+      "note_dependency_sha256": "234a0dc4e7700c19f8bf83ac10f528a08e5dbb24a8575bf386ae15cc9284eede",
       "note_id": "NOTE-MIRA-WORK-TOLSTOY-WAR-AND-PEACE-001",
       "note_ref": "archive/notes/2026-09-02-library-tolstoy-war-and-peace-cognitive-note.md",
-      "note_sha256": "62914f0c163fcb1facf4b6b131e2bf6f965f0cb7904607b61f867128747c828f",
+      "note_sha256": "e49166fe26e6723cbf15bb5828db1619075e9120d5006bee677f6ff12fa01fef",
       "passage_refs": [],
       "relation_type": "connects",
       "role": "comparative",
@@ -328,7 +328,7 @@
       "note_dependency_sha256": "915eb3f89a3215f879f4c6da5cf12272b89b3691e5d574db94ce2acf18103c41",
       "note_id": "NOTE-MIRA-WORK-IBN-KHALDUN-MUQADDIMAH-TEMPLATE-01",
       "note_ref": "archive/notes/2026-09-02-library-ibn-khaldun-muqaddimah-cognitive-note.md",
-      "note_sha256": "97823970b1047c3745f5ca437aeecbad124fef5d8583ccc19fe7e01695863213",
+      "note_sha256": "0d40d8d68683952b22d6826a43bbbd06302d9b09c5f0939e2791e47bcbbd55f3",
       "passage_refs": [],
       "relation_type": "interprets",
       "role": "focal",
@@ -358,7 +358,7 @@
       "note_dependency_sha256": "cc27c68140577cf3e03cccc5fd7e90cc7e04cc048826196c039306b074229a8e",
       "note_id": "NOTE-MIRA-WORK-MURASAKI-TALE-OF-GENJI-TEMPLATE-01",
       "note_ref": "archive/notes/2026-09-02-library-murasaki-tale-of-genji-cognitive-note.md",
-      "note_sha256": "b565175b5bcc922967e9d6cfc217576b5c449b141d59ecaa89ca483a0b9eccae",
+      "note_sha256": "7bfbd94a27ab22cbf92c05cc6b58e08e6d7cf80cb3cb6c92ec758c4479522013",
       "passage_refs": [],
       "relation_type": "interprets",
       "role": "focal",
@@ -373,7 +373,7 @@
       "note_dependency_sha256": "9379650a6a90dfa641969f24a03893dd9c2a5284361aece5fc05efc1f78e3393",
       "note_id": "NOTE-MIRA-WORK-DANTE-DE-MONARCHIA-COMMEDIA-001",
       "note_ref": "archive/notes/2026-09-02-library-dante-de-monarchia-commedia-cognitive-note.md",
-      "note_sha256": "1921132da82709fc5699cf095983d6b0d846e832b1b7b21d8a75d9f6e3eb3979",
+      "note_sha256": "fb8ce23f0d08d6362e49cc6e2fa1404edf6ad45a1368863a20e7b0cfbab2d70c",
       "passage_refs": [],
       "relation_type": "connects",
       "role": "comparative",
@@ -388,7 +388,7 @@
       "note_dependency_sha256": "05326f2fdc73d1619988146026284ec9b3a840f3b02c517451980e2fccc0a7e6",
       "note_id": "NOTE-MIRA-WORK-HOMER-ILIAD-ODYSSEY-001",
       "note_ref": "archive/notes/2026-09-02-library-homer-iliad-odyssey-cognitive-note.md",
-      "note_sha256": "4d36065b7decbfe8fef1c03bf6aa72bb373b56b7e329f2ae6b058e642820ffaf",
+      "note_sha256": "2dbc1df76d3e39a6ad3c3f6b07fb20c111ca2dd0ba6673d1d46c9bef1a804f90",
       "passage_refs": [],
       "relation_type": "connects",
       "role": "comparative",
@@ -400,10 +400,10 @@
       "explanation": "This note provisionally interprets War and Peace's account of command, execution, distributed action, freedom, and necessity through the admitted passages.",
       "lineage_position": "head",
       "link_id": "MIRA-LINK-7934D639A54821246ACD",
-      "note_dependency_sha256": "5c0b5b92bb21e3a4bba15edaf42735c82adf611fb2a42098ac8eba18f0f22251",
+      "note_dependency_sha256": "234a0dc4e7700c19f8bf83ac10f528a08e5dbb24a8575bf386ae15cc9284eede",
       "note_id": "NOTE-MIRA-WORK-TOLSTOY-WAR-AND-PEACE-001",
       "note_ref": "archive/notes/2026-09-02-library-tolstoy-war-and-peace-cognitive-note.md",
-      "note_sha256": "62914f0c163fcb1facf4b6b131e2bf6f965f0cb7904607b61f867128747c828f",
+      "note_sha256": "e49166fe26e6723cbf15bb5828db1619075e9120d5006bee677f6ff12fa01fef",
       "passage_refs": [
         "PASSAGE-TOLSTOY-POWER-AS-RELATION",
         "PASSAGE-TOLSTOY-EXECUTABLE-COMMAND",

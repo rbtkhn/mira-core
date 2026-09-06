@@ -6,6 +6,15 @@ from pathlib import Path
 import publication_validation as routing
 
 
+def test_git_attributes_require_byte_preservation_review(tmp_path: Path) -> None:
+    result = routing.route_path(".gitattributes", repo_root=tmp_path)
+    assert result["owner"] == "repo-structural/git-attributes"
+    assert result["commands"] == [
+        "tools/run.ps1 test --path tests/test_publication_validation.py"
+    ]
+    assert any("clean conversion" in check for check in result["manual_checks"])
+
+
 def make_tree(root: Path) -> None:
     for relative in (
         "archive/notes/2026-08-17-note.md",

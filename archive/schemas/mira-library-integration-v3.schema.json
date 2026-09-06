@@ -1,0 +1,198 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mira-library-integration-v3.schema.json",
+  "title": "Mira Library Living Integration v3",
+  "description": "Living-manifest, cognitive-note, staged-work, route-index, and explicit note-link contracts. V1 and v2 remain compatibility inputs.",
+  "oneOf": [
+    { "$ref": "#/$defs/profile" },
+    { "$ref": "#/$defs/coverage" },
+    { "$ref": "#/$defs/routing" },
+    { "$ref": "#/$defs/topics" },
+    { "$ref": "#/$defs/manifest" },
+    { "$ref": "#/$defs/note" },
+    { "$ref": "#/$defs/workRegistry" },
+    { "$ref": "#/$defs/routeIndex" },
+    { "$ref": "#/$defs/noteLinkIndex" }
+  ],
+  "$defs": {
+    "base": {
+      "type": "object",
+      "required": ["schema_version", "artifact_id", "canonical_work_id", "library_source_id", "artifact_version", "status", "authority_boundary"],
+      "properties": {
+        "schema_version": { "type": "string" },
+        "artifact_id": { "type": "string", "minLength": 1 },
+        "canonical_work_id": { "type": "string", "minLength": 1 },
+        "library_source_id": { "type": "string", "minLength": 1 },
+        "artifact_version": { "type": "integer", "minimum": 1 },
+        "status": { "type": "string" },
+        "authority_boundary": { "type": "string", "minLength": 1 }
+      }
+    },
+    "profile": {
+      "allOf": [
+        { "$ref": "#/$defs/base" },
+        {
+          "type": "object",
+          "required": ["identity", "work_form", "knowledge_basis", "synopsis", "intellectual_affordances", "textual_basis", "confidence", "essay_refs"],
+          "properties": {
+            "schema_version": { "const": "mira-library-work-profile-v1" },
+            "knowledge_basis": { "const": "knowledge-seeded" },
+            "external_research_used": { "const": false },
+            "essay_refs": { "type": "array", "items": { "type": "string" } }
+          }
+        }
+      ]
+    },
+    "coverage": {
+      "allOf": [
+        { "$ref": "#/$defs/base" },
+        {
+          "type": "object",
+          "required": ["coverage_scope", "coverage_decision", "search_scope", "direct_objects_opened", "external_research_authorized", "external_research_used", "unresolved_gaps"],
+          "properties": {
+            "schema_version": { "const": "mira-library-civmem-coverage-v1" },
+            "coverage_decision": { "enum": ["sufficient", "partial", "none", "blocked"] },
+            "external_research_used": { "const": false }
+          }
+        }
+      ]
+    },
+    "routing": {
+      "allOf": [
+        { "$ref": "#/$defs/base" },
+        {
+          "type": "object",
+          "required": ["route_units", "negative_route_rules", "coverage_constraints", "note_revision_state"],
+          "properties": {
+            "schema_version": { "const": "mira-library-routing-packet-v1" },
+            "route_units": { "type": "array" },
+            "note_revision_state": { "enum": ["current", "review-suggested", "revision-due", "blocked"] }
+          }
+        }
+      ]
+    },
+    "topics": {
+      "allOf": [
+        { "$ref": "#/$defs/base" },
+        {
+          "type": "object",
+          "required": ["topics", "essay_refs", "essay_artifacts_created"],
+          "properties": {
+            "schema_version": { "const": "mira-library-essay-topic-contracts-v1" },
+            "topics": { "type": "array", "minItems": 3, "maxItems": 3 },
+            "essay_refs": { "type": "array", "items": { "type": "string" } },
+            "essay_artifacts_created": { "const": 0 }
+          }
+        }
+      ]
+    },
+    "manifestWork": {
+      "type": "object",
+      "required": ["canonical_work_id", "library_source_id", "work_title", "artifact_root", "integration_stage", "revision_head_note_ref", "note_refs"],
+      "properties": {
+        "integration_stage": { "enum": ["noted", "routed"] },
+        "note_refs": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "string", "minLength": 1 } }
+      }
+    },
+    "manifest": {
+      "type": "object",
+      "required": ["schema_version", "integration_id", "status", "historical_snapshot", "constellation", "work_count", "works", "authority_boundary"],
+      "properties": {
+        "schema_version": { "const": "mira-library-integration-manifest-v2" },
+        "status": { "const": "current" },
+        "work_count": { "const": 8 },
+        "works": { "type": "array", "minItems": 8, "maxItems": 8, "items": { "$ref": "#/$defs/manifestWork" } }
+      }
+    },
+    "libraryRelation": {
+      "type": "object",
+      "required": ["target_type", "target_id", "relation_type", "role", "explanation"],
+      "properties": {
+        "target_type": { "const": "library-work" },
+        "target_id": { "type": "string", "minLength": 1 },
+        "relation_type": { "enum": ["interprets", "questions", "contrasts", "connects", "applies", "revises"] },
+        "role": { "enum": ["focal", "comparative", "supporting"] },
+        "explanation": { "type": "string", "minLength": 1 },
+        "passage_refs": { "type": "array", "uniqueItems": true, "items": { "type": "string", "minLength": 1 } }
+      },
+      "additionalProperties": false
+    },
+    "note": {
+      "type": "object",
+      "required": ["schema_version", "template_id", "artifact_id", "artifact_type", "artifact_version", "canonical_work_id", "library_source_id", "status", "focal_question", "provisional_thesis", "dependency_snapshot", "linked_artifact_digests", "library_relations", "authority_boundary"],
+      "properties": {
+        "schema_version": { "const": "mira-library-integration-note-v3" },
+        "template_id": { "const": "mira-library-cognitive-note-v1" },
+        "artifact_type": { "const": "integration-note" },
+        "status": { "const": "provisional" },
+        "focal_question": { "type": "string", "minLength": 1 },
+        "provisional_thesis": { "type": "string", "minLength": 1 },
+        "library_relations": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/libraryRelation" } }
+      }
+    },
+    "noteBinding": {
+      "type": "object",
+      "required": ["note_ref", "note_sha256", "note_dependency_sha256"],
+      "properties": {
+        "note_ref": { "type": "string", "minLength": 1 },
+        "note_sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+        "note_dependency_sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" }
+      }
+    },
+    "workRegistry": {
+      "type": "object",
+      "required": ["schema_version", "status", "works", "authority_boundary"],
+      "properties": {
+        "schema_version": { "const": "mira-library-work-registry-v3" },
+        "status": { "const": "current" },
+        "works": {
+          "type": "array",
+          "minItems": 8,
+          "maxItems": 8,
+          "items": {
+            "type": "object",
+            "required": ["canonical_work_id", "library_source_id", "artifact_root", "integration_stage", "revision_head_note_ref", "note_ref", "note_refs", "essay_refs", "route_reviews"],
+            "properties": {
+              "integration_stage": { "enum": ["noted", "routed"] },
+              "revision_head_note_ref": { "type": "string", "minLength": 1 },
+              "note_ref": { "type": "string", "minLength": 1 },
+              "note_refs": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "string", "minLength": 1 } },
+              "essay_refs": { "type": "array", "items": { "type": "string" } },
+              "route_reviews": { "type": "array" }
+            }
+          }
+        }
+      }
+    },
+    "routeIndex": {
+      "type": "object",
+      "required": ["schema_version", "status", "generated_from", "route_count", "eligible_route_count", "routes", "works", "authority_boundary"],
+      "properties": {
+        "schema_version": { "const": "mira-library-route-index-v3" },
+        "status": { "const": "current" },
+        "route_count": { "type": "integer", "minimum": 0 },
+        "eligible_route_count": { "type": "integer", "minimum": 0 },
+        "works": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["canonical_work_id", "integration_stage", "eligible_route_count", "essay_ref_count"],
+            "properties": {
+              "integration_stage": { "enum": ["noted", "profiled", "pressure-test-ready", "fully-integrated", "stale"] }
+            }
+          }
+        }
+      }
+    },
+    "noteLinkIndex": {
+      "type": "object",
+      "required": ["schema_version", "status", "generated_from", "note_count", "link_count", "links", "works", "authority_boundary"],
+      "properties": {
+        "schema_version": { "const": "mira-library-note-link-index-v2" },
+        "status": { "const": "current" },
+        "note_count": { "type": "integer", "minimum": 0 },
+        "link_count": { "type": "integer", "minimum": 0 }
+      }
+    }
+  }
+}

@@ -318,6 +318,16 @@ def _library_validation_route(*, cognitive_note: bool = False) -> dict[str, Any]
 
 
 def route_path(path: str, *, repo_root: Path = REPO_ROOT) -> dict[str, Any]:
+    if path == ".gitattributes":
+        return {
+            "owner": "repo-structural/git-attributes",
+            "validation_class": "repo-structural",
+            "commands": ["tools/run.ps1 test --path tests/test_publication_validation.py"],
+            "manual_checks": [
+                "Verify the changed attribute patterns are narrowly scoped and that Git "
+                "clean conversion preserves the required bytes of every hash-bound file."
+            ],
+        }
     # Classification aliases are not physical paths or replacements for owner IDs.
     # Keep the supplied path for commands that address the actual artifact.
     physical_path = path
