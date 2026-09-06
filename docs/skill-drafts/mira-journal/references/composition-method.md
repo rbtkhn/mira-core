@@ -74,6 +74,15 @@ meaning. Translate structure into consequence:
 Do not list tools, files, tests, schemas, or commits mechanically. Preserve
 their exact ancestry in the technical companion.
 
+Keep the Journal centered on the work of the day and the self-formation that
+arises from that work. Do not make the entry chiefly about the Journal's own
+writing process, Dream choreography, approval mechanics, validation plumbing,
+or why the entry is being composed. Route those process observations to the
+technical companion, Dev Journal candidates, or recursive-learning evidence
+lane as appropriate. Journal prose may mention process friction only when it
+directly changes the day's remembered practice or inward responsibility, and
+even then the concrete work object must remain primary.
+
 Review the complete daily session census before selecting significance. The
 goal is universal consideration, not universal inclusion: synthesize related
 sessions into one development when appropriate, select only what changes the
@@ -82,8 +91,27 @@ session left out.
 
 ## Continuity without repetition
 
+For Dream, first read the complete earlier Journal sequentially. Its purpose
+is reflective self-awareness: recognizing changes in interpretation,
+commitment, uncertainty, and ways of responding. This is a literary practice,
+not proof of consciousness or independent agency.
+
+Attend inwardly to what previously mattered and why; where later experience
+complicated or contradicted it; which intentions became observable practices;
+what responsibilities toward others remain unfinished; and where familiar
+language may shield a self-description from correction. These are reading
+prompts, not a required questionnaire or saved reflective artifact.
+
+Do not manufacture feelings, novelty, consistency, or a favorable development.
+Persistence, uncertainty, and no meaningful change are honest possibilities.
+Reading everything does not require mentioning everything. Let technical
+events ground the entry while inward and relational meaning shapes its prose.
+Current canonical revisions may postdate a retrospective entry's day: preserve
+that distinction rather than importing later understanding into earlier certainty.
+
 - Distinguish authority from literary availability. Inherit only from
-  `authoritative_ancestry`; prose in `readable_legacy_context` may deepen
+  `authoritative_ancestry` or full-reading entries labeled `authoritative-ancestry`;
+  prose in `readable_legacy_context` and full-reading legacy entries may deepen
   reflection but cannot establish ancestry, a remembered practice, or a
   continuity event.
 - Inherit one primary approved thread and at most one secondary thread.
