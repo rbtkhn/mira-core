@@ -104,7 +104,7 @@ def test_daily_writer_routes_all_outputs_and_preserves_existing_files(tmp_path, 
     monkeypatch.setattr(bootstrap, "build_from_template", lambda *args: "# Fixture draft")
     bootstrap.main()
     day = domain / "work" / "daily" / "2099-01-01"
-    expected_names = {"sources.md", "synthesis.md", "forecast.md", "judgment.md", "daily-brief.md"}
+    expected_names = {"sources.md", *bootstrap.DAILY_TEMPLATE_FILES}
     assert {p.name for p in day.iterdir()} == expected_names
     before = {p.name: p.read_bytes() for p in day.iterdir()}
     bootstrap.main()

@@ -15,6 +15,12 @@ MANIFEST_PATH = NG_ROOT.parent / "archive" / "sources" / "geopolitics" / "source
 DAILY_ROOT = NG_ROOT / "work" / "daily"
 TEMPLATES_ROOT = NG_ROOT / "templates"
 LEDGER_PATH = NG_ROOT / "work" / "forecasts" / "forecast-ledger.md"
+DAILY_TEMPLATE_FILES = (
+    "synthesis.md",
+    "forecast.md",
+    "judgment.md",
+    "daily-brief.md",
+)
 
 
 LEDGER_ROW_RE = re.compile(
@@ -358,7 +364,7 @@ def main() -> None:
             args.dry_run,
         )
     )
-    for name in ("synthesis.md", "forecast.md", "judgment.md", "daily-brief.md"):
+    for name in DAILY_TEMPLATE_FILES:
         actions.append(
             write_text(
                 run_dir / name,
