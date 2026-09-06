@@ -1,7 +1,7 @@
 # Singularity Signal Ledger
 
 Status: `working-ledger`
-Generated: 2026-08-28T16:39:32Z
+Generated: 2026-09-06T21:10:22Z
 Collections: `innermost-loop`, `moonshots`
 Authority boundary: Cross-corpus triage only. Candidate links and forecast handles are not claim verification, rights clearance, archive admission, publication authority, or Narrative Geopolitics promotion.
 
@@ -38,15 +38,17 @@ Each row preserves `signal_id`, `date_first_seen`, `participant_context`, `inner
 
 These indexes are episode-level context only, not per-claim attribution.
 
-- Alex Wissner-Gross: `SSL-20260808-001`; `SSL-20260811-001`; `SSL-20260813-001`; `SSL-20260815-001`; `SSL-20260818-001`; `SSL-20260821-001`; `SSL-20260827-001`
+- Alex Wissner-Gross: `SSL-20260808-001`; `SSL-20260811-001`; `SSL-20260813-001`; `SSL-20260815-001`; `SSL-20260818-001`; `SSL-20260821-001`; `SSL-20260827-001`; `SSL-20260829-001`; `SSL-20260902-001`; `SSL-20260905-001`
 - Alvin Graylin: `SSL-20260818-001`
-- Dave Blundin: `SSL-20260808-001`; `SSL-20260811-001`; `SSL-20260813-001`; `SSL-20260815-001`; `SSL-20260818-001`; `SSL-20260821-001`; `SSL-20260827-001`
-- Emad Mostaque: `SSL-20260808-001`; `SSL-20260813-001`; `SSL-20260821-001`; `SSL-20260827-001`
+- Dave Blundin: `SSL-20260808-001`; `SSL-20260811-001`; `SSL-20260813-001`; `SSL-20260815-001`; `SSL-20260818-001`; `SSL-20260821-001`; `SSL-20260827-001`; `SSL-20260829-001`; `SSL-20260902-001`; `SSL-20260905-001`
+- Emad Mostaque: `SSL-20260808-001`; `SSL-20260813-001`; `SSL-20260821-001`; `SSL-20260827-001`; `SSL-20260905-001`
 - Kush Bavaria: `SSL-20260811-001`
+- Matt Pines: `SSL-20260902-001`
 - Michael Kratsios: `SSL-20260804-001`
-- Peter H. Diamandis: `SSL-20260804-001`; `SSL-20260808-001`; `SSL-20260811-001`; `SSL-20260813-001`; `SSL-20260815-001`; `SSL-20260818-001`; `SSL-20260821-001`; `SSL-20260827-001`
+- Peter H. Diamandis: `SSL-20260804-001`; `SSL-20260808-001`; `SSL-20260811-001`; `SSL-20260813-001`; `SSL-20260815-001`; `SSL-20260818-001`; `SSL-20260821-001`; `SSL-20260827-001`; `SSL-20260829-001`; `SSL-20260902-001`; `SSL-20260905-001`
+- Philip Johnston: `SSL-20260902-001`
 - Ramez Naam: `SSL-20260815-001`
-- Salim Ismail: `SSL-20260808-001`; `SSL-20260811-001`; `SSL-20260813-001`; `SSL-20260815-001`; `SSL-20260818-001`; `SSL-20260821-001`; `SSL-20260827-001`
+- Salim Ismail: `SSL-20260808-001`; `SSL-20260811-001`; `SSL-20260813-001`; `SSL-20260815-001`; `SSL-20260818-001`; `SSL-20260821-001`; `SSL-20260827-001`; `SSL-20260829-001`; `SSL-20260905-001`
 
 ## Ledger
 
@@ -60,6 +62,9 @@ These indexes are episode-level context only, not per-claim attribution.
 | SSL-20260818-001 | 2026-08-18 | high | Host: Peter H. Diamandis; Panel: Alex Wissner-Gross, Dave Blundin, Salim Ismail; Guest: Alvin Graylin | `archive/sources/singularity/innermost-loop/transcripts/2026-07-27-july-21-to-july-24-cluster.md`<br>`archive/sources/singularity/innermost-loop/transcripts/2026-07-27-the-first-orbital-librarian.md`<br>`archive/sources/singularity/innermost-loop/transcripts/2026-07-21-worldmonitor-gated-fixture-infrastructure-event.md` | `archive/sources/singularity/moonshots/transcripts/2026-08-18-moonshots-281-chinas-endgame-asi-timelines-us-china-relations-1-7t-ai-bubble-alvin-graylin-ep-281.md` | `china-catch-up`; `safety-governance-narrative`; `agent-autonomy` | `5x`; `20x`; `10x`; `$1.7T`; `$500 billion`; `$1.6 trillion` | forecast-pending | 2026-09-17 | Review candidate links and extract atomic forecast claims before reuse. |
 | SSL-20260821-001 | 2026-08-21 | high | Host: Peter H. Diamandis; Panel: Alex Wissner-Gross, Dave Blundin, Salim Ismail, Emad Mostaque | `archive/sources/singularity/innermost-loop/transcripts/2026-07-27-july-21-to-july-24-cluster.md`<br>`archive/sources/singularity/innermost-loop/transcripts/2026-07-27-the-first-orbital-librarian.md`<br>`archive/sources/singularity/innermost-loop/transcripts/2026-07-21-worldmonitor-gated-fixture-infrastructure-event.md` | `archive/sources/singularity/moonshots/transcripts/2026-08-21-moonshots-282-elon-says-100x-memory-prices-spike-500-percent-unitree-robot-outruns-usain-bolt-emad-mostaque-ep-282.md` | `compute-bottleneck`; `agent-autonomy`; `safety-governance-narrative` | `within 5 years`; `100X`; `10x`; `000x`; `5x`; `4x` | forecast-pending | 2026-09-20 | Review candidate links and extract atomic forecast claims before reuse. |
 | SSL-20260827-001 | 2026-08-27 | high | Host: Peter H. Diamandis; Panel: Alex Wissner-Gross, Dave Blundin, Salim Ismail, Emad Mostaque | `archive/sources/singularity/innermost-loop/transcripts/2026-07-27-july-21-to-july-24-cluster.md`<br>`archive/sources/singularity/innermost-loop/transcripts/2026-07-27-the-first-orbital-librarian.md` | `archive/sources/singularity/moonshots/transcripts/2026-08-27-moonshots-283-sam-altman-singularity-slow-down-emad-runs-18-grokbots-waymo-slashes-hardware-83-percent-ep-283.md` | `agent-autonomy`; `compute-bottleneck`; `china-catch-up` | `by 2030`; `within 3 months`; `100x`; `6x`; `5x`; `$30 trillion` | forecast-pending | 2026-09-26 | Review candidate links and extract atomic forecast claims before reuse. |
+| SSL-20260829-001 | 2026-08-29 | high | Host: Peter H. Diamandis; Panel: Alex Wissner-Gross, Dave Blundin, Salim Ismail | `archive/sources/singularity/innermost-loop/transcripts/2026-07-27-july-21-to-july-24-cluster.md`<br>`archive/sources/singularity/innermost-loop/transcripts/2026-07-27-the-first-orbital-librarian.md` | `archive/sources/singularity/moonshots/transcripts/2026-08-29-moonshots-284-nvidias-96-2b-quarter-chinas-200000-fake-accounts-openais-new-chip-ep-284.md` | `compute-bottleneck`; `energy-bottleneck`; `capital-market-infrastructure` | `by 2030`; `by 2033`; `by 2050`; `2x`; `100x`; `5x` | forecast-pending | 2026-09-28 | Review candidate links and extract atomic forecast claims before reuse. |
+| SSL-20260902-001 | 2026-09-02 | high | Host: Peter H. Diamandis; Panel: Alex Wissner-Gross, Dave Blundin; Guest: Philip Johnston, Matt Pines | `archive/sources/singularity/innermost-loop/transcripts/2026-07-27-july-21-to-july-24-cluster.md`<br>`archive/sources/singularity/innermost-loop/transcripts/2026-07-27-the-first-orbital-librarian.md` | `archive/sources/singularity/moonshots/transcripts/2026-09-02-moonshots-285-openai-cuts-off-elons-cursor-humanitys-first-star-probe-trumps-nuclear-mars-ship-ep-285.md` | `space-industrialization`; `compute-bottleneck`; `energy-bottleneck` | `within 3 years`; `10x`; `100x`; `5x`; `000x`; `$60 billion` | forecast-pending | 2026-10-02 | Review candidate links and extract atomic forecast claims before reuse. |
+| SSL-20260905-001 | 2026-09-05 | high | Host: Peter H. Diamandis; Panel: Alex Wissner-Gross, Dave Blundin, Salim Ismail, Emad Mostaque | `archive/sources/singularity/innermost-loop/transcripts/2026-07-27-the-first-orbital-librarian.md` | `archive/sources/singularity/moonshots/transcripts/2026-09-05-moonshots-286-gpt-6-astra-saturates-arc-agi-3-tesla-cybercab-anthropic-proves-fermats-last-theorem-ep-286.md` | `compute-bottleneck`; `science-acceleration`; `safety-governance-narrative` | `by 2029`; `100x`; `5x`; `$18 billion`; `$30 billion`; `$10 billion` | forecast-pending | 2026-10-05 | Review candidate links and extract atomic forecast claims before reuse. |
 
 ## Next Operating Pass
 

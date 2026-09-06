@@ -53,6 +53,18 @@ routes:
     shelf: nate-b-jones
     output: singularity-capture-target-note
     target_pattern: archive/sources/singularity/nate-b-jones-capture-targets-{date}.md
+  - channel_slug: moonshots
+    label: Moonshots with Peter Diamandis
+    channel_handle: "@MoonshotsPodcast"
+    canonical_url: https://www.youtube.com/channel/UCvxm0qTrGN_1LMYgUaftWyQ
+    aliases: [Moonshots, Moonshots podcast, Moonshots with Peter Diamandis, Peter H. Diamandis, UCvxm0qTrGN_1LMYgUaftWyQ, PL1wpF5k0tdIve4idTp3-FX2ZY7ks_BKeU]
+    archive_lane: singularity
+    shelf: moonshots
+    output: singularity-capture-target-note
+    duplicate_check_scope:
+      - archive/sources/singularity/moonshots/transcripts/
+      - archive/sources/singularity/moonshots-capture-targets-*.md
+    target_pattern: archive/sources/singularity/moonshots-capture-targets-{date}.md
 """,
         encoding="utf-8",
     )
@@ -245,6 +257,31 @@ def test_route_explain_reports_index_match(tmp_path: Path, capsys) -> None:
     payload = json.loads(capsys.readouterr().out)
     assert payload["archive_lane"] == "singularity"
     assert payload["channel_slug"] == "nate-b-jones"
+    assert payload["output"] == "singularity-capture-target-note"
+
+
+def test_route_explain_reports_moonshots_as_singularity_route(tmp_path: Path, capsys) -> None:
+    route_index = tmp_path / "routes.yml"
+    write_route_index(route_index)
+
+    assert (
+        youtube_capture.main(
+            [
+                "route-explain",
+                "--route-index",
+                str(route_index),
+                "--channel",
+                "Moonshots",
+                "--json",
+            ]
+        )
+        == 0
+    )
+
+    payload = json.loads(capsys.readouterr().out)
+    assert payload["archive_lane"] == "singularity"
+    assert payload["channel_slug"] == "moonshots"
+    assert payload["shelf"] == "moonshots"
     assert payload["output"] == "singularity-capture-target-note"
 
 

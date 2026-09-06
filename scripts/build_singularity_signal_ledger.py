@@ -13,6 +13,7 @@ MOONSHOTS_TRANSCRIPTS = SINGULARITY_ROOT / "moonshots" / "transcripts"
 INNERMOST_TRANSCRIPTS = SINGULARITY_ROOT / "innermost-loop" / "transcripts"
 DEFAULT_JSON = SINGULARITY_ROOT / "singularity-signal-ledger.json"
 DEFAULT_MARKDOWN = SINGULARITY_ROOT / "singularity-signal-ledger.md"
+MOONSHOTS_LEDGER_START = date(2026, 8, 4)
 
 MECHANISM_LEXICON: dict[str, tuple[str, ...]] = {
     "compute-bottleneck": (
@@ -401,7 +402,7 @@ def build_payload(window_days: int, link_limit: int) -> dict[str, Any]:
     moonshots = [
         doc
         for doc in load_docs(MOONSHOTS_TRANSCRIPTS)
-        if doc.published and date(2026, 8, 4) <= doc.published <= date(2026, 8, 27)
+        if doc.published and doc.published >= MOONSHOTS_LEDGER_START
     ]
     innermost = load_docs(INNERMOST_TRANSCRIPTS)
     rows: list[dict[str, Any]] = []

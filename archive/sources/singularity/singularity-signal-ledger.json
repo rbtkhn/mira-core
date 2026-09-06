@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "ledger_id": "singularity-signal-ledger-v1",
-  "generated_at": "2026-08-28T16:39:32Z",
+  "generated_at": "2026-09-06T21:10:22Z",
   "status": "working-ledger",
   "collections": [
     "innermost-loop",
@@ -32,6 +32,201 @@
     "innermost_candidate_limit": 3
   },
   "rows": [
+    {
+      "signal_id": "SSL-20260905-001",
+      "date_first_seen": "2026-09-05",
+      "moonshots_refs": [
+        {
+          "path": "archive/sources/singularity/moonshots/transcripts/2026-09-05-moonshots-286-gpt-6-astra-saturates-arc-agi-3-tesla-cybercab-anthropic-proves-fermats-last-theorem-ep-286.md",
+          "title": "GPT-6 Astra Saturates ARC-AGI-3, Tesla Cybercab Hits Austin, Anthropic Proves Fermat's Last Theorem | EP #286",
+          "date": "2026-09-05"
+        }
+      ],
+      "innermost_loop_refs": [
+        {
+          "path": "archive/sources/singularity/innermost-loop/transcripts/2026-07-27-the-first-orbital-librarian.md",
+          "title": "The First Orbital Librarian",
+          "date": "2026-07-27",
+          "matched_terms": [
+            "inference",
+            "lab"
+          ],
+          "match_status": "candidate"
+        }
+      ],
+      "mechanism": [
+        "compute-bottleneck",
+        "science-acceleration",
+        "safety-governance-narrative"
+      ],
+      "participant_context": {
+        "host": "Peter H. Diamandis",
+        "panelists": [
+          "Alex Wissner-Gross",
+          "Dave Blundin",
+          "Salim Ismail",
+          "Emad Mostaque"
+        ],
+        "guests": [],
+        "speaker_status": "not diarized; full Moonshots quintet inferred from opening",
+        "attribution_status": "episode-level-context"
+      },
+      "forecast_claims": {
+        "status": "needs-human-extraction",
+        "candidate_handles": [
+          "by 2029",
+          "100x",
+          "5x",
+          "$18 billion",
+          "$30 billion",
+          "$10 billion"
+        ]
+      },
+      "evidence_status": "forecast-pending",
+      "next_check_date": "2026-10-05",
+      "priority": "high",
+      "disposition": "Review candidate links and extract atomic forecast claims before reuse."
+    },
+    {
+      "signal_id": "SSL-20260902-001",
+      "date_first_seen": "2026-09-02",
+      "moonshots_refs": [
+        {
+          "path": "archive/sources/singularity/moonshots/transcripts/2026-09-02-moonshots-285-openai-cuts-off-elons-cursor-humanitys-first-star-probe-trumps-nuclear-mars-ship-ep-285.md",
+          "title": "OpenAI Cuts Off Elon's Cursor, Humanity's First Star Probe, and Trump's Nuclear Mars Ship | EP #285",
+          "date": "2026-09-02"
+        }
+      ],
+      "innermost_loop_refs": [
+        {
+          "path": "archive/sources/singularity/innermost-loop/transcripts/2026-07-27-july-21-to-july-24-cluster.md",
+          "title": "The Innermost Loop: July 21-24, 2026 cluster",
+          "date": "2026-07-21",
+          "matched_terms": [
+            "chip",
+            "chips",
+            "compute",
+            "energy",
+            "nuclear",
+            "orbital",
+            "power",
+            "satellite"
+          ],
+          "match_status": "candidate"
+        },
+        {
+          "path": "archive/sources/singularity/innermost-loop/transcripts/2026-07-27-the-first-orbital-librarian.md",
+          "title": "The First Orbital Librarian",
+          "date": "2026-07-27",
+          "matched_terms": [
+            "inference",
+            "nasa",
+            "orbital"
+          ],
+          "match_status": "candidate"
+        }
+      ],
+      "mechanism": [
+        "space-industrialization",
+        "compute-bottleneck",
+        "energy-bottleneck"
+      ],
+      "participant_context": {
+        "host": "Peter H. Diamandis",
+        "panelists": [
+          "Alex Wissner-Gross",
+          "Dave Blundin"
+        ],
+        "guests": [
+          "Philip Johnston",
+          "Matt Pines"
+        ],
+        "speaker_status": "not diarized; guest interview with Moonshots panel context; Salim Ismail absent at opening",
+        "attribution_status": "episode-level-context"
+      },
+      "forecast_claims": {
+        "status": "needs-human-extraction",
+        "candidate_handles": [
+          "within 3 years",
+          "10x",
+          "100x",
+          "5x",
+          "000x",
+          "$60 billion"
+        ]
+      },
+      "evidence_status": "forecast-pending",
+      "next_check_date": "2026-10-02",
+      "priority": "high",
+      "disposition": "Review candidate links and extract atomic forecast claims before reuse."
+    },
+    {
+      "signal_id": "SSL-20260829-001",
+      "date_first_seen": "2026-08-29",
+      "moonshots_refs": [
+        {
+          "path": "archive/sources/singularity/moonshots/transcripts/2026-08-29-moonshots-284-nvidias-96-2b-quarter-chinas-200000-fake-accounts-openais-new-chip-ep-284.md",
+          "title": "NVIDIA's $96.2B Quarter, China's 200,000 Fake Accounts, & OpenAI's New Chip | EP #284",
+          "date": "2026-08-29"
+        }
+      ],
+      "innermost_loop_refs": [
+        {
+          "path": "archive/sources/singularity/innermost-loop/transcripts/2026-07-27-july-21-to-july-24-cluster.md",
+          "title": "The Innermost Loop: July 21-24, 2026 cluster",
+          "date": "2026-07-21",
+          "matched_terms": [
+            "chip",
+            "chips",
+            "compute",
+            "energy",
+            "nuclear",
+            "power"
+          ],
+          "match_status": "candidate"
+        },
+        {
+          "path": "archive/sources/singularity/innermost-loop/transcripts/2026-07-27-the-first-orbital-librarian.md",
+          "title": "The First Orbital Librarian",
+          "date": "2026-07-27",
+          "matched_terms": [
+            "inference"
+          ],
+          "match_status": "candidate"
+        }
+      ],
+      "mechanism": [
+        "compute-bottleneck",
+        "energy-bottleneck",
+        "capital-market-infrastructure"
+      ],
+      "participant_context": {
+        "host": "Peter H. Diamandis",
+        "panelists": [
+          "Alex Wissner-Gross",
+          "Dave Blundin",
+          "Salim Ismail"
+        ],
+        "guests": [],
+        "speaker_status": "not diarized; full Moonshots quartet inferred from opening",
+        "attribution_status": "episode-level-context"
+      },
+      "forecast_claims": {
+        "status": "needs-human-extraction",
+        "candidate_handles": [
+          "by 2030",
+          "by 2033",
+          "by 2050",
+          "2x",
+          "100x",
+          "5x"
+        ]
+      },
+      "evidence_status": "forecast-pending",
+      "next_check_date": "2026-09-28",
+      "priority": "high",
+      "disposition": "Review candidate links and extract atomic forecast claims before reuse."
+    },
     {
       "signal_id": "SSL-20260827-001",
       "date_first_seen": "2026-08-27",
@@ -687,7 +882,10 @@
       "SSL-20260815-001",
       "SSL-20260818-001",
       "SSL-20260821-001",
-      "SSL-20260827-001"
+      "SSL-20260827-001",
+      "SSL-20260829-001",
+      "SSL-20260902-001",
+      "SSL-20260905-001"
     ],
     "Alvin Graylin": [
       "SSL-20260818-001"
@@ -699,16 +897,23 @@
       "SSL-20260815-001",
       "SSL-20260818-001",
       "SSL-20260821-001",
-      "SSL-20260827-001"
+      "SSL-20260827-001",
+      "SSL-20260829-001",
+      "SSL-20260902-001",
+      "SSL-20260905-001"
     ],
     "Emad Mostaque": [
       "SSL-20260808-001",
       "SSL-20260813-001",
       "SSL-20260821-001",
-      "SSL-20260827-001"
+      "SSL-20260827-001",
+      "SSL-20260905-001"
     ],
     "Kush Bavaria": [
       "SSL-20260811-001"
+    ],
+    "Matt Pines": [
+      "SSL-20260902-001"
     ],
     "Michael Kratsios": [
       "SSL-20260804-001"
@@ -721,7 +926,13 @@
       "SSL-20260815-001",
       "SSL-20260818-001",
       "SSL-20260821-001",
-      "SSL-20260827-001"
+      "SSL-20260827-001",
+      "SSL-20260829-001",
+      "SSL-20260902-001",
+      "SSL-20260905-001"
+    ],
+    "Philip Johnston": [
+      "SSL-20260902-001"
     ],
     "Ramez Naam": [
       "SSL-20260815-001"
@@ -733,7 +944,9 @@
       "SSL-20260815-001",
       "SSL-20260818-001",
       "SSL-20260821-001",
-      "SSL-20260827-001"
+      "SSL-20260827-001",
+      "SSL-20260829-001",
+      "SSL-20260905-001"
     ]
   }
 }
