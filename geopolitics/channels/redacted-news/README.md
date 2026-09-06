@@ -9,12 +9,15 @@ Status: `lightweight`
 | Channel slug | `redacted-news` |
 | Channel / show | Redacted News |
 | Host people | Clayton Morris; Natali Morris |
+| Host metadata status | Provisional channel attribution only; not geopolitical voice admission |
 | Source basis | [../../archive/source-manifest.json](../../archive/source-manifest.json) |
 | Shelf status | `lightweight` |
 
 ## Channel Role
 
 Redacted News places guests in a crisis-media register. Use this shelf when the channel frame emphasizes collapse, war expansion, urgent public warning, and pressure on U.S. policy enforcement.
+
+Redacted News is an occasional geopolitics source, not a general-purpose daily geopolitics channel. Exclude domestic, health, education, platform, finance, or culture-war items unless the title, guest, or visible description ties the item to a geopolitical object such as war, sanctions, military posture, foreign policy, state conflict, international law, alliance politics, or a governed archive voice. Same-day publication alone is not enough for geopolitics intake.
 
 ## Source Links
 
@@ -28,6 +31,7 @@ Redacted News places guests in a crisis-media register. Use this shelf when the 
 
 ## Host-Conditioning Notes
 
+- Treat Clayton Morris and Natali Morris as channel hosts for attribution only unless a separate voice-admission review promotes one of them.
 - Redacted framing can intensify guest warning language.
 - Preserve Pape's forecast discipline when quoting or summarizing from his rows.
 - Keep Kent's enforcement-lever claims distinct from Weichert's collapse-timing claims on the same day.
