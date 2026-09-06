@@ -211,7 +211,8 @@ channels:
 
   redacted-news:
     tier: B
-    reason: crisis-media pressure signal, mixed quality
+    reason: occasional geopolitics source with mixed-topic output; require topic-fit before intake
+    topic_filter: skip domestic, health, education, platform, finance, or culture-war items unless title, guest, or visible description ties the item to a geopolitical object or governed archive voice
     escalation_triggers:
       - iran
       - israel

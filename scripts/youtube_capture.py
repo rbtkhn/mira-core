@@ -47,6 +47,13 @@ SEGMENT_TITLE_RE = re.compile(
     r"destroy our rights|threaten|kills children|ignores deal)\b",
     re.IGNORECASE,
 )
+REDACTED_NEWS_GEOPOLITICS_TITLE_RE = re.compile(
+    r"\b(?:iran|israel|gaza|palestin|lebanon|syria|yemen|hormuz|russia|ukraine|"
+    r"china|taiwan|nato|brics|europe|eu\b|ww3|war|military|missile|drone|"
+    r"sanction|tariff|ceasefire|peace deal|foreign policy|international law|"
+    r"macgregor|pape|weichert|joe kent|wilson|sachs|marandi|diesen|mercouris)\b",
+    re.IGNORECASE,
+)
 QUEUE_ONLY_NOTICE = "YOUTUBE_CAPTURE_MODE=route-aware-capture-draft-only"
 AUTHORITY_NOTICE = (
     "AUTHORITY_BOUNDARY=no archive landing, transcript admission, manifest mutation, "
@@ -509,11 +516,17 @@ def normalize_index_row(*, capture_date: str, row: dict[str, str]) -> dict[str, 
     }
 
 
-def discovered_triage(url: str, title: str) -> tuple[str, str, str]:
+def discovered_triage(url: str, title: str, *, channel_slug: str = "") -> tuple[str, str, str]:
     normalized_title = title.strip()
     parsed = urlparse(url.strip())
     if parsed.path.startswith("/shorts/"):
         return "skip", "short-form video; skip unless operator explicitly selects", "auto-filter=shorts"
+    if channel_slug == "redacted-news" and not REDACTED_NEWS_GEOPOLITICS_TITLE_RE.search(normalized_title):
+        return (
+            "skip",
+            "off-topic for geopolitics intake; Redacted News requires explicit geopolitical topic or voice fit",
+            "auto-filter=redacted-news-topic-fit",
+        )
     if SEGMENT_TITLE_RE.search(normalized_title) and not NAMED_GUEST_TITLE_RE.search(normalized_title):
         return (
             "possible",
@@ -536,7 +549,7 @@ def normalize_discovered_video_row(
     title = video.get("title", "")
     published_at = video.get("published_at", "")
     publication_date = publication_date_from_timestamp(published_at)
-    disposition, next_action, filter_note = discovered_triage(url, title)
+    disposition, next_action, filter_note = discovered_triage(url, title, channel_slug=slug)
     notes = f"discover-public cadence={cadence}; channel_slug={slug}; discovery_evidence=rss-seed-only"
     if filter_note:
         notes = f"{notes}; {filter_note}"

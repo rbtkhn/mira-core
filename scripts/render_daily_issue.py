@@ -443,11 +443,14 @@ def render_story(story: Story, body: str) -> str:
     return f"### {story.headline}\n\nEvidence posture: `{story.evidence_posture}`\n\nCrisis object: {story.crisis_object}\n\nRelated reality claims: {related}\n\n{body.strip()}"
 
 
-def source_display(row: dict[str, str]) -> tuple[str, str, str]:
+def source_display(row: dict[str, str]) -> tuple[str, str, str, str, str, str]:
+    date = clean_cell(row.get("Date", ""))
+    title = clean_cell(row.get("Title", ""))
+    url = clean_cell(row.get("URL", row.get("Source URL", "")))
     voice = clean_cell(row.get("Voice", row.get("Voice(s)", ""))) or "Unassigned"
     source = row.get("Archive Path", row.get("Source", row.get("Manifest path", "")))
     job = row.get("Analytical job", row.get("Why It Matters", row.get("Notes", "")))
-    return voice, source, job
+    return date, title, url, voice, source, job
 
 
 def render_model(
@@ -471,11 +474,11 @@ def render_model(
     main = render_story(lead, model.copy[lead.story_id])
 
     source_ids = list(dict.fromkeys(source_id for story in selected for source_id in story.source_ids))
-    source_lines = ["Only sources used by selected issue stories appear here. See the [complete canonical source accounting](sources.md).", "", "| Source ID | Voice | Archive source | Analytical job |", "| --- | --- | --- | --- |"]
+    source_lines = ["Only sources used by selected issue stories appear here. See the [complete canonical source accounting](sources.md).", "", "| Source ID | Date | Title | URL | Voice | Archive source | Analytical job |", "| --- | --- | --- | --- | --- | --- | --- |"]
     for source_id in source_ids:
         row = model.source_rows[source_id]
-        voice, source, job = source_display(row)
-        source_lines.append(f"| `{source_id}` | {voice} | {source} | {job} |")
+        date, title, url, voice, source, job = source_display(row)
+        source_lines.append(f"| `{source_id}` | {date} | {title} | {url} | {voice} | {source} | {job} |")
 
     forecast_lines = ["Forecasts remain accountable to the [canonical daily review](forecast.md) and [central ledger](../../forecasts/forecast-ledger.md)."]
     if model.forecast_rows:

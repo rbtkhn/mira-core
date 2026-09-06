@@ -1006,6 +1006,49 @@ def test_discovered_video_row_demotes_segment_titles_but_preserves_named_guests(
     assert "auto-filter" not in named_guest["notes"]
 
 
+def test_redacted_news_discovery_skips_non_geopolitics_topics() -> None:
+    row = youtube_capture.normalize_discovered_video_row(
+        capture_date="2026-09-05",
+        channel_row={
+            "slug": "redacted-news",
+            "label": "Redacted News",
+            "capture_cadence": "weekly",
+        },
+        video={
+            "url": "https://www.youtube.com/watch?v=x-aDcO9Ugf4",
+            "title": "Colorado's Teen Suicide Prevention Program Is Funded By Bill Gates",
+            "published_at": "2026-09-05T18:02:59+00:00",
+            "channel": "Redacted News",
+        },
+    )
+
+    assert row["disposition"] == "skip"
+    assert row["next_action"] == (
+        "off-topic for geopolitics intake; Redacted News requires explicit geopolitical topic or voice fit"
+    )
+    assert "auto-filter=redacted-news-topic-fit" in row["notes"]
+
+
+def test_redacted_news_discovery_keeps_geopolitics_topics_reviewable() -> None:
+    row = youtube_capture.normalize_discovered_video_row(
+        capture_date="2026-09-05",
+        channel_row={
+            "slug": "redacted-news",
+            "label": "Redacted News",
+            "capture_cadence": "weekly",
+        },
+        video={
+            "url": "https://www.youtube.com/watch?v=geo123",
+            "title": "Col. Douglas Macgregor: Ukraine War Enters A Dangerous New Phase",
+            "published_at": "2026-09-05T18:02:59+00:00",
+            "channel": "Redacted News",
+        },
+    )
+
+    assert row["disposition"] == "watch"
+    assert "auto-filter=redacted-news-topic-fit" not in row["notes"]
+
+
 def test_discover_public_preserves_existing_review_state(tmp_path: Path, monkeypatch) -> None:
     queue_root = tmp_path / "queue"
     channel_index = tmp_path / "channel-index.md"

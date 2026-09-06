@@ -25,9 +25,9 @@ status as `already-imported` and explain why the run is being reconstructed.
 
 ## Run Source Set
 
-| Source ID | Voice | Host / Channel | Modality | Archive Path | Why It Matters |
-| --- | --- | --- | --- | --- | --- |
-| `SRC-01` |  |  |  |  |  |
+| Source ID | Date | Title | URL | Voice | Host / Channel | Modality | Archive Path | Why It Matters |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| `SRC-01` | `YYYY-MM-DD` |  |  |  |  |  |  |  |
 
 ## Load-Bearing Quotes
 

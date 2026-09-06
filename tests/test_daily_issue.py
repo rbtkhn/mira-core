@@ -50,9 +50,9 @@ Date: `{RUN_DATE}`
 
 ## Run Source Set
 
-| Source ID | Voice | Archive Path | Why It Matters |
-| --- | --- | --- | --- |
-| `SRC-01` | Analyst | [source](../../../../archive/sources/geopolitics/sources/{RUN_DATE}/source-a.md) | Mechanism evidence. |
+| Source ID | Date | Title | URL | Voice | Archive Path | Why It Matters |
+| --- | --- | --- | --- | --- | --- | --- |
+| `SRC-01` | `{RUN_DATE}` | Source A Title | [YouTube](https://www.youtube.com/watch?v=source-a) | Analyst | [source](../../../../archive/sources/geopolitics/sources/{RUN_DATE}/source-a.md) | Mechanism evidence. |
 
 ## Missing Observables
 
@@ -142,6 +142,11 @@ def test_render_is_deterministic_and_selects_declared_sources(tmp_path: Path) ->
     assert first == second
     assert "daily-issue-v1 inputs-sha256:" in first
     assert "Passage Rules Remain the Discriminating Test" in first
+    assert "| Source ID | Date | Title | URL | Voice | Archive source | Analytical job |" in first
+    assert (
+        "| `SRC-01` | 2026-07-09 | Source A Title | "
+        "[YouTube](https://www.youtube.com/watch?v=source-a) | Analyst |"
+    ) in first
     assert "[source](../../../../archive/sources/geopolitics/sources/2026-07-09/source-a.md)" in first
     assert set(issue.REQUIRED_ISSUE_SECTIONS) <= set(name for level, name in issue.HEADING_RE.findall(first) if level == "##")
 

@@ -218,13 +218,15 @@ def build_sources_md(run_date: str, status: str, rows: list[dict[str, Any]], ret
         modality = row.get("modality", "")
         source_class = row.get("source_class", "")
         title = row.get("title", "")
+        source_url = row.get("source_url", "")
+        url_link = f"[source]({source_url})" if source_url else ""
         notes = f"{source_class}; review and narrow to owning crisis object before synthesis."
 
         intake_lines.append(
             f"| `{rel_archive}` | {modality or 'unknown'} | `{intake_status}` | `yes` | {voice_label} | {host_label} | {notes} |"
         )
         run_lines.append(
-            f"| `{source_id}` | {voice_label} | {host_label} | {modality or 'unknown'} | {archive_md} | {title} |"
+            f"| `{source_id}` | `{run_date}` | {title} | {url_link} | {voice_label} | {host_label} | {modality or 'unknown'} | {archive_md} | {notes} |"
         )
         quote_lines.append(f"| `{source_id}` |  |  |")
         claim_lines.append(
@@ -254,8 +256,8 @@ Primary source basis:
 
 ## Run Source Set
 
-| Source ID | Voice | Host / Channel | Modality | Archive Path | Why It Matters |
-| --- | --- | --- | --- | --- | --- |
+| Source ID | Date | Title | URL | Voice | Host / Channel | Modality | Archive Path | Why It Matters |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
 {chr(10).join(run_lines)}
 
 ## Load-Bearing Quotes

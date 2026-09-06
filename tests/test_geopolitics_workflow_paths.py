@@ -110,3 +110,30 @@ def test_daily_writer_routes_all_outputs_and_preserves_existing_files(tmp_path, 
     bootstrap.main()
     assert {p.name: p.read_bytes() for p in day.iterdir()} == before
     assert not (tmp_path / ("geopolitics" if layout == "narrative-geopolitics" else "narrative-geopolitics")).exists()
+
+
+def test_bootstrap_sources_table_keeps_date_title_and_url_together():
+    import bootstrap_daily_run as bootstrap
+
+    text = bootstrap.build_sources_md(
+        "2099-01-01",
+        "draft",
+        [
+            {
+                "local_path": "archive/sources/geopolitics/sources/2099-01-01/source-example.md",
+                "voice_slugs": ["diesen"],
+                "host_slug": "mario-nawfal",
+                "modality": "cleaned-transcript",
+                "source_class": "guest interview",
+                "title": "Example Title",
+                "source_url": "https://www.youtube.com/watch?v=example",
+            }
+        ],
+        False,
+    )
+
+    assert "| Source ID | Date | Title | URL | Voice | Host / Channel | Modality | Archive Path | Why It Matters |" in text
+    assert (
+        "| `SRC-01` | `2099-01-01` | Example Title | "
+        "[source](https://www.youtube.com/watch?v=example) | Diesen | Mario Nawfal |"
+    ) in text
