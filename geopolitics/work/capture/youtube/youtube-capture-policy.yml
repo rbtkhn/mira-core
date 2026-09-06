@@ -1,6 +1,6 @@
 version: 1
 status: draft
-scope: narrative-geopolitics-youtube-capture
+scope: geopolitics-youtube-capture-lane
 
 authority:
   may_update_queue: true
@@ -11,7 +11,9 @@ authority:
   may_stage_commit_push: false
 
 defaults:
+  global_route_index: archive/sources/youtube-channel-routing.yml
   channel_url_source: narrative-geopolitics/channels/channel-index.md
+  channel_url_source_scope: geopolitics_lane_only
   channel_url_rule: resolve_by_channel_slug_do_not_duplicate
   shorts_policy: skip
   default_disposition: watch
@@ -62,6 +64,8 @@ tool_read_contract:
     - POLICY_WARNINGS
     - AUTHORITY_BOUNDARY
   non_goals:
+    - do_not_route_cross_archive_channels_here
+    - do_not_capture_singularity_channels_under_geopolitics
     - do_not_make_must_land_automatic
     - do_not_run_archive_intake
     - do_not_mutate_source_manifest
