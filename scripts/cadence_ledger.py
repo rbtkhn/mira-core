@@ -918,7 +918,7 @@ def repository_change(projection: dict[str, Any]) -> dict[str, Any]:
 def relevant_path_components(refs: Iterable[str]) -> list[dict[str, str]]:
     components=[]
     for ref in sorted(set(refs)):
-        normalized=sanitize_text(ref,limit=500).replace("\\","/")
+        normalized=sanitize_artifact_ref(ref,limit=500)
         path=REPO_ROOT/normalized.split("#",1)[0]
         if not path.exists():
             components.append({"path":normalized,"status":"missing","sha256":"none"})

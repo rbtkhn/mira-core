@@ -84,6 +84,22 @@ def test_normalize_repo_ref_preserves_dated_paths(tmp_path: Path, monkeypatch: p
     assert cadence_ledger.normalize_repo_ref(ref) == ref
 
 
+def test_coffee_grounding_preserves_dated_geopolitics_paths(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    repo = tmp_path / "repo"
+    target = repo / "geopolitics" / "work" / "daily" / "2026-09-05" / "strategy-notebook.md"
+    target.parent.mkdir(parents=True)
+    target.write_text("strategy notebook", encoding="utf-8")
+    monkeypatch.setattr(cadence_ledger, "REPO_ROOT", repo)
+
+    ref = "geopolitics/work/daily/2026-09-05/strategy-notebook.md"
+    components = cadence_ledger.relevant_path_components([ref])
+
+    assert components[0]["path"] == ref
+    assert components[0]["status"] == "present"
+
+
 def test_normalize_repo_ref_rejects_contact_absolute_and_escaping_refs(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:
