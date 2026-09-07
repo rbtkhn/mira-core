@@ -86,7 +86,7 @@ def test_formatted_coffee_renders_governed_menu_from_explicit_store(
     cadence.main()
 
     rendered = capsys.readouterr().out
-    assert "A. Execute: Confirm" in rendered
+    assert "A. Execute: inspect the current baseline in tests/test_cadence.py." in rendered
     assert "B. Test:" in rendered
     assert "C. Deepen:" in rendered
     assert "D. Reframe:" in rendered
@@ -121,6 +121,9 @@ def test_cold_start_coffee_actions_do_not_inherit_or_change_method(tmp_path: Pat
     }
     assert actions["B"]["selection_effect"] == "navigate"
     assert actions["C"]["selection_effect"] == "navigate"
+    assert actions["C"]["label"] == "Deepen by reading one retained source from Mira Library."
+    assert actions["C"]["target"] == "archive/library/library-registry.json"
+    assert "four navigational Core-8 source choices" in actions["C"]["next_boundary"]
     assert actions["D"]["selection_effect"] == "navigate"
 
 

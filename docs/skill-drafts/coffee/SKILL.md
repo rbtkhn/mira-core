@@ -5,6 +5,12 @@ description: "Reorient Mira Core from repository state and the last verified Dre
 
 # Coffee
 
+Executable option wording comes from its stored execution specification via
+`cadence_ledger.execution_label`, in every presentation mode. Show the actual
+source, comparison operands, and expected verification result. A current
+presentation-digest comparison does not test a future experiment or establish
+its effectiveness. Keep the latter in a separate navigational discussion.
+
 Use only in `mira-core`. Coffee is repository-read-only. Bare `coffee`
 authorizes only a deterministic private cadence-schema migration when needed
 and one digest-only presentation receipt after a grounded Coffee packet
@@ -19,6 +25,17 @@ residue as real obligation, stale guilt, live curiosity, false urgency, or a
 weak/stale Dream handoff before selecting the next bounded action surface.
 
 ## Orient
+
+Read [Session handoff](../dream/references/session-handoff.md), mode
+`coffee-receive`, when receiving the Dream handoff. Apply its provenance,
+coverage, current-state, and unresolved-authority checks inside the existing
+orientation below. A pasted Bridge packet is advisory context, never a
+replacement for the latest eligible Dream candidate or Coffee's deterministic
+renderer. A Harvest packet supplements the named task only. Missing or stale
+exports do not block ordinary Coffee when its canonical grounding is intact.
+Do not add an export step, duplicate a packet, change the rendered action menu,
+or create another receipt. Explicit `bridge` and `harvest` requests use their
+local export routes independently of Coffee.
 
 Before ordinary orientation, resolve every unread canonical version descended
 from a Dream-finalized Journal entry. Verify the registry and canonical-file
@@ -117,6 +134,21 @@ order as a prefix, stopping when later actions would be filler:
 
 Recommend one action and stop on the Coffee packet. Each action must name an
 artifact, forecast, crisis object, observable, or method change.
+
+When the selected action is `C. Deepen by reading one retained source from Mira
+Library.`, open a navigation-only follow-up with exactly four Core-8 source
+choices:
+
+- `A. Homer — Iliad I`, because wrath, office, and collective harm test inherited obligation.
+- `B. Biblical tradition — Exodus 18`, because delegated judgment tests authority distribution.
+- `C. Cicero — De Officiis I`, because duty can be tested against apparent usefulness.
+- `D. Goethe — Faust I`, because knowledge-to-action tests whether formation becomes responsibility.
+
+These choices select a bounded reading route, not a source admission or a new
+receipt. Read only the retained source body and report its location, the
+interpretive question, the evidence limit, and the stopping point. Do not create
+a note, registry entry, graph edge, canonical admission, or publication change
+unless separately authorized.
 
 If the renderer reports `insufficient_grounding`, fail closed and report that
 no honest grounded Coffee packet can be formed. Never invent filler actions.

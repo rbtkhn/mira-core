@@ -376,6 +376,19 @@ def append_daily_close_event(connection: sqlite3.Connection, run_id: str, event_
             }
         elif key == "canonicalized" and isinstance(value, bool):
             clean[key] = value
+        elif key == "forecast_review" and isinstance(value, dict):
+            # Retain coverage for completed-run replay, not source bodies or
+            # review prose. Detailed evidence stays in the private review bundle.
+            clean[key] = {name: value[name] for name in ("schema_version", "pending_count", "coverage_known") if name in value}
+            for name in ("status", "reason", "as_of"):
+                if value.get(name):
+                    clean[key][name] = sanitize_text(value[name], limit=1000)
+            if isinstance(value.get("reviews"), list):
+                clean[key]["reviews"] = [
+                    {name: sanitize_text(item[name], limit=1000)
+                     for name in ("hook", "status", "disposition") if item.get(name)}
+                    for item in value["reviews"] if isinstance(item, dict)
+                ]
     if clean.get("stage") and clean["stage"] not in DAILY_CLOSE_STAGES:
         raise CadenceLedgerError("daily close event has invalid stage")
     previous = connection.execute(
@@ -985,6 +998,22 @@ ACTION_SHAPE = (
 )
 
 
+def execution_label(execution: dict[str, Any]) -> str:
+    """The visible promise is generated from the same specification as execution."""
+    source = execution["source"]
+    kind = execution["kind"]
+    if kind == "read-only-artifact-inspection":
+        return f"Execute: inspect the current baseline in {source}."
+    if kind == "read-only-context-digest-comparison":
+        comparison = "presentation context digests"
+    elif kind == "read-only-observable-comparison":
+        comparison = "the observable baseline and success threshold"
+    else:
+        raise CadenceLedgerError(f"Unsupported Coffee execution kind: {kind}")
+    return (f"Execute: compare {comparison} using {source}: "
+            f"{execution['baseline']} -> {execution['threshold']}.")
+
+
 def build_actions(
     projection: dict[str, Any], *, mode: str="initial", repeat_depth: int=0,
     changed_components: list[str] | None=None,
@@ -1000,23 +1029,18 @@ def build_actions(
     method_target = f"{episode_id}:{episode['method_version_digest']}"
     observable = episode["observable"]
     falsifier_target = {**observable, "test": episode["falsifier"]}
-    a_label=f"Execute: confirm {observable['name']} against {episode['next_use']}."
     b_label=f"Test the falsifier for {observable['name']}: {episode['falsifier']}"
     c_label=f"Deepen the evidence at {first_artifact}."
     d_label=f"Reframe the method change {episode['intervention']}."
     if mode=="delta":
-        delta_label=", ".join(changes)
-        a_label=f"Execute: confirm the relevant-lane delta ({delta_label}) against {episode['next_use']}."
         b_label=f"Test whether the delta changes the falsifier for {observable['name']}: {episode['falsifier']}"
         c_label=f"Deepen the changed evidence at {first_artifact}."
         d_label=f"Reframe {episode['intervention']} after the relevant-lane delta."
     elif mode=="repeat-checkpoint":
-        a_label=f"Execute: confirm that no relevant-lane evidence changed since the prior Coffee presentation for {observable['name']}."
         b_label=f"Test the next evidence checkpoint for {observable['name']}: {episode['falsifier']}"
         c_label=f"Deepen the blocking evidence at {first_artifact}."
         d_label=f"Reframe whether to defer or retest {episode['intervention']}."
     elif mode=="saturated":
-        a_label=f"Execute: confirm evidence stagnation after {repeat_depth} unchanged Coffee presentations for {observable['name']}."
         b_label=f"Test one concrete next-use falsifier before revisiting {observable['name']}: {episode['falsifier']}"
         c_label=f"Deepen the unresolved blockage at {first_artifact}."
         d_label=f"Reframe toward defer, supersede, reject, or retest for {episode['intervention']}."
@@ -1046,7 +1070,7 @@ def build_actions(
     actions = [
         {
             "key": "A", "verb": "Confirm", "role": "recommended",
-            "label": a_label,
+            "label": execution_label(execution),
             "target_type": execution_target_type, "target": execution_target, "reason": episode["evidence_summary"],
             "candidate_id": episode_id, "selection_effect": "execute",
             "execution": execution,
@@ -1103,11 +1127,11 @@ def build_cold_start_actions() -> list[dict[str, Any]]:
         },
         {
             "key": "C", "verb": "Deepen", "role": "overlooked",
-            "label": "Deepen one accountable gap in the forecast ledger.",
-            "target_type": "artifact", "target": "narrative-geopolitics/work/forecasts/forecast-ledger.md",
-            "reason": "The ledger is a bounded source of consequential unresolved work.",
+            "label": "Deepen by reading one retained source from Mira Library.",
+            "target_type": "artifact", "target": "archive/library/library-registry.json",
+            "reason": "A bounded Core-8 reading can convert morning orientation into grounded comparative attention.",
             "candidate_id": None, "selection_effect": "navigate",
-            "next_boundary": "Inspect one accountable forecast without scoring or changing it.",
+            "next_boundary": "Present four navigational Core-8 source choices; reading remains bounded to the selected retained source.",
         },
         {
             "key": "D", "verb": "Reframe", "role": "pause-or-deepen",
@@ -1118,6 +1142,7 @@ def build_cold_start_actions() -> list[dict[str, Any]]:
             "next_boundary": "Conclude read-only that no candidate is warranted; any closeout receipt remains separately authorized.",
         },
     ]
+    actions[0]["label"] = execution_label(actions[0]["execution"])
     validate_actions(actions)
     return actions
 
@@ -1145,10 +1170,24 @@ def validate_actions(actions: list[dict[str, Any]]) -> None:
                 raise CadenceLedgerError("Coffee execution must be explicitly read-only")
             sanitize_text(execution.get("source", ""), limit=1000)
             sanitize_text(execution.get("verification", ""), limit=1000)
+            if action["label"] != execution_label(execution):
+                raise CadenceLedgerError("Coffee label must match its execution specification")
         target_type = action.get("target_type")
         if target_type not in TARGET_TYPES:
             raise CadenceLedgerError("Coffee action has invalid target type")
         target = action.get("target")
+        if effect == "execute":
+            kind = execution["kind"]
+            if kind == "read-only-artifact-inspection":
+                matches = target_type == "artifact" and target == execution["source"]
+            elif kind == "read-only-context-digest-comparison":
+                matches = target_type == "presentation_context" and target == f"{execution['baseline']}->{execution['threshold']}"
+            else:
+                matches = target_type == "observable" and isinstance(target, dict) and (
+                    target.get("source"), target.get("baseline"), target.get("success_threshold")
+                ) == (execution["source"], execution["baseline"], execution["threshold"])
+            if not matches:
+                raise CadenceLedgerError("Coffee target must match its execution specification")
         if target_type == "artifact":
             target_key = normalize_repo_ref(str(target))
         elif target_type == "observable":
@@ -1279,16 +1318,17 @@ def render_coffee_markdown(context: dict[str, Any]) -> str:
     ])
     for action in context["actions"]:
         if action["selection_effect"] == "execute":
-            executable = action["label"].split(":", 1)[1].strip()
-            lines.append(f"{action['key']}. Execute: {action['verb']} - {executable} Target: `{action['target_type']}`.")
+            lines.append(f"{action['key']}. {execution_label(action['execution'])}")
+            lines.append(f"   Verification: {action['execution']['verification']}")
             lines.append(f"   Authority boundary: {action['next_boundary']}")
         else:
             lines.append(f"{action['key']}. {action['verb']}: {action['label']} Target: `{action['target_type']}`.")
+            lines.append(f"   Next discussion: {action['next_boundary']}")
     recommendations={
-        "initial":"A. Confirm the claimed improvement before adoption.",
+        "initial":"A. Inspect the named current source before designing a further test.",
         "delta":"A. Confirm the relevant-lane delta before changing the candidate's disposition.",
         "repeat-checkpoint":"A. Confirm the absence of relevant progress before designing another test.",
-        "saturated":"A. Confirm evidence stagnation before developing a terminal disposition.",
+        "saturated":"A. Check whether the recorded context changed before discussing disposition.",
     }
     lines.extend(["",f"Recommendation: {recommendations.get(context['presentation']['mode'],recommendations['initial'])}"])
     return "\n".join(lines) + "\n"
