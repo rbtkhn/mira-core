@@ -321,6 +321,7 @@ def library_carrier(*, inspect_texts: bool = False) -> dict[str, Any]:
     """Project Mira Library health without acquiring Library authority."""
     import archive_library
     import library_integration
+    import library_journal
 
     canonical = [
         REPO_ROOT / "archive/library/library-registry.json",
@@ -356,6 +357,7 @@ def library_carrier(*, inspect_texts: bool = False) -> dict[str, Any]:
         [
             {"id": "source-library", "authority_status": "collection-native", "owning_command": "tools/run.ps1 library", "reporting_verb": "grounds"},
             {"id": "cognitive-integration", "authority_status": "provisional", "owning_command": "tools/run.ps1 library integration-validate", "reporting_verb": "frames"},
+            library_journal.summary(repo=REPO_ROOT),
             {"id": "applied-reasoning", "authority_status": "private-advisory", "owning_command": "tools/run.ps1 library-reasoning", "reporting_verb": "pressure-tests"},
         ],
     )

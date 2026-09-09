@@ -1631,6 +1631,11 @@ def draft_contract(entry_date: date, pack: dict[str, Any], brief: dict[str, Any]
             }
             if brief else None
         ),
+        "library_journal_context": {
+            "status": "not-consulted",
+            "authority": "private interpretive context only",
+            "required_when_used": True,
+        },
         "required_draft_metadata": [
             "authored_at",
             "author",
@@ -1702,6 +1707,11 @@ def technical_reference_contract(
             ),
         },
         "approval": "combined-prose-and-reference",
+        "library_journal_context": {
+            "status": draft.get("library_journal_context", {}).get("status", "not-consulted"),
+            "authority": "private interpretive context only",
+            "must_match_draft_metadata": True,
+        },
         "authority_boundary": mira_journal_references.AUTHORITY_BOUNDARY,
     }
 
@@ -1967,6 +1977,14 @@ def source_input_ids(refs: Any) -> tuple[set[str], list[str]]:
             object_id = str(ref.get("object_id", ""))
             if not SHA256_RE.fullmatch(object_id):
                 failures.append("malformed journal composition-brief object_id")
+            else:
+                inputs.add(object_id)
+        elif kind == "library-journal-context":
+            if not re.fullmatch(r"LJC-[0-9a-f]{24}", str(ref.get("context_id", ""))):
+                failures.append("malformed Library Journal context reference")
+            object_id = str(ref.get("object_id", ""))
+            if not SHA256_RE.fullmatch(object_id):
+                failures.append("malformed Library Journal context object_id")
             else:
                 inputs.add(object_id)
         elif kind == "mira-session-records":
@@ -3124,6 +3142,40 @@ def command_draft_check(args: argparse.Namespace) -> dict[str, Any]:
     prose_text = body.decode("utf-8")
     failures: list[str] = []
     warnings: list[str] = []
+    library_context = metadata.get("library_journal_context", {"status": "not-consulted"})
+    if not isinstance(library_context, dict):
+        failures.append("library_journal_context must be an object")
+    else:
+        library_status = library_context.get("status")
+        if library_status not in {"consulted", "not-consulted"}:
+            failures.append("library_journal_context status is invalid")
+        elif library_status == "consulted":
+            if library_context.get("authority") != "private interpretive context only":
+                failures.append("Library Journal context authority is invalid")
+            context_ref = library_context.get("context_ref")
+            if not isinstance(context_ref, dict) or context_ref.get("kind") != "library-journal-context":
+                failures.append("consulted Library Journal context requires a bound context reference")
+            else:
+                context_path = bundle / "library-journal-context.json"
+                if not context_path.is_file():
+                    failures.append("Library Journal context packet is missing")
+                else:
+                    context_value = load_json(context_path)
+                    context_digest = sha256_bytes(canonical_json(context_value).encode("utf-8"))
+                    if context_value.get("context_id") != context_ref.get("context_id") or context_digest != context_ref.get("object_id"):
+                        failures.append("Library Journal context packet digest mismatch")
+                    if not isinstance(context_value.get("entry_ids"), list) or any(
+                        not re.fullmatch(r"LJ-[0-9a-f]{20}", str(item)) for item in context_value.get("entry_ids", [])
+                    ):
+                        failures.append("Library Journal context entry_ids are invalid")
+                    if not isinstance(context_value.get("thread_ids"), list) or any(
+                        not re.fullmatch(r"LJT-[a-z0-9-]+", str(item)) for item in context_value.get("thread_ids", [])
+                    ):
+                        failures.append("Library Journal context thread_ids are invalid")
+                    if context_value.get("authority") != "private interpretive context only":
+                        failures.append("Library Journal context packet authority is invalid")
+                    if context_value.get("raw_body_refs", []) != []:
+                        failures.append("Library Journal context may not contain raw body references")
     try:
         parsed = parse_markdown(body, entry_date.isoformat())
         failures.extend(
@@ -3178,6 +3230,16 @@ def command_draft_check(args: argparse.Namespace) -> dict[str, Any]:
     pack_digest = sha256_bytes(canonical_json(pack).encode("utf-8"))
     brief_digest = sha256_bytes(canonical_json(brief).encode("utf-8"))
     refs = metadata.get("source_refs", []) if isinstance(metadata.get("source_refs"), list) else []
+    if isinstance(library_context, dict) and library_context.get("status") == "consulted":
+        context_ref = library_context.get("context_ref")
+        if not any(ref is context_ref or ref == context_ref for ref in refs):
+            failures.append("consulted Library Journal context must appear in source_refs")
+        reference_context = reference.get("library_journal_context")
+        if reference_context != library_context:
+            failures.append("technical reference Library Journal context binding mismatch")
+    elif isinstance(library_context, dict) and library_context.get("status") == "not-consulted":
+        if reference.get("library_journal_context", {}).get("status") not in {None, "not-consulted"}:
+            failures.append("technical reference cannot claim Library Journal context was consulted")
     if not any(
         isinstance(ref, dict) and ref.get("kind") == "journal-context-pack"
         and ref.get("context_pack_id") == pack.get("context_pack_id") and ref.get("object_id") == pack_digest

@@ -49,6 +49,11 @@ pack.
 - Mira Library sources -> `library-import`; governed cognitive notes and graph
   state -> `library-integration`; historical pressure tests and cognitive
   consumption -> `library-reasoning`.
+- Shared reading history, cognitive trials, corrections, or failed transfer ->
+  `library-journal context --focus "QUESTION" --json`. Retrieve bounded private
+  threads through this owner, including earlier corrections and evidence gaps;
+  the Library Journal sub-surface is private interpretive memory, not admitted
+  learning, identity evidence, or a Mira Journal ancestry source.
 - Assessment of a Library method as recursive learning -> `recursive-learn`,
   with `library-reasoning` retained as the epistemic source owner.
 - Private branch or outcome history -> `learn-from-choices` / `choice`.

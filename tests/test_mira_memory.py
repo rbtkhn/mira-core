@@ -102,6 +102,11 @@ def test_missing_optional_configuration_is_unavailable() -> None:
     carriers = {row["id"]: row for row in json.loads(result.stdout)["carriers"]}
     assert carriers["private-choice-history"]["availability"] == "unavailable"
     assert carriers["archive"]["availability"] == "unavailable"
+    library = carriers["mira-library"]
+    sub = next(row for row in library["sub_surfaces"] if row["id"] == "library-journal")
+    assert sub["authority_status"] == "private-interpretive"
+    assert sub["owning_command"] == "tools/run.ps1 library-journal"
+    assert "C:" not in json.dumps(sub)
 
 
 def test_focus_routes_without_excluding_other_carriers() -> None:

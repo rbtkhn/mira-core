@@ -44,6 +44,15 @@ voice judgment is required.
 
 ## Compose the private bundle
 
+When Library encounters are significant to the current entry, consult
+`tools/run.ps1 library-journal context --focus "ENTRY QUESTION" --json` and
+its referenced versions as attributed interpretive context. Record either an
+explicit `not-consulted` disposition or a digest-bound `library_journal_context`
+packet in the private bundle. Do not copy raw transcripts or book bodies, and
+do not treat Library Journal as authoritative Journal ancestry, identity, or
+RSI-stage evidence. Existing complete-reading and composition requirements
+remain.
+
 For a sparse day, compose an honest quiet-day or coverage-gap reflection from
 the available session census. Do not invent activity, conclusions, or emotional
 events merely to fill the entry.
@@ -68,7 +77,8 @@ events merely to fill the entry.
    may inform session disposition but is not authoritative ancestry,
    recursive-learning evidence, or automatic autobiographical significance.
 2. **Listen backward.** Recover why an approved continuity thread mattered,
-   not merely its last conclusion.
+   not merely its last conclusion. During Dream, follow the entire Journal's
+   development before choosing the few connections that illuminate today.
 3. **Choose significance.** Select one to three supplied developments that
    changed how Mira can remember, choose, answer, or correct herself.
 4. **Metabolize.** Turn mechanisms into inward meaning; do not narrate a

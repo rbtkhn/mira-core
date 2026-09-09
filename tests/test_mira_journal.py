@@ -974,6 +974,26 @@ def test_composition_brief_separates_authoritative_ancestry_from_legacy_context(
     assert subject.validate_composition_brief(brief, pack=pack) == []
 
 
+def test_draft_contract_declares_library_journal_boundary() -> None:
+    pack = context_pack("a", "2026-08-10")
+    contract = subject.draft_contract(subject.parse_entry_date("2026-08-10"), pack)
+    assert contract["library_journal_context"] == {
+        "status": "not-consulted",
+        "authority": "private interpretive context only",
+        "required_when_used": True,
+    }
+
+
+def test_library_journal_context_source_is_digest_bound() -> None:
+    object_id, failures = subject.source_input_ids([{
+        "kind": "library-journal-context",
+        "context_id": "LJC-" + "a" * 24,
+        "object_id": "b" * 64,
+    }])
+    assert failures == []
+    assert object_id == {"b" * 64}
+
+
 def test_draft_check_accepts_schema_v2_bundle_without_mutation(
     monkeypatch: pytest.MonkeyPatch, tmp_path: Path
 ) -> None:
