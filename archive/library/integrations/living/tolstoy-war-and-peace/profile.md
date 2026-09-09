@@ -144,6 +144,36 @@ What becomes visible when history is read as the relation between innumerable si
 - Raw-span SHA-256: `63642b36f4fb16b6d9fd8d38e6855a90b9542e6fd5c98b7454d8da018a688fbb`
 - Function: Describes freedom and necessity as reciprocal perceptions conditioned by relation, time, and causal knowledge.
 
+### `PASSAGE-TOLSTOY-AUSTERLITZ-COUNCIL`
+
+- Body: `LIB-INDUSTRIAL-AUTHORITY-012-TOLSTOY-WAR-AND-PEACE-PG2600`
+- Section: Book Three, Chapter XII
+- Lines: `14755-14935`
+- Voice role: `narratorial-scene-in-translation`
+- Claim type: `literary-institutional-interpretation`
+- Raw-span SHA-256: `179889924cb87b58638f8faa6de1f8dfb60452e7ce10673dc6f14bf51d19f9a8`
+- Function: An approved disposition assumes enemy behavior; valid objections carry vanity and arrive too late to alter the movement.
+
+### `PASSAGE-TOLSTOY-DRISSA-SEMICOUNCIL`
+
+- Body: `LIB-INDUSTRIAL-AUTHORITY-012-TOLSTOY-WAR-AND-PEACE-PG2600`
+- Section: Book Nine, Chapters X-XI
+- Lines: `35137-35440`
+- Voice role: `narratorial-scene-in-translation`
+- Claim type: `literary-institutional-interpretation`
+- Raw-span SHA-256: `b1ec16e3ca8dabb4f894782c79c70c82c9b6160c680df48014cbdc7a9cf3adf0`
+- Function: Indefinite authority, conflicting plans, fear of Napoleon, and devotion to theory shape a semicouncil.
+
+### `PASSAGE-TOLSTOY-BORODINO-REPORTS`
+
+- Body: `LIB-INDUSTRIAL-AUTHORITY-012-TOLSTOY-WAR-AND-PEACE-PG2600`
+- Section: Book Ten, Chapter XXXIII
+- Lines: `43879-43930`
+- Voice role: `narratorial-scene-in-translation`
+- Claim type: `literary-institutional-interpretation`
+- Raw-span SHA-256: `ea4c15fba7b9309614d04d0b7c5f7d493c610078ae74a702ffb2df420d8ea057`
+- Function: Reports become obsolete in transit; orders may follow events or fail to become executable.
+
 
 ## Authority boundary
 
