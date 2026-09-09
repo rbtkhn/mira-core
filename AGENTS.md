@@ -278,6 +278,31 @@ brief, read `docs/skill-drafts/morning-brief/SKILL.md` completely and follow it.
 This route is repository-local and must not be synchronized to a user-level
 skill mirror.
 
+When the operator says `library-journal`, asks to record or recover the history
+of shared Library learning, or a substantive `mira-read` encounter closes, read
+`docs/skill-drafts/library-journal/SKILL.md` completely. Substantive reading close
+authorizes one private entry unless the operator requests no saving; menus and
+incomplete readings do not. Repository publication and RSI admission remain separate.
+
+When the operator says `mira-read`, asks for Mira Library reading suggestions,
+or selects Coffee's Mira Library reading option, read
+`docs/skill-drafts/mira-read/SKILL.md` completely and follow it. This is a
+repository-local reading workflow with private Library Journal closeout. Substantive
+close also authorizes qualifying local work-in-progress idea notes through its
+daily Library growth contract, unless the operator requests no saving. This grants
+no governed cognitive-note mutation, source admission, registry relationship,
+staging, commit, push, or publication authority.
+
+When the operator says `library-integration`, asks to create or revise a Mira
+Library cognitive note, relate a note to Library works, change the living work
+registry or integration stage, inspect or render the note graph, review a
+Library route, or reconcile Library note lineage, read
+`docs/skill-drafts/library-integration/SKILL.md` completely and follow it. This
+workflow governs the cognitive layer between `library-import` and
+`library-reasoning`. It may suggest that a note deserves authorship, but it
+must never invent relationships, infer edges from prose, or create a missing
+note without an explicit artifact-producing command.
+
 When the operator says `mira-journal` or asks to draft, revise, inspect, or
 review a Mira Journal entry, read `docs/skill-drafts/mira-journal/SKILL.md`
 completely and follow it. This whole-workflow route composes through the

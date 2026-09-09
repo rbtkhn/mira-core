@@ -64,6 +64,17 @@ def gaps(entry, repo=REPO_ROOT):
 
 def check_input(e):
     require(isinstance(e, dict), "entry must be an object")
+    if 'curiosity' in e:
+        from library_growth import check_curiosity
+        check_curiosity(e['curiosity'], e.get('thread_ids', []))
+    if 'artifact_saves' in e:
+        require(isinstance(e['artifact_saves'], list), 'artifact saves must be a list')
+        require(text(e.get('reading_input_digest')), 'closeout input binding required')
+        for saved in e['artifact_saves']:
+            require(saved.get('operation') in {'create', 'amend'} and saved.get('mode') in {'normal', 'rehearsal'}, 'invalid saved operation')
+            require(all(text(saved.get(k)) for k in ('operation_id', 'idea_id', 'saved_at', 'path', 'sha256', 'input_digest')), 'incomplete artifact save receipt')
+            require(datetime.fromisoformat(saved['saved_at']).tzinfo is not None, 'save timestamp must be timezone aware')
+            require(saved['input_digest'] == e['reading_input_digest'], 'save input binding mismatch')
     for key in ("encounter_id", "title", "narrative", "occasion", "encounter", "change", "next_test", "coverage"):
         require(text(e.get(key)), f"{key} required")
     require(len(e["narrative"].encode()) <= 100000, "narrative exceeds bounded entry size")
@@ -90,7 +101,15 @@ def check_input(e):
         require(a.get("speaker") in {"operator", "mira", "joint"} and text(a.get("contribution")) and text(a.get("source")), "attribution requires speaker, contribution, source")
     for key in ("unresolved_questions", "counterevidence", "later_use_refs", "predecessor_ids", "metaphors", "learning_changes"):
         require(isinstance(e.get(key), list), f"{key} list required")
+    from library_expectations import check_review
+    check_review(e)
     require(all(r in refs for r in e["later_use_refs"]), "later use must bind an artifact")
+    for application in e.get('note_applications', []):
+        require(e['kind'] == 'application', 'note application requires an application encounter')
+        require(text(application.get('idea_id')) and text(application.get('reason')), 'note application identity and explanation required')
+        require(application.get('effect') in {'used', 'no-change', 'qualified', 'rejected', 'changed', 'failed-transfer'}, 'invalid application effect')
+        require(application.get('note_ref') in refs and application.get('application_ref') in e['later_use_refs'], 'bind the note and its separate application artifact')
+        require(application['note_ref'] != application['application_ref'], 'note cannot be its own application evidence')
     if e["kind"] == "application":
         require(e.get("application_mode") in {"retrospective-rehearsal", "subsequent-use"}, "application mode required")
         require(e["predecessor_ids"] and e["learning_changes"] and e["later_use_refs"], "application requires predecessor, change, and separate artifact")
@@ -155,6 +174,7 @@ def context(focus="", repo=REPO_ROOT, root=None, thread_ids=None):
     words = set(re.findall(r"\w+", focus.casefold())) - {"the", "and", "of", "a", "to"}
     def score(e):
         content = [e[k] for k in ("title", "occasion", "encounter", "change", "next_test", "unresolved_questions", "counterevidence")]
+        content.append(e.get('curiosity', {}))
         content.extend(c["proposal"] + " " + c["rejection_condition"] for c in e["learning_changes"])
         return len(words & set(re.findall(r"\w+", json.dumps(content).casefold())))
 
@@ -193,7 +213,12 @@ def context(focus="", repo=REPO_ROOT, root=None, thread_ids=None):
     corrections = [e for e in all_entries if e["entry_id"] in recovered and e != heads[e["entry_id"]]]
     omitted_versions = [{"entry_id": e["entry_id"], "version": e["version"]} for e in corrections[:-HISTORY_LIMIT]]
     corrections = corrections[-HISTORY_LIMIT:]
+    from library_growth import search
+    from library_expectations import view
     return {"authority": "private interpretive context; not identity or RSI evidence", "core_8": CORE,
+            "expectation_reviews": view(all_entries, focus, seen_threads, repo, root),
+            "library_artifacts": search(focus, repo),
+            "curiosity_history": [{"entry_id": e['entry_id'], "curiosity": e.get('curiosity', 'not-recorded')} for e in [r for r in ordered if r['kind'] == 'reading' and r.get('reading_mode') != 'rehearsal'][:4]],
             "latest": latest, "relevant_older_threads": sorted(seen_threads),
             "related": list({e["entry_id"]: e for e in relevant if e not in latest}.values()),
             "corrections_and_predecessors": corrections,
@@ -219,8 +244,20 @@ def summary(repo=REPO_ROOT, root=None):
 
 
 def record(payload, *, repo=REPO_ROOT, root=None, check=False, revise=None):
+    import copy
+    import library_expectations
+    payload = copy.deepcopy(payload)
+    if payload.get('expectation_ref') or 'expectation_status' in payload:
+        library_expectations.bind(payload, repo, root)
     check_input(payload)
     require(not gaps(payload, repo), "source binding missing or changed")
+    if payload.get('artifact_saves'):
+        from library_growth import metadata, sha
+        for saved in payload['artifact_saves']:
+            path = binding_path({'ref': saved['path']}, repo)
+            note = metadata(path)
+            event = {k: v for k, v in saved.items() if k != 'sha256'}
+            require(note and event in note.get('saves', []) and sha(path) == saved['sha256'], 'save receipt must bind actual saved note and event')
     input_digest = digest(payload)
     target_root = location(repo, root)
 
@@ -234,11 +271,18 @@ def record(payload, *, repo=REPO_ROOT, root=None, check=False, revise=None):
         require(not revise or latest is not None, "revision requires existing encounter")
         require(all(p in {e["entry_id"] for e in old} for p in payload["predecessor_ids"]), "unknown predecessor")
         require(not latest or latest["entry_id"] not in payload["predecessor_ids"], "self predecessor")
+        library_expectations.validate_review(payload, old, repo, root)
         if payload["kind"] == "application":
             parents = [e for e in old if e["entry_id"] in payload["predecessor_ids"]]
             require(any(set(e["thread_ids"]) & set(payload["thread_ids"]) for e in parents), "application must reuse a predecessor thread")
             parent_refs = {b["ref"] for e in parents for b in e["artifacts"]}
             require(any(r not in parent_refs for r in payload["later_use_refs"]), "application requires a separate application artifact")
+            if payload.get('note_applications'):
+                from library_growth import metadata
+                for application in payload['note_applications']:
+                    note = metadata(binding_path({'ref': application['note_ref']}, repo))
+                    require(note and note.get('idea_id') == application['idea_id'], 'application idea identity must match bound note')
+                    require(any(s.get('idea_id') == application['idea_id'] for parent in parents for s in parent.get('artifact_saves', [])), 'note application requires its creation/amendment encounter as predecessor')
         e = {**payload, "schema_version": 1, "workspace": workspace(repo),
              "entry_id": "LJ-" + digest(payload["encounter_id"])[:20],
              "version": latest["version"] + 1 if latest else 1,
@@ -278,7 +322,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", type=Path, help="private platform state root override")
     subs = parser.add_subparsers(dest="command", required=True)
-    for name in ("prepare", "context", "show", "validate", "record", "revise"):
+    for name in ("prepare", "context", "show", "validate", "record", "revise", "closeout", "daily-growth", "artifact-search", "expect"):
         sub = subs.add_parser(name)
         sub.add_argument("--json", action="store_true")
         if name in {"prepare", "context"}:
@@ -286,19 +330,40 @@ def main():
             sub.add_argument("--thread-id", action="append", default=[])
         if name == "show":
             sub.add_argument("entry_id")
-        if name in {"record", "revise"}:
+        if name in {"record", "revise", "closeout", "expect"}:
             sub.add_argument("--input", required=True, type=Path)
             sub.add_argument("--check", action="store_true")
         if name == "revise":
             sub.add_argument("--expected-digest", required=True)
+        if name == 'daily-growth':
+            sub.add_argument('--from', dest='start', required=True)
+            sub.add_argument('--through', required=True)
+        if name == 'artifact-search':
+            sub.add_argument('--focus', default='')
+            sub.add_argument('--work-id', action='append', default=[])
     args = parser.parse_args()
     try:
-        if args.command in {"record", "revise"}:
+        if args.command == 'expect':
+            import library_expectations
+            p = require_private_path(args.input, label='expectation input')
+            result = library_expectations.expect(json.loads(p.read_text(encoding='utf-8-sig')), root=args.root, check=args.check)
+        elif args.command in {'closeout', 'daily-growth', 'artifact-search'}:
+            import library_growth
+            if args.command == 'closeout':
+                p = require_private_path(args.input, label='reading closeout input')
+                result = library_growth.closeout(json.loads(p.read_text(encoding='utf-8-sig')), root=args.root, check=args.check)
+            elif args.command == 'daily-growth':
+                result = library_growth.growth(args.start, args.through, root=args.root)
+            else:
+                result = {'matches': library_growth.search(args.focus, REPO_ROOT, args.work_id), 'inventory_findings': library_growth.inventory(REPO_ROOT)['findings'], 'writes_performed': False}
+        elif args.command in {"record", "revise"}:
             p = require_private_path(args.input, label="journal input")
             result = record(json.loads(p.read_text(encoding="utf-8-sig")), root=args.root, check=args.check, revise=getattr(args, "expected_digest", None))
         elif args.command in {"prepare", "context"}:
             result = context(args.focus, root=args.root, thread_ids=args.thread_id)
             if args.command == "prepare":
+                result['expectation_contract'] = {'checkpoint_command': 'library-journal expect --input PRIVATE_JSON --check --json', 'required': ['encounter_id', 'thread_id', 'question', 'why_selected', 'selection', 'expected_resolution', 'challenge', 'work_ids', 'source_ids', 'prior_exposure'], 'closeout_binding': {'expectation_ref': {'encounter_id': 'ID', 'digest': 'DIGEST'}}, 'missing_checkpoint': 'unrecorded or retrospective; nonblocking'}
+                result['curiosity_review_contract'] = {'required': ['baseline', 'expected', 'observed', 'next_choice', 'disposition', 'explanation', 'boundary_test', 'application_ref'], 'baseline': ['entry_id', 'version', 'digest'], 'expectation_ref': 'retain baseline checkpoint when present', 'dispositions': ['supported', 'partly-supported', 'not-supported', 'not-yet-assessable']}
                 result["application_contract"] = {"kind": "application", "application_mode": ["retrospective-rehearsal", "subsequent-use"], "requires": "predecessor encounter, reused thread, learning change and rejection condition, separate later_use_refs artifact"}
                 result["entry_contract"] = {"required": ["encounter_id", "kind", "encounter_status", "encounter_started_at", "encounter_ended_at", "title", "narrative", "occasion", "encounter", "change", "next_test", "coverage", "authors", "thread_ids", "artifacts", "passages", "attribution", "unresolved_questions", "counterevidence", "later_use_refs", "predecessor_ids", "metaphors", "learning_changes"], "stage_names": STAGES, "recording": "substantive-closed only; not menus; no-save overrides"}
         else:
@@ -309,7 +374,7 @@ def main():
             evidence = [g for e in rows for g in gaps(e)]
             result = {"status": "evidence-gaps" if evidence else "valid", "versions": rows if args.command == "show" else len(rows), "evidence_gaps": evidence, "writes_performed": False}
         print(json.dumps(result, ensure_ascii=False, indent=2))
-        if result.get("status") == "evidence-gaps":
+        if result.get("status") in {"evidence-gaps", "partial"}:
             raise SystemExit(1)
     except (OSError, ValueError, KeyError, TypeError) as error:
         print(json.dumps({"status": "error", "error": str(error), "writes_performed": False}))

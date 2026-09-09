@@ -254,3 +254,8 @@ exactly one existing domain directory. Examples below or above using the legacy
 spelling remain compatibility references; they do not authorize a directory
 move. Preserve historical IDs and stored/hash-bound references. The source
 archive remains at `archive/sources/geopolitics/`.
+
+## Library-informed cognitive development
+
+Before settling a substantive strategic estimate, consume prior corrections and the prepared Library pre-scan, then adjudicate one relevant passage packet or explicitly defer it.
+Follow the shared [composition and nomination contract](../dream/references/cognitive-development.md).

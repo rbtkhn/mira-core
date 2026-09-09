@@ -15,6 +15,7 @@ from zoneinfo import ZoneInfo
 
 import cadence_ledger
 import journal_calendar
+import cognitive_context
 import mira_journal_references
 from portable_paths import state_path
 
@@ -106,8 +107,9 @@ def strategy_notebook_status(run_date: str, geo: dict | None = None) -> dict:
             "reason": "No manifest-backed Geo-Strategy sources exist for this date.",
             "authority_effect": "none",
         }
-    path = strategy_notebook_path(run_date)
-    if not path.is_file():
+    entry = cognitive_context.notebook.read_entry(run_date, REPO_ROOT)
+    path = REPO_ROOT / entry["path"] if entry else strategy_notebook_path(run_date)
+    if entry is None:
         return {
             "status": "composition_required",
             "path": str(path.relative_to(REPO_ROOT)),
@@ -600,6 +602,13 @@ def write_roi_synthesis(bundle: Path, run_date: str, projection: dict) -> dict:
     brief = read_json_file(brief_path)
     git_summary = git_status_summary()
     open_obligations = roi_letters_obligations(brief)
+    candidate_file = bundle / "note-candidates.json"
+    candidate_errors = []
+    try:
+        proposed_notes = cognitive_context.nominations(read_json_file(candidate_file), REPO_ROOT) if candidate_file.is_file() else []
+    except (OSError, ValueError, KeyError, TypeError) as error:
+        proposed_notes = []
+        candidate_errors = [str(error)]
     packet = {
         "schema_version": 1,
         "dream_date": run_date,
@@ -612,7 +621,7 @@ def write_roi_synthesis(bundle: Path, run_date: str, projection: dict) -> dict:
         ],
         "sections": {
             "dev_journal_candidates": [],
-            "note_candidates": [],
+            "note_candidates": proposed_notes,
             "coffee_handles": roi_coffee_handles(projection, open_obligations),
             "publication_debt": {
                 **git_summary,
@@ -627,6 +636,8 @@ def write_roi_synthesis(bundle: Path, run_date: str, projection: dict) -> dict:
             "publication authority, or permission to contact anyone."
         ),
     }
+    if candidate_errors:
+        packet["sections"]["open_obligations"].append({"kind": "note-nomination-validation", "status": "deferred", "failures": candidate_errors})
     path = roi_synthesis_path(bundle)
     path.write_text(json.dumps(packet, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     return {
@@ -808,7 +819,7 @@ def execute(args, run_date: str) -> dict:
                 idempotency_key=f"daily-close:{args.workspace_id}:{args.operator_id}:{run_date}",
             )
         if projection["state"] == "completed":
-            return {"status": "completed", "mutation": False, "run": projection}
+            return {"status": "completed", "mutation": False, "run": projection, "cognitive_disposition": next((event["payload"].get("cognitive_disposition", {"status": "not-recorded"}) for event in reversed(projection["events"]) if event["event_type"] == "daily_close_completed"), {"status": "not-recorded"})}
 
         if projection["stages"]["geo"] not in {"completed", "skipped"}:
             if geo["status"] == "no_geo_run":
@@ -861,6 +872,14 @@ def execute(args, run_date: str) -> dict:
                             "and session_checkpoint_sha256 in technical-reference.json before composing "
                             "draft.md, draft.json, and technical-reference.json under the prepared "
                             "Mira Journal contracts, validate them, then resume Dream."
+                            " Before settling the estimate, inspect strategy_context and relevant Library Journal history; "
+                            "run at most one Library pre-scan, one passage packet, and one adjudication. "
+                            "Preserve the source-based baseline and explicit Library effect or debt. "
+                            "Refresh only --refresh-strategy-context after Notebook composition. "
+                            "Bind context_consumption for strategy and library in draft and technical reference; "
+                            "used material needs frozen context digest and grounded prose anchors. "
+                            "Inspect existing notes and optionally write up to three candidate-only judgments "
+                            "to note-candidates.json; do not create or amend notes. An empty candidate list is valid."
                         ),
                     }
                 validated, failure_tail = validate_journal_bundle(run_date, bundle)
@@ -871,6 +890,11 @@ def execute(args, run_date: str) -> dict:
                             "next_action": "Refresh the journal bundle and resume this run.",
                             "refresh_guidance": refresh_guidance(args, run_date, bundle, projection["run_id"]),
                             "failure_tail": failure_tail}
+                try:
+                    cognitive_context.refresh_roi(bundle, run_date, REPO_ROOT)
+                except (OSError, ValueError, KeyError, TypeError) as error:
+                    # Optional orientation cannot turn an otherwise valid close into a stop.
+                    print(f"ROI cognitive refresh unavailable: {error}", file=sys.stderr)
                 finalized, finalization_failure = finalize_journal_bundle(
                     run_date, bundle, projection["run_id"]
                 )
@@ -941,11 +965,14 @@ def execute(args, run_date: str) -> dict:
                 }, idempotency_key=f"{projection['run_id']}:dream:closeout")
                 projection = append_stage(connection, projection, "stage_completed", "dream", "closeout_recorded",
                                           closeout_id=closeout_id, coverage_status=args.coverage_status)
+        cognitive_disposition = cognitive_context.closeout(journal_bundle(args, run_date), run_date, REPO_ROOT)
+        if geo.get("status") == "no_geo_run" and cognitive_disposition["notebook"]["status"] == "unavailable":
+            cognitive_disposition["notebook"]["status"] = "not-applicable"
         projection = cadence_ledger.append_daily_close_event(
-            connection, projection["run_id"], "daily_close_completed", {"status": "completed"},
+            connection, projection["run_id"], "daily_close_completed", {"status": "completed", "cognitive_disposition": cognitive_disposition},
             idempotency_key=f"{projection['run_id']}:completed", expected_version=projection["lifecycle_version"],
         )
-        return {"status": "completed", "mutation": True, "run": projection}
+        return {"status": "completed", "mutation": True, "run": projection, "cognitive_disposition": cognitive_disposition}
     finally:
         connection.close()
 

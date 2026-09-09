@@ -488,6 +488,7 @@ ROUTING_RULES = [
     ({"retrieve", "lineage"}, "epistemic", "archive", 100, "explicit lineage retrieval"),
     ({"review", "choice"}, "relational", "learn-from-choices", 100, "explicit choice review"),
     ({"review", "mentorship"}, "relational", "mira-mentor", 100, "explicit mentorship review"),
+    ({"strategy", "notebook"}, "epistemic", "strategy-notebook", 100, "strategic estimate recall and corrections"),
     ({"forecast"}, "epistemic", "forecast-review", 50, "forecast object"),
     ({"claim"}, "epistemic", "reality-check", 50, "claim object"),
     ({"source"}, "epistemic", "archive-query", 50, "source object"),

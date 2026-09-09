@@ -74,3 +74,13 @@ exact boundary reached.
 
 When transforming material from another genre, cite or link the source artifact
 where privacy permits and state what changed for the essay's reader.
+
+## Daily Library growth and recursive curiosity
+
+Follow the active [daily Library growth contract](../mira-read/references/daily-library-growth.md).
+Substantive Mira Read close may save qualifying ordinary idea notes locally as
+works in progress. No draft-note state, daily catch-up debt, or publication
+authority is created. Independent notes and essays are distinct from governed
+revision lineage; Dream and strategic nominations remain nomination-only.
+Retrieve prior applications and corrections before reuse. Missing analysis or
+no qualifying new note never blocks Dream. Development requires later evidence.

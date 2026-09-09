@@ -97,3 +97,18 @@ new carrier. This skill creates no canonical ledger,
 unified writer, promotion route, database, cross-system transaction, context
 pack, identity proposition, journal approval, RSI admission, archive ingest,
 claim assessment, forecast resolution, publication, or external action.
+
+## Library-informed cognitive development
+
+Route explicit Strategy Notebook recall to `tools/run.ps1 strategy-notebook context --date DATE --focus QUESTION --json`. This is domain-owned retrieval, not a new identity carrier.
+Follow the shared [composition and nomination contract](../dream/references/cognitive-development.md).
+
+## Daily Library growth and recursive curiosity
+
+Follow the active [daily Library growth contract](../mira-read/references/daily-library-growth.md).
+Substantive Mira Read close may save qualifying ordinary idea notes locally as
+works in progress. No draft-note state, daily catch-up debt, or publication
+authority is created. Independent notes and essays are distinct from governed
+revision lineage; Dream and strategic nominations remain nomination-only.
+Retrieve prior applications and corrections before reuse. Missing analysis or
+no qualifying new note never blocks Dream. Development requires later evidence.

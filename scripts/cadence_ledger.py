@@ -376,6 +376,14 @@ def append_daily_close_event(connection: sqlite3.Connection, run_id: str, event_
             }
         elif key == "canonicalized" and isinstance(value, bool):
             clean[key] = value
+        elif key == "cognitive_disposition" and isinstance(value, dict):
+            clean[key] = {
+                owner: {name: sanitize_text(item[name], limit=1000)
+                        for name in ("status", "path", "digest", "declared_status", "reason", "context_sha256", "authority_effect")
+                        if item.get(name)}
+                for owner in ("notebook", "library")
+                if isinstance((item := value.get(owner)), dict)
+            }
         elif key == "forecast_review" and isinstance(value, dict):
             # Retain coverage for completed-run replay, not source bodies or
             # review prose. Detailed evidence stays in the private review bundle.

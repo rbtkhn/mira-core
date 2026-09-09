@@ -143,3 +143,12 @@ requires four cases in each group; shadow advancement requires four holdouts,
 30% lower irrelevant retrieval, 20% lower median review time, non-declining
 judgment and rival quality, no evidence laundering, and complete operational
 skip precision.
+
+## Library-informed cognitive development
+
+Use the source-based provisional estimate as baseline. Apply one bounded pressure test, record no-change and failed transfer, and feed candidate-only notes and later-use review.
+Follow the shared [composition and nomination contract](../dream/references/cognitive-development.md).
+
+Archived-case adjudications use `evaluation_kind: retrospective-rehearsal`;
+they remain inspectable but append no learning feedback. Subsequent use remains
+a separate evidence-dependent claim.

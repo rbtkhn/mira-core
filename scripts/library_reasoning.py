@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+import copy
 import hashlib
 import json
 import os
@@ -118,7 +119,7 @@ def _signature_matches(values: Any, query_tokens: set[str]) -> list[str]:
     )
 
 
-def cognitive_inventory(question: str, mechanism: str) -> dict[str, Any]:
+def _cognitive_inventory(question: str, mechanism: str, constellation_id: str | None = None) -> dict[str, Any]:
     """Load explicit current-head cognitive handles; never inspect note prose."""
     registry = archive_library.load_registry()
     failures = library_integration.validate_repository(REPO_ROOT, registry)
@@ -231,6 +232,23 @@ def cognitive_inventory(question: str, mechanism: str) -> dict[str, Any]:
     }
 
 
+_COGNITIVE_CACHE: dict[str, dict[str, Any]] = {}
+
+def cognitive_inventory(question: str, mechanism: str, constellation_id: str | None = None) -> dict[str, Any]:
+    # Explicit constellations read private passage bytes and must revalidate them.
+    if constellation_id:
+        raise ReasoningError("Explicit constellation support is outside this retrieval interface")
+    root = REPO_ROOT / "archive/library"
+    controls = sorted(p for p in root.rglob("*") if p.is_file() and p.suffix in {".json", ".md"})
+    key = hashlib.sha256(json.dumps([str(REPO_ROOT), question, mechanism,
+        [(str(p.relative_to(root)), file_sha256(p)) for p in controls]], sort_keys=True).encode()).hexdigest()
+    if key not in _COGNITIVE_CACHE:
+        value = _cognitive_inventory(question, mechanism, constellation_id)
+        _COGNITIVE_CACHE.clear()
+        _COGNITIVE_CACHE[key] = copy.deepcopy(value)
+    return copy.deepcopy(_COGNITIVE_CACHE[key])
+
+
 def source_text(source: dict[str, Any]) -> str:
     fields: list[Any] = [
         source.get("title"), source.get("author"), source.get("notes"),
@@ -277,22 +295,93 @@ def routing_decision(question: str, mechanism: str) -> dict[str, Any]:
     }
 
 
-def score_source(source: dict[str, Any], query_tokens: set[str], profiles: list[str], cognitive_preferred: set[str] | None = None) -> int:
+def source_score_components(source: dict[str, Any], query_tokens: set[str], profiles: list[str], cognitive_preferred: set[str] | None = None) -> dict[str, Any]:
     haystack = source_text(source).lower()
-    score = sum(3 for item in query_tokens if item in haystack)
-    score += sum(2 for item in query_tokens if item in str(source.get("title", "")).lower())
-    if source.get("text_status") in {"available", "verified"}:
-        score += 2
-    if source.get("coverage_status") not in {"metadata-only", "unknown", None}:
-        score += 1
+    meaningful = query_tokens - {"the", "and", "what", "which", "this", "that", "from", "with", "for", "does", "how", "can"}
+    overlap = meaningful & tokens(haystack)
+    score = 3 * len(overlap) + 2 * len(meaningful & tokens(str(source.get("title", ""))))
     preferred = {
         source_id
         for name in profiles
         for source_id, _ in MECHANISM_PROFILES[name]["candidates"]
     }
-    if source.get("source_id") in preferred | set(cognitive_preferred or set()):
+    profile_match = source.get("source_id") in preferred | set(cognitive_preferred or set())
+    if profile_match:
         score += 20
-    return score + learned_adjustment(profiles, str(source.get("source_id")))
+    relevant = bool(overlap or profile_match)
+    availability = (2 if source.get("text_status") in {"available", "verified"} else 0) + (1 if source.get("coverage_status") not in {"metadata-only", "unknown", None} else 0)
+    learned = learned_adjustment(profiles, str(source.get("source_id"))) if relevant else 0
+    return {"relevant": relevant, "overlap": sorted(overlap), "profile_match": profile_match,
+            "relevance": score, "availability": availability, "learned": learned,
+            "total": score + availability + learned if relevant else 0}
+
+
+
+def select_cognitive_sources(ranked, cognitive):
+    """Select role diversity only where authored cognitive controls provide it."""
+    works = cognitive.get("works", cognitive.get("direct", []))
+    excluded = {r.get("library_source_id") for r in works if r.get("matched_negative_signatures")}
+    eligible = [r for r in ranked if r.get("source_id") not in excluded]
+    selected, decisions = [], []
+    by_source = {r.get("library_source_id"): r for r in works}
+    companions = {r.get("library_source_id") for r in cognitive.get("companions", [])}
+    if eligible:
+        selected.append(eligible[0])
+        decisions.append({"source_id": eligible[0]["source_id"], "role": "strongest-match"})
+    for role in ("rival-or-anti-analogy", "complementary"):
+        for row in eligible:
+            if row in selected:
+                continue
+            frame = by_source.get(row.get("source_id"), {}).get("framing", {})
+            qualifies = bool(frame.get("rival_readings") or frame.get("anti_analogy")) if role == "rival-or-anti-analogy" else row.get("source_id") in companions
+            if qualifies:
+                selected.append(row)
+                decisions.append({"source_id": row["source_id"], "role": role,
+                                  "reason": "explicit profile/relationship; relevance requires passage review"})
+                break
+    gaps = ["shared intellectual ancestry is not established by metadata; inspect selected passage lineage"]
+    if not any(r["role"] == "rival-or-anti-analogy" for r in decisions):
+        gaps.append("no qualifying rival or anti-analogy found")
+    return selected, {"selected": decisions, "excluded": [{"source_id": r["source_id"], "reason": "negative signature" if r["source_id"] in excluded else "role/selection budget"} for r in ranked if r not in selected], "gaps": gaps}
+
+
+
+def _anchored_passages(profile: dict[str, Any], source: dict[str, Any]) -> list[dict[str, Any]]:
+    bodies = {str(row.get("body_id")): row for row in body_records(source)}
+    passages: list[dict[str, Any]] = []
+    for anchor in profile.get("textual_basis", {}).get("passage_anchors", []):
+        if not isinstance(anchor, dict):
+            raise ReasoningError("Library profile has a malformed passage anchor")
+        body_id = str(anchor.get("body_id"))
+        body = bodies.get(body_id)
+        if body is None:
+            raise ReasoningError(f"Library passage anchor names an unknown body: {body_id}")
+        state, path = body_state(body)
+        if state != "hash-verified" or path is None:
+            raise ReasoningError(f"Library passage anchor body is not hash verified: {body_id}")
+        locator = anchor.get("locator", {})
+        start, end = locator.get("line_start"), locator.get("line_end")
+        if not isinstance(start, int) or not isinstance(end, int) or start < 1 or end < start:
+            raise ReasoningError(f"Library passage anchor has an invalid locator: {anchor.get('passage_id')}")
+        lines = path.read_text(encoding="utf-8").splitlines()
+        excerpt = "\n".join(lines[start - 1:end])
+        digest = hashlib.sha256(excerpt.encode("utf-8")).hexdigest()
+        if digest != anchor.get("raw_span_sha256"):
+            raise ReasoningError(f"Library passage anchor digest mismatch: {anchor.get('passage_id')}")
+        passages.append({
+            "passage_id": anchor.get("passage_id"), "body_id": body_id,
+            "locator": locator, "anchor_summary": anchor.get("anchor_summary"),
+            "supports": anchor.get("supports", []), "raw_span_sha256": digest,
+            "excerpt": excerpt,
+        })
+    if not passages:
+        raise ReasoningError(f"Library profile has no admitted passage anchors: {profile.get('canonical_work_id')}")
+    return passages
+
+
+
+def score_source(source: dict[str, Any], query_tokens: set[str], profiles: list[str], cognitive_preferred: set[str] | None = None) -> int:
+    return source_score_components(source, query_tokens, profiles, cognitive_preferred)["total"]
 
 
 def ranked_sources(question: str, mechanism: str, *, limit: int = 20, profiles: list[str] | None = None, cognitive_preferred: set[str] | None = None) -> list[dict[str, Any]]:
@@ -448,9 +537,13 @@ def extract_units(path: Path) -> tuple[str, list[dict[str, str]]]:
 
 def paragraph_candidates(path: Path, query_tokens: set[str], limit: int = 2, phrases: Iterable[str] = ()) -> tuple[str, list[dict[str, Any]]]:
     method, units = extract_units(path)
+    query_tokens = query_tokens - {"the", "and", "what", "which", "this", "that", "from", "with", "for", "does", "how", "can", "has", "have", "its", "not", "but", "are", "was", "were", "when", "would", "could", "into", "than", "source", "sources", "confidence", "medium", "low", "high"}
+    phrases = [phrase for phrase in phrases if set(phrase.split()) <= query_tokens]
     scored = []
     for index, unit in enumerate(units):
         lowered = unit["text"].lower()
+        if lowered.startswith("mira library derived text") or "source sha256:" in lowered:
+            continue
         score = sum(1 for token in query_tokens if re.search(rf"\b{re.escape(token)}\b", lowered))
         score += sum(2 for phrase in phrases if phrase and phrase.lower() in lowered)
         score += sum(1 for token in query_tokens if token in unit["section"].lower())
@@ -509,14 +602,22 @@ def geo_packet(run_date: str, crisis_object: str, mechanism: str) -> dict[str, A
     query_phrases = {" ".join(words[index:index + 2]) for index in range(len(words) - 1)}
     cognitive = cognitive_inventory(crisis_object, mechanism)
     decision = routing_decision(crisis_object, mechanism)
-    if cognitive["direct"] and decision["decision"] == "skip":
-        decision = {"decision": "invoke", "profiles": [], "reason": "governed cognitive signature cleared the two-term relevance floor"}
+    if (cognitive["direct"] or cognitive.get("explicit_constellation")) and decision["decision"] == "skip":
+        decision = {"decision": "invoke", "profiles": [], "reason": "governed cognitive selection cleared the relevance floor"}
     ranked = ranked_sources(crisis_object, mechanism, profiles=decision["profiles"], cognitive_preferred=set(cognitive["preferred_source_ids"])) if decision["decision"] == "invoke" else []
-    selected = select_sources(ranked)
+    selected, selection = select_cognitive_sources(ranked, cognitive)
     candidates: list[dict[str, Any]] = []
     passage_total = 0
     for source in selected:
         bodies = body_records(source)
+        owned = next((row for row in cognitive.get("works", [])
+                      if row.get("library_source_id") == source.get("source_id") and row.get("matched_positive_signatures")
+                      and not row.get("matched_negative_signatures")), None)
+        owned_anchors = []
+        if owned:
+            profile = load_json(REPO_ROOT / owned["profile_ref"])
+            if profile.get("textual_basis", {}).get("passage_anchors"):
+                owned_anchors = _anchored_passages(profile, source)
         body_rows: list[dict[str, Any]] = []
         for body in bodies:
             state, path = body_state(body)
@@ -526,7 +627,16 @@ def geo_packet(run_date: str, crisis_object: str, mechanism: str) -> dict[str, A
             body_change = learned_body_adjustment(decision["profiles"], str(source.get("source_id")), body_id)
             suppressed = learned_extraction_suppressed(decision["profiles"], body_id)
             if state == "hash-verified" and path is not None and passage_total < 8 and not suppressed:
-                extraction_method, passages = paragraph_candidates(path, query_tokens, limit=min(2, 8 - passage_total), phrases=query_phrases)
+                anchors = [a for a in owned_anchors if a.get("body_id") == body_id]
+                if anchors:
+                    extraction_method = "owned-admitted-anchor-v1"
+                    passages = [{"locator": a["locator"], "section": a.get("anchor_summary", ""),
+                                 "text": a["excerpt"], "text_sha256": a["raw_span_sha256"],
+                                 "match_score": 1, "context_before": "", "context_after": "",
+                                 "extraction_method": extraction_method, "private_only": True}
+                                for a in anchors[:min(2, 8 - passage_total)]]
+                else:
+                    extraction_method, passages = paragraph_candidates(path, query_tokens, limit=min(2, 8 - passage_total), phrases=query_phrases)
                 if body_change:
                     for passage in passages:
                         passage["match_score"] += body_change
@@ -593,15 +703,26 @@ def geo_packet(run_date: str, crisis_object: str, mechanism: str) -> dict[str, A
         "provisional_mechanism": mechanism,
         "crisis_signature": hashlib.sha256(crisis_object.encode("utf-8")).hexdigest(),
         "pre_scan": pre_scan(crisis_object, mechanism, cognitive=cognitive),
+        "selection": selection,
+        "score_components": {r["source_id"]: source_score_components(r, query_tokens, decision["profiles"], set(cognitive["preferred_source_ids"])) for r in ranked},
         "routing": decision,
         "candidates": candidates,
-        "cognitive_context": [*cognitive["direct"], *cognitive["companions"]],
-        "representation_gaps": representation_gaps(selected),
+        "cognitive_context": (
+            cognitive["explicit_constellation"]
+            if cognitive.get("constellation")
+            else [*cognitive["direct"], *cognitive["companions"]]
+        ),
+        "representation_gaps": representation_gaps(selected) + selection["gaps"],
         "retrieval_cost": {"candidate_count": len(candidates), "passage_count": passage_total},
         "review_state": (
-            "pending-geo-strategy-adjudication" if candidates else "skipped-no-historical-profile"
+            "pending-geo-strategy-adjudication"
+            if candidates or cognitive.get("explicit_constellation") or cognitive["direct"] or cognitive["companions"]
+            else "skipped-no-historical-profile"
         ),
-        "packet_effect": [] if candidates else ["no-material-change"],
+        "packet_effect": (
+            [] if candidates or cognitive.get("explicit_constellation") or cognitive["direct"] or cognitive["companions"]
+            else ["no-material-change"]
+        ),
         "evidence_boundary": (
             "Historical retrieval cannot verify current events, resolve operational claims, "
             "or supply statistical base rates."
@@ -704,6 +825,8 @@ def cognitive_feedback_path() -> Path:
 
 
 def append_feedback(packet: dict[str, Any], adjudication: dict[str, Any]) -> int:
+    if packet.get("evaluation_kind") == "retrospective-rehearsal":
+        return 0
     path = feedback_path()
     path.parent.mkdir(parents=True, exist_ok=True)
     profiles = packet.get("routing", {}).get("profiles", [])
@@ -766,6 +889,8 @@ def read_cognitive_feedback() -> list[dict[str, Any]]:
 
 
 def append_cognitive_feedback(packet: dict[str, Any]) -> int:
+    if packet.get("evaluation_kind") == "retrospective-rehearsal":
+        return 0
     rows = read_cognitive_feedback()
     existing = {str(row.get("event_id")) for row in rows}
     events: list[dict[str, Any]] = []
@@ -805,6 +930,10 @@ def append_cognitive_feedback(packet: dict[str, Any]) -> int:
 def adjudicate(packet_file: Path, adjudication_file: Path, *, check: bool) -> dict[str, Any]:
     packet = load_json(packet_file)
     adjudication = load_json(adjudication_file)
+    if adjudication.get("evaluation_kind") is not None:
+        if adjudication["evaluation_kind"] not in {"retrospective-rehearsal", "subsequent-use"}:
+            raise ReasoningError("unsupported adjudication evaluation_kind")
+        packet["evaluation_kind"] = adjudication["evaluation_kind"]
     rows = {row.get("source_id"): row for row in adjudication.get("candidates", [])}
     for candidate in packet.get("candidates", []):
         update = rows.get(candidate.get("source_id"))

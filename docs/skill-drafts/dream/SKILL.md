@@ -303,3 +303,28 @@ exactly one existing domain directory. Examples below or above using the legacy
 spelling remain compatibility references; they do not authorize a directory
 move. Preserve historical IDs and stored/hash-bound references. The source
 archive remains at `archive/sources/geopolitics/`.
+
+## Library-informed cognitive development
+
+Apply the bounded cognitive-development cycle during the agent-internal composition handoff and preserve its nonblocking debt in closeout.
+Follow the shared [composition and nomination contract](references/cognitive-development.md).
+
+## Daily Library growth and recursive curiosity
+
+Follow the active [daily Library growth contract](../mira-read/references/daily-library-growth.md).
+Substantive Mira Read close may save qualifying ordinary idea notes locally as
+works in progress. No draft-note state, daily catch-up debt, or publication
+authority is created. Independent notes and essays are distinct from governed
+revision lineage; Dream and strategic nominations remain nomination-only.
+Retrieve prior applications and corrections before reuse. Missing analysis or
+no qualifying new note never blocks Dream. Development requires later evidence.
+
+## Expected learning and later usefulness
+
+Use the shared daily Library growth contract for immutable private pre-reading
+expectations and exact-version curiosity reviews in later application entries.
+Retrieve relevant unsuccessful reviews and corrections before choosing another
+reading; explain their effect on the choice. Missing expectations and pending
+outcomes remain nonblocking. Daily note production is not a question-selection
+reward or recursive-learning outcome. Reopening conditions on parked questions
+create no task, scheduler, or automatic policy change.

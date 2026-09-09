@@ -38,7 +38,7 @@ DELTA_PLACEHOLDERS = (
     "[name the new mechanism, evidence, contradiction, or judgment change; do not restate recurring crisis context]",
     "[daily-packet or archive-only]",
 )
-JUDGMENT_PLACEHOLDER_RE = re.compile(r"\[.*?\]")
+JUDGMENT_PLACEHOLDER_RE = re.compile(r"\[[^\]\n]*\](?!\()")
 JUDGMENT_REQUIRED_SECTIONS = (
     "## Load-Bearing Judgments",
     "## Confidence Boundary",

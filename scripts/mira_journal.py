@@ -21,6 +21,7 @@ from typing import Any, Iterable
 from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
 
 import mira_continuity
+import cognitive_context
 import rest_receipts
 import mira_journal_references
 from runtime_names import resolve_environment
@@ -3037,6 +3038,8 @@ def normalized_version(
         brief_value = load_json(brief_path)
         context_value = load_json(draft_directory / "context-pack.json")
         brief_failures = validate_composition_brief(brief_value, pack=context_value)
+        brief_failures.extend(cognitive_context.consumption_failures(
+            brief_value, metadata, technical_reference, body.decode("utf-8")))
         if brief_failures:
             raise JournalError("; ".join(brief_failures))
         brief_digest = sha256_bytes(canonical_json(brief_value).encode("utf-8"))
@@ -3116,6 +3119,8 @@ def normalized_version(
               "acknowledgement_sha256": metadata["session_reading_ack_sha256"]}}
            if metadata.get("session_checkpoint_sha256") else {}),
         "previous_version_digest": previous_digest,
+        **({"context_consumption": copy.deepcopy(metadata["context_consumption"])}
+           if "context_consumption" in metadata else {}),
     }
 
 
@@ -3142,6 +3147,7 @@ def command_draft_check(args: argparse.Namespace) -> dict[str, Any]:
     prose_text = body.decode("utf-8")
     failures: list[str] = []
     warnings: list[str] = []
+    failures.extend(cognitive_context.consumption_failures(brief, metadata, reference, prose_text))
     library_context = metadata.get("library_journal_context", {"status": "not-consulted"})
     if not isinstance(library_context, dict):
         failures.append("library_journal_context must be an object")
@@ -3510,6 +3516,29 @@ def command_prepare(args: argparse.Namespace) -> dict[str, Any]:
         as_of = end
     root = external_draft_root(args.output_root)
     previous_contract_path = root / entry_date.isoformat() / "draft-contract.json"
+    if getattr(args, "refresh_strategy_context", False):
+        if any(row.get("entry_date") == entry_date.isoformat() for row in load_registry().get("entries", [])):
+            raise JournalError("cannot refresh a finalized Journal context")
+        if not previous_contract_path.is_file():
+            raise JournalError("context refresh requires an existing prepared bundle")
+        target = previous_contract_path.parent
+        pack = load_json(target / "context-pack.json")
+        old_brief = load_json(target / "composition-brief.json")
+        brief = cognitive_context.attach(old_brief,
+            cognitive_context.prepare(entry_date.isoformat(), getattr(args, "strategy_focus", ""), REPO_ROOT,
+                                      previous=old_brief.get("strategy_context")))
+        contract = load_json(previous_contract_path)
+        fresh = draft_contract(entry_date, pack, brief)
+        for key in ("composition_brief_ref", "composition_brief_digest", "required_composition_source_ref"):
+            contract[key] = fresh[key]
+        contract["context_consumption_required"] = True
+        if not args.check:
+            atomic_write_many({target / "composition-brief.json": pretty_json(brief).encode("utf-8"),
+                               previous_contract_path: pretty_json(contract).encode("utf-8")})
+        return {"status": "ready" if args.check else "context_refreshed", "mutation": not args.check,
+                "composition_brief_id": brief["composition_brief_id"],
+                "composition_brief_sha256": sha256_bytes(canonical_json(brief).encode("utf-8")),
+                "strategy_context": brief["strategy_context"], "session_reading": contract.get("session_reading")}
     if (getattr(args, "require_session_reading", False) and previous_contract_path.exists()
             and not getattr(args, "refresh_session_checkpoint", False)):
         previous_reading = load_json(previous_contract_path).get("session_reading")
@@ -3549,7 +3578,11 @@ def command_prepare(args: argparse.Namespace) -> dict[str, Any]:
         activity = collect_activity(entry_date, as_of=as_of, token_budget=args.token_budget - learning_tokens)
     pack = context_pack(entry_date, activity, args.token_budget, learning_context)
     brief = composition_brief(entry_date, pack, grouping=checkpoint["conversation_grouping"] if session_reading else None)
+    brief = cognitive_context.attach(brief, cognitive_context.prepare(
+        entry_date.isoformat(), getattr(args, "strategy_focus", ""), REPO_ROOT))
     contract = draft_contract(entry_date, pack, brief)
+    contract["context_consumption_required"] = True
+    contract["required_draft_metadata"].append("context_consumption")
     if session_reading is not None:
         contract["session_reading"] = session_reading
         contract["required_draft_metadata"].extend(["session_checkpoint_sha256", "session_reading_ack_sha256"])

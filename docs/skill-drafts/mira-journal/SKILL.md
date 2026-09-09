@@ -179,3 +179,18 @@ Dream defaults to the timezone for the requested date and rejects a conflicting
 post-transition override. This changes date assignment, not task scheduling,
 operating-system settings, or external publication timestamps. Journal entry
 dates remain distinct from the time an entry is actually published.
+
+## Library-informed cognitive development
+
+New preparation includes bounded strategic and Library interpretation. Follow the context-consumption and temporal rules; no geopolitical paragraph is mandatory.
+Follow the shared [composition and nomination contract](../dream/references/cognitive-development.md).
+
+## Daily Library growth and recursive curiosity
+
+Follow the active [daily Library growth contract](../mira-read/references/daily-library-growth.md).
+Substantive Mira Read close may save qualifying ordinary idea notes locally as
+works in progress. No draft-note state, daily catch-up debt, or publication
+authority is created. Independent notes and essays are distinct from governed
+revision lineage; Dream and strategic nominations remain nomination-only.
+Retrieve prior applications and corrections before reuse. Missing analysis or
+no qualifying new note never blocks Dream. Development requires later evidence.
