@@ -8,7 +8,7 @@ import json
 import os
 from pathlib import Path
 import re
-import tempfile
+import uuid
 
 from portable_paths import state_path, require_private_path
 from bridge_handoff import locked
@@ -300,7 +300,11 @@ def record(payload, *, repo=REPO_ROOT, root=None, check=False, revise=None):
         dest = target_root / e["entry_id"] / f"v{e['version']:06d}"
         if changed:
             dest.parent.mkdir(parents=True, exist_ok=True)
-            staging = Path(tempfile.mkdtemp(prefix=".pending-", dir=dest.parent))
+            # Python's Windows mkdir(mode=0o700), used by mkdtemp, installs a
+            # protected owner-only DACL. Preserve the private store's inherited
+            # reader permissions when this directory becomes a durable version.
+            staging = dest.parent / f".pending-{uuid.uuid4().hex}"
+            staging.mkdir(mode=0o777 if os.name == "nt" else 0o700)
             try:
                 (staging / "entry.md").write_text(e["narrative"], encoding="utf-8", newline="")
                 (staging / "entry.json").write_text(json.dumps(e, ensure_ascii=False, indent=2), encoding="utf-8")

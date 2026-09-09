@@ -1,7 +1,9 @@
 import copy
 import hashlib
 import json
+import os
 from pathlib import Path
+import subprocess
 import sys
 
 import pytest
@@ -61,6 +63,27 @@ def test_revision_preserves_old_reading_and_requires_digest(setup):
     assert ctx["latest"][0]["narrative"] == e["narrative"]
     assert len(ctx["corrections_and_predecessors"]) == 1
     assert Path(first["path"]).is_file()
+
+
+@pytest.mark.skipif(os.name != "nt", reason="Windows inherited Journal reader ACLs")
+def test_recorded_versions_preserve_parent_acl_inheritance(setup):
+    repo, root, entry = setup
+    first = journal.record(entry, repo=repo, root=root)
+    entry["narrative"] = "A corrected interpretation."
+    second = journal.record(entry, repo=repo, root=root, revise=first["digest"])
+    for receipt in (first, second):
+        version = Path(receipt["path"]).parent
+        script = (
+            "$a=[System.IO.Directory]::GetAccessControl($env:MIRA_JOURNAL_ACL_TEST_PATH); "
+            "if ($a.AreAccessRulesProtected) { throw 'Version blocks inherited readers' }; "
+            "if (-not ($a.Access | Where-Object IsInherited)) { throw 'Missing inherited ACL' }"
+        )
+        result = subprocess.run(
+            ["powershell.exe", "-NoProfile", "-NonInteractive", "-Command", script],
+            env={**os.environ, "MIRA_JOURNAL_ACL_TEST_PATH": str(version)},
+            capture_output=True, text=True,
+        )
+        assert result.returncode == 0, result.stderr or result.stdout
 
 
 @pytest.mark.parametrize("field,value", [("encounter_status", "menu"), ("encounter_status", "incomplete"), ("save_requested", False), ("authors", ["Plato"])])
