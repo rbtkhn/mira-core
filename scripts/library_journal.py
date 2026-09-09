@@ -207,11 +207,15 @@ def summary(repo=REPO_ROOT, root=None):
     try:
         base = location(repo, root)
         if not base.is_dir():
-            return {"id": "library-journal", "status": "unavailable", "error": "private store is missing"}
+            return {"id": "library-journal", "status": "unavailable", "error": "private store is missing",
+                    "owning_command": "tools/run.ps1 library-journal", "authority_status": "private-interpretive",
+                    "reporting_verb": "records"}
         rows = entries(repo, root)
         return {"id": "library-journal", "status": "available" if rows else "empty", "entry_count": len({e["entry_id"] for e in rows}), "version_count": len(rows), "owning_command": "tools/run.ps1 library-journal", "authority_status": "private-interpretive", "reporting_verb": "records"}
     except (OSError, ValueError, KeyError) as error:
-        return {"id": "library-journal", "status": "unavailable", "error": str(error)}
+        return {"id": "library-journal", "status": "unavailable", "error": "private store unavailable",
+                "owning_command": "tools/run.ps1 library-journal", "authority_status": "private-interpretive",
+                "reporting_verb": "records"}
 
 
 def record(payload, *, repo=REPO_ROOT, root=None, check=False, revise=None):
