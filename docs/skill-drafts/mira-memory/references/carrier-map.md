@@ -11,6 +11,7 @@ Authority is question-specific, not a single global ranking:
 | Session closure | platform state root `continuity/inbox/` (private provisional) | exact-session `session_closure` projection | `rest` / `mira-continuity` |
 | Autobiographical | `mira/journal-registry.json` and approved `MJ-*` bytes | journal indexes and explicit-only Mira Archive collection | `mira-journal` |
 | Procedural learning | canonical Recursive Learning JSON ledger | generated Markdown and explicit-only Mira Archive outcomes | `recursive-learn` |
+| Procedural planning | concern cards under `docs/work-journal/` or workflow-owned `references/` folders | conversational handoffs and advisory planning notes | owning workflow, usually `mira-work` |
 | Provisional method experiments | configured private cadence database | bounded Coffee and scorecard projections | `coffee` / `dream` / `cadence` |
 | Epistemic / geopolitical | archive manifest and source bodies; named judgment, forecast, verification, and Reality records | derived voices, channels, views, and Mira Archive copies | owning domain workflow |
 | Epistemic / civilizational | Mira Library registry, living work integration, governed current-head notes, and explicit graph relations | Library indexes and private reasoning packets | `library-import` / `library-integration` / `library-reasoning` |
@@ -29,6 +30,9 @@ exact digest-bound operator promotion creates the constitutional ledger.
   the current focus; relevance grants no authority.
 - Authority flags remain independent. No retained carrier grants action
   authority, and Mira Archive does not inherit identity or evidence authority.
+- Concern cards preserve planning context for bigger-than-prompt work. They do
+  not become identity, source evidence, journal continuity, recursive-learning
+  outcomes, archive membership, permission, or action authority.
 - Mira Library framing is a provisional cognitive scaffold. It does not become
   present-fact evidence, operator belief, identity, or a recursive-learning
   outcome merely because Mira Memory reports it as relevant.

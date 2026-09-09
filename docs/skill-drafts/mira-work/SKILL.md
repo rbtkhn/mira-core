@@ -25,6 +25,14 @@ conversation, simple one-step edits, or low-consequence mechanical work.
   evidence, and authorized endpoint. Design the receipt around the primary
   stakeholder and process or decision improved. Keep this internal unless
   explaining the finish line or human handoff helps the operator.
+- When the work is bigger than a prompt but not mature enough to become a
+  governed skill, prepare or consult a concern card. A concern card is an
+  advisory repository-local planning artifact that captures the concern,
+  context carriers, authority boundary, shared-state record, verification
+  surface, cadence, failure behavior, and human decision points. It grants no
+  execution, persistence, memory, source-evidence, journal, recursive-learning,
+  archive, staging, commit, push, publication, deployment, or communication
+  authority. Use [`references/concern-card-template.md`](references/concern-card-template.md).
 - Separate observed, supplied, inferred, missing, stale, and contradictory
   information.
 - Resolve and state the active repository root before inspecting or modifying
@@ -151,6 +159,11 @@ Method allowed to end:
 - Preserve corrections, changed assumptions, unresolved tensions, and reusable
   method without claiming unsupported personal continuity.
 - Keep transferable method separate from lane-specific or private context.
+- If a concern card was used, update the conversational handoff with what the
+  card clarified, which shared-state record another agent should read first,
+  and whether repeated use exposed stable triggers, boundaries, receipts, and
+  validation needs. Only that repeated stability can justify proposing a later
+  full skill; the card itself is not procedural learning or canonical memory.
 - State the exact re-entry point when future work is genuinely required.
 - Stop when the useful result is complete and no closure debt remains.
 
@@ -183,6 +196,14 @@ Landed-state snapshot digest:
 Active transition:
 Prior transition disposition: none | completed | paused | blocked-with-resumption
 ```
+
+Use a concern card instead of only the preflight when the operator is delegating
+an ongoing concern, recurring workflow, or multi-session operating loop whose
+safe execution depends on durable context and a visible trust surface. Store
+one-off cards under `docs/work-journal/`; store reusable or workflow-owned
+cards beside their owning skill references. Do not create a command, schema,
+database, index, staging rule, or synchronization path for concern cards unless
+the operator later authorizes that exact implementation.
 
 When the work is meant to improve a process, decision, workflow, handoff, or
 customer-facing outcome, add this optional constraint-proof section. It is

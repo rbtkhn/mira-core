@@ -16,6 +16,22 @@ Can a different competent agent use the skill to move from operator objective
 to verified outcome without relying on hidden chat memory, vendor-specific
 state, or activity narration as proof?
 
+## Trust Curve
+
+A workflow moves up the trust curve when a larger share of the work can be
+delegated without hiding judgment, authority, or failure. Judge delegation by
+the visible trust surface, not by model capability alone:
+
+- Are outputs externally checkable through files, tests, receipts, URLs,
+  screenshots, ledgers, or other durable evidence?
+- Are failures recoverable from shared state without repeating unsafe actions
+  or rediscovering the whole path?
+- Are authority boundaries explicit enough that the workflow can prepare,
+  pause, or ask before mutation, admission, spending, publication, deployment,
+  or external communication?
+- Does the workflow preserve the human decision point when the work compresses
+  judgment or apprenticeship rather than toil?
+
 ## 1. Done-State
 
 - What exact state counts as done?
@@ -32,6 +48,9 @@ state, or activity narration as proof?
 - Are supplied, observed, inferred, stale, missing, and contradictory inputs
   separated?
 - Is important context stored in a portable file, registry, ledger, or receipt?
+- For bigger-than-prompt work, is there a concern card or equivalent planning
+  artifact naming the concern, shared-state record, verification surface, and
+  re-entry point?
 - Is private or provisional context prevented from becoming doctrine by
   accident?
 
@@ -97,6 +116,9 @@ state, or activity narration as proof?
 - Undeclared connector, credential, or permission dependency is usually `P1`
   when it can expose private data or silently change the action surface.
 - Noisy cadence without actionable-change thresholds is usually `P2`.
+- A missing trust-curve surface is usually `P2` for advisory workflows and
+  `P1` when the workflow can mutate state, touch external systems, admit
+  evidence, publish, deploy, spend, or communicate.
 
 ## Compact Report Add-On
 
@@ -112,4 +134,5 @@ Connection risks:
 Cadence:
 Receipt evidence:
 Portability:
+Trust curve:
 ```
