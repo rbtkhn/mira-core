@@ -19,7 +19,8 @@ architecture inventory.
    `tools/run.ps1 mira-memory status --focus "REQUEST" --counterchecks skip --json`.
    Use the default `--counterchecks auto` only when live source drift, archive
    parity, or external-store health can change the answer.
-3. Inspect only materially relevant canonical sources and generated views.
+3. Begin with already available evidence and the smallest relevant carrier set.
+   Inspect only materially relevant canonical sources and generated views.
 4. Attribute every recovered item to its carrier and evidence class.
    Use carrier-native epistemic verbs: Continuity `recorded`, Journal
    `interpreted`, Recursive Learning or research evidence `supports`, System
@@ -27,9 +28,17 @@ architecture inventory.
 5. Preserve disagreement by authority and provenance. Never blend records into
    a fluent compromise or choose the most expressive record silently.
 6. Run a bounded counter-memory check when recalled material could affect
-   identity, judgment, or action. Inspect only implicated carriers for a later
-   correction, conflicting interpretation, superseding decision, or missing
-   evidence.
+   identity, judgment, or action. Before reusing a consequential conclusion,
+   inspect its owner's available current version, corrections, predecessors,
+   or superseding decision. Present the earlier conclusion and its material
+   qualification together with attribution. Keep unresolved interpretations
+   distinct: recency alone does not establish truth. Distinguish "no correction
+   found in the inspected scope" from missing, unavailable, or truncated
+   coverage. Keep routine checks unobtrusive; surface only corrections or
+   limitations that affect the answer. Follow the carrier map's
+   [correction-aware recall](references/carrier-map.md#correction-aware-recall)
+   for existing Library Journal outputs. Health counterchecks in `status` are
+   not semantic verification and do not authorize comprehensive retrieval.
 7. Return the relevant memory, unresolved tension, confidence boundary, and one
    recommended owning workflow. If equally material owners remain, keep the
    route in read-only `needs-decomposition` state under `mira-memory`.

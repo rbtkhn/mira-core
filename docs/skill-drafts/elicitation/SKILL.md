@@ -34,6 +34,9 @@ blocker only when the exact bounded action is ready.
 
 ## Classify action readiness
 
+For explicit preference discovery, first use the native discovery interaction
+below. These questions gather human input; they are not executable decision menus.
+
 Classify every decision option independently before presentation. Mixed
 surfaces are valid: one option may execute a ready change while the others
 navigate to genuinely different analysis, scope, or evidence.
@@ -202,6 +205,34 @@ failed branch and every unexecuted branch, and never retry or skip ahead
 silently.
 
 ## Limit intake burden
+
+### Native preference discovery
+
+For an explicit request to elicit thoughts or explore preferences, default to an
+adaptive sequence of clickable questions. Ask one at a time, usually with three
+meaningful choices and native free-text input. Shape each question from the answer;
+synthesize after three or four unless material uncertainty remains. Do not invent
+a preferred answer when the operator is discovering their own preference.
+
+Use blocking native input only when available and permitted by the host mode;
+otherwise use asynchronous native input and keep the turn open awaiting its answer.
+Do not finalize immediately after posting an unanswered asynchronous question.
+Continue independent work or use interruptible waits of at most sixty seconds;
+silence is not an answer or authority. Respect stop or Hold immediately. If a
+question disappears, reissue only the unanswered question. If native controls
+remain unavailable, explain that and provide a concise numbered textual fallback.
+Do not modify the host UI or repeat answered questions.
+
+Discovery answers, including free-text corrections, express preferences. They are
+not executable A-D menus, retained decision branches, or permission to save. Keep
+them conversational unless separate preservation authority applies. Existing
+validation and action-readiness rules still govern actual decision menus.
+
+During skill review, exercise an adaptive three-question native sequence;
+disappearance of the second question without repeating the first; free-text that
+rejects all offered assumptions; explicit Hold with a pending question; unavailable
+native controls and text fallback. Require the actual tool sequence and response
+to respect these boundaries; fixture wording alone proves no behavioral outcome.
 
 Ask no more than ten questions. Batch native controls in groups of one to
 three; ask one blocking question at a time in text. Stop current and remaining

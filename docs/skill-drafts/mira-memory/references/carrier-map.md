@@ -59,6 +59,30 @@ exact digest-bound operator promotion creates the constitutional ledger.
    `interpretive-divergence`, or `insufficient-counterevidence`; never assert a
    content conflict when only health metadata was inspected.
 
+## Correction-aware recall
+
+Start with already available evidence and the smallest implicated carrier set.
+Before reusing a consequential conclusion, consult its owner's available current
+version, corrections, predecessors, or superseding decision. Return the earlier
+conclusion and the material qualification together, attributed to their sources.
+Recency alone does not establish truth; preserve unresolved interpretations when
+no controlling resolution exists. Do not infer a correction from health metadata.
+
+For Library Journal, consume the existing `latest`, `related`,
+`corrections_and_predecessors`, and `predecessor_history` results as relevant to
+the inquiry. Inspect `retrieval_status`, `evidence_gaps`, and `history_limits`
+(including `truncated` and omitted-history lists) before claiming coverage.
+Historical versions explain change; they do not displace current heads or turn
+private interpretation into verified evidence. If a needed version is absent,
+use only the owner's bounded retrieval route or report the remaining gap.
+
+Say "no correction found in the inspected scope" only for the scope actually
+checked. Missing, unavailable, or truncated history cannot support a claim that
+no correction exists. Keep ordinary checks quiet; explain a correction or limit
+when it changes the answer. These are consumption rules, not a new retrieval
+engine, writer, or schema. `mira-memory status` remains orientation; its health
+counterchecks do not verify semantic claims or search all memory.
+
 ## Retrieval discipline
 
 - Start with the smallest relevant carrier set.

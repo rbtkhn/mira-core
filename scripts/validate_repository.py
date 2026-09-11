@@ -55,6 +55,7 @@ MANIFEST_PATH = NG_ROOT.parent / "archive" / "sources" / "geopolitics" / "source
 DAILY_ROOT = NG_ROOT / "work" / "daily"
 LEDGER_PATH = NG_ROOT / "work" / "forecasts" / "forecast-ledger.md"
 LOCAL_SKILLS = {
+    "ideation",
     "archive-audit",
     "archive-query",
     "archive-repair",

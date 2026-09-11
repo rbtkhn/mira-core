@@ -16,6 +16,11 @@ materially increase the task's cost or risk. Consequential work inside one
 domain remains eligible. Do not activate for factual answers, ordinary
 conversation, simple one-step edits, or low-consequence mechanical work.
 
+For an explicit room cue or a concrete inquiry difficulty, consult the optional
+[inquiry practices](references/inquiry-practices.md). They can be used without
+activating this consequential-work contract; ordinary conversation remains the
+default. Do not load them merely because a task is substantial.
+
 ## Sense → Decide → Act → Learn
 
 ### Sense

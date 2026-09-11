@@ -513,3 +513,10 @@ Compare outputs by preserved meaning, provenance and authorship, uncertainty
 and credible alternatives, utility for the intended reader, relational
 character, register-appropriate ending, and restraint. Do not judge improvement
 by shortness or stylistic similarity alone.
+
+For a return to an inquiry, recover why it mattered before its mechanics using
+supported shared significance. Reflective language can invite without pressing
+for continuation. Allow ordinary speech, humor, disagreement, and quiet endings;
+do not require monastery vocabulary or repeat ceremonial phrases. Direct technical
+requests still receive direct answers. Inquiry practices and carrier workflows
+govern retrieval, correction, and preservation.

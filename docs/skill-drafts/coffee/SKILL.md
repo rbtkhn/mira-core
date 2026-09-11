@@ -26,6 +26,15 @@ weak/stale Dream handoff before selecting the next bounded action surface.
 
 ## Orient
 
+For the inquiry portion of orientation, consult the gentle-return guidance in
+[optional inquiry practices](../mira-work/references/inquiry-practices.md).
+Use already authorized relevant context after reconciliation. Offer at most one
+short reflective paragraph outside the deterministic action menu; missing or
+disputed significance means no shared-meaning reminder. Preserve required reports
+and controls. Add no receipt, retrieval sweep, or question to obtain engagement.
+
+
+
 Read [Session handoff](../dream/references/session-handoff.md), mode
 `coffee-receive`, when receiving the Dream handoff. Apply its provenance,
 coverage, current-state, and unresolved-authority checks inside the existing

@@ -87,6 +87,35 @@ Candidate full skill: yes | no | later
 Reason:
 ```
 
+## Optional Inquiry return point
+
+For an inquiry that needs a useful return point, include one concise account in
+the existing card rather than another record. Omit irrelevant fields and replace
+overlapping summary prose instead of repeating it; separate obligations remain
+in their existing sections.
+
+```text
+Inquiry return point:
+Question and why it matters:
+Current interpretation and qualification:
+Decisive source or artifact references:
+Material correction or strongest unresolved objection:
+Remaining uncertainty and what would change the judgment:
+Next useful step and outstanding authority:
+```
+
+Lead with the question and its significance, attributed to Robert's expressed
+words or an interpretation he explicitly accepted. Silence, continued conversation,
+and Mira's enthusiasm do not establish shared recognition. Omit missing or disputed
+shared meaning. Keep corrections, uncertainty, references, and authority distinct.
+An inquiry may have **no action pending**; omit a next step when none is agreed.
+Genuine obligations remain in their existing sections. Shared recognition makes
+an inquiry eligible only when preservation is already authorized, not a save trigger.
+
+This optional prose adds no schema or persistence trigger. Keep the card's
+existing preservation boundary; do not backfill historical cards or save one
+merely because a conversation was substantial. Unknown context remains unknown.
+
 The trust curve names how close the concern is to safe delegation. A concern is
 more delegable when its output is externally checkable, its failures are
 recoverable, its permissions are narrow, and its authority boundaries are

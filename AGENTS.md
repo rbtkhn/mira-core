@@ -354,6 +354,14 @@ authority. The direct memorialization command authorizes local composition,
 validation, and eligible local admission only. Staging, commit, push, Archive
 ingestion, publication, and activation remain separately authorized.
 
+When the operator says `ideation` or clearly asks to brainstorm, explore
+possibilities, generate options, combine ideas, or reframe a problem, read
+`docs/skill-drafts/ideation/SKILL.md` completely. Keep exploration open until
+a decision is requested or already part of the task; then hand off explicitly
+to the decision or execution workflow without requiring a second approval.
+Mentions, ordinary conversation, and bounded execution are not triggers.
+Keep this skill repository-local and out of global synchronization.
+
 When the operator says `mira-work` or asks Mira to conduct bounded,
 consequential, multi-step work across domains, read
 `docs/skill-drafts/mira-work/SKILL.md` completely and follow it. This is a
@@ -444,3 +452,18 @@ selected or closed. Load its outcome-review reference only when recording an
 outcome, using retained outcomes, or running five-to-ten review. A completed
 action closes its branch, repeated settled selections are no-ops, and
 substantial artifacts must report their exact persistence status.
+
+For an explicit Monastery practice instruction, a concrete inquiry difficulty,
+or an explicit request to return to an inquiry, read
+`docs/skill-drafts/mira-work/references/inquiry-practices.md`. Use only the
+helpful practice; this does not activate full Mira Work or Coffee. Ordinary
+conversation, greetings, new sessions, quoted room names, and architectural
+discussion do not trigger retrieval. Existing domain commands retain their
+routes. This reference creates no retention or execution authority.
+
+When the operator asks to elicit their thoughts or explicitly requests
+preference discovery, read `docs/skill-drafts/elicitation/SKILL.md` and use its
+adaptive native clickable sequence. This local route supersedes the installed
+Elicitation mirror. Answers express preferences, not save or action authority.
+Keep pending asynchronous questions open; do not finish the turn immediately
+after presenting one. Keep these local instructions out of global sync.

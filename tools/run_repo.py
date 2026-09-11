@@ -18,6 +18,7 @@ from runtime_names import (  # noqa: E402
 ARGUMENTS_ENV = "MIRA_CORE_RUN_ARGUMENTS_JSON"
 ARGUMENTS_ENV_FLAG = "--arguments-env"
 SURFACES = {
+    "ideation-benchmark": REPO_ROOT / "scripts" / "ideation_benchmark.py",
     "archive-audit": REPO_ROOT / "scripts" / "archive_audit.py",
     "archive-density": REPO_ROOT / "scripts" / "report_archive_density.py",
     "archive-repair": REPO_ROOT / "scripts" / "archive_repair.py",

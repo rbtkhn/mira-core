@@ -201,6 +201,15 @@ def test_behavioral_fixture_inventory_is_complete_and_human_reviewed() -> None:
         "MW-FAILURE-02",
         "MW-EDGE-03",
         "MW-NORMAL-03",
+        "MW-INQUIRY-01",
+        "MW-INQUIRY-02",
+        "MW-INQUIRY-03",
+        "MW-INQUIRY-04",
+        "MW-INQUIRY-05",
+        "MW-INQUIRY-06",
+        "MW-INQUIRY-07",
+        "MW-INQUIRY-08",
+
     ]
     assert {case["case"] for case in cases} == {"normal", "edge", "failure", "ambiguous"}
     skill = " ".join(read_skill().split())
