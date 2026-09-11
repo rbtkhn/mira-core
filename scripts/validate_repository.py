@@ -55,6 +55,7 @@ MANIFEST_PATH = NG_ROOT.parent / "archive" / "sources" / "geopolitics" / "source
 DAILY_ROOT = NG_ROOT / "work" / "daily"
 LEDGER_PATH = NG_ROOT / "work" / "forecasts" / "forecast-ledger.md"
 LOCAL_SKILLS = {
+    "geo-strategy",
     "ideation",
     "archive-audit",
     "archive-query",
@@ -579,7 +580,6 @@ def skill_contract_failures() -> list[str]:
         "learn-from-choices",
         "smart-intake",
         "voice-comparison",
-        "geo-strategy",
         "reality-check",
         "repo-audit",
         "voice-accountability",

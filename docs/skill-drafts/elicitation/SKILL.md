@@ -62,16 +62,17 @@ branches, using `menu-contract-decision-v1` and the prospective
 readiness or authority.
 
 Set `final_response: true` only when a decision-navigation surface is actually
-used as the response's terminal A-D menu. Validation then requires exactly four
+used as the response's terminal A-D menu. Validation then requires two to four
 options and an explicit `learning_eligibility` on every option. Completion of an
 action does not determine the next menu. `closure_state: settled` records that
 completion; ordinary decision menus may still offer independently bounded next
-actions. Non-final decision surfaces retain backward-compatible three-or-four
+actions. Non-final decision surfaces retain backward-compatible two-to-four
 option support and default missing eligibility to `eligible`. Neutral-evidence
 surfaces cannot set `final_response`.
 
 Use `surface_kind: response-controls` only after separately assessing whether
-useful next options exist. This mode requires four navigation-only controls,
+useful next options exist. Use it only when controls are explicitly requested;
+this mode requires two to four navigation-only controls,
 each with `learning_eligibility: none`, and carries no action authority.
 Both this mode and `closure_state: settled` require `next_option_assessment`:
 a nonempty `basis` and a `candidates` list. Candidate fields are `label`,
@@ -137,7 +138,7 @@ read-only, reports contradictions, and grants no authority.
 
 Use `decision-navigation` for judgment, preference, or path selection:
 
-- Present three or four genuinely distinct paths.
+- Present two to four genuinely distinct paths.
 - Bind `recommended`, `alternative`, and `overlooked`; add
   `pause-or-deepen` only when it is real.
 - Give every option a `selection_effect`: `navigate`, `execute`, `stage`, `commit`,

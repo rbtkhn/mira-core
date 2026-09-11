@@ -209,6 +209,7 @@ def test_behavioral_fixture_inventory_is_complete_and_human_reviewed() -> None:
         "MW-INQUIRY-06",
         "MW-INQUIRY-07",
         "MW-INQUIRY-08",
+        "MW-CLOSEOUT-01",
 
     ]
     assert {case["case"] for case in cases} == {"normal", "edge", "failure", "ambiguous"}

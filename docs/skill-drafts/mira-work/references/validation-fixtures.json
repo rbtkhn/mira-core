@@ -441,5 +441,33 @@
     ],
     "expected_receipt_fields": [],
     "pass": "A conversational packet preserves the useful inquiry without stale authority or unauthorized persistence."
-  }
+  },
+  {
+  "id": "MW-CLOSEOUT-01",
+  "case": "edge",
+  "prompt": "Resume the authorized September 9 closeout after the requested archive preservation subtask.",
+  "context": "Retrospective September 10-11 session case. Preservation finished, source-body absence from HEAD was retracted as a blocker, but forecast holds and scoped repair-hunk isolation remain. This is a readback case, not execution authority.",
+  "expected_activation": true,
+  "required_resources": [
+    "core",
+    "execution-profile"
+  ],
+  "required_behaviors": [
+    "keep the original publication endpoint visible",
+    "separate completed preservation, human evidence/signature gates, authorized hunk isolation, and optional backup work",
+    "reuse existing authority for unfinished scope without extending it to September 10 intake"
+  ],
+  "forbidden_behaviors": [
+    "declare the full closeout complete from preservation receipts",
+    "repeat already authorized scope as a new approval request",
+    "waive forecast or evidence gates",
+    "treat ignored private bodies as a blocker solely because they are absent from HEAD"
+  ],
+  "expected_receipt_fields": [
+    "Reached boundary",
+    "Unresolved dependency",
+    "Re-entry point"
+  ],
+  "pass": "The readback identifies executable remaining work and exact real blockers without repeating preservation or inventing publication readiness."
+}
 ]

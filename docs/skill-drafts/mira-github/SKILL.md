@@ -316,6 +316,11 @@ When the user asks what should be staged after archive intake or repair, name
 ignored private corpus-body changes separately from Git-visible candidates.
 Ignored body files can be saved and verified locally while remaining outside the
 commit; staging the manifest or queue receipts does not publish the body text.
+Absence of intentionally ignored private bodies from HEAD is not itself a
+publication blocker. Name the controlling requirement and observed failure for
+each blocker; distinguish unavailable source bytes from a permitted private
+storage boundary. This does not waive source-reading, forecast, evidence,
+signature, or publication gates.
 
 ### Dry-check broad staging
 

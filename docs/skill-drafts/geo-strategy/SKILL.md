@@ -80,13 +80,11 @@ Month and range modes process only dates with manifest rows. The deprecated
 
 ## Choice Acceleration Policy
 
-Use a geo-strategy option engine for follow-up menus after an archive-backed
-issue, day, or crisis object is in view. The visible user surface remains
-exactly four `A`-`D` options, but those options are selected from a larger
-internal library of 10-20 next-best epistemic moves. Optimize for faster
-judgment formation, not faster prose: every visible option must improve
-evidence, mechanism clarity, uncertainty handling, forecast leverage, or an
-explicit hold.
+Offer a menu only when a material decision remains or the operator explicitly
+requests directions. Otherwise finish plainly. When warranted, select two to
+four meaningful options that improve evidence, mechanism clarity, uncertainty
+handling, forecast leverage, or an explicit hold; a single blocking question
+needs no artificial alternatives.
 
 Rank candidate moves in this order:
 
@@ -98,7 +96,7 @@ Rank candidate moves in this order:
 
 Prefer a concrete next workflow over generic continuation language. Do not
 surface vague `continue`, `deepen`, or `explore more` options unless the label
-names the exact object and the missing judgment job. If all four options would
+names the exact object and the missing judgment job. If all proposed options would
 be navigation-only, collapse the surface to the narrowest concrete workflow
 available now and state the blocked action.
 
@@ -121,13 +119,9 @@ Internal move library:
 - verification packet draft;
 - pause/hold with explicit unresolved gate.
 
-Project the selected moves onto the four-option visible surface this way:
-
-- `A` highest-confidence next action;
-- `B` correction, coverage repair, or missing-foundation action;
-- `C` deepening move with the best judgment leverage;
-- `D` alternate object, explicit hold, verification/publication boundary, or
-  packet-disposition move.
+Lead with the highest-confidence next action and its concrete benefit. Include
+only real alternatives; the internal move library is a resource for requested
+exploration, not a quota for routine endings.
 
 Compose with `learn-from-choices` without weakening it. Generic final-response
 controls remain `learning_eligibility: none`. Only action-ready options whose
@@ -145,8 +139,8 @@ archive testimony as verified fact.
 
 ## Guided Menu
 
-The legacy five-option menu is deprecated. For new geo-strategy work, apply the
-Choice Acceleration Policy and return exactly four `A`-`D` options.
+The legacy five-option menu is deprecated. Apply the decision-only Choice
+Acceleration Policy; there is no mandatory menu or fixed option count.
 
 ## Density Triage
 

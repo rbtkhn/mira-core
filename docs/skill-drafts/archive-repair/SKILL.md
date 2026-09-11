@@ -72,6 +72,10 @@ dry-run routes. Do not edit canonical object bodies, external-corpus source
 bodies, publish, quote, hydrate, or synchronize replicas unless that exact
 action is separately authorized.
 
+For authorized bulk preservation, replica reconciliation, or interrupted
+verification, read [bounded preservation checks](references/bounded-preservation.md).
+This reference does not authorize a new transfer or broader corpus audit.
+
 ### Narrative Geopolitics
 
 Narrative Geopolitics repairs remain bounded metadata/body/source repairs for

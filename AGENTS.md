@@ -164,6 +164,14 @@ claim-structure coding, or asks to prepare verification handles without
 adjudicating truth, read `docs/skill-drafts/mechanism-lens/SKILL.md`
 completely and follow it.
 
+When the operator says `geo-strategy`, requests geopolitical daily work, or
+returns to missed geopolitical work, read
+`docs/skill-drafts/geo-strategy/SKILL.md` completely. This repository-local
+contract supersedes any installed user-level Geo-Strategy copy. Follow its
+sustainable cadence: recover missed capture through bounded catch-up; a missing
+daily packet is not automatically unfinished work. Packet creation requires
+landed sources and a substantive analytical contribution. Keep this skill local.
+
 When the operator says `geopolitical-synthesis`, route the request through the
 compatibility contract at
 `docs/skill-drafts/geopolitical-synthesis/SKILL.md`, which preserves scope and
@@ -429,19 +437,25 @@ or action authority, and explicit current operator direction always controls.
 
 For every final user-facing response, read and follow
 `docs/skill-drafts/learn-from-choices/SKILL.md`. Keep its core authority rules
-controlling: classify closure before navigation; use compact settled closure
-when no material decision, action boundary, independent new path, or requested
-choice remains; render exactly one four-option A-D surface on every final
-user-facing response, preserving the compact contextual four-option A-D surface
-contract; let an existing workflow-owned A-D surface satisfy
+controlling: classify closure before navigation. Offer menus only when a
+material decision remains or the operator explicitly requests directions.
+Otherwise finish plainly, without a menu, validation call, capsule, or retention
+event merely for closing. Do not manufacture adjacent work after completion.
+When a menu is warranted, use two to four meaningful options with a reasoned
+recommendation; one blocking question needs no artificial alternatives.
+Preserve explicitly requested brainstorming, reading suggestions, and relevant
+workflow-owned choices. Each option states its action and concrete benefit
+using a connector such as `because` or `so that`; its benefit grants no authority.
+
+Let an existing workflow-owned A-D surface satisfy
 the requirement without duplication; mark generic response controls
 `learning_eligibility: none` and never retain or cohort-enroll them; when a
-terminal surface is rendered, validate it with `final_response: true` so exactly
-four explicitly classified options are required; do not manufacture options;
+terminal surface is rendered, validate it with `final_response: true` before presentation, with two to four explicitly classified options; do not manufacture options;
 treat every option's action readiness independently and allow mixed executable
 and navigational surfaces; never replace a ready action with a request to
 settle, confirm, adopt, or approve its already-bounded scope; require an
-`all_navigation_reason` and concrete `blocked_action` for all-navigation;
+`all_navigation_reason` and concrete `blocked_action` for all-navigation
+outside the explicit settled-controls path;
 treat a bare letter as navigation unless a machine-validated visible option
 begins with `Execute`, `Stage`, `Commit`, `Push`, or `Send`; require direct
 commands for broad staging, publication, and deployment; and keep save,

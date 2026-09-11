@@ -217,7 +217,7 @@ def neutral_surface(*, hold: bool = False) -> dict:
     return {"type": "neutral-evidence", "options": options}
 
 
-@pytest.mark.parametrize("count", (3, 4))
+@pytest.mark.parametrize("count", (2, 3, 4))
 def test_decision_surface_accepts_three_or_four_options(count: int) -> None:
     surface = decision_surface()
     surface["options"] = surface["options"][:count]
@@ -243,7 +243,7 @@ def test_decision_surface_accepts_three_or_four_options(count: int) -> None:
     }
 
 
-@pytest.mark.parametrize("count", (0, 1, 2, 5))
+@pytest.mark.parametrize("count", (0, 1, 5))
 def test_decision_surface_rejects_other_option_counts(count: int) -> None:
     surface = decision_surface()
     if count == 5:
@@ -257,7 +257,7 @@ def test_decision_surface_rejects_other_option_counts(count: int) -> None:
         )
     else:
         surface["options"] = surface["options"][:count]
-    with pytest.raises(elicitation.ElicitationError, match="three or four"):
+    with pytest.raises(elicitation.ElicitationError, match="two to four"):
         elicitation.validate_elicitation_surface(surface)
 
 
@@ -314,7 +314,7 @@ def test_learning_eligibility_is_optional_but_strict_when_present() -> None:
         elicitation.validate_elicitation_surface(invalid)
 
 
-def test_final_response_requires_four_explicitly_classified_options() -> None:
+def test_final_response_accepts_two_to_four_explicitly_classified_options() -> None:
     final = decision_surface(
         learning_eligibility=("eligible", "eligible", "none", "none"),
         final_response=True,
@@ -328,8 +328,9 @@ def test_final_response_requires_four_explicitly_classified_options() -> None:
         final_response=True,
     )
     three["options"] = three["options"][:3]
-    with pytest.raises(elicitation.ElicitationError, match="exactly four"):
-        elicitation.validate_elicitation_surface(three)
+    assert len(elicitation.validate_elicitation_surface(three)["options"]) == 3
+    three["options"] = three["options"][:2]
+    assert len(elicitation.validate_elicitation_surface(three)["options"]) == 2
 
     implicit = decision_surface(final_response=True)
     with pytest.raises(elicitation.ElicitationError, match="explicit"):
@@ -888,14 +889,14 @@ def test_host_and_choice_contract_require_compact_contextual_closure() -> None:
         REPO_ROOT / "docs" / "skill-drafts" / "elicitation" / "SKILL.md"
     ).read_text(encoding="utf-8")
 
-    assert "compact contextual four-option A-D surface" in agents
+    assert "two to four meaningful options" in agents
     assert "compact settled closure" in choices
     assert "completed factual answers" in choices
     assert "simple thanks or acknowledgements" in choices
     assert "explicit stops" in choices
     assert "action does not determine the next menu" in elicitation_skill
     assert "next_option_assessment" in elicitation_skill
-    assert "Never infer the menu type from completion alone" in choices
+    assert "Menus are decision-only" in choices
 
 
 def test_choice_contract_makes_bounded_task_creation_executable() -> None:
@@ -1023,3 +1024,16 @@ def test_cli_json_is_console_safe_and_round_trips_unicode() -> None:
     assert "\\u039a" in result.stdout
     payload = json.loads(result.stdout)
     assert payload["options"][1]["label"] == 'Καλημέρα "quoted"'
+
+
+def test_decision_only_default_preserves_quiet_stops_and_action_checks():
+    choices = (REPO_ROOT / "docs/skill-drafts/learn-from-choices/SKILL.md").read_text(encoding="utf-8")
+    agents = (REPO_ROOT / "AGENTS.md").read_text(encoding="utf-8")
+    for text in (choices, agents):
+        normalized = " ".join(text.split())
+        assert "material decision remains" in normalized
+        assert "explicitly request" in normalized
+        assert "two to four meaningful options" in normalized
+        assert "single blocking question" in normalized or "one blocking question" in normalized
+    assert "Do not turn routine authorized continuation into another choice" in choices
+    assert "Validate the exact visible surface before presentation" in choices

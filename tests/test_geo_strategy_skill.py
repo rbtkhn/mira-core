@@ -16,8 +16,9 @@ def test_geo_strategy_choice_acceleration_policy_is_present() -> None:
     normalized = " ".join(text.split())
 
     assert "## Choice Acceleration Policy" in text
-    assert "exactly four `A`-`D` options" in text
-    assert "internal library of 10-20 next-best epistemic moves" in text
+    assert "exactly four `A`-`D` options" not in text
+    assert "material decision remains" in text
+    assert "two to" in text and "four meaningful options" in text
     assert "crisis consequence" in text
     assert "evidence gap" in text
     assert "forecast leverage" in text
@@ -70,5 +71,6 @@ def test_geo_strategy_deprecates_legacy_five_option_menu() -> None:
     normalized = " ".join(text.split())
 
     assert "legacy five-option menu is deprecated" in normalized
-    assert "return exactly four `A`-`D` options" in text
+    assert "return exactly four `A`-`D` options" not in text
+    assert "no mandatory menu" in text
     assert "`E` execute the full stack" not in text

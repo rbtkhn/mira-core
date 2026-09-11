@@ -149,6 +149,12 @@ Method allowed to end:
 ### Learn
 
 - Compare intended results with observed outcomes when outcome evidence exists.
+- At completion or handoff, distinguish completed scope, genuine blockers
+  (with their controlling requirement and evidence), authorized unfinished work,
+  and deferred optional work. A subtask does not replace the original endpoint.
+  Existing authority survives intermediate repairs; unrelated new scope does
+  not inherit it. Continue executable work within that authority until the
+  requested boundary or an explicit pause, rather than asking again.
 - Before finalizing, compare the proposed next action with work already
   completed or authorized. Do not reopen that work under another label or
   present its routine continuation as a new operator decision.

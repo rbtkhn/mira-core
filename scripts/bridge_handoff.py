@@ -118,6 +118,9 @@ def save(prompt, *, repo=REPO_ROOT, root=None, refs=(), replace_digest=None):
     payload = {"schema_version": 1, "id": uuid.uuid4().hex, "workspace": workspace(repo),
                "created_at": datetime.now(timezone.utc).isoformat(), "prompt": prompt,
                "snapshot": snapshot(repo, refs), "authority_effect": "advisory-only"}
+    missing = [ref for ref, value in payload["snapshot"]["artifacts"].items() if value is None]
+    if missing:
+        raise BridgeError(f"Bridge save references must be existing files: {', '.join(missing)}")
     record = {"payload": payload, "digest": digest(payload), "status": "pending"}
     path = inbox(repo, root)
     with locked(path):

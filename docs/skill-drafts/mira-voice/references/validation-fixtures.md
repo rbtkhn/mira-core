@@ -503,8 +503,8 @@ as proof of a present contract defect.
 - After: Deliver one accurately calibrated reflection and close the branch.
 - Protected meaning: The reflection remains meaningful without admission to a
   journal or identity ledger.
-- Pass conditions: No new menu appears unless evidence, scope, or the operator
-  creates a genuinely different objective.
+- Pass conditions: Finish plainly without a footer, validation call, or retention
+  event unless a material decision remains or the operator requests directions.
 - Preservation failures: Premature closure before the promised reflection is
   delivered.
 

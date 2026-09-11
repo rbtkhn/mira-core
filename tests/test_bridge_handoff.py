@@ -158,3 +158,32 @@ def test_missing_store_is_read_only_and_unavailable_git_is_explicit(context, mon
     result = bridge.read(record["digest"], repo=repo, root=root)
     assert result["comparison"]["head"] == "unavailable"
     assert result["comparison"]["status_digest"] == "unavailable"
+
+
+@pytest.mark.parametrize("existing", [False, True])
+@pytest.mark.parametrize("ref_kind", ["missing", "directory"])
+def test_save_rejects_nonfile_refs_without_replacing_inbox(context, existing, ref_kind):
+    repo, root = context
+    prior = save(context) if existing else None
+    path = bridge.inbox(repo, root)
+    before = path.read_bytes() if prior else None
+    if ref_kind == "directory":
+        (repo / "bad-ref").mkdir()
+    with pytest.raises(bridge.BridgeError, match="existing files"):
+        bridge.save("replacement", repo=repo, root=root, refs=["bad-ref"],
+                    replace_digest=prior["digest"] if prior else None)
+    if prior:
+        assert path.read_bytes() == before
+        assert bridge.peek(repo=repo, root=root)["digest"] == prior["digest"]
+    else:
+        assert not path.exists()
+
+
+def test_saved_packet_roundtrips_exactly_without_consumption(context):
+    repo, root = context
+    prompt = "Session Bridge\nUnicode: café — exact text.\n\ncoffee\n"
+    saved = save(context, prompt)
+    stored = json.loads(Path(saved["path"]).read_text(encoding="utf-8"))
+    assert stored["digest"] == bridge.digest(stored["payload"]) == saved["digest"]
+    assert bridge.read(saved["digest"], repo=repo, root=root)["prompt"] == prompt
+    assert bridge.peek(repo=repo, root=root)["status"] == "pending"

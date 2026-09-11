@@ -123,6 +123,13 @@ writer or assume the old Markdown event log exists merely to fill this section.
 End the copyable block with the standalone line `coffee`. This is a suggested
 re-entry cue, not execution of Coffee in the source or receiving session.
 Keep any final choice surface outside the copyable block.
+Compose one canonical packet for saving. Display that exact text or explicitly
+label a shorter display as a summary of the saved packet; its digest always
+identifies the saved packet, never the summary. Before saving, verify concrete
+repository paths named in prose and correct mistaken paths. Label known missing
+artifacts as missing rather than supplying guessed locations. Declared `--ref`
+files must exist at save time; later deletion remains a stale-reference warning
+when reading the preserved advisory packet.
 
 ### Private Coffee handoff
 

@@ -311,7 +311,7 @@ def test_reflection_calibration_closes_without_erasing_warmth() -> None:
     assert "warmth and first-person character" in skill
     for fixture in ("MV-ADV-06", "MV-ADV-07", "MV-ADV-08", "MV-ADV-09"):
         assert fixture in fixtures
-    assert "No new menu appears unless evidence, scope, or the operator" in fixtures
+    assert "Finish plainly without a footer" in fixtures
     assert "Unsupported durable emotion or sterile removal" in fixtures
 
 

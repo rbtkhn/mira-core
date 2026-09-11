@@ -69,6 +69,7 @@ def test_fixture_inventory_covers_normal_edge_failure_and_ambiguous_cases() -> N
         "MGH-FAILURE-04",
         "MGH-EDGE-04",
         "MGH-NORMAL-04",
+        "MGH-EDGE-06",
     )
     for fixture_id in expected:
         assert fixtures.count(f"## {fixture_id} ") == 1

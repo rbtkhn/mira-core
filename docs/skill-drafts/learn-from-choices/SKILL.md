@@ -1,27 +1,30 @@
 ---
 name: learn-from-choices
-description: "Turn genuine user decisions into outcome-aware possibility maps and learn from explicitly selected branches without expanding action authority. Use for the compact contextual A-D surface required on every final response, when a material choice or bounded action remains, when a user replies with a menu letter, or when choice outcomes or staged five-to-ten reviews should be retained or examined."
+description: "Turn genuine user decisions into outcome-aware possibility maps and learn from explicitly selected branches without expanding action authority. Use when a genuine decision needs optional structured navigation, when a material choice or bounded action remains, when a user replies with a menu letter, or when choice outcomes or staged five-to-ten reviews should be retained or examined."
 ---
 
 # Learn From Choices
 
-Use this core contract to classify every final response and render exactly one
-compact contextual A-D surface at its end. Completed work can lead to substantive
-next options or, after a separate assessment, transient response controls.
-Do not apply choice footers to intermediate
-commentary. Load lifecycle references only at their named trigger:
+Use this core contract for material decisions and explicitly requested
+directions. Menus are decision-only, not automatic endings. Completed answers
+and actions finish plainly unless a material decision remains or the operator
+requests directions. A single blocking question needs no artificial alternatives.
+When a menu is warranted, offer two to four meaningful options with a reasoned
+recommendation and concrete benefits. Preserve requested brainstorming, reading
+suggestions, and relevant workflow-owned choices. Direct follow-ups remain welcome.
+Keep simple thanks, acknowledgements and explicit stops quiet, without menu
+validation, capsules or retention events. Do not apply choice footers to
+intermediate commentary. Load lifecycle references only at their named trigger:
 
 - After a user selects an offered branch, or when that selected branch closes,
   read [`references/choice-retention.md`](references/choice-retention.md).
 - Before using retained outcomes to reorder choices, recording an outcome, or
-  running five-to-ten review, read
-  [`references/outcome-review.md`](references/outcome-review.md).
+  running five-to-ten review, read [`references/outcome-review.md`](references/outcome-review.md).
 
 ## Classify closure before navigation
 
-Close completed actions, then independently identify useful next options.
-Completion prevents repeating finished work; it does not withdraw meaningful
-choices. Never infer the menu type from completion alone.
+Close completed actions and identify any material decision still required for
+the requested objective. Optional adjacent work alone does not justify a menu.
 
 A branch is settled when its complete visible promise is delivered and no new
 decision, evidence gap, scope change, or executable action remains. Run a
@@ -43,23 +46,22 @@ Classify the wider conversation separately. Render a substantive terminal A-D
 surface when at least one of these is true:
 
 - a material decision remains;
-- an exact bounded action is awaiting authority;
-- independently credible new objectives begin genuinely different work; or
+- an exact bounded action within the requested objective is awaiting authority;
 - the operator explicitly requested choices or structured navigation.
 
-Otherwise use **compact settled closure**: deliver the result or acknowledgement
-with exactly four contextual transient controls. This is the default for
-completed factual answers, simple thanks or acknowledgements, explicit stops,
-completed actions with no remaining boundary, repeated settled selections, and
-saturated navigation-only branches. Settled controls retain nothing and create
-no choice identity.
+Use **compact settled closure** for simple thanks or acknowledgements, explicit
+stops, repeated settled selections, and saturated navigation-only branches:
+respond in ordinary prose without a menu or associated validation/retention.
+For completed factual answers and completed actions, close quietly unless a
+material decision remains or directions were explicitly requested. Mere
+availability of another clarification or adjacent task is not such a decision.
 
 The validator separates two declarations:
 
 - `closure_state: settled` describes the completed action only. It may accompany
   a decision menu offering a next bounded action, with ordinary readiness and
   authority checks intact.
-- `surface_kind: response-controls` selects exactly four navigation-only,
+- `surface_kind: response-controls` selects two to four explicitly requested navigation-only,
   `learning_eligibility: none` controls. They carry no executable targets,
   action context, or authority. Omit action readiness or supply only
   `ready_option_keys: []`.
@@ -75,10 +77,10 @@ than inventing work. Missing authority alone does not make an otherwise ready
 action blocked or out-of-scope. A blocked action may still warrant a useful
 inspection or alternative, which should be assessed independently.
 
-For completed repository edits, consider the exact staging/commit boundary
-before choosing controls. Perform available read-only scoping first. After a
-commit, assess useful next options separately; do not assume push authority or
-reopen the completed commit. An explicit stop rules out continued work.
+For completed repository edits, assess a staging/commit boundary only when it
+belongs to the requested endpoint or the operator asks for publication advice.
+Perform available read-only scoping before offering that decision. Do not assume
+push authority or reopen a completed commit. An explicit stop rules out continued work.
 
 The validator checks supplied assessments for consistency; it cannot discover
 omitted opportunities or prove the agent's judgment. An unchanged validated
@@ -109,12 +111,10 @@ auditing choice classification. Preserve the existing exact-input rules for
 settled-control reuse: a changed label, assessment, or classification requires
 fresh validation. Reuse does not permit semantic caching or skipped validation.
 
-After closing a branch, offer substantive `New paths` only when independently
-credible directions begin genuinely different objectives, evidence searches,
-or commitments. Selecting one creates a new choice identity; it never reopens
-the closed branch. When a real four-option surface has fewer than four honest
-substantive paths, fill unused positions with transient response controls rather
-than manufactured work.
+After closing a branch, offer substantive `New paths` only when the operator
+requests directions or a material decision remains. Selecting one creates a
+new choice identity; it never reopens the closed branch. Do not manufacture
+options; one ready action may be paired with genuine deferral.
 
 When the operator explicitly requests navigation after an ordinary settled
 response, these transient controls are available:
@@ -126,30 +126,18 @@ C. Deepen — request more evidence or explanation within this objective.
 D. New task — begin a distinct objective.
 ```
 
-After an explicit stop, keep the response minimal and use only `Close now`,
-`Return later`, `Start a new task`, and `Correct the stopping summary`. A
-governing workflow's existing valid four-option A-D surface satisfies the
-need; never append a duplicate menu. A smaller Coffee packet does not satisfy
-this final-response requirement by itself.
+After an explicit stop, acknowledge once and stop without a menu. Workflow-owned menus retain their own contracts; never append a duplicate menu.
 
-## End every final response with possibilities
+## Offer choices when they serve a decision
 
-Use exactly four concise options. For an open branch, prefer materially distinct possibilities and
-use transient response controls for positions that would otherwise be filler:
+Use menus for material unresolved decisions or explicitly requested directions.
+Recommend one evidence-grounded path first; include alternatives only when the
+tradeoff is real or the operator requests them. Two to four meaningful options
+are sufficient. Do not turn routine authorized continuation into another choice.
+Keep the benefit of each option concrete, without expanding its authority.
 
-```text
-Next best possibilities — reply A-D:
-A. Recommended path — ...
-B. Strong alternative — ...
-C. Overlooked possibility — ...
-D. Pause, deepen, or stop — ...
-
-Recommendation: [one evidence-grounded sentence].
-```
-
-Bind letters in order to `recommended`, `alternative`, `overlooked`, and
-`pause-or-deepen`. A transient control may occupy a role without becoming a
-substantive recommendation.
+Bind letters in presentation order. Put `recommended` first; other roles must
+be unique and meaningful. Neither `overlooked` nor `pause-or-deepen` is mandatory.
 
 Every open-branch menu must contain at least one actionable option whenever reversible
 scoping can make a safe action exact. Perform that read-only scoping first. An
@@ -217,9 +205,9 @@ return-later controls are `none`. Eligibility is independent of
 `selection_effect` and grants no action authority.
 
 When a terminal surface is rendered, validate it with `final_response: true`.
-This requires four options and explicit eligibility for each one. Three-option
-Elicitation surfaces remain valid only for non-final backward-compatible
-interactions.
+This requires two to four options and explicit eligibility for each one.
+
+Validate the exact visible surface before presentation, not after selection.
 
 ## Preserve action authority
 
@@ -254,7 +242,7 @@ Treat a letter as the complete visible option, not a request for the operator
 to restate it. Once a branch is confirmed, paused, or settled, repeating the
 same selection is a no-op. Acknowledge closure once and do not regenerate the
 same substantive menu. Reuse unchanged transient settled controls when needed
-for the four-option footer. Present a new choice only for genuinely new evidence, scope,
+for an unsolicited footer. Present a new choice only for genuinely new evidence, scope,
 decision, or action.
 
 Treat comma-separated letters such as `B,C` as an ordered compound selection
@@ -283,23 +271,28 @@ being present or model-readable.
 
 If the operator asks where the options are, or otherwise signals that the
 expected menu was omitted, repair the interaction immediately: name the missing
-surface, provide exactly four current options if a real decision remains, and
+surface, provide two to four current options if a real decision remains, and
 avoid making the operator reconstruct the prior branch from memory. Treat this
 as a presentation failure, not as new authority.
 
-After two consecutive navigation-only selections deepen the same objective,
-default to compact saturated closure unless the latest turn adds new evidence,
-resolves a material contradiction, or exposes a genuinely new decision or
-action. Render only contextual transient controls; do not offer another
-substantive menu that merely analyzes, rewrites, compares, or audits the result
-just delivered.
+After two consecutive navigation-only selections, or three compact selections
+within the same inquiry, complete the authorized work, synthesize, and pause
+automatic menus. Apply the earlier bound whenever both describe the same sequence.
+An inquiry is its governing question or intended outcome. A new artifact,
+revised simulation, counter-reading, or audit within that inquiry does not reset
+the count. Use existing transient conversation context only; introduce no
+navigation ledger or persistent counter.
 
-This two-selection rule controls repeated navigation-only deepening. The
-Elicitation three-compact-selection rule is a separate upper bound for mixed
-compact sequences: it requires carrying the selected branch to a meaningful
-result and then using compact settled closure, not manufacturing another
-substantive decision surface. Apply the earlier bound whenever both describe
-the same sequence.
+Resume menus only when the operator requests further directions, explicitly
+starts a distinct objective, or a newly emerged blocker requires a decision.
+An assistant-generated follow-up suggestion cannot reset the limit. New evidence
+alone is not a reset. A genuine blocker remains actionable through the narrowest
+decision needed; it does not renew automatic follow-up menus.
+
+Pausing menus never interrupts authorized work or overrides a direct command.
+Preserve executable-option validation and separate publication authority.
+Conversational synthesis, silence, and selections do not fabricate shared-reading
+interpretation or Library Journal closure.
 
 ## Deliver permanent artifacts honestly
 
@@ -318,10 +311,11 @@ push, hosting, and publication. Never describe a working-tree file as public.
 
 A turn has four valid terminal forms:
 
-- an open branch with a genuine decision ends with a valid four-option surface;
-- a settled branch with independently credible new work may end with eligible
-  `New paths` plus transient fillers;
-- a settled or stopped conversation closes with compact contextual transient controls; or
+- an open branch with a genuine decision may use a validated two-to-four-option surface;
+- a settled branch may offer eligible `New paths` when the operator requests
+  directions or a material decision remains;
+- a settled conversation without a material decision or requested directions, or an explicit stop,
+  closes in ordinary prose without a menu; or
 - a governing workflow supplies its own validated interaction surface.
 
 When a selected branch closes, use the retention reference to append a quiet
@@ -331,15 +325,42 @@ authority, privacy, safety, or lane incident.
 
 ## Keep Options Specific
 
+Every presented option must be a two-part sentence: state the choice first,
+then explain why choosing it might be beneficial in this situation. Use a
+connector such as `because`, `so that`, `in order to`, or `due to the fact
+that`; prefer the shortest natural wording. This applies to executable
+options, navigation, and transient settled controls, including options derived
+from the compact examples elsewhere in this contract. Expand those role
+sketches into contextual sentences before presenting and validating them.
+
+The second part must name a concrete benefit, tradeoff, or preserved boundary,
+not repeat the action or say merely that it is useful. For example:
+`Inspect the failing archive check, because its cause determines whether the
+skill changes can be committed independently.` Keep uncertain benefits
+conditional rather than promising an unverified outcome. Preserve any required
+executable prefix and exact scope; a rationale grants no additional authority.
+Treat difficulty explaining an option's usefulness simply as evidence that
+the option may not deserve a place. If no distinct benefit can be stated
+honestly, reconsider the option instead of manufacturing a reason or
+re-offering a completed closure.
+
+### Requested exploration
+
+When the operator asks for possibilities, explore grounded connections,
+discriminating experiments, and ways to remove recurring constraints. Explain
+the concrete benefit and distinguish hypotheses from ready actions. Do not
+perform this search merely to produce an unsolicited ending. Novelty supplies
+neither evidence nor execution authority.
+
 For active artifact, repository, archive, library, publication, or governed
 workflow branches, do not fall back to the generic `Close`, `Correct`, `Deepen`,
 and `New task` controls while concrete next decisions remain. Name the real
 next boundaries instead: verify, inspect, correct metadata, admit the next
 bounded batch, stage and commit, push, clean private duplicates, or pause. Use
-generic response controls only when the work is genuinely settled or when fewer
-than four honest work-specific choices exist.
+generic response controls only when explicitly requested. Simple acknowledgements and stops end quietly; substantive work receives
+choices only for a material decision or explicitly requested directions.
 
-When a final response reports changed files, admitted records, commits, private
-payloads, or validation results, at least two options should preserve the
+When an optional menu follows changed files, admitted records, commits, private
+payloads, or validation results, its choices should preserve the
 actual operational shape of the branch. Avoid menus that force the operator to
 translate a real next action back out of generic conversational labels.

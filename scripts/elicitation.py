@@ -206,8 +206,8 @@ def validate_elicitation_surface(surface: Any) -> dict[str, Any]:
             raise ElicitationError("response controls cannot carry executable targets or authority metadata")
         if surface.get("type", surface.get("interaction_type")) != "decision-navigation":
             raise ElicitationError("response controls require decision-navigation")
-        if not isinstance(surface.get("options"), list) or len(surface["options"]) != 4:
-            raise ElicitationError("response controls require exactly four options")
+        if not isinstance(surface.get("options"), list) or len(surface["options"]) not in (2, 3, 4):
+            raise ElicitationError("response controls require two to four options")
         if any(key in surface for key in ("action_context", "target", "execution", "required_authority")):
             raise ElicitationError("response controls cannot carry executable targets or authority")
         if surface.get("authority_effect", "none") != "none":
@@ -237,20 +237,9 @@ def validate_elicitation_surface(surface: Any) -> dict[str, Any]:
             "neutral evidence surfaces must not assign final_response"
         )
     raw_options = surface.get("options")
-    expected_counts = (3, 4) if interaction_type == "decision-navigation" else (2, 3, 4)
-    if interaction_type == "decision-navigation" and final_response:
-        expected_counts = (4,)
+    expected_counts = (2, 3, 4)
     if not isinstance(raw_options, list) or len(raw_options) not in expected_counts:
-        counts = (
-            "exactly four"
-            if interaction_type == "decision-navigation" and final_response
-            else (
-                "three or four"
-                if interaction_type == "decision-navigation"
-                else "two to four"
-            )
-        )
-        raise ElicitationError(f"{interaction_type} requires {counts} options")
+        raise ElicitationError(f"{interaction_type} requires two to four options")
 
     options: list[dict[str, Any]] = []
     keys: set[str] = set()
@@ -330,13 +319,8 @@ def validate_elicitation_surface(surface: Any) -> dict[str, Any]:
         options.append(normalized)
 
     if interaction_type == "decision-navigation":
-        required = {"recommended", "alternative", "overlooked"}
-        if len(options) == 4:
-            required.add("pause-or-deepen")
-        if roles != required:
-            raise ElicitationError(
-                f"decision roles must be exactly {sorted(required)}"
-            )
+        if options[0]["role"] != "recommended":
+            raise ElicitationError("decision roles must start with recommended")
 
     action_readiness = None
     if interaction_type == "decision-navigation":
