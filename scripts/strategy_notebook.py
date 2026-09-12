@@ -40,7 +40,7 @@ def domain(repo):
     return resolve_geopolitics_reference(repo, "geopolitics")
 
 
-def read_entry(day, repo=REPO_ROOT):
+def read_legacy_entry(day, repo=REPO_ROOT):
     date.fromisoformat(day)
     daily = domain(repo) / "work/daily" / day / "strategy-notebook.md"
     monthly = domain(repo) / "work/strategy-notebook" / f"{day[:7]}.md"
@@ -69,13 +69,37 @@ def read_entry(day, repo=REPO_ROOT):
                 for p, _, t in choices[1:]]}
 
 
+def contribution_text(row):
+    return "\n\n".join([
+        "## Strategic Question\n" + row["question"],
+        "## Bottom Line\n" + row.get("assessment", "Disposition only"),
+        "## Delta\n" + row.get("delta", "No estimate composed"),
+        "## Inquiry Return Point\n" + row["return_point"],
+        "## Source Dispositions\n" + json.dumps(row["source_dispositions"], ensure_ascii=False),
+        "## Corrections\n" + json.dumps(row["correction_links"]),
+        "## Note Proposals\n" + json.dumps(row["note_proposals"], ensure_ascii=False),
+    ])
+
+
+def read_entry(day, repo=REPO_ROOT):
+    import tower
+    rows = [row for row in tower.contributions(repo) if row["date"] == day and not row.get("disposition_only")]
+    if rows:
+        row = rows[-1]
+        return {"entry_date": day, "path": row["path"], "locator": row["contribution_id"],
+                "content_sha256": row["content_sha256"], "file_sha256": digest((repo / row["path"]).read_bytes()),
+                "declared_status": "internal Tower contribution", "validation_findings": [],
+                "text": contribution_text(row), "alternatives": []}
+    return read_legacy_entry(day, repo)
+
+
 def inventory(repo):
     days = set()
     for path in (domain(repo) / "work/daily").glob("????-??-??/strategy-notebook.md"):
         days.add(path.parent.name)
     for path in (domain(repo) / "work/strategy-notebook").glob("????-??.md"):
         days.update(re.findall(r"Date: `(\d{4}-\d{2}-\d{2})`", path.read_text(encoding="utf-8")))
-    return [row for day in sorted(days) if (row := read_entry(day, repo))]
+    return [row for day in sorted(days) if (row := read_legacy_entry(day, repo))]
 
 
 def git(repo, *args):
@@ -137,6 +161,9 @@ def context(day, focus="", repo=REPO_ROOT, limit=LIMIT):
     date.fromisoformat(day)
     rows = inventory(repo)
     target = next((r for r in rows if r["entry_date"] == day), None)
+    focus_entry = read_entry(day, repo)
+    if not focus and focus_entry:
+        focus = section(focus_entry["text"], "Strategic Question", "Question of Order")
     if not focus and target:
         focus = section(target["text"], "Strategic Question", "Question of Order")
     if not focus:
@@ -156,7 +183,20 @@ def context(day, focus="", repo=REPO_ROOT, limit=LIMIT):
     result = {"schema_version": 1, "entry_date": day, "focus": focus, "status": "available" if selected else "no-relevant-material",
               "historical_context": [], "later_context": [], "omitted": [], "gaps": [],
               "authority": "interpretive strategic context; not verified facts, identity, or action authority"}
-    remaining = min(limit, LIMIT)
+    import tower
+    entries = tower.contributions(repo)
+    relevant = [row for row in entries if row["date"] <= day and
+                (row["date"] == day or (words and words & tokens(row["question"])))]
+    # Follow correction links to both legacy entries and session contributions.
+    linked = {row["path"] for row in relevant} | {row["path"] for row in selected}
+    while True:
+        additions = [row for row in entries if row not in relevant and linked.intersection(row["correction_links"])]
+        if not additions:
+            break
+        relevant.extend(additions)
+        linked.update(row["path"] for row in additions)
+    reserved = min(max(0, limit), LIMIT, sum(len(contribution_text(row)) for row in relevant))
+    remaining = max(0, min(limit, LIMIT) - reserved)
     def append(row, group):
         nonlocal remaining
         text = row["text"]
@@ -179,6 +219,19 @@ def context(day, focus="", repo=REPO_ROOT, limit=LIMIT):
         append({**row, "temporal_status": "explicit-later-revision"}, "later_context")
     result["omitted"].extend({"path": r["path"], "entry_date": r["entry_date"], "reason": "selection budget"} for r in earlier[2:] + later[2:])
     result["gaps"].append({"status": "correction-coverage-not-exhaustive", "reason": "Only explicit revision links are followed."})
+    remaining += reserved
+    result["contributions"] = []
+    for row in sorted(relevant, key=lambda item: (item["closed_at"], item["contribution_id"]), reverse=True):
+        excerpt = contribution_text(row)
+        if len(excerpt) > remaining:
+            result["omitted"].append({"path": row["path"], "reason": "complete qualified contribution exceeds remaining excerpt budget"})
+            continue
+        remaining -= len(excerpt)
+        result["contributions"].append({**row, "excerpt": excerpt,
+            "temporal_status": "later-correction" if row["date"] > day else "recorded-contribution; not independently verified"})
+    if result["contributions"]:
+        result["status"] = "available"
+    result["contributions"].sort(key=lambda item: (item["closed_at"], item["contribution_id"]))
     result["content_sha256"] = digest(result)
     return result
 

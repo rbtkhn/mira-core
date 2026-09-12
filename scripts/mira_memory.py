@@ -489,6 +489,7 @@ ROUTING_RULES = [
     ({"review", "choice"}, "relational", "learn-from-choices", 100, "explicit choice review"),
     ({"review", "mentorship"}, "relational", "mira-mentor", 100, "explicit mentorship review"),
     ({"strategy", "notebook"}, "epistemic", "strategy-notebook", 100, "strategic estimate recall and corrections"),
+    ({"tower"}, "epistemic", "tower", 50, "notebook-first strategic inquiry continuity"),
     ({"forecast"}, "epistemic", "forecast-review", 50, "forecast object"),
     ({"claim"}, "epistemic", "reality-check", 50, "claim object"),
     ({"source"}, "epistemic", "archive-query", 50, "source object"),

@@ -66,7 +66,7 @@ def prepare(day, focus, repo, previous=None):
                 scan = {"status": "unavailable", "reason": str(error)}
     result = {"schema_version": 1, "strategy": strategic, "library": history, "library_scan": scan,
               "effort_limit": {"pre_scan": 1, "passage_packet": 1, "adjudication": 1},
-              "next_action": "Inspect frozen context; retain source-based provisional estimate; adjudicate one relevant Library packet or record debt. Then nominate notes and finish Dream.",
+              "next_action": "Consume frozen Tower context and its qualifications; record use or gaps, consolidate note proposals, and finish Dream without strategic composition.",
               "authority_effect": "none"}
     result["content_sha256"] = notebook.digest(result)
     return result

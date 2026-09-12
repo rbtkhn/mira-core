@@ -3,7 +3,11 @@
 This prospective composition contract uses existing private stores. It creates
 no automatic note, routing activation, identity, RSI, or publication authority.
 
-## One bounded composition cycle
+## Tower composition and Dream consumption
+
+Steps 1–4 belong to Tower and never authorize Dream to compose or revise an
+estimate. Dream consumes their existing results and applies steps 5–7 only to
+its unfinished reflective bundle. Missing Tower work remains nonblocking.
 
 1. Read the prepared brief's `strategy_context`: historical strategic excerpts,
    separately labeled later context, Library Journal corrections and earlier
@@ -18,11 +22,11 @@ no automatic note, routing activation, identity, RSI, or publication authority.
    bindings. One pre-scan, one passage packet, one adjudication; no automatic
    second retrieval loop. Follow Library Reasoning's route eligibility and
    private-storage rules. A failed private-carrier write stops this Library
-   operation, not Dream. Record debt and continue the daily close.
+   operation. Preserve its gap in the Tower return point.
 4. Record effect or no material change in Notebook. Preserve the strongest rival,
    decisive structural difference, rejection condition, and unverified claims.
    An ineligible route may be held or rejected; it cannot change the estimate.
-5. After Notebook composition, refresh an unfinished Journal bundle with
+5. If Tower changed notebook context after preparation, refresh an unfinished Journal bundle with
    `mira-journal prepare --date DATE --output-root ROOT --refresh-strategy-context`.
    This preserves transcript checkpoints and reading acknowledgements. Update
    the draft's composition-brief source and derivation bindings to the returned

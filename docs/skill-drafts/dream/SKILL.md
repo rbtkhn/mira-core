@@ -6,18 +6,22 @@ description: "Consolidate one local day of mira-core sessions into a private adv
 # Dream
 
 Use only in `mira-core`. Bare `dream` is the daily-close conductor. Dream owns
-daily completion for the selected date: if manifest-backed Geo-Strategy sources
-exist and the issue packet is missing, Dream completes the Geo lane before
-continuing. If the generated Geo packet exists but is analytically imperfect or
-fails deterministic issue validation, Dream records explicit next-day revision
-debt and continues the closeout rather than pausing. Journal composition is an
-internal Dream stage: Dream prepares the complete daily census, reads the
-bounded Mira Letters orientation since the previous canonical Dream
-finalization, then hands the prepared bundle to the current agent for Mira
-Journal composition under Mira Voice, validates, and finalizes without an
-operator approval prompt. Journal
-canonicalization failures still block with repair guidance and never create
-fallback prose or a partial canonical entry.
+daily completion of reflective closeout; Tower owns strategic processing and
+strategy-notebook composition. Before substantive stages, inspect the pending
+Tower batch, including acquisition and intake gaps. Offer the bounded choice to
+conduct Tower and return, or continue with that batch unfinished. Use the native
+question surface with executable bounded wording; pass the exact reviewed digest
+through `--tower-choice tower|continue --tower-batch SHA256`. Resume the same run.
+A changed batch requires a fresh decision; unchanged internal resumes reuse it.
+Completed Dream runs remain immutable and do not repeat this preflight.
+
+Dream never generates missing Geo-Strategy packets or composes notebook entries.
+It reads available outputs and retains missing work as nonblocking obligations.
+Journal composition remains an agent-internal handoff. Dream prepares the daily
+census, reads the bounded Mira Letters orientation since the previous
+canonical Dream finalization, and composes, validates, and finalizes Mira Journal
+under Mira Voice without an operator approval prompt. Journal canonicalization
+failures still block; never substitute fallback prose.
 Run one canonical Dream consolidation per operator, workspace, and local
 calendar day. Individual sessions contribute bounded closeout receipts; Dream
 consolidates all sessions active that day. Dream records advisory cadence state
@@ -40,19 +44,16 @@ tools/run.ps1 dream --date YYYY-MM-DD --json
 tools/run.ps1 dream --resume DCR-ID --date YYYY-MM-DD --json
 ```
 
-Use `--check` for a read-only projection: it reports when Geo-Strategy will be
-completed during execution, but writes nothing. Completed stages are immutable.
-When the date's Geo-Strategy packet already exists and validates cleanly, Dream
-certifies it from the best available receipt: committed bytes when present, or
-Dream close authority when uncommitted. When manifest rows exist and the packet
-is missing, Dream runs `synthesis --date YYYY-MM-DD --execute`, validates the
-issue stage, and certifies the Geo stage as `dream_completed_packet` when clean
-or `provisional_packet_with_revision_debt` when an issue artifact exists but
-validation is not clean. A date without manifest-backed Geo sources records
-`no_geo_run`. Dream prepares the private Journal bundle and may return
-`composition_required` as an agent-internal handoff to write `draft.md`,
-`draft.json`, and `technical-reference.json` from the prepared bundle
-contracts. When this handoff is prepared, Dream also writes an adjacent private
+Use `--check` for a read-only projection: it reports pending Tower work
+without generating strategic outputs or writing state. Completed stages are immutable.
+Dream reads and validates existing Geo-Strategy packets without completing missing
+ones. It records available, provisional, absent, and unavailable strategic work
+honestly. Dream prepares the private Journal bundle and may return
+`composition_required` solely as an agent-internal handoff for `draft.md`,
+`draft.json`, and `technical-reference.json`. Strategy Notebook is consumed from
+Tower contributions, including source qualifications and explicit corrections.
+
+When this handoff is prepared, Dream also writes an adjacent private
 `roi-synthesis.json` packet for next-day leverage. That packet may include Dev
 Journal candidates, Note candidates, Coffee handles, publication debt, workflow
 improvements, and open obligations, but these are candidates only. Mira Journal
@@ -108,7 +109,7 @@ grounded test might be. Publication debt and open obligations preserve their
 own authority boundaries and never become action authority merely by appearing
 in Dream.
 
-Dream's Geo completion authority grants no staging, commit, push, publication,
+Dream's reflective closeout authority grants no staging, commit, push, publication,
 forecast resolution, operational-truth assignment, verification admission,
 communication, RSI admission, or identity-promotion authority. Complete the
 daily cycle first; revise next day if necessary.
@@ -291,8 +292,9 @@ post-transition override. This changes date assignment, not task scheduling,
 operating-system settings, or external publication timestamps. Journal entry
 dates remain distinct from the time an entry is actually published.
 
-Strategy Notebook is a Dream-composed expert estimate, not a Geo prerequisite
-and not a canonical autobiographical artifact.
+Strategy Notebook is a Tower-composed internal estimate, not a Geo prerequisite
+and not a canonical autobiographical artifact. Dream consumes existing entries
+and never composes or revises them. Missing Tower work is nonblocking.
 
 ## Geopolitics directory compatibility
 
@@ -328,3 +330,8 @@ reading; explain their effect on the choice. Missing expectations and pending
 outcomes remain nonblocking. Daily note production is not a question-selection
 reward or recursive-learning outcome. Reopening conditions on parked questions
 create no task, scheduler, or automatic policy change.
+
+
+Include unfinished Tower batch references and coverage gaps in that genuine debt
+and the private Bridge. Consume the final `tower_pending` receipt; do not infer
+that choosing continue processed or permanently deferred those transcripts.

@@ -347,12 +347,21 @@ def append_daily_close_event(connection: sqlite3.Connection, run_id: str, event_
         found = "missing" if current is None else str(current[0])
         raise CadenceLedgerError(f"daily close lifecycle conflict: expected {expected_version}, found {found}")
     allowed = {"daily_close_opened", "stage_completed", "stage_skipped", "stage_failed",
-               "daily_close_completed", "daily_close_superseded"}
+               "daily_close_completed", "daily_close_superseded", "tower_decision"}
     if event_type not in allowed:
         raise CadenceLedgerError(f"unsupported daily close event: {event_type}")
     clean = {}
     for key, value in payload.items():
-        if key == "artifact_ref":
+        if key == "tower_pending" and isinstance(value, dict):
+            clean[key] = {**{field: sanitize_text(value[field], limit=100)
+                            for field in ("date", "status", "batch_sha256") if value.get(field)},
+                          "items": [{field: sanitize_text(row.get(field, ""), limit=1000)
+                                     for field in ("identity", "version", "path", "kind", "lane") if row.get(field)}
+                                    for row in value.get("pending", [])],
+                          "gaps": [{"path": sanitize_text(row.get("path", ""), limit=1000),
+                                    "reason": sanitize_text(row.get("reason", ""), limit=1000)}
+                                   for row in value.get("gaps", [])]}
+        elif key == "artifact_ref":
             clean[key] = sanitize_artifact_ref(value)
         elif key in {"stage", "status", "reason", "digest", "coverage_status",
                    "episode_id", "closeout_id", "journal_version_id", "technical_reference_id",

@@ -48,6 +48,7 @@ SURFACES = {
     "mira-constitution": REPO_ROOT / "scripts" / "mira_constitution.py",
     "mira-journal": REPO_ROOT / "scripts" / "mira_journal.py",
     "strategy-notebook": REPO_ROOT / "scripts" / "strategy_notebook.py",
+    "tower": REPO_ROOT / "scripts" / "tower.py",
     "mira-memory": REPO_ROOT / "scripts" / "mira_memory.py",
     "mira-sessions": REPO_ROOT / "scripts" / "mira_sessions.py",
     "mira-state": REPO_ROOT / "scripts" / "mira_state.py",

@@ -151,7 +151,7 @@ def test_refresh_keeps_reading_bytes_and_library_budget(tmp_path, monkeypatch):
     assert ack.read_bytes() == b'"unchanged acknowledgement"'
     assert journal.load_json(bundle / "draft-contract.json")["session_reading"] == contract["session_reading"]
     assert not journal.validate_composition_brief(journal.load_json(bundle / "composition-brief.json"), pack=pack)
-    monkeypatch.setattr(journal, "load_registry", lambda: {"entries": [{"entry_date": day}]})
+    monkeypatch.setattr(journal, "load_registry", lambda: {"entries": [{"entry_date": day, "versions": [{"version_id": "MJ-test-v1"}]}]})
     with pytest.raises(journal.JournalError, match="finalized"):
         journal.command_prepare(args)
 
@@ -201,9 +201,11 @@ def test_completed_dream_replays_recorded_context_after_finalized_journal(tmp_pa
     import dream_eod as dream
     from types import SimpleNamespace
     from test_dream_eod import arguments
+    monkeypatch.setattr(dream, "tower_pending", lambda *a: {"status": "clear"})
     monkeypatch.setattr(dream, "manifest_rows", lambda _: 0)
     monkeypatch.setattr(dream, "journal_entry", lambda _: {"versions": [{"version_id": "MJ-20260816-v1", "content_sha256": "a"*64}]})
     monkeypatch.setattr(dream, "run_tool", lambda *a: SimpleNamespace(returncode=0, stdout='{}', stderr=''))
+    monkeypatch.setattr(dream, "forecast_review_step", lambda *a, **k: {"status": "no_due_hooks"}, raising=False)
     expected = {"notebook": {"status": "analysis-deferred", "digest": "a"*64}, "library": {"status": "unavailable", "reason": "missing body"}}
     monkeypatch.setattr(cc, "closeout", lambda *a: copy.deepcopy(expected))
     args = arguments(tmp_path, no_candidate="No experiment")

@@ -6,6 +6,7 @@ import hashlib
 import json
 import os
 import re
+import sqlite3
 import subprocess
 import sys
 import uuid
@@ -101,17 +102,12 @@ def strategy_notebook_path(run_date: str) -> Path:
 
 
 def strategy_notebook_status(run_date: str, geo: dict | None = None) -> dict:
-    if geo and geo.get("status") == "no_geo_run":
-        return {
-            "status": "not_applicable",
-            "reason": "No manifest-backed Geo-Strategy sources exist for this date.",
-            "authority_effect": "none",
-        }
     entry = cognitive_context.notebook.read_entry(run_date, REPO_ROOT)
     path = REPO_ROOT / entry["path"] if entry else strategy_notebook_path(run_date)
     if entry is None:
         return {
-            "status": "composition_required",
+            "status": "unfinished",
+            "owner": "tower",
             "path": str(path.relative_to(REPO_ROOT)),
         }
     failures = []
@@ -128,7 +124,7 @@ def strategy_notebook_status(run_date: str, geo: dict | None = None) -> dict:
     return {
         "status": "present",
         "path": str(path.relative_to(REPO_ROOT)),
-        "digest": file_sha256(path),
+        "digest": entry["content_sha256"],
         "authority_effect": "none",
     }
 
@@ -194,60 +190,17 @@ def geo_certification(run_date: str, *, auto_complete: bool = False) -> dict:
         return {"status": "no_geo_run", "manifest_rows": 0}
     artifact = geo_artifact_ref(run_date)
     artifact_path = resolve_geopolitics_reference(REPO_ROOT, artifact)
-    generated_by_dream = False
     if not artifact_path.is_file():
-        if not auto_complete:
-            return {
-                "status": "auto_completion_required",
-                "manifest_rows": rows,
-                "artifact_ref": artifact,
-                "certification_basis": "projected_dream_completion",
-            }
-        if geo_daily_files_exist(run_date):
-            return provisional_geo_certification(
-                run_date,
-                rows,
-                reason=(
-                    "Geo-Strategy daily files already exist but issue.md is missing; "
-                    "review and revise next day."
-                ),
-            )
-        generated = run_tool("synthesis", "--date", run_date, "--execute")
-        generated_by_dream = True
-        if generated.returncode and not artifact_path.is_file():
-            if geo_daily_files_exist(run_date):
-                return provisional_geo_certification(
-                    run_date,
-                    rows,
-                    reason=(
-                        "Geo-Strategy daily files were generated but issue.md was deferred; "
-                        "review and revise next day."
-                    ),
-                    tail=(generated.stderr or generated.stdout)[-1200:],
-                )
-            tail = (generated.stderr or generated.stdout)[-1200:]
-            raise cadence_ledger.CadenceLedgerError(
-                "Geo-Strategy auto-completion failed before issue artifact existed"
-                + (f": {tail}" if tail else "")
-            )
-    if not artifact_path.is_file():
-        if geo_daily_files_exist(run_date):
-            return provisional_geo_certification(
-                run_date,
-                rows,
-                reason=(
-                    "Geo-Strategy daily files exist but issue.md is missing; "
-                    "review and revise next day."
-                ),
-            )
-        raise cadence_ledger.CadenceLedgerError("Geo-Strategy issue artifact is missing")
+        return {"status": "unfinished", "manifest_rows": rows,
+                "artifact_ref": artifact, "certification_basis": "tower_work_unfinished",
+                "revision_debt": ["Tower owns missing Geo processing; Dream does not compose it."]}
     validation = geo_validation_status(run_date)
     digest = hashlib.sha256(artifact_path.read_bytes()).hexdigest()
     commit = geo_commit_receipt(artifact, artifact_path)
     if validation["passed"]:
         certification_basis = (
             commit.get("certification_basis")
-            or ("dream_completed_packet" if generated_by_dream else "dream_accepted_packet")
+            or "dream_accepted_packet"
         )
         status = "ready"
         revision_debt: list[str] = []
@@ -609,6 +562,20 @@ def write_roi_synthesis(bundle: Path, run_date: str, projection: dict) -> dict:
     except (OSError, ValueError, KeyError, TypeError) as error:
         proposed_notes = []
         candidate_errors = [str(error)]
+    import tower
+    try:
+        for contribution in tower.contributions(REPO_ROOT):
+            if contribution["date"] == run_date:
+                try:
+                    proposed_notes.extend(cognitive_context.nominations(contribution["note_proposals"], REPO_ROOT))
+                except (OSError, ValueError, KeyError, TypeError) as error:
+                    candidate_errors.append(f"{contribution['path']}: {error}")
+        proposed_notes = list({row["candidate_id"]: row for row in proposed_notes}.values())
+    except (OSError, ValueError) as error:
+        candidate_errors.append(str(error))
+    for event in projection.get("events", []):
+        if event.get("event_type") == "tower_decision" and event["payload"].get("status") == "continue":
+            open_obligations.append({"kind": "tower-unfinished", **event["payload"]["tower_pending"]})
     packet = {
         "schema_version": 1,
         "dream_date": run_date,
@@ -620,6 +587,7 @@ def write_roi_synthesis(bundle: Path, run_date: str, projection: dict) -> dict:
             roi_projection_ref(projection),
         ],
         "sections": {
+            # Historical schema key; the current carrier is Work Journal.
             "dev_journal_candidates": [],
             "note_candidates": proposed_notes,
             "coffee_handles": roi_coffee_handles(projection, open_obligations),
@@ -632,7 +600,7 @@ def write_roi_synthesis(bundle: Path, run_date: str, projection: dict) -> dict:
         },
         "authority_boundary": (
             "ROI synthesis is private Dream orientation for workflow throughput. It is not research evidence, "
-            "Journal ancestry, delivery authority, Dev Journal admission, Notes admission, Git authority, "
+            "Journal ancestry, delivery authority, Work Journal admission, Notes admission, Git authority, "
             "publication authority, or permission to contact anyone."
         ),
     }
@@ -716,6 +684,42 @@ def append_stage(connection, projection, event_type: str, stage: str, status: st
     )
 
 
+def tower_pending(args, run_date):
+    import tower
+    return tower.pending(run_date, REPO_ROOT, getattr(args, "tower_state_root", None))
+
+
+
+def tower_preflight(connection, projection, args, run_date):
+    batch = tower_pending(args, run_date)
+    args._tower_pending = batch
+    if batch["status"] == "clear":
+        return projection, None
+    digest = batch["batch_sha256"]
+    accepted = any(event["event_type"] == "tower_decision" and
+                   event["payload"].get("digest") == digest and
+                   event["payload"].get("status") == "continue"
+                   for event in projection["events"])
+    choice = getattr(args, "tower_choice", None)
+    if choice:
+        if getattr(args, "tower_batch", None) != digest:
+            raise ValueError("Tower pending batch changed; inspect the current batch before choosing")
+        projection = cadence_ledger.append_daily_close_event(
+            connection, projection["run_id"], "tower_decision",
+            {"status": choice, "digest": digest, "tower_pending": batch},
+            idempotency_key=f"{projection['run_id']}:tower:{digest}:{choice}",
+            expected_version=projection["lifecycle_version"],
+        )
+        accepted = choice == "continue"
+    if accepted:
+        return projection, None
+    return projection, {"status": "tower_required" if choice == "tower" else "tower_choice_required",
+        "mutation": True, "run": projection, "tower_pending": batch,
+        "prompt": "Conduct a Tower session for this batch, then return to Dream, or continue Dream with this work unfinished?",
+        "next_action": "Use --tower-choice tower|continue --tower-batch " + digest + " and resume this run."}
+
+
+
 def prerequisite_projection(args, run_date: str, *, auto_complete_geo: bool = False) -> dict:
     try:
         geo = geo_certification(run_date, auto_complete=auto_complete_geo)
@@ -743,19 +747,13 @@ def prerequisite_projection(args, run_date: str, *, auto_complete_geo: bool = Fa
         journal_ready = validated is not None
         journal_status = "certification_ready" if journal_ready else "validation_failed"
     geo_ready = geo["status"] in {
-        "ready", "provisional", "no_geo_run", "auto_completion_required",
+        "ready", "provisional", "no_geo_run", "unfinished", "blocked",
     }
+    # Strategic gaps stay in their stage; only Tower preflight asks a question.
     incomplete = []
-    if geo["status"] == "blocked":
-        incomplete.append("Geo-Strategy")
     prompt = None
-    if incomplete:
-        names = " and ".join(incomplete)
-        prompt = f"{names} is incomplete for {run_date}. Do you want to finish it before Dream continues?"
-        if len(incomplete) > 1:
-            prompt = f"{names} are incomplete for {run_date}. Do you want to finish them before Dream continues?"
     return {
-        "ready": geo_ready,
+        "ready": True,
         "stages": {
             "geo": geo,
             "strategy_notebook": notebook,
@@ -767,6 +765,23 @@ def prerequisite_projection(args, run_date: str, *, auto_complete_geo: bool = Fa
 
 
 def check_projection(args, run_date: str) -> dict:
+    resolution = cadence_ledger.resolve_store(args.db, require_exists=True)
+    if resolution.path is not None:
+        with sqlite3.connect(resolution.path.as_uri() + "?mode=ro", uri=True) as connection:
+            connection.row_factory = sqlite3.Row
+            has_runs = connection.execute("SELECT 1 FROM sqlite_master WHERE type='table' AND name='daily_close_runs'").fetchone()
+            if has_runs:
+                row = connection.execute("SELECT run_id FROM daily_close_runs WHERE workspace_id=? AND operator_id=? AND close_date=?",
+                                         (args.workspace_id, args.operator_id, run_date)).fetchone()
+                if row:
+                    projection = cadence_ledger.project_daily_close(connection, row["run_id"])
+                    if projection["state"] == "completed":
+                        return {"status": "completed", "mutation": False, "run": projection}
+    batch = tower_pending(args, run_date)
+    if batch["status"] != "clear":
+        return {"status": "tower_choice_required", "mutation": False, "date": run_date,
+                "tower_pending": batch,
+                "prompt": "Conduct Tower first, or continue Dream with this batch unfinished?"}
     prerequisites = prerequisite_projection(args, run_date)
     dream_ready = bool(args.dream_json or args.no_candidate)
     journal_ready = prerequisites["stages"]["journal"]["status"] in {
@@ -785,23 +800,13 @@ def check_projection(args, run_date: str) -> dict:
         "next_action": None if ready else (
             "Repair the Geo-Strategy infrastructure failure before Dream can complete."
             if not prerequisites["ready"] else
-            "Dream will complete Geo-Strategy during execution, then use one agent-internal handoff to compose Strategy Notebook and Mira Journal before finalization."
+            "Dream consumes existing Tower outputs and composes Mira Journal; strategic work remains with Tower."
             if not journal_ready else "Supply --dream-json or --no-candidate and resume."
         ),
     }
 
 
 def execute(args, run_date: str) -> dict:
-    prerequisites = prerequisite_projection(args, run_date, auto_complete_geo=True)
-    if not prerequisites["ready"]:
-        return {
-            "status": "paused", "mutation": False, "date": run_date,
-            "stages": prerequisites["stages"],
-            "incomplete_stages": prerequisites["incomplete_stages"],
-            "prompt": prerequisites["prompt"],
-            "next_action": "Repair the Geo-Strategy infrastructure failure and resume Dream.",
-        }
-    geo = prerequisites["stages"]["geo"]
     resolution = cadence_ledger.resolve_store(args.db)
     if resolution.path is None:
         raise cadence_ledger.CadenceLedgerError(resolution.reason or "private cadence store unavailable")
@@ -819,11 +824,16 @@ def execute(args, run_date: str) -> dict:
                 idempotency_key=f"daily-close:{args.workspace_id}:{args.operator_id}:{run_date}",
             )
         if projection["state"] == "completed":
-            return {"status": "completed", "mutation": False, "run": projection, "cognitive_disposition": next((event["payload"].get("cognitive_disposition", {"status": "not-recorded"}) for event in reversed(projection["events"]) if event["event_type"] == "daily_close_completed"), {"status": "not-recorded"})}
+            return {"status": "completed", "mutation": False, "run": projection, "tower_pending": next((e["payload"].get("tower_pending", {"status": "not-recorded"}) for e in reversed(projection["events"]) if e["event_type"] == "daily_close_completed"), {"status": "not-recorded"}), "cognitive_disposition": next((event["payload"].get("cognitive_disposition", {"status": "not-recorded"}) for event in reversed(projection["events"]) if event["event_type"] == "daily_close_completed"), {"status": "not-recorded"})}
 
+        projection, tower_gate = tower_preflight(connection, projection, args, run_date)
+        if tower_gate:
+            return tower_gate
+        prerequisites = prerequisite_projection(args, run_date)
+        geo = prerequisites["stages"]["geo"]
         if projection["stages"]["geo"] not in {"completed", "skipped"}:
-            if geo["status"] == "no_geo_run":
-                projection = append_stage(connection, projection, "stage_skipped", "geo", "no_geo_run",
+            if geo["status"] in {"no_geo_run", "unfinished", "blocked"}:
+                projection = append_stage(connection, projection, "stage_skipped", "geo", geo["status"],
                                           reason="No manifest-backed sources exist for this date.")
             else:
                 geo_stage_status = geo.get("certification_basis", "certified_existing_packet")
@@ -862,8 +872,7 @@ def execute(args, run_date: str) -> dict:
                         "strategy_notebook": strategy_notebook_status(run_date, geo),
                         "roi_synthesis": roi_synthesis,
                         "next_action": (
-                            "Agent-internal handoff, not operator approval: compose any applicable "
-                            "Strategy Notebook work under the calibrated template, then read the complete "
+                            "Agent-internal handoff, not operator approval: consume existing Tower outputs; read the complete "
                             "journal-reading.json sequentially, oldest first, for inward continuity. "
                             "Run mira-journal reading-complete with its packet digest and composing session; "
                             "bind journal_reading_ack_sha256 in draft.json. Read every session checkpoint "
@@ -872,10 +881,7 @@ def execute(args, run_date: str) -> dict:
                             "and session_checkpoint_sha256 in technical-reference.json before composing "
                             "draft.md, draft.json, and technical-reference.json under the prepared "
                             "Mira Journal contracts, validate them, then resume Dream."
-                            " Before settling the estimate, inspect strategy_context and relevant Library Journal history; "
-                            "run at most one Library pre-scan, one passage packet, and one adjudication. "
-                            "Preserve the source-based baseline and explicit Library effect or debt. "
-                            "Refresh only --refresh-strategy-context after Notebook composition. "
+                            " Consume frozen strategy_context as interpretation, including corrections and gaps. "
                             "Bind context_consumption for strategy and library in draft and technical reference; "
                             "used material needs frozen context digest and grounded prose anchors. "
                             "Inspect existing notes and optionally write up to three candidate-only judgments "
@@ -969,10 +975,10 @@ def execute(args, run_date: str) -> dict:
         if geo.get("status") == "no_geo_run" and cognitive_disposition["notebook"]["status"] == "unavailable":
             cognitive_disposition["notebook"]["status"] = "not-applicable"
         projection = cadence_ledger.append_daily_close_event(
-            connection, projection["run_id"], "daily_close_completed", {"status": "completed", "cognitive_disposition": cognitive_disposition},
+            connection, projection["run_id"], "daily_close_completed", {"status": "completed", "cognitive_disposition": cognitive_disposition, "tower_pending": getattr(args, "_tower_pending", {})},
             idempotency_key=f"{projection['run_id']}:completed", expected_version=projection["lifecycle_version"],
         )
-        return {"status": "completed", "mutation": True, "run": projection, "cognitive_disposition": cognitive_disposition}
+        return {"status": "completed", "mutation": True, "run": projection, "cognitive_disposition": cognitive_disposition, "tower_pending": getattr(args, "_tower_pending", {})}
     finally:
         connection.close()
 
@@ -986,6 +992,9 @@ def parser() -> argparse.ArgumentParser:
     root.add_argument("--workspace-id", default=DEFAULT_WORKSPACE)
     root.add_argument("--operator-id", default=DEFAULT_OPERATOR)
     root.add_argument("--db", type=Path)
+    root.add_argument("--tower-choice", choices=("tower", "continue"))
+    root.add_argument("--tower-batch", help="Exact reviewed pending batch digest")
+    root.add_argument("--tower-state-root", type=Path)
     root.add_argument("--check", action="store_true")
     root.add_argument("--resume")
     root.add_argument("--journal-bundle", type=Path)

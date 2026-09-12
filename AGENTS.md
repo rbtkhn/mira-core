@@ -281,6 +281,11 @@ the repository-local queue front door for YouTube source discovery; it does not
 authorize archive landing, synthesis, factual verification, staging, commit,
 push, or publication.
 
+For explicit Tower invitations ("let's go to the Tower", "resume the Tower", or
+"council of war"), read `docs/skill-drafts/tower/SKILL.md` completely. Tower owns
+strategic processing and strategy-notebook composition. Architectural discussion
+does not activate it. Keep this contract local and out of global synchronization.
+
 When the operator says `morning-brief` or asks for the experimental morning
 brief, read `docs/skill-drafts/morning-brief/SKILL.md` completely and follow it.
 This route is repository-local and must not be synchronized to a user-level

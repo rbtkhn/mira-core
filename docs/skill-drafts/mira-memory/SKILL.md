@@ -110,6 +110,9 @@ claim assessment, forecast resolution, publication, or external action.
 ## Library-informed cognitive development
 
 Route explicit Strategy Notebook recall to `tools/run.ps1 strategy-notebook context --date DATE --focus QUESTION --json`. This is domain-owned retrieval, not a new identity carrier.
+Tower entry uses `tools/run.ps1 tower context --date DATE --focus QUESTION --json`
+for notebook-first continuity; an omitted focus selects the latest recorded
+inquiry without inferring current activity. Follow the local Tower contract.
 Follow the shared [composition and nomination contract](../dream/references/cognitive-development.md).
 
 ## Daily Library growth and recursive curiosity

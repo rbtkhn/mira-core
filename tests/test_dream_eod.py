@@ -16,6 +16,13 @@ if str(SCRIPTS) not in sys.path:
 import dream_eod
 
 
+@pytest.fixture(autouse=True)
+def clear_tower_batch(monkeypatch):
+    # Dream unit tests isolate downstream stages; integration gates live in test_tower.
+    monkeypatch.setattr(dream_eod, "tower_pending", lambda *a: {"status": "clear", "pending": [], "gaps": [], "batch_sha256": "0" * 64})
+
+
+
 def test_dream_skill_preserves_private_finalization_boundaries() -> None:
     skill = (ROOT / "docs" / "skill-drafts" / "dream" / "SKILL.md").read_text(
         encoding="utf-8"
@@ -34,7 +41,7 @@ def test_dream_skill_preserves_private_finalization_boundaries() -> None:
     assert " ".join("workflow throughput".split()) in " ".join(skill.split())
     assert " ".join("without multiplying repo-tracked artifacts".split()) in " ".join(skill.split())
     assert " ".join("`roi-synthesis.json`".split()) in " ".join(skill.split())
-    assert " ".join("Strategy Notebook is a Dream-composed expert estimate".split()) in " ".join(skill.split())
+    assert " ".join("Strategy Notebook is a Tower-composed internal estimate".split()) in " ".join(skill.split())
     assert " ".join("not a Geo prerequisite".split()) in " ".join(skill.split())
     assert " ".join("Mira Journal\nremains the only autobiographical prose artifact Dream automatically finalizes".split()) in " ".join(skill.split())
     assert " ".join("Dev Journal candidates".split()) in " ".join(skill.split())
@@ -150,9 +157,9 @@ def test_check_projects_geo_auto_completion_without_mutating(monkeypatch, tmp_pa
     result = dream_eod.check_projection(arguments(tmp_path), "2026-08-16")
 
     assert result["mutation"] is False
-    assert result["stages"]["geo"]["status"] == "auto_completion_required"
-    assert result["stages"]["geo"]["certification_basis"] == "projected_dream_completion"
-    assert "compose Strategy Notebook and Mira Journal" in result["next_action"]
+    assert result["stages"]["geo"]["status"] == "unfinished"
+    assert result["stages"]["geo"]["certification_basis"] == "tower_work_unfinished"
+    assert "consumes existing Tower outputs" in result["next_action"]
     assert calls == []
 
 
@@ -182,6 +189,7 @@ def test_check_validates_ready_bundle_without_canonicalizing(monkeypatch, tmp_pa
 
 
 def test_empty_geo_day_prepares_journal_without_operator_prompt(monkeypatch, tmp_path: Path) -> None:
+    monkeypatch.setattr(dream_eod.cognitive_context.notebook, "read_entry", lambda *a: None)
     monkeypatch.setattr(dream_eod, "manifest_rows", lambda _date: 0)
     monkeypatch.setattr(dream_eod, "journal_entry", lambda _date: None)
     bundle = tmp_path / "journal" / "2026-08-16"
@@ -203,8 +211,8 @@ def test_empty_geo_day_prepares_journal_without_operator_prompt(monkeypatch, tmp
     assert result["status"] == "composition_required"
     assert result["mutation"] is True
     assert "Agent-internal handoff, not operator approval" in result["next_action"]
-    assert result["strategy_notebook"]["status"] == "not_applicable"
-    assert "No manifest-backed Geo-Strategy sources exist" in result["strategy_notebook"]["reason"]
+    assert result["strategy_notebook"]["status"] == "unfinished"
+    assert result["strategy_notebook"]["owner"] == "tower"
     assert result["roi_synthesis"]["digest"] == dream_eod.file_sha256(bundle / "roi-synthesis.json")
     roi = json.loads((bundle / "roi-synthesis.json").read_text(encoding="utf-8"))
     assert roi["optimization_target"] == "workflow-throughput"
@@ -358,67 +366,14 @@ def test_roi_synthesis_does_not_nominate_work_from_unrelated_dirty_paths(
     assert packet["sections"]["publication_debt"]["dirty_path_count"] == 12
 
 
-def test_missing_geo_packet_is_completed_by_dream_before_closeout(
-    monkeypatch, tmp_path: Path
-) -> None:
-    entry = {"versions": [{"version_id": "MJ-20260816-v1", "content_sha256": "a" * 64}]}
-    calls = []
+def test_missing_geo_packet_is_left_unfinished(monkeypatch, tmp_path):
     monkeypatch.setattr(dream_eod, "REPO_ROOT", tmp_path)
-    (tmp_path / "narrative-geopolitics").mkdir(exist_ok=True)
-    monkeypatch.setattr(dream_eod, "manifest_rows", lambda _date: 3)
-    monkeypatch.setattr(dream_eod, "journal_entry", lambda _date: entry)
-    monkeypatch.setattr(
-        dream_eod,
-        "geo_freshness_projection",
-        lambda _date: {
-            "geo_prerequisite_status": "current",
-            "latest_daily_packet": "2026-08-16",
-            "later_substantive_packets": [],
-            "due_forecast_debt": {
-                "verification": 0,
-                "posture_review": 0,
-                "not_yet_due": 0,
-                "verification_hooks": [],
-                "posture_review_hooks": [],
-            },
-            "safe_to_inherit": True,
-            "next_action": "proceed",
-        },
-    )
-
-    def fake_run_tool(*args):
-        calls.append(args)
-        if args == ("synthesis", "--date", "2026-08-16", "--execute"):
-            issue = tmp_path / "narrative-geopolitics" / "work" / "daily" / "2026-08-16" / "issue.md"
-            issue.parent.mkdir(parents=True)
-            issue.write_text("issue", encoding="utf-8")
-            return SimpleNamespace(returncode=0, stdout="status=issue-complete\n", stderr="")
-        if args == ("daily-validate", "--date", "2026-08-16", "--stage", "issue"):
-            return SimpleNamespace(returncode=0, stdout="state=ready\nfailures=0\n", stderr="")
-        return SimpleNamespace(returncode=0, stdout='{"coverage":"complete"}', stderr="")
-
-    monkeypatch.setattr(dream_eod, "run_tool", fake_run_tool)
-
-    result = dream_eod.execute(
-        arguments(tmp_path, no_candidate="No defensible method experiment was observed."),
-        "2026-08-16",
-    )
-
-    assert result["status"] == "completed"
-    assert ("synthesis", "--date", "2026-08-16", "--execute") in calls
-    connection = dream_eod.cadence_ledger.connect(tmp_path / "cadence.sqlite3")
-    try:
-        rows = connection.execute(
-            "SELECT payload_json FROM daily_close_events WHERE event_type='stage_completed'"
-        ).fetchall()
-    finally:
-        connection.close()
-    geo_receipt = next(
-        json.loads(row["payload_json"]) for row in rows
-        if json.loads(row["payload_json"]).get("stage") == "geo"
-    )
-    assert geo_receipt["status"] == "dream_completed_packet"
-    assert geo_receipt["validation_stage"] == "issue"
+    (tmp_path / "geopolitics").mkdir()
+    monkeypatch.setattr(dream_eod, "manifest_rows", lambda _: 3)
+    monkeypatch.setattr(dream_eod, "run_tool", lambda *a: pytest.fail("must not generate"))
+    result = dream_eod.geo_certification("2026-08-16", auto_complete=True)
+    assert result["status"] == "unfinished"
+    assert result["revision_debt"]
 
 
 def test_geo_validation_failure_with_artifact_records_revision_debt_and_continues(
@@ -462,6 +417,9 @@ def test_geo_validation_failure_with_artifact_records_revision_debt_and_continue
             )
         return SimpleNamespace(returncode=0, stdout='{"coverage":"complete"}', stderr="")
 
+    issue = tmp_path / "narrative-geopolitics/work/daily/2026-08-16/issue.md"
+    issue.parent.mkdir(parents=True)
+    issue.write_text("existing issue", encoding="utf-8")
     monkeypatch.setattr(dream_eod, "run_tool", fake_run_tool)
 
     result = dream_eod.execute(
@@ -486,89 +444,24 @@ def test_geo_validation_failure_with_artifact_records_revision_debt_and_continue
     assert "revision_debt" in geo_receipt
 
 
-def test_geo_issue_deferred_with_daily_files_records_revision_debt_and_continues(
-    monkeypatch, tmp_path: Path
-) -> None:
-    entry = {"versions": [{"version_id": "MJ-20260816-v1", "content_sha256": "a" * 64}]}
+def test_missing_issue_with_daily_files_remains_tower_work(monkeypatch, tmp_path):
     monkeypatch.setattr(dream_eod, "REPO_ROOT", tmp_path)
-    (tmp_path / "narrative-geopolitics").mkdir(exist_ok=True)
-    monkeypatch.setattr(dream_eod, "manifest_rows", lambda _date: 3)
-    monkeypatch.setattr(dream_eod, "journal_entry", lambda _date: entry)
-    monkeypatch.setattr(
-        dream_eod,
-        "geo_freshness_projection",
-        lambda _date: {
-            "geo_prerequisite_status": "current",
-            "latest_daily_packet": "2026-08-16",
-            "later_substantive_packets": [],
-            "due_forecast_debt": {
-                "verification": 0,
-                "posture_review": 0,
-                "not_yet_due": 0,
-                "verification_hooks": [],
-                "posture_review_hooks": [],
-            },
-            "safe_to_inherit": True,
-            "next_action": "proceed",
-        },
-    )
-
-    def fake_run_tool(*args):
-        if args == ("synthesis", "--date", "2026-08-16", "--execute"):
-            run_dir = tmp_path / "narrative-geopolitics" / "work" / "daily" / "2026-08-16"
-            run_dir.mkdir(parents=True)
-            for name in dream_eod.GEO_DAILY_FILES:
-                (run_dir / name).write_text(name, encoding="utf-8")
-            return SimpleNamespace(
-                returncode=1,
-                stdout="issue_action=deferred\nFAIL deepening gate rejects unresolved synthesis placeholders\n",
-                stderr="",
-            )
-        return SimpleNamespace(returncode=0, stdout='{"coverage":"complete"}', stderr="")
-
-    monkeypatch.setattr(dream_eod, "run_tool", fake_run_tool)
-
-    result = dream_eod.execute(
-        arguments(tmp_path, no_candidate="No defensible method experiment was observed."),
-        "2026-08-16",
-    )
-
-    assert result["status"] == "completed"
-    connection = dream_eod.cadence_ledger.connect(tmp_path / "cadence.sqlite3")
-    try:
-        rows = connection.execute(
-            "SELECT payload_json FROM daily_close_events WHERE event_type='stage_completed'"
-        ).fetchall()
-    finally:
-        connection.close()
-    geo_receipt = next(
-        json.loads(row["payload_json"]) for row in rows
-        if json.loads(row["payload_json"]).get("stage") == "geo"
-    )
-    assert geo_receipt["status"] == "provisional_packet_with_revision_debt"
-    assert geo_receipt["artifact_ref"] == "narrative-geopolitics/work/daily/2026-08-16"
-    assert "issue.md was deferred" in " ".join(geo_receipt["revision_debt"])
+    daily = tmp_path / "geopolitics/work/daily/2026-08-16"
+    daily.mkdir(parents=True)
+    (daily / "synthesis.md").write_text("unfinished", encoding="utf-8")
+    monkeypatch.setattr(dream_eod, "manifest_rows", lambda _: 3)
+    monkeypatch.setattr(dream_eod, "run_tool", lambda *a: pytest.fail("must not complete"))
+    assert dream_eod.geo_certification("2026-08-16", auto_complete=True)["status"] == "unfinished"
 
 
-def test_geo_infrastructure_failure_still_pauses_before_internal_journal_stage(monkeypatch, tmp_path: Path) -> None:
-    monkeypatch.setattr(
-        dream_eod, "geo_certification",
-        lambda _date, **_kwargs: (_ for _ in ()).throw(
-            dream_eod.cadence_ledger.CadenceLedgerError("Geo infrastructure failed")
-        ),
-    )
-    monkeypatch.setattr(dream_eod, "journal_entry", lambda _date: None)
-
-    result = dream_eod.execute(arguments(tmp_path), "2026-08-16")
-
-    assert result["status"] == "paused"
-    assert result["mutation"] is False
-    assert result["incomplete_stages"] == ["Geo-Strategy"]
-    assert result["prompt"] == (
-        "Geo-Strategy is incomplete for 2026-08-16. "
-        "Do you want to finish it before Dream continues?"
-    )
-    assert not (tmp_path / "cadence.sqlite3").exists()
+def test_geo_infrastructure_failure_is_nonblocking_for_dream(monkeypatch, tmp_path):
+    def fail(*a, **k):
+        raise dream_eod.cadence_ledger.CadenceLedgerError("packet unavailable")
+    monkeypatch.setattr(dream_eod, "geo_certification", fail)
+    monkeypatch.setattr(dream_eod, "journal_entry", lambda _: None)
+    projection = dream_eod.prerequisite_projection(arguments(tmp_path), "2026-08-16")
+    assert projection["ready"]
+    assert projection["stages"]["geo"]["reason"] == "packet unavailable"
 
 
 def test_existing_journal_can_complete_no_candidate_close(monkeypatch, tmp_path: Path) -> None:
@@ -701,24 +594,14 @@ def test_geo_freshness_splits_due_forecast_debt_without_blocking_dream(monkeypat
     assert projection["next_action"] == "open-verification-packet"
 
 
-def test_geo_failure_precedes_private_ledger_mutation(monkeypatch, tmp_path: Path) -> None:
-    def fail(_date, **_kwargs):
-        raise dream_eod.cadence_ledger.CadenceLedgerError("packet validation failed")
-
+def test_geo_failure_is_preserved_as_nonblocking_status(monkeypatch, tmp_path):
+    def fail(*a, **k):
+        raise dream_eod.cadence_ledger.CadenceLedgerError("packet unavailable")
     monkeypatch.setattr(dream_eod, "geo_certification", fail)
-    monkeypatch.setattr(
-        dream_eod, "journal_entry",
-        lambda _date: {"versions": [{"version_id": "MJ-20260816-v1", "content_sha256": "a" * 64}]},
-    )
-
-    result = dream_eod.execute(arguments(tmp_path), "2026-08-16")
-
-    assert result["status"] == "paused"
-    assert result["mutation"] is False
-    assert result["incomplete_stages"] == ["Geo-Strategy"]
-    assert result["stages"]["geo"]["reason"] == "packet validation failed"
-    assert "Do you want to finish it" in result["prompt"]
-    assert not (tmp_path / "cadence.sqlite3").exists()
+    monkeypatch.setattr(dream_eod, "journal_entry", lambda _: None)
+    projection = dream_eod.prerequisite_projection(arguments(tmp_path), "2026-08-16")
+    assert projection["ready"]
+    assert projection["stages"]["geo"]["reason"] == "packet unavailable"
 
 
 def test_private_bundle_is_finalized_canonically_by_dream(monkeypatch, tmp_path: Path) -> None:

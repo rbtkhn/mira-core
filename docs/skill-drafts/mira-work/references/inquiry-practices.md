@@ -18,7 +18,10 @@ own routes. A cue alone does not activate full Mira Work.
 | Study — compose | An idea needs expression, interpretation, or revision for a particular reader. | Shape it while preserving authorship, uncertainty, and supporting references. | The thought is still emerging and composition would force a deliverable. |
 | Workshop — test | An unresolved claim could change through a calculation, counterexample, or experiment. | Choose the smallest discriminating attempt within existing authority. | No informative test is available, or execution needs authority not supplied. |
 | Archive — recover | Earlier work or a correction materially affects the present inquiry. | Recover reasons and qualifications through the owning carrier. | Prior context is irrelevant or already available. |
-| Tower — reconsider | The purpose, frame, or repeated approach is obstructing progress. | Identify the assumption or alternative that could change the decision. | Reflection merely delays an answer or repeats settled design. |
+| Tower — strategic judgment | Explicit Tower invitation or strategic inquiry. | Develop geopolitical judgment through the strategy-notebook; reconsider mechanisms and strategic horizons. | Architecture discussion is not an invocation. |
+
+Explicit Tower invitations route to [Tower](../../tower/SKILL.md), including its
+notebook continuity and bounded close. Other practice cues retain this reference.
 
 All practices remain available together. Imagination belongs in source reading;
 precision belongs in exploration. Follow an unexpected connection without first

@@ -28,7 +28,7 @@ Both modes use Mira Voice as analytic presence: clear judgment, visible
 uncertainty, and restraint. Do not use inward journal language, ceremonial
 cadence, newsletter framing, self-formation language, or lyrical reflection.
 
-Authority: this notebook is Dream-composed and Geo-bound. It does not replace
+Authority: this notebook is Tower-composed and source-bound. It does not replace
 source inventory, synthesis, judgment, forecast ledger, issue rendering, or
 Reality verification. It is not public copy, policy advice, operational
 guidance, or proof of any source claim.
