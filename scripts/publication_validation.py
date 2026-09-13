@@ -129,6 +129,20 @@ LIBRARY_INTEGRATION_SCHEMA_RE = re.compile(
 )
 
 
+RETIRED_WORKTREE_POINTERS = frozenset({
+    ".codex-tmp/archive-family-publish", ".codex-tmp/july30-archive-repair",
+})
+
+
+def _retired_worktree_pointer(path: str, repository: Path) -> bool:
+    """Only absent, exact historical gitlinks qualify for deletion review."""
+    if path not in RETIRED_WORKTREE_POINTERS or (repository / path).exists():
+        return False
+    result = subprocess.run(["git", "ls-tree", "HEAD", "--", path],
+                            cwd=repository, capture_output=True, text=True)
+    return result.returncode == 0 and result.stdout.startswith("160000 commit ") and result.stdout.rstrip().endswith("\t" + path)
+
+
 class RoutingError(ValueError):
     pass
 
@@ -160,7 +174,7 @@ def normalize_path(raw: str, *, repo_root: Path = REPO_ROOT) -> str:
         and subprocess.run(["git", "cat-file", "-e", "HEAD:" + relative_candidate],
                            cwd=repository, capture_output=True).returncode == 0
     )
-    if not resolved.exists() and not retired_deletion:
+    if not resolved.exists() and not retired_deletion and not _retired_worktree_pointer(relative_candidate, repository):
         relative_missing = resolved.relative_to(repository).as_posix()
         # Permit this exact tracked relocation source, never arbitrary absent paths.
         relocated = repository / "archive/sessions/memorials/registry.json"
@@ -399,6 +413,14 @@ def route_path(path: str, *, repo_root: Path = REPO_ROOT) -> dict[str, Any]:
             "validation_class": "domain-governed",
             "commands": [],
             "manual_checks": [MANUAL_WORK_JOURNAL_CHECK],
+        }
+    if path in RETIRED_WORKTREE_POINTERS:
+        if not _retired_worktree_pointer(path, repo_root):
+            raise RoutingError("only absent tracked worktree pointers may be retired: " + path)
+        return {
+            "path": path, "owner": "repo-structural", "validation_class": "repo-structural",
+            "commands": ["tools/run.ps1 test --path tests/test_retired_worktree_pointers.py"],
+            "manual_checks": ["Verify these exact historical gitlinks are absent and no longer registered worktrees; preserve their commit identities and remove pointers only, never directory contents."],
         }
     if path in RETIRED_PROJECT_PATHS:
         if (repo_root / path).exists():
