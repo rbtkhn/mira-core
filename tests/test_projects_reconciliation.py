@@ -55,3 +55,19 @@ def test_all_active_project_links_resolve():
             resolved = (path.parent / target.split('#')[0]).resolve()
             assert resolved.is_relative_to(root)
             assert resolved.is_file(), (path, target)
+
+
+def test_transfer_contract_links_reach_shared_section():
+    root = Path(__file__).resolve().parents[1]
+    sources = [root / 'projects' / name / 'README.md' for name in (
+        'grace-mar', 'ottoman-rugs', 'mountain-villa', 'learning-core', 'grace-mar/grace-gems',
+    )] + [root / 'docs/skill-drafts' / name / 'SKILL.md' for name in ('mira-work', 'mira-treasury')]
+    for source in sources:
+        targets = re.findall(r'\[[^\]]+\]\(([^)]+#cross-project-method-transfer)\)', source.read_text(encoding='utf-8'))
+        assert len(targets) == 1
+        path, fragment = targets[0].split('#')
+        target = (source.parent / path).resolve()
+        assert target == (root / 'projects/README.md').resolve()
+        headings = [re.sub(r'[^a-z0-9 -]', '', x.lower()).replace(' ', '-')
+                    for x in re.findall(r'^#+ (.+)$', target.read_text(encoding='utf-8'), re.M)]
+        assert fragment in headings

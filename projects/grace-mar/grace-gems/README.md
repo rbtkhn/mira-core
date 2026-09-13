@@ -134,3 +134,6 @@ Link existing records rather than duplicating them. mira-ledger is an intended
 Treasury work product, currently unimplemented. This relationship creates no
 automatic ledger or Work Journal entry and does not change the privacy,
 provenance, or authority boundaries above.
+
+For actual cross-project adaptations, use the [shared method-transfer contract](../../README.md#cross-project-method-transfer).
+This project's stricter evidence, privacy, and decision-owner controls remain in force.

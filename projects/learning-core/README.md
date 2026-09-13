@@ -66,3 +66,6 @@ correspondence, or commercial commitment follows from this package.
 Return to the [Projects index](../README.md). Historical [portfolio provenance](../provenance.md)
 remains background; refreshed accounting is in this package's source map.
 The former Lab pilot queue is retired private background, not an active dependency.
+
+For actual cross-project adaptations, use the [shared method-transfer contract](../README.md#cross-project-method-transfer).
+This project's stricter evidence, privacy, and decision-owner controls remain in force.

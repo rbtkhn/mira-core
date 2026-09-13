@@ -217,6 +217,14 @@ def test_behavioral_fixture_inventory_is_complete_and_human_reviewed() -> None:
         "MW-EXECUTION-05",
         "MW-EXECUTION-06",
 
+        "MW-TRANSFER-APPROVAL",
+        "MW-TRANSFER-ESTIMATE",
+        "MW-TRANSFER-PRIVATE",
+        "MW-TRANSFER-LIGHT",
+        "MW-TRANSFER-UNAVAILABLE",
+        "MW-TRANSFER-CHANGED",
+        "MW-TRANSFER-PROOF",
+        "MW-TRANSFER-MENTION",
     ]
     assert {case["case"] for case in cases} == {"normal", "edge", "failure", "ambiguous"}
     skill = " ".join(read_skill().split())

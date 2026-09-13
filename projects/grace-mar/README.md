@@ -104,3 +104,6 @@ Only explicitly routed, separately reviewed project files are eligible for
 publication review. The [Grace Gems admission matrix](grace-gems/admission-matrix.md)
 continues to control upstream Grace Gems use. This orientation grants no filing,
 spending, account, asset-transfer, correspondence, launch, or publication authority.
+
+For actual cross-project adaptations, use the [shared method-transfer contract](../README.md#cross-project-method-transfer).
+This project's stricter evidence, privacy, and decision-owner controls remain in force.

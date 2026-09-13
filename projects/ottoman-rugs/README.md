@@ -73,3 +73,6 @@ privacy, product-claim limits, and separation of preparation from operation;
 neighboring product or business records are not covered automatically.
 The linked correspondence and developmental note are private local background,
 not bodies to include in a publication merely to make their links accessible.
+
+For actual cross-project adaptations, use the [shared method-transfer contract](../README.md#cross-project-method-transfer).
+This project's stricter evidence, privacy, and decision-owner controls remain in force.

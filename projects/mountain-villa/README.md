@@ -64,3 +64,6 @@ Missing evidence stays missing; water, boundaries, condition, improvements,
 and sale claims require appropriate current evidence before external use.
 
 Return to [Projects](../README.md). See [provenance](../provenance.md) for historical ancestry. The former Lab is outside the active project structure.
+
+For actual cross-project adaptations, use the [shared method-transfer contract](../README.md#cross-project-method-transfer).
+This project's stricter evidence, privacy, and decision-owner controls remain in force.

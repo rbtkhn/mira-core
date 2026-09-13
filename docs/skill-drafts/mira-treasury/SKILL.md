@@ -75,7 +75,13 @@ status, unresolved dependencies, and existing supporting references. Workshop
 returns observed results and resource use when available; Treasury assesses
 material variance. Keep simple handoffs brief. See the
 [synthetic worked handoff](references/worked-handoff.md) when a concrete example
-would help. No handoff supplies missing authority.
+would help. No handoff supplies missing authority. When a resource method or result
+is adapted across projects, consult the [shared method-transfer contract](../../../projects/README.md#cross-project-method-transfer).
+Keep source versions and limits, receiving fit, permitted inputs, and deciding
+owners visible in the existing handoff. Shared access does not authorize private
+record reuse or pool balances and commitments. Reuse exact permission already
+supplied; continue independent authorized preparation while dependent use waits.
+Project mentions and ordinary use of Treasury do not trigger transfer review.
 
 Review [behavioral fixtures](references/validation-fixtures.json) when testing
 this contract. Passing fixture checks establishes coverage, not improved business

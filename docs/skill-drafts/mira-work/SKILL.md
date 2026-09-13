@@ -173,7 +173,13 @@ Method allowed to end:
   evidence and the developmental value of doing the work.
 - Preserve corrections, changed assumptions, unresolved tensions, and reusable
   method without claiming unsupported personal continuity.
-- Keep transferable method separate from lane-specific or private context.
+- Keep transferable method separate from lane-specific or private context. When
+  work actually crosses projects, consult the [shared method-transfer contract](../../../projects/README.md#cross-project-method-transfer)
+  for source/version, limits, receiving fit, permitted inputs, and the next action's
+  owner. Use the existing task or handoff; do not duplicate records or request
+  permission already supplied. Project mentions and ordinary shared-skill use do
+  not trigger review. Missing evidence or permission pauses only dependent work;
+  continue independent generic preparation within the authorized scope.
 - If a concern card was used, update the conversational handoff with what the
   card clarified, which shared-state record another agent should read first,
   and whether repeated use exposed stable triggers, boundaries, receipts, and
