@@ -210,6 +210,12 @@ def test_behavioral_fixture_inventory_is_complete_and_human_reviewed() -> None:
         "MW-INQUIRY-07",
         "MW-INQUIRY-08",
         "MW-CLOSEOUT-01",
+        "MW-EXECUTION-01",
+        "MW-EXECUTION-02",
+        "MW-EXECUTION-03",
+        "MW-EXECUTION-04",
+        "MW-EXECUTION-05",
+        "MW-EXECUTION-06",
 
     ]
     assert {case["case"] for case in cases} == {"normal", "edge", "failure", "ambiguous"}
@@ -243,3 +249,19 @@ def test_failure_and_ambiguous_fixtures_fail_closed() -> None:
     assert ambiguous["expected_activation"] is False
     assert ambiguous["expected_receipt_fields"] == []
     assert any("generic wording" in item for item in ambiguous["forbidden_behaviors"])
+
+
+def test_execution_cases_protect_evidence_and_proportionality() -> None:
+    cases = {case["id"]: case for case in fixtures()}
+    assert cases["MW-EXECUTION-05"]["case"] == "failure"
+    assert "field presence" in " ".join(cases["MW-EXECUTION-05"]["forbidden_behaviors"])
+    assert cases["MW-EXECUTION-06"]["expected_activation"] is False
+    assert cases["MW-EXECUTION-06"]["expected_receipt_fields"] == []
+    profile = " ".join(read_reference("execution-profile.md").split())
+    for phrase in ("inspect completed effects before retrying", "Stop after sufficient scoped evidence passes",
+                   "$miraWorkExit = $LASTEXITCODE", "select relevant records"):
+        assert phrase in profile
+    skill = " ".join(read_skill().split())
+    assert "checks field presence, not accurate attribution" in skill
+    assert "Reuse an adequate existing receipt" in skill
+    assert "Simple one-file edits" in skill

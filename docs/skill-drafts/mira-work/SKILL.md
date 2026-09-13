@@ -139,6 +139,10 @@ Method allowed to end:
   execution.
 - Immediately before mutation, re-check the target repository's Git status and
   exact target path.
+- For consequential edits to already-dirty targets, preserve the relevant starting
+  bytes or scoped diff within the task's authorized private preparation boundary.
+  Separate this task's changes from pre-existing edits; report uncertain attribution
+  when concurrent edits prevent an exact boundary. Do not infer it from final Git diff.
 - If the workspace and inspected repository differ and the target is ambiguous,
   stop rather than infer the destination.
 - Report scope and mutation status whenever another repository is involved.
@@ -270,6 +274,13 @@ alone is not proof of success. The receipt remains conversational unless an
 existing governing workflow already saves it. Mira Work creates no database,
 ledger, automatic retention, publication, or persistence authority.
 
+Reuse an adequate existing receipt: link it and summarize the operator-relevant
+result rather than duplicate it. Separate command success, artifact validity, and
+workflow effectiveness when they differ. The existing `receipt-check` interface
+checks field presence, not accurate attribution or demonstrated outcomes; it is
+not a compulsory gate for a concise conversational handoff. Simple one-file edits
+outside this skill's consequential trigger need no baseline bundle or full receipt.
+
 For a substantial document, state exactly one persistence status:
 
 - saved and verified, with a clickable path and privacy/status label;
@@ -300,6 +311,27 @@ The handoff is conversational unless another governing workflow saves it. It
 does not authorize staging, commit, push, PR creation, publication, deployment,
 or hosted-state change; it gives Mira GitHub enough evidence to run the
 publication lane without rediscovering the implementation session.
+
+### Worked handoff (synthetic)
+
+```text
+Changed paths: scripts/example.py; tests/test_example.py.
+Task delta: validate empty input; add its regression case.
+Baseline/diff: private preparation before/ and task.diff (exact paths supplied).
+Excluded dirty paths: pre-existing logging change in scripts/example.py;
+  all other working-tree changes. Concurrent attribution: none observed.
+Validation run/result: focused example tests passed; scoped whitespace clean.
+Risks or limits: synthetic checks only; workflow effectiveness unmeasured.
+Reached boundary: local working-tree implementation; no Git publication.
+Unresolved dependency: none. Re-entry point: inspect task.diff before staging.
+Suggested commit message: Validate empty example input.
+Recommended boundary: only the task delta above, if separately authorized.
+Authority used: explicit bounded implementation request.
+```
+
+Replace example names and claims with actual evidence. Include precise baseline
+or diff locations when shared-file attribution depends on them. If evidence is
+missing, say so; do not claim the next agent can resume without reconstruction.
 
 When auditing or revising Mira Work, read
 [`references/validation-fixtures.json`](references/validation-fixtures.json).

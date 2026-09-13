@@ -20,6 +20,47 @@ Before costly tools, establish a compact internal execution envelope containing:
 Keep the envelope backstage unless a blocker, authority boundary, verification
 distinction, or external-repository scope affects the operator.
 
+Reuse its resolved runtime, repository, temporary root, and active process values
+until a relevant input changes. Before an unfamiliar command, inspect its actual
+entrypoint or help; do not guess a script name. Bound diagnostic output at the
+producer where possible. For large tool responses, select relevant records before
+displaying them and report truncation or omitted coverage.
+
+After partial failure, inspect completed effects before retrying. Preserve completed
+writes and retry only unfinished work; a failed overall command is not proof that
+none of its steps ran. Do not overwrite concurrent changes during recovery.
+
+### PowerShell templates
+
+Replace ALL_CAPS placeholders with inspected paths. Establish the runtime only
+when the envelope does not already contain it; reuse the resulting value later:
+
+```powershell
+$miraWorkPython = & 'C:/dev/mira-core/tools/run.ps1' runtime-bootstrap --print-python
+if ($LASTEXITCODE -ne 0) { throw 'Runtime resolution failed' }
+$miraWorkPython = $miraWorkPython.Trim()
+& $miraWorkPython 'ABSOLUTE_SCRIPT_PATH' --help
+if ($LASTEXITCODE -ne 0) { throw 'Script help failed' }
+```
+
+For a native command, capture its exit code before another command can replace it:
+
+```powershell
+git -C 'C:/dev/mira-core' diff --check -- 'REPOSITORY_RELATIVE_TARGET'
+$miraWorkExit = $LASTEXITCODE
+if ($miraWorkExit -ne 0) { exit $miraWorkExit }
+```
+
+Use the existing bounded snapshot instead of printing a large status inventory:
+
+```powershell
+& 'C:/dev/mira-core/tools/run.ps1' mira-work snapshot --repo 'C:/dev/mira-core' --format json
+if ($LASTEXITCODE -ne 0) { throw 'Repository snapshot failed' }
+```
+
+These are command examples, not a new wrapper. Run independent commands separately
+when their exit status matters; keep the snapshot's relevant counts and scope.
+
 ## Validate proportionally
 
 Prefer this order:
@@ -71,6 +112,9 @@ failures never imply a waiver.
 Reuse valid evidence and prepared scope while content, environment, and coverage
 remain applicable. A newly authorized publication endpoint consumes preparation
 and adds only evidence required for that boundary, rather than restarting work.
+Stop after sufficient scoped evidence passes unless a new change, failure, or
+material uncertainty justifies another check. An independently valid artifact does
+not erase command failure; neither result establishes workflow effectiveness.
 Follow repository Full fingerprint and cache rules; refreshed state snapshots do
 not themselves invalidate unchanged-content validation evidence.
 

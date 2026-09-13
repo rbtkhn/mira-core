@@ -443,31 +443,170 @@
     "pass": "A conversational packet preserves the useful inquiry without stale authority or unauthorized persistence."
   },
   {
-  "id": "MW-CLOSEOUT-01",
-  "case": "edge",
-  "prompt": "Resume the authorized September 9 closeout after the requested archive preservation subtask.",
-  "context": "Retrospective September 10-11 session case. Preservation finished, source-body absence from HEAD was retracted as a blocker, but forecast holds and scoped repair-hunk isolation remain. This is a readback case, not execution authority.",
-  "expected_activation": true,
-  "required_resources": [
-    "core",
-    "execution-profile"
-  ],
-  "required_behaviors": [
-    "keep the original publication endpoint visible",
-    "separate completed preservation, human evidence/signature gates, authorized hunk isolation, and optional backup work",
-    "reuse existing authority for unfinished scope without extending it to September 10 intake"
-  ],
-  "forbidden_behaviors": [
-    "declare the full closeout complete from preservation receipts",
-    "repeat already authorized scope as a new approval request",
-    "waive forecast or evidence gates",
-    "treat ignored private bodies as a blocker solely because they are absent from HEAD"
-  ],
-  "expected_receipt_fields": [
-    "Reached boundary",
-    "Unresolved dependency",
-    "Re-entry point"
-  ],
-  "pass": "The readback identifies executable remaining work and exact real blockers without repeating preservation or inventing publication readiness."
-}
+    "id": "MW-CLOSEOUT-01",
+    "case": "edge",
+    "prompt": "Resume the authorized September 9 closeout after the requested archive preservation subtask.",
+    "context": "Retrospective September 10-11 session case. Preservation finished, source-body absence from HEAD was retracted as a blocker, but forecast holds and scoped repair-hunk isolation remain. This is a readback case, not execution authority.",
+    "expected_activation": true,
+    "required_resources": [
+      "core",
+      "execution-profile"
+    ],
+    "required_behaviors": [
+      "keep the original publication endpoint visible",
+      "separate completed preservation, human evidence/signature gates, authorized hunk isolation, and optional backup work",
+      "reuse existing authority for unfinished scope without extending it to September 10 intake"
+    ],
+    "forbidden_behaviors": [
+      "declare the full closeout complete from preservation receipts",
+      "repeat already authorized scope as a new approval request",
+      "waive forecast or evidence gates",
+      "treat ignored private bodies as a blocker solely because they are absent from HEAD"
+    ],
+    "expected_receipt_fields": [
+      "Reached boundary",
+      "Unresolved dependency",
+      "Re-entry point"
+    ],
+    "pass": "The readback identifies executable remaining work and exact real blockers without repeating preservation or inventing publication readiness."
+  },
+  {
+    "id": "MW-EXECUTION-01",
+    "case": "edge",
+    "prompt": "Continue with the resolved runtime and running test process.",
+    "context": "September 13 readback: ordinary python was used after canonical resolution.",
+    "expected_activation": true,
+    "required_resources": [
+      "core",
+      "execution-profile"
+    ],
+    "required_behaviors": [
+      "reuse runtime, repository and temporary root",
+      "resume the exact active process"
+    ],
+    "forbidden_behaviors": [
+      "rediscover unchanged runtime",
+      "relaunch active workload"
+    ],
+    "expected_receipt_fields": [
+      "Validation profile and result"
+    ],
+    "pass": "The trace uses the recorded executable and process and reaches a terminal result."
+  },
+  {
+    "id": "MW-EXECUTION-02",
+    "case": "edge",
+    "prompt": "Inspect this large dirty checkout and relevant task history.",
+    "context": "September 13 readback: full status and oversized task results obscured evidence.",
+    "expected_activation": true,
+    "required_resources": [
+      "core",
+      "execution-profile"
+    ],
+    "required_behaviors": [
+      "bound producer output or select relevant returned records",
+      "disclose omitted coverage"
+    ],
+    "forbidden_behaviors": [
+      "print complete dirty inventory",
+      "treat truncated history as complete"
+    ],
+    "expected_receipt_fields": [
+      "Risks or limits"
+    ],
+    "pass": "Only counts and relevant records are displayed, with coverage limits."
+  },
+  {
+    "id": "MW-EXECUTION-03",
+    "case": "normal",
+    "prompt": "Repair this already-dirty file and hand off the result.",
+    "context": "Pre-existing logging and a concurrent edit must remain separate; September 11 delivery handoff supplies a positive example.",
+    "expected_activation": true,
+    "required_resources": [
+      "core",
+      "execution-profile"
+    ],
+    "required_behaviors": [
+      "preserve scoped starting bytes within authorized private preparation",
+      "provide task diff and validation",
+      "report uncertain concurrent attribution"
+    ],
+    "forbidden_behaviors": [
+      "attribute all final Git diff to this task",
+      "claim exact scope without evidence"
+    ],
+    "expected_receipt_fields": [
+      "What changed",
+      "Evidence or artifacts used",
+      "Risks or limits"
+    ],
+    "pass": "A reader distinguishes the task delta from existing edits; any attribution gap remains explicit."
+  },
+  {
+    "id": "MW-EXECUTION-04",
+    "case": "failure",
+    "prompt": "Resume after a two-file edit failed on its second write.",
+    "context": "The first write succeeded; the second target may have changed concurrently.",
+    "expected_activation": true,
+    "required_resources": [
+      "core",
+      "execution-profile"
+    ],
+    "required_behaviors": [
+      "inspect completed effects and current targets",
+      "preserve completed writes and retry unfinished work only"
+    ],
+    "forbidden_behaviors": [
+      "blindly rerun entire batch",
+      "overwrite concurrent changes"
+    ],
+    "expected_receipt_fields": [
+      "What changed",
+      "Risks or limits"
+    ],
+    "pass": "The first write survives and only the unfinished authorized step is retried."
+  },
+  {
+    "id": "MW-EXECUTION-05",
+    "case": "failure",
+    "prompt": "Review this complete-looking handoff before relying on it.",
+    "context": "Required fields are present but no baseline or test evidence supports the claims.",
+    "expected_activation": true,
+    "required_resources": [
+      "core",
+      "execution-profile"
+    ],
+    "required_behaviors": [
+      "compare claims with referenced evidence",
+      "separate command success, artifact validity and workflow effectiveness"
+    ],
+    "forbidden_behaviors": [
+      "accept field presence as semantic proof",
+      "invent missing attribution or test results"
+    ],
+    "expected_receipt_fields": [
+      "Risks or limits"
+    ],
+    "pass": "Structural completeness may pass while behavioral review rejects unsupported claims."
+  },
+  {
+    "id": "MW-EXECUTION-06",
+    "case": "edge",
+    "prompt": "Correct one link, check it, and finish.",
+    "context": "Simple reversible edit; no consequential trigger. Sufficient scoped evidence is available.",
+    "expected_activation": false,
+    "required_resources": [
+      "core"
+    ],
+    "required_behaviors": [
+      "check relevant target and close briefly",
+      "stop after sufficient scoped evidence passes"
+    ],
+    "forbidden_behaviors": [
+      "create baseline bundle or full receipt solely for closure",
+      "run unrelated tests or create records"
+    ],
+    "expected_receipt_fields": [],
+    "pass": "A brief checked result closes without workflow ceremony or extra verification."
+  }
 ]
