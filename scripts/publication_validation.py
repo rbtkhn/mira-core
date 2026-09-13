@@ -41,6 +41,38 @@ MANUAL_GRACE_GEMS_CHECK = (
     "Validate Grace Gems provenance, privacy exclusions, stewardship-versus-ownership "
     "boundaries, CEO authority, and absence of copied upstream or private evidence."
 )
+MANUAL_GRACE_MAR_CHECK = (
+    "Validate the Grace Mar README as sanitized local orientation: attributed "
+    "provenance, no copied upstream or private evidence, no inferred legal formation "
+    "or asset ownership, no resumed approval or active-business claim, and preserved "
+    "project-owner authority. Verify links against the exact admission candidate; "
+    "other Grace Mar files are not covered by this route."
+)
+
+MANUAL_OTTOMAN_RUGS_CHECK = (
+    "Validate Ottoman Rugs orientation against dated, attributed sources: keep "
+    "supplier evidence private, requested terms separate from agreed terms, "
+    "product facts and image rights unverified unless supported, and private "
+    "preview distinct from operating storefront. Preserve human approval and "
+    "launch boundaries; no neighboring files are covered."
+)
+
+MANUAL_PROJECT_ORIENTATION_CHECK = (
+    "Review the complete exact project orientation, including pre-existing content: "
+    "verify source attribution, privacy, owner authority, and prepared-versus-executed "
+    "pilot status. Classify local-only/private references separately from publishable "
+    "control dependencies; never admit a linked body merely to satisfy a link. "
+    "A navigation repair does not admit earlier project work or neighboring files."
+)
+
+MANUAL_MOUNTAIN_VILLA_CHECK = (
+    "Review Mountain Villa source attribution, privacy exclusions, and owner/professional "
+    "authority. Keep current templates blank, examples hypothetical, and upstream "
+    "decisions historical. No property facts, sale targets, validated safety model, "
+    "operating activation, or inherited role authority may be inferred. Confirm "
+    "private completed records stay outside Git and all source dispositions are accounted for."
+)
+
 MANUAL_NARRATIVE_GEOPOLITICS_CHECK = (
     "Validate Narrative Geopolitics provenance, source/voice routing, bounded-analysis "
     "posture, verification boundaries, and absence of unsupported public factual use."
@@ -335,7 +367,60 @@ def route_path(path: str, *, repo_root: Path = REPO_ROOT) -> dict[str, Any]:
         path = "narrative-geopolitics/" + path.removeprefix("geopolitics/")
     if path.startswith(("archive/sessions/transcripts/", "archive/sessions/daily/")):
         raise RoutingError("Private session payloads cannot be admitted to Git")
-    if path.startswith("projects/grace-gems/"):
+    if path in {
+        "projects/mountain-villa/README.md",
+        "projects/mountain-villa/intake.md",
+        "projects/mountain-villa/operating-review.md",
+        "projects/mountain-villa/risk-register.md",
+        "projects/mountain-villa/decision-log.md",
+        "projects/mountain-villa/preparation-plan.md",
+        "projects/mountain-villa/creative-interface.md",
+        "projects/mountain-villa/source-map.md",
+    }:
+        return {
+            "owner": "mountain-villa/stewardship",
+            "validation_class": "domain-governed",
+            "commands": ["tools/run.ps1 test --path tests/test_publication_validation.py"],
+            "manual_checks": [MANUAL_MOUNTAIN_VILLA_CHECK],
+        }
+    project_orientation_owners = {
+        "projects/README.md": "projects/index",
+        "projects/lab/README.md": "projects/lab-orientation",
+        "projects/media-production/README.md": "projects/media-production-orientation",
+    }
+    if path in project_orientation_owners:
+        return {
+            "owner": project_orientation_owners[path],
+            "validation_class": "domain-governed",
+            "commands": [
+                "tools/run.ps1 test --path tests/test_publication_validation.py"
+            ],
+            "manual_checks": [MANUAL_PROJECT_ORIENTATION_CHECK],
+        }
+    if path == "projects/grace-mar/README.md":
+        return {
+            "owner": "grace-mar/orientation",
+            "validation_class": "domain-governed",
+            "commands": [
+                "tools/run.ps1 test --path tests/test_publication_validation.py"
+            ],
+            "manual_checks": [MANUAL_GRACE_MAR_CHECK],
+        }
+    if path == "projects/grace-mar/ottoman-rugs/README.md":
+        return {
+            "owner": "grace-mar/ottoman-rugs",
+            "validation_class": "domain-governed",
+            "commands": [
+                "tools/run.ps1 test --path tests/test_publication_validation.py"
+            ],
+            "manual_checks": [MANUAL_OTTOMAN_RUGS_CHECK],
+        }
+    if path in {
+        "projects/grace-mar/grace-gems/README.md",
+        "projects/grace-mar/grace-gems/admission-matrix.md",
+        "projects/grace-gems/README.md",
+        "projects/grace-gems/admission-matrix.md",
+    }:
         return {
             "owner": "grace-gems/stewardship",
             "validation_class": "domain-governed",

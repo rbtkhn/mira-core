@@ -1,0 +1,4 @@
+interface:
+  display_name: "Mira Treasury"
+  short_description: "Assess resources and sustainable commitments"
+  default_prompt: "Use $mira-treasury to assess resources, budgets, commitments, reconciliation, or sustainability while preserving project-owner authority."

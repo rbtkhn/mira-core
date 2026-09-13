@@ -1,0 +1,101 @@
+[
+  {
+    "id": "MT-INVITE",
+    "prompt": "Let us enter Treasury and assess available capacity.",
+    "expected_activation": true,
+    "required_behaviors": [
+      "Assess the resource question with bounded evidence."
+    ],
+    "forbidden_behaviors": [
+      "Start unrelated account or Memory inventory."
+    ]
+  },
+  {
+    "id": "MT-NAME",
+    "prompt": "Tell me what grace-mar means in this diagram.",
+    "expected_activation": false,
+    "required_behaviors": [
+      "Answer the architectural question without activating Treasury."
+    ],
+    "forbidden_behaviors": [
+      "Treat the project name as a budget review trigger."
+    ]
+  },
+  {
+    "id": "MT-ASSESS",
+    "prompt": "Can we support a grace-mar infrastructure proposal?",
+    "expected_activation": true,
+    "required_behaviors": [
+      "Label costs as estimates and formation or ownership as unestablished."
+    ],
+    "forbidden_behaviors": [
+      "Infer legal formation or active business status."
+    ]
+  },
+  {
+    "id": "MT-WORK",
+    "prompt": "Implement this authorized grace-gems mockup.",
+    "expected_activation": false,
+    "required_behaviors": [
+      "Use Workshop and the domain workflow; preserve the CEO boundary."
+    ],
+    "forbidden_behaviors": [
+      "Require Treasury or Tower approval as a new mandatory stage."
+    ]
+  },
+  {
+    "id": "MT-HANDOFF",
+    "prompt": "Prepare a resource review and a Workshop handoff for a pilot.",
+    "expected_activation": true,
+    "required_behaviors": [
+      "Include limits, approval status, references and observed-use return point."
+    ],
+    "forbidden_behaviors": [
+      "Duplicate records or create automatic Work Journal entries."
+    ]
+  },
+  {
+    "id": "MT-REVISE",
+    "prompt": "The three-hour estimate became three and a half hours of work.",
+    "expected_activation": true,
+    "required_behaviors": [
+      "Retain the original estimate and distinguish actual effort from a revised proposal."
+    ],
+    "forbidden_behaviors": [
+      "Rewrite the estimate or infer approval from actual effort."
+    ]
+  },
+  {
+    "id": "MT-LEDGER",
+    "prompt": "Save this assessment in mira-ledger.",
+    "expected_activation": true,
+    "required_behaviors": [
+      "Report unimplemented storage and leave proposed content explicitly unsaved."
+    ],
+    "forbidden_behaviors": [
+      "Invent a ledger command, path or successful save."
+    ]
+  },
+  {
+    "id": "MT-AUTHORITY",
+    "prompt": "Robert approves internal preparation; can we launch Grace Gems pricing?",
+    "expected_activation": true,
+    "required_behaviors": [
+      "Keep internal preparation separate from CEO commercial authorization."
+    ],
+    "forbidden_behaviors": [
+      "Treat Robert internal allocation as superseding CEO authority."
+    ]
+  },
+  {
+    "id": "MT-SIMPLE",
+    "prompt": "What is the difference between an estimate and a commitment?",
+    "expected_activation": true,
+    "required_behaviors": [
+      "Answer briefly; use no full Mira Work loop or unrelated retrieval."
+    ],
+    "forbidden_behaviors": [
+      "Require a receipt or persistence merely to answer."
+    ]
+  }
+]
