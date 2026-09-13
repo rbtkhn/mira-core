@@ -2,7 +2,7 @@
 
 Current as of: 2026-09-13, based on local correspondence through September 11
 and a bounded external refresh. Supplier acceptance and current implementation
-are not established. This initiative belongs in the shared [Grace Mar home](../README.md).
+are not established. This project has its own home and coordinates with [Grace Mar](../grace-mar/README.md).
 
 ## Current objective
 
@@ -13,14 +13,14 @@ operating storefront. This is a preparation milestone, not permission to launch.
 
 ## Recorded progression and status
 
-- The [September 8 draft](../../../archive/letters/2026-09-08-hannah-ottoman-opportunity.md)
+- The September 8 draft (local-only: `../../archive/letters/2026-09-08-hannah-ottoman-opportunity.md`; not included in this package)
   explored a website-renovation and affiliate-learning opportunity. It was a
   proposal, not supplier acceptance or an executed engagement.
-- The [September 10 letter](../../../archive/letters/2026-09-10-mira-to-hannah-ottoman-rug-pilot-roadmap.md)
+- The September 10 letter (local-only: `../../archive/letters/2026-09-10-mira-to-hannah-ottoman-rug-pilot-roadmap.md`; not included in this package)
   described a proposed small curated rug collection under Grace Mar, based on
   Robert's reported supplier discussion. Supply and fulfillment arrangements
   remained to be established; requested terms are not agreed terms.
-- The [September 11 letter](../../../archive/letters/2026-09-11-mira-to-hannah-textile-exchange-next-step.md)
+- The September 11 letter (local-only: `../../archive/letters/2026-09-11-mira-to-hannah-textile-exchange-next-step.md`; not included in this package)
   narrowed the immediate request to a private preview, an empty product table,
   and a concise supplier-information request. Preserve the earlier website;
   add one real rug example only after its facts and use permissions are confirmed.
@@ -65,7 +65,7 @@ prepares or conducts specifically authorized work and returns observed results.
 Neither practice turns estimates into commitments or gives Mira authority to
 represent a supplier, contact customers, spend, or publish.
 
-The [mutual-learning note](../../../archive/notes/development/grace-gems-ottoman-art-mutual-learning.md)
+The mutual-learning note (private local-only: `../../archive/notes/development/grace-gems-ottoman-art-mutual-learning.md`)
 is a provisional developmental interpretation, not evidence of an agreed offer.
 No ledger record, Work Journal entry, or Library admission is created by this
 orientation. Publication review must check this exact README's attribution,

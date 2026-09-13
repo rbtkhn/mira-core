@@ -37,7 +37,7 @@ def make_tree(root: Path) -> None:
         "mira/journal/references/MJTR-20260828-v1.md",
         "mira/journal/continuity-index.json",
         "mira/journal/continuity-index.md",
-        "projects/grace-gems/README.md",
+        "projects/grace-mar/grace-gems/README.md",
         "archive/sources/geopolitics/source-manifest.json",
         "archive/sources/geopolitics/sources/2026-08-17/source-example.md",
         "narrative-geopolitics/method/strategy-notebook-library-routing.md",
@@ -86,7 +86,7 @@ def test_router_resolves_initial_artifact_classes(tmp_path: Path) -> None:
         [
             "archive/notes/2026-08-17-note.md",
             "archive/essays/2026-08-17-essay.md",
-            "projects/grace-gems/README.md",
+            "projects/grace-mar/grace-gems/README.md",
             "docs/skill-drafts/mira-github/SKILL.md",
             "scripts/example.py",
             "tools/example.py",
@@ -500,11 +500,11 @@ def test_router_resolves_grace_gems_files_to_stewardship_review(
     tmp_path: Path,
 ) -> None:
     make_tree(tmp_path)
-    matrix = tmp_path / "projects/grace-gems/admission-matrix.md"
+    matrix = tmp_path / "projects/grace-mar/grace-gems/admission-matrix.md"
     matrix.write_text("fixture\n", encoding="utf-8")
 
     report = routing.build_report(
-        ["projects/grace-gems/README.md", "projects/grace-gems/admission-matrix.md"],
+        ["projects/grace-mar/grace-gems/README.md", "projects/grace-mar/grace-gems/admission-matrix.md"],
         repo_root=tmp_path,
     )
 
@@ -590,8 +590,8 @@ def test_grace_mar_route_does_not_admit_neighboring_material(tmp_path: Path, rel
 @pytest.mark.parametrize("relative", [
     "projects/grace-mar/grace-gems/README.md",
     "projects/grace-mar/grace-gems/admission-matrix.md",
-    "projects/grace-gems/README.md",
-    "projects/grace-gems/admission-matrix.md",
+    "projects/grace-mar/grace-gems/README.md",
+    "projects/grace-mar/grace-gems/admission-matrix.md",
 ])
 def test_nested_and_compatibility_gems_retain_domain_review(tmp_path: Path, relative: str) -> None:
     path = tmp_path / relative
@@ -604,20 +604,20 @@ def test_nested_and_compatibility_gems_retain_domain_review(tmp_path: Path, rela
 
 
 def test_ottoman_rugs_requires_its_own_claim_review(tmp_path: Path) -> None:
-    relative = "projects/grace-mar/ottoman-rugs/README.md"
+    relative = "projects/ottoman-rugs/README.md"
     path = tmp_path / relative
     path.parent.mkdir(parents=True)
     path.write_text("# Ottoman Rugs\n", encoding="utf-8")
     report = routing.build_report([relative], repo_root=tmp_path)
-    assert report["owners"] == ["grace-mar/ottoman-rugs"]
+    assert report["owners"] == ["ottoman-rugs/orientation"]
     assert report["manual_checks"] == [routing.MANUAL_OTTOMAN_RUGS_CHECK]
     assert report["status"] != "blocked"
 
 
 @pytest.mark.parametrize("relative", [
     "projects/grace-mar/grace-gems/payments.md",
-    "projects/grace-mar/ottoman-rugs/inventory.md",
-    "projects/grace-mar/ottoman-rugs/private/README.md",
+    "projects/ottoman-rugs/inventory.md",
+    "projects/ottoman-rugs/private/README.md",
     "projects/grace-gems/private.md",
     "projects/grace-gems/other/README.md",
 ])
@@ -630,23 +630,15 @@ def test_project_migration_does_not_expand_admission(tmp_path: Path, relative: s
     assert any("no deterministic" in blocker for blocker in report["blockers"])
 
 
-def test_old_gems_links_resolve_to_current_controls() -> None:
-    import re
-
+def test_project_homes_reconciled() -> None:
     root = Path(__file__).resolve().parents[1]
-    for filename in ("README.md", "admission-matrix.md"):
-        old = root / "projects/grace-gems" / filename
-        links = re.findall(r"\[[^\]]+\]\(([^)]+)\)", old.read_text(encoding="utf-8"))
-        assert links
-        targets = [(old.parent / link).resolve() for link in links]
-        assert (root / "projects/grace-mar/grace-gems" / filename).resolve() in targets
-        assert all(target.is_file() for target in targets)
+    assert not (root / "projects/grace-gems").exists()
+    assert (root / "projects/grace-mar/grace-gems/admission-matrix.md").is_file()
+    assert (root / "projects/ottoman-rugs/README.md").is_file()
 
 
 @pytest.mark.parametrize("relative,owner", [
     ("projects/README.md", "projects/index"),
-    ("projects/lab/README.md", "projects/lab-orientation"),
-    ("projects/media-production/README.md", "projects/media-production-orientation"),
 ])
 def test_exact_project_orientation_routes(tmp_path: Path, relative: str, owner: str) -> None:
     path = tmp_path / relative

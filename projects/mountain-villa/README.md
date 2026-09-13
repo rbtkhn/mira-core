@@ -63,5 +63,4 @@ private storage outside Git. Use only authorized opaque references locally.
 Missing evidence stays missing; water, boundaries, condition, improvements,
 and sale claims require appropriate current evidence before external use.
 
-Return to [Projects](../README.md). See [provenance](../provenance.md) and the
-[lab guide](../lab/README.md).
+Return to [Projects](../README.md). See [provenance](../provenance.md) for historical ancestry. The former Lab is outside the active project structure.

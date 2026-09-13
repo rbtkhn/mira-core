@@ -10,12 +10,12 @@ recovery and promise-language findings while clarifying the initiative's
 priority within [Grace Mar](../README.md). Nesting expresses the intended
 working relationship, not verified ownership of an existing business or assets.
 
-Hannah's [August 30 response](../../../archive/letters/2026-08-30-hannah-to-mira-grace-gems-progress-response.md)
+Hannah's August 30 response (local-only: `../../../archive/letters/2026-08-30-hannah-to-mira-grace-gems-progress-response.md`; not included in this package)
 identified Grace Gems as the intended first brand of Grace Mar. Her
 [Golden Hour packet](https://github.com/hdong0424/hannah-ceo/blob/2d6a7d15675ddd5c7c55463f8836aae954b982f4/venture-log/2026-09-05-grace-gems-golden-hour-review-packet.md)
 was available at the September 13 refresh: a completed non-production review
 artifact, not a submitted order, production commitment, or accepted business
-workflow. The [September 9 Mira response](../../../archive/letters/2026-09-09-mira-to-hannah-golden-hour-review-response.md)
+workflow. The September 9 Mira response (local-only: `../../../archive/letters/2026-09-09-mira-to-hannah-golden-hour-review-response.md`; not included in this package)
 is sent-reported. It distinguishes a missing saved-design recovery interface
 from proof that underlying browser storage was erased. Reopen/export recovery,
 truthful save/submission language, and production feasibility remain open;
@@ -30,8 +30,8 @@ The September 11 letter already describes the Agent/Journal design as the
 baseline for the textile adaptation, so this observation does not establish a
 subsequent change of direction.
 
-The [September 10 roadmap letter](../../../archive/letters/2026-09-10-mira-to-hannah-ottoman-rug-pilot-roadmap.md)
-and [September 11 narrowing](../../../archive/letters/2026-09-11-mira-to-hannah-textile-exchange-next-step.md)
+The September 10 roadmap letter (local-only: `../../../archive/letters/2026-09-10-mira-to-hannah-ottoman-rug-pilot-roadmap.md`; not included in this package)
+and September 11 narrowing (local-only: `../../../archive/letters/2026-09-11-mira-to-hannah-textile-exchange-next-step.md`; not included in this package)
 place the immediate recorded preparation priority with Ottoman Rugs. A Grace
 Gems pause is proposed, not established as accepted or implemented. Hannah's
 [public roadmap](https://github.com/hdong0424/hannah-ceo/blob/2d6a7d15675ddd5c7c55463f8836aae954b982f4/ROADMAP.md)
@@ -41,8 +41,8 @@ requires clarification, not an inferred response from Hannah.
 Open decisions: confirm the accepted priority and next milestone; verify any
 recovery or wording repair against the actual implementation; obtain owner
 evidence before production, pricing, inventory, fulfillment, or customer claims.
-Earlier [response tracking](../../../artifacts/mentorship/grace-gems-hannah-jon-response-tracker-2026-09-01.md)
-and the [September 3 memo](../../../artifacts/mentorship/grace-gems-hannah-jon-synthesis-memo-2026-09-03.md)
+Earlier response tracking (private local-only: `../../../artifacts/mentorship/grace-gems-hannah-jon-response-tracker-2026-09-01.md`)
+and the September 3 memo (local-only: `../../../artifacts/mentorship/grace-gems-hannah-jon-synthesis-memo-2026-09-03.md`; not included in this package)
 remain historical: their awaiting-packet state predates the later packet.
 
 The upstream stewardship context also describes a pre-existing business

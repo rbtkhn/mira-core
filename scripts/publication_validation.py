@@ -10,6 +10,25 @@ from typing import Any, Iterable
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 GLOB_TOKENS = "*?["
+RETIRED_PROJECT_PATHS = frozenset(['projects/grace-gems/README.md', 'projects/grace-gems/admission-matrix.md', 'projects/grace-mar/ottoman-rugs/README.md', 'projects/lab/README.md', 'projects/media-production/README.md'])
+MANUAL_PROJECT_RECONCILIATION_CHECK = (
+    "Verify exact retired-path removal and preserved starting bytes; retain project owners, "
+    "repair active navigation, and do not admit privately preserved material."
+)
+
+MANUAL_LEARNING_CORE_CHECK = (
+    "Review Learning Core privacy, attribution, educational claims, hypothetical examples, "
+    "and guardian/teacher/clinical/institutional authority. Keep templates blank and "
+    "completed family records outside Git. Verify all 60 pinned source dispositions. "
+    "Ready is not approval; plan and parent changes must agree; activity is not proof "
+    "of mastery. No inherited commercial terms, learner facts, or operational authority. "
+    "Check exact candidate dependencies; neighboring records remain unapproved."
+)
+MANUAL_WORK_JOURNAL_CHECK = (
+    "Validate Work Journal source-linked decisions, temporal accuracy, attribution, "
+    "privacy, separation of completion from effectiveness, unresolved obligations, "
+    "authority effect none, and preservation of owning records and historical references."
+)
 MANUAL_NOTE_CHECK = (
     "Validate note lifecycle/status, privacy, provenance, authority effect, and "
     "absence of credentials or restricted source bodies through mira-notes."
@@ -134,7 +153,14 @@ def normalize_path(raw: str, *, repo_root: Path = REPO_ROOT) -> str:
     )
     if not _inside(resolved, repository):
         raise RoutingError(f"path is outside repository: {raw}")
-    if not resolved.exists():
+    relative_candidate = resolved.relative_to(repository).as_posix()
+    retired_deletion = (
+        relative_candidate in RETIRED_PROJECT_PATHS and not resolved.exists()
+        and (repository / "projects/README.md").is_file()
+        and subprocess.run(["git", "cat-file", "-e", "HEAD:" + relative_candidate],
+                           cwd=repository, capture_output=True).returncode == 0
+    )
+    if not resolved.exists() and not retired_deletion:
         relative_missing = resolved.relative_to(repository).as_posix()
         # Permit this exact tracked relocation source, never arbitrary absent paths.
         relocated = repository / "archive/sessions/memorials/registry.json"
@@ -367,6 +393,50 @@ def route_path(path: str, *, repo_root: Path = REPO_ROOT) -> dict[str, Any]:
         path = "narrative-geopolitics/" + path.removeprefix("geopolitics/")
     if path.startswith(("archive/sessions/transcripts/", "archive/sessions/daily/")):
         raise RoutingError("Private session payloads cannot be admitted to Git")
+    if path == "docs/work-journal/README.md":
+        return {
+            "owner": "work-journal",
+            "validation_class": "domain-governed",
+            "commands": [],
+            "manual_checks": [MANUAL_WORK_JOURNAL_CHECK],
+        }
+    if path in RETIRED_PROJECT_PATHS:
+        if (repo_root / path).exists():
+            raise RoutingError("retired project path cannot admit content: " + path)
+        return {
+            "owner": "projects/reconciliation",
+            "validation_class": "domain-governed",
+            "commands": ["tools/run.ps1 test --path tests/test_projects_reconciliation.py"],
+            "manual_checks": [MANUAL_PROJECT_RECONCILIATION_CHECK],
+        }
+    if path in {
+        "projects/learning-core/README.md",
+        "projects/learning-core/intake.md",
+        "projects/learning-core/learner-profile-template.md",
+        "projects/learning-core/plan-template.md",
+        "projects/learning-core/evidence-and-approval.md",
+        "projects/learning-core/portfolio-and-review.md",
+        "projects/learning-core/continuity.md",
+        "projects/learning-core/resource-selection.md",
+        "projects/learning-core/worked-examples.md",
+        "projects/learning-core/source-map.md",
+    }:
+        return {
+            "owner": "learning-core/portable-methods",
+            "validation_class": "domain-governed",
+            "commands": [
+                "tools/run.ps1 test --path tests/test_publication_validation.py "
+                "--path tests/test_learning_core_project.py"
+            ],
+            "manual_checks": [MANUAL_LEARNING_CORE_CHECK],
+        }
+    if path == "projects/provenance.md":
+        return {
+            "owner": "projects/provenance",
+            "validation_class": "domain-governed",
+            "commands": ["tools/run.ps1 test --path tests/test_publication_validation.py"],
+            "manual_checks": [MANUAL_PROJECT_ORIENTATION_CHECK],
+        }
     if path in {
         "projects/mountain-villa/README.md",
         "projects/mountain-villa/intake.md",
@@ -406,9 +476,9 @@ def route_path(path: str, *, repo_root: Path = REPO_ROOT) -> dict[str, Any]:
             ],
             "manual_checks": [MANUAL_GRACE_MAR_CHECK],
         }
-    if path == "projects/grace-mar/ottoman-rugs/README.md":
+    if path == "projects/ottoman-rugs/README.md":
         return {
-            "owner": "grace-mar/ottoman-rugs",
+            "owner": "ottoman-rugs/orientation",
             "validation_class": "domain-governed",
             "commands": [
                 "tools/run.ps1 test --path tests/test_publication_validation.py"
