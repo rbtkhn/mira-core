@@ -278,9 +278,12 @@ Use queue dispositions consistently for Geopolitics rows:
 For operator-facing tables, display only the simplified status vocabulary:
 `done`, `ready`, `needs transcript`, `queued`, `excluded`, or `blocked`.
 Underlying `watch` rows should appear as `queued` unless a more specific
-display status applies. Always include `Channel` and `Duration` columns in
-video tables; duration is the operator's primary way to distinguish full
-episodes from clips.
+display status applies. For `mira-youtube` and all operator-facing YouTube
+capture results, always show a video table with at least these columns:
+`Title`, `Channel`, `Date`, `Duration`, and `URL`. Additional columns such as
+`Status`, `Transcript`, `Notes`, or `Next action` may be added when useful, but
+they must not replace those five required columns. Duration is the operator's
+primary way to distinguish full episodes from clips.
 
 Update Geopolitics queue rows with:
 
