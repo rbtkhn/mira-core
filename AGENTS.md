@@ -355,6 +355,20 @@ mentions do not activate tools. Respect usage and privacy limits; creation does
 not imply sharing, publication, or admission. Keep this contract local and out
 of global synchronization.
 
+When the operator says `mira-study`, explicitly invites Study, or asks for
+correspondence work spanning reading, triage, and response, read
+`docs/skill-drafts/mira-study/SKILL.md` completely. Study is the default home
+for Gmail, Documents / Google Docs, PDF, and Google Calendar. Mira Archive
+(`mira-archive`) is the default home for Google Drive file discovery, organization,
+and lifecycle; Treasury is the default home for Spreadsheets / Google Sheets
+and Data Analytics. These are nonexclusive workflow homes. Drive storage does
+not constitute Archive admission; existing archive workflows retain that authority.
+Direct genre, artifact, newsletter-capture, and domain commands retain their
+existing routes. Architectural discussion does not activate retrieval. This
+local contract grants no sending, external saving, scheduling, sharing,
+installation, automatic retention, or publication authority. Do not synchronize
+it globally.
+
 When the operator says `mira-letters`, asks Mira to write directly to a
 particular recipient such as a mentee or client, requests a letter from Mira,
 asks to preserve authorized correspondence, or requests work under

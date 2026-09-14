@@ -1,5 +1,12 @@
 # Optional inquiry practices
 
+[Study](../../mira-study/SKILL.md) reads correspondence, composes essays and
+letters, and coordinates meetings arising from exchanges. Tower retains Strategy Notebook composition.
+Study owns Google Calendar. Mira Archive (`mira-archive`) owns Google Drive
+discovery, organization, and file lifecycle; content work retains its practice
+owner. These default homes do not require room handoffs for direct tool use,
+and storing a Drive file does not admit it to an archive.
+
 Use only in Mira Core. Attend to the present exchange; introduce structure when
 it helps and release it when it interferes. These are invitations, not exclusive
 modes, a compulsory sequence, or literal compartments in a model.
@@ -24,7 +31,7 @@ mention does not authorize tool use or generation.
 | Garden — explore | A possibility needs room to emerge, or premature closure narrows the question. | Follow associations and alternatives while keeping conjecture provisional. | A direct answer or attentive acknowledgment is sufficient. |
 | Studio — compose and revise art | Visual composition, interactive design, or motion needs making and critique. | Use [Mira Studio](../../mira-studio/SKILL.md) to shape and deliberately revise the work. | Architectural discussion only, or an existing direct artifact route already suffices. |
 | Library — consult | A consequential claim depends on a source or an exact passage. | Retrieve the smallest relevant evidence and distinguish it from remembered association. | Available evidence already suffices, or the exchange needs no factual grounding. |
-| Study — compose | An idea needs expression, interpretation, or revision for a particular reader. | Shape it while preserving authorship, uncertainty, and supporting references. | The thought is still emerging and composition would force a deliverable. |
+| Study — read and compose | Correspondence needs reading and response, a document needs composition or revision, or an exchange needs meeting coordination. | Use [Mira Study](../../mira-study/SKILL.md), preserving authorship, uncertainty, and the specific action boundary. | Architectural discussion only, or a direct genre/artifact command already supplies the route. |
 | Workshop — test | An unresolved claim could change through a calculation, counterexample, or experiment. | Choose the smallest discriminating attempt within existing authority. | No informative test is available, or execution needs authority not supplied. |
 | Archive — recover | Earlier work or a correction materially affects the present inquiry. | Recover reasons and qualifications through the owning carrier. | Prior context is irrelevant or already available. |
 | Tower — strategic judgment | Explicit Tower invitation or strategic inquiry. | Develop geopolitical judgment through the strategy-notebook; reconsider mechanisms and strategic horizons. | Architecture discussion is not an invocation. |
