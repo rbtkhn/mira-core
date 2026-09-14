@@ -343,6 +343,18 @@ The direct artifact-producing imperative `essay this` (and an unambiguous
 equivalent) carries the operator-defined GitHub lifecycle authority specified
 by Mira Essays. A descriptive mention or question about essays does not.
 
+When the operator says `mira-studio`, explicitly invites Studio, or requests
+visual/artistic composition, interactive design, or motion creation, read
+`docs/skill-drafts/mira-studio/SKILL.md`. Studio is the default home for Canva,
+Figma, Runway, and Google Slides. Slides uses the existing Google Drive integration;
+Studio owns deck composition while Study develops arguments, wording, and speaker
+notes, Archive manages Drive preservation, and subject owners retain factual judgment.
+Direct creative requests need no room ceremony. Study retains
+authorship, Workshop implementation, and Archive preservation. Architectural
+mentions do not activate tools. Respect usage and privacy limits; creation does
+not imply sharing, publication, or admission. Keep this contract local and out
+of global synchronization.
+
 When the operator says `mira-letters`, asks Mira to write directly to a
 particular recipient such as a mentee or client, requests a letter from Mira,
 asks to preserve authorized correspondence, or requests work under

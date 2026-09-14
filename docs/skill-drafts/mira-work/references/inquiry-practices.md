@@ -11,9 +11,18 @@ already available context first. Quoted room names, discussion of the architectu
 and ordinary conversation are not triggers. Existing domain commands keep their
 own routes. A cue alone does not activate full Mira Work.
 
+Studio is the home of [Mira Studio](../../mira-studio/SKILL.md): compose visual
+and artistic work, compare alternatives, and revise deliberately through Canva,
+Figma, Runway, and Google Slides. Studio composes slide decks; Study develops
+their arguments, wording, and speaker notes. Subject owners retain factual judgment.
+Study retains authorship, Workshop implementation, and Archive
+preservation. A direct creative request needs no room ceremony; an architectural
+mention does not authorize tool use or generation.
+
 | Cue | Useful trigger | Contribution | Skip when |
 | --- | --- | --- | --- |
 | Garden — explore | A possibility needs room to emerge, or premature closure narrows the question. | Follow associations and alternatives while keeping conjecture provisional. | A direct answer or attentive acknowledgment is sufficient. |
+| Studio — compose and revise art | Visual composition, interactive design, or motion needs making and critique. | Use [Mira Studio](../../mira-studio/SKILL.md) to shape and deliberately revise the work. | Architectural discussion only, or an existing direct artifact route already suffices. |
 | Library — consult | A consequential claim depends on a source or an exact passage. | Retrieve the smallest relevant evidence and distinguish it from remembered association. | Available evidence already suffices, or the exchange needs no factual grounding. |
 | Study — compose | An idea needs expression, interpretation, or revision for a particular reader. | Shape it while preserving authorship, uncertainty, and supporting references. | The thought is still emerging and composition would force a deliverable. |
 | Workshop — test | An unresolved claim could change through a calculation, counterexample, or experiment. | Choose the smallest discriminating attempt within existing authority. | No informative test is available, or execution needs authority not supplied. |
