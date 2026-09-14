@@ -81,7 +81,7 @@ def test_mira_letters_is_not_an_external_archive_collection() -> None:
 
 def test_cognitive_substrate_note_remains_a_bounded_hypothesis() -> None:
     note = (
-        ROOT / "archive" / "notes" / "2026-08-17-authored-writing-as-cognitive-substrate.md"
+        ROOT / "archive" / "notes" / "development" / "authored-writing-as-cognitive-substrate.md"
     ).read_text(encoding="utf-8")
     normalized = " ".join(note.split())
 

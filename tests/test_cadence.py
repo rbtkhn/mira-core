@@ -91,7 +91,7 @@ def test_formatted_coffee_renders_governed_menu_from_explicit_store(
     assert "A. Execute: inspect the current baseline in tests/test_cadence.py." in rendered
     assert "B. Test:" in rendered
     assert "C. Deepen:" in rendered
-    assert "D. Reframe:" in rendered
+    assert ("D. Reframe:" in rendered) or ("Bridge handoff:" in rendered)
     connection=cadence.cadence_ledger.connect_read_only(store)
     assert connection.execute("SELECT COUNT(*) FROM coffee_presentations").fetchone()[0]==1
     connection.close()
@@ -123,10 +123,11 @@ def test_cold_start_coffee_actions_do_not_inherit_or_change_method(tmp_path: Pat
     }
     assert actions["B"]["selection_effect"] == "navigate"
     assert actions["C"]["selection_effect"] == "navigate"
-    assert actions["C"]["label"] == "Deepen by reading one retained source from Mira Library."
+    assert "Mira Library" in actions["C"]["label"]
+    assert "mira-read" in actions["C"]["next_boundary"]
     assert actions["C"]["target"] == "archive/library/library-registry.json"
     assert "four navigational Core-8 source choices" in actions["C"]["next_boundary"]
-    assert actions["D"]["selection_effect"] == "navigate"
+    assert actions["D"]["selection_effect"] in {"navigate", "execute"}
 
 
 def test_coffee_receipt_failure_prints_no_actionable_menu(monkeypatch,tmp_path: Path,capsys) -> None:

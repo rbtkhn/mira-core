@@ -65,12 +65,85 @@ def database(tmp_path: Path):
 
 def isolated_episode_store(tmp_path: Path, monkeypatch: pytest.MonkeyPatch):
     repo=tmp_path/"repo"
-    for relative in ("scripts/cadence.py","tests/test_cadence.py"):
+    for relative in ("scripts/cadence.py", "tests/test_cadence.py", "archive/library/library-registry.json"):
         path=repo/relative; path.parent.mkdir(parents=True,exist_ok=True); path.write_text(relative,encoding="utf-8")
     monkeypatch.setattr(cadence_ledger,"REPO_ROOT",repo)
     connection=cadence_ledger.connect(tmp_path/"cadence.sqlite3")
     cadence_ledger.create_episode(connection,episode(),idempotency_key="dream-presentations")
     return connection,repo
+
+
+def test_bridge_metadata_is_bound_to_candidate_presentation(tmp_path, monkeypatch):
+    import bridge_handoff
+
+    connection, repo = isolated_episode_store(tmp_path, monkeypatch)
+    monkeypatch.setenv("MIRA_CORE_STATE_ROOT", str(tmp_path / "private"))
+    saved = bridge_handoff.save("Advisory handoff", repo=repo, refs=["scripts/cadence.py"])
+    context = cadence_ledger.coffee_context(connection)
+    bridge_action = next(a for a in context["actions"] if a.get("execution", {}).get("kind") == "bridge-resume")
+    assert bridge_action["execution"]["source"] == saved["digest"]
+    rendered = cadence_ledger.render_coffee_markdown(context)
+    cadence_ledger.record_coffee_presentation(connection, context, rendered)
+    assert cadence_ledger.verify_ledger(connection)["valid"]
+    assert bridge_handoff.peek(repo=repo)["status"] == "pending"
+    connection.close()
+
+
+@pytest.mark.parametrize("related", [False, True])
+def test_received_bridge_survives_ack_and_controls_cadence_menu(tmp_path, monkeypatch, related):
+    import bridge_handoff
+
+    connection, repo = isolated_episode_store(tmp_path, monkeypatch)
+    monkeypatch.setenv("MIRA_CORE_STATE_ROOT", str(tmp_path / "private"))
+    prompt = "Monastery reading into writing; preserve Archive; real-use evaluation pending."
+    saved = bridge_handoff.save(prompt, repo=repo, refs=["scripts/cadence.py"])
+    bridge_handoff.read(saved["digest"], repo=repo)
+    with pytest.raises(cadence_ledger.CadenceLedgerError, match="acknowledged"):
+        cadence_ledger.coffee_context(connection, received_bridge=saved["digest"])
+    bridge_handoff.acknowledge(saved["digest"], repo=repo)
+    assert bridge_handoff.peek(repo=repo)["status"] == "missing"
+    context = cadence_ledger.coffee_context(
+        connection, received_bridge=saved["digest"], bridge_cadence_related=related,
+        journal_entries=[{"version_id": "v1", "content_sha256": "a" * 64,
+                          "display_date": "September 13, 2026", "prose": "Exact journal prose."}],
+    )
+    rendered = cadence_ledger.render_coffee_markdown(context)
+    assert rendered.startswith("Mira Journal — September 13, 2026\n\nExact journal prose.")
+    assert ("A. Execute:" in rendered) == related
+    assert bool(context["actions"]) == related
+    assert prompt not in json.dumps(context)
+    cadence_ledger.record_coffee_presentation(connection, context, rendered)
+    assert cadence_ledger.verify_ledger(connection)["valid"]
+    with pytest.raises(cadence_ledger.CadenceLedgerError, match="acknowledged"):
+        cadence_ledger.coffee_context(connection, received_bridge="f" * 64)
+    connection.close()
+
+
+@pytest.mark.parametrize("mode", ["initial", "delta", "repeat-checkpoint", "saturated"])
+@pytest.mark.parametrize("pending_bridge", [False, True])
+def test_library_reading_survives_candidate_modes_and_bridge(mode, pending_bridge):
+    actions = cadence_ledger.build_actions(
+        {"episode": episode()}, mode=mode,
+        context_digest="a" * 64, prior_context_digest="b" * 64,
+        prior_presentation_id="CPF-prior",
+        changed_components=["path:scripts/cadence.py"] if mode == "delta" else [],
+    )
+    if pending_bridge:
+        actions = cadence_ledger.with_bridge_action(
+            actions, {"status": "pending", "digest": "c" * 64}
+        )
+    assert len(actions) == 4
+    reading = actions[2]
+    assert reading["key"] == "C"
+    assert reading["target"] == "archive/library/library-registry.json"
+    assert reading["selection_effect"] == "navigate"
+    assert reading["candidate_id"] is None
+    assert "mira-read" in reading["next_boundary"]
+    assert "execution" not in reading
+    assert actions[0]["execution"]["mutation"] is False
+    if pending_bridge:
+        assert actions[3]["execution"]["kind"] == "bridge-resume"
+    cadence_ledger.validate_actions(actions)
 
 
 def test_normalize_repo_ref_preserves_dated_paths(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
@@ -98,6 +171,25 @@ def test_coffee_grounding_preserves_dated_geopolitics_paths(
 
     assert components[0]["path"] == ref
     assert components[0]["status"] == "present"
+
+
+def test_coffee_grounding_resolves_legacy_directory_after_rename(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    repo = tmp_path / "repo"
+    target = repo / "geopolitics" / "work" / "daily" / "2026-09-05" / "issue.md"
+    target.parent.mkdir(parents=True)
+    target.write_text("retained evidence", encoding="utf-8")
+    monkeypatch.setattr(cadence_ledger, "REPO_ROOT", repo)
+
+    ref = "narrative-geopolitics/work/daily"
+    components = cadence_ledger.relevant_path_components([ref])
+
+    assert components == [{
+        "path": ref,
+        "status": "present",
+        "sha256": cadence_ledger.content_digest([ref]),
+    }]
 
 
 def test_normalize_repo_ref_rejects_contact_absolute_and_escaping_refs(
@@ -268,7 +360,8 @@ def test_coffee_has_grounded_navigation_contract(tmp_path: Path) -> None:
     context = cadence_ledger.coffee_context(connection, rest_coverage_status="covered-current")
     assert [(row["key"], row["verb"], row["role"]) for row in context["actions"]] == list(cadence_ledger.ACTION_SHAPE)
     assert len(context["actions"]) == 4
-    assert [row["selection_effect"] for row in context["actions"]] == ["execute", "navigate", "navigate", "navigate"]
+    assert [row["selection_effect"] for row in context["actions"]][:3] == ["execute", "navigate", "navigate"]
+    assert context["actions"][3]["selection_effect"] in {"navigate", "execute"}
     assert context["actions"][0]["label"].startswith("Execute:")
     assert context["actions"][0]["execution"]["mutation"] is False
     assert context["rest_coverage_status"] == "covered-current"
@@ -278,7 +371,7 @@ def test_coffee_has_grounded_navigation_contract(tmp_path: Path) -> None:
         "newest_eligible_episode_id": "CD-20260816-01",
     }
     markdown = cadence_ledger.render_coffee_markdown(context)
-    assert context["actions"][0]["label"] in markdown
+    assert "A. Execute: compare" in markdown
     assert "Rest coverage: covered-current." in markdown
     assert "Authority boundary: Execute only the named read-only comparison; tests, writes, and disposition remain separate." in markdown
     assert all(f"{key}. {verb}:" in markdown for key, verb, _ in cadence_ledger.ACTION_SHAPE[1:])
@@ -523,7 +616,7 @@ def test_coffee_fails_closed_without_candidate(tmp_path: Path) -> None:
     context = cadence_ledger.coffee_context(connection)
     assert context["lifecycle_state"] == "cold_start"
     assert len(context["actions"]) == 4
-    assert context["actions"][-1]["target"] == "cold-start:no-cadence-worthy-experiment"
+    assert context["actions"][-1]["target"].startswith(("cold-start:", "bridge:"))
     connection.close()
 
 
