@@ -1,6 +1,6 @@
 ---
 name: youtube-capture
-description: "Repository-local cross-archive YouTube channel discovery and transcript-capture routing workflow. Use when the operator asks to check today's YouTube channels, discover recent channel videos, triage YouTube capture rows or targets, attach a YouTube transcript, explain channel routing, audit capture routing, or export intake drafts. Do not use for archive landing, synthesis, factual verification, signal extraction, publication, staging, commit, or push."
+description: "Repository-local cross-archive YouTube channel discovery and transcript-capture routing workflow. Use when the operator asks to check today's YouTube channels, discover recent channel videos, triage YouTube capture rows or targets, attach a YouTube transcript, explain channel routing, audit capture routing, or prepare intake drafts. Do not use for archive landing, synthesis, factual verification, signal extraction, publication, staging, commit, or push."
 ---
 
 # YouTube Capture
@@ -22,9 +22,20 @@ Use this skill for requests such as:
 - `attach this transcript`
 - `explain this channel route`
 - `audit YouTube capture routing`
-- `export intake drafts for ready YouTube rows`
+- `prepare intake drafts for ready YouTube rows`
 
 ## Boundary
+
+Tower's explicit current/pending geopolitics completion request supplies bounded
+authority to survey today's curated daily channels, capture eligible transcripts,
+and continue through Archive Intake and Geo-Strategy to a notebook contribution.
+Use `mira-youtube` as the command front door (capture commands forward here).
+Tower's survey-plan is read-only; `mira-youtube discover` consumes supplied
+evidence and is not browser automation. Preserve browser coverage and access
+receipts, route transcripts through capture attachment, and do not repeat approval
+for routine eligible rows inside that explicit batch. Generic Tower invitations
+and historical readings do not grant this envelope. Capture itself still does
+not perform archive admission or analysis.
 
 This workflow may create or update capture-stage outputs only:
 
@@ -128,11 +139,37 @@ Tier A channel has a valid browser receipt. Use `discover-public` directly only
 when you explicitly want the low-level RSS/public-metadata seed without
 claiming daily discovery is complete.
 
+For an authenticated daily run, the signed-in YouTube **Subscriptions** feed is
+the primary discovery surface. Inspect the feed first, retain only rows whose
+visible publication state is the target capture date, and then open each
+candidate watch page to verify the exact title, canonical video URL, channel,
+and publication or stream date. The feed is not complete merely because a row
+appears near the top: continue through the target-day window until the visible
+timestamps move older than the target date. Scheduled or future live items
+(`Live in ...`, `Scheduled for ...`, or a future calendar date) are excluded.
+Global search, Home, recommendations, and RSS are supplemental seed surfaces;
+they must not replace the Subscriptions-first pass for a signed-in daily run.
+
 Use the current local date unless the operator supplies another date. RSS is a
 seed source only. `discover-public` reads the full available feed, applies the
 date window, and only then applies `--limit-per-channel`; never truncate the
 newest feed entries before date filtering. Raise `--limit-per-channel` or
 `--since-days` only when the operator asks for wider candidate coverage.
+
+Every browser-discovered row in a daily report must carry the visible title,
+channel, canonical watch URL, and exact visible date basis. A row with only a
+video ID, search-result association, relative age, or unverified title is a
+candidate requiring watch-page inspection, not a completed daily result.
+
+Duration is a required triage field for every video row shown to the operator.
+Do not close duration from RSS, search result cards, recommendation cards,
+stale queue values, or a player state that may still be an ad or partial page
+load. Open each candidate or approved watch URL in the in-app browser, clear or
+skip ads where possible, and use the post-ad player runtime. When the player
+runtime is missing, contradicted, or suspiciously short, export or inspect the
+YouTube transcript and use the final timestamp as the minimum runtime evidence.
+Record contradictions in notes. A false short duration must not be used to
+filter out an operator-selected item.
 
 Queue files are named for the capture run. Each video row stores
 `capture_date` separately from `publication_date`; the compatibility `date`
@@ -214,7 +251,7 @@ explicit override for that exact voice.
 
 For manually added or browser-discovered Geopolitics rows, put the canonical
 channel route in structured metadata when the tool supports it, and include
-`channel_slug=SLUG` in notes when that is the current exporter contract. For
+`channel_slug=SLUG` in notes when that is the current `intake-draft` contract. For
 Singularity targets, use the routed capture-target note template instead.
 
 If Windows console encoding fails on titles, rerun status or duplicate audit
@@ -229,13 +266,21 @@ $env:PYTHONIOENCODING='utf-8'; tools\run.ps1 youtube-capture audit-duplicates --
 
 Use queue dispositions consistently for Geopolitics rows:
 
-- `must-land`: direct source for the current issue, featured voice, forecast
-  review, crisis object, or high-value mechanism.
+- `must-land`: optional priority label for a direct source tied to the current
+  issue, featured voice, forecast review, crisis object, or high-value
+  mechanism. It is not required for intake readiness.
 - `possible`: plausible context or segment candidate; review before transcript
   retrieval.
 - `skip`: shorts, already-landed duplicates, off-topic rows, or items outside
   the current focus.
 - `watch`: channel front-door rows or unreviewed channel/video rows.
+
+For operator-facing tables, display only the simplified status vocabulary:
+`done`, `ready`, `needs transcript`, `queued`, `excluded`, or `blocked`.
+Underlying `watch` rows should appear as `queued` unless a more specific
+display status applies. Always include `Channel` and `Duration` columns in
+video tables; duration is the operator's primary way to distinguish full
+episodes from clips.
 
 Update Geopolitics queue rows with:
 
@@ -245,6 +290,16 @@ tools\run.ps1 youtube-capture mark --date YYYY-MM-DD --url URL --disposition mus
 
 Do not treat title relevance as source truth. A `must-land` mark means the row
 deserves transcript capture, not that its claims are verified or synthesis-ready.
+Once a transcript file is attached, readiness is determined by
+`transcript_status=available`, a present `transcript_path`, and not already
+landed in the manifest. Do not require a `must-land` disposition just to prepare
+or run intake.
+
+If the visible page says captions are unavailable, or transcript controls are
+hidden, still try the in-app browser YouTube transcript export before declaring
+the row `manual-needed` or `blocked`. Successful browser export counts as a
+browser capture: attach the exported transcript path to the queue row before
+archive-intake.
 
 ## Transcript Attachment
 
@@ -258,17 +313,28 @@ tools\run.ps1 youtube-capture attach-transcript --date YYYY-MM-DD --url URL --tr
 After attachment, run:
 
 ```powershell
-tools\run.ps1 youtube-capture export-intake --date YYYY-MM-DD --json
+tools\run.ps1 youtube-capture intake-draft --date YYYY-MM-DD --json
 ```
+
+`export-intake` remains a legacy alias for `intake-draft`; prefer
+`intake-draft` in new work because the workflow is taking sources in, not
+exporting them out.
 
 Inspect the draft. A clean draft should include the appropriate `--host-slug`
 and `--voice-slug` when known. If warnings report missing host or voice
 routing, repair the queue metadata before asking for archive admission.
 
 When several transcript-ready rows are approved for archive admission, hand
-them to `archive-intake` one at a time. Do not parallelize landing operations
-that may write manifests or shelves. After each landed source, confirm the
-source identity appears in the governed index before landing the next row.
+them to `archive-intake` one at a time, or use `land-ready` for the already
+approved ready set. Do not parallelize landing operations that may write
+manifests or shelves. After each landed source, confirm the source identity
+appears in the governed index before landing the next row.
+
+If a landing operation is accidentally parallelized or interrupted, verify
+source files, manifest rows, voice indexes, and queue status separately before
+reporting completion. A source file plus voice-index row is not enough; the
+source manifest must contain the matching `source_identity` and declared
+`source_count` must equal the actual row count.
 
 For named-guest or named-issue work inside broader date queues, make the
 publication boundary explicit before any later staging discussion. A date queue
@@ -279,6 +345,27 @@ not ready for staging. Do not describe a mixed date queue commit as if it were
 only the named guest.
 
 ## Browser Contract
+
+### Authenticated research workspace
+
+At the first YouTube action in a capture task, inspect the visible active
+account and eligibility. Reuse an eligible Mira session. Distinguish signed-out,
+wrong-account, ineligible, and unknown states; Drive login does not prove
+YouTube access. Recheck in a fresh session. Never store credentials or export
+browser cookies to command-line tools.
+
+Load [Authenticated workspace](references/authenticated-workspace.md) when
+checking readiness, handling access failures, organizing research, or running
+the pilot. Cache unchanged blockers for the task, continue public discovery
+where possible, and request human sign-in only when needed. Readiness alone
+authorizes no account changes or archive admission.
+
+Optional `record-browser-receipt` flags `--access-mode` (authenticated, public,
+unknown), `--access-eligibility` (eligible, ineligible, unknown), and
+`--access-observed-at` record advisory context without account identifiers.
+Observation time requires a timezone and defaults to `--observed-at`.
+Existing receipts remain valid. Access context never substitutes for inspected
+channel evidence; an access failure is not a no-qualifying-videos observation.
 
 Automated RSS discovery seeds candidates but cannot close a channel check. For
 daily Tier A Geopolitics checks and same-day named channel/guest searches, use
@@ -292,6 +379,7 @@ judgment:
 - distinguish full episodes, livestream replays, shorts, clips, and duplicate
   uploads;
 - inspect channel pages for same-day or recently missed uploads;
+- inspect the authenticated Subscriptions feed first for a signed-in daily run;
 - confirm visible title, channel, date, URL, and transcript availability;
 - capture or copy transcript text when automated transcript access is blocked;
 - inspect the page description or visible metadata when routing evidence is
@@ -312,6 +400,9 @@ Preserve:
 
 - canonical URL;
 - visible title, channel, and date as seen in the browser;
+- discovery surface (`Subscriptions`, `Videos`, `Live`, or `channel-search`);
+- exact date evidence and exclusion reason for scheduled, future, stale, short,
+  clip, duplicate, or unrelated rows;
 - whether the item is a full episode, livestream replay, clip, or short;
 - transcript availability and capture method;
 - why the row is `must-land`, `possible`, `watch`, or `skip`;

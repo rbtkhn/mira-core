@@ -52,6 +52,21 @@ videos shorter than ten minutes by default when the request calls for
 substantive sources. Every completed result includes a clickable canonical
 watch URL, title, channel, date, duration, format, route, and disposition.
 
+Duration is never closed from RSS, search-result cards, recommendation cards,
+stale queue values, partial accessibility overlays, or an ad/player pre-roll
+state. For each approved or candidate watch URL, open the canonical watch page
+in the in-app browser, clear or skip ads where possible, and read the post-ad
+player duration or the transcript's final timestamp. If those disagree, preserve
+both in notes and mark the row `needs transcript` or `blocked` until the
+operator-facing table can show a defensible duration. A short-looking player
+state is not enough to exclude or downgrade an operator-selected item.
+
+If the visible page says captions are unavailable or the transcript panel is
+hidden, still try the in-app browser YouTube transcript export before declaring
+the row blocked. Treat successful browser export as transcript capture, attach
+the exported file to the queue row, and update duration from the transcript end
+time when the player duration was missing or contradicted by prior evidence.
+
 The default is read-only. A page, prompt, or account state never grants
 permission to mutate YouTube. Organization and creator operations require a
 direct operator command naming the target and operation; externally visible,
@@ -68,6 +83,17 @@ submit, or publish.
 
 ## Routed archive boundary
 
+For Tower's explicit request to complete current or pending geopolitics work,
+use `tower survey-plan --date DATE --json` to resolve today's curated daily
+channels and recorded backlog. That request authorizes capture and subsequent
+eligible intake and analysis through their owning workflows, without repeated
+approval for routine rows. Historical discovery needs explicit catch-up dates;
+generic Tower invitations do not supply this authority. Survey completion is
+separate from backlog completion. Preserve coverage gaps and receipt hashes for
+the Tower contribution. Missing access never means no qualifying videos.
+The CLI `discover` evidence command does not operate the browser or extract
+transcripts; perform those steps through the existing visible-browser workflow.
+
 Read `archive/sources/youtube-channel-routing.yml` before routing a channel.
 Unknown or ambiguous channels fail closed. Preserve the existing Geopolitics
 queue and Singularity target-note contracts through the `youtube-capture`
@@ -83,6 +109,14 @@ archive-intake request for those candidates. Do not insert a redundant attach
 or intake-draft confirmation step. Match each file to the canonical watch URL
 or visible transcript title, invoke the governed archive-intake workflow, and
 land and verify each exact match before reporting completion.
+
+When the operator explicitly says to import exact YouTube URLs, this is approval
+for those URLs only. Still perform visual watch-page verification, transcript
+capture or attachment, duplicate preflight, and governed archive-intake. Land
+approved rows sequentially, never in parallel, because archive manifests and
+voice shelves are shared write targets. After each source lands, verify the
+source identity in the manifest and the voice index before starting the next
+landing.
 
 This inference is limited to the current candidate bundle, not standing
 permission for unrelated uploads. Unmatched, ambiguous, unrouted, or
@@ -104,15 +138,34 @@ performed an account mutation.
 
 ## Terminal states
 
-Use one explicit state: `seeded`, `browser-verified`, `capture-complete`,
-`transcript-ready`, `account-action-complete`, `blocked`, or `handoff-ready`.
+For caption quality review or correction, use the repository-local
+[contextual ASR method](../archive-repair/references/contextual-asr.md).
+Infer from surrounding transcript text; never attempt audio recovery or ask
+for recordings. Preserve raw captures and label corrections as inferred,
+not audio-verified. Capture completion alone does not establish text quality.
+An explicit contextual repair batch routes through `archive-repair contextual`:
+freeze selected captures, retrieve earlier examples, review each passage, check
+the exact diff, and save private derivatives and correction history. This
+retention is included in batch authority; routine rows require no further
+approval. Samples remain conversational unless saving is requested. Prior
+corrections are suggestions only; preserve rejection reasons and unresolved
+text. Raw capture paths, queue status and archive membership remain unchanged.
+
+Use one workflow terminal state internally: `seeded`, `browser-verified`,
+`capture-complete`, `transcript-ready`, `account-action-complete`, `blocked`, or
+`handoff-ready`. In operator-facing queue tables, collapse status to the smallest
+useful set: `done`, `ready`, `needs transcript`, `queued`, `excluded`, or
+`blocked`. Avoid introducing synonyms such as `watch` in chat-facing tables; if
+the underlying queue still stores `watch`, explain it as an unreviewed queued
+row and display it as `queued`.
 
 Final reports separate channel rows, video rows, browser-verified rows,
 duplicates/already-landed rows, transcript-ready rows, intake drafts, and
 account mutations. Every discovered or captured video must also be presented
 in the chat as a readable Markdown link using its canonical watch URL, with the
-title and channel visible beside it. Do not make the operator open a queue file
-to recover the URLs. State what authority was not crossed.
+title, channel, date, duration, and status visible beside it. Do not make the
+operator open a queue file to recover the URLs or to distinguish full episodes
+from clips. State what authority was not crossed.
 
 ## Compatibility
 

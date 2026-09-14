@@ -22,6 +22,7 @@ from urllib.parse import parse_qs, urlparse
 from xml.etree import ElementTree
 
 import yaml
+from voice_metadata import canonical_slug
 
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
@@ -33,6 +34,7 @@ SINGULARITY_ROOT = REPO_ROOT / "archive" / "sources" / "singularity"
 
 TRANSCRIPT_STATUSES = {"available", "missing", "manual-needed", "defer"}
 DISPOSITIONS = {"must-land", "possible", "skip", "watch"}
+VIDEO_FORMATS = {"channel", "clip", "full", "livestream", "replay", "scheduled", "segment", "short", "shorts", "unknown"}
 CHANNEL_EXPECTED_VOICE = {
     "alexander-mercouris": "mercouris",
     "daniel-davis": "davis",
@@ -67,6 +69,7 @@ LAND_READY_AUTHORITY_NOTICE = (
 )
 USER_AGENT = "mira-core-youtube-capture/1.0"
 BROWSER_RECEIPT_SCHEMA_VERSION = 1
+DISCOVERY_SEQUENCE_SCHEMA_VERSION = 1
 DEFAULT_DAILY_BROWSER_SEARCH_TERMS = [
     "{year}",
     "{short_month_day_year}",
@@ -460,6 +463,38 @@ def youtube_source_identity(url: str, fallback_slug: str = "") -> tuple[str, str
     return video_id, f"youtube:{video_id}"
 
 
+def parse_duration_seconds(value: str | int | None) -> int | None:
+    if value is None or value == "":
+        return None
+    if isinstance(value, int):
+        if value < 0:
+            raise CaptureError("duration_seconds must be nonnegative")
+        return value
+    text = str(value).strip()
+    if not text:
+        return None
+    if text.isdigit():
+        return int(text)
+    parts = text.split(":")
+    if not 1 <= len(parts) <= 3 or any(not part.isdigit() for part in parts):
+        raise CaptureError(f"invalid duration: {value}")
+    seconds = 0
+    for part in parts:
+        seconds = seconds * 60 + int(part)
+    return seconds
+
+
+def format_duration(seconds: str | int | None) -> str:
+    parsed = parse_duration_seconds(seconds)
+    if parsed is None:
+        return ""
+    hours, remainder = divmod(parsed, 3600)
+    minutes, secs = divmod(remainder, 60)
+    if hours:
+        return f"{hours}:{minutes:02d}:{secs:02d}"
+    return f"{minutes}:{secs:02d}"
+
+
 def normalize_row(
     *,
     capture_date: str,
@@ -472,13 +507,20 @@ def normalize_row(
     disposition: str = "watch",
     next_action: str = "review",
     notes: str = "",
+    duration_seconds: str | int | None = None,
+    duration: str = "",
+    video_format: str = "unknown",
 ) -> dict[str, str]:
     if transcript_status not in TRANSCRIPT_STATUSES:
         raise CaptureError(f"invalid transcript status: {transcript_status}")
     if disposition not in DISPOSITIONS:
         raise CaptureError(f"invalid disposition: {disposition}")
+    if video_format and video_format not in VIDEO_FORMATS:
+        raise CaptureError(f"invalid video format: {video_format}")
     video_id, source_identity = youtube_source_identity(url)
     publication_date = publication_date_from_timestamp(published_at)
+    parsed_duration = parse_duration_seconds(duration_seconds)
+    display_duration = duration.strip() or format_duration(parsed_duration)
     return {
         "date": publication_date or capture_date,
         "capture_date": capture_date,
@@ -488,9 +530,12 @@ def normalize_row(
         "title": title.strip(),
         "channel": channel.strip(),
         "published_at": published_at.strip(),
-        "expected_voice": expected_voice.strip() or "unknown",
+        "expected_voice": canonical_slug(expected_voice.strip()) if expected_voice.strip() else "unknown",
         "transcript_status": transcript_status,
         "disposition": disposition,
+        "duration": display_duration,
+        "duration_seconds": "" if parsed_duration is None else str(parsed_duration),
+        "format": video_format or "unknown",
         "next_action": next_action.strip() or "review",
         "notes": notes.strip(),
         "source_identity": source_identity,
@@ -515,6 +560,9 @@ def normalize_index_row(*, capture_date: str, row: dict[str, str]) -> dict[str, 
         "expected_voice": CHANNEL_EXPECTED_VOICE.get(slug, "unknown"),
         "transcript_status": "defer",
         "disposition": "watch",
+        "duration": "",
+        "duration_seconds": "",
+        "format": "channel",
         "next_action": "open public channel and add substantive new video URLs",
         "notes": f"scan-index cadence={cadence}; narrative_status={status}; channel_slug={slug}",
         "source_identity": source_identity,
@@ -570,6 +618,9 @@ def normalize_discovered_video_row(
         "expected_voice": CHANNEL_EXPECTED_VOICE.get(slug, "unknown"),
         "transcript_status": "defer",
         "disposition": disposition,
+        "duration": "",
+        "duration_seconds": "",
+        "format": "unknown",
         "next_action": next_action,
         "notes": notes,
         "source_identity": source_identity,
@@ -793,6 +844,107 @@ def parse_channel_index(path: Path = None) -> list[dict[str, str]]:
     return rows
 
 
+def load_discovery_sequence(path: Path = None) -> list[dict[str, str]]:
+    """Load the deterministic Geopolitics discovery sequence from the roster."""
+    rows = parse_channel_index(path)
+    if not rows:
+        raise CaptureError("Geopolitics channel roster is empty or malformed")
+    seen: set[str] = set()
+    sequence: list[dict[str, str]] = []
+    for ordinal, row in enumerate(rows, 1):
+        slug = row.get("slug", "").strip()
+        url = row.get("channel_url", "").strip()
+        if not slug or not url:
+            raise CaptureError(f"invalid discovery roster row at ordinal {ordinal}")
+        if slug in seen:
+            raise CaptureError(f"duplicate discovery channel slug: {slug}")
+        seen.add(slug)
+        cadence = row.get("capture_cadence", "")
+        status = row.get("status", "")
+        sequence.append({
+            **row,
+            "ordinal": str(ordinal),
+            "tier": "A" if cadence == "daily" else ("B" if cadence == "weekly" else "manual"),
+            "inspect_live": "true" if cadence == "daily" else "false",
+            "search_terms": ",".join(daily_browser_search_terms("2000-01-01")),
+            "route_authority": "geopolitics/channels/channel-index.md",
+        })
+    return sequence
+
+
+def browser_discovery_report_command(args: argparse.Namespace) -> int:
+    """Validate browser-collected evidence without mutating queue or archive state."""
+    sequence = load_discovery_sequence(args.channel_index)
+    payload = json.loads(args.evidence.read_text(encoding="utf-8"))
+    if not isinstance(payload, dict) or not isinstance(payload.get("rows", []), list):
+        raise CaptureError("browser evidence must be an object with a rows array")
+    roster = {row["slug"]: row for row in sequence}
+    results = {row["slug"]: {"channel": row, "status": "unsearched", "candidates": [], "exclusions": []} for row in sequence}
+    seen_ids: set[str] = set()
+    verified: list[dict] = []
+    provisional: list[dict] = []
+    for row in payload["rows"]:
+        slug = str(row.get("channel_slug", "")).strip()
+        if slug not in roster:
+            row["status"] = "excluded"
+            row["reason"] = "off-roster or unknown route"
+            provisional.append(row)
+            continue
+        result = results[slug]
+        result["status"] = "complete"
+        url = str(row.get("url", ""))
+        video_id = extract_video_id(url) if "/watch" in url else ""
+        exact_date = str(row.get("published_date", ""))
+        if not video_id:
+            row["status"], row["reason"] = "excluded", "not a regular watch URL"
+            result["exclusions"].append(row)
+        elif video_id in seen_ids:
+            row["status"], row["reason"] = "excluded", "duplicate video ID"
+            result["exclusions"].append(row)
+        elif row.get("format") in {"short", "shorts", "clip", "trailer", "playlist"}:
+            row["status"], row["reason"] = "excluded", "excluded format"
+            result["exclusions"].append(row)
+        elif not exact_date:
+            row["status"], row["reason"] = "date_unverified", "watch-page exact date missing"
+            provisional.append(row)
+        elif exact_date != args.date:
+            row["status"], row["reason"] = "excluded", "exact publish date does not match target"
+            result["exclusions"].append(row)
+        else:
+            seen_ids.add(video_id)
+            row["status"] = "browser-verified"
+            result["candidates"].append(row)
+            verified.append(row)
+    missing = [slug for slug, result in results.items() if result["status"] != "complete"]
+    recovery = len(verified) < 10 or bool(missing)
+    terminal = "incomplete" if recovery else "complete"
+    report = {
+        "schema_version": DISCOVERY_SEQUENCE_SCHEMA_VERSION,
+        "mode": "mira-youtube-geopolitics-discover",
+        "date": args.date,
+        "collection": "geopolitics",
+        "sequence": sequence,
+        "channels": list(results.values()),
+        "verified_candidates": verified,
+        "provisional_candidates": provisional,
+        "recovery_required": recovery,
+        "terminal_status": terminal,
+        "authority": AUTHORITY_NOTICE,
+    }
+    if args.json:
+        print(json.dumps(report, indent=2, ensure_ascii=False))
+    else:
+        print(f"DISCOVERY_DATE={args.date}")
+        print(f"VERIFIED_CANDIDATES={len(verified)}")
+        print(f"PROVISIONAL_CANDIDATES={len(provisional)}")
+        print(f"MISSING_CHANNELS={','.join(missing)}")
+        print(f"RECOVERY_REQUIRED={'true' if recovery else 'false'}")
+        print(f"DISCOVERY_TERMINAL_STATE={terminal}")
+        for row in verified:
+            print(f"VERIFIED={row.get('channel_slug')}|{row.get('title','')}|{row.get('url')}|{row.get('published_date')}")
+    return 0
+
+
 def select_channel_index_rows(
     rows: list[dict[str, str]],
     *,
@@ -977,6 +1129,9 @@ def add_command(args: argparse.Namespace) -> int:
         disposition=args.disposition,
         next_action=args.next_action,
         notes=notes,
+        duration_seconds=args.duration_seconds if args.duration_seconds is not None else args.duration,
+        duration=args.duration,
+        video_format=args.format,
     )
     rows, added, updated = upsert_rows(existing, [row])
     write_queue(path, rows)
@@ -1003,11 +1158,14 @@ def scan_command(args: argparse.Namespace) -> int:
                 channel=item.get("channel", ""),
                 published_at=item.get("published_at", ""),
                 expected_voice=item.get("expected_voice", "unknown"),
-                transcript_status=item.get("transcript_status", "defer"),
-                disposition=item.get("disposition", "watch"),
-                next_action=item.get("next_action", "review"),
-                notes=item.get("notes", ""),
-            )
+            transcript_status=item.get("transcript_status", "defer"),
+            disposition=item.get("disposition", "watch"),
+            next_action=item.get("next_action", "review"),
+            notes=item.get("notes", ""),
+            duration_seconds=item.get("duration_seconds") or item.get("duration", ""),
+            duration=item.get("duration", ""),
+            video_format=item.get("format", "unknown"),
+        )
         )
     rows, added, updated = upsert_rows(read_queue(path), incoming)
     write_queue(path, rows)
@@ -1094,8 +1252,30 @@ def discover_public_command(args: argparse.Namespace) -> int:
     print(f"DISCOVERY_FAILURES={failures}")
     print(f"ROWS_ADDED={added}")
     print(f"ROWS_UPDATED={updated}")
+    if videos_found < 10:
+        print("DISCOVERY_TERMINAL_STATE=incomplete")
+        print("RECOVERY_REQUIRED=true")
+        print("RECOVERY_REASON=curated-channel aggregate is below the 10-video coverage floor")
+    else:
+        print("DISCOVERY_TERMINAL_STATE=seeded")
+        print("RECOVERY_REQUIRED=false")
     print(AUTHORITY_NOTICE)
     return 0
+
+
+def browser_access_context(mode: str, eligibility: str, observed_at: str) -> dict:
+    """Validate advisory visible-browser context, never authentication secrets."""
+    if mode not in {"authenticated", "public", "unknown"}:
+        raise CaptureError("invalid browser access mode")
+    if eligibility not in {"eligible", "ineligible", "unknown"}:
+        raise CaptureError("invalid browser eligibility")
+    try:
+        timestamp = datetime.fromisoformat(observed_at.replace("Z", "+00:00"))
+        if timestamp.tzinfo is None:
+            raise ValueError("timezone required")
+    except ValueError as error:
+        raise CaptureError("access-observed-at must be an ISO-8601 timestamp with timezone") from error
+    return {"mode": mode, "eligibility": eligibility, "observed_at": observed_at}
 
 
 def write_browser_receipt(
@@ -1108,6 +1288,9 @@ def write_browser_receipt(
     no_qualifying_videos: bool,
     queue_root: Path = None,
     notes: str = "",
+    access_mode: str = None,
+    access_eligibility: str = None,
+    access_observed_at: str = None,
 ) -> Path:
     queue_root = _path('QUEUE_ROOT') if queue_root is None else queue_root
     if not re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", channel_slug):
@@ -1144,6 +1327,11 @@ def write_browser_receipt(
         "rss_completion_authority": False,
         "notes": notes,
     }
+    if any(value is not None for value in (access_mode, access_eligibility, access_observed_at)):
+        receipt["access_context"] = browser_access_context(
+            access_mode or "unknown", access_eligibility or "unknown",
+            access_observed_at or observed_at,
+        )
     path = browser_receipt_path(capture_date, channel_slug, queue_root)
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(receipt, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
@@ -1160,6 +1348,9 @@ def record_browser_receipt_command(args: argparse.Namespace) -> int:
         no_qualifying_videos=args.no_qualifying_videos,
         queue_root=args.queue_root,
         notes=args.notes,
+        access_mode=getattr(args, "access_mode", None),
+        access_eligibility=getattr(args, "access_eligibility", None),
+        access_observed_at=getattr(args, "access_observed_at", None),
     )
     print(QUEUE_ONLY_NOTICE)
     print("BROWSER_RECEIPT_MODE=visible-page-evidence")
@@ -1314,8 +1505,8 @@ def list_command(args: argparse.Namespace) -> int:
     if args.json:
         print(json.dumps(rows, indent=2, sort_keys=True))
         return 0
-    print("| Date | URL | Source / Channel | Expected Voice | Transcript Status | Priority | Next Action | Notes |")
-    print("| --- | --- | --- | --- | --- | --- | --- | --- |")
+    print("| Date | URL | Source / Channel | Duration | Format | Expected Voice | Transcript Status | Priority | Next Action | Notes |")
+    print("| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |")
     for row in rows:
         print(
             "| "
@@ -1324,6 +1515,8 @@ def list_command(args: argparse.Namespace) -> int:
                     row.get("date", ""),
                     row.get("url", ""),
                     row.get("channel", ""),
+                    row.get("duration", ""),
+                    row.get("format", ""),
                     row.get("expected_voice", ""),
                     row.get("transcript_status", ""),
                     row.get("disposition", ""),
@@ -1347,6 +1540,12 @@ def mark_command(args: argparse.Namespace) -> int:
             row["transcript_status"] = args.transcript_status
         if args.disposition:
             row["disposition"] = args.disposition
+        if args.duration_seconds is not None or args.duration:
+            parsed_duration = parse_duration_seconds(args.duration_seconds if args.duration_seconds is not None else args.duration)
+            row["duration_seconds"] = "" if parsed_duration is None else str(parsed_duration)
+            row["duration"] = args.duration or format_duration(parsed_duration)
+        if args.format:
+            row["format"] = args.format
         if args.next_action:
             row["next_action"] = args.next_action
         if args.notes:
@@ -1452,6 +1651,18 @@ def row_ready_for_intake(row: dict[str, object]) -> bool:
     )
 
 
+def display_status(row: dict[str, object]) -> str:
+    if row.get("landed"):
+        return "done"
+    if str(row.get("disposition", "")) == "skip":
+        return "excluded"
+    if row_ready_for_intake(row):
+        return "ready"
+    if str(row.get("transcript_status", "")) in {"manual-needed", "missing"}:
+        return "needs transcript"
+    return "queued"
+
+
 def intake_candidate_rows(args: argparse.Namespace) -> list[dict[str, object]]:
     rows = queue_status_rows(
         dates=[args.date],
@@ -1507,6 +1718,7 @@ def queue_status_rows(
     cadences: set[str] | None = None,
     channels: set[str] | None = None,
     dispositions: set[str] | None = None,
+    min_duration_seconds: int | None = None,
 ) -> list[dict[str, object]]:
     manifest = load_manifest_by_url(manifest_path)
     status_rows: list[dict[str, object]] = []
@@ -1514,16 +1726,24 @@ def queue_status_rows(
         for row in read_queue(queue_path(capture_date, queue_root)):
             if not queue_row_matches_filters(row, cadences=cadences, channels=channels, dispositions=dispositions):
                 continue
+            duration_seconds = parse_duration_seconds(row.get("duration_seconds") or row.get("duration", ""))
+            if min_duration_seconds is not None:
+                if duration_seconds is None and row.get("format") not in {"full", "livestream", "replay"}:
+                    continue
+                if duration_seconds is not None and duration_seconds < min_duration_seconds:
+                    continue
             source = manifest.get(row.get("url", ""))
-            status_rows.append(
-                {
-                    **row,
-                    "landed": bool(source),
-                    "archive_date": source.get("date", "") if source else "",
-                    "archive_path": source.get("local_path", "") if source else "",
-                    "has_transcript_path": bool(row.get("transcript_path", "").strip()),
-                }
-            )
+            status_row = {
+                **row,
+                "duration_seconds": duration_seconds,
+                "duration": row.get("duration", "") or format_duration(duration_seconds),
+                "landed": bool(source),
+                "archive_date": source.get("date", "") if source else "",
+                "archive_path": source.get("local_path", "") if source else "",
+                "has_transcript_path": bool(row.get("transcript_path", "").strip()),
+            }
+            status_row["status"] = display_status(status_row)
+            status_rows.append(status_row)
     return status_rows
 
 
@@ -1547,6 +1767,7 @@ def status_command(args: argparse.Namespace) -> int:
         cadences=set(args.cadence) if args.cadence else None,
         channels=set(args.channel) if args.channel else None,
         dispositions=set(args.disposition) if args.disposition else None,
+        min_duration_seconds=args.min_duration_seconds,
     )
     counts = queue_status_counts(rows)
     if args.json:
@@ -1568,8 +1789,8 @@ def status_command(args: argparse.Namespace) -> int:
         print("STATUS_MODE=queue-and-manifest-only")
         for key, value in counts.items():
             print(f"{key.upper()}={value}")
-        print("| Date | Channel | Title | URL | Transcript | Disposition | Landed | Transcript File | Next Action |")
-        print("| --- | --- | --- | --- | --- | --- | --- | --- | --- |")
+        print("| Date | Channel | Title | Duration | Format | Status | URL | Next Action |")
+        print("| --- | --- | --- | --- | --- | --- | --- | --- |")
         for row in rows:
             print(
                 "| "
@@ -1578,11 +1799,10 @@ def status_command(args: argparse.Namespace) -> int:
                         str(row.get("date", "")),
                         str(row.get("channel", "")),
                         str(row.get("title", "")),
+                        str(row.get("duration", "")),
+                        str(row.get("format", "")),
+                        str(row.get("status", "")),
                         str(row.get("url", "")),
-                        str(row.get("transcript_status", "")),
-                        str(row.get("disposition", "")),
-                        "yes" if row.get("landed") else "no",
-                        "yes" if row.get("has_transcript_path") else "no",
                         str(row.get("next_action", "")),
                     ]
                 )
@@ -1888,6 +2108,9 @@ def browser_triage_command(args: argparse.Namespace) -> int:
                         "title",
                         "channel",
                         "published_at",
+                        "duration",
+                        "duration_seconds",
+                        "format",
                         "transcript_status",
                         "next_action",
                         "notes",
@@ -1903,14 +2126,14 @@ def browser_triage_command(args: argparse.Namespace) -> int:
         print("BROWSER_TRIAGE_MODE=manual-browser-observation-stub")
         print(f"TRIAGE_DATE={args.date}")
         print(f"TRIAGE_CANDIDATES={len(candidates)}")
-        print("ALLOWED_QUEUE_FIELDS=title,channel,published_at,transcript_status,next_action,notes")
+        print("ALLOWED_QUEUE_FIELDS=title,channel,published_at,duration,duration_seconds,format,transcript_status,next_action,notes")
         print("TRANSCRIPT_STATUS_RULES=available|manual-needed|missing|defer")
         print("EXPORTER_FAILURE_RULE=manual-needed unless page observation proves transcript is absent")
         print("HIDDEN_TRANSCRIPT_UI_RULE=manual-needed when transcript controls exist but are hidden or not interactable")
         print(
-            "| URL | Channel | Current Transcript | Disposition | Browser Observation Needed | Allowed Queue Update |"
+            "| URL | Channel | Duration | Format | Current Transcript | Disposition | Browser Observation Needed | Allowed Queue Update |"
         )
-        print("| --- | --- | --- | --- | --- | --- |")
+        print("| --- | --- | --- | --- | --- | --- | --- | --- |")
         for row in candidates:
             print(
                 "| "
@@ -1918,10 +2141,12 @@ def browser_triage_command(args: argparse.Namespace) -> int:
                     [
                         row.get("url", ""),
                         row.get("channel", ""),
+                        row.get("duration", ""),
+                        row.get("format", ""),
                         row.get("transcript_status", ""),
                         row.get("disposition", ""),
-                        "title/channel/date/transcript surface; distinguish hidden UI/exporter failure from source absence",
-                        "metadata and transcript_status only; exporter failure or hidden transcript UI -> manual-needed",
+                        "title/channel/date/duration/format/transcript surface; distinguish full videos from clips before transcript work",
+                        "metadata, duration, format, and transcript_status only; exporter failure or hidden transcript UI -> manual-needed",
                     ]
                 )
                 + " |"
@@ -2061,6 +2286,9 @@ def build_parser() -> argparse.ArgumentParser:
     add.add_argument("--expected-voice", default="unknown")
     add.add_argument("--transcript-status", choices=sorted(TRANSCRIPT_STATUSES), default="defer")
     add.add_argument("--disposition", choices=sorted(DISPOSITIONS), default="watch")
+    add.add_argument("--duration", default="")
+    add.add_argument("--duration-seconds", type=parse_nonnegative_int)
+    add.add_argument("--format", choices=sorted(VIDEO_FORMATS), default="unknown")
     add.add_argument("--next-action", default="review")
     add.add_argument("--notes", default="")
     add.set_defaults(handler=add_command)
@@ -2090,6 +2318,15 @@ def build_parser() -> argparse.ArgumentParser:
     discover.add_argument("--since-days", type=parse_nonnegative_int)
     discover.set_defaults(handler=discover_public_command)
 
+    browser_discover = subparsers.add_parser(
+        "discover-browser", help="Validate in-app-browser Geopolitics discovery evidence"
+    )
+    add_common(browser_discover)
+    browser_discover.add_argument("--channel-index", type=Path, default=_path('CHANNEL_INDEX_PATH'))
+    browser_discover.add_argument("--evidence", type=Path, required=True)
+    browser_discover.add_argument("--json", action="store_true")
+    browser_discover.set_defaults(handler=browser_discovery_report_command)
+
     daily_check = subparsers.add_parser("daily-check", help="Seed queue rows and require Tier A browser receipts")
     add_common(daily_check)
     daily_check.add_argument("--channel-index", type=Path, default=_path('CHANNEL_INDEX_PATH'))
@@ -2110,6 +2347,9 @@ def build_parser() -> argparse.ArgumentParser:
     receipt.add_argument("--observed-url", action="append", default=[])
     receipt.add_argument("--no-qualifying-videos", action="store_true")
     receipt.add_argument("--notes", default="")
+    receipt.add_argument("--access-mode", choices=["authenticated", "public", "unknown"])
+    receipt.add_argument("--access-eligibility", choices=["eligible", "ineligible", "unknown"])
+    receipt.add_argument("--access-observed-at", help="ISO-8601 with timezone; defaults to observed-at")
     receipt.set_defaults(handler=record_browser_receipt_command)
 
     coverage = subparsers.add_parser("browser-coverage", help="Require browser receipts for Tier A completion")
@@ -2132,6 +2372,9 @@ def build_parser() -> argparse.ArgumentParser:
     mark.add_argument("--url", required=True)
     mark.add_argument("--transcript-status", choices=sorted(TRANSCRIPT_STATUSES))
     mark.add_argument("--disposition", choices=sorted(DISPOSITIONS))
+    mark.add_argument("--duration")
+    mark.add_argument("--duration-seconds", type=parse_nonnegative_int)
+    mark.add_argument("--format", choices=sorted(VIDEO_FORMATS))
     mark.add_argument("--next-action")
     mark.add_argument("--notes")
     mark.set_defaults(handler=mark_command)
@@ -2159,6 +2402,7 @@ def build_parser() -> argparse.ArgumentParser:
     status.add_argument("--cadence", action="append", choices=["daily", "weekly", "manual", "off"])
     status.add_argument("--channel", action="append", default=[])
     status.add_argument("--disposition", action="append", choices=sorted(DISPOSITIONS))
+    status.add_argument("--min-duration-seconds", type=parse_nonnegative_int)
     status.add_argument("--json", action="store_true")
     status.set_defaults(handler=status_command)
 

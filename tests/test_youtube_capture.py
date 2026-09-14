@@ -31,6 +31,40 @@ def read_jsonl(path: Path) -> list[dict[str, str]]:
     return [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines()]
 
 
+def test_geopolitics_discovery_sequence_is_fixed_and_complete() -> None:
+    sequence = youtube_capture.load_discovery_sequence()
+    assert len(sequence) == 15
+    assert [row["ordinal"] for row in sequence] == [str(i) for i in range(1, 16)]
+    assert sequence[0]["slug"] == "alexander-mercouris"
+    assert sequence[-1]["slug"] == "redacted-news"
+    assert [row["tier"] for row in sequence[:7]] == ["A"] * 7
+
+
+def test_browser_discovery_requires_exact_date_and_preserves_missing_channels(tmp_path: Path, capsys) -> None:
+    evidence = tmp_path / "evidence.json"
+    evidence.write_text(json.dumps({"rows": [{
+        "channel_slug": "alexander-mercouris",
+        "url": "https://www.youtube.com/watch?v=abc123XYZ01",
+        "title": "Example",
+        "published_date": "2026-09-10",
+        "format": "video",
+    }, {
+        "channel_slug": "dialogue-works",
+        "url": "https://www.youtube.com/watch?v=def456XYZ02",
+        "title": "Relative only",
+        "format": "video",
+    }]}), encoding="utf-8")
+    assert youtube_capture.main([
+        "discover-browser", "--date", "2026-09-10", "--evidence", str(evidence), "--json"
+    ]) == 0
+    report = json.loads(capsys.readouterr().out)
+    assert report["terminal_status"] == "incomplete"
+    assert report["recovery_required"] is True
+    assert len(report["verified_candidates"]) == 1
+    assert "dialogue-works" not in report["verified_candidates"]
+    assert len(report["channels"]) == 15
+
+
 def write_route_index(path: Path) -> None:
     path.write_text(
         """version: 1
@@ -103,10 +137,13 @@ def test_add_creates_queue_only_row(tmp_path: Path, capsys) -> None:
         {
             "channel": "Example Channel",
             "capture_date": "2026-08-20",
-            "date": "2026-08-20",
-            "disposition": "must-land",
-            "expected_voice": "example",
-            "next_action": "review",
+                "date": "2026-08-20",
+                "disposition": "must-land",
+                "duration": "",
+                "duration_seconds": "",
+                "expected_voice": "example",
+                "format": "unknown",
+                "next_action": "review",
             "notes": "",
             "published_at": "",
             "publication_date": "",
@@ -753,10 +790,13 @@ def test_discover_public_writes_video_rows_from_public_rss(tmp_path: Path, monke
         {
             "channel": "Glenn Diesen",
             "capture_date": "2026-08-20",
-            "date": "2026-08-20",
-            "disposition": "watch",
-            "expected_voice": "diesen",
-            "next_action": "review video and mark possible/skip or attach transcript for intake",
+                "date": "2026-08-20",
+                "disposition": "watch",
+                "duration": "",
+                "duration_seconds": "",
+                "expected_voice": "diesen",
+                "format": "unknown",
+                "next_action": "review video and mark possible/skip or attach transcript for intake",
             "notes": "discover-public cadence=daily; channel_slug=glenn-diesen; discovery_evidence=rss-seed-only",
             "published_at": "2026-08-20T10:00:00+00:00",
             "publication_date": "2026-08-20",
@@ -827,6 +867,46 @@ def test_discover_public_overfetches_before_date_filter_for_mcgovern_regression(
     assert rows[0]["capture_date"] == "2026-08-30"
     assert rows[0]["publication_date"] == "2026-08-30"
     assert "discovery_evidence=rss-seed-only" in rows[0]["notes"]
+
+
+def test_access_context_cli_round_trip(tmp_path: Path) -> None:
+    assert youtube_capture.main([
+        "record-browser-receipt", "--date", "2026-09-08",
+        "--queue-root", str(tmp_path), "--channel-slug", "dialogue-works",
+        "--channel-url", "https://www.youtube.com/@dialogueworks01/videos",
+        "--observed-at", "2026-09-08T12:00:00Z",
+        "--observed-url", "https://www.youtube.com/watch?v=CFzK79SVKOE",
+        "--access-mode", "authenticated", "--access-eligibility", "eligible",
+    ]) == 0
+    receipt = json.loads(youtube_capture.browser_receipt_path(
+        "2026-09-08", "dialogue-works", tmp_path).read_text(encoding="utf-8"))
+    assert receipt["access_context"] == {
+        "mode": "authenticated", "eligibility": "eligible",
+        "observed_at": "2026-09-08T12:00:00Z",
+    }
+
+
+def test_authenticated_readiness_cannot_create_coverage_without_observations(tmp_path: Path) -> None:
+    with pytest.raises(youtube_capture.CaptureError):
+        youtube_capture.write_browser_receipt(
+            capture_date="2026-09-08", channel_slug="dialogue-works",
+            channel_url="https://www.youtube.com/@dialogueworks01/videos",
+            observed_at="2026-09-08T12:00:00Z", observed_urls=[],
+            no_qualifying_videos=False, queue_root=tmp_path,
+            access_mode="authenticated", access_eligibility="eligible",
+        )
+    assert not list(tmp_path.rglob("*.json"))
+
+
+@pytest.mark.parametrize("mode,eligibility,when", [
+    ("private-account@example.com", "eligible", "2026-09-08T12:00:00Z"),
+    ("authenticated", "assumed", "2026-09-08T12:00:00Z"),
+    ("public", "unknown", "2026-09-08T12:00:00"),
+    ("unknown", "ineligible", "yesterday"),
+])
+def test_access_context_rejects_invalid_values(mode, eligibility, when) -> None:
+    with pytest.raises(youtube_capture.CaptureError):
+        youtube_capture.browser_access_context(mode, eligibility, when)
 
 
 def test_browser_receipt_is_required_for_tier_a_completion(tmp_path: Path, capsys) -> None:
@@ -1499,7 +1579,7 @@ def test_browser_triage_prints_queue_only_checklist(tmp_path: Path, capsys) -> N
     assert "must123" in output
     assert "watch123" not in output
     assert "youtube.com/@Example" not in output
-    assert "ALLOWED_QUEUE_FIELDS=title,channel,published_at,transcript_status,next_action,notes" in output
+    assert "ALLOWED_QUEUE_FIELDS=title,channel,published_at,duration,duration_seconds,format,transcript_status,next_action,notes" in output
     assert "no archive landing" in output
 
 
@@ -1546,6 +1626,9 @@ def test_browser_triage_json_can_include_resolved_rows(tmp_path: Path, capsys) -
         "title",
         "channel",
         "published_at",
+        "duration",
+        "duration_seconds",
+        "format",
         "transcript_status",
         "next_action",
         "notes",
@@ -2033,6 +2116,8 @@ def test_status_json_reports_landed_rows_by_manifest_url(tmp_path: Path, capsys)
                     title="Already landed",
                     transcript_status="available",
                     disposition="must-land",
+                    duration_seconds=3600,
+                    video_format="full",
                     notes="discover-public cadence=daily; channel_slug=dialogue-works",
                 ),
                 "transcript_path": str(tmp_path / "landed.txt"),
@@ -2043,6 +2128,8 @@ def test_status_json_reports_landed_rows_by_manifest_url(tmp_path: Path, capsys)
                 title="Fresh",
                 transcript_status="manual-needed",
                 disposition="possible",
+                duration="4:15",
+                video_format="clip",
                 notes="discover-public cadence=weekly; channel_slug=redacted-news",
             ),
         ],
@@ -2072,6 +2159,67 @@ def test_status_json_reports_landed_rows_by_manifest_url(tmp_path: Path, capsys)
     landed = [row for row in output["rows"] if row["landed"]]
     assert landed[0]["archive_path"] == "archive/source.md"
     assert landed[0]["has_transcript_path"] is True
+    assert landed[0]["duration"] == "1:00:00"
+    assert landed[0]["duration_seconds"] == 3600
+    fresh = [row for row in output["rows"] if row["url"].endswith("fresh123")][0]
+    assert fresh["duration"] == "4:15"
+    assert fresh["duration_seconds"] == 255
+    assert fresh["format"] == "clip"
+
+
+def test_status_can_filter_by_min_duration(tmp_path: Path, capsys) -> None:
+    queue_root = tmp_path / "queue"
+    manifest = tmp_path / "source-manifest.json"
+    manifest.write_text(json.dumps({"sources": []}), encoding="utf-8")
+    youtube_capture.write_queue(
+        queue_root / "2026-08-20.jsonl",
+        [
+            youtube_capture.normalize_row(
+                capture_date="2026-08-20",
+                url="https://www.youtube.com/watch?v=longform1",
+                title="Long form",
+                channel="Dialogue Works",
+                duration="12:00",
+                video_format="full",
+            ),
+            youtube_capture.normalize_row(
+                capture_date="2026-08-20",
+                url="https://www.youtube.com/watch?v=durationpending",
+                title="Duration pending",
+                channel="Dialogue Works",
+                video_format="full",
+            ),
+            youtube_capture.normalize_row(
+                capture_date="2026-08-20",
+                url="https://www.youtube.com/watch?v=clip0001",
+                title="Clip",
+                channel="Dialogue Works",
+                duration="0:42",
+                video_format="clip",
+            ),
+        ],
+    )
+
+    assert (
+        youtube_capture.main(
+            [
+                "status",
+                "--date",
+                "2026-08-20",
+                "--queue-root",
+                str(queue_root),
+                "--manifest",
+                str(manifest),
+                "--min-duration-seconds",
+                "600",
+                "--json",
+            ]
+        )
+        == 0
+    )
+
+    output = json.loads(capsys.readouterr().out)
+    assert [row["title"] for row in output["rows"]] == ["Long form", "Duration pending"]
 
 
 def test_status_text_can_filter_by_cadence_channel_and_disposition(tmp_path: Path, capsys) -> None:
@@ -2128,9 +2276,9 @@ def test_status_text_can_filter_by_cadence_channel_and_disposition(tmp_path: Pat
     assert "QUEUE_ROWS=1" in output
     assert "Dialogue Works" in output
     assert "Dialogue ready" in output
+    assert "Duration" in output
     assert "https://www.youtube.com/watch?v=dialogue123" in output
-    assert "available" in output
-    assert "must-land" in output
+    assert "queued" in output
     assert "review" in output
     assert "redacted123" not in output
     assert "no archive landing" in output
