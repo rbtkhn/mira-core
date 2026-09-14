@@ -37,13 +37,50 @@ repository_validation = load_module(
 )
 
 
+@pytest.mark.parametrize('arguments', [
+    ['--candidate-ref', '', '--path', 'tests/example.py'],
+    ['--candidate-ref', 'HEAD', '--path', 'tests/example.py'],
+    ['--candidate-ref', 'a' * 40],
+    ['--candidate-ref', 'a' * 40, '--path', '../escape'],
+    ['--candidate-ref', 'a' * 40, '--path', 'tests/example.py', '--mode', 'fast'],
+    ['--candidate-ref', 'a' * 40, '--path', 'tests/example.py', '--cache-only'],
+])
+def test_candidate_flags_fail_before_bootstrap(arguments, monkeypatch):
+    def unexpected(*args, **kwargs): raise AssertionError('must reject before execution')
+    monkeypatch.setattr(validator, 'resolve_validation_python', unexpected)
+    assert validator.main(arguments) == 2
+
+
+def test_candidate_dispatch_does_not_require_working_tree_test(monkeypatch, tmp_path):
+    import candidate_validation
+    seen = []
+    monkeypatch.setattr(validator, 'resolve_validation_python', lambda root: Path(sys.executable))
+    monkeypatch.setattr(candidate_validation, 'run_candidate', lambda *args: seen.append(args) or 0)
+    assert validator.main(['--candidate-ref', 'a' * 40, '--path', 'tests/only_in_commit.py',
+                           '--temp-root', str(tmp_path)]) == 0
+    assert seen[0][2] == ['tests/only_in_commit.py']
+
+
+def test_phase_output_is_bounded_but_full_log_and_failure_survive(tmp_path, capsys):
+    env = validator.validation_environment()
+    env['MIRA_CORE_VALIDATION_LOG_ROOT'] = str(tmp_path)
+    result = validator.run_phase([sys.executable, '-c', "import sys; print('x'*10000); sys.exit(7)"],
+        mode='focused', phase='fixture', environment=env, clock=time.monotonic, timeout_seconds=30)
+    assert result == 7
+    assert len(capsys.readouterr().out) < 6500
+    assert max(p.stat().st_size for p in tmp_path.glob('validation-*.log')) > 10000
+
+
 EXPECTED_SURFACES = {
-    "tower": "tower.py",
-    "strategy-notebook": "strategy_notebook.py",
-    "library-journal": "library_journal.py",
+    "artifact-delivery": "artifact_delivery.py",
     "ideation-benchmark": "ideation_benchmark.py",
+    "strategy-notebook": "strategy_notebook.py",
+    "tower": "tower.py",
+    "bridge-handoff": "bridge_handoff.py",
+    "change-review": "change_review.py",
     "archive": "archive.py",
     "archive-audit": "archive_audit.py",
+    "archive-metrics": "archive_metrics.py",
     "archive-density": "report_archive_density.py",
     "archive-repair": "archive_repair.py",
     "asr-repair": "run_asr_repair_pilot.py",
@@ -64,8 +101,10 @@ EXPECTED_SURFACES = {
     "innermost-loop-simulation": "innermost_loop_simulation.py",
     "issue-render": "render_daily_issue.py",
     "library": "archive_library.py",
+    "library-journal": "library_journal.py",
     "library-reasoning": "library_reasoning.py",
     "morning-brief": "morning_brief.py",
+    "newsletter-capture": "newsletter_capture.py",
     "mira-continuity": "mira_continuity.py",
     "mira-mentor": "mentorship_ledger.py",
     "mira-constitution": "mira_constitution.py",
@@ -74,6 +113,7 @@ EXPECTED_SURFACES = {
     "mira-sessions": "mira_sessions.py",
     "mira-state": "mira_state.py",
     "mira-work": "mira_work_receipt.py",
+    "mira-youtube": "mira_youtube.py",
     "mechanism-lens-checklist": "mechanism_lens_checklist.py",
     "narrative-reuse": "report_narrative_reuse.py",
     "operator-position": "operator_positions.py",
@@ -100,6 +140,7 @@ EXPECTED_SURFACES = {
     "voice-accountability": "voice_accountability.py",
     "voice-judgment": "voice_judgments.py",
     "voice-canonicalize": "canonicalize_voice_metadata.py",
+    "voice-slug-audit": "audit_voice_slug_integrity.py",
     "voice-sync": "sync_voice_indexes.py",
     "voice-comparison": "voice_comparison.py",
     "youtube-capture": "youtube_capture.py",
@@ -755,6 +796,7 @@ def test_ci_separates_public_matrix_from_blocking_corpus() -> None:
     assert "continue-on-error" not in workflow and "needs:" not in workflow
     assert "pytest" not in workflow and "validate_repository.py" not in workflow
     assert workflow.count("MIRA_CORE_SESSION_TEMP_ROOT: ${{ runner.temp }}") == 2
+
 
 
 def test_validation_mode_defaults_to_full_and_accepts_force() -> None:

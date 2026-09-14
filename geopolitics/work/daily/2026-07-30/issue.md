@@ -70,11 +70,11 @@ That is the decision posture for the next review: preserve contact, narrow claim
 
 Only sources used by selected issue stories appear here. See the [complete canonical source accounting](sources.md).
 
-| Source ID | Voice | Archive source | Analytical job |
-| --- | --- | --- | --- |
-| `SRC-02` | Wilkerson | [Wilkerson](../../../archive/sources/2026-07-30/source-col-lawrence-wilkerson-does-trump-know-he-lost-his-war-2026-07-30.md) |  |
-| `SRC-06` | Davis | [Davis](../../../archive/sources/2026-07-30/source-us-unleashes-heavy-wave-of-strikes-against-iran-lt-col-daniel-davis-2026-07-30.md) |  |
-| `SRC-08` | Freeman | [Freeman](../../../archive/sources/2026-07-30/source-how-ukraine-could-pull-the-us-into-a-bigger-war-chas-freeman-2026-07-30.md) |  |
+| Source ID | Date | Title | URL | Voice | Archive source | Analytical job |
+| --- | --- | --- | --- | --- | --- | --- |
+| `SRC-02` |  |  |  | Wilkerson | [Wilkerson](../../../archive/sources/2026-07-30/source-col-lawrence-wilkerson-does-trump-know-he-lost-his-war-2026-07-30.md) |  |
+| `SRC-06` |  |  |  | Davis | [Davis](../../../archive/sources/2026-07-30/source-us-unleashes-heavy-wave-of-strikes-against-iran-lt-col-daniel-davis-2026-07-30.md) |  |
+| `SRC-08` |  |  |  | Freeman | [Freeman](../../../archive/sources/2026-07-30/source-how-ukraine-could-pull-the-us-into-a-bigger-war-chas-freeman-2026-07-30.md) |  |
 
 ## Forecast Desk
 

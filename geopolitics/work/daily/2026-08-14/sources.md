@@ -13,19 +13,19 @@ Evidence boundary: This run is grounded in the landed August 14 archive batch. I
 
 ## Intake Batch
 
-The manifest has 9 rows for `2026-08-14`; all 9 are included in this geopolitical run.
+This run is grounded in the `2026-08-14` day batch already landed in the central archive.
 
-| Source File | Voice / Lane | Intake Status | Run Use |
-| --- | --- | --- | --- |
-| `archive/sources/2026-08-14/source-3-russia-mocks-zelensky-erdogan-odessa-sea-truce-call-uk-panic-as-russia-targets-uk-ships-druzhivka-2026-08-14.md` | Mercouris | `imported` | included |
-| `archive/sources/2026-08-14/source-3-centcom-pushing-for-strikes-on-iran-s-infrastructure-w-joe-kent-2026-08-14.md` | Kent | `imported` | included |
-| `archive/sources/2026-08-14/source-3-daniel-davis-russia-s-new-strategy-no-more-appeasing-nato-2026-08-14.md` | Davis | `imported` | included |
-| `archive/sources/2026-08-14/source-3-amb-chas-freeman-panic-in-tel-aviv-iran-s-military-rebuild-stuns-israel-2026-08-14.md` | Freeman | `imported` | included |
-| `archive/sources/2026-08-14/source-3-pepe-escobar-iran-s-new-offensive-strategy-2026-08-14.md` | Escobar | `imported` | included |
-| `archive/sources/2026-08-14/source-3-prof-mohammad-marandi-trump-s-war-achieved-nothing-for-the-us-2026-08-14.md` | Marandi | `imported` | included |
-| `archive/sources/2026-08-14/source-3-ukraine-s-fortress-belt-under-siege-as-odessa-blockade-tightens-w-stanislav-krapivnik-2026-08-14.md` | Krapivnik | `imported` | included |
-| `archive/sources/2026-08-14/source-3-matthew-hoh-pentagon-leak-military-brass-sound-alarm-on-troop-burnout-in-iran-war-2026-08-14.md` | Hoh | `imported` | included |
-| `archive/sources/2026-08-14/source-3-nima-r-alkhorshid-yemenis-strike-saudi-aramco-saudi-arms-shipment-destroyed-in-precision-strike-2026-08-14.md` | Alkhorshid | `imported` | included |
+| Source File | Source Type | Intake Status | Manifest Row | Voice Route | Channel Route | Notes |
+| --- | --- | --- | --- | --- | --- | --- |
+| `archive/sources/geopolitics/sources/2026-08-14/source-3-amb-chas-freeman-panic-in-tel-aviv-iran-s-military-rebuild-stuns-israel-2026-08-14.md` | cleaned-transcript | `imported` | `yes` | Freeman | Dialogue Works | guest; review and narrow to owning crisis object before synthesis. |
+| `archive/sources/geopolitics/sources/2026-08-14/source-3-centcom-pushing-for-strikes-on-iran-s-infrastructure-w-joe-kent-2026-08-14.md` | cleaned-transcript | `imported` | `yes` | Kent | Mario Nawfal | guest; review and narrow to owning crisis object before synthesis. |
+| `archive/sources/geopolitics/sources/2026-08-14/source-3-daniel-davis-russia-s-new-strategy-no-more-appeasing-nato-2026-08-14.md` | cleaned-transcript | `imported` | `yes` | Davis | Glenn Diesen | practical-room spine; review and narrow to owning crisis object before synthesis. |
+| `archive/sources/geopolitics/sources/2026-08-14/source-3-matthew-hoh-pentagon-leak-military-brass-sound-alarm-on-troop-burnout-in-iran-war-2026-08-14.md` | cleaned-transcript | `imported` | `yes` | Hoh | Dialogue Works | guest; review and narrow to owning crisis object before synthesis. |
+| `archive/sources/geopolitics/sources/2026-08-14/source-3-nima-r-alkhorshid-yemenis-strike-saudi-aramco-saudi-arms-shipment-destroyed-in-precision-strike-2026-08-14.md` | cleaned-transcript | `imported` | `yes` | Alkhorshid | Dialogue Works | author; review and narrow to owning crisis object before synthesis. |
+| `archive/sources/geopolitics/sources/2026-08-14/source-3-pepe-escobar-iran-s-new-offensive-strategy-2026-08-14.md` | cleaned-transcript | `imported` | `yes` | Escobar | Judging Freedom | guest; review and narrow to owning crisis object before synthesis. |
+| `archive/sources/geopolitics/sources/2026-08-14/source-3-prof-mohammad-marandi-trump-s-war-achieved-nothing-for-the-us-2026-08-14.md` | cleaned-transcript | `imported` | `yes` | Marandi | Judging Freedom | guest; review and narrow to owning crisis object before synthesis. |
+| `archive/sources/geopolitics/sources/2026-08-14/source-3-russia-mocks-zelensky-erdogan-odessa-sea-truce-call-uk-panic-as-russia-targets-uk-ships-druzhivka-2026-08-14.md` | cleaned-transcript | `imported` | `yes` | Mercouris | Alexander Mercouris | host monologue; review and narrow to owning crisis object before synthesis. |
+| `archive/sources/geopolitics/sources/2026-08-14/source-3-ukraine-s-fortress-belt-under-siege-as-odessa-blockade-tightens-w-stanislav-krapivnik-2026-08-14.md` | cleaned-transcript | `imported` | `yes` | Krapivnik | The Duran | guest; review and narrow to owning crisis object before synthesis. |
 
 ## Run Source Set
 

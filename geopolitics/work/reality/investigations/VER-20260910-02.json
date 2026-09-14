@@ -1,0 +1,26 @@
+{
+  "affected_artifacts": [
+    "geopolitics/work/daily/2026-09-09/synthesis.md"
+  ],
+  "affected_forecast_hooks": [],
+  "as_of": "2026-09-10",
+  "claim_ids": [
+    "OPC-20260910-02"
+  ],
+  "created_at": "2026-09-10T15:29:35.697372+00:00",
+  "created_by": "Codex; operator-authorized September 9 follow-up",
+  "evidence_ids": [
+    "EVD-20260910-007",
+    "EVD-20260910-008",
+    "EVD-20260910-009"
+  ],
+  "id": "VER-20260910-02",
+  "kind": "investigation",
+  "observable_ids": [
+    "OBS-20260910-002"
+  ],
+  "research_boundary": "Distinguish crude, product balances, geographic distribution, demand adaptation and timing; no universal exhaustion claim. Research completed later; do not backdate knowledge. Current evidence is insufficient for operational adoption.",
+  "revision_of": null,
+  "schema_version": 1,
+  "status": "in_progress"
+}

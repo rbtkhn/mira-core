@@ -98,16 +98,16 @@ That is the schema gain.
 
 Only sources used by selected issue stories appear here. See the [complete canonical source accounting](sources.md).
 
-| Source ID | Voice | Archive source | Analytical job |
-| --- | --- | --- | --- |
-| `SRC-01` | Marandi | [2026-07-07 Marandi](../../../archive/sources/2026-07-07/source-glenn-diesen-seyed-m-marandi-iran-strikes-ships-as-the-u-s-tests-iran-s-control-over-the-strait-of-hormuz-2026-07-07.md) | Owns the Iran-facing object: no nuclear track without Lebanon movement, and no easy rollback of Hormuz leverage. |
-| `SRC-02` | Barnes | [2026-07-07 Barnes](../../../archive/sources/2026-07-07/source-dialogue-works-robert-barnes-u-s-just-revoked-iran-waivers-we-heading-to-war-2026-07-07.md) | Supplies the strongest "deal incapable" read on Trump and the waiver reversal as sequence collapse. |
-| `SRC-03` | Macgregor | [2026-07-07 Macgregor](../../../archive/sources/2026-07-07/source-daniel-davis-macgregor-war-to-the-last-missile-in-iran-2026-07-07.md) | Pressure-tests whether the U.S./Israel side can actually force a military outcome in Hormuz. |
-| `SRC-04` | Davis | [2026-07-07 Davis](../../../archive/sources/2026-07-07/source-daniel-davis-breaking-us-new-strikes-on-iran-2026-07-07.md) | Same-day U.S.-side source confirming renewed strikes, waiver rollback, and the pressure on U.S. inventory and economic room. |
-| `SRC-05` | Helmer | [2026-07-07 Helmer](../../../archive/sources/2026-07-07/source-dialogue-works-john-helmer-trump-signs-nato-escalation-putins-demilitarization-order-to-poland-2026-07-07.md) | Adds NATO summit and imperial-protectorate context around Trumpâ€™s wider bargaining style. |
-| `SRC-06` | Mercouris | [2026-07-07 Mercouris](../../../archive/sources/2026-07-07/source-mercouris-russia-destroys-arms-dump-zelensky-begs-patriots-2026-07-07.md) | Secondary context: a simultaneous Russia/NATO pressure field limits U.S. room and inventory confidence. |
-| `SRC-07` | Weichert | [2026-07-07 Weichert](../../../archive/sources/2026-07-07/source-mario-nawfal-brandon-weichert-breaking-trump-strikes-irans-kharg-island-for-first-time-since-ceasefire-2026-07-07.md) | Adds a same-day U.S./Trump-side political frame that the Hormuz issue is the whole dispute and not a negotiable side clause. |
-| `SRC-08` | Parsi | [2026-07-07 Parsi](../../../archive/sources/2026-07-07/source-how-the-us-iran-fight-in-the-strait-of-hormuz-can-be-resolved-before-it-blows-up-the-mou-2026-07-07.md) | Parsi provides the clearest authored compromise mechanism: dual notification preserves traffic while deferring the sovereignty fight over nominal control of the Strait. |
+| Source ID | Date | Title | URL | Voice | Archive source | Analytical job |
+| --- | --- | --- | --- | --- | --- | --- |
+| `SRC-01` |  |  |  | Marandi | [2026-07-07 Marandi](../../../archive/sources/2026-07-07/source-glenn-diesen-seyed-m-marandi-iran-strikes-ships-as-the-u-s-tests-iran-s-control-over-the-strait-of-hormuz-2026-07-07.md) | Owns the Iran-facing object: no nuclear track without Lebanon movement, and no easy rollback of Hormuz leverage. |
+| `SRC-02` |  |  |  | Barnes | [2026-07-07 Barnes](../../../archive/sources/2026-07-07/source-dialogue-works-robert-barnes-u-s-just-revoked-iran-waivers-we-heading-to-war-2026-07-07.md) | Supplies the strongest "deal incapable" read on Trump and the waiver reversal as sequence collapse. |
+| `SRC-03` |  |  |  | Macgregor | [2026-07-07 Macgregor](../../../archive/sources/2026-07-07/source-daniel-davis-macgregor-war-to-the-last-missile-in-iran-2026-07-07.md) | Pressure-tests whether the U.S./Israel side can actually force a military outcome in Hormuz. |
+| `SRC-04` |  |  |  | Davis | [2026-07-07 Davis](../../../archive/sources/2026-07-07/source-daniel-davis-breaking-us-new-strikes-on-iran-2026-07-07.md) | Same-day U.S.-side source confirming renewed strikes, waiver rollback, and the pressure on U.S. inventory and economic room. |
+| `SRC-05` |  |  |  | Helmer | [2026-07-07 Helmer](../../../archive/sources/2026-07-07/source-dialogue-works-john-helmer-trump-signs-nato-escalation-putins-demilitarization-order-to-poland-2026-07-07.md) | Adds NATO summit and imperial-protectorate context around Trumpâ€™s wider bargaining style. |
+| `SRC-06` |  |  |  | Mercouris | [2026-07-07 Mercouris](../../../archive/sources/2026-07-07/source-mercouris-russia-destroys-arms-dump-zelensky-begs-patriots-2026-07-07.md) | Secondary context: a simultaneous Russia/NATO pressure field limits U.S. room and inventory confidence. |
+| `SRC-07` |  |  |  | Weichert | [2026-07-07 Weichert](../../../archive/sources/2026-07-07/source-mario-nawfal-brandon-weichert-breaking-trump-strikes-irans-kharg-island-for-first-time-since-ceasefire-2026-07-07.md) | Adds a same-day U.S./Trump-side political frame that the Hormuz issue is the whole dispute and not a negotiable side clause. |
+| `SRC-08` |  |  |  | Parsi | [2026-07-07 Parsi](../../../archive/sources/2026-07-07/source-how-the-us-iran-fight-in-the-strait-of-hormuz-can-be-resolved-before-it-blows-up-the-mou-2026-07-07.md) | Parsi provides the clearest authored compromise mechanism: dual notification preserves traffic while deferring the sovereignty fight over nominal control of the Strait. |
 
 ## Forecast Desk
 

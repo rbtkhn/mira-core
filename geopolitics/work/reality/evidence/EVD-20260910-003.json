@@ -1,0 +1,23 @@
+{
+  "access_language": "en",
+  "as_of": "2026-09-10",
+  "created_at": "2026-09-10T15:29:35.697372+00:00",
+  "created_by": "Codex; operator-authorized September 9 follow-up",
+  "event_time": "2026-08-15",
+  "evidence_role": "official_position",
+  "geopolitical_environment": "western_state",
+  "id": "EVD-20260910-003",
+  "kind": "evidence",
+  "limitation": "Public burden-management signal, not proof of depletion, failed missions or impending defeat. It also asserts continuing operational capacity.",
+  "observation": "CENTCOM described a ten-day regional trip, continuing blockade activity and the Abraham Lincoln deployment extending from November. The statement presents sustained operations and partner engagement.",
+  "origin_language": "en",
+  "originating_chain": "US-CENTCOM-20260815",
+  "representation_sha256": "0c683c4fa713fad0a62f1cd47a01e5994789dac50bdde7ffcd00d1bff86c3e03",
+  "retrieved_at": "2026-09-10T15:29:35.697372+00:00",
+  "revision_of": null,
+  "schema_version": 1,
+  "source_id": "VSRC-OFF-CENTCOM",
+  "status": "active",
+  "translation_provenance": "not_required",
+  "url": "https://www.centcom.mil/MEDIA/PUBLIC-RELEASES/Article/4574895/centcom-commander-completes-10-day-trip-to-the-middle-east/"
+}

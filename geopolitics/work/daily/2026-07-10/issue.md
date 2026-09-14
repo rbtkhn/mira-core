@@ -94,13 +94,13 @@ The principal alternative remains mutual signaling without stable control. Washi
 
 Only sources used by selected issue stories appear here. See the [complete canonical source accounting](sources.md).
 
-| Source ID | Voice | Archive source | Analytical job |
-| --- | --- | --- | --- |
-| `SRC-02` | Mearsheimer | [source](../../../archive/sources/2026-07-10/source-prof-john-mearsheimer-iran-hardliners-proven-right-2026-07-10.md) | Connects alleged Hormuz bypass behavior to failed US deal credibility and separates battlefield direction from a negotiable settlement. |
-| `SRC-03` | Crooke | [source](../../../archive/sources/2026-07-10/source-alastair-crooke-u-s-and-iran-exchange-massive-strikes-as-hormuz-war-continues-2026-07-10.md) | Provides the most detailed source assertion of an attempted bypass, Iranian coercive response, and renewed US strikes. |
-| `SRC-04` | Macgregor | [source](../../../archive/sources/2026-07-10/source-douglas-macgregor-disastrous-nato-summit-renewed-war-on-iran-russia-2026-07-10.md) | Pressure-tests whether either NATO escalation or renewed Iran war has a feasible strategic end-state. |
-| `SRC-01` | Mercouris | [source](../../../archive/sources/2026-07-10/source-lavrov-says-west-lies-no-talks-ever-again-kremlin-says-us-duplicitous-west-faces-diesel-shortage-2026-07-10.md) | Supplies a secondhand sequence of Russian official hardening and tests whether NATO rhetoric has become deployable capacity. |
-| `SRC-05` | Mercouris | [source](../../../archive/sources/2026-07-10/source-nato-summit-descends-into-total-farce-trump-mocks-europe-rutte-panic-2026-07-10.md) | Adds a second Mercouris presentation of the NATO summit; useful for continuity, not independent confirmation. |
+| Source ID | Date | Title | URL | Voice | Archive source | Analytical job |
+| --- | --- | --- | --- | --- | --- | --- |
+| `SRC-02` |  |  |  | Mearsheimer | [source](../../../archive/sources/2026-07-10/source-prof-john-mearsheimer-iran-hardliners-proven-right-2026-07-10.md) | Connects alleged Hormuz bypass behavior to failed US deal credibility and separates battlefield direction from a negotiable settlement. |
+| `SRC-03` |  |  |  | Crooke | [source](../../../archive/sources/2026-07-10/source-alastair-crooke-u-s-and-iran-exchange-massive-strikes-as-hormuz-war-continues-2026-07-10.md) | Provides the most detailed source assertion of an attempted bypass, Iranian coercive response, and renewed US strikes. |
+| `SRC-04` |  |  |  | Macgregor | [source](../../../archive/sources/2026-07-10/source-douglas-macgregor-disastrous-nato-summit-renewed-war-on-iran-russia-2026-07-10.md) | Pressure-tests whether either NATO escalation or renewed Iran war has a feasible strategic end-state. |
+| `SRC-01` |  |  |  | Mercouris | [source](../../../archive/sources/2026-07-10/source-lavrov-says-west-lies-no-talks-ever-again-kremlin-says-us-duplicitous-west-faces-diesel-shortage-2026-07-10.md) | Supplies a secondhand sequence of Russian official hardening and tests whether NATO rhetoric has become deployable capacity. |
+| `SRC-05` |  |  |  | Mercouris | [source](../../../archive/sources/2026-07-10/source-nato-summit-descends-into-total-farce-trump-mocks-europe-rutte-panic-2026-07-10.md) | Adds a second Mercouris presentation of the NATO summit; useful for continuity, not independent confirmation. |
 
 ## Forecast Desk
 

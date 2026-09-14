@@ -72,11 +72,11 @@ That boundary also protects the standard. The day can be issue-ready while still
 
 Only sources used by selected issue stories appear here. See the [complete canonical source accounting](sources.md).
 
-| Source ID | Voice | Archive source | Analytical job |
-| --- | --- | --- | --- |
-| `SRC-01` | Crooke | [2026-08-10 Crooke](../../../archive/sources/2026-08-10/source-2-alastair-crooke-us-middle-east-dominance-is-ended-2026-08-10.md) | (2) Alastair Crooke : US Middle East Dominance is Ended |
-| `SRC-02` | Aguilar | [2026-08-10 Aguilar](../../../archive/sources/2026-08-10/source-2-breaking-iran-to-delay-deal-until-after-trump-administration-ends-w-lt-col-anthony-aguilar-2026-08-10.md) | (2) BREAKING: IRAN TO DELAY DEAL UNTIL AFTER TRUMP ADMINISTRATION ENDS - w/ Lt. Col. Anthony Aguilar |
-| `SRC-03` | Baud | [2026-08-10 Baud](../../../archive/sources/2026-08-10/source-2-col-jacques-baud-wherever-you-mass-you-get-bombed-yemenis-target-saudi-forces-2026-08-10.md) | (2) Col. Jacques Baud: "Wherever You Mass, You Get Bombed" – Yemenis Target Saudi Forces |
+| Source ID | Date | Title | URL | Voice | Archive source | Analytical job |
+| --- | --- | --- | --- | --- | --- | --- |
+| `SRC-01` |  |  |  | Crooke | [2026-08-10 Crooke](../../../archive/sources/2026-08-10/source-2-alastair-crooke-us-middle-east-dominance-is-ended-2026-08-10.md) | (2) Alastair Crooke : US Middle East Dominance is Ended |
+| `SRC-02` |  |  |  | Aguilar | [2026-08-10 Aguilar](../../../archive/sources/2026-08-10/source-2-breaking-iran-to-delay-deal-until-after-trump-administration-ends-w-lt-col-anthony-aguilar-2026-08-10.md) | (2) BREAKING: IRAN TO DELAY DEAL UNTIL AFTER TRUMP ADMINISTRATION ENDS - w/ Lt. Col. Anthony Aguilar |
+| `SRC-03` |  |  |  | Baud | [2026-08-10 Baud](../../../archive/sources/2026-08-10/source-2-col-jacques-baud-wherever-you-mass-you-get-bombed-yemenis-target-saudi-forces-2026-08-10.md) | (2) Col. Jacques Baud: "Wherever You Mass, You Get Bombed" – Yemenis Target Saudi Forces |
 
 ## Forecast Desk
 

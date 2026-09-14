@@ -101,12 +101,12 @@ This final constraint is worth keeping in the note because it prevents later rea
 
 Only sources used by selected issue stories appear here. See the [complete canonical source accounting](sources.md).
 
-| Source ID | Voice | Archive source | Analytical job |
-| --- | --- | --- | --- |
-| `SRC-01` | Johnson | [2026-07-05 Johnson](../../../archive/sources/2026-07-05/source-larry-johnson-8-us-a-10-warthogs-deploy-to-jordan-ground-war-next-2026-07-05.md) | Larry Johnson: 8 US A-10 Warthogs Deploy to Jordan, Ground War Next? |
-| `SRC-02` | Krapivnik | [2026-07-05 Krapivnik](../../../archive/sources/2026-07-05/source-stanislav-krapivnik-geran-4-obliterates-ukraine-fuel-storage-in-seconds-2026-07-05.md) | Stanislav Krapivnik: Geran-4 Obliterates Ukraine Fuel Storage in SECONDS |
-| `SRC-03` | Jermy | [2026-07-05 Jermy](../../../archive/sources/2026-07-05/source-steve-jermy-warning-nato-can-t-win-a-war-with-russia-2026-07-05.md) | Steve Jermy: Warning! NATO Can't Win a War with Russia |
-| `SRC-04` | Mercouris | [2026-07-05 Mercouris](../../../archive/sources/2026-07-05/source-west-in-shock-after-konstantinovka-fall-putin-resists-us-pressure-during-tense-trump-call-kharkov-2026-07-05.md) | West In Shock After Konstantinovka Fall; Putin Resists US Pressure During Tense Trump Call; Kharkov |
+| Source ID | Date | Title | URL | Voice | Archive source | Analytical job |
+| --- | --- | --- | --- | --- | --- | --- |
+| `SRC-01` |  |  |  | Johnson | [2026-07-05 Johnson](../../../archive/sources/2026-07-05/source-larry-johnson-8-us-a-10-warthogs-deploy-to-jordan-ground-war-next-2026-07-05.md) | Larry Johnson: 8 US A-10 Warthogs Deploy to Jordan, Ground War Next? |
+| `SRC-02` |  |  |  | Krapivnik | [2026-07-05 Krapivnik](../../../archive/sources/2026-07-05/source-stanislav-krapivnik-geran-4-obliterates-ukraine-fuel-storage-in-seconds-2026-07-05.md) | Stanislav Krapivnik: Geran-4 Obliterates Ukraine Fuel Storage in SECONDS |
+| `SRC-03` |  |  |  | Jermy | [2026-07-05 Jermy](../../../archive/sources/2026-07-05/source-steve-jermy-warning-nato-can-t-win-a-war-with-russia-2026-07-05.md) | Steve Jermy: Warning! NATO Can't Win a War with Russia |
+| `SRC-04` |  |  |  | Mercouris | [2026-07-05 Mercouris](../../../archive/sources/2026-07-05/source-west-in-shock-after-konstantinovka-fall-putin-resists-us-pressure-during-tense-trump-call-kharkov-2026-07-05.md) | West In Shock After Konstantinovka Fall; Putin Resists US Pressure During Tense Trump Call; Kharkov |
 
 ## Forecast Desk
 

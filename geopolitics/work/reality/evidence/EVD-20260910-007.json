@@ -1,0 +1,23 @@
+{
+  "access_language": "en",
+  "as_of": "2026-09-10",
+  "created_at": "2026-09-10T15:29:35.697372+00:00",
+  "created_by": "Codex; operator-authorized September 9 follow-up",
+  "event_time": "2026-09-09",
+  "evidence_role": "observational",
+  "geopolitical_environment": "western_state",
+  "id": "EVD-20260910-007",
+  "kind": "evidence",
+  "limitation": "Forecast model and dated inputs cannot establish current battle damage or universal physical fuel exhaustion.",
+  "observation": "The September STEO describes constrained oil movements and product-market pressure. Its projections use inputs finalized September 3; projected inventories and recovery are not observations of September 8-9 combat.",
+  "origin_language": "en",
+  "originating_chain": "EIA-STEO-20260909",
+  "representation_sha256": "1f593fe406ca83885dd0da02c441cd4e9f30660a613817637ac8a0e18e23d614",
+  "retrieved_at": "2026-09-10T15:29:35.697372+00:00",
+  "revision_of": null,
+  "schema_version": 1,
+  "source_id": "VSRC-ECO-EIA",
+  "status": "active",
+  "translation_provenance": "not_required",
+  "url": "https://www.eia.gov/outlooks/steo/pdf/steo_text.pdf"
+}

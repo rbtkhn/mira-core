@@ -58,11 +58,11 @@ This is the precise daily estimate now preserved.
 
 Only sources used by selected issue stories appear here. See the [complete canonical source accounting](sources.md).
 
-| Source ID | Voice | Archive source | Analytical job |
-| --- | --- | --- | --- |
-| `SRC-05` | Davis / Johnson | [2026-08-20 Davis / Johnson](../../../../archive/sources/geopolitics/sources/2026-08-20/source-4-us-driving-iran-into-china-s-arms-fmr-cia-analyst-larry-johnson-lt-col-daniel-davis-2026-08-20.md) | (4) US Driving Iran into China's Arms /fmr CIA Analyst Larry Johnson & Lt Col Daniel Davis |
-| `SRC-08` | Johnson | [2026-08-20 Johnson](../../../../archive/sources/geopolitics/sources/2026-08-20/source-larry-johnson-bessent-we-will-collapse-the-iranian-regime-as-china-rejects-u-s-sanctions-2026-08-20.md) | Larry Johnson: Bessent: "We Will COLLAPSE the Iranian Regime" as China REJECTS U.S. Sanctions |
-| `SRC-10` | Sawhney | [2026-08-20 Sawhney](../../../../archive/sources/geopolitics/sources/2026-08-20/source-trump-labels-hormuz-us-territory-after-discussing-nukes-in-security-meeting-w-pravin-sawhney-2026-08-20.md) | TRUMP LABELS HORMUZ US TERRITORY AFTER DISCUSSING NUKES IN SECURITY MEETING w/ Pravin Sawhney |
+| Source ID | Date | Title | URL | Voice | Archive source | Analytical job |
+| --- | --- | --- | --- | --- | --- | --- |
+| `SRC-05` |  |  |  | Davis / Johnson | [2026-08-20 Davis / Johnson](../../../../archive/sources/geopolitics/sources/2026-08-20/source-4-us-driving-iran-into-china-s-arms-fmr-cia-analyst-larry-johnson-lt-col-daniel-davis-2026-08-20.md) | (4) US Driving Iran into China's Arms /fmr CIA Analyst Larry Johnson & Lt Col Daniel Davis |
+| `SRC-08` |  |  |  | Johnson | [2026-08-20 Johnson](../../../../archive/sources/geopolitics/sources/2026-08-20/source-larry-johnson-bessent-we-will-collapse-the-iranian-regime-as-china-rejects-u-s-sanctions-2026-08-20.md) | Larry Johnson: Bessent: "We Will COLLAPSE the Iranian Regime" as China REJECTS U.S. Sanctions |
+| `SRC-10` |  |  |  | Sawhney | [2026-08-20 Sawhney](../../../../archive/sources/geopolitics/sources/2026-08-20/source-trump-labels-hormuz-us-territory-after-discussing-nukes-in-security-meeting-w-pravin-sawhney-2026-08-20.md) | TRUMP LABELS HORMUZ US TERRITORY AFTER DISCUSSING NUKES IN SECURITY MEETING w/ Pravin Sawhney |
 
 ## Forecast Desk
 

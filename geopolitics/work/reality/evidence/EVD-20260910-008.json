@@ -1,0 +1,23 @@
+{
+  "access_language": "en",
+  "as_of": "2026-09-10",
+  "created_at": "2026-09-10T15:29:35.697372+00:00",
+  "created_by": "Codex; operator-authorized September 9 follow-up",
+  "event_time": "2026-08-12",
+  "evidence_role": "observational",
+  "geopolitical_environment": "multilateral",
+  "id": "EVD-20260910-008",
+  "kind": "evidence",
+  "limitation": "July observations and August forecasts are background, not a September measurement; demand contraction is a rival adjustment mechanism.",
+  "observation": "The August report describes lower refinery throughput and tight product markets alongside adjustments in supply and demand. Product availability cannot be inferred from crude price alone.",
+  "origin_language": "en",
+  "originating_chain": "IEA-OMR-20260812",
+  "representation_sha256": "60ada613aba3d99ea816cde0792276793e355a1b558d86de718b403c2cd2f8a3",
+  "retrieved_at": "2026-09-10T15:29:35.697372+00:00",
+  "revision_of": null,
+  "schema_version": 1,
+  "source_id": "VSRC-ECO-IEA",
+  "status": "active",
+  "translation_provenance": "not_required",
+  "url": "https://www.iea.org/reports/oil-market-report-august-2026"
+}

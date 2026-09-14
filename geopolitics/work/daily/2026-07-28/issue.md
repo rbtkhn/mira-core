@@ -77,13 +77,13 @@ The Caspian vessel incident should be treated as an escalation bridge, not yet a
 
 Only sources used by selected issue stories appear here. See the [complete canonical source accounting](sources.md).
 
-| Source ID | Voice | Archive source | Analytical job |
-| --- | --- | --- | --- |
-| `SRC-03` | Weichert | [source](../../../archive/sources/2026-07-28/source-bibi-zelenskyy-meeting-trump-rumors-suggest-iranian-missiles-on-ukraine-2026-07-28.md) |  |
-| `SRC-08` | Helmer | [source](../../../archive/sources/2026-07-28/source-is-russia-helping-iran-to-target-the-cia-w-john-helmer-2026-07-28.md) |  |
-| `SRC-09` | Helmer | [source](../../../archive/sources/2026-07-28/source-john-helmer-ukraine-warns-of-imminent-iranian-ballistic-missile-attack-2026-07-28.md) |  |
-| `SRC-12` | Henningsen | [source](../../../archive/sources/2026-07-28/source-patrick-henningsen-satellite-imagery-confirms-direct-yemeni-strike-on-saudi-arabia-s-yanbu-refinery-2026-07-28.md) |  |
-| `SRC-18` | Maté | [source](../../../archive/sources/2026-07-28/source-we-want-to-strike-iran-s-energy-israel-s-defence-minister-w-aaron-mate-2026-07-28.md) |  |
+| Source ID | Date | Title | URL | Voice | Archive source | Analytical job |
+| --- | --- | --- | --- | --- | --- | --- |
+| `SRC-03` |  |  |  | Weichert | [source](../../../archive/sources/2026-07-28/source-bibi-zelenskyy-meeting-trump-rumors-suggest-iranian-missiles-on-ukraine-2026-07-28.md) |  |
+| `SRC-08` |  |  |  | Helmer | [source](../../../archive/sources/2026-07-28/source-is-russia-helping-iran-to-target-the-cia-w-john-helmer-2026-07-28.md) |  |
+| `SRC-09` |  |  |  | Helmer | [source](../../../archive/sources/2026-07-28/source-john-helmer-ukraine-warns-of-imminent-iranian-ballistic-missile-attack-2026-07-28.md) |  |
+| `SRC-12` |  |  |  | Henningsen | [source](../../../archive/sources/2026-07-28/source-patrick-henningsen-satellite-imagery-confirms-direct-yemeni-strike-on-saudi-arabia-s-yanbu-refinery-2026-07-28.md) |  |
+| `SRC-18` |  |  |  | Maté | [source](../../../archive/sources/2026-07-28/source-we-want-to-strike-iran-s-energy-israel-s-defence-minister-w-aaron-mate-2026-07-28.md) |  |
 
 ## Forecast Desk
 

@@ -1,0 +1,19 @@
+{
+  "aliases": [],
+  "as_of": "2026-09-10",
+  "claim_type": "causal",
+  "claimant_refs": [],
+  "consequence": "high",
+  "created_at": "2026-09-10T15:29:35.697372+00:00",
+  "created_by": "Codex; authorized retrospective investigation",
+  "crisis_object": "Can coercive pressure become an enforceable settlement?",
+  "empirical_eligibility": true,
+  "id": "OPC-20260910-02",
+  "kind": "claim",
+  "revision_of": null,
+  "schema_version": 1,
+  "scope": "Distinguish crude, product balances, geographic distribution, demand adaptation and timing; no universal exhaustion claim.",
+  "source_refs": [],
+  "status": "open",
+  "text": "Refining and product-delivery constraints explain September 9 fuel pressure better than crude scarcity alone."
+}

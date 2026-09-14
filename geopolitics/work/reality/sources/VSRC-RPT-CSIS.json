@@ -1,0 +1,40 @@
+{
+  "access": "open",
+  "access_languages": [
+    "en"
+  ],
+  "appropriate_uses": "Defense-industrial-base analysis, inventory estimates, replenishment timelines, and cited budget or acquisition leads.",
+  "as_of": "2026-09-03",
+  "canonical_url": "https://www.csis.org/",
+  "created_at": "2026-09-03T00:00:00Z",
+  "created_by": "operator",
+  "domain": "professional_reporting",
+  "evidence_class": "expert_commentary",
+  "geography": "United States and global",
+  "geopolitical_environment": "western_independent",
+  "id": "VSRC-RPT-CSIS",
+  "inappropriate_uses": "Treating modeled or estimated inventories as disclosed official stockpile counts, or counting reporting that cites the same CSIS estimate as independent confirmation.",
+  "kind": "source",
+  "known_failure_modes": "Expert modeling; opaque assumptions; reliance on public budget documents and unofficial estimates; policy framing may exceed disclosed data.",
+  "latency": "days-weeks",
+  "name": "Center for Strategic and International Studies",
+  "observables": "defense analysis, inventory estimates, procurement context, replenishment timelines",
+  "open_fallback": "self",
+  "order": 93,
+  "origin_languages": [
+    "en"
+  ],
+  "originating_chain_rule": "CSIS reports, charts, and commentary based on the same named analysis or estimate remain one CSIS chain; outside reporting that cites CSIS inherits that estimate lineage for the cited figures.",
+  "perspective": "western_independent",
+  "review_history": [
+    {
+      "date": "2026-09-03",
+      "note": "Added for interceptor-stock and defense-industrial-base verification packets; expert-analysis limits recorded.",
+      "reviewer": "operator"
+    }
+  ],
+  "revision_of": null,
+  "schema_version": 1,
+  "status": "candidate",
+  "translation_provenance": "not_required"
+}

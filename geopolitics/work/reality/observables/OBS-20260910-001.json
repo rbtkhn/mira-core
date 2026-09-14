@@ -1,0 +1,31 @@
+{
+  "as_of": "2026-09-10",
+  "claim_ids": [
+    "OPC-20260910-01"
+  ],
+  "created_at": "2026-09-10T15:29:35.697372+00:00",
+  "created_by": "operator",
+  "domain_profile": "DOMAIN-MILITARY-ACTIVITY",
+  "id": "OBS-20260910-001",
+  "kind": "observable",
+  "possible_results": [
+    "observed",
+    "not_observed",
+    "contested",
+    "unavailable"
+  ],
+  "question": "Exact hull damage and loss of mission capability; not all regional US access.",
+  "required_language_environments": [
+    "en",
+    "fa",
+    "ar"
+  ],
+  "resolution_rule": "Hold pending independent event evidence; official positions and models cannot establish physical damage or a causal ranking.",
+  "revision_of": null,
+  "schema_version": 1,
+  "status": "open",
+  "window": {
+    "end": "2026-09-09",
+    "start": "2026-09-08"
+  }
+}

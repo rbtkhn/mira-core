@@ -101,12 +101,12 @@ This final constraint is worth keeping in the note because it prevents later rea
 
 Only sources used by selected issue stories appear here. See the [complete canonical source accounting](sources.md).
 
-| Source ID | Voice | Archive source | Analytical job |
-| --- | --- | --- | --- |
-| `SRC-01` | Mercouris | [2026-07-04 Mercouris](../../../archive/sources/2026-07-04/source-konstantinovka-falls-final-donbas-battle-begins-putin-says-kharkov-sumy-are-russian-drone-war-fail-2026-07-04.md) | Konstantinovka Falls Final Donbas Battle Begins; Putin Says Kharkov Sumy Are Russian; Drone War Fail |
-| `SRC-02` | Johnson | [2026-07-04 Johnson](../../../archive/sources/2026-07-04/source-larry-johnson-bait-switch-u-s-efforts-to-renegotiate-the-mou-with-iran-2026-07-04.md) | Larry Johnson: Bait & Switch - U.S. Efforts to Renegotiate the MoU with Iran |
-| `SRC-03` | Johnson | [2026-07-04 Johnson](../../../archive/sources/2026-07-04/source-larry-johnson-iran-s-qhalibaf-fires-back-at-trump-not-a-proclamation-it-s-a-projection-2026-07-04.md) | Larry Johnson: Iran's Qhalibaf Fires Back at Trump — Not a Proclamation, It's a Projection |
-| `SRC-04` | Krapivnik | [2026-07-04 Krapivnik](../../../archive/sources/2026-07-04/source-stanislav-krapivnik-will-russia-strike-first-as-nato-prepares-for-war-2026-07-04.md) | Stanislav Krapivnik: Will Russia Strike First as NATO Prepares for War? |
+| Source ID | Date | Title | URL | Voice | Archive source | Analytical job |
+| --- | --- | --- | --- | --- | --- | --- |
+| `SRC-01` |  |  |  | Mercouris | [2026-07-04 Mercouris](../../../archive/sources/2026-07-04/source-konstantinovka-falls-final-donbas-battle-begins-putin-says-kharkov-sumy-are-russian-drone-war-fail-2026-07-04.md) | Konstantinovka Falls Final Donbas Battle Begins; Putin Says Kharkov Sumy Are Russian; Drone War Fail |
+| `SRC-02` |  |  |  | Johnson | [2026-07-04 Johnson](../../../archive/sources/2026-07-04/source-larry-johnson-bait-switch-u-s-efforts-to-renegotiate-the-mou-with-iran-2026-07-04.md) | Larry Johnson: Bait & Switch - U.S. Efforts to Renegotiate the MoU with Iran |
+| `SRC-03` |  |  |  | Johnson | [2026-07-04 Johnson](../../../archive/sources/2026-07-04/source-larry-johnson-iran-s-qhalibaf-fires-back-at-trump-not-a-proclamation-it-s-a-projection-2026-07-04.md) | Larry Johnson: Iran's Qhalibaf Fires Back at Trump — Not a Proclamation, It's a Projection |
+| `SRC-04` |  |  |  | Krapivnik | [2026-07-04 Krapivnik](../../../archive/sources/2026-07-04/source-stanislav-krapivnik-will-russia-strike-first-as-nato-prepares-for-war-2026-07-04.md) | Stanislav Krapivnik: Will Russia Strike First as NATO Prepares for War? |
 
 ## Forecast Desk
 

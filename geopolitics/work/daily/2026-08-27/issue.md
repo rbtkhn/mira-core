@@ -1,4 +1,4 @@
-<!-- daily-issue-v1 inputs-sha256: 0bc847cb7b479beac85bcc2e8573716b5222aa6d4bdff32c60a43e3e904c9c43 -->
+<!-- daily-issue-v1 inputs-sha256: 42d0128ec8e235476539f8b6569e5fa1c8f2a27daf624cb24ef32bc40b536132 -->
 <!-- reality-lattice-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 -->
 <!-- Generated file. Edit canonical daily or reality-lattice inputs, then regenerate. -->
 
@@ -82,16 +82,16 @@ This also explains why the lead story is framed around burden management rather 
 
 Only sources used by selected issue stories appear here. See the [complete canonical source accounting](sources.md).
 
-| Source ID | Voice | Archive source | Analytical job |
-| --- | --- | --- | --- |
-| `SRC-01` | Martyanov | [2026-08-27 Martyanov](../../../../archive/sources/geopolitics/sources/2026-08-27/source-andrei-martyanov-no-end-in-sight-inside-washington-s-growing-alarm-over-the-russia-iran-move-2026-08-27.md) | Andrei Martyanov: "No End in Sight": Inside Washington’s Growing Alarm Over the Russia-Iran Move |
-| `SRC-03` | Ritter | [2026-08-27 Ritter](../../../../archive/sources/geopolitics/sources/2026-08-27/source-breaking-real-reason-for-ratcliffe-russia-meeting-kuwait-pakistan-pact-us-send-carrier-to-iran-2026-08-27.md) | BREAKING: REAL REASON FOR RATCLIFFE RUSSIA MEETING, KUWAIT-PAKISTAN PACT, US SEND CARRIER TO IRAN, |
-| `SRC-04` | Johnson | [2026-08-27 Johnson](../../../../archive/sources/geopolitics/sources/2026-08-27/source-cia-moscow-meeting-what-s-that-about-fmr-cia-analyst-larry-johnson-lt-col-daniel-davis-2026-08-27.md) | CIA Moscow Meeting, What's That About? / fmr CIA Analyst Larry Johnson & Lt Col Daniel Davis |
-| `SRC-05` | Mercouris | [2026-08-27 Mercouris](../../../../archive/sources/geopolitics/sources/2026-08-27/source-deep-state-maximum-pressure-on-russia-as-ukraine-crumbles-2026-08-27.md) | Deep State Maximum Pressure on Russia as Ukraine Crumbles |
-| `SRC-07` | Jermy | [2026-08-27 Jermy](../../../../archive/sources/geopolitics/sources/2026-08-27/source-russia-directly-threatens-british-military-bases-steve-jermy-lt-col-daniel-davis-2026-08-27.md) | Russia Directly Threatens British Military Bases /Steve Jermy & Lt Col Daniel Davis |
-| `SRC-08` | Mercouris | [2026-08-27 Mercouris](../../../../archive/sources/geopolitics/sources/2026-08-27/source-russia-rejects-cia-chief-ratcliffe-spurns-west-pleas-for-ukraine-truce-slaviansk-battle-begins-2026-08-27.md) | Russia Rejects CIA Chief Ratcliffe Spurns West Pleas For Ukraine Truce; Slaviansk Battle Begins |
-| `SRC-09` | Aguilar | [2026-08-27 Aguilar](../../../../archive/sources/geopolitics/sources/2026-08-27/source-sanctions-against-iran-have-failed-and-war-will-restart-w-lt-col-anthony-aguilar-2026-08-27.md) | SANCTIONS AGAINST IRAN HAVE FAILED AND WAR WILL RESTART w/ Lt Col Anthony Aguilar |
-| `SRC-02` | Parsi | [2026-08-27 Parsi](../../../../archive/sources/geopolitics/sources/2026-08-27/source-breaking-iran-warns-israel-and-netanyahu-w-trita-parsi-2026-08-27.md) | BREAKING: IRAN WARNS ISRAEL AND NETANYAHU — w/ Trita Parsi |
+| Source ID | Date | Title | URL | Voice | Archive source | Analytical job |
+| --- | --- | --- | --- | --- | --- | --- |
+| `SRC-01` |  |  |  | Martyanov | [2026-08-27 Martyanov](../../../../archive/sources/geopolitics/sources/2026-08-27/source-andrei-martyanov-no-end-in-sight-inside-washington-s-growing-alarm-over-the-russia-iran-move-2026-08-27.md) | Andrei Martyanov: "No End in Sight": Inside Washington’s Growing Alarm Over the Russia-Iran Move |
+| `SRC-03` |  |  |  | Ritter | [2026-08-27 Ritter](../../../../archive/sources/geopolitics/sources/2026-08-27/source-breaking-real-reason-for-ratcliffe-russia-meeting-kuwait-pakistan-pact-us-send-carrier-to-iran-2026-08-27.md) | BREAKING: REAL REASON FOR RATCLIFFE RUSSIA MEETING, KUWAIT-PAKISTAN PACT, US SEND CARRIER TO IRAN, |
+| `SRC-04` |  |  |  | Johnson | [2026-08-27 Johnson](../../../../archive/sources/geopolitics/sources/2026-08-27/source-cia-moscow-meeting-what-s-that-about-fmr-cia-analyst-larry-johnson-lt-col-daniel-davis-2026-08-27.md) | CIA Moscow Meeting, What's That About? / fmr CIA Analyst Larry Johnson & Lt Col Daniel Davis |
+| `SRC-05` |  |  |  | Mercouris | [2026-08-27 Mercouris](../../../../archive/sources/geopolitics/sources/2026-08-27/source-deep-state-maximum-pressure-on-russia-as-ukraine-crumbles-2026-08-27.md) | Deep State Maximum Pressure on Russia as Ukraine Crumbles |
+| `SRC-07` |  |  |  | Jermy | [2026-08-27 Jermy](../../../../archive/sources/geopolitics/sources/2026-08-27/source-russia-directly-threatens-british-military-bases-steve-jermy-lt-col-daniel-davis-2026-08-27.md) | Russia Directly Threatens British Military Bases /Steve Jermy & Lt Col Daniel Davis |
+| `SRC-08` |  |  |  | Mercouris | [2026-08-27 Mercouris](../../../../archive/sources/geopolitics/sources/2026-08-27/source-russia-rejects-cia-chief-ratcliffe-spurns-west-pleas-for-ukraine-truce-slaviansk-battle-begins-2026-08-27.md) | Russia Rejects CIA Chief Ratcliffe Spurns West Pleas For Ukraine Truce; Slaviansk Battle Begins |
+| `SRC-09` |  |  |  | Aguilar | [2026-08-27 Aguilar](../../../../archive/sources/geopolitics/sources/2026-08-27/source-sanctions-against-iran-have-failed-and-war-will-restart-w-lt-col-anthony-aguilar-2026-08-27.md) | SANCTIONS AGAINST IRAN HAVE FAILED AND WAR WILL RESTART w/ Lt Col Anthony Aguilar |
+| `SRC-02` |  |  |  | Parsi | [2026-08-27 Parsi](../../../../archive/sources/geopolitics/sources/2026-08-27/source-breaking-iran-warns-israel-and-netanyahu-w-trita-parsi-2026-08-27.md) | BREAKING: IRAN WARNS ISRAEL AND NETANYAHU — w/ Trita Parsi |
 
 ## Forecast Desk
 

@@ -92,9 +92,9 @@ That restraint is especially important on July 11 because the day has one princi
 
 Only sources used by selected issue stories appear here. See the [complete canonical source accounting](sources.md).
 
-| Source ID | Voice | Archive source | Analytical job |
-| --- | --- | --- | --- |
-| `SRC-01` | Mercouris | [2026-07-11 Mercouris](../../../archive/sources/2026-07-11/source-russia-prepares-new-big-kiev-strike-china-stops-helium-exports-us-plans-more-anti-russia-sanctions-2026-07-11.md) | Russia Prepares New Big Kiev Strike; China Stops Helium Exports; US Plans More Anti Russia Sanctions |
+| Source ID | Date | Title | URL | Voice | Archive source | Analytical job |
+| --- | --- | --- | --- | --- | --- | --- |
+| `SRC-01` |  |  |  | Mercouris | [2026-07-11 Mercouris](../../../archive/sources/2026-07-11/source-russia-prepares-new-big-kiev-strike-china-stops-helium-exports-us-plans-more-anti-russia-sanctions-2026-07-11.md) | Russia Prepares New Big Kiev Strike; China Stops Helium Exports; US Plans More Anti Russia Sanctions |
 
 ## Forecast Desk
 

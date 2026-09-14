@@ -1,0 +1,19 @@
+{
+  "aliases": [],
+  "as_of": "2026-09-10",
+  "claim_type": "operational_factual",
+  "claimant_refs": [],
+  "consequence": "high",
+  "created_at": "2026-09-10T15:29:35.697372+00:00",
+  "created_by": "Codex; authorized retrospective investigation",
+  "crisis_object": "Can coercive pressure become an enforceable settlement?",
+  "empirical_eligibility": true,
+  "id": "OPC-20260910-01",
+  "kind": "claim",
+  "revision_of": null,
+  "schema_version": 1,
+  "scope": "Exact hull damage and loss of mission capability; not all regional US access.",
+  "source_refs": [],
+  "status": "open",
+  "text": "September 8-9 attacks disabled the American destroyers discussed in the September 9 archive."
+}

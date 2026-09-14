@@ -44,14 +44,14 @@ The day’s source set points to a common constraint rather than a settled battl
 
 Only sources used by selected issue stories appear here. See the [complete canonical source accounting](sources.md).
 
-| Source ID | Voice | Archive source | Analytical job |
-| --- | --- | --- | --- |
-| `SRC-01` | Mercouris | [2026-07-25 Mercouris](../../../archive/sources/2026-07-25/source-black-sea-now-russian-lake-west-s-grain-gamble-backfired-2026-07-25.md) | Black Sea Now Russian Lake, West's Grain Gamble Backfired |
-| `SRC-02` | Kent | [2026-07-25 Kent](../../../archive/sources/2026-07-25/source-joe-kent-iran-trap-u-s-ground-invasion-israeli-deception-2026-07-25.md) | Joe Kent: Iran Trap, U.S. Ground Invasion & Israeli Deception |
-| `SRC-03` | Johnson | [2026-07-25 Johnson](../../../archive/sources/2026-07-25/source-larry-johnson-yemen-slams-saudi-oil-as-iran-and-the-us-prepare-for-massive-moves-2026-07-25.md) | Larry Johnson: Yemen SLAMS Saudi Oil as Iran and the US Prepare for MASSIVE MOVES |
-| `SRC-04` | Mercouris | [2026-07-25 Mercouris](../../../archive/sources/2026-07-25/source-russia-strike-smashes-kiev-drone-fair-zelensky-angry-us-orders-kiev-stop-black-sea-attacks-kharkov-2026-07-25.md) | Russia Strike Smashes Kiev Drone Fair Zelensky Angry; US Orders Kiev Stop Black Sea Attacks; Kharkov |
-| `SRC-05` | Marandi | [2026-07-25 Marandi](../../../archive/sources/2026-07-25/source-seyed-m-marandi-aramco-facility-engulfed-in-flames-after-yemeni-missile-strike-2026-07-25.md) | Seyed M. Marandi: Aramco Facility Engulfed in Flames After Yemeni Missile Strike |
-| `SRC-06` | Weichert | [2026-07-25 Weichert](../../../archive/sources/2026-07-25/source-trump-preparing-massive-attack-on-iran-next-week-w-brandon-weichert-2026-07-25.md) | TRUMP PREPARING "MASSIVE ATTACK" ON IRAN NEXT WEEK - w/ Brandon Weichert |
+| Source ID | Date | Title | URL | Voice | Archive source | Analytical job |
+| --- | --- | --- | --- | --- | --- | --- |
+| `SRC-01` |  |  |  | Mercouris | [2026-07-25 Mercouris](../../../archive/sources/2026-07-25/source-black-sea-now-russian-lake-west-s-grain-gamble-backfired-2026-07-25.md) | Black Sea Now Russian Lake, West's Grain Gamble Backfired |
+| `SRC-02` |  |  |  | Kent | [2026-07-25 Kent](../../../archive/sources/2026-07-25/source-joe-kent-iran-trap-u-s-ground-invasion-israeli-deception-2026-07-25.md) | Joe Kent: Iran Trap, U.S. Ground Invasion & Israeli Deception |
+| `SRC-03` |  |  |  | Johnson | [2026-07-25 Johnson](../../../archive/sources/2026-07-25/source-larry-johnson-yemen-slams-saudi-oil-as-iran-and-the-us-prepare-for-massive-moves-2026-07-25.md) | Larry Johnson: Yemen SLAMS Saudi Oil as Iran and the US Prepare for MASSIVE MOVES |
+| `SRC-04` |  |  |  | Mercouris | [2026-07-25 Mercouris](../../../archive/sources/2026-07-25/source-russia-strike-smashes-kiev-drone-fair-zelensky-angry-us-orders-kiev-stop-black-sea-attacks-kharkov-2026-07-25.md) | Russia Strike Smashes Kiev Drone Fair Zelensky Angry; US Orders Kiev Stop Black Sea Attacks; Kharkov |
+| `SRC-05` |  |  |  | Marandi | [2026-07-25 Marandi](../../../archive/sources/2026-07-25/source-seyed-m-marandi-aramco-facility-engulfed-in-flames-after-yemeni-missile-strike-2026-07-25.md) | Seyed M. Marandi: Aramco Facility Engulfed in Flames After Yemeni Missile Strike |
+| `SRC-06` |  |  |  | Weichert | [2026-07-25 Weichert](../../../archive/sources/2026-07-25/source-trump-preparing-massive-attack-on-iran-next-week-w-brandon-weichert-2026-07-25.md) | TRUMP PREPARING "MASSIVE ATTACK" ON IRAN NEXT WEEK - w/ Brandon Weichert |
 
 ## Forecast Desk
 

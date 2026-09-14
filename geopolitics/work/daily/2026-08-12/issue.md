@@ -1,4 +1,4 @@
-<!-- daily-issue-v1 inputs-sha256: a7a7185acbd1009fd5e3f97413c99dd33ca7729dae657824897412ba4cbcc1fa -->
+<!-- daily-issue-v1 inputs-sha256: 1cd09182c5c85ab144d2b4331d300950d48e4f2e88fa3d485ef0df931b117bcf -->
 <!-- reality-lattice-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 -->
 <!-- Generated file. Edit canonical daily or reality-lattice inputs, then regenerate. -->
 
@@ -86,16 +86,16 @@ For internal strategy work, the implication is to stop treating Iran/Gulf pressu
 
 Only sources used by selected issue stories appear here. See the [complete canonical source accounting](sources.md).
 
-| Source ID | Voice | Archive source | Analytical job |
-| --- | --- | --- | --- |
-| `SRC-01` | Freeman | [2026-08-12 Freeman](../../../archive/sources/2026-08-12/source-3-chas-freeman-how-u-s-decline-reshapes-the-middle-east-2026-08-12.md) | (3) Chas Freeman: How U.S. Decline Reshapes the Middle East |
-| `SRC-02` | Wilkerson | [2026-08-12 Wilkerson](../../../archive/sources/2026-08-12/source-3-col-lawrence-wilkerson-is-the-us-a-republic-or-an-empire-2026-08-12.md) | (3) COL. Lawrence Wilkerson : Is the US a Republic or an Empire? |
-| `SRC-03` | Johnson | [2026-08-12 Johnson](../../../archive/sources/2026-08-12/source-3-larry-johnson-will-trump-declare-victory-against-iran-walk-away-without-a-nuclear-deal-2026-08-12.md) | (3) Larry Johnson: Will Trump Declare Victory Against Iran & Walk Away Without a Nuclear Deal? |
-| `SRC-04` | Krapivnik | [2026-08-12 Krapivnik](../../../archive/sources/2026-08-12/source-3-live-from-russia-stanislav-krapivnik-2026-08-12.md) | (3) LIVE from Russia Stanislav Krapivnik |
-| `SRC-05` | Aguilar | [2026-08-12 Aguilar](../../../archive/sources/2026-08-12/source-3-lt-col-anthony-aguilar-the-unraveling-of-the-uss-abraham-lincoln-2026-08-12.md) | (3) Lt. Col. Anthony Aguilar: The Unraveling of the USS Abraham Lincoln |
-| `SRC-06` | Mercouris | [2026-08-12 Mercouris](../../../archive/sources/2026-08-12/source-3-putin-orders-retaliatory-seizures-by-russian-navy-of-eu-ships-orekhov-crisis-kiev-brigade-trapped-2026-08-12.md) | (3) Putin Orders Retaliatory Seizures By Russian Navy Of EU Ships; Orekhov Crisis Kiev Brigade Trapped |
-| `SRC-07` | Barnes | [2026-08-12 Barnes](../../../archive/sources/2026-08-12/source-3-robert-barnes-nobody-s-pushing-back-on-trump-in-the-admin-re-iran-war-2026-08-12.md) | (3) Robert Barnes: Nobody's Pushing Back on Trump in the Admin re: IRAN WAR |
-| `SRC-08` | Ritter | [2026-08-12 Ritter](../../../archive/sources/2026-08-12/source-3-scott-ritter-russia-ukraine-mental-warfare-societal-pressures-rising-2026-08-12.md) | (3) Scott Ritter: Russia Ukraine MENTAL WARFARE, Societal Pressures Rising |
+| Source ID | Date | Title | URL | Voice | Archive source | Analytical job |
+| --- | --- | --- | --- | --- | --- | --- |
+| `SRC-01` |  |  |  | Freeman | [2026-08-12 Freeman](../../../archive/sources/2026-08-12/source-3-chas-freeman-how-u-s-decline-reshapes-the-middle-east-2026-08-12.md) | (3) Chas Freeman: How U.S. Decline Reshapes the Middle East |
+| `SRC-02` |  |  |  | Wilkerson | [2026-08-12 Wilkerson](../../../archive/sources/2026-08-12/source-3-col-lawrence-wilkerson-is-the-us-a-republic-or-an-empire-2026-08-12.md) | (3) COL. Lawrence Wilkerson : Is the US a Republic or an Empire? |
+| `SRC-03` |  |  |  | Johnson | [2026-08-12 Johnson](../../../archive/sources/2026-08-12/source-3-larry-johnson-will-trump-declare-victory-against-iran-walk-away-without-a-nuclear-deal-2026-08-12.md) | (3) Larry Johnson: Will Trump Declare Victory Against Iran & Walk Away Without a Nuclear Deal? |
+| `SRC-04` |  |  |  | Krapivnik | [2026-08-12 Krapivnik](../../../archive/sources/2026-08-12/source-3-live-from-russia-stanislav-krapivnik-2026-08-12.md) | (3) LIVE from Russia Stanislav Krapivnik |
+| `SRC-05` |  |  |  | Aguilar | [2026-08-12 Aguilar](../../../archive/sources/2026-08-12/source-3-lt-col-anthony-aguilar-the-unraveling-of-the-uss-abraham-lincoln-2026-08-12.md) | (3) Lt. Col. Anthony Aguilar: The Unraveling of the USS Abraham Lincoln |
+| `SRC-06` |  |  |  | Mercouris | [2026-08-12 Mercouris](../../../archive/sources/2026-08-12/source-3-putin-orders-retaliatory-seizures-by-russian-navy-of-eu-ships-orekhov-crisis-kiev-brigade-trapped-2026-08-12.md) | (3) Putin Orders Retaliatory Seizures By Russian Navy Of EU Ships; Orekhov Crisis Kiev Brigade Trapped |
+| `SRC-07` |  |  |  | Barnes | [2026-08-12 Barnes](../../../archive/sources/2026-08-12/source-3-robert-barnes-nobody-s-pushing-back-on-trump-in-the-admin-re-iran-war-2026-08-12.md) | (3) Robert Barnes: Nobody's Pushing Back on Trump in the Admin re: IRAN WAR |
+| `SRC-08` |  |  |  | Ritter | [2026-08-12 Ritter](../../../archive/sources/2026-08-12/source-3-scott-ritter-russia-ukraine-mental-warfare-societal-pressures-rising-2026-08-12.md) | (3) Scott Ritter: Russia Ukraine MENTAL WARFARE, Societal Pressures Rising |
 
 ## Forecast Desk
 

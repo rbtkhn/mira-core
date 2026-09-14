@@ -1,4 +1,4 @@
-<!-- reality-lattice-v1 records-sha256: a92591b6ae7f5931380ef21a7c367494a8cb4946e67028ebeaaa006819f9149e -->
+<!-- reality-lattice-v1 records-sha256: 6e2998c1368ae5cb5a9f64acbf215888425eaa0728b4e57e2fef2332e03e60a8 -->
 <!-- Generated from structured reality records. Do not edit directly. -->
 
 # Unresolved Reality Claims
@@ -51,3 +51,5 @@
 | `OPC-20260720-01` | `operational_factual` | `high` | `unassessed` | 3 language environment(s); 3 chain(s) |
 | `OPC-20260818-01` | `operational_factual` | `high` | `unassessed` | 3 language environment(s); 3 chain(s) |
 | `OPC-20260822-01` | `operational_factual` | `medium` | `supported` | assessment/review |
+| `OPC-20260910-01` | `operational_factual` | `high` | `unassessed` | 3 language environment(s); 3 chain(s) |
+| `OPC-20260910-02` | `causal` | `high` | `unassessed` | 3 language environment(s); 3 chain(s) |

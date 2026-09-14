@@ -13,11 +13,11 @@ This briefing is advisory continuity, not research evidence or action authority.
 
 ## Recent Visibility
 
-- `MS-01a06fd7-3bb9-7701-a82a-248d5fc69391` — 2026-09-05T14:54:17.921Z; 1 immutable capture(s).
-- `MS-01a071db-960e-7fb3-8992-fd929e5c6846` — 2026-09-05T14:54:12.482Z; 1 immutable capture(s).
-- `MS-01a07208-a983-7693-80f5-741e164e5e4d` — 2026-09-05T14:54:05.196Z; 1 immutable capture(s).
-- `MS-01a071b2-7a91-7e03-833a-5c8fd5d9b970` — 2026-09-05T14:44:02.220Z; 1 immutable capture(s).
-- `MS-01a071e3-09c0-7d12-baee-7d826108cafb` — 2026-09-05T14:38:19.007Z; 1 immutable capture(s).
+- `MS-01a09df8-fdc0-7e41-a6f6-2af5d8b2fe1e` — 2026-09-14T04:36:24.568Z; 1 immutable capture(s).
+- `MS-01a09bef-0176-7873-a929-d84f223e4b01` — 2026-09-14T04:35:49.546Z; 1 immutable capture(s).
+- `MS-01a09e2e-58a7-7331-9623-8a582ddc39ac` — 2026-09-14T04:34:36.536Z; 1 immutable capture(s).
+- `MS-01a09e21-f117-72e2-94fc-f18224f4fa55` — 2026-09-14T04:30:36.032Z; 1 immutable capture(s).
+- `MS-01a09e03-0c9a-7410-b4e3-d9b112d24e50` — 2026-09-14T04:28:54.414Z; 1 immutable capture(s).
 
 ## Open Trajectory Questions
 

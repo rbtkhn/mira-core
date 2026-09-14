@@ -1,0 +1,40 @@
+{
+  "access": "open",
+  "access_languages": [
+    "en"
+  ],
+  "appropriate_uses": "Dated institutional position and published measures.",
+  "as_of": "2026-09-10",
+  "canonical_url": "https://energy.ec.europa.eu/",
+  "created_at": "2026-09-10T15:29:35.697372+00:00",
+  "created_by": "Codex; operator-authorized September 9 follow-up",
+  "domain": "energy_market",
+  "evidence_class": "official_interested_primary",
+  "geography": "european",
+  "geopolitical_environment": "european",
+  "id": "VSRC-OFF-EUDGENERGY",
+  "inappropriate_uses": "Independent confirmation of adversary behavior or universal supply adequacy.",
+  "kind": "source",
+  "known_failure_modes": "Selective disclosure; policy and institutional incentives.",
+  "latency": "days",
+  "name": "European Commission DG Energy",
+  "observables": "Dated public statements",
+  "open_fallback": "self",
+  "order": 1001,
+  "origin_languages": [
+    "en"
+  ],
+  "originating_chain_rule": "All republication of this statement remains one institutional chain.",
+  "perspective": "western_state",
+  "review_history": [
+    {
+      "date": "2026-09-10",
+      "note": "Bounded original statement inspection; not operational adjudication.",
+      "reviewer": "Codex"
+    }
+  ],
+  "revision_of": null,
+  "schema_version": 1,
+  "status": "active",
+  "translation_provenance": "not_required"
+}

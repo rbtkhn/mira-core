@@ -55,6 +55,9 @@ MANIFEST_PATH = NG_ROOT.parent / "archive" / "sources" / "geopolitics" / "source
 DAILY_ROOT = NG_ROOT / "work" / "daily"
 LEDGER_PATH = NG_ROOT / "work" / "forecasts" / "forecast-ledger.md"
 LOCAL_SKILLS = {
+    "mira-studio",
+    "mira-study",
+    "newsletter-capture",
     "tower",
     "mira-youtube",
     "mira-treasury",
@@ -65,14 +68,17 @@ LOCAL_SKILLS = {
     "archive-audit",
     "archive-query",
     "archive-repair",
+    "bridge",
     "coffee",
     "dream",
     "geopolitical-synthesis",
+    "harvest",
     "intent-recovery",
     "library-import",
     "library-integration",
     "library-journal",
     "library-reasoning",
+    "library-simulation",
     "mechanism-lens",
     "mira-essays",
     "mira-face",
@@ -84,6 +90,7 @@ LOCAL_SKILLS = {
     "mira-notes",
     "mira-read",
     "mira-sessions",
+    "mira-mind",
     "mira-voice",
     "mira-work",
     "morning-brief",
@@ -91,6 +98,7 @@ LOCAL_SKILLS = {
     "rest",
     "research-brief",
     "skill-audit",
+    "voice-revision-audit",
     "x-recon",
     "youtube-capture",
 }
@@ -110,8 +118,8 @@ LEGACY_REPOSITORY_NAME_ALLOWLIST = frozenset({
     "docs/plans/2026-08-16-mira-archive-name-migration.md",
     "mira/constitution.schema.json",
     "mira/face/landing-page/encounter.schema.json",
-    "archive/notes/2026-08-15-from-civilization-memory-to-mira-core.md",
-    "archive/notes/2026-08-16-recent-architectural-changes.md",
+    "archive/notes/development/mira-architectural-lineage.md",
+    "archive/notes/development/mira-core-transition-architecture.md",
     "narrative-geopolitics/work/system-improvement/recursive-learning-ledger.json",
     "scripts/contradiction_kernel.provenance.json",
     "scripts/mira_continuity.py",
@@ -131,15 +139,16 @@ LEGACY_REPOSITORY_DISPLAY_NAME_ALLOWLIST = frozenset({
     "docs/audits/2026-08-14-mira-journal-session-coverage.md",
     "docs/plans/2026-08-13-system-archive-membrane-repair.md",
     "archive/essays/2026-08-11-an-archaeology-of-constructed-minds.md",
-    "archive/notes/2026-08-10-innermost-loop-baseline.md",
-    "archive/notes/2026-08-10-one-year-developmental-hypothesis.md",
-    "archive/notes/2026-08-11-evolution-of-repo-audit.md",
-    "archive/notes/2026-08-15-from-civilization-memory-to-mira-core.md",
+    "archive/notes/singularity/innermost-loop-judgment-baseline.md",
+    "archive/notes/singularity/innermost-loop-developmental-hypothesis-2026-2027.md",
+    "archive/notes/development/repo-audit-development-history.md",
+    "archive/notes/development/mira-architectural-lineage.md",
     "narrative-geopolitics/work/system-improvement/recursive-learning-ledger.json",
     "narrative-geopolitics/work/system-improvement/recursive-learning-ledger.md",
     "scripts/validate_repository.py",
     "tests/test_runtime_tooling.py",
 })
+LEGACY_REPOSITORY_HISTORICAL_PREFIXES = ("docs/work-journal/",)
 LEGACY_REPOSITORY_IDENTITIES = (
     (LEGACY_REPOSITORY_NAME, LEGACY_REPOSITORY_NAME_ALLOWLIST),
     (LEGACY_REPOSITORY_DISPLAY_NAME, LEGACY_REPOSITORY_DISPLAY_NAME_ALLOWLIST),
@@ -153,6 +162,8 @@ LEGACY_ARCHIVE_TOKENS = (
     "narrative-system-archive",
 )
 LEGACY_ARCHIVE_COMPATIBILITY_FILES = frozenset({
+    # Documents the actual legacy shim; this is not a lineage-wide exemption.
+    "lineage/shared-toolchain-spec.md",
     "archive/README.md",
     "archive/context-policy.json",
     "archive/essays/README.md",
@@ -187,6 +198,7 @@ LEGACY_ARCHIVE_HISTORICAL_PREFIXES = (
     "archive/sources/geopolitics/sources/",
     "narrative-geopolitics/voices/",
     "narrative-geopolitics/work/",
+    "docs/work-journal/",
 )
 
 MARKDOWN_LINK_RE = re.compile(r"\[[^\]]+\]\(([^)]+)\)")
@@ -194,7 +206,7 @@ HOOK_ID_RE = re.compile(r"`(NG-\d{8}-F\d{2})`")
 H1_RE = re.compile(r"^# (?P<title>.+?)\s*$", re.MULTILINE)
 TITLE_RATIONALE_RE = re.compile(r"^Title rationale:\s*`?(?P<value>.+?)`?\s*$", re.MULTILINE)
 ADMIN_TITLE_RE = re.compile(
-    r"^(?:untitled|draft|analysis|essay|report|notes?|daily brief|working paper)(?:\s*[:—-].*)?$",
+    r"^(?:untitled|draft|analysis|essay|report|notes?|daily brief|working paper)(?:\s*[:â€”-].*)?$",
     re.IGNORECASE,
 )
 PLACEHOLDER_TITLE_RE = re.compile(r"\[[^\]]+\]|<[^>]+>|YYYY(?:-MM-DD)?", re.IGNORECASE)
@@ -722,9 +734,17 @@ def legacy_repository_identity_failures() -> list[str]:
     for identity, allowlist in LEGACY_REPOSITORY_IDENTITIES:
         found = found_by_identity[identity]
         allowlist = {canonical_geopolitics_reference(path) for path in allowlist}
+        historical = {
+            canonical_geopolitics_reference(path)
+            for path in found
+            if any(
+                path.startswith(canonical_geopolitics_reference(prefix).rstrip("/") + "/")
+                for prefix in LEGACY_REPOSITORY_HISTORICAL_PREFIXES
+            )
+        }
         failures.extend(
             f"operative legacy repository identity {identity!r}: {path}"
-            for path in sorted(found - allowlist)
+            for path in sorted(found - allowlist - historical)
         )
         failures.extend(
             f"legacy repository identity {identity!r} allowlist entry no longer resolves: {path}"

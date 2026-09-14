@@ -1,4 +1,4 @@
-<!-- daily-issue-v1 inputs-sha256: b301c8be4949e59e59b994f62015c3e069dad915031ebad41de8e9622753ad34 -->
+<!-- daily-issue-v1 inputs-sha256: 7970ad3c510c7561553d1c3d4af34d7328571e06bf8a63e7d186fcf9bf4e5488 -->
 <!-- reality-lattice-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 -->
 <!-- Generated file. Edit canonical daily or reality-lattice inputs, then regenerate. -->
 
@@ -98,11 +98,11 @@ Iran’s leverage over Hormuz should be understood as the ability to condition o
 
 Only sources used by selected issue stories appear here. See the [complete canonical source accounting](sources.md).
 
-| Source ID | Voice | Archive source | Analytical job |
-| --- | --- | --- | --- |
-| `SRC-03` | Parsi | [2026-08-04 Parsi](../../../archive/sources/2026-08-04/source-breaking-iran-to-control-hormuz-w-trita-parsi-2026-08-04.md) | BREAKING: IRAN TO CONTROL HORMUZ - w/ Trita Parsi |
-| `SRC-02` | Freeman | [2026-08-04 Freeman](../../../archive/sources/2026-08-04/source-amb-chas-freeman-netanyahu-leaves-trump-empty-handed-2026-08-04.md) | AMB. Chas Freeman : Netanyahu Leaves Trump Empty Handed |
-| `SRC-06` | Johnson | [2026-08-04 Johnson](../../../archive/sources/2026-08-04/source-larry-johnson-desperation-as-america-s-weapons-stockpiles-deplete-in-iran-2026-08-04.md) | Larry Johnson: Desperation as America's Weapons Stockpiles Deplete in Iran |
+| Source ID | Date | Title | URL | Voice | Archive source | Analytical job |
+| --- | --- | --- | --- | --- | --- | --- |
+| `SRC-03` |  |  |  | Parsi | [2026-08-04 Parsi](../../../archive/sources/2026-08-04/source-breaking-iran-to-control-hormuz-w-trita-parsi-2026-08-04.md) | BREAKING: IRAN TO CONTROL HORMUZ - w/ Trita Parsi |
+| `SRC-02` |  |  |  | Freeman | [2026-08-04 Freeman](../../../archive/sources/2026-08-04/source-amb-chas-freeman-netanyahu-leaves-trump-empty-handed-2026-08-04.md) | AMB. Chas Freeman : Netanyahu Leaves Trump Empty Handed |
+| `SRC-06` |  |  |  | Johnson | [2026-08-04 Johnson](../../../archive/sources/2026-08-04/source-larry-johnson-desperation-as-america-s-weapons-stockpiles-deplete-in-iran-2026-08-04.md) | Larry Johnson: Desperation as America's Weapons Stockpiles Deplete in Iran |
 
 ## Forecast Desk
 

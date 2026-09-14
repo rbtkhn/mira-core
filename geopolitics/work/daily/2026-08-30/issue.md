@@ -1,4 +1,4 @@
-<!-- daily-issue-v1 inputs-sha256: a46a1790a69bf7e496c724c2797d40603d78d7f28b969a717145efc5672aa4d3 -->
+<!-- daily-issue-v1 inputs-sha256: 1613a4bd60ed91a935650bed70d63fb3291e6ed3b588b81197afd1edfb8ff3a3 -->
 <!-- reality-lattice-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 -->
 <!-- Generated file. Edit canonical daily or reality-lattice inputs, then regenerate. -->
 
@@ -78,11 +78,11 @@ The public-use boundary is firm. The packet should not be used to claim what hap
 
 Only sources used by selected issue stories appear here. See the [complete canonical source accounting](sources.md).
 
-| Source ID | Voice | Archive source | Analytical job |
-| --- | --- | --- | --- |
-| `SRC-01` | Mercouris | [2026-08-30 Mercouris](../../../../archive/sources/geopolitics/sources/2026-08-30/source-armenia-ditches-russia-for-the-eu-and-azerbaijan-2026-08-30.md) | Armenia Ditches Russia for the EU and Azerbaijan |
-| `SRC-02` | Sachs | [2026-08-30 Sachs](../../../../archive/sources/geopolitics/sources/2026-08-30/source-nato-s-new-plans-to-destroy-russia-prof-jeffrey-sachs-2026-08-30.md) | NATO's New Plans To Destroy Russia - Prof. Jeffrey Sachs |
-| `SRC-03` | Mercouris | [2026-08-30 Mercouris](../../../../archive/sources/geopolitics/sources/2026-08-30/source-russia-announces-will-smash-ukraine-s-energy-system-zelensky-blames-others-as-kiev-hit-again-sumy-2026-08-30.md) | Russia Announces Will Smash Ukraine's Energy System; Zelensky Blames Others As Kiev Hit Again, Sumy |
+| Source ID | Date | Title | URL | Voice | Archive source | Analytical job |
+| --- | --- | --- | --- | --- | --- | --- |
+| `SRC-01` |  |  |  | Mercouris | [2026-08-30 Mercouris](../../../../archive/sources/geopolitics/sources/2026-08-30/source-armenia-ditches-russia-for-the-eu-and-azerbaijan-2026-08-30.md) | Armenia Ditches Russia for the EU and Azerbaijan |
+| `SRC-02` |  |  |  | Sachs | [2026-08-30 Sachs](../../../../archive/sources/geopolitics/sources/2026-08-30/source-nato-s-new-plans-to-destroy-russia-prof-jeffrey-sachs-2026-08-30.md) | NATO's New Plans To Destroy Russia - Prof. Jeffrey Sachs |
+| `SRC-03` |  |  |  | Mercouris | [2026-08-30 Mercouris](../../../../archive/sources/geopolitics/sources/2026-08-30/source-russia-announces-will-smash-ukraine-s-energy-system-zelensky-blames-others-as-kiev-hit-again-sumy-2026-08-30.md) | Russia Announces Will Smash Ukraine's Energy System; Zelensky Blames Others As Kiev Hit Again, Sumy |
 
 ## Forecast Desk
 

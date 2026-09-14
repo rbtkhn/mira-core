@@ -1,0 +1,19 @@
+{
+  "affected_artifacts": [],
+  "affected_forecast_hooks": [],
+  "as_of": "2026-08-18",
+  "claim_ids": [
+    "OPC-20260818-01"
+  ],
+  "created_at": "2026-08-18T00:00:00Z",
+  "created_by": "operator",
+  "id": "VER-20260818-01",
+  "kind": "investigation",
+  "observable_ids": [
+    "OBS-20260818-001"
+  ],
+  "research_boundary": "Determine whether Hormuz traffic was materially constrained during August 16-18, 2026, using independent maritime tracking, official, commercial, affected-region, claimant, challenged-actor, and external reporting lineages. Do not treat route-governance rhetoric, blockade posture, or oil-price movement alone as proof of traffic constraint.",
+  "revision_of": null,
+  "schema_version": 1,
+  "status": "requested"
+}

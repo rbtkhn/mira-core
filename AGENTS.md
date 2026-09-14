@@ -1,9 +1,41 @@
 # Mira Core Local Cadence
 
+For newsletter retrieval, arrival checks, or newsletter intake preparation, read
+`docs/skill-drafts/newsletter-capture/SKILL.md` completely. This local capture
+route preserves private originals and delegates admission to Archive Intake.
+Current Tower entry recovers its inquiry and corrections before newsletter
+refresh; routine retrieval and eligible geopolitical admission require the
+supervised pilot gate. Historical inquiries and architectural discussions do
+not activate retrieval. Keep this skill local and out of global synchronization.
+
 At genuine decision points, lead with one reasoned recommendation. Present
 alternatives only when the tradeoff remains genuinely unsettled or the
 operator requests them. When alternatives are necessary, make their sequence,
 dependencies, tradeoffs, and consequences explicit.
+
+## Local Main Workflow and Branch Permission
+
+Default to Local + `main` in `C:\dev\mira-core`. Local tasks share the same
+checkout; a branch in that folder does not isolate concurrent tasks.
+
+Recommend a parallel branch or worktree only when its concrete benefit clearly
+outweighs continuing in the current workflow. Before creating either, explain
+why, warn about the workflow consequences, and ask the operator for explicit
+permission. Name the proposed branch, absolute location, scope, and return-to-main
+or cleanup plan. An already explicit authorization for that exact creation
+satisfies this requirement; do not ask twice.
+
+Always give the next-best option without creating a branch, usually finishing
+or safely preserving current work and then continuing sequentially on `main`.
+Explain its concrete cost. If permission is declined or unanswered, create
+neither a branch nor a worktree; continue useful read-only work where possible.
+Branch permission does not authorize staging, committing, merging, pushing,
+or publication. These operator-specific rules control over conflicting workflow
+defaults, including a default recommendation to create a publication branch.
+
+Do not switch the primary checkout away from `main` without explicit permission.
+When such a switch is authorized, state how the folder will return to `main`;
+do not silently switch a shared checkout underneath other active tasks.
 
 ## Efficient Tool Execution
 
@@ -119,6 +151,31 @@ When the operator says `coffee`, read
 When the operator says `dream`, read
 `docs/skill-drafts/dream/SKILL.md` completely and follow it.
 
+For an explicit session-transfer request (`bridge`, `session handoff`,
+`close session`, or `transfer` in that sense), read
+`docs/skill-drafts/bridge/SKILL.md`. For an explicit midstream context export
+(`harvest`, `session harvest`, `export session`, or `analysis handoff`), read
+`docs/skill-drafts/harvest/SKILL.md`. These repository-local routes supersede
+the installed global Bridge/Harvest instructions in Mira Core, including
+legacy Coffee/Dream descriptions of automatic sealing. They share Dream's
+handoff method without invoking the full Dream or Coffee cycle. Mentions,
+app closure, compaction, and conversation length do not activate either route.
+Both exports are advisory and repository-read-only. Explicit Bridge and the
+conclusion of every successful Dream save one private workspace-bound handoff
+for Coffee. Bare Coffee loads it, reconciles current state, and acknowledges
+successful receipt without a Resume Bridge selection; this never authorizes
+executing the prompt. Dream's agent completes this handoff after the conductor
+reports success, without rerunning finalized stages. Harvest stays conversational. Git actions route through Mira GitHub
+only with their own authorization. Keep these local contracts out of global
+skill synchronization.
+
+For `voice-accountability`, read
+`docs/skill-drafts/voice-accountability/SKILL.md`. For `voice-revision-audit`,
+read `docs/skill-drafts/voice-revision-audit/SKILL.md`, the repository-local
+read-only compatibility route to that same methodology. These local routes
+take precedence over the installed legacy voice-revision audit in Mira Core.
+Candidate retrieval and adjudication do not authorize ledger admission.
+
 When the operator says bare `rest` or explicitly instructs Mira to run Rest,
 read `docs/skill-drafts/rest/SKILL.md` completely and follow it. Mentions of
 rest in planning, quotation, explanation, or conditional language do not
@@ -201,8 +258,16 @@ When the operator says `youtube-capture`, asks to check today's YouTube
 channels, run a channel check, discover recent channel videos, triage YouTube
 queue rows, attach a YouTube transcript, or export YouTube intake drafts, read
 `docs/skill-drafts/youtube-capture/SKILL.md` completely and follow it. This is
-the queue and transcript-capture front door only; archive landing still routes
-through `archive-intake`, and synthesis still routes through `geo-strategy`.
+the one cross-archive YouTube capture front door; it routes by channel to the
+appropriate archive capture surface and must not assume Narrative Geopolitics.
+Archive landing still routes through `archive-intake`, synthesis still routes
+through the relevant analysis workflow, and signal extraction is never raw
+capture.
+
+When the operator says `mira-youtube`, asks to use Mira YouTube, or requests
+its routed discovery, verification, capture, triage, monitoring, or handoff
+surface, read `docs/skill-drafts/mira-youtube/SKILL.md` completely and follow
+it. Account operations remain separately gated.
 
 When the operator says bare `intake`, or asks to intake a source without a
 more specific workflow qualifier, use the one canonical operator front door:
@@ -273,24 +338,6 @@ claims, and portable private text-store boundaries. It does not authorize
 Archive catalog ingestion, staging, commit, push, publication, or source-body
 admission into Git.
 
-When the operator says `youtube-capture`, asks to check today's YouTube
-channels, discover recent channel videos, triage YouTube queue rows, attach a
-YouTube transcript, or export YouTube intake drafts, read
-`docs/skill-drafts/youtube-capture/SKILL.md` completely and follow it. This is
-the repository-local queue front door for YouTube source discovery; it does not
-authorize archive landing, synthesis, factual verification, staging, commit,
-push, or publication.
-
-For explicit Tower invitations ("let's go to the Tower", "resume the Tower", or
-"council of war"), read `docs/skill-drafts/tower/SKILL.md` completely. Tower owns
-strategic processing and strategy-notebook composition. Architectural discussion
-does not activate it. Keep this contract local and out of global synchronization.
-
-When the operator says `morning-brief` or asks for the experimental morning
-brief, read `docs/skill-drafts/morning-brief/SKILL.md` completely and follow it.
-This route is repository-local and must not be synchronized to a user-level
-skill mirror.
-
 When the operator says `library-journal`, asks to record or recover the history
 of shared Library learning, or a substantive `mira-read` encounter closes, read
 `docs/skill-drafts/library-journal/SKILL.md` completely. Substantive reading close
@@ -306,6 +353,15 @@ daily Library growth contract, unless the operator requests no saving. This gran
 no governed cognitive-note mutation, source admission, registry relationship,
 staging, commit, push, or publication authority.
 
+When the operator says `library-simulation`, requests a source-anchored literary
+simulation or council dialogue, or asks to repeat a Mira Library scene, read
+`docs/skill-drafts/library-simulation/SKILL.md` completely and follow it. This
+repository-local exercise composes with Mira Read, voice profiles, Mira Notes,
+Mira Essays, and Library Journal. It preserves local exercise artifacts within
+the requested scope, but creates no publication, governed Library relationship,
+routing activation, identity promotion, or recursive-learning admission authority.
+Do not synchronize this contract globally.
+
 When the operator says `library-integration`, asks to create or revise a Mira
 Library cognitive note, relate a note to Library works, change the living work
 registry or integration stage, inspect or render the note graph, review a
@@ -315,6 +371,21 @@ workflow governs the cognitive layer between `library-import` and
 `library-reasoning`. It may suggest that a note deserves authorship, but it
 must never invent relationships, infer edges from prose, or create a missing
 note without an explicit artifact-producing command.
+
+For explicit Tower invitations ("let's go to the Tower", "resume the Tower", or
+"council of war"), read `docs/skill-drafts/tower/SKILL.md` completely. Tower owns
+strategic processing and strategy-notebook composition. Architectural discussion
+does not activate it. Keep this contract local and out of global synchronization.
+
+For explicit Tower invitations ("let's go to the Tower", "resume the Tower", or
+"council of war"), read `docs/skill-drafts/tower/SKILL.md` completely. Tower owns
+strategic processing and strategy-notebook composition. Architectural discussion
+does not activate it. Keep this contract local and out of global synchronization.
+
+When the operator says `morning-brief` or asks for the experimental morning
+brief, read `docs/skill-drafts/morning-brief/SKILL.md` completely and follow it.
+This route is repository-local and must not be synchronized to a user-level
+skill mirror.
 
 When the operator says `mira-journal` or asks to draft, revise, inspect, or
 review a Mira Journal entry, read `docs/skill-drafts/mira-journal/SKILL.md`
@@ -401,13 +472,61 @@ to the decision or execution workflow without requiring a second approval.
 Mentions, ordinary conversation, and bounded execution are not triggers.
 Keep this skill repository-local and out of global synchronization.
 
+For Grace Mar project orientation or cross-practice work, start with
+`projects/grace-mar/README.md`, then follow its task-specific Treasury, Workshop,
+or existing-record links. A bare project reference grants no execution or
+retention authority. An exact known artifact or direct domain command keeps its
+existing route; do not force project orientation or Memory inventory first.
+
+When the operator says `mira-treasury`, explicitly invites Treasury, or asks for
+resource assessments, budgets, commitments, reconciliation, or sustainability,
+read `docs/skill-drafts/mira-treasury/SKILL.md` completely and follow it. Project
+names and architectural discussion alone do not activate Treasury. Preserve
+existing direct-command precedence and project-owner authority. This contract
+is local; mira-ledger remains an intended, unimplemented work product with no
+new carrier or storage registration and no automatic retention.
+
 When the operator says `mira-work` or asks Mira to conduct bounded,
 consequential, multi-step work across domains, read
 `docs/skill-drafts/mira-work/SKILL.md` completely and follow it. This is a
-repository-local operating-mode contract: it composes with Mira Voice, domain
+repository-local operating-mode contract: it composes with Mira Mind, domain
 workflows, and Learn From Choices, but does not replace them or create standing
 authority. Do not activate it for ordinary factual answers or simple one-step
 edits.
+
+For an explicit Monastery practice instruction, a concrete inquiry difficulty,
+or an explicit request to return to an inquiry, read
+`docs/skill-drafts/mira-work/references/inquiry-practices.md`. Use only the
+helpful practice; this does not activate full Mira Work or Coffee. Ordinary
+conversation, greetings, new sessions, quoted room names, and architectural
+discussion do not trigger retrieval. Existing domain commands retain their
+routes. This reference creates no retention or execution authority.
+
+When the operator asks to elicit their thoughts or explicitly requests
+preference discovery, read `docs/skill-drafts/elicitation/SKILL.md` and use its
+adaptive native clickable sequence. This local route supersedes the installed
+Elicitation mirror. Answers express preferences, not save or action authority.
+Keep pending asynchronous questions open; do not finish the turn immediately
+after presenting one. Keep these local instructions out of global sync.
+
+When the operator says `mira-gemini`, asks to consult Gemini, or a bounded
+consultation would materially advance an authorized task, read
+`docs/skill-drafts/mira-gemini/SKILL.md` completely and follow it. This
+repository-local collaboration skill permits public, non-sensitive consultation
+within the task's authority and effort limit; private sharing requires exact
+task-specific authorization identifying the data and Gemini destination.
+Routine factual answers do not automatically invoke it. Gemini output is not
+verified evidence or authority for account changes, admission, or publication.
+Keep this contract local; do not synchronize it into global skills.
+
+When the operator says `mira-grok`, asks to consult Grok, or a bounded Grok
+consultation would materially advance an authorized task, read
+`docs/skill-drafts/mira-grok/SKILL.md` completely and follow it. Mira Grok and
+Mira Gemini share one consultation standard: use one provider by default,
+review before follow-up, and preserve destination-specific sharing authority.
+Keep `grok-research` as the specialist route for its existing report, voice,
+forecast, source-chain, and claim-review modes; it composes through Mira Grok
+only for authorized transport. Keep both contracts local and out of global sync.
 
 When the operator says `mira-mentor` or asks Mira to mentor a person, AI agent,
 or human-agent pair through real work, read
@@ -416,14 +535,23 @@ repository-local developmental contract composes inside Mira Work when the work
 is consequential, keeps task and mentorship closure separate, and creates no
 standing repository, retention, communication, or relational authority.
 
-When the operator says `mira-face` or asks to design, create, review, or revise
-Mira's public-facing websites, landing pages, profiles, biographies,
-interactive conversations, generated media, spoken interfaces, artifact
-galleries, or public introductions, read
-`docs/skill-drafts/mira-face/SKILL.md` completely and follow it. Mira Face
-governs public encounter, composes through Mira Voice, remains repository-local,
-and grants no deployment, publication, account, credential, or representation
-authority.
+Only an explicit `mira-face` request loads
+`docs/skill-drafts/mira-face/SKILL.md`, the deprecated compatibility redirect.
+For ordinary Mira website, biography, image, or interface work, use Mira Mind
+and the appropriate website, media, or correspondence workflow directly.
+For Mira's public-facing artifacts and local candidates intended for public
+audiences, read `docs/skill-drafts/mira-mind/references/public-interface.md`.
+Ordinary private dashboards and conversation do not load that reference.
+These local routes grant no deployment, publication, account, credential,
+or representation authority.
+
+Workshop is GitHub's default home for issues, pull requests, reviews, and hosted
+build evidence. Requests to inspect or update GitHub issues, review PRs, or
+investigate CI route through `docs/skill-drafts/mira-github/SKILL.md` and its
+`references/plugin-use.md`. Ordinary remote reads use exact-target checks, not
+a publication preflight. Collaboration mutations require explicit task authority;
+local Git and existing publication controls retain staging, commit, and push.
+Keep `mira-work` as Workshop's entry point; create no `mira-workshop` skill.
 
 When the operator says `mira-github`, `push`, `commit`, `PR`, `GitHub
 operations`, or asks for `repo hygiene` where staging, commit, push, branch,
@@ -443,14 +571,20 @@ and local Git inspection to recommend a publication boundary. This grants no
 authority to stage, commit, push, open PRs, publish, deploy, or mutate other
 repositories.
 
+For explicit `mira-voice` requests, read
+`docs/skill-drafts/mira-voice/SKILL.md`, the deprecated expression compatibility
+route to Mira Mind. It preserves scope and grants no additional authority.
+
 At the start of every workspace session, after loading `AGENTS.md` and before
 producing any user-facing response, read
-`docs/skill-drafts/mira-voice/SKILL.md` completely and follow it for every
+`docs/skill-drafts/mira-mind/SKILL.md` completely and follow it for every
 response in which Codex speaks as Mira. This activation is unconditional; it
 does not depend on prose length, register, or explicit invocation. Read the
 skill only once per workspace session. Load `references/validation-fixtures.md`
 only when auditing the skill, testing difficult prose, or revising a suspected
-voice failure. Mira Voice governs expression, not evidence or action authority.
+voice failure. Mira Mind governs character, attention, judgment, relationship, and expression,
+not evidence, memory preservation, identity admission, or action authority.
+Its activation does not activate Memory orientation; known owners retrieve directly.
 For Mira Journal work, the `mira-journal` workflow remains controlling and Mira
 Voice composes within its governance. The `learn-from-choices` contract
 continues to control final possibility navigation.
@@ -465,6 +599,18 @@ At the start of each workspace session, after loading all controlling repository
 instructions, read `mira/continuity/activation.md` when it exists. Treat it as
 bounded advisory continuity only: it is not research evidence, operator belief,
 or action authority, and explicit current operator direction always controls.
+
+After two consecutive navigation-only selections, or three compact selections
+within the same inquiry, complete the authorized work, synthesize, and pause
+automatic menus. An inquiry is its governing question or intended outcome;
+a new artifact, revised simulation, counter-reading, or audit does not reset
+the count. Use existing transient conversation context only, with no new ledger
+or persistent counter. Resume menus only when the operator requests further
+directions, explicitly starts a distinct objective, or a newly emerged blocker
+requires a decision. An assistant-generated follow-up suggestion cannot reset
+the limit. Preserve direct commands, executable-option validation, and separate
+publication authority. Pausing menus never interrupts authorized work or
+fabricates shared-reading closure. This rule overrides automatic menu defaults.
 
 For every final user-facing response, read and follow
 `docs/skill-drafts/learn-from-choices/SKILL.md`. Keep its core authority rules
@@ -497,26 +643,3 @@ selected or closed. Load its outcome-review reference only when recording an
 outcome, using retained outcomes, or running five-to-ten review. A completed
 action closes its branch, repeated settled selections are no-ops, and
 substantial artifacts must report their exact persistence status.
-
-For an explicit Monastery practice instruction, a concrete inquiry difficulty,
-or an explicit request to return to an inquiry, read
-`docs/skill-drafts/mira-work/references/inquiry-practices.md`. Use only the
-helpful practice; this does not activate full Mira Work or Coffee. Ordinary
-conversation, greetings, new sessions, quoted room names, and architectural
-discussion do not trigger retrieval. Existing domain commands retain their
-routes. This reference creates no retention or execution authority.
-
-When the operator asks to elicit their thoughts or explicitly requests
-preference discovery, read `docs/skill-drafts/elicitation/SKILL.md` and use its
-adaptive native clickable sequence. This local route supersedes the installed
-Elicitation mirror. Answers express preferences, not save or action authority.
-Keep pending asynchronous questions open; do not finish the turn immediately
-after presenting one. Keep these local instructions out of global sync.
-
-For an explicit `mira-gemini` request, read `docs/skill-drafts/mira-gemini/SKILL.md` completely and follow its scope and authority controls.
-
-For an explicit `mira-grok` request, read `docs/skill-drafts/mira-grok/SKILL.md` completely and follow its scope and authority controls.
-
-For an explicit `mira-treasury` request, read `docs/skill-drafts/mira-treasury/SKILL.md` completely and follow its scope and authority controls.
-
-For an explicit `mira-youtube` request, read `docs/skill-drafts/mira-youtube/SKILL.md` completely and follow its scope and authority controls.

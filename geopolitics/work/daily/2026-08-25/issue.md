@@ -1,4 +1,4 @@
-<!-- daily-issue-v1 inputs-sha256: 2cbe96ab1549a67dbd6f8b8d549ad66253de031bde52643eb46a7a984421f22d -->
+<!-- daily-issue-v1 inputs-sha256: d1a8d8b1f35c5d15d5184fb86fbdfb125d21238b57a19bc9a1f6759ef6f2f6c5 -->
 <!-- reality-lattice-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 -->
 <!-- Generated file. Edit canonical daily or reality-lattice inputs, then regenerate. -->
 
@@ -76,14 +76,14 @@ That is why the day belongs in a complete archive. Completeness is not achieved 
 
 Only sources used by selected issue stories appear here. See the [complete canonical source accounting](sources.md).
 
-| Source ID | Voice | Archive source | Analytical job |
-| --- | --- | --- | --- |
-| `SRC-01` | Henningsen | [2026-08-25 Henningsen](../../../../archive/sources/geopolitics/sources/2026-08-25/source-patrick-henningsen-israel-s-losses-mount-as-new-middle-east-reality-sets-in-2026-08-25.md) | Patrick Henningsen: Israel's Losses Mount As New Middle East Reality Sets In |
-| `SRC-02` | Pape | [2026-08-25 Pape](../../../../archive/sources/geopolitics/sources/2026-08-25/source-trump-s-sanctions-the-ultimate-escalation-trap-war-now-imminent-w-prof-robert-pape-2026-08-25.md) | TRUMP'S SANCTIONS "THE ULTIMATE ESCALATION TRAP", WAR NOW IMMINENT - w/ Prof. Robert Pape |
-| `SRC-03` | Johnson | [2026-08-25 Johnson](../../../../archive/sources/geopolitics/sources/2026-08-25/source-larry-johnson-iran-invited-to-join-the-turkey-saudi-pakistan-defence-pact-2026-08-25.md) | Larry Johnson: Iran Invited to Join the Turkey-Saudi-Pakistan Defence Pact |
-| `SRC-04` | Mercouris, Cristoforou | [2026-08-25 The Duran](../../../../archive/sources/geopolitics/sources/2026-08-25/source-operation-economic-outcast-bessent-s-economic-war-with-china-2026-08-25.md) | Operation Economic Outcast: Bessent's Economic War with China |
-| `SRC-05` | Freeman | [2026-08-25 Freeman](../../../../archive/sources/geopolitics/sources/2026-08-25/source-amb-chas-freeman-israel-is-now-an-american-problem-2026-08-25.md) | AMB. Chas Freeman: Israel Is Now an American Problem |
-| `SRC-06` | Helmer | [2026-08-25 Helmer](../../../../archive/sources/geopolitics/sources/2026-08-25/source-john-helmer-the-empire-crumbles-the-war-on-iran-and-russia-just-changed-everything-2026-08-25.md) | John Helmer: The Empire Crumbles: the War on Iran and Russia Just Changed Everything |
+| Source ID | Date | Title | URL | Voice | Archive source | Analytical job |
+| --- | --- | --- | --- | --- | --- | --- |
+| `SRC-01` |  |  |  | Henningsen | [2026-08-25 Henningsen](../../../../archive/sources/geopolitics/sources/2026-08-25/source-patrick-henningsen-israel-s-losses-mount-as-new-middle-east-reality-sets-in-2026-08-25.md) | Patrick Henningsen: Israel's Losses Mount As New Middle East Reality Sets In |
+| `SRC-02` |  |  |  | Pape | [2026-08-25 Pape](../../../../archive/sources/geopolitics/sources/2026-08-25/source-trump-s-sanctions-the-ultimate-escalation-trap-war-now-imminent-w-prof-robert-pape-2026-08-25.md) | TRUMP'S SANCTIONS "THE ULTIMATE ESCALATION TRAP", WAR NOW IMMINENT - w/ Prof. Robert Pape |
+| `SRC-03` |  |  |  | Johnson | [2026-08-25 Johnson](../../../../archive/sources/geopolitics/sources/2026-08-25/source-larry-johnson-iran-invited-to-join-the-turkey-saudi-pakistan-defence-pact-2026-08-25.md) | Larry Johnson: Iran Invited to Join the Turkey-Saudi-Pakistan Defence Pact |
+| `SRC-04` |  |  |  | Mercouris, Cristoforou | [2026-08-25 The Duran](../../../../archive/sources/geopolitics/sources/2026-08-25/source-operation-economic-outcast-bessent-s-economic-war-with-china-2026-08-25.md) | Operation Economic Outcast: Bessent's Economic War with China |
+| `SRC-05` |  |  |  | Freeman | [2026-08-25 Freeman](../../../../archive/sources/geopolitics/sources/2026-08-25/source-amb-chas-freeman-israel-is-now-an-american-problem-2026-08-25.md) | AMB. Chas Freeman: Israel Is Now an American Problem |
+| `SRC-06` |  |  |  | Helmer | [2026-08-25 Helmer](../../../../archive/sources/geopolitics/sources/2026-08-25/source-john-helmer-the-empire-crumbles-the-war-on-iran-and-russia-just-changed-everything-2026-08-25.md) | John Helmer: The Empire Crumbles: the War on Iran and Russia Just Changed Everything |
 
 ## Forecast Desk
 

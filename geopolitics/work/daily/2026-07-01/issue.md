@@ -99,13 +99,13 @@ For that reason, this issue remains deliberately explicit about what it owns. It
 
 Only sources used by selected issue stories appear here. See the [complete canonical source accounting](sources.md).
 
-| Source ID | Voice | Archive source | Analytical job |
-| --- | --- | --- | --- |
-| `SRC-01` | Macgregor | [2026-07-01 Macgregor](../../../archive/sources/2026-07-01/source-douglas-macgregor-putin-s-new-war-objective-capturing-all-of-novorossiya-2026-07-01.md) | Douglas Macgregor: Putin's New War Objective - Capturing All of Novorossiya |
-| `SRC-02` | Jiang | [2026-07-01 Jiang](../../../archive/sources/2026-07-01/source-jiang-xueqin-trump-s-world-order-normalising-insanity-2026-07-01.md) | Jiang Xueqin: Trump's World Order & Normalising Insanity |
-| `SRC-03` | Ritter | [2026-07-01 Ritter](../../../archive/sources/2026-07-01/source-scott-ritter-trump-briefed-on-all-out-war-scenario-in-iran-2026-07-01.md) | Scott Ritter: Trump Briefed on All-Out War Scenario in Iran |
-| `SRC-04` | Mercouris | [2026-07-01 Mercouris](../../../archive/sources/2026-07-01/source-syrsky-refutes-zelensky-russia-plans-kiev-capture-ukraine-army-situation-bad-kiev-drone-war-falters-2026-07-01.md) | Syrsky Refutes Zelensky Russia Plans Kiev Capture Ukraine Army Situation Bad; Kiev Drone War Falters |
-| `SRC-05` | Parsi | [2026-07-01 Parsi](../../../archive/sources/2026-07-01/source-why-iran-believes-israel-will-attack-again-before-october-2026-07-01.md) | Why Iran believes Israel will attack again before October |
+| Source ID | Date | Title | URL | Voice | Archive source | Analytical job |
+| --- | --- | --- | --- | --- | --- | --- |
+| `SRC-01` |  |  |  | Macgregor | [2026-07-01 Macgregor](../../../archive/sources/2026-07-01/source-douglas-macgregor-putin-s-new-war-objective-capturing-all-of-novorossiya-2026-07-01.md) | Douglas Macgregor: Putin's New War Objective - Capturing All of Novorossiya |
+| `SRC-02` |  |  |  | Jiang | [2026-07-01 Jiang](../../../archive/sources/2026-07-01/source-jiang-xueqin-trump-s-world-order-normalising-insanity-2026-07-01.md) | Jiang Xueqin: Trump's World Order & Normalising Insanity |
+| `SRC-03` |  |  |  | Ritter | [2026-07-01 Ritter](../../../archive/sources/2026-07-01/source-scott-ritter-trump-briefed-on-all-out-war-scenario-in-iran-2026-07-01.md) | Scott Ritter: Trump Briefed on All-Out War Scenario in Iran |
+| `SRC-04` |  |  |  | Mercouris | [2026-07-01 Mercouris](../../../archive/sources/2026-07-01/source-syrsky-refutes-zelensky-russia-plans-kiev-capture-ukraine-army-situation-bad-kiev-drone-war-falters-2026-07-01.md) | Syrsky Refutes Zelensky Russia Plans Kiev Capture Ukraine Army Situation Bad; Kiev Drone War Falters |
+| `SRC-05` |  |  |  | Parsi | [2026-07-01 Parsi](../../../archive/sources/2026-07-01/source-why-iran-believes-israel-will-attack-again-before-october-2026-07-01.md) | Why Iran believes Israel will attack again before October |
 
 ## Forecast Desk
 

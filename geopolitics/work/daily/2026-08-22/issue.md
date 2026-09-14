@@ -60,11 +60,11 @@ This estimate is complete.
 
 Only sources used by selected issue stories appear here. See the [complete canonical source accounting](sources.md).
 
-| Source ID | Voice | Archive source | Analytical job |
-| --- | --- | --- | --- |
-| `SRC-01` | Johnson | [2026-08-22 Johnson](../../../../archive/sources/geopolitics/sources/2026-08-22/source-breaking-iran-threatens-to-strike-countries-that-abide-by-trump-s-sanctions-w-larry-johnson-2026-08-22.md) | BREAKING: IRAN THREATENS TO STRIKE COUNTRIES THAT ABIDE BY TRUMP'S SANCTIONS — w/ Larry Johnson |
-| `SRC-02` | Davis | [2026-08-22 Davis](../../../../archive/sources/geopolitics/sources/2026-08-22/source-iran-remains-fearless-lt-col-daniel-davis-2026-08-22.md) | IRAN REMAINS FEARLESS /Lt Col Daniel Davis |
-| `SRC-06` | Marandi | [2026-08-22 Marandi](../../../../archive/sources/geopolitics/sources/2026-08-22/source-seyed-m-marandi-trump-to-squeeze-iran-s-economy-to-the-brink-but-tehran-just-doubled-its-arsenal-2026-08-22.md) | Seyed M. Marandi: Trump to Squeeze Iran’s Economy to the Brink—But Tehran Just Doubled Its Arsenal |
+| Source ID | Date | Title | URL | Voice | Archive source | Analytical job |
+| --- | --- | --- | --- | --- | --- | --- |
+| `SRC-01` |  |  |  | Johnson | [2026-08-22 Johnson](../../../../archive/sources/geopolitics/sources/2026-08-22/source-breaking-iran-threatens-to-strike-countries-that-abide-by-trump-s-sanctions-w-larry-johnson-2026-08-22.md) | BREAKING: IRAN THREATENS TO STRIKE COUNTRIES THAT ABIDE BY TRUMP'S SANCTIONS — w/ Larry Johnson |
+| `SRC-02` |  |  |  | Davis | [2026-08-22 Davis](../../../../archive/sources/geopolitics/sources/2026-08-22/source-iran-remains-fearless-lt-col-daniel-davis-2026-08-22.md) | IRAN REMAINS FEARLESS /Lt Col Daniel Davis |
+| `SRC-06` |  |  |  | Marandi | [2026-08-22 Marandi](../../../../archive/sources/geopolitics/sources/2026-08-22/source-seyed-m-marandi-trump-to-squeeze-iran-s-economy-to-the-brink-but-tehran-just-doubled-its-arsenal-2026-08-22.md) | Seyed M. Marandi: Trump to Squeeze Iran’s Economy to the Brink—But Tehran Just Doubled Its Arsenal |
 
 ## Forecast Desk
 

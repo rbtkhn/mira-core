@@ -66,16 +66,16 @@ The standard-consistent boundary is plain. The packet does not verify tanker str
 
 Only sources used by selected issue stories appear here. See the [complete canonical source accounting](sources.md).
 
-| Source ID | Voice | Archive source | Analytical job |
-| --- | --- | --- | --- |
-| `SRC-01` | Unassigned | `archive/sources/geopolitics/sources/2026-08-21/source-4-chas-freeman-israel-turkey-conflict-could-explode-into-war-2026-08-21.md` |  |
-| `SRC-02` | Unassigned | `archive/sources/geopolitics/sources/2026-08-21/source-4-iran-knows-the-west-must-feel-pain-alastair-crooke-lt-col-daniel-davis-2026-08-21.md` |  |
-| `SRC-03` | Unassigned | `archive/sources/geopolitics/sources/2026-08-21/source-4-israel-to-strike-turkey-trump-s-economic-war-against-iran-w-larry-johnson-2026-08-21.md` |  |
-| `SRC-04` | Unassigned | `archive/sources/geopolitics/sources/2026-08-21/source-4-nima-r-alkhorshid-all-bets-are-off-syria-to-join-the-mecca-joint-defense-pact-a-path-to-iran-2026-08-21.md` |  |
-| `SRC-05` | Unassigned | `archive/sources/geopolitics/sources/2026-08-21/source-4-trump-s-economic-siege-on-iran-china-and-brics-stand-in-the-way-2026-08-21.md` |  |
-| `SRC-06` | Unassigned | `archive/sources/geopolitics/sources/2026-08-21/source-amb-chas-freeman-israel-in-panic-emergency-security-summit-called-as-turkey-rushes-arms-to-syria-2026-08-21.md` |  |
-| `SRC-07` | Unassigned | `archive/sources/geopolitics/sources/2026-08-21/source-intel-roundtable-w-larry-johnson-scott-ritter-weekly-wrap-21-august-2026-08-21.md` |  |
-| `SRC-08` | Unassigned | `archive/sources/geopolitics/sources/2026-08-21/source-larry-johnson-the-trap-is-set-america-s-confrontation-with-iran-is-unwinnable-iran-quits-npt-2026-08-21.md` |  |
+| Source ID | Date | Title | URL | Voice | Archive source | Analytical job |
+| --- | --- | --- | --- | --- | --- | --- |
+| `SRC-01` |  | [(4) Chas Freeman: Israel-Turkey Conflict Could Explode Into War](../../../../archive/sources/geopolitics/sources/2026-08-21/source-4-chas-freeman-israel-turkey-conflict-could-explode-into-war-2026-08-21.md) |  | Unassigned | `archive/sources/geopolitics/sources/2026-08-21/source-4-chas-freeman-israel-turkey-conflict-could-explode-into-war-2026-08-21.md` |  |
+| `SRC-02` |  | [(4) Iran Knows: THE WEST MUST FEEL PAIN / Alastair Crooke & Lt Col Daniel Davis](../../../../archive/sources/geopolitics/sources/2026-08-21/source-4-iran-knows-the-west-must-feel-pain-alastair-crooke-lt-col-daniel-davis-2026-08-21.md) |  | Unassigned | `archive/sources/geopolitics/sources/2026-08-21/source-4-iran-knows-the-west-must-feel-pain-alastair-crooke-lt-col-daniel-davis-2026-08-21.md` |  |
+| `SRC-03` |  | [(4) ISRAEL TO STRIKE TURKEY, TRUMP'S ECONOMIC WAR AGAINST IRAN w/ Larry Johnson](../../../../archive/sources/geopolitics/sources/2026-08-21/source-4-israel-to-strike-turkey-trump-s-economic-war-against-iran-w-larry-johnson-2026-08-21.md) |  | Unassigned | `archive/sources/geopolitics/sources/2026-08-21/source-4-israel-to-strike-turkey-trump-s-economic-war-against-iran-w-larry-johnson-2026-08-21.md` |  |
+| `SRC-04` |  | [(4) Nima R. Alkhorshid: ALL BETS ARE OFF - Syria to join the Mecca Joint Defense Pact & a Path To Iran](../../../../archive/sources/geopolitics/sources/2026-08-21/source-4-nima-r-alkhorshid-all-bets-are-off-syria-to-join-the-mecca-joint-defense-pact-a-path-to-iran-2026-08-21.md) |  | Unassigned | `archive/sources/geopolitics/sources/2026-08-21/source-4-nima-r-alkhorshid-all-bets-are-off-syria-to-join-the-mecca-joint-defense-pact-a-path-to-iran-2026-08-21.md` |  |
+| `SRC-05` |  | [(4) Trump's Economic Siege on Iran, China and BRICS Stand in the Way](../../../../archive/sources/geopolitics/sources/2026-08-21/source-4-trump-s-economic-siege-on-iran-china-and-brics-stand-in-the-way-2026-08-21.md) |  | Unassigned | `archive/sources/geopolitics/sources/2026-08-21/source-4-trump-s-economic-siege-on-iran-china-and-brics-stand-in-the-way-2026-08-21.md` |  |
+| `SRC-06` |  | [Amb. Chas Freeman: Israel in PANIC - Emergency Security Summit Called as Turkey Rushes Arms to Syria](../../../../archive/sources/geopolitics/sources/2026-08-21/source-amb-chas-freeman-israel-in-panic-emergency-security-summit-called-as-turkey-rushes-arms-to-syria-2026-08-21.md) |  | Unassigned | `archive/sources/geopolitics/sources/2026-08-21/source-amb-chas-freeman-israel-in-panic-emergency-security-summit-called-as-turkey-rushes-arms-to-syria-2026-08-21.md` |  |
+| `SRC-07` |  | [INTEL Roundtable w/ Larry Johnson & Scott Ritter : Weekly Wrap - 21 AUGUST](../../../../archive/sources/geopolitics/sources/2026-08-21/source-intel-roundtable-w-larry-johnson-scott-ritter-weekly-wrap-21-august-2026-08-21.md) |  | Unassigned | `archive/sources/geopolitics/sources/2026-08-21/source-intel-roundtable-w-larry-johnson-scott-ritter-weekly-wrap-21-august-2026-08-21.md` |  |
+| `SRC-08` |  | [Larry Johnson: The Trap is Set: America's Confrontation with Iran is Unwinnable, Iran Quits NPT?](../../../../archive/sources/geopolitics/sources/2026-08-21/source-larry-johnson-the-trap-is-set-america-s-confrontation-with-iran-is-unwinnable-iran-quits-npt-2026-08-21.md) |  | Unassigned | `archive/sources/geopolitics/sources/2026-08-21/source-larry-johnson-the-trap-is-set-america-s-confrontation-with-iran-is-unwinnable-iran-quits-npt-2026-08-21.md` |  |
 
 ## Forecast Desk
 

@@ -1,4 +1,4 @@
-<!-- daily-issue-v1 inputs-sha256: 4302560b3b93ad873e84c8adc635425793da978f881ba1b164a817eb68696363 -->
+<!-- daily-issue-v1 inputs-sha256: 86b199ed346d87ccea997a87ed5c55adfd4e20e889c8cb7591d2cd005224c823 -->
 <!-- reality-lattice-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 -->
 <!-- Generated file. Edit canonical daily or reality-lattice inputs, then regenerate. -->
 
@@ -81,14 +81,14 @@ For internal use, the correct disposition is to retain the story as bounded anal
 
 Only sources used by selected issue stories appear here. See the [complete canonical source accounting](sources.md).
 
-| Source ID | Voice | Archive source | Analytical job |
-| --- | --- | --- | --- |
-| `SRC-01` | Johnson | [2026-08-02 Johnson](../../../archive/sources/2026-08-02/source-larry-johnson-i-called-it-off-trump-confirms-scrapped-iran-attack-amid-drone-impacts-in-kurdistan-2026-08-02.md) | Larry Johnson: I Called It Off: Trump Confirms Scrapped Iran Attack Amid Drone Impacts in Kurdistan |
-| `SRC-02` | Ritter | [2026-08-02 Ritter](../../../archive/sources/2026-08-02/source-live-scott-ritter-iran-and-russia-wars-now-entering-most-dangerous-phase-2026-08-02.md) | 🚨 LIVE: Scott Ritter - Iran and Russia Wars Now Entering Most Dangerous Phase |
-| `SRC-03` | McGovern | [2026-08-02 McGovern](../../../archive/sources/2026-08-02/source-ray-mcgovern-iran-s-gulf-shockwave-how-precision-strikes-just-collapsed-the-war-strategy-2026-08-02.md) | Ray McGovern: IRAN'S GULF SHOCKWAVE: How 'Precision' Strikes Just Collapsed the War Strategy |
-| `SRC-04` | Weichert | [2026-08-02 Weichert](../../../archive/sources/2026-08-02/source-trump-iran-begged-him-not-to-strike-as-they-are-ready-for-deal-2026-08-02.md) | TRUMP: IRAN BEGGED HIM NOT TO STRIKE AS THEY ARE READY FOR DEAL |
-| `SRC-05` | Davis | [2026-08-02 Davis](../../../archive/sources/2026-08-02/source-trump-tacos-again-what-s-next-lt-col-daniel-davis-2026-08-02.md) | Trump Tacos Again! What's Next /Lt Col Daniel Davis |
-| `SRC-06` | Mercouris | [2026-08-02 Mercouris](../../../archive/sources/2026-08-02/source-ukraine-landocked-russia-cuts-off-odessa-land-sea-routes-rassvet-begins-operating-merz-implodes-2026-08-02.md) | Ukraine Landocked; Russia Cuts Off Odessa Land Sea Routes; Rassvet Begins Operating; Merz Implodes |
+| Source ID | Date | Title | URL | Voice | Archive source | Analytical job |
+| --- | --- | --- | --- | --- | --- | --- |
+| `SRC-01` |  |  |  | Johnson | [2026-08-02 Johnson](../../../archive/sources/2026-08-02/source-larry-johnson-i-called-it-off-trump-confirms-scrapped-iran-attack-amid-drone-impacts-in-kurdistan-2026-08-02.md) | Larry Johnson: I Called It Off: Trump Confirms Scrapped Iran Attack Amid Drone Impacts in Kurdistan |
+| `SRC-02` |  |  |  | Ritter | [2026-08-02 Ritter](../../../archive/sources/2026-08-02/source-live-scott-ritter-iran-and-russia-wars-now-entering-most-dangerous-phase-2026-08-02.md) | 🚨 LIVE: Scott Ritter - Iran and Russia Wars Now Entering Most Dangerous Phase |
+| `SRC-03` |  |  |  | McGovern | [2026-08-02 McGovern](../../../archive/sources/2026-08-02/source-ray-mcgovern-iran-s-gulf-shockwave-how-precision-strikes-just-collapsed-the-war-strategy-2026-08-02.md) | Ray McGovern: IRAN'S GULF SHOCKWAVE: How 'Precision' Strikes Just Collapsed the War Strategy |
+| `SRC-04` |  |  |  | Weichert | [2026-08-02 Weichert](../../../archive/sources/2026-08-02/source-trump-iran-begged-him-not-to-strike-as-they-are-ready-for-deal-2026-08-02.md) | TRUMP: IRAN BEGGED HIM NOT TO STRIKE AS THEY ARE READY FOR DEAL |
+| `SRC-05` |  |  |  | Davis | [2026-08-02 Davis](../../../archive/sources/2026-08-02/source-trump-tacos-again-what-s-next-lt-col-daniel-davis-2026-08-02.md) | Trump Tacos Again! What's Next /Lt Col Daniel Davis |
+| `SRC-06` |  |  |  | Mercouris | [2026-08-02 Mercouris](../../../archive/sources/2026-08-02/source-ukraine-landocked-russia-cuts-off-odessa-land-sea-routes-rassvet-begins-operating-merz-implodes-2026-08-02.md) | Ukraine Landocked; Russia Cuts Off Odessa Land Sea Routes; Rassvet Begins Operating; Merz Implodes |
 
 ## Forecast Desk
 

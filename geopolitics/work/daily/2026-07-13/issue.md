@@ -108,18 +108,18 @@ This also keeps the briefs from becoming clutter. Secondary clusters are include
 
 Only sources used by selected issue stories appear here. See the [complete canonical source accounting](sources.md).
 
-| Source ID | Voice | Archive source | Analytical job |
-| --- | --- | --- | --- |
-| `SRC-01` | Parsi | [2026-07-13 Parsi](../../../archive/sources/2026-07-13/source-a-new-u-s-iran-war-would-end-where-the-last-one-did-2026-07-13.md) | A new U.S.-Iran war would end where the last one did |
-| `SRC-02` | Aguilar | [2026-07-13 Aguilar](../../../archive/sources/2026-07-13/source-breaking-iran-striking-jordan-bahrain-right-now-saudi-attack-yemen-w-col-anthony-aguilar-2026-07-13.md) | BREAKING: IRAN STRIKING JORDAN & BAHRAIN RIGHT NOW, SAUDI ATTACK YEMEN, w/ Col Anthony Aguilar |
-| `SRC-03` | Marandi | [2026-07-13 Marandi](../../../archive/sources/2026-07-13/source-breaking-trump-blocks-hormuz-again-prof-seyed-marandi-live-from-tehran-2026-07-13.md) | BREAKING: TRUMP BLOCKS HORMUZ AGAIN /Prof Seyed Marandi Live from Tehran |
-| `SRC-04` | Pape | [2026-07-13 Pape](../../../archive/sources/2026-07-13/source-breaking-trump-reinstates-iranian-blockade-says-hormuz-open-w-geopolitical-analyst-robert-pape-2026-07-13.md) | BREAKING: TRUMP REINSTATES IRANIAN BLOCKADE, SAYS HORMUZ OPEN- w/ Geopolitical Analyst Robert Pape |
-| `SRC-05` | Freeman | [2026-07-13 Freeman](../../../archive/sources/2026-07-13/source-chas-freeman-all-out-war-with-iran-dark-future-for-israel-2026-07-13.md) | Chas Freeman: All-Out War With Iran & Dark Future for Israel |
-| `SRC-06` | Baud | [2026-07-13 Baud](../../../archive/sources/2026-07-13/source-col-jacques-baud-u-s-strikes-iran-s-nuclear-plant-iran-unleashes-massive-gulf-retaliation-2026-07-13.md) | Col. Jacques Baud: U.S. Strikes Iran's Nuclear Plant Ã¢â‚¬â€ Iran Unleashes Massive Gulf Retaliation |
-| `SRC-07` | Johnson | [2026-07-13 Johnson](../../../archive/sources/2026-07-13/source-larry-johnson-u-s-attacks-iran-now-iran-hits-back-as-hormuz-turns-into-a-firing-hell-2026-07-13.md) | Larry Johnson: U.S. Attacks Iran NOW / Iran Hits Back as Hormuz Turns Into a Firing Hell |
-| `SRC-08` | Mercouris | [2026-07-13 Mercouris](../../../archive/sources/2026-07-13/source-putin-says-bigger-russia-strikes-to-hammer-kiev-hints-at-oreshnik-use-zelensky-says-kiev-out-of-ad-2026-07-13.md) | Putin Says Bigger Russia Strikes To Hammer Kiev Hints At Oreshnik Use; Zelensky Says Kiev Out Of AD |
-| `SRC-09` | Barnes | [2026-07-13 Barnes](../../../archive/sources/2026-07-13/source-robert-barnes-yemen-strikes-saudi-airport-and-air-base-after-sana-a-bombing-2026-07-13.md) | Robert Barnes: Yemen Strikes Saudi Airport and Air Base After Sana'a Bombing |
-| `SRC-10` | Pape | [2026-07-13 Pape](../../../archive/sources/2026-07-13/source-why-is-trump-escalating-when-everyone-says-he-won-t-2026-07-13.md) | Why Is Trump Escalating When Everyone Says He Won't? |
+| Source ID | Date | Title | URL | Voice | Archive source | Analytical job |
+| --- | --- | --- | --- | --- | --- | --- |
+| `SRC-01` |  |  |  | Parsi | [2026-07-13 Parsi](../../../archive/sources/2026-07-13/source-a-new-u-s-iran-war-would-end-where-the-last-one-did-2026-07-13.md) | A new U.S.-Iran war would end where the last one did |
+| `SRC-02` |  |  |  | Aguilar | [2026-07-13 Aguilar](../../../archive/sources/2026-07-13/source-breaking-iran-striking-jordan-bahrain-right-now-saudi-attack-yemen-w-col-anthony-aguilar-2026-07-13.md) | BREAKING: IRAN STRIKING JORDAN & BAHRAIN RIGHT NOW, SAUDI ATTACK YEMEN, w/ Col Anthony Aguilar |
+| `SRC-03` |  |  |  | Marandi | [2026-07-13 Marandi](../../../archive/sources/2026-07-13/source-breaking-trump-blocks-hormuz-again-prof-seyed-marandi-live-from-tehran-2026-07-13.md) | BREAKING: TRUMP BLOCKS HORMUZ AGAIN /Prof Seyed Marandi Live from Tehran |
+| `SRC-04` |  |  |  | Pape | [2026-07-13 Pape](../../../archive/sources/2026-07-13/source-breaking-trump-reinstates-iranian-blockade-says-hormuz-open-w-geopolitical-analyst-robert-pape-2026-07-13.md) | BREAKING: TRUMP REINSTATES IRANIAN BLOCKADE, SAYS HORMUZ OPEN- w/ Geopolitical Analyst Robert Pape |
+| `SRC-05` |  |  |  | Freeman | [2026-07-13 Freeman](../../../archive/sources/2026-07-13/source-chas-freeman-all-out-war-with-iran-dark-future-for-israel-2026-07-13.md) | Chas Freeman: All-Out War With Iran & Dark Future for Israel |
+| `SRC-06` |  |  |  | Baud | [2026-07-13 Baud](../../../archive/sources/2026-07-13/source-col-jacques-baud-u-s-strikes-iran-s-nuclear-plant-iran-unleashes-massive-gulf-retaliation-2026-07-13.md) | Col. Jacques Baud: U.S. Strikes Iran's Nuclear Plant Ã¢â‚¬â€ Iran Unleashes Massive Gulf Retaliation |
+| `SRC-07` |  |  |  | Johnson | [2026-07-13 Johnson](../../../archive/sources/2026-07-13/source-larry-johnson-u-s-attacks-iran-now-iran-hits-back-as-hormuz-turns-into-a-firing-hell-2026-07-13.md) | Larry Johnson: U.S. Attacks Iran NOW / Iran Hits Back as Hormuz Turns Into a Firing Hell |
+| `SRC-08` |  |  |  | Mercouris | [2026-07-13 Mercouris](../../../archive/sources/2026-07-13/source-putin-says-bigger-russia-strikes-to-hammer-kiev-hints-at-oreshnik-use-zelensky-says-kiev-out-of-ad-2026-07-13.md) | Putin Says Bigger Russia Strikes To Hammer Kiev Hints At Oreshnik Use; Zelensky Says Kiev Out Of AD |
+| `SRC-09` |  |  |  | Barnes | [2026-07-13 Barnes](../../../archive/sources/2026-07-13/source-robert-barnes-yemen-strikes-saudi-airport-and-air-base-after-sana-a-bombing-2026-07-13.md) | Robert Barnes: Yemen Strikes Saudi Airport and Air Base After Sana'a Bombing |
+| `SRC-10` |  |  |  | Pape | [2026-07-13 Pape](../../../archive/sources/2026-07-13/source-why-is-trump-escalating-when-everyone-says-he-won-t-2026-07-13.md) | Why Is Trump Escalating When Everyone Says He Won't? |
 
 ## Forecast Desk
 

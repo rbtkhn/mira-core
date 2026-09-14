@@ -103,12 +103,12 @@ For later review, that means the day should be tested against both repetition an
 
 Only sources used by selected issue stories appear here. See the [complete canonical source accounting](sources.md).
 
-| Source ID | Voice | Archive source | Analytical job |
-| --- | --- | --- | --- |
-| `SRC-01` | Baud | [2026-07-06 Baud](../../../archive/sources/2026-07-06/source-col-jacques-baud-the-final-card-is-played-trump-ends-israel-s-push-2026-07-06.md) | Col. Jacques Baud: The FINAL CARD is Played: Trump ENDS Israel's Push |
-| `SRC-02` | Mercouris | [2026-07-06 Mercouris](../../../archive/sources/2026-07-06/source-russia-biggest-ever-missile-strike-hammers-kiev-ad-total-fail-will-upgrade-smo-to-actual-war-nato-2026-07-06.md) | Russia Biggest Ever Missile Strike Hammers Kiev AD Total Fail; Will Upgrade SMO To Actual War; NATO |
-| `SRC-03` | Pape | [2026-07-06 Pape](../../../archive/sources/2026-07-06/source-the-gathering-storm-iran-s-funeral-and-the-coming-august-shock-2026-07-06.md) | The Gathering Storm: Iran's Funeral and the Coming August Shock |
-| `SRC-04` | Parsi | [2026-07-06 Parsi](../../../archive/sources/2026-07-06/source-the-middle-east-is-leaping-toward-a-new-order-but-an-anti-abaraham-accords-would-be-a-mistake-2026-07-06.md) | The Middle East is leaping toward a New Order. But an anti-Abaraham Accords would be a mistake. |
+| Source ID | Date | Title | URL | Voice | Archive source | Analytical job |
+| --- | --- | --- | --- | --- | --- | --- |
+| `SRC-01` |  |  |  | Baud | [2026-07-06 Baud](../../../archive/sources/2026-07-06/source-col-jacques-baud-the-final-card-is-played-trump-ends-israel-s-push-2026-07-06.md) | Col. Jacques Baud: The FINAL CARD is Played: Trump ENDS Israel's Push |
+| `SRC-02` |  |  |  | Mercouris | [2026-07-06 Mercouris](../../../archive/sources/2026-07-06/source-russia-biggest-ever-missile-strike-hammers-kiev-ad-total-fail-will-upgrade-smo-to-actual-war-nato-2026-07-06.md) | Russia Biggest Ever Missile Strike Hammers Kiev AD Total Fail; Will Upgrade SMO To Actual War; NATO |
+| `SRC-03` |  |  |  | Pape | [2026-07-06 Pape](../../../archive/sources/2026-07-06/source-the-gathering-storm-iran-s-funeral-and-the-coming-august-shock-2026-07-06.md) | The Gathering Storm: Iran's Funeral and the Coming August Shock |
+| `SRC-04` |  |  |  | Parsi | [2026-07-06 Parsi](../../../archive/sources/2026-07-06/source-the-middle-east-is-leaping-toward-a-new-order-but-an-anti-abaraham-accords-would-be-a-mistake-2026-07-06.md) | The Middle East is leaping toward a New Order. But an anti-Abaraham Accords would be a mistake. |
 
 ## Forecast Desk
 

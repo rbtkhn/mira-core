@@ -1,0 +1,23 @@
+{
+  "access_language": "en",
+  "as_of": "2026-09-10",
+  "created_at": "2026-09-10T15:29:35.697372+00:00",
+  "created_by": "Codex; operator-authorized September 9 follow-up",
+  "event_time": "2026-09-08",
+  "evidence_role": "official_position",
+  "geopolitical_environment": "european",
+  "id": "EVD-20260910-009",
+  "kind": "evidence",
+  "limitation": "Institutional EU assessment challenges universal exhaustion, not evidence that every region or fuel grade has adequate supply.",
+  "observation": "The Commission reported that EU demand was still met through refining, imports and stocks despite product-price volatility, while noting risks of future tightening.",
+  "origin_language": "en",
+  "originating_chain": "EU-OILGROUP-20260908",
+  "representation_sha256": "2e95b58326892512859f34b8d2670ca6fe048d342ca367bb81cd942e0eecc155",
+  "retrieved_at": "2026-09-10T15:29:35.697372+00:00",
+  "revision_of": null,
+  "schema_version": 1,
+  "source_id": "VSRC-OFF-EUDGENERGY",
+  "status": "active",
+  "translation_provenance": "not_required",
+  "url": "https://energy.ec.europa.eu/news/oil-coordination-group-no-immediate-security-oil-supply-concerns-eu-2026-09-08_en"
+}

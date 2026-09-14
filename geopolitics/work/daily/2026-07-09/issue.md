@@ -89,11 +89,11 @@ The answer may eventually weaken the public brief's thesis. That would not make 
 
 Only sources used by selected issue stories appear here. See the [complete canonical source accounting](sources.md).
 
-| Source ID | Voice | Archive source | Analytical job |
-| --- | --- | --- | --- |
-| `SRC-04` | Davis | [2026-07-09 Davis](../../../archive/sources/2026-07-09/source-daniel-davis-trump-says-the-ceasefire-is-over-with-iran-escalates-the-war-with-russia-2026-07-09.md) | Daniel Davis: Trump Says the Ceasefire Is Over With Iran & Escalates the War With Russia |
-| `SRC-07` | Marandi | [2026-07-09 Marandi](../../../archive/sources/2026-07-09/source-seyed-m-marandi-breaking-u-s-renews-bombing-of-iran-as-millions-flood-mashhad-2026-07-09.md) | Seyed M. Marandi: BREAKING: U.S. Renews Bombing of Iran as MILLIONS Flood Mashhad |
-| `SRC-08` | Aguilar | [2026-07-09 Aguilar](../../../archive/sources/2026-07-09/source-u-s-plan-ground-invasion-w-col-anthony-aguilar-2026-07-09.md) | U.S PLAN GROUND INVASION w/ Col Anthony Aguilar |
+| Source ID | Date | Title | URL | Voice | Archive source | Analytical job |
+| --- | --- | --- | --- | --- | --- | --- |
+| `SRC-04` |  |  |  | Davis | [2026-07-09 Davis](../../../archive/sources/2026-07-09/source-daniel-davis-trump-says-the-ceasefire-is-over-with-iran-escalates-the-war-with-russia-2026-07-09.md) | Daniel Davis: Trump Says the Ceasefire Is Over With Iran & Escalates the War With Russia |
+| `SRC-07` |  |  |  | Marandi | [2026-07-09 Marandi](../../../archive/sources/2026-07-09/source-seyed-m-marandi-breaking-u-s-renews-bombing-of-iran-as-millions-flood-mashhad-2026-07-09.md) | Seyed M. Marandi: BREAKING: U.S. Renews Bombing of Iran as MILLIONS Flood Mashhad |
+| `SRC-08` |  |  |  | Aguilar | [2026-07-09 Aguilar](../../../archive/sources/2026-07-09/source-u-s-plan-ground-invasion-w-col-anthony-aguilar-2026-07-09.md) | U.S PLAN GROUND INVASION w/ Col Anthony Aguilar |
 
 ## Forecast Desk
 

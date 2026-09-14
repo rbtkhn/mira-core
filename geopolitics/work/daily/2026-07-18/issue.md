@@ -92,15 +92,15 @@ That is why the forecast hook watches public posture rather than only battlefiel
 
 Only sources used by selected issue stories appear here. See the [complete canonical source accounting](sources.md).
 
-| Source ID | Voice | Archive source | Analytical job |
-| --- | --- | --- | --- |
-| `SRC-01` | Pape | [2026-07-18 Pape](../../../archive/sources/2026-07-18/source-breaking-analysis-5-iran-s-new-target-drinking-water-2026-07-18.md) | Argues desalination and civilian survival infrastructure are becoming direct battlefield targets. |
-| `SRC-02` | Marandi | [2026-07-18 Marandi](../../../archive/sources/2026-07-18/source-breaking-iran-threatens-to-bomb-dubai-airport-w-prof-seyed-marandi-2026-07-18.md) | Presents the Iran-facing deterrent rationale for threats against Gulf airports, ports, electricity, and water infrastructure. |
-| `SRC-07` | Parsi | [2026-07-18 Parsi](../../../archive/sources/2026-07-18/source-yesterday-s-us-iran-escalation-is-a-mere-prelude-to-what-is-likely-to-come-2026-07-18.md) | Explains why calibrated Iranian reciprocity may still alienate GCC states and make diplomacy less credible. |
-| `SRC-03` | Davis | [2026-07-18 Davis](../../../archive/sources/2026-07-18/source-iran-says-full-scale-war-could-erupt-lt-col-daniel-davis-2026-07-18.md) | Frames escalation risk around whether force can compel Iran or only widen the war. |
-| `SRC-05` | Mercouris | [2026-07-18 Mercouris](../../../archive/sources/2026-07-18/source-kiev-political-crisis-triggers-coup-rumours-russia-imposes-ukraine-sea-blockade-strikes-nikolayev-2026-07-18.md) | Connects Ukraine port pressure and Iran ground-operation speculation to the question of whether settlement space is closing. |
-| `SRC-06` | Johnson | [2026-07-18 Johnson](../../../archive/sources/2026-07-18/source-larry-johnson-breaking-u-s-declares-critical-week-as-it-prepares-to-expand-iran-campaign-2026-07-18.md) | Pressure-tests U.S. and Gulf air-defense capacity and the sustainability of an expanded campaign. |
-| `SRC-04` | Matlock | [2026-07-18 Matlock](../../../archive/sources/2026-07-18/source-jack-matlock-the-cuban-missile-crisis-nato-s-war-in-ukraine-2026-07-18.md) | Tests the day against crisis-management memory and NATO/Russia escalation lessons. |
+| Source ID | Date | Title | URL | Voice | Archive source | Analytical job |
+| --- | --- | --- | --- | --- | --- | --- |
+| `SRC-01` |  |  |  | Pape | [2026-07-18 Pape](../../../archive/sources/2026-07-18/source-breaking-analysis-5-iran-s-new-target-drinking-water-2026-07-18.md) | Argues desalination and civilian survival infrastructure are becoming direct battlefield targets. |
+| `SRC-02` |  |  |  | Marandi | [2026-07-18 Marandi](../../../archive/sources/2026-07-18/source-breaking-iran-threatens-to-bomb-dubai-airport-w-prof-seyed-marandi-2026-07-18.md) | Presents the Iran-facing deterrent rationale for threats against Gulf airports, ports, electricity, and water infrastructure. |
+| `SRC-07` |  |  |  | Parsi | [2026-07-18 Parsi](../../../archive/sources/2026-07-18/source-yesterday-s-us-iran-escalation-is-a-mere-prelude-to-what-is-likely-to-come-2026-07-18.md) | Explains why calibrated Iranian reciprocity may still alienate GCC states and make diplomacy less credible. |
+| `SRC-03` |  |  |  | Davis | [2026-07-18 Davis](../../../archive/sources/2026-07-18/source-iran-says-full-scale-war-could-erupt-lt-col-daniel-davis-2026-07-18.md) | Frames escalation risk around whether force can compel Iran or only widen the war. |
+| `SRC-05` |  |  |  | Mercouris | [2026-07-18 Mercouris](../../../archive/sources/2026-07-18/source-kiev-political-crisis-triggers-coup-rumours-russia-imposes-ukraine-sea-blockade-strikes-nikolayev-2026-07-18.md) | Connects Ukraine port pressure and Iran ground-operation speculation to the question of whether settlement space is closing. |
+| `SRC-06` |  |  |  | Johnson | [2026-07-18 Johnson](../../../archive/sources/2026-07-18/source-larry-johnson-breaking-u-s-declares-critical-week-as-it-prepares-to-expand-iran-campaign-2026-07-18.md) | Pressure-tests U.S. and Gulf air-defense capacity and the sustainability of an expanded campaign. |
+| `SRC-04` |  |  |  | Matlock | [2026-07-18 Matlock](../../../archive/sources/2026-07-18/source-jack-matlock-the-cuban-missile-crisis-nato-s-war-in-ukraine-2026-07-18.md) | Tests the day against crisis-management memory and NATO/Russia escalation lessons. |
 
 ## Forecast Desk
 

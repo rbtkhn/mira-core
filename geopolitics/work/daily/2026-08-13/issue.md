@@ -70,17 +70,17 @@ Its remaining warning should be preserved as a warning. The source-anchor gap sa
 
 Only sources used by selected issue stories appear here. See the [complete canonical source accounting](sources.md).
 
-| Source ID | Voice | Archive source | Analytical job |
-| --- | --- | --- | --- |
-| `SRC-01` | Pape | [Pape](../../../archive/sources/2026-08-13/source-iran-s-endgame-wait-out-trump-2026-08-13.md) | Provides the patience/delay thesis for Iran. |
-| `SRC-03` | Davis | [Davis](../../../archive/sources/2026-08-13/source-3-why-we-can-t-win-anymore-lt-col-daniel-davis-2026-08-13.md) | Presses the question of what force can no longer recover. |
-| `SRC-05` | Diesen | [Diesen](../../../archive/sources/2026-08-13/source-3-prof-glenn-diesen-nato-taunting-putin-2026-08-13.md) | Tests NATO credibility and signaling risk. |
-| `SRC-06` | Crooke | [Crooke](../../../archive/sources/2026-08-13/source-3-alastair-crooke-iran-russia-give-up-on-diplomacy-go-on-the-offensive-2026-08-13.md) | Links Iran/Russia patience to a possible offensive posture. |
-| `SRC-08` | Blumenthal | [Blumenthal](../../../archive/sources/2026-08-13/source-3-max-blumenthal-israel-manipulates-trump-once-again-2026-08-13.md) | Tests client-drag and Israel's influence over U.S. choices. |
-| `SRC-09` | Macgregor | [Macgregor](../../../archive/sources/2026-08-13/source-3-col-douglas-macgregor-trump-s-dwindling-options-2026-08-13.md) | Sharpens shrinking U.S. option space. |
-| `SRC-10` | Mearsheimer | [Mearsheimer](../../../archive/sources/2026-08-13/source-3-john-mearsheimer-u-s-grand-strategy-in-a-new-world-order-2026-08-13.md) | Provides grand-strategy structure and exit incentives. |
-| `SRC-11` | Weichert | [Weichert](../../../archive/sources/2026-08-13/source-3-breaking-centcom-tells-israel-to-prepare-for-war-2026-08-13.md) | Adds CENTCOM/Israel preparation as a source-asserted pressure signal. |
-| `SRC-13` | Mercouris / Duran | [Mercouris shadow fleet](../../../archive/sources/2026-08-13/source-3-more-than-a-red-line-russian-policy-to-mirror-attacks-on-shadow-fleet-2026-08-13.md) | Adds maritime retaliation and shadow-fleet reprisal logic. |
+| Source ID | Date | Title | URL | Voice | Archive source | Analytical job |
+| --- | --- | --- | --- | --- | --- | --- |
+| `SRC-01` |  |  |  | Pape | [Pape](../../../archive/sources/2026-08-13/source-iran-s-endgame-wait-out-trump-2026-08-13.md) | Provides the patience/delay thesis for Iran. |
+| `SRC-03` |  |  |  | Davis | [Davis](../../../archive/sources/2026-08-13/source-3-why-we-can-t-win-anymore-lt-col-daniel-davis-2026-08-13.md) | Presses the question of what force can no longer recover. |
+| `SRC-05` |  |  |  | Diesen | [Diesen](../../../archive/sources/2026-08-13/source-3-prof-glenn-diesen-nato-taunting-putin-2026-08-13.md) | Tests NATO credibility and signaling risk. |
+| `SRC-06` |  |  |  | Crooke | [Crooke](../../../archive/sources/2026-08-13/source-3-alastair-crooke-iran-russia-give-up-on-diplomacy-go-on-the-offensive-2026-08-13.md) | Links Iran/Russia patience to a possible offensive posture. |
+| `SRC-08` |  |  |  | Blumenthal | [Blumenthal](../../../archive/sources/2026-08-13/source-3-max-blumenthal-israel-manipulates-trump-once-again-2026-08-13.md) | Tests client-drag and Israel's influence over U.S. choices. |
+| `SRC-09` |  |  |  | Macgregor | [Macgregor](../../../archive/sources/2026-08-13/source-3-col-douglas-macgregor-trump-s-dwindling-options-2026-08-13.md) | Sharpens shrinking U.S. option space. |
+| `SRC-10` |  |  |  | Mearsheimer | [Mearsheimer](../../../archive/sources/2026-08-13/source-3-john-mearsheimer-u-s-grand-strategy-in-a-new-world-order-2026-08-13.md) | Provides grand-strategy structure and exit incentives. |
+| `SRC-11` |  |  |  | Weichert | [Weichert](../../../archive/sources/2026-08-13/source-3-breaking-centcom-tells-israel-to-prepare-for-war-2026-08-13.md) | Adds CENTCOM/Israel preparation as a source-asserted pressure signal. |
+| `SRC-13` |  |  |  | Mercouris / Duran | [Mercouris shadow fleet](../../../archive/sources/2026-08-13/source-3-more-than-a-red-line-russian-policy-to-mirror-attacks-on-shadow-fleet-2026-08-13.md) | Adds maritime retaliation and shadow-fleet reprisal logic. |
 
 ## Forecast Desk
 

@@ -101,10 +101,10 @@ This final constraint is worth keeping in the note because it prevents later rea
 
 Only sources used by selected issue stories appear here. See the [complete canonical source accounting](sources.md).
 
-| Source ID | Voice | Archive source | Analytical job |
-| --- | --- | --- | --- |
-| `SRC-01` | Postol | [2026-07-02 Postol](../../../archive/sources/2026-07-02/source-prof-ted-postol-it-s-over-israel-faces-total-collapse-if-war-escalates-2026-07-02.md) | Prof. Ted Postol: It's Over: Israel Faces Total Collapse if War Escalates |
-| `SRC-02` | Mercouris | [2026-07-02 Mercouris](../../../archive/sources/2026-07-02/source-russia-conducts-massive-kiev-strike-plans-ground-operation-zelensky-demands-more-eu-money-drones-2026-07-02.md) | Russia Conducts Massive Kiev Strike; Plans Ground Operation; Zelensky Demands More EU Money; Drones |
+| Source ID | Date | Title | URL | Voice | Archive source | Analytical job |
+| --- | --- | --- | --- | --- | --- | --- |
+| `SRC-01` |  |  |  | Postol | [2026-07-02 Postol](../../../archive/sources/2026-07-02/source-prof-ted-postol-it-s-over-israel-faces-total-collapse-if-war-escalates-2026-07-02.md) | Prof. Ted Postol: It's Over: Israel Faces Total Collapse if War Escalates |
+| `SRC-02` |  |  |  | Mercouris | [2026-07-02 Mercouris](../../../archive/sources/2026-07-02/source-russia-conducts-massive-kiev-strike-plans-ground-operation-zelensky-demands-more-eu-money-drones-2026-07-02.md) | Russia Conducts Massive Kiev Strike; Plans Ground Operation; Zelensky Demands More EU Money; Drones |
 
 ## Forecast Desk
 

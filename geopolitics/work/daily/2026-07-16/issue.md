@@ -76,14 +76,14 @@ That distinction should discipline every follow-up read.
 
 Only sources used by selected issue stories appear here. See the [complete canonical source accounting](sources.md).
 
-| Source ID | Voice | Archive source | Analytical job |
-| --- | --- | --- | --- |
-| `SRC-02` | Pape | [2026-07-16 Pape](../../../archive/sources/2026-07-16/source-breaking-analysis-3-tehran-s-second-front-heating-up-fast-are-markets-watching-2026-07-16.md) | Breaking Analysis #3: Tehran's Second Front Heating Up Fast - Are Markets Watching? |
-| `SRC-03` | Johnson | [2026-07-16 Johnson](../../../archive/sources/2026-07-16/source-fmr-cia-analyst-larry-johnson-us-can-t-force-hormuz-open-2026-07-16.md) | fmr CIA Analyst Larry Johnson US CAN'T FORCE HORMUZ OPEN |
-| `SRC-04` | Mearsheimer | [2026-07-16 Mearsheimer](../../../archive/sources/2026-07-16/source-john-mearsheimer-all-out-war-in-the-middle-east-trump-s-war-on-russia-2026-07-16.md) | John Mearsheimer: All-Out War in the Middle East & Trump's War on Russia |
-| `SRC-05` | Escobar | [2026-07-16 Escobar](../../../archive/sources/2026-07-16/source-pepe-escobar-yemen-enters-the-war-as-the-strait-of-hormuz-erupts-under-retaliatory-fire-2026-07-16.md) | Pepe Escobar: Yemen Enters the War as the Strait of Hormuz Erupts Under Retaliatory Fire |
-| `SRC-06` | Parsi | [2026-07-16 Parsi](../../../archive/sources/2026-07-16/source-reuters-iran-preparing-to-close-red-sea-if-trump-hits-power-grid-w-trita-parsi-2026-07-16.md) | REUTERS: IRAN PREPARING TO CLOSE RED SEA IF TRUMP HITS POWER GRID - w/ Trita Parsi |
-| `SRC-08` | Marandi | [2026-07-16 Marandi](../../../archive/sources/2026-07-16/source-seyed-m-marandi-plans-for-a-u-s-land-invasion-of-iran-yemen-iran-enters-the-war-2026-07-16.md) | Seyed M. Marandi: Plans for a U.S. Land Invasion of Iran; Yemen & Iran Enters the War? |
+| Source ID | Date | Title | URL | Voice | Archive source | Analytical job |
+| --- | --- | --- | --- | --- | --- | --- |
+| `SRC-02` |  |  |  | Pape | [2026-07-16 Pape](../../../archive/sources/2026-07-16/source-breaking-analysis-3-tehran-s-second-front-heating-up-fast-are-markets-watching-2026-07-16.md) | Breaking Analysis #3: Tehran's Second Front Heating Up Fast - Are Markets Watching? |
+| `SRC-03` |  |  |  | Johnson | [2026-07-16 Johnson](../../../archive/sources/2026-07-16/source-fmr-cia-analyst-larry-johnson-us-can-t-force-hormuz-open-2026-07-16.md) | fmr CIA Analyst Larry Johnson US CAN'T FORCE HORMUZ OPEN |
+| `SRC-04` |  |  |  | Mearsheimer | [2026-07-16 Mearsheimer](../../../archive/sources/2026-07-16/source-john-mearsheimer-all-out-war-in-the-middle-east-trump-s-war-on-russia-2026-07-16.md) | John Mearsheimer: All-Out War in the Middle East & Trump's War on Russia |
+| `SRC-05` |  |  |  | Escobar | [2026-07-16 Escobar](../../../archive/sources/2026-07-16/source-pepe-escobar-yemen-enters-the-war-as-the-strait-of-hormuz-erupts-under-retaliatory-fire-2026-07-16.md) | Pepe Escobar: Yemen Enters the War as the Strait of Hormuz Erupts Under Retaliatory Fire |
+| `SRC-06` |  |  |  | Parsi | [2026-07-16 Parsi](../../../archive/sources/2026-07-16/source-reuters-iran-preparing-to-close-red-sea-if-trump-hits-power-grid-w-trita-parsi-2026-07-16.md) | REUTERS: IRAN PREPARING TO CLOSE RED SEA IF TRUMP HITS POWER GRID - w/ Trita Parsi |
+| `SRC-08` |  |  |  | Marandi | [2026-07-16 Marandi](../../../archive/sources/2026-07-16/source-seyed-m-marandi-plans-for-a-u-s-land-invasion-of-iran-yemen-iran-enters-the-war-2026-07-16.md) | Seyed M. Marandi: Plans for a U.S. Land Invasion of Iran; Yemen & Iran Enters the War? |
 
 ## Forecast Desk
 

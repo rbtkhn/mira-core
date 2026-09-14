@@ -1,0 +1,40 @@
+{
+  "access": "open",
+  "access_languages": [
+    "en"
+  ],
+  "appropriate_uses": "Congressional research summaries, defense budget context, procurement-line descriptions, authorization and appropriations baselines, and source leads to official budget documents.",
+  "as_of": "2026-09-03",
+  "canonical_url": "https://www.congress.gov/crs-products",
+  "created_at": "2026-09-03T00:00:00Z",
+  "created_by": "operator",
+  "domain": "military_activity",
+  "evidence_class": "official_interested_primary",
+  "geography": "United States",
+  "geopolitical_environment": "western_state",
+  "id": "VSRC-OFF-CRS",
+  "inappropriate_uses": "Treating congressional research summaries as real-time inventory counts, operational availability proof, or independent confirmation of classified stockpile levels.",
+  "kind": "source",
+  "known_failure_modes": "Congressional framing; lag; dependence on agency submissions and public budget justifications; summaries may omit classified or operational detail.",
+  "latency": "days-weeks",
+  "name": "Congressional Research Service",
+  "observables": "defense budget summaries, procurement context, legislative research, program baselines",
+  "open_fallback": "self",
+  "order": 20,
+  "origin_languages": [
+    "en"
+  ],
+  "originating_chain_rule": "CRS products based on the same agency budget submission, authorization act, or appropriations action remain linked to that underlying public-document chain.",
+  "perspective": "western_state",
+  "review_history": [
+    {
+      "date": "2026-09-03",
+      "note": "Added for FY2027 defense-budget and interceptor-procurement verification context.",
+      "reviewer": "operator"
+    }
+  ],
+  "revision_of": null,
+  "schema_version": 1,
+  "status": "active",
+  "translation_provenance": "not_required"
+}

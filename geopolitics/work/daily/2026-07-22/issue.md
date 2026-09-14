@@ -44,19 +44,19 @@ The July 22 source batch is best understood as a pressure-carrier system. The im
 
 Only sources used by selected issue stories appear here. See the [complete canonical source accounting](sources.md).
 
-| Source ID | Voice | Archive source | Analytical job |
-| --- | --- | --- | --- |
-| `SRC-01` | Davis | [2026-07-22 Davis](../../../archive/sources/2026-07-22/source-america-s-own-words-coming-back-to-haunt-them-prof-seyed-marandi-2026-07-22.md) | America's Own Words Coming Back to Haunt Them / Prof Seyed Marandi |
-| `SRC-02` | Macgregor | [2026-07-22 Macgregor](../../../archive/sources/2026-07-22/source-bloomberg-gulf-allies-push-trump-to-invade-iran-seize-kharg-island-w-col-macgregor-2026-07-22.md) | Bloomberg: Gulf Allies Push Trump to Invade Iran & Seize Kharg Island - w/ Col. Macgregor |
-| `SRC-03` | Davis | [2026-07-22 Davis](../../../archive/sources/2026-07-22/source-breaking-zelensky-pushes-out-gen-syrsky-in-major-shakeup-2026-07-22.md) | Breaking: Zelensky Pushes Out Gen Syrsky in Major Shakeup |
-| `SRC-04` | Macgregor | [2026-07-22 Macgregor](../../../archive/sources/2026-07-22/source-colonel-douglas-macgregor-breaking-trump-threatens-bridges-power-plants-destruction-in-tehran-2026-07-22.md) | Colonel Douglas MacGregor: Breaking - Trump Threatens Bridges & Power Plants Destruction in Tehran |
-| `SRC-05` | Hoh | [2026-07-22 Hoh](../../../archive/sources/2026-07-22/source-matthew-hoh-iran-s-untouchable-mountain-hegseth-says-the-u-s-can-reach-anything-2026-07-22.md) | Matthew Hoh: Iran's Untouchable Mountain - Hegseth Says the U.S. Can Reach Anything |
-| `SRC-06` | Escobar | [2026-07-22 Escobar](../../../archive/sources/2026-07-22/source-pepe-escobar-all-bets-are-off-2026-07-22.md) | Pepe Escobar: All Bets Are Off! |
-| `SRC-07` | Barnes | [2026-07-22 Barnes](../../../archive/sources/2026-07-22/source-robert-barnes-breaking-trump-threatens-to-bomb-iran-s-critical-infrastructure-over-hormuz-attacks-2026-07-22.md) | Robert Barnes: Breaking: Trump Threatens to Bomb Iran's Critical Infrastructure Over Hormuz Attacks |
-| `SRC-08` | Mercouris | [2026-07-22 Mercouris](../../../archive/sources/2026-07-22/source-russia-strikes-odessa-24-7-reaches-kramatorsk-zelensky-panics-sacks-syrsky-eu-short-of-winter-gas-2026-07-22.md) | Russia Strikes Odessa 24/7 Reaches Kramatorsk; Zelensky Panics Sacks Syrsky; EU Short Of Winter Gas |
-| `SRC-09` | Ritter | [2026-07-22 Ritter](../../../archive/sources/2026-07-22/source-scott-ritter-turn-around-or-face-god-yemen-issues-chilling-warning-to-saudi-ship-in-the-red-sea-2026-07-22.md) | Scott Ritter: Turn Around or Face God - Yemen Issues Chilling Warning to Saudi Ship in the Red Sea |
-| `SRC-10` | Parsi | [2026-07-22 Parsi](../../../archive/sources/2026-07-22/source-the-us-saudi-nuclear-deal-makes-no-sense-2026-07-22.md) | The US-Saudi nuclear deal makes no sense |
-| `SRC-11` | Davis | [2026-07-22 Davis](../../../archive/sources/2026-07-22/source-trump-threatens-iran-civilian-targets-larry-johnson-lt-col-daniel-davis-2026-07-22.md) | Trump Threatens Iran Civilian Targets / Larry Johnson & LT Col Daniel Davis |
+| Source ID | Date | Title | URL | Voice | Archive source | Analytical job |
+| --- | --- | --- | --- | --- | --- | --- |
+| `SRC-01` |  |  |  | Davis | [2026-07-22 Davis](../../../archive/sources/2026-07-22/source-america-s-own-words-coming-back-to-haunt-them-prof-seyed-marandi-2026-07-22.md) | America's Own Words Coming Back to Haunt Them / Prof Seyed Marandi |
+| `SRC-02` |  |  |  | Macgregor | [2026-07-22 Macgregor](../../../archive/sources/2026-07-22/source-bloomberg-gulf-allies-push-trump-to-invade-iran-seize-kharg-island-w-col-macgregor-2026-07-22.md) | Bloomberg: Gulf Allies Push Trump to Invade Iran & Seize Kharg Island - w/ Col. Macgregor |
+| `SRC-03` |  |  |  | Davis | [2026-07-22 Davis](../../../archive/sources/2026-07-22/source-breaking-zelensky-pushes-out-gen-syrsky-in-major-shakeup-2026-07-22.md) | Breaking: Zelensky Pushes Out Gen Syrsky in Major Shakeup |
+| `SRC-04` |  |  |  | Macgregor | [2026-07-22 Macgregor](../../../archive/sources/2026-07-22/source-colonel-douglas-macgregor-breaking-trump-threatens-bridges-power-plants-destruction-in-tehran-2026-07-22.md) | Colonel Douglas MacGregor: Breaking - Trump Threatens Bridges & Power Plants Destruction in Tehran |
+| `SRC-05` |  |  |  | Hoh | [2026-07-22 Hoh](../../../archive/sources/2026-07-22/source-matthew-hoh-iran-s-untouchable-mountain-hegseth-says-the-u-s-can-reach-anything-2026-07-22.md) | Matthew Hoh: Iran's Untouchable Mountain - Hegseth Says the U.S. Can Reach Anything |
+| `SRC-06` |  |  |  | Escobar | [2026-07-22 Escobar](../../../archive/sources/2026-07-22/source-pepe-escobar-all-bets-are-off-2026-07-22.md) | Pepe Escobar: All Bets Are Off! |
+| `SRC-07` |  |  |  | Barnes | [2026-07-22 Barnes](../../../archive/sources/2026-07-22/source-robert-barnes-breaking-trump-threatens-to-bomb-iran-s-critical-infrastructure-over-hormuz-attacks-2026-07-22.md) | Robert Barnes: Breaking: Trump Threatens to Bomb Iran's Critical Infrastructure Over Hormuz Attacks |
+| `SRC-08` |  |  |  | Mercouris | [2026-07-22 Mercouris](../../../archive/sources/2026-07-22/source-russia-strikes-odessa-24-7-reaches-kramatorsk-zelensky-panics-sacks-syrsky-eu-short-of-winter-gas-2026-07-22.md) | Russia Strikes Odessa 24/7 Reaches Kramatorsk; Zelensky Panics Sacks Syrsky; EU Short Of Winter Gas |
+| `SRC-09` |  |  |  | Ritter | [2026-07-22 Ritter](../../../archive/sources/2026-07-22/source-scott-ritter-turn-around-or-face-god-yemen-issues-chilling-warning-to-saudi-ship-in-the-red-sea-2026-07-22.md) | Scott Ritter: Turn Around or Face God - Yemen Issues Chilling Warning to Saudi Ship in the Red Sea |
+| `SRC-10` |  |  |  | Parsi | [2026-07-22 Parsi](../../../archive/sources/2026-07-22/source-the-us-saudi-nuclear-deal-makes-no-sense-2026-07-22.md) | The US-Saudi nuclear deal makes no sense |
+| `SRC-11` |  |  |  | Davis | [2026-07-22 Davis](../../../archive/sources/2026-07-22/source-trump-threatens-iran-civilian-targets-larry-johnson-lt-col-daniel-davis-2026-07-22.md) | Trump Threatens Iran Civilian Targets / Larry Johnson & LT Col Daniel Davis |
 
 ## Forecast Desk
 

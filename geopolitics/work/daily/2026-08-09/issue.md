@@ -64,11 +64,11 @@ The day therefore remains useful as an indexed episode in the August sequence, n
 
 Only sources used by selected issue stories appear here. See the [complete canonical source accounting](sources.md).
 
-| Source ID | Voice | Archive source | Analytical job |
-| --- | --- | --- | --- |
-| `SRC-01` | Johnson | [2026-08-09 Johnson](../../../archive/sources/2026-08-09/source-2-netanyahu-refuses-trump-s-demands-to-leave-iran-lebanon-and-gaza-w-cia-larry-johnson-2026-08-09.md) | (2) NETANYAHU REFUSES TRUMP'S DEMANDS TO LEAVE IRAN, LEBANON AND GAZA w/ CIA Larry Johnson |
-| `SRC-02` | Alkhorshid | [2026-08-09 Alkhorshid](../../../archive/sources/2026-08-09/source-2-nima-r-alkhorshid-the-inevitable-just-happened-in-the-middle-east-2026-08-09.md) | (2) Nima R. Alkhorshid: The Inevitable Just Happened in the Middle East |
-| `SRC-03` | Mercouris | [2026-08-09 Mercouris](../../../archive/sources/2026-08-09/source-2-russia-makes-biggest-odessa-attack-rejects-turkey-truce-call-captures-key-donbas-defences-orekhov-2026-08-09.md) | (2) Russia Makes Biggest Odessa Attack; Rejects Turkey Truce Call; Captures Key Donbas Defences; Orekhov |
+| Source ID | Date | Title | URL | Voice | Archive source | Analytical job |
+| --- | --- | --- | --- | --- | --- | --- |
+| `SRC-01` |  |  |  | Johnson | [2026-08-09 Johnson](../../../archive/sources/2026-08-09/source-2-netanyahu-refuses-trump-s-demands-to-leave-iran-lebanon-and-gaza-w-cia-larry-johnson-2026-08-09.md) | (2) NETANYAHU REFUSES TRUMP'S DEMANDS TO LEAVE IRAN, LEBANON AND GAZA w/ CIA Larry Johnson |
+| `SRC-02` |  |  |  | Alkhorshid | [2026-08-09 Alkhorshid](../../../archive/sources/2026-08-09/source-2-nima-r-alkhorshid-the-inevitable-just-happened-in-the-middle-east-2026-08-09.md) | (2) Nima R. Alkhorshid: The Inevitable Just Happened in the Middle East |
+| `SRC-03` |  |  |  | Mercouris | [2026-08-09 Mercouris](../../../archive/sources/2026-08-09/source-2-russia-makes-biggest-odessa-attack-rejects-turkey-truce-call-captures-key-donbas-defences-orekhov-2026-08-09.md) | (2) Russia Makes Biggest Odessa Attack; Rejects Turkey Truce Call; Captures Key Donbas Defences; Orekhov |
 
 ## Forecast Desk
 

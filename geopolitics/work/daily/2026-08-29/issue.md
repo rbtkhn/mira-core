@@ -72,13 +72,13 @@ That distinction is the guardrail the day needs.
 
 Only sources used by selected issue stories appear here. See the [complete canonical source accounting](sources.md).
 
-| Source ID | Voice | Archive source | Analytical job |
-| --- | --- | --- | --- |
-| `SRC-01` | Johnson | [2026-08-29 Johnson](../../../../archive/sources/geopolitics/sources/2026-08-29/source-breaking-trump-rejects-saudi-arabia-request-mou-breaks-down-due-to-gaza-w-cia-larry-johnson-2026-08-29.md) | BREAKING: TRUMP REJECTS SAUDI ARABIA REQUEST, MOU BREAKS DOWN DUE TO GAZA w/ CIA Larry Johnson |
-| `SRC-02` | Mercouris | [2026-08-29 Mercouris](../../../../archive/sources/geopolitics/sources/2026-08-29/source-russia-rejects-vatican-and-cia-ceasefire-demands-2026-08-29.md) | Russia Rejects Vatican and CIA Ceasefire Demands |
-| `SRC-03` | Mercouris | [2026-08-29 Mercouris](../../../../archive/sources/geopolitics/sources/2026-08-29/source-russian-multi-day-strikes-shatter-kiev-massive-ammo-explosion-us-vatican-truce-bid-fails-orekhov-2026-08-29.md) | Russian Multi Day Strikes Shatter Kiev; Massive Ammo Explosion; US Vatican Truce Bid Fails; Orekhov |
-| `SRC-04` | Marandi | [2026-08-29 Marandi](../../../../archive/sources/geopolitics/sources/2026-08-29/source-seyed-m-marandi-iran-activates-war-economy-military-surge-as-all-out-conflict-becomes-inevitable-2026-08-29.md) | Seyed M. Marandi: Iran Activates War Economy & Military Surge as All-Out Conflict Becomes Inevitable |
-| `SRC-05` | Parsi | [2026-08-29 Parsi](../../../../archive/sources/geopolitics/sources/2026-08-29/source-trita-parsi-why-the-world-is-quietly-taking-iran-s-side-in-the-war-2026-08-29.md) | Trita Parsi: Why the World Is Quietly Taking Iran's Side in the War |
+| Source ID | Date | Title | URL | Voice | Archive source | Analytical job |
+| --- | --- | --- | --- | --- | --- | --- |
+| `SRC-01` |  |  |  | Johnson | [2026-08-29 Johnson](../../../../archive/sources/geopolitics/sources/2026-08-29/source-breaking-trump-rejects-saudi-arabia-request-mou-breaks-down-due-to-gaza-w-cia-larry-johnson-2026-08-29.md) | BREAKING: TRUMP REJECTS SAUDI ARABIA REQUEST, MOU BREAKS DOWN DUE TO GAZA w/ CIA Larry Johnson |
+| `SRC-02` |  |  |  | Mercouris | [2026-08-29 Mercouris](../../../../archive/sources/geopolitics/sources/2026-08-29/source-russia-rejects-vatican-and-cia-ceasefire-demands-2026-08-29.md) | Russia Rejects Vatican and CIA Ceasefire Demands |
+| `SRC-03` |  |  |  | Mercouris | [2026-08-29 Mercouris](../../../../archive/sources/geopolitics/sources/2026-08-29/source-russian-multi-day-strikes-shatter-kiev-massive-ammo-explosion-us-vatican-truce-bid-fails-orekhov-2026-08-29.md) | Russian Multi Day Strikes Shatter Kiev; Massive Ammo Explosion; US Vatican Truce Bid Fails; Orekhov |
+| `SRC-04` |  |  |  | Marandi | [2026-08-29 Marandi](../../../../archive/sources/geopolitics/sources/2026-08-29/source-seyed-m-marandi-iran-activates-war-economy-military-surge-as-all-out-conflict-becomes-inevitable-2026-08-29.md) | Seyed M. Marandi: Iran Activates War Economy & Military Surge as All-Out Conflict Becomes Inevitable |
+| `SRC-05` |  |  |  | Parsi | [2026-08-29 Parsi](../../../../archive/sources/geopolitics/sources/2026-08-29/source-trita-parsi-why-the-world-is-quietly-taking-iran-s-side-in-the-war-2026-08-29.md) | Trita Parsi: Why the World Is Quietly Taking Iran's Side in the War |
 
 ## Forecast Desk
 

@@ -62,11 +62,11 @@ Ready for synthesis now.
 
 Only sources used by selected issue stories appear here. See the [complete canonical source accounting](sources.md).
 
-| Source ID | Voice | Archive source | Analytical job |
-| --- | --- | --- | --- |
-| `SRC-06` | Hoh | [2026-08-26 Hoh](../../../../archive/sources/geopolitics/sources/2026-08-26/source-matthew-hoh-war-by-waiting-inside-the-us-iran-plan-to-outlast-each-other-2026-08-26.md) | Matthew Hoh: War by Waiting: Inside the US-Iran Plan to Outlast Each Other |
-| `SRC-07` | Mearsheimer | [2026-08-26 Mearsheimer](../../../../archive/sources/geopolitics/sources/2026-08-26/source-mearsheimer-iran-winning-the-battle-for-world-opinion-2026-08-26.md) | Mearsheimer: IRAN WINNING THE BATTLE FOR WORLD OPINION |
-| `SRC-08` | Pape | [2026-08-26 Pape](../../../../archive/sources/geopolitics/sources/2026-08-26/source-professor-pape-ridicules-scott-bessents-economic-d-day-2026-08-26.md) | Professor Pape RIDICULES Scott Bessents 'Economic D-Day' |
+| Source ID | Date | Title | URL | Voice | Archive source | Analytical job |
+| --- | --- | --- | --- | --- | --- | --- |
+| `SRC-06` |  |  |  | Hoh | [2026-08-26 Hoh](../../../../archive/sources/geopolitics/sources/2026-08-26/source-matthew-hoh-war-by-waiting-inside-the-us-iran-plan-to-outlast-each-other-2026-08-26.md) | Matthew Hoh: War by Waiting: Inside the US-Iran Plan to Outlast Each Other |
+| `SRC-07` |  |  |  | Mearsheimer | [2026-08-26 Mearsheimer](../../../../archive/sources/geopolitics/sources/2026-08-26/source-mearsheimer-iran-winning-the-battle-for-world-opinion-2026-08-26.md) | Mearsheimer: IRAN WINNING THE BATTLE FOR WORLD OPINION |
+| `SRC-08` |  |  |  | Pape | [2026-08-26 Pape](../../../../archive/sources/geopolitics/sources/2026-08-26/source-professor-pape-ridicules-scott-bessents-economic-d-day-2026-08-26.md) | Professor Pape RIDICULES Scott Bessents 'Economic D-Day' |
 
 ## Forecast Desk
 

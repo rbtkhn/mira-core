@@ -101,11 +101,11 @@ This final constraint is worth keeping in the note because it prevents later rea
 
 Only sources used by selected issue stories appear here. See the [complete canonical source accounting](sources.md).
 
-| Source ID | Voice | Archive source | Analytical job |
-| --- | --- | --- | --- |
-| `SRC-01` | Weichert | [2026-07-12 Weichert](../../../archive/sources/2026-07-12/source-breaking-u-s-heavily-bombing-iran-now-w-geopolitical-analyst-brandon-weichert-2026-07-12.md) | BREAKING: U.S. HEAVILY BOMBING IRAN NOW â€“ w/ Geopolitical Analyst Brandon Weichert |
-| `SRC-02` | Ritter | [2026-07-12 Ritter](../../../archive/sources/2026-07-12/source-live-scott-ritter-russia-ukraine-now-enters-the-most-dangerous-phase-2026-07-12.md) | ðŸ”´ LIVE: Scott Ritter - Russia Ukraine Now Enters the Most Dangerous Phase! |
-| `SRC-03` | Mercouris | [2026-07-12 Mercouris](../../../archive/sources/2026-07-12/source-putin-s-hopes-for-a-trump-security-deal-fade-2026-07-12.md) | Putin's Hopes for a Trump Security Deal Fade |
+| Source ID | Date | Title | URL | Voice | Archive source | Analytical job |
+| --- | --- | --- | --- | --- | --- | --- |
+| `SRC-01` |  |  |  | Weichert | [2026-07-12 Weichert](../../../archive/sources/2026-07-12/source-breaking-u-s-heavily-bombing-iran-now-w-geopolitical-analyst-brandon-weichert-2026-07-12.md) | BREAKING: U.S. HEAVILY BOMBING IRAN NOW â€“ w/ Geopolitical Analyst Brandon Weichert |
+| `SRC-02` |  |  |  | Ritter | [2026-07-12 Ritter](../../../archive/sources/2026-07-12/source-live-scott-ritter-russia-ukraine-now-enters-the-most-dangerous-phase-2026-07-12.md) | ðŸ”´ LIVE: Scott Ritter - Russia Ukraine Now Enters the Most Dangerous Phase! |
+| `SRC-03` |  |  |  | Mercouris | [2026-07-12 Mercouris](../../../archive/sources/2026-07-12/source-putin-s-hopes-for-a-trump-security-deal-fade-2026-07-12.md) | Putin's Hopes for a Trump Security Deal Fade |
 
 ## Forecast Desk
 

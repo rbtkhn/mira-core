@@ -1,4 +1,4 @@
-<!-- daily-issue-v1 inputs-sha256: 0156b58866cbeac4d4167a00426994409ebd1fd9bdee5f10e4b6343dda69cbc9 -->
+<!-- daily-issue-v1 inputs-sha256: 6b3c390fd9d20c5a2fb199b5ab670bbce4bb436196c417cf5a25503f33b5926e -->
 <!-- reality-lattice-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 -->
 <!-- Generated file. Edit canonical daily or reality-lattice inputs, then regenerate. -->
 
@@ -83,16 +83,16 @@ This is why the day should not be framed as a peace turn. The packet does not ve
 
 Only sources used by selected issue stories appear here. See the [complete canonical source accounting](sources.md).
 
-| Source ID | Voice | Archive source | Analytical job |
-| --- | --- | --- | --- |
-| `SRC-02` | Marandi | [2026-08-05 Marandi](../../../archive/sources/2026-08-05/source-1-breaking-60-day-hormuz-arrangement-confirmed-by-tehran-oman-w-prof-seyed-mohammad-marandi-2026-08-05.md) | (1) BREAKING: 60-DAY HORMUZ ARRANGEMENT CONFIRMED BY TEHRAN & OMAN — w/ Prof. Seyed Mohammad Marandi |
-| `SRC-03` | Macgregor | [2026-08-05 Macgregor](../../../archive/sources/2026-08-05/source-1-col-douglas-macgregor-trump-s-failing-foreign-policy-2026-08-05.md) | (1) COL. Douglas Macgregor : Trump’s Failing Foreign Policy |
-| `SRC-04` | Hoh | [2026-08-05 Hoh](../../../archive/sources/2026-08-05/source-1-fmr-us-marine-matthew-hoh-us-runs-out-of-firepower-2026-08-05.md) | (1) Fmr. US Marine Matthew Hoh: US Runs Out of Firepower |
-| `SRC-05` | Johnson | [2026-08-05 Johnson](../../../archive/sources/2026-08-05/source-1-larry-johnson-tehran-washington-enter-the-endgame-no-more-bluffing-2026-08-05.md) | (1) Larry Johnson: Tehran & Washington Enter the Endgame—No More Bluffing |
-| `SRC-08` | Ritter | [2026-08-05 Ritter](../../../archive/sources/2026-08-05/source-1-scott-ritter-yemen-strike-saudi-oil-tanker-wafa-u-s-munitions-depleted-trump-cornered-2026-08-05.md) | (1) Scott Ritter: Yemen Strike Saudi Oil Tanker "Wafa" – U.S. Munitions Depleted, Trump Cornered |
-| `SRC-09` | Postol | [2026-08-05 Postol](../../../archive/sources/2026-08-05/source-1-ted-postol-iran-s-fattah-missile-v-russia-s-oreshnik-missile-2026-08-05.md) | (1) Ted Postol: Iran's Fattah Missile v. Russia's Oreshnik Missile |
-| `SRC-07` | Mercouris | [2026-08-05 Mercouris](../../../archive/sources/2026-08-05/source-1-russia-again-massively-strikes-kiev-no-russian-missile-shot-down-zelensky-rages-blames-west-hormuz-2026-08-05.md) | (1) Russia Again Massively Strikes Kiev No Russian Missile Shot Down; Zelensky Rages Blames West; Hormuz |
-| `SRC-10` | Mercouris | [2026-08-05 Mercouris](../../../archive/sources/2026-08-05/source-1-ukraine-battlefield-failures-push-europe-into-desperate-measures-2026-08-05.md) | (1) Ukraine battlefield failures push Europe into desperate measures |
+| Source ID | Date | Title | URL | Voice | Archive source | Analytical job |
+| --- | --- | --- | --- | --- | --- | --- |
+| `SRC-02` |  |  |  | Marandi | [2026-08-05 Marandi](../../../archive/sources/2026-08-05/source-1-breaking-60-day-hormuz-arrangement-confirmed-by-tehran-oman-w-prof-seyed-mohammad-marandi-2026-08-05.md) | (1) BREAKING: 60-DAY HORMUZ ARRANGEMENT CONFIRMED BY TEHRAN & OMAN — w/ Prof. Seyed Mohammad Marandi |
+| `SRC-03` |  |  |  | Macgregor | [2026-08-05 Macgregor](../../../archive/sources/2026-08-05/source-1-col-douglas-macgregor-trump-s-failing-foreign-policy-2026-08-05.md) | (1) COL. Douglas Macgregor : Trump’s Failing Foreign Policy |
+| `SRC-04` |  |  |  | Hoh | [2026-08-05 Hoh](../../../archive/sources/2026-08-05/source-1-fmr-us-marine-matthew-hoh-us-runs-out-of-firepower-2026-08-05.md) | (1) Fmr. US Marine Matthew Hoh: US Runs Out of Firepower |
+| `SRC-05` |  |  |  | Johnson | [2026-08-05 Johnson](../../../archive/sources/2026-08-05/source-1-larry-johnson-tehran-washington-enter-the-endgame-no-more-bluffing-2026-08-05.md) | (1) Larry Johnson: Tehran & Washington Enter the Endgame—No More Bluffing |
+| `SRC-08` |  |  |  | Ritter | [2026-08-05 Ritter](../../../archive/sources/2026-08-05/source-1-scott-ritter-yemen-strike-saudi-oil-tanker-wafa-u-s-munitions-depleted-trump-cornered-2026-08-05.md) | (1) Scott Ritter: Yemen Strike Saudi Oil Tanker "Wafa" – U.S. Munitions Depleted, Trump Cornered |
+| `SRC-09` |  |  |  | Postol | [2026-08-05 Postol](../../../archive/sources/2026-08-05/source-1-ted-postol-iran-s-fattah-missile-v-russia-s-oreshnik-missile-2026-08-05.md) | (1) Ted Postol: Iran's Fattah Missile v. Russia's Oreshnik Missile |
+| `SRC-07` |  |  |  | Mercouris | [2026-08-05 Mercouris](../../../archive/sources/2026-08-05/source-1-russia-again-massively-strikes-kiev-no-russian-missile-shot-down-zelensky-rages-blames-west-hormuz-2026-08-05.md) | (1) Russia Again Massively Strikes Kiev No Russian Missile Shot Down; Zelensky Rages Blames West; Hormuz |
+| `SRC-10` |  |  |  | Mercouris | [2026-08-05 Mercouris](../../../archive/sources/2026-08-05/source-1-ukraine-battlefield-failures-push-europe-into-desperate-measures-2026-08-05.md) | (1) Ukraine battlefield failures push Europe into desperate measures |
 
 ## Forecast Desk
 

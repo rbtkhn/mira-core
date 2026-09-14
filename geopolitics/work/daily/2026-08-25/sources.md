@@ -13,16 +13,18 @@ Primary source basis:
 
 ## Intake Batch
 
-This run is a retrospective judgment run built from already-imported central archive sources for `2026-08-25`.
+This run is grounded in the `2026-08-25` day batch already landed in the central archive.
 
 | Source File | Source Type | Intake Status | Manifest Row | Voice Route | Channel Route | Notes |
 | --- | --- | --- | --- | --- | --- | --- |
-| `archive/sources/geopolitics/sources/2026-08-25/source-patrick-henningsen-israel-s-losses-mount-as-new-middle-east-reality-sets-in-2026-08-25.md` | cleaned-transcript | `already-imported` | `yes` | Henningsen | Dialogue Works | guest interview pressure test; review and narrow to owning crisis object before synthesis. |
-| `archive/sources/geopolitics/sources/2026-08-25/source-trump-s-sanctions-the-ultimate-escalation-trap-war-now-imminent-w-prof-robert-pape-2026-08-25.md` | cleaned-transcript | `already-imported` | `yes` | Pape | Mario Nawfal | guest interview pressure test; review and narrow to owning crisis object before synthesis. |
-| `archive/sources/geopolitics/sources/2026-08-25/source-larry-johnson-iran-invited-to-join-the-turkey-saudi-pakistan-defence-pact-2026-08-25.md` | cleaned-transcript | `already-imported` | `yes` | Johnson | Glenn Diesen | guest interview pressure test; coalition-alignment claims remain attributed. |
-| `archive/sources/geopolitics/sources/2026-08-25/source-operation-economic-outcast-bessent-s-economic-war-with-china-2026-08-25.md` | cleaned-transcript | `already-imported` | `yes` | Mercouris, Cristoforou | The Duran | host discussion pressure test; economic-coercion claims remain attributed. |
-| `archive/sources/geopolitics/sources/2026-08-25/source-amb-chas-freeman-israel-is-now-an-american-problem-2026-08-25.md` | cleaned-transcript | `imported` | `yes` | Freeman | Judging Freedom | guest interview pressure test; economic-coercion and Israel-policy claims remain attributed. |
-| `archive/sources/geopolitics/sources/2026-08-25/source-john-helmer-the-empire-crumbles-the-war-on-iran-and-russia-just-changed-everything-2026-08-25.md` | cleaned-transcript | `imported` | `yes` | Helmer | Dialogue Works | guest interview pressure test; election, Russia, and Iran claims remain attributed. |
+| `archive/sources/geopolitics/sources/2026-08-25/source-amb-chas-freeman-israel-is-now-an-american-problem-2026-08-25.md` | cleaned-transcript | `imported` | `yes` | Freeman | Judging Freedom | guest interview pressure test; review and narrow to owning crisis object before synthesis. |
+| `archive/sources/geopolitics/sources/2026-08-25/source-confirmed-trump-wants-to-use-a-nuclear-bomb-on-iran-sailors-send-distress-signal-w-larry-johnson-2026-08-25.md` | cleaned-transcript | `imported` | `yes` | Johnson | Moral Resistance | guest interview pressure test; review and narrow to owning crisis object before synthesis. |
+| `archive/sources/geopolitics/sources/2026-08-25/source-ground-invasion-into-iran-impossible-trump-attacks-iran-u-s-oil-reserves-down-w-cia-larry-johnson-2026-08-25.md` | cleaned-transcript | `imported` | `yes` | Johnson | Moral Resistance | guest interview pressure test; review and narrow to owning crisis object before synthesis. |
+| `archive/sources/geopolitics/sources/2026-08-25/source-john-helmer-the-empire-crumbles-the-war-on-iran-and-russia-just-changed-everything-2026-08-25.md` | cleaned-transcript | `imported` | `yes` | Helmer | Dialogue Works | guest interview pressure test; review and narrow to owning crisis object before synthesis. |
+| `archive/sources/geopolitics/sources/2026-08-25/source-larry-johnson-iran-invited-to-join-the-turkey-saudi-pakistan-defence-pact-2026-08-25.md` | cleaned-transcript | `imported` | `yes` | Johnson | Glenn Diesen | guest interview pressure test; review and narrow to owning crisis object before synthesis. |
+| `archive/sources/geopolitics/sources/2026-08-25/source-operation-economic-outcast-bessent-s-economic-war-with-china-2026-08-25.md` | cleaned-transcript | `imported` | `yes` | Mercouris / Cristoforou | The Duran | cross-host pressure test; review and narrow to owning crisis object before synthesis. |
+| `archive/sources/geopolitics/sources/2026-08-25/source-patrick-henningsen-israel-s-losses-mount-as-new-middle-east-reality-sets-in-2026-08-25.md` | cleaned-transcript | `imported` | `yes` | Henningsen | Dialogue Works | guest interview pressure test; review and narrow to owning crisis object before synthesis. |
+| `archive/sources/geopolitics/sources/2026-08-25/source-trump-s-sanctions-the-ultimate-escalation-trap-war-now-imminent-w-prof-robert-pape-2026-08-25.md` | cleaned-transcript | `imported` | `yes` | Pape | Mario Nawfal | guest interview pressure test; review and narrow to owning crisis object before synthesis. |
 
 ## Run Source Set
 

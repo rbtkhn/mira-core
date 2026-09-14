@@ -60,11 +60,11 @@ This estimate is ready now.
 
 Only sources used by selected issue stories appear here. See the [complete canonical source accounting](sources.md).
 
-| Source ID | Voice | Archive source | Analytical job |
-| --- | --- | --- | --- |
-| `SRC-01` | Johnson | [2026-08-23 Johnson](../../../../archive/sources/geopolitics/sources/2026-08-23/source-larry-johnson-iran-s-parliament-agency-drops-bombshell-we-were-invited-to-join-the-mecca-pact-2026-08-23.md) | Larry Johnson: Iran’s Parliament Agency DROPS BOMBSHELL: “We Were Invited to Join the Mecca Pact” |
-| `SRC-02` | Marandi | [2026-08-23 Marandi](../../../../archive/sources/geopolitics/sources/2026-08-23/source-live-mohammad-marandi-the-iran-war-is-coming-for-the-us-economy-2026-08-23.md) | 🚨 LIVE: Mohammad Marandi - The Iran War Is Coming for the US Economy |
-| `SRC-07` | Ritter | [2026-08-23 Ritter](../../../../archive/sources/geopolitics/sources/2026-08-23/source-scott-ritter-the-age-of-nuclear-war-war-on-russia-iran-china-2026-08-23.md) | Scott Ritter: The Age of Nuclear War - War On Russia, Iran & China |
+| Source ID | Date | Title | URL | Voice | Archive source | Analytical job |
+| --- | --- | --- | --- | --- | --- | --- |
+| `SRC-01` |  |  |  | Johnson | [2026-08-23 Johnson](../../../../archive/sources/geopolitics/sources/2026-08-23/source-larry-johnson-iran-s-parliament-agency-drops-bombshell-we-were-invited-to-join-the-mecca-pact-2026-08-23.md) | Larry Johnson: Iran’s Parliament Agency DROPS BOMBSHELL: “We Were Invited to Join the Mecca Pact” |
+| `SRC-02` |  |  |  | Marandi | [2026-08-23 Marandi](../../../../archive/sources/geopolitics/sources/2026-08-23/source-live-mohammad-marandi-the-iran-war-is-coming-for-the-us-economy-2026-08-23.md) | 🚨 LIVE: Mohammad Marandi - The Iran War Is Coming for the US Economy |
+| `SRC-07` |  |  |  | Ritter | [2026-08-23 Ritter](../../../../archive/sources/geopolitics/sources/2026-08-23/source-scott-ritter-the-age-of-nuclear-war-war-on-russia-iran-china-2026-08-23.md) | Scott Ritter: The Age of Nuclear War - War On Russia, Iran & China |
 
 ## Forecast Desk
 

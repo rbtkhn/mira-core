@@ -1,0 +1,23 @@
+{
+  "access_language": "en",
+  "as_of": "2026-09-10",
+  "created_at": "2026-09-10T15:29:35.697372+00:00",
+  "created_by": "Codex; operator-authorized September 9 follow-up",
+  "event_time": "2026-08-18",
+  "evidence_role": "professional_reporting",
+  "geopolitical_environment": "middle_east_regional",
+  "id": "EVD-20260910-005",
+  "kind": "evidence",
+  "limitation": "Reported parliamentary position, not implementation. Reuters repetition of the same speech is not independent corroboration. Persian inspected; English paraphrase is machine-assisted, not an official translation.",
+  "observation": "Iran International reported Ghalibaf conditioning a Hormuz arrangement on ending the blockade, releasing assets, oil-sanctions relief and cessation across fronts.",
+  "origin_language": "fa",
+  "originating_chain": "IR-GHALIBAF-20260818",
+  "representation_sha256": "1ffb90459a9476080889c9051ca528831ba098607d5044a8f0a2f68c81beba3f",
+  "retrieved_at": "2026-09-10T15:29:35.697372+00:00",
+  "revision_of": null,
+  "schema_version": 1,
+  "source_id": "VSRC-RPT-IRANINTL",
+  "status": "active",
+  "translation_provenance": "machine_assisted_disclosed",
+  "url": "https://www.iranintl.com/202608184653"
+}

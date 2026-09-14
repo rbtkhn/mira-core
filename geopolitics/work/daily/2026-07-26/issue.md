@@ -72,14 +72,14 @@ That remains the governing decision rule for the next review: follow capacity, a
 
 Only sources used by selected issue stories appear here. See the [complete canonical source accounting](sources.md).
 
-| Source ID | Voice | Archive source | Analytical job |
-| --- | --- | --- | --- |
-| `SRC-01` | McGovern | [2026-07-26 McGovern](../../../archive/sources/2026-07-26/source-ray-mcgovern-yemen-strikes-on-saudi-are-rocking-across-the-gulf-2026-07-26.md) | Ray McGovern: Yemen Strikes on Saudi Are Rocking Across the Gulf |
-| `SRC-02` | Mercouris | [2026-07-26 Mercouris](../../../archive/sources/2026-07-26/source-russian-fab-bombs-shatter-odessa-more-kiev-strikes-top-kiev-officials-killed-russia-says-no-truce-2026-07-26.md) | Russian FAB Bombs Shatter Odessa; More Kiev Strikes Top Kiev Officials Killed; Russia Says NO Truce |
-| `SRC-03` | Marandi | [2026-07-26 Marandi](../../../archive/sources/2026-07-26/source-seyed-m-marandi-saudi-oil-is-burning-trump-has-no-way-out-2026-07-26.md) | Seyed M. Marandi: Saudi Oil Is Burning & Trump Has No Way Out |
-| `SRC-04` | Davis | [2026-07-26 Davis](../../../archive/sources/2026-07-26/source-trump-all-out-war-against-iran-guarantees-defeat-of-america-lt-col-daniel-davis-2026-07-26.md) | Trump All-Out War Against Iran Guarantees Defeat - of America /Lt Col Daniel Davis |
-| `SRC-05` | Johnson | [2026-07-26 Johnson](../../../archive/sources/2026-07-26/source-ukraine-threaten-to-blow-up-iranian-cities-iran-to-retaliate-against-ukraine-w-cia-larry-johnson-2026-07-26.md) | UKRAINE THREATEN TO BLOW UP IRANIAN CITIES, IRAN TO RETALIATE AGAINST UKRAINE w/ CIA Larry Johnson |
-| `SRC-06` | Weichert | [2026-07-26 Weichert](../../../archive/sources/2026-07-26/source-iran-ready-for-u-s-ground-invasion-war-will-resume-soon-w-brandon-weichert-2026-07-26.md) | IRAN READY FOR U.S GROUND INVASION, WAR WILL RESUME SOON w/ BRANDON WEICHERT |
+| Source ID | Date | Title | URL | Voice | Archive source | Analytical job |
+| --- | --- | --- | --- | --- | --- | --- |
+| `SRC-01` |  |  |  | McGovern | [2026-07-26 McGovern](../../../archive/sources/2026-07-26/source-ray-mcgovern-yemen-strikes-on-saudi-are-rocking-across-the-gulf-2026-07-26.md) | Ray McGovern: Yemen Strikes on Saudi Are Rocking Across the Gulf |
+| `SRC-02` |  |  |  | Mercouris | [2026-07-26 Mercouris](../../../archive/sources/2026-07-26/source-russian-fab-bombs-shatter-odessa-more-kiev-strikes-top-kiev-officials-killed-russia-says-no-truce-2026-07-26.md) | Russian FAB Bombs Shatter Odessa; More Kiev Strikes Top Kiev Officials Killed; Russia Says NO Truce |
+| `SRC-03` |  |  |  | Marandi | [2026-07-26 Marandi](../../../archive/sources/2026-07-26/source-seyed-m-marandi-saudi-oil-is-burning-trump-has-no-way-out-2026-07-26.md) | Seyed M. Marandi: Saudi Oil Is Burning & Trump Has No Way Out |
+| `SRC-04` |  |  |  | Davis | [2026-07-26 Davis](../../../archive/sources/2026-07-26/source-trump-all-out-war-against-iran-guarantees-defeat-of-america-lt-col-daniel-davis-2026-07-26.md) | Trump All-Out War Against Iran Guarantees Defeat - of America /Lt Col Daniel Davis |
+| `SRC-05` |  |  |  | Johnson | [2026-07-26 Johnson](../../../archive/sources/2026-07-26/source-ukraine-threaten-to-blow-up-iranian-cities-iran-to-retaliate-against-ukraine-w-cia-larry-johnson-2026-07-26.md) | UKRAINE THREATEN TO BLOW UP IRANIAN CITIES, IRAN TO RETALIATE AGAINST UKRAINE w/ CIA Larry Johnson |
+| `SRC-06` |  |  |  | Weichert | [2026-07-26 Weichert](../../../archive/sources/2026-07-26/source-iran-ready-for-u-s-ground-invasion-war-will-resume-soon-w-brandon-weichert-2026-07-26.md) | IRAN READY FOR U.S GROUND INVASION, WAR WILL RESUME SOON w/ BRANDON WEICHERT |
 
 ## Forecast Desk
 

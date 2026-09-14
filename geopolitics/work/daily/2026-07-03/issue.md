@@ -99,12 +99,12 @@ For that reason, this issue remains deliberately explicit about what it owns. It
 
 Only sources used by selected issue stories appear here. See the [complete canonical source accounting](sources.md).
 
-| Source ID | Voice | Archive source | Analytical job |
-| --- | --- | --- | --- |
-| `SRC-01` | Mearsheimer | [2026-07-03 Mearsheimer](../../../archive/sources/2026-07-03/source-john-mearsheimer-the-end-of-russian-restraint-new-u-s-grand-strategy-2026-07-03.md) | John Mearsheimer: The End of Russian Restraint & New U.S. Grand Strategy |
-| `SRC-02` | Johnson | [2026-07-03 Johnson](../../../archive/sources/2026-07-03/source-larry-johnson-iran-rejects-hormuz-deal-us-surges-forces-israel-expands-targets-2026-07-03.md) | Larry Johnson: Iran Rejects Hormuz Deal, US Surges Forces, Israel Expands Targets |
-| `SRC-03` | Crooke | [2026-07-03 Crooke](../../../archive/sources/2026-07-03/source-mou-stacked-in-holding-pattern-as-us-pivots-to-plan-b-2026-07-03.md) | MoU Stacked in Holding Pattern as US Pivots to Plan 'B' |
-| `SRC-04` | Mercouris | [2026-07-03 Mercouris](../../../archive/sources/2026-07-03/source-russian-warship-warns-off-german-ship-russia-defends-belarus-baltic-tensions-soar-medvedev-in-iran-2026-07-03.md) | Russian Warship Warns Off German Ship Russia Defends Belarus Baltic Tensions Soar; Medvedev In Iran |
+| Source ID | Date | Title | URL | Voice | Archive source | Analytical job |
+| --- | --- | --- | --- | --- | --- | --- |
+| `SRC-01` |  |  |  | Mearsheimer | [2026-07-03 Mearsheimer](../../../archive/sources/2026-07-03/source-john-mearsheimer-the-end-of-russian-restraint-new-u-s-grand-strategy-2026-07-03.md) | John Mearsheimer: The End of Russian Restraint & New U.S. Grand Strategy |
+| `SRC-02` |  |  |  | Johnson | [2026-07-03 Johnson](../../../archive/sources/2026-07-03/source-larry-johnson-iran-rejects-hormuz-deal-us-surges-forces-israel-expands-targets-2026-07-03.md) | Larry Johnson: Iran Rejects Hormuz Deal, US Surges Forces, Israel Expands Targets |
+| `SRC-03` |  |  |  | Crooke | [2026-07-03 Crooke](../../../archive/sources/2026-07-03/source-mou-stacked-in-holding-pattern-as-us-pivots-to-plan-b-2026-07-03.md) | MoU Stacked in Holding Pattern as US Pivots to Plan 'B' |
+| `SRC-04` |  |  |  | Mercouris | [2026-07-03 Mercouris](../../../archive/sources/2026-07-03/source-russian-warship-warns-off-german-ship-russia-defends-belarus-baltic-tensions-soar-medvedev-in-iran-2026-07-03.md) | Russian Warship Warns Off German Ship Russia Defends Belarus Baltic Tensions Soar; Medvedev In Iran |
 
 ## Forecast Desk
 

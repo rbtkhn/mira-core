@@ -60,11 +60,11 @@ This repair note is intentionally modest: it completes issue readability without
 
 Only sources used by selected issue stories appear here. See the [complete canonical source accounting](sources.md).
 
-| Source ID | Voice | Archive source | Analytical job |
-| --- | --- | --- | --- |
-| `SRC-01` | Weichert | [2026-08-08 Weichert](../../../archive/sources/2026-08-08/source-2-iran-boards-ship-in-hormuz-trump-s-top-general-calls-for-end-of-iran-war-2026-08-08.md) | (2) IRAN BOARDS SHIP IN HORMUZ, TRUMP'S TOP GENERAL CALLS FOR END OF IRAN WAR |
-| `SRC-02` | Johnson | [2026-08-08 Johnson](../../../archive/sources/2026-08-08/source-2-larry-johnson-top-u-s-general-just-privately-broke-with-trump-over-iran-2026-08-08.md) | (2) Larry Johnson: Top U.S. General Just Privately Broke With Trump Over Iran |
-| `SRC-03` | Mercouris | [2026-08-08 Mercouris](../../../archive/sources/2026-08-08/source-2-russia-wins-air-war-bombs-kiev-army-hqs-jams-starlink-starts-rassvet-kiev-drone-offensive-flopped-2026-08-08.md) | (2) Russia Wins Air War; Bombs Kiev Army HQs Jams Starlink Starts Rassvet; Kiev Drone Offensive Flopped |
+| Source ID | Date | Title | URL | Voice | Archive source | Analytical job |
+| --- | --- | --- | --- | --- | --- | --- |
+| `SRC-01` |  |  |  | Weichert | [2026-08-08 Weichert](../../../archive/sources/2026-08-08/source-2-iran-boards-ship-in-hormuz-trump-s-top-general-calls-for-end-of-iran-war-2026-08-08.md) | (2) IRAN BOARDS SHIP IN HORMUZ, TRUMP'S TOP GENERAL CALLS FOR END OF IRAN WAR |
+| `SRC-02` |  |  |  | Johnson | [2026-08-08 Johnson](../../../archive/sources/2026-08-08/source-2-larry-johnson-top-u-s-general-just-privately-broke-with-trump-over-iran-2026-08-08.md) | (2) Larry Johnson: Top U.S. General Just Privately Broke With Trump Over Iran |
+| `SRC-03` |  |  |  | Mercouris | [2026-08-08 Mercouris](../../../archive/sources/2026-08-08/source-2-russia-wins-air-war-bombs-kiev-army-hqs-jams-starlink-starts-rassvet-kiev-drone-offensive-flopped-2026-08-08.md) | (2) Russia Wins Air War; Bombs Kiev Army HQs Jams Starlink Starts Rassvet; Kiev Drone Offensive Flopped |
 
 ## Forecast Desk
 

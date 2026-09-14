@@ -96,14 +96,14 @@ The watch surface therefore belongs less to any single claimed strike than to pu
 
 Only sources used by selected issue stories appear here. See the [complete canonical source accounting](sources.md).
 
-| Source ID | Voice | Archive source | Analytical job |
-| --- | --- | --- | --- |
-| `SRC-02` | Marandi | [2026-07-19 Marandi](../../../archive/sources/2026-07-19/source-professor-marandi-ground-invasion-coming-16-u-s-soldiers-dead-f-15-fighter-jets-destroyed-2026-07-19.md) | PROFESSOR MARANDI: GROUND INVASION COMING, 16 U.S SOLDIERS DEAD, F-15 FIGHTER JETS DESTROYED |
-| `SRC-03` | McGovern | [2026-07-19 McGovern](../../../archive/sources/2026-07-19/source-ray-mcgovern-iran-s-precision-strikes-on-jordan-send-shockwaves-across-the-gulf-2026-07-19.md) | Ray McGovern: Iran's Precision Strikes on Jordan Send Shockwaves Across the Gulf |
-| `SRC-06` | Johnson | [2026-07-19 Johnson](../../../archive/sources/2026-07-19/source-u-s-to-expand-the-war-israel-to-join-the-iran-war-ground-invasion-coming-w-cia-larry-johnson-2026-07-19.md) | U.S TO EXPAND THE WAR, ISRAEL TO JOIN THE IRAN WAR, GROUND INVASION COMING? w/ CIA Larry Johnson |
-| `SRC-04` | Mercouris | [2026-07-19 Mercouris](../../../archive/sources/2026-07-19/source-russia-escalates-biggest-strikes-on-kiev-odessa-huge-destruction-kiev-protesters-demand-syrsky-quit-2026-07-19.md) | Russia Escalates Biggest Strikes On Kiev Odessa Huge Destruction; Kiev Protesters Demand Syrsky Quit |
-| `SRC-05` | Krapivnik | [2026-07-19 Krapivnik](../../../archive/sources/2026-07-19/source-stanislav-krapivnik-russia-s-anger-boils-over-eu-russia-war-coming-2026-07-19.md) | Stanislav Krapivnik: Russia's Anger Boils Over - EU-Russia War Coming? |
-| `SRC-01` | Sachs | [2026-07-19 Sachs](../../../archive/sources/2026-07-19/source-jeffrey-sachs-u-s-imperial-strategy-destroy-russia-iran-china-2026-07-19.md) | Jeffrey Sachs: U.S. Imperial Strategy - Destroy Russia, Iran & China |
+| Source ID | Date | Title | URL | Voice | Archive source | Analytical job |
+| --- | --- | --- | --- | --- | --- | --- |
+| `SRC-02` |  |  |  | Marandi | [2026-07-19 Marandi](../../../archive/sources/2026-07-19/source-professor-marandi-ground-invasion-coming-16-u-s-soldiers-dead-f-15-fighter-jets-destroyed-2026-07-19.md) | PROFESSOR MARANDI: GROUND INVASION COMING, 16 U.S SOLDIERS DEAD, F-15 FIGHTER JETS DESTROYED |
+| `SRC-03` |  |  |  | McGovern | [2026-07-19 McGovern](../../../archive/sources/2026-07-19/source-ray-mcgovern-iran-s-precision-strikes-on-jordan-send-shockwaves-across-the-gulf-2026-07-19.md) | Ray McGovern: Iran's Precision Strikes on Jordan Send Shockwaves Across the Gulf |
+| `SRC-06` |  |  |  | Johnson | [2026-07-19 Johnson](../../../archive/sources/2026-07-19/source-u-s-to-expand-the-war-israel-to-join-the-iran-war-ground-invasion-coming-w-cia-larry-johnson-2026-07-19.md) | U.S TO EXPAND THE WAR, ISRAEL TO JOIN THE IRAN WAR, GROUND INVASION COMING? w/ CIA Larry Johnson |
+| `SRC-04` |  |  |  | Mercouris | [2026-07-19 Mercouris](../../../archive/sources/2026-07-19/source-russia-escalates-biggest-strikes-on-kiev-odessa-huge-destruction-kiev-protesters-demand-syrsky-quit-2026-07-19.md) | Russia Escalates Biggest Strikes On Kiev Odessa Huge Destruction; Kiev Protesters Demand Syrsky Quit |
+| `SRC-05` |  |  |  | Krapivnik | [2026-07-19 Krapivnik](../../../archive/sources/2026-07-19/source-stanislav-krapivnik-russia-s-anger-boils-over-eu-russia-war-coming-2026-07-19.md) | Stanislav Krapivnik: Russia's Anger Boils Over - EU-Russia War Coming? |
+| `SRC-01` |  |  |  | Sachs | [2026-07-19 Sachs](../../../archive/sources/2026-07-19/source-jeffrey-sachs-u-s-imperial-strategy-destroy-russia-iran-china-2026-07-19.md) | Jeffrey Sachs: U.S. Imperial Strategy - Destroy Russia, Iran & China |
 
 ## Forecast Desk
 

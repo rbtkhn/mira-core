@@ -1,4 +1,4 @@
-<!-- daily-issue-v1 inputs-sha256: 34f2b278b09d3a230c7a8d5c3508badc85b24d3a4a564c0579d5691f7b16c9b4 -->
+<!-- daily-issue-v1 inputs-sha256: 9e703871eddef71760fe2f7fb0d25125a2144e98f35527a70437ba53a1e31eb9 -->
 <!-- reality-lattice-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 -->
 <!-- Generated file. Edit canonical daily or reality-lattice inputs, then regenerate. -->
 
@@ -76,10 +76,10 @@ The practical implication is internal. Carry August 15 forward as the day Hormuz
 
 Only sources used by selected issue stories appear here. See the [complete canonical source accounting](sources.md).
 
-| Source ID | Voice | Archive source | Analytical job |
-| --- | --- | --- | --- |
-| `SRC-01` | Aguilar | [2026-08-15 Aguilar](../../../archive/sources/2026-08-15/source-4-centcom-pushes-trump-for-more-war-as-ceasefire-expires-monday-w-lt-col-anthony-aguilar-2026-08-15.md) | (4) CENTCOM PUSHES TRUMP FOR MORE WAR AS CEASEFIRE EXPIRES MONDAY - w/ Lt. Col. Anthony Aguilar |
-| `SRC-06` | Marandi | [2026-08-15 Marandi](../../../archive/sources/2026-08-15/source-4-seyed-m-marandi-us-on-imminent-attack-alert-hezbollah-delivers-a-stunning-blow-to-idf-2026-08-15.md) | (4) Seyed M. Marandi: US on Imminent Attack Alert - Hezbollah Delivers a Stunning Blow to IDF |
+| Source ID | Date | Title | URL | Voice | Archive source | Analytical job |
+| --- | --- | --- | --- | --- | --- | --- |
+| `SRC-01` |  |  |  | Aguilar | [2026-08-15 Aguilar](../../../archive/sources/2026-08-15/source-4-centcom-pushes-trump-for-more-war-as-ceasefire-expires-monday-w-lt-col-anthony-aguilar-2026-08-15.md) | (4) CENTCOM PUSHES TRUMP FOR MORE WAR AS CEASEFIRE EXPIRES MONDAY - w/ Lt. Col. Anthony Aguilar |
+| `SRC-06` |  |  |  | Marandi | [2026-08-15 Marandi](../../../archive/sources/2026-08-15/source-4-seyed-m-marandi-us-on-imminent-attack-alert-hezbollah-delivers-a-stunning-blow-to-idf-2026-08-15.md) | (4) Seyed M. Marandi: US on Imminent Attack Alert - Hezbollah Delivers a Stunning Blow to IDF |
 
 ## Forecast Desk
 

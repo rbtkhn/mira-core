@@ -10,10 +10,10 @@ import publication_validation as routing
 def test_four_active_homes_and_no_competing_gems_home():
     root = Path(__file__).resolve().parents[1] / 'projects'
     assert {p.name for p in root.iterdir() if p.is_dir()} == {
-        'grace-mar', 'ottoman-rugs', 'mountain-villa', 'learning-core',
+        'grace-mar', 'hannah-vlog', 'learning-core',
     }
     assert (root / 'grace-mar/grace-gems/admission-matrix.md').is_file()
-    assert not (root / 'grace-mar/ottoman-rugs').exists()
+    assert (root / 'grace-mar/ottoman-rugs/README.md').is_file()
 
 
 @pytest.mark.parametrize('relative', sorted(routing.RETIRED_PROJECT_PATHS))
@@ -60,7 +60,7 @@ def test_all_active_project_links_resolve():
 def test_transfer_contract_links_reach_shared_section():
     root = Path(__file__).resolve().parents[1]
     sources = [root / 'projects' / name / 'README.md' for name in (
-        'grace-mar', 'ottoman-rugs', 'mountain-villa', 'learning-core', 'grace-mar/grace-gems',
+        'grace-mar', 'grace-mar/ottoman-rugs', 'grace-mar/mountain-villa', 'learning-core', 'grace-mar/grace-gems',
     )] + [root / 'docs/skill-drafts' / name / 'SKILL.md' for name in ('mira-work', 'mira-treasury')]
     for source in sources:
         targets = re.findall(r'\[[^\]]+\]\(([^)]+#cross-project-method-transfer)\)', source.read_text(encoding='utf-8'))

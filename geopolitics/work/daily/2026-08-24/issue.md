@@ -98,18 +98,18 @@ For the subscription-product thesis, this is the part that feels distinctive. Th
 
 Only sources used by selected issue stories appear here. See the [complete canonical source accounting](sources.md).
 
-| Source ID | Voice | Archive source | Analytical job |
-| --- | --- | --- | --- |
-| `SRC-01` | Crooke | [2026-08-24 Crooke](../../../../archive/sources/geopolitics/sources/2026-08-24/source-alastair-crooke-can-trump-raise-the-stakes-in-iran-2026-08-24.md) | Alastair Crooke : Can Trump Raise the Stakes in Iran? |
-| `SRC-02` | Baud | [2026-08-24 Baud](../../../../archive/sources/geopolitics/sources/2026-08-24/source-col-jacques-baud-us-declares-largest-ever-financial-war-as-tehran-vows-full-retaliation-2026-08-24.md) | Col. Jacques Baud: US Declares "Largest Ever" Financial War as Tehran Vows Full Retaliation |
-| `SRC-03` | Wilkerson | [2026-08-24 Wilkerson](../../../../archive/sources/geopolitics/sources/2026-08-24/source-col-larry-wilkerson-iran-abandons-defense-strategy-as-us-unleashes-economic-blitzkrieg-2026-08-24.md) | Col. Larry Wilkerson: Iran Abandons Defense Strategy as US Unleashes Economic Blitzkrieg |
-| `SRC-04` | Sachs | [2026-08-24 Sachs](../../../../archive/sources/geopolitics/sources/2026-08-24/source-jeffrey-sachs-the-war-on-russia-iran-is-breaking-the-west-2026-08-24.md) | Jeffrey Sachs: The War on Russia & Iran Is Breaking the West |
-| `SRC-05` | Barnes | [2026-08-24 Barnes](../../../../archive/sources/geopolitics/sources/2026-08-24/source-robert-barnes-do-trump-s-senior-aides-trust-him-2026-08-24.md) | Robert Barnes : Do Trump's Senior Aides Trust Him? |
-| `SRC-06` | Mercouris | [2026-08-24 Mercouris](../../../../archive/sources/geopolitics/sources/2026-08-24/source-russia-af-heaviest-odessa-bombing-russia-storm-kiev-after-donbas-drones-cause-ukraine-budget-crash-2026-08-24.md) | Russia AF Heaviest Odessa Bombing; Russia Storm Kiev After Donbas; Drones Cause Ukraine Budget Crash |
-| `SRC-07` | Mercouris | [2026-08-24 Mercouris](../../../../archive/sources/geopolitics/sources/2026-08-24/source-russia-s-economic-model-growth-without-the-debt-trap-2026-08-24.md) | Russia's Economic Model: Growth Without the Debt Trap |
-| `SRC-08` | Ritter | [2026-08-24 Ritter](../../../../archive/sources/geopolitics/sources/2026-08-24/source-scott-ritter-russia-warns-ukraine-allies-2026-08-24.md) | Scott Ritter: Russia Warns Ukraine Allies |
-| `SRC-09` | Davis | [2026-08-24 Davis](../../../../archive/sources/geopolitics/sources/2026-08-24/source-us-army-sowing-the-seeds-of-defeat-in-next-war-2026-08-24.md) | US Army Sowing the Seeds of Defeat in Next War |
-| `SRC-11` | Walt | [Dangerous world](../../../../archive/sources/geopolitics/sources/2026-08-24/source-harvard-professor-warns-of-the-next-phase-of-trump-s-war-we-re-approaching-a-dangerous-world-2026-08-24.md) | Adds a realist structural account of how coercion and alliance commitments can consume their own legitimacy and strategic margin. |
+| Source ID | Date | Title | URL | Voice | Archive source | Analytical job |
+| --- | --- | --- | --- | --- | --- | --- |
+| `SRC-01` |  |  |  | Crooke | [2026-08-24 Crooke](../../../../archive/sources/geopolitics/sources/2026-08-24/source-alastair-crooke-can-trump-raise-the-stakes-in-iran-2026-08-24.md) | Alastair Crooke : Can Trump Raise the Stakes in Iran? |
+| `SRC-02` |  |  |  | Baud | [2026-08-24 Baud](../../../../archive/sources/geopolitics/sources/2026-08-24/source-col-jacques-baud-us-declares-largest-ever-financial-war-as-tehran-vows-full-retaliation-2026-08-24.md) | Col. Jacques Baud: US Declares "Largest Ever" Financial War as Tehran Vows Full Retaliation |
+| `SRC-03` |  |  |  | Wilkerson | [2026-08-24 Wilkerson](../../../../archive/sources/geopolitics/sources/2026-08-24/source-col-larry-wilkerson-iran-abandons-defense-strategy-as-us-unleashes-economic-blitzkrieg-2026-08-24.md) | Col. Larry Wilkerson: Iran Abandons Defense Strategy as US Unleashes Economic Blitzkrieg |
+| `SRC-04` |  |  |  | Sachs | [2026-08-24 Sachs](../../../../archive/sources/geopolitics/sources/2026-08-24/source-jeffrey-sachs-the-war-on-russia-iran-is-breaking-the-west-2026-08-24.md) | Jeffrey Sachs: The War on Russia & Iran Is Breaking the West |
+| `SRC-05` |  |  |  | Barnes | [2026-08-24 Barnes](../../../../archive/sources/geopolitics/sources/2026-08-24/source-robert-barnes-do-trump-s-senior-aides-trust-him-2026-08-24.md) | Robert Barnes : Do Trump's Senior Aides Trust Him? |
+| `SRC-06` |  |  |  | Mercouris | [2026-08-24 Mercouris](../../../../archive/sources/geopolitics/sources/2026-08-24/source-russia-af-heaviest-odessa-bombing-russia-storm-kiev-after-donbas-drones-cause-ukraine-budget-crash-2026-08-24.md) | Russia AF Heaviest Odessa Bombing; Russia Storm Kiev After Donbas; Drones Cause Ukraine Budget Crash |
+| `SRC-07` |  |  |  | Mercouris | [2026-08-24 Mercouris](../../../../archive/sources/geopolitics/sources/2026-08-24/source-russia-s-economic-model-growth-without-the-debt-trap-2026-08-24.md) | Russia's Economic Model: Growth Without the Debt Trap |
+| `SRC-08` |  |  |  | Ritter | [2026-08-24 Ritter](../../../../archive/sources/geopolitics/sources/2026-08-24/source-scott-ritter-russia-warns-ukraine-allies-2026-08-24.md) | Scott Ritter: Russia Warns Ukraine Allies |
+| `SRC-09` |  |  |  | Davis | [2026-08-24 Davis](../../../../archive/sources/geopolitics/sources/2026-08-24/source-us-army-sowing-the-seeds-of-defeat-in-next-war-2026-08-24.md) | US Army Sowing the Seeds of Defeat in Next War |
+| `SRC-11` |  |  |  | Walt | [Dangerous world](../../../../archive/sources/geopolitics/sources/2026-08-24/source-harvard-professor-warns-of-the-next-phase-of-trump-s-war-we-re-approaching-a-dangerous-world-2026-08-24.md) | Adds a realist structural account of how coercion and alliance commitments can consume their own legitimacy and strategic margin. |
 
 ## Forecast Desk
 
